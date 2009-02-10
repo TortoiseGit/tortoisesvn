@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-27 00:10+0300\n"
+"PO-Revision-Date: 2009-02-10 04:26+0300\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -201,8 +201,8 @@ msgstr "%s, თუმცა ლოკალურად უკვე დაე�
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted locally."
-msgstr "%s, თუმცა ლოკალურად უკვე წაიშალა."
+msgid "%s, but it was deleted, moved or renamed locally."
+msgstr "%s, თუმცა ლოკალურად უკვე წაშლილი, გადატანილი ან გადარქმეულია."
 
 #. Resource IDs: (609)
 #, c-format
@@ -382,6 +382,10 @@ msgstr "&ღილაკის ტექსტი:"
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
 
+#. Resource IDs: (2)
+msgid "&Cancel"
+msgstr "&გაუქმება"
+
 #. Resource IDs: (65535)
 msgid "&Categories:"
 msgstr "&კატეგორიები:"
@@ -501,10 +505,6 @@ msgstr "&შედარება წინა ვერსიასთან"
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&მიმაგრება"
-
-#. Resource IDs: (2)
-msgid "&Don't go offline"
-msgstr "&ხაზზე დარჩენა"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1699,8 +1699,8 @@ msgid "Arrange &Vertical"
 msgstr "&მართობული განთავსება "
 
 #. Resource IDs: (199)
-msgid "Ask user"
-msgstr "შეკითხვა მომხმარებელს"
+msgid "Ask the user"
+msgstr "შეკითხვა მონაწილეს"
 
 #. Resource IDs: (264)
 #, c-format
@@ -1846,6 +1846,10 @@ msgstr "ავტორები"
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
 msgstr "ავტორები - TortoiseSVN"
+
+#. Resource IDs: (114)
+msgid "Blame..."
+msgstr "ავტორები..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
@@ -2296,6 +2300,14 @@ msgstr "&შემდეგი განტოტვის აკეცვა"
 #. Resource IDs: (16662)
 msgid "Color"
 msgstr "ფერი"
+
+#. Resource IDs: (65535)
+msgid "Color 1"
+msgstr "ფერი 1"
+
+#. Resource IDs: (65535)
+msgid "Color 2"
+msgstr "ფერი 2"
 
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
@@ -3928,13 +3940,13 @@ msgstr "ინფორმაციის შეგროვება. გთხ
 msgid "General"
 msgstr "ზოგადი"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "ზოგადი::ფერები"
-
 #. Resource IDs: (195)
 msgid "General::Context Menu"
 msgstr "ზოგადი::კონტექსტური მენიუ"
+
+#. Resource IDs: (212)
+msgid "General::Dialog Colors"
+msgstr "ზოგადი::ფერები დიალოგებში"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -3947,6 +3959,10 @@ msgstr "ზოგადი::დიალოგები 2"
 #. Resource IDs: (296)
 msgid "General::Revision Graph"
 msgstr "ძირითადი::ვერსიის დიაგრამა"
+
+#. Resource IDs: (299)
+msgid "General::Revision Graph Colors"
+msgstr "ძირითადი::ვერსიის დიაგრამის ფერები"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -4014,10 +4030,6 @@ msgstr "გამოტოვების/გამონაკლისის &
 msgid "Global settings"
 msgstr "გლობალური პარამეტრები"
 
-#. Resource IDs: (280)
-msgid "Go offline?"
-msgstr "გამოვიდე?"
-
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "გადასვლა ხაზზე"
@@ -4082,6 +4094,10 @@ msgstr "&ტონალობა:"
 msgid "HEAD"
 msgstr "HEAD"
 
+#. Resource IDs: (65535)
+msgid "HEAD node"
+msgstr "HEAD კვანძი"
+
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
@@ -4102,6 +4118,14 @@ msgstr "Hex"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "&წაშლილი გეზების დამალვა"
+
+#. Resource IDs: (2052)
+msgid "Hide all branches that did not modify the item"
+msgstr "ყველა განშტოების დამალვა, რომლებიც ელემენტს არ ცვლიან"
+
+#. Resource IDs: (2052)
+msgid "Hide deleted branches and tags"
+msgstr "წაშლილი განშტოებებისა და ჭდეების დამალვა"
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
@@ -4337,6 +4361,30 @@ msgstr "ხატულათა თარგები::ხატულათა
 msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "ხატულები/დიზაინი/კოდი:     ლუებე ონკენი"
 
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'."
+msgstr ""
+"თუ მოცემული გეზის ელემენტი (ორ '/' სიმბოლოს შორის)\n"
+"შეესაბამება ერთერთს ამ თარგთაგან, იგულისხმება 'branch'."
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'."
+msgstr ""
+"თუ მოცემული გეზის ელემენტი (ორ '/' სიმბოლოს შორის)\n"
+"შეესაბამება ერთერთს ამ თარგთაგან, იგულისხმება 'tag'."
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'."
+msgstr ""
+"თუ მოცემული გეზის ელემენტი (ორ '/' სიმბოლოს შორის)\n"
+"შეესაბამება ერთერთს ამ თარგთაგან, იგულისხმება 'trunk'."
+
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
 msgstr "თუ მონიშნულია, კრძალავს პიქტოგრამებს დიალოგებში 'შენახვა როგორც...' ან 'გახსნა'"
@@ -4348,54 +4396,6 @@ msgid ""
 msgstr ""
 "თუ აქტიურია, მენიუს ელემეტი 'დაბლოკვა' ყოველთვის მენიუს ზედა დონეზე\n"
 "გამოჩნდება თუ შერჩეული ფაილისთვის svn:needs-lock პარამეტრია მითითებული"
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'branch'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"თუ მოცემული გეზის ელემენტი (ნაწილი ორ '/' სიმბოლოს შორის)\n"
-"შეესაბამება ერთერთს ამ თარგთაგან,იგულისხმება 'branch'.\n"
-"\n"
-"თარგები მხედრულითაა.\n"
-"დასაშვები სპეცსიმბოლოებია '?' და '*'.\n"
-"დაყავით თარგები წერტილმძიმით ';'."
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'tag'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"თუ მოცემული გეზის ელემენტი (ნაწილი ორ '/' სიმბოლოს შორის)\n"
-"შეესაბამება ერთერთს ამ თარგთაგან,იგულისხმება 'tag'.\n"
-"\n"
-"თარგები მხედრულითაა.\n"
-"დასაშვები სპეცსიმბოლოებია '?' და '*'.\n"
-"დაყავით თარგები წერტილმძიმით ';'."
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'trunk'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"თუ მოცემული გეზის ელემენტი (ნაწილი ორ '/' სიმბოლოს შორის)\n"
-"შეესაბამება ერთერთს ამ თარგთაგან, იგულისხმება 'trunk'.\n"
-"\n"
-"თარგები მხედრულითაა.\n"
-"დასაშვები სპეცსიმბოლოებია '?' და '*'.\n"
-"დაყავით თარგები წერტილმძიმით ';'."
 
 #. Resource IDs: (95)
 msgid ""
@@ -4636,6 +4636,14 @@ msgstr "შერწყმული ვერსიების ჩათვლ�
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "მხოლოდ შემდეგი ვერსიების რანგის გათვალისწინება:"
+
+#. Resource IDs: (239)
+msgid ""
+"Includes the repository for status check\n"
+"Hold down the shift key when clicking to fetch everything."
+msgstr ""
+"ითვალისწინებს საცავებს სტატუსის შემოწმებისას\n"
+"დაჭერილი გქონდეთ ღილაკი shift სრული მონაცემების წაკითხვისას."
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -5297,6 +5305,10 @@ msgstr "შეცვლის თარიღი"
 msgid "Modified"
 msgstr "შეცვლილი"
 
+#. Resource IDs: (65535)
+msgid "Modified node"
+msgstr "შეცვლილი კვანძი"
+
 #. Resource IDs: (1070)
 msgid "More"
 msgstr "დაწვრილებით"
@@ -5560,6 +5572,10 @@ msgstr "სტატუსის ქეში არაა. განთავ�
 msgid "No thesaurus suggestions"
 msgstr "თეზაურუსის შემოთავაზებების გარეშე"
 
+#. Resource IDs: (65535)
+msgid "Node colors"
+msgstr "კვანძის ფერები"
+
 #. Resource IDs: (1271)
 msgid "None"
 msgstr "არა"
@@ -5742,6 +5758,10 @@ msgstr "მხოლოდ ეს ელემენტი"
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
 msgstr "&მართლწერის შემოწმების გამოყენება მხოლოდ tsvn:projectlanguage ჩართვისას"
 
+#. Resource IDs: (65535)
+msgid "Opacity"
+msgstr "გაუმჭვირვალობა"
+
 #. Resource IDs: (3841)
 msgid "Open"
 msgstr "გახსნა"
@@ -5809,6 +5829,10 @@ msgstr "მეხსიერების უკმარისობა."
 #. Resource IDs: (3845)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (65535)
+msgid "Overlays"
+msgstr "შრეები"
 
 #. Resource IDs: (95)
 msgid ""
@@ -6402,14 +6426,6 @@ msgstr "%ld ელემენტის ამოღება"
 msgid "Remove %s"
 msgstr "%s - ამოღება"
 
-#. Resource IDs: (2052)
-msgid "Remove all branches that did not modify the item"
-msgstr "ყველა განშტოების ამოღება, რომლებიც ელემენტს არ ცვლიან"
-
-#. Resource IDs: (2052)
-msgid "Remove deleted branches and tags"
-msgstr "წაშლილი განშტოებებისა და ჭდეების ამოღება"
-
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "ამოშლა &იგნორირებულთა სიიდან"
@@ -6539,10 +6555,6 @@ msgid ""
 msgstr ""
 "ამ ტექსტის სხვა ტექსტით შეცვლა\n"
 "შეცვლა"
-
-#. Resource IDs: (65535)
-msgid "Replaced node"
-msgstr "ჩანაცლებული კვანძი"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -7636,6 +7648,10 @@ msgid "Stefan Küng, Lübbe Onken"
 msgstr "სტეფან კიუნგი, ლიუბე ონკენი"
 
 #. Resource IDs: (65535)
+msgid "Stripes"
+msgstr "ზოლები"
+
+#. Resource IDs: (65535)
 msgid "Subversion"
 msgstr "ქვევერსია"
 
@@ -7799,6 +7815,10 @@ msgstr "დაფის სამაგრი"
 #. Resource IDs: (65535)
 msgid "Tab size:"
 msgstr "ტაბულაციის ზომა"
+
+#. Resource IDs: (65535)
+msgid "Tag nodes"
+msgstr "ჭდეების კვანძები"
 
 #. Resource IDs: (79)
 #, c-format
@@ -8335,11 +8355,11 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
-"There has been a problem connecting the server.\n"
+"There has been a problem contacting the server.\n"
 "Do you want to see the cached data instead?\n"
 "\n"
 "Please understand that the cached data may be outdated,\n"
-"incomplete or even misleading due to incomplete history."
+"incomplete or even misleading due to incomplete history data."
 msgstr ""
 "პრობლემა სერვერთან დაკავშირებისას.\n"
 "გნებავთ ბუფერირებული მონაცმების ნახვა?\n"
@@ -8647,6 +8667,10 @@ msgstr "განტოტვის კონფლიქტი"
 msgid "Tree merge"
 msgstr "განტოტვის შერწყმა"
 
+#. Resource IDs: (65535)
+msgid "Trunk nodes"
+msgstr "მაგისტრალის კვანძები"
+
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "სცადეთ «გასუფთავება».  თუ არ იმუშავა ხელახლა უნდა განაახლოთ"
@@ -8740,6 +8764,10 @@ msgstr "ვერ ვკითხულობ პარამეტრს: «მ
 #, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "ვერ ვწერ - %1: იგი მხოლოდ წაკითხვადია ან სხვის მიერაა გახსნილი."
+
+#. Resource IDs: (65535)
+msgid "Unchanged node"
+msgstr "შეუცვლელი კვანძი"
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
@@ -9022,7 +9050,7 @@ msgstr ""
 "ტექსტური ბლოკის გამოყენება «ჩემი»"
 
 #. Resource IDs: (251)
-msgid "Use text block from 't&heirs' before 'mine"
+msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "ტექსტური ბლოკის გამოყენება «მა&თი»-დან «ჩემი»-მდე"
 
 #. Resource IDs: (2052)
@@ -9160,6 +9188,10 @@ msgstr "მოინახულეთ ჩვენი ვებსაიტი"
 msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
+#. Resource IDs: (65535)
+msgid "WC node"
+msgstr "სამუშაო ასლის კვანძი"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "დაცდა"
@@ -9167,6 +9199,10 @@ msgstr "დაცდა"
 #. Resource IDs: (1327)
 msgid "Wait for the script to finish"
 msgstr "დაიცადეთ სცენარის დასრულებამდე"
+
+#. Resource IDs: (280)
+msgid "Want to go offline?"
+msgstr "გნებავთ ავტონომიურ რეჟიმში გადასვლა?"
 
 #. Resource IDs: (88)
 msgid "Warning"
@@ -9538,6 +9574,22 @@ msgstr "შევსება სიგანეზე"
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[გაუპიროვნებელი]"
+
+#. Resource IDs: (346)
+msgid ""
+"\n"
+"\n"
+"Patterns match case-insensitively and must be specified in lower-case.\n"
+"Whitespaces will become part of the pattern.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns using ';'"
+msgstr ""
+"\n"
+"\n"
+"თარგები დარდება რეგისტრის გაუთვალისწინებლად და მიეთითება მხედრულით.\n"
+"შორისები თარგების ნაწილები ხდებიან.\n"
+"დასაშვები სპეცსიმბოლოებია '?' და '*'.\n"
+"თარგების დამყოფია ';'"
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
@@ -10253,6 +10305,10 @@ msgstr "დიახ"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Go offline?"
+#~ msgstr "გამოვიდე?"
+#~ msgid "Replaced node"
+#~ msgstr "ჩანაცლებული კვანძი"
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
