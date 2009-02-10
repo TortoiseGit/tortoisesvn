@@ -270,7 +270,7 @@ bool ConflictEditorCommand::Execute()
 					break;
 				case svn_wc_conflict_reason_deleted:
 					uReasonID = IDS_TREECONFLICT_REASON_DELETED;
-					sResolveMine.LoadString(pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_REMOVEDIR : IDS_TREECONFLICT_RESOLVE_REMOVEFILE);
+					sResolveMine.LoadString(IDS_TREECONFLICT_RESOLVE_MARKASRESOLVED);
 					break;
 				case svn_wc_conflict_reason_added:
 					uReasonID = IDS_TREECONFLICT_REASON_ADDED;
@@ -291,6 +291,9 @@ bool ConflictEditorCommand::Execute()
 				dlg.SetConflictInfoText(sConflictReason);
 				dlg.SetResolveTexts(sResolveTheirs, sResolveMine);
 				dlg.SetPath(treeConflictPath);
+				dlg.SetConflictSources(stat.status->tree_conflict->src_left_version, stat.status->tree_conflict->src_right_version);
+				dlg.SetConflictReason(pInfoData->treeconflict_reason);
+				dlg.SetConflictAction(pInfoData->treeconflict_action);
 				INT_PTR dlgRet = dlg.DoModal();
 				bRet = (dlgRet != IDCANCEL);
 			}
