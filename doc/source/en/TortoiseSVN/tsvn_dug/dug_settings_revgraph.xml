@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect2 SYSTEM "../../../dtd/dblite.dtd">
+<sect2 id="tsvn-dug-settings-revgraph">
+	<?dbhh topicname="HIDD_SETTINGSREVGRAPH"?>
+	<title>Revision Graph Settings</title>
+	<para>
+		<figure id="tsvn-dug-settings-dia-revgraph">
+			<title>The Settings Dialog, Revision Graph Page</title>
+			<graphic fileref="../images/SettingsRevGraph.png"/>
+		</figure>
+	</para>
+	<variablelist>
+		<varlistentry>
+			<term>Classification Patterns</term>
+			<listitem>
+				<para>
+					The revision graph attempts to show a clearer picture
+					of your repository structure by distinguishing between
+					trunk, branches and tags. As there is no such classification
+					built into Subversion, this information is extracted from
+					the path names. The default settings assume that you use
+					the conventional English names as suggested in the Subversion
+					documentation, but of course your usage may vary.
+				</para>
+				<para>
+					Specify the patterns used to recognise these paths in the
+					three boxes provided. The patterns will be matched case-insensitively,
+					but you must specify them in lower case. Wild cards
+					<literal>*</literal> and <literal>?</literal> will work
+					as usual, and you can use <literal>;</literal> to separate
+					multiple patterns. Do not include any extra white space 
+					as it will be included in the matching specification.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Modify Colors</term>
+			<listitem>
+				<para>
+					Colors are used in the revision graph to indicate the node
+					type, i.e. whether a node is added, deleted, renamed.
+					In order to help pick out node classifications,
+					you can allow the revision graph to blend colors to
+					give an indication of both node type and classification.
+					If the box is checked, blending is used. If the box is
+					unchecked, color is used to indicate node type only.
+					Use the color selection dialog to allocate the
+					specific colors used.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+	<sect3 id="tsvn-dug-settings-revgraph-colors">
+		<?dbhh topicname="HIDD_SETTINGSREVGRAPHCOLORS"?>
+		<title>Revision Graph Colors</title>
+		<para>
+			<figure id="tsvn-dug-settings-dia-revgraph-colors">
+				<title>The Settings Dialog, Revision Graph Colors Page</title>
+				<graphic fileref="../images/SettingsRevGraphColors.png"/>
+			</figure>
+			This page allows you to configure the colors used. Note that the
+			color specified here is the solid color. Most nodes are colored
+			using a blend of the node type color, the background color and
+			optionally the classification color.
+		</para>
+		<variablelist>
+			<varlistentry>
+				<term>Deleted Node</term>
+				<listitem>
+					<para>
+						Items which have been deleted and not copied
+						anywhere else in the same revision.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Added Node</term>
+				<listitem>
+					<para>
+						Items newly added, or copied (add with history).
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Renamed Node</term>
+				<listitem>
+					<para>
+						Items deleted from one location and added in another
+						in the same revision.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Modified Node</term>
+				<listitem>
+					<para>
+						Simple modifications without any add or delete.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Unchanged Node</term>
+				<listitem>
+					<para>
+						May be used to show the revision used as the source
+						of a copy, even when no change (to the item being graphed)
+						took place in that revision.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>HEAD node</term>
+				<listitem>
+					<para>
+						Current HEAD revision in the repository.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>WC Node</term>
+				<listitem>
+					<para>
+						If you opt to show a modified working copy as a separate
+						node, use this color.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Tag Nodes</term>
+				<listitem>
+					<para>
+						Nodes classified as tags may be blended with this color.
+						If you use tag folding to save space, tags are marked
+						on the copy source using a block in this color.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Trunk Nodes</term>
+				<listitem>
+					<para>
+						Nodes classified as trunk may be blended with this color.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Stripes</term>
+				<listitem>
+					<para>
+						These colors are used when the graph is split into sub-trees
+						and the background is colored in alternating stripes to help
+						pick out the separate trees.
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</sect3>
+</sect2>
