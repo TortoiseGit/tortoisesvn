@@ -198,17 +198,17 @@ msgstr ""
 
 #. Resource IDs: (609)
 #, c-format
+msgid "%s, but it was already edited."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
 msgid "%s, but it was deleted, moved or renamed locally."
 msgstr ""
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
-msgstr ""
-
-#. Resource IDs: (609)
-#, c-format
-msgid "%s, but the local file was already edited."
 msgstr ""
 
 #. Resource IDs: (145)
@@ -1986,6 +1986,10 @@ msgstr ""
 
 #. Resource IDs: (95)
 msgid "Check the files which you want to\ndelete before importing."
+msgstr ""
+
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
 msgstr ""
 
 #. Resource IDs: (251)
@@ -6339,6 +6343,10 @@ msgstr ""
 msgid "Show &All"
 msgstr ""
 
+#. Resource IDs: (1132)
+msgid "Show &Log"
+msgstr ""
+
 #. Resource IDs: (115)
 msgid "Show &Range..."
 msgstr ""
@@ -6966,12 +6974,12 @@ msgstr ""
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last merge operation tried to delete the directory '%s'"
+msgid "The last merge operation tried to delete/move/rename the directory '%s'"
 msgstr ""
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last merge operation tried to delete the file '%s'"
+msgid "The last merge operation tried to delete/move/rename the file '%s'"
 msgstr ""
 
 #. Resource IDs: (608)
@@ -6996,12 +7004,12 @@ msgstr ""
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last switch operation tried to delete the directory '%s'"
+msgid "The last switch operation tried to delete/move/rename the directory '%s'"
 msgstr ""
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last switch operation tried to delete the file '%s'"
+msgid "The last switch operation tried to delete/move/rename the file '%s'"
 msgstr ""
 
 #. Resource IDs: (608)
@@ -7026,12 +7034,12 @@ msgstr ""
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the directory '%s'"
+msgid "The last update operation tried to delete/move/rename the directory '%s'"
 msgstr ""
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the file '%s'"
+msgid "The last update operation tried to delete/move/rename the file '%s'"
 msgstr ""
 
 #. Resource IDs: (607)

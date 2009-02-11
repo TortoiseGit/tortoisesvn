@@ -26,6 +26,8 @@
 #include "SVNProgressDlg.h"
 #include "MessageBox.h"
 #include "UnicodeUtils.h"
+#include "PathUtils.h"
+#include "AppUtils.h"
 
 // CTreeConflictEditorDlg dialog
 
@@ -54,6 +56,7 @@ BEGIN_MESSAGE_MAP(CTreeConflictEditorDlg, CDialog)
 	ON_BN_CLICKED(IDC_RESOLVEUSINGTHEIRS, &CTreeConflictEditorDlg::OnBnClickedResolveusingtheirs)
 	ON_BN_CLICKED(IDC_RESOLVEUSINGMINE, &CTreeConflictEditorDlg::OnBnClickedResolveusingmine)
 	ON_REGISTERED_MESSAGE(WM_AFTERTHREAD, OnAfterThread) 
+	ON_BN_CLICKED(IDC_LOG, &CTreeConflictEditorDlg::OnBnClickedShowlog)
 END_MESSAGE_MAP()
 
 
@@ -69,12 +72,25 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
 
 	if (conflict_reason == svn_wc_conflict_reason_deleted)
 	{
-		// start thread to find the possible copyfrom item
-		InterlockedExchange(&m_bThreadRunning, TRUE);
-		if (AfxBeginThread(StatusThreadEntry, this)==NULL)
+		// unfortunately, if the action is also 'delete', then we don't have
+		// the url of the item anymore and therefore can't find the copyfrom
+		// path of the locally renamed item. So starting the thread to do that
+		// would be a waste of time...
+		if (conflict_action != svn_wc_conflict_action_delete)
 		{
-			InterlockedExchange(&m_bThreadRunning, FALSE);
-			CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+			// start thread to find the possible copyfrom item
+			InterlockedExchange(&m_bThreadRunning, TRUE);
+			if (AfxBeginThread(StatusThreadEntry, this)==NULL)
+			{
+				InterlockedExchange(&m_bThreadRunning, FALSE);
+				CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+			}
+		}
+		else
+		{
+			// two deletes leave as the only option: mark the conflict as resolved :(
+			SetDlgItemText(IDC_INFOLABEL, CString(MAKEINTRESOURCE(IDS_TREECONFLICT_RESOLVE_HINT_DELETEUPONDELETE)));
+			GetDlgItem(IDC_RESOLVEUSINGMINE)->ShowWindow(SW_SHOW);
 		}
 	}
 	else
@@ -86,6 +102,18 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
+}
+
+void CTreeConflictEditorDlg::OnBnClickedShowlog()
+{
+	if (m_bThreadRunning)
+		return;
+	CTSVNPath logPath = m_path;
+	if (logPath.GetContainingDirectory().HasAdminDir())
+		logPath = logPath.GetContainingDirectory();
+	CString sCmd;
+	sCmd.Format(_T("\"%s\" /command:log /path:\"%s\""), (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), logPath.GetWinPath());
+	CAppUtils::LaunchApplication(sCmd, NULL, false);
 }
 
 void CTreeConflictEditorDlg::OnBnClickedResolveusingtheirs()
@@ -262,3 +290,4 @@ LRESULT CTreeConflictEditorDlg::OnAfterThread(WPARAM /*wParam*/, LPARAM /*lParam
 
 	return 0;
 }
+
