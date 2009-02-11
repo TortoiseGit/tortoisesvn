@@ -153,19 +153,19 @@ CString SVN::CheckConfigFile()
 {
 	svn_client_ctx_t *			ctx;
 	SVNPool						pool;
-	svn_error_t *				Err = NULL;
+	svn_error_t *				err = NULL;
 
 	svn_client_create_context(&ctx, pool);
 
-	Err = svn_config_ensure(NULL, pool);
+	err = svn_config_ensure(NULL, pool);
 	// set up the configuration
-	if (Err == 0)
-		Err = svn_config_get_config (&ctx->config, g_pConfigDir, pool);
+	if (err == 0)
+		err = svn_config_get_config (&ctx->config, g_pConfigDir, pool);
 	CString msg;
 	CString temp;
-	if (Err != NULL)
+	if (err != NULL)
 	{
-		svn_error_t * ErrPtr = Err;
+		svn_error_t * ErrPtr = err;
 		msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
 		while (ErrPtr->child)
 		{
@@ -177,8 +177,8 @@ CString SVN::CheckConfigFile()
 		{
 			msg += _T("\n") + temp;
 		}
-		svn_error_clear(Err);
-        Err = NULL;
+		svn_error_clear(err);
+        err = NULL;
 	}
 	return msg;
 }
