@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-09 21:03+0900\n"
+"PO-Revision-Date: 2009-02-12 08:16+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -199,18 +199,18 @@ msgstr "%s, 그러나 지역에서 벌서 추가되었습니다."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted locally."
-msgstr "%s, 그러나 지역에서 삭제되었습니다."
+msgid "%s, but it was already edited."
+msgstr "%s, 그러나 벌써 편집되었습니다."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was deleted, moved or renamed locally."
+msgstr "%s, 그러나 지역에서 벌써 삭제되거나, 이동되거나 혹은 이름이 변경되었습니다."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
 msgstr "%s, 그러나 작업사본에서 차단되었습니다."
-
-#. Resource IDs: (609)
-#, c-format
-msgid "%s, but the local file was already edited."
-msgstr "%s, 그러나 지역 파일이 벌써 편집되었습니다."
 
 #. Resource IDs: (145)
 #, c-format
@@ -2112,6 +2112,10 @@ msgid ""
 msgstr ""
 "임포트하기전에 지울\n"
 "파일들을 표시하십시오."
+
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
+msgstr "파일 혹은 폴더가 어떻게 이름변경/이동되었는지 찾기 위해서 로그를 체크하십시오. 그리고 당신의 이름변경/이동을 유지할 지, 아니면 저장소의 것을 유지할 지 결정하십시오. 그리고 나서 충돌을 해결됨으로 마크하십시오."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -5060,6 +5064,10 @@ msgstr "작업사본의 현재 리비전을 표시합니다."
 msgid "Mark for comparison"
 msgstr "비교 대상으로 표시"
 
+#. Resource IDs: (610)
+msgid "Mark the conflict as resolved"
+msgstr "충돌을 해결됨으로 마크합니다"
+
 #. Resource IDs: (2051)
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -5159,6 +5167,11 @@ msgstr "리비전을 병합..."
 #. Resource IDs: (114)
 msgid "Merge revisions to..."
 msgstr "리비전들 병합..."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "Merge the changes into the file '%s'"
+msgstr "'%s' 파일에 변경내용을 병합합니다"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -5972,6 +5985,10 @@ msgstr "차이를 구하는 동안 잠시 기다려주십시오..."
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
 msgstr "저장소 브라우저가 초기화되는 동안 기다리십시오..."
+
+#. Resource IDs: (1368)
+msgid "Please wait while we gather more information..."
+msgstr "더 많은 정보를 얻는 동안 기다려주십시오..."
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
@@ -7201,6 +7218,10 @@ msgstr "다음에 대한 바로가기키 보여주기(&A):"
 msgid "Show &All"
 msgstr "모두 보기(&A)"
 
+#. Resource IDs: (1132)
+msgid "Show &Log"
+msgstr "로그 보기(&L)"
+
 #. Resource IDs: (115)
 msgid "Show &Range..."
 msgstr "범위 보기(&R)..."
@@ -7959,13 +7980,13 @@ msgstr "'%s' 파일을 추가하려고 시도한 마지막 병합 동작"
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last merge operation tried to delete the directory '%s'"
-msgstr "'%s' 디렉토리를 삭제하려고 시도한 마지막 병합 동작"
+msgid "The last merge operation tried to delete/move/rename the directory '%s'"
+msgstr "마지막 병합 동작이 '%s' 디렉토리를 삭제/이동/이름변경하려고 시도했습니다."
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last merge operation tried to delete the file '%s'"
-msgstr "'%s' 파일을 삭제하려고 시도한 마지막 병합 동작"
+msgid "The last merge operation tried to delete/move/rename the file '%s'"
+msgstr "마지막 병합 동작이 '%s' 파일을 삭제/이동/이동변경하려고 시도했습니다."
 
 #. Resource IDs: (608)
 #, c-format
@@ -7989,13 +8010,13 @@ msgstr "'%s' 파일을 추가하려고 시도한 마지막 전환 동작"
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last switch operation tried to delete the directory '%s'"
-msgstr "'%s' 디렉토리를 삭제하려고 시도한 마지막 전환 동작"
+msgid "The last switch operation tried to delete/move/rename the directory '%s'"
+msgstr "마지막 전환 동작이 '%s' 디렉토리를 삭제/이동/이름변경하려고 시도했습니다."
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last switch operation tried to delete the file '%s'"
-msgstr "'%s' 파일을 삭제하려고 시도한 마지막 전환 동작"
+msgid "The last switch operation tried to delete/move/rename the file '%s'"
+msgstr "마지막 전환 동작이 '%s' 파일을 삭제/이동/이름변경하려고 시도했습니다."
 
 #. Resource IDs: (608)
 #, c-format
@@ -8019,13 +8040,13 @@ msgstr "'%s' 파일을 추가하려고 시도한 마지막 업데이트 동작"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the directory '%s'"
-msgstr "'%s' 디렉토리를 삭제하려고 시도한 마지막 업데이트 동작"
+msgid "The last update operation tried to delete/move/rename the directory '%s'"
+msgstr "마지막 업데이트 동작이 '%s' 디렉토리를 삭제/이동/이름변경하려고 시도했습니다."
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the file '%s'"
-msgstr "'%s' 파일을 삭제하려고 시도한 마지막 업데이트 동작"
+msgid "The last update operation tried to delete/move/rename the file '%s'"
+msgstr "마지막 업데이트 동작이 '%s' 파일을 삭제/이동/이름변경하려고 시도했습니다."
 
 #. Resource IDs: (607)
 #, c-format
@@ -8310,7 +8331,6 @@ msgstr ""
 "저장하시겠습니까?"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid ""
 "There has been a problem contacting the server.\n"
 "Do you want to see the cached data instead?\n"
@@ -10257,6 +10277,8 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid "%s, but the local file was already edited."
+#~ msgstr "%s, 그러나 지역 파일이 벌써 편집되었습니다."
 #~ msgid "Go offline?"
 #~ msgstr "오프라인으로 진행할까요?"
 #~ msgid "Replaced node"
