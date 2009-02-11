@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-02 11:41+0100\n"
+"PO-Revision-Date: 2009-02-11 13:24+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -255,8 +255,8 @@ msgstr "%s, men den var allerede lagt til lokalt."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted locally."
-msgstr "%s, men den var slettet lokalt."
+msgid "%s, but it was deleted, moved or renamed locally."
+msgstr "%s, men den var slettet, flyttet eller opdøpt  lokalt."
 
 #. Resource IDs: (609)
 #, c-format
@@ -436,6 +436,10 @@ msgstr "&Knappetekst:"
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
 
+#. Resource IDs: (2)
+msgid "&Cancel"
+msgstr "&Avbryt"
+
 #. Resource IDs: (65535)
 msgid "&Categories:"
 msgstr "&Kategorier:"
@@ -555,10 +559,6 @@ msgstr "&Forskjeller fra forrige revisjon"
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Dokking"
-
-#. Resource IDs: (2)
-msgid "&Don't go offline"
-msgstr "&Ikke koble fra"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1753,7 +1753,7 @@ msgid "Arrange &Vertical"
 msgstr "Ordne &vertikalt"
 
 #. Resource IDs: (199)
-msgid "Ask user"
+msgid "Ask the user"
 msgstr "Spør brukeren"
 
 #. Resource IDs: (264)
@@ -1900,6 +1900,10 @@ msgstr "Vis skyld"
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
 msgstr "Vis skyld - TortoiseSVN"
+
+#. Resource IDs: (114)
+msgid "Blame..."
+msgstr "Vis skyld..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
@@ -2350,6 +2354,14 @@ msgstr "Trekk &sammen følgende tre"
 #. Resource IDs: (16662)
 msgid "Color"
 msgstr "Farge"
+
+#. Resource IDs: (65535)
+msgid "Color 1"
+msgstr "Farge 1"
+
+#. Resource IDs: (65535)
+msgid "Color 2"
+msgstr "Farge 2"
 
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
@@ -3981,13 +3993,13 @@ msgstr "Samler informasjon. Vennligst vent..."
 msgid "General"
 msgstr "Generelt"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "Generelt::Farger"
-
 #. Resource IDs: (195)
 msgid "General::Context Menu"
 msgstr "Generelt::Sammenhengsmeny"
+
+#. Resource IDs: (212)
+msgid "General::Dialog Colors"
+msgstr "Generelt::Farger i Dialoger"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -4000,6 +4012,10 @@ msgstr "Generelt::Dialoger 2"
 #. Resource IDs: (296)
 msgid "General::Revision Graph"
 msgstr "Generelt::Revisjonsgraf"
+
+#. Resource IDs: (299)
+msgid "General::Revision Graph Colors"
+msgstr "Generelt::Farger i revisjonsgraf"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -4067,10 +4083,6 @@ msgstr "Globalt &mønster for ignoréring:"
 msgid "Global settings"
 msgstr "Globale instillinger"
 
-#. Resource IDs: (280)
-msgid "Go offline?"
-msgstr "Jobbe frakoblet?"
-
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "Gå til linje"
@@ -4135,6 +4147,10 @@ msgstr "&Valør:"
 msgid "HEAD"
 msgstr "HEAD"
 
+#. Resource IDs: (65535)
+msgid "HEAD node"
+msgstr "Hode-node"
+
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
@@ -4155,6 +4171,14 @@ msgstr "Hex"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "Skjul &slettede stier"
+
+#. Resource IDs: (2052)
+msgid "Hide all branches that did not modify the item"
+msgstr "Skjul alle grener som ikke endret elementet"
+
+#. Resource IDs: (2052)
+msgid "Hide deleted branches and tags"
+msgstr "Skjul slettede grener og merker"
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
@@ -5085,6 +5109,10 @@ msgstr "Merk nåværende revisjon av arbeidskopien"
 msgid "Mark for comparison"
 msgstr "Merk for sammenligning"
 
+#. Resource IDs: (610)
+msgid "Mark the conflict as resolved"
+msgstr "Merk konflikten som løst"
+
 #. Resource IDs: (2051)
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -5184,6 +5212,11 @@ msgstr "Flett revisjon til..."
 #. Resource IDs: (114)
 msgid "Merge revisions to..."
 msgstr "Flett revisjoner til..."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "Merge the changes into the file '%s'"
+msgstr "Flett endringene til filen '%s'"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -5294,6 +5327,10 @@ msgstr "Endringsdato"
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
 msgstr "Endret"
+
+#. Resource IDs: (65535)
+msgid "Modified node"
+msgstr "Endret node"
 
 #. Resource IDs: (1070)
 msgid "More"
@@ -5557,6 +5594,10 @@ msgstr "Intet mellomlager for status. Bare versjonerte mapper får et ikonlag, f
 msgid "No thesaurus suggestions"
 msgstr "Ingen forslag fra synonymordbok"
 
+#. Resource IDs: (65535)
+msgid "Node colors"
+msgstr "Nodefarger"
+
 #. Resource IDs: (1271)
 msgid "None"
 msgstr "Ingen"
@@ -5739,6 +5780,10 @@ msgstr "Bare dette elementet"
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
 msgstr "Bruk sta&vekontroll bare når tsvn:projectlanguage er satt på"
 
+#. Resource IDs: (65535)
+msgid "Opacity"
+msgstr "Gjennomsiktighet"
+
 #. Resource IDs: (3841)
 msgid "Open"
 msgstr "Åpne"
@@ -5806,6 +5851,10 @@ msgstr "Ikke mer minne."
 #. Resource IDs: (3845)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (65535)
+msgid "Overlays"
+msgstr "Ikonlag"
 
 #. Resource IDs: (95)
 msgid ""
@@ -5982,6 +6031,10 @@ msgstr "Vennligst vent mens forskjellene finnes..."
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Vennligst vent mens depot-utforskeren initeres..."
+
+#. Resource IDs: (1368)
+msgid "Please wait while we gather more information..."
+msgstr "Vennligst vent mens vi samler mer informasjon..."
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
@@ -6399,14 +6452,6 @@ msgstr "Fjern %ld elementer"
 msgid "Remove %s"
 msgstr "Fjern %s"
 
-#. Resource IDs: (2052)
-msgid "Remove all branches that did not modify the item"
-msgstr "Fjern alle grener som ikke endret elementet"
-
-#. Resource IDs: (2052)
-msgid "Remove deleted branches and tags"
-msgstr "Fjern slettede grener og merker"
-
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "Fjern fra &ignoreringslisten"
@@ -6536,10 +6581,6 @@ msgid ""
 msgstr ""
 "Bytt spesifisert tekst med annen tekst\n"
 "Bytt"
-
-#. Resource IDs: (65535)
-msgid "Replaced node"
-msgstr "Utskiftet node"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -7633,6 +7674,10 @@ msgid "Stefan Küng, Lübbe Onken"
 msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
+msgid "Stripes"
+msgstr "Striper"
+
+#. Resource IDs: (65535)
 msgid "Subversion"
 msgstr "Subversion"
 
@@ -7796,6 +7841,10 @@ msgstr "Tabulatormarkør"
 #. Resource IDs: (65535)
 msgid "Tab size:"
 msgstr "Tabulatorstørrelse:"
+
+#. Resource IDs: (65535)
+msgid "Tag nodes"
+msgstr "Merkenoder"
 
 #. Resource IDs: (79)
 #, c-format
@@ -8329,11 +8378,11 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
-"There has been a problem connecting the server.\n"
+"There has been a problem contacting the server.\n"
 "Do you want to see the cached data instead?\n"
 "\n"
 "Please understand that the cached data may be outdated,\n"
-"incomplete or even misleading due to incomplete history."
+"incomplete or even misleading due to incomplete history data."
 msgstr ""
 "Det oppstod et problem med å kontakte tjeneren.\n"
 "Vil du bruke de mellomlagrede dataene i stedet?\n"
@@ -8623,7 +8672,7 @@ msgstr "Totalt antall bruker-revisjonsegenskaper"
 
 #. Resource IDs: (32821)
 msgid "Tr&ee stripes"
-msgstr "Tr&estriper"
+msgstr "Tr&e striper"
 
 #. Resource IDs: (357)
 #, c-format
@@ -8641,6 +8690,10 @@ msgstr "Trekonflikt"
 #. Resource IDs: (595)
 msgid "Tree merge"
 msgstr "Trefletting"
+
+#. Resource IDs: (65535)
+msgid "Trunk nodes"
+msgstr "Stammenoder"
 
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
@@ -8735,6 +8788,10 @@ msgstr "Kan ikke skrive til skrivebeskyttet egenskap."
 #, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "Kan ikke skrive til %1, den er skrivebeskyttet eller åpnet av andre."
+
+#. Resource IDs: (65535)
+msgid "Unchanged node"
+msgstr "Uendret node"
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
@@ -9157,6 +9214,10 @@ msgstr "Besøk vår hjemmeside"
 msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
+#. Resource IDs: (65535)
+msgid "WC node"
+msgstr "Arbeidskopinode"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Vent"
@@ -9164,6 +9225,10 @@ msgstr "Vent"
 #. Resource IDs: (1327)
 msgid "Wait for the script to finish"
 msgstr "Vent til skriptet blir ferdig"
+
+#. Resource IDs: (280)
+msgid "Want to go offline?"
+msgstr "Vil du koble fra?"
 
 #. Resource IDs: (88)
 msgid "Warning"
@@ -10265,6 +10330,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Go offline?"
+#~ msgstr "Jobbe frakoblet?"
+#~ msgid "Replaced node"
+#~ msgstr "Utskiftet node"
 #~ msgid "copy source only"
 #~ msgstr "bare kopikilde"
 #~ msgid ""
