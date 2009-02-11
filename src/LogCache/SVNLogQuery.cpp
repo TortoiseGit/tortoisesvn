@@ -401,6 +401,10 @@ void CSVNLogQuery::Log ( const CTSVNPathList& targets
 										  , localpool);
 
     if (result != NULL)
-		throw SVNError (result);
+	{
+		SVNError e = SVNError (result);
+		svn_error_clear (result);
+		throw e;
+	}
 }
 
