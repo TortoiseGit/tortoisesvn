@@ -2453,10 +2453,11 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_REVGRAPH:
 			{
-				CRevisionGraphDlg dlg;
-				dlg.SetPath(urlListEscaped[0].GetSVNPathString());
-                dlg.SetPegRevision(GetRevision());
-				dlg.DoModal();
+				CString sCmd;
+				sCmd.Format(_T("\"%s\" /command:revisiongraph /path:\"%s\" /pegrev:%s"), 
+					(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)urlListEscaped[0].GetSVNPathString(), (LPCTSTR)GetRevision().ToString());
+
+				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
 			break;
 		case ID_OPENWITH:
