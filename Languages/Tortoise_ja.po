@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-29 23:24+0900\n"
+"PO-Revision-Date: 2009-02-11 19:01+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -207,8 +207,8 @@ msgstr "%s、しかしながらすでにローカルに追加されています�
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted locally."
-msgstr "%s、しかしながらすでにローカルで削除されています。"
+msgid "%s, but it was deleted, moved or renamed locally."
+msgstr "%s、しかしながらローカルで削除、移動、名前の変更が行われています。"
 
 #. Resource IDs: (609)
 #, c-format
@@ -388,6 +388,10 @@ msgstr "ボタンテキスト(&B):"
 msgid "&CD-ROM"
 msgstr "CD-ROM ドライブ(&C)"
 
+#. Resource IDs: (2)
+msgid "&Cancel"
+msgstr "キャンセル(&C)"
+
 #. Resource IDs: (65535)
 msgid "&Categories:"
 msgstr "カテゴリ(&C):"
@@ -507,10 +511,6 @@ msgstr "以前のバージョンと差分(&D)"
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "ドッキング(&D)"
-
-#. Resource IDs: (2)
-msgid "&Don't go offline"
-msgstr "オフラインにしない(&D)"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1151,6 +1151,26 @@ msgstr "(%s) %s"
 msgid "(binary value)"
 msgstr "(バイナリ値)"
 
+#. Resource IDs: (276)
+msgid "(copy)"
+msgstr "(コピー)"
+
+#. Resource IDs: (276)
+msgid "(created)"
+msgstr "(作成)"
+
+#. Resource IDs: (276)
+msgid "(delete)"
+msgstr "(削除)"
+
+#. Resource IDs: (276)
+msgid "(modified)"
+msgstr "(変更)"
+
+#. Resource IDs: (276)
+msgid "(modified, HEAD revision)"
+msgstr "(変更、最新リビジョン)"
+
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
 msgstr "（複数のターゲットを選択）"
@@ -1163,6 +1183,10 @@ msgstr "（変更リストは空です）"
 msgid "(no line number)"
 msgstr "(行番号なし)"
 
+#. Resource IDs: (276)
+msgid "(no modification but copy created from here)"
+msgstr "(コピーはここから作成されたが変更されていない)"
+
 #. Resource IDs: (214)
 msgid "(no value)"
 msgstr "(no value)"
@@ -1171,9 +1195,21 @@ msgstr "(no value)"
 msgid "(not found)"
 msgstr "(見つかりません)"
 
+#. Resource IDs: (276)
+msgid "(open branch)"
+msgstr "(ブランチを開く)"
+
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "（属性の変更のみ）"
+
+#. Resource IDs: (276)
+msgid "(rename)"
+msgstr "(名前の変更)"
+
+#. Resource IDs: (276)
+msgid "(tagged)"
+msgstr "(タグ)"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
@@ -1669,7 +1705,7 @@ msgid "Arrange &Vertical"
 msgstr "垂直方向に並べる(&V)"
 
 #. Resource IDs: (199)
-msgid "Ask user"
+msgid "Ask the user"
 msgstr "ユーザーに問い合わせる"
 
 #. Resource IDs: (264)
@@ -1816,6 +1852,10 @@ msgstr "注釈履歴"
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
 msgstr "注釈履歴 - TortoiseSVN"
+
+#. Resource IDs: (114)
+msgid "Blame..."
+msgstr "注釈履歴 ..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
@@ -2265,6 +2305,14 @@ msgstr "次のツリーを折りたたむ(&F)"
 msgid "Color"
 msgstr "色"
 
+#. Resource IDs: (65535)
+msgid "Color 1"
+msgstr "色１"
+
+#. Resource IDs: (65535)
+msgid "Color 2"
+msgstr "色２"
+
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
 msgstr "行内の変更された部分に色付けする(&D)"
@@ -2458,6 +2506,11 @@ msgstr "コピー"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "URLからコピー"
+
+#. Resource IDs: (275)
+#, c-format
+msgid "Copied from: %s@%ld\r\n"
+msgstr "コピー: %s@%ld\r\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
@@ -3814,9 +3867,21 @@ msgstr ""
 msgid "Finished!"
 msgstr "終了！"
 
+#. Resource IDs: (32804)
+msgid "Fit graph"
+msgstr "グラフを合わせる"
+
+#. Resource IDs: (32802)
+msgid "Fit height"
+msgstr "高さを合わせる"
+
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
 msgstr "画像サイズを合わせる(&S)"
+
+#. Resource IDs: (32803)
+msgid "Fit width"
+msgstr "幅を合わせる"
 
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
@@ -3874,16 +3939,6 @@ msgstr "GDI+ を初期化できませんでした！"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ はビットマップオブジェクトを作成できませんでした。おそらく十分なメモリがありません。"
 
-#. Resource IDs: (83)
-msgid ""
-"GDI+ is required to save the revision graph as a picture.\n"
-"You can get GDI+ from\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-msgstr ""
-"GDI+ はリビジョングラフを画像として保存するために必要です。\n"
-"GDI+ は以下から入手することができます。\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
 msgstr "情報を集めています。しばらくお待ちください ..."
@@ -3892,13 +3947,13 @@ msgstr "情報を集めています。しばらくお待ちください ..."
 msgid "General"
 msgstr "一般"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "一般::色"
-
 #. Resource IDs: (195)
 msgid "General::Context Menu"
 msgstr "一般::コンテキストメニュー"
+
+#. Resource IDs: (212)
+msgid "General::Dialog Colors"
+msgstr "一般::ダイアログ（色）"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -3911,6 +3966,10 @@ msgstr "一般::ダイアログ２"
 #. Resource IDs: (296)
 msgid "General::Revision Graph"
 msgstr "一般::リビジョングラフ"
+
+#. Resource IDs: (299)
+msgid "General::Revision Graph Colors"
+msgstr "一般::リビジョングラフ（色）"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -3978,10 +4037,6 @@ msgstr "除外／無視するパターン(&P):"
 msgid "Global settings"
 msgstr "全般的な設定"
 
-#. Resource IDs: (280)
-msgid "Go offline?"
-msgstr "オフラインにしますか？"
-
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "指定した行へ移動"
@@ -4046,6 +4101,10 @@ msgstr "色相(&H):"
 msgid "HEAD"
 msgstr "最新"
 
+#. Resource IDs: (65535)
+msgid "HEAD node"
+msgstr "最新ノード"
+
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
@@ -4066,6 +4125,14 @@ msgstr "16進"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "削除されたパスは表示しない(&D)"
+
+#. Resource IDs: (2052)
+msgid "Hide all branches that did not modify the item"
+msgstr "項目を変更しなかったすべてのブランチを非表示にする"
+
+#. Resource IDs: (2052)
+msgid "Hide deleted branches and tags"
+msgstr "削除されたブランチとタグを非表示にする"
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
@@ -4275,6 +4342,30 @@ msgstr "アイコンオーバーレイ::アイコンセット"
 msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "アイコン／デザイン／コード:         Luebbe Onken"
 
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'."
+msgstr ""
+"パスの要素（2つの '/' で区切られた部分）がこれらのパターンの\n"
+"1つにマッチするなら、'ブランチ' と考える。"
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'."
+msgstr ""
+"パスの要素（2つの '/' で区切られた部分）がこれらのパターンの\n"
+"1つにマッチするなら、'タグ' と考える。"
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'."
+msgstr ""
+"パスの要素（2つの '/' で区切られた部分）がこれらのパターンの\n"
+"1つにマッチするなら、'trunk' と考える。"
+
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
 msgstr "有効にすると、'名前をつけて保存' や '開く' ダイアログ内でのオーバーレイやコンテキストメニューを非表示にする"
@@ -4286,54 +4377,6 @@ msgid ""
 msgstr ""
 "有効にすると、選択したファイルに svn:needs-lock 属性が設定されている場合は、\n"
 "常に 'ロックを取得' メニューをトップレベルメニューに表示する"
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'branch'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"パスの要素（2つの '/' で区切られた部分）が次のパターンの\n"
-"1つにマッチするなら、'ブランチ' と考える。\n"
-"\n"
-"パターンが小文字の場合。\n"
-"使用されているワイルドカードが '?' と '*' の場合。\n"
-"';' で区切られている場合。"
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'tag'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"パスの要素（2つの '/' で区切られた部分）が次のパターンの\n"
-"1つにマッチするなら、'タグ' と考える。\n"
-"\n"
-"パターンが小文字の場合。\n"
-"使用されているワイルドカードが '?' と '*' の場合。\n"
-"';' で区切られている場合。"
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'trunk'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"パスの要素（2つの '/' で区切られた部分）が次のパターンの\n"
-"1つにマッチするなら、'trunk' と考える。\n"
-"\n"
-"パターンが小文字の場合。\n"
-"使用されているワイルドカードが '?' と '*' の場合。\n"
-"';' で区切られている場合。"
 
 #. Resource IDs: (95)
 msgid ""
@@ -4574,6 +4617,14 @@ msgstr "マージされたリビジョンを含める"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "次のリビジョン範囲のみを含める:"
+
+#. Resource IDs: (239)
+msgid ""
+"Includes the repository for status check\n"
+"Hold down the shift key when clicking to fetch everything."
+msgstr ""
+"状態チェックのためにリポジトリを含める\n"
+"すべてを取得するためにはシフトキーを押したままでクリックしてください。"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -5023,6 +5074,10 @@ msgstr "作業コピーの現在のリビジョンをマークする"
 msgid "Mark for comparison"
 msgstr "比較対象としてマーク"
 
+#. Resource IDs: (610)
+msgid "Mark the conflict as resolved"
+msgstr "競合を解消済みとしてマークする"
+
 #. Resource IDs: (2051)
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -5122,6 +5177,11 @@ msgstr "このリビジョンをマージ ..."
 #. Resource IDs: (114)
 msgid "Merge revisions to..."
 msgstr "これらのリビジョンをマージ ..."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "Merge the changes into the file '%s'"
+msgstr "ファイル '%s' に変更をマージする"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -5232,6 +5292,10 @@ msgstr "変更日:"
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
 msgstr "変更"
+
+#. Resource IDs: (65535)
+msgid "Modified node"
+msgstr "変更されたノード"
 
 #. Resource IDs: (1070)
 msgid "More"
@@ -5493,6 +5557,10 @@ msgstr "状態をキャッシュしません。バージョン管理されたフ
 msgid "No thesaurus suggestions"
 msgstr "シソーラスからの提案はありません"
 
+#. Resource IDs: (65535)
+msgid "Node colors"
+msgstr "ノードの色"
+
 #. Resource IDs: (1271)
 msgid "None"
 msgstr "無し"
@@ -5508,6 +5576,16 @@ msgstr "システムレジストリのエントリ（INIファイル）が全て
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
 msgstr "操作を完了するのに、十分なメモリがありません。"
+
+#. Resource IDs: (273)
+msgid ""
+"Not enough memory!\n"
+"Try reducing the size of the revision graph by either\n"
+"collapsing nodes or reducing the zoom factor."
+msgstr ""
+"十分なメモリがありません！\n"
+"ノードを折りたたむかズームを小さくすることで、\n"
+"リビジョングラフの大きさを小さくしてみてください。"
 
 #. Resource IDs: (563)
 msgid "Not recursive"
@@ -5663,6 +5741,10 @@ msgstr "この項目のみ"
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
 msgstr "tsvn:projectlanguage が設定されている場合はスペルチェッカ(&P)を利用する"
 
+#. Resource IDs: (65535)
+msgid "Opacity"
+msgstr "不透明度"
+
 #. Resource IDs: (3841)
 msgid "Open"
 msgstr "開く"
@@ -5730,6 +5812,10 @@ msgstr "メモリ不足です。"
 #. Resource IDs: (3845)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (65535)
+msgid "Overlays"
+msgstr "オーバーレイ"
 
 #. Resource IDs: (95)
 msgid ""
@@ -5906,6 +5992,10 @@ msgstr "差分を取得する間、しばらくお待ちください ..."
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
 msgstr "リポジトリブラウザを初期化する間しばらくお待ちください ..."
+
+#. Resource IDs: (1368)
+msgid "Please wait while we gather more information..."
+msgstr "情報を取得する間、しばらくお待ちください ..."
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
@@ -6323,14 +6413,6 @@ msgstr "%ld 個の項目を削除"
 msgid "Remove %s"
 msgstr "%s を削除"
 
-#. Resource IDs: (2052)
-msgid "Remove all branches that did not modify the item"
-msgstr "項目を変更しなかったすべてのブランチを削除する"
-
-#. Resource IDs: (2052)
-msgid "Remove deleted branches and tags"
-msgstr "削除されたブランチ／タグを取り除く"
-
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "無視リストから削除(&I)"
@@ -6461,10 +6543,6 @@ msgid ""
 msgstr ""
 "指定された文字列を、他の文字列に置き換える\n"
 "置換"
-
-#. Resource IDs: (65535)
-msgid "Replaced node"
-msgstr "ノードを置換"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -6659,17 +6737,17 @@ msgstr "リビジョン:"
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
+"Revision: %ld %s\r\n"
 "URL: %s\r\n"
-"Author: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"リビジョン: %ld\r\n"
+"リビジョン: %ld %s\r\n"
 "URL: %s\r\n"
-"作者: %s\r\n"
+"%s作者: %s\r\n"
 "日付: %s\r\n"
 "\r\n"
 "ログメッセージ:\r\n"
@@ -6678,9 +6756,9 @@ msgstr ""
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
+"Revision: %ld %s\r\n"
 "URL: %s\r\n"
-"Author: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Tags (%d):%s\r\n"
@@ -6688,9 +6766,9 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"リビジョン: %ld\r\n"
+"リビジョン: %ld %s\r\n"
 "URL: %s\r\n"
-"作者: %s\r\n"
+"%s作者: %s\r\n"
 "日付: %s\r\n"
 "\r\n"
 "タグ (%d):%s\r\n"
@@ -7257,6 +7335,10 @@ msgstr "&Unified Diff 形式で差分を表示"
 msgid "Show excluded folders as normal"
 msgstr "除外フォルダを通常として表示する"
 
+#. Resource IDs: (1480)
+msgid "Show externals from different repositories"
+msgstr "異なるリポジトリの外部参照を表示する"
+
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
 msgstr "少しの遅延の後に全てのメニューを表示(&U)"
@@ -7555,12 +7637,51 @@ msgid "Stefan Küng, Lübbe Onken"
 msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
+msgid "Stripes"
+msgstr "ストライプ"
+
+#. Resource IDs: (65535)
 msgid "Subversion"
 msgstr "Subversion"
 
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
 msgstr "Subversion の設定ファイル(&F):"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion encountered the problem in:\n"
+"file %s, line %ld\n"
+"expression = %s"
+msgstr ""
+"Subversion は深刻な問題に遭遇しました。\n"
+"あなたが何をしようとしたのかについて、可能な限り\n"
+"多くの情報とともに我々のメーリングリストに報告してください。\n"
+"\n"
+"Subversion が遭遇した問題:\n"
+"ファイル %s、行番号 %ld\n"
+"式 = %s"
+
+#. Resource IDs: (84)
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion reported the following:"
+msgstr ""
+"Subversion は深刻な問題に遭遇しました。\n"
+"あなたが何をしようとしたのかについて、可能な限り\n"
+"多くの情報とともに我々のメーリングリストに報告してください。\n"
+"\n"
+"Subversion の報告内容:"
 
 #. Resource IDs: (79)
 msgid ""
@@ -7681,6 +7802,10 @@ msgstr "タブプレースホールダー"
 #. Resource IDs: (65535)
 msgid "Tab size:"
 msgstr "タブ幅:"
+
+#. Resource IDs: (65535)
+msgid "Tag nodes"
+msgstr "タグノード"
 
 #. Resource IDs: (79)
 #, c-format
@@ -8103,6 +8228,19 @@ msgstr ""
 "%s\n"
 "はすでに存在しています！"
 
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"The target file\n"
+"%s\n"
+" already exists.\n"
+"Do you want to replace the file?"
+msgstr ""
+"ターゲットファイル\n"
+"%s\n"
+"はすでに存在しています！\n"
+"ファイルを置き換えてもよろしいですか？"
+
 #. Resource IDs: (88)
 #, c-format
 msgid ""
@@ -8204,16 +8342,16 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
-"There has been a problem connecting the server.\n"
+"There has been a problem contacting the server.\n"
 "Do you want to see the cached data instead?\n"
 "\n"
 "Please understand that the cached data may be outdated,\n"
-"incomplete or even misleading due to incomplete history."
+"incomplete or even misleading due to incomplete history data."
 msgstr ""
 "サーバーに接続する際に問題が発生しました。\n"
-"代わりにキャッシュされているデータを利用しますか？\n"
+"代わりにキャッシュされているデータを確認しますか？\n"
 "\n"
-"キャッシュされているデータが古い、不完全、もしくは、履歴が\n"
+"キャッシュされているデータは、古い、不完全、もしくは履歴が\n"
 "不完全なために誤解を招く可能性があることをご理解ください。"
 
 #. Resource IDs: (82)
@@ -8516,6 +8654,10 @@ msgstr "ツリーの競合"
 msgid "Tree merge"
 msgstr "ツリーのマージ"
 
+#. Resource IDs: (65535)
+msgid "Trunk nodes"
+msgstr "Trunk ノード"
+
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "'クリーンアップ' を試してみてください。もしうまくいかないなら、新規にチェックアウトしなおす必要があります。"
@@ -8609,6 +8751,10 @@ msgstr "読み込み専用属性のため書き込めません。"
 #, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "%1 に書き込めません。読み取り専用か、他の誰かが開いています。"
+
+#. Resource IDs: (65535)
+msgid "Unchanged node"
+msgstr "未変更のノード"
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
@@ -8891,7 +9037,7 @@ msgstr ""
 "'mine' のテキストブロックを利用"
 
 #. Resource IDs: (251)
-msgid "Use text block from 't&heirs' before 'mine"
+msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "'mine' の前に 't&heirs' のテキストブロックを利用"
 
 #. Resource IDs: (2052)
@@ -9031,6 +9177,10 @@ msgstr "私たちのウェブサイトへお越しください"
 msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
+#. Resource IDs: (65535)
+msgid "WC node"
+msgstr "WC ノード"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "待機"
@@ -9038,6 +9188,10 @@ msgstr "待機"
 #. Resource IDs: (1327)
 msgid "Wait for the script to finish"
 msgstr "スクリプトが終了するまで待機する"
+
+#. Resource IDs: (280)
+msgid "Want to go offline?"
+msgstr "オフラインにしますか？"
 
 #. Resource IDs: (88)
 msgid "Warning"
@@ -9299,6 +9453,17 @@ msgstr ""
 "\n"
 "本当にコミットしてもよろしいですか？"
 
+#. Resource IDs: (275)
+#, c-format
+msgid ""
+"Your working copy contains modifications.\n"
+"Lowest revision in working copy: %ld\n"
+"Path: %s"
+msgstr ""
+"あなたの作業コピーは変更を含んでいます。\n"
+"作業コピー内で最も若いリビジョン: %ld\n"
+"パス: %s"
+
 #. Resource IDs: (88)
 msgid ""
 "Your working copy has local modifications!\n"
@@ -9376,6 +9541,10 @@ msgstr "ズームイン"
 msgid "Zoom out"
 msgstr "ズームアウト"
 
+#. Resource IDs: (32801)
+msgid "Zoom to &100%"
+msgstr "ズーム &100%"
+
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
 msgstr "自動調整"
@@ -9391,6 +9560,22 @@ msgstr "幅が合うようにズーム"
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[Unassigned]"
+
+#. Resource IDs: (346)
+msgid ""
+"\n"
+"\n"
+"Patterns match case-insensitively and must be specified in lower-case.\n"
+"Whitespaces will become part of the pattern.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns using ';'"
+msgstr ""
+"\n"
+"\n"
+"パターンは大文字／小文字に関係なくマッチし、小文字で指定されなくてはなりません。\n"
+"空白はパターンの一部とみなされます。\n"
+"ワイルドカードとしては '?' と '*' を利用できます。\n"
+"パターンの区切りは ';' で行います。"
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
@@ -10103,6 +10288,24 @@ msgstr "はい"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid ""
+#~ "GDI+ is required to save the revision graph as a picture.\n"
+#~ "You can get GDI+ from\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ msgstr ""
+#~ "GDI+ はリビジョングラフを画像として保存するために必要です。\n"
+#~ "GDI+ は以下から入手することができます。\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ msgid "Go offline?"
+#~ msgstr "オフラインにしますか？"
+#~ msgid "Replaced node"
+#~ msgstr "ノードを置換"
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "フロッピードライブ (A: B:)"
 #~ msgid "(deleted) %s"
