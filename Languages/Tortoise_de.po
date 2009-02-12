@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-10 09:13+0100\n"
+"PO-Revision-Date: 2009-02-12 10:16+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -202,6 +202,11 @@ msgstr "%s, aber es wurde lokal bereits hinzugefügt."
 
 #. Resource IDs: (609)
 #, c-format
+msgid "%s, but it was already edited."
+msgstr "%s, aber es wurde lokal bereits bearbeitet."
+
+#. Resource IDs: (609)
+#, c-format
 msgid "%s, but it was deleted, moved or renamed locally."
 msgstr "%s, aber es wurde lokal bereits gelöscht, verschoben oder umbenannt."
 
@@ -209,11 +214,6 @@ msgstr "%s, aber es wurde lokal bereits gelöscht, verschoben oder umbenannt."
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
 msgstr "%s, aber es war in der Arbeitskopie behindert."
-
-#. Resource IDs: (609)
-#, c-format
-msgid "%s, but the local file was already edited."
-msgstr "%s, aber die lokale Datei wurde bereits bearbeitet."
 
 #. Resource IDs: (145)
 #, c-format
@@ -2121,6 +2121,10 @@ msgid ""
 msgstr ""
 "Wählen Sie die Dateien, die Sie\n"
 "vor dem Import löschen wollen."
+
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
+msgstr "Prüfen Sie mittels des Logs nach, wie die Datei/der Ordner umbenannt oder verschoben wurde und entscheiden Sie, ob Sie ihre eigene Aktion oder die aus dem Projektarchiv übernehmen wollen. Danach markieren Sie den Konflikt als aufgelöst."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -5085,6 +5089,10 @@ msgstr "Aktuelle Revision Ihrer Arbeitskopie markieren"
 msgid "Mark for comparison"
 msgstr "Für Vergleich auswählen"
 
+#. Resource IDs: (610)
+msgid "Mark the conflict as resolved"
+msgstr "Den Konflikt als aufgelöst markieren"
+
 #. Resource IDs: (2051)
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -5184,6 +5192,11 @@ msgstr "Revision zusammenführen in..."
 #. Resource IDs: (114)
 msgid "Merge revisions to..."
 msgstr "Revisionen zusammenführen in..."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "Merge the changes into the file '%s'"
+msgstr "Die Änderungen in der Datei '%s' zusammenführen"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -6002,6 +6015,10 @@ msgstr "Bitte warten Sie während die Unterschiede ermittelt werden..."
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Bitte warten Sie, während der Projektarchiv-Betrachter initialisiert wird..."
+
+#. Resource IDs: (1368)
+msgid "Please wait while we gather more information..."
+msgstr "Bitte warten Sie während weitere Informationen geladen werden..."
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
@@ -7231,6 +7248,10 @@ msgstr "&Zeige Tastenkürzel für:"
 msgid "Show &All"
 msgstr "Zeige &Alle"
 
+#. Resource IDs: (1132)
+msgid "Show &Log"
+msgstr "Zeige &Log"
+
 #. Resource IDs: (115)
 msgid "Show &Range..."
 msgstr "&Zeige Bereich"
@@ -7995,13 +8016,13 @@ msgstr "Das letzte Zusammenführen versuchte die Datei '%s' hinzuzufügen"
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last merge operation tried to delete the directory '%s'"
-msgstr "Das letzte Zusammenführen versuchte das Verzeichnis '%s' zu löschen"
+msgid "The last merge operation tried to delete/move/rename the directory '%s'"
+msgstr "Das letzte Zusammenführen versuchte das Verzeichnis '%s' zu löschen/zu verschieben/umzubenennen"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last merge operation tried to delete the file '%s'"
-msgstr "Das letzte Zusammenführen versuchte die Datei '%s' zu löschen"
+msgid "The last merge operation tried to delete/move/rename the file '%s'"
+msgstr "Das letzte Zusammenführen versuchte die Datei '%s' zu löschen/zu verschieben/umzubenennen"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8025,13 +8046,13 @@ msgstr "Das letzte 'Wechseln zu' versuchte die Datei '%s' hinzuzufügen"
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last switch operation tried to delete the directory '%s'"
-msgstr "Das letzte 'Wechseln zu' versuchte das Verzeichnis '%s' zu löschen"
+msgid "The last switch operation tried to delete/move/rename the directory '%s'"
+msgstr "Das letzte 'Wechseln zu' versuchte das Verzeichnis '%s' zu löschen/zu verschieben/umzubenennen"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last switch operation tried to delete the file '%s'"
-msgstr "Das letzte 'Wechseln zu' versuchte die Datei '%s' zu löschen"
+msgid "The last switch operation tried to delete/move/rename the file '%s'"
+msgstr "Das letzte 'Wechseln zu' versuchte die Datei '%s' zu löschen/zu verschieben/umzubenennen"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8055,13 +8076,13 @@ msgstr "Die letzte Aktualisierung versuchte die Datei '%s' hinzuzufügen"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the directory '%s'"
-msgstr "Die letzte Aktualisierung versuchte das Verzeichnis '%s' zu löschen"
+msgid "The last update operation tried to delete/move/rename the directory '%s'"
+msgstr "Die letzte Aktualisierung versuchte das Verzeichnis '%s' zu löschen/zu verschieben/umzubenennen"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the file '%s'"
-msgstr "Die letzte Aktualisierung versuchte die Datei '%s' zu löschen"
+msgid "The last update operation tried to delete/move/rename the file '%s'"
+msgstr "Die letzte Aktualisierung versuchte die Datei '%s' zu löschen/zu verschieben/umzubenennen"
 
 #. Resource IDs: (607)
 #, c-format
@@ -10313,6 +10334,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "%s, but the local file was already edited."
+#~ msgstr "%s, aber die lokale Datei wurde bereits bearbeitet."
 #~ msgid "Go offline?"
 #~ msgstr "Offline gehen?"
 #~ msgid "Replaced node"
