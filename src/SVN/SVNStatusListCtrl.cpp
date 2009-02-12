@@ -3574,8 +3574,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 									// remove the entry completely
 									entriesToRemove.push_back(index);
 								}
-								else
+								else {
 									SetItemGroup(index, 0);
+									Sort();
+								}
 							}
 						}
 						for (std::vector<int>::reverse_iterator it = entriesToRemove.rbegin(); it != entriesToRemove.rend(); ++it)
@@ -3645,6 +3647,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 										SetItemGroup(index, m_changelists[e->changelist]);
 									else
 										SetItemGroup(index, 0);
+									Sort();
 								}
 							}
 						}
@@ -5153,6 +5156,7 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
 									::SendMessage(hParentWnd, CSVNStatusListCtrl::SVNSLNM_ADDFILE, 0, (LPARAM)changelistItems[l].GetWinPath());
 							}
 						}
+						m_pSVNStatusListCtrl->Sort();
 					}
 					else
 					{
@@ -5183,6 +5187,7 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
 									::SendMessage(hParentWnd, CSVNStatusListCtrl::SVNSLNM_ADDFILE, 0, (LPARAM)changelistItems[l].GetWinPath());
 							}
 						}
+						m_pSVNStatusListCtrl->Sort();
 					}
 					else
 					{
