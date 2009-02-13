@@ -93,6 +93,12 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
 			GetDlgItem(IDC_RESOLVEUSINGMINE)->ShowWindow(SW_SHOW);
 		}
 	}
+	else if (conflict_reason == svn_wc_conflict_reason_missing)
+	{
+		// a missing item leaves as the only option: mark the conflict as resolved :(
+		SetDlgItemText(IDC_INFOLABEL, CString(MAKEINTRESOURCE(IDS_TREECONFLICT_RESOLVE_HINT_DELETEUPONDELETE)));
+		GetDlgItem(IDC_RESOLVEUSINGMINE)->ShowWindow(SW_SHOW);
+	}
 	else
 	{
 		SetDlgItemText(IDC_INFOLABEL, CString(MAKEINTRESOURCE(IDC_TREECONFLICT_HOWTORESOLVE)));
