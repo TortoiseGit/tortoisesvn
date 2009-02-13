@@ -80,6 +80,8 @@ void CSettings::AddPropPages()
 	SetPageIcon(m_pTBlamePage, m_pTBlamePage->GetIconID());
 
 	AddPage(m_pMainPage);
+	AddPage(m_pRevisionGraphPage);
+	AddPage(m_pRevisionGraphColorsPage);
 	AddPage(m_pOverlayPage);
 	AddPage(m_pOverlaysPage);
 	AddPage(m_pProxyPage);
@@ -90,8 +92,6 @@ void CSettings::AddPropPages()
 	AddPage(m_pDialogsPage);
 	AddPage(m_pMiscPage);
 	AddPage(m_pColorsPage);
-	AddPage(m_pRevisionGraphPage);
-	AddPage(m_pRevisionGraphColorsPage);
 	AddPage(m_pSavedPage);
 	AddPage(m_pLogCachePage);
     AddPage(m_pLogCacheListPage);
