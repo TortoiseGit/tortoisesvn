@@ -261,36 +261,43 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
         MASK = CGraphNodeStates::COLLAPSED_BELOW | CGraphNodeStates::SPLIT_BELOW
     };
 
+    CNodeClassification nodeClassification = node->GetClassification();
     if (   (node->GetNext() == NULL) 
-        && (node->GetClassification().Is (CNodeClassification::PATH_ONLY_DELETED))
+        && (nodeClassification.Is (CNodeClassification::PATH_ONLY_DELETED))
         && ((m_state.GetNodeStates()->GetFlags (node) & MASK) == 0))
     {
         contour = m_Colors.GetColor (CColors::gdpDeletedNode);
     }
 
-    // calculate the RGB color values we need to draw the node
+    // calculate the GDI+ color values we need to draw the node
 
     Color background;
     background.SetFromCOLORREF (GetSysColor(COLOR_WINDOW));
     Color textColor;
-    textColor.SetFromCOLORREF (node->GetClassification().Is (CNodeClassification::IS_MODIFIED_WC)
-                                ? RGB (220, 0, 0)
-                                : GetSysColor(COLOR_WINDOWTEXT));
+    if (nodeClassification.Is (CNodeClassification::IS_MODIFIED_WC))
+        textColor = m_Colors.GetColor (CColors::gdpWCNodeBorder);
+    else
+        textColor.SetFromCOLORREF (GetSysColor(COLOR_WINDOWTEXT));
 
 	Color brightColor = LimitedScaleColor (background, contour, 0.9f);
 
 	// Draw the main shape
 
-    bool isWorkingCopy = node->GetClassification().Is (CNodeClassification::IS_WORKINGCOPY);
-    Color penColor = (contour.GetValue() == Color::White) || isWorkingCopy
+    bool isWorkingCopy 
+        = nodeClassification.Is (CNodeClassification::IS_WORKINGCOPY);
+    bool textAsBorderColor 
+        = nodeClassification.IsAnyOf ( CNodeClassification::IS_LAST
+                                     | CNodeClassification::IS_MODIFIED_WC)
+        | nodeClassification.Matches ( CNodeClassification::IS_COPY_SOURCE
+                                     , CNodeClassification::IS_OPERATION_MASK);
+
+    Color penColor = textAsBorderColor
                    ? textColor
                    : contour;
 
     Pen pen (penColor, isWorkingCopy ? 3.0f : 1.0f);
     SolidBrush brush (brightColor);
-
-    Pen* penRef = overlayColor.GetValue() == 0 ? &pen : NULL;
-    DrawShape (graphics, penRef, &brush, rect, shape);
+    DrawShape (graphics, &pen, &brush, rect, shape);
 
     // overlay with some other color
 

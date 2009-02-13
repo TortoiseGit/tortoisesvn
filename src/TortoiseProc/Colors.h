@@ -61,7 +61,9 @@ public:
         gdpTrunkOverlay = 17,
 
         gdpStripeColor1 = 18,
-        gdpStripeColor2 = 19
+        gdpStripeColor2 = 19,
+
+		gdpWCNodeBorder = 20
     };
 
 	COLORREF GetColor (Colors col, bool bDefault = false);
@@ -96,6 +98,7 @@ private:
 	CRegDWORD m_regGDPTrunkOverlay;
 	CRegDWORD m_regGDPStripeColor1;
 	CRegDWORD m_regGDPStripeColor2;
+    CRegDWORD m_regGDPWCNodeBorder;
 
     // utilities
 

@@ -55,6 +55,8 @@ CColors::CColors(void) : m_regAdded(_T("Software\\TortoiseSVN\\Colors\\Added"), 
 
 	, m_regGDPStripeColor1 (_T("Software\\TortoiseSVN\\Colors\\GDI+Stripe1"), 0x18F0F0C0)
 	, m_regGDPStripeColor2 (_T("Software\\TortoiseSVN\\Colors\\GDI+Stripe2"), 0x18A0D0E0)
+
+    , m_regGDPWCNodeBorder (_T("Software\\TortoiseSVN\\Colors\\GDI+WCBorder"), 0xFFD00000)
 {
 }
 
@@ -99,6 +101,7 @@ CRegDWORD* CColors::GetRegistrySetting (GDIPlusColor id)
     case gdpTrunkOverlay:   return &m_regGDPTrunkOverlay;
     case gdpStripeColor1:   return &m_regGDPStripeColor1;
     case gdpStripeColor2:   return &m_regGDPStripeColor2;
+    case gdpWCNodeBorder:   return &m_regGDPWCNodeBorder;
 	}
 
     return NULL;
