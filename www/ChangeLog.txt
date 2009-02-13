@@ -1,3 +1,6 @@
+Version 1.5.8
+- BUG: TortoiseMerge could loose line endings when saving edits. (Stefan)
+
 Version 1.5.7
 - BUG: Error text returned from a repository hook script could get split up
        wrong if empty lines were in the text. (Stefan)
