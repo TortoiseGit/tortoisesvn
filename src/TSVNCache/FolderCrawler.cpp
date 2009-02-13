@@ -126,7 +126,7 @@ void CFolderCrawler::WorkerThread()
 
 	for(;;)
 	{
-		bool bRecursive = !!(DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"), TRUE);
+		bool bRecursive = !!(DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"), TRUE);
 
 		if (SysInfo::Instance().IsVistaOrLater())
 		{

@@ -307,7 +307,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 		m_error = svn_error_create(NULL, NULL, tempA);
 #else
 		TCHAR string[1024];
-		LoadStringEx(g_hResInst, IDS_ERR_PROPNOTONFILE, string, 1024, (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+		LoadStringEx(g_hResInst, IDS_ERR_PROPNOTONFILE, string, 1024, (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 		std::string stringA = WideToMultibyte(wide_string(string));
 		m_error = svn_error_create(NULL, NULL, stringA.c_str());
 #endif
@@ -327,7 +327,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 				m_error = svn_error_create(NULL, NULL, tempA);
 #else
 				TCHAR string[1024];
-				LoadStringEx(g_hResInst, IDS_ERR_PROPNOMULTILINE, string, 1024, (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+				LoadStringEx(g_hResInst, IDS_ERR_PROPNOMULTILINE, string, 1024, (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 				std::string stringA = WideToMultibyte(wide_string(string));
 				m_error = svn_error_create(NULL, NULL, stringA.c_str());
 #endif

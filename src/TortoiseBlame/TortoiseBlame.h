@@ -155,6 +155,6 @@ protected:
 	FINDREPLACE					fr;
 	TCHAR						szFindWhat[80];
 
-	CRegStdWORD					m_regOldLinesColor;
-	CRegStdWORD					m_regNewLinesColor;
+	CRegStdDWORD					m_regOldLinesColor;
+	CRegStdDWORD					m_regNewLinesColor;
 };

@@ -309,6 +309,12 @@ private:
 public:
 
     /**
+     * Make the value type accessible to others.
+     */
+
+    typedef T ValueT;
+
+    /**
      * We use this instead of a default constructor because not all 
      * data types may provide an adequate default constructor.
      */
@@ -866,6 +872,113 @@ public:	//members
 };
 #endif
 
+#ifdef _MAP_
+template<class T>
+class CKeyList
+{
+private:
+
+    /// constructor parameters
+
+    typename T::StringT& key;
+    typename T::ValueT defaultValue;
+    HKEY base;
+
+    /// per-index defaults
+
+    typedef std::map<int, typename T::ValueT> TDefaults;
+    TDefaults defaults;
+
+    /// the indices accessed so far
+
+    typedef std::map<int, T*> TElements;
+    mutable TElements elements;
+
+    /// auto-insert
+
+    const typename T::ValueT& GetDefault (size_t index) const;
+    T& GetAt (size_t index) const;
+
+public:
+
+    /// construction
+
+    CKeyList (typename T::StringT& key, typename T::ValueT& defaultValue, HKEY base = HKEY_CURRENT_USER)
+        : key (key)
+        , defaultValue (defaultValue)
+        , base (base)
+    {
+    }
+
+    /// destruction: delete all elements
+
+    ~CKeyList()
+    {
+        for ( TElements::iterator iter = elements.begin()
+            , end = elements.end()
+            ; iter != end
+            ; ++iter)
+        {
+            delete iter->second;
+        }
+    }
+
+    /// data access
+
+    const T& operator[] (size_t index) const
+    {
+        return GetAt (index);
+    }
+
+    T& operator[] (size_t index)
+    {
+        return GetAt (index);
+    }
+
+    const TDefaults& GetDefaults() const
+    {
+        return defaults;
+    }
+
+    TDefaults& GetDefaults()
+    {
+        return defaults;
+    }
+
+    const typename T::ValueT& GetDefault() const
+    {
+        return defaultValue;
+    }
+};
+
+/// auto-insert
+
+template<class T>
+const typename T::ValueT& CKeyList<T>::GetDefault (size_t index) const
+{
+    TElements::iterator iter = elements.find (index);
+    return iter == elements.end() ? defaultValue : iter->second;
+}
+
+template<class T>
+T& CKeyList<T>::GetAt (size_t index) const
+{
+    TElements::iterator iter = elements.find (index);
+    if (iter == elements.end())
+    {
+        TCHAR buffer [10];
+        _itot_s (index, buffer, 10);
+        typename T::StringT indexKey = key + _T ('\\') + buffer;
+
+        T* newElement = new T (indexKey, GetDefault (index), false, HKEY);
+        iter = elements.insert (std::make_pair (index, newElement)).second;
+    }
+
+    return *iter->second;
+};
+
+#endif
+
 /**
  * Instantiate templates for common (data type, string type) combinations.
  */
@@ -875,11 +988,24 @@ CRegDWORDCommon<CRegBase>;
 typedef CRegDWORDCommon<CRegBase> CRegDWORD;
 CRegStringCommon<CRegBase>;
 typedef CRegStringCommon<CRegBase> CRegString;
+
+#ifdef _MAP_
+CKeyList<CRegDWORD>;
+typedef CKeyList<CRegDWORD> CRegDWORDList;
+CKeyList<CRegString>;
+typedef CKeyList<CRegString> CRegStringList;
+#endif
 #endif
 
 CRegDWORDCommon<CRegStdBase>;
-typedef CRegDWORDCommon<CRegStdBase> CRegStdWORD;
+typedef CRegDWORDCommon<CRegStdBase> CRegStdDWORD;
 CRegStringCommon<CRegStdBase>;
 typedef CRegStringCommon<CRegStdBase> CRegStdString;
 
+#ifdef _MAP_
+CKeyList<CRegStdDWORD>;
+typedef CKeyList<CRegStdDWORD> CRegStdDWORDList;
+CKeyList<CRegStdString>;
+typedef CKeyList<CRegStdString> CRegStdStringList;
+#endif
 

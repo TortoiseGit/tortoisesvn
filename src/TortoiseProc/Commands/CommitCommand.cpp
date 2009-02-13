@@ -51,7 +51,7 @@ bool CommitCommand::Execute()
 		return false;
 	}
 	CString sLogMsg = LoadLogMessage();
-	bool bSelectFilesForCommit = !!DWORD(CRegStdWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE));
+	bool bSelectFilesForCommit = !!DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE));
 	DWORD exitcode = 0;
 	CString error;
 	if (CHooks::Instance().StartCommit(pathList, sLogMsg, exitcode, error))

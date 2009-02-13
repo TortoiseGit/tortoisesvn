@@ -38,7 +38,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 {
 	UNREFERENCED_PARAMETER(hPrevInstance);
 
-	CRegStdWORD loc = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
+	CRegStdDWORD loc = CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	long langId = loc;
 
 	CLangDll langDLL;

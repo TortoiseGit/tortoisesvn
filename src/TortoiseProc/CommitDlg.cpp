@@ -1120,7 +1120,7 @@ bool CCommitDlg::HandleMenuItemClick(int cmd, CSciEdit * pSciEdit)
 					status = svn_wc_status_added;
 				if (status == svn_wc_status_missing)
 					status = svn_wc_status_deleted;
-				WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+				WORD langID = (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 				if (m_ProjectProperties.bFileListInEnglish)
 					langID = 1033;
 				SVNStatus::GetStatusString(AfxGetResourceHandle(), status, buf, sizeof(buf)/sizeof(TCHAR), langID);

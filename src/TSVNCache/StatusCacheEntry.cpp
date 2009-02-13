@@ -24,7 +24,7 @@
 
 #define CACHEENTRYDISKVERSION 5
 
-DWORD cachetimeout = (DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\Cachetimeout"), CACHETIMEOUT);
+DWORD cachetimeout = (DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\Cachetimeout"), CACHETIMEOUT);
 
 CStatusCacheEntry::CStatusCacheEntry()
 	: m_bSet(false)

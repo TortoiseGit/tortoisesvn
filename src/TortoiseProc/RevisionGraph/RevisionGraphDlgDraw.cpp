@@ -226,6 +226,21 @@ Color LimitedScaleColor (const Color& c1, const Color& c2, float factor)
                  , LimitedScaleColor (c1.GetB(), c2.GetB(), factor));
 }
 
+inline BYTE Darken (BYTE c)
+{
+    return c < 0xc0
+        ? (c / 3) * 2
+        : 2*c - 0x100;
+}
+
+Color Darken (const Color& c)
+{
+    return Color ( 0xff
+                 , Darken (c.GetR())
+                 , Darken (c.GetG())
+                 , Darken (c.GetB()));
+}
+
 BYTE MaxComponentDiff (const Color& c1, const Color& c2)
 {
     int rDiff = abs ((int)c1.GetR() - (int)c2.GetR());
@@ -649,13 +664,11 @@ void CRevisionGraphWnd::DrawMarker
     , int relPosition
     , int colorIndex )
 {
-    static const ARGB colorTable [2][2]
+    static const ARGB colorTable [2]
         = { // yellow-ish
-            { Color::MakeARGB (255, 250, 250, 92)
-            , Color::MakeARGB (255, 230, 230, 64)},
+            Color::MakeARGB (255, 250, 250, 92)
             // purple-ish
-            { Color::MakeARGB (255, 160, 92, 250)
-            , Color::MakeARGB (255, 120, 64, 230)}
+          , Color::MakeARGB (255, 160, 92, 250)
           };
 
 	// marker size
@@ -673,8 +686,8 @@ void CRevisionGraphWnd::DrawMarker
 
     // color
 
-    Color lightColor (colorTable [colorIndex][0]);
-    Color darkColor (colorTable [colorIndex][1]);
+    Color lightColor (colorTable [colorIndex]);
+    Color darkColor (Darken (lightColor));
     Color borderColor (0x80000000);
 
     // draw it

@@ -1033,7 +1033,7 @@ DWORD CSVNStatusListCtrl::GetShowFlagsFromSVNStatus(svn_wc_status_kind status)
 void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFolders /* = true */)
 {
 	Locker lock(m_critSec);
-	WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+	WORD langID = (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 
 	CWinApp * pApp = AfxGetApp();
 	if (pApp)
@@ -1172,7 +1172,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, bool bShowFolders /* = true */)
 {
 	Locker lock(m_critSec);
-	WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+	WORD langID = (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 
 	CWinApp * pApp = AfxGetApp();
 	if (pApp)
@@ -2154,7 +2154,7 @@ void CSVNStatusListCtrl::OnContextMenuGroup(CWnd * /*pWnd*/, CPoint point)
 
 void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 {
-	WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+	WORD langID = (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 
 	bool bShift = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
 
@@ -3951,7 +3951,7 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 CString CSVNStatusListCtrl::GetStatisticsString()
 {
 	CString sNormal, sAdded, sDeleted, sModified, sConflicted, sUnversioned;
-	WORD langID = (WORD)(DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+	WORD langID = (WORD)(DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 	TCHAR buf[MAX_STATUS_STRING_LENGTH];
 	SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_normal, buf, sizeof(buf)/sizeof(TCHAR), langID);
 	sNormal = buf;
@@ -4742,7 +4742,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 {
 	static CString ponly(MAKEINTRESOURCE(IDS_STATUSLIST_PROPONLY));
 	static HINSTANCE hResourceHandle(AfxGetResourceHandle());
-	WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+	WORD langID = (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 
 	CString sClipboard;
 	CString temp;

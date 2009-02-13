@@ -56,7 +56,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 
     // restore option state
 
-	DWORD dwOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 0x1ff199);
+	DWORD dwOpts = CRegStdDWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 0x1ff199);
     m_Graph.m_state.GetOptions()->SetRegistryFlags (dwOpts, 0x7fbf);
 }
 
@@ -64,7 +64,7 @@ CRevisionGraphDlg::~CRevisionGraphDlg()
 {
     // save option state
 
-	CRegStdWORD regOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 1);
+	CRegStdDWORD regOpts = CRegStdDWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 1);
     regOpts = m_Graph.m_state.GetOptions()->GetRegistryFlags();
 
     // GDI+ cleanup

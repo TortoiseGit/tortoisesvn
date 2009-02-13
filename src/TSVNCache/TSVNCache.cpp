@@ -174,7 +174,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	{
 		return 0;
 	}
-	if (CRegStdWORD(_T("Software\\TortoiseSVN\\CacheTrayIcon"), FALSE)==TRUE)
+	if (CRegStdDWORD(_T("Software\\TortoiseSVN\\CacheTrayIcon"), FALSE)==TRUE)
 	{
 		SecureZeroMemory(&niData,sizeof(NOTIFYICONDATA));
 
