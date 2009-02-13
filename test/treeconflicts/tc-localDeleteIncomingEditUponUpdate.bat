@@ -1,8 +1,8 @@
 ::@echo off
 set ROOT=D:\Development\SVN\SVNTests
 set REPOROOT=D:/Development/SVN/SVNTests
-set REPONAME=tcLocalDeleteIncomingEditRepo
-set WCNAME=tcLocalDeleteIncomingEditWC
+set REPONAME=localDeleteIncomingEditUponUpdateRepo
+set WCNAME=localDeleteIncomingEditUponUpdateWC
 set REPO=svn://localhost:40000/
 set WC=%ROOT%\%WCNAME%
 
@@ -12,11 +12,11 @@ set SVNADM=D:\Development\SVN\TortoiseSVN\bin\debug\bin\svnadmin.exe
 ::set SVNADM=svnadmin.exe
 
 cd %ROOT%
-if exist %REPOROOT%/%REPONAME% rd /s /q %REPOROOT%/%REPONAME%
+if exist %REPONAME% rd /s /q %REPONAME%
 if exist %WCNAME%1 rd /s /q %WCNAME%1
 if exist %WCNAME%2 rd /s /q %WCNAME%2
 
-mkdir %REPOROOT%\%REPONAME%
+mkdir %ROOT%\%REPONAME%
 svnadmin create %REPOROOT%\%REPONAME%
 
 echo [general]> %REPOROOT%\%REPONAME%\conf\svnserve.conf

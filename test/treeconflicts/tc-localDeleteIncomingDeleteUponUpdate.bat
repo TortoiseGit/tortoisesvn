@@ -12,11 +12,11 @@ set SVNADM=D:\Development\SVN\TortoiseSVN\bin\debug\bin\svnadmin.exe
 ::set SVNADM=svnadmin.exe
 
 cd %ROOT%
-if exist %REPOROOT%/%REPONAME% rd /s /q %REPOROOT%/%REPONAME%
+if exist %REPONAME% rd /s /q %REPONAME%
 if exist %WCNAME%1 rd /s /q %WCNAME%1
 if exist %WCNAME%2 rd /s /q %WCNAME%2
 
-mkdir %REPOROOT%\%REPONAME%
+mkdir %ROOT%\%REPONAME%
 svnadmin create %REPOROOT%\%REPONAME%
 
 echo [general]> %REPOROOT%\%REPONAME%\conf\svnserve.conf
