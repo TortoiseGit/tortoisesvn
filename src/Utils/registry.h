@@ -880,7 +880,7 @@ private:
 
     /// constructor parameters
 
-    typename T::StringT& key;
+    typename T::StringT key;
     typename T::ValueT defaultValue;
     HKEY base;
 
@@ -903,7 +903,7 @@ public:
 
     /// construction
 
-    CKeyList (typename T::StringT& key, typename T::ValueT& defaultValue, HKEY base = HKEY_CURRENT_USER)
+    CKeyList (const typename T::StringT& key, const typename T::ValueT& defaultValue, HKEY base = HKEY_CURRENT_USER)
         : key (key)
         , defaultValue (defaultValue)
         , base (base)
@@ -956,8 +956,8 @@ public:
 template<class T>
 const typename T::ValueT& CKeyList<T>::GetDefault (size_t index) const
 {
-    TElements::iterator iter = elements.find (index);
-    return iter == elements.end() ? defaultValue : iter->second;
+    TDefaults::const_iterator iter = defaults.find (index);
+    return iter == defaults.end() ? defaultValue : iter->second;
 }
 
 template<class T>
@@ -970,8 +970,8 @@ T& CKeyList<T>::GetAt (size_t index) const
         _itot_s (index, buffer, 10);
         typename T::StringT indexKey = key + _T ('\\') + buffer;
 
-        T* newElement = new T (indexKey, GetDefault (index), false, HKEY);
-        iter = elements.insert (std::make_pair (index, newElement)).second;
+        T* newElement = new T (indexKey, GetDefault (index), false, base);
+        iter = elements.insert (std::make_pair (index, newElement)).first;
     }
 
     return *iter->second;

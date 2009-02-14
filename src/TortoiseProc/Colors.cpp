@@ -57,7 +57,11 @@ CColors::CColors(void) : m_regAdded(_T("Software\\TortoiseSVN\\Colors\\Added"), 
 	, m_regGDPStripeColor2 (_T("Software\\TortoiseSVN\\Colors\\GDI+Stripe2"), 0x18A0D0E0)
 
     , m_regGDPWCNodeBorder (_T("Software\\TortoiseSVN\\Colors\\GDI+WCBorder"), 0xFFD00000)
+
+    , m_regCTMarkers (_T("Software\\TortoiseSVN\\Colors\\MarkersTable"), 0)
 {
+    m_regCTMarkers.GetDefaults()[0] = Color::MakeARGB (255, 250, 250, 92);
+    m_regCTMarkers.GetDefaults()[1] = Color::MakeARGB (255, 160, 92, 250);
 }
 
 CColors::~CColors(void)
@@ -102,6 +106,16 @@ CRegDWORD* CColors::GetRegistrySetting (GDIPlusColor id)
     case gdpStripeColor1:   return &m_regGDPStripeColor1;
     case gdpStripeColor2:   return &m_regGDPStripeColor2;
     case gdpWCNodeBorder:   return &m_regGDPWCNodeBorder;
+	}
+
+    return NULL;
+}
+
+CRegDWORDList* CColors::GetRegistrySetting (GDIPlusColorTable id)
+{
+	switch (id)
+	{
+    case ctMarkers:         return &m_regCTMarkers;
 	}
 
     return NULL;
@@ -174,3 +188,25 @@ void CColors::SetColor (GDIPlusColor id, Color color)
     if ((lecagySetting != NULL) && lecagySetting->exists())
         lecagySetting->removeKey();
 }
+
+Gdiplus::Color CColors::GetColor (GDIPlusColorTable id, int index, bool bDefault)
+{
+    CRegDWORDList* list = GetRegistrySetting (id);
+    if (list == NULL)
+        return Color();
+
+    CRegDWORD& setting = (*list)[index];
+    return bDefault
+        ? setting.defaultValue()
+        : (DWORD)setting;
+}
+
+void CColors::SetColor (GDIPlusColorTable id, int index, Gdiplus::Color color)
+{
+    CRegDWORDList* setting = GetRegistrySetting (id);
+    if (setting == NULL)
+        return;
+
+    (*setting)[index] = color.GetValue();
+}
+

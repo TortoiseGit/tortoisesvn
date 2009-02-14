@@ -66,12 +66,20 @@ public:
 		gdpWCNodeBorder = 20
     };
 
+    enum GDIPlusColorTable
+    {
+        ctMarkers = 0
+    };
+
 	COLORREF GetColor (Colors col, bool bDefault = false);
 	void SetColor(Colors col, COLORREF cr);
 
     Gdiplus::Color GetColor (GDIPlusColor id, bool bDefault = false);
     void SetColor (GDIPlusColor id, Gdiplus::Color color);
 	
+    Gdiplus::Color GetColor (GDIPlusColorTable id, int index, bool bDefault = false);
+    void SetColor (GDIPlusColorTable id, int index, Gdiplus::Color color);
+
 private:
 	CRegDWORD m_regCmd;
 	CRegDWORD m_regConflict;
@@ -100,9 +108,12 @@ private:
 	CRegDWORD m_regGDPStripeColor2;
     CRegDWORD m_regGDPWCNodeBorder;
 
+    CRegDWORDList m_regCTMarkers;
+
     // utilities
 
     CRegDWORD* GetRegistrySetting (Colors id);
     CRegDWORD* GetRegistrySetting (GDIPlusColor id);
+    CRegDWORDList* GetRegistrySetting (GDIPlusColorTable id);
     CRegDWORD* GetLegacyRegistrySetting (GDIPlusColor id);
 };

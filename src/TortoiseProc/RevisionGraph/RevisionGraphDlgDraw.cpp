@@ -664,13 +664,6 @@ void CRevisionGraphWnd::DrawMarker
     , int relPosition
     , int colorIndex )
 {
-    static const ARGB colorTable [2]
-        = { // yellow-ish
-            Color::MakeARGB (255, 250, 250, 92)
-            // purple-ish
-          , Color::MakeARGB (255, 160, 92, 250)
-          };
-
 	// marker size
     float squareSize = MARKER_SIZE * m_fZoomFactor;
     float squareDist = min ( (noderect.Height - squareSize) / 2
@@ -686,7 +679,7 @@ void CRevisionGraphWnd::DrawMarker
 
     // color
 
-    Color lightColor (colorTable [colorIndex]);
+    Color lightColor (m_Colors.GetColor (CColors::ctMarkers, colorIndex));
     Color darkColor (Darken (lightColor));
     Color borderColor (0x80000000);
 
