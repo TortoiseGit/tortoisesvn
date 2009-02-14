@@ -46,7 +46,17 @@ namespace Interop.BugTraqProvider
 			[MarshalAs( UnmanagedType.BStr )] string commonURL,
 			[MarshalAs( UnmanagedType.BStr )] string commonRoot,
 			[MarshalAs( UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_BSTR )] string[] pathList,
-			[MarshalAs( UnmanagedType.BStr )] string originalMessage );
+			[MarshalAs( UnmanagedType.BStr )] string originalMessage,
+			[MarshalAs( UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_BSTR )] out string[] revPropNames,
+			[MarshalAs( UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_BSTR )] out string[] revPropValues );
+
+		[return: MarshalAs( UnmanagedType.BStr )]
+		string CheckCommit( IntPtr hParentWnd,
+			[MarshalAs( UnmanagedType.BStr )] string parameters,
+			[MarshalAs( UnmanagedType.BStr )] string commonURL,
+			[MarshalAs( UnmanagedType.BStr )] string commonRoot,
+			[MarshalAs( UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_BSTR )] string[] pathList,
+			[MarshalAs( UnmanagedType.BStr )] string commitMessage );
 
 		[return: MarshalAs( UnmanagedType.BStr )]
 		string OnCommitFinished(

@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Sat Oct 18 18:21:47 2008
+/* at Fri Feb 13 18:04:05 2009
  */
 /* Compiler settings for .\IBugTraqProvider.idl:
     Oicf, W4, Zp8, env=Win32 (32b run)
@@ -215,7 +215,18 @@ EXTERN_C const IID IID_IBugTraqProvider2;
             /* [in] */ BSTR commonRoot,
             /* [in] */ SAFEARRAY * pathList,
             /* [in] */ BSTR originalMessage,
+            /* [out] */ SAFEARRAY * *revPropNames,
+            /* [out] */ SAFEARRAY * *revPropValues,
             /* [retval][out] */ BSTR *newMessage) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE CheckCommit( 
+            /* [in] */ HWND hParentWnd,
+            /* [in] */ BSTR parameters,
+            /* [in] */ BSTR commonURL,
+            /* [in] */ BSTR commonRoot,
+            /* [in] */ SAFEARRAY * pathList,
+            /* [in] */ BSTR commitMessage,
+            /* [retval][out] */ BSTR *errorMessage) = 0;
         
         virtual HRESULT STDMETHODCALLTYPE OnCommitFinished( 
             /* [in] */ HWND hParentWnd,
@@ -282,7 +293,19 @@ EXTERN_C const IID IID_IBugTraqProvider2;
             /* [in] */ BSTR commonRoot,
             /* [in] */ SAFEARRAY * pathList,
             /* [in] */ BSTR originalMessage,
+            /* [out] */ SAFEARRAY * *revPropNames,
+            /* [out] */ SAFEARRAY * *revPropValues,
             /* [retval][out] */ BSTR *newMessage);
+        
+        HRESULT ( STDMETHODCALLTYPE *CheckCommit )( 
+            IBugTraqProvider2 * This,
+            /* [in] */ HWND hParentWnd,
+            /* [in] */ BSTR parameters,
+            /* [in] */ BSTR commonURL,
+            /* [in] */ BSTR commonRoot,
+            /* [in] */ SAFEARRAY * pathList,
+            /* [in] */ BSTR commitMessage,
+            /* [retval][out] */ BSTR *errorMessage);
         
         HRESULT ( STDMETHODCALLTYPE *OnCommitFinished )( 
             IBugTraqProvider2 * This,
@@ -336,8 +359,11 @@ EXTERN_C const IID IID_IBugTraqProvider2;
     ( (This)->lpVtbl -> GetCommitMessage(This,hParentWnd,parameters,commonRoot,pathList,originalMessage,newMessage) ) 
 
 
-#define IBugTraqProvider2_GetCommitMessage2(This,hParentWnd,parameters,commonURL,commonRoot,pathList,originalMessage,newMessage)	\
-    ( (This)->lpVtbl -> GetCommitMessage2(This,hParentWnd,parameters,commonURL,commonRoot,pathList,originalMessage,newMessage) ) 
+#define IBugTraqProvider2_GetCommitMessage2(This,hParentWnd,parameters,commonURL,commonRoot,pathList,originalMessage,revPropNames,revPropValues,newMessage)	\
+    ( (This)->lpVtbl -> GetCommitMessage2(This,hParentWnd,parameters,commonURL,commonRoot,pathList,originalMessage,revPropNames,revPropValues,newMessage) ) 
+
+#define IBugTraqProvider2_CheckCommit(This,hParentWnd,parameters,commonURL,commonRoot,pathList,commitMessage,errorMessage)	\
+    ( (This)->lpVtbl -> CheckCommit(This,hParentWnd,parameters,commonURL,commonRoot,pathList,commitMessage,errorMessage) ) 
 
 #define IBugTraqProvider2_OnCommitFinished(This,hParentWnd,commonRoot,pathList,logMessage,revision,error)	\
     ( (This)->lpVtbl -> OnCommitFinished(This,hParentWnd,commonRoot,pathList,logMessage,revision,error) ) 

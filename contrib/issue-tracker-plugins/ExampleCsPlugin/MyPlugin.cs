@@ -27,11 +27,13 @@ namespace ExampleCsPlugin
         public string GetCommitMessage(IntPtr hParentWnd, string parameters, string commonRoot, string[] pathList,
                                        string originalMessage)
         {
-			return GetCommitMessage2( hParentWnd, parameters, "", commonRoot, pathList, originalMessage );
+			string[] revPropNames = new string[0];
+			string[] revPropValues = new string[0];
+			return GetCommitMessage2( hParentWnd, parameters, "", commonRoot, pathList, originalMessage, out revPropNames, out revPropValues );
         }
 
 		public string GetCommitMessage2( IntPtr hParentWnd, string parameters, string commonURL, string commonRoot, string[] pathList,
-							   string originalMessage )
+							   string originalMessage, out string[] revPropNames, out string[] revPropValues )
 		{
 			try
 			{
@@ -44,6 +46,12 @@ namespace ExampleCsPlugin
 								foreach (string path in pathList)
 									tickets.Add(new TicketItem(99, path));
 				 */
+				revPropNames = new string[2];
+				revPropValues = new string[2];
+				revPropNames[0] = "bugtraq:issueIDs";
+				revPropNames[1] = "myownproperty";
+				revPropValues[0] = "13, 16, 17";
+				revPropValues[1] = "myownvalue";
 
 				MyIssuesForm form = new MyIssuesForm( tickets );
 				if ( form.ShowDialog( ) != DialogResult.OK )
@@ -67,6 +75,11 @@ namespace ExampleCsPlugin
 				MessageBox.Show( ex.ToString( ) );
 				throw;
 			}
+		}
+
+		public string CheckCommit( IntPtr hParentWnd, string parameters, string commonURL, string commonRoot, string[] pathList, string commitMessage )
+		{
+			return "the commit log message is not correct.";
 		}
 
 		public string OnCommitFinished( IntPtr hParentWnd, string commonRoot, string[] pathList, string logMessage, int revision )

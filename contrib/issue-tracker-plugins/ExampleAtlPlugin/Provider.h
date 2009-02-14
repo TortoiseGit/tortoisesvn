@@ -52,7 +52,18 @@ public:
 		/* [in] */ BSTR commonRoot,
 		/* [in] */ SAFEARRAY * pathList,
 		/* [in] */ BSTR originalMessage,
+		/* [out]*/ SAFEARRAY ** revPropNames,
+		/* [out]*/ SAFEARRAY ** revPropValues,
 		/* [retval][out] */ BSTR *newMessage);
+
+	virtual HRESULT STDMETHODCALLTYPE CheckCommit (
+		/* [in] */ HWND hParentWnd,
+		/* [in] */ BSTR parameters,
+		/* [in] */ BSTR commonURL,
+		/* [in] */ BSTR commonRoot,
+		/* [in] */ SAFEARRAY * pathList,
+		/* [in] */ BSTR commitMessage,
+		/* [out, retval] */ BSTR * errorMessage);
 
 	virtual HRESULT STDMETHODCALLTYPE OnCommitFinished (
 		/* [in] */ HWND hParentWnd,

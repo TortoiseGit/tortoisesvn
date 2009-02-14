@@ -6,7 +6,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Sat Oct 18 18:21:47 2008
+/* at Fri Feb 13 18:04:05 2009
  */
 /* Compiler settings for .\IBugTraqProvider.idl:
     Oicf, W4, Zp8, env=Win32 (32b run)

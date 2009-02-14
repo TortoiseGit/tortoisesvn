@@ -530,6 +530,46 @@ void CCommitDlg::OnOK()
 		else
 			m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
 	}
+
+	// now let the bugtraq plugin check the commit message
+	CComPtr<IBugTraqProvider2> pProvider2 = NULL;
+	if (m_BugTraqProvider)
+	{
+		HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider2);
+		if (SUCCEEDED(hr))
+		{
+			BSTR temp = NULL;
+			CString common = m_ListCtrl.GetCommonURL(false).GetSVNPathString();
+			BSTR repositoryRoot = common.AllocSysString();
+			BSTR parameters = m_bugtraq_association.GetParameters().AllocSysString();
+			BSTR commonRoot = SysAllocString(m_pathList.GetCommonRoot().GetDirectory().GetWinPath());
+			BSTR commitMessage = m_sLogMessage.AllocSysString();
+			SAFEARRAY *pathList = SafeArrayCreateVector(VT_BSTR, 0, m_pathList.GetCount());
+
+			for (LONG index = 0; index < m_pathList.GetCount(); ++index)
+				SafeArrayPutElement(pathList, &index, m_pathList[index].GetSVNPathString().AllocSysString());
+
+			if (FAILED(hr = pProvider2->CheckCommit(GetSafeHwnd(), parameters, repositoryRoot, commonRoot, pathList, commitMessage, &temp)))
+			{
+				CString sErr;
+				sErr.Format(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), _com_error(hr).ErrorMessage());
+				CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
+			}
+			else
+			{
+				CString sError = temp;
+				if (!sError.IsEmpty())
+				{
+					CMessageBox::Show(m_hWnd, sError, _T("TortoiseSVN"), MB_ICONERROR);
+					return;
+				}
+				SysFreeString(temp);
+			}
+		}
+	}
+
+
+
 	m_History.AddEntry(m_sLogMessage);
 	m_History.Save();
 
@@ -1204,6 +1244,7 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 
 	BSTR originalMessage = sMsg.AllocSysString();
 	BSTR temp = NULL;
+	m_revProps.clear();
 
 	// first try the IBugTraqProvider2 interface
 	CComPtr<IBugTraqProvider2> pProvider2 = NULL;
@@ -1212,14 +1253,42 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 	{
 		CString common = m_ListCtrl.GetCommonURL(false).GetSVNPathString();
 		BSTR repositoryRoot = common.AllocSysString();
-		if (FAILED(hr = pProvider2->GetCommitMessage2(GetSafeHwnd(), parameters, repositoryRoot, commonRoot, pathList, originalMessage, &temp)))
+		SAFEARRAY * revPropNames = NULL;
+		SAFEARRAY * revPropValues = NULL;
+		if (FAILED(hr = pProvider2->GetCommitMessage2(GetSafeHwnd(), parameters, repositoryRoot, commonRoot, pathList, originalMessage, &revPropNames, &revPropValues, &temp)))
 		{
 			CString sErr;
 			sErr.Format(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), _com_error(hr).ErrorMessage());
 			CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
 		}
 		else
+		{
 			m_cLogMessage.SetText(temp);
+			BSTR HUGEP *pbRevNames;
+			BSTR HUGEP *pbRevValues;
+
+			HRESULT hr1 = SafeArrayAccessData(revPropNames, (void HUGEP**)&pbRevNames);
+			if (SUCCEEDED(hr1))
+			{
+				HRESULT hr2 = SafeArrayAccessData(revPropValues, (void HUGEP**)&pbRevValues);
+				if (SUCCEEDED(hr2))
+				{
+					if (revPropNames->rgsabound->cElements == revPropValues->rgsabound->cElements)
+					{
+						for (ULONG i = 0; i < revPropNames->rgsabound->cElements; i++)
+						{
+							m_revProps[pbRevNames[i]] = pbRevValues[i];
+						}
+					}
+					SafeArrayUnaccessData(revPropValues);
+				}
+				SafeArrayUnaccessData(revPropNames);
+			}
+			if (revPropNames)
+				SafeArrayDestroy(revPropNames);
+			if (revPropValues)
+				SafeArrayDestroy(revPropValues);
+		}
 	}
 	else
 	{

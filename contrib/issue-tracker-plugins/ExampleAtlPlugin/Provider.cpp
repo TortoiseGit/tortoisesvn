@@ -71,7 +71,7 @@ HRESULT STDMETHODCALLTYPE CProvider::GetCommitMessage(
     /* [in] */ BSTR originalMessage,
     /* [retval][out] */ BSTR *newMessage)
 {
-	return GetCommitMessage2(hParentWnd, parameters, NULL, commonRoot, pathList, originalMessage, newMessage);
+	return GetCommitMessage2(hParentWnd, parameters, NULL, commonRoot, pathList, originalMessage, NULL, NULL, newMessage);
 }
 
 HRESULT STDMETHODCALLTYPE CProvider::GetCommitMessage2( 
@@ -81,6 +81,8 @@ HRESULT STDMETHODCALLTYPE CProvider::GetCommitMessage2(
 	/* [in] */ BSTR commonRoot,
 	/* [in] */ SAFEARRAY * pathList,
 	/* [in] */ BSTR originalMessage,
+	/* [out]*/ SAFEARRAY ** revPropNames,
+	/* [out]*/ SAFEARRAY ** revPropValues,
 	/* [retval][out] */ BSTR *newMessage)
 {
 	USES_CONVERSION;
@@ -152,12 +154,55 @@ HRESULT STDMETHODCALLTYPE CProvider::GetCommitMessage2(
 		CloseHandle(hOrig);
 
 		message = A2T((const char *)buffer);
+
+
+		CString propName1 = _T("bugtraq:issueIDs");
+		CString propName2 = _T("myownproperty");
+		CString propValue1 = _T("13, 16, 17");
+		CString propValue2 = _T("myownvalue");
+
+		{
+			SAFEARRAYBOUND bounds = {2, 0};
+			SAFEARRAY* psa = SafeArrayCreate(VT_BSTR, 1, &bounds);
+			BSTR* strArray;
+			SafeArrayAccessData(psa, reinterpret_cast<void**> (&strArray));
+			strArray[0] = propName1.AllocSysString();
+			strArray[1] = propName2.AllocSysString();
+			SafeArrayUnaccessData(psa);
+			*revPropNames = psa;
+		}
+		{
+			SAFEARRAYBOUND bounds = {2, 0};
+			SAFEARRAY* psa = SafeArrayCreate(VT_BSTR, 1, &bounds);
+			BSTR* strArray;
+			SafeArrayAccessData(psa, reinterpret_cast<void**> (&strArray));
+			strArray[0] = propValue1.AllocSysString();
+			strArray[1] = propValue2.AllocSysString();
+			SafeArrayUnaccessData(psa);
+			*revPropValues = psa;
+		}
+		
+
 	}
 
 	DeleteFile(szPathListTempFile);
 	DeleteFile(szOriginalMessageTempFile);
 
 	*newMessage = message.AllocSysString();
+	return S_OK;
+}
+
+HRESULT STDMETHODCALLTYPE CProvider::CheckCommit (
+	 /* [in] */ HWND hParentWnd,
+	 /* [in] */ BSTR parameters,
+	 /* [in] */ BSTR commonURL,
+	 /* [in] */ BSTR commonRoot,
+	 /* [in] */ SAFEARRAY * pathList,
+	 /* [in] */ BSTR commitMessage,
+	 /* [out, retval] */ BSTR * errorMessage)
+{
+	CString err = _T("Test error string");
+	*errorMessage = err.AllocSysString();
 	return S_OK;
 }
 

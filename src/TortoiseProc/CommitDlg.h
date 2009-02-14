@@ -104,6 +104,7 @@ public:
 	BOOL				m_bRecursive;
 	CSciEdit			m_cLogMessage;
 	CString				m_sLogMessage;
+	std::map<CString, CString> m_revProps;
 	BOOL				m_bKeepLocks;
 	CString				m_sBugID;
 	CString				m_sChangeList;
