@@ -371,7 +371,7 @@ BOOL SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, const
 	return TRUE;
 }
 
-BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, BOOL keeplocal, const CString& message, const std::map<CString, CString> revProps)
+BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, BOOL keeplocal, const CString& message, const RevPropHash revProps)
 {
 	// svn_client_delete needs to run on a sub-pool, so that after it's run, the pool
 	// cleanups get run.  For example, after a failure do to an unforced delete on 
@@ -562,7 +562,7 @@ BOOL SVN::Update(const CTSVNPathList& pathList, const SVNRev& revision, svn_dept
 }
 
 svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message, 
-						 const CStringArray& changelists, BOOL keepchangelist, svn_depth_t depth, BOOL keep_locks, std::map<CString, CString> revProps)
+						 const CStringArray& changelists, BOOL keepchangelist, svn_depth_t depth, BOOL keep_locks, const RevPropHash revProps)
 {
 	SVNPool localpool(pool);
 
@@ -613,7 +613,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
 
 BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
 			   const SVNRev& revision, const SVNRev& pegrev, const CString& logmsg, bool copy_as_child, 
-			   bool make_parents, std::map<CString, CString> revProps)
+			   bool make_parents, const RevPropHash revProps)
 {
 	SVNPool subpool(pool);
 
@@ -659,7 +659,7 @@ BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 BOOL SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
 			   BOOL force, const CString& message /* = _T("")*/, 
 			   bool move_as_child /* = false*/, bool make_parents /* = false */,
-			   std::map<CString, CString> revProps /* = std::map<CString, CString>() */ )
+			   const RevPropHash revProps /* = RevPropHash() */ )
 {
 	SVNPool subpool(pool);
 
@@ -701,7 +701,7 @@ BOOL SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 	return TRUE;
 }
 
-BOOL SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool makeParents, std::map<CString, CString> revProps)
+BOOL SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool makeParents, const RevPropHash revProps)
 {
 	svn_error_clear(Err);
 	Err = NULL;
@@ -1000,7 +1000,7 @@ BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revi
 
 BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& message, 
 				 ProjectProperties * props, svn_depth_t depth, BOOL no_ignore, BOOL ignore_unknown,
-				 std::map<CString, CString> revProps)
+				 const RevPropHash revProps)
 {
 	// the import command should use the mime-type file
 	const char *mimetypes_file = NULL;
@@ -2620,13 +2620,13 @@ apr_array_header_t * SVN::MakeChangeListArray(const CStringArray& changelists, a
 	return arr;
 }
 
-apr_hash_t * SVN::MakeRevPropHash(const std::map<CString, CString> revProps, apr_pool_t * pool)
+apr_hash_t * SVN::MakeRevPropHash(const RevPropHash revProps, apr_pool_t * pool)
 {
 	apr_hash_t * revprop_table = NULL;
 	if (revProps.size())
 	{
 		revprop_table = apr_hash_make(pool);
-		for (std::map<CString, CString>::const_iterator it = revProps.begin(); it != revProps.end(); ++it)
+		for (RevPropHash::const_iterator it = revProps.begin(); it != revProps.end(); ++it)
 		{
 			svn_string_t *propval = svn_string_create((LPCSTR)CUnicodeUtils::GetUTF8(it->second), pool);
 			apr_hash_set (revprop_table, apr_pstrdup(pool, (LPCSTR)CUnicodeUtils::GetUTF8(it->first)), APR_HASH_KEY_STRING, (const void*)propval);
