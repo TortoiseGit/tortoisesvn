@@ -844,7 +844,6 @@ void CRevisionGraphWnd::DrawConnections (CDC* pDC, const CRect& logRect, const C
 void CRevisionGraphWnd::DrawTexts (CDC* pDC, const CRect& logRect, const CSize& offset)
 {
 	COLORREF standardTextColor = GetSysColor(COLOR_WINDOWTEXT);
-	COLORREF warningTextColor = RGB (192, 0, 0);
     if (m_nFontSize <= 0)
         return;
 
@@ -867,7 +866,7 @@ void CRevisionGraphWnd::DrawTexts (CDC* pDC, const CRect& logRect, const CSize& 
 		// draw the revision text
 
 		pDC->SetTextColor (text.style == ILayoutTextList::SText::STYLE_WARNING
-                            ? warningTextColor
+                            ? m_Colors.GetColor (CColors::gdpWCNodeBorder).ToCOLORREF()
                             : standardTextColor );
         pDC->SelectObject (GetFont (FALSE, text.style != ILayoutTextList::SText::STYLE_DEFAULT));
         pDC->ExtTextOut ((textRect.left + textRect.right)/2, textRect.top, 0, &textRect, text.text, NULL);
