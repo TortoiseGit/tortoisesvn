@@ -37,9 +37,9 @@
 		<echo file="subversion\svn_private_config.h" message="${configfile}" />
 		
 		<exec program="python.exe">
-			<arg value="..\build\transform_sql.py" />
+			<arg value="build\transform_sql.py" />
 			<arg value="subversion\libsvn_fs_fs\rep-cache-db.sql" />
-			<arg value="subversion\libsvn_fs_fs\rep-cache-db.sql_h" />
+			<arg value="subversion\libsvn_fs_fs\rep-cache-db.h" />
 		</exec>
 
 		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
