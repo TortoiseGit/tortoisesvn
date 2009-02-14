@@ -52,6 +52,10 @@ private:
     void ResetColor (CMFCColorButton& button, CColors::GDIPlusColor color);
     void ApplyColor (CMFCColorButton& button, CColors::GDIPlusColor color, DWORD alpha = 255);
 
+    void InitColorPicker (CMFCColorButton& button, CColors::GDIPlusColorTable table, int index);
+    void ResetColor (CMFCColorButton& button, CColors::GDIPlusColorTable table, int index);
+    void ApplyColor (CMFCColorButton& button, CColors::GDIPlusColorTable table, int index);
+
     // controls
 
     CMFCColorButton m_cAddedNode;
@@ -61,9 +65,13 @@ private:
     CMFCColorButton m_cUnchangedNode;
 	CMFCColorButton m_cLastCommitNode;
     CMFCColorButton m_cWCNode;
+    CMFCColorButton m_cWCNodeBorder;
 
     CMFCColorButton m_cTagOverlay;
     CMFCColorButton m_cTrunkOverlay;
+
+    CMFCColorButton m_cTagMarker;
+    CMFCColorButton m_cTrunkMarker;
 
     CMFCColorButton m_cStripeColor1;
     CMFCColorButton m_cStripeColor2;

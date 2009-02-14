@@ -42,9 +42,13 @@ void CSettingsRevisionGraphColors::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_UNCHANGEDNODECOLOR, m_cUnchangedNode);
     DDX_Control(pDX, IDC_LASTCOMMITNODECOLOR, m_cLastCommitNode);
     DDX_Control(pDX, IDC_WCNODECOLOR, m_cWCNode);
+    DDX_Control(pDX, IDC_WCNODEBORDERCOLOR, m_cWCNodeBorder);
 
     DDX_Control(pDX, IDC_TAGOVERLAYCOLOR, m_cTagOverlay);
     DDX_Control(pDX, IDC_TRUNKOVERLAYCOLOR, m_cTrunkOverlay);
+
+    DDX_Control(pDX, IDC_TAGMARKERCOLOR, m_cTagMarker);
+    DDX_Control(pDX, IDC_TRUNKMARKERCOLOR, m_cTrunkMarker);
 
     DDX_Control(pDX, IDC_STRIPECOLOR1, m_cStripeColor1);
     DDX_Control(pDX, IDC_STRIPECOLOR2, m_cStripeColor2);
@@ -63,9 +67,13 @@ BEGIN_MESSAGE_MAP(CSettingsRevisionGraphColors, ISettingsPropPage)
     ON_BN_CLICKED(IDC_UNCHANGEDNODECOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
     ON_BN_CLICKED(IDC_LASTCOMMITNODECOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
     ON_BN_CLICKED(IDC_WCNODECOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_WCNODEBORDERCOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
 
     ON_BN_CLICKED(IDC_TAGOVERLAYCOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
     ON_BN_CLICKED(IDC_TRUNKOVERLAYCOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
+
+    ON_BN_CLICKED(IDC_TAGMARKERCOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_TRUNKMARKERCOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
 
     ON_BN_CLICKED(IDC_STRIPECOLOR1, &CSettingsRevisionGraphColors::OnBnClickedColor)
     ON_BN_CLICKED(IDC_STRIPECOLOR2, &CSettingsRevisionGraphColors::OnBnClickedColor)
@@ -87,6 +95,21 @@ void CSettingsRevisionGraphColors::InitColorPicker
 	button.EnableOtherButton (sCustomText);
 }
 
+void CSettingsRevisionGraphColors::InitColorPicker 
+    ( CMFCColorButton& button
+    , CColors::GDIPlusColorTable table
+    , int index)
+{
+	CString sDefaultText;
+    CString sCustomText;
+	sDefaultText.LoadString (IDS_COLOURPICKER_DEFAULTTEXT);
+	sCustomText.LoadString (IDS_COLOURPICKER_CUSTOMTEXT);
+
+	button.SetColor (m_Colors.GetColor (table, index).ToCOLORREF());
+	button.EnableAutomaticButton (sDefaultText, m_Colors.GetColor (table, index, true).ToCOLORREF());
+	button.EnableOtherButton (sCustomText);
+}
+
 BOOL CSettingsRevisionGraphColors::OnInitDialog()
 {
 	ISettingsPropPage::OnInitDialog();
@@ -98,13 +121,16 @@ BOOL CSettingsRevisionGraphColors::OnInitDialog()
     InitColorPicker (m_cUnchangedNode, CColors::gdpUnchangedNode);
     InitColorPicker (m_cLastCommitNode, CColors::gdpLastCommitNode);
     InitColorPicker (m_cWCNode, CColors::gdpWCNode);
+    InitColorPicker (m_cWCNodeBorder, CColors::gdpWCNodeBorder);
 
     InitColorPicker (m_cTagOverlay, CColors::gdpTagOverlay);
     InitColorPicker (m_cTrunkOverlay, CColors::gdpTrunkOverlay);
 
+    InitColorPicker (m_cTagMarker, CColors::ctMarkers, 0);
+    InitColorPicker (m_cTrunkMarker, CColors::ctMarkers, 1);
+
     InitColorPicker (m_cStripeColor1, CColors::gdpStripeColor1);
     InitColorPicker (m_cStripeColor2, CColors::gdpStripeColor2);
-	
     m_sStripeAlpha1 = m_Colors.GetColor (CColors::gdpStripeColor1).GetA();
     m_sStripeAlpha2 = m_Colors.GetColor (CColors::gdpStripeColor2).GetA();
 
@@ -120,6 +146,14 @@ void CSettingsRevisionGraphColors::ResetColor
 	button.SetColor (m_Colors.GetColor (color, true).ToCOLORREF());
 }
 
+void CSettingsRevisionGraphColors::ResetColor 
+    ( CMFCColorButton& button
+    , CColors::GDIPlusColorTable table
+    , int index)
+{
+	button.SetColor (m_Colors.GetColor (table, index, true).ToCOLORREF());
+}
+
 void CSettingsRevisionGraphColors::OnBnClickedRestore()
 {
     ResetColor (m_cAddedNode, CColors::gdpAddedNode);
@@ -129,9 +163,13 @@ void CSettingsRevisionGraphColors::OnBnClickedRestore()
     ResetColor (m_cUnchangedNode, CColors::gdpUnchangedNode);
     ResetColor (m_cLastCommitNode, CColors::gdpLastCommitNode);
     ResetColor (m_cWCNode, CColors::gdpWCNode);
+    ResetColor (m_cWCNodeBorder, CColors::gdpWCNodeBorder);
 
     ResetColor (m_cTagOverlay, CColors::gdpTagOverlay);
     ResetColor (m_cTrunkOverlay, CColors::gdpTrunkOverlay);
+
+    ResetColor (m_cTagMarker, CColors::ctMarkers, 0);
+    ResetColor (m_cTrunkMarker, CColors::ctMarkers, 1);
 
     ResetColor (m_cStripeColor1, CColors::gdpStripeColor1);
     ResetColor (m_cStripeColor2, CColors::gdpStripeColor2);
@@ -158,6 +196,20 @@ void CSettingsRevisionGraphColors::ApplyColor
 	m_Colors.SetColor (color, (temp.GetValue() & 0xffffff) + (alpha << 24));
 }
 
+void CSettingsRevisionGraphColors::ApplyColor 
+    ( CMFCColorButton& button
+    , CColors::GDIPlusColorTable table
+    , int index)
+{
+    COLORREF value = button.GetColor() == -1 
+                   ? button.GetAutomaticColor() 
+                   : button.GetColor();
+
+    Gdiplus::Color temp;
+    temp.SetFromCOLORREF (value);
+	m_Colors.SetColor (table, index, (temp.GetValue() & 0xffffff) + 0xff000000);
+}
+
 BOOL CSettingsRevisionGraphColors::OnApply()
 {
     UpdateData();
@@ -169,14 +221,18 @@ BOOL CSettingsRevisionGraphColors::OnApply()
     ApplyColor (m_cUnchangedNode, CColors::gdpUnchangedNode);
     ApplyColor (m_cLastCommitNode, CColors::gdpLastCommitNode);
     ApplyColor (m_cWCNode, CColors::gdpWCNode);
+    ApplyColor (m_cWCNodeBorder, CColors::gdpWCNodeBorder);
 
     ApplyColor (m_cTagOverlay, CColors::gdpTagOverlay, 0x80);
     ApplyColor (m_cTrunkOverlay, CColors::gdpTrunkOverlay, 0x40);
 
+    ApplyColor (m_cTagMarker, CColors::ctMarkers, 0);
+    ApplyColor (m_cTrunkMarker, CColors::ctMarkers, 1);
+
     ApplyColor (m_cStripeColor1, CColors::gdpStripeColor1, m_sStripeAlpha1);
     ApplyColor (m_cStripeColor2, CColors::gdpStripeColor2, m_sStripeAlpha2);
 
-	return ISettingsPropPage::OnApply();
+    return ISettingsPropPage::OnApply();
 }
 
 void CSettingsRevisionGraphColors::OnBnClickedColor()
