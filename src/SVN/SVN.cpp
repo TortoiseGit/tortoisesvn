@@ -19,6 +19,7 @@
 #include "StdAfx.h"
 #pragma warning(push)
 #include "svn.h"
+#include "svn_props.h"
 #include "svn_sorts.h"
 #include "client.h"
 #include "svn_compat.h"
@@ -559,7 +560,7 @@ BOOL SVN::Update(const CTSVNPathList& pathList, const SVNRev& revision, svn_dept
 }
 
 svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message, 
-						 const CStringArray& changelists, BOOL keepchangelist, svn_depth_t depth, BOOL keep_locks)
+						 const CStringArray& changelists, BOOL keepchangelist, svn_depth_t depth, BOOL keep_locks, std::map<CString, CString> revProps)
 {
 	SVNPool localpool(pool);
 
@@ -569,6 +570,18 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
 
 	apr_array_header_t *clists = MakeChangeListArray(changelists, localpool);
 
+	apr_hash_t * revprop_table = NULL;
+	if (revProps.size())
+	{
+		revprop_table = apr_hash_make(localpool);
+		for (std::map<CString, CString>::iterator it = revProps.begin(); it != revProps.end(); ++it)
+		{
+			svn_string_t *propval = svn_string_create((LPCSTR)CUnicodeUtils::GetUTF8(it->second), localpool);
+			bool bValid = svn_prop_name_is_valid((LPCSTR)CUnicodeUtils::GetUTF8(it->first));
+			apr_hash_set (revprop_table, apr_pstrdup(localpool, (LPCSTR)CUnicodeUtils::GetUTF8(it->first)), APR_HASH_KEY_STRING, (const void*)propval);
+		}
+	}
+
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_commit4 (&commit_info, 
 							pathlist.MakePathArray(pool), 
@@ -576,7 +589,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
 							keep_locks,
 							keepchangelist,
 							clists,
-							NULL,
+							revprop_table,
 							m_pctx,
 							localpool);
 	m_pctx->log_msg_baton3 = logMessage("");

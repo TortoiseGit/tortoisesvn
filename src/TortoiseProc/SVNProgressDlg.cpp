@@ -1918,7 +1918,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 	    changelists.Add(m_changelist);
 	bool commitSuccessful = true;
 	if (!Commit(m_targetPathList, m_sMessage, changelists, m_keepchangelist, 
-		m_depth, m_options & ProgOptKeeplocks))
+		m_depth, m_options & ProgOptKeeplocks, m_revProps))
 	{
 		ReportSVNError();
 		error = GetLastErrorMessage();

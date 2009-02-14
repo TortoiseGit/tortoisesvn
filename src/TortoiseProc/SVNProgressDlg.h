@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -122,6 +122,7 @@ public:
 	void SetSelectedList(const CTSVNPathList& selPaths);
 	void SetRevisionRanges(const SVNRevRangeArray& revArray) {m_revisionArray = revArray;}
 	void SetBugTraqProvider(const CComPtr<IBugTraqProvider> pBugtraqProvider) { m_BugTraqProvider = pBugtraqProvider;}
+	void SetRevisionProperties(const std::map<CString, CString> revProps) {m_revProps = revProps;}
 	/**
 	 * If the number of items for which the operation is done on is known
 	 * beforehand, that number can be set here. It is then used to show a more
@@ -286,6 +287,7 @@ private:
 	SVNRevRangeArray		m_revisionArray;
 	CString					m_changelist;
 	bool					m_keepchangelist;
+	std::map<CString, CString>	m_revProps;
 
 	DWORD					m_dwCloseOnEnd;
 

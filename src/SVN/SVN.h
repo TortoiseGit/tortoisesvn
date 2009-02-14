@@ -228,10 +228,11 @@ public:
 	 *                       associations from the targets, unless \c keepchangelist is set.
 	 * \param depth how deep to commit 
 	 * \param keep_locks if TRUE, the locks are not removed on commit
+	 * \param revProps a hash of revision properties to set with the commit
 	 * \return the resulting revision number.
 	 */
 	svn_revnum_t Commit(const CTSVNPathList& pathlist, const CString& message, 
-		const CStringArray& changelists, BOOL keepchangelist, svn_depth_t depth, BOOL keep_locks);
+		const CStringArray& changelists, BOOL keepchangelist, svn_depth_t depth, BOOL keep_locks, std::map<CString, CString> revProps);
 	/**
 	 * Copy srcPath to destPath.
 	 * 

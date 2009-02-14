@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -104,6 +104,7 @@ bool CommitCommand::Execute()
 			progDlg.SetSelectedList(dlg.m_selectedPathList);
 			progDlg.SetItemCount(dlg.m_itemsCount);
 			progDlg.SetBugTraqProvider(dlg.m_BugTraqProvider);
+			progDlg.SetRevisionProperties(dlg.m_revProps);
 			progDlg.DoModal();
 			CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
 			err = (DWORD)progDlg.DidErrorsOccur();
