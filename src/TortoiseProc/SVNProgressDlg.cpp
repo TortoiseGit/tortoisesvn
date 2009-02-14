@@ -1994,7 +1994,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 		(LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString());
 	ReportCmd(sCmdInfo);
 
-	if (!Copy(m_targetPathList, m_url, m_Revision, m_pegRev, m_sMessage))
+	if (!Copy(m_targetPathList, m_url, m_Revision, m_pegRev, m_sMessage, false, false, m_revProps))
 	{
 		ReportSVNError();
 		return false;
@@ -2060,7 +2060,7 @@ bool CSVNProgressDlg::CmdImport(CString& sWindowTitle, bool& /*localoperation*/)
 		m_targetPathList[0].GetWinPath(), (LPCTSTR)m_url.GetSVNPathString(), 
 		m_options & ProgOptIncludeIgnored ? (LPCTSTR)(_T(", ") + sIgnoredIncluded) : _T(""));
 	ReportCmd(sCmdInfo);
-	if (!Import(m_targetPathList[0], m_url, m_sMessage, &m_ProjectProperties, svn_depth_infinity, m_options & ProgOptIncludeIgnored ? true : false, false))
+	if (!Import(m_targetPathList[0], m_url, m_sMessage, &m_ProjectProperties, svn_depth_infinity, m_options & ProgOptIncludeIgnored ? true : false, false, m_revProps))
 	{
 		ReportSVNError();
 		return false;
@@ -2290,7 +2290,7 @@ bool CSVNProgressDlg::CmdRename(CString& sWindowTitle, bool& localoperation)
 	SetWindowText(sWindowTitle);
 	SetBackgroundImage(IDI_RENAME_BKG);
 	ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_RENAME)));
-	if (!Move(m_targetPathList, m_url, m_Revision, m_sMessage))
+	if (!Move(m_targetPathList, m_url, m_Revision, m_sMessage, false, false, m_revProps))
 	{
 		ReportSVNError();
 		return false;

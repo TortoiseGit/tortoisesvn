@@ -371,7 +371,7 @@ BOOL SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, const
 	return TRUE;
 }
 
-BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, BOOL keeplocal, const CString& message)
+BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, BOOL keeplocal, const CString& message, const std::map<CString, CString> revProps)
 {
 	// svn_client_delete needs to run on a sub-pool, so that after it's run, the pool
 	// cleanups get run.  For example, after a failure do to an unforced delete on 
@@ -382,10 +382,12 @@ BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, BOOL keeplocal, cons
 	svn_commit_info_t *commit_info = svn_create_commit_info(subPool);
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
 
+	apr_hash_t * revPropHash = MakeRevPropHash(revProps, subPool);
+
 	Err = svn_client_delete3 (&commit_info, pathlist.MakePathArray(subPool), 
 							  force,
 							  keeplocal,
-							  NULL,
+							  revPropHash,
 							  m_pctx,
 							  subPool);
 	if(Err != NULL)
@@ -570,17 +572,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
 
 	apr_array_header_t *clists = MakeChangeListArray(changelists, localpool);
 
-	apr_hash_t * revprop_table = NULL;
-	if (revProps.size())
-	{
-		revprop_table = apr_hash_make(localpool);
-		for (std::map<CString, CString>::iterator it = revProps.begin(); it != revProps.end(); ++it)
-		{
-			svn_string_t *propval = svn_string_create((LPCSTR)CUnicodeUtils::GetUTF8(it->second), localpool);
-			bool bValid = svn_prop_name_is_valid((LPCSTR)CUnicodeUtils::GetUTF8(it->first));
-			apr_hash_set (revprop_table, apr_pstrdup(localpool, (LPCSTR)CUnicodeUtils::GetUTF8(it->first)), APR_HASH_KEY_STRING, (const void*)propval);
-		}
-	}
+	apr_hash_t * revprop_table = MakeRevPropHash(revProps, localpool);
 
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_commit4 (&commit_info, 
@@ -621,7 +613,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
 
 BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
 			   const SVNRev& revision, const SVNRev& pegrev, const CString& logmsg, bool copy_as_child, 
-			   bool make_parents)
+			   bool make_parents, std::map<CString, CString> revProps)
 {
 	SVNPool subpool(pool);
 
@@ -630,14 +622,14 @@ BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 	svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
 
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(logmsg));
-
+	apr_hash_t * revPropHash = MakeRevPropHash(revProps, subpool);
 
 	Err = svn_client_copy4 (&commit_info,
 							MakeCopyArray(srcPathList, revision, pegrev),
 							destPath.GetSVNApiPath(subpool),
 							copy_as_child,
 							make_parents,
-							NULL,
+							revPropHash,
 							m_pctx,
 							subpool);
 	if(Err != NULL)
@@ -666,7 +658,8 @@ BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 
 BOOL SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
 			   BOOL force, const CString& message /* = _T("")*/, 
-			   bool move_as_child /* = false*/, bool make_parents /* = false */)
+			   bool move_as_child /* = false*/, bool make_parents /* = false */,
+			   std::map<CString, CString> revProps /* = std::map<CString, CString>() */ )
 {
 	SVNPool subpool(pool);
 
@@ -674,13 +667,14 @@ BOOL SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 	Err = NULL;
 	svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
+	apr_hash_t * revPropHash = MakeRevPropHash(revProps, subpool);
 	Err = svn_client_move5 (&commit_info,
 							srcPathList.MakePathArray(subpool),
 							destPath.GetSVNApiPath(subpool),
 							force,
 							move_as_child,
 							make_parents,
-							NULL,
+							revPropHash,
 							m_pctx,
 							subpool);
 	if(Err != NULL)
@@ -707,16 +701,17 @@ BOOL SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 	return TRUE;
 }
 
-BOOL SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool makeParents)
+BOOL SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool makeParents, std::map<CString, CString> revProps)
 {
 	svn_error_clear(Err);
 	Err = NULL;
 	svn_commit_info_t *commit_info = svn_create_commit_info(pool);
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
+	apr_hash_t * revPropHash = MakeRevPropHash(revProps, pool);
 	Err = svn_client_mkdir3 (&commit_info,
 							 pathlist.MakePathArray(pool),
 							 makeParents,
-							 NULL,
+							 revPropHash,
 							 m_pctx,
 							 pool);
 	if(Err != NULL)
@@ -1003,7 +998,9 @@ BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revi
 	return TRUE;
 }
 
-BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& message, ProjectProperties * props, svn_depth_t depth, BOOL no_ignore, BOOL ignore_unknown)
+BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& message, 
+				 ProjectProperties * props, svn_depth_t depth, BOOL no_ignore, BOOL ignore_unknown,
+				 std::map<CString, CString> revProps)
 {
 	// the import command should use the mime-type file
 	const char *mimetypes_file = NULL;
@@ -1027,13 +1024,14 @@ BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
 	SVNPool subpool(pool);
 	svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
+	apr_hash_t * revPropHash = MakeRevPropHash(revProps, subpool);
 	Err = svn_client_import3(&commit_info,
 							path.GetSVNApiPath(subpool),
 							url.GetSVNApiPath(subpool),
 							depth,
 							no_ignore,
 							ignore_unknown,
-							NULL,
+							revPropHash,
 							m_pctx,
 							subpool);
 	m_pctx->log_msg_baton3 = logMessage("");
@@ -2620,6 +2618,22 @@ apr_array_header_t * SVN::MakeChangeListArray(const CStringArray& changelists, a
 		}
 	}
 	return arr;
+}
+
+apr_hash_t * SVN::MakeRevPropHash(const std::map<CString, CString> revProps, apr_pool_t * pool)
+{
+	apr_hash_t * revprop_table = NULL;
+	if (revProps.size())
+	{
+		revprop_table = apr_hash_make(pool);
+		for (std::map<CString, CString>::const_iterator it = revProps.begin(); it != revProps.end(); ++it)
+		{
+			svn_string_t *propval = svn_string_create((LPCSTR)CUnicodeUtils::GetUTF8(it->second), pool);
+			apr_hash_set (revprop_table, apr_pstrdup(pool, (LPCSTR)CUnicodeUtils::GetUTF8(it->first)), APR_HASH_KEY_STRING, (const void*)propval);
+		}
+	}
+
+	return revprop_table;
 }
 
 void SVN::SetAndClearProgressInfo(HWND hWnd)

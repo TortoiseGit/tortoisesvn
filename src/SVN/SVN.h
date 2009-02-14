@@ -154,7 +154,7 @@ public:
 	 * for deletion in the repository. After the next commit, the file/dir will be unversioned.
 	 * \return TRUE if successful
 	 */
-	BOOL Remove(const CTSVNPathList& pathlist, BOOL force, BOOL keeplocal = TRUE, const CString& message = _T(""));
+	BOOL Remove(const CTSVNPathList& pathlist, BOOL force, BOOL keeplocal = TRUE, const CString& message = _T(""), const std::map<CString, CString> revProps = std::map<CString, CString>());
 	/**
 	 * Reverts a list of files/directories to its pristine state. I.e. its reverted to the state where it
 	 * was last updated with the repository.
@@ -264,7 +264,8 @@ public:
 	 */
 	BOOL Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
 		const SVNRev& revision, const SVNRev& pegrev, const CString& logmsg = CString(), 
-		bool copy_as_child = false, bool make_parents = false);
+		bool copy_as_child = false, bool make_parents = false,
+		std::map<CString, CString> revProps = std::map<CString, CString>());
 	/**
 	 * Move srcPath to destPath.
 	 * 
@@ -293,7 +294,7 @@ public:
 	 */
 	BOOL Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
 				BOOL force, const CString& message = _T(""), bool move_as_child = false, 
-				bool make_parents = false);
+				bool make_parents = false, std::map<CString, CString> revProps = std::map<CString, CString>());
 	/**
 	 * If path is a URL, use the message to immediately
 	 * attempt to commit the creation of the directory URL in the
@@ -306,7 +307,7 @@ public:
 	 * \param makeParents create any non-existent parent directories also
 	 * \return TRUE if successful
 	 */
-	BOOL MakeDir(const CTSVNPathList& pathlist, const CString& message, bool makeParents);
+	BOOL MakeDir(const CTSVNPathList& pathlist, const CString& message, bool makeParents, std::map<CString, CString> revProps = std::map<CString, CString>());
 	/**
 	 * Recursively cleanup a working copy directory DIR, finishing any
 	 * incomplete operations, removing lock files, etc.
@@ -393,7 +394,7 @@ public:
 	 * \return TRUE if successful
 	 */
 	BOOL Import(const CTSVNPath& path, const CTSVNPath& url, const CString& message, 
-		ProjectProperties * props, svn_depth_t depth, BOOL no_ignore, BOOL ignore_unknown);
+		ProjectProperties * props, svn_depth_t depth, BOOL no_ignore, BOOL ignore_unknown, std::map<CString, CString> revProps = std::map<CString, CString>());
 	/**
 	 * Merge changes from path1/revision1 to path2/revision2 into the
 	 * working-copy path localPath.  path1 and path2 can be either
@@ -880,6 +881,7 @@ protected:
 	/// Convert a TSVNPathList into an array of SVN copy paths
 	apr_array_header_t * MakeCopyArray(const CTSVNPathList& pathList, const SVNRev& rev, const SVNRev& pegrev);
 	apr_array_header_t * MakeChangeListArray(const CStringArray& changelists, apr_pool_t * pool);
+	apr_hash_t *		 MakeRevPropHash(const std::map<CString, CString> revProps, apr_pool_t * pool);
 
 	svn_error_t * get_uuid_from_target (const char **UUID, const char *target);
 
