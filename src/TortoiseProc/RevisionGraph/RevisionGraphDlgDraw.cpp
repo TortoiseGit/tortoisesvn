@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -230,7 +230,7 @@ inline BYTE Darken (BYTE c)
 {
     return c < 0xc0
         ? (c / 3) * 2
-        : 2*c - 0x100;
+        : BYTE(int(2*c) - 0x100);
 }
 
 Color Darken (const Color& c)
