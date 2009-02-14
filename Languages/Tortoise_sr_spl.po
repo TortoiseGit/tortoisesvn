@@ -1,4 +1,4 @@
-#
+﻿#
 # Serbian latin translation for TortoiseSVN
 # Copyright (C) 2008-2009 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-08 20:14+0100\n"
+"PO-Revision-Date: 2009-02-14 19:45+0100\n"
 "Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -221,18 +221,18 @@ msgstr "%s, ali to je već dodato lokalno."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted locally."
-msgstr "%s, ali to je već obrisano lokalno."
+msgid "%s, but it was already edited."
+msgstr "%s, ali to je već uređeno."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was deleted, moved or renamed locally."
+msgstr "%s, ali to je već obrisano,pomereno ili preimenovano lokalno."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
 msgstr "%s, ali to je sprečeno u radnoj kopiji."
-
-#. Resource IDs: (609)
-#, c-format
-msgid "%s, but the local file was already edited."
-msgstr "%s, ali lokalni fajl je već uređen."
 
 #. Resource IDs: (145)
 #, c-format
@@ -2325,6 +2325,10 @@ msgstr ""
 "Proveri fajlovi koje želite\n"
 "obrisati pre uvoza."
 
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
+msgstr "Proverite dnevnik da nađete fajl/imenik koji je preimenovan/pomeren i da odlučite da li želite da sačuvate izmenu/pomeranje ili onaj iz spremišta. Zatim označite da su konflikti rešeni."
+
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
 msgstr "Proveri putanju i/ili URL koji ste uneli."
@@ -4092,6 +4096,10 @@ msgstr "Fiksira slučaj stavke i ne dodaje je"
 msgid "Fold &tags"
 msgstr "Skupi &oznake"
 
+#. Resource IDs: (65535)
+msgid "Folded tag"
+msgstr "Sklopljena oznaka"
+
 #. Resource IDs: (1002)
 msgid "Folder"
 msgstr "Imenik"
@@ -4148,13 +4156,13 @@ msgstr "Sakupljanje informacija. Molim sačekajte..."
 msgid "General"
 msgstr "Uopšteno"
 
+#. Resource IDs: (212)
+msgid "General::Colors"
+msgstr "Uopšteno::Boje"
+
 #. Resource IDs: (195)
 msgid "General::Context Menu"
 msgstr "Uopšteno::Kontekst meni"
-
-#. Resource IDs: (212)
-msgid "General::Dialog Colors"
-msgstr "Uopšteno::Diajlog Boja"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -4163,14 +4171,6 @@ msgstr "Uopšteno::Dijalozi 1"
 #. Resource IDs: (213)
 msgid "General::Dialogs 2"
 msgstr "Uopšteno::Dijalozi 2"
-
-#. Resource IDs: (296)
-msgid "General::Revision Graph"
-msgstr "Generalno::Revizioni graf"
-
-#. Resource IDs: (299)
-msgid "General::Revision Graph Colors"
-msgstr "Generalno::Revizioni Graf Boja"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -5279,6 +5279,14 @@ msgstr "Označi tekuću reviziju svoje radne kopije"
 msgid "Mark for comparison"
 msgstr "Označi za poređenje"
 
+#. Resource IDs: (610)
+msgid "Mark the conflict as resolved"
+msgstr "Označi konflikt kao rešen"
+
+#. Resource IDs: (65535)
+msgid "Markers"
+msgstr "Markeri"
+
 #. Resource IDs: (2051)
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -5378,6 +5386,11 @@ msgstr "Stopi reviziju u..."
 #. Resource IDs: (114)
 msgid "Merge revisions to..."
 msgstr "Stopi revizije u..."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "Merge the changes into the file '%s'"
+msgstr "Stopi izmene u fajl '%s'"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -6192,6 +6205,10 @@ msgstr "Molim pričekajte dok se dobiju razlike..."
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Molim pričekajte inicijalizaciju pretraživača spremišta..."
 
+#. Resource IDs: (1368)
+msgid "Please wait while we gather more information..."
+msgstr "Molim pričekajte dok se dobije više informacija..."
+
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
 msgstr "Molim pričekajte..."
@@ -6912,6 +6929,10 @@ msgstr "Revizioni graf"
 msgid "Revision Graph Filter"
 msgstr "Filter revizionog grafa"
 
+#. Resource IDs: (299)
+msgid "Revision Graph::Colors"
+msgstr "Revizioni graf::Boje"
+
 #. Resource IDs: (228)
 msgid "Revision Range"
 msgstr "Raspon revizija"
@@ -7339,6 +7360,10 @@ msgstr "Odredite tip stapanja"
 msgid "Select viewer for diff-files"
 msgstr "Izaberite pregledač za razl-fajl"
 
+#. Resource IDs: (65535)
+msgid "Selected node"
+msgstr "Izabrani čvor"
+
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
 msgstr "Send Mail nije uspeo poslati poruku."
@@ -7419,6 +7444,10 @@ msgstr "&Prikaži menije za:"
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "Prikaži &sve"
+
+#. Resource IDs: (1132)
+msgid "Show &Log"
+msgstr "Prikaži &Dnevnik"
 
 #. Resource IDs: (115)
 msgid "Show &Range..."
@@ -8183,13 +8212,13 @@ msgstr "Zadnja operacija stapanja pokušava da doda fajl '%s' "
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last merge operation tried to delete the directory '%s'"
-msgstr "Zadnja operacija stapanja pokušava da obriše imenik '%s' "
+msgid "The last merge operation tried to delete/move/rename the directory '%s'"
+msgstr "Zadnja operacija stapanja pokušava da obriše/pomeri/preimenuje imenik '%s' "
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last merge operation tried to delete the file '%s'"
-msgstr "Zadnja operacija stapanja pokušava da obriše fajl '%s' "
+msgid "The last merge operation tried to delete/move/rename the file '%s'"
+msgstr "Zadnja operacija stapanja pokušava da obriše/pomeri/preimenuje fajl '%s' "
 
 #. Resource IDs: (608)
 #, c-format
@@ -8213,13 +8242,13 @@ msgstr "Zadnja operacija skretanja pokušava da doda fajl '%s' "
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last switch operation tried to delete the directory '%s'"
-msgstr "Zadnja operacija skretanja pokušava da obriše imenik '%s' "
+msgid "The last switch operation tried to delete/move/rename the directory '%s'"
+msgstr "Zadnja operacija skretanja pokušava da obriše/pomeri/preimenuje imenik '%s' "
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last switch operation tried to delete the file '%s'"
-msgstr "Zadnja operacija skretanja pokušava da obriše fajl '%s' "
+msgid "The last switch operation tried to delete/move/rename the file '%s'"
+msgstr "Zadnja operacija skretanja pokušava da obriše/pomeri/preimenuje fajl '%s' "
 
 #. Resource IDs: (608)
 #, c-format
@@ -8243,13 +8272,13 @@ msgstr "Zadnja operacija ažuriranja pokušava da doda fajl '%s' "
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the directory '%s'"
-msgstr "Zadnja operacija ažuriranja pokušava da obriše imenik '%s' "
+msgid "The last update operation tried to delete/move/rename the directory '%s'"
+msgstr "Zadnja operacija ažuriranja pokušava da obriše/pomeri/preimenuje imenik '%s' "
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the file '%s'"
-msgstr "Zadnja operacija ažuriranja pokušava da obriše fajl '%s' "
+msgid "The last update operation tried to delete/move/rename the file '%s'"
+msgstr "Zadnja operacija ažuriranja pokušava da obriše/pomeri/preimenuje fajl '%s' "
 
 #. Resource IDs: (607)
 #, c-format
@@ -9375,6 +9404,10 @@ msgstr "Visual Studio.NET 200&5"
 msgid "WC node"
 msgstr "RK čvor"
 
+#. Resource IDs: (65535)
+msgid "WC node border"
+msgstr "RK čvor granica"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Čekaj"
@@ -10488,6 +10521,12 @@ msgstr "da"
 msgid "{BugTraq}"
 msgstr "{BagTrek}"
 
+#~ msgid "General::Revision Graph"
+#~ msgstr "Генерално::Ревизиони граф"
+#~ msgid "General::Revision Graph Colors"
+#~ msgstr "Генерално::Ревизиони Граф Боја"
+#~ msgid "%s, but the local file was already edited."
+#~ msgstr "%s, али локални фајл је већ уређен."
 #~ msgid "Go offline?"
 #~ msgstr "Прекинути везу са спремиштем?"
 #~ msgid "Replaced node"
