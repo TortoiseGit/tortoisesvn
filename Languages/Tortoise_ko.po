@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-12 08:16+0900\n"
+"PO-Revision-Date: 2009-02-15 12:17+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3602,15 +3602,15 @@ msgstr "외부 프로그램:"
 
 #. Resource IDs: (192)
 msgid "External Programs::Diff Viewer"
-msgstr "외부 프로그램:Diff"
+msgstr "외부 프로그램::Diff"
 
 #. Resource IDs: (193)
 msgid "External Programs::Merge Tool"
-msgstr "외부 프로그램:Merge"
+msgstr "외부 프로그램::Merge"
 
 #. Resource IDs: (194)
 msgid "External Programs::Unified Diff Viewer"
-msgstr "외부 프로그램:Unified diff"
+msgstr "외부 프로그램::Unified diff"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
@@ -3883,6 +3883,10 @@ msgstr "아이템의 대소문자를 수정하고 추가하지 않기"
 msgid "Fold &tags"
 msgstr "태그 폴더 접기(&T)"
 
+#. Resource IDs: (65535)
+msgid "Folded tag"
+msgstr "접힌 태그"
+
 #. Resource IDs: (1002)
 msgid "Folder"
 msgstr "폴더"
@@ -3939,13 +3943,13 @@ msgstr "정보 얻는 중, 기다리세요..."
 msgid "General"
 msgstr "일반"
 
+#. Resource IDs: (212)
+msgid "General::Colors"
+msgstr "일반::색깔"
+
 #. Resource IDs: (195)
 msgid "General::Context Menu"
 msgstr "일반::컨텍스트 메뉴"
-
-#. Resource IDs: (212)
-msgid "General::Dialog Colors"
-msgstr "일반::다이얼로그 색깔"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -3954,14 +3958,6 @@ msgstr "일반::대화상자 1"
 #. Resource IDs: (213)
 msgid "General::Dialogs 2"
 msgstr "일반::대화상자 2"
-
-#. Resource IDs: (296)
-msgid "General::Revision Graph"
-msgstr "일반::리비전 그래프"
-
-#. Resource IDs: (299)
-msgid "General::Revision Graph Colors"
-msgstr "일반::리비전 그래프 색깔"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -5067,6 +5063,10 @@ msgstr "비교 대상으로 표시"
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
 msgstr "충돌을 해결됨으로 마크합니다"
+
+#. Resource IDs: (65535)
+msgid "Markers"
+msgstr "마커"
 
 #. Resource IDs: (2051)
 msgid ""
@@ -6710,6 +6710,10 @@ msgstr "리비전 그래프"
 msgid "Revision Graph Filter"
 msgstr "리비전 그래프 필터"
 
+#. Resource IDs: (299)
+msgid "Revision Graph::Colors"
+msgstr "리비전 그래프::색깔"
+
 #. Resource IDs: (228)
 msgid "Revision Range"
 msgstr "리비전 범위"
@@ -7136,6 +7140,10 @@ msgstr "병합 방법 선택"
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
 msgstr "Diff 파일 보기 프로그램 선택"
+
+#. Resource IDs: (65535)
+msgid "Selected node"
+msgstr "선택된 노드"
 
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
@@ -9167,6 +9175,10 @@ msgstr "비주얼 스튜디오 닷 넷 2005(&5)"
 msgid "WC node"
 msgstr "작업사본 노드"
 
+#. Resource IDs: (65535)
+msgid "WC node border"
+msgstr "작업사본 노드 가장자리"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "대기"
@@ -10277,6 +10289,10 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid "General::Revision Graph"
+#~ msgstr "일반::리비전 그래프"
+#~ msgid "General::Revision Graph Colors"
+#~ msgstr "일반::리비전 그래프 색깔"
 #~ msgid "%s, but the local file was already edited."
 #~ msgstr "%s, 그러나 지역 파일이 벌써 편집되었습니다."
 #~ msgid "Go offline?"
