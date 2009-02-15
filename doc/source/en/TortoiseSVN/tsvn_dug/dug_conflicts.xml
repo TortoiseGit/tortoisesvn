@@ -7,106 +7,442 @@
 		<primary>conflict</primary>
 	</indexterm>
 	<indexterm>
+		<primary>tree conflict</primary>
+	</indexterm>
+	<indexterm>
 		<primary>resolve</primary>
 	</indexterm>
 	<para>
 		Once in a while, you will get a <emphasis>conflict</emphasis> when
-		you update your files from the repository. A conflict
-		occurs when two or more developers have changed the same
-		few lines of a file. As Subversion knows nothing of your
-		project, it leaves resolving the conflicts to the developers.
-		Whenever a conflict is reported, you should open the file in
-		question, and search for lines starting with the string
-		<literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>.
-		The conflicting area is marked like this:
-<screen>
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename
-    your changes
-=======
-    code merged from repository
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision
-</screen>
-		Also, for every conflicted file Subversion places three
-		additional files in your directory:
+		you update/merge your files from the repository or when you switch
+		your working copy to a different url. There are two kinds of conflicts:
 		<variablelist>
 			<varlistentry>
-				<term>filename.ext.mine</term>
-				<listitem>
-					<para>
-						This is your file as it existed in your
-						working copy before you updated your working copy
-						- that is, without conflict markers. This file has
-						your latest changes in it and nothing else.
-					</para>
-				</listitem>
+			<term>file conflicts</term>
+			<listitem>
+				<para>
+					A file conflict occurs if two (or more) developers
+					have changed the same few lines of a file.
+				</para>
+			</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>filename.ext.rOLDREV</term>
-				<listitem>
-					<para>
-						This is the file that was the BASE
-						revision before you updated your working copy. That is,
-						it the file that you checked out before you made
-						your latest edits.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>filename.ext.rNEWREV</term>
-				<listitem>
-					<para>
-						This is the file that your Subversion
-						client just received from the server when you updated
-						your working copy. This file corresponds to the HEAD
-						revision of the repository.
-					</para>
-				</listitem>
+			<term>tree conflicts</term>
+			<listitem>
+				<para>
+					A tree conflict occurs when a developer moved/renamed/deleted
+					a file or folder, which another developer either also
+					has moved/renamed/deleted or just modified.
+				</para>
+			</listitem>
 			</varlistentry>
 		</variablelist>
 	</para>
-	<para>
-		You can either launch an external merge tool / conflict
-		editor with
-		<menuchoice>
-			<guimenu>TortoiseSVN</guimenu>
-			<guimenuitem>Edit Conflicts</guimenuitem>
-		</menuchoice>
-		or you can use any other editor to manually
-		resolve the conflict. You should decide what the code
-		should look like, do the necessary changes and save the file.
-	</para>
-	<para>
-		Afterwards execute the command
-		<menuchoice>
-			<guimenu>TortoiseSVN</guimenu>
-			<guimenuitem>Resolved</guimenuitem>
-		</menuchoice>
-		and commit your modifications to the repository.
-		Please note that the Resolve command does not really
-		resolve the conflict. It just removes the
-		<filename>filename.ext.mine</filename> and
-		<filename>filename.ext.r*</filename> files,
-		to allow you to commit your changes.
-	</para>
-	<para>
-		If you have conflicts with binary files, Subversion does
-		not attempt to merge the files itself. The local file remains
-		unchanged (exactly as you last changed it) and you have
-		<filename>filename.ext.r*</filename> files.
-		If you want to discard your changes and keep the repository
-		version, just use the Revert command. If you want to keep
-		your version and overwrite the repository version, use the
-		Resolved command, then commit your version.
-	</para>
-	<para>
-		You can use the Resolved command for multiple files
-		if you right click on the parent folder and select
-		<menuchoice>
-			<guimenu>TortoiseSVN</guimenu>
-			<guimenuitem>Resolved...</guimenuitem>
-		</menuchoice>
-		This will bring up a dialog listing all conflicted files
-		in that folder, and you can select which ones to mark
-		as resolved.
-	</para>
+	<sect2 id="tsvn-dug-conflicts-file">
+		<title>File Conflicts</title>
+		<para>
+			A file conflict occurs when two or more developers have changed the same
+			few lines of a file. As Subversion knows nothing of your
+			project, it leaves resolving the conflicts to the developers.
+			Whenever a conflict is reported, you should open the file in
+			question, and search for lines starting with the string
+			<literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>.
+			The conflicting area is marked like this:
+	<screen>
+	&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename
+		your changes
+	=======
+		code merged from repository
+	&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision
+	</screen>
+			Also, for every conflicted file Subversion places three
+			additional files in your directory:
+			<variablelist>
+				<varlistentry>
+					<term>filename.ext.mine</term>
+					<listitem>
+						<para>
+							This is your file as it existed in your
+							working copy before you updated your working copy
+							- that is, without conflict markers. This file has
+							your latest changes in it and nothing else.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>filename.ext.rOLDREV</term>
+					<listitem>
+						<para>
+							This is the file that was the BASE
+							revision before you updated your working copy. That is,
+							it the file that you checked out before you made
+							your latest edits.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>filename.ext.rNEWREV</term>
+					<listitem>
+						<para>
+							This is the file that your Subversion
+							client just received from the server when you updated
+							your working copy. This file corresponds to the HEAD
+							revision of the repository.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+		<para>
+			You can either launch an external merge tool / conflict
+			editor with
+			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Edit Conflicts</guimenuitem>
+			</menuchoice>
+			or you can use any other editor to manually
+			resolve the conflict. You should decide what the code
+			should look like, do the necessary changes and save the file.
+		</para>
+		<para>
+			Afterwards execute the command
+			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Resolved</guimenuitem>
+			</menuchoice>
+			and commit your modifications to the repository.
+			Please note that the Resolve command does not really
+			resolve the conflict. It just removes the
+			<filename>filename.ext.mine</filename> and
+			<filename>filename.ext.r*</filename> files,
+			to allow you to commit your changes.
+		</para>
+		<para>
+			If you have conflicts with binary files, Subversion does
+			not attempt to merge the files itself. The local file remains
+			unchanged (exactly as you last changed it) and you have
+			<filename>filename.ext.r*</filename> files.
+			If you want to discard your changes and keep the repository
+			version, just use the Revert command. If you want to keep
+			your version and overwrite the repository version, use the
+			Resolved command, then commit your version.
+		</para>
+		<para>
+			You can use the Resolved command for multiple files
+			if you right click on the parent folder and select
+			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Resolved...</guimenuitem>
+			</menuchoice>
+			This will bring up a dialog listing all conflicted files
+			in that folder, and you can select which ones to mark
+			as resolved.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-dug-conflicts-tree">
+		<title>Tree Conflicts</title>
+		<para>
+			A tree conflict occurs when a developer moved/renamed/deleted
+			a file or folder, which another developer either also
+			has moved/renamed/deleted or just modified. There are many
+			different situations that can result in a tree conflict, and
+			all of them require different steps to resolve the conflict.
+		</para>
+		<sect3 id="tsvn-dug-conflicts-tree-1">
+			<title>local delete, incoming edit upon update</title>
+			<orderedlist>
+				<listitem>
+					<para>
+						Developer A modifies <filename>Foo.c</filename> 
+						and commits it to the repository
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Developer B has simultaneously moved <filename>Foo.c</filename>
+						to <filename>Bar.c</filename> in his working copy.
+					</para>
+				</listitem>
+			</orderedlist>
+			<para>
+				An update of developer B's working copy results in a tree conflict:
+				<itemizedlist>
+					<listitem>
+						<para>
+							<filename>Foo.c</filename> is deleted from working copy.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<filename>Bar.c</filename> is marked as added, but does not
+							contain developer A's modifications.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							tree conflict on <filename>Foo.c</filename>.
+						</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para>
+				Developer B now has two choices: either merge the changes to
+				<filename>Foo.c</filename> into the renamed file <filename>Bar.c</filename>
+				and mark the conflict as resolved, or just mark the conflict as
+				resolved and keep both files.
+			</para>
+			<para>
+				The conflict edit dialog offers both options if it can find
+				the original file of the renamed <filename>Bar.c</filename>.
+			</para>
+		</sect3>
+		<sect3 id="tsvn-dug-conflicts-tree-2">
+			<title>local edit, incoming delete upon update</title>
+			<orderedlist>
+				<listitem>
+					<para>
+						Developer A moves <filename>Foo.c</filename> to
+						<filename>Bar.c</filename> and commits it to the repository
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Developer B modifies <filename>Foo.c</filename>
+						in his working copy
+					</para>
+				</listitem>
+			</orderedlist>
+			<para>
+				An update of developer B's working copy results in a tree conflict:
+				<itemizedlist>
+					<listitem>
+						<para>
+							<filename>Foo.c</filename> is marked as added.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<filename>Bar.c</filename> is added to the 
+							working copy, but may not contain developer 
+							A's modifications.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							tree conflict on <filename>Foo.c</filename>.
+						</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para>
+				To resolve this conflict, Developer B has to find out 
+				to what filename the conflicted file <filename>Foo.c</filename>
+				was renamed/moved in the repository. This can be done by
+				using the log dialog.
+			</para>
+			<para>
+				Then developer B has to decide whether to also rename his
+				copy of <filename>Foo.c</filename> and merge the changes
+				in from the repository, or whether to keep his file and undo
+				the rename from the repository.
+			</para>
+			<para>
+				After developer B has manually resolved the conflict, the
+				tree conflict has to be marked as resolved with the button
+				in the conflict editor dialog.
+			</para>
+		</sect3>
+		<sect3 id="tsvn-dug-conflicts-tree-3">
+			<title>local delete, incoming delete upon update</title>
+			<orderedlist>
+				<listitem>
+					<para>
+						Developer A moves <filename>Foo.c</filename> to
+						<filename>Bar.c</filename> and commits it to the repository
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Developer B moves <filename>Foo.c</filename> to
+						<filename>Bix.c</filename>
+					</para>
+				</listitem>
+			</orderedlist>
+			<para>
+				An update of developer B's working copy results in a tree conflict:
+				<itemizedlist>
+					<listitem>
+						<para>
+							<filename>Foo.c</filename> is marked as deleted.
+							and <filename>Bix.c</filename> is marked as added.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<filename>Bar.c</filename> is added to the
+							working copy with status 'normal'.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							tree conflict on <filename>Foo.c</filename>.
+						</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para>
+				To resolve this conflict, Developer B has to find out 
+				to what filename the conflicted file <filename>Foo.c</filename>
+				was renamed/moved in the repository. This can be done by
+				using the log dialog.
+			</para>
+			<para>
+				Then developer B has to decide which new filename of
+				<filename>Foo.c</filename> to keep - the one done by developer A
+				or the rename done by himself.
+			</para>
+			<para>
+				After developer B has manually resolved the conflict, the
+				tree conflict has to be marked as resolved with the button
+				in the conflict editor dialog.
+			</para>
+		</sect3>		
+		<sect3 id="tsvn-dug-conflicts-tree-4">
+			<title>local missing, incoming edit upon merge</title>
+			<orderedlist>
+				<listitem>
+					<para>
+						Developer A modifies <filename>Foo.c</filename> 
+						and commits it to the repository
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Developer B moves <filename>Foo.c</filename> to
+						<filename>Bar.c</filename>
+					</para>
+				</listitem>
+			</orderedlist>
+			<para>
+				A merge of developer A's changes to developer Bs working 
+				copy results in a tree conflict:
+				<itemizedlist>
+					<listitem>
+						<para>
+							<filename>Foo.c</filename> is marked as missing
+							with a tree conflict.
+						</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para>
+				To resolve this conflict, Developer B has to remove the
+				missing file in the conflict editor dialog.
+				Then developer B has to decide whether to get the missing
+				file <filename>Foo.c</filename> from the repository and
+				add it to the working copy, whether to merge <filename>Foo.c</filename>
+				into the renamed <filename>Bar.c</filename> or whether
+				to just mark the conflict as resolved.
+			</para>
+		</sect3>		
+		<sect3 id="tsvn-dug-conflicts-tree-5">
+			<title>local edit, incoming delete upon merge</title>
+			<orderedlist>
+				<listitem>
+					<para>
+						Developer A moves <filename>Foo.c</filename> to
+						<filename>Bar.c</filename>
+						and commits it to the repository
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Developer B modifies <filename>Foo.c</filename> and
+						commits it to the repository.
+					</para>
+				</listitem>
+			</orderedlist>
+			<para>
+				A merge of developer A's changes to developer Bs working 
+				copy results in a tree conflict:
+				<itemizedlist>
+					<listitem>
+						<para>
+							<filename>Bar.c</filename> is marked as added.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<filename>Foo.c</filename> is marked as modified
+							with a tree conflict.
+						</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para>
+				To resolve this conflict, Developer B has to decide whether
+				to remove the file <filename>Foo.c</filename> and keep
+				the file <filename>Bar.c</filename> instead, or whether
+				to keep the local file <filename>Foo.c</filename>. If
+				the local file <filename>Foo.c</filename> is kept, developer
+				B also has to decide whether to merge the changes of
+				<filename>Bar.c</filename> into <filename>Foo.c</filename>.
+			</para>
+		</sect3>		
+		<sect3 id="tsvn-dug-conflicts-tree-6">
+			<title>local delete, incoming delete upon merge</title>
+			<orderedlist>
+				<listitem>
+					<para>
+						Developer A moves <filename>Foo.c</filename> to
+						<filename>Bar.c</filename> and commits it to the repository
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Developer B moves <filename>Foo.c</filename> to
+						<filename>Bix.c</filename>
+					</para>
+				</listitem>
+			</orderedlist>
+			<para>
+				A merge of developer A's changes to developer Bs working 
+				copy results in a tree conflict:
+				<itemizedlist>
+					<listitem>
+						<para>
+							<filename>Bar.c</filename> is marked as added.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<filename>Bix.c</filename> is added with status
+							normal.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							tree conflict on <filename>Foo.c</filename>.
+						</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para>
+				To resolve this conflict, Developer B has to find out 
+				to what filename the conflicted file <filename>Foo.c</filename>
+				was renamed/moved in the repository. This can be done by
+				using the log dialog.
+			</para>
+			<para>
+				Then developer B has to decide which new filename of
+				<filename>Foo.c</filename> to keep - the one done by developer A
+				or the rename done in his working copy.
+			</para>
+			<para>
+				After developer B has manually resolved the conflict, the
+				tree conflict has to be marked as resolved with the button
+				in the conflict editor dialog.
+			</para>
+		</sect3>		
+	</sect2>
 </sect1>
