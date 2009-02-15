@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-14 19:45+0100\n"
+"PO-Revision-Date: 2009-02-15 21:44+0100\n"
 "Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4548,7 +4548,7 @@ msgid ""
 "If a component (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'branch'."
 msgstr ""
-"Ако један елемент (део између два  '/') дате путање хвата један\n"
+"Ако један елемент (део између два  '/') дате путање нађе један\n"
 "од ових модела, то се схвата као 'грана''."
 
 #. Resource IDs: (346)
@@ -4556,7 +4556,7 @@ msgid ""
 "If a component (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'tag'."
 msgstr ""
-"Ако један елемент (део између два  '/') дате путање хвата један\n"
+"Ако један елемент (део између два  '/') дате путање нађе један\n"
 "од ових модела, то се схвата као 'знак'."
 
 #. Resource IDs: (346)
@@ -4564,7 +4564,7 @@ msgid ""
 "If a component (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'trunk'."
 msgstr ""
-"Ако један елемент (део између два  '/') дате путање хвата један\n"
+"Ако један елемент (део између два  '/') дате путање нађе један\n"
 "од ових модела, то се схвата као 'дебло'."
 
 #. Resource IDs: (194)
@@ -4695,7 +4695,7 @@ msgstr "Занемарити %d ставки по &екстензији"
 
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
-msgstr "Занемари &све празне знакове"
+msgstr "Занемари &све размаке"
 
 #. Resource IDs: (1067)
 msgid "Ignore &case changes"
@@ -4703,7 +4703,7 @@ msgstr "Занемари &промене великих и малих слова
 
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
-msgstr "Занемар све размаке"
+msgstr "Занемари све размаке"
 
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
@@ -6217,6 +6217,10 @@ msgstr "Молим причекајте..."
 msgid "Port :"
 msgstr "Порт:"
 
+#. Resource IDs: (347)
+msgid "Possible values: 0 (fully transparent) .. 255 (no transparency)"
+msgstr "Могуће вредности: 0 (потпуно транспарентан) .. 255 (нема транспарентности)"
+
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
 msgstr "Пост урезивања закачаљка"
@@ -6528,19 +6532,18 @@ msgid ""
 msgstr ""
 "Филтер регуларних израза:\r\n"
 ".  : било који знак\r\n"
-"c+  : пронађи слово с једно или више понављања\r\n"
-"c*  : пронађи слово с нула или више понављања\r\n"
+"c+  : пронађи слово с једном или више пута\r\c*  : пронађи слово с нула или више пута\r\n"
 "^  : почетак реда\r\n"
 "$  : завршетак реда\r\n"
 "(стринг){n} : стринг н пута\r\n"
 "(abcd) : подизраз\r\n"
-"[aei0-9] : тражи а,е,и и 0..9\r\n"
+"[aei0-9] : нађи а,е,и и 0..9\r\n"
 "[^aei0-9] : све осим а,е,и и 0..9\r\n"
 "\r\n"
 "\\w  : проналази а-з,А-З,0-9 и _\r\n"
 "\\W : проналази било који знак који није слово или број (а-з,А-З,0-9 и _)\r\n"
 "\\d : цифре 0-9\r\n"
-"\\s : белапоља"
+"\\s : размаци"
 
 #. Resource IDs: (1469)
 msgid "Reintegrate a branch"
@@ -7639,7 +7642,7 @@ msgid ""
 "Show Whitespaces"
 msgstr ""
 "Прикажи посебне знакове за размаке\n"
-"Прикажи размаке"
+"Прикажи Размаке"
 
 #. Resource IDs: (345)
 msgid "Show statistics for the selected log cache"
@@ -8423,10 +8426,10 @@ msgid ""
 msgstr ""
 "Путања\n"
 "<i>%s</i>\n"
-"изгледа не одговара путањама из фајлова са закрпом.\n"
-"Но, ТортоисеМерге је нашао путању\n"
+"изгледа да није нађена путањама у фајлу закрпе.\n"
+"Али, ТортоисеМерге је нашао путању\n"
 "<i>%s</i>\n"
-"која се боље поклапа. Желите ли умјесто оне користити предложену путању?"
+"која је сличнија. Желите ли да уместо ње користити предложену путању?"
 
 #. Resource IDs: (80)
 msgid "The repository was successfully created."
@@ -9804,7 +9807,7 @@ msgstr ""
 "\n"
 "\n"
 "Модели тражења независни од величине слова и морају бити специфицирани малим словима.\n"
-"Бела поља ће постати део модела.\n"
+"Размаци ће постати део модела.\n"
 "Омогућени џокери су  '?' и  '*'.\n"
 "Издвајање модела користећи  ';'"
 

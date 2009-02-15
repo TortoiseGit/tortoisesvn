@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-14 19:45+0100\n"
+"PO-Revision-Date: 2009-02-15 21:44+0100\n"
 "Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4548,7 +4548,7 @@ msgid ""
 "If a component (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'branch'."
 msgstr ""
-"Ako jedan element (deo između dva  '/') date putanje hvata jedan\n"
+"Ako jedan element (deo između dva  '/') date putanje nađe jedan\n"
 "od ovih modela, to se shvata kao 'grana''."
 
 #. Resource IDs: (346)
@@ -4556,7 +4556,7 @@ msgid ""
 "If a component (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'tag'."
 msgstr ""
-"Ako jedan element (deo između dva  '/') date putanje hvata jedan\n"
+"Ako jedan element (deo između dva  '/') date putanje nađe jedan\n"
 "od ovih modela, to se shvata kao 'znak'."
 
 #. Resource IDs: (346)
@@ -4564,7 +4564,7 @@ msgid ""
 "If a component (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'trunk'."
 msgstr ""
-"Ako jedan element (deo između dva  '/') date putanje hvata jedan\n"
+"Ako jedan element (deo između dva  '/') date putanje nađe jedan\n"
 "od ovih modela, to se shvata kao 'deblo'."
 
 #. Resource IDs: (194)
@@ -4695,7 +4695,7 @@ msgstr "Zanemariti %d stavki po &ekstenziji"
 
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
-msgstr "Zanemari &sve prazne znakove"
+msgstr "Zanemari &sve razmake"
 
 #. Resource IDs: (1067)
 msgid "Ignore &case changes"
@@ -4703,7 +4703,7 @@ msgstr "Zanemari &promene velikih i malih slova"
 
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
-msgstr "Zanemar sve razmake"
+msgstr "Zanemari sve razmake"
 
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
@@ -6217,6 +6217,10 @@ msgstr "Molim pričekajte..."
 msgid "Port :"
 msgstr "Port:"
 
+#. Resource IDs: (347)
+msgid "Possible values: 0 (fully transparent) .. 255 (no transparency)"
+msgstr "Moguće vrednosti: 0 (potpuno transparentan) .. 255 (nema transparentnosti)"
+
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
 msgstr "Post urezivanja zakačaljka"
@@ -6528,19 +6532,18 @@ msgid ""
 msgstr ""
 "Filter regularnih izraza:\r\n"
 ".  : bilo koji znak\r\n"
-"c+  : pronađi slovo s jedno ili više ponavljanja\r\n"
-"c*  : pronađi slovo s nula ili više ponavljanja\r\n"
+"c+  : pronađi slovo s jednom ili više puta\r\c*  : pronađi slovo s nula ili više puta\r\n"
 "^  : početak reda\r\n"
 "$  : završetak reda\r\n"
 "(string){n} : string n puta\r\n"
 "(abcd) : podizraz\r\n"
-"[aei0-9] : traži a,e,i i 0..9\r\n"
+"[aei0-9] : nađi a,e,i i 0..9\r\n"
 "[^aei0-9] : sve osim a,e,i i 0..9\r\n"
 "\r\n"
 "\\w  : pronalazi a-z,A-Z,0-9 i _\r\n"
 "\\W : pronalazi bilo koji znak koji nije slovo ili broj (a-z,A-Z,0-9 i _)\r\n"
 "\\d : cifre 0-9\r\n"
-"\\s : belapolja"
+"\\s : razmaci"
 
 #. Resource IDs: (1469)
 msgid "Reintegrate a branch"
@@ -7639,7 +7642,7 @@ msgid ""
 "Show Whitespaces"
 msgstr ""
 "Prikaži posebne znakove za razmake\n"
-"Prikaži razmake"
+"Prikaži Razmake"
 
 #. Resource IDs: (345)
 msgid "Show statistics for the selected log cache"
@@ -8423,10 +8426,10 @@ msgid ""
 msgstr ""
 "Putanja\n"
 "<i>%s</i>\n"
-"izgleda ne odgovara putanjama iz fajlova sa zakrpom.\n"
-"No, TortoiseMerge je našao putanju\n"
+"izgleda da nije nađena putanjama u fajlu zakrpe.\n"
+"Ali, TortoiseMerge je našao putanju\n"
 "<i>%s</i>\n"
-"koja se bolje poklapa. Želite li umjesto one koristiti predloženu putanju?"
+"koja je sličnija. Želite li da umesto nje koristiti predloženu putanju?"
 
 #. Resource IDs: (80)
 msgid "The repository was successfully created."
@@ -9804,7 +9807,7 @@ msgstr ""
 "\n"
 "\n"
 "Modeli traženja nezavisni od veličine slova i moraju biti specificirani malim slovima.\n"
-"Bela polja će postati deo modela.\n"
+"Razmaci će postati deo modela.\n"
 "Omogućeni džokeri su  '?' i  '*'.\n"
 "Izdvajanje modela koristeći  ';'"
 
