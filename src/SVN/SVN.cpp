@@ -613,7 +613,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
 
 BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
 			   const SVNRev& revision, const SVNRev& pegrev, const CString& logmsg, bool copy_as_child, 
-			   bool make_parents, const RevPropHash revProps)
+			   bool make_parents, bool ignoreExternals, const RevPropHash revProps)
 {
 	SVNPool subpool(pool);
 
@@ -624,11 +624,12 @@ BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(logmsg));
 	apr_hash_t * revPropHash = MakeRevPropHash(revProps, subpool);
 
-	Err = svn_client_copy4 (&commit_info,
+	Err = svn_client_copy5 (&commit_info,
 							MakeCopyArray(srcPathList, revision, pegrev),
 							destPath.GetSVNApiPath(subpool),
 							copy_as_child,
 							make_parents,
+							ignoreExternals,
 							revPropHash,
 							m_pctx,
 							subpool);

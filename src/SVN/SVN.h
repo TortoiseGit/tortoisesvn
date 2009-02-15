@@ -266,7 +266,7 @@ public:
 	 */
 	BOOL Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
 		const SVNRev& revision, const SVNRev& pegrev, const CString& logmsg = CString(), 
-		bool copy_as_child = false, bool make_parents = false,
+		bool copy_as_child = false, bool make_parents = false, bool ignoreExternals = false,
 		const RevPropHash revProps = RevPropHash());
 	/**
 	 * Move srcPath to destPath.

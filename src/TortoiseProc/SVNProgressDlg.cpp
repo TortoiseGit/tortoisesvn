@@ -1994,7 +1994,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 		(LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString());
 	ReportCmd(sCmdInfo);
 
-	if (!Copy(m_targetPathList, m_url, m_Revision, m_pegRev, m_sMessage, false, false, m_revProps))
+	if (!Copy(m_targetPathList, m_url, m_Revision, m_pegRev, m_sMessage, false, false, (m_options & ProgOptIgnoreExternals) != 0, m_revProps))
 	{
 		ReportSVNError();
 		return false;
