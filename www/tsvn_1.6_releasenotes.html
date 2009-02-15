@@ -41,7 +41,13 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 <ul>
   <li><a href="#tree-conflicts"
-      >Improved handling of tree conflicts</a></li>
+      >handling of tree conflicts</a></li>
+  <li><a href="#log-cache"
+      >log cache</a></li>
+  <li><a href="#revisiongraph"
+      >revision graph</a></li>
+  <li><a href="#bugtraq-plugin"
+      >IBugtraq provider plugin enhancements</a></li>
 </ul>
 
 <p>TortoiseSVN 1.6 is a superset of all previous TortoiseSVN releases,
@@ -129,7 +135,13 @@ href="http://subversion.tigris.org/faq.html#working-copy-format-change"
 <div class="h3" id="tree-conflicts" title="tree-conflicts">
 <h3>Improved handling of tree conflicts (<em>client</em>)</h3>
 
-<p>Improved handling of tree conflicts.</p>
+<p>Subversion 1.6 can detect tree conflicts during update/merge/switch
+operations. Those items are then marked as conflicted to indicate
+the problem.</p>
+<p>TortoiseSVN 1.6 shows those tree conflicts during the operation when
+they happen, and also with a conflict overlay and in the Check-for-modifications dialog.</p>
+<p>A new conflict resolve dialog helps with resolving such conflicts, indicating
+the type of tree conflict and hints on how you can resolve those conflicts.</p>
 
 </div>  <!-- tree-conflicts -->
 
@@ -144,7 +156,7 @@ the log cache.</p>
 
 </div>  <!-- log-cache -->
 
-<div class="h2" id="revision-graph" title="revision-graph">
+<div class="h2" id="revisiongraph" title="revision-graph">
 <h2>Revision Graph</h2>
 
 <p>The revision graph has changed dramatically and has been rewritten almost
@@ -158,6 +170,16 @@ it is now possible to hide/show individual subtrees.
 
 </div>  <!-- revision-graph -->
 
+<div class="h2" id="bugtraq-plugin" title="IBugtraq provider plugin enhancements">
+<h2>IBugtraq provider plugin enhancements</h2>
+<p>A new interface IBugtraqProvider2 can be used by plugins get more control
+over commits and provide more information for the user.</p>
+<p>This new interface allows a plugin to reject a commit, execute a task after
+a successful commit (to e.g., add an entry to the issue in the issue tracker).
+It also allows plugins to show an options/settings dialog. And a plugin can add
+revision properties with each commit.</p>
+
+</div>  <!-- bugtraq-plugin -->
 
 </div>  <!-- new features -->
 
