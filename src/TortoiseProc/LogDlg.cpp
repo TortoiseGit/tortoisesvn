@@ -1065,17 +1065,23 @@ UINT CLogDlg::LogThread()
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(TRUE);
 	svn_revnum_t r = -1;
 	
+    // we need the UUID to unambigously identify the log cache
+    BOOL succeeded = true;
+    if (LogCache::CSettings::GetEnabled())
+    {
+        m_sUUID = GetLogCachePool()->GetRepositoryInfo().GetRepositoryUUID (m_path);
+        if (m_sUUID.IsEmpty())
+            succeeded = false;
+    }
+
 	// get the repository root url, because the changed-files-list has the
 	// paths shown there relative to the repository root.
 	CTSVNPath rootpath;
-    BOOL succeeded = GetRootAndHead(m_path, rootpath, r);
+    if (succeeded)
+        succeeded = GetRootAndHead(m_path, rootpath, r);
 
     m_sRepositoryRoot = rootpath.GetSVNPathString();
     m_sURL = m_path.GetSVNPathString();
-
-    // we need the UUID to unambigously identify the log cache
-    if (LogCache::CSettings::GetEnabled())
-        m_sUUID = GetLogCachePool()->GetRepositoryInfo().GetRepositoryUUID (rootpath);
 
     // if the log dialog is started from a working copy, we need to turn that
     // local path into an url here
