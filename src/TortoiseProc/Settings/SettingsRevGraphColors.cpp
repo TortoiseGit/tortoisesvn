@@ -136,6 +136,12 @@ BOOL CSettingsRevisionGraphColors::OnInitDialog()
 
     UpdateData(FALSE);
 
+    // tooltips
+
+	m_tooltips.Create(this);
+	m_tooltips.AddTool(IDC_STRIPEALPHA1, IDS_SETTINGS_REVGRAPH_OPACITY);
+	m_tooltips.AddTool(IDC_STRIPEALPHA2, IDS_SETTINGS_REVGRAPH_OPACITY);
+
 	return TRUE;
 }
 
@@ -238,4 +244,10 @@ BOOL CSettingsRevisionGraphColors::OnApply()
 void CSettingsRevisionGraphColors::OnBnClickedColor()
 {
 	SetModified();
+}
+
+BOOL CSettingsRevisionGraphColors::PreTranslateMessage(MSG* pMsg)
+{
+	m_tooltips.RelayEvent(pMsg);
+	return ISettingsPropPage::PreTranslateMessage(pMsg);
 }

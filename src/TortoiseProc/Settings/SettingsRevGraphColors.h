@@ -19,6 +19,7 @@
 #pragma once
 #include "SettingsPropPage.h"
 #include "Colors.h"
+#include "ToolTip.h"
 
 /**
  * \ingroup TortoiseProc
@@ -42,6 +43,7 @@ protected:
 	afx_msg void OnBnClickedColor();
 	afx_msg void OnBnClickedRestore();
 	virtual BOOL OnApply();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
 
 	DECLARE_MESSAGE_MAP()
 private:
@@ -80,5 +82,7 @@ private:
     BYTE m_sStripeAlpha2;
 
     CColors			m_Colors;
+
+	CToolTips		m_tooltips;
 public:
 };
