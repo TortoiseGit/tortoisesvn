@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-12 10:16+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2009-02-15 21:01+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3893,6 +3893,10 @@ msgstr "Groß-/Kleinschreibung korrigieren und Objekt nicht hinzufügen"
 msgid "Fold &tags"
 msgstr "Zweige &zusammenfalten"
 
+#. Resource IDs: (65535)
+msgid "Folded tag"
+msgstr "Zusammengeklappte Marke"
+
 #. Resource IDs: (1002)
 msgid "Folder"
 msgstr "Ordner"
@@ -3949,13 +3953,13 @@ msgstr "Sammle Informationen. Bitte warten..."
 msgid "General"
 msgstr "Allgemein"
 
+#. Resource IDs: (212)
+msgid "General::Colors"
+msgstr "Allgemein::Farben"
+
 #. Resource IDs: (195)
 msgid "General::Context Menu"
 msgstr "Allgemein::Kontextmenü"
-
-#. Resource IDs: (212)
-msgid "General::Dialog Colors"
-msgstr "Allgemein::Farben"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -3964,14 +3968,6 @@ msgstr "Allgemein::Dialoge 1"
 #. Resource IDs: (213)
 msgid "General::Dialogs 2"
 msgstr "Allgemein::Dialoge 2"
-
-#. Resource IDs: (296)
-msgid "General::Revision Graph"
-msgstr "Allgemein::Revisionsgraph"
-
-#. Resource IDs: (299)
-msgid "General::Revision Graph Colors"
-msgstr "Allgemein::Farben für Revisionsgraph"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -5093,6 +5089,10 @@ msgstr "Für Vergleich auswählen"
 msgid "Mark the conflict as resolved"
 msgstr "Den Konflikt als aufgelöst markieren"
 
+#. Resource IDs: (65535)
+msgid "Markers"
+msgstr "Markierungen"
+
 #. Resource IDs: (2051)
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -6028,6 +6028,10 @@ msgstr "Bitte warten..."
 msgid "Port :"
 msgstr "Port:"
 
+#. Resource IDs: (347)
+msgid "Possible values: 0 (fully transparent) .. 255 (no transparency)"
+msgstr "Mögliche Werte: 0 (Transparent) .. 255 (Deckend)"
+
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
 msgstr "Nach Übertragung"
@@ -6740,6 +6744,10 @@ msgstr "Revisionsgraph"
 msgid "Revision Graph Filter"
 msgstr "Revisionsgraph filtern"
 
+#. Resource IDs: (299)
+msgid "Revision Graph::Colors"
+msgstr "Revisionsgraph::Farben"
+
 #. Resource IDs: (228)
 msgid "Revision Range"
 msgstr "Revisionsbereich"
@@ -7166,6 +7174,10 @@ msgstr "Was wollen Sie zusammenführen"
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
 msgstr "Betrachter für Standard-Diffdateien auswählen"
+
+#. Resource IDs: (65535)
+msgid "Selected node"
+msgstr "Markierter Knoten"
 
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
@@ -9217,6 +9229,10 @@ msgstr "Visual Studio.NET 200&5"
 msgid "WC node"
 msgstr "Arbeitskopie"
 
+#. Resource IDs: (65535)
+msgid "WC node border"
+msgstr "Randfarbe für AK Knoten"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Warten"
@@ -10334,6 +10350,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "General::Revision Graph"
+#~ msgstr "Allgemein::Revisionsgraph"
+#~ msgid "General::Revision Graph Colors"
+#~ msgstr "Allgemein::Farben für Revisionsgraph"
 #~ msgid "%s, but the local file was already edited."
 #~ msgstr "%s, aber die lokale Datei wurde bereits bearbeitet."
 #~ msgid "Go offline?"
