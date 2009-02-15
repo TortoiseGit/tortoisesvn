@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-02 11:23+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2009-02-15 17:51+0100\n"
+"Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -333,18 +333,18 @@ msgstr "%s , men er allerede tilføjet lokalt."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted locally."
-msgstr "%s, men er blevet slettet lokalt."
+msgid "%s, but it was already edited."
+msgstr "%s , men er allerede ændret."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was deleted, moved or renamed locally."
+msgstr "%s, men er blevet slettet, flyttet eller omdøbt lokalt."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
 msgstr "%s, men blev blokeret i den nuværende arbejdskopi."
-
-#. Resource IDs: (609)
-#, c-format
-msgid "%s, but the local file was already edited."
-msgstr "%s, men den lokale fil er allerede blevet ændret."
 
 #. Resource IDs: (145)
 #, c-format
@@ -514,6 +514,10 @@ msgstr "&Knaptekst:"
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
 
+#. Resource IDs: (2)
+msgid "&Cancel"
+msgstr "&Annuller"
+
 #. Resource IDs: (65535)
 msgid "&Categories:"
 msgstr "&Kategorier:"
@@ -634,10 +638,6 @@ msgstr "Sammenl&ign med forrige version"
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Dokning"
-
-#. Resource IDs: (2)
-msgid "&Don't go offline"
-msgstr "&Gå ikke offline"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1846,8 +1846,8 @@ msgid "Arrange &Vertical"
 msgstr "Arranger &lodret"
 
 #. Resource IDs: (199)
-msgid "Ask user"
-msgstr "Spørg bruger"
+msgid "Ask the user"
+msgstr "Spørg brugeren"
 
 #. Resource IDs: (264)
 #, c-format
@@ -1994,6 +1994,10 @@ msgstr "Ansvar"
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
 msgstr "Ansvar - TortoiseSVN"
+
+#. Resource IDs: (114)
+msgid "Blame..."
+msgstr "Ansvar..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
@@ -2272,6 +2276,10 @@ msgstr ""
 "Marker de filer, du ønsker at\n"
 "slette før importen."
 
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
+msgstr "Check loggen for at finde ud af hvordan filen/folderen blev omdøbt/flyttet og beslut så om du ønsker at beholde din egen omdøbning/flytning eller den fra versionsarkivet. Herefter skal du markere konflikten som løst."
+
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
 msgstr "Check den sti og/eller URL, som du har indtastet."
@@ -2456,6 +2464,14 @@ msgstr "Kollaps &følgende træ"
 #. Resource IDs: (16662)
 msgid "Color"
 msgstr "Farve"
+
+#. Resource IDs: (65535)
+msgid "Color 1"
+msgstr "Farve 1"
+
+#. Resource IDs: (65535)
+msgid "Color 2"
+msgstr "Farve 2"
 
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
@@ -4057,6 +4073,10 @@ msgstr "Korriger store/små bogstaver på element og tilføj det ikke"
 msgid "Fold &tags"
 msgstr "Fold &mærker sammen"
 
+#. Resource IDs: (65535)
+msgid "Folded tag"
+msgstr "Sammenfoldet mærke"
+
 #. Resource IDs: (1002)
 msgid "Folder"
 msgstr "Mappe"
@@ -4130,10 +4150,6 @@ msgstr "Tema::Dialoger 1"
 msgid "General::Dialogs 2"
 msgstr "Tema::Dialoger 2"
 
-#. Resource IDs: (296)
-msgid "General::Revision Graph"
-msgstr "Generelt::Revisionsgraf"
-
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Genererer rettelsesfil..."
@@ -4200,10 +4216,6 @@ msgstr "Globalt ignorer-&mønster:"
 msgid "Global settings"
 msgstr "Globale indstillinger"
 
-#. Resource IDs: (280)
-msgid "Go offline?"
-msgstr "Gå offline?"
-
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "Gå til linje"
@@ -4269,6 +4281,10 @@ msgstr "N&uance:"
 msgid "HEAD"
 msgstr "HEAD"
 
+#. Resource IDs: (65535)
+msgid "HEAD node"
+msgstr "Hoved knude"
+
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
@@ -4289,6 +4305,14 @@ msgstr "Hex"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "Skjul &slettede stier"
+
+#. Resource IDs: (2052)
+msgid "Hide all branches that did not modify the item"
+msgstr "Skjul alle sidegrene som ikke ændrede elementet"
+
+#. Resource IDs: (2052)
+msgid "Hide deleted branches and tags"
+msgstr "Skjul slettede grene og mærker"
 
 # Oversættelse af "docked"? Kontekst?
 #. Resource IDs: (1001)
@@ -5229,6 +5253,14 @@ msgstr "Marker aktuel revision af din arbejdskopi"
 msgid "Mark for comparison"
 msgstr "Marker til sammenligning"
 
+#. Resource IDs: (610)
+msgid "Mark the conflict as resolved"
+msgstr "Marker konflikt som løst"
+
+#. Resource IDs: (65535)
+msgid "Markers"
+msgstr "Markører"
+
 #. Resource IDs: (2051)
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -5329,6 +5361,11 @@ msgstr "Flet revision til..."
 #. Resource IDs: (114)
 msgid "Merge revisions to..."
 msgstr "Flet revisioner til..."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "Merge the changes into the file '%s'"
+msgstr "Flet ændringerne til filen \"%s"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -5442,6 +5479,10 @@ msgstr "Ændringsdato"
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
 msgstr "Ændret"
+
+#. Resource IDs: (65535)
+msgid "Modified node"
+msgstr "Ændret knude"
 
 #. Resource IDs: (1070)
 msgid "More"
@@ -5705,6 +5746,10 @@ msgstr "Ingen status-cache. Kun mapper under versionskontrol får overdækning, 
 msgid "No thesaurus suggestions"
 msgstr "Ingen forslag fra opslagsværk"
 
+#. Resource IDs: (65535)
+msgid "Node colors"
+msgstr "Knude farver"
+
 #. Resource IDs: (1271)
 msgid "None"
 msgstr "Ingen"
@@ -5890,6 +5935,10 @@ msgstr "Kun dette emne"
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
 msgstr "Benyt kun &stavekontrol, hvis tsvn:projectlanguage er sat"
 
+#. Resource IDs: (65535)
+msgid "Opacity"
+msgstr "Gennemsigtighed"
+
 #. Resource IDs: (3841)
 msgid "Open"
 msgstr "Åbn"
@@ -5958,6 +6007,10 @@ msgstr "Der er ikke mere hukommelse."
 #. Resource IDs: (3845)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (65535)
+msgid "Overlays"
+msgstr "Overdækninger"
 
 #. Resource IDs: (95)
 msgid ""
@@ -6136,6 +6189,10 @@ msgstr "Vent venligst mens forskellene findes..."
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Vent venligst mens versionsarkivbrowseren initialiserer..."
 
+#. Resource IDs: (1368)
+msgid "Please wait while we gather more information..."
+msgstr "Vent venligst mens vi samler information sammen..."
+
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
 msgstr "Vent venligst..."
@@ -6143,6 +6200,10 @@ msgstr "Vent venligst..."
 #. Resource IDs: (65535)
 msgid "Port :"
 msgstr "Port :"
+
+#. Resource IDs: (347)
+msgid "Possible values: 0 (fully transparent) .. 255 (no transparency)"
+msgstr "Mulige værdier: 0 (fuldt transparent) .. 255 (ingen transparens)"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
@@ -6558,14 +6619,6 @@ msgstr "Fjern %ld emner"
 msgid "Remove %s"
 msgstr "Fjern %s"
 
-#. Resource IDs: (2052)
-msgid "Remove all branches that did not modify the item"
-msgstr "Fjern alle sidegrene som ikke ændrede elementet"
-
-#. Resource IDs: (2052)
-msgid "Remove deleted branches and tags"
-msgstr "Fjern slettede grene og mærker"
-
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "Fjern fra \"&ignorer\"-listen"
@@ -6696,10 +6749,6 @@ msgid ""
 msgstr ""
 "Erstat en bestemt tekst med en anden\n"
 "Erstat"
-
-#. Resource IDs: (65535)
-msgid "Replaced node"
-msgstr "Erstattet knude"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -6877,6 +6926,10 @@ msgstr "Revisionsgraf"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "Revisionsgraf-filter"
+
+#. Resource IDs: (299)
+msgid "Revision Graph::Colors"
+msgstr "Revisionsgraf::Farver"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -7309,6 +7362,10 @@ msgstr "Vælg fletningstype"
 msgid "Select viewer for diff-files"
 msgstr "Vælg visningsprogram til diff-filer"
 
+#. Resource IDs: (65535)
+msgid "Selected node"
+msgstr "Valgt knude"
+
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
 msgstr "Mailsystemet kunne ikke afsende meddelelsen."
@@ -7391,6 +7448,10 @@ msgstr "Vis genvejst&ast for:"
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "Vis &alle"
+
+#. Resource IDs: (1132)
+msgid "Show &Log"
+msgstr "&Vis log"
 
 #. Resource IDs: (115)
 msgid "Show &Range..."
@@ -7811,6 +7872,10 @@ msgid "Stefan Küng, Lübbe Onken"
 msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
+msgid "Stripes"
+msgstr "Striber"
+
+#. Resource IDs: (65535)
 msgid "Subversion"
 msgstr "Subversion"
 
@@ -7975,6 +8040,10 @@ msgstr "Fanebladspladsholder"
 #. Resource IDs: (65535)
 msgid "Tab size:"
 msgstr "Tabstørrelse:"
+
+#. Resource IDs: (65535)
+msgid "Tag nodes"
+msgstr "Marker knuder"
 
 #. Resource IDs: (79)
 #, c-format
@@ -8157,13 +8226,13 @@ msgstr "Den sidste flette-operation forsøgte at tilføje filen \"%s\""
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last merge operation tried to delete the directory '%s'"
-msgstr "Den sidste flette-operation forsøgte at slette folderen \"%s\""
+msgid "The last merge operation tried to delete/move/rename the directory '%s'"
+msgstr "Den sidste flette-operation forsøgte at slette/flytte/omdøbe folderen \"%s\""
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last merge operation tried to delete the file '%s'"
-msgstr "Den sidste flette-operation forsøgte at slette filen \"%s\""
+msgid "The last merge operation tried to delete/move/rename the file '%s'"
+msgstr "Den sidste flette-operation forsøgte at slette/flytte/omdøbe filen \"%s\""
 
 #. Resource IDs: (608)
 #, c-format
@@ -8187,13 +8256,13 @@ msgstr "Den sidste skifte-operation forsøgte at tilføje filen \"%s\""
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last switch operation tried to delete the directory '%s'"
-msgstr "Den sidste skifte-operation forsøgte at slette folderen \"%s\""
+msgid "The last switch operation tried to delete/move/rename the directory '%s'"
+msgstr "Den sidste skifte-operation forsøgte at slette/flytte/omdøbe folderen \"%s\""
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last switch operation tried to delete the file '%s'"
-msgstr "Den sidste skifte-operation forsøgte at slette filen \"%s\""
+msgid "The last switch operation tried to delete/move/rename the file '%s'"
+msgstr "Den sidste skifte-operation forsøgte at slette/flytte/omdøbe filen \"%s\""
 
 #. Resource IDs: (608)
 #, c-format
@@ -8217,13 +8286,13 @@ msgstr "Den sidste opdaterings-operation forsøgte at tilføje filen \"%s\""
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the directory '%s'"
-msgstr "Den sidste flette-operation forsøgte at slette folderen \"%s\""
+msgid "The last update operation tried to delete/move/rename the directory '%s'"
+msgstr "Den sidste opdaterings-operation forsøgte at slette/flytte/omdøbe folderen \"%s\""
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the file '%s'"
-msgstr "Den sidste opdaterings-operation forsøgte at slette filen \"%s\""
+msgid "The last update operation tried to delete/move/rename the file '%s'"
+msgstr "Den sidste opdaterings-operation forsøgte at slette/flytte/omdøbe filen \"%s\""
 
 #. Resource IDs: (607)
 #, c-format
@@ -8513,17 +8582,17 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
-"There has been a problem connecting the server.\n"
+"There has been a problem contacting the server.\n"
 "Do you want to see the cached data instead?\n"
 "\n"
 "Please understand that the cached data may be outdated,\n"
-"incomplete or even misleading due to incomplete history."
+"incomplete or even misleading due to incomplete history data."
 msgstr ""
 "Der opstod et problem med at forbinde til serveren.\n"
 "Vil du se de cachede data i stedet?\n"
 "\n"
 "Vær opmærksom på at de cachede data kan være forældede,\n"
-"ufuldstændige eller endda misvisende på grund af mangelfuld historie."
+"ufuldstændige eller endda misvisende på grund af mangelfuld historik-data."
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
@@ -8829,6 +8898,10 @@ msgstr "Træ konflikt"
 msgid "Tree merge"
 msgstr "Træfletning"
 
+#. Resource IDs: (65535)
+msgid "Trunk nodes"
+msgstr "Hovedgrens-knuder"
+
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Prøv at udføre kommandoen \"Ryd op\". Hvis det ikke hjælper, så er det nødvendigt at hente en ny arbejdskopi."
@@ -8922,6 +8995,10 @@ msgstr "Der kan ikke skrives til en skrivebeskyttet egenskab."
 #, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "Der kan ikke skrives til %1. Filen er enten skrivebeskyttet eller allerede åbnet af en anden kilde."
+
+#. Resource IDs: (65535)
+msgid "Unchanged node"
+msgstr "Uændret knude"
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
@@ -9204,7 +9281,7 @@ msgstr ""
 "Benyt \"min\" tekstblok"
 
 #. Resource IDs: (251)
-msgid "Use text block from 't&heirs' before 'mine"
+msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "Benyt tekstblok fra \"d&eres\" før \"min\""
 
 #. Resource IDs: (2052)
@@ -9343,6 +9420,16 @@ msgstr "Besøg vores hjemmeside"
 msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "WC node"
+msgstr "WC knude"
+
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "WC node border"
+msgstr "WC knude grænse"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Vent"
@@ -9350,6 +9437,10 @@ msgstr "Vent"
 #. Resource IDs: (1327)
 msgid "Wait for the script to finish"
 msgstr "Vent på at scriptet afsluttes"
+
+#. Resource IDs: (280)
+msgid "Want to go offline?"
+msgstr "Ønsker du at gå offline?"
 
 #. Resource IDs: (88)
 msgid "Warning"
@@ -10457,6 +10548,14 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "%s, but the local file was already edited."
+#~ msgstr "%s, men den lokale fil er allerede blevet ændret."
+#~ msgid "General::Revision Graph"
+#~ msgstr "Generelt::Revisionsgraf"
+#~ msgid "Go offline?"
+#~ msgstr "Gå offline?"
+#~ msgid "Replaced node"
+#~ msgstr "Erstattet knude"
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
