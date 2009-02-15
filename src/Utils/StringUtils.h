@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -94,18 +94,6 @@ public:
 	 * depending on the \c bUTF8 param.
 	 */
 	static bool WriteStringToTextFile(const std::wstring& path, const std::wstring& text, bool bUTF8 = true);
-
-	/**
-	 * Compares strings while trying to parse numbers in it too.
-	 * This function can be used to sort numerically.
-	 * For example, strings would be sorted like this:
-	 * Version_1.0.3
-	 * Version_2.0.4
-	 * Version_10.0.2
-	 * If a normal text like comparison is used for sorting, the Version_10.0.2
-	 * would not be the last in the above example.
-	 */
-	static int CompareNumerical(LPCTSTR str1, LPCTSTR str2);
 
 };
 

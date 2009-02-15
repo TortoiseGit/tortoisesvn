@@ -48,7 +48,7 @@
 #include "SVNLogHelper.h"
 #include "XPTheme.h"
 #include "IconMenu.h"
-
+#include "Shlwapi.h"
 
 enum RepoBrowserContextMenuCommands
 {
@@ -1407,7 +1407,7 @@ int CRepositoryBrowser::ListSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3)
 			break;
 		// fall through
 	case 0:	// filename
-		nRet = CStringUtils::CompareNumerical(pItem1->path, pItem2->path);
+		nRet = StrCmpLogicalW(pItem1->path, pItem2->path);
 		break;
 	}
 
@@ -1430,7 +1430,7 @@ int CRepositoryBrowser::TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM)
 {
 	CTreeItem * Item1 = (CTreeItem*)lParam1;
 	CTreeItem * Item2 = (CTreeItem*)lParam2;
-	return CStringUtils::CompareNumerical(Item1->unescapedname, Item2->unescapedname);
+	return StrCmpLogicalW(Item1->unescapedname, Item2->unescapedname);
 }
 
 void CRepositoryBrowser::SetSortArrow()
