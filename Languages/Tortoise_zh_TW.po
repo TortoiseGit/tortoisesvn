@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-09 20:56+0800\n"
+"PO-Revision-Date: 2009-02-16 20:20+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -200,18 +200,18 @@ msgstr "%s, 但是本地端已經新增過了."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted locally."
-msgstr "%s, 但是本地端已經刪除了."
+msgid "%s, but it was already edited."
+msgstr "%s, 但是本地端已經被編輯了."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was deleted, moved or renamed locally."
+msgstr "%s, 但是本地端已經刪除, 移動, 或被重新命名了."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
 msgstr "%s, 但是在工作複本中被阻擋."
-
-#. Resource IDs: (609)
-#, c-format
-msgid "%s, but the local file was already edited."
-msgstr "%s, 但是本地端檔案已經修改過了."
 
 #. Resource IDs: (145)
 #, c-format
@@ -2116,6 +2116,10 @@ msgstr ""
 "勾選你要在匯入之前刪除\n"
 "的檔案."
 
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
+msgstr "檢查紀錄訊息並找出檔案/目錄是如何被重新命名/移動的, 並決定是否要保留此檔案庫中的這項操作. 然後將衝突視為已解決."
+
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
 msgstr "請檢查你輸入的路徑或 URL."
@@ -3882,6 +3886,10 @@ msgstr "修正大小寫, 不進行新增"
 msgid "Fold &tags"
 msgstr "折疊標籤(&T)"
 
+#. Resource IDs: (65535)
+msgid "Folded tag"
+msgstr "折疊的標記"
+
 #. Resource IDs: (1002)
 msgid "Folder"
 msgstr "資料夾"
@@ -3938,13 +3946,13 @@ msgstr "正在取得資訊. 請稍候..."
 msgid "General"
 msgstr "一般設定"
 
+#. Resource IDs: (212)
+msgid "General::Colors"
+msgstr "一般::顏色"
+
 #. Resource IDs: (195)
 msgid "General::Context Menu"
 msgstr "一般::快顯式選單"
-
-#. Resource IDs: (212)
-msgid "General::Dialog Colors"
-msgstr "一般::視窗顏色"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -3953,14 +3961,6 @@ msgstr "一般::視窗 1"
 #. Resource IDs: (213)
 msgid "General::Dialogs 2"
 msgstr "一般::視窗 2"
-
-#. Resource IDs: (296)
-msgid "General::Revision Graph"
-msgstr "一般::版本圖"
-
-#. Resource IDs: (299)
-msgid "General::Revision Graph Colors"
-msgstr "一般::版本圖顏色"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -5063,6 +5063,14 @@ msgstr "標記工作複本目前版本"
 msgid "Mark for comparison"
 msgstr "選取比對用項目"
 
+#. Resource IDs: (610)
+msgid "Mark the conflict as resolved"
+msgstr "標記衝突為已解決"
+
+#. Resource IDs: (65535)
+msgid "Markers"
+msgstr "標籤"
+
 #. Resource IDs: (2051)
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -5162,6 +5170,11 @@ msgstr "合併版本至..."
 #. Resource IDs: (114)
 msgid "Merge revisions to..."
 msgstr "合併版本至..."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "Merge the changes into the file '%s'"
+msgstr "合併變更至檔案 '%s'"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -5976,6 +5989,10 @@ msgstr "正在比對差異, 請稍候..."
 msgid "Please wait while the repository browser is initializing..."
 msgstr "請稍候, 檔案庫瀏覽器正在初始化..."
 
+#. Resource IDs: (1368)
+msgid "Please wait while we gather more information..."
+msgstr "正在收集資訊, 請稍候..."
+
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
 msgstr "請稍候..."
@@ -5983,6 +6000,10 @@ msgstr "請稍候..."
 #. Resource IDs: (65535)
 msgid "Port :"
 msgstr "埠:"
+
+#. Resource IDs: (347)
+msgid "Possible values: 0 (fully transparent) .. 255 (no transparency)"
+msgstr "可能的設定值: 0 (完全透明) .. 255 (不透明)"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
@@ -6696,6 +6717,10 @@ msgstr "版本圖"
 msgid "Revision Graph Filter"
 msgstr "版本圖過濾條件"
 
+#. Resource IDs: (299)
+msgid "Revision Graph::Colors"
+msgstr "版本圖::顏色"
+
 #. Resource IDs: (228)
 msgid "Revision Range"
 msgstr "版本範圍"
@@ -7123,6 +7148,10 @@ msgstr "選擇合併類型"
 msgid "Select viewer for diff-files"
 msgstr "選擇檢視差異檔工具"
 
+#. Resource IDs: (65535)
+msgid "Selected node"
+msgstr "選擇的節點"
+
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
 msgstr "發送郵件功能無法寄出訊息."
@@ -7203,6 +7232,10 @@ msgstr "顯示快捷鍵(&A):"
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "顯示全部(&A)"
+
+#. Resource IDs: (1132)
+msgid "Show &Log"
+msgstr "顯示紀錄訊息(&L)"
 
 #. Resource IDs: (115)
 msgid "Show &Range..."
@@ -7967,13 +8000,13 @@ msgstr "前一個合併動作試圖新增檔案 '%s'"
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last merge operation tried to delete the directory '%s'"
-msgstr "前一個合併動作試圖刪除目錄 '%s'"
+msgid "The last merge operation tried to delete/move/rename the directory '%s'"
+msgstr "前一個合併動作試圖刪除/移動/重新命名目錄 '%s'"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last merge operation tried to delete the file '%s'"
-msgstr "前一個合併動作試圖刪除檔案 '%s'"
+msgid "The last merge operation tried to delete/move/rename the file '%s'"
+msgstr "前一個合併動作試圖刪除/移動/重新命名檔案 '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -7997,13 +8030,13 @@ msgstr "前一個切換動作試圖新增檔案 '%s'"
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last switch operation tried to delete the directory '%s'"
-msgstr "前一個切換動作試圖刪除目錄 '%s'"
+msgid "The last switch operation tried to delete/move/rename the directory '%s'"
+msgstr "前一個切換動作試圖刪除/移動/重新命名目錄 '%s'"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last switch operation tried to delete the file '%s'"
-msgstr "前一個切換動作試圖刪除檔案 '%s'"
+msgid "The last switch operation tried to delete/move/rename the file '%s'"
+msgstr "前一個切換動作試圖刪除/移動/重新命名檔案 '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8027,13 +8060,13 @@ msgstr "前一個更新動作試圖新增檔案 '%s'"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the directory '%s'"
-msgstr "前一個更新動作試圖刪除目錄 '%s'"
+msgid "The last update operation tried to delete/move/rename the directory '%s'"
+msgstr "前一個更新動作試圖刪除/移動/重新命名目錄 '%s'"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the file '%s'"
-msgstr "前一個更新動作試圖刪除檔案 '%s'"
+msgid "The last update operation tried to delete/move/rename the file '%s'"
+msgstr "前一個更新動作試圖刪除/移動/重新命名檔案 '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -9158,6 +9191,10 @@ msgstr "Visual Studio.NET 200&5"
 #. Resource IDs: (65535)
 msgid "WC node"
 msgstr "工作複本節點"
+
+#. Resource IDs: (65535)
+msgid "WC node border"
+msgstr "工作複本節點外框"
 
 #. Resource IDs: (198)
 msgid "Wait"
