@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-11 13:24+0100\n"
+"PO-Revision-Date: 2009-02-16 13:38+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -255,6 +255,11 @@ msgstr "%s, men den var allerede lagt til lokalt."
 
 #. Resource IDs: (609)
 #, c-format
+msgid "%s, but it was already edited."
+msgstr "%s, men den var allerede redigert."
+
+#. Resource IDs: (609)
+#, c-format
 msgid "%s, but it was deleted, moved or renamed locally."
 msgstr "%s, men den var slettet, flyttet eller opdøpt  lokalt."
 
@@ -262,11 +267,6 @@ msgstr "%s, men den var slettet, flyttet eller opdøpt  lokalt."
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
 msgstr "%s, men den var hindret i arbeidskopien."
-
-#. Resource IDs: (609)
-#, c-format
-msgid "%s, but the local file was already edited."
-msgstr "%s, men den lokale filen var allerede redigert."
 
 #. Resource IDs: (145)
 #, c-format
@@ -2171,6 +2171,10 @@ msgstr ""
 "Kryss av for filene som du vil \n"
 "slette før importering"
 
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
+msgstr "Sjekk loggen for å finne ut hvordan filen/mappen ble omdøpt/flyttet og avgjør om du vil beholde din omdøping/flytting eller den fra depotet. Merk deretter konflikten som løst."
+
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
 msgstr "Sjekk stien og/eller URLen du anga"
@@ -3937,6 +3941,10 @@ msgstr "Fiks store/små bokstaver i elementet og ikke legg det til"
 msgid "Fold &tags"
 msgstr "Brett inn &merker"
 
+#. Resource IDs: (65535)
+msgid "Folded tag"
+msgstr "Innbrettet merke"
+
 #. Resource IDs: (1002)
 msgid "Folder"
 msgstr "Mappe"
@@ -3993,13 +4001,13 @@ msgstr "Samler informasjon. Vennligst vent..."
 msgid "General"
 msgstr "Generelt"
 
+#. Resource IDs: (212)
+msgid "General::Colors"
+msgstr "Generelt::Farger"
+
 #. Resource IDs: (195)
 msgid "General::Context Menu"
 msgstr "Generelt::Sammenhengsmeny"
-
-#. Resource IDs: (212)
-msgid "General::Dialog Colors"
-msgstr "Generelt::Farger i Dialoger"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -4008,14 +4016,6 @@ msgstr "Generelt::Dialoger 1"
 #. Resource IDs: (213)
 msgid "General::Dialogs 2"
 msgstr "Generelt::Dialoger 2"
-
-#. Resource IDs: (296)
-msgid "General::Revision Graph"
-msgstr "Generelt::Revisjonsgraf"
-
-#. Resource IDs: (299)
-msgid "General::Revision Graph Colors"
-msgstr "Generelt::Farger i revisjonsgraf"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -5113,6 +5113,10 @@ msgstr "Merk for sammenligning"
 msgid "Mark the conflict as resolved"
 msgstr "Merk konflikten som løst"
 
+#. Resource IDs: (65535)
+msgid "Markers"
+msgstr "Markører"
+
 #. Resource IDs: (2051)
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -6044,6 +6048,10 @@ msgstr "Vennligst vent..."
 msgid "Port :"
 msgstr "Port :"
 
+#. Resource IDs: (347)
+msgid "Possible values: 0 (fully transparent) .. 255 (no transparency)"
+msgstr "Mulige verdier: 0 (helt gjennomsiktig) .. 255 (ikke gjennomsiktig)"
+
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
 msgstr "Påhaking etter innsending"
@@ -6756,6 +6764,10 @@ msgstr "Revisjonsgraf: "
 msgid "Revision Graph Filter"
 msgstr "Revisjonsgraf-filter"
 
+#. Resource IDs: (299)
+msgid "Revision Graph::Colors"
+msgstr "Revisjonsgraf::Farger"
+
 #. Resource IDs: (228)
 msgid "Revision Range"
 msgstr "Revisjonsintervall"
@@ -7183,6 +7195,10 @@ msgstr "Velg flettingstype"
 msgid "Select viewer for diff-files"
 msgstr "Velg visningsprogram for diff-filer"
 
+#. Resource IDs: (65535)
+msgid "Selected node"
+msgstr "Valgt node"
+
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
 msgstr "SendMail kunne ikke sende melding."
@@ -7263,6 +7279,10 @@ msgstr "Vis &Hurtigtast for:"
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "&Vis alle"
+
+#. Resource IDs: (1132)
+msgid "Show &Log"
+msgstr "Vis &Logg"
 
 #. Resource IDs: (115)
 msgid "Show &Range..."
@@ -8027,13 +8047,13 @@ msgstr "Den siste fletteoperasjonen prøvde å legge til filen '%s'"
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last merge operation tried to delete the directory '%s'"
-msgstr "Den siste fletteoperasjonen prøvde å slette katalogen '%s'"
+msgid "The last merge operation tried to delete/move/rename the directory '%s'"
+msgstr "Den siste fletteoperasjonen prøvde å slette/flytte/omdøpe katalogen '%s'"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last merge operation tried to delete the file '%s'"
-msgstr "Den siste fletteoperasjonen prøvde å slette filen '%s'"
+msgid "The last merge operation tried to delete/move/rename the file '%s'"
+msgstr "Den siste fletteoperasjonen prøvde å slette/flytte/omdøpe filen '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8057,13 +8077,13 @@ msgstr "Den siste bytteoperasjonen prøvde å legge til filen '%s'"
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last switch operation tried to delete the directory '%s'"
-msgstr "Den siste bytteoperasjonen prøvde å slette katalogen '%s'"
+msgid "The last switch operation tried to delete/move/rename the directory '%s'"
+msgstr "Den siste bytteoperasjonen prøvde å slette/flytte/omdøpe katalogen '%s'"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last switch operation tried to delete the file '%s'"
-msgstr "Den siste bytteoperasjonen prøvde å slette filen '%s'"
+msgid "The last switch operation tried to delete/move/rename the file '%s'"
+msgstr "Den siste bytteoperasjonen prøvde å slette/flytte/omdøpe filen '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8087,13 +8107,13 @@ msgstr "Den siste oppdater-operasjonen prøvde å legge til filen '%s'"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the directory '%s'"
-msgstr "Den siste oppdater-operasjonen prøvde å slette katalogen '%s'"
+msgid "The last update operation tried to delete/move/rename the directory '%s'"
+msgstr "Den siste oppdater-operasjonen prøvde å slette/flytte/omdøpe katalogen '%s'"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the file '%s'"
-msgstr "Den siste oppdater-operasjonen prøvde å slette filen '%s'"
+msgid "The last update operation tried to delete/move/rename the file '%s'"
+msgstr "Den siste oppdater-operasjonen prøvde å slette/flytte/omdøpe filen '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -9218,6 +9238,10 @@ msgstr "Visual Studio.NET 200&5"
 msgid "WC node"
 msgstr "Arbeidskopinode"
 
+#. Resource IDs: (65535)
+msgid "WC node border"
+msgstr "Arbeidskopinode-ramme"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Vent"
@@ -10330,6 +10354,12 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "%s, but the local file was already edited."
+#~ msgstr "%s, men den lokale filen var allerede redigert."
+#~ msgid "General::Revision Graph"
+#~ msgstr "Generelt::Revisjonsgraf"
+#~ msgid "General::Revision Graph Colors"
+#~ msgstr "Generelt::Farger i revisjonsgraf"
 #~ msgid "Go offline?"
 #~ msgstr "Jobbe frakoblet?"
 #~ msgid "Replaced node"
