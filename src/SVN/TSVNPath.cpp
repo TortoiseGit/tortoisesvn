@@ -195,7 +195,15 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
 		return m_sUTF8FwdslashPathEscaped;
 	}
 	else
+	{
 		m_sUTF8FwdslashPath = svn_dirent_canonicalize(m_sUTF8FwdslashPath, pool);
+		if ((m_sUTF8FwdslashPath.GetLength() == 3)  
+			&& ( ((m_sUTF8FwdslashPath[0] >= 'A') && (m_sUTF8FwdslashPath[0] <= 'Z')) || ((m_sUTF8FwdslashPath[0] >= 'a') && (m_sUTF8FwdslashPath[0] <= 'z')) )
+			&& (m_sUTF8FwdslashPath[1] == ':') && (m_sUTF8FwdslashPath[2] == '/'))
+		{
+			m_sUTF8FwdslashPath = m_sUTF8FwdslashPath.Left(2);
+		}
+	}
 
 	return m_sUTF8FwdslashPath;
 }
@@ -1400,7 +1408,7 @@ private:
 	{
 		CTSVNPath testPath;
 		testPath.SetFromWin(_T("c:\\"));
-		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "c:/") == 0);
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "c:") == 0);
 		testPath.SetFromWin(_T("c:\\folder"));
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "c:/folder") == 0);
 		testPath.SetFromWin(_T("c:\\a\\b\\c\\d\\e"));
