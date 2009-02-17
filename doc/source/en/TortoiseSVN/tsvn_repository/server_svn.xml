@@ -8,14 +8,15 @@
 			<primary>svnserve</primary>
 		</indexterm>
 		<para>
-			There may be situations where it's not possible to use Apache as
-			your server.  Fortunately, Subversion includes Svnserve
-			- a lightweight stand-alone server which uses a custom protocol
-			over an ordinary TCP/IP connection.
+			Subversion includes Svnserve - a lightweight stand-alone server
+			which uses a custom protocol over an ordinary TCP/IP connection.
+			It is ideal for smaller installations, or where a full blown
+			Apache server cannot be used.
 		</para>
 		<para>
 			In most cases svnserve is easier to setup and runs faster than
-			the Apache based server. And now that SASL support is included
+			the Apache based server, although it doesn't have some of the
+			advanced features. And now that SASL support is included
 			it is easy to secure as well.
 		</para>
 	</sect2>
