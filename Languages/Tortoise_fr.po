@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-12 08:09+0100\n"
-"Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
+"PO-Revision-Date: 2009-02-17 09:42+0100\n"
+"Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3891,6 +3891,10 @@ msgstr "Corrige la casse de l'élément et ne l'ajoute pas"
 msgid "Fold &tags"
 msgstr "Replier les é&tiquettes"
 
+#. Resource IDs: (65535)
+msgid "Folded tag"
+msgstr "Etiquettes réduites"
+
 #. Resource IDs: (1002)
 msgid "Folder"
 msgstr "Dossier"
@@ -3947,13 +3951,13 @@ msgstr "Obtention d'informations. Veuillez patienter..."
 msgid "General"
 msgstr "Général"
 
+#. Resource IDs: (212)
+msgid "General::Colors"
+msgstr "Général::Couleurs"
+
 #. Resource IDs: (195)
 msgid "General::Context Menu"
 msgstr "Général:Menu Contextuel"
-
-#. Resource IDs: (212)
-msgid "General::Dialog Colors"
-msgstr "Général::Couleur des Fenêtres"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -3962,14 +3966,6 @@ msgstr "Général:Boîte de Dialogue 1"
 #. Resource IDs: (213)
 msgid "General::Dialogs 2"
 msgstr "Général:Boîte de Dialogue 2"
-
-#. Resource IDs: (296)
-msgid "General::Revision Graph"
-msgstr "Général::Graphe des Révisions"
-
-#. Resource IDs: (299)
-msgid "General::Revision Graph Colors"
-msgstr "Général::Couleur du Graphe des Révisions"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -5079,6 +5075,10 @@ msgstr "Marquer à comparer"
 msgid "Mark the conflict as resolved"
 msgstr "Marquer le conflit comme résolu"
 
+#. Resource IDs: (65535)
+msgid "Markers"
+msgstr "Marqueurs"
+
 #. Resource IDs: (2051)
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -6010,6 +6010,10 @@ msgstr "Veuillez patienter..."
 msgid "Port :"
 msgstr "Port :"
 
+#. Resource IDs: (347)
+msgid "Possible values: 0 (fully transparent) .. 255 (no transparency)"
+msgstr "Valeurs acceptées : 0 (transparent) .. 255 (opaque)"
+
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
 msgstr "Hook post-livraison"
@@ -6723,6 +6727,10 @@ msgstr "Graphique de révision "
 msgid "Revision Graph Filter"
 msgstr "Filtre du graphique de révision "
 
+#. Resource IDs: (299)
+msgid "Revision Graph::Colors"
+msgstr "Graphe des révision::Couleurs"
+
 #. Resource IDs: (228)
 msgid "Revision Range"
 msgstr "Plage de révision "
@@ -7149,6 +7157,10 @@ msgstr "Sélectionner le type de fusion"
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
 msgstr "Sélectionner l'application de visualisation des différences"
+
+#. Resource IDs: (65535)
+msgid "Selected node"
+msgstr "Noeud sélectionné"
 
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
@@ -9189,6 +9201,10 @@ msgstr "Visual Studio.NET 200&5"
 msgid "WC node"
 msgstr "Noeud WC"
 
+#. Resource IDs: (65535)
+msgid "WC node border"
+msgstr "Bordure du noeud WC"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Attendre"
@@ -10301,6 +10317,10 @@ msgstr "oui"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "General::Revision Graph"
+#~ msgstr "Général::Graphe des Révisions"
+#~ msgid "General::Revision Graph Colors"
+#~ msgstr "Général::Couleur du Graphe des Révisions"
 #~ msgid "%s, but the local file was already edited."
 #~ msgstr "%s, mais le fichier local a déjà été modifié."
 #~ msgid "Go offline?"
