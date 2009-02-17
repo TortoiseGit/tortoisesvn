@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-03 21:15+0200\n"
+"PO-Revision-Date: 2009-02-17 20:59+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -261,18 +261,18 @@ msgstr "%s, mutta se lisättiin jo paikallisesti."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted locally."
-msgstr "%s, mutta se poistettiin paikallisesti."
+msgid "%s, but it was already edited."
+msgstr "%s, mutta sitä on jo muokattu."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was deleted, moved or renamed locally."
+msgstr "%s, mutta se on poistettu, siirretty tai nimetty uudelleen paikallisesti."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
 msgstr "%s, mutta se on estynyt työkopiossa."
-
-#. Resource IDs: (609)
-#, c-format
-msgid "%s, but the local file was already edited."
-msgstr "%s, mutta sitä on muokattu paikallisesti."
 
 #. Resource IDs: (145)
 #, c-format
@@ -442,6 +442,10 @@ msgstr "&Painikkeen teksti:"
 msgid "&CD-ROM"
 msgstr "&CD-levy"
 
+#. Resource IDs: (2)
+msgid "&Cancel"
+msgstr "&Peruuta"
+
 #. Resource IDs: (65535)
 msgid "&Categories:"
 msgstr "&Kategoriat:"
@@ -561,10 +565,6 @@ msgstr "&Vertaa edelliseen versioon"
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Ankkurointi"
-
-#. Resource IDs: (2)
-msgid "&Don't go offline"
-msgstr "&Älä siirry"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1760,7 +1760,7 @@ msgid "Arrange &Vertical"
 msgstr "Järjestä &pystysuunnassa"
 
 #. Resource IDs: (199)
-msgid "Ask user"
+msgid "Ask the user"
 msgstr "Kysy käyttäjältä"
 
 #. Resource IDs: (264)
@@ -1907,6 +1907,10 @@ msgstr "Selvitä tekijä"
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
 msgstr "Selvitä tekijä - TortoiseSVN"
+
+#. Resource IDs: (114)
+msgid "Blame..."
+msgstr "Selvitä tekijä..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
@@ -2172,6 +2176,10 @@ msgstr ""
 "Valitse tiedostot, jotka haluat poistaa\n"
 "ennen arkistoon tuontia."
 
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
+msgstr "Tarkista lokista, kuinka tiedosto/kansio nimettiin uudelleen/siirrettiin ja päätä, haluatko säilyttää nykyisen vai arkiston version. Merkitse sitten ristiriita ratkaistuksi."
+
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
 msgstr "Tarkista antamasi polku ja/tai paikannin."
@@ -2355,6 +2363,14 @@ msgstr "Sulje s&euraava puu"
 #. Resource IDs: (16662)
 msgid "Color"
 msgstr "Väri"
+
+#. Resource IDs: (65535)
+msgid "Color 1"
+msgstr "Väri 1"
+
+#. Resource IDs: (65535)
+msgid "Color 2"
+msgstr "Väri 2"
 
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
@@ -3929,6 +3945,10 @@ msgstr "Korjaa kohteen merkkitaso ja älä lisää sitä"
 msgid "Fold &tags"
 msgstr "Näytä &merkit lähtösolmussa"
 
+#. Resource IDs: (65535)
+msgid "Folded tag"
+msgstr "Lähtösolmuun yhdistetty merkki"
+
 #. Resource IDs: (1002)
 msgid "Folder"
 msgstr "Kansio"
@@ -4002,10 +4022,6 @@ msgstr "Yleinen::Ikkunat 1"
 msgid "General::Dialogs 2"
 msgstr "Yleinen::Ikkunat 2"
 
-#. Resource IDs: (296)
-msgid "General::Revision Graph"
-msgstr "Yleinen::Versiograafi"
-
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Luodaan paikkatiedostoa..."
@@ -4073,10 +4089,6 @@ msgstr "Yleinen &ohituslista:"
 msgid "Global settings"
 msgstr "Yleiset asetukset"
 
-#. Resource IDs: (280)
-msgid "Go offline?"
-msgstr "Siirrytäänkö yhteydettömään tilaan?"
-
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "Siirry riville"
@@ -4141,6 +4153,10 @@ msgstr "&Sävy"
 msgid "HEAD"
 msgstr "HEAD"
 
+#. Resource IDs: (65535)
+msgid "HEAD node"
+msgstr "HEAD-solmu"
+
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
@@ -4161,6 +4177,14 @@ msgstr "Heksa"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "Piilota &poistetut polut"
+
+#. Resource IDs: (2052)
+msgid "Hide all branches that did not modify the item"
+msgstr "Piilota kaikki haarat, jotka eivät muuttaneet kohdetta"
+
+#. Resource IDs: (2052)
+msgid "Hide deleted branches and tags"
+msgstr "Piilota poistetut haarat ja merkinnät"
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
@@ -5101,6 +5125,14 @@ msgstr "Korosta työkopiotasi vastaava versio"
 msgid "Mark for comparison"
 msgstr "Valitse vertailua varten"
 
+#. Resource IDs: (610)
+msgid "Mark the conflict as resolved"
+msgstr "Merkitse ristiriita ratkaistuksi"
+
+#. Resource IDs: (65535)
+msgid "Markers"
+msgstr "Tuntomerkit"
+
 #. Resource IDs: (2051)
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -5200,6 +5232,11 @@ msgstr "Yhdistä versio..."
 #. Resource IDs: (114)
 msgid "Merge revisions to..."
 msgstr "Yhdistä versiot..."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "Merge the changes into the file '%s'"
+msgstr "Yhdistä muutokset tiedostoon '%s'"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -5310,6 +5347,10 @@ msgstr "Muutospäiväys"
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
 msgstr "Muokattu"
+
+#. Resource IDs: (65535)
+msgid "Modified node"
+msgstr "Muokattu solmu"
 
 #. Resource IDs: (1070)
 msgid "More"
@@ -5571,6 +5612,10 @@ msgstr "Ei tilamuistia.  Vain versioiduilla kansioilla on päällys, tiedostoill
 msgid "No thesaurus suggestions"
 msgstr "Ei asiasanastoehdotuksia"
 
+#. Resource IDs: (65535)
+msgid "Node colors"
+msgstr "Solmujen värit"
+
 #. Resource IDs: (1271)
 msgid "None"
 msgstr "Pois käytöstä"
@@ -5753,6 +5798,10 @@ msgstr "Vain tämä kohde"
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
 msgstr "Käytä &tavutustarkistusta vain, kun tsvn:projectlanguage on asetettu"
 
+#. Resource IDs: (65535)
+msgid "Opacity"
+msgstr "Läpinäkymättömyys"
+
 #. Resource IDs: (3841)
 msgid "Open"
 msgstr "Avaa"
@@ -5820,6 +5869,10 @@ msgstr "Muisti loppui."
 #. Resource IDs: (3845)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (65535)
+msgid "Overlays"
+msgstr "Päällykset"
 
 #. Resource IDs: (95)
 msgid ""
@@ -5997,6 +6050,10 @@ msgstr "Odota hetki, eroja haetaan..."
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Odota, arkistoselain käynnistyy..."
 
+#. Resource IDs: (1368)
+msgid "Please wait while we gather more information..."
+msgstr "Odota hetki, lisätietoja haetaan..."
+
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
 msgstr "Odota..."
@@ -6004,6 +6061,10 @@ msgstr "Odota..."
 #. Resource IDs: (65535)
 msgid "Port :"
 msgstr "Portti :"
+
+#. Resource IDs: (347)
+msgid "Possible values: 0 (fully transparent) .. 255 (opaque)"
+msgstr "Mahdolliset arvot: 0 (täysin läpinäkyvä) .. 255 (läpinäkymätön)"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
@@ -6415,14 +6476,6 @@ msgstr "Poista %ld kohdetta"
 msgid "Remove %s"
 msgstr "Poista %s"
 
-#. Resource IDs: (2052)
-msgid "Remove all branches that did not modify the item"
-msgstr "Poista kaikki haarat, jotka eivät muuttaneet kohdetta"
-
-#. Resource IDs: (2052)
-msgid "Remove deleted branches and tags"
-msgstr "Piilota poistetut haarat ja merkinnät"
-
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "Poista &ohitettujen listasta"
@@ -6552,10 +6605,6 @@ msgid ""
 msgstr ""
 "Korvaa tekstin toisella\n"
 "Korvaa"
-
-#. Resource IDs: (65535)
-msgid "Replaced node"
-msgstr "Korvattu solmu"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -6730,6 +6779,10 @@ msgstr "Versiograafi"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "Versiograafisuodatin"
+
+#. Resource IDs: (299)
+msgid "Revision Graph::Colors"
+msgstr "Versiograafi::Värit"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -7158,6 +7211,10 @@ msgstr "Valitse yhdistämislaji"
 msgid "Select viewer for diff-files"
 msgstr "Valitse katseluohjelma vertailutiedostoille"
 
+#. Resource IDs: (65535)
+msgid "Selected node"
+msgstr "Valittu solmu"
+
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
 msgstr "Sähköpostiviestiä ei voitu lähettää."
@@ -7238,6 +7295,10 @@ msgstr "Näytä p&ikanäppäin:"
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "Näytä &kaikki"
+
+#. Resource IDs: (1132)
+msgid "Show &Log"
+msgstr "Näytä &loki"
 
 #. Resource IDs: (115)
 msgid "Show &Range..."
@@ -7649,6 +7710,10 @@ msgid "Stefan Küng, Lübbe Onken"
 msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
+msgid "Stripes"
+msgstr "Raidoitus"
+
+#. Resource IDs: (65535)
 msgid "Subversion"
 msgstr "Subversion"
 
@@ -7812,6 +7877,10 @@ msgstr "Välilehden paikka"
 #. Resource IDs: (65535)
 msgid "Tab size:"
 msgstr "Sarkaimen koko:"
+
+#. Resource IDs: (65535)
+msgid "Tag nodes"
+msgstr "Merkkien solmut"
 
 #. Resource IDs: (79)
 #, c-format
@@ -7994,13 +8063,13 @@ msgstr "Viimeisin yhdistäminen yritti lisätä tiedoston '%s'"
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last merge operation tried to delete the directory '%s'"
-msgstr "Viimeisin yhdistäminen yritti poistaa hakemiston '%s'"
+msgid "The last merge operation tried to delete/move/rename the directory '%s'"
+msgstr "Viimeisin yhdistäminen yritti poistaa/siirtää/nimetä uudelleen hakemiston '%s'"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last merge operation tried to delete the file '%s'"
-msgstr "Viimeisin yhdistäminen yritti poistaa tiedoston '%s'"
+msgid "The last merge operation tried to delete/move/rename the file '%s'"
+msgstr "Viimeisin yhdistäminen yritti poistaa/siirtää/nimetä uudelleen tiedoston '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8024,13 +8093,13 @@ msgstr "Viimeisin vaihto-operaatio yritti lisätä tiedoston '%s'"
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last switch operation tried to delete the directory '%s'"
-msgstr "Viimeisin vaihto-operaatio yritti poistaa hakemiston '%s'"
+msgid "The last switch operation tried to delete/move/rename the directory '%s'"
+msgstr "Viimeisin vaihto-operaatio yritti poistaa/siirtää/nimetä uudelleen hakemiston '%s'"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last switch operation tried to delete the file '%s'"
-msgstr "Viimeisin vaihto-operaatio yritti poistaa tiedoston '%s'"
+msgid "The last switch operation tried to delete/move/rename the file '%s'"
+msgstr "Viimeisin vaihto-operaatio yritti poistaa/siirtää/nimetä uudelleen tiedoston '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8054,13 +8123,13 @@ msgstr "Viimeisin päivitys yritti lisätä tiedoston '%s'"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the directory '%s'"
-msgstr "Viimeisin päivitys yritti poistaa hakemiston '%s'"
+msgid "The last update operation tried to delete/move/rename the directory '%s'"
+msgstr "Viimeisin päivitys yritti poistaa/siirtää/nimetä uudelleen hakemiston '%s'"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the file '%s'"
-msgstr "Viimeisin päivitys yritti poistaa tiedoston '%s'"
+msgid "The last update operation tried to delete/move/rename the file '%s'"
+msgstr "Viimeisin päivitys yritti poistaa/siirtää/nimetä uudelleen tiedoston '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8348,16 +8417,17 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
-"There has been a problem connecting the server.\n"
+"There has been a problem contacting the server.\n"
 "Do you want to see the cached data instead?\n"
 "\n"
 "Please understand that the cached data may be outdated,\n"
-"incomplete or even misleading due to incomplete history."
+"incomplete or even misleading due to incomplete history data."
 msgstr ""
 "Yhteyden muodostaminen palvelimeen epäonnistui.\n"
-"Haluatko kuitenkin nähdä aiemmin talletettuja tietoja?\n"
+"Haluatko sen sijaan käyttää aiemmin talletettuja tietoja?\n"
 "\n"
-"Huomaa, että nämä tiedot voivat olla vanhentuneita tai epätäydellisiä."
+"Huomaa, että nämä tiedot voivat olla vanhentuneita, epätäydellisiä\n"
+"tai jopa osittain harhaan johtavia epätäydellisistä historiatiedoista johtuen."
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
@@ -8656,6 +8726,10 @@ msgstr "Puuristiriita"
 msgid "Tree merge"
 msgstr "Puiden yhdistäminen"
 
+#. Resource IDs: (65535)
+msgid "Trunk nodes"
+msgstr "Päähaaran solmut"
+
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Kokeile 'Siivoa'-komentoa. Jos se ei toimi, sinun täytyy hakea uusimman version työkopio uudelleen."
@@ -8749,6 +8823,10 @@ msgstr "Vain luettavissa olevan ominaisuuden muuttaminen epäonnistui."
 #, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "Tiedostoon %1 kirjoitus ei onnistu, joko siihen on vain lukuoikeus tai joku muu on avannut sen."
+
+#. Resource IDs: (65535)
+msgid "Unchanged node"
+msgstr "Muuttumaton solmu"
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
@@ -9172,6 +9250,14 @@ msgstr "Käy verkkosivuillamme"
 msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
+#. Resource IDs: (65535)
+msgid "WC node"
+msgstr "Työkopion solmu"
+
+#. Resource IDs: (65535)
+msgid "WC node border"
+msgstr "Työkopion solmun reunus"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Odota"
@@ -9179,6 +9265,10 @@ msgstr "Odota"
 #. Resource IDs: (1327)
 msgid "Wait for the script to finish"
 msgstr "Odota komennon päättymistä"
+
+#. Resource IDs: (280)
+msgid "Want to go offline?"
+msgstr "Siirrytäänkö yhteydettömään tilaan?"
 
 #. Resource IDs: (88)
 msgid "Warning"
@@ -10271,6 +10361,14 @@ msgstr "kyllä"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "%s, but the local file was already edited."
+#~ msgstr "%s, mutta sitä on muokattu paikallisesti."
+#~ msgid "General::Revision Graph"
+#~ msgstr "Yleinen::Versiograafi"
+#~ msgid "Go offline?"
+#~ msgstr "Siirrytäänkö yhteydettömään tilaan?"
+#~ msgid "Replaced node"
+#~ msgstr "Korvattu solmu"
 #~ msgid "copy source only"
 #~ msgstr "vain kopiolähde"
 #~ msgid "Floppy drives (A: B:)"
