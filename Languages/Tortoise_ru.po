@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2009
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 15301: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 15371: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-08 23:27+0300\n"
+"PO-Revision-Date: 2009-02-17 17:27+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -248,18 +248,18 @@ msgstr "%s, но этот элемент был уже добавлен лока
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted locally."
-msgstr "%s, но этот элемент был удалён локально."
+msgid "%s, but it was already edited."
+msgstr "%s, но этот элемент был уже отредактирован."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was deleted, moved or renamed locally."
+msgstr "%s, но этот элемент был удалён, перемещён или переименован локально."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
 msgstr "%s, но этот элемент был мешающим в рабочей копии."
-
-#. Resource IDs: (609)
-#, c-format
-msgid "%s, but the local file was already edited."
-msgstr "%s, но локальный файл был уже отредактирован."
 
 #. Resource IDs: (145)
 #, c-format
@@ -2187,6 +2187,10 @@ msgstr ""
 "Отметьте файлы, которые вы\n"
 "желаете удалить перед импортом."
 
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
+msgstr "Посмотрите в журнале, каким образом этот файл/папка были переименованы/перемещены и решите, какое из переименований/перемещений вы оставите: ваше или из хранилища. После этого пометьте конфликт как улаженный."
+
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
 msgstr "Проверьте введенные путь и/или URL."
@@ -3969,6 +3973,10 @@ msgstr "Исправить регистр элемента и не добавл�
 msgid "Fold &tags"
 msgstr "Свернуть &метки"
 
+#. Resource IDs: (65535)
+msgid "Folded tag"
+msgstr "Свёрнутая метка"
+
 #. Resource IDs: (1002)
 msgid "Folder"
 msgstr "Папка"
@@ -4025,13 +4033,13 @@ msgstr "Выполняется сбор информации. Пожалуйст
 msgid "General"
 msgstr "Общее"
 
+#. Resource IDs: (212)
+msgid "General::Colors"
+msgstr "Общее::Цвета"
+
 #. Resource IDs: (195)
 msgid "General::Context Menu"
 msgstr "Общее::Контекстное меню"
-
-#. Resource IDs: (212)
-msgid "General::Dialog Colors"
-msgstr "Общее::Цвета в диалогах"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -4040,14 +4048,6 @@ msgstr "Общее::Диалоги 1"
 #. Resource IDs: (213)
 msgid "General::Dialogs 2"
 msgstr "Общее::Диалоги 2"
-
-#. Resource IDs: (296)
-msgid "General::Revision Graph"
-msgstr "Общее::Граф Ревизий"
-
-#. Resource IDs: (299)
-msgid "General::Revision Graph Colors"
-msgstr "Общее::Цвета в графе ревизий"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -5163,6 +5163,14 @@ msgstr "Отметить текущую ревизию вашей рабочей
 msgid "Mark for comparison"
 msgstr "Пометить для сравнения"
 
+#. Resource IDs: (610)
+msgid "Mark the conflict as resolved"
+msgstr "Пометить конфликт как улаженный"
+
+#. Resource IDs: (65535)
+msgid "Markers"
+msgstr "Выделение цветом"
+
 #. Resource IDs: (2051)
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -5262,6 +5270,11 @@ msgstr "Слить ревизию с..."
 #. Resource IDs: (114)
 msgid "Merge revisions to..."
 msgstr "Слить ревизии с..."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "Merge the changes into the file '%s'"
+msgstr "Произвести слияние изменений в файле '%s'"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -5832,7 +5845,7 @@ msgstr "Проверять &орфографию, только если tsvn:pro
 
 #. Resource IDs: (65535)
 msgid "Opacity"
-msgstr "Прозрачность"
+msgstr "Непрозрачность"
 
 #. Resource IDs: (3841)
 msgid "Open"
@@ -5906,7 +5919,7 @@ msgstr "Ounput.prn"
 # ???
 #. Resource IDs: (65535)
 msgid "Overlays"
-msgstr "Пометки"
+msgstr "Цвета пометок"
 
 #. Resource IDs: (95)
 msgid ""
@@ -6084,6 +6097,10 @@ msgstr "Подождите, пожалуйста, пока получаются 
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Подождите, пожалуйста, пока обозреватель хранилища инициализируется..."
 
+#. Resource IDs: (1368)
+msgid "Please wait while we gather more information..."
+msgstr "Подождите, пожалуйста, пока собирается дополнительная информация..."
+
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
 msgstr "Подождите, пожалуйста..."
@@ -6091,6 +6108,10 @@ msgstr "Подождите, пожалуйста..."
 #. Resource IDs: (65535)
 msgid "Port :"
 msgstr "Порт:"
+
+#. Resource IDs: (347)
+msgid "Possible values: 0 (fully transparent) .. 255 (no transparency)"
+msgstr "Возможные значения: 0 (полностью прозрачно) .. 255 (непрозрачно)"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
@@ -6811,6 +6832,10 @@ msgstr "Граф Ревизий"
 msgid "Revision Graph Filter"
 msgstr "Фильтр для графа ревизий"
 
+#. Resource IDs: (299)
+msgid "Revision Graph::Colors"
+msgstr "Граф Ревизий::Цвета"
+
 #. Resource IDs: (228)
 msgid "Revision Range"
 msgstr "Ряд ревизий"
@@ -7239,6 +7264,10 @@ msgstr "Выберите тип слияния"
 msgid "Select viewer for diff-files"
 msgstr "Выберите программу просмотра файлов различий"
 
+#. Resource IDs: (65535)
+msgid "Selected node"
+msgstr "Выбранный узел"
+
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
 msgstr "Не удалось отослать письмо."
@@ -7319,6 +7348,10 @@ msgstr "Показать &акселератор для:"
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "Показать &все"
+
+#. Resource IDs: (1132)
+msgid "Show &Log"
+msgstr "&Журнал"
 
 #. Resource IDs: (115)
 msgid "Show &Range..."
@@ -8087,13 +8120,13 @@ msgstr "Последняя операция слияния пыталась до
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last merge operation tried to delete the directory '%s'"
-msgstr "Последняя операция слияния пыталась удалить папку '%s'"
+msgid "The last merge operation tried to delete/move/rename the directory '%s'"
+msgstr "Последняя операция слияния пыталась удалить/переместить/переименовать папку '%s'"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last merge operation tried to delete the file '%s'"
-msgstr "Последняя операция слияния пыталась удалить файл '%s'"
+msgid "The last merge operation tried to delete/move/rename the file '%s'"
+msgstr "Последняя операция слияния пыталась удалить/переместить/переименовать файл '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8117,13 +8150,13 @@ msgstr "Последняя операция переключения пытал�
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last switch operation tried to delete the directory '%s'"
-msgstr "Последняя операция переключения пыталась удалить папку '%s'"
+msgid "The last switch operation tried to delete/move/rename the directory '%s'"
+msgstr "Последняя операция переключения пыталась удалить/переместить/переименовать папку '%s'"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last switch operation tried to delete the file '%s'"
-msgstr "Последняя операция переключения пыталась удалить файл '%s'"
+msgid "The last switch operation tried to delete/move/rename the file '%s'"
+msgstr "Последняя операция переключения пыталась удалить/переместить/переименовать файл '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8147,13 +8180,13 @@ msgstr "Последняя операция обновления пыталас�
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the directory '%s'"
-msgstr "Последняя операция обновления пыталась удалить папку '%s'"
+msgid "The last update operation tried to delete/move/rename the directory '%s'"
+msgstr "Последняя операция обновления пыталась удалить/переместить/переименовать папку '%s'"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the file '%s'"
-msgstr "Последняя операция обновления пыталась удалить файл '%s'"
+msgid "The last update operation tried to delete/move/rename the file '%s'"
+msgstr "Последняя операция обновления пыталась удалить/переместить/переименовать файл '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -9293,6 +9326,10 @@ msgstr "Visual Studio.NET 200&5"
 msgid "WC node"
 msgstr "Узел рабочей копии"
 
+#. Resource IDs: (65535)
+msgid "WC node border"
+msgstr "Рамка узла рабочей копии"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Ждать"
@@ -10426,6 +10463,12 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{СОП}"
 
+#~ msgid "%s, but the local file was already edited."
+#~ msgstr "%s, но локальный файл был уже отредактирован."
+#~ msgid "General::Revision Graph"
+#~ msgstr "Общее::Граф Ревизий"
+#~ msgid "General::Revision Graph Colors"
+#~ msgstr "Общее::Цвета в графе ревизий"
 #~ msgid "Go offline?"
 #~ msgstr "Переход в автономный режим"
 #~ msgid "Replaced node"
