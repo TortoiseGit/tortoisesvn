@@ -57,7 +57,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-05 10:05+0800\n"
+"PO-Revision-Date: 2009-02-17 17:36+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -241,18 +241,18 @@ msgstr "“%s” 已经在本地增加。"
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted locally."
-msgstr "“%s” 已经在本地删除。"
+msgid "%s, but it was already edited."
+msgstr "%s，已经在本地被编辑。"
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was deleted, moved or renamed locally."
+msgstr "%s，已经在本地被删除、移动或改名。"
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
 msgstr "“%s” 已经在本地被阻碍。"
-
-#. Resource IDs: (609)
-#, c-format
-msgid "%s, but the local file was already edited."
-msgstr "“%s” 已经在被编辑。"
 
 #. Resource IDs: (145)
 #, c-format
@@ -422,6 +422,10 @@ msgstr "按钮文本(&B):"
 msgid "&CD-ROM"
 msgstr "光驱(&C)"
 
+#. Resource IDs: (2)
+msgid "&Cancel"
+msgstr "取消(&C)"
+
 #. Resource IDs: (65535)
 msgid "&Categories:"
 msgstr "分类(&C):"
@@ -541,10 +545,6 @@ msgstr "与前一版本比较(&D)"
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "钉住(&D)"
-
-#. Resource IDs: (2)
-msgid "&Don't go offline"
-msgstr "不要离线(&D)"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1758,7 +1758,7 @@ msgid "Arrange &Vertical"
 msgstr "垂直排列(&V)"
 
 #. Resource IDs: (199)
-msgid "Ask user"
+msgid "Ask the user"
 msgstr "询问用户"
 
 #. Resource IDs: (264)
@@ -1905,6 +1905,10 @@ msgstr "追溯"
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
 msgstr "追溯 - TortoiseSVN"
+
+#. Resource IDs: (114)
+msgid "Blame..."
+msgstr "追溯..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
@@ -2172,6 +2176,15 @@ msgstr ""
 "选中你要在导入之前删除\n"
 "的文件。"
 
+#. Resource IDs: (612)
+msgid ""
+"Check the log to find out how the file/folder got renamed/moved and decide "
+"whether you want to keep your rename/move or the one from the repository. "
+"Then mark the conflict as resolved."
+msgstr ""
+"检查文件/目录是如何改名/移动的，决定是否在版本库中保持这些改名/移动。然后标记"
+"冲突已经解决。"
+
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
 msgstr "请检查你输入的路径或 URL。"
@@ -2362,6 +2375,14 @@ msgstr "折叠下列树(&F)"
 #. Resource IDs: (16662)
 msgid "Color"
 msgstr "颜色"
+
+#. Resource IDs: (65535)
+msgid "Color 1"
+msgstr "颜色 1"
+
+#. Resource IDs: (65535)
+msgid "Color 2"
+msgstr "颜色 2"
 
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
@@ -3950,6 +3971,10 @@ msgstr "修正条目的大小写，不增加它"
 msgid "Fold &tags"
 msgstr "折叠标签(&T)"
 
+#. Resource IDs: (65535)
+msgid "Folded tag"
+msgstr "折叠的标签"
+
 #. Resource IDs: (1002)
 msgid "Folder"
 msgstr "目录"
@@ -4023,10 +4048,6 @@ msgstr "常规::对话框组一"
 msgid "General::Dialogs 2"
 msgstr "常规::对话框组二"
 
-#. Resource IDs: (296)
-msgid "General::Revision Graph"
-msgstr "常规::版本分支图"
-
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "正在生成补丁文件..."
@@ -4099,10 +4120,6 @@ msgstr "全局忽略样式(&P): "
 msgid "Global settings"
 msgstr "全局设置"
 
-#. Resource IDs: (280)
-msgid "Go offline?"
-msgstr "是否离线？"
-
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "跳转到行号"
@@ -4167,6 +4184,10 @@ msgstr "色彩(&U):"
 msgid "HEAD"
 msgstr "HEAD"
 
+#. Resource IDs: (65535)
+msgid "HEAD node"
+msgstr "主干节点"
+
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
@@ -4187,6 +4208,14 @@ msgstr "十六进制"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "隐藏已删除的路径(&D)"
+
+#. Resource IDs: (2052)
+msgid "Hide all branches that did not modify the item"
+msgstr "隐藏所有没有修改此项的分支"
+
+#. Resource IDs: (2052)
+msgid "Hide deleted branches and tags"
+msgstr "隐藏已经删除的分支或标签"
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
@@ -5146,6 +5175,14 @@ msgstr "标记工作副本的当前版本号"
 msgid "Mark for comparison"
 msgstr "为比较标记"
 
+#. Resource IDs: (610)
+msgid "Mark the conflict as resolved"
+msgstr "标记冲突为已解决"
+
+#. Resource IDs: (65535)
+msgid "Markers"
+msgstr "标记"
+
 #. Resource IDs: (2051)
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -5245,6 +5282,11 @@ msgstr "合并版本到..."
 #. Resource IDs: (114)
 msgid "Merge revisions to..."
 msgstr "合并版本到..."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "Merge the changes into the file '%s'"
+msgstr "合并修改到文件 “%s”"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -5358,6 +5400,10 @@ msgstr "修改日期"
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
 msgstr "已修改"
+
+#. Resource IDs: (65535)
+msgid "Modified node"
+msgstr "已修改的节点"
 
 #. Resource IDs: (1070)
 msgid "More"
@@ -5624,6 +5670,10 @@ msgstr "无状态缓存。仅影响版本控制的文件夹，不影响文件"
 msgid "No thesaurus suggestions"
 msgstr "没有建议辞典"
 
+#. Resource IDs: (65535)
+msgid "Node colors"
+msgstr "节点颜色"
+
 #. Resource IDs: (1271)
 msgid "None"
 msgstr "无"
@@ -5806,6 +5856,10 @@ msgstr "仅此项"
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
 msgstr "仅在设置了 tsvn:projectlanguage 时才进行拼写检查(&P)"
 
+#. Resource IDs: (65535)
+msgid "Opacity"
+msgstr "不透明度"
+
 #. Resource IDs: (3841)
 msgid "Open"
 msgstr "打开"
@@ -5873,6 +5927,10 @@ msgstr "内存不足。"
 #. Resource IDs: (3845)
 msgid "Output.prn"
 msgstr "输出.prn"
+
+#. Resource IDs: (65535)
+msgid "Overlays"
+msgstr "覆盖"
 
 #. Resource IDs: (95)
 msgid ""
@@ -6056,6 +6114,10 @@ msgstr "正在获取差异，请稍候..."
 msgid "Please wait while the repository browser is initializing..."
 msgstr "请稍候，正在启动版本库浏览器 ..."
 
+#. Resource IDs: (1368)
+msgid "Please wait while we gather more information..."
+msgstr "正在获取更多信息，请稍候..."
+
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
 msgstr "请稍候..."
@@ -6063,6 +6125,10 @@ msgstr "请稍候..."
 #. Resource IDs: (65535)
 msgid "Port :"
 msgstr "端口: "
+
+#. Resource IDs: (347)
+msgid "Possible values: 0 (fully transparent) .. 255 (no transparency)"
+msgstr "取值范围: 0 (全透明) .. 255 (不透明)"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
@@ -6472,14 +6538,6 @@ msgstr "删除 %ld 项"
 msgid "Remove %s"
 msgstr "删除 %s"
 
-#. Resource IDs: (2052)
-msgid "Remove all branches that did not modify the item"
-msgstr "删除全部没有修改此项的分支"
-
-#. Resource IDs: (2052)
-msgid "Remove deleted branches and tags"
-msgstr "删除已经删除的分支或标签"
-
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "从忽略列表删除(&I)"
@@ -6609,10 +6667,6 @@ msgid ""
 msgstr ""
 "用指定的文字替换特定文字\n"
 "替换"
-
-#. Resource IDs: (65535)
-msgid "Replaced node"
-msgstr "替换的节点"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -6787,6 +6841,10 @@ msgstr "版本分支图"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "版本分支图过滤器"
+
+#. Resource IDs: (299)
+msgid "Revision Graph::Colors"
+msgstr "版本图::颜色"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -7215,6 +7273,10 @@ msgstr "选择合并类型"
 msgid "Select viewer for diff-files"
 msgstr "选择查看补丁文件工具"
 
+#. Resource IDs: (65535)
+msgid "Selected node"
+msgstr "被选择的节点"
+
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
 msgstr "发送邮件功能无法发送信息。"
@@ -7296,6 +7358,10 @@ msgstr "显示加速键(&F):"
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "全部显示(&A)"
+
+#. Resource IDs: (1132)
+msgid "Show &Log"
+msgstr "显示日志(&L)"
 
 #. Resource IDs: (115)
 msgid "Show &Range..."
@@ -7716,6 +7782,10 @@ msgid "Stefan Küng, Lübbe Onken"
 msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
+msgid "Stripes"
+msgstr "修剪"
+
+#. Resource IDs: (65535)
 msgid "Subversion"
 msgstr "Subversion"
 
@@ -7877,6 +7947,10 @@ msgstr "制表占位符"
 #. Resource IDs: (65535)
 msgid "Tab size:"
 msgstr "Tab 宽度: "
+
+#. Resource IDs: (65535)
+msgid "Tag nodes"
+msgstr "标签节点"
 
 #. Resource IDs: (79)
 #, c-format
@@ -8064,13 +8138,13 @@ msgstr "尝试增加文件“%s”的最后一次合并操作"
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last merge operation tried to delete the directory '%s'"
-msgstr "尝试删除目录“%s”的最后一次合并操作"
+msgid "The last merge operation tried to delete/move/rename the directory '%s'"
+msgstr "尝试删除/移动/改名目录“%s”的最后一次合并操作"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last merge operation tried to delete the file '%s'"
-msgstr "尝试删除文件“%s”的最后一次合并操作"
+msgid "The last merge operation tried to delete/move/rename the file '%s'"
+msgstr "尝试删除/移动/改名文件“%s”的最后一次合并操作"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8094,13 +8168,13 @@ msgstr "尝试增加文件“%s”的最后一次切换操作"
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last switch operation tried to delete the directory '%s'"
-msgstr "尝试删除目录“%s”的最后一次切换操作"
+msgid "The last switch operation tried to delete/move/rename the directory '%s'"
+msgstr "尝试删除/移动/改名目录“%s”的最后一次切换操作"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last switch operation tried to delete the file '%s'"
-msgstr "尝试删除文件“%s”的最后一次切换操作"
+msgid "The last switch operation tried to delete/move/rename the file '%s'"
+msgstr "尝试删除/移动/改名文件“%s”的最后一次切换操作"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8124,13 +8198,13 @@ msgstr "尝试增加文件“%s”的最后一次更新操作"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the directory '%s'"
-msgstr "尝试删除目录“%s”的最后一次更新操作"
+msgid "The last update operation tried to delete/move/rename the directory '%s'"
+msgstr "尝试删除/移动/改名目录“%s”的最后一次更新操作"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the file '%s'"
-msgstr "尝试删除文件“%s”的最后一次更新操作"
+msgid "The last update operation tried to delete/move/rename the file '%s'"
+msgstr "尝试删除/移动/改名文件“%s”的最后一次更新操作"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8421,13 +8495,13 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
-"There has been a problem connecting the server.\n"
+"There has been a problem contacting the server.\n"
 "Do you want to see the cached data instead?\n"
 "\n"
 "Please understand that the cached data may be outdated,\n"
-"incomplete or even misleading due to incomplete history."
+"incomplete or even misleading due to incomplete history data."
 msgstr ""
-"连接服务器失败。你想看缓存中的数据吗？\n"
+"连接服务器失败。你想使用缓存中的数据吗？\n"
 "\n"
 "请注意缓存中的数据可能已经过时、不完全，甚至由于不完全的历史而令人误解。"
 
@@ -8761,6 +8835,10 @@ msgstr "树冲突"
 msgid "Tree merge"
 msgstr "合并树"
 
+#. Resource IDs: (65535)
+msgid "Trunk nodes"
+msgstr "主干节点"
+
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "试试“清理”，如果无效，你需要重新检出文件。"
@@ -8854,6 +8932,10 @@ msgstr "无法写入只读属性。"
 #, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "无法写入 %1, 它可能被设为只读或另有人打开。"
+
+#. Resource IDs: (65535)
+msgid "Unchanged node"
+msgstr "未修改的节点"
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
@@ -9279,6 +9361,14 @@ msgstr "浏览我们的网站"
 msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
+#. Resource IDs: (65535)
+msgid "WC node"
+msgstr "工作副本节点"
+
+#. Resource IDs: (65535)
+msgid "WC node border"
+msgstr "工作副本节点边界"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "等待"
@@ -9286,6 +9376,10 @@ msgstr "等待"
 #. Resource IDs: (1327)
 msgid "Wait for the script to finish"
 msgstr "等待脚本运行结束"
+
+#. Resource IDs: (280)
+msgid "Want to go offline?"
+msgstr "要离线?"
 
 #. Resource IDs: (88)
 msgid "Warning"
@@ -10397,3 +10491,15 @@ msgstr "是"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+#~ msgid "%s, but the local file was already edited."
+#~ msgstr "“%s” 已经在被编辑。"
+
+#~ msgid "General::Revision Graph"
+#~ msgstr "常规::版本分支图"
+
+#~ msgid "Go offline?"
+#~ msgstr "是否离线？"
+
+#~ msgid "Replaced node"
+#~ msgstr "替换的节点"
