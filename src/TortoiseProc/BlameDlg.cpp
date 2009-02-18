@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,6 +33,8 @@ CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
 {
 	m_regTextView = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
 	m_bTextView = m_regTextView;
+	m_regIncludeMerge = CRegDWORD(_T("Software\\TortoiseSVN\\BlameIncludeMerge"), FALSE);
+	m_bIncludeMerge = m_regTextView;
 }
 
 CBlameDlg::~CBlameDlg()
@@ -69,6 +71,7 @@ BOOL CBlameDlg::OnInitDialog()
 	AdjustControlSize(IDC_INCLUDEMERGEINFO);
 
 	m_bTextView = m_regTextView;
+	m_bIncludeMerge = m_regIncludeMerge;
 	// set head revision as default revision
 	if (EndRev.IsHead())
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
@@ -92,6 +95,7 @@ void CBlameDlg::OnOK()
 		return; // don't dismiss dialog (error message already shown by MFC framework)
 
 	m_regTextView = m_bTextView;
+	m_regIncludeMerge = m_bIncludeMerge;
 	StartRev = SVNRev(m_sStartRev);
 	EndRev = SVNRev(m_sEndRev);
 	if (!StartRev.IsValid())
