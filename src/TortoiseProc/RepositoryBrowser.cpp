@@ -404,6 +404,7 @@ LRESULT CRepositoryBrowser::OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam
 		return 0;
 	}
 
+	m_barRepository.SetRevision(m_initialRev);
 	m_barRepository.GotoUrl(m_InitialUrl, m_initialRev, true);
 	m_RepoList.ClearText();
 	m_bInitDone = TRUE;
