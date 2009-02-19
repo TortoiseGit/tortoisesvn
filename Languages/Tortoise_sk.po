@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-17 13:50+0100\n"
+"PO-Revision-Date: 2009-02-19 21:47+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -228,9 +228,9 @@ msgid "%s, but it was deleted, moved or renamed locally."
 msgstr "%s, ale už bol miestne zmazaný, presunutý, alebo zmazaný."
 
 #. Resource IDs: (609)
-#, fuzzy, c-format
+#, c-format
 msgid "%s, but it was obstructed in the working copy."
-msgstr "%s, ale bol (obstructed) v pracovnej kópií."
+msgstr "%s, ale bol zahatený v pracovnej kópií."
 
 #. Resource IDs: (145)
 #, c-format
@@ -5818,7 +5818,7 @@ msgstr "Použiť kontrolu &pravopisu iba keď nastavený parameter tsvn:projectl
 
 #. Resource IDs: (65535)
 msgid "Opacity"
-msgstr "Nepriehladnosť"
+msgstr "Nepriehľadnosť"
 
 #. Resource IDs: (3841)
 msgid "Open"
@@ -6083,8 +6083,8 @@ msgid "Port :"
 msgstr "Port :"
 
 #. Resource IDs: (347)
-msgid "Possible values: 0 (fully transparent) .. 255 (no transparency)"
-msgstr "Možné hodnoty: 0 (úplne priesvitné) .. 255 (nepriehladné)"
+msgid "Possible values: 0 (fully transparent) .. 255 (opaque)"
+msgstr "Možné hodnoty: 0 (úplne priesvitné) .. 255 (nepriehľadné)"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
