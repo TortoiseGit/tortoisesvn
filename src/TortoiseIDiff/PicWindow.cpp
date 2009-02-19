@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2008 - TortoiseSVN
+// Copyright (C) 2006-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -356,7 +356,20 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				break;
 			case ALPHATOGGLEBUTTON_ID:
 				{
-					ToggleAlpha();
+					WORD msg = HIWORD(wParam);
+					switch (msg)
+					{
+					case BN_DOUBLECLICKED:
+						{
+							SendMessage(hwndAlphaToggleBtn, BM_SETSTATE, 1, 0);
+							SetTimer(*this, ID_ALPHATOGGLETIMER, 1000, NULL);
+						}
+						break;
+					case BN_CLICKED:
+						KillTimer(*this, ID_ALPHATOGGLETIMER);
+						ToggleAlpha();
+						break;
+					}
 					return 0;
 				}
 				break;
@@ -396,6 +409,11 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				{
 					SetBlendAlpha(m_blend, SendMessage(m_AlphaSlider.GetWindow(), TBM_GETPOS, 0, 0)/16.0f);
 					KillTimer(*this, TIMER_ALPHASLIDER);
+				}
+				break;
+			case ID_ALPHATOGGLETIMER:
+				{
+					ToggleAlpha();
 				}
 				break;
 			}
@@ -1284,7 +1302,7 @@ bool CPicWindow::CreateButtons()
 	hwndAlphaToggleBtn = CreateWindowEx(0, 
 								_T("BUTTON"), 
 								(LPCTSTR)NULL,
-								WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_ICON | BS_FLAT, 
+								WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_ICON | BS_FLAT | BS_NOTIFY | BS_PUSHLIKE, 
 								0, 0, 0, 0, 
 								(HWND)*this,
 								(HMENU)ALPHATOGGLEBUTTON_ID,

@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2008 - Stefan Kueng
+// Copyright (C) 2006-2009 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,6 +27,7 @@
 
 #define ID_ANIMATIONTIMER 100
 #define TIMER_ALPHASLIDER 101
+#define ID_ALPHATOGGLETIMER 102
 
 #define LEFTBUTTON_ID			101
 #define RIGHTBUTTON_ID			102
