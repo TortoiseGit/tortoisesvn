@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,7 +47,7 @@ public:
 	bool				lock_davcomment;
 	__time64_t			lock_createtime;
 	__time64_t			lock_expirationtime;
-	apr_size_t			size;
+	svn_filesize_t		size64;
 
 	bool				hasWCInfo;
 	svn_wc_schedule_t	schedule;
@@ -63,7 +63,7 @@ public:
 
 	CString				changelist;
 	svn_depth_t			depth;
-	apr_size_t			working_size;
+	svn_filesize_t		working_size64;
 
 	// tree conflict data
 	CString				treeconflict_path;

@@ -51,11 +51,11 @@ SVNStatus::SVNStatus(bool * pbCanceled)
 #ifdef _MFC_VER
 	svn_error_clear(svn_config_ensure(NULL, m_pool));
 	
-	// set up authentication
-	m_prompt.Init(m_pool, ctx);
-
 	// set up the configuration
 	m_err = svn_config_get_config (&(ctx->config), g_pConfigDir, m_pool);
+
+	// set up authentication
+	m_prompt.Init(m_pool, ctx);
 
 	if (m_err)
 	{

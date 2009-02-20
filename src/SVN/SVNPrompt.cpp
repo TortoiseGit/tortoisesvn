@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -51,20 +51,25 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
 	/* The whole list of registered providers */
 	apr_array_header_t *providers = apr_array_make (pool, 13, sizeof (svn_auth_provider_object_t *));
 
+	svn_config_t * cfg_config = (svn_config_t *)apr_hash_get(ctx->config, SVN_CONFIG_CATEGORY_CONFIG, APR_HASH_KEY_STRING);
+
+	/* Populate the registered providers with the platform-specific providers */
+	svn_auth_get_platform_specific_client_providers(&providers, cfg_config, pool);
+
 	svn_auth_get_tsvn_simple_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 	/* The main disk-caching auth providers, for both
 	'username/password' creds and 'username' creds.  */
-	svn_auth_get_windows_simple_provider (&provider, pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 	svn_auth_get_simple_provider2 (&provider, svn_auth_plaintext_prompt, this, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 	svn_auth_get_username_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
 	/* The server-cert, client-cert, and client-cert-password providers. */
-	svn_auth_get_windows_ssl_server_trust_provider(&provider, pool); 
-	APR_ARRAY_PUSH(providers, svn_auth_provider_object_t *) = provider;
+	/* The server-cert, client-cert, and client-cert-password providers. */
+	svn_auth_get_platform_specific_provider (&provider, "windows", "ssl_server_trust", pool);
+	if (provider)
+		APR_ARRAY_PUSH(providers, svn_auth_provider_object_t *) = provider;
 	svn_auth_get_ssl_server_trust_file_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 	svn_auth_get_ssl_client_cert_file_provider (&provider, pool);

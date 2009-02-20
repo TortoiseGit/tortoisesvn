@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -220,8 +220,8 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 			if (it->rootpath.IsUrl())
 			{
 				files->fgd[i].dwFileAttributes = (it->infodata.kind == svn_node_dir) ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
-				files->fgd[i].nFileSizeLow = static_cast<DWORD>(it->infodata.size);
-				files->fgd[i].nFileSizeHigh = static_cast<DWORD>(static_cast<ULONGLONG>(it->infodata.size) >> 32);
+				files->fgd[i].nFileSizeLow = static_cast<DWORD>(it->infodata.size64);
+				files->fgd[i].nFileSizeHigh = static_cast<DWORD>(static_cast<ULONGLONG>(it->infodata.size64) >> 32);
 			}
 			else
 			{
