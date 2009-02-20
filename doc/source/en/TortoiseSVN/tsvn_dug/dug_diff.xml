@@ -355,11 +355,10 @@
 			<keycap>Ctrl+Shift</keycap>-<action>Wheel</action> to change the blend.
 		</para>
 		<para>
-			The button above the slider toggles between two preset blends, indicated
-			by the markers on either side of the blend slider. By default one is at
-			the top and the other at the bottom, so the toggle button just switches
-			between one image and the other. You can move the markers to choose
-			the two blend values that the toggle button will use.
+			The button above the slider toggles between 0% and 100% blends, and
+			if you double click the button, the blend toggles automatically every
+			second until you click the button again. This can be useful when looking
+			for multiple small changes.
 		</para>
 		<para>
 			Sometimes you want to see a difference rather than a blend. You might
