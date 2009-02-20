@@ -208,12 +208,13 @@ void CSVNProgressDlg::AddItemToList()
 	}
 }
 
-BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t action, 
+BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_notify_action_t action, 
 							 svn_node_kind_t kind, const CString& mime_type, 
 							 svn_wc_notify_state_t content_state, 
 							 svn_wc_notify_state_t prop_state, LONG rev,
 							 const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
 							 const CString& changelistname,
+							 const CString& propertyName,
 							 svn_merge_range_t * range,
 							 svn_error_t * err, apr_pool_t * pool)
 {
@@ -221,6 +222,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	bool bDoAddData = true;
 	NotificationData * data = new NotificationData();
 	data->path = path;
+	data->url = url;
 	data->action = action;
 	data->kind = kind;
 	data->mime_type = mime_type;
@@ -229,6 +231,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	data->rev = rev;
 	data->lock_state = lock_state;
 	data->changelistname = changelistname;
+	data->propertyName = propertyName;
 	if ((lock)&&(lock->owner))
 		data->owner = CUnicodeUtils::GetUnicode(lock->owner);
 	data->sPathColumnText = path.GetUIPathString();
@@ -464,10 +467,17 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		break;
 	case svn_wc_notify_property_added:
 	case svn_wc_notify_property_modified:
+		data->sActionColumnText.Format(IDS_SVNACTION_PROPSET, (LPCTSTR)data->propertyName);
+		break;
 	case svn_wc_notify_property_deleted:
 	case svn_wc_notify_property_deleted_nonexistent:
+		data->sActionColumnText.Format(IDS_SVNACTION_PROPDEL, (LPCTSTR)data->propertyName);
+		break;
 	case svn_wc_notify_revprop_set:
+		data->sActionColumnText.Format(IDS_SVNACTION_PROPSET, (LPCTSTR)data->propertyName);
+		break;
 	case svn_wc_notify_revprop_deleted:
+		data->sActionColumnText.Format(IDS_SVNACTION_PROPDEL, (LPCTSTR)data->propertyName);
 		break;
 	case svn_wc_notify_merge_completed:
 		break;

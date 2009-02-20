@@ -159,7 +159,9 @@ private:
 		CString					sActionColumnText;	
 		CTSVNPath				path;
 		CTSVNPath				basepath;
+		CTSVNPath				url;
 		CString					changelistname;
+		CString					propertyName;
 
 		svn_wc_notify_action_t	action;
 		svn_node_kind_t			kind;
@@ -178,12 +180,13 @@ private:
 	};
 protected:
 	//implement the virtual methods from SVN base class
-	virtual BOOL Notify(const CTSVNPath& path, svn_wc_notify_action_t action, 
+	virtual BOOL Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_notify_action_t action, 
 		svn_node_kind_t kind, const CString& mime_type, 
 		svn_wc_notify_state_t content_state, 
 		svn_wc_notify_state_t prop_state, LONG rev,
 		const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
 		const CString& changelistname,
+		const CString& propertyName,
 		svn_merge_range_t * range,
 		svn_error_t * err, apr_pool_t * pool);
 	virtual svn_wc_conflict_choice_t	ConflictResolveCallback(const svn_wc_conflict_description_t *description, CString& mergedfile);
