@@ -140,6 +140,7 @@ UINT CChangedDlg::ChangedStatusThread()
 	DialogEnableWindow(IDC_SHOWUNMODIFIED, FALSE);
 	DialogEnableWindow(IDC_SHOWIGNORED, FALSE);
     DialogEnableWindow(IDC_SHOWUSERPROPS, FALSE);
+	DialogEnableWindow(IDC_SHOWEXTERNALS, FALSE);
 	CString temp;
 	m_FileListCtrl.SetDepthInfinity(m_bDepthInfinity);
 	if (!m_FileListCtrl.GetStatus(m_pathList, m_bRemote, m_bShowIgnored != FALSE, m_bShowUserProps != FALSE))
@@ -168,6 +169,7 @@ UINT CChangedDlg::ChangedStatusThread()
 	DialogEnableWindow(IDC_SHOWUNMODIFIED, !bSingleFile);
 	DialogEnableWindow(IDC_SHOWIGNORED, !bSingleFile);
     DialogEnableWindow(IDC_SHOWUSERPROPS, TRUE);
+	DialogEnableWindow(IDC_SHOWEXTERNALS, !bSingleFile);
 	InterlockedExchange(&m_bBlock, FALSE);
 	// revert the remote flag back to the default
 	m_bRemote = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\CheckRepo"), FALSE);
