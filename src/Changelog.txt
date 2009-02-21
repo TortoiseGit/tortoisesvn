@@ -88,6 +88,10 @@
 - CHG: The checkout/export dialogs do not ask whether to create the folder
        to checkout/export aynmore but silently create it. (Stefan)
 
+Version 1.5.9
+- BUG: Broken registry settings may prevent Check for Modifications dialog
+       from showing up. (Stefan Fuhrmann)
+
 Version 1.5.8
 - BUG: TortoiseMerge could loose line endings when saving edits. (Stefan)
 

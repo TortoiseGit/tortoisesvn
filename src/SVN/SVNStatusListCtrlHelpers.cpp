@@ -701,12 +701,17 @@ void CSVNStatusListCtrl::ColumnManager::ParseWidths (const CString& widths)
             // a user-prop column
 
             size_t index = static_cast<size_t>(i - SVNSLC_USERPROPCOLOFFSET);
-            assert (index < userProps.size());
-            userProps[index].width = width;
 
-            for (size_t k = 0, count2 = columns.size(); k < count2; ++k)
-                if (columns[k].index == i)
-                    columns[k].width = width;
+            // someone may have tweaked the registry settings by hand ...
+
+            if (index < userProps.size())
+            {
+                userProps[index].width = width;
+
+                for (size_t k = 0, count2 = columns.size(); k < count2; ++k)
+                    if (columns[k].index == i)
+                        columns[k].width = width;
+            }
         }
         else
         {
