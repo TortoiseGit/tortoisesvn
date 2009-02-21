@@ -140,6 +140,7 @@
 		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-conflicts-tree">
+		<?dbhh topicname="IDD_TREECONFLICTEDITOR"?>
 		<title>Tree Conflicts</title>
 		<para>
 			A tree conflict occurs when a developer moved/renamed/deleted
@@ -147,6 +148,23 @@
 			has moved/renamed/deleted or just modified. There are many
 			different situations that can result in a tree conflict, and
 			all of them require different steps to resolve the conflict.
+		</para>
+		<para>
+			When a file is deleted locally in Subversion, the file is also
+			deleted from the local file system, so even if it is part of a
+			tree conflict it cannot show a conflicted overlay and you cannot
+			right click on it to resolve the conflict. Use the
+			<guilabel>Check for Modifications</guilabel> dialog instead
+			to access the <guilabel>Edit conflicts</guilabel> option.
+		</para>
+		<para>
+			TortoiseSVN can help find the right place to merge changes, but
+			there may be additional work required to sort out the conflicts.
+			Remember that after an update the working BASE will always contain
+			the revision of each item as it was in the repository at the time
+			of update. If you revert a change after updating it goes back to
+			the repository state, not to the way it was when you started making
+			your own local changes.
 		</para>
 		<sect3 id="tsvn-dug-conflicts-tree-1">
 			<title>local delete, incoming edit upon update</title>
@@ -160,7 +178,9 @@
 				<listitem>
 					<para>
 						Developer B has simultaneously moved <filename>Foo.c</filename>
-						to <filename>Bar.c</filename> in his working copy.
+						to <filename>Bar.c</filename> in his working copy,
+						or simply deleted <filename>Foo.c</filename> or
+						its parent folder.
 					</para>
 				</listitem>
 			</orderedlist>
@@ -169,31 +189,33 @@
 				<itemizedlist>
 					<listitem>
 						<para>
-							<filename>Foo.c</filename> is deleted from working copy.
+							<filename>Foo.c</filename> has been deleted from working copy,
+							but is marked with a tree conflict.
 						</para>
 					</listitem>
 					<listitem>
 						<para>
+							If the conflict results from a rename rather than a delete then
 							<filename>Bar.c</filename> is marked as added, but does not
 							contain developer A's modifications.
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-							Tree conflict on <filename>Foo.c</filename>.
 						</para>
 					</listitem>
 				</itemizedlist>
 			</para>
 			<para>
-				Developer B now has two choices: either merge the changes to
-				<filename>Foo.c</filename> into the renamed file <filename>Bar.c</filename>
-				and mark the conflict as resolved, or just mark the conflict as
-				resolved and keep both files.
+				Developer B now has to choose whether to keep Developer A's changes.
+				In the case of a file rename, he can merge the changes to
+				<filename>Foo.c</filename> into the renamed file <filename>Bar.c</filename>.
+				For simple file or directory deletions he can choose to keep the
+				item with Developer A's changes and discard the deletion.
+				Or, by marking the conflict as resolved without doing anything he
+				effectively discards Developer A's changes.
 			</para>
 			<para>
-				The conflict edit dialog offers both options if it can find
+				The conflict edit dialog offers to merge changes if it can find
 				the original file of the renamed <filename>Bar.c</filename>.
+				Depending on where the update was invoked, it may not be possible
+				to find the source file.
 			</para>
 		</sect3>
 		<sect3 id="tsvn-dug-conflicts-tree-2">
