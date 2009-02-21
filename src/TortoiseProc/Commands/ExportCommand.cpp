@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -84,7 +84,7 @@ bool ExportCommand::Execute()
 		CString strTemp;
 		strTemp.LoadString(IDS_PROC_EXPORT_1);
 		folderBrowser.SetInfo(strTemp);
-		folderBrowser.m_style = BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS | BIF_VALIDATE;
+		folderBrowser.m_style = BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS | BIF_VALIDATE | BIF_EDITBOX;
 		strTemp.LoadString(IDS_PROC_EXPORT_2);
 		folderBrowser.SetCheckBoxText(strTemp);
 		strTemp.LoadString(IDS_PROC_OMMITEXTERNALS);
