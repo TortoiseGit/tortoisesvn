@@ -43,7 +43,7 @@ public:
 	void AddDirectoryForUpdate(const CTSVNPath& path);
 	void AddPathForUpdate(const CTSVNPath& path);
 	void Stop();
-	bool SetHoldoff(DWORD milliseconds = 100);
+	bool SetHoldoff(DWORD milliseconds = 500);
 	void BlockPath(const CTSVNPath& path, DWORD ticks = 0);
 private:
 	static unsigned int __stdcall ThreadEntry(void* pContext);

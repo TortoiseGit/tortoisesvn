@@ -169,7 +169,7 @@ void CFolderCrawler::WorkerThread()
 			{
 				// We're in crawl hold-off 
 				ATLTRACE("Crawl hold-off\n");
-				Sleep(50);
+				Sleep(200);
 				continue;
 			}
 			if (bFirstRunAfterWakeup)
@@ -187,6 +187,7 @@ void CFolderCrawler::WorkerThread()
 			if ((m_foldersToUpdate.empty())&&(m_pathsToUpdate.empty()))
 			{
 				// Nothing left to do 
+				Sleep(200);
 				break;
 			}
 			currentTicks = GetTickCount();
@@ -226,7 +227,7 @@ void CFolderCrawler::WorkerThread()
 				}
 				if (DWORD(workingPath.GetCustomData()) >= currentTicks)
 				{
-					Sleep(50);
+					Sleep(200);
 					continue;
 				}
 				if ((!m_blockedPath.IsEmpty())&&(m_blockedPath.IsAncestorOf(workingPath)))
@@ -413,7 +414,7 @@ void CFolderCrawler::WorkerThread()
 				}
 				if (DWORD(workingPath.GetCustomData()) >= currentTicks)
 				{
-					Sleep(50);
+					Sleep(200);
 					continue;
 				}
 				if ((!m_blockedPath.IsEmpty())&&(m_blockedPath.IsAncestorOf(workingPath)))
@@ -470,7 +471,7 @@ void CFolderCrawler::WorkerThread()
 	_endthread();
 }
 
-bool CFolderCrawler::SetHoldoff(DWORD milliseconds /* = 100*/)
+bool CFolderCrawler::SetHoldoff(DWORD milliseconds /* = 500*/)
 {
 	long tick = (long)GetTickCount();
 	bool ret = ((tick - m_crawlHoldoffReleasesAt) > 0);
