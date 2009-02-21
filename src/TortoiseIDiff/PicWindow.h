@@ -174,6 +174,8 @@ protected:
 	/// Returns the client rectangle, without the scrollbars and the view title.
 	/// Basically the rectangle the image can use.
 	void				GetClientRect(RECT * pRect);
+	/// Returns the client rectangle, without the view title but with the scrollbars
+	void				GetClientRectWithScrollbars(RECT * pRect);
 	/// the WM_PAINT function
 	void				Paint(HWND hwnd);
 	/// Draw pic to hdc, with a border, scaled by scale.

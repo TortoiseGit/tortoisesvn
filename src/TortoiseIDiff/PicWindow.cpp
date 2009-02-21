@@ -860,6 +860,24 @@ void CPicWindow::GetClientRect(RECT * pRect)
 		pRect->left += SLIDER_WIDTH;
 }
 
+void CPicWindow::GetClientRectWithScrollbars(RECT * pRect)
+{
+	GetClientRect(pRect);
+	::GetWindowRect(*this, pRect);
+	pRect->right = pRect->right-pRect->left;
+	pRect->bottom = pRect->bottom-pRect->top;
+	pRect->top = 0;
+	pRect->left = 0;
+	pRect->top += HEADER_HEIGHT;
+	if (HasMultipleImages())
+	{
+		pRect->top += HEADER_HEIGHT;
+	}
+	if (pSecondPic)
+		pRect->left += SLIDER_WIDTH;
+};
+
+
 void CPicWindow::SetZoom(double dZoom, bool centermouse)
 {
 	// Set the interpolation mode depending on zoom
@@ -988,7 +1006,9 @@ void CPicWindow::FitImageInWindow()
 {
 	RECT rect;
 	double dZoom = 1.0;
-	GetClientRect(&rect);
+
+	GetClientRectWithScrollbars(&rect);
+
 	if (rect.right-rect.left)
 	{
 		if (((rect.right - rect.left) > picture.m_Width+2)&&((rect.bottom - rect.top)> picture.m_Height+2))
@@ -1030,7 +1050,7 @@ void CPicWindow::FitImageInWindow()
 void CPicWindow::CenterImage()
 {
 	RECT rect;
-	GetClientRect(&rect);
+	GetClientRectWithScrollbars(&rect);
 	double width = (double(picture.m_Width)*picscale) + 2.0;
 	double height = (double(picture.m_Height)*picscale) + 2.0;
 	if (pSecondPic)
