@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-17 19:48+0100\n"
+"PO-Revision-Date: 2009-02-21 19:02+0100\n"
 "Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -930,8 +930,8 @@ msgstr "&Opcije"
 
 #
 #. Resource IDs: (32772)
-msgid "&Overlap images"
-msgstr "&Preklopi slike"
+msgid "&Overlay images"
+msgstr "&Prekrivač slike"
 
 #
 #. Resource IDs: (1411, 65535)
@@ -3825,6 +3825,10 @@ msgstr "Spoljašnji programi::Merge alat"
 msgid "External Programs::Unified Diff Viewer"
 msgstr "Spoljašnji programi::Pregledač objedinjenih razlika"
 
+#. Resource IDs: (263)
+msgid "External failed"
+msgstr "Eksternal neispravan"
+
 #. Resource IDs: (226)
 msgid "Externals excluded"
 msgstr "Spoljašnji isključeni"
@@ -6362,6 +6366,16 @@ msgstr "Svojstvo %s : radna osnova"
 #, c-format
 msgid "Property %s : working copy"
 msgstr "Svojstvo %s : radna kopija"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' deleted"
+msgstr "Svojstvo '%s' obrisano"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' set"
+msgstr "Svojstvo '%s' podešeno"
 
 #. Resource IDs: (107)
 msgid "Property Page"
