@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006 - 2008 - TortoiseSVN
+// Copyright (C) 2006 - 2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -336,7 +336,15 @@ LRESULT CMainWindow::DoCommand(int id)
 			tbi.fsState = (m_BlendType == CPicWindow::BLEND_ALPHA) ? TBSTATE_CHECKED : 0;
 			if (bOverlap)
 				tbi.fsState |= TBSTATE_ENABLED;
+			else
+				tbi.fsState = 0;
 			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_BLENDALPHA, (LPARAM)&tbi);
+
+			if (bOverlap)
+				tbi.fsState = 0;
+			else
+				tbi.fsState = bVertical ? TBSTATE_ENABLED | TBSTATE_CHECKED : TBSTATE_ENABLED;
+			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_ARRANGEVERTICAL, (LPARAM)&tbi);
 
 			ShowWindow(picWindow2, bOverlap ? SW_HIDE : SW_SHOW);
 
