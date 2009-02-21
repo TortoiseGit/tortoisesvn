@@ -442,7 +442,7 @@ CRegTypedBase<T, Base>::operator const T&()
 template<class T, class Base>
 CRegTypedBase<T, Base>& CRegTypedBase<T, Base>::operator =(const T& d)
 {
-	if ((d==m_value)&&(!m_force))
+	if (m_read && (d == m_value) && !m_force)
 	{
 		//no write to the registry required, its the same value
 		LastError = ERROR_SUCCESS;
