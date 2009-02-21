@@ -492,14 +492,9 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
 		data->color = m_Colors.GetColor(CColors::Conflict);
 		break;
 	default:
-		int uui=0;
 		break;
 	} // switch (data->action)
 
-	if (data->sActionColumnText.IsEmpty())
-	{
-		int kjgjhg=0;
-	}
 	if (bNoNotify)
 		delete data;
 	else
