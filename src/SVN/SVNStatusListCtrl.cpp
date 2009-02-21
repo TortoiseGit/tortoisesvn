@@ -2545,7 +2545,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 			switch (cmd)
 			{
 			case IDSVNLC_COPY:
-				CopySelectedEntriesToClipboard(0);
+				CopySelectedEntriesToClipboard(SVNSLC_COLFILEPATH);
 				break;
 			case IDSVNLC_COPYEXT:
 				CopySelectedEntriesToClipboard((DWORD)-1);
@@ -4725,9 +4725,9 @@ BOOL CSVNStatusListCtrl::PreTranslateMessage(MSG* pMsg)
 				{
 					// copy all selected paths to the clipboard
 					if (GetAsyncKeyState(VK_SHIFT)&0x8000)
-						CopySelectedEntriesToClipboard(SVNSLC_COLSTATUS|SVNSLC_COLURL);
+						CopySelectedEntriesToClipboard(SVNSLC_COLFILEPATH|SVNSLC_COLSTATUS|SVNSLC_COLURL);
 					else
-						CopySelectedEntriesToClipboard(0);
+						CopySelectedEntriesToClipboard(SVNSLC_COLFILEPATH);
 					return TRUE;
 				}
 			}
@@ -4749,16 +4749,17 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 	TCHAR buf[100];
 	if (GetSelectedCount() == 0)
 		return false;
-	// first add the column titles as the first line
-	temp.LoadString(IDS_STATUSLIST_COLFILE);
-	sClipboard = temp;
 
+    // first add the column titles as the first line
     DWORD selection = 0;
     for (int i = 0, count = m_ColumnManager.GetColumnCount(); i < count; ++i)
         if (   ((dwCols == -1) && m_ColumnManager.IsVisible (i))
-            || ((dwCols != 1) && (i < 32) && ((dwCols & (1 << i)) != 0)))
+            || ((i < SVNSLC_NUMCOLUMNS) && (dwCols & (1 << i))))
         {
-            sClipboard += _T("\t") + m_ColumnManager.GetName(i);
+            if (!sClipboard.IsEmpty())
+                sClipboard += _T("\t");
+                
+            sClipboard += m_ColumnManager.GetName(i);
 
             if (i < 32)
                 selection += 1 << i;
@@ -4771,7 +4772,10 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 	while ((index = GetNextSelectedItem(pos)) >= 0)
 	{
 		FileEntry * entry = GetListEntry(index);
-		sClipboard += entry->GetDisplayName();
+        if (selection & SVNSLC_COLFILEPATH)
+		{
+		    sClipboard += entry->GetDisplayName();
+        }
 		if (selection & SVNSLC_COLFILENAME)
 		{
 			sClipboard += _T("\t")+entry->path.GetFileOrDirectoryName();
@@ -4802,23 +4806,6 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 			}
 			sClipboard += _T("\t")+temp;
 		}
-		if (selection & SVNSLC_COLTEXTSTATUS)
-		{
-			if (entry->isNested)
-			{
-				temp.LoadString(IDS_STATUSLIST_NESTED);
-			}
-			else
-			{
-				SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
-				if ((entry->copied)&&(_tcslen(buf)>1))
-					_tcscat_s(buf, 100, _T(" (+)"));
-				if ((entry->switched)&&(_tcslen(buf)>1))
-					_tcscat_s(buf, 100, _T(" (s)"));
-				temp = buf;
-			}
-			sClipboard += _T("\t")+temp;
-		}
 		if (selection & SVNSLC_COLREMOTESTATUS)
 		{
 			if (entry->isNested)
@@ -4838,6 +4825,23 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 					(entry->remotestatus != svn_wc_status_unversioned)&&
 					(!SVNStatus::IsImportant(entry->remotetextstatus)))
 					_tcscat_s(buf, 100, ponly);
+				temp = buf;
+			}
+			sClipboard += _T("\t")+temp;
+		}
+		if (selection & SVNSLC_COLTEXTSTATUS)
+		{
+			if (entry->isNested)
+			{
+				temp.LoadString(IDS_STATUSLIST_NESTED);
+			}
+			else
+			{
+				SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+				if ((entry->copied)&&(_tcslen(buf)>1))
+					_tcscat_s(buf, 100, _T(" (+)"));
+				if ((entry->switched)&&(_tcslen(buf)>1))
+					_tcscat_s(buf, 100, _T(" (s)"));
 				temp = buf;
 			}
 			sClipboard += _T("\t")+temp;
@@ -4887,7 +4891,9 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 			sClipboard += _T("\t")+temp;
 		}
 		if (selection & SVNSLC_COLURL)
+        {
 			sClipboard += _T("\t")+entry->url;
+        }
 		if (selection & SVNSLC_COLLOCK)
 		{
 			if (!m_HeadRev.IsHead())
@@ -4925,7 +4931,19 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 		}
 		if (selection & SVNSLC_COLLOCKCOMMENT)
 			sClipboard += _T("\t")+entry->lock_comment;
-		if (selection & SVNSLC_COLAUTHOR)
+		if (selection & SVNSLC_COLLOCKDATE)
+		{
+			TCHAR datebuf[SVN_DATE_BUFFER];
+            apr_time_t date = entry->lock_date;
+			SVN::formatDate(datebuf, date, true);
+			if (date)
+				temp = datebuf;
+			else
+				temp.Empty();
+			sClipboard += _T("\t")+temp;
+		}
+
+        if (selection & SVNSLC_COLAUTHOR)
 			sClipboard += _T("\t")+entry->last_commit_author;
 		if (selection & SVNSLC_COLREVISION)
 		{
@@ -4937,7 +4955,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 		if (selection & SVNSLC_COLREMOTEREVISION)
 		{
 			temp.Format(_T("%ld"), entry->remoterev);
-			if (entry->remoterev == 0)
+			if (entry->remoterev <= 0)
 				temp.Empty();
 			sClipboard += _T("\t")+temp;
 		}
@@ -4952,12 +4970,30 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 				temp.Empty();
 			sClipboard += _T("\t")+temp;
 		}
+		if (selection & SVNSLC_COLSVNNEEDSLOCK)
+		{
+            sClipboard += entry->needslock ? _T("\tx") : _T("\t");
+		}
 		if (selection & SVNSLC_COLCOPYFROM)
 		{
 			if (m_sURL.Compare(entry->copyfrom_url.Left(m_sURL.GetLength()))==0)
 				temp = entry->copyfrom_url.Mid(m_sURL.GetLength());
 			else
 				temp = entry->copyfrom_url;
+			sClipboard += _T("\t")+temp;
+		}
+		if (selection & SVNSLC_COLMODIFICATIONDATE)
+		{
+			TCHAR datebuf[SVN_DATE_BUFFER];
+	        __int64 filetime = entry->GetPath().GetLastWriteTime();
+	        if ( (filetime) && (entry->textstatus!=svn_wc_status_deleted) )
+	        {
+		        FILETIME* f = (FILETIME*)(__int64*)&filetime;
+		        SVN::formatDate(datebuf,*f,true);
+                temp = datebuf;
+            }
+			else
+				temp.Empty();
 			sClipboard += _T("\t")+temp;
 		}
 

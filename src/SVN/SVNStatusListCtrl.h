@@ -31,6 +31,7 @@ class SVNStatus;
 class CSVNStatusListCtrlDropTarget;
 
 // these defines must be in the order the columns are inserted!
+#define SVNSLC_COLFILEPATH			0x000000001
 #define SVNSLC_COLFILENAME			0x000000002
 #define SVNSLC_COLEXT				0x000000004
 #define SVNSLC_COLSTATUS			0x000000008
