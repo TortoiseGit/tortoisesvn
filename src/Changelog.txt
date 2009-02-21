@@ -93,6 +93,8 @@ Version 1.5.9
        from showing up. (Stefan Fuhrmann)
 - BUG: Missing columns when copying to clipboard in Check for Modifications 
        dialog. (Stefan Fuhrmann)
+- BUG: Showing Log for deleted paths should not trigger "go offline? dialog.
+       (Stefan Fuhrmann)
 
 Version 1.5.8
 - BUG: TortoiseMerge could loose line endings when saving edits. (Stefan)
