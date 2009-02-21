@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 #include "StdAfx.h"
 #include <windowsx.h>
 #include "BrowseFolder.h"
+#include "TSVNPath.h"
 
 BOOL CBrowseFolder::m_bCheck = FALSE;
 BOOL CBrowseFolder::m_bCheck2 = FALSE;
@@ -63,6 +64,10 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
 	m_sDefaultPath = sDefaultPath;
 	if (m_sDefaultPath.IsEmpty() && !path.IsEmpty())
 	{
+		CTSVNPath p = CTSVNPath(path);
+		while (!p.Exists() && !p.IsEmpty())
+			p = p.GetContainingDirectory();
+		path = p.GetWinPathString();
 		// if the result path already contains a path, use that as the default path
 		m_sDefaultPath = path;
 	}
