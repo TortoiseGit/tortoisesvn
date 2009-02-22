@@ -302,13 +302,13 @@ bool CFullHistory::FetchRevisionData ( CString path
         if (showWCRev || showWCModification)
         {
             svn_revnum_t maxrev = wcRevision;
-            svn_revnum_t minrev;
+            svn_revnum_t minrev = 0;
 	        bool switched, modified, sparse;
 			CTSVNPath tpath = CTSVNPath (path);
 			if (!tpath.IsUrl())
 			{
 				if (svn.GetWCRevisionStatus ( CTSVNPath (path)
-											, false    // get the "update" revision
+											, true    // get the "commit" revision
 											, minrev
 											, maxrev
 											, switched
@@ -321,7 +321,7 @@ bool CFullHistory::FetchRevisionData ( CString path
 					// the base path ($WC/ is now "older") instead of the
 					// newest one.
 
-					wcRevision = minrev;
+					wcRevision = maxrev;
 					wcModified = modified;
 				}
 			}
