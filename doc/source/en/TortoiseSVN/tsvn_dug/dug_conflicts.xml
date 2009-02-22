@@ -167,7 +167,7 @@
 			your own local changes.
 		</para>
 		<sect3 id="tsvn-dug-conflicts-tree-1">
-			<title>local delete, incoming edit upon update</title>
+			<title>Local delete, incoming edit upon update</title>
 			<orderedlist>
 				<listitem>
 					<para>
@@ -219,7 +219,7 @@
 			</para>
 		</sect3>
 		<sect3 id="tsvn-dug-conflicts-tree-2">
-			<title>local edit, incoming delete upon update</title>
+			<title>Local edit, incoming delete upon update</title>
 			<orderedlist>
 				<listitem>
 					<para>
@@ -275,7 +275,7 @@
 			</para>
 		</sect3>
 		<sect3 id="tsvn-dug-conflicts-tree-3">
-			<title>local delete, incoming delete upon update</title>
+			<title>Local delete, incoming delete upon update</title>
 			<orderedlist>
 				<listitem>
 					<para>
@@ -330,23 +330,23 @@
 			</para>
 		</sect3>		
 		<sect3 id="tsvn-dug-conflicts-tree-4">
-			<title>local missing, incoming edit upon merge</title>
+			<title>Local missing, incoming edit upon merge</title>
 			<orderedlist>
 				<listitem>
 					<para>
-						Developer A modifies <filename>Foo.c</filename> 
+						Developer A working on trunk modifies <filename>Foo.c</filename>
 						and commits it to the repository
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-						Developer B moves <filename>Foo.c</filename> to
-						<filename>Bar.c</filename>
+						Developer B working on a branch moves <filename>Foo.c</filename>
+						to <filename>Bar.c</filename> and commits it to the repository
 					</para>
 				</listitem>
 			</orderedlist>
 			<para>
-				A merge of developer A's changes to developer B's working 
+				A merge of developer A's trunk changes to developer B's branch working 
 				copy results in a tree conflict:
 				<itemizedlist>
 					<listitem>
@@ -368,24 +368,23 @@
 			</para>
 		</sect3>		
 		<sect3 id="tsvn-dug-conflicts-tree-5">
-			<title>local edit, incoming delete upon merge</title>
+			<title>Local edit, incoming delete upon merge</title>
 			<orderedlist>
 				<listitem>
 					<para>
-						Developer A moves <filename>Foo.c</filename> to
-						<filename>Bar.c</filename>
-						and commits it to the repository
+						Developer A working on trunk moves <filename>Foo.c</filename>
+						to <filename>Bar.c</filename> and commits it to the repository
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-						Developer B modifies <filename>Foo.c</filename> and
-						commits it to the repository.
+						Developer B working on a branch modifies <filename>Foo.c</filename>
+						and commits it to the repository.
 					</para>
 				</listitem>
 			</orderedlist>
 			<para>
-				A merge of developer A's changes to developer B's working 
+				A merge of developer A's trunk changes to developer B's branch working 
 				copy results in a tree conflict:
 				<itemizedlist>
 					<listitem>
@@ -412,23 +411,23 @@
 			</para>
 		</sect3>		
 		<sect3 id="tsvn-dug-conflicts-tree-6">
-			<title>local delete, incoming delete upon merge</title>
+			<title>Local delete, incoming delete upon merge</title>
 			<orderedlist>
 				<listitem>
 					<para>
-						Developer A moves <filename>Foo.c</filename> to
-						<filename>Bar.c</filename> and commits it to the repository
+						Developer A working on trunk moves <filename>Foo.c</filename>
+						to <filename>Bar.c</filename> and commits it to the repository
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-						Developer B moves <filename>Foo.c</filename> to
-						<filename>Bix.c</filename>
+						Developer B working on a branch moves <filename>Foo.c</filename>
+						to <filename>Bix.c</filename> and commits it to the repository
 					</para>
 				</listitem>
 			</orderedlist>
 			<para>
-				A merge of developer A's changes to developer B's working 
+				A merge of developer A's trunk changes to developer B's branch working 
 				copy results in a tree conflict:
 				<itemizedlist>
 					<listitem>
