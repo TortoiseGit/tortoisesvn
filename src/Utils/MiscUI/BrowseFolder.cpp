@@ -19,7 +19,7 @@
 #include "StdAfx.h"
 #include <windowsx.h>
 #include "BrowseFolder.h"
-#include "TSVNPath.h"
+#include "PathUtils.h"
 
 BOOL CBrowseFolder::m_bCheck = FALSE;
 BOOL CBrowseFolder::m_bCheck2 = FALSE;
@@ -64,10 +64,19 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
 	m_sDefaultPath = sDefaultPath;
 	if (m_sDefaultPath.IsEmpty() && !path.IsEmpty())
 	{
-		CTSVNPath p = CTSVNPath(path);
-		while (!p.Exists() && !p.IsEmpty())
-			p = p.GetContainingDirectory();
-		path = p.GetWinPathString();
+		while (!PathFileExists(path) && !path.IsEmpty())
+		{
+			CString p = path.Left(path.ReverseFind('\\'));
+			if ((p.GetLength() == 2)&&(p[1] == ':'))
+			{
+				p += _T("\\");
+				if (p.Compare(path) == 0)
+					p.Empty();
+			}
+			if (p.GetLength() < 2)
+				p.Empty();
+			path = p;
+		}
 		// if the result path already contains a path, use that as the default path
 		m_sDefaultPath = path;
 	}
