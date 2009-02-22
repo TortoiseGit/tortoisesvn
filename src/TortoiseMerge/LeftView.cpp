@@ -127,6 +127,7 @@ bool CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 						m_pwndBottom->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
 						bottomstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
 						m_pwndBottom->m_pViewData->SetState(i, m_pViewData->GetState(i));
+						m_pwndBottom->m_pViewData->SetLineEnding(i, m_pViewData->GetLineEnding(i));
 						if (m_pwndBottom->IsLineConflicted(i))
 						{
 							if (m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
@@ -143,6 +144,7 @@ bool CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 					{
 						rightstate.difflines[i] = m_pwndRight->m_pViewData->GetLine(i);
 						m_pwndRight->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
+						m_pwndRight->m_pViewData->SetLineEnding(i, m_pViewData->GetLineEnding(i));
 						DiffStates state2 = m_pViewData->GetState(i);
 						switch (state2)
 						{
