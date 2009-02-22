@@ -94,7 +94,6 @@ protected:
     afx_msg BOOL    OnToggleOption (UINT controlID);
     afx_msg BOOL    OnToggleReloadOption (UINT controlID);
     afx_msg BOOL    OnToggleRedrawOption (UINT controlID);
-    afx_msg BOOL	OnToolTipNotify (UINT id, NMHDR *pNMHDR, LRESULT *pResult);
 
 	DECLARE_MESSAGE_MAP()
 
