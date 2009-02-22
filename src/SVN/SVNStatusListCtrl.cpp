@@ -1908,75 +1908,80 @@ bool CSVNStatusListCtrl::BuildStatistics()
 		const FileEntry * entry = m_arStatusArray[i];
 		if (entry)
 		{
-			switch (entry->status)
-			{
-			case svn_wc_status_normal:
-				m_nNormal++;
-				break;
-			case svn_wc_status_added:
-				m_nAdded++;
-				break;
-			case svn_wc_status_missing:
-			case svn_wc_status_deleted:
-				m_nDeleted++;
-				break;
-			case svn_wc_status_replaced:
-			case svn_wc_status_modified:
-			case svn_wc_status_merged:
-				m_nModified++;
-				break;
-			case svn_wc_status_conflicted:
-			case svn_wc_status_obstructed:
+			if (entry->tree_conflicted)
 				m_nConflicted++;
-				break;
-			case svn_wc_status_ignored:
-				m_nUnversioned++;
-				break;
-			default:
+			else
+			{
+				switch (entry->status)
 				{
-					if (SVNStatus::IsImportant(entry->remotestatus))
-						break;
+				case svn_wc_status_normal:
+					m_nNormal++;
+					break;
+				case svn_wc_status_added:
+					m_nAdded++;
+					break;
+				case svn_wc_status_missing:
+				case svn_wc_status_deleted:
+					m_nDeleted++;
+					break;
+				case svn_wc_status_replaced:
+				case svn_wc_status_modified:
+				case svn_wc_status_merged:
+					m_nModified++;
+					break;
+				case svn_wc_status_conflicted:
+				case svn_wc_status_obstructed:
+					m_nConflicted++;
+					break;
+				case svn_wc_status_ignored:
 					m_nUnversioned++;
-					// If an entry is in an unversioned folder, we don't have to do an expensive array search
-					// to find out if it got case-renamed: an unversioned folder can't have versioned files
-					// But nested folders are also considered to be in unversioned folders, we have to do the
-					// check in that case too, otherwise we would miss case-renamed folders - they show up
-					// as nested folders.
-					if (((!entry->inunversionedfolder)||(entry->isNested))&&(m_bUnversionedLast))
+					break;
+				default:
 					{
-						// check if the unversioned item is just
-						// a file differing in case but still versioned
-						FileEntryVector::iterator itMatchingItem;
-						if(std::binary_search(m_arStatusArray.begin(), itFirstUnversionedEntry, entry, EntryPathCompareNoCase))
-						{
-							// We've confirmed that there *is* a matching file
-							// Find its exact location
-							itMatchingItem = std::lower_bound(m_arStatusArray.begin(), itFirstUnversionedEntry, entry, EntryPathCompareNoCase);
-
-							// adjust the case of the filename
-							if (MoveFileEx(entry->path.GetWinPath(), (*itMatchingItem)->path.GetWinPath(), MOVEFILE_REPLACE_EXISTING))
-							{
-								// We successfully adjusted the case in the filename. But there is now a file with status 'missing'
-								// in the array, because that's the status of the file before we adjusted the case.
-								// We have to refetch the status of that file.
-								// Since fetching the status of single files/directories is very expensive and there can be
-								// multiple case-renames here, we just set a flag and refetch the status at the end from scratch.
-								bRefetchStatus = true;
-								DeleteItem(i);
-								m_arStatusArray.erase(m_arStatusArray.begin()+i);
-								delete entry;
-								i--;
-								m_nUnversioned--;
-								// now that we removed an unversioned item from the array, find the first unversioned item in the 'new'
-								// list again.
-								itFirstUnversionedEntry = std::partition(m_arStatusArray.begin(), m_arStatusArray.end(), IsEntryVersioned);
-							}
+						if (SVNStatus::IsImportant(entry->remotestatus))
 							break;
+						m_nUnversioned++;
+						// If an entry is in an unversioned folder, we don't have to do an expensive array search
+						// to find out if it got case-renamed: an unversioned folder can't have versioned files
+						// But nested folders are also considered to be in unversioned folders, we have to do the
+						// check in that case too, otherwise we would miss case-renamed folders - they show up
+						// as nested folders.
+						if (((!entry->inunversionedfolder)||(entry->isNested))&&(m_bUnversionedLast))
+						{
+							// check if the unversioned item is just
+							// a file differing in case but still versioned
+							FileEntryVector::iterator itMatchingItem;
+							if(std::binary_search(m_arStatusArray.begin(), itFirstUnversionedEntry, entry, EntryPathCompareNoCase))
+							{
+								// We've confirmed that there *is* a matching file
+								// Find its exact location
+								itMatchingItem = std::lower_bound(m_arStatusArray.begin(), itFirstUnversionedEntry, entry, EntryPathCompareNoCase);
+
+								// adjust the case of the filename
+								if (MoveFileEx(entry->path.GetWinPath(), (*itMatchingItem)->path.GetWinPath(), MOVEFILE_REPLACE_EXISTING))
+								{
+									// We successfully adjusted the case in the filename. But there is now a file with status 'missing'
+									// in the array, because that's the status of the file before we adjusted the case.
+									// We have to refetch the status of that file.
+									// Since fetching the status of single files/directories is very expensive and there can be
+									// multiple case-renames here, we just set a flag and refetch the status at the end from scratch.
+									bRefetchStatus = true;
+									DeleteItem(i);
+									m_arStatusArray.erase(m_arStatusArray.begin()+i);
+									delete entry;
+									i--;
+									m_nUnversioned--;
+									// now that we removed an unversioned item from the array, find the first unversioned item in the 'new'
+									// list again.
+									itFirstUnversionedEntry = std::partition(m_arStatusArray.begin(), m_arStatusArray.end(), IsEntryVersioned);
+								}
+								break;
+							}
 						}
 					}
-				}
-				break;
-			} // switch (entry->status)
+					break;
+				} // switch (entry->status)
+			}
 		} // if (entry)
 	} // for (int i=0; i < (int)m_arStatusArray.size(); ++i)
 	return !bRefetchStatus;
