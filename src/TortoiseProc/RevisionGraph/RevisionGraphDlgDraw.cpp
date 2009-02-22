@@ -914,12 +914,15 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, Image* glyphs
 
 void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, bool bDirectDraw)
 {
-	CDC * memDC = bDirectDraw
-                ? pDC
-                : new CMyMemDC(pDC);
+    CMemDC* memDC = NULL;
+    if (!bDirectDraw)
+    {
+        memDC = new CMemDC (*pDC, rect);
+        pDC = &memDC->GetDC();
+    }
 	
-	memDC->FillSolidRect(rect, GetSysColor(COLOR_WINDOW));
-	memDC->SetBkMode(TRANSPARENT);
+	pDC->FillSolidRect(rect, GetSysColor(COLOR_WINDOW));
+	pDC->SetBkMode(TRANSPARENT);
 
     // preparation & sync
 
@@ -936,38 +939,34 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 
     // draw the different components
 
-    CRect drawRect;
-    memDC->GetClipBox (drawRect);
-
-    Graphics graphics (*memDC);
-    graphics.SetPageUnit (UnitPixel);
-    graphics.TranslateTransform ((REAL)drawRect.left, (REAL)drawRect.top);
-    graphics.SetInterpolationMode (InterpolationModeHighQualityBicubic);
+    Graphics* graphics = Graphics::FromHDC(*pDC);
+    graphics->SetPageUnit (UnitPixel);
+    graphics->SetInterpolationMode (InterpolationModeHighQualityBicubic);
 
     if (options->GetOption<CShowTreeStripes>()->IsActive())
-        DrawStripes (graphics, offset);
+        DrawStripes (*graphics, offset);
 
     if (m_fZoomFactor > 0.2f)
-        DrawShadows (graphics, logRect, offset);
+        DrawShadows (*graphics, logRect, offset);
 
     Bitmap glyphs (AfxGetInstanceHandle(), MAKEINTRESOURCE(IDR_REVGRAPHGLYPHS));
 
-    DrawNodes (graphics, &glyphs, logRect, offset);
-    DrawConnections (memDC, logRect, offset);
-    DrawTexts (memDC, logRect, offset);
+    DrawNodes (*graphics, &glyphs, logRect, offset);
+    DrawConnections (pDC, logRect, offset);
+    DrawTexts (pDC, logRect, offset);
 
     if (m_showHoverGlyphs)
-        DrawCurrentNodeGlyphs (graphics, &glyphs, offset);
+        DrawCurrentNodeGlyphs (*graphics, &glyphs, offset);
 
-    // find out which nodes are in the visible area of the client rect
+    // draw preview
 
 	if ((!bDirectDraw)&&(m_Preview.GetSafeHandle())&&(m_bShowOverview))
 	{
 		// draw the overview image rectangle in the top right corner
-		CMyMemDC memDC2(memDC, true);
+		CMyMemDC memDC2(pDC, true);
 		memDC2.SetWindowOrg(0, 0);
 		HBITMAP oldhbm = (HBITMAP)memDC2.SelectObject(&m_Preview);
-		memDC->BitBlt(rect.Width()-m_previewWidth, 0, m_previewWidth, m_previewHeight, 
+		pDC->BitBlt(rect.Width()-m_previewWidth, 0, m_previewWidth, m_previewHeight, 
 			&memDC2, 0, 0, SRCCOPY);
 		memDC2.SelectObject(oldhbm);
 		// draw the border for the overview rectangle
@@ -975,7 +974,7 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		m_OverviewRect.top = 0;
 		m_OverviewRect.right = rect.Width();
 		m_OverviewRect.bottom = m_previewHeight;
-		memDC->DrawEdge(&m_OverviewRect, EDGE_BUMP, BF_RECT);
+		pDC->DrawEdge(&m_OverviewRect, EDGE_BUMP, BF_RECT);
 		// now draw a rectangle where the current view is located in the overview
 
         CRect viewRect = GetViewRect();
@@ -994,11 +993,16 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
         RectF rect2 ( (float)m_OverviewPosRect.left, (float)m_OverviewPosRect.top
                    , (float)m_OverviewPosRect.Width(), (float)m_OverviewPosRect.Height());
         SolidBrush brush (Color (64, 0, 0, 0));
-        graphics.FillRectangle (&brush, rect2);
-		memDC->DrawEdge(&m_OverviewPosRect, EDGE_BUMP, BF_RECT);
+        graphics->FillRectangle (&brush, rect2);
+		pDC->DrawEdge(&m_OverviewPosRect, EDGE_BUMP, BF_RECT);
 	}
 
-	if (!bDirectDraw)
+    // flush changes to screen
+
+    if (graphics)
+        delete graphics;
+
+	if (memDC)
 		delete memDC;
 }
 
