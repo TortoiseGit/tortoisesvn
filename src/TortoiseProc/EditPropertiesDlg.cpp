@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -176,8 +176,8 @@ UINT CEditPropertiesDlg::PropsThread()
 		{
 			wide_string prop_str = props.GetItemName(p);
 			std::string prop_value = props.GetItemValue(p);
-			std::map<stdstring,PropValue>::iterator it = m_properties.lower_bound(prop_str);
-			if (it != m_properties.end() && it->first == prop_str)
+			std::map<stdstring,PropValue>::iterator it = m_properties.find(prop_str);
+			if (it != m_properties.end())
 			{
 				it->second.count++;
 				if (it->second.value.compare(prop_value)!=0)
