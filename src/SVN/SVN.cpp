@@ -2724,9 +2724,16 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
 			double averagekb = (double)average / 1024.0;
 			pSVN->m_SVNProgressMSG.SpeedString.Format(IDS_SVN_PROGRESS_KBYTES_SEC, averagekb);
 		}
-		if (pSVN->m_progressWnd)
-			SendMessage(pSVN->m_progressWnd, WM_SVNPROGRESS, 0, (LPARAM)&pSVN->m_SVNProgressMSG);
-		else if (pSVN->m_pProgressDlg)
+
+		// do not show progress/speed info anymore for 'multiple' transfers like in the CSVNProgressDlg
+		// see here why: http://subversion.tigris.org/issues/show_bug.cgi?id=3260
+		// we still show them for the 'small' progress dialog, which is used usually only for
+		// fetching files, and the error there should be small enough.
+
+		//if (pSVN->m_progressWnd)
+		//	SendMessage(pSVN->m_progressWnd, WM_SVNPROGRESS, 0, (LPARAM)&pSVN->m_SVNProgressMSG);
+		//else if (pSVN->m_pProgressDlg)
+		if (pSVN->m_pProgressDlg)
 		{
 			if ((pSVN->m_bShowProgressBar && (progress > 1000) && (total > 0)))
 				pSVN->m_pProgressDlg->SetProgress64(progress, total);
