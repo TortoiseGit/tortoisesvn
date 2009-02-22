@@ -188,10 +188,13 @@ bool CFullHistory::FetchRevisionData ( CString path
     this->progress = progress;
 
 	CString temp;
-	temp.LoadString(IDS_REVGRAPH_PROGGETREVS);
+	temp.LoadString (IDS_REVGRAPH_PROGGETREVS);
     progress->SetLine(1, temp);
-    progress->SetLine(2, _T(""));
+
+    temp.LoadString (IDS_REVGRAPH_PROGPREPARING);
+    progress->SetLine(2, temp);
     progress->SetProgress(0, 1);
+    progress->ShowModeless ((CWnd*)NULL);
 
 	// prepare the path for Subversion
     CTSVNPath svnPath (path);
@@ -250,7 +253,10 @@ bool CFullHistory::FetchRevisionData ( CString path
 
             uuid = pool->GetRepositoryInfo().GetRepositoryUUID (svnPath);
             cache = pool->GetCache (uuid, GetRepositoryRoot());
-            firstRevision = cache->GetRevisions().GetFirstMissingRevision(1);
+
+            firstRevision = cache != NULL
+                          ? cache->GetRevisions().GetFirstMissingRevision(1)
+                          : 0;
 
 			// if the cache is already complete, the firstRevision here is
 			// HEAD+1 - that revision does not exist and would throw an error later
