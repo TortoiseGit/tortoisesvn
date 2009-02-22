@@ -2329,7 +2329,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 			}
 			if ((selectedCount == 1)&&(wcStatus >= svn_wc_status_normal)
 				&&(wcStatus != svn_wc_status_ignored)
-				&&(wcStatus != svn_wc_status_added))
+				&&((wcStatus != svn_wc_status_added)||(!entry->copyfrom_url.IsEmpty())))
 			{
 				if (m_dwContextMenus & SVNSLC_POPSHOWLOG)
 				{
@@ -2783,9 +2783,12 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				break;
 			case IDSVNLC_LOG:
 				{
+					CString logPath = filepath.GetWinPathString();
+					if (!entry->copyfrom_url.IsEmpty())
+						logPath = entry->copyfrom_url;
 					CString sCmd;
 					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\""),
-						(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), filepath.GetWinPath());
+						(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)logPath);
 
 					if (!filepath.IsUrl())
 					{
@@ -2799,9 +2802,12 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				break;
 			case IDSVNLC_BLAME:
 				{
+					CString blamePath = filepath.GetWinPathString();
+					if (!entry->copyfrom_url.IsEmpty())
+						blamePath = entry->copyfrom_url;
 					CString sCmd;
 					sCmd.Format(_T("\"%s\" /command:blame /path:\"%s\""),
-						(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), filepath.GetWinPath());
+						(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)blamePath);
 
 					if (!filepath.IsUrl())
 					{
