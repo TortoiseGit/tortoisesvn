@@ -2315,7 +2315,6 @@ bool CSVNProgressDlg::CmdRename(CString& sWindowTitle, bool& localoperation)
 bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
 {
 	localoperation = true;
-	ASSERT(m_targetPathList.GetCount() == 1);
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_RESOLVE);
 	SetWindowText(sWindowTitle);
 	SetBackgroundImage(IDI_RESOLVE_BKG);
