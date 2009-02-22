@@ -31,10 +31,10 @@
 
 // CTreeConflictEditorDlg dialog
 
-IMPLEMENT_DYNAMIC(CTreeConflictEditorDlg, CDialog)
+IMPLEMENT_DYNAMIC(CTreeConflictEditorDlg, CResizableStandAloneDialog)
 
 CTreeConflictEditorDlg::CTreeConflictEditorDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CTreeConflictEditorDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CTreeConflictEditorDlg::IDD, pParent)
 	, src_left(NULL)
 	, src_right(NULL)
 	, m_bThreadRunning(false)
@@ -48,15 +48,16 @@ CTreeConflictEditorDlg::~CTreeConflictEditorDlg()
 
 void CTreeConflictEditorDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 }
 
 
-BEGIN_MESSAGE_MAP(CTreeConflictEditorDlg, CDialog)
+BEGIN_MESSAGE_MAP(CTreeConflictEditorDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_RESOLVEUSINGTHEIRS, &CTreeConflictEditorDlg::OnBnClickedResolveusingtheirs)
 	ON_BN_CLICKED(IDC_RESOLVEUSINGMINE, &CTreeConflictEditorDlg::OnBnClickedResolveusingmine)
 	ON_REGISTERED_MESSAGE(WM_AFTERTHREAD, OnAfterThread) 
 	ON_BN_CLICKED(IDC_LOG, &CTreeConflictEditorDlg::OnBnClickedShowlog)
+	ON_BN_CLICKED(IDHELP, &CTreeConflictEditorDlg::OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -64,11 +65,18 @@ END_MESSAGE_MAP()
 
 BOOL CTreeConflictEditorDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	SetDlgItemText(IDC_CONFLICTINFO, m_sConflictInfo);
 	SetDlgItemText(IDC_RESOLVEUSINGTHEIRS, m_sUseTheirs);
 	SetDlgItemText(IDC_RESOLVEUSINGMINE, m_sUseMine);
+
+
+	CString sTemp;
+	sTemp.Format(_T("%s@%ld"), (LPCTSTR)CUnicodeUtils::GetUnicode(src_left->repos_url), src_left->peg_rev);
+	SetDlgItemText(IDC_SOURCELEFTURL, sTemp);
+	sTemp.Format(_T("%s@%ld"), (LPCTSTR)CUnicodeUtils::GetUnicode(src_right->repos_url), src_right->peg_rev);
+	SetDlgItemText(IDC_SOURCERIGHTURL, sTemp);
 
 	if (conflict_reason == svn_wc_conflict_reason_deleted)
 	{
@@ -105,6 +113,19 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
 		GetDlgItem(IDC_RESOLVEUSINGMINE)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_RESOLVEUSINGTHEIRS)->ShowWindow(SW_SHOW);
 	}
+
+	AddAnchor(IDC_CONFLICTINFO, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_SOURCEGROUP, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_SOURCELEFT, TOP_LEFT);
+	AddAnchor(IDC_SOURCERIGHT, TOP_LEFT);
+	AddAnchor(IDC_SOURCELEFTURL, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_SOURCERIGHTURL, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_INFOLABEL, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_RESOLVEUSINGTHEIRS, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_RESOLVEUSINGMINE, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_LOG, BOTTOM_LEFT);
+	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+	AddAnchor(IDHELP, BOTTOM_RIGHT);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
@@ -297,3 +318,8 @@ LRESULT CTreeConflictEditorDlg::OnAfterThread(WPARAM /*wParam*/, LPARAM /*lParam
 	return 0;
 }
 
+
+void CTreeConflictEditorDlg::OnBnClickedHelp()
+{
+	OnHelp();
+}

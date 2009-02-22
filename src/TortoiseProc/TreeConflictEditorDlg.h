@@ -18,10 +18,11 @@
 //
 #pragma once
 
+#include "StandAloneDlg.h"
 #include "TSVNPath.h"
 #include "ProgressDlg.h"
 
-class CTreeConflictEditorDlg : public CDialog
+class CTreeConflictEditorDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CTreeConflictEditorDlg)
 
@@ -68,6 +69,7 @@ private:
 	svn_wc_conflict_action_t conflict_action;
 public:
 	afx_msg void OnBnClickedShowlog();
+	afx_msg void OnBnClickedHelp();
 };
 
 static UINT WM_AFTERTHREAD = RegisterWindowMessage(_T("TORTOISESVN_AFTERTHREAD_MSG"));
