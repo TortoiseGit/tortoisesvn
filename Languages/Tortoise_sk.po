@@ -9,8 +9,8 @@
 # $Rev$
 #
 # Authors:
-# Oto BREZINA <translate@e-posta.sk>, 2006
-# Mário Kačmár <kario@szm.sk>, 2008
+# Oto BREZINA <translate@e-posta.sk>, 2006-
+# Mário Kačmár <kario@szm.sk>, 2008-
 #
 # slovk
 #
@@ -21,8 +21,6 @@
 #
 # * skontrolovat gramatiku nadol od riadku 1445
 #
-# * Resource IDs: (1068) na riadku 1445 je potrebne znova prelozit/opravit
-#
 # item = object
 # hook script = (hook) skript / pripnuty skript
 #
@@ -31,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-23 15:24+0100\n"
+"PO-Revision-Date: 2009-02-24 00:06+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -302,7 +300,7 @@ msgstr "&Pridať >>"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
-msgstr "&Pridať odstrániť tlačidla"
+msgstr "&Pridať odstrániť tlačítka"
 
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
@@ -394,7 +392,7 @@ msgstr "&Vzhľad tlačidiel..."
 
 #. Resource IDs: (65535)
 msgid "&Button text:"
-msgstr "&Popis tlačidla:"
+msgstr "&Popis tlačítka:"
 
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
@@ -470,7 +468,7 @@ msgstr "&Kopírovať"
 
 #. Resource IDs: (16911)
 msgid "&Copy Button Image"
-msgstr "&Kopírovať obrázok tlačidla"
+msgstr "&Kopírovať obrázok tlačítka"
 
 #. Resource IDs: (32776)
 msgid "&Copy log message to clipboard"
@@ -912,7 +910,7 @@ msgstr "&Prednastaviť lištu"
 
 #. Resource IDs: (16657)
 msgid "&Reset my usage data"
-msgstr "&Vynulovať data o používaní"
+msgstr "&Vynulovať dáta o používaní"
 
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
@@ -1302,8 +1300,8 @@ msgid ""
 msgstr ""
 "<b>TortoiseSVN</b> je rozšírenie 'šelu'.\n"
 "To znamená, že je integrovaný do Windows Explorer-a.\n"
-"Aby ste použili <b>TortoiseSVN</b> otvorte prosím Explorer a vyberte pravým tlačidlom myši adresár.\n"
-"V kontextovom menu nájdete všetky príkazy <b>TortoiseSVN</b>.\n"
+"Aby ste použili <b>TortoiseSVN</b> otvorte prosím Explorer a vyberte pravým tlačítkom myši adresár.\n"
+"V kontextovej ponuke nájdete všetky príkazy <b>TortoiseSVN</b>.\n"
 "A <u>prečítajte si manuál!</u>"
 
 #. Resource IDs: (16603)
@@ -1344,9 +1342,9 @@ msgid ""
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow the context menu on all paths."
 msgstr ""
-"Novými riadkami oddeľovaný zoznam ciest, pre ktoré nebude zobrazené kontextové menu.\r\n"
+"Novými riadkami oddeľovaný zoznam ciest, pre ktoré nebude zobrazená kontextová ponuka.\r\n"
 "Keď pridáte znak '*' na koniec cesty, všetky súbory a podadresáre tohto adresára budú tiež vylúčené.\r\n"
-"Prázdny zoznam povolí kontextové menu pre všetky cesty."
+"Prázdny zoznam povolí kontextovú ponuku pre všetky cesty."
 
 #. Resource IDs: (194)
 msgid ""
@@ -1484,7 +1482,7 @@ msgstr "Pridaj do zoznamu &ignorovaných"
 
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
-msgstr "Pridať"
+msgstr "Pridať do lišty rýchleho prístupu"
 
 #. Resource IDs: (209, 1279)
 msgid "Add..."
@@ -1492,7 +1490,7 @@ msgstr "Pridať..."
 
 #. Resource IDs: (171)
 msgid "Add/Edit Extension Specific Diff/Merge Program"
-msgstr "Pridať/upraviť porovávací program pre príponu"
+msgstr "Pridať/upraviť porovnávací program pre príponu"
 
 #. Resource IDs: (73, 264, 65535)
 msgid "Added"
@@ -1539,7 +1537,7 @@ msgstr "Pridať súbor(y) do správy Subversion"
 
 #. Resource IDs: (13)
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
-msgstr "Pridá vybrané súbory, alebo masku do zoznamu ignrovaných"
+msgstr "Pridá vybrané súbory, alebo masku do zoznamu ignorovaných"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -1778,7 +1776,7 @@ msgstr "Autentifikácia"
 
 #. Resource IDs: (1278)
 msgid "Authentication data"
-msgstr "Autentifikáčné data"
+msgstr "Autentifikačné dáta"
 
 #. Resource IDs: (19, 76, 207)
 msgid "Author"
@@ -2061,7 +2059,7 @@ msgstr "Kaskáda"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
-msgstr "Kaskádna kontextová ponuka"
+msgstr "Kaskádová kontextová ponuka"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
@@ -2523,7 +2521,7 @@ msgstr "Konflikty: %d"
 
 #. Resource IDs: (345)
 msgid "Connect to the repository server and download missing log data"
-msgstr "Pripojiť sa ku serveru úložiska a stiahnuť chýbajúce data"
+msgstr "Pripojiť sa ku serveru úložiska a stiahnuť chýbajúce dáta"
 
 #. Resource IDs: (65535)
 msgid "Container sizes"
@@ -3147,7 +3145,7 @@ msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
 msgstr ""
-"Zobraz nápovedu o tlačítkach, ponukách a oknách\n"
+"Zobraziť pomoc o tlačítkach, ponukách a oknách\n"
 "Pomoc"
 
 #. Resource IDs: (3605)
@@ -3176,7 +3174,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
-msgstr "Nezobrazovať kontextové menu pre nasledovné cesty:"
+msgstr "Nezobrazovať kontextovú ponuku pre nasledovné cesty:"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -3316,7 +3314,7 @@ msgstr "Upraviť"
 
 #. Resource IDs: (16133)
 msgid "Edit Button Image"
-msgstr "Upraviť obrázok tlačidla"
+msgstr "Upraviť obrázok tlačítka"
 
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
@@ -3725,7 +3723,7 @@ msgstr "Otváranie dokumentu zlyhalo."
 
 #. Resource IDs: (3865)
 msgid "Failed to perform server operation."
-msgstr "Nepodarilo sa vykonať operáciu na servery."
+msgstr "Nepodarilo sa vykonať operáciu na serveri."
 
 #. Resource IDs: (3857)
 msgid "Failed to save document."
@@ -4209,8 +4207,8 @@ msgid ""
 "Hide/Show the patch file list\n"
 "Hides or shows the patch file list"
 msgstr ""
-"Skryť/zobraziť zoznam záplatových súborov\n"
-"Skryje, alebo zobrazí zoznam záplatových súborov"
+"Skryť/zobraziť zoznam súborov záplat\n"
+"Skryje, alebo zobrazí zoznam súborov záplat"
 
 #. Resource IDs: (339)
 msgid "Highest revision number in the cache"
@@ -4222,7 +4220,7 @@ msgstr "Tip: F5 obnovuje vybraný podstrom a Ctrl-F5 načíta aj deti"
 
 #. Resource IDs: (16519)
 msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
-msgstr "Tip: vyberte kontextovú ponuku, zmeňte stranu na 'Príkazy' a presuňte tlačidla na okno ponuky."
+msgstr "Tip: vyberte kontextovú ponuku, zmeňte stranu na 'Príkazy' a presuňte tlačítka na okno ponuky."
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -4506,7 +4504,7 @@ msgid ""
 "The status control is used for example in the commit dialog."
 msgstr ""
 "Keď je nastavené, súbory v neverziovaných adresároch môžu byť v správe stavov.\r\n"
-"Správa stavov je napríklad použitá v odovzdávocom dialógu."
+"Správa stavov je napríklad použitá v odovzdávacom dialógu."
 
 #. Resource IDs: (196)
 msgid ""
@@ -5192,7 +5190,7 @@ msgstr "Maximálny počet &zlyhaní nástroja kým bude zásobník odstránený"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
-msgstr "Me&nu zobrazujúce naposledy použité príkazy"
+msgstr "Po&nuka zobrazujúca naposledy použité príkazy"
 
 #. Resource IDs: (16134)
 msgid "Menu"
@@ -6177,7 +6175,7 @@ msgstr "Tlačenie"
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %d of %d..."
-msgstr "Spracuváva sa revízia %d z %d..."
+msgstr "Spracováva sa revízia %d z %d..."
 
 #. Resource IDs: (74)
 msgid "Program"
@@ -6468,7 +6466,7 @@ msgid ""
 "Reload"
 msgstr ""
 "Znova načíta otvorené súbory a vráti všetky zmeny.\n"
-"Načitať znova"
+"Načítať znova"
 
 #. Resource IDs: (157)
 msgid "Relocate"
@@ -7148,7 +7146,7 @@ msgstr "Vyberte SSH klienta"
 
 #. Resource IDs: (3858)
 msgid "Select a button."
-msgstr "Vyberte tlačidlo."
+msgstr "Zvoľte tlačítko."
 
 #. Resource IDs: (3585)
 msgid "Select an object on which to get Help"
@@ -7196,7 +7194,7 @@ msgstr "Vyberte adresár, na uloženie vybraného súboru"
 
 #. Resource IDs: (197)
 msgid "Select hook script file"
-msgstr "Vybrať  súbor hookskriptu"
+msgstr "Vybrať  súbor pripnutého (hook)skriptu"
 
 #. Resource IDs: (1405)
 msgid "Select items automatically"
@@ -7334,7 +7332,7 @@ msgstr "Ukázať"
 
 #. Resource IDs: (16996)
 msgid "Show &Accelerator for:"
-msgstr "Zobraziť skratkové &tlačidlo pre:"
+msgstr "Zobraziť skratkové &tlačítko pre:"
 
 # Zobraziť &Všetko
 #. Resource IDs: (115, 1031)
@@ -7607,7 +7605,7 @@ msgstr "Zobrazí typ MIME verziovaného súboru"
 
 #. Resource IDs: (32775)
 msgid "Single/&double-pane view"
-msgstr "Jedno/&dvojpanelové zobrazenie"
+msgstr "Jedno-/&dvoj-panelové zobrazenie"
 
 #. Resource IDs: (74)
 msgid "Size"
@@ -7698,7 +7696,7 @@ msgstr "Štandard"
 
 #. Resource IDs: (569)
 msgid "Start Commit Hook"
-msgstr "Spustiť odovzdavací hookskript"
+msgstr "Spustiť odovzdavací pripnutý (hook)skript"
 
 #. Resource IDs: (65535)
 msgid "Start Revision"
@@ -7863,8 +7861,8 @@ msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
 msgstr ""
-"Prepnúť medzi jedno a dvoj panelovým zobrazením\n"
-"Prepnúť medzi jedno a dvoj panelovým zobrazením"
+"Prepnúť medzi jedno- a dvoj- panelovým zobrazením\n"
+"Prepnúť medzi jedno- a dvoj- panelovým zobrazením"
 
 #. Resource IDs: (2051)
 msgid ""
@@ -7993,7 +7991,7 @@ msgstr "Súbor %s neexistuje!"
 #. Resource IDs: (64)
 #, c-format
 msgid "The file %s was not found in the patch file!"
-msgstr "Súbor %s nebol nájdený v záplatovom súbore!"
+msgstr "Súbor %s nebol nájdený v súbore záplat!"
 
 #. Resource IDs: (314)
 #, c-format
@@ -8292,7 +8290,7 @@ msgid ""
 msgstr ""
 "Cesta\n"
 "<i>%s</i>\n"
-"v záplatovom súbore neexistuje.\n"
+"v súbore záplat neexistuje.\n"
 "TortoiseMerge našiel relatívnu cestu\n"
 "<i>%s</i>,\n"
 "ktorá vyzerá, že sa zhoduje lepšie.\n"
@@ -8309,7 +8307,7 @@ msgid ""
 msgstr ""
 "Cesta\n"
 "<i>%s</i>\n"
-"v záplatovom súbore neexistuje.\n"
+"v súbore záplat neexistuje.\n"
 "TortoiseMerge sa pokúsil nájsť cestu vynechaním prefixov, ale nebola nájdená zhoda."
 
 #. Resource IDs: (314)
@@ -8324,7 +8322,7 @@ msgid ""
 msgstr ""
 "Cesta\n"
 "<i>%s</i>\n"
-"nevyzerá zhodná s cestou záplatového súboru.\n"
+"nevyzerá byť zhodná s cestou zo súboru záplat.\n"
 "Ale TortoiseMerge našiel cestu\n"
 "<i>%s</i>,\n"
 "ktorá sa zhoduje lepšie. Chcete použiť navrhnutú cestu?"
@@ -9042,7 +9040,7 @@ msgstr "Použiť &ľavý blok"
 
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
-msgstr "Predvoliť &jednopanelové zobrazenie pre dvojsúborové porovnanie"
+msgstr "Predvoliť &jedno-panelové zobrazenie pre dvojsúborové porovnanie"
 
 #. Resource IDs: (251)
 msgid "Use &other text block"
@@ -9068,7 +9066,7 @@ msgstr "Použiť URL adresu &pracovnej kópie ako predvolenú pre \"Z:\" URL"
 
 #. Resource IDs: (1064)
 msgid "Use Unified Diff from &clipboard"
-msgstr "Použiť záplatový súbor zo &schránky"
+msgstr "Použiť unifikované porovnanie &schránky"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -9765,8 +9763,8 @@ msgid ""
 "ask repository first if 'online' -\n"
 "work entirely from cache if 'offline'"
 msgstr ""
-"získať data z najprv z úložiska keď je 'pripojený' -\n"
-"používať data iba zo zásobníka keď je 'odpojený'"
+"pýtať sa úložiska keď je 'pripojený' -\n"
+"pracovať len so zásobníkom keď je 'odpojený'"
 
 #. Resource IDs: (245)
 msgid "author"
@@ -9974,7 +9972,7 @@ msgstr "posledné čítanie:"
 
 #. Resource IDs: (65535)
 msgid "last update: "
-msgstr "poslená aktualizácia:"
+msgstr "posledná aktualizácia:"
 
 # zamknutých
 #. Resource IDs: (11, 195)
@@ -10150,7 +10148,7 @@ msgid ""
 "A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\r\n"
-"Ak je prítomná, spraví súbor spúšťatelným. Táto vlastnosť nemôže byť nastavená na adresári.\r\n"
+"Ak je prítomná, spraví súbor spúšťateľným. Táto vlastnosť nemôže byť nastavená na adresári.\r\n"
 "Pokus o nerekurzívne použite zlyhá. Rekurzívne použitie nastaví túto vlastnosť iba na súbory v adresári."
 
 #. Resource IDs: (576)

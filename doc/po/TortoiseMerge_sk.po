@@ -1,6 +1,6 @@
 #
 # Slovak translation for TortoiseMerge
-# Copyright (C) 2004-2008 the TortoiseSVN team
+# Copyright (C) 2004-2009 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Last commit by:
@@ -9,7 +9,7 @@
 # $Rev$
 #
 # Authors:
-# Oto BREZINA <translate@e-posta.sk>, 2006.
+# Oto BREZINA <translate@e-posta.sk>, 2006-
 #
 # slovk
 #
@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-17 00:14 +0000\n"
-"PO-Revision-Date: 2009-02-23 22:07+0100\n"
+"PO-Revision-Date: 2009-02-23 23:09+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -92,7 +92,7 @@ msgstr "Predslov"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:33
 msgid "When working on a project, either an open-source project where several people review your code, or a commercial project where you sell a component with your source code, there will be people and customers who find bugs or want to improve your project. To do that they send you patches which you have to review and decide if you want to apply them."
-msgstr "Pri práci na projekte, či už na open-source, kde mnoho ľudí prezerá váš kód, alebo na komerčnom projekte, kde predávate komponenty so zdrojovými kódmi, sú ľudia a zákazníci, ktorí nájdu chybu, alebo chcú vylepšiť váš projekt.(a niekedy vám len kolega chce rýpať do práce ;) - pozn. prekladateľa.) Aby to dosiahli pošlú Vám záplatu, ktorú si musíte prezrieť a rozhodnúť, či ju použijete."
+msgstr "Pri práci na projekte, či už na open-source (voľne šíriteľným kódom), kde mnoho ľudí prezerá váš kód, alebo na komerčnom projekte, kde predávate komponenty so zdrojovými kódmi, sú ľudia a zákazníci, ktorí nájdu chybu, alebo chcú vylepšiť váš projekt.(a niekedy vám len kolega chce rýpať do práce ;) - pozn. prekladateľa.) Aby to dosiahli pošlú Vám záplatu, ktorú si musíte prezrieť a rozhodnúť, či ju použijete."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:45
@@ -107,7 +107,7 @@ msgstr "Použitie záplat"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:41
 msgid "TortoiseMerge helps you with both those tasks: <placeholder-1/>"
-msgstr "TortoiseMerge vám pomôže s oboma tímito úlohami: <placeholder-1/>"
+msgstr "TortoiseMerge vám pomôže s oboma týmito úlohami: <placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:56
@@ -122,7 +122,7 @@ msgstr "TortoiseMerge je zdarma!"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:67
 msgid "TortoiseMerge is free. You don't have to pay for it, you can use it any way you want. It is developed under the GP license (GPL)."
-msgstr "TortoiseMerge je zadarmo. Nemusíte za neho platiť a môžete ho využívať ako chcete. Je vyvynutý pod GP Licenciou (GPL)."
+msgstr "TortoiseMerge je zadarmo. Nemusíte za neho platiť a môžete ho využívať ako chcete. Je vyvinutý pod GP Licenciou (GPL)."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:71
@@ -187,7 +187,7 @@ msgstr "Naši spolupracovníci"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:153
 msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list."
-msgstr "za záplaty, hlásenia chýb a nápadov, a za pomoc iných, ktorý odpovedali na otázky v našich mailinglist-och"
+msgstr "za záplaty, hlásenia chýb a nápadov, a za pomoc iných, ktorý odpovedali na otázky v našich mailing list-och"
 
 #. (term)
 #: ../source/TortoiseMerge_en.xml:160
@@ -212,7 +212,7 @@ msgstr "Prehľad"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:185
 msgid "TortoiseMerge is a free/open-source application. It lets you see differences in text files, merge those changes and even review and apply unified diff files, often called <firstterm>patches</firstterm>."
-msgstr "TortoiseMerge je zdarma a s voľným zdojovým kódom (free/open-source). Zobrazí rozdiely v textových súboroch, zlúči tieto zmeny a tiež prehliada a aplikuje súbory 'unified diff' - tiež zvané <firstterm>záplaty</firstterm>."
+msgstr "TortoiseMerge je zdarma a s voľným zdrojovým kódom (free/open-source). Zobrazí rozdiely v textových súboroch, zlúči tieto zmeny a tiež prehliada a aplikuje súbory 'unified diff' - tiež zvané <firstterm>záplaty</firstterm>."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:190
@@ -289,7 +289,7 @@ msgstr "Úprava konfliktov medzi miestnymi zmenami a zmenami v úložisku Subver
 #. (para)
 #: ../source/TortoiseMerge_en.xml:294
 msgid "Applying patch files. This is the reason TortoiseMerge was created :)"
-msgstr "Použitie záplatového súboru. Toto je pôvodný dôvod vzniku TortoiseMerge :)"
+msgstr "Použitie súboru záplaty. Toto je pôvodný dôvod vzniku TortoiseMerge :)"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:278
@@ -360,12 +360,12 @@ msgstr "Používanie záplat"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:370
 msgid "A patch file is a Subversion unified diff file, which contains the information required to apply changes to a set of files. The patch may have been supplied by another developer so that you can see changes he has made and possibly commit them to the repository. Or it may have been generated internally by TortoiseSVN when comparing two folders. This happens when you compare a repository revision with your working copy folder, or if you compare two different repository revisions, or if you compare two different repository paths."
-msgstr "Záplatový súbor je súbor unifikovaného porovnania Subversion, ktorý obsahuje informácie potrebné na použite zmien do súborov. Záplata mohla byť dodaná iným vývojarom, takže si môžete prezrieť zmeny, ktoré vykonal a prípadne ich odovzdať do úložiska. Mohla tiež byť vytvorená v TortoiseSVN pri porovnaní dvoch adresárov. Toto sa stane, keď porovnáte úložisko s vašou pracovnou kópiou, alebo porovnáte dve rôzne revízie úložka, prípadne keď porovnáte dve cesty v úložisku."
+msgstr "Súbor záplaty je súbor unifikovaného porovnania Subversion, ktorý obsahuje informácie potrebné na použite zmien do súborov. Záplata mohla byť dodaná iným vývojárom, takže si môžete prezrieť zmeny, ktoré vykonal a prípadne ich odovzdať do úložiska. Mohla tiež byť vytvorená v TortoiseSVN pri porovnaní dvoch adresárov. Toto sa stane, keď porovnáte úložisko s vašou pracovnou kópiou, alebo porovnáte dve rôzne revízie úložka, prípadne keď porovnáte dve cesty v úložisku."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:380
 msgid "In either case TortoiseMerge will show a small window listing the files included in the patch. By double clicking on one of these files you fetch the relevant file and apply the changes. The left pane shows the original file content and the right pane shows it after the patch is applied."
-msgstr "V oboch prípadoch TortoiseMerge zobrazí malé okno so zoznamom súborov zahrnutých v záplate. Dvojklikom na jeden z týchto súborov získate príslušný súbor a použijet zmeny. Ľavý panel zobrazí originálny súbor, na pravom panely sa zobrazí súbor po použití záplaty."
+msgstr "V oboch prípadoch TortoiseMerge zobrazí malé okno so zoznamom súborov zahrnutých v záplate. Dvojklikom na jeden z týchto súborov získate príslušný súbor a použijete zmeny. Ľavý panel zobrazí originálny súbor, na pravom panely sa zobrazí súbor po použití záplaty."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:387
@@ -385,7 +385,7 @@ msgstr "Režimy zobrazenia"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:403
 msgid "TortoiseMerge has three main viewing modes: one-pane, two-pane and three-pane view. One/two-pane view is used to view changes and three-pane view is used to resolve conflicts."
-msgstr "TortoiseMerge má tri módy zobrazenia: jednopanelový, dvojpanelový a trojpanelový. Jedno- a dvoj-panelové zobrazenie je použité na zobrazenie zmien. Troj-panelové zobrazenie sa používa na riešenie konfliktov."
+msgstr "TortoiseMerge má tri módy zobrazenia: jedno-panelový, dvoj-panelový a troj-panelový. Jedno- a dvoj-panelové zobrazenie je použité na zobrazenie zmien. Troj-panelové zobrazenie sa používa na riešenie konfliktov."
 
 #. (title)
 #. (title)
@@ -431,7 +431,7 @@ msgstr "Ručné úpravy sú možné v pravom panely pri dvoj-panelovom zobrazen�
 #. (para)
 #: ../source/TortoiseMerge_en.xml:418
 msgid "The two pane view has some features which are not available in the one pane view: <placeholder-1/>"
-msgstr "Dvoj-panelové zobrazenie má niektoré funkcie, ktoré niesú dostupné v jednopanelovom zobrazení: <placeholder-1/>"
+msgstr "Dvoj-panelové zobrazenie má niektoré funkcie, ktoré nie sú dostupné v jedno-panelovom zobrazení: <placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:454
@@ -447,7 +447,7 @@ msgstr "Troj-panelové zobrazenie"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:463
 msgid "The left pane shows you the differences between <emphasis>Their</emphasis> file and the <emphasis>Base</emphasis> file, while the right pane shows you the differences between <emphasis>Mine</emphasis> file and the <emphasis>Base</emphasis> file. The bottom pane shows you the result of merging <emphasis>Base</emphasis>, <emphasis>Mine</emphasis> and <emphasis>Theirs</emphasis> with possible conflicts."
-msgstr "Ľavý panel zobrazuje rozdiely medzi súbormi <emphasis>Ich</emphasis> a <emphasis>Základ</emphasis>, kým pravý panel zobrazuje rozdiely medzi súbormi <emphasis>Moje</emphasis> a <emphasis>Základ</emphasis>. Spodný panel zobrazuje výsledok spojenia <emphasis>Základ</emphasis>, <emphasis>Moje</emphasis> a <emphasis>Ich</emphasis>s možnými konfliktami. Pri prejdení myšou ponad názov panela, zobrazí sa meno súboru pre daný panel."
+msgstr "Ľavý panel zobrazuje rozdiely medzi súbormi <emphasis>Ich</emphasis> a <emphasis>Základ</emphasis>, kým pravý panel zobrazuje rozdiely medzi súbormi <emphasis>Moje</emphasis> a <emphasis>Základ</emphasis>. Spodný panel zobrazuje výsledok spojenia <emphasis>Základ</emphasis>, <emphasis>Moje</emphasis> a <emphasis>Ich</emphasis>s možnými konfliktami. Pri prejdení myšou ponad názov panela sa zobrazí meno súboru pre daný panel."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:472
@@ -463,7 +463,7 @@ msgstr "Zoznam súborov v záplate"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:479
 msgid "After TortoiseMerge parses the patch file it will show you a small window with all the files which have changes according to the patch file. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
-msgstr "Keď sa podarilo TortoiseMerge zanalyzovať záplatový súbor, zobrazí malé okno so všetkými súbormi, ktoré majú byť zmenené podľa záplaty. <placeholder-1/> Keď je meno súboru zobrazené čiernou farbou, záplata môže byť bez problémov použitá. To znamená, že súbor nie je voči záplate zastaralý. Ale keď je meno súboru zobrazené červenou farbou, potom záplatu nemožno použiť priamo, pretože ste už daný súbor zmenili."
+msgstr "Keď sa podarilo TortoiseMerge zanalyzovať súbor záplaty, zobrazí malé okno so všetkými súbormi, ktoré majú byť zmenené podľa záplaty. <placeholder-1/> Keď je meno súboru zobrazené čiernou farbou, záplata môže byť bez problémov použitá. To znamená, že súbor nie je voči záplate zastaralý. Ale keď je meno súboru zobrazené červenou farbou, potom záplatu nemožno použiť priamo, pretože ste už daný súbor zmenili."
 
 # Patch Filelist
 #. (para)
@@ -475,7 +475,7 @@ msgstr "Ale netreba sa obávať. Keď pracujete so Subversion môžete získať 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:504
 msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
-msgstr "Okno záplatového súboru má kontextové menu, ktoré umožňuje prezretie výsledku zaplátania na vybranom súbore (použitá bez uloženia), na použitie a uloženie zmien pre vybraný súbor, alebo použitie a uloženie zmien pre <emphasis>všetky</emphasis> súbory v zozname. Dvojklik vedie k prezeraniu."
+msgstr "Okno súboru záplaty má kontextové menu, ktoré umožňuje prezretie výsledku zaplátania na vybranom súbore (použitá bez uloženia), na použitie a uloženie zmien pre vybraný súbor, alebo použitie a uloženie zmien pre <emphasis>všetky</emphasis> súbory v zozname. Dvojklik vedie k prezeraniu."
 
 # Patch Filelist
 #. (para)
@@ -516,7 +516,7 @@ msgstr "<guibutton>Späť</guibutton> umožňuje vrátiť akékoľvek zmeny vyko
 #. (para)
 #: ../source/TortoiseMerge_en.xml:557
 msgid "<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point where the files differ. This saves scrolling through all the unchanged parts of the file."
-msgstr "<guibutton>Predošlý/Ďaľší rozdiel</guibutton>  skočí priamo na ďalšie miesto, kde sú v súboroch rozdiely. Toto šetrí presúvanie cez nezmenenú časť súboru."
+msgstr "<guibutton>Predošlý/Ďalší rozdiel</guibutton> skočí priamo na ďalšie miesto, kde sú v súboroch rozdiely. Toto šetrí presúvanie cez nezmenenú časť súboru."
 
 # Prev/Next Difference
 #. (para)
@@ -547,7 +547,7 @@ msgstr "<guibutton>Označiť ako vyriešené</guibutton> Keď ste vyriešili vš
 #. (para)
 #: ../source/TortoiseMerge_en.xml:603
 msgid "<guibutton>Show Whitespaces</guibutton> toggles the option to display space and tab characters as symbols so you can distinguish white space changes."
-msgstr "<guibutton>Zobraziť biele znaky</guibutton> prepína medzi zobrazovaním špecialnych znakov pre medzery a tabulátory, takže môžete porovnať zmeny bielych znakov."
+msgstr "<guibutton>Zobraziť biele znaky</guibutton> prepína medzi zobrazovaním špeciálnych znakov pre medzery a tabulátory, takže môžete porovnať zmeny bielych znakov."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:610
@@ -593,7 +593,7 @@ msgstr "Na ľavej strane okna je prehľadový stĺpec. Toto poskytuje rýchly vi
 #. (para)
 #: ../source/TortoiseMerge_en.xml:670
 msgid "Below the bottom window is the status bar. This shows the number of lines added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, and the number of unresolved conflicts remaining. You can also see which line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by TortoiseMerge, and whether there is a byte-order-mark (BOM) present in UTF-8 files. The left side of the status bar is used to display hints when you hover the mouse over a control."
-msgstr "Pod spodným okna sa nachádza stavový riadok. Tento zobrazuje počet pridaných, alebo zmazaných v <literal>Ich</literal> a <literal>Moje</literal>, ako aj počet ostávajúcich nevyriešených konfliktov. Môžete vidieť tiež štýl ukončenia riadkov, TortoiseMerge predpokladá kódovanie (ASCII, UTF-8, atd). Ďalej prítomnosť značky poriadia byte-ov (byte-order-mark - BOM) v UTF-8 súboroch. Ľavá strana stavového riadka je použitá na zobrazenie pomoci pri prejdení myšou ponad ovládací prvok..."
+msgstr "Pod spodným okna sa nachádza stavový riadok. Tento zobrazuje počet pridaných, alebo zmazaných v <literal>Ich</literal> a <literal>Moje</literal>, ako aj počet ostávajúcich nevyriešených konfliktov. Môžete vidieť tiež štýl ukončenia riadkov, TortoiseMerge predpokladá kódovanie (ASCII, UTF-8, atď). Ďalej prítomnosť značky poriadia byte-ov (byte-order-mark - BOM) v UTF-8 súboroch. Ľavá strana stavového riadka je použitá na zobrazenie pomoci pri prejdení myšou ponad ovládací prvok..."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:683
@@ -672,7 +672,7 @@ msgstr "Výstupný súbor môžete upravovať ako v textovom editore. Takéto ri
 #. (para)
 #: ../source/TortoiseMerge_en.xml:759
 msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
-msgstr "Keď ste v troj-panelovom zobrazení (niekdy nazývanom <emphasis>pohľad zlučovania</emphasis>) môžete upravovať iba súbor na spodku pohľadu(<literal>Zlúčené</literal>). Tak ako pri dvoj-panelovom zobrazení môžete <action>right-click</action> na konfliktné riadky a vybrať buď <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Použiť Blok<quote>ich</quote></guimenuitem></menuchoice> alebo <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Použiť blok<quote>moje</quote></guimenuitem></menuchoice>. Keď chcete použiť <emphasis>oba</emphasis> bloky,môžete vybrať <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem> Použiť blok <quote>moje</quote> pred <quote>ich</quote></guimenuitem></menuchoice>, alebo <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem> Použiť blok <quote>ich</quote> pred <quote>moje</quote></guimenuitem></menuchoice>. Podľa príkazu, ktorý ste výbrali, sú zmeny použité vo výslednom súbore: <literal>Zlúčené</literal>."
+msgstr "Keď ste v troj-panelovom zobrazení (niekdy nazývanom <emphasis>pohľad zlučovania</emphasis>) môžete upravovať iba súbor na spodku pohľadu(<literal>Zlúčené</literal>). Tak ako pri dvoj-panelovom zobrazení môžete <action>right-click</action> na konfliktné riadky a vybrať buď <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Použiť Blok<quote>ich</quote></guimenuitem></menuchoice> alebo <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Použiť blok<quote>moje</quote></guimenuitem></menuchoice>. Keď chcete použiť <emphasis>oba</emphasis> bloky,môžete vybrať <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem> Použiť blok <quote>moje</quote> pred <quote>ich</quote></guimenuitem></menuchoice>, alebo <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem> Použiť blok <quote>ich</quote> pred <quote>moje</quote></guimenuitem></menuchoice>. Podľa príkazu, ktorý ste vybrali, sú zmeny použité vo výslednom súbore: <literal>Zlúčené</literal>."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:796
@@ -683,7 +683,7 @@ msgstr "Niekedy je súbor označený ako konfliktný, ale keď ho otvoríte v To
 #. (para)
 #: ../source/TortoiseMerge_en.xml:804
 msgid "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
-msgstr "Niekedy je prílšž ťažké vyriešiť konflikt jednoduchým vybratím <literal>Ich</literal> a <literal>Moje</literal> a potrebuje ručné úpravy. TortoiseMerge umožňuje vykonať všetky ľahko vykonateľné zmeny vizuálne a potom uložiť súbor zanechajúc iba ťažko riešiteľné zmeny na ručnú úpravu."
+msgstr "Niekedy je prílš ťažké vyriešiť konflikt jednoduchým vybratím <literal>Ich</literal> a <literal>Moje</literal> a potrebuje ručné úpravy. TortoiseMerge umožňuje vykonať všetky ľahko vykonateľné zmeny vizuálne a potom uložiť súbor a zanechať iba ťažko riešiteľné zmeny na ručnú úpravu."
 
 # Merging / Editing Conflicts
 #. (para)
@@ -711,7 +711,7 @@ msgstr "Dialóg otvorenia súboru"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:836
 msgid "The first thing you have to do is to decide whether you just want to compare/merge files, or whether you want to apply a patch file. Depending on what you choose, the corresponding edit boxes and browse buttons are activated."
-msgstr "Prvé čo musíte urobiť, je rozhodnúť sa či chcete porovnávať, zlučovať, alebo či chcete použiť záplatový súbor. V závislosti na vašom výbere budú aktívne príslušné políčka úpravy a tlačítka prezerania."
+msgstr "Prvé čo musíte urobiť, je rozhodnúť sa či chcete porovnávať, zlučovať, alebo či chcete použiť súbor záplaty. V závislosti na vašom výbere budú aktívne príslušné políčka úpravy a tlačítka prezerania."
 
 # Viewing / Merging
 #. (para)
@@ -728,7 +728,7 @@ msgstr "Keď chcete zlúčiť tri súbory, TortoiseMerge zobrazí rozdiely v tro
 #. (para)
 #: ../source/TortoiseMerge_en.xml:867
 msgid "If you want to apply a patch file you have to set both the path to the patch file itself and the path to the folder where the patch file should be applied."
-msgstr "Keď chcete použiť záplatový súbor musíte zadať cestu k záplatovému súboru a adresár, na ktorý sa má záplata aplikovať."
+msgstr "Keď chcete použiť súbor záplaty musíte zadať k nemu cestu ako aj adresár, na ktorý sa má záplata aplikovať."
 
 # Applying Patches
 #. (para)
@@ -876,7 +876,7 @@ msgstr "Vyriešený konflikt"
 #. (listitem)
 #: ../source/TortoiseMerge_en.xml:987
 msgid "Where the same line has been changed in both files, and you have now selected which version should be used."
-msgstr "Keď bol zmenrný riadok v oboch súboroch a teraz ste vybrali, ktorá z verzií má byť použitá."
+msgstr "Keď bol zmenený riadok v oboch súboroch a teraz ste vybrali, ktorá z verzií má byť použitá."
 
 #. (term)
 #: ../source/TortoiseMerge_en.xml:993
@@ -886,7 +886,7 @@ msgstr "Prázdne"
 #. (listitem)
 #: ../source/TortoiseMerge_en.xml:994
 msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
-msgstr "Riadky boli pridané v druhom panely a nie sú nájdené prislúchajúce riadky v tomto panely."
+msgstr "Riadky boli pridané v druhom panely a nie sú nájdené príslušné riadky v tomto panely."
 
 #. (term)
 #: ../source/TortoiseMerge_en.xml:1000
@@ -1001,7 +1001,7 @@ msgstr "F7"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1083
 msgid "Go to next difference"
-msgstr "Ísť na další rozdiel"
+msgstr "Ísť na ďalší rozdiel"
 
 #. (term)
 #: ../source/TortoiseMerge_en.xml:1089
@@ -1184,7 +1184,7 @@ msgstr "Moje"
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1247
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the right pane. For two way diffs, this is the right file."
-msgstr "Označuje \"<placeholder-1/>\" súbor použitý pri trojcestnom zobrazení na pravom panely. Pre dvoj-panelové zobrazenie je to pravý súbor."
+msgstr "Označuje <placeholder-1/> súbor použitý pri trojcestnom zobrazení na pravom panely. Pre dvoj-panelové zobrazenie je to pravý súbor."
 
 # mime
 #. (entry)
@@ -1218,7 +1218,7 @@ msgstr "veľmi dlhý"
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1279
 msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patch file, but that can take <placeholder-1/>."
-msgstr "Cesta, na ktorej sa má použiť záplata. Keď nezadáte túto cestu, TortoiseMerge sa pokúsi nájsť cestu, ktorá by zodpovedala ceste zo záplatového súboru. Toto môže trvať <placeholder-1/> čas."
+msgstr "Cesta, na ktorej sa má použiť záplata. Keď nezadáte túto cestu, TortoiseMerge sa pokúsi nájsť cestu, ktorá by zodpovedala ceste zo súboru záplaty. Toto môže trvať <placeholder-1/> čas."
 
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1288
@@ -1273,7 +1273,7 @@ msgstr "/createunifieddiff"
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1322
 msgid "Creates a unified diff file (patch file) of two files specified with <placeholder-1/> and <placeholder-2/>. The target path is set with <placeholder-3/>. If <placeholder-4/> is not set, a file save dialog is shown so the user can choose the location to save the patch file. Note: If <placeholder-5/> is set, all other parameters are ignored."
-msgstr "Vytvorí súbor unifikovaného porovnania (súbor záplaty) dvoch súborov určených <placeholder-1/> a <placeholder-2/>. Cieľová cesta je daná <placeholder-3/>. Keď nieje nastavené <placeholder-4/> užívateľ si môže vybrať miesto na uloženie záplatového súboru. Poznámka: Keď je nastavené <placeholder-5/> všetky ostatné parametre sú ignorované."
+msgstr "Vytvorí súbor unifikovaného porovnania (súbor záplaty) dvoch súborov určených <placeholder-1/> a <placeholder-2/>. Cieľová cesta je daná <placeholder-3/>. Keď nie je nastavené <placeholder-4/> užívateľ si môže vybrať miesto na uloženie súboru záplaty. Poznámka: Keď je nastavené <placeholder-5/> všetky ostatné parametre sú ignorované."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1340
@@ -1282,7 +1282,7 @@ msgid ""
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
 "</screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
 msgstr ""
-"Pre kompatibilitu s inými porovnávacími programami, je možné spustiť TortoiseMerge aj so zadaním iba zoznamu súborov. V tejto zjedodušenej forme je príkazový riadok: <screen>\n"
+"Pre kompatibilitu s inými porovnávacími programami, je možné spustiť TortoiseMerge aj so zadaním iba zoznamu súborov. V tejto zjednodušenej forme je príkazový riadok: <screen>\n"
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
 "</screen> Ak sú zadané dva súbory, sú tieto súbory porovnané navzájom. Keď sú zadané tri súbory prvý po použitý ako základový, a zvyšné dva sú s ním porovnané trojcestným porovnaním."
 
@@ -1498,7 +1498,7 @@ msgstr "Záznam-denník"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1552
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
-msgstr "Zobrazí históriurevízií súboru, alebo adresára. Tiež známa ako <quote>Záznam</quote>."
+msgstr "Zobrazí históriu revízií súboru, alebo adresára. Tiež známa ako <quote>Záznam</quote>."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1559
@@ -1548,7 +1548,7 @@ msgstr "Vlastnosť"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1601
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
-msgstr "Okrem verziovania adresárov a súborov, Subversion umožňuje pridať aj verziované metadata - označované ako <quote>vlastnosti</quote> - ku každému verziovanému súboru a adresáru. Každá vlastnosť má meno a hodnotu, podobne ako kľúče registrov. Subversion ma niekoľko špeciálnych vlastností pre vnútorné použite, ako je <literal>svn:eol-style</literal>. TortoiseSVN má nietoré tiež, ako je <literal>tsvn:logminsize</literal>. Môžete pridávať vlastné vlastnosti s menom a hodnotou podľa vašej vôle."
+msgstr "Okrem verziovania adresárov a súborov, Subversion umožňuje pridať aj verziované metadata - označované ako <quote>vlastnosti</quote> - ku každému verziovanému súboru a adresáru. Každá vlastnosť má meno a hodnotu, podobne ako kľúče registrov. Subversion ma niekoľko špeciálnych vlastností pre vnútorné použite, ako je <literal>svn:eol-style</literal>. TortoiseSVN má niektoré tiež, ako je <literal>tsvn:logminsize</literal>. Môžete pridávať vlastné vlastnosti s menom a hodnotou podľa vašej vôle."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1614
@@ -1576,7 +1576,7 @@ msgstr "Úložisko"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1633
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
-msgstr "Úložísko je centrálne miesto, kde sú uložené a spravované dáta. Úložisko môže byť  umiestnené na mieste s viacerými databázami, alebo súbormi umiestnenom pre rozširovanie cez sieť, alebo úložisko môže byť umiestnené na mieste, ktoré je priamo prístupné užívateľom bez nutnosti putovať sieťou."
+msgstr "Úložisko je centrálne miesto, kde sú uložené a spravované dáta. Úložisko môže byť  umiestnené na mieste s viacerými databázami, alebo súbormi umiestnenom pre rozširovanie cez sieť, alebo úložisko môže byť umiestnené na mieste, ktoré je priamo prístupné užívateľom bez nutnosti putovať sieťou."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1642
