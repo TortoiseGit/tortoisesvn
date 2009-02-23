@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-19 14:03+0100\n"
+"PO-Revision-Date: 2009-02-23 09:14+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -810,7 +810,7 @@ msgid "&Options"
 msgstr "&Optionen"
 
 #. Resource IDs: (32772)
-msgid "&Overlap images"
+msgid "&Overlay images"
 msgstr "Bilder &überlagern"
 
 #. Resource IDs: (1411, 65535)
@@ -1227,6 +1227,10 @@ msgstr "------------------------------------------------------------------------
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
+
+#. Resource IDs: (269)
+msgid "... checking cache and preparing log query"
+msgstr "... Prüfe Cache und bereite Log-Abfrage vor"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -3621,6 +3625,10 @@ msgstr "Externe Programme::Konflikteditor"
 #. Resource IDs: (194)
 msgid "External Programs::Unified Diff Viewer"
 msgstr "Externe Programme::GNU-Diff Betrachter"
+
+#. Resource IDs: (263)
+msgid "External failed"
+msgstr "External fehlgeschlagen"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
@@ -6173,6 +6181,16 @@ msgstr "Eigenschaft %s: Basis"
 #, c-format
 msgid "Property %s : working copy"
 msgstr "Eigenschaft %s: Arbeitskopie"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' deleted"
+msgstr "Eigenschaft '%s' gelöscht"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' set"
+msgstr "Eigenschaft '%s' gesetzt"
 
 #. Resource IDs: (107)
 msgid "Property Page"
