@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-21 21:39+0900\n"
+"PO-Revision-Date: 2009-02-23 12:33+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -807,8 +807,8 @@ msgid "&Options"
 msgstr "옵션(&O)"
 
 #. Resource IDs: (32772)
-msgid "&Overlap images"
-msgstr "이미지 겹치기(&O)"
+msgid "&Overlay images"
+msgstr "오버레이 이미지들(&O)"
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -1224,6 +1224,10 @@ msgstr "------------------------------------------------------------------------
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
+
+#. Resource IDs: (269)
+msgid "... checking cache and preparing log query"
+msgstr "... 캐시를 채크하고 로그 쿼리중"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -3611,6 +3615,10 @@ msgstr "외부 프로그램::Merge"
 #. Resource IDs: (194)
 msgid "External Programs::Unified Diff Viewer"
 msgstr "외부 프로그램::Unified diff"
+
+#. Resource IDs: (263)
+msgid "External failed"
+msgstr "외부경로 실패"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
