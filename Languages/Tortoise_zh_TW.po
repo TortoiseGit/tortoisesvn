@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-16 20:20+0800\n"
+"PO-Revision-Date: 2009-02-23 20:10+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -808,7 +808,7 @@ msgid "&Options"
 msgstr "選項(&O)"
 
 #. Resource IDs: (32772)
-msgid "&Overlap images"
+msgid "&Overlay images"
 msgstr "重疊影像(&O)"
 
 #. Resource IDs: (1411, 65535)
@@ -1225,6 +1225,10 @@ msgstr "------------------------------------------------------------------------
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
+
+#. Resource IDs: (269)
+msgid "... checking cache and preparing log query"
+msgstr "...正在檢查快取並準備查詢紀錄"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -3615,6 +3619,10 @@ msgstr "外部程式::合併工具"
 msgid "External Programs::Unified Diff Viewer"
 msgstr "外部程式::單一補綴檔檢視工具"
 
+#. Resource IDs: (263)
+msgid "External failed"
+msgstr "外部發生錯誤"
+
 #. Resource IDs: (226)
 msgid "Externals excluded"
 msgstr "不包含外部"
@@ -6002,7 +6010,7 @@ msgid "Port :"
 msgstr "埠:"
 
 #. Resource IDs: (347)
-msgid "Possible values: 0 (fully transparent) .. 255 (no transparency)"
+msgid "Possible values: 0 (fully transparent) .. 255 (opaque)"
 msgstr "可能的設定值: 0 (完全透明) .. 255 (不透明)"
 
 #. Resource IDs: (569)
@@ -6146,6 +6154,16 @@ msgstr "性質 %s : 工作基礎版本"
 #, c-format
 msgid "Property %s : working copy"
 msgstr "性質 %s : 工作複本"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' deleted"
+msgstr "性質 '%s' 已刪除"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' set"
+msgstr "性質 '%s' 已設定"
 
 #. Resource IDs: (107)
 msgid "Property Page"
