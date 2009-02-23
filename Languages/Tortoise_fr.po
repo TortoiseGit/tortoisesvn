@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-17 09:42+0100\n"
-"Last-Translator: Grokwik <grokwik@free.fr>\n"
+"PO-Revision-Date: 2009-02-23 08:01+0100\n"
+"Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -815,8 +815,8 @@ msgid "&Options"
 msgstr "&Options"
 
 #. Resource IDs: (32772)
-msgid "&Overlap images"
-msgstr "Superp&oser les images"
+msgid "&Overlay images"
+msgstr "&Images de superposition"
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -1232,6 +1232,10 @@ msgstr "------------------------------------------------------------------------
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
+
+#. Resource IDs: (269)
+msgid "... checking cache and preparing log query"
+msgstr "... vérification du cache et préparation de la requête du journal"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -3622,6 +3626,10 @@ msgstr "Programmes externes::Outil de Fusion"
 msgid "External Programs::Unified Diff Viewer"
 msgstr "Programmes externes::Visualisateur de Différences Unifiées"
 
+#. Resource IDs: (263)
+msgid "External failed"
+msgstr "La ressource externe a échoué"
+
 #. Resource IDs: (226)
 msgid "Externals excluded"
 msgstr "Externes exclus"
@@ -6011,8 +6019,8 @@ msgid "Port :"
 msgstr "Port :"
 
 #. Resource IDs: (347)
-msgid "Possible values: 0 (fully transparent) .. 255 (no transparency)"
-msgstr "Valeurs acceptées : 0 (transparent) .. 255 (opaque)"
+msgid "Possible values: 0 (fully transparent) .. 255 (opaque)"
+msgstr "Valeurs possibles : 0 (totalement transparent) .. 255 (opaque)"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
@@ -6155,6 +6163,16 @@ msgstr "Propriété %s : base de travail"
 #, c-format
 msgid "Property %s : working copy"
 msgstr "Propriété %s : copie de travail"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' deleted"
+msgstr "Propriété '%s' supprimée"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' set"
+msgstr "Propriété '%s' définie"
 
 #. Resource IDs: (107)
 msgid "Property Page"
