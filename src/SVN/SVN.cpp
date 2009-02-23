@@ -2694,6 +2694,12 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
 	apr_off_t delta = progress;
 	if ((progress >= pSVN->progress_lastprogress)&&(total == pSVN->progress_lasttotal))
 		delta = progress - pSVN->progress_lastprogress;
+	// because of http://subversion.tigris.org/issues/show_bug.cgi?id=3260
+	// the progress information can be horribly wrong.
+	// We cut the delta here to 8kb because SVN does not send/receive packets
+	// bigger than this, and we can therefore reduce the error that way a little bit
+	delta = delta % 8192;
+
 	pSVN->progress_lastprogress = progress;
 	pSVN->progress_lasttotal = total;
 	
