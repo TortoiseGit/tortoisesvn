@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007,2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -106,7 +106,7 @@ bool CRegHistory::Save() const
 		TCHAR sKey[4096] = {0};
 		_stprintf_s(sKey, 4096, _T("%s\\%s%d"), m_sSection.c_str(), m_sKeyPrefix.c_str(), n);
 		CRegStdString regkey = CRegStdString(sKey);
-        if (((stdstring)regkey).empty())
+        if (((tstring)regkey).empty())
 			break;
 		regkey.removeValue(); // remove entry
 	}

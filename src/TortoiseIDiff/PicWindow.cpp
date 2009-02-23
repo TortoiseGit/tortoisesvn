@@ -506,7 +506,7 @@ void CPicWindow::Animate(bool bStart)
 	}
 }
 
-void CPicWindow::SetPic(stdstring path, stdstring title, bool bFirst)
+void CPicWindow::SetPic(tstring path, tstring title, bool bFirst)
 {
 	bMainPic = bFirst;
 	picpath=path;pictitle=title;
@@ -551,10 +551,10 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 	SetTextColor(hDC, crFg);
 
 	// use the path if no title is set.
-	stdstring * title = pictitle.empty() ? &picpath : &pictitle;
+	tstring * title = pictitle.empty() ? &picpath : &pictitle;
 
-	stdstring realtitle = *title;
-	stdstring imgnumstring;
+	tstring realtitle = *title;
+	tstring imgnumstring;
 
 	if (HasMultipleImages())
 	{

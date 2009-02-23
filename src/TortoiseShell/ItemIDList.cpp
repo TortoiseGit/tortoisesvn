@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006,2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -74,13 +74,14 @@ LPCSHITEMID ItemIDList::get(int index) const
 	return ptr;
 
 }
-stdstring ItemIDList::toString()
+
+tstring ItemIDList::toString()
 {
 	IShellFolder *shellFolder = NULL;
 	IShellFolder *parentFolder = NULL;
 	STRRET name;
 	TCHAR * szDisplayName = NULL;
-	stdstring ret;
+	tstring ret;
 	HRESULT hr;
 
 	hr = ::SHGetDesktopFolder(&shellFolder);

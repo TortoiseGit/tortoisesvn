@@ -299,13 +299,13 @@ public:
 	{
 		Locker lock(m_critSec);
 		ExcludeContextValid();
-		for (std::vector<stdstring>::iterator I = excontextvector.begin(); I != excontextvector.end(); ++I)
+		for (std::vector<tstring>::iterator I = excontextvector.begin(); I != excontextvector.end(); ++I)
 		{
 			if (I->empty())
 				continue;
 			if (I->size() && I->at(I->size()-1)=='*')
 			{
-				stdstring str = I->substr(0, I->size()-1);
+				tstring str = I->substr(0, I->size()-1);
 				if (_tcsnicmp(str.c_str(), path, str.size())==0)
 					return FALSE;
 			}
@@ -318,13 +318,13 @@ public:
 	{
 		Locker lock(m_critSec);
 		IncludeListValid();
-		for (std::vector<stdstring>::iterator I = invector.begin(); I != invector.end(); ++I)
+		for (std::vector<tstring>::iterator I = invector.begin(); I != invector.end(); ++I)
 		{
 			if (I->empty())
 				continue;
 			if (I->at(I->size()-1)=='*')
 			{
-				stdstring str = I->substr(0, I->size()-1);
+				tstring str = I->substr(0, I->size()-1);
 				if (_tcsnicmp(str.c_str(), path, str.size())==0)
 					return TRUE;
 				if (str.size() && (str.at(str.size()-1) == '\\') && (_tcsnicmp(str.c_str(), path, str.size()-1)==0))
@@ -338,13 +338,13 @@ public:
 
 		}
 		ExcludeListValid();
-		for (std::vector<stdstring>::iterator I = exvector.begin(); I != exvector.end(); ++I)
+		for (std::vector<tstring>::iterator I = exvector.begin(); I != exvector.end(); ++I)
 		{
 			if (I->empty())
 				continue;
 			if (I->size() && I->at(I->size()-1)=='*')
 			{
-				stdstring str = I->substr(0, I->size()-1);
+				tstring str = I->substr(0, I->size()-1);
 				if (_tcsnicmp(str.c_str(), path, str.size())==0)
 					return FALSE;
 			}
@@ -452,7 +452,7 @@ public:
 		}
 		if ((GetTickCount() - ADMINDIRTIMEOUT) < admindirticker)
 		{
-			std::map<stdstring, BOOL>::iterator iter;
+			std::map<tstring, BOOL>::iterator iter;
 			sAdminDirCacheKey.assign(buf);
 			if ((iter = admindircache.find(sAdminDirCacheKey)) != admindircache.end())
 			{
@@ -496,15 +496,15 @@ private:
 			Locker lock(m_critSec);
 			excontextticker = GetTickCount();
 			nocontextpaths.read();
-			if (excludecontextstr.compare((stdstring)nocontextpaths)==0)
+			if (excludecontextstr.compare((tstring)nocontextpaths)==0)
 				return;
-			excludecontextstr = (stdstring)nocontextpaths;
+			excludecontextstr = (tstring)nocontextpaths;
 			excontextvector.clear();
 			size_t pos = 0, pos_ant = 0;
 			pos = excludecontextstr.find(_T("\n"), pos_ant);
-			while (pos != stdstring::npos)
+			while (pos != tstring::npos)
 			{
-				stdstring token = excludecontextstr.substr(pos_ant, pos-pos_ant);
+				tstring token = excludecontextstr.substr(pos_ant, pos-pos_ant);
 				excontextvector.push_back(token);
 				pos_ant = pos+1;
 				pos = excludecontextstr.find(_T("\n"), pos_ant);
@@ -513,7 +513,7 @@ private:
 			{
 				excontextvector.push_back(excludecontextstr.substr(pos_ant, excludecontextstr.size()-1));
 			}
-			excludecontextstr = (stdstring)nocontextpaths;
+			excludecontextstr = (tstring)nocontextpaths;
 		}
 	}
 	void ExcludeListValid()
@@ -523,15 +523,15 @@ private:
 			Locker lock(m_critSec);
 			excludelistticker = GetTickCount();
 			excludelist.read();
-			if (excludeliststr.compare((stdstring)excludelist)==0)
+			if (excludeliststr.compare((tstring)excludelist)==0)
 				return;
-			excludeliststr = (stdstring)excludelist;
+			excludeliststr = (tstring)excludelist;
 			exvector.clear();
 			size_t pos = 0, pos_ant = 0;
 			pos = excludeliststr.find(_T("\n"), pos_ant);
-			while (pos != stdstring::npos)
+			while (pos != tstring::npos)
 			{
-				stdstring token = excludeliststr.substr(pos_ant, pos-pos_ant);
+				tstring token = excludeliststr.substr(pos_ant, pos-pos_ant);
 				exvector.push_back(token);
 				pos_ant = pos+1;
 				pos = excludeliststr.find(_T("\n"), pos_ant);
@@ -540,7 +540,7 @@ private:
 			{
 				exvector.push_back(excludeliststr.substr(pos_ant, excludeliststr.size()-1));
 			}
-			excludeliststr = (stdstring)excludelist;
+			excludeliststr = (tstring)excludelist;
 		}
 	}
 	void IncludeListValid()
@@ -550,15 +550,15 @@ private:
 			Locker lock(m_critSec);
 			includelistticker = GetTickCount();
 			includelist.read();
-			if (includeliststr.compare((stdstring)includelist)==0)
+			if (includeliststr.compare((tstring)includelist)==0)
 				return;
-			includeliststr = (stdstring)includelist;
+			includeliststr = (tstring)includelist;
 			invector.clear();
 			size_t pos = 0, pos_ant = 0;
 			pos = includeliststr.find(_T("\n"), pos_ant);
-			while (pos != stdstring::npos)
+			while (pos != tstring::npos)
 			{
-				stdstring token = includeliststr.substr(pos_ant, pos-pos_ant);
+				tstring token = includeliststr.substr(pos_ant, pos-pos_ant);
 				invector.push_back(token);
 				pos_ant = pos+1;
 				pos = includeliststr.find(_T("\n"), pos_ant);
@@ -567,7 +567,7 @@ private:
 			{
 				invector.push_back(includeliststr.substr(pos_ant, includeliststr.size()-1));
 			}
-			includeliststr = (stdstring)includelist;
+			includeliststr = (tstring)includelist;
 		}
 	}
 	CRegStdDWORD cachetype;
@@ -596,11 +596,11 @@ private:
 	CRegStdDWORD excludedasnormal;
 	CRegStdString excludelist;
 	CRegStdDWORD columnseverywhere;
-	stdstring excludeliststr;
-	std::vector<stdstring> exvector;
+	tstring excludeliststr;
+	std::vector<tstring> exvector;
 	CRegStdString includelist;
-	stdstring includeliststr;
-	std::vector<stdstring> invector;
+	tstring includeliststr;
+	std::vector<tstring> invector;
 	DWORD cachetypeticker;
 	DWORD recursiveticker;
 	DWORD folderoverlayticker;
@@ -625,11 +625,11 @@ private:
 	NUMBERFMT columnrevformat;
 	TCHAR szDecSep[5];
 	TCHAR szThousandsSep[5];
-	std::map<stdstring, BOOL> admindircache;
-	stdstring sAdminDirCacheKey;
+	std::map<tstring, BOOL> admindircache;
+	tstring sAdminDirCacheKey;
 	CRegStdString nocontextpaths;
-	stdstring excludecontextstr;
-	std::vector<stdstring> excontextvector;
+	tstring excludecontextstr;
+	std::vector<tstring> excontextvector;
 	DWORD excontextticker;
 	DWORD admindirticker;
 	CComCriticalSection m_critSec;

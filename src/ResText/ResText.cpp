@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006,2009 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,12 +23,7 @@
 #include "shlwapi.h"
 #pragma comment(lib, "shlwapi.lib")
 
-typedef std::basic_string<wchar_t> wstring;
-#ifdef UNICODE
-#	define stdstring wstring
-#else
-#	define stdstring std::string
-#endif
+typedef std::basic_string<TCHAR> tstring;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -37,23 +32,23 @@ int _tmain(int argc, _TCHAR* argv[])
 	bool bNoUpdate = false;
 	bool bRTL = false;
 	//parse the command line
-	std::vector<stdstring> arguments;
-	std::vector<stdstring> switches;
+	std::vector<tstring> arguments;
+	std::vector<tstring> switches;
 	for (int i=1; i<argc; ++i)
 	{
 		if ((argv[i][0] == '-')||(argv[i][0] == '/'))
 		{
-			stdstring str = stdstring(&argv[i][1]);
+			tstring str = tstring(&argv[i][1]);
 			switches.push_back(str);
 		}
 		else
 		{
-			stdstring str = stdstring(&argv[i][0]);
+			tstring str = tstring(&argv[i][0]);
 			arguments.push_back(str);
 		}
 	}
 
-	for (std::vector<stdstring>::iterator I = switches.begin(); I != switches.end(); ++I)
+	for (std::vector<tstring>::iterator I = switches.begin(); I != switches.end(); ++I)
 	{
 		if (_tcscmp(I->c_str(), _T("?"))==0)
 			bShowHelp = true;
@@ -66,19 +61,19 @@ int _tmain(int argc, _TCHAR* argv[])
 		if (_tcscmp(I->c_str(), _T("rtl"))==0)
 			bRTL = true;
 	}
-	std::vector<stdstring>::iterator arg = arguments.begin();
+	std::vector<tstring>::iterator arg = arguments.begin();
 
 	if (arg != arguments.end())
 	{
 		if (_tcscmp(arg->c_str(), _T("extract"))==0)
 		{
-			stdstring sDllFile;
-			stdstring sPoFile;
+			tstring sDllFile;
+			tstring sPoFile;
 			++arg;
 			
 			std::vector<std::wstring> filelist = arguments;
 			filelist.erase(filelist.begin());
-			sPoFile = stdstring((--filelist.end())->c_str());
+			sPoFile = tstring((--filelist.end())->c_str());
 			filelist.erase(--filelist.end());
 			
 			CResModule module;
@@ -89,9 +84,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 		else if (_tcscmp(arg->c_str(), _T("apply"))==0)
 		{
-			stdstring sSrcDllFile;
-			stdstring sDstDllFile;
-			stdstring sPoFile;
+			tstring sSrcDllFile;
+			tstring sDstDllFile;
+			tstring sPoFile;
 			WORD wLang = 0;
 			++arg;
 			if (!PathFileExists(arg->c_str()))
@@ -99,16 +94,16 @@ int _tmain(int argc, _TCHAR* argv[])
 				_ftprintf(stderr, _T("the resource dll <%s> does not exist!\n"), arg->c_str());
 				return -1;
 			}
-			sSrcDllFile = stdstring(arg->c_str());
+			sSrcDllFile = tstring(arg->c_str());
 			++arg;
-			sDstDllFile = stdstring(arg->c_str());
+			sDstDllFile = tstring(arg->c_str());
 			++arg;
 			if (!PathFileExists(arg->c_str()))
 			{
 				_ftprintf(stderr, _T("the po-file <%s> does not exist!\n"), arg->c_str());
 				return -1;
 			}
-			sPoFile = stdstring(arg->c_str());
+			sPoFile = tstring(arg->c_str());
 			++arg;
 			if (arg != arguments.end())
 			{

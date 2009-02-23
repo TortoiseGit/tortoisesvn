@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 #include <string>
 #include <memory>
 #include "shlwapi.h"
+#include "tstring.h"
 
 #ifndef ASSERT
 #define ASSERT(x)
@@ -213,21 +214,14 @@ public:	//methods
 };
 #endif
 
-typedef std::wstring wide_string;
-#ifndef stdstring
-#	ifdef UNICODE
-#		define stdstring wide_string
-#	else
-#		define stdstring std::string
-#	endif
-#endif
+
 
 /**
  * \ingroup Utils
  * Base class for STL string type registry classes.
  */
 
-class CRegStdBase : public CRegBaseCommon<stdstring>
+class CRegStdBase : public CRegBaseCommon<tstring>
 {
 protected:
 
@@ -235,8 +229,8 @@ protected:
      * String type specific operations.
      */
 
-    virtual LPCTSTR GetPlainString (const stdstring& s) const {return s.c_str();}
-    virtual DWORD GetLength (const stdstring& s) const {return static_cast<DWORD>(s.size());}
+    virtual LPCTSTR GetPlainString (const tstring& s) const {return s.c_str();}
+    virtual DWORD GetLength (const tstring& s) const {return static_cast<DWORD>(s.size());}
 
 public:	//methods
 
@@ -249,7 +243,7 @@ public:	//methods
 	 * \param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */
-	CRegStdBase(const stdstring& key, bool force, HKEY base = HKEY_CURRENT_USER);
+	CRegStdBase(const tstring& key, bool force, HKEY base = HKEY_CURRENT_USER);
 };
 
 /**

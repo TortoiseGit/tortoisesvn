@@ -406,7 +406,7 @@ svn_error_t* SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn
 		s.tree_conflict = (status->tree_conflict != NULL);
 	}
 	s.askedcounter = SVNFOLDERSTATUS_CACHETIMES;
-	stdstring str;
+	tstring str;
 	if (path)
 	{
 		str = CUnicodeUtils::StdGetUnicode(path);

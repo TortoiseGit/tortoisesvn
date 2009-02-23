@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -411,7 +411,7 @@ void TortoiseBlame::InitialiseEditor()
 	m_directPointer = SendMessage(wEditor, SCI_GETDIRECTPOINTER, 0, 0);
 	// Set up the global default style. These attributes are used wherever no explicit choices are made.
 	SetAStyle(STYLE_DEFAULT, black, white, (DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameFontSize"), 10), 
-		((stdstring)(CRegStdString(_T("Software\\TortoiseSVN\\BlameFontName"), _T("Courier New")))).c_str());
+		((tstring)(CRegStdString(_T("Software\\TortoiseSVN\\BlameFontName"), _T("Courier New")))).c_str());
 	SendEditor(SCI_SETTABWIDTH, (DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameTabSize"), 4));
 	SendEditor(SCI_SETREADONLY, TRUE);
 	LRESULT pix = SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM)_T("_99999"));
@@ -672,8 +672,8 @@ void TortoiseBlame::BlamePreviousRevision()
 	memset(&startup, 0, sizeof(startup));
 	startup.cb = sizeof(startup);
 	memset(&process, 0, sizeof(process));
-	stdstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
-	stdstring svnCmd = _T(" /command:blame ");
+	tstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
+	tstring svnCmd = _T(" /command:blame ");
 	svnCmd += _T(" /path:\"");
 	svnCmd += szOrigPath;
 	svnCmd += _T("\"");
@@ -717,8 +717,8 @@ void TortoiseBlame::DiffPreviousRevision()
 	memset(&startup, 0, sizeof(startup));
 	startup.cb = sizeof(startup);
 	memset(&process, 0, sizeof(process));
-	stdstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
-	stdstring svnCmd = _T(" /command:diff ");
+	tstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
+	tstring svnCmd = _T(" /command:diff ");
 	svnCmd += _T(" /path:\"");
 	svnCmd += szOrigPath;
 	svnCmd += _T("\"");
@@ -743,8 +743,8 @@ void TortoiseBlame::ShowLog()
 	memset(&startup, 0, sizeof(startup));
 	startup.cb = sizeof(startup);
 	memset(&process, 0, sizeof(process));
-	stdstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
-	stdstring svnCmd = _T(" /command:log ");
+	tstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
+	tstring svnCmd = _T(" /command:log ");
 	svnCmd += _T(" /path:\"");
 	svnCmd += szOrigPath;
 	svnCmd += _T("\"");
@@ -935,7 +935,7 @@ void TortoiseBlame::CreateFont()
 	lf.lfHeight = -MulDiv((DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameFontSize"), 10), GetDeviceCaps(hDC, LOGPIXELSY), 72);
 	lf.lfCharSet = DEFAULT_CHARSET;
 	CRegStdString fontname = CRegStdString(_T("Software\\TortoiseSVN\\BlameFontName"), _T("Courier New"));
-	_tcscpy_s(lf.lfFaceName, 32, ((stdstring)fontname).c_str());
+	_tcscpy_s(lf.lfFaceName, 32, ((tstring)fontname).c_str());
 	m_font = ::CreateFontIndirect(&lf);
 
 	lf.lfItalic = TRUE;

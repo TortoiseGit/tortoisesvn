@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,7 @@
 #include "SVNRev.h"
 #include "ProjectProperties.h"
 #include "Tooltip.h"
+#include "tstring.h"
 
 /**
  * \ingroup TortoiseProc
@@ -76,7 +77,7 @@ protected:
 		PropValue(void) : count(0), allthesamevalue(true), isbinary(false) {};
 
 		std::string	value;
-		stdstring	value_without_newlines;
+		tstring		value_without_newlines;
 		int			count;
 		bool		allthesamevalue;
 		bool		isbinary;
@@ -87,7 +88,7 @@ protected:
 	bool			m_bChanged;
 	bool			m_bRevProps;
 	volatile LONG	m_bThreadRunning;
-	std::map<stdstring, PropValue>	m_properties;
+	std::map<tstring, PropValue>	m_properties;
 	SVNRev			m_revision;
 	CToolTips		m_tooltips;
 

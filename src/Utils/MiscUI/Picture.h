@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007,2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,16 +17,12 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 #pragma once
+#include "tstring.h"
 #include <string>
 #include "ocidl.h"
 #include <GdiPlus.h>
 
 using namespace Gdiplus;
-#ifdef UNICODE
-#	define stdstring std::wstring
-#else
-#	define stdstring std::string
-#endif
 
 /**
  * \ingroup Utils
@@ -74,7 +70,7 @@ public:
 	 * \param sFilePathName the path of the picture file
 	 * \return TRUE if succeeded.
 	 */
-	bool Load(stdstring sFilePathName);
+	bool Load(tstring sFilePathName);
 	/**
 	 * draws the loaded picture directly to the given device context.
 	 * \note
@@ -158,7 +154,7 @@ public:
 	long SetActiveFrame(UINT frame);
 
 	DWORD GetFileSize() {return m_nSize;}
-	stdstring GetFileSizeAsText(bool bAbbrev = true);
+	tstring GetFileSizeAsText(bool bAbbrev = true);
 	CPicture();
 	virtual ~CPicture();
 
@@ -171,7 +167,7 @@ public:
 	LONG		m_Width;	///< Width (in pixels)
 	BYTE		m_ColorDepth;///< the color depth
 	LONG		m_Weight;	///< Size Of The Image Object In Bytes (File OR Resource)
-	stdstring	m_Name;		///< The FileName of the Picture as used in Load()
+	tstring	m_Name;		///< The FileName of the Picture as used in Load()
 
 protected:
 	/**

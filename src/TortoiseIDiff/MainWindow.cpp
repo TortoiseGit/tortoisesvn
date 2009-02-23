@@ -25,11 +25,11 @@
 
 #pragma comment(lib, "comctl32.lib")
 
-stdstring	CMainWindow::leftpicpath;
-stdstring	CMainWindow::leftpictitle;
+tstring	CMainWindow::leftpicpath;
+tstring	CMainWindow::leftpictitle;
 
-stdstring	CMainWindow::rightpicpath;
-stdstring	CMainWindow::rightpictitle;
+tstring	CMainWindow::rightpicpath;
+tstring	CMainWindow::rightpictitle;
 
 
 bool CMainWindow::RegisterAndCreateWindow()

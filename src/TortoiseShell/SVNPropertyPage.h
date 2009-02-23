@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006,2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -58,7 +58,7 @@
 class CSVNPropertyPage
 {
 public:
-	CSVNPropertyPage(const std::vector<stdstring> &filenames);
+	CSVNPropertyPage(const std::vector<tstring> &filenames);
 	virtual ~CSVNPropertyPage();
 
 	/**
@@ -81,13 +81,13 @@ protected:
 	
 	struct listproperty
 	{
-		stdstring name;
+		tstring name;
 		std::string value;
 		int		  count;
 	};
 	HWND m_hwnd;
-	std::vector<stdstring> filenames;
-	std::map<stdstring, std::string> propmap;
+	std::vector<tstring> filenames;
+	std::map<tstring, std::string> propmap;
 	TCHAR stringtablebuffer[255];
 };
 

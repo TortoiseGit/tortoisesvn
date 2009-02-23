@@ -34,16 +34,16 @@
 using namespace Gdiplus;
 
 // BinaryPredicate for comparing authors based on their commit count
-class MoreCommitsThan : public std::binary_function<stdstring, stdstring, bool> {
+class MoreCommitsThan : public std::binary_function<tstring, tstring, bool> {
 public:
-	MoreCommitsThan(std::map<stdstring, LONG> * author_commits) : m_authorCommits(author_commits) {}
+	MoreCommitsThan(std::map<tstring, LONG> * author_commits) : m_authorCommits(author_commits) {}
 
-	bool operator()(const stdstring& lhs, const stdstring& rhs) {
+	bool operator()(const tstring& lhs, const tstring& rhs) {
 		return (*m_authorCommits)[lhs] > (*m_authorCommits)[rhs];
 	}
 
 private:
-	std::map<stdstring, LONG> * m_authorCommits;
+	std::map<tstring, LONG> * m_authorCommits;
 };
 
 
@@ -550,7 +550,7 @@ void CStatGraphDlg::GatherData()
 		CString sAuth = m_parAuthors->GetAt(i);
 		if (!m_bAuthorsCaseSensitive)
 			sAuth = sAuth.MakeLower();
-		stdstring author = stdstring(sAuth);
+		tstring author = tstring(sAuth);
 		// Increase total commit count for this author
 		m_commitsPerAuthor[author]++;
 		// Increase the commit count for this author in this week
@@ -584,7 +584,7 @@ void CStatGraphDlg::GatherData()
 	m_authorNames.clear();
 	if (m_commitsPerAuthor.size())
 	{
-		for (std::map<stdstring, LONG>::iterator it = m_commitsPerAuthor.begin(); 
+		for (std::map<tstring, LONG>::iterator it = m_commitsPerAuthor.begin(); 
 			it != m_commitsPerAuthor.end(); ++it) 
 		{
 			m_authorNames.push_back(it->first);
@@ -598,8 +598,8 @@ void CStatGraphDlg::GatherData()
 	// extract the information to be shown.
 }
 
-void CStatGraphDlg::FilterSkippedAuthors(std::list<stdstring>& included_authors, 
-										 std::list<stdstring>& skipped_authors)
+void CStatGraphDlg::FilterSkippedAuthors(std::list<tstring>& included_authors, 
+										 std::list<tstring>& skipped_authors)
 {
 	included_authors.clear();
 	skipped_authors.clear();
@@ -610,7 +610,7 @@ void CStatGraphDlg::FilterSkippedAuthors(std::list<stdstring>& included_authors,
 		++included_authors_count;
 
 	// add the included authors first
-	std::list<stdstring>::iterator author_it = m_authorNames.begin();
+	std::list<tstring>::iterator author_it = m_authorNames.begin();
 	while (included_authors_count > 0 && author_it != m_authorNames.end()) 
 	{
 		// Add him/her to the included list
@@ -667,8 +667,8 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 	m_graph.SetGraphTitle(temp);
 
 	// Find out which authors are to be shown and which are to be skipped.
-	std::list<stdstring> authors;
-	std::list<stdstring> others;
+	std::list<tstring> authors;
+	std::list<tstring> others;
 	FilterSkippedAuthors(authors, others);
 
 	// Loop over all authors in the authors list and 
@@ -676,7 +676,7 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 
 	if (authors.size())
 	{
-		for (std::list<stdstring>::iterator it = authors.begin(); it != authors.end(); ++it)
+		for (std::list<tstring>::iterator it = authors.begin(); it != authors.end(); ++it)
 		{
 			int group = m_graph.AppendGroup(it->c_str());
 			graphData->SetData(group, m_commitsPerAuthor[*it]);
@@ -688,7 +688,7 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 	if (nOthers != 0)
 	{
 		int nCommits = 0;
-		for (std::list<stdstring>::iterator it = others.begin(); it != others.end(); ++it)
+		for (std::list<tstring>::iterator it = others.begin(); it != others.end(); ++it)
 		{
 			nCommits += m_commitsPerAuthor[*it];
 		}
@@ -734,17 +734,17 @@ void CStatGraphDlg::ShowCommitsByDate()
 	m_graph.SetXAxisLabel(GetUnitString());
 
 	// Find out which authors are to be shown and which are to be skipped.
-	std::list<stdstring> authors;
-	std::list<stdstring> others;
+	std::list<tstring> authors;
+	std::list<tstring> others;
 	FilterSkippedAuthors(authors, others);
 
 	// Add a graph series for each author.
 	AuthorDataMap authorGraphMap;
-	for (std::list<stdstring>::iterator it = authors.begin(); it != authors.end(); ++it)
+	for (std::list<tstring>::iterator it = authors.begin(); it != authors.end(); ++it)
 		authorGraphMap[*it] = m_graph.AppendGroup(it->c_str());
 	// If we have skipped authors, add a graph series for all those.
 	CString sOthers(MAKEINTRESOURCE(IDS_STATGRAPH_OTHERGROUP));
-	stdstring othersName;
+	tstring othersName;
 	if (!others.empty()) 
 	{
 		temp.Format(_T(" (%ld)"), others.size());
@@ -763,7 +763,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 		// Collect data for authors listed by name.
 		if (authors.size())
 		{
-			for (std::list<stdstring>::iterator it = authors.begin(); it != authors.end(); ++it)
+			for (std::list<tstring>::iterator it = authors.begin(); it != authors.end(); ++it)
 			{
 				// Do we have some data for the current author in the current interval?
 				AuthorDataMap::const_iterator data_it = m_commitsPerUnitAndAuthor[i].find(*it);
@@ -775,7 +775,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 		// Collect data for all skipped authors.
 		if (others.size())
 		{
-			for (std::list<stdstring>::iterator it = others.begin(); it != others.end(); ++it)
+			for (std::list<tstring>::iterator it = others.begin(); it != others.end(); ++it)
 			{
 				// Do we have some data for the author in the current interval?
 				AuthorDataMap::const_iterator data_it = m_commitsPerUnitAndAuthor[i].find(*it);
@@ -826,8 +826,8 @@ void CStatGraphDlg::ShowStats()
 	size_t nAuthors = m_authorNames.size();
 
 	// Find most and least active author names.
-	stdstring mostActiveAuthor;
-	stdstring leastActiveAuthor;
+	tstring mostActiveAuthor;
+	tstring leastActiveAuthor;
 	if (nAuthors > 0) 
 	{
 		mostActiveAuthor = m_authorNames.front();
@@ -1158,7 +1158,7 @@ void CStatGraphDlg::OnNeedText(NMHDR *pnmh, LRESULT * /*pResult*/)
 		// find the minimum number of commits that the shown authors have
 		int min_commits = 0;
 		included_authors_count = min(included_authors_count, m_authorNames.size());
-		std::list<stdstring>::iterator author_it = m_authorNames.begin();
+		std::list<tstring>::iterator author_it = m_authorNames.begin();
 		advance(author_it, included_authors_count);
 		if (author_it != m_authorNames.begin())
 			min_commits = m_commitsPerAuthor[ *(--author_it) ];

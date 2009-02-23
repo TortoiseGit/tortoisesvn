@@ -18,7 +18,7 @@
 
 #include "stdafx.h"
 #include "..\\TortoiseShell\\resource.h"
-#include "registry.h"  // Just provides stdstring def
+#include "tstring.h"
 #include "SVNProperties.h"
 #include "SVNStatus.h"
 #include "SVNHelpers.h"
@@ -269,7 +269,7 @@ bool SVNProperties::IsBinary(const std::string& value)
 	return false;
 }
 
-stdstring SVNProperties::GetItemName(int index) const
+tstring SVNProperties::GetItemName(int index) const
 {
 	return UTF8ToString(SVNProperties::GetItem(index, true));
 }
@@ -308,7 +308,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 #else
 		TCHAR string[1024];
 		LoadStringEx(g_hResInst, IDS_ERR_PROPNOTONFILE, string, 1024, (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
-		std::string stringA = WideToMultibyte(wide_string(string));
+		std::string stringA = WideToMultibyte(std::wstring(string));
 		m_error = svn_error_create(NULL, NULL, stringA.c_str());
 #endif
 		return FALSE;
@@ -328,7 +328,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 #else
 				TCHAR string[1024];
 				LoadStringEx(g_hResInst, IDS_ERR_PROPNOMULTILINE, string, 1024, (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
-				std::string stringA = WideToMultibyte(wide_string(string));
+				std::string stringA = WideToMultibyte(std::wstring(string));
 				m_error = svn_error_create(NULL, NULL, stringA.c_str());
 #endif
 				return FALSE;
@@ -443,9 +443,9 @@ BOOL SVNProperties::Remove(const TCHAR * Name, svn_depth_t depth, const TCHAR * 
 	return TRUE;
 }
 
-stdstring SVNProperties::GetLastErrorMsg() const
+tstring SVNProperties::GetLastErrorMsg() const
 {
-	stdstring msg;
+	tstring msg;
 	char errbuf[256];
 
 	if (m_error != NULL)

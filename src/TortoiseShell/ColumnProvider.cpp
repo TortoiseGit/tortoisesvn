@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -51,7 +51,7 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 
 	ShellCache::CacheType cachetype = g_ShellCache.GetCacheType();
 	LoadLangDll();
-	wide_string ws;
+	std::wstring ws;
 	switch (dwIndex)
 	{
 		case 0:	// SVN Status
@@ -200,7 +200,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 	ShellCache::CacheType cachetype = g_ShellCache.GetCacheType();
 	if (pscid->fmtid == CLSID_TortoiseSVN_UPTODATE && pscid->pid < 8) 
 	{
-		stdstring szInfo;
+		tstring szInfo;
 		const TCHAR * path = (TCHAR *)pscd->wszFile;
 
 		// reserve for the path + trailing \0
@@ -275,7 +275,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 	}
 	if ((pscid->fmtid == FMTID_SummaryInformation)||(pscid->pid == 8))
 	{
-		stdstring szInfo;
+		tstring szInfo;
 		const TCHAR * path = pscd->wszFile;
 
 		if (cachetype == ShellCache::none)
@@ -290,7 +290,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		default:
 			return S_FALSE;
 		}
-		wide_string wsInfo = szInfo;
+		std::wstring wsInfo = szInfo;
 		V_VT(pvarData) = VT_BSTR;
 		V_BSTR(pvarData) = SysAllocString(wsInfo.c_str());
 		return S_OK;

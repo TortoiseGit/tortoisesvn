@@ -34,7 +34,7 @@ UINT CALLBACK PropPageCallbackProc ( HWND hwnd, UINT uMsg, LPPROPSHEETPAGE ppsp 
 STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
                                   LPARAM lParam)
 {
-	for (std::vector<stdstring>::iterator I = files_.begin(); I != files_.end(); ++I)
+	for (std::vector<tstring>::iterator I = files_.begin(); I != files_.end(); ++I)
 	{
 		SVNStatus svn = SVNStatus();
 		if (svn.GetStatus(CTSVNPath(I->c_str())) == (-2))
@@ -123,7 +123,7 @@ UINT CALLBACK PropPageCallbackProc ( HWND /*hwnd*/, UINT uMsg, LPPROPSHEETPAGE p
 
 // *********************** CSVNPropertyPage *************************
 
-CSVNPropertyPage::CSVNPropertyPage(const std::vector<stdstring> &newFilenames)
+CSVNPropertyPage::CSVNPropertyPage(const std::vector<tstring> &newFilenames)
 	:filenames(newFilenames)
 {
 }
@@ -174,8 +174,8 @@ BOOL CSVNPropertyPage::PageProc (HWND /*hwnd*/, UINT uMessage, WPARAM wParam, LP
 						memset(&startup, 0, sizeof(startup));
 						startup.cb = sizeof(startup);
 						memset(&process, 0, sizeof(process));
-						stdstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
-						stdstring svnCmd = _T(" /command:");
+						tstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
+						tstring svnCmd = _T(" /command:");
 						svnCmd += _T("log /path:\"");
 						svnCmd += filenames.front().c_str();
 						svnCmd += _T("\"");
@@ -192,7 +192,7 @@ BOOL CSVNPropertyPage::PageProc (HWND /*hwnd*/, UINT uMessage, WPARAM wParam, LP
 						TCHAR * tempFile = new TCHAR[pathlength + 100];
 						GetTempPath (pathlength+1, path);
 						GetTempFileName (path, _T("svn"), 0, tempFile);
-						stdstring retFilePath = stdstring(tempFile);
+						tstring retFilePath = tstring(tempFile);
 
 						HANDLE file = ::CreateFile (tempFile,
 							GENERIC_WRITE, 
@@ -207,7 +207,7 @@ BOOL CSVNPropertyPage::PageProc (HWND /*hwnd*/, UINT uMessage, WPARAM wParam, LP
 						if (file != INVALID_HANDLE_VALUE)
 						{
 							DWORD written = 0;
-							for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I)
+							for (std::vector<tstring>::iterator I = filenames.begin(); I != filenames.end(); ++I)
 							{
 								::WriteFile (file, I->c_str(), I->size()*sizeof(TCHAR), &written, 0);
 								::WriteFile (file, _T("\n"), 2, &written, 0);
@@ -219,8 +219,8 @@ BOOL CSVNPropertyPage::PageProc (HWND /*hwnd*/, UINT uMessage, WPARAM wParam, LP
 							memset(&startup, 0, sizeof(startup));
 							startup.cb = sizeof(startup);
 							memset(&process, 0, sizeof(process));
-							stdstring tortoiseProcPath = stdstring((LPCTSTR)(CPathUtils::GetAppDirectory(g_hResInst) + _T("TortoiseProc.exe")));
-							stdstring svnCmd = _T(" /command:");
+							tstring tortoiseProcPath = tstring((LPCTSTR)(CPathUtils::GetAppDirectory(g_hResInst) + _T("TortoiseProc.exe")));
+							tstring svnCmd = _T(" /command:");
 							svnCmd += _T("properties /pathfile:\"");
 							svnCmd += retFilePath.c_str();
 							svnCmd += _T("\"");

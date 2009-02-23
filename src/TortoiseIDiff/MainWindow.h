@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2007,2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -62,11 +62,11 @@ public:
 	/**
 	 * Sets the image path and title for the left image view.
 	 */
-	void SetLeft(stdstring leftpath, stdstring lefttitle) {leftpicpath=leftpath; leftpictitle=lefttitle;}
+	void SetLeft(tstring leftpath, tstring lefttitle) {leftpicpath=leftpath; leftpictitle=lefttitle;}
 	/**
 	 * Sets the image path and the title for the right image view.
 	 */
-	void SetRight(stdstring rightpath, stdstring righttitle) {rightpicpath=rightpath; rightpictitle=righttitle;}
+	void SetRight(tstring rightpath, tstring righttitle) {rightpicpath=rightpath; rightpictitle=righttitle;}
 
 protected:
 	/// the message handler for this window
@@ -93,11 +93,11 @@ protected:
 	HIMAGELIST			hToolbarImgList;
 
 	// command line params
-	static stdstring	leftpicpath;
-	static stdstring	leftpictitle;
+	static tstring	leftpicpath;
+	static tstring	leftpictitle;
 
-	static stdstring	rightpicpath;
-	static stdstring	rightpictitle;
+	static tstring	rightpicpath;
+	static tstring	rightpictitle;
 
 	// image data
 	CPicWindow		picWindow1;

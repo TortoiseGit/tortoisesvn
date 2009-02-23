@@ -102,9 +102,9 @@ CString SVNStatus::GetLastErrorMsg() const
 	return SVN::GetErrorString(m_err);
 }
 #else
-stdstring SVNStatus::GetLastErrorMsg() const
+tstring SVNStatus::GetLastErrorMsg() const
 {
-	stdstring msg;
+	tstring msg;
 	char errbuf[256];
 
 	if (m_err != NULL)

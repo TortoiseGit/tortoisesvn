@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,7 +32,7 @@ extern	ShellCache			g_ShellCache;			// caching of registry entries, ...
 extern	DWORD				g_langid;
 extern	DWORD				g_langTimeout;
 extern	HINSTANCE			g_hResInst;
-extern	stdstring			g_filepath;
+extern	tstring			g_filepath;
 extern	svn_wc_status_kind	g_filestatus;			///< holds the corresponding status to the file/dir above
 extern  bool				g_readonlyoverlay;		///< whether to show the read only overlay or not
 extern	bool				g_lockedoverlay;		///< whether to show the locked overlay or not
@@ -49,7 +49,7 @@ extern bool					g_unversionedovlloaded;
 extern LPCTSTR				g_MenuIDString;
 
 extern	void				LoadLangDll();
-extern  stdstring			GetAppDirectory();
+extern  tstring			GetAppDirectory();
 extern  CComCriticalSection	g_csGlobalCOMGuard;
 typedef CComCritSecLock<CComCriticalSection> AutoLocker;
 
@@ -180,22 +180,22 @@ protected:
 	//std::map<int,std::string> verbMap;
 	std::map<UINT_PTR, UINT_PTR>	myIDMap;
 	std::map<UINT_PTR, UINT_PTR>	mySubMenuMap;
-	std::map<stdstring, UINT_PTR> myVerbsMap;
-	std::map<UINT_PTR, stdstring> myVerbsIDMap;
-	stdstring	folder_;
-	std::vector<stdstring> files_;
+	std::map<tstring, UINT_PTR> myVerbsMap;
+	std::map<UINT_PTR, tstring> myVerbsIDMap;
+	tstring	folder_;
+	std::vector<tstring> files_;
 	DWORD itemStates;				///< see the globals.h file for the ITEMIS_* defines
 	DWORD itemStatesFolder;			///< used for states of the folder_ (folder background and/or drop target folder)
-	stdstring uuidSource;
-	stdstring uuidTarget;
+	tstring uuidSource;
+	tstring uuidTarget;
 	int space;
 	TCHAR stringtablebuffer[255];
-	stdstring columnfilepath;		///< holds the last file/dir path for the column provider
-	stdstring columnauthor;			///< holds the corresponding author of the file/dir above
-	stdstring itemurl;
-	stdstring itemshorturl;
-	stdstring ignoredprops;
-	stdstring owner;
+	tstring columnfilepath;		///< holds the last file/dir path for the column provider
+	tstring columnauthor;			///< holds the corresponding author of the file/dir above
+	tstring itemurl;
+	tstring itemshorturl;
+	tstring ignoredprops;
+	tstring owner;
 	svn_revnum_t columnrev;			///< holds the corresponding revision to the file/dir above
 	svn_wc_status_kind	filestatus;
 	std::map<UINT, HBITMAP> bitmaps;
@@ -211,8 +211,8 @@ protected:
 private:
 	void			InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com, UINT uFlags);
 	void			InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst, HMENU hMenu, HMENU subMenu, UINT &indexMenu, int &indexSubMenu, unsigned __int64 topmenu, bool bShowIcons);
-	stdstring		WriteFileListToTempFile();
-	bool			WriteClipboardPathsToTempFile(stdstring& tempfile);
+	tstring		WriteFileListToTempFile();
+	bool			WriteClipboardPathsToTempFile(tstring& tempfile);
 	LPCTSTR			GetMenuTextFromResource(int id);
 	void			GetColumnStatus(const TCHAR * path, BOOL bIsDir);
 	HBITMAP			IconToBitmap(UINT uIcon);

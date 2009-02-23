@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -66,7 +66,7 @@ public:
 	 * \param index a zero based index
 	 * \return the name of the property
 	 */
-	stdstring GetItemName(int index) const;
+	tstring GetItemName(int index) const;
 	/**
 	 * Returns the value of the property.
 	 * \param index a zero based index
@@ -113,7 +113,7 @@ public:
 	/**
 	 * Returns the last error message as a CString object.
 	 */
-	stdstring GetLastErrorMsg() const;
+	tstring GetLastErrorMsg() const;
 
 private:		//methods
 	/**

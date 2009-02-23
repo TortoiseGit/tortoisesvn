@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -86,9 +86,9 @@ protected:
 	};
 
 	/// The mapping type used to store data per interval/week and author.
-	typedef std::map<int, std::map<stdstring, LONG> >	IntervalDataMap;
+	typedef std::map<int, std::map<tstring, LONG> >	IntervalDataMap;
 	/// The mapping type used to store data per author.
-	typedef std::map<stdstring, LONG>					AuthorDataMap;
+	typedef std::map<tstring, LONG>					AuthorDataMap;
 
 	// *** Re-implemented member functions from CDialog
 	virtual void OnOK();
@@ -119,7 +119,7 @@ protected:
 	/// Parses the data given to the dialog and generates mappings with statistical data. 
 	void GatherData();
 	/// Populates the lists passed as arguments based on the commit threshold set with the skipper.
-	void FilterSkippedAuthors(std::list<stdstring>& included_authors, std::list<stdstring>& skipped_authors);
+	void FilterSkippedAuthors(std::list<tstring>& included_authors, std::list<tstring>& skipped_authors);
 	/// Shows the graph with commit counts per author.
 	void ShowCommitsByAuthor();
 	/// Shows the graph with commit counts per author and date.
@@ -205,8 +205,8 @@ protected:
 	AuthorDataMap			m_commitsPerAuthor;
 	/// The list of author names sorted based on commit count 
 	/// (author with most commits is first in list).
-	std::list<stdstring>	m_authorNames;
+	std::list<tstring>	m_authorNames;
 	/// unit names by week/month/quarter
-	std::map<LONG, stdstring> m_unitNames;
+	std::map<LONG, tstring> m_unitNames;
 
 };

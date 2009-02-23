@@ -3033,7 +3033,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							CString propname(props.GetItemName(i).c_str());
 							if (propname.CompareNoCase(_T("svn:ignore"))==0)
 							{
-								stdstring stemp;
+								tstring stemp;
 								// treat values as normal text even if they're not
 								value = (char *)props.GetItemValue(i).c_str();
 							}
@@ -3183,7 +3183,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							CString propname(props.GetItemName(i).c_str());
 							if (propname.CompareNoCase(_T("svn:ignore"))==0)
 							{
-								stdstring stemp;
+								tstring stemp;
 								// treat values as normal text even if they're not
 								value = (char *)props.GetItemValue(i).c_str();
 							}

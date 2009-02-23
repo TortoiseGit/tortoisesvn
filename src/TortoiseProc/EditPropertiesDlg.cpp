@@ -174,9 +174,9 @@ UINT CEditPropertiesDlg::PropsThread()
 		SVNProperties props(m_pathlist[i], m_revision, m_bRevProps);
 		for (int p=0; p<props.GetCount(); ++p)
 		{
-			wide_string prop_str = props.GetItemName(p);
+			std::wstring prop_str = props.GetItemName(p);
 			std::string prop_value = props.GetItemValue(p);
-			std::map<stdstring,PropValue>::iterator it = m_properties.find(prop_str);
+			std::map<tstring,PropValue>::iterator it = m_properties.find(prop_str);
 			if (it != m_properties.end())
 			{
 				it->second.count++;
@@ -186,12 +186,12 @@ UINT CEditPropertiesDlg::PropsThread()
 			else
 			{
 				it = m_properties.insert(it, std::make_pair(prop_str, PropValue()));
-				stdstring value = MultibyteToWide((char *)prop_value.c_str());
+				tstring value = MultibyteToWide((char *)prop_value.c_str());
 				it->second.value = prop_value;
 				CString stemp = value.c_str();
 				stemp.Replace('\n', ' ');
 				stemp.Replace(_T("\r"), _T(""));
-				it->second.value_without_newlines = stdstring((LPCTSTR)stemp);
+				it->second.value_without_newlines = tstring((LPCTSTR)stemp);
 				it->second.count = 1;
 				it->second.allthesamevalue = true;
 				if (SVNProperties::IsBinary(prop_value))
@@ -203,7 +203,7 @@ UINT CEditPropertiesDlg::PropsThread()
 	// fill the property list control with the gathered information
 	int index=0;
 	m_propList.SetRedraw(FALSE);
-	for (std::map<stdstring,PropValue>::iterator it = m_properties.begin(); it != m_properties.end(); ++it)
+	for (std::map<tstring,PropValue>::iterator it = m_properties.begin(); it != m_properties.end(); ++it)
 	{
 		m_propList.InsertItem(index, it->first.c_str());
 		if (it->second.isbinary)
@@ -402,7 +402,7 @@ void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 	if ((!bAdd)&&(selIndex >= 0)&&(m_propList.GetSelectedCount()))
 	{
 		sName = m_propList.GetItemText(selIndex, 0);
-		PropValue& prop = m_properties[stdstring(sName)];
+		PropValue& prop = m_properties[tstring(sName)];
 		dlg.SetPropertyName(sName);
 		if (prop.allthesamevalue)
 			dlg.SetPropertyValue(prop.value);
@@ -538,7 +538,7 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
 	if ((selIndex >= 0)&&(m_propList.GetSelectedCount()))
 	{
 		sName = m_propList.GetItemText(selIndex, 0);
-		PropValue& prop = m_properties[stdstring(sName)];
+		PropValue& prop = m_properties[tstring(sName)];
 		sValue = prop.value.c_str();
 		if (prop.allthesamevalue)
 		{
@@ -595,7 +595,7 @@ void CEditPropertiesDlg::OnBnClickedExport()
 		{
 			int index = m_propList.GetNextSelectedItem(pos);
 			sName = m_propList.GetItemText(index, 0);
-			PropValue& prop = m_properties[stdstring(sName)];
+			PropValue& prop = m_properties[tstring(sName)];
 			sValue = prop.value.c_str();
 			len = sName.GetLength()*sizeof(TCHAR);
 			fwrite(&len, sizeof(int), 1, stream);									// length of property name in bytes

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -207,9 +207,9 @@ void LoadLangDll()
 	} // if (g_langid != g_ShellCache.GetLangID()) 
 }
 
-stdstring GetAppDirectory()
+tstring GetAppDirectory()
 {
-	stdstring path;
+	tstring path;
 	DWORD len = 0;
 	DWORD bufferlen = MAX_PATH;		// MAX_PATH is not the limit here!
 	do 
@@ -217,7 +217,7 @@ stdstring GetAppDirectory()
 		bufferlen += MAX_PATH;		// MAX_PATH is not the limit here!
 		TCHAR * pBuf = new TCHAR[bufferlen];
 		len = GetModuleFileName(g_hmodThisDll, pBuf, bufferlen);	
-		path = stdstring(pBuf, len);
+		path = tstring(pBuf, len);
 		delete [] pBuf;
 	} while(len == bufferlen);
 	path = path.substr(0, path.rfind('\\') + 1);

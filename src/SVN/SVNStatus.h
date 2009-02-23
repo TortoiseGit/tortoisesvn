@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,15 +24,7 @@
 #endif
 #include "TSVNPath.h"
 #include <set>
-
-#pragma warning (push,1)
-typedef std::basic_string<wchar_t> wide_string;
-#ifdef UNICODE
-#	define stdstring wide_string
-#else
-#	define stdstring std::string
-#endif
-#pragma warning (pop)
+#include "tstring.h"
 
 #define MAX_STATUS_STRING_LENGTH		100
 
@@ -177,7 +169,7 @@ friend class SVN;	// So that SVN can get to our m_err
 	/**
 	 * Returns the last error message as a CString object.
 	 */
-	stdstring GetLastErrorMsg() const;
+	tstring GetLastErrorMsg() const;
 #endif
 
 

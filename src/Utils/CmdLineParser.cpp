@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006,2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -41,7 +41,7 @@ CCmdLineParser::~CCmdLineParser()
 
 BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine) 
 {
-	const stdstring sEmpty = _T("");			//use this as a value if no actual value is given in commandline
+	const tstring sEmpty = _T("");			//use this as a value if no actual value is given in commandline
 	int nArgs = 0;
 
 	if(!sCmdLine) 
@@ -70,7 +70,7 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
 		LPCTSTR sVal = _tcspbrk(sArg, m_sValueSep);
 		if(sVal == NULL) 
 		{ 
-			stdstring Key(sArg);
+			tstring Key(sArg);
 			std::transform(Key.begin(), Key.end(), Key.begin(), ::tolower);
 			m_valueMap.insert(CValsMap::value_type(Key, sEmpty));
 			break;
@@ -78,7 +78,7 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
 		else if (sVal[0] == _T(' ') || _tcslen(sVal) == 1 ) 
 		{ 
 			// cmdline ends with /Key: or a key with no value 
-			stdstring Key(sArg, (int)(sVal - sArg));
+			tstring Key(sArg, (int)(sVal - sArg));
 			if(!Key.empty()) 
 			{ 
 				std::transform(Key.begin(), Key.end(), Key.begin(), ::tolower);
@@ -90,7 +90,7 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
 		else 
 		{ 
 			// key has value
-			stdstring Key(sArg, (int)(sVal - sArg));
+			tstring Key(sArg, (int)(sVal - sArg));
 			std::transform(Key.begin(), Key.end(), Key.begin(), ::tolower);
 
 			sVal = _tcsinc(sVal);
@@ -111,7 +111,7 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
 			if(sEndQuote == NULL) 
 			{ 
 				// no end quotes or terminating space, take the rest of the string to its end
-				stdstring csVal(sQuote);
+				tstring csVal(sQuote);
 				if(!Key.empty()) 
 				{ 
 					m_valueMap.insert(CValsMap::value_type(Key, csVal));
@@ -123,7 +123,7 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
 				// end quote
 				if(!Key.empty()) 
 				{	
-					stdstring csVal(sQuote, (int)(sEndQuote - sQuote));
+					tstring csVal(sQuote, (int)(sEndQuote - sQuote));
 					m_valueMap.insert(CValsMap::value_type(Key, csVal));
 				}
 				sCurrent = _tcsinc(sEndQuote);
@@ -137,7 +137,7 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
 
 CCmdLineParser::CValsMap::const_iterator CCmdLineParser::findKey(LPCTSTR sKey) const 
 {
-	stdstring s(sKey);
+	tstring s(sKey);
 	std::transform(s.begin(), s.end(), s.begin(), ::tolower);
 	return m_valueMap.find(s);
 }
@@ -183,7 +183,7 @@ CCmdLineParser::ITERPOS CCmdLineParser::begin() const
 	return m_valueMap.begin();
 }
 
-CCmdLineParser::ITERPOS CCmdLineParser::getNext(ITERPOS& pos, stdstring& sKey, stdstring& sValue) const 
+CCmdLineParser::ITERPOS CCmdLineParser::getNext(ITERPOS& pos, tstring& sKey, tstring& sValue) const 
 {
 	if (m_valueMap.end() == pos)
 	{

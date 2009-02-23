@@ -339,10 +339,10 @@ void CFileDiffDlg::DiffProps(int selIndex)
 	SVNProperties propsurl2(url2, m_rev2, false);
 	
 	// collect the properties of both revisions in a set
-	std::set<stdstring> properties;
+	std::set<tstring> properties;
 	for (int wcindex = 0; wcindex < propsurl1.GetCount(); ++wcindex)
 	{
-		stdstring urlname = propsurl1.GetItemName(wcindex);
+		tstring urlname = propsurl1.GetItemName(wcindex);
 		if ( properties.find(urlname) == properties.end() )
 		{
 			properties.insert(urlname);
@@ -350,7 +350,7 @@ void CFileDiffDlg::DiffProps(int selIndex)
 	}
 	for (int wcindex = 0; wcindex < propsurl2.GetCount(); ++wcindex)
 	{
-		stdstring urlname = propsurl2.GetItemName(wcindex);
+		tstring urlname = propsurl2.GetItemName(wcindex);
 		if ( properties.find(urlname) == properties.end() )
 		{
 			properties.insert(urlname);
@@ -358,11 +358,11 @@ void CFileDiffDlg::DiffProps(int selIndex)
 	}
 
 	// iterate over all properties and diff the properties
-	for (std::set<stdstring>::iterator iter = properties.begin(), end = properties.end(); iter != end; ++iter)
+	for (std::set<tstring>::iterator iter = properties.begin(), end = properties.end(); iter != end; ++iter)
 	{
-		stdstring url1name = *iter;
+		tstring url1name = *iter;
 		
-		stdstring url1value = _T(""); // CUnicodeUtils::StdGetUnicode((char *)propsurl1.GetItemValue(wcindex).c_str());
+		tstring url1value = _T(""); // CUnicodeUtils::StdGetUnicode((char *)propsurl1.GetItemValue(wcindex).c_str());
 		for (int url1index = 0; url1index < propsurl1.GetCount(); ++url1index)
 		{
 			if (propsurl1.GetItemName(url1index).compare(url1name)==0)
@@ -371,7 +371,7 @@ void CFileDiffDlg::DiffProps(int selIndex)
 			}
 		}		
 		
-		stdstring url2value = _T("");
+		tstring url2value = _T("");
 		for (int url2index = 0; url2index < propsurl2.GetCount(); ++url2index)
 		{
 			if (propsurl2.GetItemName(url2index).compare(url1name)==0)

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2009 - TortoiseSVN
+// Copyright (C) 2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,25 +18,8 @@
 //
 #pragma once
 
-/**
- * \ingroup TortoiseShell
- * Represents a list of directory elements like folders and files.
- */
-class ItemIDList  
-{
-public:
-	ItemIDList(LPCITEMIDLIST item, LPCITEMIDLIST parent = 0);
+#include <string>
+#include <tchar.h>
 
-	int size() const;
-	LPCSHITEMID get(int index) const;
-	virtual ~ItemIDList();
-
-	tstring toString();
-
-	LPCITEMIDLIST operator& ();
-private:
-	LPCITEMIDLIST item_;
-	LPCITEMIDLIST parent_;
-	mutable int count_;
-};
+typedef std::basic_string<TCHAR> tstring;
 

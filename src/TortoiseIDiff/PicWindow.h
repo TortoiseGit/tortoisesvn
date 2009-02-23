@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2009 - Stefan Kueng
+// Copyright (C) 2006-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -91,12 +91,12 @@ public:
 	bool RegisterAndCreateWindow(HWND hParent);
 
 	/// Sets the image path and title to show
-	void SetPic(stdstring path, stdstring title, bool bFirst);
+	void SetPic(tstring path, tstring title, bool bFirst);
 	/// Returns the CPicture image object. Used to get an already loaded image
 	/// object without having to load it again.
 	CPicture * GetPic() {return &picture;}
 	/// Sets the path and title of the second image which is alpha blended over the original
-	void SetSecondPic(CPicture * pPicture = NULL, const stdstring& sectit = _T(""), const stdstring& secpath = _T(""), int hpos = 0, int vpos = 0)
+	void SetSecondPic(CPicture * pPicture = NULL, const tstring& sectit = _T(""), const tstring& secpath = _T(""), int hpos = 0, int vpos = 0)
 	{
 		pSecondPic = pPicture;
 		pictitle2 = sectit;
@@ -197,8 +197,8 @@ protected:
 	/// creates the info string used in the info box and the tooltips
 	void				BuildInfoString(TCHAR * buf, int size, bool bTooltip);
 
-	stdstring			picpath;			///< the path to the image we show
-	stdstring			pictitle;			///< the string to show in the image view as a title
+	tstring			picpath;			///< the path to the image we show
+	tstring			pictitle;			///< the string to show in the image view as a title
 	CPicture			picture;			///< the picture object of the image
 	bool				bValid;				///< true if the picture object is valid, i.e. if the image could be loaded and can be shown
 	double				picscale;			///< the scale factor of the image
@@ -210,8 +210,8 @@ protected:
 	bool				bLinkedPositions;	///< if true, the two image windows are linked together for scrolling/zooming/...
 	bool				bFitSizes;		///< if true, the two image windows are always zoomed so they match their size
 	BlendType			m_blend;			///< type of blending to use
-	stdstring 			pictitle2;			///< the title of the second picture
-	stdstring 			picpath2;			///< the path of the second picture
+	tstring 			pictitle2;			///< the title of the second picture
+	tstring 			picpath2;			///< the path of the second picture
 	float				blendAlpha;			///<the alpha value for transparency blending
 	bool				bShowInfo;			///< true if the info rectangle of the image should be shown
 	TCHAR				m_wszTip[8192];

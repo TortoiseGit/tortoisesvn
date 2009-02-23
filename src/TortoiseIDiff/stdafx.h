@@ -36,10 +36,3 @@
 
 #include "MyMemDC.h"
 
-#ifndef stdstring
-#	ifdef UNICODE
-#		define stdstring std::wstring
-#	else
-#		define stdstring std::string
-#	endif
-#endif

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -99,7 +99,7 @@ static FARPROC s_GetProcAddressEx(HMODULE hDll, const char* procName, bool& vali
 	return proc;
 }
 
-stdstring CPicture::GetFileSizeAsText(bool bAbbrev /* = true */)
+tstring CPicture::GetFileSizeAsText(bool bAbbrev /* = true */)
 {
 	TCHAR buf[100] = {0};
 	if (bAbbrev)
@@ -107,10 +107,10 @@ stdstring CPicture::GetFileSizeAsText(bool bAbbrev /* = true */)
 	else
 		_stprintf_s(buf, _T("%ld Bytes"), m_nSize);
 
-	return stdstring(buf);
+	return tstring(buf);
 }
 
-bool CPicture::Load(stdstring sFilePathName)
+bool CPicture::Load(tstring sFilePathName)
 {
 	bool bResult = false;
 	bIsIcon = false;
