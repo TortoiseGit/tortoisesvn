@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-23 11:55+0100\n"
+"PO-Revision-Date: 2009-02-23 15:24+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -470,11 +470,11 @@ msgstr "&Kopírovať"
 
 #. Resource IDs: (16911)
 msgid "&Copy Button Image"
-msgstr "&Skopírovať obrázok tlačidla"
+msgstr "&Kopírovať obrázok tlačidla"
 
 #. Resource IDs: (32776)
 msgid "&Copy log message to clipboard"
-msgstr "&Skopíruj správy denníka do schránky"
+msgstr "&Kopírovať správy denníka do schránky"
 
 #. Resource IDs: (65535)
 msgid "&Copy to clipboard"
@@ -490,7 +490,7 @@ msgstr "&Prispôsobenie"
 
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
-msgstr "&Dni neaktivity do odstránenia zásobníka"
+msgstr "&Dni bez aktivity do odstránenia zásobníka"
 
 #. Resource IDs: (1269)
 msgid "&Default"
@@ -1587,7 +1587,7 @@ msgstr "Všetky vaše zmeny budú stratené! Naozaj chcete predvolené nastaveni
 
 #. Resource IDs: (1008)
 msgid "All your changes will be lost! Do you really want to reset the keyboard assignments?"
-msgstr "Všetky vaše zmeny budú stratené! Naozaj chcete predvolené nastavenie priradenia kláves?"
+msgstr "Všetky vaše zmeny budú stratené! Naozaj chcete predvolené nastavenie priradenia klávesov?"
 
 #. Resource IDs: (1008)
 #, c-format
@@ -1609,7 +1609,7 @@ msgstr "Povoliť pre rozdielne úložiská použiť rovnakú URL, napr. http://l
 
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
-msgstr "Povoliť rozdielnym úložiskám použiť rovnaké UUID, napr. skopírované úložiská"
+msgstr "Povoliť rozdielnym úložiskám použiť rovnaké UUID, napr. kopírované úložiská"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1980,7 +1980,7 @@ msgstr "Vytvo&r adresár..."
 
 #. Resource IDs: (65535)
 msgid "C&urrent Keys:"
-msgstr "Ak&tuálna klávesa:"
+msgstr "Ak&tuálny kláves:"
 
 #. Resource IDs: (501)
 msgid "C&ut"
@@ -2025,7 +2025,7 @@ msgstr ""
 
 #. Resource IDs: (1001)
 msgid "Can't copy bitmap image into the clipboard!"
-msgstr "Obrázok nie je možne skopírovať do schránky"
+msgstr "Obrázok nie je možne kopírovať do schránky"
 
 #. Resource IDs: (1001)
 msgid "Can't create a new image!"
@@ -2547,22 +2547,22 @@ msgstr "&Kopíruj"
 
 #. Resource IDs: (73)
 msgid "Copied"
-msgstr "Skopírované"
+msgstr "Prekopírované"
 
 # Kopíruj z cesty
 #. Resource IDs: (208)
 msgid "Copied from URL"
-msgstr "Skopírované z URL"
+msgstr "Prekopírované z URL"
 
 # Kopíruj z cesty
 #. Resource IDs: (275)
 #, c-format
 msgid "Copied from: %s@%ld\r\n"
-msgstr "Skopírované z: %s@%ld\r\n"
+msgstr "Prekopírované z: %s@%ld\r\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
-msgstr "Vzdialene skopírované"
+msgstr "Vzdialene prekopírované"
 
 #. Resource IDs: (16991)
 msgid "Copy"
@@ -2614,11 +2614,11 @@ msgstr ""
 
 #. Resource IDs: (101)
 msgid "Copy URL to clipboard"
-msgstr "Kopíruj URL do schránky"
+msgstr "Kopírovať URL do schránky"
 
 #. Resource IDs: (209)
 msgid "Copy all information to clipboard"
-msgstr "Skopíruj všetky informácie do schránky"
+msgstr "Kopírovať všetky informácie do schránky"
 
 #. Resource IDs: (146)
 msgid "Copy and rename"
@@ -2630,7 +2630,7 @@ msgstr "Kopírovať a premenovať objekty sem"
 
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
-msgstr "Skopíruj chybové správy do schránky"
+msgstr "Kopírovať chybové správy do schránky"
 
 # Kopíruj z cesty
 #. Resource IDs: (76)
@@ -2643,7 +2643,7 @@ msgstr "Kopírovať objekty sem"
 
 #. Resource IDs: (209)
 msgid "Copy paths to clipboard"
-msgstr "Skopíruj cesty do schránky"
+msgstr "Kopírovať cesty do schránky"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
@@ -2654,8 +2654,8 @@ msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
 msgstr ""
-"Skopíruj výber a vlož ho do schránky\n"
-"Skopíruj"
+"Kopírovať výber a vlož ho do schránky\n"
+"Kopírovať"
 
 #. Resource IDs: (613)
 #, c-format
@@ -2677,7 +2677,7 @@ msgstr "Kopírovať do pracovnej kópie..."
 #. Resource IDs: (98)
 #, c-format
 msgid "Copy: New name for %s"
-msgstr "Skopíruj: Nové meno pre %s"
+msgstr "Kopírovať: Nové meno pre %s"
 
 #. Resource IDs: (80)
 #, c-format
@@ -2739,7 +2739,7 @@ msgstr "Nemožno vymazať vlastnosť  '%s' na '%s' pretože"
 
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
-msgstr "Nemožno určit posledne odovzdanú revíziu."
+msgstr "Nemožno určiť posledne odovzdanú revíziu."
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -3038,7 +3038,7 @@ msgstr "Uzol vymazaný"
 
 #. Resource IDs: (15)
 msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
-msgstr "Vymaze a pridá vybrané súbory, alebo masku do zoznamu ignorovaných"
+msgstr "Vymaže a pridá vybrané súbory, alebo masku do zoznamu ignorovaných"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -3081,8 +3081,8 @@ msgid ""
 "Device Independent Bitmap\n"
 "a device independent bitmap"
 msgstr ""
-"Bitová mapa nezávislá na zariadení\n"
-"bitová mapa nezávislá na zariadení"
+"Bitmapa nezávislá na zariadení\n"
+"bitmapa nezávislá na zariadení"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -3316,7 +3316,7 @@ msgstr "Upraviť"
 
 #. Resource IDs: (16133)
 msgid "Edit Button Image"
-msgstr "Editovať obrázok tlačidla"
+msgstr "Upraviť obrázok tlačidla"
 
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
@@ -3790,8 +3790,8 @@ msgid ""
 "Zoom:\t\t\t%d%%"
 msgstr ""
 "Veľkosť súboru:\t%s  (%s)\n"
-"Šírka:\t\t\t%ld pixlov\n"
-"Výška:\t\t\t%ld pixlov\n"
+"Šírka:\t\t\t%ld pixelov\n"
+"Výška:\t\t\t%ld pixelov\n"
 "Horizontálne rozlíšenie:\t%.1f dpi\n"
 "Vertikálne rozlíšenie:\t%.1f dpi\n"
 "Farebná hĺbka:\t\t%d bit\n"
@@ -3817,16 +3817,16 @@ msgid ""
 "Zoom:\t\t\t%d%%"
 msgstr ""
 "Veľkosť súboru:\t\t%s  (%s)\n"
-"Šírka:\t\t\t%ld pixlov\n"
-"Výška:\t\t\t%ld pixlov\n"
+"Šírka:\t\t\t%ld pixelov\n"
+"Výška:\t\t\t%ld pixelov\n"
 "Horizontálne rozlíšenie:\t%.1f dpi\n"
 "Vertikálne rozlíšenie:\t%.1f dpi\n"
 "Hĺbka:\t\t\t%d bitov\n"
 "Zväčšenie:\t\t\t%d%%\n"
 "\n"
 "Veľkosť súboru:\t\t\t%s  (%s)\n"
-"Šírka:\t\t\t%ld pixlov\n"
-"Výška:\t\t\t%ld pixlov\n"
+"Šírka:\t\t\t%ld pixelov\n"
+"Výška:\t\t\t%ld pixelov\n"
 "Horizontálne rozlíšenie:\t%.1f dpi\n"
 "Vertikálne rozlíšenie:\t\t%.1f dpi\n"
 "Hĺbka:\t\t\t%d bitov\n"
@@ -3871,16 +3871,16 @@ msgid ""
 "Zoom:\t\t\t%d%%"
 msgstr ""
 "Veľkosť súboru:\t\t\t%s (%s)\n"
-"Šírka:\t\t\t%ld pixlov\n"
-"Výška:\t\t\t%ld pixlov\n"
+"Šírka:\t\t\t%ld pixelov\n"
+"Výška:\t\t\t%ld pixelov\n"
 "Horizontálne rozlíšenie:\t%.1f dpi\n"
 "Vertikálne rozlíšenie:\t\t%.1f dpi\n"
 "Hĺbka:\t\t\t%d bitov\n"
 "Zväčšenie:\t\t\t%d%%\n"
 "\n"
 "Veľkosť súboru:\t\t%s (%s)\n"
-"Šírka:\t\t\t%ld pixlov\n"
-"Výška:\t\t\t%ld pixlov\n"
+"Šírka:\t\t\t%ld pixelov\n"
+"Výška:\t\t\t%ld pixelov\n"
 "Horizontálne rozlíšenie:\t%.1f dpi\n"
 "Vertikálne rozlíšenie:\t\t%.1f dpi\n"
 "Hĺbka:\t\t\t%d bitov\n"
@@ -3965,7 +3965,7 @@ msgstr "Písmo"
 
 #. Resource IDs: (3585)
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
-msgstr "Pre pomoc stlačte F1. Horizontálne rolovanie môžete rolovacím koliečkom pri súčasnom držaní klávesy Ctrl."
+msgstr "Pre pomoc stlačte F1. Horizontálne rolovanie môžete rolovacím koliečkom pri súčasnom držaní klávesu Ctrl."
 
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
@@ -4198,7 +4198,7 @@ msgstr "Skryť zakotvené okno"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
-msgstr "Stryť skript počas behu"
+msgstr "Skryť skript počas behu"
 
 #. Resource IDs: (32830)
 msgid "Hide unused &branches"
@@ -4490,7 +4490,7 @@ msgid ""
 "showing overlays still show the overlay for status 'normal'"
 msgstr ""
 "Keď je povolené, adresáre pracovnej kópie, ktoré sú vylúčené \n"
-"zo zobrazenia prekryvajúcich ikon, stále zobrazujú stav ako 'normálne'"
+"zo zobrazenia prekrývajúcich ikon, stále zobrazujú stav ako 'normálne'"
 
 #. Resource IDs: (195)
 msgid ""
@@ -4753,7 +4753,7 @@ msgstr ""
 "Chybné číslo revízie! Platné revízie:\n"
 "HEAD(hlavná),\n"
 "BASE (vaša základná), \n"
-"PREV(predcházdajúca), \n"
+"PREV(predchádzajúca), \n"
 "COMMITTED(odoslaná), \n"
 "WC(pracovná kópia),\n"
 "kladné desiatkové čísla,\n"
@@ -5062,7 +5062,7 @@ msgstr ""
 
 #. Resource IDs: (16)
 msgid "Locks a file for other users and makes it editable by you."
-msgstr "Zamkne súbor pre iných užívateľov a povolí ho editovať vám."
+msgstr "Zamkne súbor pre iných užívateľov a povolí ho upravovať vám."
 
 #. Resource IDs: (126)
 msgid "Log"
@@ -5677,7 +5677,7 @@ msgstr "Poznámka: adresár obsahuje neverziované objekty"
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
-msgstr "Poznámka: zmena fontu ovplyvní aj prehliadač TortoiseUDiff"
+msgstr "Poznámka: zmena písma ovplyvní aj prehliadač TortoiseUDiff"
 
 # Upozornenie
 #. Resource IDs: (88)
@@ -6045,7 +6045,7 @@ msgid ""
 "Use the Switch command to do that."
 msgstr ""
 "Poznámka:\n"
-"vaša pracovná kópia ostane na pôvodnej ceste. Ak chcete, aby dalšie vykonané zmeny\n"
+"vaša pracovná kópia ostane na pôvodnej ceste. Ak chcete, aby ďalšie vykonané zmeny\n"
 "boli odovzdané do kópie, alebo vetvy, ktorú ste práve vytvorili,\n"
 "potrebujete prepnúť vašu pracovnú kópiu na novú URL.\n"
 "Aby ste to urobili použite príkaz Prepnúť."
@@ -6425,7 +6425,7 @@ msgstr ""
 "[^aei0-9] : čokoľvek okrem a,e,i a 0..9\r\n"
 "\r\n"
 "\\w : zahŕňa a-z,A-Z,0-9 a _\r\n"
-"\\W : čokoľvek okrem písmen a čísiel\r\n"
+"\\W : čokoľvek okrem písmen a čísel\r\n"
 "\\d : čísla 0-9\r\n"
 "\\s : biele znaky"
 
@@ -7172,7 +7172,7 @@ msgstr "Vybrať adresár na získanie"
 
 #. Resource IDs: (276)
 msgid "Select end revision"
-msgstr "Vyberte konvovú revíziu"
+msgstr "Vyberte koncovú revíziu"
 
 #. Resource IDs: (64)
 msgid "Select folder to associate with this issue tracker"
@@ -7272,7 +7272,7 @@ msgstr "&Adresa servera:"
 
 #. Resource IDs: (65535)
 msgid "Set Accelerator &for:"
-msgstr "Nastaviť skratkovú klávesu &pre:"
+msgstr "Nastaviť klávesovú skratku  &pre:"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
@@ -7912,7 +7912,7 @@ msgstr "Položky systémových registrov boli odstránené a INI súbor (ak exis
 
 #. Resource IDs: (7)
 msgid "TORTOISEBLAME"
-msgstr "TORTOISEBLAME(Obvinovač)"
+msgstr "TORTOISEBLAME(Obviňovač)"
 
 #. Resource IDs: (7)
 msgid "TORTOISEIDIFF"
@@ -8089,7 +8089,7 @@ msgstr "Obrázok nemôže byť zobrazený."
 
 #. Resource IDs: (63)
 msgid "The issue-tracker provider could not be created. Please check that it is installed correctly."
-msgstr "Poskztovateľa sledovača prípadov sa nepodarilo vytvoriť. Prosím, skontrolujte, či bol správne nainštalovaný."
+msgstr "Poskytovateľa sledovača prípadov sa nepodarilo vytvoriť. Prosím, skontrolujte, či bol správne nainštalovaný."
 
 #. Resource IDs: (64)
 msgid "The issue-tracker provider was unable to validate the parameter string"
@@ -9878,12 +9878,12 @@ msgid ""
 "copied from\r\n"
 "%s - revision %ld"
 msgstr ""
-"Skopírované z\r\n"
+"prekopírované z\r\n"
 "%s - revízia %ld"
 
 #. Resource IDs: (65535)
 msgid "copied:"
-msgstr "skopírované:"
+msgstr "prekopírované:"
 
 #. Resource IDs: (245)
 msgid "day"
@@ -9974,7 +9974,7 @@ msgstr "posledné čítanie:"
 
 #. Resource IDs: (65535)
 msgid "last update: "
-msgstr "posladná aktualizácia:"
+msgstr "poslená aktualizácia:"
 
 # zamknutých
 #. Resource IDs: (11, 195)
@@ -10019,7 +10019,7 @@ msgstr "zmenené"
 # zmenených / skopírovaných
 #. Resource IDs: (65535)
 msgid "modified / copied"
-msgstr "zmenené / skopírované"
+msgstr "zmenené / prekopírované"
 
 #. Resource IDs: (245)
 msgid "month"
@@ -10202,7 +10202,7 @@ msgstr ""
 "svn:keywords\r\n"
 "Kľúčové slova na nahradenie. Platné kľúčové slová:\r\n"
 "URL, HeadURL : URL adresa hlavnej revízie objektu.\r\n"
-"Author, LastChangedBy : Autor poslednej úpravila súbor.\r\n"
+"Author, LastChangedBy : Autor poslednej úpravy súboru.\r\n"
 "Date, LastChangedDate : Dátum/čas poslednej úpravy objektu.\r\n"
 "Rev, LastChangedRevision : Posledná revízia, v ktorej bol objekt zmenený.\r\n"
 "Id : Zhustené zhrnutie predchádzajúcich štyroch."
