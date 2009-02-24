@@ -985,6 +985,8 @@ CTSVNPath CTSVNPathList::GetCommonRoot() const
 	CString sRoot, sTempRoot;
 	bool bEqual = true;
 
+	if (GetCount() == 0)
+		return CTSVNPath();
 	if (GetCount() == 1)
 		return m_paths[0];
 
