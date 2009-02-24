@@ -246,6 +246,16 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	theme.SetWindowTheme(m_hWnd, L"Explorer", NULL);
 
 	m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
+	m_nExternalOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_EXTERNALOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+	SYS_IMAGE_LIST().SetOverlayImage(m_nExternalOvl, OVL_EXTERNAL);
+	m_nNestedOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_NESTEDOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+	SYS_IMAGE_LIST().SetOverlayImage(m_nNestedOvl, OVL_NESTED);
+	m_nDepthFilesOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_DEPTHFILESOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+	SYS_IMAGE_LIST().SetOverlayImage(m_nDepthFilesOvl, OVL_DEPTHFILES);
+	m_nDepthImmediatesOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_DEPTHIMMEDIATEDOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+	SYS_IMAGE_LIST().SetOverlayImage(m_nDepthImmediatesOvl, OVL_DEPTHIMMEDIATES);
+	m_nDepthEmptyOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_DEPTHEMPTYOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+	SYS_IMAGE_LIST().SetOverlayImage(m_nDepthEmptyOvl, OVL_DEPTHEMPTY);
 	SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
 
     m_ColumnManager.ReadSettings (m_dwDefaultColumns, sColumnInfoContainer);
@@ -1325,13 +1335,26 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	CString entryname = entry->GetDisplayName();
 	int icon_idx = 0;
 	if (entry->isfolder)
+	{
 		icon_idx = m_nIconFolder;
+	}
 	else
 	{
 		icon_idx = SYS_IMAGE_LIST().GetPathIconIndex(entry->path);
 	}
 	// relative path
 	InsertItem(index, entryname, icon_idx);
+	if (entry->IsNested())
+		SetItemState(index, INDEXTOOVERLAYMASK(OVL_NESTED), LVIS_OVERLAYMASK);
+	else if (entry->IsInExternal()||entry->file_external)
+		SetItemState(index, INDEXTOOVERLAYMASK(OVL_EXTERNAL), LVIS_OVERLAYMASK);
+	else if (entry->depth == svn_depth_files)
+		SetItemState(index, INDEXTOOVERLAYMASK(OVL_DEPTHFILES), LVIS_OVERLAYMASK);
+	else if (entry->depth == svn_depth_immediates)
+		SetItemState(index, INDEXTOOVERLAYMASK(OVL_DEPTHIMMEDIATES), LVIS_OVERLAYMASK);
+	else if (entry->depth == svn_depth_empty)
+		SetItemState(index, INDEXTOOVERLAYMASK(OVL_DEPTHEMPTY), LVIS_OVERLAYMASK);
+
 	// SVNSLC_COLFILENAME
 	SetItemText(index, nCol++, entry->path.GetFileOrDirectoryName());
 	// SVNSLC_COLEXT
@@ -1436,6 +1459,8 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 		SVNStatus::GetStatusString(hResourceHandle, entry->remotepropstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
 		SetItemText(index, nCol++, buf);
 	}
+	// SVNSLC_COLDEPTH
+	SetItemText(index, nCol++, SVNStatus::GetDepthString(entry->depth));
 	// SVNSLC_COLURL
 	SetItemText(index, nCol++, entry->url);
 	// SVNSLC_COLLOCK
@@ -4904,6 +4929,10 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 				temp = buf;
 			}
 			sClipboard += _T("\t")+temp;
+		}
+		if (selection & SVNSLC_COLDEPTH)
+		{
+			temp = SVNStatus::GetDepthString(entry->depth);
 		}
 		if (selection & SVNSLC_COLURL)
         {

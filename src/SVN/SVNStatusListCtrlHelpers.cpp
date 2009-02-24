@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008 - TortoiseSVN
+// Copyright (C) 2008-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,7 @@
 #include "SVNStatusListCtrl.h"
 #include <iterator>
 
-#define SVNSLC_COL_VERSION 3
+#define SVNSLC_COL_VERSION 4
 
 // assign property list
 
@@ -270,6 +270,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetName (int column) const
 
 		  , IDS_STATUSLIST_COLREMOTETEXTSTATUS
 		  , IDS_STATUSLIST_COLREMOTEPROPSTATUS
+		  , IDS_STATUSLIST_COLDEPTH
 		  , IDS_STATUSLIST_COLURL
 
 		  , IDS_STATUSLIST_COLLOCK
@@ -916,7 +917,7 @@ bool CSVNStatusListCtrl::CSorter::operator()
 	int result = 0;
 	switch (sortedColumn)
 	{
-	case 18:
+	case 19:
 		{
 			if (result == 0)
 			{
@@ -929,67 +930,74 @@ bool CSVNStatusListCtrl::CSorter::operator()
 				result = CompareFileTime(filetime1,filetime2);
 			}
 		}
-	case 17:
+	case 18:
 		{
 			if (result == 0)
 			{
 				result = entry1->copyfrom_url.CompareNoCase(entry2->copyfrom_url);
 			}
 		}
-	case 16:
+	case 17:
 		{
 			if (result == 0)
 			{
 				result = SGN(entry1->needslock - entry2->needslock);
 			}
 		}
-	case 15:
+	case 16:
 		{
 			if (result == 0)
 			{
 				result = SGN(entry1->last_commit_date - entry2->last_commit_date);
 			}
 		}
-	case 14:
+	case 15:
 		{
 			if (result == 0)
 			{
 				result = entry1->remoterev - entry2->remoterev;
 			}
 		}
-	case 13:
+	case 14:
 		{
 			if (result == 0)
 			{
 				result = entry1->last_commit_rev - entry2->last_commit_rev;
 			}
 		}
-	case 12:
+	case 13:
 		{
 			if (result == 0)
 			{
 				result = entry1->last_commit_author.CompareNoCase(entry2->last_commit_author);
 			}
 		}
-	case 11:
+	case 12:
 		{
 			if (result == 0)
 			{
 				result = entry1->lock_comment.CompareNoCase(entry2->lock_comment);
 			}
 		}
-	case 10:
+	case 11:
 		{
 			if (result == 0)
 			{
 				result = entry1->lock_owner.CompareNoCase(entry2->lock_owner);
 			}
 		}
-	case 9:
+	case 10:
 		{
 			if (result == 0)
 			{
 				result = entry1->url.CompareNoCase(entry2->url);
+			}
+		}
+	case 9:
+		{
+			if (result == 0)
+			{
+				result = entry1->depth - entry2->depth;
 			}
 		}
 	case 8:

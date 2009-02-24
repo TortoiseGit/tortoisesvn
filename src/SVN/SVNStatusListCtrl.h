@@ -40,18 +40,19 @@ class CSVNStatusListCtrlDropTarget;
 #define SVNSLC_COLPROPSTATUS		0x000000040
 #define SVNSLC_COLREMOTETEXT		0x000000080
 #define SVNSLC_COLREMOTEPROP		0x000000100
-#define SVNSLC_COLURL				0x000000200
-#define SVNSLC_COLLOCK				0x000000400
-#define SVNSLC_COLLOCKCOMMENT		0x000000800
-#define SVNSLC_COLLOCKDATE			0x000001000
-#define SVNSLC_COLAUTHOR			0x000002000
-#define	SVNSLC_COLREVISION			0x000004000
-#define	SVNSLC_COLREMOTEREVISION	0x000008000
-#define	SVNSLC_COLDATE				0x000010000
-#define SVNSLC_COLSVNNEEDSLOCK		0x000020000
-#define SVNSLC_COLCOPYFROM			0x000040000
-#define	SVNSLC_COLMODIFICATIONDATE	0x000080000
-#define SVNSLC_NUMCOLUMNS		20
+#define SVNSLC_COLDEPTH				0x000000200
+#define SVNSLC_COLURL				0x000000400
+#define SVNSLC_COLLOCK				0x000000800
+#define SVNSLC_COLLOCKCOMMENT		0x000001000
+#define SVNSLC_COLLOCKDATE			0x000002000
+#define SVNSLC_COLAUTHOR			0x000004000
+#define	SVNSLC_COLREVISION			0x000008000
+#define	SVNSLC_COLREMOTEREVISION	0x000010000
+#define	SVNSLC_COLDATE				0x000020000
+#define SVNSLC_COLSVNNEEDSLOCK		0x000040000
+#define SVNSLC_COLCOPYFROM			0x000080000
+#define	SVNSLC_COLMODIFICATIONDATE	0x000100000
+#define SVNSLC_NUMCOLUMNS		21
 
 #define SVNSLC_SHOWUNVERSIONED	0x000000001
 #define SVNSLC_SHOWNORMAL		0x000000002
@@ -140,7 +141,7 @@ SVNSLC_SHOWINCOMPLETE|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINEXTERNALS)
 #define SVNSLC_USERPROPCOLLIMIT         0xff
 #define SVNSLC_MAXCOLUMNCOUNT           0xff
 
-// Supporting extreamly long user props makes no sense here --
+// Supporting extremely long user props makes no sense here --
 // especially for binary properties. CString uses a pool allocator
 // that works for up to 256 chars. Make sure we are well below that.
 
@@ -148,6 +149,13 @@ SVNSLC_SHOWINCOMPLETE|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINEXTERNALS)
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 typedef CComCritSecLock<CComCriticalSection> Locker;
+
+
+#define OVL_EXTERNAL		1
+#define OVL_NESTED			2
+#define OVL_DEPTHFILES		3
+#define OVL_DEPTHIMMEDIATES 4
+#define OVL_DEPTHEMPTY		5
 
 /**
  * \ingroup SVN
@@ -955,6 +963,11 @@ private:
 	bool						m_bDepthInfinity;
 
 	int							m_nIconFolder;
+	int							m_nExternalOvl;
+	int							m_nNestedOvl;
+	int							m_nDepthFilesOvl;
+	int							m_nDepthImmediatesOvl;
+	int							m_nDepthEmptyOvl;
 
 	CWnd *						m_pStatLabel;
 	CButton *					m_pSelectButton;

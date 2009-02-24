@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006,2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -73,6 +73,12 @@ public:
 	 * Uses a cache to speed things up
 	 */
 	int GetPathIconIndex(const CTSVNPath& file) const;
+
+	/**
+	 * Adds an icon to the image list and returns the index of the
+	 * added icon (or -1 if adding the icon fails)
+	 */
+	int AddIcon(const HICON hIcon);
 
 private:
 	static CSysImageList *instance;

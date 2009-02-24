@@ -64,6 +64,9 @@
 - NEW: Shift-click feature for merge tools. See issue #430 for details. (Stefan)
 - NEW: "Create patch" and "Check for Modifications" available from 
        commit/CfM dialog. (Stefan)
+- NEW: new column for checkout depth in the CSVNStatusListCtrl. (Stefan)
+- NEW: overlays in the CSVNStatusListCtrl for the different depths and
+       external/nested files and folders. (Stefan)
 - CHG: The bug-ID column width in the log dialog is now limited 
        to 200 pixels. (Stefan)
 - CHG: The right-drag context menu now only shows "Export" if a versioned
