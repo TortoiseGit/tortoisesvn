@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-23 12:33+0900\n"
+"PO-Revision-Date: 2009-02-25 07:37+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2461,6 +2461,10 @@ msgstr "충돌한 파일을 해결하는 프로그램을 설정합니다."
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "GNU diff 파일 (패치 파일) 보기 프로그램을 설정합니다."
+
+#. Resource IDs: (1503)
+msgid "Conflict Sources"
+msgstr "충돌 원본"
 
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
@@ -7546,6 +7550,14 @@ msgstr "없는 개체는 건너뜀"
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
 msgstr "커밋 개수에 따라 정렬"
+
+#. Resource IDs: (1501)
+msgid "Source Left:"
+msgstr "왼쪽 원본:"
+
+#. Resource IDs: (1502)
+msgid "Source Right:"
+msgstr "오른쪽 원본:"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
