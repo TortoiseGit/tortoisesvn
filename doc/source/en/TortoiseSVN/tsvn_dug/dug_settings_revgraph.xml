@@ -120,8 +120,19 @@
 				<term>WC Node</term>
 				<listitem>
 					<para>
-						If you opt to show a modified working copy as a separate
-						node, use this color.
+						If you opt to show an extra node for your working copy,
+						attached to its last-commit revision on the graph,
+						use this color.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>WC Node Border</term>
+				<listitem>
+					<para>
+						If you opt to show whether the working copy is modified,
+						use this color border on the WC node when modifications
+						are found.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -140,6 +151,24 @@
 				<listitem>
 					<para>
 						Nodes classified as trunk may be blended with this color.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Folded Tag Markers</term>
+				<listitem>
+					<para>
+						If you use tag folding to save space, tags are marked
+						on the copy source using a block in this color.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Selected Node Markers</term>
+				<listitem>
+					<para>
+						When you left click on a node to select it, the marker
+						used to indicate selection is a block in this color.
 					</para>
 				</listitem>
 			</varlistentry>
