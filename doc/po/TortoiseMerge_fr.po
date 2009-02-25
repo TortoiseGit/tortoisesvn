@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-11-17 00:14 +0000\n"
-"PO-Revision-Date: 2008-11-28 13:12+0100\n"
+"PO-Revision-Date: 2009-02-25 10:28+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -212,7 +212,7 @@ msgstr "Quand vous travaillez sur des fichiers textes, les fichiers source de vo
 #. (para)
 #: ../source/TortoiseMerge_en.xml:198
 msgid "If you're working with a version control system (e.g. Subversion) then you sometimes get <emphasis>conflicts</emphasis> when you update your working copy. This happens if someone else changed the same parts of the file you're currently working on as you did. Then you have to resolve those conflicts manually. This is where TortoiseMerge can help you."
-msgstr "Si vous travaillez avec un système de contôle de version (i.e. Subversion) alors vous obtenez parfois un <emphasis>conflit</emphasis> lors de la mise à jour de votre copie de travail. Cela se produit si quelqu'un d'autre a modifié les même parties du fichier sur lequel vous travaillez. Alors, vous devez résoudre ces conflits manuellement. C'est là que TortoiseMerge peut vous aider."
+msgstr "Si vous travaillez avec un système de contrôle de version (i.e. Subversion) alors vous obtenez parfois un <emphasis>conflit</emphasis> lors de la mise à jour de votre copie de travail. Cela se produit si quelqu'un d'autre a modifié les même parties du fichier sur lequel vous travaillez. Alors, vous devez résoudre ces conflits manuellement. C'est là que TortoiseMerge peut vous aider."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:206
@@ -309,12 +309,12 @@ msgstr "En utilisant une combinaison des deux blocs, soit <emphasis>le leur</emp
 #. (para)
 #: ../source/TortoiseMerge_en.xml:310
 msgid "You can make simple line-based changes to the file in the right pane which include: <placeholder-1/>"
-msgstr "Vous pouvez faire de simples modifications en ligneau fichier dans le panneau droit comme : <placeholder-1/>"
+msgstr "Vous pouvez faire de simples modifications en ligne au fichier dans le panneau droit comme : <placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:328
 msgid "You can also edit the file in the right pane just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr "Vous pouvez également éditer le fichier dans le panneau de droite comme vous le feriez avec un éditeur de texte. De telles lignes sont marquées par une icone crayon. Si vous souhaitez faire des modifications de blocs ou lignes décrites ci dessus, il est préférable de les faire en premier car à partir du moment où vous avez fait des modification à la main, TortoiseSVN est incapable de faire le lien avec le fichier d'origine."
+msgstr "Vous pouvez également éditer le fichier dans le panneau de droite comme vous le feriez avec un éditeur de texte. De telles lignes sont marquées par une icône crayon. Si vous souhaitez faire des modifications de blocs ou lignes décrites ci dessus, il est préférable de les faire en premier car à partir du moment où vous avez fait des modification à la main, TortoiseSVN est incapable de faire le lien avec le fichier d'origine."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:338
@@ -353,7 +353,7 @@ msgstr "Un fichier patch est un fichier de différences unifiées Subversion, qu
 #. (para)
 #: ../source/TortoiseMerge_en.xml:380
 msgid "In either case TortoiseMerge will show a small window listing the files included in the patch. By double clicking on one of these files you fetch the relevant file and apply the changes. The left pane shows the original file content and the right pane shows it after the patch is applied."
-msgstr "Dans tous les cas, TortoiseMerge affichera une petite fenêtre listant les fichiers inclus dans le patch. En double-cliquant sur l'un de ces fichiers, vous parcourerez le fichier correspondant et appliquerez les changements. Le panneau gauche affiche le fichier original et le panneau droit affiche le fichier après l'application du patch."
+msgstr "Dans tous les cas, TortoiseMerge affichera une petite fenêtre listant les fichiers inclus dans le patch. En double-cliquant sur l'un de ces fichiers, vous parcourrez le fichier correspondant et appliquerez les changements. Le panneau gauche affiche le fichier original et le panneau droit affiche le fichier après l'application du patch."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:387
@@ -410,7 +410,7 @@ msgstr " De tels changements sont indiqués avec le symbole d'un cercle blanc su
 #. (para)
 #: ../source/TortoiseMerge_en.xml:447
 msgid "Hand editing of the file in the right pane is possible in two-pane view. Such changes are marked with a pencil symbol."
-msgstr "En mode panneau double, éditer un fichier à la main dans le panneau de droite est possible. De tels modifications sont signalées par une icone crayon."
+msgstr "En mode panneau double, éditer un fichier à la main dans le panneau de droite est possible. De tels modifications sont signalées par une icône crayon."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:418
@@ -445,7 +445,7 @@ msgstr "Liste des fichiers du patch"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:479
 msgid "After TortoiseMerge parses the patch file it will show you a small window with all the files which have changes according to the patch file. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
-msgstr "Après qu TortoiseMerge ait analysé le patch, il affichera une petite fenêtre avec tous les fichiers qui comportent des modifications selon le patch. <placeholder-1/> Si le nom du fichier est en noir, le patch peut être appliqué sans problème. Cela signifie que le fichier n'est pas périmé selon le patch. Cependant, si le nom du fichier est en rouge, alors le patch ne peut pas être appliqué directement parce que vous avez déjà modifié ce fichier."
+msgstr "Après que TortoiseMerge ait analysé le patch, il affichera une petite fenêtre avec tous les fichiers qui comportent des modifications selon le patch. <placeholder-1/> Si le nom du fichier est en noir, le patch peut être appliqué sans problème. Cela signifie que le fichier n'est pas périmé selon le patch. Cependant, si le nom du fichier est en rouge, alors le patch ne peut pas être appliqué directement parce que vous avez déjà modifié ce fichier."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:493
@@ -510,7 +510,7 @@ msgstr "<guibutton>Conflit suivant/précédent</guibutton> vous emmène directem
 #. (para)
 #: ../source/TortoiseMerge_en.xml:577
 msgid "<guibutton>Use Theirs/Use Mine</guibutton> selects whether to use a block from the left or the right pane. Refer to the next section for more information about editing changes and conflicts."
-msgstr "<guibutton>Utiliser le leur / Utiliser le mien</guibutton> choisit quand utiliser un bloc de gauche ou un bloc de droite. Référez-vous à la porchaine section pour plus d'information sur l'éditions des changements et des conflits."
+msgstr "<guibutton>Utiliser le leur / Utiliser le mien</guibutton> choisit quand utiliser un bloc de gauche ou un bloc de droite. Référez-vous à la prochaine section pour plus d'information sur l'éditions des changements et des conflits."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:586
@@ -575,7 +575,7 @@ msgstr "Sous la fenêtre du bas se trouve la barre d'état. Elle affiche le nomb
 #. (title)
 #: ../source/TortoiseMerge_en.xml:683
 msgid "Line Status Icons"
-msgstr "Icones d'état des lignes"
+msgstr "Icônes d'état des lignes"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:684
@@ -640,7 +640,7 @@ msgstr "Parfois, vous voulez en fait les deux blocs de texte et le menu contextu
 #. (para)
 #: ../source/TortoiseMerge_en.xml:751
 msgid "You can also edit the output file just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr "Vous pouvez également éditer le fichier de sortie comme vous le feriez avec un éditeur de texte. De telles lignes sont marquées par une icone crayon. Si vous souhaitez faire des modifications de blocs ou lignes décrites ci dessus, il est préférable de les faire en premier car à partir du moment où vous avez fait des modification à la main, TortoiseSVN est incapable de faire le lien avec le fichier d'origine."
+msgstr "Vous pouvez également éditer le fichier de sortie comme vous le feriez avec un éditeur de texte. De telles lignes sont marquées par une icône crayon. Si vous souhaitez faire des modifications de blocs ou lignes décrites ci dessus, il est préférable de les faire en premier car à partir du moment où vous avez fait des modification à la main, TortoiseSVN est incapable de faire le lien avec le fichier d'origine."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:759
@@ -650,7 +650,7 @@ msgstr "Si vous êtes en vue panneau triple (parfois appelée <emphasis> vue de 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:796
 msgid "Sometimes a file will be marked as conflicted in Subversion, yet when you view it using TortoiseMerge there are no conflicts shown. This may be due to the whitespace handling you have chosen. If you choose to ignore line-endings or whitespace changes, those lines will be marked using the <emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you still need to pick which version you want to use."
-msgstr "Parfois une fichier sera marqué comme étant en conflit dans Subversion, et ce conflit ne sera pas indiqué dans TortoiseMerge. Ce peut être dû à la politique de gestion des caractères d'espacement que vous avez choisie. Si vous avez choisi d'ignorer les modifications de caractères d'espacement ou de fin de ligne, de telles lignes seront marquées par l'icone <emphasis>Conflit-Ignoré</emphasis>. Pour résoudre ce conflit, vous devez sélectionner la version que vous souhaitez utiliser."
+msgstr "Parfois une fichier sera marqué comme étant en conflit dans Subversion, et ce conflit ne sera pas indiqué dans TortoiseMerge. Ce peut être dû à la politique de gestion des caractères d'espacement que vous avez choisie. Si vous avez choisi d'ignorer les modifications de caractères d'espacement ou de fin de ligne, de telles lignes seront marquées par l'icône <emphasis>Conflit-Ignoré</emphasis>. Pour résoudre ce conflit, vous devez sélectionner la version que vous souhaitez utiliser."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:804
@@ -740,7 +740,7 @@ msgstr "<guilabel>Ignorer les changements de casse</guilabel> masque les changem
 #. (para)
 #: ../source/TortoiseMerge_en.xml:911
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
-msgstr "<guilabel>Coloriser les changements de code en ligne</guilabel> utilise le même thème que la barre de lignes de comparaison pour afficher les changements en ligne dans les panneaux d'affichages principaux. Les lignes qui ont été lourdement modifiées ne seront pas affichées de cette manière, les résultats étant nébuleux. Dans ce cas, la ligne sera affichée comme remplacée (l'ancienne ligne supprimée, la nouvelle ajoutée)."
+msgstr "<guilabel>Colorer les changements de code en ligne</guilabel> utilise le même thème que la barre de lignes de comparaison pour afficher les changements en ligne dans les panneaux d'affichages principaux. Les lignes qui ont été lourdement modifiées ne seront pas affichées de cette manière, les résultats étant nébuleux. Dans ce cas, la ligne sera affichée comme remplacée (l'ancienne ligne supprimée, la nouvelle ajoutée)."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:919
@@ -815,7 +815,7 @@ msgstr "inchangé"
 #. (guilabel)
 #: ../source/TortoiseMerge_en.xml:974
 msgid "Colour code in-line changes"
-msgstr "Coloriser les modifications de code en ligne"
+msgstr "Colorer les modifications de code en ligne"
 
 #. (listitem)
 #: ../source/TortoiseMerge_en.xml:969
@@ -1352,7 +1352,7 @@ msgstr "Supprimer"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1477
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the committed revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
-msgstr "Quand vous supprimez un élément versionné (et que vous livrez le changement), l'élément n'existe plus dans le référentiel après la révision livrée. Mais il existe bien sûr toujours dans les révisions précédentes du référentiel, donc vous pouvez toujours y avoir accès. Si besoin est, vous pouvez copier un élément qui a été supprimé et le <quote>réssusciter</quote> complètement avec son historique."
+msgstr "Quand vous supprimez un élément versionné (et que vous livrez le changement), l'élément n'existe plus dans le référentiel après la révision livrée. Mais il existe bien sûr toujours dans les révisions précédentes du référentiel, donc vous pouvez toujours y avoir accès. Si besoin est, vous pouvez copier un élément qui a été supprimé et le <quote>ressusciter</quote> complètement avec son historique."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1487
@@ -1452,7 +1452,7 @@ msgstr "Fusionner"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1570
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
-msgstr "Le procédé par lequel les modifications du référentiel sont ajoutées dans votre copie de travail sans pertuber les changements que vous avez déjà faits localement. Parfois ces changements ne peuvent pas être réconciliés automatiquement et la copie de travail est dite en conflit."
+msgstr "Le procédé par lequel les modifications du référentiel sont ajoutées dans votre copie de travail sans perturber les changements que vous avez déjà faits localement. Parfois ces changements ne peuvent pas être réconciliés automatiquement et la copie de travail est dite en conflit."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1576
@@ -1477,7 +1477,7 @@ msgstr "Propriété"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1601
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
-msgstr "En plus de versionner vos répertoires et vos fichiers, Subversion vous permet d'ajouter des métadonnées versionnées - connues comme des <quote>propriétés</quote> - à chacun de vos fichiers et répertoires versionnés. Chaque propriété possède un nom et une valeur, plutôt qu'une clé de régistre. Subversion dispose de quelques propriétés spéciales qu'il utilise en interne, comme <literal>svn:eol-style</literal>. TortoiseSVN en a aussi, tel que <literal>tsvn:logminsize</literal>. Vous pouvez ajouter vos propres propriétés avec des noms et des valeurs de votre choix."
+msgstr "En plus de versionner vos répertoires et vos fichiers, Subversion vous permet d'ajouter des métadonnées versionnées - connues comme des <quote>propriétés</quote> - à chacun de vos fichiers et répertoires versionnés. Chaque propriété possède un nom et une valeur, plutôt qu'une clé de registre. Subversion dispose de quelques propriétés spéciales qu'il utilise en interne, comme <literal>svn:eol-style</literal>. TortoiseSVN en a aussi, tel que <literal>tsvn:logminsize</literal>. Vous pouvez ajouter vos propres propriétés avec des noms et des valeurs de votre choix."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1614
