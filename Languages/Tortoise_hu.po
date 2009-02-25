@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-16 14:51+0100\n"
+"PO-Revision-Date: 2009-02-25 13:18+0100\n"
 "Last-Translator: Halász Gábor <k@elitonline.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -201,19 +201,19 @@ msgid "%s, but it was already added locally."
 msgstr ""
 
 #. Resource IDs: (609)
+#, fuzzy, c-format
+msgid "%s, but it was already edited."
+msgstr "%s, de már korábban szerkesztve lett."
+
+#. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted locally."
+msgid "%s, but it was deleted, moved or renamed locally."
 msgstr ""
 
 #. Resource IDs: (609)
 #, fuzzy, c-format
 msgid "%s, but it was obstructed in the working copy."
 msgstr "%s, de a munkapéldányban akadályozva lett."
-
-#. Resource IDs: (609)
-#, c-format
-msgid "%s, but the local file was already edited."
-msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -387,6 +387,10 @@ msgstr "&Gombfelirat:"
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
 
+#. Resource IDs: (2)
+msgid "&Cancel"
+msgstr "&Mégse"
+
 #. Resource IDs: (65535)
 msgid "&Categories:"
 msgstr "&Kategóriák:"
@@ -509,10 +513,6 @@ msgstr "&Összehasonlítás az előző verzióval"
 #, fuzzy
 msgid "&Docking"
 msgstr "&Dokkolás"
-
-#. Resource IDs: (2)
-msgid "&Don't go offline"
-msgstr "Maradjon &online"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -823,7 +823,8 @@ msgid "&Options"
 msgstr "&Beállítások"
 
 #. Resource IDs: (32772)
-msgid "&Overlap images"
+#, fuzzy
+msgid "&Overlay images"
 msgstr "&Átfedés engedélyezése"
 
 #. Resource IDs: (1411, 65535)
@@ -1165,6 +1166,26 @@ msgstr "(%s) %s"
 msgid "(binary value)"
 msgstr "(bináris adat)"
 
+#. Resource IDs: (276)
+msgid "(copy)"
+msgstr ""
+
+#. Resource IDs: (276)
+msgid "(created)"
+msgstr ""
+
+#. Resource IDs: (276)
+msgid "(delete)"
+msgstr ""
+
+#. Resource IDs: (276)
+msgid "(modified)"
+msgstr ""
+
+#. Resource IDs: (276)
+msgid "(modified, HEAD revision)"
+msgstr ""
+
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
 msgstr "(több cél van kiválasztva)"
@@ -1177,6 +1198,10 @@ msgstr "(nincs változáslistába helyezve)"
 msgid "(no line number)"
 msgstr "(nincs sorszám)"
 
+#. Resource IDs: (276)
+msgid "(no modification but copy created from here)"
+msgstr ""
+
 #. Resource IDs: (214)
 msgid "(no value)"
 msgstr "(nincs érték)"
@@ -1185,9 +1210,21 @@ msgstr "(nincs érték)"
 msgid "(not found)"
 msgstr "(nem található)"
 
+#. Resource IDs: (276)
+msgid "(open branch)"
+msgstr ""
+
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(csak a tulajdonság változott)"
+
+#. Resource IDs: (276)
+msgid "(rename)"
+msgstr ""
+
+#. Resource IDs: (276)
+msgid "(tagged)"
+msgstr ""
 
 #. Resource IDs: (245)
 msgid "(unknown)"
@@ -1210,6 +1247,10 @@ msgstr "------------------------------------------------------------------------
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
+
+#. Resource IDs: (269)
+msgid "... checking cache and preparing log query"
+msgstr ""
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -1690,7 +1731,8 @@ msgid "Arrange &Vertical"
 msgstr "&Függőleges elrendezés"
 
 #. Resource IDs: (199)
-msgid "Ask user"
+#, fuzzy
+msgid "Ask the user"
 msgstr "Felhasználó megkérdezése"
 
 #. Resource IDs: (264)
@@ -1838,6 +1880,11 @@ msgstr "Hibáztatás"
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
 msgstr "Hibáztatás - TortoiseSVN"
+
+#. Resource IDs: (114)
+#, fuzzy
+msgid "Blame..."
+msgstr "&Hibáztatás..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
@@ -2107,6 +2154,11 @@ msgstr ""
 "Jelöld be fájlokat, amelyeket\n"
 "törölni akarsz az importálás előtt."
 
+#. Resource IDs: (612)
+#, fuzzy
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
+msgstr "Nézd meg a naplóban, hogy mi volt a fájl/mappa eredeti neve/helye, és döntsd el, hogy a saját fájlt/mappát, vagy a tárolóban lévőt szeretnéd megtartani, aztán jelöld meg az ellentmondást feloldottnak."
+
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
 msgstr "Ellenőrizd az elérési utat és/vagy URL-t, amit beírtál."
@@ -2293,6 +2345,16 @@ msgstr ""
 msgid "Color"
 msgstr "Szín"
 
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "Color 1"
+msgstr "Szín"
+
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "Color 2"
+msgstr "Szín"
+
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
 msgstr "Soron belüli változáso&k jelölése"
@@ -2444,6 +2506,11 @@ msgstr "Válaszd ki a programot, amellyel feloldod az ellentmondásokat a fájlo
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "Válaszd ki a GNU diff fájlok (patch fájlok) megjelenítőjét."
 
+#. Resource IDs: (1503)
+#, fuzzy
+msgid "Conflict Sources"
+msgstr "Ellentmondás feloldva"
+
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
 msgstr "Ellentmondás feloldva"
@@ -2488,6 +2555,11 @@ msgstr "Másolva"
 
 #. Resource IDs: (208)
 msgid "Copied from URL"
+msgstr "URL-ből másolva"
+
+#. Resource IDs: (275)
+#, fuzzy, c-format
+msgid "Copied from: %s@%ld\r\n"
 msgstr "URL-ből másolva"
 
 #. Resource IDs: (126)
@@ -3613,6 +3685,11 @@ msgstr "Külső programok::Egyesítő program"
 msgid "External Programs::Unified Diff Viewer"
 msgstr "Külső programok::Egyesített diff megjelenítő"
 
+#. Resource IDs: (263)
+#, fuzzy
+msgid "External failed"
+msgstr "Külső tárolókkal együtt"
+
 #. Resource IDs: (226)
 msgid "Externals excluded"
 msgstr "Külső tárolók kihagyása"
@@ -3878,11 +3955,17 @@ msgid "Fit width"
 msgstr "Szélességhez igazítás"
 
 #. Resource IDs: (89)
+#, fuzzy
 msgid "Fix case of item and do not add it"
-msgstr ""
+msgstr "Javítsa meg a kis/nagybetű különbséget, de ne adja hozzá"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
+msgstr "&Kiadásokat ne mutassa külön"
+
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "Folded tag"
 msgstr "&Kiadásokat ne mutassa külön"
 
 #. Resource IDs: (1002)
@@ -3957,11 +4040,6 @@ msgstr "Általános::Ablakok 1"
 msgid "General::Dialogs 2"
 msgstr "Általános::Ablakok 2"
 
-#. Resource IDs: (296)
-#, fuzzy
-msgid "General::Revision Graph"
-msgstr "Általános::Verzió grafikon"
-
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Patchfájl készítése..."
@@ -4029,10 +4107,6 @@ msgstr "Globális kizárási &lista:"
 msgid "Global settings"
 msgstr "Globális beállítások"
 
-#. Resource IDs: (280)
-msgid "Go offline?"
-msgstr "Váltsak át offline módba?"
-
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "Sorhoz ugrás"
@@ -4097,6 +4171,11 @@ msgstr "&Szín"
 msgid "HEAD"
 msgstr "FŐ"
 
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "HEAD node"
+msgstr "Hozzáadott csomópont"
+
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
@@ -4118,6 +4197,16 @@ msgstr "Hex"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "&Törölt ágak elrejtése"
+
+#. Resource IDs: (2052)
+#, fuzzy
+msgid "Hide all branches that did not modify the item"
+msgstr "Ne mutassa azokat a mellékágakat, amelyekben nem módosítottták az elemet"
+
+#. Resource IDs: (2052)
+#, fuzzy
+msgid "Hide deleted branches and tags"
+msgstr "Ne mutassa a törölt mellékágakat és kiadásokat"
 
 #. Resource IDs: (1001)
 #, fuzzy
@@ -4363,6 +4452,45 @@ msgstr "Ikonok::Stílusok"
 msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "Ikonok/Design/Kód:\tLuebbe Onken"
 
+#. Resource IDs: (346)
+#, fuzzy
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'."
+msgstr ""
+"Ha egy útvonalelem (két \"/\" közötti rész) megfelel\n"
+"\vaz alábbi minták egyikének, mellékágnak lesz tekintve.\n"
+"\n"
+"A mintákat kisbetűkkel add meg.\n"
+"Jokerkarakterek: \"?\" és \"*\".\n"
+"Több mintát a \";\" karakterrel választhatsz el egymástól."
+
+#. Resource IDs: (346)
+#, fuzzy
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'."
+msgstr ""
+"Ha egy útvonalelem (két \"/\" közötti rész) megfelel\n"
+"\vaz alábbi minták egyikének, kiadásnak lesz tekintve.\n"
+"\n"
+"A mintákat kisbetűkkel add meg.\n"
+"Jokerkarakterek: \"?\" és \"*\".\n"
+"Több mintát a \";\" karakterrel választhatsz el egymástól."
+
+#. Resource IDs: (346)
+#, fuzzy
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'."
+msgstr ""
+"Ha egy útvonalelem (két \"/\" közötti rész) megfelel\n"
+"\vaz alábbi minták egyikének, főágnak lesz tekintve.\n"
+"\n"
+"A mintákat kisbetűkkel add meg.\n"
+"Jokerkarakterek: \"?\" és \"*\".\n"
+"Több mintát a \";\" karakterrel választhatsz el egymástól."
+
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
 msgstr "Ha be van jelölve, nem jelennek meg az ikonok és a helyi menü a \"Mentés másként...\" és a \"Megnyitás\" ablakokban"
@@ -4374,54 +4502,6 @@ msgid ""
 msgstr ""
 "Ha be van jelölve, a \"Zárolás\" menüpont a főmenüben\n"
 "jelenik meg amennyiben a fájlnak svn:needs-lock tulajdonsága van"
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'branch'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Ha egy útvonalelem (két \"/\" közötti rész) megfelel\n"
-"\vaz alábbi minták egyikének, mellékágnak lesz tekintve.\n"
-"\n"
-"A mintákat kisbetűkkel add meg.\n"
-"Jokerkarakterek: \"?\" és \"*\".\n"
-"Több mintát a \";\" karakterrel választhatsz el egymástól."
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'tag'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Ha egy útvonalelem (két \"/\" közötti rész) megfelel\n"
-"\vaz alábbi minták egyikének, kiadásnak lesz tekintve.\n"
-"\n"
-"A mintákat kisbetűkkel add meg.\n"
-"Jokerkarakterek: \"?\" és \"*\".\n"
-"Több mintát a \";\" karakterrel választhatsz el egymástól."
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'trunk'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Ha egy útvonalelem (két \"/\" közötti rész) megfelel\n"
-"\vaz alábbi minták egyikének, főágnak lesz tekintve.\n"
-"\n"
-"A mintákat kisbetűkkel add meg.\n"
-"Jokerkarakterek: \"?\" és \"*\".\n"
-"Több mintát a \";\" karakterrel választhatsz el egymástól."
 
 #. Resource IDs: (95)
 msgid ""
@@ -4509,8 +4589,9 @@ msgstr ""
 "vagyis a módosított ikon jelenik meg rajta."
 
 #. Resource IDs: (2052)
+#, fuzzy
 msgid "If the graph contains multiple trees, separate them by slight variations in background color."
-msgstr ""
+msgstr "Ha a grafikon több fát tartalmaz, jelölje a különböző fákat a háttérszín árnyalatni különbségével."
 
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
@@ -4667,6 +4748,12 @@ msgstr "Egyesített verziók belevétele"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "Csak az alábbi intervallumot vegye figyelembe:"
+
+#. Resource IDs: (239)
+msgid ""
+"Includes the repository for status check\n"
+"Hold down the shift key when clicking to fetch everything."
+msgstr ""
 
 #. Resource IDs: (3857)
 #, fuzzy
@@ -5127,6 +5214,15 @@ msgstr "A jelenlegi munkapéldány megjelenítése"
 msgid "Mark for comparison"
 msgstr "Megjelölés összehasonlításhoz"
 
+#. Resource IDs: (610)
+#, fuzzy
+msgid "Mark the conflict as resolved"
+msgstr "Feloldottnak jelölés"
+
+#. Resource IDs: (65535)
+msgid "Markers"
+msgstr ""
+
 #. Resource IDs: (2051)
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -5228,6 +5324,11 @@ msgstr "Verzió egyesítése ezzel..."
 #. Resource IDs: (114)
 msgid "Merge revisions to..."
 msgstr "Verziók egyesítése ezzel..."
+
+#. Resource IDs: (610)
+#, fuzzy, c-format
+msgid "Merge the changes into the file '%s'"
+msgstr "Változások beleintegrálása \"%s\" fájlba."
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -5340,6 +5441,11 @@ msgstr "Módosítás dátuma"
 
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
+msgstr "Módosítva"
+
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "Modified node"
 msgstr "Módosítva"
 
 #. Resource IDs: (1070)
@@ -5613,6 +5719,11 @@ msgstr "Nem gyorsítótárazza az állapotokat. Csak a verziókezelt mappák kap
 msgid "No thesaurus suggestions"
 msgstr "Nincs szinonima"
 
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "Node colors"
+msgstr "További..."
+
 #. Resource IDs: (1271)
 msgid "None"
 msgstr "Nincs"
@@ -5799,6 +5910,10 @@ msgstr "Csak ezt a fájlt/mappát"
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
 msgstr "&Helyesírás-ellenőrzés csak akkor, ha a tsvn:projectlanguage be van állítva"
 
+#. Resource IDs: (65535)
+msgid "Opacity"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "Open"
 msgstr "Megnyitás"
@@ -5869,6 +5984,11 @@ msgstr "Nincs elég memória."
 #. Resource IDs: (3845)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "Overlays"
+msgstr "Ikonok"
 
 #. Resource IDs: (95)
 msgid ""
@@ -6047,6 +6167,11 @@ msgstr "Várj, amíg befejeződik a különbség-keresés..."
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Kérlek várj, amíg a tároló-böngésző elindul..."
 
+#. Resource IDs: (1368)
+#, fuzzy
+msgid "Please wait while we gather more information..."
+msgstr "Várj, amíg befejeződik a különbség-keresés..."
+
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
 msgstr "Kérlek várj..."
@@ -6054,6 +6179,11 @@ msgstr "Kérlek várj..."
 #. Resource IDs: (65535)
 msgid "Port :"
 msgstr "Port :"
+
+#. Resource IDs: (347)
+#, fuzzy
+msgid "Possible values: 0 (fully transparent) .. 255 (opaque)"
+msgstr "Lehetséges értékek: 0 (átlátszó) ... 255 (átlátszatlan)"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
@@ -6199,6 +6329,16 @@ msgstr "%s tulajdonság : alappéldány"
 #, c-format
 msgid "Property %s : working copy"
 msgstr "Tulajdonság %s : munkapéldány"
+
+#. Resource IDs: (262)
+#, fuzzy, c-format
+msgid "Property '%s' deleted"
+msgstr "%s tulajdonság : távoli"
+
+#. Resource IDs: (262)
+#, fuzzy, c-format
+msgid "Property '%s' set"
+msgstr "%s tulajdonság : távoli"
 
 #. Resource IDs: (107)
 #, fuzzy
@@ -6475,14 +6615,6 @@ msgstr "%ld elem törlése"
 msgid "Remove %s"
 msgstr "%s törlése"
 
-#. Resource IDs: (2052)
-msgid "Remove all branches that did not modify the item"
-msgstr "Ne mutassa azokat a mellékágakat, amelyekben nem módosítottták az elemet"
-
-#. Resource IDs: (2052)
-msgid "Remove deleted branches and tags"
-msgstr "Ne mutassa a törölt mellékágakat és kiadásokat"
-
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "El&távolítás a kizárási listáról"
@@ -6506,12 +6638,14 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (610)
+#, fuzzy
 msgid "Remove the directory"
-msgstr ""
+msgstr "Mappa eltávolítása"
 
 #. Resource IDs: (610)
+#, fuzzy
 msgid "Remove the file"
-msgstr ""
+msgstr "Fájl eltávolítása"
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -6613,10 +6747,6 @@ msgid ""
 msgstr ""
 "Megadott szöveget egy másikra cserél\n"
 "Csere"
-
-#. Resource IDs: (65535)
-msgid "Replaced node"
-msgstr "Lecserélt csomópont"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -6794,6 +6924,11 @@ msgstr "Verzió grafikon"
 msgid "Revision Graph Filter"
 msgstr "Verzió grafikon szűrő"
 
+#. Resource IDs: (299)
+#, fuzzy
+msgid "Revision Graph::Colors"
+msgstr "Verzió grafikon"
+
 #. Resource IDs: (228)
 msgid "Revision Range"
 msgstr "Verzió intervallum"
@@ -6811,18 +6946,18 @@ msgid "Revision: "
 msgstr "Verzió: "
 
 #. Resource IDs: (272)
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"Revision: %ld\r\n"
+"Revision: %ld %s\r\n"
 "URL: %s\r\n"
-"Author: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Verzió: %ld\r\n"
-"URL: %s\r\n"
+"Verzió: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Fejlesztő: %s\r\n"
 "Dátum: %s\r\n"
 "\r\n"
@@ -6830,11 +6965,11 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (272)
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"Revision: %ld\r\n"
+"Revision: %ld %s\r\n"
 "URL: %s\r\n"
-"Author: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Tags (%d):%s\r\n"
@@ -6842,8 +6977,8 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Verzió: %ld\r\n"
-"URL: %s\r\n"
+"Verzió: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Fejlesztő: %s\r\n"
 "Dátum: %s\r\n"
 "\r\n"
@@ -7231,6 +7366,11 @@ msgstr "Válaszd ki az egyesítés típusát"
 msgid "Select viewer for diff-files"
 msgstr "Válssz diff fájl megjelenítőt"
 
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "Selected node"
+msgstr "Törölt csomópont"
+
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
 msgstr "Nem sikerült a levelet küldeni."
@@ -7313,6 +7453,11 @@ msgstr "Gyorsbillentyű &megjelenítése ehhez:"
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "&Mindent mutat"
+
+#. Resource IDs: (1132)
+#, fuzzy
+msgid "Show &Log"
+msgstr "&Változási napló"
 
 #. Resource IDs: (115)
 msgid "Show &Range..."
@@ -7615,6 +7760,16 @@ msgstr "Hiányzó cél kihagyva"
 msgid "Sort by commit count"
 msgstr "Rendezés beküldések száma szerint"
 
+#. Resource IDs: (1501)
+#, fuzzy
+msgid "Source Left:"
+msgstr "Görgetés balra"
+
+#. Resource IDs: (1502)
+#, fuzzy
+msgid "Source Right:"
+msgstr "Görgetés jobbra"
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Megadja, hogy a korábbi megjegyzések ablakban hány megjegyzés legyen elmentve."
@@ -7731,6 +7886,10 @@ msgstr "Zárolás ellopása"
 #. Resource IDs: (65535)
 msgid "Stefan Küng, Lübbe Onken"
 msgstr "Stefan Küng, Lübbe Onken"
+
+#. Resource IDs: (65535)
+msgid "Stripes"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -7898,6 +8057,10 @@ msgstr "Tabulátor"
 msgid "Tab size:"
 msgstr "Tab méret:"
 
+#. Resource IDs: (65535)
+msgid "Tag nodes"
+msgstr ""
+
 #. Resource IDs: (79)
 #, c-format
 msgid "Tagged the working copy to %s"
@@ -8059,99 +8222,99 @@ msgid "The issue-tracker provider was unable to validate the parameter string"
 msgstr "A hibakövető-szolgáltató nem tudta ellenőrizni a paramétereket"
 
 #. Resource IDs: (597)
-#, c-format
+#, fuzzy, c-format
 msgid "The item '%s' has property conflicts:"
-msgstr ""
+msgstr "A(z) \"%s\" elem egy tulajdonsága ellentmondásba került:"
 
 #. Resource IDs: (608)
-#, c-format
+#, fuzzy, c-format
 msgid "The last merge operation tried to add the directory '%s'"
-msgstr ""
+msgstr "A legutóbbi egyesítés megpróbálta hozzáadni a(z) \"%s\" mappát"
 
 #. Resource IDs: (607)
-#, c-format
+#, fuzzy, c-format
 msgid "The last merge operation tried to add the file '%s'"
-msgstr ""
+msgstr "A legutóbbi egyesítés megpróbálta hozzáadni a(z) \"%s\" fájlt"
 
 #. Resource IDs: (608)
-#, c-format
-msgid "The last merge operation tried to delete the directory '%s'"
-msgstr ""
+#, fuzzy, c-format
+msgid "The last merge operation tried to delete/move/rename the directory '%s'"
+msgstr "A legutóbbi egyesítés megpróbálta törölni/átnevezni/áthelyezni a(z) \"%s\" mappát"
 
 #. Resource IDs: (607)
-#, c-format
-msgid "The last merge operation tried to delete the file '%s'"
-msgstr ""
+#, fuzzy, c-format
+msgid "The last merge operation tried to delete/move/rename the file '%s'"
+msgstr "A legutóbbi egyesítés megpróbálta törölni/átnevezni/áthelyezni a(z) \"%s\" fájlt"
 
 #. Resource IDs: (608)
-#, c-format
+#, fuzzy, c-format
 msgid "The last merge operation tried to modify the directory '%s'"
-msgstr ""
+msgstr "A legutóbbi egyesítés megpróbálta módosítani a(z) \"%s\" mappát"
 
 #. Resource IDs: (607)
-#, c-format
+#, fuzzy, c-format
 msgid "The last merge operation tried to modify the file '%s'"
-msgstr ""
+msgstr "A legutóbbi egyesítés megpróbálta módosítani a(z) \"%s\" fájlt"
 
 #. Resource IDs: (608)
-#, c-format
+#, fuzzy, c-format
 msgid "The last switch operation tried to add the directory '%s'"
-msgstr ""
+msgstr "A legutóbbi átváltás megpróbálta hozzáadni a(z) \"%s\" mappát"
 
 #. Resource IDs: (607)
-#, c-format
+#, fuzzy, c-format
 msgid "The last switch operation tried to add the file '%s'"
-msgstr ""
+msgstr "A legutóbbi átváltás megpróbálta hozzáadni a(z) \"%s\" fájlt"
 
 #. Resource IDs: (608)
-#, c-format
-msgid "The last switch operation tried to delete the directory '%s'"
-msgstr ""
+#, fuzzy, c-format
+msgid "The last switch operation tried to delete/move/rename the directory '%s'"
+msgstr "A legutóbbi átváltás megpróbálta törölni/átnevezni/áthelyezni a(z) \"%s\" mappát"
 
 #. Resource IDs: (607)
-#, c-format
-msgid "The last switch operation tried to delete the file '%s'"
-msgstr ""
+#, fuzzy, c-format
+msgid "The last switch operation tried to delete/move/rename the file '%s'"
+msgstr "A legutóbbi átváltás megpróbálta törölni/átnevezni/áthelyezni a(z) \"%s\" fájlt"
 
 #. Resource IDs: (608)
-#, c-format
+#, fuzzy, c-format
 msgid "The last switch operation tried to modify the directory '%s'"
-msgstr ""
+msgstr "A legutóbbi átváltás megpróbálta módosítani a(z) \"%s\" mappát"
 
 #. Resource IDs: (607)
-#, c-format
+#, fuzzy, c-format
 msgid "The last switch operation tried to modify the file '%s'"
-msgstr ""
+msgstr "A legutóbbi átváltás megpróbálta módosítani a(z) \"%s\" fájlt"
 
 #. Resource IDs: (607)
-#, c-format
+#, fuzzy, c-format
 msgid "The last update operation tried to add the directory '%s'"
-msgstr ""
+msgstr "A legutóbbi frissítés megpróbálta hozzáadni a(z) \"%s\" mappát"
 
 #. Resource IDs: (607)
-#, c-format
+#, fuzzy, c-format
 msgid "The last update operation tried to add the file '%s'"
-msgstr ""
+msgstr "A legutóbbi frissítés megpróbálta hozzáadni a(z) \"%s\" fájlt"
 
 #. Resource IDs: (607)
-#, c-format
-msgid "The last update operation tried to delete the directory '%s'"
-msgstr ""
+#, fuzzy, c-format
+msgid "The last update operation tried to delete/move/rename the directory '%s'"
+msgstr "A legutóbbi frissítés megpróbálta törölni/átnevezni/áthelyezni a(z) \"%s\" mappát"
 
 #. Resource IDs: (607)
-#, c-format
-msgid "The last update operation tried to delete the file '%s'"
-msgstr ""
+#, fuzzy, c-format
+msgid "The last update operation tried to delete/move/rename the file '%s'"
+msgstr "A legutóbbi frissítés megpróbálta törölni/átnevezni/áthelyezni a(z) \"%s\" fájlt"
 
 #. Resource IDs: (607)
-#, c-format
+#, fuzzy, c-format
 msgid "The last update operation tried to modify the directory '%s'"
-msgstr ""
+msgstr "A legutóbbi frissítés megpróbálta módosítani a(z) \"%s\" mappát"
 
 #. Resource IDs: (607)
-#, c-format
+#, fuzzy, c-format
 msgid "The last update operation tried to modify the file '%s'"
-msgstr ""
+msgstr "A legutóbbi frissítés megpróbálta módosítani a(z) \"%s\" fájlt"
 
 #. Resource IDs: (63)
 #, c-format
@@ -8424,12 +8587,13 @@ msgstr ""
 "Mented a változásokat?"
 
 #. Resource IDs: (65535)
+#, fuzzy
 msgid ""
-"There has been a problem connecting the server.\n"
+"There has been a problem contacting the server.\n"
 "Do you want to see the cached data instead?\n"
 "\n"
 "Please understand that the cached data may be outdated,\n"
-"incomplete or even misleading due to incomplete history."
+"incomplete or even misleading due to incomplete history data."
 msgstr ""
 "Hiba történt a szerverhez való kapcsolódás közben.\n"
 "Szeretnéd inkább a gyorsítótárazott adatokat megtekinteni (offline mód)?\n"
@@ -8736,6 +8900,10 @@ msgstr ""
 msgid "Tree merge"
 msgstr "Fa-egyesítés"
 
+#. Resource IDs: (65535)
+msgid "Trunk nodes"
+msgstr ""
+
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Próbáld meg a \"Tisztítás\"-t! Ha nem működik, le kell kérned egy új munkapéldányt."
@@ -8830,6 +8998,11 @@ msgstr "Nem lehet írni a csak olvasható tulajdonságot."
 #, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "Nem írható a %1 fájl, már már megnyitotta vagy írásvédett."
+
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "Unchanged node"
+msgstr "Átnevezett csomópont"
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
@@ -9116,7 +9289,8 @@ msgstr ""
 "\"Saját\" szövegblokk használata"
 
 #. Resource IDs: (251)
-msgid "Use text block from 't&heirs' before 'mine"
+#, fuzzy
+msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "\"M&ásik\" szövegblokk használata a \"saját\" előtt"
 
 #. Resource IDs: (2052)
@@ -9256,6 +9430,14 @@ msgstr "Látogasd meg a honlapunkat"
 msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
+#. Resource IDs: (65535)
+msgid "WC node"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "WC node border"
+msgstr ""
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Várakozás"
@@ -9263,6 +9445,11 @@ msgstr "Várakozás"
 #. Resource IDs: (1327)
 msgid "Wait for the script to finish"
 msgstr "Várja meg, amíg a szkript lefut"
+
+#. Resource IDs: (280)
+#, fuzzy
+msgid "Want to go offline?"
+msgstr "Maradjon &online"
 
 #. Resource IDs: (88)
 msgid "Warning"
@@ -9524,6 +9711,17 @@ msgstr ""
 "\n"
 "Biztonsan beküldöd a változásaidat?í"
 
+#. Resource IDs: (275)
+#, fuzzy, c-format
+msgid ""
+"Your working copy contains modifications.\n"
+"Lowest revision in working copy: %ld\n"
+"Path: %s"
+msgstr ""
+"A munkapéldányod változásokat tartalmaz.\n"
+"A munkapéldányodban lévő legrégebbi verzió: %ld\n"
+"Útvonal: %s"
+
 #. Resource IDs: (88)
 msgid ""
 "Your working copy has local modifications!\n"
@@ -9622,6 +9820,23 @@ msgstr "Legjobb kitöltés (szélesség szerint)"
 #, fuzzy
 msgid "[Unassigned]"
 msgstr "[Nincs hozzárendelve]"
+
+#. Resource IDs: (346)
+#, fuzzy
+msgid ""
+"\n"
+"\n"
+"Patterns match case-insensitively and must be specified in lower-case.\n"
+"Whitespaces will become part of the pattern.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns using ';'"
+msgstr ""
+"\n"
+"\n"
+"A minták nem figyelnek a kis/nagybetű különbségre, és kisbetűvel kell megadni őket.\n"
+"A szóköz-karakterek (szóköz, enter, tabulátor stb.) szintén a minta részei.\n"
+"A megengedett joker-karakterek: \"?\" és \"*\".\n"
+"A mintákat a \";\" karakterrel válaszd el egymástól."
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
@@ -9728,16 +9943,22 @@ msgstr ""
 "Állítsd \"false\"-ra ha a hibakövető rendszer nem csak számokat használ az ügyek azonosításához."
 
 #. Resource IDs: (577)
+#, fuzzy
 msgid ""
 "bugtraq:providerparams\r\n"
 "the parameters passed to the IBugTraqProvider"
 msgstr ""
+"bugtraq:providerparams\r\n"
+"a paraméterek, amelyek átadódnak az IBugTraqProvider-nek"
 
 #. Resource IDs: (577)
+#, fuzzy
 msgid ""
 "bugtraq:provideruuid\r\n"
 "the COM uuid of the IBugTraqProvider"
 msgstr ""
+"bugtraq:provideruuid\r\n"
+"az IBugTraqProvider COM uuid-je"
 
 #. Resource IDs: (577)
 #, c-format
@@ -9780,8 +10001,9 @@ msgid "copied:"
 msgstr "másolva:"
 
 #. Resource IDs: (245)
+#, fuzzy
 msgid "day"
-msgstr ""
+msgstr "nap"
 
 #. Resource IDs: (10, 272)
 msgid "deleted"
@@ -10338,6 +10560,17 @@ msgstr "igen"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#, fuzzy
+#~ msgid "General::Revision Graph"
+#~ msgstr "Általános::Verzió grafikon"
+#~ msgid "Go offline?"
+#~ msgstr "Váltsak át offline módba?"
+#~ msgid "Replaced node"
+#~ msgstr "Lecserélt csomópont"
+
+#, fuzzy
+#~ msgid "copy source only"
+#~ msgstr "&Megegyező változatok mutatása"
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
