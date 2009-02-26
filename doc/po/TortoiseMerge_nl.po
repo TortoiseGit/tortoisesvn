@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge\n"
 "POT-Creation-Date: 2006-10-11 21:52GMT Daylight Time\n"
-"PO-Revision-Date: 2008-09-15 21:57+0200\n"
+"PO-Revision-Date: 2009-02-26 21:46+0200\n"
 "Last-Translator: Bob Hulst <bob.hulst@hiq.fi>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -119,7 +119,8 @@ msgstr "TortoiseMerge is gratis. U hoeft er niet voor te betalen en kan overal w
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:71
-msgid "TortoiseMerge is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Username:guest, for password hit enter) The most recent version (where we're currently working) is located under <filename>/trunk/</filename> the released versions are located under <filename>/tags/</filename>."
+#, fuzzy
+msgid "TortoiseMerge is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. You will be prompted to enter username and password. The username is <literal>guest</literal>, and the password must be left blank. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
 msgstr "TortoiseMerge is een Open Source project. De volledige bron code is beschikbaar. Volg deze link voor de bron code <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Gebruikersnaam:guest, password geef enter) De meest recente versie (waar nu aan wordt gewerkt) bevindt zich in <filename>/trunk/</filename> en de uitgegeven versie staan in <filename>/tags/</filename>."
 
 #. (title)
@@ -1169,7 +1170,7 @@ msgstr "samengevoegd"
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1262
 #, fuzzy
-msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the filepath where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
+msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the file path where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
 msgstr "<placeholder-1/> TortoiseMerge."
 
 #. (entry)
