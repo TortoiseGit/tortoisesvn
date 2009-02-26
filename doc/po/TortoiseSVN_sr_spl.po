@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-02-17 23:46 +0000\n"
-"PO-Revision-Date: 2009-02-19 23:33+0100\n"
+"PO-Revision-Date: 2009-02-24 21:59+0100\n"
 "Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr ""
 #. (None)
 #: ../source/TortoiseSVN_en.xml:14428
 msgid "@@image: 'images/svn_move.png'; md5=THIS FILE DOESN'T EXIST"
-msgstr "@@image: 'images/svn_move.png'; md5=THIS FILE DOESN'T EXIST"
+msgstr "@@image: 'images/svn_move.png'; md5=OVAJ FAJL NE POSTOJI"
 
 #. (title)
 #. (secondary)
@@ -303,12 +303,12 @@ msgstr "Da bi se olakšalo čitanje dokumenata imena svih ekrana i Menija u Tort
 #. (para)
 #: ../source/TortoiseSVN_en.xml:261
 msgid "A menu choice is indicated with an arrow. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> means: select <emphasis>Show Log</emphasis> from the <emphasis>TortoiseSVN</emphasis> context menu."
-msgstr "Izbor menija prikazana strelicom. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Dnevnik prikaza</guimenuitem></menuchoice> means: selekt <emphasis>Dnevniik prikaza</emphasis>iz <emphasis>TortoiseSVN</emphasis> meni sadržaja."
+msgstr "Izbor menija prikazana strelicom. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Dnevnik prikaza</guimenuitem></menuchoice> means: selekt <emphasis>Dnevnik prikaza</emphasis>iz <emphasis>TortoiseSVN</emphasis> kontekst meni."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:270
 msgid "Where a local context menu appears within one of the TortoiseSVN dialogs, it is shown like this: <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save As ...</guimenuitem></menuchoice>"
-msgstr "Tamo gde se lokalni kontekstni meni  pojavljuje u okviru TortoiseSVN dijaloga, to je prikazano kao: <menuchoice><guimenu>Kontekstni Meni</guimenu><guimenuitem>Upamti kao ...</guimenuitem></menuchoice>"
+msgstr "Tamo gde se lokalni kontekstni meni  pojavljuje u okviru TortoiseSVN dijaloga, to je prikazano kao: <menuchoice><guimenu>Kontekstni Meni</guimenu><guimenuitem>Sačuvaj Kao ...</guimenuitem></menuchoice>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:278
@@ -542,7 +542,7 @@ msgstr "Zahtevi sistema"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:561
 msgid "TortoiseSVN runs on Windows 2000 SP2, Windows XP or higher. Windows 98, Windows ME and Windows NT4 are no longer supported since TortoiseSVN 1.2.0, but you can still download the older versions if you really need them."
-msgstr "TortoiseSVN radi na  Windows 2000 SO2,  Windows XP  ili viši, Windows ME i Windows NT4 više nisu podržani od TortoiseSVN 1.2.0, ali još možete preneti stare verzije ako su vam stvarno potrebne."
+msgstr "TortoiseSVN radi na  Windows 2000 SP2,  Windows XP  ili viši, Windows ME i Windows NT4 više nisu podržani od TortoiseSVN 1.2.0, ali još možete preneti stare verzije ako su vam stvarno potrebne."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:567
@@ -597,12 +597,12 @@ msgstr "Svaki jezički paket je spakovanu kao <literal>.exe</literal> instalacij
 #. (title)
 #: ../source/TortoiseSVN_en.xml:616
 msgid "Spellchecker"
-msgstr "Pravopiskontrola"
+msgstr "Pravopis kontrola"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:618
 msgid "spellchecker"
-msgstr "pravopiskontrola"
+msgstr "pravopis kontrola"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:621
@@ -6045,7 +6045,7 @@ msgstr "Ako ste konfigurisali diff alat treće strane, možete koristiti  <keyca
 #. (title)
 #: ../source/TortoiseSVN_en.xml:6998
 msgid "Line-end and Whitespace Options"
-msgstr "Kraj-reda i razmak opcije"
+msgstr "Kraj-reda i  Bela polja Opcije"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6999
@@ -6060,17 +6060,17 @@ msgstr "<guilabel>Zanemari završetak linija</guilabel> izbacuje izmene koje su 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7014
 msgid "<guilabel>Compare whitespaces</guilabel> includes all changes in indentation and inline whitespace as added/removed lines."
-msgstr "<guilabel>Poređenje belihpolja </guilabel> uključuje sve izmene u uvlačenju i unutar linije belapolja kao dodate/uklonjene linije."
+msgstr "<guilabel>Poređenje belih polja </guilabel> uključuje sve izmene u uvlačenju i bela polja unutar linije kao dodate/uklonjene linije."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7019
 msgid "<guilabel>Ignore whitespace changes</guilabel> excludes changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Zanemari izmene belihpolja</guilabel> isključuje izmene koje su samo zbog izmena u iznosu ili tipu belihpolja, npr. izmenom uvlačenja ili izmenom tabova ili razmaka. Dodavanjem belih polja gde nisu bila ranije, ili uklanjanjem belihpolja potpuno je još uvek prikazano kao promena."
+msgstr "<guilabel>Zanemari izmene belih polja </guilabel> isključuje izmene koje su samo zbog izmena u iznosu ili tipu belih polja, npr. izmenom uvlačenja ili izmenom tabova ili razmaka. Dodavanjem belih polja gde nisu bila ranije, ili uklanjanjem belih polja potpuno je još uvek prikazano kao promena."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7027
 msgid "<guilabel>Ignore all whitespaces</guilabel> excludes all whitespace-only changes."
-msgstr "<guilabel>Zanemari sva belapolja</guilabel> isključuje sva samo-belapolja izmene."
+msgstr "<guilabel>Zanemari sva bela polja</guilabel> isključuje sva samo-bela polja izmene."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7031
@@ -7765,7 +7765,7 @@ msgstr "Najviše vremena vi želite da stapanje uzme u obzir istoriju fajla, tak
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9218
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes to be merged."
-msgstr "Možete odrediti način rukovanja sa završetkom linija i izmenama belihpolja. Ove opcije su opisane u <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>.  Uobičajeno ponašanje je da se tretiraju sva bela polja i kraj-linije razlike kao stvarne izmen koje se stapaju."
+msgstr "Možete odrediti način rukovanja sa završetkom linija i izmenama belih polja. Ove opcije su opisane u <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>.  Uobičajeno ponašanje je da se tretiraju sva bela polja i kraj-linije razlike kao stvarne izmen koje se stapaju."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9224
@@ -8280,7 +8280,7 @@ msgstr "Uobičajeno je da okrivljavanje fajl se pregleda koristeći <firstterm>T
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9915
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes, but if you want to ignore an indentation change and find the original author, you can choose an appropriate option here."
-msgstr "Možete specificirati način rukovanja završetkom linije i izmenom belihpolja. Ove opcije su opisane u <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. Uobičajeno ponašanje se tretiraju sva belapolja i kraj linija razlike kao realne izmene, ali ako želite da zanemarite uvlačenje izmene i naći originalne autore možete izabrati odgovarajuće opcije ovde."
+msgstr "Možete specificirati način rukovanja završetkom linije i izmenom belih polja. Ove opcije su opisane u <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. Uobičajeno ponašanje se tretiraju sva bela polja i kraj linija razlike kao realne izmene, ali ako želite da zanemarite uvlačenje izmene i naći originalne autore možete izabrati odgovarajuće opcije ovde."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9922
@@ -9259,7 +9259,7 @@ msgstr "Prvi izraz izvlači <quote>issues #23, #24 and #25</quote> iz okruženja
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11196
 msgid "Breaking the first regex down a little, it must start with the word <quote>issue</quote>, possibly capitalised. This is optionally followed by an <quote>s</quote> (more than one issue) and optionally a colon. This is followed by one or more groups each having zero or more leading whitespace, an optional comma or <quote>and</quote> and more optional space. Finally there is a mandatory <quote>#</quote> and a mandatory decimal number."
-msgstr "Mala greška kod prve regeks, mora se početi rečju <quote>problem</quote>, moguće sa velikim slovima. Ovo je opcionalno praćeno sa jednim <quote>s</quote> (više od jednog problema) i opcionalno tačkom i zarezom. Ovo je praćeno jednim ili više grupe svaki ima nula ili više vodećih belihpolja, opcionalna zapeta ili <quote>i</quote> i više opcionalnih razmaka. Na kraju postoji obavezan <quote>#</quote> i obavezan decimalni broj."
+msgstr "Mala greška kod prve regeks, mora se početi rečju <quote>problem</quote>, moguće sa velikim slovima. Ovo je opcionalno praćeno sa jednim <quote>s</quote> (više od jednog problema) i opcionalno tačkom i zarezom. Ovo je praćeno jednim ili više grupe svaki ima nula ili više vodećih belih polja, opcionalna zapeta ili <quote>i</quote> i više opcionalnih razmaka. Na kraju postoji obavezan <quote>#</quote> i obavezan decimalni broj."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11205
