@@ -224,54 +224,102 @@
 				<listitem>
 					<para>
 						Developer A moves <filename>Foo.c</filename> to
-						<filename>Bar.c</filename> and commits it to the repository
+						<filename>Bar.c</filename> and commits it to the repository.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
 						Developer B modifies <filename>Foo.c</filename>
-						in his working copy
+						in his working copy.
 					</para>
 				</listitem>
 			</orderedlist>
 			<para>
-				An update of developer B's working copy results in a tree conflict:
+				Or in the case of a folder move ...
+			</para>
+			<orderedlist>
+				<listitem>
+					<para>
+						Developer A moves parent folder <filename>FooFolder</filename>
+						to <filename>BarFolder</filename> and commits it to the
+						repository.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Developer B modifies <filename>Foo.c</filename>
+						in his working copy.
+					</para>
+				</listitem>
+			</orderedlist>
+			<para>
+				An update of developer B's working copy results in a tree conflict.
+				For a simple file conflict:
 				<itemizedlist>
 					<listitem>
 						<para>
-							<filename>Foo.c</filename> is marked as added.
-						</para>
-					</listitem>
-					<listitem>
-						<para>
 							<filename>Bar.c</filename> is added to the 
-							working copy, but may not contain developer 
-							A's modifications.
+							working copy as a normal file.
+						</para>
+						<para>
+							Or <filename>BarFolder</filename> is added to the 
+							working copy as a normal folder.
 						</para>
 					</listitem>
 					<listitem>
 						<para>
-							Tree conflict on <filename>Foo.c</filename>.
+							<filename>Foo.c</filename> is marked as added
+							(with history) and has a tree conflict.
+						</para>
+						<para>
+							Or <filename>FooFolder</filename> 
 						</para>
 					</listitem>
 				</itemizedlist>
 			</para>
 			<para>
-				To resolve this conflict, Developer B has to find out 
-				to what filename the conflicted file <filename>Foo.c</filename>
-				was renamed/moved in the repository. This can be done by
-				using the log dialog.
+				For a folder conflict:
+				<itemizedlist>
+					<listitem>
+						<para>
+							Or <filename>BarFolder</filename> is added to the 
+							working copy as a normal folder.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<filename>FooFolder</filename> is marked as added
+							(with history) and has a tree conflict.
+						</para>
+						<para>
+							<filename>Foo.c</filename> is marked as modified.
+						</para>
+					</listitem>
+				</itemizedlist>
 			</para>
 			<para>
-				Then developer B has to decide whether to also rename his
-				copy of <filename>Foo.c</filename> and merge the changes
-				in from the repository, or whether to keep his file and undo
-				the rename from the repository.
+				Then developer B has to decide whether to go with developer A's
+				reorganisation and merge her changes into the corresponding
+				file in the new structure, or simply revert A's changes and
+				keep the local file.
 			</para>
 			<para>
-				After developer B has manually resolved the conflict, the
-				tree conflict has to be marked as resolved with the button
-				in the conflict editor dialog.
+				To merge her local changes with the reshuffle, Developer B must
+				first find out to what filename the conflicted file
+				<filename>Foo.c</filename> was renamed/moved in the repository.
+				This can be done by using the log dialog. The changes must then be
+				merged by hand as there is currently no way to automate or even
+				simplify this process. Once the changes have been ported across,
+				the conflicted path is redundant and can be deleted. In this case
+				use the <guilabel>Remove</guilabel> button in the conflict
+				editor dialog to clean up and mark the conflict as resolved.
+			</para>
+			<para>
+				If Developer B decides that A's changes were wrong then she
+				must choose the <guilabel>Keep</guilabel> button in the
+				conflict editor dialog. This marks the conflicted file/folder as
+				resolved, but Developer A's changes need to be removed by hand.
+				Again the log dialog helps to track down what was moved.
 			</para>
 		</sect3>
 		<sect3 id="tsvn-dug-conflicts-tree-3">
