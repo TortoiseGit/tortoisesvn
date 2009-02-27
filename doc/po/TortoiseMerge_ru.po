@@ -1,6 +1,6 @@
 #
 # Russian translation for TortoiseMerge
-# Copyright (C) 2005-2008 the TortoiseSVN team
+# Copyright (C) 2005-2009 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Last commit by:
@@ -9,14 +9,14 @@
 # $Rev$
 #
 # Authors:
-#   Stanislav Petrakov <stannic@yandex.ru> 2005-2008
+#   Stanislav Petrakov <stannic@yandex.ru> 2005-2009
 #   Vladimir Serdyuk <vserd@users.sourceforge.net>, 2006
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-11-17 00:14 +0000\n"
-"PO-Revision-Date: 2008-11-17 17:19+0300\n"
+"PO-Revision-Date: 2009-02-25 17:41+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -123,7 +123,7 @@ msgstr "TortoiseMerge бесплатен. Вам не нужно за него �
 #. (para)
 #: ../source/TortoiseMerge_en.xml:71
 msgid "TortoiseMerge is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. You will be prompted to enter username and password. The username is <literal>guest</literal>, and the password must be left blank. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseMerge - проект с Открытым Исходным Кодом (Open Source). Это означает, что вы имеете полный доступ на чтение к исходному коду этой программы. Вы можете просмотреть его по ссылке <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. У вас будут запрошены имя пользователя и пароль. В качестве имени пользователя введите <literal>guest</literal>, пароль нужно оставить пустым. Самая последняя версия (над которой мы работаем в данный момент) находится в <filename>/trunk/</filename>, ранее выпущенные версии находятся в <filename>/tags/</filename>."
+msgstr "TortoiseMerge - проект с открытым исходным кодом (Open Source). Это означает, что вы имеете полный доступ на чтение к исходному коду этой программы. Вы можете просмотреть его по ссылке <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. У вас будут запрошены имя пользователя и пароль. В качестве имени пользователя введите <literal>guest</literal>, пароль нужно оставить пустым. Самая последняя версия (над которой мы работаем в данный момент) находится в <filename>/trunk/</filename>, ранее выпущенные версии находятся в <filename>/tags/</filename>."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:90
@@ -541,7 +541,7 @@ msgstr "<guibutton>Внутристрочные различия по слова
 #. (para)
 #: ../source/TortoiseMerge_en.xml:617
 msgid "Word-wise is the default and in most cases it works better. For example if you change a variable name, the whole name is highlighted in word-wise mode, whereas in char-wise mode you tend to get a mess of added and deleted characters which doesn't make much sense. However, some content does not resolve neatly into words, for example a hex file, and in that case, char-wise display works better."
-msgstr "Режим различия по словам используется по умолчанию и в большинстве случаев работает лучше. Например, если вы изменили имя переменной, в режиме различий по словам будет подсвечено всё имя, тогда как в режиме сравнения по символам вы скорее всего получите мешанину из добавленных и удалённых символов, что может быть лишено смысла. Однако, некоторое содержимое не может быть аккуратно представлено в виде слов - например, шестнадцатиричный файл, - и в этом случае лучше работает режим различия по символам. "
+msgstr "Режим различия по словам используется по умолчанию и в большинстве случаев работает лучше. Например, если вы изменили имя переменной, в режиме различий по словам будет подсвечено всё имя, тогда как в режиме сравнения по символам вы скорее всего получите мешанину из добавленных и удалённых символов, что может быть лишено смысла. Однако, некоторое содержимое не может быть аккуратно представлено в виде слов - например, шестнадцатеричный файл, - и в этом случае лучше работает режим различия по символам. "
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:628
