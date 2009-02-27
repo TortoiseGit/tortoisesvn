@@ -57,7 +57,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-20 10:33+0800\n"
+"PO-Revision-Date: 2009-02-27 15:15+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -849,7 +849,7 @@ msgid "&Options"
 msgstr "选项(&O)"
 
 #. Resource IDs: (32772)
-msgid "&Overlap images"
+msgid "&Overlay images"
 msgstr "叠加图像(&O)"
 
 #. Resource IDs: (1411, 65535)
@@ -1267,6 +1267,10 @@ msgstr "------------------------------------------------------------------------
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
+
+#. Resource IDs: (269)
+msgid "... checking cache and preparing log query"
+msgstr "... 检查缓存，准备查询日志"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -2537,6 +2541,10 @@ msgstr "设置用来解决冲突的程序。"
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "设置查看 GNU 差异文件（补丁文件）的程序。"
 
+#. Resource IDs: (1503)
+msgid "Conflict Sources"
+msgstr "冲突源"
+
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
 msgstr "冲突已经解决"
@@ -3082,9 +3090,13 @@ msgstr "删除动作记录文件"
 msgid "Deleting"
 msgstr "正在删除"
 
+#. Resource IDs: (207)
+msgid "Depth"
+msgstr "深度"
+
 #. Resource IDs: (65535)
 msgid "Depth:"
-msgstr "深度: "
+msgstr "深度:"
 
 #. Resource IDs: (1002)
 msgid "Description"
@@ -3092,7 +3104,7 @@ msgstr "描述"
 
 #. Resource IDs: (65535)
 msgid "Description:"
-msgstr "描述: "
+msgstr "描述:"
 
 #. Resource IDs: (213)
 msgid "Deselect changelist"
@@ -3700,13 +3712,17 @@ msgstr "外部程序: 合并工具"
 msgid "External Programs::Unified Diff Viewer"
 msgstr "外部程序: 标准差异查看器"
 
+#. Resource IDs: (263)
+msgid "External failed"
+msgstr "外部引用失败"
+
 #. Resource IDs: (226)
 msgid "Externals excluded"
-msgstr "排除外部依赖"
+msgstr "排除外部引用"
 
 #. Resource IDs: (226)
 msgid "Externals included"
-msgstr "包含外部依赖"
+msgstr "包含外部引用"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -6127,8 +6143,8 @@ msgid "Port :"
 msgstr "端口: "
 
 #. Resource IDs: (347)
-msgid "Possible values: 0 (fully transparent) .. 255 (no transparency)"
-msgstr "取值范围: 0 (全透明) .. 255 (不透明)"
+msgid "Possible values: 0 (fully transparent) .. 255 (opaque)"
+msgstr "可能的取值: 0 (全透明) .. 255 (不透明)"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
@@ -6271,6 +6287,16 @@ msgstr "属性 %s : 基础版本"
 #, c-format
 msgid "Property %s : working copy"
 msgstr "属性 %s : 工作版本"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' deleted"
+msgstr "已经删除属性 '%s'"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' set"
+msgstr "已经设置属性 '%s'"
 
 #. Resource IDs: (107)
 msgid "Property Page"
@@ -7664,6 +7690,14 @@ msgstr "跳过丢失的目标项"
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
 msgstr "按照提交数量排序"
+
+#. Resource IDs: (1501)
+msgid "Source Left:"
+msgstr "源左:"
+
+#. Resource IDs: (1502)
+msgid "Source Right:"
+msgstr "源右:"
 
 #. Resource IDs: (196)
 msgid ""
