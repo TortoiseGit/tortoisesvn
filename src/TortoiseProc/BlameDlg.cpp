@@ -34,7 +34,7 @@ CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
 	m_regTextView = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
 	m_bTextView = m_regTextView;
 	m_regIncludeMerge = CRegDWORD(_T("Software\\TortoiseSVN\\BlameIncludeMerge"), FALSE);
-	m_bIncludeMerge = m_regTextView;
+	m_bIncludeMerge = m_regIncludeMerge;
 }
 
 CBlameDlg::~CBlameDlg()
