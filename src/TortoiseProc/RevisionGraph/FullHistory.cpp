@@ -307,6 +307,9 @@ bool CFullHistory::FetchRevisionData ( CString path
 			CTSVNPath tpath = CTSVNPath (path);
 			if (!tpath.IsUrl())
 			{
+                temp.LoadString (IDS_REVGRAPH_PROGREADINGWC);
+                progress->SetLine(2, temp);
+
 				if (svn.GetWCRevisionStatus ( CTSVNPath (path)
 											, true    // get the "commit" revision
 											, minrev
