@@ -210,6 +210,7 @@ private:
     };
 
     bool            UpdateSelectedEntry (const CVisibleGraphNode * clickedentry);
+    void            AppendMenu (CMenu& popup, UINT title, UINT command, UINT flags = MF_ENABLED);
     void            AddSVNOps (CMenu& popup);
     void            AddGraphOps (CMenu& popup, const CVisibleGraphNode * node);
     void            DoShowLog();

@@ -48,15 +48,16 @@ using namespace Gdiplus;
 enum RevisionGraphContextMenuCommands
 {
 	// needs to start with 1, since 0 is the return value if *nothing* is clicked on in the context menu
+    GROUP_MASK = 0xff00,
 	ID_SHOWLOG = 1,
-	ID_COMPAREREVS,
+	ID_COMPAREREVS = 0x100,
 	ID_COMPAREHEADS,
 	ID_UNIDIFFREVS,
 	ID_UNIDIFFHEADS,
 	ID_MERGETO,
-    ID_EXPAND_ALL,
+    ID_EXPAND_ALL = 0x200,
     ID_JOIN_ALL,
-    ID_GRAPH_EXPANDCOLLAPSE_ABOVE,
+    ID_GRAPH_EXPANDCOLLAPSE_ABOVE = 0x300,
     ID_GRAPH_EXPANDCOLLAPSE_RIGHT,
     ID_GRAPH_EXPANDCOLLAPSE_BELOW,
     ID_GRAPH_SPLITJOIN_ABOVE,
@@ -931,6 +932,28 @@ bool CRevisionGraphWnd::UpdateSelectedEntry (const CVisibleGraphNode * clickeden
     return true;
 }
 
+void CRevisionGraphWnd::AppendMenu 
+    ( CMenu& popup
+    , UINT title
+    , UINT command
+    , UINT flags)
+{
+    // separate different groups / section within the context menu
+
+    if (popup.GetMenuItemCount() > 0)
+    {
+        UINT lastCommand = popup.GetMenuItemID (popup.GetMenuItemCount()-1);
+        if ((lastCommand & GROUP_MASK) != (command & GROUP_MASK))
+		    popup.AppendMenu(MF_SEPARATOR, NULL);
+    }
+
+    // actually add the new item
+
+    CString titleString;
+    titleString.LoadString (title);
+    popup.AppendMenu (MF_STRING | flags, command, titleString);
+}
+
 void CRevisionGraphWnd::AddSVNOps (CMenu& popup)
 {
     bool bothPresent =  (m_SelectedEntry1 != NULL)
@@ -939,35 +962,21 @@ void CRevisionGraphWnd::AddSVNOps (CMenu& popup)
                      && !m_SelectedEntry2->GetClassification().Is (CNodeClassification::IS_DELETED);
 
     bool bSameURL = (m_SelectedEntry2 && m_SelectedEntry1 && (m_SelectedEntry1->GetPath() == m_SelectedEntry2->GetPath()));
-	CString temp;
 	if (m_SelectedEntry1 && (m_SelectedEntry2 == NULL))
 	{
-		temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SHOWLOG, temp);
-		popup.AppendMenu(MF_SEPARATOR, NULL);
+		AppendMenu (popup, IDS_REPOBROWSE_SHOWLOG, ID_SHOWLOG);
 		if (PathIsDirectory(m_sPath))
-		{
-			temp.LoadString(IDS_LOG_POPUP_MERGEREV);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_MERGETO, temp);
-		}
+    		AppendMenu (popup, IDS_LOG_POPUP_MERGEREV, ID_MERGETO);
 	}
 	if (bothPresent)
 	{
-		temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREREVS);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREREVS, temp);
+		AppendMenu (popup, IDS_REVGRAPH_POPUP_COMPAREREVS, ID_COMPAREREVS);
 	    if (!bSameURL)
-	    {
-		    temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREHEADS);
-		    popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREHEADS, temp);
-	    }
+    		AppendMenu (popup, IDS_REVGRAPH_POPUP_COMPAREHEADS, ID_COMPAREHEADS);
 
-		temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFREVS);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFREVS, temp);
-		if (!bSameURL)
-		{
-			temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFHEADS);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFHEADS, temp);
-		}
+		AppendMenu (popup, IDS_REVGRAPH_POPUP_UNIDIFFREVS, ID_UNIDIFFREVS);
+	    if (!bSameURL)
+    		AppendMenu (popup, IDS_REVGRAPH_POPUP_UNIDIFFHEADS, ID_UNIDIFFHEADS);
 	}
 }
 
@@ -975,77 +984,63 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
 {
     CSyncPointer<CGraphNodeStates> nodeStates (m_state.GetNodeStates());
 
-    CString temp;
     if (node == NULL)
     {
         DWORD state = nodeStates->GetCombinedFlags();
         if (state != 0)
         {
             if (state & CGraphNodeStates::COLLAPSED_ALL)
-            {
-                temp.LoadString (IDS_REVGRAPH_POPUP_EXPAND_ALL);
-                popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EXPAND_ALL, temp);
-            }
+        		AppendMenu (popup, IDS_REVGRAPH_POPUP_EXPAND_ALL, ID_EXPAND_ALL);
 
             if (state & CGraphNodeStates::SPLIT_ALL)
-            {
-    	        temp.LoadString (IDS_REVGRAPH_POPUP_JOIN_ALL);
-	            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_JOIN_ALL, temp);
-            }
+        		AppendMenu (popup, IDS_REVGRAPH_POPUP_JOIN_ALL, ID_JOIN_ALL);
         }
     }
     else
     {
-        popup.AppendMenu(MF_SEPARATOR, NULL);
         DWORD state = nodeStates->GetFlags (node);
 
         if (node->GetSource() || (state & CGraphNodeStates::COLLAPSED_ABOVE))
-        {
-            temp.LoadString ((state & CGraphNodeStates::COLLAPSED_ABOVE) 
-                             ? IDS_REVGRAPH_POPUP_EXPAND_ABOVE 
-                             : IDS_REVGRAPH_POPUP_COLLAPSE_ABOVE);
-            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_EXPANDCOLLAPSE_ABOVE, temp);
-        }
+       		AppendMenu ( popup
+                       ,   (state & CGraphNodeStates::COLLAPSED_ABOVE) 
+                         ? IDS_REVGRAPH_POPUP_EXPAND_ABOVE 
+                         : IDS_REVGRAPH_POPUP_COLLAPSE_ABOVE
+                       , ID_GRAPH_EXPANDCOLLAPSE_ABOVE);
 
         if (node->GetFirstCopyTarget() || (state & CGraphNodeStates::COLLAPSED_RIGHT))
-        {
-            temp.LoadString ((state & CGraphNodeStates::COLLAPSED_RIGHT) 
-                             ? IDS_REVGRAPH_POPUP_EXPAND_RIGHT 
-                             : IDS_REVGRAPH_POPUP_COLLAPSE_RIGHT);
-            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_EXPANDCOLLAPSE_RIGHT, temp);
-        }
+       		AppendMenu ( popup
+                       ,   (state & CGraphNodeStates::COLLAPSED_RIGHT) 
+                         ? IDS_REVGRAPH_POPUP_EXPAND_RIGHT 
+                         : IDS_REVGRAPH_POPUP_COLLAPSE_RIGHT
+                       , ID_GRAPH_EXPANDCOLLAPSE_RIGHT);
 
         if (node->GetNext() || (state & CGraphNodeStates::COLLAPSED_BELOW))
-        {
-            temp.LoadString ((state & CGraphNodeStates::COLLAPSED_BELOW) 
-                             ? IDS_REVGRAPH_POPUP_EXPAND_BELOW 
-                             : IDS_REVGRAPH_POPUP_COLLAPSE_BELOW);
-            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_EXPANDCOLLAPSE_BELOW, temp);
-        }
+       		AppendMenu ( popup
+                       ,   (state & CGraphNodeStates::COLLAPSED_BELOW) 
+                         ? IDS_REVGRAPH_POPUP_EXPAND_BELOW 
+                         : IDS_REVGRAPH_POPUP_COLLAPSE_BELOW
+                       , ID_GRAPH_EXPANDCOLLAPSE_BELOW);
 
         if (node->GetSource() || (state & CGraphNodeStates::SPLIT_ABOVE))
-        {
-            temp.LoadString ((state & CGraphNodeStates::SPLIT_ABOVE) 
-                             ? IDS_REVGRAPH_POPUP_JOIN_ABOVE 
-                             : IDS_REVGRAPH_POPUP_SPLIT_ABOVE);
-            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_SPLITJOIN_ABOVE, temp);
-        }
+       		AppendMenu ( popup
+                       ,   (state & CGraphNodeStates::SPLIT_ABOVE) 
+                         ? IDS_REVGRAPH_POPUP_JOIN_ABOVE 
+                         : IDS_REVGRAPH_POPUP_SPLIT_ABOVE
+                       , ID_GRAPH_SPLITJOIN_ABOVE);
 
         if (node->GetFirstCopyTarget() || (state & CGraphNodeStates::SPLIT_RIGHT))
-        {
-            temp.LoadString ((state & CGraphNodeStates::SPLIT_RIGHT) 
-                             ? IDS_REVGRAPH_POPUP_JOIN_RIGHT 
-                             : IDS_REVGRAPH_POPUP_SPLIT_RIGHT);
-            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_SPLITJOIN_RIGHT, temp);
-        }
+       		AppendMenu ( popup
+                       ,   (state & CGraphNodeStates::SPLIT_RIGHT) 
+                         ? IDS_REVGRAPH_POPUP_JOIN_RIGHT 
+                         : IDS_REVGRAPH_POPUP_SPLIT_RIGHT
+                       , ID_GRAPH_SPLITJOIN_RIGHT);
 
         if (node->GetNext() || (state & CGraphNodeStates::SPLIT_BELOW))
-        {
-            temp.LoadString ((state & CGraphNodeStates::SPLIT_BELOW) 
-                             ? IDS_REVGRAPH_POPUP_JOIN_BELOW 
-                             : IDS_REVGRAPH_POPUP_SPLIT_BELOW);
-            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_SPLITJOIN_BELOW, temp);
-        }
+       		AppendMenu ( popup
+                       ,   (state & CGraphNodeStates::SPLIT_BELOW) 
+                         ? IDS_REVGRAPH_POPUP_JOIN_BELOW 
+                         : IDS_REVGRAPH_POPUP_SPLIT_BELOW
+                       , ID_GRAPH_SPLITJOIN_BELOW);
     }
 }
 
