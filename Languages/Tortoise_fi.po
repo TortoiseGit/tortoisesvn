@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-17 20:59+0200\n"
+"PO-Revision-Date: 2009-02-28 19:39+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -869,7 +869,7 @@ msgid "&Options"
 msgstr "&Asetukset"
 
 #. Resource IDs: (32772)
-msgid "&Overlap images"
+msgid "&Overlay images"
 msgstr "&Aseta kuvat päällekkäin"
 
 #. Resource IDs: (1411, 65535)
@@ -1048,6 +1048,14 @@ msgstr "&Varasta lukot"
 #. Resource IDs: (1130)
 msgid "&Stop on copy/rename"
 msgstr "P&ysäytä kopion / uudelleennimennän kohdalla"
+
+#. Resource IDs: (276)
+msgid "&Switch WC to path and revision"
+msgstr "&Vaihda työkopio polkuun ja versioon"
+
+#. Resource IDs: (275)
+msgid "&Switch WC to path@HEAD"
+msgstr "&Vaihda työkopio versioon polku@HEAD"
 
 #. Resource IDs: (1173)
 msgid "&Symbol View"
@@ -1287,6 +1295,14 @@ msgstr "------------------------------------------------------------------------
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
+
+#. Resource IDs: (269)
+msgid "... checking cache and preparing log query"
+msgstr "... välimuistin tarkastus ja lokikyselyn valmistelu meneillään"
+
+#. Resource IDs: (270)
+msgid "... reading working copy status"
+msgstr "... tutkitaan työkopion tilaa"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -2521,6 +2537,10 @@ msgstr "Määritä ohjelma, jota käytetään tiedostoristiriitojen ratkomiseen.
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "Määritä ohjelma, jota käytetään GNU diff-tiedostojen (paikkatiedostot) katseluun."
 
+#. Resource IDs: (1503)
+msgid "Conflict Sources"
+msgstr "Ristiriitaiset tiedostot"
+
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
 msgstr "Ristiriita ratkaistu"
@@ -3062,6 +3082,10 @@ msgstr "Poistaa toimenpidelokin"
 #. Resource IDs: (263)
 msgid "Deleting"
 msgstr "Poistetaan"
+
+#. Resource IDs: (207)
+msgid "Depth"
+msgstr "Syvyys"
 
 #. Resource IDs: (65535)
 msgid "Depth:"
@@ -3673,6 +3697,10 @@ msgstr "Ulkoiset ohjelmat::Yhdistämistyökalu"
 #. Resource IDs: (194)
 msgid "External Programs::Unified Diff Viewer"
 msgstr "Ulkoiset ohjelmat::Unified diff-työkalu"
+
+#. Resource IDs: (263)
+msgid "External failed"
+msgstr "svn:external epäonnistui"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
@@ -6208,6 +6236,16 @@ msgstr "Ominaisuus %s : kantaversio"
 msgid "Property %s : working copy"
 msgstr "Ominaisuus %s : työkopio"
 
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' deleted"
+msgstr "Ominaisuus '%s' poistettu"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' set"
+msgstr "Ominaisuus '%s' asetettu"
+
 #. Resource IDs: (107)
 msgid "Property Page"
 msgstr "Ominaisuussivu"
@@ -7593,6 +7631,14 @@ msgstr "Ohitettiin puuttuva kohde"
 msgid "Sort by commit count"
 msgstr "Lajittele toimitusmäärän mukaan"
 
+#. Resource IDs: (1501)
+msgid "Source Left:"
+msgstr "Vasen tiedosto:"
+
+#. Resource IDs: (1502)
+msgid "Source Right:"
+msgstr "Oikea tiedosto:"
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Määrittää kuinka monta viestiä säilytetään viimeisimpien lokiviestien listassa."
@@ -8941,6 +8987,10 @@ msgstr "Päivitä - TortoiseSVN"
 #. Resource IDs: (1377)
 msgid "Update Depth"
 msgstr "Päivityksen syvyys"
+
+#. Resource IDs: (275)
+msgid "Update WC to revision"
+msgstr "Päivitä työkopio versioon"
 
 #. Resource IDs: (74)
 msgid "Updated"
