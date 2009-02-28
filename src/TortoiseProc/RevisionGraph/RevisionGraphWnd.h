@@ -213,8 +213,13 @@ private:
     void            AppendMenu (CMenu& popup, UINT title, UINT command, UINT flags = MF_ENABLED);
     void            AddSVNOps (CMenu& popup);
     void            AddGraphOps (CMenu& popup, const CVisibleGraphNode * node);
+    CString         GetSelectedURL() const;
+    CString         GetWCURL() const;
     void            DoShowLog();
     void            DoMergeTo();
+    void            DoUpdate();
+    void            DoSwitch();
+    void            DoSwitchToHead();
     void            ResetNodeFlags (DWORD flags);
     void            ToggleNodeFlag (const CVisibleGraphNode *node, DWORD flag);
 

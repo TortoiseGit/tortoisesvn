@@ -56,6 +56,7 @@ public:
     void			SetPegRevision(SVNRev revision) {m_Graph.m_pegRev = revision;}
     void            DoZoom (float factor);
 
+    void            UpdateFullHistory();
     void            StartWorkerThread();
 
 protected:

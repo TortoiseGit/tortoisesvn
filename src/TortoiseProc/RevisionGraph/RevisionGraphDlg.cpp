@@ -361,19 +361,7 @@ BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
 			m_Graph.Invalidate();
 			break;
 		case VK_F5:
-	        m_Graph.SetDlgTitle (false);
-
-            SVN svn;
-        	LogCache::CRepositoryInfo& cachedProperties 
-                = svn.GetLogCachePool()->GetRepositoryInfo();
-            CString root = m_Graph.m_state.GetRepositoryRoot();
-            CString uuid = m_Graph.m_state.GetRepositoryUUID();
-
-            cachedProperties.ResetHeadRevision (uuid, root);
-
-            m_bFetchLogs = true;
-            StartWorkerThread();
-
+            UpdateFullHistory();
 			break;
 		}
 	}
@@ -477,6 +465,22 @@ void CRevisionGraphDlg::OnViewUnifieddiff()
 void CRevisionGraphDlg::OnViewUnifieddiffofheadrevisions()
 {
 	m_Graph.UnifiedDiffRevs(true);
+}
+
+void CRevisionGraphDlg::UpdateFullHistory()
+{
+    m_Graph.SetDlgTitle (false);
+
+    SVN svn;
+	LogCache::CRepositoryInfo& cachedProperties 
+        = svn.GetLogCachePool()->GetRepositoryInfo();
+    CString root = m_Graph.m_state.GetRepositoryRoot();
+    CString uuid = m_Graph.m_state.GetRepositoryUUID();
+
+    cachedProperties.ResetHeadRevision (uuid, root);
+
+    m_bFetchLogs = true;
+    StartWorkerThread();
 }
 
 void CRevisionGraphDlg::SetOption (UINT controlID)

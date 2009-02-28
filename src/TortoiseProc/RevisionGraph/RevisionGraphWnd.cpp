@@ -54,10 +54,13 @@ enum RevisionGraphContextMenuCommands
 	ID_COMPAREHEADS,
 	ID_UNIDIFFREVS,
 	ID_UNIDIFFHEADS,
-	ID_MERGETO,
-    ID_EXPAND_ALL = 0x200,
+	ID_MERGETO = 0x300,
+    ID_UPDATE,
+    ID_SWITCHTOHEAD,
+    ID_SWITCH,
+    ID_EXPAND_ALL = 0x400,
     ID_JOIN_ALL,
-    ID_GRAPH_EXPANDCOLLAPSE_ABOVE = 0x300,
+    ID_GRAPH_EXPANDCOLLAPSE_ABOVE = 0x500,
     ID_GRAPH_EXPANDCOLLAPSE_RIGHT,
     ID_GRAPH_EXPANDCOLLAPSE_BELOW,
     ID_GRAPH_SPLITJOIN_ABOVE,
@@ -967,6 +970,17 @@ void CRevisionGraphWnd::AddSVNOps (CMenu& popup)
 		AppendMenu (popup, IDS_REPOBROWSE_SHOWLOG, ID_SHOWLOG);
 		if (PathIsDirectory(m_sPath))
     		AppendMenu (popup, IDS_LOG_POPUP_MERGEREV, ID_MERGETO);
+
+        if (!CTSVNPath (m_sPath).IsUrl())
+            if (GetWCURL() == GetSelectedURL())
+            {
+        		AppendMenu (popup, IDS_REVGRAPH_POPUP_UPDATE, ID_UPDATE);
+            }
+            else
+            {
+                AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCHTOHEAD, ID_SWITCHTOHEAD);
+                AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCH, ID_SWITCH);
+            }
 	}
 	if (bothPresent)
 	{
@@ -1044,12 +1058,36 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
     }
 }
 
-void CRevisionGraphWnd::DoShowLog()
+CString CRevisionGraphWnd::GetSelectedURL() const
 {
-	CString sCmd;
+    if (m_SelectedEntry1 == NULL)
+        return CString();
+
 	CString URL = m_state.GetRepositoryRoot() 
                 + CUnicodeUtils::GetUnicode (m_SelectedEntry1->GetPath().GetPath().c_str());
 	URL = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(URL)));
+
+    return URL;
+}
+
+CString CRevisionGraphWnd::GetWCURL() const
+{
+    CTSVNPath path (m_sPath);
+    if (path.IsUrl())
+        return CString();
+
+    SVNInfo info;
+    const SVNInfoData * status 
+        = info.GetFirstFileInfo (path, SVNRev(), SVNRev());
+
+    return status == NULL ? CString() : status->url;
+}
+
+void CRevisionGraphWnd::DoShowLog()
+{
+	CString URL = GetSelectedURL();
+
+    CString sCmd;
 	sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"), 
 		(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), 
 		(LPCTSTR)URL,
@@ -1067,10 +1105,7 @@ void CRevisionGraphWnd::DoShowLog()
 
 void CRevisionGraphWnd::DoMergeTo()
 {
-	CString URL = m_state.GetRepositoryRoot() 
-                + CUnicodeUtils::GetUnicode (m_SelectedEntry1->GetPath().GetPath().c_str());
-	URL = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(URL)));
-
+	CString URL = GetSelectedURL();
 	CString path = m_sPath;
 	CBrowseFolder folderBrowser;
 	folderBrowser.SetInfo(CString(MAKEINTRESOURCE(IDS_LOG_MERGETO)));
@@ -1086,6 +1121,47 @@ void CRevisionGraphWnd::DoMergeTo()
 		dlg.SetRevisionRanges(revarray);
 		dlg.DoModal();
 	}
+}
+
+void CRevisionGraphWnd::DoUpdate()
+{
+	CSVNProgressDlg progDlg;
+    progDlg.SetCommand (CSVNProgressDlg::SVNProgress_Update);
+	progDlg.SetOptions (0); // don't ignore externals
+	progDlg.SetPathList (CTSVNPathList (CTSVNPath (m_sPath)));
+	progDlg.SetRevision (m_SelectedEntry1->GetRevision());
+	progDlg.SetDepth();
+	progDlg.DoModal();
+
+    if (m_state.GetFetchedWCState())
+        m_parent->UpdateFullHistory();
+}
+
+void CRevisionGraphWnd::DoSwitch()
+{
+	CSVNProgressDlg progDlg;
+    progDlg.SetCommand (CSVNProgressDlg::SVNProgress_Switch);
+	progDlg.SetPathList (CTSVNPathList (CTSVNPath (m_sPath)));
+	progDlg.SetUrl (GetSelectedURL());
+	progDlg.SetRevision (m_SelectedEntry1->GetRevision());
+	progDlg.DoModal();
+
+    if (m_state.GetFetchedWCState())
+        m_parent->UpdateFullHistory();
+}
+
+void CRevisionGraphWnd::DoSwitchToHead()
+{
+	CSVNProgressDlg progDlg;
+    progDlg.SetCommand (CSVNProgressDlg::SVNProgress_Switch);
+	progDlg.SetPathList (CTSVNPathList (CTSVNPath (m_sPath)));
+	progDlg.SetUrl (GetSelectedURL());
+    progDlg.SetRevision (SVNRev::REV_HEAD);
+	progDlg.SetPegRevision (m_SelectedEntry1->GetRevision());
+	progDlg.DoModal();
+
+    if (m_state.GetFetchedWCState())
+        m_parent->UpdateFullHistory();
 }
 
 void CRevisionGraphWnd::ResetNodeFlags (DWORD flags)
@@ -1167,6 +1243,15 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		case ID_MERGETO:
             DoMergeTo();
 			break;
+        case ID_UPDATE:
+            DoUpdate();
+            break;
+        case ID_SWITCHTOHEAD:
+            DoSwitchToHead();
+            break;
+        case ID_SWITCH:
+            DoSwitch();
+            break;
         case ID_EXPAND_ALL:
             ResetNodeFlags (CGraphNodeStates::COLLAPSED_ALL);
             break;
