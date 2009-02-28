@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-26 19:16+0100\n"
+"PO-Revision-Date: 2009-02-28 20:05+0100\n"
 "Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1149,6 +1149,14 @@ msgstr "&Ukradi katanac"
 msgid "&Stop on copy/rename"
 msgstr "&Zaustavi na kopiraj/preimenuj"
 
+#. Resource IDs: (276)
+msgid "&Switch WC to path and revision"
+msgstr "&Prebaci RK ka putanji i reviziji"
+
+#. Resource IDs: (275)
+msgid "&Switch WC to path@HEAD"
+msgstr "&Prebaci RK ka putanja@GLAVA"
+
 #
 #. Resource IDs: (1173)
 msgid "&Symbol View"
@@ -1435,6 +1443,10 @@ msgstr "..."
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
 msgstr "... proverava keš i priprema dnevnik upita"
+
+#. Resource IDs: (270)
+msgid "... reading working copy status"
+msgstr "... čitanje statusa radne kopije"
 
 #
 #. Resource IDs: (16527)
@@ -6382,7 +6394,7 @@ msgstr "Svojstvo %s : radna kopija"
 #. Resource IDs: (262)
 #, c-format
 msgid "Property '%s' deleted"
-msgstr "Svojstvo '%s' obrisano"
+msgstr "Svojstvo  '%s'  obrisano"
 
 #. Resource IDs: (262)
 #, c-format
@@ -7776,11 +7788,11 @@ msgstr "Poređaj po broju urezivanja"
 
 #. Resource IDs: (1501)
 msgid "Source Left:"
-msgstr "Izvor Levo:"
+msgstr "Izvor Levi:"
 
 #. Resource IDs: (1502)
 msgid "Source Right:"
-msgstr "Izvor Desno:"
+msgstr "Izvor Desni:"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -9129,6 +9141,11 @@ msgstr "Ažuriraj - TortoiseSVN"
 #. Resource IDs: (1377)
 msgid "Update Depth"
 msgstr "Ažuriraj dubinu"
+
+#
+#. Resource IDs: (275)
+msgid "Update WC to revision"
+msgstr "Ažuriraj RK prema reviziji"
 
 #. Resource IDs: (74)
 msgid "Updated"
