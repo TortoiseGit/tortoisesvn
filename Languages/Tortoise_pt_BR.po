@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-25 03:14-0300\n"
+"PO-Revision-Date: 2009-03-01 20:22-0300\n"
 "Last-Translator: Humberto Osório <humberto@virtual.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -512,7 +512,7 @@ msgstr "&Comparar com revisão anterior"
 
 #. Resource IDs: (1066)
 msgid "&Docking"
-msgstr ""
+msgstr "&Ancoragem"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -678,11 +678,11 @@ msgstr "Diferenças em linha por palavra"
 
 #. Resource IDs: (275)
 msgid "&Join all"
-msgstr ""
+msgstr "&Juntar tudo"
 
 #. Resource IDs: (275)
 msgid "&Join with sub-trees"
-msgstr ""
+msgstr "&Juntar com sub-árvores"
 
 #. Resource IDs: (1016)
 msgid "&Jump to first difference when loading"
@@ -718,11 +718,11 @@ msgstr "&Lum:"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
-msgstr ""
+msgstr "Editar propriedade &manualmente"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
-msgstr ""
+msgstr "Tamanho &máximo [kByte] de um cache inativo removido"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -754,11 +754,11 @@ msgstr "&Minimizar"
 
 #. Resource IDs: (1493)
 msgid "&Modify color for tag copies"
-msgstr ""
+msgstr "&Alterar cor para cópias de rótulo (tag)"
 
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
-msgstr ""
+msgstr "&Alterar cor para cópias de tronco (trunk)"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -910,7 +910,7 @@ msgstr "&Restaurar padrão"
 
 #. Resource IDs: (1382)
 msgid "&Resolve using local property"
-msgstr ""
+msgstr "&Resolver usando propriedade local"
 
 #. Resource IDs: (1488)
 #, fuzzy
@@ -940,7 +940,7 @@ msgstr "&SVN"
 
 #. Resource IDs: (65535)
 msgid "&Sat:"
-msgstr ""
+msgstr "&Sat:"
 
 #. Resource IDs: (16921, 57603)
 msgid "&Save"
@@ -1003,6 +1003,15 @@ msgstr "&Roubar as travas"
 msgid "&Stop on copy/rename"
 msgstr "&Parar na Cópia/Mudança de Nome"
 
+#. Resource IDs: (276)
+#, fuzzy
+msgid "&Switch WC to path and revision"
+msgstr "&Alternar Cópia de Trabalho para caminho e revisão"
+
+#. Resource IDs: (275)
+msgid "&Switch WC to path@HEAD"
+msgstr "&Alternar Cópia de Trabalho para caminho@HEAD (Revisão mais recente)"
+
 #. Resource IDs: (1173)
 msgid "&Symbol View"
 msgstr "&Visão de Símbolos"
@@ -1013,11 +1022,11 @@ msgstr "&Tamanho da Tabulação:"
 
 #. Resource IDs: (1069)
 msgid "&Tabbed Document"
-msgstr ""
+msgstr "Documen&to com abas"
 
 #. Resource IDs: (65535)
 msgid "&Tags"
-msgstr ""
+msgstr "Ró&tulos (Tags)"
 
 #. Resource IDs: (1382)
 msgid "&Test merge"
@@ -1077,7 +1086,7 @@ msgstr "&TortoiseUDiff"
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
-msgstr ""
+msgstr "&Tronco (Trunk)"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -1149,7 +1158,7 @@ msgstr "&Cópia de trabalho"
 
 #. Resource IDs: (338)
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
-msgstr ""
+msgstr "os 'intervalos de omissão' são usados para marcar intervalos de revisões que não foram ainda colocados na cache"
 
 #. Resource IDs: (272)
 #, fuzzy, c-format
@@ -1167,7 +1176,7 @@ msgstr "Copiar"
 
 #. Resource IDs: (276)
 msgid "(created)"
-msgstr ""
+msgstr "(criado)"
 
 #. Resource IDs: (276)
 #, fuzzy
@@ -1197,8 +1206,9 @@ msgid "(no line number)"
 msgstr "(sem numeração de linhas)"
 
 #. Resource IDs: (276)
+#, fuzzy
 msgid "(no modification but copy created from here)"
-msgstr ""
+msgstr "(sem alteração, mas cópia criada a partir daqui)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -1224,7 +1234,7 @@ msgstr "Renomear"
 
 #. Resource IDs: (276)
 msgid "(tagged)"
-msgstr ""
+msgstr "(rotulado)"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
@@ -1250,7 +1260,12 @@ msgstr "..."
 
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
-msgstr ""
+msgstr "... verificando cache e preparando consulta de histórico"
+
+#. Resource IDs: (270)
+#, fuzzy
+msgid "... reading working copy status"
+msgstr "Cópia atual rotulada para %s"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -1430,6 +1445,8 @@ msgid ""
 "ActiveX objects cannot be saved while exiting Windows!\n"
 "Discard all changes to %1?"
 msgstr ""
+"Objetos ActiveX não podem ser salvos enquanto o Windows está sendo encerrado!\n"
+"Descartar todas as alterações para %1?"
 
 #. Resource IDs: (155, 209, 229)
 msgid "Add"
@@ -1466,7 +1483,7 @@ msgstr "Adicionar de programa de combinação para extensão específica"
 
 #. Resource IDs: (89)
 msgid "Add the item anyway"
-msgstr ""
+msgstr "Adicionar item de qualquer forma"
 
 #. Resource IDs: (613)
 #, fuzzy, c-format
@@ -1579,21 +1596,21 @@ msgstr "Todos os Arquivos (*.*)|*.*||"
 
 #. Resource IDs: (1008)
 msgid "All your changes will be lost! Do you really want to reset all toolbars and menus?"
-msgstr ""
+msgstr "Todas as alterações serão perdidas! Deseja realmente reiniciar todas as barras de ferramentas e menus?"
 
 #. Resource IDs: (1008)
 msgid "All your changes will be lost! Do you really want to reset the keyboard assignments?"
-msgstr ""
+msgstr "Todas as alterações serão perdidas! Deseja realmente reiniciar as atribuições de teclado?"
 
 #. Resource IDs: (1008)
 #, c-format
 msgid "All your changes will be lost! Do you really want to reset the menu '%s'?"
-msgstr ""
+msgstr "Todas as alterações serão perdidas! Deseja realmente reiniciar o menu  '%s'?"
 
 #. Resource IDs: (1007)
 #, c-format
 msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
-msgstr ""
+msgstr "Todas as alterações serão perdidas! Deseja realmente reiniciar a barra de ferramentas '%s'?"
 
 #. Resource IDs: (1484)
 #, fuzzy
@@ -1602,15 +1619,15 @@ msgstr "Permitir URLs &ambiguas"
 
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
-msgstr ""
+msgstr "Permite que repositórios diferentes usem a mesma URL, ex. . http://localhost/myrepos/"
 
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
-msgstr ""
+msgstr "Permite que repositórios diferentes usem o mesmo UUID, ex. repositórios copiados"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
-msgstr ""
+msgstr "Utiliza sempre as definições regionais do sistema para mostrar horas e datas"
 
 #. Resource IDs: (339)
 msgid "Amount of memory required to load the cache"
@@ -2133,6 +2150,11 @@ msgstr "Verificar Atualizações"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Verificar Atualizações..."
+
+#. Resource IDs: (276)
+#, fuzzy
+msgid "Check for &modifications"
+msgstr "Veri&ficar Alterações"
 
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
@@ -3054,6 +3076,11 @@ msgstr "Deleta o arquivo de log de ação"
 #. Resource IDs: (263)
 msgid "Deleting"
 msgstr "Excluindo"
+
+#. Resource IDs: (207)
+#, fuzzy
+msgid "Depth"
+msgstr "Profundidade:"
 
 #. Resource IDs: (65535)
 msgid "Depth:"
@@ -9018,6 +9045,11 @@ msgstr "Atualizar - TortoiseSVN"
 msgid "Update Depth"
 msgstr "Atualizar em profundidade"
 
+#. Resource IDs: (275)
+#, fuzzy
+msgid "Update WC to revision"
+msgstr "At&ualizar Item Para Revisão"
+
 #. Resource IDs: (74)
 msgid "Updated"
 msgstr "Atualizado"
@@ -9603,7 +9635,7 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
-"Sua cópia de trabalho parace estar em um caminho de rótulo (tag)!\n"
+"Sua cópia de trabalho parece estar em um caminho de rótulo (tag)!\n"
 "Você deve antes alternar para uma ramificação (branch) ou para o tronco (trunk) antes de submeter.\n"
 "\n"
 "Deseja submeter mesmo assim?"
