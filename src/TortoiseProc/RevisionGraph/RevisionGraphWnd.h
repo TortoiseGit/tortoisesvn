@@ -217,6 +217,7 @@ private:
     CString         GetSelectedURL() const;
     CString         GetWCURL() const;
     void            DoShowLog();
+    void            DoCheckForModification();
     void            DoMergeTo();
     void            DoUpdate();
     void            DoSwitch();

@@ -34,6 +34,7 @@
 #include "RepositoryInfo.h"
 #include "BrowseFolder.h"
 #include "SVNProgressDlg.h"
+#include "ChangedDlg.h"
 #include "RevisionGraph/StandardLayout.h"
 #include "RevisionGraph/UpsideDownLayout.h"
 
@@ -50,6 +51,7 @@ enum RevisionGraphContextMenuCommands
 	// needs to start with 1, since 0 is the return value if *nothing* is clicked on in the context menu
     GROUP_MASK = 0xff00,
 	ID_SHOWLOG = 1,
+    ID_CFM = 2,
 	ID_COMPAREREVS = 0x100,
 	ID_COMPAREHEADS,
 	ID_UNIDIFFREVS,
@@ -971,7 +973,9 @@ void CRevisionGraphWnd::AddSVNOps (CMenu& popup)
 	{
 		AppendMenu (popup, IDS_REPOBROWSE_SHOWLOG, ID_SHOWLOG);
 		if (PathIsDirectory(m_sPath))
-            if (!m_SelectedEntry1->GetClassification().Is (CNodeClassification::IS_MODIFIED_WC))
+            if (m_SelectedEntry1->GetClassification().Is (CNodeClassification::IS_MODIFIED_WC))
+        		AppendMenu (popup, IDS_REVGRAPH_POPUP_CFM, ID_CFM);
+            else
         		AppendMenu (popup, IDS_LOG_POPUP_MERGEREV, ID_MERGETO);
 
         if (!m_SelectedEntry1->GetClassification().Is (CNodeClassification::IS_WORKINGCOPY))
@@ -1113,6 +1117,13 @@ void CRevisionGraphWnd::DoShowLog()
 	CAppUtils::LaunchApplication(sCmd, NULL, false);
 }
 
+void CRevisionGraphWnd::DoCheckForModification()
+{
+	CChangedDlg dlg;
+	dlg.m_pathList = CTSVNPathList (CTSVNPath (m_sPath));
+	dlg.DoModal();
+}
+
 void CRevisionGraphWnd::DoMergeTo()
 {
 	CString URL = GetSelectedURL();
@@ -1250,6 +1261,9 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		case ID_SHOWLOG:
 			DoShowLog();
 			break;
+        case ID_CFM:
+            DoCheckForModification();
+            break;
 		case ID_MERGETO:
             DoMergeTo();
 			break;
