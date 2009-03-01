@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-27 21:03+0900\n"
+"PO-Revision-Date: 2009-03-01 16:53+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -986,6 +986,14 @@ msgstr "잠금 훔쳐오기(&S)"
 msgid "&Stop on copy/rename"
 msgstr "복사/이름변경 시점에서 중지(&S)"
 
+#. Resource IDs: (276)
+msgid "&Switch WC to path and revision"
+msgstr "작업사본을 경로@리비전으로 전환(&S)"
+
+#. Resource IDs: (275)
+msgid "&Switch WC to path@HEAD"
+msgstr "작업사본을 경로@HEAD로 전환(&S)"
+
 #. Resource IDs: (1173)
 msgid "&Symbol View"
 msgstr "아이콘 뷰(&S)"
@@ -1228,6 +1236,10 @@ msgstr "..."
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
 msgstr "... 캐시를 채크하고 로그 쿼리중"
+
+#. Resource IDs: (270)
+msgid "... reading working copy status"
+msgstr "... 작업사본의 상태를 읽는중"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -8900,6 +8912,10 @@ msgstr "업데이트 - TortoiseSVN"
 #. Resource IDs: (1377)
 msgid "Update Depth"
 msgstr "업데이트 깊이"
+
+#. Resource IDs: (275)
+msgid "Update WC to revision"
+msgstr "작업사본을 리비전으로 업데이트"
 
 #. Resource IDs: (74)
 msgid "Updated"
