@@ -41,12 +41,14 @@
        to specifiy the IBugTraqProvider for the project. (Stefan)
 - NEW: Helper dialog to resolve property conflicts. (Stefan)
 - NEW: Revision graph can be collapsed / expanded as well as 
-       cut and glued. (Stefan Fuhrmann)
+       split and joined. (Stefan Fuhrmann)
 - NEW: Helper dialog to resolve tree conflicts. (Stefan)
 - NEW: TortoiseBlame shows the revision range in the title. See
        issue #429 for details. (Stefan)
 - NEW: Revision graph: Option to hide unmodified branches (Stefan Fuhrmann)
 - NEW: Revision graph: Option to show workspace modifications as extra node
+       (Stefan Fuhrmann)
+- NEW: Revision graph: Update / Switch WC in node context menu 
        (Stefan Fuhrmann)
 - NEW: A warning is shown if the user tries to add a file that was versioned
        but renamed in case. (Stefan)
