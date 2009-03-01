@@ -964,23 +964,26 @@ void CRevisionGraphWnd::AddSVNOps (CMenu& popup)
                      && (m_SelectedEntry2 != NULL)
                      && !m_SelectedEntry2->GetClassification().Is (CNodeClassification::IS_DELETED);
 
-    bool bSameURL = (m_SelectedEntry2 && m_SelectedEntry1 && (m_SelectedEntry1->GetPath() == m_SelectedEntry2->GetPath()));
+    bool bSameURL =   (m_SelectedEntry2 && m_SelectedEntry1 
+                   && (m_SelectedEntry1->GetPath() == m_SelectedEntry2->GetPath()));
 	if (m_SelectedEntry1 && (m_SelectedEntry2 == NULL))
 	{
 		AppendMenu (popup, IDS_REPOBROWSE_SHOWLOG, ID_SHOWLOG);
 		if (PathIsDirectory(m_sPath))
-    		AppendMenu (popup, IDS_LOG_POPUP_MERGEREV, ID_MERGETO);
+            if (!m_SelectedEntry1->GetClassification().Is (CNodeClassification::IS_MODIFIED_WC))
+        		AppendMenu (popup, IDS_LOG_POPUP_MERGEREV, ID_MERGETO);
 
-        if (!CTSVNPath (m_sPath).IsUrl())
-            if (GetWCURL() == GetSelectedURL())
-            {
-        		AppendMenu (popup, IDS_REVGRAPH_POPUP_UPDATE, ID_UPDATE);
-            }
-            else
-            {
-                AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCHTOHEAD, ID_SWITCHTOHEAD);
-                AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCH, ID_SWITCH);
-            }
+        if (!m_SelectedEntry1->GetClassification().Is (CNodeClassification::IS_WORKINGCOPY))
+            if (!CTSVNPath (m_sPath).IsUrl())
+                if (GetWCURL() == GetSelectedURL())
+                {
+        		    AppendMenu (popup, IDS_REVGRAPH_POPUP_UPDATE, ID_UPDATE);
+                }
+                else
+                {
+                    AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCHTOHEAD, ID_SWITCHTOHEAD);
+                    AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCH, ID_SWITCH);
+                }
 	}
 	if (bothPresent)
 	{
