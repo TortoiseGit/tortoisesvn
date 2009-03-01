@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2009
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 15493: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 15532: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-26 17:12+0300\n"
+"PO-Revision-Date: 2009-03-01 21:18+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -70,6 +70,7 @@ msgstr ""
 # tag -- метка
 # undo -- откат
 # unified diff -- объединённые различия
+# unversion -- разверсирование
 # whitespaces -- непечатаемые знаки
 # you -- вы
 #. Resource IDs: (10, 126)
@@ -1044,6 +1045,14 @@ msgstr "Перехватить &блокировки"
 msgid "&Stop on copy/rename"
 msgstr "Остановиться на ко&пировании/переименовании"
 
+#. Resource IDs: (276)
+msgid "&Switch WC to path and revision"
+msgstr "&Переключить рабочую копию на путь и ревизию"
+
+#. Resource IDs: (275)
+msgid "&Switch WC to path@HEAD"
+msgstr "&Переключить рабочую копию на путь и ведущую ревизию"
+
 #. Resource IDs: (1173)
 msgid "&Symbol View"
 msgstr "&Крупные значки"
@@ -1290,6 +1299,10 @@ msgstr "..."
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
 msgstr "... выполняется обращение к кэшу и запрос записей журнала"
+
+#. Resource IDs: (270)
+msgid "... reading working copy status"
+msgstr "... чтение статуса рабочей копии"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -2170,6 +2183,10 @@ msgstr "Проверка обновлений"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Проверить обновления..."
+
+#. Resource IDs: (276)
+msgid "Check for &modifications"
+msgstr "Проверить на наличие изменени&й"
 
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
@@ -4536,7 +4553,7 @@ msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\r\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
-"Если отмечено, TortoiseSVN устанаваливает время файла по времени\r\n"
+"Если отмечено, TortoiseSVN устанавливает время файла по времени\r\n"
 "последней фиксации. Если не отмечено - использует текущее время."
 
 #. Resource IDs: (196)
@@ -9048,6 +9065,10 @@ msgstr "Обновление - TortoiseSVN"
 msgid "Update Depth"
 msgstr "Глубина обновления"
 
+#. Resource IDs: (275)
+msgid "Update WC to revision"
+msgstr "Обновить рабочую копию до ревизии"
+
 #. Resource IDs: (74)
 msgid "Updated"
 msgstr "Обновлено"
@@ -9983,7 +10004,7 @@ msgstr "игнорируя предков"
 
 #. Resource IDs: (13)
 msgid "incomplete"
-msgstr "незакончен"
+msgstr "неполный"
 
 #. Resource IDs: (583)
 msgid "it does not exist."
@@ -10030,7 +10051,7 @@ msgstr "Max ревизия:"
 
 #. Resource IDs: (11, 65535)
 msgid "merged"
-msgstr "Слит"
+msgstr "слит"
 
 #. Resource IDs: (65535)
 msgid "merges total: "
