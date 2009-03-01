@@ -966,6 +966,7 @@ void CRevisionGraphWnd::AddSVNOps (CMenu& popup)
 
     bool bSameURL =   (m_SelectedEntry2 && m_SelectedEntry1 
                    && (m_SelectedEntry1->GetPath() == m_SelectedEntry2->GetPath()));
+
 	if (m_SelectedEntry1 && (m_SelectedEntry2 == NULL))
 	{
 		AppendMenu (popup, IDS_REPOBROWSE_SHOWLOG, ID_SHOWLOG);
@@ -985,11 +986,17 @@ void CRevisionGraphWnd::AddSVNOps (CMenu& popup)
                     AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCH, ID_SWITCH);
                 }
 	}
+
 	if (bothPresent)
 	{
-		AppendMenu (popup, IDS_REVGRAPH_POPUP_COMPAREREVS, ID_COMPAREREVS);
-	    if (!bSameURL)
-    		AppendMenu (popup, IDS_REVGRAPH_POPUP_COMPAREHEADS, ID_COMPAREHEADS);
+        if (!m_SelectedEntry2->GetClassification().Is (CNodeClassification::IS_MODIFIED_WC))
+        {
+            // TODO: TSVN currently can't compare URL -> WC, but only vice versa)
+
+		    AppendMenu (popup, IDS_REVGRAPH_POPUP_COMPAREREVS, ID_COMPAREREVS);
+	        if (!bSameURL)
+    		    AppendMenu (popup, IDS_REVGRAPH_POPUP_COMPAREHEADS, ID_COMPAREHEADS);
+        }
 
 		AppendMenu (popup, IDS_REVGRAPH_POPUP_UNIDIFFREVS, ID_UNIDIFFREVS);
 	    if (!bSameURL)

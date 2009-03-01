@@ -277,36 +277,69 @@ void CRevisionGraphWnd::SetShowOverview (bool value)
 		BuildPreview();
 }
 
+void CRevisionGraphWnd::GetSelected 
+    ( const CVisibleGraphNode* node
+    , bool head
+    , CTSVNPath& path
+    , SVNRev& rev
+    , SVNRev& peg)
+{
+	CString repoRoot = m_state.GetRepositoryRoot();
+
+    // get path and revision
+
+	path.SetFromSVN (repoRoot + CUnicodeUtils::GetUnicode (node->GetPath().GetPath().c_str()));
+	rev = head ? SVNRev::REV_HEAD : node->GetRevision();
+
+    // handle 'modified WC' node
+
+    if (node->GetClassification().Is (CNodeClassification::IS_MODIFIED_WC))
+    {
+        path.SetFromWin (m_sPath);
+        rev = SVNRev::REV_WC;
+
+        // don't set peg, if we aren't the first node 
+        // (i.e. would not be valid for node1)
+
+        if (node == m_SelectedEntry1)
+            peg = SVNRev::REV_WC;
+    }
+    else
+    {
+        // set head, if still necessary
+
+        if (head && !peg.IsValid())
+    	    peg = node->GetRevision();
+    }
+}
+
 void CRevisionGraphWnd::CompareRevs(bool bHead)
 {
 	ASSERT(m_SelectedEntry1 != NULL);
 	ASSERT(m_SelectedEntry2 != NULL);
 
 	CSyncPointer<SVN> svn (m_state.GetSVN());
-	CString sRepoRoot = m_state.GetRepositoryRoot();
 
 	CTSVNPath url1;
 	CTSVNPath url2;
-	url1.SetFromSVN (sRepoRoot + CUnicodeUtils::GetUnicode (m_SelectedEntry1->GetPath().GetPath().c_str()));
-	url2.SetFromSVN (sRepoRoot + CUnicodeUtils::GetUnicode (m_SelectedEntry2->GetPath().GetPath().c_str()));
+	SVNRev rev1;
+	SVNRev rev2;
+	SVNRev peg;
 
-	SVNRev rev1 (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->GetRevision());
-	SVNRev rev2 (bHead ? SVNRev::REV_HEAD : m_SelectedEntry2->GetRevision());
-	SVNRev peg (bHead ? m_SelectedEntry1->GetRevision() : SVNRev());
+    GetSelected (m_SelectedEntry1, bHead, url1, rev1, peg);
+    GetSelected (m_SelectedEntry2, bHead, url2, rev2, peg);
 
+    bool alternativeTool = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
 	if (m_state.PromptShown())
 	{
 		SVNDiff diff (svn.get(), this->m_hWnd);
-		diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-		diff.ShowCompare(url1, rev1,
-			url2, rev2,
-			peg, false, false, svn_node_unknown);	// TODO: do we know whether the node is a file or folder?
+		diff.SetAlternativeTool (alternativeTool);
+		diff.ShowCompare (url1, rev1, url2, rev2, peg);	
 	}
 	else
 	{
-		CAppUtils::StartShowCompare(m_hWnd, url1, rev1,
-			url2, rev2, peg, 
-			SVNRev(), !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, svn_node_unknown); // TODO: do we know whether the node is a file or folder?
+		CAppUtils::StartShowCompare (m_hWnd, url1, rev1,
+			url2, rev2, peg, SVNRev(), alternativeTool);
 	}
 }
 
@@ -316,30 +349,28 @@ void CRevisionGraphWnd::UnifiedDiffRevs(bool bHead)
 	ASSERT(m_SelectedEntry2 != NULL);
 
 	CSyncPointer<SVN> svn (m_state.GetSVN());
-	CString sRepoRoot = m_state.GetRepositoryRoot();
 
 	CTSVNPath url1;
 	CTSVNPath url2;
-	url1.SetFromSVN (sRepoRoot + CUnicodeUtils::GetUnicode (m_SelectedEntry1->GetPath().GetPath().c_str()));
-	url2.SetFromSVN (sRepoRoot + CUnicodeUtils::GetUnicode (m_SelectedEntry2->GetPath().GetPath().c_str()));
+	SVNRev rev1;
+	SVNRev rev2;
+	SVNRev peg;
 
-	SVNRev rev1 (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->GetRevision());
-	SVNRev rev2 (bHead ? SVNRev::REV_HEAD : m_SelectedEntry2->GetRevision());
-	SVNRev peg (bHead ? m_SelectedEntry1->GetRevision() : SVNRev());
+    GetSelected (m_SelectedEntry1, bHead, url1, rev1, peg);
+    GetSelected (m_SelectedEntry2, bHead, url2, rev2, peg);
 
+    bool alternativeTool = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
 	if (m_state.PromptShown())
 	{
 		SVNDiff diff (svn.get(), this->m_hWnd);
-		diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-		diff.ShowUnifiedDiff(url1, rev1,
-			url2, rev2,
-			peg, false, false);
+		diff.SetAlternativeTool (alternativeTool);
+		diff.ShowUnifiedDiff (url1, rev1, url2, rev2, peg);
 	}
 	else
 	{
 		CAppUtils::StartShowUnifiedDiff(m_hWnd, url1, rev1,
 			url2, rev2, peg, 
-			SVNRev(), !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false);
+			SVNRev(), alternativeTool);
 	}
 }
 

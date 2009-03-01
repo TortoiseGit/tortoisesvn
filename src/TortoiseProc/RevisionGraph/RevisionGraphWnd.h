@@ -115,6 +115,7 @@ public:
     bool            GetShowOverview() const;
     void            SetShowOverview (bool value);
 
+    void            GetSelected (const CVisibleGraphNode* node, bool head, CTSVNPath& path, SVNRev& rev, SVNRev& peg);
 	void			CompareRevs(bool bHead);
 	void			UnifiedDiffRevs(bool bHead);
 
