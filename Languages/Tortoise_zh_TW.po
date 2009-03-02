@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-23 20:10+0800\n"
+"PO-Revision-Date: 2009-03-02 20:13+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -987,6 +987,14 @@ msgstr "偷取鎖定(&S)"
 msgid "&Stop on copy/rename"
 msgstr "複製/重新命名時停止(&S)"
 
+#. Resource IDs: (276)
+msgid "&Switch WC to path and revision"
+msgstr "切換工作複本至特定版本路徑(&S)"
+
+#. Resource IDs: (275)
+msgid "&Switch WC to path@HEAD"
+msgstr "切換工作複本至路徑最新版本(&S)"
+
 #. Resource IDs: (1173)
 msgid "&Symbol View"
 msgstr "符號檢視(&S)"
@@ -1229,6 +1237,10 @@ msgstr "..."
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
 msgstr "...正在檢查快取並準備查詢紀錄"
+
+#. Resource IDs: (270)
+msgid "... reading working copy status"
+msgstr "... 正在準備工作複本狀態"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -2100,6 +2112,10 @@ msgstr "檢查更新"
 msgid "Check For Updates..."
 msgstr "檢查更新..."
 
+#. Resource IDs: (276)
+msgid "Check for &modifications"
+msgstr "檢查異動(&M)"
+
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
 msgstr "檢查異動(&F)"
@@ -2464,6 +2480,10 @@ msgstr "設定用來解決衝突檔案的工具程式."
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "設定檢視 GNU 差異檔(補綴檔)的工具程式."
+
+#. Resource IDs: (1503)
+msgid "Conflict Sources"
+msgstr "衝突原始碼"
 
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
@@ -3007,6 +3027,10 @@ msgstr "刪除行為紀錄"
 #. Resource IDs: (263)
 msgid "Deleting"
 msgstr "正在刪除"
+
+#. Resource IDs: (207)
+msgid "Depth"
+msgstr "深度"
 
 #. Resource IDs: (65535)
 msgid "Depth:"
@@ -7550,6 +7574,14 @@ msgstr "已跳過的缺少目標"
 msgid "Sort by commit count"
 msgstr "依送交數排序"
 
+#. Resource IDs: (1501)
+msgid "Source Left:"
+msgstr "左側原始碼:"
+
+#. Resource IDs: (1502)
+msgid "Source Right:"
+msgstr "右側原始碼:"
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "指定最近訊息紀錄要保留幾筆資料."
@@ -8897,6 +8929,10 @@ msgstr "更新 - TortoiseSVN"
 #. Resource IDs: (1377)
 msgid "Update Depth"
 msgstr "更新深度"
+
+#. Resource IDs: (275)
+msgid "Update WC to revision"
+msgstr "更新工作複本至版本"
 
 #. Resource IDs: (74)
 msgid "Updated"
