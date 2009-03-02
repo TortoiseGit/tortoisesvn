@@ -40,6 +40,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <h2>What's New in TortoiseSVN 1.6</h2>
 
 <ul>
+  <li><a href="#bdb-file"
+      >file:/// access to BDB repositories</a></li>
   <li><a href="#tree-conflicts"
       >handling of tree conflicts</a></li>
   <li><a href="#log-cache"
@@ -51,8 +53,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </ul>
 
 <p>TortoiseSVN 1.6 is a superset of all previous TortoiseSVN releases,
-and is considered the current stable and "best" release. Anything in 1.0.x,
-1.1.x, 1.2.x, 1.3.x, 1.4.x or 1.5.x is also in 1.6, but 1.6 contains features and
+and is considered the current stable and "best" release. Anything in earlier versions
+is also in 1.6, but 1.6 contains features and
 bugfixes not present in any earlier release.</p>
 
 </div>  <!-- news -->
@@ -61,11 +63,9 @@ bugfixes not present in any earlier release.</p>
 <h2>Compatibility Concerns</h2>
 
 <p>Older clients and servers interoperate transparently with 1.6
-servers and clients.  However, some of the new 1.6 features (e.g., <a
-href="#XXX" >XXX</a>) may not be available
-unless both client and server are the latest version .  There are also
-cases (e.g., <a href="#XXX">XXX</a>) where a
-new feature will work but will run less efficiently if the client is
+servers and clients.  However, some of the new 1.6 features may not be available
+unless both client and server are the latest version.  There are also
+cases where a new feature will work but will run less efficiently if the client is
 new and the server old.</p>
 
 <div class="h3" id="new-feature-compatibility-table"
@@ -112,9 +112,7 @@ working copy format as soon as it touches it, making it unreadable by
 older Subversion clients.  If you are using several versions of
 Subversion on your machine, be careful about which version you use in
 which working copy, to avoid accidentally upgrading a working copy.
-(But note that this "auto upgrade" behavior does <em>not</em> occur
-with the <a href="#repos-upgrades" >repositories</a>, only working
-copies.)</p>
+</p>
 
 <p>If you accidentally upgrade a 1.5 working copy to 1.6, and wish to
 downgrade back to 1.5, use the <a
@@ -132,12 +130,29 @@ href="http://subversion.tigris.org/faq.html#working-copy-format-change"
 <h2>New Features / Enhancements</h2>
 
 
+<div class="h3" id="bdb-file" title="bdb-file">
+<h3>file:/// access to BDB repositories</h3>
+<p>TortoiseSVN 1.6 no longer supports access to BDB repositories via the
+file:/// url. This doesn't affect accessing BDB repositories over svn:// or http:// though.</p>
+<p>If you have a BDB repository that you still access via the file:/// url, you
+have to convert the repository to the FSFS format with the 
+<a href="http://svnbook.red-bean.com/en/1.5/svn.ref.svnadmin.html">svnadmin</a> tool
+which is available in the <a href="http://subversion.tigris.org/getting.html#windows">SVN command line client</a>.</p>
+<p>Please follow the 
+<a href="http://svnbook.red-bean.com/en/1.5/svn.reposadmin.maint.html#svn.reposadmin.maint.migrate">instructions</a> 
+in the Subversion book to convert the repository.</p>
+</div> <!-- bdb-file -->
+
 <div class="h3" id="tree-conflicts" title="tree-conflicts">
-<h3>Improved handling of tree conflicts (<em>client</em>)</h3>
+<h3>Improved handling of tree conflicts</h3>
 
 <p>Subversion 1.6 can detect tree conflicts during update/merge/switch
 operations. Those items are then marked as conflicted to indicate
 the problem.</p>
+<p>Note that Subversion is still treating renames as a &quot;copy+delete&quot;
+operation, so file renames causing tree conflicts can only be detected
+in terms of file additions and deletions. Because of this, false positives
+during tree conflict detection are possible.</p>
 <p>TortoiseSVN 1.6 shows those tree conflicts during the operation when
 they happen, and also with a conflict overlay and in the Check-for-modifications dialog.</p>
 <p>A new conflict resolve dialog helps with resolving such conflicts, indicating
@@ -178,6 +193,10 @@ over commits and provide more information for the user.</p>
 a successful commit (to e.g., add an entry to the issue in the issue tracker).
 It also allows plugins to show an options/settings dialog. And a plugin can add
 revision properties with each commit.</p>
+<p>Developers interested in writing a plugin for an issue tracker can get the
+code for example plugins in C++ and C# from our 
+<a href="http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins">contrib folder</a>
+(use 'guest' as username, leave the password empty).</p>
 
 </div>  <!-- bugtraq-plugin -->
 
