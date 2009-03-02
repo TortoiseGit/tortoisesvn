@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-28 20:05+0100\n"
+"PO-Revision-Date: 2009-03-02 22:28+0100\n"
 "Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1527,7 +1527,7 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"Lista putanja razdvojenih sa novred za koje je prikazano preklapanje ikona.\r\n"
+"Lista putanja razdvojenih sa novired za koje je prikazano preklapanje ikona.\r\n"
 "Ako dodate '*' karakter na kraj putanje, onda svi imenici i podimenici unutar putanje su takođe uključeni."
 
 #. Resource IDs: (197)
@@ -1536,7 +1536,7 @@ msgid ""
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow the context menu on all paths."
 msgstr ""
-"Lista putanja razdvojenih sa novred za koje nije prikazan kontekst meni.\r\n"
+"Lista putanja razdvojenih sa novired za koje nije prikazan kontekst meni.\r\n"
 "Ako dodate '*' karakter na kraj putanje, onda svi imenici i podimenici unutar putanje su takođe isključeni.\r\n"
 "Prazna lista će dozvoliti kontekst meni na svim putanjama."
 
@@ -1546,7 +1546,7 @@ msgid ""
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"Lista putanja razdvojenih sa novred za koje je prikazano preklapanje ikona.\r\n"
+"Lista putanja razdvojenih sa novired za koje je prikazano preklapanje ikona.\r\n"
 "Ako dodate '*' karakter na kraj putanje, onda svi imenici i podimenici unutar putanje su takođe uključeni.\r\n"
 "Prazna lista će dozvoliti preklapanje na svim putanjama."
 
@@ -2021,7 +2021,7 @@ msgid ""
 "from the files that you have changed as you type a log message."
 msgstr ""
 "Za vreme upisa poruke dnevnika automatska dopuna predlaže reči\r\n"
-"(obično imena klasa ili članova) iz fajl koje ste promijenili."
+"(obično imena klasa ili članova) iz fajlova koje ste promenili."
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -2238,7 +2238,7 @@ msgstr "Otkazivanje operacije..."
 
 #. Resource IDs: (68)
 msgid "Cannot show diff because of inconsistent newlines in the file."
-msgstr "Ne može se prikazati diff zbog neusklađenih znakova za novred u fajlu."
+msgstr "Ne može se prikazati diff zbog neusklađenih znakova za novired u fajlu."
 
 #. Resource IDs: (16926)
 msgid "Cascade"
@@ -2320,6 +2320,10 @@ msgstr "Provera za ažuriranje"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Provera za ažuriranje..."
+
+#. Resource IDs: (276)
+msgid "Check for &modifications"
+msgstr "Provera iz&mena"
 
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
@@ -2466,7 +2470,7 @@ msgid ""
 "You will have to enter your username/password again for all repositories."
 msgstr ""
 "Briše uskladištene podatke autentičnosti.\r\n"
-"Biće potrebno da ponovo upišetei vaše korisničko ime/lozinka za sva spremišta."
+"Biće potrebno da ponovo upišete vaše korisničko ime/lozinka za sva spremišta."
 
 #. Resource IDs: (196)
 #, c-format
@@ -3578,7 +3582,7 @@ msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\r\n"
 "You must restart the system for this setting to take effect."
 msgstr ""
-"Omogućite ovo samo ako radite sa web projektima na VS.NET2003!\r\n"
+"Omogućite ovo samo ako radite sa veb projektima na VS.NET2003!\r\n"
 "Morate ponovo pokrenuti računar kako bi izmena podešavanja bila aktivirana."
 
 #. Resource IDs: (195)
@@ -4227,36 +4231,36 @@ msgstr ""
 #. Resource IDs: (119)
 #, c-format
 msgid "Getting file %s"
-msgstr "Dohvatam fajl %s"
+msgstr "Uzimam fajl %s"
 
 #. Resource IDs: (120)
 #, c-format
 msgid "Getting file %s, revision %s"
-msgstr "Dohvatam fajl %s, revizija %s"
+msgstr "Uzimam fajl %s, revizija %s"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
-msgstr "Dohvatam info o fajlu..."
+msgstr "Uzimam info o fajlu..."
 
 #. Resource IDs: (269)
 msgid "Getting information from repository..."
-msgstr "Dohvatam podatke iz spremišta..."
+msgstr "Uzimam podatke iz spremišta..."
 
 #. Resource IDs: (120)
 msgid "Getting information..."
-msgstr "Dohvatam informaciju..."
+msgstr "Uzimam informaciju..."
 
 #. Resource IDs: (132)
 msgid "Getting log info..."
-msgstr "Dohvatam podatke o dnevniku..."
+msgstr "Uzimam podatke o dnevniku..."
 
 #. Resource IDs: (220)
 msgid "Getting required information..."
-msgstr "Dohvatam potrebne informacije..."
+msgstr "Uzimam potrebne informacije..."
 
 #. Resource IDs: (119)
 msgid "Getting unified diff"
-msgstr "Dohvatanje popisa objedinjenih razlika"
+msgstr "Uzimanje popisa objedinjenih razlika"
 
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
@@ -4393,7 +4397,7 @@ msgstr "Savet: pritisnite F5 da bi osvežili sadržaj označenog imenika ili Ctr
 
 #. Resource IDs: (16519)
 msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
-msgstr "Mig:izaberi kontekstni meni, zameni stranu u \"Komande\" i vuci dugmiće alatpulta u glavni prozor. "
+msgstr "Savet: izaberi kontekstni meni, zameni stranu u \"Komande\" i vuci dugmiće alatpulta u glavni prozor. "
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -4597,14 +4601,14 @@ msgstr ""
 
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
-msgstr "Ukoliko je uključeno, sprječava da se preklapanja ikona i kontekst meni prikazuju u  'snimi kao..' ili 'otvori' dijalozima"
+msgstr "Ukoliko je uključeno, sprečava da se preklapanja ikona i kontekst meni prikazuju u  'snimi kao..' ili 'otvori' dijalozima"
 
 #. Resource IDs: (198)
 msgid ""
 "If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
-"Kad je uključeno, stavka menjia 'Zaključaj' je postavljena u glavni kontekstni meni\n"
+"Kad je uključeno, stavka menija 'Zaključaj' je postavljena u glavni kontekstni meni\n"
 "kada odabrani fajl ima postavljeno svojstvo svn:needs-lock"
 
 #. Resource IDs: (95)
@@ -4612,7 +4616,7 @@ msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
-"Ukoliko je označeno, tada se u spremištu radi nov imenik .\n"
+"Ukoliko je označeno, tada se u spremištu kreira novi imenik .\n"
 "Ako nije označeno, tada uvoz ide neposredno u zadani URL."
 
 #. Resource IDs: (79)
@@ -4620,7 +4624,7 @@ msgid ""
 "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
 "with the keywords expanded and the line endings adjusted."
 msgstr ""
-"Ukoliko je označeno, TortoiseSVN radi privremeni fajl od osnove (BASE)\n"
+"Ukoliko je označeno, TortoiseSVN kreira privremeni fajl od osnove (BAZA)\n"
 "za izradu razlika s proširenim ključnim rečima i usklađenim završecima linija."
 
 #. Resource IDs: (197)
@@ -4703,10 +4707,10 @@ msgid ""
 "If you're not sure about this, then please read the docs.\n"
 "Are you absolutely sure you want to do this?"
 msgstr ""
-"Ako promenite ovu vrednost, vaše radne kopije ne budu prepoznate!\n"
-"Trebaće  ponovo preuzeti radne kopije.\n"
+"Ako promenite ovu vrednost, vaše radne kopije neće biti prepoznate!\n"
+"Moraćete da  ponovo preuzmete radne kopije.\n"
 "Ako niste sigurni, molim pročitajte dokumentaciju.\n"
-"Da li ste uvereni da želite ovo uraditii?"
+"Da li ste apsoltno sigurni da želite ovo uraditi?"
 
 #. Resource IDs: (251)
 msgid "If you want to break the lock, use the 'Check For Modifications' dialog."
@@ -7806,7 +7810,7 @@ msgid ""
 msgstr ""
 "Odredite fajlove ili imenike koje bi TortoiseSVN\r\n"
 "trebalo da izostavi iz <b>svih</b> radnih kopija.\r\n"
-"Uzorke rastavite razmakom."
+"Modele rastavite razmakom."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
 msgid "Spin1"
@@ -9203,7 +9207,7 @@ msgid ""
 "Example: *.mylan.com, *.company.com"
 msgstr ""
 "Koristite '*' kao zamenski znak prilikom određivanja izuzetaka.\r\n"
-"Kako biste odvojili višestruke izuzetk, koristite zareze(',').\r\n"
+"Kako biste odvojili višestruke izuzetke, koristite zareze (',').\r\n"
 "Primer: *.mylan.com, *.company.com"
 
 #. Resource IDs: (1230)
@@ -9945,9 +9949,9 @@ msgid ""
 "the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\r\n"
-"dva regularna izraza odvojena sa novred\r\n"
+"dva regularna izraza odvojena sa novired\r\n"
 "Prvi izraz se koristi za pronalazak stringa koji se odnosi na sporno pitanje,\r\n"
-"drugi izraz se koristi kako bi izvukao osnovni ID buga iz tog stringa."
+"drugi izraz se koristi kako bi izvukao osnovni ID baga iz tog stringa."
 
 #. Resource IDs: (577)
 #, c-format
@@ -9966,7 +9970,7 @@ msgid ""
 "Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\r\n"
-"Postavite na 'false' ako vaš sistem za praćenje bugova sporna pitanja ne prati preko brojeva."
+"Postavite na 'false' ako vaš sistem za praćenje bagova sporna pitanja ne prati preko brojeva."
 
 #. Resource IDs: (577)
 msgid ""
@@ -10277,7 +10281,7 @@ msgid ""
 msgstr ""
 "svn:executable\r\n"
 "Ukoliko je prisutno, označava fajl kao izvršnu. Ovo svojstvo se ne može postaviti za imenik.\r\n"
-"Ne-rekurzivni pokušaj bit će neuspješan, rekurzivni pokušaj će postaviti svojstvo samo na fajlovi unutar imenika."
+"Ne-rekurzivni pokušaj bit će neuspešan, rekurzivni pokušaj će postaviti svojstvo samo na fajlove unutar imenika."
 
 #. Resource IDs: (576)
 msgid ""
@@ -10295,13 +10299,13 @@ msgid ""
 "/ relative to the server's hostname"
 msgstr ""
 "svn:externals\r\n"
-"Lista podeljena sa novred modul specifikator, svaka od kojih se sastoji od\r\n"
+"Lista podeljena sa novired modul specifikator, svaka od kojih se sastoji od\r\n"
 "neobavezne revizije,  URL i  relativnu putanju imenika. Na primer\r\n"
 "http://example.com/repos/zig foo\r\n"
 "-r 1234 http://example.com/repos/zag foo/bar\r\n"
 "\r\n"
 "URLovi mogu biti ili puni URLovi ili relativni. Format za\r\n"
-"relativne URLove je:\r\n"
+"relativnih URLova je:\r\n"
 "../ relativan ka roditeljskom imeniku spoljašnosti\r\n"
 "^/ relativan korenu spremišta\r\n"
 "// relativan URLšemi\r\n"
@@ -10313,7 +10317,7 @@ msgid ""
 "A newline separated list of file patterns to ignore."
 msgstr ""
 "svn:ignore\r\n"
-"Lista fajl oznaka izdvojena sa novred za zanemarivanje ."
+"Lista fajl oznaka izdvojena sa novired za zanemarivanje ."
 
 #. Resource IDs: (576)
 msgid ""
@@ -10342,8 +10346,8 @@ msgid ""
 "/trunk:123-125,129"
 msgstr ""
 "svn:mergeinfo\r\n"
-"Popis informacija o praćenju spajanja odvojenih sa novred. Svaki redak se sastoji od\r\n"
-"pune putanje nakon koje sledi dvotočka i popis brojeva revizija odvojenih zarezima.\r\n"
+"Popis informacija o praćenju spajanja odvojenih sa novired. Svaki redak se sastoji od\r\n"
+"pune putanje nakon koje sledi dvotačka i popis brojeva revizija odvojenih zarezima.\r\n"
 "Na primer\r\n"
 "/trunk:123-125,129"
 
@@ -10356,7 +10360,7 @@ msgid ""
 msgstr ""
 "svn:mime-type\r\n"
 "Mime tip fajlovi. Koristi se za određivanje da li fajl spajati i kako ga oposlužiti preko Apača.\r\n"
-"Mime tip koji počinje s 'tekst/' (ili ako mime tip nije postavljen) obrađuje se kao tekst.\r\n"
+"Mime tip koji počinje sa 'tekst/' (ili ako mime tip nije postavljen) obrađuje se kao tekst.\r\n"
 "Sve drugo se obrađuje kao binarni fajl."
 
 #. Resource IDs: (576)
@@ -10424,7 +10428,7 @@ msgid ""
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 msgstr ""
 "tsvn:autoprops\r\n"
-"Lista osobina razdvojene sa novred koja će se automatski primeniti kad dodajete/uvozite fajlove.\r\n"
+"Lista osobina razdvojene sa novired koja će se automatski primeniti kad dodajete/uvozite fajlove.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
@@ -10499,7 +10503,7 @@ msgid ""
 "be shown in the property dialog to choose from."
 msgstr ""
 "tsvn:userfileproperties\r\n"
-"Lista razdvojena sa novred korisničkih osobina za fajlove koja će\r\n"
+"Lista razdvojena sa novired korisničkih osobina za fajlove koja će\r\n"
 "biti prikazana u dijalogu za izbor svojstava."
 
 #. Resource IDs: (581)
@@ -10509,7 +10513,7 @@ msgid ""
 "be shown in the property dialog to choose from."
 msgstr ""
 "tsvn:userfolderproperties\r\n"
-"Lista razdvojena sa novred korisničkih osobina za imenike koja će\r\n"
+"Lista razdvojena sa novired korisničkih osobina za imenike koja će\r\n"
 "biti prikazana u dijalogu za izbor svojstava."
 
 #. Resource IDs: (577)
