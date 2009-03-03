@@ -51,10 +51,10 @@ So, the user story looks like this:
 Implementing an issue tracker plugin
 ------------------------------------
 
-To write an integration plugin, you implement the IBugTraqProvider COM
-interface, and register your object as implementing the "TortoiseSVN BugTraq
-Providers" component category. This registration makes it easy for the
-settings dialog to find a list of available plugins.
+To write an integration plugin, you implement the IBugTraqProvider and/or
+the IBugTraqProvider2 COM interface, and register your object as 
+implementing the "TortoiseSVN BugTraq Providers" component category. 
+This registration makes it easy for the settings dialog to find a list of available plugins.
 
 The IBugTraqProvider interface is documented in the inc\IBugTraqProvider.idl
 file.
