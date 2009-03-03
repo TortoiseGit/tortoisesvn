@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-02 22:28+0100\n"
-"Last-Translator: Milorad Popović\n"
+"PO-Revision-Date: 2009-03-03 13:44+0100\n"
+"Last-Translator: Milorad Popović <MiloradSPopovi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1576,7 +1576,7 @@ msgstr "Prekini"
 
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
-msgstr "Prekid &Spajanje"
+msgstr "Prekid &Stapanje"
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
@@ -1659,7 +1659,7 @@ msgstr "Dodaj diff program zavistan od ekstenzija"
 
 #. Resource IDs: (110)
 msgid "Add extension specific merge program"
-msgstr "Dodaj program za spajanje zavistan od ekstenzije"
+msgstr "Dodaj program za stapanje zavistan od ekstenzije"
 
 #. Resource IDs: (89)
 msgid "Add the item anyway"
@@ -1684,7 +1684,7 @@ msgstr "Dodaj..."
 
 #. Resource IDs: (171)
 msgid "Add/Edit Extension Specific Diff/Merge Program"
-msgstr "Dodaj/Uredi zavistan od ekstenzije program za razlike/spajanje"
+msgstr "Dodaj/Uredi zavistan od ekstenzije program za razlike/stapanje"
 
 #. Resource IDs: (73, 264, 65535)
 msgid "Added"
@@ -1840,7 +1840,7 @@ msgid ""
 "%mine : your own file, with your changes\r\n"
 "%base : the original file without your changes"
 msgstr ""
-"Spoljašnji program za spajanje fajlova koji se koristi\r\n"
+"Spoljašnji program za stapanje fajlova koji se koristi\r\n"
 "za rešavanje sukobljenih fajlova.\r\n"
 "\r\n"
 "Možete odrediti sledeće parametre u putanji:\r\n"
@@ -2491,7 +2491,7 @@ msgstr "Kliknite na \"Napredno\" za određivanje dopunskih diff programa baziran
 
 #. Resource IDs: (65535)
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
-msgstr "Kliknite na \"Napredno\" za određivanje dopunskih programa za spajanje baziranih na ekstenziju fajla"
+msgstr "Kliknite na \"Napredno\" za određivanje dopunskih programa za stapanje baziranih na ekstenziji fajla"
 
 #. Resource IDs: (257)
 msgid "Clipboard"
@@ -3534,7 +3534,7 @@ msgstr "Uredi diff program zavistan od ekstenzije"
 
 #. Resource IDs: (110)
 msgid "Edit extension specific merge program"
-msgstr "Uredi program za spajanje zavistan od ekstenzije"
+msgstr "Uredi program za stapanje zavistan od ekstenzije"
 
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
@@ -4393,7 +4393,7 @@ msgstr "Najviša revizija u kešu"
 
 #. Resource IDs: (1127)
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
-msgstr "Savet: pritisnite F5 da bi osvežili sadržaj označenog imenika ili Ctrl-F5 kako bi učitali i sadržaj svih podimenika"
+msgstr "Savet: pritisnite F5 da bi osvežili  označeno podstablo ili Ctrl-F5 kako bi takođe učitali i sve potomke"
 
 #. Resource IDs: (16519)
 msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
@@ -4648,7 +4648,7 @@ msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
 msgstr ""
-"Ako je omogućeno, dijalog za spajanje postavlja 'Iz:' URL na URL izabrane radne kopije\r\n"
+"Ako je omogućeno, dijalog za Stapanje postavlja 'Iz:' URL na URL izabrane radne kopije\r\n"
 "umesto zadnjeg korišćenog URL-a."
 
 #. Resource IDs: (195)
@@ -4771,7 +4771,7 @@ msgstr "Slike"
 
 #. Resource IDs: (19)
 msgid "Immediate children, including folders"
-msgstr "Neposredna deca uključujući imenike"
+msgstr "Neposredni potomci, uključujući imenike"
 
 #. Resource IDs: (139)
 msgid "Import"
@@ -4785,7 +4785,7 @@ msgstr "Uvezi %ld stavaka"
 #. Resource IDs: (229)
 #, c-format
 msgid "Import %s to %s%s"
-msgstr "Uvozim %s u %s%s"
+msgstr "Uvozi %s u %s%s"
 
 #. Resource IDs: (1056)
 msgid "Import &message"
@@ -4805,7 +4805,7 @@ msgid ""
 "Import file %s\r\n"
 "to %s"
 msgstr ""
-"Uvozim fajl %s\r\n"
+"Uvozi fajl %s\r\n"
 "u %s"
 
 #. Resource IDs: (126)
@@ -4814,7 +4814,7 @@ msgid ""
 "Import file to\r\n"
 "%s"
 msgstr ""
-"Uvozim fajl u\r\n"
+"Uvozi fajl u\r\n"
 "%s"
 
 #. Resource IDs: (126)
@@ -4823,7 +4823,7 @@ msgid ""
 "Import folder %s\r\n"
 "to %s"
 msgstr ""
-"Uvozim imenik %s\r\n"
+"Uvozi imenik %s\r\n"
 "u %s"
 
 #. Resource IDs: (613)
@@ -4834,7 +4834,7 @@ msgstr "Uvoz u %1"
 #. Resource IDs: (120)
 #, c-format
 msgid "Importing file %s"
-msgstr "Uvozim fajl %s"
+msgstr "Uvozi fajl %s"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
@@ -4862,7 +4862,7 @@ msgstr ""
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
-msgstr "Pogrešno fajlime."
+msgstr "Pogrešno ime fajla."
 
 #. Resource IDs: (76)
 msgid "Initial import"
@@ -4870,7 +4870,7 @@ msgstr "Početni uvoz"
 
 #. Resource IDs: (65535)
 msgid "Inline differences"
-msgstr "Razlike u liniji"
+msgstr "Razlike unutar liniji"
 
 #. Resource IDs: (161)
 msgid "Input"
@@ -4923,7 +4923,7 @@ msgid ""
 "{20020217T1530-0500}"
 msgstr ""
 "Pogrešan broj revizije! Valjane revizije su:\n"
-"HEAD, BASE, PRETH,UREZAN, RK,\n"
+"GLAVNA, OSNOVNA, PRETH,UREZANA, RK,\n"
 "pozitivni celi brojevi,\n"
 "datumi u jednom od sledećih oblika:\n"
 "{2002-02-17}\n"
@@ -4957,7 +4957,7 @@ msgid ""
 "{20020217T1530-0500}"
 msgstr ""
 "Pogrešan broj revizije! Valjane revizije su:\n"
-"HEAD\n"
+"GLAVNA\n"
 "pozitivni celi brojevi,\n"
 "datumi u jednom od sledećih oblika:\n"
 "{2002-02-17}\n"
@@ -4980,9 +4980,9 @@ msgid ""
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr ""
 "Neispravan raspon revizija!\n"
-"Ispravne revizije su brojevi i HEAD, odvojeni zarezima.\n"
+"Ispravne revizije su brojevi i GLAVNA, odvojeni zarezima.\n"
 "Raspon može biti napisan pomoću crtice.\n"
-"Na primer: 2-5,7,10,44-70,300-HEAD"
+"Na primer: 2-5,7,10,44-70,300-GLAVNA"
 
 #. Resource IDs: (145)
 msgid ""
@@ -5031,7 +5031,7 @@ msgstr "Spojiti sa izvornim stablom"
 
 #. Resource IDs: (1203)
 msgid "Keep &locks"
-msgstr "Držii &zaključan"
+msgstr "Drži &zaključan"
 
 #. Resource IDs: (1126)
 msgid "Keep changelists"
@@ -5124,7 +5124,7 @@ msgstr ""
 
 #. Resource IDs: (32853)
 msgid "Line diff bar"
-msgstr "Linija diff table"
+msgstr "Linija diff pulta"
 
 #. Resource IDs: (65535)
 msgid "Line differences"
@@ -5149,7 +5149,7 @@ msgstr ""
 
 #. Resource IDs: (344)
 msgid "List of repositories for which log information has been cached"
-msgstr "Lista spremišta za koju se u kešui smeštaju informacije dnevnika"
+msgstr "Lista spremišta za koju se u kešu smeštaju informacije dnevnika"
 
 #. Resource IDs: (16631, 16992)
 msgid "List1"
@@ -5173,7 +5173,7 @@ msgstr ""
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
-msgstr "&Statusna tabla"
+msgstr "&Lokator pult"
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -5222,12 +5222,12 @@ msgid ""
 "Locking failed because a newer version exists!\n"
 "Do you want to update and try again?"
 msgstr ""
-"Zaključavanje nije uspjelo zato što postoji novija verzija!\n"
+"Zaključavanje nije uspelo zato što postoji novija verzija!\n"
 "Želite li ažuriranje i da pokušate ponovo?"
 
 #. Resource IDs: (16)
 msgid "Locks a file for other users and makes it editable by you."
-msgstr "Zaključava fajl za ostale korisnike, Vi ga i dalje možete menjati."
+msgstr "Zaključava fajl za ostale korisnike i vama dozvoljava da ga uređujete."
 
 #. Resource IDs: (126)
 msgid "Log"
@@ -5365,7 +5365,7 @@ msgstr "Meni"
 
 #. Resource IDs: (1001)
 msgid "Menu Bar"
-msgstr "Tabla menija"
+msgstr "Meni pult"
 
 #. Resource IDs: (16626)
 msgid "Menu s&hadows"
@@ -5393,7 +5393,7 @@ msgstr "Stopi sve"
 
 #. Resource IDs: (65535)
 msgid "Merge depth:"
-msgstr "Dubina spajanja:"
+msgstr "Dubina stapanja:"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -5401,7 +5401,7 @@ msgstr "Stopi neinterkativno"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge options"
-msgstr "Opcije spajanja"
+msgstr "Opcije stapanja"
 
 #. Resource IDs: (14)
 msgid "Merge reintegrate..."
@@ -5430,7 +5430,7 @@ msgstr "Stopi dva različita stabla"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge type"
-msgstr "Tip spajanja"
+msgstr "Tip stapanja"
 
 #. Resource IDs: (263)
 msgid "Merged"
@@ -5443,48 +5443,48 @@ msgstr "Stopljena revizija(e) %s od %s:\n"
 
 #. Resource IDs: (10)
 msgid "Merges a branch into the main trunk"
-msgstr "Spaja granu s glavnim deblom"
+msgstr "Stapa granu s glavnim deblom"
 
 #. Resource IDs: (14)
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
-msgstr "Spoj sve nedostajuće revizije natrag u radnu kopiju koristeći informacije praćenje-spajanja "
+msgstr "Stopi sve nedostajuće revizije natrag u radnu kopiju koristeći informacije praćenje-stapanja"
 
 #. Resource IDs: (65535)
 msgid "Merging"
-msgstr "Spajanje"
+msgstr "Stapanje"
 
 #. Resource IDs: (229)
 #, c-format
 msgid "Merging %s into %s, %s"
-msgstr "Spajanje %s u %s, %s"
+msgstr "Stapanje %s u %s, %s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
-msgstr "Spajanje razlika između URL spremišta"
+msgstr "Stapanje razlika između URL spremišta"
 
 #. Resource IDs: (229)
 #, c-format
 msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr "Spajanje od %s, revizije %s do %s, revizija %s u %s, %s%s"
+msgstr "Stapanje od %s, revizije %s do %s, revizija %s u %s, %s%s"
 
 #. Resource IDs: (264)
 #, c-format
 msgid "Merging r%ld"
-msgstr "Spajanje r%ld"
+msgstr "Stapanje r%ld"
 
 #. Resource IDs: (264)
 #, c-format
 msgid "Merging r%ld through r%ld"
-msgstr "Spajanje r%ld do r%ld"
+msgstr "Stapanje r%ld do r%ld"
 
 #. Resource IDs: (83)
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
-msgstr "Spajanje zahteva različite revizije ili različite URL-ove u 'Od:' i 'Do:'"
+msgstr "Stapanje zahteva različite revizije ili različite URL-ove u 'Od:' i 'Do:'"
 
 #. Resource IDs: (229)
 #, c-format
 msgid "Merging revisions %s of %s into %s, %s%s"
-msgstr "Spajanje revizija %s od revizije %s u %s, %s%s"
+msgstr "Stapanje revizija %s od revizije %s u %s, %s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -5512,7 +5512,7 @@ msgstr "Minimum"
 
 #. Resource IDs: (263)
 msgid "Mine"
-msgstr "Moje"
+msgstr "Moj"
 
 #. Resource IDs: (1068)
 msgid "Minimize the Ribbon"
@@ -5586,7 +5586,7 @@ msgstr ""
 
 #. Resource IDs: (17026)
 msgid "Move &Down"
-msgstr "Pomakni &dolje"
+msgstr "Pomakni &dole"
 
 #. Resource IDs: (17025)
 msgid "Move &Up"
@@ -5594,11 +5594,11 @@ msgstr "Premesti gore"
 
 #. Resource IDs: (1002)
 msgid "Move Item Down"
-msgstr "Premesti dole"
+msgstr "Premesti Stavku Dole"
 
 #. Resource IDs: (1002)
 msgid "Move Item Up"
-msgstr "Premesti gore"
+msgstr "Premesti Stavku Gore"
 
 #. Resource IDs: (147)
 msgid "Move and rename"
@@ -5606,7 +5606,7 @@ msgstr "Premesti i preimenuj"
 
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
-msgstr "Ovđe premesti uz promenu imena"
+msgstr "Premesti ovde i preimenuj stavku"
 
 #. Resource IDs: (103)
 msgid "Move items to here"
@@ -5623,7 +5623,7 @@ msgstr "Premesti na skup izmena"
 
 #. Resource IDs: (229)
 msgid "Move/Rename"
-msgstr "Premesti/Promeni ime"
+msgstr "Premesti/Preimenuj"
 
 #. Resource IDs: (98)
 #, c-format
@@ -5661,11 +5661,11 @@ msgstr "NUM"
 
 #. Resource IDs: (17004)
 msgid "Navigation Pane Options"
-msgstr "Odredi opcije spajanja"
+msgstr "Opcije Navigacionog Panela"
 
 #. Resource IDs: (1065)
 msgid "Navigation Pane Options..."
-msgstr "Odredi opcije spajanja"
+msgstr "Opcije Navigacionog Panela..."
 
 #. Resource IDs: (208)
 msgid "Needs lock"
@@ -5673,7 +5673,7 @@ msgstr "Zahteva zaključavanje"
 
 #. Resource IDs: (213)
 msgid "Nested"
-msgstr "Ugnežđeno"
+msgstr "Ugneždeno"
 
 #. Resource IDs: (102)
 msgid "Network"
@@ -5709,8 +5709,8 @@ msgid ""
 "Next Page\n"
 "Next Page"
 msgstr ""
-"pređi na sledeći sukob\n"
-"Sledeći sukob"
+"Sledeća Strana\n"
+"Sledeća Strana"
 
 #. Resource IDs: (73)
 msgid "No"
@@ -5964,7 +5964,7 @@ msgstr "Preuzmi samo &vršni  imenik"
 
 #. Resource IDs: (19)
 msgid "Only file children"
-msgstr "Deca - samo fajlovi"
+msgstr "Samo fajlovi potomci"
 
 #. Resource IDs: (169)
 msgid ""
@@ -6595,7 +6595,7 @@ msgstr "Reintegriši granu"
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %s into %s"
-msgstr "Reintegrirajuće(!?) spajanje %s u %s"
+msgstr "Reintegrirajuće(!?) stapanje %s u %s"
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -6909,12 +6909,12 @@ msgstr "Vrati"
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %ld"
-msgstr "Vrati spajanje %ld"
+msgstr "Vrati stapanje %ld"
 
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %ld through %ld"
-msgstr "Vrati spajanje %ld do %ld"
+msgstr "Vrati stapanje %ld do %ld"
 
 #. Resource IDs: (175, 229)
 msgid "Revert"
@@ -6989,7 +6989,7 @@ msgstr "Revizioni graf"
 
 #. Resource IDs: (65535)
 msgid "Revision range to merge"
-msgstr "Raspon revizija za spajanje"
+msgstr "Raspon revizija za stapanje"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -7376,7 +7376,7 @@ msgstr "Odaberite aplikaciju za obradu teksta"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
-msgstr "Odaberite URLove za spajanje stabla"
+msgstr "Odaberite URLove za stapanje stabla"
 
 #. Resource IDs: (79)
 msgid "Select the behaviour of the progress dialog at the end of the operation."
@@ -7396,7 +7396,7 @@ msgstr "Odredite opcije spajanja"
 
 #. Resource IDs: (595)
 msgid "Select the revisions to merge"
-msgstr "Odredite revizije za spajanje"
+msgstr "Odredite revizije za stapanje"
 
 #. Resource IDs: (595)
 msgid "Select the type of merge"
@@ -7557,7 +7557,7 @@ msgid ""
 "Inline diff word-wise"
 msgstr ""
 "Prikaži razlike u redu reč po reč\n"
-"Razlike po rečima unutar reda"
+"Razlike po rečima unutar linije"
 
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
@@ -8663,7 +8663,7 @@ msgstr ""
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
-msgstr "Metoda se koristi u slučaju kad ste napravili razvojnu granu kako je opisano u Subverzionoj knjizi. Koristiti za spajanje svih izmena razvojne natrag u glavnu granu."
+msgstr "Metoda se koristi u slučaju kad ste napravili razvojnu granu kako je opisano u Subverzionoj knjizi. Koristiti za stapanje svih izmena razvojne grane natrag u deblo."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
@@ -8929,7 +8929,7 @@ msgstr "Stablo Konflikta"
 
 #. Resource IDs: (595)
 msgid "Tree merge"
-msgstr "Spajanje stabla"
+msgstr "Stapanje stabla"
 
 #. Resource IDs: (65535)
 msgid "Trunk nodes"
@@ -8989,7 +8989,7 @@ msgid ""
 msgstr ""
 "Nemoguće je utvrditi izvor spajanja za\n"
 "%s\n"
-"Molim koristite glavni dijalog za spajanje."
+"Molim koristite glavni dijalog za stapanje."
 
 #. Resource IDs: (3866)
 msgid "Unable to load mail system support."
@@ -9374,7 +9374,7 @@ msgid ""
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
-"Koristite dijalog dnevnika za izbor revizija koje želite stopiti ili upišite revizije za spajanje odvojene zarezima. Raspon revizija se može napisati pomoću crtice.\r\n"
+"Koristite dijalog dnevnika za izbor revizija koje želite stopiti ili upišite revizije za stapanje odvojene zarezima. Raspon revizija se može napisati pomoću crtice.\r\n"
 "\r\n"
 "Na primer: 4-7,9,11,15-HEAD\r\n"
 "\r\n"
@@ -10131,7 +10131,7 @@ msgstr "stopljeno"
 
 #. Resource IDs: (65535)
 msgid "merges total: "
-msgstr "spajanje ukupno:"
+msgstr "stapanje ukupno:"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -10280,8 +10280,8 @@ msgid ""
 "A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\r\n"
-"Ukoliko je prisutno, označava fajl kao izvršnu. Ovo svojstvo se ne može postaviti za imenik.\r\n"
-"Ne-rekurzivni pokušaj bit će neuspešan, rekurzivni pokušaj će postaviti svojstvo samo na fajlove unutar imenika."
+"Ukoliko je prisutno, označava izvršni fajl. Ovo svojstvo se ne može postaviti za imenik.\r\n"
+"Ne-rekurzivni pokušaj biće neuspešan, rekurzivni pokušaj će postaviti svojstvo samo na fajlove potomke imenika."
 
 #. Resource IDs: (576)
 msgid ""
