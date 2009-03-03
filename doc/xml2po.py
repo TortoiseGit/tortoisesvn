@@ -108,7 +108,7 @@ msgstr ""
                 out.write("#. %s\n" % (self.comments[k].replace("\n","\n#. ")))
             references = ""
             for reference in self.linenos[k]:
-                references += "#: %s:%d\n#.(%s)\n" % (reference[0], reference[2], reference[1])
+                references += "#.(%s)\n" % (reference[1])
             out.write("%s" % (references))
             if k in self.nowrap and self.nowrap[k]:
                 out.write("#, no-wrap\n")
