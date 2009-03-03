@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
+<sect1 id="tsvn-dug-externals">
+	<title>External Items</title>
+	<indexterm>
+		<primary>external repositories</primary>
+	</indexterm>
+	<indexterm>
+		<primary>externals</primary>
+	</indexterm>
+	<para>
+		Sometimes it is useful to construct a working copy that is made out
+		of a number of different checkouts. For example, you may want different
+		files or subdirectories to come from different locations in a repository,
+		or perhaps from different repositories altogether. 
+		If you want every user to have the same layout, you can define the
+		<literal>svn:externals</literal> properties to pull in the specified
+		resource at the locations where they are needed.
+	</para>
+	<sect2 id="tsvn-dug-externals-folders">
+		<title>External Folders</title>
+		<para>
+			Let's say you check out a working copy of
+			<filename>/project1</filename> to
+			<filename>D:\dev\project1</filename>.
+			Select the folder <filename>D:\dev\project1</filename>,
+			<action>right click</action> and choose 
+			<menuchoice>
+				<guimenu>Windows Menu</guimenu>
+				<guimenuitem>Properties</guimenuitem>
+			</menuchoice>
+			from the context menu. 
+			The Properties Dialog comes up. Then go to the Subversion tab.
+			There, you can set properties. Click <guibutton>Add...</guibutton>.
+			Select the <literal>svn:externals</literal> property from the
+			combobox and write in the edit box the repository URL in the format
+			<literal>name url</literal>
+			or if you want to specify a particular revision,
+			<literal>name -rREV url</literal>
+			You can add multiple external projects, 1 per line.
+			Note that URLs must be properly escaped or they will
+			not work. For example you must replace each space with
+			<literal>%20</literal>. Note that it is not possible to use
+			folder names with spaces in them.
+			Suppose that you have set these properties on
+			<filename>D:\dev\project1</filename>:
+<screen>
+sounds   http://sounds.red-bean.com/repos
+quick_graphs  http://graphics.red-bean.com/repos/fast%20graphics
+skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker
+</screen>
+			Now click <guibutton>Set</guibutton> and commit your changes.
+			When you (or any other user) update your working copy, Subversion
+			will create a sub-folder 
+			<filename>D:\dev\project1\sounds</filename> and checkout the sounds
+			project, another sub-folder <filename>D:\dev\project1\quick graphs</filename>
+			containing the graphics project, and finally a nested sub-folder
+			<filename>D:\dev\project1\skins\toolkit</filename> containing
+			revision 21 of the skin-maker project.
+		</para>
+		<tip>
+			<para>
+				You should strongly consider using explicit revision numbers
+				in all of your externals definitions, as described above.
+				Doing so means
+				that you get to decide when to pull down a different snapshot
+				of external information, and exactly which snapshot to pull.
+				Besides the common sense aspect of not being surprised by
+				changes to third-party repositories that you might not have
+				any control over, using explicit revision numbers also means
+				that as you backdate your working copy to a previous
+				revision, your externals definitions will also revert to the
+				way they looked in that previous revision, which in turn means
+				that the external working copies will be updated to match they
+				way <emphasis>they</emphasis> looked back when your repository was
+				at that previous revision.  For software projects, this could
+				be the difference between a successful and a failed build of
+				an older snapshot of your complex code base.
+			</para>
+		</tip>
+		<para>
+			If the external project is in the same repository, any changes
+			you make there there will be included in the commit list when
+			you commit your main project.
+		</para>
+		<para>
+			If the external project is in a different repository, any
+			changes you make to the external project will be notified
+			when you commit the main project, but you have to commit
+			those external changes separately.
+		</para>
+		<para>
+			If you use absolute URLs in <literal>svn:externals</literal>
+			definitions and you have to relocate your working copy (i.e.,
+			if the URL of your repository changes), then your externals
+			won't change and might not work anymore.
+		</para>
+		<para>
+			To avoid such problems, Subversion clients version 1.5 and
+			higher support relative external URLs. Four different methods
+			of specifying a relative URL are supported.
+			In the following examples, assume we have two repositories: one at
+			<systemitem class="url">http://example.com/svn/repos-1</systemitem>
+			and another at
+			<systemitem class="url">http://example.com/svn/repos-2</systemitem>.
+			We have a checkout of
+			<systemitem class="url">http://example.com/svn/repos-1/project/trunk</systemitem>
+			into <filename>C:\Working</filename> and the <literal>svn:externals</literal>
+			property is set on trunk.
+		</para>
+		<variablelist>
+			<varlistentry>
+				<term>Relative to parent directory</term>
+				<listitem>
+					<para>
+						These URLs always begin with the string <literal>../</literal>
+						for example:
+<screen>
+../../widgets/foo  common/foo-widget
+</screen>
+						This will extract
+						<systemitem class="url">http://example.com/svn/repos-1/widgets/foo</systemitem>
+						into
+						<filename>C:\Working\common\foo-widget</filename>.
+					</para>
+					<para>
+						Note that the URL is relative to the URL of the directory with the
+						<literal>svn:externals</literal> property, not to the directory where
+						the external is written to disk.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Relative to repository root</term>
+				<listitem>
+					<para>
+						These URLs always begin with the string <literal>^/</literal>
+						for example:
+<screen>
+^/widgets/foo  common/foo-widget
+</screen>
+						This will extract
+						<systemitem class="url">http://example.com/svn/repos-1/widgets/foo</systemitem>
+						into
+						<filename>C:\Working\common\foo-widget</filename>.
+					</para>
+					<para>
+						You can easily refer to other repositories with the same
+						<literal>SVNParentPath</literal> (a common directory holding
+						several repositories). For example:
+<screen>
+^/../repos-2/hammers/claw  common/claw-hammer
+</screen>
+						This will extract
+						<systemitem class="url">http://example.com/svn/repos-2/hammers/claw</systemitem>
+						into
+						<filename>C:\Working\common\claw-hammer</filename>.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Relative to scheme</term>
+				<listitem>
+					<para>
+						URLs beginning with the string <literal>//</literal> copy
+						only the scheme part of the URL. This is useful when the same hostname
+						must the accessed with different schemes depending upon network location;
+						e.g. clients in the intranet use <systemitem class="url">http://</systemitem>
+						while external clients use <systemitem class="url">svn+ssh://</systemitem>.
+						For example:
+<screen>
+//example.com/svn/repos-1/widgets/foo  common/foo-widget
+</screen>
+						This will extract
+						<systemitem class="url">http://example.com/svn/repos-1/widgets/foo</systemitem>
+						or
+						<systemitem class="url">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem>
+						depending on which method was used to checkout
+						<filename>C:\Working</filename>.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Relative to the server's hostname</term>
+				<listitem>
+					<para>
+						URLs beginning with the string <literal>/</literal> copy
+						the scheme and the hostname part of the URL, for example:
+<screen>
+/svn/repos-1/widgets/foo  common/foo-widget
+</screen>
+						This will extract
+						<systemitem class="url">http://example.com/svn/repos-1/widgets/foo</systemitem>
+						into
+						<filename>C:\Working\common\foo-widget</filename>.
+						But if you checkout your working copy from another server at
+						<systemitem class="url">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem>
+						then the external reference will extract
+						<systemitem class="url">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>.
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+		<para>
+			If you need more information how TortoiseSVN
+			handles Properties read <xref linkend="tsvn-dug-propertypage"/>.
+		</para>
+		<para>
+			To find out about different methods of accessing common sub-projects
+			read <xref linkend="tsvn-howto-common-projects"/>.
+		</para>
+	</sect2>
+</sect1>
