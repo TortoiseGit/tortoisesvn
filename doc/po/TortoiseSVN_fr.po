@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-02-17 23:46 +0000\n"
-"PO-Revision-Date: 2009-02-23 15:24+0100\n"
+"PO-Revision-Date: 2009-03-03 11:08+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1807,7 +1807,7 @@ msgstr "Serveur basé sur Svnserve "
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2005
 msgid "Subversion includes Svnserve - a lightweight stand-alone server which uses a custom protocol over an ordinary TCP/IP connection. It is ideal for smaller installations, or where a full blown Apache server cannot be used."
-msgstr ""
+msgstr "Subversion est livré avec Svnserve - un serveur stand-alone léger qui utilise une variante du protocole TCP/IP pour se connecter. C'est la solution idéale pour de petites installations, ou si un bon gros Apache ne peut être utilisé."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2011
@@ -4168,7 +4168,7 @@ msgstr "Si vous faites un <action>clic droit</action> sur une révision, vous po
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4662
 msgid "Another way to insert the paths into the log message is to simply drag the files from the file list onto the edit control."
-msgstr ""
+msgstr "Une autre façon d'insérer des chemins dans les messages informatifs est simplement de glisser/déposer les fichiers depuis la liste des fichiers dans le champs d'édition du message."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:4667
@@ -4436,7 +4436,7 @@ msgstr "conflits de la fusion"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4956
 msgid "A file conflict occurs if two (or more) developers have changed the same few lines of a file."
-msgstr ""
+msgstr "Un conflit sur un fichier arrive si deux (ou plus) développeurs  changent les mêmes lignes d'un fichier."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:4963
@@ -4447,12 +4447,12 @@ msgstr "conflits de la fusion"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4965
 msgid "A tree conflict occurs when a developer moved/renamed/deleted a file or folder, which another developer either also has moved/renamed/deleted or just modified."
-msgstr ""
+msgstr "Un conflit dans l'arborescence arrive quand un développeur déplace/renomme/supprime un fichier ou un dossier, qu'un autre développeur a aussi déplacé/renommé/supprimé voire juste modifié."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4948
 msgid "Once in a while, you will get a <emphasis>conflict</emphasis> when you update/merge your files from the repository or when you switch your working copy to a different URL. There are two kinds of conflicts: <placeholder-1/>"
-msgstr ""
+msgstr "De temps en temps , vous aurez un <emphasis>conflit</emphasis> au moment de mettre à jour/fusionner vos fichiers avec le référentiel ou lorsque vous migrerez votre copie de travail vers une autre URL. Il y a deux sortes de conflits: <placeholder-1/>"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:4975
@@ -4710,7 +4710,7 @@ msgstr "Une fusion des modifications du développeur A dans la copie de travail 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5271
 msgid "To resolve this conflict, Developer B has to remove the missing file in the conflict editor dialog. Then developer B has to decide whether to get the missing file <filename>Foo.c</filename> from the repository and add it to the working copy, whether to merge <filename>Foo.c</filename> into the renamed <filename>Bar.c</filename> or whether to just mark the conflict as resolved."
-msgstr ""
+msgstr "Pour résoudre ce conflit, le Développeur B doit supprimer le fichier manquant dans la fenêtre de résolution des conflits. Le développeur B doit alors décider s'il veut récupérer le fichier <filename>Foo.c</filename> depuis le référentiel, ou fusionner <filename>Foo.c</filename> avec le fichier renommé <filename>Bar.c</filename> ou simplement marquer le conflit comme étant résolu."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:5282
