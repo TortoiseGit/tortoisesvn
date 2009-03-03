@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-26 18:35+0100\n"
+"PO-Revision-Date: 2009-03-03 10:11+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -994,6 +994,14 @@ msgstr "Voler le&s verrous"
 msgid "&Stop on copy/rename"
 msgstr "&Arrêt à la copie/renommage"
 
+#. Resource IDs: (276)
+msgid "&Switch WC to path and revision"
+msgstr "&Passer le CdT sur le chemin et à la révision"
+
+#. Resource IDs: (275)
+msgid "&Switch WC to path@HEAD"
+msgstr "&Passer le CdT sur le chemin@HEAD"
+
 #. Resource IDs: (1173)
 msgid "&Symbol View"
 msgstr "Vue &symbolique"
@@ -1236,6 +1244,10 @@ msgstr "..."
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
 msgstr "... vérification du cache et préparation de la requête du journal"
+
+#. Resource IDs: (270)
+msgid "... reading working copy status"
+msgstr "...récupération de l'état de la copie de travail"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -2106,6 +2118,10 @@ msgstr "Vérifier les mises à jours"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Vérifier les mises à jours..."
+
+#. Resource IDs: (276)
+msgid "Check for &modifications"
+msgstr "Vérifier les &modifications"
 
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
@@ -3018,6 +3034,10 @@ msgstr "Supprime le journal des actions"
 #. Resource IDs: (263)
 msgid "Deleting"
 msgstr "Supprime"
+
+#. Resource IDs: (207)
+msgid "Depth"
+msgstr "Profondeur"
 
 #. Resource IDs: (65535)
 msgid "Depth:"
@@ -8918,6 +8938,10 @@ msgstr "Mettre à jour - TortoiseSVN"
 #. Resource IDs: (1377)
 msgid "Update Depth"
 msgstr "Mettre à jour la Profondeur"
+
+#. Resource IDs: (275)
+msgid "Update WC to revision"
+msgstr "Mettre à jour la CdT à la révision"
 
 #. Resource IDs: (74)
 msgid "Updated"
