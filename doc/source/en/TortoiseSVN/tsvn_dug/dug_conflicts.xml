@@ -261,18 +261,11 @@
 							<filename>Bar.c</filename> is added to the 
 							working copy as a normal file.
 						</para>
-						<para>
-							Or <filename>BarFolder</filename> is added to the 
-							working copy as a normal folder.
-						</para>
 					</listitem>
 					<listitem>
 						<para>
 							<filename>Foo.c</filename> is marked as added
 							(with history) and has a tree conflict.
-						</para>
-						<para>
-							Or <filename>FooFolder</filename> 
 						</para>
 					</listitem>
 				</itemizedlist>
@@ -282,7 +275,7 @@
 				<itemizedlist>
 					<listitem>
 						<para>
-							Or <filename>BarFolder</filename> is added to the 
+							<filename>BarFolder</filename> is added to the 
 							working copy as a normal folder.
 						</para>
 					</listitem>
@@ -343,8 +336,8 @@
 				<itemizedlist>
 					<listitem>
 						<para>
-							<filename>Foo.c</filename> is marked as deleted.
-							and <filename>Bix.c</filename> is marked as added.
+							<filename>Bix.c</filename> is marked as added
+							with history.
 						</para>
 					</listitem>
 					<listitem>
@@ -355,7 +348,8 @@
 					</listitem>
 					<listitem>
 						<para>
-							Tree conflict on <filename>Foo.c</filename>.
+							<filename>Foo.c</filename> is marked as deleted
+							and has a tree conflict.
 						</para>
 					</listitem>
 				</itemizedlist>

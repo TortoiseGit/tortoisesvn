@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-03-03 22:59 +0000\n"
+"POT-Creation-Date: 2009-03-04 23:21 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2970,20 +2970,15 @@ msgid "<filename>Bar.c</filename> is added to the working copy as a normal file.
 msgstr ""
 
 #.(para)
-#.(para)
-msgid "Or <filename>BarFolder</filename> is added to the working copy as a normal folder."
-msgstr ""
-
-#.(para)
 msgid "<filename>Foo.c</filename> is marked as added (with history) and has a tree conflict."
 msgstr ""
 
 #.(para)
-msgid "Or <filename>FooFolder</filename>"
+msgid "An update of developer B's working copy results in a tree conflict. For a simple file conflict: <placeholder-1/>"
 msgstr ""
 
 #.(para)
-msgid "An update of developer B's working copy results in a tree conflict. For a simple file conflict: <placeholder-1/>"
+msgid "<filename>BarFolder</filename> is added to the working copy as a normal folder."
 msgstr ""
 
 #.(para)
@@ -3023,7 +3018,7 @@ msgid "Developer B moves <filename>Foo.c</filename> to <filename>Bix.c</filename
 msgstr ""
 
 #.(para)
-msgid "<filename>Foo.c</filename> is marked as deleted. and <filename>Bix.c</filename> is marked as added."
+msgid "<filename>Bix.c</filename> is marked as added with history."
 msgstr ""
 
 #.(para)
@@ -3031,8 +3026,7 @@ msgid "<filename>Bar.c</filename> is added to the working copy with status 'norm
 msgstr ""
 
 #.(para)
-#.(para)
-msgid "Tree conflict on <filename>Foo.c</filename>."
+msgid "<filename>Foo.c</filename> is marked as deleted and has a tree conflict."
 msgstr ""
 
 #.(para)
@@ -3111,6 +3105,10 @@ msgstr ""
 
 #.(para)
 msgid "<filename>Bix.c</filename> is added with status normal."
+msgstr ""
+
+#.(para)
+msgid "Tree conflict on <filename>Foo.c</filename>."
 msgstr ""
 
 #.(para)
