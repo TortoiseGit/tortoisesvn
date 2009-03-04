@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-16 13:38+0100\n"
+"PO-Revision-Date: 2009-03-04 09:41+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -863,7 +863,7 @@ msgid "&Options"
 msgstr "&Opsjoner"
 
 #. Resource IDs: (32772)
-msgid "&Overlap images"
+msgid "&Overlay images"
 msgstr "Legg bildene &over hverandre"
 
 #. Resource IDs: (1411, 65535)
@@ -1041,6 +1041,14 @@ msgstr "&Stjel sperrene"
 #. Resource IDs: (1130)
 msgid "&Stop on copy/rename"
 msgstr "&Stopp ved kopiering/navnebytte"
+
+#. Resource IDs: (276)
+msgid "&Switch WC to path and revision"
+msgstr "&Bytt arbeidskopi til sti og revisjon"
+
+#. Resource IDs: (275)
+msgid "&Switch WC to path@HEAD"
+msgstr "&Bytt arbeidskopi til sti@HEAD"
 
 #. Resource IDs: (1173)
 msgid "&Symbol View"
@@ -1280,6 +1288,14 @@ msgstr "------------------------------------------------------------------------
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
+
+#. Resource IDs: (269)
+msgid "... checking cache and preparing log query"
+msgstr "... sjekker mellomager og forebereder loggspørriing"
+
+#. Resource IDs: (270)
+msgid "... reading working copy status"
+msgstr "... leser arbeidskopistatus"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -2151,6 +2167,10 @@ msgstr "Se etter oppdateringer"
 msgid "Check For Updates..."
 msgstr "Se etter oppdateringer..."
 
+#. Resource IDs: (276)
+msgid "Check for &modifications"
+msgstr "Se etter &endringer"
+
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
 msgstr "Se etter &endringer"
@@ -2515,6 +2535,10 @@ msgstr "Still inn for programmet som brukes for å ordne filer som er i konflikt
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "Still inn visningsprogram for GNU diff-filer (korreksjonsfiler)."
+
+#. Resource IDs: (1503)
+msgid "Conflict Sources"
+msgstr "Konflikt-kilder"
 
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
@@ -3058,6 +3082,10 @@ msgstr "Sletter handlingsloggfilen"
 #. Resource IDs: (263)
 msgid "Deleting"
 msgstr "Sletter"
+
+#. Resource IDs: (207)
+msgid "Depth"
+msgstr "Dybde"
 
 #. Resource IDs: (65535)
 msgid "Depth:"
@@ -3669,6 +3697,10 @@ msgstr "Eksterne Programmer::Fletteprogram"
 #. Resource IDs: (194)
 msgid "External Programs::Unified Diff Viewer"
 msgstr "Eksterne Programmer::Enhetlig diff-viser"
+
+#. Resource IDs: (263)
+msgid "External failed"
+msgstr "Ekstern feilet"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
@@ -6049,8 +6081,8 @@ msgid "Port :"
 msgstr "Port :"
 
 #. Resource IDs: (347)
-msgid "Possible values: 0 (fully transparent) .. 255 (no transparency)"
-msgstr "Mulige verdier: 0 (helt gjennomsiktig) .. 255 (ikke gjennomsiktig)"
+msgid "Possible values: 0 (fully transparent) .. 255 (opaque)"
+msgstr "Mulige verdier: 0 (helt gjennomsiktig) .. 255 (ugjennomsiktig)"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
@@ -6193,6 +6225,16 @@ msgstr "Egenskap %s : basis for arbeidskopi"
 #, c-format
 msgid "Property %s : working copy"
 msgstr "Egenskap %s : arbeidskopi"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' deleted"
+msgstr "Egenskap '%s' slettet"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' set"
+msgstr "Egenskap '%s' satt"
 
 #. Resource IDs: (107)
 msgid "Property Page"
@@ -7579,6 +7621,14 @@ msgstr "Hoppet over manglende mål"
 msgid "Sort by commit count"
 msgstr "Sorter etter innsendingstall"
 
+#. Resource IDs: (1501)
+msgid "Source Left:"
+msgstr "Venstre Kilde:"
+
+#. Resource IDs: (1502)
+msgid "Source Right:"
+msgstr "Høyre Kilde:"
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Angir hvor mange elementer du vil beholde i siste loggmeldinger-dialogen."
@@ -8925,6 +8975,10 @@ msgstr "Oppdater - TortoiseSVN"
 #. Resource IDs: (1377)
 msgid "Update Depth"
 msgstr "Oppdater Dybde"
+
+#. Resource IDs: (275)
+msgid "Update WC to revision"
+msgstr "&Oppdater arbeidskopi til revisjon"
 
 #. Resource IDs: (74)
 msgid "Updated"
