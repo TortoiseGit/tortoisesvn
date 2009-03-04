@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-03 10:39 +0000\n"
-"PO-Revision-Date: 2009-03-03 22:49+0100\n"
+"POT-Creation-Date: 2009-03-03 22:59 +0000\n"
+"PO-Revision-Date: 2009-03-04 19:26+0100\n"
 "Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2998,137 +2998,6 @@ msgid "So as not to disturb the users, we also added the file <filename>Tortoise
 msgstr "Da ne bi uznemiravali korisnike takođe dodamo fajl <filename>TortoiseVars.bat</filename> listi  zanemarenih predačkog imenika, tj. mi smo podesili Subverzionu osobinu <literal>svn:zanemari</literal> da uključi to ime fajla. Na taj način on se neće pokazati neverzionisanim kod svakog urezivanja."
 
 #. (title)
-msgid "Referenced Projects"
-msgstr "Referentni projekti"
-
-#. (primary)
-msgid "external repositories"
-msgstr "spoljašnje spremište"
-
-#. (primary)
-#. (primary)
-msgid "externals"
-msgstr "spoljašnji"
-
-#. (para)
-msgid "Sometimes it is useful to construct a working copy that is made out of a number of different checkouts. For example, you may want different subdirectories to come from different locations in a repository, or perhaps from different repositories altogether. If you want every user to have the same layout, you can define the <literal>svn:externals</literal> properties."
-msgstr "Ponekad je korisno da se konsultuje radna kopija koja je napravljena od brojnih različitih preuzimanja. Na primer, možete želeti različite podimenike da dođu sa različitih lokacija u spremište, ili  možda kompletno iz različitih spremišta. Ako želite da svaki korisnik ima isti izgled možete definisati <literal>svn:spoljašne</literal> osobine."
-
-#. (para)
-msgid ""
-"Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Click <guibutton>Add...</guibutton>. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository URL in the format <literal>name url</literal> or if you want to specify a particular revision, <literal>name -rREV url</literal> You can add multiple external projects, 1 per line. Note that URLs must be properly escaped or they will not work. For example you must replace each space with <literal>%20</literal>. Note that it is not possible to use folder names with spaces in them. Suppose that you have set these properties on <filename>D:\\dev\\project1</filename>: <screen>\n"
-"sounds   http://sounds.red-bean.com/repos\n"
-"quick_graphs  http://graphics.red-bean.com/repos/fast%20graphics\n"
-"skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
-"</screen> Now click <guibutton>Set</guibutton> and commit your changes. When you (or any other user) update your working copy, Subversion will create a sub-folder <filename>D:\\dev\\project1\\sounds</filename> and checkout the sounds project, another sub-folder <filename>D:\\dev\\project1\\quick graphs</filename> containing the graphics project, and finally a nested sub-folder <filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 of the skin-maker project."
-msgstr ""
-"Recimo da ste preuzeli radnu kopiju od <filename>/project1</filename> do <filename>D:\\dev\\project1</filename>. Izaberite imenik  <filename>D:\\dev\\project1</filename>, <action>desni klik</action> i izaberite <menuchoice><guimenu>Vindouz Meni</guimenu><guimenuitem>Osobine</guimenuitem></menuchoice> iz kontekst menija. Osobine dijalog dolazi. Zatim idite na tab Subverzija. Tamo možete podesiti osobine. Kliknite <guibutton>Dodaj...</guibutton>. Izaberite <literal>svn:spoljašnje</literal> osobine u komboboksu i napišite URL spremišta u formatu  <literal>ime url</literal> ili ako želite da specificirate partikularnu reviziju, <literal>ime -rREV url</literal> Mžete dodati višestruke spoljašnje projekte, 1 po liniji. Primetimo da taj URL mora biti odgovarajuće popunjen kosim crtama ili to neće raditi. Na primer morate zameniti svaki razmak sa <literal>%20</literal>. Primetimo da  nije moguće koristiti imena  imenika  sa razmacima u njima. Pretpostavimo da imate podešene ove osobine na <filename>D:\\dev\\project1</filename>: <screen>\n"
-"sounds   http://sounds.red-bean.com/repos\n"
-"quick_graphs  http://graphics.red-bean.com/repos/fast%20graphics\n"
-"skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
-"</screen>Sada klik na <guibutton>Podesi</guibutton> i urežite izmene. Kada vi (ili bilo koji drugi korisnik) ažurira vašu radnu kopiju, Subverzija će kreirati podimenik <filename>D:\\dev\\project1\\sounds</filename> i proveriti sounds projekat, sledeći podimenik <filename>D:\\dev\\project1\\quick graphs</filename> koji sadrži grafički projekat, i na kraju ugnježdeni podimenik <filename>D:\\dev\\project1\\skins\\toolkit</filename> koji sadrži reviziju 21 skin-maker projekta."
-
-#. (para)
-msgid "You should strongly consider using explicit revision numbers in all of your externals definitions, as described above. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex code base."
-msgstr "Treba čvrsto osmisliti korišćenje spoljašnjih revizionih brojeva u svim vašim spoljašnjim definicijama, kako je opisano gore. Radeći tako znači da odlučujete da spustite različite slike spoljašnjih informacija, i tačno koju sliku izvući. Pored zajedničkog osećaja šta nas ne iznenađuje promenama u spremištima treće strane to je da može da nemate nikakakvu kontrolu na njima, koristeći eksplicitno revizione brojeve takođe znači da ste unazad datirali vašu radnu kopiju kao prethodnu reviziju, vaše spoljne definicije su takođe vraćene na način kako su izgledale u prethodnoj reviziji, koja znači to da će se spoljašnja radna kopija ažurirati da uhvati  način  kako <emphasis>one</emphasis> izgledaju nazad kada je spremište bili u prethodnoj reviziji. Za softverske projekte,  moglo bi biti razlika između uspešne i neuspešne gradnje stare slike složene kodne osnove.  "
-
-#. (para)
-#. (para)
-msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
-msgstr "Ako je spoljašnji projekat u istom spremištu, bilo koja izmena koju napravite tamo biće uključena u listu za urezivanje kada urezujete glavni projekat."
-
-#. (para)
-#. (para)
-msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
-msgstr "Ako je spoljašnji projekat u različitom spremištu, bilo koje izmene koje napravite u spoljašnjem projektu biće označene kada urezujete glavni projekat, ali morate urezati te spoljašnje izmene izdvojeno."
-
-#. (para)
-msgid "If you use absolute URLs in <literal>svn:externals</literal> definitions and you have to relocate your working copy (i.e., if the URL of your repository changes), then your externals won't change and might not work anymore."
-msgstr "Ako koristite apsolutne URLove u <literal>svn:spoljašnje</literal> definicije i imate da relocirate vašu radnu kopiju (npr. ako je URL vašeg spremišta izmenjen), tada vaši eksternali se ne mogu izmeniti niti uopšte raditi."
-
-#. (para)
-msgid "To avoid such problems, Subversion clients version 1.5 and higher support relative external URLs. Four different methods of specifying a relative URL are supported. In the following examples, assume we have two repositories: one at <systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> and another at <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. We have a checkout of <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem> into <filename>C:\\Working</filename> and the <literal>svn:externals</literal> property is set on trunk."
-msgstr "Da se izbegnu takvi problemi Subverzioni klijenti od verzije 1.5 podržavaju relativne spoljašnje URLove. Četiri različita metoda specificiranja relativnih URLova je podržano. U sledećem primerima uzmimo da imamo dva spremišta: jedno na systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> i drugo na <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>.  Preuzeli  smo <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem>u <filename>C:\\Working</filename> i <literal>svn:spoljašnje</literal> osobine su podešene na deblo."
-
-#. (term)
-msgid "Relative to parent directory"
-msgstr "Relativno na predački imenik"
-
-#. (para)
-msgid ""
-"These URLs always begin with the string <literal>../</literal> for example: <screen>\n"
-"../../widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
-msgstr ""
-"Ovi URLovi uvek počinju stringom <literal>../</literal> na primer: <screen>\n"
-"../../widgets/foo  common/foo-widget\n"
-"</screen> Ovo treba da ekstrahuje <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> u <filename>C:\\Working\\common\\foo-widget</filename>."
-
-#. (para)
-msgid "Note that the URL is relative to the URL of the directory with the <literal>svn:externals</literal> property, not to the directory where the external is written to disk."
-msgstr "Primetimo da je URL relativno u odnosu na URL imenika sa  <literal>svn:spoljašnje </literal>osobine, nije ka imeniku gde su spoljšnje osobine upisane na disku. "
-
-#. (term)
-msgid "Relative to repository root"
-msgstr "Relativno na koren spremišta"
-
-#. (para)
-msgid ""
-"These URLs always begin with the string <literal>^/</literal> for example: <screen>\n"
-"^/widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
-msgstr ""
-"Ovi URLovi uvek počinju stringom <literal>^/</literal> na primer: <screen>\n"
-"^/widgets/foo  common/foo-widget\n"
-"</screen> Ovo će izdvojiti <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> u <filename>C:\\Working\\common\\foo-widget</filename>."
-
-#. (para)
-msgid ""
-"You can easily refer to other repositories with the same <literal>SVNParentPath</literal> (a common directory holding several repositories). For example: <screen>\n"
-"^/../repos-2/hammers/claw  common/claw-hammer\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
-msgstr ""
-"Možete se lako pozvati na drugo spremište sa istim  <literal>SVNPredakPutanja</literal> (zajednički imenik koji drži više spremišta). Na primer: <screen>\n"
-"^/../repos-2/hammers/claw  common/claw-hammer\n"
-"</screen> Ovo će izdvojiti <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> u <filename>C:\\Working\\common\\claw-hammer</filename>."
-
-#. (term)
-msgid "Relative to scheme"
-msgstr "Relativno na šemu"
-
-#. (para)
-msgid ""
-"URLs beginning with the string <literal>//</literal> copy only the scheme part of the URL. This is useful when the same hostname must the accessed with different schemes depending upon network location; e.g. clients in the intranet use <systemitem class=\"url\">http://</systemitem> while external clients use <systemitem class=\"url\">svn+ssh://</systemitem>. For example: <screen>\n"
-"//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
-msgstr ""
-"URL koji počinje stringom <literal>//</literal> kopira samo deo šeme URLa. Ovo je korisno kada se mora pristupiti  domćinu istog imena sa različitim šemama u zavisnosti od mrežne lokacije; npr. klijenti na intranetu koriste  <systemitem class=\"url\">http://</systemitem> dok spoljšnji klijenti koriste <systemitem class=\"url\">svn+ssh://</systemitem>. Na primer:  <screen>\n"
-"//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
-"</screen> Ovo će izdvojiti <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> ili <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> u zavisnosti koji metod je korišćen za preuzimanje <filename>C:\\Working</filename>."
-
-#. (term)
-msgid "Relative to the server's hostname"
-msgstr "Relativno do serverovog imena domaćina"
-
-#. (para)
-msgid ""
-"URLs beginning with the string <literal>/</literal> copy the scheme and the hostname part of the URL, for example: <screen>\n"
-"/svn/repos-1/widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
-msgstr ""
-"URL koji počinju stringom <literal>/</literal> kopiraju šemu i deo sa imenom domaćina URLa, na primer: <screen>\n"
-"/svn/repos-1/widgets/foo  common/foo-widget\n"
-"</screen> Ovo će izdvojiti <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> u <filename>C:\\Working\\common\\foo-widget</filename>. Ali ako preuzmete vašu radni kopiju sa drugog servera na systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> tada će spoljašnje reference izdvojiti <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
-
-#. (para)
-msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-dug-propertypage\"/>."
-msgstr "Ako vam treba više informacija kako TortoiseSVN rukuje sa Osobinama pročitajte <xref linkend=\"tsvn-dug-propertypage\"/>."
-
-#. (para)
-msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
-msgstr "Da biste našli više o raznim metodama pristupa zajedničkim podprojektima čitajte <xref linkend=\"tsvn-howto-common-projects\"/>."
-
-#. (title)
 msgid "Checking Out A Working Copy"
 msgstr "Provera radne kopije"
 
@@ -5737,8 +5606,8 @@ msgid "<placeholder-1/> You can read and set the Subversion properties from the 
 msgstr "<placeholder-1/> Možete čitati i podesiti Subverzione osobine iz Vindouz osobine dijaloga, ali takođe iz <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>osobine</guimenuitem></menuchoice> i u okviru TortoiseSVN statusne liste iz <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>osobine</guimenuitem></menuchoice>."
 
 #. (para)
-msgid "You can add your own properties, or some properties with a special meaning in Subversion. These begin with <literal>svn:</literal>. <literal>svn:externals</literal> is such a property; see how to handle externals in <xref linkend=\"tsvn-dug-import-4\"/>."
-msgstr "Možete dodatu vaše lične osobine, ili neke osobine sa specifičnim značenjem u Subverziji. To što počinje sa <literal>svn:</literal>. <literal>svn:externals</literal> je takva osobinač vidite kako se rukuje eksternalima u xref linkend=\"tsvn-dug-import-4\"/>."
+msgid "You can add your own properties, or some properties with a special meaning in Subversion. These begin with <literal>svn:</literal>. <literal>svn:externals</literal> is such a property; see how to handle externals in <xref linkend=\"tsvn-dug-externals\"/>."
+msgstr "Možete dodatu vaše lične osobine, ili neke osobine sa specifičnim značenjem u Subverziji. To što počinje sa <literal>svn:</literal>. <literal>svn:externals</literal> je takva osobina; vidite kako se rukuje eksternalima u <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (title)
 msgid "svn:keywords"
@@ -5817,8 +5686,8 @@ msgid "If you wish to remove an existing property, select that property from the
 msgstr "Ako želite da uklonite postojeću osobinu, izaberite osobinu iz liste postojećih osobina, zatim kliknite na <guibutton>Ukloni</guibutton>."
 
 #. (para)
-msgid "The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository. For more information, read <xref linkend=\"tsvn-dug-import-4\"/>."
-msgstr "Osobina <literal>svn:externals</literal> može se koristiti da se privuče u druge projekte iz istog spremišta ili sasvim različitog spremišta. Za više informacija, pročitajte <xref linkend=\"tsvn-dug-import-4\"/>."
+msgid "The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository. For more information, read <xref linkend=\"tsvn-dug-externals\"/>."
+msgstr "Osobina <literal>svn:externals</literal> može se koristiti da se privuče u druge projekte iz istog spremišta ili sasvim različitog spremišta. Za više informacija, pročitajte <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (title)
 msgid "Exporting and Importing Properties"
@@ -6000,6 +5869,141 @@ msgstr "Kada dodate novi sub-imenik koristeći TortoiseSVN, osobine bilo kog pro
 #. (para)
 msgid "Although TortoiseSVN's project properties are extremely useful, they only work with TortoiseSVN, and some will only work in newer versions of TortoiseSVN. If people working on your project use a variety of Subversion clients, or possibly have old versions of TortoiseSVN, you may want to use repository hooks to enforce project policies. project properties can only help to implement a policy, they cannot enforce it."
 msgstr "Takođe TortoiseSVN osobine projekta su izuzetno korisne, one samo rade sa TortoiseSVN, i neki će samo raditi  u novoj verziji TortoiseSVN. Ako ljudi rade na vašem projektu koristite mnoštvo Subverzionih klijenata, ili moguće ako imate staru verziju TortoiseSVN, možete da koristite zakačaljke spremišta da forsirate politiku projekta. Osobine projekta mogu pomoći da se primeni politika, ona se ne može forsirati. "
+
+#. (title)
+msgid "External Items"
+msgstr "Spoljašnje Stavke"
+
+#. (primary)
+msgid "external repositories"
+msgstr "spoljašnje spremište"
+
+#. (primary)
+#. (primary)
+msgid "externals"
+msgstr "spoljašnji"
+
+#. (para)
+msgid "Sometimes it is useful to construct a working copy that is made out of a number of different checkouts. For example, you may want different files or subdirectories to come from different locations in a repository, or perhaps from different repositories altogether. If you want every user to have the same layout, you can define the <literal>svn:externals</literal> properties to pull in the specified resource at the locations where they are needed."
+msgstr "Ponekad je korisno da se izradi radna kopija koja je od brojnih različitih preuzimanja. Na primer, možete želeti različite fajlove ili podimenike da dođu sa različitih lokacija u spremište, ili  možda sve zajedno iz različitih spremišta. Ako želite da svaki korisnik ima isti pregled možete definisati <literal>svn:spoljašne</literal> osobine da vučete specifične resurse na lokaciju gde su vam potrebni."
+
+#. (title)
+msgid "External Folders"
+msgstr "Imenici"
+
+#. (para)
+msgid ""
+"Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Click <guibutton>Add...</guibutton>. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository URL in the format <literal>name url</literal> or if you want to specify a particular revision, <literal>name -rREV url</literal> You can add multiple external projects, 1 per line. Note that URLs must be properly escaped or they will not work. For example you must replace each space with <literal>%20</literal>. Note that it is not possible to use folder names with spaces in them. Suppose that you have set these properties on <filename>D:\\dev\\project1</filename>: <screen>\n"
+"sounds   http://sounds.red-bean.com/repos\n"
+"quick_graphs  http://graphics.red-bean.com/repos/fast%20graphics\n"
+"skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
+"</screen> Now click <guibutton>Set</guibutton> and commit your changes. When you (or any other user) update your working copy, Subversion will create a sub-folder <filename>D:\\dev\\project1\\sounds</filename> and checkout the sounds project, another sub-folder <filename>D:\\dev\\project1\\quick graphs</filename> containing the graphics project, and finally a nested sub-folder <filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 of the skin-maker project."
+msgstr ""
+"Recimo da ste preuzeli radnu kopiju od <filename>/project1</filename> do <filename>D:\\dev\\project1</filename>. Izaberite imenik  <filename>D:\\dev\\project1</filename>, <action>desni klik</action> i izaberite <menuchoice><guimenu>Vindouz Meni</guimenu><guimenuitem>Osobine</guimenuitem></menuchoice> iz kontekst menija. Osobine dijalog dolazi. Zatim idite na tab Subverzija. Tamo možete podesiti osobine. Kliknite <guibutton>Dodaj...</guibutton>. Izaberite <literal>svn:spoljašnje</literal> osobine u komboboksu i napišite URL spremišta u formatu  <literal>ime url</literal> ili ako želite da specificirate partikularnu reviziju, <literal>ime -rREV url</literal> Mžete dodati višestruke spoljašnje projekte, 1 po liniji. Primetimo da taj URL mora biti odgovarajuće popunjen kosim crtama ili to neće raditi. Na primer morate zameniti svaki razmak sa <literal>%20</literal>. Primetimo da  nije moguće koristiti imena  imenika  sa razmacima u njima. Pretpostavimo da imate podešene ove osobine na <filename>D:\\dev\\project1</filename>: <screen>\n"
+"sounds   http://sounds.red-bean.com/repos\n"
+"quick_graphs  http://graphics.red-bean.com/repos/fast%20graphics\n"
+"skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
+"</screen>Sada klik na <guibutton>Podesi</guibutton> i urežite izmene. Kada vi (ili bilo koji drugi korisnik) ažurira vašu radnu kopiju, Subverzija će kreirati podimenik <filename>D:\\dev\\project1\\sounds</filename> i proveriti sounds projekat, sledeći podimenik <filename>D:\\dev\\project1\\quick graphs</filename> koji sadrži grafički projekat, i na kraju ugnježdeni podimenik <filename>D:\\dev\\project1\\skins\\toolkit</filename> koji sadrži reviziju 21 skin-maker projekta."
+
+#. (para)
+msgid "You should strongly consider using explicit revision numbers in all of your externals definitions, as described above. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex code base."
+msgstr "Treba čvrsto osmisliti korišćenje spoljašnjih revizionih brojeva u svim vašim spoljašnjim definicijama, kako je opisano gore. Radeći tako znači da odlučujete da spustite različite slike spoljašnjih informacija, i tačno koju sliku izvući. Pored zajedničkog osećaja šta nas ne iznenađuje promenama u spremištima treće strane to je da može da nemate nikakakvu kontrolu na njima, koristeći eksplicitno revizione brojeve takođe znači da ste unazad datirali vašu radnu kopiju kao prethodnu reviziju, vaše spoljne definicije su takođe vraćene na način kako su izgledale u prethodnoj reviziji, koja znači to da će se spoljašnja radna kopija ažurirati da uhvati  način  kako <emphasis>one</emphasis> izgledaju nazad kada je spremište bili u prethodnoj reviziji. Za softverske projekte,  moglo bi biti razlika između uspešne i neuspešne gradnje stare slike složene kodne osnove.  "
+
+#. (para)
+#. (para)
+msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
+msgstr "Ako je spoljašnji projekat u istom spremištu, bilo koja izmena koju napravite tamo biće uključena u listu za urezivanje kada urezujete glavni projekat."
+
+#. (para)
+#. (para)
+msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
+msgstr "Ako je spoljašnji projekat u različitom spremištu, bilo koje izmene koje napravite u spoljašnjem projektu biće označene kada urezujete glavni projekat, ali morate urezati te spoljašnje izmene izdvojeno."
+
+#. (para)
+msgid "If you use absolute URLs in <literal>svn:externals</literal> definitions and you have to relocate your working copy (i.e., if the URL of your repository changes), then your externals won't change and might not work anymore."
+msgstr "Ako koristite apsolutne URLove u <literal>svn:spoljašnje</literal> definicije i imate da relocirate vašu radnu kopiju (npr. ako je URL vašeg spremišta izmenjen), tada vaši eksternali se ne mogu izmeniti niti uopšte raditi."
+
+#. (para)
+msgid "To avoid such problems, Subversion clients version 1.5 and higher support relative external URLs. Four different methods of specifying a relative URL are supported. In the following examples, assume we have two repositories: one at <systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> and another at <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. We have a checkout of <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem> into <filename>C:\\Working</filename> and the <literal>svn:externals</literal> property is set on trunk."
+msgstr "Da se izbegnu takvi problemi Subverzioni klijenti od verzije 1.5 podržavaju relativne spoljašnje URLove. Četiri različita metoda specificiranja relativnih URLova je podržano. U sledećem primerima uzmimo da imamo dva spremišta: jedno na systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> i drugo na <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>.  Preuzeli  smo <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem>u <filename>C:\\Working</filename> i <literal>svn:spoljašnje</literal> osobine su podešene na deblo."
+
+#. (term)
+msgid "Relative to parent directory"
+msgstr "Relativno na predački imenik"
+
+#. (para)
+msgid ""
+"These URLs always begin with the string <literal>../</literal> for example: <screen>\n"
+"../../widgets/foo  common/foo-widget\n"
+"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
+msgstr ""
+"Ovi URLovi uvek počinju stringom <literal>../</literal> na primer: <screen>\n"
+"../../widgets/foo  common/foo-widget\n"
+"</screen> Ovo treba da ekstrahuje <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> u <filename>C:\\Working\\common\\foo-widget</filename>."
+
+#. (para)
+msgid "Note that the URL is relative to the URL of the directory with the <literal>svn:externals</literal> property, not to the directory where the external is written to disk."
+msgstr "Primetimo da je URL relativno u odnosu na URL imenika sa  <literal>svn:spoljašnje </literal>osobine, nije ka imeniku gde su spoljšnje osobine upisane na disku. "
+
+#. (term)
+msgid "Relative to repository root"
+msgstr "Relativno na koren spremišta"
+
+#. (para)
+msgid ""
+"These URLs always begin with the string <literal>^/</literal> for example: <screen>\n"
+"^/widgets/foo  common/foo-widget\n"
+"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
+msgstr ""
+"Ovi URLovi uvek počinju stringom <literal>^/</literal> na primer: <screen>\n"
+"^/widgets/foo  common/foo-widget\n"
+"</screen> Ovo će izdvojiti <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> u <filename>C:\\Working\\common\\foo-widget</filename>."
+
+#. (para)
+msgid ""
+"You can easily refer to other repositories with the same <literal>SVNParentPath</literal> (a common directory holding several repositories). For example: <screen>\n"
+"^/../repos-2/hammers/claw  common/claw-hammer\n"
+"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
+msgstr ""
+"Možete se lako pozvati na drugo spremište sa istim  <literal>SVNPredakPutanja</literal> (zajednički imenik koji drži više spremišta). Na primer: <screen>\n"
+"^/../repos-2/hammers/claw  common/claw-hammer\n"
+"</screen> Ovo će izdvojiti <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> u <filename>C:\\Working\\common\\claw-hammer</filename>."
+
+#. (term)
+msgid "Relative to scheme"
+msgstr "Relativno na šemu"
+
+#. (para)
+msgid ""
+"URLs beginning with the string <literal>//</literal> copy only the scheme part of the URL. This is useful when the same hostname must the accessed with different schemes depending upon network location; e.g. clients in the intranet use <systemitem class=\"url\">http://</systemitem> while external clients use <systemitem class=\"url\">svn+ssh://</systemitem>. For example: <screen>\n"
+"//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
+msgstr ""
+"URL koji počinje stringom <literal>//</literal> kopira samo deo šeme URLa. Ovo je korisno kada se mora pristupiti  domćinu istog imena sa različitim šemama u zavisnosti od mrežne lokacije; npr. klijenti na intranetu koriste  <systemitem class=\"url\">http://</systemitem> dok spoljšnji klijenti koriste <systemitem class=\"url\">svn+ssh://</systemitem>. Na primer:  <screen>\n"
+"//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen> Ovo će izdvojiti <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> ili <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> u zavisnosti koji metod je korišćen za preuzimanje <filename>C:\\Working</filename>."
+
+#. (term)
+msgid "Relative to the server's hostname"
+msgstr "Relativno do serverovog imena domaćina"
+
+#. (para)
+msgid ""
+"URLs beginning with the string <literal>/</literal> copy the scheme and the hostname part of the URL, for example: <screen>\n"
+"/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
+msgstr ""
+"URL koji počinju stringom <literal>/</literal> kopiraju šemu i deo sa imenom domaćina URLa, na primer: <screen>\n"
+"/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen> Ovo će izdvojiti <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> u <filename>C:\\Working\\common\\foo-widget</filename>. Ali ako preuzmete vašu radni kopiju sa drugog servera na systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> tada će spoljašnje reference izdvojiti <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
+
+#. (para)
+msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-dug-propertypage\"/>."
+msgstr "Ako vam treba više informacija kako TortoiseSVN rukuje sa Osobinama pročitajte <xref linkend=\"tsvn-dug-propertypage\"/>."
+
+#. (para)
+msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
+msgstr "Da biste našli više o raznim metodama pristupa zajedničkim podprojektima čitajte <xref linkend=\"tsvn-howto-common-projects\"/>."
 
 #. (title)
 msgid "Branching / Tagging"
@@ -10229,8 +10233,8 @@ msgid "Use svn:externals"
 msgstr "Koristite svn:externals"
 
 #. (para)
-msgid "Set the <literal>svn:externals</literal> property for a folder in your project. This property consists of one or more lines; each line has the name of a sub-folder which you want to use as the checkout folder for common code, and the repository URL that you want to be checked out there. For full details refer to <xref linkend=\"tsvn-dug-import-4\"/>."
-msgstr "Podesite <literal>svn:externals</literal> karakteristiku za imenik u vašem projektu. Ova karakteristika se sastoji od jedne ili više linija; svaka linija ima ime pod-imenikakoji želite da koristite kao imenik za preuzimanje zajdničkog koda, i URL spremišta odakle želite da preuzimate. Za potpune detalje pogledajte <xref linkend=\"tsvn-dug-import-4\"/>."
+msgid "Set the <literal>svn:externals</literal> property for a folder in your project. This property consists of one or more lines; each line has the name of a sub-folder which you want to use as the checkout folder for common code, and the repository URL that you want to be checked out there. For full details refer to <xref linkend=\"tsvn-dug-externals\"/>."
+msgstr "Podesite <literal>svn:externals</literal> karakteristiku za imenik u vašem projektu. Ova karakteristika se sastoji od jedne ili više linija; svaka linija ima ime pod-imenikakoji želite da koristite kao imenik za preuzimanje zajdničkog koda, i URL spremišta odakle želite da preuzimate. Za potpune detalje pogledajte <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (para)
 msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. The sub-folders will be created automatically if required. Each time you update your main working copy, you will also receive the latest version of all external projects."
@@ -12286,6 +12290,8 @@ msgstr "Milorad Popović"
 msgid "translator-translation"
 msgstr "Prevod"
 
+#~ msgid "Referenced Projects"
+#~ msgstr "Референтни пројекти"
 #~ msgid ""
 #~ "Even most Subversion users will never have to set up a server themselves. "
 #~ "The next chapter deals with how to set up such a server, and is useful "
