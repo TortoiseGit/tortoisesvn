@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-03 22:59 +0000\n"
-"PO-Revision-Date: 2009-03-04 19:26+0100\n"
+"POT-Creation-Date: 2009-03-04 23:21 +0000\n"
+"PO-Revision-Date: 2009-03-05 21:58+0100\n"
 "Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3656,21 +3656,16 @@ msgid "<filename>Bar.c</filename> is added to the working copy as a normal file.
 msgstr "<filename>Bar.c</filename> je dodat u radnu kopiju kao normala fajl."
 
 #. (para)
-#. (para)
-msgid "Or <filename>BarFolder</filename> is added to the working copy as a normal folder."
-msgstr "Ili <filename>Bar.c</filename> je dodat u radnu kopiju kao normalan fajl."
-
-#. (para)
 msgid "<filename>Foo.c</filename> is marked as added (with history) and has a tree conflict."
 msgstr "<filename>Foo.c</filename> je označen kao izmenjen (sa istorijom) i ima konfliktno stablo.."
 
 #. (para)
-msgid "Or <filename>FooFolder</filename>"
-msgstr "Ilir <filename>FooFolder</filename>"
-
-#. (para)
 msgid "An update of developer B's working copy results in a tree conflict. For a simple file conflict: <placeholder-1/>"
 msgstr "Ažuriranje radne kopije saradnika B daje konflikt stabla. Za jednostavni fajl konflikt: <placeholder-1/>"
+
+#. (para)
+msgid "<filename>BarFolder</filename> is added to the working copy as a normal folder."
+msgstr " <filename>BarFolder</filename> je dodat u radnu kopiju kao normalan imenik."
 
 #. (para)
 msgid "<filename>FooFolder</filename> is marked as added (with history) and has a tree conflict."
@@ -3709,17 +3704,16 @@ msgid "Developer B moves <filename>Foo.c</filename> to <filename>Bix.c</filename
 msgstr "Saradnik B pomera <filename>Foo.c</filename> u <filename>Bix.c</filename>"
 
 #. (para)
-msgid "<filename>Foo.c</filename> is marked as deleted. and <filename>Bix.c</filename> is marked as added."
-msgstr "<filename>Foo.c</filename> je označen kao obrisan, i <filename>Bix.c</filename> je označen kao dodat."
+msgid "<filename>Bix.c</filename> is marked as added with history."
+msgstr "<filename>Bix.c</filename> je označen kao dodat sa istorijom."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is added to the working copy with status 'normal'."
 msgstr "<filename>Bar.c</filename> je dodat u radnu kopiju sa statusom  'normalan'."
 
 #. (para)
-#. (para)
-msgid "Tree conflict on <filename>Foo.c</filename>."
-msgstr "Konflikt stabla na <filename>Foo.c</filename>."
+msgid "<filename>Foo.c</filename> is marked as deleted and has a tree conflict."
+msgstr "<filename>Foo.c</filename> je označen kao obrisan i ima konflikt stabla."
 
 #. (para)
 #. (para)
@@ -3798,6 +3792,10 @@ msgstr "Saradnik A radeći na grani pomera <filename>Foo.c</filename> u <filenam
 #. (para)
 msgid "<filename>Bix.c</filename> is added with status normal."
 msgstr "<filename>Bix.c</filename> je dodat sa statusom normalan."
+
+#. (para)
+msgid "Tree conflict on <filename>Foo.c</filename>."
+msgstr "Konflikt stabla na <filename>Foo.c</filename>."
 
 #. (para)
 msgid "Then developer B has to decide which new filename of <filename>Foo.c</filename> to keep - the one done by developer A or the rename done in his working copy."
@@ -12290,6 +12288,14 @@ msgstr "Milorad Popović"
 msgid "translator-translation"
 msgstr "Prevod"
 
+#~ msgid "Or <filename>FooFolder</filename>"
+#~ msgstr "Илиr <filename>FooFolder</filename>"
+#~ msgid ""
+#~ "<filename>Foo.c</filename> is marked as deleted. and <filename>Bix.c</"
+#~ "filename> is marked as added."
+#~ msgstr ""
+#~ "<filename>Foo.c</filename> је означен као обрисан, и <filename>Bix.c</"
+#~ "filename> је означен као додат."
 #~ msgid "Referenced Projects"
 #~ msgstr "Референтни пројекти"
 #~ msgid ""
