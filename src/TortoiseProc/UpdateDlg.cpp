@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007,2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -65,6 +65,7 @@ BOOL CUpdateDlg::OnInitDialog()
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE)));
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_FILES)));
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_EMPTY)));
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_EXCLUDE)));
 	m_depthCombo.SetCurSel(0);
 
 	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
@@ -105,6 +106,9 @@ void CUpdateDlg::OnOK()
 		break;
 	case 4:
 		m_depth = svn_depth_empty;
+		break;
+	case 5:
+		m_depth = svn_depth_exclude;
 		break;
 	default:
 		m_depth = svn_depth_empty;
