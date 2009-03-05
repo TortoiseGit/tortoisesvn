@@ -2060,7 +2060,7 @@ void CSVNStatusListCtrl::GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rM
 		rMin = 0;
 }
 
-int CSVNStatusListCtrl::GetGroupFromPoint(POINT * ppt)
+int CSVNStatusListCtrl::GetGroupFromPoint(POINT * ppt, bool bHeader /* = true */)
 {
 	// the point must be relative to the upper left corner of the control
 
@@ -2094,6 +2094,8 @@ int CSVNStatusListCtrl::GetGroupFromPoint(POINT * ppt)
 			lv.iItem = nItem;
 			GetItem(&lv);
 			int groupID = lv.iGroupId;
+			if ((groupID != I_GROUPIDNONE)&&(!bHeader))
+				return groupID;
 			// now we search upwards and check if the item above this one
 			// belongs to another group. If it belongs to the same group,
 			// we're not over a group header
@@ -5192,7 +5194,7 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
 			clientpoint.x = pt.x;
 			clientpoint.y = pt.y;
 			ScreenToClient(m_hTargetWnd, &clientpoint);
-			if ((m_pSVNStatusListCtrl->IsGroupViewEnabled())&&(m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint) >= 0))
+			if ((m_pSVNStatusListCtrl->IsGroupViewEnabled())&&(m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint, false) >= 0))
 			{
 				CTSVNPathList changelistItems;
 				for(UINT i = 0; i < cFiles; ++i)
@@ -5202,7 +5204,7 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
 				}
 				// find the changelist name
 				CString sChangelist;
-				LONG_PTR nGroup = m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint);
+				LONG_PTR nGroup = m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint, false);
 				for (std::map<CString, int>::iterator it = m_pSVNStatusListCtrl->m_changelists.begin(); it != m_pSVNStatusListCtrl->m_changelists.end(); ++it)
 					if (it->second == nGroup)
 						sChangelist = it->first;
@@ -5305,7 +5307,7 @@ HRESULT STDMETHODCALLTYPE CSVNStatusListCtrlDropTarget::DragOver(DWORD grfKeySta
 		{
 			if (m_pSVNStatusListCtrl->m_bOwnDrag)
 			{
-				LONG_PTR iGroup = m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint);
+				LONG_PTR iGroup = m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint, false);
 				if (iGroup >= 0)
 				{
 					// find the changelist name
