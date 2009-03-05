@@ -52,6 +52,7 @@ enum RevisionGraphContextMenuCommands
     GROUP_MASK = 0xff00,
 	ID_SHOWLOG = 1,
     ID_CFM = 2,
+    ID_BROWSEREPO,
 	ID_COMPAREREVS = 0x100,
 	ID_COMPAREHEADS,
 	ID_UNIDIFFREVS,
@@ -972,6 +973,8 @@ void CRevisionGraphWnd::AddSVNOps (CMenu& popup)
 	if (m_SelectedEntry1 && (m_SelectedEntry2 == NULL))
 	{
 		AppendMenu (popup, IDS_REPOBROWSE_SHOWLOG, ID_SHOWLOG);
+        if (!m_SelectedEntry1->GetClassification().Is (CNodeClassification::IS_MODIFIED_WC))
+            AppendMenu (popup, IDS_LOG_BROWSEREPO, ID_BROWSEREPO);
 		if (PathIsDirectory(m_sPath))
             if (m_SelectedEntry1->GetClassification().Is (CNodeClassification::IS_MODIFIED_WC))
         		AppendMenu (popup, IDS_REVGRAPH_POPUP_CFM, ID_CFM);
@@ -989,6 +992,7 @@ void CRevisionGraphWnd::AddSVNOps (CMenu& popup)
                     AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCHTOHEAD, ID_SWITCHTOHEAD);
                     AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCH, ID_SWITCH);
                 }
+
 	}
 
 	if (bothPresent)
@@ -1185,6 +1189,16 @@ void CRevisionGraphWnd::DoSwitchToHead()
         m_parent->UpdateFullHistory();
 }
 
+void CRevisionGraphWnd::DoBrowseRepo()
+{
+    CString sCmd;
+    sCmd.Format(_T("%s /command:repobrowser /path:\"%s\" /rev:%d"),
+      (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+      (LPCTSTR)GetSelectedURL(), m_SelectedEntry1->GetRevision());
+
+    CAppUtils::LaunchApplication(sCmd, NULL, false);
+}
+
 void CRevisionGraphWnd::ResetNodeFlags (DWORD flags)
 {
     m_state.GetNodeStates()->ResetFlags (flags);
@@ -1275,6 +1289,9 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_SWITCH:
             DoSwitch();
+            break;
+        case ID_BROWSEREPO:
+            DoBrowseRepo();
             break;
         case ID_EXPAND_ALL:
             ResetNodeFlags (CGraphNodeStates::COLLAPSED_ALL);

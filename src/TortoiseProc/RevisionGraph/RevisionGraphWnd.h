@@ -222,6 +222,7 @@ private:
     void            DoUpdate();
     void            DoSwitch();
     void            DoSwitchToHead();
+    void            DoBrowseRepo();
     void            ResetNodeFlags (DWORD flags);
     void            ToggleNodeFlag (const CVisibleGraphNode *node, DWORD flag);
 
