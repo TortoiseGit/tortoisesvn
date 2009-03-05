@@ -393,6 +393,12 @@
 				<itemizedlist>
 					<listitem>
 						<para>
+							<filename>Bar.c</filename> is already in the
+							working copy with status 'normal'.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
 							<filename>Foo.c</filename> is marked as missing
 							with a tree conflict.
 						</para>
@@ -400,13 +406,20 @@
 				</itemizedlist>
 			</para>
 			<para>
-				To resolve this conflict, Developer B has to remove the
-				missing file in the conflict editor dialog.
-				Then developer B has to decide whether to get the missing
-				file <filename>Foo.c</filename> from the repository and
-				add it to the working copy, whether to merge <filename>Foo.c</filename>
-				into the renamed <filename>Bar.c</filename> or whether
-				to just mark the conflict as resolved.
+				To resolve this conflict, Developer B has to mark the file as
+				resolved in the conflict editor dialog, which will remove it
+				from the conflict list.
+				She then has to decide whether to copy the missing file
+				<filename>Foo.c</filename> from the repository to the working
+				copy, whether to merge Developer A's changes to
+				<filename>Foo.c</filename> into the renamed
+				<filename>Bar.c</filename> or whether to ignore the changes
+				by marking the conflict as resolved and doing nothing else.
+			</para>
+			<para>
+				Note that if you copy the missing file from the repository
+				and then mark as resolved, your copy will be removed again.
+				You have to resolve the conflict first.
 			</para>
 		</sect3>		
 		<sect3 id="tsvn-dug-conflicts-tree-5">
