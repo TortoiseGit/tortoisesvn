@@ -737,6 +737,11 @@ CSVNStatusListCtrl::AddNewFileEntry(
 		}
 	}
 
+	if (pSVNStatus->url)
+	{
+		entry->url = CUnicodeUtils::GetUnicode(CPathUtils::PathUnescape(pSVNStatus->url));
+	}
+
 	if (pSVNStatus->entry)
 	{
 		entry->isfolder = (pSVNStatus->entry->kind == svn_node_dir);
@@ -2848,19 +2853,45 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				break;
 			case IDSVNLC_OPEN:
 				{
-					int ret = (int)ShellExecute(this->m_hWnd, NULL, filepath.GetWinPath(), NULL, NULL, SW_SHOW);
+					CTSVNPath fp = filepath;
+					if ((!filepath.Exists())&&(entry->remotestatus == svn_wc_status_added))
+					{
+						// fetch the file from the repository
+						SVN svn;
+						CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, filepath);
+						if (!svn.Cat(CTSVNPath(entry->GetURL()), SVNRev::REV_HEAD, SVNRev::REV_HEAD, tempfile))
+						{
+							CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							break;
+						}
+						fp = tempfile;
+					}
+					int ret = (int)ShellExecute(this->m_hWnd, NULL, fp.GetWinPath(), NULL, NULL, SW_SHOW);
 					if (ret <= HINSTANCE_ERROR)
 					{
 						CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-						c += filepath.GetWinPathString();
+						c += fp.GetWinPathString();
 						CAppUtils::LaunchApplication(c, NULL, false);
 					}
 				}
 				break;
 			case IDSVNLC_OPENWITH:
 				{
+					CTSVNPath fp = filepath;
+					if ((!filepath.Exists())&&(entry->remotestatus == svn_wc_status_added))
+					{
+						// fetch the file from the repository
+						SVN svn;
+						CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, filepath);
+						if (!svn.Cat(CTSVNPath(entry->GetURL()), SVNRev::REV_HEAD, SVNRev::REV_HEAD, tempfile))
+						{
+							CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							break;
+						}
+						fp = tempfile;
+					}
 					CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-					c += filepath.GetWinPathString() + _T(" ");
+					c += fp.GetWinPathString() + _T(" ");
 					CAppUtils::LaunchApplication(c, NULL, false);
 				}
 				break;
