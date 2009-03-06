@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-02 13:22+0900\n"
+"PO-Revision-Date: 2009-03-06 11:19+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3534,6 +3534,10 @@ msgstr ""
 msgid "Exceptions:"
 msgstr "가져오기 예외:"
 
+#. Resource IDs: (20)
+msgid "Exclude"
+msgstr "제외"
+
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
 msgstr "실행파일 (*.exe)|*.exe|명령 (*.com)|*.com|정보 (*.pdf)|*.pdf|배치 (*.bat)|*.bat|모든 파일들 (*.*)|*.*||"
@@ -5202,8 +5206,8 @@ msgstr "리비전들 병합..."
 
 #. Resource IDs: (610)
 #, c-format
-msgid "Merge the changes into the file '%s'"
-msgstr "'%s' 파일에 변경내용을 병합합니다"
+msgid "Merge the changes into '%s'"
+msgstr "'%s'에 변경사항을 병합"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
