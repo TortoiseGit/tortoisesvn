@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-06 11:25+0100\n"
+"PO-Revision-Date: 2009-03-06 19:29+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -676,16 +676,13 @@ msgstr "&Initial mapp"
 msgid "&Inline diff word-wise"
 msgstr "&Skillnader inom rad per ord"
 
-# &-tecken saknas
 #. Resource IDs: (275)
-#, fuzzy
 msgid "&Join all"
-msgstr "Förena alla"
+msgstr "&Förena alla"
 
-# &-tecken saknas
 #. Resource IDs: (275)
 msgid "&Join with sub-trees"
-msgstr "Förena med alla underträd"
+msgstr "&Förena med alla underträd"
 
 # Hur översätta "diff"
 #. Resource IDs: (1016)
@@ -819,12 +816,10 @@ msgid "&Open"
 msgstr "&Öppna"
 
 #. Resource IDs: (1382)
-#, fuzzy
 msgid "&Options"
-msgstr "Inställningar"
+msgstr "In&ställningar"
 
 #. Resource IDs: (32772)
-#, fuzzy
 msgid "&Overlay images"
 msgstr "&Överlappa bilderna"
 
@@ -845,9 +840,8 @@ msgid "&Port:"
 msgstr "&Port:"
 
 #. Resource IDs: (1489)
-#, fuzzy
 msgid "&Power user defaults"
-msgstr "Åter&ställ default"
+msgstr "&Power user inställningar"
 
 # Hur översätta "difference"
 #. Resource IDs: (32780)
@@ -920,9 +914,8 @@ msgid "&Resolve using local property"
 msgstr "Lös med hjälp av lokala inställninga&r"
 
 #. Resource IDs: (1488)
-#, fuzzy
 msgid "&Restore defaults"
-msgstr "Åter&ställ default"
+msgstr "Åte&rställ default"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1028,11 +1021,9 @@ msgstr "&Tabbstorlek:"
 msgid "&Tabbed Document"
 msgstr "&Tabbat dokument"
 
-# &-tecken saknas
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Tags"
-msgstr "Märken"
+msgstr "&Märken"
 
 #. Resource IDs: (1382)
 msgid "&Test merge"
@@ -1090,11 +1081,9 @@ msgstr "&TortoiseSVN"
 msgid "&TortoiseUDiff"
 msgstr "&TortoiseUDiff"
 
-# &-teckan saknas
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Trunk"
-msgstr "Huvudgren"
+msgstr "&Huvudgren"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -1352,14 +1341,13 @@ msgstr ""
 "Om du avslutar en sökväg med en asterisk (\"*\"), inkluderas även alla filer och undermappar."
 
 #. Resource IDs: (197)
-#, fuzzy
 msgid ""
 "A newline separated list of paths for which no context menu is shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow the context menu on all paths."
 msgstr ""
 "En lista med sökvägar (en per rad), för vilka inga statusikoner ska visas.\r\n"
-"Om du avslutar en sökväg med en asterisk (\"*\"), exkluderas även alla filer och undermappar.\r\n"
+"Om du avslutar en sökväg med en asterisk ('*'), exkluderas även alla filer och undermappar.\r\n"
 "En tom lista tillåter visning av statussymboler för alla sökvägar."
 
 #. Resource IDs: (194)
@@ -1490,9 +1478,9 @@ msgid "Add the item anyway"
 msgstr "Lägg till objektet i alla fall"
 
 #. Resource IDs: (613)
-#, fuzzy, c-format
+#, c-format
 msgid "Add to %1"
-msgstr "till %1"
+msgstr "Addera till %1"
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -1750,9 +1738,8 @@ msgid "Arrange &Vertical"
 msgstr "Ordna &vertikalt"
 
 #. Resource IDs: (199)
-#, fuzzy
 msgid "Ask the user"
-msgstr "Fråga användare"
+msgstr "Fråga användaren"
 
 #. Resource IDs: (264)
 #, c-format
@@ -2150,11 +2137,9 @@ msgstr "Leta efter uppdateringar"
 msgid "Check For Updates..."
 msgstr "Leta efter uppdateringar..."
 
-# &-tecken saknas
 #. Resource IDs: (276)
-#, fuzzy
 msgid "Check for &modifications"
-msgstr "Leta efter ändringar"
+msgstr "&Leta efter ändringar"
 
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
@@ -2191,9 +2176,8 @@ msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Kryssa i för att använda ett mindre utförligt format för datum och tid i loggmeddelanden"
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid "Check working copy for modifications"
-msgstr "Leta efter ändringar"
+msgstr "Kontrollera ändringar i arbetskopian"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -2353,11 +2337,9 @@ msgstr "Stäng manuellt"
 msgid "Close the active window and prompts to save the documents"
 msgstr "Stäng aktivt fönster och fråga om spara dokument"
 
-# &-tecken saknas
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Coll&apse source tree"
-msgstr "Fäll ihop källkodsträd"
+msgstr "&Fäll ihop källkodsträd"
 
 #. Resource IDs: (275)
 msgid "Collapse &following tree"
@@ -3130,7 +3112,6 @@ msgstr "Jämför med URL"
 msgid "Difference between"
 msgstr "Skillnader mellan"
 
-# &-tecken saknas
 #. Resource IDs: (32817)
 msgid "Differential path &names"
 msgstr "Differe&ntiella sökvägar"
@@ -3703,7 +3684,6 @@ msgstr "Externa program::\"Unified Diff\" visare"
 
 # Konstigt ordval
 #. Resource IDs: (263)
-#, fuzzy
 msgid "External failed"
 msgstr "Externt misslyckades"
 
@@ -3954,9 +3934,8 @@ msgid "Finished!"
 msgstr "Klar!"
 
 #. Resource IDs: (32804)
-#, fuzzy
 msgid "Fit graph"
-msgstr "Cirkeldiagram"
+msgstr "Anpassa graf"
 
 #. Resource IDs: (32802)
 msgid "Fit height"
@@ -4192,9 +4171,8 @@ msgid "HEAD"
 msgstr "HEAD"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "HEAD node"
-msgstr "Tillagd nod"
+msgstr "HEAD nod"
 
 #. Resource IDs: (106)
 #, c-format
@@ -4233,11 +4211,9 @@ msgstr "Göm det dockade fönstret"
 msgid "Hide the script while running"
 msgstr "Dölj skriptet medans det körs"
 
-# &-tecken saknas
 #. Resource IDs: (32830)
-#, fuzzy
 msgid "Hide unused &branches"
-msgstr "Dölj oanvända grenar"
+msgstr "&Dölj oanvända grenar"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -5102,9 +5078,8 @@ msgid "Log Caching"
 msgstr "Logg cache"
 
 #. Resource IDs: (295)
-#, fuzzy
 msgid "Log Caching::Cached Repositories"
-msgstr "Cachade arkiv"
+msgstr "Logg Caching::Cachade arkiv"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -7365,9 +7340,8 @@ msgid "Show &All"
 msgstr "Visa &alla"
 
 #. Resource IDs: (1132)
-#, fuzzy
 msgid "Show &Log"
-msgstr "Visa &logg"
+msgstr "Visa &Logg"
 
 #. Resource IDs: (115)
 msgid "Show &Range..."
@@ -8496,7 +8470,6 @@ msgstr ""
 "Vill du spara dina ändringar?"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid ""
 "There has been a problem contacting the server.\n"
 "Do you want to see the cached data instead?\n"
