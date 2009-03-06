@@ -15,9 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-03 22:59 +0000\n"
-"PO-Revision-Date: 2009-03-04 17:41+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"POT-Creation-Date: 2009-03-04 23:21 +0000\n"
+"PO-Revision-Date: 2009-03-06 15:44+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3522,7 +3522,7 @@ msgstr "Dateikonflikte"
 
 #. (para)
 msgid "A file conflict occurs if two (or more) developers have changed the same few lines of a file."
-msgstr ""
+msgstr "Ein Dateikonflikt entsteht, wenn zwei (oder mehr) Entwickler dieselben Zeilen einer Datei geändert haben."
 
 #. (term)
 msgid "tree conflicts"
@@ -3530,11 +3530,11 @@ msgstr "Baumkonflikte"
 
 #. (para)
 msgid "A tree conflict occurs when a developer moved/renamed/deleted a file or folder, which another developer either also has moved/renamed/deleted or just modified."
-msgstr ""
+msgstr "Ein Baumkonflikt entsteht, wenn ein Entwickler eine Datei oder einen Ordner umbenannt, verschoben oder gelöscht hat, den ein anderer Entwickler ebenfalls umbenannt, verschoben, gelöscht oder bearbeitet hat."
 
 #. (para)
 msgid "Once in a while, you will get a <emphasis>conflict</emphasis> when you update/merge your files from the repository or when you switch your working copy to a different URL. There are two kinds of conflicts: <placeholder-1/>"
-msgstr ""
+msgstr "Ab und an werden Sie einen <emphasis>Konflikt</emphasis> erhalten, wenn Sie Ihre Arbeitskopie aktualisieren oder zu einer anderen URL wechseln. Es gibt zwei Arten von Konflikten: <placeholder-1/>"
 
 #. (title)
 msgid "File Conflicts"
@@ -3565,7 +3565,6 @@ msgid "This is the file that your Subversion client just received from the serve
 msgstr "Dies ist die Datei, wie sie im Projektarchiv gerade aktuell ist, d.h. diese Datei hat die Änderungen von den anderen Mitarbeitern bereits integriert, jedoch noch nicht die Ihren."
 
 #. (para)
-#, fuzzy
 msgid ""
 "A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. Whenever a conflict is reported, you should open the file in question, and search for lines starting with the string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area is marked like this: <screen>\n"
 "\t&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
@@ -3575,8 +3574,8 @@ msgid ""
 "\t&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "\t</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
-"Manchmal werden Sie einen <emphasis>Konflikt</emphasis> erhalten wenn Sie Ihre Arbeitskopie aktualisieren. Ein Konflikt tritt dann auf wenn mehrere Personen die gleiche(n) Stelle(n) in derselben Datei verändert haben. Da Subversion nichts über Ihr Projekt weiß, überlässt es in solchen Fällen Ihnen, den Konflikt aufzulösen. Wann immer ein Konflikt auftritt können Sie die entsprechende Datei öffnen und nach Zeilen suchen welche beginnen mit: <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. Die Zeile in Konflikt ist so markiert:<screen>\n"
-"&lt;&lt;&lt;&lt;&lt;&lt;&lt; Dateiname\n"
+"Ein Konflikt tritt dann auf wenn mehrere Personen die gleichen Zeilen in einer Datei verändert haben. Da Subversion nichts über Ihr Projekt weiß, überlässt es in solchen Fällen Ihnen, den Konflikt aufzulösen. Wann immer ein Konflikt auftritt, können Sie die entsprechende Datei öffnen und nach Zeilen suchen welche mit <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal> beginnen. Die Zeile in Konflikt ist folgendermaßen markiert:\n"
+"<screen>&lt;&lt;&lt;&lt;&lt;&lt;&lt; Dateiname\n"
 "    Ihre Änderungen\n"
 "=======\n"
 "    Code aus dem Projektarchiv\n"
@@ -3606,7 +3605,7 @@ msgstr "Baumkonflikte"
 
 #. (para)
 msgid "A tree conflict occurs when a developer moved/renamed/deleted a file or folder, which another developer either also has moved/renamed/deleted or just modified. There are many different situations that can result in a tree conflict, and all of them require different steps to resolve the conflict."
-msgstr ""
+msgstr "Ein Baumkonflikt entsteht, wenn ein Entwickler eine Datei oder einen Ordner umbenannt, verschoben oder gelöscht hat, den ein anderer Entwickler ebenfalls umbenannt, verschoben, gelöscht oder bearbeitet hat. Es gibt verschiedene Ursachen für Baumkonflikte und alle erfordern unterschiedliche Vorgehensweisen, um den Konflikt aufzulösen."
 
 #. (para)
 msgid "When a file is deleted locally in Subversion, the file is also deleted from the local file system, so even if it is part of a tree conflict it cannot show a conflicted overlay and you cannot right click on it to resolve the conflict. Use the <guilabel>Check for Modifications</guilabel> dialog instead to access the <guilabel>Edit conflicts</guilabel> option."
@@ -3654,9 +3653,8 @@ msgid "Local edit, incoming delete upon update"
 msgstr ""
 
 #. (para)
-#, fuzzy
 msgid "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository."
-msgstr "Verwende <filename>_svn</filename> anstelle von <filename>.svn</filename> Verzeichnissen"
+msgstr "Entwickler A benennt die Datei <filename>Foo.c</filename> in <filename>Bar.c</filename> um und überträgt die Änderung ins Projektarchiv."
 
 #. (para)
 #. (para)
@@ -3676,20 +3674,15 @@ msgid "<filename>Bar.c</filename> is added to the working copy as a normal file.
 msgstr ""
 
 #. (para)
-#. (para)
-msgid "Or <filename>BarFolder</filename> is added to the working copy as a normal folder."
-msgstr ""
-
-#. (para)
 msgid "<filename>Foo.c</filename> is marked as added (with history) and has a tree conflict."
 msgstr ""
 
 #. (para)
-msgid "Or <filename>FooFolder</filename>"
+msgid "An update of developer B's working copy results in a tree conflict. For a simple file conflict: <placeholder-1/>"
 msgstr ""
 
 #. (para)
-msgid "An update of developer B's working copy results in a tree conflict. For a simple file conflict: <placeholder-1/>"
+msgid "<filename>BarFolder</filename> is added to the working copy as a normal folder."
 msgstr ""
 
 #. (para)
@@ -3701,9 +3694,8 @@ msgid "<filename>Foo.c</filename> is marked as modified."
 msgstr ""
 
 #. (para)
-#, fuzzy
 msgid "For a folder conflict: <placeholder-1/>"
-msgstr "Es darf nicht umplatziert werden, wenn: <placeholder-1/>"
+msgstr "Für einen Ordnerkonflikt: <placeholder-1/>"
 
 #. (para)
 msgid "Then developer B has to decide whether to go with developer A's reorganisation and merge her changes into the corresponding file in the new structure, or simply revert A's changes and keep the local file."
@@ -3722,28 +3714,24 @@ msgid "Local delete, incoming delete upon update"
 msgstr ""
 
 #. (para)
-#, fuzzy
 msgid "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr "Verwende <filename>_svn</filename> anstelle von <filename>.svn</filename> Verzeichnissen"
+msgstr "Entwickler A benennt die Datei <filename>Foo.c</filename> in <filename>Bar.c</filename> um und überträgt die Änderung ins Projektarchiv."
 
 #. (para)
-#, fuzzy
 msgid "Developer B moves <filename>Foo.c</filename> to <filename>Bix.c</filename>"
-msgstr "Erstellen Sie einen weiteren Ordner <filename>MyNewRepository</filename> innerhalb von <filename>D:\\SVN\\</filename>."
+msgstr "Entwickler B benennt<filename>Foo.c</filename> in <filename>Bix.c</filename> um."
 
 #. (para)
-#, fuzzy
-msgid "<filename>Foo.c</filename> is marked as deleted. and <filename>Bix.c</filename> is marked as added."
-msgstr "Verwende <filename>_svn</filename> anstelle von <filename>.svn</filename> Verzeichnissen"
+msgid "<filename>Bix.c</filename> is marked as added with history."
+msgstr ""
 
 #. (para)
 msgid "<filename>Bar.c</filename> is added to the working copy with status 'normal'."
 msgstr ""
 
 #. (para)
-#. (para)
-msgid "Tree conflict on <filename>Foo.c</filename>."
-msgstr ""
+msgid "<filename>Foo.c</filename> is marked as deleted and has a tree conflict."
+msgstr "Die Datei <filename>Foo.c</filename> ist als gelöscht markiert und hat einen Baumkonflikt."
 
 #. (para)
 #. (para)
@@ -3821,6 +3809,10 @@ msgstr ""
 
 #. (para)
 msgid "<filename>Bix.c</filename> is added with status normal."
+msgstr ""
+
+#. (para)
+msgid "Tree conflict on <filename>Foo.c</filename>."
 msgstr ""
 
 #. (para)
@@ -3967,9 +3959,8 @@ msgid "<placeholder-1/> It's often very useful to know which files you have chan
 msgstr "<placeholder-1/> Oft ist es nützlich zu wissen, welche Dateien von anderen bereits geändert und im Projektarchiv gespeichert wurden. Dazu gibt es den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Auf Änderungen überprüfen...</guimenuitem> </menuchoice>. Dieser Dialog zeigt Ihnen alle veränderten oder unversionierten Dateien in Ihrer Arbeitskopie."
 
 #. (para)
-#, fuzzy
 msgid "If you click on the <guibutton>Check Repository</guibutton> then you can also look for changes in the repository. That way you can check before an update if there's a possible conflict. You can also update selected files from the repository without updating the whole folder. By default, the <guibutton>Check Repository</guibutton> button only fetches the remote status with the checkout depth of the working copy. If you want to see all files and folders in the repository, even those you have not checked out, then you have to hold down the <keycap>Shift</keycap> key when you click on the <guibutton>Check Repository</guibutton> button."
-msgstr "Mit der <guibutton>Projektarchiv prüfen</guibutton> Schaltfläche können Sie das Projektarchiv auf Änderungen prüfen. Auf diese Weise können Sie vor dem Aktualisieren feststellen, ob es möglicherweise Konflikte gibt. Sie können aus diesem Dialog heraus auch einzelne Dateien - ohne den gesamten Ordner - aus dem Projektarchiv aktualisieren."
+msgstr "Mit der <guibutton>Projektarchiv prüfen</guibutton> Schaltfläche können Sie das Projektarchiv auf Änderungen prüfen. Auf diese Weise können Sie vor dem Aktualisieren feststellen, ob es möglicherweise Konflikte gibt. Sie können aus diesem Dialog heraus auch einzelne Dateien - ohne den gesamten Ordner - aus dem Projektarchiv aktualisieren. Standardmäßig holt <guibutton>Projektarchiv prüfen</guibutton> nur den Status des Projektarchivs entsprechend der Tiefe der Arbeitskopie. Wenn Sie alle Dateien und Ordner des Projektarchivs, inklusive derer, die Sie nicht ausgecheckt haben, sehen möchten, halten Sie die <keycap>Umsch</keycap> Taste gedrückt, während Sie auf <guibutton>Projektarchiv prüfen</guibutton> klicken."
 
 #. (para)
 msgid "Locally modified items."
@@ -4228,25 +4219,21 @@ msgid "Compare with previous revision"
 msgstr "Vergleiche mit der vorherigen Revision"
 
 #. (para)
-#, fuzzy
 msgid "Compare the selected revision with the previous revision. This works in a similar manner to comparing with your working copy. For folders this option will first show the changed files dialog allowing you to select files to compare."
-msgstr "Die gewählte Revision mit der vorherigen Revision vergleichen. Dies funktioniert ähnlich wie ein Vergleich mit Ihrer Arbeitskopie."
+msgstr "Die gewählte Revision mit der vorherigen Revision vergleichen. Dies funktioniert ähnlich wie ein Vergleich mit Ihrer Arbeitskopie. Bei Ordnern werden zunächst die geänderten Dateien angezeigt, so dass Sie die Dateien für den Vergleich auswählen können."
 
 #. (term)
-#, fuzzy
 msgid "Compare and blame with previous revision"
-msgstr "Vergleiche und Annotiere mit Arbeitskopie BASE"
+msgstr "Vergleiche und Annotiere mit vorheriger Revision"
 
 #. (para)
-#, fuzzy
 msgid "Show the changed files dialog allowing you to select files. Blame the selected revision, and the previous revision, and compare the results using a visual diff tool. (folders only)."
-msgstr "Nur für Ordner: Die gewählte sowie die vorherige Revision annotieren  und das Ergebnis in einem Vergleichsprogramm darstellen."
+msgstr "Die Liste der geänderten Dateien anzeigen, um die zu vergleichenden Dateien auszuwählen. Die gewählte sowie die vorherige Revision annotieren  und das Ergebnis in einem Vergleichsprogramm darstellen. (Nur für Ordner)"
 
 #. (term)
 #. (term)
-#, fuzzy
 msgid "Save revision to..."
-msgstr "Max Revision"
+msgstr "Speichere Revision unter..."
 
 #. (para)
 msgid "Save the selected revision to a file so you have an older version of that file. (files only)."
@@ -4279,12 +4266,10 @@ msgid "Open the repository browser to examine the selected file or folder in the
 msgstr "Den Projektarchivbetrachter öffnen, um das markierte Objekt in der gewählten Revision des Projektarchivs zu betrachten."
 
 #. (term)
-#, fuzzy
 msgid "Create branch/tag from revision"
-msgstr "Einen Revisionsbereich zusammenführen"
+msgstr "Erstelle Zweig/Marke von Revision"
 
 #. (para)
-#, fuzzy
 msgid "Create a branch or tag from a selected revision. This is useful e.g. if you forgot to create a tag and already committed some changes which weren't supposed to get into that release."
 msgstr "Einen Zweig oder eine Marke für die gewählte Revision erstellen. Dies ist nützlich für den Fall, dass sie vergessen haben eine bestimmte Version Ihres Projektes zu markieren und Sie seitdem bereits weitere Änderungen in das Projektarchiv übertragen haben."
 
@@ -4293,23 +4278,20 @@ msgid "Update item to revision"
 msgstr "Aktualisiere Objekt zu Revision"
 
 #. (para)
-#, fuzzy
 msgid "Update your working copy to the selected revision. Useful if you want to have your working copy reflect a time in the past, or if there have been further commits to the repository and you want to update your working copy one step at a time. It is best to update a whole directory in your working copy, not just one file, otherwise your working copy could be inconsistent."
-msgstr "Ihre Arbeitskopie auf eine bestimmte Revision aktualisieren. Nützlich wenn Sie möchten dass Ihre Arbeitskopie einen Zustand in der Vergangenheit enthält. Es ist am besten, ein komplettes Arbeitsverzeichnis und nicht nur eine einzelne Datei zu aktualisieren, da andernfalls Ihre Arbeitskopie inkonsistent sein wird und Sie keine Änderungen übertragen können."
+msgstr "Ihre Arbeitskopie auf eine bestimmte Revision aktualisieren. Nützlich wenn Sie möchten dass Ihre Arbeitskopie einem Zustand in der Vergangenheit entspricht oder wenn es weitere Übertragungen im Projektarchiv gibt, die Sie schrittweise übernehmen wollen. Es ist am besten, ein komplettes Arbeitsverzeichnis und nicht nur eine einzelne Datei zu aktualisieren, da andernfalls Ihre Arbeitskopie inkonsistent sein wird und Sie keine Änderungen übertragen können."
 
 #. (para)
 msgid "If you want to undo an earlier change permanently, use <guilabel>Revert to this revision</guilabel> instead."
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "Revert to this revision"
-msgstr "Aktualisiere zu Revision"
+msgstr "Rückgängig zu Revision"
 
 #. (para)
-#, fuzzy
 msgid "Revert to an earlier revision. If you have made several changes, and then decide that you really want to go back to how things were in revision N, this is the command you need. The changes are undone in your working copy so this operation does <emphasis>not</emphasis> affect the repository until you commit the changes. Note that this will undo <emphasis>all</emphasis> changes made after the selected revision, replacing the file/folder with the earlier version."
-msgstr "Zu einer früheren Revision zurückkehren. Wenn Sie mehrere Änderungen vorgenommen haben und nun beschließen, dass Sie den Zustand in Revision N wieder herstellen wollen, ist das der Befehl Ihrer Wahl. Wieder werden die Änderungen nur in Ihrer Arbeitskopie rückgängig gemacht. Die Aktion beeinflusst das Projektarchiv zunächst <emphasis>nicht</emphasis>, bis Sie die Änderungen wieder übertragen haben. Beachten Sie, dass diese Aktion <emphasis>alle</emphasis> Änderungen nach der gewählten Revision rückgängig macht und das Objekt durch die gewählte Revision ersetzt. Wenn Ihre Arbeitskopie lokale Änderungen enthält, werden diese mit der früheren Revision zusammengeführt."
+msgstr "Zu einer früheren Revision zurückkehren. Wenn Sie mehrere Änderungen vorgenommen haben und nun beschließen, dass Sie den Zustand in Revision N wieder herstellen wollen, ist das der Befehl Ihrer Wahl. Wieder werden die Änderungen nur in Ihrer Arbeitskopie rückgängig gemacht. Die Aktion beeinflusst das Projektarchiv zunächst <emphasis>nicht</emphasis>, bis Sie die Änderungen wieder übertragen haben. Beachten Sie, dass diese Aktion <emphasis>alle</emphasis> Änderungen nach der gewählten Revision rückgängig macht und das Objekt durch die gewählte Revision ersetzt."
 
 #. (para)
 #. (para)
@@ -4330,14 +4312,12 @@ msgstr ""
 
 #. (term)
 #. (term)
-#, fuzzy
 msgid "Revert changes from this revision"
-msgstr "Unterschiede zu einer früheren Revision"
+msgstr "Änderungen dieser Revision rückgängig machen"
 
 #. (para)
-#, fuzzy
 msgid "Undo changes from which were made in the selected revision. The changes are undone in your working copy so this operation does <emphasis>not</emphasis> affect the repository at all! Note that this will undo the changes made in that revision only; it does not replace your working copy with the entire file at the earlier revision. This is very useful for undoing an earlier change when other unrelated changes have been made since."
-msgstr "Änderungen in einer bestimmten Revision rückgängig machen. Die Änderungen werden in Ihrer Arbeitskopie rückgängig gemacht, das Projektarchiv selbst bleibt unverändert! Beachten Sie bitte, dass nur die Änderungen dieser Revision rückgängig gemacht werden. In Ihrer Arbeitskopie werden die Dateien mit der gewählten Revision zusammengeführt. Dieser Befehl ist nützlich, wenn Sie Änderungen zurücknehmen wollen, aber spätere, nicht damit zusammenhängende Änderungen beibehalten möchten."
+msgstr "Änderungen in einer bestimmten Revision rückgängig machen. Die Änderungen werden in Ihrer Arbeitskopie rückgängig gemacht, das Projektarchiv selbst bleibt unverändert! Beachten Sie bitte, dass nur die Änderungen dieser Revision rückgängig gemacht werden. Es wird nicht die gesamte Datei in der früheren Revision wieder hergestellt. Dieser Befehl ist nützlich, wenn Sie Änderungen zurücknehmen wollen, aber spätere, nicht damit zusammenhängende Änderungen beibehalten möchten."
 
 #. (para)
 msgid "What is happening internally is that Subversion performs a reverse merge of that one revision, undoing its effect from a previous commit."
