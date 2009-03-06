@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-26 13:01+0300\n"
+"PO-Revision-Date: 2009-03-06 14:28+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -984,6 +984,14 @@ msgstr "Пере&хопити блокування"
 msgid "&Stop on copy/rename"
 msgstr "&Зупинитися при копіюванні/перейменуванні"
 
+#. Resource IDs: (276)
+msgid "&Switch WC to path and revision"
+msgstr "Пере&ключити КВ на шлях і модифікацію"
+
+#. Resource IDs: (275)
+msgid "&Switch WC to path@HEAD"
+msgstr "Пере&ключити КВ на шлях@HEAD"
+
 #. Resource IDs: (1173)
 msgid "&Symbol View"
 msgstr "&Символьний перегляд"
@@ -1226,6 +1234,10 @@ msgstr "..."
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
 msgstr "... перевіряється кеш і готується логовий запит"
+
+#. Resource IDs: (270)
+msgid "... reading working copy status"
+msgstr "... зчитується статус робочої копії"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -2097,6 +2109,10 @@ msgstr "Перевірити наявність оновлень"
 msgid "Check For Updates..."
 msgstr "Перевірити наявність оновлень..."
 
+#. Resource IDs: (276)
+msgid "Check for &modifications"
+msgstr "Перевірити на &модифікування"
+
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
 msgstr "Перевірити на моди&фікування"
@@ -2120,6 +2136,10 @@ msgstr ""
 #. Resource IDs: (612)
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
 msgstr "Перевірити лог, щоб визначити, як файл/каталог було перейменовано/переміщено, та вирішити, залишити перейменований/переміщений чи зі сховища. Тоді позначити конфлікт владнаним."
+
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to merge the change into your renamed file, or restore the original file."
+msgstr "Перевірити лог, щоб визначити, як файл/каталог було перейменовано/переміщено, та вирішити, зливати зміни у перейменований файл чи відновити оригінальний."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -3515,6 +3535,10 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Винятки:"
+
+#. Resource IDs: (20)
+msgid "Exclude"
+msgstr "Виключити"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -5188,8 +5212,8 @@ msgstr "Злити модифікації з..."
 
 #. Resource IDs: (610)
 #, c-format
-msgid "Merge the changes into the file '%s'"
-msgstr "Злити зміни у файл '%s'"
+msgid "Merge the changes into '%s'"
+msgstr "Злити зміни у '%s'"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -8913,6 +8937,10 @@ msgstr "Оновити - TortoiseSVN"
 #. Resource IDs: (1377)
 msgid "Update Depth"
 msgstr "Глибина оновлення"
+
+#. Resource IDs: (275)
+msgid "Update WC to revision"
+msgstr "Оновити КВ до модифікації"
 
 #. Resource IDs: (74)
 msgid "Updated"
