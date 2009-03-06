@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-06 19:29+0100\n"
+"PO-Revision-Date: 2009-03-07 00:54+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1003,7 +1003,7 @@ msgstr "&Följ inte kopieringshistorik"
 
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
-msgstr "Växla arbetskopia till sökväg och revision"
+msgstr "Växla arbetskopia till &sökväg och revision"
 
 #. Resource IDs: (275)
 msgid "&Switch WC to path@HEAD"
@@ -2162,6 +2162,10 @@ msgstr "Markera de filer som du vill ta bort innan importen."
 #. Resource IDs: (612)
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
 msgstr "Kontrollera loggen för att ta reda på hur filen/katalogen blev omdöpt/flyttad och om du vill behålla den omdöpta/flyttade filen/katalogen eller den från arkivet. Markera sedan konflikten som löst."
+
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to merge the change into your renamed file, or restore the original file."
+msgstr "Kontrollera loggen för att ta reda på hur filen/katalogen blev omdöpt/flyttad och välj om du vill förena ändringen till din omdöpta fil, eller återställa orginalfilen"
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -3552,7 +3556,7 @@ msgstr "Fel"
 
 #. Resource IDs: (145)
 msgid "Error rebuilding Shell Icon Cache!"
-msgstr "Ett fel upspstod när ikoncachen reparerades!"
+msgstr "Ett fel uppstod när ikoncachen reparerades!"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3750,7 +3754,7 @@ msgid ""
 "Failed to start the issue tracker COM provider '%s'.\n"
 "%s"
 msgstr ""
-"Misslyckadse med att starta ärendespårning COM provider \"%s\".\n"
+"Misslyckades med att starta ärendespårning COM provider \"%s\".\n"
 "%s"
 
 #. Resource IDs: (220)
@@ -3910,7 +3914,7 @@ msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
 msgstr ""
-"Flitrera bort sökvägar som innehåller följade ord\n"
+"Filtrera bort sökvägar som innehåller följade ord\n"
 "(separera sökvägar med '*'-tecken):"
 
 #. Resource IDs: (321)
@@ -3939,7 +3943,7 @@ msgstr "Anpassa graf"
 
 #. Resource IDs: (32802)
 msgid "Fit height"
-msgstr "Anpass höjd"
+msgstr "Anpassa höjd"
 
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
@@ -3947,7 +3951,7 @@ msgstr "Anpassa bild&storlekar"
 
 #. Resource IDs: (32803)
 msgid "Fit width"
-msgstr "Anpass bredd"
+msgstr "Anpassa bredd"
 
 # Jag är inte säker på att denna är helt korrekt
 #. Resource IDs: (89)
@@ -4463,7 +4467,7 @@ msgid ""
 "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
 "with the keywords expanded and the line endings adjusted."
 msgstr ""
-"Skapa en temporär fil av BASE för att göra järmförelsen med nyckelorden\n"
+"Skapa en temporär fil av BASE för att göra jämnförelsen med nyckelorden\n"
 "expanderade och radsluten justerade. "
 
 #. Resource IDs: (197)
@@ -4858,11 +4862,11 @@ msgstr ""
 
 #. Resource IDs: (275)
 msgid "Join with following &tree"
-msgstr "Sammanfoga med följande &träd"
+msgstr "Förena med följande &träd"
 
 #. Resource IDs: (275)
 msgid "Join with source tree"
-msgstr "Sammanfogda med källkodsträd"
+msgstr "Förena med källkodsträd"
 
 #. Resource IDs: (1203)
 msgid "Keep &locks"
@@ -5283,7 +5287,7 @@ msgstr "Förena en gren med huvudgrenen"
 
 #. Resource IDs: (14)
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
-msgstr "Förena alla revisioner som saknas baserat på föreningsspårniingsinformation till arbetskopian"
+msgstr "Förena alla revisioner som saknas baserat på föreningsspårningsinformation till arbetskopian"
 
 #. Resource IDs: (65535)
 msgid "Merging"
@@ -5509,7 +5513,7 @@ msgstr "Behöver lås"
 
 #. Resource IDs: (213)
 msgid "Nested"
-msgstr "Nestad"
+msgstr "Nästlad"
 
 #. Resource IDs: (102)
 msgid "Network"
@@ -5616,7 +5620,7 @@ msgstr ""
 
 #. Resource IDs: (273)
 msgid "No graph available"
-msgstr "Ingan graf tillgänglig"
+msgstr "Ingen graf tillgänglig"
 
 #. Resource IDs: (273)
 #, c-format
@@ -5649,7 +5653,7 @@ msgstr "Normal"
 
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
-msgstr "Alla registryinställningar eller .ini-filen togs inte bort."
+msgstr "Alla registerinställningar eller .ini-filen togs inte bort."
 
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
@@ -5806,7 +5810,7 @@ msgid ""
 "Only numbers (optionally separated by commas)\n"
 "are allowed!"
 msgstr ""
-"Endast siffror (med möjlig separering med komman)\n"
+"Endast siffror (med möjlig kommaseparering)\n"
 "är tillåtna!"
 
 #. Resource IDs: (1424)
@@ -5895,7 +5899,6 @@ msgstr "Output.prn"
 
 # Hantering?
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Overlays"
 msgstr "Statusikoner"
 
@@ -6129,7 +6132,7 @@ msgstr "Förhandsgranska"
 
 #. Resource IDs: (376)
 msgid "Preview patched file"
-msgstr "Förhandsgrandska den patchade filen"
+msgstr "Förhandsgranska den patchade filen"
 
 #. Resource IDs: (65535)
 msgid "Preview: "
@@ -7433,7 +7436,7 @@ msgstr "Visa skärm&tips på verktygsfält"
 
 #. Resource IDs: (32831)
 msgid "Show WC &modifications"
-msgstr "Visa arbetskopians ändringar"
+msgstr "&Visa arbetskopians ändringar"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -7913,7 +7916,7 @@ msgstr "System &ljud"
 
 #. Resource IDs: (3857)
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
-msgstr "Registryinställningar och eventuell .ini-fil har tagits bort."
+msgstr "Registerinställningar och eventuell .ini-fil har tagits bort."
 
 #. Resource IDs: (7)
 msgid "TORTOISEBLAME"
@@ -8097,7 +8100,7 @@ msgstr "Ärendespårningsprovidern kunde inte skapas. Var god kontrollera att de
 
 #. Resource IDs: (64)
 msgid "The issue-tracker provider was unable to validate the parameter string"
-msgstr "Ärendespårningsprovidern misslyckades med att validara parameter texten"
+msgstr "Ärendespårningsprovidern misslyckades med att validera parameter texten"
 
 #. Resource IDs: (597)
 #, c-format
@@ -8390,7 +8393,7 @@ msgid ""
 "but maybe not scan all files."
 msgstr ""
 "Tid i sekunder efter vilket inläsningen av valda filer stoppas.\r\n"
-"Ett lägre värde gör automatisk ifyllningslistan tillänglig snabbbare,\r\n"
+"Ett lägre värde gör automatisk ifyllningslistan tillgänglig snabbbare,\r\n"
 "men alla filer har kanske inte lästs."
 
 #. Resource IDs: (82)
@@ -8459,7 +8462,7 @@ msgstr ""
 "Det finns fortfarande olösta konflikter på rad %d!\n"
 "Du bör lösa dessa innan du sparar.\n"
 "Vill du spara filen, med konflikterna kvar?\n"
-"Om du klickar Ja, måte du manuellt lösa dessa konflikter i en annan editor!"
+"Om du klickar Ja, måste du manuellt lösa dessa konflikter i en annan editor!"
 
 #. Resource IDs: (313)
 msgid ""
@@ -8536,7 +8539,7 @@ msgstr "Den här produkten innehåller programvara utvecklad av OpenSSL Project 
 #. Resource IDs: (3857)
 #, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
-msgstr "Det här programmet är länkad med den saknade exprten %s i filen %s. Den här datorn kan ha en inkompatibel version av %s."
+msgstr "Det här programmet är länkad med den saknade exporten %s i filen %s. Den här datorn kan ha en inkompatibel version av %s."
 
 #. Resource IDs: (3857)
 #, c-format
@@ -8618,7 +8621,7 @@ msgstr "Verktygsradsval"
 
 #. Resource IDs: (1001)
 msgid "Toolbar internal error. Please contact your application vendor."
-msgstr "Internet fel i verktygsfält. Kontakta försäljaren av programmet. "
+msgstr "Internt fel i verktygsfält. Kontakta försäljaren av programmet. "
 
 #. Resource IDs: (16105)
 msgid "Toolbars"
@@ -9056,7 +9059,7 @@ msgid ""
 "To separate multiple exceptions, use commas (',').\r\n"
 "Example: *.mylan.com, *.company.com"
 msgstr ""
-"Använd '*' som jokertecken när undantag specifieras.\r\n"
+"Använd '*' som jokertecken när undantag specificeras.\r\n"
 "Separera flera undantag med komma (',').\r\n"
 "Exempel: *.mylan.com, *.company.com"
 
@@ -9106,7 +9109,7 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
-msgstr "Avnänd båda textblocken (den här först)"
+msgstr "Använd båda textblocken (den här först)"
 
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one last)"
@@ -9185,7 +9188,7 @@ msgid ""
 "Use text block from 'theirs'\n"
 "Use 'theirs' text block"
 msgstr ""
-"Använd textblocket från \"deras\"\r\n"
+"Använd textblocket från \"deras\"\n"
 "Använd \"deras\" textblock"
 
 #. Resource IDs: (32820)
@@ -9224,7 +9227,7 @@ msgid ""
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
-"Använd loggdialogen för att välja de revisioner du vill förena, eller fyll i dem avgränsade med kommatecken. Ett interval kan anges och avgränsas med bindessträck.\r\n"
+"Använd loggdialogen för att välja de revisioner du vill förena, eller fyll i dem avgränsade med kommatecken. Ett interval kan anges och avgränsas med bindestreck.\r\n"
 "\r\n"
 "Exempel: 4-7,9,11,15-HEAD\r\n"
 "\r\n"
@@ -9295,11 +9298,11 @@ msgstr "Visa"
 
 #. Resource IDs: (114)
 msgid "View revision for path in &webviewer"
-msgstr "Visa revision för sökväg i &webläsare"
+msgstr "Visa revision för sökväg i &webbläsare"
 
 #. Resource IDs: (114)
 msgid "View revision in &webviewer"
-msgstr "Visa revision i &webläsare"
+msgstr "Visa revision i &webbläsare"
 
 #. Resource IDs: (1084)
 msgid "Visit our website"
@@ -9524,7 +9527,7 @@ msgid ""
 "The file will be added to version control when you commit."
 msgstr ""
 "Du har valt en fil som inte finns i arkivet.\n"
-"Den kommar att läggas till när du arkiverar dina ändringar."
+"Den kommer att läggas till när du arkiverar dina ändringar."
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
@@ -9658,16 +9661,16 @@ msgid ""
 "Zoom In\n"
 "Zoom In"
 msgstr ""
-"Zomma in\n"
-"Zomma in"
+"Zooma in\n"
+"Zooma in"
 
 #. Resource IDs: (3633)
 msgid ""
 "Zoom Out\n"
 "Zoom Out"
 msgstr ""
-"Zomma ut\n"
-"Zomma ut"
+"Zooma ut\n"
+"Zooma ut"
 
 #. Resource IDs: (32784)
 msgid "Zoom i&n"
@@ -10314,7 +10317,7 @@ msgid ""
 "A regex string which extracts a summary from a log message in its first group."
 msgstr ""
 "tsvn:logsummary\r\n"
-"Ett regulärt uttryck som hämtar ut en sammanfattning från ett loggmeddelande i dess första grupp."
+"Ett reguljärt uttryck som hämtar ut en sammanfattning från ett loggmeddelande i dess första grupp."
 
 #. Resource IDs: (578)
 msgid ""
@@ -10343,7 +10346,7 @@ msgid ""
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr ""
 "tsvn:projectlanguage\r\n"
-"Sätt detta till språknumret du vill att dina loggmeddeladnen skall fyllas i med.\r\n"
+"Sätt detta till språknumret du vill att dina loggmeddelanden skall fyllas i med.\r\n"
 "TortoiseSVN kommer sen att ladda in passande språkkontrollsmodul om den är tillgänglig."
 
 #. Resource IDs: (581)
