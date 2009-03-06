@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-04 23:21 +0000\n"
-"PO-Revision-Date: 2009-03-05 21:58+0100\n"
+"PO-Revision-Date: 2009-03-06 21:08+0100\n"
 "Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -289,7 +289,7 @@ msgstr "контрола верзије"
 
 #. (para)
 msgid "Version control is the art of managing changes to information. It has long been a critical tool for programmers, who typically spend their time making small changes to software and then undoing or checking some of those changes the next day. Imagine a team of such developers working concurrently - and perhaps even simultaneously on the very same files! - and you can see why a good system is needed to <emphasis>manage the potential chaos</emphasis>."
-msgstr "Контрола верзија је уметност управљања изменама информација.То је дуго био критичан алат за програмере, који типично троше своје време правећи мале измене софтвера затим враћају или проверавају те измене следећег дана. Замислимо тим таквих људи који раде истовремено - и можда чак симултано на врло сличним фајловима! - и ви можете видети зашто је потребан добар систем да <emphasis>управљање потенцијалним хаосом</emphasis>."
+msgstr "Контрола верзија је уметност управљања изменама информација.То је дуго био критичан алат за програмере, који типично троше своје време правећи мале измене софтвера затим враћају или проверавају те измене следећег дана. Замислимо тим програмера који раде истовремено - и можда чак симултано на врло сличним фајловима! - и ви можете видети зашто је потребан добар систем да <emphasis>управљање потенцијалним хаосом</emphasis>."
 
 #. (title)
 msgid "What is TortoiseSVN?"
@@ -381,7 +381,7 @@ msgstr "Атомско урезивање"
 
 #. (para)
 msgid "A commit either goes into the repository completely, or not at all. This allows developers to construct and commit changes as logical chunks."
-msgstr "Урезивање или иде у спремиште комплетно, или ништа. Ово омогућава људима из развоја да направе и урежу измене као логичке делове. "
+msgstr "Урезивање или иде у спремиште комплетно, или ништа. Ово омогућава програмерима да направе и урежу измене као логичке делове. "
 
 #. (term)
 msgid "Versioned metadata"
@@ -509,7 +509,7 @@ msgstr "ен_УС.диц"
 
 #. (para)
 msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
-msgstr "Једном кад имате фајлове речника, вероватно ће требати да их преименујете тако имена фајлова имају само локалне карактере. Пример:<placeholder-1/> Затим само их копирајте у <filename>бин</filename> суб-именик ТортоисеСВН инсталационог именика. Нормално то ће бити <filename>Ц:\\Програм Филес\\ТортоисеСВН\\бин</filename>. Ако не желите да оптерећујете <filename>бин</filename> суб-именик, уместо тога можете сместити контролне фајлове у филенаме>Ц:\\Програм Филес\\ТортоисеСВН\\Лангуагес</filename>. Ако нема тог именика, креирајте га. Када следећи пут покренете ТортоисеСВН, правописна контрола ће бити доступна."
+msgstr "Једном кад имате фајлове речника, вероватно ће требати да их преименујете тако имена фајлова имају само локалне карактере. Пример:<placeholder-1/> Затим само их копирајте у <filename>бин</filename> суб-именик ТортоисеСВН инсталационог именика. Нормално то ће бити <filename>Ц:\\Програм Филес\\ТортоисеСВН\\бин</filename>. Ако не желите да оптерећујете <filename>бин</filename> суб-именик, уместо тога можете сместити контролне фајлове у <filename>Ц:\\Програм Филес\\ТортоисеСВН\\Лангуагес</filename>. Ако нема тог именика, креирајте га. Када следећи пут покренете ТортоисеСВН, правописна контрола ће бити доступна."
 
 #. (para)
 msgid "Check the <literal>tsvn:projectlanguage</literal> setting. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for information about setting project properties."
@@ -1098,7 +1098,7 @@ msgstr "Будуће верзије ТортоисеСВН неће подржа
 
 #. (para)
 msgid "Of course we also recommend that you don't use <literal>file://</literal> access at all, apart from local testing purposes. Using a server is more secure and more reliable for all but single-developer use."
-msgstr "Свакако такође препоруујемо да не користите <literal>филе://</literal> пристуо уопште, чак ни из локалних потреба тестирања. Коришћење сервера је много сигурније и много поузданије за све осим у коришћењу појединца."
+msgstr "Свакако такође препоруујемо да не користите <literal>филе://</literal> пристуо уопште, чак ни из локалних потреба тестирања. Коришћење сервера је много сигурније и много поузданије за све осим у коришћењу појединачног-програмера."
 
 #. (title)
 msgid "Local Access to the Repository"
@@ -1483,7 +1483,7 @@ msgstr "Покрените Субверзиону инсталацију. Ако
 
 #. (para)
 msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files, or just copy all of the <filename>bin</filename> directory, into a directory on your server e.g. <filename>c:\\svnserve</filename>"
-msgstr "Отворите виндоуз-експлорер, идите на инсталациони директоријум Субверзије (обично <filename>Ц:\\Програм Филес\\Субверсион</filename>) и на < филенаме>бин</filename> именик, нађите фајлове <filename>свнсерве.еxе</filename>, <filename>интл3_свн.длл</filename>, <filename>либапр.длл</filename>, <filename>либаприцонв.длл</filename>, <filename>либаприутил.длл</filename>, <filename>либдб*.длл</filename>, <filename>либеаy32.длл</filename> анд <filename>сслеаy32.длл</filename> - копирајте ове фалове, или само копирајте све из <filename>бин</filename> именика, у именик на вашем серверу нпр. <filename>ц:\\свнсерве</filename>"
+msgstr "Отворите виндоуз-експлорер, идите на инсталациони директоријум Субверзије (обично <filename>Ц:\\Програм Филес\\Субверсион</filename>) и на <filename>бин</filename> именик, нађите фајлове <filename>свнсерве.еxе</filename>, <filename>интл3_свн.длл</filename>, <filename>либапр.длл</filename>, <filename>либаприцонв.длл</filename>, <filename>либаприутил.длл</filename>, <filename>либдб*.длл</filename>, <filename>либеаy32.длл</filename> анд <filename>сслеаy32.длл</filename> - копирајте ове фалове, или само копирајте све из <filename>бин</filename> именика, у именик на вашем серверу нпр. <filename>ц:\\свнсерве</filename>"
 
 #. (title)
 msgid "Running svnserve"
@@ -2983,15 +2983,15 @@ msgstr "специјални фајлови"
 
 #. (para)
 msgid "Sometimes you need to have a file under version control which contains user specific data. That means you have a file which every developer/user needs to modify to suit his/her local setup. But versioning such a file is difficult because every user would commit his/her changes every time to the repository."
-msgstr "Понекад вам је потребно да имате фајл под контролом верзија који садржи податке специфичне за корисника. То значи да имате фајл који сваки креатор/корисник жели да мења да прати његово/њено локално подешавање. Али верзионисањем таквог фајла је тешко јед свски корисник жели да уреже његове/њене измене сваки пут у спремиште."
+msgstr "Понекад вам је потребно да имате фајл под контролом верзија који садржи податке специфичне за корисника. То значи да имате фајл који сваки програмер/корисник жели да мења да прати његово/њено локално подешавање. Али верзионисање таквог фајла је тешко јер сваки корисник жели да уреже његове/њене измене сваки пут у спремиште."
 
 #. (para)
 msgid "In such cases we suggest to use <emphasis>template</emphasis> files. You create a file which contains all the data your developers will need, add that file to version control and let the developers check this file out. Then, each developer has to <emphasis>make a copy</emphasis> of that file and rename that copy. After that, modifying the copy is not a problem anymore."
-msgstr "У таквим случајевима сугерирамо да се користи  <emphasis>темплејт</emphasis> фајлови. Креирајте фајл који садржи све податке који су потребни развојном тиму, додајте тај фајл у контролу верзија и пустите да људи из развојног тима провере овај фајл. Затим, сваки човек из развојног тима је <emphasis>направио копију</emphasis> тог фајла и преименовао ту копију. После тога измене копија нису више проблем."
+msgstr "У таквим случајевима сугерирамо да се користи  <emphasis>темплејт</emphasis> фајлови. Креирајте фајл који садржи све податке који су потребни програмерима, додајте тај фајл у контролу верзија и пустите да програмери провере овај фајл. Затим, сваки програмер је <emphasis>направио копију</emphasis> тог фајла и преименовао ту копију. После тога измене копија нису више проблем."
 
 #. (para)
 msgid "As an example, you can have a look at TortoiseSVN's build script. It calls a file named <filename>TortoiseVars.bat</filename> which doesn't exist in the repository. Only the file <filename>TortoiseVars.tmpl</filename>. <filename>TortoiseVars.tmpl</filename> is the template file which every developer has to create a copy from and rename that file to <filename>TortoiseVars.bat</filename>. Inside that file, we added comments so that the users will see which lines they have to edit and change according to their local setup to get it working."
-msgstr "Као пример можете погледати ТортоисеСВН скрипт за изградњу. Он позива фајл који се зове филенаме>ТортоисеВарс.бат</filename> који не постоји у спремишту. Само фајл <filename>ТортоисеВарс.тмпл</filename>. <filename>ТортоисеВарс.тмпл</filename> је шаблон фајл који сваки учесник развоја има да копира и преименује тај фајл у филенаме>ТортоисеВарс.бат</filename>. Унутар тог фајла додајемо коментаре тако да  корисник може да види које линије треба да уреди и измени према свом локалном подешавању да би то радило."
+msgstr "Као пример можете погледати ТортоисеСВН скрипт за изградњу. Он позива фајл који се зове <filename>ТортоисеВарс.бат</filename> који не постоји у спремишту. Само фајл <filename>ТортоисеВарс.тмпл</filename>. <filename>ТортоисеВарс.тмпл</filename> је шаблон фајл који сваки програмер има да копира и преименује тај фајл у <filename>ТортоисеВарс.бат</filename>. Унутар тог фајла додајемо коментаре тако да  корисник може да види које линије треба да уреди и измени према свом локалном подешавању да би то радило."
 
 #. (para)
 msgid "So as not to disturb the users, we also added the file <filename>TortoiseVars.bat</filename> to the ignore list of its parent folder, i.e. we've set the Subversion property <literal>svn:ignore</literal> to include that filename. That way it won't show up as unversioned on every commit."
@@ -3477,7 +3477,7 @@ msgstr "Локални фајл већ постоји"
 
 #. (para)
 msgid "Sometimes when you try to update, the update fails with a message to say that there is already a local file of the same name. This typically happens when Subversion tries to checkout a newly versioned file, and finds that an unversioned file of the same name already exists in your working folder. Subversion will never overwrite an unversioned file - it might contain something you are working on, which coincidentally has the same filename as another developer has used for his newly committed file."
-msgstr "Понекад док покушавате да ажурирате, ажурирање не успе са поруком која каже да већ постоји фајл са истим именом у вашем радном именику. Субверзија никада неће преклопити неверзионисани фајл - он може садржати нешто на чему радите, што случајно има исто име које је други човек из развоја узео за свој ново урезани фајл."
+msgstr "Понекад док покушавате да ажурирате, ажурирање не успе са поруком која каже да већ постоји фајл са истим именом у вашем радном именику. Субверзија никада неће преклопити неверзионисани фајл - он може садржати нешто на чему радите, што случајно има исто име које је други програмер узео за свој ново урезани фајл."
 
 #. (para)
 msgid "If you get this error message, the solution is simply to rename the local unversioned file. After completing the update, you can check whether the renamed file is still needed."
@@ -3505,7 +3505,7 @@ msgstr "фајл конфликти"
 
 #. (para)
 msgid "A file conflict occurs if two (or more) developers have changed the same few lines of a file."
-msgstr "Фајл конфликт се јавља ако су два (или више) сарадника изменила истих неколико линија фајла."
+msgstr "Фајл конфликт се јавља ако су два (или више) програмера изменила истих неколико линија фајла."
 
 #. (term)
 msgid "tree conflicts"
@@ -3513,7 +3513,7 @@ msgstr "конфликти стабла"
 
 #. (para)
 msgid "A tree conflict occurs when a developer moved/renamed/deleted a file or folder, which another developer either also has moved/renamed/deleted or just modified."
-msgstr "Конфликт стабла јавља се кадаје  сарадник померио/преименовао/обрисао фајл или именик, који је други сарадник померио/преименовао/обрисао или само изменио."
+msgstr "Конфликт стабла јавља се кадаје  програмер померио/преименовао/обрисао фајл или именик, који је други програмер померио/преименовао/обрисао или само изменио."
 
 #. (para)
 msgid "Once in a while, you will get a <emphasis>conflict</emphasis> when you update/merge your files from the repository or when you switch your working copy to a different URL. There are two kinds of conflicts: <placeholder-1/>"
@@ -3557,7 +3557,7 @@ msgid ""
 "\t&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "\t</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
-"Конфликт се јавља када два или више људи измене исто неколико линија фајла. Како Субверзија не зна ништа о вашем пројекту, она оставља решавање конфликта сарадницима. Кадгод се конфликт изнесе треба да отворите фајл у питању и потражите линије које почињу стрингом <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. Конфликтна област је маркирана као ово: <screen>\n"
+"Конфликт се јавља када два или више програмера измене исто неколико линија фајла. Како Субверзија не зна ништа о вашем пројекту, она оставља решавање конфликта програмерима. Кадгод се конфликт изнесе треба да отворите фајл у питању и потражите линије које почињу стрингом <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. Конфликтна област је маркирана као ово: <screen>\n"
 "&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
 "    your changes\n"
 "=======\n"
@@ -3587,7 +3587,7 @@ msgstr "Конфликти Стабла"
 
 #. (para)
 msgid "A tree conflict occurs when a developer moved/renamed/deleted a file or folder, which another developer either also has moved/renamed/deleted or just modified. There are many different situations that can result in a tree conflict, and all of them require different steps to resolve the conflict."
-msgstr "Конфликт стабла јавља се кадаје  сарадник померио/преименовао/обрисао фајл или именик, који је други сарадник померио/преименовао/обрисао или само изменио. Постоји много различитих ситуација које могу проузроковати конфликт стабла, и сви они захтевају различите степене решавања конфликта."
+msgstr "Конфликт стабла јавља се кадаје програмер померио/преименовао/обрисао фајл или именик, који је други програмер померио/преименовао/обрисао или само изменио. Постоји много различитих ситуација које могу проузроковати конфликт стабла, и сви они захтевају различите степене решавања конфликта."
 
 #. (para)
 msgid "When a file is deleted locally in Subversion, the file is also deleted from the local file system, so even if it is part of a tree conflict it cannot show a conflicted overlay and you cannot right click on it to resolve the conflict. Use the <guilabel>Check for Modifications</guilabel> dialog instead to access the <guilabel>Edit conflicts</guilabel> option."
@@ -3603,11 +3603,11 @@ msgstr "Локално бриши, долазеће уреди до ажурир
 
 #. (para)
 msgid "Developer A modifies <filename>Foo.c</filename> and commits it to the repository"
-msgstr "Сарадник А мења <filename>Foo.c</filename> и урезује га у спремиште."
+msgstr "Програмер А мења <filename>Foo.c</filename> и урезује га у спремиште."
 
 #. (para)
 msgid "Developer B has simultaneously moved <filename>Foo.c</filename> to <filename>Bar.c</filename> in his working copy, or simply deleted <filename>Foo.c</filename> or its parent folder."
-msgstr "Сарадник Б је истовремено померио <filename>Foo.c</filename>у <filename>Bar.c</filename> у својој радној копији, или једноставно обрисао <filename>Foo.c</filename> или његов предачки именик."
+msgstr "Програмер Б је истовремено померио <filename>Foo.c</filename>у <filename>Bar.c</filename> у својој радној копији, или једноставно обрисао <filename>Foo.c</filename> или његов предачки именик."
 
 #. (para)
 msgid "<filename>Foo.c</filename> has been deleted from working copy, but is marked with a tree conflict."
@@ -3615,16 +3615,16 @@ msgstr "<filename>Foo.c</filename> је обрисано из радне , ал�
 
 #. (para)
 msgid "If the conflict results from a rename rather than a delete then <filename>Bar.c</filename> is marked as added, but does not contain developer A's modifications."
-msgstr "Ако је конфликт од преименовања пре него од брисања тада је <filename>Bar.c</filename>  означен као додат, али не садржи измене сарадника А."
+msgstr "Ако је конфликт од преименовања пре него од брисања тада је <filename>Bar.c</filename>  означен као додат, али не садржи измене програмера А."
 
 #. (para)
 #. (para)
 msgid "An update of developer B's working copy results in a tree conflict: <placeholder-1/>"
-msgstr "Ажурирање радне копије сарадника Б даје конфликт стабла: <placeholder-1/>"
+msgstr "Ажурирање радне копије програмера Б даје конфликт стабла: <placeholder-1/>"
 
 #. (para)
 msgid "Developer B now has to choose whether to keep Developer A's changes. In the case of a file rename, he can merge the changes to <filename>Foo.c</filename> into the renamed file <filename>Bar.c</filename>. For simple file or directory deletions he can choose to keep the item with Developer A's changes and discard the deletion. Or, by marking the conflict as resolved without doing anything he effectively discards Developer A's changes."
-msgstr "Сарадник Б сада има да изабере да ли да задржи измене Сарадника А. У случају преименовања фајла он може да стопи измене у <filename>Foo.c</filename> у преименованом фајлу <filename>Bar.c</filename>. За једноставно брисање фајла или именика мора да изабере да чува ставку са изменама Сарадника А и одбаци брисање. Или, означавајући конфликт решеним без икаквог ангажовања одбацује измене Сарадника А."
+msgstr "Програмер Б сада има да изабере да ли да задржи измене Програмера А. У случају преименовања фајла он може да стопи измене у <filename>Foo.c</filename> у преименованом фајлу <filename>Bar.c</filename>. За једноставно брисање фајла или именика мора да изабере да чува ставку са изменама Програмер А и одбаци брисање. Или, означавајући конфликт решеним без икаквог ангажовања одбацује измене Програмера А."
 
 #. (para)
 msgid "The conflict edit dialog offers to merge changes if it can find the original file of the renamed <filename>Bar.c</filename>. Depending on where the update was invoked, it may not be possible to find the source file."
@@ -3636,12 +3636,12 @@ msgstr "Локално уреди, долазеће обриши до ажури
 
 #. (para)
 msgid "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository."
-msgstr "Сарадник А помера <filename>Foo.c</filename> у <filename>Bar.c</filename> и урезује га у спремиште."
+msgstr "Програмер А помера <filename>Foo.c</filename> у <filename>Bar.c</filename> и урезује га у спремиште."
 
 #. (para)
 #. (para)
 msgid "Developer B modifies <filename>Foo.c</filename> in his working copy."
-msgstr "Сарадник Б мења <filename>Foo.c</filename> у својој радној копији."
+msgstr "Програмер Б мења <filename>Foo.c</filename> у својој радној копији."
 
 #. (para)
 msgid "Or in the case of a folder move ..."
@@ -3649,7 +3649,7 @@ msgstr "Или у случају померања именика ..."
 
 #. (para)
 msgid "Developer A moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
-msgstr "Сарадник А помера предачки именик <filename>FooFolder</filename> у <filename>BarFolder</filename> и урезује га у спремиште."
+msgstr "Програмер А помера предачки именик <filename>FooFolder</filename> у <filename>BarFolder</filename> и урезује га у спремиште."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is added to the working copy as a normal file."
@@ -3661,7 +3661,7 @@ msgstr "<filename>Foo.c</filename> је означен као измењен (с
 
 #. (para)
 msgid "An update of developer B's working copy results in a tree conflict. For a simple file conflict: <placeholder-1/>"
-msgstr "Ажурирање радне копије сарадника Б даје конфликт стабла. За једноставни фајл конфликт: <placeholder-1/>"
+msgstr "Ажурирање радне копије програмера Б даје конфликт стабла. За једноставни фајл конфликт: <placeholder-1/>"
 
 #. (para)
 msgid "<filename>BarFolder</filename> is added to the working copy as a normal folder."
@@ -3681,7 +3681,7 @@ msgstr "За конфликт именика: <placeholder-1/>"
 
 #. (para)
 msgid "Then developer B has to decide whether to go with developer A's reorganisation and merge her changes into the corresponding file in the new structure, or simply revert A's changes and keep the local file."
-msgstr "Затим сарадник Б одлучи да ли да иде са реорганизациојом сарадника А и стопи његове измене у одговарајући фајл у новој структури, или једноставно врати А-ове измене и сачува локални фајл."
+msgstr "Затим програмер Б одлучи да ли да иде са реорганизациојом програмера А и стопи његове измене у одговарајући фајл у новој структури, или једноставно врати А-ове измене и сачува локални фајл."
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
@@ -3689,7 +3689,7 @@ msgstr "Да се стопе њене локалне измене са реор�
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog helps to track down what was moved."
-msgstr "Ако сарадник Б одлучи да су А-ове измене лоше онда она мора изабрати <guilabel>Чувај</guilabel> дугме у дијалогу уређивача конфликта. Ово означава конфликтни фајл/именик решеним, али измен Сарадника А треба да буду уклоњене ручно. Поново дијалиг дневника помаже да се прати шта је померено."
+msgstr "Ако програмер Б одлучи да су А-ове измене лоше онда она мора изабрати <guilabel>Чувај</guilabel> дугме у дијалогу уређивача конфликта. Ово означава конфликтни фајл/именик решеним, али измене Програмера А треба да буду уклоњене ручно. Поново дијалиг дневника помаже да се прати шта је померено."
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
@@ -3697,11 +3697,11 @@ msgstr "Локално бриши, долазеће бриши до ажурир
 
 #. (para)
 msgid "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr "Сарадник А помера <filename>Foo.c</filename> у <filename>Bar.c</filename> и урезује га у спремиште."
+msgstr "Програмер А помера <filename>Foo.c</filename> у <filename>Bar.c</filename> и урезује га у спремиште."
 
 #. (para)
 msgid "Developer B moves <filename>Foo.c</filename> to <filename>Bix.c</filename>"
-msgstr "Сарадник Б помера <filename>Foo.c</filename> у <filename>Bix.c</filename>"
+msgstr "Програмер Б помера <filename>Foo.c</filename> у <filename>Bix.c</filename>"
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked as added with history."
@@ -3718,16 +3718,16 @@ msgstr "<filename>Foo.c</filename> је означен као обрисан и 
 #. (para)
 #. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog."
-msgstr "Да се реши конфликт, Сарадник Б има да нађе име фајла конфликтног фајла <filename>Foo.c</filename> је преименовано/померено у спремишту. Ово може бити урађено користећи дијалог дневника."
+msgstr "Да се реши конфликт, Програмер Б има да нађе име фајла конфликтног фајла <filename>Foo.c</filename> је преименовано/померено у спремишту. Ово може бити урађено користећи дијалог дневника."
 
 #. (para)
 msgid "Then developer B has to decide which new filename of <filename>Foo.c</filename> to keep - the one done by developer A or the rename done by himself."
-msgstr "Затим сарадник Б има да одлучи које ново име фајла <filename>Foo.c</filename> да чува - оно дато од сарадника А или преименовање које је сам урадио."
+msgstr "Затим програмер Б има да одлучи које ново име фајла <filename>Foo.c</filename> да чува - оно дато од сарадника А или преименовање које је сам урадио."
 
 #. (para)
 #. (para)
 msgid "After developer B has manually resolved the conflict, the tree conflict has to be marked as resolved with the button in the conflict editor dialog."
-msgstr "После ручног решења конфликта сарадника Б, конфликт стабла је означен као решен дугметом у дијалогу конфликт уредника."
+msgstr "После ручног решења конфликта програмер Б, конфликт стабла је означен као решен дугметом у дијалогу конфликт уредника."
 
 #. (title)
 msgid "Local missing, incoming edit upon merge"
@@ -3735,11 +3735,11 @@ msgstr "Локално недостаје, долазеће уредити до 
 
 #. (para)
 msgid "Developer A working on trunk modifies <filename>Foo.c</filename> and commits it to the repository"
-msgstr "Сарадник А радећи на деблу мења <filename>Foo.c</filename> и урезује га у спремиште."
+msgstr "Програмер А радећи на деблу мења <filename>Foo.c</filename> и урезује га у спремиште."
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr "Сарадник Б радећи на грани помера <filename>Foo.c</filename> у <filename>Bar.c</filename> и урезује га у спремиште."
+msgstr "Програмер Б радећи на грани помера <filename>Foo.c</filename> у <filename>Bar.c</filename> и урезује га у спремиште."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing with a tree conflict."
@@ -3749,11 +3749,11 @@ msgstr "<filename>Foo.c</filename> је означено као недостај
 #. (para)
 #. (para)
 msgid "A merge of developer A's trunk changes to developer B's branch working copy results in a tree conflict: <placeholder-1/>"
-msgstr "Стапање измена дебла  сарадника А у радну копију гране сарадника Б даје конфликт стабла: <placeholder-1/>"
+msgstr "Стапање измена дебла  програмер А у радну копију гране сарадника Б даје конфликт стабла: <placeholder-1/>"
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to remove the missing file in the conflict editor dialog. Then developer B has to decide whether to get the missing file <filename>Foo.c</filename> from the repository and add it to the working copy, whether to merge <filename>Foo.c</filename> into the renamed <filename>Bar.c</filename> or whether to just mark the conflict as resolved."
-msgstr "Да се реши конфликт, Сарадник Б има да уклони недостајући фајл у дијалогу конфликт уредника. Затим сарадник Б има да одлучи да ли узме недостајући фајл <filename>Foo.c</filename> из спремишта и дода га у радну копију, да ли да стопи <filename>Foo.c</filename> у преименован <filename>Bar.c</filename> или да ли да само означи конфлект решеним."
+msgstr "Да се реши конфликт, Програмер Б има да уклони недостајући фајл у дијалогу конфликт уредника. Затим програмер Б има да одлучи да ли узме недостајући фајл <filename>Foo.c</filename> из спремишта и дода га у радну копију, да ли да стопи <filename>Foo.c</filename> у преименован <filename>Bar.c</filename> или да ли да само означи конфлект решеним."
 
 #. (title)
 msgid "Local edit, incoming delete upon merge"
@@ -3762,11 +3762,11 @@ msgstr "Локално уреди, долазеће обриши до стапа
 #. (para)
 #. (para)
 msgid "Developer A working on trunk moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr "Сарадник А радећи на деблу помера <filename>Foo.c</filename> у <filename>Bar.c</filename> и урезује га у спремиште."
+msgstr "Програмер А радећи на деблу помера <filename>Foo.c</filename> у <filename>Bar.c</filename> и урезује га у спремиште."
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> and commits it to the repository."
-msgstr "Сарадник Б радећи на грани мења <filename>Foo.c</filename> и урезује га у спремиште."
+msgstr "Програмер Б радећи на грани мења <filename>Foo.c</filename> и урезује га у спремиште."
 
 #. (para)
 #. (para)
@@ -3779,7 +3779,7 @@ msgstr "<filename>Foo.c</filename> је означен као измењен с�
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to decide whether to remove the file <filename>Foo.c</filename> and keep the file <filename>Bar.c</filename> instead, or whether to keep the local file <filename>Foo.c</filename>. If the local file <filename>Foo.c</filename> is kept, developer B also has to decide whether to merge the changes of <filename>Bar.c</filename> into <filename>Foo.c</filename>."
-msgstr "Да би се решио овај конфликт, Сарадник Б има да одлучи да ли да уклони фајл <filename>Foo.c</filename> и сачува фајл <filename>Bar.c</filename> уместо тога, или да ли сачувати локални фајл <filename>Foo.c</filename>. Ако је локални фајл <filename>Foo.c</filename> сачуван, сарадник Б такође има да одлучи да ли да стопи измене <filename>Bar.c</filename> у <filename>Foo.c</filename>."
+msgstr "Да би се решио овај конфликт, Програмер Б има да одлучи да ли да уклони фајл <filename>Foo.c</filename> и сачува фајл <filename>Bar.c</filename> уместо тога, или да ли сачувати локални фајл <filename>Foo.c</filename>. Ако је локални фајл <filename>Foo.c</filename> сачуван, програмер Б такође има да одлучи да ли да стопи измене <filename>Bar.c</filename> у <filename>Foo.c</filename>."
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
@@ -3787,7 +3787,7 @@ msgstr "Локално бриши, долазеће бриши до стапањ
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bix.c</filename> and commits it to the repository"
-msgstr "Сарадник А радећи на грани помера <filename>Foo.c</filename> у <filename>Bar.c</filename> и урезује га у спремиште."
+msgstr "Програмер А радећи на грани помера <filename>Foo.c</filename> у <filename>Bar.c</filename> и урезује га у спремиште."
 
 #. (para)
 msgid "<filename>Bix.c</filename> is added with status normal."
@@ -3799,7 +3799,7 @@ msgstr "Конфликт стабла на <filename>Foo.c</filename>."
 
 #. (para)
 msgid "Then developer B has to decide which new filename of <filename>Foo.c</filename> to keep - the one done by developer A or the rename done in his working copy."
-msgstr "Затим сарадник Б има да одлучи које ново име фајла <filename>Foo.c</filename>  сачувати - оно које је дао сарадник А или преименовано дато у овој радној копији."
+msgstr "Затим програмер Б има да одлучи које ново име фајла <filename>Foo.c</filename>  сачувати - оно које је дао програмер А или преименовано дато у овој радној копији."
 
 #. (title)
 msgid "Getting Status Information"
@@ -4138,7 +4138,7 @@ msgstr "<graphic fileref=\"../images/ActionModifiedIcon.png\"/> Ако реви�
 
 #. (para)
 msgid "<graphic fileref=\"../images/ActionAddedIcon.png\"/> If a revision added a file or directory, the <emphasis>added</emphasis> icon is shown in the second column."
-msgstr "<graphic fileref=\"../images/ActionAddedIcon.png\"/> Ако ревизија дода фајл или именик,  <emphasis>додат<mphasis> икона је приказана у другој колони."
+msgstr "<graphic fileref=\"../images/ActionAddedIcon.png\"/> Ако ревизија дода фајл или именик,  <emphasis>додат<emphasis> икона је приказана у другој колони."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ActionDeletedIcon.png\"/> If a revision deleted a file or directory, the <emphasis>deleted</emphasis> icon is shown in the third column."
@@ -4490,7 +4490,7 @@ msgstr "Можете запазити да понекад говоримо о и
 
 #. (para)
 msgid "Subversion uses revision numbers to mean 2 different things. A revision generally represents the state of the repository at a point in time, but it can also be used to represent the changeset which created that revision, eg. <quote>Done in r1234</quote> means that the changes committed in r1234 implement feature X. To make it clearer which sense is being used, we use two different terms."
-msgstr "Субверзија користи ревизионе бројеве да означи 2 различите ствари. Ревизија генерално представља стање спремишта у временском тренутку, али може такође, бити коришћена да представи скуп измена који је креирала та ревизија, нпр. quote>Дато у р1234</quote> значи да су измене урезане у р1234 имплементирају особину  X. Да се то учини јасним који осећај је коришћен, користимо два различита термина."
+msgstr "Субверзија користи ревизионе бројеве да означи 2 различите ствари. Ревизија генерално представља стање спремишта у временском тренутку, али може такође, бити коришћена да представи скуп измена који је креирала та ревизија, нпр. <quote>Дато у р1234</quote> значи да су измене урезане у р1234 имплементирају особину  X. Да се то учини јасним који осећај је коришћен, користимо два различита термина."
 
 #. (para)
 msgid "If you select two revisions N and M, the context menu will offer to show the <emphasis>difference</emphasis> between those two revisions. In Subversion terms this is <literal>diff -r M:N</literal>."
@@ -4510,7 +4510,7 @@ msgstr "Добијање више порука дневника"
 
 #. (para)
 msgid "For a large repository there may be hundreds or even thousands of changes and fetching them all could take a long time. Normally you are only interested in the more recent changes. By default, the number of log messages fetched is limited to 100, but you can change this value in <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings-dialogs\"/>),"
-msgstr "За огромна спремишта може бити стотине или чак хиљаде измена и све их пронаћи може узети много времена. Нормално, вас интересују само најскорије измене. Подразмева се да број донетих порука дневника ограничен је на 100, али можете променити ову вредност у menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Подешавања</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings-dialogs\"/>),"
+msgstr "За огромна спремишта може бити стотине или чак хиљаде измена и све их пронаћи може узети много времена. Нормално, вас интересују само најскорије измене. Подразмева се да број донетих порука дневника ограничен је на 100, али можете променити ову вредност у <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Подешавања</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings-dialogs\"/>),"
 
 #. (para)
 msgid "When the <guilabel>Stop on copy/rename</guilabel> box is checked, Show Log will stop at the point that the selected file or folder was copied from somewhere else within the repository. This can be useful when looking at branches (or tags) as it stops at the root of that branch, and gives a quick indication of changes made in that branch only."
@@ -4908,7 +4908,7 @@ msgstr "Овај дијалог приказује листу фајлова к�
 
 #. (para)
 msgid "You can export a <emphasis>change tree</emphasis>, which is useful if you need to send someone else your project tree structure, but containing only the files which have changed. This operation works on the selected files only, so you need to select the files of interest - usually that means all of them - and then <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Export selection to...</guimenuitem></menuchoice>. You will be prompted for a location to save the change tree."
-msgstr "Можете извести <emphasis>стабло измена</emphasis>, што је корисно ако желите да пошаљете још некоме структуру стабла пројекта, али садржи само фајлове који су измењени. Ова операција ради само на изабраним фајловима, потребно је да изаберете фајлове од интереса - обично то значи сви од њих - и затим menuchoice><guimenu>Контекст мени</guimenu><guimenuitem>Извези избор у...</guimenuitem></menuchoice>. Бићете упитани за локацију да сачувате стабло измена."
+msgstr "Можете извести <emphasis>стабло измена</emphasis>, што је корисно ако желите да пошаљете још некоме структуру стабла пројекта, али садржи само фајлове који су измењени. Ова операција ради само на изабраним фајловима, потребно је да изаберете фајлове од интереса - обично то значи сви од њих - и затим <menuchoice><guimenu>Контекст мени</guimenu><guimenuitem>Извези избор у...</guimenuitem></menuchoice>. Бићете упитани за локацију да сачувате стабло измена."
 
 #. (para)
 msgid "You can also export the <emphasis>list</emphasis> of changed files to a text file using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Save list of selected files to...</guimenuitem></menuchoice>."
@@ -5081,7 +5081,7 @@ msgstr "<placeholder-1/> Ако сте креирали нове фајлове 
 
 #. (para)
 msgid "After you added the files/directories to source control the file appears with a <literal>added</literal> icon overlay which means you first have to commit your working copy to make those files/directories available to other developers. Adding a file/directory does <emphasis>not</emphasis> affect the repository!"
-msgstr "После додавања фајлова/именика контроли кода фајлови се појављују са <literal>додат</literal> прекривном иконом која значи да најпре треба да урежете вашу радну копију да учините ове фајлове/именике доступне другим сарадницима. Додавањем фајла/именика <emphasis>не</emphasis> не утиче на спремиште."
+msgstr "После додавања фајлова/именика контроли кода фајлови се појављују са <literal>додат</literal> прекривном иконом која значи да најпре треба да урежете вашу радну копију да учините ове фајлове/именике доступне другим програмерима. Додавањем фајла/именика <emphasis>не</emphasis> не утиче на спремиште."
 
 #. (title)
 msgid "Many Adds"
@@ -5697,7 +5697,7 @@ msgstr "Често ћете затећи себе да примењујете и
 
 #. (para)
 msgid "From the file or folder where the properties are already set, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice>, select the properties you wish to export and click on <guibutton>Export...</guibutton>. You will be prompted for a filename where the property names and values will be saved."
-msgstr "Од фајла или именика где је особина већ подешена користите <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>особине</guimenuitem></menuchoice>, изаберите особине које желите да извезете и кликните на guibutton>Извези...</guibutton>. Бићете питани за фајлиме где ће се имена особина и вредности сачувати."
+msgstr "Од фајла или именика где је особина већ подешена користите <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>особине</guimenuitem></menuchoice>, изаберите особине које желите да извезете и кликните на <guibutton>Извези...</guibutton>. Бићете питани за фајлиме где ће се имена особина и вредности сачувати."
 
 #. (para)
 msgid "From the folder(s) where you wish to apply these properties, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice> and click on <guibutton>Import...</guibutton>. You will be prompted for a filename to import from, so navigate to the place you saved the export file previously and select it. The properties will be added to the folders non-recursively."
@@ -6353,7 +6353,7 @@ msgstr "Морате одредити дубину коју ћете корис�
 
 #. (para)
 msgid "Most of the time you want merge to take account of the file's history, so that changes relative to a common ancestor are merged. Sometimes you may need to merge files which are perhaps related, but not in your repository. For example you may have imported versions 1 and 2 of a third party library into two separate directories. Although they are logically related, Subversion has no knowledge of this because it only sees the tarballs you imported. If you attempt to merge the difference between these two trees you would see a complete removal followed by a complete add. To make Subversion use only path-based differences rather than history-based differences, check the <guilabel>Ignore ancestry</guilabel> box. Read more about this topic in the Subversion book, <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
-msgstr "Највише времена ви желите да стапање узме у обзир историју фајла, тако да измене релативне заједничком претходнику су стопљене. Понекад вам је потребно да стопите фајлове који можда зависе, али нису у вашем спремишту. На пример можда сте увезли верзије 1 и 2 библиотеке трећег лица у два одвојена именика.Такође, они су логички зависни, Субверзија нема знања о томе јер само види лопту коју унесете. Ако покушате да стопите разлике та два стабла видећете комплетно уклањање коме следи комплетно додавање. Да учините да Субверзија користи само засноване на путањи разлике пре него историјски-засноване разлике, чекирајте guilabel>Занемари порекло</guilabel>  бокс. Прочитајте више о овоме у Субверзионој књизи, <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
+msgstr "Највише времена ви желите да стапање узме у обзир историју фајла, тако да измене релативне заједничком претходнику су стопљене. Понекад вам је потребно да стопите фајлове који можда зависе, али нису у вашем спремишту. На пример можда сте увезли верзије 1 и 2 библиотеке трећег лица у два одвојена именика.Такође, они су логички зависни, Субверзија нема знања о томе јер само види лопту коју унесете. Ако покушате да стопите разлике та два стабла видећете комплетно уклањање коме следи комплетно додавање. Да учините да Субверзија користи само засноване на путањи разлике пре него историјски-засноване разлике, чекирајте <guilabel>Занемари порекло</guilabel>  бокс. Прочитајте више о овоме у Субверзионој књизи, <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
 
 #. (para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes to be merged."
@@ -6637,7 +6637,7 @@ msgstr "Када креирате ново спремиште са Субвер�
 
 #. (para)
 msgid "It is a good idea to install a <literal>post-lock</literal> and <literal>post-unlock</literal> hook script on the server which sends out an email indicating the file which has been locked. With such a script in place, all your users can be notified if someone locks/unlocks a file. You can find an example hook script <filename>hooks/post-lock.tmpl</filename> in your repository folder."
-msgstr "Добра је идеја да се инсталира literal>пост-закључавања</literal> and <literal>пост-откључавањаk</literal> закачива скрипта на серверу која шаље епошту означивши фајл који је закључан. Са таквом скриптом сви ваши корисници могу бити обавештени ако неко закључа/откључа фајл. Можете наћи пример закачиве скрипте <filename>hooks/post-lock.tmpl</filename> у вашем именику спремишта"
+msgstr "Добра је идеја да се инсталира <literal>пост-закључавања</literal> and <literal>пост-откључавањаk</literal> закачива скрипта на серверу која шаље епошту означивши фајл који је закључан. Са таквом скриптом сви ваши корисници могу бити обавештени ако неко закључа/откључа фајл. Можете наћи пример закачиве скрипте <filename>hooks/post-lock.tmpl</filename> у вашем именику спремишта"
 
 #. (para)
 msgid "You might also use hooks to disallow breaking or stealing of locks, or perhaps limit it to a named administrator. Or maybe you want to email the owner when one of their locks is broken or stolen."
@@ -6689,7 +6689,7 @@ msgstr "Можете произвести издвојене закрпе кој
 
 #. (para)
 msgid "Just save the file using a filename of your choice. Patch files can have any extension you like, but by convention they should use the <filename>.patch</filename> or <filename>.diff</filename> extension. You are now ready to submit your patch file."
-msgstr "Само сачувајте фајл користећи фајлиме по вашем избору. Фајлови закрпа имају екстензију коју год желите, али конвенционално би требало да користе filename>.patch</filename> или <filename>.diff</filename> екстензију. Сада сте спремни да поднесете ваш фајл закрпу."
+msgstr "Само сачувајте фајл користећи фајлиме по вашем избору. Фајлови закрпа имају екстензију коју год желите, али конвенционално би требало да користеi<filename>.patch</filename> или <filename>.diff</filename> екстензију. Сада сте спремни да поднесете ваш фајл закрпу."
 
 #. (para)
 msgid "You can also save the patch to the clipboard instead of to a file. You might want to do this so that you can paste it into an email for review by others. Or if you have two working copies on one machine and you want to transfer changes from one to the other, a patch on the clipboard is a convenient way of doing this."
@@ -6705,11 +6705,11 @@ msgstr "Фајлови закрпа се примењују на вашу рад
 
 #. (para)
 msgid "In order to apply a patch file to your working copy, you need to have at least read access to the repository. The reason for this is that the merge program must reference the changes back to the revision against which they were made by the remote developer."
-msgstr "Да би применили фајл закрпе на вашу радну копију потребно вм је да имате најмање приступ за читање спремишта. Разлог за ово је да програм стапања мора да упореди измене назад са ревизијом према којој је урађен од удаљеног сарадника."
+msgstr "Да би применили фајл закрпе на вашу радну копију потребно вм је да имате најмање приступ за читање спремишта. Разлог за ово је да програм стапања мора да упореди измене назад са ревизијом према којој је урађен од удаљеног програмера."
 
 #. (para)
 msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog."
-msgstr "Из контекст менија за тај именик, кликните на menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Примени Закрпу...</guimenuitem></menuchoice> Ово ће отворити фајл отвори дијалог дозвољавајући вам да изаберете фајл закрпу за примену. Уобичајено само <filename>.patch</filename> или <filename>.diff</filename> фајлови су приказани, али може се изабрати опција за <quote>All files</quote>. Ако сте претходно сачували закрпу у клипборд можете користити <guibutton>Отвори из клипборда...</guibutton> у фајл опен дијалогу."
+msgstr "Из контекст менија за тај именик, кликните на <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Примени Закрпу...</guimenuitem></menuchoice> Ово ће отворити фајл отвори дијалог дозвољавајући вам да изаберете фајл закрпу за примену. Уобичајено само <filename>.patch</filename> или <filename>.diff</filename> фајлови су приказани, али може се изабрати опција за <quote>All files</quote>. Ако сте претходно сачували закрпу у клипборд можете користити <guibutton>Отвори из клипборда...</guibutton> у фајл опен дијалогу."
 
 #. (para)
 msgid "Alternatively, if the patch file has a <filename>.patch</filename> or <filename>.diff</filename> extension, you can right click on it directly and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice>. In this case you will be prompted to enter a working copy location."
@@ -6725,7 +6725,7 @@ msgstr "Једном кад изаберете фајл закрпа и лока
 
 #. (para)
 msgid "The remote developer's patch has now been applied to your working copy, so you need to commit to allow everyone else to access the changes from the repository."
-msgstr "Даљински развојне закрпе  су примењене на вашој радној копији тако да је потребно урезати да се дозвољава још неком да мења из спремишта."
+msgstr "Даљински програмерске закрпе  су примењене на вашој радној копији тако да је потребно урезати да се дозвољава још неком да мења из спремишта."
 
 #. (title)
 msgid "Who Changed Which Line?"
@@ -7314,7 +7314,7 @@ msgstr "<placeholder-1/> Ако извршите ову команду на не
 
 #. (para)
 msgid "Of course you can export directly from the repository too. Use the Repository Browser to navigate to the relevant subtree in your repository, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Export</guimenuitem></menuchoice>. You will get the <guilabel>Export from URL</guilabel> dialog described above."
-msgstr "Свакако да можете извести директно из спремишта такође. Користите Претраживач Спремишта да управљате до релевантног подстабла у вашем спремишту, затим користите menuchoice><guimenu>Контекст Мени</guimenu><guimenuitem>Извоз</guimenuitem></menuchoice>. Добићете <guilabel>Извоз из УРЛ</guilabel> дијалог који је описан раније."
+msgstr "Свакако да можете извести директно из спремишта такође. Користите Претраживач Спремишта да управљате до релевантног подстабла у вашем спремишту, затим користите <menuchoice><guimenu>Контекст Мени</guimenu><guimenuitem>Извоз</guimenuitem></menuchoice>. Добићете <guilabel>Извоз из УРЛ</guilabel> дијалог који је описан раније."
 
 #. (para)
 msgid "If you execute this command on your working copy you'll be asked for a place to save the <emphasis>clean</emphasis> working copy without the <filename>.svn</filename> folders. By default, only the versioned files are exported, but you can use the <guilabel>Export unversioned files too</guilabel> checkbox to include any other unversioned files which exist in your WC and not in the repository. External references using <literal>svn:externals</literal> can be omitted if required."
@@ -7395,7 +7395,7 @@ msgstr "Релоцирање дијалог"
 
 #. (para)
 msgid "<placeholder-1/> If your repository has for some reason changed it's location (IP/URL). Maybe you're even stuck and can't commit and you don't want to checkout your working copy again from the new location and to move all your changed data back into the new working copy, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocate</guimenuitem></menuchoice> is the command you are looking for. It basically does very little: it scans all <filename>entries</filename> files in the <filename>.svn</filename> folder and changes the URL of the entries to the new value."
-msgstr "<placeholder-1/> Ако је ваше спремиште из неког разлога променило своју локацију (ИП/УРЛ). Можда сте чак укочени и не можете урезати и не желите да преузмете вашу радну копију поново са нове локације и померите све измењене податке назад у нову радну копију, <<menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Релоцирај</guimenuitem></menuchoice> је команда коју тражите. Она у снови ради веома мало: скенира све <filename>улазе</filename> фајлова у  <filename>.svn</filename> именику и мења УРЛ улаза у нове вредности."
+msgstr "<placeholder-1/> Ако је ваше спремиште из неког разлога променило своју локацију (ИП/УРЛ). Можда сте чак укочени и не можете урезати и не желите да преузмете вашу радну копију поново са нове локације и померите све измењене податке назад у нову радну копију, <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Релоцирај</guimenuitem></menuchoice> је команда коју тражите. Она у снови ради веома мало: скенира све <filename>улазе</filename> фајлова у  <filename>.svn</filename> именику и мења УРЛ улаза у нове вредности."
 
 #. (para)
 msgid "You may be surprised to find that TortoiseSVN contacts the repository as part of this operation. All it is doing is performing some simple checks to make sure that the new URL really does refer to the same repository as the existing working copy."
@@ -7415,7 +7415,7 @@ msgstr "Путања корена спремишта у сервер подеш�
 
 #. (para)
 msgid "<emphasis>This is a very infrequently used operation</emphasis>. The relocate command is <emphasis>only</emphasis> used if the URL of the repository root has changed. Possible reasons are: <placeholder-1/> Put another way, you need to relocate when your working copy is referring to the same location in the same repository, but the repository itself has moved."
-msgstr "<emphasis>Ово је веома ретко коришћена операција</emphasis>. Релокациона команда је emphasis>само</emphasis> коришћена ако УРЛ корена спремишта је промењено. Могући разлози су: <placeholder-1/> Ставите други начин, потребно је да релоцирате када ваша радна копија указује на исту локацију у истом спремишту, али је само спремиште померено."
+msgstr "<emphasis>Ово је веома ретко коришћена операција</emphasis>. Релокациона команда је <emphasis>само</emphasis> коришћена ако УРЛ корена спремишта је промењено. Могући разлози су: <placeholder-1/> Ставите други начин, потребно је да релоцирате када ваша радна копија указује на исту локацију у истом спремишту, али је само спремиште померено."
 
 #. (para)
 msgid "You want to move to a different Subversion repository. In that case you should perform a clean checkout from the new repository location."
@@ -7734,7 +7734,7 @@ msgstr "Упозорење"
 
 #. (para)
 msgid "TortoiseSVN has three custom sounds which are installed by default. <placeholder-1/> You can select different sounds (or turn these sounds off completely) using the Windows Control Panel. <guibutton>Configure</guibutton> is a shortcut to the Control Panel."
-msgstr "ТортоисеСВН има три обична звука који су инсталирани уобичајено.  <placeholder-1/> Можете изабрати различите звуке (или потпуно искључити звук) користећи Виндоуз Контролни Панел. guibutton>Конфигуриши</guibutton> је скраћеница за Контролни Панел."
+msgstr "ТортоисеСВН има три обична звука који су инсталирани уобичајено.  <placeholder-1/> Можете изабрати различите звуке (или потпуно искључити звук) користећи Виндоуз Контролни Панел. <guibutton>Конфигуриши</guibutton> је скраћеница за Контролни Панел."
 
 #. (term)
 msgid "Global ignore pattern"
@@ -8888,7 +8888,7 @@ msgstr "Број ревизија сачуваних у кешу. Ово је д
 
 #. (para)
 msgid "<placeholder-1/> Click on the <guibutton>Details</guibutton> button to see detailed statistics for a particular cache. Many of the fields shown here are mainly of interest to the developers of TortoiseSVN, so they are not all described in detail. <placeholder-2/>"
-msgstr "<placeholder-1/> Кликните на <guibutton>Детаљи</guibutton> дугме да видите детаљну статистику за партикуларни кеш. Многа од поља приказана овде су углавном од онтереса за развојни тим ТортоисеСВН, тако да сви нису описани датаљно.<placeholder-2/>"
+msgstr "<placeholder-1/> Кликните на <guibutton>Детаљи</guibutton> дугме да видите детаљну статистику за партикуларни кеш. Многа од поља приказана овде су углавном од онтереса за програмере ТортоисеСВН, тако да сви нису описани датаљно.<placeholder-2/>"
 
 #. (para)
 msgid "Click on the <guibutton>Update</guibutton> to completely refresh the cache and fill in any holes. For a large repository this could be very time consuming, but useful if you are about to go offline and want the best available cache."
@@ -8896,7 +8896,7 @@ msgstr "Кликните на <guibutton>Ажурирај</guibutton> да ко�
 
 #. (para)
 msgid "Click on the <guibutton>Export</guibutton> button to export the entire cache as a set of CSV files. This could be useful if you want to process the log data using an external program, although it is mainly useful to the developers."
-msgstr "Кликните на <guibutton>Извези</guibutton> дугме да извезете цео кеш као скуп ЦВС фајлова. Ово би било корисно ако желите да процесирате дневник података користећи спољашњи програм, такође то је углавном корисно развојном тиму."
+msgstr "Кликните на <guibutton>Извези</guibutton> дугме да извезете цео кеш као скуп ЦВС фајлова. Ово би било корисно ако желите да процесирате дневник података користећи спољашњи програм, такође то је углавном корисно програмерима."
 
 #. (para)
 msgid "Click on <guibutton>Delete</guibutton> to remove all cached data for the selected repositories. This does not disable caching for the repository so the next time you request log data, a new cache will be created."
@@ -9162,7 +9162,7 @@ msgstr "Икона кеш кутије"
 
 #. (para)
 msgid "To add a cache tray icon for the TSVNCache program, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\CacheTrayIcon</literal>. This is really only useful for developers as it allows you to terminate the program gracefully."
-msgstr "Да би додали кеш икону за ТСВНЦасхе програм, креирајте <literal>DWORD</literal> тастер са вредношћу 1 на <literal>HKCU\\Software\\TortoiseSVN\\CacheTrayIcon</literal>. Ово је стварно корисно само за развојни тим када вам љубазно дозвољавају да завршите програм. "
+msgstr "Да би додали кеш икону за ТСВНЦасхе програм, креирајте <literal>DWORD</literal> тастер са вредношћу 1 на <literal>HKCU\\Software\\TortoiseSVN\\CacheTrayIcon</literal>. Ово је стварно корисно само за програмере када вам љубазно дозвољавају да завршите програм. "
 
 #. (term)
 msgid "Debug"
@@ -9194,7 +9194,7 @@ msgstr "Ажурирајте Чекирање УРЛ"
 
 #. (para)
 msgid "<literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> contains the URL from which TortoiseSVN tries to download a text file to find out if there are updates available. You can also set this under <literal>HKLM</literal> instead of <literal>HKCU</literal> if you want, but <literal>HKCU</literal> overwrites the setting in <literal>HKLM</literal>. This might be useful for company admins who don't want their users to update TortoiseSVN until they approve it."
-msgstr "<literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> садржи УРЛ из кога ТортоисеСВН покушава да скине текст фајл да би нашла да ли је ажурирање могуће. Можете такође подесити ово под literal>HKLM</literal> уместо <literal>HKCU</literal> ако желите, али <literal>HKCU</literal> прекрива подешавање у <literal>HKLM</literal>. Ово може бити корисно за компанијску администрацију која не жели да њени корисници ажурирају ТортоисеСВН док им они не одобре."
+msgstr "<literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> садржи УРЛ из кога ТортоисеСВН покушава да скине текст фајл да би нашла да ли је ажурирање могуће. Можете такође подесити ово под <literal>HKLM</literal> уместо <literal>HKCU</literal> ако желите, али <literal>HKCU</literal> прекрива подешавање у <literal>HKLM</literal>. Ово може бити корисно за компанијску администрацију која не жели да њени корисници ажурирају ТортоисеСВН док им они не одобре."
 
 #. (term)
 msgid "Filenames without extensions in auto-completion list"
@@ -9202,7 +9202,7 @@ msgstr "Фајлиме без екстензије у ауто-комплети�
 
 #. (para)
 msgid "The auto-completion list shown in the commit message editor displays the names of files listed for commit. To also include these names with extensions removed, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\AutocompleteRemovesExtensions</literal>."
-msgstr "Ауто-комплетирајућа листа приказана у едитору порука урезивања приказује имена фајлова излистаних за урезивање. Такође обухвата  ова имена са уклоњеном екстензијом, креирајте  <literal>DWORD</literal> татер са вредношћу 1 на  literal>HKCU\\Software\\TortoiseSVN\\AutocompleteRemovesExtensions</literal>."
+msgstr "Ауто-комплетирајућа листа приказана у едитору порука урезивања приказује имена фајлова излистаних за урезивање. Такође обухвата  ова имена са уклоњеном екстензијом, креирајте  <literal>DWORD</literal> татер са вредношћу 1 на  <literal>HKCU\\Software\\TortoiseSVN\\AutocompleteRemovesExtensions</literal>."
 
 #. (term)
 msgid "Explorer columns everywhere"
@@ -9282,7 +9282,7 @@ msgstr "Донирајте!"
 
 #. (para)
 msgid "Even though TortoiseSVN and TortoiseMerge are free, you can support the developers by sending in patches and play an active role in the development. You can also help to cheer us up during the endless hours we spend in front of our computers."
-msgstr "Без обзира што су ТортоисеСВН и ТортоисеМерге бесплатни, можете помоћи развојни тим слањем закрпа и играти активну улогу у развоју. Можете помоћи да нас охрабрите у току дугих сати које трошимо испред рачунара."
+msgstr "Без обзира што су ТортоисеСВН и ТортоисеМерге бесплатни, можете помоћи програмере слањем закрпа и играти активну улогу у развоју. Можете помоћи да нас охрабрите у току дугих сати које трошимо испред рачунара."
 
 #. (para)
 msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CDs and DVDs: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
@@ -9718,7 +9718,7 @@ msgstr "Порука унета када је катанац креиран."
 
 #. (para)
 msgid "If you need to access Subversion revision information from other programs, you can use the COM interface of SubWCRev. The object to create is <literal>SubWCRev.object</literal>, and the following methods are supported: <placeholder-1/>"
-msgstr "Ако треба да приступите Субверзијиној ревизиојиној информацији из других програма, можете користити ЦОМ интерфејс SubWCRev. Објекат који се креира је literal>SubWCRev.object</literal>, и следећи методи су подржани: <placeholder-1/>"
+msgstr "Ако треба да приступите Субверзијиној ревизиојиној информацији из других програма, можете користити ЦОМ интерфејс SubWCRev. Објекат који се креира је <literal>SubWCRev.object</literal>, и следећи методи су подржани: <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -10176,7 +10176,7 @@ msgstr "Користи <literal>свндумпфилтер</literal>"
 
 #. (para)
 msgid "Since TortoiseSVN never loses data, your <quote>rolled back</quote> revisions still exist as intermediate revisions in the repository. Only the HEAD revision was changed to a previous state. If you want to make revisions disappear completely from your repository, erasing all trace that they ever existed, you have to use more extreme measures. Unless there is a really good reason to do this, it is <emphasis>not recommended</emphasis>. One possible reason would be that someone committed a confidential document to a public repository."
-msgstr "Пошто ТортоисеСВН никад не губи податке, ваша <quote>враћена назад</quote> ревизија још увек постоји као интермедијална ревизија у спремишту. Само ГЛАВНА ревизија је измењена у претходно стање. Ако желите да направите да ревизије нестану комплетно из спремишта, брисањем свих стаза које су икад постојале, морате користити много екстремније мере. Осим ако не постоји веома добар разлог да се то ради, то emphasis>није препоручљиво</emphasis>. Један посебан разлог би био да неко урезује поверљив документ у јавно спремиште."
+msgstr "Пошто ТортоисеСВН никад не губи податке, ваша <quote>враћена назад</quote> ревизија још увек постоји као интермедијална ревизија у спремишту. Само ГЛАВНА ревизија је измењена у претходно стање. Ако желите да направите да ревизије нестану комплетно из спремишта, брисањем свих стаза које су икад постојале, морате користити много екстремније мере. Осим ако не постоји веома добар разлог да се то ради, то <emphasis>није препоручљиво</emphasis>. Један посебан разлог би био да неко урезује поверљив документ у јавно спремиште."
 
 #. (para)
 msgid "The only way to remove data from the repository is to use the Subversion command line tool <literal>svnadmin</literal>. You can find a description of how this works in the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.maint.html\"><citetitle>Repository Maintenance</citetitle></ulink>."
@@ -11291,7 +11291,7 @@ msgstr ""
 #. (para)
 #. (para)
 msgid "If <guilabel>Show unversioned files</guilabel> is checked, TortoiseSVN will also show all unversioned files and folders in the working copy hierarchy, taking account of the ignore rules. This particular feature has no direct equivalent in Subversion, as the <literal>svn status</literal> command does not descend into unversioned folders."
-msgstr "Ако је <guilabel>Прикажи неверзионисане фајлове</guilabel> чекирано, ТортоисеСВн ће такође приказати све неверзионисане фајлове и именике у хијерархији радне копије, узимајући у обзир правила занемаривања. Ова посебна особина нема директни еквивалент у Субверзији, као што < literal>svn status</literal>  команда не силази у неверзионисане именике."
+msgstr "Ако је <guilabel>Прикажи неверзионисане фајлове</guilabel> чекирано, ТортоисеСВн ће такође приказати све неверзионисане фајлове и именике у хијерархији радне копије, узимајући у обзир правила занемаривања. Ова посебна особина нема директни еквивалент у Субверзији, као што <literal>svn status</literal>  команда не силази у неверзионисане именике."
 
 #. (para)
 msgid "If you check any unversioned files and folders, those items will first be added to your working copy."
