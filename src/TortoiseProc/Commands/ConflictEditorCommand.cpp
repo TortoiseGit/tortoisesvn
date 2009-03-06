@@ -278,7 +278,7 @@ bool ConflictEditorCommand::Execute()
 					break;
 				case svn_wc_conflict_reason_missing:
 					uReasonID = IDS_TREECONFLICT_REASON_MISSING;
-					sResolveMine.LoadString(pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_REMOVEDIR : IDS_TREECONFLICT_RESOLVE_REMOVEFILE);
+					sResolveMine.LoadString(IDS_TREECONFLICT_RESOLVE_MARKASRESOLVED);
 					break;
 				case svn_wc_conflict_reason_unversioned:
 					uReasonID = IDS_TREECONFLICT_REASON_UNVERSIONED;
