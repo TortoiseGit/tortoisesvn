@@ -210,4 +210,44 @@ skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker
 			read <xref linkend="tsvn-howto-common-projects"/>.
 		</para>
 	</sect2>
+	<sect2 id="tsvn-dug-externals-files">
+		<title>External Files</title>
+		<para>
+			As of Subversion 1.6 you can add single file externals to
+			your working copy using the same syntax as for folders.
+			However, there are some restrictions.
+		</para>
+		<itemizedlist>
+			<listitem>
+				<para>
+					The path to the file external must be in a working copy that is
+					already checked out. While directory externals can place the
+					external directory at any depth and it will create any intermediate
+					directories, file externals must be placed into a working copy
+					that is already checked out.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					The URL for a file external must be in the same repository as the URL
+					that the file external will be inserted into; inter-repository file
+					externals are not supported.
+				</para>
+			</listitem>
+		</itemizedlist>
+		<para>
+			A file external behaves just like any other versioned file in many respects,
+			but they cannot be moved or deleted using the normal commands; the
+			<literal>svn:externals</literal> property must be modified instead.
+		</para>
+		<warning>
+			<title>File externals support incomplete in Subversion 1.6</title>
+			<para>
+				In subversion 1.6 it is not possible to remove a file external
+				from your working copy once you have added it, even if you delete
+				the <literal>svn:externals</literal> property altogether. You
+				have to checkout a fresh working copy to remove the file.
+			</para>
+		</warning>
+	</sect2>
 </sect1>
