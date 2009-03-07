@@ -84,6 +84,17 @@
 						</para>
 					</listitem>
 				</varlistentry>
+				<varlistentry>
+					<term>Exclude</term>
+					<listitem>
+						<para>
+							Used to reduce working copy depth after a folder
+							has already been populated. This option is only
+							available in the <guilabel>Update to revision</guilabel>
+							dialog.
+						</para>
+					</listitem>
+				</varlistentry>
 			</variablelist>
 		</para>
 		<para>
@@ -176,12 +187,15 @@
 			</listitem>
 		</orderedlist>
 		<tip>
-			<title>Working copy depth cannot be reduced</title>
+			<title>Changing working copy depth</title>
 			<para>
 				Once you have checked out a working copy to a particular
-				depth you can increase that depth later to get more content.
-				However you cannot reduce the depth again to remove content.
-				That feature may be added in a later version of Subversion.
+				depth you can change that depth later to get more or less
+				content using
+				<menuchoice>
+					<guimenu>Context menu</guimenu>
+					<guimenuitem>Update item to revision...</guimenuitem>
+				</menuchoice>.
 			</para>
 		</tip>
 		<tip>
