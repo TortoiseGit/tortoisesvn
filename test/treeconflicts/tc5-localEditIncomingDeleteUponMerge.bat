@@ -45,6 +45,7 @@ echo testlinemodified > %WC%1\foo2.c
 :: user 1 edits folder
 %SVNCLI% propset testprop testvalue %WC%1\foofolder
 :: user 1 commits
+%SVNCLI% ci %WC%1 -m ""
 
 :: user 2 moves the same file
 %SVNCLI% mv %WC%2\foo.c %WC%2\bar.c
