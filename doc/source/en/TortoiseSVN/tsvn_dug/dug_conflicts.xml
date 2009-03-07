@@ -291,7 +291,7 @@
 				</itemizedlist>
 			</para>
 			<para>
-				Then developer B has to decide whether to go with developer A's
+				Developer B now has to decide whether to go with developer A's
 				reorganisation and merge her changes into the corresponding
 				file in the new structure, or simply revert A's changes and
 				keep the local file.
@@ -439,6 +439,25 @@
 				</listitem>
 			</orderedlist>
 			<para>
+				There is an equivalent case for folder moves, but it is not yet 
+				detected in Subversion 1.6 ...
+			</para>
+			<orderedlist>
+				<listitem>
+					<para>
+						Developer A working on trunk moves parent folder
+						<filename>FooFolder</filename> to <filename>BarFolder</filename>
+						and commits it to the repository.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Developer B working on a branch modifies <filename>Foo.c</filename>
+						in her working copy.
+					</para>
+				</listitem>
+			</orderedlist>
+			<para>
 				A merge of developer A's trunk changes to developer B's branch working 
 				copy results in a tree conflict:
 				<itemizedlist>
@@ -456,13 +475,33 @@
 				</itemizedlist>
 			</para>
 			<para>
-				To resolve this conflict, Developer B has to decide whether
-				to remove the file <filename>Foo.c</filename> and keep
-				the file <filename>Bar.c</filename> instead, or whether
-				to keep the local file <filename>Foo.c</filename>. If
-				the local file <filename>Foo.c</filename> is kept, developer
-				B also has to decide whether to merge the changes of
-				<filename>Bar.c</filename> into <filename>Foo.c</filename>.
+				Developer B now has to decide whether to go with developer A's
+				reorganisation and merge her changes into the corresponding
+				file in the new structure, or simply revert A's changes and
+				keep the local file.
+			</para>
+			<para>
+				To merge her local changes with the reshuffle, Developer B must
+				first find out to what filename the conflicted file
+				<filename>Foo.c</filename> was renamed/moved in the repository.
+				This can be done by using the log dialog for the merge source.
+				The conflict editor only shows the log for the working copy
+				as it does not know which path was used in the merge,
+				so you will have to find that yourself.
+				The changes must then be 
+				merged by hand as there is currently no way to automate or even
+				simplify this process. Once the changes have been ported across,
+				the conflicted path is redundant and can be deleted. In this case
+				use the <guilabel>Remove</guilabel> button in the conflict
+				editor dialog to clean up and mark the conflict as resolved.
+			</para>
+			<para>
+				If Developer B decides that A's changes were wrong then she
+				must choose the <guilabel>Keep</guilabel> button in the
+				conflict editor dialog. This marks the conflicted file/folder as
+				resolved, but Developer A's changes need to be removed by hand.
+				Again the log dialog for the merge source helps to track down
+				what was moved.
 			</para>
 		</sect3>		
 		<sect3 id="tsvn-dug-conflicts-tree-6">
@@ -487,18 +526,20 @@
 				<itemizedlist>
 					<listitem>
 						<para>
-							<filename>Bar.c</filename> is marked as added.
+							<filename>Bix.c</filename> is marked with
+							normal (unmodified) status.
 						</para>
 					</listitem>
 					<listitem>
 						<para>
-							<filename>Bix.c</filename> is added with status
-							normal.
+							<filename>Bar.c</filename> is marked as added
+							with history.
 						</para>
 					</listitem>
 					<listitem>
 						<para>
-							Tree conflict on <filename>Foo.c</filename>.
+							<filename>Foo.c</filename> is marked as missing
+							and has a tree conflict.
 						</para>
 					</listitem>
 				</itemizedlist>
@@ -506,13 +547,16 @@
 			<para>
 				To resolve this conflict, Developer B has to find out 
 				to what filename the conflicted file <filename>Foo.c</filename>
-				was renamed/moved in the repository. This can be done by
-				using the log dialog.
+				was renamed/moved in the repository.
+				This can be done by using the log dialog for the merge source.
+				The conflict editor only shows the log for the working copy
+				as it does not know which path was used in the merge,
+				so you will have to find that yourself.
 			</para>
 			<para>
 				Then developer B has to decide which new filename of
 				<filename>Foo.c</filename> to keep - the one done by developer A
-				or the rename done in his working copy.
+				or the rename done by himself.
 			</para>
 			<para>
 				After developer B has manually resolved the conflict, the
