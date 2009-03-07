@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - Stefan Kueng
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -202,7 +202,7 @@ UINT CLockDlg::StatusThread()
 	}
 
 	DWORD dwShow = SVNSLC_SHOWNORMAL | SVNSLC_SHOWMODIFIED | SVNSLC_SHOWMERGED | SVNSLC_SHOWLOCKS;
-	m_cFileList.Show(dwShow, dwShow, false);
+	m_cFileList.Show(dwShow, CTSVNPathList(), dwShow, false);
 
 	RefreshCursor();
 	CString logmsg;

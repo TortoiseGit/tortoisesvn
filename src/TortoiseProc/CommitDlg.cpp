@@ -642,7 +642,7 @@ UINT CCommitDlg::StatusThread()
 		else
 		{
 			DWORD dwCheck = m_bSelectFilesForCommit ? SVNSLC_SHOWDIRECTS|SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|SVNSLC_SHOWLOCKS : 0;
-			m_ListCtrl.Show(dwShow, dwCheck);
+			m_ListCtrl.Show(dwShow, CTSVNPathList(), dwCheck);
 			m_bSelectFilesForCommit = true;
 		}
 

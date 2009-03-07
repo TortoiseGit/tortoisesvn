@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -105,7 +105,7 @@ UINT CDeleteUnversionedDlg::StatusThread()
 	{
 		m_StatusList.SetEmptyString(m_StatusList.GetLastErrorMessage());
 	}
-	m_StatusList.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWIGNORED, 
+	m_StatusList.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWIGNORED, CTSVNPathList(),
 		SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWIGNORED);
 
 	CTSVNPath commonDir = m_StatusList.GetCommonDirectory(false);
