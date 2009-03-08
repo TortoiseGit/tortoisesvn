@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2009
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 15532: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 15580: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-01 21:18+0300\n"
+"PO-Revision-Date: 2009-03-08 03:29+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2212,6 +2212,11 @@ msgstr ""
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
 msgstr "Посмотрите в журнале, каким образом этот файл/папка были переименованы/перемещены и решите, какое из переименований/перемещений вы оставите: ваше или из хранилища. После этого пометьте конфликт как улаженный."
 
+# какое из переименований/перемещений вы оставите: ваше или из хранилища. После этого пометьте конфликт как улаженный.
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to merge the change into your renamed file, or restore the original file."
+msgstr "Посмотрите в журнале, каким образом этот файл(папка) был переименован/перемещён и решите, желаете ли вы выполнить слияние с вашим переименованным файлом, или восстановить исходный файл."
+
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
 msgstr "Проверьте введенные путь и/или URL."
@@ -3622,6 +3627,10 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Исключения:"
+
+#. Resource IDs: (20)
+msgid "Exclude"
+msgstr "Исключить"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -5307,8 +5316,8 @@ msgstr "Слить ревизии с..."
 
 #. Resource IDs: (610)
 #, c-format
-msgid "Merge the changes into the file '%s'"
-msgstr "Произвести слияние изменений в файле '%s'"
+msgid "Merge the changes into '%s'"
+msgstr "Произвести слияние изменений в '%s'"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
