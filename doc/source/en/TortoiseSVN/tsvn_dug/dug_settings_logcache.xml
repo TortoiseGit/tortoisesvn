@@ -138,7 +138,24 @@
 			cached locally, and the space used for the cache. If you select one
 			of the repositories you can then use the buttons underneath.
 		</para>
-	</sect3>
+        <para>
+            Click on the <guibutton>Update</guibutton> to completely refresh the
+            cache and fill in any holes. For a large repository this could be
+            very time consuming, but useful if you are about to go offline
+            and want the best available cache.
+        </para>
+        <para>
+            Click on the <guibutton>Export</guibutton> button to export the entire
+            cache as a set of CSV files. This could be useful if you want to process
+            the log data using an external program, although it is mainly useful to
+            the developers.
+        </para>
+        <para>
+            Click on <guibutton>Delete</guibutton> to remove all cached data for
+            the selected repositories. This does not disable caching for the repository
+            so the next time you request log data, a new cache will be created.
+        </para>
+    </sect3>
 	<sect3 id="tsvn-dug-settings-logcache-statistics">
 		<?dbhh topicname="HIDD_IDD_LOGCACHESTATISTICS"?>
 		<title>Log Cache Statistics</title>
@@ -243,21 +260,4 @@
 			</variablelist>
 		</para>
 	</sect3>
-	<para>
-		Click on the <guibutton>Update</guibutton> to completely refresh the
-		cache and fill in any holes. For a large repository this could be
-		very time consuming, but useful if you are about to go offline
-		and want the best available cache.
-	</para>
-	<para>
-		Click on the <guibutton>Export</guibutton> button to export the entire
-		cache as a set of CSV files. This could be useful if you want to process
-		the log data using an external program, although it is mainly useful to
-		the developers.
-	</para>
-	<para>
-		Click on <guibutton>Delete</guibutton> to remove all cached data for
-		the selected repositories. This does not disable caching for the repository
-		so the next time you request log data, a new cache will be created.
-	</para>
 </sect2>
