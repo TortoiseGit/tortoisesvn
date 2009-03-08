@@ -1,5 +1,5 @@
 #
-# Serbian cyrillic translation for TortoiseSVN
+# Serbian latin translation for TortoiseSVN
 # Copyright (C) 2008-2009 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-04 23:21 +0000\n"
-"PO-Revision-Date: 2009-03-07 23:43+0100\n"
+"POT-Creation-Date: 2009-03-07 23:58 +0000\n"
+"PO-Revision-Date: 2009-03-08 19:41+0100\n"
 "Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3067,6 +3067,14 @@ msgstr "Radna kopija"
 msgid "Retain the depth specified in the working copy. This option is not used in the checkout dialog, but it is the default in all other dialogs which have a depth setting."
 msgstr "Zadržati dubinu specificiranu u radnoj kopiji. Ova opcija se ne koristi u dijalogu preuzimanja, ali je uobičajena u svim ostalim dijalozima koji imahu podešavanje dubine."
 
+#. (term)
+msgid "Exclude"
+msgstr "Isključi"
+
+#. (para)
+msgid "Used to reduce working copy depth after a folder has already been populated. This option is only available in the <guilabel>Update to revision</guilabel> dialog."
+msgstr "Koristi se za redukovanje dubine radne kopije kada je imenik već ispunjen. Ova opcije je dostupna samo u <guilabel>Ažuriraj prema reviziji</guilabel> dijalogu. "
+
 #. (para)
 msgid "You can choose the <firstterm>depth</firstterm> you want to checkout, which allows you to specify the depth of recursion into child folders. If you want just a few sections of a large tree, You can checkout the top level folder only, then update selected folders recursively. <placeholder-1/>"
 msgstr "Možete izabrati <firstterm>dubinu</firstterm> koju želite pri pruzimanju, što vam omogućuje da specificirate dubinu rekurzije u potomačkim imenicima. Ako želite samo nekoliko delova velikog stabla, možete preuzeti samo imenik vršnog nivoa, zatim ažurirajte imenike rekurzivno. <placeholder-1/>"
@@ -3108,12 +3116,12 @@ msgid "Navigate to <literal>Project76/SubProj</literal> and do the same. This ti
 msgstr "Upravite se ka <literal>Project76/SubProj</literal> i uradite isto. Ovog puta primetimo da <literal>Project76</literal> imenik nema sadržaj osim za <literal>SubProj</literal>, koji je sam potpuno poppunjen. Subverzija je kreirala prelazne imenike za vas ne popunjavajući ih."
 
 #. (title)
-msgid "Working copy depth cannot be reduced"
-msgstr "Dubina radne kopije ne može da se umanji"
+msgid "Changing working copy depth"
+msgstr "Izmena dubine radne kopije"
 
 #. (para)
-msgid "Once you have checked out a working copy to a particular depth you can increase that depth later to get more content. However you cannot reduce the depth again to remove content. That feature may be added in a later version of Subversion."
-msgstr "Kada jednom preuzmete radnu kopiju do određene dubine možete povećati dubinu kasnije da dođete do više sadržaja.  međutim ne možete redukovati dubinu da izbacite sadržaj.  Ova osobina će biti dodata u kasnijim verzijama Subverzije."
+msgid "Once you have checked out a working copy to a particular depth you can change that depth later to get more or less content using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice>."
+msgstr "Kada već preuzmete radnu kopiju do posebne dubine maožete kasnije izmeniti dubinu da dobijete više ili manje sadržaja koristeći  <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>Ažuriraj prema reviziji...</guimenuitem></menuchoice>"
 
 #. (title)
 msgid "Using an older server"
@@ -3680,8 +3688,9 @@ msgid "For a folder conflict: <placeholder-1/>"
 msgstr "Za konflikt imenika: <placeholder-1/>"
 
 #. (para)
-msgid "Then developer B has to decide whether to go with developer A's reorganisation and merge her changes into the corresponding file in the new structure, or simply revert A's changes and keep the local file."
-msgstr "Zatim programer B odluči da li da ide sa reorganizaciojom programera A i stopi njegove izmene u odgovarajući fajl u novoj strukturi, ili jednostavno vrati A-ove izmene i sačuva lokalni fajl."
+#. (para)
+msgid "Developer B now has to decide whether to go with developer A's reorganisation and merge her changes into the corresponding file in the new structure, or simply revert A's changes and keep the local file."
+msgstr "Programer B sada odluči da li da ide sa reorganizaciojom programera A i stopi njegove izmene u odgovarajući fajl u novoj strukturi, ili jednostavno vrati A-ove izmene i sačuva lokalni fajl."
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
@@ -3716,10 +3725,10 @@ msgid "<filename>Foo.c</filename> is marked as deleted and has a tree conflict."
 msgstr "<filename>Foo.c</filename> je označen kao obrisan i ima konflikt stabla."
 
 #. (para)
-#. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog."
 msgstr "Da se reši konflikt, Programer B ima da nađe ime fajla konfliktnog fajla <filename>Foo.c</filename> je preimenovano/pomereno u spremištu. Ovo može biti urađeno koristeći dijalog dnevnika."
 
+#. (para)
 #. (para)
 msgid "Then developer B has to decide which new filename of <filename>Foo.c</filename> to keep - the one done by developer A or the rename done by himself."
 msgstr "Zatim programer B ima da odluči koje novo ime fajla <filename>Foo.c</filename> da čuva - ono dato od saradnika A ili preimenovanje koje je sam uradio."
@@ -3742,6 +3751,10 @@ msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <file
 msgstr "Programer B radeći na grani pomera <filename>Foo.c</filename> u <filename>Bar.c</filename> i urezuje ga u spremište."
 
 #. (para)
+msgid "<filename>Bar.c</filename> is already in the working copy with status 'normal'."
+msgstr "<filename>Bar.c</filename> je već dodat u radnu kopiju sa statusom  'normalan'."
+
+#. (para)
 msgid "<filename>Foo.c</filename> is marked as missing with a tree conflict."
 msgstr "<filename>Foo.c</filename> je označeno kao nedostajuće sa konfliktom stabla."
 
@@ -3752,8 +3765,12 @@ msgid "A merge of developer A's trunk changes to developer B's branch working co
 msgstr "Stapanje izmena debla  programer A u radnu kopiju grane saradnika B daje konflikt stabla: <placeholder-1/>"
 
 #. (para)
-msgid "To resolve this conflict, Developer B has to remove the missing file in the conflict editor dialog. Then developer B has to decide whether to get the missing file <filename>Foo.c</filename> from the repository and add it to the working copy, whether to merge <filename>Foo.c</filename> into the renamed <filename>Bar.c</filename> or whether to just mark the conflict as resolved."
-msgstr "Da se reši konflikt, Programer B ima da ukloni nedostajući fajl u dijalogu konflikt urednika. Zatim programer B ima da odluči da li uzme nedostajući fajl <filename>Foo.c</filename> iz spremišta i doda ga u radnu kopiju, da li da stopi <filename>Foo.c</filename> u preimenovan <filename>Bar.c</filename> ili da li da samo označi konflekt rešenim."
+msgid "To resolve this conflict, Developer B has to mark the file as resolved in the conflict editor dialog, which will remove it from the conflict list. She then has to decide whether to copy the missing file <filename>Foo.c</filename> from the repository to the working copy, whether to merge Developer A's changes to <filename>Foo.c</filename> into the renamed <filename>Bar.c</filename> or whether to ignore the changes by marking the conflict as resolved and doing nothing else."
+msgstr "Da se reši konflikt, Programer B ima da označi fajl kao rešen u dijalogu konflikt urednika, što će ga ukloniti iz konfliktne liste. Ona zatim ima da odluči da li da kopira nedostajući fajl  <filename>Foo.c</filename> iz spremišta i doda ga u radnu kopiju, da li da stopi izmene Programera A u <filename>Foo.c</filename> u preimenovan <filename>Bar.c</filename> ili da zanemari izmene označavajući konflikt rešenim i da ne radi više ništa."
+
+#. (para)
+msgid "Note that if you copy the missing file from the repository and then mark as resolved, your copy will be removed again. You have to resolve the conflict first."
+msgstr "Primetimo da ako kopirate nedostajući fajl iz spremišta i zatim ga označite rešenim, vaša kopija će ga ponovo ukloniti. Morate najpre rešiti konflikt."
 
 #. (title)
 msgid "Local edit, incoming delete upon merge"
@@ -3769,6 +3786,17 @@ msgid "Developer B working on a branch modifies <filename>Foo.c</filename> and c
 msgstr "Programer B radeći na grani menja <filename>Foo.c</filename> i urezuje ga u spremište."
 
 #. (para)
+msgid "There is an equivalent case for folder moves, but it is not yet detected in Subversion 1.6 ..."
+msgstr "Postoji ekvivalentan slučaj za imenike, ali to još nije detektovano u Subverziji 1.6 ..."
+
+#. (para)
+msgid "Developer A working on trunk moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
+msgstr "Programer A radeći u deblu pomera predački imenik <filename>FooFolder</filename> u <filename>BarFolder</filename> i urezuje ga u spremište."
+
+#. (para)
+msgid "Developer B working on a branch modifies <filename>Foo.c</filename> in her working copy."
+msgstr "Programer B radeći u grani menja <filename>Foo.c</filename> u svojoj radnoj kopiji."
+
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added."
 msgstr "<filename>Bar.c</filename> je označen kao dodat."
@@ -3778,8 +3806,12 @@ msgid "<filename>Foo.c</filename> is marked as modified with a tree conflict."
 msgstr "<filename>Foo.c</filename> je označen kao izmenjen sa konfliktom stabla."
 
 #. (para)
-msgid "To resolve this conflict, Developer B has to decide whether to remove the file <filename>Foo.c</filename> and keep the file <filename>Bar.c</filename> instead, or whether to keep the local file <filename>Foo.c</filename>. If the local file <filename>Foo.c</filename> is kept, developer B also has to decide whether to merge the changes of <filename>Bar.c</filename> into <filename>Foo.c</filename>."
-msgstr "Da bi se rešio ovaj konflikt, Programer B ima da odluči da li da ukloni fajl <filename>Foo.c</filename> i sačuva fajl <filename>Bar.c</filename> umesto toga, ili da li sačuvati lokalni fajl <filename>Foo.c</filename>. Ako je lokalni fajl <filename>Foo.c</filename> sačuvan, programer B takođe ima da odluči da li da stopi izmene <filename>Bar.c</filename> u <filename>Foo.c</filename>."
+msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
+msgstr "Da se stope njene lokalne izmene sa reorganizacijom, Programer B mora da nađe u koje ime fajla konfliktni fajl <filename>Foo.c</filename> je preimenovan/pomeren u spremištu. Ovo može biti urađeno pomoću dijaloga dnevnika za izvor stapanja. Urednik konflikta samo prikazuje dnevnik za radnu kopiju kako nezna koja putanja je korišćena pri stapanju, tako da vi to morate uraditi sami. Izmene moraju onda biti stopljene ručno i trenutno nema načina da se to automatizuje ili pojednostavi proces. Kada se jednom izmene provuku konfliktna putanje je suvišna i može biti obrisana. U ovom slučaju koristite <guilabel>Ukloni</guilabel>  dugme u dijalogu uređivača konflikta da se obriše konflikt i označi rešenim."
+
+#. (para)
+msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog for the merge source helps to track down what was moved."
+msgstr "Ako programer B odluči da su A-ove izmene loše onda ona mora izabrati <guilabel>Čuvaj</guilabel> dugme u dijalogu uređivača konflikta. Ovo označava konfliktni fajl/imenik rešenim, ali izmene Programera A treba da budu uklonjene ručno. Ponovo dijalog dnevnika za izvor stapanja pomaže da se prati šta je pomereno."
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
@@ -3790,16 +3822,20 @@ msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <file
 msgstr "Programer A radeći na grani pomera <filename>Foo.c</filename> u <filename>Bar.c</filename> i urezuje ga u spremište."
 
 #. (para)
-msgid "<filename>Bix.c</filename> is added with status normal."
-msgstr "<filename>Bix.c</filename> je dodat sa statusom normalan."
+msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
+msgstr "<filename>Foo.c</filename> je označen sa normalnim (neizmenjenim) statusom."
 
 #. (para)
-msgid "Tree conflict on <filename>Foo.c</filename>."
-msgstr "Konflikt stabla na <filename>Foo.c</filename>."
+msgid "<filename>Bar.c</filename> is marked as added with history."
+msgstr "<filename>Bar.c</filename> je označen kao dodat sa istorijom."
 
 #. (para)
-msgid "Then developer B has to decide which new filename of <filename>Foo.c</filename> to keep - the one done by developer A or the rename done in his working copy."
-msgstr "Zatim programer B ima da odluči koje novo ime fajla <filename>Foo.c</filename>  sačuvati - ono koje je dao programer A ili preimenovano dato u ovoj radnoj kopiji."
+msgid "<filename>Foo.c</filename> is marked as missing and has a tree conflict."
+msgstr "<filename>Foo.c</filename> je označeno kao nedostajući sa konfliktom stabla."
+
+#. (para)
+msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself."
+msgstr "Da se reši konflikt, Programer B ima da nađe u koje ime fajla konfliktnog fajla <filename>Foo.c</filename> je preimenovano/pomereno u spremištu. Ovo može biti urađeno koristeći dijalog dnevnika za stopljen izvor. Urednik konflikta samo prikazuje dnevnik za radnu kopiju kako nezna koja putanja je korišćena pri stapanju tako da to nađete sami."
 
 #. (title)
 msgid "Getting Status Information"
@@ -6002,6 +6038,34 @@ msgstr "Ako vam treba više informacija kako TortoiseSVN rukuje sa Osobinama pro
 #. (para)
 msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
 msgstr "Da biste našli više o raznim metodama pristupa zajedničkim podprojektima čitajte <xref linkend=\"tsvn-howto-common-projects\"/>."
+
+#. (title)
+msgid "External Files"
+msgstr "Spoljašnji Fajlovi"
+
+#. (para)
+msgid "As of Subversion 1.6 you can add single file externals to your working copy using the same syntax as for folders. However, there are some restrictions."
+msgstr "Kao Subverzija 1.6 možete dodati pojedinačni spoljašnji fajl u vašu radnu kopiju koristeći istu sintaksu kao za imenike. Međutim, postoje neke restrikcije."
+
+#. (para)
+msgid "The path to the file external must be in a working copy that is already checked out. While directory externals can place the external directory at any depth and it will create any intermediate directories, file externals must be placed into a working copy that is already checked out."
+msgstr "Putanja do spoljašnjeg fajla morabiti u radnoj kopiji koja je već preuzeta. Dok imenici eksternala mogu da smeste eksternal imenike na bilo koju dubinu i mogu kreirati intermedijalne imenike, eksternali fajlova moraju biti smešteni u radnu kopiju koja je već preuzeta."
+
+#. (para)
+msgid "The URL for a file external must be in the same repository as the URL that the file external will be inserted into; inter-repository file externals are not supported."
+msgstr "URL za fajl eksternal mora biti u istom spremištu kao URL gde će fajl eksternali biti ubačeni; inter-spremište fajl eksternali nisu podržani."
+
+#. (para)
+msgid "A file external behaves just like any other versioned file in many respects, but they cannot be moved or deleted using the normal commands; the <literal>svn:externals</literal> property must be modified instead."
+msgstr "Fajl eksternal postaje baš kao bilo koji drugi verzionisani fajl u mnogo pogleda, ali ne može biti pomeren ili obrisan koristeći normalne komande; <literal>svn:externals</literal> osobine se moraju izmeniti umesto toga."
+
+#. (title)
+msgid "File externals support incomplete in Subversion 1.6"
+msgstr "Fajl eksternale podrška nije kompletna u Subverziji 1.6"
+
+#. (para)
+msgid "In subversion 1.6 it is not possible to remove a file external from your working copy once you have added it, even if you delete the <literal>svn:externals</literal> property altogether. You have to checkout a fresh working copy to remove the file."
+msgstr "U Subverziji 1.6 nije moguće ukloniti fajl eksternal iz vaše radne kopije kada ga jednom dodate, čak i ako obrišete <literal>svn:externals</literal> osobinu takođe. Morate preuzeti svežu radnu kopiju da uklonite fajl."
 
 #. (title)
 msgid "Branching / Tagging"
@@ -12287,4 +12351,3 @@ msgstr "Milorad Popović"
 #. (None)
 msgid "translator-translation"
 msgstr "Prevod"
-
