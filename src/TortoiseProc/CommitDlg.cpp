@@ -1253,9 +1253,12 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 	{
 		CString common = m_ListCtrl.GetCommonURL(false).GetSVNPathString();
 		BSTR repositoryRoot = common.AllocSysString();
+		BSTR bugIDOut = NULL;
+		GetDlgItemText(IDC_BUGID, m_sBugID);
+		BSTR bugID = m_sBugID.AllocSysString();
 		SAFEARRAY * revPropNames = NULL;
 		SAFEARRAY * revPropValues = NULL;
-		if (FAILED(hr = pProvider2->GetCommitMessage2(GetSafeHwnd(), parameters, repositoryRoot, commonRoot, pathList, originalMessage, &revPropNames, &revPropValues, &temp)))
+		if (FAILED(hr = pProvider2->GetCommitMessage2(GetSafeHwnd(), parameters, repositoryRoot, commonRoot, pathList, originalMessage, bugID, &bugIDOut, &revPropNames, &revPropValues, &temp)))
 		{
 			CString sErr;
 			sErr.Format(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), _com_error(hr).ErrorMessage());
@@ -1263,6 +1266,14 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 		}
 		else
 		{
+			if (bugIDOut)
+			{
+				m_sBugID = bugIDOut;
+				SysFreeString(bugIDOut);
+				SetDlgItemText(IDC_BUGID, m_sBugID);
+			}
+			SysFreeString(bugID);
+			SysFreeString(repositoryRoot);
 			m_cLogMessage.SetText(temp);
 			BSTR HUGEP *pbRevNames;
 			BSTR HUGEP *pbRevValues;
@@ -1324,6 +1335,10 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 
 	m_cLogMessage.SetFocus();
 
+	SysFreeString(parameters);
+	SysFreeString(commonRoot);
+	SafeArrayDestroy(pathList);
+	SysFreeString(originalMessage);
 	SysFreeString(temp);
 }
 

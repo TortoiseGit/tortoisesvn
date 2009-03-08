@@ -80,9 +80,11 @@ interface IBugTraqProvider2 : IBugTraqProvider
 												// Your provider should include this text in the new message, where appropriate.
 		// you can assign custom revision properties to a commit by setting the next two params.
 		// note: both safearrays must be of the same length. For every property name there must be a property value!
+		[in] BSTR bugID,						// the content of the bugID field (if shown)
+		[out] BSTR * bugIDOut,					// modified content of the bugID field
 		[out] SAFEARRAY(BSTR) * revPropNames,	// a list of revision property names which are applied to the commit
 		[out] SAFEARRAY(BSTR) * revPropValues,	// a list of revision property values which are applied to the commit
-		[out, retval] BSTR *newMessage			// The new text for the commit message. This replaces the original message.
+		[out, retval] BSTR * newMessage			// The new text for the commit message. This replaces the original message.
 	);			
 
 	/** Called right before the commit dialog is dismissed. This is the last chance to reject

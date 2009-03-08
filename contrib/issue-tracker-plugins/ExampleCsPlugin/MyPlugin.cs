@@ -29,11 +29,12 @@ namespace ExampleCsPlugin
         {
 			string[] revPropNames = new string[0];
 			string[] revPropValues = new string[0];
-			return GetCommitMessage2( hParentWnd, parameters, "", commonRoot, pathList, originalMessage, out revPropNames, out revPropValues );
+			string dummystring = "";
+			return GetCommitMessage2( hParentWnd, parameters, "", commonRoot, pathList, originalMessage, "", out dummystring, out revPropNames, out revPropValues );
         }
 
 		public string GetCommitMessage2( IntPtr hParentWnd, string parameters, string commonURL, string commonRoot, string[] pathList,
-							   string originalMessage, out string[] revPropNames, out string[] revPropValues )
+							   string originalMessage, string bugID, out string bugIDOut, out string[] revPropNames, out string[] revPropValues )
 		{
 			try
 			{
@@ -53,6 +54,8 @@ namespace ExampleCsPlugin
 				revPropValues[0] = "13, 16, 17";
 				revPropValues[1] = "myownvalue";
 
+				bugIDOut = bugID + "added";
+
 				MyIssuesForm form = new MyIssuesForm( tickets );
 				if ( form.ShowDialog( ) != DialogResult.OK )
 					return originalMessage;
@@ -67,6 +70,7 @@ namespace ExampleCsPlugin
 					result.AppendLine( );
 					selectedTickets.Add( ticket );
 				}
+
 
 				return result.ToString( );
 			}

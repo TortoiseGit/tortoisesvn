@@ -71,7 +71,11 @@ HRESULT STDMETHODCALLTYPE CProvider::GetCommitMessage(
     /* [in] */ BSTR originalMessage,
     /* [retval][out] */ BSTR *newMessage)
 {
-	return GetCommitMessage2(hParentWnd, parameters, NULL, commonRoot, pathList, originalMessage, NULL, NULL, newMessage);
+	BSTR bugID = SysAllocString(_T(""));
+	BSTR * bugIDOut = NULL;
+	HRESULT hr = GetCommitMessage2(hParentWnd, parameters, NULL, commonRoot, pathList, originalMessage, bugID, bugIDOut, NULL, NULL, newMessage);
+	SysFreeString(bugID);
+	return hr;
 }
 
 HRESULT STDMETHODCALLTYPE CProvider::GetCommitMessage2( 
@@ -81,6 +85,8 @@ HRESULT STDMETHODCALLTYPE CProvider::GetCommitMessage2(
 	/* [in] */ BSTR commonRoot,
 	/* [in] */ SAFEARRAY * pathList,
 	/* [in] */ BSTR originalMessage,
+	/* [in] */ BSTR bugID,
+	/* [out]*/ BSTR * bugIDOut,
 	/* [out]*/ SAFEARRAY ** revPropNames,
 	/* [out]*/ SAFEARRAY ** revPropValues,
 	/* [retval][out] */ BSTR *newMessage)
@@ -187,6 +193,10 @@ HRESULT STDMETHODCALLTYPE CProvider::GetCommitMessage2(
 
 	DeleteFile(szPathListTempFile);
 	DeleteFile(szOriginalMessageTempFile);
+
+	CString bugIDString = _T("12345,4567");
+	*bugIDOut = bugIDString.AllocSysString();
+
 
 	*newMessage = message.AllocSysString();
 	return S_OK;

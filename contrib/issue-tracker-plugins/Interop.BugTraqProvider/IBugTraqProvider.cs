@@ -47,6 +47,8 @@ namespace Interop.BugTraqProvider
 			[MarshalAs( UnmanagedType.BStr )] string commonRoot,
 			[MarshalAs( UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_BSTR )] string[] pathList,
 			[MarshalAs( UnmanagedType.BStr )] string originalMessage,
+			[MarshalAs( UnmanagedType.BStr )] string bugID,
+			[MarshalAs( UnmanagedType.BStr )] out string bugIDOut,
 			[MarshalAs( UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_BSTR )] out string[] revPropNames,
 			[MarshalAs( UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_BSTR )] out string[] revPropValues );
 

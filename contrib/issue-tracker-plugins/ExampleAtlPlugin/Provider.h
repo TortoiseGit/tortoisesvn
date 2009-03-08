@@ -52,6 +52,8 @@ public:
 		/* [in] */ BSTR commonRoot,
 		/* [in] */ SAFEARRAY * pathList,
 		/* [in] */ BSTR originalMessage,
+		/* [in] */ BSTR bugID,
+		/* [out]*/ BSTR * bugIDOut,
 		/* [out]*/ SAFEARRAY ** revPropNames,
 		/* [out]*/ SAFEARRAY ** revPropValues,
 		/* [retval][out] */ BSTR *newMessage);

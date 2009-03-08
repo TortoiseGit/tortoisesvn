@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Fri Feb 13 18:04:05 2009
+/* at Sun Mar 08 16:07:08 2009
  */
 /* Compiler settings for .\IBugTraqProvider.idl:
     Oicf, W4, Zp8, env=Win32 (32b run)
@@ -215,6 +215,8 @@ EXTERN_C const IID IID_IBugTraqProvider2;
             /* [in] */ BSTR commonRoot,
             /* [in] */ SAFEARRAY * pathList,
             /* [in] */ BSTR originalMessage,
+            /* [in] */ BSTR bugID,
+            /* [out] */ BSTR *bugIDOut,
             /* [out] */ SAFEARRAY * *revPropNames,
             /* [out] */ SAFEARRAY * *revPropValues,
             /* [retval][out] */ BSTR *newMessage) = 0;
@@ -293,6 +295,8 @@ EXTERN_C const IID IID_IBugTraqProvider2;
             /* [in] */ BSTR commonRoot,
             /* [in] */ SAFEARRAY * pathList,
             /* [in] */ BSTR originalMessage,
+            /* [in] */ BSTR bugID,
+            /* [out] */ BSTR *bugIDOut,
             /* [out] */ SAFEARRAY * *revPropNames,
             /* [out] */ SAFEARRAY * *revPropValues,
             /* [retval][out] */ BSTR *newMessage);
@@ -359,8 +363,8 @@ EXTERN_C const IID IID_IBugTraqProvider2;
     ( (This)->lpVtbl -> GetCommitMessage(This,hParentWnd,parameters,commonRoot,pathList,originalMessage,newMessage) ) 
 
 
-#define IBugTraqProvider2_GetCommitMessage2(This,hParentWnd,parameters,commonURL,commonRoot,pathList,originalMessage,revPropNames,revPropValues,newMessage)	\
-    ( (This)->lpVtbl -> GetCommitMessage2(This,hParentWnd,parameters,commonURL,commonRoot,pathList,originalMessage,revPropNames,revPropValues,newMessage) ) 
+#define IBugTraqProvider2_GetCommitMessage2(This,hParentWnd,parameters,commonURL,commonRoot,pathList,originalMessage,bugID,bugIDOut,revPropNames,revPropValues,newMessage)	\
+    ( (This)->lpVtbl -> GetCommitMessage2(This,hParentWnd,parameters,commonURL,commonRoot,pathList,originalMessage,bugID,bugIDOut,revPropNames,revPropValues,newMessage) ) 
 
 #define IBugTraqProvider2_CheckCommit(This,hParentWnd,parameters,commonURL,commonRoot,pathList,commitMessage,errorMessage)	\
     ( (This)->lpVtbl -> CheckCommit(This,hParentWnd,parameters,commonURL,commonRoot,pathList,commitMessage,errorMessage) ) 
