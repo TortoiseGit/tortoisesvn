@@ -571,6 +571,8 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
 				// Make sure we know about this child directory
 				// This initial status value is likely to be overwritten from below at some point
 				svn_wc_status_kind s = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
+				if (status->tree_conflict)
+					s = SVNStatus::GetMoreImportant(s, svn_wc_status_conflicted);
 				CCachedDirectory * cdir = CSVNStatusCache::Instance().GetDirectoryCacheEntryNoCreate(svnPath);
 				if (cdir)
 				{
@@ -669,7 +671,10 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
 			if (svnPath.IsDirectory())
 			{
 				AutoLocker lock(pThis->m_critSec);
-				pThis->m_childDirectories[svnPath] = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
+				svn_wc_status_kind s = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
+				if (status->tree_conflict)
+					s = SVNStatus::GetMoreImportant(s, svn_wc_status_conflicted);
+				pThis->m_childDirectories[svnPath] = s;
 			}
 			else if ((CSVNStatusCache::Instance().IsUnversionedAsModified())&&(status->text_status != svn_wc_status_ignored))
 			{
@@ -677,6 +682,13 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
 				// folder to modified if it doesn't already have another status
 				if (pThis->m_mostImportantFileStatus != svn_wc_status_added)
 					pThis->m_mostImportantFileStatus = SVNStatus::GetMoreImportant(pThis->m_mostImportantFileStatus, svn_wc_status_modified);
+				if (status->tree_conflict)
+					pThis->m_mostImportantFileStatus = SVNStatus::GetMoreImportant(pThis->m_mostImportantFileStatus, svn_wc_status_conflicted);
+			}
+			else
+			{
+				if (status->tree_conflict)
+					pThis->m_mostImportantFileStatus = SVNStatus::GetMoreImportant(pThis->m_mostImportantFileStatus, svn_wc_status_conflicted);
 			}
 		}
 	}
