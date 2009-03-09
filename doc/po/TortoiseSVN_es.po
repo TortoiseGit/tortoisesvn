@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-07 23:58 +0000\n"
-"PO-Revision-Date: 2009-03-08 23:39+0100\n"
+"PO-Revision-Date: 2009-03-09 19:27+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -534,9 +534,8 @@ msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to sel
 msgstr "Si instala múltiples diccionarios, TortoiseSVN utilizará estas reglas para seleccionar cuál utilizar. <placeholder-1/>"
 
 #. (title)
-#, fuzzy
 msgid "Basic Version-Control Concepts"
-msgstr "Conceptos básicos"
+msgstr "Conceptos básicos de control de versiones"
 
 #. (primary)
 msgid "Subversion book"
@@ -1025,9 +1024,8 @@ msgid "create repository"
 msgstr "crear repositorio"
 
 #. (para)
-#, fuzzy
 msgid "You can create a repository with the FSFS backend or with the older Berkeley Database (BDB) format. The FSFS format is generally faster and easier to administer, and it works on network shares and Windows 98 without problems. The BDB format was once considered more stable simply because it has been in use for longer, but since FSFS has now been in use in the field for several years, that argument is now rather weak. Read <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> in the Subversion book for more information."
-msgstr "Puede crear un repositorio bajo el sistema FSFS o bien utilizando el anterior formato Berkeley Database (BDB). El formato FSFS es generalmente más rápido y más fácil de administrar, y funciona en unidades de red compartidas y en Windows 98 sin problemas. El formato BDB fue considerado durante un tiempo más estable simplemente porque se ha utilizado durante más tiempo, pero dado que FSFS se usa desde hace varios años, ese argumento ya no tiene mucho peso. Lea <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Eligiendo un almacén de datos</citetitle></ulink> en el libro de Subversion si desea más información."
+msgstr "Puede crear un repositorio bajo el sistema FSFS o bien utilizando el anterior formato Berkeley Database (BDB). El formato FSFS es generalmente más rápido y más fácil de administrar, y funciona en unidades de red compartidas y en Windows 98 sin problemas. El formato BDB fue considerado durante un tiempo más estable simplemente porque se ha utilizado durante más tiempo, pero dado que FSFS se usa desde hace varios años, ese argumento ahora es más bien débil. Lea <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Eligiendo un almacén de datos</citetitle></ulink> en el libro de Subversion si desea más información."
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
@@ -1320,9 +1318,8 @@ msgid "The <literal>svnadmin</literal> tool is installed automatically when you 
 msgstr "La herramienta <literal>svnadmin</literal> se instala automáticamente cuando instala el cliente de línea de comandos de Subversion. Si está instalando las herramientas de línea de comandos en un PC con Windows, la mejor forma de hacerlo es descargar la versión con Windows installer. Está comprimido de forma más eficiente que la versión <filename>.zip</filename>, por lo que la descarga es menor, y se encarga de establecer las rutas por usted. Puede descargar la última versión del cliente de línea de comandos desde <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
 
 #. (title)
-#, fuzzy
 msgid "Server side hook scripts"
-msgstr "scripts gancho en el lado del servidor"
+msgstr "Scripts gancho en el lado del servidor"
 
 #. (primary)
 msgid "hooks"
@@ -1338,9 +1335,8 @@ msgid "server side hook scripts"
 msgstr "scripts gancho en el lado del servidor"
 
 #. (para)
-#, fuzzy
 msgid "A hook script is a program triggered by some repository event, such as the creation of a new revision or the modification of an unversioned property. Each hook is handed enough information to tell what that event is, what target(s) it's operating on, and the username of the person who triggered the event. Depending on the hook's output or return status, the hook program may continue the action, stop it, or suspend it in some way. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for full details about the hooks which are implemented."
-msgstr "Un script gancho es un programa que se activa por algún evento del repositorio, tal como la creación de una nueva revisión o la modificación de una propiedad no versionada. A cada gancho se le proporciona suficiente información para decirle qué evento es, sobre qué destino(s) se está operando, y el nombre de usuario de la persona que lanzó el evento. Dependiendo de la salida del gancho o del estado de vuelta, el programa gancho puede continuar la acción, detenerla, o suspenderla de alguna forma. Por favor lea <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Scripts gancho</citetitle></ulink> en el Libro de Subversion donde encontrará todos los detalles sobre la forma en la que están implementados los ganchos."
+msgstr "Un script gancho es un programa que se activa por algún evento del repositorio, tal como la creación de una nueva revisión o la modificación de una propiedad no versionada. A cada gancho se le proporciona suficiente información para decirle qué evento es, sobre qué destino(s) se está operando, y el nombre de usuario de la persona que lanzó el evento. Dependiendo de la salida del gancho o del estado de salida, el programa gancho puede continuar la acción, detenerla, o suspenderla de alguna forma. Por favor lea <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Scripts gancho</citetitle></ulink> en el Libro de Subversion donde encontrará todos los detalles sobre la forma en la que están implementados los ganchos."
 
 #. (para)
 msgid "These hook scripts are executed by the server that hosts the repository. TortoiseSVN also allows you to configure client side hook scripts that are executed locally upon certain events. See <xref linkend=\"tsvn-dug-settings-hooks\"/> for more information."
@@ -1391,14 +1387,14 @@ msgid "When you install TortoiseSVN, it registers a new <literal>tsvn:</literal>
 msgstr "Cuando se instala TortoiseSVN, se registra un nuevo protocolo <literal>tsvn:</literal>. Cuando un usuario de TortoiseSVN pulsa en un enlace con ese protocolo, aparece el diálogo obtener automáticamente con la URL del repositorio ya escrita."
 
 #. (programlisting)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
 "&lt;/a&gt;\n"
 msgstr ""
 "\n"
-"&lt;a href=\"tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk\"&gt;\n"
+"&lt;a href=\"tsvn:http://proyecto.dominio.org/svn/trunk\"&gt;\n"
 "&lt;/a&gt;\n"
 
 #. (para)
@@ -1406,14 +1402,14 @@ msgid "To include such a link in your own html page, you need to add code which 
 msgstr "Para incluir dicho enlace en su propia página HTML, necesita añadir un código que será similar a este: <placeholder-1/>"
 
 #. (programlisting)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
 "&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
 msgstr ""
 "\n"
-"&lt;a href=\"tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk\"&gt;\n"
+"&lt;a href=\"tsvn:http://proyecto.dominio.org/svn/trunk\"&gt;\n"
 "&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
 
 #. (para)
@@ -1421,24 +1417,23 @@ msgid "Of course it would look even better if you included a suitable picture. Y
 msgstr "Por supuesto será más bonito si añade una imagen adecuada. Puede utilizar el <ulink url=\"http://tortoisesvn.tigris.org/images/TortoiseCheckout.png\"><citetitle>logotipo de TortoiseSVN</citetitle></ulink> o puede proporcionar su propia imagen. <placeholder-1/>"
 
 #. (programlisting)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "&lt;a href=\"tsvn:http://project.domain.org/svn/trunk?100\"&gt;\n"
 "&lt;/a&gt;\n"
 msgstr ""
 "\n"
-"&lt;a href=\"tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk\"&gt;\n"
+"&lt;a href=\"tsvn:http://proyecto.dominio.org/svn/trunk?100\"&gt;\n"
 "&lt;/a&gt;\n"
 
 #. (para)
 msgid "You can also make the link point to a specific revision, for example <placeholder-1/>"
-msgstr ""
+msgstr "También puede hacer el enlace apuntando a una revisión en concreto, por ejemplo <placeholder-1/>"
 
 #. (title)
-#, fuzzy
 msgid "Accessing the Repository"
-msgstr "Acceso local al repositorio"
+msgstr "Accediendo al repositorio"
 
 #. (para)
 #, fuzzy
@@ -1447,7 +1442,7 @@ msgstr "Para utilizar TortoiseSVN (o cualquier otro cliente de Subversion), nece
 
 #. (para)
 msgid "If you are using a public hosting service such as <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> or your server has already been setup by someone else then there is nothing else you need to do. Move along to <xref linkend=\"tsvn-dug\"/>."
-msgstr ""
+msgstr "Si está utilizando un servicio de hospedaje público como <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> o si su servidor ha sido ya preparado por alguna otra persona entonces no hay nada más que necesite hacer. Continúe en <xref linkend=\"tsvn-dug\"/>."
 
 #. (para)
 #, fuzzy
@@ -1470,7 +1465,7 @@ msgstr "Servidor Basado en Svnserve"
 
 #. (para)
 msgid "Subversion includes Svnserve - a lightweight stand-alone server which uses a custom protocol over an ordinary TCP/IP connection. It is ideal for smaller installations, or where a full blown Apache server cannot be used."
-msgstr ""
+msgstr "Subversion incluye Svnserve - un servidor ligero y autónomo que utiliza un protocolo propio sobre una conexión TCP/IP ordinaria. Es ideal para las instalaciones más pequeñas, o donde no se pueda utilizar un servidor completo Apache."
 
 #. (para)
 #, fuzzy
@@ -2855,6 +2850,10 @@ msgid ""
 "rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
 "</screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>windows-help-central.com</citetitle></ulink>."
 msgstr ""
+"Algunas personas quieren que se eliminen sus datos de autenticación cuando cierran su sesión de Windows, o cuando apagan el sistema. La forma de conseguir esto es utilizar un script de cierre para eliminar el directorio <filename>%APPDATA%\\Subversion\\auth</filename>, por ejemplo <screen>\n"
+"@echo off\n"
+"rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
+"</screen> Puede encontrar una descripción sobre cómo instalar este tipo de scripts en <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>windows-help-central.com</citetitle></ulink>."
 
 #. (para)
 msgid "For more information on how to set up your server for authentication and access control, refer to <xref linkend=\"tsvn-serversetup\"/>"
@@ -3089,7 +3088,7 @@ msgstr "Excluír"
 
 #. (para)
 msgid "Used to reduce working copy depth after a folder has already been populated. This option is only available in the <guilabel>Update to revision</guilabel> dialog."
-msgstr ""
+msgstr "Utilizado para reducir la profundidad de una copia de trabajo después de que una carpeta haya sido rellenada. Esta opción sólo está disponible en el diálogo <guilabel>Acctualizar a la revisión</guilabel>."
 
 #. (para)
 msgid "You can choose the <firstterm>depth</firstterm> you want to checkout, which allows you to specify the depth of recursion into child folders. If you want just a few sections of a large tree, You can checkout the top level folder only, then update selected folders recursively. <placeholder-1/>"
@@ -3332,7 +3331,7 @@ msgstr "Si <action>hace click con el botón derecho</action> en una revisión, p
 
 #. (para)
 msgid "Another way to insert the paths into the log message is to simply drag the files from the file list onto the edit control."
-msgstr ""
+msgstr "Otra forma de insertar rutas en el mensaje de registro es simplemente arrastrar los ficheros desde la lista de ficheros al control de edición."
 
 #. (title)
 msgid "Special Folder Properties"
@@ -3534,7 +3533,7 @@ msgstr "conflictos de fichero"
 
 #. (para)
 msgid "A file conflict occurs if two (or more) developers have changed the same few lines of a file."
-msgstr ""
+msgstr "Un conflicto de fichero ocurre si dos (o más) desarrolladores han cambiado las mismas líneas de un fichero."
 
 #. (term)
 msgid "tree conflicts"
@@ -3542,11 +3541,11 @@ msgstr "conflictos de árboles"
 
 #. (para)
 msgid "A tree conflict occurs when a developer moved/renamed/deleted a file or folder, which another developer either also has moved/renamed/deleted or just modified."
-msgstr ""
+msgstr "Un conflicto de árbol ocurre cuando un desarrollador mueve/renombra/elimina un fichero o una carpeta, que otro desarrollador también ha movido/renombrado/borrado, o quizás lo haya modificado."
 
 #. (para)
 msgid "Once in a while, you will get a <emphasis>conflict</emphasis> when you update/merge your files from the repository or when you switch your working copy to a different URL. There are two kinds of conflicts: <placeholder-1/>"
-msgstr ""
+msgstr "De vez en cuando, obtendrá un <emphasis>conflicto</emphasis> cuando actualice/fusione sus ficheros desde el repositorio o cuando cambie su copia de trabajo a una URL diferente. Hay dos tipos de conflictos: <placeholder-1/>"
 
 #. (title)
 msgid "File Conflicts"
@@ -3617,52 +3616,52 @@ msgstr "Conflictos de árbol"
 
 #. (para)
 msgid "A tree conflict occurs when a developer moved/renamed/deleted a file or folder, which another developer either also has moved/renamed/deleted or just modified. There are many different situations that can result in a tree conflict, and all of them require different steps to resolve the conflict."
-msgstr ""
+msgstr "Un conflicto de árbol ocurre cuando un desarrollador mueve/renombra/elimina un fichero o una carpeta, que otro desarrollador también ha movido/renombrado/borrado, o quizás lo haya modificado. Hay diferentes situaciones que puede resultar en un conflicto de árbol, y todas ellas requiere pasos diferentes para resolver el conflicto."
 
 #. (para)
 msgid "When a file is deleted locally in Subversion, the file is also deleted from the local file system, so even if it is part of a tree conflict it cannot show a conflicted overlay and you cannot right click on it to resolve the conflict. Use the <guilabel>Check for Modifications</guilabel> dialog instead to access the <guilabel>Edit conflicts</guilabel> option."
-msgstr ""
+msgstr "Cuando se elimina un fichero de forma local en Subversion, el fichero también se elimina del sistema local de ficheros, por lo que incluso si es parte de un conflicto de árbol no se puede mostrar una sobreimpresión de conflicto y no puede hacer clic con el botón derecho sobre él para resolver el conflicto. En este caso, utilice el diálogo <guilabel>Comprobar modificaciones</guilabel> para acceder a la opción <guilabel>Editar conflictos</guilabel>."
 
 #. (para)
 msgid "TortoiseSVN can help find the right place to merge changes, but there may be additional work required to sort out the conflicts. Remember that after an update the working BASE will always contain the revision of each item as it was in the repository at the time of update. If you revert a change after updating it goes back to the repository state, not to the way it was when you started making your own local changes."
-msgstr ""
+msgstr "TortoiseSVN puede ayudarle a encontrar el lugar correcto para fusionar los cambios, pero puede que necesite realizar un trabajo adicional para arreglar los conflictos. Recuerde que tras una actualización la BASE de trabajo siempre contendrá la revisión de cada ítem tal y como estaba en el repositorio en el momento de la actualización. Si revierte un cambio tras la actualización, se revierte a su estado del repositorio, no a como estaba cuando empezó a hacer sus propios cambios locales."
 
 #. (title)
 msgid "Local delete, incoming edit upon update"
-msgstr ""
+msgstr "Borrado local, llega un cambio en la actualización"
 
 #. (para)
 msgid "Developer A modifies <filename>Foo.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "El desarrollador A modifica <filename>Foo.c</filename> y lo confirma en el repositorio"
 
 #. (para)
 msgid "Developer B has simultaneously moved <filename>Foo.c</filename> to <filename>Bar.c</filename> in his working copy, or simply deleted <filename>Foo.c</filename> or its parent folder."
-msgstr ""
+msgstr "El desarrollador B al mismo tiempo ha movido <filename>Foo.c</filename> a <filename>Bar.c</filename> en su propia copia de trabajo, o simplemente ha borrado <filename>Foo.c</filename> o su carpeta padre."
 
 #. (para)
 msgid "<filename>Foo.c</filename> has been deleted from working copy, but is marked with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> ha sido borrado de la copia de trabajo, pero está marcado como un conflicto de árbol."
 
 #. (para)
 msgid "If the conflict results from a rename rather than a delete then <filename>Bar.c</filename> is marked as added, but does not contain developer A's modifications."
-msgstr ""
+msgstr "Si el conflicto aparece después de un renombrado en vez de un borrado, entonces <filename>Bar.c</filename> está marcado como añadido, pero no contiene las modificaciones del desarrollador A."
 
 #. (para)
 #. (para)
 msgid "An update of developer B's working copy results in a tree conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Una actualización de la copia de trabajo del desarrollador B acaba con un conflicto de árbol: <placeholder-1/>"
 
 #. (para)
 msgid "Developer B now has to choose whether to keep Developer A's changes. In the case of a file rename, he can merge the changes to <filename>Foo.c</filename> into the renamed file <filename>Bar.c</filename>. For simple file or directory deletions he can choose to keep the item with Developer A's changes and discard the deletion. Or, by marking the conflict as resolved without doing anything he effectively discards Developer A's changes."
-msgstr ""
+msgstr "El desarrollador B ahora tiene que elegir si mantiene los cambios realizados por el desarrollador A. En el caso de un renombrado, puede fusionar los cambios de <filename>Foo.c</filename> dentro del fichero renombrado <filename>Bar.c</filename>. Para simples borrados de ficheros o directorios puede elegir quedarse con los cambios del ítem del desarrollador A y descartar el borrado. O, si marca el conflicto como resuelto sin hacer nada más, estará descartando los cambios del desarrollador A."
 
 #. (para)
 msgid "The conflict edit dialog offers to merge changes if it can find the original file of the renamed <filename>Bar.c</filename>. Depending on where the update was invoked, it may not be possible to find the source file."
-msgstr ""
+msgstr "El diálogo de editar conflictos ofrece la posibilidad de fusionar cambios si puede encontrar el fichero original del renombrado <filename>Bar.c</filename>. Dependiendo de dónde se haya realizado la actualización, puede que no sea posible encontrar el fichero de origen."
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
-msgstr ""
+msgstr "Edición local, entra un borrado en la actualización"
 
 #. (para)
 #, fuzzy
@@ -3672,39 +3671,39 @@ msgstr "Utiliza directorios <filename>_svn</filename> en vez de <filename>.svn</
 #. (para)
 #. (para)
 msgid "Developer B modifies <filename>Foo.c</filename> in his working copy."
-msgstr ""
+msgstr "El desarrollador B modifica <filename>Foo.c</filename> en su copia de trabajo."
 
 #. (para)
 msgid "Or in the case of a folder move ..."
-msgstr ""
+msgstr "O en el caso de mover una carpeta..."
 
 #. (para)
 msgid "Developer A moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
-msgstr ""
+msgstr "El desarrollador A mueve la carpeta padre <filename>FooFolder</filename> a <filename>BarFolder</filename> y lo confirma en el repositorio."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is added to the working copy as a normal file."
-msgstr ""
+msgstr "<filename>Bar.c</filename> se añade a la copia de trabajo como un fichero normal."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as added (with history) and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> se marca como añadido (con historia) y tiene un conflicto de árbol."
 
 #. (para)
 msgid "An update of developer B's working copy results in a tree conflict. For a simple file conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Una actualización de la copia de trabajo de B acaba con un conflicto de árbol. Para un conflicto simple de fichero: <placeholder-1/>"
 
 #. (para)
 msgid "<filename>BarFolder</filename> is added to the working copy as a normal folder."
-msgstr ""
+msgstr "<filename>BarFolder</filename> se añade a la copia de trabajo como una carpeta normal."
 
 #. (para)
 msgid "<filename>FooFolder</filename> is marked as added (with history) and has a tree conflict."
-msgstr ""
+msgstr "<filename>FooFolder</filename> se marca como añadida (con historia) y tiene un conflicto de árbol."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified."
-msgstr ""
+msgstr "<filename>Foo.c</filename> se marca como modificado."
 
 #. (para)
 #, fuzzy
@@ -3714,19 +3713,19 @@ msgstr "Esto no se aplica si: <placeholder-1/>"
 #. (para)
 #. (para)
 msgid "Developer B now has to decide whether to go with developer A's reorganisation and merge her changes into the corresponding file in the new structure, or simply revert A's changes and keep the local file."
-msgstr ""
+msgstr "El desarrollador B tiene ahora que decidir si desea continuar con la reorganización del desarrollador A y fusionar sus cambios en los ficheros correspondientes de la nueva estructura, o simplemente revertir los cambios de A y mantener el fichero local."
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr ""
+msgstr "Para fusionar sus cambios locales con la reorganización, el desarrollador B tiene que encontrar primero qué nombre de fichero tiene ahora el fichero en conflicto <filename>Foo.c</filename> que fue renombrado/movido en el repositorio. Esto puede hacerse utilizando el diálogo de registro. Luego debe fusionar los cambios a mano ya que no hay actualmente forma de automatizar o simplificar este proceso. Una vez que se hayan portado los cambios, la ruta en conflicto es redundante y puede borrarse. En este ccaso utilice el botón <guilabel>Eliminar</guilabel> en el diálogo de editar conflictos para limpiar y marcar el conflicto como resuelto."
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog helps to track down what was moved."
-msgstr ""
+msgstr "Si el desarrollador B decide que los cambios de A eran erróneos deberá elegir el botón <guilabel>Mantener</guilabel> en el diálogo de editar conflictos. Esto marca el fichero o carpeta en conflicto como resuelto, pero los cambios del desarrollador A tendrán que eliminarse a mano. De nuevo el diálogo de registro ayuda a controlar lo que se ha movido."
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
-msgstr ""
+msgstr "Eliminación local, entra una eliminación en la actualización"
 
 #. (para)
 #, fuzzy
@@ -3740,128 +3739,128 @@ msgstr "Cree otra carpeta <filename>MiNuevoRepositorio</filename> dentro de <fil
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked as added with history."
-msgstr ""
+msgstr "<filename>Bix.c</filename> se marca como añadido con historia."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is added to the working copy with status 'normal'."
-msgstr ""
+msgstr "<filename>Bar.c</filename> se añade a la copia de trabajo con el estado 'normal'."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as deleted and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> se marca como borrado y tiene un conflicto de árbol."
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog."
-msgstr ""
+msgstr "Para resolver este conflicto, el desarrollador B tiene que averiguar qué nombre de fichero tiene ahora el fichero en conflicto <filename>Foo.c</filename> que fue renombrado/movido en el repositorio. Esto puede hacerse utilizando el diálogo de registro."
 
 #. (para)
 #. (para)
 msgid "Then developer B has to decide which new filename of <filename>Foo.c</filename> to keep - the one done by developer A or the rename done by himself."
-msgstr ""
+msgstr "Luego el desarrollador B tiene que decidir qué nuevo nombre de fichero de <filename>Foo.c</filename> mantiene - el del desarrollador A o el renombrado que hizo él mismo."
 
 #. (para)
 #. (para)
 msgid "After developer B has manually resolved the conflict, the tree conflict has to be marked as resolved with the button in the conflict editor dialog."
-msgstr ""
+msgstr "Después de que el desarrollador B haya resuelto manualmente el conflicto, el conflicto de árbol debe marcarse como resuelto mediante el botón del diálogo de editar conflictos."
 
 #. (title)
 msgid "Local missing, incoming edit upon merge"
-msgstr ""
+msgstr "Falta en local, entra un cambio en la fusión"
 
 #. (para)
 msgid "Developer A working on trunk modifies <filename>Foo.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "El desarrollador A, que está trabajando en el tronco, modifica <filename>Foo.c</filename> y lo confirma en el repositorio"
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "El desarrollador B, que está trabajando en una rama, mueve <filename>Foo.c</filename> a <filename>Bar.c</filename> y lo confirma en el repositorio"
 
 #. (para)
 msgid "<filename>Bar.c</filename> is already in the working copy with status 'normal'."
-msgstr ""
+msgstr "<filename>Bar.c</filename> ya está en la copia de trabajo con estado 'normal'."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> se marca como faltante con un conflicto de árbol."
 
 #. (para)
 #. (para)
 #. (para)
 msgid "A merge of developer A's trunk changes to developer B's branch working copy results in a tree conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Una fusión de los cambios en el tronco del desarrollador A con los cambios de la copia de trabajo de la rama del desarrollador B acaba con un conflicto de árbol: <placeholder-1/>"
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to mark the file as resolved in the conflict editor dialog, which will remove it from the conflict list. She then has to decide whether to copy the missing file <filename>Foo.c</filename> from the repository to the working copy, whether to merge Developer A's changes to <filename>Foo.c</filename> into the renamed <filename>Bar.c</filename> or whether to ignore the changes by marking the conflict as resolved and doing nothing else."
-msgstr ""
+msgstr "Para resolver este conflicto, el desarrollador B tiene que marcar el fichero como resuelto en el diálogo de edición de conflictos, lo que lo eliminará de la lista de conflictos. Luego tendrá que decidir si copia el fichero faltante <filename>Foo.c</filename> desde el repositorio a la copia de trabajo, si fusiona los cambios del desarrollador A hechos a <filename>Foo.c</filename> en el fichero renombrado <filename>Bar.c</filename>, o si desea ignorar los cambios marcando el conflicto como resuelto y no haciendo nada más."
 
 #. (para)
 msgid "Note that if you copy the missing file from the repository and then mark as resolved, your copy will be removed again. You have to resolve the conflict first."
-msgstr ""
+msgstr "Tenga en cuenta que si copia el fichero faltante desde el repositorio y luego marca como resuelto, su copia de eliminará de nuevo. Tiene que resolver el conflicto antes."
 
 #. (title)
 msgid "Local edit, incoming delete upon merge"
-msgstr ""
+msgstr "Edición local, entra un borrado en la fusión"
 
 #. (para)
 #. (para)
 msgid "Developer A working on trunk moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "El desarrollador A, que está trabajando en el tronco, mueve <filename>Foo.c</filename> a <filename>Bar.c</filename> y lo confirma en el repositorio"
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> and commits it to the repository."
-msgstr ""
+msgstr "El desarrollador B, que está trabajando en una rama, modifica el fichero <filename>Foo.c</filename> y lo confirma en el repositorio."
 
 #. (para)
 msgid "There is an equivalent case for folder moves, but it is not yet detected in Subversion 1.6 ..."
-msgstr ""
+msgstr "Hay un caso equivalente cuando se mueven carpetas, pero todavía no se detecta en Subversion 1.6..."
 
 #. (para)
 msgid "Developer A working on trunk moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
-msgstr ""
+msgstr "El desarrollador A, que está trabajando en el tronco, mueve la carpeta padre <filename>FooFolder</filename> a <filename>BarFolder</filename> y lo confirma en el repositorio."
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> in her working copy."
-msgstr ""
+msgstr "El desarrollador B, que está trabajando en un rama, modifica <filename>Foo.c</filename> en su copia de trabajo."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added."
-msgstr ""
+msgstr "<filename>Bar.c</filename> se marca como añadido."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> se marca como modificado con un conflicto de árbol."
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr ""
+msgstr "Para fusionar sus cambios locales con la reorganización, el desarrollador B debe primero averiguar qué nombre de fichero tiene ahora el fichero en conflicto <filename>Foo.c</filename> que fue renombrado/movido en el repositorio. Esto se puede hacer utilizando el diálogo mostrar registro sobre el origen de la fusión. El editor de conflictos sólo muestra el registro para la copia de trabajo ya que no sabe qué ruta fue utilizada en la fusión, así que lo tendrá que averiguar por su cuenta. Luego se deben fusionar los cambios a mano ya que no hay actualmente forma de automatizar o simplificar este proceso. Una vez que los cambios se hayan portado, la ruta en conflicto es redundante y puede eliminarse. En este caso utilice el botón <guilabel>Eliminar</guilabel> en el diálogo de edición de conflictos para limpiar y marcar el conflicto como resuelto."
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog for the merge source helps to track down what was moved."
-msgstr ""
+msgstr "Si el desarrollador B decide que los cambios de A eran erróneos, deberá elegir el botón <guilabel>Mantener</guilabel> en el diálogo de editar conflictos. Esto marca el fichero o carpeta en conflicto como resuelto, pero los cambios del desarrollador A deberán eliminarse a mano. De nuevo el diálogo de registro sobre el origen de la fusión ayuda a averiguar qué se movió."
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
-msgstr ""
+msgstr "Eliminación local, entra un borrado en la fusión"
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bix.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "El desarrollador B, que está trabajando en una rama, mueve <filename>Foo.c</filename> a <filename>Bix.c</filename> y lo confirma en el repositorio"
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
-msgstr ""
+msgstr "<filename>Bix.c</filename> se marca con el estado normal (no modificado)."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added with history."
-msgstr ""
+msgstr "<filename>Bar.c</filename> se marca como añadido con historia."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> se marca como faltante con un conflicto de árbol."
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself."
-msgstr ""
+msgstr "Para resolver este conflicto, el desarrollador B tiene que averiguar qué nombre de fichero tiene ahora el fichero en conflicto <filename>Foo.c</filename> que fue renombrado/movido en el repositorio. Esto puede hacerse utilizando el diálogo de registro sobre el origen de la fusión. El editor de conflictos sólo muestra el registro de la copia de trabajo, dado que no conoce qué ruta se utilizó para la fusión, por lo que tendrá que averiguarlo por si mismo."
 
 #. (title)
 msgid "Getting Status Information"
@@ -4271,7 +4270,7 @@ msgstr "Almacenar la revisión seleccionada en un fichero, para que pueda tener 
 #. (term)
 #. (term)
 msgid "Open / Open with..."
-msgstr ""
+msgstr "Abrir / Abrir con..."
 
 #. (para)
 msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose. (files only)."
@@ -4312,7 +4311,7 @@ msgstr "Actualizar su copia de trabajo a la revisión seleccionada. Útil si qui
 
 #. (para)
 msgid "If you want to undo an earlier change permanently, use <guilabel>Revert to this revision</guilabel> instead."
-msgstr ""
+msgstr "Si desea deshacer un cambio anterior de forma permanente, utilice <guilabel>Revertir a esta revisión</guilabel>"
 
 #. (term)
 msgid "Revert to this revision"
@@ -4325,19 +4324,19 @@ msgstr "Revierte a una revisión anterior. Si ha hecho varios cambios, y luego d
 #. (para)
 #. (para)
 msgid "If your working copy is in an unmodified state, after you perform this action your working copy will show as modified. If you already have local changes, this command will merge the <emphasis>undo</emphasis> changes into your working copy."
-msgstr ""
+msgstr "Si su copia de trabajo está en un estado no modificado, después de realizar esta acción su copia de trabajo se mostrará como modificada. Si ya tiene cambios locales, este comando fusionará los cambios <emphasis>de deshacer</emphasis> en su copia de trabajo."
 
 #. (para)
 msgid "What is happening internally is that Subversion performs a reverse merge of all the changes made after the selected revision, undoing the effect of those previous commits."
-msgstr ""
+msgstr "Lo que ocurre internamente es que Subversion realiza una fusión inversa de todos los cambios realizados después de la revisión seleccionada, deshaciendo el efecto de esas confirmaciones sobre las previas."
 
 #. (para)
 msgid "If after performing this action you decide that you want to <emphasis>undo the undo</emphasis> and get your working copy back to its previous unmodified state, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> from within Windows Explorer, which will discard the local modifications made by this reverse merge action."
-msgstr ""
+msgstr "Si después de realizar esta acción decide que desea <emphasis>deshacer lo deshecho</emphasis> y volver a obtener su copia de trabajo a su estado previo siin modificaciones, deberá utilizar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revertir</guimenuitem></menuchoice> desde el Explorador de Windows, lo que descartará los cambios locales hechos por esta acción de fusión inversa."
 
 #. (para)
 msgid "If you simply want to see what a file or folder looked like at an earlier revision, use <guilabel>Update to revision</guilabel> or <guilabel>Save revision as...</guilabel> instead."
-msgstr ""
+msgstr "Si desea simplemente ver cómo estaba un fichero o una carpeta en una revisión anterior, utilice <guilabel>Actualizar a la revisión</guilabel> o <guilabel>Guardar revisión como...</guilabel>."
 
 #. (term)
 #. (term)
@@ -4350,11 +4349,11 @@ msgstr "Deshace los cambios que se hicieron en la revisión seleccionada. Estos 
 
 #. (para)
 msgid "What is happening internally is that Subversion performs a reverse merge of that one revision, undoing its effect from a previous commit."
-msgstr ""
+msgstr "Lo que ocurre internamente es que Subversion realiza una fusión inversa de esa única revisión, deshaciendo sus efectos sobre la confirmación anterior."
 
 #. (para)
 msgid "You can <emphasis>undo the undo</emphasis> as described above in <guilabel>Revert to this revision</guilabel>."
-msgstr ""
+msgstr "Puede <emphasis>deshacer lo deshecho</emphasis> tal y como se describe arriba en <guilabel>Revertir a esta revisión</guilabel>."
 
 #. (term)
 msgid "Merge revision to..."
@@ -4394,12 +4393,12 @@ msgstr "Mostrar propiedades de la revisión"
 
 #. (para)
 msgid "View and edit any revision property, not just log message and author. Refer to <xref linkend=\"tsvn-dug-showlog-4\"/>."
-msgstr ""
+msgstr "Ver y editar cualquier propiedad de revisión, no sólo el mensaje de registro y el autor. Lea <xref linkend=\"tsvn-dug-showlog-4\"/>."
 
 #. (term)
 #. (term)
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copiar al portapapeles"
 
 #. (para)
 msgid "Copy the log details of the selected revisions to the clipboard. This will copy the revision number, author, date, log message and the list of changed items for each revision."
@@ -4444,7 +4443,7 @@ msgstr "Obtener la información de autoría de las dos revisiones y comparar los
 
 #. (term)
 msgid "Show differences as unified diff"
-msgstr ""
+msgstr "Mostrar diferencias como diff unificado"
 
 #. (para)
 msgid "View the differences between the two selected revisions as a Unified-Diff file. This works for files and folders."
