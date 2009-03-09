@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-25 00:46+0200\n"
-"Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
+"PO-Revision-Date: 2009-03-08 19:17+0200\n"
+"Last-Translator: Florin Daneliuc <dfev77@google.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5048,12 +5048,12 @@ msgstr "Mesaje de jurnal (afează dialog pentru jurnal)"
 #. Resource IDs: (238)
 #, c-format
 msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
-msgstr ""
+msgstr "Cea mai veche versiune afişată: %ld - Cea mai noua revizie afişată: %ld"
 
 #. Resource IDs: (238)
 #, c-format
 msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
-msgstr ""
+msgstr "Cea mai veche versiune afişată: %ld - Cea mai noua versiune afişată: %ld - Versiunea Head: %ld"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -5227,7 +5227,7 @@ msgstr "Îmbină o ramură cu trunchiul principal"
 
 #. Resource IDs: (14)
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
-msgstr ""
+msgstr "Combină toate reviziile lipsă înapoi în copia de lucru utilizând informaţii de urmărire a îmbinării"
 
 # Sau 'Îmbinare'
 #. Resource IDs: (65535)
@@ -6304,7 +6304,7 @@ msgstr ""
 
 #. Resource IDs: (1260)
 msgid "Recurse into unversioned folders"
-msgstr ""
+msgstr "Recursiv în directoarele neversionate"
 
 #. Resource IDs: (563)
 msgid "Recursive"
@@ -7369,7 +7369,7 @@ msgstr "Afişează &modificări din copia de lucru"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
-msgstr ""
+msgstr "Arată o prezentare generală a întregului grafic"
 
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
@@ -9655,6 +9655,10 @@ msgid ""
 "log message. The default is 'true' which means the bugtracking ID\r\n"
 "is appended to the log message."
 msgstr ""
+"bugtraq:append\r\n"
+"Atribuiti valoarea 'false' daca doriti ca ID-ul din systemul de urmarire a defectelor\r\n"
+"sa fie inserat la varful mesajului din jurnal. Valoare implicita este 'true' ceea ce\r\n"
+"inseamna ca ID-ul din sistemul de urmarire a erorilor este adaugat la sfarsitul mesajului din jurnal."
 
 #. Resource IDs: (577)
 msgid ""
@@ -10196,6 +10200,9 @@ msgid ""
 "URL pointing to the web viewer for the repository for a specific revision.\r\n"
 "The string %REVISION% in that URL is replaced with the revision number."
 msgstr ""
+"webviewer:revision\r\n"
+"URL indicând catre vizualizatorul web aferent depozitului unei anume versiuni.\r\n"
+"Textul %REVISION% din URL este inlocuit cu numărul versiunii."
 
 #. Resource IDs: (245)
 msgid "week"
