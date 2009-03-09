@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-02 20:13+0800\n"
+"PO-Revision-Date: 2009-03-09 22:04+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2140,6 +2140,10 @@ msgstr ""
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
 msgstr "檢查紀錄訊息並找出檔案/目錄是如何被重新命名/移動的, 並決定是否要保留此檔案庫中的這項操作. 然後將衝突視為已解決."
 
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to merge the change into your renamed file, or restore the original file."
+msgstr "檢查紀錄訊息並找出檔案/目錄是如何被重新命名/移動的, 並決定是否要合併變更至重新命名後的檔案, 或是復原先前的檔案."
+
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
 msgstr "請檢查你輸入的路徑或 URL."
@@ -3536,6 +3540,10 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "例外:"
+
+#. Resource IDs: (20)
+msgid "Exclude"
+msgstr "除外"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -5205,8 +5213,8 @@ msgstr "合併版本至..."
 
 #. Resource IDs: (610)
 #, c-format
-msgid "Merge the changes into the file '%s'"
-msgstr "合併變更至檔案 '%s'"
+msgid "Merge the changes into '%s'"
+msgstr "合併變更至 '%s'"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
