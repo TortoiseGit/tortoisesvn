@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-05 10:01+0100\n"
+"PO-Revision-Date: 2009-03-09 11:49+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2147,6 +2147,10 @@ msgstr ""
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
 msgstr "Vérifiez le journal pour retrouver le fichier/dossier renommé/déplacé et décidez si vous souhaitez garder la version renommée/déplacée ou celle du référentiel. Marquez ensuite le conflit comme résolu."
 
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to merge the change into your renamed file, or restore the original file."
+msgstr "Vérifiez le journal pour savoir pourquoi le fichier/dossier a été renommé/déplacé et décidez si vous souhaitez garder cette version, ou revenir à la version originale."
+
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
 msgstr "Vérifiez le chemin et/ou l'URL que vous avez entré"
@@ -3543,6 +3547,10 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Exceptions :"
+
+#. Resource IDs: (20)
+msgid "Exclude"
+msgstr "Exclure"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
