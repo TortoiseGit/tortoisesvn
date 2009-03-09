@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-04 09:41+0100\n"
+"PO-Revision-Date: 2009-03-09 10:00+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2195,6 +2195,10 @@ msgstr ""
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
 msgstr "Sjekk loggen for å finne ut hvordan filen/mappen ble omdøpt/flyttet og avgjør om du vil beholde din omdøping/flytting eller den fra depotet. Merk deretter konflikten som løst."
 
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to merge the change into your renamed file, or restore the original file."
+msgstr "Sjekk loggen for å finne ut hvordan filen/mappen ble omdøpt/flyttet og avgjør om du vil flette endingen inn i din omdøpte fil, eller gjenopprette den originale filen."
+
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
 msgstr "Sjekk stien og/eller URLen du anga"
@@ -3591,6 +3595,10 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Unntak:"
+
+#. Resource IDs: (20)
+msgid "Exclude"
+msgstr "Ekskluder"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -5251,8 +5259,8 @@ msgstr "Flett revisjoner til..."
 
 #. Resource IDs: (610)
 #, c-format
-msgid "Merge the changes into the file '%s'"
-msgstr "Flett endringene til filen '%s'"
+msgid "Merge the changes into '%s'"
+msgstr "Flett endringene til '%s'"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
