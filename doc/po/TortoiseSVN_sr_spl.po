@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-07 23:58 +0000\n"
-"PO-Revision-Date: 2009-03-08 19:41+0100\n"
-"Last-Translator: Milorad Popović\n"
+"PO-Revision-Date: 2009-03-10 09:41+0100\n"
+"Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4892,7 +4892,7 @@ msgstr "Ako ste konfigurisali diff alat treće strane, možete koristiti  <keyca
 
 #. (title)
 msgid "Line-end and Whitespace Options"
-msgstr "Kraj-reda i  Bela polja Opcije"
+msgstr "Kraj-reda i  Razmak Opcije"
 
 #. (para)
 msgid "Sometimes in the life of a project you might change the line endings from <literal>CRLF</literal> to <literal>LF</literal>, or you may change the indentation of a section. Unfortunately this will mark a large number of lines as changed, even though there is no change to the meaning of the code. The options here will help to manage these changes when it comes to comparing and applying differences. You will see these settings in the <guilabel>Merge</guilabel> and <guilabel>Blame</guilabel> dialogs, as well as in the settings for TortoiseMerge."
@@ -4904,15 +4904,15 @@ msgstr "<guilabel>Zanemari završetak linija</guilabel> izbacuje izmene koje su 
 
 #. (para)
 msgid "<guilabel>Compare whitespaces</guilabel> includes all changes in indentation and inline whitespace as added/removed lines."
-msgstr "<guilabel>Poređenje belih polja </guilabel> uključuje sve izmene u uvlačenju i bela polja unutar linije kao dodate/uklonjene linije."
+msgstr "<guilabel>Poređenje razmaka </guilabel> uključuje sve izmene u uvlačenju i razmak unutar linije kao dodate/uklonjene linije."
 
 #. (para)
 msgid "<guilabel>Ignore whitespace changes</guilabel> excludes changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Zanemari izmene belih polja </guilabel> isključuje izmene koje su samo zbog izmena u iznosu ili tipu belih polja, npr. izmenom uvlačenja ili izmenom tabova ili razmaka. Dodavanjem belih polja gde nisu bila ranije, ili uklanjanjem belih polja potpuno je još uvek prikazano kao promena."
+msgstr "<guilabel>Zanemari izmene razmaka </guilabel> isključuje izmene koje su samo zbog izmena u iznosu ili tipu razmaka, npr. izmenom uvlačenja ili izmenom tabova ili razmaka. Dodavanjem razmaka gde nisu bila ranije, ili  potpuno uklanjanjem razmakaje još uvek je prikazano kao promena."
 
 #. (para)
 msgid "<guilabel>Ignore all whitespaces</guilabel> excludes all whitespace-only changes."
-msgstr "<guilabel>Zanemari sva bela polja</guilabel> isključuje sva samo-bela polja izmene."
+msgstr "<guilabel>Zanemari sve razmake</guilabel> isključuje sve samo-razmak izmene."
 
 #. (para)
 msgid "Naturally, any line with changed content is always included in the diff."
@@ -6421,7 +6421,7 @@ msgstr "Najviše vremena vi želite da stapanje uzme u obzir istoriju fajla, tak
 
 #. (para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes to be merged."
-msgstr "Možete odrediti način rukovanja sa završetkom linija i izmenama belih polja. Ove opcije su opisane u <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>.  Uobičajeno ponašanje je da se tretiraju sva bela polja i kraj-linije razlike kao stvarne izmen koje se stapaju."
+msgstr "Možete odrediti način rukovanja sa završetkom linija i izmenama razmaka. Ove opcije su opisane u <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>.  Uobičajeno ponašanje je da se tretiraju sve razmake i kraj-linije razlike kao stvarne izmen koje se stapaju."
 
 #. (para)
 msgid "If you are using merge tracking and you want to mark a revision as having been merged, without actually doing the merge here, check the <guilabel>Only record the merge</guilabel> checkbox. There are two possible reasons you might want to do this. It may be that the merge is too complicated for the merge algorithms, so you code the changes by hand, then mark the change as merged so that the merge tracking algorithm is aware of it. Or you might want to prevent a particular revision from being merged. Marking it as already merged will prevent the merge occurring with merge-tracking-aware clients."
@@ -6833,7 +6833,7 @@ msgstr "Uobičajeno je da okrivljavanje fajl se pregleda koristeći <firstterm>T
 
 #. (para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes, but if you want to ignore an indentation change and find the original author, you can choose an appropriate option here."
-msgstr "Možete specificirati način rukovanja završetkom linije i izmenom belih polja. Ove opcije su opisane u <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. Uobičajeno ponašanje se tretiraju sva bela polja i kraj linija razlike kao realne izmene, ali ako želite da zanemarite uvlačenje izmene i naći originalne autore možete izabrati odgovarajuće opcije ovde."
+msgstr "Možete specificirati način rukovanja završetkom linije i izmenom razmaka. Ove opcije su opisane u <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. Uobičajeno ponašanje je da se tretiraju svi razmaci i kraj linija izmene kao realne izmene, ali ako želite da zanemarite uvlačenje izmene i naći originalne autore možete izabrati odgovarajuće opcije ovde."
 
 #. (para)
 msgid "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the data to create the blame file. Please note: This can take several minutes to finish, depending on how much the file has changed and of course your network connection to the repository. Once the blame process has finished the result is written into a temporary file and you can view the results."
@@ -7615,7 +7615,7 @@ msgstr "Prvi izraz izvlači <quote>issues #23, #24 and #25</quote> iz okruženja
 
 #. (para)
 msgid "Breaking the first regex down a little, it must start with the word <quote>issue</quote>, possibly capitalised. This is optionally followed by an <quote>s</quote> (more than one issue) and optionally a colon. This is followed by one or more groups each having zero or more leading whitespace, an optional comma or <quote>and</quote> and more optional space. Finally there is a mandatory <quote>#</quote> and a mandatory decimal number."
-msgstr "Mala greška kod prve regeks, mora se početi rečju <quote>problem</quote>, moguće sa velikim slovima. Ovo je opcionalno praćeno sa jednim <quote>s</quote> (više od jednog problema) i opcionalno tačkom i zarezom. Ovo je praćeno jednim ili više grupe svaki ima nula ili više vodećih belih polja, opcionalna zapeta ili <quote>i</quote> i više opcionalnih razmaka. Na kraju postoji obavezan <quote>#</quote> i obavezan decimalni broj."
+msgstr "Mala greška kod prve regeks, mora se početi rečju <quote>problem</quote>, moguće sa velikim slovima. Ovo je opcionalno praćeno sa jednim <quote>s</quote> (više od jednog problema) i opcionalno tačkom i zarezom. Ovo je praćeno jednim ili više grupe svaki ima nula ili više vodećih razmaka, opcionalna zapeta ili <quote>i</quote> i više opcionalnih razmaka. Na kraju postoji obavezan <quote>#</quote> i obavezan decimalni broj."
 
 #. (para)
 msgid "If only one expression is set, then the bare bug IDs must be matched in the groups of the regex string. Example: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal> This method is required by a few issue trackers, e.g. trac, but it is harder to construct the regex. We recommend that you only use this method if your issue tracker documentation tells you to."
@@ -12345,9 +12345,10 @@ msgstr "Ovo je vaš lokalni <quote>kutija za poštu</quote>, polje gde radite na
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr "Milorad Popović"
+msgstr "Milorad Popović <MiloradSPopovic@gmail.com>"
 
 #. Place the translation of 'translation' here.
 #. (None)
 msgid "translator-translation"
 msgstr "Prevod"
+
