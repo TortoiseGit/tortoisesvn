@@ -2399,11 +2399,11 @@ void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_f
 	date_native[0] = '\0';
 
 	// Convert UTC to local time
-	FILETIME localfiletime;
-	VERIFY( FileTimeToLocalFileTime(&filetime,&localfiletime) );
+	SYSTEMTIME systemtime;
+	VERIFY( FileTimeToSystemTime(&filetime,&systemtime) );
 	
-	SYSTEMTIME systime;
-	VERIFY(FileTimeToSystemTime(&localfiletime,&systime));
+	SYSTEMTIME localsystime;
+	VERIFY( SystemTimeToTzSpecificLocalTime(NULL, &systemtime,&localsystime));
 
 	TCHAR timebuf[SVN_DATE_BUFFER] = {0};
 	TCHAR datebuf[SVN_DATE_BUFFER] = {0};
@@ -2412,16 +2412,16 @@ void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_f
 
 	if (force_short_fmt || CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat")) == 1)
 	{
-		GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, SVN_DATE_BUFFER);
-		GetTimeFormat(locale, 0, &systime, NULL, timebuf, SVN_DATE_BUFFER);
+		GetDateFormat(locale, DATE_SHORTDATE, &localsystime, NULL, datebuf, SVN_DATE_BUFFER);
+		GetTimeFormat(locale, 0, &localsystime, NULL, timebuf, SVN_DATE_BUFFER);
 		_tcsncat_s(date_native, SVN_DATE_BUFFER, datebuf, SVN_DATE_BUFFER);
 		_tcsncat_s(date_native, SVN_DATE_BUFFER, _T(" "), SVN_DATE_BUFFER);
 		_tcsncat_s(date_native, SVN_DATE_BUFFER, timebuf, SVN_DATE_BUFFER);
 	}
 	else
 	{
-		GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, SVN_DATE_BUFFER);
-		GetTimeFormat(locale, 0, &systime, NULL, timebuf, SVN_DATE_BUFFER);
+		GetDateFormat(locale, DATE_LONGDATE, &localsystime, NULL, datebuf, SVN_DATE_BUFFER);
+		GetTimeFormat(locale, 0, &localsystime, NULL, timebuf, SVN_DATE_BUFFER);
 		_tcsncat_s(date_native, SVN_DATE_BUFFER, timebuf, SVN_DATE_BUFFER);
 		_tcsncat_s(date_native, SVN_DATE_BUFFER, _T(", "), SVN_DATE_BUFFER);
 		_tcsncat_s(date_native, SVN_DATE_BUFFER, datebuf, SVN_DATE_BUFFER);
