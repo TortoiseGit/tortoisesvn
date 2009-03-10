@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-09 16:06+0100\n"
+"PO-Revision-Date: 2009-03-10 11:06+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -202,9 +202,9 @@ msgid "%s, but it was already added locally."
 msgstr "%s, mas já existe localmente."
 
 #. Resource IDs: (609)
-#, fuzzy, c-format
+#, c-format
 msgid "%s, but it was already edited."
-msgstr "já foi removido."
+msgstr "%s, mas já foi editado."
 
 #. Resource IDs: (609)
 #, c-format
@@ -361,9 +361,8 @@ msgid "&Blue:"
 msgstr "&Azul:"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Branches"
-msgstr "&Cancelar"
+msgstr "&Ramos"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -812,7 +811,6 @@ msgid "&Options"
 msgstr "&Opções"
 
 #. Resource IDs: (32772)
-#, fuzzy
 msgid "&Overlay images"
 msgstr "&Sobrepor imagens"
 
@@ -1160,23 +1158,20 @@ msgid "(binary value)"
 msgstr "(valor binário)"
 
 #. Resource IDs: (276)
-#, fuzzy
 msgid "(copy)"
-msgstr "Copiar"
+msgstr "(cópia)"
 
 #. Resource IDs: (276)
 msgid "(created)"
 msgstr "(criado)"
 
 #. Resource IDs: (276)
-#, fuzzy
 msgid "(delete)"
-msgstr "removido"
+msgstr "(apagar)"
 
 #. Resource IDs: (276)
-#, fuzzy
 msgid "(modified)"
-msgstr "alterado"
+msgstr "(modificado)"
 
 #. Resource IDs: (276)
 #, fuzzy
@@ -1208,18 +1203,16 @@ msgid "(not found)"
 msgstr "(não encontrado)"
 
 #. Resource IDs: (276)
-#, fuzzy
 msgid "(open branch)"
-msgstr "Agrupar por ramo"
+msgstr "(abrir ramo)"
 
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(apenas alteração de propriedade)"
 
 #. Resource IDs: (276)
-#, fuzzy
 msgid "(rename)"
-msgstr "Alterar o nome"
+msgstr "(modificar nome)"
 
 #. Resource IDs: (276)
 msgid "(tagged)"
@@ -1471,9 +1464,9 @@ msgid "Add the item anyway"
 msgstr "Adcionar o item de qualquer modo "
 
 #. Resource IDs: (613)
-#, fuzzy, c-format
+#, c-format
 msgid "Add to %1"
-msgstr "para %1"
+msgstr "Adicionar a %1"
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -1882,9 +1875,8 @@ msgid "Blame - TortoiseSVN"
 msgstr "Responsabilidade - TortoiseSVN"
 
 #. Resource IDs: (114)
-#, fuzzy
 msgid "Blame..."
-msgstr "&Responsabilizar..."
+msgstr "Acusar..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
@@ -2134,9 +2126,8 @@ msgid "Check For Updates..."
 msgstr "Verificar Actualizações..."
 
 #. Resource IDs: (276)
-#, fuzzy
 msgid "Check for &modifications"
-msgstr "Verificar alterações"
+msgstr "Verificar &modificações"
 
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
@@ -2179,9 +2170,8 @@ msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Marque para usar um formato de data e hora mais conciso nas mensagens de registo"
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid "Check working copy for modifications"
-msgstr "Verificar alterações"
+msgstr "Verificar alterações na cópia de trabalho"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -2217,9 +2207,8 @@ msgid "Choose item:"
 msgstr "Escolher item:"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Classification Patterns"
-msgstr "Data de alteração"
+msgstr "Padrões de classificação"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -2354,14 +2343,12 @@ msgid "Color"
 msgstr "Cor"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Color 1"
-msgstr "Cor"
+msgstr "Cor 1"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Color 2"
-msgstr "Cor"
+msgstr "Cor 2"
 
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
@@ -2513,9 +2500,8 @@ msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "Configurar o programa de visualização dos arquivos de comparação (arquivos de correção)."
 
 #. Resource IDs: (1503)
-#, fuzzy
 msgid "Conflict Sources"
-msgstr "Conflito resolvido"
+msgstr "Fontes de Conflito"
 
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
@@ -8121,7 +8107,7 @@ msgstr "O item '%s' tem conflitos de propriedade"
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to add the directory '%s'"
-msgstr ""
+msgstr "A última tentativa de fusão tentou addicionar o diretório '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8181,32 +8167,32 @@ msgstr "O utilizador ao qual pertence o bloqueio do arquivo"
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the directory '%s'"
-msgstr ""
+msgstr "A última atualização tentou addicionar o diretório '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the file '%s'"
-msgstr ""
+msgstr "A última atualização tentou addicionar o ficheiro '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to delete/move/rename the directory '%s'"
-msgstr ""
+msgstr "A última atualização tentou apagar/mover/alterar o nome do diretório '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to delete/move/rename the file '%s'"
-msgstr ""
+msgstr "A última atualização tentou apagar/mover/alterar o nome do ficheiro '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the directory '%s'"
-msgstr ""
+msgstr "A última atualização tentou alterar o diretório '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the file '%s'"
-msgstr ""
+msgstr "A última atualização tentou alterar o ficheiro '%s'"
 
 #. Resource IDs: (63)
 #, c-format
