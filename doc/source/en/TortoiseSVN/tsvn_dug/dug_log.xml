@@ -83,6 +83,11 @@
 				</listitem>
 			</itemizedlist>
 		</para>
+		<para>
+			If the repository is unavailable you will see the
+			<guilabel>Want to go offline?</guilabel> dialog, described in
+			<xref linkend="tsvn-dug-showlog-cache"/>.
+		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-showlog-actions">
 		<title>Revision Log Actions</title>
@@ -942,10 +947,57 @@
 		<?dbhh topicname="HIDD_GOOFFLINE"?>
 		<title>Offline Mode</title>
 		<para>
+			<figure id="tsvn-dug-showlog-offline">
+				<title>Go Offline Dialog</title>
+				<graphic fileref="../images/LogCacheOffline.png"/>
+			</figure>
 			If the server is not reachable, and you have log caching enabled
 			you can use the log dialog and revision graph in offline mode.
 			This uses data from the cache, which allows you to continue working
 			although the information may not be up-to-date or even complete.
+		</para>
+		<para>
+			Here you have three options:
+			<variablelist>
+				<varlistentry>
+					<term>Offline for now</term>
+					<listitem>
+						<para>
+							Complete the current operation in offline mode,
+							but retry the repository next time log data is
+							requested.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Permanently offline</term>
+					<listitem>
+						<para>
+							Remain in offline mode until a repository check
+							is specifically requested. See
+							<xref linkend="tsvn-dug-showlog-refresh"/>.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Cancel</term>
+					<listitem>
+						<para>
+							If you don't want to continue the operation with
+							possibly stale data, just cancel.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+		<para>
+			The <guilabel>Make this the default</guilabel> checkbox prevents this
+			dialog from re-appearing and always picks the option you choose next.
+			You can still change (or remove) the default after doing this from 
+			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Settings</guimenuitem>
+			</menuchoice>.
 		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-showlog-refresh">
