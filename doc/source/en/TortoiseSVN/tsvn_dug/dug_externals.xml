@@ -34,9 +34,9 @@
 			There, you can set properties. Click <guibutton>Add...</guibutton>.
 			Select the <literal>svn:externals</literal> property from the
 			combobox and write in the edit box the repository URL in the format
-			<literal>name url</literal>
+			<literal>url folder</literal>
 			or if you want to specify a particular revision,
-			<literal>name -rREV url</literal>
+			<literal>-rREV url folder</literal>
 			You can add multiple external projects, 1 per line.
 			Note that URLs must be properly escaped or they will
 			not work. For example you must replace each space with
@@ -45,20 +45,21 @@
 			Suppose that you have set these properties on
 			<filename>D:\dev\project1</filename>:
 <screen>
-sounds   http://sounds.red-bean.com/repos
-quick_graphs  http://graphics.red-bean.com/repos/fast%20graphics
-skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker
+http://sounds.red-bean.com/repos  sounds
+http://graphics.red-bean.com/repos/fast%20graphics  quick_graphs
+-r21 http://svn.red-bean.com/repos/skin-maker  skins/toolkit
 </screen>
 			Now click <guibutton>Set</guibutton> and commit your changes.
 			When you (or any other user) update your working copy, Subversion
 			will create a sub-folder 
 			<filename>D:\dev\project1\sounds</filename> and checkout the sounds
-			project, another sub-folder <filename>D:\dev\project1\quick graphs</filename>
+			project, another sub-folder <filename>D:\dev\project1\quick_graphs</filename>
 			containing the graphics project, and finally a nested sub-folder
 			<filename>D:\dev\project1\skins\toolkit</filename> containing
 			revision 21 of the skin-maker project.
 		</para>
 		<tip>
+			<title>Use explicit revision numbers</title>
 			<para>
 				You should strongly consider using explicit revision numbers
 				in all of your externals definitions, as described above.
@@ -76,6 +77,19 @@ skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker
 				at that previous revision.  For software projects, this could
 				be the difference between a successful and a failed build of
 				an older snapshot of your complex code base.
+			</para>
+		</tip>
+		<tip>
+			<title>Older svn:externals definitions</title>
+			<para>
+				The format shown here was introduced in Subversion 1.5. You may
+				also see the older format which has the same information in a
+				different order. The new format is preferred as it supports
+				several useful features described below, but it will not work on
+				older clients. The differences are shown in the
+				<ulink url="http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html">
+					<citetitle>Subversion Book</citetitle>
+				</ulink>.
 			</para>
 		</tip>
 		<para>
@@ -201,6 +215,10 @@ skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker
 				</listitem>
 			</varlistentry>
 		</variablelist>
+		<para>
+			You can also specify a peg revision after the URL if required, e.g.
+			<systemitem class="url">http://sounds.red-bean.com/repos@19</systemitem>.
+		</para>
 		<para>
 			If you need more information how TortoiseSVN
 			handles Properties read <xref linkend="tsvn-dug-propertypage"/>.
