@@ -1900,11 +1900,11 @@ void CLogDlg::DiffSelectedRevWithPrevious()
 		SVNDiff diff(this, m_hWnd, true);
 		diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 		diff.SetHEADPeg(m_LogRevision);
-		diff.ShowCompare(path, rev2, path, rev1, SVNRev(), false, false, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
+		diff.ShowCompare(path, rev2, path, rev1, SVNRev(), false, false, m_path.IsDirectory() && (nChanged != 1) ? svn_node_dir : svn_node_file);
 	}
 	else
 	{
-		CAppUtils::StartShowCompare(m_hWnd, path, rev2, path, rev1, SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
+		CAppUtils::StartShowCompare(m_hWnd, path, rev2, path, rev1, SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, m_path.IsDirectory() && (nChanged != 1) ? svn_node_dir : svn_node_file);
 	}
 
 	theApp.DoWaitCursor(-1);
