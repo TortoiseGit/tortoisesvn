@@ -107,6 +107,29 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
+					<term>Working copy revision</term>
+					<listitem>
+						<para>
+							If you invoked the revision graph from a working copy, 
+							you can opt to show the BASE revision on the graph using 
+							<guilabel>Show WC revision</guilabel>, which marks 
+							the BASE node as an ellipse with a bold outline.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Modified working copy</term>
+					<listitem>
+						<para>
+							If you invoked the revision graph from a working copy, 
+							you can opt to show an additional node representing your 
+							modified working copy using 
+							<guilabel>Show WC modifications</guilabel>. This is an
+							elliptical node with a bold outline in red by default.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
 					<term>Normal item</term>
 					<listitem>
 						<para>
