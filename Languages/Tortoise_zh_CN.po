@@ -57,7 +57,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-27 15:15+0800\n"
+"PO-Revision-Date: 2009-03-11 17:57+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1028,6 +1028,14 @@ msgstr "偷取此锁定(&S)"
 msgid "&Stop on copy/rename"
 msgstr "复制/改名时终止(&S)"
 
+#. Resource IDs: (276)
+msgid "&Switch WC to path and revision"
+msgstr "切换工作副本到指定路径和版本(&S)"
+
+#. Resource IDs: (275)
+msgid "&Switch WC to path@HEAD"
+msgstr "切换工作副本到 path@HEAD(&S)"
+
 #. Resource IDs: (1173)
 msgid "&Symbol View"
 msgstr "符号视图(&S)"
@@ -1271,6 +1279,10 @@ msgstr "..."
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
 msgstr "... 检查缓存，准备查询日志"
+
+#. Resource IDs: (270)
+msgid "... reading working copy status"
+msgstr "... 正在读取工作副本的状态"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -2160,13 +2172,17 @@ msgstr "检查更新"
 msgid "Check For Updates..."
 msgstr "检查更新..."
 
+#. Resource IDs: (276)
+msgid "Check for &modifications"
+msgstr "检查修改(&M)"
+
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
-msgstr "检查更新(&F)"
+msgstr "检查修改(&F)"
 
 #. Resource IDs: (65535)
 msgid "Check for modifications"
-msgstr "检查更新"
+msgstr "检查修改"
 
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
@@ -2188,6 +2204,15 @@ msgid ""
 msgstr ""
 "检查文件/目录是如何改名/移动的，决定是否在版本库中保持这些改名/移动。然后标记"
 "冲突已经解决。"
+
+#. Resource IDs: (612)
+msgid ""
+"Check the log to find out how the file/folder got renamed/moved and decide "
+"whether you want to merge the change into your renamed file, or restore the "
+"original file."
+msgstr ""
+"检查日志，查找文件/目录是如何改名/移动的，决定是否合并修改到已改名的文件中，或"
+"者使用原始文件。"
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -3599,6 +3624,10 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "例外: "
+
+#. Resource IDs: (20)
+msgid "Exclude"
+msgstr "排除"
 
 #. Resource IDs: (1002)
 msgid ""
@@ -5301,8 +5330,8 @@ msgstr "合并版本到..."
 
 #. Resource IDs: (610)
 #, c-format
-msgid "Merge the changes into the file '%s'"
-msgstr "合并修改到文件 “%s”"
+msgid "Merge the changes into '%s'"
+msgstr "合并修改到 “%s”"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -9083,6 +9112,10 @@ msgstr "更新 - TortoiseSVN"
 #. Resource IDs: (1377)
 msgid "Update Depth"
 msgstr "更新深度"
+
+#. Resource IDs: (275)
+msgid "Update WC to revision"
+msgstr "更新工作副本至版本"
 
 #. Resource IDs: (74)
 msgid "Updated"
