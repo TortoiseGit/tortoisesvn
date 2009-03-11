@@ -11,14 +11,15 @@
 # Authors:
 # Seby Rusu <sebyrusu@yahoo.com>, 2006.
 # Ben Felt <benwfelt@gmail.com>, 2008-2009.
+# Florin Daneliuc <dfev77@google.com>, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-08 19:17+0200\n"
-"Last-Translator: Florin Daneliuc <dfev77@google.com>\n"
+"PO-Revision-Date: 2009-03-11 15:13+0200\n"
+"Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -996,6 +997,14 @@ msgstr "&Fură blocările"
 msgid "&Stop on copy/rename"
 msgstr "&Opreşte când se copiază/redenumeşte"
 
+#. Resource IDs: (276)
+msgid "&Switch WC to path and revision"
+msgstr ""
+
+#. Resource IDs: (275)
+msgid "&Switch WC to path@HEAD"
+msgstr ""
+
 #. Resource IDs: (1173)
 msgid "&Symbol View"
 msgstr "Vedere cu &simboluri"
@@ -1153,11 +1162,9 @@ msgstr "(%s) %s"
 msgid "(binary value)"
 msgstr "(valoare binară)"
 
-# noun?
 #. Resource IDs: (276)
-#, fuzzy
 msgid "(copy)"
-msgstr "(copiază)"
+msgstr "(copie)"
 
 #. Resource IDs: (276)
 msgid "(created)"
@@ -1243,6 +1250,11 @@ msgstr "..."
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
 msgstr "... se verifică cache-ul şi se pregăteşte interogare de jurnal"
+
+#. Resource IDs: (270)
+#, fuzzy
+msgid "... reading working copy status"
+msgstr "S-a pus tag pe copia de lucru %s"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -1865,9 +1877,8 @@ msgid "Blame - TortoiseSVN"
 msgstr "Învinovăţire - TortoiseSVN"
 
 #. Resource IDs: (114)
-#, fuzzy
 msgid "Blame..."
-msgstr "În&vinovăţeşte..."
+msgstr "În&vinovăţire..."
 
 #. Resource IDs: (13)
 #, fuzzy
@@ -1916,7 +1927,7 @@ msgstr "Răsfoieşte..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
-msgstr "Bug &ID / Număr de problemă:"
+msgstr "Bug &ID / Numărul problemei:"
 
 #. Resource IDs: (116)
 msgid "Bug-ID"
@@ -1924,7 +1935,7 @@ msgstr "Bug ID"
 
 #. Resource IDs: (1119)
 msgid "Bug-ID / Issue-Nr:"
-msgstr "Bug ID / Număr de problemă:"
+msgstr "Bug ID / Numărul problemei:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2117,6 +2128,10 @@ msgstr "Caută actualizări"
 msgid "Check For Updates..."
 msgstr "Caută actualizări..."
 
+#. Resource IDs: (276)
+msgid "Check for &modifications"
+msgstr "Caută &modificări"
+
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
 msgstr "Caută modi&ficări"
@@ -2139,6 +2154,11 @@ msgstr ""
 
 #. Resource IDs: (612)
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
+msgstr "Verificaţi jurnalul să aflaţi cum s-a mutat/redenumit fişierul/dosarul şi decideţi dacă doriţi să vă păstraţi redenumirea/mutarea sau să folosiţi cea din depozit. Atunci marcaţi conflictul ca fiind resolvat."
+
+#. Resource IDs: (612)
+#, fuzzy
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to merge the change into your renamed file, or restore the original file."
 msgstr "Verificaţi jurnalul să aflaţi cum s-a mutat/redenumit fişierul/dosarul şi decideţi dacă doriţi să vă păstraţi redenumirea/mutarea sau să folosiţi cea din depozit. Atunci marcaţi conflictul ca fiind resolvat."
 
 #. Resource IDs: (251)
@@ -3031,6 +3051,10 @@ msgstr "Şterge junalul de acţiuni"
 msgid "Deleting"
 msgstr "Se şterge"
 
+#. Resource IDs: (207)
+msgid "Depth"
+msgstr "Adâncime"
+
 #. Resource IDs: (65535)
 msgid "Depth:"
 msgstr "Adâncime:"
@@ -3537,6 +3561,10 @@ msgstr ""
 msgid "Exceptions:"
 msgstr "Excepţii:"
 
+#. Resource IDs: (20)
+msgid "Exclude"
+msgstr "Exclude"
+
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
 msgstr "Fişiere executabile (*.exe)|*.exe|Comandă (*.com)|*.com|Informaţie (*.pdf)|*.pdf|Batch (*.bat)|*.bat|Toate fişierele (*.*)|*.*||"
@@ -3920,9 +3948,8 @@ msgid "Fold &tags"
 msgstr "Pliază e&tichete"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Folded tag"
-msgstr "Pliază e&tichete"
+msgstr "Etichetă pliată"
 
 #. Resource IDs: (1002)
 msgid "Folder"
@@ -4153,9 +4180,8 @@ msgid "Hide &deleted paths"
 msgstr "Ascunde căile ş&terse"
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid "Hide all branches that did not modify the item"
-msgstr "Elimină toate ramurile care nu au modificat elementul"
+msgstr "Ascunde toate ramurile care nu au modificat elementul"
 
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
@@ -5039,7 +5065,7 @@ msgstr "Mesaje de jurnal"
 #. Resource IDs: (1274)
 #, fuzzy
 msgid "Log messages (Input dialog)"
-msgstr "Mesaje de jurnal (Dialog Input)"
+msgstr "Mesaje din jurnal (Dialog Input)"
 
 #. Resource IDs: (1280)
 msgid "Log messages (Show log dialog)"
@@ -5089,9 +5115,8 @@ msgid "Mark for comparison"
 msgstr "Marcează pentru comparaţie"
 
 #. Resource IDs: (610)
-#, fuzzy
 msgid "Mark the conflict as resolved"
-msgstr "Marchează ca rezolvat"
+msgstr "Marchează conflictul ca fiind rezolvat"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -5200,8 +5225,8 @@ msgid "Merge revisions to..."
 msgstr "Îmbină reviziile cu..."
 
 #. Resource IDs: (610)
-#, c-format
-msgid "Merge the changes into the file '%s'"
+#, fuzzy, c-format
+msgid "Merge the changes into '%s'"
 msgstr "Îmbină schimbările în fişierul '%s'"
 
 #. Resource IDs: (1470)
@@ -5765,7 +5790,7 @@ msgstr "Foloseşte corectorul &ortografic numai când tsvn:projectlanguage este 
 
 #. Resource IDs: (65535)
 msgid "Opacity"
-msgstr ""
+msgstr "Opacitate"
 
 #. Resource IDs: (3841)
 msgid "Open"
@@ -8898,6 +8923,11 @@ msgstr "Actualizare - TortoiseSVN"
 msgid "Update Depth"
 msgstr "Adâncimea Actualizării"
 
+#. Resource IDs: (275)
+#, fuzzy
+msgid "Update WC to revision"
+msgstr "Act&ualizează elementul la revizie"
+
 #. Resource IDs: (74)
 msgid "Updated"
 msgstr "Actualizat"
@@ -9656,15 +9686,17 @@ msgid ""
 "is appended to the log message."
 msgstr ""
 "bugtraq:append\r\n"
-"Atribuiti valoarea 'false' daca doriti ca ID-ul din systemul de urmarire a defectelor\r\n"
-"sa fie inserat la varful mesajului din jurnal. Valoare implicita este 'true' ceea ce\r\n"
-"inseamna ca ID-ul din sistemul de urmarire a erorilor este adaugat la sfarsitul mesajului din jurnal."
+"Atribuiţi valoarea 'false' dacă doriţi ca ID-ul din sistemul de urmărire a defectelor\r\n"
+"să fie inserat la vârful mesajului din jurnal. Valoare implicită este 'true' ceea ce\r\n"
+"înseamnă că ID-ul din sistemul de urmărire a erorilor este adăugat la sfârşitul mesajului din jurnal."
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:label\r\n"
 "Label text to show for the edit box where the user enters the issue number."
 msgstr ""
+"bugtraq:label\r\n"
+"Textul afişat pe lângă zona de text unde se înregistrează numărul problemei."
 
 #. Resource IDs: (577)
 msgid ""
@@ -9688,7 +9720,7 @@ msgid ""
 "Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\r\n"
-"Definiţi ca 'false' dacă sistemul de bugtracking nu foloseşte numere pentru a se referi la probleme."
+"Atribuiţi valoarea 'false' dacă sistemul de bugtracking nu foloseşte numere pentru a se referi la probleme."
 
 #. Resource IDs: (577)
 msgid ""
@@ -10126,6 +10158,8 @@ msgid ""
 "tsvn:logminsize\r\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
+"tsvn:logminsize\r\n"
+"Numărul minim de caractere pe care trebuie să-l aibă mesajul din jurnal înainte de a putea fi transmis."
 
 #. Resource IDs: (578)
 msgid ""
@@ -10201,8 +10235,8 @@ msgid ""
 "The string %REVISION% in that URL is replaced with the revision number."
 msgstr ""
 "webviewer:revision\r\n"
-"URL indicând catre vizualizatorul web aferent depozitului unei anume versiuni.\r\n"
-"Textul %REVISION% din URL este inlocuit cu numărul versiunii."
+"URL indicând către vizualizatorul web aferent depozitului unei anume versiuni.\r\n"
+"Textul %REVISION% din URL este înlocuit cu numărul versiunii."
 
 #. Resource IDs: (245)
 msgid "week"
