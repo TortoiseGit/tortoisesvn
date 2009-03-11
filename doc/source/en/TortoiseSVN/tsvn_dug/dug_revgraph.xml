@@ -40,7 +40,7 @@
 			revisions you could be waiting for some time.
 		</para>
 		<para>
-			The good news is that if you are using Log Caching, you only have to
+			The good news is that if you are using log caching, you only have to
 			suffer this delay once. After that, log data is held locally.
 			Log caching is enabled in TortoiseSVN's settings.
 		</para>
@@ -64,12 +64,12 @@
 							Items which have been added, or created by copying
 							another file/folder are shown using a rounded rectangle.
 							The default colour is green. Tags and trunks are treated 
-                            as a special case and use a different shade, depending
-                            on the 
-			                <menuchoice>
-				                <guimenu>TortoiseSVN</guimenu>
-				                <guimenuitem>Settings</guimenuitem>
-			                </menuchoice>
+							as a special case and use a different shade, depending
+							on the 
+							<menuchoice>
+								<guimenu>TortoiseSVN</guimenu>
+								<guimenuitem>Settings</guimenuitem>
+							</menuchoice>
 						</para>
 					</listitem>
 				</varlistentry>
@@ -98,9 +98,9 @@
 						<para>
 							Where a branch (or trunk or tag) has been modified since
 							the last branch node, the respective HEAD revision is 
-                            shown using an ellipse. Select 
-                            <guilabel>Show HEAD revisions</guilabel> to show all HEAD
-                            revisions nodes.
+							shown using an ellipse. Select 
+							<guilabel>Show HEAD revisions</guilabel> to show all HEAD
+							revisions nodes.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -183,7 +183,7 @@
 							This may make the layout columns appear in less
 							logical places, for example in a diagonal line
 							rather than a column, and the graph may take a 
-                            larger area to draw.
+							larger area to draw.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -199,8 +199,8 @@
 							<literal>/trunk/doc/html</literal> the branch could
 							be shown in compact form as
 							<literal>/branches/1.2.x/..</literal> because the last
-                            two levels, <literal>doc</literal> and 
-                            <literal>html</literal>, did not change.
+							two levels, <literal>doc</literal> and 
+							<literal>html</literal>, did not change.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -235,7 +235,7 @@
 							rather than a specific revision. So it is possible to show
 							the more correct (but less useful) revision that was
 							used to create the copy. Note that this revision may
-                            be younger than the HEAD revision of the source branch.
+							be younger than the HEAD revision of the source branch.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -245,10 +245,10 @@
 						<para>
 							If you want to see a graph of software development,
 							tag revisions may be of less interest to you than
-                            tag content. This option hides the nodes for tags and 
-                            shows them instead in the tooltip for the node that 
-                            they were copied from. A tag icon on the right side 
-                            of the source node indicates that tags were made.
+							tag content. This option hides the nodes for tags and 
+							shows them instead in the tooltip for the node that 
+							they were copied from. A tag icon on the right side 
+							of the source node indicates that tags were made.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -266,9 +266,9 @@
 					<listitem>
 						<para>
 							Hides branches where no changes were committed to the 
-                            respective file or sub-folder. This does not necessarily 
-                            indicate that the branch was not used, just that no 
-                            changes were made to <emphasis>this</emphasis> part of it.
+							respective file or sub-folder. This does not necessarily 
+							indicate that the branch was not used, just that no 
+							changes were made to <emphasis>this</emphasis> part of it.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -326,9 +326,9 @@
 							Shows a small picture of the entire graph, with the current
 							view window as a rectangle which you can drag. This allows
 							you to navigate the graph more easily. Note that for very
-                            large graphs the overview may become useless due to the 
-                            extreme zoom factor and will therefore not be shown in these
-                            cases.
+							large graphs the overview may become useless due to the 
+							extreme zoom factor and will therefore not be shown in these
+							cases.
 						</para>
 					</listitem>
 				</varlistentry>
