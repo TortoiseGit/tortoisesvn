@@ -96,11 +96,13 @@
 					<term>Branch tip revision</term>
 					<listitem>
 						<para>
-							Where a branch (or trunk or tag) has been modified since
-							the last branch node, the respective HEAD revision is 
-							shown using an ellipse. Select 
-							<guilabel>Show HEAD revisions</guilabel> to show all HEAD
-							revisions nodes.
+							The graph is normally restricted to showing branch points,
+							but it is often useful to be able to see the respective HEAD 
+							revision for each branch too. If you select 
+							<guilabel>Show HEAD revisions</guilabel>, each HEAD
+							revision nodes will be shown as an ellipse.
+							Note that HEAD here refers to the last revision committed
+							on that path, not to the HEAD revision of the repository.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -182,7 +184,7 @@
 							crossing lines, use this option to clean it up.
 							This may make the layout columns appear in less
 							logical places, for example in a diagonal line
-							rather than a column, and the graph may take a 
+							rather than a column, and the graph may require a 
 							larger area to draw.
 						</para>
 					</listitem>
@@ -243,9 +245,12 @@
 					<term>Fold tags</term>
 					<listitem>
 						<para>
-							If you want to see a graph of software development,
-							tag revisions may be of less interest to you than
-							tag content. This option hides the nodes for tags and 
+							When a project has many tags, showing every tag as a
+							separate node on the graph takes a lot of space and 
+							obscures the more interesting development branch structure. 
+							At the same time you may need to be able to access the
+							tag content easily so that you can compare revisions.
+							This option hides the nodes for tags and 
 							shows them instead in the tooltip for the node that 
 							they were copied from. A tag icon on the right side 
 							of the source node indicates that tags were made.
@@ -327,7 +332,7 @@
 							view window as a rectangle which you can drag. This allows
 							you to navigate the graph more easily. Note that for very
 							large graphs the overview may become useless due to the 
-							extreme zoom factor and will therefore not be shown in these
+							extreme zoom factor and will therefore not be shown in such 
 							cases.
 						</para>
 					</listitem>
