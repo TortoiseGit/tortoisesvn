@@ -11212,16 +11212,10 @@ msgid ""
 "click the button on the right to open the repository browser so you can view "
 "the existing repository structure."
 msgstr ""
-"默认的目标URL将会是你当前工作副本所处的源URL。你必须给你的分支/标记编辑一个新"
-"路径。来取代<screen>\n"
-"    http://svn.collab.net/repos/ProjectName/trunk\n"
-"</screen>你可以使用这样的设置 <screen>\n"
-"    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
-"</screen>如果你忘记了你上一次使用的命名约定，可以用鼠标右键打开版本库浏览器来"
-"察看已经存在的版本库结构。"
 
 #. (term)
 #. (listitem)
+#, fuzzy
 msgid "HEAD revision in the repository"
 msgstr "版本库中的最新版本"
 
@@ -11231,12 +11225,11 @@ msgid ""
 "No data needs to be transferred from your working copy, and the branch is "
 "created very quickly."
 msgstr ""
-"新分支直接从仓库中的最新版本里复制出来。不需要从你的工作副本中传输任何数据，这"
-"个分支的建立是非常快的。"
 
 #. (term)
+#, fuzzy
 msgid "Specific revision in the repository"
-msgstr "在版本库中指定具体的版本"
+msgstr "指定版本库中的版本"
 
 #. (para)
 msgid ""
@@ -11247,10 +11240,6 @@ msgid ""
 "from there. Again no data is transferred from your working copy, and the "
 "branch is created very quickly."
 msgstr ""
-"在仓库中直接复制建立一个新分支同时你也可以选择一个旧版本。假如在你上周发布了项"
-"目时忘记了做标记，这将非常有用。如果你记不起来版本号，通过点击鼠标右键来显示版"
-"本日志，同时从这里选取版本号。和上次一样不需要从你的工作副本中传输任何数据，这"
-"个分支建立起来是非常快的。"
 
 #. (para)
 msgid ""
@@ -11260,16 +11249,13 @@ msgid ""
 "complex tag may involve transferring data from your WC back to the repository "
 "if it does not exist there already."
 msgstr ""
-"新的分支是一个完全等同于你的本地工作副本的一个副本。如果你更新了一些文件到你的"
-"工作副本的某个旧版本里，或者你在本地做出了修改，这些改变将准确无误的进入副本"
-"中。自然而然地这种综合的标记会包含正在从工作副本传输到版本库的数据，如果这些数"
-"据还不存在的话。"
 
 #. (para)
+#, fuzzy
 msgid ""
 "Now you have to select the source of the copy. Here you have three options: "
 "<placeholder-1/>"
-msgstr "现在你必须选择要复制的源位置。在这里你有三个设置选项: <placeholder-1/>"
+msgstr "在<placeholder-1/>创建一个版本库。"
 
 #. (para)
 msgid ""
@@ -11279,9 +11265,6 @@ msgid ""
 "copy does not contain modifications. If it does, those changes will be merged "
 "into the branch WC when you switch."
 msgstr ""
-"如果你想把你的工作副本自动切换到最新创建的分支，使用<guilabel>转换工作副本至新"
-"分支/标记</guilabel> 选择框.但是如果你打算这么做，首先要确认你的工作副本没有被"
-"修改。如果有修改的话，当你转换后这些修改将会混合进你的工作副本分支里。"
 
 #. (para)
 msgid ""
@@ -11531,8 +11514,8 @@ msgid ""
 "necessary to get [FROM] revision 1 of branch A [TO] revision 7 of branch A, "
 "and apply those changes to my working copy (of trunk or branch B).</quote>"
 msgstr ""
-"你要求Subversion做的如下: <quote>计算所需的修改<FROM>从分支A的版本 1 "
-"到<TO> 分支A的版本 7 并将所有改变抄至工作副本(最新版本或分支B)"
+"你要 Subversion 做如下事情: <quote>计算[从]分支 A 的版本 1 [到]分支 A 的版本 "
+"7 所需的修改，并将这些改变应用到(最新版本或分支 B 的)工作副本。"
 
 #. (term)
 #. (title)
@@ -11571,8 +11554,8 @@ msgid ""
 "After the merge, all branch development has been completely merged back into "
 "the main development line. The branch is now redundant and can be deleted."
 msgstr ""
-"合并之后，所有分支的开发将会被完整的合并返回至主开发版本。"
-"现在的分支其实是多余的，可以将其删除。"
+"合并之后，分支的所有开发被完整的合并到主开发版本。现在的分支已经是多余的，可以"
+"删除。"
 
 #. (para)
 msgid ""
