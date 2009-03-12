@@ -9,7 +9,8 @@
 # $Rev$
 #
 # Authors:
-# Dongsheng Song <dongsheng.song@gmail.com>, 2006-2008
+# Dongsheng Song <dongsheng.song@gmail.com>, 2006-2009
+# Garfield Yao <field977@gmail.com>, 2009
 # rocksun <daijun@gmail.com>, 2006-2007
 # amo <amosir@gmail.com>, 2006
 # Jaxx_chen <Jaxx.Chen@gmail.com>, 2006
@@ -50,6 +51,7 @@
 # unversioned       未版本控制
 # versioned         已版本控制
 # working copy      工作副本
+# ...
 #
 msgid ""
 msgstr ""
@@ -348,7 +350,7 @@ msgstr "Simon Large"
 
 #. (para)
 msgid "for helping with the documentation and bug hunting"
-msgstr ""
+msgstr "帮助编写文档和跟踪错误"
 
 #. (term)
 msgid "The Subversion Book"
@@ -798,10 +800,12 @@ msgid ""
 "installer file and follow the instructions. The installer will take care of "
 "the rest."
 msgstr ""
+"TortoiseSVN 提供一个容易使用的安装程序。双击安装程序文件并按照提示操作。安装程"
+"序将会完成剩余的步骤。"
 
 #. (para)
 msgid "You need Administrator privileges to install TortoiseSVN."
-msgstr ""
+msgstr "你需要管理员权限来安装 TortoiseSVN。"
 
 #. (title)
 msgid "Language Packs"
@@ -2159,6 +2163,10 @@ msgid ""
 "would <emphasis>strongly</emphasis> discourage it, and do not support such "
 "use."
 msgstr ""
+"尽管从理论上说，将一个 FSFS 格式的版本库放在网络中共享，并且多用户通过 "
+"<literal>file://</literal> 协议访问是可以的。但这样做是非常<emphasis>不</"
+"emphasis>妥当的。事实上我们<emphasis>强烈</emphasis>反对这样做，并且不支持这样"
+"的用法。"
 
 #. (para)
 msgid ""
@@ -2166,6 +2174,8 @@ msgid ""
 "any user could accidentally delete the entire repository or make it unusable "
 "in some other way."
 msgstr ""
+"首先，这样赋予所有用户对版本库的写权限，所以任何一个用户都可能意外的删除整个版"
+"本库，或者因为别的问题导致版本库不可用。"
 
 #. (para)
 msgid ""
@@ -2174,12 +2184,17 @@ msgid ""
 "not happen straight away, but one day two users will try to access the "
 "repository at the same time."
 msgstr ""
+"其次，不是所有的网络文件共享协议都支持 Subversion 需要的文件锁定，所以你会发现"
+"你的版本库被毁了。它也许不会马上发生，但是总有一天会有 2 个用户同时访问版本"
+"库。"
 
 #. (para)
 msgid ""
 "Thirdly the file permissions have to be set just so. You may just about get "
 "away with it on a native Windows share, but SAMBA is particularly difficult."
 msgstr ""
+"第三，文件的权限必需设置得井井有条。也许 Windows 的共享可以避开这个问题，但是"
+"在 SAMBA 中却是相当困难的。"
 
 #. (para)
 msgid ""
@@ -2189,6 +2204,10 @@ msgid ""
 "and it is not nearly as difficult as you might think. Read <xref linkend="
 "\"tsvn-serversetup\"/> for guidelines on choosing and setting up a server."
 msgstr ""
+"<literal>file://</literal> 访问是为本机工作而准备的，只能单用户访问，特别是测"
+"试和调试。当你打算共享版本库的时候，你<emphasis>真的</emphasis>需要设置一个适"
+"当的服务器，而且它并不像你想象的那样困难。阅读<xref linkend=\"tsvn-serversetup"
+"\"/>获得选择指南，并配置服务器。"
 
 #. (title)
 msgid "Repository Layout"
