@@ -1,5 +1,3 @@
-#
-# European Portuguese translation for TortoiseSVN
 # Copyright (C) 2004-2008 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
@@ -18,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-11 22:54+0100\n"
+"PO-Revision-Date: 2009-03-12 10:41+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -252,8 +250,8 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr ""
 "%s\n"
-"é uma pasta, e não um arquivo!\n"
-"O TortoiseMerge não consegue comparar pastas."
+"é um diretório e não um ficheiro!\n"
+"O TortoiseMerge não compara diretórios."
 
 #. Resource IDs: (286)
 #, c-format
@@ -278,7 +276,7 @@ msgstr "&Sobre o TortoiseMerge..."
 
 #. Resource IDs: (16920)
 msgid "&Activate"
-msgstr "&Activar"
+msgstr "&Activar "
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
@@ -927,7 +925,6 @@ msgid "&SVN"
 msgstr "&SVN"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Sat:"
 msgstr "&Sat:"
 
@@ -1657,7 +1654,7 @@ msgstr "Ocorreu um erro desconhecido."
 #. Resource IDs: (3867, 3868)
 #, c-format
 msgid "An unknown error occurred while accessing %1."
-msgstr "Ocorreu um erro desconhecido ao acessar %1."
+msgstr "Ocorreu um erro desconhecido ao acederr %1."
 
 #. Resource IDs: (63)
 #, c-format
@@ -1686,7 +1683,6 @@ msgid "Apply &patch..."
 msgstr "A&plicar correcção..."
 
 #. Resource IDs: (345)
-#, fuzzy
 msgid ""
 "Apply 'Power User' defaults. Those will provide a smoother experience.\n"
 "You should know the meaning of all the settings above."
@@ -1970,7 +1966,6 @@ msgid "C&ut"
 msgstr "Cor&tar"
 
 #. Resource IDs: (3697)
-#, fuzzy
 msgid "CAP"
 msgstr "CAP"
 
@@ -3022,9 +3017,8 @@ msgid "Deleted node"
 msgstr "Nó removido"
 
 #. Resource IDs: (15)
-#, fuzzy
 msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
-msgstr "Adiciona os arquivo(s) seleccionado(s) ou a máscara de arquivos à lista de ignorados"
+msgstr "Adiciona os ficheiros(s) seleccionado(s) ou a máscara à lista de ignorados"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -3297,7 +3291,6 @@ msgid "E&xport..."
 msgstr "E&xportar..."
 
 #. Resource IDs: (3697)
-#, fuzzy
 msgid "EXT"
 msgstr "EXT"
 
@@ -3886,11 +3879,12 @@ msgstr ""
 "Preencher"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
-msgstr "Filtre os seguintes caminhos (separe múltiplos arquivos com o caractere '*'):"
+msgstr ""
+"Filtrar os caminhos que contém um dos strings seguintes\n"
+"(separe múltiplos caminhos com o caratér '*'):"
 
 #. Resource IDs: (321)
 msgid "Filter paths"
@@ -4319,7 +4313,6 @@ msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
 #. Accelerator Entry for Menu ID:32824; ''
-#, fuzzy
 msgid "ID:32824:V C +F"
 msgstr "ID:32822:V C +F"
 
@@ -5090,7 +5083,6 @@ msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision:
 msgstr "Revisão mais baixamostrada: %ld - Revisão mais alta mostrada: %ld - Revisão HEAD (mais recente): %ld"
 
 #. Resource IDs: (16973)
-#, fuzzy
 msgid "Lum"
 msgstr "Lum"
 
@@ -5139,11 +5131,12 @@ msgstr ""
 "Marcar como resolvido"
 
 #. Resource IDs: (596)
-#, fuzzy
 msgid ""
 "Marks the revisions as merged, without actually doing the merge.\r\n"
 "This blocks the revisions from getting merged in the future."
-msgstr "Marca as revisões como integradas sem as ter de facto integrado"
+msgstr ""
+"Marca as revisões como integradas sem as ter de facto integrado.\r\n"
+"Isto impede a futura integração das revisões."
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -5232,7 +5225,7 @@ msgstr "Integrar revisões &em..."
 #. Resource IDs: (610)
 #, c-format
 msgid "Merge the changes into '%s'"
-msgstr "Fusionar as alterações com '%s'"
+msgstr "Integrar as alterações com '%s'"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -5466,7 +5459,6 @@ msgid "N&ext Conflict"
 msgstr "&Próximo Conflito"
 
 #. Resource IDs: (3697)
-#, fuzzy
 msgid "NUM"
 msgstr "NUM"
 
@@ -5722,7 +5714,6 @@ msgid "OK"
 msgstr "OK"
 
 #. Resource IDs: (3697)
-#, fuzzy
 msgid "OVR"
 msgstr "OVR"
 
@@ -5788,7 +5779,7 @@ msgstr ""
 
 #. Resource IDs: (1424)
 msgid "Only record the merge (block revisions from getting merged)"
-msgstr "Só registar a fusão (bloquear a fusão de revisões)"
+msgstr "Só registar a integração (bloquear a integração de revisões)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -5892,7 +5883,6 @@ msgid "P&revious Conflict"
 msgstr "Conflito Ante&rior"
 
 #. Resource IDs: (76)
-#, fuzzy
 msgid "PEM"
 msgstr "PEM"
 
@@ -6261,7 +6251,7 @@ msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "Acrescentar \"Obter Bloqueio\" ao menu quando svn:needs-lock estiver seleccionado"
 
 #. Resource IDs: (246)
-#, fuzzy, c-format
+#, c-format
 msgid "Q%d/%.2d"
 msgstr "Q%d/%.2d"
 
@@ -6290,7 +6280,6 @@ msgid "RAM [kB]: "
 msgstr "RAM [kB]: "
 
 #. Resource IDs: (3697)
-#, fuzzy
 msgid "REC"
 msgstr "REC"
 
@@ -6813,7 +6802,7 @@ msgid "Revision: "
 msgstr "Revisão:"
 
 #. Resource IDs: (272)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Revision: %ld %s\r\n"
 "URL: %s\r\n"
@@ -6823,16 +6812,16 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Revisão: %ld\n"
-"URL: %s\n"
-"Autor: %s\n"
-"Data: %s\n"
-"\n"
-"Mensagem de registo:\n"
+"Revisão: %ld\r\n"
+"URL: %s\r\n"
+"Autor: %s\r\n"
+"Data: %s\r\n"
+"\r\n"
+"Mensagem de registo:\r\n"
 "%s"
 
 #. Resource IDs: (272)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Revision: %ld %s\r\n"
 "URL: %s\r\n"
@@ -6844,14 +6833,14 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Revisão: %ld\n"
-"URL: %s\n"
-"Autor: %s\n"
-"Data: %s\n"
-"\n"
-"Etiquetas (%d):%s\n"
-"\n"
-"Mensagem de registo:\n"
+"Revisão: %ld\r\n"
+"URL: %s\r\n"
+"Autor: %s\r\n"
+"Data: %s\r\n"
+"\r\n"
+"Etiquetas (%d):%s\r\n"
+"\r\n"
+"Mensagem de registo:\r\n"
 "%s"
 
 #. Resource IDs: (116, 65535)
@@ -6913,7 +6902,6 @@ msgid "S&witch..."
 msgstr "&Trocar..."
 
 #. Resource IDs: (3697)
-#, fuzzy
 msgid "SCRL"
 msgstr "SCRL"
 
@@ -7311,7 +7299,6 @@ msgid "Show &All"
 msgstr "Mostr&ar Tudo"
 
 #. Resource IDs: (1132)
-#, fuzzy
 msgid "Show &Log"
 msgstr "Mostrar &registo"
 
@@ -7404,9 +7391,8 @@ msgid "Show Screen&Tips on toolbars"
 msgstr "Mostrar Dicas de &Ecrã nas barras de ferramentas"
 
 #. Resource IDs: (32831)
-#, fuzzy
 msgid "Show WC &modifications"
-msgstr "Verificar alterações"
+msgstr "Mostrar as &modificações do WC"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -7425,9 +7411,8 @@ msgid "Show excluded folders as normal"
 msgstr "Mostrar pastas excluídas como normais"
 
 #. Resource IDs: (1480)
-#, fuzzy
 msgid "Show externals from different repositories"
-msgstr "Apaga registos em cache de %ld repositórios"
+msgstr "Mostrar externos de diferentes repositórios"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7635,7 +7620,6 @@ msgstr ""
 "Separe os padrões com um espaço."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
-#, fuzzy
 msgid "Spin1"
 msgstr "Girar1"
 
@@ -7890,13 +7874,11 @@ msgstr "As entradas no registro de sistema foram removidas e o arquivo INI (se e
 
 # Presumo que seja uma variável de ambiente, cujo nome não se deve traduzir
 #. Resource IDs: (7)
-#, fuzzy
 msgid "TORTOISEBLAME"
 msgstr "TORTOISEBLAME"
 
 # Presumo que seja uma variável de ambiente, cujo nome não se deve traduzir
 #. Resource IDs: (7)
-#, fuzzy
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
@@ -8084,32 +8066,32 @@ msgstr "O item '%s' tem conflitos de propriedade"
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to add the directory '%s'"
-msgstr "A última tentativa de fusão tentou addicionar o diretório '%s'"
+msgstr "A última tentativa de integração tentou addicionar o diretório '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to add the file '%s'"
-msgstr "A última fusão tentou adicionar o ficheiro '%s'"
+msgstr "A última integração tentou adicionar o ficheiro '%s'"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to delete/move/rename the directory '%s'"
-msgstr "A última fusão tentou apagar/mover/alterar o nome do diretório '%s'"
+msgstr "A última integração tentou apagar/mover/alterar o nome do diretório '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to delete/move/rename the file '%s'"
-msgstr "A última fusão tentou apagar/mover/alterar o nome do ficheiro '%s'"
+msgstr "A última integração tentou apagar/mover/alterar o nome do ficheiro '%s'"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to modify the directory '%s'"
-msgstr "A última fusão tentou modificar o diretório '%s'"
+msgstr "A última integração tentou modificar o diretório '%s'"
 
 #. Resource IDs: (607)
-#, fuzzy, c-format
+#, c-format
 msgid "The last merge operation tried to modify the file '%s'"
-msgstr "O utilizador ao qual pertence o bloqueio do arquivo"
+msgstr "A última integração tentou modificar o ficheiro '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8137,9 +8119,9 @@ msgid "The last switch operation tried to modify the directory '%s'"
 msgstr "A última comutação tentou modificar o diretório '%s'"
 
 #. Resource IDs: (607)
-#, fuzzy, c-format
+#, c-format
 msgid "The last switch operation tried to modify the file '%s'"
-msgstr "O utilizador ao qual pertence o bloqueio do arquivo"
+msgstr "A última tentativa de comutação tentou modificar o ficheiro '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8334,16 +8316,17 @@ msgstr ""
 "já existe!"
 
 #. Resource IDs: (147)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The target file\n"
 "%s\n"
 " already exists.\n"
 "Do you want to replace the file?"
 msgstr ""
-"O arquivo\n"
+"O ficheiro\n"
 "%s\n"
-"já existe! Deseja escrever sobre ele?"
+"já existe.\n"
+"Quer substituílo?"
 
 #. Resource IDs: (88)
 #, c-format
@@ -8445,7 +8428,6 @@ msgstr ""
 "Deseja guardar as suas alterações?"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid ""
 "There has been a problem contacting the server.\n"
 "Do you want to see the cached data instead?\n"
@@ -9146,9 +9128,8 @@ msgstr ""
 "Usar bloco de texto de  'meu'"
 
 #. Resource IDs: (251)
-#, fuzzy
 msgid "Use text block from 't&heirs' before 'mine'"
-msgstr "Usar bloco de texto de 'd&eles' antes de 'meu'"
+msgstr "Usar bloquear texto de 'd&eles' antes de 'meu'"
 
 #. Resource IDs: (2052)
 msgid ""
