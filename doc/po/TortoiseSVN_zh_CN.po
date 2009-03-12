@@ -54,7 +54,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-04 23:21 +0000\n"
+"POT-Creation-Date: 2009-03-11 23:53 +0000\n"
 "PO-Revision-Date: 2008-12-24 09:40+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
@@ -5236,6 +5236,17 @@ msgstr ""
 "保持工作副本指定的深度。此选项不用于检出对话框，但它是其它所有含有深度配置对话"
 "框的默认配置。"
 
+#. (term)
+msgid "Exclude"
+msgstr ""
+
+#. (para)
+msgid ""
+"Used to reduce working copy depth after a folder has already been populated. "
+"This option is only available in the <guilabel>Update to revision</guilabel> "
+"dialog."
+msgstr ""
+
 #. (para)
 msgid ""
 "You can choose the <firstterm>depth</firstterm> you want to checkout, which "
@@ -5332,16 +5343,20 @@ msgid ""
 msgstr ""
 
 #. (title)
-msgid "Working copy depth cannot be reduced"
-msgstr "不能缩短工作副本的深度"
+#, fuzzy
+msgid "Changing working copy depth"
+msgstr "重新定位工作副本"
 
 #. (para)
+#, fuzzy
 msgid ""
-"Once you have checked out a working copy to a particular depth you can "
-"increase that depth later to get more content. However you cannot reduce the "
-"depth again to remove content. That feature may be added in a later version "
-"of Subversion."
+"Once you have checked out a working copy to a particular depth you can change "
+"that depth later to get more or less content using "
+"<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to "
+"revision...</guimenuitem></menuchoice>."
 msgstr ""
+"你也可以使用 <menuchoice><guimenu>编辑</guimenu><guimenuitem>转到行 ...</"
+"guimenuitem></menuchoice> 来跳到指定行。"
 
 #. (title)
 msgid "Using an older server"
@@ -6437,10 +6452,11 @@ msgid "For a folder conflict: <placeholder-1/>"
 msgstr "以下情况不支持:  <placeholder-1/>"
 
 #. (para)
+#. (para)
 msgid ""
-"Then developer B has to decide whether to go with developer A's "
-"reorganisation and merge her changes into the corresponding file in the new "
-"structure, or simply revert A's changes and keep the local file."
+"Developer B now has to decide whether to go with developer A's reorganisation "
+"and merge her changes into the corresponding file in the new structure, or "
+"simply revert A's changes and keep the local file."
 msgstr ""
 
 #. (para)
@@ -6497,13 +6513,13 @@ msgid "<filename>Foo.c</filename> is marked as deleted and has a tree conflict."
 msgstr ""
 
 #. (para)
-#. (para)
 msgid ""
 "To resolve this conflict, Developer B has to find out to what filename the "
 "conflicted file <filename>Foo.c</filename> was renamed/moved in the "
 "repository. This can be done by using the log dialog."
 msgstr ""
 
+#. (para)
 #. (para)
 msgid ""
 "Then developer B has to decide which new filename of <filename>Foo.c</"
@@ -6534,6 +6550,12 @@ msgid ""
 msgstr ""
 
 #. (para)
+msgid ""
+"<filename>Bar.c</filename> is already in the working copy with status "
+"'normal'."
+msgstr ""
+
+#. (para)
 msgid "<filename>Foo.c</filename> is marked as missing with a tree conflict."
 msgstr ""
 
@@ -6547,11 +6569,20 @@ msgstr ""
 
 #. (para)
 msgid ""
-"To resolve this conflict, Developer B has to remove the missing file in the "
-"conflict editor dialog. Then developer B has to decide whether to get the "
-"missing file <filename>Foo.c</filename> from the repository and add it to the "
-"working copy, whether to merge <filename>Foo.c</filename> into the renamed "
-"<filename>Bar.c</filename> or whether to just mark the conflict as resolved."
+"To resolve this conflict, Developer B has to mark the file as resolved in the "
+"conflict editor dialog, which will remove it from the conflict list. She then "
+"has to decide whether to copy the missing file <filename>Foo.c</filename> "
+"from the repository to the working copy, whether to merge Developer A's "
+"changes to <filename>Foo.c</filename> into the renamed <filename>Bar.c</"
+"filename> or whether to ignore the changes by marking the conflict as "
+"resolved and doing nothing else."
+msgstr ""
+
+#. (para)
+msgid ""
+"Note that if you copy the missing file from the repository and then mark as "
+"resolved, your copy will be removed again. You have to resolve the conflict "
+"first."
 msgstr ""
 
 #. (title)
@@ -6572,6 +6603,28 @@ msgid ""
 msgstr ""
 
 #. (para)
+msgid ""
+"There is an equivalent case for folder moves, but it is not yet detected in "
+"Subversion 1.6 ..."
+msgstr ""
+
+#. (para)
+#, fuzzy
+msgid ""
+"Developer A working on trunk moves parent folder <filename>FooFolder</"
+"filename> to <filename>BarFolder</filename> and commits it to the repository."
+msgstr ""
+"使用文本编辑器打开 Apache 子目录 conf 中的文件 <filename>ssl.conf</filename>。"
+
+#. (para)
+#, fuzzy
+msgid ""
+"Developer B working on a branch modifies <filename>Foo.c</filename> in her "
+"working copy."
+msgstr ""
+"在<filename>D:\\SVN\\</filename>里创建另一个目录<filename>MyNewRepository</"
+"filename>。"
+
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added."
 msgstr ""
@@ -6582,12 +6635,25 @@ msgstr ""
 
 #. (para)
 msgid ""
-"To resolve this conflict, Developer B has to decide whether to remove the "
-"file <filename>Foo.c</filename> and keep the file <filename>Bar.c</filename> "
-"instead, or whether to keep the local file <filename>Foo.c</filename>. If the "
-"local file <filename>Foo.c</filename> is kept, developer B also has to decide "
-"whether to merge the changes of <filename>Bar.c</filename> into <filename>Foo."
-"c</filename>."
+"To merge her local changes with the reshuffle, Developer B must first find "
+"out to what filename the conflicted file <filename>Foo.c</filename> was "
+"renamed/moved in the repository. This can be done by using the log dialog for "
+"the merge source. The conflict editor only shows the log for the working copy "
+"as it does not know which path was used in the merge, so you will have to "
+"find that yourself. The changes must then be merged by hand as there is "
+"currently no way to automate or even simplify this process. Once the changes "
+"have been ported across, the conflicted path is redundant and can be deleted. "
+"In this case use the <guilabel>Remove</guilabel> button in the conflict "
+"editor dialog to clean up and mark the conflict as resolved."
+msgstr ""
+
+#. (para)
+msgid ""
+"If Developer B decides that A's changes were wrong then she must choose the "
+"<guilabel>Keep</guilabel> button in the conflict editor dialog. This marks "
+"the conflicted file/folder as resolved, but Developer A's changes need to be "
+"removed by hand. Again the log dialog for the merge source helps to track "
+"down what was moved."
 msgstr ""
 
 #. (title)
@@ -6601,18 +6667,24 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<filename>Bix.c</filename> is added with status normal."
+msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
 msgstr ""
 
 #. (para)
-msgid "Tree conflict on <filename>Foo.c</filename>."
+msgid "<filename>Bar.c</filename> is marked as added with history."
+msgstr ""
+
+#. (para)
+msgid "<filename>Foo.c</filename> is marked as missing and has a tree conflict."
 msgstr ""
 
 #. (para)
 msgid ""
-"Then developer B has to decide which new filename of <filename>Foo.c</"
-"filename> to keep - the one done by developer A or the rename done in his "
-"working copy."
+"To resolve this conflict, Developer B has to find out to what filename the "
+"conflicted file <filename>Foo.c</filename> was renamed/moved in the "
+"repository. This can be done by using the log dialog for the merge source. "
+"The conflict editor only shows the log for the working copy as it does not "
+"know which path was used in the merge, so you will have to find that yourself."
 msgstr ""
 
 #. (title)
@@ -7266,6 +7338,13 @@ msgid ""
 "<placeholder-1/> There are several places from where you can show the Log "
 "dialog: <placeholder-2/>"
 msgstr "<placeholder-1/>有几种途径可以调出日志对话框: <placeholder-2/>"
+
+#. (para)
+msgid ""
+"If the repository is unavailable you will see the <guilabel>Want to go "
+"offline?</guilabel> dialog, described in <xref linkend=\"tsvn-dug-showlog-"
+"cache\"/>."
+msgstr ""
 
 #. (title)
 msgid "Revision Log Actions"
@@ -8373,12 +8452,62 @@ msgstr ""
 msgid "Offline Mode"
 msgstr "离线方式"
 
+#. (title)
+#, fuzzy
+msgid "Go Offline Dialog"
+msgstr "离线方式"
+
 #. (para)
 msgid ""
-"If the server is not reachable, and you have log caching enabled you can use "
-"the log dialog and revision graph in offline mode. This uses data from the "
-"cache, which allows you to continue working although the information may not "
-"be up-to-date or even complete."
+"<placeholder-1/> If the server is not reachable, and you have log caching "
+"enabled you can use the log dialog and revision graph in offline mode. This "
+"uses data from the cache, which allows you to continue working although the "
+"information may not be up-to-date or even complete."
+msgstr ""
+
+#. (term)
+#, fuzzy
+msgid "Offline for now"
+msgstr "离线方式"
+
+#. (para)
+msgid ""
+"Complete the current operation in offline mode, but retry the repository next "
+"time log data is requested."
+msgstr ""
+
+#. (term)
+msgid "Permanently offline"
+msgstr ""
+
+#. (para)
+msgid ""
+"Remain in offline mode until a repository check is specifically requested. "
+"See <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
+msgstr ""
+
+#. (term)
+msgid "Cancel"
+msgstr ""
+
+#. (para)
+msgid ""
+"If you don't want to continue the operation with possibly stale data, just "
+"cancel."
+msgstr ""
+
+#. (para)
+#, fuzzy
+msgid "Here you have three options: <placeholder-1/>"
+msgstr "在<placeholder-1/>创建一个版本库。"
+
+#. (para)
+msgid ""
+"The <guilabel>Make this the default</guilabel> checkbox prevents this dialog "
+"from re-appearing and always picks the option you choose next. You can still "
+"change (or remove) the default after doing this from "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</"
+"guimenuitem></menuchoice>."
 msgstr ""
 
 #. (title)
@@ -10708,20 +10837,20 @@ msgid ""
 "up. Then go to the Subversion tab. There, you can set properties. Click "
 "<guibutton>Add...</guibutton>. Select the <literal>svn:externals</literal> "
 "property from the combobox and write in the edit box the repository URL in "
-"the format <literal>name url</literal> or if you want to specify a particular "
-"revision, <literal>name -rREV url</literal> You can add multiple external "
-"projects, 1 per line. Note that URLs must be properly escaped or they will "
-"not work. For example you must replace each space with <literal>%20</"
-"literal>. Note that it is not possible to use folder names with spaces in "
+"the format <literal>url folder</literal> or if you want to specify a "
+"particular revision, <literal>-rREV url folder</literal> You can add multiple "
+"external projects, 1 per line. Note that URLs must be properly escaped or "
+"they will not work. For example you must replace each space with <literal>%"
+"20</literal>. Note that it is not possible to use folder names with spaces in "
 "them. Suppose that you have set these properties on <filename>D:\\dev"
 "\\project1</filename>: <screen>\n"
-"sounds   http://sounds.red-bean.com/repos\n"
-"quick_graphs  http://graphics.red-bean.com/repos/fast%20graphics\n"
-"skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
+"http://sounds.red-bean.com/repos  sounds\n"
+"http://graphics.red-bean.com/repos/fast%20graphics  quick_graphs\n"
+"-r21 http://svn.red-bean.com/repos/skin-maker  skins/toolkit\n"
 "</screen> Now click <guibutton>Set</guibutton> and commit your changes. When "
 "you (or any other user) update your working copy, Subversion will create a "
 "sub-folder <filename>D:\\dev\\project1\\sounds</filename> and checkout the "
-"sounds project, another sub-folder <filename>D:\\dev\\project1\\quick graphs</"
+"sounds project, another sub-folder <filename>D:\\dev\\project1\\quick_graphs</"
 "filename> containing the graphics project, and finally a nested sub-folder "
 "<filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 "
 "of the skin-maker project."
@@ -10746,6 +10875,11 @@ msgstr ""
 "<filename>D:\\dev\\project1\\skins\\toolkit</filename>包含的skin-maker工程的版"
 "本21。"
 
+#. (title)
+#, fuzzy
+msgid "Use explicit revision numbers"
+msgstr "全局版本号"
+
 #. (para)
 #, fuzzy
 msgid ""
@@ -10769,6 +10903,21 @@ msgstr ""
 "作目录到以前的版本，你的外部定义也遵循此规则，看起来是以前的版本，即外部工作副"
 "本的更新匹配<emphasis>它们</emphasis>的老版本。对于软件工程，它是你的复杂代码"
 "构建成功或失败的重要区别。"
+
+#. (title)
+#, fuzzy
+msgid "Older svn:externals definitions"
+msgstr "使用 svn:externals"
+
+#. (para)
+msgid ""
+"The format shown here was introduced in Subversion 1.5. You may also see the "
+"older format which has the same information in a different order. The new "
+"format is preferred as it supports several useful features described below, "
+"but it will not work on older clients. The differences are shown in the "
+"<ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html"
+"\"><citetitle>Subversion Book</citetitle></ulink>."
+msgstr ""
 
 #. (para)
 #. (para)
@@ -10893,6 +11042,12 @@ msgstr ""
 
 #. (para)
 msgid ""
+"You can also specify a peg revision after the URL if required, e.g. "
+"<systemitem class=\"url\">http://sounds.red-bean.com/repos@19</systemitem>."
+msgstr ""
+
+#. (para)
+msgid ""
 "If you need more information how TortoiseSVN handles Properties read <xref "
 "linkend=\"tsvn-dug-propertypage\"/>."
 msgstr ""
@@ -10906,6 +11061,51 @@ msgid ""
 msgstr ""
 "如果你需要知道存取公共子个我我你工程的不同方法，请阅读<xref linkend=\"tsvn-"
 "howto-common-projects\"/>."
+
+#. (title)
+#, fuzzy
+msgid "External Files"
+msgstr "外部"
+
+#. (para)
+msgid ""
+"As of Subversion 1.6 you can add single file externals to your working copy "
+"using the same syntax as for folders. However, there are some restrictions."
+msgstr ""
+
+#. (para)
+msgid ""
+"The path to the file external must be in a working copy that is already "
+"checked out. While directory externals can place the external directory at "
+"any depth and it will create any intermediate directories, file externals "
+"must be placed into a working copy that is already checked out."
+msgstr ""
+
+#. (para)
+msgid ""
+"The URL for a file external must be in the same repository as the URL that "
+"the file external will be inserted into; inter-repository file externals are "
+"not supported."
+msgstr ""
+
+#. (para)
+msgid ""
+"A file external behaves just like any other versioned file in many respects, "
+"but they cannot be moved or deleted using the normal commands; the "
+"<literal>svn:externals</literal> property must be modified instead."
+msgstr ""
+
+#. (title)
+msgid "File externals support incomplete in Subversion 1.6"
+msgstr ""
+
+#. (para)
+msgid ""
+"In subversion 1.6 it is not possible to remove a file external from your "
+"working copy once you have added it, even if you delete the <literal>svn:"
+"externals</literal> property altogether. You have to checkout a fresh working "
+"copy to remove the file."
+msgstr ""
 
 #. (title)
 msgid "Branching / Tagging"
@@ -13105,7 +13305,7 @@ msgstr ""
 #. (para)
 #, fuzzy
 msgid ""
-"The good news is that if you are using Log Caching, you only have to suffer "
+"The good news is that if you are using log caching, you only have to suffer "
 "this delay once. After that, log data is held locally. Log caching is enabled "
 "in TortoiseSVN's settings."
 msgstr ""
@@ -13124,8 +13324,10 @@ msgstr ""
 #, fuzzy
 msgid ""
 "Items which have been added, or created by copying another file/folder are "
-"shown using a rounded rectangle. The default colour is green. Tags are "
-"treated as a special case and use a different shade."
+"shown using a rounded rectangle. The default colour is green. Tags and trunks "
+"are treated as a special case and use a different shade, depending on the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</"
+"guimenuitem></menuchoice>"
 msgstr "已增加或通过复制生成的文件/文件夹以圆圈的方式标记。"
 
 #. (term)
@@ -13153,30 +13355,42 @@ msgid ""
 msgstr ""
 
 #. (term)
-#, fuzzy
-msgid "Replaced items"
-msgstr "替换的节点"
-
-#. (para)
-#, fuzzy
-msgid ""
-"A replaced item is one where the original item has been deleted and replaced "
-"with another item of the same name. The default colour is green."
-msgstr "该原始条目已经被删除，且有同名条目替换了的条目。"
-
-#. (term)
 msgid "Branch tip revision"
 msgstr "分支最新版本"
 
 #. (para)
-#, fuzzy
 msgid ""
-"Where a branch (or trunk or tag) has been modified since the last branch "
-"node, this is shown using an ellipse. Shown when the <guilabel>Show HEAD "
-"revisions</guilabel> option is selected."
+"The graph is normally restricted to showing branch points, but it is often "
+"useful to be able to see the respective HEAD revision for each branch too. If "
+"you select <guilabel>Show HEAD revisions</guilabel>, each HEAD revision nodes "
+"will be shown as an ellipse. Note that HEAD here refers to the last revision "
+"committed on that path, not to the HEAD revision of the repository."
 msgstr ""
-"当一个分支(或者主干或者标签)从最新的节点开始以来有了新的更改，将有一个插件显示"
-"出来。也就是说，任意分支的最新版本都会显示在分支图上。"
+
+#. (term)
+#, fuzzy
+msgid "Working copy revision"
+msgstr "当前工作副本的版本"
+
+#. (para)
+msgid ""
+"If you invoked the revision graph from a working copy, you can opt to show "
+"the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, "
+"which marks the BASE node as an ellipse with a bold outline."
+msgstr ""
+
+#. (term)
+#, fuzzy
+msgid "Modified working copy"
+msgstr "工作副本"
+
+#. (para)
+msgid ""
+"If you invoked the revision graph from a working copy, you can opt to show an "
+"additional node representing your modified working copy using <guilabel>Show "
+"WC modifications</guilabel>. This is an elliptical node with a bold outline "
+"in red by default."
+msgstr ""
 
 #. (term)
 #, fuzzy
@@ -13264,11 +13478,12 @@ msgid "Reduce cross lines"
 msgstr "减少交叉行"
 
 #. (para)
+#, fuzzy
 msgid ""
 "If the layout of the graph has produced a lot of crossing lines, use this "
 "option to clean it up. This may make the layout columns appear in less "
-"logical places, for example in a diagonal line rather than a column, and it "
-"may take a little time to optimise."
+"logical places, for example in a diagonal line rather than a column, and the "
+"graph may require a larger area to draw."
 msgstr ""
 "如果图形布局产生许多交叉行，可使用这个选项来清理。它可以让布局列在更少的逻辑位"
 "置显示，例如使用斜线而不是列，可能需要少许时间来优化显示。"
@@ -13281,9 +13496,11 @@ msgstr ""
 msgid ""
 "Long path names can take a lot of space and make the node boxes very large. "
 "Use this option to show only the changed part of a path, replacing the common "
-"part with dots. e.g. if you create a branch <literal>/branches/1.2.x/doc/"
+"part with dots. E.g. if you create a branch <literal>/branches/1.2.x/doc/"
 "html</literal> from <literal>/trunk/doc/html</literal> the branch could be "
-"shown in compact form as <literal>/branches/1.2.x/.</literal>"
+"shown in compact form as <literal>/branches/1.2.x/..</literal> because the "
+"last two levels, <literal>doc</literal> and <literal>html</literal>, did not "
+"change."
 msgstr ""
 
 #. (term)
@@ -13318,7 +13535,8 @@ msgid ""
 "taken from the last node where a change was made. Strictly speaking this is "
 "inaccurate since the branches are often made from the current HEAD rather "
 "than a specific revision. So it is possible to show the more correct (but "
-"less useful) revision that was used to create the copy."
+"less useful) revision that was used to create the copy. Note that this "
+"revision may be younger than the HEAD revision of the source branch."
 msgstr ""
 
 #. (term)
@@ -13327,10 +13545,13 @@ msgstr "折叠标签"
 
 #. (para)
 msgid ""
-"If you want to see a graph of software development, tagged releases may be of "
-"little interest to you. This option hides the nodes for tags and shows them "
-"instead in the tooltip for the node that they were copied from. A tag icon on "
-"the right side of the source node indicates that tags were made."
+"When a project has many tags, showing every tag as a separate node on the "
+"graph takes a lot of space and obscures the more interesting development "
+"branch structure. At the same time you may need to be able to access the tag "
+"content easily so that you can compare revisions. This option hides the nodes "
+"for tags and shows them instead in the tooltip for the node that they were "
+"copied from. A tag icon on the right side of the source node indicates that "
+"tags were made."
 msgstr ""
 
 #. (term)
@@ -13344,15 +13565,14 @@ msgid ""
 msgstr ""
 
 #. (term)
-msgid "Hide unused branches"
+msgid "Hide unchanged branches"
 msgstr ""
 
 #. (para)
 msgid ""
-"Hides branches where no changes were committed that affect the tree being "
-"graphed before the branch was deleted. This does not necessarily indicate "
-"that the branch was not used, just that no changes were made to "
-"<emphasis>this</emphasis> part of it."
+"Hides branches where no changes were committed to the respective file or sub-"
+"folder. This does not necessarily indicate that the branch was not used, just "
+"that no changes were made to <emphasis>this</emphasis> part of it."
 msgstr ""
 
 #. (term)
@@ -13403,7 +13623,7 @@ msgstr ""
 #. (para)
 msgid ""
 "Where the graph contains several trees, it is sometimes useful to use "
-"alternating colours on the background to help distinguish between trees,"
+"alternating colours on the background to help distinguish between trees."
 msgstr ""
 
 #. (term)
@@ -13414,7 +13634,8 @@ msgstr ""
 msgid ""
 "Shows a small picture of the entire graph, with the current view window as a "
 "rectangle which you can drag. This allows you to navigate the graph more "
-"easily."
+"easily. Note that for very large graphs the overview may become useless due "
+"to the extreme zoom factor and will therefore not be shown in such cases."
 msgstr ""
 
 #. (para)
@@ -13557,6 +13778,12 @@ msgid ""
 "<graphic fileref=\"../images/RevGraphJoin.png\"/> Click on the circle button "
 "to reattach a split tree. When a tree has been split away, this button "
 "remains visible to indicate that there is a separate sub-tree."
+msgstr ""
+
+#. (para)
+msgid ""
+"Click on the graph background for the main context menu, which offers options "
+"to <guilabel>Expand all</guilabel> and <guilabel>Join all</guilabel>."
 msgstr ""
 
 #. (title)
@@ -15282,8 +15509,8 @@ msgstr ""
 
 #. (para)
 msgid ""
-"If you opt to show an extra node for your working copy, attached to its last-"
-"commit revision on the graph, use this color."
+"If you opt to show an extra node for your modified working copy, attached to "
+"its last-commit revision on the graph, use this color."
 msgstr ""
 
 #. (term)
@@ -16314,6 +16541,29 @@ msgid ""
 "can then use the buttons underneath."
 msgstr ""
 
+#. (para)
+msgid ""
+"Click on the <guibutton>Update</guibutton> to completely refresh the cache "
+"and fill in any holes. For a large repository this could be very time "
+"consuming, but useful if you are about to go offline and want the best "
+"available cache."
+msgstr ""
+
+#. (para)
+msgid ""
+"Click on the <guibutton>Export</guibutton> button to export the entire cache "
+"as a set of CSV files. This could be useful if you want to process the log "
+"data using an external program, although it is mainly useful to the "
+"developers."
+msgstr ""
+
+#. (para)
+msgid ""
+"Click on <guibutton>Delete</guibutton> to remove all cached data for the "
+"selected repositories. This does not disable caching for the repository so "
+"the next time you request log data, a new cache will be created."
+msgstr ""
+
 #. (title)
 msgid "Log Cache Statistics"
 msgstr "日志缓存统计"
@@ -16417,29 +16667,6 @@ msgid ""
 "detailed statistics for a particular cache. Many of the fields shown here are "
 "mainly of interest to the developers of TortoiseSVN, so they are not all "
 "described in detail. <placeholder-2/>"
-msgstr ""
-
-#. (para)
-msgid ""
-"Click on the <guibutton>Update</guibutton> to completely refresh the cache "
-"and fill in any holes. For a large repository this could be very time "
-"consuming, but useful if you are about to go offline and want the best "
-"available cache."
-msgstr ""
-
-#. (para)
-msgid ""
-"Click on the <guibutton>Export</guibutton> button to export the entire cache "
-"as a set of CSV files. This could be useful if you want to process the log "
-"data using an external program, although it is mainly useful to the "
-"developers."
-msgstr ""
-
-#. (para)
-msgid ""
-"Click on <guibutton>Delete</guibutton> to remove all cached data for the "
-"selected repositories. This does not disable caching for the repository so "
-"the next time you request log data, a new cache will be created."
 msgstr ""
 
 #. (title)
