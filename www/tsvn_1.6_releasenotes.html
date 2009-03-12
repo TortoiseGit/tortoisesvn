@@ -218,14 +218,33 @@ There are many more changes in 1.6 worth mentioning:
 </p>
 <p>
 Of course, those are not all the enhancements/changes that were done for this 1.6
-release. You can get a more detailed list of changes from the changelog or
-by showing the svn log on our repository.
+release. You can get a more detailed list of changes from the 
+<a href="http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/Changelog.txt">changelog</a> 
+or by showing the svn log on our repository.
+(use 'guest' as username, leave the password empty).</p>
 </p>
 
 </div>  <!-- misc -->
 
 </div>  <!-- new features -->
 
+<div class="h2" id="issues" title="issues">
+<h2>Known issues in 1.6</h2>
+
+<div class="h3" id="file-ext" title="file-externals">
+<h3>File externals</h3>
+<p>Subversion 1.6 now supports single file externals as well as folder externals.
+However, there are some significant issues you should be aware of before using them.</p>
+<p>A file external is created by adding a value to the svn:externals property of
+a folder. However, once such a file external has been added it cannot be removed
+from the working copy, even if you delete the svn:externals property. The only
+way to remove the file from your working copy is to make a fresh checkout.
+See <a href="http://subversion.tigris.org/issues/show_bug.cgi?id=3351">Subversion issue #3351</a></p>
+<p>It is currently not possible to add a binary file as an external.
+See See <a href="http://subversion.tigris.org/issues/show_bug.cgi?id=3368">Subversion issue #3368</a></p>
+</div> <!-- file-ext -->
+
+</div>  <!-- known issues -->
 
 </div>  <!-- app -->
 </body>
