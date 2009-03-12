@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-03 10:39 +0000\n"
-"PO-Revision-Date: 2009-03-03 22:56+0200\n"
+"POT-Creation-Date: 2009-03-11 23:53 +0000\n"
+"PO-Revision-Date: 2009-03-12 22:50+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2996,137 +2996,6 @@ msgid "So as not to disturb the users, we also added the file <filename>Tortoise
 msgstr "Lopuksi lisäsimme vielä tiedoston <filename>TortoiseVars.bat</filename> isähakemistonsa ohituslistaan, ts. sisällytimme sen Subversion-ominaisuuteen <literal>svn:ignore</literal>. Siten se ei turhaan näy toimitusikkunassa."
 
 #. (title)
-msgid "Referenced Projects"
-msgstr "Viitatut projektit"
-
-#. (primary)
-msgid "external repositories"
-msgstr "ulkoiset arkistot"
-
-#. (primary)
-#. (primary)
-msgid "externals"
-msgstr "ulkoiset"
-
-#. (para)
-msgid "Sometimes it is useful to construct a working copy that is made out of a number of different checkouts. For example, you may want different subdirectories to come from different locations in a repository, or perhaps from different repositories altogether. If you want every user to have the same layout, you can define the <literal>svn:externals</literal> properties."
-msgstr "Joskus on hyödyllistä koota työkopio, joka on tehty usealla hakuoperaatiolla. Voit esimerkiksi haluta alihakemistojen tulevan eri paikoista arkistossa tai kokonaan eri arkistoista. Jos haluat kaikilla käyttäjillä olevan sama rakenne käytössä, voit tehdä sen käyttämällä <literal>svn:externals</literal>-ominaisuutta."
-
-#. (para)
-msgid ""
-"Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Click <guibutton>Add...</guibutton>. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository URL in the format <literal>name url</literal> or if you want to specify a particular revision, <literal>name -rREV url</literal> You can add multiple external projects, 1 per line. Note that URLs must be properly escaped or they will not work. For example you must replace each space with <literal>%20</literal>. Note that it is not possible to use folder names with spaces in them. Suppose that you have set these properties on <filename>D:\\dev\\project1</filename>: <screen>\n"
-"sounds   http://sounds.red-bean.com/repos\n"
-"quick_graphs  http://graphics.red-bean.com/repos/fast%20graphics\n"
-"skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
-"</screen> Now click <guibutton>Set</guibutton> and commit your changes. When you (or any other user) update your working copy, Subversion will create a sub-folder <filename>D:\\dev\\project1\\sounds</filename> and checkout the sounds project, another sub-folder <filename>D:\\dev\\project1\\quick graphs</filename> containing the graphics project, and finally a nested sub-folder <filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 of the skin-maker project."
-msgstr ""
-"Oletetaan, että haet työkopion projektista <filename>/project1</filename> kansioon <filename>D:\\dev\\project1</filename>. Valitse kansio <filename>D:\\dev\\project1</filename>, <action>napsauta hiiren oikeaa näppäintä</action> ja valitse <menuchoice><guimenu>Windows-valikko</guimenu><guimenuitem>Ominaisuudet</guimenuitem></menuchoice> kontekstivalikosta. Ominaisuusikkuna aukeaa. Siirry sitten Subversion-välilehdelle; siellä voit muuttaa ominaisuuksia. Napsauta <guibutton>Lisää...</guibutton>. Valitse ominaisuus <literal>svn:externals</literal> pudotusvalikosta ja kirjoita syötekenttään arkiston paikannin muodossa <literal>nimi paikannin</literal>, tai jos haluat määritellä tietyn version, <literal>nimi -rREV paikannin</literal>.  Voit lisätä useita ulkoisia projekteja, jokainen omalle rivilleen. Huomaa, että paikantimien on oltava täsmälleen oikein toimiakseen - välilyöntien on esimerkiksi oltava muodossa <literal>%20</literal>. Huomaa myös, ettei ole mahdollista käyttää kansionimiä, joissa on välilyöntejä. Oletetaan, että olet asettanut seuraavat ominaisuudet kansiolle <filename>D:\\dev\\project1</filename>: <screen>\n"
-"sounds   http://sounds.red-bean.com/repos\n"
-"quick_graphs  http://graphics.red-bean.com/repos/fast%20graphics\n"
-"skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
-"</screen> Napsauta nyt <guibutton>Aseta</guibutton> -painiketta ja toimita muutokset arkistoon. Kun seuraavan kerran päivität työkopiosi, Subversion luo alikansion <filename>D:\\dev\\project1\\sounds</filename> ja hakee sinne sounds-projektin, toisen alikansion <filename>D:\\dev\\project1\\quick graphs</filename> joka sisältää graphs-projektin ja lopuksi upotetun alikansion <filename>D:\\dev\\project1\\skins\\toolkit</filename>, joka sisältää skin-maker -projektin version 21."
-
-#. (para)
-msgid "You should strongly consider using explicit revision numbers in all of your externals definitions, as described above. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex code base."
-msgstr "Sinun kannattaa vakavasti harkita versionumeroiden käyttöä kaikissa ulkoisissa viittauksissa, kuten edellä kuvattiin. Kun teet näin, pääset itse päättämään, milloin otat käyttöön uuden ulkoisen komponentin version (ja minkä version siitä). Sen itsestään selvyyden ohella, että et joudu yllätetyksi jonkun kolmannen osapuolen arkistomuutosten takia (joihin et ehkä voi vaikuttaa), versionumeroiden käyttö ulkoisissa viittauksissa auttaa myös silloin, kun haluat palauttaa jonkun projektisi vanhan version - tällöin ulkoiset viittaukset palautuvat oikeisiin arvoihin. Tästä johtuen ulkoiset työkopiot päivittyvät myös tavalla, joka vastaa sitä, miltä <emphasis>ne</emphasis> näyttivät aiemmassa versiossa. Ohjelmistoprojekteille tämä voi merkitä eroa onnistuneen tai epäonnistuneen käännöksen välillä."
-
-#. (para)
-#. (para)
-msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
-msgstr "Jos ulkoinen projekti on samassa arkistossa, kaikki sinne tekemäsi muutokset sisältyvät toimituslistaan, kun toimitat muutokset pääprojektistasi arkistoon."
-
-#. (para)
-#. (para)
-msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
-msgstr "Jos ulkoinen projekti on eri arkistossa, siihen tekemistäsi muutoksista ilmoitetaan toimittaessasi pääprojektin muutoksia arkistoon.  Joudut kuitenkin toimittamaan ulkoiset muutokset erikseen."
-
-#. (para)
-msgid "If you use absolute URLs in <literal>svn:externals</literal> definitions and you have to relocate your working copy (i.e., if the URL of your repository changes), then your externals won't change and might not work anymore."
-msgstr "Jos käytät absoluuttisia paikantimia <literal>svn:externals</literal> -määrityksissä ja joudut sijoittamaan työkopiosi uudelleen (ts. jos arkistosi paikannin muuttuu), niin ulkoiset viitteet eivät päivity eivätkä siis ehkä enää toimi oikein."
-
-#. (para)
-msgid "To avoid such problems, Subversion clients version 1.5 and higher support relative external URLs. Four different methods of specifying a relative URL are supported. In the following examples, assume we have two repositories: one at <systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> and another at <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. We have a checkout of <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem> into <filename>C:\\Working</filename> and the <literal>svn:externals</literal> property is set on trunk."
-msgstr "Tällaisten ongelmien välttämiseksi Subversion (ja siis myös TortoiseSVN) tukee versiosta 1.5 alkaen suhteellisia paikantimia ulkoisissa viitteissä. Suhteellisen paikantimen voi antaa neljällä eri tavalla. Seuraavissa esimerkeissä oletetaan, että käytössä on kaksi arkistoa, <systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> ja <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. Paikantimesta <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem> on noudettu työkopio kansioon <filename>C:\\Working</filename> ja ominaisuus <literal>svn:externals</literal> on asetettu kansiolle <literal>trunk</literal>."
-
-#. (term)
-msgid "Relative to parent directory"
-msgstr "Suhteellinen isähakemistoon nähden"
-
-#. (para)
-msgid ""
-"These URLs always begin with the string <literal>../</literal> for example: <screen>\n"
-"../../widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
-msgstr ""
-"Nämä paikantimet alkavat aina merkkijonolla <literal>../</literal>: <screen>\n"
-"../../widgets/foo  common/foo-widget\n"
-"</screen> Tämä noutaa kansion <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> työkopion kansioon <filename>C:\\Working\\common\\foo-widget</filename>."
-
-#. (para)
-msgid "Note that the URL is relative to the URL of the directory with the <literal>svn:externals</literal> property, not to the directory where the external is written to disk."
-msgstr "Huomaa, että paikannin on suhteellinen siihen kansioon nähden, joka sisältää <literal>svn:externals</literal> -ominaisuuden, ei työkopion kansioon, johon paikantimen sisältö kirjoitetaan."
-
-#. (term)
-msgid "Relative to repository root"
-msgstr "Suhteessa arkiston juureen"
-
-#. (para)
-msgid ""
-"These URLs always begin with the string <literal>^/</literal> for example: <screen>\n"
-"^/widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
-msgstr ""
-"Nämä paikantimet alkavat aina merkkijonolla <literal>^/</literal>: <screen>\n"
-"^/widgets/foo  common/foo-widget\n"
-"</screen> Tämä noutaa kansion <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> työkopion kansioon <filename>C:\\Working\\common\\foo-widget</filename>."
-
-#. (para)
-msgid ""
-"You can easily refer to other repositories with the same <literal>SVNParentPath</literal> (a common directory holding several repositories). For example: <screen>\n"
-"^/../repos-2/hammers/claw  common/claw-hammer\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
-msgstr ""
-"Voit helposti viitata muihin arkistoihin, joilla on sama <literal>SVNParentPath</literal> (yhteinen hakemisto, jossa on useita arkistoja). Esimerkki: <screen>\n"
-"^/../repos-2/hammers/claw  common/claw-hammer\n"
-"</screen> Tämä noutaa kansion <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> työkopion kansioon <filename>C:\\Working\\common\\claw-hammer</filename>."
-
-#. (term)
-msgid "Relative to scheme"
-msgstr "Suhteellinen yhteyskäytäntöön nähden"
-
-#. (para)
-msgid ""
-"URLs beginning with the string <literal>//</literal> copy only the scheme part of the URL. This is useful when the same hostname must the accessed with different schemes depending upon network location; e.g. clients in the intranet use <systemitem class=\"url\">http://</systemitem> while external clients use <systemitem class=\"url\">svn+ssh://</systemitem>. For example: <screen>\n"
-"//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
-msgstr ""
-"Merkkijonolla <literal>//</literal> alkavat paikantimet jättävät yhteyskäytännön avoimeksi. Tämä on hyödyllistä, jos samaan palvelimeen on kytkeydyttävä eri yhteyskäytännöillä; esim. intranet-asiakkaat käyttävät <systemitem class=\"url\">http://</systemitem>-yhteyskäytäntöä, kun taas internet-asiakkaat käyttävät <systemitem class=\"url\">svn+ssh://</systemitem>-yhteyskäytäntöä. Esimerkki: <screen>\n"
-"//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
-"</screen> Tämä noutaa kansion <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> tai kansion <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> (työkopion hakutavasta riippuen) kansioon <filename>C:\\Working\\common\\foo-widget</filename>."
-
-#. (term)
-msgid "Relative to the server's hostname"
-msgstr "Suhteellinen palvelimen nimeen nähden"
-
-#. (para)
-msgid ""
-"URLs beginning with the string <literal>/</literal> copy the scheme and the hostname part of the URL, for example: <screen>\n"
-"/svn/repos-1/widgets/foo  common/foo-widget\n"
-"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
-msgstr ""
-"Merkkijonolla <literal>/</literal> alkavat paikantimet jättävät yhteyskäytännön ja palvelimen nimen avoimiksi. Esimerkki: <screen>\n"
-"/svn/repos-1/widgets/foo  common/foo-widget\n"
-"</screen> Tämä noutaa kansion <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> työkopion kansioon <filename>C:\\Working\\common\\foo-widget</filename>. Jos kuitenkin hat työkopiosi toiselta palvelimelta <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem>, niin ulkoinen viite noutaa kansion <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
-
-#. (para)
-msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-dug-propertypage\"/>."
-msgstr "Lisätietoa TortoiseSVN:n ominaisuuksien käsittelystä löytyy luvusta <xref linkend=\"tsvn-dug-propertypage\"/>."
-
-#. (para)
-msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
-msgstr "Eri tavoista viitata yhteisiin aliprojekteihin löytyy tietoa luvusta <xref linkend=\"tsvn-howto-common-projects\"/>."
-
-#. (title)
 msgid "Checking Out A Working Copy"
 msgstr "Työkopion hakeminen"
 
@@ -3196,6 +3065,14 @@ msgstr "Työkopio"
 msgid "Retain the depth specified in the working copy. This option is not used in the checkout dialog, but it is the default in all other dialogs which have a depth setting."
 msgstr "Säilytä työkopion määrittelemä syvyys. Tätä vaihtoehtoa ei käytetä työkopion hakuikkunassa, mutta se on oletusarvo kaikille muille toiminnoille, jotka käyttävät syvyysasetusta."
 
+#. (term)
+msgid "Exclude"
+msgstr "Jätä pois"
+
+#. (para)
+msgid "Used to reduce working copy depth after a folder has already been populated. This option is only available in the <guilabel>Update to revision</guilabel> dialog."
+msgstr "Käytetään pienentämään työkopion syvyyttä, kun kansio on jo noudettu.  Tämä valinta on käytettävissä ainoastaan <guilabel>Päivitä versioon</guilabel> -ikkunassa."
+
 #. (para)
 msgid "You can choose the <firstterm>depth</firstterm> you want to checkout, which allows you to specify the depth of recursion into child folders. If you want just a few sections of a large tree, You can checkout the top level folder only, then update selected folders recursively. <placeholder-1/>"
 msgstr "Hakiessasi työkopiota voit valita <firstterm>syvyyden</firstterm>, joka määrittää, miten syvälle alikansioihin työkopion haku etenee. Mikäli haluat vain muutamia osia suuresta versiopuusta, voit hakea työkopion vain ylätasolta ja päivittää sitten tarvittavat alikansiot palautuvasti. <placeholder-1/>"
@@ -3237,12 +3114,12 @@ msgid "Navigate to <literal>Project76/SubProj</literal> and do the same. This ti
 msgstr "Toista sama kansiolle <literal>Project76/SubProj</literal>. Huomaa tällä kertaa, että kansio <literal>Project76</literal> sisältää pelkästään hakemiston <literal>SubProj</literal>, joka on haettu kokonaisuudessaan. Subversion luo tarvittavat välikansiot automaattisesti."
 
 #. (title)
-msgid "Working copy depth cannot be reduced"
-msgstr "Työkopion syvyyttä ei voi pienentää"
+msgid "Changing working copy depth"
+msgstr "Työkopion syvyyden muuttaminen"
 
 #. (para)
-msgid "Once you have checked out a working copy to a particular depth you can increase that depth later to get more content. However you cannot reduce the depth again to remove content. That feature may be added in a later version of Subversion."
-msgstr "Kun olet kerran hakenut työkopion tietyllä syvyydellä, voit kasvattaa syvyyttä myöhemmin lisäsisällön saamiseksi. Et kuitenkaan voi pienentää syvyyttä poistaaksesi jo haettua sisältöä. Tällainen ominaisuus saatetaan lisätä Subversioniin tulevaisuudessa."
+msgid "Once you have checked out a working copy to a particular depth you can change that depth later to get more or less content using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice>."
+msgstr "Kun olet kerran hakenut työkopion tietyllä syvyydellä, voit vaihtaa syvyyttä myöhemmin komennolla <menuchoice><guimenu>Konstekstivalikko</guimenu><guimenuitem>Päivitä kohde versioon</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "Using an older server"
@@ -3785,21 +3662,16 @@ msgid "<filename>Bar.c</filename> is added to the working copy as a normal file.
 msgstr "Tiedosto <filename>Bar.c</filename> lisätään työkopioon normaalina tiedostona."
 
 #. (para)
-#. (para)
-msgid "Or <filename>BarFolder</filename> is added to the working copy as a normal folder."
-msgstr "Tai kansio <filename>BarFolder</filename> lisätään työkopioon tilassa normaalina kansiona."
-
-#. (para)
 msgid "<filename>Foo.c</filename> is marked as added (with history) and has a tree conflict."
 msgstr "Tiedosto <filename>Foo.c</filename> merkitään lisätyksi (historia kera) ja puuristiriitaiseksi."
 
 #. (para)
-msgid "Or <filename>FooFolder</filename>"
-msgstr "Tai kansio <filename>FooFolder</filename>"
-
-#. (para)
 msgid "An update of developer B's working copy results in a tree conflict. For a simple file conflict: <placeholder-1/>"
 msgstr "Kehittäjän B työkopion päivitys synnyttää puuristiriidan. Yksinkertaiselle tiedostoristiriidalle: <placeholder-1/>"
+
+#. (para)
+msgid "<filename>BarFolder</filename> is added to the working copy as a normal folder."
+msgstr "Kansio <filename>BarFolder</filename> lisätään työkopioon normaalina kansiona."
 
 #. (para)
 msgid "<filename>FooFolder</filename> is marked as added (with history) and has a tree conflict."
@@ -3814,8 +3686,9 @@ msgid "For a folder conflict: <placeholder-1/>"
 msgstr "Kansioristiriidalle: <placeholder-1/>"
 
 #. (para)
-msgid "Then developer B has to decide whether to go with developer A's reorganisation and merge her changes into the corresponding file in the new structure, or simply revert A's changes and keep the local file."
-msgstr "Nyt kehittäjän B on päätettävä, hyväksyäkö kehittäjän A uudelleen organisointi ja yhdistää muutokset uuden hierarkian vastaavaan tiedostoon, vaiko perua kehittäjän A muutokset ja säilyttää paikallinen tiedosto."
+#. (para)
+msgid "Developer B now has to decide whether to go with developer A's reorganisation and merge her changes into the corresponding file in the new structure, or simply revert A's changes and keep the local file."
+msgstr "Nyt kehittäjän B on päätettävä, hyväksyäkö kehittäjän A uudelleenjärjestelyt ja yhdistää muutoksensa uuden hierarkian vastaavaan tiedostoon, vai peruako kehittäjän A muutokset ja säilyttää paikallinen tiedosto."
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
@@ -3838,23 +3711,22 @@ msgid "Developer B moves <filename>Foo.c</filename> to <filename>Bix.c</filename
 msgstr "Kehittäjä B siirtää tiedoston <filename>Foo.c</filename> tiedostoon <filename>Bix.c</filename>"
 
 #. (para)
-msgid "<filename>Foo.c</filename> is marked as deleted. and <filename>Bix.c</filename> is marked as added."
-msgstr "Tiedosto <filename>Foo.c</filename> merkitään poistetuksi ja tiedosto <filename>Bix.c</filename> merkitään lisätyksi."
+msgid "<filename>Bix.c</filename> is marked as added with history."
+msgstr "Tiedosto <filename>Bix.c</filename> merkitään lisätyksi historian kera."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is added to the working copy with status 'normal'."
 msgstr "Tiedosto <filename>Bar.c</filename> on lisätty työkopioon tilassa 'normaali'."
 
 #. (para)
-#. (para)
-msgid "Tree conflict on <filename>Foo.c</filename>."
-msgstr "Puuristiriita tiedostossa <filename>Foo.c</filename>."
+msgid "<filename>Foo.c</filename> is marked as deleted and has a tree conflict."
+msgstr "Tiedosto <filename>Foo.c</filename> merkitään poistetuksi ja puuristiriitaiseksi."
 
-#. (para)
 #. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog."
 msgstr "Ratkaistakseen tämän ristiriidan kehittäjän B on selvitettävä, mikä on tiedoston <filename>Foo.c</filename> uusi nimi arkistossa. Tämä onnistuu loki-ikkunan avulla."
 
+#. (para)
 #. (para)
 msgid "Then developer B has to decide which new filename of <filename>Foo.c</filename> to keep - the one done by developer A or the rename done by himself."
 msgstr "Kehittäjän B on nyt päätettävä, kumman uuden tiedostonimistä <filename>Foo.c</filename> hän haluaa säilyttää - kehittäjän A tekemän vai itse tekemänsä uudelleennimennän."
@@ -3877,6 +3749,10 @@ msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <file
 msgstr "Kehittäjä B siirtää kehityshaarassa tiedoston <filename>Foo.c</filename> tiedostoon <filename>Bar.c</filename> ja toimittaa muutokset arkistoon"
 
 #. (para)
+msgid "<filename>Bar.c</filename> is already in the working copy with status 'normal'."
+msgstr "Tiedosto <filename>Bar.c</filename> on jo olemassa työkopiossa tilassa 'normaali'."
+
+#. (para)
 msgid "<filename>Foo.c</filename> is marked as missing with a tree conflict."
 msgstr "Tiedosto <filename>Foo.c</filename> merkitään puuttuvaksi ja puuristiriitaiseksi."
 
@@ -3887,8 +3763,12 @@ msgid "A merge of developer A's trunk changes to developer B's branch working co
 msgstr "Kehittäjän A päähaaramuutosten yhdistäminen kehittäjän B kehityshaaran työkopioon tuottaa puuristiriidan: <placeholder-1/>"
 
 #. (para)
-msgid "To resolve this conflict, Developer B has to remove the missing file in the conflict editor dialog. Then developer B has to decide whether to get the missing file <filename>Foo.c</filename> from the repository and add it to the working copy, whether to merge <filename>Foo.c</filename> into the renamed <filename>Bar.c</filename> or whether to just mark the conflict as resolved."
-msgstr "Ratkaistakseen tämän ristiriidan kehittäjän B on poistettava puuttuva tiedosto ristiriitaikkunassa. Tämän jälkeen kehittäjän B on päätettävä, haetaanko puuttuva tiedosto <filename>Foo.c</filename> arkistosta ja lisätään työkopioon, yhdistetäänkö tiedosto <filename>Foo.c</filename> uudelleen nimettyyn tiedostoon <filename>Bar.c</filename>, vai merkitäänkö ristiriita suoraan ratkaistuksi."
+msgid "To resolve this conflict, Developer B has to mark the file as resolved in the conflict editor dialog, which will remove it from the conflict list. She then has to decide whether to copy the missing file <filename>Foo.c</filename> from the repository to the working copy, whether to merge Developer A's changes to <filename>Foo.c</filename> into the renamed <filename>Bar.c</filename> or whether to ignore the changes by marking the conflict as resolved and doing nothing else."
+msgstr "Ratkaistakseen tämän ristiriidan kehittäjän B on merkittävä tiedosto ratkaistuksi ristiriitaikkunassa, jolloin se poistuu ristiriitaluettelosta. Tämän jälkeen hänen on päätettävä, kopioidako puuttuva tiedosto <filename>Foo.c</filename> arkistosta työkopioon, yhdistääkö kehittäjän A muutokset tiedostosta <filename>Foo.c</filename> uudelleen nimettyyn tiedostoon <filename>Bar.c</filename>, vai jättääkö muutokset huomioimatta merkitsemällä ristiriita suoraan ratkaistuksi."
+
+#. (para)
+msgid "Note that if you copy the missing file from the repository and then mark as resolved, your copy will be removed again. You have to resolve the conflict first."
+msgstr "Huomaa, että jos kopioit puuttuvan tiedoston arkistosta ja merkitset sen ratkaistuksi, kopiosi poistetaan jälleen. Sinun on ensin ratkaistava ristiriita."
 
 #. (title)
 msgid "Local edit, incoming delete upon merge"
@@ -3904,6 +3784,17 @@ msgid "Developer B working on a branch modifies <filename>Foo.c</filename> and c
 msgstr "Kehittäjä B muokkaa kehityshaarassa tiedostoa <filename>Foo.c</filename> ja toimittaa muutokset arkistoon."
 
 #. (para)
+msgid "There is an equivalent case for folder moves, but it is not yet detected in Subversion 1.6 ..."
+msgstr "Sama pätee kansioiden siirtoon, mutta sitä ei vielä havaita Subversion 1.6:ssa..."
+
+#. (para)
+msgid "Developer A working on trunk moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
+msgstr "Kehittäjä A siirtää päähaaran yläkansion <filename>FooFolder</filename> kansioon <filename>BarFolder</filename> ja toimittaa muutokset arkistoon."
+
+#. (para)
+msgid "Developer B working on a branch modifies <filename>Foo.c</filename> in her working copy."
+msgstr "Kehittäjä B muokkaa kehityshaaran tiedostoa <filename>Foo.c</filename> työkopiossaan."
+
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added."
 msgstr "Tiedosto <filename>Bar.c</filename> merkitään lisätyksi."
@@ -3913,8 +3804,12 @@ msgid "<filename>Foo.c</filename> is marked as modified with a tree conflict."
 msgstr "Tiedosto <filename>Foo.c</filename> merkitään muutetuksi ja puuristiriitaiseksi."
 
 #. (para)
-msgid "To resolve this conflict, Developer B has to decide whether to remove the file <filename>Foo.c</filename> and keep the file <filename>Bar.c</filename> instead, or whether to keep the local file <filename>Foo.c</filename>. If the local file <filename>Foo.c</filename> is kept, developer B also has to decide whether to merge the changes of <filename>Bar.c</filename> into <filename>Foo.c</filename>."
-msgstr "Ratkaistakseen tämän ristiriidan kehittäjän B on päätettävä, poistetaanko tiedosto <filename>Foo.c</filename> ja säilytetäänkö tiedosto<filename>Bar.c</filename> sen sijaan, vai säilytetäänkö paikallinen tiedosto <filename>Foo.c</filename>. Jos paikallinen tiedosto <filename>Foo.c</filename> säilytetään, kehittäjän B on myös päätettävä, yhdistetäänkö tiedoston <filename>Bar.c</filename> muutokset tiedostoon <filename>Foo.c</filename>."
+msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
+msgstr "Yhdistääkseen paikalliset muutoksensa uuteen paikkaan, kehittäjän B on ensin selvitettävä, mikä on tiedoston <filename>Foo.c</filename> uusi nimi ja/tai sijainti arkistossa. Tämän voi selvittää tutkimalla kopiolähteen loki-ikkunaa. Joudut etsimään tämän itse: ristiriitaeditori kykenee näyttämään lokin vain työkopiolle, koska se ei tiedä yhdistettäessä käytettyä polkua.  Muutokset on sitten yhdistettävä käsin - TortoiseSVN ei tällä hetkellä sisällä toimintoja asian automatisoimikseksi tai yksinkertaistamiseksi. Kun muutokset on yhdistetty, ristiriitainen polku on tarpeeton ja voidaan poistaa käyttämällä ristiriitaeditorin painiketta <guilabel>Poista</guilabel>; samalla ristiriita merkitään ratkaistuksi."
+
+#. (para)
+msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog for the merge source helps to track down what was moved."
+msgstr "Jos kehittäjä B päättää, että A:n muutokset ovat pahasta, hänen on valittava ristiriitaeditorin painike <guilabel>Säilytä</guilabel>. Tämä merkitsee ristiriitaisen tiedoston/kansion ratkaistuksi, mutta kehittäjän A muutokset on poistettava käsin. Tässäkin tapauksessa yhdistämislähteen loki-ikkunan avulla voi selvittää, mitä siirrettiin."
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
@@ -3925,12 +3820,20 @@ msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <file
 msgstr "Kehittäjä B siirtää kehityshaaran tiedoston <filename>Foo.c</filename> tiedostoon <filename>Bix.c</filename> ja toimittaa muutokset arkistoon"
 
 #. (para)
-msgid "<filename>Bix.c</filename> is added with status normal."
-msgstr "Tiedosto <filename>Bix.c</filename> on lisätty tilassa 'normaali'."
+msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
+msgstr "Tiedosto <filename>Bix.c</filename> asetetaan tilaan 'normaali' (ei muutoksia)."
 
 #. (para)
-msgid "Then developer B has to decide which new filename of <filename>Foo.c</filename> to keep - the one done by developer A or the rename done in his working copy."
-msgstr "Kehittäjän B on sitten päätettävä, kumpi tiedoston <filename>Foo.c</filename> uusista nimistä säilytetään - kehittäjän A tekemä vai työkopiossa tehty uudelleen nimeäminen."
+msgid "<filename>Bar.c</filename> is marked as added with history."
+msgstr "Tiedosto <filename>Bar.c</filename> merkitään lisätyksi historian kera."
+
+#. (para)
+msgid "<filename>Foo.c</filename> is marked as missing and has a tree conflict."
+msgstr "Tiedosto <filename>Foo.c</filename> merkitään puuttuvaksi ja puuristiriitaiseksi."
+
+#. (para)
+msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself."
+msgstr "Ratkaistakseen tämän ristiriidan kehittäjän B on selvitettävä, mikä on tiedoston <filename>Foo.c</filename> uusi nimi arkistossa. Tämä onnistuu yhdistämislähteen loki-ikkunan avulla. Ristiriitaeditori näyttää lokin vain työkopiolle, koska se ei tiedä yhdistettäessä käytettyä polkua, joten joudut etsimään sen itse."
 
 #. (title)
 msgid "Getting Status Information"
@@ -4254,6 +4157,10 @@ msgstr "Etenemisikkunasta päivityksen päätyttyä. Tällöin loki näyttää v
 #. (para)
 msgid "<placeholder-1/> There are several places from where you can show the Log dialog: <placeholder-2/>"
 msgstr "<placeholder-1/> Voit avata loki-ikkunan useista paikoista: <placeholder-2/>"
+
+#. (para)
+msgid "If the repository is unavailable you will see the <guilabel>Want to go offline?</guilabel> dialog, described in <xref linkend=\"tsvn-dug-showlog-cache\"/>."
+msgstr "Jos arkisto ei ole saatavilla, saat ilmoituksen <guilabel>Siirrytäänkö yhteydettömään tilaan?</guilabel>, joka on kuvattu luvussa <xref linkend=\"tsvn-dug-showlog-cache\"/>."
 
 #. (title)
 msgid "Revision Log Actions"
@@ -4859,9 +4766,45 @@ msgstr "Huomaa, että tilastot kattavat saman jakson, minkä loki näyttää. Jo
 msgid "Offline Mode"
 msgstr "Yhteydetön tila"
 
+#. (title)
+msgid "Go Offline Dialog"
+msgstr "Yhteydetön tila"
+
 #. (para)
-msgid "If the server is not reachable, and you have log caching enabled you can use the log dialog and revision graph in offline mode. This uses data from the cache, which allows you to continue working although the information may not be up-to-date or even complete."
-msgstr "Jos palvelimeen ei saada yhteyttä ja lokiviestien talletus on päällä, voit käyttää loki-ikkunaa ja versiograafia yhteydettömässä tilassa. Tämä käyttää paikallisesti talletettuja lokitietoja, minkä ansiosta voit jatkaa työskentelyä, vaikka tiedot eivät välttämättä ole ajan tasalla tai edes täydellisiä."
+msgid "<placeholder-1/> If the server is not reachable, and you have log caching enabled you can use the log dialog and revision graph in offline mode. This uses data from the cache, which allows you to continue working although the information may not be up-to-date or even complete."
+msgstr "<placeholder-1/> Jos palvelimeen ei saada yhteyttä ja lokiviestien talletus on päällä, voit käyttää loki-ikkunaa ja versiograafia yhteydettömässä tilassa. Tällöin käytetään paikallisesti talletettuja lokitietoja, ja voit jatkaa työskentelyä, vaikka tiedot eivät välttämättä ole ajan tasalla tai täydellisiä."
+
+#. (term)
+msgid "Offline for now"
+msgstr "Yhteydetön toistaiseksi"
+
+#. (para)
+msgid "Complete the current operation in offline mode, but retry the repository next time log data is requested."
+msgstr "Saata nykyinen toiminto päätökseen yhteydettömässä tilassa, mutta yritä kytkeytymistä uudelleen seuraavalla kerralla."
+
+#. (term)
+msgid "Permanently offline"
+msgstr "Pysyvästi yhteydetön"
+
+#. (para)
+msgid "Remain in offline mode until a repository check is specifically requested. See <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
+msgstr "Pysy yhteydettömässä tilassa kunnes arkistotarkistusta erityisesti pyydetään. Katso luku <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
+
+#. (term)
+msgid "Cancel"
+msgstr "Peru"
+
+#. (para)
+msgid "If you don't want to continue the operation with possibly stale data, just cancel."
+msgstr "Jos et halua jatkaa toimintoa mahdollisesti vanhentuneilla tiedoilla, peruuta se."
+
+#. (para)
+msgid "Here you have three options: <placeholder-1/>"
+msgstr "Tässä sinulla on kolme vaihtoehtoa: <placeholder-1/>"
+
+#. (para)
+msgid "The <guilabel>Make this the default</guilabel> checkbox prevents this dialog from re-appearing and always picks the option you choose next. You can still change (or remove) the default after doing this from <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>."
+msgstr "Valinta <guilabel>Tee tästä oletusarvo</guilabel> estää ikkunan näyttämisen uudelleen ja valitsee sen sijaan aina vaihtoehdon, jonka valitset seuraavaksi. Voi yhä vaihtaa (tai poistaa) oletuksen toiminnolla <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Asetukset</guimenuitem></menuchoice>."
 
 #. (title)
 #. (title)
@@ -5735,8 +5678,8 @@ msgid "<placeholder-1/> You can read and set the Subversion properties from the 
 msgstr "<placeholder-1/> Voit katsoa ja asettaa Subversion-ominaisuuksia Resurssienhallinnan ominaisuusikkunasta, mutta se onnistuu myös TortoiseSVN-alivalikosta,  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ominaisuudet</guimenuitem></menuchoice>."
 
 #. (para)
-msgid "You can add your own properties, or some properties with a special meaning in Subversion. These begin with <literal>svn:</literal>. <literal>svn:externals</literal> is such a property; see how to handle externals in <xref linkend=\"tsvn-dug-import-4\"/>."
-msgstr "Voit lisätä omia ominaisuuksiasi tai tiettyjä ominaisuuksia, joilla on erityismerkitys Subversionille. Jälkimmäiset alkavat etuliitteellä <literal>svn:</literal>; esimerkiksi  <literal>svn:externals</literal> on tällainen ominaisuus (katso lisää ulkoisten viitteiden käytöstä luvusta <xref linkend=\"tsvn-dug-import-4\"/>)."
+msgid "You can add your own properties, or some properties with a special meaning in Subversion. These begin with <literal>svn:</literal>. <literal>svn:externals</literal> is such a property; see how to handle externals in <xref linkend=\"tsvn-dug-externals\"/>."
+msgstr "Voit lisätä sekä omia ominaisuuksiasi että ominaisuuksia, joilla on erityismerkitys Subversionille. Jälkimmäiset alkavat etuliitteellä <literal>svn:</literal>. Esimerkiksi  <literal>svn:externals</literal> on tällainen ominaisuus; katso lisää ulkoisten viitteiden käytöstä luvusta <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (title)
 msgid "svn:keywords"
@@ -5815,8 +5758,8 @@ msgid "If you wish to remove an existing property, select that property from the
 msgstr "Jos haluat poistaa olemassa olevan ominaisuuden, valitse ominaisuus listasta ja napsauta <guibutton>Poista</guibutton>."
 
 #. (para)
-msgid "The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository. For more information, read <xref linkend=\"tsvn-dug-import-4\"/>."
-msgstr "Ominaisuutta <literal>svn:externals</literal> voidaan käyttää toisten, samassa tai eri arkistossa olevien projektien kytkemiseen työkopioon. Lue lisää luvusta <xref linkend=\"tsvn-dug-import-4\"/>."
+msgid "The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository. For more information, read <xref linkend=\"tsvn-dug-externals\"/>."
+msgstr "Ominaisuutta <literal>svn:externals</literal> voidaan käyttää toisten, samassa tai eri arkistossa olevien projektien kytkemiseksi työkopioon. Lue lisää luvusta <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (title)
 msgid "Exporting and Importing Properties"
@@ -5998,6 +5941,185 @@ msgstr "Kun lisäät uusia alikansioita TortoiseSVN:n avulla, mahdolliset projek
 #. (para)
 msgid "Although TortoiseSVN's project properties are extremely useful, they only work with TortoiseSVN, and some will only work in newer versions of TortoiseSVN. If people working on your project use a variety of Subversion clients, or possibly have old versions of TortoiseSVN, you may want to use repository hooks to enforce project policies. project properties can only help to implement a policy, they cannot enforce it."
 msgstr "Vaikka TortoiseSVN:n projektiominaisuudet ovat varsin hyödyllisiä, ne toimivat vain TortoiseSVN-ohjelmassa (ja jotkut eivät edes kaikissa versioissa). Jos projektissasi käytetään useita Subversion-asiakkaita (tai eri TortoiseSVN-versioita), saatat haluta asentaa palvelimellle toimintokomentojonoja pakottamaan halutut projektikäytännöt. Projektiominaisuudet voivat vain auttaa käytännön toteuttamisessa, ei siihen pakottamisessa."
+
+#. (title)
+msgid "External Items"
+msgstr "Ulkoiset kohteet"
+
+#. (primary)
+msgid "external repositories"
+msgstr "ulkoiset arkistot"
+
+#. (primary)
+#. (primary)
+msgid "externals"
+msgstr "ulkoiset"
+
+#. (para)
+msgid "Sometimes it is useful to construct a working copy that is made out of a number of different checkouts. For example, you may want different files or subdirectories to come from different locations in a repository, or perhaps from different repositories altogether. If you want every user to have the same layout, you can define the <literal>svn:externals</literal> properties to pull in the specified resource at the locations where they are needed."
+msgstr "Joskus on hyödyllistä muodostaa työkopio, joka on tehty usealla hakuoperaatiolla. Voit esimerkiksi haluta alihakemistojen tulevan eri paikoista arkistossa tai jopa kokonaan eri arkistoista. Jos haluat, että kaikilla käyttäjillä olevan sama hakemistorakenne käytössä, voit määrittää <literal>svn:externals</literal>-ominaisuuksia noutamaan määritellyt resurssit tarvittaviin paikkoihin."
+
+#. (title)
+msgid "External Folders"
+msgstr "Ulkoiset kansiot"
+
+#. (para)
+msgid ""
+"Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Click <guibutton>Add...</guibutton>. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository URL in the format <literal>url folder</literal> or if you want to specify a particular revision, <literal>-rREV url folder</literal> You can add multiple external projects, 1 per line. Note that URLs must be properly escaped or they will not work. For example you must replace each space with <literal>%20</literal>. Note that it is not possible to use folder names with spaces in them. Suppose that you have set these properties on <filename>D:\\dev\\project1</filename>: <screen>\n"
+"http://sounds.red-bean.com/repos  sounds\n"
+"http://graphics.red-bean.com/repos/fast%20graphics  quick_graphs\n"
+"-r21 http://svn.red-bean.com/repos/skin-maker  skins/toolkit\n"
+"</screen> Now click <guibutton>Set</guibutton> and commit your changes. When you (or any other user) update your working copy, Subversion will create a sub-folder <filename>D:\\dev\\project1\\sounds</filename> and checkout the sounds project, another sub-folder <filename>D:\\dev\\project1\\quick_graphs</filename> containing the graphics project, and finally a nested sub-folder <filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 of the skin-maker project."
+msgstr ""
+"Oletetaan, että haet työkopion projektista <filename>/project1</filename> kansioon <filename>D:\\dev\\project1</filename>. Valitse kansio <filename>D:\\dev\\project1</filename>, <action>napsauta hiiren oikeaa näppäintä</action> ja valitse <menuchoice><guimenu>Windows-valikko</guimenu><guimenuitem>Ominaisuudet</guimenuitem></menuchoice> kontekstivalikosta. Ominaisuusikkuna aukeaa. Siirry sitten Subversion-välilehdelle,  jossa voit muuttaa ominaisuuksia. Napsauta <guibutton>Lisää...</guibutton>, valitse ominaisuus <literal>svn:externals</literal> pudotusvalikosta ja kirjoita syötekenttään arkiston paikannin muodossa <literal>paikannin kansio</literal>, tai jos haluat määritellä tietyn version, <literal>-rREV paikannin kansio</literal>.  Voit lisätä useita ulkoisia projekteja, jokainen omalle rivilleen. Huomaa, että paikantimien on oltava täsmälleen oikein toimiakseen - välilyöntien on esimerkiksi oltava muodossa <literal>%20</literal>. Huomaa myös, ettei ole mahdollista käyttää kansionimiä, joissa on välilyöntejä. Oletetaan, että olet asettanut seuraavat ominaisuudet kansiolle <filename>D:\\dev\\project1</filename>: <screen>\n"
+"http://sounds.red-bean.com/repos sounds\n"
+"http://graphics.red-bean.com/repos/fast%20graphics quick_graphs\n"
+"-r21 http://svn.red-bean.com/repos/skin-maker skins/toolkit\n"
+"</screen> Napsauta nyt <guibutton>Aseta</guibutton> -painiketta ja toimita muutokset arkistoon. Kun seuraavan kerran päivität työkopiosi, Subversion luo alikansion <filename>D:\\dev\\project1\\sounds</filename> ja hakee sinne sounds-projektin, toisen alikansion <filename>D:\\dev\\project1\\quick graphs</filename> joka sisältää graphics-projektin ja lopuksi upotetun alikansion <filename>D:\\dev\\project1\\skins\\toolkit</filename>, joka sisältää skin-maker -projektin version 21."
+
+#. (title)
+msgid "Use explicit revision numbers"
+msgstr "Käytä eksplisiittisiä versionumeroita"
+
+#. (para)
+msgid "You should strongly consider using explicit revision numbers in all of your externals definitions, as described above. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex code base."
+msgstr "Sinun kannattaa vakavasti harkita versionumeroiden käyttöä kaikissa ulkoisissa viittauksissa, kuten edellä kuvattiin. Kun teet näin, pääset itse päättämään, milloin otat käyttöön uuden ulkoisen komponentin version (ja minkä version siitä). Sen itsestään selvyyden ohella, että et joudu yllätetyksi jonkun kolmannen osapuolen arkistomuutosten takia (joihin et ehkä voi vaikuttaa), versionumeroiden käyttö ulkoisissa viittauksissa auttaa myös silloin, kun haluat palauttaa jonkun projektisi vanhan version - tällöin ulkoiset viittaukset palautuvat oikeisiin arvoihin. Tästä johtuen ulkoiset työkopiot päivittyvät myös tavalla, joka vastaa sitä, miltä <emphasis>ne</emphasis> näyttivät aiemmassa versiossa. Ohjelmistoprojekteille tämä voi merkitä eroa onnistuneen tai epäonnistuneen käännöksen välillä."
+
+#. (title)
+msgid "Older svn:externals definitions"
+msgstr "Vanhemmat svn:externals -viittaukset"
+
+#. (para)
+msgid "The format shown here was introduced in Subversion 1.5. You may also see the older format which has the same information in a different order. The new format is preferred as it supports several useful features described below, but it will not work on older clients. The differences are shown in the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html\"><citetitle>Subversion Book</citetitle></ulink>."
+msgstr "Tässä näytetty rakenne toteutettiin Subversion-versioon 1.5. Saatat myös törmätä vanhempaan rakenteeseen, jossa on samat tiedot eri järjestyksessä. Uusi rakenne on suositeltavampi, koska se tukee useita hyödyllisiä toimintoja, jotka on kuvattu alla; se ei kuitenkaan toimi vanhempien asiakasversioiden kanssa. Erot on kuvattu <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html\"><citetitle>Subversion-kirjassa</citetitle></ulink>."
+
+#. (para)
+#. (para)
+msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
+msgstr "Jos ulkoinen projekti on samassa arkistossa, kaikki sinne tekemäsi muutokset sisältyvät toimituslistaan, kun toimitat muutokset pääprojektistasi arkistoon."
+
+#. (para)
+#. (para)
+msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
+msgstr "Jos ulkoinen projekti on eri arkistossa, siihen tekemistäsi muutoksista ilmoitetaan toimittaessasi pääprojektin muutoksia arkistoon.  Joudut kuitenkin toimittamaan ulkoiset muutokset erikseen."
+
+#. (para)
+msgid "If you use absolute URLs in <literal>svn:externals</literal> definitions and you have to relocate your working copy (i.e., if the URL of your repository changes), then your externals won't change and might not work anymore."
+msgstr "Jos käytät absoluuttisia paikantimia <literal>svn:externals</literal> -määrityksissä ja joudut sijoittamaan työkopiosi uudelleen (ts. jos arkistosi paikannin muuttuu), niin ulkoiset viitteet eivät päivity eivätkä siis ehkä enää toimi oikein."
+
+#. (para)
+msgid "To avoid such problems, Subversion clients version 1.5 and higher support relative external URLs. Four different methods of specifying a relative URL are supported. In the following examples, assume we have two repositories: one at <systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> and another at <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. We have a checkout of <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem> into <filename>C:\\Working</filename> and the <literal>svn:externals</literal> property is set on trunk."
+msgstr "Tällaisten ongelmien välttämiseksi Subversion (ja siis myös TortoiseSVN) tukee versiosta 1.5 alkaen suhteellisia paikantimia ulkoisissa viitteissä. Suhteellisen paikantimen voi antaa neljällä eri tavalla. Seuraavissa esimerkeissä oletetaan, että käytössä on kaksi arkistoa, <systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> ja <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. Paikantimesta <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem> on noudettu työkopio kansioon <filename>C:\\Working</filename> ja ominaisuus <literal>svn:externals</literal> on asetettu kansiolle <literal>trunk</literal>."
+
+#. (term)
+msgid "Relative to parent directory"
+msgstr "Suhteellinen isähakemistoon nähden"
+
+#. (para)
+msgid ""
+"These URLs always begin with the string <literal>../</literal> for example: <screen>\n"
+"../../widgets/foo  common/foo-widget\n"
+"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
+msgstr ""
+"Nämä paikantimet alkavat aina merkkijonolla <literal>../</literal>: <screen>\n"
+"../../widgets/foo  common/foo-widget\n"
+"</screen> Tämä noutaa kansion <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> työkopion kansioon <filename>C:\\Working\\common\\foo-widget</filename>."
+
+#. (para)
+msgid "Note that the URL is relative to the URL of the directory with the <literal>svn:externals</literal> property, not to the directory where the external is written to disk."
+msgstr "Huomaa, että paikannin on suhteellinen siihen kansioon nähden, joka sisältää <literal>svn:externals</literal> -ominaisuuden, ei työkopion kansioon, johon paikantimen sisältö kirjoitetaan."
+
+#. (term)
+msgid "Relative to repository root"
+msgstr "Suhteessa arkiston juureen"
+
+#. (para)
+msgid ""
+"These URLs always begin with the string <literal>^/</literal> for example: <screen>\n"
+"^/widgets/foo  common/foo-widget\n"
+"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
+msgstr ""
+"Nämä paikantimet alkavat aina merkkijonolla <literal>^/</literal>: <screen>\n"
+"^/widgets/foo  common/foo-widget\n"
+"</screen> Tämä noutaa kansion <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> työkopion kansioon <filename>C:\\Working\\common\\foo-widget</filename>."
+
+#. (para)
+msgid ""
+"You can easily refer to other repositories with the same <literal>SVNParentPath</literal> (a common directory holding several repositories). For example: <screen>\n"
+"^/../repos-2/hammers/claw  common/claw-hammer\n"
+"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
+msgstr ""
+"Voit helposti viitata muihin arkistoihin, joilla on sama <literal>SVNParentPath</literal> (yhteinen hakemisto, jossa on useita arkistoja). Esimerkki: <screen>\n"
+"^/../repos-2/hammers/claw  common/claw-hammer\n"
+"</screen> Tämä noutaa kansion <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> työkopion kansioon <filename>C:\\Working\\common\\claw-hammer</filename>."
+
+#. (term)
+msgid "Relative to scheme"
+msgstr "Suhteellinen yhteyskäytäntöön nähden"
+
+#. (para)
+msgid ""
+"URLs beginning with the string <literal>//</literal> copy only the scheme part of the URL. This is useful when the same hostname must the accessed with different schemes depending upon network location; e.g. clients in the intranet use <systemitem class=\"url\">http://</systemitem> while external clients use <systemitem class=\"url\">svn+ssh://</systemitem>. For example: <screen>\n"
+"//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
+msgstr ""
+"Merkkijonolla <literal>//</literal> alkavat paikantimet jättävät yhteyskäytännön avoimeksi. Tämä on hyödyllistä, jos samaan palvelimeen on kytkeydyttävä eri yhteyskäytännöillä; esim. intranet-asiakkaat käyttävät <systemitem class=\"url\">http://</systemitem>-yhteyskäytäntöä, kun taas internet-asiakkaat käyttävät <systemitem class=\"url\">svn+ssh://</systemitem>-yhteyskäytäntöä. Esimerkki: <screen>\n"
+"//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen> Tämä noutaa kansion <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> tai kansion <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> (työkopion hakutavasta riippuen) kansioon <filename>C:\\Working\\common\\foo-widget</filename>."
+
+#. (term)
+msgid "Relative to the server's hostname"
+msgstr "Suhteellinen palvelimen nimeen nähden"
+
+#. (para)
+msgid ""
+"URLs beginning with the string <literal>/</literal> copy the scheme and the hostname part of the URL, for example: <screen>\n"
+"/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
+msgstr ""
+"Merkkijonolla <literal>/</literal> alkavat paikantimet jättävät yhteyskäytännön ja palvelimen nimen avoimiksi. Esimerkki: <screen>\n"
+"/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen> Tämä noutaa kansion <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> työkopion kansioon <filename>C:\\Working\\common\\foo-widget</filename>. Jos kuitenkin hat työkopiosi toiselta palvelimelta <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem>, niin ulkoinen viite noutaa kansion <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
+
+#. (para)
+msgid "You can also specify a peg revision after the URL if required, e.g. <systemitem class=\"url\">http://sounds.red-bean.com/repos@19</systemitem>."
+msgstr "Mikäli tarpeen, voit myös määritellä paikantimen jälkeen ankkuriversion (engl. peg revision), esim. <systemitem class=\"url\">http://sounds.red-bean.com/repos@19</systemitem>."
+
+#. (para)
+msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-dug-propertypage\"/>."
+msgstr "Lisätietoa TortoiseSVN:n ominaisuuksien käsittelystä löytyy luvusta <xref linkend=\"tsvn-dug-propertypage\"/>."
+
+#. (para)
+msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
+msgstr "Eri tavoista viitata yhteisiin aliprojekteihin löytyy tietoa luvusta <xref linkend=\"tsvn-howto-common-projects\"/>."
+
+#. (title)
+msgid "External Files"
+msgstr "Ulkoiset tiedostot"
+
+#. (para)
+msgid "As of Subversion 1.6 you can add single file externals to your working copy using the same syntax as for folders. However, there are some restrictions."
+msgstr "Versiosta 1.6 alkaen voit lisätä ulkoisia viittauksia yksittäisiin tiedostoihin työkopiossasi samaan tapaan kuin ulkoisten kansioiden yhteydessä. Tähän liittyy kuitenkin muutamia rajoituksia."
+
+#. (para)
+msgid "The path to the file external must be in a working copy that is already checked out. While directory externals can place the external directory at any depth and it will create any intermediate directories, file externals must be placed into a working copy that is already checked out."
+msgstr "Ulkoisen tiedoston polun on oltava olemassa työkopiossa. Vertaa tätä ulkoisten hakemistojen käsittelyyn: ne voivat sijoittaa kohteensa halutulle syvyydelle ja puuttuvat välihakemistot luodaan automaattisesti. Ulkoiselle tiedostolle tämä ei ole sallittua."
+
+#. (para)
+msgid "The URL for a file external must be in the same repository as the URL that the file external will be inserted into; inter-repository file externals are not supported."
+msgstr "Ulkoisen tiedoston paikantimen on viitattava samaan arkistoon, missä se sijaitsee; arkistojen väliset ulkoiset tiedostot eivät ole tuettuja."
+
+#. (para)
+msgid "A file external behaves just like any other versioned file in many respects, but they cannot be moved or deleted using the normal commands; the <literal>svn:externals</literal> property must be modified instead."
+msgstr "Ulkoinen tiedosto käyttäytyy useimmiten normaalin versioidun tiedoston tavoin, mutta niitä ei voi siirtää tai poistaa tavanomaisilla komennoilla vaan muokkaamalla <literal>svn:externals</literal>-ominaisuutta."
+
+#. (title)
+msgid "File externals support incomplete in Subversion 1.6"
+msgstr "Ulkoisten tiedostojen tuki puutteellista Subversion 1.6:ssa"
+
+#. (para)
+msgid "In subversion 1.6 it is not possible to remove a file external from your working copy once you have added it, even if you delete the <literal>svn:externals</literal> property altogether. You have to checkout a fresh working copy to remove the file."
+msgstr "Versiossa 1.6 ulkoisen tiedoston poisto työkopiosta ei ole mahdollista, kun olet kerran lisännyt sen (ei edes poistamalla <literal>svn:externals</literal>-ominaisuuden). Poistaaksesi tiedoston sinun on haettava uusi työkopio."
 
 #. (title)
 msgid "Branching / Tagging"
@@ -7017,7 +7139,7 @@ msgid "In order to generate the graph, TortoiseSVN must fetch all log messages f
 msgstr "Luodakseen graafin, TortoiseSVN:n on noudettava kaikki lokiviestit arkiston juuresta. Kuten varmaan arvaat, tämä saattaa viedä useita minuutteja, jopa arkistolle, jossa on vain muutamia tuhansia versioita. Nopeus riippuu palvelimesta, verkkoyhteyden laadusta jne. Jos koetat komentoa todella suurelle arkistolle (kuten esim <emphasis>Apache</emphasis>, jolla on nykyään yli 500000 versiota), voit joutua odottelemaan jonkin aikaa."
 
 #. (para)
-msgid "The good news is that if you are using Log Caching, you only have to suffer this delay once. After that, log data is held locally. Log caching is enabled in TortoiseSVN's settings."
+msgid "The good news is that if you are using log caching, you only have to suffer this delay once. After that, log data is held locally. Log caching is enabled in TortoiseSVN's settings."
 msgstr "Hyvä uutinen on se, että jos säilytät lokiviestit paikallisesti, tämä viive tapahtuu vain kerran. Sen jälkeen lokitiedot tallettuvat paikallisesti. Toiminto otetaan käyttöön TortoiseSVN:n asetuksista."
 
 #. (title)
@@ -7029,8 +7151,8 @@ msgid "Added or copied items"
 msgstr "Lisätyt tai kopioidut kohteet"
 
 #. (para)
-msgid "Items which have been added, or created by copying another file/folder are shown using a rounded rectangle. The default colour is green. Tags are treated as a special case and use a different shade."
-msgstr "Tiedostot, jotka on lisätty tai luotu kopioimalla toinen tiedosto, näytetään pyöristetyn suorakaiteen avulla. Oletusväri on vihreä. Merkkejä (engl. tag) käsitellään erikoistapauksina; niillä on mm. eri värisävy."
+msgid "Items which have been added, or created by copying another file/folder are shown using a rounded rectangle. The default colour is green. Tags and trunks are treated as a special case and use a different shade, depending on the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>"
+msgstr "Kohteet, jotka on lisätty tai luotu kopioimalla toinen tiedosto/kansio, näytetään pyöristetyn suorakaiteen avulla. Oletusväri on vihreä. Merkkejä (engl. tag) ja päähaaraa (engl. trunk) käsitellään erikoistapauksina; niillä on eri värisävy, jonka voi asettaa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Asetukset</guimenuitem></menuchoice> -ikkunassa."
 
 #. (term)
 msgid "Deleted items"
@@ -7049,20 +7171,28 @@ msgid "Renamed items are also shown using an octagon, but the default colour is 
 msgstr "Uudelleen nimetyt kohteet näytetään myös kahdeksankulmioina, mutta oletusväri on sininen."
 
 #. (term)
-msgid "Replaced items"
-msgstr "Korvatut kohteet"
-
-#. (para)
-msgid "A replaced item is one where the original item has been deleted and replaced with another item of the same name. The default colour is green."
-msgstr "Korvattu kohde tulee kyseeseen tilanteessa, jossa alkuperäinen kohde on poistettu ja korvattu uudella, saman nimisellä kohteella. Oletusväri on vihreä."
-
-#. (term)
 msgid "Branch tip revision"
 msgstr "Haaraversio"
 
 #. (para)
-msgid "Where a branch (or trunk or tag) has been modified since the last branch node, this is shown using an ellipse. Shown when the <guilabel>Show HEAD revisions</guilabel> option is selected."
-msgstr "Kun haaraa (tai päähaaraa/merkkiä) on muutettu viimeisimmän haarautumisen jälkeen, se näytetään ellipsinä. Symboli näytetään, kun vaihtoehto <guilabel>Näytä uusimmat versiot (HEAD)</guilabel> on valittu."
+msgid "The graph is normally restricted to showing branch points, but it is often useful to be able to see the respective HEAD revision for each branch too. If you select <guilabel>Show HEAD revisions</guilabel>, each HEAD revision nodes will be shown as an ellipse. Note that HEAD here refers to the last revision committed on that path, not to the HEAD revision of the repository."
+msgstr "Graafissa näytetään normaalisti vain haarautumispisteet, mutta usein on hyödyllistä pystyä myös näkemään kunkin haaran HEAD-versio. Valinta <guilabel>Näytä uusimmat versiot (HEAD)</guilabel> näyttää HEAD-versiot ellipseinä. Huomaa, että tässä HEAD viittaa kuhunkin polkuun viimeksi toimitettuun versioon, ei koko arkiston HEAD-versioon."
+
+#. (term)
+msgid "Working copy revision"
+msgstr "Työkopion versio"
+
+#. (para)
+msgid "If you invoked the revision graph from a working copy, you can opt to show the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, which marks the BASE node as an ellipse with a bold outline."
+msgstr "Jos käynnistit versiograafin työkopiolle, voit näyttää myös kantaversion (BASE) valinnalla <guilabel>Näytä työkopion versio</guilabel>, joka merkitsee BASE-solmut ellipseillä, joilla on korostetut reunat."
+
+#. (term)
+msgid "Modified working copy"
+msgstr "Muutettu työkopio"
+
+#. (para)
+msgid "If you invoked the revision graph from a working copy, you can opt to show an additional node representing your modified working copy using <guilabel>Show WC modifications</guilabel>. This is an elliptical node with a bold outline in red by default."
+msgstr "Jos käynnisit versiograafin työkopiolle, voit näyttää työkopion muutokset ylimääräisellä solmulla valitsemalla <guilabel>Näytä työkopion muutokset</guilabel>. Muutokset näytetään ellipsinä, jolla on oletusarvoisesti punainen reunus."
 
 #. (term)
 msgid "Normal item"
@@ -7117,16 +7247,16 @@ msgid "Reduce cross lines"
 msgstr "Vähennä kaarien ja solmujen leikkauksia"
 
 #. (para)
-msgid "If the layout of the graph has produced a lot of crossing lines, use this option to clean it up. This may make the layout columns appear in less logical places, for example in a diagonal line rather than a column, and it may take a little time to optimise."
-msgstr "Jos graafin asettelu on tuottanut paljon risteäviä viivoja, käytä tätä valintaa oikaisemaan tilanne. Valinta saattaa siirtää asettelusarakkeet näkymään vähemmän loogisissa paikoissa, muuttaen esim. sarakkeen esitystavan diagonaaliseksi. Asettelun laskemiseen saattaa mennä myös jonkun aikaa."
+msgid "If the layout of the graph has produced a lot of crossing lines, use this option to clean it up. This may make the layout columns appear in less logical places, for example in a diagonal line rather than a column, and the graph may require a larger area to draw."
+msgstr "Jos graafin asettelu on tuottanut paljon risteäviä viivoja, käytä tätä valintaa oikaisemaan tilanne. Valinta saattaa siirtää asettelusarakkeet näkymään vähemmän loogisissa paikoissa, muuttaen esim. sarakkeen esitystavan diagonaaliseksi. Graafi saattaa myös vaatia enemmän tilaa."
 
 #. (term)
 msgid "Differential path names"
 msgstr "Osittaiset polkunimet"
 
 #. (para)
-msgid "Long path names can take a lot of space and make the node boxes very large. Use this option to show only the changed part of a path, replacing the common part with dots. e.g. if you create a branch <literal>/branches/1.2.x/doc/html</literal> from <literal>/trunk/doc/html</literal> the branch could be shown in compact form as <literal>/branches/1.2.x/.</literal>"
-msgstr "Pitkät polkunimet voivat vaatia paljon tilaa ja tehdä solmuista isokokoisia. Tämä valinta näyttää ainoastaan polun muuttuneen osan ja korvaa yhteisen osan pisteillä. Jos esimerkiksi luot haaran <literal>/branches/1.2.x/doc/html</literal> päähaarasta <literal>/trunk/doc/html</literal>, niin haara voidaan esittää tiiviissä muodossa <literal>/branches/1.2.x/.</literal>"
+msgid "Long path names can take a lot of space and make the node boxes very large. Use this option to show only the changed part of a path, replacing the common part with dots. E.g. if you create a branch <literal>/branches/1.2.x/doc/html</literal> from <literal>/trunk/doc/html</literal> the branch could be shown in compact form as <literal>/branches/1.2.x/..</literal> because the last two levels, <literal>doc</literal> and <literal>html</literal>, did not change."
+msgstr "Pitkät polkunimet voivat vaatia paljon tilaa ja tehdä solmuista isokokoisia. Tämä valinta näyttää ainoastaan polun muuttuneen osan ja korvaa yhteisen osan pisteillä. Jos esimerkiksi loit haaran <literal>/branches/1.2.x/doc/html</literal> päähaarasta <literal>/trunk/doc/html</literal>, niin haara voidaan esittää tiiviissä muodossa <literal>/branches/1.2.x/..</literal>, koska viimeiset kaksi tasoa (<literal>doc</literal> ja <literal>html</literal>) eivät muuttuneet."
 
 #. (term)
 msgid "Show all revisions"
@@ -7149,16 +7279,16 @@ msgid "Exact copy sources"
 msgstr "Täsmälliset kopiolähteet"
 
 #. (para)
-msgid "When a branch/tag is made, the default behaviour is to show the branch as taken from the last node where a change was made. Strictly speaking this is inaccurate since the branches are often made from the current HEAD rather than a specific revision. So it is possible to show the more correct (but less useful) revision that was used to create the copy."
-msgstr "Kun haara tai merkki luodaan, se näytetään oletusarvoisesti sellaisena, kuin se oli viimeisessä muutetussa solmussa. Tarkkaan ottaen tämä ei ole oikein, koska haarat tehdään usein nykyisestä HEAD-versiosta tietyn version sijaan. Komennon avulla on mahdollista näyttää oikeampi (mutta vähemmän hyödyllinen) versio, jota käytettiin kopion tekemiseen."
+msgid "When a branch/tag is made, the default behaviour is to show the branch as taken from the last node where a change was made. Strictly speaking this is inaccurate since the branches are often made from the current HEAD rather than a specific revision. So it is possible to show the more correct (but less useful) revision that was used to create the copy. Note that this revision may be younger than the HEAD revision of the source branch."
+msgstr "Kun haara tai merkki luodaan, se näytetään oletusarvoisesti sellaisena, kuin se oli viimeisessä muutetussa solmussa. Tarkkaan ottaen tämä ei ole oikein, koska haarat tehdään usein nykyisestä HEAD-versiosta tietyn version sijaan. Komennon avulla on mahdollista näyttää oikeampi (mutta vähemmän hyödyllinen) versio, jota käytettiin kopion tekemiseen. Huomaa, että versio voi olla luotu aiemmin kuin lähdehaaran HEAD-versio."
 
 #. (term)
 msgid "Fold tags"
 msgstr "Näytä merkit lähtösolmussa"
 
 #. (para)
-msgid "If you want to see a graph of software development, tagged releases may be of little interest to you. This option hides the nodes for tags and shows them instead in the tooltip for the node that they were copied from. A tag icon on the right side of the source node indicates that tags were made."
-msgstr "Jos haluat nähdä graafin ohjelmiston kehityskaaresta, merkityt julkaisut eivät ehkä ole tärkeitä. Tämä valinta piilottaa merkkien solmut ja näyttää ne sen sijaan työkaluvihjeessä sille solmulle, josta merkki tehtiin. Merkkikuvake lähtösolmun oikealla puolella kertoo, että solmusta on tehty merkki/merkkejä."
+msgid "When a project has many tags, showing every tag as a separate node on the graph takes a lot of space and obscures the more interesting development branch structure. At the same time you may need to be able to access the tag content easily so that you can compare revisions. This option hides the nodes for tags and shows them instead in the tooltip for the node that they were copied from. A tag icon on the right side of the source node indicates that tags were made."
+msgstr "Kun projektissa on useita merkittyjä versioita, niiden näyttäminen erillisinä solmuina vie paljon tilaa ja hämärtää kiinnostavamman kehityshaaran rakenteen. Samaan aikaan saatat joutua tutkimaan merkityn version sisältöä, jotta voit helposti verrata eri versioita. Tämä valinta piilottaa merkittyjen versioiden solmut ja näyttää ne sen sijaan työkaluvihjeenä sille solmulle, josta merkintä tehtiin. Merkkikuvake lähtösolmun oikealla puolella kertoo, että solmusta on tehty yksi tai useampi merkitty versio."
 
 #. (term)
 msgid "Hide deleted paths"
@@ -7169,12 +7299,12 @@ msgid "Hides paths which are no longer present at the HEAD revision of the repos
 msgstr "Piilottaa polut, jotka eivät enää kuulu arkiston HEAD-versioon, esim. poistetut haarat."
 
 #. (term)
-msgid "Hide unused branches"
-msgstr "Piilota käyttämättömät haarat"
+msgid "Hide unchanged branches"
+msgstr "Piilota muuttumattomat haarat"
 
 #. (para)
-msgid "Hides branches where no changes were committed that affect the tree being graphed before the branch was deleted. This does not necessarily indicate that the branch was not used, just that no changes were made to <emphasis>this</emphasis> part of it."
-msgstr "Piilottaa haarat, joihin ei ole toimitettu muutoksia, jotka vaikuttaisivat graafiin ennen, kuin haara poistettiin. Tämä ei välttämättä tarkoita, että haara on käyttämätön, vaan ainoastaan sitä, että siihen ei ole tehty muutoksia <emphasis>tässä</emphasis> puunäkymässä."
+msgid "Hides branches where no changes were committed to the respective file or sub-folder. This does not necessarily indicate that the branch was not used, just that no changes were made to <emphasis>this</emphasis> part of it."
+msgstr "Piilottaa haarat, joissa ei ole vastaavaan tiedostoon/hakemistoon kohdistuneita muutoksia. Tämä ei välttämättä tarkoita, että haara ei ole käytössä - ainoastaan sitä, että siihen ei ole tehty muutoksia <emphasis>tässä</emphasis> puunäkymässä."
 
 #. (term)
 msgid "Show WC revision"
@@ -7205,16 +7335,16 @@ msgid "Tree stripes"
 msgstr "Puujuovat"
 
 #. (para)
-msgid "Where the graph contains several trees, it is sometimes useful to use alternating colours on the background to help distinguish between trees,"
-msgstr "Jos graafi sisältää useita puita, saattaa joskus olla hyödyllistä käyttää puille eri taustavärejä niiden erottamiseksi toisistaan."
+msgid "Where the graph contains several trees, it is sometimes useful to use alternating colours on the background to help distinguish between trees."
+msgstr "Kun graafi sisältää useita puita, saattaa joskus olla hyödyllistä käyttää puille eri taustavärejä niiden erottamiseksi toisistaan."
 
 #. (term)
 msgid "Show overview"
 msgstr "Näytä yleisnäkymä"
 
 #. (para)
-msgid "Shows a small picture of the entire graph, with the current view window as a rectangle which you can drag. This allows you to navigate the graph more easily."
-msgstr "Näyttää koko graafin pienenä kuvana, jossa nykyinen ikkuna on ilmaistu raahattavana suorakaiteena. Tällä tapaa voit navigoida graafissa helpommin."
+msgid "Shows a small picture of the entire graph, with the current view window as a rectangle which you can drag. This allows you to navigate the graph more easily. Note that for very large graphs the overview may become useless due to the extreme zoom factor and will therefore not be shown in such cases."
+msgstr "Näyttää koko graafin pienenä kuvana, jossa nykyinen ikkuna on ilmaistu raahattavana suorakaiteena. Tällä tapaa voit navigoida graafissa helpommin. Huomaa, että hyvin suurille graafeille yleisnäkymä saattaa muuttua hyödyttämäksi vaadittavan zoomauskertoimen vuoksi; tällöin sitä ei piirretä."
 
 #. (para)
 msgid "Because a revision graph is often quite complex, there are a number of features which can be used to tailor the view the way you want it. These are available in the <guilabel>View</guilabel> menu and from the toolbar. <placeholder-1/>"
@@ -7283,6 +7413,10 @@ msgstr "<graphic fileref=\"../images/RevGraphSplit.png\"/> Napsauta ristinäppä
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphJoin.png\"/> Click on the circle button to reattach a split tree. When a tree has been split away, this button remains visible to indicate that there is a separate sub-tree."
 msgstr "<graphic fileref=\"../images/RevGraphJoin.png\"/> Napsauta ympyränäppäintä kytkeäksesi jaetun puun takaisin. Kun puu on jaettu, tämä näppäin säilyy näkyvillä, ilmaisten siten erillisen alipuun olemassaolon."
+
+#. (para)
+msgid "Click on the graph background for the main context menu, which offers options to <guilabel>Expand all</guilabel> and <guilabel>Join all</guilabel>."
+msgstr "Napsauta graafin taustaa avataksesi kontekstivalikon, jossa on valinnat <guilabel>Laajenna kaikki</guilabel> ja <guilabel>Yhdistä kaikki</guilabel>."
 
 #. (title)
 msgid "Exporting a Subversion Working Copy"
@@ -8185,7 +8319,7 @@ msgid "WC Node"
 msgstr "Työkopion solmu"
 
 #. (para)
-msgid "If you opt to show an extra node for your working copy, attached to its last-commit revision on the graph, use this color."
+msgid "If you opt to show an extra node for your modified working copy, attached to its last-commit revision on the graph, use this color."
 msgstr "Jos haluat näyttää muuttuneen työkopion erillisenä solmuna, joka kytkeytyy graafin viimeiseksi arkistoon toimitettuun versioon, käytä tätä väriä."
 
 #. (term)
@@ -8793,6 +8927,18 @@ msgstr "Välimuistissa olevat arkistot"
 msgid "On this page you can see a list of the repositories that are cached locally, and the space used for the cache. If you select one of the repositories you can then use the buttons underneath."
 msgstr "Tällä sivulla on lueteltu arkistot, joiden tietoja talletetaan paikallisesti, sekä niiden viemä tila. Jos valitset jonkun arkistoista, voit käyttää niiden alla olevia painikkeita."
 
+#. (para)
+msgid "Click on the <guibutton>Update</guibutton> to completely refresh the cache and fill in any holes. For a large repository this could be very time consuming, but useful if you are about to go offline and want the best available cache."
+msgstr "Napsauta <guibutton>Päivitä</guibutton>-painiketta rakentaaksesi välimuistin täydellisesti uudestaan ja täyttääksesi mahdolliset aukot. Suurelle arkistolle tämä komento voi viedä kauan, mutta on hyödyllinen, mikäli aiot olla ilman yhteyttä ja haluat parhaan mahdollisen välimuistin."
+
+#. (para)
+msgid "Click on the <guibutton>Export</guibutton> button to export the entire cache as a set of CSV files. This could be useful if you want to process the log data using an external program, although it is mainly useful to the developers."
+msgstr "Napsauta <guibutton>Vie</guibutton>-painiketta viedäksesi koko välimuistin CSV-tiedostoina. Tästä voi olla hyötyä, jos haluat käsitellä lokitietoja ulkoisella ohjelmalla. Se on pääsääntöisesti hyödyllinen vain TortoiseSVN-kehittäjille."
+
+#. (para)
+msgid "Click on <guibutton>Delete</guibutton> to remove all cached data for the selected repositories. This does not disable caching for the repository so the next time you request log data, a new cache will be created."
+msgstr "Napsauta <guibutton>Delete</guibutton>-painiketta poistaaksesi välimuistin valituilta arkistoilta. Tämä ei estä paikallista talletusta, joten pyytäessäsi lokitietoja seuraavan kerran välimuisti luodaan uudelleen."
+
 #. (title)
 msgid "Log Cache Statistics"
 msgstr "Lokiviestien talletuksen tilastot"
@@ -8884,18 +9030,6 @@ msgstr "Välimuistiin talletettujen versioiden lukumäärä. Tämä on toinen mi
 #. (para)
 msgid "<placeholder-1/> Click on the <guibutton>Details</guibutton> button to see detailed statistics for a particular cache. Many of the fields shown here are mainly of interest to the developers of TortoiseSVN, so they are not all described in detail. <placeholder-2/>"
 msgstr "<placeholder-1/> Napsauta <guibutton>Yksityiskohtia</guibutton>-painiketta nähdäksesi tilastotietoja valitulle välimuistille. Useat näytetyistä tiedoista kiinnostavat vain TortoiseSVN-kehittäjiä, joten niitä ei ole kuvattu tässä yksityiskohtaisesti. <placeholder-2/>"
-
-#. (para)
-msgid "Click on the <guibutton>Update</guibutton> to completely refresh the cache and fill in any holes. For a large repository this could be very time consuming, but useful if you are about to go offline and want the best available cache."
-msgstr "Napsauta <guibutton>Päivitä</guibutton>-painiketta rakentaaksesi välimuistin täydellisesti uudestaan ja täyttääksesi mahdolliset aukot. Suurelle arkistolle tämä komento voi viedä kauan, mutta on hyödyllinen, mikäli aiot olla ilman yhteyttä ja haluat parhaan mahdollisen välimuistin."
-
-#. (para)
-msgid "Click on the <guibutton>Export</guibutton> button to export the entire cache as a set of CSV files. This could be useful if you want to process the log data using an external program, although it is mainly useful to the developers."
-msgstr "Napsauta <guibutton>Vie</guibutton>-painiketta viedäksesi koko välimuistin CSV-tiedostoina. Tästä voi olla hyötyä, jos haluat käsitellä lokitietoja ulkoisella ohjelmalla. Se on pääsääntöisesti hyödyllinen vain TortoiseSVN-kehittäjille."
-
-#. (para)
-msgid "Click on <guibutton>Delete</guibutton> to remove all cached data for the selected repositories. This does not disable caching for the repository so the next time you request log data, a new cache will be created."
-msgstr "Napsauta <guibutton>Delete</guibutton>-painiketta poistaaksesi välimuistin valituilta arkistoilta. Tämä ei estä paikallista talletusta, joten pyytäessäsi lokitietoja seuraavan kerran välimuisti luodaan uudelleen."
 
 #. (title)
 msgid "Client Side Hook Scripts"
@@ -10226,8 +10360,8 @@ msgid "Use svn:externals"
 msgstr "Käytä ulkoisia viittauksia (svn:externals)"
 
 #. (para)
-msgid "Set the <literal>svn:externals</literal> property for a folder in your project. This property consists of one or more lines; each line has the name of a sub-folder which you want to use as the checkout folder for common code, and the repository URL that you want to be checked out there. For full details refer to <xref linkend=\"tsvn-dug-import-4\"/>."
-msgstr "Aseta projektisi kansiolle <literal>svn:externals</literal>-ominaisuus. Ominaisuus koostuu yhdestä tai useammasta rivistä; kukin rivi nimeää alikansion, johon jaettu lähdekoodi haetaan, sekä paikantimen, josta se löytyy. Katso yksityiskohdat luvusta <xref linkend=\"tsvn-dug-import-4\"/>."
+msgid "Set the <literal>svn:externals</literal> property for a folder in your project. This property consists of one or more lines; each line has the name of a sub-folder which you want to use as the checkout folder for common code, and the repository URL that you want to be checked out there. For full details refer to <xref linkend=\"tsvn-dug-externals\"/>."
+msgstr "Aseta projektisi kansiolle <literal>svn:externals</literal>-ominaisuus. Ominaisuus koostuu yhdestä tai useammasta rivistä; kukin rivi nimeää alikansion, johon jaetut osat haetaan, sekä arkistopaikantimen, josta ne löytyvät. Katso yksityiskohdat luvusta <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (para)
 msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. The sub-folders will be created automatically if required. Each time you update your main working copy, you will also receive the latest version of all external projects."
@@ -12283,6 +12417,72 @@ msgstr "Kari Granö <kari.grano@gmail.com>"
 msgid "translator-translation"
 msgstr "Käännös"
 
+#~ msgid "Replaced items"
+#~ msgstr "Korvatut kohteet"
+#~ msgid ""
+#~ "A replaced item is one where the original item has been deleted and "
+#~ "replaced with another item of the same name. The default colour is green."
+#~ msgstr ""
+#~ "Korvattu kohde tulee kyseeseen tilanteessa, jossa alkuperäinen kohde on "
+#~ "poistettu ja korvattu uudella, saman nimisellä kohteella. Oletusväri on "
+#~ "vihreä."
+#~ msgid ""
+#~ "Where a branch (or trunk or tag) has been modified since the last branch "
+#~ "node, this is shown using an ellipse. Shown when the <guilabel>Show HEAD "
+#~ "revisions</guilabel> option is selected."
+#~ msgstr ""
+#~ "Kun haaraa (tai päähaaraa/merkkiä) on muutettu viimeisimmän haarautumisen "
+#~ "jälkeen, se näytetään ellipsinä. Symboli näytetään, kun vaihtoehto "
+#~ "<guilabel>Näytä uusimmat versiot (HEAD)</guilabel> on valittu."
+#~ msgid "Working copy depth cannot be reduced"
+#~ msgstr "Työkopion syvyyttä ei voi pienentää"
+#~ msgid ""
+#~ "Once you have checked out a working copy to a particular depth you can "
+#~ "increase that depth later to get more content. However you cannot reduce "
+#~ "the depth again to remove content. That feature may be added in a later "
+#~ "version of Subversion."
+#~ msgstr ""
+#~ "Kun olet kerran hakenut työkopion tietyllä syvyydellä, voit kasvattaa "
+#~ "syvyyttä myöhemmin lisäsisällön saamiseksi. Et kuitenkaan voi pienentää "
+#~ "syvyyttä poistaaksesi jo haettua sisältöä. Tällainen ominaisuus saatetaan "
+#~ "lisätä Subversioniin tulevaisuudessa."
+#~ msgid "Or <filename>FooFolder</filename>"
+#~ msgstr "Tai kansio <filename>FooFolder</filename>"
+#~ msgid ""
+#~ "<filename>Foo.c</filename> is marked as deleted. and <filename>Bix.c</"
+#~ "filename> is marked as added."
+#~ msgstr ""
+#~ "Tiedosto <filename>Foo.c</filename> merkitään poistetuksi ja tiedosto "
+#~ "<filename>Bix.c</filename> merkitään lisätyksi."
+#~ msgid "Tree conflict on <filename>Foo.c</filename>."
+#~ msgstr "Puuristiriita tiedostossa <filename>Foo.c</filename>."
+#~ msgid ""
+#~ "To resolve this conflict, Developer B has to decide whether to remove the "
+#~ "file <filename>Foo.c</filename> and keep the file <filename>Bar.c</"
+#~ "filename> instead, or whether to keep the local file <filename>Foo.c</"
+#~ "filename>. If the local file <filename>Foo.c</filename> is kept, "
+#~ "developer B also has to decide whether to merge the changes of "
+#~ "<filename>Bar.c</filename> into <filename>Foo.c</filename>."
+#~ msgstr ""
+#~ "Ratkaistakseen tämän ristiriidan kehittäjän B on päätettävä, poistetaanko "
+#~ "tiedosto <filename>Foo.c</filename> ja säilytetäänkö "
+#~ "tiedosto<filename>Bar.c</filename> sen sijaan, vai säilytetäänkö "
+#~ "paikallinen tiedosto <filename>Foo.c</filename>. Jos paikallinen tiedosto "
+#~ "<filename>Foo.c</filename> säilytetään, kehittäjän B on myös päätettävä, "
+#~ "yhdistetäänkö tiedoston <filename>Bar.c</filename> muutokset tiedostoon "
+#~ "<filename>Foo.c</filename>."
+#~ msgid "<filename>Bix.c</filename> is added with status normal."
+#~ msgstr "Tiedosto <filename>Bix.c</filename> on lisätty tilassa 'normaali'."
+#~ msgid ""
+#~ "Then developer B has to decide which new filename of <filename>Foo.c</"
+#~ "filename> to keep - the one done by developer A or the rename done in his "
+#~ "working copy."
+#~ msgstr ""
+#~ "Kehittäjän B on sitten päätettävä, kumpi tiedoston <filename>Foo.c</"
+#~ "filename> uusista nimistä säilytetään - kehittäjän A tekemä vai "
+#~ "työkopiossa tehty uudelleen nimeäminen."
+#~ msgid "Referenced Projects"
+#~ msgstr "Viitatut projektit"
 #~ msgid ""
 #~ "Even most Subversion users will never have to set up a server themselves. "
 #~ "The next chapter deals with how to set up such a server, and is useful "
