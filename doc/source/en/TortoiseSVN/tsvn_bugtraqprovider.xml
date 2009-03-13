@@ -17,7 +17,7 @@
 		</indexterm>
 		<para>
 			To get a tighter integration with issue trackers than by simply
-			using the bugtraq: properties, TortoiseSVN can make use of COM
+			using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM
 			plugins. With such plugins it is possible to fetch information
 			directly from the issue tracker, interact with the user and provide
 			information back to TortoiseSVN about open issues, verify log
@@ -31,6 +31,7 @@
 			the <filename>contrib/issue-tracker-plugins</filename> folder.
 			In that folder you can also find the required include files you
 			need to build your plugin.
+			(<xref linkend="tsvn-preface-source"/> explains how to access the repository).
 		</para>
 	</simplesect>
 	<!-- ================================================================= -->
@@ -39,7 +40,7 @@
 	<sect1 id="tsvn-ibugtraqprovider-1">
 		<title>The IBugtraqProvider interface</title>
 		<para>
-			TortoiseSVN 1.5 can use plugin which implement the IBugtraqProvider
+			TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider
 			interface. The interface provides a few methods which plugins can
 			use to interact with the issue tracker.
 		</para>
@@ -52,7 +53,7 @@
 </programlisting>
 			This method is called from the settings dialog where the user can
 			add and configure the plugin. The <literal>parameters</literal> string
-			can be used by a plugin to get additional required information, e.g., the url
+			can be used by a plugin to get additional required information, e.g., the URL
 			to the issue tracker, login information, etc. 
 			The plugin should verify the <literal>parameters</literal> string and
 			show an error dialog if the string is not valid. The <literal>hParentWnd</literal>
@@ -74,8 +75,8 @@
 			commit dialog for the button which invokes the plugin, e.g., "Choose issue"
 			or "Select ticket". Make sure the string is not too long, otherwise it
 			might not fit into the button.
-			If the method returns an error (e.g., E_NOTIMPL), a default text is used
-			for the button.
+			If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default 
+			text is used for the button.
 		</para>
 		<para>
 <programlisting>
@@ -90,11 +91,11 @@
 	);			
 </programlisting>
 			This is the main method of the plugin. This method is called from
-			the TortoiseSVN commit dialog when the user click on the plugin
+			the TortoiseSVN commit dialog when the user clicks on the plugin
 			button.
 			The <literal>parameters</literal> string is the string the
 			user has to enter in the settings dialog when he configures
-			the plugin. Usually a plugin would use this to find the url
+			the plugin. Usually a plugin would use this to find the URL
 			of the issue tracker and/or login information or more.
 			The <literal>commonRoot</literal> string contains the parent path
 			of all items selected to bring up the commit dialog. Note that this
@@ -109,7 +110,7 @@
 			the log message edit box in the commit dialog, replacing whatever
 			is already there. If a plugin does not modify the <literal>originalMessage</literal>
 			string, it must return the same string again here, otherwise
-			the text a user has entered will get cleaned.
+			any text the user has entered will be lost.
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
@@ -127,7 +128,7 @@
 	HRESULT GetCommitMessage2 (
 		[in] HWND hParentWnd,					// Parent window for your provider's UI.
 		[in] BSTR parameters,					// Parameters for your provider.
-		[in] BSTR commonURL,					// the common url of the commit
+		[in] BSTR commonURL,					// the common URL of the commit
 		[in] BSTR commonRoot,
 		[in] SAFEARRAY(BSTR) pathList,
 		[in] BSTR originalMessage,				// The text already present in the commit message.
@@ -142,24 +143,24 @@
 	);			
 </programlisting>
 			This method is called from the TortoiseSVN commit dialog 
-			when the user click on the plugin button. This method is called
+			when the user clicks on the plugin button. This method is called
 			instead of <literal>GetCommitMessage()</literal>. Please refer
-			to the documentation about <literal>GetCommitMessage</literal>
+			to the documentation for <literal>GetCommitMessage</literal>
 			for the parameters that are also used there.
-			The parameter <literal>commonURL</literal> is the parent url
+			The parameter <literal>commonURL</literal> is the parent URL
 			of all items selected to bring up the commit dialog. This is basically
-			the url of the <literal>commonRoot</literal> path.
+			the URL of the <literal>commonRoot</literal> path.
 			The parameter <literal>bugID</literal> contains the content of
-			the bugID field (if it is shown, configured with the property
+			the bug-ID field (if it is shown, configured with the property
 			<literal>bugtraq:message</literal>).
-			The return parameter <literal>bugIDOut</literal> is filled into
-			the bugID field when the method returns.
+			The return parameter <literal>bugIDOut</literal> is used to fill
+			the bug-ID field when the method returns.
 			The <literal>revPropNames</literal> and <literal>revPropValues</literal>
 			return parameters can contain name/value pairs for revision properties
 			that the commit should set. A plugin must make sure that both arrays
 			have the same size on return! Each property name in <literal>revPropNames</literal>
 			must also have a corresponding value in <literal>revPropValues</literal>.
-			If no revision properties shall be set, the plugin must return empty arrays.
+			If no revision properties are to be set, the plugin must return empty arrays.
 		</para>
 		<para>
 <programlisting>
