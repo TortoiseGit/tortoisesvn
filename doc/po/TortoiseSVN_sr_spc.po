@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-11 23:53 +0000\n"
-"PO-Revision-Date: 2009-03-12 20:43+0100\n"
+"PO-Revision-Date: 2009-03-13 09:12+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -341,7 +341,7 @@ msgstr "претраживач"
 
 #. (para)
 msgid "TortoiseSVN integrates seamlessly into the Windows shell (i.e. the explorer). This means you can keep working with the tools you're already familiar with. And you do not have to change into a different application each time you need functions of the version control!"
-msgstr "ТортоисеСВН се бешвно интегрише у Виндоуз шкољку (тј. претраживач). Ово значи да можете наставити рад са алатом са којим сте већ фамилијарни. Ви не морате да улазите у другачију апликацију сваки пут када вам требају функције из контроле верзија!"
+msgstr "ТортоисеСВН се безшавно интегрише у Виндоуз шкољку (тј. претраживач). Ово значи да можете наставити рад са алатом са којим сте већ фамилијарни. Ви не морате да улазите у другачију апликацију сваки пут када вам требају функције из контроле верзија!"
 
 #. (para)
 msgid "And you are not even forced to use the Windows Explorer. TortoiseSVN's context menus work in many other file managers, and in the File/Open dialog which is common to most standard Windows applications. You should, however, bear in mind that TortoiseSVN is intentionally developed as extension for the Windows Explorer. Thus it is possible that in other applications the integration is not as complete and e.g. the icon overlays may not be shown."
@@ -373,7 +373,7 @@ msgstr "Верзионисање именика"
 
 #. (para)
 msgid "CVS only tracks the history of individual files, but Subversion implements a <quote>virtual</quote> versioned filesystem that tracks changes to whole directory trees over time. Files <emphasis>and</emphasis> directories are versioned. As a result, there are real client-side <command>move</command> and <command>copy</command> commands that operate on files and directories."
-msgstr "ЦВС прати само историју индивидуалних фајлова, док Субверзија имплементира<quote>виртуални</quote> верзионисани фајлсистем који бележи промене целог стабла  именика прековремено. Фајлови <emphasis>и</emphasis> именици су верзионисани. Као резилтат, постоји права клијент-страна <command>премести</command> и <command>копирај</command> команде које раде на фајловима и именицима."
+msgstr "ЦВС прати само историју индивидуалних фајлова, док Субверзија имплементира<quote>виртуални</quote> верзионисани фајлсистем који бележи промене целог стабла  именика прековремено. Фајлови <emphasis>и</emphasis> именици су верзионисани. Као резилтат, постоје на клијент-страни <command>премести</command> и <command>копирај</command> команде које раде на фајловима и именицима."
 
 #. (term)
 msgid "Atomic commits"
@@ -397,7 +397,7 @@ msgstr "Избор мрежних слојева"
 
 #. (para)
 msgid "Subversion has an abstracted notion of repository access, making it easy for people to implement new network mechanisms. Subversion's <quote>advanced</quote> network server is a module for the Apache web server, which speaks a variant of HTTP called WebDAV/DeltaV. This gives Subversion a big advantage in stability and interoperability, and provides various key features for free: authentication, authorization, wire compression, and repository browsing, for example. A smaller, standalone Subversion server process is also available. This server speaks a custom protocol which can be easily tunneled over ssh."
-msgstr "Субверзија има апстрактну идеју приступа спремишту, чинећи га лаким да људи инплементирај у нове мрежне механизме.Субверзиони <quote>напредни</quote> мрежни серверје модул за апач веб сервер, који говори варијанту ХТТП звану ВебДАВ/ДелтаВ. То даје Субверзији велику предност у стабилности и оператибилности, и омогућава разне кључне особине бесплатно: аутентикацију, ауторизацију, цомпресију, и претраживање спремишта, на пример.Мали, самостални Субверзиони сервер процес је такође доступан. Овај сервер говори уопбичајени протокол који може бити лако провучен кроз ссх."
+msgstr "Субверзија има апстрактну идеју приступа спремишту, чинећи га лаким да људи инплементирај у нове мрежне механизме.Субверзиони <quote>напредни</quote> мрежни сервер је модул за Апач веб сервер, који говори варијанту ХТТП звану ВебДАВ/ДелтаВ. То даје Субверзији велику предност у стабилности и оператибилности, и омогућава разне кључне особине бесплатно: аутентикацију, ауторизацију, компресију, и претраживање спремишта, на пример. Мали, самостални Субверзиони сервер процес је такође доступан. Овај сервер говори уопбичајени протокол који може бити лако провучен кроз ссх."
 
 #. (term)
 msgid "Consistent data handling"
@@ -417,7 +417,7 @@ msgstr "Цена гранања и означавања не треба да б�
 
 #. (term)
 msgid "Hackability"
-msgstr "Хакерабилити"
+msgstr "Изменљивост"
 
 #. (para)
 msgid "Subversion has no historical baggage; it is implemented as a collection of shared C libraries with well-defined APIs. This makes Subversion extremely maintainable and usable by other applications and languages."
@@ -469,7 +469,7 @@ msgstr "преводи"
 
 #. (para)
 msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
-msgstr "ТортоисеСВН кориснички интерфејс је преведен на многе различите језике, тако да можете да пренесете језички пакет који вам је потребан. Језичке пакете можете наћи на <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>транслатион статус паге</citetitle></ulink>. И ако језички пакет још није доступан, зашто се не прикључити тиму и поднесете свој лични превод; -)"
+msgstr "ТортоисеСВН кориснички интерфејс је преведен на многе различите језике, тако да можете да пренесете језички пакет који вам је потребан. Језичке пакете можете наћи на <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>страна статуса превода</citetitle></ulink>. И ако језички пакет још није доступан, зашто да се не прикључите тиму и поднесете свој лични превод; -)"
 
 #. (para)
 msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
@@ -489,7 +489,7 @@ msgstr "речник"
 
 #. (para)
 msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
-msgstr "ТортоисеСВН укључује контролу правописа која вам дозвољава да контролишете ваше  дневник порука урезивања. Ово је нарочито корисно ако језик пројекта није ваш матерњи језик. Контролор правописа користи исте фајлове речника као <ulink url=\"http://openoffice.org\"><citetitle>ОпенОффице</citetitle></ulink> и <ulink url=\"http://mozilla.org\"><citetitle>Мозилла</citetitle></ulink>."
+msgstr "ТортоисеСВН укључује контролу правописа која вам дозвољава да контролишете ваше  дневник поруке урезивања. Ово је нарочито корисно ако језик пројекта није ваш матерњи језик. Контролор правописа користи исте фајлове речника као <ulink url=\"http://openoffice.org\"><citetitle>ОпенОффице</citetitle></ulink> и <ulink url=\"http://mozilla.org\"><citetitle>Мозилла</citetitle></ulink>."
 
 #. (para)
 msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
@@ -12419,3 +12419,4 @@ msgstr "Милорад Поповић <MiloradSPopovic@gmail.com>"
 #. (None)
 msgid "translator-translation"
 msgstr "Превод"
+
