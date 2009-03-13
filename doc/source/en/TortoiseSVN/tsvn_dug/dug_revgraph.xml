@@ -113,7 +113,7 @@
 							If you invoked the revision graph from a working copy, 
 							you can opt to show the BASE revision on the graph using 
 							<guilabel>Show WC revision</guilabel>, which marks 
-							the BASE node as an ellipse with a bold outline.
+							the BASE node with a bold outline.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -472,7 +472,8 @@
 		<para>
 			Click on the graph background for the main context menu, which
 			offers options to <guilabel>Expand all</guilabel> and
-			<guilabel>Join all</guilabel>.
+			<guilabel>Join all</guilabel>. If no branch has been collapsed
+			or split, the context menu will not be shown.
 		</para>
 	</sect2>
 </sect1>
