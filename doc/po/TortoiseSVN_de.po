@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-11 23:53 +0000\n"
-"PO-Revision-Date: 2009-03-12 17:22+0100\n"
+"PO-Revision-Date: 2009-03-13 15:42+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3102,7 +3102,7 @@ msgstr "Wenn Sie eine dünn besiedelte Arbeitskopie auschecken, indem Sie etwas 
 
 #. (para)
 msgid "In the repository browser, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
-msgstr "Rufen Sie mit einem <action>Rechtsklick</action> auf den ausgecheckten Ordner den Projektarchivbetrachter auf. Suchen Sie den Unterordner, den Sie zu Ihrer Arbeitskopie hinzufügen wollen und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Aktualisiere Objekt zu Revision...</guimenuitem> </menuchoice> Dieser Menüeintrag ist nur sichtbar, wenn das markierte Objekt noch nicht in der Arbeitskopie vorhanden ist, aber sein Elternobjekt bereits existiert."
+msgstr "Rufen Sie mit einem <action>Rechtsklick</action> auf den ausgecheckten Ordner den Projektarchivbetrachter auf. Suchen Sie den Unterordner, den Sie zu Ihrer Arbeitskopie hinzufügen wollen und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Aktualisiere zu Revision...</guimenuitem> </menuchoice> Dieser Menüeintrag ist nur sichtbar, wenn das markierte Objekt noch nicht in der Arbeitskopie vorhanden ist, aber sein Elternobjekt bereits existiert."
 
 #. (para)
 msgid "In the check for modifications dialog, first click on the button <guibutton>Check repository</guibutton>. The dialog will show all the files and folders which are in the repository but which you have not checked out as <literal>remotely added</literal>. <action>Right click</action> on the folder(s) you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
@@ -3122,7 +3122,7 @@ msgstr "Wählen Sie den neuen Ordner und rufen Sie mittels <menuchoice><guimenu>
 
 #. (para)
 msgid "Right click on <literal>Project03</literal> and <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice>. Keep the default settings and click on <guibutton>OK</guibutton>. You now have that folder fully populated."
-msgstr "Machen Sie einen Rechtsklick auf <literal>Projekt03</literal> und wählen Sie <menuchoice><guimenu>Kontextmenü</guimenu><guimenuitem>Aktualisiere Objekt zu Revision</guimenuitem></menuchoice>. Behalten Sie die Standardeinstellung bei und Klicken Sie auf <guibutton>OK</guibutton>. Damit wird dieser Ordner vollständig befüllt."
+msgstr "Machen Sie einen Rechtsklick auf <literal>Projekt03</literal> und wählen Sie <menuchoice><guimenu>Kontextmenü</guimenu><guimenuitem>Aktualisiere zu Revision...</guimenuitem></menuchoice>. Behalten Sie die Standardeinstellung bei und Klicken Sie auf <guibutton>OK</guibutton>. Damit wird dieser Ordner vollständig befüllt."
 
 #. (para)
 msgid "Repeat the same process for <literal>Project25</literal>."
@@ -3138,7 +3138,7 @@ msgstr "Die Tiefe der Arbeitskopie ändern"
 
 #. (para)
 msgid "Once you have checked out a working copy to a particular depth you can change that depth later to get more or less content using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Sobald Sie eine Arbeitskopie mit einer bestimmten Tiefe ausgecheckt haben, können Sie die Tiefe später per <menuchoice><guimenu>Kontextmenü</guimenu><guimenuitem>Aktualisiere zu Revision...</guimenuitem></menuchoice> ändern, so dass Sie mehr oder weniger Inhalt erhalten."
 
 #. (title)
 msgid "Using an older server"
@@ -4315,7 +4315,7 @@ msgstr "Einen Zweig oder eine Marke für die gewählte Revision erstellen. Dies 
 
 #. (term)
 msgid "Update item to revision"
-msgstr "Aktualisiere Objekt zu Revision"
+msgstr "Aktualisiere zu Revision"
 
 #. (para)
 msgid "Update your working copy to the selected revision. Useful if you want to have your working copy reflect a time in the past, or if there have been further commits to the repository and you want to update your working copy one step at a time. It is best to update a whole directory in your working copy, not just one file, otherwise your working copy could be inconsistent."
@@ -4808,9 +4808,8 @@ msgid "Go Offline Dialog"
 msgstr "Offline Modus"
 
 #. (para)
-#, fuzzy
 msgid "<placeholder-1/> If the server is not reachable, and you have log caching enabled you can use the log dialog and revision graph in offline mode. This uses data from the cache, which allows you to continue working although the information may not be up-to-date or even complete."
-msgstr "Wenn der Server nicht erreichbar ist und Sie den Log-Puffer aktiviert haben, können Sie den Log-Dialog und den Revisionsgraphen auch offline benutzen. Dabei werden die Daten aus dem Puffer gelesen, so dass Sie wie gewohnt weiterarbeiten können. Allerdings können die angezeigten Informationen nicht aktuell oder unvollständig sein."
+msgstr "<placeholder-1/> Wenn der Server nicht erreichbar ist und Sie den Log-Puffer aktiviert haben, können Sie den Log-Dialog und den Revisionsgraphen auch offline benutzen. Dabei werden die Daten aus dem Puffer gelesen, so dass Sie wie gewohnt weiterarbeiten können. Allerdings ist es möglich, dass die angezeigten Informationen veraltent oder unvollständig sind."
 
 #. (term)
 #, fuzzy
@@ -6003,7 +6002,6 @@ msgid "External Folders"
 msgstr "Externe Ordner"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Click <guibutton>Add...</guibutton>. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository URL in the format <literal>url folder</literal> or if you want to specify a particular revision, <literal>-rREV url folder</literal> You can add multiple external projects, 1 per line. Note that URLs must be properly escaped or they will not work. For example you must replace each space with <literal>%20</literal>. Note that it is not possible to use folder names with spaces in them. Suppose that you have set these properties on <filename>D:\\dev\\project1</filename>: <screen>\n"
 "http://sounds.red-bean.com/repos  sounds\n"
@@ -6012,11 +6010,11 @@ msgid ""
 "</screen> Now click <guibutton>Set</guibutton> and commit your changes. When you (or any other user) update your working copy, Subversion will create a sub-folder <filename>D:\\dev\\project1\\sounds</filename> and checkout the sounds project, another sub-folder <filename>D:\\dev\\project1\\quick_graphs</filename> containing the graphics project, and finally a nested sub-folder <filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 of the skin-maker project."
 msgstr ""
 "Nehmen wir an Sie erstellen eine Arbeitskopie von <filename>/projekt1</filename> in <filename>D:\\dev\\projekt1</filename>. Selektieren Sie den Ordner <filename>D:\\dev\\projekt1</filename>, machen Sie einen <action>Rechtsklick</action> und wählen Sie <menuchoice> <guimenu>Windows Menü</guimenu> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice> aus dem Kontextmenü. Der Eigenschaften-Dialog erscheint, auf dessen Subversion Tab Sie Eigenschaften anschauen, verändern oder setzen können. Klicken Sie auf <guibutton>Hinzufügen...</guibutton> und wählen Sie die <literal>svn:externals</literal> Eigenschaft aus der Liste und schreiben Sie die zu referenzierende Projektarchiv URL in dem Format <literal>Name URL</literal> oder, wenn Sie eine bestimmte Revision angeben wollen, <literal>Name -rREV URL</literal> in das Textfeld. Sie können mehrere externe Projekte - eines pro Zeile - hinzufügen. Beachten Sie, dass Sonderzeichen in URLs korrekt ersetzt werden müssen (Leerzeichen z.B. durch <literal>%20</literal>), damit die externen Verweise funktionieren. Nehmen wir an, Sie haben folgende Eigenschaften auf <filename>D:\\dev\\projekt1</filename> gesetzt:\n"
-"<screen>sounds  http://sounds.red-bean.com/repos\n"
-"quick_graphs  http://graphics.red-bean.com/repos/fast%20graphics\n"
-"skins/toolkit  -r21 http://svn.red-bean.com/repos/skin-maker\n"
+"<screen>http://sounds.red-bean.com/repos sounds\n"
+"http://graphics.red-bean.com/repos/fast%20graphics quick_graphs\n"
+"-r21 http://svn.red-bean.com/repos/skin-maker skins/toolkit\n"
 "</screen>\n"
-"Klicken Sie auf <guibutton>Setzen</guibutton> und übertragen Sie Ihre Änderungen. Sobald jetzt jemand seine Arbeitskopie aktualisiert, wird Subversion einen Unterordner <filename>D:\\dev\\projekt1\\sounds</filename> anlegen und in diesen das <quote>Sounds</quote> Projekt auschecken, einen weiteren Unterordner <filename>D:\\dev\\projekt1\\quick graphs</filename> mit dem <quote>Graphics</quote> Projekt, und schließlich einen verschachtelten Unterordner <filename>D:\\dev\\project1\\skins\\toolkit</filename>, der Revision 21 des <quote>Skinmaker</quote> Projekts enthält."
+"Klicken Sie auf <guibutton>Setzen</guibutton> und übertragen Sie Ihre Änderungen. Sobald jetzt jemand seine Arbeitskopie aktualisiert, wird Subversion einen Unterordner <filename>D:\\dev\\projekt1\\sounds</filename> anlegen und in diesen das <quote>Sounds</quote> Projekt auschecken, einen weiteren Unterordner <filename>D:\\dev\\projekt1\\quick_graphs</filename> mit dem <quote>Graphics</quote> Projekt, und schließlich einen verschachtelten Unterordner <filename>D:\\dev\\project1\\skins\\toolkit</filename>, der Revision 21 des <quote>Skinmaker</quote> Projekts enthält."
 
 #. (title)
 #, fuzzy
@@ -7233,9 +7231,8 @@ msgid "If you invoked the revision graph from a working copy, you can opt to sho
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "Modified working copy"
-msgstr "Arbeitskopie"
+msgstr "Veränderte Arbeitskopie"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show an additional node representing your modified working copy using <guilabel>Show WC modifications</guilabel>. This is an elliptical node with a bold outline in red by default."
@@ -9144,7 +9141,7 @@ msgstr "Start Aktualisierung"
 
 #. (para)
 msgid "Called before the update-to-revision dialog is shown."
-msgstr "Wird aufgerufen, bevor der <quote>Aktualisiere zu Revision</quote> angezeigt wird."
+msgstr "Wird aufgerufen, bevor der <quote>Aktualisiere zu Revision</quote> Dialog angezeigt wird."
 
 #. (term)
 #. (term)
