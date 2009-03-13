@@ -411,14 +411,26 @@
 			This is a useful feature if you want to merge selected
 			revisions from one branch to another.
 		</para>
-		<caution>
+		<tip>
+			<title>Learn to Read the Revision Graph</title>
 			<para>
-				Because Subversion cannot provide all the information required,
-				a certain amount of interpretation is required, which can sometimes
-				give strange results. Nevertheless, the output for the trunk will
-				generally give useful results.
+				First-time users may be surprised by the fact that the revision 
+				graph shows something that does not match the user's mental model.
+				If a revision changes multiple copies or branches of a file or
+				folder, for instance, then there will be multiple nodes for that 
+				single revision. It is a good practice to start with the leftmost
+				options in the toolbar and customize the graph step-by-step until
+				it comes close to your mental model.
 			</para>
-		</caution>
+			<para>
+				All filter options try lose as little information as possible.
+				That may cause some nodes to change their color, for instance.
+				Whenever the result is unexpected, undo the last filter operation
+				and try to understand what is special about that particular revision
+				or branch. In most cases, the initially expected outcome of the
+				filter operation would either be inaccurate or missleading.
+			</para>
+		</tip>
 	</sect2>
 	<sect2 id="tsvn-dug-revgraph-refresh">
 		<title>Refreshing the View</title>
