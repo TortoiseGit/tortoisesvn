@@ -123,7 +123,7 @@ public:
 	CRect           GetClientRect();
 	CRect           GetWindowRect();
 	CRect           GetViewRect();
-	void			DoZoom(float nZoomFactor);
+	void			DoZoom (float nZoomFactor, bool updateScrollbars = true);
 	bool			CancelMouseZoom();
 
     void            SetDlgTitle (bool offline);
@@ -226,7 +226,8 @@ private:
     void            ResetNodeFlags (DWORD flags);
     void            ToggleNodeFlag (const CVisibleGraphNode *node, DWORD flag);
 
-	void			SetScrollbars(int nVert = 0, int nHorz = 0, int oldwidth = 0, int oldheight = 0);
+    void            SetScrollbar (int bar, int newPos, int clientMax, int graphMax);
+	void			SetScrollbars (int nVert = -1, int nHorz = -1);
 	CFont*			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE);
 
     CSize           UsableTooltipRect();

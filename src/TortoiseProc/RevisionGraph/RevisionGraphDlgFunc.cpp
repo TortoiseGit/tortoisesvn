@@ -48,8 +48,7 @@ void CRevisionGraphWnd::InitView()
 {
 	m_bIsRubberBand = false;
 
-    CRect viewRect = GetViewRect();
-	SetScrollbars (0,0,viewRect.Width(),viewRect.Height());
+	SetScrollbars();
 }
 
 void CRevisionGraphWnd::BuildPreview()
@@ -90,7 +89,7 @@ void CRevisionGraphWnd::BuildPreview()
 	HBITMAP oldbm = (HBITMAP)dc.SelectObject (m_Preview);
 
     // paint the whole graph
-    DoZoom (m_previewZoom);
+    DoZoom (m_previewZoom, false);
     CRect rect (0, 0, m_previewWidth, m_previewHeight);
 	DrawGraph(&dc, rect, 0, 0, true);
 
@@ -98,37 +97,37 @@ void CRevisionGraphWnd::BuildPreview()
 	dc.SelectObject(oldbm);
 	dc.DeleteDC();
 
-	DoZoom (origZoom);
+	DoZoom (origZoom, false);
 }
 
-void CRevisionGraphWnd::SetScrollbars(int nVert, int nHorz, int oldwidth, int oldheight)
+void CRevisionGraphWnd::SetScrollbar (int bar, int newPos, int clientMax, int graphMax)
+{
+    SCROLLINFO ScrollInfo = {sizeof(SCROLLINFO), SIF_ALL};
+	GetScrollInfo (bar, &ScrollInfo);
+
+    int oldHeight = ScrollInfo.nMax;
+    int newHeight = static_cast<int>(graphMax * m_fZoomFactor);
+    int maxPos = max (0, newHeight - clientMax);
+    int pos = min (maxPos, newPos >= 0
+                         ? newPos
+                         : ScrollInfo.nPos * newHeight / oldHeight);
+
+    ScrollInfo.nPos = pos;
+    ScrollInfo.nMin = 0;
+	ScrollInfo.nMax = newHeight;
+	ScrollInfo.nPage = clientMax;
+	ScrollInfo.nTrackPos = pos;
+
+    SetScrollInfo(bar, &ScrollInfo);
+}
+
+void CRevisionGraphWnd::SetScrollbars (int nVert, int nHorz)
 {
 	CRect clientrect = GetClientRect();
 	const CRect& pRect = GetGraphRect();
 
-    SCROLLINFO ScrollInfo = {sizeof(SCROLLINFO), SIF_ALL};
-	GetScrollInfo(SB_VERT, &ScrollInfo);
-
-	if ((nVert)||(oldheight==0))
-		ScrollInfo.nPos = nVert;
-	else
-		ScrollInfo.nPos = ScrollInfo.nPos * pRect.Height() / oldheight;
-
-    ScrollInfo.nMin = 0;
-	ScrollInfo.nMax = static_cast<int>(pRect.bottom * m_fZoomFactor);
-	ScrollInfo.nPage = clientrect.Height();
-	ScrollInfo.nTrackPos = 0;
-	SetScrollInfo(SB_VERT, &ScrollInfo);
-
-	GetScrollInfo(SB_HORZ, &ScrollInfo);
-	if ((nHorz)||(oldwidth==0))
-		ScrollInfo.nPos = nHorz;
-	else
-		ScrollInfo.nPos = ScrollInfo.nPos * pRect.Width() / oldwidth;
-
-	ScrollInfo.nMax = static_cast<int>(pRect.right * m_fZoomFactor);
-	ScrollInfo.nPage = clientrect.Width();
-	SetScrollInfo(SB_HORZ, &ScrollInfo);
+    SetScrollbar (SB_VERT, nVert, clientrect.Height(), pRect.Height());
+    SetScrollbar (SB_HORZ, nHorz, clientrect.Width(), pRect.Width());
 }
 
 CRect CRevisionGraphWnd::GetGraphRect()
@@ -374,7 +373,7 @@ void CRevisionGraphWnd::UnifiedDiffRevs(bool bHead)
 	}
 }
 
-void CRevisionGraphWnd::DoZoom(float fZoomFactor)
+void CRevisionGraphWnd::DoZoom (float fZoomFactor, bool updateScrollbars)
 {
 	float oldzoom = m_fZoomFactor;
 	m_fZoomFactor = fZoomFactor;
@@ -393,18 +392,21 @@ void CRevisionGraphWnd::DoZoom(float fZoomFactor)
 		m_apFonts[i] = NULL;
 	}
 
-	SCROLLINFO si1 = {sizeof(SCROLLINFO), SIF_ALL};
-	GetScrollInfo(SB_VERT, &si1);
-	SCROLLINFO si2 = {sizeof(SCROLLINFO), SIF_ALL};
-	GetScrollInfo(SB_HORZ, &si2);
+    if (updateScrollbars)
+    {
+	    SCROLLINFO si1 = {sizeof(SCROLLINFO), SIF_ALL};
+	    GetScrollInfo(SB_VERT, &si1);
+	    SCROLLINFO si2 = {sizeof(SCROLLINFO), SIF_ALL};
+	    GetScrollInfo(SB_HORZ, &si2);
 
-	InitView();
+	    InitView();
 
-	si1.nPos = int(float(si1.nPos)*m_fZoomFactor/oldzoom);
-	si2.nPos = int(float(si2.nPos)*m_fZoomFactor/oldzoom);
-	SetScrollPos (SB_VERT, si1.nPos);
-	SetScrollPos (SB_HORZ, si2.nPos);
+	    si1.nPos = int(float(si1.nPos)*m_fZoomFactor/oldzoom);
+	    si2.nPos = int(float(si2.nPos)*m_fZoomFactor/oldzoom);
+	    SetScrollPos (SB_VERT, si1.nPos);
+	    SetScrollPos (SB_HORZ, si2.nPos);
+    }
 
-	Invalidate();
+    Invalidate (FALSE);
 }
 
