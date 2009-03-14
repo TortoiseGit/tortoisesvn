@@ -455,6 +455,25 @@ int _tmain(int argc, _TCHAR* argv[])
 		return ERR_SYNTAX;
 	}
 
+	DWORD reqLen = GetFullPathName(wc, 0, NULL, NULL);
+	TCHAR * fullPath = new TCHAR[reqLen+1];
+	GetFullPathName(wc, reqLen, fullPath, NULL);
+	wc = fullPath;
+	if (dst)
+	{
+		reqLen = GetFullPathName(dst, 0, NULL, NULL);
+		fullPath = new TCHAR[reqLen+1];
+		GetFullPathName(dst, reqLen, fullPath, NULL);
+		dst = fullPath;
+	}
+	if (src)
+	{
+		reqLen = GetFullPathName(src, 0, NULL, NULL);
+		fullPath = new TCHAR[reqLen+1];
+		GetFullPathName(src, reqLen, fullPath, NULL);
+		dst = fullPath;
+	}
+
 	if (!PathFileExists(wc))
 	{
 		_tprintf(_T("Directory or file '%s' does not exist\n"), wc);
@@ -469,6 +488,9 @@ int _tmain(int argc, _TCHAR* argv[])
 			_tprintf(_T("SubWCRev \"path to wc\\\\\"\n"));
 			_tprintf(_T("SubWCRev \"path to wc\\.\"\n"));
 		}
+		delete [] wc;
+		delete [] dst;
+		delete [] src;
 		return ERR_FNF;			// dir does not exist
 	}
 	char * pBuf = NULL;
@@ -483,12 +505,18 @@ int _tmain(int argc, _TCHAR* argv[])
 		if (hFile == INVALID_HANDLE_VALUE)
 		{
 			_tprintf(_T("Unable to open input file '%s'\n"), src);
+			delete [] wc;
+			delete [] dst;
+			delete [] src;
 			return ERR_OPEN;		// error opening file
 		}
 		filelength = GetFileSize(hFile, NULL);
 		if (filelength == INVALID_FILE_SIZE)
 		{
 			_tprintf(_T("Could not determine file size of '%s'\n"), src);
+			delete [] wc;
+			delete [] dst;
+			delete [] src;
 			return ERR_READ;
 		}
 		maxlength = filelength+4096;	// We might be increasing file size.
@@ -496,16 +524,27 @@ int _tmain(int argc, _TCHAR* argv[])
 		if (pBuf == NULL)
 		{
 			_tprintf(_T("Could not allocate enough memory!\n"));
+			delete [] wc;
+			delete [] dst;
+			delete [] src;
 			return ERR_ALLOC;
 		}
 		if (!ReadFile(hFile, pBuf, filelength, &readlength, NULL))
 		{
 			_tprintf(_T("Could not read the file '%s'\n"), src);
+			delete [] pBuf;
+			delete [] wc;
+			delete [] dst;
+			delete [] src;
 			return ERR_READ;
 		}
 		if (readlength != filelength)
 		{
 			_tprintf(_T("Could not read the file '%s' to the end!\n"), src);
+			delete [] pBuf;
+			delete [] wc;
+			delete [] dst;
+			delete [] src;
 			return ERR_READ;
 		}
 		CloseHandle(hFile);
@@ -551,6 +590,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	apr_terminate2();
 	if (svnerr)
 	{
+		delete [] pBuf;
+		delete [] wc;
+		delete [] dst;
+		delete [] src;
 		return ERR_SVN_ERR;
 	}
 	
@@ -562,6 +605,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	if (bErrOnMods && SubStat.HasMods)
 	{
 		_tprintf(_T("Working copy has local modifications!\n"));
+		delete [] pBuf;
+		delete [] wc;
+		delete [] dst;
+		delete [] src;
 		return ERR_SVN_MODS;
 	}
 	
@@ -573,6 +620,10 @@ int _tmain(int argc, _TCHAR* argv[])
 			_tprintf(_T("Working copy contains mixed revisions %#LX:%#LX!\n"), SubStat.MinRev, SubStat.MaxRev);
 		else
 			_tprintf(_T("Working copy contains mixed revisions %Ld:%Ld!\n"), SubStat.MinRev, SubStat.MaxRev);
+		delete [] pBuf;
+		delete [] wc;
+		delete [] dst;
+		delete [] src;
 		return ERR_SVN_MIXED;
 	}
 
@@ -609,6 +660,10 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	if (dst == NULL)
 	{
+		delete [] pBuf;
+		delete [] wc;
+		delete [] dst;
+		delete [] src;
 		return 0;
 	}
 
@@ -667,6 +722,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	if (hFile == INVALID_HANDLE_VALUE)
 	{
 		_tprintf(_T("Unable to open output file '%s' for writing\n"), dst);
+		delete [] pBuf;
+		delete [] wc;
+		delete [] dst;
+		delete [] src;
 		return ERR_OPEN;
 	}
 
@@ -679,11 +738,19 @@ int _tmain(int argc, _TCHAR* argv[])
 		if (!ReadFile(hFile, pBufExisting, filelengthExisting, &readlengthExisting, NULL))
 		{
 			_tprintf(_T("Could not read the file '%s'\n"), dst);
+			delete [] pBuf;
+			delete [] wc;
+			delete [] dst;
+			delete [] src;
 			return ERR_READ;
 		}
 		if (readlengthExisting != filelengthExisting)
 		{
 			_tprintf(_T("Could not read the file '%s' to the end!\n"), dst);
+			delete [] pBuf;
+			delete [] wc;
+			delete [] dst;
+			delete [] src;
 			return ERR_READ;
 		}
 		sameFileContent = (memcmp(pBuf, pBufExisting, filelength) == 0);
@@ -700,17 +767,28 @@ int _tmain(int argc, _TCHAR* argv[])
 		if (readlength != filelength)
 		{
 			_tprintf(_T("Could not write the file '%s' to the end!\n"), dst);
+			delete [] pBuf;
+			delete [] wc;
+			delete [] dst;
+			delete [] src;
 			return ERR_READ;
 		}
 
 		if (!SetEndOfFile(hFile))
 		{
 			_tprintf(_T("Could not truncate the file '%s' to the end!\n"), dst);
+			delete [] pBuf;
+			delete [] wc;
+			delete [] dst;
+			delete [] src;
 			return ERR_READ;
 		}
 	}
 	CloseHandle(hFile);
 	delete [] pBuf;
+	delete [] wc;
+	delete [] dst;
+	delete [] src;
 		
 	return 0;
 }
