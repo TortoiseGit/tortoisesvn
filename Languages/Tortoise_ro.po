@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-14 22:49+0200\n"
+"PO-Revision-Date: 2009-03-14 23:27+0200\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -245,7 +245,7 @@ msgid ""
 "Do you want to remove it anyway?"
 msgstr ""
 "%s\n"
-"Chiar vreţi să eliminaţi?"
+"Chiar doriţi să-l eliminaţi?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -409,11 +409,11 @@ msgstr "&Curăţă"
 
 #. Resource IDs: (58112)
 msgid "&Close"
-msgstr "&Închide"
+msgstr "În&chide"
 
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
-msgstr "&Închide fereastră (ferestrele)"
+msgstr "În&chide fereastră (ferestrele)"
 
 #. Resource IDs: (32785)
 msgid "&Color age of lines"
@@ -459,6 +459,7 @@ msgstr "&Copiază"
 # Noun: The copy button's image
 # Verb: Make a copy of the button's image
 #. Resource IDs: (16911)
+#, fuzzy
 msgid "&Copy Button Image"
 msgstr "&Copiază imaginea butonului"
 
@@ -488,15 +489,15 @@ msgstr "&Implicit"
 
 #. Resource IDs: (11, 1382, 16617, 16912)
 msgid "&Delete"
-msgstr "&Şterge"
+msgstr "Ş&terge"
 
 #. Resource IDs: (17)
 msgid "&Delete (keep local)"
-msgstr "&Şterge (păstrează local)"
+msgstr "Ş&terge (păstrează local)"
 
 #. Resource IDs: (101)
 msgid "&Delete..."
-msgstr "&Şterge..."
+msgstr "Ş&terge..."
 
 #. Resource IDs: (12)
 msgid "&Diff"
@@ -580,7 +581,7 @@ msgstr "&Flotant"
 
 #. Resource IDs: (65535)
 msgid "&Font for log messages:"
-msgstr "&Font pentru jurnal:"
+msgstr "&Font pentru mesajele din jurnal:"
 
 #. Resource IDs: (65535)
 msgid "&Font:"
@@ -657,7 +658,7 @@ msgstr "&Informaţii de imagine"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
-msgstr "Numai &imaginea"
+msgstr "Numai &imagine"
 
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
@@ -765,7 +766,7 @@ msgstr "&Navighează"
 
 #. Resource IDs: (1049)
 msgid "&Network drives"
-msgstr "Unităţi de &reţea"
+msgstr "U&nităţi de reţea"
 
 #. Resource IDs: (65535)
 msgid "&New "
@@ -846,6 +847,7 @@ msgid "&Previous Difference"
 msgstr "Diferenţa &precedenă"
 
 #. Resource IDs: (1069)
+#, fuzzy
 msgid "&Print Preview"
 msgstr "&Preafişare de tipărire"
 
@@ -1035,11 +1037,11 @@ msgstr "&Numai text"
 
 #. Resource IDs: (1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
-msgstr "Amâ&nare în secunde înainte de actualizarea reviziei HEAD"
+msgstr "&Limita de timp în secunde înainte de actualizarea reviziei HEAD"
 
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
-msgstr "Amâ&nare în secunde înainte de oprirea analizării autocompletare"
+msgstr "&Limita de timp în secunde înainte de oprirea analizării autocompletare"
 
 #. Resource IDs: (65535)
 msgid "&To Revision"
@@ -1103,7 +1105,7 @@ msgstr "Diferenţiere &unificată"
 
 #. Resource IDs: (1061)
 msgid "&Unknown drives"
-msgstr "Discuri &necunoscute"
+msgstr "Discuri nec&unoscute"
 
 #. Resource IDs: (8)
 msgid "&Update"
@@ -1274,7 +1276,7 @@ msgstr ": copia de lucru"
 
 #. Resource IDs: (332)
 msgid "< &Back"
-msgstr "< &Înapoi"
+msgstr "< Î&napoi"
 
 #. Resource IDs: (16506)
 msgid "<.....>"
@@ -1331,8 +1333,8 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"O listă de căi, separate de un caracter care semnifică linie nouă, pentru care sunt afişate suprapuneri de iconiţe.\r\n"
-"Dacă adăugaţi un '*' la sfâşitul unei căi, toate fişierele şi sub-dosarele în acea cale sunt incluse de asemenea."
+"O listă de căi, separate de linie nouă, pentru care sunt afişate suprapuneri de iconiţe.\r\n"
+"Dacă adăugaţi un '*' la sfârşitul unei căi, toate fişierele şi sub-dosarele în acea cale sunt incluse de asemenea."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1340,8 +1342,9 @@ msgid ""
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow the context menu on all paths."
 msgstr ""
-"O listă de căi, separate de un caracter care semnifică linie nouă, pentru care este afişat meniul contextual.\r\n"
-"Dacă adăugaţi un '*' la sfâşitul unei căi, toate fişierele şi sub-dosarele în acea cale sunt excluse de asemenea.O listă goală va permite meniul context pentru toate căile."
+"O listă de căi, separate de linie nouă, pentru care este afişat meniul contextual.\r\n"
+"Dacă adăugaţi un '*' la sfâşitul unei căi, toate fişierele şi sub-dosarele în acea cale sunt excluse de asemenea.\r\n"
+"O listă goală va permite meniul context pentru toate căile."
 
 #. Resource IDs: (194)
 msgid ""
@@ -1349,8 +1352,9 @@ msgid ""
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"O listă de căi, separate de un caracter care semnifică linie nouă, pentru care nu sunt afişate suprapuneri de iconiţe.\r\n"
-"Dacă adăugaţi un '*' la sfâşitul unei căi, toate fişierele şi sub-dosarele în acea cale sunt excluse de asemenea.O listă goală va permite suprapuneri de iconiţe pentru toate căile."
+"O listă de căi, separate de linie nouă, pentru care nu sunt afişate suprapuneri de iconiţe.\r\n"
+"Dacă adăugaţi un '*' la sfârşitul unei căi, toate fişierele şi sub-dosarele în acea cale sunt excluse de asemenea.\r\n"
+"O listă goală va permite suprapuneri de iconiţe pentru toate căile."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1946,7 +1950,7 @@ msgstr "Aspect de buton"
 
 #. Resource IDs: (1215)
 msgid "C&heck now"
-msgstr "&Caută acum"
+msgstr "&Verifică acum"
 
 #. Resource IDs: (1132)
 msgid "C&heck repository"
@@ -4028,7 +4032,7 @@ msgstr "Se produce fişierul de petic..."
 
 #. Resource IDs: (16)
 msgid "Get loc&k..."
-msgstr "Obţine &blocarea..."
+msgstr "Obţine &blocare..."
 
 #. Resource IDs: (114)
 msgid "Get merge logs"
@@ -4975,6 +4979,7 @@ msgstr ""
 msgid "Locator Bar"
 msgstr "Bara de localizator"
 
+# Noun or verb?
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Blocare"
@@ -5068,7 +5073,7 @@ msgstr "Mesaje din jurnal (Dialog Input)"
 
 #. Resource IDs: (1280)
 msgid "Log messages (Show log dialog)"
-msgstr "Mesaje de jurnal (afează dialog pentru jurnal)"
+msgstr "Mesaje din jurnal (afează dialog pentru jurnal)"
 
 #. Resource IDs: (238)
 #, c-format
@@ -5171,7 +5176,7 @@ msgstr "Bara de meniu"
 
 #. Resource IDs: (16626)
 msgid "Menu s&hadows"
-msgstr "&Umbre de meniu"
+msgstr "&Umbre meniu"
 
 #. Resource IDs: (109, 110, 111, 112, 276, 278, 65535)
 msgid "Merge"
@@ -5265,7 +5270,7 @@ msgstr "Se îmbină %s cu %s, %s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
-msgstr "Se îmbină diferenţele între URL-uri de deopzit"
+msgstr "Se îmbină diferenţele între URL-uri de depozit"
 
 #. Resource IDs: (229)
 #, c-format
@@ -5777,7 +5782,7 @@ msgstr ""
 
 #. Resource IDs: (1424)
 msgid "Only record the merge (block revisions from getting merged)"
-msgstr "Numai înregistrează îmbinarea (nu lasă reviziile să fie îmbinate)"
+msgstr "Înregistrează numai îmbinarea (nu lasă reviziile să fie îmbinate)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -5785,7 +5790,7 @@ msgstr "Numai acest element"
 
 #. Resource IDs: (1224)
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
-msgstr "Foloseşte corectorul &ortografic numai când tsvn:projectlanguage este aplicat"
+msgstr "Foloseşte corectorul &ortografic numai când este aplicat tsvn:projectlanguage"
 
 #. Resource IDs: (65535)
 msgid "Opacity"
@@ -6235,7 +6240,7 @@ msgstr "Furnizor:"
 
 #. Resource IDs: (1412)
 msgid "Proxy &timeout in seconds:"
-msgstr "&Limita de timp a proxy-ului (în secunde):"
+msgstr "Limita de &timp a proxy-ului (în secunde):"
 
 #. Resource IDs: (1080)
 msgid "Proxy Settings"
@@ -6348,7 +6353,7 @@ msgstr ""
 
 #. Resource IDs: (3825)
 msgid "Reduce the window to an icon"
-msgstr "Micşorează fereastră la o iconiţă"
+msgstr "Micşorează fereastră în iconiţă"
 
 #. Resource IDs: (101, 135, 1382)
 msgid "Refresh"
@@ -7762,6 +7767,8 @@ msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
 msgstr ""
+"A avut loc o eroare în timp ce se crea depozitul!\n"
+"Asiguraţi că dosarul este gol şi că nu este protejat la scriere."
 
 #. Resource IDs: (81)
 #, c-format
@@ -8690,7 +8697,7 @@ msgstr "Numărul total de revizii îmbinate"
 
 #. Resource IDs: (339)
 msgid "Total number of user revision properties"
-msgstr "Numărul total de proprietăţi de revizie stabilite de utilizator"
+msgstr "Numărul total de proprietăţi definite de utilizator"
 
 #. Resource IDs: (32821)
 #, fuzzy
@@ -8920,7 +8927,7 @@ msgstr "Deschide dosarul superior"
 
 #. Resource IDs: (152, 230)
 msgid "Update"
-msgstr "Actualizare"
+msgstr "Actualizează"
 
 #. Resource IDs: (77)
 msgid "Update - TortoiseSVN"
@@ -9165,7 +9172,7 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
-msgstr "Foloseşte fişierul &acesta întreg"
+msgstr "Foloseşte totul din fişierul &acesta"
 
 #. Resource IDs: (12)
 msgid "Use this if the URL of the repository has changed"
@@ -9173,7 +9180,7 @@ msgstr "Foloseşte acest URL dacă depoziul s-a schimbat"
 
 #. Resource IDs: (251)
 msgid "Use whole other &file"
-msgstr "Foloseşte fişierul &celălalt întreg"
+msgstr "Foloseşte totul din fişierul &celălalt"
 
 #. Resource IDs: (74)
 msgid "User cancelled"
@@ -9833,7 +9840,7 @@ msgstr "ignorat"
 # from french translation
 #. Resource IDs: (220)
 msgid "ignoring ancestry"
-msgstr "ignoră ascendenţa"
+msgstr "se ignoră ascendenţa"
 
 #. Resource IDs: (13)
 msgid "incomplete"
