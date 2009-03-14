@@ -3523,9 +3523,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 									// remove the entry completely
 									entriesToRemove.push_back(index);
 								}
-								else {
+								else 
+								{
 									SetItemGroup(index, 0);
-									Sort();
 								}
 							}
 						}
@@ -3535,6 +3535,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						}
 						// TODO: Should we go through all entries here and check if we also could
 						// remove the changelist from m_changelists ?
+
+						Sort();
 					}
 					else
 					{
@@ -3596,9 +3598,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 										SetItemGroup(index, m_changelists[e->changelist]);
 									else
 										SetItemGroup(index, 0);
-									Sort();
 								}
 							}
+							Sort();
 						}
 						else
 						{
