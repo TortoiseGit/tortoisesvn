@@ -23,18 +23,18 @@ namespace Interop.BugTraqProvider
     }
 
 	[ComVisible( true ), InterfaceType( ComInterfaceType.InterfaceIsIUnknown ), Guid( "C5C85E31-2F9B-4916-A7BA-8E27D481EE83" )]
-	public interface IBugTraqProvider2
+	public interface IBugTraqProvider2 : IBugTraqProvider
 	{
 		[return: MarshalAs( UnmanagedType.VariantBool )]
-		bool ValidateParameters( IntPtr hParentWnd,
+		new bool ValidateParameters( IntPtr hParentWnd,
 			[MarshalAs( UnmanagedType.BStr )] string parameters );
 
 		[return: MarshalAs( UnmanagedType.BStr )]
-		string GetLinkText( IntPtr hParentWnd,
+		new string GetLinkText( IntPtr hParentWnd,
 			[MarshalAs( UnmanagedType.BStr )] string parameters );
 
 		[return: MarshalAs( UnmanagedType.BStr )]
-		string GetCommitMessage( IntPtr hParentWnd,
+		new string GetCommitMessage( IntPtr hParentWnd,
 			[MarshalAs( UnmanagedType.BStr )] string parameters,
 			[MarshalAs( UnmanagedType.BStr )] string commonRoot,
 			[MarshalAs( UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_BSTR )] string[] pathList,
