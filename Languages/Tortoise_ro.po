@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-11 15:13+0200\n"
+"PO-Revision-Date: 2009-03-14 22:49+0200\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -353,7 +353,7 @@ msgstr "În&vinovăţeşte reviziile"
 
 #. Resource IDs: (13)
 msgid "&Blame..."
-msgstr "În&vinovăţeşte..."
+msgstr "În&vinovăţire..."
 
 #. Resource IDs: (32849)
 msgid "&Blue Style"
@@ -1252,9 +1252,8 @@ msgid "... checking cache and preparing log query"
 msgstr "... se verifică cache-ul şi se pregăteşte interogare de jurnal"
 
 #. Resource IDs: (270)
-#, fuzzy
 msgid "... reading working copy status"
-msgstr "S-a pus tag pe copia de lucru %s"
+msgstr ""
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -1878,7 +1877,7 @@ msgstr "Învinovăţire - TortoiseSVN"
 
 #. Resource IDs: (114)
 msgid "Blame..."
-msgstr "În&vinovăţire..."
+msgstr "Învinovăţire..."
 
 #. Resource IDs: (13)
 #, fuzzy
@@ -3673,7 +3672,7 @@ msgstr "Programe externe::Vizualizator de diferenţiere unificată"
 
 #. Resource IDs: (263)
 msgid "External failed"
-msgstr ""
+msgstr "Un program extern a eşuat"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
@@ -7739,6 +7738,14 @@ msgid ""
 "file %s, line %ld\n"
 "expression = %s"
 msgstr ""
+"A avut loc o eroare serioasă.\n"
+"Puteţi raporta aceasta prin lista de discuţii\n"
+"cu detalii despre ceea ce făceaţi când\n"
+"s-a produs eroarea.\n"
+"\n"
+"Eroarea s-a produs în:\n"
+"fişierul %s, linia %ld\n"
+"expresia = %s"
 
 #. Resource IDs: (84)
 msgid ""
@@ -8924,9 +8931,8 @@ msgid "Update Depth"
 msgstr "Adâncimea Actualizării"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Update WC to revision"
-msgstr "Act&ualizează elementul la revizie"
+msgstr "Actualizează copia de lucru la revizie"
 
 #. Resource IDs: (74)
 msgid "Updated"
