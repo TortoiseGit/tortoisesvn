@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2009-03-10 23:06+0100\n"
-"Last-Translator: Dennis Siemensma <dennis@dennissiemensma.nl>\n"
+"PO-Revision-Date: 2009-03-13 23:10+0100\n"
+"Last-Translator: Mariska Hoogenboom <Mariska.Hoogenboom@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -29,7 +29,7 @@ msgstr ""
 #. (None)
 #: ../source/TortoiseSVN_en.xml:14428
 msgid "@@image: 'images/svn_move.png'; md5=THIS FILE DOESN'T EXIST"
-msgstr ""
+msgstr "@@image: 'images/svn_move.png'; md5=THIS FILE DOESN'T EXIST"
 
 #. (title)
 #. (secondary)
@@ -97,22 +97,22 @@ msgstr "Werk je in een team?"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:40
 msgid "Has it ever happened that you were working on a file, and someone else was working on the same file at the same time? Did you lose your changes to that file because of that?"
-msgstr ""
+msgstr "Is het weleens gebeurd dat je aan een bestand werkte, terwijl tegelijkertijd iemand anders aan hetzelfde bestand werkte? Zijn jouw wijzigingen in dat bestand daardoor verloren gegaan?"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:47
 msgid "Have you ever saved a file, and then wanted to revert the changes you made? Have you ever wished you could see what a file looked like some time ago?"
-msgstr ""
+msgstr "Heb je weleens een bestand opgeslagen en wilde je daarna de wijzigingen terugdraaien? Wilde je weleens bekijken hoe een bestand er een tijdje geleden uitzag?"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:54
 msgid "Have you ever found a bug in your project and wanted to know when that bug got into your files?"
-msgstr ""
+msgstr "Heb je weleens een defect in je project gevonden en wilde je weten wanneer dat defect in je bestanden is gekomen?"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:61
 msgid "If you answered <quote>yes</quote> to one of these questions, then TortoiseSVN is for you! Just read on to find out how TortoiseSVN can help you in your work. It's not that difficult."
-msgstr ""
+msgstr "Als je een van deze vragen met <quote>ja</quote> hebt beantwoord, dan is TortoiseSVN voor jou geschikt! Lees verder en ontdek hoe TortoiseSVN je kan helpen bij je werk. Het is echt niet moeilijk."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:71
@@ -122,7 +122,7 @@ msgstr "Publiek"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:72
 msgid "This book is written for computer literate folk who want to use Subversion to manage their data, but are uncomfortable using the command line client to do so. Since TortoiseSVN is a windows shell extension it's assumed that the user is familiar with the windows explorer and knows how to use it."
-msgstr ""
+msgstr "Dit boek is geschreven voor computer intellectuelen, die Subversion willen gebruiken om hun data te beheren, maar niet graag commando regels gebruiken. Aangezien TortoiseSVN een windows shell-extensie is, wordt verondersteld dat de gebruiker bekend is met de windows verkenner en weet hoe deze te gebruiken."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:84
@@ -132,52 +132,52 @@ msgstr "Leesgids"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:85
 msgid "This <xref linkend=\"tsvn-preface\"/> explains a little about the TortoiseSVN project, the community of people who work on it, and the licensing conditions for using it and distributing it."
-msgstr ""
+msgstr "Deze <xref linkend=\"tsvn-preface\"/> geeft een beknopte toelichting over het TortoiseSVN project, de gemeenschap die hieraan werkt, alsmede de licentievoorwaarden voor gebruik en verspreiding."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:90
 msgid "The <xref linkend=\"tsvn-introduction\"/> explains what TortoiseSVN is, what it does, where it comes from and the basics for installing it on your PC."
-msgstr ""
+msgstr "De <xref linkend=\"tsvn-introduction\"/> legt uit wat TortoiseSVN is, wat het doet, waar het vandaan komt en wat de basisinstructies zijn om het op je PC te installeren."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:95
 msgid "In <xref linkend=\"tsvn-basics\"/> we give a short introduction to the <emphasis>Subversion</emphasis> revision control system which underlies TortoiseSVN. This is borrowed from the documentation for the Subversion project and explains the different approaches to version control, and how Subversion works."
-msgstr ""
+msgstr "In <xref linkend=\"tsvn-basics\"/> geven we een korte introductie van het <emphasis>Subversion</emphasis> revisie beheer systeem, dat ten grondslag ligt aan TortoiseSVN. Dit is geleend van de documentatie van het Subversion project en licht de verschillende benaderingen van versie beheer toe, alsook hoe Subversion werkt."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:102
 msgid "Even most Subversion users will never have to set up a server themselves. The next chapter deals with how to set up such a server, and is useful for administrators."
-msgstr ""
+msgstr "Toch hoeven de meeste Subversion gebruikers nooit zelf een server in te richten. Het volgende hoofdstuk gaat over het opzetten van een dergelijke server en is nuttig voor beheerders."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:107
 msgid "The chapter on <xref linkend=\"tsvn-repository\"/> explains how to set up a local repository, which is useful for testing Subversion and TortoiseSVN using a single PC. It also explains a bit about repository administration which is also relevant to repositories located on a server."
-msgstr ""
+msgstr "Het hoofdstuk over <xref linkend=\"tsvn-repository\"/> legt uit hoe een lokaal archief op te zetten, wat bruikbaar kan zijn om Subversion en TortoiseSVN te testen op een enkele PC. Het gaat ook over het beheer van een archief, wat eveneens relevant is voor archieven op een server."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:113
 msgid "The <xref linkend=\"tsvn-dug\"/> is the most important section as it explains all the main features of TortoiseSVN and how to use them. It takes the form of a tutorial, starting with checking out a working copy, modifying it, committing your changes, etc. It then progresses to more advanced topics."
-msgstr ""
+msgstr "De <xref linkend=\"tsvn-dug\"/> is de belangrijkste sectie, omdat hierin de voornaamste functies van TortoiseSVN alsmede hoe ze te gebruiken, worden uitgelegd. Het is in de vorm van een handleiding, die begint met het ophalen van een werkkopie, het wijzigen ervan, het vastleggen van je wijzigingen, enz. Het vervolgt dan met meer geavanceerde thema's."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:120
 msgid "<xref linkend=\"tsvn-subwcrev\"/> is a separate program included with TortoiseSVN which can extract the information from your working copy and write it into a file. This is useful for including build information in your projects."
-msgstr ""
+msgstr "<xref linkend=\"tsvn-subwcrev\"/> is een afzonderlijk programma samengevoegd met TortoiseSVN, welke informatie uit je werkkopie kan halen en in een bestand kan schrijven. Het is bruikbaar om bouwinformatie in je project te voegen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:125
 msgid "The <xref linkend=\"tsvn-howto\"/> section answers some common questions about performing tasks which are not explicitly covered elsewhere."
-msgstr ""
+msgstr "De <xref linkend=\"tsvn-howto\"/> sectie beantwoordt algemene vragen over het uitvoeren van taken, die niet expliciet op andere plekken worden behandeld."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:129
 msgid "The section on <xref linkend=\"tsvn-automation\"/> shows how the TortoiseSVN GUI dialogs can be called from the command line. This is useful for scripting where you still need user interaction."
-msgstr ""
+msgstr "De sectie over <xref linkend=\"tsvn-automation\"/> toont hoe de TortoiseSVN GUI dialogen vanaf de commando regels kunnen worden aangeroepen. Dit is bruikbaar bij scripten waarbij wel gebruikersinteractie nodig is."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:134
 msgid "The <xref linkend=\"tsvn-cli\"/> give a correlation between TortoiseSVN commands and their equivalents in the Subversion command line client <literal>svn.exe</literal>."
-msgstr ""
+msgstr "De <xref linkend=\"tsvn-cli\"/> correleren de TortoiseSVN commando's met hun equivalenten in de Subversion commando regel client <literal>svn.exe</literal>."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:144
@@ -187,12 +187,12 @@ msgstr "TortoiseSVN is gratis!"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:145
 msgid "TortoiseSVN is free. You don't have to pay to use it, and you can use it any way you want. It is developed under the GNU General Public License (GPL)."
-msgstr ""
+msgstr "TortoiseSVN is gratis. Je hoeft niet te betalen om het te gebruiken en je kunt het gebruiken zoals je zelf wilt. Het is ontwikkeld onder de GNU <quote>General Public License (GPL)</quote>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:149
 msgid "TortoiseSVN is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. You will be prompted to enter username and password. The username is <literal>guest</literal>, and the password must be left blank. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
-msgstr ""
+msgstr "TortoiseSVN is een <quote>Open Source</quote> project. Dit betekent dat je volledige leestoegang hebt tot de bronbestanden van dit programma. Je kunt de bronbestanden via de URL <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink> bekijken. Hierbij word je naar een gebruikersnaam en wachtwoord gevraagd. De gebruikersnaam is <literal>guest</literal> en het wachtwoord moet je leeg laten. De meest recente versie (waaraan we op dit moment werken) is te vinden op <filename>/trunk/</filename> en de opgeleverde versies zijn te vinden onder <filename>/tags/</filename>."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:168
@@ -12814,7 +12814,6 @@ msgstr "Weergeeft de 'over'  dialoog. Deze wordt ook weergegeven wanneer er geen
 #. (option)
 #. (option)
 #. (option)
-
 #. (option)
 #. (option)
 #. (option)
