@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,14 +39,14 @@ class IHierarchicalOutStream;
 namespace LogCache
 {
 
-///////////////////////////////////////////////////////////////
-// efficient associative container
-///////////////////////////////////////////////////////////////
+/**
+ * efficient associative container
+ */
 
 typedef quick_hash_map<index_t, index_t> index_mapping_t;
 
 /**
- * efficiently stores a pool unique (UTF8) strings.
+ * efficiently stores a pool of unique (UTF8) strings.
  * Each string is assigned an unique, immutable index.
  *
  * Under most circumstances, O(1) lookup is provided.
@@ -156,6 +156,10 @@ public:
 	/// reset content
 
 	void Clear();
+
+    /// use this to minimize re-allocation and re-hashing
+
+    void Reserve (index_t stringCount, size_t charCount);
 
     /// statistics
 

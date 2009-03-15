@@ -235,6 +235,17 @@ void CStringDictionary::Clear()
 	Initialize();
 }
 
+// use this to minimize re-allocation and re-hashing
+
+void CStringDictionary::Reserve (index_t stringCount, size_t charCount)
+{
+    packedStrings.reserve (charCount);
+    packedStringsStart = &packedStrings.at(0);
+
+    offsets.reserve (stringCount);
+    hashIndex.reserve (stringCount);
+}
+
 // statistics
 
 size_t CStringDictionary::GetPackedStringSize() const
