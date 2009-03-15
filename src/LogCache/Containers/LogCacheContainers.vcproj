@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9.00"
+	Version="9,00"
 	Name="LogCacheContainersLib"
 	ProjectGUID="{4034F594-DF25-4B3E-92F8-2795C263B483}"
 	RootNamespace="LogCache"
@@ -285,6 +285,14 @@
 	<References>
 	</References>
 	<Files>
+		<File
+			RelativePath=".\BlobDictionary.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\BlobDictionary.h"
+			>
+		</File>
 		<File
 			RelativePath=".\DictionaryBasedTempPath.cpp"
 			>
