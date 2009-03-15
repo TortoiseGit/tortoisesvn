@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-24 00:06+0100\n"
+"PO-Revision-Date: 2009-03-15 17:42+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1008,6 +1008,14 @@ msgstr "&Odobranie zámkov"
 msgid "&Stop on copy/rename"
 msgstr "Za&staviť na Kopírovať/Premenovať"
 
+#. Resource IDs: (276)
+msgid "&Switch WC to path and revision"
+msgstr "Prepnúť pracovnú kópiu na cestu a revíziu"
+
+#. Resource IDs: (275)
+msgid "&Switch WC to path@HEAD"
+msgstr "&Prepnúť pracovnú kópiu na cesta@HEAD"
+
 #. Resource IDs: (1173)
 msgid "&Symbol View"
 msgstr "&Zobrazenie znakov"
@@ -1253,6 +1261,10 @@ msgstr "..."
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
 msgstr "... kontrolovanie zásobníka a príprava denníka"
+
+#. Resource IDs: (270)
+msgid "... reading working copy status"
+msgstr "... načítavanie stavu pracovnej kópie"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -2135,6 +2147,10 @@ msgstr "Skontrolovať aktualizácie"
 msgid "Check For Updates..."
 msgstr "Skontrolovať aktualizácie..."
 
+#. Resource IDs: (276)
+msgid "Check for &modifications"
+msgstr "Skontrolovať &zmeny"
+
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
 msgstr "Skontrolovať &zmeny"
@@ -2158,6 +2174,10 @@ msgstr ""
 #. Resource IDs: (612)
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
 msgstr "Skontrolujte denník a zistite ako bol súbor/adresár premenovaný/presunutý a rozhodnite, či ponecháte vaše premenovanie/presunutie, alebo to z úložiska. Potom označte konflikt za vyriešený."
+
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to merge the change into your renamed file, or restore the original file."
+msgstr "Skontrolujte denník a zistite ako bol súbor/adresár premenovaný/presunutý a rozhodnite, či chcete zlúčiť zmeny do premenovaného súboru, alebo obnovíte pôvodný súbor."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -2505,6 +2525,10 @@ msgstr "Nastaviť program na riešenie konfliktov."
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "Nastavenie prehliadača 'GNU diff' súborov (súbory záplat)."
+
+#. Resource IDs: (1503)
+msgid "Conflict Sources"
+msgstr "Konfliktné zdroje"
 
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
@@ -3054,6 +3078,10 @@ msgstr "Vymaže súbor zoznamu úkonov"
 msgid "Deleting"
 msgstr "Vymazávanie"
 
+#. Resource IDs: (207)
+msgid "Depth"
+msgstr "Hĺbka"
+
 #. Resource IDs: (65535)
 msgid "Depth:"
 msgstr "Hĺbka:"
@@ -3564,6 +3592,10 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Výnimky:"
+
+#. Resource IDs: (20)
+msgid "Exclude"
+msgstr "Vylúčiť:"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -5254,8 +5286,8 @@ msgstr "Zlúčiť revízie do..."
 
 #. Resource IDs: (610)
 #, c-format
-msgid "Merge the changes into the file '%s'"
-msgstr "Zlúčiť zmeny do súboru '%s'"
+msgid "Merge the changes into '%s'"
+msgstr "Zlúčiť zmeny do '%s'"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -7640,6 +7672,14 @@ msgstr "Preskočené chýbajúce ciele"
 msgid "Sort by commit count"
 msgstr "Triediť podľa počtu odovzdaní"
 
+#. Resource IDs: (1501)
+msgid "Source Left:"
+msgstr "Ľavý zdroj:"
+
+#. Resource IDs: (1502)
+msgid "Source Right:"
+msgstr "Pravý Zdroj:"
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Určuje koľko záznamov sa ma pamätať v histórií správ denníka."
@@ -7968,7 +8008,7 @@ msgstr "Farba vytvorenia, kopírovania a premenovania uzlu kmeňa bude posunutá
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
-msgstr "Predvolená URL na z ktorej prebehne získavanie pokiaľ nie je určená iná"
+msgstr "Predvolená URL, z ktorej prebehne získavanie pokiaľ nie je určená iná"
 
 #. Resource IDs: (196)
 msgid "The default path to checkout to if nothing else is specified"
@@ -9000,6 +9040,10 @@ msgstr "Aktualizovať - TortoiseSVN"
 #. Resource IDs: (1377)
 msgid "Update Depth"
 msgstr "Hĺba aktualizácie"
+
+#. Resource IDs: (275)
+msgid "Update WC to revision"
+msgstr "Aktualizovať pracovnú kópiu na revíziu"
 
 #. Resource IDs: (74)
 msgid "Updated"
