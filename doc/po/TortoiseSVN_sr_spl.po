@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-11 23:53 +0000\n"
-"PO-Revision-Date: 2009-03-13 09:12+0100\n"
+"PO-Revision-Date: 2009-03-15 19:54+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -549,7 +549,7 @@ msgstr "Ovo poglavlje je kratak, neobavezan uvod u Subverziju. Ako ste novi u ko
 
 #. (para)
 msgid "Even though the examples in this chapter show people sharing collections of program source code, keep in mind that Subversion can manage any sort of file collection - it's not limited to helping computer programmers."
-msgstr "Uprkos tome što primeri u ovom poglavlju prikazuju ljudske deljive kolekcije izvornog koda programa, imajte na umu da Subverzija može upravljati bilo kojom vrstom kolekcije fajlova - nije ograničena na pomoć komputerskim programerima."
+msgstr "Uprkos tome što primere u ovom poglavlju prikazuju ljudi koji dele kolekcije izvornog koda programa, imajte na umu da Subverzija može upravljati bilo kojom vrstom kolekcija fajlova - nije ograničena na pomoć kompjuterskim programerima."
 
 #. (title)
 #. (title)
@@ -572,7 +572,7 @@ msgstr "Tipični klijent/server sistem"
 
 #. (para)
 msgid "So why is this interesting? So far, this sounds like the definition of a typical file server. And indeed, the repository <emphasis>is</emphasis> a kind of file server, but it's not your usual breed. What makes the Subversion repository special is that <emphasis>it remembers every change</emphasis> ever written to it: every change to every file, and even changes to the directory tree itself, such as the addition, deletion, and rearrangement of files and directories."
-msgstr "Dakle zašto je ovo interesantno? Zato što je pesma od definicije tipičnog fajl servera. I svakako, spremište <emphasis>je</emphasis> vrsta fajl servera, ali nije to vaš uobičajen soj. Šta čini Subverziono spremište specijalnim je da  <emphasis>ono pamti sve izmene</emphasis> ikad upisane u njega: sve izmene svakog fajla, i čak izmene samog stabla imenika, kao što je dodavanje, brisanje, i preuređenje fajlova u imenika."
+msgstr "Dakle zašto je ovo interesantno? Zato što je ovo pesma od definicije tipičnog fajl servera. I svakako, spremište <emphasis>je</emphasis> vrsta fajl servera, ali nije to vaš uobičajen soj. Šta čini Subverziono spremište specijalnim je da  <emphasis>ono pamti sve izmene</emphasis> ikad upisane u njega: sve izmene svakog fajla, i čak izmene samog stabla imenika, kao što je dodavanje, brisanje, i preuređenje fajlova u imenika."
 
 #. (para)
 msgid "When a client reads data from the repository, it normally sees only the latest version of the filesystem tree. But the client also has the ability to view <emphasis>previous</emphasis> states of the filesystem. For example, a client can ask historical questions like, <quote>what did this directory contain last Wednesday?</quote>, or <quote>who was the last person to change this file, and what changes did they make?</quote> These are the sorts of questions that are at the heart of any <firstterm>version control system</firstterm>: systems that are designed to record and track changes to data over time."
@@ -592,7 +592,7 @@ msgstr "Problem Fajl-Deljenja"
 
 #. (para)
 msgid "Consider this scenario: suppose we have two co-workers, Harry and Sally. They each decide to edit the same repository file at the same time. If Harry saves his changes to the repository first, then it's possible that (a few moments later) Sally could accidentally overwrite them with her own new version of the file. While Harry's version of the file won't be lost forever (because the system remembers every change), any changes Harry made <emphasis>won't</emphasis> be present in Sally's newer version of the file, because she never saw Harry's changes to begin with. Harry's work is still effectively lost - or at least missing from the latest version of the file - and probably by accident. This is definitely a situation we want to avoid!"
-msgstr "Zamislimo ovaj scenario: pretpostavimo da imamo dva saradnika, Hari i Sali. Svaki odluči da uredi isti fajl iz spremišta  u isto vreme. Ako Hari prvi sačuva svoje izmene u spremište, tada je moguće (nekoliko trenutaka kasnije) da ih Sali nehotice prepiše svojom novom verzijom fajla. Pošto Harijeva verzija fajla neće biti izgubljena zauvek (jer sistem pamti sve promene), sve promene koje je uradio Hari <emphasis>neće</emphasis> biti prisutne u Salinu noviju verziju fajla, jer ona nije videla Harijeve izmene na početku rada. Harijev rad je efektivno izgubljen - ili u najmanjem nedostaje u zadnjoj verziji fajla - i verovatno mimo plana. Ovo je defintivno situacija koju želimo da izbegnemo. "
+msgstr "Zamislimo ovaj scenario: pretpostavimo da imamo dva saradnika, Hari i Sali. Svaki odluči da uredi isti fajl iz spremišta  u isto vreme. Ako Hari prvi sačuva svoje izmene u spremište, tada je moguće (nekoliko trenutaka kasnije) da ih Sali nehotice prepiše svojom novom verzijom fajla. Pošto Harijeva verzija fajla neće biti izgubljena zauvek (jer sistem pamti sve promene), sve promene koje je uradio Hari <emphasis>neće</emphasis> biti prisutne u Salinoj novoj verziji fajla, jer ona nije videla Harijeve izmene na početku rada. Harijev rad je efektivno izgubljen - ili u najmanjem nedostaje u zadnjoj verziji fajla - i verovatno mimo plana. Ovo je defintivno situacija koju želimo da izbegnemo. "
 
 #. (title)
 msgid "The Problem to Avoid"
@@ -655,11 +655,11 @@ msgstr "Kopiraj-menjaj-stopi model može da zvuči pomalo haotično, ali u praks
 
 #. (para)
 msgid "In the end, it all comes down to one critical factor: user communication. When users communicate poorly, both syntactic and semantic conflicts increase. No system can force users to communicate perfectly, and no system can detect semantic conflicts. So there's no point in being lulled into a false promise that a locking system will somehow prevent conflicts; in practice, locking seems to inhibit productivity more than anything else."
-msgstr "Na kraju, sve dolazi u jedan kritičan faktor: korisnička komunikacija. Kada je loša komunikacija između korisnika sintaksni i semantički konflikti rastu. Nema sistema koji će naterati korisnike da kompuniciraju perfektno, i nema sistema koji može da detektuje semantički konflikt. Tako da nije poenta da se bude umiren lažnim obećanjem da sistem zaključavanja nekako predupređuje konflikt; u praksi, zaključavanje izgleda sprečava više produktivnost nego bilo šta drugo."
+msgstr "Na kraju, sve dolazi u jedan kritičan faktor: korisnička komunikacija. Kada je loša komunikacija između korisnika sintaksni i semantički konflikti rastu. Nema sistema koji će naterati korisnike da komuniciraju perfektno, i nema sistema koji može da detektuje semantički konflikt. Tako da nije poenta da se bude umiren lažnim obećanjem da sistem zaključavanja nekako predupređuje konflikt; u praksi, zaključavanje izgleda sprečava više produktivnost nego bilo šta drugo."
 
 #. (para)
 msgid "There is one common situation where the lock-modify-unlock model comes out better, and that is where you have unmergeable files. For example if your repository contains some graphic images, and two people change the image at the same time, there is no way for those changes to be merged together. Either Harry or Sally will lose their changes."
-msgstr "Postoji jedna obična situacija gde zaključaj-menjaj-otključaj model je bolji, i to je gde imate ne stopive fajlove. Na primer ako vaše spremište sadrži neke grafičke slike, i dva čoveka menjaju slike u isto vreme, nema načina da se te izmene spoje zajedno. Ili Hari ili Sali će izgubiti svoje izmene."
+msgstr "Postoji jedna obična situacija gde je zaključaj-menjaj-otključaj model bolji, i to gde imate nestopive fajlove. Na primer ako vaše spremište sadrži neke grafičke slike, i dva čoveka menjaju slike u isto vreme, nema načina da se te izmene spoje zajedno. Ili Hari ili Sali će izgubiti svoje izmene."
 
 #. (title)
 msgid "What does Subversion Do?"
@@ -667,7 +667,7 @@ msgstr "Šta Subverzija radi?"
 
 #. (para)
 msgid "Subversion uses the copy-modify-merge solution by default, and in many cases this is all you will ever need. However, as of Version 1.2, Subversion also supports file locking, so if you have unmergeable files, or if you are simply forced into a locking policy by management, Subversion will still provide the features you need."
-msgstr "Subverzija koristi kopiraj-izmeni-stopi rešenje uobičajeno, i u mnogim slučajevimaovo je sve što vam je potrebno. Međutim, od Verzije 1.2 Subverzija takođe podržava zaključavanje fajlova, tako da ako imate nestopive fajlove, ili ako jednostavno forsirate politiku zaključavanja preko uprave, Subverzija će još omogućavati željene osobine."
+msgstr "Subverzija koristi kopiraj-izmeni-stopi rešenje uobičajeno, i u mnogim slučajevima ovo je sve što vam je potrebno. Međutim, od Verzije 1.2 Subverzija takođe podržava zaključavanje fajlova, tako da ako imate nestopive fajlove, ili ako jednostavno forsirate politiku zaključavanja preko uprave, Subverzija će još omogućavati željene osobine."
 
 #. (title)
 msgid "Subversion in Action"
@@ -687,15 +687,15 @@ msgstr "Već ste čitali o radnoj kopiji; sada ćemo demonstrirati kako je Subve
 
 #. (para)
 msgid "A Subversion working copy is an ordinary directory tree on your local system, containing a collection of files. You can edit these files however you wish, and if they're source code files, you can compile your program from them in the usual way. Your working copy is your own private work area: Subversion will never incorporate other people's changes, nor make your own changes available to others, until you explicitly tell it to do so."
-msgstr "Subverziona radna kopija je obično stablo imenika u vašem lokalnom sistemu, koje sadrži kolekciju fajlova. Vi možete urediti ove fajlove kako želite, i  ako su fajlovi izvornog koda, možete kompajlirati vaš program od njih na uobičajen način. Vaša radna kopija je vaša lična privatna radna površina: Subverzija neće inkorporirati izmene drugih ljudi, niti će uraditi vaše promene dostupne drugima, sve dok joj eksplicitno ne kažete da to uradi. "
+msgstr "Subverziona radna kopija je obično stablo imenika u vašem lokalnom sistemu, koje sadrži kolekciju fajlova. Vi možete urediti ove fajlove kako želite, i  ako su fajlovi izvornog koda, možete od njih kompajlirati vaš program  na uobičajen način. Vaša radna kopija je vaša lična privatna radna površina: Subverzija neće inkorporirati izmene drugih ljudi, niti će uraditi vaše promene dostupne drugima, sve dok joj eksplicitno ne kažete da to uradi. "
 
 #. (para)
 msgid "After you've made some changes to the files in your working copy and verified that they work properly, Subversion provides you with commands to <emphasis>publish</emphasis> your changes to the other people working with you on your project (by writing to the repository). If other people publish their own changes, Subversion provides you with commands to merge those changes into your working directory (by reading from the repository)."
-msgstr "Kada ste napravili neke izmene u fajlovima u vašoj radnoj kopiji i proverite da to radi ispravno, Subverzija vam omogućava komandama da <emphasis>publikujete</emphasis> vaše izmene drugim ljudima koji rade sa vama na vašem projektu (pisanjem u spremište). Ako drugi ljudi publikuju svoje izmene, Subverzija vam omogućava  komandama za spajanje tih izmena u vaš radni imenik (čitanjem iz spremišta)."
+msgstr "Kada ste napravili neke izmene u fajlovima u vašoj radnoj kopiji i proverite da to radi ispravno, Subverzija vam omogućava da komandama <emphasis>publikujete</emphasis> vaše izmene drugim ljudima koji rade sa vama na vašem projektu (pisanjem u spremište). Ako drugi ljudi publikuju svoje izmene, Subverzija vam omogućava  komandama za spajanje tih izmena u vaš radni imenik (čitanjem iz spremišta)."
 
 #. (para)
 msgid "A working copy also contains some extra files, created and maintained by Subversion, to help it carry out these commands. In particular, each directory in your working copy contains a subdirectory named <filename>.svn</filename>, also known as the working copy <firstterm>administrative directory</firstterm>. The files in each administrative directory help Subversion recognize which files contain unpublished changes, and which files are out-of-date with respect to others' work."
-msgstr "Radna kopija takođe sadrži neke ekstra fajlove, kreirane i održavane Subverzijom, dajoj  pomognu da izvuče ove komande. Posebno, svaki imenik u vašoj radnoj kopiji sadrži podimenike označene <filename>.svn</filename>, takođe poznat kao radna kopija <firstterm>administrativni imenik</firstterm>. Fajlovi u svakom administrativnom imeniku pomažu Subverziji da prepozna koji fajlovi sadrže nepublikovane izmene, i koji fajlovi su zastreli u odnosu na rad drugih."
+msgstr "Radna kopija takođe sadrži neke ekstra fajlove, kreirane i održavane Subverzijom, da joj  pomognu da izvuče ove komande. Posebno, svaki imenik u vašoj radnoj kopiji sadrži podimenike označene <filename>.svn</filename>, takođe poznat kao radna kopija <firstterm>administrativni imenik</firstterm>. Fajlovi u svakom administrativnom imeniku pomažu Subverziji da prepozna koji fajlovi sadrže nepublikovane izmene, i koji fajlovi su zastreli u odnosu na rad drugih."
 
 #. (para)
 msgid "A typical Subversion repository often holds the files (or source code) for several projects; usually, each project is a subdirectory in the repository's filesystem tree. In this arrangement, a user's working copy will usually correspond to a particular subtree of the repository."
@@ -711,7 +711,7 @@ msgstr "Fajlsistem spremišta"
 
 #. (para)
 msgid "In other words, the repository's root directory has two subdirectories: <filename>paint</filename> and <filename>calc</filename>."
-msgstr "Drugim rečima, koreini imenik spremišta ima dva podimenika: <filename>pejnt</filename> i <filename>kalk</filename>."
+msgstr "Drugim rečima, koreni imenik spremišta ima dva podimenika: <filename>paint</filename> and <filename>calc</filename>."
 
 #. (para)
 msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you)."
