@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -397,21 +397,45 @@ void CTokenizedStringContainer::Append (index_t token)
 	}
 }
 
+struct SDelimiterTable
+{
+    bool data[256];
+
+    bool operator[](size_t i) const
+        {return data[i];}
+
+    SDelimiterTable (const std::string& delimiters)
+    {
+        memset (data, false, sizeof (data));
+        for (size_t i = 0; i < delimiters.size(); ++i)
+            data[delimiters[i]] = true;
+    }
+};
+
 void CTokenizedStringContainer::Append (const std::string& s)
 {
-	static const std::string delimiters (" \t\n\\/");
+    static const std::string delimiters (" \t\n\\/()<>{}\"\'.:=-+*^");
+    static const SDelimiterTable delimiter (delimiters);
 
 	index_t lastToken = (index_t)EMPTY_TOKEN;
 	size_t nextPos = std::string::npos;
 
 	size_t stringStart = stringData.size();
+    bool inDelimiter = !s.empty() && delimiter[s[0]];
 	for (size_t pos = 0, length = s.length(); pos < length; pos = nextPos)
 	{
 		// extract the next word / token
 
-		nextPos = s.find_first_of (delimiters, pos+1);
-		if (nextPos == std::string::npos)
-			nextPos = length;
+		for (nextPos = pos+1; nextPos < length; ++nextPos)
+            if (delimiter[s[nextPos]] != inDelimiter)
+                break;
+
+        inDelimiter = !inDelimiter;
+        if ((nextPos+1 < length) && (delimiter[s[nextPos+1]] != inDelimiter))
+        {
+            ++nextPos;
+            inDelimiter = !inDelimiter;
+        }
 
 		std::string word = s.substr (pos, nextPos - pos);
 		index_t token = GetWordToken (words.AutoInsert (word.c_str()));
