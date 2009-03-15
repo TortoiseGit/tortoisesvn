@@ -471,7 +471,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		reqLen = GetFullPathName(src, 0, NULL, NULL);
 		fullPath = new TCHAR[reqLen+1];
 		GetFullPathName(src, reqLen, fullPath, NULL);
-		dst = fullPath;
+		src = fullPath;
 	}
 
 	if (!PathFileExists(wc))
