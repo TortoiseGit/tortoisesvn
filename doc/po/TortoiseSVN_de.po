@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-11 23:53 +0000\n"
-"PO-Revision-Date: 2009-03-14 22:29+0100\n"
+"PO-Revision-Date: 2009-03-15 12:24+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3708,7 +3708,7 @@ msgstr "Für einen Ordnerkonflikt: <placeholder-1/>"
 #. (para)
 #. (para)
 msgid "Developer B now has to decide whether to go with developer A's reorganisation and merge her changes into the corresponding file in the new structure, or simply revert A's changes and keep the local file."
-msgstr ""
+msgstr "Entwickler B muss nun entscheiden, ob er die Reorganisation durch Entwickler A übernehmen will und seine Änderungen in der entsprechenden Datei in der neuen Struktur zusammenführt oder ob er einfach die Änderungen von A rückgängig macht und die lokale Datei beibehält."
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
@@ -3774,7 +3774,7 @@ msgstr "Die Datei <filename>Bar.c</filename> befindet sich bereits mit dem Statu
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing with a tree conflict."
-msgstr ""
+msgstr "Die Datei <filename>Foo.c</filename> ist als <emphasis>fehlend</emphasis> markiert und hat einen Baumkonflikt."
 
 #. (para)
 #. (para)
@@ -4405,7 +4405,7 @@ msgstr "Zeige Revisionseigenschaften"
 
 #. (para)
 msgid "View and edit any revision property, not just log message and author. Refer to <xref linkend=\"tsvn-dug-showlog-4\"/>."
-msgstr ""
+msgstr "Eine beliebige Revisionseigenschaft, nicht nur Logmeldung und Autor, bearbeiten. Weiteres in <xref linkend=\"tsvn-dug-showlog-4\"/>."
 
 #. (term)
 #. (term)
@@ -4455,7 +4455,7 @@ msgstr "Die gewählten Revisionen annotieren und die Ergebnisse mit einem Vergle
 
 #. (term)
 msgid "Show differences as unified diff"
-msgstr ""
+msgstr "Unterschiede als Standard-Diff anzeigen"
 
 #. (para)
 msgid "View the differences between the two selected revisions as a Unified-Diff file. This works for files and folders."
@@ -4803,18 +4803,16 @@ msgid "Offline Mode"
 msgstr "Offline Modus"
 
 #. (title)
-#, fuzzy
 msgid "Go Offline Dialog"
-msgstr "Offline Modus"
+msgstr ""
 
 #. (para)
 msgid "<placeholder-1/> If the server is not reachable, and you have log caching enabled you can use the log dialog and revision graph in offline mode. This uses data from the cache, which allows you to continue working although the information may not be up-to-date or even complete."
 msgstr "<placeholder-1/> Wenn der Server nicht erreichbar ist und Sie den Log-Puffer aktiviert haben, können Sie den Log-Dialog und den Revisionsgraphen auch offline benutzen. Dabei werden die Daten aus dem Puffer gelesen, so dass Sie wie gewohnt weiterarbeiten können. Allerdings ist es möglich, dass die angezeigten Informationen veraltent oder unvollständig sind."
 
 #. (term)
-#, fuzzy
 msgid "Offline for now"
-msgstr "Offline Modus"
+msgstr ""
 
 #. (para)
 msgid "Complete the current operation in offline mode, but retry the repository next time log data is requested."
@@ -4830,7 +4828,7 @@ msgstr ""
 
 #. (term)
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #. (para)
 msgid "If you don't want to continue the operation with possibly stale data, just cancel."
@@ -6017,9 +6015,8 @@ msgstr ""
 "Klicken Sie auf <guibutton>Setzen</guibutton> und übertragen Sie Ihre Änderungen. Sobald jetzt jemand seine Arbeitskopie aktualisiert, wird Subversion einen Unterordner <filename>D:\\dev\\projekt1\\sounds</filename> anlegen und in diesen das <quote>Sounds</quote> Projekt auschecken, einen weiteren Unterordner <filename>D:\\dev\\projekt1\\quick_graphs</filename> mit dem <quote>Graphics</quote> Projekt, und schließlich einen verschachtelten Unterordner <filename>D:\\dev\\project1\\skins\\toolkit</filename>, der Revision 21 des <quote>Skinmaker</quote> Projekts enthält."
 
 #. (title)
-#, fuzzy
 msgid "Use explicit revision numbers"
-msgstr "Globale Revisionsnummern"
+msgstr ""
 
 #. (para)
 msgid "You should strongly consider using explicit revision numbers in all of your externals definitions, as described above. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex code base."
@@ -7190,12 +7187,11 @@ msgstr "Knoten des Revisionsgraphen"
 
 #. (term)
 msgid "Added or copied items"
-msgstr ""
+msgstr "Hinzugefügte oder kopierte Objekte"
 
 #. (para)
-#, fuzzy
 msgid "Items which have been added, or created by copying another file/folder are shown using a rounded rectangle. The default colour is green. Tags and trunks are treated as a special case and use a different shade, depending on the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>"
-msgstr "Elemente, die hinzugefügt oder durch Kopieren erstellt wurden, werden als abgerundetes Rechteck dargestellt. Die Standardfarbe ist grün. Marken werden als Sonderfall behandelt und in eine anderen Schattierung dargestellt."
+msgstr "Elemente, die hinzugefügt oder durch Kopieren erstellt wurden, werden als abgerundetes Rechteck dargestellt. Die Standardfarbe ist grün. Marken und der Stamm werden als Sonderfall behandelt und in eine anderen Schattierung dargestellt, die Sie in <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Optionen</guimenuitem></menuchoice> anpassen können"
 
 #. (term)
 msgid "Deleted items"
@@ -7222,9 +7218,8 @@ msgid "The graph is normally restricted to showing branch points, but it is ofte
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "Working copy revision"
-msgstr "Aktuelle Revision der Arbeitskopie"
+msgstr "Revision der Arbeitskopie"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, which marks the BASE node as an ellipse with a bold outline."
@@ -7331,9 +7326,8 @@ msgid "Fold tags"
 msgstr "Zweige ausblenden"
 
 #. (para)
-#, fuzzy
 msgid "When a project has many tags, showing every tag as a separate node on the graph takes a lot of space and obscures the more interesting development branch structure. At the same time you may need to be able to access the tag content easily so that you can compare revisions. This option hides the nodes for tags and shows them instead in the tooltip for the node that they were copied from. A tag icon on the right side of the source node indicates that tags were made."
-msgstr "Wenn Sie den Graphen eines Entwicklungsprojektes betrachten sind Marken unter Umständen uninteressant für Sie. Diese Option verbirgt die Zweige und zeigt sie stattdessen im Hinweistext des Knotens an, von dem Sie erstellt wurden. Ein Symbol am rechten Rand kennzeichnet die entsprechenden Quellknoten."
+msgstr "Wenn ein Projekt viele Marken enthält, würde es viel Platz beanspruchen, alle diese Marken darzustellen und wichtigere Teile der Verzweigungsstruktur verschleiern. Gleichzeitig möchten Sie einfach auf die Marken zugreifen können, um Revisionen zu vergleichen. Diese Option verbirgt die Knoten für Marken und zeigt sie stattdessen im Hinweistext des Knotens an, von dem aus sie erstellt wurden. Ein Symbol am rechten Rand des Quellknotens zeigt an, dass eine Marke erstellt wurde."
 
 #. (term)
 msgid "Hide deleted paths"
@@ -10380,7 +10374,7 @@ msgstr "Wenn Sie Revisionen desselben Objekts in zwei verschiedenen Entwicklungs
 
 #. (para)
 msgid "If you want to compare two trees to see what has changed, for example the trunk and a tagged release, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph</guimenuitem></menuchoice> Select the two nodes to compare, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare HEAD Revisions</guimenuitem></menuchoice>. This will show a list of changed files, and you can then select individual files to view the changes in detail. You can also export a tree structure containing all the changed files, or simply a list of all changed files. Read <xref linkend=\"tsvn-dug-compare-revs\"/> for more information. Alternatively use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Unified Diff of HEAD Revisions</guimenuitem></menuchoice> to see a summary of all differences, with minimal context."
-msgstr "Wenn Sie zwei vollständige Zweige miteinander vergleichen wollen, verwenden Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Revisionsgraph</guimenuitem> </menuchoice>. Markieren Sie dort die beiden zu vergleichenden Knoten und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>HEAD Revisionen vergleichen</guimenuitem> </menuchoice>. Dies erzeugt eine Liste der unterschiedlichen Dateien und Sie können sich die Detailunterschiede aus der Liste heraus anschauen. Sie können auch eine Baumstruktur mit allen geänderten Dateien oder einfach eine Liste aller geänderten Dateien exportieren. Mehr dazu finden Sie in <xref linkend=\"tsvn-dug-compare-revs\"/>. Alternativ können Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Standard Diff der HEAD Revisionen</guimenuitem> </menuchoice> wählen, um eine Zusammenfassung der Unterschiede mit minimalem Kontext zu erhalten."
+msgstr "Wenn Sie zwei vollständige Zweige miteinander vergleichen wollen, verwenden Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Revisionsgraph</guimenuitem> </menuchoice>. Markieren Sie dort die beiden zu vergleichenden Knoten und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>HEAD Revisionen vergleichen</guimenuitem> </menuchoice>. Dies erzeugt eine Liste der unterschiedlichen Dateien und Sie können sich die Detailunterschiede aus der Liste heraus anschauen. Sie können auch eine Baumstruktur mit allen geänderten Dateien oder einfach eine Liste aller geänderten Dateien exportieren. Mehr dazu finden Sie in <xref linkend=\"tsvn-dug-compare-revs\"/>. Alternativ können Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Standard-Diff der HEAD Revisionen</guimenuitem> </menuchoice> wählen, um eine Zusammenfassung der Unterschiede mit minimalem Kontext zu erhalten."
 
 #. (title)
 msgid "Include a common sub-project"
