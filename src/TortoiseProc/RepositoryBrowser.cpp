@@ -468,8 +468,8 @@ BOOL CRepositoryBrowser::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 			// are we right of the tree control?
 			GetDlgItem(IDC_REPOTREE)->GetWindowRect(&rect);
 			if ((pt.x > rect.right)&&
-				(pt.y >= rect.top)&&
-				(pt.y <= rect.bottom))
+				(pt.y >= rect.top+3)&&
+				(pt.y <= rect.bottom-3))
 			{
 				// but left of the list control?
 				GetDlgItem(IDC_REPOLIST)->GetWindowRect(&rect);
@@ -565,8 +565,8 @@ void CRepositoryBrowser::OnLButtonDown(UINT nFlags, CPoint point)
 	if (point.x > treelist.right-REPOBROWSER_CTRL_MIN_WIDTH) 
 		point.x = treelist.right-REPOBROWSER_CTRL_MIN_WIDTH;
 
-	if ((point.y < treelist.top) || 
-		(point.y > treelist.bottom))
+	if ((point.y < treelist.top+3) || 
+		(point.y > treelist.bottom-3))
 		return CStandAloneDialogTmpl<CResizableDialog>::OnLButtonDown(nFlags, point);
 
 	bDragMode = true;
