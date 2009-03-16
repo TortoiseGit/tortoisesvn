@@ -14,7 +14,7 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 rem Trunk and branch location. 
 rem Without slash, because they're not only used for directories
 set Trunk=trunk
-set Brnch=branches\1.5.x
+set Brnch=branches\1.6.x
 
 rem Paths & working directories
 set ScriptPath=%~dp0
@@ -82,7 +82,7 @@ set Cap=!Cap:~0,75!
 echo !Cap! >> %LogFile%
 
 rem Write log file header 
-echo                                : Developer Version   : Current Release >> %LogFile%
+echo                                : Developer Version   : Release Candidate >> %LogFile%
 echo                  Location      : %Trunk%               : %Brnch% >> %LogFile%
 echo                  Total strings : %TotalTrunk%                : %TotalBrnch% >> %LogFile%
 echo Language                       : Status (fu/un/ma)   : Status (fu/un/ma) >> %LogFile% 
