@@ -99,7 +99,7 @@
 			of the issue tracker and/or login information or more.
 			The <literal>commonRoot</literal> string contains the parent path
 			of all items selected to bring up the commit dialog. Note that this
-			is not the root path of all items which the user has selected in
+			is <emphasis>not</emphasis> the root path of all items which the user has selected in
 			the commit dialog.
 			The <literal>pathList</literal> parameter contains an array of paths
 			(as strings) which the user has selected for the commit.
@@ -178,7 +178,10 @@
 			and the commit begins. A plugin can use this method to validate
 			the selected files/folders for the commit and/or the commit
 			message entered by the user. The parameters are the same as
-			for <literal>GetCommitMessage2()</literal>.
+			for <literal>GetCommitMessage2()</literal>, with the difference that
+			<literal>commonURL</literal> is now the common URL of all 
+			<emphasis>checked</emphasis> items, and <literal>commonRoot</literal>
+			the root path of all checked items.
 			The return parameter <literal>errorMessage</literal> must
 			either contain an error message which TortoiseSVN shows to the
 			user or be empty for the commit to start.

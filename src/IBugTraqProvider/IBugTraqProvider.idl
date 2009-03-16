@@ -73,7 +73,8 @@ interface IBugTraqProvider2 : IBugTraqProvider
 	HRESULT GetCommitMessage2 (
 		[in] HWND hParentWnd,					// Parent window for your provider's UI.
 		[in] BSTR parameters,					// Parameters for your provider.
-		[in] BSTR commonURL,					// the common url of the commit
+		[in] BSTR commonURL,					// the common url of all items in the commit dialog (checked or unchecked!), 
+												// with the url of the item that was selected to bring up the commit dialog having precedence.
 		[in] BSTR commonRoot,
 		[in] SAFEARRAY(BSTR) pathList,
 		[in] BSTR originalMessage,				// The text already present in the commit message.

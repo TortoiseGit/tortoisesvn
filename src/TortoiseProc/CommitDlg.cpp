@@ -539,7 +539,7 @@ void CCommitDlg::OnOK()
 		if (SUCCEEDED(hr))
 		{
 			BSTR temp = NULL;
-			CString common = m_ListCtrl.GetCommonURL(false).GetSVNPathString();
+			CString common = m_ListCtrl.GetCommonURL(true).GetSVNPathString();
 			BSTR repositoryRoot = common.AllocSysString();
 			BSTR parameters = m_bugtraq_association.GetParameters().AllocSysString();
 			BSTR commonRoot = SysAllocString(m_pathList.GetCommonRoot().GetDirectory().GetWinPath());
