@@ -3993,7 +3993,10 @@ CTSVNPath CSVNStatusListCtrl::GetCommonURL(bool bStrict)
 	int nListItems = GetItemCount();
 	for (int i=0; i<nListItems; ++i)
 	{
-		const CTSVNPath& baseURL = CTSVNPath(GetListEntry(i)->GetURL());
+		const FileEntry * entry = GetListEntry(i);
+		if (!entry->IsChecked())
+			continue;
+		const CTSVNPath& baseURL = CTSVNPath(entry->GetURL());
 		if (baseURL.IsEmpty())
 			continue;			// item has no url
 		if(commonBaseURL.IsEmpty())
@@ -4002,10 +4005,15 @@ CTSVNPath CSVNStatusListCtrl::GetCommonURL(bool bStrict)
 		}
 		else
 		{
-			if (commonBaseURL.GetSVNPathString().GetLength() > baseURL.GetSVNPathString().GetLength())
+			if ((commonBaseURL.GetSVNPathString().GetLength() > baseURL.GetSVNPathString().GetLength()) &&
+				(baseURL.GetContainingDirectory().IsAncestorOf(commonBaseURL)))
 			{
-				if (baseURL.IsAncestorOf(commonBaseURL))
-					commonBaseURL = baseURL;
+				commonBaseURL = baseURL.GetContainingDirectory();
+			}
+			else if (commonBaseURL.GetSVNPathString().GetLength() > baseURL.GetContainingDirectory().GetSVNPathString().GetLength())
+			{
+				if (baseURL.GetContainingDirectory().IsAncestorOf(commonBaseURL))
+					commonBaseURL = baseURL.GetContainingDirectory();
 			}
 		}
 	}
