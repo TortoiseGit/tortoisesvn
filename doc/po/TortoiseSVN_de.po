@@ -15,9 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-11 23:53 +0000\n"
-"PO-Revision-Date: 2009-03-15 12:24+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"POT-Creation-Date: 2009-03-16 00:11 +0000\n"
+"PO-Revision-Date: 2009-03-16 09:44+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1028,7 +1028,7 @@ msgstr "Wenn Sie noch kein Subversion Projektarchiv erstellt haben, tun Sie dies
 
 #. (title)
 msgid "Repository Creation"
-msgstr "Projektarchiv Erstellen"
+msgstr "Projektarchiv erstellen"
 
 #. (primary)
 msgid "create repository"
@@ -1302,7 +1302,7 @@ msgstr ""
 
 #. (title)
 msgid "Repository Backup"
-msgstr "Projektarchiv Sichern"
+msgstr "Projektarchiv sichern"
 
 #. (primary)
 msgid "backup"
@@ -3110,7 +3110,7 @@ msgstr "Im <guilabel>Prüfe auf Änderungen</guilabel>-Dialog klicken Sie zunäc
 
 #. (para)
 msgid "This feature is very useful when you only want to checkout parts of a large tree, but you want the convenience of updating a single working copy. Suppose you have a large tree which has sub-folders <literal>Project01</literal> to <literal>Project99</literal>, and you only want to checkout <literal>Project03</literal>, <literal>Project25</literal> and <literal>Project76/SubProj</literal>. Use these steps:"
-msgstr "Diese Funktion ist sehr nützlich, wenn Sie nur Teile einer großen Projektstruktur auschecken wollen und gleichzeitig die Bequemlichkeit einer einzelnen Arbeitskpie wünschen. Nehmen wir an, Sie haben eine große Verzeichnisstruktur mit den Ordnern <literal>Projekt01</literal> bis <literal>Projekt99</literal> und sie möchten nur die Ordner <literal>Projekt03</literal>, <literal>Projekt25</literal> und <literal>Projekt76/Unterprojekt</literal> auschecken. Dann gehen Sie in folgenden Schritten vor:"
+msgstr "Diese Funktion ist sehr nützlich, wenn Sie nur Teile einer großen Projektstruktur auschecken wollen und gleichzeitig die Bequemlichkeit einer einzelnen Arbeitskopie wünschen. Nehmen wir an, Sie haben eine große Verzeichnisstruktur mit den Ordnern <literal>Projekt01</literal> bis <literal>Projekt99</literal> und sie möchten nur die Ordner <literal>Projekt03</literal>, <literal>Projekt25</literal> und <literal>Projekt76/Unterprojekt</literal> auschecken. Dann gehen Sie in folgenden Schritten vor:"
 
 #. (para)
 msgid "Checkout the parent folder with depth <quote>Only this item</quote> You now have an empty top level folder."
@@ -3712,15 +3712,15 @@ msgstr "Entwickler B muss nun entscheiden, ob er die Reorganisation durch Entwic
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr ""
+msgstr "Um seine lokalen Änderungen mit der Umstrukturierung zusammenzuführen, muss Entwickler B zunächst herausfinden wie die konfliktbehaftete Datei <filename>Foo.c</filename> im Projektarchiv umbenannt wurde. Dies kann mit Hilfe des Log-Dialogs geschehen. Die Änderungen müssen manuell zusammengeführt werden, da es derzeit keine Möglichkeit gibt, dies zu automatisieren oder zu vereinfachen. Sobald die Änderungen übernommen wurden, ist der konfliktbehaftete Pfad überflüssig und kann gelöscht werden. Verwenden Sie dazu die <guilabel>Entfernen</guilabel> Schaltfläche im Konflikteditor. Damit wird dieser Konflikt als aufgelöst markiert."
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog helps to track down what was moved."
-msgstr ""
+msgstr "Falls Entwickler B beschließt, dass die Änderungen von A falsch waren, muss er die <guilabel>Beibehalten</guilabel> im Konflikteditor wählen. Dadurch wird der Konflikt als aufgeöst markiert, aber die Änderungen von Entwickler A müssen manuell zurückgenommen werden. Der Log-Dialog hilft Ihnen wieder dabei festzustellen, was verschoben wurde."
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
-msgstr ""
+msgstr "Lokal gelöscht, eingehende Löschung beim Aktualisieren"
 
 #. (para)
 msgid "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
@@ -3744,12 +3744,12 @@ msgstr "Die Datei <filename>Foo.c</filename> ist als <emphasis>gelöscht</emphas
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog."
-msgstr ""
+msgstr "Um diesen Konflikt aufzulösen, muss Entwickler B zunächst herausfinden wie die konfliktbehaftete Datei <filename>Foo.c</filename> im Projektarchiv umbenannt wurde. Dies kann mit Hilfe des Log-Dialogs geschehen."
 
 #. (para)
 #. (para)
 msgid "Then developer B has to decide which new filename of <filename>Foo.c</filename> to keep - the one done by developer A or the rename done by himself."
-msgstr ""
+msgstr "Danach muss sich Entwickler B entscheiden, welchen neuen Dateinamen von <filename>Foo.c</filename> er übernehmen möchte, den eigenen oder den von Entwickler A vergebenen Namen."
 
 #. (para)
 #. (para)
@@ -7222,7 +7222,7 @@ msgid "Working copy revision"
 msgstr "Revision der Arbeitskopie"
 
 #. (para)
-msgid "If you invoked the revision graph from a working copy, you can opt to show the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, which marks the BASE node as an ellipse with a bold outline."
+msgid "If you invoked the revision graph from a working copy, you can opt to show the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, which marks the BASE node with a bold outline."
 msgstr ""
 
 #. (term)
@@ -7417,9 +7417,17 @@ msgstr "Mit einem <action>Rechtsklick</action> auf eine Revision, können Sie si
 msgid "You can also merge changes in the selected revision(s) into a different working copy. A folder selection dialog allows you to choose the working copy to merge into, but after that there is no confirmation dialog, nor any opportunity to try a test merge. It is a good idea to merge into an unmodified working copy so that you can revert the changes if it doesn't work out! This is a useful feature if you want to merge selected revisions from one branch to another."
 msgstr "Sie können auch die Änderungen der gewählten Revisionen in einer anderen Arbeitskopie zusammenführen. Ein Ordnerauswahldialog ermöglicht es Ihnen, eine andere Arbeitskopie als Ziel zu wählen, aber danach gibt es weder einen Bestätigungsdialog noch eine Möglichkeit für einen Testlauf. Es ist eine gute Idee, Änderungen in einer unmodifizierten Arbeitskopie zusammenzuführen, so dass Sie diese stets rückgängig machen können, wenn etwas nicht klappt! Dies ist eine nützliche Funktion, wenn Sie bestimmte Revisionen von einem Zweig in einen anderen übertragen wollen."
 
+#. (title)
+msgid "Learn to Read the Revision Graph"
+msgstr "Lernen Sie, den Revisionsgraphen zu lesen"
+
 #. (para)
-msgid "Because Subversion cannot provide all the information required, a certain amount of interpretation is required, which can sometimes give strange results. Nevertheless, the output for the trunk will generally give useful results."
-msgstr "Da Subversion nicht alle Informationen bereitstellt, ist ein gewisser Grad der Interpretation notwendig, was manchmal zu seltsamen Ergebnissen führen kann. Trotzdem sollte der Revisionsgraph für <literal>trunk/</literal> normalerweise brauchbare Ergebnisse liefern."
+msgid "First-time users may be surprised by the fact that the revision graph shows something that does not match the user's mental model. If a revision changes multiple copies or branches of a file or folder, for instance, then there will be multiple nodes for that single revision. It is a good practice to start with the leftmost options in the toolbar and customize the graph step-by-step until it comes close to your mental model."
+msgstr ""
+
+#. (para)
+msgid "All filter options try lose as little information as possible. That may cause some nodes to change their color, for instance. Whenever the result is unexpected, undo the last filter operation and try to understand what is special about that particular revision or branch. In most cases, the initially expected outcome of the filter operation would either be inaccurate or misleading."
+msgstr ""
 
 #. (para)
 msgid "If you want to check the server again for newer information, you can simply refresh the view using <keycap>F5</keycap>. If you are using the log cache (enabled by default), this will check the repository for newer commits and fetch only the new ones. If the log cache was in offline mode, this will also attempt to go back online."
@@ -7454,7 +7462,7 @@ msgid "<graphic fileref=\"../images/RevGraphJoin.png\"/> Click on the circle but
 msgstr ""
 
 #. (para)
-msgid "Click on the graph background for the main context menu, which offers options to <guilabel>Expand all</guilabel> and <guilabel>Join all</guilabel>."
+msgid "Click on the graph background for the main context menu, which offers options to <guilabel>Expand all</guilabel> and <guilabel>Join all</guilabel>. If no branch has been collapsed or split, the context menu will not be shown."
 msgstr ""
 
 #. (title)
@@ -7614,6 +7622,7 @@ msgstr "Fehlerverfolgung"
 msgid "bug tracker"
 msgstr "bugtracker"
 
+#. (primary)
 #. (primary)
 msgid "issue tracker"
 msgstr "issuetracker"
@@ -7782,8 +7791,8 @@ msgid "The previous section deals with adding issue information to the log messa
 msgstr "Der vorherige Abschnitt befasste sich damit, Eintragsnummern zu den Logmeldungen hinzuzufügen. Aber wie bekommt man Informationen aus dem Fehlerverfolgungssystem? Der Übertragen-Dialog besitzt eine Windows COM Schnittstelle mit deren Hilfe ein externes Programm eingebunden werden kann, das mit dem Fehlerverfolgungssystem kommuniziert. Ein typischer Fall wäre, das Fehlerverfolgungssystem nach einer Liste der Ihnen zugeordneten offenen Aufgaben zu fragen, die Sie beim Übertragen als erledigt markieren wollen."
 
 #. (para)
-msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
-msgstr "Jede solche Schnittstelle ist natürlich sehr spezifisch für Ihr System, so dass wir diesen Teil nicht zur Verfügung stellen können und die Beschreibung eines solchen Programms sprengt den Rahmen dieses Handbuchs. Die Schnittstellendefinition und Beispielanwendungen können Sie im <literal>contrib</literal> Verzeichnis des <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN Projektarchivs</citetitle></ulink> finden. (<xref linkend=\"tsvn-preface-source\"/> erklärt, wie man auf das TortoiseSVN Projektarchiv zugreift). Ein weiteres, funktionierendes Beispiel in C# ist <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>, das die COM Schnittstelle für den Zugriff auf das <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> Fehlerverfolgungssystem implementiert."
+msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
+msgstr "Jede solche Schnittstelle ist natürlich sehr spezifisch für Ihr System, so dass wir diesen Teil nicht zur Verfügung stellen können und die Beschreibung eines solchen Programms sprengt den Rahmen dieses Handbuchs. Die Schnittstellendefinition und Beispielanwendungen können Sie im <literal>contrib</literal> Verzeichnis des <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN Projektarchivs</citetitle></ulink> finden. (<xref linkend=\"tsvn-preface-source\"/> erklärt, wie man auf das TortoiseSVN Projektarchiv zugreift). Eine Zusammenfassung der API findet sich in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Ein weiteres, funktionierendes Beispiel in C# ist <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>, das die COM Schnittstelle für den Zugriff auf das <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> Fehlerverfolgungssystem implementiert."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -9260,16 +9269,16 @@ msgid "<placeholder-1/> Click on <guibutton>Add...</guibutton> to use the plugin
 msgstr "<placeholder-1/> Klicken Sie auf <guibutton>Hinzufügen...</guibutton>, um das Modul einer bestimmten Arbeitskopie zuzuordnen. Sie geben den Pfad zur Arbeitskopie an, wählen das gewünschte Modul aus einer List der zur Verfügung stehenden Module und geben die notwendigen Übergabeparameter an. Die Parameter sind spezifisch für das Modul, könnten aber zum Beispiel Ihren Benutzernamen im Fehlerverfolgungssystem beinhalten, so dass das Modul alle Ihnen zugeordneten Einträge ermitteln kann."
 
 #. (para)
-msgid "This property specifies the COM UUID of the IBugTraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (this example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
-msgstr ""
+msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (this example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
+msgstr "Diese Eigenschaft enthält die COM UUID des IBugtraqProvider, zum Beispiel <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (Das Beispiel ist die UUID des <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, einer Anbindung für das <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> Fehlerverfolgungssystem)."
 
 #. (para)
-msgid "This property specifies the parameters passed to the IBugTraqProvider."
-msgstr "Diese Eigenschaft enthält die Parameter, die an den IBugTraqProvider übergeben werden."
+msgid "This property specifies the parameters passed to the IBugtraqProvider."
+msgstr "Diese Eigenschaft enthält die Parameter, die an den IBugtraqProvider übergeben werden."
 
 #. (para)
-msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugTraqProvider plugin to find out what to specify in these two properties."
-msgstr "Wenn Sie möchten, dass alle Anwender das selbe COM Modul für Ihr Fehlerverfolgungssystem verwenden, können Sie das Modul auch über die Eigenschaften  <literal>bugtraq:provideruuid</literal> und <literal>bugtraq:providerparams</literal> einrichten. <placeholder-1/> Bitte lesen Sie in der Dokumentation zu Ihrem IBugTraqProvider Modul nach, was in diesen beiden Eigenschaften einzutragen ist."
+msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
+msgstr "Wenn Sie möchten, dass alle Anwender das selbe COM Modul für Ihr Fehlerverfolgungssystem verwenden, können Sie das Modul auch über die Eigenschaften <literal>bugtraq:provideruuid</literal> und <literal>bugtraq:providerparams</literal> einrichten. <placeholder-1/> Bitte lesen Sie in der Dokumentation zu Ihrem IBugtraqProvider Modul nach, was in diesen beiden Eigenschaften einzutragen ist."
 
 #. (title)
 msgid "TortoiseBlame Settings"
@@ -9467,6 +9476,7 @@ msgstr "Revisionsnummern im Quelltext"
 msgid "SubWCRev"
 msgstr "SubWCRev"
 
+#. (primary)
 #. (primary)
 msgid "COM"
 msgstr "COM"
@@ -12244,6 +12254,182 @@ msgid "If you use this last method, be sure you do not have a default username s
 msgstr "Falls Sie die letztgenannte Methode verwenden, stellen Sie sicher, dass Sie keinen Standardbenutzernamen in PuTTY eingetragen haben. Es gibt Berichte über einen Fehler in PuTTY, der dazu führt, dass die Verbindung in diesem Fall geschlossen wird. Um den Standardbenutzer zu entfernen, löschen Sie einfach <filename>HKEY_CURRENT_USER\\Software\\SimonTatham\\Putty\\Sessions\\Default%20Settings\\HostName</filename>"
 
 #. (title)
+msgid "IBugtraqProvider interface"
+msgstr "IBugtraqProvider Schnittstelle"
+
+#. (primary)
+msgid "plugin"
+msgstr "Modul"
+
+#. (primary)
+msgid "IBugtraqProvider"
+msgstr "IBugtraqProvider"
+
+#. (para)
+msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
+msgstr ""
+
+#. (para)
+msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgstr ""
+
+#. (title)
+msgid "The IBugtraqProvider interface"
+msgstr "Die IBugtraqProvider Schnittstelle"
+
+#. (para)
+msgid "TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT ValidateParameters (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any UI that needs to be displayed during validation.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// The parameter string that needs to be validated.\n"
+"\t\t[out, retval] VARIANT_BOOL *valid\t\t// Is the string valid?\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT GetLinkText (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any (error) UI that needs to be displayed.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// The parameter string, just in case you need to talk to your web\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t// service (e.g.) to find out what the correct text is.\n"
+"\t\t[out, retval] BSTR *linkText\t\t\t// What text do you want to display? Use the current thread locale.\n"
+"\t);\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT GetCommitMessage (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for your provider's UI.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR originalMessage,\t\t\t\t// The text already present in the commit message.\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t// Your provider should include this text in the new message, where appropriate.\n"
+"\t\t[out, retval] BSTR *newMessage\t\t\t// The new text for the commit message. This replaces the original message.\n"
+"\t);\t\t\t\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is not the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
+msgstr ""
+
+#. (title)
+msgid "The IBugtraqProvider2 interface"
+msgstr ""
+
+#. (para)
+msgid "In TortoiseSVN 1.6 a new interface was added which provides more functionality for plugins. This IBugtraqProvider2 interface inherits from IBugtraqProvider."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT GetCommitMessage2 (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for your provider's UI.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
+"\t\t[in] BSTR commonURL,\t\t\t\t\t// the common URL of the commit\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR originalMessage,\t\t\t\t// The text already present in the commit message.\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t// Your provider should include this text in the new message, where appropriate.\n"
+"\t\t// you can assign custom revision properties to a commit by setting the next two params.\n"
+"\t\t// note: both safearrays must be of the same length. For every property name there must be a property value!\n"
+"\t\t[in] BSTR bugID,\t\t\t\t\t\t// the content of the bugID field (if shown)\n"
+"\t\t[out] BSTR * bugIDOut,\t\t\t\t\t// modified content of the bugID field\n"
+"\t\t[out] SAFEARRAY(BSTR) * revPropNames,\t// a list of revision property names which are applied to the commit\n"
+"\t\t[out] SAFEARRAY(BSTR) * revPropValues,\t// a list of revision property values which are applied to the commit\n"
+"\t\t[out, retval] BSTR * newMessage\t\t\t// The new text for the commit message. This replaces the original message.\n"
+"\t);\t\t\t\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there. The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path. The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>). The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns. The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT CheckCommit (\n"
+"\t\t[in] HWND hParentWnd,\n"
+"\t\t[in] BSTR parameters,\n"
+"\t\t[in] BSTR commonURL,\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR commitMessage,\n"
+"\t\t[out, retval] BSTR * errorMessage\n"
+"\t\t);\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT\tOnCommitFinished (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any (error) UI that needs to be displayed.\n"
+"\t\t[in] BSTR commonRoot,\t\t\t\t\t// The common root of all paths that got committed.\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\t\t\t// All the paths that got committed.\n"
+"\t\t[in] BSTR logMessage,\t\t\t\t\t// The text already present in the commit message.\n"
+"\t\t[in] ULONG revision,\t\t\t\t\t// The revision of the commit.\n"
+"\t\t[out, retval] BSTR * error\t\t\t\t// An error to show to the user if this function returns something else than S_OK\n"
+"\t\t);\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT HasOptions(\n"
+"\t\t[out, retval] VARIANT_BOOL *ret\t\t\t// Whether the provider provides options\n"
+"\t\t);\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT ShowOptionsDialog(\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for the options dialog\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
+"\t\t[out, retval] BSTR * newparameters\t\t// the parameters string\n"
+"\t\t);\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
+msgstr ""
+
+#. (title)
 msgid "Glossary"
 msgstr "Glossar"
 
@@ -12471,6 +12657,16 @@ msgstr ""
 msgid "translator-translation"
 msgstr "Übersetzung"
 
+#~ msgid ""
+#~ "Because Subversion cannot provide all the information required, a certain "
+#~ "amount of interpretation is required, which can sometimes give strange "
+#~ "results. Nevertheless, the output for the trunk will generally give "
+#~ "useful results."
+#~ msgstr ""
+#~ "Da Subversion nicht alle Informationen bereitstellt, ist ein gewisser "
+#~ "Grad der Interpretation notwendig, was manchmal zu seltsamen Ergebnissen "
+#~ "führen kann. Trotzdem sollte der Revisionsgraph für <literal>trunk/</"
+#~ "literal> normalerweise brauchbare Ergebnisse liefern."
 #~ msgid "Replaced items"
 #~ msgstr "Ersetzte Objekte"
 #~ msgid ""
