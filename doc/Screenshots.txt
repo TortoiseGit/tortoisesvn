@@ -78,6 +78,11 @@ CommitSpellcheck.png
 CommitProgress.png
 	Capture the progress dialog at the end of any commit.
 
+CompareRevisions.png
+	Show log for TortoiseSVN trunk
+	Select two revisions from the top pane
+	Right-click and select command "Compare revisions"
+
 ContextMenuDirControl.png
 	In explorer, right click on a versioned folder (eg. TSVN doc folder) and
 	capture the main context menu and the large TSVN sub menu.
@@ -96,6 +101,10 @@ ContextMenuFileControl.png
 
 ContextMenuFileNoControl.png
 	As above, but capture for a single unversioned file.
+	Highlight the 'Add...' entry
+
+ContextMenuFileIgnore.png
+	As above, but capture for a single unversioned file.
 	Expand the 'add to ignore list' entry.
 
 Copy.png
@@ -107,9 +116,9 @@ CreatePatch.png
 	Set up as for the commit dialog, but create a patch instead.
 	The dialog shows the files selected for the patch.
 
-ExplorerFileMenu.png
+ExplorerFileMenuShortCut.png
 	Use the 'doc' test WC.
-	In explorer, right click on showlog.xml and 'Create shortcut'
+	In explorer, right click on dug_log.xml and 'Create shortcut'
 	Select the newly created shortcut.
 	Click on the explorer file menu and capture the menu which opens.
 	There should be 3 TSVN entries (shortcut, shortcut-target and folder).
@@ -122,7 +131,7 @@ ExportURL.png
 
 GetLock.png
 	Make sure you have the 'Show lock dialog before locking files' option
-	checked in Settings->Dialogs 2
+	checked in Settings/General/Dialogs 2
 	Select a bunch of versioned files and use TSVN->GetLock
 
 Import.png
@@ -139,6 +148,15 @@ IssueTrackerQuery.png
 	You will need a whole screen capture, then trim down to just the
 	commit dialog area.
 
+LogCacheOffline.png
+	Make sure you have selected 'Ask user' in the Log Cache settings for the 'no connection is available' case.
+	Disconnect your network cable and show log for a versioned folder.
+
+LogContextMenu.png
+	Right click on any versioned file (not folder) and TSVN->show log
+	Select 1 revision in the top panel
+	Right click on the selected revisions (top pane) and capture the context menu
+
 LogContextMenu1.png
 	Right click on any versioned file or folder and TSVN->show log
 	Select 2 revisions in the top pane
@@ -149,24 +167,16 @@ LogContextMenu2.png
 	Select 1 revision in the top panel
 	Right click on a file in the bottom pane and capture the context menu
 
-LogContextMenu.png
-	Right click on any versioned file (not folder) and TSVN->show log
-	Select 1 revision in the top panel
-	Right click on the selected revisions (top pane) and capture the context menu
-
 LogMessages.png
-	Show the log dialog for the TSVN src directory (use the repo browser if you
-	do not have this in a working copy
-	Use 'Show range' to get revisions 5000 to 5100
+	Show the log dialog for the TSVN src directory
+	Show revisions 5000 to 5100
 	Centre r5050 in the top pane
 	Position the mouse over the hyperlink for issue #198
 
 LogMergeTrack.png
-	[TEMPORARY - FixMe after 1.5 release]
-	Download the SVN 1.5 Beta client and merge tracking dump file.
-	Load the dump file into a test repo and checkout a WC.
-	ShowLog for the WC and select 'Include merged revisions'
-	Move the slider to show a useful range of real and merged revisions.
+	Show the log dialog for the TSVN trunk directory
+	Show full log, include merged revisions
+	Show revision 11254, displaying merge-tracked revisions 11252- below
 
 MergeWizardRange.png
 	Start the merge dialog from the TSVN doc folder.
@@ -180,8 +190,12 @@ MergeWizardTree.png
 	eg the LogCaching branch.
 	Enter the same revision number in both boxes.
 
+MergeWizardReintegrate.png
+	Start the merge dialog from the TSVN trunk or doc folder.
+	Select the 'merge reintegrate option' and hit Next.
+
 MergeWizardOptions.png
-	Last page of the wizard, with default options.
+	Start merge wizard and enter the final page.
 
 MergeConflictCallback.png
 	Use a fresh 'doc' test WC
@@ -212,7 +226,7 @@ Relocate.png
 	Do NOT click OK ;)
 
 Repobrowser.png
-	Open the repo browser to show the contents of TSVN trunk in the left pane
+	Open the repo browser to show the contents of TSVN trunk/src in the left pane
 	In the right pane, right click on the TortoiseBlame folder to show context menu
 
 RepoStatus.png
@@ -254,6 +268,10 @@ SettingsHookEdit.png
 	Command line - some fictitious path + start-commit.bat
 	(the hook does not have to exist)
 
+SettingsIssueTracker.png
+	Compile and install the ExampleCsPlugin from contrib\issue-tracker-plugins\ExampleCsPlugin.
+	Open Settings->Issue Tracker Plugins and add new plugin for ExampleCsPlugin.
+
 SettingsLogCache.png
 	Just a screenshot, but if you want to hide your personal cached URLs,
 	go to %APPDATA%\TortoiseSVN\logcache and temporarily move any cache directory
@@ -263,6 +281,7 @@ SettingsLogCache.png
 SettingsMain.png
 	Include an ignore pattern. If you don't have one, use "*.tmp *.~*"
 
+SettingsBlame.png
 SettingsColors.png
 SettingsContext.png
 SettingsDialog.png
@@ -272,6 +291,8 @@ SettingsOverlayChooser.png
 SettingsProgs.png
 SettingsProgsAdv.png
 SettingsProxy.png
+SettingsRevGraph.png
+SettingsRevGraphColors.png
 SettingsSavedData.png
 SettingsLogStats.png
 	All other settings dialogs, just get a screenshot of the appropriate page.
@@ -290,6 +311,10 @@ StatsByDate.png
 	TSVN->Showlog
 	Show 'Commits by date' in line graph view
 	Adjust the slider so that there are about 4 traces shown
+
+svn_move.png
+	Right-drag a versioned items to a versioned folder.
+	Include some files on background for context.
 
 Switch.png
 	TortoiseSVN->switch for TSVN doc folder
