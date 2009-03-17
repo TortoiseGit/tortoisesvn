@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-16 22:17 +0000\n"
-"PO-Revision-Date: 2009-03-17 16:59+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2009-03-17 21:08+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4196,7 +4196,7 @@ msgstr "<placeholder-1/> Es gibt mehrere Orte, von denen Sie den Log-Dialog star
 
 #. (para)
 msgid "If the repository is unavailable you will see the <guilabel>Want to go offline?</guilabel> dialog, described in <xref linkend=\"tsvn-dug-showlog-cache\"/>."
-msgstr ""
+msgstr "Falls das Projektarchiv nicht erreicht werden kann wird der <guilabel>Offline gehen</guilabel> Dialog, angezeigt, der in <xref linkend=\"tsvn-dug-showlog-cache\"/> beschrieben wird."
 
 #. (title)
 msgid "Revision Log Actions"
@@ -4804,7 +4804,7 @@ msgstr "Offline Modus"
 
 #. (title)
 msgid "Go Offline Dialog"
-msgstr ""
+msgstr "Offline gehen"
 
 #. (para)
 msgid "<placeholder-1/> If the server is not reachable, and you have log caching enabled you can use the log dialog and revision graph in offline mode. This uses data from the cache, which allows you to continue working although the information may not be up-to-date or even complete."
@@ -4812,19 +4812,19 @@ msgstr "<placeholder-1/> Wenn der Server nicht erreichbar ist und Sie den Log-Pu
 
 #. (term)
 msgid "Offline for now"
-msgstr ""
+msgstr "Für diese Aktion offline"
 
 #. (para)
 msgid "Complete the current operation in offline mode, but retry the repository next time log data is requested."
-msgstr ""
+msgstr "Beendet die aktuelle Operation im Offline-Modus, versucht aber, wenn das nächste Mal Logdaten angefordert werden, wieder auf das Projektarchiv zuzugreifern."
 
 #. (term)
 msgid "Permanently offline"
-msgstr ""
+msgstr "Permanent offline"
 
 #. (para)
 msgid "Remain in offline mode until a repository check is specifically requested. See <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
-msgstr ""
+msgstr "Bleibt im Offline-Modus bis eine Aktualisierung der Logdaten explizit angefortert wird. Siehe <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
 
 #. (term)
 msgid "Cancel"
@@ -4832,7 +4832,7 @@ msgstr "Abbrechen"
 
 #. (para)
 msgid "If you don't want to continue the operation with possibly stale data, just cancel."
-msgstr ""
+msgstr "Wenn Sie die Operation wegen möglicherweise veralteter Logdaten nicht fortsetzen wollen, brechen Sie einfach ab."
 
 #. (para)
 msgid "Here you have three options: <placeholder-1/>"
@@ -4840,7 +4840,7 @@ msgstr "Hier haben Sie drei Möglichkeiten: <placeholder-1/>"
 
 #. (para)
 msgid "The <guilabel>Make this the default</guilabel> checkbox prevents this dialog from re-appearing and always picks the option you choose next. You can still change (or remove) the default after doing this from <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Die Option <guilabel>Diese Einstellung immer verwenden</guilabel> verhindert, dass der Dialog wieder erscheint und verwendet stets die von Ihnen gewählte Aktion. Sie können die Vorgabe jederzeit über <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Optionen</guimenuitem></menuchoice> ändern."
 
 #. (title)
 #. (title)
@@ -8940,7 +8940,7 @@ msgstr "Wartezeit vor Aktualisierung der HEAD Revision"
 
 #. (para)
 msgid "When you invoke the log dialog you will normally want to contact the server to check for any newer log messages. If the timeout set here is non-zero then the server will only be contacted when the timeout has elapsed since the last time contact. This can reduce server round-trips if you open the log dialog frequently and the server is slow, but the data shown may not be completely up-to-date. If you want to use this feature we suggest using a value of 300 (5 minutes) as a compromise."
-msgstr "Wenn Sie den Log-Dialog aufrufen, soll normalerweise der Server kontaktiert werden, um neue Logmeldungen abzurufen. Wenn die eingestellte Wartezeit nicht Null ist, wird der Server nur kontaktiert, falls die Wartezeit seit dem letzten Aufruf abgelaufen ist. Dies kann die Reaktionszeit beim Aufruf des Log-Dialogs beschleunigen, wenn Sie diesen häufig aufrufen und der Server langsam ist. Andererseits ist es mögliche, dass die Log-Daten dadurch nicht aktuell sind. Wenn Sie diese Funktion nutzen wollen, würden wir einen Wert von 300 Sekunden (5 Minuten) als Kompromiss vorschlagen."
+msgstr "Wenn Sie den Log-Dialog aufrufen, soll normalerweise der Server kontaktiert werden, um neue Logmeldungen abzurufen. Wenn die eingestellte Wartezeit nicht Null ist, wird der Server nur kontaktiert, falls die Wartezeit seit dem letzten Aufruf abgelaufen ist. Dies kann die Reaktionszeit beim Aufruf des Log-Dialogs beschleunigen, wenn Sie diesen häufig aufrufen und der Server langsam ist. Andererseits ist es mögliche, dass die Logdaten dadurch nicht aktuell sind. Wenn Sie diese Funktion nutzen wollen, würden wir einen Wert von 300 Sekunden (5 Minuten) als Kompromiss vorschlagen."
 
 #. (term)
 msgid "Days of inactivity until small caches get removed"
