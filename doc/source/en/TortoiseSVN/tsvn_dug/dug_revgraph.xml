@@ -164,6 +164,10 @@
 							revision and all rows are sorted strictly by revision.
 							As a result, long-living branches occupy a whole column
 							for only a few changes and the graph becomes very broad.
+							Please note that the rows are no longer aligned to a fixed 
+							grid in TortoiseSVN 1.6 and newer. Instead, consecutive
+							rows show but a slight vertical offset whenever such
+							dense packing is possible.
 						</para>
 						<para>
 							This mode groups changes by branch, so that there is no
