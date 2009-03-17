@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-16 00:11 +0000\n"
-"PO-Revision-Date: 2009-03-16 09:44+0100\n"
+"POT-Creation-Date: 2009-03-16 22:17 +0000\n"
+"PO-Revision-Date: 2009-03-17 16:59+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3658,7 +3658,7 @@ msgstr "Der Dialog zum Auflösen von Konflikten bietet Ihnen an, die Änderungen
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
-msgstr "Lokale Änderung, eingehendes Löschen beim Aktualisieren"
+msgstr "Lokal geändert, eingehendes Löschen beim Aktualisieren"
 
 #. (para)
 msgid "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository."
@@ -3716,7 +3716,7 @@ msgstr "Um seine lokalen Änderungen mit der Umstrukturierung zusammenzuführen,
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog helps to track down what was moved."
-msgstr "Falls Entwickler B beschließt, dass die Änderungen von A falsch waren, muss er die <guilabel>Beibehalten</guilabel> im Konflikteditor wählen. Dadurch wird der Konflikt als aufgeöst markiert, aber die Änderungen von Entwickler A müssen manuell zurückgenommen werden. Der Log-Dialog hilft Ihnen wieder dabei festzustellen, was verschoben wurde."
+msgstr "Falls Entwickler B beschließt, dass die Änderungen von A falsch waren, muss er <guilabel>Beibehalten</guilabel> im Konflikteditor wählen. Dadurch wird der Konflikt als aufgeöst markiert, aber die Änderungen von Entwickler A müssen manuell zurückgenommen werden. Der Log-Dialog hilft Ihnen wieder dabei festzustellen, was verschoben wurde."
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
@@ -3754,19 +3754,19 @@ msgstr "Danach muss sich Entwickler B entscheiden, welchen neuen Dateinamen von 
 #. (para)
 #. (para)
 msgid "After developer B has manually resolved the conflict, the tree conflict has to be marked as resolved with the button in the conflict editor dialog."
-msgstr ""
+msgstr "Nachdem Entwickler B den Konflikt manuell aufgelöst hat, muss der Baumkonflikt mit der Schaltfläche im Konflikteditor als aufgelöst markiert werden."
 
 #. (title)
 msgid "Local missing, incoming edit upon merge"
-msgstr ""
+msgstr "Lokal fehlend, eingehende Änderung beim Aktualisieren"
 
 #. (para)
 msgid "Developer A working on trunk modifies <filename>Foo.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Entwickler A verändert im Stamm die Datei <filename>Foo.c</filename> um und überträgt die Änderung ins Projektarchiv."
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Entwickler B, der auf einem Zweig arbeitet, benennt <filename>Foo.c</filename> in <filename>Bar.c</filename> um und überträgt die Änderung ins Projektarchiv."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is already in the working copy with status 'normal'."
@@ -3780,36 +3780,36 @@ msgstr "Die Datei <filename>Foo.c</filename> ist als <emphasis>fehlend</emphasis
 #. (para)
 #. (para)
 msgid "A merge of developer A's trunk changes to developer B's branch working copy results in a tree conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Das Zusammenführen der Änderungen von Entwickler A im Stamm mit der Arbeitskopie von Entwickler B führt zu einem Baumkonflikt: <placeholder-1/>"
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to mark the file as resolved in the conflict editor dialog, which will remove it from the conflict list. She then has to decide whether to copy the missing file <filename>Foo.c</filename> from the repository to the working copy, whether to merge Developer A's changes to <filename>Foo.c</filename> into the renamed <filename>Bar.c</filename> or whether to ignore the changes by marking the conflict as resolved and doing nothing else."
-msgstr ""
+msgstr "Um diesen Konflikt aufzulösen, muss Entwickler B den Dateikonflikt im Konflikteditor als aufgelöst markieren, wodurch er aus der Konfliktliste entfernt wird. Danach muss er entscheiden, ob er die fehlende Datei <filename>Foo.c</filename> aus dem Projektarchiv in die Arbeitskopie kopiert, die Änderungen von Entwickler A an <filename>Foo.c</filename> in die umbenannte Datei <filename>Bar.c</filename> überträgt oder die Änderungen ignoriert, indem er den Konflikt als aufgelöst markiert und nichts weiter unternimmt."
 
 #. (para)
 msgid "Note that if you copy the missing file from the repository and then mark as resolved, your copy will be removed again. You have to resolve the conflict first."
-msgstr ""
+msgstr "Beachten Sie, dass wenn Sie die fehlende Datei aus dem Projektarchiv kopieren und danach den Konflikt als aufgelöst markieren, ihre Kopie wieder entfernt wird. Sie müssen den Konflikt erst auflösen und danach die Datei kopieren."
 
 #. (title)
 msgid "Local edit, incoming delete upon merge"
-msgstr ""
+msgstr "Lokal bearbeitet, eingehende Löschung beim Zusammenführen"
 
 #. (para)
 #. (para)
 msgid "Developer A working on trunk moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Entwickler A benennt im Stamm die Datei <filename>Foo.c</filename> in <filename>Bar.c</filename> um und überträgt die Änderung ins Projektarchiv."
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> and commits it to the repository."
-msgstr ""
+msgstr "Entwickler B, der auf einem Zweig arbeitet, modifiziert <filename>Foo.c</filename> und überträgt die Änderung ins Projektarchiv."
 
 #. (para)
 msgid "There is an equivalent case for folder moves, but it is not yet detected in Subversion 1.6 ..."
-msgstr ""
+msgstr "Es gibt einen äquivalenten Fall für verschobene Ordner, dieser wird aber in Subversion 1.6 noch nicht erkannt ..."
 
 #. (para)
 msgid "Developer A working on trunk moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
-msgstr "Entwickler A benennt den Ordner <filename>FooOrdner</filename> in <filename>BarOrdner</filename> um und überträgt die Änderung ins Projektarchiv."
+msgstr "Entwickler A benennt im Stamm den Ordner <filename>FooOrdner</filename> in <filename>BarOrdner</filename> um und überträgt die Änderung ins Projektarchiv."
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> in her working copy."
@@ -3825,19 +3825,19 @@ msgstr "Die Datei <filename>Foo.c</filename> ist als <emphasis>verändert</empha
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr ""
+msgstr "Um die lokalen Änderungen mit der Reorganisation zusammenzuführen, muss Entwickler B zunächst herausfinden wie die konfliktbehaftete Datei <filename>Foo.c</filename> im Projektarchiv umbenannt wurde. Dies kann mit Hilfe des Log-Dialogs für die Quelle des Zusammenführens geschehen. Der Konflikteditor zeigt nur das Log für die Arbeitskopie an, da er nicht wissen kann, welcher Pfad zum Zusammenführen genutzt wurde. Aus diesem Grund müssen Sie das selbst herausfinden. Die Änderungen müssen manuell zusammengeführt werden, da es derzeit keine Möglichkeit gibt, dies zu automatisieren oder zu vereinfachen. Sobald die Änderungen übernommen wurden, ist der konfliktbehaftete Pfad überflüssig und kann gelöscht werden. Verwenden Sie dazu die <guilabel>Entfernen</guilabel> Schaltfläche im Konflikteditor. Damit wird dieser Konflikt als aufgelöst markiert."
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog for the merge source helps to track down what was moved."
-msgstr ""
+msgstr "Falls Entwickler B beschließt, dass die Änderungen von A falsch waren, muss er <guilabel>Beibehalten</guilabel> im Konflikteditor wählen. Dadurch wird der Konflikt als aufgeöst markiert, aber die Änderungen von Entwickler A müssen manuell zurückgenommen werden. Der Log-Dialog hilft Ihnen wieder dabei festzustellen, was verschoben wurde."
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
-msgstr ""
+msgstr "Lokal gelöscht, eingehende Löschung beim Zusammenführen"
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bix.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Entwickler B, der auf einem Zweig arbeitet, benennt <filename>Foo.c</filename> in <filename>Bix.c</filename> um und überträgt die Änderung ins Projektarchiv."
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
@@ -3853,7 +3853,7 @@ msgstr "Die Datei <filename>Foo.c</filename> ist als <emphasis>fehlend</emphasis
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself."
-msgstr ""
+msgstr "Um diesen Konflikt aufzulösen, muss Entwickler B zunächst herausfinden wie die konfliktbehaftete Datei <filename>Foo.c</filename> im Projektarchiv umbenannt wurde. Dies kann mit Hilfe des Log-Dialogs für die Quelle des Zusammenführens geschehen. Der Konflikteditor zeigt nur das Log für die Arbeitskopie an, da er nicht wissen kann, welcher Pfad zum Zusammenführen genutzt wurde. Aus diesem Grund müssen Sie das selbst herausfinden."
 
 #. (title)
 msgid "Getting Status Information"
@@ -12327,7 +12327,7 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is not the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
+msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
 msgstr ""
 
 #. (title)
@@ -12380,7 +12380,7 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
+msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
 msgstr ""
 
 #. (programlisting)
