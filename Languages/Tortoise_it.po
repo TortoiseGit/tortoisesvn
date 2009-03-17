@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-17 08:45+0100\n"
+"PO-Revision-Date: 2009-03-17 09:06+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -469,7 +469,7 @@ msgstr "&Personalizzato"
 
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
-msgstr "%Giorni di inattività prima che le cache vengano rimosse"
+msgstr "&Giorni di inattività prima che le cache vengano rimosse"
 
 #. Resource IDs: (1269)
 msgid "&Default"
@@ -710,7 +710,7 @@ msgstr "Edita proprietà &manualmente"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
-msgstr "%Dimensione massima [kByte] di una cache inattiva rimossa"
+msgstr "&Dimensione massima [kByte] di una cache inattiva rimossa"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -746,7 +746,7 @@ msgstr "&Modifica il colore per copie tag"
 
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
-msgstr "%Modifica il colore per copie trunk"
+msgstr "&Modifica il colore per copie trunk"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -827,7 +827,7 @@ msgstr "&Port:"
 
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
-msgstr "%Default del power user"
+msgstr "&Default del power user"
 
 #. Resource IDs: (32780)
 msgid "&Previous Difference"
@@ -2321,7 +2321,7 @@ msgstr "Ragg&ruppa il ramo sorgente"
 
 #. Resource IDs: (275)
 msgid "Collapse &following tree"
-msgstr "Raggruppa i %seguenti rami"
+msgstr "Raggruppa i &seguenti rami"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -3083,7 +3083,7 @@ msgstr "Differenza tra"
 
 #. Resource IDs: (32817)
 msgid "Differential path &names"
-msgstr "Perco%rsi differenziali"
+msgstr "Perco&rsi differenziali"
 
 #. Resource IDs: (1022)
 msgid "Diffing"
@@ -10101,8 +10101,8 @@ msgstr ""
 "svn:externals\r\n"
 "Una lista, separata da caratteri di a capo, dei moduli, ognuna delle righe consiste di\r\n"
 "una revisione opzionale, una URL e . Per esempio:\r\n"
-"foo\t\thttp://example.com/repos/zig\r\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag\r\n"
+"http://example.com/repos/zig foo\r\n"
+"-r 1234 http://example.com/repos/zag foo/bar\r\n"
 "Le URL possono essere assolute o relative. Il formato per\r\n"
 "le URL relative è:\r\n"
 "../ relativa alla directory superiore dell'esterno\r\n"
