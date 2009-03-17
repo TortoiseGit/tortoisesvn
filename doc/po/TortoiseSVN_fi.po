@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-11 23:53 +0000\n"
-"PO-Revision-Date: 2009-03-12 22:50+0200\n"
+"POT-Creation-Date: 2009-03-16 22:17 +0000\n"
+"PO-Revision-Date: 2009-03-17 21:45+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -309,7 +309,7 @@ msgstr "TortoiseSVN-ohjelman historia"
 
 #. (para)
 msgid "In 2002, Tim Kemp found that Subversion was a very good version control system, but it lacked a good GUI client. The idea for a Subversion client as a Windows shell integration was inspired by the similar client for CVS named TortoiseCVS."
-msgstr "Vuonna 2002 Tim Kemp keksi, että Subversion on erittäin hyvä versionhallintajärjestelmä, mutta ilman graafista käyttöliittymää. Ajatus Subversion-asiakasohjelmasta Windowsin Resurssienhallinnan laajennoksena sai alkunsa saman tyyppisestä CVS-asiakasohjelmasta nimeltä TortoiseCVS."
+msgstr "Vuoden 2002 tienoilla Tim Kemp päätti kehittää graafisen käyttöliittymän Subversion-ohjelmalle. Ajatus Subversion-asiakasohjelmasta Windowsin Resurssienhallinnan laajennoksena sai alkunsa saman tyyppisestä CVS-asiakasohjelmasta nimeltä TortoiseCVS."
 
 #. (para)
 msgid "Tim studied the source code of TortoiseCVS and used it as a base for TortoiseSVN. He then started the project, registered the domain <literal>tortoisesvn.org</literal> and put the source code online. During that time, Stefan Küng was looking for a good and free version control system and found Subversion and the source for TortoiseSVN. Since TortoiseSVN was still not ready for use then he joined the project and started programming. Soon he rewrote most of the existing code and started adding commands and features, up to a point where nothing of the original code remained."
@@ -325,7 +325,7 @@ msgstr "TortoiseSVN-ohjelman ominaisuudet"
 
 #. (para)
 msgid "What makes TortoiseSVN such a good Subversion client? Here's a short list of features."
-msgstr "Mikä tekee TortoiseSVN-ohjelmasta niin hyvän Subversion-asiakkaan? Tässä on lyhyt lista ominaisuuksista."
+msgstr "Mikä tekee TortoiseSVN-ohjelmasta niin näppärän?"
 
 #. (term)
 msgid "Shell integration"
@@ -365,7 +365,7 @@ msgstr "Kaikki Subversion-komennot ovat käytettävissä Resurssienhallinnan kon
 
 #. (para)
 msgid "Since TortoiseSVN is a Subversion client, we would also like to show you some of the features of Subversion itself:"
-msgstr "Koska TortoiseSVN on Subversion-asiakas, on syytä luetella myös Subversionin ominaisuudet:"
+msgstr "Koska TortoiseSVN pohjautuu Subversion-kirjastoon, on syytä luetella myös sen hyvät puolet:"
 
 #. (term)
 msgid "Directory versioning"
@@ -433,7 +433,7 @@ msgstr "Järjestelmävaatimukset"
 
 #. (para)
 msgid "TortoiseSVN runs on Windows 2000 SP2, Windows XP or higher. Windows 98, Windows ME and Windows NT4 are no longer supported since TortoiseSVN 1.2.0, but you can still download the older versions if you really need them."
-msgstr "TortoiseSVN toimii Windows 2000 SP2-, Windows XP SP2- tai uudemmissa käyttöjärjestelmissä.  Windows 98, Windows ME ja Windows NT4 eivät ole enää tuettujen käyttöjärjestelmien joukossa TortoiseSVN-version 1.2 jälkeen, mutta voit yhä käyttää vanhoja versioita, jos todella tarvitset niitä."
+msgstr "TortoiseSVN toimii Windows 2000 SP2-, Windows XP SP2- tai uudemmissa käyttöjärjestelmissä.  Windows 98, Windows ME ja Windows NT4 eivät ole enää tuettujen käyttöjärjestelmien joukossa TortoiseSVN-version 1.2 jälkeen, mutta voit yhä tarvitessasi asentaa vanhemman version."
 
 #. (para)
 msgid "If you encounter any problems during or after installing TortoiseSVN please refer to <xref linkend=\"tsvn-faq\"/> first."
@@ -529,7 +529,7 @@ msgstr "Mikäli mikään yllä olevista ei toimi, oletuskieleksi asetetaan engla
 
 #. (para)
 msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to select which one to use. <placeholder-1/>"
-msgstr "Jos asennnat useita sanastoja, TortoiseSVN käyttää seuraavia sääntöjä valitakseen käytettävän sanaston.  <placeholder-1/>"
+msgstr "Jos asennat useita sanastoja, TortoiseSVN käyttää seuraavia sääntöjä valitakseen käytettävän sanaston.  <placeholder-1/>"
 
 #. (title)
 msgid "Basic Version-Control Concepts"
@@ -3609,7 +3609,7 @@ msgstr "Paikallinen poisto, saapuva muutos päivityksen yhteydessä"
 
 #. (para)
 msgid "Developer A modifies <filename>Foo.c</filename> and commits it to the repository"
-msgstr "Kehittäjä A muokkaa tiedostoa<filename>Foo.c</filename> ja toimittaa muutokset arkistoon"
+msgstr "Kehittäjä A muokkaa tiedostoa <filename>Foo.c</filename> ja toimittaa muutokset arkistoon."
 
 #. (para)
 msgid "Developer B has simultaneously moved <filename>Foo.c</filename> to <filename>Bar.c</filename> in his working copy, or simply deleted <filename>Foo.c</filename> or its parent folder."
@@ -3630,7 +3630,7 @@ msgstr "Kehittäjän B työkopion päivitys synnyttää puuristiriidan: <placeho
 
 #. (para)
 msgid "Developer B now has to choose whether to keep Developer A's changes. In the case of a file rename, he can merge the changes to <filename>Foo.c</filename> into the renamed file <filename>Bar.c</filename>. For simple file or directory deletions he can choose to keep the item with Developer A's changes and discard the deletion. Or, by marking the conflict as resolved without doing anything he effectively discards Developer A's changes."
-msgstr "Kehittäjän B on nyt valittava, haluaako hän säilyttää kehittäjän A muutokset. Tiedoston uudelleen yhteydessä hän voi yhdistää tiedoston  <filename>Foo.c</filename> muutokset uudeleen nimettyyn tiedostoon <filename>Bar.c</filename>. Tiedostojen tai kansioiden poiston yhteydessä hän voi valita, säilyttääkö hän kehittäjän A muutokset ja peruu poistonsa. Merkitsemällä ristiriidan ratkaistuksi mitään tekemättä hän voi toisaalta poistaa kehittäjän A muutokset."
+msgstr "Kehittäjän B on nyt valittava, haluaako hän säilyttää kehittäjän A muutokset. Jos kyseessä on tiedoston uudelleen nimentä, hän voi yhdistää tiedoston <filename>Foo.c</filename> muutokset tiedostoon <filename>Bar.c</filename>. Tiedostojen tai kansioiden poiston yhteydessä hän voi valita, säilyttääkö hän kehittäjän A muutokset ja peruu poistonsa. Merkitsemällä ristiriidan ratkaistuksi tekemättä mitään hän voi toisaalta poistaa kehittäjän A muutokset."
 
 #. (para)
 msgid "The conflict edit dialog offers to merge changes if it can find the original file of the renamed <filename>Bar.c</filename>. Depending on where the update was invoked, it may not be possible to find the source file."
@@ -3692,7 +3692,7 @@ msgstr "Nyt kehittäjän B on päätettävä, hyväksyäkö kehittäjän A uudel
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr "Yhdistääkseen paikalliset muutoksensa uuteen paikkaan, kehittäjän B on ensin selvitettävä, mikä on tiedoston <filename>Foo.c</filename> uusi nimi ja/tai sijainti arkistossa. Tämän voi selvittää loki-ikkunan avulla. Muutokset on sitten yhdistettävä käsin - TortoiseSVN ei tällä hetkellä sisällä toimintoja asian automatisoimikseksi tai edes yksinkert<guilabel>Remove</guilabel>aistamiseksi. Kun muutokset on yhdistetty, ristiriitainen polku on tarpeeton ja voidaan poistaa. Tässä tapauksessa käytä ristiriitaeditorin painiketta <guilabel>Poista</guilabel> selvittääksesi tilanteen ja merkitäksesi ristiriidan ratkaistuksi."
+msgstr "Yhdistääkseen paikalliset muutoksensa uuteen paikkaan, kehittäjän B on ensin selvitettävä, mikä on tiedoston <filename>Foo.c</filename> uusi nimi ja/tai sijainti arkistossa. Tämän voi selvittää loki-ikkunan avulla. Muutokset on sitten yhdistettävä käsin - TortoiseSVN ei tällä hetkellä sisällä toimintoja asian automatisoimikseksi tai edes yksinkertaistamiseksi. Kun muutokset on yhdistetty, ristiriitainen polku on tarpeeton ja voidaan poistaa. Tässä tapauksessa käytä ristiriitaeditorin painiketta <guilabel>Poista</guilabel> selvittääksesi tilanteen ja merkitäksesi ristiriidan ratkaistuksi."
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog helps to track down what was moved."
@@ -3742,7 +3742,7 @@ msgstr "Paikallinen puuttuu, saapuva muokkaus yhdistettäessä"
 
 #. (para)
 msgid "Developer A working on trunk modifies <filename>Foo.c</filename> and commits it to the repository"
-msgstr "Kehittäjä A muokkaa päähaaran tiedostoa<filename>Foo.c</filename> ja toimittaa muutokset arkistoon"
+msgstr "Kehittäjä A muokkaa päähaaran tiedostoa <filename>Foo.c</filename> ja toimittaa muutokset arkistoon."
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
@@ -7183,8 +7183,8 @@ msgid "Working copy revision"
 msgstr "Työkopion versio"
 
 #. (para)
-msgid "If you invoked the revision graph from a working copy, you can opt to show the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, which marks the BASE node as an ellipse with a bold outline."
-msgstr "Jos käynnistit versiograafin työkopiolle, voit näyttää myös kantaversion (BASE) valinnalla <guilabel>Näytä työkopion versio</guilabel>, joka merkitsee BASE-solmut ellipseillä, joilla on korostetut reunat."
+msgid "If you invoked the revision graph from a working copy, you can opt to show the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, which marks the BASE node with a bold outline."
+msgstr "Jos käynnistit versiograafin työkopiosta, voit näyttää myös kantaversion (BASE) valinnalla <guilabel>Näytä työkopion versio</guilabel>, joka korostaa BASE-solmut."
 
 #. (term)
 msgid "Modified working copy"
@@ -7378,9 +7378,17 @@ msgstr "Jos <action>oikea-napsautat</action> versiota, voit käyttää komentoa 
 msgid "You can also merge changes in the selected revision(s) into a different working copy. A folder selection dialog allows you to choose the working copy to merge into, but after that there is no confirmation dialog, nor any opportunity to try a test merge. It is a good idea to merge into an unmodified working copy so that you can revert the changes if it doesn't work out! This is a useful feature if you want to merge selected revisions from one branch to another."
 msgstr "Voit myös yhdistää muutokset valituista versioista toiseen työkopioon. Voit valita kansioikkunasta työkopion, johon yhdistäminen tehdään. Tämän jälkeen ei ole enää varmistusta tai mahdollisuutta testiajoon! Kannattaa tehdä yhdistäminen muuttamattomaan työkopioon, jotta voit perua muutokset helposti tarvittaessa! Tämä on hyödyllinen ominaisuus, jos haluat yhdistää valitut versiot haarasta toiseen."
 
+#. (title)
+msgid "Learn to Read the Revision Graph"
+msgstr "Opi lukemaan versiograafia"
+
 #. (para)
-msgid "Because Subversion cannot provide all the information required, a certain amount of interpretation is required, which can sometimes give strange results. Nevertheless, the output for the trunk will generally give useful results."
-msgstr "Koska Subversion ei kykene antamaan kaikkea tarvittavaa tietoa, tarvitaan jonkun verran tulkintaa, ja tämä voi joskus tuottaa outoja tuloksia. Yhtä kaikki, päähaaran tulokset ovat yleensä hyödyllisiä."
+msgid "First-time users may be surprised by the fact that the revision graph shows something that does not match the user's mental model. If a revision changes multiple copies or branches of a file or folder, for instance, then there will be multiple nodes for that single revision. It is a good practice to start with the leftmost options in the toolbar and customize the graph step-by-step until it comes close to your mental model."
+msgstr "Uudet käyttäjät voivat yllättyä, koska versiograafi ei vastaa käyttäjän mielikuvia. Jos tietty versio esimerkiksi muuttaa tiedoston tai kansion useita merkkejä tai kopioita, se esitetään graafissa useiden solmujen avulla. Kannattaa säätää graafi työkalurivin avulla sellaiseksi, että se alkaa näyttää halutunlaiselta."
+
+#. (para)
+msgid "All filter options try lose as little information as possible. That may cause some nodes to change their color, for instance. Whenever the result is unexpected, undo the last filter operation and try to understand what is special about that particular revision or branch. In most cases, the initially expected outcome of the filter operation would either be inaccurate or misleading."
+msgstr "Kaikki suodattimet koettavat suodattaa mahdollisimman vähän tietoa. Tästä syystä jotkut solmut voivat esimerkiksi muuttaa väriään. Kun tulos on odottamaton, peru viimeisin suodatus ja selvitä, mitä erityistä versiossa tai haarassa on. Useimmissa tapauksissa alkuperäisen suodatuksen oletettu tulos olisi joko epätarkka tai väärä."
 
 #. (para)
 msgid "If you want to check the server again for newer information, you can simply refresh the view using <keycap>F5</keycap>. If you are using the log cache (enabled by default), this will check the repository for newer commits and fetch only the new ones. If the log cache was in offline mode, this will also attempt to go back online."
@@ -7415,8 +7423,8 @@ msgid "<graphic fileref=\"../images/RevGraphJoin.png\"/> Click on the circle but
 msgstr "<graphic fileref=\"../images/RevGraphJoin.png\"/> Napsauta ympyränäppäintä kytkeäksesi jaetun puun takaisin. Kun puu on jaettu, tämä näppäin säilyy näkyvillä, ilmaisten siten erillisen alipuun olemassaolon."
 
 #. (para)
-msgid "Click on the graph background for the main context menu, which offers options to <guilabel>Expand all</guilabel> and <guilabel>Join all</guilabel>."
-msgstr "Napsauta graafin taustaa avataksesi kontekstivalikon, jossa on valinnat <guilabel>Laajenna kaikki</guilabel> ja <guilabel>Yhdistä kaikki</guilabel>."
+msgid "Click on the graph background for the main context menu, which offers options to <guilabel>Expand all</guilabel> and <guilabel>Join all</guilabel>. If no branch has been collapsed or split, the context menu will not be shown."
+msgstr "Napsauta graafin taustaa avataksesi kontekstivalikon, jossa on valinnat <guilabel>Laajenna kaikki</guilabel> ja <guilabel>Yhdistä kaikki</guilabel>. Jos haaroja ei ole suljettu tai jaettu, valikkoa ei näytetä."
 
 #. (title)
 msgid "Exporting a Subversion Working Copy"
@@ -7575,6 +7583,7 @@ msgstr "vikaseuranta"
 msgid "bug tracker"
 msgstr "vikaseurantaohjelma"
 
+#. (primary)
 #. (primary)
 msgid "issue tracker"
 msgstr "ongelman jäljitysohjelma"
@@ -7743,8 +7752,8 @@ msgid "The previous section deals with adding issue information to the log messa
 msgstr "Edellinen luku käsitteli vikatietojen lisäämistä lokiviesteihin. Entäpä jos tarvitset tietoja vikaseurantaohjelmasta? Toimitusikkunalla on COM-rajapinta, johon voidaan kytkeä ulkoinen ohjelma, joka keskustelee vikaseurantaohjelmasi kanssa. Saatat esimerkiksi haluta luettelon korjattavaksesi määrätyistä vioista, jotta voit poimia ne, joihin käsillä oleva toimitus liittyy."
 
 #. (para)
-msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
-msgstr "Tällainen rajapinta on tietysti hyvin järjestelmäkohtainen, joten emme voi toimittaa sitä. Integrointiohjelman tekoa ei myöskään kuvata tässä dokumentissa. Rajapintamääritys ja joukko C#- ja C++ -kielisiä esimerkkiohjelmia löytyy <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN-arkistosta</citetitle></ulink>. (Kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten TortoiseSVN-arkistoon kytkeydytään). Vielä eräs (toimiva) C# -esimerkkiohjelma on <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>, joka toteuttaa COM-rajapinnan <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> -vikaseurantaan."
+msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
+msgstr "Tällainen rajapinta on tietysti hyvin järjestelmäkohtainen, joten emme voi toimittaa sitä. Integrointiohjelman tekoa ei myöskään kuvata tässä dokumentissa. Rajapintamääritys ja joukko C#- ja C++/ATL -kielisiä esimerkkilisäosia löytyy <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN-arkistosta</citetitle></ulink>. (Kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten  arkistoon kytkeydytään). Rajapinnan yhteenveto on kuvattu myös luvussa <xref linkend=\"tsvn-ibugtraqprovider\"/>. Vielä eräs (toimiva) C# -esimerkkiohjelma on <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>, joka toteuttaa COM-rajapinnan <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> -vikaseurantaan."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -9222,16 +9231,16 @@ msgid "<placeholder-1/> Click on <guibutton>Add...</guibutton> to use the plugin
 msgstr "<placeholder-1/> Napsauta <guibutton>Lisää...</guibutton> ottaaksesi modulin käyttöön jossain työkopiossa. Täällä voit määritellä työkopion polun, valita käytettävän modulin (pudotusvalikko luettelee kaikki rekisteröidyt vikaseurantamodulit) ja mahdolliset parametrit.  Parametrit ovat modulikohtaisia, mutta saattavat sisältää käyttäjätunnuksesi vikaseurantaohjelmassa, jotta moduli kykenee luettelemaan korjattavaksesi määrätyt viat."
 
 #. (para)
-msgid "This property specifies the COM UUID of the IBugTraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (this example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
-msgstr "Tämä ominaisuus määrittää IBugTraqProvider-komponentin COM-tunnisteeb (UUID), esimerkiksi <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (Tässä esimerkissä UUID kuuluu komponentille <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, joka toteuttaa kytkennän <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> -vikaseurantaan)."
+msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (this example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
+msgstr "Tämä ominaisuus määrittää IBugTraqProvider-komponentin COM-tunnisteen (UUID). Esimerkiksi UUID <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal> kuuluu komponentille <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, joka toteuttaa kytkennän <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> -vikaseurantaan."
 
 #. (para)
-msgid "This property specifies the parameters passed to the IBugTraqProvider."
-msgstr "Tämä ominaisuus määrittää IBugTraqProviderille välitettävät parametrit."
+msgid "This property specifies the parameters passed to the IBugtraqProvider."
+msgstr "Tämä ominaisuus määrittää IBugTraqProvider-rajapinnan parametrit."
 
 #. (para)
-msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugTraqProvider plugin to find out what to specify in these two properties."
-msgstr "Jos haluat kaikkien käyttäjien käyttävän samaa COM-laajennusta projektillesi, voit määrittää laajennuksen myös ominaisuuksien <literal>bugtraq:provideruuid</literal> ja <literal>bugtraq:providerparams</literal> avulla. <placeholder-1/> Tarkista IBugTraqProvider-laajennoksesi käyttöohjeista, mitkä arvot näihin ominaisuuksiin tulee sijoittaa."
+msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
+msgstr "Jos haluat kaikkien projektin käyttäjien jakavan saman COM-komponentin, voit määrittää laajennuksen myös ominaisuuksien <literal>bugtraq:provideruuid</literal> ja <literal>bugtraq:providerparams</literal> avulla. <placeholder-1/> Tarkista IBugTraqProvider-laajennoksesi käyttöohjeista, mitkä arvot näihin ominaisuuksiin tulee sijoittaa."
 
 #. (title)
 msgid "TortoiseBlame Settings"
@@ -9429,6 +9438,7 @@ msgstr "version irroitus"
 msgid "SubWCRev"
 msgstr "SubWCRev"
 
+#. (primary)
 #. (primary)
 msgid "COM"
 msgstr "COM"
@@ -10136,7 +10146,7 @@ msgstr "Kuinka teen..."
 
 #. (para)
 msgid "This appendix contains solutions to problems/questions you might have when using TortoiseSVN."
-msgstr "Tämä liite sisältää ratkaisuja ongelmiin/kysymyksiin, joita sinulle voi tulla eteen TortoiseSVN-ohjelman kanssa."
+msgstr "Tämä liite sisältää ratkaisuja ongelmiin ja kysymyksiin, joita voi tulla eteen TortoiseSVN-ohjelman kanssa."
 
 #. (title)
 msgid "Move/copy a lot of files at once"
@@ -10501,7 +10511,7 @@ msgstr "Hyödyllisiä vihjeitä pääkäyttäjille"
 
 #. (para)
 msgid "This appendix contains solutions to problems/questions you might have when you are responsible for deploying TortoiseSVN to multiple client computers."
-msgstr "Tässä liitteessä on ratkaisuja ongelmiin/kysymyksiin, joita sinulla voi olla, jos joudut asentamaan TortoiseSVN:n useisiin tietokoneisiin."
+msgstr "Tässä liitteessä on ratkaisuja ongelmiin ja kysymyksiin, joihin voit törmätä joutuessasi asentamaan TortoiseSVN:n useisiin eri tietokoneisiin."
 
 #. (title)
 msgid "Deploy TortoiseSVN via group policies"
@@ -11320,7 +11330,7 @@ msgstr "Vaikka TortoiseSVN-komennoille on CLI-vastineensa, muista, että Tortois
 
 #. (para)
 msgid "If you think you have found a bug in TortoiseSVN, we may ask you to try to reproduce it using the CLI, so that we can distinguish TortoiseSVN issues from Subversion issues. This reference tells you which command to try."
-msgstr "Jos luulet löytäneesi virheen TortoiseSVN:stä, saatamme pyytää sinua koettamaan sen aikaan saamista CLI:n avulla, jotta voimme erotta TortoiseSVN-ongelmat Subversion-ongelmista. Tämä luku kertoo, mitä komentoja siihen tulee käyttää."
+msgstr "Jos luulet löytäneesi virheen TortoiseSVN:stä, saatamme pyytää sinua toistamaan sen CLI:n avulla  erottaaksemme TortoiseSVN-ongelmat Subversion-ongelmista. Tämä luku kertoo, mitä CLI-komentoja kannattaa koettaa."
 
 #. (title)
 msgid "Conventions and Basic Rules"
@@ -12192,6 +12202,249 @@ msgid "If you use this last method, be sure you do not have a default username s
 msgstr "Jos käytät viimeistä menetelmää, varmista, ettet ole asettanut oletuskäyttäjänimeä PuTTY-ohjelmalle. Olemme saaneet virheraportteja, joiden mukaan ohjelmassa oleva virhe aiheuttaa tässä tapauksessa yhteyksien katkeamisia. Poistaaksesi oletuskäyttäjän, tyhjennä rekisteriavain <filename>HKEY_CURRENT_USER\\Software\\SimonTatham\\Putty\\Sessions\\Default%20Settings\\HostName</filename>."
 
 #. (title)
+msgid "IBugtraqProvider interface"
+msgstr "IBugtraqProvider-rajapinta"
+
+#. (primary)
+msgid "plugin"
+msgstr "lisäosa"
+
+#. (primary)
+msgid "IBugtraqProvider"
+msgstr "IBugtraqProvider"
+
+#. (para)
+msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
+msgstr "TortoiseSVN toteuttaa COM-rajapinnan, jonka avulla erilaiset vikaseurantaohjelmat voidaan kytkeä versionhallintaan tiukemmin kuin pelkkiä <literal>bugtraq:</literal>-ominaisuuksia käyttämällä.  Rajapinnan avulla on mahdollista hakea tietoa suoraan vikaseurantaohjelmasta, kommunikoida käyttäjän kanssa ja palauttaa TortoiseSVN:lle tietoa avoimista vioista, tarkistaa käyttäjän lokiviestit ja vaikkapa sulkea vika onnistuneen arkistotoimituksen jälkeen."
+
+#. (para)
+msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgstr "Tämä opas ei kuvaa, miten COM-rajapinta voidaan toteuttaa eri ohjelmointikielillä, mutta arkistossamme on joukko esimerkkiohjelmia C#- ja C++/ATL -kielillä toteutettuina hakemistossa <filename>contrib/issue-tracker-plugins</filename>. Samasta hakemistosta löydät myös tarvittavat tiedostot omat laajennuksesi rakentamiseksi (luku <xref linkend=\"tsvn-preface-source\"/> kuvaa, miten arkistoon kytkeydytään)."
+
+#. (title)
+msgid "The IBugtraqProvider interface"
+msgstr "IBugtraqProvider-rajapinta"
+
+#. (para)
+msgid "TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
+msgstr "TortoiseSVN 1.5 osaa käyttää laajennuksia, jotka toteuttavat IBugtraqProvider-rajapinnan. Rajapinta määrittää muutamia toimintoja vikaseurantaohjelman kanssa kommunikoimiseksi."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT ValidateParameters (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any UI that needs to be displayed during validation.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// The parameter string that needs to be validated.\n"
+"\t\t[out, retval] VARIANT_BOOL *valid\t\t// Is the string valid?\n"
+msgstr ""
+"\n"
+"\tHRESULT ValidateParameters (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Isäikkunan kahva käyttöliittymäosille.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// Validoitava parametri.\n"
+"\t\t[out, retval] VARIANT_BOOL *valid\t\t// Onko merkkijono validi?\n"
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
+msgstr "<placeholder-1/> Operaatiota kutsutaan asetusikkunasta, jossa käyttäjä voi lisätä ja määritellä lisäosan. Lisäosa voi käyttää merkkijonoa <literal>parameters</literal> tarvittavan lisätiedon (esim. vikaseurannan paikannin, kirjautumistiedot, jne.) saamiseksi. Lisäosan tulee tarkistaa markkijono <literal>parameters</literal> ja näyttää virhe, jos merkkijono ei ole validi. Parametria <literal>hParentWnd</literal> tulee käyttää isäikkunanan kaikissa lisäosan näyttämissä ikkunoissa. Lisäosan on palautettava TRUE, jos parametrin <literal>parameters</literal> validointi onnistui. Jos lisäosa palauttaa FALSE, asetusikkuna ei salli käyttäjän kytkeä lisäosaa työkopiopolkuun."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT GetLinkText (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any (error) UI that needs to be displayed.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// The parameter string, just in case you need to talk to your web\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t// service (e.g.) to find out what the correct text is.\n"
+"\t\t[out, retval] BSTR *linkText\t\t\t// What text do you want to display? Use the current thread locale.\n"
+"\t);\n"
+msgstr ""
+"\n"
+"\tHRESULT GetLinkText (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t// Isäikkunan kahva käyttöliittymäosille.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t// Parametrimerkkijono.\n"
+"\t\t[out, retval] BSTR *linkText\t\t// Minkä tekstin haluat näyttää? Käytä nykyisen säikeen kulttuuria.\n"
+"\t);\n"
+
+#. (para)
+msgid "<placeholder-1/> The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
+msgstr "<placeholder-1/> Lisäosa voi määritellä tekstin, jota TortoiseSVN käyttää toimitusikkunassaan painikkeelle, joka käynnistää lisäosan; esim. \"Valitse vika\" tai \"Valitse lipuke\". Varmista, ettei merkkijono ole liian pitkä, muuten se ei sovi painikkeeseen. Jos toiminto palauttaa virheen (esim. <literal>E_NOTIMPL</literal>), painikkeelle käytetään oletusarvoista tekstiä."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT GetCommitMessage (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for your provider's UI.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR originalMessage,\t\t\t\t// The text already present in the commit message.\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t// Your provider should include this text in the new message, where appropriate.\n"
+"\t\t[out, retval] BSTR *newMessage\t\t\t// The new text for the commit message. This replaces the original message.\n"
+"\t);\t\t\t\n"
+msgstr ""
+"\n"
+"\tHRESULT GetCommitMessage (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t// Isäikkunan kahva käyttöliittymäosille.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t// Parametrimerkkijono.\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR originalMessage,\t\t\t// Toimitusviestin nykyinen sisältö.\n"
+"\t\t\t\t\t\t\t\t\t\t// Laajennoksen tulisi sisällyttää tämä teksti uuteen toimitusviestiin, jos mahdollista.\n"
+"\t\t[out, retval] BSTR *newMessage\t\t// Uusi toimitusviesti, joka korvaa alkuperäisen.\n"
+"\t);\n"
+
+#. (para)
+msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
+msgstr "<placeholder-1/> Lisäosan päätoiminto. Toimintoa kutsutaan TortoiseSVN-toimitusikkunasta, kun käyttäjä painaa lisäosan painiketta. Merkkijono <literal>parameters</literal> on käyttäjän asetusikkunassa lisäosalle määrittelemä arvo. Tavallisesti lisäosa käyttää tätä vikaseurannan paikantimen löytämiseksi, kirjautumiseen, jne. Merkkijono <literal>commonRoot</literal> sisältää kaikkien toimitusikkunan avaamiseksi valittujen polkujen isäkansion. Huomaa, että tämä <emphasis>ei</emphasis> ole kaikkien käyttäjän toimitusikkunasta valitsemien kohteiden juuripolku. Parametri <literal>pathList</literal> sisältää polut, jotka käyttäjä on valinnut toimitettaviksi arkistoon. Parametri <literal>originalMessage</literal> sisältää toimitusikkunaan syötetyn lokiviestin. Jos käyttäjä ei ole vielä syöttänyt tekstiä, parametri on tyhjä. Paluuparametri <literal>newMessage</literal> kopioidaan lokiviestiksi toimitusikkunaan. Jos lisäosa ei muokkaa merkkijonoa <literal>originalMessage</literal>, sen on palautettava tässä sama merkkijono, muuten jo syötetty lokiviesti katoaa."
+
+#. (title)
+msgid "The IBugtraqProvider2 interface"
+msgstr "IBugtraqProvider2-rajapinta"
+
+#. (para)
+msgid "In TortoiseSVN 1.6 a new interface was added which provides more functionality for plugins. This IBugtraqProvider2 interface inherits from IBugtraqProvider."
+msgstr "TortoiseSVN 1.6 osaa käyttää laajennuksia, jotka toteuttavat IBugtraqProvider2-rajapinnan.  Tämä rajapinta lon alkuperäisen IBugtraqProvider-rajapinnan laajennus."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT GetCommitMessage2 (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for your provider's UI.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
+"\t\t[in] BSTR commonURL,\t\t\t\t\t// the common URL of the commit\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR originalMessage,\t\t\t\t// The text already present in the commit message.\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t// Your provider should include this text in the new message, where appropriate.\n"
+"\t\t// you can assign custom revision properties to a commit by setting the next two params.\n"
+"\t\t// note: both safearrays must be of the same length. For every property name there must be a property value!\n"
+"\t\t[in] BSTR bugID,\t\t\t\t\t\t// the content of the bugID field (if shown)\n"
+"\t\t[out] BSTR * bugIDOut,\t\t\t\t\t// modified content of the bugID field\n"
+"\t\t[out] SAFEARRAY(BSTR) * revPropNames,\t// a list of revision property names which are applied to the commit\n"
+"\t\t[out] SAFEARRAY(BSTR) * revPropValues,\t// a list of revision property values which are applied to the commit\n"
+"\t\t[out, retval] BSTR * newMessage\t\t\t// The new text for the commit message. This replaces the original message.\n"
+"\t);\t\t\t\n"
+msgstr ""
+"\n"
+"\tHRESULT GetCommitMessage2 (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t// Isäikkunan kahva käyttöliittymää varten.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t// Parametrit.\n"
+"\t\t[in] BSTR commonURL,\t\t\t\t// Arkistotoimituksen yhteinen paikannin\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR originalMessage,\t\t\t// Toimitusviestin nykyinen sisältö.\n"
+"\t\t\t\t\t\t\t\t\t\t// Laajennoksen tulisi sisällyttää tämä teksti uuteen toimitusviestiin, jos mahdollista.\n"
+"\t\t// Voit määritellä omia versio-ominaisuuksia arkistoon toimitettavaksi seuraavien kahden parametrin avulla.\n"
+"\t\t// Huomaa: molempien taulukoiden on oltava yhtä pitkiä. Kullekin ominaisuusnimelle on löydyttävä vastaava arvo!\n"
+"\t\t[in] BSTR bugID,\t\t\t\t\t// bugID-kentän sisältö (mikäli näytetty)\n"
+"\t\t[out] BSTR * bugIDOut,\t\t\t\t// bugID-kentän muutettu sisältö\n"
+"\t\t[out] SAFEARRAY(BSTR) * revPropNames,\t// Lista arkistoon toimitettavia versio-ominaisuuksien nimiä\n"
+"\t\t[out] SAFEARRAY(BSTR) * revPropValues,\t// Lista arklstoon toimitettavia versio-ominaisuuksien arvoja\n"
+"\t\t[out, retval] BSTR * newMessage\t\t// Uusi toimitusviesti, joka korvaa alkuperäisen.\n"
+"\t);\n"
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there. The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path. The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>). The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns. The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
+msgstr "<placeholder-1/> Toimintoa kutsutaan TortoiseSVN-toimitusikkunasta, kun käyttäjä painaa laajennuspainiketta. Tämä toiminto korvaa alkuperäisen <literal>GetCommitMessage()</literal>-toiminnon; osa parametreista on kuvattu sen yhteydessä.  Uudet parametrit: <literal>commonURL</literal> on kaikkien toimitettavien kohteiden yhteinen paikannin. Tämä on käytännössä <literal>commonRoot</literal>-polun paikannin. Parametri <literal>bugID</literal> sisältää käyttöliittymän bug-ID -kentän sisällön (mikäli näytetty, ks. ominaisuus <literal>bugtraq:message</literal>). Paluuparametria <literal>bugIDOut</literal> sijoitetaan bug-ID -kenttään. Paluuparametrit <literal>revPropNames</literal> ja <literal>revPropValues</literal> voivat sisältää nimi/arvo -pareja arkistoon toimitettaville versio-ominaisuuksille. Laajennuksen on varmistettava, että molemmat taulukot ovat yhtä pitkiä! Kullakin taulukon <literal>revPropNames</literal> alkiolla on myös oltava vastaava arvo taulukossa <literal>revPropValues</literal>. Laajennoksen on palautettava tyhjät taulukot, vaikka versio-ominaisuuksia ei tarvittaisi."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT CheckCommit (\n"
+"\t\t[in] HWND hParentWnd,\n"
+"\t\t[in] BSTR parameters,\n"
+"\t\t[in] BSTR commonURL,\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR commitMessage,\n"
+"\t\t[out, retval] BSTR * errorMessage\n"
+"\t\t);\n"
+msgstr ""
+"\n"
+"\tHRESULT CheckCommit (\n"
+"\t\t[in] HWND hParentWnd,\n"
+"\t\t[in] BSTR parameters,\n"
+"\t\t[in] BSTR commonURL,\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR commitMessage,\n"
+"\t\t[out, retval] BSTR * errorMessage\n"
+"\t\t);\n"
+
+#. (para)
+msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
+msgstr "<placeholder-1/> Tätä toimintoa kutsutaan juuri ennen kuin toimitusikkuna sulkeutuu ja toimitus alkaa. Lisäosa voi käyttää toimintoa validoidakseen toimitettaviksi valitut tiedostot/kansiot ja toimitusviestin. Parametrit ovat samat kuin toiminnolla <literal>GetCommitMessage2()</literal> sillä erotuksella, että <literal>commonURL</literal> sisältää nyt kaikkien <emphasis>toimitettavaksi valittujen</emphasis> kohteiden yhteisen paikantimen, ja  <literal>commonRoot</literal> on valittujen kohteiden juuripolku. Paluuparametrin <literal>errorMessage</literal> on oltava tyhjä, jotta arkistotoimitus voi alkaa. Muussa tapauksessa TortoiseSVN näyttää käyttäjälle virheilmoituksen ja pitää toimitusikkunan avoimena, jotta käyttäjä voi korjata mahdolliset virheet. Lisäosan tulisi siten palauttaa virheilmoitus, joka kertoo, <emphasis>mikä</emphasis> on väärin, ja miten tilanne korjataan."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT\tOnCommitFinished (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any (error) UI that needs to be displayed.\n"
+"\t\t[in] BSTR commonRoot,\t\t\t\t\t// The common root of all paths that got committed.\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\t\t\t// All the paths that got committed.\n"
+"\t\t[in] BSTR logMessage,\t\t\t\t\t// The text already present in the commit message.\n"
+"\t\t[in] ULONG revision,\t\t\t\t\t// The revision of the commit.\n"
+"\t\t[out, retval] BSTR * error\t\t\t\t// An error to show to the user if this function returns something else than S_OK\n"
+"\t\t);\n"
+msgstr ""
+"\n"
+"\tHRESULT\tOnCommitFinished (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t// Isäikkunan kahva käyttöliittymäosille.\n"
+"\t\t[in] BSTR commonRoot,\t\t\t\t// The Toimitettujen polkujen yhteinen juuripolku.\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\t\t// Kaikki toimitetut polut.\n"
+"\t\t[in] BSTR logMessage,\t\t\t\t// Lokiviestin nykyinen sisältö.\n"
+"\t\t[in] ULONG revision,\t\t\t\t// Toimitettu versio.\n"
+"\t\t[out, retval] BSTR * error\t\t\t// Käyttäjälle näytettävä virheilmoitus, kun funktio palauttaa jotain muuta kuin S_OK\n"
+"\t\t);\n"
+
+#. (para)
+msgid "<placeholder-1/> This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
+msgstr "<placeholder-1/> Tätä toimintoa kutsutaan onnistuneen arkistotoimituksen jälkeen. Laajonnos voi käyttää toimintoa esim. valitun vian sulkemiseen tai lisätäkseen vikaan tietoa arkistotoimituksesta. Parametrit ovat samoja kuin toiminnolla <literal>GetCommitMessage2</literal>."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT HasOptions(\n"
+"\t\t[out, retval] VARIANT_BOOL *ret\t\t\t// Whether the provider provides options\n"
+"\t\t);\n"
+msgstr ""
+"\n"
+"\tHRESULT HasOptions(\n"
+"\t\t[out, retval] VARIANT_BOOL *ret\t\t// Onko lisäosa säädettävissä\n"
+"\t\t);\n"
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
+msgstr "<placeholder-1/> Tätä toimintoa kutsutaan asetusikkunasta, missä käyttäjä voi määritellä lisäosat. Jos lisäosa toteuttaa oman määrittelyikkunan funktion <literal>ShowOptionsDialog</literal> avulla, sen on palautettava tässä TRUE (muutoin FALSE)."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT ShowOptionsDialog(\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for the options dialog\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
+"\t\t[out, retval] BSTR * newparameters\t\t// the parameters string\n"
+"\t\t);\n"
+msgstr ""
+"\n"
+"\tHRESULT ShowOptionsDialog(\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t// Isäikkunan kahva käyttöliittymää varten.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t// Parametrit.\n"
+"\t\t[out, retval] BSTR * newparameters\t\t// Paluuparametrit.\n"
+"\t\t);\n"
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
+msgstr "<placeholder-1/> Tätä toimintoa kutsutaan asetusikkunasta, kun käyttäjä napsauttaa painiketta \"Asetukset\", joka puolestaan näytetään, jos funktio <literal>HasOptions</literal> palauttaa TRUE. Lisäosa voi näyttää oman asetusikkunan tehdäkseen määärittelyn helpommaksi käyttäjälle. Parametri <literal>parameters</literal> sisältää käyttäjän jo antaman parametrit. Paluuparametrin <literal>newparameters</literal> täytyy sisältää lisäosan valintaikkunan perusteella määrittämä uusi parametri. Tämä parametri välitetään jatkossa kaikille muille IBugtraqProvider- ja IBugtraqProvider2-toiminnoille."
+
+#. (title)
 msgid "Glossary"
 msgstr "Sanasto"
 
@@ -12417,6 +12670,15 @@ msgstr "Kari Granö <kari.grano@gmail.com>"
 msgid "translator-translation"
 msgstr "Käännös"
 
+#~ msgid ""
+#~ "Because Subversion cannot provide all the information required, a certain "
+#~ "amount of interpretation is required, which can sometimes give strange "
+#~ "results. Nevertheless, the output for the trunk will generally give "
+#~ "useful results."
+#~ msgstr ""
+#~ "Koska Subversion ei kykene antamaan kaikkea tarvittavaa tietoa, tarvitaan "
+#~ "jonkun verran tulkintaa, ja tämä voi joskus tuottaa outoja tuloksia. Yhtä "
+#~ "kaikki, päähaaran tulokset ovat yleensä hyödyllisiä."
 #~ msgid "Replaced items"
 #~ msgstr "Korvatut kohteet"
 #~ msgid ""
