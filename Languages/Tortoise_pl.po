@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-24 09:44+0100\n"
+"PO-Revision-Date: 2009-03-17 23:30+0100\n"
 "Last-Translator: Krzysztof Kotowicz <koto@webworkers.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -997,6 +997,14 @@ msgstr "&Przejmij blokady"
 msgid "&Stop on copy/rename"
 msgstr "&Zatrzymaj na kopii/zmianie nazwy"
 
+#. Resource IDs: (276)
+msgid "&Switch WC to path and revision"
+msgstr "&Przełącz kopię roboczą na ścieżkę i wersję"
+
+#. Resource IDs: (275)
+msgid "&Switch WC to path@HEAD"
+msgstr "&Przełącz kopię roboczą na ścieżkę@HEAD"
+
 #. Resource IDs: (1173)
 msgid "&Symbol View"
 msgstr "Widok &symboli"
@@ -1243,6 +1251,10 @@ msgstr "..."
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
 msgstr "... sprawdzanie bufora i przygotowanie zapytania"
+
+#. Resource IDs: (270)
+msgid "... reading working copy status"
+msgstr ".. odczytywanie statusu kopii roboczej"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -2123,6 +2135,10 @@ msgstr "Sprawdź zmiany"
 msgid "Check For Updates..."
 msgstr "Sprawdź uaktualnienie"
 
+#. Resource IDs: (276)
+msgid "Check for &modifications"
+msgstr "Sprawdź &zmiany"
+
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
 msgstr "&Sprawdź zmiany"
@@ -2146,6 +2162,10 @@ msgstr ""
 #. Resource IDs: (612)
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
 msgstr "Sprawdź log, aby dowiedzieć się jak plik/katalog miał zmienioną nazwę/został przesunięty i zdecyduj, czy chcesz zachować te zmiany czy użyć tych z repozytorium. Potem oznacz konflikt jako rozwiązany.   "
+
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to merge the change into your renamed file, or restore the original file."
+msgstr "Sprawdź log, aby dowiedzieć się jak plik/katalog miał zmienioną nazwę/został przesunięty i zdecyduj, czy chcesz scalić te zmiany do pliku o zmienionej nazwie czy przywrócić plik pierwotny."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -3037,6 +3057,10 @@ msgstr "Usuwa plik z logiem akcji"
 msgid "Deleting"
 msgstr "Usuwanie"
 
+#. Resource IDs: (207)
+msgid "Depth"
+msgstr "Głębokość"
+
 #. Resource IDs: (65535)
 msgid "Depth:"
 msgstr "Głębokość:"
@@ -3542,6 +3566,10 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Wyjątki:"
+
+#. Resource IDs: (20)
+msgid "Exclude"
+msgstr "Pomiń"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -5207,8 +5235,8 @@ msgstr "Scal wersje do..."
 
 #. Resource IDs: (610)
 #, c-format
-msgid "Merge the changes into the file '%s'"
-msgstr "Scal zmiany do pliku '%s'"
+msgid "Merge the changes into '%s'"
+msgstr "Scal zmiany do '%s'"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -8936,6 +8964,10 @@ msgstr "Uaktualnienie - TortoiseSVN"
 #. Resource IDs: (1377)
 msgid "Update Depth"
 msgstr "Głębokość uaktualniania"
+
+#. Resource IDs: (275)
+msgid "Update WC to revision"
+msgstr "Uaktualnij kopię roboczą do wersji"
 
 #. Resource IDs: (74)
 msgid "Updated"
