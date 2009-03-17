@@ -101,6 +101,8 @@ CStringDictionary::CHashFunction::equal
 
 void CStringDictionary::RebuildIndexes()
 {
+    PROFILE_BLOCK
+
     // start of the string & offset arrays
 
     std::vector<index_t>::iterator begin = offsets.begin();
@@ -111,16 +113,19 @@ void CStringDictionary::RebuildIndexes()
 
     // hash & index all strings
 
-	hashIndex.clear();
-	hashIndex.reserve (offsets.size());
+    std::vector<const char*> temp;
+	temp.reserve (offsets.size());
 
 	for (index_t i = 0, count = (index_t)offsets.size()-1; i < count; ++i)
     {
         *(begin+i) = offset;
-		hashIndex.insert (packedStringsStart + offset, i);
+		temp.push_back (packedStringsStart + offset);
 
         offset += static_cast<index_t>(strlen (packedStringsStart + offset) +1);
     }
+
+	hashIndex.clear();
+    hashIndex.insert (temp.begin(), temp.end(), 0);
 
     // "end of table" entry
 
@@ -316,6 +321,8 @@ void CStringDictionary::Reorder (const std::vector<index_t>& sourceIndices)
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 								  , CStringDictionary& dictionary)
 {
+    PROFILE_BLOCK
+
 	// read the string data
 
 	CBLOBInStream* packedStringStream 
@@ -343,8 +350,6 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 	dictionary.hashIndex 
 		= quick_hash<CStringDictionary::CHashFunction>
 			(CStringDictionary::CHashFunction (&dictionary));
-	dictionary.hashIndex.reserve (dictionary.offsets.size());
-
     dictionary.RebuildIndexes();
 
 	// ready

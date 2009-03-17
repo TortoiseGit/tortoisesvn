@@ -49,6 +49,10 @@ private:
     typedef std::vector<element_type> data_type;
     data_type data;
 
+    /// used temporarily while batch-inserting
+
+    size_t batch_insert_start;
+
 	/**
 	 * A simple string hash function that satisfies quick_hash interface
 	 * requirements.
@@ -200,11 +204,13 @@ public:
 
 	quick_hash_map() 
 		: hash (CHashFunction (&data))
+        , batch_insert_start ((size_t)-1)
 	{
 	}
 	
 	quick_hash_map (const quick_hash_map& rhs) 
 		: hash (CHashFunction (&data))
+        , batch_insert_start ((size_t)-1)
 	{
 		operator=(rhs);
 	}
@@ -215,6 +221,7 @@ public:
 	{
 		hash = rhs.hash;
 		data = rhs.data;
+        batch_insert_start = rhs.batch_insert_start;
 
 		return *this;
 	}
@@ -233,6 +240,7 @@ public:
 
     const_iterator find (key_type key) const
 	{
+        assert (batch_insert_start == (size_t)-1);
         size_t index = hash.find (key);
         return index == LogCache::NO_INDEX 
             ? end() 
@@ -256,6 +264,26 @@ public:
             data.reserve (min_bucket_count);
             hash.reserve (min_bucket_count);
         }
+	}
+
+    // efficient batch insertion
+
+	void begin_batch_insert()
+	{
+        batch_insert_start = data.size();
+	}
+
+	void batch_insert (key_type key, const value_type& value)
+	{
+        data.push_back (element_type (key, value));
+	}
+
+	void end_batch_insert (size_t startIndex)
+	{
+        hash.insert ( data.begin() + batch_insert_start
+                    , data.end()
+                    , batch_insert_start);
+        batch_insert_start = (size_t)-1;
 	}
 
 	// get rid of all entries

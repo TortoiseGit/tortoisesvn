@@ -87,5 +87,7 @@
 #include "../Streams/CompositeInStream.h"
 #include "../Streams/CompositeOutStream.h"
 
+#include "../../Utils/ProfilingInfo.h"
+
 
 
