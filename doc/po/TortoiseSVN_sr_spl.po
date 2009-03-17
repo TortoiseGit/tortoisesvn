@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-11 23:53 +0000\n"
-"PO-Revision-Date: 2009-03-15 19:54+0100\n"
+"POT-Creation-Date: 2009-03-16 22:17 +0000\n"
+"PO-Revision-Date: 2009-03-17 20:20+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2720,7 +2720,7 @@ msgstr "<placeholder-1/> Sve TortoiseSVN komande se pozivaju iz kontekst menija 
 
 #. (para)
 msgid "Some commands which are very rarely used are only available in the extended context menu. To bring up the extended context menu, hold down the <keycap>Shift</keycap> key when you <action>right-click</action>."
-msgstr "Neke komande koje se veoma retko koriste su dostupne samo u proširenom kontekst meniju. Da pozovete prošireni kontekst meni držite <keycap>Šift</keycap> taster kada uradite <action>desni-klik</action>."
+msgstr "Neke komande koje se veoma retko koriste su dostupne samo u proširenom kontekst meniju. Da prikažete prošireni kontekst meni držite <keycap>Šift</keycap> taster kada uradite <action>desni-klik</action>."
 
 #. (title)
 msgid "Explorer file menu for a shortcut in a versioned folder"
@@ -3587,7 +3587,7 @@ msgstr "Ako imate konflikt sa binarnim fajlovima, Subverzija ne pokušava da sto
 
 #. (para)
 msgid "You can use the Resolved command for multiple files if you right click on the parent folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved...</guimenuitem></menuchoice> This will bring up a dialog listing all conflicted files in that folder, and you can select which ones to mark as resolved."
-msgstr "Možete koristiti komandu Rešen za više fajlova sa desnim klikom na predački imenik i izborom <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Rešen...</guimenuitem></menuchoice> Ovo će dovesti dijalog listing svih konfliktnih fajlova u tom imeniku, i možete izabrati koji da markirate rešenim."
+msgstr "Možete koristiti komandu Rešen za više fajlova sa desnim klikom na predački imenik i izborom <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Rešen...</guimenuitem></menuchoice> Ovo će prikazati dijalog listing svih konfliktnih fajlova u tom imeniku, i možete izabrati koji da markirate rešenim."
 
 #. (title)
 msgid "Tree Conflicts"
@@ -6829,7 +6829,7 @@ msgstr "Da bi primenili fajl zakrpe na vašu radnu kopiju potrebno vm je da imat
 
 #. (para)
 msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog."
-msgstr "Iz kontekst menija za taj imenik, kliknite na <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Primeni Zakrpu...</guimenuitem></menuchoice> Ovo će otvoriti fajl otvori dijalog dozvoljavajući vam da izaberete fajl zakrpu za primenu. Uobičajeno samo <filename>.patch</filename> ili <filename>.diff</filename> fajlovi su prikazani, ali može se izabrati opcija za <quote>All files</quote>. Ako ste prethodno sačuvali zakrpu u klipbord možete koristiti <guibutton>Otvori iz klipborda...</guibutton> u fajl open dijalogu."
+msgstr "Iz kontekst menija za taj imenik, kliknite na <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Primeni Zakrpu...</guimenuitem></menuchoice> Ovo će prikazati fajl otvori dijalog dozvoljavajući vam da izaberete fajl zakrpu za primenu. Uobičajeno samo <filename>.patch</filename> ili <filename>.diff</filename> fajlovi su prikazani, ali može se izabrati opcija za <quote>All files</quote>. Ako ste prethodno sačuvali zakrpu u klipbord možete koristiti <guibutton>Otvori iz klipborda...</guibutton> u fajl open dijalogu."
 
 #. (para)
 msgid "Alternatively, if the patch file has a <filename>.patch</filename> or <filename>.diff</filename> extension, you can right click on it directly and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice>. In this case you will be prompted to enter a working copy location."
@@ -7185,8 +7185,8 @@ msgid "Working copy revision"
 msgstr "Revizija radne kopije"
 
 #. (para)
-msgid "If you invoked the revision graph from a working copy, you can opt to show the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, which marks the BASE node as an ellipse with a bold outline."
-msgstr "Ako pozovete revizioni graf iz radne kopije, možete pokušati da prikažete OSNOVNU reviziju grafa koristeći <guilabel>Prikaži RK reviziju</guilabel>, koja označava OSNOVNI čvor kao elipsu sa zacrnjenom spoljašnošću."
+msgid "If you invoked the revision graph from a working copy, you can opt to show the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, which marks the BASE node with a bold outline."
+msgstr "Ako pozovete revizioni graf iz radne kopije, možete pokušati da prikažete OSNOVNU reviziju grafa koristeći <guilabel>Prikaži RK reviziju</guilabel>, koja označava OSNOVNI čvor  sa zacrnjenom spoljašnošću."
 
 #. (term)
 msgid "Modified working copy"
@@ -7380,9 +7380,17 @@ msgstr "Ako uradite <action>desni klik</action> na reviziju možete koristiti <m
 msgid "You can also merge changes in the selected revision(s) into a different working copy. A folder selection dialog allows you to choose the working copy to merge into, but after that there is no confirmation dialog, nor any opportunity to try a test merge. It is a good idea to merge into an unmodified working copy so that you can revert the changes if it doesn't work out! This is a useful feature if you want to merge selected revisions from one branch to another."
 msgstr "Možete takođe stopiti izmene u izabranim revizijama u različitim radnim kopijama. Dijalog izbora imenika dopušta da izaberete radnu kopiju u koju stapate, ali posle toga nema dijloga potvrde, niti bilo kakvog sprečavanja da se pokuša test stapanje. Dobra je ideja da se stopi u neizmenjenu radnu kopiju tako da možete vratiti izmene ako to ne radi! Ovo je korisna osobina ako želite da stopite izabrane revizije iz jedne grane u drugu."
 
+#. (title)
+msgid "Learn to Read the Revision Graph"
+msgstr "Učite da čitate revizioni graf"
+
 #. (para)
-msgid "Because Subversion cannot provide all the information required, a certain amount of interpretation is required, which can sometimes give strange results. Nevertheless, the output for the trunk will generally give useful results."
-msgstr "Zato što Subverzija ne može obezbediti sve informacije koje se traže izvestan deo interpretacije je potreban,koji ponekad daje čudne rzultate. Ipak, izlaz  za deblo će generalno dati koristan rezultat."
+msgid "First-time users may be surprised by the fact that the revision graph shows something that does not match the user's mental model. If a revision changes multiple copies or branches of a file or folder, for instance, then there will be multiple nodes for that single revision. It is a good practice to start with the leftmost options in the toolbar and customize the graph step-by-step until it comes close to your mental model."
+msgstr "Početnici mogu biti iznenađeni činjenicom da reviziono graf prikazuje nešto što ne nalazi korisnički mentalni model.Ako revizija menja više kopija ili grana fajla ili imenika, na primer, onda će biti više čvorova za tu pojedinačnu reviziju. To je dobra praksa da se počne sa krajnje levom opcijom alatpulta i podešavanjem grafa korak-po-korak sve dok ne postane blizak vašem mentalnom modelu."
+
+#. (para)
+msgid "All filter options try lose as little information as possible. That may cause some nodes to change their color, for instance. Whenever the result is unexpected, undo the last filter operation and try to understand what is special about that particular revision or branch. In most cases, the initially expected outcome of the filter operation would either be inaccurate or misleading."
+msgstr "Sve opcije filtera pokušavaju izgubiti što je manje moguće informacija. To može uzrokovati da neki čvorovi izmene svoju boji, na primer. Kadgod su rezultati neočekivani ponioštite poslednju operaciju filtriranja i pokušajte razumeti šta je posebno u posebnoj reviziji ili grani. U većini slučajeva početno se očekuje izlaz operacije filtriranja da bude ili netačan ili obmanjujući."
 
 #. (para)
 msgid "If you want to check the server again for newer information, you can simply refresh the view using <keycap>F5</keycap>. If you are using the log cache (enabled by default), this will check the repository for newer commits and fetch only the new ones. If the log cache was in offline mode, this will also attempt to go back online."
@@ -7417,8 +7425,8 @@ msgid "<graphic fileref=\"../images/RevGraphJoin.png\"/> Click on the circle but
 msgstr "<graphic fileref=\"../images/RevGraphJoin.png\"/> Kliknite na krug dugme da odspojite podeljeno stablo. Kada je stablo podeljeno ovo dugme ostaje vidljivo da označi da postoji posebno pod-stablo."
 
 #. (para)
-msgid "Click on the graph background for the main context menu, which offers options to <guilabel>Expand all</guilabel> and <guilabel>Join all</guilabel>."
-msgstr "Kliknite na pozadinu grafa za glavni kontekstni meni koji omogućava opcije za <guilabel>Proširi sve</guilabel> i <guilabel>Poveži sve</guilabel>."
+msgid "Click on the graph background for the main context menu, which offers options to <guilabel>Expand all</guilabel> and <guilabel>Join all</guilabel>. If no branch has been collapsed or split, the context menu will not be shown."
+msgstr "Kliknite na pozadinu grafa za glavni kontekstni meni koji omogućava opcije za <guilabel>Proširi sve</guilabel> i <guilabel>Poveži sve</guilabel>. Ako nema grana koje su sažete ili podeljene kontekst meni neće biti prikazan."
 
 #. (title)
 msgid "Exporting a Subversion Working Copy"
@@ -7577,6 +7585,7 @@ msgstr "bag praćenje"
 msgid "bug tracker"
 msgstr "bag tragač"
 
+#. (primary)
 #. (primary)
 msgid "issue tracker"
 msgstr "problem tragač"
@@ -7745,8 +7754,8 @@ msgid "The previous section deals with adding issue information to the log messa
 msgstr "Prethodni paragraf razmatra dodavanje problem informacija u dnevnik poruka. Ali šta ako vam treba da dobijete informaciju od problem tragača? Dijalog urezivanja ima COM interfejs koji dozvoljava integraciju spoljašnjih programa koji mogu govoriti vašem tragaču. Tipično možete želeti da tražite tragaču da da listu otvorenih problema pridruženih vama, tako da možete odabrati problem koji će biti adresiran pri urezivanju."
 
 #. (para)
-msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
-msgstr "Svaki takav interfejs je svakako jako specifično za vaš sistem praćenja, tako da vam ne možemo dati  ovo poglavlje i opisati kako da kreirate takav program jer je van razmatranja ovog uputstva. Definicija interfejsa i jednostavni dodaci u C# i C++/ATL  mogu biti dobijeni iz <literal>contrib</literal> imenika u <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN spremište</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> objašnjava kako pristupiti spremištu). Sledeći (radni) plagin u C# je <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> koji implementira željeni COM interfejs da interaguje sa <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> problem tragač."
+msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
+msgstr "Svaki takav interfejs je svakako jako specifično za vaš sistem praćenja, tako da vam ne možemo dati  ovo poglavlje i opisati kako da kreirate takav program jer je van razmatranja ovog uputstva. Definicija interfejsa i jednostavni dodaci u C# i C++/ATL  mogu biti dobijeni iz <literal>contrib</literal> imenika u <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN spremište</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> objašnjava kako pristupiti spremištu). Rezultat za API je takođe dat u <xref linkend=\"tsvn-ibugtraqprovider\"/>  Sledeći (radni) primer  plagin u C# je <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> koji implementira željeni COM interfejs sa <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> problem tragačem."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -9225,16 +9234,16 @@ msgid "<placeholder-1/> Click on <guibutton>Add...</guibutton> to use the plugin
 msgstr "<placeholder-1/> Kliknite na <guibutton>Dodaj...</guibutton> da koristite plagin sa posebnom radnom kopijom. Ovde možete specificirati putanju radne kopije, izaberite koji plagin da se koristi iz padajuće liste svih registrovanih problem tragača, i neke parametre da doda. Parametri će biti specificirani plaginu, ali mogu uključiti vaše korisničko ime za problem tragač  tako da plagin može tražiti probleme koji su vama ozančeni. "
 
 #. (para)
-msgid "This property specifies the COM UUID of the IBugTraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (this example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
-msgstr "Ovu osobinu određuje COM UUID iz IBugTrakProvider, na primer <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (ovaj primer je UUID od <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, koji je snabdevač za <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> problem tragač)."
+msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (this example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
+msgstr "Ovu osobinu određuje COM UUID iz IBagtragačSnabdevač, na primer <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (ovaj primer je UUID od <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, koji je snabdevač za <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> problem tragač)."
 
 #. (para)
-msgid "This property specifies the parameters passed to the IBugTraqProvider."
-msgstr "Ova osobina određuje parametre poslate u  IBugTraqProvider."
+msgid "This property specifies the parameters passed to the IBugtraqProvider."
+msgstr "Ova osobina određuje parametre poslate u  IBagtragačSnabdevač."
 
 #. (para)
-msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugTraqProvider plugin to find out what to specify in these two properties."
-msgstr "Ako želite da svi korisnici koriste iste COM plagin za vaš projekat, možete specificirati plagin takođe sa osobinama <literal>bugtraq:provideruuid</literal>i <literal>bugtraq:providerparams</literal>. <placeholder-1/> Molimo proverite dokumentaciju vašeg  IBugTraqProvider plagina da nađete šta specificirati u ove dve osobine."
+msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
+msgstr "Ako želite da svi korisnici koriste iste COM plagin za vaš projekat, možete specificirati plagin takođe sa osobinama <literal>bugtraq:provideruuid</literal> i <literal>bugtraq:providerparams</literal>. <placeholder-1/> Molimo proverite dokumentaciju vašeg  IBagtragačSnabdevača plagina da nađete šta specificirati u ove dve osobine."
 
 #. (title)
 msgid "TortoiseBlame Settings"
@@ -9432,6 +9441,7 @@ msgstr "izdvajanje verzije"
 msgid "SubWCRev"
 msgstr "SubVCRev"
 
+#. (primary)
 #. (primary)
 msgid "COM"
 msgstr "COM"
@@ -12195,6 +12205,250 @@ msgid "If you use this last method, be sure you do not have a default username s
 msgstr "Ako koristite poslednji metod, budite sigurni da nemate podrazumevano ime korisnika podešeno u PuTTY. Imali smo izveštaje o bagu u PuTTY koji su uzrokovali zatvaranje konekcije u ovom slučaju. Da uklonite podrazumevanog korisnika, jednostavno očistite <filename>HKEY_CURRENT_USER\\Software\\SimonTatham\\Putty\\Sessions\\Default%20Settings\\HostName</filename>"
 
 #. (title)
+msgid "IBugtraqProvider interface"
+msgstr "IBagtragačSnabdevač interfejs"
+
+#. (primary)
+msgid "plugin"
+msgstr "plagin"
+
+#. (primary)
+msgid "IBugtraqProvider"
+msgstr "IBagtragačSnabdevač"
+
+#. (para)
+msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
+msgstr "Da bi dobili čvršću integraciju sa problem tragačem jednostavnim korišćenjem <literal>bugtraq:</literal> osobina, TortoiseSVN može učiniti korišćenje COM plagina. Sa takvim plaginom moguće je naći informaciju direktno iz problem tragača, interakcija sa korisnikom i obezbeđivanje informacioni povratak na TortoiseSVN o otvorenim problemima, verifikuje dnevnik poruke koje uneo korisnik i čak izvršne akcije posle uspešnog urezivanja npr. zatvaranje problema."
+
+#. (para)
+msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgstr "Ne možemo obezbediti informaciju i tutorijale o tome kako da primenite COM objekte u vašim izabranim programskim jezicima, ali imamo primere plagina u C++/ATL i C# u vašem spremištu u <filename>contrib/issue-tracker-plugins</filename>  imenik. U imeniku možete takođe naći željene fajlove za uključivanje koji su vam potrebni da napravite plagin. (<xref linkend=\"tsvn-preface-source\"/>  objašnjava kako pristupiti spremištu)."
+
+#. (title)
+msgid "The IBugtraqProvider interface"
+msgstr "IBagtragačSnabdevač interfejs"
+
+#. (para)
+msgid "TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
+msgstr "TortoiseSVN 1.5 može koristiti plagine koji implementiraju IBagtagačSnabdevač interfejs. Interfejs obezbeđuje nekoliko metoda čiji plagini se mogu koristiti da interaguju sa problem tragačem."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT ValidateParameters (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any UI that needs to be displayed during validation.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// The parameter string that needs to be validated.\n"
+"\t\t[out, retval] VARIANT_BOOL *valid\t\t// Is the string valid?\n"
+msgstr ""
+"\n"
+"\tHRESULT VrednovanjeParametri (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Predački prozor za bilo koji UI koji traže da budu prikazani tokom vrednovanja.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// Parametar string koji traži da bude vrednovan.\n"
+"\t\t[out, retval] VARIANT_BOOL *valid\t\t// Da li je string vrednovan?\n"
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
+msgstr "<placeholder-1/> Ovaj metod je pozvan iz dijaloga podešavanja gde korisnik može dodati i konfigurisati plagin. String  <literal>parametri</literal>  se mogu koristiti plaginom da se dobije dodatna zahtevana informacija, npr. URL ka problem tragaču, dnevnik informacija, itd. Plagin treba da verifikuje string <literal>parametrima</literal> i prikazuje dijalog greške ako string nije valjan. Parametar <literal>hParentWnd</literal> treba da se koristi za svaki  dijalog plagin se prikazuje kao predački prozor. Plagin mora vratiti ISTINU ako vrednovanje  string <literal>parametara</literal> bude zadovoljavajuće. Ako plagin vrati LAŽ dijalog podešavanja ne može dopustiti korisniku da doda plagin u putanju radne kopije."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT GetLinkText (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any (error) UI that needs to be displayed.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// The parameter string, just in case you need to talk to your web\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t// service (e.g.) to find out what the correct text is.\n"
+"\t\t[out, retval] BSTR *linkText\t\t\t// What text do you want to display? Use the current thread locale.\n"
+"\t);\n"
+msgstr ""
+"\n"
+"\tHRESULT GetLinkText (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t//Predački prozor za svaki (pogrešan) UI koji traži da bude prikazan.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// String parametar baš u slučaju da treba da pričate vašem veb\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t// servisu (npr.) da nađete koji tekst je korektan.\n"
+"\t\t[out, retval] BSTR *linkText\t\t\t// Koji tekst želite da prikažete? Koristite tekući lokalni proces.\n"
+"\t);\n"
+
+#. (para)
+msgid "<placeholder-1/> The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
+msgstr "<placeholder-1/> Plagin može dati string koji se koristi u TortoiseSVN dijalogu urezivanja za dugmiće koji pozivaju plagine, npr. \"Izaberi problem\" ili \"Izaberi kartu\". Budite sigurni da string nije suviše dugačak, drugačije to ne može biti ubačeno u dugme. Ako metod vraća grešku (npr. <literal>E_NOTIMPL</literal>), uobičajeni tekst se koristi za dugme."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT GetCommitMessage (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for your provider's UI.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR originalMessage,\t\t\t\t// The text already present in the commit message.\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t// Your provider should include this text in the new message, where appropriate.\n"
+"\t\t[out, retval] BSTR *newMessage\t\t\t// The new text for the commit message. This replaces the original message.\n"
+"\t);\t\t\t\n"
+msgstr ""
+"\n"
+"\tHRESULT GetCommitMessage (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Predački prozor za UI snabdevača.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t//Parametri za vašeg snabdevača.\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR originalMessage,\t\t\t\t// Tekst već prisutan u poruci urezivanja.\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t// Vaš snabdevač treba da uključi ovaj tekst u novu poruku, gde odgovara.\n"
+"\t\t[out, retval] BSTR *newMessage\t\t\t// Novi tekst za poruku urezivanja. Ovo zamenjuje originalnu poruku.\n"
+"\t);\t\t\t\n"
+
+#. (para)
+msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
+msgstr "<placeholder-1/> Ovo je glavni metod plagina. Ovaj metod se poziva iz TortoiseSVN dijaloga urezivanja kada korisnik klikne na dugme plagina. String <literal>parametara</literal> je string koji je korisnik uneo u dijalog podešavanja kada je konfigurisao plagin. Obično plagin ovo koristi da nađe URL problem tragača i/ili login informacije ili nešto više. String <literal>commonRoot</literal> sadrži predačku putanju svih stavki izabranih da prikaže dijalog urezivanja. Primetimo da ovo <emphasis>nije</emphasis>  korena putanja svih stavki koje je korisnik izabrao u dijalogu urezivanja. Parametar <literal>pathList</literal> sadrži skup putanji (kao stringove) koje je korisnik izabrao u dijalogu urezivanja. Parametar <literal>originalMessage</literal> sadrži tekst unet u boks poruke dnevnika u dijalogu urezivanja, zamenjujući sve što je već tamo. Ako korisnik još nije uneo bilo koji tekst, ovaj string će biti prazan. <literal>newMessage</literal> povratni string je kopiran u dnevnik poruka boks uređenja u dijalogu urezivanja, zamenjujući štogod je tamo. Ako plagin ne menja <literal>originalMessage</literal>  string, mora ovde vratiti isti string, inače će svaki tekst, koji korisnik unese,biti izgubljen."
+
+#. (title)
+msgid "The IBugtraqProvider2 interface"
+msgstr "IBagtragačSnabdevač2 interfejs"
+
+#. (para)
+msgid "In TortoiseSVN 1.6 a new interface was added which provides more functionality for plugins. This IBugtraqProvider2 interface inherits from IBugtraqProvider."
+msgstr "U TortoiseSVN 1.6 novi interfejs je dodat da omogući veću funkcionalnost plagina. Ovaj IBagtragačSnabdevač2 interfejs proizilazi iz IBagtragačSnabdevač."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT GetCommitMessage2 (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for your provider's UI.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
+"\t\t[in] BSTR commonURL,\t\t\t\t\t// the common URL of the commit\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR originalMessage,\t\t\t\t// The text already present in the commit message.\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t// Your provider should include this text in the new message, where appropriate.\n"
+"\t\t// you can assign custom revision properties to a commit by setting the next two params.\n"
+"\t\t// note: both safearrays must be of the same length. For every property name there must be a property value!\n"
+"\t\t[in] BSTR bugID,\t\t\t\t\t\t// the content of the bugID field (if shown)\n"
+"\t\t[out] BSTR * bugIDOut,\t\t\t\t\t// modified content of the bugID field\n"
+"\t\t[out] SAFEARRAY(BSTR) * revPropNames,\t// a list of revision property names which are applied to the commit\n"
+"\t\t[out] SAFEARRAY(BSTR) * revPropValues,\t// a list of revision property values which are applied to the commit\n"
+"\t\t[out, retval] BSTR * newMessage\t\t\t// The new text for the commit message. This replaces the original message.\n"
+"\t);\t\t\t\n"
+msgstr ""
+"\n"
+"\tHRESULT GetCommitMessage2 (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Predački prozor za vaš UI snabdevač.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// Parametri za vašeg snabdevača.\n"
+"\t\t[in] BSTR commonURL,\t\t\t\t\t// zajednički URL urezivanjat\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR originalMessage,\t\t\t\t// Tekst koji već postoji u poruci urezivanja.\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t// Vaš snabdevač bi trebao da uključi ovaj tekst u novu poruku, gde to odgovara.\n"
+"\t\t// možete označiti obične osobine revizije za urezivanje podešavanjem sledeća dva parametra.\n"
+"\t\t// primedba: obe sigurnosne oblasti moraju biti iste dužine. Za svako ime osobine mora biti vrednost osobine!\n"
+"\t\t[in] BSTR bugID,\t\t\t\t\t\t// sadržaj bagID polja (ako je prikazano) (if shown)\n"
+"\t\t[out] BSTR * bugIDOut,\t\t\t\t\t// izmenjeni sadržaj bagID polja\n"
+"\t\t[out] SAFEARRAY(BSTR) * revPropNames,\t// lista imena osobina revizije koja se primenjuje za urezivanje\n"
+"\t\t[out] SAFEARRAY(BSTR) * revPropValues,\t// lista imena vrednosti revizije koja se primenjuje za urezivanje\n"
+"\t\t[out, retval] BSTR * newMessage\t\t\t//Novi tekst za poruku urezivanja. Ovo zamenjuje originalnu poruku.\n"
+"\t);\t\t\t\n"
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there. The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path. The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>). The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns. The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
+msgstr "<placeholder-1/> Ovaj metod se poziva iz TortoiseSVN dijaloga urezivanja kada korisnik klikne na plagin dugme. Metod je pozvan umesto <literal>GetCommitMessage()</literal>. Molim uporedite sa dokumentacijom za <literal>GetCommitMessage</literal> za parametre koji se takođe ovde koriste. Parametar <literal>commonURL</literal> je predak URL svih stavki izabranih da se pojavi dijalog urezivanja. Ovo je osnovni URL <literal>commonRoot</literal> putanje. Parametar <literal>bagID</literal>  sadrži sadržaj bag-ID polja kada metod vrati rezultat. Povratni parametri <literal>revPropNames</literal> i <literal>revPropValues</literal> mogu sadržati ime/vrednost par revizionih osobinakoje urezivanje treba da podesi. Plagin mora da osigura oba polja da imaju istu veličinu pri povratku! Svako ime osobine u <literal>revPropNames</literal> takođe mora da ima odgovarajuću vrednost u <literal>revPropValues</literal>. Ako nisu podešene revizione osobine plagin mora da vrati prazno polje."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT CheckCommit (\n"
+"\t\t[in] HWND hParentWnd,\n"
+"\t\t[in] BSTR parameters,\n"
+"\t\t[in] BSTR commonURL,\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR commitMessage,\n"
+"\t\t[out, retval] BSTR * errorMessage\n"
+"\t\t);\n"
+msgstr ""
+"\n"
+"\tHRESULT CheckCommit (\n"
+"\t\t[in] HWND hParentWnd,\n"
+"\t\t[in] BSTR parameters,\n"
+"\t\t[in] BSTR commonURL,\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR commitMessage,\n"
+"\t\t[out, retval] BSTR * errorMessage\n"
+"\t\t);\n"
+
+#. (para)
+msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
+msgstr "<placeholder-1/> Ovaj metod se poziva tačno pre zatvaranja dijaloga urezivanja kada počinje urezivanje. Plagin može koristiti ovaj metod da proveri izabrane fajlove/imenike za urezivanje i/ili  poruke urezivanja koje je uneo korisnik. Parametri su isti za <literal>GetCommitMessage2()</literal>, sa razlikama što je taj <literal>commonURL</literal>  sada zajednički URL svih <emphasis>preuzetih</emphasis> stavki, i <literal>commonRoot</literal> korena putanja svih preuzetih stavki. Povratni parametar <literal>errorMessage</literal> mora da sadrži ili poruku o grešci koju je TortoiseSVN prikazao korisniku ili da bude prazan da bi urezivanje počelo. Ako je vraćena poruka o grešci, TortoiseSVN prikazuje string greške u dijalogu i drži dijalog urezivanja otvorenim dok korisnik ne ispravi što god je neispravno. Plagin bi zato trebalo da vrati string greške koji informiše korisnika <emphasijes>šta</emphasis> je neispravno i kako da se to koriguje."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT\tOnCommitFinished (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any (error) UI that needs to be displayed.\n"
+"\t\t[in] BSTR commonRoot,\t\t\t\t\t// The common root of all paths that got committed.\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\t\t\t// All the paths that got committed.\n"
+"\t\t[in] BSTR logMessage,\t\t\t\t\t// The text already present in the commit message.\n"
+"\t\t[in] ULONG revision,\t\t\t\t\t// The revision of the commit.\n"
+"\t\t[out, retval] BSTR * error\t\t\t\t// An error to show to the user if this function returns something else than S_OK\n"
+"\t\t);\n"
+msgstr ""
+"\n"
+"\tHRESULT\tOnCommitFinished (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Predački prozor za svaki (pogrešan) UI koji treba da bude prikazan.\n"
+"\t\t[in] BSTR commonRoot,\t\t\t\t\t// Zajednički koren svih putanja za urezivanje.\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\t\t\t// All the paths that got committed.\n"
+"\t\t[in] BSTR logMessage,\t\t\t\t\t// Tekst već prisutan u poruci urezivanja.\n"
+"\t\t[in] ULONG revision,\t\t\t\t\t// Revizija urezivanja.\n"
+"\t\t[out, retval] BSTR * error\t\t\t\t// Greška za prikazivanje korisniku ako funkcija vrati nešto osim  S_OK\n"
+"\t\t);\n"
+
+#. (para)
+msgid "<placeholder-1/> This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
+msgstr "<placeholder-1/> Ovaj metod se poziva posle uspešnog urezivanja. Plagin može koristiri ovaj metod da npr. zatvori izabranu stavku i doda informaciju o urezivanju uz stavku. Parametri su isti kao za <literal>GetCommitMessage2</literal>."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT HasOptions(\n"
+"\t\t[out, retval] VARIANT_BOOL *ret\t\t\t// Whether the provider provides options\n"
+"\t\t);\n"
+msgstr ""
+"\n"
+"\tHRESULT HasOptions(\n"
+"\t\t[out, retval] VARIANT_BOOL *ret\t\t\t// Da li snabdevač omogućava opcije\n"
+"\t\t);\n"
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
+msgstr "<placeholder-1/> Ovaj metod se poziva iz dijaloga podešavanja gde korisnik može da konfiguriše plagine. Ako sam plagin obezbeđuje sopstveni dijalog konfigurisanja sa <literal>ShowOptionsDialog</literal>, on mora ovde da vrati ISTINA, u drugom slučaju mora da vrati LAŽ."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT ShowOptionsDialog(\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for the options dialog\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
+"\t\t[out, retval] BSTR * newparameters\t\t// the parameters string\n"
+"\t\t);\n"
+msgstr ""
+"\n"
+"\tHRESULT ShowOptionsDialog(\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Predački prozor za dijalog opcija\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// Parametri za vašeg snabdevača.\n"
+"\t\t[out, retval] BSTR * newparameters\t\t// string parametara\n"
+"\t\t);\n"
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
+msgstr "<placeholder-1/>  Ovaj metod se poziva iz dijaloga podešavanja kada korisnik klikne na  dugme \"Opcije\"   koje je prikazano ako <literal>HasOptions</literal>  vrati ISTINA. Plagin može prikazati dijalog da olakša korisniku da konfiguriše plagin. String <literal>parametara</literal>  sadrži plagin string parametara koji je već podešen/unet. Povratni parametar <literal>newparameters</literal> mora da sadrži string parametara koje plagin konstruiše iz informacija sakupljenih u dijalogu opcija. String <literal>parametara</literal> se šalje svim drugim IBagtragačSnabdevačima i IBagtragačSnabdevač2 metodima."
+
+#. (title)
 msgid "Glossary"
 msgstr "Pojmovnik"
 
@@ -12419,4 +12673,3 @@ msgstr "Milorad Popović <MiloradSPopovic@gmail.com>"
 #. (None)
 msgid "translator-translation"
 msgstr "Prevod"
-
