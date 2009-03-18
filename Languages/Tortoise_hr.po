@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-06 12:59-0800\n"
+"PO-Revision-Date: 2009-03-17 11:48-0800\n"
 "Last-Translator: DuskoV <woox@gmx.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -965,9 +965,8 @@ msgid "&Text"
 msgstr "&Tekst"
 
 #. Resource IDs: (16506)
-#, fuzzy
 msgid "&Text only"
-msgstr "Samo za test"
+msgstr "Samo &tekst"
 
 #. Resource IDs: (1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
@@ -999,9 +998,8 @@ msgid "&Toolbar Name:"
 msgstr "&Traka s alatima"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Toolbars:"
-msgstr "&Traka s alatima"
+msgstr "&Trake s alatima"
 
 #. Resource IDs: (1091, 1093, 1094)
 msgid "&TortoiseMerge"
@@ -2450,13 +2448,12 @@ msgid "Copy - TortoiseSVN"
 msgstr "Kopiraj - TortoiseSVN"
 
 #. Resource IDs: (1057)
-#, fuzzy
 msgid ""
 "Copy Tool\n"
 "Copy"
 msgstr ""
-"Copy Tool\n"
-"Kopiraj"
+"Alat za kopiranje\n"
+"Kopirati"
 
 #. Resource IDs: (101)
 msgid "Copy URL to clipboard"
@@ -2467,9 +2464,8 @@ msgid "Copy all information to clipboard"
 msgstr "Kopiraj sve informacije u međuspremnik"
 
 #. Resource IDs: (146)
-#, fuzzy
 msgid "Copy and rename"
-msgstr "Ovdje kopiraj uz promjenu imena datoteke"
+msgstr "Kopirati i promjeniti ime"
 
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
@@ -2939,13 +2935,12 @@ msgid "Directory:"
 msgstr "Direktorij:"
 
 #. Resource IDs: (195)
-#, fuzzy
 msgid ""
 "Disable this option if you have really big working copies and experience\r\n"
 "too much disk access when browsing the working copy."
 msgstr ""
-"Onemogućite ovu opciju ako imate zaista velike radne kopije i\n"
-"ako primijetite da disk previše radi prilikom pregleda radnih kopija."
+"Onemogućiti ovu opciju ako imate zaista velike radne kopije i osjetite\n"
+"previše pristupa disku prilikom pregleda radne kopije."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -7475,7 +7470,7 @@ msgstr "TORTOISEIDIFF"
 
 #. Resource IDs: (16970)
 msgid "Tab Placeholder"
-msgstr ""
+msgstr "Držač tabova"
 
 # prijevod za tab?
 #. Resource IDs: (65535)
@@ -7632,11 +7627,11 @@ msgstr "Slika ne može biti prikazana."
 
 #. Resource IDs: (63)
 msgid "The issue-tracker provider could not be created. Please check that it is installed correctly."
-msgstr ""
+msgstr "Provajder za praćenje problema nije pokrenut. Molimo provjeriti dali je dobro instaliran."
 
 #. Resource IDs: (64)
 msgid "The issue-tracker provider was unable to validate the parameter string"
-msgstr "Provajder ya praćenje problema nije u tanju provjeriti string parametar"
+msgstr "Provajder za praćenje problema nije u stanju provjeriti string parametar"
 
 #. Resource IDs: (63)
 #, fuzzy, c-format
@@ -7987,7 +7982,7 @@ msgstr "Ovo svojstvo ne smije imati više linija. Samo je jedna linija dozvoljen
 
 #. Resource IDs: (1016)
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr ""
+msgstr "Ovo će obrisati zapis o komandi koji ste koristili u ovoj aplikaciji, i postaviti početni set vidljivih komandi na menijima i trakama sa alatima. Neće vratiti eksplicitne modifikacije. Dali ste sigurni da ovo želite?"
 
 #. Resource IDs: (16924)
 msgid "Tile &Horizontally"
@@ -8393,6 +8388,8 @@ msgid ""
 "Unused log caches will only be removed if the respecitve\n"
 "file is smaller than the given size in kBytes."
 msgstr ""
+"Nekorišteni cache sa zabilješkama ce biti obrisan samo u\n"
+"koliko "
 
 #. Resource IDs: (146)
 msgid "Unversion"
@@ -8667,11 +8664,11 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
-msgstr "Koristi ovu &cijelu datoteku"
+msgstr "Koristiti ovu &cijelu datoteku"
 
 #. Resource IDs: (12)
 msgid "Use this if the URL of the repository has changed"
-msgstr "Ovo koristite ukoliko se promijenio URL skladišta"
+msgstr "Ovo koristiti ukoliko se promijenio URL skladišta"
 
 #. Resource IDs: (251)
 msgid "Use whole other &file"
@@ -8730,11 +8727,11 @@ msgstr "Pogled"
 
 #. Resource IDs: (114)
 msgid "View revision for path in &webviewer"
-msgstr "Pogledaj reviziju za stazu u &web pregledniku"
+msgstr "Pogledati reviziju za stazu u &web pregledniku"
 
 #. Resource IDs: (114)
 msgid "View revision in &webviewer"
-msgstr "Pogledaj reviziju u &web pregledniku"
+msgstr "Pogledati reviziju u &web pregledniku"
 
 #. Resource IDs: (1084)
 msgid "Visit our website"
@@ -8765,6 +8762,8 @@ msgid ""
 "When a small log cache has not been used for the given\n"
 "number of days, it will be removed automatically."
 msgstr ""
+"Kada mali zapis u kešu nije bio korišten za dani\n"
+"broj dana, biti će automatski obrisan."
 
 #. Resource IDs: (344)
 #, fuzzy
@@ -8880,7 +8879,7 @@ msgstr ""
 #. Resource IDs: (1001)
 #, c-format
 msgid "You can paste bitmap with the size (%d x %d) only!"
-msgstr ""
+msgstr "Možete zaljepiti samo bitmap veličine (%d x %d)!"
 
 #. Resource IDs: (1016)
 #, c-format
