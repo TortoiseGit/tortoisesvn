@@ -209,7 +209,10 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
 			m_mergedfile = CUnicodeUtils::GetUnicode(m_pConflictDescription->merged_file);
 		else
 			m_mergedfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->path))).GetWinPath();
-		CAppUtils::StartExtMerge(CAppUtils::MergeFlags().AlternativeTool((GetKeyState(VK_SHIFT)&0x8000)!=0),
+		CAppUtils::MergeFlags flags;
+		flags.bAlternativeTool = (GetKeyState(VK_SHIFT)&0x8000) != 0;
+		flags.bReadOnly = true;
+		CAppUtils::StartExtMerge(flags,
 								CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->base_file)),
 								CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_file)),
 								CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_file)),
