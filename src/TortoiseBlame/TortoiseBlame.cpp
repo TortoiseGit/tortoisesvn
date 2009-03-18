@@ -234,7 +234,7 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 	{
 		return FALSE;
 	}
-	char line[100*1024];
+	char * line = new char[100*1024];
 	char * lineptr = NULL;
 	char * trimptr = NULL;
 	//ignore the first two lines, they're of no interest to us
@@ -392,6 +392,7 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 	RECT rc;
 	GetWindowRect(wMain, &rc);
 	SetWindowPos(wMain, 0, rc.left, rc.top, rc.right-rc.left-1, rc.bottom - rc.top, 0);
+	delete [] line;
 	return TRUE;
 }
 
