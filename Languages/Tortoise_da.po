@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-16 22:41+0100\n"
+"PO-Revision-Date: 2009-03-18 18:09+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -947,7 +947,7 @@ msgid "&Options"
 msgstr "&Indstillinger"
 
 #. Resource IDs: (32772)
-msgid "&Overlap images"
+msgid "&Overlay images"
 msgstr "&Overlap billeder"
 
 #. Resource IDs: (1411, 65535)
@@ -1127,6 +1127,14 @@ msgstr "&Stjæl låsene"
 #. Resource IDs: (1130)
 msgid "&Stop on copy/rename"
 msgstr "&Stop ved kopiering/omdøbning"
+
+#. Resource IDs: (276)
+msgid "&Switch WC to path and revision"
+msgstr "&Skift WC til sti og revision"
+
+#. Resource IDs: (275)
+msgid "&Switch WC to path@HEAD"
+msgstr "&Skifte WC til sti@HEAD"
 
 #. Resource IDs: (1173)
 msgid "&Symbol View"
@@ -1369,6 +1377,14 @@ msgstr "------------------------------------------------------------------------
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
+
+#. Resource IDs: (269)
+msgid "... checking cache and preparing log query"
+msgstr "... checker cache og forbereder log forespørgsel "
+
+#. Resource IDs: (270)
+msgid "... reading working copy status"
+msgstr "... læser arbejdskopien status"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -2256,6 +2272,10 @@ msgstr "Check for opdateringer"
 msgid "Check For Updates..."
 msgstr "Check for opdateringer..."
 
+#. Resource IDs: (276)
+msgid "Check for &modifications"
+msgstr "Check for &ændringer"
+
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
 msgstr "&Check for ændringer"
@@ -2279,6 +2299,10 @@ msgstr ""
 #. Resource IDs: (612)
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
 msgstr "Check loggen for at finde ud af hvordan filen/folderen blev omdøbt/flyttet og beslut så om du ønsker at beholde din egen omdøbning/flytning eller den fra versionsarkivet. Herefter skal du markere konflikten som løst."
+
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to merge the change into your renamed file, or restore the original file."
+msgstr "Check loggen for at finde ud af hvordan filen/folderen blev omdøbt/flyttet og beslut om du ønsker at flet din ændring til din omdøbt fil eller restaurere den oprindelige fil."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -2621,6 +2645,10 @@ msgstr "Konfigurer programmet, der bruges til at løse konflikter i filer."
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "Konfigurer visningsprogrammet til GNU diff-filer (rettelsesfiler)."
+
+#. Resource IDs: (1503)
+msgid "Conflict Sources"
+msgstr "Konflikt Kilder"
 
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
@@ -3170,6 +3198,10 @@ msgstr "Sletter handlingslogfilen"
 msgid "Deleting"
 msgstr "Sletter"
 
+#. Resource IDs: (207)
+msgid "Depth"
+msgstr "Dybde"
+
 #. Resource IDs: (65535)
 msgid "Depth:"
 msgstr "Dybde:"
@@ -3697,6 +3729,10 @@ msgstr ""
 msgid "Exceptions:"
 msgstr "Undtagelser:"
 
+#. Resource IDs: (20)
+msgid "Exclude"
+msgstr "Udelad"
+
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
 msgstr "Program (*.exe)|*.exe|Kommando (*.com)|*.com|PDF-fil (*.pdf)|*.pdf|Batchfil (*.bat)|*.bat|Alle filer (*.*)|*.*||"
@@ -3804,6 +3840,10 @@ msgstr "Eksterne programmer::Fletningsprogram"
 #. Resource IDs: (194)
 msgid "External Programs::Unified Diff Viewer"
 msgstr "Eksterne programmer::Unified diff-visningsprogram"
+
+#. Resource IDs: (263)
+msgid "External failed"
+msgstr "External mislykket"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
@@ -5364,8 +5404,8 @@ msgstr "Flet revisioner til..."
 
 #. Resource IDs: (610)
 #, c-format
-msgid "Merge the changes into the file '%s'"
-msgstr "Flet ændringerne til filen \"%s"
+msgid "Merge the changes into '%s'"
+msgstr "Flet ændringerne til \"%s\""
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -6202,8 +6242,8 @@ msgid "Port :"
 msgstr "Port :"
 
 #. Resource IDs: (347)
-msgid "Possible values: 0 (fully transparent) .. 255 (no transparency)"
-msgstr "Mulige værdier: 0 (fuldt transparent) .. 255 (ingen transparens)"
+msgid "Possible values: 0 (fully transparent) .. 255 (opaque)"
+msgstr "Mulige værdier: 0 (fuldt transparent) .. 255 (uigennemsigtig)"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
@@ -6347,6 +6387,16 @@ msgstr "Egenskab %s : grundrevision af arbejdskopi"
 #, c-format
 msgid "Property %s : working copy"
 msgstr "Egenskab %s : arbejdskopi"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' deleted"
+msgstr "Egenskab \"%s\" slettet"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' set"
+msgstr "Egenskab '%s' set"
 
 #. Resource IDs: (107)
 msgid "Property Page"
@@ -7756,6 +7806,14 @@ msgstr "Sprang over manglende element"
 msgid "Sort by commit count"
 msgstr "Sorter efter antal arkiveringer"
 
+#. Resource IDs: (1501)
+msgid "Source Left:"
+msgstr "Venstre Kilde:"
+
+#. Resource IDs: (1502)
+msgid "Source Right:"
+msgstr "Højre Kilde:"
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Angiver hvor mange filer du ønsker gemt i listen over nyeste logbeskeder."
@@ -9112,6 +9170,10 @@ msgstr "Opdater - TortoiseSVN"
 #. Resource IDs: (1377)
 msgid "Update Depth"
 msgstr "Opdateringsdybde"
+
+#. Resource IDs: (275)
+msgid "Update WC to revision"
+msgstr "Opdater WC til revision"
 
 #. Resource IDs: (74)
 msgid "Updated"
