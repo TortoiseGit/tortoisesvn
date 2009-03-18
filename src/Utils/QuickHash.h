@@ -18,8 +18,6 @@
 //
 #pragma once
 
-#include "profilingInfo.h"
-
 /**
  * A quick linear (array) hash index class. It requires HF to
  * provide the following interface:
@@ -75,11 +73,13 @@ private:
 		static const size_t primes[31];
 		statistics_t statistics;
 		size_t index;
+        size_t nextStride;
 
 	public:
 
 		prime_grower()
 			: index (0)
+            , nextStride (1)
 			, statistics()
 		{
 			statistics.capacity = primes[index];
@@ -114,6 +114,12 @@ private:
 				statistics.max_path = path_size + 1;
 		}
 
+        void batch_inserted (size_t count, size_t collisions_count)
+        {
+			statistics.used += count;
+			statistics.collisions += collisions_count;
+        }
+
 		void grow() 
 		{
 			statistics.capacity = primes[++index];
@@ -121,6 +127,8 @@ private:
 			statistics.used = 0;
 			statistics.collision_path_sum = 0;
 			statistics.max_path = 1;
+			
+            nextStride = 46337 % capacity();
 		}
 		
 		size_t map (size_t hash_value) const 
@@ -130,7 +138,10 @@ private:
 		
 		size_t next (size_t index) const 
 		{
-			return (index + 1381000000) % capacity();
+            index += nextStride;
+            if (index > capacity())
+                index -= capacity();
+			return index;
 		}
 
 		const statistics_t& get_statistics() const
@@ -282,7 +293,7 @@ public:
 	void reserve (size_t min_bucket_count)
 	{
 		if (size_t(-1) / sizeof (index_type[4]) > min_bucket_count)
-			min_bucket_count *= 2;
+			min_bucket_count += min_bucket_count / 2;
 
 		index_type* old_data = data;
 		size_t old_data_size = grower.capacity();
@@ -306,8 +317,6 @@ public:
 
         // preparation
 
-        PROFILE_BLOCK
-
         size_t clusterSize = max (1, (last - first) / MAX_CLUSTERS);
         size_t shift = 0;
         while (((size_t)MAX_CLUSTERS << shift) < grower.capacity())
@@ -320,8 +329,6 @@ public:
         memset (used, 0, sizeof (used));
 
         // sort main: fill bucket chains
-
-        PROFILE_BLOCK
 
         for (; first != last; ++first)
         {
@@ -340,41 +347,62 @@ public:
 
                 // write data
 
+	            size_t collisions_count = 0;
                 for ( TPair* iter = temp + clusterIndex * clusterSize
                     , *end = iter + clusterSize
                     ; iter != end
                     ; ++iter)
                 {
-                    internal_insert (iter->first, iter->second);
+                    size_t bucket = iter->first;
+		            index_type* target = data + bucket;
+
+		            while (*target != NO_INDEX)
+		            {
+			            bucket = grower.next (bucket);
+			            target = data + bucket;
+			            ++collisions_count;
+                    }
+
+                    *target = iter->second;
                 }
+
+                grower.batch_inserted (clusterSize, collisions_count);
             }
         }
 
-        // write results
-
-        PROFILE_BLOCK
+        // write remaining data
 
         for (int i = 0; i < MAX_CLUSTERS; ++i)
+        {
+            size_t collisions_count = 0;
             for ( TPair* iter = temp + i * clusterSize
                 , *end = iter + used[i]
                 ; iter != end
                 ; ++iter)
             {
-                internal_insert (iter->first, iter->second);
+                size_t bucket = iter->first;
+	            index_type* target = data + bucket;
+
+	            while (*target != NO_INDEX)
+	            {
+		            bucket = grower.next (bucket);
+		            target = data + bucket;
+		            ++collisions_count;
+                }
+
+                *target = iter->second;
             }
+
+            grower.batch_inserted (used[i], collisions_count);
+        }
     }
 
     template<class IT>
 	void insert (IT first, IT last, index_type index)
 	{
-        PROFILE_BLOCK
-
         size_t count = last - first;
 		if (should_grow (count))
-        {
-            PROFILE_BLOCK
 			reserve (grower.size() + count);
-        }
 
         // small numbers should be added using conventional methods
 
