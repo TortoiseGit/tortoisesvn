@@ -103,8 +103,6 @@ void CIndexPairDictionary::Swap (CIndexPairDictionary& rhs)
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 								  , CIndexPairDictionary& dictionary)
 {
-    PROFILE_BLOCK
-
     // read the first elements of all pairs
 
 	CDiffIntegerInStream* firstStream 
@@ -136,12 +134,7 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 			(CIndexPairDictionary::CHashFunction (&dictionary));
 
     dictionary.hashIndex.insert (dataBegin, dataBegin + count, 0);
-/*
-	dictionary.hashIndex.reserve (dictionary.data.size());
 
-	for (index_t i = 0; i < count; ++i)
-		dictionary.hashIndex.insert (*(dataBegin + i), i);
-*/
 	// ready
 
 	return stream;

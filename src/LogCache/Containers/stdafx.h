@@ -62,10 +62,7 @@
 #endif
 
 // include commonly used headers
-
-#include <afxwin.h>         // MFC core and standard components
-#include <afxtempl.h>       // CArray and friend
-
+#include <windows.h>
 #include <assert.h>
 #include <time.h>
 
@@ -86,8 +83,6 @@
 #include "../Streams/PackedTime64OutStream.h"
 #include "../Streams/CompositeInStream.h"
 #include "../Streams/CompositeOutStream.h"
-
-#include "../../Utils/ProfilingInfo.h"
 
 
 

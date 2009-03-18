@@ -101,8 +101,6 @@ CStringDictionary::CHashFunction::equal
 
 void CStringDictionary::RebuildIndexes()
 {
-    PROFILE_BLOCK
-
     // start of the string & offset arrays
 
     std::vector<index_t>::iterator begin = offsets.begin();
@@ -321,8 +319,6 @@ void CStringDictionary::Reorder (const std::vector<index_t>& sourceIndices)
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 								  , CStringDictionary& dictionary)
 {
-    PROFILE_BLOCK
-
 	// read the string data
 
 	CBLOBInStream* packedStringStream 
