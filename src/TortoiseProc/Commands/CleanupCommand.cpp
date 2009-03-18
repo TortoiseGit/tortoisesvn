@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -69,10 +69,10 @@ bool CleanupCommand::Execute()
 			CShellUpdater::Instance().AddPathsForUpdate(updateList);
 			CShellUpdater::Instance().Flush();
 			updateList.SortByPathname(true);
-			for (INT_PTR i=0; i<updateList.GetCount(); ++i)
+			for (INT_PTR j=0; i<updateList.GetCount(); ++j)
 			{
-				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH, updateList[i].GetWinPath(), NULL);
-				ATLTRACE(_T("notify change for path %s\n"), updateList[i].GetWinPath());
+				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH, updateList[j].GetWinPath(), NULL);
+				ATLTRACE(_T("notify change for path %s\n"), updateList[j].GetWinPath());
 			}
 		}
 	}

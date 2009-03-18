@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -92,12 +92,12 @@ CStandardLayoutTextList::GetText (index_t index) const
     {
         rect.top = rect.top + 25 + 21 * (textInfo.subPathIndex-1);
 
-        size_t index = textInfo.subPathIndex-1 + nodeInfo.skipStartPathElements;
+        size_t localindex = textInfo.subPathIndex-1 + nodeInfo.skipStartPathElements;
         const CDictionaryBasedTempPath& path = nodeInfo.node->GetPath();
         size_t visibleElementCount = path.GetDepth() 
                                    - nodeInfo.skipStartPathElements
                                    - nodeInfo.skipTailPathElements;
-        text = CUnicodeUtils::StdGetUnicode (path[index]).c_str();
+        text = CUnicodeUtils::StdGetUnicode (path[localindex]).c_str();
         text.Insert (0, _T('/'));
 
         // add "...." pre- and post-fixes, if elements have been skipped

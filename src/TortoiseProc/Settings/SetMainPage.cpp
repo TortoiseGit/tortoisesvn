@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -118,7 +118,6 @@ BOOL CSetMainPage::OnInitDialog()
 			if (sFileVer.Compare(sVer)!=0)
 				continue;
 			DWORD loc = _tstoi(filename.Mid(12));
-			TCHAR buf[MAX_PATH];
 			GetLocaleInfo(loc, LOCALE_SNATIVELANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
 			m_LanguageCombo.AddString(buf);
 			m_LanguageCombo.SetItemData(langcount++, loc);

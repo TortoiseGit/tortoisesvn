@@ -3179,8 +3179,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							nListboxEntries = GetItemCount();
 							for (int i=0; i<nListboxEntries; ++i)
 							{
-								FileEntry * entry2 = GetListEntry(i);
-								if (entry2->path.IsEquivalentTo(svnPath))
+								FileEntry * entry3 = GetListEntry(i);
+								if (entry3->path.IsEquivalentTo(svnPath))
 								{
 									bFound = true;
 									break;
@@ -3190,37 +3190,37 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							{
 								if (s!=0)
 								{
-									FileEntry * entry2 = new FileEntry();
-									entry2->path = svnPath;
-									entry2->basepath = basepath;
-									entry2->status = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-									entry2->textstatus = s->text_status;
-									entry2->propstatus = s->prop_status;
-									entry2->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
-									entry2->remotetextstatus = s->repos_text_status;
-									entry2->remotepropstatus = s->repos_prop_status;
-									entry2->inunversionedfolder = FALSE;
-									entry2->checked = true;
-									entry2->inexternal = false;
-									entry2->direct = false;
-									entry2->isfolder = true;
-									entry2->last_commit_date = 0;
-									entry2->last_commit_rev = 0;
-									entry2->remoterev = 0;
+									FileEntry * entry3 = new FileEntry();
+									entry3->path = svnPath;
+									entry3->basepath = basepath;
+									entry3->status = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+									entry3->textstatus = s->text_status;
+									entry3->propstatus = s->prop_status;
+									entry3->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
+									entry3->remotetextstatus = s->repos_text_status;
+									entry3->remotepropstatus = s->repos_prop_status;
+									entry3->inunversionedfolder = FALSE;
+									entry3->checked = true;
+									entry3->inexternal = false;
+									entry3->direct = false;
+									entry3->isfolder = true;
+									entry3->last_commit_date = 0;
+									entry3->last_commit_rev = 0;
+									entry3->remoterev = 0;
 									if (s->entry)
 									{
 										if (s->entry->url)
 										{
-											entry2->url = CUnicodeUtils::GetUnicode(CPathUtils::PathUnescape(s->entry->url));
+											entry3->url = CUnicodeUtils::GetUnicode(CPathUtils::PathUnescape(s->entry->url));
 										}
 									}
 									if (s->entry && s->entry->present_props)
 									{
-										entry2->present_props = s->entry->present_props;
+										entry3->present_props = s->entry->present_props;
 									}
-									m_arStatusArray.push_back(entry2);
+									m_arStatusArray.push_back(entry3);
 									m_arListArray.push_back(m_arStatusArray.size()-1);
-									AddEntry(entry2, langID, GetItemCount());
+									AddEntry(entry3, langID, GetItemCount());
 								}
 							}
 						}
