@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-16 22:17 +0000\n"
-"PO-Revision-Date: 2009-03-17 20:20+0100\n"
+"POT-Creation-Date: 2009-03-18 00:31 +0000\n"
+"PO-Revision-Date: 2009-03-18 20:52+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7212,6 +7212,10 @@ msgstr "Сваки ревизиони чвор графа представља �
 msgid "Note that by default the graph only shows the points at which items were added, copied or deleted. Showing every revision of a project will generate a very large graph for non-trivial cases. If you really want to see <emphasis>all</emphasis> revisions where changes were made, there is an option to do this in the <guilabel>View</guilabel> menu and on the toolbar."
 msgstr "Приметимо да је уобичајено да граф само приказује тачке у којима су ставке додате, копиране или избрисане. Приказујући сваку ревизију пројекта генерисаће веома велике графове у нетривијалним случајевима. Ако заиста желите да видите <emphasis>све</emphasis> ревизије где су урађене измене, постоји једна опција да се то уради у <guilabel>Види</guilabel> менију и алатпулту. "
 
+#. (para)
+msgid "The default view (grouping off) places the nodes such that their vertical position is in strict revision order, so you have a visual cue for the order in which things were done. Where two nodes are in the same column the order is very obvious. When two nodes are in adjacent columns the offset is much smaller because there is no need to prevent the nodes from overlapping, and as a result the order is a little less obvious. Such optimisations are necessary to keep complex graphs to a reasonable size. Please note that this ordering uses the <emphasis>edge</emphasis> of the node on the <emphasis>older</emphasis> side as a reference, i.e. the bottom edge of the node when the graph is shown with oldest node at the bottom. The reference edge is significant because the node shapes are not all the same height."
+msgstr "Уобичајени преглед (без групирања) ставља чворове тако да су њихове вертикалне позиције у  редоследу стриктне ревизије, тако имате визуални траг за ред у коме су дате ствари. Када су два чвора у истој колони редослед је веома разумљив. Када су два чворо у суседним колонама разлика је много мања јер нема потребе чувати чворове од преклапања, и као резултат ред је нешто мање разумљив. Таква оптимизација је неопходна да чува комплексни граф у разумљивој величини. Приметимо да ово уређење користи  <emphasis>ивицу</emphasis> чвора са <emphasis>старије</emphasis> стране као референце, нпр. доња ивица чвора када је граф приказан са старијим чвором на дну. Референтна ивица је значајна јер облици чворова нису исте висине."
+
 #. (title)
 msgid "Changing the View"
 msgstr "Измена погледа."
@@ -7221,8 +7225,8 @@ msgid "Group branches"
 msgstr "Група грана"
 
 #. (para)
-msgid "The default behavior (grouping off) will use one row per revision and all rows are sorted strictly by revision. As a result, long-living branches occupy a whole column for only a few changes and the graph becomes very broad."
-msgstr "Уобичајено понашање (без групирања) ће користити један ред по ревизији и све редове сортиране тачно по ревизији. Као резултат, дуго-живеће гране заузму целу колону за само неколико измена и граф постаје веома широко."
+msgid "The default behavior (grouping off) has all rows sorted strictly by revision. As a result, long-living branches with sparse commits occupy a whole column for only a few changes and the graph becomes very broad."
+msgstr "Уобичајено понашање (без групирања) има све редове сортиране по ревизији. Као резултат, дуго-живеће гране са празним урезивањем заузимају целу колону за само неколико измена и граф постаје веома широк."
 
 #. (para)
 msgid "This mode groups changes by branch, so that there is no global revision ordering: Consecutive revisions on a branch will be shown in (often) consecutive lines. Sub-branches, however, are arranged in such a way that later branches will be shown in the same column above older branches to keep the graph slim. As a result, a given row may contain changes from different revisions."
@@ -12673,3 +12677,4 @@ msgstr "Милорад Поповић <MiloradSPopovic@gmail.com>"
 #. (None)
 msgid "translator-translation"
 msgstr "Превод"
+
