@@ -84,8 +84,8 @@ private:
 #ifdef _WIN64
 			return reinterpret_cast<const size_t&>(value);
 #else
-			return (((size_t)value.first) << 24) + (((size_t)value.first) >> 8)
-				 + (((size_t)value.first) << 16) + (((size_t)value.first) >> 16)
+			return //(((size_t)value.first) << 24) + (((size_t)value.first) >> 8)
+				   (((size_t)value.first) << 13) + (((size_t)value.first) >> 13)
 				 + (size_t)value.second;
 #endif
 		}
