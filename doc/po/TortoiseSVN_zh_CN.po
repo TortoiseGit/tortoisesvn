@@ -1,13 +1,13 @@
-#
+# 
 # Simplified Chinese translation for TortoiseSVN
 # Copyright (C) 2004-2008 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
-#
+# 
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-#
+# 
 # Authors:
 # Dongsheng Song <dongsheng.song@gmail.com>, 2006-2009
 # Garfield Yao <field977@gmail.com>, 2009
@@ -22,17 +22,17 @@
 # Tan Ruyan <try876@gmail.com>, 2006
 # xingyu.wang <xingyu.wang@gmail.com>, 2006
 # yasakya <yasakya@gmail.com>, 2006
-#
+# 
 # Update to new pot:
 #    msgmerge --update TortoiseSVN_zh_CN.po TortoiseSVN.pot
-#
+# 
 # Check translation:
 #    msgfmt --statistics -c TortoiseSVN_zh_CN.po
-#
+# 
 # Please format your translation before commit:
 #    msgmerge --width=80 -o TortoiseSVN_zh_CN_new.po TortoiseSVN_zh_CN.po TortoiseSVN.pot
 #    mv -f TortoiseSVN_zh_CN_new.po TortoiseSVN_zh_CN.po
-#
+# 
 # Dictionary:
 # BASE revision     基础版本
 # blame             追溯
@@ -52,13 +52,13 @@
 # versioned         已版本控制
 # working copy      工作副本
 # ...
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-11 23:53 +0000\n"
-"PO-Revision-Date: 2008-12-24 09:40+0800\n"
-"Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
+"POT-Creation-Date: 2009-03-18 00:31 +0000\n"
+"PO-Revision-Date: 2009-03-19 18:00+0800\n"
+"Last-Translator: Garfield Yao <field977@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -319,7 +319,7 @@ msgstr "致谢"
 
 #. (term)
 msgid "Tim Kemp"
-msgstr "时间机器"
+msgstr "Tim Kemp"
 
 #. (para)
 msgid "for founding the TortoiseSVN project"
@@ -2390,6 +2390,11 @@ msgid ""
 "simpler to create a folder structure on disk first and import it in a single "
 "commit, like this: <placeholder-1/>"
 msgstr ""
+"因此，如果你还没有在版本库中创建基本的文件夹结构，你应该立刻创建。创建文件夹"
+"有 2 种方法。如果你只想创建一个 <filename>/trunk /tags /branches</filename> 结"
+"构，你可以使用版本库浏览器创建这 3 个文件夹(独立的 3 次提交)。如果你想创建一个"
+"层次更深的结构，那么更简单的做法是先在硬盘中创建好文件夹结构，然后将其导入(只"
+"有 1 次提交)，就像这样： <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -2664,7 +2669,7 @@ msgstr ""
 msgid ""
 "You can also make the link point to a specific revision, for example "
 "<placeholder-1/>"
-msgstr ""
+msgstr "你同样可以使链接指向一个特定的版本，例如 <placeholder-1/>"
 
 #. (title)
 #, fuzzy
@@ -2695,6 +2700,9 @@ msgid ""
 "server has already been setup by someone else then there is nothing else you "
 "need to do. Move along to <xref linkend=\"tsvn-dug\"/>."
 msgstr ""
+"如果你使用公共的主机服务，例如 <ulink url=\"http://code.google.com/hosting/"
+"\"><citetitle>Google Code</citetitle></ulink>，或者已经有人为你架设好了服务"
+"器，那么在这里你也不用做什么。前进到  <xref linkend=\"tsvn-dug\"/> 。"
 
 #. (para)
 #, fuzzy
@@ -2716,6 +2724,9 @@ msgid ""
 "find out why we think this is a bad idea. Setting up a server is not as hard "
 "as it sounds, and will give you better reliability and probably speed too."
 msgstr ""
+"如果你打算在网络共享中设者一个多用户的版本库，请重新考虑。阅读<xref linkend="
+"\"tsvn-repository-local-share\"/>以了解为什么我们认为这是一个坏主意。设置一个"
+"服务器并不像听上去那样难。并且还会为你提供更好的性能甚至更快的速度。"
 
 #. (para)
 #, fuzzy
@@ -2742,6 +2753,8 @@ msgid ""
 "custom protocol over an ordinary TCP/IP connection. It is ideal for smaller "
 "installations, or where a full blown Apache server cannot be used."
 msgstr ""
+"在 Subversion 中包含 Svnserve - 一个轻型的独立服务器，它使用一个基于一般 TCP/"
+"IP 连接的定制协议。用于小型安装，或者不能使用全能 Apache 服务器的地方。"
 
 #. (para)
 #, fuzzy
@@ -2749,7 +2762,7 @@ msgid ""
 "In most cases svnserve is easier to setup and runs faster than the Apache "
 "based server, although it doesn't have some of the advanced features. And now "
 "that SASL support is included it is easy to secure as well."
-msgstr "大多数情况下svnserve的设置更加简单，也比Apache的服务器更加快。"
+msgstr "大多数情况下 svnserve 的设置更加简单，也比 Apache 的服务器更加快。"
 
 #. (title)
 msgid "Installing svnserve"
@@ -2766,20 +2779,27 @@ msgid ""
 "setup svnserve as a Windows service, and also includes some of the tools you "
 "need if you are going to use SASL for security."
 msgstr ""
+"可以从这里获取最新版本的 Subversion <ulink url=\"http://subversion.tigris.org/"
+"servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion."
+"tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>。另"
+"外，也可以从 ColabNet 获取一个打包好的安装程序 <ulink url=\"http://www.collab."
+"net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/"
+"subversion</citetitle></ulink> 。这个安装程序将会把 svnserve 设置为 Windows 服"
+"务，并且还包含了一些你需要的工具，如果你为了安全而使用 SASL。"
 
 #. (para)
 msgid ""
 "If you already have a version of Subversion installed, and svnserve is "
 "running, you will need to stop it before continuing."
 msgstr ""
-"如果你已经安装了Subversion，svnserve已经运行，你需要在继续之前把它停下来。"
+"如果你已经安装了 Subversion，svnserve 已经运行，你需要在继续之前把它停下来。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Run the Subversion installer. If you run the installer on your server "
 "(recommended) you can skip step 4."
-msgstr "运行Subversion安装程序，如果你在你的服务器上运行，可以跳过第4步。"
+msgstr ""
+"运行 Subversion 安装程序，如果你在你的服务器(推荐)上运行，可以跳过第 4 步。"
 
 #. (para)
 msgid ""
@@ -3127,6 +3147,10 @@ msgid ""
 "later, both the svnserve server and TortoiseSVN client know how to make use "
 "of this library."
 msgstr ""
+"Cyrus 简单的认证和安全层(The Cyrus Simple Authentication and Security Layer)是"
+"一个由卡耐基梅隆大学编写的开源软件。它可以为任何网络协议增加通用认证和加密的能"
+"力，并且从 Subversion 1.5 开始所有的后续版本，包括 svnserve 服务器和 "
+"TortoiseSVN 客户端知道如何使用这个库。"
 
 #. (para)
 msgid ""
@@ -3138,6 +3162,11 @@ msgid ""
 "Windows server, so that your repository can be accessed safely over the big "
 "bad Internet, read on."
 msgstr ""
+"要获得这一选项可用性的更充分讨论，你应该看一下 Subversion 手册中的<ulink url="
+"\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn."
+"serverconfig.svnserve.sasl\"><citetitle>通过 SASL 使用 svnserve</citetitle></"
+"ulink> 。如果你仅仅是找一种简单的方法为 Windows 服务器设置安全的认证和加密，因"
+"此你的版本库可以安全的通过又大又乱的互联网访问，请继续阅读。"
 
 #. (title)
 msgid "SASL Authentication"
@@ -3152,12 +3181,19 @@ msgid ""
 "use-sasl = true\n"
 "</screen>"
 msgstr ""
+"要在服务器上激活详尽的 SASL 功能，你需要做 3 件事。首先，在你的版本库的 "
+"<filename>svnserve.conf</filename> 文件中创建一个 <literal>[sasl]</literal> "
+"节，包括这样一个配置项：<screen>\n"
+"use-sasl = true\n"
+"</screen>"
 
 #. (para)
 msgid ""
 "Second, create a file called <filename>svn.conf</filename> in a convenient "
 "location - typically in the directory where subversion is installed."
 msgstr ""
+"其次，在一个合适的地方创建一个名为 <filename>svn.conf</filename> 的文件 - 通常"
+"在 Subversion 的安装目录中。"
 
 #. (para)
 msgid ""
@@ -3171,6 +3207,13 @@ msgid ""
 "CollabNet installer, these registry keys will already have been created for "
 "you."
 msgstr ""
+"第三，创建 2 个新的注册表项目来告诉 SASL 到哪里找到需要的东西。创建一个名为的 "
+"<literal>[HKEY_LOCAL_MACHINE\\SOFTWARE\\Carnegie Mellon\\Project Cyrus\\SASL "
+"Library]</literal> 注册表键并在其中创建两个新的字符串值：<literal>SearchPath</"
+"literal> 设置为 <filename>sasl*.dll</filename> 插件所在的目录路径(通常是 "
+"Subversion 的安装目录)，<literal>ConfFile</literal> 设置为 <filename>svn."
+"conf</filename> 文件所在的目录。如果你使用 CollabNet 安装程序，这两个注册表键"
+"就已经为你创建好了。"
 
 #. (para)
 msgid ""
@@ -3185,12 +3228,21 @@ msgid ""
 "but a convenient choice is the repository parent path. Make sure that the "
 "svnserve service has read access to this file."
 msgstr ""
+"编辑文件 <filename>svn.conf</filename>，使其包括下列内容：<screen>\n"
+"pwcheck_method: auxprop\n"
+"auxprop_plugin: sasldb\n"
+"mech_list: DIGEST-MD5\n"
+"sasldb_path: C:\\TortoiseSVN\\sasldb\n"
+"</screen> 最后一行指示认证数据库的位置，认证数据库是一个名为 "
+"<filename>sasldb</filename> 的文件。它可以在任何地方，不过一个方便的选择是在版"
+"本库的上层目录中。确认 svnserve 服务有读取这个文件的权限。"
 
 #. (para)
 msgid ""
 "If svnserve was already running, you will need to restart it to ensure it "
 "reads the updated configuration."
 msgstr ""
+"如果 svnserve 已经在运行，你需要重启服务，并确保它读取了更新后的配置参数。"
 
 #. (para)
 msgid ""
@@ -3205,12 +3257,20 @@ msgid ""
 "what you expect it to be. Note that the realm is not allowed to contain space "
 "characters."
 msgstr ""
+"现在所有的东西已经设置完成，你要做的事情就是创建用户和密码。你需要 "
+"<literal>saslpasswd2</literal> 程序来做这件事。如果你使用 CollabNet 安装程序，"
+"这个程序会在安装目录内。使用像这样的命令：<screen>\n"
+"saslpasswd2 -c -f C:\\TortoiseSVN\\sasldb -u realm username\n"
+"</screen>选项 <literal>-f</literal> 指明数据库的位置，<literal>realm</"
+"literal> 必须与版本库的 <filename>svnserve.conf</filename> 文件中设置相同的"
+"值， username 就是你要使用的用户名。注意 realm 不允许包含空字符。"
 
 #. (para)
 msgid ""
 "You can list the usernames stored in the database using the "
 "<literal>sasldblistusers2</literal> program."
 msgstr ""
+"你可以使用 <literal>sasldblistusers2</literal> 程序列出数据库中储存的用户名。"
 
 #. (title)
 msgid "SASL Encryption"
@@ -3226,6 +3286,13 @@ msgid ""
 "max-encryption = 256\n"
 "</screen>"
 msgstr ""
+"为了启用或禁用加密的不同等级，你可以设置版本库内文件 <filename>svnserve.conf</"
+"filename> 中的两个值: <screen>\n"
+"[sasl]\n"
+"use-sasl = true\n"
+"min-encryption = 128\n"
+"max-encryption = 256\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -3239,18 +3306,25 @@ msgid ""
 "greater than 1. In our previous example, we require clients to do at least "
 "128-bit encryption, but no more than 256-bit encryption."
 msgstr ""
+"变量 <literal>min-encryption</literal> 和 <literal>max-encryption</literal> 控"
+"制服务器所需要的加密强度。要完全禁用加密，就将这 2 个变量的值都设为 0。要启用"
+"简单的数据校验(例如，为了防止篡改和保证数据的完整，不加密)，就将这 2 个值都设"
+"为 1。如果你想允许(但不强制)加密，将最小值设为 0，最大值设为任意位数。要强制加"
+"密，将这 2 个值设为大于 1 的数字。在前面的例子中，我们要求客户端至少进行 128 "
+"位加密，但是不大于 256 位加密。"
 
 #. (title)
 msgid "Authentication with svn+ssh"
 msgstr "使用 svn+ssh 认证"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Another way to authenticate users with a svnserve based server is to use a "
 "secure shell (SSH) to tunnel requests through. It is not as simple to set up "
 "as SASL, but it may be useful is some cases."
-msgstr "另一种svnserve认证的方法是使用SSH来建立请求通道。"
+msgstr ""
+"另一种 svnserve 认证的方法是使用 SSH 来建立请求通道。它不像设置 SASL 那样简"
+"单，但是某些场合却很有用。"
 
 #. (para)
 msgid ""
@@ -3258,8 +3332,8 @@ msgid ""
 "secure shell starts svnserve for you, running it as the SSH authenticated "
 "user. To enable this, you need a secure shell daemon on your server."
 msgstr ""
-"通过此方法，svnserve不会作为守护进程启动，而是SSH为你启动svnserve，以SSH授权用"
-"户运行，为此，你需要在你的服务器上有SSH守护进程。"
+"通过此方法，svnserve 不会作为守护进程启动，而是 SSH 为你启动 svnserve，以 SSH "
+"认证的用户身份运行，为此，你需要在你的服务器上有 SSH 守护进程。"
 
 #. (para)
 msgid ""
@@ -3267,6 +3341,8 @@ msgid ""
 "ssh-howto\"/>. You can find other SSH topics within the FAQ by searching for "
 "<quote>SSH</quote>."
 msgstr ""
+"设置服务器的基本方法请参见<xref linkend=\"tsvn-ssh-howto\"/>。你可以在常见问题"
+"(FAQ)中使用关键词 <quote>SSH</quote> 找到其它 SSH 相关的主题。"
 
 #. (para)
 msgid ""
@@ -3295,12 +3371,12 @@ msgid ""
 "can use the same file for several repositories. Read <xref linkend=\"tsvn-"
 "serversetup-mod_authz_svn\"/> for a description of the file format."
 msgstr ""
-"从Subversion1.3开始，svnserve支持与<literal>mod_authz_svn</literal>相同的路径"
-"为基础的授权模式，你需要编辑版本库路径下的<filename>conf/svnserve.conf</"
-"filename>引用的授权文件。<screen>\n"
+"从 Subversion 1.3 开始，svnserve 支持与 <literal>mod_authz_svn</literal> 相同"
+"的基于路径的授权模式，你需要编辑版本库路径下的 <filename>conf/svnserve.conf</"
+"filename> 引用的授权文件。<screen>\n"
 "[general]\n"
 "authz-db = authz\n"
-"</screen>在这里，<filename>authz</filename>是你创建用来定义访问权限的文件，你"
+"</screen>在这里，<filename>authz</filename> 是你创建用来定义访问权限的文件，你"
 "可以为每一个版本库使用单独的文件，或者为所有的版本库使用相同的文件，关于此文件"
 "的格式可以查看<xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>。"
 
@@ -3403,6 +3479,10 @@ msgid ""
 "want to choose the msi file <filename>apache-2.2.x-win32-x86-openssl-0.9.x."
 "msi</filename> (the one that includes OpenSSL)."
 msgstr ""
+"点击 <literal>other files</literal>，然后浏览 <filename>binaries/win32</"
+"filename>，可以找到 msi 格式的 Apache 安装文件。你可以选择 msi 文件 "
+"<filename>apache-2.2.x-win32-x86-openssl-0.9.x.msi</filename> (这个包含有 "
+"OpenSSL)。"
 
 #. (para)
 msgid ""
@@ -4116,12 +4196,15 @@ msgid ""
 "The SSPI authentication is only enabled for SSL secured connections (https). "
 "If you're only using normal http connections to your server, it won't work."
 msgstr ""
+"只有使用 SSL 加密连接(https)时才可以启用 SSPI 认证。如果你只是用普通 http 协议"
+"连接到服务器，那么它不会工作。"
 
 #. (para)
 msgid ""
 "To enable SSL on your server, see the chapter: <xref linkend=\"tsvn-"
 "serversetup-apache-7\"/>"
 msgstr ""
+"要使你的服务器启用 SSL，请看: <xref linkend=\"tsvn-serversetup-apache-7\"/>"
 
 #. (para)
 msgid ""
@@ -4287,7 +4370,7 @@ msgstr "SSL"
 msgid ""
 "Even though Apache 2.2.x has OpenSSL support, it is not activated by default. "
 "You need to activate this manually."
-msgstr ""
+msgstr "虽然 Apache 2.2.x 支持 OpenSSL，它默认却没有激活。你可以手动激活它。"
 
 #. (para)
 msgid ""
@@ -4302,6 +4385,16 @@ msgid ""
 "SSLMutex default\n"
 "</screen>"
 msgstr ""
+"在 apache 配置文件中，取消这些行的注释: <screen>\n"
+"#LoadModule ssl_module modules/mod_ssl.so\n"
+"</screen>和最后面的<screen>\n"
+"#Include conf/extra/httpd-ssl.conf\n"
+"</screen>接着将这一行(在配置文件中这是一行)<screen>\n"
+"SSLMutex \"file:C:/Program Files/Apache Software Foundation/\\\n"
+"Apache2.2/logs/ssl_mutex\"\n"
+"</screen>改为<screen>\n"
+"SSLMutex default\n"
+"</screen>"
 
 #. (para)
 #, fuzzy
@@ -4497,11 +4590,11 @@ msgstr ""
 
 #. (title)
 msgid "Using client certificates with virtual SSL hosts"
-msgstr ""
+msgstr "在虚拟 SSL 主机中使用客户端证书"
 
 #. (para)
 msgid "Sent to the TortoiseSVN mailing list by Nigel Green. Thanks!"
-msgstr ""
+msgstr "由 Nigel Green 发送到 TortoiseSVN 邮件列表。非常感谢！"
 
 #. (para)
 msgid ""
@@ -4510,6 +4603,9 @@ msgid ""
 "requirement for a client certificate. The second one to be secure with a "
 "required client certificate, running a Subversion server."
 msgstr ""
+"在某些情况下你需由要 1 台服务器掌管 2 个虚拟的 SSL 主机: 第 1 个用于公共 web "
+"浏览，不需要客户端证书。第 2 个必需通过客户端证书来保证安全，运行 Subversion "
+"服务器。"
 
 #. (para)
 msgid ""
@@ -4521,6 +4617,12 @@ msgid ""
 "that the certificate is requested at this point as it does not work if the "
 "SSL connection is re-negotiated."
 msgstr ""
+"在 Apache 配置文件的 <emphasis>per-server</emphasis> 部分中添加 "
+"<literal>SSLVerifyClient Optional</literal> 指令(例如，在任何 "
+"<literal>VirtualHost</literal> 和 <literal>Directory</literal> 块之外)强制 "
+"Apache 在开始 SSL 连接握手时索取客户端证书。由于 <literal>mod_ssl</literal> 中"
+"的一个错误，在这个时候索取客户端证书是非常有必要的，因为当 SSL 连接重新协商"
+"时，它就不会生效了。"
 
 #. (para)
 msgid ""
@@ -4530,6 +4632,9 @@ msgid ""
 "</screen> This directive grants access to the directory only if a client "
 "certificate was received and verified successfully."
 msgstr ""
+"解决方案就是在 Subversion 虚拟主机的目录配置部分添加下面的指令: <screen>\n"
+"SSLRequire %{SSL_CLIENT_VERIFY} eq \"SUCCESS\"\n"
+"</screen>这个指令确认只有在收到客户端证书并成功验证后才能有权读取目录。"
 
 #. (para)
 msgid ""
@@ -4558,6 +4663,30 @@ msgid ""
 "&lt;/VirtualHost&gt;\n"
 "</screen>"
 msgstr ""
+"总之，Apache 配置文件中的相关内容就是这样的: <screen>\n"
+"SSLVerifyClient Optional\n"
+"\n"
+"### 公共访问虚拟主机 \n"
+"### (不需要客户端证书)\n"
+"\n"
+"&lt;VirtualHost 127.0.0.1:443&gt;\n"
+"  &lt;Directory \"pathtopublicfileroot\"&gt;\n"
+"  &lt;/Directory&gt;\n"
+"&lt;/VirtualHost&gt;\n"
+"\n"
+"### SUBVERSION 虚拟主机\n"
+"### (需要客户端证书)\n"
+"&lt;VirtualHost 127.0.0.1:443&gt;\n"
+"  &lt;Directory \"subversion host root path\"&gt;\n"
+"    SSLRequire %{SSL_CLIENT_VERIFY} eq \"SUCCESS\"\n"
+"  &lt;/Directory&gt;\n"
+"\n"
+"  &lt;Location /svn&gt;\n"
+"    DAV svn\n"
+"    SVNParentPath /pathtorepository\n"
+"  &lt;/Location&gt;\n"
+"&lt;/VirtualHost&gt;\n"
+"</screen>"
 
 #. (title)
 msgid "Daily Use Guide"
@@ -4680,6 +4809,8 @@ msgid ""
 "context menu. To bring up the extended context menu, hold down the "
 "<keycap>Shift</keycap> key when you <action>right-click</action>."
 msgstr ""
+"有些命令很少被用到，只有在扩展右键菜单中才能显示。要显示扩展右键菜单，请在"
+"<action>单击右键</action>时按住 <keycap>Shift</keycap> 键。"
 
 #. (title)
 msgid "Explorer file menu for a shortcut in a versioned folder"
@@ -4710,6 +4841,9 @@ msgid ""
 "handlers work for Vista, requiring us to use a different display method which "
 "unfortunately does not work on Windows 2000."
 msgstr ""
+"Windows 2000 的用户将会发现右键菜单仅显示文字，没有上图所示的菜单图标。我们知"
+"道这是因为在旧版下使用的缘故，由于微软改变了 Vista 中图标句柄工作方式，我们只"
+"好使用不同的方式，很遗憾，这种方式不能在 Windows 2000 下工作。"
 
 #. (title)
 #. (title)
@@ -4872,6 +5006,14 @@ msgid ""
 "url=\"http://www.windows-help-central.com/windows-shutdown-script.html"
 "\"><citetitle>windows-help-central.com</citetitle></ulink>."
 msgstr ""
+"有些人喜欢在注销 Windows 时或关机时删除认证数据。使用关机脚本删除目录 "
+"<filename>%APPDATA%\\Subversion\\auth</filename> 可以达到此目的，例如: "
+"<screen>\n"
+"@echo off\n"
+"rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
+"</screen> 你可以从 <ulink url=\"http://www.windows-help-central.com/windows-"
+"shutdown-script.html\"><citetitle>windows-help-central.com</citetitle></"
+"ulink> 找到如何安装此脚本的详细描述。"
 
 #. (para)
 msgid ""
@@ -4934,18 +5076,21 @@ msgid ""
 "think about how it will be organised. Read <xref linkend=\"tsvn-repository-"
 "layout\"/> for further advice."
 msgstr ""
+"如果你要将数据导入到已经包括一些项目的版本库中，那么版本库的结构应该已经确定"
+"了。如果你要将数据导入到一个新的版本库中，那么应该花点时间确定版本库的组织结"
+"构。阅读 <xref linkend=\"tsvn-repository-layout\"/> 以获得更多的建议。"
 
 #. (para)
 msgid ""
 "There is no way to select files and folders to include, aside from using the "
 "global ignore settings."
-msgstr ""
+msgstr "不能选择包括哪些文件或文件夹，除非使用全局忽略设置。"
 
 #. (para)
 msgid ""
 "The folder imported does not become a working copy. You have to do a checkout "
 "to copy the files back from the server."
-msgstr ""
+msgstr "导入的文件夹不能变成工作拷贝。你必须通过签出操作从服务器拿回文件。"
 
 #. (para)
 #, fuzzy
@@ -4961,6 +5106,11 @@ msgid ""
 "the two-step method described in <xref linkend=\"tsvn-dug-import-in-place\"/"
 ">. But since you are here, this is how the basic import works ..."
 msgstr ""
+"这一节介绍 Subversion 的导入(import)命令，它被设计成只需要 1 步就可以将目录结"
+"构导入到版本库中。尽管它可以使用，但是它有一些短处: <placeholder-1/> 因此，我"
+"们推荐你根本不要使用导入命令，而是使用这里介绍的需要 2 步的操作方法: <xref "
+"linkend=\"tsvn-dug-import-in-place\"/>。既然你已经阅读到这里了，下面就介绍基础"
+"的导入操作..."
 
 #. (para)
 msgid ""
@@ -5018,6 +5168,18 @@ msgid ""
 "systemitem>. Note that the import command will automatically create "
 "subdirectories within the repository if they do not exist."
 msgstr ""
+"在这个对话框中，需要输入版本库所在的 URL，你的项目将会导入到这里。非常重要的事"
+"项，你必须了解: 你要导入的本地文件夹自身不会出现在版本库中，版本库中只有文件夹"
+"中的内容。例如，你有这样的文件夹结构: <screen>\n"
+"C:\\Projects\\Widget\\source\n"
+"C:\\Projects\\Widget\\doc\n"
+"C:\\Projects\\Widget\\images\n"
+"</screen>你将 <filename>C:\\Projects\\Widget</filename> 导入到 <systemitem "
+"class=\"url\">http://mydomain.com/svn/trunk</systemitem>，然后你会惊奇的发现: "
+"你的子目录径直地进入 <literal>trunk</literal> 中，而不是在 <literal>Widget</"
+"literal> 子目录中。你需要将子目录作为 URL 的一部分明确的指出来，<systemitem "
+"class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>。注意，如果"
+"版本库中不存在指定的子目录，导入命令将会自动创建它们。"
 
 #. (para)
 msgid "The import message is used as a log message."
@@ -13382,7 +13544,7 @@ msgstr "当前工作副本的版本"
 msgid ""
 "If you invoked the revision graph from a working copy, you can opt to show "
 "the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, "
-"which marks the BASE node as an ellipse with a bold outline."
+"which marks the BASE node with a bold outline."
 msgstr ""
 
 #. (term)
@@ -13429,6 +13591,21 @@ msgstr ""
 "除文件的节点。要显示一个项目的所有版本将会产生一个庞大的毫无价值的版本图。如果"
 "你呀看到所有的版本，在视图工具栏里可以找到实现该功能的选项。"
 
+#. (para)
+msgid ""
+"The default view (grouping off) places the nodes such that their vertical "
+"position is in strict revision order, so you have a visual cue for the order "
+"in which things were done. Where two nodes are in the same column the order "
+"is very obvious. When two nodes are in adjacent columns the offset is much "
+"smaller because there is no need to prevent the nodes from overlapping, and "
+"as a result the order is a little less obvious. Such optimisations are "
+"necessary to keep complex graphs to a reasonable size. Please note that this "
+"ordering uses the <emphasis>edge</emphasis> of the node on the "
+"<emphasis>older</emphasis> side as a reference, i.e. the bottom edge of the "
+"node when the graph is shown with oldest node at the bottom. The reference "
+"edge is significant because the node shapes are not all the same height."
+msgstr ""
+
 #. (title)
 msgid "Changing the View"
 msgstr ""
@@ -13439,9 +13616,9 @@ msgstr "分组分支"
 
 #. (para)
 msgid ""
-"The default behavior (grouping off) will use one row per revision and all "
-"rows are sorted strictly by revision. As a result, long-living branches "
-"occupy a whole column for only a few changes and the graph becomes very broad."
+"The default behavior (grouping off) has all rows sorted strictly by revision. "
+"As a result, long-living branches with sparse commits occupy a whole column "
+"for only a few changes and the graph becomes very broad."
 msgstr ""
 
 #. (para)
@@ -13720,15 +13897,30 @@ msgid ""
 "one branch to another."
 msgstr ""
 
+#. (title)
+#, fuzzy
+msgid "Learn to Read the Revision Graph"
+msgstr "一个版本分支"
+
 #. (para)
 msgid ""
-"Because Subversion cannot provide all the information required, a certain "
-"amount of interpretation is required, which can sometimes give strange "
-"results. Nevertheless, the output for the trunk will generally give useful "
-"results."
+"First-time users may be surprised by the fact that the revision graph shows "
+"something that does not match the user's mental model. If a revision changes "
+"multiple copies or branches of a file or folder, for instance, then there "
+"will be multiple nodes for that single revision. It is a good practice to "
+"start with the leftmost options in the toolbar and customize the graph step-"
+"by-step until it comes close to your mental model."
 msgstr ""
-"因为Subversion不能支持提供所有请求的信息，在有大量请求信息时，有时它能提供强大"
-"的返回信息。但无论如何，主干都会产生有用的输出。"
+
+#. (para)
+msgid ""
+"All filter options try lose as little information as possible. That may cause "
+"some nodes to change their color, for instance. Whenever the result is "
+"unexpected, undo the last filter operation and try to understand what is "
+"special about that particular revision or branch. In most cases, the "
+"initially expected outcome of the filter operation would either be inaccurate "
+"or misleading."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13789,7 +13981,8 @@ msgstr ""
 #. (para)
 msgid ""
 "Click on the graph background for the main context menu, which offers options "
-"to <guilabel>Expand all</guilabel> and <guilabel>Join all</guilabel>."
+"to <guilabel>Expand all</guilabel> and <guilabel>Join all</guilabel>. If no "
+"branch has been collapsed or split, the context menu will not be shown."
 msgstr ""
 
 #. (title)
@@ -14076,6 +14269,7 @@ msgstr "BUG 跟踪"
 msgid "bug tracker"
 msgstr "BUG 跟踪者"
 
+#. (primary)
 #. (primary)
 msgid "issue tracker"
 msgstr "问题跟踪者"
@@ -14496,11 +14690,12 @@ msgid ""
 "folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/"
 "trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</"
 "citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
-"access the repository). Another (working) example plugin in C# is <ulink url="
-"\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> "
-"which implements the required COM interface to interact with the <ulink url="
-"\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></"
-"ulink> issue tracker."
+"access the repository). A summary of the API is also given in <xref linkend="
+"\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink "
+"url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></"
+"ulink> which implements the required COM interface to interact with the "
+"<ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</"
+"citetitle></ulink> issue tracker."
 msgstr ""
 
 #. (title)
@@ -16965,7 +17160,7 @@ msgstr ""
 
 #. (para)
 msgid ""
-"This property specifies the COM UUID of the IBugTraqProvider, for example "
+"This property specifies the COM UUID of the IBugtraqProvider, for example "
 "<literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (this example is "
 "the UUID of the <ulink url=\"http://code.google.com/p/gurtle/"
 "\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a "
@@ -16974,7 +17169,7 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "This property specifies the parameters passed to the IBugTraqProvider."
+msgid "This property specifies the parameters passed to the IBugtraqProvider."
 msgstr ""
 
 #. (para)
@@ -16982,7 +17177,7 @@ msgid ""
 "If you want all users to use the same COM plugin for your project, you can "
 "specify the plugin also with the properties <literal>bugtraq:provideruuid</"
 "literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> "
-"Please check the documentation of your IBugTraqProvider plugin to find out "
+"Please check the documentation of your IBugtraqProvider plugin to find out "
 "what to specify in these two properties."
 msgstr ""
 
@@ -17328,6 +17523,7 @@ msgstr "版本抽取"
 msgid "SubWCRev"
 msgstr "SubWCRev"
 
+#. (primary)
 #. (primary)
 msgid "COM"
 msgstr "COM"
@@ -21303,6 +21499,280 @@ msgid ""
 msgstr ""
 
 #. (title)
+msgid "IBugtraqProvider interface"
+msgstr ""
+
+#. (primary)
+#, fuzzy
+msgid "plugin"
+msgstr "链接"
+
+#. (primary)
+msgid "IBugtraqProvider"
+msgstr ""
+
+#. (para)
+msgid ""
+"To get a tighter integration with issue trackers than by simply using the "
+"<literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM "
+"plugins. With such plugins it is possible to fetch information directly from "
+"the issue tracker, interact with the user and provide information back to "
+"TortoiseSVN about open issues, verify log messages entered by the user and "
+"even run actions after a successful commit to e.g, close an issue."
+msgstr ""
+
+#. (para)
+msgid ""
+"We can't provide information and tutorials on how you have to implement a COM "
+"object in your preferred programming language, but we have example plugins in "
+"C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-"
+"plugins</filename> folder. In that folder you can also find the required "
+"include files you need to build your plugin. (<xref linkend=\"tsvn-preface-"
+"source\"/> explains how to access the repository)."
+msgstr ""
+
+#. (title)
+msgid "The IBugtraqProvider interface"
+msgstr ""
+
+#. (para)
+msgid ""
+"TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider "
+"interface. The interface provides a few methods which plugins can use to "
+"interact with the issue tracker."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT ValidateParameters (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any UI that needs to be displayed during validation.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// The parameter string that needs to be validated.\n"
+"\t\t[out, retval] VARIANT_BOOL *valid\t\t// Is the string valid?\n"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> This method is called from the settings dialog where the "
+"user can add and configure the plugin. The <literal>parameters</literal> "
+"string can be used by a plugin to get additional required information, e.g., "
+"the URL to the issue tracker, login information, etc. The plugin should "
+"verify the <literal>parameters</literal> string and show an error dialog if "
+"the string is not valid. The <literal>hParentWnd</literal> parameter should "
+"be used for any dialog the plugin shows as the parent window. The plugin must "
+"return TRUE if the validation of the <literal>parameters</literal> string is "
+"successful. If the plugin returns FALSE, the settings dialog won't allow the "
+"user to add the plugin to a working copy path."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT GetLinkText (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any (error) UI that needs to be displayed.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// The parameter string, just in case you need to talk to your web\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t// service (e.g.) to find out what the correct text is.\n"
+"\t\t[out, retval] BSTR *linkText\t\t\t// What text do you want to display? Use the current thread locale.\n"
+"\t);\n"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> The plugin can provide a string here which is used in the "
+"TortoiseSVN commit dialog for the button which invokes the plugin, e.g., "
+"\"Choose issue\" or \"Select ticket\". Make sure the string is not too long, "
+"otherwise it might not fit into the button. If the method returns an error (e."
+"g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT GetCommitMessage (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for your provider's UI.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR originalMessage,\t\t\t\t// The text already present in the commit message.\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t// Your provider should include this text in the new message, where appropriate.\n"
+"\t\t[out, retval] BSTR *newMessage\t\t\t// The new text for the commit message. This replaces the original message.\n"
+"\t);\t\t\t\n"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> This is the main method of the plugin. This method is called "
+"from the TortoiseSVN commit dialog when the user clicks on the plugin button. "
+"The <literal>parameters</literal> string is the string the user has to enter "
+"in the settings dialog when he configures the plugin. Usually a plugin would "
+"use this to find the URL of the issue tracker and/or login information or "
+"more. The <literal>commonRoot</literal> string contains the parent path of "
+"all items selected to bring up the commit dialog. Note that this is "
+"<emphasis>not</emphasis> the root path of all items which the user has "
+"selected in the commit dialog. The <literal>pathList</literal> parameter "
+"contains an array of paths (as strings) which the user has selected for the "
+"commit. The <literal>originalMessage</literal> parameter contains the text "
+"entered in the log message box in the commit dialog. If the user has not yet "
+"entered any text, this string will be empty. The <literal>newMessage</"
+"literal> return string is copied into the log message edit box in the commit "
+"dialog, replacing whatever is already there. If a plugin does not modify the "
+"<literal>originalMessage</literal> string, it must return the same string "
+"again here, otherwise any text the user has entered will be lost."
+msgstr ""
+
+#. (title)
+msgid "The IBugtraqProvider2 interface"
+msgstr ""
+
+#. (para)
+msgid ""
+"In TortoiseSVN 1.6 a new interface was added which provides more "
+"functionality for plugins. This IBugtraqProvider2 interface inherits from "
+"IBugtraqProvider."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT GetCommitMessage2 (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for your provider's UI.\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
+"\t\t[in] BSTR commonURL,\t\t\t\t\t// the common URL of the commit\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR originalMessage,\t\t\t\t// The text already present in the commit message.\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t// Your provider should include this text in the new message, where appropriate.\n"
+"\t\t// you can assign custom revision properties to a commit by setting the next two params.\n"
+"\t\t// note: both safearrays must be of the same length. For every property name there must be a property value!\n"
+"\t\t[in] BSTR bugID,\t\t\t\t\t\t// the content of the bugID field (if shown)\n"
+"\t\t[out] BSTR * bugIDOut,\t\t\t\t\t// modified content of the bugID field\n"
+"\t\t[out] SAFEARRAY(BSTR) * revPropNames,\t// a list of revision property names which are applied to the commit\n"
+"\t\t[out] SAFEARRAY(BSTR) * revPropValues,\t// a list of revision property values which are applied to the commit\n"
+"\t\t[out, retval] BSTR * newMessage\t\t\t// The new text for the commit message. This replaces the original message.\n"
+"\t);\t\t\t\n"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> This method is called from the TortoiseSVN commit dialog "
+"when the user clicks on the plugin button. This method is called instead of "
+"<literal>GetCommitMessage()</literal>. Please refer to the documentation for "
+"<literal>GetCommitMessage</literal> for the parameters that are also used "
+"there. The parameter <literal>commonURL</literal> is the parent URL of all "
+"items selected to bring up the commit dialog. This is basically the URL of "
+"the <literal>commonRoot</literal> path. The parameter <literal>bugID</"
+"literal> contains the content of the bug-ID field (if it is shown, configured "
+"with the property <literal>bugtraq:message</literal>). The return parameter "
+"<literal>bugIDOut</literal> is used to fill the bug-ID field when the method "
+"returns. The <literal>revPropNames</literal> and <literal>revPropValues</"
+"literal> return parameters can contain name/value pairs for revision "
+"properties that the commit should set. A plugin must make sure that both "
+"arrays have the same size on return! Each property name in "
+"<literal>revPropNames</literal> must also have a corresponding value in "
+"<literal>revPropValues</literal>. If no revision properties are to be set, "
+"the plugin must return empty arrays."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT CheckCommit (\n"
+"\t\t[in] HWND hParentWnd,\n"
+"\t\t[in] BSTR parameters,\n"
+"\t\t[in] BSTR commonURL,\n"
+"\t\t[in] BSTR commonRoot,\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
+"\t\t[in] BSTR commitMessage,\n"
+"\t\t[out, retval] BSTR * errorMessage\n"
+"\t\t);\n"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> This method is called right before the commit dialog is "
+"closed and the commit begins. A plugin can use this method to validate the "
+"selected files/folders for the commit and/or the commit message entered by "
+"the user. The parameters are the same as for <literal>GetCommitMessage2()</"
+"literal>, with the difference that <literal>commonURL</literal> is now the "
+"common URL of all <emphasis>checked</emphasis> items, and "
+"<literal>commonRoot</literal> the root path of all checked items. The return "
+"parameter <literal>errorMessage</literal> must either contain an error "
+"message which TortoiseSVN shows to the user or be empty for the commit to "
+"start. If an error message is returned, TortoiseSVN shows the error string in "
+"a dialog and keeps the commit dialog open so the user can correct whatever is "
+"wrong. A plugin should therefore return an error string which informs the "
+"user <emphasis>what</emphasis> is wrong and how to correct it."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT\tOnCommitFinished (\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any (error) UI that needs to be displayed.\n"
+"\t\t[in] BSTR commonRoot,\t\t\t\t\t// The common root of all paths that got committed.\n"
+"\t\t[in] SAFEARRAY(BSTR) pathList,\t\t\t// All the paths that got committed.\n"
+"\t\t[in] BSTR logMessage,\t\t\t\t\t// The text already present in the commit message.\n"
+"\t\t[in] ULONG revision,\t\t\t\t\t// The revision of the commit.\n"
+"\t\t[out, retval] BSTR * error\t\t\t\t// An error to show to the user if this function returns something else than S_OK\n"
+"\t\t);\n"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> This method is called after a successful commit. A plugin "
+"can use this method to e.g., close the selected issue or add information "
+"about the commit to the issue. The parameters are the same as for "
+"<literal>GetCommitMessage2</literal>."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT HasOptions(\n"
+"\t\t[out, retval] VARIANT_BOOL *ret\t\t\t// Whether the provider provides options\n"
+"\t\t);\n"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> This method is called from the settings dialog where the "
+"user can configure the plugins. If a plugin provides its own configuration "
+"dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, "
+"otherwise it must return FALSE."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\tHRESULT ShowOptionsDialog(\n"
+"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for the options dialog\n"
+"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
+"\t\t[out, retval] BSTR * newparameters\t\t// the parameters string\n"
+"\t\t);\n"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> This method is called from the settings dialog when the user "
+"clicks on the \"Options\" button that is shown if <literal>HasOptions</"
+"literal> returns TRUE. A plugin can show an options dialog to make it easier "
+"for the user to configure the plugin. The <literal>parameters</literal> "
+"string contains the plugin parameters string that is already set/entered. The "
+"<literal>newparameters</literal> return parameter must contain the parameters "
+"string which the plugin constructed from the info it gathered in its options "
+"dialog. That <literal>paramameters</literal> string is passed to all other "
+"IBugtraqProvider and IBugtraqProvider2 methods."
+msgstr ""
+
+#. (title)
 msgid "Glossary"
 msgstr "术语表"
 
@@ -21747,3 +22217,12 @@ msgstr ""
 #. (None)
 msgid "translator-translation"
 msgstr "译者"
+
+#~ msgid ""
+#~ "Because Subversion cannot provide all the information required, a certain "
+#~ "amount of interpretation is required, which can sometimes give strange "
+#~ "results. Nevertheless, the output for the trunk will generally give useful "
+#~ "results."
+#~ msgstr ""
+#~ "因为Subversion不能支持提供所有请求的信息，在有大量请求信息时，有时它能提供"
+#~ "强大的返回信息。但无论如何，主干都会产生有用的输出。"
