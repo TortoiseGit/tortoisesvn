@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-03-19 15:26 +0000\n"
+"POT-Creation-Date: 2009-03-19 21:56 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -8869,6 +8869,10 @@ msgstr ""
 msgid "If a source and destination files are supplied, SubWCRev copies source to destination, performing keyword substitution as follows: <placeholder-1/>"
 msgstr ""
 
+#.(para)
+msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
+msgstr ""
+
 #.(title)
 msgid "Keyword Example"
 msgstr ""
@@ -10792,7 +10796,7 @@ msgstr ""
 
 #.(programlisting)
 #, no-wrap
-msgid "\nHRESULT ValidateParameters (\n  [in] HWND hParentWnd,              // Parent window for any UI that needs to\n                                     // be displayed during validation.\n  [in] BSTR parameters,              // The parameter string that needs to be\n                                     // validated.\n  [out, retval] VARIANT_BOOL *valid  // Is the string valid?\n);\n"
+msgid "\nHRESULT ValidateParameters (\n  // Parent window for any UI that needs to be\n  // displayed during validation.\n  [in] HWND hParentWnd,\n\n  // The parameter string that needs to be validated.\n  [in] BSTR parameters,\n\n  // Is the string valid?\n  [out, retval] VARIANT_BOOL *valid\n);\n"
 msgstr ""
 
 #.(para)
@@ -10801,7 +10805,7 @@ msgstr ""
 
 #.(programlisting)
 #, no-wrap
-msgid "\nHRESULT GetLinkText (\n  [in] HWND hParentWnd,          // Parent window for any (error) UI that needs\n                                 // to be displayed.\n  [in] BSTR parameters,          // The parameter string, just in case you need\n                                 // to talk to your web service (e.g.) to find\n                                 // out what the correct text is.\n  [out, retval] BSTR *linkText   // What text do you want to display? \n                                 // Use the current thread locale.\n);\n"
+msgid "\nHRESULT GetLinkText (\n  // Parent window for any (error) UI that needs to be displayed.\n  [in] HWND hParentWnd,\n\n  // The parameter string, just in case you need to talk to your\n  // web service (e.g.) to find out what the correct text is.\n  [in] BSTR parameters,\n\n  // What text do you want to display?\n  // Use the current thread locale.\n  [out, retval] BSTR *linkText\n);\n"
 msgstr ""
 
 #.(para)
@@ -10810,7 +10814,7 @@ msgstr ""
 
 #.(programlisting)
 #, no-wrap
-msgid "\nHRESULT GetCommitMessage (\n  [in] HWND hParentWnd,          // Parent window for your provider's UI.\n  [in] BSTR parameters,          // Parameters for your provider.\n  [in] BSTR commonRoot,\n  [in] SAFEARRAY(BSTR) pathList,\n  \n  // The text already present in the commit message.\n  // Your provider should include this text in the new message,\n  // where appropriate.\n  [in] BSTR originalMessage,\n\n  // The new text for the commit message. This replaces the original message.\n  [out, retval] BSTR *newMessage\n);\n"
+msgid "\nHRESULT GetCommitMessage (\n  // Parent window for your provider's UI.\n  [in] HWND hParentWnd,\n\n  // Parameters for your provider.\n  [in] BSTR parameters,\n  [in] BSTR commonRoot,\n  [in] SAFEARRAY(BSTR) pathList,\n\n  // The text already present in the commit message.\n  // Your provider should include this text in the new message,\n  // where appropriate.\n  [in] BSTR originalMessage,\n\n  // The new text for the commit message.\n  // This replaces the original message.\n  [out, retval] BSTR *newMessage\n);\n"
 msgstr ""
 
 #.(para)
@@ -10827,7 +10831,7 @@ msgstr ""
 
 #.(programlisting)
 #, no-wrap
-msgid "\nHRESULT GetCommitMessage2 (\n  [in] HWND hParentWnd,          // Parent window for your provider's UI.\n  [in] BSTR parameters,          // Parameters for your provider.\n  [in] BSTR commonURL,           // The common URL of the commit\n  [in] BSTR commonRoot,\n  [in] SAFEARRAY(BSTR) pathList,\n\n  // The text already present in the commit message.\n  // Your provider should include this text in the new message,\n  // where appropriate.\n  [in] BSTR originalMessage,\n\n  // You can assign custom revision properties to a commit\n  // by setting the next two params.\n  // note: Both safearrays must be of the same length.\n  //       For every property name there must be a property value!\n  [in] BSTR bugID,               // the content of the bugID field (if shown)\n  [out] BSTR * bugIDOut,         // modified content of the bugID field\n  [out] SAFEARRAY(BSTR) * revPropNames,  // The list of revision property names.\n  [out] SAFEARRAY(BSTR) * revPropValues, // The list of revision property values.\n  [out, retval] BSTR * newMessage        // The new text for the commit message.\n                                         // This replaces the original message.\n);\n"
+msgid "\nHRESULT GetCommitMessage2 (\n  // Parent window for your provider's UI.\n  [in] HWND hParentWnd,\n\n  // Parameters for your provider.\n  [in] BSTR parameters,\n  // The common URL of the commit\n  [in] BSTR commonURL,\n  [in] BSTR commonRoot,\n  [in] SAFEARRAY(BSTR) pathList,\n\n  // The text already present in the commit message.\n  // Your provider should include this text in the new message,\n  // where appropriate.\n  [in] BSTR originalMessage,\n\n  // You can assign custom revision properties to a commit\n  // by setting the next two params.\n  // note: Both safearrays must be of the same length.\n  //       For every property name there must be a property value!\n\n  // The content of the bugID field (if shown)\n  [in] BSTR bugID,\n\n  // Modified content of the bugID field\n  [out] BSTR * bugIDOut,\n\n  // The list of revision property names.\n  [out] SAFEARRAY(BSTR) * revPropNames,\n\n  // The list of revision property values.\n  [out] SAFEARRAY(BSTR) * revPropValues,\n\n  // The new text for the commit message.\n  // This replaces the original message\n  [out, retval] BSTR * newMessage\n);\n"
 msgstr ""
 
 #.(para)
@@ -10845,7 +10849,7 @@ msgstr ""
 
 #.(programlisting)
 #, no-wrap
-msgid "\nHRESULT  OnCommitFinished (\n  [in] HWND hParentWnd,          // Parent window for any (error) UI that\n                                 // needs to be displayed.\n  [in] BSTR commonRoot,          // The common root of all paths that got\n                                 // committed.\n  [in] SAFEARRAY(BSTR) pathList, // All the paths that got committed.\n  [in] BSTR logMessage,          // The text already present in the commit\n                                 // message.\n  [in] ULONG revision,           // The revision of the commit.\n  [out, retval] BSTR * error     // An error to show to the user if this\n                                 // function returns something else than S_OK\n);\n"
+msgid "\nHRESULT  OnCommitFinished (\n  // Parent window for any (error) UI that needs to be displayed.\n  [in] HWND hParentWnd,\n\n  // The common root of all paths that got committed.\n  [in] BSTR commonRoot,\n\n  // All the paths that got committed.\n  [in] SAFEARRAY(BSTR) pathList,\n\n\n  // The text already present in the commit message.\n  [in] BSTR logMessage,\n\n  // The revision of the commit.\n  [in] ULONG revision,\n\n\n  // An error to show to the user if this function\n  // returns something else than S_OK\n  [out, retval] BSTR * error\n);\n"
 msgstr ""
 
 #.(para)
@@ -10854,7 +10858,7 @@ msgstr ""
 
 #.(programlisting)
 #, no-wrap
-msgid "\nHRESULT HasOptions(\n  [out, retval] VARIANT_BOOL *ret  // Whether the provider provides options\n);\n"
+msgid "\nHRESULT HasOptions(\n  // Whether the provider provides options\n  [out, retval] VARIANT_BOOL *ret\n);\n"
 msgstr ""
 
 #.(para)
@@ -10863,7 +10867,7 @@ msgstr ""
 
 #.(programlisting)
 #, no-wrap
-msgid "\nHRESULT ShowOptionsDialog(\n  [in] HWND hParentWnd,               // Parent window for the options dialog\n  [in] BSTR parameters,               // Parameters for your provider.\n  [out, retval] BSTR * newparameters  // The parameters string\n);\n"
+msgid "\nHRESULT ShowOptionsDialog(\n  // Parent window for the options dialog\n  [in] HWND hParentWnd,\n\n  // Parameters for your provider.\n  [in] BSTR parameters,\n\n  // The parameters string\n  [out, retval] BSTR * newparameters\n);\n"
 msgstr ""
 
 #.(para)
