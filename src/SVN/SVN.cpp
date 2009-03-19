@@ -2009,7 +2009,7 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
     Err = NULL;
 
 	// make sure the url is canonical.
-	const char * goodurl = svn_path_canonicalize(url.GetSVNApiPath(localpool), localpool);
+	const char * goodurl = url.GetSVNApiPath(localpool);
 	
     // use cached information, if allowed
 
@@ -2074,7 +2074,7 @@ CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& path, CString& sUUID)
     }
 	else
     {
-		goodurl = svn_path_canonicalize(path.GetSVNApiPath(localpool), localpool);
+		goodurl = path.GetSVNApiPath(localpool);
     }
 
 	if (goodurl == NULL)
@@ -2112,7 +2112,7 @@ svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& path)
 	else
 	{
 		// make sure the url is canonical.
-		const char * goodurl = svn_path_canonicalize(path.GetSVNApiPath(localpool), localpool);
+		const char * goodurl = path.GetSVNApiPath(localpool);
 		urla = goodurl;
 	}
 	if (Err)
@@ -2143,7 +2143,7 @@ BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
 	else
 	{
 		// make sure the url is canonical.
-		urla = svn_path_canonicalize(path.GetSVNApiPath(localpool), localpool);
+		urla = path.GetSVNApiPath(localpool);
 	}
 
 	if (Err)
@@ -2356,8 +2356,7 @@ BOOL SVN::GetTranslatedFile(CTSVNPath& sTranslatedFile, const CTSVNPath& sFile, 
 	SVNPool localpool;
 
 	const char * translatedPath = NULL;
-	CStringA temp = sFile.GetSVNApiPath(localpool);
-	const char * originPath = svn_path_canonicalize(temp, localpool);
+	const char * originPath = sFile.GetSVNApiPath(localpool);
 	err = svn_wc_adm_probe_open3 (&adm_access, NULL, originPath, FALSE, 0, NULL, NULL, localpool);
 	if (err)
 	{
