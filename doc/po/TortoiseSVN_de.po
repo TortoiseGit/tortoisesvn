@@ -15,9 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-16 22:17 +0000\n"
-"PO-Revision-Date: 2009-03-17 21:08+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"POT-Creation-Date: 2009-03-18 00:31 +0000\n"
+"PO-Revision-Date: 2009-03-19 16:05+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3621,7 +3621,7 @@ msgstr "Wenn eine Datei in Subversion lokal gelöscht wird, wird sie auch aus de
 
 #. (para)
 msgid "TortoiseSVN can help find the right place to merge changes, but there may be additional work required to sort out the conflicts. Remember that after an update the working BASE will always contain the revision of each item as it was in the repository at the time of update. If you revert a change after updating it goes back to the repository state, not to the way it was when you started making your own local changes."
-msgstr "TortoiseSVN kann dabei helfen, Änderungen zusammenzuführen, aber es kann zusätzliche Arbeit erforderlich sein, um die Konflikte aufzulösen. Bedenken Sie, dass nach eine Aktualisierung die BASE der Arbeitskopie dem Inhalt des Projektarchivs entspricht. Wenn Sie eine Änderung nach dem Aktualisieren rückgängig machen, wird das Objekt in den Status des Projektarchivs zurückversetzt und nicht in den Zustand in dem sie bekonnen haben, ihre eigenen Änderungen durchzuführen."
+msgstr "TortoiseSVN kann dabei helfen, Änderungen zusammenzuführen, aber es kann zusätzliche Arbeit erforderlich sein, um die Konflikte aufzulösen. Bedenken Sie, dass nach eine Aktualisierung die BASE der Arbeitskopie dem Inhalt des Projektarchivs entspricht. Wenn Sie eine Änderung nach dem Aktualisieren rückgängig machen, wird das Objekt in den Status des Projektarchivs zurückversetzt und nicht in den Zustand in dem sie begonnen haben, ihre eigenen Änderungen durchzuführen."
 
 #. (title)
 msgid "Local delete, incoming edit upon update"
@@ -4060,7 +4060,7 @@ msgstr "Wenn Sie eine flache Ansicht Ihrer Arbeitskopie (also alle Dateien und O
 
 #. (title)
 msgid "Viewing Diffs"
-msgstr "Unterschiede Anzeigen"
+msgstr "Unterschiede anzeigen"
 
 #. (primary)
 msgid "diffing"
@@ -4323,11 +4323,11 @@ msgstr "Ihre Arbeitskopie auf eine bestimmte Revision aktualisieren. Nützlich w
 
 #. (para)
 msgid "If you want to undo an earlier change permanently, use <guilabel>Revert to this revision</guilabel> instead."
-msgstr ""
+msgstr "Falls Sie eine frühere Änderung vollständig zurücknehmen wollen, verwenden Sie stattdessen <guilabel>Rückgängig zu dieser Revision</guilabel>."
 
 #. (term)
 msgid "Revert to this revision"
-msgstr "Rückgängig zu Revision"
+msgstr "Rückgängig zu dieser Revision"
 
 #. (para)
 msgid "Revert to an earlier revision. If you have made several changes, and then decide that you really want to go back to how things were in revision N, this is the command you need. The changes are undone in your working copy so this operation does <emphasis>not</emphasis> affect the repository until you commit the changes. Note that this will undo <emphasis>all</emphasis> changes made after the selected revision, replacing the file/folder with the earlier version."
@@ -4824,7 +4824,7 @@ msgstr "Permanent offline"
 
 #. (para)
 msgid "Remain in offline mode until a repository check is specifically requested. See <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
-msgstr "Bleibt im Offline-Modus bis eine Aktualisierung der Logdaten explizit angefortert wird. Siehe <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
+msgstr "Bleibt im Offline-Modus bis eine Aktualisierung der Logdaten explizit angefordert wird. Siehe <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
 
 #. (term)
 msgid "Cancel"
@@ -4857,7 +4857,7 @@ msgstr "Falls Sie den Log-Puffer verwenden und denken, dass sich der Inhalt oder
 
 #. (title)
 msgid "Viewing Differences"
-msgstr "Unterschiede Anzeigen"
+msgstr "Unterschiede anzeigen"
 
 #. (primary)
 #. (primary)
@@ -7249,6 +7249,10 @@ msgstr ""
 msgid "Note that by default the graph only shows the points at which items were added, copied or deleted. Showing every revision of a project will generate a very large graph for non-trivial cases. If you really want to see <emphasis>all</emphasis> revisions where changes were made, there is an option to do this in the <guilabel>View</guilabel> menu and on the toolbar."
 msgstr "Beachten Sie, dass in der Standardansicht der Graph nur die Punkte zeigt, an denen Elemente hinzugefügt, kopiert oder gelöscht wurden. Alle Revisionen eines Projektes anzuzeigen würde in nicht-trivialen Fällen einen riesigen Graphen erzeugen. Wenn Sie wirklich <emphasis>alle</emphasis> Revisionen sehen wollen, können Sie dies über einen Schalter in der Werkzeugleiste oder im Menü <guilabel>Ansicht</guilabel> aktivieren."
 
+#. (para)
+msgid "The default view (grouping off) places the nodes such that their vertical position is in strict revision order, so you have a visual cue for the order in which things were done. Where two nodes are in the same column the order is very obvious. When two nodes are in adjacent columns the offset is much smaller because there is no need to prevent the nodes from overlapping, and as a result the order is a little less obvious. Such optimisations are necessary to keep complex graphs to a reasonable size. Please note that this ordering uses the <emphasis>edge</emphasis> of the node on the <emphasis>older</emphasis> side as a reference, i.e. the bottom edge of the node when the graph is shown with oldest node at the bottom. The reference edge is significant because the node shapes are not all the same height."
+msgstr ""
+
 #. (title)
 msgid "Changing the View"
 msgstr "Die Ansicht ändern"
@@ -7258,8 +7262,8 @@ msgid "Group branches"
 msgstr "Zweige zusammenfassen"
 
 #. (para)
-msgid "The default behavior (grouping off) will use one row per revision and all rows are sorted strictly by revision. As a result, long-living branches occupy a whole column for only a few changes and the graph becomes very broad."
-msgstr "Die Vorgabe (Gruppieren aus) verwendet eine Zeile pro Revision und alle Zeilen werden strikt nach der Revisionsnummer sortiert. Dadurch belegen langlebige Zweige selbst mit nur wenigen Änderungen eine ganze Spalte und der Graph wird sehr breit."
+msgid "The default behavior (grouping off) has all rows sorted strictly by revision. As a result, long-living branches with sparse commits occupy a whole column for only a few changes and the graph becomes very broad."
+msgstr "Die Vorgabe (Gruppieren aus) sortiert alle Zeilen strikt nach der Revisionsnummer. Dadurch belegen langlebige Zweige selbst mit nur wenigen Änderungen eine ganze Spalte und der Graph wird sehr breit."
 
 #. (para)
 msgid "This mode groups changes by branch, so that there is no global revision ordering: Consecutive revisions on a branch will be shown in (often) consecutive lines. Sub-branches, however, are arranged in such a way that later branches will be shown in the same column above older branches to keep the graph slim. As a result, a given row may contain changes from different revisions."
@@ -12031,7 +12035,7 @@ msgid ""
 msgstr ""
 "Um sicherzustellen, dass alles OK ist, melden Sie sich als der gewünschte Anwender per SSH an und geben Sie:\n"
 "<screen>which svnserve</screen>\n"
-"ein. Dieser Befehlt sagt Ihnen, ob svnserver erreichbar ist."
+"ein. Dieser Befehlt sagt Ihnen, ob svnserve erreichbar ist."
 
 #. (para)
 msgid ""
