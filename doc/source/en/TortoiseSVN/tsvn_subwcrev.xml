@@ -280,6 +280,19 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 				</tgroup>
 			</table>
 		</para>
+		<tip>
+			<para>
+				Some of these keywords apply to single files rather than to
+				an entire working copy, so it only makes sense to use these
+				when SubWCRev is called to scan a single file. This applies to
+				<literal>$WCINSVN$</literal>, 
+				<literal>$WCNEEDSLOCK$</literal>, 
+				<literal>$WCISLOCKED$</literal>, 
+				<literal>$WCLOCKDATE$</literal>, 
+				<literal>$WCLOCKOWNER$</literal> and 
+				<literal>$WCLOCKCOMMENT$</literal>.
+			</para>
+		</tip>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 3 ============================== -->
