@@ -1,13 +1,13 @@
-# 
+#
 # Simplified Chinese translation for TortoiseSVN
 # Copyright (C) 2004-2008 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
-# 
+#
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-# 
+#
 # Authors:
 # Dongsheng Song <dongsheng.song@gmail.com>, 2006-2009
 # Garfield Yao <field977@gmail.com>, 2009
@@ -22,17 +22,17 @@
 # Tan Ruyan <try876@gmail.com>, 2006
 # xingyu.wang <xingyu.wang@gmail.com>, 2006
 # yasakya <yasakya@gmail.com>, 2006
-# 
+#
 # Update to new pot:
 #    msgmerge --update TortoiseSVN_zh_CN.po TortoiseSVN.pot
-# 
+#
 # Check translation:
 #    msgfmt --statistics -c TortoiseSVN_zh_CN.po
-# 
+#
 # Please format your translation before commit:
 #    msgmerge --width=80 -o TortoiseSVN_zh_CN_new.po TortoiseSVN_zh_CN.po TortoiseSVN.pot
 #    mv -f TortoiseSVN_zh_CN_new.po TortoiseSVN_zh_CN.po
-# 
+#
 # Dictionary:
 # BASE revision     基础版本
 # blame             追溯
@@ -52,7 +52,7 @@
 # versioned         已版本控制
 # working copy      工作副本
 # ...
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
@@ -22217,12 +22217,3 @@ msgstr ""
 #. (None)
 msgid "translator-translation"
 msgstr "译者"
-
-#~ msgid ""
-#~ "Because Subversion cannot provide all the information required, a certain "
-#~ "amount of interpretation is required, which can sometimes give strange "
-#~ "results. Nevertheless, the output for the trunk will generally give useful "
-#~ "results."
-#~ msgstr ""
-#~ "因为Subversion不能支持提供所有请求的信息，在有大量请求信息时，有时它能提供"
-#~ "强大的返回信息。但无论如何，主干都会产生有用的输出。"
