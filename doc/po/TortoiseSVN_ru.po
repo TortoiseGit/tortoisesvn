@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-16 00:11 +0000\n"
-"PO-Revision-Date: 2009-03-18 20:14+0300\n"
+"POT-Creation-Date: 2009-03-19 15:26 +0000\n"
+"PO-Revision-Date: 2009-03-19 19:07+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3858,102 +3858,102 @@ msgstr "После того, как разработчик Б вручную у�
 
 #. (title)
 msgid "Local missing, incoming edit upon merge"
-msgstr ""
+msgstr "Локально отсутствующее, поступающее при обновлении редактирование"
 
 #. (para)
 msgid "Developer A working on trunk modifies <filename>Foo.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Разаработчик А, работая в стволе, изменяет <filename>Foo.c</filename> и фиксирует это в хранилище."
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Разработчик Б, работая в ответвлении, переименовывает <filename>Foo.c</filename> в <filename>Bar.c</filename> и фиксирует это в хранилище."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is already in the working copy with status 'normal'."
-msgstr ""
+msgstr "<filename>Bar.c</filename> уже в рабочей копии со статусом 'нормальный'."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> помечен как отсутствующий и участвующий в конфликте деревьев."
 
 #. (para)
 #. (para)
 #. (para)
 msgid "A merge of developer A's trunk changes to developer B's branch working copy results in a tree conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Слияние изменений разработчика А в стволе с ответвлением в рабочей копии разработчика Б приводит к конфликту деревьев: <placeholder-1/>"
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to mark the file as resolved in the conflict editor dialog, which will remove it from the conflict list. She then has to decide whether to copy the missing file <filename>Foo.c</filename> from the repository to the working copy, whether to merge Developer A's changes to <filename>Foo.c</filename> into the renamed <filename>Bar.c</filename> or whether to ignore the changes by marking the conflict as resolved and doing nothing else."
-msgstr ""
+msgstr "Для улаживания этого конфликта разработчик Б должен пометить файл как улаженный в диалоге редактирования конфликтов, который уберёт его из списка конфликтов. После этого он должен решить, скопировать отсутствующий файл <filename>Foo.c</filename> из хранилища в рабочую копию, или слить изменения разработчика А в файле <filename>Foo.c</filename> в переименованный <filename>Bar.c</filename>, или же проигнорировать изменения, пометив конфликт как улаженный и больше ничего не делая."
 
 #. (para)
 msgid "Note that if you copy the missing file from the repository and then mark as resolved, your copy will be removed again. You have to resolve the conflict first."
-msgstr ""
+msgstr "Обратите внимание: если вы скопируете отсутсвующий файл из хранилища и после этого пометите конфликт как улаженный, то ваша копия будет снова удалена. Сначала вы должны уладить конфликт."
 
 #. (title)
 msgid "Local edit, incoming delete upon merge"
-msgstr ""
+msgstr "Локальное редактирование, поступающее при слиянии удаление"
 
 #. (para)
 #. (para)
 msgid "Developer A working on trunk moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Разработчик А, работая в стволе, переименовывает <filename>Foo.c</filename> в <filename>Bar.c</filename> и фиксирует это в хранилище."
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> and commits it to the repository."
-msgstr ""
+msgstr "Разработчик Б, работая в ответвлении, изменяет <filename>Foo.c</filename> и фиксирует это в хранилище."
 
 #. (para)
 msgid "There is an equivalent case for folder moves, but it is not yet detected in Subversion 1.6 ..."
-msgstr ""
+msgstr "Есть эквивалентный случай для перемещения папок, и он всё ещё не обнаруживается в Subversion 1.6 ..."
 
 #. (para)
 msgid "Developer A working on trunk moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
-msgstr ""
+msgstr "Разработчик А, работая в стволе, переименовывает родительскую папку <filename>FooFolder</filename> в <filename>BarFolder</filename> и фиксирует это в хранилище."
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> in her working copy."
-msgstr ""
+msgstr "Разработчик Б, работая в ответвлении, изменяет <filename>Foo.c</filename> в своей рабочей копии."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added."
-msgstr ""
+msgstr "<filename>Bar.c</filename> помечен как добавленный."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> помечен как изменённый и участвующий в конфликте деревьев."
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr ""
+msgstr "Чтобы выполнить слияние своих локальных изменений с такой перетасовкой, разработчик Б сначала должен выяснить, какое имя получил  конфликтующий файл <filename>Foo.c</filename> при переименовании/перемещении в хранилище. Это можно сделать при помощи диалога журнала для источника слияния. Редактор конфликтов показывает только журнал для рабочей копии, так как ему не известно, какой путь был использован при слиянии, и поэтому вы должны найти его самостоятельно. Затем изменения должны быть слиты вручную, поскольку на данный момент нет способа автоматизировать или даже упростить этот процесс. Как только изменения перенесены, конфликтующий файл больше не нужен и может быть удалён. В этом случае используйте кнопку <guilabel>Удалить</guilabel> в диалоге редактирования конфликтов для наведения порядка и для пометки конфликта как улаженного."
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog for the merge source helps to track down what was moved."
-msgstr ""
+msgstr "Если разработчик Б решает, что изменения разработчика А были неправильными, то он должен выбрать кнопку <guilabel>Оставить</guilabel> в диалоге редактирования конфликтов. Это помечает конфликтующий файл/папку как улаженные, но изменения разработчика А необходимо будет убрать вручную. Опять же диалог журнала для источника слияния поможет разыскать то, что было перемещено."
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
-msgstr ""
+msgstr "Локальное удаление, поступающее при слиянии удаление"
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bix.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Разработчик Б, работая в ответвлении, переименовывает <filename>Foo.c</filename> в <filename>Bix.c</filename> и фиксирует это в хранилище."
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
-msgstr ""
+msgstr "<filename>Bix.c</filename> помечен как имеющий нормальный (неизменённый) статус."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added with history."
-msgstr ""
+msgstr "<filename>Bar.c</filename> помечен как добавленный с историей."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> помечен как отсутствующий и участвующий в конфликте деревьев."
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself."
-msgstr ""
+msgstr "Для улаживания этого конфликта разработчик Б должен выяснить, какое имя получил  конфликтующий файл <filename>Foo.c</filename> при переименовании/перемещении в хранилище. Это можно сделать при помощи диалога журнала для источника слияния. Редактор конфликтов показывает только журнал для рабочей копии, так как ему не известно, какой путь был использован при слиянии, и поэтому вы должны найти его самостоятельно."
 
 # ---- 5.7
 #. (title)
@@ -7421,6 +7421,10 @@ msgstr ""
 msgid "Note that by default the graph only shows the points at which items were added, copied or deleted. Showing every revision of a project will generate a very large graph for non-trivial cases. If you really want to see <emphasis>all</emphasis> revisions where changes were made, there is an option to do this in the <guilabel>View</guilabel> menu and on the toolbar."
 msgstr "Обратите внимание: по умолчанию граф показывает только те точки, в которых элементы были добавлены или удалены. Отображение каждой ревизии проекта породит слишком большой граф для нетривиальных случаев. Если вы действительно желаете увидеть <emphasis>все</emphasis> ревизии, в которых были произведены изменения, то для этого вам придётся воспользоваться опцией, расположенной в меню <guilabel>Вид</guilabel> и на панели инструментов."
 
+#. (para)
+msgid "The default view (grouping off) places the nodes such that their vertical position is in strict revision order, so you have a visual cue for the order in which things were done. Where two nodes are in the same column the order is very obvious. When two nodes are in adjacent columns the offset is much smaller because there is no need to prevent the nodes from overlapping, and as a result the order is a little less obvious. Such optimisations are necessary to keep complex graphs to a reasonable size. Please note that this ordering uses the <emphasis>edge</emphasis> of the node on the <emphasis>older</emphasis> side as a reference, i.e. the bottom edge of the node when the graph is shown with oldest node at the bottom. The reference edge is significant because the node shapes are not all the same height."
+msgstr ""
+
 #. (title)
 msgid "Changing the View"
 msgstr "Изменение вида"
@@ -7430,7 +7434,8 @@ msgid "Group branches"
 msgstr "Сгруппировать ответвления"
 
 #. (para)
-msgid "The default behavior (grouping off) will use one row per revision and all rows are sorted strictly by revision. As a result, long-living branches occupy a whole column for only a few changes and the graph becomes very broad."
+#, fuzzy
+msgid "The default behavior (grouping off) has all rows sorted strictly by revision. As a result, long-living branches with sparse commits occupy a whole column for only a few changes and the graph becomes very broad."
 msgstr "При поведении по умолчанию (группировка выключена) используется одна строка на ревизию и все строки сортируются строго по ревизии. В результате долгоживущие ответвления занимают целую колонку всего лишь для нескольких изменений и граф получается слишком широким."
 
 #. (para)
@@ -12516,10 +12521,13 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\n"
-"\tHRESULT ValidateParameters (\n"
-"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any UI that needs to be displayed during validation.\n"
-"\t\t[in] BSTR parameters,\t\t\t\t\t// The parameter string that needs to be validated.\n"
-"\t\t[out, retval] VARIANT_BOOL *valid\t\t// Is the string valid?\n"
+"HRESULT ValidateParameters (\n"
+"  [in] HWND hParentWnd,              // Parent window for any UI that needs to\n"
+"                                     // be displayed during validation.\n"
+"  [in] BSTR parameters,              // The parameter string that needs to be\n"
+"                                     // validated.\n"
+"  [out, retval] VARIANT_BOOL *valid  // Is the string valid?\n"
+");\n"
 msgstr ""
 
 #. (para)
@@ -12530,12 +12538,15 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\n"
-"\tHRESULT GetLinkText (\n"
-"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any (error) UI that needs to be displayed.\n"
-"\t\t[in] BSTR parameters,\t\t\t\t\t// The parameter string, just in case you need to talk to your web\n"
-"\t\t\t\t\t\t\t\t\t\t\t\t// service (e.g.) to find out what the correct text is.\n"
-"\t\t[out, retval] BSTR *linkText\t\t\t// What text do you want to display? Use the current thread locale.\n"
-"\t);\n"
+"HRESULT GetLinkText (\n"
+"  [in] HWND hParentWnd,          // Parent window for any (error) UI that needs\n"
+"                                 // to be displayed.\n"
+"  [in] BSTR parameters,          // The parameter string, just in case you need\n"
+"                                 // to talk to your web service (e.g.) to find\n"
+"                                 // out what the correct text is.\n"
+"  [out, retval] BSTR *linkText   // What text do you want to display? \n"
+"                                 // Use the current thread locale.\n"
+");\n"
 msgstr ""
 
 #. (para)
@@ -12546,19 +12557,24 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\n"
-"\tHRESULT GetCommitMessage (\n"
-"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for your provider's UI.\n"
-"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
-"\t\t[in] BSTR commonRoot,\n"
-"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
-"\t\t[in] BSTR originalMessage,\t\t\t\t// The text already present in the commit message.\n"
-"\t\t\t\t\t\t\t\t\t\t\t\t// Your provider should include this text in the new message, where appropriate.\n"
-"\t\t[out, retval] BSTR *newMessage\t\t\t// The new text for the commit message. This replaces the original message.\n"
-"\t);\t\t\t\n"
+"HRESULT GetCommitMessage (\n"
+"  [in] HWND hParentWnd,          // Parent window for your provider's UI.\n"
+"  [in] BSTR parameters,          // Parameters for your provider.\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"  \n"
+"  // The text already present in the commit message.\n"
+"  // Your provider should include this text in the new message,\n"
+"  // where appropriate.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // The new text for the commit message. This replaces the original message.\n"
+"  [out, retval] BSTR *newMessage\n"
+");\n"
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is not the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
+msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
 msgstr ""
 
 #. (title)
@@ -12573,22 +12589,29 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\n"
-"\tHRESULT GetCommitMessage2 (\n"
-"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for your provider's UI.\n"
-"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
-"\t\t[in] BSTR commonURL,\t\t\t\t\t// the common URL of the commit\n"
-"\t\t[in] BSTR commonRoot,\n"
-"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
-"\t\t[in] BSTR originalMessage,\t\t\t\t// The text already present in the commit message.\n"
-"\t\t\t\t\t\t\t\t\t\t\t\t// Your provider should include this text in the new message, where appropriate.\n"
-"\t\t// you can assign custom revision properties to a commit by setting the next two params.\n"
-"\t\t// note: both safearrays must be of the same length. For every property name there must be a property value!\n"
-"\t\t[in] BSTR bugID,\t\t\t\t\t\t// the content of the bugID field (if shown)\n"
-"\t\t[out] BSTR * bugIDOut,\t\t\t\t\t// modified content of the bugID field\n"
-"\t\t[out] SAFEARRAY(BSTR) * revPropNames,\t// a list of revision property names which are applied to the commit\n"
-"\t\t[out] SAFEARRAY(BSTR) * revPropValues,\t// a list of revision property values which are applied to the commit\n"
-"\t\t[out, retval] BSTR * newMessage\t\t\t// The new text for the commit message. This replaces the original message.\n"
-"\t);\t\t\t\n"
+"HRESULT GetCommitMessage2 (\n"
+"  [in] HWND hParentWnd,          // Parent window for your provider's UI.\n"
+"  [in] BSTR parameters,          // Parameters for your provider.\n"
+"  [in] BSTR commonURL,           // The common URL of the commit\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // The text already present in the commit message.\n"
+"  // Your provider should include this text in the new message,\n"
+"  // where appropriate.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // You can assign custom revision properties to a commit\n"
+"  // by setting the next two params.\n"
+"  // note: Both safearrays must be of the same length.\n"
+"  //       For every property name there must be a property value!\n"
+"  [in] BSTR bugID,               // the content of the bugID field (if shown)\n"
+"  [out] BSTR * bugIDOut,         // modified content of the bugID field\n"
+"  [out] SAFEARRAY(BSTR) * revPropNames,  // The list of revision property names.\n"
+"  [out] SAFEARRAY(BSTR) * revPropValues, // The list of revision property values.\n"
+"  [out, retval] BSTR * newMessage        // The new text for the commit message.\n"
+"                                         // This replaces the original message.\n"
+");\n"
 msgstr ""
 
 #. (para)
@@ -12599,33 +12622,37 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\n"
-"\tHRESULT CheckCommit (\n"
-"\t\t[in] HWND hParentWnd,\n"
-"\t\t[in] BSTR parameters,\n"
-"\t\t[in] BSTR commonURL,\n"
-"\t\t[in] BSTR commonRoot,\n"
-"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
-"\t\t[in] BSTR commitMessage,\n"
-"\t\t[out, retval] BSTR * errorMessage\n"
-"\t\t);\n"
+"HRESULT CheckCommit (\n"
+"  [in] HWND hParentWnd,\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"  [in] BSTR commitMessage,\n"
+"  [out, retval] BSTR * errorMessage\n"
+");\n"
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
+msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
 msgstr ""
 
 #. (programlisting)
 #, no-wrap
 msgid ""
 "\n"
-"\tHRESULT\tOnCommitFinished (\n"
-"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any (error) UI that needs to be displayed.\n"
-"\t\t[in] BSTR commonRoot,\t\t\t\t\t// The common root of all paths that got committed.\n"
-"\t\t[in] SAFEARRAY(BSTR) pathList,\t\t\t// All the paths that got committed.\n"
-"\t\t[in] BSTR logMessage,\t\t\t\t\t// The text already present in the commit message.\n"
-"\t\t[in] ULONG revision,\t\t\t\t\t// The revision of the commit.\n"
-"\t\t[out, retval] BSTR * error\t\t\t\t// An error to show to the user if this function returns something else than S_OK\n"
-"\t\t);\n"
+"HRESULT  OnCommitFinished (\n"
+"  [in] HWND hParentWnd,          // Parent window for any (error) UI that\n"
+"                                 // needs to be displayed.\n"
+"  [in] BSTR commonRoot,          // The common root of all paths that got\n"
+"                                 // committed.\n"
+"  [in] SAFEARRAY(BSTR) pathList, // All the paths that got committed.\n"
+"  [in] BSTR logMessage,          // The text already present in the commit\n"
+"                                 // message.\n"
+"  [in] ULONG revision,           // The revision of the commit.\n"
+"  [out, retval] BSTR * error     // An error to show to the user if this\n"
+"                                 // function returns something else than S_OK\n"
+");\n"
 msgstr ""
 
 #. (para)
@@ -12636,9 +12663,9 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\n"
-"\tHRESULT HasOptions(\n"
-"\t\t[out, retval] VARIANT_BOOL *ret\t\t\t// Whether the provider provides options\n"
-"\t\t);\n"
+"HRESULT HasOptions(\n"
+"  [out, retval] VARIANT_BOOL *ret  // Whether the provider provides options\n"
+");\n"
 msgstr ""
 
 #. (para)
@@ -12649,11 +12676,11 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\n"
-"\tHRESULT ShowOptionsDialog(\n"
-"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for the options dialog\n"
-"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
-"\t\t[out, retval] BSTR * newparameters\t\t// the parameters string\n"
-"\t\t);\n"
+"HRESULT ShowOptionsDialog(\n"
+"  [in] HWND hParentWnd,               // Parent window for the options dialog\n"
+"  [in] BSTR parameters,               // Parameters for your provider.\n"
+"  [out, retval] BSTR * newparameters  // The parameters string\n"
+");\n"
 msgstr ""
 
 #. (para)
