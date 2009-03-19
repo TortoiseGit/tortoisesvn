@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2009-03-16 22:06+0100\n"
+"PO-Revision-Date: 2009-03-19 23:55+0100\n"
 "Last-Translator: Mariska Hoogenboom <Mariska.Hoogenboom@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -621,7 +621,7 @@ msgstr "Het installatieprogramma voegt automatisch de VS en VK Engelse woordenbo
 #. (para)
 #: ../source/TortoiseSVN_en.xml:644
 msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
-msgstr ""
+msgstr "Of je kunt de woordenboeken zelf installeren. Als je OpenOffice of Mozilla hebt geïnstalleerd, dan kun je de woordenboeken, die in de installatiemappen van die applicaties zijn te vinden, kopiëren. Anders moet je de gewenste woordenboeken van <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink> kopiëren."
 
 #. (filename)
 #: ../source/TortoiseSVN_en.xml:661
@@ -636,37 +636,37 @@ msgstr "en_US.dic"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:653
 msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
-msgstr ""
+msgstr "Als je de woordenboekbestanden hebt, moet je ze waarschijnlijk hernoemen zodat de bestandsnaam alleen lokale karakters bevat. Bijvoorbeeld: <placeholder-1/> Daarna kopiëer je ze naar de <filename>bin</filename> submap van de TortoiseSVN installatiemap. Normaliter is dit <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. Als je de <filename>bin</filename> submap niet wilt vervuilen, dan kun je in plaats daarvan de spellingscheckerbestanden in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename> plaatsen. Als die map niet bestaat, moet je hem eerst aanmaken. De volgende keer dat je TortoiseSVN start, zal de spellingschecker beschikbaar zijn."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:684
 msgid "Check the <literal>tsvn:projectlanguage</literal> setting. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for information about setting project properties."
-msgstr ""
+msgstr "Controleer de <literal>tsvn:projectlanguage</literal> instelling. Refereer naar <xref linkend=\"tsvn-dug-propertypage\"/> voor informatie over het instellen van projecteigenschappen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:691
 msgid "If no project language is set, or that language is not installed, try the language corresponding to the Windows locale."
-msgstr ""
+msgstr "Als er geen projecttaal is ingesteld, of als die taal niet is geïnstalleerd, probeer dan de taal die hoort bij de Windows landinstelling."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:697
 msgid "If the exact Windows locale doesn't work, try the <quote>Base</quote> language, eg. <literal>de_CH</literal> (Swiss-German) falls back to <literal>de_DE</literal> (German)."
-msgstr ""
+msgstr "Als de exacte Windows landinstelling niet werkt, probeer dan de <quote>Basis</quote> taal, bv. <literal>de_CH</literal> (Zwitsers-Duits) wordt <literal>de_DE</literal> (Duits)."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:705
 msgid "If none of the above works, then the default language is English, which is included with the standard installation."
-msgstr ""
+msgstr "Als bovenstaande oplossingen niet werken, dan is de standaardtaal Engels, welke is opgenomen in de standaardinstallatie."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:679
 msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to select which one to use. <placeholder-1/>"
-msgstr ""
+msgstr "Als je meerdere woordenboeken installeert, gebruikt TortoiseSVN deze regels om te selecteren welke te gebruiken. <placeholder-1/>"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:722
 msgid "Basic Version-Control Concepts"
-msgstr ""
+msgstr "Basis Versie-Beheer Concepten"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:725
@@ -676,17 +676,17 @@ msgstr "Subversion boek"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:727
 msgid "This chapter is a slightly modified version of the same chapter in the Subversion book. An online version of the Subversion book is available here: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
-msgstr ""
+msgstr "Dit hoofdstuk is een iets gewijzigde versie van hetzelfde hoofdstuk uit het Subversion boek. Een online versie van het Subversion boek is beschikbaar op: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:735
 msgid "This chapter is a short, casual introduction to Subversion. If you're new to version control, this chapter is definitely for you. We begin with a discussion of general version control concepts, work our way into the specific ideas behind Subversion, and show some simple examples of Subversion in use."
-msgstr ""
+msgstr "Dit hoofdstuk is een korte en informele introductie in Subversion. Als je nieuw bent op gebied van versiebeheer, dan is dit hoofdstuk echt iets voor jou. We beginnen met een uiteenzetting over algemene versiebeheer concepten, verdiepen ons in de specifieke gedachten achter Subversion, en tonen een aantal simpele voorbeelden van toepassingen van Subversion. "
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:743
 msgid "Even though the examples in this chapter show people sharing collections of program source code, keep in mind that Subversion can manage any sort of file collection - it's not limited to helping computer programmers."
-msgstr ""
+msgstr "Ook al gaan de voorbeelden in dit hoofdstuk over mensen die een verzameling programmabroncode delen, vergeet niet dat Subversion elke verzameling bestanden kan beheren - het is niet beperkt tot assisteren van computerprogrammeurs."
 
 #. (title)
 #. (title)
@@ -695,29 +695,29 @@ msgstr ""
 #: ../source/TortoiseSVN_en.xml:1256
 #: ../source/TortoiseSVN_en.xml:1445
 msgid "The Repository"
-msgstr ""
+msgstr "Het Archief"
 
 #. (primary)
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:753
 #: ../source/TortoiseSVN_en.xml:3742
 msgid "repository"
-msgstr ""
+msgstr "archief"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:755
 msgid "Subversion is a centralized system for sharing information. At its core is a <firstterm>repository</firstterm>, which is a central store of data. The repository stores information in the form of a <firstterm>filesystem tree</firstterm> - a typical hierarchy of files and directories. Any number of <firstterm>clients</firstterm> connect to the repository, and then read or write to these files. By writing data, a client makes the information available to others; by reading data, the client receives information from others."
-msgstr ""
+msgstr "Subversion is een centraal systeem voor het delen van informatie. De kern is een <firstterm>archief</firstterm>, dat een centrale opslagruimte van data is. Het archief slaat informatie op in de vorm van een <firstterm>bestandssysteemboom</firstterm> - een typische hiëarchie van bestanden en mappen. Een ongelimiteerd aantal <firstterm>clients</firstterm> kan op het archief aansluiten en deze bestanden lezen of schrijven. Door data te schrijven maakt een client informatie beschikbaar voor anderen; door het lezen van data ontvangt de client informatie van anderen."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:767
 msgid "A Typical Client/Server System"
-msgstr ""
+msgstr "Een typisch Client/Server Systeem"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:770
 msgid "So why is this interesting? So far, this sounds like the definition of a typical file server. And indeed, the repository <emphasis>is</emphasis> a kind of file server, but it's not your usual breed. What makes the Subversion repository special is that <emphasis>it remembers every change</emphasis> ever written to it: every change to every file, and even changes to the directory tree itself, such as the addition, deletion, and rearrangement of files and directories."
-msgstr ""
+msgstr "Waarom is dit nu zo interessant? Tot zoverre lijkt dit op de definitie van een typische bestandsserver. En inderdaad <emphasis>is</emphasis> het archief een soort van bestandsserver, maar niet de normale soort. Wat het Subversion archief zo bijzonder maakt, is dat <emphasis>het elke wijziging onthoudt</emphasis>, die ooit weggeschreven is: elke wijziging in elk bestand en zelfs wijzigingen in de mappenstructuur, zoals toevoegen, verwijderen en herschikken van bestanden en mappen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:780
