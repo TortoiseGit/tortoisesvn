@@ -4122,33 +4122,43 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					r1 = revHighest;
 					r2 = revLowest;
 				}
+				svn_node_kind_t nodekind = svn_node_unknown;
+				if (!m_path.IsUrl())
+				{
+					nodekind = m_path.IsDirectory() ? svn_node_dir : svn_node_file;
+				}
 				//user clicked on the menu item "compare revisions"
 				if (PromptShown())
 				{
 					SVNDiff diff(this, m_hWnd, true);
 					diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 					diff.SetHEADPeg(m_LogRevision);
-					diff.ShowCompare(CTSVNPath(pathURL), r2, CTSVNPath(pathURL), r1, SVNRev(), false, false, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
+					diff.ShowCompare(CTSVNPath(pathURL), r2, CTSVNPath(pathURL), r1, SVNRev(), false, false, nodekind);
 				}
 				else
 					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), r2, CTSVNPath(pathURL), r1, 
 												SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), 
-												false, false, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
+												false, false, nodekind);
 			}
 			break;
 		case ID_COMPAREWITHPREVIOUS:
 			{
+				svn_node_kind_t nodekind = svn_node_unknown;
+				if (!m_path.IsUrl())
+				{
+					nodekind = m_path.IsDirectory() ? svn_node_dir : svn_node_file;
+				}
 				if (PromptShown())
 				{
 					SVNDiff diff(this, m_hWnd, true);
 					diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 					diff.SetHEADPeg(m_LogRevision);
-					diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), false, false, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
+					diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), false, false, nodekind);
 				}
 				else
 					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, 
 												SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000),
-												false, false, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
+												false, false, nodekind);
 			}
 			break;
 		case ID_BLAMECOMPARE:
@@ -4168,29 +4178,39 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		case ID_BLAMETWO:
 			{
 				//user clicked on the menu item "compare and blame revisions"
+				svn_node_kind_t nodekind = svn_node_unknown;
+				if (!m_path.IsUrl())
+				{
+					nodekind = m_path.IsDirectory() ? svn_node_dir : svn_node_file;
+				}
 				if (PromptShown())
 				{
 					SVNDiff diff(this, this->m_hWnd, true);
 					diff.SetHEADPeg(m_LogRevision);
-					diff.ShowCompare(CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected, SVNRev(), false, true, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
+					diff.ShowCompare(CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected, SVNRev(), false, true, nodekind);
 				}
 				else
 					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected, 
-												SVNRev(), m_LogRevision, false, false, true, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
+												SVNRev(), m_LogRevision, false, false, true, nodekind);
 			}
 			break;
 		case ID_BLAMEWITHPREVIOUS:
 			{
 				//user clicked on the menu item "Compare and Blame with previous revision"
+				svn_node_kind_t nodekind = svn_node_unknown;
+				if (!m_path.IsUrl())
+				{
+					nodekind = m_path.IsDirectory() ? svn_node_dir : svn_node_file;
+				}
 				if (PromptShown())
 				{
 					SVNDiff diff(this, this->m_hWnd, true);
 					diff.SetHEADPeg(m_LogRevision);
-					diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), false, true, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
+					diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), false, true, nodekind);
 				}
 				else
 					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, 
-												SVNRev(), m_LogRevision, false, false, true, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
+												SVNRev(), m_LogRevision, false, false, true, nodekind);
 			}
 			break;
 		case ID_SAVEAS:
