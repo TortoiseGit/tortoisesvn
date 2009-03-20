@@ -1,6 +1,6 @@
 #
 # Japanese translation for TortoiseSVN
-# Copyright (C) 2004-2008 the TortoiseSVN team
+# Copyright (C) 2004-2009 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Last commit by:
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-11 19:01+0900\n"
+"PO-Revision-Date: 2009-03-21 01:59+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -207,6 +207,11 @@ msgstr "%s、しかしながらすでにローカルに追加されています�
 
 #. Resource IDs: (609)
 #, c-format
+msgid "%s, but it was already edited."
+msgstr "%s、しかしながらすでに編集されています。"
+
+#. Resource IDs: (609)
+#, c-format
 msgid "%s, but it was deleted, moved or renamed locally."
 msgstr "%s、しかしながらローカルで削除、移動、名前の変更が行われています。"
 
@@ -214,11 +219,6 @@ msgstr "%s、しかしながらローカルで削除、移動、名前の変更�
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
 msgstr "%s、しかしながら、作業コピーで妨害されました。"
-
-#. Resource IDs: (609)
-#, c-format
-msgid "%s, but the local file was already edited."
-msgstr "%s、しかしながらローカルファイルはすでに編集されています。"
 
 #. Resource IDs: (145)
 #, c-format
@@ -815,7 +815,7 @@ msgid "&Options"
 msgstr "オプション(&O)"
 
 #. Resource IDs: (32772)
-msgid "&Overlap images"
+msgid "&Overlay images"
 msgstr "画像を重ねて表示(&O)"
 
 #. Resource IDs: (1411, 65535)
@@ -993,6 +993,14 @@ msgstr "ロックを横取りする(&S)"
 #. Resource IDs: (1130)
 msgid "&Stop on copy/rename"
 msgstr "コピー／名前の変更が発生したら停止(&S)"
+
+#. Resource IDs: (276)
+msgid "&Switch WC to path and revision"
+msgstr "WC を指定したパスとリビジョンに切り替える(&S)"
+
+#. Resource IDs: (275)
+msgid "&Switch WC to path@HEAD"
+msgstr "WC を path@HEAD に切り替え(&S)"
 
 #. Resource IDs: (1173)
 msgid "&Symbol View"
@@ -1232,6 +1240,14 @@ msgstr "------------------------------------------------------------------------
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
+
+#. Resource IDs: (269)
+msgid "... checking cache and preparing log query"
+msgstr "... キャッシュをチェックし、ログクエリを準備しています"
+
+#. Resource IDs: (270)
+msgid "... reading working copy status"
+msgstr "... 作業コピーの状態を読み取っています"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -2103,6 +2119,10 @@ msgstr "更新をチェック"
 msgid "Check For Updates..."
 msgstr "更新をチェック ..."
 
+#. Resource IDs: (276)
+msgid "Check for &modifications"
+msgstr "変更をチェック(&M)"
+
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
 msgstr "変更をチェック(&F)"
@@ -2120,6 +2140,14 @@ msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr "インポート前に削除したいファイルにチェックをつける。"
+
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
+msgstr "ファイル／フォルダの名前の変更／移動がどのようになされたかをログでチェックし、名前の変更／移動もしくはそれらの1つをリポジトリに保持するかどうかを決めてください。そして、競合を解消済みとしてマークしてください。"
+
+#. Resource IDs: (612)
+msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to merge the change into your renamed file, or restore the original file."
+msgstr "ファイル／フォルダの名前の変更／移動がどのようになされたかをログでチェックし、名前を変更したファイルにあなたが加えた変更をマージする、もしくはオリジナルのファイルを復元するかどうかを決めてください。"
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -2461,6 +2489,10 @@ msgstr "ファイルの競合を解消するために利用するプログラム
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "GNUの差分ファイル（パッチファイル）の表示に用いるプログラムの設定。"
+
+#. Resource IDs: (1503)
+msgid "Conflict Sources"
+msgstr "競合しているソース"
 
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
@@ -3005,6 +3037,10 @@ msgstr "アクションログファイルを削除する"
 msgid "Deleting"
 msgstr "削除中"
 
+#. Resource IDs: (207)
+msgid "Depth"
+msgstr "深さ"
+
 #. Resource IDs: (65535)
 msgid "Depth:"
 msgstr "深さ:"
@@ -3200,10 +3236,10 @@ msgstr "ドキュメント:"
 #. Resource IDs: (65535)
 msgid ""
 "Documentation : Simon Large\n"
-"Code : Tobias Schäfer, Stefan Fuhrmann"
+"Code : Tobias Schafer, Stefan Fuhrmann"
 msgstr ""
 "ドキュメント : Simon Large\n"
-"コード : Tobias Schäfer, Stefan Fuhrmann"
+"コード : Tobias Schafer, Stefan Fuhrmann"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -3514,6 +3550,10 @@ msgstr ""
 msgid "Exceptions:"
 msgstr "例外:"
 
+#. Resource IDs: (20)
+msgid "Exclude"
+msgstr "除外"
+
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
 msgstr "実行ファイル (*.exe)|*.exe|コマンド (*.com)|*.com|PDFファイル (*.pdf)|*.pdf|バッチファイル (*.bat)|*.bat|全てのファイル (*.*)|*.*||"
@@ -3619,6 +3659,10 @@ msgstr "外部プログラム::マージツール"
 #. Resource IDs: (194)
 msgid "External Programs::Unified Diff Viewer"
 msgstr "外部プログラム::Unified形式の差分ビューア"
+
+#. Resource IDs: (263)
+msgid "External failed"
+msgstr "外部が失敗しました"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
@@ -3891,6 +3935,10 @@ msgstr "項目の大文字／小文字を修正し、追加は行わない"
 msgid "Fold &tags"
 msgstr "タグを折りたたむ(&T)"
 
+#. Resource IDs: (65535)
+msgid "Folded tag"
+msgstr "折りたたまれたタグ"
+
 #. Resource IDs: (1002)
 msgid "Folder"
 msgstr "フォルダ"
@@ -3947,13 +3995,13 @@ msgstr "情報を集めています。しばらくお待ちください ..."
 msgid "General"
 msgstr "一般"
 
+#. Resource IDs: (212)
+msgid "General::Colors"
+msgstr "一般::色"
+
 #. Resource IDs: (195)
 msgid "General::Context Menu"
 msgstr "一般::コンテキストメニュー"
-
-#. Resource IDs: (212)
-msgid "General::Dialog Colors"
-msgstr "一般::ダイアログ（色）"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -3962,14 +4010,6 @@ msgstr "一般::ダイアログ１"
 #. Resource IDs: (213)
 msgid "General::Dialogs 2"
 msgstr "一般::ダイアログ２"
-
-#. Resource IDs: (296)
-msgid "General::Revision Graph"
-msgstr "一般::リビジョングラフ"
-
-#. Resource IDs: (299)
-msgid "General::Revision Graph Colors"
-msgstr "一般::リビジョングラフ（色）"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -5078,6 +5118,10 @@ msgstr "比較対象としてマーク"
 msgid "Mark the conflict as resolved"
 msgstr "競合を解消済みとしてマークする"
 
+#. Resource IDs: (65535)
+msgid "Markers"
+msgstr "マーカー"
+
 #. Resource IDs: (2051)
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -5180,8 +5224,8 @@ msgstr "これらのリビジョンをマージ ..."
 
 #. Resource IDs: (610)
 #, c-format
-msgid "Merge the changes into the file '%s'"
-msgstr "ファイル '%s' に変更をマージする"
+msgid "Merge the changes into '%s'"
+msgstr "変更を '%s' にマージする"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -6005,6 +6049,10 @@ msgstr "しばらくお待ちください ..."
 msgid "Port :"
 msgstr "ポート:"
 
+#. Resource IDs: (347)
+msgid "Possible values: 0 (fully transparent) .. 255 (opaque)"
+msgstr "可能な値: 0（透明）～255（不透明）"
+
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
 msgstr "Post-Commit フック"
@@ -6146,6 +6194,16 @@ msgstr "属性 %s : 作業 Base"
 #, c-format
 msgid "Property %s : working copy"
 msgstr "属性 %s : 作業コピー"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' deleted"
+msgstr "属性 %s を削除"
+
+#. Resource IDs: (262)
+#, c-format
+msgid "Property '%s' set"
+msgstr "属性 %s を設定"
 
 #. Resource IDs: (107)
 msgid "Property Page"
@@ -6718,6 +6776,10 @@ msgstr "リビジョングラフ"
 msgid "Revision Graph Filter"
 msgstr "リビジョングラフフィルタ"
 
+#. Resource IDs: (299)
+msgid "Revision Graph::Colors"
+msgstr "リビジョングラフ::色"
+
 #. Resource IDs: (228)
 msgid "Revision Range"
 msgstr "リビジョンの範囲"
@@ -7145,6 +7207,10 @@ msgstr "マージの種類を選択"
 msgid "Select viewer for diff-files"
 msgstr "ファイルの差分を表示するビューアを選択"
 
+#. Resource IDs: (65535)
+msgid "Selected node"
+msgstr "選択したノード"
+
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
 msgstr "Send Mail はメッセージの送信に失敗しました。"
@@ -7226,6 +7292,10 @@ msgstr "アクセラレータを表示(&A):"
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "全て表示(&A)"
+
+#. Resource IDs: (1132)
+msgid "Show &Log"
+msgstr "ログを表示(&L)"
 
 #. Resource IDs: (115)
 msgid "Show &Range..."
@@ -7522,6 +7592,14 @@ msgstr "ターゲットが見つからないのでスキップ"
 msgid "Sort by commit count"
 msgstr "コミット数でソートする"
 
+#. Resource IDs: (1501)
+msgid "Source Left:"
+msgstr "左側のソース"
+
+#. Resource IDs: (1502)
+msgid "Source Right:"
+msgstr "右側のソース"
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "最近のログメッセージを表示するダイアログで、表示する項目数を指定する。"
@@ -7633,8 +7711,8 @@ msgid "Steal the lock"
 msgstr "ロックを横取りする"
 
 #. Resource IDs: (65535)
-msgid "Stefan Küng, Lübbe Onken"
-msgstr "Stefan Küng, Lübbe Onken"
+msgid "Stefan Kung, Lubbe Onken"
+msgstr "Stefan Kung, Lubbe Onken"
 
 #. Resource IDs: (65535)
 msgid "Stripes"
@@ -7988,13 +8066,13 @@ msgstr "最後のマージ操作でファイル '%s' を追加しようとしま
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last merge operation tried to delete the directory '%s'"
-msgstr "最後のマージ操作でディレクトリ '%s' を削除しようとしました"
+msgid "The last merge operation tried to delete/move/rename the directory '%s'"
+msgstr "最後のマージ操作でディレクトリ '%s' に対して名前の変更／移動／削除をしようとしました"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last merge operation tried to delete the file '%s'"
-msgstr "最後のマージ操作でファイル '%s' を削除しようとしました"
+msgid "The last merge operation tried to delete/move/rename the file '%s'"
+msgstr "最後のマージ操作でファイル '%s' に対して名前の変更／移動／削除をしようとしました"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8018,13 +8096,13 @@ msgstr "最後の切り替え操作でファイル '%s' を追加しようとし
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last switch operation tried to delete the directory '%s'"
-msgstr "最後の切り替え操作でディレクトリ '%s' を削除しようとしました"
+msgid "The last switch operation tried to delete/move/rename the directory '%s'"
+msgstr "最後の切り替え操作でディレクトリ '%s' に対して名前の変更／移動／削除をしようとしました"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last switch operation tried to delete the file '%s'"
-msgstr "最後の切り替え操作でファイル '%s' を削除しようとしました"
+msgid "The last switch operation tried to delete/move/rename the file '%s'"
+msgstr "最後の切り替え操作でファイル '%s' に対して名前の変更／移動／削除をしようとしました"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8048,13 +8126,13 @@ msgstr "最後の更新操作でファイル '%s' を追加しようとしまし
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the directory '%s'"
-msgstr "最後の更新操作でディレクトリ '%s' を削除しようとしました"
+msgid "The last update operation tried to delete/move/rename the directory '%s'"
+msgstr "最後の更新操作でディレクトリ '%s' に対して名前の変更／移動／削除をしようとしました"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete the file '%s'"
-msgstr "最後の更新操作でファイル '%s' を削除しようとしました"
+msgid "The last update operation tried to delete/move/rename the file '%s'"
+msgstr "最後の更新操作でファイル '%s' に対して名前の変更／移動／削除をしようとしました"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8869,6 +8947,10 @@ msgstr "更新 - TortoiseSVN"
 msgid "Update Depth"
 msgstr "更新の深さ"
 
+#. Resource IDs: (275)
+msgid "Update WC to revision"
+msgstr "WC をリビジョンに更新"
+
 #. Resource IDs: (74)
 msgid "Updated"
 msgstr "更新"
@@ -9180,6 +9262,10 @@ msgstr "Visual Studio.NET 200&5"
 #. Resource IDs: (65535)
 msgid "WC node"
 msgstr "WC ノード"
+
+#. Resource IDs: (65535)
+msgid "WC node border"
+msgstr "WC ノードの縁"
 
 #. Resource IDs: (198)
 msgid "Wait"
@@ -10288,6 +10374,12 @@ msgstr "はい"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "%s, but the local file was already edited."
+#~ msgstr "%s、しかしながらローカルファイルはすでに編集されています。"
+#~ msgid "General::Revision Graph"
+#~ msgstr "一般::リビジョングラフ"
+#~ msgid "General::Revision Graph Colors"
+#~ msgstr "一般::リビジョングラフ（色）"
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
