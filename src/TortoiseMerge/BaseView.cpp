@@ -2308,7 +2308,7 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 			ScrollSide(-1);
 			SetTimer(IDT_SCROLLTIMER, 20, NULL);
 		}
-		if (charIndex >= GetScreenChars())
+		if (charIndex >= (GetScreenChars()+m_nOffsetChar))
 		{
 			ScrollSide(1);
 			SetTimer(IDT_SCROLLTIMER, 20, NULL);
