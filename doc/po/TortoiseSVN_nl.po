@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2009-03-19 23:55+0100\n"
+"PO-Revision-Date: 2009-03-20 20:37+0100\n"
 "Last-Translator: Mariska Hoogenboom <Mariska.Hoogenboom@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -722,17 +722,17 @@ msgstr "Waarom is dit nu zo interessant? Tot zoverre lijkt dit op de definitie v
 #. (para)
 #: ../source/TortoiseSVN_en.xml:780
 msgid "When a client reads data from the repository, it normally sees only the latest version of the filesystem tree. But the client also has the ability to view <emphasis>previous</emphasis> states of the filesystem. For example, a client can ask historical questions like, <quote>what did this directory contain last Wednesday?</quote>, or <quote>who was the last person to change this file, and what changes did they make?</quote> These are the sorts of questions that are at the heart of any <firstterm>version control system</firstterm>: systems that are designed to record and track changes to data over time."
-msgstr ""
+msgstr "Wanneer een client data van het archief leest, ziet deze standaard alleen de laatste versie van het filesysteem. De client kan echter ook <emphasis>vorige</emphasis> versies van het filesysteem bekijken. Een client kan bijvoorbeeld historische vragen stellen, zoals <quote>wat zat er in deze map afgelopen woensdag?</quote>, of <quote>wie was de laatste persoon die dit bestand heeft gewijzigd en welke wijzigingen heeft hij gemaakt?</quote> Dit zijn het soort vragen, dat in het hart zit van elk <firstterm>versiebeheersysteem</firstterm>:  systemen die zijn ontworpen om wijzigingen in de data vast te leggen en te traceren in de tijd."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:795
 msgid "Versioning Models"
-msgstr ""
+msgstr "Versioneermodellen"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:796
 msgid "All version control systems have to solve the same fundamental problem: how will the system allow users to share information, but prevent them from accidentally stepping on each other's feet? It's all too easy for users to accidentally overwrite each other's changes in the repository."
-msgstr ""
+msgstr "Alle versiebeheersystemen moeten hetzelfde fundamentele probleem oplossen: hoe zorgt een systeem ervoor dat gebruikers informatie kunnen delen, maar voorkomt dat ze per ongeluk op elkaars voeten gaan staan? Het is maar al te gemakkelijk voor gebruikers om per ongeluk elkaars wijzigingen te overschrijven in het archief."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:805
@@ -742,7 +742,7 @@ msgstr "Het Probleem van Bestand Delen"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:806
 msgid "Consider this scenario: suppose we have two co-workers, Harry and Sally. They each decide to edit the same repository file at the same time. If Harry saves his changes to the repository first, then it's possible that (a few moments later) Sally could accidentally overwrite them with her own new version of the file. While Harry's version of the file won't be lost forever (because the system remembers every change), any changes Harry made <emphasis>won't</emphasis> be present in Sally's newer version of the file, because she never saw Harry's changes to begin with. Harry's work is still effectively lost - or at least missing from the latest version of the file - and probably by accident. This is definitely a situation we want to avoid!"
-msgstr ""
+msgstr "Beschouw het volgende scenario: stel we hebben twee collega's, Harry en Sally. Ze besluiten beide om hetzelfde archief te wijzigen op hetzelfde moment. Als Harry de wijzigingen als eerste in het archief opslaat, dan is het mogelijk dat Sally (enkele ogenblikken later) per ongeluk zijn wijzigingen overschrijft met haar nieuwe versie van het bestand. Alhoewel Harry's wijzigingen niet voor goed verloren zijn (omdat het systeem elke wijziging onthoudt), zijn de wijzigingen die Harry aanbracht <emphasis>niet</emphasis> zichtbaar in Sally's nieuwe versie van het bestand, omdat zij Harry's wijzigingen helemaal niet eens gezien heeft. Harry's werk is dus in feite verloren - of ontbreekt in elk geval in de laatste versie van het bestand - en waarschijnlijk ook nog per ongeluk. Dit is precies de situatie die we willen voorkomen!"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:822
@@ -759,12 +759,12 @@ msgstr "De Vergrendel-Wijzig-Ontgrendel Oplossing"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:828
 msgid "Many version control systems use a <firstterm>lock-modify-unlock</firstterm> model to address this problem, which is a very simple solution. In such a system, the repository allows only one person to change a file at a time. First Harry must <emphasis>lock</emphasis> the file before he can begin making changes to it. Locking a file is a lot like borrowing a book from the library; if Harry has locked a file, then Sally cannot make any changes to it. If she tries to lock the file, the repository will deny the request. All she can do is read the file, and wait for Harry to finish his changes and release his lock. After Harry unlocks the file, his turn is over, and now Sally can take her turn by locking and editing."
-msgstr ""
+msgstr "Veel versiebeheersystemen gebruiken een <firstterm>blokkeren-wijzigen-blokkade opheffen</firstterm> model om dit probleem te adresseren, hetgeen een zeer simpele oplossing is. In zo'n systeem staat het archief maar aan één persoon tegelijkertijd toe om een bestand te wijzigen op één bepaald moment. Eerst moet Harry het bestand <emphasis>blokkeren</emphasis>, voordat hij kan beginnen om het bestand te wijzigen. Blokkeren van een bestand lijkt op het lenen van een boek bij de bibliotheek; als Harry het bestand heeft geblokkeerd, kan Sally geen wijzigingen hierin aanbrengen. Als zij probeert het bestand te blokkeren, zal het archief dit verzoek weigeren. Ze kan alleen het bestand bekijken en wachten tot Harry klaar is met zijn wijzigingen en de blokkade opheft. Nadat Harry de blokkade op het bestand heeft opgeheven, is zijn beurt voorbij en is Sally aan de beurt om het bestand te blokkeren en te wijzigen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:846
 msgid "The problem with the lock-modify-unlock model is that it's a bit restrictive, and often becomes a roadblock for users:"
-msgstr ""
+msgstr "Het probleem met \"blokkeren-wijzigen-blokkade opheffen\" is dat het erg beperkend is en vaak voor gebruikers een wegversperring wordt."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:853
