@@ -15,9 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-19 21:56 +0000\n"
-"PO-Revision-Date: 2009-03-20 14:44+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"POT-Creation-Date: 2009-03-20 16:18 +0000\n"
+"PO-Revision-Date: 2009-03-20 18:11+0100\n"
+"Last-Translator: Stefan Küng <tortoisesvn@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,7 @@ msgstr "@@image: 'images/svn_move.png'; md5=THIS FILE DOESN'T EXIST"
 # build          - erstellen
 #. (title)
 #. (secondary)
+#, fuzzy
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
@@ -6016,7 +6017,7 @@ msgstr ""
 
 #. (title)
 msgid "Use explicit revision numbers"
-msgstr ""
+msgstr "Nutze Explizite Revisionsnummern"
 
 #. (para)
 msgid "You should strongly consider using explicit revision numbers in all of your externals definitions, as described above. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex code base."
@@ -7295,7 +7296,7 @@ msgstr "Wenn der Graph von vielen Linien durchschnitten wird, können Sie die An
 
 #. (term)
 msgid "Differential path names"
-msgstr ""
+msgstr "Differenzielle Pfadnamen"
 
 #. (para)
 msgid "Long path names can take a lot of space and make the node boxes very large. Use this option to show only the changed part of a path, replacing the common part with dots. E.g. if you create a branch <literal>/branches/1.2.x/doc/html</literal> from <literal>/trunk/doc/html</literal> the branch could be shown in compact form as <literal>/branches/1.2.x/..</literal> because the last two levels, <literal>doc</literal> and <literal>html</literal>, did not change."
@@ -7335,7 +7336,7 @@ msgstr "Wenn ein Projekt viele Marken enthält, würde es viel Platz beanspruche
 
 #. (term)
 msgid "Hide deleted paths"
-msgstr ""
+msgstr "Gelöschte Pfade verbergen"
 
 #. (para)
 msgid "Hides paths which are no longer present at the HEAD revision of the repository, e.g. deleted branches."
@@ -7343,7 +7344,7 @@ msgstr ""
 
 #. (term)
 msgid "Hide unchanged branches"
-msgstr ""
+msgstr "Ungenutzte Zweige verbergen"
 
 #. (para)
 msgid "Hides branches where no changes were committed to the respective file or sub-folder. This does not necessarily indicate that the branch was not used, just that no changes were made to <emphasis>this</emphasis> part of it."
@@ -7375,7 +7376,7 @@ msgstr "Manchmal zeigt der Revisionsgraph mehr Details an als Sie eigentlich seh
 
 #. (term)
 msgid "Tree stripes"
-msgstr ""
+msgstr "Baumstreifen"
 
 #. (para)
 msgid "Where the graph contains several trees, it is sometimes useful to use alternating colours on the background to help distinguish between trees."
@@ -7383,7 +7384,7 @@ msgstr ""
 
 #. (term)
 msgid "Show overview"
-msgstr ""
+msgstr "Gesamtübersicht anzeigen"
 
 #. (para)
 msgid "Shows a small picture of the entire graph, with the current view window as a rectangle which you can drag. This allows you to navigate the graph more easily. Note that for very large graphs the overview may become useless due to the extreme zoom factor and will therefore not be shown in such cases."
@@ -7443,7 +7444,7 @@ msgstr "Falls Sie den Log-Puffer verwenden und denken, dass sich der Inhalt oder
 
 #. (title)
 msgid "Pruning Trees"
-msgstr ""
+msgstr "Zweige löschen"
 
 #. (para)
 msgid "A large tree can be difficult to navigate and sometimes you will want to hide parts of it, or break it down into a forest of smaller trees. If you hover the mouse over the point where a node link enters or leaves the node you will see one or more popup buttons which allow you to do this."
@@ -7523,7 +7524,7 @@ msgstr "Um einzelne Dateien mit TortoiseSVN zu exportieren, müssen Sie den Proj
 
 #. (title)
 msgid "Exporting a Change Tree"
-msgstr ""
+msgstr "Exportieren von Baumänderungen"
 
 #. (para)
 msgid "If you want to export a copy of your project tree structure but containing only the files which have changed in a particular revision, or between any two revisions, use the compare revisions feature described in <xref linkend=\"tsvn-dug-compare-revs\"/>."
@@ -8036,7 +8037,7 @@ msgstr "Wenn die standardmäßig angezeigten langen Datums-/Zeitangaben zu viel 
 
 #. (term)
 msgid "Can double-click in log list to compare with previous revision"
-msgstr ""
+msgstr "Kann in der Log-Liste doppelklicken um mit der vorherigen Revision zu vergleichen"
 
 #. (para)
 msgid "If you frequently find yourself comparing revisions in the top pane of the log dialog, you can use this option to allow that action on double-click. It is not enabled by default because fetching the diff is often a long process, and many people prefer to avoid the wait after an accidental double-click, which is why this option is not enabled by default."
@@ -8068,7 +8069,7 @@ msgstr "<guilabel>Schließen, falls keine Fehler</guilabel> schließt den Dialog
 
 #. (term)
 msgid "Use recycle bin when reverting"
-msgstr ""
+msgstr "Verwende Papierkorb bei Rückgängig"
 
 #. (para)
 msgid "When you revert local modifications, your changes are discarded. TortoiseSVN gives you an extra safety net by sending the modified file to the recycle bin before bringing back the pristine copy. If you prefer to skip the recycle bin, uncheck this option."
@@ -8288,7 +8289,7 @@ msgstr "Der Einstellungsdialog, Revisionsgraph"
 
 #. (term)
 msgid "Classification Patterns"
-msgstr ""
+msgstr "Klassifizierungsmuster"
 
 #. (para)
 msgid "The revision graph attempts to show a clearer picture of your repository structure by distinguishing between trunk, branches and tags. As there is no such classification built into Subversion, this information is extracted from the path names. The default settings assume that you use the conventional English names as suggested in the Subversion documentation, but of course your usage may vary."
@@ -8368,7 +8369,7 @@ msgstr "Aktuelle HEAD Revision im Projektarchiv."
 
 #. (term)
 msgid "WC Node"
-msgstr ""
+msgstr "Arbeitskopie-Knoten"
 
 #. (para)
 msgid "If you opt to show an extra node for your modified working copy, attached to its last-commit revision on the graph, use this color."
@@ -8376,7 +8377,7 @@ msgstr ""
 
 #. (term)
 msgid "WC Node Border"
-msgstr ""
+msgstr "Arbeitskopie-Knoten Rand"
 
 #. (para)
 msgid "If you opt to show whether the working copy is modified, use this color border on the WC node when modifications are found."
@@ -8384,7 +8385,7 @@ msgstr ""
 
 #. (term)
 msgid "Tag Nodes"
-msgstr ""
+msgstr "Marken"
 
 #. (para)
 msgid "Nodes classified as tags may be blended with this color. If you use tag folding to save space, tags are marked on the copy source using a block in this color."
@@ -8392,7 +8393,7 @@ msgstr ""
 
 #. (term)
 msgid "Trunk Nodes"
-msgstr ""
+msgstr "Stamm"
 
 #. (para)
 msgid "Nodes classified as trunk may be blended with this color."
@@ -8400,7 +8401,7 @@ msgstr ""
 
 #. (term)
 msgid "Folded Tag Markers"
-msgstr ""
+msgstr "Zusammengeklappte Marken"
 
 #. (para)
 msgid "If you use tag folding to save space, tags are marked on the copy source using a block in this color."
@@ -8408,19 +8409,19 @@ msgstr ""
 
 #. (term)
 msgid "Selected Node Markers"
-msgstr ""
+msgstr "Selektierte Marken"
 
 #. (para)
 msgid "When you left click on a node to select it, the marker used to indicate selection is a block in this color."
-msgstr ""
+msgstr "Wenn Sie auf einen Knoten links-Klicken um diesen zu selektieren, wird der Selektionsmarker in dieser Farbe angezeigt."
 
 #. (term)
 msgid "Stripes"
-msgstr ""
+msgstr "Streifen"
 
 #. (para)
 msgid "These colors are used when the graph is split into sub-trees and the background is colored in alternating stripes to help pick out the separate trees."
-msgstr ""
+msgstr "Diese Farben werden benutzt wenn der Graph in Unterbäume aufgeteilt und der Hintergrund in abwechselnden Streifen gezeichnet wird um die einzelnen Bäume besser unterscheiden zu können."
 
 #. (title)
 msgid "Icon Overlay Settings"
@@ -8912,19 +8913,19 @@ msgstr "Wenn der Puffer nicht aktiviert ist, werden die Daten stets vom Server g
 
 #. (term)
 msgid "Allow ambiguous URLs"
-msgstr ""
+msgstr "Mehrdeutige URLs zulassen"
 
 #. (para)
 msgid "Occasionally you may have to connect to a server which uses the same URL for all repositories. Older versions of <literal>svnbridge</literal> would do this. If you need to access such repositories you will have to check this option. If you don't, leave it unchecked to improve performance."
-msgstr ""
+msgstr "Für den Fall dass die zu einem Server Verbindung aufnehmen welcher dieselbe URL für alle Projektarchive benutzt aktivieren Sie diese Checkbox. Zum Beispiel verwenden ältere Versionenen von <literal>svnbridge</literal> immer dieselbe URL. Falls Sie dies nicht benötigen, lassen Sie die Checkbox inaktive um die Performance zu verbessern."
 
 #. (term)
 msgid "Allow ambiguous UUIDs"
-msgstr ""
+msgstr "Mehrdeutige UUIDs zulassen"
 
 #. (para)
 msgid "Some hosting services give all their repositories the same UUID. You may even have done this yourself by copying a repository folder to create a new one. For all sorts of reasons this is a bad idea - a UUID should be <emphasis>unique</emphasis>. However, the log cache will still work in this situation if you check this box. If you don't need it, leave it unchecked to improve performance."
-msgstr ""
+msgstr "Einige Subversion Hoster vergeben allen Projektarchiven dieselbe UUID. Sie haben dies vielleicht selbst getan durch einfaches Kopieren eines Projektarchivs anstatt dass Sie ein neues erstellt haben. Trotz all diesen Gründen ist dies sehr schlecht - eine UUID sollte <emphasis>einmalig</emphasis> sein. Trotz all dem kann der log cache in solchen Situationen dennoch funktionieren wenn sie diese Checkbox aktivieren. Wenn Sie dies nicht benötigen, lassen Sie die Checkbox inaktiv um die Performance zu verbessern."
 
 #. (term)
 msgid "If the repository cannot be contacted"
@@ -8948,27 +8949,27 @@ msgstr "Wenn Sie den Log-Dialog aufrufen, soll normalerweise der Server kontakti
 
 #. (term)
 msgid "Days of inactivity until small caches get removed"
-msgstr ""
+msgstr "Inaktive Tage, bis kleine Puffer gelöscht werden"
 
 #. (para)
 msgid "If you browse around a lot of repositories you will accumulate a lot of log caches. If you're not actively using them, the cache will not grow very big, so TortoiseSVN purges them after a set time by default. Use this item to control cache purging."
-msgstr ""
+msgstr "Wenn Sie viele Projektarchive benutzen werden mit der Zeit viele log Caches angehäuft. Wenn Sie diese nicht oft benutzen wird TortoiseSVN diese löschen nach einer bestimmten Zeit. Stellen Sie hiermit die Löschfunktion ein."
 
 #. (term)
 msgid "Maximum size of removed inactive caches"
-msgstr ""
+msgstr "&Maximale Größe eines gelöschten inaktiven Puffers"
 
 #. (para)
 msgid "Larger caches are more expensive to reacquire, so TortoiseSVN only purges small caches. Fine tune the threshold with this value."
-msgstr ""
+msgstr "Grössere Caches benötigen länger beim erneuten Erstellen, deshalb löscht TortoiseSVN nur die kleineren Caches. Sie können die Lösch-Grenze mit diesem Wert einstellen."
 
 #. (term)
 msgid "Maximum number of tool failures before cache removal"
-msgstr ""
+msgstr "Maximale Anzahl von Fehlschlägen bis ein Puffer gelöscht wird"
 
 #. (para)
 msgid "Occasionally something goes wrong with the caching and causes a crash. If this happens the cache is normally deleted automatically to prevent a recurrence of the problem. If you use the less stable nightly build you may opt to keep the cache anyway."
-msgstr ""
+msgstr "Manchmal kann etwas Schiefgehen mit dem Caching und verursacht einen Absturz. Wenn dies passiert wird der Cache normalerweise automatisch gelöscht um zu verhindern dass dasselbe Problem erneut auftritt. Wenn Sie den weniger stabilen nightly-build benutzen können Sie versuchen den Cache trotzdem zu behalten."
 
 #. (title)
 msgid "Cached Repositories"
@@ -9346,23 +9347,23 @@ msgstr "Um ein Cache-Symbol zur Statusleiste hinzuzufügen, erzeugen Sie einen <
 
 #. (term)
 msgid "Debug"
-msgstr ""
+msgstr "Debug"
 
 #. (para)
 msgid "To show the command line parameters passed from the shell extension to TortoiseProc.exe create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\Debug</literal>."
-msgstr ""
+msgstr "Um die Befehlszeilenparameter anzuzeigen welche von der Shell-Erweiterung an TortoiseProc.exe weitergegeben werden erstellen Sie den <literal>DWORD</literal> Schlüssel mit Wert 1 unter <literal>HKCU\\Software\\TortoiseSVN\\Debug</literal>."
 
 #. (term)
-msgid "Owner-Drawn Menus"
-msgstr ""
+msgid "Context Menu Icons"
+msgstr "Kontextmenu Icons"
 
 #. (para)
-msgid "This can be useful if you use something other than the windows explorer or if you get problems with the context menu displaying correctly. create a <literal>DWORD</literal> key with a value of 0 at <literal>HKCU\\Software\\TortoiseSVN\\OwnerdrawnMenus</literal> if you don't want TortoiseSVN to use owner-draw menu items in the shell context menu. Set this value to 2 if you don't want TortoiseSVN to use icons in the context menu at all."
-msgstr ""
+msgid "This can be useful if you use something other than the windows explorer or if you get problems with the context menu displaying correctly. create a <literal>DWORD</literal> key with a value of 0 at <literal>HKCU\\Software\\TortoiseSVN\\ShowContextMenuIcons</literal> if you don't want TortoiseSVN to not show icons for the shell context menu items. Set this value to 1 to show the icons again."
+msgstr "Dies kann nützlich sein wenn Sie einen anderen Dateimanager als den Windows Explorer benutzen oder wenn Sie Probleme mit der Darstellung der Kontextmenus haben. Erstellen Sie einen <literal>DWORD</literal> Wert mit dem Wert 0 unter <literal>HKCU\\Software\\TortoiseSVN\\ShowContextMenuIcons</literal> wenn Sie möchten dass TortoiseSVN keine Icons im Kontextmenu anzeigen soll."
 
 #. (term)
 msgid "Block Overlay Status"
-msgstr ""
+msgstr "Blockiere Overlay-Status"
 
 #. (para)
 msgid "If you don't want the explorer to update the status overlays while another TortoiseSVN command is running (e.g. Update, Commit, ...) then create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\BlockStatus</literal>."
@@ -9370,11 +9371,11 @@ msgstr "Wenn Sie verhindern möchten, dass der Explorer die überlagerten Symbol
 
 #. (term)
 msgid "Update Check URL"
-msgstr ""
+msgstr "URL für Update-Überprüfung"
 
 #. (para)
 msgid "<literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> contains the URL from which TortoiseSVN tries to download a text file to find out if there are updates available. You can also set this under <literal>HKLM</literal> instead of <literal>HKCU</literal> if you want, but <literal>HKCU</literal> overwrites the setting in <literal>HKLM</literal>. This might be useful for company admins who don't want their users to update TortoiseSVN until they approve it."
-msgstr ""
+msgstr "<literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> enthält die URL von welcher TortoioseSVN versucht eine Text-Datei zu laden mit Informationen darüber ob eine neue Version erhältlich ist. Sie können diesen Schlüssel auch unter <literal>HKLM</literal> statt <literal>HKCU</literal> erstellen, aber <literal>HKCU</literal> überschreibt die Einstellung in <literal>HKLM</literal>. Dies ist nützlich in Firmen wo der Administrator nicht möchte dass Benutzer TortoiseSVN selber aktualisieren bevor der Administrator die Version nicht selber freigegeben hat."
 
 #. (term)
 msgid "Filenames without extensions in auto-completion list"
@@ -9418,11 +9419,11 @@ msgstr "Der Log-Dialog hebt die aktuelle Revision einer Datei in der Arbeitskopi
 
 #. (term)
 msgid "Make checkout fail if an item of the same name exists"
-msgstr ""
+msgstr "Erzwingt ein Fehlschlagen eines Checkouts wenn eine Datei/Ordner mit demselben Namen bereits existiert"
 
 #. (para)
 msgid "By default, if you checkout a working copy over an existing unversioned folder structure, as you might do after import, then any existing which differ from the repository content will be left unchanged and marked as modified. When you come to commit, it is your local copy which will then be sent back to the repository. Some people would prefer the checkout to fail if the existing content differs, so that if two people add the same file the second person's version does not overwrite the original version by mistake. If you want to force checkouts to fail in this instance you must create a <literal>DWORD</literal> registry key with value 0 at <literal>HKCU\\Software\\TortoiseSVN\\AllowUnversionedObstruction</literal>."
-msgstr ""
+msgstr "Wenn Sie eine Arbeitskopie über eine bestehende Ordnerstruktur auschecken (z.B. nach einem Import), dann werden Dateien welche nicht identisch sind mit dem Projektarchiv unverändert belassen aber als geändert markiert. Beim nächsten Commit wird die lokale Arbeitskopie dann ins Projektarchiv übertragen. Einige Leute hätten es lieber dass ein Checkout fehlschlagen würden wenn Unterschiede zum Projektarchiv festgestellt werden, so dass wenn zwei Personen dieselbe Datei hinzufügen die Übertragung der ersten Person die Datei der zweiten Person nicht überschreibt. Wenn Sie dieses Verhalten bevorzugen können Sie einen Registry Schlüssel unter <literal>HKCU\\Software\\TortoiseSVN\\AllowUnversionedObstruction</literal> als <literal>DWORD</literal> Wert erstellen und diesen auf 0 setzen."
 
 #. (title)
 msgid "Subversion Working Folders"
@@ -9715,7 +9716,7 @@ msgstr "Wenn eine Quell- und eine Zieldatei angegeben werden, kopiert SubWCRev d
 
 #. (para)
 msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
-msgstr ""
+msgstr "Einige dieser Schlüsselwörter beziehen sich auf einzelne Dateien statt auf ganze Arbeitskopien, deshalb machen diese auch nur Sinn wenn SubWCRev für eine einzelne Datei aufgerufen wird. Dies ist der Fall für literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> und <literal>$WCLOCKCOMMENT$</literal>."
 
 #. (title)
 msgid "Keyword Example"
@@ -12494,9 +12495,8 @@ msgstr ""
 ");\n"
 
 #. (para)
-#, fuzzy
 msgid "<placeholder-1/> This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there. The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path. The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>). The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns. The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
-msgstr ""
+msgstr "<placeholder-1/>Diese Methode wird von TortoiseSVN aus dem Commit-Dialog aufgerufen wenn der Benutzer auf den Plugin-Button klickt. Diese Methode wird anstelle von <literal>GetCommitMessage()</literal> aufgerufen. Bitte beziehen Sie sich auf die Dokumentation für <literal>GetCommitMessage</literal> für die Parameter welche auch hier angegeben sind. Der Parameter <literal>commonURL</literal> ist die Eltern-URL aller Pfade welche ausgewählt waren beim Aufruf des Commit-Dialogs. Dies ist die URL des <literal>commonRoot</literal> Pfades. Der Parameter <literal>bugID</literal> enthält den Inhalt des bug-ID Eingabefeldes (sofern diese angezeigt wird, konfiguriert mittels <literal>bugtraq:message</literal>). Der Rückgabewert <literal>bugIDOut</literal> wird benutzt um das bug-ID Eingabefeld zu füllen wenn die Methode fertig ist. Die Rückgabewerte <literal>revPropNames</literal> und <literal>revPropValues</literal> können Paare von Namen/Werten enthalten für Revisions-Eigenschaften welche zusammen mit dem Commit gesetzt werden. Ein Plugin muss sicherstellen dass beide Arrays die gleiche Grösse haben! Jeder Eigenschaftsname in <literal>revPropNames</literal> muss einen entsprechenden Wert in <literal>revPropValues</literal> enthalten. Falls keine Revisionseigenschaften gesetzt werden sollen, muss das Plugin leere Arrays zurücklieferen."
 
 #. (programlisting)
 #, no-wrap
@@ -12525,7 +12525,7 @@ msgstr ""
 
 #. (para)
 msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
-msgstr ""
+msgstr "<placeholder-1/>Diese Methode wird aufgerufen kurz bevor der Commit-Dialog geschlossen wird und der eigentliche Commit beginnt. Ein Plugin kann mit Hilfe dieser Methode die Log-Meldung und/oder die zu übertragenden Dateien/Ordner des Commits überprüfen und den Commit entweder zulassen oder blockieren. Die Parameter sind dieselben wie für <literal>GetCommitMessage2()</literal> mit dem Unterschied dass <literal>commonURL</literal> die gemeinsame URL aller <emphasis>ausgewählten</emphasis> Dateien/Ordner und <literal>commonRoot</literal> der gemeinsame Pfad aller ausgewählten Dateien/Ordner ist. Der Rückgabewert <literal>errorMessage</literal> muss entweder eine Fehlermeldung enthalten welche TortoiseSVN dem Benutzer anzeigt oder leer sein um den Commit zuzulassen. Wenn eine Fehlermeldung zurückgegeben wird zeigt TortoiseSVN diese dem Benutzer in einem Fehlerdialog an und hält den Commit-Dialog offen so dass der Benutzer den Fehler korrigieren kann. Ein Plugin sollte deshalb in der Fehlermeldung mitteilen, <emphasis>was</emphasis> genau falsch ist und wie der Benutzer dies korrigieren kann."
 
 #. (programlisting)
 #, no-wrap
@@ -12860,6 +12860,9 @@ msgstr ""
 msgid "translator-translation"
 msgstr "Übersetzung"
 
+#, fuzzy
+#~ msgid "Owner-Drawn Menus"
+#~ msgstr "&Zeige Menüs für"
 #~ msgid ""
 #~ "Because Subversion cannot provide all the information required, a certain "
 #~ "amount of interpretation is required, which can sometimes give strange "
