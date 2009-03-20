@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge\n"
 "POT-Creation-Date: 2006-10-11 21:52GMT Daylight Time\n"
-"PO-Revision-Date: 2009-02-26 21:46+0200\n"
-"Last-Translator: Bob Hulst <bob.hulst@hiq.fi>\n"
+"PO-Revision-Date: 2009-03-20 09:42+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -181,7 +181,7 @@ msgstr "Onze Medewerkers"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:153
 msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list."
-msgstr ""
+msgstr "voor patches, bug reports en nieuwe ideeën, en voor het helpen van anderen door vragen van onze mailing list te beantwoorden."
 
 #. (term)
 #: ../source/TortoiseMerge_en.xml:160
@@ -211,7 +211,7 @@ msgstr "TortoiseMerge is een gratis/open-source applicatie. Je kan er verschille
 #. (para)
 #: ../source/TortoiseMerge_en.xml:190
 msgid "While working on text files, e.g. source files in your favourite programming language, or html/xml files for your documentation or website, you will often have a situation where you need to compare different versions of those files. Sometimes you get a different version from someone else, sometimes you just want to see the changes you've made."
-msgstr ""
+msgstr "Wanneer je werkt met tekst bestanden, bijv. source bestanden in je favoriete programmeertaal, of met html/xml bestanden voor je documentatie of je website, zul je vaak in een situatie komen waar je verschillende versies van deze bestanden met elkaar moet vergelijken. Soms krijg je een andere versie van iemand anders, een andere keer wil je gewoon de veranderingen zien die je zelf gemaakt hebt."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:198
@@ -251,12 +251,12 @@ msgstr "TortoiseMerge geschiedenis"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:236
 msgid "While working on <ulink url=\"http://tortoisesvn.tigris.org\"><citetitle>TortoiseSVN</citetitle></ulink> we found that whenever users sent in patches to enhance the project or just to fix bugs, we had a lot of work just applying those patches. And many times those patches were outdated and couldn't be applied with the command line patch tool <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> because we were working on those files and had sometimes changed those files already."
-msgstr ""
+msgstr "Werkend met <ulink url=\"http://tortoisesvn.tigris.org\"><citetitle>TortoiseSVN</citetitle></ulink> merkten we dat het alleen al veel tijd koste om de patches die gebruikers stuurden om het project te verbeteren of bugs op te lossen toe te passen. En vaak waren die patches verouderd en konden ze niet toegepast worden met de command line patch tool <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> omdat we aan het werk waren met deze bestanden waardoor die bestanden soms al veranderd waren."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:251
 msgid "This was also the main reason why TortoiseSVN did not originally have a <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch</guimenuitem></menuchoice> implemented: we preferred users to send us the whole files because with those it was easier to apply patches."
-msgstr ""
+msgstr "Dit was ook de voornaamste reden waarom TortoiseSVN oorspronkelijk geen <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch</guimenuitem></menuchoice> had: het had onze voorkeur dat gebruikers ons de complete bestanden stuurden omdat het daarmee makkelijker was om de patches toe te passen."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:261
@@ -276,12 +276,12 @@ msgstr "Basis Beginselen"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:282
 msgid "Viewing the difference between two files and merging changes into one of them, or removing unwanted changes."
-msgstr ""
+msgstr "Bekijk het verschil tussen twee bestanden en voeg de wijzigingen samen tot een van de bestanden, of verwijder ongewenste wijzigingen. "
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:288
 msgid "Editing conflicts between local changes and changes in the Subversion repository following an update."
-msgstr ""
+msgstr "Verander conflicten tussen locale wijzigingen en wijzigingen in de Subversion repository na een update."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:294
@@ -1613,7 +1613,9 @@ msgstr "This is your local <quote>sandbox</quote>, the area where you work on th
 #. (None)
 #: ../source/TortoiseMerge_en.xml:0
 msgid "translator-credits"
-msgstr "Bob Hulst"
+msgstr ""
+"Bob Hulst\n"
+"Michel Valstar"
 
 #. Place the translation of 'translation' here.
 #. (None)
