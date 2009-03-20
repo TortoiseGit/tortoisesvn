@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-03-19 21:56 +0000\n"
+"POT-Creation-Date: 2009-03-20 16:18 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -8514,11 +8514,11 @@ msgid "To show the command line parameters passed from the shell extension to To
 msgstr ""
 
 #.(term)
-msgid "Owner-Drawn Menus"
+msgid "Context Menu Icons"
 msgstr ""
 
 #.(para)
-msgid "This can be useful if you use something other than the windows explorer or if you get problems with the context menu displaying correctly. create a <literal>DWORD</literal> key with a value of 0 at <literal>HKCU\\Software\\TortoiseSVN\\OwnerdrawnMenus</literal> if you don't want TortoiseSVN to use owner-draw menu items in the shell context menu. Set this value to 2 if you don't want TortoiseSVN to use icons in the context menu at all."
+msgid "This can be useful if you use something other than the windows explorer or if you get problems with the context menu displaying correctly. create a <literal>DWORD</literal> key with a value of 0 at <literal>HKCU\\Software\\TortoiseSVN\\ShowContextMenuIcons</literal> if you don't want TortoiseSVN to not show icons for the shell context menu items. Set this value to 1 to show the icons again."
 msgstr ""
 
 #.(term)
