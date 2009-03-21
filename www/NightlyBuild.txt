@@ -8,9 +8,6 @@ revision of TSVN trunk code, which is useful for testing the latest changes.
 These are not official released files, so any new features may not have
 been extensively tested.
 
-As of version 1.4.x we support both win32 and x64 versions of Windows.
-Be sure to select the correct one for your operating system.
-
 All interaction with the repository is handled by subversion itself,
 and usually only official subversion releases, or release candidates are used.
 This greatly reduces your risk exposure when using this Beta code. However,
@@ -25,10 +22,10 @@ Check on the mailing list if in doubt.
 
 ******** WARNING WARNING WARNING WARNING WARNING WARNING WARNING ********
 *
-* TortoiseSVN 1.4.99.x is the pre-release version of 1.5.0
+* TortoiseSVN 1.6.99.x is the pre-release version of 1.7.0
 * It is built against Subversion trunk.
 * It will upgrade your working copies, making them unreadable by
-* 1.4.x subversion clients including the official 1.4.x TortoiseSVN
+* 1.5.x subversion clients including the official 1.5.x TortoiseSVN
 *
 ******** WARNING WARNING WARNING WARNING WARNING WARNING WARNING ********
 

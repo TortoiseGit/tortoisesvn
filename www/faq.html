@@ -432,7 +432,7 @@ clients is identical.</p>
 the Subversion library. The version of the Subversion library that TortoiseSVN uses
 is indicated in the filename of the installer, other clients have similar indications.
 You have to make sure that those versions match each other in the first two digits.
-For example, all clients using Subversion 1.5.x can be used together (the 'x' indicates
+For example, all clients using Subversion 1.6.x can be used together (the 'x' indicates
 that this number is not relevant for compatibility).</p>
 <p>You must also be sure that all the clients are built for the same OS. 
 Client compatibility is only guaranteed for a particular OS type and metadata 
@@ -609,7 +609,7 @@ the article named "PowerDesk crashes when right-clicking on some files and folde
 
 <div class="h3" id="samba" title="samba">
 <h3>Permission problems with working copies on a SAMBA share.</h3>
-<p>After upgrading to TortoiseSVN 1.5.x, you get a lot of "Access denied" errors for most
+<p>After upgrading to TortoiseSVN 1.5.x or later, you get a lot of "Access denied" errors for most
 of the Subversion commands if your working copy is stored on a SAMBA share.</p>
 <p>Some users reported that the problem went away after they upgraded SAMBA to the latest version.
 If that does not help or you can't upgrade, allow readonly files to be deleted in the SAMBA config file:
@@ -891,7 +891,7 @@ for the repository access than you use for logging in to your workstations
 with a higher Subversion version, and then try to execute a command with a 
 Subversion client linked with an older version, e.g., you used an 1.4.x client 
 on your working copy, and now you try an svn 1.3.x client on the same working copy.</p>
-<p>The reason for this is that Subversion 1.4 and 1.5 upgrade the working copies 
+<p>The reason for this is that Subversion 1.4 and later upgrade the working copies 
 transparently on every command. But once the working copy format is upgraded, 
 older clients can't access the working copy anymore because they don't know the new format.</p>
 <p>The only solution to 'fix' this is to upgrade whatever client you use and 

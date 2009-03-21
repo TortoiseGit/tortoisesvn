@@ -1,3 +1,99 @@
+Version 1.6.0
+- NEW: Ignoring of multiple selected items by their extension. See
+       issue #423 for details. (Stefan)
+- NEW: The log dialog allows filtering by bug-ID.
+       See issue #422 for details. (Stefan)
+- NEW: Column to show the remote revision in the CfM dialog. (Stefan)
+- NEW: The current revision of the working copy item is shown in
+       bold in the log dialog. See issue #425 for details. (Stefan)
+- NEW: The custom tsvn: urls allow a revision to be specified after the
+       real url, separated with '?'. (Stefan)
+- NEW: The state of the 'merge non-interactive' checkbox is remembered
+       across sessions. (Stefan)
+- NEW: editing the author in the log dialog is now possible for
+       multiple selected revisions. (Stefan)
+- NEW: Paste command to paste copied/cut files from explorer into
+       a working copy. See issue #427 for details. (Stefan)
+- NEW: TortoiseProc returns now 0 after the command finished successfully
+       and -1 if the command failed with an error. See issue #426
+       for details. (Stefan)
+- NEW: Added blame command to context menu of the status list control. (Stefan)
+- NEW: "up" button in the repo browser. (Stefan)
+- NEW: Checkbox to exclude the externals in the Check-For-Modifications
+       dialog. (Stefan)
+- NEW: Ability to cancel the "patch all" function. (Stefan)
+- NEW: Option to disable the context menu for specific paths. (Stefan)
+- NEW: Extended the IBugTraqProvider. See issue #428 for details. (Stefan)
+- NEW: The status cache handles "runas" now better. (Stefan)
+- NEW: Automated removal of unused log caches. (Stefan Fuhrmann)
+- NEW: When diffing against BASE, the diff tool now shows the BASE revision
+       in the view title. (Stefan)
+- NEW: if "unversioned files mark parent folder as modified" is active,
+       the revert dialog shows a hint if unversioned files are found. (Stefan)
+- NEW: Auto-maintenance for log caches plus several settings to control
+       its behavior. (Stefan Fuhrmann)
+- NEW: Log cache supports multiple repositories with the same UUID.
+       (Stefan Fuhrmann)
+- NEW: Revision graph settings page. Several previously hidden
+       features are now available to the user. (Stefan Fuhrmann)
+- NEW: The status list control shows the entries grouped by externals if
+       no changelists are present. (Stefan)
+- NEW: two project properties (bugtraq:provideruuid and bugtraq:providerparams)
+       to specifiy the IBugTraqProvider for the project. (Stefan)
+- NEW: Helper dialog to resolve property conflicts. (Stefan)
+- NEW: Revision graph can be collapsed / expanded as well as 
+       split and joined. (Stefan Fuhrmann)
+- NEW: Helper dialog to resolve tree conflicts. (Stefan)
+- NEW: TortoiseBlame shows the revision range in the title. See
+       issue #429 for details. (Stefan)
+- NEW: Revision graph: Option to hide unmodified branches (Stefan Fuhrmann)
+- NEW: Revision graph: Option to show workspace modifications as extra node
+       (Stefan Fuhrmann)
+- NEW: Revision graph: Update / Switch WC in node context menu 
+       (Stefan Fuhrmann)
+- NEW: A warning is shown if the user tries to add a file that was versioned
+       but renamed in case. (Stefan)
+- NEW: TortoiseMerge scrolls the views automatically when selecting with
+       the left mouse button down. (Stefan)
+- NEW: In the log dialog filter, a ! char at the beginning will negate
+       the filter string. (Stefan)
+- NEW: Column in the check-for-modifications dialog to show 
+       the lock date. (Stefan)
+- NEW: Context menu to delete and ignore files at the same time. (Stefan)
+- NEW: Tooltips in the action column of the log dialog, explaining the
+       action icons. (Stefan)
+- NEW: When moving/copying a file over an existing file, ask the user whether
+       to replace that existing file. (Stefan)
+- NEW: Shift-click feature for merge tools. See issue #430 for details. (Stefan)
+- NEW: "Create patch" and "Check for Modifications" available from 
+       commit/CfM dialog. (Stefan)
+- NEW: new column for checkout depth in the CSVNStatusListCtrl. (Stefan)
+- NEW: overlays in the CSVNStatusListCtrl for the different depths and
+       external/nested files and folders. (Stefan)
+- CHG: The bug-ID column width in the log dialog is now limited 
+       to 200 pixels. (Stefan)
+- CHG: The right-drag context menu now only shows "Export" if a versioned
+       folder is dragged (for files, the windows 'copy' does the same). (Stefan)
+- CHG: The right-drag context menu checks whether source and target are
+       from the same repository and shows the "SVN move" and "SVN copy"
+       commands only if they are. (Stefan)
+- CHG: When only files are selected for "Add", the Add-dialog is not
+       shown anymore but the files are added immediately. (Stefan)
+- CHG: file:// access to BDB based repositories is no longer supported. (Stefan)
+- CHG: the log dialog now shows a possible error message when fetching the
+       log as a text in the top list control instead of showing a popup
+       message box. (Stefan)
+- CHG: New revision graph look. (Stefan Fuhrmann)
+- CHG: Faster and more reliable revision graph filtering. (Stefan Fuhrmann)
+- CHG: If tsvn:logtemplate was set and not changed in the commit dialog, it
+       isn't added to the log history anymore. (Stefan)
+- CHG: "Ambiguous URL" option no longer limits log cache functionality.
+       (Stefan Fuhrmann)
+- CHG: Various improvements to log statistics graphs (Aras Pranckevicius)
+- CHG: The merge wizard is now resizable. (Stefan)
+- CHG: The checkout/export dialogs do not ask whether to create the folder
+       to checkout/export aynmore but silently create it. (Stefan)
+
 Version 1.5.9
 - BUG: Broken registry settings may prevent Check for Modifications dialog
        from showing up. (Stefan Fuhrmann)
