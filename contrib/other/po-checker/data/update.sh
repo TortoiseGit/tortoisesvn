@@ -26,6 +26,11 @@ URL=${URL:4}
 REMOTEREV=`svn info $URL | grep -E "^Revision: "`;
 REMOTEREV=${REMOTEREV:10}
 
+if [ -z $REMOTEREV ]; then
+	echo remote rev empty
+	exit 2
+fi
+
 while true; do
 	PROCREV=`echo "select revision from lastrevision where name='processed'" | mysql -u$SQLUSER -p$SQLPASS -D$SQLDB -B --skip-column-names`
 	[ -z $PROCREV ] && exit

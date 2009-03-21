@@ -14,6 +14,7 @@ class po {
 	protected $lines=array();
 	protected $report=array();
 	protected $pot=NULL;
+	protected $spellDictFiles=array();
 
 	// line types NOTE MSGID MSGSTR EMPTY PARAMETER
 	function load($poFileName, $lang) {
@@ -22,6 +23,7 @@ class po {
 		$this->dictionary=array();
 		$this->lines=array();
 		$this->report=array();
+//		$this->file=$poFileName;
 		// iterate over lines
 		unset($msgid);
 		$lastLineType=PO_NONE;
@@ -139,6 +141,10 @@ class po {
 		} else {
 			echo "<i>Internal warning</i>: <b>unsupporter pot type</b>";
 		}
+	}
+
+	function SetSpellingFiles($dicts) {
+		$this->spellDictFiles=$dicts;
 	}
 
 
@@ -629,12 +635,163 @@ class po {
 		return true;
 	}
 
+	function buildReportFor($report) {
+		switch ($report) {
+		 case "spl":
+			$this->checkSpl();
+			break;
+		}
+	}
+
+	// wrong spelling
+	function checkSpl() {
+		if (isset($this->pot)) {
+			$potFile=$this->pot;
+		} else {
+			return;
+		}
+
+		//var_dump($this->spellDictFiles);
+		$data=array();
+		if ($this->lang) {
+			$suggestEnabled=$this->lang != "hu";
+			echo "<!--";
+			$pspell_link = pspell_new($this->lang, "", "", "utf-8", PSPELL_FAST);
+			$pspell_links=array();
+			echo "LLLLL";
+			foreach ($this->spellDictFiles as $spellDictFile) {
+				echo "<br />\n".$spellDictFile."<br />\n";
+				$pspell_link_local = pspell_new_personal($spellDictFiles, $this->lang, "", "", "utf-8");
+				if ($pspell_link_local) {
+					echo $spellDictFile;
+					$pspell_links[] = $pspell_link_local;
+				}
+			}
+			echo "-->";
+			$regexp="/[A-Za-z0-9\\x{80}-\\x{ffff}]+/u";
+			$regexp2="/^[A-Za-z]*$/";
+			$regexp3="/\\b$word\\b/i";
+			$preprocessSearch=array("&", "<", ">", "\\n", "\\r", "\\t", "%s", "%d", "%ld", "/");
+			$preprocessReplace=array("", " < ", " > ", " \\n ", " \\r ", " \\t ", " %s ", " %d ", " %ld ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ");
+			$postprocessSearch=array("\\n");
+			$postprocessReplace=array("\\n<br />");
+			if ($pspell_link) {
+				foreach ($potFile->dictionary as $key=>$value) {
+					$orig=$key;
+					if (!isset($orig) || $orig=="") {
+						continue;
+					}
+					$native=$this->dictionary[$key]["text"];
+					if (!isset($native) || $native=="") {
+						continue;
+					}
+					$native=str_replace($preprocessSearch, $preprocessReplace, $native);
+					$orig=str_replace($preprocessSearch, $preprocessReplace, $orig);
+					$natMatch=preg_match_all($regexp, $native, $matchesOnNat, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE);
+//					$string=$native;
+					if ($natMatch) {
+						$match=true;
+						for ($i = 0; $i < count($matchesOnNat[0]); $i++) {
+							$word=$matchesOnNat[0][$i][0];
+//							if (!preg_match($regexp2, $word)) {
+//								continue;
+//							}
+							$wordOk=pspell_check($pspell_link, $word);
+							if (!$wordOk) {
+//								echo "<b>$word</b><br />";
+								foreach ($pspell_links as $pspell_link_local) {
+									$wordOk=pspell_check($pspell_link_local, $word);
+//									echo "$pspell_link_local, $word = $wordOk <br />\n";
+									if ($wordOk) {
+										break;
+									}
+								}
+							}
+							if (!$wordOk) {
+								if ($suggestEnabled) {
+									$suggestArr=pspell_suggest($pspell_link, $word);
+									$suggestStr=implode(", ", $suggestArr);
+									$matchesOnNat[0][$i]['sugestion']='suggest:'.$suggestStr;
+								}
+//								if (strpos($orig, $word)!==false) {
+//								$regexp3="/\\b".$word."[$.^A-Za-z0-9]/i";
+								$regexp3="/\\b".$word."\\b/i";
+								if (preg_match($regexp3, $orig)) {
+									$mark=MARK_WARNING;
+								} else {
+									$mark=MARK_ERROR;
+									$match=false;
+								}
+							} else {
+								$mark=MARK_OK;
+							}
+							$matchesOnNat[0][$i][2]=$mark;
+						}
+						if (!$match) {
+							for ($i=count($matchesOnNat[0])-1; $i>=0; $i--) {
+								if (!isset($matchesOnNat[0][$i][2])) {
+									continue;
+								}
+								$param=$matchesOnNat[0][$i][0];
+								$pos=$matchesOnNat[0][$i][1];
+								if ($param=="n" && $pos && $native[$pos-1]=="\\") {
+									continue;
+								}
+								switch ($matchesOnNat[0][$i][2]) {
+								 case MARK_OK:
+									$class=  "elmark";
+									break;
+								 case MARK_ERROR:
+									$class="elerror";
+									break;
+								 case MARK_WARNING:
+									$class="elwarning";
+									break;
+								}
+								$replaceStr="<font class=\"$class\">".$param."</font>";
+								if (isset($matchesOnNat[0][$i]['sugestion'])) {
+									$replaceStr="<acronym title=\"".$matchesOnNat[0][$i]['sugestion']."\">$replaceStr</acronym>";
+								}
+								$native=substr($native, 0, $pos).$replaceStr.substr($native, $pos+strlen($param));
+							}
+							$orig=str_replace($postprocessSearch, $postprocessReplace, $orig);
+							$native=str_replace($postprocessSearch, $postprocessReplace, $native);
+							$lineN=$this->dictionary[$key]["line"];
+							$lineE=$potFile->dictionary[$key]["line"];
+							if (isset($this->dictionary[$key]["flag"]["fuzzy"])) {
+								$lineN.="(Fuzzy)";
+							}
+							$data[]=array(count($data)+1, $lineE, $orig, $lineN, $native);
+						}//* /
+						flush();
+					}
+				}
+				pspell_clear_session($pspell_link);
+				$table=new Table;
+				$table->name="Spell check";
+				$table->description="<p>Testing spelling of translation. We use ASPELL dictionaris for PSPELL. <b><i>in development</i></b> </p>";
+				$table->header=array("Index", "Line", "English", "Line", "Native");
+				$table->data=$data;
+				$this->report["spl"]=$table;
+			} else {
+				$this->report["spl"]["error"]="Dictionary not found.";
+			}
+		} else {
+			$this->report["spl"]["error"]="Internal error";
+		}
+
+//*/
+	}
+
 	function GetErrorTypes() {
 		return array_keys($this->report);
 	}
 
 	function GetErrorCount($name) {
 		$count=$this->report[$name];
+		if (!isset($count)) {
+			$this->buildReportFor($name);
+		}
 		if (!isset($count)) {
 			return false;
 		}
@@ -836,6 +993,21 @@ class po {
 		$table=$this->report["esc"];
 		if (isset($table)) {
 			if (count($table->data)) { // table exists and has data
+				$table->output();
+				echo "<sup>Note: Line numbers are as in committed file, it may differ when you update to use newer .pot, also edited multi line messages may shift line position.</sup>\n";
+				echo "<p>Total:".count($table->data)."</p>\n";
+			} else {
+				echo "<p><b>PASS</b></p>\n";
+			}
+		} else {
+			echo "<p><i>Internal error or not implemented</i></p>";
+		}
+
+		$testName="spl";
+		$table=$this->report[$testName];
+		if (isset($table)) {
+			if (count($table->data)) { // table exists and has data
+				echo "<a name=\"$testName$lang\" /><h3>".$table->name."</h3>".$table->description."\n";
 				$table->output();
 				echo "<sup>Note: Line numbers are as in committed file, it may differ when you update to use newer .pot, also edited multi line messages may shift line position.</sup>\n";
 				echo "<p>Total:".count($table->data)."</p>\n";
