@@ -1,4 +1,5 @@
 <?php
+
 include_once("mysql.php");
 include_once("/var/www/php/printflow/table.php");
 
@@ -71,7 +72,7 @@ if (isset($historyTest)) {
 	return $res;
 }
 
-$sql="SELECT * FROM state WHERE `language`='$lang' && `group`='$group' && `revision`>$minRev";
+$sql="SELECT * FROM state JOIN revisions ON state.revision=revisions.revision WHERE `state`.`language`='$lang' && `state`.`group`='$group' && `state`.`revision`>$minRev";
 #$sql="SELECT * FROM state WHERE `language`='$lang' && `group`='$group'";
 $res=mysql_query($sql, $db);
 if ($res===false) {
@@ -81,7 +82,7 @@ if ($res===false) {
 
 $table=new Table;
 $table->importMysqlResult($res);
-#$table->Output();
+//$table->Output();
 
 
 $xzoom=1/4;
@@ -151,7 +152,8 @@ foreach ($graphs as $graph) {
 	$color=$graph[1];
 	unset($x, $y);
 	foreach ($table->data as $record) {
-		$revision=$record[0];
+		$revision=$record[10];
+//		echo int($revision);
 		$val=$record[$index];
 		$newX=$revision*$xzoom;
 		$newY=$imHeight-$val*$yzoom-1;

@@ -28,21 +28,42 @@ $HtmlBody=array("class"=>"sidebars");
 HtmlHeader($HtmlType, $HtmlHeader, $HtmlBody);
 
 
-$lang=$_GET["l"];
+$lang=$_GET["l"]; // language
 if ($lang=="") {
 	$lang="";
 }
 
-$msg=$_POST["msg"];
+$msg=$_POST["msg"]; // opinion message
 if ($msg=="") {
 	$msg="";
 }
 
-$stable=$_GET["stable"];
+$stable=$_GET["stable"]; // stable(branch) vs. trunk
 if ($stable) {
 	$stable=1;
 } else {
 	$stable=0;
+}
+
+$gx=$_GET["gx"]; // graph x axis type
+switch ($gx) {
+ case "date":
+	break;
+ default:
+	$gx="rev";
+}
+
+$m=$_GET["m"]; // module
+switch ($m) {
+ case 'g':
+ case 's':
+ case 'm':
+	break;
+ case 'd':
+	$m='s';
+	break;
+ default:
+	$m='g';
 }
 
 	// get host
@@ -72,7 +93,7 @@ if ($stable) {
 	$ahead.="MIME-Version: 1.0\r\n";
 	$ahead.="Content-type: text/html; charset=UTF-8\r\n";
 
-	if (!preg_match("/192.168.10.2/", $_SERVER["REMOTE_ADDR"])) {
+	if (!preg_match("/192.168.10.2/", $_SERVER["REMOTE_ADDR"]) && !preg_match("/(crawl.*googlebot.com|crawl.yahoo.net|crawler.*ask.com|msnbot.*search.msn.com)/", $host)) {
 		mail($to, $sub, $msg, $ahead);
 	}//*/
 
@@ -116,15 +137,19 @@ If you want to help with new translations:
 <ul>
 <li><i><b>0</b></i> Check if language you want to translate needs other translator - write to <i>translators at tortoisesvn dot net</i>.</li>
 <li><i><b>1</b></i> Install <a href=\"http://poedit.sourceforge.net/\">poEdit</a> on your PC , or other tranlator tool.</li>
-<li><i><b>2</b></i> Check out http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/Languages You'll get more than one language, but the Romanian translation will be in the folder too.
+<li><i><b>2</b></i> Check out http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/Languages You'll get languages.
 	<ul>
 	<li><i><b>2.A</b></i> If you continue your language wil be already there</li>
-	<li><i><b>2.B</b></i> - </li>
+	<li><i><b>2.B</b></i> Copy Tortoise.pot to Toroise_<i>langcode</i>.po. Where <i>langcode</i> is by ISO... </li>
 	</ul>
 </li>
 <li><i><b>3</b></i> Update from .pot file and translate  :) </li>
-<li><i><b>4a</b></i> Send your translated file to the developer list or</li>
-<li><i><b>4b</b></i> Create an account at tigris.org and send Luebbe (or <i>translators at tortoisesvn dot net</i>) your user name, so that I can give you commit access.</li>
+<li><i><b>4</b></i> Send your translated file by either
+	<ul>
+	<li><i><b>4.A</b></i> Send your translated file to the developer list</li>
+	<li><i><b>4.B</b></i> Create an account at tigris.org and send Luebbe (or <i>translators at tortoisesvn dot net</i>) your user name, so that I can give you commit access.</li>
+	</ul>
+</li>
 <li><i><b>5</b></i> Check your translation on this page.</li>
 </ul>
 <i><b>Note:</b></i> Don't try to finish everything in one go. It takes a while and can become frustrating. Translate 5-50 phrases per day and check in these small pieces of work. (my personal recommendation)  :)
@@ -137,7 +162,7 @@ $dir=$dirBase.$dirTarget;
 $revFileName=$dir.$target.".rev";
 if ($_GET["stable"]) {
 	echo "Using BRANCH";
-	$dirTarget="branches/1.5.x";
+	$dirTarget="branches/1.6.x";
 	$revFileName=$dirBase."branches.rev";
 	$dir=$dirBase.$dirTarget;
 }
@@ -155,14 +180,14 @@ if ($stable) {
 }
 
 
-	$pot=new po;
-	$pot->load("$dirLocation/Tortoise.pot", NULL);
+	$potGui=new po;
+	$potGui->load("$dirLocation/Tortoise.pot", NULL);
 	$potMerge=new po;
 	$potMerge->load("$dirDoc/TortoiseMerge.pot", NULL);
 	$potSvn=new po;
 	$potSvn->load("$dirDoc/TortoiseSVN.pot", NULL);
 	$pos=array();
-	
+
 	$data=array();
 
 // load language.txt
@@ -183,6 +208,8 @@ if ($stable) {
 		<td><acronym title="Untranslated (Severity: Low - appearance)">UNT</acronym></td>
 		<td><acronym title="Fuzzy mark test (Severity: Low - appearance)">FUZ</acronym></td>
 		<td><acronym title="Escaped chars (Severity: Low - appearance)">ESC</acronym></td>
+<!--		<td><acronym title="TEST">TEST</acronym></td> -->
+<!--		<td><acronym title="Spell check (Severity: Low - appearance)">PSPELL</acronym></td> -->
 		<td>Doc</td>
 		<td>Note:</td>
 		<td>Author</td>
@@ -251,9 +278,24 @@ if ($stable) {
 		if (preg_match_all("/(#)?([a-zA-Z_]*);\t([0-9]*);\t([0-9]*);\t([^;\t]*)[;\t]*([^;\t]*)[;\t]*([^;\t]*)[;\t]*/", $line, $matches)) {
 			$code=$matches[2][0];
 			$pos[$code]=NULL;
-			$file=$dirLocation."/Tortoise_$code.po";
+			$fileGui=$dirLocation."/Tortoise_$code.po";
 			$fileSvn=$dirDoc."/TortoiseSVN_$code.po";
 			$fileMerge=$dirDoc."/TortoiseMerge_$code.po";
+			switch ($m) {
+			 default:
+			 case 'g':
+				$file=$fileGui;
+				$pot=$potGui;
+				break;
+			 case 's':
+				$file=$fileSvn;
+				$pot=$potSvn;
+				break;
+			 case 'm':
+				$file=$fileMerge;
+				$pot=$potMerge;
+				break;
+			}
 			if (file_exists($file) && ($lang=="" || $lang==$code) && ($_SERVER["REMOTE_ADDR"]!="192.168.10.234b")) {
 				$class=$classes[$classIndex];
 				$classIndex=($classIndex+1)%count($classes);
@@ -274,7 +316,7 @@ if ($stable) {
 					echo "<td><a href=\"?stable=$stable&amp;l=$code#TAB$code\"><img src=\"$imagesrc\" alt=\"$code\" height=\"24\" width=\"36\" /></a></td>\n";
 				}
 				unset($po);
-				if (!$langSelected && !$stable) { // this i a hack ! - redesign !
+				if (!$langSelected && !$stable && $m='g') { // this i a hack ! - redesign !
 					$query="SELECT * FROM `state` WHERE `language`='$code' AND `group`='g' ORDER BY `revision` DESC LIMIT 1";
 					$res=mysql_query($query, $db);
 					if ($res===false) {
@@ -291,6 +333,10 @@ if ($stable) {
 					$po=new po;
 					$po->Load($file, $code);
 					$po->AddPot($pot);
+					$dicts=array();
+//					$dicts[]="/var/www/sites/tsvn.e-posta.sk/data/trunk/doc/Aspell/TortoiseSVN.tmpl.pws";
+					$dicts[]="/var/www/sites/tsvn.e-posta.sk/data/trunk/doc/Aspell/$lang.pws";
+					$po->SetSpellingFiles($dicts);
 					$po->buildReport();
 				}
 				$errorCount=0;
@@ -300,6 +346,7 @@ if ($stable) {
 				$errorCount+=PrintErrorCount($po, "unt", $code, $stable);
 				$errorCount+=PrintErrorCount($po, "fuz", $code, $stable);
 				$errorCount+=PrintErrorCount($po, "esc", $code, $stable);
+//				$errorCount+=PrintErrorCount($po, "spl", $code, $stable);
 
 				$statDoc="";
 				if (file_exists($fileSvn)) {
@@ -327,7 +374,7 @@ if ($stable) {
 						$unt=$poTemp->GetErrorCount("unt");
 						$fuz=$poTemp->GetErrorCount("fuz");
 					}
-					$statDoc.=" Svn:";
+					$statDoc.=" <a href=\"/?stable=$stable&amp;l=$lang&amp;m=s\">TSVN:</a>";
 					if ($unt+$fuz==0) {
 						$statDoc.="OK";
 					} else {
@@ -367,7 +414,7 @@ if ($stable) {
 						$unt=$poTemp->GetErrorCount("unt");
 						$fuz=$poTemp->GetErrorCount("fuz");
 					}
-					$statDoc.=" Merge:";
+					$statDoc.=" <a href=\"/?stable=$stable&amp;l=$lang&amp;m=m\">Merge:</a>";
 					if ($unt+$fuz==0) {
 						$statDoc.="OK";
 					} else {
@@ -447,10 +494,10 @@ function IsHistory ($group, $lang) {
 }
 
 if (!$stable && $lang!="") {
-	foreach (array("g", "d", "m") as $group) {
-		if (IsHistory($group, $lang)) {
-			echo "<hr /><h1>History graph:</h1><br />";
-			echo "<img src=\"history.php?l=$lang&amp;g=$group\" alt=\"history\"/>";
+	foreach (array(array("g", "GUI"), array("d", "TSVN doc"), array("m", "TMerge doc")) as $group) {
+		if (IsHistory($group[0], $lang)) {
+			echo "<hr /><h1>".$group[1]." history graph:</h1><br />";
+			echo "<img src=\"history.php?l=$lang&amp;g=".$group[0]."&amp;x=$gx\" alt=\"history\"/>";
 		}
 	}
 }
@@ -462,6 +509,7 @@ echo "<h1>".$revFileLines[0]."</h1>";
 $native=$pos[$lang];
 if ($native) {
 	echo "<a name=\"PO$lang\"></a><h2>PO Check ($lang)</h2>\n";
+	$native->buildReportFor("spl");
 	$native->printReport($pot);
 
 	echo "\n
@@ -471,7 +519,7 @@ if ($native) {
 		In a fact even English translation contains duplicate.</p>\n
 		<h2>Proc RC Check ($lang)</h2>
 		";
-	if ($lang=="sk") {
+	if (false && $lang=="sk") {
 		$rc=new rc;
 		$rc->load($dir."/src/Resources/TortoiseProcENG.rc");
 		$rc->Translate($native);
@@ -503,6 +551,7 @@ if ($native) {
 	$pot->buildReport();
 	$pot->PrintReport();
 }//*/
+
 echo '</div>';
 HtmlFooter($HtmlType);
 //php?>
