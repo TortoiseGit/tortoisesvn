@@ -139,7 +139,7 @@ private:
 		size_t next (size_t index) const 
 		{
             index += nextStride;
-            if (index > capacity())
+            if (index >= capacity())
                 index -= capacity();
 			return index;
 		}
