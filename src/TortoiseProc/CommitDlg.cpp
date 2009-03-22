@@ -1204,7 +1204,7 @@ void CCommitDlg::OnBnClickedHistory()
 	m_tooltips.Pop();	// hide the tooltips
 	if (m_pathList.GetCount() == 0)
 		return;
-	CHistoryDlg historyDlg;
+	CHistoryDlg historyDlg(this);
 	historyDlg.SetHistory(m_History);
 	if (historyDlg.DoModal() != IDOK)
 		return;
