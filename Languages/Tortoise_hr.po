@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-22 08:29+0100\n"
+"PO-Revision-Date: 2009-03-22 10:18+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -660,7 +660,7 @@ msgstr "&Zanemari promjene praznina"
 
 #. Resource IDs: (16914)
 msgid "&Image"
-msgstr "Slika"
+msgstr "&Slika"
 
 #. Resource IDs: (32790)
 msgid "&Image Info"
@@ -675,14 +675,12 @@ msgid "&Import..."
 msgstr "&Uvoz..."
 
 #. Resource IDs: (1480)
-#, fuzzy
 msgid "&Include merge info"
-msgstr "Uključi stopljene revizije"
+msgstr "&Uključi informaciju o stapanju"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Initial directory:"
-msgstr "Direktorij za izvoz:"
+msgstr "&Početna mapa:"
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
@@ -690,7 +688,7 @@ msgstr "&Jednoredna razlika po riječima"
 
 #. Resource IDs: (275)
 msgid "&Join all"
-msgstr "%Pridruži sve"
+msgstr "&Pridruži sve"
 
 #. Resource IDs: (275)
 msgid "&Join with sub-trees"
@@ -767,7 +765,7 @@ msgstr "S&manji"
 
 #. Resource IDs: (1493)
 msgid "&Modify color for tag copies"
-msgstr "%Izmijeni boju za grane-oznake"
+msgstr "&Izmijeni boju za grane-oznake"
 
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
@@ -852,9 +850,8 @@ msgid "&Port:"
 msgstr "&Port:"
 
 #. Resource IDs: (1489)
-#, fuzzy
 msgid "&Power user defaults"
-msgstr "Vrati početne postavke"
+msgstr "&Početne postavke naprednog korisnika"
 
 #. Resource IDs: (32780)
 msgid "&Previous Difference"
@@ -908,7 +905,7 @@ msgstr "&Preglednik skladišta"
 #. Resource IDs: (16613, 16624)
 #, fuzzy
 msgid "&Reset"
-msgstr "Odbaci"
+msgstr "&Reset"
 
 #. Resource IDs: (1019)
 #, fuzzy
@@ -921,23 +918,20 @@ msgid "&Reset my usage data"
 msgstr "&Nedavne poruke"
 
 #. Resource IDs: (16910)
-#, fuzzy
 msgid "&Reset to Default"
-msgstr "Vrati početne postavke"
+msgstr "&Postavi početne postavke"
 
 #. Resource IDs: (1382)
 msgid "&Resolve using local property"
 msgstr "&Razriješi koristeći lokalna svojstva"
 
 #. Resource IDs: (1488)
-#, fuzzy
 msgid "&Restore defaults"
-msgstr "Vrati početne postavke"
+msgstr "&Vrati početne postavke"
 
 #. Resource IDs: (114)
-#, fuzzy
 msgid "&Revert changes from these revisions"
-msgstr "Vrati na staro izmjene iz ovih revizija"
+msgstr "&Poništi izmjene iz ovih inačica"
 
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
@@ -1100,9 +1094,8 @@ msgid "&TortoiseSVN"
 msgstr "&TortoiseSVN"
 
 #. Resource IDs: (1096)
-#, fuzzy
 msgid "&TortoiseUDiff"
-msgstr "TortoiseIDiff"
+msgstr "&TortoiseUDiff"
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
@@ -1211,9 +1204,8 @@ msgid "(modified)"
 msgstr "izmijenjeno"
 
 #. Resource IDs: (276)
-#, fuzzy
 msgid "(modified, HEAD revision)"
-msgstr "Objedinjene &razlike glavnih (HEAD) revizija"
+msgstr "(izmijenjeno, HEAD inačica)"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -1232,27 +1224,24 @@ msgid "(no modification but copy created from here)"
 msgstr "(bez izmjena ali kopija je napravljena)"
 
 #. Resource IDs: (214)
-#, fuzzy
 msgid "(no value)"
-msgstr "(binarna vrijednost)"
+msgstr "(bez vrijednosti)"
 
 #. Resource IDs: (314)
 msgid "(not found)"
 msgstr "(nije nađeno)"
 
 #. Resource IDs: (276)
-#, fuzzy
 msgid "(open branch)"
-msgstr "Grupiraj po grani"
+msgstr "(otvorena grana)"
 
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(samo izmjena svojstva)"
 
 #. Resource IDs: (276)
-#, fuzzy
 msgid "(rename)"
-msgstr "Promijeni ime"
+msgstr "(promjena imena)"
 
 #. Resource IDs: (276)
 msgid "(tagged)"
@@ -1601,9 +1590,8 @@ msgid "Age"
 msgstr "Starost"
 
 #. Resource IDs: (32822)
-#, fuzzy
 msgid "Align trees on top"
-msgstr "Naj&stariji na vrhu"
+msgstr "Uravnaj vršna stabla"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
@@ -1636,16 +1624,12 @@ msgid "All your changes will be lost! Do you really want to reset the toolbar '%
 msgstr "Sve vaše izmjene biti će izgubljene! Da li zaista želite resetirati alatnu traku \"%s\"?"
 
 #. Resource IDs: (1484)
-#, fuzzy
 msgid "Allow ambiguous &UUIDs"
-msgstr "&Dozvoli višeznačne URL-ove"
+msgstr "Dozvoli višeznačne &UUID-ove"
 
 #. Resource IDs: (345)
-#, fuzzy
 msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
-msgstr ""
-"Dozvoli da različita skladišta upotrebljavaju isti URL, napr. http:/localhost/mojrepozitorij/\n"
-"Napomena: Ovo će onemogućiti pristup dnevniku kad nema veze prema skladištu."
+msgstr "Dozvoli da različita skladišta upotrebljavaju isti URL, npr. http:/localhost/mojrepozitorij/"
 
 #. Resource IDs: (345)
 #, fuzzy
@@ -1903,9 +1887,8 @@ msgid "B&rowse..."
 msgstr "P&retraži..."
 
 #. Resource IDs: (1064)
-#, fuzzy
 msgid "Back"
-msgstr "< &Natrag"
+msgstr "Nazad"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
@@ -1932,9 +1915,8 @@ msgid "Blame - TortoiseSVN"
 msgstr "Okrivi - TortoiseSVN"
 
 #. Resource IDs: (114)
-#, fuzzy
 msgid "Blame..."
-msgstr "&Okrivi..."
+msgstr "Okrivi..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
@@ -2006,18 +1988,16 @@ msgid "C&heck now"
 msgstr "P&rovjeri sada"
 
 #. Resource IDs: (1132)
-#, fuzzy
 msgid "C&heck repository"
-msgstr "Provjeri skladište"
+msgstr "P&rovjeri skladište"
 
 #. Resource IDs: (275)
 msgid "C&ollapse sub-trees"
 msgstr "Za&klopi podstabla"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "C&ommands:"
-msgstr "Naredba"
+msgstr "&Naredbe:"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
@@ -2028,9 +2008,8 @@ msgid "C&reate folder..."
 msgstr "N&apravi mapu..."
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "C&urrent Keys:"
-msgstr "Važeća verzija je:"
+msgstr "&Važeći ključevi:"
 
 #. Resource IDs: (501)
 msgid "C&ut"
@@ -2192,9 +2171,8 @@ msgid "Check For Updates..."
 msgstr "Provjeri nadogradnje..."
 
 #. Resource IDs: (276)
-#, fuzzy
 msgid "Check for &modifications"
-msgstr "Provjera izmjena"
+msgstr "Provjeri &izmjene"
 
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
@@ -2237,9 +2215,8 @@ msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Označite ako želite sažetiji prikaz datuma i vremena u dnevniku poruka"
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid "Check working copy for modifications"
-msgstr "Provjera izmjena"
+msgstr "Provjeri/pokaži izmjene u radnoj kopiji"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -3398,9 +3375,8 @@ msgid "Edit Property Conflict"
 msgstr "Razriješi sukob za svojstva"
 
 #. Resource IDs: (298)
-#, fuzzy
 msgid "Edit Tree Conflicts"
-msgstr "&Uredi sporne razlike"
+msgstr "Uredi sukobe stabla"
 
 # Uredi autora, upiši autora?
 #. Resource IDs: (113)
@@ -7899,8 +7875,9 @@ msgid "Stefan Küng, Lübbe Onken"
 msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
+#, fuzzy
 msgid "Stripes"
-msgstr ""
+msgstr "Trake(?)"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -8315,7 +8292,7 @@ msgstr ""
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the file '%s'"
-msgstr ""
+msgstr "Zadnja operacija obnavljanja je pokušala izmijeniti datoteku '%s'"
 
 #. Resource IDs: (63)
 #, fuzzy, c-format
@@ -9706,6 +9683,14 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr ""
+"Pokušavate dodati stavku\n"
+"'%s',\n"
+"ali stavka\n"
+"'%s'\n"
+"već postoji.\n"
+"\n"
+"Izgleda da je stavka promijenila ime izvan Subversiona, a to se odnosi samo na mala-velika slova.\n"
+"Da li ju zaista želite dodati?"
 
 #. Resource IDs: (195)
 #, c-format
@@ -9752,6 +9737,9 @@ msgid ""
 "Lowest revision in working copy: %ld\n"
 "Path: %s"
 msgstr ""
+"Vaša radna kopija sadrži izmjene.\n"
+"Najmanja inačica u radnoj kopiji: %ld\n"
+"Staza: %s"
 
 #. Resource IDs: (88)
 msgid ""
@@ -9862,6 +9850,12 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns using ';'"
 msgstr ""
+"\n"
+"\n"
+"Uzorci se pronalaze bez obzira na veličinu slova i trebaju se pisati malim slovima.\n"
+"Razmaci postaju dio uzorka.\n"
+"Dozvoljeni posebni znakovi su '?' i '*'.\n"
+"Uzorke odvojite koristeći znak ';'"
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
@@ -9979,12 +9973,16 @@ msgid ""
 "bugtraq:providerparams\r\n"
 "the parameters passed to the IBugTraqProvider"
 msgstr ""
+"bugtraq:providerparams\r\n"
+"parametri proslijeđeni IBugTraqProvideru"
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:provideruuid\r\n"
 "the COM uuid of the IBugTraqProvider"
 msgstr ""
+"bugtraq:provideruuid\r\n"
+"COM uuid za IBugTraqProvider"
 
 #. Resource IDs: (577)
 #, fuzzy, c-format
