@@ -219,7 +219,7 @@ BOOL CSVNPropertyPage::PageProc (HWND /*hwnd*/, UINT uMessage, WPARAM wParam, LP
 							memset(&startup, 0, sizeof(startup));
 							startup.cb = sizeof(startup);
 							memset(&process, 0, sizeof(process));
-							tstring tortoiseProcPath = tstring((LPCTSTR)(CPathUtils::GetAppDirectory(g_hResInst) + _T("TortoiseProc.exe")));
+							tstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
 							tstring svnCmd = _T(" /command:");
 							svnCmd += _T("properties /pathfile:\"");
 							svnCmd += retFilePath.c_str();
