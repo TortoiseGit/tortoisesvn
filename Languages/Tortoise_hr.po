@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-22 10:18+0100\n"
+"PO-Revision-Date: 2009-03-22 13:53+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2196,11 +2196,11 @@ msgstr ""
 
 #. Resource IDs: (612)
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
-msgstr ""
+msgstr "Provjeri dnevnik da saznaš kako je datoteka/mapa premještena/preimenovana i odluči da li želiš spremiti vlastitu promjenu ili onu iz skladišta. Nakon toga, označi sukob razriješenim."
 
 #. Resource IDs: (612)
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to merge the change into your renamed file, or restore the original file."
-msgstr ""
+msgstr "Provjeri dnevnik da saznaš kako je datoteka/mapa premještena/preimenovana i odluči da li želiš stopiti ovo promjenu sa svojom preimenovanom datotekom ili vratiti originalnu datoteku."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -3152,7 +3152,7 @@ msgstr "Razlika između"
 
 #. Resource IDs: (32817)
 msgid "Differential path &names"
-msgstr ""
+msgstr "Staze koje se razlikuju"
 
 #. Resource IDs: (1022)
 msgid "Diffing"
@@ -3324,7 +3324,7 @@ msgstr "Diskovi A: i B:"
 #. Resource IDs: (613)
 #, c-format
 msgid "Drop not possible on %1"
-msgstr ""
+msgstr "Uklanjanje nije moguće za %1"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -4745,6 +4745,8 @@ msgid ""
 "Includes the repository for status check\n"
 "Hold down the shift key when clicking to fetch everything."
 msgstr ""
+"Uključuje skladište za provjeru statusa\n"
+"Pritisnite tipku shift prilikom klika kako biste sve dohvatili."
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -7405,7 +7407,7 @@ msgstr "Spremnik ikona ljuske je ponovo izgrađen!"
 
 #. Resource IDs: (2052)
 msgid "Shift trees to the top of the window. Alignment to other trees will be lost."
-msgstr ""
+msgstr "Pomakni stabla na vrh prozora. Uravnanje s ostalim stablima će biti izgubljeno."
 
 #. Resource IDs: (101)
 msgid "Sho&w properties"
@@ -7583,7 +7585,7 @@ msgstr "Prikaži počevši od najstarijeg čvora"
 
 #. Resource IDs: (2052)
 msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
-msgstr ""
+msgstr "Prikaži samo promijenjene dijelove staze. Zamijeni nepromijenjene elemente s točkicama."
 
 #. Resource IDs: (2054)
 #, fuzzy
@@ -7899,6 +7901,13 @@ msgid ""
 "file %s, line %ld\n"
 "expression = %s"
 msgstr ""
+"Dogodio se ozbiljan problem.\n"
+"Molimo vas da o ovome izvijestite na našim mailing listama\n"
+"sa što više informacija o tome što ste upravo pokušali učiniti.\n"
+" \n"
+"Subversion ima problema u:\n"
+"datoteka %s, linija %ld\n"
+"izraz = %s"
 
 #. Resource IDs: (84)
 msgid ""
@@ -7909,6 +7918,13 @@ msgid ""
 "\n"
 "Subversion reported the following:"
 msgstr ""
+"Dogodio se ozbiljan problem.\n"
+"Molimo vas da o ovome izvijestite na našim mailing listama\n"
+"sa što više informacija o tome što ste pokušavali učiniti.\n"
+" \n"
+"Problem u Subversionu se nalazi u:\n"
+"datoteka %s, linija %ld\n"
+"izraz = %s"
 
 #. Resource IDs: (79)
 msgid ""
@@ -8067,11 +8083,11 @@ msgstr "Početak bloka \"@@\" bio je očekivan u liniji br. %d !"
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
-msgstr ""
+msgstr "Boja napravljenih, kopiranih i preimenovanih čvorova iz oznaka bit će pomaknuta prema žutoj."
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
-msgstr ""
+msgstr "Boja napravljenih, kopiranih i preimenovanih čvorova glavne grane bit će pomaknuta prema zelenoj."
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
@@ -8257,7 +8273,7 @@ msgstr "Zadnja operacija zamjene je pokušala obrisati/maknuti/promijeniti ime d
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to modify the directory '%s'"
-msgstr ""
+msgstr "Zadnja operacija zamjene pokušala je izmijeniti mapu '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8267,27 +8283,27 @@ msgstr "Zadnja operacija zamjene je pokušala promijeniti datoteku '%s'"
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the directory '%s'"
-msgstr ""
+msgstr "U zadnjem obnavljanju pokušalo se dodati mapu '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the file '%s'"
-msgstr ""
+msgstr "U zadnjem obnavljanju pokušalo se dodati datoteku '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to delete/move/rename the directory '%s'"
-msgstr ""
+msgstr "U zadnjem obnavljanju pokušalo se obrisati/maknuti/promijeniti ime mapi '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to delete/move/rename the file '%s'"
-msgstr ""
+msgstr "U zadnjem obnavljanju pokušalo se obrisati/maknuti/promijeniti ime datoteci '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the directory '%s'"
-msgstr ""
+msgstr "U zadnjem obnavljanju pokušalo se izmijeniti mapu '%s'"
 
 #. Resource IDs: (607)
 #, c-format
