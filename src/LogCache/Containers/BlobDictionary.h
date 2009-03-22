@@ -54,8 +54,71 @@ struct SBlob
     const char* data;
     size_t size;
 
+    // construction
+
+    SBlob ()
+        : data (NULL), size (0) {}
+
     SBlob (const char* data, size_t size)
         : data (data), size (size) {}
+
+    SBlob (const std::string& rhs)
+        : data (rhs.c_str()), size (rhs.size()) {}
+
+    // comparison
+
+    bool operator==(const SBlob& rhs) const
+    {
+        return (size == rhs.size) 
+            && ((size == 0) || (memcmp (data, rhs.data, size) == 0));
+    }
+
+    bool operator!=(const SBlob& rhs) const
+    {
+        return !operator==(rhs);
+    }
+
+    bool operator<(const SBlob& rhs) const
+    {
+        if (size == 0)
+            return rhs.size != 0;
+
+        size_t minSize = min (size, rhs.size);
+        int diff = memcmp (data, rhs.data, minSize);
+        if (diff != 0)
+            return diff < 0;
+
+        return size < rhs.size;
+    }
+
+    bool operator>=(const SBlob& rhs) const
+    {
+        return !operator<(rhs);
+    }
+
+    bool operator>(const SBlob& rhs) const
+    {
+        return rhs.operator<(*this);
+    }
+
+    bool operator<=(const SBlob& rhs) const
+    {
+        return !rhs.operator<(*this);
+    }
+
+    // string operations
+
+    bool StartsWith (const SBlob& rhs) const
+    {
+        return (size >= rhs.size) 
+            && (memcmp (data, rhs.data, rhs.size) == 0);
+    }
+
+    bool StartsWith (const std::string& rhs) const
+    {
+        return (size >= rhs.size()) 
+            && (memcmp (data, rhs.c_str(), rhs.size()) == 0);
+    }
 };
 
 /**
