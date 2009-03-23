@@ -69,7 +69,7 @@ bool CleanupCommand::Execute()
 			CShellUpdater::Instance().AddPathsForUpdate(updateList);
 			CShellUpdater::Instance().Flush();
 			updateList.SortByPathname(true);
-			for (INT_PTR j=0; i<updateList.GetCount(); ++j)
+			for (INT_PTR j=0; j<updateList.GetCount(); ++j)
 			{
 				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH, updateList[j].GetWinPath(), NULL);
 				ATLTRACE(_T("notify change for path %s\n"), updateList[j].GetWinPath());
