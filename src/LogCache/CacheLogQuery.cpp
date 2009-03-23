@@ -1167,7 +1167,7 @@ CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath
 	{
 		cache = caches->GetCache (uuid, root);
 	}
-	else
+	if ((caches == NULL)||(cache == NULL))
 	{
 		delete tempCache;
 		tempCache = new CCachedLogInfo(L"");
