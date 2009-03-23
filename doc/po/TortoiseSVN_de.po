@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-20 16:18 +0000\n"
-"PO-Revision-Date: 2009-03-22 16:08+0100\n"
+"PO-Revision-Date: 2009-03-23 13:37+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4319,7 +4319,7 @@ msgstr "Aktualisiere zu Revision"
 
 #. (para)
 msgid "Update your working copy to the selected revision. Useful if you want to have your working copy reflect a time in the past, or if there have been further commits to the repository and you want to update your working copy one step at a time. It is best to update a whole directory in your working copy, not just one file, otherwise your working copy could be inconsistent."
-msgstr "Ihre Arbeitskopie auf eine bestimmte Revision aktualisieren. Nützlich wenn Sie möchten dass Ihre Arbeitskopie einem Zustand in der Vergangenheit entspricht oder wenn es weitere Übertragungen im Projektarchiv gibt, die Sie schrittweise übernehmen wollen. Es ist am besten, ein komplettes Arbeitsverzeichnis und nicht nur eine einzelne Datei zu aktualisieren, da andernfalls Ihre Arbeitskopie inkonsistent sein wird und Sie keine Änderungen übertragen können."
+msgstr "Ihre Arbeitskopie zu einer bestimmten Revision aktualisieren. Nützlich wenn Sie möchten, dass Ihre Arbeitskopie einem Zustand in der Vergangenheit entspricht oder wenn es weitere Übertragungen im Projektarchiv gibt, die Sie schrittweise übernehmen wollen. Es ist am besten, ein komplettes Arbeitsverzeichnis und nicht nur eine einzelne Datei zu aktualisieren, da andernfalls Ihre Arbeitskopie inkonsistent sein wird und Sie keine Änderungen übertragen können."
 
 #. (para)
 msgid "If you want to undo an earlier change permanently, use <guilabel>Revert to this revision</guilabel> instead."
@@ -4336,19 +4336,19 @@ msgstr "Zu einer früheren Revision zurückkehren. Wenn Sie mehrere Änderungen 
 #. (para)
 #. (para)
 msgid "If your working copy is in an unmodified state, after you perform this action your working copy will show as modified. If you already have local changes, this command will merge the <emphasis>undo</emphasis> changes into your working copy."
-msgstr ""
+msgstr "Falls Ihre Arbeitskopie vor dieser Aktion unmodifiziert war, wird sie anschließend das modifiziert Symbol anzeigen. Falls Sie bereits lokale Änderungen vorgenommen haben, wird dieser Befehl die <emphasis>Rückgängig</emphasis>-Änderungen in Ihrer Arbeitskopie zusammenführen."
 
 #. (para)
 msgid "What is happening internally is that Subversion performs a reverse merge of all the changes made after the selected revision, undoing the effect of those previous commits."
-msgstr ""
+msgstr "Intern führt Subversion alle Änderungen seit dieser Revision rückwärts zusammen, so dass sie insgesamt zurückgenommen werden."
 
 #. (para)
 msgid "If after performing this action you decide that you want to <emphasis>undo the undo</emphasis> and get your working copy back to its previous unmodified state, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> from within Windows Explorer, which will discard the local modifications made by this reverse merge action."
-msgstr ""
+msgstr "Falls Sie beschließen, dass Sie die <emphasis>Rückgängig Aktion rückgängig machen</emphasis> und Ihre Arbeitskopie in ihren vorherigen Zustand versetzen wollen, sollten Sie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Rückgängig</guimenuitem></menuchoice> aus dem Explorer-Kontextmenü wählen. Dadurch werden die durch das rückwärts Zusammenführen erzeugten lokalen Änderungen verworfen."
 
 #. (para)
 msgid "If you simply want to see what a file or folder looked like at an earlier revision, use <guilabel>Update to revision</guilabel> or <guilabel>Save revision as...</guilabel> instead."
-msgstr ""
+msgstr "Wenn Sie nur sehen möchten, wie eine Datei oder ein Ordner in einer früheren Revision aussahen, rufen Sie stattdessen <guilabel>Aktualisiere zu Revision</guilabel> oder <guilabel>Speichere Revision unter...</guilabel> auf."
 
 #. (term)
 #. (term)
@@ -4365,7 +4365,7 @@ msgstr "Intern führt Subversion die Änderungen dieser Revision rückwärts zus
 
 #. (para)
 msgid "You can <emphasis>undo the undo</emphasis> as described above in <guilabel>Revert to this revision</guilabel>."
-msgstr ""
+msgstr "Sie können, wie unter <guilabel>Rückgängig zu dieser Revision</guilabel> beschrieben, die <emphasis>Rückgängig Aktion rückgängig machen</emphasis>."
 
 #. (term)
 msgid "Merge revision to..."
@@ -6348,7 +6348,7 @@ msgstr "Damit weisen Sie Subversion an, folgendes zu tun: <quote>Berechne die Ä
 #. (term)
 #. (title)
 msgid "Reintegrate a branch"
-msgstr "Einen Zweig wieder Eingliedern"
+msgstr "Einen Zweig wieder eingliedern"
 
 #. (para)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes."
