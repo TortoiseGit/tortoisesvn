@@ -82,7 +82,7 @@ set Cap=!Cap:~0,75!
 echo !Cap! >> %LogFile%
 
 rem Write log file header 
-echo                                : Developer Version   : Release Candidate >> %LogFile%
+echo                                : Developer Version   : Current Release >> %LogFile%
 echo                  Location      : %Trunk%               : %Brnch% >> %LogFile%
 echo                  Total strings : %TotalTrunk%                : %TotalBrnch% >> %LogFile%
 echo Language                       : Status (fu/un/ma)   : Status (fu/un/ma) >> %LogFile% 
