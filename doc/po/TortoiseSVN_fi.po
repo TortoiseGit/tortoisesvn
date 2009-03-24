@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-19 21:56 +0000\n"
-"PO-Revision-Date: 2009-03-20 00:49+0200\n"
+"POT-Creation-Date: 2009-03-20 16:18 +0000\n"
+"PO-Revision-Date: 2009-03-24 19:13+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9315,12 +9315,12 @@ msgid "To show the command line parameters passed from the shell extension to To
 msgstr "Näyttääksesi Resurssienhallintalaajennoksen TortoiseProc.exe -komennolle välittämät komentoriviparametrit, luo <literal>DWORD</literal>-avain <literal>HKCU\\Software\\TortoiseSVN\\Debug</literal> ja aseta sen arvoksi 1."
 
 #. (term)
-msgid "Owner-Drawn Menus"
-msgstr "Owner-Drawn -valikot"
+msgid "Context Menu Icons"
+msgstr "Kontekstivalikon kuvakkeet"
 
 #. (para)
-msgid "This can be useful if you use something other than the windows explorer or if you get problems with the context menu displaying correctly. create a <literal>DWORD</literal> key with a value of 0 at <literal>HKCU\\Software\\TortoiseSVN\\OwnerdrawnMenus</literal> if you don't want TortoiseSVN to use owner-draw menu items in the shell context menu. Set this value to 2 if you don't want TortoiseSVN to use icons in the context menu at all."
-msgstr "Tästä voi olla hyötyä, jos käytät jotain muuta ohjelmaa kuin Windows-resurssienhallinta, tai jos kontekstivalikko ei näy oikein. Luo <literal>DWORD</literal>-avain <literal>HKCU\\Software\\TortoiseSVN\\OwnerdrawnMenus</literal> ja aseta sen arvoksi 0, jos et halua, että TortoiseSVN käyttää owner-draw -piirtotekniikkaa kontekstivalikon alkioille. Aseta arvoksi 2, jos et halua käyttää kuvakkeita kontekstivalikossa."
+msgid "This can be useful if you use something other than the windows explorer or if you get problems with the context menu displaying correctly. create a <literal>DWORD</literal> key with a value of 0 at <literal>HKCU\\Software\\TortoiseSVN\\ShowContextMenuIcons</literal> if you don't want TortoiseSVN to not show icons for the shell context menu items. Set this value to 1 to show the icons again."
+msgstr "Tästä voi olla hyötyä, jos käytät jotain muuta ohjelmaa kuin Windows-resurssienhallinta, tai jos kontekstivalikko ei näy oikein. Luo <literal>DWORD</literal>-avain <literal>HKCU\\Software\\TortoiseSVN\\ShowContextMenuIcons</literal> ja aseta sen arvoksi 0, jos et halua, että TortoiseSVN näyttää kuvakkeita kontekstivalikossa. Aseta arvoksi 1 näyttääksesi kuvakkeet uudelleen."
 
 #. (term)
 msgid "Block Overlay Status"
@@ -12793,6 +12793,8 @@ msgstr "Kari Granö <kari.grano@gmail.com>"
 msgid "translator-translation"
 msgstr "Käännös"
 
+#~ msgid "Owner-Drawn Menus"
+#~ msgstr "Owner-Drawn -valikot"
 #~ msgid ""
 #~ "Because Subversion cannot provide all the information required, a certain "
 #~ "amount of interpretation is required, which can sometimes give strange "
