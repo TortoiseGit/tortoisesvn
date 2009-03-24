@@ -1,5 +1,9 @@
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)
+- CHG: When filling in a log message from the 'recent' messages in the
+       commit dlg, use the bugtraq:logregex to extract the bug ID and fill
+       the bug ID field if possible and only use the bugtraq:message value
+       if the logregex doesn't return a bug ID. (Stefan)
 - BUG: Showing properties from the explorer svn properties tab did not work
        if a language other than English was set. (Stefan)
 - BUG: Crash in "cleanup". (Stefan)

@@ -1212,7 +1212,7 @@ void CCommitDlg::OnBnClickedHistory()
 	CString sMsg = historyDlg.GetSelectedText();
 	if (sMsg != m_cLogMessage.GetText().Left(sMsg.GetLength()))
 	{
-		CString sBugID = m_ProjectProperties.GetBugIDFromLog(sMsg);
+		CString sBugID = m_ProjectProperties.FindBugID(sMsg);
 		if (!sBugID.IsEmpty())
 		{
 			SetDlgItemText(IDC_BUGID, sBugID);
