@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2009-03-20 20:37+0100\n"
+"PO-Revision-Date: 2009-03-24 22:59+0100\n"
 "Last-Translator: Mariska Hoogenboom <Mariska.Hoogenboom@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -769,39 +769,39 @@ msgstr "Het probleem met \"blokkeren-wijzigen-blokkade opheffen\" is dat het erg
 #. (para)
 #: ../source/TortoiseSVN_en.xml:853
 msgid "<emphasis>Locking may cause administrative problems.</emphasis> Sometimes Harry will lock a file and then forget about it. Meanwhile, because Sally is still waiting to edit the file, her hands are tied. And then Harry goes on vacation. Now Sally has to get an administrator to release Harry's lock. The situation ends up causing a lot of unnecessary delay and wasted time."
-msgstr ""
+msgstr "<emphasis>Blokkeren kan administratieve problemen veroorzaken.</emphasis> Soms zal het gebeuren dat Harry een bestand blokkeert en dat daarna vergeet. In de tussentijd kan Sally niets doen, omdat ze aan het wachten is om het bestand te mogen wijzigen. En als Harry dan ook nog op vakantie gaat, moet Sally een beheerder vragen om Harry's blokkade op te heffen. Deze situatie veroorzaakt veel onnodige vetraging en verloren tijd."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:864
 msgid "<emphasis>Locking may cause unnecessary serialization.</emphasis> What if Harry is editing the beginning of a text file, and Sally simply wants to edit the end of the same file? These changes don't overlap at all. They could easily edit the file simultaneously, and no great harm would come, assuming the changes were properly merged together. There's no need for them to take turns in this situation."
-msgstr ""
+msgstr "<emphasis>Blokkeren kan onnodige serializatie veroorzaken.</emphasis> Stel dat Harry aan het begin van een bestand iets wil wijzigen en Sally aan het einde van datzelfde bestand. Deze wijzigingen overlappen elkaar niet. Ze zouden gemakkelijk tegelijkertijd het bestand kunnen wijzigen, waarbij geen grote schade zal ontstaan, ervanuitgaande dat de wijzigingen netjes samengevoegd worden. Er is geen reden om op elkaars beurt te wachten."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:876
 msgid "<emphasis>Locking may create a false sense of security.</emphasis> Pretend that Harry locks and edits file A, while Sally simultaneously locks and edits file B. But suppose that A and B depend on one another, and the changes made to each are semantically incompatible. Suddenly A and B don't work together anymore. The locking system was powerless to prevent the problem - yet it somehow provided a sense of false security. It's easy for Harry and Sally to imagine that by locking files, each is beginning a safe, insulated task, and thus inhibits them from discussing their incompatible changes early on."
-msgstr ""
+msgstr "<emphasis>Blokkeren kan een vals gevoel van veiligheid geven.</emphasis> Stel dat Harry bestand A blokkeert en wijzigt, terwijl Sally tegelijkertijd bestand B blokkeert en wijzigt. Maar wat als A en B van elkaar afhankelijk zijn, en de wijzigingen die gemaakt zijn, niet compatibel zijn? A en B zullen ineens niet meer samen kunnen werken. Het blokkeringssysteem was niet in staat om dit probleem te voorkomen - maar op de een of andere manier gaf het wel een vals gevoel van veiligheid. Het is voor de hand liggend dat Harry en Sally bedenken dat ze door het blokkeren van de bestanden, een veilige, geïsoleerde taak beginnen, wat ze ervan weerhoudt om hun incompatibele wijzigingen te bespreken."
 
 #. (title)
 #. (title)
 #: ../source/TortoiseSVN_en.xml:894
 #: ../source/TortoiseSVN_en.xml:922
 msgid "The Copy-Modify-Merge Solution"
-msgstr ""
+msgstr "De Kopieer-Wijzig-Samenvoeg Oplossing"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:895
 msgid "Subversion, CVS, and other version control systems use a <firstterm>copy-modify-merge</firstterm> model as an alternative to locking. In this model, each user's client reads the repository and creates a personal <firstterm>working copy</firstterm> of the file or project. Users then work in parallel, modifying their private copies. Finally, the private copies are merged together into a new, final version. The version control system often assists with the merging, but ultimately a human being is responsible for making it happen correctly."
-msgstr ""
+msgstr "Subversion, CVS, en andere versiebeheersystemen gebruiken een <firstterm>kopieer-wijzig-samenvoeg</firstterm> model als alternatief voor het blokkeren. In dit model leest elke gebruiker het archief en maakt een persoonlijke <firstterm>werkkopie</firstterm> van het bestand of project. Gebruikers werken dan parallel en wijzigen hun persoonlijke kopieen. Uiteindelijk worden alle persoonlijke kopieen samengevoegd in een nieuwe finale versie. Het versiebeheersysteem ondersteunt meestal dit samenvoegen, maar uiteindelijk is een mens verantwoordelijk voor het correct uitvoeren daarvan."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:907
 msgid "Here's an example. Say that Harry and Sally each create working copies of the same project, copied from the repository. They work concurrently, and make changes to the same file <filename>A</filename> within their copies. Sally saves her changes to the repository first. When Harry attempts to save his changes later, the repository informs him that his file A is <firstterm>out-of-date</firstterm>. In other words, that file A in the repository has somehow changed since he last copied it. So Harry asks his client to <firstterm>merge</firstterm> any new changes from the repository into his working copy of file A. Chances are that Sally's changes don't overlap with his own; so once he has both sets of changes integrated, he saves his working copy back to the repository."
-msgstr ""
+msgstr "Zie hier een voorbeeld. Stel dat Harry en Sally elk een werkkopie hebben gemaakt vanaf het archief van hetzelfde project. Ze werken tegelijkertijd en wijzigen hetzelfde bestand <filename>A</filename> in hun werkkopie. Sally slaat haar wijzigingen als eerste in het archief op. Als Harry later probeert zijn wijzigingen op te slaan, informeert het archief hem dat het bestand A <firstterm>verouderd</firstterm> is. Met andere woorden, bestand A in het archief is op de een of andere manier in het archief gewijzigd sinds hij het bestand voor het laatst gekopieerd heeft. Harry zal nu zijn client vragen om de wijzigingen vanuit het archief met zijn werkkopie van bestand A <firstterm>samen te voegen</firstterm>. De kans is groot dat wijzigingen die Sally heeft gemaakt, niet overlappen met zijn eigen wijzigingen; dus zodra hij beide sets heeft geïntegreerd, kan hij zijn werkkopie in het archief opslaan."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:926
 msgid "...Copy-Modify-Merge Continued"
-msgstr ""
+msgstr "...Kopieren-Wijzigen-Samenvoegen Vervolg"
 
 #. (primary)
 #. (primary)
@@ -813,27 +813,27 @@ msgstr "conflict"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:932
 msgid "But what if Sally's changes <emphasis>do</emphasis> overlap with Harry's changes? What then? This situation is called a <firstterm>conflict</firstterm>, and it's usually not much of a problem. When Harry asks his client to merge the latest repository changes into his working copy, his copy of file A is somehow flagged as being in a state of conflict: he'll be able to see both sets of conflicting changes, and manually choose between them. Note that software can't automatically resolve conflicts; only humans are capable of understanding and making the necessary intelligent choices. Once Harry has manually resolved the overlapping changes (perhaps by discussing the conflict with Sally!), he can safely save the merged file back to the repository."
-msgstr ""
+msgstr "Maar wat gebeurt er als Sally's wijzigingen <emphasis>wel</emphasis> overlappen met Harry's wijzigingen? Wat dan? Deze situatie wordt een <firstterm>conflict</firstterm> genoemd, en is meestal helemaal niet zo'n probleem. Als Harry zijn client vraagt om de wijzigingen in het archief samen te voegen met zijn werkkopie, wordt zijn kopie van bestand A gemarkeerd als zijnde in staat van conflict: hij zal beide sets van conflicterende wijzigingen kunnen bekijken en handmatig kiezen tussen de sets. Software kan niet automatisch conflicten oplossen; alleen mensen zijn in staat om te begrijpen en de juiste intelligente keuzes te maken. Zodra Harry handmatig de conflicten heeft opgelost (misschien wel door te overleggen met Sally), kan hij de wijzigingen in het samengevoegde bestand opslaan in het archief."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:947
 msgid "The copy-modify-merge model may sound a bit chaotic, but in practice, it runs extremely smoothly. Users can work in parallel, never waiting for one another. When they work on the same files, it turns out that most of their concurrent changes don't overlap at all; conflicts are infrequent. And the amount of time it takes to resolve conflicts is far less than the time lost by a locking system."
-msgstr ""
+msgstr "Het kopieren-wijzigen-samenvoegen model lijkt misschien wat chaotisch, maar in de praktijk werkt het zeer probleemloos. Gebruikers kunnen parallel werken, en hoeven nooit te wachten op elkaar. Als ze aan dezelfde bestanden werken, zal het in de meeste gevallen geen overlappende wijzigingen betreffen; Conflicten treden niet vaak op. En de tijd die het kost om een conflict op te lossen is veel minder dan de tijd die verloren gaat door het blokkeersysteem."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:956
 msgid "In the end, it all comes down to one critical factor: user communication. When users communicate poorly, both syntactic and semantic conflicts increase. No system can force users to communicate perfectly, and no system can detect semantic conflicts. So there's no point in being lulled into a false promise that a locking system will somehow prevent conflicts; in practice, locking seems to inhibit productivity more than anything else."
-msgstr ""
+msgstr "Uiteindelijk komt het allemaal aan op één kritieke factor: communicatie tussen de gebruikers. Als een gebruiker slecht communiceert, zullen zowel syntactische als semantische conflicten meer gaan optreden. Geen enkel systeem kan gebruikers dwingen om perfect te communiceren, en geen enkel systeem kan semantische conflicten detecteren.  Het heeft dus geen enkele zin om in slaap gesust te worden door een blokkeersysteem dat zogenaamd conflicten kan voorkomen; in de praktijk lijkt het of blokkeren de productiviteit meer dan wat dan ook remt."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:966
 msgid "There is one common situation where the lock-modify-unlock model comes out better, and that is where you have unmergeable files. For example if your repository contains some graphic images, and two people change the image at the same time, there is no way for those changes to be merged together. Either Harry or Sally will lose their changes."
-msgstr ""
+msgstr "Er is één voorkomende situatie waar het blokkeren-wijzigen-vrijgeven model beter werkt, en dat is als je bestanden hebt, waarvan wijzigingen niet samenvoegbaar zijn. Als je archief bijvoorbeeld grafische bestanden bevat en twee mensen wijzigen een grafische bestand op hetzelfde moment, is er geen manier om deze wijzigingen samen te voegen. Ofwel de wijzigingen van Harry of die van Sally zullen verloren gaan."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:976
 msgid "What does Subversion Do?"
-msgstr ""
+msgstr "Wat doet Subversion?"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:977
