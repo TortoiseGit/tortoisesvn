@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-20 16:18 +0000\n"
-"PO-Revision-Date: 2009-03-23 13:37+0100\n"
+"PO-Revision-Date: 2009-03-25 16:54+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5018,11 +5018,11 @@ msgstr "Dieser Dialog zeigt eine Liste aller Dateien, die geändert wurden und e
 
 #. (para)
 msgid "You can export a <emphasis>change tree</emphasis>, which is useful if you need to send someone else your project tree structure, but containing only the files which have changed. This operation works on the selected files only, so you need to select the files of interest - usually that means all of them - and then <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Export selection to...</guimenuitem></menuchoice>. You will be prompted for a location to save the change tree."
-msgstr ""
+msgstr "Sie können einen <emphasis>Änderungsbaum</emphasis> exportieren. Das ist nüztlich, wenn Sie jemandem Ihre Projektstruktur schicken wollen, die aber nur die geänderten Dateien enthalten soll. Diese Funktion arbeitet nur auf den markierten Dateien. Das bedeutet, dass Sie die gewünschten Dateien - normalerweise alle - markieren und dann per <menuchoice><guimenu>Kontextmenü</guimenu><guimenuitem>Exportiere Auswahl in...</guimenuitem></menuchoice> in den im folgenden Dialog abgefragten Ort herausschreiben."
 
 #. (para)
 msgid "You can also export the <emphasis>list</emphasis> of changed files to a text file using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Save list of selected files to...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Sie können auch die <emphasis>Liste</emphasis> der geänderten Dateien in eine Textdatei herausschreiben, indem Sie <menuchoice><guimenu>Kontextmenü</guimenu><guimenuitem>Speichere Liste der gewählten Dateien in...</guimenuitem></menuchoice> wählen."
 
 #. (para)
 msgid "If you want to export the list of files <emphasis>and</emphasis> the actions (modified, added, deleted) as well, you can do that using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Copy selection to clipboard</guimenuitem></menuchoice>."
@@ -6120,7 +6120,7 @@ msgstr ""
 
 #. (para)
 msgid "You can also specify a peg revision after the URL if required, e.g. <systemitem class=\"url\">http://sounds.red-bean.com/repos@19</systemitem>."
-msgstr ""
+msgstr "Sie können auch, falls erforderlich, eine Stützrevision nach der URL angeben, z.B. <systemitem class=\"url\">http://sounds.red-bean.com/repos@19</systemitem>."
 
 #. (para)
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-dug-propertypage\"/>."
@@ -6136,7 +6136,7 @@ msgstr "Externe Dateien"
 
 #. (para)
 msgid "As of Subversion 1.6 you can add single file externals to your working copy using the same syntax as for folders. However, there are some restrictions."
-msgstr ""
+msgstr "Beginnend mit Subversion 1.6 können Sie einzelne externe Dateien unter Verwendung der gleichen Syntax wie für Ordner an Ihre Arbeitskopie binden. Es gibt jedoch ein paar Einschränkungen."
 
 #. (para)
 msgid "The path to the file external must be in a working copy that is already checked out. While directory externals can place the external directory at any depth and it will create any intermediate directories, file externals must be placed into a working copy that is already checked out."
@@ -6144,19 +6144,19 @@ msgstr ""
 
 #. (para)
 msgid "The URL for a file external must be in the same repository as the URL that the file external will be inserted into; inter-repository file externals are not supported."
-msgstr ""
+msgstr "Die URL für die externe Datei muss sich in demselben Projektarchiv befinden, wie die URL in die die externe Datei eingebettet wird. Verweise auf externe Dateien zwischen Projektarchiven werden nicht unterstützt."
 
 #. (para)
 msgid "A file external behaves just like any other versioned file in many respects, but they cannot be moved or deleted using the normal commands; the <literal>svn:externals</literal> property must be modified instead."
-msgstr ""
+msgstr "Eine externe Datei verhält sich in den meisten Fällen wie jede andere versionierte Datei, sie kann aber nicht mit den normalen Befehlen gelöscht oder verschoben werden. Stattdessen muss die <literal>svn:externals</literal> Eigenschaft verändert werden."
 
 #. (title)
 msgid "File externals support incomplete in Subversion 1.6"
-msgstr ""
+msgstr "Die Unterstützung von externen Dateien ist in Subversion 1.6 unvollständig"
 
 #. (para)
 msgid "In subversion 1.6 it is not possible to remove a file external from your working copy once you have added it, even if you delete the <literal>svn:externals</literal> property altogether. You have to checkout a fresh working copy to remove the file."
-msgstr ""
+msgstr "In Subversion 1.6 ist es nicht möglich, eine externe Datei aus Ihrer Arbeitskopie zu entfernen, nachdem Sie sie hinzugefügt haben, selbst wenn Sie die <literal>svn:externals</literal> Eigenschaft vollständig löschen. Sie müssen eine neue Arbeitskopie auschecken, um die Datei loszuwerden."
 
 #. (title)
 msgid "Branching / Tagging"
@@ -7451,19 +7451,19 @@ msgstr ""
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphCollapse.png\"/> Click on the minus button to collapse the attached sub-tree."
-msgstr ""
+msgstr "<graphic fileref=\"../images/RevGraphCollapse.png\"/> Klicken Sie auf die Minus-Schaltfläche, um den angehängten Teilbaum zusammenzuklappen."
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphExpand.png\"/> Click on the plus button to expand a collapsed tree. When a tree has been collapsed, this button remains visible to indicate the hidden sub-tree."
-msgstr ""
+msgstr "<graphic fileref=\"../images/RevGraphExpand.png\"/> Klicken Sie auf die Minus-Schaltfläche, um den Baum aufzuklappen. Wenn ein Baum zusammengeklappt wird, bleibt diese Schaltfläche sichtbar, um den verborgenen Teilbaum anzuzeigen."
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphSplit.png\"/> Click on the cross button to split the attached sub-tree and show it as a separate tree on the graph."
-msgstr ""
+msgstr "<graphic fileref=\"../images/RevGraphSplit.png\"/> Klicken Sie auf die Kreuz-Schaltfläche, um den angehängten Teilbaum abzuspalten und als separaten Baum im Graphen anzuzeigen."
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphJoin.png\"/> Click on the circle button to reattach a split tree. When a tree has been split away, this button remains visible to indicate that there is a separate sub-tree."
-msgstr ""
+msgstr "<graphic fileref=\"../images/RevGraphJoin.png\"/> Klicken Sie auf die Kreis-Schaltfläche, um einen abgespaltenen Teilbaum wieder einzuhängen. Falls ein Teilbaum abgespalten wurde, bleibt diese Schaltfläche sichtbar, um anzuzeigen, dass es einen separaten Teilbaum gibt."
 
 #. (para)
 msgid "Click on the graph background for the main context menu, which offers options to <guilabel>Expand all</guilabel> and <guilabel>Join all</guilabel>. If no branch has been collapsed or split, the context menu will not be shown."
