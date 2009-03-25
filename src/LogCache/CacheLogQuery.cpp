@@ -1005,6 +1005,10 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 			// (this may cause an indefinite loop)
 
 			assert (iterator->GetRevision() < lastReported);
+			if (iterator->GetRevision() >= lastReported)
+			{
+				return;
+			}
 
 			// don't try to fetch data when in "disconnected" mode
 			
