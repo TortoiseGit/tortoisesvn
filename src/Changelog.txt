@@ -8,6 +8,8 @@ Version 1.6.1
        if a language other than English was set. (Stefan)
 - BUG: Crash in "cleanup". (Stefan)
 - BUG: TortoiseBlame did showed only empty files. (Stefan)
+- BUG: Crash when showing the revision graph where the URL of the repository
+       required escaping. (Stefan)
 
 Version 1.6.0
 - NEW: Ignoring of multiple selected items by their extension. See
