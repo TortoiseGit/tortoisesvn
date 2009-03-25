@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-14 23:27+0200\n"
+"PO-Revision-Date: 2009-03-25 23:02+0200\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -455,11 +455,7 @@ msgstr "&Converteşte fişiere când se diferenţează cu BASE-ul"
 msgid "&Copy"
 msgstr "&Copiază"
 
-# Noun or verb?
-# Noun: The copy button's image
-# Verb: Make a copy of the button's image
 #. Resource IDs: (16911)
-#, fuzzy
 msgid "&Copy Button Image"
 msgstr "&Copiază imaginea butonului"
 
@@ -818,9 +814,8 @@ msgid "&Options"
 msgstr "&Opţiuni"
 
 #. Resource IDs: (32772)
-#, fuzzy
 msgid "&Overlay images"
-msgstr "&Suprapune imaginile"
+msgstr "&Imagini de suprapunere"
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -1255,7 +1250,7 @@ msgstr "... se verifică cache-ul şi se pregăteşte interogare de jurnal"
 
 #. Resource IDs: (270)
 msgid "... reading working copy status"
-msgstr ""
+msgstr "... se citeşte starea copiei de lucru"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -3276,9 +3271,9 @@ msgid "Drives A: and B:"
 msgstr "Discurile A: şi B:"
 
 #. Resource IDs: (613)
-#, c-format
+#, fuzzy, c-format
 msgid "Drop not possible on %1"
-msgstr ""
+msgstr "Drop nu este posibil cu %1"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -4170,7 +4165,6 @@ msgid "Help"
 msgstr "Ajutor"
 
 #. Resource IDs: (16982)
-#, fuzzy
 msgid "Help Keyboard"
 msgstr "Ajutor cu tastatură"
 
@@ -5123,8 +5117,9 @@ msgid "Mark the conflict as resolved"
 msgstr "Marchează conflictul ca fiind rezolvat"
 
 #. Resource IDs: (65535)
+#, fuzzy
 msgid "Markers"
-msgstr ""
+msgstr "Markers"
 
 #. Resource IDs: (2051)
 msgid ""
@@ -5229,9 +5224,9 @@ msgid "Merge revisions to..."
 msgstr "Îmbină reviziile cu..."
 
 #. Resource IDs: (610)
-#, fuzzy, c-format
+#, c-format
 msgid "Merge the changes into '%s'"
-msgstr "Îmbină schimbările în fişierul '%s'"
+msgstr "Îmbină schimbările în '%s'"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -5854,7 +5849,6 @@ msgid "Other Task Panes"
 msgstr "Alte panouri de sarcini"
 
 #. Resource IDs: (245)
-#, fuzzy
 msgid "Others"
 msgstr "Alţii"
 
@@ -6087,7 +6081,7 @@ msgstr ""
 
 #. Resource IDs: (2052)
 msgid "Prevents most cases in which connection lines cross revision nodes"
-msgstr ""
+msgstr "Previne cele mai multe cazuri în care linii de conexiune încrucişează noduri de revizie"
 
 #. Resource IDs: (1069)
 msgid "Preview"
@@ -6349,7 +6343,7 @@ msgstr ""
 
 #. Resource IDs: (32819)
 msgid "Reduce cross-&lines"
-msgstr ""
+msgstr "Reduce liniile încrucişate"
 
 #. Resource IDs: (3825)
 msgid "Reduce the window to an icon"
@@ -7299,7 +7293,6 @@ msgid "Show &All"
 msgstr "Afişează &Tot"
 
 #. Resource IDs: (1132)
-#, fuzzy
 msgid "Show &Log"
 msgstr "Afişează &jurnalul"
 
@@ -7427,6 +7420,10 @@ msgstr "Afişează fişiere i&gnorate"
 #. Resource IDs: (1480)
 msgid "Show items in externals"
 msgstr "Afişează elemente în externals"
+
+#. Resource IDs: (1037)
+msgid "Show l&og"
+msgstr "Afişează &jurnalul"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -7883,7 +7880,7 @@ msgstr "Dimensiune Tab:"
 
 #. Resource IDs: (65535)
 msgid "Tag nodes"
-msgstr ""
+msgstr "Noduri tag"
 
 #. Resource IDs: (79)
 #, c-format
@@ -9250,13 +9247,12 @@ msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "WC node"
-msgstr "nod din copia de lucru"
+msgstr "nod al copiei de lucru"
 
 #. Resource IDs: (65535)
 msgid "WC node border"
-msgstr ""
+msgstr "Marginea nodului copiei de lucru"
 
 #. Resource IDs: (198)
 msgid "Wait"
