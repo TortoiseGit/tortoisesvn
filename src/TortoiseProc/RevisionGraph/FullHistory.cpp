@@ -252,7 +252,7 @@ bool CFullHistory::FetchRevisionData ( CString path
             // it cannot contact the server to get the UUID)
 
             uuid = pool->GetRepositoryInfo().GetRepositoryUUID (svnPath);
-            cache = pool->GetCache (uuid, GetRepositoryRoot());
+            cache = pool->GetCache (uuid, rootPath.GetSVNPathString());
 
             firstRevision = cache != NULL
                           ? cache->GetRevisions().GetFirstMissingRevision(1)
