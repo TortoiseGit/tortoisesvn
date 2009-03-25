@@ -238,11 +238,12 @@ http://graphics.red-bean.com/repos/fast%20graphics  quick_graphs
 		<itemizedlist>
 			<listitem>
 				<para>
-					The path to the file external must be in a working copy that is
-					already checked out. While directory externals can place the
-					external directory at any depth and it will create any intermediate
-					directories, file externals must be placed into a working copy
-					that is already checked out.
+					The path to the file external must place the file in an existing 
+					versioned folder. In general it makes most sense to place the file
+					directly in the folder that has <literal>svn:externals</literal> 
+					set, but it can be in a versioned sub-folder if necessary. 
+					By contrast, directory externals will automatically create any 
+					intermediate unversioned folders as required.
 				</para>
 			</listitem>
 			<listitem>
