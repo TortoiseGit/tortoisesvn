@@ -917,7 +917,7 @@ bool CSVNStatusListCtrl::CSorter::operator()
 	int result = 0;
 	switch (sortedColumn)
 	{
-	case 19:
+	case 20:
 		{
 			if (result == 0)
 			{
@@ -930,46 +930,53 @@ bool CSVNStatusListCtrl::CSorter::operator()
 				result = CompareFileTime(filetime1,filetime2);
 			}
 		}
-	case 18:
+	case 19:
 		{
 			if (result == 0)
 			{
 				result = entry1->copyfrom_url.CompareNoCase(entry2->copyfrom_url);
 			}
 		}
-	case 17:
+	case 18:
 		{
 			if (result == 0)
 			{
 				result = SGN(entry1->needslock - entry2->needslock);
 			}
 		}
-	case 16:
+	case 17:
 		{
 			if (result == 0)
 			{
 				result = SGN(entry1->last_commit_date - entry2->last_commit_date);
 			}
 		}
-	case 15:
+	case 16:
 		{
 			if (result == 0)
 			{
 				result = entry1->remoterev - entry2->remoterev;
 			}
 		}
-	case 14:
+	case 15:
 		{
 			if (result == 0)
 			{
 				result = entry1->last_commit_rev - entry2->last_commit_rev;
 			}
 		}
-	case 13:
+	case 14:
 		{
 			if (result == 0)
 			{
 				result = entry1->last_commit_author.CompareNoCase(entry2->last_commit_author);
+			}
+		}
+	case 13:
+		{
+			if (result == 0)
+			{
+				result = entry1->lock_date - entry2->lock_date;
 			}
 		}
 	case 12:

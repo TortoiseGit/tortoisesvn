@@ -12,6 +12,8 @@ Version 1.6.1
        required escaping. (Stefan)
 - BUG: The log dialog would show paths incorrectly greyed out or hidden
        for urls which need escaping. (Stefan)
+- BUG: Sorting in the status list control didn't work properly for columns
+       after 'lock author'. (Stefan)
 
 Version 1.6.0
 - NEW: Ignoring of multiple selected items by their extension. See
