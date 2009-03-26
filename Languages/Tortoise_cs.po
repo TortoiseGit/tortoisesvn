@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-25 16:08+0100\n"
+"PO-Revision-Date: 2009-03-26 08:36Central Europe Standard Time\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -817,9 +817,8 @@ msgid "&Options"
 msgstr "&Nastavení"
 
 #. Resource IDs: (32772)
-#, fuzzy
 msgid "&Overlay images"
-msgstr "Překrýt &obrázky"
+msgstr "Překryvné &obrázky"
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -998,13 +997,12 @@ msgid "&Stop on copy/rename"
 msgstr "Za&stavit na kopírování/přejmenování"
 
 #. Resource IDs: (276)
-#, fuzzy
 msgid "&Switch WC to path and revision"
-msgstr "Překlopit %s na %s, Revize %s"
+msgstr "Překlopit pracovní kopii do cesty a revize"
 
 #. Resource IDs: (275)
 msgid "&Switch WC to path@HEAD"
-msgstr ""
+msgstr "Překlopit pracovní kopii do cesta@HEAD"
 
 #. Resource IDs: (1173)
 msgid "&Symbol View"
@@ -1247,12 +1245,11 @@ msgstr "..."
 
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
-msgstr ""
+msgstr "... kontroluji cache a připravuji log dotaz"
 
 #. Resource IDs: (270)
-#, fuzzy
 msgid "... reading working copy status"
-msgstr "Označkovaná pracovní kopie (WC) na %s"
+msgstr "... čtu status pracovní kopie"
 
 #. Resource IDs: (16527)
 msgid "....."
@@ -2125,9 +2122,8 @@ msgid "Check For Updates..."
 msgstr "Zjistit aktualizovanou verzi..."
 
 #. Resource IDs: (276)
-#, fuzzy
 msgid "Check for &modifications"
-msgstr "Zjistit modifikace"
+msgstr "Zjistit &modifikace"
 
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
@@ -2151,12 +2147,11 @@ msgstr ""
 
 #. Resource IDs: (612)
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
-msgstr "Zkontroluj log jak se soubor/složka přejmenovala/přesunula a rozhodni se, jestli chceš ponechat své přejmenování/přesunutí nebo to z úložiště. Pak označ problém za vyřešený."
+msgstr "Zkontrolujte log jak se soubor/složka přejmenovala/přesunula a rozhodněte se, jestli chcete ponechat své přejmenování/přesunutí nebo to z úložiště. Pak označte problém za vyřešený."
 
 #. Resource IDs: (612)
-#, fuzzy
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to merge the change into your renamed file, or restore the original file."
-msgstr "Zkontroluj log jak se soubor/složka přejmenovala/přesunula a rozhodni se, jestli chceš ponechat své přejmenování/přesunutí nebo to z úložiště. Pak označ problém za vyřešený."
+msgstr "Zkontrolujte log jak se soubor/složka přejmenovala/přesunula a rozhodněte se, jestli chcete sloučit změnu do svého přejmenovaného souboru, nebo obnovit původní soubor."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -2500,13 +2495,12 @@ msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "Nastavte program používaný pro prohlížení rozdílových souborů GNU diff (patch)."
 
 #. Resource IDs: (1503)
-#, fuzzy
 msgid "Conflict Sources"
-msgstr "Konfliktu vyřešen"
+msgstr "Konfliktní zdroje "
 
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
-msgstr "Konfliktu vyřešen"
+msgstr "Konflikt vyřešen"
 
 #. Resource IDs: (263, 65535)
 msgid "Conflicted"
@@ -3048,9 +3042,8 @@ msgid "Deleting"
 msgstr "Mazání"
 
 #. Resource IDs: (207)
-#, fuzzy
 msgid "Depth"
-msgstr "Hloubka:"
+msgstr "Hloubka"
 
 #. Resource IDs: (65535)
 msgid "Depth:"
@@ -3558,9 +3551,8 @@ msgid "Exceptions:"
 msgstr "Výjimky:"
 
 #. Resource IDs: (20)
-#, fuzzy
 msgid "Exclude"
-msgstr "V&ynechat cesty:"
+msgstr "Vynechat"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -3669,9 +3661,8 @@ msgid "External Programs::Unified Diff Viewer"
 msgstr "Externí programy::Prohlížeč Unifikovaného Diff"
 
 #. Resource IDs: (263)
-#, fuzzy
 msgid "External failed"
-msgstr "Externí přiloženy"
+msgstr "Externí selhaly"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
@@ -5234,9 +5225,9 @@ msgid "Merge revisions to..."
 msgstr "Sloučit revize do..."
 
 #. Resource IDs: (610)
-#, fuzzy, c-format
+#, c-format
 msgid "Merge the changes into '%s'"
-msgstr "Sloučit změny do souboru '%s'"
+msgstr "Sloučit změny do '%s'"
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -6064,7 +6055,6 @@ msgid "Port :"
 msgstr "Port :"
 
 #. Resource IDs: (347)
-#, fuzzy
 msgid "Possible values: 0 (fully transparent) .. 255 (opaque)"
 msgstr "Rozsah hodnot: 0 (zcela průhledný) .. 255 (neprůhledný)"
 
@@ -6211,14 +6201,14 @@ msgid "Property %s : working copy"
 msgstr "Vlastnost %s: pracovní kopie (WC)"
 
 #. Resource IDs: (262)
-#, fuzzy, c-format
+#, c-format
 msgid "Property '%s' deleted"
-msgstr "Vlastnost %s: vzdálené"
+msgstr "Vlastnost '%s' smazána"
 
 #. Resource IDs: (262)
-#, fuzzy, c-format
+#, c-format
 msgid "Property '%s' set"
-msgstr "Vlastnost %s: vzdálené"
+msgstr "Vlastnost '%s' nastavena"
 
 #. Resource IDs: (107)
 msgid "Property Page"
@@ -7435,9 +7425,8 @@ msgid "Show items in externals"
 msgstr "Zobrazit položky externě"
 
 #. Resource IDs: (1037)
-#, fuzzy
 msgid "Show l&og"
-msgstr "Zobrazit &log záznamy"
+msgstr "Zobrazit &log"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -7611,14 +7600,12 @@ msgid "Sort by commit count"
 msgstr "Uspořádat podle počtu odevzdání"
 
 #. Resource IDs: (1501)
-#, fuzzy
 msgid "Source Left:"
-msgstr "Skrolovat vlevo"
+msgstr "Zdroj vlevo"
 
 #. Resource IDs: (1502)
-#, fuzzy
 msgid "Source Right:"
-msgstr "Skrolovat vpravo"
+msgstr "Zdroj vpravo"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -8967,9 +8954,8 @@ msgid "Update Depth"
 msgstr "Hloubka aktualizace"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Update WC to revision"
-msgstr "Akt&ualizovat položku na revizi"
+msgstr "Aktualizovat pracovní kopii na revizi"
 
 #. Resource IDs: (74)
 msgid "Updated"
