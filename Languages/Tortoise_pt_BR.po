@@ -1736,7 +1736,7 @@ msgstr "Perguntar ao usuário"
 #. Resource IDs: (264)
 #, fuzzy, c-format
 msgid "Assigned to changelist '%s'"
-msgstr "Associado a lista de alterações \"%s\""
+msgstr "Associado a lista de alterações '%s'"
 
 #. Resource IDs: (16528)
 msgid "Assigned to:"
@@ -1882,7 +1882,7 @@ msgstr "Responsabilidade - TortoiseSVN"
 #. Resource IDs: (114)
 #, fuzzy
 msgid "Blame..."
-msgstr "&Responsabilidade..."
+msgstr "Responsabilidade..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
@@ -1956,7 +1956,7 @@ msgstr "&Verificar Agora"
 #. Resource IDs: (1132)
 #, fuzzy
 msgid "C&heck repository"
-msgstr "Verificar Repositório"
+msgstr "V&erificar Repositório"
 
 #. Resource IDs: (275)
 msgid "C&ollapse sub-trees"
@@ -8569,11 +8569,11 @@ msgstr ""
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
-msgstr ""
+msgstr "Esse método aplica-se no caso em que foi feita uma ou mais revisões em um ramo (ou ao tronco) e deseja-se transportar essas mudanças para um ramo diferente."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
-msgstr ""
+msgstr "Esse método aplica-se no caso em que deseja-se integrar as diferenças de dois ramos à cópia de trabalho."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -8604,11 +8604,11 @@ msgstr "Essa propriedade não deve possuir múltiplas linhas. Apenas uma linha �
 
 #. Resource IDs: (1016)
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr ""
+msgstr "Remove os registros de comandos usados nesta aplicação e restaura o conjunto padrão de comandos visível nos menus e barras de ferramentas. Não será desfeita nenhuma personalização explícita. Tem certeza de que deseja fazer isso?"
 
 #. Resource IDs: (16924)
 msgid "Tile &Horizontally"
-msgstr ""
+msgstr "Lado a Lado &Horizontalmente"
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -8655,6 +8655,8 @@ msgid ""
 "Toggle One/Two Pages display\n"
 "Toggle One/Two Pages display"
 msgstr ""
+"Alterna entre visualizações de Uma/Duas Páginas\n"
+"Alternar entre visualizações de Uma/Duas Páginas"
 
 #. Resource IDs: (65535)
 msgid "Toolbar"
@@ -9013,6 +9015,8 @@ msgid ""
 "Unused log caches will only be removed if the respective\n"
 "file is smaller than the given size in kBytes."
 msgstr ""
+"Cachês de registro não utilizadas serão removidas apenas se o \n"
+"arquivo correspondente for menor que o tamanho dado em kBytes."
 
 #. Resource IDs: (146)
 msgid "Unversion"
@@ -9140,6 +9144,8 @@ msgid ""
 "Use block from left view before block from right view\n"
 "Use block from left before right"
 msgstr ""
+"Usa o bloco de visualização da esquerda antes do bloco de visualização da direita\n"
+"Usar bloco da esquerda antes do da direita"
 
 #. Resource IDs: (32859)
 msgid "Use block from right before left"
@@ -9150,6 +9156,8 @@ msgid ""
 "Use block from right view before block from left view\n"
 "Use block from right before left"
 msgstr ""
+"Usa o bloco de visualização da direita antes do bloco de visualização da esquerda\n"
+"Usar bloco da direita antes do da esquerda"
 
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
@@ -9886,12 +9894,16 @@ msgid ""
 "bugtraq:providerparams\r\n"
 "the parameters passed to the IBugTraqProvider"
 msgstr ""
+"bugtraq:providerparams\r\n"
+"os parâmetros transmitidos ao IBugTraqProvider"
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:provideruuid\r\n"
 "the COM uuid of the IBugTraqProvider"
 msgstr ""
+"bugtraq:provideruuid\r\n"
+"o uuid COM do IBugTraqProvider"
 
 #. Resource IDs: (577)
 #, fuzzy, c-format
