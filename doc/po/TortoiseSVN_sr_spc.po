@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-20 16:18 +0000\n"
-"PO-Revision-Date: 2009-03-21 00:29+0100\n"
+"POT-Creation-Date: 2009-03-25 22:58 +0000\n"
+"PO-Revision-Date: 2009-03-27 10:59+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6104,8 +6104,8 @@ msgid "As of Subversion 1.6 you can add single file externals to your working co
 msgstr "Као Субверзија 1.6 можете додати појединачни спољашњи фајл у вашу радну копију користећи исту синтаксу као за именике. Међутим, постоје неке рестрикције."
 
 #. (para)
-msgid "The path to the file external must be in a working copy that is already checked out. While directory externals can place the external directory at any depth and it will create any intermediate directories, file externals must be placed into a working copy that is already checked out."
-msgstr "Путања до спољашњег фајла морабити у радној копији која је већ преузета. Док именици екстернала могу да сместе екстернал именике на било коју дубину и могу креирати интермедијалне именике, екстернали фајлова морају бити смештени у радну копију која је већ преузета."
+msgid "The path to the file external must place the file in an existing versioned folder. In general it makes most sense to place the file directly in the folder that has <literal>svn:externals</literal> set, but it can be in a versioned sub-folder if necessary. By contrast, directory externals will automatically create any intermediate unversioned folders as required."
+msgstr "Спољашњи програм за путању ка фајлу мора сметстити фајл у постојећи верзионисани именик. Уопштено, разумљивије је  сместити фајл директно у именик који има <literal>svn:externals</literal> подешен, али може бити у верзионисаном под-именику ако је неопходно. На супрот томе, спољашњи програма за именике ће аутоматски креирати интермедијалне неверзионисане именике ако су потребни."
 
 #. (para)
 msgid "The URL for a file external must be in the same repository as the URL that the file external will be inserted into; inter-repository file externals are not supported."

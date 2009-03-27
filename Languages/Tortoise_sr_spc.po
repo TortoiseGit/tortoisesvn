@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-20 22:36+0100\n"
+"PO-Revision-Date: 2009-03-27 21:35+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -829,7 +829,7 @@ msgstr "&Садржај менија"
 #
 #. Resource IDs: (1)
 msgid "&Merge"
-msgstr "&Сједини"
+msgstr "&Стопи"
 
 #
 #. Resource IDs: (32786)
@@ -839,7 +839,7 @@ msgstr "&Путања сједињавања"
 #
 #. Resource IDs: (9)
 msgid "&Merge..."
-msgstr "&Сједини..."
+msgstr "&Стопи"
 
 #
 #. Resource IDs: (1012)
@@ -2045,7 +2045,7 @@ msgstr "П&ретражи..."
 
 #. Resource IDs: (1064)
 msgid "Back"
-msgstr "< &Назад"
+msgstr "Назад"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
@@ -2935,12 +2935,12 @@ msgstr "Није било могуће добити статус!"
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not merge '%s' because"
-msgstr "Није било могуће сјединити '%s' због"
+msgstr "Није било могуће стопити '%s' због"
 
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not merge property '%s' on '%s' because"
-msgstr "Није било могуће сјединити својство '%s' од %s због"
+msgstr "Није било могуће стопити својство '%s' од %s због"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -5181,7 +5181,7 @@ msgstr ""
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
-msgstr "&Локатор пулт"
+msgstr "Локатор пулт"
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -7541,11 +7541,11 @@ msgstr "Прикажи фајлове без &верзија"
 
 #. Resource IDs: (1069)
 msgid "Show Above the Ribbon"
-msgstr "&Прикажи ГЛАВНЕ ревизије"
+msgstr "Прикажи Изнад Траке"
 
 #. Resource IDs: (1069)
 msgid "Show Below the Ribbon"
-msgstr "&Прикажи ГЛАВНЕ ревизије"
+msgstr "Прикажи Испод Траке"
 
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
@@ -9371,8 +9371,8 @@ msgid ""
 "Use text block from the left view\n"
 "Use left block"
 msgstr ""
-"Користи блок текста из \"мој\" пре \"њихов\"\n"
-"блок текста из \"мој\", па онда из \"њихов\""
+"Користи блок текста из левог прегледа\n"
+"Користи леви блок"
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
@@ -10283,7 +10283,7 @@ msgid ""
 "One of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
 "svn:eol-style\r\n"
-"Један он 'нативе', 'LF', 'CR', 'CRLF'."
+"Један од 'природан', 'LF', 'CR', 'CRLF'."
 
 #. Resource IDs: (576)
 msgid ""
@@ -10345,8 +10345,8 @@ msgstr ""
 "Кључне речи које ће бити проширене. Исправне кључне речи су:\r\n"
 "URL, HeadURL : УРЛ главне верзије објекта.\r\n"
 "Author, LastChangedBy : Задња особа која је мењала фајл.\r\n"
-"Date, LastChangedDate : Дате, ЛастЦхангедДате\t\tДатум/време задње измене објекта.\r\n"
-"Rev, LastChangedRevision : Задња ревизија када се објект променио.\r\n"
+"Date, LastChangedDate : Датум/време задње измене објекта.\r\n"
+"Rev, LastChangedRevision : Задња ревизија када се објекат променио.\r\n"
 "Id : Кратки резиме претходне 4 кључне речи."
 
 #. Resource IDs: (576)
@@ -10552,10 +10552,10 @@ msgid ""
 "The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
-"wебвиеwер:патхревисион\r\n"
-"УРЛ показује на место у спремишту за одабрани фајл и ревизију.\r\n"
-"Текст %REVISION% у УРЛу је замењен с бројем ревизије,\r\n"
-"а %PATH% с релативном путањом фајлова у спремишту."
+"webviewer:pathrevision\r\n"
+"УРЛ показује на веб прегледач за спремиште са одабраним фајлом и ревизијом.\r\n"
+"Текст %REVISION% у УРЛу је замењен  бројем ревизије,\r\n"
+"текст %PATH% је замењен  релативном путањом фајлова релативно корену спремишта."
 
 #. Resource IDs: (579)
 #, c-format
@@ -10564,9 +10564,9 @@ msgid ""
 "URL pointing to the web viewer for the repository for a specific revision.\r\n"
 "The string %REVISION% in that URL is replaced with the revision number."
 msgstr ""
-"прегледачвеба:ревизија\r\n"
-"УРЛ управљен ка веб претраживачу спремишта за посебну ревизију.\r\n"
-"Стринг %REVISION% у том УРЛ је замењен бројем ревизије."
+"webviewer:revision\r\n"
+"УРЛ управљен ка веб прегледачу спремишта за посебну ревизију.\r\n"
+"Текст %REVISION% у том УРЛ је замењен бројем ревизије."
 
 #. Resource IDs: (245)
 msgid "week"

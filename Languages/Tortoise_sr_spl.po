@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-20 22:37+0100\n"
+"PO-Revision-Date: 2009-03-27 21:35+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -829,7 +829,7 @@ msgstr "&Sadržaj menija"
 #
 #. Resource IDs: (1)
 msgid "&Merge"
-msgstr "&Sjedini"
+msgstr "&Stopi"
 
 #
 #. Resource IDs: (32786)
@@ -839,7 +839,7 @@ msgstr "&Putanja sjedinjavanja"
 #
 #. Resource IDs: (9)
 msgid "&Merge..."
-msgstr "&Sjedini..."
+msgstr "&Stopi"
 
 #
 #. Resource IDs: (1012)
@@ -2045,7 +2045,7 @@ msgstr "P&retraži..."
 
 #. Resource IDs: (1064)
 msgid "Back"
-msgstr "< &Nazad"
+msgstr "Nazad"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
@@ -2935,12 +2935,12 @@ msgstr "Nije bilo moguće dobiti status!"
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not merge '%s' because"
-msgstr "Nije bilo moguće sjediniti '%s' zbog"
+msgstr "Nije bilo moguće stopiti '%s' zbog"
 
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not merge property '%s' on '%s' because"
-msgstr "Nije bilo moguće sjediniti svojstvo '%s' od %s zbog"
+msgstr "Nije bilo moguće stopiti svojstvo '%s' od %s zbog"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -5181,7 +5181,7 @@ msgstr ""
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
-msgstr "&Lokator pult"
+msgstr "Lokator pult"
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -7541,11 +7541,11 @@ msgstr "Prikaži fajlove bez &verzija"
 
 #. Resource IDs: (1069)
 msgid "Show Above the Ribbon"
-msgstr "&Prikaži GLAVNE revizije"
+msgstr "Prikaži Iznad Trake"
 
 #. Resource IDs: (1069)
 msgid "Show Below the Ribbon"
-msgstr "&Prikaži GLAVNE revizije"
+msgstr "Prikaži Ispod Trake"
 
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
@@ -9371,8 +9371,8 @@ msgid ""
 "Use text block from the left view\n"
 "Use left block"
 msgstr ""
-"Koristi blok teksta iz \"moj\" pre \"njihov\"\n"
-"blok teksta iz \"moj\", pa onda iz \"njihov\""
+"Koristi blok teksta iz levog pregleda\n"
+"Koristi levi blok"
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
@@ -10283,7 +10283,7 @@ msgid ""
 "One of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
 "svn:eol-style\r\n"
-"Jedan on 'native', 'LF', 'CR', 'CRLF'."
+"Jedan od 'prirodan', 'LF', 'CR', 'CRLF'."
 
 #. Resource IDs: (576)
 msgid ""
@@ -10345,8 +10345,8 @@ msgstr ""
 "Ključne reči koje će biti proširene. Ispravne ključne reči su:\r\n"
 "URL, HeadURL : URL glavne verzije objekta.\r\n"
 "Author, LastChangedBy : Zadnja osoba koja je menjala fajl.\r\n"
-"Date, LastChangedDate : Date, LastChangedDate\t\tDatum/vreme zadnje izmene objekta.\r\n"
-"Rev, LastChangedRevision : Zadnja revizija kada se objekt promenio.\r\n"
+"Date, LastChangedDate : Datum/vreme zadnje izmene objekta.\r\n"
+"Rev, LastChangedRevision : Zadnja revizija kada se objekat promenio.\r\n"
 "Id : Kratki rezime prethodne 4 ključne reči."
 
 #. Resource IDs: (576)
@@ -10553,9 +10553,9 @@ msgid ""
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
 "webviewer:pathrevision\r\n"
-"URL pokazuje na mesto u spremištu za odabrani fajl i reviziju.\r\n"
-"Tekst %REVISION% u URLu je zamenjen s brojem revizije,\r\n"
-"a %PATH% s relativnom putanjom fajlova u spremištu."
+"URL pokazuje na veb pregledač za spremište sa odabranim fajlom i revizijom.\r\n"
+"Tekst %REVISION% u URLu je zamenjen  brojem revizije,\r\n"
+"tekst %PATH% je zamenjen  relativnom putanjom fajlova relativno korenu spremišta."
 
 #. Resource IDs: (579)
 #, c-format
@@ -10564,9 +10564,9 @@ msgid ""
 "URL pointing to the web viewer for the repository for a specific revision.\r\n"
 "The string %REVISION% in that URL is replaced with the revision number."
 msgstr ""
-"pregledačveba:revizija\r\n"
-"URL upravljen ka veb pretraživaču spremišta za posebnu reviziju.\r\n"
-"String %REVISION% u tom URL je zamenjen brojem revizije."
+"webviewer:revision\r\n"
+"URL upravljen ka veb pregledaču spremišta za posebnu reviziju.\r\n"
+"Tekst %REVISION% u tom URL je zamenjen brojem revizije."
 
 #. Resource IDs: (245)
 msgid "week"
