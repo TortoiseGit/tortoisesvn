@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-20 16:18 +0000\n"
-"PO-Revision-Date: 2009-03-25 16:54+0100\n"
+"POT-Creation-Date: 2009-03-25 22:58 +0000\n"
+"PO-Revision-Date: 2009-03-27 10:23+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5827,7 +5827,7 @@ msgstr "Binäreigenschaften"
 
 #. (para)
 msgid "TortoiseSVN can handle binary property values using files. To read a binary property value, <guibutton>Save...</guibutton> to a file. To set a binary value, use a hex editor or other appropriate tool to create a file with the content you require, then <guibutton>Load...</guibutton> from that file."
-msgstr "TortoiseSVN kann binäre Eigenschaften mittels Dateien handhaben. Um einen binären Eigenschaftswert zu lesen müssen sie diesen in eine Datei <guibutton>Speichern...</guibutton>. Um eine binäre Eigenschaft zu setzen, benutzen sie einen Hex-Editor oder ein anderes Tool um eine Datei mit dem binären Inhalt zu erstellen, dann <guibutton>Laden...</guibutton> sie diese aus der Datei."
+msgstr "TortoiseSVN kann binäre Eigenschaften mittels Dateien handhaben. Um einen binären Eigenschaftswert zu lesen, müssen sie diesen in eine Datei <guibutton>Speichern...</guibutton>. Um eine binäre Eigenschaft zu setzen, benutzen sie einen Hex-Editor oder ein anderes Programm, um eine Datei mit dem binären Inhalt zu erstellen, dann <guibutton>Laden...</guibutton> Sie diese aus der Datei."
 
 #. (para)
 msgid "Although binary properties are not often used, they can be useful in some applications. For example if you are storing huge graphics files, or if the application used to load the file is huge, you might want to store a thumbnail as a property so you can obtain a preview quickly."
@@ -6139,8 +6139,8 @@ msgid "As of Subversion 1.6 you can add single file externals to your working co
 msgstr "Beginnend mit Subversion 1.6 können Sie einzelne externe Dateien unter Verwendung der gleichen Syntax wie für Ordner an Ihre Arbeitskopie binden. Es gibt jedoch ein paar Einschränkungen."
 
 #. (para)
-msgid "The path to the file external must be in a working copy that is already checked out. While directory externals can place the external directory at any depth and it will create any intermediate directories, file externals must be placed into a working copy that is already checked out."
-msgstr ""
+msgid "The path to the file external must place the file in an existing versioned folder. In general it makes most sense to place the file directly in the folder that has <literal>svn:externals</literal> set, but it can be in a versioned sub-folder if necessary. By contrast, directory externals will automatically create any intermediate unversioned folders as required."
+msgstr "Beim Verweis auf eine externe Datei muss dafür Sorge getragen werden, dass diese in einem bereits existierenden, versionierten Ordner zu liegen kommt. Im allgemeinen ist es am sinnvollsten, die Datei direkt in dem Ordner abzulegen der den <literal>svn:externals</literal> Verweis enthält, es kann aber auch ein versionierter Unterordner sein. Im Gegensatz dazu wird bei Verweisen auf externe Verzeichnisse, falls erforderlich, die Hierarchie aus nicht versionierten Ordnern automatisch aufgebaut."
 
 #. (para)
 msgid "The URL for a file external must be in the same repository as the URL that the file external will be inserted into; inter-repository file externals are not supported."
@@ -7207,7 +7207,7 @@ msgstr "Umbenannte Objekte"
 
 #. (para)
 msgid "Renamed items are also shown using an octagon, but the default colour is blue."
-msgstr ""
+msgstr "Umbenannte Objekte werden ebenfalls als Achteck angezeigt, aber die Standardfarbe ist blau."
 
 #. (term)
 msgid "Branch tip revision"
@@ -7996,7 +7996,7 @@ msgstr "Es gibt einen Sonderfall für <guilabel>Hole Sperre</guilabel>. Sie kön
 
 #. (para)
 msgid "If there are some paths on your computer where you just don't want TortoiseSVN's context menu to appear at all, you can list them in the box at the bottom."
-msgstr ""
+msgstr "Wenn es Pfade auf Ihrem Computer gibt, in denen das TortoiseSVN Kontextmenü nicht angezeigt werden soll, geben Sie diese im unteren Eingabefeld an."
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 1"
@@ -8148,7 +8148,7 @@ msgstr "Wenn Sie eine Logmeldung im Übertragen Dialog eingeben, speichert Torto
 
 #. (para)
 msgid "Note that this setting applies only to messages that you type in on this computer. It has nothing to do with the log cache."
-msgstr ""
+msgstr "Beachten Sie bitte, dass diese Einstellung nur Logmeldungen betrifft, die Sie auf diesem Computer eingeben. Sie hat nichts mit dem Log-Puffer zu tun."
 
 #. (term)
 msgid "Re-open commit and branch/tag dialog after a commit failed"
