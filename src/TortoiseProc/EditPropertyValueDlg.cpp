@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -191,7 +191,8 @@ void CEditPropertyValueDlg::SetPropertyValue(const std::string& sValue)
 	else
 	{
 		m_bIsBinary = false;
-		m_sPropValue = MultibyteToWide(sValue.c_str()).c_str();
+		m_sPropValue = UTF8ToWide(sValue.c_str()).c_str();
+		m_sPropValue.Replace(_T("\n"), _T("\r\n"));
 	}
 }
 
@@ -211,7 +212,9 @@ void CEditPropertyValueDlg::OnOK()
 	UpdateData();
 	if (!m_bIsBinary)
 	{
-		m_PropValue = WideToMultibyte((LPCTSTR)m_sPropValue);
+		m_sPropValue.Replace(_T("\r\n"), _T("\n"));
+		m_sPropValue.Replace(_T("\n\n"), _T("\n"));
+		m_PropValue = WideToUTF8((LPCTSTR)m_sPropValue);
 	}
 	m_PropNames.GetWindowText(m_sPropName);
 	CDialog::OnOK();

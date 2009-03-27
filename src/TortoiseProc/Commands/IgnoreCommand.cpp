@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,14 +39,14 @@ bool IgnoreCommand::Execute()
 		filelist += name + _T("\n");
 		CTSVNPath parentfolder = pathList[nPath].GetContainingDirectory();
 		SVNProperties props(parentfolder, SVNRev::REV_WC, false);
-		CStringA value;
+		CString value;
 		for (int i=0; i<props.GetCount(); i++)
 		{
 			CString propname(props.GetItemName(i).c_str());
 			if (propname.CompareNoCase(_T("svn:ignore"))==0)
 			{
 				//treat values as normal text even if they're not
-				value = (char *)props.GetItemValue(i).c_str();
+				value = CUnicodeUtils::GetUnicode(props.GetItemValue(i).c_str());
 			}
 		}
 		if (value.IsEmpty())
@@ -54,25 +54,25 @@ bool IgnoreCommand::Execute()
 		else
 		{
 			// make sure we don't have duplicate entries
-			std::set<CStringA> ignoreItems;
-			ignoreItems.insert(CUnicodeUtils::GetUTF8(name));
-			CStringA token;
+			std::set<CString> ignoreItems;
+			ignoreItems.insert(name);
+			CString token;
 			int curPos = 0;
-			token= value.Tokenize("\n",curPos);
+			token = value.Tokenize(_T("\n"),curPos);
 			while (token != _T(""))
 			{
 				token.Trim();
 				ignoreItems.insert(token);
-				token = value.Tokenize("\n", curPos);
+				token = value.Tokenize(_T("\n"), curPos);
 			};
 			value.Empty();
-			for (std::set<CStringA>::iterator it = ignoreItems.begin(); it != ignoreItems.end(); ++it)
+			for (std::set<CString>::iterator it = ignoreItems.begin(); it != ignoreItems.end(); ++it)
 			{
 				value += *it;
-				value += "\n";
+				value += _T("\n");
 			}
 		}
-		if (!props.Add(_T("svn:ignore"), (LPCSTR)value))
+		if (!props.Add(_T("svn:ignore"), (LPCSTR)CUnicodeUtils::GetUTF8(value)))
 		{
 			CString temp;
 			temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);

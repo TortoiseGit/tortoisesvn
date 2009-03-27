@@ -435,7 +435,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 									if (props.GetItemName(p).compare(tstring(_T("svn:ignore")))==0)
 									{
 										std::string st = props.GetItemValue(p);
-										ignoredprops = MultibyteToWide(st.c_str());
+										ignoredprops = UTF8ToWide(st.c_str());
 										// remove all escape chars ('\\')
 										std::remove(ignoredprops.begin(), ignoredprops.end(), '\\');
 										break;
@@ -2152,7 +2152,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
 		while ( (p=ignoredprops.find( ignorepath,p )) != -1 )
 		{
 			if ( (p==0 || ignoredprops[p-1]==TCHAR('\n'))
-				&& (p+_tcslen(ignorepath)==ignoredprops.length() || ignoredprops[p+_tcslen(ignorepath)+1]==TCHAR('\n')) )
+				&& (p+_tcslen(ignorepath)==ignoredprops.length() || ignoredprops[p+_tcslen(ignorepath)+1]==TCHAR('\n') || ignoredprops[p+_tcslen(ignorepath)+1]==0) )
 			{
 				break;
 			}

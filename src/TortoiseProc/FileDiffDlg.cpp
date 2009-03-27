@@ -367,7 +367,7 @@ void CFileDiffDlg::DiffProps(int selIndex)
 		{
 			if (propsurl1.GetItemName(url1index).compare(url1name)==0)
 			{
-				url1value = CString((char *)propsurl1.GetItemValue(url1index).c_str());
+				url1value = CUnicodeUtils::GetUnicode(propsurl1.GetItemValue(url1index).c_str());
 			}
 		}		
 		
@@ -376,7 +376,7 @@ void CFileDiffDlg::DiffProps(int selIndex)
 		{
 			if (propsurl2.GetItemName(url2index).compare(url1name)==0)
 			{
-				url2value = CString((char *)propsurl2.GetItemValue(url2index).c_str());
+				url2value = CUnicodeUtils::GetUnicode(propsurl2.GetItemValue(url2index).c_str());
 			}
 		}
 

@@ -14,6 +14,10 @@ Version 1.6.1
        for urls which need escaping. (Stefan)
 - BUG: Sorting in the status list control didn't work properly for columns
        after 'lock author'. (Stefan)
+- BUG: The bugtraq:label text was shown garbled in the commit dialog if it
+       contained non-ASCII chars. (Stefan)
+- BUG: The (Un)Ignore menu was not shown for files which have names with 
+       chars not available in the system codepage. (Stefan)
 
 Version 1.6.0
 - NEW: Ignoring of multiple selected items by their extension. See

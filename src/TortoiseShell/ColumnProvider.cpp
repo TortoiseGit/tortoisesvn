@@ -241,7 +241,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 					{
 						if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)
 						{
-							szInfo = MultibyteToWide((char *)props.GetItemValue(i).c_str());
+							szInfo = UTF8ToWide((char *)props.GetItemValue(i).c_str());
 						}
 					}
 				}
@@ -260,7 +260,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 					{
 						if (props.GetItemName(i).compare(_T("svn:eol-style"))==0)
 						{
-							szInfo = MultibyteToWide((char *)props.GetItemValue(i).c_str());
+							szInfo = UTF8ToWide((char *)props.GetItemValue(i).c_str());
 						}
 					}
 				}

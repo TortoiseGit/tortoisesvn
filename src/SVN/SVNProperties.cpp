@@ -183,7 +183,6 @@ std::string SVNProperties::GetItem(int index, BOOL name) const
 	void *val;
 	svn_string_t *propval = NULL;
 	const char *pname_utf8 = "";
-	svn_error_t * err = NULL;
 
 	if (m_props.size() == 0)
 	{
@@ -208,15 +207,7 @@ std::string SVNProperties::GetItem(int index, BOOL name) const
 			apr_hash_this(hi, &key, NULL, &val);
 			propval = (svn_string_t *)val;
 			pname_utf8 = (char *)key;
-
-			// If this is a special Subversion property, it is stored as
-			// UTF8, so convert to the native format.
-			if (m_bRevProps||(svn_prop_needs_translation (pname_utf8))||(strncmp(pname_utf8, "bugtraq:", 8)==0)||(strncmp(pname_utf8, "tsvn:", 5)==0))
-			{
-				err = svn_subst_detranslate_string (&propval, propval, FALSE, m_pool);
-				if (err != NULL)
-					return "";
-			}
+			break;
 		}
 	}
 
@@ -291,24 +282,19 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 	pval = svn_string_ncreate (Value.c_str(), Value.size(), subpool);
 
 	pname_utf8 = StringToUTF8(Name);
-	if (m_bRevProps||(svn_prop_needs_translation (pname_utf8.c_str()))||(strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0))
-	{
-		m_error = svn_subst_translate_string (&pval, pval, NULL, subpool);
-		if (m_error != NULL)
-			return FALSE;
-	}
+
 	if ((!m_bRevProps)&&((!m_path.IsDirectory() && !m_path.IsUrl())&&(((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0)||(strncmp(pname_utf8.c_str(), "webviewer:", 10)==0)))))
 	{
 		// bugtraq:, tsvn: and webviewer: properties are not allowed on files.
 #ifdef _MFC_VER
 		CString temp;
 		temp.LoadString(IDS_ERR_PROPNOTONFILE);
-		CStringA tempA = CStringA(temp);
+		CStringA tempA = CUnicodeUtils::GetUTF8(temp);
 		m_error = svn_error_create(NULL, NULL, tempA);
 #else
 		TCHAR string[1024];
 		LoadStringEx(g_hResInst, IDS_ERR_PROPNOTONFILE, string, 1024, (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
-		std::string stringA = WideToMultibyte(std::wstring(string));
+		std::string stringA = WideToUTF8(std::wstring(string));
 		m_error = svn_error_create(NULL, NULL, stringA.c_str());
 #endif
 		return FALSE;
@@ -323,12 +309,12 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 #ifdef _MFC_VER
 				CString temp;
 				temp.LoadString(IDS_ERR_PROPNOMULTILINE);
-				CStringA tempA = CStringA(temp);
+				CStringA tempA = CUnicodeUtils::GetUTF8(temp);
 				m_error = svn_error_create(NULL, NULL, tempA);
 #else
 				TCHAR string[1024];
 				LoadStringEx(g_hResInst, IDS_ERR_PROPNOMULTILINE, string, 1024, (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
-				std::string stringA = WideToMultibyte(std::wstring(string));
+				std::string stringA = WideToUTF8(std::wstring(string));
 				m_error = svn_error_create(NULL, NULL, stringA.c_str());
 #endif
 				return FALSE;

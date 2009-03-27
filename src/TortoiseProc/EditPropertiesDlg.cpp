@@ -186,7 +186,7 @@ UINT CEditPropertiesDlg::PropsThread()
 			else
 			{
 				it = m_properties.insert(it, std::make_pair(prop_str, PropValue()));
-				tstring value = MultibyteToWide((char *)prop_value.c_str());
+				tstring value = UTF8ToWide((char *)prop_value.c_str());
 				it->second.value = prop_value;
 				CString stemp = value.c_str();
 				stemp.Replace('\n', ' ');

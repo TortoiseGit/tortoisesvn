@@ -2961,7 +2961,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					{
 						CTSVNPath parentFolder = (*it).GetDirectory();
 						SVNProperties props(parentFolder, SVNRev::REV_WC, false);
-						CStringA value;
+						CString value;
 						for (int i=0; i<props.GetCount(); i++)
 						{
 							CString propname(props.GetItemName(i).c_str());
@@ -2969,19 +2969,19 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							{
 								tstring stemp;
 								// treat values as normal text even if they're not
-								value = (char *)props.GetItemValue(i).c_str();
+								value = CUnicodeUtils::GetUnicode(props.GetItemValue(i).c_str());
 							}
 						}
 						if (value.IsEmpty())
 							value = name;
 						else
 						{
-							value = value.Trim("\n\r");
-							value += "\n";
+							value = value.Trim(_T("\n\r"));
+							value += _T("\n");
 							value += name;
 							value.Remove('\r');
 						}
-						if (!props.Add(_T("svn:ignore"), (LPCSTR)value))
+						if (!props.Add(_T("svn:ignore"), (LPCSTR)CUnicodeUtils::GetUTF8(value)))
 						{
 							CString temp;
 							temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);
@@ -3111,7 +3111,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						CString name = CPathUtils::PathPatternEscape(ignorelist[j].GetFileOrDirectoryName());
 						CTSVNPath parentfolder = ignorelist[j].GetContainingDirectory();
 						SVNProperties props(parentfolder, SVNRev::REV_WC, false);
-						CStringA value;
+						CString value;
 						for (int i=0; i<props.GetCount(); i++)
 						{
 							CString propname(props.GetItemName(i).c_str());
@@ -3119,19 +3119,19 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							{
 								tstring stemp;
 								// treat values as normal text even if they're not
-								value = (char *)props.GetItemValue(i).c_str();
+								value = CUnicodeUtils::GetUnicode(props.GetItemValue(i).c_str());
 							}
 						}
 						if (value.IsEmpty())
 							value = name;
 						else
 						{
-							value = value.Trim("\n\r");
-							value += "\n";
+							value = value.Trim(_T("\n\r"));
+							value += _T("\n");
 							value += name;
 							value.Remove('\r');
 						}
-						if (!props.Add(_T("svn:ignore"), (LPCSTR)value))
+						if (!props.Add(_T("svn:ignore"), (LPCSTR)CUnicodeUtils::GetUTF8(value)))
 						{
 							CString temp;
 							temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);

@@ -664,7 +664,7 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
 	for (int baseindex = 0; baseindex < propsbase.GetCount(); ++baseindex)
 	{
 		tstring basename = propsbase.GetItemName(baseindex);
-		tstring basevalue = (LPCTSTR)CString((char *)propsbase.GetItemValue(baseindex).c_str());
+		tstring basevalue = (LPCTSTR)CUnicodeUtils::GetUnicode(propsbase.GetItemValue(baseindex).c_str());
 		bool bFound = false;
 		for (int wcindex = 0; wcindex < propswc.GetCount(); ++wcindex)
 		{
@@ -752,14 +752,14 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
 	for (int wcindex = 0; wcindex < propswc.GetCount(); ++wcindex)
 	{
 		tstring wcname = propswc.GetItemName(wcindex);
-		tstring wcvalue = (LPCTSTR)CString((char *)propswc.GetItemValue(wcindex).c_str());
+		tstring wcvalue = (LPCTSTR)CUnicodeUtils::GetUnicode(propswc.GetItemValue(wcindex).c_str());
 		tstring basevalue;
 		bool bDiffRequired = true;
 		for (int baseindex = 0; baseindex < propsbase.GetCount(); ++baseindex)
 		{
 			if (propsbase.GetItemName(baseindex).compare(wcname)==0)
 			{
-				basevalue = CString((char *)propsbase.GetItemValue(baseindex).c_str());
+				basevalue = CUnicodeUtils::GetUnicode(propsbase.GetItemValue(baseindex).c_str());
 				if (basevalue.compare(wcvalue)==0)
 				{
 					// name and value are identical
