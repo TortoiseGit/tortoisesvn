@@ -237,7 +237,8 @@ void CCacheLogQuery::CLogFiller::WriteToCache
 {
     // If it is not yet in cache, add it to the cache directly.
     // Otherwise it is a modification of an existing revision
-    // -> collect them an update cache later for maximum performance.
+    // -> collect them and update cache later in one go 
+    //    for maximum performance.
 
     CCachedLogInfo* targetCache = cache->GetRevisions()[revision] == NO_INDEX
                                 ? cache
@@ -348,41 +349,53 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
 		WriteToCache (changes, rev, stdRevProps, userRevProps);
 
 		// maybe the revision was known before but we had no changes info
-		// -> we received them now
+		// -> we received it now
 		// -> update the cache in that case
+        // (if it was not known before, WriteToCache added it directly)
 
 		index_t index = cache->GetRevisions()[revision];
-		if ((  cache->GetLogInfo().GetPresenceFlags (index) 
-			 & CRevisionInfoContainer::HAS_CHANGEDPATHS) == 0)
+		if ((  cache->GetLogInfo().GetPresenceFlags (index)
+             & CRevisionInfoContainer::HAS_CHANGEDPATHS) == 0)
 		{
             MergeFromUpdateCache();
+
+            // repeated lookup should not be necessary as the updateCache
+            // should contain only revisions that are already known by cache
+
+            assert (index == cache->GetRevisions()[revision]);
 		}
 
 		// due to renames / copies, we may continue on a different path
 
-        std::auto_ptr<CLogIteratorBase> iterator 
-            (  options.GetStrictNodeHistory()
-             ? static_cast<CLogIteratorBase*>
-                (new CStrictLogIterator (cache, revision, *currentPath))
-             : static_cast<CLogIteratorBase*>
-                (new CCopyFollowingLogIterator (cache, revision, *currentPath)));
+		if (  (cache->GetLogInfo().GetSumChanges (index)
+            & CRevisionInfoContainer::ACTION_ADDED) != 0)
+		{
+            // create the appropriate iterator to follow the potential path change
 
-        // now, iterate as usual
+            std::auto_ptr<CLogIteratorBase> iterator 
+                (  options.GetStrictNodeHistory()
+                 ? static_cast<CLogIteratorBase*>
+                    (new CStrictLogIterator (cache, revision, *currentPath))
+                 : static_cast<CLogIteratorBase*>
+                    (new CCopyFollowingLogIterator (cache, revision, *currentPath)));
 
-		iterator->Advance();
-        if (iterator->EndOfPath())
-            currentPath.reset();
-        else
-            *currentPath = iterator->GetPath();
+            // now, iterate as usual
+
+		    iterator->Advance();
+            if (iterator->EndOfPath())
+                currentPath.reset();
+            else
+                *currentPath = iterator->GetPath();
+        }
 
 		// the first revision we may not have information about is the one
-		// immediately preceding the on we just received from the server
+		// immediately preceding the one we just received from the server
 
 		firstNARevision = revision-1;
 
 		// hand on to the original log receiver.
         // Even if there is no receiver, track the oldest revision
-        // we received to update the skip ranges properly.
+        // we received so we can update the skip ranges properly.
 
         oldestReported = min (oldestReported, revision);
 		if (options.GetReceiver() != NULL)
