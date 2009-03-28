@@ -284,7 +284,7 @@ void CDirectoryWatcher::WorkerThread()
 					NotificationFilter.dbch_handle = hDir;
 					NotificationFilter.dbch_hdevnotify = RegisterDeviceNotification(hWnd, &NotificationFilter, DEVICE_NOTIFY_WINDOW_HANDLE);
 
-					CDirWatchInfo * pDirInfo = new CDirWatchInfo(hDir, watchedPath);
+                    std::auto_ptr<CDirWatchInfo> pDirInfo (new CDirWatchInfo(hDir, watchedPath));
 					pDirInfo->m_hDevNotify = NotificationFilter.dbch_hdevnotify;
 					m_hCompPort = CreateIoCompletionPort(hDir, m_hCompPort, (ULONG_PTR)pDirInfo, 0);
 					if (m_hCompPort == NULL)
@@ -292,8 +292,6 @@ void CDirectoryWatcher::WorkerThread()
 						ATLTRACE(_T("CDirectoryWatcher: CreateIoCompletionPort failed. Can't watch directory %s\n"), watchedPath.GetWinPath());
 						AutoLocker lock(m_critSec);
 						ClearInfoMap();
-						delete pDirInfo;
-						pDirInfo = NULL;
 						watchedPaths.RemovePath(watchedPath);
 						i--; if (i<0) i=0;
 						break;
@@ -310,16 +308,18 @@ void CDirectoryWatcher::WorkerThread()
 						ATLTRACE(_T("CDirectoryWatcher: ReadDirectoryChangesW failed. Can't watch directory %s\n"), watchedPath.GetWinPath());
 						AutoLocker lock(m_critSec);
 						ClearInfoMap();
-						delete pDirInfo;
-						pDirInfo = NULL;
 						watchedPaths.RemovePath(watchedPath);
 						i--; if (i<0) i=0;
 						break;
 					}
 					AutoLocker lock(m_critSec);
-					watchInfoMap[pDirInfo->m_hDir] = pDirInfo;
-					ATLTRACE(_T("watching path %s\n"), pDirInfo->m_DirName.GetWinPath());
-				}
+
+                    if (watchInfoMap.find (pDirInfo->m_hDir) == watchInfoMap.end())
+                    {
+    					ATLTRACE(_T("watching path %s\n"), pDirInfo->m_DirName.GetWinPath());
+                        watchInfoMap[pDirInfo->m_hDir] = pDirInfo.release();
+                    }
+                }
 			}
 			else
 			{
@@ -427,14 +427,14 @@ continuewatching:
 
 void CDirectoryWatcher::ClearInfoMap()
 {
-	if (watchInfoMap.size()!=0)
+	if (watchInfoMap.size() > 0)
 	{
 		AutoLocker lock(m_critSec);
 		for (std::map<HANDLE, CDirWatchInfo *>::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
 		{
 			CDirectoryWatcher::CDirWatchInfo * info = I->second;
+            I->second = NULL;
 			delete info;
-			info = NULL;
 		}
 	}
 	watchInfoMap.clear();
@@ -446,19 +446,23 @@ void CDirectoryWatcher::ClearInfoMap()
 CTSVNPath CDirectoryWatcher::CloseInfoMap(HDEVNOTIFY hdev)
 {
 	CTSVNPath path;
-	if (watchInfoMap.size() == 0)
+	if (watchInfoMap.empty())
 		return path;
+
 	AutoLocker lock(m_critSec);
 	for (std::map<HANDLE, CDirWatchInfo *>::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
 	{
-		CDirectoryWatcher::CDirWatchInfo * info = I->second;
-		if (info->m_hDevNotify == hdev)
+        std::auto_ptr<CDirectoryWatcher::CDirWatchInfo> info (I->second);
+        I->second = NULL;
+
+        if (info->m_hDevNotify == hdev)
 		{
 			path = info->m_DirName;
 			RemovePathAndChildren(path);
 			BlockPath(path);
 		}
 		info->CloseDirectoryHandle();
+        delete info;
 	}
 	watchInfoMap.clear();
 	if (m_hCompPort != INVALID_HANDLE_VALUE)
@@ -469,13 +473,16 @@ CTSVNPath CDirectoryWatcher::CloseInfoMap(HDEVNOTIFY hdev)
 
 bool CDirectoryWatcher::CloseHandlesForPath(const CTSVNPath& path)
 {
-	if (watchInfoMap.size() == 0)
+	if (watchInfoMap.empty())
 		return false;
+
 	AutoLocker lock(m_critSec);
 	for (std::map<HANDLE, CDirWatchInfo *>::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
 	{
-		CDirectoryWatcher::CDirWatchInfo * info = I->second;
-		CTSVNPath p = CTSVNPath(info->m_DirPath);
+        std::auto_ptr<CDirectoryWatcher::CDirWatchInfo> info (I->second);
+        I->second = NULL;
+
+        CTSVNPath p = CTSVNPath(info->m_DirPath);
 		if (path.IsAncestorOf(p))
 		{
 			RemovePathAndChildren(p);
