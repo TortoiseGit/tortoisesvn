@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-28 07:55+0100\n"
+"PO-Revision-Date: 2009-03-28 09:39+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5240,9 +5240,8 @@ msgid "Merge options"
 msgstr "Opcije stapanja"
 
 #. Resource IDs: (14)
-#, fuzzy
 msgid "Merge reintegrate..."
-msgstr "Stopi Reintegriraj (!?)"
+msgstr "Stopi reintegriraj..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -5354,7 +5353,6 @@ msgid "Mine"
 msgstr "Moje"
 
 #. Resource IDs: (1068)
-#, fuzzy
 msgid "Minimize the Ribbon"
 msgstr "Minimiziraj traku"
 
@@ -5375,9 +5373,8 @@ msgid "Modified"
 msgstr "Izmijenjeno"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Modified node"
-msgstr "Izmijenjeno"
+msgstr "Izmijenjeni čvor"
 
 #. Resource IDs: (1070)
 msgid "More"
@@ -5442,9 +5439,8 @@ msgid "Move Item Up"
 msgstr "Premjesti gore"
 
 #. Resource IDs: (147)
-#, fuzzy
 msgid "Move and rename"
-msgstr "Ovdje premjesti uz promjenu imena"
+msgstr "Premjesti i promjeni ime"
 
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
@@ -5644,9 +5640,8 @@ msgid "No thesaurus suggestions"
 msgstr "Nema prijedloga iz pojmovnika"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Node colors"
-msgstr "Više boja..."
+msgstr "Boje čvorova"
 
 #. Resource IDs: (1271)
 msgid "None"
@@ -5680,9 +5675,8 @@ msgid "Not recursive"
 msgstr "Nije poniruće"
 
 #. Resource IDs: (1481)
-#, fuzzy
 msgid "Note: the folder contains unversioned items"
-msgstr "Prikaži sloj za datoteke bez verzija"
+msgstr "Napomena: mapa sadrži stavke bez verzija"
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
@@ -5822,9 +5816,8 @@ msgstr ""
 "su dozvoljeni!"
 
 #. Resource IDs: (1424)
-#, fuzzy
 msgid "Only record the merge (block revisions from getting merged)"
-msgstr "Samo snimi stapanje (blokiraj stapanje inačice)"
+msgstr "Samo zapamti stapanje (blokiraj stapanje inačice)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -5907,7 +5900,6 @@ msgid "Output.prn"
 msgstr "Output.prn"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Overlays"
 msgstr "Prekrivne ikone"
 
@@ -5954,7 +5946,6 @@ msgid "Page :"
 msgstr "Stranica :"
 
 #. Resource IDs: (63)
-#, fuzzy
 msgid "Parameters"
 msgstr "Svojstva"
 
@@ -6090,9 +6081,8 @@ msgid "Please wait while the repository browser is initializing..."
 msgstr "Molim pričekajte inicijalizaciju preglednika skladišta..."
 
 #. Resource IDs: (1368)
-#, fuzzy
 msgid "Please wait while we gather more information..."
-msgstr "Molim pričekajte dohvaćanje razlika..."
+msgstr "Molim pričekajte dohvaćanje više informacija..."
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
@@ -7180,9 +7170,8 @@ msgid "Select end revision"
 msgstr "Odaberi zadnju reviziju"
 
 #. Resource IDs: (64)
-#, fuzzy
 msgid "Select folder to associate with this issue tracker"
-msgstr "Odaberite radnu mapu za snimanje odabrane datoteke"
+msgstr "Odaberite radnu mapu za sustav praćenja zahtjeva"
 
 #. Resource IDs: (79)
 msgid ""
@@ -7229,7 +7218,6 @@ msgid "Select text editor application"
 msgstr "Odaberi aplikaciju za obradu teksta"
 
 #. Resource IDs: (595)
-#, fuzzy
 msgid "Select the URLs for the tree merge"
 msgstr "Odaberi url za stapanje stabla"
 
@@ -7262,9 +7250,8 @@ msgid "Select viewer for diff-files"
 msgstr "Izaberite preglednik datoteka s popisom razlika"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Selected node"
-msgstr "Obrisani čvor"
+msgstr "Odabrani čvor"
 
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
@@ -7332,9 +7319,8 @@ msgid "Short URL of Subversion items"
 msgstr "Kratki URL Subversion stavaka"
 
 #. Resource IDs: (214)
-#, fuzzy
 msgid "Shorten property list"
-msgstr "Prikaži svojstva revizije"
+msgstr "Skraćeni popis svojstava"
 
 #. Resource IDs: (1382)
 msgid "Show"
@@ -7349,7 +7335,6 @@ msgid "Show &All"
 msgstr "Prikaži &sve"
 
 #. Resource IDs: (1132)
-#, fuzzy
 msgid "Show &Log"
 msgstr "Prikaži &dnevnik"
 
@@ -7382,9 +7367,8 @@ msgid "Show &overlays and context menu only in explorer"
 msgstr "Prikaži p&reklapanja i skočni izbornik samo u exploreru"
 
 #. Resource IDs: (1265)
-#, fuzzy
 msgid "Show &properties"
-msgstr "Prika&ži svojstva"
+msgstr "Prikaži &svojstva"
 
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
@@ -7475,12 +7459,10 @@ msgid "Show i&gnored files"
 msgstr "Prikaži &zanemarene datoteke"
 
 #. Resource IDs: (1480)
-#, fuzzy
 msgid "Show items in externals"
-msgstr "Izostavi vanjske"
+msgstr "Prikaži stavke iz vanjskih skladišta "
 
 #. Resource IDs: (1037)
-#, fuzzy
 msgid "Show l&og"
 msgstr "Prikaži &dnevnik"
 
@@ -7497,22 +7479,20 @@ msgid "Show only the changed parts of the path name. Replace unchanged elements 
 msgstr "Prikaži samo promijenjene dijelove staze. Zamijeni nepromijenjene elemente s točkicama."
 
 #. Resource IDs: (2054)
-#, fuzzy
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr ""
-"Prikaži ili sakrij traku s alatima\n"
-"Mijenjanje prikaza trake s alatima"
+"Prikaži ili sakrij traku s linijskom razlikom\n"
+"Mijenjanje prikaza trake s razlikama u retku"
 
 #. Resource IDs: (2054)
-#, fuzzy
 msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr ""
-"Prikaži ili sakrij traku s alatima\n"
-"Mijenjanje prikaza trake s alatima"
+"Prikaži ili sakrij adresnu traku\n"
+"Mijenjanje prikaza adresne trake"
 
 #. Resource IDs: (3713)
 msgid ""
@@ -7659,14 +7639,12 @@ msgid "Sort by commit count"
 msgstr "Poredaj po broju pohranjivanja"
 
 #. Resource IDs: (1501)
-#, fuzzy
 msgid "Source Left:"
-msgstr "Pomakni ulijevo"
+msgstr "Izvorni lijevo:"
 
 #. Resource IDs: (1502)
-#, fuzzy
 msgid "Source Right:"
-msgstr "Pomakni udesno"
+msgstr "Izvorni desno:"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -7691,18 +7669,16 @@ msgid "Split &source tree"
 msgstr "Podijeli &izvorno stablo"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Split following &tree"
-msgstr "Razdijeli dugačke &grane"
+msgstr "Razdijeli slijedeća &stabla"
 
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "Podijeli retke"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Split sub-trees"
-msgstr "Podijeli retke"
+msgstr "Razdijeli podstabla"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -7785,9 +7761,8 @@ msgid "Stefan Küng, Lübbe Onken"
 msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Stripes"
-msgstr "Trake(?)"
+msgstr "Trake/vrpce(?)"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -8378,16 +8353,17 @@ msgstr ""
 "već postoji!"
 
 #. Resource IDs: (147)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The target file\n"
 "%s\n"
 " already exists.\n"
 "Do you want to replace the file?"
 msgstr ""
-"Datoteka\n"
+"Odredišna datoteka\n"
 "%s\n"
-"već postoji! Želite li ju pregaziti?"
+"već postoji.\n"
+"Da li ju želite prepisati?"
 
 #. Resource IDs: (88)
 #, c-format
@@ -8457,13 +8433,12 @@ msgid "Theirs"
 msgstr "Njihovo"
 
 #. Resource IDs: (169)
-#, fuzzy
 msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr ""
-"Postoje izmjene ili datoteke bez verzija unutar jedne ili više mapa koje su uključene preko svojstva svn:externals.\n"
-"Te datoteke <b>nisu</b> na popisu za pohranu. Njih morate pohraniti zasebno."
+"Postoje izmjene ili datoteke bez verzija unutar jedne ili više mapa koje ste uključili preko svojstva svn:externals.\n"
+"Te datoteke nisu na popisu za pohranu. Njih morate pohraniti zasebno."
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
@@ -8492,7 +8467,6 @@ msgstr ""
 "Želite li snimiti vaše izmjene?"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid ""
 "There has been a problem contacting the server.\n"
 "Do you want to see the cached data instead?\n"
@@ -8500,11 +8474,11 @@ msgid ""
 "Please understand that the cached data may be outdated,\n"
 "incomplete or even misleading due to incomplete history data."
 msgstr ""
-"Dogodio se problem s konekcijom prema poslužitelju.\n"
+"Dogodio se problem s vezom prema poslužitelju.\n"
 "Da li želite pogledati podatke iz međuspremnika?\n"
 "\n"
 "Molimo da uzmete u obzir činjenicu da takvi podaci mogu biti zastarjeli,\n"
-"nepotpunii, te da mogu biti pogrešni zbog nekompletne povijesti."
+"nepotpuni, te da mogu biti čak i pogrešni zbog nekompletnih podataka."
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
@@ -8583,7 +8557,6 @@ msgid "Tile &Horizontally"
 msgstr "Presloži &vodoravno"
 
 #. Resource IDs: (16928)
-#, fuzzy
 msgid "Tile &Vertically"
 msgstr "Posloži &okomito"
 
@@ -8654,9 +8627,8 @@ msgid "Tools"
 msgstr "Alati"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Tools:"
-msgstr "Prema:"
+msgstr "Alati:"
 
 #. Resource IDs: (7, 244)
 msgid "TortoiseBlame"
@@ -8801,9 +8773,8 @@ msgid "Transparent &color..."
 msgstr "&Boja za prozirnost..."
 
 #. Resource IDs: (264)
-#, fuzzy
 msgid "Tree conflict"
-msgstr "Ostavi u sukobu:"
+msgstr "Sukob stabla"
 
 #. Resource IDs: (595)
 msgid "Tree merge"
@@ -8908,23 +8879,21 @@ msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "Nisam u mogućnosti zapisivati u %1, moguće je samo čitati ili to netko drugi drži otvorenim"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Unchanged node"
-msgstr "Preimenovani čvor"
+msgstr "Nepromijenjeni čvor"
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
 msgstr "Makni oznaku"
 
 #. Resource IDs: (1069)
-#, fuzzy, c-format
+#, c-format
 msgid "Undo %d Actions"
-msgstr "%d Akcije"
+msgstr "Vrati %d akcija"
 
 #. Resource IDs: (1069)
-#, fuzzy
 msgid "Undo 1 Action"
-msgstr "Akcija"
+msgstr "Vrati 1 akciju"
 
 #. Resource IDs: (14)
 msgid "Undo Add.."
@@ -8991,13 +8960,12 @@ msgid "Untitled"
 msgstr "Bez naslova"
 
 #. Resource IDs: (345)
-#, fuzzy
 msgid ""
 "Unused log caches will only be removed if the respective\n"
 "file is smaller than the given size in kBytes."
 msgstr ""
-"Nekorišteni cache sa zabilješkama ce biti obrisan samo u\n"
-"koliko "
+"Nekorišteni spremnik dnevnika bit će uklonjen ako\n"
+"je odgovarajuća datoteka manja od zadane veličine u kB. "
 
 #. Resource IDs: (146)
 msgid "Unversion"
@@ -9013,7 +8981,6 @@ msgid "Unversioning %s"
 msgstr "Skidanje verzija %s"
 
 #. Resource IDs: (106)
-#, fuzzy
 msgid "Up one folder"
 msgstr "Otvori mapu iznad"
 
@@ -9026,9 +8993,8 @@ msgid "Update - TortoiseSVN"
 msgstr "Obnovi - TortoiseSVN"
 
 #. Resource IDs: (1377)
-#, fuzzy
 msgid "Update Depth"
-msgstr "Obnovi"
+msgstr "Dubina obnavljanja"
 
 #. Resource IDs: (275)
 msgid "Update WC to revision"
@@ -9068,9 +9034,8 @@ msgid "Use &Default Image: "
 msgstr "Koristi &uobičajnu sliku:"
 
 #. Resource IDs: (32855)
-#, fuzzy
 msgid "Use &left block"
-msgstr "Koristi o&vaj blok teksta"
+msgstr "Koristi &lijevi blok"
 
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
@@ -9381,15 +9346,14 @@ msgstr ""
 "broj dana, biti će automatski obrisan."
 
 #. Resource IDs: (344)
-#, fuzzy
 msgid ""
 "When connecting to the repository server is not possible,\n"
 "TSVN can switch to using cached data only.\n"
 "Select the default behaviour here."
 msgstr ""
-"Kada spajanje s poslužiteljem nije moguće,\n"
-"TSVN može prijeći na modus korištenja lokalno pohranjenjih podataka.\n"
-"Odaberite ovdje željeno ponašanje."
+"Kada veza s poslužiteljem nije moguća,\n"
+"TSVN može raditi s lokalno pohranjenjim podacima.\n"
+"Odaberite željeno ponašanje."
 
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
@@ -9408,9 +9372,8 @@ msgid "Whitespaces"
 msgstr "Razmaci"
 
 #. Resource IDs: (1065)
-#, fuzzy
 msgid "Window Position"
-msgstr "Promijeni položaj prozora"
+msgstr "Položaj prozora"
 
 #. Resource IDs: (16927)
 msgid "Windows"
@@ -9726,14 +9689,12 @@ msgid "Zoom to fit"
 msgstr "Zumiraj da se uklopi"
 
 #. Resource IDs: (2051)
-#, fuzzy
 msgid "Zoom to fit in height"
-msgstr "Zumiraj da se uklopi"
+msgstr "Zumiraj da se uklopi visina"
 
 #. Resource IDs: (2051)
-#, fuzzy
 msgid "Zoom to fit in width"
-msgstr "Zumiraj da se uklopi"
+msgstr "Zumiraj da se uklopi širina"
 
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
@@ -9956,9 +9917,8 @@ msgid "external"
 msgstr "vanjsko"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "file external:"
-msgstr "vanjsko"
+msgstr "vanjska datoteka:"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -10049,9 +10009,9 @@ msgid "month"
 msgstr "mjesec"
 
 #. Resource IDs: (199)
-#, fuzzy, c-format
+#, c-format
 msgid "multiple URLs (e.g. %s)"
-msgstr "višestruki URLovi (UUID: %s)"
+msgstr "višestruki URLovi (npr. %s)"
 
 #. Resource IDs: (18)
 msgid "no"
@@ -10306,14 +10266,12 @@ msgid "to %s"
 msgstr "prema %s"
 
 #. Resource IDs: (208, 264)
-#, fuzzy
 msgid "tree conflict"
-msgstr "Uredi sporne razlike"
+msgstr "sukob stabla"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "tree conflict:"
-msgstr "Ostavi u sukobu:"
+msgstr "sukob stabla:"
 
 #. Resource IDs: (578)
 msgid ""
