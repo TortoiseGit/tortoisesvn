@@ -18,6 +18,9 @@ Version 1.6.1
        contained non-ASCII chars. (Stefan)
 - BUG: The (Un)Ignore menu was not shown for files which have names with 
        chars not available in the system codepage. (Stefan)
+- BUG: Show log could loop endlessly under certain conditions. 
+       (Stefan Fuhrmann)
+- BUG: Fixed memory leak in TSVNCache. (Stefan Fuhrmann)
 
 Version 1.6.0
 - NEW: Ignoring of multiple selected items by their extension. See
