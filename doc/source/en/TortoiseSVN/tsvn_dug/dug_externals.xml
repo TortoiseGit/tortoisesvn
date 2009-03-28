@@ -38,15 +38,11 @@
 			or if you want to specify a particular revision,
 			<literal>-rREV url folder</literal>
 			You can add multiple external projects, 1 per line.
-			Note that URLs must be properly escaped or they will
-			not work. For example you must replace each space with
-			<literal>%20</literal>. Note that it is not possible to use
-			folder names with spaces in them.
 			Suppose that you have set these properties on
 			<filename>D:\dev\project1</filename>:
 <screen>
 http://sounds.red-bean.com/repos  sounds
-http://graphics.red-bean.com/repos/fast%20graphics  quick_graphs
+http://graphics.red-bean.com/repos/fast%20graphics  "quick graphs"
 -r21 http://svn.red-bean.com/repos/skin-maker  skins/toolkit
 </screen>
 			Now click <guibutton>Set</guibutton> and commit your changes.
@@ -57,6 +53,20 @@ http://graphics.red-bean.com/repos/fast%20graphics  quick_graphs
 			containing the graphics project, and finally a nested sub-folder
 			<filename>D:\dev\project1\skins\toolkit</filename> containing
 			revision 21 of the skin-maker project.
+		</para>
+		<para>
+			URLs must be properly escaped or they will not work, e.g. you must 
+			replace each space with <literal>%20</literal> as shown in the 
+			second example above.
+		</para>
+		<para>
+			If you want the local path to include spaces or other special characters,
+			you can enclose it in double quotes, or you can use the <literal>\</literal>
+			(backslash) character as a Unix shell style escape character preceding any
+			special character. Of course this also means that you must use 
+			<literal>/</literal> (forward slash) as a path delimiter.
+			Note that this behaviour is new in Subversion 1.6 and will not work with
+			older clients.
 		</para>
 		<tip>
 			<title>Use explicit revision numbers</title>
