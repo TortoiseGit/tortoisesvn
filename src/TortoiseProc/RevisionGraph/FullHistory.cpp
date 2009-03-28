@@ -216,9 +216,9 @@ bool CFullHistory::FetchRevisionData ( CString path
         pegRev = head;
 
     headRevision = head;
-    repoRoot = rootPath.GetSVNPathString();
-    relPath = CPathUtils::PathUnescape (url.Mid (repoRoot.GetLength()));
-    repoRoot = CPathUtils::PathUnescape (repoRoot);
+    CString escapedRepoRoot = rootPath.GetSVNPathString();
+    relPath = CPathUtils::PathUnescape (url.Mid (escapedRepoRoot.GetLength()));
+    repoRoot = CPathUtils::PathUnescape (escapedRepoRoot);
 
 	// fix issue #360: use WC revision as peg revision
 
@@ -251,8 +251,8 @@ bool CFullHistory::FetchRevisionData ( CString path
             // (in off-line mode, the query may not find the cache as 
             // it cannot contact the server to get the UUID)
 
-            uuid = pool->GetRepositoryInfo().GetRepositoryUUID (svnPath);
-            cache = pool->GetCache (uuid, rootPath.GetSVNPathString());
+            uuid = pool->GetRepositoryInfo().GetRepositoryUUID (rootPath);
+            cache = pool->GetCache (uuid, escapedRepoRoot);
 
             firstRevision = cache != NULL
                           ? cache->GetRevisions().GetFirstMissingRevision(1)
