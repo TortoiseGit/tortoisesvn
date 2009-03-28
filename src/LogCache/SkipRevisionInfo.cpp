@@ -45,8 +45,8 @@ revision_t CSkipRevisionInfo::SPerPathRanges::FindNext (revision_t revision) con
 
 	// look for the last range not starting behind revision
 
-	TRanges::const_iterator iter = ranges.upper_bound (revision);
-	if (iter == ranges.end())
+	TRanges::const_iterator iter = ranges.lower_bound (revision);
+	if ((iter == ranges.end()) || (iter->first > revision))
 		return (revision_t)NO_REVISION;
 
 	// return end of that range, if revision is within this range
@@ -506,7 +506,7 @@ void CSkipRevisionInfo::Add ( const CDictionaryBasedPath& path
 
 	assert (path.IsValid());
 	assert (revision != NO_REVISION);
-	assert (size != NO_REVISION);
+	assert (size != NO_INDEX);
 	assert (2*size > size);
 
 	// reduce the range, if we have revision info at the boundaries
