@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2006,2008 - TortoiseSVN
+// External Cache Copyright (C) 2005-2006,2008-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,6 +37,9 @@ CSVNStatusCache& CSVNStatusCache::Instance()
 void CSVNStatusCache::Create()
 {
 	ATLASSERT(m_pInstance == NULL);
+    if (m_pInstance != NULL)
+        return;
+
 	m_pInstance = new CSVNStatusCache;
 
 	m_pInstance->watcher.SetFolderCrawler(&m_pInstance->m_folderCrawler);
@@ -93,18 +96,19 @@ void CSVNStatusCache::Create()
 							goto error;
 						}
 						sKey.ReleaseBuffer(value);
-						CCachedDirectory * cacheddir = new CCachedDirectory();
-						if (cacheddir == NULL)
-							goto error;
-						if (!cacheddir->LoadFromDisk(pFile))
+                        std::auto_ptr<CCachedDirectory> cacheddir (new CCachedDirectory());
+						if (!cacheddir || !cacheddir->LoadFromDisk(pFile))
 						{
-							delete cacheddir;
+                            cacheddir.reset();
 							goto error;
 						}
+
 						CTSVNPath KeyPath = CTSVNPath(sKey);
-						if (m_pInstance->IsPathAllowed(KeyPath))
+						if (   m_pInstance->IsPathAllowed(KeyPath)
+                            && (   m_pInstance->m_directoryCache.find (KeyPath) 
+                                == m_pInstance->m_directoryCache.end()))
 						{
-							m_pInstance->m_directoryCache[KeyPath] = cacheddir;
+                            m_pInstance->m_directoryCache[KeyPath] = cacheddir.release();
 							// only add the path to the watch list if it is versioned
 							if ((cacheddir->GetCurrentFullStatus() != svn_wc_status_unversioned)&&(cacheddir->GetCurrentFullStatus() != svn_wc_status_none))
 								m_pInstance->watcher.AddPath(KeyPath);
@@ -114,8 +118,6 @@ void CSVNStatusCache::Create()
 							// until the whole first time crawling is over
 							// m_pInstance->AddFolderForCrawling(KeyPath);
 						}
-						else
-							delete cacheddir;
 					}
 				}
 			}
@@ -246,11 +248,7 @@ CSVNStatusCache::CSVNStatusCache(void)
 
 CSVNStatusCache::~CSVNStatusCache(void)
 {
-	for (CCachedDirectory::CachedDirMap::iterator I = m_pInstance->m_directoryCache.begin(); I != m_pInstance->m_directoryCache.end(); ++I)
-	{
-		delete I->second;
-		I->second = NULL;
-	}
+    ClearCache();
 }
 
 void CSVNStatusCache::Refresh()
@@ -414,10 +412,16 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 				CCachedDirectory * newcdir = new CCachedDirectory(path);
 				if (newcdir)
 				{
-					CCachedDirectory * cdir = m_directoryCache.insert(m_directoryCache.lower_bound(path), std::make_pair(path, newcdir))->second;
-					if ((!path.IsEmpty())&&(path.HasAdminDir()))
+                    itMap = m_directoryCache.lower_bound (path);
+                    assert (   (insertPos == m_directoryCache.end())
+                            || (insertPos->path != path));
+
+                    itMap = m_directoryCache.insert 
+                        (itMap, std::make_pair (path, newcdir.release()));
+                    if (!path.IsEmpty() && path.HasAdminDir())
 						watcher.AddPath(path);
-					return cdir;		
+
+					return itMap->second;		
 				}
 				m_bClearMemory = true;
 			}

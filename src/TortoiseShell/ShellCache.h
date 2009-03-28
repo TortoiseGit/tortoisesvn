@@ -439,32 +439,25 @@ public:
 	}
 	BOOL HasSVNAdminDir(LPCTSTR path, BOOL bIsDir)
 	{
-		size_t len = _tcslen(path);
-		TCHAR * buf = new TCHAR[len+1];
-		_tcscpy_s(buf, len+1, path);
+        tstring folder (path);
 		if (! bIsDir)
 		{
-			TCHAR * ptr = _tcsrchr(buf, '\\');
-			if (ptr != 0)
-			{
-				*ptr = 0;
-			}
+            size_t pos = folder.rfind ('\\');
+            if (pos != tstring::npos)
+                folder.erase (pos);
 		}
 		if ((GetTickCount() - ADMINDIRTIMEOUT) < admindirticker)
 		{
 			std::map<tstring, BOOL>::iterator iter;
-			sAdminDirCacheKey.assign(buf);
+			sAdminDirCacheKey = folder;
 			if ((iter = admindircache.find(sAdminDirCacheKey)) != admindircache.end())
-			{
-				delete [] buf;
 				return iter->second;
-			}
 		}
-		BOOL hasAdminDir = g_SVNAdminDir.HasAdminDir(buf, true);
+
+        BOOL hasAdminDir = g_SVNAdminDir.HasAdminDir (folder.c_str(), true);
 		admindirticker = GetTickCount();
 		Locker lock(m_critSec);
-		admindircache[buf] = hasAdminDir;
-		delete [] buf;
+		admindircache[folder] = hasAdminDir;
 		return hasAdminDir;
 	}
 	bool IsColumnsEveryWhere()
