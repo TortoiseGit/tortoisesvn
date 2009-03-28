@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2006,2008 - TortoiseSVN
+// External Cache Copyright (C) 2005-2006,2008-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -96,3 +96,5 @@ struct TSVNCacheCommand
 #define TSVNCACHE_FLAGS_RECUSIVE_STATUS		0x04
 /// Set this flag if notifications to the shell are not allowed
 #define TSVNCACHE_FLAGS_NONOTIFICATIONS		0x08
+/// all of the above flags or-gated:
+#define TSVNCACHE_FLAGS_MASK            	0x0f

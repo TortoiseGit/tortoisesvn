@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2006 - Will Dean, Stefan Kueng
+// External Cache Copyright (C) 2005 - 2009 - Will Dean, Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -688,6 +688,17 @@ DWORD WINAPI InstanceThread(LPVOID lpvParam)
 			return 1;
 		}
 
+        // sanitize request: 
+        // * Make sure the string properly 0-terminated.
+        // * Clear unknown flags
+        // This is more or less paranoia code but maybe something
+        // is feeding garbage into our queue.
+        for (size_t i = MAX_PATH+1; (i > 0) && (request.path[i-1] != 0); --i)
+            request.path[i-1] = 0;
+
+        request.flags &= TSVNCACHE_FLAGS_MASK;
+
+        // process request
 		DWORD responseLength;
 		GetAnswerToRequest(&request, &response, &responseLength); 
 
@@ -749,6 +760,14 @@ DWORD WINAPI CommandThread(LPVOID lpvParam)
 			return 1;
 		}
 		
+        // sanitize request: 
+        // * Make sure the string properly 0-terminated.
+        // This is more or less paranoia code but maybe something
+        // is feeding garbage into our queue.
+        for (size_t i = MAX_PATH+1; (i > 0) && (command.path[i-1] != 0); --i)
+            command.path[i-1] = 0;
+
+        // process request
 		switch (command.command)
 		{
 			case TSVNCACHECOMMAND_END:
