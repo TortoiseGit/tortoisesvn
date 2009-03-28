@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008 - TortoiseSVN
+// Copyright (C) 2006-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -179,17 +179,26 @@ BOOL CDiffData::Load()
 	int lengthHint = max(m_arBaseFile.GetCount(), m_arTheirFile.GetCount());
 	lengthHint = max(lengthHint, m_arYourFile.GetCount());
 
-	m_YourBaseBoth.Reserve(lengthHint);
-	m_YourBaseLeft.Reserve(lengthHint);
-	m_YourBaseRight.Reserve(lengthHint);
+	try
+	{
+		m_YourBaseBoth.Reserve(lengthHint);
+		m_YourBaseLeft.Reserve(lengthHint);
+		m_YourBaseRight.Reserve(lengthHint);
 
-	m_TheirBaseBoth.Reserve(lengthHint);
-	m_TheirBaseLeft.Reserve(lengthHint);
-	m_TheirBaseRight.Reserve(lengthHint);
+		m_TheirBaseBoth.Reserve(lengthHint);
+		m_TheirBaseLeft.Reserve(lengthHint);
+		m_TheirBaseRight.Reserve(lengthHint);
 
-	m_arDiff3LinesBase.Reserve(lengthHint);
-	m_arDiff3LinesYour.Reserve(lengthHint);
-	m_arDiff3LinesTheir.Reserve(lengthHint);
+		m_arDiff3LinesBase.Reserve(lengthHint);
+		m_arDiff3LinesYour.Reserve(lengthHint);
+		m_arDiff3LinesTheir.Reserve(lengthHint);
+	}
+	catch (CMemoryException* e)
+	{
+		e->GetErrorMessage(m_sError.GetBuffer(255), 255);
+		m_sError.ReleaseBuffer();
+		return FALSE;
+	}
 
 	// Is this a two-way diff?
 	if (IsBaseFileInUse() && IsYourFileInUse() && !IsTheirFileInUse())
