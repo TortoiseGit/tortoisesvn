@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-25 22:58 +0000\n"
-"PO-Revision-Date: 2009-03-27 10:23+0100\n"
+"POT-Creation-Date: 2009-03-28 22:15 +0000\n"
+"PO-Revision-Date: 2009-03-29 14:37+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6001,18 +6001,26 @@ msgstr "Externe Ordner"
 
 #. (para)
 msgid ""
-"Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Click <guibutton>Add...</guibutton>. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository URL in the format <literal>url folder</literal> or if you want to specify a particular revision, <literal>-rREV url folder</literal> You can add multiple external projects, 1 per line. Note that URLs must be properly escaped or they will not work. For example you must replace each space with <literal>%20</literal>. Note that it is not possible to use folder names with spaces in them. Suppose that you have set these properties on <filename>D:\\dev\\project1</filename>: <screen>\n"
+"Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Click <guibutton>Add...</guibutton>. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository URL in the format <literal>url folder</literal> or if you want to specify a particular revision, <literal>-rREV url folder</literal> You can add multiple external projects, 1 per line. Suppose that you have set these properties on <filename>D:\\dev\\project1</filename>: <screen>\n"
 "http://sounds.red-bean.com/repos  sounds\n"
-"http://graphics.red-bean.com/repos/fast%20graphics  quick_graphs\n"
+"http://graphics.red-bean.com/repos/fast%20graphics  \"quick graphs\"\n"
 "-r21 http://svn.red-bean.com/repos/skin-maker  skins/toolkit\n"
 "</screen> Now click <guibutton>Set</guibutton> and commit your changes. When you (or any other user) update your working copy, Subversion will create a sub-folder <filename>D:\\dev\\project1\\sounds</filename> and checkout the sounds project, another sub-folder <filename>D:\\dev\\project1\\quick_graphs</filename> containing the graphics project, and finally a nested sub-folder <filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 of the skin-maker project."
 msgstr ""
-"Nehmen wir an Sie erstellen eine Arbeitskopie von <filename>/projekt1</filename> in <filename>D:\\dev\\projekt1</filename>. Selektieren Sie den Ordner <filename>D:\\dev\\projekt1</filename>, machen Sie einen <action>Rechtsklick</action> und wählen Sie <menuchoice> <guimenu>Windows Menü</guimenu> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice> aus dem Kontextmenü. Der Eigenschaften-Dialog erscheint, auf dessen Subversion Tab Sie Eigenschaften anschauen, verändern oder setzen können. Klicken Sie auf <guibutton>Hinzufügen...</guibutton> und wählen Sie die <literal>svn:externals</literal> Eigenschaft aus der Liste und schreiben Sie die zu referenzierende Projektarchiv URL in dem Format <literal>Name URL</literal> oder, wenn Sie eine bestimmte Revision angeben wollen, <literal>Name -rREV URL</literal> in das Textfeld. Sie können mehrere externe Projekte - eines pro Zeile - hinzufügen. Beachten Sie, dass Sonderzeichen in URLs korrekt ersetzt werden müssen (Leerzeichen z.B. durch <literal>%20</literal>), damit die externen Verweise funktionieren. Nehmen wir an, Sie haben folgende Eigenschaften auf <filename>D:\\dev\\projekt1</filename> gesetzt:\n"
+"Nehmen wir an Sie erstellen eine Arbeitskopie von <filename>/projekt1</filename> in <filename>D:\\dev\\projekt1</filename>. Selektieren Sie den Ordner <filename>D:\\dev\\projekt1</filename>, machen Sie einen <action>Rechtsklick</action> und wählen Sie <menuchoice> <guimenu>Windows Menü</guimenu> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice> aus dem Kontextmenü. Der Eigenschaften-Dialog erscheint, auf dessen Subversion Tab Sie Eigenschaften anschauen, verändern oder setzen können. Klicken Sie auf <guibutton>Hinzufügen...</guibutton> und wählen Sie die <literal>svn:externals</literal> Eigenschaft aus der Liste und schreiben Sie die zu referenzierende Projektarchiv URL in dem Format <literal>Name URL</literal> oder, wenn Sie eine bestimmte Revision angeben wollen, <literal>Name -rREV URL</literal> in das Textfeld. Sie können mehrere externe Projekte - eines pro Zeile - hinzufügen. Nehmen wir an, Sie haben folgende Eigenschaften auf <filename>D:\\dev\\projekt1</filename> gesetzt:\n"
 "<screen>http://sounds.red-bean.com/repos sounds\n"
 "http://graphics.red-bean.com/repos/fast%20graphics quick_graphs\n"
 "-r21 http://svn.red-bean.com/repos/skin-maker skins/toolkit\n"
 "</screen>\n"
 "Klicken Sie auf <guibutton>Setzen</guibutton> und übertragen Sie Ihre Änderungen. Sobald jetzt jemand seine Arbeitskopie aktualisiert, wird Subversion einen Unterordner <filename>D:\\dev\\projekt1\\sounds</filename> anlegen und in diesen das <quote>Sounds</quote> Projekt auschecken, einen weiteren Unterordner <filename>D:\\dev\\projekt1\\quick_graphs</filename> mit dem <quote>Graphics</quote> Projekt, und schließlich einen verschachtelten Unterordner <filename>D:\\dev\\project1\\skins\\toolkit</filename>, der Revision 21 des <quote>Skinmaker</quote> Projekts enthält."
+
+#. (para)
+msgid "URLs must be properly escaped or they will not work, e.g. you must replace each space with <literal>%20</literal> as shown in the second example above."
+msgstr "Sonderzeichen in URLs müssen korrekt ersetzt werden Leerzeichen z.B. durch <literal>%20</literal>, wie im obigen Beispiel, damit die externen Verweise funktionieren."
+
+#. (para)
+msgid "If you want the local path to include spaces or other special characters, you can enclose it in double quotes, or you can use the <literal>\\</literal> (backslash) character as a Unix shell style escape character preceding any special character. Of course this also means that you must use <literal>/</literal> (forward slash) as a path delimiter. Note that this behaviour is new in Subversion 1.6 and will not work with older clients."
+msgstr "Wenn der lokale Pfad Leerzeichen oder andere Sonderzeichen enthalten soll, können Sie ihn in doppelte Anführungszeichen setzen oder, im Unix Stil, einen <literal>\\</literal> (umgekehrter Schrägstrich) jedem Sonderzeichen voranstellen. Dies bedeutet auch, dass Sie den normalen Schrägstrich <literal>/</literal> als Pfadtrennzeichen verwenden müssen. Beachten Sie, dass dieses Verhalten mit Subversion 1.6 eingeführt wurde und mit älteren Clients nicht funktioniert."
 
 #. (title)
 msgid "Use explicit revision numbers"
@@ -7215,7 +7223,7 @@ msgstr "Spitze eines Zweiges"
 
 #. (para)
 msgid "The graph is normally restricted to showing branch points, but it is often useful to be able to see the respective HEAD revision for each branch too. If you select <guilabel>Show HEAD revisions</guilabel>, each HEAD revision nodes will be shown as an ellipse. Note that HEAD here refers to the last revision committed on that path, not to the HEAD revision of the repository."
-msgstr ""
+msgstr "Der Graph beschränkt sich normalerweise darauf, die Verzweigungspunkte anzuzeigen. Manchmal ist es aber auch nützlich, die entsprechenden HEAD Revisionen jedes Zweiges zu sehen. Wenn Sie <guilabel>Zeige HEAD Revisionen</guilabel> aktivieren, wird jede HEAD Revision als Ellipse angezeigt. Beachten Sie bitte, dass HEAD sich in diesem Fall auf die zuletzt übertragene Revision des Zweiges und nicht des gesamten Projektarchivs bezieht."
 
 #. (term)
 msgid "Working copy revision"
@@ -7223,7 +7231,7 @@ msgstr "Revision der Arbeitskopie"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, which marks the BASE node with a bold outline."
-msgstr ""
+msgstr "Falls Sie den Revisionsgraphen aus einer Arbeitskopie heraus aufgerufen haben, können Sie sich die BASE Revsion der Arbeitskopie durch eine fette Umrandung anzeigen lassen, indem Sie <guilabel>Zeige Revision der Arbeitskopie</guilabel> aktivieren."
 
 #. (term)
 msgid "Modified working copy"
@@ -7231,7 +7239,7 @@ msgstr "Veränderte Arbeitskopie"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show an additional node representing your modified working copy using <guilabel>Show WC modifications</guilabel>. This is an elliptical node with a bold outline in red by default."
-msgstr ""
+msgstr "Falls Sie den Revisionsgraphen aus einer Arbeitskopie heraus aufgerufen haben, können sie sich den Änderungsstatus Ihrer Arbeitskopie mit <guilabel>Änderungen in Arbeitskopie anzeigen</guilabel> in einem zusätzlichen Knoten anzeigen lassen. Diese Knoten ist standardmäßig rot mit fettem Rand."
 
 #. (term)
 msgid "Normal item"
