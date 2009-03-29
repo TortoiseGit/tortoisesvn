@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-25 22:58 +0000\n"
-"PO-Revision-Date: 2009-03-27 10:59+0100\n"
+"POT-Creation-Date: 2009-03-28 22:15 +0000\n"
+"PO-Revision-Date: 2009-03-29 22:48+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5967,17 +5967,25 @@ msgstr "Именици"
 
 #. (para)
 msgid ""
-"Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Click <guibutton>Add...</guibutton>. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository URL in the format <literal>url folder</literal> or if you want to specify a particular revision, <literal>-rREV url folder</literal> You can add multiple external projects, 1 per line. Note that URLs must be properly escaped or they will not work. For example you must replace each space with <literal>%20</literal>. Note that it is not possible to use folder names with spaces in them. Suppose that you have set these properties on <filename>D:\\dev\\project1</filename>: <screen>\n"
+"Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Click <guibutton>Add...</guibutton>. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository URL in the format <literal>url folder</literal> or if you want to specify a particular revision, <literal>-rREV url folder</literal> You can add multiple external projects, 1 per line. Suppose that you have set these properties on <filename>D:\\dev\\project1</filename>: <screen>\n"
 "http://sounds.red-bean.com/repos  sounds\n"
-"http://graphics.red-bean.com/repos/fast%20graphics  quick_graphs\n"
+"http://graphics.red-bean.com/repos/fast%20graphics  \"quick graphs\"\n"
 "-r21 http://svn.red-bean.com/repos/skin-maker  skins/toolkit\n"
 "</screen> Now click <guibutton>Set</guibutton> and commit your changes. When you (or any other user) update your working copy, Subversion will create a sub-folder <filename>D:\\dev\\project1\\sounds</filename> and checkout the sounds project, another sub-folder <filename>D:\\dev\\project1\\quick_graphs</filename> containing the graphics project, and finally a nested sub-folder <filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 of the skin-maker project."
 msgstr ""
-"Рецимо да сте преузели радну копију од <filename>/project1</filename> до <filename>D:\\dev\\project1</filename>. Изаберите именик  <filename>D:\\dev\\project1</filename>, <action>десни клик</action> и изаберите <menuchoice><guimenu>Виндоус Мени</guimenu><guimenuitem>Особине</guimenuitem></menuchoice> из контекст менија. Особине дијалог долази. Затим идите на таб Субверзија. Тамо можете подесити особине. Кликните <guibutton>Додај...</guibutton>. Изаберите <literal>свн:спољашње</literal> особине у комбобоксу и напишите УРЛ спремишта у формату  <literal>име урл</literal> или ако желите да специфицирате партикуларну ревизију, <literal>име -рРЕВ урл</literal> Можете додати вишеструке спољашње пројекте, 1 по линији. Приметимо да тај УРЛ мора бити одговарајуће попуњен косим цртама или то неће радити. На пример морате заменити сваки размак са <literal>%20</literal>. Приметимо да  није могуће користити имена  именика  са размацима у њима. Претпоставимо да имате подешене ове особине на <filename>D:\\dev\\project1</filename>: <screen>\n"
-"sounds   http://sounds.red-bean.com/repos\n"
-"quick_graphs  http://graphics.red-bean.com/repos/fast%20graphics\n"
-"skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
-"</screen>Сада клик на <guibutton>Подеси</guibutton> и урежите измене. Када ви (или било који други корисник) ажурира вашу радну копију, Субверзија ће креирати подименик <filename>D:\\dev\\project1\\sounds</filename> и проверити соундс пројекат, следећи подименик <filename>D:\\dev\\project1\\quick graphs</filename> који садржи графички пројекат, и на крају угњеждени подименик <filename>D:\\dev\\project1\\skins\\toolkit</filename> који садржи ревизију 21 скин-макер пројекта."
+"Рецимо да сте преузели радну копију од <filename>/project1</filename> до <filename>D:\\dev\\project1</filename>. Изаберите именик  <filename>D:\\dev\\project1</filename>, <action>десни клик</action> и изаберите <menuchoice><guimenu>Виндоус Мени</guimenu><guimenuitem>Особине</guimenuitem></menuchoice> из контекст менија. Дијалог Особине се појави. Затим идите на таб Субверзија. Тамо можете подесити особине. Кликните <guibutton>Додај...</guibutton>. Изаберите <literal>svn:externals</literal> особине у комбобоксу и напишите у боксу уређења УРЛ спремишта у формату  <literal>именик урл</literal> или ако желите да специфицирате партикуларну ревизију, <literal>-rREV  урл именик</literal> Можете додати вишеструке спољашње пројекте, 1 по линији. Претпоставимо да имате подешене ове особине на <filename>D:\\dev\\project1</filename>: <screen>\n"
+"http://sounds.red-bean.com/repos  sounds\n"
+"http://graphics.red-bean.com/repos/fast%20graphics  \"quick graphs\"\n"
+"-r21 http://svn.red-bean.com/repos/skin-maker  skins/toolkit\n"
+"</screen>  Сада клик на <guibutton>Подеси</guibutton> и урежите измене. Када ви (или било који други корисник) ажурира вашу радну копију, Субверзија ће креирати подименик <filename>D:\\dev\\project1\\sounds</filename> и проверити соундс пројекат, следећи подименик <filename>D:\\dev\\project1\\quick_graphs</filename> који садржи графички пројекат, и на крају угњеждени подименик <filename>D:\\dev\\project1\\skins\\toolkit</filename> који садржи ревизију 21 скин-мејкер пројекта."
+
+#. (para)
+msgid "URLs must be properly escaped or they will not work, e.g. you must replace each space with <literal>%20</literal> as shown in the second example above."
+msgstr "УРЛови морају бити одговарајуће избегнути или они неће радити, нпр. морати заменити сваки размак са  <literal>%20</literal> како је показано у другом примеру горе."
+
+#. (para)
+msgid "If you want the local path to include spaces or other special characters, you can enclose it in double quotes, or you can use the <literal>\\</literal> (backslash) character as a Unix shell style escape character preceding any special character. Of course this also means that you must use <literal>/</literal> (forward slash) as a path delimiter. Note that this behaviour is new in Subversion 1.6 and will not work with older clients."
+msgstr "Ако желите да локална путања укључи размаке или друге специјалне карактере, можете их окружити двоструким наводницима, или можете користити  <literal>\\</literal> (инверзна коса црта) карактер избегавања као у стилу Јуникс  шкољке да претходи специјалном карактеру. Свакако ово такође значи да можете користити  <literal>/</literal> (коса црта) као раздвајач путање. Приметимо да је ово понашање ново у Субверзији 1.6 и неће радити са старијим клијентима."
 
 #. (title)
 msgid "Use explicit revision numbers"
@@ -12808,3 +12816,4 @@ msgstr "Милорад Поповић <MiloradSPopovic@gmail.com>"
 #. (None)
 msgid "translator-translation"
 msgstr "Превод"
+
