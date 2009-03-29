@@ -96,19 +96,19 @@ void CSVNStatusCache::Create()
 							goto error;
 						}
 						sKey.ReleaseBuffer(value);
-                        std::auto_ptr<CCachedDirectory> cacheddir (new CCachedDirectory());
-						if (!cacheddir || !cacheddir->LoadFromDisk(pFile))
+						CCachedDirectory * cacheddir = new CCachedDirectory();
+						if (cacheddir == NULL)
+							goto error;
+						if (!cacheddir->LoadFromDisk(pFile))
 						{
-                            cacheddir.reset();
+							delete cacheddir;
+							cacheddir = NULL;
 							goto error;
 						}
-
 						CTSVNPath KeyPath = CTSVNPath(sKey);
-						if (   m_pInstance->IsPathAllowed(KeyPath)
-                            && (   m_pInstance->m_directoryCache.find (KeyPath) 
-                                == m_pInstance->m_directoryCache.end()))
+						if (m_pInstance->IsPathAllowed(KeyPath))
 						{
-                            m_pInstance->m_directoryCache[KeyPath] = cacheddir.release();
+							m_pInstance->m_directoryCache[KeyPath] = cacheddir;
 							// only add the path to the watch list if it is versioned
 							if ((cacheddir->GetCurrentFullStatus() != svn_wc_status_unversioned)&&(cacheddir->GetCurrentFullStatus() != svn_wc_status_none))
 								m_pInstance->watcher.AddPath(KeyPath);
@@ -117,6 +117,11 @@ void CSVNStatusCache::Create()
 							// notification, which makes the desktop flash constantly
 							// until the whole first time crawling is over
 							// m_pInstance->AddFolderForCrawling(KeyPath);
+						}
+						else
+						{
+							delete cacheddir;
+							cacheddir = NULL;
 						}
 					}
 				}
@@ -394,6 +399,7 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 		if (itMap!=m_directoryCache.end())
 		{
 			delete itMap->second;
+			itMap->second = NULL;
 			m_directoryCache.erase(itMap);
 		}
 		// We don't know anything about this directory yet - lets add it to our cache
@@ -412,16 +418,10 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 				CCachedDirectory * newcdir = new CCachedDirectory(path);
 				if (newcdir)
 				{
-                    itMap = m_directoryCache.lower_bound (path);
-                    assert (   (insertPos == m_directoryCache.end())
-                            || (insertPos->path != path));
-
-                    itMap = m_directoryCache.insert 
-                        (itMap, std::make_pair (path, newcdir.release()));
-                    if (!path.IsEmpty() && path.HasAdminDir())
+					CCachedDirectory * cdir = m_directoryCache.insert(m_directoryCache.lower_bound(path), std::make_pair(path, newcdir))->second;
+					if ((!path.IsEmpty())&&(path.HasAdminDir()))
 						watcher.AddPath(path);
-
-					return itMap->second;		
+					return cdir;		
 				}
 				m_bClearMemory = true;
 			}
