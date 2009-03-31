@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-28 22:15 +0000\n"
-"PO-Revision-Date: 2009-03-31 12:34+0100\n"
+"PO-Revision-Date: 2009-03-31 16:22+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7307,7 +7307,7 @@ msgstr "Differenzielle Pfadnamen"
 
 #. (para)
 msgid "Long path names can take a lot of space and make the node boxes very large. Use this option to show only the changed part of a path, replacing the common part with dots. E.g. if you create a branch <literal>/branches/1.2.x/doc/html</literal> from <literal>/trunk/doc/html</literal> the branch could be shown in compact form as <literal>/branches/1.2.x/..</literal> because the last two levels, <literal>doc</literal> and <literal>html</literal>, did not change."
-msgstr ""
+msgstr "Lange Pfadnamen verbrauchen viel Platz und machen die Knoten unnötig breit. Mit dieser Option werden nur die unterschiedlichen Teile des Pfades angezeigt und die übereinstimmenden Teile durch Punkte ersetzt. Wenn Sie z.B. <literal>/branches/1.2.x/doc/html</literal> aus <literal>/trunk/doc/html</literal> erstelllen, kann der Zweig in der kompakten Form als <literal>/branches/1.2.x/..</literal> angezeigt werden, weil die zwei Ebenen <literal>doc</literal> und <literal>html</literal> sich nicht geändert haben."
 
 #. (term)
 msgid "Show all revisions"
@@ -7315,7 +7315,7 @@ msgstr "Alle  Revisionen zeigen"
 
 #. (para)
 msgid "This does just what you expect and shows every revision where something (in the tree that you are graphing) has changed. For long histories this can produce a truly huge graph."
-msgstr ""
+msgstr "Diese Funktion zeigt jede Revision des Graphen, in der sich etwas geändert hat, als separaten Knoten an. Bei älteren Projekten mit vielen Revisionsnummern kann das zu einem riesigen Graphen führen."
 
 #. (term)
 msgid "Show HEAD revisions"
@@ -7347,7 +7347,7 @@ msgstr "Gelöschte Pfade verbergen"
 
 #. (para)
 msgid "Hides paths which are no longer present at the HEAD revision of the repository, e.g. deleted branches."
-msgstr ""
+msgstr "Blendet Pfade aus, die in der HEAD Revision des Projektarchivs nicht mehr existieren, z.B. gelöschte Pfade."
 
 #. (term)
 msgid "Hide unchanged branches"
@@ -7355,7 +7355,7 @@ msgstr "Ungenutzte Zweige verbergen"
 
 #. (para)
 msgid "Hides branches where no changes were committed to the respective file or sub-folder. This does not necessarily indicate that the branch was not used, just that no changes were made to <emphasis>this</emphasis> part of it."
-msgstr ""
+msgstr "Blendet Pfade aus in denen keine Änderungen an dem gewählten Objekt in das Projektarchiv übertragen wurden. Das bedeutet nicht, dass der Zweig nicht benutzt wurde, sondern dass <emphasis>dieser</emphasis> Teil des Zweiges nicht verändert wurde."
 
 #. (term)
 msgid "Show WC revision"
