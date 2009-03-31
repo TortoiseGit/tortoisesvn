@@ -21,6 +21,7 @@ Version 1.6.1
 - BUG: Show log could loop endlessly under certain conditions. 
        (Stefan Fuhrmann)
 - BUG: Fixed memory leak in TSVNCache. (Stefan Fuhrmann)
+- BUG: Administrative (msiexec /a ...) install didn't work. (Stefan)
 
 Version 1.6.0
 - NEW: Ignoring of multiple selected items by their extension. See

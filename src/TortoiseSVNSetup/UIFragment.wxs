@@ -155,7 +155,7 @@
 				<Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Next]">
 					<Publish Property="InstallMode" Value="Server Image">1</Publish>
 					<Publish Event="ValidateProductID" Value="0">0</Publish>
-					<Publish Event="NewDialog" Value="AdminInstallPointDlg">ProductID</Publish>
+					<Publish Event="NewDialog" Value="AdminInstallPointDlg">1</Publish>
 				</Control>
 				<Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="[ButtonText_Cancel]">
 					<Publish Event="SpawnDialog" Value="CancelPopup">1</Publish>
