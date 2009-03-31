@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-28 22:15 +0000\n"
-"PO-Revision-Date: 2009-03-29 14:37+0100\n"
+"PO-Revision-Date: 2009-03-31 12:34+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5291,7 +5291,7 @@ msgstr "Während Sie  Dateien und Ordner <emphasis>innerhalb</emphasis> eines Pr
 
 #. (para)
 msgid "If you are uncertain whether two URLs on the same server refer to the same or different repositories, use the repo browser to open one URL and find out where the repository root is. If you can see both locations in one repo browser window then they are in the same repository."
-msgstr "Wenn Sie unsicher sind, ob zwei URLs auf dem gleichen Server das selbe Projektarchiv referenzieren, rufen Sie den Projektarchivbetrachter auf und finden Sie heraus, wo die Wurzel des Projektarchivs liegt. Wenn Sie von da aus beide URLs  in einem Betrachterfenster sehen können, befinden sie sich im selben Projektarchiv."
+msgstr "Wenn Sie unsicher sind, ob zwei URLs auf dem gleichen Server dasselbe Projektarchiv referenzieren, rufen Sie den Projektarchivbetrachter auf und finden Sie heraus, wo die Wurzel des Projektarchivs liegt. Wenn Sie von da aus beide URLs  in einem Betrachterfenster sehen können, befinden sie sich im selben Projektarchiv."
 
 #. (title)
 msgid "Ignoring Files And Directories"
@@ -5964,7 +5964,7 @@ msgstr "Setzen Sie die Projekteigenschaften auf Ordner"
 
 #. (para)
 msgid "These special project properties must be set on <emphasis>folders</emphasis> for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
-msgstr "Diese speziellen Eigenschaften müssen für Ordner und nicht für Dateien gesetzt werden. Wenn Sie eine Datei oder einen Ordner übertragen dann werden die Eigenschaften aus eben diesem Ordner gelesen. Wenn die Eigenschaften nicht gefunden werden, sucht TortoiseSVN im Ordnerbaum aufwärts nach diesen Eigenschaften, bis entweder die Eigenschaften gefunden wurden oder der oberste Ordner der Arbeitskopie gefunden wurde. Wenn Sie also sicher sind dass alle Benutzer ihre Arbeitskopie z.B. von <filename>/trunk</filename> ausgecheckt haben, reicht es aus die Eigenschaften dort zu setzen. Wenn Sie hingegen nicht sicher sein können, dann müssen Sie diese Eigenschaften rekursiv auf alle Unterordner Ihres Projektes setzen. Beachten Sie: eine Eigenschaft welche auf Unterordnern gesetzt ist überschreibt die selbe Eigenschaft für übergeordnete Ordner."
+msgstr "Diese speziellen Eigenschaften müssen für Ordner und nicht für Dateien gesetzt werden. Wenn Sie eine Datei oder einen Ordner übertragen dann werden die Eigenschaften aus eben diesem Ordner gelesen. Wenn die Eigenschaften nicht gefunden werden, sucht TortoiseSVN im Ordnerbaum aufwärts nach diesen Eigenschaften, bis entweder die Eigenschaften gefunden wurden oder der oberste Ordner der Arbeitskopie gefunden wurde. Wenn Sie also sicher sind dass alle Benutzer ihre Arbeitskopie z.B. von <filename>/trunk</filename> ausgecheckt haben, reicht es aus die Eigenschaften dort zu setzen. Wenn Sie hingegen nicht sicher sein können, dann müssen Sie diese Eigenschaften rekursiv auf alle Unterordner Ihres Projektes setzen. Beachten Sie: eine Eigenschaft welche auf Unterordnern gesetzt ist überschreibt dieselbe Eigenschaft für übergeordnete Ordner."
 
 #. (para)
 msgid "For project properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
@@ -6036,7 +6036,7 @@ msgstr "Ältere svn:externals Definitionen"
 
 #. (para)
 msgid "The format shown here was introduced in Subversion 1.5. You may also see the older format which has the same information in a different order. The new format is preferred as it supports several useful features described below, but it will not work on older clients. The differences are shown in the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html\"><citetitle>Subversion Book</citetitle></ulink>."
-msgstr "Das hier angezeigte Format wurde in Subversion 1.5 eingeführt. Sie können auch auf das ältere Format stoßen, das die selbe Information in einer anderen Reihenfolge enthält. Das neue Format wird bevorzugt, da es einige nützliche Möglichkeiten bietet, die unten bescrhieben werden. Allerdings funktioniert das neue Format nicht mit älteren Subversion Clients. Die Unterschiede werden im <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html\"><citetitle>Subversion Buch</citetitle></ulink> beschrieben."
+msgstr "Das hier angezeigte Format wurde in Subversion 1.5 eingeführt. Sie können auch auf das ältere Format stoßen, das dieselbe Information in einer anderen Reihenfolge enthält. Das neue Format wird bevorzugt, da es einige nützliche Möglichkeiten bietet, die unten bescrhieben werden. Allerdings funktioniert das neue Format nicht mit älteren Subversion Clients. Die Unterschiede werden im <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html\"><citetitle>Subversion Buch</citetitle></ulink> beschrieben."
 
 #. (para)
 #. (para)
@@ -7251,7 +7251,7 @@ msgstr "Alle anderen Elemente werden durch ein einfaches Rechteck dargestellt."
 
 #. (para)
 msgid "Each revision graph node represents a revision in the repository where something changed in the tree you are looking at. Different types of node can be distinguished by shape and colour. The shapes are fixed, but colours can be set using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice><placeholder-1/>"
-msgstr ""
+msgstr "Jeder Knoten des Revisionsgraphen entspricht einer Revision im Projektarchiv in der sich etwas in dem Baum, den Sie gerade betrachten, geändert hat. Verschiedene Knotentypen können anhand ihrer Form und Farbe unterschieden werden. Die Formen sind fest vorgegeben, die Farben können über <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Einstellungen</guimenuitem></menuchoice> geändert werden.<placeholder-1/>"
 
 #. (para)
 msgid "Note that by default the graph only shows the points at which items were added, copied or deleted. Showing every revision of a project will generate a very large graph for non-trivial cases. If you really want to see <emphasis>all</emphasis> revisions where changes were made, there is an option to do this in the <guilabel>View</guilabel> menu and on the toolbar."
@@ -7259,7 +7259,7 @@ msgstr "Beachten Sie, dass in der Standardansicht der Graph nur die Punkte zeigt
 
 #. (para)
 msgid "The default view (grouping off) places the nodes such that their vertical position is in strict revision order, so you have a visual cue for the order in which things were done. Where two nodes are in the same column the order is very obvious. When two nodes are in adjacent columns the offset is much smaller because there is no need to prevent the nodes from overlapping, and as a result the order is a little less obvious. Such optimisations are necessary to keep complex graphs to a reasonable size. Please note that this ordering uses the <emphasis>edge</emphasis> of the node on the <emphasis>older</emphasis> side as a reference, i.e. the bottom edge of the node when the graph is shown with oldest node at the bottom. The reference edge is significant because the node shapes are not all the same height."
-msgstr ""
+msgstr "Die Standardansicht (Gruppierung aus) platziert die Knoten so, dass die vertikale Position strikt der Revisionsreihenfolge entspricht, so dass Sie einen Hinweis auf die Abfolge der Ereignisse haben. Befinden sich zwei Knoten in derselben Spalte, ist die Reihenfolge offensichtlich. Bei benachbarten Spalten ist der Versatz viel kleiner und die Reihenfolge weniger offensichtlich, da nicht darauf geachtet werden muss, dass die Knoten sich nicht überlappen. Solche Optimierungen sind nötig, um komplexe Graphen auf eine vertretbare Größe zu reduzieren. Bitte beachten Sie, dass diese Ordnung die <emphasis>Kante</emphasis> des Knotens auf der <emphasis>älteren</emphasis> Seite als Referenz verwendet, d.h. die untere Kante des Knotens, wenn der Graph mit dem ältesten Knoten unten angezeigt wird. Die Referenzkante ist wichtig, weil die Formen der Knoten nicht alle dieselbe Höhe haben."
 
 #. (title)
 msgid "Changing the View"
@@ -7291,7 +7291,7 @@ msgstr "Bäume oben ausrichten"
 
 #. (para)
 msgid "When a graph is broken into several smaller trees, the trees may appear either in natural revision order, or aligned at the bottom of the window, depending on whether you are using the <guilabel>Group Branches</guilabel> option. Use this option to grow all trees down from the top instead."
-msgstr ""
+msgstr "Wenn ein Graph in mehrere kleine Bäume aufgespalten wird, werden diese, je nachdem ob Sie <guilabel>Zweige zusammenfassen</guilabel> aktiviert haben, in der natürlichen Revisionsreihenfolge oder an der Unterkante des Fensters angezeigt. Mit diese Option werden die Bäume von der Oberkante aus aufgebaut."
 
 #. (term)
 msgid "Reduce cross lines"
@@ -9290,7 +9290,7 @@ msgstr "Diese Eigenschaft enthält die Parameter, die an den IBugtraqProvider ü
 
 #. (para)
 msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
-msgstr "Wenn Sie möchten, dass alle Anwender das selbe COM Modul für Ihr Fehlerverfolgungssystem verwenden, können Sie das Modul auch über die Eigenschaften <literal>bugtraq:provideruuid</literal> und <literal>bugtraq:providerparams</literal> einrichten. <placeholder-1/> Bitte lesen Sie in der Dokumentation zu Ihrem IBugtraqProvider Modul nach, was in diesen beiden Eigenschaften einzutragen ist."
+msgstr "Wenn Sie möchten, dass alle Anwender dasselbe COM Modul für Ihr Fehlerverfolgungssystem verwenden, können Sie das Modul auch über die Eigenschaften <literal>bugtraq:provideruuid</literal> und <literal>bugtraq:providerparams</literal> einrichten. <placeholder-1/> Bitte lesen Sie in der Dokumentation zu Ihrem IBugtraqProvider Modul nach, was in diesen beiden Eigenschaften einzutragen ist."
 
 #. (title)
 msgid "TortoiseBlame Settings"
@@ -12481,7 +12481,7 @@ msgstr ""
 "\n"
 "  // Sie können einer Übertragung eigene Revisionseigenschaften\n"
 "  // zuweisen, indem Sie die nächsten beiden Parameter setzen.\n"
-"  // ACHTUNG: Beide safearrays müssen die selbe Länge haben.\n"
+"  // ACHTUNG: Beide safearrays müssen dieselbe Länge haben.\n"
 "  //          Für jeden Eigenschaftsnamen muss es einen Wert geben!\n"
 "\n"
 "  // Der Inhalt des bugID Feldes (falls angezeigt)\n"
