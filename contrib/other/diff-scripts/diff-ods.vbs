@@ -1,7 +1,7 @@
 '
 ' TortoiseSVN Diff script for Open Office Calc files
 '
-' Copyright (C) 2004-2008 the TortoiseSVN team
+' Copyright (C) 2004-2009 the TortoiseSVN team
 ' This file is distributed under the same license as TortoiseSVN
 '
 ' Last commit by:
@@ -11,7 +11,7 @@
 '
 ' Authors:
 ' Jonathan Ashley, 2007
-' Stefan Küng, 2006
+' Stefan Küng, 2006, 2009
 '
 dim objArgs,num,sBaseDoc,sNewDoc,objScript,word,destination
 
@@ -34,6 +34,10 @@ If objScript.FileExists(sNewDoc) = False Then
     MsgBox "File " + sNewDoc +" does not exist.  Cannot compare the documents.", vbExclamation, "File not found"
     Wscript.Quit 1
 End If
+
+'remove the file write protection
+objScript.GetFile(sBaseDoc).Attributes = objScript.GetFile(sBaseDoc).Attributes And Not 1
+objScript.GetFile(sNewDoc).Attributes = objScript.GetFile(sNewDoc).Attributes And Not 1
 
 Set objScript = Nothing
 

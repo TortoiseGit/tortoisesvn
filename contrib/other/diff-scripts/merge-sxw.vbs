@@ -1,7 +1,7 @@
 '
 ' TortoiseSVN Merge script for Open Office Writer files
 '
-' Copyright (C) 2004-2008 the TortoiseSVN team
+' Copyright (C) 2004-2009 the TortoiseSVN team
 ' This file is distributed under the same license as TortoiseSVN
 '
 ' Last commit by:
@@ -11,7 +11,7 @@
 '
 ' Authors:
 ' Jonathan Ashley, 2007
-' Stefan Küng, 2006
+' Stefan Küng, 2006, 2009
 '
 
 dim objArgs,num,sBaseDoc,sMergedDoc,sTheirDoc,sMyDoc,objScript,word,destination
@@ -37,6 +37,9 @@ If objScript.FileExists(sTheirDoc) = False Then
     MsgBox "File " + sTheirDoc +" does not exist.  Cannot compare the documents.", vbExclamation, "File not found"
     Wscript.Quit 1
 End If
+'remove the file write protection
+objScript.GetFile(sMyDoc).Attributes = objScript.GetFile(sMyDoc).Attributes And Not 1
+objScript.GetFile(sTheirDoc).Attributes = objScript.GetFile(sTheirDoc).Attributes And Not 1
 
 Set objScript = Nothing
 
