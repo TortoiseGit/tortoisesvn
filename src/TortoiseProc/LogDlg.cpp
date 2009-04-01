@@ -247,6 +247,13 @@ void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, S
 		UpdateData(FALSE);
 }
 
+void CLogDlg::SetFilter(const CString& findstr, LONG findtype, bool findregex)
+{
+	m_sFilterText = findstr;
+	m_nSelectedFilter = findtype;
+	m_bFilterWithRegex = findregex;
+}
+
 BOOL CLogDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
@@ -375,7 +382,8 @@ BOOL CLogDlg::OnInitDialog()
 	m_cFilter.SetCancelBitmaps(IDI_CANCELNORMAL, IDI_CANCELPRESSED);
 	m_cFilter.SetInfoIcon(IDI_LOGFILTER);
 	m_cFilter.SetValidator(this);
-	
+	m_cFilter.SetWindowText(m_sFilterText);
+
 	AdjustControlSize(IDC_HIDEPATHS);
 	AdjustControlSize(IDC_CHECK_STOPONCOPY);
 	AdjustControlSize(IDC_INCLUDEMERGE);
