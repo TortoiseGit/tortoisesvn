@@ -250,7 +250,8 @@ void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, S
 void CLogDlg::SetFilter(const CString& findstr, LONG findtype, bool findregex)
 {
 	m_sFilterText = findstr;
-	m_nSelectedFilter = findtype;
+	if (findtype)
+		m_nSelectedFilter = findtype;
 	m_bFilterWithRegex = findregex;
 }
 
