@@ -178,6 +178,11 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	EnableSaveRestore(_T("EditPropertyValueDlg"));
+	if (!m_sPropValue.IsEmpty())
+	{
+		GetDlgItem(IDC_PROPVALUE)->SetFocus();
+		return FALSE;
+	}
 	return TRUE;
 }
 
