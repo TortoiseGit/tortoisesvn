@@ -6,6 +6,7 @@ Version 1.6.1
        commit dlg, use the bugtraq:logregex to extract the bug ID and fill
        the bug ID field if possible and only use the bugtraq:message value
        if the logregex doesn't return a bug ID. (Stefan)
+- CHG: Updated to OpenSSL 0.9.8k (Stefan)
 - BUG: Showing properties from the explorer svn properties tab did not work
        if a language other than English was set. (Stefan)
 - BUG: Crash in "cleanup". (Stefan)
