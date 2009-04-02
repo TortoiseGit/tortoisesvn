@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-28 22:15 +0000\n"
-"PO-Revision-Date: 2009-03-31 16:22+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2009-04-02 21:12+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7363,7 +7363,7 @@ msgstr "Arbeitskopie Revisionen zeigen"
 
 #. (para)
 msgid "Marks the revision on the graph which corresponds to the update revision of the item you fetched the graph for. If you have just updated, this will be HEAD, but if others have committed changes since your last update your WC may be a few revisions lower down. The node is marked by giving it a bold outline."
-msgstr ""
+msgstr "Hebt die Revision im Graphen hervor, die der Revsion des Objekts entspricht, für das Sie den Graphen anzeigen. Wenn Sie gerade Ihre Arbeitskopie aktualisiert habem wird das HEAD sein, wenn aber andere nach der Aktualisierung noch Änderungen übertragen haben, kann Ihre Arbeitskopie ein paar Revisionen niedriger sein. Der Knoten wird durch eine fette Umrandung gekennzeichnet."
 
 #. (term)
 msgid "Show WC modifications"
@@ -7371,7 +7371,7 @@ msgstr "Änderungen der Arbetiskopie zeigen"
 
 #. (para)
 msgid "If your WC contains local changes, this option draws it as a separate elliptical node, linked back to the node that your WC was last updated to. The default outline colour is red. You may need to refresh the graph using <keycap>F5</keycap> to capture recent changes."
-msgstr ""
+msgstr "Falls Ihre Arbeitskopie lokale Änderungen enthält, wird sie durch diese Option als ein zusätzlicher, elliptischer Knoten angezeigt, der mit der Revision zu der Ihre Arbeitskopie aktualisiert wurde, verknüpft ist. Sie müssen den Graphen unter Umständen mit <keycap>F5</keycap> aktualisieren, um neuere Änderungen angezeigt zu bekommen."
 
 #. (term)
 msgid "Filter"
@@ -7387,7 +7387,7 @@ msgstr "Baumstreifen"
 
 #. (para)
 msgid "Where the graph contains several trees, it is sometimes useful to use alternating colours on the background to help distinguish between trees."
-msgstr ""
+msgstr "Falls der Graph mehrere Bäume enthält, ist es oft nützlich, zur Unterscheidung der Bäume abwechselnde Farben im Hintergrund zu haben."
 
 #. (term)
 msgid "Show overview"
@@ -7395,7 +7395,7 @@ msgstr "Gesamtübersicht anzeigen"
 
 #. (para)
 msgid "Shows a small picture of the entire graph, with the current view window as a rectangle which you can drag. This allows you to navigate the graph more easily. Note that for very large graphs the overview may become useless due to the extreme zoom factor and will therefore not be shown in such cases."
-msgstr ""
+msgstr "Zeigt ein kleines Übersichtsbild des gesamten Graphen mit dem aktuellen Ausschnitt als Rechteck. Sie können dieses Rechteck verschieben, um einfach durch den Graphen zu navigieren. Beachten Sie bitte, dass die Übersicht bei sehr großen Graphen aufgrund der starken Verkleinerung nutzlos ist und in diesen Fällen nicht angezeigt wird."
 
 #. (para)
 msgid "Because a revision graph is often quite complex, there are a number of features which can be used to tailor the view the way you want it. These are available in the <guilabel>View</guilabel> menu and from the toolbar. <placeholder-1/>"
@@ -7435,11 +7435,11 @@ msgstr "Lernen Sie, den Revisionsgraphen zu lesen"
 
 #. (para)
 msgid "First-time users may be surprised by the fact that the revision graph shows something that does not match the user's mental model. If a revision changes multiple copies or branches of a file or folder, for instance, then there will be multiple nodes for that single revision. It is a good practice to start with the leftmost options in the toolbar and customize the graph step-by-step until it comes close to your mental model."
-msgstr ""
+msgstr "Neueinsteiger stehen unter Umständen vor dem Problem, dass der Graph nicht das anzeigt, was sie erwarten. Falls zum Beispiel eine Revision mehrere Kopien oder Zweige einer Datei oder eines Ordners ändert, wird es mehrere Knoten für diese einzelne Revision geben. Es ist ratsam, mit der linken Option in der Werkzeugleiste zu beginnen und den Graphen schrittweise an die eigene Vorstellung anzupassen."
 
 #. (para)
 msgid "All filter options try lose as little information as possible. That may cause some nodes to change their color, for instance. Whenever the result is unexpected, undo the last filter operation and try to understand what is special about that particular revision or branch. In most cases, the initially expected outcome of the filter operation would either be inaccurate or misleading."
-msgstr ""
+msgstr "Sämtliche Filteroptionen versuchen so viel Information wie möglich beizubehalten. Das kann unter Anderem dazu führen, dass sich die Farbe einiger Knoten ändert. Wann immer ein Ergebnis unerwartet ist, nehmen Sie die letzte Filteroperation zurück und versuchen Sie, herauszufinden, was das Besondere an dieser Revision oder diesem Zweig ist. In den meisten Fällen ist das zunächst erwartete Filterergebnis ungenau oder irreführend."
 
 #. (para)
 msgid "If you want to check the server again for newer information, you can simply refresh the view using <keycap>F5</keycap>. If you are using the log cache (enabled by default), this will check the repository for newer commits and fetch only the new ones. If the log cache was in offline mode, this will also attempt to go back online."
@@ -7455,7 +7455,7 @@ msgstr "Zweige ausdünnen"
 
 #. (para)
 msgid "A large tree can be difficult to navigate and sometimes you will want to hide parts of it, or break it down into a forest of smaller trees. If you hover the mouse over the point where a node link enters or leaves the node you will see one or more popup buttons which allow you to do this."
-msgstr ""
+msgstr "Es kann schwierig sein, in einem großen Baum zu navigieren und eventuell möchten Sie Teile ausblenden oder den Graphen in einen Wald aus kleineren Bäumen aufspalten. Wenn Sie mit der Maus über den Punkt fahren, an dem ein Verweis einen Knoten betritt oder verlässt, werden Ihnen eine oder mehrere Schaltflächen mit den entsprechenden Funktionen angezeigt."
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphCollapse.png\"/> Click on the minus button to collapse the attached sub-tree."
@@ -7475,7 +7475,7 @@ msgstr "<graphic fileref=\"../images/RevGraphJoin.png\"/> Klicken Sie auf die Kr
 
 #. (para)
 msgid "Click on the graph background for the main context menu, which offers options to <guilabel>Expand all</guilabel> and <guilabel>Join all</guilabel>. If no branch has been collapsed or split, the context menu will not be shown."
-msgstr ""
+msgstr "Klicken Sie auf den Hintergrund des Graphen, um das Kontextmenü angezeigt zu bekommen. Es stellt Ihnen die Funktionen <guilabel>Alle aufklappen</guilabel> und <guilabel>Alle verbinden</guilabel>. Falls noch kein Ast zugeklappt oder aufgetrennt wurde, wird das Kontextmenü nicht angezeigt."
 
 #. (title)
 msgid "Exporting a Subversion Working Copy"
