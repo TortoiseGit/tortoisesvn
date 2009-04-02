@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-28 22:15 +0000\n"
-"PO-Revision-Date: 2009-04-02 21:12+0100\n"
+"PO-Revision-Date: 2009-04-02 23:14+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7535,7 +7535,7 @@ msgstr "Exportieren von Baumänderungen"
 
 #. (para)
 msgid "If you want to export a copy of your project tree structure but containing only the files which have changed in a particular revision, or between any two revisions, use the compare revisions feature described in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr ""
+msgstr "Falls Sie eine Kopie Ihrer Projektstruktur exportieren wollen, die nur die zwischen zwei Revisionen geänderten Objekte enthält, verwenden Sie die in <xref linkend=\"tsvn-dug-compare-revs\"/> beschriebene Funktion zum Vergleichen von Revisionen."
 
 #. (title)
 msgid "Removing a working copy from version control"
@@ -8048,7 +8048,7 @@ msgstr "Kann in der Log-Liste doppelklicken um mit der vorherigen Revision zu ve
 
 #. (para)
 msgid "If you frequently find yourself comparing revisions in the top pane of the log dialog, you can use this option to allow that action on double-click. It is not enabled by default because fetching the diff is often a long process, and many people prefer to avoid the wait after an accidental double-click, which is why this option is not enabled by default."
-msgstr ""
+msgstr "Wenn Sie häufig im oberen Bereich des Log-Dialogs Revisionen vergleichen, können Sie diese Aktion aktivieren, damit der Vergleich per Doppelklick erfolgt. Sie ist standardmäßig deaktiviert, weil das Erstellen des Vergleichs manchmal eine langwierige Operation ist und viele die Wartezeit bei einem versehentlichen Doppelklick vermeiden wollen."
 
 #. (term)
 msgid "Progress Dialog"
@@ -8080,7 +8080,7 @@ msgstr "Verwende Papierkorb bei Rückgängig"
 
 #. (para)
 msgid "When you revert local modifications, your changes are discarded. TortoiseSVN gives you an extra safety net by sending the modified file to the recycle bin before bringing back the pristine copy. If you prefer to skip the recycle bin, uncheck this option."
-msgstr ""
+msgstr "Wenn Sie lokale Änderungen zurücknehmen, werden diese verworfen. TortoiseSVN bietet Ihnen ein zusätzliches Sichereitsnetz an, indem es die veränderten Dateien in den Papierkorb verschiebt, bevor der Originalzustand wieder hergestellt wird."
 
 #. (term)
 msgid "Use URL of WC as the default <quote>From:</quote> URL"
@@ -8300,11 +8300,11 @@ msgstr "Klassifizierungsmuster"
 
 #. (para)
 msgid "The revision graph attempts to show a clearer picture of your repository structure by distinguishing between trunk, branches and tags. As there is no such classification built into Subversion, this information is extracted from the path names. The default settings assume that you use the conventional English names as suggested in the Subversion documentation, but of course your usage may vary."
-msgstr ""
+msgstr "Der Revisionsgraph versucht ein klareres Bild des Projektarchivs zu schaffen, indem er zwischen Stamm, Verzweigung und Marken unterscheidet. Da eine solche Unterscheidung nicht un Subversion eingebaut ist, wird die Information aus den Pfadnamen extrahiert. Die Standardeinstellung nimmt an, dass Sie die üblichen, in der Subversion angegebenen, englischen Namen verwenden. Sie können das selbstverständlich an Ihre Gepflogenheiten anpassen."
 
 #. (para)
 msgid "Specify the patterns used to recognise these paths in the three boxes provided. The patterns will be matched case-insensitively, but you must specify them in lower case. Wild cards <literal>*</literal> and <literal>?</literal> will work as usual, and you can use <literal>;</literal> to separate multiple patterns. Do not include any extra white space as it will be included in the matching specification."
-msgstr ""
+msgstr "Geben Sie die Muster zur Erkennung der Pfade in den drei Eingabefeldern an. Die Muster werden ohne Berücksichtigung der Groß-/Kleinschreibung verglichen, sie müssen jedoch in Kleinbuchstaben angegeben werden. Die Platzhalter  <literal>*</literal> und <literal>?</literal> funktionieren wie gewohnt und Sie können  zusätzlich <literal>;</literal> zum Trennen mehrerer Muster angeben. Verwenden Sie keine Leerzeichen, da diese Bestandteil des Mustervergleichs werden."
 
 #. (term)
 msgid "Modify Colors"
