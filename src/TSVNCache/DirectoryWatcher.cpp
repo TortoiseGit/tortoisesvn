@@ -370,6 +370,8 @@ void CDirectoryWatcher::WorkerThread()
 				// changes in the file system! 
 				if (pdi)
 				{
+					BOOL bRet = false;
+
 					{
 						AutoLocker lock(m_critSec);
                         if (   (pdi->m_hDir == INVALID_HANDLE_VALUE)
@@ -377,88 +379,94 @@ void CDirectoryWatcher::WorkerThread()
                         {
 							continue;
                         }
-					}
 
-					PFILE_NOTIFY_INFORMATION pnotify = (PFILE_NOTIFY_INFORMATION)pdi->m_Buffer;
-                    DWORD nOffset = numBytes == 0 
-                                  ? 0 
-                                  : pnotify->NextEntryOffset;
+						PFILE_NOTIFY_INFORMATION pnotify = (PFILE_NOTIFY_INFORMATION)pdi->m_Buffer;
+						DWORD nOffset = numBytes == 0 
+							? 0 
+							: pnotify->NextEntryOffset;
 
-					while (nOffset > 0)
-					{
-						nOffset = pnotify->NextEntryOffset;
-						if (pnotify->FileNameLength >= (READ_DIR_CHANGE_BUFFER_SIZE*sizeof(TCHAR)))
-							continue;
-
-						SecureZeroMemory(buf, READ_DIR_CHANGE_BUFFER_SIZE*sizeof(TCHAR));
-						_tcsncpy_s(buf, READ_DIR_CHANGE_BUFFER_SIZE, pdi->m_DirPath, READ_DIR_CHANGE_BUFFER_SIZE);
-						errno_t err = _tcsncat_s(buf+pdi->m_DirPath.GetLength(), READ_DIR_CHANGE_BUFFER_SIZE-pdi->m_DirPath.GetLength(), pnotify->FileName, _TRUNCATE);
-						if (err == STRUNCATE)
+						while (nOffset > 0)
 						{
-							pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
-							continue;
-						}
-						buf[(pnotify->FileNameLength/sizeof(TCHAR))+pdi->m_DirPath.GetLength()] = 0;
-						pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
-						if (m_FolderCrawler)
-						{
-							if ((pFound = wcsstr(buf, L"\\tmp"))!=NULL)
+							nOffset = pnotify->NextEntryOffset;
+							if (pnotify->FileNameLength >= (READ_DIR_CHANGE_BUFFER_SIZE*sizeof(TCHAR)))
+								continue;
+
+							SecureZeroMemory(buf, READ_DIR_CHANGE_BUFFER_SIZE*sizeof(TCHAR));
+							_tcsncpy_s(buf, READ_DIR_CHANGE_BUFFER_SIZE, pdi->m_DirPath, READ_DIR_CHANGE_BUFFER_SIZE);
+							errno_t err = _tcsncat_s(buf+pdi->m_DirPath.GetLength(), READ_DIR_CHANGE_BUFFER_SIZE-pdi->m_DirPath.GetLength(), pnotify->FileName, _TRUNCATE);
+							if (err == STRUNCATE)
 							{
-								pFound += 4;
-								if (((*pFound)=='\\')||((*pFound)=='\0'))
-								{
-									if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
-										break;
-									continue;
-								}
-							}
-							if ((pFound = wcsstr(buf, L":\\RECYCLER\\"))!=NULL)
-							{
-								if ((pFound-buf) < 5)
-								{
-									// a notification for the recycle bin - ignore it
-									if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
-										break;
-									continue;
-								}
-							}
-							if ((pFound = wcsstr(buf, L":\\$Recycle.Bin\\"))!=NULL)
-							{
-								if ((pFound-buf) < 5)
-								{
-									// a notification for the recycle bin - ignore it
-									if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
-										break;
-									continue;
-								}
-							}
-							if ((pFound = wcsstr(buf, L".tmp"))!=NULL)
-							{
-								// assume files with a .tmp extension are not versioned and interesting,
-								// so ignore them.
-								if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
-									break;
+								pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
 								continue;
 							}
-							ATLTRACE(_T("change notification: %s\n"), buf);
-							m_FolderCrawler->AddPathForUpdate(CTSVNPath(buf));
-						}
-						if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
-							break;
-					};
+							buf[(pnotify->FileNameLength/sizeof(TCHAR))+pdi->m_DirPath.GetLength()] = 0;
+							pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
+							if (m_FolderCrawler)
+							{
+								if ((pFound = wcsstr(buf, L"\\tmp"))!=NULL)
+								{
+									pFound += 4;
+									if (((*pFound)=='\\')||((*pFound)=='\0'))
+									{
+										if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
+											break;
+										continue;
+									}
+								}
+								if ((pFound = wcsstr(buf, L":\\RECYCLER\\"))!=NULL)
+								{
+									if ((pFound-buf) < 5)
+									{
+										// a notification for the recycle bin - ignore it
+										if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
+											break;
+										continue;
+									}
+								}
+								if ((pFound = wcsstr(buf, L":\\$Recycle.Bin\\"))!=NULL)
+								{
+									if ((pFound-buf) < 5)
+									{
+										// a notification for the recycle bin - ignore it
+										if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
+											break;
+										continue;
+									}
+								}
+								if ((pFound = wcsstr(buf, L".tmp"))!=NULL)
+								{
+									// assume files with a .tmp extension are not versioned and interesting,
+									// so ignore them.
+									if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
+										break;
+									continue;
+								}
+								ATLTRACE(_T("change notification: %s\n"), buf);
+								m_FolderCrawler->AddPathForUpdate(CTSVNPath(buf));
+							}
+							if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
+								break;
+						};
 
-                    // setup next notification cycle
+						// setup next notification cycle
 
-                    SecureZeroMemory (pdi->m_Buffer, sizeof(pdi->m_Buffer));
-					SecureZeroMemory (&pdi->m_Overlapped, sizeof(OVERLAPPED));
-					if (!ReadDirectoryChangesW (pdi->m_hDir,
-												pdi->m_Buffer,
-												READ_DIR_CHANGE_BUFFER_SIZE,
-												TRUE,
-												FILE_NOTIFY_CHANGE_FILE_NAME | FILE_NOTIFY_CHANGE_DIR_NAME | FILE_NOTIFY_CHANGE_LAST_WRITE,
-												&numBytes,// not used
-												&pdi->m_Overlapped,
-												NULL))	//no completion routine!
+						SecureZeroMemory (pdi->m_Buffer, sizeof(pdi->m_Buffer));
+						SecureZeroMemory (&pdi->m_Overlapped, sizeof(OVERLAPPED));
+						bRet = ReadDirectoryChangesW (pdi->m_hDir,
+														pdi->m_Buffer,
+														READ_DIR_CHANGE_BUFFER_SIZE,
+														TRUE,
+														FILE_NOTIFY_CHANGE_FILE_NAME | FILE_NOTIFY_CHANGE_DIR_NAME | FILE_NOTIFY_CHANGE_LAST_WRITE,
+														&numBytes,// not used
+														&pdi->m_Overlapped,
+														NULL);	//no completion routine!
+
+					}
+					// any clean-up to do?
+
+					CleanupWatchInfo();
+
+					if (!bRet)
 					{
 						// Since the call to ReadDirectoryChangesW failed, just
 						// wait a while. We don't want to have this thread
@@ -466,10 +474,6 @@ void CDirectoryWatcher::WorkerThread()
 						// wrong.
 						Sleep(200);
 					}
-
-                    // any clean-up to do?
-
-                    CleanupWatchInfo();
 				}
 			}
 		}// if (watchedPaths.GetCount())
@@ -478,7 +482,7 @@ void CDirectoryWatcher::WorkerThread()
 	}// while (m_bRunning)
 }
 
-// call this before destoying async I/O structures:
+// call this before destroying async I/O structures:
 
 void CDirectoryWatcher::CloseWatchHandles()
 {
