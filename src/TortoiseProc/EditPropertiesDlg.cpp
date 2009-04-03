@@ -305,72 +305,7 @@ void CEditPropertiesDlg::OnLvnItemchangedEditproplist(NMHDR * /*pNMHDR*/, LRESUL
 
 void CEditPropertiesDlg::OnBnClickedRemoveProps()
 {
-	CString sLogMsg;
-	POSITION pos = m_propList.GetFirstSelectedItemPosition();
-	while ( pos )
-	{
-		int selIndex = m_propList.GetNextSelectedItem(pos);
-
-		bool bRecurse = false;
-		CString sName = m_propList.GetItemText(selIndex, 0);
-		if (m_pathlist[0].IsUrl())
-		{
-			CInputLogDlg input(this);
-			input.SetUUID(m_sUUID);
-			input.SetProjectProperties(m_pProjectProperties);
-			CString sHint;
-			sHint.Format(IDS_INPUT_REMOVEPROP, (LPCTSTR)sName, (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
-			input.SetActionText(sHint);
-			if (input.DoModal() != IDOK)
-				return;
-			sLogMsg = input.GetLogMessage();
-		}
-		CString sQuestion;
-		sQuestion.Format(IDS_EDITPROPS_RECURSIVEREMOVEQUESTION, (LPCTSTR)sName);
-		CString sRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVE));
-		CString sNotRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_NOTRECURSIVE));
-		CString sCancel(MAKEINTRESOURCE(IDS_EDITPROPS_CANCEL));
-
-		if ((m_pathlist.GetCount()>1)||((m_pathlist.GetCount()==1)&&(PathIsDirectory(m_pathlist[0].GetWinPath()))))
-		{
-			int ret = CMessageBox::Show(m_hWnd, sQuestion, _T("TortoiseSVN"), MB_DEFBUTTON1, IDI_QUESTION, sRecursive, sNotRecursive, sCancel);
-			if (ret == 1)
-				bRecurse = true;
-			else if (ret == 2)
-				bRecurse = false;
-			else
-				break;
-		}
-
-		CProgressDlg prog;
-		CString sTemp;
-		sTemp.LoadString(IDS_SETPROPTITLE);
-		prog.SetTitle(sTemp);
-		sTemp.LoadString(IDS_PROPWAITCANCEL);
-		prog.SetCancelMsg(sTemp);
-		prog.SetTime(TRUE);
-		prog.SetShowProgressBar(TRUE);
-		prog.ShowModeless(m_hWnd);
-		for (int i=0; i<m_pathlist.GetCount(); ++i)
-		{
-			prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
-			SVNProperties props(m_pathlist[i], m_revision, m_bRevProps);
-			if (!props.Remove(sName, bRecurse ? svn_depth_infinity : svn_depth_empty, (LPCTSTR)sLogMsg))
-			{
-				CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
-			}
-			else
-			{
-				m_bChanged = true;
-				if (m_revision.IsNumber())
-					m_revision = LONG(m_revision)+1;
-			}
-		}
-		prog.Stop();
-	}
-	DialogEnableWindow(IDC_REMOVEPROPS, FALSE);
-	DialogEnableWindow(IDC_SAVEPROP, FALSE);
-	Refresh();
+	RemoveProps();
 }
 
 void CEditPropertiesDlg::OnNMDblclkEditproplist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
@@ -480,6 +415,76 @@ void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 	}
 }
 
+void CEditPropertiesDlg::RemoveProps()
+{
+	CString sLogMsg;
+	POSITION pos = m_propList.GetFirstSelectedItemPosition();
+	while ( pos )
+	{
+		int selIndex = m_propList.GetNextSelectedItem(pos);
+
+		bool bRecurse = false;
+		CString sName = m_propList.GetItemText(selIndex, 0);
+		if (m_pathlist[0].IsUrl())
+		{
+			CInputLogDlg input(this);
+			input.SetUUID(m_sUUID);
+			input.SetProjectProperties(m_pProjectProperties);
+			CString sHint;
+			sHint.Format(IDS_INPUT_REMOVEPROP, (LPCTSTR)sName, (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
+			input.SetActionText(sHint);
+			if (input.DoModal() != IDOK)
+				return;
+			sLogMsg = input.GetLogMessage();
+		}
+		CString sQuestion;
+		sQuestion.Format(IDS_EDITPROPS_RECURSIVEREMOVEQUESTION, (LPCTSTR)sName);
+		CString sRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVE));
+		CString sNotRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_NOTRECURSIVE));
+		CString sCancel(MAKEINTRESOURCE(IDS_EDITPROPS_CANCEL));
+
+		if ((m_pathlist.GetCount()>1)||((m_pathlist.GetCount()==1)&&(PathIsDirectory(m_pathlist[0].GetWinPath()))))
+		{
+			int ret = CMessageBox::Show(m_hWnd, sQuestion, _T("TortoiseSVN"), MB_DEFBUTTON1, IDI_QUESTION, sRecursive, sNotRecursive, sCancel);
+			if (ret == 1)
+				bRecurse = true;
+			else if (ret == 2)
+				bRecurse = false;
+			else
+				break;
+		}
+
+		CProgressDlg prog;
+		CString sTemp;
+		sTemp.LoadString(IDS_SETPROPTITLE);
+		prog.SetTitle(sTemp);
+		sTemp.LoadString(IDS_PROPWAITCANCEL);
+		prog.SetCancelMsg(sTemp);
+		prog.SetTime(TRUE);
+		prog.SetShowProgressBar(TRUE);
+		prog.ShowModeless(m_hWnd);
+		for (int i=0; i<m_pathlist.GetCount(); ++i)
+		{
+			prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
+			SVNProperties props(m_pathlist[i], m_revision, m_bRevProps);
+			if (!props.Remove(sName, bRecurse ? svn_depth_infinity : svn_depth_empty, (LPCTSTR)sLogMsg))
+			{
+				CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+			}
+			else
+			{
+				m_bChanged = true;
+				if (m_revision.IsNumber())
+					m_revision = LONG(m_revision)+1;
+			}
+		}
+		prog.Stop();
+	}
+	DialogEnableWindow(IDC_REMOVEPROPS, FALSE);
+	DialogEnableWindow(IDC_SAVEPROP, FALSE);
+	Refresh();
+}
+
 void CEditPropertiesDlg::OnOK()
 {
 	if (m_bThreadRunning)
@@ -518,6 +523,13 @@ BOOL CEditPropertiesDlg::PreTranslateMessage(MSG* pMsg)
 						PostMessage(WM_COMMAND, IDOK);
 					}
 				}
+			}
+			break;
+		case VK_DELETE:
+			{
+				if (m_bThreadRunning)
+					return __super::PreTranslateMessage(pMsg);
+				PostMessage(WM_COMMAND, MAKEWPARAM(IDC_REMOVEPROPS,BN_CLICKED));
 			}
 			break;
 		default:
