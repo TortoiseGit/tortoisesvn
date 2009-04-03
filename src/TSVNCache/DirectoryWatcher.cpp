@@ -23,7 +23,8 @@
 
 extern HWND hWnd;
 
-CDirectoryWatcher::CDirectoryWatcher(void) : m_hCompPort(NULL)
+CDirectoryWatcher::CDirectoryWatcher(void) 
+    : m_hCompPort(NULL)
 	, m_bRunning(TRUE)
 	, m_FolderCrawler(NULL)
 	, blockTickCount(0)
@@ -66,6 +67,32 @@ CDirectoryWatcher::~CDirectoryWatcher(void)
 	}
 	AutoLocker lock(m_critSec);
 	ClearInfoMap();
+    CleanupWatchInfo();
+}
+
+void CDirectoryWatcher::CloseCompletionPort()
+{
+	if (m_hCompPort != INVALID_HANDLE_VALUE)
+		if (CloseHandle (m_hCompPort) == FALSE)
+            ATLTRACE (_T("Closing completion port failed\n"));
+
+	m_hCompPort = INVALID_HANDLE_VALUE;
+}
+
+void CDirectoryWatcher::ScheduleForDeletion (CDirWatchInfo* info)
+{
+    infoToDelete.push_back (info);
+}
+
+void CDirectoryWatcher::CleanupWatchInfo()
+{
+	AutoLocker lock(m_critSec);
+    while (!infoToDelete.empty())
+    {
+        CDirWatchInfo* info = *infoToDelete.rbegin();
+        infoToDelete.pop_back();
+        delete info;
+    }
 }
 
 void CDirectoryWatcher::Stop()
@@ -74,9 +101,8 @@ void CDirectoryWatcher::Stop()
 	if (m_hThread != INVALID_HANDLE_VALUE)
 		CloseHandle(m_hThread);
 	m_hThread = INVALID_HANDLE_VALUE;
-	if (m_hCompPort != INVALID_HANDLE_VALUE)
-		CloseHandle(m_hCompPort);
-	m_hCompPort = INVALID_HANDLE_VALUE;
+
+    CloseWatchHandles();
 }
 
 void CDirectoryWatcher::SetFolderCrawler(CFolderCrawler * crawler)
@@ -192,13 +218,13 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path)
 		watchedPaths.AddPath(newroot);
 		watchedPaths.RemoveChildren();
 		CloseInfoMap();
-		m_hCompPort = INVALID_HANDLE_VALUE;
+
 		return true;
 	}
 	ATLTRACE(_T("add path to watch %s\n"), path.GetWinPath());
 	watchedPaths.AddPath(path);
 	CloseInfoMap();
-	m_hCompPort = INVALID_HANDLE_VALUE;
+
 	return true;
 }
 
@@ -229,32 +255,32 @@ void CDirectoryWatcher::WorkerThread()
 	{
 		if (watchedPaths.GetCount())
 		{
-			if (!GetQueuedCompletionStatus(m_hCompPort,
-											&numBytes,
-											(PULONG_PTR) &pdi,
-											&lpOverlapped,
-											INFINITE))
+            // Any incomming notifications?
+
+            if (   (m_hCompPort == INVALID_HANDLE_VALUE)
+                || !GetQueuedCompletionStatus(m_hCompPort,
+											  &numBytes,
+											  (PULONG_PTR) &pdi,
+											  &lpOverlapped,
+											  INFINITE))
 			{
-				// Error retrieving changes
-				// Clear the list of watched objects and recreate that list
-				pdi = NULL;
+                // No. Still trying?
+
 				if (!m_bRunning)
 					return;
-				{
-					AutoLocker lock(m_critSec);
-					ClearInfoMap();
-				}
-				DWORD lasterr = GetLastError();
-				if ((m_hCompPort != INVALID_HANDLE_VALUE)&&(lasterr!=ERROR_SUCCESS)&&(lasterr!=ERROR_INVALID_HANDLE))
-				{
-					CloseHandle(m_hCompPort);
-					m_hCompPort = INVALID_HANDLE_VALUE;
-				}
-				// Since we pass m_hCompPort to CreateIoCompletionPort, we
-				// have to set this to NULL to have that API create a new
-				// handle.
-				m_hCompPort = NULL;
-				for (int i=0; i<watchedPaths.GetCount(); ++i)
+
+                // We must sync the whole section because other threads may
+                // receive "AddPath" calls that will delete the completion
+                // port *while* we are adding references to it .
+
+                AutoLocker lock(m_critSec);
+
+				// Clear the list of watched objects and recreate that list.
+                // This will also delete the old completion port
+
+				ClearInfoMap();
+
+                for (int i=0; i<watchedPaths.GetCount(); ++i)
 				{
 					CTSVNPath watchedPath = watchedPaths[i];
 
@@ -270,11 +296,7 @@ void CDirectoryWatcher::WorkerThread()
 					{
 						// this could happen if a watched folder has been removed/renamed
 						ATLTRACE(_T("CDirectoryWatcher: CreateFile failed. Can't watch directory %s\n"), watchedPaths[i].GetWinPath());
-						CloseHandle(m_hCompPort);
-						m_hCompPort = INVALID_HANDLE_VALUE;
-						AutoLocker lock(m_critSec);
 						watchedPaths.RemovePath(watchedPath);
-						i--; if (i<0) i=0;
 						break;
 					}
 					
@@ -287,18 +309,31 @@ void CDirectoryWatcher::WorkerThread()
 
 					CDirWatchInfo * pDirInfo = new CDirWatchInfo(hDir, watchedPath);
 					pDirInfo->m_hDevNotify = NotificationFilter.dbch_hdevnotify;
-					m_hCompPort = CreateIoCompletionPort(hDir, m_hCompPort, (ULONG_PTR)pDirInfo, 0);
-					if (m_hCompPort == NULL)
+
+                    // Since we pass m_hCompPort to CreateIoCompletionPort, we
+				    // have to set this to NULL to have that API create a new
+				    // handle.
+                    if (m_hCompPort == INVALID_HANDLE_VALUE)
+    				    m_hCompPort = NULL;
+
+                    HANDLE port = CreateIoCompletionPort(hDir, m_hCompPort, (ULONG_PTR)pDirInfo, 0);
+					if (port == NULL)
 					{
 						ATLTRACE(_T("CDirectoryWatcher: CreateIoCompletionPort failed. Can't watch directory %s\n"), watchedPath.GetWinPath());
-						AutoLocker lock(m_critSec);
+
+                        // we must close the directory handle to allow ClearInfoMap()
+                        // to close the completion port properly
+                        pDirInfo->CloseDirectoryHandle();
+
 						ClearInfoMap();
 						delete pDirInfo;
 						pDirInfo = NULL;
-						watchedPaths.RemovePath(watchedPath);
-						i--; if (i<0) i=0;
+
+                        watchedPaths.RemovePath(watchedPath);
 						break;
 					}
+                    m_hCompPort = port;
+
 					if (!ReadDirectoryChangesW(pDirInfo->m_hDir,
 												pDirInfo->m_Buffer,
 												READ_DIR_CHANGE_BUFFER_SIZE,
@@ -309,24 +344,27 @@ void CDirectoryWatcher::WorkerThread()
 												NULL))	//no completion routine!
 					{
 						ATLTRACE(_T("CDirectoryWatcher: ReadDirectoryChangesW failed. Can't watch directory %s\n"), watchedPath.GetWinPath());
-						AutoLocker lock(m_critSec);
+
+                        // we must close the directory handle to allow ClearInfoMap()
+                        // to close the completion port properly
+                        pDirInfo->CloseDirectoryHandle();
+
 						ClearInfoMap();
 						delete pDirInfo;
 						pDirInfo = NULL;
 						watchedPaths.RemovePath(watchedPath);
-						i--; if (i<0) i=0;
 						break;
 					}
-					AutoLocker lock(m_critSec);
-					watchInfoMap[pDirInfo->m_hDir] = pDirInfo;
+
 					ATLTRACE(_T("watching path %s\n"), pDirInfo->m_DirName.GetWinPath());
-                        watchInfoMap[pDirInfo->m_hDir] = pDirInfo;
+                    watchInfoMap[pDirInfo->m_hDir] = pDirInfo;
 				}
 			}
 			else
 			{
 				if (!m_bRunning)
 					return;
+
 				// NOTE: the longer this code takes to execute until ReadDirectoryChangesW
 				// is called again, the higher the chance that we miss some
 				// changes in the file system! 
@@ -334,23 +372,24 @@ void CDirectoryWatcher::WorkerThread()
 				{
 					{
 						AutoLocker lock(m_critSec);
-						if (watchInfoMap.find(pdi->m_hDir) == watchInfoMap.end())
+                        if (   (pdi->m_hDir == INVALID_HANDLE_VALUE)
+                            || (watchInfoMap.find(pdi->m_hDir) == watchInfoMap.end()))
+                        {
 							continue;
+                        }
 					}
 
-					if (numBytes == 0)
-					{
-						goto continuewatching;
-					}
 					PFILE_NOTIFY_INFORMATION pnotify = (PFILE_NOTIFY_INFORMATION)pdi->m_Buffer;
-					if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer >= READ_DIR_CHANGE_BUFFER_SIZE)
-						goto continuewatching;
-					DWORD nOffset = pnotify->NextEntryOffset;
-					do 
+                    DWORD nOffset = numBytes == 0 
+                                  ? 0 
+                                  : pnotify->NextEntryOffset;
+
+					while (nOffset > 0)
 					{
 						nOffset = pnotify->NextEntryOffset;
 						if (pnotify->FileNameLength >= (READ_DIR_CHANGE_BUFFER_SIZE*sizeof(TCHAR)))
 							continue;
+
 						SecureZeroMemory(buf, READ_DIR_CHANGE_BUFFER_SIZE*sizeof(TCHAR));
 						_tcsncpy_s(buf, READ_DIR_CHANGE_BUFFER_SIZE, pdi->m_DirPath, READ_DIR_CHANGE_BUFFER_SIZE);
 						errno_t err = _tcsncat_s(buf+pdi->m_DirPath.GetLength(), READ_DIR_CHANGE_BUFFER_SIZE-pdi->m_DirPath.GetLength(), pnotify->FileName, _TRUNCATE);
@@ -406,11 +445,13 @@ void CDirectoryWatcher::WorkerThread()
 						}
 						if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
 							break;
-					} while (nOffset);
-continuewatching:
-					SecureZeroMemory(pdi->m_Buffer, sizeof(pdi->m_Buffer));
-					SecureZeroMemory(&pdi->m_Overlapped, sizeof(OVERLAPPED));
-					if (!ReadDirectoryChangesW(pdi->m_hDir,
+					};
+
+                    // setup next notification cycle
+
+                    SecureZeroMemory (pdi->m_Buffer, sizeof(pdi->m_Buffer));
+					SecureZeroMemory (&pdi->m_Overlapped, sizeof(OVERLAPPED));
+					if (!ReadDirectoryChangesW (pdi->m_hDir,
 												pdi->m_Buffer,
 												READ_DIR_CHANGE_BUFFER_SIZE,
 												TRUE,
@@ -425,6 +466,10 @@ continuewatching:
 						// wrong.
 						Sleep(200);
 					}
+
+                    // any clean-up to do?
+
+                    CleanupWatchInfo();
 				}
 			}
 		}// if (watchedPaths.GetCount())
@@ -433,31 +478,44 @@ continuewatching:
 	}// while (m_bRunning)
 }
 
+// call this before destoying async I/O structures:
+
+void CDirectoryWatcher::CloseWatchHandles()
+{
+    AutoLocker lock(m_critSec);
+
+    for (TInfoMap::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
+        I->second->CloseDirectoryHandle();
+
+    CloseCompletionPort();
+}
+
 void CDirectoryWatcher::ClearInfoMap()
 {
+    CloseWatchHandles();
 	if (watchInfoMap.size() > 0)
 	{
 		AutoLocker lock(m_critSec);
-		for (std::map<HANDLE, CDirWatchInfo *>::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
+		for (TInfoMap::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
 		{
 			CDirectoryWatcher::CDirWatchInfo * info = I->second;
             I->second = NULL;
-			delete info;
+			ScheduleForDeletion (info);
 		}
 		watchInfoMap.clear();
 	}
-	if (m_hCompPort != INVALID_HANDLE_VALUE)
-		CloseHandle(m_hCompPort);
-	m_hCompPort = INVALID_HANDLE_VALUE;
 }
 
 CTSVNPath CDirectoryWatcher::CloseInfoMap(HDEVNOTIFY hdev)
 {
-	CTSVNPath path;
+    CloseWatchHandles();
+
+    CTSVNPath path;
 	if (watchInfoMap.empty())
 		return path;
+
 	AutoLocker lock(m_critSec);
-	for (std::map<HANDLE, CDirWatchInfo *>::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
+	for (TInfoMap::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
 	{
 		CDirectoryWatcher::CDirWatchInfo * info = I->second;
 		I->second = NULL;
@@ -467,23 +525,23 @@ CTSVNPath CDirectoryWatcher::CloseInfoMap(HDEVNOTIFY hdev)
 			RemovePathAndChildren(path);
 			BlockPath(path);
 		}
-		info->CloseDirectoryHandle();
-        delete info;
+
+        ScheduleForDeletion (info);
 	}
 	watchInfoMap.clear();
-	if (m_hCompPort != INVALID_HANDLE_VALUE)
-		CloseHandle(m_hCompPort);
-	m_hCompPort = INVALID_HANDLE_VALUE;
+
 	return path;
 }
 
 bool CDirectoryWatcher::CloseHandlesForPath(const CTSVNPath& path)
 {
+    CloseWatchHandles();
+
 	if (watchInfoMap.empty())
 		return false;
 
-	AutoLocker lock(m_critSec);
-	for (std::map<HANDLE, CDirWatchInfo *>::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
+    AutoLocker lock(m_critSec);
+	for (TInfoMap::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
 	{
 		CDirectoryWatcher::CDirWatchInfo * info = I->second;
         I->second = NULL;
@@ -493,13 +551,9 @@ bool CDirectoryWatcher::CloseHandlesForPath(const CTSVNPath& path)
 			RemovePathAndChildren(p);
 			BlockPath(p);
 		}
-		info->CloseDirectoryHandle();
-		delete info;
+		ScheduleForDeletion (info);
 	}
 	watchInfoMap.clear();
-	if (m_hCompPort != INVALID_HANDLE_VALUE)
-		CloseHandle(m_hCompPort);
-	m_hCompPort = INVALID_HANDLE_VALUE;
 	return true;
 }
 
@@ -535,11 +589,4 @@ bool CDirectoryWatcher::CDirWatchInfo::CloseDirectoryHandle()
 	}
 	return b;
 }
-
-
-
-
-
-
-
 

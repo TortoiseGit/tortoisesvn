@@ -83,9 +83,22 @@ private:
 	static unsigned int __stdcall ThreadEntry(void* pContext);
 	void WorkerThread();
 
+    void CloseWatchHandles();
 	void ClearInfoMap();
 
 	void BlockPath(const CTSVNPath& path);
+
+    // close handle (if open) and
+    // release all async I/O objects
+
+    void CloseCompletionPort();
+
+    // enqueue the info object for deletion as soon as the 
+    // completion port is no longer used
+
+    class CDirWatchInfo;
+    void ScheduleForDeletion (CDirWatchInfo* info);
+    void CleanupWatchInfo();
 
 private:
 	CComAutoCriticalSection	m_critSec;
@@ -126,8 +139,12 @@ private:
 		HDEVNOTIFY	m_hDevNotify;	///< Notification handle
 	};
 
-	std::map<HANDLE, CDirWatchInfo *> watchInfoMap;
+    typedef std::map<HANDLE, CDirWatchInfo *> TInfoMap;
+	TInfoMap watchInfoMap;
 	
 	HDEVNOTIFY		m_hdev;
 
+    // scheduled for deletion upon the next CleanupWatchInfo()
+
+    std::vector<CDirWatchInfo*> infoToDelete;
 };
