@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-28 22:15 +0000\n"
-"PO-Revision-Date: 2009-04-02 23:14+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2009-04-04 13:39+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8304,7 +8304,7 @@ msgstr "Der Revisionsgraph versucht ein klareres Bild des Projektarchivs zu scha
 
 #. (para)
 msgid "Specify the patterns used to recognise these paths in the three boxes provided. The patterns will be matched case-insensitively, but you must specify them in lower case. Wild cards <literal>*</literal> and <literal>?</literal> will work as usual, and you can use <literal>;</literal> to separate multiple patterns. Do not include any extra white space as it will be included in the matching specification."
-msgstr "Geben Sie die Muster zur Erkennung der Pfade in den drei Eingabefeldern an. Die Muster werden ohne Berücksichtigung der Groß-/Kleinschreibung verglichen, sie müssen jedoch in Kleinbuchstaben angegeben werden. Die Platzhalter  <literal>*</literal> und <literal>?</literal> funktionieren wie gewohnt und Sie können  zusätzlich <literal>;</literal> zum Trennen mehrerer Muster angeben. Verwenden Sie keine Leerzeichen, da diese Bestandteil des Mustervergleichs werden."
+msgstr "Geben Sie die Muster zur Klassifizierung der Pfade in den drei Eingabefeldern an. Die Muster werden ohne Berücksichtigung der Groß-/Kleinschreibung verglichen, sie müssen jedoch in Kleinbuchstaben angegeben werden. Die Platzhalter  <literal>*</literal> und <literal>?</literal> funktionieren wie gewohnt und Sie können  zusätzlich <literal>;</literal> zum Trennen mehrerer Muster angeben. Verwenden Sie keine Leerzeichen, da diese Bestandteil des Mustervergleichs werden."
 
 #. (term)
 msgid "Modify Colors"
@@ -8312,11 +8312,11 @@ msgstr "Farben ändern"
 
 #. (para)
 msgid "Colors are used in the revision graph to indicate the node type, i.e. whether a node is added, deleted, renamed. In order to help pick out node classifications, you can allow the revision graph to blend colors to give an indication of both node type and classification. If the box is checked, blending is used. If the box is unchecked, color is used to indicate node type only. Use the color selection dialog to allocate the specific colors used."
-msgstr ""
+msgstr "Farben werden im Revisionsgraphen verwendet, um den Knotentypen (hinzugefügt, gelöscht, umbenannt) zu kennzeichnen. Damit Sie gleichzeitg Klassifizierungen und Knotentypen erkennen können, kann der Revisionsgraph die beiden Farben überlagern. Wenn Sie diese Optionen aktivieren, wird die Überlagerung der Farben verwendet. Wenn die Option nicht aktiv ist, wird nur die Farbe für den Knotentypen verwendet. Im Farbeinstellungsdialog können Sie die gewünschten Farben festlegen."
 
 #. (title)
 msgid "Revision Graph Colors"
-msgstr "Farben des Revisionsgraph"
+msgstr "Farben des Revisionsgraphen"
 
 #. (title)
 msgid "The Settings Dialog, Revision Graph Colors Page"
@@ -8324,7 +8324,7 @@ msgstr "Der Einstellungsdialog, Farben des Revisionsgraphen"
 
 #. (para)
 msgid "<placeholder-1/> This page allows you to configure the colors used. Note that the color specified here is the solid color. Most nodes are colored using a blend of the node type color, the background color and optionally the classification color."
-msgstr ""
+msgstr "<placeholder-1/> Auf dieser Seite legen sie die zu verwendenden Farben fest. Beachten Sie bitte das es sich hierbei um die Grundfarben handelt. Die meisten Knoten werden durch eine Überblendung der Farben für Knotentyp, Hintergrund und optional der Farbe für die Klassifizierung gekennzeichnet."
 
 #. (term)
 msgid "Deleted Node"
@@ -8332,7 +8332,7 @@ msgstr "Gelöschter Knoten"
 
 #. (para)
 msgid "Items which have been deleted and not copied anywhere else in the same revision."
-msgstr ""
+msgstr "Objekte, die in dieser Revision gelöscht und an keine andere Stelle verschoben wurden."
 
 #. (term)
 msgid "Added Node"
@@ -8340,7 +8340,7 @@ msgstr "Hinzugefügter Knoten"
 
 #. (para)
 msgid "Items newly added, or copied (add with history)."
-msgstr ""
+msgstr "Neu hinzugefügte oder kopierte (mit Historie hinzugefügte) Objekte."
 
 #. (term)
 msgid "Renamed Node"
@@ -8348,7 +8348,7 @@ msgstr "Umbenannter Knoten"
 
 #. (para)
 msgid "Items deleted from one location and added in another in the same revision."
-msgstr ""
+msgstr "Objekte, die in dieser Revision an einer Stelle gelöscht und an einer anderen Stelle hinzugefügt wurden."
 
 #. (term)
 msgid "Modified Node"
@@ -8356,7 +8356,7 @@ msgstr "Veränderter Knoten"
 
 #. (para)
 msgid "Simple modifications without any add or delete."
-msgstr ""
+msgstr "Einfache Veränderung in der nichts hinzugefügz oder geöscht wurde."
 
 #. (term)
 msgid "Unchanged Node"
@@ -8364,7 +8364,7 @@ msgstr "Unveränderter Knoten"
 
 #. (para)
 msgid "May be used to show the revision used as the source of a copy, even when no change (to the item being graphed) took place in that revision."
-msgstr ""
+msgstr "Kann verwendet werden, um die Revision, die als Quelle einer Kopie diente hervorzuheben, selbst wenn sich an dem Objekt für das der Revisionsgraph gestartet wurde, in dieser Revision nichts geändert hat."
 
 #. (term)
 msgid "HEAD node"
@@ -8376,19 +8376,19 @@ msgstr "Aktuelle HEAD Revision im Projektarchiv."
 
 #. (term)
 msgid "WC Node"
-msgstr "Arbeitskopie-Knoten"
+msgstr "Arbeitskopie"
 
 #. (para)
 msgid "If you opt to show an extra node for your modified working copy, attached to its last-commit revision on the graph, use this color."
-msgstr ""
+msgstr "Falls Sie einen Extraknoten für Ihre geänderte Arbeitskopie anzeigen lassen, wird diese Farbe für die Fläche des Knotens verwendet."
 
 #. (term)
 msgid "WC Node Border"
-msgstr "Arbeitskopie-Knoten Rand"
+msgstr "Randfarbe für AK"
 
 #. (para)
 msgid "If you opt to show whether the working copy is modified, use this color border on the WC node when modifications are found."
-msgstr ""
+msgstr "Wenn Sie sich anzeigen lassen, ob Ihre Arbeitskope verändert ist, wird diese Farbe für den Rand des Knotens verwendet, falls die Arbeitskopie verändert wurde."
 
 #. (term)
 msgid "Tag Nodes"
