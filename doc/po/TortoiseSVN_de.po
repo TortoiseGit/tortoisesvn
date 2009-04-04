@@ -15,9 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-28 22:15 +0000\n"
-"PO-Revision-Date: 2009-04-04 14:09+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"POT-Creation-Date: 2009-04-04 14:46 +0000\n"
+"PO-Revision-Date: 2009-04-04 21:27+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8395,7 +8395,7 @@ msgid "Tag Nodes"
 msgstr "Marken"
 
 #. (para)
-msgid "Nodes classified as tags may be blended with this color. If you use tag folding to save space, tags are marked on the copy source using a block in this color."
+msgid "Nodes classified as tags may be blended with this color."
 msgstr "Knoten, die als Marken klassifiziert wurden, können mit dieser Farbe überlagert werden."
 
 #. (term)
@@ -11030,9 +11030,45 @@ msgstr "/endrev:xxx"
 msgid "/strict"
 msgstr "/strict"
 
+#. (option)
+msgid "/findstring:\"filterstring\""
+msgstr "/findstring:\"Filter String\""
+
+#. (option)
+msgid "/findtext"
+msgstr "/findtext"
+
+#. (option)
+msgid "/findtype:X"
+msgstr "/findtype:X"
+
+#. (para)
+msgid "<option>/findtype:1</option> filter by everything"
+msgstr "<option>/findtype:1</option> Filtere nach allem"
+
+#. (para)
+msgid "<option>/findtype:2</option> filter by messages"
+msgstr "<option>/findtype:2</option> Filter nach Nachrichten"
+
+#. (para)
+msgid "<option>/findtype:3</option> filter by path"
+msgstr "<option>/findtype:3</option> Filtere nach Pfaden"
+
+#. (para)
+msgid "<option>/findtype:4</option> filter by authors"
+msgstr "<option>/findtype:4</option> Filter nach Autoren"
+
+#. (para)
+msgid "<option>/findtype:5</option> filter by revisions"
+msgstr "<option>/findtype:5</option> Filter nach Revisionen"
+
+#. (para)
+msgid "<option>/findtype:7</option> filter by bug ID"
+msgstr "<option>/findtype:7</option> Filter nach Fehler ID"
+
 #. (entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Three additional options can be set: <placeholder-2/>, <placeholder-3/> and <placeholder-4/>"
-msgstr "Öffnet den Log-Dialog. Der <placeholder-1/> definiert die Datei oder den Ordner, für den das Log angezeigt werden soll. Drei weitere Optionen können angegeben werden: <placeholder-2/>, <placeholder-3/> und <placeholder-4/>"
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (enables the 'stop-on-copy' checkbox), <placeholder-5/> fills in the filter text, <placeholder-6/> (forces the filter to use text, not regex) and <placeholder-7/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-8/>"
+msgstr "Öffnet den Log-Dialog. Der <placeholder-1/> definiert die Datei oder den Ordner, für den das Log angezeigt werden soll. Sechs weitere Optionen können angegeben werden: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (aktiviert die 'Bei Kopien anhalten' Option), <placeholder-5/> enthält den Filtertext, <placeholder-6/> (erzwingt Filterung nach Text anstatt RegEx) und <placeholder-7/> mit X als Zahl von 1 bis 7 Die Zahlen entsprechen <placeholder-8/>"
 
 #. (option)
 #. (option)
@@ -12866,6 +12902,14 @@ msgstr ""
 #. (None)
 msgid "translator-translation"
 msgstr "Übersetzung"
+
+#~ msgid ""
+#~ "Nodes classified as tags may be blended with this color. If you use tag "
+#~ "folding to save space, tags are marked on the copy source using a block "
+#~ "in this color."
+#~ msgstr ""
+#~ "Knoten, die als Marken klassifiziert wurden, können mit dieser Farbe "
+#~ "überlagert werden."
 
 #, fuzzy
 #~ msgid "Owner-Drawn Menus"
