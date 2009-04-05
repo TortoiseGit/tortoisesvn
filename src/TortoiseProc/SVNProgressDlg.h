@@ -105,6 +105,7 @@ public:
 
 	void SetCommand(Command cmd) {m_Command = cmd;}
 	void SetAutoClose(DWORD ac) {m_dwCloseOnEnd = ac;}
+	void SetAutoCloseLocal(BOOL bCloseLocal) {m_bCloseLocalOnEnd = bCloseLocal;}
 	void SetOptions(DWORD opts) {m_options = opts;}
 	void SetPathList(const CTSVNPathList& pathList) {m_targetPathList = pathList;}
 	void SetUrl(const CString& url) {m_url.SetFromUnknown(url);}
@@ -293,6 +294,7 @@ private:
 	RevPropHash				m_revProps;
 
 	DWORD					m_dwCloseOnEnd;
+	DWORD					m_bCloseLocalOnEnd;
 
 	CTSVNPath				m_basePath;
 	StringRevMap			m_UpdateStartRevMap;

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -41,8 +41,10 @@ CSetDialogs::CSetDialogs()
 	, m_bDiffByDoubleClick(FALSE)
 	, m_bUseSystemLocaleForDates(FALSE)
 	, m_bUseRecycleBin(TRUE)
+	, m_bAutoCloseLocal(FALSE)
 {
 	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
+	m_regAutoCloseLocal = CRegDWORD(_T("Software\\TortoiseSVN\\AutoCloseLocal"));
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 	m_regShortDateFormat = CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat"), FALSE);
 	m_regUseSystemLocaleForDates = CRegDWORD(_T("Software\\TortoiseSVN\\UseSystemLocaleForDates"), TRUE);
@@ -74,6 +76,7 @@ void CSetDialogs::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_DEFAULTLOG, m_sDefaultLogs);
 	DDX_Check(pDX, IDC_SHORTDATEFORMAT, m_bShortDateFormat);
 	DDX_Control(pDX, IDC_AUTOCLOSECOMBO, m_cAutoClose);
+	DDX_Check(pDX, IDC_AUTOCLOSELOCAL, m_bAutoCloseLocal);
 	DDX_Check(pDX, IDC_WCURLFROM, m_bUseWCURL);
 	DDX_Text(pDX, IDC_CHECKOUTPATH, m_sDefaultCheckoutPath);
 	DDX_Text(pDX, IDC_CHECKOUTURL, m_sDefaultCheckoutUrl);
@@ -90,6 +93,7 @@ BEGIN_MESSAGE_MAP(CSetDialogs, ISettingsPropPage)
 	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnChange)
 	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnChange)
 	ON_CBN_SELCHANGE(IDC_AUTOCLOSECOMBO, OnCbnSelchangeAutoclosecombo)
+	ON_BN_CLICKED(IDC_AUTOCLOSELOCAL, OnChange)
 	ON_BN_CLICKED(IDC_WCURLFROM, OnChange)
 	ON_BN_CLICKED(IDC_BROWSECHECKOUTPATH, &CSetDialogs::OnBnClickedBrowsecheckoutpath)
 	ON_EN_CHANGE(IDC_CHECKOUTPATH, OnChange)
@@ -116,10 +120,9 @@ BOOL CSetDialogs::OnInitDialog()
 	m_cAutoClose.SetItemData(ind, CLOSE_NOCONFLICTS);
 	ind = m_cAutoClose.AddString(CString(MAKEINTRESOURCE(IDS_PROGRS_CLOSE_NOERROR)));
 	m_cAutoClose.SetItemData(ind, CLOSE_NOERRORS);
-	ind = m_cAutoClose.AddString(CString(MAKEINTRESOURCE(IDS_PROGRS_CLOSE_LOCAL)));
-	m_cAutoClose.SetItemData(ind, CLOSE_LOCAL);
 
 	m_dwAutoClose = m_regAutoClose;
+	m_bAutoCloseLocal = m_regAutoCloseLocal;
 	m_bShortDateFormat = m_regShortDateFormat;
 	m_bUseSystemLocaleForDates = m_regUseSystemLocaleForDates;
 	m_sFontName = m_regFontName;
@@ -213,6 +216,7 @@ BOOL CSetDialogs::OnApply()
 	Store (m_sDefaultCheckoutUrl, m_regDefaultCheckoutUrl);
 	Store (m_bDiffByDoubleClick, m_regDiffByDoubleClick);
 	Store (m_bUseRecycleBin, m_regUseRecycleBin);
+	Store (m_bAutoCloseLocal, m_regAutoCloseLocal);
 
     SetModified(FALSE);
 	return ISettingsPropPage::OnApply();

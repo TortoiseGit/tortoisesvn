@@ -96,6 +96,8 @@ bool CommitCommand::Execute()
 			progDlg.SetChangeList(dlg.m_sChangeList, !!dlg.m_bKeepChangeList);
 			if (parser.HasVal(_T("closeonend")))
 				progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+			if (parser.HasKey(_T("closeforlocal")))
+				progDlg.SetAutoCloseLocal(TRUE);
 			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Commit);
 			progDlg.SetOptions(dlg.m_bKeepLocks ? ProgOptKeeplocks : ProgOptNone);
 			progDlg.SetPathList(dlg.m_pathList);

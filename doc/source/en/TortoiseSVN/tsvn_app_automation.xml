@@ -86,13 +86,9 @@
 						<option>/closeonend:3</option> auto close if no errors, conflicts and merges
 					</para>
 				</listitem>
-				<listitem>
-					<para>
-						<option>/closeonend:4</option> auto close if no errors, conflicts and merges
-						for local operations
-					</para>
-				</listitem>
 			</itemizedlist>
+			To close the progress dialog for local operations if there were no
+			errors or conflicts, pass the <option>/closeforlocal</option> parameter.
 		</para>
 		<para>
 			The table below lists all the commands which can be accessed

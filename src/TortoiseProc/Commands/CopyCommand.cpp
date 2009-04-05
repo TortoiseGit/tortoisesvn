@@ -61,6 +61,8 @@ bool CopyCommand::Execute()
 			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Copy);
 			if (parser.HasVal(_T("closeonend")))
 				progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+			if (parser.HasKey(_T("closeforlocal")))
+				progDlg.SetAutoCloseLocal(TRUE);
 			DWORD options = dlg.m_bDoSwitch ? ProgOptSwitchAfterCopy : ProgOptNone;
 			progDlg.SetOptions(options);
 			progDlg.SetPathList(pathList);
