@@ -976,7 +976,7 @@ bool CSVNStatusListCtrl::CSorter::operator()
 		{
 			if (result == 0)
 			{
-				result = entry1->lock_date - entry2->lock_date;
+				result = (int)(entry1->lock_date - entry2->lock_date);
 			}
 		}
 	case 12:
