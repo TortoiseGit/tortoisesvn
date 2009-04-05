@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-28 22:15 +0000\n"
-"PO-Revision-Date: 2009-03-29 22:48+0100\n"
+"POT-Creation-Date: 2009-04-04 14:46 +0000\n"
+"PO-Revision-Date: 2009-04-05 20:11+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8358,8 +8358,8 @@ msgid "Tag Nodes"
 msgstr "Знак Чворови"
 
 #. (para)
-msgid "Nodes classified as tags may be blended with this color. If you use tag folding to save space, tags are marked on the copy source using a block in this color."
-msgstr "Чворови означени као ознаке могу бити мешани са овим бојама. Ако користите знак именовање да чувате простор, знаци су означени у извору копије коришћењем блока у овој боји."
+msgid "Nodes classified as tags may be blended with this color."
+msgstr "Чворови класификовани као знак могу се мешати овом бојом."
 
 #. (term)
 msgid "Trunk Nodes"
@@ -10994,9 +10994,45 @@ msgstr "/ендрев:xxx"
 msgid "/strict"
 msgstr "/стрицт"
 
+#. (option)
+msgid "/findstring:\"filterstring\""
+msgstr "/findstring:\"filterstring\""
+
+#. (option)
+msgid "/findtext"
+msgstr "/findtext"
+
+#. (option)
+msgid "/findtype:X"
+msgstr "/findtype:X"
+
+#. (para)
+msgid "<option>/findtype:1</option> filter by everything"
+msgstr "<option>/findtype:1</option> филтрирање помоћу свега"
+
+#. (para)
+msgid "<option>/findtype:2</option> filter by messages"
+msgstr "<option>/findtype:2</option> филтрирање помоћу поруке"
+
+#. (para)
+msgid "<option>/findtype:3</option> filter by path"
+msgstr "<option>/findtype:3</option> филтрирање помоћу путање"
+
+#. (para)
+msgid "<option>/findtype:4</option> filter by authors"
+msgstr "<option>/findtype:4</option> филтрирање помоћу атора"
+
+#. (para)
+msgid "<option>/findtype:5</option> filter by revisions"
+msgstr "<option>/findtype:5</option> филтрирање помоћу ревизије"
+
+#. (para)
+msgid "<option>/findtype:7</option> filter by bug ID"
+msgstr "<option>/findtype:7</option> филтрирање помоћу баг ИД"
+
 #. (entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Three additional options can be set: <placeholder-2/>, <placeholder-3/> and <placeholder-4/>"
-msgstr "Отвара дневник дијалог. <placeholder-1/> специфицира фајл или именик за који дневник треба да буде приказан. Три додатне опције треба да буду подеене: <placeholder-2/>, <placeholder-3/> и <placeholder-4/>"
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (enables the 'stop-on-copy' checkbox), <placeholder-5/> fills in the filter text, <placeholder-6/> (forces the filter to use text, not regex) and <placeholder-7/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-8/>"
+msgstr "Отвара дневник дијалог. <placeholder-1/> специфицира фајл или именик за који дневник треба да буде приказан. Шест додатних опција треба да буду подешене: <placeholder-2/>, <placeholder-3/> и <placeholder-4/> (омогућава 'стани-на-копију' чекбокс), <placeholder-5/> попуњава филтер текст, <placeholder-6/> (форсира филтер да користе текст, не регекс) и <placeholder-7/> са X које је број између 1 и 7. Бројеви одговарају: <placeholder-8/>"
 
 #. (option)
 #. (option)
@@ -12816,4 +12852,13 @@ msgstr "Милорад Поповић <MiloradSPopovic@gmail.com>"
 #. (None)
 msgid "translator-translation"
 msgstr "Превод"
+
+#~ msgid ""
+#~ "Nodes classified as tags may be blended with this color. If you use tag "
+#~ "folding to save space, tags are marked on the copy source using a block "
+#~ "in this color."
+#~ msgstr ""
+#~ "Чворови означени као ознаке могу бити мешани са овим бојама. Ако "
+#~ "користите знак именовање да чувате простор, знаци су означени у извору "
+#~ "копије коришћењем блока у овој боји."
 
