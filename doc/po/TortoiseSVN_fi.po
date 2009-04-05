@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-20 16:18 +0000\n"
-"PO-Revision-Date: 2009-03-24 19:13+0200\n"
+"POT-Creation-Date: 2009-04-04 14:46 +0000\n"
+"PO-Revision-Date: 2009-04-05 22:48+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5965,17 +5965,25 @@ msgstr "Ulkoiset kansiot"
 
 #. (para)
 msgid ""
-"Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Click <guibutton>Add...</guibutton>. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository URL in the format <literal>url folder</literal> or if you want to specify a particular revision, <literal>-rREV url folder</literal> You can add multiple external projects, 1 per line. Note that URLs must be properly escaped or they will not work. For example you must replace each space with <literal>%20</literal>. Note that it is not possible to use folder names with spaces in them. Suppose that you have set these properties on <filename>D:\\dev\\project1</filename>: <screen>\n"
+"Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Click <guibutton>Add...</guibutton>. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository URL in the format <literal>url folder</literal> or if you want to specify a particular revision, <literal>-rREV url folder</literal> You can add multiple external projects, 1 per line. Suppose that you have set these properties on <filename>D:\\dev\\project1</filename>: <screen>\n"
 "http://sounds.red-bean.com/repos  sounds\n"
-"http://graphics.red-bean.com/repos/fast%20graphics  quick_graphs\n"
+"http://graphics.red-bean.com/repos/fast%20graphics  \"quick graphs\"\n"
 "-r21 http://svn.red-bean.com/repos/skin-maker  skins/toolkit\n"
 "</screen> Now click <guibutton>Set</guibutton> and commit your changes. When you (or any other user) update your working copy, Subversion will create a sub-folder <filename>D:\\dev\\project1\\sounds</filename> and checkout the sounds project, another sub-folder <filename>D:\\dev\\project1\\quick_graphs</filename> containing the graphics project, and finally a nested sub-folder <filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 of the skin-maker project."
 msgstr ""
-"Oletetaan, että haet työkopion projektista <filename>/project1</filename> kansioon <filename>D:\\dev\\project1</filename>. Valitse kansio <filename>D:\\dev\\project1</filename>, <action>napsauta hiiren oikeaa näppäintä</action> ja valitse <menuchoice><guimenu>Windows-valikko</guimenu><guimenuitem>Ominaisuudet</guimenuitem></menuchoice> kontekstivalikosta. Ominaisuusikkuna aukeaa. Siirry sitten Subversion-välilehdelle,  jossa voit muuttaa ominaisuuksia. Napsauta <guibutton>Lisää...</guibutton>, valitse ominaisuus <literal>svn:externals</literal> pudotusvalikosta ja kirjoita syötekenttään arkiston paikannin muodossa <literal>paikannin kansio</literal>, tai jos haluat määritellä tietyn version, <literal>-rREV paikannin kansio</literal>.  Voit lisätä useita ulkoisia projekteja, jokainen omalle rivilleen. Huomaa, että paikantimien on oltava täsmälleen oikein toimiakseen - välilyöntien on esimerkiksi oltava muodossa <literal>%20</literal>. Huomaa myös, ettei ole mahdollista käyttää kansionimiä, joissa on välilyöntejä. Oletetaan, että olet asettanut seuraavat ominaisuudet kansiolle <filename>D:\\dev\\project1</filename>: <screen>\n"
+"Oletetaan, että haet työkopion projektista <filename>/project1</filename> kansioon <filename>D:\\dev\\project1</filename>. Valitse kansio <filename>D:\\dev\\project1</filename>, <action>napsauta hiiren oikeaa näppäintä</action> ja valitse <menuchoice><guimenu>Windows-valikko</guimenu><guimenuitem>Ominaisuudet</guimenuitem></menuchoice> kontekstivalikosta. Ominaisuusikkuna aukeaa. Siirry sitten Subversion-välilehdelle,  jossa voit muuttaa ominaisuuksia. Napsauta <guibutton>Lisää...</guibutton>, valitse ominaisuus <literal>svn:externals</literal> pudotusvalikosta ja kirjoita syötekenttään arkiston paikannin muodossa <literal>paikannin kansio</literal>, tai jos haluat määritellä tietyn version, <literal>-rREV paikannin kansio</literal>.  Voit lisätä useita ulkoisia projekteja, jokainen omalle rivilleen. Oletetaan, että olet asettanut seuraavat ominaisuudet kansiolle <filename>D:\\dev\\project1</filename>: <screen>\n"
 "http://sounds.red-bean.com/repos sounds\n"
-"http://graphics.red-bean.com/repos/fast%20graphics quick_graphs\n"
+"http://graphics.red-bean.com/repos/fast%20graphics \"quick graphs\"\n"
 "-r21 http://svn.red-bean.com/repos/skin-maker skins/toolkit\n"
-"</screen> Napsauta nyt <guibutton>Aseta</guibutton> -painiketta ja toimita muutokset arkistoon. Kun seuraavan kerran päivität työkopiosi, Subversion luo alikansion <filename>D:\\dev\\project1\\sounds</filename> ja hakee sinne sounds-projektin, toisen alikansion <filename>D:\\dev\\project1\\quick graphs</filename> joka sisältää graphics-projektin ja lopuksi upotetun alikansion <filename>D:\\dev\\project1\\skins\\toolkit</filename>, joka sisältää skin-maker -projektin version 21."
+"</screen> Napsauta nyt <guibutton>Aseta</guibutton> -painiketta ja toimita muutokset arkistoon. Kun seuraavan kerran päivität työkopiosi, Subversion luo alikansion <filename>D:\\dev\\project1\\sounds</filename> ja hakee sinne sounds-projektin, toisen alikansion <filename>D:\\dev\\project1\\quick graphs</filename> joka sisältää fast graphics-projektin ja lopuksi upotetun alikansion <filename>D:\\dev\\project1\\skins\\toolkit</filename>, joka sisältää skin-maker -projektin version 21."
+
+#. (para)
+msgid "URLs must be properly escaped or they will not work, e.g. you must replace each space with <literal>%20</literal> as shown in the second example above."
+msgstr "Paikantimien erikoismerkit on määriteltävä oikein, jotta ne toimisivat. Esimerkiksi välilyönti on korvattava lausekkeella <literal>%20</literal> kuten toisessa esimerkissä yllä on kuvattu."
+
+#. (para)
+msgid "If you want the local path to include spaces or other special characters, you can enclose it in double quotes, or you can use the <literal>\\</literal> (backslash) character as a Unix shell style escape character preceding any special character. Of course this also means that you must use <literal>/</literal> (forward slash) as a path delimiter. Note that this behaviour is new in Subversion 1.6 and will not work with older clients."
+msgstr "Jos haluat sisällyttää paikalliseen polkuun välilyöntejä tai muita erikoismerkkejä, voit joko ympäröidä sen lainausmerkein tai käyttää kenoviivamerkkiä <literal>\\</literal> erikoismerkkien edellä. Jälkimmäinen tarkoittaa tietysti myös sitä, että polkuerottimena on käytettävä jakoviivamerkkiä <literal>/</literal>. Huomaa, että tämä toiminnallisuus on käytössä versiosta 1.6 alkaen."
 
 #. (title)
 msgid "Use explicit revision numbers"
@@ -6102,8 +6110,8 @@ msgid "As of Subversion 1.6 you can add single file externals to your working co
 msgstr "Versiosta 1.6 alkaen voit lisätä ulkoisia viittauksia yksittäisiin tiedostoihin työkopiossasi samaan tapaan kuin ulkoisten kansioiden yhteydessä. Tähän liittyy kuitenkin muutamia rajoituksia."
 
 #. (para)
-msgid "The path to the file external must be in a working copy that is already checked out. While directory externals can place the external directory at any depth and it will create any intermediate directories, file externals must be placed into a working copy that is already checked out."
-msgstr "Ulkoisen tiedoston polun on oltava olemassa työkopiossa. Vertaa tätä ulkoisten hakemistojen käsittelyyn: ne voivat sijoittaa kohteensa halutulle syvyydelle ja puuttuvat välihakemistot luodaan automaattisesti. Ulkoiselle tiedostolle tämä ei ole sallittua."
+msgid "The path to the file external must place the file in an existing versioned folder. In general it makes most sense to place the file directly in the folder that has <literal>svn:externals</literal> set, but it can be in a versioned sub-folder if necessary. By contrast, directory externals will automatically create any intermediate unversioned folders as required."
+msgstr "Ulkoisen tiedostoviitteen polun täytyy sijoittaa tiedosto olemassa olevaan versioituun hakemistoon. Useimmissa tapauksissa on järkevintä sijoittaa tiedosto suoraan kansioon, jolla on <literal>svn:externals</literal>-ominaisuus, mutta sijaintipaikka voi tarvittaessa olla versioitu alihakemisto. Ulkoisilla hakemistoviitteillä on tässä se ero, että mahdollisesti tarvittavat versioimattomat välihakemistot luodaan tarvittaessa automaattisesti."
 
 #. (para)
 msgid "The URL for a file external must be in the same repository as the URL that the file external will be inserted into; inter-repository file externals are not supported."
@@ -8348,8 +8356,8 @@ msgid "Tag Nodes"
 msgstr "Merkintäsolmut"
 
 #. (para)
-msgid "Nodes classified as tags may be blended with this color. If you use tag folding to save space, tags are marked on the copy source using a block in this color."
-msgstr "Merkintöihin kuuluvat solmut korostetaan tällä värillä. Jos näytät merkinnät lähtösolmussa tilan säästämiseksi, ne näytetään kopiolähteessä tämän värisellä lohkolla."
+msgid "Nodes classified as tags may be blended with this color."
+msgstr "Merkityiksi versioiksi luokitellut solmut korostetaan tällä värillä."
 
 #. (term)
 msgid "Trunk Nodes"
@@ -10983,9 +10991,45 @@ msgstr "/endrev:xxx"
 msgid "/strict"
 msgstr "/strict"
 
+#. (option)
+msgid "/findstring:\"filterstring\""
+msgstr "/findstring:\"suodatusmerkkijono\""
+
+#. (option)
+msgid "/findtext"
+msgstr "/findtext"
+
+#. (option)
+msgid "/findtype:X"
+msgstr "/findtype:X"
+
+#. (para)
+msgid "<option>/findtype:1</option> filter by everything"
+msgstr "<option>/findtype:1</option> suodata kaikesta"
+
+#. (para)
+msgid "<option>/findtype:2</option> filter by messages"
+msgstr "<option>/findtype:2</option> suodata viesteistä"
+
+#. (para)
+msgid "<option>/findtype:3</option> filter by path"
+msgstr "<option>/findtype:3</option> suodata poluista"
+
+#. (para)
+msgid "<option>/findtype:4</option> filter by authors"
+msgstr "<option>/findtype:4</option> suodata tekijöistä"
+
+#. (para)
+msgid "<option>/findtype:5</option> filter by revisions"
+msgstr "<option>/findtype:5</option> suodata versioista"
+
+#. (para)
+msgid "<option>/findtype:7</option> filter by bug ID"
+msgstr "<option>/findtype:7</option> suodata vikatunnuksista"
+
 #. (entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Three additional options can be set: <placeholder-2/>, <placeholder-3/> and <placeholder-4/>"
-msgstr "Avaa loki-ikkunan. Valitsin <placeholder-1/> määrittää tiedoston tai kansion, jolle loki näytetään. Lisäksi voidaan antaa kolme lisävalitsinta: <placeholder-2/>, <placeholder-3/> ja <placeholder-4/>"
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (enables the 'stop-on-copy' checkbox), <placeholder-5/> fills in the filter text, <placeholder-6/> (forces the filter to use text, not regex) and <placeholder-7/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-8/>"
+msgstr "Avaa loki-ikkunan. Valitsin <placeholder-1/> määrittää tiedoston tai kansion, jolle loki näytetään. Lisäksi voidaan antaa kuusi eri lisävalitsinta: <placeholder-2/>, <placeholder-3/> ja <placeholder-4/> (pysäytä kopiointiin-valinta), <placeholder-5/> asettaa suodatustekstin, <placeholder-6/> (suodata teksti, ei säännöllistä lauseketta -valinta) ja <placeholder-7/> missä X on luku väliltä 1-7. Numeroiden merkitys on seuraava: <placeholder-8/>"
 
 #. (option)
 #. (option)
@@ -12793,6 +12837,24 @@ msgstr "Kari Granö <kari.grano@gmail.com>"
 msgid "translator-translation"
 msgstr "Käännös"
 
+#~ msgid ""
+#~ "The path to the file external must be in a working copy that is already "
+#~ "checked out. While directory externals can place the external directory "
+#~ "at any depth and it will create any intermediate directories, file "
+#~ "externals must be placed into a working copy that is already checked out."
+#~ msgstr ""
+#~ "Ulkoisen tiedoston polun on oltava olemassa työkopiossa. Vertaa tätä "
+#~ "ulkoisten hakemistojen käsittelyyn: ne voivat sijoittaa kohteensa "
+#~ "halutulle syvyydelle ja puuttuvat välihakemistot luodaan automaattisesti. "
+#~ "Ulkoiselle tiedostolle tämä ei ole sallittua."
+#~ msgid ""
+#~ "Nodes classified as tags may be blended with this color. If you use tag "
+#~ "folding to save space, tags are marked on the copy source using a block "
+#~ "in this color."
+#~ msgstr ""
+#~ "Merkintöihin kuuluvat solmut korostetaan tällä värillä. Jos näytät "
+#~ "merkinnät lähtösolmussa tilan säästämiseksi, ne näytetään kopiolähteessä "
+#~ "tämän värisellä lohkolla."
 #~ msgid "Owner-Drawn Menus"
 #~ msgstr "Owner-Drawn -valikot"
 #~ msgid ""
