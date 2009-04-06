@@ -1,49 +1,84 @@
-# List of Languages for Make_Check and Make_Install
-# columns are separated by semicolons AND Tab characters
-# Don't convert Tabs to Spaces or you'll break the scripts!
-# The separators '; and Tab' must NOT be part of a value, even if quoted!
-# Please make sure that this file is NOT saved with UTF-8 Byte Order Marks
 #
-# 1 = ISO Country code
-# 2 = Four digit country code
-# 3 = ##Obsolete## Help file in Language exists (1=Yes, 0=Use English Help).
-# 4 = UI Language for installer
-# 5 = Language string for web page (english)
-# 6 = Language string for installer
+# Copyright (C) 2004-2009 the TortoiseSVN team
+# This file is distributed under the same license as TortoiseSVN
 #
-#bs_BA;	5146;	0;	English;	Bosnia/Herzegovina;	Bosnia/Herzegovina
-bg;	1026;	0;	Bulgarian;	Bulgarian;		Bulgarian
-ca_ES;	1027;	0;	Catalan;	Catalan;		Catalan
-zh_CN;	2052;	1;	English;	Chinese, simplified;	Chinese, simplified
-zh_TW;	1028;	0;	TradChinese;	Chinese, traditional;	Chinese, traditional
-hr;	1050;	1;	Croatian;	Croatian;		Croatian
-cs;	1029;	0;	Czech;		Czech;			Czech
-da;	1030;	0;	Danish;		Danish;			Danish
-nl;	1043;	1;	Dutch;		Dutch;			Nederlands
-#eo;	1167;	0;	Esperanto;	Esperanto;		Esperanto
-fi;	1035;	0;	Finnish;	Finnish;		Finnish
-fr;	1036;	1;	French;		French;			French
-ka;	1079;	0;	English;	Georgian;		Georgian
-de;	1031;	1;	German;		German;			German
-el;	1032;	0;	Greek;		Greek;			Greek
-hu;	1038;	0;	Hungarian;	Hungarian;		Hungarian
-id;	1057;	1;	Indonesian;	Indonesian;		Indonesia
-it;	1040;	0;	Italian;	Italian;		Italiano
-ja;	1041;	1;	Japanese;	Japanese;		Japanese
-ko;	1042;	0;	Korean;		Korean;			Korean
-mk;	1071;	0;	Macedonian;	Macedonian;		Macedonian
-nb;	1044;	0;	Norwegian;	Norwegian, bokmål;	Norwegian, bokmål
-fa;	1065;	1;	Persian;	Persian;		Farsi
-pl;	1045;	0;	Polish;		Polish;			Polish
-pt_BR;	1046;	0;	Portuguese;	Portuguese, Brazil;	Portuguese, Brazil
-pt_PT;	2070;	0;	Portuguese;	Portuguese, Portugal;	Portuguese, Portugal
-ro;	1048;	0;	Romanian;	Romanian;		Romanian
-ru;	1049;	1;	Russian;	Russian;		Russian
-sk;	1051;	1;	Slovak;		Slovak;			Slovak
-sl;	1060;	1;	Slovenian;	Slovenian;		Slovenian
-sr_spc;	3098;	0;	Serbian cyrillic;	Serbian cyrillic;	Serbian cyrillic
-sr_spl;	2074;	0;	Serbian latin;	Serbian latin;	Serbian latin
-uk;	1058;	0;	Ukrainian;	Ukrainian;		Ukrainian
-es;	1034;	1;	Spanish;	Spanish;		Spanish
-sv;	1053;	0;	Swedish;	Swedish;		Swedish
-tr;	1055;	0;	Turkish;	Turkish;		Turkish
+# Last commit by:
+# $Author$
+# $Date$
+# $Rev$
+#
+# ======================================================================
+#
+# List of languages supported by TortoiseSVN
+#
+# This list is basically CSV Format with the following rules:
+# - Entries are separated by a Semicolon ';'. 
+# - Strings which contain spaces should be enclosed in double quotes '"'
+#   for better readability.
+# - Unused languages are commented out by a hash mark '#'
+#  
+# This list is used for:
+# - the Language pack builds
+# - the Translation status report
+#
+# Handle with care. You might break something!
+#
+# ======================================================================
+#
+# Meaning of the columns:
+# 1: Tag with multiple function
+#    po/pot file (pot == 0, po <> 0)
+#    Create language pack/download link (yes == 1, no <> 1)
+#    Also affects sort order on status and download page. 
+#    Sorted unsigned, by abs()
+#    Recommended usage:
+#    0 = pot file -> No download link, shown on translation status page as .po template
+#    1 = po file  -> Create download link, shown on translation status page 
+#    -1 = po file -> No download link, but shown on translation status page
+#                    Use this to disable creation of a language pack
+# 2: Country code. Used to display the flag. The [flagname].png has to match this column
+# 3: Locale ID for the language pack installer
+# 4: Flag byte used to create links on different download pages
+#    !!! Bit0 is the rightmost bit !!!
+#    Bit0 = Spellchecker available
+#    Bit1 = TortoiseSVN manual available
+#    Bit2 = TortoiseMerge manual available
+# 5: Full language name.
+# 6: List of translators.
+1;  bg;     1026; 001;  Bulgarian;              "Milen A. Radev"
+#;  bs_BA;  5146; 000;  Bosnian/Herzegovinan;   "Boris Musa"
+1;  ca_ES;  1027; 001;  Catalan;                "Arnau Perelló"
+1;  cs;     1029; 001;  Czech;                  "Radek Svarz, Vojtech Vondra, Jiří Sedlák"
+1;  da;     1030; 001;  Danish;                 "Jan Normann Nielsen, Gunther Strube, Christian Funder Sommerlund, David Trasbo, Mikkel Elmholdt"
+1;  de;     1031; 111;  German;                 "Stefan Küng, Lübbe Onken"
+1;  el;     1032; 000;  Greek;                  "George Marselis, Joseph Megkousoglou"
+#;  eo;     1167; 000;  Esperanto;              "Tim Morley"
+1;  es;     1034; 111;  Spanish;                "Fernando P. Nájera Cano, Antonio Romero Lopez, Franco Catena, Marco Klipfel"
+1;  fa;     1065; 000;  Persian;                "Titto Agustine, Mohsen Sajjadi"
+1;  fi;     1035; 110;  Finnish;                "Pekka Järvinen, Kari Granö"
+1;  fr;     1036; 111;  French;                 "Olivier Booklage, Philippe Torche, Jean-Christophe Gigogne, Jérémy Badier, Jean-Christophe Mazenc, Christophe Sauveur, Frédéric Bodin"
+1;  hr;     1050; 101;  Croatian;               "Helix d.o.o: (Dinko Srkoc, Mario Saric), Boris Musa, Dusko Vuksanovic"
+1;  hu;     1038; 001;  Hungarian;              "Szente-Varga Bálint, Halász Gábor, Florin Daneliuc"
+1;  id;     1057; 111;  Indonesian;             "Zaenal Mutaqin, Thomas Edwin Santosa"
+1;  it;     1040; 001;  Italian;                "Luca Berti, Cecilia Saltori"
+1;  ja;     1041; 110;  Japanese;               "Daisuke Deguchi (GUI), Kurasawa Nozomu (docs)"
+1;  ko;     1042; 000;  Korean;                 "Hojin Choi, Jae-Hong Lee, Kim Taedong"
+1;  ka;     1079; 000;  Georgian;               "Gia Shervashidze"
+1;  mk;     1071; 000;  Macedonian;             "Srdjan Stokic"
+1;  nb;     1044; 001;  Norwegian, bokmål;      "Jostein Andersen, Oddvar Kloster"
+1;  nl;     1043; 101;  Dutch;                  "Jean-Marc van Leerdam, Yves Reynhout, Bob Hulst, Dennis Siemensma, Mariska Hoogenboom"
+1;  pl;     1045; 001;  Polish;                 "Michal Mielniczuk, Andrzej Rusin, Piotr Kontek, Krzysztof Kotowicz"
+1;  pt_BR;  1046; 001;  Portuguese, Brazil;     "CRAb Group, Humberto Osório, Emanuele Santos, Guilherme Cantisano, Juliano Ravasi Ferraz, Victor Westmann, Conrado Quilles Gomes, Tiago Deliberali Santos, Leandro Herrera"
+1;  pt_PT;  2070; 000;  Portuguese, Portugal;   "Manuel Menezes de Sequeira, Luis X. B. Mourão"
+1;  ro;     1048; 000;  Romanian;               "Seby Rusu, Ben Felt"
+1;  ru;     1049; 111;  Russian;                "Dzmitry Lazerka, Dimitry Mardiyan, Shura Zam, Alexander Leschinsky, Stanislav Petrakov"
+1;  sk;     1051; 101;  Slovak;                 "Oto Brezina (Mario Kacmar)"
+1;  sl;     1060; 111;  Slovenian;              "Goran Kavrecic, Martin Srebotnjak, Matjaz Cepon, Miha Nahtigal"
+1;  sr_spc; 3098; 110;  Serbian cyrillic;       "Milorad Popović"
+1;  sr_spl; 2074; 110;  Serbian latin;          "Milorad Popović"
+1;  sv;     1053; 001;  Swedish;                "Johan Stenqvist, Johan Appelgren, Johan Foglemark"
+1;  tr;     1055; 000;  Turkish;                "Aydogan Yolacan, Ali Karaoglu, Berke Baydu"
+1;  uk;     1058; 000;  Ukrainian;              "Vadim Mikhnevych"
+1;  zh_CN;  2052; 110;  Chinese, simplified;    "Dongsheng Song, Cecil Sheng, Ken Chew, Cobra Net, Xingyu Wang, Lixinfeng"
+1;  zh_TW;  1028; 000;  Chinese, traditional;   "Cecil Sheng"
+0;  gb;     2057; 111;  Template (English);     "Stefan Küng, Simon Large, Lübbe Onken"
