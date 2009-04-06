@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-21 09:28+0900\n"
+"PO-Revision-Date: 2009-04-06 17:47+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1593,6 +1593,10 @@ msgstr "다른 저장소들에 대해서 같은 URL을 사용하는 것을 허�
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "다른 저장소들에 대해서 같은 UUID를 사용하는 것을 허용합니다. 예를 들면 복사된 저장소들."
 
+#. Resource IDs: (1480)
+msgid "Always close dialogs for local operations"
+msgstr "로컬 동작에 대해서 다이얼로그를 항상 닫습니다."
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "날짜와 시간을 나타내기 위해 항상 시스템 국가 설정을 사용합니다"
@@ -1786,10 +1790,6 @@ msgstr "모두 자동으로 숨기기"
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "자동으로 이름 바꾸기"
-
-#. Resource IDs: (222)
-msgid "Auto-close for local operations"
-msgstr "작업사본에 대한 명령 수행후 자동으로 닫습니다."
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
