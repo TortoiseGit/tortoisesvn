@@ -255,10 +255,10 @@ NAnt build script for the TortoiseSVN language pack installers
 		<property name="ResTextFileName" value="..\bin\release\bin\restext.exe" if="${crosscompile == 'yes'}" />
 
 		<regex 
-			pattern="^(?'langISO'[A-z_]+);[ \t]+(?'langCC'\d+);[ \t]+(?'langhelpfile'\d+);[ \t]+(?'langUI'.+);[ \t]+(?'langweb'.+);[ \t]+(?'langnative'.+)" 
+			pattern="^(?'langhelpfile'\d+);[ \t]+(?'langISO'[A-z_]+);[ \t]+(?'langCC'\d+);[ \t]+(?'mergemanual'\d)(?'tsvnmanual'\d)(?'spellcheck'\d);[ \t]+(?'langUI'.+);[ \t]+(?'translatornames'.+)" 
 			input="${langline}"
 		/>
-		<echo message="Building ${langweb} dlls and installer" />
+		<echo message="Building ${langUI} dlls and installer" />
 
 		<!-- create the dlls -->
 		<exec program="${ResTextFileName}" failonerror="false">
@@ -324,7 +324,6 @@ NAnt build script for the TortoiseSVN language pack installers
 						<token key="LANGUI" value="${langUI}" />
 						<token key="COUNTRYCODE" value="${langISO}" />
 						<token key="COUNTRYID" value="${langCC}" />
-						<token key="LANGNATIVE" value="${langnative}" />
 						<token key="SPELLCHECKFILES" value="${SpellCheckFiles}" />
 					</replacetokens>
 				</filterchain>
