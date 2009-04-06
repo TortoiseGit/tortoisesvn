@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-26 21:05+0100\n"
+"PO-Revision-Date: 2009-04-06 10:58+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1593,6 +1593,10 @@ msgstr "Consenti a differenti repository di usare la stessa URL, e.g. http://loc
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Consenti a differenti repository di usare lo stesso UUID, e.g.repository copiati"
 
+#. Resource IDs: (1480)
+msgid "Always close dialogs for local operations"
+msgstr "Chiudi sempre le finestre di dialogo per operazioni locale"
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Utilizza sempre le impostazioni del sistema locale per mostrare ore e date"
@@ -1788,10 +1792,6 @@ msgstr "Auto Nascondi Tutto"
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "Rinomina automaticamente"
-
-#. Resource IDs: (222)
-msgid "Auto-close for local operations"
-msgstr "Chiudi automaticamente dopo operazioni in locale"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
