@@ -26,6 +26,7 @@ Version 1.6.1
        (Stefan Fuhrmann)
 - BUG: Fixed memory leak in TSVNCache. (Stefan Fuhrmann)
 - BUG: Administrative (msiexec /a ...) install didn't work. (Stefan)
+- BUG: The log dialog used the wrong font. (Stefan)
 
 Version 1.6.0
 - NEW: Ignoring of multiple selected items by their extension. See
