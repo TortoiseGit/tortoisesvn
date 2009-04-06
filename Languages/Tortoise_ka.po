@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-31 07:24+0300\n"
+"PO-Revision-Date: 2009-04-06 14:06+0300\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1595,6 +1595,10 @@ msgstr "სხვადასხვა საცავისთვის იგ�
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "სხვადასხვა საცავებისთვის იგივე მისამართით (UUID) სარგებლობის უფლება, მაგ., http://localhost/myrepos/"
 
+#. Resource IDs: (1480)
+msgid "Always close dialogs for local operations"
+msgstr "დიალოგების ყოველთვის დახურვა ლოკალური ოპერაციებისთვის"
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "ყოველთვის სიტემური ლოკალით სარგებლობა თარღისა და დროისთვის"
@@ -1790,10 +1794,6 @@ msgstr "ყველას თვითდამალვა"
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "თვითგადარქმევა"
-
-#. Resource IDs: (222)
-msgid "Auto-close for local operations"
-msgstr "თვითდახურვა ლოკალური ოპერაციებისთვის"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
