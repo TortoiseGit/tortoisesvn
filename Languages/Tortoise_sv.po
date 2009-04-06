@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-21 09:40+0100\n"
+"PO-Revision-Date: 2009-04-06 13:46+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1619,6 +1619,10 @@ msgstr "Tillåt olika arkiv att använda samma URL. Tex http://localhost/myrepos
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Tillåt olika arkiv att använda samma UUID. Tex http://localhost/myrepos/"
 
+#. Resource IDs: (1480)
+msgid "Always close dialogs for local operations"
+msgstr "Stäng alltid dialogrutor för lokala operationer"
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Använd alltid datorns inställning för visning av datum och tid"
@@ -1813,10 +1817,6 @@ msgstr "Göm allt automatiskt"
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "Automatiskt namnbyte"
-
-#. Resource IDs: (222)
-msgid "Auto-close for local operations"
-msgstr "Automatiskt för lokala åtgärder"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
