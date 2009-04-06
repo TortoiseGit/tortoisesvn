@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2009
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 15829: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 16048: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-21 11:29+0300\n"
+"PO-Revision-Date: 2009-04-06 15:47+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1190,7 +1190,7 @@ msgstr "Непечатаемые &знаки"
 
 #. Resource IDs: (1066)
 msgid "&Whole word"
-msgstr "Cлово &целиком"
+msgstr "Слово &целиком"
 
 #. Resource IDs: (32846)
 msgid "&Windows XP"
@@ -1659,6 +1659,10 @@ msgstr "Разрешает различным хранилищам исполь�
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Разрешает различным хранилищам использовать один и тот же UUID, например, скопированным хранилищам"
 
+#. Resource IDs: (1480)
+msgid "Always close dialogs for local operations"
+msgstr "Всегда закрывать диалоги при локальных операциях"
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Всегда использовать настройки локализации системы для отображения времени и даты"
@@ -1858,10 +1862,6 @@ msgstr "Автоскрывать все"
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "Авто-переименовать"
-
-#. Resource IDs: (222)
-msgid "Auto-close for local operations"
-msgstr "Автозакрытие при локальных операциях"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -5957,7 +5957,7 @@ msgstr "Нехватка памяти."
 
 #. Resource IDs: (3845)
 msgid "Output.prn"
-msgstr "Ounput.prn"
+msgstr "Output.prn"
 
 # ???
 #. Resource IDs: (65535)
@@ -8551,7 +8551,7 @@ msgstr ""
 "невозможно получение актуальных данных.\n"
 "Желаете ли вы посмотреть данные, закэшированные ранее?\n"
 "\n"
-"Имейте ввиду, что закэшированные данные могут быть устаревшими,\n"
+"Учтите, что закэшированные данные могут быть устаревшими,\n"
 "недостаточными и даже неверными из-за неполноты накопленных данных."
 
 #. Resource IDs: (82)
@@ -9204,7 +9204,7 @@ msgstr "Локальные"
 
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
-msgstr "Использовать корзину при убирании изменений"
+msgstr "Использовать корзину при отмене изменений"
 
 # фильтрация в диалоге журнала
 #. Resource IDs: (116)
