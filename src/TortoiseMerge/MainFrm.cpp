@@ -1057,7 +1057,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 		}
 	}
 	
-	if (bDoesNotExist)
+	if ((bDoesNotExist)&&(DWORD(CRegDWORD(_T("Software\\TortoiseMerge\\AutoAdd"), TRUE))))
 	{
 		// call TortoiseProc to add the new file to version control
 		CString cmd = _T("\"") + CPathUtils::GetAppDirectory();
