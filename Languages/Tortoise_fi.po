@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-05 22:22+0200\n"
+"PO-Revision-Date: 2009-04-07 00:12+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -81,7 +81,7 @@ msgstr ""
 # sparse            epätäydellinen
 # steal lock        varastaa lukko
 # switch            vaihda
-# tag               merkki, merkintä, merkitty versio
+# tag               merkitty versio
 # toolbar           työkalurivi
 # tree conflict     puuristiriita
 # unified diff      unified diff
@@ -809,7 +809,7 @@ msgstr "&Pienennä"
 
 #. Resource IDs: (1493)
 msgid "&Modify color for tag copies"
-msgstr "&Muuta merkkikopioiden väriä"
+msgstr "&Muuta merkittyjen versioiden väriä"
 
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
@@ -1075,7 +1075,7 @@ msgstr "&Välilehtidokumentti"
 
 #. Resource IDs: (65535)
 msgid "&Tags"
-msgstr "&Merkit"
+msgstr "&Merkityt versiot"
 
 #. Resource IDs: (1382)
 msgid "&Test merge"
@@ -1276,7 +1276,7 @@ msgstr "(nimeä uudelleen)"
 
 #. Resource IDs: (276)
 msgid "(tagged)"
-msgstr "(merkitty)"
+msgstr "(merkitty versio)"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
@@ -1952,7 +1952,7 @@ msgstr "&Selaa..."
 
 #. Resource IDs: (115)
 msgid "Branch / tag created successfully!"
-msgstr "Haara / merkki luotu!"
+msgstr "Haara / merkitty versio luotiin onnistuneesti!"
 
 #. Resource IDs: (2052)
 msgid "Branch at copy-from-rev even if there was no change in that revision"
@@ -1960,7 +1960,7 @@ msgstr "Haarauta kopio vaikkei siinä olisi muutoksia"
 
 #. Resource IDs: (9)
 msgid "Branch/&tag..."
-msgstr "Luo &haara / merkki..."
+msgstr "Luo &haara / merkitty versio..."
 
 #. Resource IDs: (16)
 msgid "Break loc&k"
@@ -2012,7 +2012,7 @@ msgstr "K&omennot:"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
-msgstr "&Luo versiosta haara/merkki"
+msgstr "&Luo versiosta haara / merkitty versio"
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
@@ -2641,7 +2641,7 @@ msgstr ""
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
-msgstr "Kopioi (haara / merkki)"
+msgstr "Kopioi (haara / merkitty versio)"
 
 #. Resource IDs: (78)
 msgid "Copy - TortoiseSVN"
@@ -2934,7 +2934,7 @@ msgstr "Hakemisto luotu etänä"
 
 #. Resource IDs: (10)
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "Luo kopion arkistossa (kevyt operaatio); käytetään haaroihin ja merkkeihin"
+msgstr "Luo kopion arkistossa (kevyt operaatio); käytetään haarojen ja merkittyjen versioiden luomiseen"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -3560,7 +3560,7 @@ msgstr "Syötä lokiviesti:"
 #. Resource IDs: (3858)
 #, c-format
 msgid "Enter no more than %1 characters."
-msgstr "Älä lisää yli %1 merkkiä."
+msgstr "Lisää korkeintaani %1 merkkiä."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3983,15 +3983,15 @@ msgstr "Sovita leveys"
 
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
-msgstr "Korjaa kohteen merkkitaso ja älä lisää sitä"
+msgstr "Korjaa kohteen merkkitaso äläkä lisää sitä"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
-msgstr "Näytä &merkit lähtösolmussa"
+msgstr "Näytä &merkityt versiot lähtösolmussa"
 
 #. Resource IDs: (65535)
 msgid "Folded tag"
-msgstr "Lähtösolmuun yhdistetty merkki"
+msgstr "Lähtösolmuun yhdistetty merkitty versio"
 
 #. Resource IDs: (1002)
 msgid "Folder"
@@ -4228,7 +4228,7 @@ msgstr "Piilota kaikki haarat, jotka eivät muuttaneet kohdetta"
 
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
-msgstr "Piilota poistetut haarat ja merkinnät"
+msgstr "Piilota poistetut haarat ja merkityt versiot"
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
@@ -4452,7 +4452,7 @@ msgid ""
 "of these patterns, it is considered a 'tag'."
 msgstr ""
 "Jos jokin annetun polun elementti (kahden '/'-merkin välinen osa)\n"
-"täsmää näiden hahmojen kanssa, sitä pidetään 'merkkinä' (engl. tag)."
+"täsmää näiden hahmojen kanssa, sitä pidetään 'merkittynä versiona' (engl. tag)."
 
 #. Resource IDs: (346)
 msgid ""
@@ -6891,7 +6891,7 @@ msgstr ""
 "%sTekijä: %s\r\n"
 "Päiväys: %s\r\n"
 "\r\n"
-"Merkit (%d):%s\r\n"
+"Merkityt versiot (%d):%s\r\n"
 "\r\n"
 "Lokiviesti:\r\n"
 "%s"
@@ -7554,7 +7554,7 @@ msgstr "Näytä tilastot valitulle lokivälimuistille"
 
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
-msgstr "Näytä merkit lähtösolmussa, ei erillisinä solmuina"
+msgstr "Näytä merkityt versiot lähtösolmussa, ei erillisinä solmuina"
 
 #. Resource IDs: (1209)
 msgid "Show un&modified files"
@@ -7585,7 +7585,7 @@ msgstr "Näytetään %s:n graafi"
 
 #. Resource IDs: (15)
 msgid "Shows a graphical representation of copies/tags/branches"
-msgstr "Näyttää graafisen esityksen kopioista/merkeistä/haaroista"
+msgstr "Näyttää graafisen esityksen kopioista / merkityistä versioista / haaroista"
 
 #. Resource IDs: (13)
 msgid "Shows all files which were changed since the last update, locally and in the repository"
@@ -7849,7 +7849,7 @@ msgstr "Subversion palvelintiedosto:"
 
 #. Resource IDs: (1232)
 msgid "Sw&itch working copy to new branch/tag"
-msgstr "Vaihda työkopio &uuteen haaraan/merkkiin"
+msgstr "Vaihda työkopio osoittamaan &uuteen haaraan / merkittyyn versioon"
 
 #. Resource IDs: (229)
 #, c-format
@@ -7866,7 +7866,7 @@ msgstr "Vaihda vasen<->oikea"
 
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
-msgstr "Vaihda haaraan/merkkiin"
+msgstr "Vaihda haaraan / merkittyyn versioon"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -7910,7 +7910,7 @@ msgstr "Vaihda edelliseen dokumenttiin"
 
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
-msgstr "Vaihda työkopio osoittamaan toiseen haaraan / merkkiin"
+msgstr "Vaihda työkopio osoittamaan toiseen haaraan / merkittyyn versioon"
 
 #. Resource IDs: (1479)
 msgid "Switch:"
@@ -7946,12 +7946,12 @@ msgstr "Sarkaimen koko:"
 
 #. Resource IDs: (65535)
 msgid "Tag nodes"
-msgstr "Merkkien solmut"
+msgstr "Merkittyjen versioiden solmut"
 
 #. Resource IDs: (79)
 #, c-format
 msgid "Tagged the working copy to %s"
-msgstr "Työkopiosta tehtiin merkki %s"
+msgstr "Työkopiosta tehtiin merkitty versio %s"
 
 #. Resource IDs: (1064)
 msgid "Tasks Pane"
@@ -7980,7 +7980,7 @@ msgstr "Lohkon alkua '@@' odotettiin rivillä %d !"
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
-msgstr "Merkkihaarojen luonti-, kopio- ja uudelleennimentäsolmujen väri liukuu kohti keltaista."
+msgstr "Merkittyjen versioiden luonti-, kopio- ja uudelleennimentäsolmujen väri liukuu kohti keltaista."
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
@@ -9592,10 +9592,10 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
-"Työkopiosi näyttää osoittavan arkiston merkkipolulle (tags), johon yleensä talletetaan merkit!\n"
+"Työkopiosi näyttää osoittavan arkiston polulle, johon yleensä talletetaan merkityt versiot (engl. tag)!\n"
 "Sinun tulisi vaihtaa työkopio osoittamaan kehityshaaraan tai päähaaraan ennen arkistoon toimittamista.\n"
 "\n"
-"Haluatko silti jatkaa arkistotoimitusta?"
+"Haluatko yhä jatkaa arkistotoimitusta?"
 
 #. Resource IDs: (275)
 #, c-format
@@ -9626,7 +9626,7 @@ msgid ""
 msgstr ""
 "Työkopiossasi on paikallisia muutoksia.\n"
 "Mikäli teet haaran tai merkin HEAD-versiosta, paikalliset muutoksesi\n"
-"eivät näy haarassa/merkissä!"
+"eivät näy haarassa / merkityssä versiossa!"
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"

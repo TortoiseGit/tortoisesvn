@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-04-04 14:46 +0000\n"
-"PO-Revision-Date: 2009-04-05 22:48+0200\n"
+"PO-Revision-Date: 2009-04-07 00:40+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -413,7 +413,7 @@ msgstr "Tehokas haarautuminen ja merkintöjen teko"
 
 #. (para)
 msgid "The cost of branching and tagging need not be proportional to the project size. Subversion creates branches and tags by simply copying the project, using a mechanism similar to a hard-link. Thus these operations take only a very small, constant amount of time, and very little space in the repository."
-msgstr "Haarojen luonnin (branching) ja versioiden merkitsemisen (tagging) kustannusten ei tarvitse olla suhteessa projektin kokoon. Subversion luo haarat ja merkit yksinkertaisesti kopioimalla projektin linkittämällä. Tästä johtuen nämä toiminnot vievät vain vähän aikaa (vakioajan) ja varaavat vain vähän tilaa arkistosta."
+msgstr "Haarojen luonnin (engl. branching) ja versioiden merkitsemisen (engl. tagging) kustannusten ei tarvitse olla suhteessa projektin kokoon. Subversion luo haarat ja merkit yksinkertaisesti kopioimalla projektin linkittämällä. Tästä johtuen nämä toiminnot vievät vain vähän aikaa (vakioajan) ja varaavat vain vähän tilaa arkistosta."
 
 #. (term)
 msgid "Hackability"
@@ -1166,7 +1166,7 @@ msgstr "Ennen kuin tuot tietosi arkistoon, sinun pitäisi ensin miettiä, miten 
 
 #. (para)
 msgid "There are some standard, recommended ways to organize a repository. Most people create a <filename>trunk</filename> directory to hold the <quote>main line</quote> of development, a <filename>branches</filename> directory to contain branch copies, and a <filename>tags</filename> directory to contain tag copies. If a repository holds only one project, then often people create these top-level directories:"
-msgstr "On olemassa muutamia suositeltuja tapoja järjestää arkisto. Useimmat ihmiset luovat <filename>trunk</filename> -hakemiston, joka sisältää kehityksen <quote>päälinjan</quote>, <filename>branches</filename>-hakemiston, joka sisältää kehityshaarakopiot, ja <filename>tags</filename>-hakemiston, joka sisältää merkkikopiot. Jos arkisto sisältää vain yhden projektin, on tavallista luoda seuraavat ylätason hakemistot:"
+msgstr "On olemassa muutamia suositeltuja tapoja järjestää arkisto. Useimmat ihmiset luovat <filename>trunk</filename> -hakemiston, joka sisältää kehityksen <quote>päälinjan</quote>, <filename>branches</filename>-hakemiston, joka sisältää kehityshaarat, ja <filename>tags</filename>-hakemiston, joka sisältää merkityt versiot. Jos arkisto sisältää vain yhden projektin, on tavallista luoda seuraavat ylätason hakemistot:"
 
 #. (screen)
 #, no-wrap
@@ -1233,7 +1233,7 @@ msgstr "Projekteittain indeksointi on järkevää, jos projektit eivät ole läh
 
 #. (para)
 msgid "If you adopt a top level <filename>/trunk /tags /branches</filename> approach, there is nothing to say that you have to copy the entire trunk for every branch and tag, and in some ways this structure offers the most flexibility."
-msgstr "Jos otat käyttöön päätason <filename>/trunk /tags /branches</filename> -lähestymistavan, mikään ei kuitenkaan pakota sinua kopioimaan koko trunk-hakemistoa jokaista haaraa ja merkkiä varten, ja monilla tavoin tämä rakenne joustaa eniten."
+msgstr "Jos otat käyttöön päätason <filename>/trunk /tags /branches</filename> -lähestymistavan, mikään ei kuitenkaan pakota sinua kopioimaan koko trunk-hakemistoa jokaista haaraa ja merkittyä versiota varten, ja monilla tavoin tämä rakenne joustaa eniten."
 
 #. (para)
 msgid "For unrelated projects you may prefer to use separate repositories. When you commit changes, it is the revision number of the whole repository which changes, not the revision number of the project. Having 2 unrelated projects share a repository can mean large gaps in the revision numbers. The Subversion and TortoiseSVN projects appear at the same host address, but are completely separate repositories allowing independent development, and no confusion over build numbers."
@@ -1241,7 +1241,7 @@ msgstr "Toisistaan riippumattomille projekteille erillisten arkistojen käyttö 
 
 #. (para)
 msgid "Of course, you're free to ignore these common layouts. You can create any sort of variation, whatever works best for you or your team. Remember that whatever you choose, it's not a permanent commitment. You can reorganize your repository at any time. Because branches and tags are ordinary directories, TortoiseSVN can move or rename them however you wish."
-msgstr "Voit tietenkin jättää tavanomaiset tavat järjestää arkisto huomiotta ja luoda niistä minkä tahansa muunnelman, joka sopii parhaiten ryhmällesi. Muista, että mitä valitsetkin, päätös ei ole lopullinen. Voit järjestää arkiston uudelleen milloin vain. Koska haarat ja merkinnät ovat tavallisia hakemistoja, TortoiseSVN voi siirtää tai nimetä ne uudelleen miten vain tahdot."
+msgstr "Voit tietenkin jättää tavanomaiset tavat järjestää arkisto huomiotta ja luoda niistä minkä tahansa muunnelman, joka sopii parhaiten ryhmällesi. Muista, että mitä valitsetkin, päätös ei ole lopullinen. Voit järjestää arkiston uudelleen milloin vain. Koska haarat ja merkityt versiot ovat tavallisia hakemistoja, TortoiseSVN voi siirtää tai nimetä ne uudelleen miten vain tahdot."
 
 #. (para)
 msgid "Switching from one layout to another is just a matter of issuing a series of server-side moves; If you don't like the way things are organized in the repository, just juggle the directories around."
@@ -3139,7 +3139,7 @@ msgstr "Kun <guilabel>Ohita ulkoiset polut</guilabel> on valittu, tai kun haluat
 
 #. (para)
 msgid "It is recommended that you check out only the <literal>trunk</literal> part of the directory tree, or lower. If you specify the parent path of the directory tree in the URL then you might end up with a full hard disk since you will get a copy of the entire repository tree including every branch and tag of your project!"
-msgstr "Suositamme, että haet työkopion vain tiedostopuun <literal>trunk</literal>-haarasta tai alempaa. Jos haet koko tiedostopuun, kiintolevysi saattaa täyttyä, koska saat kopion koko arkistosta, mukaan lukien kaikki projektin haarat ja merkinnät!"
+msgstr "Suositamme, että haet työkopion vain tiedostopuun <literal>trunk</literal>-haarasta tai alempaa. Jos haet koko tiedostopuun, kiintolevysi saattaa täyttyä, koska saat kopion koko arkistosta, mukaan lukien kaikki projektin haarat ja merkityt versiot!"
 
 #. (title)
 msgid "Exporting"
@@ -4271,11 +4271,11 @@ msgstr "Avaa arkistoselain tutkiaksesi valittua tiedostoa tai kansiota sellaisen
 
 #. (term)
 msgid "Create branch/tag from revision"
-msgstr "Luo versiosta haara/merkintä"
+msgstr "Luo versiosta haara / merkitty versio"
 
 #. (para)
 msgid "Create a branch or tag from a selected revision. This is useful e.g. if you forgot to create a tag and already committed some changes which weren't supposed to get into that release."
-msgstr "Luo valitusta versiosta haara/merkintä. Tämä on hyödyllistä, jos esim. unohdat luoda merkinnän ja olet jo toimittanut arkistoon muutoksia, joiden ei pitänyt päätyä merkinnästä tehtyyn ohjelmaversioon."
+msgstr "Luo valitusta versiosta haara / merkitty versio. Tämä on hyödyllistä, jos esim. unohdat merkitä version ja olet jo toimittanut arkistoon muutoksia, joiden ei pitänyt päätyä merkittyyn ohjelmaversioon."
 
 #. (term)
 msgid "Update item to revision"
@@ -4552,7 +4552,7 @@ msgstr "Suuressa arkistossa voi olla satoja tai tuhansia muutoksia, ja niiden ka
 
 #. (para)
 msgid "When the <guilabel>Stop on copy/rename</guilabel> box is checked, Show Log will stop at the point that the selected file or folder was copied from somewhere else within the repository. This can be useful when looking at branches (or tags) as it stops at the root of that branch, and gives a quick indication of changes made in that branch only."
-msgstr "Kun valinta <guilabel>Pysäytä kopion/uudelleennimennän kohdalla</guilabel> on ruksattu, Näytä loki pysähtyy kohdassa, missä valittu tiedosto tai kansio kopioitiin jostain muualta arkistosta. Tästä on hyötyä, kun tutkit haaraa (tai merkkiä), koska silloin loki pysähtyy haaran juureen, ja voit nopeasti tutkia pelkästään haarassa tehtyjä muutoksia."
+msgstr "Kun valinta <guilabel>Pysäytä kopion/uudelleennimennän kohdalla</guilabel> on ruksattu, Näytä loki pysähtyy kohdassa, missä valittu tiedosto tai kansio kopioitiin jostain muualta arkistosta. Tästä on hyötyä, kun tutkit haaraa (tai merkittyä versiota), koska silloin loki pysähtyy haaran juureen, ja voit nopeasti tutkia pelkästään haarassa tehtyjä muutoksia."
 
 #. (para)
 msgid "Normally you will want to leave this option unchecked. TortoiseSVN remembers the state of the checkbox, so it will respect your preference."
@@ -4850,7 +4850,7 @@ msgstr "Jos haluat nähdä <emphasis>omat</emphasis> työkopioosi tekemäsi muut
 
 #. (term)
 msgid "Difference to another branch/tag"
-msgstr "Ero toiseen haaraan/merkkiin"
+msgstr "Ero toiseen haaraan / merkittyyn versioon"
 
 #. (para)
 msgid "If you want to see what has changed on trunk (if you are working on a branch) or on a specific branch (if you are working on trunk), you can use the explorer context menu. Just hold down the <keycap>Shift</keycap> key while you right click on the file. Then select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with URL</guimenuitem></menuchoice>. In the following dialog, specify the URL in the repository with which you want to compare your local file to."
@@ -4858,7 +4858,7 @@ msgstr "Jos haluat nähdä, mitä muutoksia päähaarassa (olettaen, että työs
 
 #. (para)
 msgid "You can also use the repository browser and select two trees to diff, perhaps two tags, or a branch/tag and trunk. The context menu there allows you to compare them using <guimenuitem>Compare revisions</guimenuitem>. Read more in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr "Voit myös avata arkistoselaimen ja valita kaksi verrattavaa tiedostopuuta, ehkäpä kaksi merkkiä tai haaran/merkin ja päähaaran. Arkistoselaimen kontekstivalikon komento <guimenuitem>Vertaa paikantimia</guimenuitem>. Lisätietoja löydät luvusta <xref linkend=\"tsvn-dug-compare-revs\"/>."
+msgstr "Voit myös avata arkistoselaimen ja valita kaksi verrattavaa tiedostopuuta, ehkäpä kaksi merkittyä versiota tai haaran / merkityn version ja päähaaran. Arkistoselaimen kontekstivalikon komento <guimenuitem>Vertaa paikantimia</guimenuitem>. Lisätietoja löydät luvusta <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "Difference from a previous revision"
@@ -5219,7 +5219,7 @@ msgstr "haara"
 #. (primary)
 #. (primary)
 msgid "tag"
-msgstr "merkki"
+msgstr "merkitty versio"
 
 #. (para)
 msgid "It often happens that you already have the files you need in another project in your repository, and you simply want to copy them across. You could simply copy the files and add them as described above, but that would not give you any history. And if you subsequently fix a bug in the original files, you can only merge the fix automatically if the new copy is related to the original in Subversion."
@@ -5235,11 +5235,11 @@ msgstr "Voit myös kopioida tai siirtää versioituja tiedostoja työkopion sis�
 
 #. (para)
 msgid "You can copy files and folders from your working copy to another location in the repository using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branch/Tag</guimenuitem></menuchoice>. Refer to <xref linkend=\"tsvn-dug-branch-1\"/> to find out more."
-msgstr "Voit kopioida tiedostoja ja kansioita työkopiostasi muualle arkistoon komennolla <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Luo haara/merkki</guimenuitem></menuchoice>. Katso lisää luvusta <xref linkend=\"tsvn-dug-branch-1\"/>."
+msgstr "Voit kopioida tiedostoja ja kansioita työkopiostasi muualle arkistoon komennolla <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Luo haara / merkitty versio</guimenuitem></menuchoice>. Katso lisää luvusta <xref linkend=\"tsvn-dug-branch-1\"/>."
 
 #. (para)
 msgid "You can locate an older version of a file or folder in the log dialog and copy it to a new location in the repository directly from the log dialog using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Create branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref linkend=\"tsvn-dug-showlog-2\"/> to find out more."
-msgstr "Voit etsiä lokista tiedoston tai kansion vanhemman version, ja kopioida sen uuteen paikkaan arkistossa suoraan loki-ikkunasta komennolla <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Luo versiosta haara/merkki </guimenuitem></menuchoice>. Katso lisää luvusta <xref linkend=\"tsvn-dug-showlog-2\"/>."
+msgstr "Voit etsiä lokista tiedoston tai kansion vanhemman version, ja kopioida sen uuteen paikkaan arkistossa suoraan loki-ikkunasta komennolla <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Luo versiosta haara / merkitty versio</guimenuitem></menuchoice>. Katso lisää luvusta <xref linkend=\"tsvn-dug-showlog-2\"/>."
 
 #. (para)
 msgid "You can also use the repository browser to locate content you want, and copy it into your working copy directly from the repository, or copy between two locations within the repository. Refer to <xref linkend=\"tsvn-dug-repobrowser\"/> to find out more."
@@ -6152,19 +6152,19 @@ msgstr "Toinen versionhallintajärjestelmien ominaisuus on kyky merkitä tiettyj
 
 #. (para)
 msgid "Subversion does not have special commands for branching or tagging, but uses so-called <quote>cheap copies</quote> instead. Cheap copies are similar to hard links in Unix, which means that instead of making a complete copy in the repository, an internal link is created, pointing to a specific tree/revision. As a result branches and tags are very quick to create, and take up almost no extra space in the repository."
-msgstr "Subversion ei sisällä erityisiä komentoja haarautumiseen tai merkkien tekoon, vaan käyttää tarkoitukseen ns. <quote>halpoja kopioita</quote>. Halvat kopiot muistuttavat Unix-järjestelmien kovia linkkejä, mikä tarkoittaa, että täyden arkistokopion sijaan luodaan sisäinen linkki, joka osoittaa tiettyyn puuhun/versioon. Tästä syystä haarat ja merkkejä voidaan luodan hyvin nopeasti ja ne kuluttavat tuskin ollenkaan ylimääräistä tilaa arkistossa."
+msgstr "Subversion ei sisällä erityisiä komentoja haarautumiseen tai merkittyjen versioiden tekoon, vaan käyttää tarkoitukseen ns. <quote>halpoja kopioita</quote>. Halvat kopiot muistuttavat Unix-järjestelmien kovia linkkejä, mikä tarkoittaa, että täyden arkistokopion sijaan luodaan sisäinen linkki, joka osoittaa tiettyyn puuhun/versioon. Tästä syystä haaroja ja merkittyjä versioita voidaan luoda hyvin nopeasti ja ne kuluttavat tuskin ollenkaan ylimääräistä tilaa arkistossa."
 
 #. (title)
 msgid "Creating a Branch or Tag"
-msgstr "Haaran tai merkin luonti"
+msgstr "Haaran tai merkityn version luonti"
 
 #. (title)
 msgid "The Branch/Tag Dialog"
-msgstr "Haara/merkki -ikkuna"
+msgstr "Haara / merkitty versio -ikkuna"
 
 #. (para)
 msgid "If you have imported your project with the recommended directory structure, creating a branch or tag version is very simple: <placeholder-1/> Select the folder in your working copy which you want to copy to a branch or tag, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branch/Tag...</guimenuitem></menuchoice>."
-msgstr "Jos olet tuonut projektisi arkistoon käyttäen suositeltua hakemistorakennetta, haaran tai merkityn version tekeminen on yksinkertaista: <placeholder-1/> Valitse työkopiostasi se kansio, jonka haluat kopioda haaraan tai merkitä ja valitse sitten komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Luo haara/merkki...</guimenuitem></menuchoice>."
+msgstr "Jos olet tuonut projektisi arkistoon käyttäen suositeltua hakemistorakennetta, haaran tai merkityn version tekeminen on yksinkertaista: <placeholder-1/> Valitse työkopiostasi se kansio, jonka haluat kopioda haaraan tai merkitä ja valitse sitten komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Luo haara / merkitty versio...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -6199,7 +6199,7 @@ msgstr "Uusi haara kopioidaan suoraan arkistossa, mutta voit valita vanhemman ve
 
 #. (para)
 msgid "The new branch is an identical copy of your local working copy. If you have updated some files to an older revision in your WC, or if you have made local changes, that is exactly what goes into the copy. Naturally this sort of complex tag may involve transferring data from your WC back to the repository if it does not exist there already."
-msgstr "Uusi haara on kaksoiskappale työkopiostasi. Jos olet päivittänyt työkopiosi tiedostoja vanhempaan versioon tai tehnyt paikallisia muutoksia, ne siirtyvät kopioon. Tällainen monimutkainen merkintä vaatii tiedonsiirtoa työkopion ja arkiston välillä, ja on siksi hitain vaihtoehto."
+msgstr "Uusi haara on kaksoiskappale työkopiostasi. Jos olet päivittänyt työkopiosi tiedostoja vanhempaan versioon tai tehnyt paikallisia muutoksia, ne siirtyvät kopioon. Tällainen monimutkainen merkitty versio vaatii tiedonsiirtoa työkopion ja arkiston välillä, ja on siksi hitain vaihtoehto."
 
 #. (para)
 msgid "Now you have to select the source of the copy. Here you have three options: <placeholder-1/>"
@@ -6207,7 +6207,7 @@ msgstr "Nyt on valittava, mistä kopio tehdään.  Subversion tarjoaa kolme vaih
 
 #. (para)
 msgid "If you want your working copy to be switched to the newly created branch automatically, use the <guilabel>Switch working copy to new branch/tag</guilabel> checkbox. But if you do that, first make sure that your working copy does not contain modifications. If it does, those changes will be merged into the branch WC when you switch."
-msgstr "Jos haluat työkopiosi vaihtuvan osoittamaan uuteen haaraan automaattisesti, ruksaa valinta <guilabel>Vaihda työkopio uuteen haaraan/merkkiin</guilabel>. Mutta ennen kuin teet sen, varmista, ettei työkopiossasi ole paikallisia muutoksia. Jos niitä kuitenkin on, ne yhdistetään haaran työkopioon vaihdon yhteydessä."
+msgstr "Jos haluat työkopiosi vaihtuvan osoittamaan uuteen haaraan automaattisesti, ruksaa valinta <guilabel>Vaihda työkopio uuteen haaraan / merkittyyn versioon</guilabel>. Mutta ennen kuin teet sen, varmista, ettei työkopiossasi ole paikallisia muutoksia. Jos niitä kuitenkin on, ne yhdistetään haaran työkopioon vaihdon yhteydessä."
 
 #. (para)
 msgid "Press <guibutton>OK</guibutton> to commit the new copy to the repository. Don't forget to supply a log message. Note that the copy is created <emphasis>inside the repository</emphasis>."
@@ -6215,7 +6215,7 @@ msgstr "Napsauta <guibutton>OK</guibutton> toimittaaksesi uuden kopion arkistoon
 
 #. (para)
 msgid "Note that unless you opted to switch your working copy to the newly created branch, creating a Branch or Tag does <emphasis>not</emphasis> affect your working copy. Even if you create the branch from your WC, those changes are committed to the new branch, not to the trunk, so your WC may still be marked as modified with respect to the trunk."
-msgstr "Huomaa, että mikäli et pyytänyt työkopion vaihtamista osoittamaan uuteen haaraan, niin haaran tai merkin luonti <emphasis>ei</emphasis> vaikuta työkopioosi. Vaikka loisit haaran muuttuneesta työkopiostasi, voi työkopiosi luonnin jälkeen yhä olla muuttunut suhteessa päähaaraan, koska muutokset toimitetaan uuteen haaraan, ei päähaaraan (jonne haara osoittaa)."
+msgstr "Huomaa, että mikäli et pyytänyt työkopion vaihtamista osoittamaan uuteen haaraan, niin haaran tai merkityn version luonti <emphasis>ei</emphasis> vaikuta työkopioosi. Vaikka loisit haaran muuttuneesta työkopiostasi, voi työkopiosi luonnin jälkeen yhä olla muuttunut suhteessa päähaaraan, koska muutokset toimitetaan uuteen haaraan, ei päähaaraan (jonne haara osoittaa)."
 
 #. (title)
 msgid "To Checkout or to Switch..."
@@ -6239,7 +6239,7 @@ msgstr "Vaihtaa nykyisen työkopiosi osoittamaan juuri luotuun kopioon arkistoss
 
 #. (para)
 msgid "In the next dialog enter the URL of the branch you just created. Select the <guilabel>Head Revision</guilabel> radio button and click on <guibutton>OK</guibutton>. Your working copy is switched to the new branch/tag."
-msgstr "Syötä aukeavaan ikkunaan juuri luomasi haaran paikannin. Valitse <guilabel>Uusin versio</guilabel> ja napsauta <guibutton>OK</guibutton>. Työkopiosi vaihdetaan osoittamaan uuteen haaraan / merkintään."
+msgstr "Syötä aukeavaan ikkunaan juuri luomasi haaran paikannin. Valitse <guilabel>Uusin versio</guilabel> ja napsauta <guibutton>OK</guibutton>. Työkopiosi vaihdetaan osoittamaan uuteen haaraan / merkittyyn versioon."
 
 #. (para)
 msgid "Switch works just like Update in that it never discards your local changes. Any changes you have made to your working copy which have not yet been committed will be merged when you do the Switch. If you do not want this to happen then you must either commit the changes before switching, or revert your working copy to an already-committed revision (typically HEAD)."
@@ -6255,11 +6255,11 @@ msgstr "Vaihtoikkuna"
 
 #. (para)
 msgid "To be able to work with your freshly generated branch or tag you have several ways to handle it. You can: <placeholder-1/><placeholder-2/>"
-msgstr "On useita tapoja ottaa käyttöön juuri luomasi haara tai merkki. Voit: <placeholder-1/><placeholder-2/>"
+msgstr "On useita tapoja ottaa käyttöön juuri luomasi haara tai merkitty versio. Voit: <placeholder-1/><placeholder-2/>"
 
 #. (para)
 msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
-msgstr "Merkkejä käytetään tavallisesti luomaan muuttumaton otos projektista tietyssä vaiheessa. Niitä ei yleensä sellaisinaan käytetä jatkokehitykseen - haarat ovat sitä varten; tästä syystä suosittelimme <filename>/trunk /branches /tags</filename> -arkistorakennetta alun perin. Merkkiversion muuttaminen <emphasis>ei ole hyvä ajatus</emphasis>, mutta koska paikalliset tiedostot eivät ole kirjoitussuojattuja, mikään ei estä sinua tekemästä tätä vahingossa. Jos kuitenkin koetat toimittaa muutoksia arkistoon polulle, joka sisältää osan <filename>/tags/</filename>, TortoiseSVN varoittaa tästä."
+msgstr "Merkittyjä versioita käytetään tavallisesti luomaan muuttumaton otos projektista tietyssä vaiheessa. Niitä ei yleensä sellaisinaan käytetä jatkokehitykseen - haarat ovat sitä varten; tästä syystä suosittelimme <filename>/trunk /branches /tags</filename> -arkistorakennetta alun perin. Merkityn version muuttaminen <emphasis>ei ole hyvä ajatus</emphasis>, mutta koska paikalliset tiedostot eivät ole kirjoitussuojattuja, mikään ei estä sinua tekemästä tätä vahingossa. Jos kuitenkin koetat toimittaa muutoksia arkistoon polulle, joka sisältää osan <filename>/tags/</filename>, TortoiseSVN varoittaa tästä."
 
 #. (para)
 msgid "It may be that you need to make further changes to a release which you have already tagged. The correct way to handle this is to create a new branch from the tag first and commit the branch. Do your Changes on this branch and then create a new tag from this new branch, e.g. <filename>Version_1.0.1</filename>."
@@ -6271,7 +6271,7 @@ msgstr "Jos muutat haarasta tehtyä työkopiota ja toimitat muutoksesi arkistoon
 
 #. (para)
 msgid "Although Subversion itself makes no distinction between tags and branches, the way they are typically used differs a bit. <placeholder-1/>"
-msgstr "Vaikka Subversion ei itse tee eroa merkkien ja haarojen välillä (ne ovat molemmat polkukopiota), niiden käyttötapa on tavallisesti erilainen. <placeholder-1/>"
+msgstr "Vaikka Subversion ei itse tee eroa merkittyjen versioiden ja haarojen välillä (ne ovat molemmat polkukopiota), niiden käyttötapa on tavallisesti erilainen. <placeholder-1/>"
 
 #. (title)
 msgid "Merging"
@@ -6363,7 +6363,7 @@ msgstr "Ohjattu yhdistäminen - versioväli"
 
 #. (para)
 msgid "<placeholder-1/> In the <guilabel>From:</guilabel> field enter the full folder URL of the branch or tag containing the changes you want to port into your working copy. You may also click <guibutton>...</guibutton> to browse the repository and find the desired branch. If you have merged from this branch before, then just use the drop down list which shows a history of previously used URLs."
-msgstr "<placeholder-1/> Syötä <guilabel>Mistä:</guilabel>-kenttään sen haaran tai merkin paikannin, jossa työkopioon yhdistettävät versiot sijaitsevat. Voit myös napsauttaa <guibutton>...</guibutton>-näppäintä etsiäksesi haaran arkistoselaimella. Jos olet aiemmin yhdistänyt tästä haarasta, voit valita paikantimen suoraan pudotusvalikosta, joka sisältää aiemmin käytetyt paikantimet."
+msgstr "<placeholder-1/> Syötä <guilabel>Mistä:</guilabel>-kenttään sen haaran tai merkityn version paikannin, jossa työkopioon yhdistettävät versiot sijaitsevat. Voit myös napsauttaa <guibutton>...</guibutton>-näppäintä etsiäksesi haaran arkistoselaimella. Jos olet aiemmin yhdistänyt tästä haarasta, voit valita paikantimen suoraan pudotusvalikosta, joka sisältää aiemmin käytetyt paikantimet."
 
 #. (para)
 msgid "In the <guilabel>Revision range to merge</guilabel> field enter the list of revisions you want to merge. This can be a single revision, a list of specific revisions separated by commas, or a range of revisions separated by a dash, or any combination of these."
@@ -7076,7 +7076,7 @@ msgstr "Merkitä kansion vertailtavaksi. Merkitty kansio näytetään lihavoitun
 
 #. (para)
 msgid "Compare the folder with a previously marked folder, either as a unified diff, or as a list of changed files which can then be visually diffed using the default diff tool. This can be particularly useful for comparing two tags, or trunk and branch to see what changed."
-msgstr "Verrata kansiota aiemmin merkityn kanssa. Voit näyttää vertailun joko unified diff-muodossa tai luettelona muuttuneita tiedostoja, joita voit sitten katsella vertailutyökalulla. Tämä voi olla erityisen hyödyllistä vertailtaessa kahta merkkiä tai päähaaraa ja kehityshaaraa, jotta nähtäisiin, mitä on muuttunut."
+msgstr "Verrata kansiota aiemmin merkityn kanssa. Voit näyttää vertailun joko unified diff-muodossa tai luettelona muuttuneita tiedostoja, joita voit sitten katsella vertailutyökalulla. Tämä voi olla erityisen hyödyllistä vertailtaessa kahta merkittyä versiota tai päähaaraa ja kehityshaaraa, jotta nähtäisiin, mitä on muuttunut."
 
 #. (para)
 msgid "The context menu for a folder allows you to: <placeholder-1/>"
@@ -7092,7 +7092,7 @@ msgstr "Jos valitset useita kansioita oikeasta paneelista, voit hakea niistä ka
 
 #. (para)
 msgid "If you select 2 tags which are copied from the same root (typically <literal>/trunk/</literal>), you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log...</guimenuitem></menuchoice> to view the list of revisions between the two tag points."
-msgstr "Jos valitset kaksi merkkiä, jotka on kopioita samasta juuresta (tyypillisesti <literal>/trunk/</literal>), voit käyttää komentoa <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Näytä loki...</guimenuitem></menuchoice> nähdäksesi kahden merkkipisteen välisen versiolistan."
+msgstr "Jos valitset kaksi merkittyä versiota, jotka on kopioita samasta juuresta (tyypillisesti <literal>/trunk/</literal>), voit käyttää komentoa <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Näytä loki...</guimenuitem></menuchoice> nähdäksesi merkittyjen versioiden välisen versiolistan."
 
 #. (para)
 msgid "You can use <keycap>F5</keycap> to refresh the view as usual. This will refresh everything which is currently displayed. If you want to pre-fetch or refresh the information for nodes which have not been opened yet, use <keycap>Ctrl-F5</keycap>. After that, expanding any node will happen instantly without a network delay while the information is fetched."
@@ -7136,11 +7136,11 @@ msgstr "Versiograafi"
 
 #. (para)
 msgid "<placeholder-1/> Sometimes you need to know where branches and tags were taken from the trunk, and the ideal way to view this sort of information is as a graph or tree structure. That's when you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph...</guimenuitem></menuchoice>"
-msgstr "<placeholder-1/> Joskus on tarpeen tietää, milloin päähaarasta on haarauduttu tai tehty merkkejä. Paras tapa katsella tämän tyyppistä tietoa on verkko tai puurakenne. Tällöin tarvitset komentoa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Versiograafi...</guimenuitem></menuchoice>"
+msgstr "<placeholder-1/> Joskus on tarpeen tietää, milloin päähaarasta on haarauduttu tai tehty merkittyjä versioita. Tämäntyyppisen tiedon tarkasteluun sopii parhaiten verkko tai puurakenne, jonka saat näkyviin komennolla <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Versiograafi...</guimenuitem></menuchoice>"
 
 #. (para)
 msgid "This command analyses the revision history and attempts to create a tree showing the points at which copies were taken, and when branches/tags were deleted."
-msgstr "Komento analysoi versiohistorian ja koettaa luoda puun, joka näyttää paikat, missä tehtiin kopioita, ja milloin haarat/merkit tuhottiin."
+msgstr "Komento analysoi versiohistorian ja koettaa luoda puun, joka näyttää paikat, missä tehtiin kopioita, ja milloin haarat / merkityt versiot tuhottiin."
 
 #. (para)
 msgid "In order to generate the graph, TortoiseSVN must fetch all log messages from the repository root. Needless to say this can take several minutes even with a repository of a few thousand revisions, depending on server speed, network bandwidth, etc. If you try this with something like the <emphasis>Apache</emphasis> project which currently has over 500,000 revisions you could be waiting for some time."
@@ -7160,7 +7160,7 @@ msgstr "Lisätyt tai kopioidut kohteet"
 
 #. (para)
 msgid "Items which have been added, or created by copying another file/folder are shown using a rounded rectangle. The default colour is green. Tags and trunks are treated as a special case and use a different shade, depending on the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>"
-msgstr "Kohteet, jotka on lisätty tai luotu kopioimalla toinen tiedosto/kansio, näytetään pyöristetyn suorakaiteen avulla. Oletusväri on vihreä. Merkkejä (engl. tag) ja päähaaraa (engl. trunk) käsitellään erikoistapauksina; niillä on eri värisävy, jonka voi asettaa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Asetukset</guimenuitem></menuchoice> -ikkunassa."
+msgstr "Kohteet, jotka on lisätty tai luotu kopioimalla toinen tiedosto/kansio, näytetään pyöristetyn suorakaiteen avulla. Oletusväri on vihreä. Merkittyjä versioita (engl. tag) ja päähaaraa (engl. trunk) käsitellään erikoistapauksina; niillä on eri värisävy, jonka voi asettaa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Asetukset</guimenuitem></menuchoice> -ikkunassa."
 
 #. (term)
 msgid "Deleted items"
@@ -7292,11 +7292,11 @@ msgstr "Täsmälliset kopiolähteet"
 
 #. (para)
 msgid "When a branch/tag is made, the default behaviour is to show the branch as taken from the last node where a change was made. Strictly speaking this is inaccurate since the branches are often made from the current HEAD rather than a specific revision. So it is possible to show the more correct (but less useful) revision that was used to create the copy. Note that this revision may be younger than the HEAD revision of the source branch."
-msgstr "Kun haara tai merkki luodaan, se näytetään oletusarvoisesti sellaisena, kuin se oli viimeisessä muutetussa solmussa. Tarkkaan ottaen tämä ei ole oikein, koska haarat tehdään usein nykyisestä HEAD-versiosta tietyn version sijaan. Komennon avulla on mahdollista näyttää oikeampi (mutta vähemmän hyödyllinen) versio, jota käytettiin kopion tekemiseen. Huomaa, että versio voi olla luotu aiemmin kuin lähdehaaran HEAD-versio."
+msgstr "Kun haara tai merkitty versio luodaan, se näytetään oletusarvoisesti sellaisena, kuin se oli viimeisessä muutetussa solmussa. Tarkkaan ottaen tämä ei ole oikein, koska haarat tehdään usein nykyisestä HEAD-versiosta tietyn version sijaan. Komennon avulla on mahdollista näyttää oikeampi (mutta vähemmän hyödyllinen) versio, jota käytettiin kopion tekemiseen. Huomaa, että versio voi olla luotu aiemmin kuin lähdehaaran HEAD-versio."
 
 #. (term)
 msgid "Fold tags"
-msgstr "Näytä merkit lähtösolmussa"
+msgstr "Näytä merkityt versiot lähtösolmussa"
 
 #. (para)
 msgid "When a project has many tags, showing every tag as a separate node on the graph takes a lot of space and obscures the more interesting development branch structure. At the same time you may need to be able to access the tag content easily so that you can compare revisions. This option hides the nodes for tags and shows them instead in the tooltip for the node that they were copied from. A tag icon on the right side of the source node indicates that tags were made."
@@ -8261,7 +8261,7 @@ msgstr "Luokitteluhahmot"
 
 #. (para)
 msgid "The revision graph attempts to show a clearer picture of your repository structure by distinguishing between trunk, branches and tags. As there is no such classification built into Subversion, this information is extracted from the path names. The default settings assume that you use the conventional English names as suggested in the Subversion documentation, but of course your usage may vary."
-msgstr "Versiograafi koettaa selkeyttää arkistosi rakenteen esitystä käsittelemällä päähaaraa, haaroja ja merkintöjä eri tavoin. Koska Subversion ei tue tällaista erottelua, toiminto perustuu polkunimiin. Oletusarvoisesti käytetään Subversion-kirjassa suositeltuja (englanninkielisiä) nimiä, mutta tätä voi toki muuttaa."
+msgstr "Versiograafi koettaa selkeyttää arkistosi rakenteen esitystä käsittelemällä päähaaraa, haaroja ja merkittyjä versioita eri tavoin. Koska Subversion ei tue tällaista erottelua, toiminto perustuu polkunimiin. Oletusarvoisesti käytetään Subversion-kirjassa suositeltuja (englanninkielisiä) nimiä, mutta tätä voi toki muuttaa."
 
 #. (para)
 msgid "Specify the patterns used to recognise these paths in the three boxes provided. The patterns will be matched case-insensitively, but you must specify them in lower case. Wild cards <literal>*</literal> and <literal>?</literal> will work as usual, and you can use <literal>;</literal> to separate multiple patterns. Do not include any extra white space as it will be included in the matching specification."
@@ -8353,7 +8353,7 @@ msgstr "Jos haluat näyttää, onko työkopio muuttunut, käytä tätä reunavä
 
 #. (term)
 msgid "Tag Nodes"
-msgstr "Merkintäsolmut"
+msgstr "Merkittyjen versioiden solmut"
 
 #. (para)
 msgid "Nodes classified as tags may be blended with this color."
@@ -8369,15 +8369,15 @@ msgstr "Päähaaraan kuuluvat solmut korostetaan tällä värillä"
 
 #. (term)
 msgid "Folded Tag Markers"
-msgstr "Lähtösolmumerkintöjen valitseminen"
+msgstr "Lähtösolmuun yhdistettyjen merkittyjen versioiden esitystapa"
 
 #. (para)
 msgid "If you use tag folding to save space, tags are marked on the copy source using a block in this color."
-msgstr "Jos näytät merkinnät lähtösolmussa tilan säästämiseksi, ne näytetään kopiolähteessä tämän värisellä lohkolla."
+msgstr "Jos näytät merkityt versiot lähtösolmussa tilan säästämiseksi, ne näytetään kopiolähteessä tämän värisellä lohkolla."
 
 #. (term)
 msgid "Selected Node Markers"
-msgstr "Valitut solmumerkit"
+msgstr "Valittujen solmujen esitystapa"
 
 #. (para)
 msgid "When you left click on a node to select it, the marker used to indicate selection is a block in this color."
@@ -10307,7 +10307,7 @@ msgstr "Valitse työkopiossasi komento <menuchoice><guimenu>TortoiseSVN</guimenu
 
 #. (para)
 msgid "In the <guilabel>From:</guilabel> field enter the full folder URL of the branch or tag containing the changes you want to revert in your working copy. This should come up as the default URL."
-msgstr "Syötä <guilabel>Mistä:</guilabel>-kenttään sen haaran/merkin paikannin (mukaan lukien kansiopolku), josta haluat perua muutoksia työkopioosi."
+msgstr "Syötä <guilabel>Mistä:</guilabel>-kenttään sen haaran / merkityn version paikannin, josta haluat perua muutoksia työkopioosi."
 
 #. (para)
 msgid "In the <guilabel>From Revision</guilabel> field enter the revision number that you are currently at. If you are sure there is no-one else making changes, you can use the HEAD revision."
@@ -10723,7 +10723,7 @@ msgstr "Luo arkisto tänne"
 #. (entry)
 #. (title)
 msgid "Branch/Tag"
-msgstr "Haaraudu/luo merkki"
+msgstr "Luo haara / merkitty versio"
 
 #. (entry)
 #. (title)
@@ -11152,7 +11152,7 @@ msgstr "Avaa Yhdistä kaikki -ikkunan. Valitsin <placeholder-1/> määrittää k
 
 #. (entry)
 msgid "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to branch/tag from. And the <placeholder-2/> is the target URL. You can also specify the <placeholder-3/> switch to pass a predefined log message to the branch/tag dialog. Or, if you don't want to pass the log message on the command line, use <placeholder-4/>, where <placeholder-5/> points to a file containing the log message."
-msgstr "Avaa haarautumisikkunan. Valitsin <placeholder-1/> kertoo työkopion, josta haara/merkki tehdään."
+msgstr "Avaa haarautumisikkunan. Valitsin <placeholder-1/> kertoo työkopion, josta haara / merkitty versio tehdään."
 
 #. (entry)
 msgid "Opens the settings dialog."
