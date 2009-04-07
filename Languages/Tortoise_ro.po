@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-25 23:02+0200\n"
+"PO-Revision-Date: 2009-04-07 13:35+0200\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1462,6 +1462,11 @@ msgstr "Adaugă program de diferenţiere specific unei extensii"
 msgid "Add extension specific merge program"
 msgstr "Adaugă program de îmbinare specific unei extensii"
 
+#. Resource IDs: (1065)
+#, fuzzy
+msgid "Add new files automatically to SVN"
+msgstr "Selectează elemente automat"
+
 #. Resource IDs: (89)
 msgid "Add the item anyway"
 msgstr "Adaugă elementul oricum"
@@ -1603,6 +1608,11 @@ msgstr "Permite depozite diferite să folosească acelaşi URL, ex. http://local
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Permite depozite diferite să folosească acelaşi UUID, ex. depozite copiate"
+
+#. Resource IDs: (1480)
+#, fuzzy
+msgid "Always close dialogs for local operations"
+msgstr "Închide automat pentru operaţiuni locale"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1801,10 +1811,6 @@ msgstr "Ascunde totul automat"
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "Redenumeşte automat"
-
-#. Resource IDs: (222)
-msgid "Auto-close for local operations"
-msgstr "Închide automat pentru operaţiuni locale"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -9370,6 +9376,10 @@ msgid ""
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
+"Încercaţi să accesaţi depozitul prin file:// \n"
+"la o unitate de disc de pe reţea.\n"
+"Depozitul sa-r putea corupta grav!\n"
+"Sigur doriţi să continuaţi?"
 
 #. Resource IDs: (105)
 msgid ""
