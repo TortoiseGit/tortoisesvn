@@ -1,4 +1,14 @@
 #!/usr/bin/env python
+#
+# Copyright (C) 2009 the TortoiseSVN team
+# This file is distributed under the same license as TortoiseSVN
+#
+# $Author$
+# $Date$
+# $Rev$
+#
+# Author: Luebbe Onken 2009
+#
 
 """Usage: translation-status.py [OPTION...]
 
