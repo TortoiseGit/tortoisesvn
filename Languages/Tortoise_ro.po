@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-07 13:35+0200\n"
+"PO-Revision-Date: 2009-04-07 14:36+0200\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1463,9 +1463,8 @@ msgid "Add extension specific merge program"
 msgstr "Adaugă program de îmbinare specific unei extensii"
 
 #. Resource IDs: (1065)
-#, fuzzy
 msgid "Add new files automatically to SVN"
-msgstr "Selectează elemente automat"
+msgstr "Adaugă automat fişiere noi la SVN"
 
 #. Resource IDs: (89)
 msgid "Add the item anyway"
@@ -1734,7 +1733,6 @@ msgid "Arrange &Vertical"
 msgstr "Aranjează &vertical"
 
 #. Resource IDs: (199)
-#, fuzzy
 msgid "Ask the user"
 msgstr "Întreabă utilizatorul"
 
@@ -1792,9 +1790,8 @@ msgid "Authors"
 msgstr "Autori"
 
 #. Resource IDs: (1265)
-#, fuzzy
 msgid "Authors case sensitive"
-msgstr "Autori fără majuscule"
+msgstr "Autori cu majuscule semnificative"
 
 #. Resource IDs: (65535)
 msgid "Authors:"
@@ -1885,7 +1882,6 @@ msgid "Blame..."
 msgstr "Învinovăţire..."
 
 #. Resource IDs: (13)
-#, fuzzy
 msgid "Blames each line of a file on an author"
 msgstr "Învinovăţeşte câte un autor la fiecare linie a fişierului"
 
@@ -2161,9 +2157,8 @@ msgid "Check the log to find out how the file/folder got renamed/moved and decid
 msgstr "Verificaţi jurnalul să aflaţi cum s-a mutat/redenumit fişierul/dosarul şi decideţi dacă doriţi să vă păstraţi redenumirea/mutarea sau să folosiţi cea din depozit. Atunci marcaţi conflictul ca fiind resolvat."
 
 #. Resource IDs: (612)
-#, fuzzy
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to merge the change into your renamed file, or restore the original file."
-msgstr "Verificaţi jurnalul să aflaţi cum s-a mutat/redenumit fişierul/dosarul şi decideţi dacă doriţi să vă păstraţi redenumirea/mutarea sau să folosiţi cea din depozit. Atunci marcaţi conflictul ca fiind resolvat."
+msgstr "Verificaţi jurnalul să aflaţi cum s-a mutat/redenumit fişierul/dosarul şi decideţi dacă doriţi să îmbinaţi schimbarea cu fişierul redenumit sau să restauraţi fişierul original."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -5094,9 +5089,8 @@ msgid "Mail system DLL is invalid."
 msgstr "DLL-ul sistemului de mail este invalid."
 
 #. Resource IDs: (1431)
-#, fuzzy
 msgid "Make this the default"
-msgstr "Face ca acesta să fie implicitul"
+msgstr "Selectează acesta ca implicitul"
 
 #. Resource IDs: (17)
 msgid "Manage Subversion properties"
@@ -6349,7 +6343,7 @@ msgstr ""
 
 #. Resource IDs: (32819)
 msgid "Reduce cross-&lines"
-msgstr "Reduce liniile încrucişate"
+msgstr "Reduce &liniile încrucişate"
 
 #. Resource IDs: (3825)
 msgid "Reduce the window to an icon"
@@ -6781,9 +6775,8 @@ msgid "Revision Graph Filter"
 msgstr "Filtrul graficelor reviziei"
 
 #. Resource IDs: (299)
-#, fuzzy
 msgid "Revision Graph::Colors"
-msgstr "Graficul reviziei"
+msgstr "Graficul reviziei::Culori"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -7375,9 +7368,8 @@ msgid "Show More Buttons"
 msgstr "Afişează mai multe butoane"
 
 #. Resource IDs: (32813)
-#, fuzzy
 msgid "Show Ove&rview"
-msgstr "Afiş&ează vedere generală"
+msgstr "Afişează vede&re generală"
 
 #. Resource IDs: (1068)
 msgid "Show Quick Access Toolbar Above the Ribbon"
@@ -7448,6 +7440,8 @@ msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr ""
+"Afişează sau ascunde bara de diferenţiere între linii\n"
+"Comută LineDiffBar"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -7700,11 +7694,11 @@ msgstr "Cache de stare"
 
 #. Resource IDs: (196)
 msgid "Status cache kept in an external process, can show the overlay recursively"
-msgstr ""
+msgstr "Cache de stare este păstrat într-un proces extern, suprapunerea poate fi afişată recursiv"
 
 #. Resource IDs: (196)
 msgid "Status cache only for one folder, no recursive overlays"
-msgstr ""
+msgstr "Cache de stare pentr-un singur dosar, fără suprapuneri recursive"
 
 #. Resource IDs: (11)
 msgid "Status of item in SVN"
