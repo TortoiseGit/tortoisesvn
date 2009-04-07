@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -56,7 +56,7 @@ BOOL CBlame::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString
 	CStringA authorA(author);
 	CStringA pathA(merged_path);
 	TCHAR c = ' ';
-	if (!merged_author.IsEmpty() && (merged_revision > 0))
+	if (merged_revision < revision)
 	{
 		dateA = CStringA(merged_date);
 		authorA = CStringA(merged_author);
