@@ -2137,7 +2137,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				if (m_dwContextMenus & SVNSLC_POPCOMPAREWITHBASE)
 				{
 					popup.AppendMenuIcon(IDSVNLC_COMPARE, IDS_LOG_COMPAREWITHBASE, IDI_DIFF);
-					popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
+					if ((wcStatus != svn_wc_status_normal)||(entry->remotestatus > svn_wc_status_normal))
+						popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
 				}
 
 				if (selectedCount == 1)
