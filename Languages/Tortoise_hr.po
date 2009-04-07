@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-28 09:39+0100\n"
+"PO-Revision-Date: 2009-04-07 10:46+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1475,6 +1475,10 @@ msgstr "Dodajte program za upravljanje razlikama za određenu vrstu datoteka"
 msgid "Add extension specific merge program"
 msgstr "Dodaj program za stapanje datoteka određene vrste"
 
+#. Resource IDs: (1065)
+msgid "Add new files automatically to SVN"
+msgstr "Automatski dodaj nove datoteke u SVN"
+
 #. Resource IDs: (89)
 msgid "Add the item anyway"
 msgstr "Svejedno dodaj stavku  "
@@ -1616,6 +1620,10 @@ msgstr "Dozvoli da različita skladišta upotrebljavaju isti URL, npr. http:/loc
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Dozvoli da različita skladišta upotrebljavaju isti URL, napr. kopirana skladišta"
+
+#. Resource IDs: (1480)
+msgid "Always close dialogs for local operations"
+msgstr "Automatski zatvori dijaloge za lokalne operacije"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1815,10 +1823,6 @@ msgstr "Automatsko skrivanje"
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "Automatska promijena imena"
-
-#. Resource IDs: (222)
-msgid "Auto-close for local operations"
-msgstr "Automatski zatvori za lokalne operacije"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -5474,7 +5478,7 @@ msgstr "Premješteno na daljinu"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
-msgstr "Prvo premješta promijenjene datoteke u 'kantu za smeće', prije vraćanja na staro"
+msgstr "Prvo premješta promijenjene datoteke u košaru za smeće, prije vraćanja na staro"
 
 #. Resource IDs: (80)
 #, c-format
@@ -9121,7 +9125,7 @@ msgstr "Koristi lokalno"
 
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
-msgstr "Koristi kantu sa optatcima kada vraćaš"
+msgstr "Koristi košaru za smeće prilikom vraćanja na staru inačicu"
 
 #. Resource IDs: (116)
 msgid "Use regular expression"
