@@ -696,7 +696,7 @@ UINT CCommitDlg::StatusThread()
 		DialogEnableWindow(IDC_SELECTALL, true);
 		if (m_ListCtrl.HasChangeLists())
 			DialogEnableWindow(IDC_KEEPLISTS, true);
-		else if (m_ListCtrl.HasExternalsFromDifferentRepos())
+		if (m_ListCtrl.HasExternalsFromDifferentRepos())
 			DialogEnableWindow(IDC_SHOWEXTERNALS, true);
 		if (m_ListCtrl.HasLocks())
 			DialogEnableWindow(IDC_KEEPLOCK, true);
