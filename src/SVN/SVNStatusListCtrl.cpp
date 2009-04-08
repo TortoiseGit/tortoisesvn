@@ -1460,7 +1460,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 		m_nSelected++;
 	if (m_changelists.find(entry->changelist) != m_changelists.end())
 		SetItemGroup(index, m_changelists[entry->changelist]);
-	else
+	else if (m_bExternalsGroups)
 	{
 		// maybe we have externals groups
 		if (entry->IsInExternal() && !m_externalSet.empty())
@@ -1486,6 +1486,9 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 		else
 			SetItemGroup(index, 0);
 	}
+	else
+		SetItemGroup(index, 0);
+
 	m_bBlock = FALSE;
 }
 
