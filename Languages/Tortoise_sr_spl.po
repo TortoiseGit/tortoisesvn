@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-27 21:35+0100\n"
+"PO-Revision-Date: 2009-04-08 18:01+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1661,6 +1661,10 @@ msgstr "Dodaj diff program zavistan od ekstenzija"
 msgid "Add extension specific merge program"
 msgstr "Dodaj program za stapanje zavistan od ekstenzije"
 
+#. Resource IDs: (1065)
+msgid "Add new files automatically to SVN"
+msgstr "Dodaj nove fajlove automatski u SVN"
+
 #. Resource IDs: (89)
 msgid "Add the item anyway"
 msgstr "Dodaj stavku bilo gde"
@@ -1802,6 +1806,10 @@ msgstr "Dozvoli da različita spremišta upotrebljavaju isti URL, napr. http://l
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Dozvoli da različita spremišta upotrebljavaju isti UUID, npr. kopirana spremišta"
+
+#. Resource IDs: (1480)
+msgid "Always close dialogs for local operations"
+msgstr "Uvek zatvori dijaloge za lokalne operacije"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1998,10 +2006,6 @@ msgstr "Automatsko skrivanje svega"
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "Automatsko preimenovanje"
-
-#. Resource IDs: (222)
-msgid "Auto-close for local operations"
-msgstr "Automatsko zatvaranje za lokalne operacije"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -4110,7 +4114,7 @@ msgstr ""
 
 #. Resource IDs: (77, 219)
 msgid "Finished!"
-msgstr "Gotov!"
+msgstr "Završeno!"
 
 #. Resource IDs: (32804)
 msgid "Fit graph"
@@ -6150,7 +6154,7 @@ msgstr "Odabrana zakrpa"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
-msgstr "fajlovi zakrpa (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
+msgstr "fajlovi zakrpa (*.dif, *.peč)|*.diff;*.patch|Svi (*.*)|*.*||"
 
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
@@ -6186,7 +6190,7 @@ msgstr "Slika:"
 
 #. Resource IDs: (157)
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "Slike (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Slike (*.njmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Svi l (*.*)|*.*||"
 
 #. Resource IDs: (246)
 msgid "Pie Graph"

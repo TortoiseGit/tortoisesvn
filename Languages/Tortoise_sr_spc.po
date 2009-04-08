@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-06 15:04+0100\n"
+"PO-Revision-Date: 2009-04-08 18:01+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1661,6 +1661,10 @@ msgstr "Додај дифф програм завистан од екстенз�
 msgid "Add extension specific merge program"
 msgstr "Додај програм за стапање завистан од екстензије"
 
+#. Resource IDs: (1065)
+msgid "Add new files automatically to SVN"
+msgstr "Додај нове фајлове аутоматски у СВН"
+
 #. Resource IDs: (89)
 msgid "Add the item anyway"
 msgstr "Додај ставку било где"
@@ -1802,6 +1806,10 @@ msgstr "Дозволи да различита спремишта употреб
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Дозволи да различита спремишта употребљавају исти УУИД, нпр. копирана спремишта"
+
+#. Resource IDs: (1480)
+msgid "Always close dialogs for local operations"
+msgstr "Увек затвори дијалоге за локалне операције"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1998,10 +2006,6 @@ msgstr "Аутоматско скривање свега"
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "Аутоматско преименовање"
-
-#. Resource IDs: (222)
-msgid "Auto-close for local operations"
-msgstr "Аутоматско затварање за локалне операције"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -4110,7 +4114,7 @@ msgstr ""
 
 #. Resource IDs: (77, 219)
 msgid "Finished!"
-msgstr "Готов!"
+msgstr "Завршено!"
 
 #. Resource IDs: (32804)
 msgid "Fit graph"
