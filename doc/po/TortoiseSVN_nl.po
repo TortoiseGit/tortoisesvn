@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2009-03-31 09:17+0200\n"
+"PO-Revision-Date: 2009-04-08 11:06+0200\n"
 "Last-Translator: Bob Hulst <bob.hulst@hiq.fi>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8042,7 +8042,7 @@ msgid "Tag Nodes"
 msgstr "Tag Nodes"
 
 #. (para)
-msgid "Nodes classified as tags may be blended with this color. If you use tag folding to save space, tags are marked on the copy source using a block in this color."
+msgid "Nodes classified as tags may be blended with this color."
 msgstr ""
 
 #. (term)
@@ -10459,8 +10459,44 @@ msgstr "/endrev:xxx"
 msgid "/strict"
 msgstr "/strict"
 
+#. (option)
+msgid "/findstring:\"filterstring\""
+msgstr ""
+
+#. (option)
+msgid "/findtext"
+msgstr ""
+
+#. (option)
+msgid "/findtype:X"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:1</option> filter by everything"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:2</option> filter by messages"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:3</option> filter by path"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:4</option> filter by authors"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:5</option> filter by revisions"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:7</option> filter by bug ID"
+msgstr ""
+
 #. (entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Three additional options can be set: <placeholder-2/>, <placeholder-3/> and <placeholder-4/>"
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (enables the 'stop-on-copy' checkbox), <placeholder-5/> fills in the filter text, <placeholder-6/> (forces the filter to use text, not regex) and <placeholder-7/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-8/>"
 msgstr ""
 
 #. (option)
