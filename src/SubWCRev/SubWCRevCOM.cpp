@@ -243,7 +243,7 @@ HRESULT __stdcall SubWCRev::get_Date(/*[out, retval]*/VARIANT* date)
 	
 	WCHAR destbuf[32];
 	HRESULT result = CopyDateToString(destbuf, 32, SubStat.CmtDate) ? S_OK : S_FALSE;
-	if(FALSE == result)
+	if(S_FALSE == result)
 	{
 		_stprintf_s(destbuf, 2, _T(""));
 	}
@@ -343,7 +343,7 @@ HRESULT __stdcall SubWCRev::get_LockCreationDate(/*[out, retval]*/VARIANT* date)
 	else
 	{
 		result = CopyDateToString(destbuf, 32, SubStat.LockData.CreationDate) ? S_OK : S_FALSE;
-		if(FALSE == result)
+		if(S_FALSE == result)
 		{
 			_stprintf_s(destbuf, 2, _T(""));
 		}
