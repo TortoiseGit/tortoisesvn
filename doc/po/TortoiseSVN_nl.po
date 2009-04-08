@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2009-04-08 11:06+0200\n"
+"PO-Revision-Date: 2009-04-08 11:53+0200\n"
 "Last-Translator: Bob Hulst <bob.hulst@hiq.fi>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4474,9 +4474,8 @@ msgid "<placeholder-1/> If the server is not reachable, and you have log caching
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "Offline for now"
-msgstr "Openen van '%s' voor %s mislukt"
+msgstr "Tijdelijk offline"
 
 #. (para)
 msgid "Complete the current operation in offline mode, but retry the repository next time log data is requested."
@@ -4491,7 +4490,6 @@ msgid "Remain in offline mode until a repository check is specifically requested
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "Cancel"
 msgstr "Annuleren"
 
@@ -5644,9 +5642,8 @@ msgid "Although TortoiseSVN's project properties are extremely useful, they only
 msgstr ""
 
 #. (title)
-#, fuzzy
 msgid "External Items"
-msgstr "Externe editor"
+msgstr "Externe Objecten"
 
 #. (primary)
 msgid "external repositories"
@@ -5662,9 +5659,8 @@ msgid "Sometimes it is useful to construct a working copy that is made out of a 
 msgstr ""
 
 #. (title)
-#, fuzzy
 msgid "External Folders"
-msgstr "Externe editor"
+msgstr "Externe Folders"
 
 #. (para)
 msgid ""
@@ -5684,18 +5680,16 @@ msgid "If you want the local path to include spaces or other special characters,
 msgstr ""
 
 #. (title)
-#, fuzzy
 msgid "Use explicit revision numbers"
-msgstr "Globaal Revisie Nummer"
+msgstr "Gebruik Explicite Revisie Nummers"
 
 #. (para)
 msgid "You should strongly consider using explicit revision numbers in all of your externals definitions, as described above. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex code base."
 msgstr ""
 
 #. (title)
-#, fuzzy
 msgid "Older svn:externals definitions"
-msgstr "Gebruik svn:externals"
+msgstr "Oudere svn:externals definities"
 
 #. (para)
 msgid "The format shown here was introduced in Subversion 1.5. You may also see the older format which has the same information in a different order. The new format is preferred as it supports several useful features described below, but it will not work on older clients. The differences are shown in the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html\"><citetitle>Subversion Book</citetitle></ulink>."
@@ -5787,9 +5781,8 @@ msgid "To find out about different methods of accessing common sub-projects read
 msgstr ""
 
 #. (title)
-#, fuzzy
 msgid "External Files"
-msgstr "Bestanden toevoegen"
+msgstr "Externe Bestanden"
 
 #. (para)
 msgid "As of Subversion 1.6 you can add single file externals to your working copy using the same syntax as for folders. However, there are some restrictions."
@@ -6868,18 +6861,16 @@ msgid "The graph is normally restricted to showing branch points, but it is ofte
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "Working copy revision"
-msgstr "Kopiëren van bestand '%s' naar '%s' mislukt"
+msgstr "Werk kopie revisie"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, which marks the BASE node with a bold outline."
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "Modified working copy"
-msgstr "Kopiëren van bestand '%s' naar '%s' mislukt"
+msgstr "Gewijzigde werk kopie"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show an additional node representing your modified working copy using <guilabel>Show WC modifications</guilabel>. This is an elliptical node with a bold outline in red by default."
@@ -6994,9 +6985,8 @@ msgid "Hides paths which are no longer present at the HEAD revision of the repos
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "Hide unchanged branches"
-msgstr "Toon/verberg navigatie-paneel"
+msgstr "Verberg onveranderde vertakkingen"
 
 #. (para)
 msgid "Hides branches where no changes were committed to the respective file or sub-folder. This does not necessarily indicate that the branch was not used, just that no changes were made to <emphasis>this</emphasis> part of it."
@@ -8237,7 +8227,7 @@ msgstr ""
 
 #. (title)
 msgid "Network Settings"
-msgstr ""
+msgstr "Netwerk Instellingen"
 
 #. (primary)
 msgid "proxy server"
@@ -8822,7 +8812,7 @@ msgstr "svn_depth_unknown"
 
 #. (literal)
 msgid "svn_depth_exclude"
-msgstr ""
+msgstr "svn_depth_exclude"
 
 #. (literal)
 msgid "svn_depth_empty"
@@ -8834,11 +8824,11 @@ msgstr "svn_depth_files"
 
 #. (literal)
 msgid "svn_depth_immediates"
-msgstr ""
+msgstr "svn_depth_immediates"
 
 #. (literal)
 msgid "svn_depth_infinity"
-msgstr ""
+msgstr "svn_depth_infinity"
 
 #. (para)
 msgid "Possible values are: <placeholder-1/>"
@@ -8977,9 +8967,8 @@ msgid "To show the command line parameters passed from the shell extension to To
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "Context Menu Icons"
-msgstr "context menu ingangen"
+msgstr "Context Menu Ikonen"
 
 #. (para)
 msgid "This can be useful if you use something other than the windows explorer or if you get problems with the context menu displaying correctly. create a <literal>DWORD</literal> key with a value of 0 at <literal>HKCU\\Software\\TortoiseSVN\\ShowContextMenuIcons</literal> if you don't want TortoiseSVN to not show icons for the shell context menu items. Set this value to 1 to show the icons again."
@@ -9103,7 +9092,7 @@ msgstr "versie extractie"
 
 #. (primary)
 msgid "SubWCRev"
-msgstr ""
+msgstr "SubWCRev"
 
 #. (primary)
 #. (primary)
@@ -9163,7 +9152,7 @@ msgstr "Beschrijving"
 
 #. (literal)
 msgid "ERRORLEVEL 7"
-msgstr ""
+msgstr "ERRORLEVEL 7"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the working copy contains local modifications. This may be used to prevent building with uncommitted changes present."
@@ -9171,7 +9160,7 @@ msgstr ""
 
 #. (literal)
 msgid "ERRORLEVEL 8"
-msgstr ""
+msgstr "ERRORLEVEL 8"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the working copy contains mixed revisions. This may be used to prevent building with a partially updated working copy."
@@ -9179,7 +9168,7 @@ msgstr ""
 
 #. (literal)
 msgid "ERRORLEVEL 9"
-msgstr ""
+msgstr "ERRORLEVEL 9"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the destination file already exists."
@@ -11608,9 +11597,8 @@ msgid "IBugtraqProvider interface"
 msgstr ""
 
 #. (primary)
-#, fuzzy
 msgid "plugin"
-msgstr "link"
+msgstr "plugin"
 
 #. (primary)
 msgid "IBugtraqProvider"
