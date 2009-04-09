@@ -1070,7 +1070,7 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/, b
 	pTreeItem->children.clear();
 	pTreeItem->has_child_folders = false;
 	m_bCancelled = false;
-	if (!List(CTSVNPath(pTreeItem->url), GetRevision(), GetRevision(), recursive ? svn_depth_infinity : svn_depth_immediates, true))
+	if (!List(CTSVNPath(EscapeUrl(CTSVNPath(pTreeItem->url))), GetRevision(), GetRevision(), recursive ? svn_depth_infinity : svn_depth_immediates, true))
 	{
 		// error during list()
 		m_RepoList.ShowText(GetLastErrorMessage());
