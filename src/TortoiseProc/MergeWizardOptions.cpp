@@ -150,6 +150,23 @@ BOOL CMergeWizardOptions::OnSetActive()
 	CMergeWizard * pWizard = ((CMergeWizard*)GetParent());
 	GetDlgItem(IDC_RECORDONLY)->EnableWindow(pWizard->nRevRangeMerge != MERGEWIZARD_REINTEGRATE);
 	GetDlgItem(IDC_DEPTH)->EnableWindow(pWizard->nRevRangeMerge != MERGEWIZARD_REINTEGRATE);
+
+	CString sTitle;
+	switch (pWizard->nRevRangeMerge)
+	{
+	case MERGEWIZARD_REVRANGE:
+		sTitle.LoadString(IDS_MERGEWIZARD_REVRANGETITLE);
+		break;
+	case MERGEWIZARD_TREE:
+		sTitle.LoadString(IDS_MERGEWIZARD_TREETITLE);
+		break;
+	case MERGEWIZARD_REINTEGRATE:
+		sTitle.LoadString(IDS_MERGEWIZARD_REINTEGRATETITLE);
+		break;
+	}
+	sTitle += _T(" : ") + CString(MAKEINTRESOURCE(IDS_MERGEWIZARD_OPTIONSTITLE));
+	SetDlgItemText(IDC_MERGEOPTIONSGROUP, sTitle);
+
 	return CMergeWizardBasePage::OnSetActive();
 }
 
