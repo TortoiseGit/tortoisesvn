@@ -32,6 +32,8 @@ Version 1.6.1
 - BUG: The SubWCRevCOM didn't return date information. (Stefan)
 - BUG: Refreshing a folder in the repository lead to duplicate entries
        shown in the tree view. (Stefan)
+- BUG: Already merged revisions were not indicated if the url required
+       escaping. (Stefan)
 
 Version 1.6.0
 - NEW: Ignoring of multiple selected items by their extension. See

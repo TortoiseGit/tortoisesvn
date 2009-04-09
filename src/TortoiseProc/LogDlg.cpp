@@ -1122,10 +1122,12 @@ UINT CLogDlg::LogThread()
 
 		    if (mergeinfo)
 		    {
+				CStringA sUrl = CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(m_sURL));
+
 			    for (hi = apr_hash_first(localpool, mergeinfo); hi; hi = apr_hash_next(hi))
 			    {
 				    apr_hash_this(hi, &key, NULL, &val);
-				    if (m_sURL.Compare(CUnicodeUtils::GetUnicode((char*)key)) == 0)
+				    if (sUrl.Compare((char*)key) == 0)
 				    {
 					    apr_array_header_t * arr = (apr_array_header_t*)val;
 					    if (val)
