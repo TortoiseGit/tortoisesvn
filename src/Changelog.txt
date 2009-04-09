@@ -30,6 +30,8 @@ Version 1.6.1
 - BUG: Blame showed revisions as merged even if they were not. (Stefan)
 - BUG: Externals weren't shown if changelists were present. (Stefan)
 - BUG: The SubWCRevCOM didn't return date information. (Stefan)
+- BUG: Refreshing a folder in the repository lead to duplicate entries
+       shown in the tree view. (Stefan)
 
 Version 1.6.0
 - NEW: Ignoring of multiple selected items by their extension. See

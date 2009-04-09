@@ -2769,7 +2769,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_REFRESH:
 			{
-				RefreshNode(urlListEscaped[0].GetSVNPathString(), true);
+				RefreshNode(urlList[0].GetSVNPathString(), true);
 			}
 			break;
 		case ID_GNUDIFF:
