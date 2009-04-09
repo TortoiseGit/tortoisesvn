@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -147,7 +147,9 @@ BOOL CMergeWizardOptions::OnSetActive()
 	CPropertySheet* psheet = (CPropertySheet*) GetParent();   
 	psheet->SetWizardButtons(PSWIZB_BACK|PSWIZB_FINISH);
 	SetButtonTexts();
-	GetDlgItem(IDC_RECORDONLY)->EnableWindow(((CMergeWizard*)GetParent())->nRevRangeMerge != MERGEWIZARD_REINTEGRATE);
+	CMergeWizard * pWizard = ((CMergeWizard*)GetParent());
+	GetDlgItem(IDC_RECORDONLY)->EnableWindow(pWizard->nRevRangeMerge != MERGEWIZARD_REINTEGRATE);
+	GetDlgItem(IDC_DEPTH)->EnableWindow(pWizard->nRevRangeMerge != MERGEWIZARD_REINTEGRATE);
 	return CMergeWizardBasePage::OnSetActive();
 }
 
