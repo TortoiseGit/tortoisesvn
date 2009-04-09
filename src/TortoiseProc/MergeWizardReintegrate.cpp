@@ -35,8 +35,8 @@ CMergeWizardReintegrate::CMergeWizardReintegrate()
 	, m_pLogDlg2(NULL)
 {
 	m_psp.dwFlags |= PSP_DEFAULT|PSP_USEHEADERTITLE|PSP_USEHEADERSUBTITLE;
-	m_psp.pszHeaderTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_TREETITLE);
-	m_psp.pszHeaderSubTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_TREESUBTITLE);
+	m_psp.pszHeaderTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_REINTEGRATETITLE);
+	m_psp.pszHeaderSubTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_REINTEGRATESUBTITLE);
 }
 
 CMergeWizardReintegrate::~CMergeWizardReintegrate()
