@@ -431,6 +431,36 @@ void TortoiseBlame::InitialiseEditor()
 	m_regNewLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameNewColor"), RGB(255, 230, 230));
 }
 
+void TortoiseBlame::SelectLine(int yPos, bool bAlwaysSelect)
+{
+	LONG_PTR line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
+	LONG_PTR height = app.SendEditor(SCI_TEXTHEIGHT);
+	line = line + (yPos/height);
+	if (line < (LONG)app.revs.size())
+	{
+		app.SetSelectedLine(line);
+		if ((bAlwaysSelect)||(app.revs[line] != app.m_selectedrev))
+		{
+			app.m_selectedrev = app.revs[line];
+			app.m_selectedorigrev = app.origrevs[line];
+			app.m_selectedauthor = app.authors[line];
+			app.m_selecteddate = app.dates[line];
+		}
+		else
+		{
+			app.m_selectedauthor.clear();
+			app.m_selecteddate.clear();
+			app.m_selectedrev = -2;
+			app.m_selectedorigrev = -2;
+		}
+		::InvalidateRect(app.wBlame, NULL, FALSE);
+	}
+	else
+	{
+		app.SetSelectedLine(-1);
+	}
+}
+
 void TortoiseBlame::StartSearch()
 {
 	if (currentDialog)
@@ -1754,37 +1784,10 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 			}
 		}
 		break;
-	case WM_RBUTTONDOWN:
-		// fall through
 	case WM_LBUTTONDOWN:
 		{
 			int y = ((int)(short)HIWORD(lParam));
-			LONG_PTR line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
-			LONG_PTR height = app.SendEditor(SCI_TEXTHEIGHT);
-			line = line + (y/height);
-			if (line < (LONG)app.revs.size())
-			{
-				app.SetSelectedLine(line);
-				if (app.revs[line] != app.m_selectedrev)
-				{
-					app.m_selectedrev = app.revs[line];
-					app.m_selectedorigrev = app.origrevs[line];
-					app.m_selectedauthor = app.authors[line];
-					app.m_selecteddate = app.dates[line];
-				}
-				else
-				{
-					app.m_selectedauthor.clear();
-					app.m_selecteddate.clear();
-					app.m_selectedrev = -2;
-					app.m_selectedorigrev = -2;
-				}
-				::InvalidateRect(app.wBlame, NULL, FALSE);
-			}
-			else
-			{
-				app.SetSelectedLine(-1);
-			}
+			app.SelectLine(y, false);
 		}
 		break;
 	case WM_SETFOCUS:
@@ -1793,8 +1796,6 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 		break;
 	case WM_CONTEXTMENU:
 		{
-			if (app.m_selectedrev <= 0)
-				break;;
 			int xPos = GET_X_LPARAM(lParam);
 			int yPos = GET_Y_LPARAM(lParam);
 			if ((xPos < 0)||(yPos < 0))
@@ -1806,6 +1807,12 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				xPos = rect.right-rect.left;
 				yPos = rect.bottom-rect.top;
 			}
+			POINT yPt = {0, yPos};
+			ScreenToClient(app.wBlame, &yPt);
+			app.SelectLine(yPt.y, true);
+			if (app.m_selectedrev <= 0)
+				break;;
+
 			HMENU hMenu = LoadMenu(app.hResource, MAKEINTRESOURCE(IDR_BLAMEPOPUP));
 			HMENU hPopMenu = GetSubMenu(hMenu, 0);
 
