@@ -1,3 +1,37 @@
+Version 1.6.1
+- CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)
+- CHG: When filling in a log message from the 'recent' messages in the
+       commit dlg, use the bugtraq:logregex to extract the bug ID and fill
+       the bug ID field if possible and only use the bugtraq:message value
+       if the logregex doesn't return a bug ID. (Stefan)
+- CHG: Updated to OpenSSL 0.9.8k (Stefan)
+- BUG: Showing properties from the explorer svn properties tab did not work
+       if a language other than English was set. (Stefan)
+- BUG: Crash in "cleanup". (Stefan)
+- BUG: TortoiseBlame showed only empty files. (Stefan)
+- BUG: Crash when showing the revision graph where the URL of the repository
+       required escaping. (Stefan)
+- BUG: The log dialog would show paths incorrectly greyed out or hidden
+       for urls which need escaping. (Stefan)
+- BUG: Sorting in the status list control didn't work properly for columns
+       after 'lock author'. (Stefan)
+- BUG: The bugtraq:label text was shown garbled in the commit dialog if it
+       contained non-ASCII chars. (Stefan)
+- BUG: The (Un)Ignore menu was not shown for files which have names with 
+       chars not available in the system codepage. (Stefan)
+- BUG: Show log could loop endlessly under certain conditions. 
+       (Stefan Fuhrmann)
+- BUG: Fixed memory leak in TSVNCache. (Stefan Fuhrmann)
+- BUG: Administrative (msiexec /a ...) install didn't work. (Stefan)
+- BUG: The log dialog used the wrong font. (Stefan)
+- BUG: Blame showed revisions as merged even if they were not. (Stefan)
+- BUG: Externals weren't shown if changelists were present. (Stefan)
+- BUG: The SubWCRevCOM didn't return date information. (Stefan)
+- BUG: Refreshing a folder in the repository lead to duplicate entries
+       shown in the tree view. (Stefan)
+- BUG: Already merged revisions were not indicated if the url required
+       escaping. (Stefan)
+
 Version 1.6.0
 - NEW: Ignoring of multiple selected items by their extension. See
        issue #423 for details. (Stefan)
