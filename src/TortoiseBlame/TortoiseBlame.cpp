@@ -1690,8 +1690,9 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				if (line < 0)
 					break;
 				LONG rev = app.revs[line];
-				if (line >= (LONG)app.revs.size())
-					break;
+				LONG origrev = -1;
+				if (line < (LONG)app.origrevs.size())
+					origrev = app.origrevs[line];
 
 				SecureZeroMemory(app.m_szTip, sizeof(app.m_szTip));
 				SecureZeroMemory(app.m_wszTip, sizeof(app.m_wszTip));
@@ -1711,11 +1712,24 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 					if (!ShowAuthor || !ShowDate)
 						msg += '\n';
 					msg += iter->second;
+					if (rev != origrev)
+					{
+						// add the merged revision
+						std::map<LONG, std::string>::iterator iter2;
+						if ((iter2 = app.logmessages.find(origrev)) != app.logmessages.end())
+						{
+							if (!msg.empty())
+								msg += _T("\n------------------\n\n");
+							msg += iter2->second;
+						}
+					}
+
 					// an empty tooltip string will deactivate the tooltips,
 					// which means we must make sure that the tooltip won't
 					// be empty.
 					if (msg.empty())
 						msg = _T(" ");
+
 					if (pNMHDR->code == TTN_NEEDTEXTA)
 					{
 						lstrcpyn(app.m_szTip, msg.c_str(), MAX_LOG_LENGTH*2);
