@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-08 19:08-0300\n"
-"Last-Translator: Bruno Albertini <balbertini@gmail.com>\n"
+"PO-Revision-Date: 2009-04-12 11:34-0300\n"
+"Last-Translator: Humberto Osório <humberto@virtual.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8609,9 +8609,8 @@ msgid "Tile &Vertically"
 msgstr "Lado a Lado &Verticalmente"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Timeouts"
-msgstr "Timeouts"
+msgstr "Prazos excedidos"
 
 #. Resource IDs: (224)
 msgid ""
@@ -8628,12 +8627,11 @@ msgstr ""
 "que não permite apagar diretórios."
 
 #. Resource IDs: (284)
-#, fuzzy
 msgid ""
 "To steal the lock, right-click on the parent folder of this item and select 'Get Lock' from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
-"Para obter a trava, clique com o botão direito sobre o diretório-pai desse item e selecione \"Obter Trava\" do menu de contexto.\n"
+"Para obter a trava, clique com o botão direito sobre o diretório-pai desse item e selecione 'Obter Trava' do menu de contexto.\n"
 "Isso irá abrir uma caixa de diálogo na qual você poderá impor o travamento, i.e., 'roubá-lo' de quem estava com ele."
 
 #. Resource IDs: (1201, 65535)
@@ -8801,14 +8799,12 @@ msgid "Total number of merged revisions"
 msgstr "Número total de revisões combinadas"
 
 #. Resource IDs: (339)
-#, fuzzy
 msgid "Total number of user revision properties"
-msgstr "Número total de revisões do usuário"
+msgstr "Número total de propriedades de revisões do usuário"
 
 #. Resource IDs: (32821)
-#, fuzzy
 msgid "Tr&ee stripes"
-msgstr "Combinar árvore"
+msgstr "Tiras de árvor&es"
 
 #. Resource IDs: (357)
 #, c-format
@@ -8820,18 +8816,16 @@ msgid "Transparent &color..."
 msgstr "&Cor de transparência..."
 
 #. Resource IDs: (264)
-#, fuzzy
 msgid "Tree conflict"
-msgstr "Em conflito:"
+msgstr "Conflito de árvore"
 
 #. Resource IDs: (595)
 msgid "Tree merge"
 msgstr "Combinar árvore"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
-msgstr "Tente uma \"Limpeza\". Se isso não funcionar, você precisa obter o módulo novamente."
+msgstr "Tente uma 'Limpeza'. Se isso não funcionar, você precisa obter tudo novamente."
 
 #. Resource IDs: (73)
 msgid "Try again"
@@ -8875,7 +8869,7 @@ msgid "URL: "
 msgstr "URL: "
 
 #. Resource IDs: (220)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Unable to determine merge source for\n"
 "%s\n"
@@ -8924,9 +8918,8 @@ msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "Impossível escrever para %1, é somente-leitura ou está aberto por outra pessoa."
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Unchanged node"
-msgstr "nó renomeado"
+msgstr "Nó sem alterações"
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
@@ -9026,7 +9019,6 @@ msgid "Unversioning %s"
 msgstr "Retirando do controle de versões de %s"
 
 #. Resource IDs: (106)
-#, fuzzy
 msgid "Up one folder"
 msgstr "Abrir pasta acima"
 
@@ -9039,14 +9031,12 @@ msgid "Update - TortoiseSVN"
 msgstr "Atualizar - TortoiseSVN"
 
 #. Resource IDs: (1377)
-#, fuzzy
 msgid "Update Depth"
 msgstr "Atualizar em profundidade"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Update WC to revision"
-msgstr "At&ualizar Item Para Revisão"
+msgstr "Atualizar Cópia de trabalho para a revisão"
 
 #. Resource IDs: (74)
 msgid "Updated"
@@ -9098,24 +9088,22 @@ msgid "Use &text viewer to view blames"
 msgstr "Use um visualizador de &textos para ver as responsabilidades"
 
 #. Resource IDs: (195)
-#, fuzzy
 msgid ""
 "Use '*' as a wildcard character when specifying an exception.\r\n"
 "To separate multiple exceptions, use commas (',').\r\n"
 "Example: *.mylan.com, *.company.com"
 msgstr ""
-"Use '*' como caractere de máscara ao especificar uma exceção\n"
-"Para separar múltiplas exceções, use vírgulas (',').\n"
-"Exemplo: *.mylan.com, *.company.com"
+"Use '*' como caractere de máscara ao especificar uma exceção\r\n"
+"Para separar múltiplas exceções, use vírgulas (',').\r\n"
+"Exemplo: *.minharede.com, *.companhia.com"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Usa a URL da Cópia de &Trabalho como a URL \"De:\" padrão"
 
 #. Resource IDs: (1064)
-#, fuzzy
 msgid "Use Unified Diff from &clipboard"
-msgstr "Usar Comparação Unificada a partir da área de transferência"
+msgstr "Usar Comparação Unifi&cada a partir da área de transferência"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -9186,65 +9174,56 @@ msgid "Use stri&keout for removed lines"
 msgstr "Usar ha&chura nas linhas removidas"
 
 #. Resource IDs: (1426)
-#, fuzzy
 msgid "Use system locale for date/time"
-msgstr "Usar localização do sistemas para data/hora"
+msgstr "Usar configuração regional do sistema para data/hora"
 
 #. Resource IDs: (251)
-#, fuzzy
 msgid "Use text block from '&mine'"
-msgstr "Usar bloco de texto do \"&meu\" arquivo"
+msgstr "Usar 'me&u' bloco de texto"
 
 #. Resource IDs: (251)
-#, fuzzy
 msgid "Use text block from '&theirs'"
-msgstr "Usar bloco de texto do arquivo \"&deles\""
+msgstr "Usar bloco de texto '&deles'"
 
 #. Resource IDs: (251)
-#, fuzzy
 msgid "Use text block from 'm&ine' before 'theirs'"
-msgstr "Usar bloco de texto do \"me&u\" arquivo antes do \"deles\""
+msgstr "Usar 'me&u' bloco de texto antes do 'deles'"
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid ""
 "Use text block from 'mine' before 'theirs'\n"
 "Use 'mine' text block then 'theirs'"
 msgstr ""
-"Usar bloco de texto do \"meu\" antes \"deles\"\n"
-"Usar \"meu\" bloco de texto e \"deles\""
+"Usar 'meu' bloco de texto antes do 'deles'\n"
+"Usar 'meu' bloco de texto e em seguida o 'deles'"
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid ""
 "Use text block from 'mine'\n"
 "Use 'mine' text block"
 msgstr ""
-"Usar bloco de texto do \"meu\"\n"
-"Use \"meu\" de bloco de texto"
+"Usa 'meu' bloco de texto\n"
+"Use 'meu' de bloco de texto"
 
 #. Resource IDs: (251)
-#, fuzzy
 msgid "Use text block from 't&heirs' before 'mine'"
-msgstr "Usar bloco de texto do arquivo \"d&eles\" antes do \"meu\""
+msgstr "Usar bloco de texto 'd&eles' antes do 'meu'"
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid ""
 "Use text block from 'theirs' before 'mine'\n"
 "Use 'theirs' text block then 'mine'"
 msgstr ""
-"Usar bloco de texto de \"deles\" antes de \"meu\"\n"
-"Use \"deles\" do bloco de texto antes de \"meu\""
+"Usar bloco de texto 'deles' antes do 'meu'\n"
+"Usa o bloco de texto 'deles' e em seguida o 'meu'"
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid ""
 "Use text block from 'theirs'\n"
 "Use 'theirs' text block"
 msgstr ""
-"Usar bloco de texto de \"deles\"\n"
-"Use \"deles\" do bloco de texto"
+"Usa bloco de texto 'deles'\n"
+"Usa o bloco de texto 'deles'"
 
 #. Resource IDs: (32820)
 msgid "Use text block from \"&mine\""
@@ -9384,9 +9363,8 @@ msgid "Wait for the script to finish"
 msgstr "Aguardar encerramento do script"
 
 #. Resource IDs: (280)
-#, fuzzy
 msgid "Want to go offline?"
-msgstr "&Não desconectar"
+msgstr "Quer desconectar?"
 
 #. Resource IDs: (88)
 msgid "Warning"
@@ -9405,7 +9383,6 @@ msgstr ""
 "durante um certo número de dias, será removido automaticamente."
 
 #. Resource IDs: (344)
-#, fuzzy
 msgid ""
 "When connecting to the repository server is not possible,\n"
 "TSVN can switch to using cached data only.\n"
@@ -9829,59 +9806,55 @@ msgid "authors: "
 msgstr "autores:"
 
 #. Resource IDs: (577)
-#, fuzzy
 msgid ""
 "bugtraq:append\r\n"
 "Set to 'false' if you want the bugtracking ID to be inserted at the top of the\r\n"
 "log message. The default is 'true' which means the bugtracking ID\r\n"
 "is appended to the log message."
 msgstr ""
-"bugtraq:append\n"
-"Marque como \"falso\" se você quer que o identificador do rastreamento de bugs seja\n"
-"inserido no começo da mensagem de log. O padrão é \"verdadeiro\", que significa que\n"
-"o identificador é adicionado à mensagem de log."
+"bugtraq:append\r\n"
+"Marque como 'falso' se você quer que o identificador do rastreamento de bugs seja\r\n"
+"inserido no começo da mensagem de log. O padrão é 'verdadeiro', que significa que\r\n"
+"o identificador é adicionado ao final da mensagem de log."
 
 #. Resource IDs: (577)
-#, fuzzy
 msgid ""
 "bugtraq:label\r\n"
 "Label text to show for the edit box where the user enters the issue number."
 msgstr ""
-"bugtraq:label\n"
+"bugtraq:label\r\n"
 "Título para exibição na caixa de texto onde o usuário informa o número da revisão."
 
 #. Resource IDs: (577)
-#, fuzzy
 msgid ""
 "bugtraq:logregex\r\n"
 "two regular expressions separated by a newline.\r\n"
 "The first expression is used to find a string referring to an issue,\r\n"
 "the second expression is used to extract the bare bug ID from that string."
 msgstr ""
-"bugtraq:logregex\n"
-"duas expressões regulares separadas por uma quebra de linha.\n"
-"A primeira expressão é usada para encontrar uma string se referindo a uma ocorrência,\n"
-"a segunda expressão é usada para extrair o identificador do bug daquela string."
+"bugtraq:logregex\r\n"
+"duas expressões regulares separadas por uma quebra-de-linha.\r\n"
+"A primeira expressão é usada para encontrar uma string associada a uma ocorrência,\r\n"
+"a segunda expressão é usada para extrair o ID do bug daquela string."
 
 #. Resource IDs: (577)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "bugtraq:message\r\n"
 "String which is appended to a log message when an issue number is entered.\r\n"
 "The string must contain '%BUGID%' which gets replaced with the issue number."
 msgstr ""
-"bugtraq:message\n"
-"Texto que é adicionado a uma mensagem de log quando um número de ocorrência for inserido.\n"
-"O texto deve conter \"%BUGID%\" que deve será substituído pelo número da ocorrência."
+"bugtraq:message\r\n"
+"Texto que é adicionado a uma mensagem de log quando um número de ocorrência for inserido.\r\n"
+"O texto deve conter um '%BUGID%' que deve será substituído pelo número da ocorrência."
 
 #. Resource IDs: (577)
-#, fuzzy
 msgid ""
 "bugtraq:number\r\n"
 "Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
-"bugtraq:number\n"
-"Ajuste para \"falso\" se o seu sistema de rastreamento de bugs contiver ocorrências não referenciadas por números."
+"bugtraq:number\r\n"
+"Selecione 'false' se o seu sistema de rastreamento de bugs contiver ocorrências não referenciadas por números."
 
 #. Resource IDs: (577)
 msgid ""
@@ -9900,15 +9873,15 @@ msgstr ""
 "o uuid COM do IBugTraqProvider"
 
 #. Resource IDs: (577)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "bugtraq:url\r\n"
 "URL pointing to the issue tracker. It must contain '%BUGID%' which\r\n"
 "gets replaced with the issue number."
 msgstr ""
-"bugtraq:url\n"
-"URL apontando para o sistema de rastreamento de ocorrências. Este deve conter\n"
-"\"%BUGID%\" que será substituído pelo número da ocorrência."
+"bugtraq:url\r\n"
+"URL apontando para o sistema de rastreamento de ocorrências. Este deve conter\r\n"
+" '%BUGID%' que será substituído pelo número da ocorrência."
 
 #. Resource IDs: (65535)
 msgid "changes total: "
@@ -10177,26 +10150,24 @@ msgid "skip ranges: "
 msgstr "intervalos omitidos:"
 
 #. Resource IDs: (576)
-#, fuzzy
 msgid ""
 "svn:eol-style\r\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
-"svn:eol-style\n"
-"Um entre os seguintes: 'native', 'LF', 'CR', 'CRLF'."
+"svn:eol-style\r\n"
+"Um entre 'native', 'LF', 'CR', 'CRLF'."
 
 #. Resource IDs: (576)
-#, fuzzy
 msgid ""
 "svn:executable\r\n"
 "If present, make the file executable. This property cannot be set on a directory.\r\n"
 "A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
-"svn:executable\n"
-"Se presente, torna o arquivo excutável. Esta propriedade não pode ser ajustada em um diretório. Tentar ajustá-la não recursivamente irá falhar, e recursivamente ajustará a propriedade apenas nos arquivos pertencentes ao diretório."
+"svn:executable\r\n"
+"Se presente, torna o arquivo executável. Esta propriedade não pode ser associada a um diretório.\r\n"
+"Tentar ajustá-la não recursivamente irá falhar, e recursivamente ajustará a propriedade apenas nos arquivos pertencentes ao diretório."
 
 #. Resource IDs: (576)
-#, fuzzy
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
@@ -10211,30 +10182,29 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr ""
-"svn:externals\n"
-"Uma lista de especificadores de módulo separados por quebra de linha, cada qual consistindo de\n"
-"uma revisão opcional, uma URL e um caminho de diretório relativo.Por exemplo\n"
-"http://exemplo.com/repos/zig\tfoo\n"
-"-r 1234\thttp://exemplo.com/repos/zag\tfoo/bar\n"
-"\n"
-"As URLs podem ser completas ou relativas. O formato para\n"
-"URLs relativas é:\n"
-"../\trelativo ao diretório pái\n"
-"^/\trelativo à raiz do repositório\n"
-"//\trelativo ao esquema da URL\n"
-"/\trelativo ao hostname do servidor"
+"svn:externals\r\n"
+"Uma lista de especificadores de módulo separados por quebra de linha, cada qual consistindo de\r\n"
+"uma revisão opcional, uma URL e um caminho de diretório relativo. Por exemplo\r\n"
+"http://exemplo.com/repos/zig foo\r\n"
+"o\n"
+"-r 1234 http://exemplo.com/repos/zag foo/bar\r\n"
+"\r\n"
+"As URLs podem ser absolutas ou relativas. O formato para\r\n"
+"URLs relativas é:\r\n"
+"../ relativo ao diretório pái ou externo\r\n"
+"^/ relativo à raiz do repositório\r\n"
+"// relativo ao esquema da URL\r\n"
+"/ relativo ao hostname do servidor"
 
 #. Resource IDs: (576)
-#, fuzzy
 msgid ""
 "svn:ignore\r\n"
 "A newline separated list of file patterns to ignore."
 msgstr ""
-"svn:ignore\n"
-"Uma lista de padrões de arquivo a serem ignorarados separados por quebra de linha."
+"svn:ignore\r\n"
+"Uma lista de padrões de arquivo a serem ignorados, separados por quebra-de-linha."
 
 #. Resource IDs: (576)
-#, fuzzy
 msgid ""
 "svn:keywords\r\n"
 "Keywords to be expanded. Valid keywords are:\r\n"
@@ -10244,16 +10214,15 @@ msgid ""
 "Rev, LastChangedRevision : The last revision the object changed.\r\n"
 "Id : A compressed summary of the previous 4 keywords."
 msgstr ""
-"svn:keywords\n"
-"Palavras-chave a serem expandidas. As palavras-chave válidas são:\n"
-"URL, HeadURL\t\t\tURL para a revisão mais recente do objeto.\n"
-"Author, LastChangedBy\t\tÚltima pessoa que modificou o arquivo.\n"
-"Date, LastChangedDate\t\tData/hora em que o objeto foi modificado pela última vez.\n"
-"Rev, LastChangedRevision\tÚltima revisão do objeto alterado.\n"
-"Id\t\t\t\tUm sumário das 4 palavras-chave acima."
+"svn:keywords\r\n"
+"Palavras-chave a serem expandidas. As palavras-chave válidas são:\r\n"
+"URL, HeadURL :  URL para a revisão mais recente do objeto.\r\n"
+"Author, LastChangedBy : Última pessoa que modificou o arquivo.\r\n"
+"Date, LastChangedDate : Data/hora em que o objeto foi modificado pela última vez.\r\n"
+"Rev, LastChangedRevision : Última revisão do objeto alterado.\r\n"
+"Id : Um resumo das 4 palavras-chave acima."
 
 #. Resource IDs: (576)
-#, fuzzy
 msgid ""
 "svn:mergeinfo\r\n"
 "A newline separated list of merge tracking info. Each line consists of an absolute\r\n"
@@ -10261,28 +10230,27 @@ msgid ""
 "For example\r\n"
 "/trunk:123-125,129"
 msgstr ""
-"svn:mergeinfo\n"
-"A newline separated list of merge tracking info. Each line consists of an absolute\n"
-"path followed by a colon and a list of comma separated revision numbers.\n"
-"For example\n"
+"svn:mergeinfo\r\n"
+"Uma lista de informações de seguimento da combinação separadas por qubra-de-linha.\r\n"
+"Cada linha consiste num caminho absoluto seguido de dois pontos e de uma lista de \r\n"
+" números de revisão separados por vírgulas.\r\n"
+"Por exemplo\r\n"
 "/trunk:123-125,129"
 
 # XXX: This is no longer truth, application/xml and others are also treated as text. -- jr
 #. Resource IDs: (576)
-#, fuzzy
 msgid ""
 "svn:mime-type\r\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
 "A mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\n"
 "Anything else is treated as binary."
 msgstr ""
-"svn:mime-type\n"
-"O tipo mime do arquivo. Usado para determinar se o arquivo deve ser mesclado, e como servi-lo a partir do Apache.\n"
-"Um tipo mime iniciando com 'text/' (ou sem tipo mime) é tratado como texto.\n"
-"Qualquer outra coisa é tratada como binário."
+"svn:mime-type\r\n"
+"O tipo mime do arquivo. Usado para determinar se o arquivo deve ser combinado, e como servi-lo a partir do Apache.\r\n"
+"Um tipo mime iniciando com 'text/' (ou sem tipo mime) é tratado como texto.\r\n"
+"Qualquer outro é tratado como binário."
 
 #. Resource IDs: (576)
-#, fuzzy
 msgid ""
 "svn:needs-lock\r\n"
 "Set this to any value (e.g. '*') to enforce locking for this file.\r\n"
@@ -10290,10 +10258,10 @@ msgid ""
 "indicating that a user must acquire a lock on the file\r\n"
 "before they can edit it and commit changes."
 msgstr ""
-"svn:needs-lock\n"
-"Ajuste para qualquer valor (ex: '*') para obrigar o travamento deste arquivo.\n"
-"O arquivo será ajustado para somente-leitura quando obtido ou atualizado,\n"
-"indicando que qualquer usuário deve adquirir uma trava para o arquivo antes\n"
+"svn:needs-lock\r\n"
+"Ajuste para qualquer valor (ex: '*') para obrigar o travamento deste arquivo.\r\n"
+"O arquivo será ajustado para somente-leitura quando obtido ou atualizado,\r\n"
+"indicando que qualquer usuário deve adquirir uma trava para o arquivo antes\r\n"
 "de poder editar e submeter alterações."
 
 #. Resource IDs: (208)
@@ -10332,55 +10300,49 @@ msgid "to %s"
 msgstr "para %s"
 
 #. Resource IDs: (208, 264)
-#, fuzzy
 msgid "tree conflict"
-msgstr "Editar Conflitos"
+msgstr "Conflito de árvore"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "tree conflict:"
-msgstr "Em conflito:"
+msgstr "conflito de árvore:"
 
 #. Resource IDs: (578)
-#, fuzzy
 msgid ""
 "tsvn:autoprops\r\n"
 "A list of properties separated by newlines which get applied automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 msgstr ""
-"tsvn:autoprops\n"
-"Uma lista com as propriedades separadas por quebras-de-linha que são automaticamente adicionadas quando um arquivo é importado/exportado.\n"
-"Formato: <filemask> = property=value;property=value\n"
+"tsvn:autoprops\r\n"
+"Uma lista com as propriedades separadas por quebras-de-linha que são automaticamente adicionadas quando um arquivo é adicionado/importado.\r\n"
+"Formato: <filemask> = property=value;property=value\r\n"
 "Exemplo: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (578)
-#, fuzzy
 msgid ""
 "tsvn:lockmsgminsize\r\n"
 "Minimum size in chars a lock message must have before a lock is allowed."
 msgstr ""
-"tsvn:lockmsgminsize\n"
+"tsvn:lockmsgminsize\r\n"
 "Tamanho mínimo, em caracteres, que uma mensagem de trava deve ter para que a trava seja permitida."
 
 #. Resource IDs: (578)
-#, fuzzy
 msgid ""
 "tsvn:logfilelistenglish\r\n"
 "Set to 'false' if you don't want the list of changed files to be pasted in English\r\n"
 "in the commit dialog."
 msgstr ""
-"tsvn:logfilelistenglish\n"
-"Ajuste para \"falso\" se você não quiser que a lista de arquivos alterados seja colada\n"
-"em inglês no diálogo de submissão."
+"tsvn:logfilelistenglish\r\n"
+"Ajuste para 'falso' se você não quiser que a lista de arquivos alterados seja colada\r\n"
+"em Inglês no diálogo de submissão."
 
 #. Resource IDs: (578)
-#, fuzzy
 msgid ""
 "tsvn:logminsize\r\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
-"tsvn:logminsize\n"
+"tsvn:logminsize\r\n"
 "Tamanho mínimo em caracteres que uma mensagem de log deve ter para que a submissão seja permitida."
 
 #. Resource IDs: (578)
@@ -10392,14 +10354,13 @@ msgstr ""
 "Uma expressão regular que extrai um resumo de uma mensagem do histórico no seu primeiro grupo."
 
 #. Resource IDs: (578)
-#, fuzzy
 msgid ""
 "tsvn:logtemplate\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for users to fill in."
 msgstr ""
-"tsvn:logtemplate\n"
-"Texto inserido nas caixas de mensagem de log nos diálogos de submissão.\n"
+"tsvn:logtemplate\r\n"
+"Texto inserido nas caixas de mensagem de log nos diálogos de submissão.\r\n"
 "Use como um modelo para mensagem de log para os usuários preencherem."
 
 #. Resource IDs: (578)
