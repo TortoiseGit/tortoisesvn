@@ -1,6 +1,10 @@
 - NEW: new command line params for the log dialog to set the filter. (Stefan)
 - NEW: new autoclose setting for local operations only. (Stefan)
 
+Version 1.6.2
+- BUG: Error message about non-LF commit messages when using messages with
+       non-ASCII text. (Stefan)
+
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)
 - CHG: When filling in a log message from the 'recent' messages in the
