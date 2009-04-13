@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-25 00:01+0800\n"
+"PO-Revision-Date: 2009-04-13 20:44+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1452,6 +1452,10 @@ msgstr "根據副檔名加入差異比對程式"
 msgid "Add extension specific merge program"
 msgstr "根據副檔名加入合併程式"
 
+#. Resource IDs: (1065)
+msgid "Add new files automatically to SVN"
+msgstr "自動加入新檔案至 SVN"
+
 #. Resource IDs: (89)
 msgid "Add the item anyway"
 msgstr "新增項目"
@@ -1593,6 +1597,10 @@ msgstr "允許不同檔案庫使用相同 URL, 例如 http://localhost/myrepos/"
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "允許不同檔案庫使用相同 UUID, 例如複製的檔案庫"
+
+#. Resource IDs: (1480)
+msgid "Always close dialogs for local operations"
+msgstr "進行本地操作時自動關閉視窗"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1789,10 +1797,6 @@ msgstr "自動隱藏全部"
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "自動重新命名"
-
-#. Resource IDs: (222)
-msgid "Auto-close for local operations"
-msgstr "本地作業時自動關閉"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -6384,6 +6388,10 @@ msgstr ""
 msgid "Reintegrate a branch"
 msgstr "重新整合分支"
 
+#. Resource IDs: (595)
+msgid "Reintegrate merge"
+msgstr "重新整合合併"
+
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %s into %s"
@@ -7167,6 +7175,10 @@ msgid "Select text editor application"
 msgstr "選擇文字編輯器"
 
 #. Resource IDs: (595)
+msgid "Select the URL from which to reintegrate"
+msgstr "選擇要進行重新整合的 URL"
+
+#. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
 msgstr "選擇要進行版本樹合併的 URL"
 
@@ -7412,7 +7424,6 @@ msgid "Show items in externals"
 msgstr "顯示外部項目"
 
 #. Resource IDs: (1037)
-#, fuzzy
 msgid "Show l&og"
 msgstr "顯示紀錄訊息(&O)"
 
