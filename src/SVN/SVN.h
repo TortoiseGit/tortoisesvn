@@ -879,7 +879,7 @@ protected:
 	static bool					s_useSystemLocale;
 
 	svn_opt_revision_t *	getRevision (svn_revnum_t revNumber);
-	void * logMessage (CStringA message, char * baseDirectory = NULL);
+	void * logMessage (CString message, char * baseDirectory = NULL);
 
 	/// Convert a TSVNPathList into an array of SVN copy paths
 	apr_array_header_t * MakeCopyArray(const CTSVNPathList& pathList, const SVNRev& rev, const SVNRev& pegrev);
