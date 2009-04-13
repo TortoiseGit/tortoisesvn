@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-12 11:34-0300\n"
+"PO-Revision-Date: 2009-04-13 13:15-0300\n"
 "Last-Translator: Humberto Osório <humberto@virtual.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1610,7 +1610,7 @@ msgid "Amount of memory required to load the cache"
 msgstr "Quantidade de memória necessária para carregar o cache"
 
 #. Resource IDs: (78)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "An external diff program used\r\n"
 "for comparing different revisions of files\r\n"
@@ -1619,15 +1619,15 @@ msgid ""
 "%base : the base file\r\n"
 "%mine : the modified file"
 msgstr ""
-"Um programa externo de comparação usado\n"
-"para comparar diferentes revisões de arquivos\n"
-"<hr=100%>\n"
-"Você pode especificar os seguintes parâmetros para o caminho:\n"
-"%base\to arquivo base\n"
-"%mine\to arquivo modificado"
+"Um programa externo de comparação usado\r\n"
+"para comparar diferentes revisões de arquivos\r\n"
+"\r\n"
+"Você pode especificar os seguintes parâmetros para o caminho:\r\n"
+"%base : arquivo base\r\n"
+"%mine : arquivo modificado"
 
 #. Resource IDs: (79)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "An external merge program used\r\n"
 "to resolve conflicted files.\r\n"
@@ -1638,20 +1638,20 @@ msgid ""
 "%mine : your own file, with your changes\r\n"
 "%base : the original file without your changes"
 msgstr ""
-"Um programa externo de combinação usado\n"
-"para resolver arquivos em conflito.\n"
-"<hr=100%>\n"
-"Você pode especificar os seguintes parâmetros para o caminho:\n"
-"%merged\to arquivo em conflito, onde salvar\n"
-"%theirs\t\to arquivo como está no repositório\n"
-"%mine\t\tseu próprio arquivo, com suas modificações\n"
-"%base\t\to arquivo original sem suas modificações"
+"Um programa externo de combinação usado\r\n"
+"para resolver arquivos em conflito.\r\n"
+"\r\n"
+"Você pode especificar os seguintes parâmetros para o caminho:\r\n"
+"%merged : arquivo em conflito, onde salvar\r\n"
+"%theirs : arquivo como está no repositório\r\n"
+"%mine : seu próprio arquivo, com suas alterações\r\n"
+"%base : arquivo original sem suas modificações"
 
 # A palavra 'Handle' nesse contexto pode ser ignorada?
 #. Resource IDs: (3867)
-#, fuzzy, c-format
+#, c-format
 msgid "An incorrect file handle was associated with %1."
-msgstr "Um arquivo inválido foi associado com %1."
+msgstr "Um manipulador de arquivo inválido foi associado a %1."
 
 #. Resource IDs: (3843)
 msgid "An unknown error has occurred."
@@ -1964,7 +1964,6 @@ msgid "C&reate folder..."
 msgstr "C&riar Pasta..."
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "C&urrent Keys:"
 msgstr "Teclas At&uais:"
 
@@ -2010,9 +2009,8 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (1001)
-#, fuzzy
 msgid "Can't copy bitmap image into the clipboard!"
-msgstr "Não foi possível copiar a imagem para a área de transferência!"
+msgstr "Não foi possível copiar a imagem de bitmap para a área de transferência!"
 
 #. Resource IDs: (1001)
 msgid "Can't create a new image!"
@@ -2023,9 +2021,8 @@ msgid "Can't customize menues!"
 msgstr "Não é possível editar os menus!"
 
 #. Resource IDs: (1001)
-#, fuzzy
 msgid "Can't paste bitmap image from the clipboard!"
-msgstr "Não foi possível colar a imagem bitmap da área de transferência!"
+msgstr "Não foi possível colar a imagem de bitmap da área de transferência!"
 
 #. Resource IDs: (2, 73, 99, 332, 563, 1069)
 msgid "Cancel"
@@ -2125,9 +2122,8 @@ msgid "Check For Updates..."
 msgstr "Verificar Atualizações..."
 
 #. Resource IDs: (276)
-#, fuzzy
 msgid "Check for &modifications"
-msgstr "Veri&ficar Alterações"
+msgstr "Veri&ficar alterações"
 
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
@@ -2170,9 +2166,8 @@ msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Marque para usar um formato de data e hora mais conciso nos comentários"
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid "Check working copy for modifications"
-msgstr "Veri&ficar Alterações"
+msgstr "Verificar alterações na cópia de trabalho"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -2208,9 +2203,8 @@ msgid "Choose item:"
 msgstr "Escolher item:"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Classification Patterns"
-msgstr "Data de modificação:"
+msgstr "Padrões de Classificação"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -2248,12 +2242,11 @@ msgstr "Limpar"
 
 # Será que clear limpar não é bem aplicada aqui por ter o clean, tb traduzido aqui como limpar?
 #. Resource IDs: (1057)
-#, fuzzy
 msgid ""
 "Clear Tool\n"
 "Clear"
 msgstr ""
-"Ferramenta Limpar\n"
+"Ferramenta Limpeza\n"
 "Limpar"
 
 #. Resource IDs: (196)
@@ -2277,13 +2270,12 @@ msgid "Clears cached logs from %ld repositories"
 msgstr "Limpar logs armazenados dos %ld repositórios"
 
 #. Resource IDs: (195)
-#, fuzzy
 msgid ""
 "Clears the stored authentication.\r\n"
 "You will have to enter your username/password again for all repositories."
 msgstr ""
-"Apagar as autenticações gravadas.\n"
-"Você terá que digitar nome de usuário e senha novamente para todos os repositórios."
+"Apagar as autenticações gravadas.\r\n"
+"Você terá que digitar nome de usuário/senha novamente para todos os repositórios."
 
 #. Resource IDs: (196)
 #, c-format
@@ -2347,14 +2339,12 @@ msgid "Color"
 msgstr "Cor"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Color 1"
-msgstr "Cor"
+msgstr "Cor 1"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Color 2"
-msgstr "Cor"
+msgstr "Cor 2"
 
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
@@ -2405,7 +2395,6 @@ msgid "Commit to:"
 msgstr "Submeter para:"
 
 #. Resource IDs: (209)
-#, fuzzy
 msgid "Commit..."
 msgstr "Submeter..."
 
@@ -2507,9 +2496,8 @@ msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "Configure o programa de visualização para arquivos arquivos de comparação (arquivos de correção)."
 
 #. Resource IDs: (1503)
-#, fuzzy
 msgid "Conflict Sources"
-msgstr "Conflito resolvido"
+msgstr "Fontes de Conflito"
 
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
@@ -2529,9 +2517,8 @@ msgid "Connect to the repository server and download missing log data"
 msgstr "Conectar ao servidor de repositório e baixar dados do histórico que estão faltando"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Container sizes"
-msgstr "Tamanhos dos containers"
+msgstr "Tamanhos dos contentores"
 
 #. Resource IDs: (16520)
 msgid "Context Menus: "
@@ -2558,9 +2545,9 @@ msgid "Copied from URL"
 msgstr "Copiar a partir da URL"
 
 #. Resource IDs: (275)
-#, fuzzy, c-format
+#, c-format
 msgid "Copied from: %s@%ld\r\n"
-msgstr "Copiar a partir da URL"
+msgstr "Copiar de: %s@%ld\r\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
@@ -2659,11 +2646,9 @@ msgstr ""
 "Copiar"
 
 #. Resource IDs: (613)
-#, fuzzy, c-format
+#, c-format
 msgid "Copy to %1"
-msgstr ""
-"Copiar %s\r\n"
-"para %s"
+msgstr "Copiar para %1"
 
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
@@ -2706,9 +2691,9 @@ msgid "Could not add '%s' because"
 msgstr "Não foi possível adicionar '%s' porque"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not add property '%s' on '%s' because"
-msgstr "Não foi possível adicionar a propriedade \"%s\" em %s porque"
+msgstr "Não foi possível adicionar a propriedade '%s' em '%s' porque"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -2731,14 +2716,14 @@ msgid "Could not create %1 because the directory is full."
 msgstr "%1 não pôde ser criado porque o diretório está cheio."
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not delete '%s' because"
 msgstr "Não foi possível deletar '%s' porque"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not delete property '%s' on '%s' because"
-msgstr "Não foi possível deletar a propriedade \"%s\" em %s porque"
+msgstr "Não foi possível deletar a propriedade '%s' em '%s' porque"
 
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
@@ -2754,9 +2739,9 @@ msgid "Could not merge '%s' because"
 msgstr "Não foi possível combinar '%s' porque"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not merge property '%s' on '%s' because"
-msgstr "Não foi possível combinar a propriedade \"%s\" em %s porque"
+msgstr "Não foi possível combinar a propriedade '%s' em '%s' porque"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2940,9 +2925,8 @@ msgid "Cus&tomize..."
 msgstr "&Personalizar..."
 
 #. Resource IDs: (16963)
-#, fuzzy
 msgid "Custom"
-msgstr "Personalizar"
+msgstr "Personalizado"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -3013,19 +2997,18 @@ msgid "Delete Unversioned Items"
 msgstr "Deletar Itens sem Controle de Versão"
 
 #. Resource IDs: (14)
-#, fuzzy, c-format
+#, c-format
 msgid "Delete and &ignore %d items by name"
-msgstr "&Ignorar %d itens pelo nome"
+msgstr "Deletar e &Ignorar %d itens pelo nome"
 
 #. Resource IDs: (14)
-#, fuzzy
 msgid "Delete and add to &ignore list"
-msgstr "Adicionar à lista de &ignorados"
+msgstr "Deletar e adicionar à lista de &ignorados"
 
 #. Resource IDs: (14)
-#, fuzzy, c-format
+#, c-format
 msgid "Delete and ignore %d items by &extension"
-msgstr "itens ignorados incluídos"
+msgstr "Deletar e ignorar itens %d itens por &extensão "
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3040,9 +3023,8 @@ msgid "Deleted node"
 msgstr "Nó excluído"
 
 #. Resource IDs: (15)
-#, fuzzy
 msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
-msgstr "Adiciona os arquivo(s) selecionado(s) ou a máscara de arquivos à lista de 'ignorados'"
+msgstr "Deleta e adiciona o(s) arquivo(s) selecionado(s) ou a máscara de arquivos à lista de 'ignorados'"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -3061,9 +3043,8 @@ msgid "Deleting"
 msgstr "Excluindo"
 
 #. Resource IDs: (207)
-#, fuzzy
 msgid "Depth"
-msgstr "Profundidade:"
+msgstr "Profundidade"
 
 #. Resource IDs: (65535)
 msgid "Depth:"
@@ -3128,13 +3109,12 @@ msgid "Directory:"
 msgstr "Diretório:"
 
 #. Resource IDs: (195)
-#, fuzzy
 msgid ""
 "Disable this option if you have really big working copies and experience\r\n"
 "too much disk access when browsing the working copy."
 msgstr ""
-"Desabilite esta opção se você tiver cópias de trabalho realmente grandes e\n"
-"enfrentar acessos a disco excessivos ao navegar na cópia de trabalho."
+"Desabilite esta opção se você tiver cópias de trabalho realmente grandes e\r\n"
+"houverem acessos a disco excessivos ao navegar na cópia de trabalho."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -8480,13 +8460,12 @@ msgid "Theirs"
 msgstr "Deles"
 
 #. Resource IDs: (169)
-#, fuzzy
 msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr ""
 "Existem alterações ou itens sem controle de versão em um ou mais diretórios que você incluiu com svn:externals.\n"
-"Esses arquivos <b>não</b> são listados na submissão. Você precisa submeter esses arquivos separadamente."
+"Esses arquivos não são listados na submissão. Você precisa submeter esses arquivos separadamente."
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
