@@ -4,6 +4,8 @@
 Version 1.6.2
 - BUG: Error message about non-LF commit messages when using messages with
        non-ASCII text. (Stefan)
+- BUG: Dragging files/folders from the repository browser or the status
+       list control to the explorer could result in a DEP exception. (Stefan)
 
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)
