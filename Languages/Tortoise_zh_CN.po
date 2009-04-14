@@ -55,11 +55,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-21 19:59+0100\n"
+"PO-Revision-Date: 2009-04-14 10:36+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1503,6 +1503,10 @@ msgstr "根据扩展名指定差异比较程序"
 msgid "Add extension specific merge program"
 msgstr "根据扩展名指定合并程序"
 
+#. Resource IDs: (1065)
+msgid "Add new files automatically to SVN"
+msgstr "自动增加新文件到版本库"
+
 #. Resource IDs: (89)
 msgid "Add the item anyway"
 msgstr "强制增加此项"
@@ -1653,6 +1657,10 @@ msgstr "允许不同的版本库使用同一 URL, 例如: http://localhost/myrep
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "允许不同的版本库使用同一 UUID, 例如复制的版本库。"
+
+#. Resource IDs: (1480)
+msgid "Always close dialogs for local operations"
+msgstr "对本地操作始终关闭对话框"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1849,10 +1857,6 @@ msgstr "全部自动隐藏"
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "自动改名"
-
-#. Resource IDs: (222)
-msgid "Auto-close for local operations"
-msgstr "对本地操作自动关闭"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -4623,7 +4627,7 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "If you want to break the lock, use the 'Check For Modifications' dialog."
-msgstr "如果你想破除锁定，用“检查更新”对话框。"
+msgstr "如果你想破除锁定，用“检查修改”对话框。"
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -5963,7 +5967,7 @@ msgstr "其它任务窗格"
 
 #. Resource IDs: (245)
 msgid "Others"
-msgstr "对方的"
+msgstr "其它"
 
 #. Resource IDs: (3843)
 msgid "Out of memory."
@@ -5971,7 +5975,7 @@ msgstr "内存不足。"
 
 #. Resource IDs: (3845)
 msgid "Output.prn"
-msgstr "输出.prn"
+msgstr "Output.prn"
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -6513,6 +6517,10 @@ msgstr ""
 #. Resource IDs: (1469)
 msgid "Reintegrate a branch"
 msgstr "复兴分支"
+
+#. Resource IDs: (595)
+msgid "Reintegrate merge"
+msgstr "复兴合并"
 
 #. Resource IDs: (230)
 #, c-format
@@ -7295,6 +7303,10 @@ msgstr "选择开始版本"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "选择文字编辑器"
+
+#. Resource IDs: (595)
+msgid "Select the URL from which to reintegrate"
+msgstr "为复兴选择 URL"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10562,15 +10574,3 @@ msgstr "是"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-#~ msgid "%s, but the local file was already edited."
-#~ msgstr "“%s” 已经在被编辑。"
-
-#~ msgid "General::Revision Graph"
-#~ msgstr "常规::版本分支图"
-
-#~ msgid "Go offline?"
-#~ msgstr "是否离线？"
-
-#~ msgid "Replaced node"
-#~ msgstr "替换的节点"
