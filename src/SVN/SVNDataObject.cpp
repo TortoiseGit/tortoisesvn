@@ -383,6 +383,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 			GlobalUnlock(pmedium->hGlobal);
 		}
 		pmedium->pUnkForRelease = NULL;
+		delete [] pBuffer;
 		return S_OK;
 	}
 
@@ -622,7 +623,6 @@ HRESULT STDMETHODCALLTYPE SVNDataObject::InOperation(BOOL* pfInAsyncOp)
 HRESULT STDMETHODCALLTYPE SVNDataObject::EndOperation(HRESULT /*hResult*/, IBindCtx* /*pbcReserved*/, DWORD /*dwEffects*/)
 {
 	m_bInOperation = FALSE;
-	Release();
 	return S_OK;
 }
 
