@@ -6,6 +6,8 @@ Version 1.6.2
        non-ASCII text. (Stefan)
 - BUG: Dragging files/folders from the repository browser or the status
        list control to the explorer could result in a DEP exception. (Stefan)
+- BUG: The pathList passed to CheckCommit() only contained the parent folder
+       for recursive commits, not all selected items. (Stefan)
 
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)

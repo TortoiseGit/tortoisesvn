@@ -546,10 +546,10 @@ void CCommitDlg::OnOK()
 			BSTR parameters = m_bugtraq_association.GetParameters().AllocSysString();
 			BSTR commonRoot = SysAllocString(m_pathList.GetCommonRoot().GetDirectory().GetWinPath());
 			BSTR commitMessage = m_sLogMessage.AllocSysString();
-			SAFEARRAY *pathList = SafeArrayCreateVector(VT_BSTR, 0, m_pathList.GetCount());
+			SAFEARRAY *pathList = SafeArrayCreateVector(VT_BSTR, 0, m_selectedPathList.GetCount());
 
-			for (LONG index = 0; index < m_pathList.GetCount(); ++index)
-				SafeArrayPutElement(pathList, &index, m_pathList[index].GetSVNPathString().AllocSysString());
+			for (LONG index = 0; index < m_selectedPathList.GetCount(); ++index)
+				SafeArrayPutElement(pathList, &index, m_selectedPathList[index].GetSVNPathString().AllocSysString());
 
 			if (FAILED(hr = pProvider2->CheckCommit(GetSafeHwnd(), parameters, repositoryRoot, commonRoot, pathList, commitMessage, &temp)))
 			{
