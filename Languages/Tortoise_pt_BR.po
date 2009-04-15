@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-13 13:15-0300\n"
+"PO-Revision-Date: 2009-04-14 22:16-0300\n"
 "Last-Translator: Humberto Osório <humberto@virtual.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3250,7 +3250,6 @@ msgid "Drag to make this menu float"
 msgstr "Arraste para fazer esse menu flutuar."
 
 #. Resource IDs: (16513)
-#, fuzzy
 msgid "Draw"
 msgstr "Desenhar"
 
@@ -3272,18 +3271,16 @@ msgid "E&xact copy sources"
 msgstr "Cópia e&xata da fonte"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "E&xclude paths:"
-msgstr "Excluir caminhos:"
+msgstr "E&xcluir caminhos:"
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "Sai&r"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "E&xpand all"
-msgstr "Expandir (%s)"
+msgstr "E&xpandir tudo"
 
 #. Resource IDs: (275)
 msgid "E&xpand sub-trees"
@@ -3314,14 +3311,12 @@ msgid "Edit Properties"
 msgstr "Editar Propriedades"
 
 #. Resource IDs: (297)
-#, fuzzy
 msgid "Edit Property Conflict"
-msgstr "Editar Propriedades"
+msgstr "Editar Conflito de Propriedades"
 
 #. Resource IDs: (298)
-#, fuzzy
 msgid "Edit Tree Conflicts"
-msgstr "&Editar Conflitos"
+msgstr "Editar Conflitos de Árvore"
 
 #. Resource IDs: (113)
 msgid "Edit author"
@@ -3385,13 +3380,12 @@ msgid "Enable log caching to speed up log and revision graph dialogs"
 msgstr "Habilitar armazenamento de log para acelerar os diálogos de log e de gráfico de revisão"
 
 #. Resource IDs: (196)
-#, fuzzy
 msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\r\n"
 "You must restart the system for this setting to take effect."
 msgstr ""
-"Habilite isto apenas se você está trabalhando com objetos web no VS.NET2003!\n"
-"Você deve reiniciar o sistema para esta configuração fazer efeito."
+"Active apenas se estiver a trabalhando com projetos web no VS.NET2003!\r\n"
+"Terá de reiniciar o sistema para que esta configuração faça efeito."
 
 #. Resource IDs: (195)
 msgid ""
@@ -3407,12 +3401,12 @@ msgid "Encountered a hardware I/O error while accessing %1."
 msgstr "Foi encontrado um erro E/S de hardware durante o acesso a %1."
 
 #. Resource IDs: (3867)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered a locking violation while accessing %1."
-msgstr "Uma violação de bloqueio ocorreu ao acessar %1."
+msgstr "Houve uma violação de bloqueio durante o acesso a %1."
 
 #. Resource IDs: (3867)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered a sharing violation while accessing %1."
 msgstr "Houve uma violação de compartilhamento durante o acesso a %1."
 
@@ -3421,14 +3415,14 @@ msgid "Encountered an improper argument."
 msgstr "Foi encontrado um argumento impróprio."
 
 #. Resource IDs: (3859)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered an unexpected error while reading %1."
-msgstr "Um erro inesperado ocorreu ao ler %1."
+msgstr "Houve um erro inesperado durante a leitura de %1."
 
 #. Resource IDs: (3859)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered an unexpected error while writing %1."
-msgstr "Um erro inesperado ocorreu ao escrever %1."
+msgstr "Houve um erro inesperado durante a escrita de %1."
 
 #. Resource IDs: (65535)
 msgid "End Revision"
@@ -3556,12 +3550,10 @@ msgid "Exceptions:"
 msgstr "Exceções:"
 
 #. Resource IDs: (20)
-#, fuzzy
 msgid "Exclude"
-msgstr "Excluir caminhos:"
+msgstr "Excluir"
 
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
 msgstr "Executável (*.exe)|*.exe|Comando (*.com)|*.com|Informação (*.pdf)|*.pdf|Lote (*.bat)|*.bat|Todos os arquivos (*.*)|*.*||"
 
@@ -3587,9 +3579,8 @@ msgid "Expand docked window"
 msgstr "Expandir janela ancorada"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Expert settings"
-msgstr "Exportando %s"
+msgstr "Configurações avançadas"
 
 #. Resource IDs: (209)
 msgid "Explore to"
@@ -3669,9 +3660,8 @@ msgid "External Programs::Unified Diff Viewer"
 msgstr "Programas Externos::Visualizador de Arquivo de Comparação Unificado"
 
 #. Resource IDs: (263)
-#, fuzzy
 msgid "External failed"
-msgstr "Projetos externos incluidos"
+msgstr "Falha externa"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
@@ -3686,13 +3676,12 @@ msgid "Failed revert"
 msgstr "Reversão falhou"
 
 #. Resource IDs: (3865)
-#, fuzzy
 msgid ""
 "Failed to connect.\n"
 "Link may be broken."
 msgstr ""
 "Falha ao conectar.\n"
-"O endereço deve estar fora do ar."
+"O link deve estar quebrado."
 
 #. Resource IDs: (3865)
 msgid "Failed to convert ActiveX object."
@@ -3727,9 +3716,9 @@ msgid "Failed to save document."
 msgstr "Falha ao salvar documento."
 
 #. Resource IDs: (264)
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to set/remove changelist '%s'"
-msgstr "falha ao definir/remover a lista de alterações \"%s\""
+msgstr "Falha ao definir/remover lista de alterações '%s'"
 
 #. Resource IDs: (83)
 #, c-format
@@ -3890,11 +3879,12 @@ msgstr ""
 "Preencher"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
-msgstr "Filtre os seguintes caminhos (separe múltiplos arquivos pelo caracter '*'):"
+msgstr ""
+"Filtrar os caminhos que contém um dos strings seguintes\n"
+"(separe os caminhos com o caractere '*'):"
 
 #. Resource IDs: (321)
 msgid "Filter paths"
@@ -3917,9 +3907,8 @@ msgid "Finished!"
 msgstr "Concluído!"
 
 #. Resource IDs: (32804)
-#, fuzzy
 msgid "Fit graph"
-msgstr "Gráfico em Pizza"
+msgstr "Ajusta gráfico"
 
 #. Resource IDs: (32802)
 msgid "Fit height"
@@ -3942,9 +3931,8 @@ msgid "Fold &tags"
 msgstr "Recolher &rótulos"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Folded tag"
-msgstr "Recolher &rótulos"
+msgstr "Rótulo dobrado"
 
 #. Resource IDs: (1002)
 msgid "Folder"
@@ -3959,14 +3947,12 @@ msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Para ajuda, pressione F1. Role a barra de rolamento horizontalmente com CTRL-roda do mouse"
 
 #. Resource IDs: (119)
-#, fuzzy
 msgid "For complete history deselect 'Stop on copy/rename'"
-msgstr "Para um histórico completo desmarque \"Parar na cópia/mudança de nome\" "
+msgstr "Para um histórico completo desmarque 'Parar na cópia/mudança de nome' "
 
 #. Resource IDs: (1064)
-#, fuzzy
 msgid "Forward"
-msgstr "Voltar"
+msgstr "Avançar"
 
 #. Resource IDs: (65535)
 msgid "From URL:"
@@ -4151,9 +4137,8 @@ msgid "HEAD"
 msgstr "Mais Recente"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "HEAD node"
-msgstr "Nó adicionado"
+msgstr "Nó HEAD"
 
 #. Resource IDs: (106)
 #, c-format
@@ -4165,27 +4150,24 @@ msgid "Help"
 msgstr "Ajuda"
 
 #. Resource IDs: (16982)
-#, fuzzy
 msgid "Help Keyboard"
-msgstr "Tecla de Ajuda"
+msgstr "Teclado de Ajuda"
 
 #. Resource IDs: (16974)
 msgid "Hex"
 msgstr "Hex"
 
 #. Resource IDs: (32820)
-#, fuzzy
 msgid "Hide &deleted paths"
-msgstr "Ocultar caminhos &deletados"
+msgstr "Ocultar caminhos excluí&dos"
 
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
 msgstr ""
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid "Hide deleted branches and tags"
-msgstr "Remover ramos e rótulos excluídos"
+msgstr "Ocultar ramos e rótulos excluídos"
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
