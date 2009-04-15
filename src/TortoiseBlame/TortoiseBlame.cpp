@@ -1719,7 +1719,10 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 						if ((iter2 = app.logmessages.find(origrev)) != app.logmessages.end())
 						{
 							if (!msg.empty())
-								msg += _T("\n------------------\n\n");
+								msg += _T("\n------------------\n");
+							char revBuf[100];
+							_stprintf_s(revBuf, 100, "merged in r%ld:\n----\n", origrev);
+							msg += revBuf;
 							msg += iter2->second;
 						}
 					}
