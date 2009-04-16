@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-17 23:30+0100\n"
+"PO-Revision-Date: 2009-04-16 11:41+0100\n"
 "Last-Translator: Krzysztof Kotowicz <koto@webworkers.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1472,6 +1472,10 @@ msgstr "Dodaj program do porównywania plików (zależny od rozszerzenia pliku) 
 msgid "Add extension specific merge program"
 msgstr "Dodaj program do scalania plików (zależny od rozszerzenia pliku) "
 
+#. Resource IDs: (1065)
+msgid "Add new files automatically to SVN"
+msgstr " "
+
 #. Resource IDs: (89)
 msgid "Add the item anyway"
 msgstr "Dodaj element mimo to"
@@ -1613,6 +1617,10 @@ msgstr "Zezwól na używanie tego samego adresu URL dla różnych repozytoriów,
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Zezwól na używanie tego samego UUID dla różnych repozytoriów, np. kopii"
+
+#. Resource IDs: (1480)
+msgid "Always close dialogs for local operations"
+msgstr "Zawsze zamykaj okienka dla lokalnych operacji"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1811,10 +1819,6 @@ msgstr "Automatycznie ukryj"
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "Automatycznie zmień nazwę"
-
-#. Resource IDs: (222)
-msgid "Auto-close for local operations"
-msgstr "Automatyczne zamknięcie dla lokalnych operacji"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -6409,6 +6413,10 @@ msgstr ""
 msgid "Reintegrate a branch"
 msgstr "Reintegruj gałąź"
 
+#. Resource IDs: (595)
+msgid "Reintegrate merge"
+msgstr "Scalanie reintegrowane"
+
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %s into %s"
@@ -7194,6 +7202,10 @@ msgid "Select text editor application"
 msgstr "Wybierz edytor tekstowy"
 
 #. Resource IDs: (595)
+msgid "Select the URL from which to reintegrate"
+msgstr "Zaznacz URLe, z których chcesz reintegrować"
+
+#. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
 msgstr "Zaznacz URLe do scalenia drzew"
 
@@ -7438,6 +7450,10 @@ msgstr "Pokaż &ignorowane pliki"
 #. Resource IDs: (1480)
 msgid "Show items in externals"
 msgstr "Pokaż elementy w zewnętrznych"
+
+#. Resource IDs: (1037)
+msgid "Show l&og"
+msgstr "Pokaż &log"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
