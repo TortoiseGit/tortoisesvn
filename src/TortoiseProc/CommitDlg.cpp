@@ -1215,7 +1215,7 @@ void CCommitDlg::OnBnClickedHistory()
 	if (sMsg != m_cLogMessage.GetText().Left(sMsg.GetLength()))
 	{
 		CString sBugID = m_ProjectProperties.FindBugID(sMsg);
-		if (!sBugID.IsEmpty())
+		if ((!sBugID.IsEmpty())&&((GetDlgItem(IDC_BUGID)->IsWindowVisible())))
 		{
 			SetDlgItemText(IDC_BUGID, sBugID);
 		}
