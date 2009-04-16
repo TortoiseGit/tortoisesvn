@@ -41,6 +41,7 @@ urlDoc   = 'doc/po'
 
 langList = os.path.join('gui', 'trunk', 'Languages.txt')
 langFields = ['Tag','LangCC','LangID','FlagByte','LangName','Translators']
+Sep75 = '==========================================================================='
 
 def usage_and_exit(errmsg=None):
     """Print a usage message, plus an ERRMSG (if provided), then exit.
@@ -256,8 +257,10 @@ class transReport:
               else:
                 return '%2s%% (%s/%s)' % (percent, untrans, fuzzy)
 
+    def printStatLine(self, Lang, Trunk, Branch):
+        print '%-32s: %-20s: %-20s' % (Lang, Trunk, Branch)
+    
     def checkTranslation(self, srcDir, fileMask, checkAccel):
-        print '%s' %(srcDir)
 
         [totTrunk, tsTrunk] = self.prepareTMP(srcDir, 'trunk', fileMask)
         [totBranch, tsBranch] = self.prepareTMP(srcDir, 'branch', fileMask)
@@ -265,7 +268,14 @@ class transReport:
         outTrunk.sectOpen(fileMask)
         outBranch.sectOpen(fileMask)
 
-        print '%s %s' % (totTrunk, totBranch)
+        firstline = '%s %s translation %s' % (fileMask, srcDir, Sep75)
+        print ''
+        print firstline[0:75]
+        self.printStatLine('', 'Developer Version', 'Current Release')
+        self.printStatLine('Location', urlTrunk, urlBranch)
+        self.printStatLine('Total strings', totTrunk,totBranch)
+        self.printStatLine('Language', 'Status (fu/un/ma)', 'Status (fu/un/ma)')
+        print Sep75
 
         csvReader = csv.DictReader(open(langList), langFields, delimiter=';', quotechar='"')
         csvReader.skipinitialspace = True
@@ -281,7 +291,7 @@ class transReport:
             if statusTrunk != 'NONE' or statusBranch != 'NONE':
                langName = row['LangName'].strip()
                langName = langName + ' ('+langCC+')'
-               print '%-32s: %-20s: %-20s' % (langName,statusTrunk,statusBranch)
+               self.printStatLine (langName, statusTrunk, statusBranch)
 
         outTrunk.sectClose(totTrunk, fileMask, tsTrunk)
         outBranch.sectClose(totBranch, fileMask, tsBranch)
@@ -312,6 +322,10 @@ class transReport:
         self.checkTranslation('doc','TortoiseSVN',False)
         self.checkTranslation('doc','TortoiseMerge',False)
 
+        print Sep75
+        print 'Status: fu=fuzzy - un=untranslated - ma=missing accelerator keys'
+        print Sep75
+
         # Clean up the tmp folder
         for root, dirs, files in os.walk('tmp', topdown=False):
           for name in files:
@@ -341,11 +355,7 @@ def main():
         elif opt in ('-m', '--to-email-id'):
             to_email_id = arg
 
-    outTrunk.addHeader()
-    outBranch.addHeader()
-
     report = transReport()
-    report.createReport()
 
     [info_out, info_err] = report.safe_command(['svnversion', '.'])
     if info_err:
@@ -353,6 +363,15 @@ def main():
         sys.exit(0)
 
     wcrev = re.sub('[MS]', '', info_out).strip()
+
+    subject = 'TortoiseSVN translation status report for r%s' % (wcrev)
+    print subject
+
+    outTrunk.addHeader()
+    outBranch.addHeader()
+
+    report.createReport()
+
     timestamp = makeTimeString('%a, %d %b %Y %H:%M', time.time())
 
     outTrunk.addFooter(wcrev, timestamp)
