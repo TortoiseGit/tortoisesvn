@@ -73,7 +73,7 @@ class includeWriter:
 
     def addFooter(self, wcrev, update):
         self.out.write('$tsvn_var = array(\n')
-        self.out.write('"wcrev" => "%s"\n' %(wcrev))
+        self.out.write('"wcrev" => "%s",\n' %(wcrev))
         self.out.write('"update" => "%s"\n' %(update))
         self.out.write(');\n')
         self.out.write('?>\n')
