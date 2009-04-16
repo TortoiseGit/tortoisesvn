@@ -1630,7 +1630,7 @@ BOOL SVN::Lock(const CTSVNPathList& pathList, BOOL bStealLock, const CString& co
 {
 	svn_error_clear(Err);
 	Err = NULL;
-	Err = svn_client_lock(pathList.MakePathArray(pool), CUnicodeUtils::GetUTF8(comment), bStealLock, m_pctx, pool);
+	Err = svn_client_lock(pathList.MakePathArray(pool), CUnicodeUtils::GetUTF8(comment), !!bStealLock, m_pctx, pool);
 	return (Err == NULL);	
 }
 
