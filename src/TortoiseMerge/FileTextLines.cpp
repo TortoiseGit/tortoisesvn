@@ -469,6 +469,9 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 				case EOL_LFCR:
 					sLine = _T("\x0a\x0d");
 					break;
+				default:
+					sLine.Empty();
+					break;
 				}
 				if ((m_bReturnAtEnd)||(i != GetCount()-1))
 					file.Write((LPCTSTR)sLine, sLine.GetLength()*sizeof(TCHAR));
