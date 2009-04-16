@@ -11,6 +11,7 @@ Version 1.6.2
 - BUG: TortoiseMerge duplicated the last line when saving UCS-2 files. (Stefan)
 - BUG: Using a commit message from the history could result in an error
        about "only numbers are allowed" when trying to commit. (Stefan)
+- BUG: Stealing a lock failed when using serf instead of neon. (Stefan)
 
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)
