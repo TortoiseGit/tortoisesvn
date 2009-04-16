@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-14 22:16-0300\n"
+"PO-Revision-Date: 2009-04-15 09:08-0300\n"
 "Last-Translator: Humberto Osório <humberto@virtual.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3384,7 +3384,7 @@ msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\r\n"
 "You must restart the system for this setting to take effect."
 msgstr ""
-"Active apenas se estiver a trabalhando com projetos web no VS.NET2003!\r\n"
+"Ative apenas se estiver trabalhando com projetos web no VS.NET2003!\r\n"
 "Terá de reiniciar o sistema para que esta configuração faça efeito."
 
 #. Resource IDs: (195)
@@ -4178,9 +4178,8 @@ msgid "Hide the script while running"
 msgstr "Ocultar scrip durante execução"
 
 #. Resource IDs: (32830)
-#, fuzzy
 msgid "Hide unused &branches"
-msgstr "Separar &ramos grandes"
+msgstr "Ocultar &ramos não utilizados"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -4203,9 +4202,8 @@ msgid "Hint: select the context menu, change the page to 'Commands' and drag the
 msgstr "Dica: selecione o menu de contexto, mude a página para 'Comandos' e arraste os botões da barra de ferramentas para a janela do menu."
 
 #. Resource IDs: (1064)
-#, fuzzy
 msgid "Home"
-msgstr "Home"
+msgstr "Casa"
 
 #. Resource IDs: (103)
 msgid "Hook Scripts"
@@ -4229,16 +4227,12 @@ msgid "Hostname mismatch (%s)"
 msgstr "Nome do Servidor não coincide (%s)"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "How do you want to resolve this conflict?"
-msgstr ""
-"%s\n"
-"Você gostaria de removê-lo mesmo assim?"
+msgstr "Como você gostaria de resolver esse conflito?"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "I&nclude paths:"
-msgstr "Incluir caminhos:"
+msgstr "I&ncluir caminhos:"
 
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
@@ -4402,18 +4396,16 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (194)
-#, fuzzy
 msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
-msgstr "Se ativado, impede que as sobreposições ou menus de contexto apareçam nas caixas de diálogos \"Salvar como..\" ou \"Abrir\""
+msgstr "Se ativado, impede que as sobreposições ou menus de contexto apareçam nas caixas de diálogos 'salvar como..' ou 'abrir'"
 
 #. Resource IDs: (198)
-#, fuzzy
 msgid ""
 "If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
-"Se ativado, a entrada de menu \"Obter trava...\" é mostrada no nível mais alto do menu\n"
-" se o arquivo selecionado está com a propriedade svn:needs-lock"
+"Se ativado, a entrada de menu 'Obter trava...' é mostrada no nível mais alto do menu\n"
+"se o arquivo selecionado está com a propriedade svn:needs-lock"
 
 #. Resource IDs: (95)
 msgid ""
@@ -4436,12 +4428,11 @@ msgid "If checked, double-clicking on a revision in the log list compares it wit
 msgstr ""
 
 #. Resource IDs: (196)
-#, fuzzy
 msgid ""
 "If checked, the commit dialog will be started again automatically after an error,\r\n"
 "while preserving your last selection and log message."
 msgstr ""
-"Se selecionado, o diálogo de submissão será reaberto automaticamente após um erro,\n"
+"Se selecionado, o diálogo de submissão será reaberto automaticamente após um erro,\r\n"
 "preservando sua última seleção e mensagem de log."
 
 #. Resource IDs: (194)
@@ -4449,22 +4440,20 @@ msgid "If enabled, TortoiseSVN checks once a week if a newer version is availabl
 msgstr "Se habilitado, o TortoiseSVN verifica semanalmente se existe nova versão disponível"
 
 #. Resource IDs: (195)
-#, fuzzy
 msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
 msgstr ""
-"Se habilitado, o diálogo de Combinação inicia a URL \"De:\" com a URL da cópia de trabalho selecionada\n"
+"Se habilitado, o diálogo de Combinação preenche a URL 'De:' com a URL da cópia de trabalho selecionada\r\n"
 "e não com a última URL utilizada. "
 
 #. Resource IDs: (195)
-#, fuzzy
 msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\r\n"
 "You don't have to click on 'Check Repository' anymore."
 msgstr ""
-"Se habilitado, o repositório é cantactado quando o diálogo inicia.\n"
-"Você não precisará mais clicar em \"Verificar Repositório\"."
+"Se habilitado, o repositório é contactado quando a caixa de diálogo é aberta.\r\n"
+"Você não precisará mais clicar em 'Verificar Repositório'."
 
 #. Resource IDs: (197)
 msgid ""
@@ -4475,32 +4464,29 @@ msgstr ""
 "exibição de sobreposição serão mostradas para as sobreposições com status 'normal'"
 
 #. Resource IDs: (195)
-#, fuzzy
 msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\r\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
-"Se selecionado, o TortoiseSVN irá cofigurar a hora dos arquivos\n"
-"para a hora que eles foram submetidos pela última vez. Se não\n"
-"selecionado, o TotoiseSVN usa a hora atual."
+"Se ativo, o TortoiseSVN alterará a hora dos arquivos\r\n"
+"para a hora em que eles foram submetidos pela última vez.\r\n"
+"Se não, o TortoiseSVN usará a hora atual."
 
 #. Resource IDs: (196)
-#, fuzzy
 msgid ""
 "If set, files inside unversioned folders can be shown in the status control.\r\n"
 "The status control is used for example in the commit dialog."
 msgstr ""
-"Se ativo, arquivos pertencentes a pastas não versionadas podederão ser mostrados no controle de status.\n"
-"O controle de status é usado, por exemplo, no diállogo de submissão."
+"Se ativo, arquivos pertencentes a pastas que não estão sob controle de versão poderão ser mostrados no controle de estado.\r\n"
+"O controle de estado é usado, por exemplo, na caixa de diálogo de submissão."
 
 #. Resource IDs: (196)
-#, fuzzy
 msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
 msgstr ""
-"Se marcado, arquivos sem controle de versão irão marcar o status do diretório pai como modificado\n"
-"i.e. eles pegam os ícones sobrescritos modificados."
+"Se ativo, arquivos sem controle de versão irão marcar o estado do diretório pai como modificado\r\n"
+"i.e. ficarão com o ícone de modificado sobreposto."
 
 #. Resource IDs: (2052)
 msgid "If the graph contains multiple trees, separate them by slight variations in background color."
@@ -6463,9 +6449,8 @@ msgid "Remote property status"
 msgstr "Status remoto da propriedade"
 
 #. Resource IDs: (208)
-#, fuzzy
 msgid "Remote revision"
-msgstr "&Acusar revisões"
+msgstr "Revisão Remota"
 
 #. Resource IDs: (63, 207)
 msgid "Remote status"
@@ -6511,24 +6496,20 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (610)
-#, fuzzy
 msgid "Remove the directory"
-msgstr "&Diretório de destino:"
+msgstr "Remover o diretório"
 
 #. Resource IDs: (610)
-#, fuzzy
 msgid "Remove the file"
-msgstr "%s : Arquivo Remoto"
+msgstr "Remover o arquivo"
 
 #. Resource IDs: (345)
-#, fuzzy
 msgid "Remove the selected cache(s) from disk"
-msgstr "Remover os cache(s) selecionados do disco"
+msgstr "Remover o(s) cache(s) selecionados do disco"
 
 #. Resource IDs: (1352)
-#, fuzzy
 msgid "Remove the whole subtree(s)"
-msgstr "Remove as propriedades selecionadas"
+msgstr "Remove toda(s) a(s) subárvore(s)"
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -6677,14 +6658,12 @@ msgid "Resolve all later"
 msgstr "Resolver todos depois"
 
 #. Resource IDs: (282)
-#, fuzzy
 msgid "Resolve conflict using 'mine'"
-msgstr "Resolver conflito usando \"meu\""
+msgstr "Resolver conflito usando 'meu'"
 
 #. Resource IDs: (282)
-#, fuzzy
 msgid "Resolve conflict using 'theirs'"
-msgstr "Resolver conflito usando \"deles\""
+msgstr "Resolver conflito usando 'deles'"
 
 #. Resource IDs: (1403)
 msgid "Resolve conflict:"
@@ -6732,9 +6711,8 @@ msgid "Reverse merge"
 msgstr "Reverter combinação"
 
 #. Resource IDs: (264)
-#, fuzzy, c-format
 msgid "Reverse merging %ld"
-msgstr "Reverter combinação"
+msgstr "Desfazer combinação %ld"
 
 #. Resource IDs: (264)
 #, fuzzy, c-format
