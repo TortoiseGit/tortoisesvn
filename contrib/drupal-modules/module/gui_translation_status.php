@@ -7,14 +7,14 @@
 //    *AND*
 // "http://tortoisesvn.net/translation_release_gui"
 //
-// Copyright (C) 2004-2008 the TortoiseSVN team
+// Copyright (C) 2004-2009 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // $Author$
 // $Date$
 // $Rev$
 //
-// Author: Lübbe Onken 2004-2008
+// Author: Lübbe Onken 2004-2009
 //
 
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_data_trunk.inc");
@@ -57,10 +57,10 @@ If you want to download the po file from the repository, either use <strong>gues
 //
 
 // Merge translation and country information into one array
-$TortoiseGUI = array_merge_recursive($countries, $TortoiseGUI);
+$Tortoise = array_merge_recursive($countries, $Tortoise);
 
 // Convert Data into a list of columns
-foreach ($TortoiseGUI as $key => $row) {
+foreach ($Tortoise as $key => $row) {
    $potfile[$key] = abs($row[0]);
    $country[$key] = $row[3];
    $errors[$key] = $row[5];
@@ -73,20 +73,20 @@ foreach ($TortoiseGUI as $key => $row) {
    $fdate[$key] = $row[12];
 }
 
-// Add $TortoiseGUI as the last parameter, to sort by the common key
-array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $TortoiseGUI);
+// Add $Tortoise as the last parameter, to sort by the common key
+array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $Tortoise);
 
 print_header($tsvn_var);
 
 // Print Alphabetical statistics
-print_table_header('sort_alpha', 'Languages ordered by country', $TortoiseGUI['zzz'], $tsvn_var);
-print_all_stats($TortoiseGUI, $tsvn_var);
+print_table_header('sort_alpha', 'Languages ordered by country', $Tortoise['zzz'], $tsvn_var);
+print_all_stats($Tortoise, $tsvn_var);
 print_table_footer();
 
-array_multisort($potfile, SORT_ASC, $transl, SORT_DESC, $untrans, SORT_ASC, $fuzzy, SORT_ASC, $accel, SORT_ASC, $country, SORT_ASC, $TortoiseGUI);
+array_multisort($potfile, SORT_ASC, $transl, SORT_DESC, $untrans, SORT_ASC, $fuzzy, SORT_ASC, $accel, SORT_ASC, $country, SORT_ASC, $Tortoise);
 
-print_table_header('sort_status', 'Languages by translation status', $TortoiseGUI['zzz'], $tsvn_var);
-print_all_stats($TortoiseGUI, $tsvn_var);
+print_table_header('sort_status', 'Languages by translation status', $Tortoise['zzz'], $tsvn_var);
+print_all_stats($Tortoise, $tsvn_var);
 print_table_footer();
 
 print_footer($tsvn_var);

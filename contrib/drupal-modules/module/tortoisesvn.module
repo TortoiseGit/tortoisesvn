@@ -2,13 +2,14 @@
 //
 // TortoiseSVN specific module that creates download and translation information pages
 //
-// Copyright (C) 2004-2008 the TortoiseSVN team
+// Copyright (C) 2004-2009 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // $Author$
 // $Date$
 // $Rev$
 //
+// Author: Lübbe Onken 2004-2009
 
 /**
  * @file
@@ -208,8 +209,16 @@ function print_blank_stat($i, $postat, $vars)
   $tl = $postat[6];
   $wc=$vars['wc'];
   $reposurl = $vars['reposurl'].$postat[11];
-  $fdate=date("Y-m-d",$postat[12]);
-  $flagimg=$vars['flagpath'].$postat[2].".png";
+  $fdate=$postat[12];
+
+  if ($postat[2] == "zzz") {
+    $m_cc = "en";
+    $flagimg=$vars['flagpath']."gb.png";
+  } else {
+    $m_cc = $postat[2];
+    $flagimg=$vars['flagpath'].$m_cc.".png";
+  }
+
   $flagtag="<img src=\"$flagimg\" height=\"12\" width=\"18\" alt=\"$postat[3] flag\"/>";
   $flagtag="<a href=\"$reposurl\">$flagtag&nbsp;$postat[3]</a>";
 

@@ -7,14 +7,14 @@
 //    *AND*
 // "http://tortoisesvn.net/translation_release_doc"
 //
-// Copyright (C) 2004-2008 the TortoiseSVN team
+// Copyright (C) 2004-20089 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // $Author$
 // $Date$
 // $Rev$
 //
-// Author: Lübbe Onken 2004-2008
+// Author: Lübbe Onken 2004-2009
 //
 
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_data_trunk.inc");

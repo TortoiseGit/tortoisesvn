@@ -4,14 +4,14 @@
 // Drupal translator credits page
 // loaded into "http://tortoisesvn.net/translator_credits"
 //
-// Copyright (C) 2004-2008 the TortoiseSVN team
+// Copyright (C) 2004-2009 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // $Author$
 // $Date$
 // $Rev$
 //
-// Author: Lübbe Onken 2004-2008
+// Author: Lübbe Onken 2004-2009
 //
 
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_data_trunk.inc");
@@ -69,7 +69,7 @@ function t_print_content_stat($i, $postat, $poinfo, $tsvn_var)
   $dlfile=$tsvn_var['url1']."LanguagePack_".$release.".".$build."-win32-".$poinfo[2].".msi".$tsvn_var['url2'];
 
   if ($poinfo[0] != '') {
-    $flagimg=$tsvn_var['flagpath']."$poinfo[2].png";
+    $flagimg=$tsvn_var['flagpath'].$poinfo[2].".png";
 
     echo "<td>$i</td>";
     echo "<td class=\"lang\"><img src=\"$flagimg\" height=\"12\" width=\"18\" />&nbsp;<a href=\"$dlfile\">$poinfo[3]</a></td>";

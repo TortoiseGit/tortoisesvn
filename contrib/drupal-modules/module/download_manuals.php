@@ -4,14 +4,14 @@
 // loaded into:
 // "http://tortoisesvn.net/support" 
 //
-// Copyright (C) 2004-2008 the TortoiseSVN team
+// Copyright (C) 2004-2009 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // $Author$
 // $Date$
 // $Rev$
 //
-// Author: Lübbe Onken 2004-2008
+// Author: Lübbe Onken 2004-2009
 //         Stefan Küng 2004-2008
 //
 
@@ -25,16 +25,17 @@ if (!function_exists('print_manuals')) {
 function print_manuals($i, $postat, $v, $b_release)
 {
   $infobits=$postat[1];
-  $flagimg=$v['flagpath']."$postat[2].png";
 
   if ( ($infobits & "110") <> "0") {
 
-    if ($postat[2] == "gb") {
+    if ($postat[2] == "zzz") {
       $m_cc = "en";
       $m_cn = "English";
+      $flagimg=$v['flagpath']."gb.png";
     } else {
       $m_cc = $postat[2];
       $m_cn = $postat[3];
+      $flagimg=$v['flagpath'].$m_cc".png";
     }
 
     $ts_pdf="TortoiseSVN-".$v['release'].'-'.$m_cc.".pdf";

@@ -27,7 +27,7 @@ function s_print_content_stat($i, $postat, $poinfo, $vars)
   if ($poinfo[0] == '') {
     $flagimg=$vars['flagpath']."gb.png";
   } else {
-    $flagimg=$vars['flagpath']."$poinfo[2].png";
+    $flagimg=$vars['flagpath'].$poinfo[2].".png";
   }
 
   echo "<a href=\"$dlfile\"><img src=\"$flagimg\" height=\"12\" width=\"18\" alt=\"$poinfo[1]\" title=\"$poinfo[3]\" /></a>&nbsp;";
