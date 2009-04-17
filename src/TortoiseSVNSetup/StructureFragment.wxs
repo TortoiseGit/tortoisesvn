@@ -366,21 +366,21 @@
 					<Directory Id="D__DiffScripts" Name="Diff-Scripts" >
 
 						<Component Id="C__DiffScripts" Guid="$(var.GuidDiffScripts)" Win64="$(var.Win64YesNo)">
-							<File Id="F__diffxls" Name="diff-xls.vbs" Source="..\..\contrib\other\diff-scripts\diff-xls.vbs" DiskId="1" KeyPath="yes"/>
-							<File Id="F__diffxlsx" Name="diff-xlsx.vbs" Source="..\..\contrib\other\diff-scripts\diff-xlsx.vbs" DiskId="1" />
-							<File Id="F__diffppt" Name="diff-ppt.js" Source="..\..\contrib\other\diff-scripts\diff-ppt.js" DiskId="1" />
-							<File Id="F__diffpptx" Name="diff-pptx.js" Source="..\..\contrib\other\diff-scripts\diff-pptx.js" DiskId="1" />
-							<File Id="F__diffdoc" Name="diff-doc.js" Source="..\..\contrib\other\diff-scripts\diff-doc.js" DiskId="1" />
-							<File Id="F__diffdocx" Name="diff-docx.js" Source="..\..\contrib\other\diff-scripts\diff-docx.js" DiskId="1" />
-							<File Id="F__mergedoc" Name="merge-doc.js" Source="..\..\contrib\other\diff-scripts\merge-doc.js" DiskId="1" />
-							<File Id="F__mergedocx" Name="merge-docx.js" Source="..\..\contrib\other\diff-scripts\merge-docx.js" DiskId="1" />
-							<File Id="F__diffsxw" Name="diff-sxw.vbs" Source="..\..\contrib\other\diff-scripts\diff-sxw.vbs" DiskId="1" />
-							<File Id="F__mergesxw" Name="merge-sxw.vbs" Source="..\..\contrib\other\diff-scripts\merge-sxw.vbs" DiskId="1" />
-							<File Id="F__diffods" Name="diff-ods.vbs" Source="..\..\contrib\other\diff-scripts\diff-ods.vbs" DiskId="1" />
-							<File Id="F__diffodt" Name="diff-odt.vbs" Source="..\..\contrib\other\diff-scripts\diff-odt.vbs" DiskId="1" />
-							<File Id="F__mergeods" Name="merge-ods.vbs" Source="..\..\contrib\other\diff-scripts\merge-ods.vbs" DiskId="1" />
-							<File Id="F__mergeodt" Name="merge-odt.vbs" Source="..\..\contrib\other\diff-scripts\merge-odt.vbs" DiskId="1" />
-							<File Id="F__diffnb" Name="diff-nb.vbs" Source="..\..\contrib\other\diff-scripts\diff-nb.vbs" DiskId="1" />
+							<File Id="F__diffxls" Name="diff-xls.vbs" Source="..\..\contrib\diff-scripts\diff-xls.vbs" DiskId="1" KeyPath="yes"/>
+							<File Id="F__diffxlsx" Name="diff-xlsx.vbs" Source="..\..\contrib\diff-scripts\diff-xlsx.vbs" DiskId="1" />
+							<File Id="F__diffppt" Name="diff-ppt.js" Source="..\..\contrib\diff-scripts\diff-ppt.js" DiskId="1" />
+							<File Id="F__diffpptx" Name="diff-pptx.js" Source="..\..\contrib\diff-scripts\diff-pptx.js" DiskId="1" />
+							<File Id="F__diffdoc" Name="diff-doc.js" Source="..\..\contrib\diff-scripts\diff-doc.js" DiskId="1" />
+							<File Id="F__diffdocx" Name="diff-docx.js" Source="..\..\contrib\diff-scripts\diff-docx.js" DiskId="1" />
+							<File Id="F__mergedoc" Name="merge-doc.js" Source="..\..\contrib\diff-scripts\merge-doc.js" DiskId="1" />
+							<File Id="F__mergedocx" Name="merge-docx.js" Source="..\..\contrib\diff-scripts\merge-docx.js" DiskId="1" />
+							<File Id="F__diffsxw" Name="diff-sxw.vbs" Source="..\..\contrib\diff-scripts\diff-sxw.vbs" DiskId="1" />
+							<File Id="F__mergesxw" Name="merge-sxw.vbs" Source="..\..\contrib\diff-scripts\merge-sxw.vbs" DiskId="1" />
+							<File Id="F__diffods" Name="diff-ods.vbs" Source="..\..\contrib\diff-scripts\diff-ods.vbs" DiskId="1" />
+							<File Id="F__diffodt" Name="diff-odt.vbs" Source="..\..\contrib\diff-scripts\diff-odt.vbs" DiskId="1" />
+							<File Id="F__mergeods" Name="merge-ods.vbs" Source="..\..\contrib\diff-scripts\merge-ods.vbs" DiskId="1" />
+							<File Id="F__mergeodt" Name="merge-odt.vbs" Source="..\..\contrib\diff-scripts\merge-odt.vbs" DiskId="1" />
+							<File Id="F__diffnb" Name="diff-nb.vbs" Source="..\..\contrib\diff-scripts\diff-nb.vbs" DiskId="1" />
 						</Component>
 
 					</Directory>
