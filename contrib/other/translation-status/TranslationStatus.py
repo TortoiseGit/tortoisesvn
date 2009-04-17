@@ -372,7 +372,7 @@ def main():
 
     report.createReport()
 
-    timestamp = makeTimeString('%a, %d %b %Y %H:%M', time.time())
+    timestamp = makeTimeString('%a, %d %b %Y %H:%M UTC', time.time())
 
     outTrunk.addFooter(wcrev, timestamp)
     outBranch.addFooter(wcrev, timestamp)
