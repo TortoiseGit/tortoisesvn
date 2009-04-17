@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006, 2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "Cache.h"
 #include "DirFileEnum.h"
+#include "CacheInterface.h"
 #include <WinInet.h>
 #include ".\cachedlg.h"
 
@@ -26,48 +27,7 @@
 #define new DEBUG_NEW
 #endif
 
-// The name of the named-pipe for the cache
-#define TSVN_CACHE_PIPE_NAME _T("\\\\.\\pipe\\TSVNCache")
-#define TSVN_CACHE_COMMANDPIPE_NAME _T("\\\\.\\pipe\\TSVNCacheCommand")
 
-
-// A structure passed as a request from the shell (or other client) to the external cache
-struct TSVNCacheRequest
-{
-	DWORD flags;
-	WCHAR path[MAX_PATH+1];
-};
-
-// The structure returned as a response
-struct TSVNCacheResponse
-{
-	svn_wc_status2_t m_status;
-	svn_wc_entry_t m_entry;
-	svn_node_kind_t m_kind;
-	char m_url[INTERNET_MAX_URL_LENGTH+1];
-	char m_owner[255];		///< owner of the lock
-	char m_author[255];
-	bool m_readonly;		///< whether the file is write protected or not
-};
-
-struct TSVNCacheCommand
-{
-	BYTE command;		///< the command to execute
-	WCHAR path[MAX_PATH+1];		///< path to do the command for
-};
-
-#define		TSVNCACHECOMMAND_END		0		///< ends the thread handling the pipe communication
-#define		TSVNCACHECOMMAND_CRAWL		1		///< start crawling the specified path for changes
-
-
-/// Set this flag if you already know whether or not the item is a folder
-#define TSVNCACHE_FLAGS_FOLDERISKNOWN		0x01
-/// Set this flag if the item is a folder
-#define TSVNCACHE_FLAGS_ISFOLDER			0x02
-/// Set this flag if you want recursive folder status (safely ignored for file paths)
-#define TSVNCACHE_FLAGS_RECUSIVE_STATUS		0x04
-/// Set this flag if notifications to the shell are not allowed
-#define TSVNCACHE_FLAGS_NONOTIFICATIONS		0x08
 
 
 
@@ -211,7 +171,7 @@ bool CCacheDlg::EnsurePipeOpen()
 	}
 
 	m_hPipe = CreateFile(
-		_T("\\\\.\\pipe\\TSVNCache"),   // pipe name
+		GetCachePipeName(),   // pipe name
 		GENERIC_READ |					// read and write access
 		GENERIC_WRITE,
 		0,								// no sharing
@@ -225,10 +185,10 @@ bool CCacheDlg::EnsurePipeOpen()
 		// TSVNCache is running but is busy connecting a different client.
 		// Do not give up immediately but wait for a few milliseconds until
 		// the server has created the next pipe instance
-		if (WaitNamedPipe(_T("\\\\.\\pipe\\TSVNCache"), 50))
+		if (WaitNamedPipe(GetCachePipeName(), 50))
 		{
 			m_hPipe = CreateFile(
-				_T("\\\\.\\pipe\\TSVNCache"),   // pipe name
+				GetCachePipeName(),   // pipe name
 				GENERIC_READ |					// read and write access
 				GENERIC_WRITE,
 				0,								// no sharing
@@ -370,7 +330,7 @@ void CCacheDlg::RemoveFromCache(const CString& path)
 	// if we use the external cache, we tell the cache directly that something
 	// has changed, without the detour via the shell.
 	HANDLE hPipe = CreateFile( 
-		TSVN_CACHE_COMMANDPIPE_NAME,	// pipe name 
+		GetCacheCommandPipeName(),	// pipe name 
 		GENERIC_READ |					// read and write access 
 		GENERIC_WRITE, 
 		0,								// no sharing 

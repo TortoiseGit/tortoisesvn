@@ -133,9 +133,6 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 {
 	HANDLE hReloadProtection = ::CreateMutex(NULL, FALSE, GetCacheMutexName());
 
-    int temp = _CrtSetDbgFlag (_CRTDBG_REPORT_FLAG);
-    _CrtSetDbgFlag ((temp & 0xffff) | 0x10000);
-
 	if (hReloadProtection == 0 || GetLastError() == ERROR_ALREADY_EXISTS)
 	{
 		// An instance of TSVNCache is already running
