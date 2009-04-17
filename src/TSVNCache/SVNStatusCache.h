@@ -119,7 +119,8 @@ private:
 	CFolderCrawler m_folderCrawler;
 	CShellUpdater m_shellUpdater;
 
-	CTSVNPath m_mostRecentPath;
+	CComAutoCriticalSection m_critSec;
+	CTSVNPath m_mostRecentAskedPath;
 	CStatusCacheEntry m_mostRecentStatus;
 	long m_mostRecentExpiresAt;
 

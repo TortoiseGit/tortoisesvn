@@ -452,13 +452,16 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 	long now = (long)GetTickCount();
 	if(now-m_mostRecentExpiresAt < 0)
 	{
-		if(path.IsEquivalentToWithoutCase(m_mostRecentPath))
+		if(path.IsEquivalentToWithoutCase(m_mostRecentAskedPath))
 		{
 			return m_mostRecentStatus;
 		}
 	}
-	m_mostRecentPath = path;
-	m_mostRecentExpiresAt = now+1000;
+	{
+		AutoLocker lock(m_critSec);
+		m_mostRecentAskedPath = path;
+		m_mostRecentExpiresAt = now+1000;
+	}
 
 	if (IsPathGood(path))
 	{
@@ -472,11 +475,16 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 		CCachedDirectory * cachedDir = GetDirectoryCacheEntry(dirpath);
 		if (cachedDir != NULL)
 		{
-			m_mostRecentStatus = cachedDir->GetStatusForMember(path, bRecursive, bFetch);
-			return m_mostRecentStatus;
+			CStatusCacheEntry entry = cachedDir->GetStatusForMember(path, bRecursive, bFetch);
+			{
+				AutoLocker lock(m_critSec);
+				m_mostRecentStatus = entry;
+				return m_mostRecentStatus;
+			}
 		}
 	}
 	ATLTRACE(_T("ignored no good path %s\n"), path.GetWinPath());
+	AutoLocker lock(m_critSec);
 	m_mostRecentStatus = CStatusCacheEntry();
 	if (m_shellCache.ShowExcludedAsNormal() && path.IsDirectory() && m_shellCache.HasSVNAdminDir(path.GetWinPath(), true))
 	{
