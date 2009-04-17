@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-23 11:14+0100\n"
+"PO-Revision-Date: 2009-04-17 09:40+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1507,6 +1507,10 @@ msgstr "Legg til et filendelse-spesifikt diff-program"
 msgid "Add extension specific merge program"
 msgstr "Legg til et filendelse-spesifikt flette-program"
 
+#. Resource IDs: (1065)
+msgid "Add new files automatically to SVN"
+msgstr "Legg nye filer automatisk til i SVN"
+
 #. Resource IDs: (89)
 msgid "Add the item anyway"
 msgstr "Legg til elementet uansett"
@@ -1648,6 +1652,10 @@ msgstr "Tillat at forskjellige depoter bruker samme URL, f.eks. http://localhost
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Tillat at forskjellige depoter bruker samme UUID, f.eks. kopierte depoter"
+
+#. Resource IDs: (1480)
+msgid "Always close dialogs for local operations"
+msgstr "Alltid lukk dialoger for lokale operasjoner"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1844,10 +1852,6 @@ msgstr "Auto Skjul Alt"
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "Automatisk Omdøping"
-
-#. Resource IDs: (222)
-msgid "Auto-close for local operations"
-msgstr "Lukk automatisk for lokale operasjoner"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -6431,6 +6435,10 @@ msgstr ""
 msgid "Reintegrate a branch"
 msgstr "Reintegrer en gren"
 
+#. Resource IDs: (595)
+msgid "Reintegrate merge"
+msgstr "Reintegrer flett"
+
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %s into %s"
@@ -7212,6 +7220,10 @@ msgstr "Velg første revisjon"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Velg tekstredigeringsprogram"
+
+#. Resource IDs: (595)
+msgid "Select the URL from which to reintegrate"
+msgstr "Velg URL det skal reintegreres fra"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
