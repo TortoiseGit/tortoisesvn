@@ -1045,7 +1045,9 @@ UINT CLogDlg::LogThread()
 {
 	InterlockedExchange(&m_bThreadRunning, TRUE);
 
-    //does the user force the cache to refresh (shift or control key down)?
+	AfxBeginThread(StatusThreadEntry, this);
+
+	//does the user force the cache to refresh (shift or control key down)?
     bool refresh =    (GetKeyState (VK_CONTROL) < 0) 
                    || (GetKeyState (VK_SHIFT) < 0);
 
@@ -1191,36 +1193,8 @@ UINT CLogDlg::LogThread()
 		m_LogList.ShowText(GetLastErrorMessage(), true);
 		FillLogMessageCtrl(false);
 	}
-	else
-	{
-		DWORD getWCRev = DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveLogRev"), 1));
-		if ((getWCRev != 0)&&(!m_wcRev.IsValid()))
-		{
-			// fetch the revision the wc path is on so we can mark it
-			CTSVNPath revWCPath = m_ProjectProperties.GetPropsPath();
-			if (!m_path.IsUrl())
-				revWCPath = m_path;
-			if (getWCRev == 1)
-			{
-				svn_revnum_t minrev, maxrev;
-				bool switched, modified, sparse;
-				GetWCRevisionStatus(revWCPath, true, minrev, maxrev, switched, modified, sparse);
-				if (maxrev)
-					m_wcRev = maxrev;
-			}
-			else if (getWCRev == 2)
-			{
-				CTSVNPath dummypath;
-				SVNStatus status;
-				svn_wc_status2_t * stat = status.GetFirstFileStatus(revWCPath, dummypath, false, svn_depth_empty);
-				if (stat && stat->entry && stat->entry->cmt_rev)
-					m_wcRev = stat->entry->cmt_rev;
-				if (stat && stat->entry && (stat->entry->kind == svn_node_dir))
-					m_wcRev = stat->entry->revision;
-			}
-		}
-	}
-    if (m_bStrict && (m_lowestRev>1) && ((m_limit>0) ? ((startcount + m_limit)>m_logEntries.size()) : (m_endrev<m_lowestRev)))
+
+	if (m_bStrict && (m_lowestRev>1) && ((m_limit>0) ? ((startcount + m_limit)>m_logEntries.size()) : (m_endrev<m_lowestRev)))
 		m_bStrictStopped = true;
 	m_LogList.SetItemCountEx(ShownCountWithStopped());
 
@@ -1276,6 +1250,30 @@ UINT CLogDlg::LogThread()
 	// make sure the filter is applied (if any) now, after we refreshed/fetched
 	// the log messages
 	PostMessage(WM_TIMER, LOGFILTER_TIMER);
+	return 0;
+}
+
+UINT CLogDlg::StatusThreadEntry(LPVOID pVoid)
+{
+	return ((CLogDlg*)pVoid)->StatusThread();
+}
+
+//this is the thread function which calls the subversion function
+UINT CLogDlg::StatusThread()
+{
+	if (!m_wcRev.IsValid())
+	{
+		// fetch the revision the wc path is on so we can mark it
+		CTSVNPath revWCPath = m_ProjectProperties.GetPropsPath();
+		if (!m_path.IsUrl())
+			revWCPath = m_path;
+
+		svn_revnum_t minrev, maxrev;
+		bool switched, modified, sparse;
+		GetWCRevisionStatus(revWCPath, true, minrev, maxrev, switched, modified, sparse);
+		if (maxrev)
+			m_wcRev = maxrev;
+	}
 	return 0;
 }
 
