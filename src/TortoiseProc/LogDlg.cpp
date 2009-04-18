@@ -1272,7 +1272,12 @@ UINT CLogDlg::StatusThread()
 		bool switched, modified, sparse;
 		GetWCRevisionStatus(revWCPath, true, minrev, maxrev, switched, modified, sparse);
 		if (maxrev)
+		{
 			m_wcRev = maxrev;
+			// force a redraw of the log list control to make sure the wc rev is
+			// redrawn in bold
+			m_LogList.Invalidate(FALSE);
+		}
 	}
 	return 0;
 }
