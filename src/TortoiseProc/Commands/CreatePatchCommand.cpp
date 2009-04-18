@@ -64,7 +64,7 @@ UINT_PTR CALLBACK CreatePatchCommand::CreatePatchFileOpenHook(HWND hDlg, UINT ui
 	return 0;
 }
 
-bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList& path, const CTSVNPath& cmdLineSavePath)
+bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList& paths, const CTSVNPath& cmdLineSavePath)
 {
 	OPENFILENAME ofn = {0};				// common dialog box structure
 	CString temp;
@@ -155,13 +155,13 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 
 	CTSVNPath sDir = root;
 	if (sDir.IsEmpty())
-		sDir = path.GetCommonRoot();
+		sDir = paths.GetCommonRoot();
 
 	SVN svn;
-	for (int fileindex = 0; fileindex < path.GetCount(); ++fileindex)
+	for (int fileindex = 0; fileindex < paths.GetCount(); ++fileindex)
 	{
-		svn_depth_t depth = path[fileindex].IsDirectory() ? svn_depth_empty : svn_depth_files;
-		if (!svn.CreatePatch(path[fileindex], SVNRev::REV_BASE, path[fileindex], SVNRev::REV_WC, sDir.GetDirectory(), depth, FALSE, FALSE, FALSE, _T(""), true, tempPatchFilePath))
+		svn_depth_t depth = paths[fileindex].IsDirectory() ? svn_depth_empty : svn_depth_files;
+		if (!svn.CreatePatch(paths[fileindex], SVNRev::REV_BASE, paths[fileindex], SVNRev::REV_WC, sDir.GetDirectory(), depth, FALSE, FALSE, FALSE, _T(""), true, tempPatchFilePath))
 		{
 			progDlg.Stop();
 			::MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
