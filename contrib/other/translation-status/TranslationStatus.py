@@ -113,8 +113,7 @@ class transCountryWriter:
     def writeRow(self, LangCC, Tag, Flag, LangName, Translators):
         self.out.write('"%s" => array("%s", "%s", "%s", "%s", %s)' \
           % (LangCC,Tag,Flag,LangCC,LangName,Translators))
-        if LangCC != 'zzz':
-          self.out.write(',')
+        self.out.write(',')
         self.out.write('\n')
 
 class transReport:
