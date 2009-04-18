@@ -1,5 +1,5 @@
 .h, .hpp, .hxx = ^\s*(?:class|struct)\s+([\w_]+)|\W([\w_]+)\(
-.cpp, .c, .cxx = \W(([\w_]+)::([\w_]+))|\W([\w_]+)\(
+.cpp, .c, .cxx, .cc = \W(([\w_]+)::([\w_]+))|\W([\w_]+)\(
 .js = (?:(?:prototype\.|this\.)(\w+)\s*=\s*)?function\s*(?:(\w*)\s*)\(
 .pas = (\w+)\s+=\s+(?:class|record|interface)|(?:procedure|function|property|constructor)\s+(\w+)
 .py, .pyw, .rb = ^\s*(?:class|def)\s+(\w+)
