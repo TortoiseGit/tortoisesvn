@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-15 09:08-0300\n"
+"PO-Revision-Date: 2009-04-18 21:36-0300\n"
 "Last-Translator: Humberto Osório <humberto@virtual.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7247,12 +7247,12 @@ msgid "Set file dates to the \"last commit &time\""
 msgstr "Ajusta as da&tas dos arquivos para \"hora da última submissão\""
 
 #. Resource IDs: (127)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Set property '%s' on\r\n"
 "%s"
 msgstr ""
-"Atribuir propriedade \"%s\" em\r\n"
+"Atribuir propriedade '%s' em\r\n"
 "%s"
 
 #. Resource IDs: (13)
@@ -7316,7 +7316,6 @@ msgid "Show &Range..."
 msgstr "Mostrar &Intervalo..."
 
 #. Resource IDs: (32826)
-#, fuzzy
 msgid "Show &WC revision"
 msgstr "Mostrar revisão &WC"
 
@@ -7341,9 +7340,8 @@ msgid "Show &overlays and context menu only in explorer"
 msgstr "Visualizar s&obreposições apenas no explorer"
 
 #. Resource IDs: (1265)
-#, fuzzy
 msgid "Show &properties"
-msgstr "Mostrar propriedades"
+msgstr "Mostrar &propriedades"
 
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
@@ -7403,9 +7401,8 @@ msgid "Show Screen&Tips on toolbars"
 msgstr ""
 
 #. Resource IDs: (32831)
-#, fuzzy
 msgid "Show WC &modifications"
-msgstr "Veri&ficar Alterações"
+msgstr "&Mostrar alterações na cópia de trabalho"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -7424,9 +7421,8 @@ msgid "Show excluded folders as normal"
 msgstr "Apresentar pastas apagadas como normal"
 
 #. Resource IDs: (1480)
-#, fuzzy
 msgid "Show externals from different repositories"
-msgstr "Limpar logs armazenados dos %ld repositórios"
+msgstr "Mostrar externos de repositórios diferentes"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7437,9 +7433,8 @@ msgid "Show i&gnored files"
 msgstr "Mostrar arquivos i&gnorados"
 
 #. Resource IDs: (1480)
-#, fuzzy
 msgid "Show items in externals"
-msgstr "Omitir externos"
+msgstr "Mostrar itens em externos"
 
 #. Resource IDs: (1037)
 msgid "Show l&og"
@@ -7458,22 +7453,20 @@ msgid "Show only the changed parts of the path name. Replace unchanged elements 
 msgstr ""
 
 #. Resource IDs: (2054)
-#, fuzzy
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr ""
-"Visualizar ou ocultar a barra de comparação\n"
+"Mostrar ou ocultar a barra de comparação\n"
 "Alternar Barra de Comparação"
 
 #. Resource IDs: (2054)
-#, fuzzy
 msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr ""
-"Visualizar ou ocultar a barra de pesquisa\n"
-"Alternar Barra de Pesquisas"
+"Mostrar ou ocultar a barra de localização\n"
+"Alternar Barra de Localização"
 
 #. Resource IDs: (3713)
 msgid ""
@@ -7524,9 +7517,8 @@ msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Mostrar rótulos no fonte copiada, não como um nó separado"
 
 #. Resource IDs: (1209)
-#, fuzzy
 msgid "Show un&modified files"
-msgstr "Mostrar arquivos não &modificados"
+msgstr "Mostrar arquivos não &alterados"
 
 #. Resource IDs: (1073)
 msgid "Show un&versioned files"
@@ -7648,23 +7640,20 @@ msgstr ""
 
 # The is no 's' in the translation to support the same Alt shortcut
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Split &source tree"
-msgstr "Dividir a árvore pri&ncipal"
+msgstr "Dividir a árvore &principal"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Split following &tree"
-msgstr "Separar &ramos grandes"
+msgstr "Dividir a árvore &seguinte"
 
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "Separar linhas"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Split sub-trees"
-msgstr "Separar linhas"
+msgstr "Separar subárvores"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -7906,9 +7895,8 @@ msgstr "TORTOISEIDIFF"
 
 # I did not find this phrase so I do not know if the translation is correct (it is translated as Tab meanning a widget tab, not the Tab key).
 #. Resource IDs: (16970)
-#, fuzzy
 msgid "Tab Placeholder"
-msgstr "Aba Substituta"
+msgstr "Marcador de Posição de Tabulação"
 
 #. Resource IDs: (65535)
 msgid "Tab size:"
@@ -7944,9 +7932,9 @@ msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "O tamanho do bloco não coincide com o número de linhas adicionadas/removidas!"
 
 #. Resource IDs: (63)
-#, fuzzy, c-format
+#, c-format
 msgid "The chunk start '@@' was expected in line %d !"
-msgstr "O início de bloco \"@@\" era esperado na linha %d !"
+msgstr "O início de bloco '@@' era esperado na linha %d !"
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
@@ -8113,9 +8101,9 @@ msgid "The last merge operation tried to modify the directory '%s'"
 msgstr "A última combinação tentou mofidicar o diretório '%s'"
 
 #. Resource IDs: (607)
-#, fuzzy, c-format
+#, c-format
 msgid "The last merge operation tried to modify the file '%s'"
-msgstr "O usuário ao qual pertence a trava do arquivo"
+msgstr "A última operação de combinação tentou alterar o arquivo '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8143,9 +8131,9 @@ msgid "The last switch operation tried to modify the directory '%s'"
 msgstr "A última operação de alternar tentou modificar o diretório '%s'"
 
 #. Resource IDs: (607)
-#, fuzzy, c-format
+#, c-format
 msgid "The last switch operation tried to modify the file '%s'"
-msgstr "O usuário ao qual pertence a trava do arquivo"
+msgstr "A última operação alternar tentou alterar o arquivo '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8178,18 +8166,17 @@ msgid "The last update operation tried to modify the file '%s'"
 msgstr "A última atualização tentou modificar o arquivo '%s'"
 
 #. Resource IDs: (63)
-#, fuzzy, c-format
+#, c-format
 msgid "The line '====' was expected in line %d !"
-msgstr "A linha \"====\" era esperada na linha %d !"
+msgstr "A linha '====' era esperada na linha %d !"
 
 #. Resource IDs: (63)
-#, fuzzy
 msgid ""
 "The line 'Index: ' was not found!\n"
 "Either this is not a diff file or the diff is empty."
 msgstr ""
-"A linha \"Índice: \" não foi encontrada!\n"
-"Este não é um arquivo diff ou o arquivo diff está vazio."
+"A linha 'Índice: ' não foi encontrada!\n"
+"Este não é um arquivo de comparação ou o arquivo de comparação está vazio."
 
 #. Resource IDs: (63)
 #, c-format
@@ -8341,16 +8328,17 @@ msgstr ""
 "já existe!"
 
 #. Resource IDs: (147)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The target file\n"
 "%s\n"
 " already exists.\n"
 "Do you want to replace the file?"
 msgstr ""
-"O arquivo\n"
+"O arquivo alvo\n"
 "%s\n"
-"já existe! Você deseja sobrescrevê-lo?"
+" já existe.\n"
+"Você deseja substituir o arquivo?"
 
 #. Resource IDs: (88)
 #, c-format
@@ -8366,15 +8354,14 @@ msgstr ""
 "Você tem certeza que deseja obter/exportar nessa pasta?"
 
 #. Resource IDs: (195)
-#, fuzzy
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\r\n"
 "A lower value will make the auto-completion list available sooner,\r\n"
 "but maybe not scan all files."
 msgstr ""
-"O tempo em segundos depois do qual a interpretação dos arquivos selecionados pára.\n"
-"Um valor menor tornará a lista do autocompletar disponível mais cedo,\n"
-"mas talvez sem retornar todos os arquivos."
+"O tempo em segundos depois do qual a análise dos arquivos selecionados pára.\r\n"
+"Um valor menor disponibilizará a lista de autocompletar rapidamente,\r\n"
+"embora talvez não percorra todos os arquivos."
 
 #. Resource IDs: (82)
 msgid ""
