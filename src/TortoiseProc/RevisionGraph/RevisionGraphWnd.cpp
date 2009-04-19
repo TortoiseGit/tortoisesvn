@@ -1142,7 +1142,7 @@ void CRevisionGraphWnd::DoMergeTo()
 		dlg.SetUrl(URL);
 		dlg.SetSecondUrl(URL);
 		SVNRevRangeArray revarray;
-		revarray.AddRevRange(m_SelectedEntry1->GetRevision(), svn_revnum_t(m_SelectedEntry1->GetRevision())-1);
+		revarray.AddRevRange (m_SelectedEntry1->GetRevision()-1, svn_revnum_t(m_SelectedEntry1->GetRevision()));
 		dlg.SetRevisionRanges(revarray);
 		dlg.DoModal();
 	}
