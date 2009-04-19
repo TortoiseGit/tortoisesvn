@@ -2140,6 +2140,7 @@ void CLogDlg::EditAuthor(const CLogDataVector& logs)
 						, LogCache::CRevisionInfoContainer::HAS_AUTHOR);
 
 					toUpdate->Update (newInfo);
+                    toUpdate->Save();
 				}
 			}
 			progDlg.SetProgress64(i, logs.size());
@@ -2223,6 +2224,7 @@ void CLogDlg::EditLogMessage(int index)
                                , LogCache::CRevisionInfoContainer::HAS_COMMENT);
 
                 toUpdate->Update (newInfo);
+                toUpdate->Save();
             }
         }
 	}
