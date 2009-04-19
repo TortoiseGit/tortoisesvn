@@ -377,6 +377,7 @@ void CDirectoryWatcher::WorkerThread()
                         if (   (pdi->m_hDir == INVALID_HANDLE_VALUE)
                             || (watchInfoMap.find(pdi->m_hDir) == watchInfoMap.end()))
                         {
+							CleanupWatchInfo();
 							continue;
                         }
 					}
