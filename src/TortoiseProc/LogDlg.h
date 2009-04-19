@@ -280,6 +280,8 @@ private:
 	HICON				m_hReplacedIcon;
 	HICON				m_hAddedIcon;
 	HICON				m_hDeletedIcon;
+	int					m_nIconFolder;
+
 
 	DWORD				m_childCounter;
 	DWORD				m_maxChild;

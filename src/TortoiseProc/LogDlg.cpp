@@ -49,6 +49,7 @@
 #include "EditPropertiesDlg.h"
 #include "LogCacheSettings.h"
 #include "SysInfo.h"
+#include "SysImageList.h"
 #include "svn_props.h"
 
 #if (NTDDI_VERSION < NTDDI_LONGHORN)
@@ -350,14 +351,16 @@ BOOL CLogDlg::OnInitDialog()
 	ResizeAllListCtrlCols();
 	m_LogList.SetRedraw(true);
 
+	m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
+	m_ChangedFileListCtrl.SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
 	m_ChangedFileListCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 	m_ChangedFileListCtrl.DeleteAllItems();
 	c = ((CHeaderCtrl*)(m_ChangedFileListCtrl.GetDlgItem(0)))->GetItemCount()-1;
 	while (c>=0)
 		m_ChangedFileListCtrl.DeleteColumn(c--);
-	temp.LoadString(IDS_PROGRS_ACTION);
-	m_ChangedFileListCtrl.InsertColumn(0, temp);
 	temp.LoadString(IDS_PROGRS_PATH);
+	m_ChangedFileListCtrl.InsertColumn(0, temp);
+	temp.LoadString(IDS_PROGRS_ACTION);
 	m_ChangedFileListCtrl.InsertColumn(1, temp);
 	temp.LoadString(IDS_LOG_COPYFROM);
 	m_ChangedFileListCtrl.InsertColumn(2, temp);
@@ -3071,17 +3074,17 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 		//Which column?
 		switch (pItem->iSubItem)
 		{
-		case 0:	//Action
-			if (lcpath)
-				lstrcpyn(pItem->pszText, (LPCTSTR)lcpath->GetAction(), pItem->cchTextMax);
-			else
-				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);				
-			break;
-		case 1: //path
+		case 0: //path
 			if (lcpath)
 				lstrcpyn(pItem->pszText, (LPCTSTR)lcpath->sPath, pItem->cchTextMax);
 			else
 				lstrcpyn(pItem->pszText, (LPCTSTR)m_currentChangedPathList[pItem->iItem].GetSVNPathString(), pItem->cchTextMax);
+			break;
+		case 1:	//Action
+			if (lcpath)
+				lstrcpyn(pItem->pszText, (LPCTSTR)lcpath->GetAction(), pItem->cchTextMax);
+			else
+				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);				
 			break;
 		case 2: //copyfrom path
 			if (lcpath)
@@ -3096,6 +3099,17 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 				_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), lcpath->lCopyFromRev);
 			break;
 		}
+	}
+	if (pItem->mask & LVIF_IMAGE)
+	{
+		int icon_idx = 0;
+		if (lcpath->nodeKind == svn_node_dir)
+			icon_idx = m_nIconFolder;
+		else
+		{
+			icon_idx = SYS_IMAGE_LIST().GetPathIconIndex(CTSVNPath(lcpath->sPath));
+		}
+		pDispInfo->item.iImage = icon_idx;
 	}
 
 	*pResult = 0;
