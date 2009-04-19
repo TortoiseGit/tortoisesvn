@@ -129,6 +129,34 @@ void DebugOutputLastError()
 	LocalFree( lpMsgBuf );
 }
 
+svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
+										   const char *file, int line,
+										   const char *expr)
+{
+	// we get here every time Subversion encounters something very unexpected.
+	svn_error_t * err = svn_error_raise_on_malfunction(TRUE, file, line, expr);
+
+	if (err)
+	{
+		svn_error_t * errtemp = err;
+		do 
+		{
+			OutputDebugStringA(errtemp->message);
+			OutputDebugStringA("\n");
+		} while ((errtemp = errtemp->child) != NULL);
+		if (can_return)
+			return err;
+		if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==FALSE)
+			abort();	// ugly, ugly! But at least we showed a messagebox first
+	}
+	CStringA sFormatErr;
+	sFormatErr.Format("Subversion error in TSVNCache: file %s, line %ld, error %s\n", file, line, expr);
+	OutputDebugStringA(sFormatErr);
+	if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==FALSE)
+		abort();	// ugly, ugly! But at least we showed a messagebox first
+	return NULL;	// never reached, only to silence compiler warning
+}
+
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*cmdShow*/)
 {
 	HANDLE hReloadProtection = ::CreateMutex(NULL, FALSE, GetCacheMutexName());
@@ -142,6 +170,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 
 	apr_initialize();
 	svn_dso_initialize2();
+	svn_error_set_malfunction_handler(svn_error_handle_malfunction);
 	g_SVNAdminDir.Init();
 	CSVNStatusCache::Create();
 	CSVNStatusCache::Instance().Init();
