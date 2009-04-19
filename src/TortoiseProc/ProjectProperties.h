@@ -128,6 +128,12 @@ public:
 	 */
 	CString GetLogSummary(const CString& sMessage);
 
+    /**
+     * Transform the log message using \ref GetLogSummary and post-process it
+     * to be suitable for 1-line controls.
+     */
+    CString MakeShortMessage(const CString& message);
+
 	/**
 	 * Returns the path from which the properties were read.
 	 */

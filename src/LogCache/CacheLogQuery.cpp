@@ -781,6 +781,7 @@ revision_t CCacheLogQuery::FillLog ( revision_t startRevision
 
 void CCacheLogQuery::GetChanges 
     ( LogChangedPathArray& result
+    , TID2String& pathToStringMap
     , CRevisionInfoContainer::CChangesIterator first
     , const CRevisionInfoContainer::CChangesIterator& last)
 {
@@ -894,6 +895,7 @@ void CCacheLogQuery::SendToReceiver ( revision_t revision
     LogChangedPathArray changes;
     if (options.GetIncludeChanges())
         GetChanges ( changes
+                   , pathToStringMap
                    , logInfo.GetChangesBegin (logIndex)
                    , logInfo.GetChangesEnd (logIndex));
 

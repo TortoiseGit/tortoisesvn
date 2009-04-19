@@ -179,10 +179,6 @@ private:
 	CString GetAbsoluteUrlFromRelativeUrl(const CString& url);
 	void ToggleCheckbox(int item);
 
-	/**
-	 * Extracts part of commit message suitable for displaying in revision list.
-	 */
-	CString MakeShortMessage(const CString& message);
 	inline int ShownCountWithStopped() const { return (int)m_arShownList.GetCount() + (m_bStrictStopped ? 1 : 0); }
 
 

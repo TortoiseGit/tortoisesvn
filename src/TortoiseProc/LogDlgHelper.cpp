@@ -19,6 +19,9 @@
 #include "stdafx.h"
 #include "LogDlgHelper.h"
 #include "LogDlg.h"
+#include "CachedLogInfo.h"
+#include "RevisionIndex.h"
+#include "CacheLogQuery.h"
 
 CStoreSelection::CStoreSelection(CLogDlg* dlg)
 {
@@ -74,4 +77,102 @@ void CLogDataVector::ClearAll()
 		}     
 		clear();
 	}
+}
+
+CLogCacheUtility::CLogCacheUtility 
+    ( LogCache::CCachedLogInfo* cache
+    , ProjectProperties* projectProperties)
+    : cache (cache) 
+    , projectProperties (projectProperties)
+{
+};
+
+bool CLogCacheUtility::IsCached (svn_revnum_t revision) const
+{
+    const LogCache::CRevisionIndex& revisions = cache->GetRevisions();
+    const LogCache::CRevisionInfoContainer& data = cache->GetLogInfo();
+
+    // revision in cache at all?
+
+    LogCache::index_t index = revisions[revision];
+    if (index == LogCache::NO_INDEX)
+        return false;
+
+    // std-revprops and changed paths available?
+
+    enum 
+    {
+        MASK = LogCache::CRevisionInfoContainer::HAS_STANDARD_INFO
+    };
+
+    return (data.GetPresenceFlags (index) & MASK) == MASK;
+}
+
+PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
+{
+    // don't try to return what we don't have
+
+    if (!IsCached (revision))
+        return NULL;
+
+    // prepare data access
+
+    const LogCache::CRevisionIndex& revisions = cache->GetRevisions();
+    const LogCache::CRevisionInfoContainer& data = cache->GetLogInfo();
+    LogCache::index_t index = revisions[revision];
+
+    // query data
+
+    TCHAR date_native[SVN_DATE_BUFFER] = {0};
+    __time64_t date = data.GetTimeStamp (index);
+    SVN().formatDate (date_native, date);
+    const char * author = data.GetAuthor (index);
+    std::string message = data.GetComment (index);
+
+    std::auto_ptr<LogChangedPathArray> changes (new LogChangedPathArray);
+    CCacheLogQuery::GetChanges (*changes
+                               , pathToStringMap
+                               , data.GetChangesBegin (index)
+		                       , data.GetChangesEnd (index));
+
+	DWORD actions = 0;
+	BOOL copies = FALSE;
+
+    for (INT_PTR i = 0, count = changes->GetCount(); i < count; ++i)
+    {
+	    const LogChangedPath* change = changes->GetAt (i);
+	    actions |= change->action;
+	    copies |= change->lCopyFromRev != 0;
+    }
+
+    // construct result
+
+    std::auto_ptr<LOGENTRYDATA> result (new LOGENTRYDATA);
+
+    result->Rev = revision;
+    result->tmDate = date;
+    result->sDate = date_native;
+    result->sAuthor = author != NULL ? author : "";
+    result->sMessage = message.c_str();
+
+    if (projectProperties)
+    {
+	    result->sShortMessage 
+            = projectProperties->MakeShortMessage (result->sMessage);
+        result->sBugIDs 
+            = projectProperties->FindBugID (result->sMessage);
+    }
+
+    result->dwFileChanges = changes->GetCount();
+    result->pArChangedPaths = changes.release();
+	result->bCopies = copies;
+	result->bCopiedSelf = FALSE;
+	result->actions = actions;
+	result->haschildren = FALSE;
+	result->childStackDepth = 0;
+	result->bChecked = FALSE;
+
+    // done here
+
+    return result.release();
 }

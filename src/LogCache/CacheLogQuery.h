@@ -312,11 +312,6 @@ private:
 					   , const CLogOptions& options
                        , const CDataAvailable& dataAvailable);
 
-	/// fill the receiver's change list buffer 
-	void GetChanges ( LogChangedPathArray& result
-                    , CRevisionInfoContainer::CChangesIterator first
-		            , const CRevisionInfoContainer::CChangesIterator& last);
-
     /// fill the receiver's user rev-prop list buffer 
     void GetUserRevProps ( UserRevPropArray& result
                          , CRevisionInfoContainer::CUserRevPropsIterator first
@@ -410,6 +405,14 @@ public:
     /// for tempCaches: write content to "real" cache files
     /// (no-op if this is does not use a temp. cache)
     void UpdateCache (CLogCachePool* caches);
+
+    /// utility function:
+	/// fill the receiver's change list buffer 
+	static void GetChanges ( LogChangedPathArray& result
+                           , TID2String& pathToStringMap
+                           , CRevisionInfoContainer::CChangesIterator first
+		                   , const CRevisionInfoContainer::CChangesIterator& last);
+
 };
 
 /// Log options inline implementations for data access

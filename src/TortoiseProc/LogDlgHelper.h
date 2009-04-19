@@ -18,6 +18,8 @@
 //
 #pragma once
 #include "SVN.h"
+#include "LogCacheGlobals.h"
+#include "QuickHashMap.h"
 
 class CLogDlg;
 
@@ -182,4 +184,48 @@ public:
 			return pStart->actions > pEnd->actions;
 		}
 	};
+};
+
+/**
+ * \ingroup TortoiseProc
+ * Helper class for the log dialog, provides some utility functions to
+ * directly access arbitrary revisions w/o iterating.
+ */
+class CLogCacheUtility
+{
+private:
+
+    /// access the info from this cache:
+
+    LogCache::CCachedLogInfo* cache;
+
+    /// optional: if NULL, sShortMessage and sBugIDs will not be set
+
+    ProjectProperties* projectProperties;
+
+    /// efficient map cached string / path -> CString
+
+    typedef quick_hash_map<LogCache::index_t, CString> TID2String;
+    TID2String pathToStringMap;
+
+public:
+
+    /// construction
+
+    CLogCacheUtility 
+        ( LogCache::CCachedLogInfo* cache
+        , ProjectProperties* projectProperties = NULL);
+
+    /// \returns @a false if standard revprops or changed paths are
+    /// missing for the specififed \ref revision.
+
+    bool IsCached (svn_revnum_t revision) const;
+
+    /// \returns NULL if \ref IsCached returns false for that \ref revision.
+    /// Otherwise, all cached log information for the respective revisin 
+    /// will be returned. 
+    /// The bCopiedSelf, bChecked and haschildren members will always be 
+    /// @a FALSE; childStackDepth will be 0.
+
+    PLOGENTRYDATA GetRevisionData (svn_revnum_t revision);
 };

@@ -917,32 +917,6 @@ void CLogDlg::OnCancel()
 	__super::OnCancel();
 }
 
-CString CLogDlg::MakeShortMessage(const CString& message)
-{
-	bool bFoundShort = true;
-	CString sShortMessage = m_ProjectProperties.GetLogSummary(message);
-	if (sShortMessage.IsEmpty())
-	{
-		bFoundShort = false;
-		sShortMessage = message;
-	}
-	// Remove newlines and tabs 'cause those are not shown nicely in the list control
-	sShortMessage.Replace(_T("\r"), _T(""));
-	sShortMessage.Replace(_T("\t"), _T(" "));
-	
-	// Suppose the first empty line separates 'summary' from the rest of the message.
-	int found = sShortMessage.Find(_T("\n\n"));
-	// To avoid too short 'short' messages 
-	// (e.g. if the message looks something like "Bugfix:\n\n*done this\n*done that")
-	// only use the empty newline as a separator if it comes after at least 15 chars.
-	if ((!bFoundShort)&&(found >= 15))
-	{
-		sShortMessage = sShortMessage.Left(found);
-	}
-	sShortMessage.Replace('\n', ' ');
-	return sShortMessage;
-}
-
 BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, BOOL haschildren)
 {
 	if (rev == SVN_INVALID_REVNUM)
@@ -995,7 +969,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	pLogItem->tmDate = ttime;
 	pLogItem->sAuthor = author;
 	pLogItem->sDate = date;
-	pLogItem->sShortMessage = MakeShortMessage(message);
+	pLogItem->sShortMessage = m_ProjectProperties.MakeShortMessage(message);
 	pLogItem->dwFileChanges = filechanges;
 	pLogItem->actions = actions;
 	pLogItem->haschildren = haschildren;
@@ -2189,7 +2163,7 @@ void CLogDlg::EditLogMessage(int index)
 		}
 		else
 		{
-			pLogEntry->sShortMessage = MakeShortMessage(dlg.m_sInputText);
+			pLogEntry->sShortMessage = m_ProjectProperties.MakeShortMessage(dlg.m_sInputText);
 			// split multi line log entries and concatenate them
 			// again but this time with \r\n as line separators
 			// so that the edit control recognizes them
