@@ -70,6 +70,8 @@ enum LISTITEMSTATES_MINE {
 
 #endif
 
+#define LOG_REVISIONREGEX _T("\\b(r\\d+)|\\b(revision\\s#?\\d+)|\\b(rev\\.?\\s?\\d+)")
+
 #define ICONITEMBORDER 5
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
@@ -618,6 +620,8 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 		// turn bug ID's into links if the bugtraq: properties have been set
 		// and we can find a match of those in the log message
 		m_ProjectProperties.FindBugID(pLogEntry->sMessage, pMsgView);
+		// underline all revisions mentioned in the message
+		CAppUtils::UnderlineRegexMatches(pMsgView, LOG_REVISIONREGEX);
 		CAppUtils::FormatTextInRichEditControl(pMsgView);
 		m_currentChangedArray = pLogEntry->pArChangedPaths;
 		if (m_currentChangedArray == NULL)
@@ -2352,6 +2356,7 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 {
+	*pResult = 0;
 	ENLINK *pEnLink = reinterpret_cast<ENLINK *>(pNMHDR);
 	if (pEnLink->msg == WM_LBUTTONUP)
 	{
@@ -2361,13 +2366,64 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 		url = msg.Mid(pEnLink->chrg.cpMin, pEnLink->chrg.cpMax-pEnLink->chrg.cpMin);
 		if (!::PathIsURL(url))
 		{
+			// not a full url: either a bug ID or a revision.
+			// first check whether it matches a revision
+			const tr1::wregex regMatch(LOG_REVISIONREGEX, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
+			const tr1::wsregex_iterator end;
+			wstring s = msg;
+			for (tr1::wsregex_iterator it(s.begin(), s.end(), regMatch); it != end; ++it)
+			{
+				wstring matchedString = (*it)[0];
+				if (url.Compare(matchedString.c_str()) == 0)
+				{
+					const tr1::wregex regRevMatch(_T("\\d+"));
+					wstring ss = matchedString;
+					for (tr1::wsregex_iterator it2(ss.begin(), ss.end(), regRevMatch); it2 != end; ++it2)
+					{
+						wstring matchedRevString = (*it2)[0];
+						svn_revnum_t rev = _ttol(matchedRevString.c_str());
+						ATLTRACE(_T("found revision %ld\n"), rev);
+						// do we already show this revision? If yes, just select that revision and 'scroll' to it
+						for (INT_PTR i=0; i<m_arShownList.GetCount(); ++i)
+						{
+							PLOGENTRYDATA data = (PLOGENTRYDATA)m_arShownList.GetAt(i);
+							if (data)
+							{
+								if (data->Rev == rev)
+								{
+									int selMark = m_LogList.GetSelectionMark();
+									if (selMark>=0)
+									{
+										m_LogList.SetItemState(selMark, 0, LVIS_SELECTED);
+									}
+									m_LogList.EnsureVisible(i, FALSE);
+									m_LogList.SetSelectionMark(i);
+									m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+									return;
+								}
+							}
+						}
+						// TODO: ask the log cache whether this revision is stored and if yes, 'fetch'
+						// the missing revisions into this dialog and then scroll to that revision
+
+						// if we get here, then the linked revision is not shown in this dialog:
+						// start a new log dialog for the repository root and this revision
+						CString sCmd;
+						sCmd.Format(_T("%s /command:log /path:\"%s\" /startrev:%ld /propspath:\"%s\""),
+							(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+							(LPCTSTR)m_sRepositoryRoot, rev, (LPCTSTR)m_path.GetWinPath());
+						CAppUtils::LaunchApplication(sCmd, NULL, false);
+						return;
+					}
+				}
+			}
+
 			url = m_ProjectProperties.GetBugIDUrl(url);
 			url = GetAbsoluteUrlFromRelativeUrl(url);
 		}
 		if (!url.IsEmpty())
 			ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
 	}
-	*pResult = 0;
 }
 
 void CLogDlg::OnBnClickedStatbutton()
