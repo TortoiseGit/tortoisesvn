@@ -2382,8 +2382,63 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 								}
 							}
 						}
-						// TODO: ask the log cache whether this revision is stored and if yes, 'fetch'
-						// the missing revisions into this dialog and then scroll to that revision
+						try
+						{
+							CLogCacheUtility logUtil(GetLogCachePool()->GetCache(m_sUUID, m_sRepositoryRoot), &m_ProjectProperties);
+							if (logUtil.IsCached(rev))
+							{
+								PLOGENTRYDATA ldata = logUtil.GetRevisionData(rev);
+								if (ldata)
+								{
+									// insert the data
+									PLOGENTRYDATA pLogItem = new LOGENTRYDATA;
+									*pLogItem = *ldata;
+									pLogItem->tmDate = ldata->tmDate/1000000L;
+
+									CLogDataVector::iterator itinsert = m_logEntries.begin();
+									for (CLogDataVector::iterator itlog = m_logEntries.begin(); itlog != m_logEntries.end(); ++itlog)
+									{
+										itinsert = itlog;
+										if (rev > (*itlog)->Rev)
+											break;
+									}
+									m_logEntries.insert(itinsert, pLogItem);
+									// now start filter the log list
+									InterlockedExchange(&m_bNoDispUpdates, TRUE);
+									RecalculateShownList(&m_arShownList);
+									SortShownListArray();
+									InterlockedExchange(&m_bNoDispUpdates, FALSE);
+
+									m_LogList.DeleteAllItems();
+									m_LogList.SetItemCountEx(ShownCountWithStopped());
+									m_LogList.RedrawItems(0, ShownCountWithStopped());
+									m_LogList.Invalidate();
+
+									for (INT_PTR i=0; i<m_arShownList.GetCount(); ++i)
+									{
+										PLOGENTRYDATA data = (PLOGENTRYDATA)m_arShownList.GetAt(i);
+										if (data)
+										{
+											if (data->Rev == rev)
+											{
+												int selMark = m_LogList.GetSelectionMark();
+												if (selMark>=0)
+												{
+													m_LogList.SetItemState(selMark, 0, LVIS_SELECTED);
+												}
+												m_LogList.EnsureVisible(i, FALSE);
+												m_LogList.SetSelectionMark(i);
+												m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+												return;
+											}
+										}
+									}
+								}
+							}
+						}
+						catch (CException* /*e*/)
+						{
+						}
 
 						// if we get here, then the linked revision is not shown in this dialog:
 						// start a new log dialog for the repository root and this revision
