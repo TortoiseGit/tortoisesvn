@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2009
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 16073: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 16126: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-07 14:25+0300\n"
+"PO-Revision-Date: 2009-04-20 09:17+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6499,6 +6499,10 @@ msgstr ""
 msgid "Reintegrate a branch"
 msgstr "Воссоединение с ответвлением"
 
+#. Resource IDs: (595)
+msgid "Reintegrate merge"
+msgstr "Воссоединительное слияние"
+
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %s into %s"
@@ -7288,6 +7292,10 @@ msgstr "Выберите начальную ревизию"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Выберите текстовый редактор"
+
+#. Resource IDs: (595)
+msgid "Select the URL from which to reintegrate"
+msgstr "Выберите URL, из которого выполнять воссоединительное слияние"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
