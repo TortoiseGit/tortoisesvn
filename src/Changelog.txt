@@ -14,6 +14,7 @@ Version 1.6.2
        about "only numbers are allowed" when trying to commit. (Stefan)
 - BUG: Stealing a lock failed when using serf instead of neon. (Stefan)
 - BUG: Segfault in TSVNCache. (Stefan)
+- BUG: The merge dialog always used the wc url as the default. (Stefan)
 
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)
