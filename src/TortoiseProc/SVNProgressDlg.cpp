@@ -1969,11 +1969,11 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 			HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider);
 			if (SUCCEEDED(hr))
 			{
-				BSTR commonRoot = SysAllocString(m_targetPathList.GetCommonRoot().GetDirectory().GetWinPath());
-				SAFEARRAY *pathList = SafeArrayCreateVector(VT_BSTR, 0, m_targetPathList.GetCount());
+				BSTR commonRoot = SysAllocString(m_selectedPaths.GetCommonRoot().GetDirectory().GetWinPath());
+				SAFEARRAY *pathList = SafeArrayCreateVector(VT_BSTR, 0, m_selectedPaths.GetCount());
 
-				for (LONG index = 0; index < m_targetPathList.GetCount(); ++index)
-					SafeArrayPutElement(pathList, &index, m_targetPathList[index].GetSVNPathString().AllocSysString());
+				for (LONG index = 0; index < m_selectedPaths.GetCount(); ++index)
+					SafeArrayPutElement(pathList, &index, m_selectedPaths[index].GetSVNPathString().AllocSysString());
 
 				BSTR logMessage = m_sMessage.AllocSysString();
 

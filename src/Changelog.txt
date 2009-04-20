@@ -15,6 +15,8 @@ Version 1.6.2
 - BUG: Stealing a lock failed when using serf instead of neon. (Stefan)
 - BUG: Segfault in TSVNCache. (Stefan)
 - BUG: The merge dialog always used the wc url as the default. (Stefan)
+- BUG: The pathlist in the OnCommitFinished() method did not contain
+       all committed paths. (Stefan)
 
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)
