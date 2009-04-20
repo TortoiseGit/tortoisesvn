@@ -145,7 +145,7 @@ UINT CCacheDlg::TestThread()
 		sNumber.Format(_T("%d"), i);
 		GetDlgItem(IDC_DONE)->SetWindowText(sNumber);
 		if ((GetTickCount()%10)==1)
-			Sleep(2000);
+			Sleep(10);
 		if ((rand()%10)==3)
 			RemoveFromCache(filepath);
 	}
