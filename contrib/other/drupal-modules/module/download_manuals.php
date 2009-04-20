@@ -35,7 +35,7 @@ function print_manuals($i, $postat, $v, $b_release)
     } else {
       $m_cc = $postat[2];
       $m_cn = $postat[3];
-      $flagimg=$v['flagpath'].$m_cc".png";
+      $flagimg=$v['flagpath'].$m_cc.".png";
     }
 
     $ts_pdf="TortoiseSVN-".$v['release'].'-'.$m_cc.".pdf";
