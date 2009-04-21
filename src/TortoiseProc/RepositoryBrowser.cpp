@@ -2711,7 +2711,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		case ID_COPYTOWC:
 			{
 				CTSVNPath tempfile;
-				bool bSavePathOK = AskForSavePath(urlList, tempfile, nFolders > 0);
+				bool bSavePathOK = AskForSavePath(urlList, tempfile, false);
 				if (bSavePathOK)
 				{
 					CWaitCursorEx wait_cursor;

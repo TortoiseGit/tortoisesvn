@@ -17,6 +17,8 @@ Version 1.6.2
 - BUG: The merge dialog always used the wc url as the default. (Stefan)
 - BUG: The pathlist in the OnCommitFinished() method did not contain
        all committed paths. (Stefan)
+- BUG: Copy-to-wc from the repository browser didn't work for single
+       files/folders. (Stefan)
 
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)
