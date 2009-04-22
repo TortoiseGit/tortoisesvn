@@ -71,8 +71,6 @@ enum LISTITEMSTATES_MINE {
 
 #endif
 
-#define LOG_REVISIONREGEX _T("\\b(r\\d+)|\\b(revision\\s#?\\d+)|\\b(rev\\.?\\s?\\d+)")
-
 #define ICONITEMBORDER 5
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
@@ -624,7 +622,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 		// and we can find a match of those in the log message
 		m_ProjectProperties.FindBugID(pLogEntry->sMessage, pMsgView);
 		// underline all revisions mentioned in the message
-		CAppUtils::UnderlineRegexMatches(pMsgView, LOG_REVISIONREGEX);
+		CAppUtils::UnderlineRegexMatches(pMsgView, m_ProjectProperties.sLogRevRegex, _T("\\d+"));
 		CAppUtils::FormatTextInRichEditControl(pMsgView);
 		m_currentChangedArray = pLogEntry->pArChangedPaths;
 		if (m_currentChangedArray == NULL)
@@ -2346,114 +2344,126 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 		if (!::PathIsURL(url))
 		{
 			// not a full url: either a bug ID or a revision.
-			// first check whether it matches a revision
-			const tr1::wregex regMatch(LOG_REVISIONREGEX, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
-			const tr1::wsregex_iterator end;
-			wstring s = msg;
-			for (tr1::wsregex_iterator it(s.begin(), s.end(), regMatch); it != end; ++it)
+			std::set<CString> bugIDs = m_ProjectProperties.FindBugIDs(msg);
+			bool bBugIDFound = false;
+			for (std::set<CString>::iterator it = bugIDs.begin(); it != bugIDs.end(); ++it)
 			{
-				wstring matchedString = (*it)[0];
-				if (url.Compare(matchedString.c_str()) == 0)
+				if (it->Compare(url) == 0)
 				{
+					url = m_ProjectProperties.GetBugIDUrl(url);
+					url = GetAbsoluteUrlFromRelativeUrl(url);
+					bBugIDFound = true;
+					break;
+				}
+			}
+			if (!bBugIDFound)
+			{
+				// now check whether it matches a revision
+				const tr1::wregex regMatch(m_ProjectProperties.sLogRevRegex, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
+				const tr1::wsregex_iterator end;
+				wstring s = msg;
+				for (tr1::wsregex_iterator it(s.begin(), s.end(), regMatch); it != end; ++it)
+				{
+					wstring matchedString = (*it)[0];
 					const tr1::wregex regRevMatch(_T("\\d+"));
 					wstring ss = matchedString;
 					for (tr1::wsregex_iterator it2(ss.begin(), ss.end(), regRevMatch); it2 != end; ++it2)
 					{
 						wstring matchedRevString = (*it2)[0];
-						svn_revnum_t rev = _ttol(matchedRevString.c_str());
-						ATLTRACE(_T("found revision %ld\n"), rev);
-						// do we already show this revision? If yes, just select that revision and 'scroll' to it
-						for (INT_PTR i=0; i<m_arShownList.GetCount(); ++i)
+						if (url.Compare(matchedRevString.c_str()) == 0)
 						{
-							PLOGENTRYDATA data = (PLOGENTRYDATA)m_arShownList.GetAt(i);
-							if (data)
+							svn_revnum_t rev = _ttol(matchedRevString.c_str());
+							ATLTRACE(_T("found revision %ld\n"), rev);
+							// do we already show this revision? If yes, just select that revision and 'scroll' to it
+							for (INT_PTR i=0; i<m_arShownList.GetCount(); ++i)
 							{
-								if (data->Rev == rev)
+								PLOGENTRYDATA data = (PLOGENTRYDATA)m_arShownList.GetAt(i);
+								if (data)
 								{
-									int selMark = m_LogList.GetSelectionMark();
-									if (selMark>=0)
+									if (data->Rev == rev)
 									{
-										m_LogList.SetItemState(selMark, 0, LVIS_SELECTED);
+										int selMark = m_LogList.GetSelectionMark();
+										if (selMark>=0)
+										{
+											m_LogList.SetItemState(selMark, 0, LVIS_SELECTED);
+										}
+										m_LogList.EnsureVisible(i, FALSE);
+										m_LogList.SetSelectionMark(i);
+										m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+										return;
 									}
-									m_LogList.EnsureVisible(i, FALSE);
-									m_LogList.SetSelectionMark(i);
-									m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
-									return;
 								}
 							}
-						}
-						try
-						{
-							CLogCacheUtility logUtil(GetLogCachePool()->GetCache(m_sUUID, m_sRepositoryRoot), &m_ProjectProperties);
-							if (logUtil.IsCached(rev))
+							try
 							{
-								PLOGENTRYDATA ldata = logUtil.GetRevisionData(rev);
-								if (ldata)
+								CLogCacheUtility logUtil(GetLogCachePool()->GetCache(m_sUUID, m_sRepositoryRoot), &m_ProjectProperties);
+								if (logUtil.IsCached(rev))
 								{
-									// insert the data
-									PLOGENTRYDATA pLogItem = new LOGENTRYDATA;
-									*pLogItem = *ldata;
-									pLogItem->tmDate = ldata->tmDate/1000000L;
-
-									CLogDataVector::iterator itinsert = m_logEntries.begin();
-									for (CLogDataVector::iterator itlog = m_logEntries.begin(); itlog != m_logEntries.end(); ++itlog)
+									PLOGENTRYDATA ldata = logUtil.GetRevisionData(rev);
+									if (ldata)
 									{
-										itinsert = itlog;
-										if (rev > (*itlog)->Rev)
-											break;
-									}
-									m_logEntries.insert(itinsert, pLogItem);
-									// now start filter the log list
-									InterlockedExchange(&m_bNoDispUpdates, TRUE);
-									RecalculateShownList(&m_arShownList);
-									SortShownListArray();
-									InterlockedExchange(&m_bNoDispUpdates, FALSE);
+										// insert the data
+										PLOGENTRYDATA pLogItem = new LOGENTRYDATA;
+										*pLogItem = *ldata;
+										pLogItem->tmDate = ldata->tmDate/1000000L;
 
-									m_LogList.DeleteAllItems();
-									m_LogList.SetItemCountEx(ShownCountWithStopped());
-									m_LogList.RedrawItems(0, ShownCountWithStopped());
-									m_LogList.Invalidate();
-
-									for (INT_PTR i=0; i<m_arShownList.GetCount(); ++i)
-									{
-										PLOGENTRYDATA data = (PLOGENTRYDATA)m_arShownList.GetAt(i);
-										if (data)
+										CLogDataVector::iterator itinsert = m_logEntries.begin();
+										for (CLogDataVector::iterator itlog = m_logEntries.begin(); itlog != m_logEntries.end(); ++itlog)
 										{
-											if (data->Rev == rev)
+											itinsert = itlog;
+											if (rev > (*itlog)->Rev)
+												break;
+										}
+										m_logEntries.insert(itinsert, pLogItem);
+										// now start filter the log list
+										InterlockedExchange(&m_bNoDispUpdates, TRUE);
+										RecalculateShownList(&m_arShownList);
+										SortShownListArray();
+										InterlockedExchange(&m_bNoDispUpdates, FALSE);
+
+										m_LogList.DeleteAllItems();
+										m_LogList.SetItemCountEx(ShownCountWithStopped());
+										m_LogList.RedrawItems(0, ShownCountWithStopped());
+										m_LogList.Invalidate();
+
+										for (INT_PTR i=0; i<m_arShownList.GetCount(); ++i)
+										{
+											PLOGENTRYDATA data = (PLOGENTRYDATA)m_arShownList.GetAt(i);
+											if (data)
 											{
-												int selMark = m_LogList.GetSelectionMark();
-												if (selMark>=0)
+												if (data->Rev == rev)
 												{
-													m_LogList.SetItemState(selMark, 0, LVIS_SELECTED);
+													int selMark = m_LogList.GetSelectionMark();
+													if (selMark>=0)
+													{
+														m_LogList.SetItemState(selMark, 0, LVIS_SELECTED);
+													}
+													m_LogList.EnsureVisible(i, FALSE);
+													m_LogList.SetSelectionMark(i);
+													m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+													return;
 												}
-												m_LogList.EnsureVisible(i, FALSE);
-												m_LogList.SetSelectionMark(i);
-												m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
-												return;
 											}
 										}
 									}
 								}
 							}
-						}
-						catch (CException* /*e*/)
-						{
-						}
+							catch (CException* /*e*/)
+							{
+							}
 
-						// if we get here, then the linked revision is not shown in this dialog:
-						// start a new log dialog for the repository root and this revision
-						CString sCmd;
-						sCmd.Format(_T("%s /command:log /path:\"%s\" /startrev:%ld /propspath:\"%s\""),
-							(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
-							(LPCTSTR)m_sRepositoryRoot, rev, (LPCTSTR)m_path.GetWinPath());
-						CAppUtils::LaunchApplication(sCmd, NULL, false);
-						return;
+							// if we get here, then the linked revision is not shown in this dialog:
+							// start a new log dialog for the repository root and this revision
+							CString sCmd;
+							sCmd.Format(_T("%s /command:log /path:\"%s\" /startrev:%ld /propspath:\"%s\""),
+								(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+								(LPCTSTR)m_sRepositoryRoot, rev, (LPCTSTR)m_path.GetWinPath());
+							CAppUtils::LaunchApplication(sCmd, NULL, false);
+							return;
+						}
 					}
 				}
 			}
-
-			url = m_ProjectProperties.GetBugIDUrl(url);
-			url = GetAbsoluteUrlFromRelativeUrl(url);
 		}
 		if (!url.IsEmpty())
 			ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
