@@ -3142,11 +3142,16 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 	if (pItem->mask & LVIF_IMAGE)
 	{
 		int icon_idx = 0;
-		if (lcpath->nodeKind == svn_node_dir)
-			icon_idx = m_nIconFolder;
+		if (lcpath)
+		{
+			if (lcpath->nodeKind == svn_node_dir)
+				icon_idx = m_nIconFolder;
+			else
+				icon_idx = SYS_IMAGE_LIST().GetPathIconIndex(CTSVNPath(lcpath->sPath));
+		}
 		else
 		{
-			icon_idx = SYS_IMAGE_LIST().GetPathIconIndex(CTSVNPath(lcpath->sPath));
+			icon_idx = SYS_IMAGE_LIST().GetPathIconIndex(m_currentChangedPathList[pItem->iItem]);
 		}
 		pDispInfo->item.iImage = icon_idx;
 	}
