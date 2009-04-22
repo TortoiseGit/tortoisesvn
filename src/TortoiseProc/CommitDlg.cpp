@@ -991,6 +991,8 @@ void CCommitDlg::GetAutocompletionList()
 	CString sRegexFile = CPathUtils::GetAppDirectory();
 	CRegDWORD regtimeout = CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteParseTimeout"), 5);
 	DWORD timeoutvalue = regtimeout*1000;
+	if (timeoutvalue == 0)
+		return;
 	sRegexFile += _T("autolist.txt");
 	if (!m_bRunThread)
 		return;

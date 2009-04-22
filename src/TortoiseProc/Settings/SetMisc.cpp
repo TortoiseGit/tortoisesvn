@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007,2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -65,7 +65,7 @@ void CSetMisc::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_UNVERSIONEDRECURSE, m_bUnversionedRecurse);
 	DDX_Check(pDX, IDC_AUTOCOMPLETION, m_bAutocompletion);
 	DDX_Text(pDX, IDC_AUTOCOMPLETIONTIMEOUT, m_dwAutocompletionTimeout);
-	DDV_MinMaxUInt(pDX, m_dwAutocompletionTimeout, 1, 100);
+	DDV_MinMaxUInt(pDX, m_dwAutocompletionTimeout, 0, 100);
 	DDX_Check(pDX, IDC_SPELL, m_bSpell);
 	DDX_Check(pDX, IDC_REPOCHECK, m_bCheckRepo);
 	DDX_Text(pDX, IDC_MAXHISTORY, m_dwMaxHistory);
