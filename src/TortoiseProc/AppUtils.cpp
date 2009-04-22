@@ -711,7 +711,7 @@ bool CAppUtils::FormatTextInRichEditControl(CWnd * pWnd)
 	return bStyled;	
 }
 
-bool CAppUtils::UnderlineRegexMatches(CWnd * pWnd, const CString& matchstring)
+bool CAppUtils::UnderlineRegexMatches(CWnd * pWnd, const CString& matchstring, const CString& matchsubstring /* = _T(".*")*/)
 {
 	CString sText;
 	if (pWnd == NULL)
@@ -725,6 +725,7 @@ bool CAppUtils::UnderlineRegexMatches(CWnd * pWnd, const CString& matchstring)
 	try
 	{
 		const tr1::wregex regMatch(matchstring, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
+		const tr1::wregex regSubMatch(matchsubstring, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
 		const tr1::wsregex_iterator end;
 		wstring s = sText;
 		for (tr1::wsregex_iterator it(s.begin(), s.end(), regMatch); it != end; ++it)
@@ -732,16 +733,20 @@ bool CAppUtils::UnderlineRegexMatches(CWnd * pWnd, const CString& matchstring)
 			// (*it)[0] is the matched string
 			wstring matchedString = (*it)[0];
 			ptrdiff_t matchpos = it->position(0);
-			ATLTRACE(_T("matched id : %s\n"), (*it)[0].str().c_str());
-			CHARRANGE range = {matchpos, matchpos+(*it)[0].str().size()};
-			pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-			CHARFORMAT2 format;
-			SecureZeroMemory(&format, sizeof(CHARFORMAT2));
-			format.cbSize = sizeof(CHARFORMAT2);
-			format.dwMask = CFM_LINK;
-			format.dwEffects = CFE_LINK;
-			pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
-			bFound = true;
+			for (tr1::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regSubMatch); it2 != end; ++it2)
+			{
+				ATLTRACE(_T("matched id : %s\n"), (*it2)[0].str().c_str());
+				ptrdiff_t matchposID = it2->position(0);
+				CHARRANGE range = {matchpos+matchposID, matchpos+matchposID+(*it2)[0].str().size()};
+				pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+				CHARFORMAT2 format;
+				SecureZeroMemory(&format, sizeof(CHARFORMAT2));
+				format.cbSize = sizeof(CHARFORMAT2);
+				format.dwMask = CFM_LINK;
+				format.dwEffects = CFE_LINK;
+				pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+				bFound = true;
+			}
 		}
 	}
 	catch (exception) {}
