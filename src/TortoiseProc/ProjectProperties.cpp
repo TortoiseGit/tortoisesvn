@@ -26,6 +26,8 @@
 
 using namespace std;
 
+#define LOG_REVISIONREGEX _T("\\b(r\\d+)|\\b(revisions?(\\(s\\))?\\s#?\\d+([, ]+(and\\s?)?\\d+)*)|\\b(revs?\\.?\\s?\\d+([, ]+(and\\s?)?\\d+)*)")
+
 
 ProjectProperties::ProjectProperties(void)
 {
@@ -79,6 +81,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 	BOOL bFoundLogSummary = FALSE;
 	BOOL bFoundBugtraqProviderUuid = FALSE;
 	BOOL bFoundBugtraqProviderParams = FALSE;
+	BOOL bFoundLogRevRegex = FALSE;
 
 	if (!path.IsDirectory())
 		path = path.GetContainingDirectory();
@@ -254,6 +257,11 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				sLogSummaryRe = sPropVal;
 				bFoundLogSummary = TRUE;
 			}
+			if ((!bFoundLogRevRegex)&&(sPropName.Compare(PROJECTPROPNAME_LOGREVREGEX)==0))
+			{
+				sLogRevRegex = sPropVal;
+				bFoundLogRevRegex = TRUE;
+			}
 		}
 		if (PathIsRoot(path.GetWinPath()))
 			return FALSE;
@@ -265,9 +273,11 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				| bFoundBugtraqURL | bFoundBugtraqWarnIssue | bFoundLogWidth
 				| bFoundLogTemplate | bFoundBugtraqLogRe | bFoundMinLockMsgSize
 				| bFoundUserFileProps | bFoundUserDirProps | bFoundAutoProps
-				| bFoundWebViewRev | bFoundWebViewPathRev | bFoundLogSummary
+				| bFoundWebViewRev | bFoundWebViewPathRev | bFoundLogSummary | bFoundLogRevRegex
 				| bFoundBugtraqProviderUuid | bFoundBugtraqProviderParams)
 			{
+				if (!bFoundLogRevRegex)
+					sLogRevRegex = LOG_REVISIONREGEX;
 				return TRUE;
 			}
 			propsPath.Reset();
@@ -509,14 +519,11 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 	return FALSE;
 }
 
-CString ProjectProperties::FindBugID(const CString& msg)
+std::set<CString> ProjectProperties::FindBugIDs(const CString& msg)
 {
 	size_t offset1 = 0;
 	size_t offset2 = 0;
 	bool bFound = false;
-
-	CString sRet;
-
 	std::set<CString> bugIDs;
 
 	// first use the checkre string to find bug ID's in the message
@@ -573,7 +580,7 @@ CString ProjectProperties::FindBugID(const CString& msg)
 		CString sLastPart;
 		BOOL bTop = FALSE;
 		if (sMessage.Find(_T("%BUGID%"))<0)
-			goto finish;
+			return bugIDs;
 		sFirstPart = sMessage.Left(sMessage.Find(_T("%BUGID%")));
 		sLastPart = sMessage.Mid(sMessage.Find(_T("%BUGID%"))+7);
 		CString sMsg = msg;
@@ -605,10 +612,10 @@ CString ProjectProperties::FindBugID(const CString& msg)
 			bTop = TRUE;
 		}
 		if (sBugLine.IsEmpty())
-			goto finish;
+			return bugIDs;
 		CString sBugIDPart = sBugLine.Mid(sFirstPart.GetLength(), sBugLine.GetLength() - sFirstPart.GetLength() - sLastPart.GetLength());
 		if (sBugIDPart.IsEmpty())
-			goto finish;
+			return bugIDs;
 		//the bug id part can contain several bug id's, separated by commas
 		if (!bTop)
 			offset1 = sMsg.GetLength() - sBugLine.GetLength() + sFirstPart.GetLength();
@@ -627,7 +634,16 @@ CString ProjectProperties::FindBugID(const CString& msg)
 		CHARRANGE range = {(LONG)offset1, (LONG)offset2};
 		bugIDs.insert(msg.Mid(range.cpMin, range.cpMax-range.cpMin));
 	}
-finish:
+
+	return bugIDs;
+}
+
+CString ProjectProperties::FindBugID(const CString& msg)
+{
+	CString sRet;
+
+	std::set<CString> bugIDs = FindBugIDs(msg);
+
 	for (std::set<CString>::iterator it = bugIDs.begin(); it != bugIDs.end(); ++it)
 	{
 		sRet += *it;

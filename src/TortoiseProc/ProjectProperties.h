@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,6 +42,7 @@ using namespace std;
 #define PROJECTPROPNAME_USERFILEPROPERTY  _T("tsvn:userfileproperties")
 #define PROJECTPROPNAME_USERDIRPROPERTY   _T("tsvn:userdirproperties")
 #define PROJECTPROPNAME_AUTOPROPS		  _T("tsvn:autoprops")
+#define PROJECTPROPNAME_LOGREVREGEX		  _T("tsvn:logrevregex")
 
 #define PROJECTPROPNAME_WEBVIEWER_REV     _T("webviewer:revision")
 #define PROJECTPROPNAME_WEBVIEWER_PATHREV _T("webviewer:pathrevision")
@@ -84,6 +85,7 @@ public:
 	BOOL FindBugID(const CString& msg, CWnd * pWnd);
 
 	CString FindBugID(const CString& msg);
+	std::set<CString> FindBugIDs(const CString& msg);
 	/**
 	 * Searches for the BugID inside a log message. If one is found,
 	 * that BugID is returned. If none is found, an empty string is returned.
@@ -219,6 +221,11 @@ public:
 	 * is the first matching regex group.
 	 */
 	CString		sLogSummaryRe;
+
+	/**
+	 * A regex string to extract revisions from a log message.
+	 */
+	CString		sLogRevRegex;
 private:
 	CString		sAutoProps;
 	CTSVNPath	propsPath;
