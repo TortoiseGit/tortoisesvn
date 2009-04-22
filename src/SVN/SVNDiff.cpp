@@ -367,6 +367,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 		else
 		{
 			sRepoRoot = m_pSVN->GetRepositoryRoot(url1);
+			peg = peg.IsValid() ? peg : m_headPeg;
 		}
 		if (nodekind == svn_node_dir)
 		{

@@ -19,6 +19,8 @@ Version 1.6.2
        all committed paths. (Stefan)
 - BUG: Copy-to-wc from the repository browser didn't work for single
        files/folders. (Stefan)
+- BUG: Comparing revisions in the log dialog before a rename returned
+       an error. (Stefan)
 
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)
