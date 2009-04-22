@@ -430,6 +430,26 @@
 				</listitem>
 				<listitem>
 					<para>
+						The property <literal>tsvn:logrevregex</literal> defines
+						a regular expression which matches references to revisions
+						in a log message. This is used in the log dialog to turn
+						such references into links that when clicked will either
+						scroll to that revision (if the revision is already shown
+						in the log dialog or if it's available from the log cache)
+						or open a new log dialog showing that revision.
+					</para>
+					<para>
+						The regular expression must match the whole reference, not
+						just the revision number. The revision number is extracted
+						from the matche reference string automatically.
+					</para>
+					<para>
+						If this property is not set, a default regular expression
+						is used to link revision references.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
 						When you want to add a new property, you can either pick one from
 						the list in the combo box, or you can enter any property name
 						you like. If your project uses some custom properties,
