@@ -229,11 +229,20 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 	SendEditor(SCI_SETUNDOCOLLECTION, 0);
 	::ShowWindow(wEditor, SW_HIDE);
 	std::ifstream File;
-	File.open(fileName);
-	if (!File.good())
+	int retrycount = 5;
+	while (retrycount)
 	{
-		return FALSE;
+		File.open(fileName);
+		if (File.good())
+		{
+			break;
+		}
+		Sleep(100);
+		retrycount--;
 	}
+	if (!File.good())
+		return FALSE;
+
 	char line[100*1024];
 	char * lineptr = NULL;
 	char * trimptr = NULL;
