@@ -164,13 +164,13 @@ BOOL CConflictResolveDlg::OnInitDialog()
 
 void CConflictResolveDlg::OnBnClickedUselocal()
 {
-	m_choice = svn_wc_conflict_choose_mine_conflict;
+	m_choice = 	m_pConflictDescription->is_binary ? svn_wc_conflict_choose_mine_full : svn_wc_conflict_choose_mine_conflict;
 	EndDialog(IDOK);
 }
 
 void CConflictResolveDlg::OnBnClickedUserepo()
 {
-	m_choice = svn_wc_conflict_choose_theirs_conflict;
+	m_choice = 	m_pConflictDescription->is_binary ? svn_wc_conflict_choose_theirs_full : svn_wc_conflict_choose_theirs_conflict;
 	EndDialog(IDOK);
 }
 

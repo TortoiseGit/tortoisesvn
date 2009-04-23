@@ -25,6 +25,8 @@ Version 1.6.2
        in multi-monitor setups. (Stefan)
 - BUG: Saving the revision graph as a wmf file when the stripes option
        was activated resulted in an invalid file. (Stefan)
+- BUG: interactive merging of binary files always left the file conflicted,
+       ignoring the "Use local" and/or "Use repository" buttons. (Stefan)
 
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)
