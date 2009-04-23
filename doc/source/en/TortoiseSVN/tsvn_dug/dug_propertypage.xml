@@ -433,15 +433,15 @@
 						The property <literal>tsvn:logrevregex</literal> defines
 						a regular expression which matches references to revisions
 						in a log message. This is used in the log dialog to turn
-						such references into links that when clicked will either
+						such references into links which when clicked will either
 						scroll to that revision (if the revision is already shown
-						in the log dialog or if it's available from the log cache)
+						in the log dialog, or if it's available from the log cache)
 						or open a new log dialog showing that revision.
 					</para>
 					<para>
 						The regular expression must match the whole reference, not
 						just the revision number. The revision number is extracted
-						from the matche reference string automatically.
+						from the matched reference string automatically.
 					</para>
 					<para>
 						If this property is not set, a default regular expression
