@@ -1,6 +1,6 @@
 <?php
-include("../../modules/ext/common.php");
-include("../../modules/ext/table.php");
+include("../modules/ext/common.php");
+include("../modules/ext/table.php");
 
 $dir="/var/www/sites/tsvn.e-posta.sk/data/";
 include("mysql.php");

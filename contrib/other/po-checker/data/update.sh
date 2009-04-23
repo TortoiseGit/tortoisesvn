@@ -1,11 +1,15 @@
 #!/bin/sh
-
 SQLDB=tsvn
 SQLUSER=tsvn
 SQLPASS=YjMEMDbSpQXB5Qjj
+if [[ "$1" == "force" ]]; then
+	echo "forced"
+else
+	sleep 1
+fi
 
 #update branches
-SVNDIR=/var/www/sites/tsvn.e-posta.sk/data/branches
+SVNDIR=/srv/www/sites/tsvn.e-posta.sk/data/branches
 URL=`svn info $SVNDIR | grep -E "^URL: "`
 URL=${URL:4}
 if [ "`svn info $URL | grep -E \"^Revision: \"`" != "`svn info $SVNDIR | grep -E \"^Revision: \"`" ]; then
@@ -18,8 +22,8 @@ fi
 
 
 #update trunk with translation history build
-SVNDIR=/var/www/sites/tsvn.e-posta.sk/data/trunk
-DATADIR=/var/www/sites/tsvn.e-posta.sk/data/
+SVNDIR=/srv/www/sites/tsvn.e-posta.sk/data/trunk
+DATADIR=/srv/www/sites/tsvn.e-posta.sk/data/
 
 URL=`svn info $SVNDIR | grep -E "^URL: "`
 URL=${URL:4}
@@ -32,8 +36,15 @@ if [ -z $REMOTEREV ]; then
 fi
 
 while true; do
-	PROCREV=`echo "select revision from lastrevision where name='processed'" | mysql -u$SQLUSER -p$SQLPASS -D$SQLDB -B --skip-column-names`
-	[ -z $PROCREV ] && exit
+	PROCREV=`echo "select revision from lastrevision where name='processed'" | mysql -u$SQLUSER -p$SQLPASS -D $SQLDB -B --skip-column-names `
+	if [ -z $PROCREV ]; then
+		echo DB ERROR
+		echo "select revision from lastrevision where name='processed'" > sql
+		mysql -u$SQLUSER -p$SQLPASS -B $SQLDB -vvv < sql
+		echo ------------------
+#		mysql -u$SQLUSER -p$SQLPASS $SQLDB
+		exit
+	fi
 
 	LOCALREV=`svn info $SVNDIR | grep -E "^Revision: "`;
 	LOCALREV=${LOCALREV:10}

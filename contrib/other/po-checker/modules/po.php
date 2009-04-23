@@ -643,6 +643,7 @@ class po {
 		}
 	}
 
+
 	// wrong spelling
 	function checkSpl() {
 		if (isset($this->pot)) {
@@ -661,9 +662,29 @@ class po {
 			echo "LLLLL";
 			foreach ($this->spellDictFiles as $spellDictFile) {
 				echo "<br />\n".$spellDictFile."<br />\n";
-				$pspell_link_local = pspell_new_personal($spellDictFiles, $this->lang, "", "", "utf-8");
+				$pspell_link_local = pspell_new_personal($spellDictFiles."1", $this->lang, "", "", "utf-8");
 				if ($pspell_link_local) {
-					echo $spellDictFile;
+					$word="Aktionsskript";
+//					$word="Aktionsskript";
+					echo "\n$pspell_link_local: $spellDictFile : $word =";
+					echo pspell_check($pspell_link_local, $word);
+
+					$word="COM";
+					echo "\n$pspell_link_local: $spellDictFile : $word =";
+					echo pspell_check($pspell_link_local, $word);
+
+					$word="BASE";
+					echo "\n$pspell_link_local: $spellDictFile : $word =";
+					echo pspell_check($pspell_link_local, $word);
+
+					$word="Diff";
+					echo "\n$pspell_link_local: $spellDictFile : $word =";
+					echo pspell_check($pspell_link_local, $word);
+
+					$word="BABE";
+					echo "\n$pspell_link_local: $spellDictFile : $word =";
+					echo pspell_check($pspell_link_local, $word);
+
 					$pspell_links[] = $pspell_link_local;
 				}
 			}
@@ -701,8 +722,13 @@ class po {
 //								echo "<b>$word</b><br />";
 								foreach ($pspell_links as $pspell_link_local) {
 									$wordOk=pspell_check($pspell_link_local, $word);
-//									echo "$pspell_link_local, $word = $wordOk <br />\n";
+//									echo "<!--$pspell_link_local, $word = $wordOk --!>\n";
+//									echo "<!-- DUMP:";
+//									var_dump($pspell_link_local);
+//									echo " --!>\n";
+//									echo "<!-- SET:".isset($pspell_link_local)." --!>\n";
 									if ($wordOk) {
+										echo "<!--OK --!>\n";
 										break;
 									}
 								}
@@ -762,7 +788,7 @@ class po {
 								$lineN.="(Fuzzy)";
 							}
 							$data[]=array(count($data)+1, $lineE, $orig, $lineN, $native);
-						}//* /
+						}
 						flush();
 					}
 				}
@@ -779,8 +805,58 @@ class po {
 		} else {
 			$this->report["spl"]["error"]="Internal error";
 		}
+	}
 
-//*/
+	function CreateHtmlFromMarks($marks) {
+		// sort marks by
+		// check if properly nested
+		// check for new line blocks, escape chars, etc
+		// break into parts
+		// recode to html
+		// go over parts and copy with parameters
+		
+		// params: start, end 
+		//  class: error, warning, mark, none
+		//  suggestion:
+		// 
+		if (!$match) {
+			for ($i=count($matchesOnNat[0])-1; $i>=0; $i--) {
+				if (!isset($matchesOnNat[0][$i][2])) {
+					continue;
+				}
+				$param=$matchesOnNat[0][$i][0];
+				$pos=$matchesOnNat[0][$i][1];
+				if ($param=="n" && $pos && $native[$pos-1]=="\\") {
+					continue;
+				}
+				switch ($matchesOnNat[0][$i][2]) {
+				 case MARK_OK:
+					$class=  "elmark";
+					break;
+
+				 case MARK_ERROR:
+					$class="elerror";
+					break;
+
+				 case MARK_WARNING:
+					$class="elwarning";
+					break;
+				}
+				$replaceStr="<font class=\"$class\">".$param."</font>";
+				if (isset($matchesOnNat[0][$i]['sugestion'])) {
+					$replaceStr="<acronym title=\"".$matchesOnNat[0][$i]['sugestion']."\">$replaceStr</acronym>";
+				}
+				$native=substr($native, 0, $pos).$replaceStr.substr($native, $pos+strlen($param));
+			}
+			$orig=str_replace($postprocessSearch, $postprocessReplace, $orig);
+			$native=str_replace($postprocessSearch, $postprocessReplace, $native);
+			$lineN=$this->dictionary[$key]["line"];
+			$lineE=$potFile->dictionary[$key]["line"];
+			if (isset($this->dictionary[$key]["flag"]["fuzzy"])) {
+				$lineN.="(Fuzzy)";
+			}
+			$data[]=array(count($data)+1, $lineE, $orig, $lineN, $native);
+		}
 	}
 
 	function GetErrorTypes() {

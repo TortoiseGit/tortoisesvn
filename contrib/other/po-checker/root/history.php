@@ -1,7 +1,7 @@
 <?php
 
 include_once("mysql.php");
-include_once("/var/www/php/printflow/table.php");
+include_once("../modules/ext/table.php");
 
 $title="TortoiseSVN | The coolest Interface to (Sub)Version Control - Translation history";
 

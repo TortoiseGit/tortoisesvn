@@ -1,6 +1,6 @@
 <?php
 $mysqlhost="localhost";
 $mysqluser="tsvn";
-$mysqlpass="--type_password_here--";
+$mysqlpass="YjMEMDbSpQXB5Qjj";
 $mysqldb="tsvn";
 //php?>

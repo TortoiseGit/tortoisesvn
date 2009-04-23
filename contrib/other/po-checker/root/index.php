@@ -126,8 +126,18 @@ php?>
 
 //*/
 $dirBase="/var/www/sites/tsvn.e-posta.sk/data/";
-include_once $dirBase."trunk/contrib/drupal-modules/translation-status/trans_countries.inc";
-include_once $dirBase."trunk/contrib/drupal-modules/translation-status/tortoisevars.inc";
+$transCountriesFile=$dirBase."trunk/contrib/drupal-modules/translation-status/trans_countries.inc";
+if (file_exists($transCountriesFile)) {
+	include_once $transCountriesFile;
+}
+$tortoiseVarsFile=$dirBase."trunk/contrib/drupal-modules/translation-status/tortoisevars.inc";
+if (file_exists($tortoiseVarsFile)) {
+	include_once $tortoiseVarsFile;
+}
+$tortoiseVarsFile=$dirBase."trunk/contrib/other/drupal-modules/translation-status/tortoisevars.inc";
+if (file_exists($tortoiseVarsFile)) {
+	include_once $tortoiseVarsFile;
+}
 
 
 
@@ -172,7 +182,7 @@ $dirDoc=$dir."/doc/po";
 $revFileLines=file($revFileName);
 
 echo "<h1>".$revFileLines[0]."of $dirTarget</h1>";
-echo "Last update: ".date("F d Y H:i", filemtime($revFileName))." GMT+1<br />";
+echo "Last update: ".date("F d Y H:i", filemtime($revFileName))." CET (GMT+1/GMT+2(DST)) <br />";
 if ($stable) {
 	echo 'Go to <a href="/?l='.$lang.'">TRUNK</a>.<br /><br />';
 } else {
@@ -200,7 +210,7 @@ if ($stable) {
 	echo "<a name=\"TAB$lang\"></a>";
 	echo '<table border="1"><thead><tr>
 		<td><acronym title="Native language name in English">Language</acronym></td>
-		<td>Native name</td>
+<!--		<td>Native name</td> -->
 		<td>Flag</td>
 		<td><acronym title="Parameter test (Severity: High - may be harmfull)">PAR!!</acronym></td>
 		<td><acronym title="Accelerator test (Severity: Medium - accessibility)">ACC!</acronym></td>
@@ -274,9 +284,30 @@ if ($stable) {
 	$langSelected=($lang!="");
 	$classIndex=0;
 	$classes=array("odd", "even");
+	unset($countries);
+	$countriesFile="trans_countries.inc";
+	$countriesFile=$dir."/contrib/drupal-modules/translation-status/".$countriesFile;
+	if (file_exists($countriesFile)) {
+		include $countriesFile;
+	}
+
+	function findCoutriesParam($countries, $code, $index, $default) {
+		$ret=$default;
+		if (isset($countries[$code]) && true) {
+			return $countries[$code][$index];
+		}
+		return $ret;
+	}
+
 	foreach ($linesLoaded as $line) {
-		if (preg_match_all("/(#)?([a-zA-Z_]*);\t([0-9]*);\t([0-9]*);\t([^;\t]*)[;\t]*([^;\t]*)[;\t]*([^;\t]*)[;\t]*/", $line, $matches)) {
-			$code=$matches[2][0];
+		if (preg_match_all("/((#)?)([a-zA-Z_]*);[ \t]*([0-9]*);[ \t]*([0-9]*);[ \t]*([^;\t]*)[;\t]*([^;\t]*)[;\t]*([^;\t]*)[;\t]*/", $line, $matches)) {
+//			echo "<pre>"; var_dump($matches); echo "</pre>";
+			$code=$matches[3][0];
+			$language=$stable ? $matches[7][0] : ($matches[6][0]);
+			$language=findCoutriesParam($countries, $code, 3, $language);
+			$author=$stable ? $matches[9][0] : ($matches[7][0]);
+			$author=findCoutriesParam($countries, $code, 4, $author);
+			$author=trim($author, " \"\r\n");
 			$pos[$code]=NULL;
 			$fileGui=$dirLocation."/Tortoise_$code.po";
 			$fileSvn=$dirDoc."/TortoiseSVN_$code.po";
@@ -296,17 +327,16 @@ if ($stable) {
 				$pot=$potMerge;
 				break;
 			}
-			if (file_exists($file) && ($lang=="" || $lang==$code) && ($_SERVER["REMOTE_ADDR"]!="192.168.10.234b")) {
+			if (file_exists($file) && ($lang=="" || $lang==$code)) {
 				$class=$classes[$classIndex];
 				$classIndex=($classIndex+1)%count($classes);
-				if (isset($countries[$code])) {
-					$flagcode=$countries[$code][2];
-				} else {
+//				if (isset($countries[$code])) {
+//					$flagcode=$countries[$code][2];
+//				} else {
 					$flagcode=$code;
-				}
+//				}
 				echo "<tr class=\"$class\">";
-				echo "<td>".$matches[6][0]."</td>\n";
-				echo "<td>".$matches[7][0]."</td>\n";
+				echo "<td>".$language."</td>\n";
 				$imagesrc="http://tortoisesvn.net/flags/world.small/$flagcode.png";
 				$imagesrc2=$langtocolor[$flagcode];
 				if (isset($imagesrc2)) {
@@ -374,7 +404,7 @@ if ($stable) {
 						$unt=$poTemp->GetErrorCount("unt");
 						$fuz=$poTemp->GetErrorCount("fuz");
 					}
-					$statDoc.=" <a href=\"/?stable=$stable&amp;l=$lang&amp;m=s\">TSVN:</a>";
+					$statDoc.=" <a href=\"/?stable=$stable&amp;l=$code&amp;m=s\">TSVN:</a>";
 					if ($unt+$fuz==0) {
 						$statDoc.="OK";
 					} else {
@@ -446,7 +476,7 @@ if ($stable) {
 				} else {
 					echo "<td />\n";
 				}
-				echo "<td>".$countries[$code][4]."</td>";
+				echo "<td>".$author."</td>";
 				echo "</tr>\n";
 				$pos[$code]=$po;
 				$line=array($englishName, $nativeName, $flag, $par, $acc, $unt, $fuz, $dis, $doc);
