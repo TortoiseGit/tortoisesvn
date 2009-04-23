@@ -23,6 +23,8 @@ Version 1.6.2
        an error. (Stefan)
 - BUG: The context menu in TortoiseBlame was shown on the wrong monitor
        in multi-monitor setups. (Stefan)
+- BUG: Saving the revision graph as a wmf file when the stripes option
+       was activated resulted in an invalid file. (Stefan)
 
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)

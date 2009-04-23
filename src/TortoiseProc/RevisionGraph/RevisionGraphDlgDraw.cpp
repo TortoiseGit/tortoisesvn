@@ -696,7 +696,7 @@ void CRevisionGraphWnd::DrawStripes (Graphics& graphics, const CSize& offset)
     RectF clipRect;
     graphics.GetVisibleClipBounds (&clipRect);
 
-    // don't show stripes if we don't have mutiple roots
+	// don't show stripes if we don't have multiple roots
 
     CSyncPointer<const ILayoutRectList> trees (m_state.GetTrees());
     if (trees->GetCount() < 2)
@@ -706,7 +706,7 @@ void CRevisionGraphWnd::DrawStripes (Graphics& graphics, const CSize& offset)
 
     for ( index_t i = 0, count = trees->GetCount(); i < count; ++i)
 	{
-        // screen coordinates coverd by the tree
+        // screen coordinates covered by the tree
 
         CRect tree = trees->GetRect(i);
         REAL left = tree.left * m_fZoomFactor;
@@ -942,6 +942,7 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
     Graphics* graphics = Graphics::FromHDC(*pDC);
     graphics->SetPageUnit (UnitPixel);
     graphics->SetInterpolationMode (InterpolationModeHighQualityBicubic);
+	graphics->SetClip(RectF(Gdiplus::REAL(rect.left), Gdiplus::REAL(rect.top), Gdiplus::REAL(rect.Width()), Gdiplus::REAL(rect.Height())));
 
     if (options->GetOption<CShowTreeStripes>()->IsActive())
         DrawStripes (*graphics, offset);
