@@ -21,6 +21,8 @@ Version 1.6.2
        files/folders. (Stefan)
 - BUG: Comparing revisions in the log dialog before a rename returned
        an error. (Stefan)
+- BUG: The context menu in TortoiseBlame was shown on the wrong monitor
+       in multi-monitor setups. (Stefan)
 
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)

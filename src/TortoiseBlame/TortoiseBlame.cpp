@@ -1777,7 +1777,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 			mevt.dwHoverTime = HOVER_DEFAULT;
 			mevt.hwndTrack = app.wBlame;
 			::TrackMouseEvent(&mevt);
-			POINT pt = {((int)(short)LOWORD(lParam)), ((int)(short)HIWORD(lParam))};
+			POINT pt = {GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam)};
 			ClientToScreen(app.wBlame, &pt);
 			pt.x += 15;
 			pt.y += 15;
@@ -1790,7 +1790,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				ti.uId = 0;
 				SendMessage(app.hwndTT, TTM_TRACKACTIVATE, TRUE, (LPARAM)&ti);
 			}
-			int y = ((int)(short)HIWORD(lParam));
+			int y = GET_Y_LPARAM(lParam);
 			LONG_PTR line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
 			LONG_PTR height = app.SendEditor(SCI_TEXTHEIGHT);
 			line = line + (y/height);
@@ -1812,7 +1812,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 		break;
 	case WM_LBUTTONDOWN:
 		{
-			int y = ((int)(short)HIWORD(lParam));
+			int y = GET_Y_LPARAM(lParam);
 			app.SelectLine(y, false);
 		}
 		break;
@@ -1824,12 +1824,12 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 		{
 			int xPos = GET_X_LPARAM(lParam);
 			int yPos = GET_Y_LPARAM(lParam);
-			if ((xPos < 0)||(yPos < 0))
+			if ((xPos == -1)||(yPos == -1))
 			{
 				// requested from keyboard, not mouse pointer
 				// use the center of the window
 				RECT rect;
-				GetClientRect(app.wBlame, &rect);
+				GetWindowRect(app.wBlame, &rect);
 				xPos = rect.right-rect.left;
 				yPos = rect.bottom-rect.top;
 			}
