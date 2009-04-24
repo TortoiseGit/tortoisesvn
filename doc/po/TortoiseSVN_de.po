@@ -15,9 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-04-04 14:46 +0000\n"
-"PO-Revision-Date: 2009-04-04 21:27+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"POT-Creation-Date: 2009-04-23 20:52 +0000\n"
+"PO-Revision-Date: 2009-04-24 10:50+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5938,6 +5938,18 @@ msgid "An example: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> Will catch everythi
 msgstr "Ein Beispiel: <literal>\\[ZUSAMMENFASSUNG\\]:\\s+(.*)</literal> Dieser Ausdruck wird alles nach <quote>[ZUSAMMENFASSUNG]</quote> aus der Logmeldung ausschneiden und als Zusammenfassung verwenden."
 
 #. (para)
+msgid "The property <literal>tsvn:logrevregex</literal> defines a regular expression which matches references to revisions in a log message. This is used in the log dialog to turn such references into links which when clicked will either scroll to that revision (if the revision is already shown in the log dialog, or if it's available from the log cache) or open a new log dialog showing that revision."
+msgstr "Mit der Eigenschaft <literal>tsvn:logrevregex</literal> wird ein regulärer Ausdruck festgelegt, der Referenzen auf Revisionen in Logmeldungen sucht. Im Log-Dialog werden diese Referenzen als anklickbare Verweise angezeigt. Bei einem Mausklick auf einen solchen Verweis im Log-Dialog wird entweder im selben Fenster zu dieser Revision gesprungen, falls die Revision bereits geladen oder im Log-Puffer vorhanden ist oder es wird ein neuer Log-Dialog mit dieser Revision geöffnet."
+
+#. (para)
+msgid "The regular expression must match the whole reference, not just the revision number. The revision number is extracted from the matched reference string automatically."
+msgstr "Der reguläre Ausdruck muss mit der gesamten Referenz und nicht nur mit der Revisionsnummer übereinstimmen. Die Revisionsnummer wird automatisch aus dem gefundenen Verweistext extrahiert."
+
+#. (para)
+msgid "If this property is not set, a default regular expression is used to link revision references."
+msgstr "Falls diese Eigenschaft nicht gesetzt ist, wird ein Standardausdruck verwendet, um die Revisionsverweise anzuzeigen."
+
+#. (para)
 msgid "When you want to add a new property, you can either pick one from the list in the combo box, or you can enter any property name you like. If your project uses some custom properties, and you want those properties to appear in the list in the combo box (to avoid typos when you enter a property name), you can create a list of your custom properties using <literal>tsvn:userfileproperties</literal> and <literal>tsvn:userdirproperties</literal>. Apply these properties to a folder. When you go to edit the properties of any child item, your custom properties will appear in the list of pre-defined property names."
 msgstr "Wenn Sie eine neue Eigenschaft hinzufügen wollen, können Sie entweder eine Standardeigenschaft aus der Kombinationsliste wählen oder einen beliebigen Eigenschaftsnamen eingeben. Falls für Ihr Projekt spezifische Eigenschaften verwendet werden, die ebenfalls in der Auswahlliste erscheinen sollen, können Sie mit den TortoiseSVN Eigenschaften <literal>tsvn:userfileproperties</literal> und <literal>tsvn:userdirproperties</literal> eine Liste von Projekteigenschaften vorgeben. Wenden Sie die TortoiseSVN Eigenschaften auf einen Ordner an. Sobald Sie anschließend die Eigenschaften eines Unterordners bearbeiten, werden die Projekteigenschaften in der Liste der vorgegebenen Eigenschaftsnamen erscheinen."
 
@@ -10956,12 +10968,8 @@ msgid "<option>/closeonend:3</option> auto close if no errors, conflicts and mer
 msgstr "<option>/closeonend:2</option> Schließen, wenn keine Fehler, Konflikte und Zusammenführungen aufgetreten sind."
 
 #. (para)
-msgid "<option>/closeonend:4</option> auto close if no errors, conflicts and merges for local operations"
-msgstr "<option>/closeonend:2</option> Schließen, wenn keine Fehler, Konflikte und Zusammenführungen bei lokalen Operationen aufgetreten sind."
-
-#. (para)
-msgid "To close the progress dialog at the end of a command automatically without using the permanent setting you can pass the <option>/closeonend</option> parameter. <placeholder-1/>"
-msgstr "Um den Fortschrittsdialog am Ende einer Aktion automatisch zu schließen, ohne die Standardeinstellung zu berücksichtigen, können Sie den <option>/closeonend</option> Parameter übergeben. <placeholder-1/>"
+msgid "To close the progress dialog at the end of a command automatically without using the permanent setting you can pass the <option>/closeonend</option> parameter. <placeholder-1/> To close the progress dialog for local operations if there were no errors or conflicts, pass the <option>/closeforlocal</option> parameter."
+msgstr "Um den Fortschrittsdialog am Ende einer Aktion automatisch zu schließen, ohne die Standardeinstellung zu berücksichtigen, können Sie den <option>/closeonend</option> Parameter übergeben. <placeholder-1/>. Um den Fortschrittsdialog für lokale Operationen zu schließen, wenn keine Fehler, Konflikte und Zusammenführungen aufgetreten sind, übergeben Sie den Parameter <option>/closeonlocal</option> "
 
 #. (para)
 msgid "The table below lists all the commands which can be accessed using the TortoiseProc.exe command line. As described above, these should be used in the form <literal>/command:abcd</literal>. In the table, the <literal>/command</literal> prefix is omitted to save space."
@@ -12903,6 +12911,12 @@ msgstr ""
 msgid "translator-translation"
 msgstr "Übersetzung"
 
+#~ msgid ""
+#~ "<option>/closeonend:4</option> auto close if no errors, conflicts and "
+#~ "merges for local operations"
+#~ msgstr ""
+#~ "<option>/closeonend:2</option> Schließen, wenn keine Fehler, Konflikte "
+#~ "und Zusammenführungen bei lokalen Operationen aufgetreten sind."
 #~ msgid ""
 #~ "Nodes classified as tags may be blended with this color. If you use tag "
 #~ "folding to save space, tags are marked on the copy source using a block "
