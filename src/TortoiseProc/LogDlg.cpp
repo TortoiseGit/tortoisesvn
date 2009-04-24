@@ -2407,23 +2407,34 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 										*pLogItem = *ldata;
 										pLogItem->tmDate = ldata->tmDate/1000000L;
 
+										SortByColumn(0, false);
+										bool bInsert = true;
 										CLogDataVector::iterator itinsert = m_logEntries.begin();
 										for (CLogDataVector::iterator itlog = m_logEntries.begin(); itlog != m_logEntries.end(); ++itlog)
 										{
 											itinsert = itlog;
+											if (rev == (*itlog)->Rev)
+											{
+												// avoid inserting duplicates which could happen if a filter is active
+												bInsert = false;
+												break;
+											}
 											if (rev > (*itlog)->Rev)
 												break;
 										}
-										m_logEntries.insert(itinsert, pLogItem);
+										if (bInsert)
+											m_logEntries.insert(itinsert, pLogItem);
+										int selMark = m_LogList.GetSelectionMark();
 										// now start filter the log list
 										InterlockedExchange(&m_bNoDispUpdates, TRUE);
-										RecalculateShownList(&m_arShownList);
-										SortShownListArray();
+										SortByColumn(m_nSortColumn, m_bAscending);
+										RecalculateShownList(&m_arShownList, rev);
 										InterlockedExchange(&m_bNoDispUpdates, FALSE);
-
 										m_LogList.DeleteAllItems();
 										m_LogList.SetItemCountEx(ShownCountWithStopped());
 										m_LogList.RedrawItems(0, ShownCountWithStopped());
+										if (selMark >= 0)
+											m_LogList.SetSelectionMark(selMark);
 										m_LogList.Invalidate();
 
 										for (INT_PTR i=0; i<m_arShownList.GetCount(); ++i)
@@ -2433,7 +2444,6 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 											{
 												if (data->Rev == rev)
 												{
-													int selMark = m_LogList.GetSelectionMark();
 													if (selMark>=0)
 													{
 														m_LogList.SetItemState(selMark, 0, LVIS_SELECTED);
@@ -3218,7 +3228,7 @@ bool CLogDlg::Validate(LPCTSTR string)
 	return ValidateRegexp(string, pat, false);
 }
 
-void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
+void CLogDlg::RecalculateShownList(CPtrArray * pShownlist, svn_revnum_t rev)
 {
 	pShownlist->RemoveAll();
 	tr1::wregex pat;//(_T("Remove"), tr1::regex_constants::icase);
@@ -3386,6 +3396,8 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 			pShownlist->Add(m_logEntries[i]);
 		else if (!bMatched && bNegate)
 			pShownlist->Add(m_logEntries[i]);
+		else if (m_logEntries[i]->Rev == rev)
+			pShownlist->Add(m_logEntries[i]);
 	} // for (DWORD i=0; i<m_logEntries.size(); ++i) 
 
 }
@@ -3418,6 +3430,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 
 		// now start filter the log list
 		InterlockedExchange(&m_bNoDispUpdates, TRUE);
+		SortByColumn(m_nSortColumn, m_bAscending);
 		RecalculateShownList(&m_arShownList);
 		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 
