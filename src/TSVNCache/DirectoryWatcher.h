@@ -51,7 +51,7 @@ public:
 	 * watched recursively, then the new path is just ignored and the method
 	 * returns false.
 	 */
-	bool AddPath(const CTSVNPath& path);
+	bool AddPath(const CTSVNPath& path, bool bCloseInfoMap = true);
 	/**
 	 * Removes a path and all its children from the watched list.
 	 */

@@ -135,7 +135,7 @@ void CDirectoryWatcher::BlockPath(const CTSVNPath& path)
 	ATLTRACE(_T("Blocking path: %s\n"), path.GetWinPath());
 }
 
-bool CDirectoryWatcher::AddPath(const CTSVNPath& path)
+bool CDirectoryWatcher::AddPath(const CTSVNPath& path, bool bCloseInfoMap)
 {
 	if (!CSVNStatusCache::Instance().IsPathAllowed(path))
 		return false;
@@ -217,13 +217,15 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path)
 		ATLTRACE(_T("add path to watch %s\n"), newroot.GetWinPath());
 		watchedPaths.AddPath(newroot);
 		watchedPaths.RemoveChildren();
-		CloseInfoMap();
+		if (bCloseInfoMap)
+			CloseInfoMap();
 
 		return true;
 	}
 	ATLTRACE(_T("add path to watch %s\n"), path.GetWinPath());
 	watchedPaths.AddPath(path);
-	CloseInfoMap();
+	if (bCloseInfoMap)
+		CloseInfoMap();
 
 	return true;
 }

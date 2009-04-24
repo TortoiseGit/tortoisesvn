@@ -107,7 +107,7 @@ void CSVNStatusCache::Create()
 						{
 							// only add the path to the watch list if it is versioned
 							if ((cacheddir->GetCurrentFullStatus() != svn_wc_status_unversioned)&&(cacheddir->GetCurrentFullStatus() != svn_wc_status_none))
-								m_pInstance->watcher.AddPath(KeyPath);
+								m_pInstance->watcher.AddPath(KeyPath, false);
 
                             m_pInstance->m_directoryCache[KeyPath] = cacheddir.release();
 
@@ -130,11 +130,13 @@ exit:
 	if (pFile)
 		fclose(pFile);
 	DeleteFile(path2);
+	m_pInstance->watcher.CloseInfoMap();
 	ATLTRACE("cache loaded from disk successfully!\n");
 	return;
 error:
 	fclose(pFile);
 	DeleteFile(path2);
+	m_pInstance->watcher.CloseInfoMap();
 	if (m_pInstance)
 	{
 		m_pInstance->Stop();
