@@ -48,6 +48,7 @@ public:
 private:
 	static unsigned int __stdcall ThreadEntry(void* pContext);
 	void WorkerThread();
+	void RemoveDuplicates(std::deque<CTSVNPath>& queue);
 
 private:
 	CComAutoCriticalSection m_critSec;

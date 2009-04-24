@@ -198,32 +198,13 @@ void CFolderCrawler::WorkerThread()
 
 					if (m_bPathsAddedSinceLastCrawl)
 					{
-						// The queue has changed - it's worth sorting and de-duping
-						std::sort(m_pathsToUpdate.begin(), m_pathsToUpdate.end());
-						m_pathsToUpdate.erase(std::unique(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), &CTSVNPath::PredLeftSameWCPathAsRight), m_pathsToUpdate.end());
+						// The queue has changed - remove duplicate entries
+						RemoveDuplicates(m_pathsToUpdate);
 						m_bPathsAddedSinceLastCrawl = false;
 					}
 					workingPath = m_pathsToUpdate.front();
-					if ((DWORD(workingPath.GetCustomData()) < currentTicks)||(DWORD(workingPath.GetCustomData()) > (currentTicks + 200000)))
+					if (DWORD(workingPath.GetCustomData()) < currentTicks)
 						m_pathsToUpdate.pop_front();
-					else
-					{
-						// since we always sort the whole list, we risk adding tons of new paths to m_pathsToUpdate
-						// until the last one in the sorted list finally times out.
-						// to avoid that, we go through the list again and crawl the first one which is valid
-						// to crawl. That way, we still reduce the size of the list.
-						if (m_pathsToUpdate.size() > 10)
-							ATLTRACE("attention: the list of paths to update is now %ld big!\n", m_pathsToUpdate.size());
-						for (std::deque<CTSVNPath>::iterator it = m_pathsToUpdate.begin(); it != m_pathsToUpdate.end(); ++it)
-						{
-							workingPath = *it;
-							if ((DWORD(workingPath.GetCustomData()) < currentTicks)||(DWORD(workingPath.GetCustomData()) > (currentTicks + 200000)))
-							{
-								m_pathsToUpdate.erase(it);
-								break;
-							}
-						}
-					}
 				}
 				if (DWORD(workingPath.GetCustomData()) >= currentTicks)
 				{
@@ -381,9 +362,8 @@ void CFolderCrawler::WorkerThread()
 
 					if (m_bItemsAddedSinceLastCrawl)
 					{
-						// The queue has changed - it's worth sorting and de-duping
-						std::sort(m_foldersToUpdate.begin(), m_foldersToUpdate.end());
-						m_foldersToUpdate.erase(std::unique(m_foldersToUpdate.begin(), m_foldersToUpdate.end(), &CTSVNPath::PredLeftEquivalentToRight), m_foldersToUpdate.end());
+						// The queue has changed - remove duplicate entries
+						RemoveDuplicates(m_foldersToUpdate);
 						m_bItemsAddedSinceLastCrawl = false;
 					}
 					// create a new CTSVNPath object to make sure the cached flags are requested again.
@@ -391,26 +371,8 @@ void CFolderCrawler::WorkerThread()
 					// now when crawling.
 					workingPath = CTSVNPath(m_foldersToUpdate.front().GetWinPath());
 					workingPath.SetCustomData(m_foldersToUpdate.front().GetCustomData());
-					if ((DWORD(workingPath.GetCustomData()) < currentTicks)||(DWORD(workingPath.GetCustomData()) > (currentTicks + 200000)))
+					if (DWORD(workingPath.GetCustomData()) < currentTicks)
 						m_foldersToUpdate.pop_front();
-					else
-					{
-						// since we always sort the whole list, we risk adding tons of new paths to m_pathsToUpdate
-						// until the last one in the sorted list finally times out.
-						// to avoid that, we go through the list again and crawl the first one which is valid
-						// to crawl. That way, we still reduce the size of the list.
-						if (m_foldersToUpdate.size() > 10)
-							ATLTRACE("attention: the list of folders to update is now %ld big!\n", m_foldersToUpdate.size());
-						for (std::deque<CTSVNPath>::iterator it = m_foldersToUpdate.begin(); it != m_foldersToUpdate.end(); ++it)
-						{
-							workingPath = *it;
-							if ((DWORD(workingPath.GetCustomData()) < currentTicks)||(DWORD(workingPath.GetCustomData()) > (currentTicks + 200000)))
-							{
-								m_foldersToUpdate.erase(it);
-								break;
-							}
-						}
-					}
 				}
 				if (DWORD(workingPath.GetCustomData()) >= currentTicks)
 				{
@@ -422,7 +384,7 @@ void CFolderCrawler::WorkerThread()
 				if (!CSVNStatusCache::Instance().IsPathAllowed(workingPath))
 					continue;
 
-				ATLTRACE(_T("Crawling folder: %s\n"), workingPath.GetWinPath());
+				ATLTRACE(_T("%ld in queue - Crawling folder: %s\n"), m_foldersToUpdate.size(), workingPath.GetWinPath());
 				{
 					AutoLocker print(critSec);
 					_stprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _T("Crawling folder: %s"), workingPath.GetWinPath());
@@ -469,6 +431,25 @@ void CFolderCrawler::WorkerThread()
 		}
 	}
 	_endthread();
+}
+
+void CFolderCrawler::RemoveDuplicates(std::deque<CTSVNPath>& queue)
+{
+	std::set<CTSVNPath> dupSet;
+	std::deque<CTSVNPath>::iterator eraseIt = queue.begin();
+	while (eraseIt != queue.end())
+	{
+		if (dupSet.find(*eraseIt) != dupSet.end())
+		{
+			// this is either a duplicate or was just crawled recently, remove it
+			eraseIt = queue.erase(eraseIt);
+		}
+		else
+		{
+			dupSet.insert(*eraseIt);
+			++eraseIt;
+		}
+	}
 }
 
 bool CFolderCrawler::SetHoldoff(DWORD milliseconds /* = 500*/)
