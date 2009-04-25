@@ -29,6 +29,8 @@ Version 1.6.2
        ignoring the "Use local" and/or "Use repository" buttons. (Stefan)
 - BUG: TSVN didn't work on Win2k if it wasn't fully updated and
        IE6 installed. (Stefan)
+- BUG: The options button in the settings dialog to add an IBugTraqProvider
+       was only shown the first time and invisible the next times. (Stefan)
 
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)
