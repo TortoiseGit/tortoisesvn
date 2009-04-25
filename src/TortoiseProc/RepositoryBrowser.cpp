@@ -48,6 +48,7 @@
 #include "SVNLogHelper.h"
 #include "XPTheme.h"
 #include "IconMenu.h"
+#include "SysInfo.h"
 #include "Shlwapi.h"
 
 enum RepoBrowserContextMenuCommands
@@ -100,15 +101,23 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
 	, m_diffKind(svn_node_none)
 	, m_hAccel(NULL)
     , bDragMode(FALSE)
+	, pfnStrCmpLogicalW(NULL)
+	, hShlwapi(NULL)
 {
+		hShlwapi = ::LoadLibrary (_T("SHLWAPI.DLL"));
+
+		if (hShlwapi)
+		{
+			pfnStrCmpLogicalW = (FN_StrCmpLogicalW)::GetProcAddress(hShlwapi, "StrCmpLogicalW");
+		}
 }
 
 CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CWnd* pParent)
 	: CResizableStandAloneDialog(CRepositoryBrowser::IDD, pParent)
 	, m_cnrRepositoryBar(&m_barRepository)
+	, m_bStandAlone(true)
 	, m_InitialUrl(url)
 	, m_initialRev(rev)
-	, m_bStandAlone(false)
 	, m_bInitDone(false)
 	, m_blockEvents(false)
 	, m_bSortAscending(true)
@@ -117,11 +126,23 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
 	, m_pListDropTarget(NULL)
 	, m_bCancelled(false)
 	, m_diffKind(svn_node_none)
+	, m_hAccel(NULL)
+	, bDragMode(FALSE)
+	, pfnStrCmpLogicalW(NULL)
+	, hShlwapi(NULL)
 {
+	hShlwapi = ::LoadLibrary (_T("SHLWAPI.DLL"));
+
+	if (hShlwapi)
+	{
+		pfnStrCmpLogicalW = (FN_StrCmpLogicalW)::GetProcAddress(hShlwapi, "StrCmpLogicalW");
+	}
 }
 
 CRepositoryBrowser::~CRepositoryBrowser()
 {
+	if (hShlwapi)
+		FreeLibrary(hShlwapi);
 }
 
 void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* = false */)
@@ -999,6 +1020,7 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 		TVSORTCB tvs;
 		tvs.hParent = hNewItem;
 		tvs.lpfnCompare = TreeSort;
+		tvs.lParam = (LPARAM)this;
 
 		hNewItem = m_RepoTree.InsertItem(&tvinsert);
 		sTemp.ReleaseBuffer();
@@ -1028,6 +1050,7 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 		TVSORTCB tvs;
 		tvs.hParent = hNewItem;
 		tvs.lpfnCompare = TreeSort;
+		tvs.lParam = (LPARAM)this;
 
 		hNewItem = m_RepoTree.InsertItem(&tvinsert);
 		sTemp.ReleaseBuffer();
@@ -1408,7 +1431,10 @@ int CRepositoryBrowser::ListSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3)
 			break;
 		// fall through
 	case 0:	// filename
-		nRet = StrCmpLogicalW(pItem1->path, pItem2->path);
+		if (pThis->pfnStrCmpLogicalW)
+			nRet = pThis->pfnStrCmpLogicalW(pItem1->path, pItem2->path);
+		else
+			nRet = CompareString(LOCALE_USER_DEFAULT, 0, pItem1->path, -1, pItem2->path, -1);
 		break;
 	}
 
@@ -1427,11 +1453,16 @@ int CRepositoryBrowser::ListSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3)
 	return nRet;
 }
 
-int CRepositoryBrowser::TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM)
+int CRepositoryBrowser::TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3)
 {
+	CRepositoryBrowser * pThis = (CRepositoryBrowser*)lParam3;
+
 	CTreeItem * Item1 = (CTreeItem*)lParam1;
 	CTreeItem * Item2 = (CTreeItem*)lParam2;
-	return StrCmpLogicalW(Item1->unescapedname, Item2->unescapedname);
+	if (pThis->pfnStrCmpLogicalW)
+		return pThis->pfnStrCmpLogicalW(Item1->unescapedname, Item2->unescapedname);
+	else
+		return CompareString(LOCALE_USER_DEFAULT, 0, Item1->unescapedname, -1, Item2->unescapedname, -1);
 }
 
 void CRepositoryBrowser::SetSortArrow()
