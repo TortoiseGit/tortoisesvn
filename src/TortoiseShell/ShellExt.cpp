@@ -55,9 +55,10 @@ CShellExt::CShellExt(FileState state)
     InitCommonControlsEx(&used);
 	LoadLangDll();
 
+	hUxTheme = NULL;
 	if (fullver >= 0x0600)
 	{
-		HMODULE hUxTheme = ::GetModuleHandle (_T("UXTHEME.DLL"));
+		hUxTheme = LoadLibrary(_T("UXTHEME.DLL"));
 
 		if (hUxTheme)
 		{
@@ -78,6 +79,8 @@ CShellExt::~CShellExt()
 	bitmaps.clear();
 	g_cRefThisDll--;
 	g_exts.erase(this);
+	if (hUxTheme)
+		FreeLibrary(hUxTheme);
 }
 
 void LoadLangDll()

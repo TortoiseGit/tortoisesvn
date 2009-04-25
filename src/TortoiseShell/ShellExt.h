@@ -203,6 +203,7 @@ protected:
 	SVNFolderStatus		m_CachedStatus;		// status cache
 	CRemoteCacheLink	m_remoteCacheLink;
 
+	HMODULE hUxTheme;
 	FN_GetBufferedPaintBits pfnGetBufferedPaintBits;
 	FN_BeginBufferedPaint pfnBeginBufferedPaint;
 	FN_EndBufferedPaint pfnEndBufferedPaint;
