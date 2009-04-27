@@ -34,6 +34,8 @@ Version 1.6.2
 - BUG: the IBugTraqProviders were not used if only set with the 
        bugtraq:provideruuid but the providers were never configured in
        the settings dialog. (Stefan)
+- BUG: Importing files by dragging them onto the repository browser didn't
+       work on Vista. (Stefan)
 
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)

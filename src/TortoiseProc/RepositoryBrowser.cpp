@@ -237,9 +237,9 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	ftetc.lindex = -1; 
 	ftetc.tymed = TYMED_HGLOBAL; 
 	m_pTreeDropTarget->AddSuportedFormat(ftetc); 
-	ftetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_DROPDESCRIPTION);
-	m_pTreeDropTarget->AddSuportedFormat(ftetc);
 	ftetc.cfFormat = CF_HDROP; 
+	m_pTreeDropTarget->AddSuportedFormat(ftetc);
+	ftetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_DROPDESCRIPTION);
 	m_pTreeDropTarget->AddSuportedFormat(ftetc);
 
 	m_pListDropTarget = new CListDropTarget(this);
@@ -247,9 +247,9 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	// create the supported formats:
 	ftetc.cfFormat = CF_SVNURL; 
 	m_pListDropTarget->AddSuportedFormat(ftetc); 
-	ftetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_DROPDESCRIPTION);
-	m_pListDropTarget->AddSuportedFormat(ftetc);
 	ftetc.cfFormat = CF_HDROP; 
+	m_pListDropTarget->AddSuportedFormat(ftetc);
+	ftetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_DROPDESCRIPTION);
 	m_pListDropTarget->AddSuportedFormat(ftetc);
 
 	if (m_bStandAlone)
