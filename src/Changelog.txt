@@ -31,6 +31,9 @@ Version 1.6.2
        IE6 installed. (Stefan)
 - BUG: The options button in the settings dialog to add an IBugTraqProvider
        was only shown the first time and invisible the next times. (Stefan)
+- BUG: the IBugTraqProviders were not used if only set with the 
+       bugtraq:provideruuid but the providers were never configured in
+       the settings dialog. (Stefan)
 
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)
