@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-04-04 14:46 +0000\n"
-"PO-Revision-Date: 2009-04-05 20:11+0100\n"
+"POT-Creation-Date: 2009-04-23 20:52 +0000\n"
+"PO-Revision-Date: 2009-04-27 22:27+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5904,6 +5904,18 @@ msgid "An example: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> Will catch everythi
 msgstr "Jedan primer: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> Će uhvatiti sve posle <quote>[SUMMARY]</quote> u dnevnik poruka i koristi ga kao rezultat."
 
 #. (para)
+msgid "The property <literal>tsvn:logrevregex</literal> defines a regular expression which matches references to revisions in a log message. This is used in the log dialog to turn such references into links which when clicked will either scroll to that revision (if the revision is already shown in the log dialog, or if it's available from the log cache) or open a new log dialog showing that revision."
+msgstr "Osobina <literal>tsvn:logrevregex</literal> definiše regularni izraz koji nalazi reference u revizije u dnevniku poruka. Ovo se koristi u dijalogu dnevnika da okrene takve reference u veze na koje kada se klikne ili se skroluje u tu reviziju (ako je revizija već prikazana u dijalogu dnevnika, ili ako je dostupan iz keša dnevnika) ili otvara novi dijalog dnevnika koji prikazuje tu reviziju."
+
+#. (para)
+msgid "The regular expression must match the whole reference, not just the revision number. The revision number is extracted from the matched reference string automatically."
+msgstr "Regularni izraz mora naći celu referencu, ne samo revizioni broj. Revizioni broj je izvučen iz nađenog referentnog teksta automatski."
+
+#. (para)
+msgid "If this property is not set, a default regular expression is used to link revision references."
+msgstr "Ako ova osobona nije podešena, uobičajen regularni izraz se koristi da se povežu revizione reference."
+
+#. (para)
 msgid "When you want to add a new property, you can either pick one from the list in the combo box, or you can enter any property name you like. If your project uses some custom properties, and you want those properties to appear in the list in the combo box (to avoid typos when you enter a property name), you can create a list of your custom properties using <literal>tsvn:userfileproperties</literal> and <literal>tsvn:userdirproperties</literal>. Apply these properties to a folder. When you go to edit the properties of any child item, your custom properties will appear in the list of pre-defined property names."
 msgstr "Kada želite da dodate novu osobinu vi možete ili uzeti jedan iz liste u kombo boksu ili možete uneti bilo koje ime osobine koje želite. Ako vaš projekat koristi neke uobičajene osobine i želite te osobine da se pojave na listi u kombo boksu ( da izbegnete greške kada unosite ime osobine), možete kreirati listu vaših uobičajenih osobina koristeći <literal>tsvn:userfileproperties</literal> i <literal>tsvn:userdirproperties</literal>. Primenite ove osobine na imenik. Kada uredite osobine bilo koje potomačke stavke, vaše uobičajene osobine će se pojaviti u listi pre-definisanih imena osobina."
 
@@ -10920,12 +10932,8 @@ msgid "<option>/closeonend:3</option> auto close if no errors, conflicts and mer
 msgstr "<option>/closeonend:3</option>auto zatvaranje ako nema grešaka, konflikata i stapanja"
 
 #. (para)
-msgid "<option>/closeonend:4</option> auto close if no errors, conflicts and merges for local operations"
-msgstr "<option>/closeonend:4</option>auto zatvaranje ako nema grešaka, konflikata i stapanja za lokalne operacije"
-
-#. (para)
-msgid "To close the progress dialog at the end of a command automatically without using the permanent setting you can pass the <option>/closeonend</option> parameter. <placeholder-1/>"
-msgstr "Da bi se zatvorio progres dijalog na kraju komande bez korišćenja stalnog podešavanja treba da provučete  <option>/closeonend</option> parametar. <placeholder-1/>"
+msgid "To close the progress dialog at the end of a command automatically without using the permanent setting you can pass the <option>/closeonend</option> parameter. <placeholder-1/> To close the progress dialog for local operations if there were no errors or conflicts, pass the <option>/closeforlocal</option> parameter."
+msgstr "Da bi se zatvorio progres dijalog na kraju komande bez korišćenja stalnog podešavanja treba da provučete  <option>/closeonend</option> parametar. <placeholder-1/> Da zatvorite dijalog napredovanja za lokalne operacije ako nema grešaka i konflikata, provučite <option>/closeforlocal</option> parametar."
 
 #. (para)
 msgid "The table below lists all the commands which can be accessed using the TortoiseProc.exe command line. As described above, these should be used in the form <literal>/command:abcd</literal>. In the table, the <literal>/command</literal> prefix is omitted to save space."
@@ -12853,6 +12861,12 @@ msgstr "Milorad Popović <MiloradSPopovic@gmail.com>"
 msgid "translator-translation"
 msgstr "Prevod"
 
+#~ msgid ""
+#~ "<option>/closeonend:4</option> auto close if no errors, conflicts and "
+#~ "merges for local operations"
+#~ msgstr ""
+#~ "<option>/closeonend:4</option>ауто затварање ако нема грешака, конфликата "
+#~ "и стапања за локалне операције"
 #~ msgid ""
 #~ "Nodes classified as tags may be blended with this color. If you use tag "
 #~ "folding to save space, tags are marked on the copy source using a block "
