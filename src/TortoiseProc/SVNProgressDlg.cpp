@@ -491,6 +491,10 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
 	case svn_wc_notify_failed_external:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDEXTERNAL);
 		data->color = m_Colors.GetColor(CColors::Conflict);
+		m_arData.push_back(data);
+		AddItemToList();
+		bDoAddData = false;
+		ReportError(SVN::GetErrorString(err));
 		break;
 	default:
 		break;
