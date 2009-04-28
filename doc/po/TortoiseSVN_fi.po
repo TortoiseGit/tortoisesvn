@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-04-04 14:46 +0000\n"
-"PO-Revision-Date: 2009-04-07 00:40+0200\n"
+"POT-Creation-Date: 2009-04-23 20:52 +0000\n"
+"PO-Revision-Date: 2009-04-28 19:43+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5902,6 +5902,18 @@ msgid "An example: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> Will catch everythi
 msgstr "Esimerkki: Lauseke <literal>\\[SUMMARY\\]:\\s+(.*)</literal> ottaa lokiviestistä talteen kaiken <quote>[SUMMARY]</quote>-merkkijonon jälkeisen tekstin ja käyttää sitä yhteenvetona."
 
 #. (para)
+msgid "The property <literal>tsvn:logrevregex</literal> defines a regular expression which matches references to revisions in a log message. This is used in the log dialog to turn such references into links which when clicked will either scroll to that revision (if the revision is already shown in the log dialog, or if it's available from the log cache) or open a new log dialog showing that revision."
+msgstr "Ominaisuus <literal>tsvn:logrevregex</literal> määrittää säännöllisen lausekkeen, jolla täsmäytetään lokiviestissä olevia versioviittauksia. Tätä käytetään loki-ikkunassa muuttamaan versioviittaukset linkeiksi, joita napsauttamalla viitattu lokiviesti tuodaan näkyville joko ikkunaa vierittämällä tai avaamalla uusi loki-ikkuna."
+
+#. (para)
+msgid "The regular expression must match the whole reference, not just the revision number. The revision number is extracted from the matched reference string automatically."
+msgstr "Säännöllisen lausekkeen on täsmättävä koko viite, ei pelkkää versionumeroa. Versionumero erotetaan täsmäytetystä viitteestä automaattisesti."
+
+#. (para)
+msgid "If this property is not set, a default regular expression is used to link revision references."
+msgstr "Jos ominaisuutta ei ole asetettu, versioviittausten hakemiseen käytetään oletusarvoista säännöllistä lauseketta."
+
+#. (para)
 msgid "When you want to add a new property, you can either pick one from the list in the combo box, or you can enter any property name you like. If your project uses some custom properties, and you want those properties to appear in the list in the combo box (to avoid typos when you enter a property name), you can create a list of your custom properties using <literal>tsvn:userfileproperties</literal> and <literal>tsvn:userdirproperties</literal>. Apply these properties to a folder. When you go to edit the properties of any child item, your custom properties will appear in the list of pre-defined property names."
 msgstr "Kun haluat lisätä uuden ominaisuuden, voit valita jonkun pudotusvalikosta tai nimetä sen itse. Jos projektisi käyttää omia ominaisuuksia ja haluat niiden löytyvän suoraan pudotusvalikosta  (kirjoitusvihreiden välttämiseksi), voit lisätä ne ominaisuuksiin <literal>tsvn:userfileproperties</literal> ja <literal>tsvn:userdirproperties</literal>. Lisää nämä ominaisuudet projektin juurikansiolle. Kun sitten muokkaat projektin alla olevia ominaisuuksia, niin omat ominaisuutesi näkyvät suoraan pudotusvalikossa."
 
@@ -10917,12 +10929,8 @@ msgid "<option>/closeonend:3</option> auto close if no errors, conflicts and mer
 msgstr "<option>/closeonend:3</option> sulje ikkuna automaattisesti, jos komento päättyy ilman virheitä, ristiriitoja tai yhdistämisiä"
 
 #. (para)
-msgid "<option>/closeonend:4</option> auto close if no errors, conflicts and merges for local operations"
-msgstr "<option>/closeonend:4</option> sulje ikkuna automaattisesti, jos komento päättyy ilman virheitä, ristiriitoja ja yhdistämisiä paikallisille operaatioille"
-
-#. (para)
-msgid "To close the progress dialog at the end of a command automatically without using the permanent setting you can pass the <option>/closeonend</option> parameter. <placeholder-1/>"
-msgstr "Sulkeaksesi edistymisikkunan komennon päättyessä automaattisesti muuttamatta pysyvää asetusta, voit antaa valitsimen <option>/closeonend</option>: <placeholder-1/>"
+msgid "To close the progress dialog at the end of a command automatically without using the permanent setting you can pass the <option>/closeonend</option> parameter. <placeholder-1/> To close the progress dialog for local operations if there were no errors or conflicts, pass the <option>/closeforlocal</option> parameter."
+msgstr "Voit käyttää valitsinta <option>/closeonend</option> sulkeaksesi edistymisikkunan automaattisesti komennon päättyessä muuttamatta pysyvää asetusta. <placeholder-1/> Käytä valitsinta <option>/closeforlocal</option>  sulkeaksesi edistymisikkunan automaattisesti onnistuneiden paikallisten operaatioiden jälkeen."
 
 #. (para)
 msgid "The table below lists all the commands which can be accessed using the TortoiseProc.exe command line. As described above, these should be used in the form <literal>/command:abcd</literal>. In the table, the <literal>/command</literal> prefix is omitted to save space."
@@ -12837,6 +12845,13 @@ msgstr "Kari Granö <kari.grano@gmail.com>"
 msgid "translator-translation"
 msgstr "Käännös"
 
+#~ msgid ""
+#~ "<option>/closeonend:4</option> auto close if no errors, conflicts and "
+#~ "merges for local operations"
+#~ msgstr ""
+#~ "<option>/closeonend:4</option> sulje ikkuna automaattisesti, jos komento "
+#~ "päättyy ilman virheitä, ristiriitoja ja yhdistämisiä paikallisille "
+#~ "operaatioille"
 #~ msgid ""
 #~ "The path to the file external must be in a working copy that is already "
 #~ "checked out. While directory externals can place the external directory "
