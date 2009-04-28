@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -45,15 +45,21 @@ bool BlameCommand::Execute()
 	}
 	if ((!bShowDialog)||(dlg.DoModal() == IDOK))
 	{
-		CBlame blame;
 		CString tempfile;
 		CString logfile;
-		if (bShowDialog)
-			options = SVN::GetOptionsString(dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces);
-		
-		tempfile = blame.BlameToTempFile(cmdLinePath, dlg.StartRev, dlg.EndRev, 
-			cmdLinePath.IsUrl() ? SVNRev() : SVNRev::REV_WC, logfile, 
-			options, dlg.m_bIncludeMerge, TRUE, TRUE);
+		{
+			CBlame blame;
+			if (bShowDialog)
+				options = SVN::GetOptionsString(dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces);
+
+			tempfile = blame.BlameToTempFile(cmdLinePath, dlg.StartRev, dlg.EndRev, 
+				cmdLinePath.IsUrl() ? SVNRev() : SVNRev::REV_WC, logfile, 
+				options, dlg.m_bIncludeMerge, TRUE, TRUE);
+			if (tempfile.IsEmpty())
+			{
+				CMessageBox::Show(hwndExplorer, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			}
+		}
 		if (!tempfile.IsEmpty())
 		{
 			if (dlg.m_bTextView)
@@ -96,10 +102,6 @@ bool BlameCommand::Execute()
 
 				bRet = CAppUtils::LaunchTortoiseBlame(tempfile, logfile, cmdLinePath.GetFileOrDirectoryName(), sVal, dlg.StartRev, dlg.EndRev);
 			}
-		}
-		else
-		{
-			CMessageBox::Show(hwndExplorer, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		}
 	}
 	return bRet;
