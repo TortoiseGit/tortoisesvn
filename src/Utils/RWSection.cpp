@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -61,7 +61,7 @@ bool CRWSection::WaitToRead(DWORD waitTime)
 	if (fResourceWritePending)
 	{
 		// wait until writer is finished
-		if (WaitForSingleObject(m_hReaders, waitTime) != WAIT_OBJECT_0)
+		if (WaitForSingleObject(m_hReaders, waitTime) == WAIT_TIMEOUT)
 		{
 			EnterCriticalSection(&m_cs);
 			m_nWaitingReaders--;
@@ -91,7 +91,7 @@ bool CRWSection::WaitToWrite(DWORD waitTime)
 
 	if (fResourceOwned)
 	{
-		if (WaitForSingleObject(m_hWriters, waitTime) != WAIT_OBJECT_0)
+		if (WaitForSingleObject(m_hWriters, waitTime) == WAIT_TIMEOUT)
 		{
 			EnterCriticalSection(&m_cs);
 			m_nWaitingWriters--;
