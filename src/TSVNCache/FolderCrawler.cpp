@@ -413,6 +413,7 @@ void CFolderCrawler::WorkerThread()
 				}
 				if (cachedDir)
 					cachedDir->RefreshStatus(bRecursive);
+				CSVNStatusCache::Instance().Done();
 
 				// While refreshing the status, we could get another crawl request for the same folder.
 				// This can happen if the crawled folder has a lower status than one of the child folders
@@ -426,7 +427,6 @@ void CFolderCrawler::WorkerThread()
 						m_bItemsAddedSinceLastCrawl = false;
 					}
 				}
-				CSVNStatusCache::Instance().Done();
 			}
 		}
 	}
