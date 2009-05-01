@@ -35,8 +35,9 @@ CChangedDlg::CChangedDlg(CWnd* pParent /*=NULL*/)
 	, m_bShowExternals(TRUE)
     , m_bShowUserProps(FALSE)
 	, m_bDepthInfinity(false)
+	, m_bRemote(false)
+	, m_bContactRepository(false)
 {
-	m_bRemote = FALSE;
 }
 
 CChangedDlg::~CChangedDlg()
@@ -113,7 +114,7 @@ BOOL CChangedDlg::OnInitDialog()
 	EnableSaveRestore(_T("ChangedDlg"));
 
 	m_bRemote = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\CheckRepo"), FALSE);
-	
+	m_bRemote = m_bContactRepository ? true : m_bRemote;
 	// first start a thread to obtain the status without
 	// blocking the dialog
 	if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)

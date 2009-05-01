@@ -396,7 +396,9 @@ Don't touch these lines:
 							<entry condition="pot">:repostatus</entry>
 							<entry>
 								Opens the check-for-modifications dialog. The <option>/path</option>
-								specifies the working copy directory.
+								specifies the working copy directory. If <option>/remote</option> is
+								specified, the dialog contacts the repository immediately on startup,
+								as if the user clicked on the "Check repository" button.
 							</entry>
 						</row>
 						<row>
