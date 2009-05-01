@@ -38,6 +38,8 @@ Version 1.6.2
        work on Vista. (Stefan)
 - BUG: Failed externals weren't treated as errors in the autoclose
        setting for the progress dialog. (Stefan)
+- BUG: Setting the external diff by mime-type didn't work for longer
+       mime-types. (Stefan)
 
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)
