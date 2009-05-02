@@ -655,6 +655,10 @@ UINT CCommitDlg::StatusThread()
 		}
 		SetDlgItemText(IDC_COMMIT_TO, m_ListCtrl.m_sURL);
 		m_tooltips.AddTool(GetDlgItem(IDC_STATISTICS), m_ListCtrl.GetStatisticsString());
+		if (m_ListCtrl.m_sURL.Find(_T("/branches/"))>=0)
+		{
+			m_ListCtrl.SetBackgroundImage(IDI_COMMITBRANCHES_BKG);
+		}
 	}
 	CString logmsg;
 	GetDlgItemText(IDC_LOGMESSAGE, logmsg);
