@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-21 22:26-0300\n"
+"PO-Revision-Date: 2009-05-01 21:57-0300\n"
 "Last-Translator: Humberto Osório <humberto@virtual.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2477,7 +2477,7 @@ msgstr "Configurar Scripts de Gancho"
 
 #. Resource IDs: (284)
 msgid "Configure Issue Tracker Integration"
-msgstr ""
+msgstr "Configure a Integração com o Sistema de Rastreamento de Ocorrências"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
@@ -2530,7 +2530,7 @@ msgstr "Continuar"
 
 #. Resource IDs: (1001)
 msgid "Contract docked window"
-msgstr ""
+msgstr "Contrair janela ancorada"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -3071,6 +3071,8 @@ msgid ""
 "Device Independent Bitmap\n"
 "a device independent bitmap"
 msgstr ""
+"Bitmap Independente do Dispositivo\n"
+"um bitmap independente do dispositivo"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -3094,7 +3096,7 @@ msgstr "Diferença entre"
 
 #. Resource IDs: (32817)
 msgid "Differential path &names"
-msgstr ""
+msgstr "&Nomes de caminhos diferenciais"
 
 #. Resource IDs: (1022)
 msgid "Diffing"
@@ -3264,7 +3266,7 @@ msgstr "Drives A: e B:"
 #. Resource IDs: (613)
 #, c-format
 msgid "Drop not possible on %1"
-msgstr ""
+msgstr "Queda do %1 impossível"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -3726,6 +3728,8 @@ msgid ""
 "Failed to start the issue tracker COM provider '%s'.\n"
 "%s"
 msgstr ""
+"Falha ao iniciar o fornecedor COM do sistema de rastreamento de ocorrências '%s'.\n"
+"%s"
 
 #. Resource IDs: (220)
 msgid "Failed!"
@@ -4163,7 +4167,7 @@ msgstr "Ocultar caminhos excluí&dos"
 
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
-msgstr ""
+msgstr "Ocultar todos os ramos que não modificaram o item"
 
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
@@ -4211,7 +4215,7 @@ msgstr "Scripts de"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
-msgstr ""
+msgstr "Scripts de Gancho::Integração com o Sistema de Rastreamento de Ocorrências"
 
 #. Resource IDs: (198)
 msgid "Hook Type"
@@ -7364,12 +7368,13 @@ msgid "Show Quick Access Toolbar Above the Ribbon"
 msgstr ""
 
 #. Resource IDs: (1068)
+#, fuzzy
 msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr ""
+msgstr "Mostrar Barra de Ferramentas de Acesso Rápido abaixo da Friso "
 
 #. Resource IDs: (16651)
 msgid "Show Screen&Tips on toolbars"
-msgstr ""
+msgstr "Mostrar D&icas nas barras de ferramentas"
 
 #. Resource IDs: (32831)
 msgid "Show WC &modifications"
@@ -7397,7 +7402,7 @@ msgstr "Mostrar externos de repositórios diferentes"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
-msgstr ""
+msgstr "Mostrar menus &completos com um pequeno atraso"
 
 #. Resource IDs: (1264)
 msgid "Show i&gnored files"
@@ -7421,7 +7426,7 @@ msgstr "Apresenta o nó mais velho no topo"
 
 #. Resource IDs: (2052)
 msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
-msgstr ""
+msgstr "Mostrar apenas a parte modificada do caminho. Substituir os elementos não modificados por pontos."
 
 #. Resource IDs: (2054)
 msgid ""
@@ -7469,7 +7474,7 @@ msgstr "Exibir propriedades da revisão"
 
 #. Resource IDs: (16652)
 msgid "Show shortcut &keys in ScreenTips"
-msgstr ""
+msgstr "Mostrar &teclas de atalho nas Dicas"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -7584,11 +7589,11 @@ msgstr "Ordenar pela contagem de submissões"
 
 #. Resource IDs: (1501)
 msgid "Source Left:"
-msgstr ""
+msgstr "Fonte à Esquerda:"
 
 #. Resource IDs: (1502)
 msgid "Source Right:"
-msgstr ""
+msgstr "Fonte à Direita:"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -7606,7 +7611,7 @@ msgstr ""
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
 msgid "Spin1"
-msgstr ""
+msgstr "Girar1"
 
 # The is no 's' in the translation to support the same Alt shortcut
 #. Resource IDs: (275)
@@ -7707,7 +7712,7 @@ msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
 msgid "Stripes"
-msgstr ""
+msgstr "Tiras"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
