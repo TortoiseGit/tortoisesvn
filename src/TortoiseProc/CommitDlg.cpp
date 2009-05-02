@@ -25,6 +25,7 @@
 #include "MessageBox.h"
 #include "AppUtils.h"
 #include "PathUtils.h"
+#include "StringUtils.h"
 #include "SVN.h"
 #include "Registry.h"
 #include "SVNStatus.h"
@@ -655,9 +656,38 @@ UINT CCommitDlg::StatusThread()
 		}
 		SetDlgItemText(IDC_COMMIT_TO, m_ListCtrl.m_sURL);
 		m_tooltips.AddTool(GetDlgItem(IDC_STATISTICS), m_ListCtrl.GetStatisticsString());
-		if (m_ListCtrl.m_sURL.Find(_T("/branches/"))>=0)
+
 		{
-			m_ListCtrl.SetBackgroundImage(IDI_COMMITBRANCHES_BKG);
+			// compare all url parts against the branches pattern and if it matches,
+			// change the background image of the list control to indicate 
+			// a commit to a branch
+			CRegString branchesPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\BranchPattern"), _T("branches"));
+			CString sBranches = branchesPattern;
+			int pos = 0;
+			CString temp;
+			bool bFound = false;
+			while (!bFound)
+			{
+				temp = sBranches.Tokenize(_T(";"), pos);
+				if (temp.IsEmpty())
+					break;
+
+				int urlpos = 0;
+				CString temp2;
+				for(;;)
+				{
+					temp2 = m_ListCtrl.m_sURL.Tokenize(_T("/"), urlpos);
+					if (temp2.IsEmpty())
+						break;
+
+					if (CStringUtils::WildCardMatch(temp, temp2))
+					{
+						m_ListCtrl.SetBackgroundImage(IDI_COMMITBRANCHES_BKG);
+						bFound = true;
+						break;
+					}
+				}
+			} 
 		}
 	}
 	CString logmsg;
