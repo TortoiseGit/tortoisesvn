@@ -1919,8 +1919,31 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 			// only a warning is shown. This won't work if the tags
 			// are stored in a non-recommended place, but the check
 			// still helps those who do.
-			if (urllower.Find(_T("/tags/"))>=0)
-				isTag = TRUE;
+			CRegString regTagsPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\TagsPattern"), _T("tags"));
+			CString sTags = regTagsPattern;
+			int pos = 0;
+			CString temp;
+			while (!isTag)
+			{
+				temp = sTags.Tokenize(_T(";"), pos);
+				if (temp.IsEmpty())
+					break;
+
+				int urlpos = 0;
+				CString temp2;
+				for(;;)
+				{
+					temp2 = urllower.Tokenize(_T("/"), urlpos);
+					if (temp2.IsEmpty())
+						break;
+
+					if (CStringUtils::WildCardMatch(temp, temp2))
+					{
+						isTag = TRUE;
+						break;
+					}
+				}
+			} 
 			break;
 		}
 	}
