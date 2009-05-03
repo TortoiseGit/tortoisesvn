@@ -410,6 +410,10 @@ void CCommitDlg::OnOK()
 		{
 			if (changedList[i].IsAdminDir())
 			{
+				// TODO: refactor this into an SVN class since 'entries' and
+				// 'tmp' are referring to internal files/folders of the .svn dir
+				// and will have to change for the SQLite-based wc format
+
 				// something inside an admin dir was changed.
 				// if it's the entries file, then we have to fully refresh because
 				// files may have been added/removed from version control
