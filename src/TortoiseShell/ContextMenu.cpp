@@ -538,6 +538,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		}
 		else
 		{
+			folder_.clear();
 			status = fetchedstatus;
 		}
 		if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
