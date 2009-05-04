@@ -31,10 +31,12 @@ bool CleanupCommand::Execute()
 {
 	bool bRet = false;
 	CProgressDlg progress;
+	CString tmp;
 	progress.SetTitle(IDS_PROC_CLEANUP);
 	progress.SetAnimation(IDR_CLEANUPANI);
 	progress.SetShowProgressBar(false);
-	progress.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO1)));
+	tmp.Format(IDS_PROC_CLEANUP_INFO1, _T(""));
+	progress.SetLine(1, tmp);
 	progress.SetLine(2, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
 	progress.ShowModeless(hwndExplorer);
 	
@@ -42,6 +44,8 @@ bool CleanupCommand::Execute()
 	for (int i=0; i<pathList.GetCount(); ++i)
 	{
 		SVN svn;
+		tmp.Format(IDS_PROC_CLEANUP_INFO1, (LPCTSTR)pathList[i].GetFileOrDirectoryName(), true);
+		progress.SetLine(1, tmp);
 		if (!svn.CleanUp(pathList[i]))
 		{
 			strFailedPaths += _T("- ") + pathList[i].GetWinPathString() + _T("\n");
@@ -81,7 +85,6 @@ bool CleanupCommand::Execute()
 	CString strMessage;
 	if ( !strSuccessfullPaths.IsEmpty() )
 	{
-		CString tmp;
 		tmp.Format(IDS_PROC_CLEANUPFINISHED, (LPCTSTR)strSuccessfullPaths);
 		strMessage += tmp;
 		bRet = true;
@@ -90,7 +93,6 @@ bool CleanupCommand::Execute()
 	{
 		if (!strMessage.IsEmpty())
 			strMessage += _T("\n");
-		CString tmp;
 		tmp.Format(IDS_PROC_CLEANUPFINISHED_FAILED, (LPCTSTR)strFailedPaths);
 		strMessage += tmp;
 		bRet = false;
