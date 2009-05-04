@@ -42,6 +42,8 @@ Version 1.6.2
        mime-types. (Stefan)
 - BUG: Excluding the context menu from showing for certain paths didn't
        work for the explorer tree view, only the list view. (Stefan)
+- BUG: Warnings were shown repeatedly when updating multiple folders
+       at once and a conflict in one update happened. (Stefan)
 
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)

@@ -73,6 +73,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	, m_bCancelled(FALSE)
 	, m_bThreadRunning(FALSE)
 	, m_nConflicts(0)
+	, m_bConflictWarningShown(false)
 	, m_bErrorsOccurred(FALSE)
 	, m_bMergesAddsDeletesOccurred(FALSE)
 	, m_pThread(NULL)
@@ -250,6 +251,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
 			data->bConflictedActionItem = true;
 			data->sActionColumnText.LoadString(IDS_SVNACTION_CONFLICTED);
 			m_nConflicts++;
+			m_bConflictWarningShown = false;
 		}
 		else
 		{
@@ -302,6 +304,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
 			data->color = m_Colors.GetColor(CColors::Conflict);
 			data->bConflictedActionItem = true;
 			m_nConflicts++;
+			m_bConflictWarningShown = false;
 			data->sActionColumnText.LoadString(IDS_SVNACTION_CONFLICTED);
 		}
 		else if ((data->content_state == svn_wc_notify_state_merged) || (data->prop_state == svn_wc_notify_state_merged))
@@ -330,6 +333,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
 			data->color = m_Colors.GetColor(CColors::Conflict);
 			data->bConflictedActionItem = true;
 			m_nConflicts++;
+			m_bConflictWarningShown = false;
 			data->sActionColumnText.LoadString(IDS_SVNACTION_CONFLICTED);
 		}
 		else if ((data->content_state == svn_wc_notify_state_merged) || (data->prop_state == svn_wc_notify_state_merged))
@@ -372,7 +376,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
 			else
 				data->sPathColumnText.Format(IDS_PROGRS_ATREV, rev);
 
-			if ((m_nConflicts>0)&&(bEmpty))
+			if ((m_nConflicts>0)&&(bEmpty)&&(!m_bConflictWarningShown))
 			{
 				// We're going to add another aux item - let's shove this current onto the list first
 				// I don't really like this, but it will do for the moment.
@@ -385,6 +389,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
 				data->sPathColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED);
 				data->color = m_Colors.GetColor(CColors::Conflict);
 				CSoundUtils::PlayTSVNWarning();
+				m_bConflictWarningShown = true;
 				// This item will now be added after the switch statement
 			}
 			if (!m_basePath.IsEmpty())
@@ -487,6 +492,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
 		data->color = m_Colors.GetColor(CColors::Conflict);
 		data->bConflictedActionItem = true;
 		m_nConflicts++;
+		m_bConflictWarningShown = false;
 		break;
 	case svn_wc_notify_failed_external:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDEXTERNAL);
