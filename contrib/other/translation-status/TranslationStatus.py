@@ -273,7 +273,7 @@ class transReport:
         self.printStatLine('', 'Developer Version', 'Current Release')
         self.printStatLine('Location', urlTrunk, urlBranch)
         self.printStatLine('Total strings', totTrunk,totBranch)
-        self.printStatLine('Language', 'Status (fu/un/ma)', 'Status (fu/un/ma)')
+        self.printStatLine('Language', 'Status (un/fu/ma)', 'Status (un/fu/ma)')
         print Sep75
 
         csvReader = csv.DictReader(open(langList), langFields, delimiter=';', quotechar='"')
