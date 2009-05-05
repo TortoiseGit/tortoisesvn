@@ -130,13 +130,13 @@ exit:
 	if (pFile)
 		fclose(pFile);
 	DeleteFile(path2);
-	m_pInstance->watcher.CloseInfoMap();
+	m_pInstance->watcher.ClearInfoMap();
 	ATLTRACE("cache loaded from disk successfully!\n");
 	return;
 error:
 	fclose(pFile);
 	DeleteFile(path2);
-	m_pInstance->watcher.CloseInfoMap();
+	m_pInstance->watcher.ClearInfoMap();
 	if (m_pInstance)
 	{
 		m_pInstance->Stop();

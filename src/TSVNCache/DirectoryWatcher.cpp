@@ -218,14 +218,14 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path, bool bCloseInfoMap)
 		watchedPaths.AddPath(newroot);
 		watchedPaths.RemoveChildren();
 		if (bCloseInfoMap)
-			CloseInfoMap();
+			ClearInfoMap();
 
 		return true;
 	}
 	ATLTRACE(_T("add path to watch %s\n"), path.GetWinPath());
 	watchedPaths.AddPath(path);
 	if (bCloseInfoMap)
-		CloseInfoMap();
+		ClearInfoMap();
 
 	return true;
 }

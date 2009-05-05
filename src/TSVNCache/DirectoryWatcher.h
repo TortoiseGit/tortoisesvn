@@ -76,7 +76,8 @@ public:
 	 */
 	void Stop();
 
-	CTSVNPath CloseInfoMap(HDEVNOTIFY hdev = INVALID_HANDLE_VALUE);
+	CTSVNPath CloseInfoMap(HDEVNOTIFY hdev);
+	void ClearInfoMap();
 	bool CloseHandlesForPath(const CTSVNPath& path);
 
 private:
@@ -84,7 +85,6 @@ private:
 	void WorkerThread();
 
     void CloseWatchHandles();
-	void ClearInfoMap();
 
 	void BlockPath(const CTSVNPath& path);
 
