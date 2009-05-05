@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-12 13:59+0100\n"
-"Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
+"PO-Revision-Date: 2009-05-05 01:08-0300\n"
+"Last-Translator: Humberto Osório <humberto@virtual.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2209,8 +2209,9 @@ msgid "Cleaning up"
 msgstr "Limpando"
 
 #. Resource IDs: (146)
-msgid "Cleaning up."
-msgstr "Limpando."
+#, c-format
+msgid "Cleaning up directory \"%s\""
+msgstr "Limpando diretório \"%s\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -10283,6 +10284,14 @@ msgstr ""
 "tsvn:logminsize\r\n"
 "Tamanho mínimo, em caracteres, que uma mensagem de registo deve ter para que a submissão seja autorizada."
 
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logrevregex\r\n"
+"A regular expression matching revision numbers in a log message"
+msgstr ""
+"tsvn:logrevregex\r\n"
+"Uma expressão regular correspondente a números de revisão em uma mensagem de log"
+
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logsummary\r\n"
@@ -10405,6 +10414,8 @@ msgstr "sim"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Cleaning up."
+#~ msgstr "Limpando."
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Disquetes (A: B:)"
 #~ msgid ""
