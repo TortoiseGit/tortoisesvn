@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-04-04 14:46 +0000\n"
-"PO-Revision-Date: 2009-04-12 14:33+0100\n"
+"PO-Revision-Date: 2009-05-05 10:51+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -102,7 +102,7 @@ msgstr "Audiência"
 
 #. (para)
 msgid "This book is written for computer literate folk who want to use Subversion to manage their data, but are uncomfortable using the command line client to do so. Since TortoiseSVN is a windows shell extension it's assumed that the user is familiar with the windows explorer and knows how to use it."
-msgstr ""
+msgstr "Este livro foi escrito para pessoas com conhecimentos informáticos que querem utilizar Subversion para gerir dados, mas que não se sentem comfortáveis em utilizar a linha de comando. Dado que o TortoiseSVN é uma extensão de \"shell\" presume-se que o utilizador tem experiência em utilizar o explorador de windows."
 
 #. (title)
 msgid "Reading Guide"
@@ -182,7 +182,7 @@ msgstr "Stefan Küng"
 
 #. (para)
 msgid "for the hard work to get TortoiseSVN to what it is now"
-msgstr ""
+msgstr "pelo trabalho realizado em fazer do Tortoise no que é hoje"
 
 #. (term)
 msgid "Lübbe Onken"
@@ -214,7 +214,7 @@ msgstr "O projecto de Estilo da Tigris"
 
 #. (para)
 msgid "for some of the styles which are reused in this documentation"
-msgstr ""
+msgstr "por algums dos estilos reutilizados nesta documentação"
 
 #. (term)
 msgid "Our Contributors"
@@ -230,7 +230,7 @@ msgstr "Os nossos doadores"
 
 #. (para)
 msgid "for many hours of joy with the music they sent us"
-msgstr ""
+msgstr "por muitas horas de prazer com a musica que nos enviaram"
 
 #. (title)
 msgid "Terminology used in this document"
@@ -262,11 +262,11 @@ msgstr ""
 
 #. (para)
 msgid "Important notes are marked with an icon."
-msgstr ""
+msgstr "As notas importantes estão marcadas com um ícone."
 
 #. (para)
 msgid "Tips that make your life easier."
-msgstr ""
+msgstr "Dicas que te facilitam a vida."
 
 #. (para)
 msgid "Places where you have to be careful what you are doing."
@@ -280,11 +280,11 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Introduction"
-msgstr ""
+msgstr "Introdução"
 
 #. (primary)
 msgid "version control"
-msgstr ""
+msgstr "Controle de versões"
 
 #. (para)
 msgid "Version control is the art of managing changes to information. It has long been a critical tool for programmers, who typically spend their time making small changes to software and then undoing or checking some of those changes the next day. Imagine a team of such developers working concurrently - and perhaps even simultaneously on the very same files! - and you can see why a good system is needed to <emphasis>manage the potential chaos</emphasis>."
@@ -292,7 +292,7 @@ msgstr ""
 
 #. (title)
 msgid "What is TortoiseSVN?"
-msgstr ""
+msgstr "O que é o TortoiseSVN?"
 
 #. (para)
 msgid "TortoiseSVN is a free open-source client for the <firstterm>Subversion</firstterm> version control system. That is, TortoiseSVN manages files and directories over time. Files are stored in a central <firstterm>repository</firstterm>. The repository is much like an ordinary file server, except that it remembers every change ever made to your files and directories. This allows you to recover older versions of your files and examine the history of how and when your data changed, and who changed it. This is why many people think of Subversion and version control systems in general as a sort of <quote>time machine</quote>."
@@ -304,7 +304,7 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseSVN's History"
-msgstr ""
+msgstr "A história do TortoiseSVN"
 
 #. (para)
 msgid "In 2002, Tim Kemp found that Subversion was a very good version control system, but it lacked a good GUI client. The idea for a Subversion client as a Windows shell integration was inspired by the similar client for CVS named TortoiseCVS."
@@ -328,15 +328,15 @@ msgstr ""
 
 #. (term)
 msgid "Shell integration"
-msgstr ""
+msgstr "Integração na \"shell\""
 
 #. (primary)
 msgid "Windows shell"
-msgstr ""
+msgstr "\"Shell\" de Wiindows"
 
 #. (primary)
 msgid "explorer"
-msgstr ""
+msgstr "explorador"
 
 #. (para)
 msgid "TortoiseSVN integrates seamlessly into the Windows shell (i.e. the explorer). This means you can keep working with the tools you're already familiar with. And you do not have to change into a different application each time you need functions of the version control!"
@@ -348,7 +348,7 @@ msgstr ""
 
 #. (term)
 msgid "Icon overlays"
-msgstr ""
+msgstr "Superposição de ícones"
 
 #. (para)
 msgid "The status of every versioned file and folder is indicated by small overlay icons. That way you can see right away what the status of your working copy is."
@@ -384,7 +384,7 @@ msgstr ""
 
 #. (term)
 msgid "Versioned metadata"
-msgstr ""
+msgstr "Metadata sob controle de versão"
 
 #. (para)
 msgid "Each file and directory has an invisible set of <quote>properties</quote> attached. You can invent and store any arbitrary key/value pairs you wish. Properties are versioned over time, just like file contents."
@@ -392,7 +392,7 @@ msgstr ""
 
 #. (term)
 msgid "Choice of network layers"
-msgstr ""
+msgstr "Escolha de camadas de rede"
 
 #. (para)
 msgid "Subversion has an abstracted notion of repository access, making it easy for people to implement new network mechanisms. Subversion's <quote>advanced</quote> network server is a module for the Apache web server, which speaks a variant of HTTP called WebDAV/DeltaV. This gives Subversion a big advantage in stability and interoperability, and provides various key features for free: authentication, authorization, wire compression, and repository browsing, for example. A smaller, standalone Subversion server process is also available. This server speaks a custom protocol which can be easily tunneled over ssh."
@@ -400,7 +400,7 @@ msgstr ""
 
 #. (term)
 msgid "Consistent data handling"
-msgstr ""
+msgstr "Processamento de dados consistente"
 
 #. (para)
 msgid "Subversion expresses file differences using a binary differencing algorithm, which works identically on both text (human-readable) and binary (human-unreadable) files. Both types of files are stored equally compressed in the repository, and differences are transmitted in both directions across the network."
@@ -424,11 +424,11 @@ msgstr ""
 
 #. (title)
 msgid "Installing TortoiseSVN"
-msgstr ""
+msgstr "Instalar TortoiseSVN"
 
 #. (title)
 msgid "System requirements"
-msgstr ""
+msgstr "Requesitos de sistema"
 
 #. (para)
 msgid "TortoiseSVN runs on Windows 2000 SP2, Windows XP or higher. Windows 98, Windows ME and Windows NT4 are no longer supported since TortoiseSVN 1.2.0, but you can still download the older versions if you really need them."
@@ -440,11 +440,11 @@ msgstr ""
 
 #. (title)
 msgid "Installation"
-msgstr ""
+msgstr "Instalação"
 
 #. (primary)
 msgid "install"
-msgstr ""
+msgstr "instalar"
 
 #. (para)
 msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest."
@@ -456,15 +456,15 @@ msgstr ""
 
 #. (title)
 msgid "Language Packs"
-msgstr ""
+msgstr "Pacotes de Linguas"
 
 #. (primary)
 msgid "language packs"
-msgstr ""
+msgstr "pacotes de linguas"
 
 #. (primary)
 msgid "translations"
-msgstr ""
+msgstr "traduções"
 
 #. (para)
 msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
@@ -476,15 +476,15 @@ msgstr ""
 
 #. (title)
 msgid "Spellchecker"
-msgstr ""
+msgstr "Corretor Ortográfico"
 
 #. (primary)
 msgid "spellchecker"
-msgstr ""
+msgstr "corretor ortográfico"
 
 #. (primary)
 msgid "dictionary"
-msgstr ""
+msgstr "dicionário"
 
 #. (para)
 msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
@@ -500,11 +500,11 @@ msgstr ""
 
 #. (filename)
 msgid "en_US.aff"
-msgstr ""
+msgstr "en_US.aff"
 
 #. (filename)
 msgid "en_US.dic"
-msgstr ""
+msgstr "en_US.dic"
 
 #. (para)
 msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
@@ -532,11 +532,11 @@ msgstr ""
 
 #. (title)
 msgid "Basic Version-Control Concepts"
-msgstr ""
+msgstr "Conceitos Básicos de Controle de Versões"
 
 #. (primary)
 msgid "Subversion book"
-msgstr ""
+msgstr "Livro sobre Subversion"
 
 #. (para)
 msgid "This chapter is a slightly modified version of the same chapter in the Subversion book. An online version of the Subversion book is available here: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
@@ -554,12 +554,12 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "The Repository"
-msgstr ""
+msgstr "O Repositório"
 
 #. (primary)
 #. (primary)
 msgid "repository"
-msgstr ""
+msgstr "repositório"
 
 #. (para)
 msgid "Subversion is a centralized system for sharing information. At its core is a <firstterm>repository</firstterm>, which is a central store of data. The repository stores information in the form of a <firstterm>filesystem tree</firstterm> - a typical hierarchy of files and directories. Any number of <firstterm>clients</firstterm> connect to the repository, and then read or write to these files. By writing data, a client makes the information available to others; by reading data, the client receives information from others."
@@ -567,7 +567,7 @@ msgstr ""
 
 #. (title)
 msgid "A Typical Client/Server System"
-msgstr ""
+msgstr "Um sistema típico Cliente/Servidor"
 
 #. (para)
 msgid "So why is this interesting? So far, this sounds like the definition of a typical file server. And indeed, the repository <emphasis>is</emphasis> a kind of file server, but it's not your usual breed. What makes the Subversion repository special is that <emphasis>it remembers every change</emphasis> ever written to it: every change to every file, and even changes to the directory tree itself, such as the addition, deletion, and rearrangement of files and directories."
@@ -579,7 +579,7 @@ msgstr ""
 
 #. (title)
 msgid "Versioning Models"
-msgstr ""
+msgstr "Modelos de Controle de Versões"
 
 #. (para)
 msgid "All version control systems have to solve the same fundamental problem: how will the system allow users to share information, but prevent them from accidentally stepping on each other's feet? It's all too easy for users to accidentally overwrite each other's changes in the repository."
@@ -587,7 +587,7 @@ msgstr ""
 
 #. (title)
 msgid "The Problem of File-Sharing"
-msgstr ""
+msgstr "O Probelma de Partilha de Ficheiros"
 
 #. (para)
 msgid "Consider this scenario: suppose we have two co-workers, Harry and Sally. They each decide to edit the same repository file at the same time. If Harry saves his changes to the repository first, then it's possible that (a few moments later) Sally could accidentally overwrite them with her own new version of the file. While Harry's version of the file won't be lost forever (because the system remembers every change), any changes Harry made <emphasis>won't</emphasis> be present in Sally's newer version of the file, because she never saw Harry's changes to begin with. Harry's work is still effectively lost - or at least missing from the latest version of the file - and probably by accident. This is definitely a situation we want to avoid!"
@@ -595,7 +595,7 @@ msgstr ""
 
 #. (title)
 msgid "The Problem to Avoid"
-msgstr ""
+msgstr "O Problema a Evitar"
 
 #. (title)
 #. (title)
@@ -11044,10 +11044,12 @@ msgid ""
 "\n"
 "svn cleanup PATH\n"
 msgstr ""
+"\n"
+"svn limpar PATH\n"
 
 #. (title)
 msgid "Get Lock"
-msgstr ""
+msgstr "Obter \"Lock\""
 
 #. (para)
 msgid "The first stage is a status check which determines the files in your working copy which can potentially be locked. You can select the items you want to be locked."
@@ -11070,7 +11072,7 @@ msgstr ""
 
 #. (title)
 msgid "Release Lock"
-msgstr ""
+msgstr "Libertar \"Lock\""
 
 #. (screen)
 #, no-wrap
@@ -11160,7 +11162,7 @@ msgstr ""
 
 #. (title)
 msgid "Create Repository Here"
-msgstr ""
+msgstr "Criar Repositório Aqui"
 
 #. (screen)
 #, no-wrap
@@ -11194,7 +11196,7 @@ msgstr ""
 
 #. (title)
 msgid "Add to Ignore List"
-msgstr ""
+msgstr "Addicionar á list de ítems a ignorar"
 
 #. (screen)
 #, no-wrap
@@ -11226,7 +11228,7 @@ msgstr ""
 
 #. (title)
 msgid "Implementation Details"
-msgstr ""
+msgstr "Pormenores de Implemtação"
 
 #. (para)
 msgid "This appendix contains a more detailed discussion of the implementation of some of TortoiseSVN's features."
@@ -11234,7 +11236,7 @@ msgstr ""
 
 #. (primary)
 msgid "overlay priority"
-msgstr ""
+msgstr "prioridade de sobreposição"
 
 #. (para)
 msgid "Every file and folder has a Subversion status value as reported by the Subversion library. In the command line client, these are represented by single letter codes, but in TortoiseSVN they are shown graphically using the icon overlays. Because the number of overlays is very limited, each overlay may represent one of several status values."
@@ -11314,7 +11316,7 @@ msgstr ""
 
 #. (title)
 msgid "Securing Svnserve using SSH"
-msgstr ""
+msgstr "Protecção de Svnserve com SSH"
 
 #. (para)
 msgid "This section provides a step-by-step guide to setting up Subversion and TortoiseSVN to use the <literal>svn+ssh</literal> protocol. If you already use authenticated SSH connections to login to your server, then you are already there and you can find more detail in the Subversion book. If you are not using SSH but would like to do so to protect your Subversion installation, this guide gives a simple method which does not involve creating a separate SSH user account on the server for every subversion user."
@@ -11334,7 +11336,7 @@ msgstr ""
 
 #. (title)
 msgid "Setting Up a Linux Server"
-msgstr ""
+msgstr "Instalação de um servidor Linux"
 
 #. (para)
 msgid ""
@@ -11363,7 +11365,7 @@ msgstr ""
 
 #. (title)
 msgid "Setting Up a Windows Server"
-msgstr ""
+msgstr "Instalação de um servidor Windows"
 
 #. (para)
 msgid "Install Cygwin SSH daemon as described here: <ulink url=\"http://pigtail.net/LRP/printsrv/cygwin-sshd.html\"><citetitle>http://pigtail.net/LRP/printsrv/cygwin-sshd.html</citetitle></ulink>"
@@ -11382,7 +11384,7 @@ msgstr ""
 
 #. (title)
 msgid "SSH Client Tools for use with TortoiseSVN"
-msgstr ""
+msgstr "Utilitários de client SSH para utilizaçäo com TortoiseSVN"
 
 #. (para)
 msgid "Grab the tools we need for using SSH on the windows client from this site: <ulink url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>http://www.chiark.greenend.org.uk/~sgtatham/putty/</citetitle></ulink> Just go to the download section and get <filename>Putty</filename>, <filename>Plink</filename>, <filename>Pageant</filename> and <filename>Puttygen</filename>."
@@ -11390,7 +11392,7 @@ msgstr ""
 
 #. (title)
 msgid "Creating OpenSSH Certificates"
-msgstr ""
+msgstr "Criação de certificados OpenSSH"
 
 #. (para)
 msgid "The next step is to create a key pair for authentication. There are two possible ways to create keys. The first is to create the keys with PuTTYgen on the client, upload the public key to your server and use the private key with PuTTY. The other is to create the key pair with the OpenSSH tool ssh-keygen, download the private key to your client and convert the private key to a PuTTY-style private key."
@@ -11398,7 +11400,7 @@ msgstr ""
 
 #. (title)
 msgid "Create Keys using ssh-keygen"
-msgstr ""
+msgstr "Criar chaves com ssh-keygen"
 
 #. (para)
 msgid ""
@@ -11422,7 +11424,7 @@ msgstr ""
 
 #. (title)
 msgid "Create Keys using PuTTYgen"
-msgstr ""
+msgstr "Criar chaves com PuTTYgen"
 
 #. (para)
 msgid ""
@@ -11433,7 +11435,7 @@ msgstr ""
 
 #. (title)
 msgid "Test using PuTTY"
-msgstr ""
+msgstr "Testar com PuTTY"
 
 #. (para)
 msgid "To test the connection we will use PuTTY. Start the program and on the <guilabel>Session</guilabel> tab set the hostname to the name or IP address of your server, the protocol to SSH and save the session as <literal>SvnConnection</literal> or whatever name you prefer. On the <guilabel>SSH</guilabel> tab set the preferred SSH protocol version to 2 and from <guilabel>Auth</guilabel> set the full path to the <literal>.PPK</literal> private key file you converted earlier. Go back to the <guilabel>Sessions</guilabel> tab and hit the <guilabel>Save</guilabel> button. You will now see <literal>SvnConnection</literal> in the list of saved sessions."
@@ -11455,7 +11457,7 @@ msgstr ""
 
 #. (title)
 msgid "Testing SSH with TortoiseSVN"
-msgstr ""
+msgstr "Testar SSH com TortoiseSVN"
 
 #. (para)
 msgid "So far we have only tested that you can login using SSH. Now we need to make sure that the SSH connection can actually run svnserve. On the server modify <filename>/home/svnuser/.ssh/authorized_keys</filename> as follows to allow many subversion authors to use the same system account, <literal>svnuser</literal>. Note that every subversion author uses the same login but a different authentication key, thus you have to add one line for every author."
@@ -11503,7 +11505,7 @@ msgstr ""
 
 #. (title)
 msgid "SSH Configuration Variants"
-msgstr ""
+msgstr "Variantes de Configuração de SSH"
 
 #. (para)
 msgid ""
@@ -11542,15 +11544,15 @@ msgstr ""
 
 #. (title)
 msgid "IBugtraqProvider interface"
-msgstr ""
+msgstr "Interface do IBugtraqProvider2"
 
 #. (primary)
 msgid "plugin"
-msgstr ""
+msgstr "\"plugin\""
 
 #. (primary)
 msgid "IBugtraqProvider"
-msgstr ""
+msgstr "IBugtraqProvider"
 
 #. (para)
 msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
@@ -11562,7 +11564,7 @@ msgstr ""
 
 #. (title)
 msgid "The IBugtraqProvider interface"
-msgstr ""
+msgstr "O interface do IBugtraqProvider"
 
 #. (para)
 msgid "TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
@@ -11641,7 +11643,7 @@ msgstr ""
 
 #. (title)
 msgid "The IBugtraqProvider2 interface"
-msgstr ""
+msgstr "O interface do IBugtraqProvider2"
 
 #. (para)
 msgid "In TortoiseSVN 1.6 a new interface was added which provides more functionality for plugins. This IBugtraqProvider2 interface inherits from IBugtraqProvider."
@@ -11781,7 +11783,7 @@ msgstr ""
 
 #. (title)
 msgid "Glossary"
-msgstr ""
+msgstr "Glossário"
 
 #. (para)
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
@@ -11789,7 +11791,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "BASE revision"
-msgstr ""
+msgstr "Revisão BASE"
 
 #. (para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
@@ -11801,15 +11803,15 @@ msgstr ""
 
 #. (glossterm)
 msgid "BDB"
-msgstr ""
+msgstr "BDB"
 
 #. (para)
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
-msgstr ""
+msgstr "A Berkeley DB. Uma base de dados extensamente testada em aplicações de \"backend\" que não é utilizável em \"shares\" de rede. Opção automática para repositórios anteriores á versão 1.2."
 
 #. (glossterm)
 msgid "Branch"
-msgstr ""
+msgstr "Ramo"
 
 #. (para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bug fixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
@@ -11829,7 +11831,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Conflict"
-msgstr ""
+msgstr "Conflito"
 
 #. (para)
 msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
@@ -11837,7 +11839,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Copy"
-msgstr ""
+msgstr "Cópia"
 
 #. (para)
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
@@ -11857,7 +11859,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "FSFS"
-msgstr ""
+msgstr "FSFS"
 
 #. (para)
 msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
@@ -11865,11 +11867,11 @@ msgstr ""
 
 #. (para)
 msgid "Group policy object"
-msgstr ""
+msgstr "Objecto de politica de grupo"
 
 #. (glossterm)
 msgid "HEAD revision"
-msgstr ""
+msgstr "Revisão HEAD"
 
 #. (para)
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
@@ -11885,7 +11887,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Log"
-msgstr ""
+msgstr "Registo"
 
 #. (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
@@ -11893,7 +11895,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "History"
-msgstr ""
+msgstr "História"
 
 #. (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
@@ -11909,7 +11911,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Patch"
-msgstr ""
+msgstr "Remendo"
 
 #. (para)
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
@@ -11917,7 +11919,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Property"
-msgstr ""
+msgstr "Propriedade"
 
 #. (para)
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
@@ -11933,7 +11935,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Repository"
-msgstr ""
+msgstr "Repositório"
 
 #. (para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
@@ -11949,7 +11951,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Revision"
-msgstr ""
+msgstr "Revisão"
 
 #. (para)
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
@@ -11961,7 +11963,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Revision Property (revprop)"
-msgstr ""
+msgstr "Propriedade de Revisão (revprop)"
 
 #. (para)
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
@@ -11969,11 +11971,11 @@ msgstr ""
 
 #. (glossterm)
 msgid "SVN"
-msgstr ""
+msgstr "SVN"
 
 #. (para)
 msgid "A frequently-used abbreviation for Subversion."
-msgstr ""
+msgstr "Abreviação de Subversion frequentement utilizada."
 
 #. (para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
@@ -11989,7 +11991,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Working Copy"
-msgstr ""
+msgstr "Cópia de Trabalho"
 
 #. (para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
@@ -11998,10 +12000,10 @@ msgstr ""
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr ""
+msgstr "reconhecimento de tradutores"
 
 #. Place the translation of 'translation' here.
 #. (None)
 msgid "translator-translation"
-msgstr ""
+msgstr "tradução para tradutores"
 
