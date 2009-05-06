@@ -16,13 +16,14 @@
 # Victor Westmann <victor.westmann@gmail.com>
 # Tiago Deliberali Santos <tiago@gtplenus.com.br>
 # Leandro Herrera <leogherrera@msn.com>
+# Alex Vieira
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-05-02 21:21+0100\n"
+"PO-Revision-Date: 2009-05-06 09:38+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -534,7 +535,7 @@ msgstr "&Habilitar armazenamento de log"
 
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
-msgstr "&Digite uma mensagem justificando o travando do(s) arquivo(s)."
+msgstr "&Digite uma mensagem justificando o bloqueio do(s) arquivo(s)."
 
 #. Resource IDs: (32782)
 msgid "&Exit"
@@ -671,7 +672,7 @@ msgstr "Diretório &inicial:"
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
-msgstr "Diferenças em linha por palavra"
+msgstr "D&iferenças em linha por palavra"
 
 #. Resource IDs: (275)
 msgid "&Join all"
@@ -1128,7 +1129,7 @@ msgstr "&Exibir"
 
 #. Resource IDs: (65535)
 msgid "&View:"
-msgstr "&Exibir"
+msgstr "&Exibir:"
 
 #. Resource IDs: (32774)
 msgid "&Whitespaces"
@@ -1460,9 +1461,8 @@ msgid "Add extension specific merge program"
 msgstr "Adicionar de programa de combinação para extensão específica"
 
 #. Resource IDs: (1065)
-#, fuzzy
 msgid "Add new files automatically to SVN"
-msgstr "Selecionar itens automaticamente"
+msgstr "Adicionar novos arquivos automaticamente ao SVN"
 
 #. Resource IDs: (89)
 msgid "Add the item anyway"
@@ -1607,9 +1607,8 @@ msgid "Allow different repositories to use the same UUID, e.g. copied repositori
 msgstr "Permite que repositórios diferentes usem o mesmo UUID, ex. repositórios copiados"
 
 #. Resource IDs: (1480)
-#, fuzzy
 msgid "Always close dialogs for local operations"
-msgstr "Fechar automaticamente nas operações locais"
+msgstr "Sempre fechar caixas de diálogo para operações locais"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1963,7 +1962,7 @@ msgstr "C&omandos:"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
-msgstr "C&ria um ramo/rótulo a partir da revisão"
+msgstr "C&riar um ramo/rótulo a partir da revisão"
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
@@ -2217,8 +2216,11 @@ msgid "Cleaning up"
 msgstr "Limpando"
 
 #. Resource IDs: (146)
-msgid "Cleaning up."
-msgstr "Limpando."
+#, fuzzy, c-format
+msgid "Cleaning up directory \"%s\""
+msgstr ""
+"Criar novo diretório:\r\n"
+"%s"
 
 #. Resource IDs: (83)
 #, c-format
@@ -3102,7 +3104,7 @@ msgstr "Diferença entre"
 
 #. Resource IDs: (32817)
 msgid "Differential path &names"
-msgstr "Distinguir caminhos"
+msgstr "Distinguir &caminhos"
 
 #. Resource IDs: (1022)
 msgid "Diffing"
@@ -3821,7 +3823,8 @@ msgstr ""
 "Altura:\t\t\t%ld pixel\n"
 "Resolução Horizontal:\t%.1f dpi\n"
 "Resolução Vertical:\t\t%.1f dpi\n"
-"Profundidade:\t\t\t%d bitZoom:\t\t\t%d%%"
+"Profundidade:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
 
 #. Resource IDs: (7)
 #, c-format
@@ -3874,7 +3877,8 @@ msgstr ""
 "Altura:\t\t\t%ld pixel\n"
 "Resolução Horizontal:\t%.1f dpi\n"
 "Resolução Vertical:\t\t%.1f dpi\n"
-"Profundidade:\t\t\t%d bitZoom:\t\t\t%d%%"
+"Profundidade:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
 
 #. Resource IDs: (208)
 msgid "Filename"
@@ -3926,7 +3930,7 @@ msgstr "Ajustar à altura"
 
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
-msgstr "Ajustar tamanho das imagens"
+msgstr "Ajustar &tamanho das imagens"
 
 #. Resource IDs: (32803)
 msgid "Fit width"
@@ -6406,9 +6410,8 @@ msgid "Reintegrate a branch"
 msgstr "Reintegrar um ramo"
 
 #. Resource IDs: (595)
-#, fuzzy
 msgid "Reintegrate merge"
-msgstr "Reintegrar combinação %s em %s"
+msgstr "Reintegrar combinação"
 
 #. Resource IDs: (230)
 #, c-format
@@ -6904,7 +6907,7 @@ msgstr "Mostrar Botões em Duas Lin&has"
 
 #. Resource IDs: (17078)
 msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr "Mostrar Barra de Acesso Rápido abaixo da Faixa de Opções"
+msgstr "M&ostrar Barra de Acesso Rápido abaixo da Faixa de Opções"
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
@@ -7194,9 +7197,8 @@ msgid "Select text editor application"
 msgstr "Selecionar editor de texto"
 
 #. Resource IDs: (595)
-#, fuzzy
 msgid "Select the URL from which to reintegrate"
-msgstr "Selecionar as URLs para combinação em árvore"
+msgstr "Selecione a URL a partir da qual irá reintegrar"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -7406,7 +7408,7 @@ msgstr "Mostrar Barra de Acesso Rápido Abaixo da Faixa de Opções"
 
 #. Resource IDs: (16651)
 msgid "Show Screen&Tips on toolbars"
-msgstr "Mostrar Dicas de Tela nas barras de ferramentas"
+msgstr "Mostrar Dicas de &Tela nas barras de ferramentas"
 
 #. Resource IDs: (32831)
 msgid "Show WC &modifications"
@@ -9661,7 +9663,7 @@ msgstr "Menos zoom"
 
 #. Resource IDs: (32801)
 msgid "Zoom to &100%"
-msgstr "Zoom para 100%"
+msgstr "Zoom para &100%"
 
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
@@ -10130,7 +10132,6 @@ msgstr ""
 "Uma lista de especificadores de módulo separados por quebra de linha, cada qual consistindo de\r\n"
 "uma revisão opcional, uma URL e um caminho de diretório relativo. Por exemplo\r\n"
 "http://exemplo.com/repos/zig foo\r\n"
-"o\n"
 "-r 1234 http://exemplo.com/repos/zag foo/bar\r\n"
 "\r\n"
 "As URLs podem ser absolutas ou relativas. O formato para\r\n"
@@ -10294,6 +10295,8 @@ msgid ""
 "tsvn:logrevregex\r\n"
 "A regular expression matching revision numbers in a log message"
 msgstr ""
+"tsvn:logrevregex\r\n"
+"Uma expressão regular correspondendo a números de revisão em uma mensagem de log"
 
 #. Resource IDs: (578)
 msgid ""
@@ -10378,7 +10381,7 @@ msgid ""
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
 "webviewer:pathrevision\r\n"
-"URL apontando para visualizador Web do repositório para um arquivo e revisão específicos.\n"
+"URL apontando para visualizador Web do repositório para um arquivo e revisão específicos.\r\n"
 "A string %REVISION% na URL é substituída pelo número da revisão,\r\n"
 "a string %PATH% é substituída pelo caminho do arquivo, relativo à raiz do repositório."
 
@@ -10389,8 +10392,8 @@ msgid ""
 "URL pointing to the web viewer for the repository for a specific revision.\r\n"
 "The string %REVISION% in that URL is replaced with the revision number."
 msgstr ""
-"webviewer:revisão\n"
-"URL apontando para o visualizador web de um repositório em uma revisão específica.\n"
+"webviewer:revisão\r\n"
+"URL apontando para o visualizador web de um repositório em uma revisão específica.\r\n"
 "A string %REVISION% nessa URL está sendo substituída pelo número da revisão."
 
 #. Resource IDs: (245)
@@ -10417,6 +10420,8 @@ msgstr "sim"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Cleaning up."
+#~ msgstr "Limpando."
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Disquetes (A: B:)"
 #~ msgid ""
