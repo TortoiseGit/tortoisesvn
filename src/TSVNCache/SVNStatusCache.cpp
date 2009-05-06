@@ -465,14 +465,14 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 		m_mostRecentExpiresAt = now+1000;
 	}
 
-	if (IsPathGood(path))
+	if (IsPathGood(path) && m_shellCache.IsPathAllowed(path.GetWinPath()))
 	{
 		// Stop the crawler starting on a new folder while we're doing this much more important task...
 		// Please note, that this may be a second "lock" used concurrently to the one in RemoveCacheForPath().
 		CCrawlInhibitor crawlInhibit(&m_folderCrawler);
 
 		CTSVNPath dirpath = path.GetContainingDirectory();
-		if ((dirpath.IsEmpty()) || (!m_shellCache.IsPathAllowed(dirpath.GetWinPath())))
+		if (dirpath.IsEmpty())
 			dirpath = path.GetDirectory();
 		CCachedDirectory * cachedDir = GetDirectoryCacheEntry(dirpath);
 		if (cachedDir != NULL)
