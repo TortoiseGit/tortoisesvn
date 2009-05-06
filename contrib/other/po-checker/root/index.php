@@ -1,6 +1,14 @@
 <?php
 include("mysql.php");
 
+$iconSize="32x32";
+$icons['ok']="/images/classy/$iconSize/accept.png";
+$icons['error']="/images/classy/$iconSize/delete.png";
+$icons['warning']="/images/classy/$iconSize/warning.png";
+$icons['down']="/images/classy/$iconSize/down.png";
+$icons['go']="/images/classy/$iconSize/next.png";
+$icons['disabled']="/images/classy/$iconSize/remove.png";
+
 // how to extract module path to separate constant ?
 // common modules
 include_once ("../modules/ext/html.php");
@@ -209,8 +217,11 @@ if ($stable) {
 	$linenum=0;
 	echo "<a name=\"TAB$lang\"></a>";
 	echo '<table border="1"><thead><tr>
-		<td><acronym title="Native language name in English">Language</acronym></td>
-<!--		<td>Native name</td> -->
+		<td rowspan="2"><acronym title="Native language name in English">Language</acronym></td>
+		<td colspan="8">GUI check</td>
+		<td colspan="2">DOC</td>
+		<td rowspan="2">Author(s)</td>
+	</tr><tr>
 		<td>Flag</td>
 		<td><acronym title="Parameter test (Severity: High - may be harmfull)">PAR!!</acronym></td>
 		<td><acronym title="Accelerator test (Severity: Medium - accessibility)">ACC!</acronym></td>
@@ -218,11 +229,10 @@ if ($stable) {
 		<td><acronym title="Untranslated (Severity: Low - appearance)">UNT</acronym></td>
 		<td><acronym title="Fuzzy mark test (Severity: Low - appearance)">FUZ</acronym></td>
 		<td><acronym title="Escaped chars (Severity: Low - appearance)">ESC</acronym></td>
-<!--		<td><acronym title="TEST">TEST</acronym></td> -->
-<!--		<td><acronym title="Spell check (Severity: Low - appearance)">PSPELL</acronym></td> -->
-		<td>Doc</td>
-		<td>Note:</td>
-		<td>Author</td>
+		<td>Note</td>
+		<td><img src="images/32/tsvn.jpg" title="TortoiseSVN DOC" /></td>
+		<td><img src="images/32/tmerge.jpg" title="TortoiseMerge DOC" /></td>
+	</tr><tr>
 	</tr></thead>
 	<tbody>';
 
@@ -378,6 +388,16 @@ if ($stable) {
 				$errorCount+=PrintErrorCount($po, "esc", $code, $stable);
 //				$errorCount+=PrintErrorCount($po, "spl", $code, $stable);
 
+				// note
+				if ($matches[1][0]=="#") {
+					echo '<td><img src="'.$icons['disabled'],'" alt="Disabled" title="Disabled"/></td>';
+				} else if(!$errorCount) {
+					echo '<td><img src="'.$icons['ok'],'" alt="o.k." title="OK"/></td>';
+				} else {
+					echo "<td />";
+				}
+
+				// doc stats
 				$statDoc="";
 				if (file_exists($fileSvn)) {
 					unset($poTemp);
@@ -404,9 +424,9 @@ if ($stable) {
 						$unt=$poTemp->GetErrorCount("unt");
 						$fuz=$poTemp->GetErrorCount("fuz");
 					}
-					$statDoc.=" <a href=\"/?stable=$stable&amp;l=$code&amp;m=s\">TSVN:</a>";
+					$statDoc.='<a href="/?stable='.$stable.'&amp;l='.$code.'&amp;m=s">';
 					if ($unt+$fuz==0) {
-						$statDoc.="OK";
+						$statDoc.='<img src="'.$icons['ok'].'" alt="o.k." title="OK"/>';
 					} else {
 						if ($unt) {
 							if ($fuz) {
@@ -418,7 +438,17 @@ if ($stable) {
 							$statDoc.="<i>$fuz</i>";
 						}
 					}
+					$statDoc.='</a>';
 				}
+				if ($statDoc=="") {
+					$statDoc="-";
+				}
+				if ($matches[4][0]=="1") {
+					echo "<td>:$statDoc</td>";
+				} else {
+					echo "<td>$statDoc</td>\n";
+				}
+				$statDoc="";
 				if (file_exists($fileMerge)) {
 					unset($poTemp);
 					if (!$langSelected && !$stable) { // this i a hack ! - redesign !
@@ -444,9 +474,9 @@ if ($stable) {
 						$unt=$poTemp->GetErrorCount("unt");
 						$fuz=$poTemp->GetErrorCount("fuz");
 					}
-					$statDoc.=" <a href=\"/?stable=$stable&amp;l=$lang&amp;m=m\">Merge:</a>";
+					$statDoc.='<a href="/?stable='.$stable.'&amp;l='.$code.'&amp;m=s">';
 					if ($unt+$fuz==0) {
-						$statDoc.="OK";
+						$statDoc.='<img src="'.$icons['ok'].'" alt="o.k." title="OK"/>';
 					} else {
 						if ($unt) {
 							if ($fuz) {
@@ -458,24 +488,17 @@ if ($stable) {
 							$statDoc.="<i>$fuz</i>";
 						}
 					}
+					$statDoc.='</a>';
 				}
 				unset($poTemp);
 				if ($statDoc=="") {
 					$statDoc="-";
 				}
 				if ($matches[4][0]=="1") {
-					echo "<td>:$statDoc</td>";
-					
-				} else {
-					echo "<td>$statDoc</td>\n";
 				}
-				if ($matches[1][0]=="#") {
-					echo "<td>Disabled</td>";
-				} else if(!$errorCount) {
-					echo "<td>OK</td>\n";
-				} else {
-					echo "<td />\n";
-				}
+				echo "<td>$statDoc</td>\n";
+
+				echo "\n";
 				echo "<td>".$author."</td>";
 				echo "</tr>\n";
 				$pos[$code]=$po;
@@ -583,5 +606,6 @@ if ($native) {
 }//*/
 
 echo '</div>';
+echo '<div><center><hr/>Icons by: <a href="http://dryicons.com" class="link">DryIcons</a></center></div>';
 HtmlFooter($HtmlType);
 //php?>
