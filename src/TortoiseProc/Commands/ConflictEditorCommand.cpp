@@ -199,7 +199,7 @@ bool ConflictEditorCommand::Execute()
 						break;
 					}
 				}
-				else if (pInfoData->treeconflict_nodekind == svn_node_dir)
+				else //if (pInfoData->treeconflict_nodekind == svn_node_dir)
 				{
 					switch (pInfoData->treeconflict_operation)
 					{
