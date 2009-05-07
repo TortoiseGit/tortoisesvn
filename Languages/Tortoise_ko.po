@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-27 17:26+0900\n"
+"PO-Revision-Date: 2009-05-07 17:13+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2200,11 +2200,12 @@ msgstr "분류 패턴"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
-msgstr "정리"
+msgstr "정리중"
 
 #. Resource IDs: (146)
-msgid "Cleaning up."
-msgstr "정리"
+#, c-format
+msgid "Cleaning up directory \"%s\""
+msgstr "\"%s\" 디렉토리 정리중"
 
 #. Resource IDs: (83)
 #, c-format
@@ -2226,7 +2227,7 @@ msgstr ""
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
-msgstr "중단된 명령, 잠긴 파일들을 정리 합니다."
+msgstr "중단된 명령, 잠긴 파일들등을 정리 합니다."
 
 #. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
@@ -7778,7 +7779,7 @@ msgid ""
 "<hr=100%%>\n"
 "%s"
 msgstr ""
-"Subversion 이 미완성 작업을 마무리하는 동안 오류가 발생했습니다\n"
+"정리 작업을 하는 중에 Subversion에서 오류가 발생했습니다\n"
 "<hr=100%%>\n"
 "%s"
 
@@ -10379,6 +10380,8 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid "Cleaning up."
+#~ msgstr "정리"
 #~ msgid "General::Revision Graph"
 #~ msgstr "일반::리비전 그래프"
 #~ msgid "General::Revision Graph Colors"
