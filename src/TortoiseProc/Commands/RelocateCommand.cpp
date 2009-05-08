@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -103,6 +103,24 @@ bool RelocateCommand::Execute()
 			bPossibleSwitch = false;
 		if (components1.nPort != components2.nPort)
 			bPossibleSwitch = false;
+		if (bPossibleSwitch)
+		{
+			if ((dlg.m_sFromUrl.Left(7).Compare(_T("file://")) == 0) &&
+				(dlg.m_sToUrl.Left(7).Compare(_T("file://")) == 0))
+			{
+				CString s1 = dlg.m_sFromUrl.Mid(7);
+				CString s2 = dlg.m_sToUrl.Mid(7);
+				s1.TrimLeft('/');
+				s2.TrimLeft('/');
+				if (s1.GetLength() && s2.GetLength())
+				{
+					if (s1.GetAt(0) != s2.GetAt(0))
+						bPossibleSwitch = false;
+				}
+				else
+					bPossibleSwitch = false;
+			}
+		}
 		CString sWarning, sWarningTitle, sHelpPath;
 		sWarning.Format(IDS_WARN_RELOCATEREALLY, (LPCTSTR)dlg.m_sFromUrl, (LPCTSTR)dlg.m_sToUrl);
 		sWarningTitle.LoadString(IDS_WARN_RELOCATEREALLYTITLE);
