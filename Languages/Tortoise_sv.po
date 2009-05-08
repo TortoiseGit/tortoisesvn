@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-27 11:03+0100\n"
+"PO-Revision-Date: 2009-05-08 13:33+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2229,8 +2229,9 @@ msgid "Cleaning up"
 msgstr "Rensar"
 
 #. Resource IDs: (146)
-msgid "Cleaning up."
-msgstr "Rensar. "
+#, c-format
+msgid "Cleaning up directory \"%s\""
+msgstr "Rensar katalog \"%s\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -10458,6 +10459,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Cleaning up."
+#~ msgstr "Rensar. "
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Diskenheter (A: B:)"
 #~ msgid ""
