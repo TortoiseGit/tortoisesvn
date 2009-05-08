@@ -345,7 +345,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		// We leave the refreshing to the crawler.
 		if ((!bFetch)&&(m_entriesFileTime))
 		{
-			CSVNStatusCache::Instance().AddFolderForCrawling(path.GetDirectory());
+			CSVNStatusCache::Instance().AddFolderForCrawling(m_directoryPath.GetDirectory());
 			return CStatusCacheEntry();
 		}
 		AutoLocker lock(m_critSec);
