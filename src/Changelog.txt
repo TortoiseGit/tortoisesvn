@@ -44,6 +44,7 @@ Version 1.6.2
        work for the explorer tree view, only the list view. (Stefan)
 - BUG: Warnings were shown repeatedly when updating multiple folders
        at once and a conflict in one update happened. (Stefan)
+- BUG: Deadlock in the TSVNCache.exe process. (Stefan)
 
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)

@@ -307,7 +307,11 @@ void CDirectoryWatcher::WorkerThread()
 					NotificationFilter.dbch_size = sizeof(DEV_BROADCAST_HANDLE);
 					NotificationFilter.dbch_devicetype = DBT_DEVTYP_HANDLE;
 					NotificationFilter.dbch_handle = hDir;
+					// RegisterDeviceNotification sends a message to the UI thread:
+					// make sure we *can* send it and that the UI thread isn't waiting on a lock
+					lock.Unlock();
 					NotificationFilter.dbch_hdevnotify = RegisterDeviceNotification(hWnd, &NotificationFilter, DEVICE_NOTIFY_WINDOW_HANDLE);
+					lock.Lock();
 
 					CDirWatchInfo * pDirInfo = new CDirWatchInfo(hDir, watchedPath);
 					pDirInfo->m_hDevNotify = NotificationFilter.dbch_hdevnotify;
