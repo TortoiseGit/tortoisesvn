@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-18 02:10+0100\n"
+"PO-Revision-Date: 2009-05-09 07:38+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2234,8 +2234,9 @@ msgid "Cleaning up"
 msgstr "Čišćenje"
 
 #. Resource IDs: (146)
-msgid "Cleaning up."
-msgstr "Čišćenje."
+#, c-format
+msgid "Cleaning up directory \"%s\""
+msgstr "Ćišćenje mape  \"%s\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -10323,6 +10324,14 @@ msgstr ""
 "tsvn:logminsize\r\n"
 "Najmanji broj znakova koji poruka dnevnika mora sadržavati prije no što se dozvoli pohranjivanje."
 
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logrevregex\r\n"
+"A regular expression matching revision numbers in a log message"
+msgstr ""
+"tsvn:logrevregex\r\n"
+"Regularni izraz kojem odgovaraju brojevi inačica u dnevniku"
+
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logsummary\r\n"
@@ -10445,6 +10454,8 @@ msgstr "da"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Cleaning up."
+#~ msgstr "Čišćenje."
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Disketa (A: B:)"
 #~ msgid ""
