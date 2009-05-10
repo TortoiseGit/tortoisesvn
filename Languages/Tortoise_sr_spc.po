@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-27 19:54+0100\n"
+"PO-Revision-Date: 2009-05-10 19:51+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2415,8 +2415,9 @@ msgid "Cleaning up"
 msgstr "Чишћење"
 
 #. Resource IDs: (146)
-msgid "Cleaning up."
-msgstr "Чишћење."
+#, c-format
+msgid "Cleaning up directory \"%s\""
+msgstr "Ћишћење именика \"%s\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -8550,7 +8551,7 @@ msgid ""
 "is not empty!\n"
 "Are you sure you want to checkout/export into that folder?"
 msgstr ""
-"Циљна именик  \n"
+"Циљни именик  \n"
 "%s\n"
 "није празан!\n"
 "Јесте ли сигурни да желите преузимање/извоз баш у тај именик?"
@@ -8961,7 +8962,7 @@ msgstr "Дебло чворови"
 
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
-msgstr "Покушајте с 'Почисти'. Уколико то не помогне, потребно је направити ново преузимање."
+msgstr "Покушајте са 'Почисти'. Уколико то не помогне, потребно је направити ново преузимање."
 
 #. Resource IDs: (73)
 msgid "Try again"
@@ -10611,4 +10612,7 @@ msgstr "да"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{БагТрек}"
+
+#~ msgid "Cleaning up."
+#~ msgstr "Чишћење."
 
