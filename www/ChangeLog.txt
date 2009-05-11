@@ -1,3 +1,47 @@
+Version 1.6.2
+- BUG: Error message about non-LF commit messages when using messages with
+       non-ASCII text. (Stefan)
+- BUG: Dragging files/folders from the repository browser or the status
+       list control to the explorer could result in a DEP exception. (Stefan)
+- BUG: The pathList passed to CheckCommit() only contained the parent folder
+       for recursive commits, not all selected items. (Stefan)
+- BUG: TortoiseMerge duplicated the last line when saving UCS-2 files. (Stefan)
+- BUG: Using a commit message from the history could result in an error
+       about "only numbers are allowed" when trying to commit. (Stefan)
+- BUG: Stealing a lock failed when using serf instead of neon. (Stefan)
+- BUG: Segfault in TSVNCache. (Stefan)
+- BUG: The merge dialog always used the wc url as the default. (Stefan)
+- BUG: The pathlist in the OnCommitFinished() method did not contain
+       all committed paths. (Stefan)
+- BUG: Copy-to-wc from the repository browser didn't work for single
+       files/folders. (Stefan)
+- BUG: Comparing revisions in the log dialog before a rename returned
+       an error. (Stefan)
+- BUG: The context menu in TortoiseBlame was shown on the wrong monitor
+       in multi-monitor setups. (Stefan)
+- BUG: Saving the revision graph as a wmf file when the stripes option
+       was activated resulted in an invalid file. (Stefan)
+- BUG: interactive merging of binary files always left the file conflicted,
+       ignoring the "Use local" and/or "Use repository" buttons. (Stefan)
+- BUG: TSVN didn't work on Win2k if it wasn't fully updated and
+       IE6 installed. (Stefan)
+- BUG: The options button in the settings dialog to add an IBugTraqProvider
+       was only shown the first time and invisible the next times. (Stefan)
+- BUG: the IBugTraqProviders were not used if only set with the 
+       bugtraq:provideruuid but the providers were never configured in
+       the settings dialog. (Stefan)
+- BUG: Importing files by dragging them onto the repository browser didn't
+       work on Vista. (Stefan)
+- BUG: Failed externals weren't treated as errors in the autoclose
+       setting for the progress dialog. (Stefan)
+- BUG: Setting the external diff by mime-type didn't work for longer
+       mime-types. (Stefan)
+- BUG: Excluding the context menu from showing for certain paths didn't
+       work for the explorer tree view, only the list view. (Stefan)
+- BUG: Warnings were shown repeatedly when updating multiple folders
+       at once and a conflict in one update happened. (Stefan)
+- BUG: Deadlock in the TSVNCache.exe process. (Stefan)
+
 Version 1.6.1
 - CHG: The history dialog is now 'attached' to the commit dialog. (Stefan)
 - CHG: When filling in a log message from the 'recent' messages in the
