@@ -176,6 +176,12 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 		// missing registry key, corrupt exe, ...
 		if (((long)GetTickCount() - m_lastTimeout) < 0)
 			return false;
+		// if we're in protected mode, don't try to start the cache: since we're
+		// here, we know we can't access it anyway and starting a new process will
+		// trigger a warning dialog in IE7+ on Vista - we don't want that.
+		if (GetProcessIntegrityLevel() < SECURITY_MANDATORY_MEDIUM_RID)
+			return false;
+
 		STARTUPINFO startup;
 		PROCESS_INFORMATION process;
 		memset(&startup, 0, sizeof(startup));
@@ -303,4 +309,46 @@ bool CRemoteCacheLink::ReleaseLockForPath(const CTSVNPath& path)
 		return true;
 	}
 	return false;
+}
+
+DWORD CRemoteCacheLink::GetProcessIntegrityLevel()
+{
+	HANDLE hToken;
+	HANDLE hProcess;
+
+	DWORD dwLengthNeeded;
+	DWORD dwError = ERROR_SUCCESS;
+
+	PTOKEN_MANDATORY_LABEL pTIL = NULL;
+	DWORD dwIntegrityLevel = SECURITY_MANDATORY_MEDIUM_RID;
+
+	hProcess = GetCurrentProcess();
+	if (OpenProcessToken(hProcess, TOKEN_QUERY | 
+		TOKEN_QUERY_SOURCE, &hToken)) 
+	{
+		// Get the Integrity level.
+		if (!GetTokenInformation(hToken, TokenIntegrityLevel, 
+			NULL, 0, &dwLengthNeeded))
+		{
+			dwError = GetLastError();
+			if (dwError == ERROR_INSUFFICIENT_BUFFER)
+			{
+				pTIL = (PTOKEN_MANDATORY_LABEL)LocalAlloc(0, 
+					dwLengthNeeded);
+				if (pTIL != NULL)
+				{
+					if (GetTokenInformation(hToken, TokenIntegrityLevel, 
+						pTIL, dwLengthNeeded, &dwLengthNeeded))
+					{
+						dwIntegrityLevel = *GetSidSubAuthority(pTIL->Label.Sid, 
+							(DWORD)(UCHAR)(*GetSidSubAuthorityCount(pTIL->Label.Sid)-1));
+					}
+					LocalFree(pTIL);
+				}
+			}
+		}
+		CloseHandle(hToken);
+	}
+
+	return dwIntegrityLevel;
 }
