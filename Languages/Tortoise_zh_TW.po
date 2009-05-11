@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-27 20:23+0800\n"
+"PO-Revision-Date: 2009-05-11 20:09+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2206,8 +2206,9 @@ msgid "Cleaning up"
 msgstr "正在清除."
 
 #. Resource IDs: (146)
-msgid "Cleaning up."
-msgstr "正在清除."
+#, c-format
+msgid "Cleaning up directory \"%s\""
+msgstr "清理目錄:\"%s\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -10388,4 +10389,7 @@ msgstr "是"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+#~ msgid "Cleaning up."
+#~ msgstr "正在清除."
 
