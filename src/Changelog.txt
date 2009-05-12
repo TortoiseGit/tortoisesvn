@@ -3,6 +3,9 @@
 - NEW: the log dialog turns references to revisions into links. (Stefan)
 - NEW: block access to the status cache when in protected mode in
        Internet explorer on Vista and later. (Stefan)
+- NEW: Pressing Enter in the repository browser when the list control
+       has the focus 'enters' the selected folder instead of closing
+       the dialog. (Stefan)
 
 Version 1.6.2
 - BUG: Error message about non-LF commit messages when using messages with
