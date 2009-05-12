@@ -2246,6 +2246,11 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					popup.AppendMenuIcon(ID_UPDATE, IDS_LOG_POPUP_UPDATE, IDI_UPDATE);		// "Update item to revision"
 				}
 			}
+			else
+			{
+				popup.AppendMenu(MF_SEPARATOR, NULL);
+				popup.AppendMenuIcon(ID_UPDATE, IDS_LOG_POPUP_UPDATE, IDI_UPDATE);		// "Update item to revision"
+			}
 		}
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 
