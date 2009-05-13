@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-26 12:20+0100\n"
+"PO-Revision-Date: 2009-05-13 08:24+0100\n"
 "Last-Translator: Miha Nahtigal <miha.nahtigal@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1478,6 +1478,10 @@ msgstr "Dodaj program za razlikovanje glede za končnico"
 msgid "Add extension specific merge program"
 msgstr "Dodaj program za spajanje glede za končnico"
 
+#. Resource IDs: (1065)
+msgid "Add new files automatically to SVN"
+msgstr "Nove datoteke samodejno vključi v SVN"
+
 #. Resource IDs: (89)
 msgid "Add the item anyway"
 msgstr "Vseeno dodaj element"
@@ -1619,6 +1623,10 @@ msgstr "Dovoli uporabo različnih skladišč z istim naslovom URL, na primer htt
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Dovoli uporabo različnih skladišč z istim UUID, na primer kopirana skladišča"
+
+#. Resource IDs: (1480)
+msgid "Always close dialogs for local operations"
+msgstr "Zapri dialoge po lokalnih operacijah"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1815,10 +1823,6 @@ msgstr "Samodejno skrij vse"
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "Samodejno preimenuj"
-
-#. Resource IDs: (222)
-msgid "Auto-close for local operations"
-msgstr "Samodejno zapri pri krajevnih operacijah"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -2228,8 +2232,9 @@ msgid "Cleaning up"
 msgstr "Čiščenje"
 
 #. Resource IDs: (146)
-msgid "Cleaning up."
-msgstr "Čiščenje."
+#, c-format
+msgid "Cleaning up directory \"%s\""
+msgstr "Čiščenje mape \"%s\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -6396,6 +6401,10 @@ msgstr ""
 msgid "Reintegrate a branch"
 msgstr "Vključitev veje"
 
+#. Resource IDs: (595)
+msgid "Reintegrate merge"
+msgstr "Reintegracija spajanja"
+
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %s into %s"
@@ -7177,6 +7186,10 @@ msgstr "Izberite začetno revizijo"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Izberite urejevalnik besedila"
+
+#. Resource IDs: (595)
+msgid "Select the URL from which to reintegrate"
+msgstr "Izberite izvorni URL naslov za reintegracijo"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -10261,6 +10274,14 @@ msgstr ""
 "tsvn:logminsize\r\n"
 "Najmanjša velikost dnevniškega zapisa v številu znakov, da je objava dovoljena."
 
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logrevregex\r\n"
+"A regular expression matching revision numbers in a log message"
+msgstr ""
+"tsvn:logrevregex\r\n"
+"Regularni izraz, ki ustreza številki revizije v sporočilu dnevnika."
+
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logsummary\r\n"
@@ -10383,6 +10404,8 @@ msgstr "da"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Cleaning up."
+#~ msgstr "Čiščenje."
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Disketniki (A: B:)"
 #~ msgid ""
