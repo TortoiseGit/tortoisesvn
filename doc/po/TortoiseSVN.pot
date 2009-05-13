@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-04-23 20:52 +0000\n"
+"POT-Creation-Date: 2009-05-13 22:33 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -7361,6 +7361,10 @@ msgstr ""
 msgid "If this box is checked (default state), then whenever the status of an unversioned folder is shown in the <guilabel>Add</guilabel>, <guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> dialog, every child file and folder is also shown. If you uncheck this box, only the unversioned parent is shown. Unchecking reduces clutter in these dialogs. In that case if you select an unversioned folder for Add, it is added recursively."
 msgstr ""
 
+#.(para)
+msgid "In the <guilabel>Check for Modifications</guilabel> dialog you can opt to see ignored items. If this box is checked then whenever an ignored folder is found, all child items will be shown as well."
+msgstr ""
+
 #.(term)
 msgid "Use auto-completion of file paths and keywords"
 msgstr ""
@@ -10033,8 +10037,12 @@ msgstr ""
 msgid "Opens the help file."
 msgstr ""
 
+#.(option)
+msgid "/remote"
+msgstr ""
+
 #.(entry)
-msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory."
+msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory. If <placeholder-2/> is specified, the dialog contacts the repository immediately on startup, as if the user clicked on the \"Check repository\" button."
 msgstr ""
 
 #.(option)
