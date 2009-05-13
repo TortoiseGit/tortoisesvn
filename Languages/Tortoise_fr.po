@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-06 09:55+0100\n"
+"PO-Revision-Date: 2009-05-13 15:38+0100\n"
 "Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -342,19 +342,19 @@ msgstr "&Sauvegarde du fichier original"
 
 #. Resource IDs: (114)
 msgid "&Blame changes"
-msgstr "&Condamner les modifications"
+msgstr "&Annoter les modifications"
 
 #. Resource IDs: (32782)
 msgid "&Blame previous revision"
-msgstr "&Condamner les révisions précédentes"
+msgstr "&Annoter les révisions précédentes"
 
 #. Resource IDs: (114, 322)
 msgid "&Blame revisions"
-msgstr "&Condamner les révisions"
+msgstr "&Annoter les révisions"
 
 #. Resource IDs: (13)
 msgid "&Blame..."
-msgstr "Con&damner..."
+msgstr "&Annoter..."
 
 #. Resource IDs: (32849)
 msgid "&Blue Style"
@@ -1459,6 +1459,10 @@ msgstr "Ajouter un programme de comparaison selon l'extension"
 msgid "Add extension specific merge program"
 msgstr "Ajouter un programme de fusion selon l'extension"
 
+#. Resource IDs: (1065)
+msgid "Add new files automatically to SVN"
+msgstr "Ajouter les nouveaux fichiers automatiquement dans SVN"
+
 #. Resource IDs: (89)
 msgid "Add the item anyway"
 msgstr "Ajouter quand même l'élément"
@@ -1863,19 +1867,19 @@ msgstr ""
 
 #. Resource IDs: (114, 162)
 msgid "Blame"
-msgstr "Condamner..."
+msgstr "Annoter..."
 
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
-msgstr "Condamner - TortoiseSVN"
+msgstr "Annoter - TortoiseSVN"
 
 #. Resource IDs: (114)
 msgid "Blame..."
-msgstr "Bannir..."
+msgstr "Annoter..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
-msgstr "Condamne chaque ligne d'un fichier pour un auteur"
+msgstr "Annote chaque ligne d'un fichier pour un auteur"
 
 #. Resource IDs: (32812)
 msgid "Blend Alpha"
@@ -2028,7 +2032,7 @@ msgstr "Annuler"
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
-msgstr "Annuler Condamnation TortoiseSVN..."
+msgstr "Annuler l'annotation TortoiseSVN..."
 
 #. Resource IDs: (270)
 msgid "Cancelling operation..."
@@ -2209,8 +2213,9 @@ msgid "Cleaning up"
 msgstr "Nettoyer"
 
 #. Resource IDs: (146)
-msgid "Cleaning up."
-msgstr "Nettoyage en cours."
+#, c-format
+msgid "Cleaning up directory \"%s\""
+msgstr "Nettoyer le répertoire \"%s\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2429,11 +2434,11 @@ msgstr "Comparer les révisions &HEAD"
 
 #. Resource IDs: (114)
 msgid "Compare and &blame with working BASE"
-msgstr "Comparer et &condamner avec la BASE de travail"
+msgstr "Comparer avec la BASE de travail et &annoter"
 
 #. Resource IDs: (114)
 msgid "Compare and blame with previous revision"
-msgstr "Comparer et condamner avec la révision précédente"
+msgstr "Comparer avec la révision précédente et annoter"
 
 #. Resource IDs: (1390)
 msgid "Compare whitespaces"
@@ -6394,6 +6399,11 @@ msgstr ""
 msgid "Reintegrate a branch"
 msgstr "Réintégrer une branche"
 
+#. Resource IDs: (595)
+#, fuzzy
+msgid "Reintegrate merge"
+msgstr "Réintégrer fusionner %s dans %s "
+
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %s into %s"
@@ -7175,6 +7185,10 @@ msgstr "Sélectionner la révision de départ"
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "Sélectionner l'application d'édition de texte"
+
+#. Resource IDs: (595)
+msgid "Select the URL from which to reintegrate"
+msgstr "Sélectionner les URLs où effectuer la fusion"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -9002,7 +9016,7 @@ msgstr "Utiliser l'autre bl&oc de texte"
 
 #. Resource IDs: (1126)
 msgid "Use &text viewer to view blames"
-msgstr "Utiliser le visualiseur &texte pour voir les condamnations"
+msgstr "Utiliser le visualiseur &texte pour voir les annotations"
 
 #. Resource IDs: (195)
 msgid ""
@@ -10261,6 +10275,14 @@ msgstr ""
 "tsvn:logminsize\r\n"
 "Taille minimum en caractères qu'un commentaire doit avoir avant qu'une livraison soit autorisée."
 
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logrevregex\r\n"
+"A regular expression matching revision numbers in a log message"
+msgstr ""
+"tsvn:logrevregex\r\n"
+"Une expression régulière filtrant les numéro de révision dans les messages de log"
+
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logsummary\r\n"
@@ -10383,6 +10405,10 @@ msgstr "oui"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&Annoter..."
+#~ msgstr "Con&damner..."
+#~ msgid "Cleaning up."
+#~ msgstr "Nettoyage en cours."
 #~ msgid "General::Revision Graph"
 #~ msgstr "Général::Graphe des Révisions"
 #~ msgid "General::Revision Graph Colors"
@@ -10433,7 +10459,7 @@ msgstr "{BugTraq}"
 #~ msgid "Brows&e..."
 #~ msgstr "&Parcourir..."
 #~ msgid "Force blame"
-#~ msgstr "Forcer un blâme"
+#~ msgstr "Forcer une annotation"
 #~ msgid "Bug Tracker..."
 #~ msgstr "Pisteur de bogues..."
 #~ msgid "cleaning up"
