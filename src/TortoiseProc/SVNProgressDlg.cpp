@@ -434,9 +434,9 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
 		AddItemToList();
 		ReportError(SVN::GetErrorString(err));
 		bDoAddData = false;
-		if (err->apr_err == SVN_ERR_FS_OUT_OF_DATE)
+		if ((err)&&(err->apr_err == SVN_ERR_FS_OUT_OF_DATE))
 			m_bLockWarning = true;
-		if (err->apr_err == SVN_ERR_FS_PATH_ALREADY_LOCKED)
+		if ((err)&&(err->apr_err == SVN_ERR_FS_PATH_ALREADY_LOCKED))
 			m_bLockExists = true;
 		break;
 	case svn_wc_notify_failed_unlock:
@@ -445,7 +445,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
 		AddItemToList();
 		ReportError(SVN::GetErrorString(err));
 		bDoAddData = false;
-		if (err->apr_err == SVN_ERR_FS_OUT_OF_DATE)
+		if ((err)&&(err->apr_err == SVN_ERR_FS_OUT_OF_DATE))
 			m_bLockWarning = true;
 		break;
 	case svn_wc_notify_changelist_set:
@@ -1983,7 +1983,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 		error = GetLastErrorMessage();
 		// if a non-recursive commit failed with SVN_ERR_UNSUPPORTED_FEATURE,
 		// that means a folder deletion couldn't be committed.
-		if ((m_Revision != 0)&&(Err->apr_err == SVN_ERR_UNSUPPORTED_FEATURE))
+		if ((m_Revision != 0)&&(Err)&&(Err->apr_err == SVN_ERR_UNSUPPORTED_FEATURE))
 		{
 			ReportError(CString(MAKEINTRESOURCE(IDS_PROGRS_NONRECURSIVEHINT)));
 		}
