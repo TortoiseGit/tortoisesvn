@@ -50,6 +50,8 @@ protected:
 
 	afx_msg void OnBnClickedResolveusingtheirs();
 	afx_msg void OnBnClickedResolveusingmine();
+	afx_msg void OnBnClickedShowlog();
+	afx_msg void OnBnClickedHelp();
 
 	/// called after the thread has finished
 	LRESULT OnAfterThread(WPARAM /*wParam*/, LPARAM /*lParam*/);
@@ -67,9 +69,6 @@ private:
 	svn_wc_conflict_version_t *	src_right;
 	svn_wc_conflict_reason_t conflict_reason;
 	svn_wc_conflict_action_t conflict_action;
-public:
-	afx_msg void OnBnClickedShowlog();
-	afx_msg void OnBnClickedHelp();
 };
 
 static UINT WM_AFTERTHREAD = RegisterWindowMessage(_T("TORTOISESVN_AFTERTHREAD_MSG"));
