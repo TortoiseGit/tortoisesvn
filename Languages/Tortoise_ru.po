@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2009
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 16255: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 16309: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-27 19:38+0300\n"
+"PO-Revision-Date: 2009-05-15 08:28+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2281,8 +2281,9 @@ msgid "Cleaning up"
 msgstr "Производится очистка"
 
 #. Resource IDs: (146)
-msgid "Cleaning up."
-msgstr "Производится очистка."
+#, c-format
+msgid "Cleaning up directory \"%s\""
+msgstr "Выполняется очистка папки \"%s\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -10552,6 +10553,8 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{СОП}"
 
+#~ msgid "Cleaning up."
+#~ msgstr "Производится очистка."
 #~ msgid "%s, but the local file was already edited."
 #~ msgstr "%s, но локальный файл был уже отредактирован."
 #~ msgid "General::Revision Graph"
