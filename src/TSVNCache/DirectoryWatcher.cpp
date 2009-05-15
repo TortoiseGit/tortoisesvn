@@ -255,6 +255,7 @@ void CDirectoryWatcher::WorkerThread()
 	WCHAR * pFound = NULL;
 	while (m_bRunning)
 	{
+		CleanupWatchInfo();
 		if (watchedPaths.GetCount())
 		{
             // Any incoming notifications?
@@ -281,6 +282,7 @@ void CDirectoryWatcher::WorkerThread()
                 // This will also delete the old completion port
 
 				ClearInfoMap();
+				CleanupWatchInfo();
 
                 for (int i=0; i<watchedPaths.GetCount(); ++i)
 				{
@@ -332,6 +334,7 @@ void CDirectoryWatcher::WorkerThread()
                         pDirInfo->CloseDirectoryHandle();
 
 						ClearInfoMap();
+						CleanupWatchInfo();
 						delete pDirInfo;
 						pDirInfo = NULL;
 
@@ -356,6 +359,7 @@ void CDirectoryWatcher::WorkerThread()
                         pDirInfo->CloseDirectoryHandle();
 
 						ClearInfoMap();
+						CleanupWatchInfo();
 						delete pDirInfo;
 						pDirInfo = NULL;
 						watchedPaths.RemovePath(watchedPath);
@@ -383,7 +387,6 @@ void CDirectoryWatcher::WorkerThread()
                         if (   (pdi->m_hDir == INVALID_HANDLE_VALUE)
                             || (watchInfoMap.find(pdi->m_hDir) == watchInfoMap.end()))
                         {
-							CleanupWatchInfo();
 							continue;
                         }
 					}
