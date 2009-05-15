@@ -67,7 +67,6 @@ private:
 	CComAutoCriticalSection m_critSecPath;
 
 	CTSVNPath	m_currentStatusFetchingPath;
-	DWORD		m_currentStatusFetchingPathTicks;
 	// The cache of files and directories within this directory
 	typedef std::map<CString, CStatusCacheEntry> CacheEntryMap; 
 	CacheEntryMap m_entryCache; 

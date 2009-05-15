@@ -29,7 +29,6 @@ CCachedDirectory::CCachedDirectory(void)
 {
 	m_entriesFileTime = 0;
 	m_propsFileTime = 0;
-	m_currentStatusFetchingPathTicks = 0;
 	m_bCurrentFullStatusValid = false;
 	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 	m_bRecursive = true;
@@ -46,7 +45,6 @@ CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
 	m_directoryPath = directoryPath;
 	m_entriesFileTime = 0;
 	m_propsFileTime = 0;
-	m_currentStatusFetchingPathTicks = 0;
 	m_bCurrentFullStatusValid = false;
 	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 	m_bRecursive = true;
@@ -295,7 +293,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				AutoLocker pathlock(m_critSecPath);
 				if ((!bFetch)&&(!m_currentStatusFetchingPath.IsEmpty()))
 				{
-					if ((m_currentStatusFetchingPath.IsAncestorOf(path))&&((m_currentStatusFetchingPathTicks + 10000)<GetTickCount()))
+					if (m_currentStatusFetchingPath.IsAncestorOf(path))
 					{
 						ATLTRACE(_T("returning empty status (status fetch in progress) for %s\n"), path.GetWinPath());
 						m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
@@ -331,10 +329,11 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		AutoLocker pathlock(m_critSecPath);
 		if ((!bFetch)&&(!m_currentStatusFetchingPath.IsEmpty()))
 		{
-			if ((m_currentStatusFetchingPath.IsAncestorOf(path))&&((m_currentStatusFetchingPathTicks + 1000)<GetTickCount()))
+			if (m_currentStatusFetchingPath.IsAncestorOf(path))
 			{
 				ATLTRACE(_T("returning empty status (status fetch in progress) for %s\n"), path.GetWinPath());
 				m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
+				CSVNStatusCache::Instance().AddFolderForCrawling(m_directoryPath.GetDirectory());
 				return CStatusCacheEntry();
 			}
 		}
@@ -373,7 +372,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			AutoLocker pathlock(m_critSecPath);
 			if ((!bFetch)&&(!m_currentStatusFetchingPath.IsEmpty()))
 			{
-				if ((m_currentStatusFetchingPath.IsAncestorOf(path))&&((m_currentStatusFetchingPathTicks + 1000)<GetTickCount()))
+				if (m_currentStatusFetchingPath.IsAncestorOf(path))
 				{
 					ATLTRACE(_T("returning empty status (status fetch in progress) for %s\n"), path.GetWinPath());
 					m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
@@ -395,7 +394,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			{
 				AutoLocker pathlock(m_critSecPath);
 				m_currentStatusFetchingPath = m_directoryPath;
-				m_currentStatusFetchingPathTicks = GetTickCount();
 			}
 			ATLTRACE(_T("svn_cli_stat for '%s' (req %s)\n"), m_directoryPath.GetWinPath(), path.GetWinPath());
 			svn_error_t* pErr = svn_client_status4 (
@@ -830,6 +828,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 	DWORD now = GetTickCount();
 	if (m_entryCache.size() == 0)
 		return;
+	// TODO: optimize!
 	for (itMembers = m_entryCache.begin(); itMembers != m_entryCache.end(); ++itMembers)
 	{
 		if (itMembers->first)
