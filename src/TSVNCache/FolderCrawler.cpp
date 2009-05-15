@@ -187,7 +187,6 @@ void CFolderCrawler::WorkerThread()
 			if ((m_foldersToUpdate.empty())&&(m_pathsToUpdate.empty()))
 			{
 				// Nothing left to do 
-				Sleep(200);
 				break;
 			}
 			currentTicks = GetTickCount();
@@ -203,16 +202,17 @@ void CFolderCrawler::WorkerThread()
 						m_bPathsAddedSinceLastCrawl = false;
 					}
 					workingPath = m_pathsToUpdate.front();
-					if (DWORD(workingPath.GetCustomData()) < currentTicks)
-						m_pathsToUpdate.pop_front();
+					m_pathsToUpdate.pop_front();
+					if ((DWORD(workingPath.GetCustomData()) >= currentTicks) ||
+						((!m_blockedPath.IsEmpty())&&(m_blockedPath.IsAncestorOf(workingPath))))
+					{
+						// move the path to the end of the list
+						m_pathsToUpdate.push_back(workingPath);
+						if (m_pathsToUpdate.size() < 3)
+							Sleep(200);
+						continue;
+					}
 				}
-				if (DWORD(workingPath.GetCustomData()) >= currentTicks)
-				{
-					Sleep(200);
-					continue;
-				}
-				if ((!m_blockedPath.IsEmpty())&&(m_blockedPath.IsAncestorOf(workingPath)))
-					continue;
 				// don't crawl paths that are excluded
 				if (!CSVNStatusCache::Instance().IsPathAllowed(workingPath))
 					continue;
@@ -371,16 +371,17 @@ void CFolderCrawler::WorkerThread()
 					// now when crawling.
 					workingPath = CTSVNPath(m_foldersToUpdate.front().GetWinPath());
 					workingPath.SetCustomData(m_foldersToUpdate.front().GetCustomData());
-					if (DWORD(workingPath.GetCustomData()) < currentTicks)
-						m_foldersToUpdate.pop_front();
+					m_foldersToUpdate.pop_front();
+					if ((DWORD(workingPath.GetCustomData()) >= currentTicks) ||
+						((!m_blockedPath.IsEmpty())&&(m_blockedPath.IsAncestorOf(workingPath))))
+					{
+						// move the path to the end of the list
+						m_foldersToUpdate.push_back(workingPath);
+						if (m_foldersToUpdate.size() < 3)
+							Sleep(200);
+						continue;
+					}
 				}
-				if (DWORD(workingPath.GetCustomData()) >= currentTicks)
-				{
-					Sleep(200);
-					continue;
-				}
-				if ((!m_blockedPath.IsEmpty())&&(m_blockedPath.IsAncestorOf(workingPath)))
-					continue;
 				if (!CSVNStatusCache::Instance().IsPathAllowed(workingPath))
 					continue;
 
