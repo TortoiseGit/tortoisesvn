@@ -12,6 +12,8 @@
 
 Version 1.6.3
 - CHG: Some small improvements to the status cache. (Stefan)
+- CHG: When diffing from the log dialog, the peg revision is set to
+       the selected revision instead of HEAD. (Stefan)
 - BUG: If a commit failed, TSVN could crash in case the svn library returned
        an empty error object. (Stefan)
 - BUG: The merge options to ignore whitespaces were ignored. (Stefan)

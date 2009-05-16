@@ -1957,7 +1957,10 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
 
 	SVNDiff diff(this, this->m_hWnd, true);
 	diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-	diff.SetHEADPeg(m_LogRevision);
+	// since we have the direct urls here and revisions, we set the head peg
+	// revision to rev1.
+	// see this thread for why: http://tortoisesvn.tigris.org/ds/viewMessage.do?dsForumId=4061&dsMessageId=2096879
+	diff.SetHEADPeg(rev1);
 	if (unified)
 	{
 		if (PromptShown())
