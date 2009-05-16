@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007, 2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -117,6 +117,21 @@ void CMergeAllDlg::OnOK()
 		break;
 	default:
 		m_depth = svn_depth_empty;
+		break;
+	}
+
+	int rb = GetCheckedRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES);
+	switch (rb)
+	{
+	case IDC_IGNOREWHITESPACECHANGES:
+		m_IgnoreSpaces = svn_diff_file_ignore_space_change;
+		break;
+	case IDC_IGNOREALLWHITESPACES:
+		m_IgnoreSpaces = svn_diff_file_ignore_space_all;
+		break;
+	case IDC_COMPAREWHITESPACES:
+	default:
+		m_IgnoreSpaces = svn_diff_file_ignore_space_none;
 		break;
 	}
 

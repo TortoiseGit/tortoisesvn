@@ -138,6 +138,7 @@ BOOL CMergeWizardOptions::OnWizardFinish()
 		((CMergeWizard*)GetParent())->m_depth = svn_depth_empty;
 		break;
 	}
+	((CMergeWizard*)GetParent())->m_IgnoreSpaces = GetIgnores();
 
 	return CMergeWizardBasePage::OnWizardFinish();
 }
@@ -223,6 +224,7 @@ void CMergeWizardOptions::OnBnClickedDryrun()
 	}
 
 	progDlg.SetDepth(pWizard->m_depth);
+	pWizard->m_IgnoreSpaces = GetIgnores();
 	progDlg.SetDiffOptions(SVN::GetOptionsString(pWizard->m_bIgnoreEOL, pWizard->m_IgnoreSpaces));
 	progDlg.DoModal();
 }
@@ -231,4 +233,26 @@ BOOL CMergeWizardOptions::PreTranslateMessage(MSG* pMsg)
 {
 	m_tooltips.RelayEvent(pMsg);
 	return CMergeWizardBasePage::PreTranslateMessage(pMsg);
+}
+
+svn_diff_file_ignore_space_t CMergeWizardOptions::GetIgnores()
+{
+	svn_diff_file_ignore_space_t ignores = svn_diff_file_ignore_space_none;
+
+	int rb = GetCheckedRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES);
+	switch (rb)
+	{
+	case IDC_IGNOREWHITESPACECHANGES:
+		ignores = svn_diff_file_ignore_space_change;
+		break;
+	case IDC_IGNOREALLWHITESPACES:
+		ignores = svn_diff_file_ignore_space_all;
+		break;
+	case IDC_COMPAREWHITESPACES:
+	default:
+		ignores = svn_diff_file_ignore_space_none;
+		break;
+	}
+
+	return ignores;
 }
