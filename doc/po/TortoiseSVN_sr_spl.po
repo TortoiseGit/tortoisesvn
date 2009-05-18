@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-04-23 20:52 +0000\n"
-"PO-Revision-Date: 2009-04-27 22:27+0100\n"
+"POT-Creation-Date: 2009-05-13 22:33 +0000\n"
+"PO-Revision-Date: 2009-05-18 19:27+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8097,6 +8097,10 @@ msgstr "Rekurzija u neverzionisanim imenicima "
 msgid "If this box is checked (default state), then whenever the status of an unversioned folder is shown in the <guilabel>Add</guilabel>, <guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> dialog, every child file and folder is also shown. If you uncheck this box, only the unversioned parent is shown. Unchecking reduces clutter in these dialogs. In that case if you select an unversioned folder for Add, it is added recursively."
 msgstr "Ovaj boks je čekiran (uobičajeno stanje), zatim kadgod je status neverzionisani imenik prikazan u <guilabel>Dodaj</guilabel>, <guilabel>Ureži</guilabel> ili <guilabel>Privera  Modifikacija</guilabel> dijalog, svaki potomački fajl i imenik je takođe prikazan. Ako otčekirate ovaj boks, samo neverzionisani predak je prikazan. Otčekivanje redukuje gužvu u ovim dijalozima. U ovom slučaju ako izaberete neverzionisani imenik za Dodaj, dodaje se rekurzivno."
 
+#. (para)
+msgid "In the <guilabel>Check for Modifications</guilabel> dialog you can opt to see ignored items. If this box is checked then whenever an ignored folder is found, all child items will be shown as well."
+msgstr "U dijalogu <guilabel>Provera izmena</guilabel> možete podesiti opciju da vidite zanemarene stavke. Ako je ovaj boks čekiran onda će uvek kada  se nađe zanemareni imenik biti prikazane sve zanemarene stavke. "
+
 #. (term)
 msgid "Use auto-completion of file paths and keywords"
 msgstr "Koristi autokompletiranje fajl putanja i ključnih reči"
@@ -11211,9 +11215,13 @@ msgstr "Otvara dijalog relociranja. <placeholder-1/> specificira putanju radne k
 msgid "Opens the help file."
 msgstr "Otvara fajl pomoći."
 
+#. (option)
+msgid "/remote"
+msgstr "/daljinski"
+
 #. (entry)
-msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory."
-msgstr "Otvara proveri-za-izmene dijalog. <placeholder-1/> specificira imenik radne kopije."
+msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory. If <placeholder-2/> is specified, the dialog contacts the repository immediately on startup, as if the user clicked on the \"Check repository\" button."
+msgstr "Otvara dijalog provera-izmena. <placeholder-1/> specificira  imenik radne kopije. Ako je  <placeholder-2/> specificiran, dijalog odmah pri startu kontaktira spremište, kao kad korisnik klikne na \"Proveri spremište\"  dugme."
 
 #. (option)
 #. (option)
@@ -12860,19 +12868,3 @@ msgstr "Milorad Popović <MiloradSPopovic@gmail.com>"
 #. (None)
 msgid "translator-translation"
 msgstr "Prevod"
-
-#~ msgid ""
-#~ "<option>/closeonend:4</option> auto close if no errors, conflicts and "
-#~ "merges for local operations"
-#~ msgstr ""
-#~ "<option>/closeonend:4</option>ауто затварање ако нема грешака, конфликата "
-#~ "и стапања за локалне операције"
-#~ msgid ""
-#~ "Nodes classified as tags may be blended with this color. If you use tag "
-#~ "folding to save space, tags are marked on the copy source using a block "
-#~ "in this color."
-#~ msgstr ""
-#~ "Чворови означени као ознаке могу бити мешани са овим бојама. Ако "
-#~ "користите знак именовање да чувате простор, знаци су означени у извору "
-#~ "копије коришћењем блока у овој боји."
-
