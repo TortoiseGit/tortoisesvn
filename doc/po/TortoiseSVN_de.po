@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-04-23 20:52 +0000\n"
-"PO-Revision-Date: 2009-04-24 10:50+0100\n"
+"POT-Creation-Date: 2009-05-19 06:41 +0000\n"
+"PO-Revision-Date: 2009-05-19 08:44+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8134,6 +8134,10 @@ msgstr "Rekursiv in nicht versionierte Verzeichnisse gehen"
 msgid "If this box is checked (default state), then whenever the status of an unversioned folder is shown in the <guilabel>Add</guilabel>, <guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> dialog, every child file and folder is also shown. If you uncheck this box, only the unversioned parent is shown. Unchecking reduces clutter in these dialogs. In that case if you select an unversioned folder for Add, it is added recursively."
 msgstr "Wenn diese Option aktiviert ist (Vorgabe), werden jedes Mal, wenn ein nicht versionierter Ordner im <quote>Hinzufügen</quote>-, <quote>Übertragen</quote>- oder <guilabel>Prüfe auf Änderungen</guilabel>-Dialog angezeigt wird, sämtliche Unterordner und Dateien dieses Ordners angezeigt. Sobald Sie die Option deaktivieren, wird nur der nicht versionierte Ordner angezeigt, was die Übersichtlichkeit in den Dialogen erhöht. Wenn Sie einen nicht versionierten Ordner zum Hinzufügen wählen, wird er in diesem Fall vollständig, rekursiv hinzugefügt."
 
+#. (para)
+msgid "In the <guilabel>Check for Modifications</guilabel> dialog you can opt to see ignored items. If this box is checked then whenever an ignored folder is found, all child items will be shown as well."
+msgstr "Im Dialog <guilabel>Auf Änderungen prüfen</guilabel> können Sie sich optional die ignorierten Objekte anzeigen lassen. Wenn diese Option aktiv ist, wird, sobald ein ignorierter Ordner gefunden wird, dieser mitsamt seiner Unterobjekte angezeigt."
+
 #. (term)
 msgid "Use auto-completion of file paths and keywords"
 msgstr "Dateinamen und Schlüsselwörter automatisch Vervollständigen"
@@ -11247,9 +11251,17 @@ msgstr "Zeigt den <guilabel>Umplatzieren</guilabel>-Dialog. Der <placeholder-1/>
 msgid "Opens the help file."
 msgstr "Öffnet die Hilfedatei"
 
+#. (option)
+msgid "/remote"
+msgstr "/remote"
+
+#. (guilabel)
+msgid "Check repository"
+msgstr "Projektarchiv prüfen"
+
 #. (entry)
-msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory."
-msgstr "Öffnet den <guilabel>Prüfe auf Änderungen</guilabel>-Dialog. Der <placeholder-1/> bezeichnet die Arbeitskopie."
+msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory. If <placeholder-2/> is specified, the dialog contacts the repository immediately on startup, as if the user clicked on the <placeholder-3/> button."
+msgstr "Öffnet den <guilabel>Auf Änderungen prüfen</guilabel>-Dialog. <placeholder-1/> legt das die Arbeitskopie fest.  Falls <placeholder-2/> angegeben wird, kontaktiert der Dialog beim Start das Projektarchiv, als ob der Anwender auf <placeholder-3/> geklickt hätte."
 
 #. (option)
 #. (option)
@@ -12911,6 +12923,12 @@ msgstr ""
 msgid "translator-translation"
 msgstr "Übersetzung"
 
+#~ msgid ""
+#~ "Opens the check-for-modifications dialog. The <placeholder-1/> specifies "
+#~ "the working copy directory."
+#~ msgstr ""
+#~ "Öffnet den <guilabel>Prüfe auf Änderungen</guilabel>-Dialog. Der "
+#~ "<placeholder-1/> bezeichnet die Arbeitskopie."
 #~ msgid ""
 #~ "<option>/closeonend:4</option> auto close if no errors, conflicts and "
 #~ "merges for local operations"
