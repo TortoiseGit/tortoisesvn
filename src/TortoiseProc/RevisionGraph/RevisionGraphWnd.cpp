@@ -438,7 +438,8 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 	SetFocus();
 	bool bHit = false;
 	bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
-	if (!m_bShowOverview || !m_OverviewRect.PtInRect(point))
+    bool bOverview = m_bShowOverview && m_OverviewRect.PtInRect(point);
+	if (! bOverview)
 	{
         const CRevisionGraphState::SVisibleGlyph* hitGlyph 
             = GetHitGlyph (point);
@@ -487,7 +488,7 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
         }
     }
 
-    if ((!bHit)&&(!bControl))
+    if ((!bHit)&&(!bControl)&&(!bOverview))
 	{
 		m_SelectedEntry1 = NULL;
 		m_SelectedEntry2 = NULL;
@@ -1335,6 +1336,8 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
             CRect viewRect = GetViewRect();
 			int x = (int)((point.x-m_OverviewRect.left - (m_OverviewPosRect.Width()/2)) / m_previewZoom  * m_fZoomFactor);
 			int y = (int)((point.y - (m_OverviewPosRect.Height()/2)) / m_previewZoom  * m_fZoomFactor);
+			x = max(0, x);
+			y = max(0, y);
 			SetScrollbars(y, x);
 			Invalidate(FALSE);
 			return __super::OnMouseMove(nFlags, point);
