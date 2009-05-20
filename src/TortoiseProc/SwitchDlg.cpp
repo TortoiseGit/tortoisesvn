@@ -160,6 +160,11 @@ void CSwitchDlg::OnOK()
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
 
+	if (m_URL.IsEmpty())
+	{
+		ShowBalloon(IDC_URLCOMBO, IDS_ERR_MUSTBEURL);
+		return;
+	}
 	UpdateData(FALSE);
 	CResizableStandAloneDialog::OnOK();
 }
