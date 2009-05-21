@@ -231,7 +231,14 @@ void CRepositoryInfo::CData::Load (const CString& fileName)
     // format ID
 
     int version = 0;
-    stream >> version;
+	try
+	{
+		stream >> version;
+	}
+	catch (...)
+	{
+		return;
+	}
 
     // ignore newer formats
 
