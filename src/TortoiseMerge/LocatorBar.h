@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008 - TortoiseSVN
+// Copyright (C) 2006-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "registry.h"
 
 class CMainFrame;
 
@@ -64,6 +65,7 @@ protected:
 	CDWordArray		m_arBottomIdent;
 	CDWordArray		m_arBottomState;
 
+	CRegDWORD		m_regUseFishEye;
 	DECLARE_MESSAGE_MAP()
 public:
 	CMainFrame *	m_pMainFrm;
