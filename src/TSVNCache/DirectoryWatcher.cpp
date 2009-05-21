@@ -260,6 +260,8 @@ void CDirectoryWatcher::WorkerThread()
 		{
             // Any incoming notifications?
 
+			pdi = NULL;
+			numBytes = 0;
             if (   (m_hCompPort == INVALID_HANDLE_VALUE)
                 || !GetQueuedCompletionStatus(m_hCompPort,
 											  &numBytes,
@@ -375,6 +377,8 @@ void CDirectoryWatcher::WorkerThread()
 				if (!m_bRunning)
 					return;
 
+				if (numBytes == 0)
+					continue;
 				// NOTE: the longer this code takes to execute until ReadDirectoryChangesW
 				// is called again, the higher the chance that we miss some
 				// changes in the file system! 
@@ -599,6 +603,7 @@ bool CDirectoryWatcher::CDirWatchInfo::CloseDirectoryHandle()
 	if (m_hDevNotify != INVALID_HANDLE_VALUE)
 	{
 		UnregisterDeviceNotification(m_hDevNotify);
+		m_hDevNotify = INVALID_HANDLE_VALUE;
 	}
 	return b;
 }
