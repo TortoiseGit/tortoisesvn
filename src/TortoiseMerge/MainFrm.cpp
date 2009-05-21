@@ -803,7 +803,7 @@ void CMainFrame::UpdateLayout()
 	if (m_bInitSplitter)
 	{
 		CRect cr, rclocbar;
-		GetWindowRect(&cr);
+		GetClientRect(&cr);
 		int width = cr.Width();
 		if (::IsWindow(m_wndLocatorBar) && m_wndLocatorBar.IsWindowVisible())
 		{
