@@ -1183,7 +1183,13 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 			const tr1::sregex_iterator end;
 			string s = msg;
 			LONG pos = 0;
-			for (tr1::sregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
+			// note:
+			// if start_pos is 0, we're styling from the beginning and let the ^ char match the beginning of the line
+			// that way, the ^ matches the very beginning of the log message and not the beginning of further lines.
+			// problem is: this only works *while* entering log messages. If a log message is pasted in whole or
+			// multiple lines are pasted, start_pos can be 0 and styling goes over multiple lines. In that case, those
+			// additional line starts also match ^
+			for (tr1::sregex_iterator it(s.begin(), s.end(), regCheck, start_pos != 0 ? tr1::regex_constants::match_not_bol : tr1::regex_constants::match_default); it != end; ++it)
 			{
 				// clear the styles up to the match position
 				Call(SCI_SETSTYLING, it->position(0)-pos, STYLE_DEFAULT);
@@ -1194,7 +1200,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 				LONG matchedpos = 0;
 				for (tr1::sregex_iterator it2(matchedString.begin(), matchedString.end(), regBugID); it2 != end; ++it2)
 				{
-					ATLTRACE(_T("matched id : %s\n"), (LPCWSTR)(*it2)[0].str().c_str());
+					ATLTRACE(_T("matched id : %s\n"), string((*it2)[0]).c_str());
 
 					// bold style up to the id match
 					ATLTRACE("position = %ld\n", it2->position(0));
@@ -1204,6 +1210,10 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 					if ((*it2)[0].str().size())
 						Call(SCI_SETSTYLING, (*it2)[0].str().size(), STYLE_ISSUEBOLDITALIC);
 					matchedpos = it2->position(0) + (*it2)[0].str().size();
+				}
+				if ((matchedpos)&&(matchedpos < (LONG)matchedString.size()))
+				{
+					Call(SCI_SETSTYLING, matchedString.size() - matchedpos, STYLE_ISSUEBOLD);
 				}
 				pos = it->position(0) + matchedString.size();
 			}

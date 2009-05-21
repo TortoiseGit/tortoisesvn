@@ -18,6 +18,8 @@ Version 1.6.3
        an empty error object. (Stefan)
 - BUG: The merge options to ignore whitespaces were ignored. (Stefan)
 - BUG: The switch dialog allowed an empty url. (Stefan)
+- BUG: bugtraq: texts in the commit dialog were colored/linked wrong
+       if the second regex matched not at the end of the first regex. (Stefan)
 
 Version 1.6.2
 - BUG: Error message about non-LF commit messages when using messages with
