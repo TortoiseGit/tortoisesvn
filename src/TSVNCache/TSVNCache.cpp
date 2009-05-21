@@ -444,44 +444,30 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				}
 				break;
 			case DBT_DEVICEREMOVEPENDING:
-				ATLTRACE("WM_DEVICECHANGE with DBT_DEVICEREMOVEPENDING\n");
-				if (phdr->dbch_devicetype == DBT_DEVTYP_HANDLE)
-				{
-					DEV_BROADCAST_HANDLE * phandle = (DEV_BROADCAST_HANDLE*)lParam;
-					CSVNStatusCache::Instance().WaitToWrite();
-					CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
-					CSVNStatusCache::Instance().Done();
-				}
-				else
-				{
-					CSVNStatusCache::Instance().WaitToWrite();
-					CSVNStatusCache::Instance().CloseWatcherHandles(INVALID_HANDLE_VALUE);
-					CSVNStatusCache::Instance().Done();
-				}
-				break;
 			case DBT_DEVICEQUERYREMOVE:
-				ATLTRACE("WM_DEVICECHANGE with DBT_DEVICEQUERYREMOVE\n");
-				if (phdr->dbch_devicetype == DBT_DEVTYP_HANDLE)
-				{
-					DEV_BROADCAST_HANDLE * phandle = (DEV_BROADCAST_HANDLE*)lParam;
-					CSVNStatusCache::Instance().WaitToWrite();
-					CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
-					CSVNStatusCache::Instance().Done();
-				}
-				else
-				{
-					CSVNStatusCache::Instance().WaitToWrite();
-					CSVNStatusCache::Instance().CloseWatcherHandles(INVALID_HANDLE_VALUE);
-					CSVNStatusCache::Instance().Done();
-				}
-				break;
 			case DBT_DEVICEREMOVECOMPLETE:
-				ATLTRACE("WM_DEVICECHANGE with DBT_DEVICEREMOVECOMPLETE\n");
+				ATLTRACE("WM_DEVICECHANGE with DBT_DEVICEREMOVEPENDING/QUERYREMOVE/REMOVECOMPLETE\n");
 				if (phdr->dbch_devicetype == DBT_DEVTYP_HANDLE)
 				{
 					DEV_BROADCAST_HANDLE * phandle = (DEV_BROADCAST_HANDLE*)lParam;
 					CSVNStatusCache::Instance().WaitToWrite();
 					CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
+					CSVNStatusCache::Instance().Done();
+				}
+				else if (phdr->dbch_devicetype == DBT_DEVTYP_VOLUME)
+				{
+					DEV_BROADCAST_VOLUME * pVolume = (DEV_BROADCAST_VOLUME*)lParam;
+					CSVNStatusCache::Instance().WaitToWrite();
+					for (BYTE i = 0; i < 26; ++i)
+					{
+						if (pVolume->dbcv_unitmask & (1 << i))
+						{
+							TCHAR driveletter = 'A' + i;
+							CString drive = CString(driveletter);
+							drive += _T(":\\");
+							CSVNStatusCache::Instance().CloseWatcherHandles(CTSVNPath(drive));
+						}
+					}
 					CSVNStatusCache::Instance().Done();
 				}
 				else

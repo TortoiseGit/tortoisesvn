@@ -20,6 +20,8 @@ Version 1.6.3
 - BUG: The switch dialog allowed an empty url. (Stefan)
 - BUG: bugtraq: texts in the commit dialog were colored/linked wrong
        if the second regex matched not at the end of the first regex. (Stefan)
+- BUG: The status cache didn't release open handles long enough for
+       drives to be able to unmount without force. (Stefan)
 
 Version 1.6.2
 - BUG: Error message about non-LF commit messages when using messages with
