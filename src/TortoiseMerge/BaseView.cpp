@@ -1981,6 +1981,23 @@ void CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 	ScrollAllToLine(nTopPos, FALSE);
 	RecalcAllVertScrollBars(TRUE);
 	m_nCaretGoalPos = 0;
+
+	if (m_pwndBottom)
+	{
+		m_pwndBottom->m_ptCaretPos = m_ptCaretPos;
+		m_pwndBottom->UpdateCaret();
+	}
+	if (m_pwndLeft)
+	{
+		m_pwndLeft->m_ptCaretPos = m_ptCaretPos;
+		m_pwndLeft->UpdateCaret();
+	}
+	if (m_pwndRight)
+	{
+		m_pwndRight->m_ptCaretPos = m_ptCaretPos;
+		m_pwndRight->UpdateCaret();
+	}
+
 	UpdateCaret();
 	ShowDiffLines(nCenterPos);
 }
