@@ -1867,7 +1867,7 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
 
 		if (!Checkout(urls[i], checkoutdir, m_Revision, m_Revision, m_depth, m_options & ProgOptIgnoreExternals, DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), TRUE))))
 		{
-			if (m_ProgList.GetItemCount()!=0)
+			if (m_ProgList.GetItemCount()>1)
 			{
 				ReportSVNError();
 				return false;
