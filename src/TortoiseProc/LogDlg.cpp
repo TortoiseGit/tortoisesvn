@@ -2441,6 +2441,8 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 										}
 										if (bInsert)
 											m_logEntries.insert(itinsert, pLogItem);
+										else
+											delete pLogItem;
 										int selMark = m_LogList.GetSelectionMark();
 										// now start filter the log list
 										InterlockedExchange(&m_bNoDispUpdates, TRUE);
