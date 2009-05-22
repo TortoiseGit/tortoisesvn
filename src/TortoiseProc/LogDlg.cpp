@@ -1609,7 +1609,7 @@ void CLogDlg::OnOK()
 {
 	// since the log dialog is also used to select revisions for other
 	// dialogs, we have to do some work before closing this dialog
-	if (GetFocus() != GetDlgItem(IDOK))
+	if ((GetDlgItem(IDOK)->IsWindowVisible()) && (GetFocus() != GetDlgItem(IDOK)))
 		return;	// if the "OK" button doesn't have the focus, do nothing: this prevents closing the dialog when pressing enter
 	if (!GetDlgItem(IDOK)->IsWindowVisible() && GetFocus() != GetDlgItem(IDCANCEL))
 		return; // the Cancel button works as the OK button. But if the cancel button has not the focus, do nothing.
@@ -2214,8 +2214,22 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 {
 	// Skip Ctrl-C when copying text out of the log message or search filter
 	BOOL bSkipAccelerator = ( pMsg->message == WM_KEYDOWN && pMsg->wParam=='C' && (GetFocus()==GetDlgItem(IDC_MSGVIEW) || GetFocus()==GetDlgItem(IDC_SEARCHEDIT) ) && GetKeyState(VK_CONTROL)&0x8000 );
-	if (pMsg->message == WM_KEYDOWN && pMsg->wParam=='\r')
+	if (pMsg->message == WM_KEYDOWN && pMsg->wParam==VK_RETURN)
 	{
+		if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+		{
+			if ( GetDlgItem(IDOK)->IsWindowVisible() )
+			{
+				GetDlgItem(IDOK)->SetFocus();
+				PostMessage(WM_COMMAND, IDOK);
+			}
+			else
+			{
+				GetDlgItem(IDCANCEL)->SetFocus();
+				PostMessage(WM_COMMAND, IDOK);
+			}
+			return TRUE;
+		}
 		if (GetFocus()==GetDlgItem(IDC_LOGLIST))
 		{
 			if (CRegDWORD(_T("Software\\TortoiseSVN\\DiffByDoubleClickInLog"), FALSE))
