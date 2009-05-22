@@ -132,7 +132,6 @@ void CDirectoryWatcher::BlockPath(const CTSVNPath& path)
 	blockedPath = path;
 	// block the path from being watched for 4 seconds
 	blockTickCount = GetTickCount()+4000;
-	ATLTRACE(_T("Blocking path: %s\n"), path.GetWinPath());
 }
 
 bool CDirectoryWatcher::AddPath(const CTSVNPath& path, bool bCloseInfoMap)
@@ -274,7 +273,10 @@ void CDirectoryWatcher::WorkerThread()
 				if (!m_bRunning)
 					return;
 
-                // We must sync the whole section because other threads may
+				CloseHandle(m_hCompPort);
+				m_hCompPort = INVALID_HANDLE_VALUE;
+
+				// We must sync the whole section because other threads may
                 // receive "AddPath" calls that will delete the completion
                 // port *while* we are adding references to it .
 
@@ -313,9 +315,22 @@ void CDirectoryWatcher::WorkerThread()
 					NotificationFilter.dbch_handle = hDir;
 					// RegisterDeviceNotification sends a message to the UI thread:
 					// make sure we *can* send it and that the UI thread isn't waiting on a lock
+					int numPaths = watchedPaths.GetCount();
+					size_t numWatch = watchInfoMap.size();
 					lock.Unlock();
 					NotificationFilter.dbch_hdevnotify = RegisterDeviceNotification(hWnd, &NotificationFilter, DEVICE_NOTIFY_WINDOW_HANDLE);
 					lock.Lock();
+					// since we released the lock to prevent a deadlock with the UI thread,
+					// it could happen that new paths were added to watch, or another thread
+					// could have cleared our info map.
+					// if that happened, we have to restart watching all paths again.
+					if ((numPaths != watchedPaths.GetCount()) || (numWatch != watchInfoMap.size()))
+					{
+						CloseHandle(hDir);
+						ClearInfoMap();
+						CleanupWatchInfo();
+						break;
+					}
 
 					CDirWatchInfo * pDirInfo = new CDirWatchInfo(hDir, watchedPath);
 					pDirInfo->m_hDevNotify = NotificationFilter.dbch_hdevnotify;

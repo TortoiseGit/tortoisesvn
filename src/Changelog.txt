@@ -25,6 +25,8 @@ Version 1.6.3
 - BUG: The url browse button in the checkout/export dialog wasn't enabled
        even if an url was entered to browse for. (Stefan)
 - BUG: A checkout could fail due to a wrong peg revision. (Stefan)
+- BUG: The status cache could fail to monitor working copies 
+       for changes. (Stefan)
 
 Version 1.6.2
 - BUG: Error message about non-LF commit messages when using messages with
