@@ -208,6 +208,13 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				pTheOtherPic->OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
 		}
 		break;
+	case WM_MOUSEHWHEEL:
+		{
+			OnMouseWheel(GET_KEYSTATE_WPARAM(wParam)|MK_SHIFT, GET_WHEEL_DELTA_WPARAM(wParam));
+			if (bFitSizes)
+				pTheOtherPic->OnMouseWheel(GET_KEYSTATE_WPARAM(wParam)|MK_SHIFT, GET_WHEEL_DELTA_WPARAM(wParam));
+		}
+		break;
 	case WM_LBUTTONDOWN:
 		SetFocus(*this);
 		ptPanStart.x = GET_X_LPARAM(lParam);

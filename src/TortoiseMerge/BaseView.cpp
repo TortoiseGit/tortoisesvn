@@ -31,6 +31,10 @@
 #define new DEBUG_NEW
 #endif
 
+#if (_WIN32_WINNT < 0x0600)
+#define WM_MOUSEHWHEEL                  0x020E
+#endif
+
 #define MARGINWIDTH 20
 #define HEADERHEIGHT 10
 
@@ -160,6 +164,7 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
 	ON_WM_DESTROY()
 	ON_WM_SIZE()
 	ON_WM_MOUSEWHEEL()
+	ON_WM_MOUSEHWHEEL()
 	ON_WM_SETCURSOR()
 	ON_WM_KILLFOCUS()
 	ON_WM_SETFOCUS()
@@ -1714,9 +1719,21 @@ BOOL CBaseView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 	return CView::OnMouseWheel(nFlags, zDelta, pt);
 }
 
+void CBaseView::OnMouseHWheel(UINT nFlags, short zDelta, CPoint pt)
+{
+	if (m_pwndLeft)
+		m_pwndLeft->OnDoMouseHWheel(nFlags, zDelta, pt);
+	if (m_pwndRight)
+		m_pwndRight->OnDoMouseHWheel(nFlags, zDelta, pt);
+	if (m_pwndBottom)
+		m_pwndBottom->OnDoMouseHWheel(nFlags, zDelta, pt);
+	if (m_pwndLocator)
+		m_pwndLocator->Invalidate();
+}
+
 void CBaseView::OnDoMouseWheel(UINT /*nFlags*/, short zDelta, CPoint /*pt*/)
 {
-	if (GetKeyState(VK_CONTROL)&0x8000)
+	if ((GetKeyState(VK_CONTROL)&0x8000)||(GetKeyState(VK_SHIFT)&0x8000))
 	{
 		// Ctrl-Wheel scrolls sideways
 		ScrollSide(-zDelta/30);
@@ -1731,6 +1748,26 @@ void CBaseView::OnDoMouseWheel(UINT /*nFlags*/, short zDelta, CPoint /*pt*/)
 		if (nTopLine >= nLineCount)
 			nTopLine = nLineCount - 1;
 		ScrollToLine(nTopLine, TRUE);
+	}
+}
+
+void CBaseView::OnDoMouseHWheel(UINT /*nFlags*/, short zDelta, CPoint /*pt*/)
+{
+	if ((GetKeyState(VK_CONTROL)&0x8000)||(GetKeyState(VK_SHIFT)&0x8000))
+	{
+		int nLineCount = GetLineCount();
+		int nTopLine = m_nTopLine;
+		nTopLine -= (zDelta/30);
+		if (nTopLine < 0)
+			nTopLine = 0;
+		if (nTopLine >= nLineCount)
+			nTopLine = nLineCount - 1;
+		ScrollToLine(nTopLine, TRUE);
+	}
+	else
+	{
+		// Ctrl-Wheel scrolls sideways
+		ScrollSide(-zDelta/30);
 	}
 }
 

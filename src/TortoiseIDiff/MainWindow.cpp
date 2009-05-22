@@ -31,7 +31,6 @@ tstring	CMainWindow::leftpictitle;
 tstring	CMainWindow::rightpicpath;
 tstring	CMainWindow::rightpictitle;
 
-
 bool CMainWindow::RegisterAndCreateWindow()
 {
 	WNDCLASSEX wcx; 
@@ -229,6 +228,30 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 				if (PtInRect(&rect, pt))
 				{
 					picWindow2.OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
+				}
+			}
+		}
+		break;
+	case WM_MOUSEHWHEEL:
+		{
+			// find out if the mouse cursor is over one of the views, and if
+			// it is, pass the mouse wheel message to that view
+			POINT pt;
+			DWORD ptW = GetMessagePos();
+			pt.x = GET_X_LPARAM(ptW);
+			pt.y = GET_Y_LPARAM(ptW);
+			RECT rect;
+			GetWindowRect(picWindow1, &rect);
+			if (PtInRect(&rect, pt))
+			{
+				picWindow1.OnMouseWheel(GET_KEYSTATE_WPARAM(wParam)|MK_SHIFT, GET_WHEEL_DELTA_WPARAM(wParam));
+			}
+			else
+			{
+				GetWindowRect(picWindow2, &rect);
+				if (PtInRect(&rect, pt))
+				{
+					picWindow2.OnMouseWheel(GET_KEYSTATE_WPARAM(wParam)|MK_SHIFT, GET_WHEEL_DELTA_WPARAM(wParam));
 				}
 			}
 		}

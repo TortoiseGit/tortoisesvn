@@ -46,6 +46,11 @@ static char THIS_FILE[] = __FILE__;
 
 using namespace Gdiplus;
 
+#if (_WIN32_WINNT < 0x0600)
+#define WM_MOUSEHWHEEL                  0x020E
+#endif
+
+
 enum RevisionGraphContextMenuCommands
 {
 	// needs to start with 1, since 0 is the return value if *nothing* is clicked on in the context menu
@@ -151,6 +156,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphWnd, CWnd)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
 	ON_WM_MOUSEWHEEL()
+	ON_WM_MOUSEHWHEEL()
 	ON_WM_CONTEXTMENU()
 	ON_WM_MOUSEMOVE()
 	ON_WM_LBUTTONUP()
@@ -905,12 +911,31 @@ BOOL CRevisionGraphWnd::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 {
 	if (m_bThreadRunning)
 		return __super::OnMouseWheel(nFlags, zDelta, pt);
-	int orientation = GetKeyState(VK_CONTROL)&0x8000 ? SB_HORZ : SB_VERT;
+	if (GetKeyState(VK_CONTROL)&0x8000)
+	{
+		DoZoom (max(0.1f, min (2.0f, m_fZoomFactor * (zDelta < 0 ? 0.9f : 1.1f))));
+	}
+	else
+	{
+		int orientation = GetKeyState(VK_SHIFT)&0x8000 ? SB_HORZ : SB_VERT;
+		int pos = GetScrollPos(orientation);
+		pos -= (zDelta);
+		SetScrollPos(orientation, pos);
+		Invalidate(FALSE);
+	}
+	return __super::OnMouseWheel(nFlags, zDelta, pt);
+}
+
+void CRevisionGraphWnd::OnMouseHWheel(UINT nFlags, short zDelta, CPoint pt)
+{
+	if (m_bThreadRunning)
+		return __super::OnMouseHWheel(nFlags, zDelta, pt);
+	int orientation = GetKeyState(VK_SHIFT)&0x8000 ? SB_VERT : SB_HORZ;
 	int pos = GetScrollPos(orientation);
 	pos -= (zDelta);
 	SetScrollPos(orientation, pos);
 	Invalidate(FALSE);
-	return __super::OnMouseWheel(nFlags, zDelta, pt);
+	return __super::OnMouseHWheel(nFlags, zDelta, pt);
 }
 
 bool CRevisionGraphWnd::UpdateSelectedEntry (const CVisibleGraphNode * clickedentry)

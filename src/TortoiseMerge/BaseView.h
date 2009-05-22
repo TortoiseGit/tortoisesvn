@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -113,6 +113,7 @@ protected:
 	afx_msg void	OnDestroy();
 	afx_msg void	OnSize(UINT nType, int cx, int cy);
 	afx_msg BOOL	OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);
+	afx_msg void	OnMouseHWheel(UINT nFlags, short zDelta, CPoint pt);
 	afx_msg BOOL	OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void	OnKillFocus(CWnd* pNewWnd);
 	afx_msg void	OnSetFocus(CWnd* pOldWnd);
@@ -160,6 +161,7 @@ protected:
 	void			RecalcAllHorzScrollBars(BOOL bPositionOnly = FALSE);
 
 	void			OnDoMouseWheel(UINT nFlags, short zDelta, CPoint pt);
+	void			OnDoMouseHWheel(UINT nFlags, short zDelta, CPoint pt);
 	void			OnDoHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar, CBaseView * master);
 	void			OnDoVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar, CBaseView * master);
 
