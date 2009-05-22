@@ -148,7 +148,9 @@ void CMergeWizardRevRange::OnBnClickedShowlog()
 {
 	if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
 		return;
-	CString url = m_URLCombo.GetString();
+
+	CString url;
+	m_URLCombo.GetWindowText(url);
 
 	if (!url.IsEmpty())
 	{
