@@ -22,6 +22,8 @@ Version 1.6.3
        if the second regex matched not at the end of the first regex. (Stefan)
 - BUG: The status cache didn't release open handles long enough for
        drives to be able to unmount without force. (Stefan)
+- BUG: The url browse button in the checkout/export dialog wasn't enabled
+       even if an url was entered to browse for. (Stefan)
 
 Version 1.6.2
 - BUG: Error message about non-LF commit messages when using messages with

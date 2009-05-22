@@ -384,10 +384,6 @@ void CCheckoutDlg::SetRevision(const SVNRev& rev)
 
 void CCheckoutDlg::OnCbnEditchangeUrlcombo()
 {
-	if (!m_bAutoCreateTargetName)
-		return;
-	if (m_sCheckoutDirOrig.IsEmpty())
-		return;
 	// find out what to use as the checkout directory name
 	UpdateData();
 	m_URLCombo.GetWindowText(m_URL);
@@ -397,6 +393,10 @@ void CCheckoutDlg::OnCbnEditchangeUrlcombo()
 		return;
 	}
 	GetDlgItem(IDC_BROWSE)->EnableWindow(TRUE);
+	if (!m_bAutoCreateTargetName)
+		return;
+	if (m_sCheckoutDirOrig.IsEmpty())
+		return;
 
 	CString tempURL = m_URL;
 	CString name = CAppUtils::GetProjectNameFromURL(m_URL);

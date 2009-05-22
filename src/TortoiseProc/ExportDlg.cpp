@@ -375,19 +375,19 @@ void CExportDlg::SetRevision(const SVNRev& rev)
 
 void CExportDlg::OnCbnEditchangeUrlcombo()
 {
-	if (!m_bAutoCreateTargetName)
-		return;
-	if (m_sExportDirOrig.IsEmpty())
-		return;
 	// find out what to use as the checkout directory name
 	UpdateData();
 	m_URLCombo.GetWindowText(m_URL);
 	if (m_URL.IsEmpty())
 	{
-		GetDlgItem(IDC_BROWSE)->EnableWindow(FALSE);
+		DialogEnableWindow(IDC_BROWSE, FALSE);
 		return;
 	}
-	GetDlgItem(IDC_BROWSE)->EnableWindow(TRUE);
+	DialogEnableWindow(IDC_BROWSE, TRUE);
+	if (!m_bAutoCreateTargetName)
+		return;
+	if (m_sExportDirOrig.IsEmpty())
+		return;
 	CString name = CAppUtils::GetProjectNameFromURL(m_URL);
 	m_strExportDirectory = m_sExportDirOrig+_T('\\')+name;
 	UpdateData(FALSE);
