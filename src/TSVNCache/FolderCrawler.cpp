@@ -168,7 +168,6 @@ void CFolderCrawler::WorkerThread()
 			if(m_lCrawlInhibitSet > 0)
 			{
 				// We're in crawl hold-off 
-				ATLTRACE("Crawl hold-off\n");
 				Sleep(200);
 				continue;
 			}
@@ -180,7 +179,6 @@ void CFolderCrawler::WorkerThread()
 			}
 			if ((m_blockReleasesAt < GetTickCount())&&(!m_blockedPath.IsEmpty()))
 			{
-				ATLTRACE(_T("stop blocking path %s\n"), m_blockedPath.GetWinPath());
 				m_blockedPath.Reset();
 			}
 	
@@ -257,7 +255,6 @@ void CFolderCrawler::WorkerThread()
 						workingPath = workingPath.GetContainingDirectory();	
 					} while(workingPath.IsAdminDir());
 
-					ATLTRACE(_T("Invalidating and refreshing folder: %s\n"), workingPath.GetWinPath());
 					{
 						AutoLocker print(critSec);
 						_stprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _T("Invalidating and refreshing folder: %s"), workingPath.GetWinPath());
@@ -284,7 +281,6 @@ void CFolderCrawler::WorkerThread()
 							if ((status != svn_wc_status_normal)&&(pCachedDir->GetCurrentFullStatus() != status))
 							{
 								CSVNStatusCache::Instance().UpdateShell(workingPath);
-								ATLTRACE(_T("shell update in crawler for %s\n"), workingPath.GetWinPath());
 							}
 						}
 						else
@@ -312,7 +308,6 @@ void CFolderCrawler::WorkerThread()
 					}
 					if (!workingPath.Exists())
 						continue;
-					ATLTRACE(_T("Updating path: %s\n"), workingPath.GetWinPath());
 					{
 						AutoLocker print(critSec);
 						_stprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _T("Updating path: %s"), workingPath.GetWinPath());
@@ -339,7 +334,6 @@ void CFolderCrawler::WorkerThread()
 					if (ce.GetEffectiveStatus() > svn_wc_status_unversioned)
 					{
 						CSVNStatusCache::Instance().UpdateShell(workingPath);
-						ATLTRACE(_T("shell update in folder crawler for %s\n"), workingPath.GetWinPath());
 					}
 					CSVNStatusCache::Instance().Done();
 					AutoLocker lock(m_critSec);
@@ -385,7 +379,6 @@ void CFolderCrawler::WorkerThread()
 				if (!CSVNStatusCache::Instance().IsPathAllowed(workingPath))
 					continue;
 
-				ATLTRACE(_T("%ld in queue - Crawling folder: %s\n"), m_foldersToUpdate.size(), workingPath.GetWinPath());
 				{
 					AutoLocker print(critSec);
 					_stprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _T("Crawling folder: %s"), workingPath.GetWinPath());
@@ -463,7 +456,6 @@ bool CFolderCrawler::SetHoldoff(DWORD milliseconds /* = 500*/)
 
 void CFolderCrawler::BlockPath(const CTSVNPath& path, DWORD ticks)
 {
-	ATLTRACE(_T("block path %s from being crawled\n"), path.GetWinPath());
 	m_blockedPath = path;
 	if (ticks == 0)
 		m_blockReleasesAt = GetTickCount()+10000;

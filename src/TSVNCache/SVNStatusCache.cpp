@@ -382,11 +382,8 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 		if (!IsWriter())
 		{
 			// upgrading our state to writer
-			ATLTRACE("trying to upgrade the state to \"Writer\"\n");
 			Done();
-			ATLTRACE("Returned \"Reader\" state\n");
 			WaitToWrite();
-			ATLTRACE("Got \"Writer\" state now\n");
 		}
 		// Since above there's a small chance that before we can upgrade to
 		// writer state some other thread gained writer state and changed
@@ -410,7 +407,6 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 			// again. If that's the case, just do nothing
 			if (path.IsDirectory()||(!path.Exists()))
 			{
-				ATLTRACE(_T("adding %s to our cache\n"), path.GetWinPath());
                 std::auto_ptr<CCachedDirectory> newcdir (new CCachedDirectory (path));
                 if (newcdir.get())
 				{
@@ -485,7 +481,6 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 			}
 		}
 	}
-	ATLTRACE(_T("ignored no good path %s\n"), path.GetWinPath());
 	AutoLocker lock(m_critSec);
 	m_mostRecentStatus = CStatusCacheEntry();
 	if (m_shellCache.ShowExcludedAsNormal() && path.IsDirectory() && m_shellCache.HasSVNAdminDir(path.GetWinPath(), true))

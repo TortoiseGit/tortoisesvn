@@ -295,7 +295,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				{
 					if (m_currentStatusFetchingPath.IsAncestorOf(path))
 					{
-						ATLTRACE(_T("returning empty status (status fetch in progress) for %s\n"), path.GetWinPath());
+						//ATLTRACE(_T("returning empty status (status fetch in progress) for %s\n"), path.GetWinPath());
 						m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 						return CStatusCacheEntry();
 					}
@@ -331,7 +331,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		{
 			if (m_currentStatusFetchingPath.IsAncestorOf(path))
 			{
-				ATLTRACE(_T("returning empty status (status fetch in progress) for %s\n"), path.GetWinPath());
+				//ATLTRACE(_T("returning empty status (status fetch in progress) for %s\n"), path.GetWinPath());
 				m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 				CSVNStatusCache::Instance().AddFolderForCrawling(m_directoryPath.GetDirectory());
 				return CStatusCacheEntry();
@@ -374,7 +374,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			{
 				if (m_currentStatusFetchingPath.IsAncestorOf(path))
 				{
-					ATLTRACE(_T("returning empty status (status fetch in progress) for %s\n"), path.GetWinPath());
+					//ATLTRACE(_T("returning empty status (status fetch in progress) for %s\n"), path.GetWinPath());
 					m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 					return CStatusCacheEntry();
 				}
@@ -395,7 +395,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				AutoLocker pathlock(m_critSecPath);
 				m_currentStatusFetchingPath = m_directoryPath;
 			}
-			ATLTRACE(_T("svn_cli_stat for '%s' (req %s)\n"), m_directoryPath.GetWinPath(), path.GetWinPath());
+			//ATLTRACE(_T("svn_cli_stat for '%s' (req %s)\n"), m_directoryPath.GetWinPath(), path.GetWinPath());
 			svn_error_t* pErr = svn_client_status4 (
 				NULL,
 				m_directoryPath.GetSVNApiPath(subPool),
@@ -415,7 +415,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				AutoLocker pathlock(m_critSecPath);
 				m_currentStatusFetchingPath.Reset();
 			}
-			ATLTRACE(_T("svn_cli_stat finished for '%s'\n"), m_directoryPath.GetWinPath(), path.GetWinPath());
 			if(pErr)
 			{
 				// Handle an error
@@ -439,7 +438,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				}
 				else
 				{
-					ATLTRACE("svn_cli_stat error, assume none status\n");
 					// Since we only assume a none status here due to svn_client_status()
 					// returning an error, make sure that this status times out soon.
 					CSVNStatusCache::Instance().m_folderCrawler.BlockPath(m_directoryPath, 2000);
@@ -447,10 +445,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 					return CStatusCacheEntry();
 				}
 			}
-		}
-		else
-		{
-			ATLTRACE("Skipped SVN status for unversioned folder\n");
 		}
 	}
 	// Now that we've refreshed our SVN status, we can see if it's 
