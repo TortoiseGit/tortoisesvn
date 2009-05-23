@@ -66,7 +66,6 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
 	/* The server-cert, client-cert, and client-cert-password providers. */
-	/* The server-cert, client-cert, and client-cert-password providers. */
 	svn_auth_get_platform_specific_provider (&provider, "windows", "ssl_server_trust", pool);
 	if (provider)
 		APR_ARRAY_PUSH(providers, svn_auth_provider_object_t *) = provider;
