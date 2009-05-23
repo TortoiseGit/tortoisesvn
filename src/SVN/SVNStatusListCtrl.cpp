@@ -4053,6 +4053,56 @@ void CSVNStatusListCtrl::SelectAll(bool bSelect, bool bIncludeNoCommits)
 	NotifyCheck();
 }
 
+void CSVNStatusListCtrl::Check(DWORD dwCheck)
+{
+	CWaitCursor waitCursor;
+	// block here so the LVN_ITEMCHANGED messages
+	// get ignored
+	m_bBlock = TRUE;
+	SetRedraw(FALSE);
+
+	int nListItems = GetItemCount();
+	m_nSelected = 0;
+
+	for (int i=0; i<nListItems; ++i)
+	{
+		FileEntry * entry = GetListEntry(i);
+		ASSERT(entry != NULL);
+		if (entry == NULL)
+			continue;
+
+		svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
+		DWORD showFlags = GetShowFlagsFromSVNStatus(status);
+		if (entry->IsLocked())
+			showFlags |= SVNSLC_SHOWLOCKS;
+		if (entry->switched)
+			showFlags |= SVNSLC_SHOWSWITCHED;
+		if (!entry->changelist.IsEmpty())
+			showFlags |= SVNSLC_SHOWINCHANGELIST;
+		if (entry->tree_conflicted)
+			showFlags |= SVNSLC_SHOWCONFLICTED;
+		if (entry->isNested) 
+			showFlags |= SVNSLC_SHOWNESTED;
+		if (entry->IsFolder())
+			showFlags |= SVNSLC_SHOWFOLDERS;
+		else
+			showFlags |= SVNSLC_SHOWFILES;
+
+		if ((showFlags & dwCheck)&&(entry->GetChangeList().Compare(SVNSLC_IGNORECHANGELIST)))
+		{
+			SetEntryCheck(entry, i, true);
+			m_nSelected++;
+		}
+		else
+			SetEntryCheck(entry, i, false);
+	}
+	// unblock before redrawing
+	m_bBlock = FALSE;
+	SetRedraw(TRUE);
+	GetStatisticsString();
+	NotifyCheck();
+}
+
 void CSVNStatusListCtrl::OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLVGETINFOTIP pGetInfoTip = reinterpret_cast<LPNMLVGETINFOTIP>(pNMHDR);
