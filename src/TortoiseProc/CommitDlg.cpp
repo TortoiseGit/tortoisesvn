@@ -72,7 +72,6 @@ void CCommitDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LOGMESSAGE, m_cLogMessage);
 	DDX_Check(pDX, IDC_SHOWUNVERSIONED, m_bShowUnversioned);
 	DDX_Check(pDX, IDC_SHOWEXTERNALS, m_bShowExternals);
-	DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
 	DDX_Text(pDX, IDC_BUGID, m_sBugID);
 	DDX_Check(pDX, IDC_KEEPLOCK, m_bKeepLocks);
 	DDX_Control(pDX, IDC_SPLITTER, m_wndSplitter);
@@ -80,7 +79,6 @@ void CCommitDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CCommitDlg, CResizableStandAloneDialog)
-	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_SHOWUNVERSIONED, OnBnClickedShowunversioned)
 	ON_BN_CLICKED(IDC_HISTORY, OnBnClickedHistory)
@@ -91,6 +89,7 @@ BEGIN_MESSAGE_MAP(CCommitDlg, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ADDFILE, OnFileDropped)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_CHECKCHANGED, &CCommitDlg::OnSVNStatusListCtrlCheckChanged)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_CHANGELISTCHANGED, &CCommitDlg::OnSVNStatusListCtrlChangelistChanged)
+	ON_REGISTERED_MESSAGE(CLinkControl::LK_LINKITEMCLICKED, &CCommitDlg::OnCheck)
 	ON_REGISTERED_MESSAGE(WM_AUTOLISTREADY, OnAutoListReady) 
 	ON_WM_TIMER()
     ON_WM_SIZE()
@@ -119,7 +118,6 @@ BOOL CCommitDlg::OnInitDialog()
 	UpdateData(FALSE);
 	
 	m_ListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS | SVNSLC_COLLOCK, _T("CommitDlg"));
-	m_ListCtrl.SetSelectButton(&m_SelectAll);
 	m_ListCtrl.SetStatLabel(GetDlgItem(IDC_STATISTICS));
 	m_ListCtrl.SetCancelBool(&m_bCancelled);
 	m_ListCtrl.SetEmptyString(IDS_COMMITDLG_NOTHINGTOCOMMIT);
@@ -139,7 +137,6 @@ BOOL CCommitDlg::OnInitDialog()
 	m_tooltips.AddTool(IDC_EXTERNALWARNING, IDS_COMMITDLG_EXTERNALS);
 	m_tooltips.AddTool(IDC_HISTORY, IDS_COMMITDLG_HISTORY_TT);
 	
-	m_SelectAll.SetCheck(BST_INDETERMINATE);
 	
 	GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(FALSE);
@@ -193,8 +190,30 @@ BOOL CCommitDlg::OnInitDialog()
 	GetWindowText(m_sWindowTitle);
 	
 	AdjustControlSize(IDC_SHOWUNVERSIONED);
-	AdjustControlSize(IDC_SELECTALL);
 	AdjustControlSize(IDC_KEEPLOCK);
+
+	m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKALL);
+	m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKNONE);
+	m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKUNVERSIONED);
+	m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKVERSIONED);
+	m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKADDED);
+	m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKDELETED);
+	m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKMODIFIED);
+	m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKFILES);
+	m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKDIRECTORIES);
+
+	// line up all controls and adjust their sizes.
+#define LINKSPACING 7
+	RECT rc = AdjustControlSize(IDC_SELECTLABEL);
+	rc = AdjustStaticSize(IDC_CHECKALL, rc, LINKSPACING);
+	rc = AdjustStaticSize(IDC_CHECKNONE, rc, LINKSPACING);
+	rc = AdjustStaticSize(IDC_CHECKUNVERSIONED, rc, LINKSPACING);
+	rc = AdjustStaticSize(IDC_CHECKVERSIONED, rc, LINKSPACING);
+	rc = AdjustStaticSize(IDC_CHECKADDED, rc, LINKSPACING);
+	rc = AdjustStaticSize(IDC_CHECKDELETED, rc, LINKSPACING);
+	rc = AdjustStaticSize(IDC_CHECKMODIFIED, rc, LINKSPACING);
+	rc = AdjustStaticSize(IDC_CHECKFILES, rc, LINKSPACING);
+	rc = AdjustStaticSize(IDC_CHECKDIRECTORIES, rc, LINKSPACING);
 
 	GetClientRect(m_DlgOrigRect);
 	m_cLogMessage.GetClientRect(m_LogMsgOrigRect);
@@ -206,13 +225,24 @@ BOOL CCommitDlg::OnInitDialog()
 	AddAnchor(IDC_COMMIT_TO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_MESSAGEGROUP, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_HISTORY, TOP_LEFT);
+
+	AddAnchor(IDC_SELECTLABEL, TOP_LEFT);
+	AddAnchor(IDC_CHECKALL, TOP_LEFT);
+	AddAnchor(IDC_CHECKNONE, TOP_LEFT);
+	AddAnchor(IDC_CHECKUNVERSIONED, TOP_LEFT);
+	AddAnchor(IDC_CHECKVERSIONED, TOP_LEFT);
+	AddAnchor(IDC_CHECKADDED, TOP_LEFT);
+	AddAnchor(IDC_CHECKDELETED, TOP_LEFT);
+	AddAnchor(IDC_CHECKMODIFIED, TOP_LEFT);
+	AddAnchor(IDC_CHECKFILES, TOP_LEFT);
+	AddAnchor(IDC_CHECKDIRECTORIES, TOP_LEFT);
+
 	AddAnchor(IDC_LOGMESSAGE, TOP_LEFT, TOP_RIGHT);
 	
 	AddAnchor(IDC_LISTGROUP, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SPLITTER, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SHOWUNVERSIONED, BOTTOM_LEFT);
-	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT);
 	AddAnchor(IDC_SHOWEXTERNALS, BOTTOM_LEFT);
 	AddAnchor(IDC_EXTERNALWARNING, BOTTOM_RIGHT);
 	AddAnchor(IDC_STATISTICS, BOTTOM_LEFT, BOTTOM_RIGHT);
@@ -614,9 +644,18 @@ UINT CCommitDlg::StatusThread()
 
 	DialogEnableWindow(IDOK, false);
 	DialogEnableWindow(IDC_SHOWUNVERSIONED, false);
-	DialogEnableWindow(IDC_SELECTALL, false);
 	GetDlgItem(IDC_EXTERNALWARNING)->ShowWindow(SW_HIDE);
 	DialogEnableWindow(IDC_EXTERNALWARNING, false);
+
+	DialogEnableWindow(IDC_CHECKALL, false);
+	DialogEnableWindow(IDC_CHECKNONE, false);
+	DialogEnableWindow(IDC_CHECKUNVERSIONED, false);
+	DialogEnableWindow(IDC_CHECKVERSIONED, false);
+	DialogEnableWindow(IDC_CHECKADDED, false);
+	DialogEnableWindow(IDC_CHECKDELETED, false);
+	DialogEnableWindow(IDC_CHECKMODIFIED, false);
+	DialogEnableWindow(IDC_CHECKFILES, false);
+	DialogEnableWindow(IDC_CHECKDIRECTORIES, false);
 
     // read the list of recent log entries before querying the WC for status
     // -> the user may select one and modify / update it while we are crawling the WC
@@ -731,13 +770,23 @@ UINT CCommitDlg::StatusThread()
 	if (m_bRunThread)
 	{
 		DialogEnableWindow(IDC_SHOWUNVERSIONED, true);
-		DialogEnableWindow(IDC_SELECTALL, true);
 		if (m_ListCtrl.HasChangeLists())
 			DialogEnableWindow(IDC_KEEPLISTS, true);
 		if (m_ListCtrl.HasExternalsFromDifferentRepos())
 			DialogEnableWindow(IDC_SHOWEXTERNALS, true);
 		if (m_ListCtrl.HasLocks())
 			DialogEnableWindow(IDC_KEEPLOCK, true);
+
+		DialogEnableWindow(IDC_CHECKALL, true);
+		DialogEnableWindow(IDC_CHECKNONE, true);
+		DialogEnableWindow(IDC_CHECKUNVERSIONED, true);
+		DialogEnableWindow(IDC_CHECKVERSIONED, true);
+		DialogEnableWindow(IDC_CHECKADDED, true);
+		DialogEnableWindow(IDC_CHECKDELETED, true);
+		DialogEnableWindow(IDC_CHECKMODIFIED, true);
+		DialogEnableWindow(IDC_CHECKFILES, true);
+		DialogEnableWindow(IDC_CHECKDIRECTORIES, true);
+
 		// we have the list, now signal the main thread about it
 		SendMessage(WM_AUTOLISTREADY);	// only send the message if the thread wasn't told to quit!
 	}
@@ -785,20 +834,6 @@ void CCommitDlg::OnCancel()
 	m_History.Save();
 	SaveSplitterPos();
 	CResizableStandAloneDialog::OnCancel();
-}
-
-void CCommitDlg::OnBnClickedSelectall()
-{
-	m_tooltips.Pop();	// hide the tooltips
-	UINT state = (m_SelectAll.GetState() & 0x0003);
-	if (state == BST_INDETERMINATE)
-	{
-		// It is not at all useful to manually place the checkbox into the indeterminate state...
-		// We will force this on to the unchecked state
-		state = BST_UNCHECKED;
-		m_SelectAll.SetCheck(state);
-	}
-	m_ListCtrl.SelectAll(state == BST_CHECKED);
 }
 
 BOOL CCommitDlg::PreTranslateMessage(MSG* pMsg)
@@ -1396,6 +1431,31 @@ LRESULT CCommitDlg::OnSVNStatusListCtrlChangelistChanged(WPARAM count, LPARAM)
 	return 0;
 }
 
+LRESULT CCommitDlg::OnCheck(WPARAM wnd, LPARAM)
+{
+	HWND hwnd = (HWND)wnd;
+	if (hwnd == GetDlgItem(IDC_CHECKALL)->GetSafeHwnd())
+		m_ListCtrl.Check(SVNSLC_SHOWEVERYTHING);
+	else if (hwnd == GetDlgItem(IDC_CHECKNONE)->GetSafeHwnd())
+		m_ListCtrl.Check(0);
+	else if (hwnd == GetDlgItem(IDC_CHECKUNVERSIONED)->GetSafeHwnd())
+		m_ListCtrl.Check(SVNSLC_SHOWUNVERSIONED);
+	else if (hwnd == GetDlgItem(IDC_CHECKVERSIONED)->GetSafeHwnd())
+		m_ListCtrl.Check(SVNSLC_SHOWVERSIONED);
+	else if (hwnd == GetDlgItem(IDC_CHECKADDED)->GetSafeHwnd())
+		m_ListCtrl.Check(SVNSLC_SHOWADDED);
+	else if (hwnd == GetDlgItem(IDC_CHECKDELETED)->GetSafeHwnd())
+		m_ListCtrl.Check(SVNSLC_SHOWREMOVED);
+	else if (hwnd == GetDlgItem(IDC_CHECKMODIFIED)->GetSafeHwnd())
+		m_ListCtrl.Check(SVNSLC_SHOWMODIFIED);
+	else if (hwnd == GetDlgItem(IDC_CHECKFILES)->GetSafeHwnd())
+		m_ListCtrl.Check(SVNSLC_SHOWFILES);
+	else if (hwnd == GetDlgItem(IDC_CHECKDIRECTORIES)->GetSafeHwnd())
+		m_ListCtrl.Check(SVNSLC_SHOWFOLDERS);
+
+	return 0;
+}
+
 void CCommitDlg::UpdateOKButton()
 {
 	BOOL bValidLogSize = FALSE;
@@ -1445,15 +1505,45 @@ void CCommitDlg::DoSize(int delta)
 	RemoveAnchor(IDC_SPLITTER);
 	RemoveAnchor(IDC_LISTGROUP);
 	RemoveAnchor(IDC_FILELIST);
+	RemoveAnchor(IDC_SELECTLABEL);
+	RemoveAnchor(IDC_CHECKALL);
+	RemoveAnchor(IDC_CHECKNONE);
+	RemoveAnchor(IDC_CHECKUNVERSIONED);
+	RemoveAnchor(IDC_CHECKVERSIONED);
+	RemoveAnchor(IDC_CHECKADDED);
+	RemoveAnchor(IDC_CHECKDELETED);
+	RemoveAnchor(IDC_CHECKMODIFIED);
+	RemoveAnchor(IDC_CHECKFILES);
+	RemoveAnchor(IDC_CHECKDIRECTORIES);
 	CSplitterControl::ChangeHeight(&m_cLogMessage, delta, CW_TOPALIGN);
 	CSplitterControl::ChangeHeight(GetDlgItem(IDC_MESSAGEGROUP), delta, CW_TOPALIGN);
 	CSplitterControl::ChangeHeight(&m_ListCtrl, -delta, CW_BOTTOMALIGN);
 	CSplitterControl::ChangeHeight(GetDlgItem(IDC_LISTGROUP), -delta, CW_BOTTOMALIGN);
+	CSplitterControl::ChangePos(GetDlgItem(IDC_SELECTLABEL), 0, delta);
+	CSplitterControl::ChangePos(GetDlgItem(IDC_CHECKALL), 0, delta);
+	CSplitterControl::ChangePos(GetDlgItem(IDC_CHECKNONE), 0, delta);
+	CSplitterControl::ChangePos(GetDlgItem(IDC_CHECKUNVERSIONED), 0, delta);
+	CSplitterControl::ChangePos(GetDlgItem(IDC_CHECKVERSIONED), 0, delta);
+	CSplitterControl::ChangePos(GetDlgItem(IDC_CHECKADDED), 0, delta);
+	CSplitterControl::ChangePos(GetDlgItem(IDC_CHECKDELETED), 0, delta);
+	CSplitterControl::ChangePos(GetDlgItem(IDC_CHECKMODIFIED), 0, delta);
+	CSplitterControl::ChangePos(GetDlgItem(IDC_CHECKFILES), 0, delta);
+	CSplitterControl::ChangePos(GetDlgItem(IDC_CHECKDIRECTORIES), 0, delta);
 	AddAnchor(IDC_MESSAGEGROUP, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_LOGMESSAGE, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_SPLITTER, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_LISTGROUP, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SELECTLABEL, TOP_LEFT);
+	AddAnchor(IDC_CHECKALL, TOP_LEFT);
+	AddAnchor(IDC_CHECKNONE, TOP_LEFT);
+	AddAnchor(IDC_CHECKUNVERSIONED, TOP_LEFT);
+	AddAnchor(IDC_CHECKVERSIONED, TOP_LEFT);
+	AddAnchor(IDC_CHECKADDED, TOP_LEFT);
+	AddAnchor(IDC_CHECKDELETED, TOP_LEFT);
+	AddAnchor(IDC_CHECKMODIFIED, TOP_LEFT);
+	AddAnchor(IDC_CHECKFILES, TOP_LEFT);
+	AddAnchor(IDC_CHECKDIRECTORIES, TOP_LEFT);
 	ArrangeLayout();
 	// adjust the minimum size of the dialog to prevent the resizing from
 	// moving the list control too far down.
