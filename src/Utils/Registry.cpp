@@ -26,8 +26,8 @@ CRegBase::CRegBase()
 {
 }
 
-CRegBase::CRegBase (const CString& key, bool force, HKEY base)
-    : CRegBaseCommon<CString> (key, force, base)
+CRegBase::CRegBase (const CString& key, bool force, HKEY base, REGSAM sam)
+    : CRegBaseCommon<CString> (key, force, base, sam)
 {
 	m_key.TrimLeft(_T("\\"));
 	int backslashpos = m_key.ReverseFind('\\');
@@ -44,8 +44,8 @@ CRegStdBase::CRegStdBase()
 {
 }
 
-CRegStdBase::CRegStdBase (const tstring& key, bool force, HKEY base)
-    : CRegBaseCommon<tstring> (key, force, base)
+CRegStdBase::CRegStdBase (const tstring& key, bool force, HKEY base, REGSAM sam)
+    : CRegBaseCommon<tstring> (key, force, base, sam)
 {
 	tstring::size_type pos = key.find_last_of(_T('\\'));
     m_path = key.substr(0, pos);
@@ -60,8 +60,8 @@ CRegRect::CRegRect(void)
 {
 }
 
-CRegRect::CRegRect(const CString& key, const CRect& def, bool force, HKEY base)
-    : CRegTypedBase<CRect, CRegBase> (key, def, force, base)
+CRegRect::CRegRect(const CString& key, const CRect& def, bool force, HKEY base, REGSAM sam)
+    : CRegTypedBase<CRect, CRegBase> (key, def, force, base, sam)
 {
 	read();
 }
@@ -95,8 +95,8 @@ CRegPoint::CRegPoint(void)
 {
 }
 
-CRegPoint::CRegPoint(const CString& key, const CPoint& def, bool force, HKEY base)
-    : CRegTypedBase<CPoint, CRegBase> (key, def, force, base)
+CRegPoint::CRegPoint(const CString& key, const CPoint& def, bool force, HKEY base, REGSAM sam)
+    : CRegTypedBase<CPoint, CRegBase> (key, def, force, base, sam)
 {
 	read();
 }
@@ -124,10 +124,11 @@ void CRegPoint::InternalWrite (HKEY hKey, const CPoint& value)
 /////////////////////////////////////////////////////////////////////
 
 #ifdef __AFXCOLL_H__   // defines CStringList 
-CRegistryKey::CRegistryKey(const CString& key, HKEY base)
+CRegistryKey::CRegistryKey(const CString& key, HKEY base, REGSAM sam)
 {
 	m_base = base;
 	m_hKey = NULL;
+	m_sam = sam;
 	m_path = key;
 	m_path.TrimLeft(_T("\\"));
 }
@@ -141,7 +142,7 @@ CRegistryKey::~CRegistryKey()
 DWORD CRegistryKey::createKey()
 {
 	DWORD disp;
-	DWORD rc = RegCreateKeyEx(m_base, m_path, 0, _T(""), REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &m_hKey, &disp);
+	DWORD rc = RegCreateKeyEx(m_base, m_path, 0, _T(""), REG_OPTION_NON_VOLATILE, KEY_WRITE|m_sam, NULL, &m_hKey, &disp);
 	if (rc != ERROR_SUCCESS)
 	{
 		return rc;
@@ -151,7 +152,7 @@ DWORD CRegistryKey::createKey()
 
 DWORD CRegistryKey::removeKey()
 {
-	RegOpenKeyEx(m_base, m_path, 0, KEY_WRITE, &m_hKey);
+	RegOpenKeyEx(m_base, m_path, 0, KEY_WRITE|m_sam, &m_hKey);
 	return SHDeleteKey(m_base, (LPCTSTR)m_path);
 }
 
@@ -159,7 +160,7 @@ bool CRegistryKey::getValues(CStringList& values)
 {
 	values.RemoveAll();
 
-	if (RegOpenKeyEx(m_base, m_path, 0, KEY_EXECUTE, &m_hKey)==ERROR_SUCCESS)
+	if (RegOpenKeyEx(m_base, m_path, 0, KEY_EXECUTE|m_sam, &m_hKey)==ERROR_SUCCESS)
 	{
 		for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
 		{ 
@@ -180,7 +181,7 @@ bool CRegistryKey::getSubKeys(CStringList& subkeys)
 {
 	subkeys.RemoveAll();
 
-	if (RegOpenKeyEx(m_base, m_path, 0, KEY_EXECUTE, &m_hKey)==ERROR_SUCCESS)
+	if (RegOpenKeyEx(m_base, m_path, 0, KEY_EXECUTE|m_sam, &m_hKey)==ERROR_SUCCESS)
 	{
 		for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
 		{ 

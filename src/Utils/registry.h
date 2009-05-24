@@ -58,7 +58,7 @@ public:	//methods
 	 * \param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */
-	CRegBaseCommon(const S& key, bool force, HKEY base = HKEY_CURRENT_USER);
+	CRegBaseCommon(const S& key, bool force, HKEY base = HKEY_CURRENT_USER, REGSAM sam = 0);
 
 	/**
 	 * Removes the whole registry key including all values. So if you set the registry
@@ -113,6 +113,7 @@ protected:
 	S m_key;		    ///< the name of the value
 	S m_path;		    ///< the path to the key
 	LONG LastError;		///< the value of the last error occurred
+	REGSAM m_sam;		///< the security attributes to pass to the registry command
 
 	bool m_read;		///< indicates if the value has already been read from the registry
 	bool m_force;		///< indicates if no cache should be used, i.e. always read and write directly from registry
@@ -127,6 +128,7 @@ CRegBaseCommon<S>::CRegBaseCommon()
     , m_key()
     , m_path()
     , LastError (ERROR_SUCCESS)
+	, m_sam (0)
     , m_read (false)
     , m_force (false)
     , m_exists (false)
@@ -134,11 +136,12 @@ CRegBaseCommon<S>::CRegBaseCommon()
 }
 
 template<class S>
-CRegBaseCommon<S>::CRegBaseCommon (const S& key, bool force, HKEY base)
+CRegBaseCommon<S>::CRegBaseCommon (const S& key, bool force, HKEY base, REGSAM sam)
     : m_base (base)
 	, m_key (key)
     , m_path()
     , LastError (ERROR_SUCCESS)
+	, m_sam (sam)
     , m_read (false)
     , m_force (force)
     , m_exists (false)
@@ -152,7 +155,7 @@ DWORD CRegBaseCommon<S>::removeKey()
     m_read = true;
 
     HKEY hKey = NULL;
-    RegOpenKeyEx (m_base, GetPlainString (m_path), 0, KEY_WRITE, &hKey); 
+    RegOpenKeyEx (m_base, GetPlainString (m_path), 0, KEY_WRITE|m_sam, &hKey); 
     return SHDeleteKey(m_base, GetPlainString (m_path)); 
 }
 
@@ -163,7 +166,7 @@ LONG CRegBaseCommon<S>::removeValue()
     m_read = true;
 
     HKEY hKey = NULL;
-    RegOpenKeyEx(m_base, GetPlainString (m_path), 0, KEY_WRITE, &hKey); 
+    RegOpenKeyEx(m_base, GetPlainString (m_path), 0, KEY_WRITE|m_sam, &hKey); 
     return RegDeleteValue(hKey, GetPlainString (m_key)); 
 }
 
@@ -195,7 +198,7 @@ public:	//methods
 	 * \param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */
-	CRegBase(const CString& key, bool force, HKEY base = HKEY_CURRENT_USER);
+	CRegBase(const CString& key, bool force, HKEY base = HKEY_CURRENT_USER, REGSAM sam = 0);
 
 	/**
 	 * Returns the string of the last error occurred.
@@ -243,7 +246,7 @@ public:	//methods
 	 * \param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */
-	CRegStdBase(const tstring& key, bool force, HKEY base = HKEY_CURRENT_USER);
+	CRegStdBase(const tstring& key, bool force, HKEY base = HKEY_CURRENT_USER, REGSAM sam = 0);
 };
 
 /**
@@ -321,7 +324,7 @@ public:
 	 * \param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */
-    CRegTypedBase(const typename Base::StringT& key, const T& def, bool force = FALSE, HKEY base = HKEY_CURRENT_USER);
+    CRegTypedBase(const typename Base::StringT& key, const T& def, bool force = FALSE, HKEY base = HKEY_CURRENT_USER, REGSAM sam = 0);
 
 	/**
 	 * reads the assigned value from the registry. Use this method only if you think the registry
@@ -352,8 +355,8 @@ CRegTypedBase<T, Base>::CRegTypedBase (const T& def)
 }
 
 template<class T, class Base>
-CRegTypedBase<T, Base>::CRegTypedBase (const typename Base::StringT& key, const T& def, bool force, HKEY base)
-    : Base (key, force, base)
+CRegTypedBase<T, Base>::CRegTypedBase (const typename Base::StringT& key, const T& def, bool force, HKEY base, REGSAM sam)
+    : Base (key, force, base, sam)
     , m_value (def)
     , m_defaultvalue (def)
 {
@@ -366,7 +369,7 @@ void CRegTypedBase<T, Base>::read()
     m_exists = false;
 
     HKEY hKey = NULL;
-	if ((LastError = RegOpenKeyEx (m_base, GetPlainString (m_path), 0, KEY_EXECUTE, &hKey))==ERROR_SUCCESS)
+	if ((LastError = RegOpenKeyEx (m_base, GetPlainString (m_path), 0, KEY_EXECUTE|m_sam, &hKey))==ERROR_SUCCESS)
 	{
 		m_read = true;
 
@@ -389,7 +392,7 @@ void CRegTypedBase<T, Base>::write()
     HKEY hKey = NULL;
 
     DWORD disp = 0;
-	if ((LastError = RegCreateKeyEx(m_base, GetPlainString (m_path), 0, _T(""), REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &hKey, &disp))!=ERROR_SUCCESS)
+	if ((LastError = RegCreateKeyEx(m_base, GetPlainString (m_path), 0, _T(""), REG_OPTION_NON_VOLATILE, KEY_WRITE|m_sam, NULL, &hKey, &disp))!=ERROR_SUCCESS)
 	{
 		return;
 	}
@@ -507,7 +510,7 @@ public:
 	 * \param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */
-    CRegDWORDCommon(const typename Base::StringT& key, DWORD def = 0, bool force = false, HKEY base = HKEY_CURRENT_USER);
+    CRegDWORDCommon(const typename Base::StringT& key, DWORD def = 0, bool force = false, HKEY base = HKEY_CURRENT_USER, REGSAM sam = 0);
 
     CRegDWORDCommon& operator=(DWORD rhs) {CRegTypedBase<DWORD, Base>::operator =(rhs); return *this;}
 	CRegDWORDCommon& operator+=(DWORD d) { return *this = *this + d;}
@@ -531,8 +534,8 @@ CRegDWORDCommon<Base>::CRegDWORDCommon(void)
 }
 
 template<class Base>
-CRegDWORDCommon<Base>::CRegDWORDCommon(const typename Base::StringT& key, DWORD def, bool force, HKEY base)
-    : CRegTypedBase<DWORD, Base> (key, def, force, base)
+CRegDWORDCommon<Base>::CRegDWORDCommon(const typename Base::StringT& key, DWORD def, bool force, HKEY base, REGSAM sam)
+    : CRegTypedBase<DWORD, Base> (key, def, force, base, sam)
 {
 }
 
@@ -620,7 +623,7 @@ public:
 	 * \param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */
-    CRegStringCommon(const typename Base::StringT& key, const typename Base::StringT& def = _T(""), bool force = false, HKEY base = HKEY_CURRENT_USER);
+    CRegStringCommon(const typename Base::StringT& key, const typename Base::StringT& def = _T(""), bool force = false, HKEY base = HKEY_CURRENT_USER, REGSAM sam = 0);
 	
     CRegStringCommon& operator=(const typename Base::StringT& rhs) {CRegTypedBase<StringT, Base>::operator =(rhs); return *this;}
 	CRegStringCommon& operator+=(const typename Base::StringT& s) { return *this = (typename Base::StringT)*this + s; }
@@ -635,8 +638,8 @@ CRegStringCommon<Base>::CRegStringCommon(void)
 }
 
 template<class Base>
-CRegStringCommon<Base>::CRegStringCommon(const typename Base::StringT& key, const typename Base::StringT& def, bool force, HKEY base)
-    : CRegTypedBase<typename Base::StringT, Base> (key, def, force, base)
+CRegStringCommon<Base>::CRegStringCommon(const typename Base::StringT& key, const typename Base::StringT& def, bool force, HKEY base, REGSAM sam)
+    : CRegTypedBase<typename Base::StringT, Base> (key, def, force, base, sam)
 {
 }
 
@@ -730,7 +733,7 @@ public:
 	 * \param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */
-	CRegRect(const CString& key, const CRect& def = CRect(), bool force = false, HKEY base = HKEY_CURRENT_USER);
+	CRegRect(const CString& key, const CRect& def = CRect(), bool force = false, HKEY base = HKEY_CURRENT_USER, REGSAM sam = 0);
 	~CRegRect(void);
 	
     CRegRect& operator=(const CRect& rhs) {CRegTypedBase<CRect, CRegBase>::operator =(rhs); return *this;}
@@ -816,7 +819,7 @@ public:
 	 * \param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */
-	CRegPoint(const CString& key, const CPoint& def = CPoint(), bool force = false, HKEY base = HKEY_CURRENT_USER);
+	CRegPoint(const CString& key, const CPoint& def = CPoint(), bool force = false, HKEY base = HKEY_CURRENT_USER, REGSAM sam = 0);
 	~CRegPoint(void);
 	
     CRegPoint& operator=(const CPoint& rhs) {CRegTypedBase<CPoint, CRegBase>::operator =(rhs); return *this;}
@@ -840,7 +843,7 @@ public:	//methods
 	 * \param key the path to the key, including the key. example: "Software\\Company\\SubKey"
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */
-	CRegistryKey(const CString& key, HKEY base = HKEY_CURRENT_USER);
+	CRegistryKey(const CString& key, HKEY base = HKEY_CURRENT_USER, REGSAM sam = 0);
 	~CRegistryKey();
 
 	/**
@@ -862,6 +865,7 @@ public:	//methods
 public:	//members
 	HKEY m_base;		///< handle to the registry base
 	HKEY m_hKey;		///< handle to the open registry key
+	REGSAM m_sam;		///< the security attributes to pass to the registry command
 	CString m_path;		///< the path to the key
 };
 #endif
