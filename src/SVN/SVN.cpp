@@ -836,23 +836,20 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
 		progress.FormatNonPathLine(1, IDS_SVNPROGRESS_EXPORTINGWAIT);
 		progress.SetTime(true);
 		progress.ShowModeless(hWnd);
-		std::map<CString, CString> copyMap;
+		std::map<CTSVNPath, CTSVNPath> copyMap;
 		if (extended)
 		{
 
 			CString srcfile;
 			CDirFileEnum lister(srcPath.GetWinPathString());
-			copyMap[srcPath.GetWinPath()] = destPath.GetWinPath();
+			copyMap[srcPath] = destPath;
 			while (lister.NextFile(srcfile, NULL))
 			{
 				if (g_SVNAdminDir.IsAdminDirPath(srcfile))
 					continue;
-				CString destination = destPath.GetWinPathString() + _T("\\") + srcfile.Mid(srcPath.GetWinPathString().GetLength());
-				bool bNet = (destination.Left(2).Compare(_T("\\\\")) == 0);
-				destination.Replace(_T("\\\\"), _T("\\"));
-				if (bNet)
-					destination = _T("\\") + destination;
-				copyMap[srcfile] = destination;
+				CTSVNPath destination = destPath;
+				destination.AppendPathString(srcfile.Mid(srcPath.GetWinPathString().GetLength()));
+				copyMap[CTSVNPath(srcfile)] = destination;
 			}
 		}
 		else
@@ -864,9 +861,9 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
 			{
 				if (SVNStatus::GetMoreImportant(s->text_status, svn_wc_status_unversioned)!=svn_wc_status_unversioned)
 				{
-					CString src = statusPath.GetWinPathString();
-					CString destination = destPath.GetWinPathString() + _T("\\") + src.Mid(srcPath.GetWinPathString().GetLength());
-					copyMap[src] = destination;
+					CTSVNPath destination = destPath;
+					destination.AppendPathString(statusPath.GetWinPathString().Mid(srcPath.GetWinPathString().GetLength()));
+					copyMap[statusPath] = destination;
 				}
 				while ((s = status.GetNextFileStatus(statusPath))!=0)
 				{
@@ -877,9 +874,9 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
 						(s->text_status == svn_wc_status_deleted))
 						continue;
 					
-					CString src = statusPath.GetWinPathString();
-					CString destination = destPath.GetWinPathString() + _T("\\") + src.Mid(srcPath.GetWinPathString().GetLength());
-					copyMap[src] = destination;
+					CTSVNPath destination = destPath;
+					destination.AppendPathString(statusPath.GetWinPathString().Mid(srcPath.GetWinPathString().GetLength()));
+					copyMap[statusPath] = destination;
 				}
 			}
 			else
@@ -889,24 +886,24 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
 			}
 		} // else from if (extended)
 		size_t count = 0;
-		for (std::map<CString, CString>::iterator it = copyMap.begin(); (it != copyMap.end()) && (!progress.HasUserCancelled()); ++it)
+		for (std::map<CTSVNPath, CTSVNPath>::iterator it = copyMap.begin(); (it != copyMap.end()) && (!progress.HasUserCancelled()); ++it)
 		{
-			progress.FormatPathLine(1, IDS_SVNPROGRESS_EXPORTING, (LPCTSTR)it->first);
-			progress.FormatPathLine(2, IDS_SVNPROGRESS_EXPORTINGTO, (LPCTSTR)it->second);
+			progress.FormatPathLine(1, IDS_SVNPROGRESS_EXPORTING, it->first.GetWinPath());
+			progress.FormatPathLine(2, IDS_SVNPROGRESS_EXPORTINGTO, it->second.GetWinPath());
 			progress.SetProgress(count, copyMap.size());
 			count++;
-			if (PathIsDirectory((LPCTSTR)it->first))
-				CPathUtils::MakeSureDirectoryPathExists((LPCTSTR)it->second);
+			if (it->first.IsDirectory())
+				CPathUtils::MakeSureDirectoryPathExists(it->second.GetWinPath());
 			else
 			{
-				if (!CopyFile((LPCTSTR)it->first, (LPCTSTR)it->second, !force))
+				if (!CopyFile(it->first.GetWinPath(), it->second.GetWinPath(), !force))
 				{
 					DWORD lastError = GetLastError();
 					if ((lastError == ERROR_ALREADY_EXISTS)||(lastError == ERROR_FILE_EXISTS))
 					{
 						lastError = 0;
 						CString sQuestion, yes, no, yestoall;
-						sQuestion.Format(IDS_PROC_OVERWRITE_CONFIRM, (LPCTSTR)it->second);
+						sQuestion.Format(IDS_PROC_OVERWRITE_CONFIRM, it->second.GetWinPath());
 						yes.LoadString(IDS_MSGBOX_YES);
 						no.LoadString(IDS_MSGBOX_NO);
 						yestoall.LoadString(IDS_PROC_YESTOALL);
@@ -915,11 +912,11 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
 							force = true;
 						if ((ret == 1)||(ret == 3))
 						{
-							if (!CopyFile((LPCTSTR)it->first, (LPCTSTR)it->second, FALSE))
+							if (!CopyFile(it->first.GetWinPath(), it->second.GetWinPath(), FALSE))
 							{
 								lastError = GetLastError();
 							}
-							SetFileAttributes((LPCTSTR)it->second, FILE_ATTRIBUTE_NORMAL);
+							SetFileAttributes(it->second.GetWinPath(), FILE_ATTRIBUTE_NORMAL);
 						}
 					}
 					if (lastError)
@@ -943,7 +940,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
 						return FALSE;
 					}
 				}
-				SetFileAttributes((LPCTSTR)it->second, FILE_ATTRIBUTE_NORMAL);
+				SetFileAttributes(it->second.GetWinPath(), FILE_ATTRIBUTE_NORMAL);
 			}
 		}
 		if (progress.HasUserCancelled())
