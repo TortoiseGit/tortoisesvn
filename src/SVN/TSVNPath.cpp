@@ -145,10 +145,14 @@ LPCTSTR CTSVNPath::GetWinPath() const
 	{
 		SetBackslashPath(m_sFwdslashPath);
 	}
+	if(m_sBackslashPath.GetLength() >= 248)
+	{
+		m_sLongBackslashPath = _T("\\\\?\\") + m_sBackslashPath;
+		return m_sLongBackslashPath;
+	}
 	return m_sBackslashPath;
 }
-// This is a temporary function, to be used during the migration to 
-// the path class.  Ultimately, functions consuming paths should take a CTSVNPath&, not a CString
+
 const CString& CTSVNPath::GetWinPathString() const
 {
 	if(m_sBackslashPath.IsEmpty())
@@ -353,7 +357,9 @@ void CTSVNPath::UpdateAttributes() const
 {
 	EnsureBackslashPathSet();
 	WIN32_FILE_ATTRIBUTE_DATA attribs;
-	if(GetFileAttributesEx(m_sBackslashPath, GetFileExInfoStandard, &attribs))
+	if (m_sBackslashPath.GetLength() >= 248)
+		m_sLongBackslashPath = _T("\\\\?\\") + m_sBackslashPath;
+	if(GetFileAttributesEx(m_sBackslashPath.GetLength() >= 248 ? m_sLongBackslashPath : m_sBackslashPath, GetFileExInfoStandard, &attribs))
 	{
 		m_bIsDirectory = !!(attribs.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
 		m_lastWriteTime = *(__int64*)&attribs.ftLastWriteTime;
@@ -415,6 +421,7 @@ void CTSVNPath::Reset()
 	m_bIsSpecialDirectory = false;
 
 	m_sBackslashPath.Empty();
+	m_sLongBackslashPath.Empty();
 	m_sFwdslashPath.Empty();
 	m_sUTF8FwdslashPath.Empty();
 	m_sUIPath.Empty();
