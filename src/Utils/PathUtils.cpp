@@ -34,6 +34,8 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 	attribs.bInheritHandle = FALSE;
 
 	ConvertToBackslash(internalpathbuf, path, len+10);
+	if (_tcsncmp(internalpathbuf, _T("\\\\?\\"), 4) == 0)
+		pPath += 4;
 	do
 	{
 		SecureZeroMemory(buf, (len+10)*sizeof(TCHAR));
