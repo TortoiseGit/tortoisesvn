@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2005 - 2006 - Jon Foster
+// Copyright (C) 2005-2006, 2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,23 +24,25 @@ CSimpleFileFind::CSimpleFileFind(const CString &sPath, LPCTSTR pPattern) :
    m_bFirst(TRUE),
    m_sPathPrefix(sPath)
 {
-   // Add a trailing \ to m_sPathPrefix if it is missing.
-   // Do not add one to "C:" since "C:" and "C:\" are different.
-   {
-      int len = m_sPathPrefix.GetLength();
-      if (len != 0) {
-         TCHAR ch = sPath[len-1];
-         if (ch != '\\' && (ch != ':' || len != 2)) {
-            m_sPathPrefix += "\\";
-         }
-      }
+	// Add a trailing \ to m_sPathPrefix if it is missing.
+	// Do not add one to "C:" since "C:" and "C:\" are different.
+	int len = m_sPathPrefix.GetLength();
+	if (len != 0) 
+	{
+		TCHAR ch = sPath[len-1];
+		if (ch != '\\' && (ch != ':' || len != 2)) 
+		{
+			m_sPathPrefix += "\\";
+		}
+	}
+	if ((len >= 248)&&(m_sPathPrefix.Left(4).Compare(_T("\\\\?\\"))))
+		m_hFindFile = ::FindFirstFile((LPCTSTR)(_T("\\\\?\\") + m_sPathPrefix + pPattern), &m_FindFileData); 
+	else
+		m_hFindFile = ::FindFirstFile((LPCTSTR)(m_sPathPrefix + pPattern), &m_FindFileData); 
+	if (m_hFindFile == INVALID_HANDLE_VALUE) {
+		m_dError = ::GetLastError();
+	}
    }
-
-   m_hFindFile = ::FindFirstFile((LPCTSTR)(m_sPathPrefix + pPattern), &m_FindFileData); 
-   if (m_hFindFile == INVALID_HANDLE_VALUE) {
-      m_dError = ::GetLastError();
-   }
-}
 
 CSimpleFileFind::~CSimpleFileFind()
 {
