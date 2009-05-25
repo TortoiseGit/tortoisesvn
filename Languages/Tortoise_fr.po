@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-05-13 15:38+0100\n"
+"PO-Revision-Date: 2009-05-25 12:12+0100\n"
 "Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1563,6 +1563,10 @@ msgstr "Age"
 msgid "Align trees on top"
 msgstr "Aligner les arborescences en haut"
 
+#. Resource IDs: (1505)
+msgid "All"
+msgstr "Tout"
+
 #. Resource IDs: (1007)
 msgid "All Commands"
 msgstr "Toutes les Commandes"
@@ -2170,6 +2174,10 @@ msgstr "Sélectionnez pour utiliser un format de date et heure moins détaillé 
 #. Resource IDs: (2052)
 msgid "Check working copy for modifications"
 msgstr "Vérifier les modifications de la copie de travail"
+
+#. Resource IDs: (1504)
+msgid "Check:"
+msgstr "Vérifier:"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -3108,6 +3116,10 @@ msgstr "Voir différence"
 msgid "Diffs the working copy file with the one before the last commit."
 msgstr "Calcule les différences entre la copie de travail et le fichier avant la dernière livraison."
 
+#. Resource IDs: (1513)
+msgid "Directories"
+msgstr "Répertoire"
+
 #. Resource IDs: (65535)
 msgid "Directory:"
 msgstr "Répertoire :"
@@ -3877,6 +3889,10 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "Nom de fichier"
+
+#. Resource IDs: (1512)
+msgid "Files"
+msgstr "Fichiers"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -6400,9 +6416,8 @@ msgid "Reintegrate a branch"
 msgstr "Réintégrer une branche"
 
 #. Resource IDs: (595)
-#, fuzzy
 msgid "Reintegrate merge"
-msgstr "Réintégrer fusionner %s dans %s "
+msgstr "Fusion de réintégration"
 
 #. Resource IDs: (230)
 #, c-format
@@ -8939,6 +8954,10 @@ msgstr ""
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Rendre non-versionné"
+
+#. Resource IDs: (1507)
+msgid "Unversioned"
+msgstr "Non-versionné"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
