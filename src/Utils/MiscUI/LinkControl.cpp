@@ -67,7 +67,7 @@ bool CLinkControl::ConvertStaticToLink(HWND hwndCtl)
 		if (pfnOrigProc != _HyperlinkParentProc)
 		{
 			SetProp(hwndParent, PROP_ORIGINAL_PROC, (HANDLE)pfnOrigProc);
-			SetWindowLongPtr(hwndParent, GWLP_WNDPROC, (LONG)(WNDPROC)_HyperlinkParentProc);
+			SetWindowLongPtr(hwndParent, GWLP_WNDPROC, (LONG_PTR)(WNDPROC)_HyperlinkParentProc);
 		}
 	}
 
@@ -89,7 +89,7 @@ bool CLinkControl::ConvertStaticToLink(HWND hwndCtl)
 
 	m_pfnOrigCtlProc = (WNDPROC)GetWindowLongPtr(hwndCtl, GWLP_WNDPROC);
 	SetProp(hwndCtl, PROP_OBJECT_PTR, (HANDLE)this);
-	SetWindowLongPtr(hwndCtl, GWLP_WNDPROC, (LONG)(WNDPROC)_HyperlinkProc);
+	SetWindowLongPtr(hwndCtl, GWLP_WNDPROC, (LONG_PTR)(WNDPROC)_HyperlinkProc);
 
 	return true;
 }
@@ -108,7 +108,7 @@ LRESULT CALLBACK CLinkControl::_HyperlinkParentProc(HWND hwnd, UINT message,
 	{
 	case WM_DESTROY:
 		{
-			SetWindowLongPtr(hwnd, GWLP_WNDPROC, (LONG) pfnOrigProc);
+			SetWindowLongPtr(hwnd, GWLP_WNDPROC, (LONG_PTR) pfnOrigProc);
 			RemoveProp(hwnd, PROP_ORIGINAL_PROC);
 		}
 		break;
@@ -196,7 +196,7 @@ LRESULT CALLBACK CLinkControl::_HyperlinkProc(HWND hwnd, UINT message,
 		break;
 	case WM_DESTROY:
 		{
-			SetWindowLongPtr(hwnd, GWLP_WNDPROC, (LONG)pHyperLink->m_pfnOrigCtlProc);
+			SetWindowLongPtr(hwnd, GWLP_WNDPROC, (LONG_PTR)pHyperLink->m_pfnOrigCtlProc);
 
 			SendMessage(hwnd, WM_SETFONT, (WPARAM)pHyperLink->m_StdFont, 0);
 
