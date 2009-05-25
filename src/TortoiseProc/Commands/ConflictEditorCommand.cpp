@@ -146,9 +146,12 @@ bool ConflictEditorCommand::Execute()
 				{
 					switch (pInfoData->treeconflict_operation)
 					{
+					default:
+					case svn_wc_operation_none:
 					case svn_wc_operation_update:
 						switch (pInfoData->treeconflict_action)
 						{
+						default:
 						case svn_wc_conflict_action_edit:
 							sConflictAction.Format(IDS_TREECONFLICT_FILEUPDATEEDIT, (LPCTSTR)sItemName);
 							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYFILE);
@@ -166,6 +169,7 @@ bool ConflictEditorCommand::Execute()
 					case svn_wc_operation_switch:
 						switch (pInfoData->treeconflict_action)
 						{
+						default:
 						case svn_wc_conflict_action_edit:
 							sConflictAction.Format(IDS_TREECONFLICT_FILESWITCHEDIT, (LPCTSTR)sItemName);
 							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYFILE);
@@ -183,12 +187,13 @@ bool ConflictEditorCommand::Execute()
 					case svn_wc_operation_merge:
 						switch (pInfoData->treeconflict_action)
 						{
+						default:
 						case svn_wc_conflict_action_edit:
 							sConflictAction.Format(IDS_TREECONFLICT_FILEMERGEEDIT, (LPCTSTR)sItemName);
 							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYFILE);
 							break;
 						case svn_wc_conflict_action_add:
-							sResolveTheirs.Format(IDS_TREECONFLICT_FILEMERGEADD, (LPCTSTR)sItemName);
+							sConflictAction.Format(IDS_TREECONFLICT_FILEMERGEADD, (LPCTSTR)sItemName);
 							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYFILE);
 							break;
 						case svn_wc_conflict_action_delete:
@@ -203,9 +208,12 @@ bool ConflictEditorCommand::Execute()
 				{
 					switch (pInfoData->treeconflict_operation)
 					{
+					default:
+					case svn_wc_operation_none:
 					case svn_wc_operation_update:
 						switch (pInfoData->treeconflict_action)
 						{
+						default:
 						case svn_wc_conflict_action_edit:
 							sConflictAction.Format(IDS_TREECONFLICT_DIRUPDATEEDIT, (LPCTSTR)sItemName);
 							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYDIR);
@@ -223,6 +231,7 @@ bool ConflictEditorCommand::Execute()
 					case svn_wc_operation_switch:
 						switch (pInfoData->treeconflict_action)
 						{
+						default:
 						case svn_wc_conflict_action_edit:
 							sConflictAction.Format(IDS_TREECONFLICT_DIRSWITCHEDIT, (LPCTSTR)sItemName);
 							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYDIR);
@@ -240,6 +249,7 @@ bool ConflictEditorCommand::Execute()
 					case svn_wc_operation_merge:
 						switch (pInfoData->treeconflict_action)
 						{
+						default:
 						case svn_wc_conflict_action_edit:
 							sConflictAction.Format(IDS_TREECONFLICT_DIRMERGEEDIT, (LPCTSTR)sItemName);
 							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYDIR);
