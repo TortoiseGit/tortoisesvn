@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-05-25 17:04+0330\n"
-"Last-Translator: man4toman <man4toman@gmail.com>\n"
+"PO-Revision-Date: 2009-05-25 18:14+0330\n"
+"Last-Translator: mohsen sajjadi <mohsensajjadi@yahoo.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6352,7 +6352,7 @@ msgstr ""
 
 #. Resource IDs: (1260)
 msgid "Recurse into unversioned folders"
-msgstr "بازگشت به پوشه های بدون نسخه"
+msgstr "پیمایش پوشه های بدون نسخه بصورت بازگشتی"
 
 #. Resource IDs: (563)
 msgid "Recursive"
@@ -6451,8 +6451,8 @@ msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
 msgstr ""
-"بازنشانی فایلهای باز شده و برگشت همه تغییرات.\n"
-"بازنشانی"
+"بارگذاری مجدد فایلهای باز شده و برگشت همه تغییرات.\n"
+"بارگذاری مجدد"
 
 #. Resource IDs: (157)
 msgid "Relocate"
@@ -6961,7 +6961,7 @@ msgstr "SVN کپی فایلهای نسخه دار به این مکان"
 
 #. Resource IDs: (16)
 msgid "SVN Local lock owner"
-msgstr "مال قفل محلی SVN"
+msgstr "SVN مالک محلی قفل "
 
 #. Resource IDs: (17)
 #, fuzzy
@@ -7066,7 +7066,7 @@ msgstr "ذخیره سازی فایل وصله به:"
 
 #. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
-msgstr "اثر"
+msgstr "Scintilla"
 
 #. Resource IDs: (1003)
 msgid "Scroll Left"
@@ -7091,7 +7091,7 @@ msgstr "رشته مورد نظر یافت نشد!"
 #. Resource IDs: (3867)
 #, c-format
 msgid "Seek failed on %1"
-msgstr "جستجو موفق نبود در %1"
+msgstr "جستجوی ناموفق در %1"
 
 #. Resource IDs: (376)
 msgid "Select &All"
@@ -7705,7 +7705,7 @@ msgid ""
 "Split the active window into panes\n"
 "Split"
 msgstr ""
-"جداسازی پنجره فعل به چند قسمت\n"
+"جداسازی پنجره فعال به چند قسمت\n"
 "جداسازی"
 
 #. Resource IDs: (246)
@@ -9492,9 +9492,9 @@ msgid ""
 "Accessing a repository via file:// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
-"شما یک مخزن در یک شبکه تقسیم شده ایجاد نمودید.\n"
-"این کار بی خطر است، ولی وقتیکه مخزن ایجاد شد شما باید بوسیله ابزار دیگر به آن دستابید.\n"
-"دستیابی بصورت file:// در یک شبکه تقسیم شده ممکن است اطلاعات شما را خراب کند!\n"
+"شما در حال ایجاد یک مخزن در یک مکان اشتراکی شبکه میباشید.\n"
+"این کار بی خطر است، ولی وقتیکه مخزن ایجاد شد شما باید بوسیله ابزار دیگری با آن کار کنید.\n"
+"دستیابی از طریق file:// در یک مکان اشتراکی شبکه شده ممکن است منجر به تخریب اطلاعات شما گردد!!\n"
 "آیا می خواهید مخزن ایجاد شود؟"
 
 #. Resource IDs: (88)
@@ -9505,8 +9505,8 @@ msgid ""
 "Do you really want to do that?"
 msgstr ""
 "شماسعی دارید به مخزن بصورت file:// در\n"
-"یک درایو شبکه تقسیم شده دسترسی داشته باشید.\n"
-"این می تواند منجر به خرابی شدید در مخزن شود!\n"
+"یک درایو شبکه اشتراکی دسترسی داشته باشید.\n"
+"این می تواند منجر به تخریب شدید در مخزن شود!\n"
 "آیا شما واقعا می خواهید این کار را انجام دهید؟"
 
 #. Resource IDs: (105)
@@ -9538,7 +9538,7 @@ msgid ""
 msgstr ""
 "شما نمی توانید این خاصیت را بر روی پوش ها اعمال کنید، فقط بر فایلها!\n"
 "اگر می خواهید این را بر روی فایلهای داخل پوشه اعمال کنید،\n"
-"شما باید گزینه 'recursive' را فعال کنید."
+"شما باید گزینه 'بازگشتی' را فعال کنید."
 
 #. Resource IDs: (105)
 #, fuzzy
@@ -9959,7 +9959,7 @@ msgstr "ساختگی"
 
 #. Resource IDs: (1342)
 msgid "eol style"
-msgstr "طرح (سبک) eol"
+msgstr "سبک eol"
 
 #. Resource IDs: (79)
 #, c-format
@@ -10014,11 +10014,11 @@ msgstr "فاقد نسخه است."
 
 #. Resource IDs: (214)
 msgid "item kept locally"
-msgstr "نگهداری بخش بصورت محلی"
+msgstr "نگهداری مورد  بصورت محلی"
 
 #. Resource IDs: (65535)
 msgid "last head update: "
-msgstr "بروزرسانی آخرین ابتدا:"
+msgstr "آخرین بروزرسانی شاخه اصلی:"
 
 #. Resource IDs: (65535)
 msgid "last read: "
@@ -10046,7 +10046,7 @@ msgstr "ادغام شده"
 
 #. Resource IDs: (65535)
 msgid "merges total: "
-msgstr "مجموع ترکیب ها"
+msgstr "مجموع ادغام ها:"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -10133,7 +10133,7 @@ msgstr "پیکسل"
 
 #. Resource IDs: (65535)
 msgid "possible or real conflict / obstructed"
-msgstr "تضاد / ایجاد مانع واقعی یا امکان پذیر"
+msgstr "احتمال یا حتم در وقوع تضاد / جلوگیری شد"
 
 #. Resource IDs: (3845)
 msgid "prn"
@@ -10153,7 +10153,7 @@ msgstr "جایگزین شده"
 
 #. Resource IDs: (220)
 msgid "respecting ancestry"
-msgstr "درباره اصل و ریشه"
+msgstr "بادرنظر گرفتن اصل و ریشه"
 
 #. Resource IDs: (326)
 #, c-format
