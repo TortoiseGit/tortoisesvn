@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-06 14:06+0300\n"
+"PO-Revision-Date: 2009-05-25 16:35+0300\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1453,6 +1453,10 @@ msgstr "შედარების პროგრამის გაფარ�
 msgid "Add extension specific merge program"
 msgstr "შერწყმის პროგრამის გაფართოების დამატება"
 
+#. Resource IDs: (1065)
+msgid "Add new files automatically to SVN"
+msgstr "ახალი ფაილების თვითდამატება"
+
 #. Resource IDs: (89)
 msgid "Add the item anyway"
 msgstr "ელემენტის მაინც დამატება"
@@ -1552,6 +1556,10 @@ msgstr "ასაკი"
 #. Resource IDs: (32822)
 msgid "Align trees on top"
 msgstr "განტოტვების ზედა კიდეზე განთავსება"
+
+#. Resource IDs: (1505)
+msgid "All"
+msgstr "ყველა"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
@@ -2161,6 +2169,10 @@ msgstr "შეარჩიეთ, თუ დავთრის ჩანაწ�
 msgid "Check working copy for modifications"
 msgstr "სამუშაო ასლის შემოწმება ცვლილებებზე"
 
+#. Resource IDs: (1504)
+msgid "Check:"
+msgstr "შემოწმება:"
+
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "TortoiseSVN–ის ახალი ვერსიის შემოწმება..."
@@ -2203,8 +2215,9 @@ msgid "Cleaning up"
 msgstr "გასუფთავება"
 
 #. Resource IDs: (146)
-msgid "Cleaning up."
-msgstr "გასუფთავება."
+#, c-format
+msgid "Cleaning up directory \"%s\""
+msgstr "დასტის \"%s\" გასუფთავება"
 
 #. Resource IDs: (83)
 #, c-format
@@ -3098,6 +3111,10 @@ msgstr "შედარება"
 msgid "Diffs the working copy file with the one before the last commit."
 msgstr "ადარებს სამუშაო ასლის ფაილს მის წინა ვერსიას ფიქსაციამდე."
 
+#. Resource IDs: (1513)
+msgid "Directories"
+msgstr "დასტები"
+
 #. Resource IDs: (65535)
 msgid "Directory:"
 msgstr "მიმართულება:"
@@ -3867,6 +3884,10 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "ფაილის სახელი"
+
+#. Resource IDs: (1512)
+msgid "Files"
+msgstr "ფაილები"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -6418,6 +6439,10 @@ msgstr ""
 msgid "Reintegrate a branch"
 msgstr "განშტოების რეინტეგრაცია"
 
+#. Resource IDs: (595)
+msgid "Reintegrate merge"
+msgstr "შემაჯამებელი შერწყმა"
+
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %s into %s"
@@ -7199,6 +7224,10 @@ msgstr "საწყისი ვერსიის არჩევა."
 #. Resource IDs: (79)
 msgid "Select text editor application"
 msgstr "ტექსტური რედაქტორის პროგრამის არჩევა"
+
+#. Resource IDs: (595)
+msgid "Select the URL from which to reintegrate"
+msgstr "საწყისი მისამართების შერჩევა შემაჯამებელი შერწყმისთვის"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -8952,6 +8981,10 @@ msgstr ""
 msgid "Unversion"
 msgstr "ვერსიის მოხსნა"
 
+#. Resource IDs: (1507)
+msgid "Unversioned"
+msgstr "უვერსიო"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "არავერსიული ფაილები ძირეულ დასტას შეცვლილედ მონიშნავს"
@@ -10286,6 +10319,14 @@ msgstr ""
 "tsvn:logminsize\r\n"
 "სიმბოლოების მინიმალური რაოდენობა დავთრის ჩანაწერებში ფიქსაციამდე."
 
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logrevregex\r\n"
+"A regular expression matching revision numbers in a log message"
+msgstr ""
+"tsvn:logrevregex\r\n"
+"დავთრებში ვერსიის ნომრების შესაბამისი მარტივი გამოსახულება "
+
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logsummary\r\n"
@@ -10408,6 +10449,8 @@ msgstr "დიახ"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Cleaning up."
+#~ msgstr "გასუფთავება."
 #~ msgid "%s, but the local file was already edited."
 #~ msgstr "%s, თუმცა ლოკალური ფაილი უკვე ჩასწორდა."
 #~ msgid "General::Revision Graph"
