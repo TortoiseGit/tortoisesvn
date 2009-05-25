@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-04-23 20:52 +0000\n"
-"PO-Revision-Date: 2009-05-13 15:47+0100\n"
+"POT-Creation-Date: 2009-05-19 06:41 +0000\n"
+"PO-Revision-Date: 2009-05-25 12:39+0100\n"
 "Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3131,9 +3131,8 @@ msgid "Navigate to <literal>Project76/SubProj</literal> and do the same. This ti
 msgstr "Allez dans <literal>Project76/SubProj</literal> et faites de même. Cette fois ci, notez que le répertoire <literal>Project76</literal> est vide excepté <literal>SubProj</literal>, lequel est complètement rempli. Subversion a créé pour vous les répertoires intermédiaires sans les remplir."
 
 #. (title)
-#, fuzzy
 msgid "Changing working copy depth"
-msgstr "Relocaliser une copie de travail"
+msgstr "Modifier la profondeur de la copie de travail"
 
 #. (para)
 #, fuzzy
@@ -3876,19 +3875,16 @@ msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <file
 msgstr "Utiliser les répertoires <filename>_svn</filename> au lieu de <filename>.svn</filename>"
 
 #. (para)
-#, fuzzy
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
-msgstr "<filename>Foo.c</filename> est marqué comme modifié."
+msgstr "<filename>Bix.c</filename> est marqué comme étant dans un état normal (non modifé)."
 
 #. (para)
-#, fuzzy
 msgid "<filename>Bar.c</filename> is marked as added with history."
-msgstr "<filename>Bix.c</filename> est marqué comme ajouté avec l'historique."
+msgstr "<filename>Bar.c</filename> est marqué comme ajouté avec son historique."
 
 #. (para)
-#, fuzzy
 msgid "<filename>Foo.c</filename> is marked as missing and has a tree conflict."
-msgstr "<filename>Foo.c</filename> est marqué comme manquant dans l'arborescence des conflits."
+msgstr "<filename>Foo.c</filename> est marqué comme manquant et générant une erreur dans l'arborescence."
 
 #. (para)
 #, fuzzy
@@ -4758,11 +4754,11 @@ msgstr "Si vous voulez limiter les commentaires pour afficher seulement ceux qui
 
 #. (para)
 msgid "Click on the search icon to select which information you want to search in, and to choose <emphasis>regex</emphasis> mode. Normally you will only need a simple text search, but if you need to more flexible search terms, you can use regular expressions. If you hover the mouse over the box, a tooltip will give hints on how to use the regex functions. You can also find online documentation and a tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>. The filter works by checking whether your filter string matches the log entries, and then only those entries which <emphasis>match</emphasis> the filter string are shown."
-msgstr ""
+msgstr "Cliquez sur l'icone de recherche pour sélectionner le type d'information que vous souhaitez rechercher, et choisir le mode <emphasis>regex</emphasis>. Vous ne devriez avoir besoin que d'une simple recherche de texte, mais si vous souhaitez plus de flexibilité, vous pouvez alors utiliser les expressions regulières. Si vous passez la souris au dessus de la boite, une tooltip vous donnera des informations sur comment utiliser les fonctions d'expressions regulières. Vous pouvez également trouver l'aide en ligne et un tutoriel à cette adresse <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>. Seuls les messages de log passant le filtre (i.e. qui <emphasis>matchent</emphasis> le filtre) sont affichés."
 
 #. (para)
 msgid "To make the filter show all log entries that do <emphasis>not</emphasis> match the filter string, start the string with an exclamation mark ('!'). For example, a filter string <literal>!username</literal> will only show those entries which were not committed by <literal>username</literal>."
-msgstr ""
+msgstr "Pour faire en sorte que tous les messages <emphasis>ne vérifiant pas</emphasis> le filtre s'affichent, commencez l'expression régulière par un point d'exclamation ('!'). Par exemple, la chaine <literal>!username</literal> ne montrera que les entrées n'ayant pas été livrés par <literal>username</literal>."
 
 #. (para)
 msgid "Note that these filters act on the messages already retrieved. They do not control downloading of messages from the repository."
@@ -4871,7 +4867,7 @@ msgstr "Mode hors ligne"
 
 #. (para)
 msgid "Complete the current operation in offline mode, but retry the repository next time log data is requested."
-msgstr ""
+msgstr "Finissez l'opération courante en mode hors ligne, mais réessaie avec le référentiel à la prochaine demande d'informations."
 
 #. (term)
 msgid "Permanently offline"
@@ -4879,7 +4875,7 @@ msgstr "Constamment hors ligne"
 
 #. (para)
 msgid "Remain in offline mode until a repository check is specifically requested. See <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
-msgstr ""
+msgstr "Reste en mode hors ligne jusqu'à la prochaine demande explicite de vérification. Voir <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
 
 #. (term)
 msgid "Cancel"
@@ -4887,12 +4883,11 @@ msgstr "Annuler"
 
 #. (para)
 msgid "If you don't want to continue the operation with possibly stale data, just cancel."
-msgstr ""
+msgstr "Si vous ne voulez pas continuer l'opération en cours avec le risque d'avoir des données bancales, annulez."
 
 #. (para)
-#, fuzzy
 msgid "Here you have three options: <placeholder-1/>"
-msgstr "Crée un référentiel dans <placeholder-1/>"
+msgstr "Vous avez ici trois choix : <placeholder-1/>"
 
 #. (para)
 msgid "The <guilabel>Make this the default</guilabel> checkbox prevents this dialog from re-appearing and always picks the option you choose next. You can still change (or remove) the default after doing this from <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>."
@@ -5291,7 +5286,7 @@ msgstr "Pour ajouter des fichiers de l'extérieur de votre copie de travail, vou
 
 #. (para)
 msgid "You can also add files within a working copy simply by left-dragging and dropping them onto the commit dialog."
-msgstr ""
+msgstr "Vous pouvez également ajouter des fichiers dans la copie de travail en les faisant simplement glisser dans la fenêtre de livraison."
 
 #. (para)
 msgid "If you add a file or folder by mistake, you can undo the addition before you commit using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Undo add...</guimenuitem></menuchoice>."
@@ -6139,9 +6134,8 @@ msgid "You should strongly consider using explicit revision numbers in all of yo
 msgstr "Vous devriez fortement considérer l'utilisation de numéros de révision explicites dans toutes vos définitions externes. Cela revient à décider quand choisir un instantané différent d'information externe et exactement quel instantané tirer. En plus du bon sens de pas être pas étonné par les changements aux référentiels tiers sur lesquels vous pourriez ne pas avoir de contrôle, utiliser des numéros de révision explicites signifie aussi que lorsque vous antidatez votre copie de travail à une révision précédente, vos définitions externes reviendront aussi à l'aspect qu'elles avaient dans cette révision précédente, ce qui signifie aussi que les copies de travail externes seront mises à jour pour correspondre à l'aspect qu'<emphasis>elles</emphasis> avaient quand votre référentiel était à cette révision précédente. Pour des projets logiciels, ce pourrait être la différence entre une réussite et un échec lors de la construction d'un plus vieil instantané de votre complexe base de code."
 
 #. (title)
-#, fuzzy
 msgid "Older svn:externals definitions"
-msgstr "Utiliser svn:externals"
+msgstr "définitions svn:externals plus anciennes"
 
 #. (para)
 msgid "The format shown here was introduced in Subversion 1.5. You may also see the older format which has the same information in a different order. The new format is preferred as it supports several useful features described below, but it will not work on older clients. The differences are shown in the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html\"><citetitle>Subversion Book</citetitle></ulink>."
@@ -8286,6 +8280,10 @@ msgstr "Parcourir récursivement les répertoires non versionnés"
 msgid "If this box is checked (default state), then whenever the status of an unversioned folder is shown in the <guilabel>Add</guilabel>, <guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> dialog, every child file and folder is also shown. If you uncheck this box, only the unversioned parent is shown. Unchecking reduces clutter in these dialogs. In that case if you select an unversioned folder for Add, it is added recursively."
 msgstr "Si cette case est cochée (l'état par défaut), alors à chaque fois que le statut d'un dossier non versionné est affiché dans les boîtes de dialogue <guilabel>Ajouter</guilabel>, <guilabel>Livrer</guilabel> ou <guilabel>Vérifier les modifications</guilabel>, tous les fichiers et tous les dossiers enfants sont aussi affichés. Si vous décochez cette case, seul le parent non versionné est affiché. Décocher réduit le désordre dans ces boîtes de dialogue. Dans ce cas, si vous sélectionnez un dossier non versionné à Ajouter, il est ajouté récursivement."
 
+#. (para)
+msgid "In the <guilabel>Check for Modifications</guilabel> dialog you can opt to see ignored items. If this box is checked then whenever an ignored folder is found, all child items will be shown as well."
+msgstr ""
+
 #. (term)
 msgid "Use auto-completion of file paths and keywords"
 msgstr "Utiliser la complétion automatique des chemins de fichiers et des mots-clé"
@@ -8458,9 +8456,8 @@ msgid "Revision Graph Settings"
 msgstr "Options du Graphe des Révisions"
 
 #. (title)
-#, fuzzy
 msgid "The Settings Dialog, Revision Graph Page"
-msgstr "La boîte de dialogue Configuration, page Général"
+msgstr "La boîte de dialogue Configuration, page graphique de révision"
 
 #. (term)
 msgid "Classification Patterns"
@@ -8487,9 +8484,8 @@ msgid "Revision Graph Colors"
 msgstr "Couleurs du Graphes de Révision"
 
 #. (title)
-#, fuzzy
 msgid "The Settings Dialog, Revision Graph Colors Page"
-msgstr "La boîte de dialogue Configuration, page Couleurs"
+msgstr "La boîte de dialogue Configuration, page des couleur du graphe de révision"
 
 #. (para)
 msgid "<placeholder-1/> This page allows you to configure the colors used. Note that the color specified here is the solid color. Most nodes are colored using a blend of the node type color, the background color and optionally the classification color."
@@ -11244,23 +11240,23 @@ msgstr "<option>/findtype:1</option> tout filtrer"
 
 #. (para)
 msgid "<option>/findtype:2</option> filter by messages"
-msgstr ""
+msgstr "<option>/findtype:2</option> filtrer par messages"
 
 #. (para)
 msgid "<option>/findtype:3</option> filter by path"
-msgstr ""
+msgstr "<option>/findtype:3</option> filtrer par chemin"
 
 #. (para)
 msgid "<option>/findtype:4</option> filter by authors"
-msgstr ""
+msgstr "<option>/findtype:4</option> filtrer par auteurs"
 
 #. (para)
 msgid "<option>/findtype:5</option> filter by revisions"
-msgstr ""
+msgstr "<option>/findtype:5</option> filtrer par révision"
 
 #. (para)
 msgid "<option>/findtype:7</option> filter by bug ID"
-msgstr ""
+msgstr "<option>/findtype:7</option> filtrer par bug ID"
 
 #. (entry)
 #, fuzzy
@@ -11436,9 +11432,18 @@ msgstr "Ouvre la boîte de dialogue Relocaliser. Le <placeholder-1/> spécifie l
 msgid "Opens the help file."
 msgstr "Ouvre le fichier d'aide."
 
+#. (option)
+msgid "/remote"
+msgstr "/remote"
+
+#. (guilabel)
+msgid "Check repository"
+msgstr "Vérifier le référentiel"
+
 #. (entry)
-msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory."
-msgstr "Ouvre la fenêtre vérifier les modifications. Le <placeholder-1/> spécifie le répertoire de la copie de travail."
+#, fuzzy
+msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory. If <placeholder-2/> is specified, the dialog contacts the repository immediately on startup, as if the user clicked on the <placeholder-3/> button."
+msgstr "Ouvre la boîte de dialogue d'extraction. Le <placeholder-1/> spécifie le répertoire cible et le <placeholder-2/> spécifie l'URL à extraire."
 
 #. (option)
 #. (option)
@@ -11471,7 +11476,7 @@ msgstr "Si les options <option>/startrev</option> et <option>/endrev</option> so
 
 #. (para)
 msgid "If the option <option>/line:nnn</option> is set, TortoiseBlame will open with the specified line number showing."
-msgstr ""
+msgstr "Si cette option est renseignée <option>/line:nnn</option>, TortoiseBlame ouvrira en affichant la nième ligne."
 
 #. (para)
 msgid "The options <option>/ignoreeol</option>, <option>/ignorespaces</option> and <option>/ignoreallspaces</option> are also supported."
@@ -11999,9 +12004,8 @@ msgstr ""
 "svn merge [--dry-run] URL_Depuis@revN URL_Vers@revM CHEMIN\n"
 
 #. (para)
-#, fuzzy
 msgid "The <guibutton>Test Merge</guibutton> performs the same merge with the <literal>--dry-run</literal> switch."
-msgstr "L' <guibutton>Exécution fictive</guibutton> exécute la même fusion qu'avec le commutateur <literal>--dry-run</literal>."
+msgstr "Le bouton <guibutton>Fusion de test</guibutton> exécute la même fusion mais avec l'option <literal>--dry-run</literal>."
 
 #. (screen)
 #, no-wrap
@@ -12914,6 +12918,12 @@ msgstr "Jérémy Badier <jeremy.badier@gmail.com>"
 msgid "translator-translation"
 msgstr "traduction"
 
+#~ msgid ""
+#~ "Opens the check-for-modifications dialog. The <placeholder-1/> specifies "
+#~ "the working copy directory."
+#~ msgstr ""
+#~ "Ouvre la fenêtre vérifier les modifications. Le <placeholder-1/> spécifie "
+#~ "le répertoire de la copie de travail."
 #~ msgid "Replaced items"
 #~ msgstr "Elements remplacés"
 
