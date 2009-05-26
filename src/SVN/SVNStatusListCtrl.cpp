@@ -2281,13 +2281,14 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					else
 						popup.AppendMenuIcon(IDSVNLC_REMOVE, IDS_MENUREMOVE, IDI_DELETE);
 				}
-				if ((wcStatus == svn_wc_status_unversioned)||(wcStatus == svn_wc_status_deleted))
+				if ((wcStatus == svn_wc_status_unversioned)||(wcStatus == svn_wc_status_deleted)||(wcStatus == svn_wc_status_ignored))
 				{
 					if (m_dwContextMenus & SVNSLC_POPADD)
 					{
-						if ( entry->IsFolder() )
+						if (entry->IsFolder())
 						{
-							popup.AppendMenuIcon(IDSVNLC_ADD_RECURSIVE, IDS_STATUSLIST_CONTEXT_ADD_RECURSIVE, IDI_ADD);
+							if (wcStatus != svn_wc_status_deleted)
+								popup.AppendMenuIcon(IDSVNLC_ADD_RECURSIVE, IDS_STATUSLIST_CONTEXT_ADD_RECURSIVE, IDI_ADD);
 						}
 						else
 						{
