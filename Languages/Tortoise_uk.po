@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-05-05 11:09+0300\n"
+"PO-Revision-Date: 2009-05-26 11:33+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -48,27 +48,27 @@ msgstr "%.2f кБайт/с"
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contained an unexpected object."
-msgstr "%1 містив неочікуваний об'єкт"
+msgstr "%1 містив неочікуваний об'єкт."
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "%1 contains an incorrect path."
-msgstr "%1 містить невірний шлях"
+msgstr "%1 містить невірний шлях."
 
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contains an incorrect schema."
-msgstr "%1 містить невірну схему"
+msgstr "%1 містить невірну схему."
 
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 has a bad format."
-msgstr "У %1 поганий формат"
+msgstr "У %1 поганий формат."
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "%1 was not found."
-msgstr "%1 не знайдено"
+msgstr "%1 не знайдено."
 
 #. Resource IDs: (3860)
 #, c-format
@@ -1553,6 +1553,10 @@ msgstr "Вік"
 msgid "Align trees on top"
 msgstr "Вирівняти дерева по верхівкам"
 
+#. Resource IDs: (1505)
+msgid "All"
+msgstr "Все"
+
 #. Resource IDs: (1007)
 msgid "All Commands"
 msgstr "Усі команди"
@@ -2160,6 +2164,10 @@ msgstr "Позначте щоб використовувати менш докл
 #. Resource IDs: (2052)
 msgid "Check working copy for modifications"
 msgstr "Перевірити робочу копію на модифікування"
+
+#. Resource IDs: (1504)
+msgid "Check:"
+msgstr "Перевірити:"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -3096,6 +3104,10 @@ msgstr "Пошук відмінностей"
 msgid "Diffs the working copy file with the one before the last commit."
 msgstr "Знаходить відмінності файла робочої копії і його ж перед останньою фіксацією."
 
+#. Resource IDs: (1513)
+msgid "Directories"
+msgstr "Каталоги"
+
 #. Resource IDs: (65535)
 msgid "Directory:"
 msgstr "Каталог:"
@@ -3865,6 +3877,10 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "Ім'я файла"
+
+#. Resource IDs: (1512)
+msgid "Files"
+msgstr "Файли"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -8929,6 +8945,10 @@ msgstr ""
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Розверсіювати"
+
+#. Resource IDs: (1507)
+msgid "Unversioned"
+msgstr "Неверсійні"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
