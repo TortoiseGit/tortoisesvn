@@ -983,6 +983,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 				return NOERROR;
 		}
 	}
+	else
+	{
+		if (_tcsncmp(folder_.c_str(), _T("::{"), 3)==0)
+			return NOERROR;
+	}
 
 	//check if our menu is requested for a subversion admin directory
 	if (g_SVNAdminDir.IsAdminDirPath(folder_.c_str()))
