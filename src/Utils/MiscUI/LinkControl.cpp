@@ -106,6 +106,20 @@ LRESULT CALLBACK CLinkControl::_HyperlinkParentProc(HWND hwnd, UINT message,
 
 	switch (message)
 	{
+	case WM_CTLCOLORSTATIC:
+		{
+			HDC hdc = (HDC)wParam;
+			HWND hwndCtl = (HWND)lParam;
+			CLinkControl *pHyperLink = (CLinkControl*)GetProp(hwndCtl, PROP_OBJECT_PTR);
+
+			if (pHyperLink)
+			{
+				LRESULT lr = CallWindowProc(pfnOrigProc, hwnd, message, wParam, lParam);
+				::SetTextColor(hdc, GetSysColor(COLOR_HOTLIGHT));
+				return lr;
+			}
+		}
+		break;
 	case WM_DESTROY:
 		{
 			SetWindowLongPtr(hwnd, GWLP_WNDPROC, (LONG_PTR) pfnOrigProc);
