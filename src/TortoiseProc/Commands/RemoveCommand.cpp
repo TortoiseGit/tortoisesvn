@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -70,10 +70,20 @@ bool RemoveCommand::Execute()
 			// if something goes wrong or unversioned/modified items are
 			// to be deleted
 			CTSVNPathList removePathList(pathList[nPath]);
-			if (bForce)
+			if ((bForce)&&(!parser.HasKey(_T("keep"))))
 			{
 				CTSVNPath delPath = removePathList[0];
-				delPath.Delete(true);
+				if (!delPath.IsDirectory())
+					delPath.Delete(true);
+				// note: we don't move folders to the trash bin, so they can't
+				// get restored anymore - svn removes *all* files in a removed
+				// folder, even modified and unversioned ones
+				// We could move the folders here to the trash bin too, but then
+				// the folder would be gone and will require a recursive commit.
+				// Of course: a solution would be to first create a copy of the folder,
+				// move the original folder to the trash, then rename the copied folder
+				// to the original name, then let svn delete the folder - but
+				// that would just take too much time for bigger folders...
 			}
 			if (!svn.Remove(removePathList, bForce, parser.HasKey(_T("keep"))))
 			{
@@ -97,8 +107,13 @@ bool RemoveCommand::Execute()
 						bForce = TRUE;
 					if ((ret == 1)||(ret==3))
 					{
-						CTSVNPath delPath = removePathList[0];
-						delPath.Delete(true);
+						if (!parser.HasKey(_T("keep")))
+						{
+							CTSVNPath delPath = removePathList[0];
+							if (!delPath.IsDirectory())
+								delPath.Delete(true);
+							// note: see comment for the delPath.Delete() above
+						}
 						if (!svn.Remove(removePathList, TRUE, parser.HasKey(_T("keep"))))
 						{
 							CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
