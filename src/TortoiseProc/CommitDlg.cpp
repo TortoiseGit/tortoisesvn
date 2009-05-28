@@ -1435,23 +1435,23 @@ LRESULT CCommitDlg::OnCheck(WPARAM wnd, LPARAM)
 {
 	HWND hwnd = (HWND)wnd;
 	if (hwnd == GetDlgItem(IDC_CHECKALL)->GetSafeHwnd())
-		m_ListCtrl.Check(SVNSLC_SHOWEVERYTHING);
+		m_ListCtrl.Check(SVNSLC_SHOWEVERYTHING, true);
 	else if (hwnd == GetDlgItem(IDC_CHECKNONE)->GetSafeHwnd())
-		m_ListCtrl.Check(0);
+		m_ListCtrl.Check(0, true);
 	else if (hwnd == GetDlgItem(IDC_CHECKUNVERSIONED)->GetSafeHwnd())
-		m_ListCtrl.Check(SVNSLC_SHOWUNVERSIONED);
+		m_ListCtrl.Check(SVNSLC_SHOWUNVERSIONED, false);
 	else if (hwnd == GetDlgItem(IDC_CHECKVERSIONED)->GetSafeHwnd())
-		m_ListCtrl.Check(SVNSLC_SHOWVERSIONED);
+		m_ListCtrl.Check(SVNSLC_SHOWVERSIONED, false);
 	else if (hwnd == GetDlgItem(IDC_CHECKADDED)->GetSafeHwnd())
-		m_ListCtrl.Check(SVNSLC_SHOWADDED);
+		m_ListCtrl.Check(SVNSLC_SHOWADDED, false);
 	else if (hwnd == GetDlgItem(IDC_CHECKDELETED)->GetSafeHwnd())
-		m_ListCtrl.Check(SVNSLC_SHOWREMOVED);
+		m_ListCtrl.Check(SVNSLC_SHOWREMOVED, false);
 	else if (hwnd == GetDlgItem(IDC_CHECKMODIFIED)->GetSafeHwnd())
-		m_ListCtrl.Check(SVNSLC_SHOWMODIFIED);
+		m_ListCtrl.Check(SVNSLC_SHOWMODIFIED, false);
 	else if (hwnd == GetDlgItem(IDC_CHECKFILES)->GetSafeHwnd())
-		m_ListCtrl.Check(SVNSLC_SHOWFILES);
+		m_ListCtrl.Check(SVNSLC_SHOWFILES, false);
 	else if (hwnd == GetDlgItem(IDC_CHECKDIRECTORIES)->GetSafeHwnd())
-		m_ListCtrl.Check(SVNSLC_SHOWFOLDERS);
+		m_ListCtrl.Check(SVNSLC_SHOWFOLDERS, false);
 
 	return 0;
 }

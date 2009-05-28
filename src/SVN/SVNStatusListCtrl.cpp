@@ -4054,7 +4054,7 @@ void CSVNStatusListCtrl::SelectAll(bool bSelect, bool bIncludeNoCommits)
 	NotifyCheck();
 }
 
-void CSVNStatusListCtrl::Check(DWORD dwCheck)
+void CSVNStatusListCtrl::Check(DWORD dwCheck, bool uncheckNonMatches)
 {
 	CWaitCursor waitCursor;
 	// block here so the LVN_ITEMCHANGED messages
@@ -4094,7 +4094,7 @@ void CSVNStatusListCtrl::Check(DWORD dwCheck)
 			SetEntryCheck(entry, i, true);
 			m_nSelected++;
 		}
-		else
+		else if (uncheckNonMatches)
 			SetEntryCheck(entry, i, false);
 	}
 	// unblock before redrawing

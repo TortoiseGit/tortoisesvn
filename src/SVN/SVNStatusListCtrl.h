@@ -703,7 +703,7 @@ public:
 	 * Checks all specified items, removes the checks from the ones not specified
 	 * \param dwCheck SVNLC_SHOWxxx defines
 	 */
-	void Check(DWORD dwCheck);
+	void Check(DWORD dwCheck, bool uncheckNonMatches);
 
 	/** Set a checkbox on an entry in the listbox
 	 * Keeps the listctrl checked state and the FileEntry's checked flag in sync
