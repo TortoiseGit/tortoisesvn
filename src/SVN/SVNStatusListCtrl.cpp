@@ -1057,6 +1057,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
 	m_bShowFolders = bShowFolders;
 	m_nSelected = 0;
 	int nTopIndex = GetTopIndex();
+	int selMark = GetSelectionMark();
 	POSITION posSelectedEntry = GetFirstSelectedItemPosition();
 	int nSelectedEntry = 0;
 	if (posSelectedEntry)
@@ -1186,6 +1187,11 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
 				break;
 			}
 		}
+	}
+	if (selMark >= 0)
+	{
+		SetSelectionMark(selMark);
+		SetItemState(selMark, LVIS_FOCUSED , LVIS_FOCUSED);
 	}
 
 	if (pApp)
