@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <project name="zlib" default="build" basedir="..\..\..\common\zlib">
 
-<!-- ====================================================================== -->
-<!-- Project targets														-->
-<!-- ====================================================================== -->
+	<!-- ====================================================================== -->
+	<!-- Project targets														-->
+	<!-- ====================================================================== -->
 	<target name="rebuild" depends="clean,build" />
-	
+
 	<target name="clean">
 		<description>
 			Cleans previous built files.
 		</description>
-		
+
 		<if test="${cleanup == 'yes'}">
 			<delete>
 				<fileset>
@@ -24,20 +24,20 @@
 		<mkdir dir="${configuration}${static}_${platform}" />
 		<if test="${platform == 'win32'}">
 			<copy todir="." overwrite="true">
-			    <fileset basedir="contrib/masmx86">
-			        <include name="*.asm" />
-			        <include name="*.c" />
-			    </fileset>
+				<fileset basedir="contrib/masmx86">
+					<include name="*.asm" />
+					<include name="*.c" />
+				</fileset>
 			</copy>
 			<exec program="ml" commandline="-nologo -c -Zi -coff -DASMV -DASMINF gvmat32.asm" />
 			<exec program="ml" commandline="-nologo -c -Zi -coff -DASMV -DASMINF inffas32.asm" />
 		</if>
 		<if test="${platform == 'x64'}">
 			<copy todir="." overwrite="true">
-			    <fileset basedir="contrib/masmx64">
-			        <include name="*.asm" />
-			        <include name="*.c" />
-			    </fileset>
+				<fileset basedir="contrib/masmx64">
+					<include name="*.asm" />
+					<include name="*.c" />
+				</fileset>
 			</copy>
 			<exec program="ml64" commandline="-nologo -c -Zi gvmat64.asm" />
 			<exec program="ml64" commandline="-nologo -c -Zi inffasx64.asm" />
@@ -82,8 +82,8 @@
 		</cl>
 		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
-		<lib 
-			output="${configuration}${static}_${platform}\zlibstat.lib" 
+		<lib
+			output="${configuration}${static}_${platform}\zlibstat.lib"
 			options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
 			<sources>
 				<include name="${configuration}${static}_${platform}\*.obj" />

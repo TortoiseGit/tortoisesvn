@@ -29,16 +29,16 @@ This will only build the english HTML help file for TortoiseSVN
 	<!-- List of applications, languages and output formats in which  -->
 	<!-- the documentation will be created by default                 -->
 
-	<property name="applications" 
-		value="TortoiseSVN,TortoiseMerge" 
+	<property name="applications"
+		value="TortoiseSVN,TortoiseMerge"
 		unless="${property::exists('applications')}"
 	/>
-	<property name="docformats" 
-		value="pdf,chm,html,htmlsingle" 
+	<property name="docformats"
+		value="pdf,chm,html,htmlsingle"
 		unless="${property::exists('docformats')}"
 	/>
-	<property name="languages" 
-		value="en,de,es,fa,fi,fr,hr,id,ja,nl,ru,sl,sk,sr_spc,sr_spl,zh_CN" 
+	<property name="languages"
+		value="en,de,es,fa,fi,fr,hr,id,ja,nl,ru,sl,sk,sr_spc,sr_spl,zh_CN"
 		unless="${property::exists('languages')}"
 	/>
 
@@ -46,7 +46,7 @@ This will only build the english HTML help file for TortoiseSVN
 	<!-- Define property so that doc.build alone doesn't fail         -->
 
 	<property name="devrelease"
-		value="" 
+		value=""
 		unless="${property::exists('devrelease')}"
 	/>
 
@@ -54,22 +54,22 @@ This will only build the english HTML help file for TortoiseSVN
 
 	<!-- ============================================================ -->
 	<!-- Settings for the translation                                 -->
-	
+
 	<!-- Base language. All other documents are created using this    -->
 	<!-- documents structure                                          -->
 	<property name="lang.base"
 		value="en"
 		unless="${property::exists('lang.base')}"
 	/>
-	
+
 	<!-- ============================================================ -->
 	<!-- Settings for the CHM Help creation                           -->
 	<!-- Attention, this is implemented as a target, because I could  -->
 	<!-- not find a better way to create the property depending on    -->
 	<!-- the app name                                                 -->
-	
+
 	<target name="help.prepare.TortoiseSVN">
-	<echo message="help.prepare.TortoiseSVN"/>
+		<echo message="help.prepare.TortoiseSVN"/>
 		<property name="help.resource.TortoiseSVN"
 		  value="../src/TortoiseProc/resource.h"
 			unless="${property::exists('help.resource.TortoiseSVN')}"
@@ -77,17 +77,17 @@ This will only build the english HTML help file for TortoiseSVN
 		<property name="help.resource" value="${help.resource.TortoiseSVN}" />
 	</target>
 	<target name="help.prepare.TortoiseMerge">
-	<echo message="help.prepare.TortoiseMerge"/>
+		<echo message="help.prepare.TortoiseMerge"/>
 		<property name="help.resource.TortoiseMerge"
 	  	value="../src/TortoiseMerge/resource.h"
 			unless="${property::exists('help.resource.TortoiseMerge')}"
 		/>
 		<property name="help.resource" value="${help.resource.TortoiseMerge}" />
 	</target>
-	
+
 	<!-- Fileset to exclude from translation and .pot creation        -->
 	<!-- Duplicate these files in the "sourcefiles" fileset           -->
-<!--
+	<!--
 	<fileset id="files.exclude">
 		<include name="source/${lang.base}/**/version.xml"/>
 		<include name="source/${lang.base}/**/pubdate.xml"/>
@@ -107,29 +107,29 @@ This will only build the english HTML help file for TortoiseSVN
 
 	<!-- ============================================================ -->
 	<!-- Paths to the binaries                                        -->
-	<property name="path.bin" 
+	<property name="path.bin"
 		value="${path::get-full-path('../Tools')}"
 		unless="${property::exists('path.bin')}"
 	/>
-	<property name="path.fop" 
+	<property name="path.fop"
 		value="${path::get-full-path('../Tools/fop')}"
 		unless="${property::exists('path.fop')}"
 	/>
-	<property name="path.xsl" 
+	<property name="path.xsl"
 		value="${string::replace(path::get-full-path('../Tools/xsl'), '\', '/')}"
 		unless="${property::exists('path.xsl')}"
 	/>
-	<property name="path.gettext" 
+	<property name="path.gettext"
 		value="${path::get-full-path('../Tools')}"
 		unless="${property::exists('path.gettext')}"
 	/>
 
 	<!-- Choose between 32/64 Bit executable of SubWCRev -->
-	<property name="bindirextension" 
+	<property name="bindirextension"
 	  value=""
 		unless="${property::exists('bindirextension')}"
 	/>
-	<property name="path.subwcrev" 
+	<property name="path.subwcrev"
 		value="../bin/release${bindirextension}/bin/"
 		unless="${property::exists('path.subwcrev')}"
 	/>
@@ -153,11 +153,11 @@ This will only build the english HTML help file for TortoiseSVN
 	<property name="xsl.profile.params" value="--nonet --xinclude --stringparam profile.condition &quot;exclude&quot;"/>
 	<property name="xsl.profile.file" value="profile.xsl"/>
 
-<!-- ====================================================================== -->
-<!-- Custom target to prepare the build                                     -->
-<!-- ====================================================================== -->
+	<!-- ====================================================================== -->
+	<!-- Custom target to prepare the build                                     -->
+	<!-- ====================================================================== -->
 
-	<target name="prepare.custom" 
+	<target name="prepare.custom"
 		description="Prepare XSL files, create help context file"
 		depends="PrepareVersionInfo">
 
@@ -193,45 +193,45 @@ This will only build the english HTML help file for TortoiseSVN
 
 	</target>
 
-<!-- ====================================================================== -->
-<!-- Prepare version info for version file and output filenames             -->
-<!-- ====================================================================== -->
+	<!-- ====================================================================== -->
+	<!-- Prepare version info for version file and output filenames             -->
+	<!-- ====================================================================== -->
 
 	<target name="PrepareVersionInfo" description="Prepares version info for version file and output filenames">
 
 		<if test="${not environment::variable-exists('MajorVersion')}">
 
-		        <if test="${file::exists('../versioninfo.build')}">
+			<if test="${file::exists('../versioninfo.build')}">
 				<!-- try to get version info even if full build environment is not available -->
 				<property name="SubWCRevFileName" value="${path.subwcrev}/subwcrev.exe" unless="${property::exists('configuration')}"/>
-					<nant target="versioninfo">
-						<buildfiles>
-							<include name="../versioninfo.build" />
-						</buildfiles>
-					</nant>
-<!--				<echo>Note: version information set!</echo> -->
+				<nant target="versioninfo">
+					<buildfiles>
+						<include name="../versioninfo.build" />
+					</buildfiles>
+				</nant>
+				<!--				<echo>Note: version information set!</echo> -->
 			</if>
-		        <if test="${not file::exists('../versioninfo.build')}">
+			<if test="${not file::exists('../versioninfo.build')}">
 				<echo>Version information set to dummy values</echo>
 				<setenv>
 					<variable name="MajorVersion" value="ver" />
 					<variable name="MinorVersion" value="x" />
 					<variable name="MicroVersion" value="x" />
 				</setenv>
-			</if>                                            
+			</if>
 		</if>
 
 		<property name="docverstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}"/>
 
 	</target>
 
-<!-- ====================================================================== -->
-<!-- Prepare help context file                                              -->
-<!-- ====================================================================== -->
+	<!-- ====================================================================== -->
+	<!-- Prepare help context file                                              -->
+	<!-- ====================================================================== -->
 
 	<target name="help.prepare" description="Create CHM help context">
 		<call target="help.prepare.${app}" />
-<!--		if="${target::exists('help.prepare.${app}')}"/>-->
+		<!--		if="${target::exists('help.prepare.${app}')}"/>-->
 
 		<property name="help.context" value="source/${app}.h"/>
 		<if test="${not file::exists(help.context)}">
@@ -240,7 +240,7 @@ This will only build the english HTML help file for TortoiseSVN
 			<loadfile file="${help.resource}" property="header" />
 			<echo file="${headerfile}" message="${header}" />
 			<echo message="header file ${help.resource}" />
-			
+
 			<echo message="// Generated Help Map file." file="${help.context}" />
 			<echo message="" file="${help.context}" append="true"/>
 			<echo message="// Commands (ID_* and IDM_*)" file="${help.context}" append="true"/>

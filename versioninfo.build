@@ -48,7 +48,7 @@
 			</copy>
 			<echo message="Warning: SubWCRev does not exist! Using 0 as the WC-revision" />
 		</if>
-		
+
 		<nant target="setversioninfo">
 			<buildfiles>
 				<include name="version.build" />

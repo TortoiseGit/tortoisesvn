@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <project name="serf" default="build" basedir="..\serf">
 
-<!-- ====================================================================== -->
-<!-- Project targets														-->
-<!-- ====================================================================== -->
+	<!-- ====================================================================== -->
+	<!-- Project targets														-->
+	<!-- ====================================================================== -->
 	<target name="rebuild" depends="clean,build" />
-	
+
 	<target name="clean">
 		<description>
 			Cleans previous built files.
 		</description>
-		
+
 		<if test="${cleanup == 'yes'}">
 			<delete>
 				<fileset>
@@ -73,8 +73,8 @@
 		</cl>
 		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
-		<lib 
-			output="${configuration}${static}_${platform}\libserf.lib" 
+		<lib
+			output="${configuration}${static}_${platform}\libserf.lib"
 			options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
 			<sources>
 				<include name="${configuration}${static}_${platform}\*.obj" />

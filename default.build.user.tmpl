@@ -14,9 +14,9 @@
 
 <project name="ToolPaths" default="env">
 
-<!-- ====================================================================== -->
-<!-- These two targets have to exist in doc.build.user                      -->
-<!-- ====================================================================== -->
+	<!-- ====================================================================== -->
+	<!-- These two targets have to exist in doc.build.user                      -->
+	<!-- ====================================================================== -->
 
 	<target name="VSNET" description="Checks if the env variables for VS.NET2008 are set">
 		<if test="${not environment::variable-exists('VCINSTALLDIR')}">

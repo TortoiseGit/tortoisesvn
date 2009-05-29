@@ -60,76 +60,76 @@
 			<arg value="/rebuild" />
 			<arg value="release|x64" />
 		</exec>
-		  <setenv>
-			  <variable name="Platform" value="win32" />
-		  </setenv>
+		<setenv>
+			<variable name="Platform" value="win32" />
+		</setenv>
 
-		  <exec program="candle">
-			  <arg value="-nologo" />
-			  <arg value="-out" />
-			  <arg value="..\..\bin\" />
-			  <arg value="TortoiseOverlaysMerge.wxs" />
-		  </exec>
-		  <exec program="light">
-			  <arg value="-nologo" />
-			  <arg value="-out" />
-			  <arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msm" />
-			  <arg value="..\..\bin\TortoiseOverlaysMerge.wixobj" />
-		  </exec>
-		  <exec program="candle">
-			  <arg value="-nologo" />
-			  <arg value="-out" />
-			  <arg value="..\..\bin\" />
-			  <arg value="TortoiseOverlaysMSI.wxs" />
-		  </exec>
-		  <exec program="light">
-			  <arg value="-nologo" />
-			  <arg value="-out" />
-			  <arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msi" />
-			  <arg value="..\..\bin\TortoiseOverlaysMSI.wixobj" />
-		  </exec>
-		  <delete>
-			  <fileset>
-				  <include name="..\..\bin\*.wixobj" />
-				  <include name="..\..\bin\*.wixpdb" />
-			  </fileset>
-		  </delete>
+		<exec program="candle">
+			<arg value="-nologo" />
+			<arg value="-out" />
+			<arg value="..\..\bin\" />
+			<arg value="TortoiseOverlaysMerge.wxs" />
+		</exec>
+		<exec program="light">
+			<arg value="-nologo" />
+			<arg value="-out" />
+			<arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msm" />
+			<arg value="..\..\bin\TortoiseOverlaysMerge.wixobj" />
+		</exec>
+		<exec program="candle">
+			<arg value="-nologo" />
+			<arg value="-out" />
+			<arg value="..\..\bin\" />
+			<arg value="TortoiseOverlaysMSI.wxs" />
+		</exec>
+		<exec program="light">
+			<arg value="-nologo" />
+			<arg value="-out" />
+			<arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msi" />
+			<arg value="..\..\bin\TortoiseOverlaysMSI.wixobj" />
+		</exec>
+		<delete>
+			<fileset>
+				<include name="..\..\bin\*.wixobj" />
+				<include name="..\..\bin\*.wixpdb" />
+			</fileset>
+		</delete>
 
-		  <setenv>
-			  <variable name="Platform" value="x64" />
-		  </setenv>
+		<setenv>
+			<variable name="Platform" value="x64" />
+		</setenv>
 		<property name="platform" value="x64" />
 		<property name="bindirextension" value="64" />
-		  <exec program="candle">
-			  <arg value="-nologo" />
-			  <arg value="-out" />
-			  <arg value="..\..\bin\" />
-			  <arg value="TortoiseOverlaysMerge.wxs" />
-		  </exec>
-		  <exec program="light">
-			  <arg value="-nologo" />
-			  <arg value="-out" />
-			  <arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msm" />
-			  <arg value="..\..\bin\TortoiseOverlaysMerge.wixobj" />
-		  </exec>
-		  <exec program="candle">
-			  <arg value="-nologo" />
-			  <arg value="-out" />
-			  <arg value="..\..\bin\" />
-			  <arg value="TortoiseOverlaysMSI.wxs" />
-		  </exec>
-		  <exec program="light">
-			  <arg value="-nologo" />
-			  <arg value="-out" />
-			  <arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msi" />
-			  <arg value="..\..\bin\TortoiseOverlaysMSI.wixobj" />
-		  </exec>
-		  <delete>
-			  <fileset>
-				  <include name="..\..\bin\*.wixobj" />
-				  <include name="..\..\bin\*.wixpdb" />
-			  </fileset>
-		  </delete>
+		<exec program="candle">
+			<arg value="-nologo" />
+			<arg value="-out" />
+			<arg value="..\..\bin\" />
+			<arg value="TortoiseOverlaysMerge.wxs" />
+		</exec>
+		<exec program="light">
+			<arg value="-nologo" />
+			<arg value="-out" />
+			<arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msm" />
+			<arg value="..\..\bin\TortoiseOverlaysMerge.wixobj" />
+		</exec>
+		<exec program="candle">
+			<arg value="-nologo" />
+			<arg value="-out" />
+			<arg value="..\..\bin\" />
+			<arg value="TortoiseOverlaysMSI.wxs" />
+		</exec>
+		<exec program="light">
+			<arg value="-nologo" />
+			<arg value="-out" />
+			<arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msi" />
+			<arg value="..\..\bin\TortoiseOverlaysMSI.wixobj" />
+		</exec>
+		<delete>
+			<fileset>
+				<include name="..\..\bin\*.wixobj" />
+				<include name="..\..\bin\*.wixpdb" />
+			</fileset>
+		</delete>
 
 
 	</target>

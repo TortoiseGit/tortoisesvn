@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <project name="aprutil" default="build" basedir="..\apr-util">
-	
-<!-- ====================================================================== -->
-<!-- Configuration targets													-->
-<!-- ====================================================================== -->
+
+	<!-- ====================================================================== -->
+	<!-- Configuration targets													-->
+	<!-- ====================================================================== -->
 	<target name="debug">
 		<description>
 			Sets the environment up to build the debug versions.
@@ -11,16 +11,16 @@
 		<property name="configuration" value="debug" />
 	</target>
 
-<!-- ====================================================================== -->
-<!-- Project targets														-->
-<!-- ====================================================================== -->
+	<!-- ====================================================================== -->
+	<!-- Project targets														-->
+	<!-- ====================================================================== -->
 	<target name="rebuild" depends="clean,build" />
-	
+
 	<target name="clean">
 		<description>
 			Cleans previous built files.
 		</description>
-		
+
 		<if test="${cleanup == 'yes'}">
 			<delete>
 				<fileset>
@@ -89,8 +89,8 @@
 		</cl>
 		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
-		<lib 
-			output="xml\expat\lib\${configuration}${static}_${platform}\xml.lib" 
+		<lib
+			output="xml\expat\lib\${configuration}${static}_${platform}\xml.lib"
 			options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
 			<sources>
 				<include name="xml\expat\lib\${configuration}${static}_${platform}\*.obj" />
@@ -125,7 +125,7 @@
 				<include name="include" />
 			</includedirs>
 		</rc>
-				
+
 		<cl outputdir="${configuration}${static}_${platform}">
 			<arg value="/Ox" if="${configuration == 'release'}" />
 			<arg value="/Od" if="${configuration != 'release'}" />
@@ -182,31 +182,31 @@
 		<property name="machineoption" value="/MACHINE:X86" />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 		<if test="${static == 'static'}">
-            <lib 
-                output="${configuration}${static}_${platform}\libaprutil_tsvn.lib" 
+			<lib
+                output="${configuration}${static}_${platform}\libaprutil_tsvn.lib"
                 options='/NOLOGO /DEBUG /PDB:".\${configuration}${static}_${platform}/libaprutil.pdb" /SUBSYSTEM:WINDOWS'>
-                <sources>
-                    <include name="${configuration}${static}_${platform}\*.obj" />
-                    <include name="xml\expat\lib\${configuration}${static}_${platform}\*.obj" />
-                </sources>
-            </lib>
-        </if>
-        <if test="${static != 'static'}">
-            <link 
-                output="${configuration}${static}_${platform}\libaprutil_tsvn.dll" 
+				<sources>
+					<include name="${configuration}${static}_${platform}\*.obj" />
+					<include name="xml\expat\lib\${configuration}${static}_${platform}\*.obj" />
+				</sources>
+			</lib>
+		</if>
+		<if test="${static != 'static'}">
+			<link
+                output="${configuration}${static}_${platform}\libaprutil_tsvn.dll"
                 options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/libaprutil_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EE60000" /IMPLIB:".\${configuration}${static}_${platform}/libaprutil_tsvn.lib" ${machineoption} ${configuration}${static}_${platform}\libaprutil_tsvn.res ..\apr\${configuration}${static}_${platform}\libapr_tsvn.lib ws2_32.lib Wldap32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
-                <sources>
-                    <include name="${configuration}${static}_${platform}\*.obj" />
-                    <include name="xml\expat\lib\${configuration}${static}_${platform}\*.obj" />
-                </sources>
-            </link>
-            <exec program="mt.exe">
-                <arg value="-nologo" />
-                <arg value="-manifest" />
-                <arg value=".\${configuration}${static}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" />
-                <arg value='/outputresource:".\${configuration}${static}_${platform}\libaprutil_tsvn.dll;#2"' />
-            </exec>
-        </if>
+				<sources>
+					<include name="${configuration}${static}_${platform}\*.obj" />
+					<include name="xml\expat\lib\${configuration}${static}_${platform}\*.obj" />
+				</sources>
+			</link>
+			<exec program="mt.exe">
+				<arg value="-nologo" />
+				<arg value="-manifest" />
+				<arg value=".\${configuration}${static}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" />
+				<arg value='/outputresource:".\${configuration}${static}_${platform}\libaprutil_tsvn.dll;#2"' />
+			</exec>
+		</if>
 	</target>
 
 </project>

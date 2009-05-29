@@ -2,9 +2,9 @@
 
 <project name="ExampleSubWCRevTask" default="run" basepath=".">
 	<description>
-	This is an example NAnt task to show how to use the SubWCRev COM-object
-	in a build script.
-	The information from SubWCRev is stored in NAnt properties.
+		This is an example NAnt task to show how to use the SubWCRev COM-object
+		in a build script.
+		The information from SubWCRev is stored in NAnt properties.
 	</description>
 
 	<target name="SubWCRev">
@@ -52,7 +52,7 @@
 			</code>
 		</script>
 	</target>
-	
+
 	<target name="run">
 		<!-- set the path for the SubWCRev script to use -->
 		<property name="SubWCRevPath" value="D:\\Development\\SVN\\TortoiseSVN" />

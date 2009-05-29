@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <project name="sasl" default="build" basedir="..\cyrus-sasl">
 
-<!-- ====================================================================== -->
-<!-- Project targets														-->
-<!-- ====================================================================== -->
+	<!-- ====================================================================== -->
+	<!-- Project targets														-->
+	<!-- ====================================================================== -->
 	<target name="rebuild" depends="clean,build" />
-	
+
 	<target name="clean">
 		<description>
 			Cleans previous built files.
 		</description>
-		
+
 		<delete>
 			<fileset>
 				<include name="${configuration}_${platform}\**" />
@@ -79,14 +79,14 @@
 		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 
-		<lib 
-			output="${configuration}_${platform}\libsasls.lib" 
+		<lib
+			output="${configuration}_${platform}\libsasls.lib"
 			options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
 			<sources>
 				<include name="${configuration}_${platform}\*.obj" />
 			</sources>
 		</lib>
-		
+
 		<delete>
 			<fileset>
 				<include name="${configuration}_${platform}\*.obj" />
@@ -150,8 +150,8 @@
 		</cl>
 		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
-		<link 
-			output="${configuration}_${platform}\libsasl.dll" 
+		<link
+			output="${configuration}_${platform}\libsasl.dll"
 			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libsasl.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libsasl.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/libsasl.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
 			<sources>
 				<include name="${configuration}_${platform}\*.obj" />
@@ -163,13 +163,13 @@
 			<arg value=".\${configuration}_${platform}\libsasl.dll.manifest" />
 			<arg value='/outputresource:".\${configuration}_${platform}\libsasl.dll;#2"' />
 		</exec>
-		
+
 		<delete>
 			<fileset>
 				<include name="${configuration}_${platform}\*.obj" />
 			</fileset>
 		</delete>
-		
+
 		<cl outputdir="${configuration}_${platform}">
 			<arg value="/Ox" if="${configuration == 'release'}" />
 			<arg value="/Od" if="${configuration != 'release'}" />
@@ -227,8 +227,8 @@
 		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 
-		<link 
-			output="${configuration}_${platform}\saslANONYMOUS.dll" 
+		<link
+			output="${configuration}_${platform}\saslANONYMOUS.dll"
 			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslANONYMOUS.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslANONYMOUS.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslANONYMOUS.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
 			<sources>
 				<include name="${configuration}_${platform}\plugin_common.obj" />
@@ -242,8 +242,8 @@
 			<arg value='/outputresource:".\${configuration}_${platform}\saslANONYMOUS.dll;#2"' />
 		</exec>
 
-		<link 
-			output="${configuration}_${platform}\saslCRAMMD5.dll" 
+		<link
+			output="${configuration}_${platform}\saslCRAMMD5.dll"
 			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslCRAMMD5.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslCRAMMD5.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslCRAMMD5.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
 			<sources>
 				<include name="${configuration}_${platform}\plugin_common.obj" />
@@ -257,8 +257,8 @@
 			<arg value='/outputresource:".\${configuration}_${platform}\saslCRAMMD5.dll;#2"' />
 		</exec>
 
-		<link 
-			output="${configuration}_${platform}\saslDIGESTMD5.dll" 
+		<link
+			output="${configuration}_${platform}\saslDIGESTMD5.dll"
 			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslDIGESTMD5.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslDIGESTMD5.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslDIGESTMD5.lib" ${machineoption} ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
 			<sources>
 				<include name="${configuration}_${platform}\plugin_common.obj" />
@@ -272,8 +272,8 @@
 			<arg value='/outputresource:".\${configuration}_${platform}\saslDIGESTMD5.dll;#2"' />
 		</exec>
 
-		<link 
-			output="${configuration}_${platform}\saslLOGIN.dll" 
+		<link
+			output="${configuration}_${platform}\saslLOGIN.dll"
 			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslLOGIN.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslLOGIN.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslLOGIN.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
 			<sources>
 				<include name="${configuration}_${platform}\plugin_common.obj" />
@@ -287,8 +287,8 @@
 			<arg value='/outputresource:".\${configuration}_${platform}\saslLOGIN.dll;#2"' />
 		</exec>
 
-		<link 
-			output="${configuration}_${platform}\saslNTLM.dll" 
+		<link
+			output="${configuration}_${platform}\saslNTLM.dll"
 			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslNTLM.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslNTLM.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslNTLM.lib" ${machineoption} ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
 			<sources>
 				<include name="${configuration}_${platform}\plugin_common.obj" />
@@ -302,8 +302,8 @@
 			<arg value='/outputresource:".\${configuration}_${platform}\saslNTLM.dll;#2"' />
 		</exec>
 
-		<link 
-			output="${configuration}_${platform}\saslPLAIN.dll" 
+		<link
+			output="${configuration}_${platform}\saslPLAIN.dll"
 			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslPLAIN.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslPLAIN.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslPLAIN.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
 			<sources>
 				<include name="${configuration}_${platform}\plugin_common.obj" />
