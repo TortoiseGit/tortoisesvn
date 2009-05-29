@@ -390,5 +390,6 @@ void CExportDlg::OnCbnEditchangeUrlcombo()
 		return;
 	CString name = CAppUtils::GetProjectNameFromURL(m_URL);
 	m_strExportDirectory = m_sExportDirOrig+_T('\\')+name;
+	m_strExportDirectory.Replace(_T(":\\\\"), _T(":\\"));
 	UpdateData(FALSE);
 }

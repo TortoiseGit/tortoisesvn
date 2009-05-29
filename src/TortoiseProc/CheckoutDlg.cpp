@@ -409,6 +409,7 @@ void CCheckoutDlg::OnCbnEditchangeUrlcombo()
 		if (m_strCheckoutDirectory.GetLength() <= 2)
 			m_strCheckoutDirectory += _T("\\");
 	}
+	m_strCheckoutDirectory.Replace(_T(":\\\\"), _T(":\\"));
 	UpdateData(FALSE);
 	DialogEnableWindow(IDOK, !m_strCheckoutDirectory.IsEmpty());
 }
