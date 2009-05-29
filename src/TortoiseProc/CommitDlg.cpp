@@ -779,13 +779,13 @@ UINT CCommitDlg::StatusThread()
 
 		DialogEnableWindow(IDC_CHECKALL, true);
 		DialogEnableWindow(IDC_CHECKNONE, true);
-		DialogEnableWindow(IDC_CHECKUNVERSIONED, true);
-		DialogEnableWindow(IDC_CHECKVERSIONED, true);
-		DialogEnableWindow(IDC_CHECKADDED, true);
-		DialogEnableWindow(IDC_CHECKDELETED, true);
-		DialogEnableWindow(IDC_CHECKMODIFIED, true);
-		DialogEnableWindow(IDC_CHECKFILES, true);
-		DialogEnableWindow(IDC_CHECKDIRECTORIES, true);
+		DialogEnableWindow(IDC_CHECKUNVERSIONED, m_ListCtrl.GetUnversionedCount() > 0);
+		DialogEnableWindow(IDC_CHECKVERSIONED, m_ListCtrl.GetItemCount() > m_ListCtrl.GetUnversionedCount());
+		DialogEnableWindow(IDC_CHECKADDED, m_ListCtrl.GetAddedCount() > 0);
+		DialogEnableWindow(IDC_CHECKDELETED, m_ListCtrl.GetDeletedCount() > 0);
+		DialogEnableWindow(IDC_CHECKMODIFIED, m_ListCtrl.GetModifiedCount() > 0);
+		DialogEnableWindow(IDC_CHECKFILES, m_ListCtrl.GetFileCount() > 0);
+		DialogEnableWindow(IDC_CHECKDIRECTORIES, m_ListCtrl.GetFolderCount() > 0);
 
 		// we have the list, now signal the main thread about it
 		SendMessage(WM_AUTOLISTREADY);	// only send the message if the thread wasn't told to quit!
