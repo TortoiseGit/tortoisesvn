@@ -14,10 +14,10 @@ NAnt build script for the TortoiseSVN language pack installers
 	<description>
 		Builds the Language pack installers
 	</description>
-	
+
 	<include buildfile="../default.build.user" if="${file::exists('../default.build.user')}"/>
 
-	<property name="SpellCheckDir" 
+	<property name="SpellCheckDir"
 		value="..\..\Common\Spell\"
 		unless="${property::exists('SpellCheckDir')}"
 	/>
@@ -222,7 +222,7 @@ NAnt build script for the TortoiseSVN language pack installers
 			</code>
 		</script>
 	</target>
-	
+
 	<target name="all" depends="clean">
 		<description>
 			Builds the installers.
@@ -247,18 +247,23 @@ NAnt build script for the TortoiseSVN language pack installers
 			<call target="doit" unless="${string::starts-with(langline, '#') or string::get-length(langline)==0}" failonerror="false"/>
 		</foreach>
 	</target>
-	
+
 	<target name="doit">
 		<property name="platformfolder" value="${configuration}${bindirextension}" />
 
 		<property name="ResTextFileName" value="..\bin\release${bindirextension}\bin\restext.exe" />
 		<property name="ResTextFileName" value="..\bin\release\bin\restext.exe" if="${crosscompile == 'yes'}" />
 
-		<regex 
-			pattern="^(?'langhelpfile'\d+);[ \t]+(?'langISO'[A-z_]+);[ \t]+(?'langCC'\d+);[ \t]+(?'mergemanual'\d)(?'tsvnmanual'\d)(?'spellcheck'\d);[ \t]+(?'langUI'.+);[ \t]+(?'translatornames'.+)" 
+		<regex
+			pattern="^(?'langhelpfile'\d+);[ \t]+(?'langISO'[A-z_]+);[ \t]+(?'langCC'\d+);[ \t]+(?'mergemanual'\d)(?'tsvnmanual'\d)(?'spellcheck'\d);[ \t]+(?'langUI'.+);[ \t]+(?'translatornames'.+)"
 			input="${langline}"
 		/>
 		<echo message="Building ${langUI} dlls and installer" />
+		<delete>
+			<fileset>
+				<include name="..\bin\Tortoise*.dll" />
+			</fileset>
+		</delete>
 
 		<!-- create the dlls -->
 		<exec program="${ResTextFileName}" failonerror="false">
@@ -293,7 +298,7 @@ NAnt build script for the TortoiseSVN language pack installers
 			<arg value="-o" />
 			<arg value="subversion.mo" />
 		</exec>
-		
+
 		<!--
 		Build the <Files></Files> parts for the spell checker files and thesauri.
 		-->
@@ -308,9 +313,25 @@ NAnt build script for the TortoiseSVN language pack installers
 				<property name="SpellCheckFiles" value="&lt;File Id='${path::get-file-name(filename)}' Name='${path::get-file-name(filename)}' DiskId='1' Source='${filename}' Vital='no'&gt;&lt;/File&gt;${SpellCheckFiles}" />
 				<echo message="${filename}" />
 			</do>
-		</foreach> 
-		
-		<!-- create the files for the installer -->		
+		</foreach>
+
+		<if test="${file::exists('..\signinfo.txt')}">
+			<foreach item="File" property="filename">
+				<in>
+					<items>
+						<include name="..\bin\*.dll" />
+					</items>
+				</in>
+				<do>
+					<exec program="signtool">
+						<arg value="sign" />
+						<arg value="${signinfo}" />
+						<arg value="${filename}" />
+					</exec>
+				</do>
+			</foreach>
+		</if>
+		<!-- create the files for the installer -->
 		<if test="${environment::variable-exists('MajorVersion')}">
 			<loadfile file="LanguagePack.wxs" property="versionwxsfile" encoding="utf-8" >
 				<filterchain>
@@ -330,7 +351,7 @@ NAnt build script for the TortoiseSVN language pack installers
 			</loadfile>
 			<echo2 file="LanguagePack_${langISO}.wxs" message="${versionwxsfile}" encoding="utf-8" />
 		</if>
-		
+
 		<setenv>
 			<variable name="TSVNHelpFile" value=" " />
 			<variable name="TMergeHelpFile" value=" " />
@@ -354,7 +375,7 @@ NAnt build script for the TortoiseSVN language pack installers
 		</setenv>
 
 		<property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
-		
+
 		<exec program="candle">
 			<arg value="-nologo" />
 			<arg value="-out" />
@@ -381,6 +402,13 @@ NAnt build script for the TortoiseSVN language pack installers
 				<include name="..\bin\*.wixpdb" />
 			</fileset>
 		</delete>
+		<if test="${file::exists('..\signinfo.txt')}">
+			<exec program="signtool">
+				<arg value="sign" />
+				<arg value="${signinfo}" />
+				<arg value="..\bin\LanguagePack_${verstring}${devrelease}-${platform}-${langISO}.msi" />
+			</exec>
+		</if>
 
 		<delete file="LanguagePack_${langISO}.wxs" failonerror="false" />
 		<delete file="..\bin\TortoiseProc${langCC}.dll" failonerror="false" />
