@@ -1065,6 +1065,15 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
 	SetRedraw(FALSE);
 	DeleteAllItems();
 
+	m_nShownUnversioned = 0;
+	m_nShownNormal = 0;
+	m_nShownModified = 0;
+	m_nShownAdded = 0;
+	m_nShownDeleted = 0;
+	m_nShownConflicted = 0;
+	m_nShownFiles = 0;
+	m_nShownFolders = 0;
+
 	PrepareGroups();
 
 	m_arListArray.clear();
@@ -1224,11 +1233,48 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	if (entry->isfolder)
 	{
 		icon_idx = m_nIconFolder;
+		m_nShownFolders++;
 	}
 	else
 	{
 		icon_idx = SYS_IMAGE_LIST().GetPathIconIndex(entry->path);
+		m_nShownFiles++;
 	}
+
+	if (entry->tree_conflicted)
+		m_nShownConflicted++;
+	else
+	{
+		switch (entry->status)
+		{
+		case svn_wc_status_normal:
+			m_nShownNormal++;
+			break;
+		case svn_wc_status_added:
+			m_nShownAdded++;
+			break;
+		case svn_wc_status_missing:
+		case svn_wc_status_deleted:
+			m_nShownDeleted++;
+			break;
+		case svn_wc_status_replaced:
+		case svn_wc_status_modified:
+		case svn_wc_status_merged:
+			m_nShownModified++;
+			break;
+		case svn_wc_status_conflicted:
+		case svn_wc_status_obstructed:
+			m_nShownConflicted++;
+			break;
+		case svn_wc_status_ignored:
+			m_nShownUnversioned++;
+			break;
+		default:
+			m_nShownUnversioned++;
+			break;
+		}
+	}
+
 	// relative path
 	InsertItem(index, entryname, icon_idx);
 	if (entry->IsNested())

@@ -810,10 +810,20 @@ public:
 	 * Returns the currently used show flags passed to the Show() method.
 	 */
 	DWORD GetShowFlags() {return m_dwShow;}
-public:
+
 	CString GetLastErrorMessage() {return m_sLastError;}
 
 	void Block(BOOL block, BOOL blockUI) {m_bBlock = block; m_bBlockUI = blockUI;}
+
+	LONG GetUnversionedCount() {return m_nShownUnversioned;}
+	LONG GetNormalCount() {return m_nShownNormal;}
+	LONG GetModifiedCount() {return m_nShownModified;}
+	LONG GetAddedCount() {return m_nShownAdded;}
+	LONG GetDeletedCount() {return m_nShownDeleted;}
+	LONG GetConflictedCount() {return m_nShownConflicted;}
+	LONG GetFileCount() {return m_nShownFiles;}
+	LONG GetFolderCount() {return m_nShownFolders;}
+
 
 	LONG						m_nTargetCount;		///< number of targets in the file passed to GetStatus()
 
@@ -954,6 +964,15 @@ private:
 	LONG						m_nConflicted;
 	LONG						m_nTotal;
 	LONG						m_nSelected;
+
+	LONG						m_nShownUnversioned;
+	LONG						m_nShownNormal;
+	LONG						m_nShownModified;
+	LONG						m_nShownAdded;
+	LONG						m_nShownDeleted;
+	LONG						m_nShownConflicted;
+	LONG						m_nShownFiles;
+	LONG						m_nShownFolders;
 
 	DWORD						m_dwDefaultColumns;
 	DWORD						m_dwShow;
