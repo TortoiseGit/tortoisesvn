@@ -47,6 +47,7 @@
 			<delete>
 				<fileset>
 					<include name="..\..\bin\*.wixobj" />
+					<include name="..\..\bin\*.wixpdb" />
 				</fileset>
 			</delete>
 
