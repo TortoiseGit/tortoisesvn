@@ -20,6 +20,7 @@
 #include "registry.h"
 #include "Globals.h"
 #include "SVNAdminDir.h"
+#include <shlobj.h>
 
 #define REGISTRYTIMEOUT 2000
 #define EXCLUDELISTTIMEOUT 5000
@@ -68,11 +69,12 @@ public:
 		recursiveticker = cachetypeticker;
 		folderoverlayticker = cachetypeticker;
 		driveticker = cachetypeticker;
-		drivetypeticker = cachetypeticker;
+		drivetypeticker = 0;
 		langticker = cachetypeticker;
 		columnrevformatticker = cachetypeticker;
-		excludelistticker = cachetypeticker;
-		includelistticker = cachetypeticker;
+		excludelistticker = 0;
+		excludelistticker2 = 0;
+		includelistticker = 0;
 		simplecontextticker = cachetypeticker;
 		unversionedasmodifiedticker = cachetypeticker;
 		showunversionedoverlayticker = cachetypeticker;
@@ -81,7 +83,7 @@ public:
 		columnseverywhereticker = cachetypeticker;
 		getlocktopticker = cachetypeticker;
 		excludedasnormalticker = cachetypeticker;
-		excontextticker = cachetypeticker;
+		excontextticker = 0;
 		menulayoutlow = CRegStdDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 		menulayouthigh = CRegStdDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntrieshigh"), 0);
 		menumasklow_lm = CRegStdDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntriesMaskLow"), 0, FALSE, HKEY_LOCAL_MACHINE);
@@ -498,13 +500,16 @@ private:
 			while (pos != tstring::npos)
 			{
 				tstring token = excludecontextstr.substr(pos_ant, pos-pos_ant);
-				excontextvector.push_back(token);
+				if (!token.empty())
+					excontextvector.push_back(token);
 				pos_ant = pos+1;
 				pos = excludecontextstr.find(_T("\n"), pos_ant);
 			}
 			if (!excludecontextstr.empty())
 			{
-				excontextvector.push_back(excludecontextstr.substr(pos_ant, excludecontextstr.size()-1));
+				tstring token = excludecontextstr.substr(pos_ant, excludecontextstr.size()-1);
+				if (!token.empty())
+					excontextvector.push_back(token);
 			}
 			excludecontextstr = (tstring)nocontextpaths;
 		}
@@ -525,15 +530,68 @@ private:
 			while (pos != tstring::npos)
 			{
 				tstring token = excludeliststr.substr(pos_ant, pos-pos_ant);
-				exvector.push_back(token);
+				if (!token.empty())
+					exvector.push_back(token);
 				pos_ant = pos+1;
 				pos = excludeliststr.find(_T("\n"), pos_ant);
 			}
 			if (!excludeliststr.empty())
 			{
-				exvector.push_back(excludeliststr.substr(pos_ant, excludeliststr.size()-1));
+				tstring token = excludeliststr.substr(pos_ant, excludeliststr.size()-1);
+				if (!token.empty())
+					exvector.push_back(token);
 			}
 			excludeliststr = (tstring)excludelist;
+		}
+		if ((GetTickCount() - DRIVETYPETIMEOUT)>excludelistticker2)
+		{
+			Locker lock(m_critSec);
+			excludelistticker2 = GetTickCount();
+			int i=0;
+			TCHAR buf[MAX_PATH+2];	//MAX_PATH ok, since SHGetSpecialFolderPath doesn't return the required buffer length!
+			LPITEMIDLIST pidl = NULL;
+			int csidlarray[] = 
+			{
+				CSIDL_BITBUCKET,
+				CSIDL_CDBURN_AREA,
+				CSIDL_COMMON_FAVORITES,
+				CSIDL_COMMON_STARTMENU,
+				CSIDL_COMPUTERSNEARME,
+				CSIDL_CONNECTIONS,
+				CSIDL_CONTROLS,
+				CSIDL_COOKIES,
+				CSIDL_FAVORITES,
+				CSIDL_FONTS,
+				CSIDL_HISTORY,
+				CSIDL_INTERNET,
+				CSIDL_INTERNET_CACHE,
+				CSIDL_NETHOOD,
+				CSIDL_NETWORK,
+				CSIDL_PRINTERS,
+				CSIDL_PRINTHOOD,
+				CSIDL_RECENT,
+				CSIDL_SENDTO,
+				CSIDL_STARTMENU,
+				0
+			};
+			while (csidlarray[i])
+			{
+				++i;
+				pidl = NULL;
+				if (SHGetFolderLocation(NULL, csidlarray[i-1], NULL, 0, &pidl)!=S_OK)
+					continue;
+				if (!SHGetPathFromIDList(pidl, buf))
+				{
+					// not a file system path
+					CoTaskMemFree(pidl);
+					continue;
+				}
+				CoTaskMemFree(pidl);
+				if (_tcslen(buf)==0)
+					continue;
+				_tcscat_s(buf, MAX_PATH+2, _T("\\*"));
+				exvector.push_back(tstring(buf));
+			}
 		}
 	}
 	void IncludeListValid()
@@ -606,6 +664,7 @@ private:
 	DWORD blockstatusticker;
 	DWORD columnrevformatticker;
 	DWORD excludelistticker;
+	DWORD excludelistticker2;
 	DWORD includelistticker;
 	DWORD simplecontextticker;
 	DWORD unversionedasmodifiedticker;
