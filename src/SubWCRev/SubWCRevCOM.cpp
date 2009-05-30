@@ -248,7 +248,7 @@ HRESULT __stdcall SubWCRev::get_Date(/*[out, retval]*/VARIANT* date)
 		_stprintf_s(destbuf, 2, _T(""));
 	}
 	
-	date->bstrVal = SysAllocStringLen(destbuf, _tcslen(destbuf));
+	date->bstrVal = SysAllocStringLen(destbuf, (UINT)_tcslen(destbuf));
 	return result;
 }
 
@@ -257,10 +257,10 @@ HRESULT __stdcall SubWCRev::get_Url(/*[out, retval]*/VARIANT* url)
 	url->vt = VT_BSTR;
 
 	WCHAR * buf;
-	int len = strlen(SubStat.Url);
+	size_t len = strlen(SubStat.Url);
 	buf = new WCHAR[len*4 + 1];
 	SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
-	MultiByteToWideChar(CP_UTF8, 0, SubStat.Url, -1, buf, len*4);
+	MultiByteToWideChar(CP_UTF8, 0, SubStat.Url, -1, buf, (int)len*4);
 	url->bstrVal = SysAllocString(buf);
 	delete [] buf;
 
@@ -272,10 +272,10 @@ HRESULT __stdcall SubWCRev::get_Author(/*[out, retval]*/VARIANT* author)
 	author->vt = VT_BSTR;
 
 	WCHAR * buf;
-	int len = strlen(SubStat.Author);
+	size_t len = strlen(SubStat.Author);
 	buf = new WCHAR[len*4 + 1];
 	SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
-	MultiByteToWideChar(CP_UTF8, 0, SubStat.Author, -1, buf, len*4);
+	MultiByteToWideChar(CP_UTF8, 0, SubStat.Author, -1, buf, (int)len*4);
 	author->bstrVal = SysAllocString(buf);
 	delete [] buf;
 
@@ -349,7 +349,7 @@ HRESULT __stdcall SubWCRev::get_LockCreationDate(/*[out, retval]*/VARIANT* date)
 		}
 	}
 	
-	date->bstrVal = SysAllocStringLen(destbuf, _tcslen(destbuf));
+	date->bstrVal = SysAllocStringLen(destbuf, (UINT)_tcslen(destbuf));
 	return result;
 }
 
@@ -360,7 +360,7 @@ HRESULT __stdcall SubWCRev::get_LockOwner(/*[out, retval]*/VARIANT* owner)
 
 	HRESULT result;
 	WCHAR * buf;
-	int len;
+	size_t len;
 
 	if(FALSE == IsLockDataAvailable())
 	{
@@ -378,7 +378,7 @@ HRESULT __stdcall SubWCRev::get_LockOwner(/*[out, retval]*/VARIANT* owner)
 	
 	if(TRUE == SubStat.LockData.NeedsLocks)
 	{
-		MultiByteToWideChar(CP_UTF8, 0, SubStat.LockData.Owner, -1, buf, len*4);
+		MultiByteToWideChar(CP_UTF8, 0, SubStat.LockData.Owner, -1, buf, (int)len*4);
 	}
 
 	owner->bstrVal = SysAllocString(buf);
@@ -394,7 +394,7 @@ HRESULT __stdcall SubWCRev::get_LockComment(/*[out, retval]*/VARIANT* comment)
 
 	HRESULT result;
 	WCHAR * buf;
-	int len;
+	size_t len;
 
 	if(FALSE == IsLockDataAvailable())
 	{
@@ -412,7 +412,7 @@ HRESULT __stdcall SubWCRev::get_LockComment(/*[out, retval]*/VARIANT* comment)
 	
 	if(TRUE == SubStat.LockData.NeedsLocks)
 	{
-		MultiByteToWideChar(CP_UTF8, 0, SubStat.LockData.Comment, -1, buf, len*4);
+		MultiByteToWideChar(CP_UTF8, 0, SubStat.LockData.Comment, -1, buf, (int)len*4);
 	}
 
 	comment->bstrVal = SysAllocString(buf);
