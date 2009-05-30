@@ -894,8 +894,8 @@ private:
 
     /// auto-insert
 
-    const typename T::ValueT& GetDefault (size_t index) const;
-    T& GetAt (size_t index) const;
+    const typename T::ValueT& GetDefault (int index) const;
+    T& GetAt (int index) const;
 
 public:
 
@@ -923,12 +923,12 @@ public:
 
     /// data access
 
-    const T& operator[] (size_t index) const
+    const T& operator[] (int index) const
     {
         return GetAt (index);
     }
 
-    T& operator[] (size_t index)
+    T& operator[] (int index)
     {
         return GetAt (index);
     }
@@ -952,14 +952,14 @@ public:
 /// auto-insert
 
 template<class T>
-const typename T::ValueT& CKeyList<T>::GetDefault (size_t index) const
+const typename T::ValueT& CKeyList<T>::GetDefault (int index) const
 {
     TDefaults::const_iterator iter = defaults.find (index);
     return iter == defaults.end() ? defaultValue : iter->second;
 }
 
 template<class T>
-T& CKeyList<T>::GetAt (size_t index) const
+T& CKeyList<T>::GetAt (int index) const
 {
     TElements::iterator iter = elements.find (index);
     if (iter == elements.end())

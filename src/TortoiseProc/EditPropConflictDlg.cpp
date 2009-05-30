@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008 - TortoiseSVN
+// Copyright (C) 2008-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -59,7 +59,7 @@ bool CEditPropConflictDlg::SetPrejFile(const CTSVNPath& prejFile)
 	for (;;)
 	{
 		len = fread(contentbuf, sizeof(char), 10000, File);
-		m_sPrejText += CUnicodeUtils::GetUnicode(CStringA(contentbuf, len));
+		m_sPrejText += CUnicodeUtils::GetUnicode(CStringA(contentbuf, (int)len));
 		if (len < 10000)
 		{
 			fclose(File);

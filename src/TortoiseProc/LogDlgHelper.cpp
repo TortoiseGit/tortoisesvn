@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007,2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -163,7 +163,7 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
             = projectProperties->FindBugID (result->sMessage);
     }
 
-    result->dwFileChanges = changes->GetCount();
+    result->dwFileChanges = (DWORD)changes->GetCount();
     result->pArChangedPaths = changes.release();
 	result->bCopies = copies;
 	result->bCopiedSelf = FALSE;

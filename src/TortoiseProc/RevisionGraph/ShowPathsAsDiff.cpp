@@ -101,8 +101,8 @@ void CShowPathsAsDiff::ApplyTo (IRevisionGraphLayout* layout)
 
                 // store results
 
-                nodeInfo->skipStartPathElements = commonDepth;
-                nodeInfo->skipTailPathElements = tail;
+                nodeInfo->skipStartPathElements = (index_t)commonDepth;
+                nodeInfo->skipTailPathElements = (index_t)tail;
             }
         }
     }

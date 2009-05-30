@@ -143,7 +143,7 @@ STDMETHODIMP CIDataObject::SetData(
 	SecureZeroMemory(pStgMed,sizeof(STGMEDIUM));
 
 	// do we already store this format?
-	for (size_t i=0; i<(size_t)m_ArrFormatEtc.GetSize(); ++i)
+	for (int i=0; i<m_ArrFormatEtc.GetSize(); ++i)
 	{
 		if ((pformatetc->tymed == m_ArrFormatEtc[i]->tymed) &&
 			(pformatetc->dwAspect == m_ArrFormatEtc[i]->dwAspect) &&

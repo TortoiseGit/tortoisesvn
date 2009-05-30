@@ -890,7 +890,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
 		{
 			progress.FormatPathLine(1, IDS_SVNPROGRESS_EXPORTING, it->first.GetWinPath());
 			progress.FormatPathLine(2, IDS_SVNPROGRESS_EXPORTINGTO, it->second.GetWinPath());
-			progress.SetProgress(count, copyMap.size());
+			progress.SetProgress64(count, copyMap.size());
 			count++;
 			if (it->first.IsDirectory())
 				CPathUtils::MakeSureDirectoryPathExists(it->second.GetWinPath());
@@ -2604,7 +2604,7 @@ apr_array_header_t * SVN::MakeChangeListArray(const CStringArray& changelists, a
 	// if 'keep change lists is set to false.
 	// We therefore have to create an empty array instead of passing NULL, only then the
 	// change lists are removed properly.
-	int count = changelists.GetCount();
+	int count = (int)changelists.GetCount();
     // special case: the changelist array contains one empty string
     if ((changelists.GetCount() == 1)&&(changelists[0].IsEmpty()))
         count = 0;

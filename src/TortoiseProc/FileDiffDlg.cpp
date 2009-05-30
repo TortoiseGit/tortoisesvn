@@ -1077,7 +1077,7 @@ void CFileDiffDlg::Filter(CString sFilterText)
 			m_arFilteredList.push_back(*it);
 		}
 	}
-	m_cFileList.SetItemCount(m_arFilteredList.size());
+	m_cFileList.SetItemCount((int)m_arFilteredList.size());
 }
 
 void CFileDiffDlg::CopySelectionToClipboard()

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006,2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -116,7 +116,7 @@ void CScrollTool::Clear()
 LONG CScrollTool::GetTextWidth(LPCTSTR szText)
 {
 	CDC *pDC = GetDC();
-	CSize textsize = pDC->GetTextExtent(szText, _tcslen(szText));
+	CSize textsize = pDC->GetTextExtent(szText, (int)_tcslen(szText));
 	ReleaseDC(pDC);
 	return textsize.cx;
 }

@@ -209,7 +209,7 @@ BOOL CSVNPropertyPage::PageProc (HWND /*hwnd*/, UINT uMessage, WPARAM wParam, LP
 							DWORD written = 0;
 							for (std::vector<tstring>::iterator I = filenames.begin(); I != filenames.end(); ++I)
 							{
-								::WriteFile (file, I->c_str(), I->size()*sizeof(TCHAR), &written, 0);
+								::WriteFile (file, I->c_str(), (DWORD)I->size()*sizeof(TCHAR), &written, 0);
 								::WriteFile (file, _T("\n"), 2, &written, 0);
 							}
 							::CloseHandle(file);

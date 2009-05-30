@@ -60,8 +60,8 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 {
 	CString sLine;
 	EOL ending = EOL_NOENDING;
-	INT_PTR nIndex = 0;
-	INT_PTR nLineCount = 0;
+	int nIndex = 0;
+	int nLineCount = 0;
 	g_crasher.AddFile((LPCSTR)(LPCTSTR)filename, (LPCSTR)(LPCTSTR)_T("unified diff file"));
 
 	CFileTextLines PatchLines;

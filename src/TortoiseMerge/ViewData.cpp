@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007,2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -61,6 +61,6 @@ int CViewData::FindLineNumber(int number)
 {
 	for(size_t i = 0; i < m_data.size(); ++i)
 		if (m_data[i].linenumber >= number)
-			return i;
+			return (int)i;
 	return -1;
 }

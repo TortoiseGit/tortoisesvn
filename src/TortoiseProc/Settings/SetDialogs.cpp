@@ -226,7 +226,7 @@ void CSetDialogs::OnCbnSelchangeAutoclosecombo()
 {
 	if (m_cAutoClose.GetCurSel() != CB_ERR)
 	{
-		m_dwAutoClose = m_cAutoClose.GetItemData(m_cAutoClose.GetCurSel());
+		m_dwAutoClose = (DWORD)m_cAutoClose.GetItemData(m_cAutoClose.GetCurSel());
 	}
 	SetModified();
 }

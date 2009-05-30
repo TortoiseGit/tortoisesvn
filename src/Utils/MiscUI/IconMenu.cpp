@@ -63,7 +63,7 @@ BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uI
 	info.cbSize = sizeof(info);
 	info.fMask = MIIM_STRING | MIIM_FTYPE | MIIM_ID;
 	info.fType = MFT_STRING;
-	info.wID = nIDNewItem;
+	info.wID = (UINT)nIDNewItem;
 	info.dwTypeData = menutextbuffer;
 	if (SysInfo::Instance().IsVistaOrLater())
 	{
@@ -76,13 +76,13 @@ BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uI
 		info.hbmpItem = HBMMENU_CALLBACK;
 	}
 	icons[nIDNewItem] = uIcon;
-	return InsertMenuItem(nIDNewItem, &info);
+	return InsertMenuItem((UINT)nIDNewItem, &info);
 }
 
 BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, UINT_PTR nNewItem, UINT uIcon /* = 0 */)
 {
 	CString temp;
-	temp.LoadString(nNewItem);
+	temp.LoadString((UINT)nNewItem);
 
 	return AppendMenuIcon(nIDNewItem, temp, uIcon);
 }

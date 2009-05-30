@@ -158,7 +158,7 @@ int CMailMsg::MAPISend()
    MapiRecipDesc*       pRecipients = NULL;
    MapiRecipDesc*       pOriginator = NULL;
    MapiRecipDesc*       pFirstRecipient = NULL;
-   size_t               nAttachments = 0;
+   ULONG                nAttachments = 0;
    MapiFileDesc*        pAttachments = NULL;
    ULONG                status = 0;
    MapiMessage          message;
@@ -181,7 +181,7 @@ int CMailMsg::MAPISend()
 		 memset(pRecipients, 0, nRecipients * sizeof  MapiRecipDesc);
 	  }
 
-      nAttachments = m_attachments.size();
+      nAttachments = (ULONG)m_attachments.size();
       if (nAttachments)
          pAttachments = new MapiFileDesc[nAttachments];
 

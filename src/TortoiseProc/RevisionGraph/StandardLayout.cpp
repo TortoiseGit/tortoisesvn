@@ -318,7 +318,7 @@ void CStandardLayout::CreateTexts()
             size_t visibleElementCount = info.node->GetPath().GetDepth() 
                                        - info.skipStartPathElements
                                        - info.skipTailPathElements;
-            for (index_t k = visibleElementCount; k > 0; --k)
+            for (index_t k = (index_t)visibleElementCount; k > 0; --k)
                 texts.push_back (STextInfo (i, k));
         }
     }

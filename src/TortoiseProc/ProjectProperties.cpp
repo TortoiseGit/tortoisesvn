@@ -398,7 +398,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 					{
 						ATLTRACE(_T("matched id : %s\n"), (*it2)[0].str().c_str());
 						ptrdiff_t matchposID = it2->position(0);
-						CHARRANGE range = {matchpos+matchposID, matchpos+matchposID+(*it2)[0].str().size()};
+						CHARRANGE range = {(LONG)(matchpos+matchposID), (LONG)(matchpos+matchposID+(*it2)[0].str().size())};
 						pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
 						CHARFORMAT2 format;
 						SecureZeroMemory(&format, sizeof(CHARFORMAT2));
@@ -427,7 +427,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 					if (match.size() >= 2)
 					{
 						ATLTRACE(_T("matched id : %s\n"), wstring(match[1]).c_str());
-						CHARRANGE range = {match[1].first-s.begin(), match[1].second-s.begin()};
+						CHARRANGE range = {(LONG)(match[1].first-s.begin()), (LONG)(match[1].second-s.begin())};
 						pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
 						CHARFORMAT2 format;
 						SecureZeroMemory(&format, sizeof(CHARFORMAT2));

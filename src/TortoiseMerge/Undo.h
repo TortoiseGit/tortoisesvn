@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2007,2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,7 +64,7 @@ protected:
 	std::list<viewstate> m_viewstates;
 	std::list<POINT> m_caretpoints;
 	std::list< std::list<int>::size_type > m_groups;
-	unsigned int m_originalstate;
+	size_t m_originalstate;
 private:
 	CUndo();
 	~CUndo();

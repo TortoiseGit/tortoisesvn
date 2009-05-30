@@ -151,7 +151,7 @@ void CTreeConflictEditorDlg::OnBnClickedResolveusingtheirs()
 	if (m_bThreadRunning)
 		return;
 
-	INT_PTR retVal = IDC_RESOLVEUSINGTHEIRS;
+	int retVal = IDC_RESOLVEUSINGTHEIRS;
 	SVN svn;
 
 	if (conflict_reason == svn_wc_conflict_reason_deleted)
@@ -223,7 +223,7 @@ void CTreeConflictEditorDlg::OnBnClickedResolveusingmine()
 	if (m_bThreadRunning)
 		return;
 
-	INT_PTR retVal = IDC_RESOLVEUSINGMINE;
+	int retVal = IDC_RESOLVEUSINGMINE;
 	SVN svn;
 	if (!svn.Resolve(m_path, svn_wc_conflict_choose_mine_full, false))
 	{

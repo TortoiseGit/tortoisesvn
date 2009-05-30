@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -337,7 +337,7 @@ bool CMainWindow::LoadFile(LPCTSTR filename)
 	{
 		//SetTitle();
 		char data[4096];
-		int lenFile = fread(data, 1, sizeof(data), fp);
+		size_t lenFile = fread(data, 1, sizeof(data), fp);
 		bool bUTF8 = IsUTF8(data, lenFile);
 		while (lenFile > 0) 
 		{
@@ -381,7 +381,7 @@ bool CMainWindow::LoadFile(LPCTSTR filename)
 
 void CMainWindow::SetTitle(LPCTSTR title)
 {
-	int len = _tcslen(title);
+	size_t len = _tcslen(title);
 	TCHAR * pBuf = new TCHAR[len+40];
 	_stprintf_s(pBuf, len+40, _T("%s - TortoiseUDiff"), title);
 	SetWindowTitle(std::wstring(pBuf));
@@ -398,7 +398,7 @@ void CMainWindow::SetAStyle(int style, COLORREF fore, COLORREF back, int size, c
 		SendEditor(SCI_STYLESETFONT, style, reinterpret_cast<LPARAM>(face));
 }
 
-bool CMainWindow::IsUTF8(LPVOID pBuffer, int cb)
+bool CMainWindow::IsUTF8(LPVOID pBuffer, size_t cb)
 {
 	if (cb < 2)
 		return true;

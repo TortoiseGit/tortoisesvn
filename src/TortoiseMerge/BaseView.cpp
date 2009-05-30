@@ -529,7 +529,7 @@ int CBaseView::GetLineCount() const
 {
 	if (m_pViewData == NULL)
 		return 1;
-	int nLineCount = m_pViewData->GetCount();
+	int nLineCount = (int)m_pViewData->GetCount();
 	ASSERT(nLineCount >= 0);
 	return nLineCount;
 }

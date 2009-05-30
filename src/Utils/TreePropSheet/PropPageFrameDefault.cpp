@@ -317,7 +317,7 @@ void CPropPageFrameDefault::DrawCaption(CDC *pDc, CRect rect, LPCTSTR lpszCaptio
 
 	//pDc->DrawText(lpszCaption, rect, DT_LEFT|DT_VCENTER|DT_SINGLELINE|DT_END_ELLIPSIS);
 
-	TextOutTryFL(pDc->GetSafeHdc(), rect.left, rect.top, lpszCaption, _tcslen(lpszCaption));
+	TextOutTryFL(pDc->GetSafeHdc(), rect.left, rect.top, lpszCaption, (int)_tcslen(lpszCaption));
 
 	pDc->SetTextColor(clrPrev);
 	pDc->SetBkMode(nBkStyle);

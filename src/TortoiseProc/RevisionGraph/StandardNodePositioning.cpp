@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -129,7 +129,7 @@ void CStandardNodePositioning::AppendBranch
 
     // move the whole branch to the right
 
-    start->treeShift.cx = insertionIndex * 250;
+    start->treeShift.cx = (LONG)(insertionIndex * 250);
 
     // update the overlapping part
 

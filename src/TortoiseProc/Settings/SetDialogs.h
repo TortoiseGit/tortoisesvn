@@ -54,7 +54,7 @@ private:
 	BOOL			m_bUseSystemLocaleForDates;
 	CRegDWORD		m_regUseSystemLocaleForDates;
 	CRegDWORD		m_regAutoClose;
-	DWORD_PTR		m_dwAutoClose;
+	DWORD			m_dwAutoClose;
 	CRegDWORD		m_regAutoCloseLocal;
 	BOOL			m_bAutoCloseLocal;
 	CRegDWORD		m_regDefaultLogs;

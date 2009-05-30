@@ -661,13 +661,13 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 	InterlockedExchange(&m_bNoDispUpdates, FALSE);
 	if (m_currentChangedArray)
 	{
-		m_ChangedFileListCtrl.SetItemCountEx(m_currentChangedArray->GetCount());
-		m_ChangedFileListCtrl.RedrawItems(0, m_currentChangedArray->GetCount());
+		m_ChangedFileListCtrl.SetItemCountEx((int)m_currentChangedArray->GetCount());
+		m_ChangedFileListCtrl.RedrawItems(0, (int)m_currentChangedArray->GetCount());
 	}
 	else if (m_currentChangedPathList.GetCount())
 	{
-		m_ChangedFileListCtrl.SetItemCountEx(m_currentChangedPathList.GetCount());
-		m_ChangedFileListCtrl.RedrawItems(0, m_currentChangedPathList.GetCount());
+		m_ChangedFileListCtrl.SetItemCountEx((int)m_currentChangedPathList.GetCount());
+		m_ChangedFileListCtrl.RedrawItems(0, (int)m_currentChangedPathList.GetCount());
 	}
 	else
 	{
@@ -910,7 +910,7 @@ void CLogDlg::OnCancel()
 	if (m_bSaveStrict)
 		m_regLastStrict = m_bStrict;
 	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
-	reg = m_btnShow.GetCurrentEntry();
+	reg = (DWORD)m_btnShow.GetCurrentEntry();
 	SaveSplitterPos();
 	__super::OnCancel();
 }
@@ -1199,7 +1199,7 @@ UINT CLogDlg::LogThread()
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
 	m_bCancelled = true;
 	InterlockedExchange(&m_bThreadRunning, FALSE);
-	m_LogList.RedrawItems(0, m_arShownList.GetCount());
+	m_LogList.RedrawItems(0, (int)m_arShownList.GetCount());
 	m_LogList.SetRedraw(false);
 	ResizeAllListCtrlCols();
 	m_LogList.SetRedraw(true);
@@ -1696,7 +1696,7 @@ void CLogDlg::OnOK()
 	if (m_bSaveStrict)
 		m_regLastStrict = m_bStrict;
 	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
-	reg = m_btnShow.GetCurrentEntry();
+	reg = (DWORD)m_btnShow.GetCurrentEntry();
 	SaveSplitterPos();
 }
 
@@ -2404,9 +2404,9 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 										{
 											m_LogList.SetItemState(selMark, 0, LVIS_SELECTED);
 										}
-										m_LogList.EnsureVisible(i, FALSE);
-										m_LogList.SetSelectionMark(i);
-										m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+										m_LogList.EnsureVisible((int)i, FALSE);
+										m_LogList.SetSelectionMark((int)i);
+										m_LogList.SetItemState((int)i, LVIS_SELECTED, LVIS_SELECTED);
 										return;
 									}
 								}
@@ -2467,9 +2467,9 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 													{
 														m_LogList.SetItemState(selMark, 0, LVIS_SELECTED);
 													}
-													m_LogList.EnsureVisible(i, FALSE);
-													m_LogList.SetSelectionMark(i);
-													m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+													m_LogList.EnsureVisible((int)i, FALSE);
+													m_LogList.SetSelectionMark((int)i);
+													m_LogList.SetItemState((int)i, LVIS_SELECTED, LVIS_SELECTED);
 													return;
 												}
 											}
@@ -2621,12 +2621,12 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				LVITEM   rItem;
 				SecureZeroMemory(&rItem, sizeof(LVITEM));
 				rItem.mask  = LVIF_STATE;
-				rItem.iItem = pLVCD->nmcd.dwItemSpec;
+				rItem.iItem = (int)pLVCD->nmcd.dwItemSpec;
 				rItem.stateMask = LVIS_SELECTED | LVIS_FOCUSED;
 				m_LogList.GetItem(&rItem);
 
 				CRect rect;
-				m_LogList.GetSubItemRect(pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
+				m_LogList.GetSubItemRect((int)pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
 
 				// Fill the background
 				if (theme.IsAppThemed() && SysInfo::Instance().IsVistaOrLater())
@@ -4609,11 +4609,11 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 
 void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 {
-	int selIndex = m_ChangedFileListCtrl.GetSelectionMark();
+	INT_PTR selIndex = m_ChangedFileListCtrl.GetSelectionMark();
 	if ((point.x == -1) && (point.y == -1))
 	{
 		CRect rect;
-		m_ChangedFileListCtrl.GetItemRect(selIndex, &rect, LVIR_LABEL);
+		m_ChangedFileListCtrl.GetItemRect((int)selIndex, &rect, LVIR_LABEL);
 		m_ChangedFileListCtrl.ClientToScreen(&rect);
 		point = rect.CenterPoint();
 	}

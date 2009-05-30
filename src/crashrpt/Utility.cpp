@@ -21,10 +21,10 @@ BSTR CUtility::AllocSysString(string s)
 	BSTR bstr = ::SysAllocStringLen(s.c_str(), s.size());
 #else
 	int nLen = MultiByteToWideChar(CP_ACP, 0, s.c_str(),
-		s.size(), NULL, NULL);
+		(int)s.size(), NULL, NULL);
 	BSTR bstr = ::SysAllocStringLen(NULL, nLen);
 	if(bstr != NULL)
-		MultiByteToWideChar(CP_ACP, 0, s.c_str(), s.size(), bstr, nLen);
+		MultiByteToWideChar(CP_ACP, 0, s.c_str(), (int)s.size(), bstr, nLen);
 #endif
 	return bstr;
 }

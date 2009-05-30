@@ -129,7 +129,7 @@ public:
 	 * beforehand, that number can be set here. It is then used to show a more
 	 * accurate progress bar during the operation.
 	 */
-	void SetItemCount(long count) {if(count) m_itemCountTotal = count;}
+	void SetItemCount(INT_PTR count) {if(count) m_itemCountTotal = count;}
 	
 	bool SetBackgroundImage(UINT nID);
 
@@ -321,8 +321,8 @@ private:
 	bool					m_bFinishedItemAdded;
 	bool					m_bLastVisible;
 
-	int						m_itemCount;
-	int						m_itemCountTotal;
+	INT_PTR					m_itemCount;
+	INT_PTR					m_itemCountTotal;
 
 	bool					m_AlwaysConflicted;
 

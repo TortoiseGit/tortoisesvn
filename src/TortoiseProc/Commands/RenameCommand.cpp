@@ -179,7 +179,7 @@ bool RenameCommand::Execute()
 						{
 							progress.FormatPathLine(1, IDS_PROC_MOVINGPROG, (LPCTSTR)it->first);
 							progress.FormatPathLine(2, IDS_PROC_CPYMVPROG2, (LPCTSTR)it->second);
-							progress.SetProgress(count, renmap.size());
+							progress.SetProgress64(count, renmap.size());
 							if (RenameWithReplace(hwndExplorer, CTSVNPathList(CTSVNPath(it->first)), CTSVNPath(it->second), TRUE, sMsg))
 							{
 								bRet = true;

@@ -574,7 +574,7 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 	}
 
 	SIZE stringsize;
-	if (GetTextExtentPoint32(hDC, realtitle.c_str(), realtitle.size(), &stringsize))
+	if (GetTextExtentPoint32(hDC, realtitle.c_str(), (int)realtitle.size(), &stringsize))
 	{
 		int nStringLength = stringsize.cx;
 		int texttop = pSecondPic ? textrect.top + (HEADER_HEIGHT/2) - stringsize.cy : textrect.top + (HEADER_HEIGHT/2) - stringsize.cy/2;
@@ -584,7 +584,7 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 			ETO_CLIPPED,
 			&textrect,
 			realtitle.c_str(),
-			realtitle.size(),
+			(UINT)realtitle.size(),
 			NULL);
 		if (pSecondPic)
 		{
@@ -595,13 +595,13 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 				ETO_CLIPPED,
 				&textrect,
 				realtitle.c_str(),
-				realtitle.size(),
+				(UINT)realtitle.size(),
 				NULL);
 		}
 	}
 	if (HasMultipleImages())
 	{
-		if (GetTextExtentPoint32(hDC, imgnumstring.c_str(), imgnumstring.size(), &stringsize))
+		if (GetTextExtentPoint32(hDC, imgnumstring.c_str(), (int)imgnumstring.size(), &stringsize))
 		{
 			int nStringLength = stringsize.cx;
 
@@ -611,7 +611,7 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 				ETO_CLIPPED,
 				&textrect,
 				imgnumstring.c_str(),
-				imgnumstring.size(),
+				(UINT)imgnumstring.size(),
 				NULL);
 		}
 	}
@@ -1259,7 +1259,7 @@ void CPicWindow::Paint(HWND hwnd)
 			::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
 			SIZE stringsize;
 			ResString str = ResString(hResource, IDS_INVALIDIMAGEINFO);
-			if (GetTextExtentPoint32(memDC, str, _tcslen(str), &stringsize))
+			if (GetTextExtentPoint32(memDC, str, (int)_tcslen(str), &stringsize))
 			{
 				int nStringLength = stringsize.cx;
 
@@ -1269,7 +1269,7 @@ void CPicWindow::Paint(HWND hwnd)
 					ETO_CLIPPED,
 					&rect,
 					str,
-					_tcslen(str),
+					(UINT)_tcslen(str),
 					NULL);
 			}
 		}

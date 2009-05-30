@@ -428,7 +428,7 @@ bool CStringUtils::WriteStringToTextFile(const std::wstring& path, const std::ws
 	if (bUTF8)
 	{
 		std::string buf = CUnicodeUtils::StdGetUTF8(text);
-		if (!WriteFile(hFile, buf.c_str(), buf.length(), &dwWritten, NULL))
+		if (!WriteFile(hFile, buf.c_str(), (DWORD)buf.length(), &dwWritten, NULL))
 		{
 			CloseHandle(hFile);
 			return false;
@@ -436,7 +436,7 @@ bool CStringUtils::WriteStringToTextFile(const std::wstring& path, const std::ws
 	}
 	else
 	{
-		if (!WriteFile(hFile, text.c_str(), text.length(), &dwWritten, NULL))
+		if (!WriteFile(hFile, text.c_str(), (DWORD)text.length(), &dwWritten, NULL))
 		{
 			CloseHandle(hFile);
 			return false;

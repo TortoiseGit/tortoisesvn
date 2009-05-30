@@ -209,7 +209,7 @@ BOOL TortoiseBlame::OpenLogFile(const char *fileName)
 			fseek(File, reallength-MAX_LOG_LENGTH, SEEK_CUR);
 			msg = msg + _T("\n...");
 		}
-		int len2 = ::MultiByteToWideChar(CP_UTF8, NULL, msg.c_str(), min(msg.size(), MAX_LOG_LENGTH+5), wbuf, MAX_LOG_LENGTH+5);
+		int len2 = ::MultiByteToWideChar(CP_UTF8, NULL, msg.c_str(), min((int)msg.size(), MAX_LOG_LENGTH+5), wbuf, MAX_LOG_LENGTH+5);
 		wbuf[len2] = 0;
 		len2 = ::WideCharToMultiByte(CP_ACP, NULL, wbuf, len2, logmsgbuf, MAX_LOG_LENGTH+5, NULL, NULL);
 		logmsgbuf[len2] = 0;
@@ -443,8 +443,8 @@ void TortoiseBlame::InitialiseEditor()
 
 void TortoiseBlame::SelectLine(int yPos, bool bAlwaysSelect)
 {
-	LONG_PTR line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
-	LONG_PTR height = app.SendEditor(SCI_TEXTHEIGHT);
+	LONG line = (LONG)app.SendEditor(SCI_GETFIRSTVISIBLELINE);
+	LONG height = (LONG)app.SendEditor(SCI_TEXTHEIGHT);
 	line = line + (yPos/height);
 	if (line < (LONG)app.revs.size())
 	{
@@ -493,8 +493,8 @@ void TortoiseBlame::StartSearch()
 bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 {
 	TCHAR szWhat[80];
-	int pos = SendEditor(SCI_GETCURRENTPOS);
-	int line = SendEditor(SCI_LINEFROMPOSITION, pos);
+	int pos = (int)SendEditor(SCI_GETCURRENTPOS);
+	int line = (int)SendEditor(SCI_LINEFROMPOSITION, pos);
 	bool bFound = false;
 	bool bCaseSensitive = !!(flags & FR_MATCHCASE);
 
@@ -517,7 +517,7 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 	int i=0;
 	for (i=line; (i<(int)authors.size())&&(!bFound); ++i)
 	{
-		int bufsize = SendEditor(SCI_GETLINE, i);
+		int bufsize = (int)SendEditor(SCI_GETLINE, i);
 		char * linebuf = new char[bufsize+1];
 		SecureZeroMemory(linebuf, bufsize+1);
 		SendEditor(SCI_GETLINE, i, (LPARAM)linebuf);
@@ -545,7 +545,7 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 	{
 		for (i=0; (i<line)&&(!bFound); ++i)
 		{
-			int bufsize = SendEditor(SCI_GETLINE, i);
+			int bufsize = (int)SendEditor(SCI_GETLINE, i);
 			char * linebuf = new char[bufsize+1];
 			SecureZeroMemory(linebuf, bufsize+1);
 			SendEditor(SCI_GETLINE, i, (LPARAM)linebuf);
@@ -573,8 +573,8 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 	if (bFound)
 	{
 		GotoLine(i);
-		int selstart = SendEditor(SCI_GETCURRENTPOS);
-		int selend = SendEditor(SCI_POSITIONFROMLINE, i);
+		int selstart = (int)SendEditor(SCI_GETCURRENTPOS);
+		int selend = (int)SendEditor(SCI_POSITIONFROMLINE, i);
 		SendEditor(SCI_SETSELECTIONSTART, selstart);
 		SendEditor(SCI_SETSELECTIONEND, selend);
 		m_SelectedLine = i-1;
@@ -593,13 +593,13 @@ bool TortoiseBlame::GotoLine(long line)
 		return false;
 	if ((unsigned long)line >= authors.size())
 	{
-		line = authors.size()-1;
+		line = (long)authors.size()-1;
 	}
 
-	int nCurrentPos = SendEditor(SCI_GETCURRENTPOS);
-	int nCurrentLine = SendEditor(SCI_LINEFROMPOSITION,nCurrentPos);
-	int nFirstVisibleLine = SendEditor(SCI_GETFIRSTVISIBLELINE);
-	int nLinesOnScreen = SendEditor(SCI_LINESONSCREEN);
+	int nCurrentPos = (int)SendEditor(SCI_GETCURRENTPOS);
+	int nCurrentLine = (int)SendEditor(SCI_LINEFROMPOSITION,nCurrentPos);
+	int nFirstVisibleLine = (int)SendEditor(SCI_GETFIRSTVISIBLELINE);
+	int nLinesOnScreen = (int)SendEditor(SCI_LINESONSCREEN);
 
 	if ( line>=nFirstVisibleLine && line<=nFirstVisibleLine+nLinesOnScreen)
 	{
@@ -620,8 +620,8 @@ bool TortoiseBlame::GotoLine(long line)
 	}
 
 	// Highlight the line
-	int nPosStart = SendEditor(SCI_POSITIONFROMLINE,line);
-	int nPosEnd = SendEditor(SCI_GETLINEENDPOSITION,line);
+	int nPosStart = (int)SendEditor(SCI_POSITIONFROMLINE,line);
+	int nPosEnd = (int)SendEditor(SCI_GETLINEENDPOSITION,line);
 	SendEditor(SCI_SETSEL,nPosEnd,nPosStart);
 
 	return true;
@@ -632,7 +632,7 @@ bool TortoiseBlame::ScrollToLine(long line)
 	if (line < 0)
 		return false;
 
-	int nCurrentLine = SendEditor(SCI_GETFIRSTVISIBLELINE);
+	int nCurrentLine = (int)SendEditor(SCI_GETFIRSTVISIBLELINE);
 
 	int scrolldelta = line - nCurrentLine;
 	SendEditor(SCI_LINESCROLL, 0, scrolldelta);
@@ -923,13 +923,13 @@ LONG TortoiseBlame::GetBlameWidth()
 	HFONT oldfont = (HFONT)::SelectObject(hDC, m_font);
 	TCHAR buf[MAX_PATH];
 	_stprintf_s(buf, MAX_PATH, _T("%8ld "), 88888888);
-	::GetTextExtentPoint(hDC, buf, _tcslen(buf), &width);
+	::GetTextExtentPoint(hDC, buf, (int)_tcslen(buf), &width);
 	m_revwidth = width.cx + BLAMESPACE;
 	blamewidth += m_revwidth;
 	if (ShowDate)
 	{
 		_stprintf_s(buf, MAX_PATH, _T("%30s"), _T("31.08.2001 06:24:14"));
-		::GetTextExtentPoint32(hDC, buf, _tcslen(buf), &width);
+		::GetTextExtentPoint32(hDC, buf, (int)_tcslen(buf), &width);
 		m_datewidth = width.cx + BLAMESPACE;
 		blamewidth += m_datewidth;
 	}
@@ -938,7 +938,7 @@ LONG TortoiseBlame::GetBlameWidth()
 		SIZE maxwidth = {0};
 		for (std::vector<std::string>::iterator I = authors.begin(); I != authors.end(); ++I)
 		{
-			::GetTextExtentPoint32(hDC, I->c_str(), I->size(), &width);
+			::GetTextExtentPoint32(hDC, I->c_str(), (int)I->size(), &width);
 			if (width.cx > maxwidth.cx)
 				maxwidth = width;
 		}
@@ -950,7 +950,7 @@ LONG TortoiseBlame::GetBlameWidth()
 		SIZE maxwidth = {0};
 		for (std::vector<std::string>::iterator I = paths.begin(); I != paths.end(); ++I)
 		{
-			::GetTextExtentPoint32(hDC, I->c_str(), I->size(), &width);
+			::GetTextExtentPoint32(hDC, I->c_str(), (int)I->size(), &width);
 			if (width.cx > maxwidth.cx)
 				maxwidth = width;
 		}
@@ -1031,27 +1031,27 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 			}
 			_stprintf_s(buf, MAX_PATH, _T("%8ld       "), revs[i]);
 			rc.right = rc.left + m_revwidth;
-			::ExtTextOut(hDC, 0, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
+			::ExtTextOut(hDC, 0, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)_tcslen(buf), 0);
 			int Left = m_revwidth;
 			if (ShowDate)
 			{
 				rc.right = rc.left + Left + m_datewidth;
 				_stprintf_s(buf, MAX_PATH, _T("%30s            "), dates[i].c_str());
-				::ExtTextOut(hDC, Left, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
+				::ExtTextOut(hDC, Left, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)_tcslen(buf), 0);
 				Left += m_datewidth;
 			}
 			if (ShowAuthor)
 			{
 				rc.right = rc.left + Left + m_authorwidth;
 				_stprintf_s(buf, MAX_PATH, _T("%-30s            "), authors[i].c_str());
-				::ExtTextOut(hDC, Left, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
+				::ExtTextOut(hDC, Left, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)_tcslen(buf), 0);
 				Left += m_authorwidth;
 			}
 			if (ShowPath)
 			{
 				rc.right = rc.left + Left + m_pathwidth;
 				_stprintf_s(buf, MAX_PATH, _T("%-60s            "), paths[i].c_str());
-				::ExtTextOut(hDC, Left, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
+				::ExtTextOut(hDC, Left, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)_tcslen(buf), 0);
 				Left += m_authorwidth;
 			}
 			if ((i==m_SelectedLine)&&(currentDialog))
@@ -1063,8 +1063,8 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 				HPEN pen = ExtCreatePen(PS_SOLID | PS_GEOMETRIC, 2, &brush, 0, NULL);
 				HGDIOBJ hPenOld = SelectObject(hDC, pen);
 				RECT rc2 = rc;
-				rc2.top = Y;
-				rc2.bottom = Y + height;
+				rc2.top = (LONG)Y;
+				rc2.bottom = (LONG)(Y + height);
 				::MoveToEx(hDC, rc2.left, rc2.top, NULL);
 				::LineTo(hDC, rc2.right, rc2.top);
 				::LineTo(hDC, rc2.right, rc2.bottom);
@@ -1081,7 +1081,7 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 			::SetBkColor(hDC, m_windowcolor);
 			for (int j=0; j< MAX_PATH; ++j)
 				buf[j]=' ';
-			::ExtTextOut(hDC, 0, Y, ETO_CLIPPED, &rc, buf, MAX_PATH-1, 0);
+			::ExtTextOut(hDC, 0, (int)Y, ETO_CLIPPED, &rc, buf, MAX_PATH-1, 0);
 			Y += height;
 		}
 	}
@@ -1100,28 +1100,28 @@ void TortoiseBlame::DrawHeader(HDC hDC)
 
 	TCHAR szText[MAX_LOADSTRING];
 	LoadString(app.hResource, IDS_HEADER_REVISION, szText, MAX_LOADSTRING);
-	::ExtTextOut(hDC, LOCATOR_WIDTH, 0, ETO_CLIPPED, &rc, szText, _tcslen(szText), 0);
+	::ExtTextOut(hDC, LOCATOR_WIDTH, 0, ETO_CLIPPED, &rc, szText, (UINT)_tcslen(szText), 0);
 	int Left = m_revwidth+LOCATOR_WIDTH;
 	if (ShowDate)
 	{
 		LoadString(app.hResource, IDS_HEADER_DATE, szText, MAX_LOADSTRING);
-		::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, _tcslen(szText), 0);
+		::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, (UINT)_tcslen(szText), 0);
 		Left += m_datewidth;
 	}
 	if (ShowAuthor)
 	{
 		LoadString(app.hResource, IDS_HEADER_AUTHOR, szText, MAX_LOADSTRING);
-		::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, _tcslen(szText), 0);
+		::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, (UINT)_tcslen(szText), 0);
 		Left += m_authorwidth;
 	}
 	if (ShowPath)
 	{
 		LoadString(app.hResource, IDS_HEADER_PATH, szText, MAX_LOADSTRING);
-		::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, _tcslen(szText), 0);
+		::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, (UINT)_tcslen(szText), 0);
 		Left += m_pathwidth;
 	}
 	LoadString(app.hResource, IDS_HEADER_LINE, szText, MAX_LOADSTRING);
-	::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, _tcslen(szText), 0);
+	::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, szText, (UINT)_tcslen(szText), 0);
 
 	::SelectObject(hDC, oldfont);
 }
@@ -1153,8 +1153,8 @@ void TortoiseBlame::DrawLocatorBar(HDC hDC)
 			cr = InterColor(cr, blackColor, 10);
 		}
 		SetBkColor(hDC, cr);
-		lineRect.top = Y;
-		lineRect.bottom = (currentLine * height / revs.size());
+		lineRect.top = (LONG)Y;
+		lineRect.bottom = (LONG)(currentLine * height / revs.size());
 		::ExtTextOut(hDC, 0, 0, ETO_OPAQUE, &lineRect, NULL, 0, NULL);
 		Y = lineRect.bottom;
 	}
@@ -1163,10 +1163,10 @@ void TortoiseBlame::DrawLocatorBar(HDC hDC)
 	{
 		// now draw two lines indicating the scroll position of the source view
 		SetBkColor(hDC, blackColor);
-		lineRect.top = line * height / revs.size();
+		lineRect.top = (LONG)(line * height / revs.size());
 		lineRect.bottom = lineRect.top+1;
 		::ExtTextOut(hDC, 0, 0, ETO_OPAQUE, &lineRect, NULL, 0, NULL);
-		lineRect.top = (line + linesonscreen) * height / revs.size();
+		lineRect.top = (LONG)((line + linesonscreen) * height / revs.size());
 		lineRect.bottom = lineRect.top+1;
 		::ExtTextOut(hDC, 0, 0, ETO_OPAQUE, &lineRect, NULL, 0, NULL);
 	}
@@ -1334,7 +1334,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 		}
 	}
 	langDLL.Close();
-	return msg.wParam;
+	return (int)msg.wParam;
 }
 
 ATOM MyRegisterClass(HINSTANCE hResource)
@@ -1752,7 +1752,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 					else
 					{
 						pTTTW->lpszText = app.m_wszTip;
-						::MultiByteToWideChar( CP_ACP , 0, msg.c_str(), min(msg.size(), MAX_LOG_LENGTH*2), app.m_wszTip, MAX_LOG_LENGTH*2);
+						::MultiByteToWideChar( CP_ACP , 0, msg.c_str(), min((int)msg.size(), MAX_LOG_LENGTH*2), app.m_wszTip, MAX_LOG_LENGTH*2);
 						app.StringExpand(app.m_wszTip);
 					}
 				}
@@ -1902,7 +1902,7 @@ LRESULT CALLBACK WndLocatorProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 		{
 			RECT rect;
 			::GetClientRect(hWnd, &rect); 
-			int nLine = HIWORD(lParam)*app.revs.size()/(rect.bottom-rect.top);
+			int nLine = (int)(HIWORD(lParam)*app.revs.size()/(rect.bottom-rect.top));
 
 			if (nLine < 0)
 				nLine = 0;

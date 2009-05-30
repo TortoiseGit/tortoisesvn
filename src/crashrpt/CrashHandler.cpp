@@ -280,9 +280,9 @@ DWORD WINAPI CCrashHandler::DialogThreadExecute(LPVOID pParam)
 				   static const char description[] = "\r\n\r\nDescription:";
 				   DWORD writtenBytes;
 				   ::WriteFile(hFile, e_mail, sizeof(e_mail) - 1, &writtenBytes, NULL);
-				   ::WriteFile(hFile, mainDlg.m_sEmail.c_str(), mainDlg.m_sEmail.size(), &writtenBytes, NULL);
+				   ::WriteFile(hFile, mainDlg.m_sEmail.c_str(), (DWORD)mainDlg.m_sEmail.size(), &writtenBytes, NULL);
 				   ::WriteFile(hFile, description, sizeof(description) - 1, &writtenBytes, NULL);
-				   ::WriteFile(hFile, mainDlg.m_sDescription.c_str(), mainDlg.m_sDescription.size(), &writtenBytes, NULL);
+				   ::WriteFile(hFile, mainDlg.m_sDescription.c_str(), (DWORD)mainDlg.m_sDescription.size(), &writtenBytes, NULL);
 				   ::WriteFile(hFile, newline, sizeof(newline) - 1, &writtenBytes, NULL);
 				   ::CloseHandle(hFile);
 				  // redo zip file to add user data

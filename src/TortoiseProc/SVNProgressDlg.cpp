@@ -520,8 +520,8 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
 
 				CProgressCtrl * progControl = (CProgressCtrl *)GetDlgItem(IDC_PROGRESSBAR);
 				progControl->ShowWindow(SW_SHOW);
-				progControl->SetPos(m_itemCountTotal - m_itemCount);
-				progControl->SetRange32(0, m_itemCountTotal);
+				progControl->SetPos((int)(m_itemCountTotal - m_itemCount));
+				progControl->SetRange32(0, (int)m_itemCountTotal);
 			}
 		}
 		if ((action == svn_wc_notify_commit_postfix_txdelta)&&(bSecondResized == FALSE))

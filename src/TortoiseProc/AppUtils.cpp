@@ -737,7 +737,7 @@ bool CAppUtils::UnderlineRegexMatches(CWnd * pWnd, const CString& matchstring, c
 			{
 				ATLTRACE(_T("matched id : %s\n"), (*it2)[0].str().c_str());
 				ptrdiff_t matchposID = it2->position(0);
-				CHARRANGE range = {matchpos+matchposID, matchpos+matchposID+(*it2)[0].str().size()};
+				CHARRANGE range = {(LONG)(matchpos+matchposID), (LONG)(matchpos+matchposID+(*it2)[0].str().size())};
 				pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
 				CHARFORMAT2 format;
 				SecureZeroMemory(&format, sizeof(CHARFORMAT2));

@@ -222,7 +222,7 @@ CleanUp:
 //
 int CExceptionReport::getNumSymbolFiles()
 {
-   return m_symFiles.size();
+   return (int)m_symFiles.size();
 }
 
 

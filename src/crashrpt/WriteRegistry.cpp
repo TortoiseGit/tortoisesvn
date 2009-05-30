@@ -240,7 +240,7 @@ static bool WriteRegValue(HANDLE hFile, const char * /*key_path*/, const char *n
 static void WriteFileString(HANDLE hFile, const char *string)
 {
     DWORD written;
-    if (!WriteFile(hFile, string, strlen(string), &written, NULL) || written != strlen(string)) {
+    if (!WriteFile(hFile, string, (DWORD)strlen(string), &written, NULL) || written != strlen(string)) {
 		OutputDebugString("WriteFile failed\n");
         throw false;
     }
