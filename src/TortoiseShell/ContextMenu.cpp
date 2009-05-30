@@ -2101,16 +2101,16 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 	return NULL;
 }
 
-bool CShellExt::IsIllegalFolder(std::wstring folder, int * cslidarray)
+bool CShellExt::IsIllegalFolder(std::wstring folder, int * csidlarray)
 {
 	int i=0;
 	TCHAR buf[MAX_PATH];	//MAX_PATH ok, since SHGetSpecialFolderPath doesn't return the required buffer length!
 	LPITEMIDLIST pidl = NULL;
-	while (cslidarray[i])
+	while (csidlarray[i])
 	{
 		++i;
 		pidl = NULL;
-		if (SHGetFolderLocation(NULL, cslidarray[i-1], NULL, 0, &pidl)!=S_OK)
+		if (SHGetFolderLocation(NULL, csidlarray[i-1], NULL, 0, &pidl)!=S_OK)
 			continue;
 		if (!SHGetPathFromIDList(pidl, buf))
 		{

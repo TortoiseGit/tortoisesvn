@@ -218,7 +218,7 @@ private:
 	void			GetColumnStatus(const TCHAR * path, BOOL bIsDir);
 	HBITMAP			IconToBitmap(UINT uIcon);
 	STDMETHODIMP	QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMenu, UINT &indexMenu);
-	bool			IsIllegalFolder(std::wstring folder, int * cslidarray);
+	bool			IsIllegalFolder(std::wstring folder, int * csidlarray);
 	HBITMAP			IconToBitmapPARGB32(UINT uIcon);
 	HRESULT			Create32BitHBITMAP(HDC hdc, const SIZE *psize, __deref_opt_out void **ppvBits, __out HBITMAP* phBmp);
 	HRESULT			ConvertBufferToPARGB32(HPAINTBUFFER hPaintBuffer, HDC hdc, HICON hicon, SIZE& sizIcon);
