@@ -529,7 +529,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			delete [] src;
 			return ERR_ALLOC;
 		}
-		if (!ReadFile(hFile, pBuf, filelength, &readlength, NULL))
+		if (!ReadFile(hFile, pBuf, (DWORD)filelength, &readlength, NULL))
 		{
 			_tprintf(_T("Could not read the file '%s'\n"), src);
 			delete [] pBuf;
@@ -735,7 +735,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		DWORD readlengthExisting = 0;
 		char * pBufExisting = new char[filelength];
-		if (!ReadFile(hFile, pBufExisting, filelengthExisting, &readlengthExisting, NULL))
+		if (!ReadFile(hFile, pBufExisting, (DWORD)filelengthExisting, &readlengthExisting, NULL))
 		{
 			_tprintf(_T("Could not read the file '%s'\n"), dst);
 			delete [] pBuf;
@@ -763,7 +763,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		SetFilePointer(hFile, 0, NULL, FILE_BEGIN);
 
-		WriteFile(hFile, pBuf, filelength, &readlength, NULL);
+		WriteFile(hFile, pBuf, (DWORD)filelength, &readlength, NULL);
 		if (readlength != filelength)
 		{
 			_tprintf(_T("Could not write the file '%s' to the end!\n"), dst);
