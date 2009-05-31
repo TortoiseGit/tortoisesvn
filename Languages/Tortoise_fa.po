@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-05-30 15:38+0330\n"
+"PO-Revision-Date: 2009-05-31 08:41+0330\n"
 "Last-Translator: mohsen sajjadi <mohsensajjadi@yahoo.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1017,7 +1017,7 @@ msgstr "سوئیچ نسخه کاری به مسیر و اصلاحیه"
 
 #. Resource IDs: (275)
 msgid "&Switch WC to path@HEAD"
-msgstr ""
+msgstr "سوییچ کردن نسخه کاری به مسیر@HEAD"
 
 #. Resource IDs: (1173)
 msgid "&Symbol View"
@@ -1212,7 +1212,7 @@ msgstr "(عدم وجود شماره خط)"
 
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
-msgstr ""
+msgstr "(بدون تغییر اما از اینجا کپی ایجاد شد)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -1723,6 +1723,8 @@ msgid ""
 "Apply 'Power User' defaults. Those will provide a smoother experience.\n"
 "You should know the meaning of all the settings above."
 msgstr ""
+"اعمال پیش فرض های 'کاربر قوی'. این تنظیمات موجب تجربه کاری بهتری میشوند.\n"
+"شما بایستی از معنی تمامی تنظیمات بالا مطلع باشید."
 
 #. Resource IDs: (1294)
 msgid "Apply property recursively"
@@ -2172,11 +2174,11 @@ msgstr ""
 
 #. Resource IDs: (612)
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
-msgstr ""
+msgstr "از گزارشات ثبت شده برای اطلاع از نحوه تغییر نام/جابجایی این فایل/پوشه استفاده و تصمیم بگیرید که مایلید تغییر نام/جابجایی مربوط به خود یا مخزن را حفظ کنید. سپس برخورد را بصورت رفع شده علامت بزنید."
 
 #. Resource IDs: (612)
 msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to merge the change into your renamed file, or restore the original file."
-msgstr ""
+msgstr "از گزارشات ثبت شده برای اطلاع از نحوه تغییر نام/جابجایی این فایل/پوشه استفاده و تصمیم بگیرید که مایلید تغییرات به فایل تغییر نام داده شده شما نیز ادغام گردد، یا فایل اولیه بازنشان گردد."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -3031,7 +3033,7 @@ msgstr "حذف اقلام فاقد نسخه"
 #. Resource IDs: (14)
 #, c-format
 msgid "Delete and &ignore %d items by name"
-msgstr ""
+msgstr "حذف و نادیده گرفتن %d قلم با نام"
 
 #. Resource IDs: (14)
 #, fuzzy
@@ -3041,7 +3043,7 @@ msgstr "لیست اضافه بنماید ! ignore به % s نمی توانست "
 #. Resource IDs: (14)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
-msgstr ""
+msgstr "حذف و نادیده گرفتن %d قلم با پسوند"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3207,7 +3209,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
-msgstr ""
+msgstr "منوی راست کلیک برای مسیرهای مقایل نمایش نشود:"
 
 #. Resource IDs: (1007)
 #, fuzzy, c-format
