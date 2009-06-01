@@ -188,6 +188,78 @@ LRESULT CMainWindow::DoCommand(int id)
 {
 	switch (id) 
 	{
+	case ID_FILE_OPEN:
+		{
+			OPENFILENAME ofn = {0};				// common dialog box structure
+			TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
+			// Initialize OPENFILENAME
+			ofn.lStructSize = sizeof(OPENFILENAME);
+			ofn.hwndOwner = *this;
+			ofn.lpstrFile = szFile;
+			ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+			TCHAR filter[1024];
+			LoadString(hResource, IDS_PATCHFILEFILTER, filter, sizeof(filter)/sizeof(TCHAR));
+			TCHAR * pszFilters = filter;
+			// Replace '|' delimiters with '\0's
+			TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+			while (ptr != pszFilters)
+			{
+				if (*ptr == '|')
+					*ptr = '\0';
+				ptr--;
+			}
+			ofn.lpstrFilter = pszFilters;
+			ofn.nFilterIndex = 1;
+			ofn.lpstrFileTitle = NULL;
+			ofn.nMaxFileTitle = 0;
+			ofn.lpstrInitialDir = NULL;
+			TCHAR opentitle[1024];
+			LoadString(hResource, IDS_OPENPATCH, opentitle, sizeof(opentitle)/sizeof(TCHAR));
+			ofn.lpstrTitle = opentitle;
+			ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_ENABLESIZING | OFN_EXPLORER;
+			// Display the Open dialog box. 
+			if (GetOpenFileName(&ofn)==TRUE)
+			{
+				LoadFile(ofn.lpstrFile);
+			}
+		}
+		break;
+	case ID_FILE_SAVEAS:
+		{
+			OPENFILENAME ofn = {0};				// common dialog box structure
+			TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
+			// Initialize OPENFILENAME
+			ofn.lStructSize = sizeof(OPENFILENAME);
+			ofn.hwndOwner = *this;
+			ofn.lpstrFile = szFile;
+			ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+			TCHAR filter[1024];
+			LoadString(hResource, IDS_PATCHFILEFILTER, filter, sizeof(filter)/sizeof(TCHAR));
+			TCHAR * pszFilters = filter;
+			// Replace '|' delimiters with '\0's
+			TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+			while (ptr != pszFilters)
+			{
+				if (*ptr == '|')
+					*ptr = '\0';
+				ptr--;
+			}
+			ofn.lpstrFilter = pszFilters;
+			ofn.nFilterIndex = 1;
+			ofn.lpstrFileTitle = NULL;
+			ofn.nMaxFileTitle = 0;
+			ofn.lpstrInitialDir = NULL;
+			TCHAR savetitle[1024];
+			LoadString(hResource, IDS_SAVEPATCH, savetitle, sizeof(savetitle)/sizeof(TCHAR));
+			ofn.lpstrTitle = savetitle;
+			ofn.Flags = OFN_OVERWRITEPROMPT | OFN_ENABLESIZING | OFN_EXPLORER;
+			// Display the Open dialog box. 
+			if (GetSaveFileName(&ofn)==TRUE)
+			{
+				SaveFile(ofn.lpstrFile);
+			}
+		}
+		break;
 	case ID_FILE_EXIT:
 		::PostQuitMessage(0);
 		return 0;
@@ -358,7 +430,6 @@ bool CMainWindow::LoadFile(LPCTSTR filename)
 	SendEditor(EM_EMPTYUNDOBUFFER);
 	SendEditor(SCI_SETSAVEPOINT);
 	SendEditor(SCI_GOTOPOS, 0);
-	SendEditor(SCI_SETREADONLY, TRUE);
 
 	SendEditor(SCI_CLEARDOCUMENTSTYLE, 0, 0);
 	SendEditor(SCI_SETSTYLEBITS, 5, 0);
@@ -375,6 +446,28 @@ bool CMainWindow::LoadFile(LPCTSTR filename)
 	SendEditor(SCI_SETLEXER, SCLEX_DIFF);
 	SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)"revision");
 	SendEditor(SCI_COLOURISE, 0, -1);
+	::ShowWindow(m_hWndEdit, SW_SHOW);
+	return true;
+}
+
+bool CMainWindow::SaveFile(LPCTSTR filename)
+{
+	FILE *fp = NULL;
+	_tfopen_s(&fp, filename, _T("w+b"));
+	if (fp) 
+	{
+		int len = SendEditor(SCI_GETTEXT, 0, 0);
+		char * data = new char[len+1];
+		SendEditor(SCI_GETTEXT, len, (LPARAM)data);
+		fwrite(data, sizeof(char), len-1, fp);
+		fclose(fp);
+	}
+	else 
+	{
+		return false;
+	}
+
+	SendEditor(SCI_SETSAVEPOINT);
 	::ShowWindow(m_hWndEdit, SW_SHOW);
 	return true;
 }

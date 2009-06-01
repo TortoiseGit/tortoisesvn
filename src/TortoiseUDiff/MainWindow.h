@@ -47,6 +47,7 @@ public:
 	LRESULT				SendEditor(UINT Msg, WPARAM wParam = 0, LPARAM lParam = 0);
 	HWND				GetHWNDEdit() { return m_hWndEdit; }
 	bool				LoadFile(LPCTSTR filename);
+	bool				SaveFile(LPCTSTR filename);
 	void				SetTitle(LPCTSTR title);
 
 protected:
