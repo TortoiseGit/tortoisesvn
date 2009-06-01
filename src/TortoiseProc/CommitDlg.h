@@ -93,6 +93,7 @@ protected:
 	void SetSplitterRange();
 	void SaveSplitterPos();
 	void ParseRegexFile(const CString& sFile, std::map<CString, CString>& mapRegex);
+	void UpdateCheckLinks();
 
 	DECLARE_MESSAGE_MAP()
 

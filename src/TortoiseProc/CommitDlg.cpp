@@ -777,15 +777,7 @@ UINT CCommitDlg::StatusThread()
 		if (m_ListCtrl.HasLocks())
 			DialogEnableWindow(IDC_KEEPLOCK, true);
 
-		DialogEnableWindow(IDC_CHECKALL, true);
-		DialogEnableWindow(IDC_CHECKNONE, true);
-		DialogEnableWindow(IDC_CHECKUNVERSIONED, m_ListCtrl.GetUnversionedCount() > 0);
-		DialogEnableWindow(IDC_CHECKVERSIONED, m_ListCtrl.GetItemCount() > m_ListCtrl.GetUnversionedCount());
-		DialogEnableWindow(IDC_CHECKADDED, m_ListCtrl.GetAddedCount() > 0);
-		DialogEnableWindow(IDC_CHECKDELETED, m_ListCtrl.GetDeletedCount() > 0);
-		DialogEnableWindow(IDC_CHECKMODIFIED, m_ListCtrl.GetModifiedCount() > 0);
-		DialogEnableWindow(IDC_CHECKFILES, m_ListCtrl.GetFileCount() > 0);
-		DialogEnableWindow(IDC_CHECKDIRECTORIES, m_ListCtrl.GetFolderCount() > 0);
+		UpdateCheckLinks();
 
 		// we have the list, now signal the main thread about it
 		SendMessage(WM_AUTOLISTREADY);	// only send the message if the thread wasn't told to quit!
@@ -913,6 +905,7 @@ void CCommitDlg::OnBnClickedShowunversioned()
 		else
 			dwShow &= ~SVNSLC_SHOWUNVERSIONED;
 		m_ListCtrl.Show(dwShow);
+		UpdateCheckLinks();
 	}
 }
 
@@ -935,6 +928,7 @@ LRESULT CCommitDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 			m_bShowUnversioned = TRUE;
 			DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWLOCKS | SVNSLC_SHOWINCHANGELIST | SVNSLC_SHOWEXTERNAL | SVNSLC_SHOWINEXTERNALS | SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO | SVNSLC_SHOWEXTDISABLED | SVNSLC_SHOWUNVERSIONED;
 			m_ListCtrl.Show(dwShow);
+			UpdateCheckLinks();
 			UpdateData(FALSE);
 		}
 	}
@@ -1579,5 +1573,19 @@ void CCommitDlg::OnBnClickedShowexternals()
 		else
 			dwShow &= ~(SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO|SVNSLC_SHOWEXTDISABLED);
 		m_ListCtrl.Show(dwShow);
+		UpdateCheckLinks();
 	}
+}
+
+void CCommitDlg::UpdateCheckLinks()
+{
+	DialogEnableWindow(IDC_CHECKALL, true);
+	DialogEnableWindow(IDC_CHECKNONE, true);
+	DialogEnableWindow(IDC_CHECKUNVERSIONED, m_ListCtrl.GetUnversionedCount() > 0);
+	DialogEnableWindow(IDC_CHECKVERSIONED, m_ListCtrl.GetItemCount() > m_ListCtrl.GetUnversionedCount());
+	DialogEnableWindow(IDC_CHECKADDED, m_ListCtrl.GetAddedCount() > 0);
+	DialogEnableWindow(IDC_CHECKDELETED, m_ListCtrl.GetDeletedCount() > 0);
+	DialogEnableWindow(IDC_CHECKMODIFIED, m_ListCtrl.GetModifiedCount() > 0);
+	DialogEnableWindow(IDC_CHECKFILES, m_ListCtrl.GetFileCount() > 0);
+	DialogEnableWindow(IDC_CHECKDIRECTORIES, m_ListCtrl.GetFolderCount() > 0);
 }
