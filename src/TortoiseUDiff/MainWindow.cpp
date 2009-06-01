@@ -499,7 +499,7 @@ bool CMainWindow::IsUTF8(LPVOID pBuffer, size_t cb)
 	UINT8 * pVal2 = (UINT8 *)(pVal+1);
 	// scan the whole buffer for a 0x0000 sequence
 	// if found, we assume a binary file
-	for (int i=0; i<(cb-2); i=i+2)
+	for (size_t i=0; i<(cb-2); i=i+2)
 	{
 		if (0x0000 == *pVal++)
 			return false;
@@ -516,7 +516,7 @@ bool CMainWindow::IsUTF8(LPVOID pBuffer, size_t cb)
 	}
 	// check for illegal UTF8 chars
 	pVal2 = (UINT8 *)pBuffer;
-	for (int i=0; i<cb; ++i)
+	for (size_t i=0; i<cb; ++i)
 	{
 		if ((*pVal2 == 0xC0)||(*pVal2 == 0xC1)||(*pVal2 >= 0xF5))
 			return false;
@@ -524,7 +524,7 @@ bool CMainWindow::IsUTF8(LPVOID pBuffer, size_t cb)
 	}
 	pVal2 = (UINT8 *)pBuffer;
 	bool bUTF8 = false;
-	for (int i=0; i<(cb-3); ++i)
+	for (size_t i=0; i<(cb-3); ++i)
 	{
 		if ((*pVal2 & 0xE0)==0xC0)
 		{
