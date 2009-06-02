@@ -203,8 +203,9 @@ BOOL CCommitDlg::OnInitDialog()
 	m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKDIRECTORIES);
 
 	// line up all controls and adjust their sizes.
-#define LINKSPACING 7
+#define LINKSPACING 9
 	RECT rc = AdjustControlSize(IDC_SELECTLABEL);
+	rc.right -= 15;	// AdjustControlSize() adds 20 pixels for the checkbox/radio button bitmap, but this is a label...
 	rc = AdjustStaticSize(IDC_CHECKALL, rc, LINKSPACING);
 	rc = AdjustStaticSize(IDC_CHECKNONE, rc, LINKSPACING);
 	rc = AdjustStaticSize(IDC_CHECKUNVERSIONED, rc, LINKSPACING);
