@@ -158,6 +158,7 @@ protected:
 		RECT controlrectorig;
 		pwndDlgItem->GetWindowRect(&controlrect);
 		::MapWindowPoints(NULL, GetSafeHwnd(), (LPPOINT)&controlrect, 2);
+		controlrect.right += 200;	// in case the control needs to be bigger than it currently is (e.g., due to translations)
 		controlrectorig = controlrect;
 
 		long height = controlrectorig.bottom-controlrectorig.top;
