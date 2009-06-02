@@ -43,6 +43,7 @@ const UINT CLinkControl::LK_LINKITEMCLICKED
 
 HCURSOR  CLinkControl::g_hLinkCursor     = NULL;
 HFONT    CLinkControl::g_UnderlineFont   = NULL;
+HFONT    CLinkControl::g_NormalFont		 = NULL;
 int      CLinkControl::g_counter         = 0;
 
 
@@ -84,6 +85,7 @@ bool CLinkControl::ConvertStaticToLink(HWND hwndCtl)
 	{
 		createGlobalResources();
 	}
+	SendMessage(hwndCtl, WM_SETFONT, (WPARAM)CLinkControl::g_NormalFont, FALSE);
 
 	// Subclass the existing control.
 
@@ -108,14 +110,14 @@ LRESULT CALLBACK CLinkControl::_HyperlinkParentProc(HWND hwnd, UINT message,
 	{
 	case WM_CTLCOLORSTATIC:
 		{
-			HDC hdc = (HDC)wParam;
+			//HDC hdc = (HDC)wParam;
 			HWND hwndCtl = (HWND)lParam;
 			CLinkControl *pHyperLink = (CLinkControl*)GetProp(hwndCtl, PROP_OBJECT_PTR);
 
 			if (pHyperLink)
 			{
 				LRESULT lr = CallWindowProc(pfnOrigProc, hwnd, message, wParam, lParam);
-				::SetTextColor(hdc, GetSysColor(COLOR_HOTLIGHT));
+				//::SetTextColor(hdc, GetSysColor(COLOR_HOTLIGHT));
 				return lr;
 			}
 		}
@@ -186,7 +188,7 @@ LRESULT CALLBACK CLinkControl::_HyperlinkProc(HWND hwnd, UINT message,
 	case WM_CAPTURECHANGED:
 		{
 			pHyperLink->m_bOverControl = FALSE;
-			SendMessage(hwnd, WM_SETFONT, (WPARAM)pHyperLink->m_StdFont, FALSE);
+			SendMessage(hwnd, WM_SETFONT, (WPARAM)CLinkControl::g_NormalFont, FALSE);
 			InvalidateRect(hwnd, NULL, FALSE);
 		}
 		break;
@@ -230,8 +232,10 @@ void CLinkControl::createUnderlineFont(void)
 {
 	LOGFONT lf;
 	GetObject(m_StdFont, sizeof(lf), &lf);
-	lf.lfUnderline = TRUE;
+	lf.lfWeight = FW_BOLD;
+	g_NormalFont = CreateFontIndirect(&lf);
 
+	lf.lfUnderline = TRUE;
 	g_UnderlineFont = CreateFontIndirect(&lf);
 }
 

@@ -34,6 +34,7 @@ protected:
 private:
 	static HCURSOR  g_hLinkCursor;                  // Cursor for hyperlink
 	static HFONT    g_UnderlineFont;                // Font for underline display
+	static HFONT    g_NormalFont;					// Font for default display
 	static int      g_counter;						// Global resources user counter
 	bool			m_bOverControl;					// cursor over control?
 	HFONT			m_StdFont;						// Standard font
