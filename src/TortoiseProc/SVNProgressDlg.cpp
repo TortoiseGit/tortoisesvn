@@ -366,6 +366,19 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
 		data->bAuxItem = true;
 		break;
 
+	case svn_wc_notify_merge_completed:
+		if ((m_nConflicts>0)&&(!m_bConflictWarningShown))
+		{
+			data->bAuxItem = true;
+			data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
+			data->sPathColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED);
+			data->color = m_Colors.GetColor(CColors::Conflict);
+			CSoundUtils::PlayTSVNWarning();
+			m_bConflictWarningShown = true;
+			// This item will now be added after the switch statement
+		}
+		m_bFinishedItemAdded = true;
+		break;
 	case svn_wc_notify_update_completed:
 		{
 			data->sActionColumnText.LoadString(IDS_SVNACTION_COMPLETED);
@@ -484,8 +497,6 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
 		break;
 	case svn_wc_notify_revprop_deleted:
 		data->sActionColumnText.Format(IDS_SVNACTION_PROPDEL, (LPCTSTR)data->propertyName);
-		break;
-	case svn_wc_notify_merge_completed:
 		break;
 	case svn_wc_notify_tree_conflict:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_TREECONFLICTED);

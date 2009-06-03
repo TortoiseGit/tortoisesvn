@@ -39,6 +39,8 @@ Version 1.6.3
        "incoming add upon merge". (Stefan)
 - BUG: The status cache exclude list wasn't used the first five minutes
        after a restart. (Stefan)
+- BUG: At the end of a merge, possible conflicts were not mentioned
+       in the 'finished' message. (Stefan)
 
 Version 1.6.2
 - BUG: Error message about non-LF commit messages when using messages with
