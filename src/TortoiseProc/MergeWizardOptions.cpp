@@ -45,6 +45,7 @@ void CMergeWizardOptions::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
 	DDX_Check(pDX, IDC_IGNOREEOL, ((CMergeWizard*)GetParent())->m_bIgnoreEOL);
 	DDX_Check(pDX, IDC_RECORDONLY, ((CMergeWizard*)GetParent())->m_bRecordOnly);
+	DDX_Check(pDX, IDC_FORCE, ((CMergeWizard*)GetParent())->m_bForce);
 }
 
 
@@ -94,6 +95,7 @@ BOOL CMergeWizardOptions::OnInitDialog()
 	AdjustControlSize(IDC_COMPAREWHITESPACES);
 	AdjustControlSize(IDC_IGNOREWHITESPACECHANGES);
 	AdjustControlSize(IDC_IGNOREALLWHITESPACES);
+	AdjustControlSize(IDC_FORCE);
 	AdjustControlSize(IDC_RECORDONLY);
 
 	AddAnchor(IDC_MERGEOPTIONSGROUP, TOP_LEFT, TOP_RIGHT);
@@ -104,6 +106,7 @@ BOOL CMergeWizardOptions::OnInitDialog()
 	AddAnchor(IDC_COMPAREWHITESPACES, TOP_LEFT);
 	AddAnchor(IDC_IGNOREWHITESPACECHANGES, TOP_LEFT);
 	AddAnchor(IDC_IGNOREALLWHITESPACES, TOP_LEFT);
+	AddAnchor(IDC_FORCE, TOP_LEFT);
 	AddAnchor(IDC_RECORDONLY, TOP_LEFT);
 	AddAnchor(IDC_DRYRUN, BOTTOM_RIGHT);
 
@@ -151,6 +154,7 @@ BOOL CMergeWizardOptions::OnSetActive()
 	CMergeWizard * pWizard = ((CMergeWizard*)GetParent());
 	GetDlgItem(IDC_RECORDONLY)->EnableWindow(pWizard->nRevRangeMerge != MERGEWIZARD_REINTEGRATE);
 	GetDlgItem(IDC_DEPTH)->EnableWindow(pWizard->nRevRangeMerge != MERGEWIZARD_REINTEGRATE);
+	GetDlgItem(IDC_FORCE)->EnableWindow(pWizard->nRevRangeMerge != MERGEWIZARD_REINTEGRATE);
 
 	CString sTitle;
 	switch (pWizard->nRevRangeMerge)
@@ -180,6 +184,7 @@ void CMergeWizardOptions::OnBnClickedDryrun()
 	int options = ProgOptDryRun;
 	options |= pWizard->m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
 	options |= pWizard->m_bRecordOnly ? ProgOptRecordOnly : 0;
+	options |= pWizard->m_bForce ? ProgOptForce : 0;
 	progDlg.SetOptions(options);
 	progDlg.SetPathList(CTSVNPathList(pWizard->wcPath));
 	progDlg.SetUrl(pWizard->URL1);

@@ -3434,7 +3434,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					{
 						CSVNProgressDlg progDlg;
 						progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Lock);
-						progDlg.SetOptions(inpDlg.m_iCheck ? ProgOptLockForce : ProgOptNone);
+						progDlg.SetOptions(inpDlg.m_iCheck ? ProgOptForce : ProgOptNone);
 						progDlg.SetPathList(itemsToLock);
 						progDlg.SetCommitMessage(inpDlg.m_sInputText);
 						progDlg.DoModal();
@@ -3455,7 +3455,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					FillListOfSelectedItemPaths(itemsToUnlock);
 					CSVNProgressDlg progDlg;
 					progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Unlock);
-					progDlg.SetOptions(bForce ? ProgOptLockForce : ProgOptNone);
+					progDlg.SetOptions(bForce ? ProgOptForce : ProgOptNone);
 					progDlg.SetPathList(itemsToUnlock);
 					progDlg.DoModal();
 					// refresh!
