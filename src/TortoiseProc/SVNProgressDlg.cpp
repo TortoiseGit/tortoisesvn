@@ -1092,33 +1092,39 @@ void CSVNProgressDlg::OnLvnGetdispinfoSvnprogress(NMHDR *pNMHDR, LRESULT *pResul
 			if (pDispInfo->item.iItem < (int)m_arData.size())
 			{
 				const NotificationData * data = m_arData[pDispInfo->item.iItem];
-				switch (pDispInfo->item.iSubItem)
+				if (data)
 				{
-				case 0:
-					lstrcpyn(m_columnbuf, data->sActionColumnText, MAX_PATH);
-					break;
-				case 1:
-					lstrcpyn(m_columnbuf, data->sPathColumnText, pDispInfo->item.cchTextMax);
-					if (!data->bAuxItem)
+					switch (pDispInfo->item.iSubItem)
 					{
-						int cWidth = m_ProgList.GetColumnWidth(1);
-						cWidth = max(12, cWidth-12);
-						CDC * pDC = m_ProgList.GetDC();
-                        if (pDC != NULL)
-                        {
-						    CFont * pFont = pDC->SelectObject(m_ProgList.GetFont());
-						    PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
-						    pDC->SelectObject(pFont);
-							ReleaseDC(pDC);
-                        }
+					case 0:
+						lstrcpyn(m_columnbuf, data->sActionColumnText, MAX_PATH);
+						break;
+					case 1:
+						lstrcpyn(m_columnbuf, data->sPathColumnText, pDispInfo->item.cchTextMax);
+						if (!data->bAuxItem)
+						{
+							int cWidth = m_ProgList.GetColumnWidth(1);
+							cWidth = max(12, cWidth-12);
+							CDC * pDC = m_ProgList.GetDC();
+							if (pDC != NULL)
+							{
+								CFont * pFont = pDC->SelectObject(m_ProgList.GetFont());
+								PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
+								pDC->SelectObject(pFont);
+								ReleaseDC(pDC);
+							}
+						}
+						break;
+					case 2:
+						lstrcpyn(m_columnbuf, data->mime_type, MAX_PATH);
+						break;
+					default:
+						m_columnbuf[0] = 0;
 					}
-					break;
-				case 2:
-					lstrcpyn(m_columnbuf, data->mime_type, MAX_PATH);
-					break;
-				default:
-					m_columnbuf[0] = 0;
 				}
+				else
+					m_columnbuf[0] = 0;
+
 				pDispInfo->item.pszText = m_columnbuf;
 			}
 		}
