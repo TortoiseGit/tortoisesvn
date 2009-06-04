@@ -2405,6 +2405,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				if (m_dwContextMenus & SVNSLC_POPCONFLICT)
 				{
 					popup.AppendMenuIcon(IDSVNLC_EDITCONFLICT, IDS_MENUCONFLICT, IDI_CONFLICT);
+					if (entry->isConflicted)
+						popup.SetDefaultItem(IDSVNLC_EDITCONFLICT, FALSE);
 				}
 				if (m_dwContextMenus & SVNSLC_POPRESOLVE)
 				{
@@ -4390,7 +4392,27 @@ void CSVNStatusListCtrl::OnNMReturn(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	while ( pos )
 	{
 		int index = GetNextSelectedItem(pos);
-		StartDiff(index);
+		FileEntry * entry = GetListEntry(index);
+		if (entry)
+		{
+			if (entry->isConflicted)
+			{
+				CString sCmd;
+				sCmd.Format(_T("\"%s\" /command:conflicteditor /path:\"%s\""),
+					(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), entry->GetPath().GetWinPath());
+				if (!entry->GetPath().IsUrl())
+				{
+					sCmd += _T(" /propspath:\"");
+					sCmd += entry->GetPath().GetWinPathString();
+					sCmd += _T("\"");
+				}	
+				CAppUtils::LaunchApplication(sCmd, NULL, false);
+			}
+			else
+			{
+				StartDiff(index);
+			}
+		}
 	}
 }
 
