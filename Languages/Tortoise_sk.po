@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-03-21 09:20+0100\n"
+"PO-Revision-Date: 2009-06-03 10:54+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1479,6 +1479,10 @@ msgstr "Pridať porovnávací program pre príponu"
 msgid "Add extension specific merge program"
 msgstr "Upraviť zlučovací program pre príponu"
 
+#. Resource IDs: (1065)
+msgid "Add new files automatically to SVN"
+msgstr "Automaticky pridať nové súbory do SVN"
+
 #. Resource IDs: (89)
 msgid "Add the item anyway"
 msgstr "Napriek tomu objekt pridať"
@@ -1579,6 +1583,10 @@ msgstr "Vek"
 msgid "Align trees on top"
 msgstr "Zarovnať stromy na vrch"
 
+#. Resource IDs: (1505)
+msgid "All"
+msgstr "Všetko"
+
 #. Resource IDs: (1007)
 msgid "All Commands"
 msgstr "Všetky príkazy"
@@ -1620,6 +1628,10 @@ msgstr "Povoliť pre rozdielne úložiská použiť rovnakú URL, napr. http://l
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Povoliť rozdielnym úložiskám použiť rovnaké UUID, napr. kopírované úložiská"
+
+#. Resource IDs: (1480)
+msgid "Always close dialogs for local operations"
+msgstr "Vždy zavrieť po miestnych úkonoch"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1821,10 +1833,6 @@ msgstr "Automaticky skryť všetko"
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "Automaticky premenovať"
-
-#. Resource IDs: (222)
-msgid "Auto-close for local operations"
-msgstr "Automaticky zavrieť po miestnych úkonoch"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -2195,6 +2203,11 @@ msgstr "Zaškrtnite ak chcete menej výpisov dátumu a času v správach denník
 msgid "Check working copy for modifications"
 msgstr "Skontrolovať pracovnú kópiu na zmeny"
 
+# Kontrola
+#. Resource IDs: (1504)
+msgid "Check:"
+msgstr "Skontrolovať:"
+
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Kontrola prístupnosti novšej verzie TortoiseSVN..."
@@ -2238,10 +2251,12 @@ msgstr "Klasifikačné šablóny"
 msgid "Cleaning up"
 msgstr "Čistenie"
 
-# Čistím
 #. Resource IDs: (146)
-msgid "Cleaning up."
-msgstr "(Prebieha) Čistenie"
+#, c-format
+msgid "Cleaning up directory \"%s\""
+msgstr ""
+"Čistenie adresára:\r\n"
+"%s"
 
 #. Resource IDs: (83)
 #, c-format
@@ -3142,6 +3157,10 @@ msgstr "Porovnávanie"
 msgid "Diffs the working copy file with the one before the last commit."
 msgstr "Porovná súbor v pracovnej kópií s predposledným odovzdaným."
 
+#. Resource IDs: (1513)
+msgid "Directories"
+msgstr "Adresáre"
+
 #. Resource IDs: (65535)
 msgid "Directory:"
 msgstr "Adresár:"
@@ -3919,6 +3938,10 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "Meno súboru"
+
+#. Resource IDs: (1512)
+msgid "Files"
+msgstr "Súbory"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -6463,6 +6486,10 @@ msgstr ""
 msgid "Reintegrate a branch"
 msgstr "Reintegrovať vetvu"
 
+#. Resource IDs: (595)
+msgid "Reintegrate merge"
+msgstr "Reintegračne zlúčiť"
+
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %s into %s"
@@ -7253,6 +7280,10 @@ msgid "Select text editor application"
 msgstr "Vyberte aplikáciu, ktorá bude použitá na úpravu textových súborov"
 
 #. Resource IDs: (595)
+msgid "Select the URL from which to reintegrate"
+msgstr "Vyberte URL adresy pre reintegrovanie"
+
+#. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
 msgstr "Vyberte URL adresy pre zlučovanie stromov"
 
@@ -7976,6 +8007,10 @@ msgstr "Uzly značky"
 #, c-format
 msgid "Tagged the working copy to %s"
 msgstr "Označiť pracovnú kópiu ako %s"
+
+#. Resource IDs: (80)
+msgid "Tasks"
+msgstr "Úlohy"
 
 #. Resource IDs: (1064)
 msgid "Tasks Pane"
@@ -9018,6 +9053,10 @@ msgstr ""
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Odverziovať"
+
+#. Resource IDs: (1507)
+msgid "Unversioned"
+msgstr "Odverziované"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
@@ -10375,6 +10414,15 @@ msgstr ""
 "tsvn:logminsize\r\n"
 "Minimálny počet znakov záznamu denníka, aby bolo povolené odovzdanie."
 
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logrevregex\r\n"
+"A regular expression matching revision numbers in a log message"
+msgstr ""
+"tsvn:logrevregex\r\n"
+"Regulárny výraz ... číslo revízie v správe denníka"
+
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logsummary\r\n"
@@ -10496,31 +10544,4 @@ msgstr "áno"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-#~ msgid "%s, but the local file was already edited."
-#~ msgstr "%s, ale bol miestne upravený."
-#~ msgid "General::Revision Graph"
-#~ msgstr "Všeobecné::Graf revízií"
-#~ msgid "Go offline?"
-#~ msgstr "Odpojiť?"
-#~ msgid "Replaced node"
-#~ msgstr "Nahradiť uzol"
-#~ msgid ""
-#~ "GDI+ is required to save the revision graph as a picture.\n"
-#~ "You can get GDI+ from\n"
-#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
-#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
-#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-#~ "be590feaa05a&DisplayLang=en</a></u>"
-#~ msgstr ""
-#~ "Aby ste mohli uložiť graf ako obrázok je vyžadovaný GDI+.\n"
-#~ "GDI+ môžete získať z\n"
-#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
-#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
-#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-#~ "be590feaa05a&DisplayLang=en</a></u>"
-#~ msgid "Floppy drives (A: B:)"
-#~ msgstr "Pružné disky (A: B:)"
-#~ msgid "Only record the merge"
-#~ msgstr "Zlučenie iba zaznamenaj"
 
