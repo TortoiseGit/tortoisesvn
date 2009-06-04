@@ -4143,6 +4143,9 @@ void CSVNStatusListCtrl::Check(DWORD dwCheck, bool uncheckNonMatches)
 
 		if ((showFlags & dwCheck)&&(entry->GetChangeList().Compare(SVNSLC_IGNORECHANGELIST)))
 		{
+			if ((m_dwShow & SVNSLC_SHOWEXTDISABLED) && (entry->IsFromDifferentRepository() || entry->IsNested()))
+				continue;
+
 			SetEntryCheck(entry, i, true);
 			m_nSelected++;
 		}
@@ -4302,7 +4305,7 @@ void CSVNStatusListCtrl::RemoveListEntry(int index)
 	}
 }
 
-///< Set a checkbox on an entry in the listbox
+// Set a checkbox on an entry in the listbox
 // NEVER, EVER call SetCheck directly, because you'll end-up with the checkboxes and the 'checked' flag getting out of sync
 void CSVNStatusListCtrl::SetEntryCheck(FileEntry* pEntry, int listboxIndex, bool bCheck)
 {
