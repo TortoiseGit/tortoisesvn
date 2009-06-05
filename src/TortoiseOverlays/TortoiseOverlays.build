@@ -64,6 +64,19 @@
 			<variable name="Platform" value="win32" />
 		</setenv>
 
+		<if test="${file::exists('..\..\signinfo.txt')}">
+			<exec program="signtool">
+				<arg value="sign" />
+				<arg value="${signinfo}" />
+				<arg value="..\..\bin\release\bin\TortoiseOverlays.dll" />
+			</exec>
+			<exec program="signtool">
+				<arg value="sign" />
+				<arg value="${signinfo}" />
+				<arg value="..\..\bin\release64\bin\TortoiseOverlays.dll" />
+			</exec>
+		</if>
+
 		<exec program="candle">
 			<arg value="-nologo" />
 			<arg value="-out" />
@@ -94,6 +107,18 @@
 				<include name="..\..\bin\*.wixpdb" />
 			</fileset>
 		</delete>
+		<if test="${file::exists('..\..\signinfo.txt')}">
+			<exec program="signtool">
+				<arg value="sign" />
+				<arg value="${signinfo}" />
+				<arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msi" />
+			</exec>
+			<exec program="signtool">
+				<arg value="sign" />
+				<arg value="${signinfo}" />
+				<arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msm" />
+			</exec>
+		</if>
 
 		<setenv>
 			<variable name="Platform" value="x64" />
@@ -130,6 +155,18 @@
 				<include name="..\..\bin\*.wixpdb" />
 			</fileset>
 		</delete>
+		<if test="${file::exists('..\..\signinfo.txt')}">
+			<exec program="signtool">
+				<arg value="sign" />
+				<arg value="${signinfo}" />
+				<arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msi" />
+			</exec>
+			<exec program="signtool">
+				<arg value="sign" />
+				<arg value="${signinfo}" />
+				<arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msm" />
+			</exec>
+		</if>
 
 
 	</target>
