@@ -2083,7 +2083,12 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 		ReportCmd(sCmdInfo);
 		if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, SVNRev::REV_HEAD, m_depth, TRUE, m_options & ProgOptIgnoreExternals, DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), TRUE))))
 		{
-			if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_Revision, m_depth, TRUE, m_options & ProgOptIgnoreExternals, DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), TRUE))))
+			if (m_ProgList.GetItemCount()>1)
+			{
+				ReportSVNError();
+				return false;
+			}
+			else if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_Revision, m_depth, TRUE, m_options & ProgOptIgnoreExternals, DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), TRUE))))
 			{
 				ReportSVNError();
 				return false;
@@ -2238,9 +2243,14 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 			m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? SVNRev::REV_HEAD : SVNRev(SVNRev::REV_WC)),
 			m_targetPathList[0], !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
 		{
+			if (m_ProgList.GetItemCount()>1)
+			{
+				ReportSVNError();
+				bFailed = true;
+			}
 			// if the merge fails with the peg revision set,
 			// try again with HEAD as the peg revision.
-			if (!PegMerge(m_url, m_revisionArray, SVNRev::REV_HEAD,
+			else if (!PegMerge(m_url, m_revisionArray, SVNRev::REV_HEAD,
 				m_targetPathList[0], !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
 			{
 				ReportSVNError();
