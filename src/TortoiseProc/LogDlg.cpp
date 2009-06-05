@@ -4972,7 +4972,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 							if (slashpos >= 0)
 								sName = sName.Mid(slashpos);
 							tempfile.AppendPathString(sName);
-							// one problem here:
+							// TODO: one problem here:
 							// a user could have selected multiple items which
 							// have the same filename but reside in different
 							// directories, e.g.
@@ -4994,6 +4994,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 							progDlg.Stop();
 							SetAndClearProgressInfo((HWND)NULL);
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							tempfile.Delete(false);
 							EnableOKButton();
 							theApp.DoWaitCursor(-1);
 							break;
