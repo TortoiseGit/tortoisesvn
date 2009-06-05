@@ -43,6 +43,8 @@ Version 1.6.3
 - BUG: At the end of a merge, possible conflicts were not mentioned
        in the 'finished' message. (Stefan)
 - BUG: possible crash in the progress dialog. (Stefan)
+- BUG: The check state in the commit dialog could get lost after a failed
+       commit if there were checked items in changelists. (Stefan)
 
 Version 1.6.2
 - BUG: Error message about non-LF commit messages when using messages with
