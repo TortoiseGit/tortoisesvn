@@ -81,7 +81,10 @@
 						<items>
 							<include name="..\..\bin\${configuration}${bindirextension}\bin\*.dll" />
 							<include name="..\..\bin\${configuration}${bindirextension}\bin\*.exe" />
+							<!-- the language dll are signed after they're treated with ResText (translated) -->
 							<exclude name="..\..\bin\${configuration}${bindirextension}\bin\*lang.dll" />
+							<!-- the overlays dll is signed by the 'Overlays' build target when the msm/msi are built -->
+							<exclude name="..\..\bin\${configuration}${bindirextension}\bin\TortoiseOverlays.dll" />
 						</items>
 					</in>
 					<do>
