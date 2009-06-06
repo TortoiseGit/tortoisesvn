@@ -1837,8 +1837,16 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	// a double click on an entry in the revision list has happened
 	*pResult = 0;
 
-  if (CRegDWORD(_T("Software\\TortoiseSVN\\DiffByDoubleClickInLog"), FALSE))
-	  DiffSelectedRevWithPrevious();
+	if (m_LogList.HasText())
+	{
+		if (m_LogList.GetItemCount())
+		{
+			m_LogList.ClearText();
+		}
+		return;
+	}
+	if (CRegDWORD(_T("Software\\TortoiseSVN\\DiffByDoubleClickInLog"), FALSE))
+		DiffSelectedRevWithPrevious();
 }
 
 void CLogDlg::DiffSelectedRevWithPrevious()
