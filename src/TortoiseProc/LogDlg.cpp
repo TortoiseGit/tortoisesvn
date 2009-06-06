@@ -1242,7 +1242,8 @@ UINT CLogDlg::StatusThreadEntry(LPVOID pVoid)
 UINT CLogDlg::StatusThread()
 {
 	InterlockedExchange(&m_bStatusThreadRunning, TRUE);
-	if (!m_wcRev.IsValid())
+	bool bAllowStatusCheck = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogStatusCheck"), TRUE);
+	if ((bAllowStatusCheck)&&(!m_wcRev.IsValid()))
 	{
 		// fetch the revision the wc path is on so we can mark it
 		CTSVNPath revWCPath = m_ProjectProperties.GetPropsPath();
