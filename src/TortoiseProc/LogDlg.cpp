@@ -136,7 +136,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_pFindDialog(NULL)
 	, m_bCancelled(FALSE)
 	, m_pNotifyWindow(NULL)
-	, m_bThreadRunning(FALSE)
+	, m_bLogThreadRunning(FALSE)
+	, m_bStatusThreadRunning(FALSE)
 	, m_bAscending(FALSE)
 	, m_pStoreSelection(NULL)
 	, m_limit(0)
@@ -497,11 +498,11 @@ BOOL CLogDlg::OnInitDialog()
 	// blocking the dialog
 	m_tTo = 0;
 	m_tFrom = (DWORD)-1;
-	InterlockedExchange(&m_bThreadRunning, TRUE);
+	InterlockedExchange(&m_bLogThreadRunning, TRUE);
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
-		InterlockedExchange(&m_bThreadRunning, FALSE);
+		InterlockedExchange(&m_bLogThreadRunning, FALSE);
 		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -756,10 +757,10 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 	m_tFrom = (DWORD)-1;
 	m_limit = 0;
 
-	InterlockedExchange(&m_bThreadRunning, TRUE);
+	InterlockedExchange(&m_bLogThreadRunning, TRUE);
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
-		InterlockedExchange(&m_bThreadRunning, FALSE);
+		InterlockedExchange(&m_bLogThreadRunning, FALSE);
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
@@ -817,10 +818,10 @@ void CLogDlg::Refresh (bool autoGoOnline)
         GetLogCachePool()->GetRepositoryInfo().ResetHeadRevision (m_sUUID, m_sRepositoryRoot);
     }
 
-	InterlockedExchange(&m_bThreadRunning, TRUE);
+	InterlockedExchange(&m_bLogThreadRunning, TRUE);
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
-		InterlockedExchange(&m_bThreadRunning, FALSE);
+		InterlockedExchange(&m_bLogThreadRunning, FALSE);
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
@@ -852,7 +853,7 @@ void CLogDlg::OnBnClickedNexthundred()
 	m_limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100) +1;
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	SetSortArrow(&m_LogList, -1, true);
-	InterlockedExchange(&m_bThreadRunning, TRUE);
+	InterlockedExchange(&m_bLogThreadRunning, TRUE);
 	// We need to create CStoreSelection on the heap or else
 	// the variable will run out of the scope before the
 	// thread ends. Therefore we let the thread delete
@@ -864,7 +865,7 @@ void CLogDlg::OnBnClickedNexthundred()
 	m_logEntries.pop_back();
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
-		InterlockedExchange(&m_bThreadRunning, FALSE);
+		InterlockedExchange(&m_bLogThreadRunning, FALSE);
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
@@ -901,7 +902,7 @@ void CLogDlg::OnCancel()
 	CString temp, temp2;
 	GetDlgItemText(IDOK, temp);
 	temp2.LoadString(IDS_MSGBOX_CANCEL);
-	if ((temp.Compare(temp2)==0)||(m_bThreadRunning))
+	if ((temp.Compare(temp2)==0)||(m_bLogThreadRunning)||(m_bStatusThreadRunning))
 	{
 		m_bCancelled = true;
 		return;
@@ -1022,7 +1023,7 @@ UINT CLogDlg::LogThreadEntry(LPVOID pVoid)
 //this is the thread function which calls the subversion function
 UINT CLogDlg::LogThread()
 {
-	InterlockedExchange(&m_bThreadRunning, TRUE);
+	InterlockedExchange(&m_bLogThreadRunning, TRUE);
 
 	AfxBeginThread(StatusThreadEntry, this);
 
@@ -1198,7 +1199,7 @@ UINT CLogDlg::LogThread()
 
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
 	m_bCancelled = true;
-	InterlockedExchange(&m_bThreadRunning, FALSE);
+	InterlockedExchange(&m_bLogThreadRunning, FALSE);
 	m_LogList.RedrawItems(0, (int)m_arShownList.GetCount());
 	m_LogList.SetRedraw(false);
 	ResizeAllListCtrlCols();
@@ -1240,6 +1241,7 @@ UINT CLogDlg::StatusThreadEntry(LPVOID pVoid)
 //this is the thread function which calls the subversion function
 UINT CLogDlg::StatusThread()
 {
+	InterlockedExchange(&m_bStatusThreadRunning, TRUE);
 	if (!m_wcRev.IsValid())
 	{
 		// fetch the revision the wc path is on so we can mark it
@@ -1258,6 +1260,7 @@ UINT CLogDlg::StatusThread()
 			m_LogList.Invalidate(FALSE);
 		}
 	}
+	InterlockedExchange(&m_bStatusThreadRunning, FALSE);
 	return 0;
 }
 
@@ -1615,12 +1618,10 @@ void CLogDlg::OnOK()
 		return; // the Cancel button works as the OK button. But if the cancel button has not the focus, do nothing.
 
 	CString temp;
-	CString buttontext;
-	GetDlgItemText(IDOK, buttontext);
-	temp.LoadString(IDS_MSGBOX_CANCEL);
-	if (temp.Compare(buttontext) != 0)
-		__super::OnOK();	// only exit if the button text matches, and that will match only if the thread isn't running anymore
 	m_bCancelled = TRUE;
+	if (m_bLogThreadRunning || m_bStatusThreadRunning)
+		return;
+
 	m_selectedRevs.Clear();
 	m_selectedRevsOneRange.Clear();
 	if (m_pNotifyWindow)
@@ -1698,6 +1699,12 @@ void CLogDlg::OnOK()
 	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
 	reg = (DWORD)m_btnShow.GetCurrentEntry();
 	SaveSplitterPos();
+
+	CString buttontext;
+	GetDlgItemText(IDOK, buttontext);
+	temp.LoadString(IDS_MSGBOX_CANCEL);
+	if (temp.Compare(buttontext) != 0)
+		__super::OnOK();	// only exit if the button text matches, and that will match only if the thread isn't running anymore
 }
 
 void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
@@ -1710,7 +1717,7 @@ void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 
 void CLogDlg::DiffSelectedFile()
 {
-	if ((m_bThreadRunning)||(m_LogList.HasText()))
+	if ((m_bLogThreadRunning)||(m_LogList.HasText()))
 		return;
 	UpdateLogInfoLabel();
 	INT_PTR selIndex = m_ChangedFileListCtrl.GetSelectionMark();
@@ -1851,7 +1858,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 
 void CLogDlg::DiffSelectedRevWithPrevious()
 {
-	if ((m_bThreadRunning)||(m_LogList.HasText()))
+	if ((m_bLogThreadRunning)||(m_LogList.HasText()))
 		return;
 	UpdateLogInfoLabel();
 	int selIndex = m_LogList.GetSelectionMark();
@@ -2265,7 +2272,7 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 
 BOOL CLogDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
-	if (m_bThreadRunning)
+	if (m_bLogThreadRunning)
 	{
 		// only show the wait cursor over the list control
 		if ((pWnd)&&
@@ -2312,7 +2319,7 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
-	if ((m_bThreadRunning)||(m_LogList.HasText()))
+	if ((m_bLogThreadRunning)||(m_LogList.HasText()))
 		return;
 	if (pNMLV->iItem >= 0)
 	{
@@ -2509,7 +2516,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CLogDlg::OnBnClickedStatbutton()
 {
-	if ((m_bThreadRunning)||(m_LogList.HasText()))
+	if ((m_bLogThreadRunning)||(m_LogList.HasText()))
 		return;
 	if (m_arShownList.IsEmpty())
 		return;		// nothing is shown, so no statistics.
@@ -3045,7 +3052,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 
 		bool bOutOfRange = pItem->iItem >= ShownCountWithStopped();
 
-		if (m_bNoDispUpdates || m_bThreadRunning || bOutOfRange)
+		if (m_bNoDispUpdates || m_bLogThreadRunning || bOutOfRange)
 			return;
 
 
@@ -3123,7 +3130,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 	LV_ITEM* pItem= &(pDispInfo)->item;
 
 	*pResult = 0;
-	if ((m_bNoDispUpdates)||(m_bThreadRunning))
+	if ((m_bNoDispUpdates)||(m_bLogThreadRunning))
 	{
 		if (pItem->mask & LVIF_TEXT)
 			lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
@@ -3224,7 +3231,7 @@ void CLogDlg::OnEnChangeSearchedit()
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
-		DialogEnableWindow(IDC_STATBUTTON, !(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
+		DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_arShownList.IsEmpty()))));
 		return;
 	}
 	if (Validate(m_sFilterText))
@@ -3433,7 +3440,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 {
 	if (nIDEvent == LOGFILTER_TIMER)
 	{
-		if (m_bThreadRunning)
+		if (m_bLogThreadRunning)
 		{
 			// thread still running! So just restart the timer.
 			SetTimer(LOGFILTER_TIMER, 1000, NULL);
@@ -3444,7 +3451,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 			&& (focusWnd != GetDlgItem(IDC_LOGLIST)));
 		if (m_sFilterText.IsEmpty())
 		{
-			DialogEnableWindow(IDC_STATBUTTON, !(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
+			DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_arShownList.IsEmpty()))));
 			// do not return here!
 			// we also need to run the filter if the filter text is empty:
 			// 1. to clear an existing filter
@@ -3481,7 +3488,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 			GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
 		UpdateLogInfoLabel();
 	} // if (nIDEvent == LOGFILTER_TIMER)
-	DialogEnableWindow(IDC_STATBUTTON, !(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
+	DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_arShownList.IsEmpty()))));
 	__super::OnTimer(nIDEvent);
 }
 
@@ -3636,7 +3643,7 @@ void CLogDlg::SortByColumn(int nSortColumn, bool bAscending)
 
 void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	if ((m_bThreadRunning)||(m_LogList.HasText()))
+	if ((m_bLogThreadRunning)||(m_LogList.HasText()))
 		return;		//no sorting while the arrays are filled
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	const int nColumn = pNMLV->iSubItem;
@@ -3696,7 +3703,7 @@ void CLogDlg::SetSortArrow(CListCtrl * control, int nColumn, bool bAscending)
 }
 void CLogDlg::OnLvnColumnclickChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	if ((m_bThreadRunning)||(m_LogList.HasText()))
+	if ((m_bLogThreadRunning)||(m_LogList.HasText()))
 		return;		//no sorting while the arrays are filled
 	if (m_currentChangedArray == NULL)
 		return;
