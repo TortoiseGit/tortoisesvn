@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-03 12:13+0100\n"
+"PO-Revision-Date: 2009-06-07 11:29+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -111,8 +111,8 @@ msgid ""
 "Verify that the correct path and file name are given."
 msgstr ""
 "%1\n"
-"Не може наћи тај фајл.\n"
-"Проверити да је коректна путања и да је име фајла дато."
+"Не може да нађе овај фајл.\n"
+"Проверити да је коректна путања и да је дато име фајла."
 
 #. Resource IDs: (357)
 #, c-format
@@ -236,13 +236,13 @@ msgstr "%s, али то је спречено у радној копији."
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export (%d) of %s"
-msgstr "%s\\Извоз (%d) од %s"
+msgid "%s\\%s - Export"
+msgstr "%s\\%s - Извоз"
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export of %s"
-msgstr "%s\\Извоз  %s"
+msgid "%s\\%s - Export (%d)"
+msgstr "%s\\%s - Извоз (%d)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -4176,6 +4176,10 @@ msgstr "За помоћ притисни Ф1. Помичи водоравно п
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "За цјелокупни дневник помакните ознаку 'Заустави се на копирај/преименуј'"
+
+#. Resource IDs: (1480)
+msgid "Force the merge"
+msgstr "Форсира стапање"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -10636,7 +10640,3 @@ msgstr "да"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{БагТрек}"
-
-#~ msgid "Cleaning up."
-#~ msgstr "Чишћење."
-
