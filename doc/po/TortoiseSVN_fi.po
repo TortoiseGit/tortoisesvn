@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-04-23 20:52 +0000\n"
-"PO-Revision-Date: 2009-04-28 19:43+0200\n"
+"POT-Creation-Date: 2009-05-19 06:41 +0000\n"
+"PO-Revision-Date: 2009-05-19 23:23+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8095,6 +8095,10 @@ msgstr "Siirry myös versioimattomiin kansioihin"
 msgid "If this box is checked (default state), then whenever the status of an unversioned folder is shown in the <guilabel>Add</guilabel>, <guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> dialog, every child file and folder is also shown. If you uncheck this box, only the unversioned parent is shown. Unchecking reduces clutter in these dialogs. In that case if you select an unversioned folder for Add, it is added recursively."
 msgstr "Jos tämä valinta on päällä (oletusarvo), niin aina, kun versioimattoman kansion tila näytetään <guilabel>Lisää</guilabel>, <guilabel>Toimita</guilabel> tai <guilabel>Tarkista muutokset</guilabel> -ikkunoissa, näytetään myös kaikki sen sisältämät tiedostot ja kansiot. Jos poistat valinnan, vain versiomaton juurikansio näytetään. Tämä vähentää 'turhien' lueteltujen tiedostojen määrää. Jos tällöin valitset versioimattoman kansion lisättäväksi, kaikki sen osat lisätään palautuvasti."
 
+#. (para)
+msgid "In the <guilabel>Check for Modifications</guilabel> dialog you can opt to see ignored items. If this box is checked then whenever an ignored folder is found, all child items will be shown as well."
+msgstr "<guilabel>Tarkista muutokset</guilabel> -ikkunassa voit näyttää ohitetut kohteet. Valinta saa aikaan myös ohitettujen kansioiden sisältämien kohteiden näyttämisen."
+
 #. (term)
 msgid "Use auto-completion of file paths and keywords"
 msgstr "Käytä automaattista täydennystä tiedostopoluille ja avainsanoille"
@@ -11208,9 +11212,17 @@ msgstr "Avaa Sijoita uudelleen -ikkunan. Valitsin <placeholder-1/> määrittää
 msgid "Opens the help file."
 msgstr "Avaa käyttöohjeet."
 
+#. (option)
+msgid "/remote"
+msgstr "/remote"
+
+#. (guilabel)
+msgid "Check repository"
+msgstr "Tarkista arkisto"
+
 #. (entry)
-msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory."
-msgstr "Avaa Tarkista muutokset -ikkunan. Valitsin <placeholder-1/> määrittää työkopiokansion."
+msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory. If <placeholder-2/> is specified, the dialog contacts the repository immediately on startup, as if the user clicked on the <placeholder-3/> button."
+msgstr "Avaa Tarkista muutokset -ikkunan. Valitsin <placeholder-1/> määrittää työkopion hakemiston. Jos valitsin <placeholder-2/> on annettu, ikkuna ottaa yhteyden arkistoon välittömästi käynnistyttyään (ikään kuin käyttäjä olisi napsauttanut painiketta <placeholder-3/>)."
 
 #. (option)
 #. (option)
@@ -12845,6 +12857,12 @@ msgstr "Kari Granö <kari.grano@gmail.com>"
 msgid "translator-translation"
 msgstr "Käännös"
 
+#~ msgid ""
+#~ "Opens the check-for-modifications dialog. The <placeholder-1/> specifies "
+#~ "the working copy directory."
+#~ msgstr ""
+#~ "Avaa Tarkista muutokset -ikkunan. Valitsin <placeholder-1/> määrittää "
+#~ "työkopiokansion."
 #~ msgid ""
 #~ "<option>/closeonend:4</option> auto close if no errors, conflicts and "
 #~ "merges for local operations"
