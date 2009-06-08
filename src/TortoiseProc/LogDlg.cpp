@@ -4513,7 +4513,6 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		case ID_UPDATE:
 			{
 				CString sCmd;
-				CString url = _T("tsvn:")+pathURL;
 				sCmd.Format(_T("%s /command:update /path:\"%s\" /rev:%ld"),
 					(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
 					(LPCTSTR)m_path.GetWinPath(), (LONG)revSelected);
