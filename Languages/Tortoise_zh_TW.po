@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-01 20:34+0800\n"
+"PO-Revision-Date: 2009-06-08 20:24+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -215,13 +215,13 @@ msgstr "%s, 但是在工作複本中被阻擋."
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export (%d) of %s"
-msgstr "%s\\匯出 (%d) 筆%s"
+msgid "%s\\%s - Export"
+msgstr "%s\\%s - 匯出"
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export of %s"
-msgstr "%s\\匯出 %s"
+msgid "%s\\%s - Export (%d)"
+msgstr "%s\\%s - 匯出 (%d)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -3966,6 +3966,10 @@ msgstr "請按 F1 以取得說明. 使用 Ctrl-捲動可進行橫向捲動."
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "要列出完整歷程紀錄請勿選擇 '複製/重新命名時停止'"
+
+#. Resource IDs: (1480)
+msgid "Force the merge"
+msgstr "強制合併"
 
 #. Resource IDs: (1064)
 msgid "Forward"
