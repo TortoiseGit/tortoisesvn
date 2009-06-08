@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-05-25 12:12+0100\n"
+"PO-Revision-Date: 2009-06-08 11:16+0100\n"
 "Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -222,13 +222,13 @@ msgstr "%s, mais il a été bloqué dans la version de travail."
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export (%d) of %s"
-msgstr "%s\\Export (%d) de %s"
+msgid "%s\\%s - Export"
+msgstr "%s\\%s - Export"
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export of %s"
-msgstr "%s\\Export de %s"
+msgid "%s\\%s - Export (%d)"
+msgstr "%s\\%s - Export (%d)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -3971,6 +3971,10 @@ msgstr "Pour l'Aide, appuyer sur F1. Défilement horizontal avec Ctrl-Molette"
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "Pour l'historique complet, désélectionnez 'Arrêt à la copie/renommage'"
+
+#. Resource IDs: (1480)
+msgid "Force the merge"
+msgstr "Forcer la fusion"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -7924,6 +7928,10 @@ msgstr "Noeuds tag"
 #, c-format
 msgid "Tagged the working copy to %s"
 msgstr "Étiquettage de la copie de travail sous %s"
+
+#. Resource IDs: (80)
+msgid "Tasks"
+msgstr "Tâches"
 
 #. Resource IDs: (1064)
 msgid "Tasks Pane"
