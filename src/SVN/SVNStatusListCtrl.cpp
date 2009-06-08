@@ -49,6 +49,7 @@
 #include "EditPropertiesDlg.h"
 #include "CreateChangelistDlg.h"
 #include "SysInfo.h"
+#include "ProgressDlg.h"
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
 					= ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
@@ -3941,11 +3942,36 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 	if (((entry->status == svn_wc_status_normal)&&(entry->remotestatus <= svn_wc_status_normal))||
 		(entry->status == svn_wc_status_unversioned)||(entry->status == svn_wc_status_none))
 	{
-		int ret = (int)ShellExecute(this->m_hWnd, NULL, entry->path.GetWinPath(), NULL, NULL, SW_SHOW);
+		CTSVNPath filePath = entry->path;
+		if (!filePath.Exists())
+		{
+			// get the remote file
+			filePath = CTempFiles::Instance().GetTempFilePath(false, filePath, SVNRev::REV_HEAD);
+
+			SVN svn;
+			CProgressDlg progDlg;
+			progDlg.SetTitle(IDS_APPNAME);
+			progDlg.SetAnimation(IDR_DOWNLOAD);
+			progDlg.SetTime(false);
+			svn.SetAndClearProgressInfo(&progDlg, true);	// activate progress bar
+			progDlg.ShowModeless(m_hWnd);
+			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)filePath.GetUIPathString());
+			if (!svn.Cat(CTSVNPath(entry->GetURL()), SVNRev(SVNRev::REV_HEAD), SVNRev::REV_HEAD, filePath))
+			{
+				progDlg.Stop();
+				svn.SetAndClearProgressInfo((HWND)NULL);
+				CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				return;
+			}
+			progDlg.Stop();
+			svn.SetAndClearProgressInfo((HWND)NULL);
+			SetFileAttributes(filePath.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+		}
+		int ret = (int)ShellExecute(this->m_hWnd, NULL, filePath.GetWinPath(), NULL, NULL, SW_SHOW);
 		if (ret <= HINSTANCE_ERROR)
 		{
 			CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-			cmd += entry->path.GetWinPathString();
+			cmd += filePath.GetWinPathString();
 			CAppUtils::LaunchApplication(cmd, NULL, false);
 		}
 		return;

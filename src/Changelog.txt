@@ -49,6 +49,8 @@ Version 1.6.3
 - BUG: The check state in the commit dialog could get lost after a failed
        commit if there were checked items in changelists. (Stefan)
 - BUG: A failed merge could have restarted without notice. (Stefan)
+- BUG: Diffing a file added remotely in the Check-for-modifications dialog
+       did not work. (Stefan)
 
 Version 1.6.2
 - BUG: Error message about non-LF commit messages when using messages with
