@@ -1170,7 +1170,8 @@ UINT CLogDlg::LogThread()
 	m_LogList.ClearText();
     if (!succeeded)
 	{
-		m_LogList.ShowText(GetLastErrorMessage(), true);
+		temp.LoadString(IDS_LOG_CLEARERROR);
+		m_LogList.ShowText(GetLastErrorMessage() + _T("\n\n") + temp, true);
 		FillLogMessageCtrl(false);
 	}
 
@@ -1847,10 +1848,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 
 	if (m_LogList.HasText())
 	{
-		if (m_LogList.GetItemCount())
-		{
-			m_LogList.ClearText();
-		}
+		m_LogList.ClearText();
 		return;
 	}
 	if (CRegDWORD(_T("Software\\TortoiseSVN\\DiffByDoubleClickInLog"), FALSE))
