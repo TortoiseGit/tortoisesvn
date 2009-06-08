@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-05-19 06:41 +0000\n"
-"PO-Revision-Date: 2009-05-19 08:44+0100\n"
+"POT-Creation-Date: 2009-06-07 23:34 +0000\n"
+"PO-Revision-Date: 2009-06-08 11:06+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4631,8 +4631,8 @@ msgid "Because the log dialog shows you the log from HEAD, not from the current 
 msgstr "Da der Log-Dialog Ihnen die Logmeldungen ab der HEAD Revision zeigt, kann es vorkommen, dass Logmeldungen für Änderungen angezeigt werden, die sich noch nicht in Ihrer Arbeitskopie befinden. Um dies zu verdeutlichen, wird die Logmeldunge, die der aktuellen Revision der Arbeitskopie entspricht in Fettdruck hervorgehoben."
 
 #. (para)
-msgid "By default this only works for files. This is because the update revision for a folder may not correspond to the update revision of its content, and the only way to find the effective update revision for the folder is to crawl the working copy. This can be a slow operation for large working copies so if you want to enable this feature you must create a <literal>DWORD</literal> registry key with value 1 at <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal>."
-msgstr "Standardmäßig funktioniert das nur für Dateien und ist für Ordner deaktiviert. Das liegt daran, dass die Revision eines Ordners nicht der Revision seiner Inhalte entsprechen muss. Um die tatsächliche Revision eines Ordners herauszufinden, müsste die Arbeitskopie rekursiv durchsucht werden. Dies kann für große Arbeitskopien eine langwierige Operation sein. Wenn Sie diese Funktion auch für Ordner wünschen, können Sie sie über einen Registrierungsschlüssel vom Typ <literal>DWORD</literal> mit dem Wert 1 in <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal> aktivieren."
+msgid "When you show the log for a folder the revision highlighted is the highest revision found anywhere within that folder, which requires a crawl of the working copy. The crawl takes place within a separate thread so as not to delay showing the log, but as a result highlighting for folders may not appear immediately."
+msgstr "Wenn Sie das Log für einen Ordner anzeigen, entspricht die hervorgehobene Revision der höchsten, innerhalb des Ordners gefundenen Revisionsnummer. Diese zu ermitteln erfordert ein rekursives Durchsuchen der Unterordner. Dieser Vorgang läuft in einem separaten Prozess ab, um die Anzeige der Logmeldungen nicht zu verzögern. Aus diesem Grund erscheint die Hervorhebung der Ordnerrevision unter Umständen verzögert."
 
 #. (title)
 msgid "Merge Tracking Features"
@@ -9437,8 +9437,8 @@ msgid "Current revision highlighting for folders in log dialog"
 msgstr "Aktuelle Revision von Ordnern im Log-Dialog hervorheben"
 
 #. (para)
-msgid "The log dialog highlights the current working copy revision when the log is shown for a file. To do the same thing for a folder requires a working copy crawl, which can be a slow operation for large working copies. If you want to enable this feature you must create a <literal>DWORD</literal> registry key at <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal>. A value of 0 disables the feature (no highlighting for folders), a value of 1 (default) will fetch the status recursively (find the highest revision in the working copy tree), and a value of 2 will check the revision of the selected folder itself, but will not check any child items."
-msgstr "Der Log-Dialog hebt die aktuelle Revision einer Datei in der Arbeitskopie durch Fettdruck hervor. Um diese Anzeige auch für einen Ordner zu erhalten, muss die Arbeitskopie durchsucht werden, was bei großen Arbeitskopien viel Zeit in Anspruch nimmt. Wenn Sie diese Funktion nutzen wollen, müssen Sie einen <literal>DWORD</literal> unter <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal> in der Registrierung anlegen. Der Wert 0 deaktiviert die Funktion (keine Hervorhebung von Ordnern), der Wert 1 (Standard) holt den Status rekursiv (findet die höchste Revision in der Arbeitskopie) und der Wert 2 prüft die Revision des Ordners selbst, aber keine Unterobjekte."
+msgid "The log dialog highlights the current working copy revision when the log is shown for a file. To do the same thing for a folder requires a working copy crawl, which can be a slow operation for large working copies. However the crawling is done in a separate thread so it doesn't hold up the display of log messages. For <emphasis>really</emphasis> large working copies the disk chatter might be annoying, so if you really want to disable this you must create a <literal>DWORD</literal> registry key at <literal>HKCU\\Software\\TortoiseSVN\\LogStatusCheck</literal>. A value of 0 disables the feature (no highlighting for folders)."
+msgstr "Der Log-Dialog hebt die aktuelle Revision einer Datei in der Arbeitskopie durch Fettdruck hervor. Um diese Anzeige auch für einen Ordner zu erhalten, muss die Arbeitskopie durchsucht werden, was bei großen Arbeitskopien viel Zeit in Anspruch nimmt. Dieser Vorgang findet jedoch in einem separaten Prozess statt, um die Anzeige der Logmeldungen nicht zu aufzuhalten. Für <emphasis>sehr</emphasis> große Arbeitskopien kann das Plattenrattern lästig sein. Um die Funktion abzuschalten, legen Sie einen <literal>DWORD</literal> Eintrag unter <literal>HKCU\\Software\\TortoiseSVN\\LogStatusCheck</literal> in der Registrierung an. Der Wert 0 deaktiviert die Funktion (keine Hervorhebung von Ordnern)."
 
 #. (term)
 msgid "Make checkout fail if an item of the same name exists"
@@ -12923,6 +12923,24 @@ msgstr ""
 msgid "translator-translation"
 msgstr "Übersetzung"
 
+#~ msgid ""
+#~ "By default this only works for files. This is because the update revision "
+#~ "for a folder may not correspond to the update revision of its content, "
+#~ "and the only way to find the effective update revision for the folder is "
+#~ "to crawl the working copy. This can be a slow operation for large working "
+#~ "copies so if you want to enable this feature you must create a "
+#~ "<literal>DWORD</literal> registry key with value 1 at <literal>HKCU"
+#~ "\\Software\\TortoiseSVN\\RecursiveLogRev</literal>."
+#~ msgstr ""
+#~ "Standardmäßig funktioniert das nur für Dateien und ist für Ordner "
+#~ "deaktiviert. Das liegt daran, dass die Revision eines Ordners nicht der "
+#~ "Revision seiner Inhalte entsprechen muss. Um die tatsächliche Revision "
+#~ "eines Ordners herauszufinden, müsste die Arbeitskopie rekursiv durchsucht "
+#~ "werden. Dies kann für große Arbeitskopien eine langwierige Operation "
+#~ "sein. Wenn Sie diese Funktion auch für Ordner wünschen, können Sie sie "
+#~ "über einen Registrierungsschlüssel vom Typ <literal>DWORD</literal> mit "
+#~ "dem Wert 1 in <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</"
+#~ "literal> aktivieren."
 #~ msgid ""
 #~ "Opens the check-for-modifications dialog. The <placeholder-1/> specifies "
 #~ "the working copy directory."
