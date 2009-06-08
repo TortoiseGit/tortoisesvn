@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-05-19 06:41 +0000\n"
-"PO-Revision-Date: 2009-05-25 17:22+0100\n"
+"POT-Creation-Date: 2009-06-07 23:34 +0000\n"
+"PO-Revision-Date: 2009-06-08 19:40+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4597,8 +4597,8 @@ msgid "Because the log dialog shows you the log from HEAD, not from the current 
 msgstr "Zato što dnevnik dijalog prikazuje dnevnik od GLAVNE, ne od tekuće revizije radne kopije, to se često dešava tamo gde je dnevnik poruka prikazan za sadržaj koji još nije ažuriran u vašoj radnoj kopiji. Pomoć to čini jasnijim, poruka urezivanja koja odgovara reviziji koju imate u vašoj radnoj kopiji prikazana je masnim slovima."
 
 #. (para)
-msgid "By default this only works for files. This is because the update revision for a folder may not correspond to the update revision of its content, and the only way to find the effective update revision for the folder is to crawl the working copy. This can be a slow operation for large working copies so if you want to enable this feature you must create a <literal>DWORD</literal> registry key with value 1 at <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal>."
-msgstr "Uobičajeno ovo samo radi za fajlove. To je zato što ažurirana revizija za imenike ne odgovara ažuriranoj reviziji njenog sadržaja, i jedini je način da se nađe efektivno ažurirana revizija za imenik je puzanje kroz radnu kopiju. Ovo može biti spora operacija za velike radne kopije tako da ako želite da omogućite ovu osobinu morate kreirati <literal>DWORD</literal>ključ registra sa vrednošću 1 u <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal>."
+msgid "When you show the log for a folder the revision highlighted is the highest revision found anywhere within that folder, which requires a crawl of the working copy. The crawl takes place within a separate thread so as not to delay showing the log, but as a result highlighting for folders may not appear immediately."
+msgstr "Kada prikazujete dnevnik imenika osvetljena revizija je najviša revizija nađena bilo gde unutar imenika, koja zahteva puzanje radne kopije. Puzanje se pokreće u okviru odvojene niti tako da ne kasni prikazivanje dnevnika, ali kao rezultat toga osvetljavanje imenika se ne pojavljuje trenutno."
 
 #. (title)
 msgid "Merge Tracking Features"
@@ -9402,8 +9402,8 @@ msgid "Current revision highlighting for folders in log dialog"
 msgstr "Tekuće revizijsko osvetljavanje za imenike u dnevnik dijalogu"
 
 #. (para)
-msgid "The log dialog highlights the current working copy revision when the log is shown for a file. To do the same thing for a folder requires a working copy crawl, which can be a slow operation for large working copies. If you want to enable this feature you must create a <literal>DWORD</literal> registry key at <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal>. A value of 0 disables the feature (no highlighting for folders), a value of 1 (default) will fetch the status recursively (find the highest revision in the working copy tree), and a value of 2 will check the revision of the selected folder itself, but will not check any child items."
-msgstr "Dnevnik dijalog osvetljava tekuću  radnu kopiju revizije kada je prikazan dnevnik fajla. Da se uradi ista stvar za imenik zahteva se puzanje kroz radnu kopiju, što može biti spora operacija za velike radne kopije. Ako želite da omogućite ovu osobinu morate kreirati <literal>DWORD</literal> registar ključ u <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal>. Vrednost 0 onemogućava osobinu (nema osvetljavanja imenika),  vrednst 1 (uobičajena) će naći status rekurzivno (nalazi najviši revizioni broj u stablu radne kopije), i vrednost 2 proverava reviziju samog izabranog imenika, ali neće proveriti bilo koju potomačku stavku."
+msgid "The log dialog highlights the current working copy revision when the log is shown for a file. To do the same thing for a folder requires a working copy crawl, which can be a slow operation for large working copies. However the crawling is done in a separate thread so it doesn't hold up the display of log messages. For <emphasis>really</emphasis> large working copies the disk chatter might be annoying, so if you really want to disable this you must create a <literal>DWORD</literal> registry key at <literal>HKCU\\Software\\TortoiseSVN\\LogStatusCheck</literal>. A value of 0 disables the feature (no highlighting for folders)."
+msgstr "Dnevnik dijalog osvetljava tekuću  radnu kopiju revizije kada je prikazan dnevnik fajla. Da se uradi ista stvar za imenik zahteva se puzanje kroz radnu kopiju, što može biti spora operacija za velike radne kopije. Međutim puzanje je dato u izdvojenoj niti tako da ne zadržava prikazivanje poruka dnevnika. Za <emphasis>zaista</emphasis> velike radne kopije zujanje diska postaje dosadno tako da ako zaita želite da onemogućite ovu osobinu morate kreirati <literal>DWORD</literal> registar ključ u <literal>HKCU\\Software\\TortoiseSVN\\LogStatusCheck</literal>.  Vrednost 0 onemogućava osobinu (nema osvetljavanja imenika)."
 
 #. (term)
 msgid "Make checkout fail if an item of the same name exists"
@@ -12872,4 +12872,3 @@ msgstr "Milorad Popović <MiloradSPopovic@gmail.com>"
 #. (None)
 msgid "translator-translation"
 msgstr "Prevod"
-
