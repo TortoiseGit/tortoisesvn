@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-02 16:12+0300\n"
+"PO-Revision-Date: 2009-06-11 16:29+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -212,13 +212,13 @@ msgstr "%s, але це заважало у робочій копії."
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export (%d) of %s"
-msgstr "%s\\Експорт (%d) %s"
+msgid "%s\\%s - Export"
+msgstr "%s\\%s - Експорт"
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export of %s"
-msgstr "%s\\Експорт %s"
+msgid "%s\\%s - Export (%d)"
+msgstr "%s\\%s - Експорт (%d)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -1144,6 +1144,10 @@ msgstr "'пропустити діапазони' застосовуєтсья �
 #, c-format
 msgid "(%s) %s"
 msgstr "(%s) %s"
+
+#. Resource IDs: (119)
+msgid "(Double-click to clear error message)"
+msgstr "(Клацніть двічі щоб прибрати повідомлення про помилку)"
 
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
@@ -3961,6 +3965,10 @@ msgstr "Щоб отримати Довідку, натисніть F1. Гори�
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "Для повної історії зніміть виділення зі 'Спинитися при копіюванні/перейменуванні'"
+
+#. Resource IDs: (1480)
+msgid "Force the merge"
+msgstr "Змусити злиття"
 
 #. Resource IDs: (1064)
 msgid "Forward"
