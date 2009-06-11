@@ -94,6 +94,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	, sRespectAncestry(MAKEINTRESOURCE(IDS_PROGRS_RESPECTANCESTRY))
 	, sDryRun(MAKEINTRESOURCE(IDS_PROGRS_DRYRUN))
 	, sRecordOnly(MAKEINTRESOURCE(IDS_MERGE_RECORDONLY))
+	, sForce(MAKEINTRESOURCE(IDS_MERGE_FORCE))
 {
 }
 
@@ -2236,7 +2237,8 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 			(LPCTSTR)m_url.GetSVNPathString(),
 			m_targetPathList[0].GetWinPath(),
 			m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
-			m_options & ProgOptDryRun ? ((LPCTSTR)_T(", ") + sDryRun) : _T(""));
+			m_options & ProgOptDryRun ? ((LPCTSTR)_T(", ") + sDryRun) : _T(""),
+			m_options & ProgOptForce ? ((LPCTSTR)_T(", ") + sForce) : _T(""));
 		ReportCmd(sCmdInfo);
 
 		if (!PegMerge(m_url, m_revisionArray, 
@@ -2266,7 +2268,8 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 			(LPCTSTR)m_url2.GetSVNPathString(), (LPCTSTR)m_RevisionEnd.ToString(),
 			m_targetPathList[0].GetWinPath(),
 			m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
-			m_options & ProgOptDryRun ? ((LPCTSTR)_T(", ") + sDryRun) : _T(""));
+			m_options & ProgOptDryRun ? ((LPCTSTR)_T(", ") + sDryRun) : _T(""),
+			m_options & ProgOptForce ? ((LPCTSTR)_T(", ") + sForce) : _T(""));
 		ReportCmd(sCmdInfo);
 
 		if (!Merge(m_url, m_Revision, m_url2, m_RevisionEnd, m_targetPathList[0], 
@@ -2310,7 +2313,8 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
 	sCmdInfo.Format(IDS_PROGRS_CMD_MERGEALL, 
 		(LPCTSTR)suggestedSources[0].GetSVNPathString(),
 		m_targetPathList[0].GetWinPath(),
-		m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry);
+		m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
+		m_options & ProgOptForce ? ((LPCTSTR)_T(", ") + sForce) : _T(""));
 	ReportCmd(sCmdInfo);
 
 	GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_SHOW);

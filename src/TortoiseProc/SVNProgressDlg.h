@@ -336,4 +336,5 @@ private:
 	CString					sRespectAncestry;
 	CString					sDryRun;
 	CString					sRecordOnly;
+	CString					sForce;
 };
