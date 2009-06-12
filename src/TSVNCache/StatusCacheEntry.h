@@ -30,7 +30,7 @@ class CStatusCacheEntry
 {
 public:
 	CStatusCacheEntry();
-	CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64 lastWriteTime, bool bReadOnly, DWORD validuntil = 0);
+	CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64 lastWriteTime, DWORD validuntil = 0);
 	bool HasExpired(long now) const;
 	void BuildCacheResponse(TSVNCacheResponse& response, DWORD& responseLength) const;
 	bool IsVersioned() const;
@@ -55,7 +55,6 @@ private:
 	__int64				m_lastWriteTime;
 	bool				m_bSet;
 	svn_node_kind_t		m_kind;
-	bool				m_bReadOnly;
 	bool				m_treeconflict;
 
 	// Values copied from the 'entries' structure
