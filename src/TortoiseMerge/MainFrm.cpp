@@ -594,7 +594,7 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 		m_pwndLeftView->m_pViewData->GetLineNumber(m_pwndLeftView->m_nTopLine) : -1;
 	if (!m_Data.Load())
 	{
-		::MessageBox(NULL, m_Data.GetError(), _T("TortoiseMerge"), MB_ICONERROR);
+		::MessageBox(m_hWnd, m_Data.GetError(), _T("TortoiseMerge"), MB_ICONERROR);
 		m_Data.m_mergedFile.SetOutOfUse();
 		return false;
 	}
