@@ -27,6 +27,8 @@ Version 1.6.3
 - CHG: Deleted folders are not removed from the filesystem but only marked
        as deleted so they can be committed separately. (Stefan)
 - CHG: Change merges to be non-forced. (Stefan)
+- CHG: Performance improvment in TortoiseMerge when showing 
+       long lines. (Stefan)
 - BUG: If a commit failed, TSVN could crash in case the svn library returned
        an empty error object. (Stefan)
 - BUG: The merge options to ignore whitespaces were ignored. (Stefan)

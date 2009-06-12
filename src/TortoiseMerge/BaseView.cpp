@@ -588,8 +588,16 @@ CString CBaseView::GetWhitespaceBlock(CViewData *viewData, int nLineIndex)
 		else
 			break;
 	}
-	
+	int len = 0;
+	for (int i = nStartBlock; i <= nEndBlock; ++i)
+		len += viewData->GetLine(i).GetLength();
+
 	CString block;
+	// do not check for whitespace blocks if the line is too long, because
+	// reserving a lot of memory here takes too much time (performance hog)
+	if (len > MAX_WHITESPACEBLOCK_SIZE*256)
+		return block;
+	block.Preallocate(len+1);
 	for (int i = nStartBlock; i <= nEndBlock; ++i)
 		block += viewData->GetLine(i);
 	return block;
@@ -604,22 +612,27 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 	if (
 		(m_pViewData->GetState(nLineIndex) == DIFFSTATE_NORMAL) &&
 		(m_pOtherViewData->GetLine(nLineIndex) == m_pViewData->GetLine(nLineIndex))
-	)
+		)
 		return false;
 
 	CString mine = GetWhitespaceBlock(m_pViewData, nLineIndex);
-	CString other = GetWhitespaceBlock(m_pOtherViewData, min(nLineIndex, m_pOtherViewData->GetCount() - 1));
-	bIdentical = mine == other;
-	
-	mine.Replace(_T(" "), _T(""));
-	mine.Replace(_T("\t"), _T(""));
-	mine.Replace(_T("\r"), _T(""));
-	mine.Replace(_T("\n"), _T(""));
-	other.Replace(_T(" "), _T(""));
-	other.Replace(_T("\t"), _T(""));
-	other.Replace(_T("\r"), _T(""));
-	other.Replace(_T("\n"), _T(""));
-	
+	CString other;
+	if (!mine.IsEmpty())
+	{
+		other = GetWhitespaceBlock(m_pOtherViewData, min(nLineIndex, m_pOtherViewData->GetCount() - 1));
+		bIdentical = mine == other;
+		mine.Replace(_T(" "), _T(""));
+		mine.Replace(_T("\t"), _T(""));
+		mine.Replace(_T("\r"), _T(""));
+		mine.Replace(_T("\n"), _T(""));
+		other.Replace(_T(" "), _T(""));
+		other.Replace(_T("\t"), _T(""));
+		other.Replace(_T("\r"), _T(""));
+		other.Replace(_T("\n"), _T(""));
+	}
+	else
+		bIdentical = false;
+		
 	return (mine == other) && (!mine.IsEmpty());
 }
 
