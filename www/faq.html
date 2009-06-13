@@ -82,6 +82,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <li><a href="#slowbrowse">Browsing very slow in explorer and file/open dialog.</a></li>
 <li><a href="#bugtraq">The bugtraq: properties don't work for dialogs started from the repository browser.</a></li>
 <li><a href="#logcrash">Showing the log often crashes.</a></li>
+<li><a href="#incompleteupdate">When I update a working copy, new files are not added!</a></li>
 <li><a href="#releases">I was told that issue/bug X was fixed in rXXX, but the latest release still doesn't has this implemented/fixed?</a></li>
 </ul>
 
@@ -653,6 +654,19 @@ explanation about why and what you can do about this is here:
 <p>We're aware that many Subversion hosting companies made the mistake of not
 creating new repositories for customers but simply copied a template repository.
 If you're using such a hoster, please tell <b>them</b> to fix this problem.</p>
+</div>
+
+
+<div class="h3" id="incompleteupdate" title="incompleteupdate">
+<h3>When I update a working copy, new files are not added!</h3>
+<p>Between TortoiseSVN 1.6.0 and 1.6.1, added folders were added with a depth
+of "Only this item". This lead to a so called "sparse checkout" of that part
+of your working copy.</p>
+<p>Please update to the latest version of TortoiseSVN to avoid such problems
+in the future.</p>
+<p>To fix your sparse working copy, instead of "Update", use the 
+"Update to revision..." command from the TortoiseSVN submenu (right-click in
+explorer), change the "Update depth" combobox to "Fully recursive".</p>
 </div>
 
 <div class="h3" id="releases" title="releases">
