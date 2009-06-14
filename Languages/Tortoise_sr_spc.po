@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-07 11:29+0100\n"
+"PO-Revision-Date: 2009-06-14 10:00+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1343,6 +1343,10 @@ msgstr "'прескочи распон' се користи за означав�
 #, c-format
 msgid "(%s) %s"
 msgstr "(%s) %s"
+
+#. Resource IDs: (119)
+msgid "(Double-click to clear error message)"
+msgstr "(Двоструко-кликнути да се обрише порука грешке)"
 
 #
 #. Resource IDs: (17, 564)
@@ -3334,6 +3338,10 @@ msgstr ""
 "Онемогућите ову опцију ако имате заиста велике радне копије и приметите\r\n"
 "да се диску много приступа  приликом прегледа радних копија."
 
+#. Resource IDs: (596)
+msgid "Discards local changes upon incoming deletes"
+msgstr "Одбацује локалне измене по долазећим брисањима"
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Disk full while accessing %1."
@@ -4176,6 +4184,10 @@ msgstr "За помоћ притисни Ф1. Помичи водоравно п
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "За цјелокупни дневник помакните ознаку 'Заустави се на копирај/преименуј'"
+
+#. Resource IDs: (279)
+msgid "Force"
+msgstr "Форсира"
 
 #. Resource IDs: (1480)
 msgid "Force the merge"
@@ -5488,8 +5500,8 @@ msgstr "Стапање"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s"
-msgstr "Стапање %s у %s, %s"
+msgid "Merging %s into %s, %s%s"
+msgstr "Стапање %s у %s, %s%s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -5497,8 +5509,8 @@ msgstr "Стапање разлика између УРЛ спремишта"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr "Стапање од %s, ревизије %s до %s, ревизија %s у %s, %s%s"
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
+msgstr "Стапање од %s, ревизије %s до %s, ревизија %s у %s, %s%s%s"
 
 #. Resource IDs: (264)
 #, c-format
@@ -5516,8 +5528,8 @@ msgstr "Стапање захтева различите ревизије или
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s"
-msgstr "Стапање ревизија %s од ревизије %s у %s, %s%s"
+msgid "Merging revisions %s of %s into %s, %s%s%s"
+msgstr "Стапање ревизија %s од ревизије %s у %s, %s%s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -10640,3 +10652,4 @@ msgstr "да"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{БагТрек}"
+
