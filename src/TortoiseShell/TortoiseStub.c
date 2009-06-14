@@ -79,6 +79,12 @@ static BOOL WantRealVersion(void)
 					TRACE(_T("Explorer path is %s\n"), ExplorerPath);
 					bWantReal = !lstrcmpi(ModuleName, ExplorerPath);
 				}
+
+				// we also have to allow the verclsid.exe process - that process determines
+				// first whether the shell is allowed to even use an extension.
+				Len = lstrlen(ModuleName);
+				if ((Len > 13)&&(lstrcmpi(&ModuleName[Len-13], _T("\\verclsid.exe")) == 0))
+					bWantReal = TRUE;
 			}
 		}
 
@@ -195,6 +201,10 @@ BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD Reason, LPVOID Reserved)
 	if (pathLength >= 14)
 	{
 		if ((lstrcmpi(&buf[pathLength-14], _T("\\ShellTest.exe"))) == 0)
+		{
+			bInShellTest = TRUE;
+		}
+		if ((_tcsicmp(&buf[pathLength-13], _T("\\verclsid.exe"))) == 0)
 		{
 			bInShellTest = TRUE;
 		}
