@@ -54,6 +54,8 @@ Version 1.6.3
 - BUG: A failed merge could have restarted without notice. (Stefan)
 - BUG: Diffing a file added remotely in the Check-for-modifications dialog
        did not work. (Stefan)
+- BUG: EOLs could be lost when editing removed lines 
+       in TortoiseMerge. (Stefan)
 
 Version 1.6.2
 - BUG: Error message about non-LF commit messages when using messages with
