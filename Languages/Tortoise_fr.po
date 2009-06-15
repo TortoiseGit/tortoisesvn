@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-08 11:16+0100\n"
+"PO-Revision-Date: 2009-06-15 10:37+0100\n"
 "Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1154,6 +1154,10 @@ msgstr "Le texte 'plages évitées' est utilisé pour marquer les plages de rév
 #, c-format
 msgid "(%s) %s"
 msgstr "(%s) %s"
+
+#. Resource IDs: (119)
+msgid "(Double-click to clear error message)"
+msgstr "(Double-click pour effacer le message d'erreur)"
 
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
@@ -3132,6 +3136,10 @@ msgstr ""
 "Désactivez cette option si vous avez de réellement grosses copies de travail et rencontrez\r\n"
 "trop d'accès disque lors du parcours de la copie de travail."
 
+#. Resource IDs: (596)
+msgid "Discards local changes upon incoming deletes"
+msgstr ""
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Disk full while accessing %1."
@@ -3971,6 +3979,10 @@ msgstr "Pour l'Aide, appuyer sur F1. Défilement horizontal avec Ctrl-Molette"
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "Pour l'historique complet, désélectionnez 'Arrêt à la copie/renommage'"
+
+#. Resource IDs: (279)
+msgid "Force"
+msgstr "Forcer"
 
 #. Resource IDs: (1480)
 msgid "Force the merge"
@@ -5280,17 +5292,17 @@ msgstr "Fusion"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s"
-msgstr "Fusion de %s dans %s, %s"
+msgid "Merging %s into %s, %s%s"
+msgstr "Fusionner %s avec %s, %s%s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
 msgstr "Fusionner les différences entre les URLs des référentiels"
 
 #. Resource IDs: (229)
-#, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr "Fusionner de %s, révision %s vers %s, révision %s dans %s, %s%s"
+#, fuzzy, c-format
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
+msgstr "Fusionner depuis %s, révision %s à %s, révision %s vers %s, %s%s%s"
 
 #. Resource IDs: (264)
 #, c-format
@@ -5308,7 +5320,7 @@ msgstr "La fusion nécessite des révisions ou des URLs différentes dans 'De :'
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s"
+msgid "Merging revisions %s of %s into %s, %s%s%s"
 msgstr "Fusionner les révisions %s de %s dans %s, %s%s"
 
 #. Resource IDs: (76, 1359)
