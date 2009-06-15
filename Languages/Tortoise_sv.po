@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-03 09:59+0100\n"
+"PO-Revision-Date: 2009-06-15 09:27+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -221,13 +221,13 @@ msgstr "%s, men den var blockerad i arbetskopian."
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export (%d) of %s"
-msgstr "%s\\Export (%d) av %s"
+msgid "%s\\%s - Export"
+msgstr "%s\\%s - Export"
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export of %s"
-msgstr "%s\\Export av %s"
+msgid "%s\\%s - Export (%d)"
+msgstr "%s\\%s - Export (%d)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -1163,6 +1163,10 @@ msgstr "\"överhoppade interval\" används för att markera revisionsinterval so
 #, c-format
 msgid "(%s) %s"
 msgstr "(%s) %s"
+
+#. Resource IDs: (119)
+msgid "(Double-click to clear error message)"
+msgstr "(Dubbel-klicka för att rensa felmeddelande)"
 
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
@@ -3158,6 +3162,10 @@ msgstr ""
 "Stäng av det här valet om du har riktigt stora arbetskopior och upplever\r\n"
 "för mycket diskanvändning när du utforskar arbetskopian."
 
+#. Resource IDs: (596)
+msgid "Discards local changes upon incoming deletes"
+msgstr "Ta bort lokala ändringar vid inkommande radering"
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Disk full while accessing %1."
@@ -4003,6 +4011,14 @@ msgstr "Tryck F1 för hjälp. Rulla horisontellt med Ctrl+mushjul"
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "Avmarkera \"Följ inte kopieringshistorik\" för att se all historik"
+
+#. Resource IDs: (279)
+msgid "Force"
+msgstr "Tvinga"
+
+#. Resource IDs: (1480)
+msgid "Force the merge"
+msgstr "Tvinga förening"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5317,8 +5333,8 @@ msgstr "Förenar"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s"
-msgstr "Förenar %s till %s, %s"
+msgid "Merging %s into %s, %s%s"
+msgstr "Förenar %s till %s, %s%s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -5326,8 +5342,8 @@ msgstr "Förenar skillnader mellan arkiv URLerna"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr "Förenar från %s, revision %s till %s, revision %s till %s, %s%s"
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
+msgstr "Förenar från %s, revision %s till %s, revision %s till %s, %s%s%s"
 
 #. Resource IDs: (264)
 #, c-format
@@ -5345,8 +5361,8 @@ msgstr "Förening kräver olika revisioner eller olika URLer i 'Från:' och 'Til
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s"
-msgstr "Förenar revision %s av %s till %s, %s%s"
+msgid "Merging revisions %s of %s into %s, %s%s%s"
+msgstr "Förenar revision %s av %s till %s, %s%s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
