@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-08 20:24+0800\n"
+"PO-Revision-Date: 2009-06-15 20:03+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1147,6 +1147,10 @@ msgstr "'略過範圍' 用來表示還沒有被快取的版本範圍"
 #, c-format
 msgid "(%s) %s"
 msgstr "(%s) %s"
+
+#. Resource IDs: (119)
+msgid "(Double-click to clear error message)"
+msgstr "(雙擊可以清除錯誤訊息)"
 
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
@@ -3125,6 +3129,10 @@ msgstr ""
 "如果你有很大的工作複本, 在瀏覽工作複本目錄時\r\n"
 "曾經發生過大量磁碟動作. 建議取消此選項."
 
+#. Resource IDs: (596)
+msgid "Discards local changes upon incoming deletes"
+msgstr "遇到刪除時拋棄本地端變更"
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Disk full while accessing %1."
@@ -3966,6 +3974,10 @@ msgstr "請按 F1 以取得說明. 使用 Ctrl-捲動可進行橫向捲動."
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "要列出完整歷程紀錄請勿選擇 '複製/重新命名時停止'"
+
+#. Resource IDs: (279)
+msgid "Force"
+msgstr "強制"
 
 #. Resource IDs: (1480)
 msgid "Force the merge"
@@ -5272,8 +5284,8 @@ msgstr "正在合併"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s"
-msgstr "正在合併 %s 至 %s, %s"
+msgid "Merging %s into %s, %s%s"
+msgstr "正在合併 %s 至 %s, %s%s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -5281,8 +5293,8 @@ msgstr "根據檔案庫 URL 合併差異"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr "正在自 %s 合併檔案, 版本 %s 至 %s, 版本 %s 併入 %s, %s%s"
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
+msgstr "正在自 %s 合併檔案, 版本 %s 至 %s, 版本 %s 併入 %s, %s%s%s"
 
 #. Resource IDs: (264)
 #, c-format
@@ -5300,8 +5312,8 @@ msgstr "合併時, '從:' 和 '到:' 的 URL 或是版本不可以相同"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s"
-msgstr "合併版本 %s 至 %s, 併入 %s, %s%s"
+msgid "Merging revisions %s of %s into %s, %s%s%s"
+msgstr "合併版本 %s 至 %s, 併入 %s, %s%s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
