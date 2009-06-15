@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2009
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 16430: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 16574: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-05-25 19:23+0300\n"
+"PO-Revision-Date: 2009-06-15 14:19+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -264,13 +264,13 @@ msgstr "%s, но этот элемент был мешающим в рабоче
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export (%d) of %s"
-msgstr "%s\\Экспорт (%d) %s"
+msgid "%s\\%s - Export"
+msgstr "%s\\%s - Экспорт"
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export of %s"
-msgstr "%s\\Экспорт %s"
+msgid "%s\\%s - Export (%d)"
+msgstr "%s\\%s - Экспорт (%d)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -1209,6 +1209,10 @@ msgstr "'Пропущенные диапазоны' используется д�
 #, c-format
 msgid "(%s) %s"
 msgstr "(%s) %s"
+
+#. Resource IDs: (119)
+msgid "(Double-click to clear error message)"
+msgstr "(Двойной щелчок убирает сообщение об ошибке)"
 
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
@@ -3207,6 +3211,10 @@ msgstr ""
 "Отключите эту опцию, если у вас действительно большие рабочие копии и происходит\r\n"
 "слишком интенсивное обращение к диску при обзоре рабочей копии."
 
+#. Resource IDs: (596)
+msgid "Discards local changes upon incoming deletes"
+msgstr "Отказ от локальных изменений при входящих удалениях"
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Disk full while accessing %1."
@@ -4056,6 +4064,14 @@ msgstr "Для справки нажмите F1. Для горизонтальн
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "Для получения полного списка разотметьте 'Остановиться на копировании/переименовании'"
+
+#. Resource IDs: (279)
+msgid "Force"
+msgstr "Принудительно"
+
+#. Resource IDs: (1480)
+msgid "Force the merge"
+msgstr "Принудительное слияние"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5371,8 +5387,8 @@ msgstr "Слияние"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s"
-msgstr "Слияние %s с %s, %s"
+msgid "Merging %s into %s, %s%s"
+msgstr "Слияние %s с %s, %s%s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -5380,8 +5396,8 @@ msgstr "Слияние различий между адресами URL из х�
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr "Слияние из %s, ревизии от %s до %s, ревизия %s в %s, %s%s"
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
+msgstr "Слияние из %s, ревизии от %s до %s, ревизия %s в %s, %s%s%s"
 
 #. Resource IDs: (264)
 #, c-format
@@ -5399,8 +5415,8 @@ msgstr "Для слияния необходимы различные ревиз
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s"
-msgstr "Слияние ревизий %s из %s в %s, %s%s"
+msgid "Merging revisions %s of %s into %s, %s%s%s"
+msgstr "Слияние ревизий %s из %s в %s, %s%s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -8037,6 +8053,10 @@ msgstr "Узлы меток"
 #, c-format
 msgid "Tagged the working copy to %s"
 msgstr "Для рабочей копии назначена метка %s"
+
+#. Resource IDs: (80)
+msgid "Tasks"
+msgstr "Задачи"
 
 #. Resource IDs: (1064)
 msgid "Tasks Pane"
