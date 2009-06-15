@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-09 09:28+0100\n"
+"PO-Revision-Date: 2009-06-15 09:17+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3136,6 +3136,10 @@ msgstr ""
 "Deaktivieren Sie diese Option, wenn Sie wirklich große Arbeitskopien haben\r\n"
 "und die Festplatte beim Anzeigen von Arbeitskopien konstant beschäftigt ist."
 
+#. Resource IDs: (596)
+msgid "Discards local changes upon incoming deletes"
+msgstr "Verwerfe lokale Änderungen bei eingehenden Löschungen"
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Disk full while accessing %1."
@@ -3977,6 +3981,10 @@ msgstr "Drücken Sie F1 für Hilfe. Mit Strg+Mausrad horizontal verschieben."
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "Deaktivieren Sie 'Bei Kopien/Umbenennen anhalten', um eine vollständige Historie zu erhalten."
+
+#. Resource IDs: (279)
+msgid "Force"
+msgstr "Erzwinge"
 
 #. Resource IDs: (1480)
 msgid "Force the merge"
@@ -5298,8 +5306,8 @@ msgstr "Zusammenführen"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s"
-msgstr "%s in %s, %s zusammenführen"
+msgid "Merging %s into %s, %s%s"
+msgstr "Zusammenführen von %s in %s, %s%s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -5307,8 +5315,8 @@ msgstr "Führe Unterschiede zwischen Projektarchiv URLs zusammen"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr "Zusammenführen von %s, Revision %s bis %s, Revision %s in %s, %s%s"
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
+msgstr "Zusammenführen von %s, Revision %s bis %s, Revision %s in %s, %s%s%s"
 
 #. Resource IDs: (264)
 #, c-format
@@ -5326,8 +5334,8 @@ msgstr "Zusammenführen erfordert unterschiedliche Revisionen oder URLs in 'Von:
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s"
-msgstr "Zusammenführen %s von %s in %s, %s%s"
+msgid "Merging revisions %s of %s into %s, %s%s%s"
+msgstr "Führe Revision %s von %s in %s zusammen, %s%s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
