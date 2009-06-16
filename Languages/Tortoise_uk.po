@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-11 16:29+0300\n"
+"PO-Revision-Date: 2009-06-16 18:10+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3124,6 +3124,10 @@ msgstr ""
 "Унеможливіть цей параметр, якщо у вас дійсно великі робочі копії, і під час\r\n"
 "проглядання робочої копії буває надто багато звернень до диску."
 
+#. Resource IDs: (596)
+msgid "Discards local changes upon incoming deletes"
+msgstr ""
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Disk full while accessing %1."
@@ -3965,6 +3969,10 @@ msgstr "Щоб отримати Довідку, натисніть F1. Гори�
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "Для повної історії зніміть виділення зі 'Спинитися при копіюванні/перейменуванні'"
+
+#. Resource IDs: (279)
+msgid "Force"
+msgstr "Змусити"
 
 #. Resource IDs: (1480)
 msgid "Force the merge"
@@ -5275,8 +5283,8 @@ msgstr "Зливається"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s"
-msgstr "Зливається %s у %s, %s"
+msgid "Merging %s into %s, %s%s"
+msgstr "Зливається %s у %s, %s%s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -5284,8 +5292,8 @@ msgstr "Зливаються відмінності між URLами схови�
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr "Зливаються з %s, модифікації від %s до %s, модифікація %s у %s, %s%s"
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
+msgstr "Зливаються з %s, модифікації від %s до %s, модифікація %s у %s, %s%s%s"
 
 #. Resource IDs: (264)
 #, c-format
@@ -5303,8 +5311,8 @@ msgstr "Злиття вимагає різних модифікацій або �
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s"
-msgstr "Зливаються модифікації %s з %s у %s, %s%s"
+msgid "Merging revisions %s of %s into %s, %s%s%s"
+msgstr "Зливаються модифікації %s з %s у %s, %s%s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
