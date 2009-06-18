@@ -12,7 +12,7 @@ MSGMERGE=${MSGMERGE:-msgmerge}
 
 tsvn_base=
 for i in . .. ../..; do
-  if [ -d "$i/tortoisesvn/Languages" ]; then
+  if [ -d "$i/Languages" ]; then
     tsvn_base="$i"
     break
   fi
@@ -24,7 +24,7 @@ fi
 
 update_po()
 {
-  (cd $tsvn_base/tortoisesvn/Languages &&
+  (cd $tsvn_base/Languages &&
   for i in $1.po; do
     echo "Updating $i..."
     msgmerge --no-wrap -o tmp.po $i Tortoise.pot
@@ -40,7 +40,7 @@ else
     case $1 in
       pot) ;;
       *)
-      if [ -e $tsvn_base/tortoisesvn/Languages/Tortoise_$1.po ]; then
+      if [ -e $tsvn_base/Languages/Tortoise_$1.po ]; then
         langs="$langs Tortoise_$1"
       else
         echo "E: No such .po file 'Tortoise_$1.po'" >&2
@@ -53,4 +53,3 @@ else
     update_po $lang
   done
 fi
-

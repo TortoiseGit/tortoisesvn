@@ -22,7 +22,7 @@
 #    msgfmt --statistics -c --check-accelerators Tortoise_zh_CN.po
 #
 # Please format your translation before commit:
-#    msgmerge --width=80 -o Tortoise_zh_CN_new.po Tortoise_zh_CN.po Tortoise.pot
+#    msgmerge --no-wrap -o Tortoise_zh_CN_new.po Tortoise_zh_CN.po Tortoise.pot
 #    mv -f Tortoise_zh_CN_new.po Tortoise_zh_CN.po
 #
 # Dictionary:
@@ -55,10 +55,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
-"Report-Msgid-Bugs-To: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-05-14 10:22+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2009-06-18 10:38+0800\n"
+"Last-Translator: 宋冬生 <songdonogsheng@live.cn>\n"
 "Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -256,13 +256,13 @@ msgstr "“%s” 已经在本地被阻碍。"
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export (%d) of %s"
-msgstr "%s\\导出 （%d 个） %s"
+msgid "%s\\%s - Export"
+msgstr "%s\\%s - 导出"
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export of %s"
-msgstr "%s\\导出 %s"
+msgid "%s\\%s - Export (%d)"
+msgstr "%s\\%s - 导出 (%d)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -1189,6 +1189,10 @@ msgstr "使用“忽略范围”标记尚未缓存的版本范围"
 msgid "(%s) %s"
 msgstr "(%s) %s"
 
+#. Resource IDs: (119)
+msgid "(Double-click to clear error message)"
+msgstr "(双击以清除错误信息)"
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(二进制)"
@@ -1596,6 +1600,10 @@ msgstr "年代"
 #. Resource IDs: (32822)
 msgid "Align trees on top"
 msgstr "顶部对齐树"
+
+#. Resource IDs: (1505)
+msgid "All"
+msgstr "全部"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
@@ -2203,6 +2211,10 @@ msgstr "选中可在日志信息中使用较简短的日期及时间"
 msgid "Check working copy for modifications"
 msgstr "检查本地副本的修改"
 
+#. Resource IDs: (1504)
+msgid "Check:"
+msgstr "选中:"
+
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "正在检查是否有更新版本的 TortoiseSVN..."
@@ -2245,8 +2257,9 @@ msgid "Cleaning up"
 msgstr "清理"
 
 #. Resource IDs: (146)
-msgid "Cleaning up."
-msgstr "正在清除。"
+#, c-format
+msgid "Cleaning up directory \"%s\""
+msgstr "清理目录 \"%s\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -3139,6 +3152,10 @@ msgstr "比较差异"
 msgid "Diffs the working copy file with the one before the last commit."
 msgstr "将工作副本中的文件与最后提交之前比较。"
 
+#. Resource IDs: (1513)
+msgid "Directories"
+msgstr "目录"
+
 #. Resource IDs: (65535)
 msgid "Directory:"
 msgstr "目录: "
@@ -3150,6 +3167,10 @@ msgid ""
 msgstr ""
 "如果你的工作副本非常大，占用了较大的硬盘空间，请禁用此选项。\r\n"
 "浏览本地副本时它会带来太多的磁盘访问。"
+
+#. Resource IDs: (596)
+msgid "Discards local changes upon incoming deletes"
+msgstr "如果上游删除，那么忽略本地修改"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -3908,6 +3929,10 @@ msgstr ""
 msgid "Filename"
 msgstr "文件名称"
 
+#. Resource IDs: (1512)
+msgid "Files"
+msgstr "文件"
+
 #. Resource IDs: (1057)
 msgid ""
 "Fill Tool\n"
@@ -3986,9 +4011,17 @@ msgstr "按 F1 键寻求帮助；用 Ctrl+鼠标滚轮横向滚动"
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "取消选择“复制/改名时停止”，以查看完整的历史列表"
 
+#. Resource IDs: (279)
+msgid "Force"
+msgstr "强制"
+
+#. Resource IDs: (1480)
+msgid "Force the merge"
+msgstr "强制合并"
+
 #. Resource IDs: (1064)
 msgid "Forward"
-msgstr "转发"
+msgstr "前进"
 
 #. Resource IDs: (65535)
 msgid "From URL:"
@@ -4246,7 +4279,6 @@ msgid "Hook Scripts"
 msgstr "Hook 脚本"
 
 #. Resource IDs: (283)
-#, fuzzy
 msgid "Hook Scripts::Issue Tracker Integration"
 msgstr "钩子脚本::问题跟踪器集成"
 
@@ -5285,8 +5317,8 @@ msgstr "正在合并"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s"
-msgstr "合并 %s 到 %s，%s"
+msgid "Merging %s into %s, %s%s"
+msgstr "合并 %s 到 %s, %s%s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -5294,8 +5326,8 @@ msgstr "正在不同的版本库 URL 之间合并差异"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr "从 %s 合并, 版本 %s 至 %s，版本 %s 到 %s， %s%s"
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
+msgstr "从 %s 合并, 版本 %s 至 %s，版本 %s 到 %s， %s%s%s"
 
 #. Resource IDs: (264)
 #, c-format
@@ -5313,8 +5345,8 @@ msgstr "合并指定的不同版本差异或从“起始: ” URL 到“结束: 
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s"
-msgstr "合并版本 %s 于 %s 到 %s，%s%s"
+msgid "Merging revisions %s of %s into %s, %s%s%s"
+msgstr "合并版本 %s 于 %s 到 %s，%s%s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -7921,6 +7953,10 @@ msgstr "标签节点"
 msgid "Tagged the working copy to %s"
 msgstr "标记工作副本为 %s"
 
+#. Resource IDs: (80)
+msgid "Tasks"
+msgstr "任务"
+
 #. Resource IDs: (1064)
 msgid "Tasks Pane"
 msgstr "任务窗格"
@@ -8944,6 +8980,10 @@ msgstr ""
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "去除版本控制"
+
+#. Resource IDs: (1507)
+msgid "Unversioned"
+msgstr "未版本控制"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
@@ -10269,6 +10309,14 @@ msgstr ""
 "tsvn:logminsize\r\n"
 "在允许提交之前必须输入的最短日志长度。"
 
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logrevregex\r\n"
+"A regular expression matching revision numbers in a log message"
+msgstr ""
+"tsvn:logrevregex\r\n"
+"在日志中匹配版本参数的正则表达式"
+
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logsummary\r\n"
@@ -10390,4 +10438,3 @@ msgstr "是"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
