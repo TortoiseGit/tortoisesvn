@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -41,6 +41,7 @@
 #include "Commands\Command.h"
 #include "..\version.h"
 #include "JumpListHelpers.h"
+#include "CmdUrlParser.h"
 
 #define APPID (_T("TSVN.TSVN.1") _T(TSVN_PLATFORM))
 
@@ -289,6 +290,18 @@ BOOL CTortoiseProcApp::InitInstance()
 	if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==TRUE)
 		AfxMessageBox(AfxGetApp()->m_lpCmdLine, MB_OK | MB_ICONINFORMATION);
 
+	if ( parser.HasVal(_T("urlcmd")) )
+	{
+		CmdUrlParser p(parser.GetVal(_T("urlcmd")));
+		CString newCmdLine = p.GetCommandLine();
+		if (newCmdLine.IsEmpty())
+		{
+			CMessageBox::Show(NULL, IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
+			return FALSE;
+		}
+		CCmdLineParser p2(newCmdLine);
+		parser = p2;
+	}
 	if ( parser.HasKey(_T("path")) && parser.HasKey(_T("pathfile")))
 	{
 		CMessageBox::Show(NULL, IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);

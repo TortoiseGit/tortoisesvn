@@ -526,7 +526,64 @@ TortoiseProc.exe /command:log /path:"c:\svn_wc\file1.txt"
 </screen>
 		</para>
 	</sect1>
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 1 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-automation-urlhandler">
+		<title>tsvncmd url handler</title>
+		<indexterm>
+			<primary>automation</primary>
+		</indexterm>
+		<indexterm>
+			<primary>url handler</primary>
+		</indexterm>
+		<para>
+			Using special urls, it is also possible to call TortoiseProc from
+			a web page.
+		</para>
+		<para>
+			TortoiseSVN registers a new protocol <literal>tsvncmd:</literal> which
+			can be used to create hyperlinks that execute TortoiseSVN commands.
+			The commands and parameters are the same as when automating TortoiseSVN
+			from the command line.
+		</para>
+		<para>
+			The format of the tsvncmd: url is like this:
+		</para>
+		<para>
+			tsvncmd:command:<literal>cmd</literal>?parameter:paramvalue?parameter:paramvalue
+		</para>
+		<para>
+			with <literal>cmd</literal> being one of the allowed commands and
+			with <literal>parameter</literal> being a parameter like <literal>path</literal>
+			or <literal>revision</literal>, depending on the command used.
+		</para>
+		<para>
+			The following commands are allowed with tsvncmd: urls:
+			<itemizedlist>
+				<listitem>update</listitem>
+				<listitem>commit</listitem>
+				<listitem>diff</listitem>
+				<listitem>repobrowser</listitem>
+				<listitem>checkout</listitem>
+				<listitem>export</listitem>
+				<listitem>blame</listitem>
+				<listitem>repostatus</listitem>
+				<listitem>revisiongraph</listitem>
+				<listitem>showcompare</listitem>
+			</itemizedlist>
+		</para>
+		<para>
+			an example url might look like this:
+<programlisting>
+&lt;a href="tsvncmd:command:showcompare?
+url1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?
+url2:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?
+revision1:188?revision2:189"&gt;compare&lt;/a&gt;
+</programlisting>
+		</para>
 
+	</sect1>
 	<sect1 id="tsvn-automation-idiff">
 		<title>TortoiseIDiff Commands</title>
 		<indexterm>

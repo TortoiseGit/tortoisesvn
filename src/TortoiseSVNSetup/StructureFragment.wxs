@@ -195,6 +195,11 @@
 						<RegistryValue Root="HKLM" Key="Software\Classes\tsvn" Name="URL Protocol" Value="" Type="string" />
 						<RegistryValue Root="HKLM" Key="Software\Classes\tsvn\DefaultIcon" Value="[INSTALLDIR]bin\TortoiseProc.exe" Type="string" />
 						<RegistryValue Root="HKLM" Key="Software\Classes\tsvn\shell\open\command" Value="[INSTALLDIR]bin\TortoiseProc.exe /command:checkout /url:&quot;%1&quot;" Type="string" />
+
+						<RegistryValue Root="HKLM" Key="Software\Classes\tsvncmd" Value="URL:TSVN Cmd Protocol" Type="string" />
+						<RegistryValue Root="HKLM" Key="Software\Classes\tsvncmd" Name="URL Protocol" Value="" Type="string" />
+						<RegistryValue Root="HKLM" Key="Software\Classes\tsvncmd\DefaultIcon" Value="[INSTALLDIR]bin\TortoiseProc.exe" Type="string" />
+						<RegistryValue Root="HKLM" Key="Software\Classes\tsvncmd\shell\open\command" Value="[INSTALLDIR]bin\TortoiseProc.exe /urlcmd:&quot;%1&quot;" Type="string" />
 					</Component>
 
 					<Component Id="C__ASPDOTNETHACK" Guid="$(var.GuidASPNETHack)" Win64="$(var.Win64YesNo)">
