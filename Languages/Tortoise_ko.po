@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-10 22:46+0900\n"
+"PO-Revision-Date: 2009-06-19 20:35+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3126,6 +3126,10 @@ msgstr ""
 "매우 큰 작업 사본으로 경험이 많은 사용자라면, 이 기능을 비활성화함으로써\r\n"
 "작업 사본을 브라우징할 때, 디스크 액세스를 줄이게 됩니다."
 
+#. Resource IDs: (596)
+msgid "Discards local changes upon incoming deletes"
+msgstr ""
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Disk full while accessing %1."
@@ -3967,6 +3971,10 @@ msgstr "도움말은 F1을 누르시고, 좌우 스크롤은 Ctrl을 누른 상�
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "모든 로그를 보려면 '복사/이름변경 시점에서 중지'을 끄면 됩니다."
+
+#. Resource IDs: (279)
+msgid "Force"
+msgstr "강제로"
 
 #. Resource IDs: (1480)
 msgid "Force the merge"
@@ -5273,8 +5281,8 @@ msgstr "병합"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s"
-msgstr "%s 를 %s와 병합중, %s"
+msgid "Merging %s into %s, %s%s"
+msgstr "%s 를 %s 에 병합중, %s%s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -5282,8 +5290,8 @@ msgstr "저장소 url들 사이의 차이점을 병합"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr "%s (r%s) 에서 %s(r%s)로 변경한 내용을 %s, %s%s에 병합합니다."
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
+msgstr "%s(r%s) 에서 %s(r%s)까지를 %s에 병합중, %s%s%s"
 
 #. Resource IDs: (264)
 #, c-format
@@ -5301,8 +5309,8 @@ msgstr "'시작:' 과 '끝:'에는 다른 리비전 혹은 URL이 들어 있어�
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s"
-msgstr "리비전 %s (%s) 을(를) %s, %s%s에 병합 중"
+msgid "Merging revisions %s of %s into %s, %s%s%s"
+msgstr "리비전 %s(%s)를 %s에 병합중, %s%s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
