@@ -495,68 +495,68 @@ bool CMainWindow::IsUTF8(LPVOID pBuffer, size_t cb)
 {
 	if (cb < 2)
 		return true;
-	UINT16 * pVal = (UINT16 *)pBuffer;
-	UINT8 * pVal2 = (UINT8 *)(pVal+1);
+	UINT16 * pVal16 = (UINT16 *)pBuffer;
+	UINT8 * pVal8 = (UINT8 *)(pVal16+1);
 	// scan the whole buffer for a 0x0000 sequence
 	// if found, we assume a binary file
 	for (size_t i=0; i<(cb-2); i=i+2)
 	{
-		if (0x0000 == *pVal++)
+		if (0x0000 == *pVal16++)
 			return false;
 	}
-	pVal = (UINT16 *)pBuffer;
-	if (*pVal == 0xFEFF)
+	pVal16 = (UINT16 *)pBuffer;
+	if (*pVal16 == 0xFEFF)
 		return false;
 	if (cb < 3)
 		return false;
-	if (*pVal == 0xBBEF)
+	if (*pVal16 == 0xBBEF)
 	{
-		if (*pVal2 == 0xBF)
+		if (*pVal8 == 0xBF)
 			return true;
 	}
 	// check for illegal UTF8 chars
-	pVal2 = (UINT8 *)pBuffer;
+	pVal8 = (UINT8 *)pBuffer;
 	for (size_t i=0; i<cb; ++i)
 	{
-		if ((*pVal2 == 0xC0)||(*pVal2 == 0xC1)||(*pVal2 >= 0xF5))
+		if ((*pVal8 == 0xC0)||(*pVal8 == 0xC1)||(*pVal8 >= 0xF5))
 			return false;
-		pVal2++;
+		pVal8++;
 	}
-	pVal2 = (UINT8 *)pBuffer;
+	pVal8 = (UINT8 *)pBuffer;
 	bool bUTF8 = false;
 	for (size_t i=0; i<(cb-3); ++i)
 	{
-		if ((*pVal2 & 0xE0)==0xC0)
+		if ((*pVal8 & 0xE0)==0xC0)
 		{
-			pVal2++;i++;
-			if ((*pVal2 & 0xC0)!=0x80)
+			pVal8++;i++;
+			if ((*pVal8 & 0xC0)!=0x80)
 				return false;
 			bUTF8 = true;
 		}
-		if ((*pVal2 & 0xF0)==0xE0)
+		if ((*pVal8 & 0xF0)==0xE0)
 		{
-			pVal2++;i++;
-			if ((*pVal2 & 0xC0)!=0x80)
+			pVal8++;i++;
+			if ((*pVal8 & 0xC0)!=0x80)
 				return false;
-			pVal2++;i++;
-			if ((*pVal2 & 0xC0)!=0x80)
+			pVal8++;i++;
+			if ((*pVal8 & 0xC0)!=0x80)
 				return false;
 			bUTF8 = true;
 		}
-		if ((*pVal2 & 0xF8)==0xF0)
+		if ((*pVal8 & 0xF8)==0xF0)
 		{
-			pVal2++;i++;
-			if ((*pVal2 & 0xC0)!=0x80)
+			pVal8++;i++;
+			if ((*pVal8 & 0xC0)!=0x80)
 				return false;
-			pVal2++;i++;
-			if ((*pVal2 & 0xC0)!=0x80)
+			pVal8++;i++;
+			if ((*pVal8 & 0xC0)!=0x80)
 				return false;
-			pVal2++;i++;
-			if ((*pVal2 & 0xC0)!=0x80)
+			pVal8++;i++;
+			if ((*pVal8 & 0xC0)!=0x80)
 				return false;
 			bUTF8 = true;
 		}
-		pVal2++;
+		pVal8++;
 	}
 	if (bUTF8)
 		return true;
