@@ -186,12 +186,12 @@ BEGIN
     "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
     "#ifndef APSTUDIO_INVOKED\r\n"
     "#include ""TortoiseBlame.rc2""\r\n"
-    "#endi\0"
+    "#endif\0"
 END
 
 3 TEXTINCLUDE 
 BEGIN
-    "\r\0"
+    "\r\n\0"
 END
 
 #endif    // APSTUDIO_INVOKED

@@ -158,7 +158,8 @@ END
 
 3 TEXTINCLUDE 
 BEGIN
-    "\r\n\0"
+    "\r\n"
+    "\0"
 END
 
 #endif    // APSTUDIO_INVOKED

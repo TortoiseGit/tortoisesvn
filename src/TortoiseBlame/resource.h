@@ -2,8 +2,6 @@
 // Microsoft Visual C++ generated include file.
 // Used by TortoiseBlame.rc
 //
-#define IDC_MYICON                      2
-#define IDD_TORTOISEBLAME_DIALOG        102
 #define IDS_APP_TITLE                   103
 #define IDM_ABOUT                       104
 #define IDS_SEARCHNOTFOUND              104
@@ -11,7 +9,6 @@
 #define IDI_TORTOISEBLAME               107
 #define IDI_SMALL                       108
 #define IDC_TORTOISEBLAME               109
-#define IDR_MAINFRAME                   128
 #define IDR_BLAMEPOPUP                  129
 #define IDD_GOTODLG                     130
 #define IDS_COMMANDLINE_INFO            200
@@ -22,7 +19,6 @@
 #define IDS_HEADER_PATH                 304
 #define IDC_LINENUMBER                  1000
 #define ID_EDIT_FIND                    32771
-#define ID_COPYTOCLIPBOARD_COPYTOCLIPBOARD 32775
 #define ID_COPYTOCLIPBOARD              32776
 #define ID_EDIT_GOTOLINE                32779
 #define ID_BLAME_PREVIOUS_REVISION      32782

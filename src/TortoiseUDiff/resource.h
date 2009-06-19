@@ -2,18 +2,14 @@
 // Microsoft Visual C++ generated include file.
 // Used by TortoiseUDiff.rc
 //
-#define IDD_TORTOISEUDIFF_DIALOG        102
 #define IDS_APP_TITLE                   103
-#define IDM_ABOUT                       104
 #define IDS_COMMANDLINEHELP             104
 #define IDS_PATCHFILEFILTER             105
 #define IDS_OPENPATCH                   106
 #define IDI_TORTOISEUDIFF               107
 #define IDS_SAVEPATCH                   107
 #define IDC_TORTOISEUDIFF               109
-#define IDR_MAINFRAME                   128
 #define IDB_CANCELNORMAL                130
-#define IDI_ICON1                       132
 #define IDI_CANCELNORMAL                132
 #define IDD_FINDBAR                     144
 #define IDC_FINDNEXT                    1014
