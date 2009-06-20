@@ -1486,6 +1486,16 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	{
 		SetItemText(index, nCol++, _T(""));
 	}
+	// SVNSLC_COLSIZE
+	if (entry->IsFolder())
+		SetItemText(index, nCol++, _T(""));
+	else
+	{
+		__int64 filesize = entry->working_size != (-1) ? entry->working_size : entry->GetPath().GetFileSize();
+		StrFormatByteSize64(filesize, buf, 100);
+		SetItemText(index, nCol++, buf);
+	}
+
 
     // user-defined properties
     for ( int i = SVNSLC_NUMCOLUMNS, count = m_ColumnManager.GetColumnCount()
@@ -5122,6 +5132,19 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 		        SVN::formatDate(datebuf,*f,true);
                 temp = datebuf;
             }
+			else
+				temp.Empty();
+			sClipboard += _T("\t")+temp;
+		}
+		if (selection & SVNSLC_COLSIZE)
+		{
+			if (!entry->IsFolder())
+			{
+				TCHAR buf[100];
+				__int64 filesize = entry->working_size != (-1) ? entry->working_size : entry->GetPath().GetFileSize();
+				StrFormatByteSize64(filesize, buf, 100);
+				temp = buf;
+			}
 			else
 				temp.Empty();
 			sClipboard += _T("\t")+temp;
