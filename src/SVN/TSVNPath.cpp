@@ -72,6 +72,7 @@ CTSVNPath::CTSVNPath(const CString& sUnknownPath) :
 	m_bExistsKnown(false),
 	m_bLastWriteTimeKnown(0),
 	m_lastWriteTime(0),
+	m_fileSize(0),
 	m_customData(NULL),
 	m_bIsSpecialDirectoryKnown(false),
 	m_bIsSpecialDirectory(false)
@@ -344,6 +345,15 @@ __int64  CTSVNPath::GetLastWriteTime() const
 	return m_lastWriteTime;
 }
 
+__int64 CTSVNPath::GetFileSize() const
+{
+	if(!m_bDirectoryKnown)
+	{
+		UpdateAttributes();
+	}
+	return m_fileSize;
+}
+
 bool CTSVNPath::IsReadOnly() const
 {
 	if(!m_bLastWriteTimeKnown)
@@ -363,6 +373,14 @@ void CTSVNPath::UpdateAttributes() const
 	{
 		m_bIsDirectory = !!(attribs.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
 		m_lastWriteTime = *(__int64*)&attribs.ftLastWriteTime;
+		if (m_bIsDirectory)
+		{
+			m_fileSize = 0;
+		}
+		else
+		{
+			m_fileSize = ((INT64)( (DWORD)(attribs.nFileSizeLow) ) | ( (INT64)( (DWORD)(attribs.nFileSizeHigh) )<<32 ));
+		}
 		m_bIsReadOnly = !!(attribs.dwFileAttributes & FILE_ATTRIBUTE_READONLY);
 		m_bExists = true;
 	}
@@ -373,12 +391,14 @@ void CTSVNPath::UpdateAttributes() const
 		{
 			m_bIsDirectory = false;
 			m_lastWriteTime = 0;
+			m_fileSize = 0;
 			m_bExists = false;
 		}
 		else
 		{
 			m_bIsDirectory = false;
 			m_lastWriteTime = 0;
+			m_fileSize = 0;
 			m_bExists = true;
 			return;
 		}

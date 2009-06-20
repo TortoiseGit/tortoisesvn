@@ -180,6 +180,12 @@ public:
 	 * Returns a FILETIME structure cast to an __int64, for easy comparisons
 	 */
 	__int64 GetLastWriteTime() const;
+
+	/**
+	 * Get the file size. Returns zero for directories or files that don't exist.
+	 */
+	__int64 CTSVNPath::GetFileSize() const;
+
 	
 	bool IsReadOnly() const;
 	
@@ -265,6 +271,7 @@ private:
 	mutable bool m_bURLKnown;
 	mutable bool m_bIsURL;
 	mutable __int64 m_lastWriteTime;
+	mutable __int64 m_fileSize;
 	mutable bool m_bIsReadOnly;
 	mutable bool m_bHasAdminDirKnown;
 	mutable bool m_bHasAdminDir;
