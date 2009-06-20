@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-05-28 11:12+0100\n"
+"PO-Revision-Date: 2009-06-20 19:14+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -216,13 +216,13 @@ msgstr "%s, mas foi obstruido na cópia de trabalho."
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export (%d) of %s"
-msgstr "%s\\Exportar (%d) de %s"
+msgid "%s\\%s - Export"
+msgstr "%s\\%s - \Exportar"
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export of %s"
-msgstr "%s\\Exportar de %s"
+msgid "%s\\%s - Export (%d)"
+msgstr "%s\\%s - Exportar (%d)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -1148,6 +1148,10 @@ msgstr "os 'intervalos de omissão' são usados para marcar intervalos de revis�
 #, c-format
 msgid "(%s) %s"
 msgstr "(%s) %s"
+
+#. Resource IDs: (119)
+msgid "(Double-click to clear error message)"
+msgstr "(Clique duas vezes para apagar a mensagem de erro)"
 
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
@@ -3129,6 +3133,10 @@ msgstr ""
 "Desactive esta opção se tiver cópias de trabalho realmente grandes e\r\n"
 "ocorrerem demasiados acessos a disco ao navegar a cópia de trabalho."
 
+#. Resource IDs: (596)
+msgid "Discards local changes upon incoming deletes"
+msgstr "Rejeita alterações locais de ficheiros a apagar"
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Disk full while accessing %1."
@@ -3970,6 +3978,14 @@ msgstr "Para obter ajuda, pressione F1. Desloque horizontalmente com Ctrl-roda d
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "Para um histórico completo desmarque 'Parar aquando de cópias/mudanças de nome'"
+
+#. Resource IDs: (279)
+msgid "Force"
+msgstr "Forçar"
+
+#. Resource IDs: (1480)
+msgid "Force the merge"
+msgstr "Forçar integração"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5279,8 +5295,8 @@ msgstr "Integrando"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s"
-msgstr "Integrando %s em %s, %s"
+msgid "Merging %s into %s, %s%s"
+msgstr "A integrar %s em %s, %s%s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -5288,8 +5304,8 @@ msgstr "Integrando diferenças entre URL de repositório"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr "Integrando de %s, revisão %s, a %s, revisão %s, em %s, %s%s"
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
+msgstr "A integrar de %s, revisão %s para %s, revisão %s em %s, %s%s%s"
 
 #. Resource IDs: (264)
 #, c-format
@@ -5307,8 +5323,8 @@ msgstr "Integrar requer diferentes revisões ou diferentes URL em 'De:' e em 'Em
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s"
-msgstr "Integrando as revisões %s de %s em %s, %s%s"
+msgid "Merging revisions %s of %s into %s, %s%s%s"
+msgstr "A integrar as revisiões %s de %s em %s, %s%s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -7931,6 +7947,10 @@ msgstr "Etiquetas dos nós"
 #, c-format
 msgid "Tagged the working copy to %s"
 msgstr "A cópia de trabalho foi etiquetada com %s"
+
+#. Resource IDs: (80)
+msgid "Tasks"
+msgstr "Tarefas"
 
 #. Resource IDs: (1064)
 msgid "Tasks Pane"
