@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-04-04 14:46 +0000\n"
-"PO-Revision-Date: 2009-04-12 14:33+0100\n"
+"PO-Revision-Date: 2009-06-20 20:38+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -75,11 +75,11 @@ msgstr ""
 
 #. (para)
 msgid "Reviewing patches"
-msgstr ""
+msgstr "A rever as correções"
 
 #. (para)
 msgid "Applying the patches"
-msgstr ""
+msgstr "A applicar as correções"
 
 #. (para)
 msgid "TortoiseMerge helps you with both those tasks: <placeholder-1/>"
@@ -103,7 +103,7 @@ msgstr ""
 
 #. (title)
 msgid "Donate!"
-msgstr ""
+msgstr "Doar!"
 
 #. (para)
 msgid "Even though TortoiseSVN and TortoiseMerge are free, you can support the developers by sending in patches and play an active role in the development. You can also help to cheer us up during the endless hours we spend in front of our computers."
@@ -115,7 +115,7 @@ msgstr ""
 
 #. (title)
 msgid "Acknowledgments"
-msgstr ""
+msgstr "Agradecimentos"
 
 #. (term)
 msgid "Stefan Küng"
@@ -139,11 +139,11 @@ msgstr "O projecto de Estilo da Tigris"
 
 #. (para)
 msgid "for some of the styles which are reused in this documentation"
-msgstr ""
+msgstr "para algums dos estilos re-utilizados nesta documentação"
 
 #. (term)
 msgid "Our Contributors"
-msgstr ""
+msgstr "Os nossos Contribuintes"
 
 #. (para)
 msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list."
@@ -151,19 +151,19 @@ msgstr ""
 
 #. (term)
 msgid "Our Donators"
-msgstr ""
+msgstr "Os nossos Doadores"
 
 #. (para)
 msgid "for many hours of joy with the music they sent us"
-msgstr ""
+msgstr "por muitas horas de prazer com a música que nos enviaram"
 
 #. (title)
 msgid "Introduction"
-msgstr ""
+msgstr "Introdução"
 
 #. (title)
 msgid "Overview"
-msgstr ""
+msgstr "Visão Geral"
 
 #. (para)
 msgid "TortoiseMerge is a free/open-source application. It lets you see differences in text files, merge those changes and even review and apply unified diff files, often called <firstterm>patches</firstterm>."
@@ -184,7 +184,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "File Conflict"
-msgstr ""
+msgstr "Conflito de Ficheiros"
 
 #. (para)
 msgid "A conflict can also occur if you try to apply an outdated patch file. In such cases, without TortoiseMerge, you would either have to ask the person you got that patch file from for a current version or try to apply that patch file manually."
@@ -196,7 +196,7 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseMerge's History"
-msgstr ""
+msgstr "História do TortoiseMerge"
 
 #. (para)
 msgid "While working on <ulink url=\"http://tortoisesvn.tigris.org\"><citetitle>TortoiseSVN</citetitle></ulink> we found that whenever users sent in patches to enhance the project or just to fix bugs, we had a lot of work just applying those patches. And many times those patches were outdated and couldn't be applied with the command line patch tool <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> because we were working on those files and had sometimes changed those files already."
@@ -216,7 +216,7 @@ msgstr ""
 
 #. (title)
 msgid "Basic Concepts"
-msgstr ""
+msgstr "Conceitos Básicos"
 
 #. (para)
 msgid "Viewing the difference between two files and merging changes into one of them, or removing unwanted changes."
@@ -236,7 +236,7 @@ msgstr ""
 
 #. (title)
 msgid "Viewing and Merging Differences"
-msgstr ""
+msgstr "A Visualizar e a Integrar Diferenças"
 
 #. (para)
 msgid "In this mode you are comparing two files. The file in the left pane is considered to be the original file (sometimes referred to as <emphasis>Theirs</emphasis>, and the file in the right pane is the modified file (sometimes referred to as <emphasis>Mine</emphasis>."
@@ -260,7 +260,7 @@ msgstr ""
 
 #. (title)
 msgid "Editing Conflicts"
-msgstr ""
+msgstr "A Editar Conflitos"
 
 #. (para)
 msgid "This is sometimes referred to as a three-way merge, and is shown in three panes. However there are actually four files involved. The file which is not shown is the common base file, the last common ancestor of the two files which are now in conflict. The relationships between the three files are explained in the diagram below:"
@@ -278,7 +278,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Applying Patches"
-msgstr ""
+msgstr "A Applicar Correções"
 
 #. (para)
 msgid "A patch file is a Subversion unified diff file, which contains the information required to apply changes to a set of files. The patch may have been supplied by another developer so that you can see changes he has made and possibly commit them to the repository. Or it may have been generated internally by TortoiseSVN when comparing two folders. This happens when you compare a repository revision with your working copy folder, or if you compare two different repository revisions, or if you compare two different repository paths."
@@ -294,11 +294,11 @@ msgstr ""
 
 #. (title)
 msgid "Using TortoiseMerge"
-msgstr ""
+msgstr "A Utilizar TortoiseMerge"
 
 #. (title)
 msgid "Viewing Modes"
-msgstr ""
+msgstr "Modos de Visualização"
 
 #. (para)
 msgid "TortoiseMerge has three main viewing modes: one-pane, two-pane and three-pane view. One/two-pane view is used to view changes and three-pane view is used to resolve conflicts."
@@ -307,15 +307,15 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Viewing / Merging"
-msgstr ""
+msgstr "A Visualizar/Corrigir"
 
 #. (title)
 msgid "One Pane View"
-msgstr ""
+msgstr "Vista de Um Painel"
 
 #. (title)
 msgid "Two Pane View"
-msgstr ""
+msgstr "Vista de Dois Painéis"
 
 #. (para)
 msgid "Changes inside the modified lines are shown in different colors. Added string parts are shown with a lighter color, but you can of course configure the colors used here. Removed parts are indicated with a dark brown vertical line in the string. Check out the screenshot above to see how this works."
@@ -343,7 +343,7 @@ msgstr ""
 
 #. (title)
 msgid "Three Pane View"
-msgstr ""
+msgstr "Vista de Três Painéis"
 
 #. (para)
 msgid "The left pane shows you the differences between <emphasis>Their</emphasis> file and the <emphasis>Base</emphasis> file, while the right pane shows you the differences between <emphasis>Mine</emphasis> file and the <emphasis>Base</emphasis> file. The bottom pane shows you the result of merging <emphasis>Base</emphasis>, <emphasis>Mine</emphasis> and <emphasis>Theirs</emphasis> with possible conflicts."
@@ -355,7 +355,7 @@ msgstr ""
 
 #. (title)
 msgid "Patch File List"
-msgstr ""
+msgstr "Lista de Ficheiros de Correção"
 
 #. (para)
 msgid "After TortoiseMerge parses the patch file it will show you a small window with all the files which have changes according to the patch file. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
@@ -375,11 +375,11 @@ msgstr ""
 
 #. (title)
 msgid "Buttons and Other Controls"
-msgstr ""
+msgstr "Botões e Outros Controlos"
 
 #. (title)
 msgid "The Toolbar"
-msgstr ""
+msgstr "A Barra de Ferramentas"
 
 #. (para)
 msgid "<guibutton>Open</guibutton> accesses the file-open dialog. What else?"
@@ -463,7 +463,7 @@ msgstr ""
 
 #. (title)
 msgid "Line Status Icons"
-msgstr ""
+msgstr "Ícones da Linha de Estado"
 
 #. (para)
 msgid "Changed lines are marked with an icon to indicate what type of change has occurred."
@@ -499,7 +499,7 @@ msgstr ""
 
 #. (title)
 msgid "Merging / Editing Conflicts"
-msgstr ""
+msgstr "A Integrar/Editar Confltos"
 
 #. (para)
 msgid "TortoiseMerge not only <emphasis>shows</emphasis> you the differences between files but also lets you resolve conflicts or apply changes."
@@ -535,7 +535,7 @@ msgstr ""
 
 #. (title)
 msgid "Open Files"
-msgstr ""
+msgstr "Abrir Ficheiros"
 
 #. (para)
 msgid "When you start TortoiseMerge without any command line switches then you have to open the files manually, using <menuchoice><guimenu>File</guimenu><guimenuitem>Open</guimenuitem></menuchoice>."
@@ -543,7 +543,7 @@ msgstr ""
 
 #. (title)
 msgid "The Open Dialog"
-msgstr ""
+msgstr "O Diálogo de Abertura"
 
 #. (para)
 msgid "The first thing you have to do is to decide whether you just want to compare/merge files, or whether you want to apply a patch file. Depending on what you choose, the corresponding edit boxes and browse buttons are activated."
@@ -567,15 +567,15 @@ msgstr ""
 
 #. (title)
 msgid "Settings"
-msgstr ""
+msgstr "Definições"
 
 #. (title)
 msgid "Main Settings Page"
-msgstr ""
+msgstr "Página Principal de Definições"
 
 #. (title)
 msgid "The Settings Main Page"
-msgstr ""
+msgstr "A Página Principal de Definições"
 
 #. (para)
 msgid "Most of the options here are self-explanatory, but a few points need clarifying."
@@ -611,11 +611,11 @@ msgstr ""
 
 #. (title)
 msgid "Colour Settings Page"
-msgstr ""
+msgstr "Página de Definição de Cores"
 
 #. (title)
 msgid "The Settings Color Page"
-msgstr ""
+msgstr "A Página de Definição de Cores "
 
 #. (para)
 msgid "This dialog allows you to select the background color coding used to highlight the different line changes."
@@ -623,7 +623,7 @@ msgstr ""
 
 #. (term)
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #. (listitem)
 msgid "All lines which are unchanged, or where changes are hidden."
@@ -631,31 +631,31 @@ msgstr ""
 
 #. (term)
 msgid "Added"
-msgstr ""
+msgstr "Acrescentado"
 
 #. (listitem)
 msgid "Lines which have been added."
-msgstr ""
+msgstr "Linhas acrescentadas."
 
 #. (term)
 msgid "Removed"
-msgstr ""
+msgstr "Removido"
 
 #. (listitem)
 msgid "Lines which have been deleted."
-msgstr ""
+msgstr "Linhas removidas."
 
 #. (term)
 msgid "Modified"
-msgstr ""
+msgstr "Modificado"
 
 #. (emphasis)
 msgid "unchanged"
-msgstr ""
+msgstr "inalterado"
 
 #. (guilabel)
 msgid "Colour code in-line changes"
-msgstr ""
+msgstr "Codificar a cor a alterações inseridas"
 
 #. (listitem)
 msgid "Lines which have relatively small changes, and are shown using inline diff. This colour is used for the <placeholder-1/> portion of the line content. Changed portions will be shown using the inline added and deleted colours described below. If <placeholder-2/> is not enabled, this colour will not be used and changed lines will always be shown as replacements."
@@ -663,47 +663,47 @@ msgstr ""
 
 #. (term)
 msgid "Conflicted"
-msgstr ""
+msgstr "Conflito"
 
 #. (listitem)
 msgid "Where the same line has been changed in both files."
-msgstr ""
+msgstr "Onde a mesma linha foi alterada em ambos os ficheiros."
 
 #. (term)
 msgid "Conflict resolved"
-msgstr ""
+msgstr "Conflito resolvido"
 
 #. (listitem)
 msgid "Where the same line has been changed in both files, and you have now selected which version should be used."
-msgstr ""
+msgstr "Onde a mesma linha foi alterada em ambos os ficheiros e selecionou a versão a utilizar."
 
 #. (term)
 msgid "Empty"
-msgstr ""
+msgstr "Vazio"
 
 #. (listitem)
 msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
-msgstr ""
+msgstr "Onde foram addicionadas linhas no painel adjacente sem que a linha exista neste painel."
 
 #. (term)
 msgid "Inline added text"
-msgstr ""
+msgstr "Texto inserido"
 
 #. (listitem)
 msgid "When inline diffs are shown, added text is shown in this colour."
-msgstr ""
+msgstr "O texto addicionado é marcado com esta cor quando são indicadas as comparações em linha."
 
 #. (term)
 msgid "Inline removed text"
-msgstr ""
+msgstr "Texto removido"
 
 #. (listitem)
 msgid "When inline diffs are shown, deleted text is shown in this colour."
-msgstr ""
+msgstr "O texto removido é marcado com esta cor quando são indicadas as comparações em linha."
 
 #. (term)
 msgid "Misc whitespaces"
-msgstr ""
+msgstr "Espaços em branco diversos"
 
 #. (listitem)
 msgid "Characters used to indicate Whitespace are shown in a different colour from normal text."
@@ -711,27 +711,27 @@ msgstr ""
 
 #. (title)
 msgid "keyboard shortcuts"
-msgstr ""
+msgstr "atalhos de teclado "
 
 #. (para)
 msgid "List of keyboard shortcuts and commands."
-msgstr ""
+msgstr "Lista de atalhos e commandos de teclado."
 
 #. (title)
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "Atalhos de teclado"
 
 #. (term)
 msgid "Ctrl-Q"
-msgstr ""
+msgstr "Ctrl-Q"
 
 #. (para)
 msgid "Quit the program"
-msgstr ""
+msgstr "Terminar o programa"
 
 #. (term)
 msgid "Ctrl-C"
-msgstr ""
+msgstr "Ctrl-C"
 
 #. (para)
 msgid "Copy the selected text to the clipboard"
@@ -739,71 +739,71 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-F"
-msgstr ""
+msgstr "Ctrl-F"
 
 #. (para)
 msgid "Open the Find dialog for text searches"
-msgstr ""
+msgstr "Abrir o diálogo para procuras de texto"
 
 #. (term)
 msgid "Ctrl-O"
-msgstr ""
+msgstr "Ctrl-O"
 
 #. (para)
 msgid "Open files to diff/merge"
-msgstr ""
+msgstr "Abrir ficheiros a comparar/integrar"
 
 #. (term)
 msgid "Ctrl-S"
-msgstr ""
+msgstr "Ctrl-S"
 
 #. (para)
 msgid "Save the changes"
-msgstr ""
+msgstr "Salvar as alterações"
 
 #. (term)
 msgid "Ctrl-Shift-S"
-msgstr ""
+msgstr "Ctrl-Shift-S"
 
 #. (para)
 msgid "Save as..."
-msgstr ""
+msgstr "Salvar como..."
 
 #. (term)
 msgid "F7"
-msgstr ""
+msgstr "F7"
 
 #. (para)
 msgid "Go to next difference"
-msgstr ""
+msgstr "Ir para a próxima differença"
 
 #. (term)
 msgid "Shift-F7"
-msgstr ""
+msgstr "Shift-F7"
 
 #. (para)
 msgid "Go to previous difference"
-msgstr ""
+msgstr "Ir para a differença anterior"
 
 #. (term)
 msgid "F8"
-msgstr ""
+msgstr "F8"
 
 #. (para)
 msgid "Go to next conflict"
-msgstr ""
+msgstr "Ir para o próximo conflito"
 
 #. (term)
 msgid "Shift-F8"
-msgstr ""
+msgstr "Shift-F8"
 
 #. (para)
 msgid "Go to previous conflict"
-msgstr ""
+msgstr "Ir para o conflito anterior"
 
 #. (term)
 msgid "Ctrl-D"
-msgstr ""
+msgstr "Ctrl-D"
 
 #. (para)
 msgid "Toggle between one-pane diff and two-pane diff"
@@ -811,7 +811,7 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-R"
-msgstr ""
+msgstr "Ctrl-R"
 
 #. (para)
 msgid "Reload the files and revert all changes made"
@@ -819,7 +819,7 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-T"
-msgstr ""
+msgstr "Ctrl-T"
 
 #. (para)
 msgid "Toggles between showing whitespaces or not"
@@ -827,15 +827,15 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-mousewheel"
-msgstr ""
+msgstr "Ctrl-roda-do-rato"
 
 #. (para)
 msgid "Scroll the display left/right"
-msgstr ""
+msgstr "Deslocar o écran esquerda/direita"
 
 #. (title)
 msgid "Automating TortoiseMerge"
-msgstr ""
+msgstr "A automatizar TortoiseMerge"
 
 #. (para)
 msgid "TortoiseMerge can be started with command line parameters to avoid having to go through the <guilabel>Open</guilabel> dialog to select the files yourself. This is useful also if you want to use TortoiseMerge from another application."
@@ -847,11 +847,11 @@ msgstr ""
 
 #. (primary)
 msgid "automation"
-msgstr ""
+msgstr "automação"
 
 #. (primary)
 msgid "command line"
-msgstr ""
+msgstr "linha de commando"
 
 #. (para)
 msgid ""
@@ -862,15 +862,15 @@ msgstr ""
 
 #. (title)
 msgid "List of available command line options"
-msgstr ""
+msgstr "Lista de opções de comando disponíveis"
 
 #. (entry)
 msgid "Command"
-msgstr ""
+msgstr "Comando"
 
 #. (entry)
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #. (entry)
 msgid "Shows a dialog box with the most important command line switches."
@@ -878,7 +878,7 @@ msgstr ""
 
 #. (option)
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #. (entry)
 msgid "The same as <placeholder-1/>."
@@ -886,7 +886,7 @@ msgstr ""
 
 #. (emphasis)
 msgid "base"
-msgstr ""
+msgstr "base"
 
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs. This is the common ancestor of the files being diffed, although it is not shown in a separate window. For two way diffs, this is the left file."
@@ -898,7 +898,7 @@ msgstr ""
 
 #. (emphasis)
 msgid "theirs"
-msgstr ""
+msgstr "deles"
 
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the left pane."
@@ -910,7 +910,7 @@ msgstr ""
 
 #. (emphasis)
 msgid "mine"
-msgstr ""
+msgstr "meu"
 
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the right pane. For two way diffs, this is the right file."
@@ -922,7 +922,7 @@ msgstr ""
 
 #. (emphasis)
 msgid "merged"
-msgstr ""
+msgstr "integrado"
 
 #. (entry)
 msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the file path where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
@@ -934,7 +934,7 @@ msgstr ""
 
 #. (emphasis)
 msgid "very long"
-msgstr ""
+msgstr "muito longo"
 
 #. (entry)
 msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patch file, but that can take <placeholder-1/>."
@@ -974,11 +974,11 @@ msgstr ""
 
 #. (literal)
 msgid "/outfile"
-msgstr ""
+msgstr "/outfile"
 
 #. (literal)
 msgid "/createunifieddiff"
-msgstr ""
+msgstr "/createunifieddiff"
 
 #. (entry)
 msgid "Creates a unified diff file (patch file) of two files specified with <placeholder-1/> and <placeholder-2/>. The target path is set with <placeholder-3/>. If <placeholder-4/> is not set, a file save dialog is shown so the user can choose the location to save the patch file. Note: If <placeholder-5/> is set, all other parameters are ignored."
@@ -993,11 +993,11 @@ msgstr ""
 
 #. (title)
 msgid "Glossary"
-msgstr ""
+msgstr "Glossário"
 
 #. (glossterm)
 msgid "Add"
-msgstr ""
+msgstr "Adicionar"
 
 #. (para)
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
@@ -1005,7 +1005,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "BASE revision"
-msgstr ""
+msgstr "Revisão BASE"
 
 #. (para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
@@ -1013,7 +1013,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Blame"
-msgstr ""
+msgstr "Culpa"
 
 #. (para)
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
@@ -1021,7 +1021,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "BDB"
-msgstr ""
+msgstr "BDB"
 
 #. (para)
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
@@ -1029,7 +1029,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Branch"
-msgstr ""
+msgstr "Ramo"
 
 #. (para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bug fixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
@@ -1037,7 +1037,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Checkout"
-msgstr ""
+msgstr "Dar saida"
 
 #. (para)
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
@@ -1045,7 +1045,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Cleanup"
-msgstr ""
+msgstr "Limpar"
 
 #. (para)
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <emphasis>working copy locked</emphasis> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <emphasis>lock</emphasis> refers to local filesystem locking, not repository locking."
@@ -1053,7 +1053,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Commit"
-msgstr ""
+msgstr "Submeter"
 
 #. (para)
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
@@ -1061,7 +1061,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Conflict"
-msgstr ""
+msgstr "Conflito"
 
 #. (para)
 msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
@@ -1069,7 +1069,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Copy"
-msgstr ""
+msgstr "Cópia"
 
 #. (para)
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
@@ -1077,7 +1077,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Delete"
-msgstr ""
+msgstr "Remover"
 
 #. (para)
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the committed revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
@@ -1085,7 +1085,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Diff"
-msgstr ""
+msgstr "Comparar"
 
 #. (para)
 msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
@@ -1093,7 +1093,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Export"
-msgstr ""
+msgstr "Exportar"
 
 #. (para)
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
@@ -1101,7 +1101,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "FSFS"
-msgstr ""
+msgstr "FSFS"
 
 #. (para)
 msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
@@ -1109,15 +1109,15 @@ msgstr ""
 
 #. (glossterm)
 msgid "GPO"
-msgstr ""
+msgstr "GPO"
 
 #. (para)
 msgid "Group policy object"
-msgstr ""
+msgstr "Object de politica de grupo"
 
 #. (glossterm)
 msgid "HEAD revision"
-msgstr ""
+msgstr "Revisão HEAD"
 
 #. (para)
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
@@ -1125,7 +1125,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 #. (para)
 msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
@@ -1133,7 +1133,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Lock"
-msgstr ""
+msgstr "Bloquear"
 
 #. (para)
 msgid "When you take out a lock on a versioned item, you mark it in the repository as non-committable, except from the working copy where the lock was taken out."
@@ -1141,7 +1141,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Log"
-msgstr ""
+msgstr "Registo"
 
 #. (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
@@ -1149,7 +1149,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "History"
-msgstr ""
+msgstr "História"
 
 #. (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
@@ -1157,7 +1157,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Merge"
-msgstr ""
+msgstr "Integrar"
 
 #. (para)
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
@@ -1169,7 +1169,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Patch"
-msgstr ""
+msgstr "Correção"
 
 #. (para)
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
@@ -1177,7 +1177,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Property"
-msgstr ""
+msgstr "Propriedade"
 
 #. (para)
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
@@ -1185,7 +1185,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Relocate"
-msgstr ""
+msgstr "Realocar"
 
 #. (para)
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
@@ -1197,7 +1197,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Repository"
-msgstr ""
+msgstr "Repositório"
 
 #. (para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
@@ -1205,7 +1205,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Resolve"
-msgstr ""
+msgstr "Resolver"
 
 #. (para)
 msgid "When files in a working copy are left in a conflicted state following a merge, those conflicts must be sorted out by a human using an editor (or perhaps TortoiseMerge). This process is referred to as <quote>Resolving Conflicts</quote>. When this is complete you can mark the conflicted files as being resolved, which allows them to be committed."
@@ -1213,7 +1213,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Revert"
-msgstr ""
+msgstr "Reverter"
 
 #. (para)
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
@@ -1221,7 +1221,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Revision"
-msgstr ""
+msgstr "Revisão"
 
 #. (para)
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
@@ -1233,7 +1233,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Revision Property (revprop)"
-msgstr ""
+msgstr "Propriedade de Revisão (revprop)"
 
 #. (para)
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
@@ -1241,11 +1241,11 @@ msgstr ""
 
 #. (glossterm)
 msgid "SVN"
-msgstr ""
+msgstr "SVN"
 
 #. (para)
 msgid "A frequently-used abbreviation for Subversion."
-msgstr ""
+msgstr "Uma abreviatura frequntemente utilizada para Subversion."
 
 #. (para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
@@ -1253,7 +1253,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Switch"
-msgstr ""
+msgstr "Interruptor"
 
 #. (para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
@@ -1261,7 +1261,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Update"
-msgstr ""
+msgstr "Atualizar"
 
 #. (para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
@@ -1269,7 +1269,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Working Copy"
-msgstr ""
+msgstr "Cópia de Trabalho"
 
 #. (para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
@@ -1278,10 +1278,10 @@ msgstr ""
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr ""
+msgstr "tradutor-agredecimentos"
 
 #. Place the translation of 'translation' here.
 #. (None)
 msgid "translator-translation"
-msgstr ""
+msgstr "tradutor-tradução"
 
