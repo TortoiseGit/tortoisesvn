@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-10 08:19+0330\n"
+"PO-Revision-Date: 2009-06-15 13:19+0330\n"
 "Last-Translator: mohsen sajjadi <mohsensajjadi@yahoo.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -237,13 +237,13 @@ msgstr "%s, but it was obstructed in the working copy."
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export (%d) of %s"
-msgstr "%s\\صدور (%d) از %s"
+msgid "%s\\%s - Export"
+msgstr "%s\\%s - صدور"
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export of %s"
-msgstr "%s\\صدور از %s"
+msgid "%s\\%s - Export (%d)"
+msgstr "%s\\%s - صدور (%d)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -653,9 +653,9 @@ msgid "&Icon Set:"
 msgstr "&مجموعه آیکون"
 
 #. Resource IDs: (15)
-#, fuzzy, c-format
+#, c-format
 msgid "&Ignore %d items by name"
-msgstr "&نادیده گرفتن اقلام %d"
+msgstr "نادیده گرفتن %d قلم با نام"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -1173,6 +1173,10 @@ msgstr "\"skip ranges\" are used to mark revision ranges that have not been cach
 #, c-format
 msgid "(%s) %s"
 msgstr "(%s) %s"
+
+#. Resource IDs: (119)
+msgid "(Double-click to clear error message)"
+msgstr "(برای پاک کردن پیغام خطا دو-بار کلیک کنید)"
 
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
@@ -2642,9 +2646,8 @@ msgid "Copy all information to clipboard"
 msgstr "تمام اطلاعات به کلیپ بوردکپی شود "
 
 #. Resource IDs: (146)
-#, fuzzy
 msgid "Copy and rename"
-msgstr "توقف در کپی/تغییر نام"
+msgstr "کپی و تغییر نام"
 
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
@@ -2719,14 +2722,14 @@ msgid "Could not add %s to the ignore list!"
 msgstr "عدم موفقیت در اضافه کردن %s به لیست نادیده گرفته ها!"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not add '%s' because"
-msgstr "عدم موفقیت در اضافه کردن \"%s\" بدلیل"
+msgstr "عدم موفقیت در اضافه کردن '%s' بدلیل"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not add property '%s' on '%s' because"
-msgstr "عدم موفقیت در اضافه کردن خصوصیت \"%s\" روی %s چراکه"
+msgstr "عدم موفقیت در اضافه کردن خصوصیت '%s' روی '%s' چراکه"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -2749,14 +2752,14 @@ msgid "Could not create %1 because the directory is full."
 msgstr "ایجاد %1 بدلیل پربودن پوشه ممکن نشد."
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not delete '%s' because"
-msgstr "حذف \"%s\" ممکن نشد بدلیل"
+msgstr "حذف '%s' ممکن نشد بدلیل"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not delete property '%s' on '%s' because"
-msgstr "حذف خصوصیت \"%s\" از %s ممکن نشد چرا که"
+msgstr "حذف خصوصیت '%s' از '%s' ممکن نشد چرا که"
 
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
@@ -2767,14 +2770,14 @@ msgid "Could not get the status!"
 msgstr "دریافت وضعیت ممکن نشد!"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not merge '%s' because"
-msgstr "ادغام \"%s\" ممکن نشد بدلیل"
+msgstr "ادغام '%s' ممکن نشد بدلیل"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not merge property '%s' on '%s' because"
-msgstr "ادغام خصوصیت \"%s\" از %s ممکن نشد چرا که"
+msgstr "ادغام خصوصیت '%s' از '%s' ممکن نشد چرا که"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2791,9 +2794,9 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (3867)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not remove %1 because it is the current directory."
-msgstr "Could not remove %1 because it is the current directory."
+msgstr "حذف %1 ممکن نشد زیرا پوشه جاری می باشد."
 
 #. Resource IDs: (82)
 #, c-format
@@ -2810,11 +2813,14 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (66)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
-msgstr "بازیابی بکند %s ازفایل %s نمی توانست تجدیدنظر ممکن نیست! N Patching"
+msgstr ""
+"بازیابی اصلاحیه %s از فایل %s ممکن نشد.\n"
+"ایجاد وصله ممکن نشد!Could not retrieve revision %s of the file %s.\n"
+"Patching is not possible!"
 
 #. Resource IDs: (64)
 #, c-format
@@ -2915,13 +2921,12 @@ msgid "Creates a 'cheap' copy inside the repository used for branches or tagging
 msgstr "یک کپی 'ارزان' داخل مخزن برای استفاده جهت شاخه یا تگ ایجاد می کند"
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid ""
 "Creates a patch file from the differences of the two files\n"
 "Create patch file"
 msgstr ""
-"Creates a patch file from the differences of the two files\n"
-"Create patch file"
+"ایجاد یک فایل وصله از اختلاف در فایل\n"
+"ایجاد فایل وصله"
 
 #. Resource IDs: (10)
 msgid "Creates a repository database at the current location"
@@ -2977,12 +2982,11 @@ msgid "Customize Quick Access Toolbar..."
 msgstr "شخصی سازی نوارابزار دسترسی سریع..."
 
 #. Resource IDs: (3603)
-#, fuzzy
 msgid ""
 "Cut the selection and put it on the Clipboard\n"
 "Cut"
 msgstr ""
-"کپی گزیده به  قراردادن روی کلیپبورد\n"
+"کپی گزیده و قراردادن روی کلیپبورد\n"
 "کپی"
 
 #. Resource IDs: (1279)
@@ -3036,9 +3040,8 @@ msgid "Delete and &ignore %d items by name"
 msgstr "حذف و نادیده گرفتن %d قلم با نام"
 
 #. Resource IDs: (14)
-#, fuzzy
 msgid "Delete and add to &ignore list"
-msgstr "لیست اضافه بنماید ! ignore به % s نمی توانست "
+msgstr "حذف و اضافه کردن به لیست نادیده گرفته ها"
 
 #. Resource IDs: (14)
 #, c-format
@@ -3058,7 +3061,6 @@ msgid "Deleted node"
 msgstr "گره حذف شده "
 
 #. Resource IDs: (15)
-#, fuzzy
 msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "فایل(های) انتخاب شده یا فایل ماسک را به لیست نادیده گرفته ها اضافه میکند"
 
@@ -3067,9 +3069,8 @@ msgid "Deletes files / folders from version control"
 msgstr "حذف کردن فایلها / پوشه ها از سیستم کنترل نسخه ها"
 
 #. Resource IDs: (18)
-#, fuzzy
 msgid "Deletes files / folders from version control but keeps the file"
-msgstr "Deletes files / folders from version control but keeps the file"
+msgstr "حذف فایلها / پوشه ها از کنترل نسخ و نگهداری فایل فاقد نسخه"
 
 #. Resource IDs: (198)
 msgid "Deletes the action log file"
@@ -4025,6 +4026,11 @@ msgstr "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 #, fuzzy
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr ". copy / rename در ( روی ) لغوانتخاب سوابق برای کامل Stop"
+
+#. Resource IDs: (1480)
+#, fuzzy
+msgid "Force the merge"
+msgstr "TortoiseSVN Merge..."
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -8031,6 +8037,11 @@ msgstr "شاخه/تگ..."
 #, c-format
 msgid "Tagged the working copy to %s"
 msgstr "نسخه کاری نشانه گذاری شد به %s"
+
+#. Resource IDs: (80)
+#, fuzzy
+msgid "Tasks"
+msgstr "فعالیتها"
 
 #. Resource IDs: (1064)
 msgid "Tasks Pane"
