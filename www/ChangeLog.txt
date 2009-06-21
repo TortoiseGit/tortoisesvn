@@ -1,3 +1,41 @@
+Version 1.6.3
+- NEW: All binaries are now digitally signed. (Stefan)
+- CHG: Some small improvements to the status cache. (Stefan)
+- CHG: When diffing from the log dialog, the peg revision is set to
+       the selected revision instead of HEAD. (Stefan)
+- CHG: Deleted folders are not removed from the filesystem but only marked
+       as deleted so they can be committed separately. (Stefan)
+- CHG: Change merges to be non-forced. (Stefan)
+- CHG: Performance improvment in TortoiseMerge when showing 
+       long lines. (Stefan)
+- BUG: If a commit failed, TSVN could crash in case the svn library returned
+       an empty error object. (Stefan)
+- BUG: The merge options to ignore whitespaces were ignored. (Stefan)
+- BUG: The switch dialog allowed an empty url. (Stefan)
+- BUG: bugtraq: texts in the commit dialog were colored/linked wrong
+       if the second regex matched not at the end of the first regex. (Stefan)
+- BUG: The status cache didn't release open handles long enough for
+       drives to be able to unmount without force. (Stefan)
+- BUG: The url browse button in the checkout/export dialog wasn't enabled
+       even if an url was entered to browse for. (Stefan)
+- BUG: A checkout could fail due to a wrong peg revision. (Stefan)
+- BUG: The status cache could fail to monitor working copies 
+       for changes. (Stefan)
+- BUG: An incomplete info text was shown for tree conflicts 
+       "incoming add upon merge". (Stefan)
+- BUG: The status cache exclude list wasn't used the first five minutes
+       after a restart. (Stefan)
+- BUG: At the end of a merge, possible conflicts were not mentioned
+       in the 'finished' message. (Stefan)
+- BUG: possible crash in the progress dialog. (Stefan)
+- BUG: The check state in the commit dialog could get lost after a failed
+       commit if there were checked items in changelists. (Stefan)
+- BUG: A failed merge could have restarted without notice. (Stefan)
+- BUG: Diffing a file added remotely in the Check-for-modifications dialog
+       did not work. (Stefan)
+- BUG: EOLs could be lost when editing removed lines 
+       in TortoiseMerge. (Stefan)
+
 Version 1.6.2
 - BUG: Error message about non-LF commit messages when using messages with
        non-ASCII text. (Stefan)
