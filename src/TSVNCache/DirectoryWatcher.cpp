@@ -329,6 +329,7 @@ void CDirectoryWatcher::WorkerThread()
 						CloseHandle(hDir);
 						ClearInfoMap();
 						CleanupWatchInfo();
+						Sleep(200);
 						break;
 					}
 
