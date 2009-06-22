@@ -480,6 +480,17 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 				return m_mostRecentStatus;
 			}
 		}
+		cachedDir = GetDirectoryCacheEntry(path.GetDirectory());
+		if (cachedDir != NULL)
+		{
+			CStatusCacheEntry entry = cachedDir->GetStatusForMember(path, bRecursive, bFetch);
+			{
+				AutoLocker lock(m_critSec);
+				m_mostRecentStatus = entry;
+				return m_mostRecentStatus;
+			}
+		}
+
 	}
 	AutoLocker lock(m_critSec);
 	m_mostRecentStatus = CStatusCacheEntry();

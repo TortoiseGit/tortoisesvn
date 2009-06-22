@@ -59,6 +59,10 @@ Version 1.6.3
 - BUG: EOLs could be lost when editing removed lines 
        in TortoiseMerge. (Stefan)
 
+Version 1.6.3
+- BUG: Included root paths didn't show overlay icons if the drive itself
+       or its parent path was excluded. (Stefan)
+
 Version 1.6.2
 - BUG: Error message about non-LF commit messages when using messages with
        non-ASCII text. (Stefan)
