@@ -27,8 +27,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-03 21:53+0200\n"
-"Last-Translator: Bob Hulst <bob.hulst@hiq.fi>\n"
+"PO-Revision-Date: 2009-06-23 21:50+0100\n"
+"Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -225,13 +225,13 @@ msgstr "%s, maar het was versperd in de werkkopie."
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export (%d) of %s"
-msgstr "%s\\Export (%d) van %s"
+msgid "%s\\%s - Export"
+msgstr "%s\\%s - Export"
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export of %s"
-msgstr "%s\\Export van %s"
+msgid "%s\\%s - Export (%d)"
+msgstr "%s\\%s - Export (%d)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -1157,6 +1157,10 @@ msgstr "'skip ranges' worden gebruikt om revisie-bereiken te markeren die nog ni
 #, c-format
 msgid "(%s) %s"
 msgstr "(%s) %s"
+
+#. Resource IDs: (119)
+msgid "(Double-click to clear error message)"
+msgstr "(Dubbelklikken om de foutmelding te verbergen)"
 
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
@@ -3133,6 +3137,10 @@ msgstr ""
 "Schakel deze optie uit als U zeer grote werkkopieën heeft en last heeft\r\n"
 "van te hoog schrijfgebruik bij het bladeren door de werkkopie."
 
+#. Resource IDs: (596)
+msgid "Discards local changes upon incoming deletes"
+msgstr "Verwijdert lokale wijzigingen bij inkomende wis-opdrachten"
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Disk full while accessing %1."
@@ -3975,6 +3983,14 @@ msgstr "Druk op F1 voor hulp. Horizontaal scrollen gaat met Ctrl-Scrollwiel"
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "Deactiveer 'Stoppen bij kopie/hernoemd bestand' voor de volledige historie"
+
+#. Resource IDs: (279)
+msgid "Force"
+msgstr "Forceer"
+
+#. Resource IDs: (1480)
+msgid "Force the merge"
+msgstr "Forceer het samenvoegen"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5268,8 +5284,8 @@ msgstr "Samenvoegen"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s"
-msgstr "%s samenvoegen in %s, %s"
+msgid "Merging %s into %s, %s%s"
+msgstr "%s samenvoegen in %s, %s%s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -5277,8 +5293,8 @@ msgstr "Verschillen tussen archief URLs worden samengevoegd"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr "Samenvoegen van %s, revisie %s tot %s, revisie %s in %s, %s%s"
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
+msgstr "Samenvoegen van %s, revisie %s tot %s, revisie %s in %s, %s%s%s"
 
 #. Resource IDs: (264)
 #, c-format
@@ -5296,8 +5312,8 @@ msgstr "Voor samenvoegen zijn verschillende revisies of URLs nodig in 'Van:' en 
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s"
-msgstr "Revisies %s van %s samenvoegen in %s, %s%s"
+msgid "Merging revisions %s of %s into %s, %s%s%s"
+msgstr "Revisies %s van %s samenvoegen in %s, %s%s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
