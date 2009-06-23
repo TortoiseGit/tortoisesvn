@@ -205,12 +205,12 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	if (g_SVNAdminDir.IsVSNETHackActive())
 	{
 		entriesFilePath.AppendPathString(g_SVNAdminDir.GetVSNETAdminDirName() + _T("\\entries"));
-		propsDirPath.AppendPathString(g_SVNAdminDir.GetVSNETAdminDirName() + _T("\\dir-props"));
+		propsDirPath.AppendPathString(g_SVNAdminDir.GetVSNETAdminDirName() + _T("\\dir-prop-base"));
 	}
 	else
 	{
 		entriesFilePath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\entries"));
-		propsDirPath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\dir-props"));
+		propsDirPath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\dir-prop-base"));
 	}
 	if ( (m_entriesFileTime == entriesFilePath.GetLastWriteTime()) && ((entriesFilePath.GetLastWriteTime() == 0) || (m_propsFileTime == propsDirPath.GetLastWriteTime())) )
 	{
