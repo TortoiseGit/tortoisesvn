@@ -812,10 +812,10 @@ CStatusCacheEntry CCachedDirectory::GetOwnStatus(bool bRecursive)
 
 void CCachedDirectory::RefreshStatus(bool bRecursive)
 {
-	CacheEntryMap copymap;
 	// Make sure that our own status is up-to-date
 	GetStatusForMember(m_directoryPath,bRecursive);
 
+	CTSVNPathList updatePathList;
 	DWORD now = GetTickCount();
 	{
 		AutoLocker lock(m_critSec);
@@ -823,37 +823,32 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 		if (m_entryCache.size() == 0)
 			return;
 
-		// create a copy of m_entryCache. This works because all members of CStatusCacheEntry
-		// are copied too, and the svn_wc_status2_t is not used below.
-		// for very big maps, this can take some time, but it's much much faster than
-		// restarting the loop below for every GetStatusForMember() call since that call
-		// recreates the m_entryCache map.
-		copymap = m_entryCache;
-	}
-
-	for (CacheEntryMap::iterator itMembers = copymap.begin(); itMembers != copymap.end(); ++itMembers)
-	{
-		if ((itMembers->first)&&(!itMembers->first.IsEmpty()))
+		for (CacheEntryMap::iterator itMembers = m_entryCache.begin(); itMembers != m_entryCache.end(); ++itMembers)
 		{
-			CTSVNPath filePath(m_directoryPath);
-			filePath.AppendPathString(itMembers->first);
-			std::set<CTSVNPath>::iterator refr_it;
-			if (!filePath.IsEquivalentToWithoutCase(m_directoryPath))
+			if ((itMembers->first)&&(!itMembers->first.IsEmpty()))
 			{
-				if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
+				CTSVNPath filePath(m_directoryPath);
+				filePath.AppendPathString(itMembers->first);
+				std::set<CTSVNPath>::iterator refr_it;
+				if (!filePath.IsEquivalentToWithoutCase(m_directoryPath))
 				{
-					// We need to request this item as well
-					GetStatusForMember(filePath,bRecursive);
-				}
-				else if ((bRecursive)&&(itMembers->second.IsDirectory()))
-				{
-					// crawl all sub folders too! Otherwise a change deep inside the
-					// tree which has changed won't get propagated up the tree.
-					CSVNStatusCache::Instance().AddFolderForCrawling(filePath);
+					if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
+					{
+						// We need to request this item as well
+						updatePathList.AddPath(filePath);
+					}
+					else if ((bRecursive)&&(itMembers->second.IsDirectory()))
+					{
+						// crawl all sub folders too! Otherwise a change deep inside the
+						// tree which has changed won't get propagated up the tree.
+						CSVNStatusCache::Instance().AddFolderForCrawling(filePath);
+					}
 				}
 			}
 		}
 	}
+	for (int i = 0; i < updatePathList.GetCount(); ++i)
+		GetStatusForMember(updatePathList[i], bRecursive);
 }
 
 void CCachedDirectory::RefreshMostImportant()
