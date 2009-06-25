@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-05-19 06:41 +0000\n"
-"PO-Revision-Date: 2009-05-25 12:39+0100\n"
+"POT-Creation-Date: 2009-06-07 23:34 +0000\n"
+"PO-Revision-Date: 2009-06-25 17:52+0100\n"
 "Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3288,7 +3288,7 @@ msgstr "Exclude des éléments de la livraison"
 
 #. (para)
 msgid "Sometimes you have versioned files that change frequently but that you really don't want to commit. Sometimes this indicates a flaw in your build process - why are those files versioned? should you be using template files? But occasionally it is inevitable. A classic reason is that your IDE changes a timestamp in the project file every time you build. The project file has to be versioned as it includes all the build settings, but it doesn't need to be committed just because the timestamp changed."
-msgstr ""
+msgstr "Parfois des fichiers sont fréquemment modifiés mais vous ne voulez pas vraiment en faire la livraision. Cela peut montrer une faille dans votre environnement de travail - Pourquoi ces fichiers sont-ils versionnés ? Ne devriez vous pas utiliser des fichiers templates ? Cependant, c'est parfois inévitable. Une cause classique est que votre fichier de projet contient la date et l'heure de la dernière compilation. Le fichier de projet doit être versionné dans la mesure où il contient toutes les propriétés de compilation, mais pas nécessairement livré vu que seul ce timestamp a changé."
 
 #. (para)
 msgid "To help out in awkward cases like this, we have reserved a changelist called <literal>ignore-on-commit</literal>. Any file added to this changelist will automatically be unchecked in the commit dialog. You can still commit changes, but you have to select it manually in the commit dialog."
@@ -3624,11 +3624,11 @@ msgstr "Conflits dans l'arborescence"
 
 #. (para)
 msgid "A tree conflict occurs when a developer moved/renamed/deleted a file or folder, which another developer either also has moved/renamed/deleted or just modified. There are many different situations that can result in a tree conflict, and all of them require different steps to resolve the conflict."
-msgstr ""
+msgstr "Un conflit dans l'arborescence est causé quand un développeur déplace/renomme/supprime un fichier ou un répertoire, qu'un autre développeur a également déplacé/renommé/supprimé ou juste modifé. Plusieurs situations peuvent générer un conflit d'arborescence, et chacune a une solution différente."
 
 #. (para)
 msgid "When a file is deleted locally in Subversion, the file is also deleted from the local file system, so even if it is part of a tree conflict it cannot show a conflicted overlay and you cannot right click on it to resolve the conflict. Use the <guilabel>Check for Modifications</guilabel> dialog instead to access the <guilabel>Edit conflicts</guilabel> option."
-msgstr ""
+msgstr "Dans Subversion, lorsque qu'un fichier est supprimé, il l'est aussi localement, de ce fait, même s'il génère un conflit d'arborescence, aucune action de résolution de conflit de ne peut être effectuée grâce au menu contextuel du click droit. Utilisez la fenêtre <guilabel>Vérifier les Modifications</guilabel> à la place pour pouvoir accéder aux options <guilabel>Edition des conflits</guilabel>."
 
 #. (para)
 msgid "TortoiseSVN can help find the right place to merge changes, but there may be additional work required to sort out the conflicts. Remember that after an update the working BASE will always contain the revision of each item as it was in the repository at the time of update. If you revert a change after updating it goes back to the repository state, not to the way it was when you started making your own local changes."
@@ -4387,9 +4387,8 @@ msgstr "Si vous voulez juste avoir un aperçu d'un fichier ou d'un répertoire d
 
 #. (term)
 #. (term)
-#, fuzzy
 msgid "Revert changes from this revision"
-msgstr "Comparaison avec une précédente révision "
+msgstr "Annuler les modification pour revenir à cette révision"
 
 #. (para)
 #, fuzzy
@@ -4546,7 +4545,6 @@ msgid "Blame the selected revision and the previous revision for the selected fi
 msgstr "Annoter la révision sélectionnée et la révision précédente pour le fichier choisi et afficher les différences en utilisant un outil de différenciation visuel. Lisez <xref linkend=\"tsvn-dug-blame-diffs\"/> pour plus de détails."
 
 #. (term)
-#, fuzzy
 msgid "Show as unified diff"
 msgstr "Voir comme des différences unifiées"
 
@@ -4675,7 +4673,7 @@ msgid "Because the log dialog shows you the log from HEAD, not from the current 
 msgstr ""
 
 #. (para)
-msgid "By default this only works for files. This is because the update revision for a folder may not correspond to the update revision of its content, and the only way to find the effective update revision for the folder is to crawl the working copy. This can be a slow operation for large working copies so if you want to enable this feature you must create a <literal>DWORD</literal> registry key with value 1 at <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal>."
+msgid "When you show the log for a folder the revision highlighted is the highest revision found anywhere within that folder, which requires a crawl of the working copy. The crawl takes place within a separate thread so as not to delay showing the log, but as a result highlighting for folders may not appear immediately."
 msgstr ""
 
 #. (title)
@@ -4700,7 +4698,7 @@ msgstr "Si vous voulez voir quelles révisions ont été fusionnées dans un com
 
 #. (para)
 msgid "Of course, merging is never simple! During feature development on the branch there will probably be occasional merges back from trunk to keep the branch in sync with the main line code. So the merge history of the branch will also include another layer of merge history. These different layers are shown in the log dialog using indentation levels."
-msgstr ""
+msgstr "Bien sûr, fusionner n'est jamais une mince affaire ! Pendant le développement des fonctionnalités dans une branche il y aura sûrement des fusions à faire avec la tête pour que la branche reste synchronisée avec la version de tête. Donc l'historique des fusions de la branche incluera une autre couche d'historique des fusions. Ces différentes couches sont affichées dans la fenêtre de log avec une indentation différente."
 
 #. (title)
 msgid "Changing the Log Message and Author"
@@ -4720,7 +4718,7 @@ msgstr "revprops"
 
 #. (para)
 msgid "Revision properties are completely different from the Subversion properties of each item. Revprops are descriptive items which are associated with one specific revision number in the repository, such as log message, commit date and committer name (author)."
-msgstr ""
+msgstr "Les propriétés des révisions sont complètement différentes des propriétés de Subversion de chaque élément. Les Revprops sont des éléments descriptifs qui sont associés à un numéro de révision spécifique dans le référentiel, comme les messages d'information, date de livraison et nom de la personne ayant livrés (auteur)."
 
 #. (para)
 msgid "Sometimes you might want to change a log message you once entered, maybe because there's a spelling error in it or you want to improve the message or change it for other reasons. Or you want to change the author of the commit because you forgot to set up authentication or..."
@@ -7592,19 +7590,19 @@ msgstr ""
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphCollapse.png\"/> Click on the minus button to collapse the attached sub-tree."
-msgstr ""
+msgstr "<graphic fileref=\"../images/RevGraphCollapse.png\"/> Cliquez sur le bouton \"moins\" pour réduire la sous arborescence."
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphExpand.png\"/> Click on the plus button to expand a collapsed tree. When a tree has been collapsed, this button remains visible to indicate the hidden sub-tree."
-msgstr ""
+msgstr "<graphic fileref=\"../images/RevGraphExpand.png\"/> Cliquez sur le bouton \"plus\" pour développer une sous arborescence. Quand une arborescence a été réduite, ce bouton reste pour montrer la sous arborescence cachée."
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphSplit.png\"/> Click on the cross button to split the attached sub-tree and show it as a separate tree on the graph."
-msgstr ""
+msgstr "<graphic fileref=\"../images/RevGraphSplit.png\"/> Cliquez sur le bouton \"croix\" pour séparer la sous arborescence et l'afficher comme une arborescence séparée."
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphJoin.png\"/> Click on the circle button to reattach a split tree. When a tree has been split away, this button remains visible to indicate that there is a separate sub-tree."
-msgstr ""
+msgstr "<graphic fileref=\"../images/RevGraphJoin.png\"/> Cliquez sur le bouton \"rond\" pour ré-attacher une sous arborescence préalablement séparée. Quand une arborescence a été séparée, ce bouton reste visible pouir indiquer qu'il y a une sous arborescence séparée."
 
 #. (para)
 msgid "Click on the graph background for the main context menu, which offers options to <guilabel>Expand all</guilabel> and <guilabel>Join all</guilabel>. If no branch has been collapsed or split, the context menu will not be shown."
@@ -9599,7 +9597,7 @@ msgid "Current revision highlighting for folders in log dialog"
 msgstr "Mise en valeur de la version courante des répertoires dans la fenêtre de log."
 
 #. (para)
-msgid "The log dialog highlights the current working copy revision when the log is shown for a file. To do the same thing for a folder requires a working copy crawl, which can be a slow operation for large working copies. If you want to enable this feature you must create a <literal>DWORD</literal> registry key at <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal>. A value of 0 disables the feature (no highlighting for folders), a value of 1 (default) will fetch the status recursively (find the highest revision in the working copy tree), and a value of 2 will check the revision of the selected folder itself, but will not check any child items."
+msgid "The log dialog highlights the current working copy revision when the log is shown for a file. To do the same thing for a folder requires a working copy crawl, which can be a slow operation for large working copies. However the crawling is done in a separate thread so it doesn't hold up the display of log messages. For <emphasis>really</emphasis> large working copies the disk chatter might be annoying, so if you really want to disable this you must create a <literal>DWORD</literal> registry key at <literal>HKCU\\Software\\TortoiseSVN\\LogStatusCheck</literal>. A value of 0 disables the feature (no highlighting for folders)."
 msgstr ""
 
 #. (term)
@@ -12621,6 +12619,16 @@ msgid ""
 "  [out, retval] BSTR * errorMessage\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT CheckCommit (\n"
+"  [in] HWND hParentWnd,\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"  [in] BSTR commitMessage,\n"
+"  [out, retval] BSTR * errorMessage\n"
+");\n"
 
 #. (para)
 msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
@@ -12667,6 +12675,11 @@ msgid ""
 "  [out, retval] VARIANT_BOOL *ret\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT HasOptions(\n"
+"  // Si le fournisseur fournit des options\n"
+"  [out, retval] VARIANT_BOOL *ret\n"
+");\n"
 
 #. (para)
 msgid "<placeholder-1/> This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
