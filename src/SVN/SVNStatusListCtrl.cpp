@@ -1114,7 +1114,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
 			{
 				if (entry->GetPath().IsEquivalentTo(checkedList[npath]))
 				{
-					if ((bAllowCheck)&&(!entry->IsFromDifferentRepository()))
+					if (!entry->IsFromDifferentRepository())
 						entry->checked = true;
 					break;
 				}
