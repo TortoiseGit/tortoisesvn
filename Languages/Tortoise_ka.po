@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-06 01:46+0300\n"
+"PO-Revision-Date: 2009-06-26 06:46+0300\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -216,13 +216,13 @@ msgstr "%s, თუმცა ხელის შემშლელი იყო �
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export (%d) of %s"
-msgstr "%s\\ექსპორტი (%d) - %s-დან"
+msgid "%s\\%s - Export"
+msgstr "%s\\%s - ექსპორტი"
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export of %s"
-msgstr "%s\\ექსპორტი - %s"
+msgid "%s\\%s - Export (%d)"
+msgstr "%s\\%s - ექსპორტი (%d)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -1148,6 +1148,10 @@ msgstr "'გამოტოვებული დიაპაზონები'
 #, c-format
 msgid "(%s) %s"
 msgstr "(%s) %s"
+
+#. Resource IDs: (119)
+msgid "(Double-click to clear error message)"
+msgstr "(ორმაგი დაწკაპვა შეცდომის შეტყობინების ამოსაღებად)"
 
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
@@ -3127,6 +3131,10 @@ msgstr ""
 "გამორთეთ ეს პარამეტრი თუ მართლაც დიდი სამუშაო ასლები\r\n"
 "მის წასაკითხად დისკზე მეტისმეტად ინტენსიური მიმართვაა საჭირო."
 
+#. Resource IDs: (596)
+msgid "Discards local changes upon incoming deletes"
+msgstr "ლოკალური ცვლილებების გაუქმება შემოსული წაშლებისას"
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Disk full while accessing %1."
@@ -3968,6 +3976,14 @@ msgstr "დახმარებისთვის დააჭირეთ F1-�
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "სრულის ისტორიისთვის ამორთეთ «შეჩერება კოპირება/გადარქმევისას»"
+
+#. Resource IDs: (279)
+msgid "Force"
+msgstr "იძულება"
+
+#. Resource IDs: (1480)
+msgid "Force the merge"
+msgstr "იძულებითი შერწყმა"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5300,8 +5316,8 @@ msgstr "შერწყმა"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s"
-msgstr "შერწყმა %s - %s, %s"
+msgid "Merging %s into %s, %s%s"
+msgstr "შერწყმა %s - %s, %s%s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -5309,8 +5325,8 @@ msgstr "საცავების მისამართებსშორ�
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr "შერწყმა აქედან %s, ვერსია %s ვერსიაში %s, ვერსია %s აქ %s, %s%s"
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
+msgstr "შერწყმა აქედან %s, ვერსია %s ვერსიაში %s, ვერსია %s ვერსიაში %s, %s%s%s"
 
 #. Resource IDs: (264)
 #, c-format
@@ -5328,8 +5344,8 @@ msgstr "შერწყმა საჭიროებს 'ვისგან:' 
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s"
-msgstr "ვერსიების შერწყმა %s, სულ %s-დან - %s, %s%s"
+msgid "Merging revisions %s of %s into %s, %s%s%s"
+msgstr "ვერსიების შერწყმა %s აქედან %s აქ %s, %s%s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
