@@ -66,6 +66,7 @@ BEGIN_MESSAGE_MAP(CCheckoutDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_SHOW_LOG, OnBnClickedShowlog)
 	ON_EN_CHANGE(IDC_REVISION_NUM, &CCheckoutDlg::OnEnChangeRevisionNum)
 	ON_CBN_EDITCHANGE(IDC_URLCOMBO, &CCheckoutDlg::OnCbnEditchangeUrlcombo)
+	ON_CBN_SELCHANGE(IDC_DEPTH, &CCheckoutDlg::OnCbnSelchangeDepth)
 END_MESSAGE_MAP()
 
 BOOL CCheckoutDlg::OnInitDialog()
@@ -414,3 +415,22 @@ void CCheckoutDlg::OnCbnEditchangeUrlcombo()
 	DialogEnableWindow(IDOK, !m_strCheckoutDirectory.IsEmpty());
 }
 
+
+void CCheckoutDlg::OnCbnSelchangeDepth()
+{
+	// http://subversion.tigris.org/issues/show_bug.cgi?id=3311
+	bool bOmitExternals = false;
+	switch (m_depthCombo.GetCurSel())
+	{
+	case 0:
+		//svn_depth_infinity
+		bOmitExternals = false;
+		break;
+	default:
+		bOmitExternals = true;
+		break;
+	}
+	m_bNoExternals = bOmitExternals;
+	UpdateData(FALSE);
+	GetDlgItem(IDC_NOEXTERNALS)->EnableWindow(!bOmitExternals);
+}
