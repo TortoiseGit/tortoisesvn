@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2009-04-16 13:58+0200\n"
+"PO-Revision-Date: 2009-06-28 15:29+0200\n"
 "Last-Translator: Bob Hulst <bob.hulst@hiq.fi>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4293,7 +4293,7 @@ msgid "Because the log dialog shows you the log from HEAD, not from the current 
 msgstr ""
 
 #. (para)
-msgid "By default this only works for files. This is because the update revision for a folder may not correspond to the update revision of its content, and the only way to find the effective update revision for the folder is to crawl the working copy. This can be a slow operation for large working copies so if you want to enable this feature you must create a <literal>DWORD</literal> registry key with value 1 at <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal>."
+msgid "When you show the log for a folder the revision highlighted is the highest revision found anywhere within that folder, which requires a crawl of the working copy. The crawl takes place within a separate thread so as not to delay showing the log, but as a result highlighting for folders may not appear immediately."
 msgstr ""
 
 #. (title)
@@ -5598,6 +5598,18 @@ msgstr ""
 
 #. (para)
 msgid "An example: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> Will catch everything after <quote>[SUMMARY]</quote> in the log message and use that as the summary."
+msgstr ""
+
+#. (para)
+msgid "The property <literal>tsvn:logrevregex</literal> defines a regular expression which matches references to revisions in a log message. This is used in the log dialog to turn such references into links which when clicked will either scroll to that revision (if the revision is already shown in the log dialog, or if it's available from the log cache) or open a new log dialog showing that revision."
+msgstr ""
+
+#. (para)
+msgid "The regular expression must match the whole reference, not just the revision number. The revision number is extracted from the matched reference string automatically."
+msgstr ""
+
+#. (para)
+msgid "If this property is not set, a default regular expression is used to link revision references."
 msgstr ""
 
 #. (para)
@@ -7758,6 +7770,10 @@ msgstr ""
 msgid "If this box is checked (default state), then whenever the status of an unversioned folder is shown in the <guilabel>Add</guilabel>, <guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> dialog, every child file and folder is also shown. If you uncheck this box, only the unversioned parent is shown. Unchecking reduces clutter in these dialogs. In that case if you select an unversioned folder for Add, it is added recursively."
 msgstr ""
 
+#. (para)
+msgid "In the <guilabel>Check for Modifications</guilabel> dialog you can opt to see ignored items. If this box is checked then whenever an ignored folder is found, all child items will be shown as well."
+msgstr ""
+
 #. (term)
 msgid "Use auto-completion of file paths and keywords"
 msgstr ""
@@ -9027,7 +9043,7 @@ msgid "Current revision highlighting for folders in log dialog"
 msgstr ""
 
 #. (para)
-msgid "The log dialog highlights the current working copy revision when the log is shown for a file. To do the same thing for a folder requires a working copy crawl, which can be a slow operation for large working copies. If you want to enable this feature you must create a <literal>DWORD</literal> registry key at <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal>. A value of 0 disables the feature (no highlighting for folders), a value of 1 (default) will fetch the status recursively (find the highest revision in the working copy tree), and a value of 2 will check the revision of the selected folder itself, but will not check any child items."
+msgid "The log dialog highlights the current working copy revision when the log is shown for a file. To do the same thing for a folder requires a working copy crawl, which can be a slow operation for large working copies. However the crawling is done in a separate thread so it doesn't hold up the display of log messages. For <emphasis>really</emphasis> large working copies the disk chatter might be annoying, so if you really want to disable this you must create a <literal>DWORD</literal> registry key at <literal>HKCU\\Software\\TortoiseSVN\\LogStatusCheck</literal>. A value of 0 disables the feature (no highlighting for folders)."
 msgstr ""
 
 #. (term)
@@ -10374,11 +10390,7 @@ msgid "<option>/closeonend:3</option> auto close if no errors, conflicts and mer
 msgstr ""
 
 #. (para)
-msgid "<option>/closeonend:4</option> auto close if no errors, conflicts and merges for local operations"
-msgstr ""
-
-#. (para)
-msgid "To close the progress dialog at the end of a command automatically without using the permanent setting you can pass the <option>/closeonend</option> parameter. <placeholder-1/>"
+msgid "To close the progress dialog at the end of a command automatically without using the permanent setting you can pass the <option>/closeonend</option> parameter. <placeholder-1/> To close the progress dialog for local operations if there were no errors or conflicts, pass the <option>/closeforlocal</option> parameter."
 msgstr ""
 
 #. (para)
@@ -10657,8 +10669,18 @@ msgstr ""
 msgid "Opens the help file."
 msgstr "Opent het help bestand."
 
+#. (option)
+#, fuzzy
+msgid "/remote"
+msgstr "haal weg"
+
+#. (guilabel)
+#, fuzzy
+msgid "Check repository"
+msgstr "Het Archief"
+
 #. (entry)
-msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory."
+msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory. If <placeholder-2/> is specified, the dialog contacts the repository immediately on startup, as if the user clicked on the <placeholder-3/> button."
 msgstr ""
 
 #. (option)
