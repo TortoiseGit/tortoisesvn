@@ -25,6 +25,8 @@ Version 1.6.4
 - CHG: Improved startup performance of the log cache. (Stefan)
 - CHG: The check state in the commit dialog is now preserved
        unconditionally after a failed commit. (Stefan)
+- BUG: The export dialog showed the wrong url when exporting from
+       the log dialog. (Stefan)
 
 Version 1.6.3
 - NEW: All binaries are now digitally signed. (Stefan)

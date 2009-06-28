@@ -103,13 +103,16 @@ BOOL CExportDlg::OnInitDialog()
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 
+	// save the provided url since the url combo
+	// will change that below
+	CString origurl = m_URL;
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
 	m_URLCombo.SetCurSel(0);
 
-	if (!m_URL.IsEmpty())
+	if (!origurl.IsEmpty())
 	{
-		m_URLCombo.SetWindowText(m_URL);
+		m_URLCombo.SetWindowText(origurl);
 	}
 	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
@@ -124,8 +127,8 @@ BOOL CExportDlg::OnInitDialog()
 
 	m_editRevision.SetWindowText(_T(""));
 
-	if (!m_URL.IsEmpty())
-		m_URLCombo.SetWindowText(m_URL);
+	if (!origurl.IsEmpty())
+		m_URLCombo.SetWindowText(origurl);
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_CHECKOUTDIRECTORY, IDS_CHECKOUT_TT_DIR);
