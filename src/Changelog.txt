@@ -27,6 +27,8 @@ Version 1.6.4
        unconditionally after a failed commit. (Stefan)
 - BUG: The export dialog showed the wrong url when exporting from
        the log dialog. (Stefan)
+- BUG: The /fromurl parameter for the merge dialog was not used if the
+       option "use wc url as from: url" was not set. (Stefan)
 
 Version 1.6.3
 - NEW: All binaries are now digitally signed. (Stefan)

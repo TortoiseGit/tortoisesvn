@@ -71,12 +71,15 @@ END_MESSAGE_MAP()
 BOOL CMergeWizardReintegrate::OnInitDialog()
 {
 	CMergeWizardBasePage::OnInitDialog();
+	CMergeWizard * pWizard = (CMergeWizard*)GetParent();
 
 	CString sUUID = ((CMergeWizard*)GetParent())->sUUID;
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
 	if (!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE))
 		m_URLCombo.SetCurSel(0);
+	if (!pWizard->URL1.IsEmpty())
+		m_URLCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->URL1));
 	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
 	SetDlgItemText(IDC_WCEDIT, ((CMergeWizard*)GetParent())->wcPath.GetWinPath());
