@@ -1204,8 +1204,10 @@ CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath
 	// to avoid string length comparison faults, we adjust
 	// the repository root here to match the initial url
 
-    if (svnURLPath.Left(9).CompareNoCase("file:///\\") == 0)
-        svnURLPath.Delete (7, 2);
+	if (URL.Left(9).CompareNoCase("file:///\\") == 0)
+		URL.Delete (7, 2);
+	if (svnURLPath.Left(9).CompareNoCase("file:///\\") == 0)
+		svnURLPath.Delete (7, 2);
 
     CStringA relPath = svnURLPath.Mid (URL.GetLength());
 	relPath = CPathUtils::PathUnescape (relPath);
