@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-06-07 23:34 +0000\n"
+"POT-Creation-Date: 2009-07-03 22:44 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2330,6 +2330,7 @@ msgid "Checking Out A Working Copy"
 msgstr ""
 
 #.(primary)
+#.(literal)
 msgid "checkout"
 msgstr ""
 
@@ -2484,6 +2485,7 @@ msgid "Committing Your Changes To The Repository"
 msgstr ""
 
 #.(primary)
+#.(literal)
 msgid "commit"
 msgstr ""
 
@@ -2726,6 +2728,7 @@ msgstr ""
 
 #.(primary)
 #.(primary)
+#.(literal)
 msgid "update"
 msgstr ""
 
@@ -4141,6 +4144,7 @@ msgstr ""
 
 #.(primary)
 #.(primary)
+#.(literal)
 msgid "diff"
 msgstr ""
 
@@ -6136,6 +6140,7 @@ msgid "Who Changed Which Line?"
 msgstr ""
 
 #.(primary)
+#.(literal)
 msgid "blame"
 msgstr ""
 
@@ -6721,6 +6726,7 @@ msgid "Exporting a Subversion Working Copy"
 msgstr ""
 
 #.(primary)
+#.(literal)
 msgid "export"
 msgstr ""
 
@@ -9713,6 +9719,7 @@ msgstr ""
 
 #.(primary)
 #.(primary)
+#.(primary)
 msgid "automation"
 msgstr ""
 
@@ -10124,6 +10131,63 @@ msgstr ""
 
 #.(para)
 msgid "Examples (which should be entered on one line): <screen>\nTortoiseProc.exe /command:commit\n                 /path:\"c:\\svn_wc\\file1.txt*c:\\svn_wc\\file2.txt\"\n                 /logmsg:\"test log message\" /closeonend:0\n\nTortoiseProc.exe /command:update /path:\"c:\\svn_wc\\\" /closeonend:0\n\nTortoiseProc.exe /command:log /path:\"c:\\svn_wc\\file1.txt\"\n                 /startrev:50 /endrev:60 /closeonend:0\n</screen>"
+msgstr ""
+
+#.(title)
+msgid "Tsvncmd URL handler"
+msgstr ""
+
+#.(primary)
+msgid "URL handler"
+msgstr ""
+
+#.(para)
+msgid "Using special URLs, it is also possible to call TortoiseProc from a web page."
+msgstr ""
+
+#.(para)
+msgid "TortoiseSVN registers a new protocol <literal>tsvncmd:</literal> which can be used to create hyperlinks that execute TortoiseSVN commands. The commands and parameters are the same as when automating TortoiseSVN from the command line."
+msgstr ""
+
+#.(para)
+msgid "The format of the <literal>tsvncmd:</literal> URL is like this:"
+msgstr ""
+
+#.(literal)
+msgid "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
+msgstr ""
+
+#.(para)
+msgid "with <literal>cmd</literal> being one of the allowed commands and with <literal>parameter</literal> being a parameter like <literal>path</literal> or <literal>revision</literal>, depending on the command used."
+msgstr ""
+
+#.(literal)
+msgid "repobrowser"
+msgstr ""
+
+#.(literal)
+msgid "repostatus"
+msgstr ""
+
+#.(literal)
+msgid "revisiongraph"
+msgstr ""
+
+#.(literal)
+msgid "showcompare"
+msgstr ""
+
+#.(para)
+msgid "The following commands are allowed with <literal>tsvncmd:</literal> URLs: <placeholder-1/>"
+msgstr ""
+
+#.(programlisting)
+#, no-wrap
+msgid "\n&lt;a href=\"tsvncmd:command:showcompare?\nurl1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\nurl2:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\nrevision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
+msgstr ""
+
+#.(para)
+msgid "An example URL might look like this: <placeholder-1/>"
 msgstr ""
 
 #.(title)
@@ -10664,6 +10728,10 @@ msgstr ""
 
 #.(para)
 msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which can be found at <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
+msgstr ""
+
+#.(para)
+msgid "You can also watch a video tutorial created by Maximo Migliari which takes you through all the important steps. Watch it on <ulink url=\"http://www.vimeo.com/5378553\"><citetitle>Vimeo</citetitle></ulink>. or <ulink url=\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</citetitle></ulink>."
 msgstr ""
 
 #.(title)
