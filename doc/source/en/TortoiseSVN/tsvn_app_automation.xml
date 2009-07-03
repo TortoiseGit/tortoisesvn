@@ -530,15 +530,15 @@ TortoiseProc.exe /command:log /path:"c:\svn_wc\file1.txt"
 	<!-- ======================== SECTION 1 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-automation-urlhandler">
-		<title>tsvncmd url handler</title>
+		<title>Tsvncmd URL handler</title>
 		<indexterm>
 			<primary>automation</primary>
 		</indexterm>
 		<indexterm>
-			<primary>url handler</primary>
+			<primary>URL handler</primary>
 		</indexterm>
 		<para>
-			Using special urls, it is also possible to call TortoiseProc from
+			Using special URLs, it is also possible to call TortoiseProc from
 			a web page.
 		</para>
 		<para>
@@ -548,10 +548,10 @@ TortoiseProc.exe /command:log /path:"c:\svn_wc\file1.txt"
 			from the command line.
 		</para>
 		<para>
-			The format of the tsvncmd: url is like this:
+			The format of the <literal>tsvncmd:</literal> URL is like this:
 		</para>
 		<para>
-			tsvncmd:command:<literal>cmd</literal>?parameter:paramvalue?parameter:paramvalue
+			<literal>tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue</literal>
 		</para>
 		<para>
 			with <literal>cmd</literal> being one of the allowed commands and
@@ -559,22 +559,22 @@ TortoiseProc.exe /command:log /path:"c:\svn_wc\file1.txt"
 			or <literal>revision</literal>, depending on the command used.
 		</para>
 		<para>
-			The following commands are allowed with tsvncmd: urls:
+			The following commands are allowed with <literal>tsvncmd:</literal> URLs:
 			<itemizedlist>
-				<listitem>update</listitem>
-				<listitem>commit</listitem>
-				<listitem>diff</listitem>
-				<listitem>repobrowser</listitem>
-				<listitem>checkout</listitem>
-				<listitem>export</listitem>
-				<listitem>blame</listitem>
-				<listitem>repostatus</listitem>
-				<listitem>revisiongraph</listitem>
-				<listitem>showcompare</listitem>
+				<listitem><literal>update</literal></listitem>
+				<listitem><literal>commit</literal></listitem>
+				<listitem><literal>diff</literal></listitem>
+				<listitem><literal>repobrowser</literal></listitem>
+				<listitem><literal>checkout</literal></listitem>
+				<listitem><literal>export</literal></listitem>
+				<listitem><literal>blame</literal></listitem>
+				<listitem><literal>repostatus</literal></listitem>
+				<listitem><literal>revisiongraph</literal></listitem>
+				<listitem><literal>showcompare</literal></listitem>
 			</itemizedlist>
 		</para>
 		<para>
-			an example url might look like this:
+			An example URL might look like this:
 <programlisting>
 &lt;a href="tsvncmd:command:showcompare?
 url1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?
