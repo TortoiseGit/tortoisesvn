@@ -151,7 +151,7 @@ public:
 	}
 	CacheType GetCacheType()
 	{
-		if ((GetTickCount() - REGISTRYTIMEOUT) > cachetypeticker)
+		if ((GetTickCount() - cachetypeticker) > REGISTRYTIMEOUT)
 		{
 			cachetypeticker = GetTickCount();
 			cachetype.read();
@@ -160,7 +160,7 @@ public:
 	}
 	DWORD BlockStatus()
 	{
-		if ((GetTickCount() - REGISTRYTIMEOUT) > blockstatusticker)
+		if ((GetTickCount() - blockstatusticker) > REGISTRYTIMEOUT)
 		{
 			blockstatusticker = GetTickCount();
 			blockstatus.read();
@@ -169,7 +169,7 @@ public:
 	}
 	unsigned __int64 GetMenuLayout()
 	{
-		if ((GetTickCount() - REGISTRYTIMEOUT) > layoutticker)
+		if ((GetTickCount() - layoutticker) > REGISTRYTIMEOUT)
 		{
 			layoutticker = GetTickCount();
 			menulayoutlow.read();
@@ -181,7 +181,7 @@ public:
 	}
 	unsigned __int64 GetMenuMask()
 	{
-		if ((GetTickCount() - REGISTRYTIMEOUT) > menumaskticker)
+		if ((GetTickCount() - menumaskticker) > REGISTRYTIMEOUT)
 		{
 			menumaskticker = GetTickCount();
 			menumasklow_lm.read();
@@ -197,7 +197,7 @@ public:
 	}
 	BOOL IsRecursive()
 	{
-		if ((GetTickCount() - REGISTRYTIMEOUT)>recursiveticker)
+		if ((GetTickCount() - recursiveticker)>REGISTRYTIMEOUT)
 		{
 			recursiveticker = GetTickCount();
 			showrecursive.read();
@@ -206,7 +206,7 @@ public:
 	}
 	BOOL IsFolderOverlay()
 	{
-		if ((GetTickCount() - REGISTRYTIMEOUT)>folderoverlayticker)
+		if ((GetTickCount() - folderoverlayticker)>REGISTRYTIMEOUT)
 		{
 			folderoverlayticker = GetTickCount();
 			folderoverlay.read();
@@ -215,7 +215,7 @@ public:
 	}
 	BOOL IsSimpleContext()
 	{
-		if ((GetTickCount() - REGISTRYTIMEOUT)>simplecontextticker)
+		if ((GetTickCount() - simplecontextticker)>REGISTRYTIMEOUT)
 		{
 			simplecontextticker = GetTickCount();
 			simplecontext.read();
@@ -224,7 +224,7 @@ public:
 	}
 	BOOL IsUnversionedAsModified()
 	{
-		if ((GetTickCount() - REGISTRYTIMEOUT)>unversionedasmodifiedticker)
+		if ((GetTickCount() - unversionedasmodifiedticker)>REGISTRYTIMEOUT)
 		{
 			unversionedasmodifiedticker = GetTickCount();
 			unversionedasmodified.read();
@@ -233,7 +233,7 @@ public:
 	}
 	BOOL ShowUnversionedOverlay()
 	{
-		if ((GetTickCount() - REGISTRYTIMEOUT)>showunversionedoverlayticker)
+		if ((GetTickCount() - showunversionedoverlayticker)>REGISTRYTIMEOUT)
 		{
 			showunversionedoverlayticker = GetTickCount();
 			showunversionedoverlay.read();
@@ -242,7 +242,7 @@ public:
 	}
 	BOOL ShowIgnoredOverlay()
 	{
-		if ((GetTickCount() - REGISTRYTIMEOUT)>showignoredoverlayticker)
+		if ((GetTickCount() - showignoredoverlayticker)>REGISTRYTIMEOUT)
 		{
 			showignoredoverlayticker = GetTickCount();
 			showignoredoverlay.read();
@@ -251,7 +251,7 @@ public:
 	}
 	BOOL IsGetLockTop()
 	{
-		if ((GetTickCount() - REGISTRYTIMEOUT)>getlocktopticker)
+		if ((GetTickCount() - getlocktopticker)>REGISTRYTIMEOUT)
 		{
 			getlocktopticker = GetTickCount();
 			getlocktop.read();
@@ -260,7 +260,7 @@ public:
 	}
 	BOOL ShowExcludedAsNormal()
 	{
-		if ((GetTickCount() - REGISTRYTIMEOUT)>excludedasnormalticker)
+		if ((GetTickCount() - excludedasnormalticker)>REGISTRYTIMEOUT)
 		{
 			excludedasnormalticker = GetTickCount();
 			excludedasnormal.read();
@@ -359,7 +359,7 @@ public:
 		if ((drivenumber >=0)&&(drivenumber < 25))
 		{
 			drivetype = drivetypecache[drivenumber];
-			if ((drivetype == -1)||((GetTickCount() - DRIVETYPETIMEOUT)>drivetypeticker))
+			if ((drivetype == -1)||((GetTickCount() - drivetypeticker)>DRIVETYPETIMEOUT))
 			{
 				if ((DWORD(drivefloppy) == 0)&&((drivenumber == 0)||(drivenumber == 1)))
 					drivetypecache[drivenumber] = DRIVE_REMOVABLE;
@@ -414,7 +414,7 @@ public:
 	}
 	DWORD GetLangID()
 	{
-		if ((GetTickCount() - REGISTRYTIMEOUT) > langticker)
+		if ((GetTickCount() - langticker) > REGISTRYTIMEOUT)
 		{
 			langticker = GetTickCount();
 			langid.read();
@@ -423,7 +423,7 @@ public:
 	}
 	NUMBERFMT * GetNumberFmt()
 	{
-		if ((GetTickCount() - NUMBERFMTTIMEOUT) > columnrevformatticker)
+		if ((GetTickCount() - columnrevformatticker) > NUMBERFMTTIMEOUT)
 		{
 			TCHAR szBuffer[5];
 			columnrevformatticker = GetTickCount();
@@ -448,7 +448,7 @@ public:
             if (pos != tstring::npos)
                 folder.erase (pos);
 		}
-		if ((GetTickCount() - ADMINDIRTIMEOUT) < admindirticker)
+		if ((GetTickCount() - admindirticker) < ADMINDIRTIMEOUT)
 		{
 			std::map<tstring, BOOL>::iterator iter;
 			sAdminDirCacheKey = folder;
@@ -464,7 +464,7 @@ public:
 	}
 	bool IsColumnsEveryWhere()
 	{
-		if ((GetTickCount() - REGISTRYTIMEOUT) > columnseverywhereticker)
+		if ((GetTickCount() - columnseverywhereticker) > REGISTRYTIMEOUT)
 		{
 			columnseverywhereticker = GetTickCount();
 			columnseverywhere.read();
@@ -474,7 +474,7 @@ public:
 private:
 	void DriveValid()
 	{
-		if ((GetTickCount() - REGISTRYTIMEOUT)>driveticker)
+		if ((GetTickCount() - driveticker)>REGISTRYTIMEOUT)
 		{
 			driveticker = GetTickCount();
 			driveremote.read();
@@ -486,7 +486,7 @@ private:
 	}
 	void ExcludeContextValid()
 	{
-		if ((GetTickCount() - EXCLUDELISTTIMEOUT)>excontextticker)
+		if ((GetTickCount() - excontextticker)>EXCLUDELISTTIMEOUT)
 		{
 			Locker lock(m_critSec);
 			excontextticker = GetTickCount();
@@ -516,7 +516,7 @@ private:
 	}
 	void ExcludeListValid()
 	{
-		if ((GetTickCount() - EXCLUDELISTTIMEOUT)>excludelistticker)
+		if ((GetTickCount() - excludelistticker)>EXCLUDELISTTIMEOUT)
 		{
 			Locker lock(m_critSec);
 			excludelistticker = GetTickCount();
@@ -543,7 +543,7 @@ private:
 			}
 			excludeliststr = (tstring)excludelist;
 		}
-		if ((GetTickCount() - DRIVETYPETIMEOUT)>excludelistticker2)
+		if ((GetTickCount() - excludelistticker2)>DRIVETYPETIMEOUT)
 		{
 			Locker lock(m_critSec);
 			excludelistticker2 = GetTickCount();
@@ -579,7 +579,7 @@ private:
 	}
 	void IncludeListValid()
 	{
-		if ((GetTickCount() - EXCLUDELISTTIMEOUT)>includelistticker)
+		if ((GetTickCount() - includelistticker)>EXCLUDELISTTIMEOUT)
 		{
 			Locker lock(m_critSec);
 			includelistticker = GetTickCount();
