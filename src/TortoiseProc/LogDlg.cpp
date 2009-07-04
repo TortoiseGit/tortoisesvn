@@ -4737,6 +4737,12 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				popup.AppendMenuIcon(ID_GNUDIFF1, IDS_LOG_POPUP_GNUDIFF_CH, IDI_DIFF);
 				bEntryAdded = true;
 			}
+			else if (bOneRev)
+			{
+				popup.AppendMenuIcon(ID_DIFF, IDS_LOG_POPUP_DIFF, IDI_DIFF);
+				popup.SetDefaultItem(ID_DIFF, FALSE);
+				bEntryAdded = true;
+			}
 			if (rev2 == rev1-1)
 			{
 				if (bEntryAdded)
@@ -4778,7 +4784,10 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 		{
 		case ID_DIFF:
 			{
-				DoDiffFromLog(selIndex, rev1, rev2, false, false);
+				if ((!bOneRev)||(IsDiffPossible(changedlogpaths[0], rev1)))
+					DoDiffFromLog(selIndex, rev1, rev2, false, false);
+				else
+					DiffSelectedFile();
 			}
 			break;
 		case ID_BLAMEDIFF:
