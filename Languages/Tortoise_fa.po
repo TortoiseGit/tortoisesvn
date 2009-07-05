@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-23 17:22+0330\n"
+"PO-Revision-Date: 2009-07-05 12:04+0330\n"
 "Last-Translator: mohsen sajjadi <mohsensajjadi@yahoo.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1162,9 +1162,8 @@ msgid "&Working copy"
 msgstr ": نسخه کاری"
 
 #. Resource IDs: (338)
-#, fuzzy
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
-msgstr "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
+msgstr "'skip ranges' are used to mark revision ranges that have not been cached yet"
 
 #. Resource IDs: (272)
 #, c-format
@@ -2310,7 +2309,7 @@ msgstr ""
 #. Resource IDs: (196)
 #, fuzzy, c-format
 msgid "Clears the stored sizes and positions of %ld dialogs"
-msgstr "اندازه و مکان %ld دیالوگ ذخیره شده را پاکسازی میکند"
+msgstr "محاوره ها % ld پاکهااندازه های ذخیره شده ووضعیتهااز "
 
 #. Resource IDs: (1466)
 msgid "Click here to go to the website"
@@ -3993,9 +3992,8 @@ msgid "Font"
 msgstr "فانت"
 
 #. Resource IDs: (3585)
-#, fuzzy
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
-msgstr "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
+msgstr "برای مشاهده راهنما F1 را فشار دهید. برای پیمایش افقی از دگمه Ctrl-Scrollwheel استفاده نمایید."
 
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
@@ -4448,17 +4446,15 @@ msgstr ""
 "از این الگوها باشد، بعنوان یک 'شاخه اصلی' شناسایی میشود."
 
 #. Resource IDs: (194)
-#, fuzzy
 msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
-msgstr "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
+msgstr "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
 
 #. Resource IDs: (198)
-#, fuzzy
 msgid ""
 "If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
-"If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
+"If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 
 #. Resource IDs: (95)
@@ -4577,9 +4573,9 @@ msgid "Ignore"
 msgstr "نادیده گرفتن"
 
 #. Resource IDs: (14)
-#, fuzzy, c-format
+#, c-format
 msgid "Ignore %d items by &extension"
-msgstr "&نادیده گرفتن اقلام %d"
+msgstr "نادیده گرفتن %d قلم با توجه به پسوند"
 
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
@@ -6976,26 +6972,22 @@ msgid "SVN Copy versioned item(s) here"
 msgstr "SVN کپی فایلهای نسخه دار به این مکان"
 
 #. Resource IDs: (14)
-#, fuzzy
 msgid "SVN Export all items here"
 msgstr "SVN صادرکردن همه به این مکان"
 
 #. Resource IDs: (14)
-#, fuzzy
 msgid "SVN Export versioned items here"
-msgstr "SVN کپی فایلهای نسخه دار به این مکان"
+msgstr "SVN صادرکردن فایلهای نسخه دار به این مکان"
 
 #. Resource IDs: (16)
 msgid "SVN Local lock owner"
 msgstr "SVN مالک محلی قفل "
 
 #. Resource IDs: (17)
-#, fuzzy
 msgid "SVN Move and rename versioned item here"
 msgstr "SVN جابجائی و تغییر نام فایلهای نسخه دار به این مکان"
 
 #. Resource IDs: (12)
-#, fuzzy
 msgid "SVN Move versioned item(s) here"
 msgstr "SVN جابجائی فایلهای نسخه دار به این مکان"
 
@@ -7305,12 +7297,12 @@ msgid "Set file dates to the \"last commit &time\""
 msgstr "Set file dates to the \"last commit &time\""
 
 #. Resource IDs: (127)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Set property '%s' on\r\n"
 "%s"
 msgstr ""
-"تنظیم خصوصیت \"%s\" بر روی\r\n"
+"تنظیم خصوصیت '%s' بر روی\r\n"
 "%s"
 
 #. Resource IDs: (13)
@@ -7483,7 +7475,6 @@ msgid "Show excluded folders as normal"
 msgstr "Show excluded folders as normal"
 
 #. Resource IDs: (1480)
-#, fuzzy
 msgid "Show externals from different repositories"
 msgstr "پاکسازی کَش گزارشات %ld repositories"
 
@@ -7696,9 +7687,8 @@ msgid "Skipped missing target"
 msgstr "مقصد موجود نبود و پرش شد"
 
 #. Resource IDs: (1126)
-#, fuzzy
 msgid "Sort by commit count"
-msgstr "Sort by commit count"
+msgstr "مرتب سازی بر اساس تعداد اعمالها"
 
 #. Resource IDs: (1501)
 msgid "Source Left:"
@@ -7730,9 +7720,8 @@ msgid "Split &source tree"
 msgstr "شکافتن شاخه مبنا"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Split following &tree"
-msgstr "تنهامحدوده تجدیدنظردنباله راشامل بشوید : "
+msgstr "Split following &tree"
 
 #. Resource IDs: (376)
 msgid "Split lines"
@@ -7822,9 +7811,8 @@ msgid "Steal the lock"
 msgstr "قفل را بدزد"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Stefan Küng, Lübbe Onken"
-msgstr ". Onken bbe L ng ، Stefan K"
+msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
 msgid "Stripes"
@@ -8011,7 +7999,6 @@ msgid "Tagged the working copy to %s"
 msgstr "نسخه کاری نشانه گذاری شد به %s"
 
 #. Resource IDs: (80)
-#, fuzzy
 msgid "Tasks"
 msgstr "فعالیتها"
 
@@ -8037,7 +8024,7 @@ msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "The chunk size did not match the number of added/removed lines!"
 
 #. Resource IDs: (63)
-#, fuzzy, c-format
+#, c-format
 msgid "The chunk start '@@' was expected in line %d !"
 msgstr "انتظارداشته شد % d شروع تکه درخط @@ "
 
@@ -8884,9 +8871,8 @@ msgid "Trunk nodes"
 msgstr "نودهای اصلی"
 
 #. Resource IDs: (251)
-#, fuzzy
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
-msgstr "دستور \"پاکسازی\" را امتحان کنید. در صورت عدم موفقیت بایستی یک دریافت جدید انجام دهید."
+msgstr "دستور 'پاکسازی' را امتحان کنید. در صورت عدم موفقیت بایستی یک دریافت جدید انجام دهید."
 
 #. Resource IDs: (73)
 msgid "Try again"
@@ -8945,9 +8931,8 @@ msgid "Unable to load mail system support."
 msgstr "عدم موفقیت در بارگزاری پشتیبانی سیستم نامه ها."
 
 #. Resource IDs: (3865)
-#, fuzzy
 msgid "Unable to process command, server busy."
-msgstr "Unable to process command, server busy."
+msgstr "ناموفق در پردازش دستور، سرور مشغول است."
 
 #. Resource IDs: (3859)
 #, c-format
@@ -8959,13 +8944,16 @@ msgid "Unable to read write-only property."
 msgstr "عدم موفقیت در خواندن خصوصیت فقط-نوشتنی."
 
 #. Resource IDs: (119)
-#, fuzzy
 msgid ""
 "Unable to reconstruct working copy path!\n"
 "This can happen if the file has been renamed.\n"
 "Please start the log dialog on this specific file alone and then revert the changes\n"
 "from the top pane in the log dialog."
-msgstr "ناتوان که مسیرکپی کردن کاری بازسازی می کند ! می توانداتفاق بیافتداگرفایل اسم عوض شده است Nn دراین فایل خاص تنهاوسپس بازگشتن تغییرات ( روی ) محاوره گزارش N Please شروع ازشیشه پنجره بالادرمحاوره گزارش   "
+msgstr ""
+"Unable to reconstruct working copy path!\n"
+"This can happen if the file has been renamed.\n"
+"Please start the log dialog on this specific file alone and then revert the changes\n"
+"from the top pane in the log dialog."
 
 #. Resource IDs: (3865)
 msgid "Unable to write read-only property."
@@ -9010,18 +8998,16 @@ msgid "Unexpected file format."
 msgstr "فرمت فایل غیر منتظره!"
 
 #. Resource IDs: (3850)
-#, fuzzy
 msgid ""
 "Unformatted Text\n"
 "text without any formatting"
 msgstr ""
-"Unformatted Text\n"
-"text without any formatting"
+"متن فاقد فرمت\n"
+"متنی که فاقد هرگونه فرمت است"
 
 #. Resource IDs: (274, 32786)
-#, fuzzy
 msgid "Unified &diff of HEAD revisions"
-msgstr "ایجاد فایل مقایسه متحد"
+msgstr "ایجاد فایل مقایسه متحد از نسخه های اصلی"
 
 #. Resource IDs: (81)
 #, fuzzy, c-format
@@ -9086,9 +9072,8 @@ msgid "Unversioning %s"
 msgstr "درحال فاقد نسخه سازی %s"
 
 #. Resource IDs: (106)
-#, fuzzy
 msgid "Up one folder"
-msgstr "پوشه اضافه شده ازراه دور"
+msgstr "بازکردن پوشه والد"
 
 #. Resource IDs: (152, 230)
 msgid "Update"
@@ -9157,12 +9142,14 @@ msgid "Use &text viewer to view blames"
 msgstr "استفاده از نمایشگر &متن برای نمایش تقصیرها"
 
 #. Resource IDs: (195)
-#, fuzzy
 msgid ""
 "Use '*' as a wildcard character when specifying an exception.\r\n"
 "To separate multiple exceptions, use commas (',').\r\n"
 "Example: *.mylan.com, *.company.com"
-msgstr "استفاده بعنوان کاراکترجانشین چه موقع بامشخص کردن یک استثناء ' ' استفاده می کند ( ، ' ' ) جدا،ویرگولها N استثناءهای چندگانه به : N نمونه ، Ylan . com    "
+msgstr ""
+"Use '*' as a wildcard character when specifying an exception.\r\n"
+"To separate multiple exceptions, use commas (',').\r\n"
+"Example: *.mylan.com, *.company.com"
 
 #. Resource IDs: (1230)
 #, fuzzy
@@ -9429,7 +9416,6 @@ msgid "WC node"
 msgstr "گره نسخه کاری"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "WC node border"
 msgstr "نمایش اصلاحیه نسخه کاری"
 
@@ -9442,11 +9428,8 @@ msgid "Wait for the script to finish"
 msgstr "برای اتمام اجرای اسکریپت صبر کنید"
 
 #. Resource IDs: (280)
-#, fuzzy
 msgid "Want to go offline?"
-msgstr ""
-"Go to the next conflict\n"
-"next conflict"
+msgstr "آیا مایلید از خط خارج شوید؟"
 
 #. Resource IDs: (88)
 msgid "Warning"
