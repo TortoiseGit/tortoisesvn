@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-06-07 23:34 +0000\n"
-"PO-Revision-Date: 2009-06-08 19:40+0100\n"
+"POT-Creation-Date: 2009-07-03 22:44 +0000\n"
+"PO-Revision-Date: 2009-07-06 18:42+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3002,6 +3002,7 @@ msgid "Checking Out A Working Copy"
 msgstr "Provera radne kopije"
 
 #. (primary)
+#. (literal)
 msgid "checkout"
 msgstr "preuzmi"
 
@@ -3156,6 +3157,7 @@ msgid "Committing Your Changes To The Repository"
 msgstr "Urezivanje vaših izmena u spremište"
 
 #. (primary)
+#. (literal)
 msgid "commit"
 msgstr "ureži"
 
@@ -3398,6 +3400,7 @@ msgstr "Ađurirajte vašu radnu kopiju izmenama drugih"
 
 #. (primary)
 #. (primary)
+#. (literal)
 msgid "update"
 msgstr "ažuriraj"
 
@@ -4827,6 +4830,7 @@ msgstr "Pregled razlika"
 
 #. (primary)
 #. (primary)
+#. (literal)
 msgid "diff"
 msgstr "razl"
 
@@ -6872,6 +6876,7 @@ msgid "Who Changed Which Line?"
 msgstr "Ko je izmenio koju liniju?"
 
 #. (primary)
+#. (literal)
 msgid "blame"
 msgstr "okriviti"
 
@@ -7457,6 +7462,7 @@ msgid "Exporting a Subversion Working Copy"
 msgstr "Izvoz Subverzione radne kopije"
 
 #. (primary)
+#. (literal)
 msgid "export"
 msgstr "izvoz"
 
@@ -10891,6 +10897,7 @@ msgstr "TortoiseSVN komande"
 
 #. (primary)
 #. (primary)
+#. (primary)
 msgid "automation"
 msgstr "utomatizovanje"
 
@@ -11323,6 +11330,73 @@ msgstr ""
 "TortoiseProc.exe /command:log /path:\"c:\\svn_wc\\file1.txt\"\n"
 "                 /startrev:50 /endrev:60 /closeonend:0\n"
 "</screen>"
+
+#. (title)
+msgid "Tsvncmd URL handler"
+msgstr "Tsvncmd URL rukovalac"
+
+#. (primary)
+msgid "URL handler"
+msgstr "URL rukovalac"
+
+#. (para)
+msgid "Using special URLs, it is also possible to call TortoiseProc from a web page."
+msgstr "Koristeći posebni URL, takođe je moguće pozvati TortoiseProc sa veb stranice."
+
+#. (para)
+msgid "TortoiseSVN registers a new protocol <literal>tsvncmd:</literal> which can be used to create hyperlinks that execute TortoiseSVN commands. The commands and parameters are the same as when automating TortoiseSVN from the command line."
+msgstr "TortoiseSVN registruje novi protokol <literal>tsvncmd:</literal> koji može biti korišćen da se kreira hiper veza koja izvršava TortoiseSVN komande. Komande i parametri su isti kao kada se automatizuje TortoiseSVN iz komandne linije."
+
+#. (para)
+msgid "The format of the <literal>tsvncmd:</literal> URL is like this:"
+msgstr "Format <literal>tsvncmd:</literal> URL je ovakav:"
+
+#. (literal)
+msgid "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
+msgstr "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
+
+#. (para)
+msgid "with <literal>cmd</literal> being one of the allowed commands and with <literal>parameter</literal> being a parameter like <literal>path</literal> or <literal>revision</literal>, depending on the command used."
+msgstr "sa <literal>cmd</literal> koje je jedna od dozvoljenih komandi sa <literal>parametar</literal> koji je parametar kao <literal>putanja</literal> ili <literal>revizija</literal>, u zavisnosti od korišćene komande."
+
+#. (literal)
+msgid "repobrowser"
+msgstr "repopretraživač"
+
+#. (literal)
+msgid "repostatus"
+msgstr "repostatus"
+
+#. (literal)
+msgid "revisiongraph"
+msgstr "revizionigraf"
+
+#. (literal)
+msgid "showcompare"
+msgstr "prikazpoređenja"
+
+#. (para)
+msgid "The following commands are allowed with <literal>tsvncmd:</literal> URLs: <placeholder-1/>"
+msgstr "Sledeće komande su dozvoljene sa <literal>tsvncmd:</literal> URLovi: <placeholder-1/>"
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"&lt;a href=\"tsvncmd:command:showcompare?\n"
+"url1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"url2:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"revision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
+msgstr ""
+"\n"
+"&lt;a href=\"tsvncmd:command:showcompare?\n"
+"url1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"url2:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"revision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
+
+#. (para)
+msgid "An example URL might look like this: <placeholder-1/>"
+msgstr "Jedan primer za URL može izgledati kao: <placeholder-1/>"
 
 #. (title)
 msgid "TortoiseIDiff Commands"
@@ -12023,6 +12097,10 @@ msgstr "U ovom dodatku uzimamo da već imate subverzioni alat instaliran, i imat
 #. (para)
 msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which can be found at <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
 msgstr "Mnogo od informacija ovde dolazi od Mark Logemana, koje se mogu naći na <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink> Dodatne informacije o podešavanju Vindouz servera obezbedio je Torston Miler. Hvala ljudi!"
+
+#. (para)
+msgid "You can also watch a video tutorial created by Maximo Migliari which takes you through all the important steps. Watch it on <ulink url=\"http://www.vimeo.com/5378553\"><citetitle>Vimeo</citetitle></ulink>. or <ulink url=\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</citetitle></ulink>."
+msgstr "Možete takođe pogledati video tutorijal koji je kreirao Maksimo Migliari koji vas vodi kroz važne korake. Pogledajte ga na <ulink url=\"http://www.vimeo.com/5378553\"><citetitle>Vimeo</citetitle></ulink>. ili <ulink url=\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</citetitle></ulink>."
 
 #. (title)
 msgid "Setting Up a Linux Server"
@@ -12872,3 +12950,4 @@ msgstr "Milorad Popović <MiloradSPopovic@gmail.com>"
 #. (None)
 msgid "translator-translation"
 msgstr "Prevod"
+
