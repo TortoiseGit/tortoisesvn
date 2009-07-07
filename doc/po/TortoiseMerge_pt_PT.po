@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-04-04 14:46 +0000\n"
-"PO-Revision-Date: 2009-06-20 20:38+0100\n"
+"POT-Creation-Date: 2009-03-03 10:39 +0000\n"
+"PO-Revision-Date: 2009-07-07 12:01+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,7 @@ msgstr "Uma ferramenta diff/integração para Windows"
 #. TRANSLATORS: "$MajorVersion$.$MinorVersion$.$MicroVersion$" is a literal value and should not be translated
 #. (subtitle)
 msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
-msgstr ""
+msgstr "Versão $VersãoMaior$.$VersãoMenor$.$MVersãoMicro$"
 
 #. (edition)
 msgid "First"
@@ -71,7 +71,7 @@ msgstr "Prefácio"
 
 #. (para)
 msgid "When working on a project, either an open-source project where several people review your code, or a commercial project where you sell a component with your source code, there will be people and customers who find bugs or want to improve your project. To do that they send you patches which you have to review and decide if you want to apply them."
-msgstr ""
+msgstr "Durante um projeto, quer seja open-source em que diversas pessoas verificam o teu código, ou um projeto comercial em que vendes um componente com o teu código, há pessoas e clientes que encontram erros o que sugerem melhorias. Essas pessoas enviam correcções que tems que verificar e decider se queres aplicar."
 
 #. (para)
 msgid "Reviewing patches"
@@ -83,11 +83,11 @@ msgstr "A applicar as correções"
 
 #. (para)
 msgid "TortoiseMerge helps you with both those tasks: <placeholder-1/>"
-msgstr ""
+msgstr "TortoiseMerge ajuda-te com ambas as tarefas: <placeholder-1/>"
 
 #. (para)
 msgid "TortoiseMerge also helps you to sort out conflicted files which can occur if you're working with a source control system and others are working on the same files as you."
-msgstr ""
+msgstr "TortoiseMerge também te ajuda a gerir conflitos em ficheiros, que podem occorer quando trabalhas com ficheiros num um sistema de controle de versões e outras pessoas trabalham nos mesmos ficheiros."
 
 #. (title)
 msgid "TortoiseMerge is free!"
@@ -95,7 +95,7 @@ msgstr "O TortoiseMerge é grátis!"
 
 #. (para)
 msgid "TortoiseMerge is free. You don't have to pay for it, you can use it any way you want. It is developed under the GP license (GPL)."
-msgstr ""
+msgstr "TortoiseMerge é grátis. Não tems que pagar nada e podes utilizá-lo como queiras. É licensiado sob os termos da GP (GPL)."
 
 #. (para)
 msgid "TortoiseMerge is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. You will be prompted to enter username and password. The username is <literal>guest</literal>, and the password must be left blank. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
@@ -131,7 +131,7 @@ msgstr "Lübbe Onken"
 
 #. (para)
 msgid "for the beautiful icons, logo, bug hunting and taking care of the documentation"
-msgstr ""
+msgstr "pelos ícones maravilhosos, logo, caça ao erro e pela documentação"
 
 #. (term)
 msgid "The Tigris Style project"
@@ -179,7 +179,7 @@ msgstr ""
 
 #. (para)
 msgid "The following diagram shows you the relationships between the files involved in a conflict:"
-msgstr ""
+msgstr "O diagrama que segue mostra as relações entre os ficheiros involvidos no conflito:"
 
 #. (title)
 #. (title)
@@ -224,15 +224,15 @@ msgstr ""
 
 #. (para)
 msgid "Editing conflicts between local changes and changes in the Subversion repository following an update."
-msgstr ""
+msgstr "A editart os conflitos entre as mudanças locais e as mudanças no repositório de Subversion a seguir a uma atualização."
 
 #. (para)
 msgid "Applying patch files. This is the reason TortoiseMerge was created :)"
-msgstr ""
+msgstr "A applicar ficheiros de correcção. É a razão pelo qual o TortoiseMerge foi criado :)"
 
 #. (para)
 msgid "TortoiseMerge has several different uses: <placeholder-1/>"
-msgstr ""
+msgstr "O TortoiseMerge tem várias applicações: <placeholder-1/>"
 
 #. (title)
 msgid "Viewing and Merging Differences"
@@ -244,7 +244,7 @@ msgstr ""
 
 #. (para)
 msgid "Reverting changed lines back to the text shown in the left pane."
-msgstr ""
+msgstr "A reverter as linhas modificadas para o texto no painel da esquerda."
 
 #. (para)
 msgid "Using a combination of both blocks, either <emphasis>Theirs</emphasis> before <emphasis>Mine</emphasis> or <emphasis>Mine</emphasis> before <emphasis>Theirs</emphasis>."
@@ -252,7 +252,7 @@ msgstr ""
 
 #. (para)
 msgid "You can make simple line-based changes to the file in the right pane which include: <placeholder-1/>"
-msgstr ""
+msgstr "Podes fazer modificações simples de linhas ao ficheiro no painel da direita, incluindo: <placeholder-1/>"
 
 #. (para)
 msgid "You can also edit the file in the right pane just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
@@ -290,7 +290,7 @@ msgstr ""
 
 #. (para)
 msgid "You can edit the file in the right pane exactly as you would in compare/edit mode."
-msgstr ""
+msgstr "Podes editar o ficheiro no painel direito exatamente como farias em modo de comparação/edição."
 
 #. (title)
 msgid "Using TortoiseMerge"
@@ -335,7 +335,7 @@ msgstr ""
 
 #. (para)
 msgid "The two pane view has some features which are not available in the one pane view: <placeholder-1/>"
-msgstr ""
+msgstr "A vista de dois painéis tem funções que não estão disponivéis na vista de um painel: <placeholder-1/>"
 
 #. (para)
 msgid "If you want to compare/merge three files, TortoiseMerge will show you the differences in a three pane view. This view is also used if you need to resolve conflicted files."
@@ -383,11 +383,11 @@ msgstr "A Barra de Ferramentas"
 
 #. (para)
 msgid "<guibutton>Open</guibutton> accesses the file-open dialog. What else?"
-msgstr ""
+msgstr "<guibutton>Abrir</guibutton> aceder ao dialog de abrir ficheiros. Do que estávas á espera?"
 
 #. (para)
 msgid "<guibutton>Save</guibutton> saves any changes you have made."
-msgstr ""
+msgstr "<guibutton>Salvar</guibutton> salva as modificações que fizeste."
 
 #. (para)
 msgid "<guibutton>Reload</guibutton> discards any changes you have made in TortoiseMerge and reloads the files from disk."
@@ -447,7 +447,7 @@ msgstr ""
 
 #. (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
-msgstr ""
+msgstr "<guibutton>Definições</guibutton> mostra o diálogo de definições do TortoiseMerge."
 
 #. (para)
 msgid "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
@@ -467,19 +467,19 @@ msgstr "Ícones da Linha de Estado"
 
 #. (para)
 msgid "Changed lines are marked with an icon to indicate what type of change has occurred."
-msgstr ""
+msgstr "As linhas modificadas são marcados com um ícone a indicar o tipo de modificação que occoreu."
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineadded.png\"/> A line has been added."
-msgstr ""
+msgstr "<graphic fileref=\"images/TMerge_lineadded.png\"/> Foi addicionada uma linha."
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineremoved.png\"/> A line has been removed."
-msgstr ""
+msgstr "<graphic fileref=\"images/TMerge_lineremoved.png\"/> Foi removida uma linha."
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineequal.png\"/> A change has been undone by reverting to the original content of the line."
-msgstr ""
+msgstr "<graphic fileref=\"images/TMerge_lineequal.png\"/> Uma modificação foi desfeita por reversão ao conteúdo original do ficheiro."
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_linewhitespace.png\"/> This line contains only whitespace changes. Where several consecutive lines are marked, the paragraph may have been re-wrapped, causing words to shuffle onto adjacent lines."
@@ -491,7 +491,7 @@ msgstr ""
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineconflicted.png\"/> This line is in conflict."
-msgstr ""
+msgstr "<graphic fileref=\"images/TMerge_lineconflicted.png\"/> Isto é um conflito."
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> This line is conflicted, but the effect is hidden by whitespace or line-ending settings."
@@ -579,7 +579,7 @@ msgstr "A Página Principal de Definições"
 
 #. (para)
 msgid "Most of the options here are self-explanatory, but a few points need clarifying."
-msgstr ""
+msgstr "A maioria das opçãoes são auto-explanatórias, mas algums pontos necessitam de clarificação."
 
 #. (para)
 msgid "<guilabel>Backup original file</guilabel> renames the original file in the WC to <literal>filename.bak</literal> before saving the modified version."
@@ -607,7 +607,7 @@ msgstr ""
 
 #. (para)
 msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
-msgstr ""
+msgstr "<guilabel>Ignorar espaços em branco</guilabel> esconde todas a modificações aos espaços em branco."
 
 #. (title)
 msgid "Colour Settings Page"
@@ -627,7 +627,7 @@ msgstr "Normal"
 
 #. (listitem)
 msgid "All lines which are unchanged, or where changes are hidden."
-msgstr ""
+msgstr "Todas as linhas que não foram modificadas, ou onde a modificações estão escondidas."
 
 #. (term)
 msgid "Added"
@@ -707,7 +707,7 @@ msgstr "Espaços em branco diversos"
 
 #. (listitem)
 msgid "Characters used to indicate Whitespace are shown in a different colour from normal text."
-msgstr ""
+msgstr "Os caratéres utilizados para indicar Espaço Em Branco têm uma cor diferente do texto normal."
 
 #. (title)
 msgid "keyboard shortcuts"
@@ -735,7 +735,7 @@ msgstr "Ctrl-C"
 
 #. (para)
 msgid "Copy the selected text to the clipboard"
-msgstr ""
+msgstr "Copiar o texto selecionada para a área de transferência."
 
 #. (term)
 msgid "Ctrl-F"
@@ -807,7 +807,7 @@ msgstr "Ctrl-D"
 
 #. (para)
 msgid "Toggle between one-pane diff and two-pane diff"
-msgstr ""
+msgstr "Alternar entre diff de um e dois painéis"
 
 #. (term)
 msgid "Ctrl-R"
@@ -815,7 +815,7 @@ msgstr "Ctrl-R"
 
 #. (para)
 msgid "Reload the files and revert all changes made"
-msgstr ""
+msgstr "Recarregar os ficheiros e reverter todas a modificações efectuadas"
 
 #. (term)
 msgid "Ctrl-T"
@@ -823,7 +823,7 @@ msgstr "Ctrl-T"
 
 #. (para)
 msgid "Toggles between showing whitespaces or not"
-msgstr ""
+msgstr "Alterna ente mostrat ou não os espaços em branco"
 
 #. (term)
 msgid "Ctrl-mousewheel"
@@ -843,7 +843,7 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseMerge Command Line Switches"
-msgstr ""
+msgstr "Opções da linha de comando do TortoiseMerge"
 
 #. (primary)
 msgid "automation"
@@ -874,7 +874,7 @@ msgstr "Descrição"
 
 #. (entry)
 msgid "Shows a dialog box with the most important command line switches."
-msgstr ""
+msgstr "Mostra um diálogo com as opções mais importantes da linha de comando."
 
 #. (option)
 msgid "?"
@@ -882,7 +882,7 @@ msgstr "?"
 
 #. (entry)
 msgid "The same as <placeholder-1/>."
-msgstr ""
+msgstr "O mesmo que <placeholder-1/>."
 
 #. (emphasis)
 msgid "base"
@@ -902,11 +902,11 @@ msgstr "deles"
 
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the left pane."
-msgstr ""
+msgstr "Indica o <placeholder-1/> ficheiro utilizado em diffs a três, exibidos no painel da esquerda."
 
 #. (entry)
 msgid "The name of the theirs file. This is shown in the view title instead of the file path."
-msgstr ""
+msgstr "O nome do ficheiro deles. É exibido no título da vista em vez do caminho do ficheiro."
 
 #. (emphasis)
 msgid "mine"
@@ -918,7 +918,7 @@ msgstr ""
 
 #. (entry)
 msgid "The name of the mine file. This is shown in the view title instead of the file path."
-msgstr ""
+msgstr "O nome do meu ficheiro. É exibido no título da vista em vez do caminho do ficheiro."
 
 #. (emphasis)
 msgid "merged"
@@ -942,15 +942,15 @@ msgstr ""
 
 #. (entry)
 msgid "The name of the original file to patch. Used for the view title."
-msgstr ""
+msgstr "O nome do ficheiro original a corrigir. Utilizado por exibir título."
 
 #. (entry)
 msgid "The name of the resulting patched file. Used for the view title."
-msgstr ""
+msgstr "O nome do ficheiro corrigido resultante. Utilizado por exibir título."
 
 #. (entry)
 msgid "The path to the patch/diff file to apply to a directory."
-msgstr ""
+msgstr "O caminho para o ficheiro de correcção/diff a aplicar ao diretório."
 
 #. (entry)
 msgid "Forces TortoiseMerge to start with the one-way view instead of the view the user specified in the settings."
@@ -958,19 +958,19 @@ msgstr ""
 
 #. (entry)
 msgid "Switches the left and right view of the specified two files to diff."
-msgstr ""
+msgstr "Troca a painel esquerdo e direito dos ficheiros a comparar."
 
 #. (literal)
 msgid "/origfile:\"path_to_original_file\""
-msgstr ""
+msgstr "/origfile:\"caminho_para_ficheiro_original\""
 
 #. (literal)
 msgid "/modifiedfile:\"path_to_modified_file\""
-msgstr ""
+msgstr "/modifiedfile:\"caminho_para_fichiero_modificado\""
 
 #. (literal)
 msgid "/outfile:\"path_to_resulting_patchfile\""
-msgstr ""
+msgstr "/outfile:\"caminho_para_ficheirodecorrecção_resultante\""
 
 #. (literal)
 msgid "/outfile"
