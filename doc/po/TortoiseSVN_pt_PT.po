@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-04-04 14:46 +0000\n"
-"PO-Revision-Date: 2009-05-05 10:51+0100\n"
+"PO-Revision-Date: 2009-07-07 12:41+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -190,7 +190,7 @@ msgstr "Lübbe Onken"
 
 #. (para)
 msgid "for the beautiful icons, logo, bug hunting, translating and managing the translations"
-msgstr ""
+msgstr "pelos ícones maravilhosos, logo, caça ao erro, tradução e gestão das traduções"
 
 #. (term)
 msgid "Simon Large"
@@ -206,7 +206,7 @@ msgstr "O livro sobre Subversion"
 
 #. (para)
 msgid "for the great introduction to Subversion and its chapter 2 which we copied here"
-msgstr ""
+msgstr "pela excelente introdução a Subversion e ao capítulo 2 que copiamos aqui"
 
 #. (term)
 msgid "The Tigris Style project"
@@ -270,7 +270,7 @@ msgstr "Dicas que te facilitam a vida."
 
 #. (para)
 msgid "Places where you have to be careful what you are doing."
-msgstr ""
+msgstr "Lugares onde é preciso cuidado com o que fazes."
 
 #. (para)
 msgid "Where extreme care has to be taken, data corruption or other nasty things may occur if these warnings are ignored."
@@ -320,7 +320,7 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseSVN's Features"
-msgstr ""
+msgstr "Funções do TortoiseSVN"
 
 #. (para)
 msgid "What makes TortoiseSVN such a good Subversion client? Here's a short list of features."
@@ -356,7 +356,7 @@ msgstr ""
 
 #. (term)
 msgid "Easy access to Subversion commands"
-msgstr ""
+msgstr "Accesso fácil aos comandos do Subversion"
 
 #. (para)
 msgid "All Subversion commands are available from the explorer context menu. TortoiseSVN adds its own submenu there."
@@ -368,7 +368,7 @@ msgstr ""
 
 #. (term)
 msgid "Directory versioning"
-msgstr ""
+msgstr "Versionamernto de diretórios"
 
 #. (para)
 msgid "CVS only tracks the history of individual files, but Subversion implements a <quote>virtual</quote> versioned filesystem that tracks changes to whole directory trees over time. Files <emphasis>and</emphasis> directories are versioned. As a result, there are real client-side <command>move</command> and <command>copy</command> commands that operate on files and directories."
@@ -376,7 +376,7 @@ msgstr ""
 
 #. (term)
 msgid "Atomic commits"
-msgstr ""
+msgstr "Submissões atómicas"
 
 #. (para)
 msgid "A commit either goes into the repository completely, or not at all. This allows developers to construct and commit changes as logical chunks."
@@ -408,7 +408,7 @@ msgstr ""
 
 #. (term)
 msgid "Efficient branching and tagging"
-msgstr ""
+msgstr "Ramificação e marcação eficiente"
 
 #. (para)
 msgid "The cost of branching and tagging need not be proportional to the project size. Subversion creates branches and tags by simply copying the project, using a mechanism similar to a hard-link. Thus these operations take only a very small, constant amount of time, and very little space in the repository."
@@ -416,7 +416,7 @@ msgstr ""
 
 #. (term)
 msgid "Hackability"
-msgstr ""
+msgstr "Hackability"
 
 #. (para)
 msgid "Subversion has no historical baggage; it is implemented as a collection of shared C libraries with well-defined APIs. This makes Subversion extremely maintainable and usable by other applications and languages."
@@ -452,7 +452,7 @@ msgstr ""
 
 #. (para)
 msgid "You need Administrator privileges to install TortoiseSVN."
-msgstr ""
+msgstr "Necessitas de previlégios administrativos para instalar TortoiseSVN."
 
 #. (title)
 msgid "Language Packs"
@@ -600,7 +600,7 @@ msgstr "O Problema a Evitar"
 #. (title)
 #. (title)
 msgid "The Lock-Modify-Unlock Solution"
-msgstr ""
+msgstr "A solução de Bloquear-Moficar-Desbloquear"
 
 #. (para)
 msgid "Many version control systems use a <firstterm>lock-modify-unlock</firstterm> model to address this problem, which is a very simple solution. In such a system, the repository allows only one person to change a file at a time. First Harry must <emphasis>lock</emphasis> the file before he can begin making changes to it. Locking a file is a lot like borrowing a book from the library; if Harry has locked a file, then Sally cannot make any changes to it. If she tries to lock the file, the repository will deny the request. All she can do is read the file, and wait for Harry to finish his changes and release his lock. After Harry unlocks the file, his turn is over, and now Sally can take her turn by locking and editing."
@@ -625,7 +625,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "The Copy-Modify-Merge Solution"
-msgstr ""
+msgstr "A solução de Copiar-Modificar-Integrar"
 
 #. (para)
 msgid "Subversion, CVS, and other version control systems use a <firstterm>copy-modify-merge</firstterm> model as an alternative to locking. In this model, each user's client reads the repository and creates a personal <firstterm>working copy</firstterm> of the file or project. Users then work in parallel, modifying their private copies. Finally, the private copies are merged together into a new, final version. The version control system often assists with the merging, but ultimately a human being is responsible for making it happen correctly."
@@ -637,12 +637,12 @@ msgstr ""
 
 #. (title)
 msgid "...Copy-Modify-Merge Continued"
-msgstr ""
+msgstr "...Copiar-Modificar-Integrar Continuação"
 
 #. (primary)
 #. (primary)
 msgid "conflict"
-msgstr ""
+msgstr "conflito"
 
 #. (para)
 msgid "But what if Sally's changes <emphasis>do</emphasis> overlap with Harry's changes? What then? This situation is called a <firstterm>conflict</firstterm>, and it's usually not much of a problem. When Harry asks his client to merge the latest repository changes into his working copy, his copy of file A is somehow flagged as being in a state of conflict: he'll be able to see both sets of conflicting changes, and manually choose between them. Note that software can't automatically resolve conflicts; only humans are capable of understanding and making the necessary intelligent choices. Once Harry has manually resolved the overlapping changes (perhaps by discussing the conflict with Sally!), he can safely save the merged file back to the repository."
@@ -670,15 +670,15 @@ msgstr ""
 
 #. (title)
 msgid "Subversion in Action"
-msgstr ""
+msgstr "Subversion em Acção"
 
 #. (title)
 msgid "Working Copies"
-msgstr ""
+msgstr "Cópias de trabalho."
 
 #. (primary)
 msgid "working copy"
-msgstr ""
+msgstr "cópia de trabalho"
 
 #. (para)
 msgid "You've already read about working copies; now we'll demonstrate how the Subversion client creates and uses them."
@@ -1399,7 +1399,7 @@ msgstr ""
 
 #. (title)
 msgid "Installing svnserve"
-msgstr ""
+msgstr "Instalar svnserve"
 
 #. (para)
 msgid "Get the latest version of Subversion from <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>. Alternatively get a pre-packaged installer from CollabNet at <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. This installer will setup svnserve as a Windows service, and also includes some of the tools you need if you are going to use SASL for security."
@@ -1419,7 +1419,7 @@ msgstr ""
 
 #. (title)
 msgid "Running svnserve"
-msgstr ""
+msgstr "Executar svnserver"
 
 #. (para)
 msgid ""
@@ -1460,7 +1460,7 @@ msgstr ""
 
 #. (title)
 msgid "Run svnserve as a Service"
-msgstr ""
+msgstr "Executar svnserve como um Serviço"
 
 #. (para)
 msgid "Running svnserve as a user is usually not the best way. It means always having a user logged in on your server, and remembering to restart it after a reboot. A better way is to run svnserve as a windows service. Starting with Subversion 1.4, svnserve can be installed as a native windows service."
@@ -5517,7 +5517,7 @@ msgstr ""
 
 #. (primary)
 msgid "TortoiseSVN properties"
-msgstr ""
+msgstr "Propriedades do TortoiseSVN"
 
 #. (para)
 msgid "<literal>tsvn:logminsize</literal> sets the minimum length of a log message for a commit. If you enter a shorter message than specified here, the commit is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every commit. If this property is not set, or the value is zero, empty log messages are allowed."
@@ -5590,7 +5590,7 @@ msgstr ""
 
 #. (title)
 msgid "Set the project properties on folders"
-msgstr ""
+msgstr "Definir as propriedades do projecto nos ficheiros"
 
 #. (para)
 msgid "These special project properties must be set on <emphasis>folders</emphasis> for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
@@ -5610,16 +5610,16 @@ msgstr ""
 
 #. (title)
 msgid "External Items"
-msgstr ""
+msgstr "Itens Externos"
 
 #. (primary)
 msgid "external repositories"
-msgstr ""
+msgstr "repositórios externos"
 
 #. (primary)
 #. (primary)
 msgid "externals"
-msgstr ""
+msgstr "externos"
 
 #. (para)
 msgid "Sometimes it is useful to construct a working copy that is made out of a number of different checkouts. For example, you may want different files or subdirectories to come from different locations in a repository, or perhaps from different repositories altogether. If you want every user to have the same layout, you can define the <literal>svn:externals</literal> properties to pull in the specified resource at the locations where they are needed."
@@ -5627,7 +5627,7 @@ msgstr ""
 
 #. (title)
 msgid "External Folders"
-msgstr ""
+msgstr "Ficheiros Externos"
 
 #. (para)
 msgid ""
@@ -5648,7 +5648,7 @@ msgstr ""
 
 #. (title)
 msgid "Use explicit revision numbers"
-msgstr ""
+msgstr "Utiliza numeros de revião explicitos"
 
 #. (para)
 msgid "You should strongly consider using explicit revision numbers in all of your externals definitions, as described above. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex code base."
@@ -5656,7 +5656,7 @@ msgstr ""
 
 #. (title)
 msgid "Older svn:externals definitions"
-msgstr ""
+msgstr "Definições anterirores de svn:externals"
 
 #. (para)
 msgid "The format shown here was introduced in Subversion 1.5. You may also see the older format which has the same information in a different order. The new format is preferred as it supports several useful features described below, but it will not work on older clients. The differences are shown in the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html\"><citetitle>Subversion Book</citetitle></ulink>."
@@ -5682,7 +5682,7 @@ msgstr ""
 
 #. (term)
 msgid "Relative to parent directory"
-msgstr ""
+msgstr "Relativo ao diretório pai"
 
 #. (para)
 msgid ""
@@ -5697,7 +5697,7 @@ msgstr ""
 
 #. (term)
 msgid "Relative to repository root"
-msgstr ""
+msgstr "Relativo ao repositório raiz"
 
 #. (para)
 msgid ""
@@ -5715,7 +5715,7 @@ msgstr ""
 
 #. (term)
 msgid "Relative to scheme"
-msgstr ""
+msgstr "Relativo ao esquema"
 
 #. (para)
 msgid ""
@@ -5726,7 +5726,7 @@ msgstr ""
 
 #. (term)
 msgid "Relative to the server's hostname"
-msgstr ""
+msgstr "Relativo ao nome do servidor"
 
 #. (para)
 msgid ""
@@ -5749,7 +5749,7 @@ msgstr ""
 
 #. (title)
 msgid "External Files"
-msgstr ""
+msgstr "Ficheiros Externos"
 
 #. (para)
 msgid "As of Subversion 1.6 you can add single file externals to your working copy using the same syntax as for folders. However, there are some restrictions."
@@ -5769,7 +5769,7 @@ msgstr ""
 
 #. (title)
 msgid "File externals support incomplete in Subversion 1.6"
-msgstr ""
+msgstr "Supporte incompleto de ficheiros externos em Subversion 1.6"
 
 #. (para)
 msgid "In subversion 1.6 it is not possible to remove a file external from your working copy once you have added it, even if you delete the <literal>svn:externals</literal> property altogether. You have to checkout a fresh working copy to remove the file."
@@ -5777,16 +5777,16 @@ msgstr ""
 
 #. (title)
 msgid "Branching / Tagging"
-msgstr ""
+msgstr "Ramificação/Marcação"
 
 #. (primary)
 #. (primary)
 msgid "copy"
-msgstr ""
+msgstr "cópia"
 
 #. (primary)
 msgid "mark release"
-msgstr ""
+msgstr "marcar versão"
 
 #. (para)
 msgid "One of the features of version control systems is the ability to isolate changes onto a separate line of development. This line is known as a <firstterm>branch</firstterm>. Branches are often used to try out new features without disturbing the main line of development with compiler errors and bugs. As soon as the new feature is stable enough then the development branch is <firstterm>merged</firstterm> back into the main branch (trunk)."
@@ -5802,11 +5802,11 @@ msgstr ""
 
 #. (title)
 msgid "Creating a Branch or Tag"
-msgstr ""
+msgstr "A criar um Ramo ou Marca"
 
 #. (title)
 msgid "The Branch/Tag Dialog"
-msgstr ""
+msgstr "O diálogo de Ramificação/Marcação"
 
 #. (para)
 msgid "If you have imported your project with the recommended directory structure, creating a branch or tag version is very simple: <placeholder-1/> Select the folder in your working copy which you want to copy to a branch or tag, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branch/Tag...</guimenuitem></menuchoice>."
@@ -5824,7 +5824,7 @@ msgstr ""
 #. (term)
 #. (listitem)
 msgid "HEAD revision in the repository"
-msgstr ""
+msgstr "A revisão HEAD do repositório"
 
 #. (para)
 msgid "The new branch is copied directly in the repository from the HEAD revision. No data needs to be transferred from your working copy, and the branch is created very quickly."
@@ -5832,7 +5832,7 @@ msgstr ""
 
 #. (term)
 msgid "Specific revision in the repository"
-msgstr ""
+msgstr "Revisão especifica no repositório"
 
 #. (para)
 msgid "The new branch is copied directly in the repository but you can choose an older revision. This is useful if you forgot to make a tag when you released your project last week. If you can't remember the revision number, click the button on the right to show the revision log, and select the revision number from there. Again no data is transferred from your working copy, and the branch is created very quickly."
@@ -5892,7 +5892,7 @@ msgstr ""
 
 #. (title)
 msgid "The Switch Dialog"
-msgstr ""
+msgstr "O Diálogo de Alternar"
 
 #. (para)
 msgid "To be able to work with your freshly generated branch or tag you have several ways to handle it. You can: <placeholder-1/><placeholder-2/>"
@@ -5916,14 +5916,14 @@ msgstr ""
 
 #. (title)
 msgid "Merging"
-msgstr ""
+msgstr "A integrar"
 
 #. (primary)
 #. (primary)
 #. (primary)
 #. (primary)
 msgid "merge"
-msgstr ""
+msgstr "integrar"
 
 #. (para)
 msgid "Where branches are used to maintain separate lines of development, at some stage you will want to merge the changes made on one branch back into the trunk, or vice versa."
@@ -5947,7 +5947,7 @@ msgstr ""
 
 #. (term)
 msgid "Merge a range of revisions"
-msgstr ""
+msgstr "Integrar uma faixa de revisões"
 
 #. (para)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
@@ -5960,7 +5960,7 @@ msgstr ""
 #. (term)
 #. (title)
 msgid "Reintegrate a branch"
-msgstr ""
+msgstr "Re-integrar um ramo"
 
 #. (para)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes."
@@ -5980,7 +5980,7 @@ msgstr ""
 
 #. (term)
 msgid "Merge two different trees"
-msgstr ""
+msgstr "Integrar duas árvores diferentes"
 
 #. (para)
 msgid "This is a more general case of the reintegrate method. What you are asking Subversion to do is: <quote>Calculate the changes necessary to get [FROM] the head revision of the trunk [TO] the head revision of the branch, and apply those changes to my working copy (of the trunk).</quote> The net result is that trunk now looks exactly like the branch."
@@ -5992,15 +5992,15 @@ msgstr ""
 
 #. (title)
 msgid "Merging a Range of Revisions"
-msgstr ""
+msgstr "A Integrar Uma Faixa de Revisões"
 
 #. (secondary)
 msgid "revision range"
-msgstr ""
+msgstr "faixa de revisão"
 
 #. (title)
 msgid "The Merge Wizard - Select Revision Range"
-msgstr ""
+msgstr "O Assistente de Integração - Seleciona a Faixa de Revisão"
 
 #. (para)
 msgid "<placeholder-1/> In the <guilabel>From:</guilabel> field enter the full folder URL of the branch or tag containing the changes you want to port into your working copy. You may also click <guibutton>...</guibutton> to browse the repository and find the desired branch. If you have merged from this branch before, then just use the drop down list which shows a history of previously used URLs."
@@ -6056,11 +6056,11 @@ msgstr ""
 
 #. (secondary)
 msgid "reintegrate"
-msgstr ""
+msgstr "re-integrar"
 
 #. (title)
 msgid "The Merge Wizard - Reintegrate Merge"
-msgstr ""
+msgstr "O Assistent de Integração - Re-integrar Integração"
 
 #. (para)
 msgid "<placeholder-1/> To merge a feature branch back into the trunk you must start the merge wizard from within a working copy of the trunk."
@@ -6076,15 +6076,15 @@ msgstr ""
 
 #. (title)
 msgid "Merging Two Different Trees"
-msgstr ""
+msgstr "A Integrar Duas Árvores Diferentes"
 
 #. (secondary)
 msgid "two trees"
-msgstr ""
+msgstr "duas árvores"
 
 #. (title)
 msgid "The Merge Wizard - Tree Merge"
-msgstr ""
+msgstr "O Assistent de Integração - Integrar Árvore"
 
 #. (para)
 msgid "<placeholder-1/> If you are using this method to merge a feature branch back to trunk, you need to start the merge wizard from within a working copy of trunk."
@@ -6140,7 +6140,7 @@ msgstr ""
 
 #. (title)
 msgid "Reviewing the Merge Results"
-msgstr ""
+msgstr "A rever os Resultados de Integração"
 
 #. (para)
 msgid "The merge is now complete. It's a good idea to have a look at the merge and see if it's as expected. Merging is usually quite complicated. Conflicts often arise if the branch has drifted far from the trunk."
@@ -6168,11 +6168,11 @@ msgstr ""
 
 #. (title)
 msgid "Merge Tracking"
-msgstr ""
+msgstr "Monitorar Integração"
 
 #. (primary)
 msgid "merge tracking"
-msgstr ""
+msgstr "monitorar integração"
 
 #. (para)
 msgid "You can avoid the danger of merging the same revision twice (repeated merge problem). Once a revision is marked as having been merged, future merges which include that revision in the range will skip over it."
@@ -6244,15 +6244,15 @@ msgstr ""
 
 #. (title)
 msgid "Merge a Completed Branch"
-msgstr ""
+msgstr "Integrar um Ramo Completo"
 
 #. (primary)
 msgid "merge reintegrate"
-msgstr ""
+msgstr "re-integrar integração"
 
 #. (title)
 msgid "The Merge reintegrate Dialog"
-msgstr ""
+msgstr "O Diálogo de re-integração de Integração"
 
 #. (para)
 msgid "If you want to merge all changes from a feature branch back to trunk, then you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge reintegrate...</guimenuitem></menuchoice> from the extended context menu (hold down the <keycap>Shift</keycap> key while you right click on the file). <placeholder-1/> This dialog is very easy. All you have to do is set the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-options\"/>. The rest is done by TortoiseSVN automatically using merge tracking."
@@ -6276,15 +6276,15 @@ msgstr ""
 
 #. (title)
 msgid "Locking"
-msgstr ""
+msgstr "A bloquear"
 
 #. (primary)
 msgid "locking"
-msgstr ""
+msgstr "a bloquear"
 
 #. (primary)
 msgid "readonly"
-msgstr ""
+msgstr "readonly"
 
 #. (para)
 msgid "You are using <quote>unmergeable</quote> files, for example, graphics files. If two people change the same file, merging is not possible, so one of you will lose their changes."
@@ -6304,7 +6304,7 @@ msgstr ""
 
 #. (title)
 msgid "How Locking Works in Subversion"
-msgstr ""
+msgstr "Como é que Funciona o sistema de Bloqueamento de Subversion"
 
 #. (para)
 msgid "By default, nothing is locked and anyone who has commit access can commit changes to any file at any time. Others will update their working copies periodically and changes in the repository will be merged with local changes."
@@ -6332,11 +6332,11 @@ msgstr ""
 
 #. (title)
 msgid "Getting a Lock"
-msgstr ""
+msgstr "Obter um Bloquieo"
 
 #. (title)
 msgid "The Locking Dialog"
-msgstr ""
+msgstr "O Diálogo de Bloqueio"
 
 #. (para)
 msgid "Select the file(s) in your working copy for which you want to acquire a lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice>. <placeholder-1/> A dialog appears, allowing you to enter a comment, so others can see why you have locked the file. The comment is optional and currently only used with Svnserve based repositories. If (and <emphasis>only</emphasis> if) you need to steal the lock from someone else, check the <guilabel>Steal lock</guilabel> box, then click on <guibutton>OK</guibutton>."
@@ -6348,7 +6348,7 @@ msgstr ""
 
 #. (title)
 msgid "Releasing a Lock"
-msgstr ""
+msgstr "Libertar um Bloqueio"
 
 #. (para)
 msgid "To make sure you don't forget to release a lock you don't need any more, locked files are shown in the commit dialog and selected by default. If you continue with the commit, locks you hold on the selected files are removed, even if the files haven't been modified. If you don't want to release a lock on certain files, you can uncheck them (if they're not modified). If you want to keep a lock on a file you've modified, you have to enable the <guilabel>Keep locks</guilabel> checkbox before you commit your changes."
@@ -6360,7 +6360,7 @@ msgstr ""
 
 #. (title)
 msgid "Checking Lock Status"
-msgstr ""
+msgstr "A verificar o Estado de Bloqueio"
 
 #. (title)
 msgid "The Check for Modifications Dialog"
@@ -6376,7 +6376,7 @@ msgstr ""
 
 #. (title)
 msgid "Avoid Breaking and Stealing Locks"
-msgstr ""
+msgstr "Evitar Remover e Retirar Bloqueios"
 
 #. (para)
 msgid "If you break or steal someone else's lock without telling them, you could potentially cause loss of work. If you are working with unmergeable file types and you steal someone else's lock, once you release the lock they are free to check in their changes and overwrite yours. Subversion doesn't lose data, but you have lost the team-working protection that locking gave you."
@@ -6396,7 +6396,7 @@ msgstr ""
 
 #. (title)
 msgid "The Locking Hook Scripts"
-msgstr ""
+msgstr "O Gancho de Scripts de Bloqueio"
 
 #. (para)
 msgid "When you create a new repository with Subversion 1.2 or higher, four hook templates are created in the repository <filename>hooks</filename> directory. These are called before and after getting a lock, and before and after releasing a lock."
@@ -6416,15 +6416,15 @@ msgstr ""
 
 #. (title)
 msgid "Creating and Applying Patches"
-msgstr ""
+msgstr "A Criar e Applicar Correcções"
 
 #. (primary)
 msgid "patch"
-msgstr ""
+msgstr "correcção"
 
 #. (primary)
 msgid "unified diff"
-msgstr ""
+msgstr "diff unificado"
 
 #. (para)
 msgid "For open source projects (like this one) everyone has read access to the repository, and anyone can make a contribution to the project. So how are those contributions controlled? If just anyone could commit changes, the project would be permanently unstable and probably permanently broken. In this situation the change is managed by submitting a <firstterm>patch</firstterm> file to the development team, who do have write access. They can review the patch first, and then either submit it to the repository or reject it back to the author."
@@ -6436,7 +6436,7 @@ msgstr ""
 
 #. (title)
 msgid "Creating a Patch File"
-msgstr ""
+msgstr "A criar um Ficheiro de Correcção"
 
 #. (para)
 msgid "First you need to make <emphasis>and test</emphasis> your changes. Then instead of using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice> on the parent folder, you select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice>"
@@ -6444,7 +6444,7 @@ msgstr ""
 
 #. (title)
 msgid "The Create Patch dialog"
-msgstr ""
+msgstr "O diálogo de Criar Ficheiro de Correcção"
 
 #. (para)
 msgid "you can now select the files you want included in the patch, just as you would with a full commit. This will produce a single file containing a summary of all the changes you have made to the selected files since the last update from the repository."
@@ -6464,7 +6464,7 @@ msgstr ""
 
 #. (title)
 msgid "Applying a Patch File"
-msgstr ""
+msgstr "A aplicar um Ficheiro de Correcção"
 
 #. (para)
 msgid "Patch files are applied to your working copy. This should be done from the same folder level as was used to create the patch. If you are not sure what this is, just look at the first line of the patch file. For example, if the first file being worked on was <filename>doc/source/english/chapter1.xml</filename> and the first line in the patch file is <filename>Index: english/chapter1.xml</filename> then you need to apply the patch to the <filename>doc/source/</filename> folder. However, provided you are in the correct working copy, if you pick the wrong folder level, TortoiseSVN will notice and suggest the correct level."
@@ -6500,11 +6500,11 @@ msgstr ""
 
 #. (primary)
 msgid "blame"
-msgstr ""
+msgstr "culpa"
 
 #. (primary)
 msgid "annotate"
-msgstr ""
+msgstr "anotar"
 
 #. (primary)
 msgid "praise"
@@ -6520,11 +6520,11 @@ msgstr ""
 
 #. (title)
 msgid "Blame for Files"
-msgstr ""
+msgstr "Culpa de Ficheiros"
 
 #. (title)
 msgid "The Annotate / Blame Dialog"
-msgstr ""
+msgstr "O Diálogo de Anotar/Culpar"
 
 #. (para)
 msgid "<placeholder-1/> If you're not interested in changes from earlier revisions you can set the revision from which the blame should start. Set this to <literal>1</literal>, if you want the blame for <emphasis>every</emphasis> revision."
@@ -6544,7 +6544,7 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseBlame"
-msgstr ""
+msgstr "TortoiseCulpa"
 
 #. (para)
 msgid "<placeholder-1/> TortoiseBlame, which is included with TortoiseSVN, makes the blame file easier to read. When you hover the mouse over a line in the blame info column, all lines with the same revision are shown with a darker background. Lines from other revisions which were changed by the same author are shown with a light background. The colouring may not work as clearly if you have your display set to 256 colour mode."
