@@ -31,6 +31,8 @@ Version 1.6.4
        option "use wc url as from: url" was not set. (Stefan)
 - BUG: In the log dialog, the context menu for a changed file could
        show the wrong item as the default action. (Stefan)
+- BUG: The autocompletion in the commit dialog didn't show
+       all possible entries. (Stefan)
 
 Version 1.6.3
 - NEW: All binaries are now digitally signed. (Stefan)
