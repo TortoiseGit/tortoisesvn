@@ -688,7 +688,7 @@ UINT CCommitDlg::StatusThread()
 			m_ListCtrl.Show(dwShow, m_checkedPathList);
 		else
 		{
-			DWORD dwCheck = m_bSelectFilesForCommit ? SVNSLC_SHOWDIRECTS|SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|SVNSLC_SHOWLOCKS : 0;
+			DWORD dwCheck = m_bSelectFilesForCommit ? SVNSLC_SHOWDIRECTS|SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWADDEDHISTORY|SVNSLC_SHOWREMOVED|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|SVNSLC_SHOWLOCKS : 0;
 			m_ListCtrl.Show(dwShow, CTSVNPathList(), dwCheck);
 			m_bSelectFilesForCommit = true;
 		}
@@ -1439,7 +1439,7 @@ LRESULT CCommitDlg::OnCheck(WPARAM wnd, LPARAM)
 	else if (hwnd == GetDlgItem(IDC_CHECKVERSIONED)->GetSafeHwnd())
 		m_ListCtrl.Check(SVNSLC_SHOWVERSIONED, false);
 	else if (hwnd == GetDlgItem(IDC_CHECKADDED)->GetSafeHwnd())
-		m_ListCtrl.Check(SVNSLC_SHOWADDED, false);
+		m_ListCtrl.Check(SVNSLC_SHOWADDED|SVNSLC_SHOWADDEDHISTORY, false);
 	else if (hwnd == GetDlgItem(IDC_CHECKDELETED)->GetSafeHwnd())
 		m_ListCtrl.Check(SVNSLC_SHOWREMOVED, false);
 	else if (hwnd == GetDlgItem(IDC_CHECKMODIFIED)->GetSafeHwnd())

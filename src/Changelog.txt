@@ -4,6 +4,8 @@
 - CHG: The "update item to revision" context menu entry in the repository
        browser is now always shown if the repobrowser is started
        from a working copy. (Stefan)
+- CHG: In the revert dialog, only added files are checked by default.
+       Renamed/moved files are not checked by default anymore. (Stefan)
 - NEW: new command line params for the log dialog
        to set the filter. (Stefan)
 - NEW: new autoclose setting for local operations only. (Stefan)

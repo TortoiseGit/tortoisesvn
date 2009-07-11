@@ -1104,7 +1104,11 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
 			showFlags |= SVNSLC_SHOWINCHANGELIST;
 		if (entry->tree_conflicted)
 			showFlags |= SVNSLC_SHOWCONFLICTED;
-
+		if (!entry->copyfrom_url.IsEmpty())
+		{
+			showFlags |= SVNSLC_SHOWADDEDHISTORY;
+			showFlags &= ~SVNSLC_SHOWADDED;
+		}
 		bool bAllowCheck = ((entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0) && (m_bCheckIfGroupsExist || (m_changelists.size()==0 || (m_changelists.size()==1 && m_bHasIgnoreGroup))));
 
 		// status_ignored is a special case - we must have the 'direct' flag set to add a status_ignored item
@@ -4187,6 +4191,11 @@ void CSVNStatusListCtrl::Check(DWORD dwCheck, bool uncheckNonMatches)
 			showFlags |= SVNSLC_SHOWFOLDERS;
 		else
 			showFlags |= SVNSLC_SHOWFILES;
+		if (!entry->copyfrom_url.IsEmpty())
+		{
+			showFlags |= SVNSLC_SHOWADDEDHISTORY;
+			showFlags &= ~SVNSLC_SHOWADDED;
+		}
 
 		if ((showFlags & dwCheck)&&(entry->GetChangeList().Compare(SVNSLC_IGNORECHANGELIST)))
 		{
