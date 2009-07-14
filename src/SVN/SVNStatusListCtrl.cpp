@@ -2202,7 +2202,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 		CMenu ignoreSubMenu;
 		if (popup.CreatePopupMenu())
 		{
-			if (wcStatus >= svn_wc_status_normal)
+			if ((wcStatus >= svn_wc_status_normal)&&(wcStatus != svn_wc_status_ignored))
 			{
 				if (m_dwContextMenus & SVNSLC_POPCOMPAREWITHBASE)
 				{
@@ -2287,7 +2287,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						}
 					}
 				}
-				if (wcStatus > svn_wc_status_normal)
+				if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_ignored))
 				{
 					if (m_dwContextMenus & SVNSLC_POPREVERT)
 					{
@@ -2438,7 +2438,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 			{
 				if ((!entry->IsFolder())&&(wcStatus >= svn_wc_status_normal)
 					&&(wcStatus!=svn_wc_status_missing)&&(wcStatus!=svn_wc_status_deleted)
-					&&(wcStatus!=svn_wc_status_added))
+					&&(wcStatus!=svn_wc_status_added)&&(wcStatus!=svn_wc_status_ignored))
 				{
 					popup.AppendMenu(MF_SEPARATOR);
 					if ((entry->lock_token.IsEmpty())&&(!entry->IsFolder()))
@@ -2464,7 +2464,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					}
 				}
 				if ((!entry->IsFolder())&&(wcStatus >= svn_wc_status_normal)
-					&&(wcStatus!=svn_wc_status_missing)&&(wcStatus!=svn_wc_status_deleted))
+					&&(wcStatus!=svn_wc_status_missing)&&(wcStatus!=svn_wc_status_deleted)&&(wcStatus!=svn_wc_status_ignored))
 				{
 					if (m_dwContextMenus & SVNSLC_POPCREATEPATCH)
 					{
@@ -2473,7 +2473,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					}
 				}
 
-				if (wcStatus != svn_wc_status_missing && wcStatus != svn_wc_status_deleted &&wcStatus!=svn_wc_status_unversioned)
+				if (wcStatus != svn_wc_status_missing && 
+					wcStatus != svn_wc_status_deleted &&
+					wcStatus != svn_wc_status_unversioned &&
+					wcStatus != svn_wc_status_ignored)
 				{
 					popup.AppendMenu(MF_SEPARATOR);
 					popup.AppendMenuIcon(IDSVNLC_PROPERTIES, IDS_STATUSLIST_CONTEXT_PROPERTIES, IDI_PROPERTIES);
