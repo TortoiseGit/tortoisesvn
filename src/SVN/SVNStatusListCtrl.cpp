@@ -1018,33 +1018,46 @@ DWORD CSVNStatusListCtrl::GetShowFlagsFromFileEntry(const FileEntry* entry)
 	case svn_wc_status_none:
 	case svn_wc_status_unversioned:
 		showFlags = SVNSLC_SHOWUNVERSIONED;
+		break;
 	case svn_wc_status_ignored:
 		if (!m_bShowIgnores)
 			showFlags = SVNSLC_SHOWDIRECTS;
 		else
 			showFlags = SVNSLC_SHOWDIRECTS|SVNSLC_SHOWIGNORED;
+		break;
 	case svn_wc_status_incomplete:
 		showFlags = SVNSLC_SHOWINCOMPLETE;
+		break;
 	case svn_wc_status_normal:
 		showFlags = SVNSLC_SHOWNORMAL;
+		break;
 	case svn_wc_status_external:
 		showFlags = SVNSLC_SHOWEXTERNAL;
+		break;
 	case svn_wc_status_added:
 		showFlags = SVNSLC_SHOWADDED;
+		break;
 	case svn_wc_status_missing:
 		showFlags = SVNSLC_SHOWMISSING;
+		break;
 	case svn_wc_status_deleted:
 		showFlags = SVNSLC_SHOWREMOVED;
+		break;
 	case svn_wc_status_replaced:
 		showFlags = SVNSLC_SHOWREPLACED;
+		break;
 	case svn_wc_status_modified:
 		showFlags = SVNSLC_SHOWMODIFIED;
+		break;
 	case svn_wc_status_merged:
 		showFlags = SVNSLC_SHOWMERGED;
+		break;
 	case svn_wc_status_conflicted:
 		showFlags = SVNSLC_SHOWCONFLICTED;
+		break;
 	case svn_wc_status_obstructed:
 		showFlags = SVNSLC_SHOWOBSTRUCTED;
+		break;
 	default:
 		// we should NEVER get here!
 		ASSERT(FALSE);
