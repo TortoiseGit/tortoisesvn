@@ -1005,45 +1005,73 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 }
 
 // Get the show-flags bitmap value which corresponds to a particular SVN status
-DWORD CSVNStatusListCtrl::GetShowFlagsFromSVNStatus(svn_wc_status_kind status)
+DWORD CSVNStatusListCtrl::GetShowFlagsFromFileEntry(const FileEntry* entry)
 {
+	if (entry == NULL)
+		return 0;
+
+	DWORD showFlags = 0;
+	svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
+	
 	switch (status)
 	{
 	case svn_wc_status_none:
 	case svn_wc_status_unversioned:
-		return SVNSLC_SHOWUNVERSIONED;
+		showFlags = SVNSLC_SHOWUNVERSIONED;
 	case svn_wc_status_ignored:
 		if (!m_bShowIgnores)
-			return SVNSLC_SHOWDIRECTS;
-		return SVNSLC_SHOWDIRECTS|SVNSLC_SHOWIGNORED;
+			showFlags = SVNSLC_SHOWDIRECTS;
+		else
+			showFlags = SVNSLC_SHOWDIRECTS|SVNSLC_SHOWIGNORED;
 	case svn_wc_status_incomplete:
-		return SVNSLC_SHOWINCOMPLETE;
+		showFlags = SVNSLC_SHOWINCOMPLETE;
 	case svn_wc_status_normal:
-		return SVNSLC_SHOWNORMAL;
+		showFlags = SVNSLC_SHOWNORMAL;
 	case svn_wc_status_external:
-		return SVNSLC_SHOWEXTERNAL;
+		showFlags = SVNSLC_SHOWEXTERNAL;
 	case svn_wc_status_added:
-		return SVNSLC_SHOWADDED;
+		showFlags = SVNSLC_SHOWADDED;
 	case svn_wc_status_missing:
-		return SVNSLC_SHOWMISSING;
+		showFlags = SVNSLC_SHOWMISSING;
 	case svn_wc_status_deleted:
-		return SVNSLC_SHOWREMOVED;
+		showFlags = SVNSLC_SHOWREMOVED;
 	case svn_wc_status_replaced:
-		return SVNSLC_SHOWREPLACED;
+		showFlags = SVNSLC_SHOWREPLACED;
 	case svn_wc_status_modified:
-		return SVNSLC_SHOWMODIFIED;
+		showFlags = SVNSLC_SHOWMODIFIED;
 	case svn_wc_status_merged:
-		return SVNSLC_SHOWMERGED;
+		showFlags = SVNSLC_SHOWMERGED;
 	case svn_wc_status_conflicted:
-		return SVNSLC_SHOWCONFLICTED;
+		showFlags = SVNSLC_SHOWCONFLICTED;
 	case svn_wc_status_obstructed:
-		return SVNSLC_SHOWOBSTRUCTED;
+		showFlags = SVNSLC_SHOWOBSTRUCTED;
 	default:
 		// we should NEVER get here!
 		ASSERT(FALSE);
 		break;
 	}
-	return 0;
+
+	if (entry->IsLocked())
+		showFlags |= SVNSLC_SHOWLOCKS;
+	if (entry->switched)
+		showFlags |= SVNSLC_SHOWSWITCHED;
+	if (!entry->changelist.IsEmpty())
+		showFlags |= SVNSLC_SHOWINCHANGELIST;
+	if (entry->tree_conflicted)
+		showFlags |= SVNSLC_SHOWCONFLICTED;
+	if (entry->isNested) 
+		showFlags |= SVNSLC_SHOWNESTED;
+	if (entry->IsFolder())
+		showFlags |= SVNSLC_SHOWFOLDERS;
+	else
+		showFlags |= SVNSLC_SHOWFILES;
+	if (!entry->copyfrom_url.IsEmpty())
+	{
+		showFlags |= SVNSLC_SHOWADDEDHISTORY;
+		showFlags &= ~SVNSLC_SHOWADDED;
+	}
+
+	return showFlags;
 }
 
 void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DWORD dwCheck /*=0*/, bool bShowFolders /* = true */)
@@ -1095,20 +1123,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
 		if (entry->IsFolder() && (!bShowFolders))
 			continue;	// don't show folders if they're not wanted.
 		svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
-		DWORD showFlags = GetShowFlagsFromSVNStatus(status);
-		if (entry->IsLocked())
-			showFlags |= SVNSLC_SHOWLOCKS;
-		if (entry->switched)
-			showFlags |= SVNSLC_SHOWSWITCHED;
-		if (!entry->changelist.IsEmpty())
-			showFlags |= SVNSLC_SHOWINCHANGELIST;
-		if (entry->tree_conflicted)
-			showFlags |= SVNSLC_SHOWCONFLICTED;
-		if (!entry->copyfrom_url.IsEmpty())
-		{
-			showFlags |= SVNSLC_SHOWADDEDHISTORY;
-			showFlags &= ~SVNSLC_SHOWADDED;
-		}
+		DWORD showFlags = GetShowFlagsFromFileEntry(entry);
 		bool bAllowCheck = ((entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0) && (m_bCheckIfGroupsExist || (m_changelists.size()==0 || (m_changelists.size()==1 && m_bHasIgnoreGroup))));
 
 		// status_ignored is a special case - we must have the 'direct' flag set to add a status_ignored item
@@ -4178,27 +4193,7 @@ void CSVNStatusListCtrl::Check(DWORD dwCheck, bool uncheckNonMatches)
 		if (entry == NULL)
 			continue;
 
-		svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
-		DWORD showFlags = GetShowFlagsFromSVNStatus(status);
-		if (entry->IsLocked())
-			showFlags |= SVNSLC_SHOWLOCKS;
-		if (entry->switched)
-			showFlags |= SVNSLC_SHOWSWITCHED;
-		if (!entry->changelist.IsEmpty())
-			showFlags |= SVNSLC_SHOWINCHANGELIST;
-		if (entry->tree_conflicted)
-			showFlags |= SVNSLC_SHOWCONFLICTED;
-		if (entry->isNested) 
-			showFlags |= SVNSLC_SHOWNESTED;
-		if (entry->IsFolder())
-			showFlags |= SVNSLC_SHOWFOLDERS;
-		else
-			showFlags |= SVNSLC_SHOWFILES;
-		if (!entry->copyfrom_url.IsEmpty())
-		{
-			showFlags |= SVNSLC_SHOWADDEDHISTORY;
-			showFlags &= ~SVNSLC_SHOWADDED;
-		}
+		DWORD showFlags = GetShowFlagsFromFileEntry(entry);
 
 		if ((showFlags & dwCheck)&&(entry->GetChangeList().Compare(SVNSLC_IGNORECHANGELIST)))
 		{

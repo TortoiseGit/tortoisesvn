@@ -867,8 +867,8 @@ private:
 	/// Predicate used to build a list of only the versioned entries of the FileEntry array
 	static bool IsEntryVersioned(const FileEntry* pEntry1);
 
-	/// Look up the relevant show flags for a particular SVN status value
-	DWORD GetShowFlagsFromSVNStatus(svn_wc_status_kind status);
+	/// Look up the relevant show flags for a particular SVN status entry
+	DWORD GetShowFlagsFromFileEntry(const FileEntry* entry);
 
 	/// Build a FileEntry item and add it to the FileEntry array
 	const FileEntry* AddNewFileEntry(
