@@ -12,13 +12,13 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 {
 	int nInstalledOverlays = GetInstalledOverlays();
 	
-	if ((m_State == FileStateAdded)&&(nInstalledOverlays > 12))
+	if ((m_State == FileStateAdded)&&(nInstalledOverlays > 13))
 		return S_FALSE;		// don't use the 'added' overlay
-	if ((m_State == FileStateLocked)&&(nInstalledOverlays > 13))
+	if ((m_State == FileStateLocked)&&(nInstalledOverlays > 12))
 		return S_FALSE;		// don't show the 'locked' overlay
-	if ((m_State == FileStateIgnored)&&(nInstalledOverlays > 12))
+	if ((m_State == FileStateIgnored)&&(nInstalledOverlays > 11))
 		return S_FALSE;		// don't use the 'ignored' overlay
-	if ((m_State == FileStateUnversioned)&&(nInstalledOverlays > 13))
+	if ((m_State == FileStateUnversioned)&&(nInstalledOverlays > 10))
 		return S_FALSE;		// don't show the 'unversioned' overlay
 
     // Get folder icons from registry
