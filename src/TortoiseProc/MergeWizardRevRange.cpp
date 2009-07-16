@@ -115,6 +115,8 @@ BOOL CMergeWizardRevRange::OnInitDialog()
 		m_URLCombo.SetCurSel(0);
 	else if (!pWizard->url.IsEmpty())
 		m_URLCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->url));
+	if (m_URLCombo.GetString().IsEmpty())
+		m_URLCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->url));
 	if (!pWizard->URL1.IsEmpty())
 		m_URLCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->URL1));
 	if (pWizard->revRangeArray.GetCount())
