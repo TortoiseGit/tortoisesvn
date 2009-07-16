@@ -368,17 +368,27 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
 		break;
 
 	case svn_wc_notify_merge_completed:
-		if ((m_nConflicts>0)&&(!m_bConflictWarningShown))
 		{
+			data->sActionColumnText.LoadString(IDS_SVNACTION_COMPLETED);
 			data->bAuxItem = true;
-			data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
-			data->sPathColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED);
-			data->color = m_Colors.GetColor(CColors::Conflict);
-			CSoundUtils::PlayTSVNWarning();
-			m_bConflictWarningShown = true;
-			// This item will now be added after the switch statement
+			if ((m_nConflicts>0)&&(!m_bConflictWarningShown))
+			{
+				// We're going to add another aux item - let's shove this current onto the list first
+				// I don't really like this, but it will do for the moment.
+				m_arData.push_back(data);
+				AddItemToList();
+
+				data = new NotificationData();
+				data->bAuxItem = true;
+				data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
+				data->sPathColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED);
+				data->color = m_Colors.GetColor(CColors::Conflict);
+				CSoundUtils::PlayTSVNWarning();
+				m_bConflictWarningShown = true;
+				// This item will now be added after the switch statement
+			}
+			m_bFinishedItemAdded = true;
 		}
-		m_bFinishedItemAdded = true;
 		break;
 	case svn_wc_notify_update_completed:
 		{
