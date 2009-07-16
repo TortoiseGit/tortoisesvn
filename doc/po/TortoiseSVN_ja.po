@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-07-07 13:23 +0000\n"
-"PO-Revision-Date: 2009-07-15 22:02+0900\n"
+"PO-Revision-Date: 2009-07-16 22:47+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -19423,7 +19423,6 @@ msgid "Current revision highlighting for folders in log dialog"
 msgstr "ログダイアログでフォルダの現在のバージョンも強調"
 
 #. (para)
-#, fuzzy
 msgid ""
 "The log dialog highlights the current working copy revision when the log is "
 "shown for a file. To do the same thing for a folder requires a working copy "
@@ -19438,12 +19437,12 @@ msgstr ""
 "ログダイアログでは、ファイルのログを表示する際、現在の作業コピーのリビジョン"
 "を強調しています。フォルダに対して同じことをするには、作業コピーに対してク"
 "ロールしなければなりませんが、作業コピーが大きいと、この操作に時間がかかりま"
-"す。この機能を有効にするには、<literal>HKCU\\Software\\TortoiseSVN"
-"\\RecursiveLogRev</literal> に <literal>DWORD</literal> のレジストリキーを、"
-"作成しなければなりません。0 に設定するとこの機能を無効にします (フォルダの強"
-"調なし)。1 (デフォルト) に設定すると、状態を再帰的に取得します (作業コピーツ"
-"リーの最新リビジョンを検索)。2 に設定すると、選択したフォルダ自体のリビジョン"
-"をチェックしますが、子項目のチェックはしません。"
+"す。しかし、クロールは別スレッドで行われるため、ログメッセージの表示が固まっ"
+"てしまうことはありません。<emphasis>本当に</emphasis>大きい作業コピーでは、"
+"ディスクのカタカタ音がうっとうしいかもしれません。本当にこの機能を無効にする"
+"場合、<literal>HKCU\\Software\\TortoiseSVN\\LogStatusCheck</literal> に "
+"<literal>DWORD</literal> のレジストリキーを作成してください。0 に設定するとこ"
+"の機能を無効にします (フォルダの強調なし)。"
 
 #. (term)
 msgid "Make checkout fail if an item of the same name exists"
@@ -22208,15 +22207,15 @@ msgid "Check repository"
 msgstr "リポジトリをチェック"
 
 #. (entry)
-#, fuzzy
 msgid ""
 "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the "
 "working copy directory. If <placeholder-2/> is specified, the dialog "
 "contacts the repository immediately on startup, as if the user clicked on "
 "the <placeholder-3/> button."
 msgstr ""
-"チェックアウトダイアログを開きます。<placeholder-1/> には対象ディレクトリを指"
-"定し、<placeholder-2/> にはチェックアウト元の URL を指定します。"
+"変更をチェックダイアログを開きます。<placeholder-1/> には作業コピーディレクト"
+"リを指定します。<placeholder-2/> を指定すると、ユーザが <placeholder-3/> ボタ"
+"ンを押したときのように、直ちにリポジトリにアクセスを開始します。"
 
 #. (option)
 #. (option)
@@ -22408,6 +22407,9 @@ msgid ""
 "<literal>parameter</literal> being a parameter like <literal>path</literal> "
 "or <literal>revision</literal>, depending on the command used."
 msgstr ""
+"<literal>cmd</literal> には、利用できるコマンドを指定し、<literal>parameter</"
+"literal> には <literal>path</literal> や <literal>revision</literal> といっ"
+"た、コマンドで使用するパラメータを指定してください。"
 
 #. (para)
 msgid ""
@@ -23624,6 +23626,11 @@ msgid ""
 "\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</"
 "citetitle></ulink>."
 msgstr ""
+"また、重要な手順を一通り行っている、Maximo Migliari 作のビデオチュートリアル"
+"も見ることができます。<ulink url=\"http://www.vimeo.com/5378553"
+"\"><citetitle>Vimeo</citetitle></ulink> や <ulink url=\"http://www.youtube."
+"com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</citetitle></ulink> でご覧くださ"
+"い。"
 
 #. (title)
 msgid "Setting Up a Linux Server"
