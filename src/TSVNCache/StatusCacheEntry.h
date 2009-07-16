@@ -30,7 +30,7 @@ class CStatusCacheEntry
 {
 public:
 	CStatusCacheEntry();
-	CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64 lastWriteTime, DWORD validuntil = 0);
+	CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64 lastWriteTime, bool forceNormal);
 	bool HasExpired(long now) const;
 	void BuildCacheResponse(TSVNCacheResponse& response, DWORD& responseLength) const;
 	bool IsVersioned() const;
@@ -38,7 +38,7 @@ public:
 	bool ForceStatus(svn_wc_status_kind forcedStatus);
 	svn_wc_status_kind GetEffectiveStatus() const { return m_highestPriorityLocalStatus; }
 	bool IsKindKnown() const { return ((m_kind != svn_node_none)&&(m_kind != svn_node_unknown)); }
-	void SetStatus(const svn_wc_status2_t* pSVNStatus);
+	void SetStatus(const svn_wc_status2_t* pSVNStatus, bool forceNormal);
 	bool HasBeenSet() const;
 	void Invalidate();
 	bool IsDirectory() const {return ((m_kind == svn_node_dir)&&(m_highestPriorityLocalStatus != svn_wc_status_ignored));}
