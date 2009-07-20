@@ -26,6 +26,12 @@
 //////////////////////////////////////////////////////////////////////////
 #define CACHEDISKVERSION 2
 
+#ifdef WIN64
+#define STATUSCACHEFILENAME _T("\\cache64")
+#else
+#define STATUSCACHEFILENAME _T("\\cache")
+#endif
+
 CSVNStatusCache* CSVNStatusCache::m_pInstance;
 
 CSVNStatusCache& CSVNStatusCache::Instance()
@@ -58,7 +64,7 @@ void CSVNStatusCache::Create()
 			if (CreateDirectory(path, NULL)==0)
 				goto error;
 		}
-		_tcscat_s(path, MAX_PATH, _T("\\cache"));
+		_tcscat_s(path, MAX_PATH, STATUSCACHEFILENAME);
 		// in case the cache file is corrupt, we could crash while
 		// reading it! To prevent crashing every time once that happens,
 		// we make a copy of the cache file and use that copy to read from.
@@ -160,7 +166,7 @@ bool CSVNStatusCache::SaveCache()
 		_tcscat_s(path, MAX_PATH, _T("\\TSVNCache"));
 		if (!PathIsDirectory(path))
 			CreateDirectory(path, NULL);
-		_tcscat_s(path, MAX_PATH, _T("\\cache"));
+		_tcscat_s(path, MAX_PATH, STATUSCACHEFILENAME);
 		_tfopen_s(&pFile, path, _T("wb"));
 		if (pFile)
 		{
