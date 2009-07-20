@@ -91,8 +91,20 @@ Adding to an existing translation
    top of the list.
 
 5) Translate what you can and send the resulting PO file back to the
-   mailing list (patches@tortoisesvn.tigris.org).
+   mailing list (translators@tortoisesvn.tigris.org).
 
+
+Important
+---------
+Please pay special attention to cases where placeholders for variables like 
+"%s" or "%d" appear in the original text. They have to be in the exact
+same order in the translation, which means that you sometimes have to
+use "bad" grammar  in your language. If you reverse the parameters
+it may crash the translated application.
+   
+We have a very nice consistency checker for translations at http://tsvn.e-posta.sk
+This tool highlights cases where it thinks there may be a problem.   
+   
 Format your translation
 --------------------------
 Please format your translation before send Tortoise_xx.po to the
@@ -101,7 +113,7 @@ like this:
     $ msgmerge --no-wrap -o Tortoise_xx.po.new Tortoise_xx.po Tortoise.pot
     $ mv -f Tortoise_xx.po.new Tortoise_xx.po
 
-This can minimize the svn diff output, review your translation is easy.
+This can minimize the svn diff output, reviewing your translation is easy.
 
 What now?
 ---------
