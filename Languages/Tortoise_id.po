@@ -1,6 +1,6 @@
 #
 # Indonesian translations for TortoiseSVN
-# Copyright (C) 2004-2008 the TortoiseSVN team
+# Copyright (C) 2004-2009 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Last commit by:
@@ -11,6 +11,7 @@
 # Authors:
 # Zaenal Mutaqin <ade999@gmail.com>, 2006
 # Thomas Edwin Santosa <thomas@katalisindonesia.com>
+# Evan Allrich <eallrich@gmail.com>
 #
 # Dictionary:
 # blame                            menyalahkan
@@ -27,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-07-16 14:14-0800\n"
+"PO-Revision-Date: 2009-07-18 17:27-0800\n"
 "Last-Translator: Evan Allrich <eallrich@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -261,15 +262,15 @@ msgstr "%s, tetapi terhalang dalam salinan bekerja."
 
 # ID:145,
 #. Resource IDs: (145)
-#, fuzzy, c-format
+#, c-format
 msgid "%s\\%s - Export"
-msgstr "%s\\Ekspor dari %s"
+msgstr "%s\\%s - Ekspor"
 
 # ID:145,
 #. Resource IDs: (145)
-#, fuzzy, c-format
+#, c-format
 msgid "%s\\%s - Export (%d)"
-msgstr "%s\\Ekspor (%d) dari %s"
+msgstr "%s\\%s - Ekspor (%d)"
 
 # ID:357,
 #. Resource IDs: (3850)
@@ -1201,7 +1202,7 @@ msgstr "&Hentikan copy/ganti nama"
 # ID:120,
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
-msgstr "Tukar SB ke path dan revisi"
+msgstr "&Tukar SB ke path dan revisi"
 
 #. Resource IDs: (275)
 msgid "&Switch WC to path@HEAD"
@@ -1403,6 +1404,10 @@ msgstr "(nilai biner)"
 msgid "(copy)"
 msgstr "(salin)"
 
+#. Resource IDs: (277)
+msgid "(create branch)"
+msgstr "(membuat cabang)"
+
 #. Resource IDs: (276)
 msgid "(created)"
 msgstr "(dibuat)"
@@ -1450,10 +1455,6 @@ msgstr "(tanpa nilai)"
 #. Resource IDs: (314)
 msgid "(not found)"
 msgstr "(tidak ditemukan)"
-
-#. Resource IDs: (276)
-msgid "(open branch)"
-msgstr "(cabang terbuka)"
 
 # ID:208,
 #. Resource IDs: (208)
@@ -2291,7 +2292,7 @@ msgstr "Salahkan - TortoiseSVN"
 # ID:13,
 #. Resource IDs: (114)
 msgid "Blame..."
-msgstr "Sala&hkan..."
+msgstr "Salahkan..."
 
 # ID:13,
 #. Resource IDs: (13)
@@ -2380,7 +2381,7 @@ msgstr "Peri&ksa repositori"
 
 #. Resource IDs: (275)
 msgid "C&ollapse sub-trees"
-msgstr "Meruntuhkan subpohon"
+msgstr "&Meruntuhkan subpohon"
 
 # ID:198,
 #. Resource IDs: (65535)
@@ -2578,7 +2579,7 @@ msgstr "Chec&kout..."
 # ID:3887,
 #. Resource IDs: (3887)
 msgid "Check"
-msgstr "Periksa"
+msgstr "Pilih"
 
 # Dlg-ID:174,
 #. Resource IDs: (174)
@@ -2608,7 +2609,7 @@ msgstr "Periksa modifikasi"
 # ID:9,
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
-msgstr "Check out copy pekerjaan dari repositori"
+msgstr "Checkout salinan bekerja dari repositori"
 
 # ID:95,
 #. Resource IDs: (95)
@@ -2650,9 +2651,8 @@ msgstr "Periksa salinan bekerja terhadap perubahan"
 # ID:3887,#:
 # ID:3887,
 #. Resource IDs: (1504)
-#, fuzzy
 msgid "Check:"
-msgstr "Periksa"
+msgstr "Pilih:"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -3585,7 +3585,7 @@ msgid ""
 "Cut"
 msgstr ""
 "Potong pilihan dan simpan pada Clipboard\n"
-"Cut"
+"Potong"
 
 #. Resource IDs: (1279)
 msgid "D&etails"
@@ -3970,7 +3970,7 @@ msgstr "Kandar A: dan B:"
 #. Resource IDs: (613)
 #, c-format
 msgid "Drop not possible on %1"
-msgstr ""
+msgstr "Tidak bisa jatuhkan %1"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -3992,7 +3992,7 @@ msgstr "Mengembangkan &semua"
 
 #. Resource IDs: (275)
 msgid "E&xpand sub-trees"
-msgstr ""
+msgstr "&Mengembangkan subpohon"
 
 # ID:9,
 #. Resource IDs: (1437)
@@ -4347,11 +4347,11 @@ msgstr "Sudah ada"
 
 #. Resource IDs: (275)
 msgid "Exp&and source tree"
-msgstr ""
+msgstr "Mengembangkan pohon &sumber"
 
 #. Resource IDs: (275)
 msgid "Expand &following tree"
-msgstr ""
+msgstr "Mengembangkan pohon &berikut"
 
 # ID:79,
 #. Resource IDs: (1002)
@@ -5433,7 +5433,7 @@ msgstr ""
 
 #. Resource IDs: (2052)
 msgid "If the graph contains multiple trees, separate them by slight variations in background color."
-msgstr ""
+msgstr "Jika grafik yang berisi beberapa pohon, pisahkan mereka dengan sedikit variasi warna latar belakang."
 
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
@@ -5624,6 +5624,8 @@ msgid ""
 "Includes the repository for status check\n"
 "Hold down the shift key when clicking to fetch everything."
 msgstr ""
+"Termasuk repositori untuk memeriksa status\n"
+"Terus menurunkan tombol alih ketika mengklik untuk mengambil semuanya."
 
 # ID:3857,#:
 # ID:3857,
@@ -6846,6 +6848,8 @@ msgid ""
 "Number of times a log cache can fail to close properly\n"
 "due to crashes etc. until it gets deleted automatically."
 msgstr ""
+"Jumlah kali tembolok log dapat gagal untuk menutup benar\n"
+"karena crash dll sebelum log itu akan dihapus secara otomatis."
 
 # Control-ID:1160,
 #. Resource IDs: (1160)
@@ -7115,7 +7119,7 @@ msgstr "Tempel daftar nama berkas"
 
 #. Resource IDs: (15)
 msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
-msgstr ""
+msgstr "Menempelkan path svn dari clipboard, sehingga operasi bergerak (potong) atau menyalin"
 
 # ID:376,
 #. Resource IDs: (376)
@@ -8735,7 +8739,7 @@ msgstr "Cache Ikon Shell sudah dibangun ulang!"
 
 #. Resource IDs: (2052)
 msgid "Shift trees to the top of the window. Alignment to other trees will be lost."
-msgstr ""
+msgstr "Menggeserkan pohon-pohon ke bagian atas jendela. Penjajaran ke pohon lainnya akan hilang."
 
 # ID:101,
 #. Resource IDs: (101)
@@ -8887,7 +8891,7 @@ msgstr "&Tampilkan Tips Petunjuk pada bilah alat"
 # Control-ID:65535,
 #. Resource IDs: (32831)
 msgid "Show WC &modifications"
-msgstr "Tampilkan perubahan Salinan Bekerja"
+msgstr "Tampilkan &perubahan SB"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -8948,7 +8952,7 @@ msgstr "Tampilkan noda tertua di atas"
 
 #. Resource IDs: (2052)
 msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
-msgstr ""
+msgstr "Tampilkan hanya bagian-bagian yang berubah dalam nama path. Menggantikan elemen yang tak berubah dengan titik-titik."
 
 # ID:3713,
 #. Resource IDs: (2054)
@@ -9523,11 +9527,11 @@ msgstr "Awal potongan '@@' diharapkan dalam baris %d !"
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
-msgstr ""
+msgstr "Warna node-node penciptaan, salinan, dan ganti nama dalam tag akan bergeser ke arah kuning."
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
-msgstr ""
+msgstr "Warna node-node penciptaan, salinan, dan ganti nama dalam batang akan bergeser ke arah hijau."
 
 # ID:197,
 #. Resource IDs: (197)
@@ -10042,7 +10046,7 @@ msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr ""
-"Ada perubahan atau item tidak berversi di dalam satu atau lebih direktori yang sudah Anda sertakan dengan svn:externals.\r\n"
+"Ada perubahan atau item tidak berversi di dalam satu atau lebih direktori yang sudah Anda sertakan dengan svn:externals.\n"
 "Berkas-berkas itu tidak didaftarkan untuk komit. Anda perlu melakukan komit berkas itu secara terpisah."
 
 #. Resource IDs: (64)
@@ -10401,7 +10405,7 @@ msgstr "Jumlah properti revisi pengguna"
 # Control-ID:65535,
 #. Resource IDs: (32821)
 msgid "Tr&ee stripes"
-msgstr "Garis-garis pohon"
+msgstr "&Garis-garis pohon"
 
 # ID:357,
 #. Resource IDs: (357)
@@ -10648,6 +10652,8 @@ msgid ""
 "Unused log caches will only be removed if the respective\n"
 "file is smaller than the given size in kBytes."
 msgstr ""
+"Tembolok log yang tidak digunakan hanya akan dihapus jika\n"
+"masing-masing berkas lebih kecil dari ukuran (dalam kByte) yang diberikan."
 
 # Control-ID:1075,#:
 # Control-ID:1075,
@@ -11089,6 +11095,8 @@ msgid ""
 "When a small log cache has not been used for the given\n"
 "number of days, it will be removed automatically."
 msgstr ""
+"Ketika tembolok log kecil tidak digunakan untuk jumlah hari\n"
+"yang diberikan, akan dihapus secara otomatis."
 
 #. Resource IDs: (344)
 msgid ""
@@ -11309,6 +11317,14 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr ""
+"Anda sedang mencoba menambahkan item\n"
+"'%s',\n"
+"tapi item\n"
+"'%s'\n"
+"sudah ada.\n"
+"\n"
+"Sepertinya nama item sudah diganti di luar Subversion, tetapi hanya dengan perubahan-perubahan kasus.\n"
+"Apakah Anda benar-benar ingin menambahkan item itu?"
 
 # ID:195,
 #. Resource IDs: (195)
@@ -11348,7 +11364,7 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
-"Copy pekerjaan anda nampaknya ada pada path tag!\n"
+"Salinan pekerjaan anda nampaknya ada pada path tag!\n"
 "Pertama anda harus menukar cabang atau batang utama sebelum mengkomit.\n"
 "\n"
 "Anda tetap ingin mengkomit?"
@@ -11360,6 +11376,9 @@ msgid ""
 "Lowest revision in working copy: %ld\n"
 "Path: %s"
 msgstr ""
+"Salinan pekerjaan Anda berisi modifikasi.\n"
+"Paling rendah revisi dalam salinan pekerjaan: %ld\n"
+"Path: %s"
 
 # ID:88,
 #. Resource IDs: (88)
@@ -11368,7 +11387,7 @@ msgid ""
 "Note: updating to another revision won't lose those modifications so the working copy\n"
 "won't look exactly as it was in the revision you're updating to!"
 msgstr ""
-"Copy pekerjaan anda mempunyai modifikasi lokal!\n"
+"Salinan bekerja Anda memiliki modifikasi lokal!\n"
 "Catatan: pemutakhiran ke revisi lain tidak akan menghilangkan modifikasi itu juga copy pekerjaan\n"
 "tidak akan terlihat seperti dalam revisi yang anda mutakhirkan!"
 
@@ -11478,6 +11497,12 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns using ';'"
 msgstr ""
+"\n"
+"\n"
+"Pola-pola cocok dengan kasus-kebal dan harus ditetapkan dalam kasus-rendah.\n"
+"Spasi putih akan menjadi bagian dari pola.\n"
+"Karakter-karakter wildcard yang bisa dipakai adalah '?' dan '*'.\n"
+"Pisahkan pola-pola menggunakan ';'"
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
@@ -11987,7 +12012,7 @@ msgstr ""
 "Daftar penentu modul yang dipisahkan dengan baris baru, masing-masing terdiri dari\r\n"
 "revisi opsional, sebuah URL dan path direktori relatif. Sebagai contoh\r\n"
 "http://contoh.co.id/repos/zig foo\r\n"
-"-r 1234\thttp://contoh.co.id/repos/zag foo/bar\r\n"
+"-r 1234 http://contoh.co.id/repos/zag foo/bar\r\n"
 "\r\n"
 "URL dapat berupa URL lengkap atau relatif. Format untuk\r\n"
 "URL relatif adalah:\r\n"
@@ -12166,6 +12191,8 @@ msgid ""
 "tsvn:logrevregex\r\n"
 "A regular expression matching revision numbers in a log message"
 msgstr ""
+"tsvn:logrevregex\r\n"
+"Ekspresi regular yang cocok dengan nomor-nomor revisi dalam log pesan"
 
 #. Resource IDs: (578)
 msgid ""
