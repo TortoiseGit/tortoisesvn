@@ -98,9 +98,10 @@ const UINT CSVNStatusListCtrl::SVNSLNM_CHANGELISTCHANGED
 #define IDSVNLC_BLAME			34
 #define IDSVNLC_CREATEPATCH		35
 #define IDSVNLC_CHECKFORMODS	36
+#define IDSVNLC_REPAIRCOPY		37
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where 
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS		37
+#define IDSVNLC_MOVETOCS		38
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -2290,7 +2291,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 			}
 			if (selectedCount > 0)
 			{
-				if ((selectedCount == 2)&&(m_dwContextMenus & SVNSLC_POPREPAIRMOVE))
+				if ((selectedCount == 2)&&
+					((m_dwContextMenus & SVNSLC_POPREPAIRMOVE)||(m_dwContextMenus & SVNSLC_POPREPAIRCOPY)))
 				{
 					POSITION pos = GetFirstSelectedItemPosition();
 					int index = GetNextSelectedItem(pos);
@@ -2307,10 +2309,21 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							entry2 = GetListEntry(index);
 							if (entry2)
 								status2 = entry2->status;
-							if ((status1 == svn_wc_status_missing && status2 == svn_wc_status_unversioned) ||
-								(status2 == svn_wc_status_missing && status1 == svn_wc_status_unversioned))
+							if (m_dwContextMenus & SVNSLC_POPREPAIRMOVE)
 							{
-								popup.AppendMenuIcon(IDSVNLC_REPAIRMOVE, IDS_STATUSLIST_CONTEXT_REPAIRMOVE);
+								if ((status1 == svn_wc_status_missing && ((status2 == svn_wc_status_unversioned)||(status2 == svn_wc_status_none))) ||
+									(status2 == svn_wc_status_missing && ((status1 == svn_wc_status_unversioned)||(status1 == svn_wc_status_none))))
+								{
+									popup.AppendMenuIcon(IDSVNLC_REPAIRMOVE, IDS_STATUSLIST_CONTEXT_REPAIRMOVE);
+								}
+							}
+							if (m_dwContextMenus & SVNSLC_POPREPAIRCOPY)
+							{
+								if ((((status1 == svn_wc_status_normal)||(status1 == svn_wc_status_modified)||(status1 == svn_wc_status_merged)) && ((status2 == svn_wc_status_unversioned)||(status2 == svn_wc_status_none))) ||
+									(((status2 == svn_wc_status_normal)||(status2 == svn_wc_status_modified)||(status2 == svn_wc_status_merged)) && ((status1 == svn_wc_status_unversioned)||(status1 == svn_wc_status_none))))
+								{
+									popup.AppendMenuIcon(IDSVNLC_REPAIRCOPY, IDS_STATUSLIST_CONTEXT_REPAIRCOPY);
+								}
 							}
 						}
 					}
@@ -3588,6 +3601,117 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 											if (NULL != pParent && NULL != pParent->GetSafeHwnd())
 											{
 												pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
+											}
+										}
+									}
+									else
+									{
+										LPVOID lpMsgBuf;
+										FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+											FORMAT_MESSAGE_FROM_SYSTEM | 
+											FORMAT_MESSAGE_IGNORE_INSERTS,
+											NULL,
+											GetLastError(),
+											MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+											(LPTSTR) &lpMsgBuf,
+											0,
+											NULL 
+											);
+										MessageBox((LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+										LocalFree( lpMsgBuf );
+									}
+								}
+							}
+						}
+					}
+				}
+				break;
+			case IDSVNLC_REPAIRCOPY:
+				{
+					POSITION pos = GetFirstSelectedItemPosition();
+					int index = GetNextSelectedItem(pos);
+					FileEntry * entry1 = NULL;
+					FileEntry * entry2 = NULL;
+					if (index >= 0)
+					{
+						entry1 = GetListEntry(index);
+						svn_wc_status_kind status1 = svn_wc_status_none;
+						svn_wc_status_kind status2 = svn_wc_status_none;
+						if (entry1)
+						{
+							status1 = entry1->status;
+							index = GetNextSelectedItem(pos);
+							if (index >= 0)
+							{
+								entry2 = GetListEntry(index);
+								if (entry2)
+								{
+									status2 = entry2->status;
+									if (status2 != svn_wc_status_unversioned && status2 != svn_wc_status_none)
+									{
+										FileEntry * tempentry = entry1;
+										entry1 = entry2;
+										entry2 = tempentry;
+									}
+									// entry2 was copied from entry1 but outside of Subversion
+									// fix this by moving entry2 out of the way, copy entry1 to entry2
+									// and finally move entry2 back over the copy of entry1, overwriting
+									// it.
+									CString tempfile = entry2->GetPath().GetWinPathString() + _T(".tsvntemp");
+									if (MoveFile(entry2->GetPath().GetWinPath(), tempfile))
+									{
+										SVN svn;
+										// now make sure that the target folder is versioned
+										CTSVNPath parentPath = entry2->GetPath().GetContainingDirectory();
+										FileEntry * parentEntry = GetListEntry(parentPath);
+										while (parentEntry && parentEntry->inunversionedfolder)
+										{
+											parentPath = parentPath.GetContainingDirectory();
+											parentEntry = GetListEntry(parentPath);
+										}
+										if (!parentPath.IsEquivalentTo(entry2->GetPath().GetContainingDirectory()))
+										{
+											ProjectProperties props;
+											props.ReadPropsPathList(CTSVNPathList(entry1->GetPath()));
+
+											svn.Add(CTSVNPathList(entry2->GetPath().GetContainingDirectory()), &props, svn_depth_empty, TRUE, FALSE, TRUE);
+										}
+										if (!svn.Copy(CTSVNPathList(entry1->GetPath()), entry2->GetPath(), SVNRev(), SVNRev()))
+										{
+											MoveFile(tempfile, entry2->GetPath().GetWinPath());
+											CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+										}
+										else
+										{
+											if (MoveFileEx(tempfile, entry2->GetPath().GetWinPath(), MOVEFILE_COPY_ALLOWED|MOVEFILE_REPLACE_EXISTING))
+											{
+												// check the previously unversioned item
+												entry1->checked = true;
+												// fixing the move was successful. We have to adjust the new status of the
+												// files.
+												// Since we don't know if the moved/renamed file had local modifications or not,
+												// we can't guess the new status. That means we have to refresh...
+												CWnd* pParent = GetParent();
+												if (NULL != pParent && NULL != pParent->GetSafeHwnd())
+												{
+													pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
+												}
+											}
+											else
+											{
+												LPVOID lpMsgBuf;
+												FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+													FORMAT_MESSAGE_FROM_SYSTEM | 
+													FORMAT_MESSAGE_IGNORE_INSERTS,
+													NULL,
+													GetLastError(),
+													MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+													(LPTSTR) &lpMsgBuf,
+													0,
+													NULL 
+													);
+												MessageBox((LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+												LocalFree( lpMsgBuf );
 											}
 										}
 									}
