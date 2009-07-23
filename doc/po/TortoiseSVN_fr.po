@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-07-07 13:23 +0000\n"
-"PO-Revision-Date: 2009-07-20 17:53+0100\n"
+"PO-Revision-Date: 2009-07-23 17:59+0100\n"
 "Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3297,9 +3297,8 @@ msgid "<placeholder-1/> TortoiseSVN includes a spellchecker to help you get your
 msgstr "<placeholder-1/> TortoiseSVN inclut un vérificateur d'orthographe pour vous aider à obtenir des commentaires corrects. Il mettra en évidence les mots mal orthographiés. Utilisez le menu contextuel pour avoir accès aux corrections suggérées. Bien sûr, il ne connaît pas <emphasis>tous</emphasis> les termes techniques comme vous, donc parfois les mots correctement orthographiés s'afficheront en tant qu'erreurs. Mais ne vous inquiétez pas. Vous pouvez simplement les ajouter à votre dictionnaire personnel en utilisant le menu contextuel."
 
 #. (para)
-#, fuzzy
 msgid "The log message window also includes a filename and function auto-completion facility. This uses regular expressions to extract class and function names from the (text) files you are committing, as well as the filenames themselves. If a word you are typing matches anything in the list (after you have typed at least 3 characters, or pressed <keycap>Ctrl+Space</keycap>), a drop-down appears allowing you to select the full name. The regular expressions supplied with TortoiseSVN are held in the TortoiseSVN installation <filename>bin</filename> folder. You can also define your own regexes and store them in <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Of course your private autolist will not be overwritten when you update your installation of TortoiseSVN. If you are unfamiliar with regular expressions, take a look at the introduction at <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, and the online documentation and tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
-msgstr "La fenêtre de commentaire inclut aussi une fonctionnalité d'auto-achèvement des noms de fichier et des fonctions. Cela utilise des expressions régulières pour extraire les noms des fonctions et des classes à partir des fichiers (texte) que vous livrez, comme des noms de fichier eux-mêmes. Si vous tapez un mot qui correspond à quoi que ce soit dans la liste (après que vous ayez tapé au moins 3 caractères), un menu déroulant apparaît vous permettant de choisir le nom complet. Les expressions régulières fournies avec TortoiseSVN sont contenues dans le répertoire <filename>bin</filename> de l'installation de TortoiseSVN. Vous pouvez aussi définir vos propres regexes et les stocker dans <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Bien sûr votre autoliste privée ne sera pas écrasée quand vous mettez à jour votre installation de TortoiseSVN. Si vous êtes pas familiers avec les expressions régulières, jetez un coup d'oeil à la documentation en ligne et au tutoriel à <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
+msgstr "La fenêtre de commentaire inclut aussi une fonctionnalité d'auto-achèvement des noms de fichier et des fonctions. Elle utilise des expressions régulières pour extraire les noms des fonctions et des classes à partir des fichiers (texte) que vous livrez, ainsi que des noms de fichier eux-mêmes. Si vous tapez un mot qui correspond à quoi que ce soit dans la liste (après avoir tapé 3 caractères ou avoir appuyé sur la touche <keycap>Ctrl+Space</keycap>), une liste déroulant apparaît vous permettant de compléter le nom. Les expressions régulières fournies avec TortoiseSVN sont contenues dans le répertoire <filename>bin</filename> de l'installation de TortoiseSVN. Vous pouvez aussi définir vos propres regexes et les stocker dans <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Bien sûr cette liste privée ne sera pas écrasée quand vous mettrez à jour votre installation de TortoiseSVN. Si vous n'êtes pas à l'aise avec l'utilisation des expressions régulières, jetez un coup d'oeil à l'introduction <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink> et à la documentation en ligne et au tutoriel : <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>."
 
 #. (para)
 msgid "You can re-use previously entered log messages. Just click on <guibutton>Recent messages</guibutton> to view a list of the last few messages you entered for this working copy. The number of stored messages can be customized in the TortoiseSVN settings dialog."
@@ -3310,9 +3309,8 @@ msgid "You can clear all stored commit messages from the <guilabel>Saved data</g
 msgstr "Vous pouvez supprimer tous les messages de livraison depuis la page <guilabel>Données Sauvegardées</guilabel> de la fenêtre de Configuration de TortoiseSVN, vous pouvez également supprimer les messages précisément depuis la boite de dialogue <guilabel>Messages Récents</guilabel> en utillisant la toucje <keycap>Suppr</keycap>."
 
 #. (para)
-#, fuzzy
 msgid "If you want to include the checked paths in your log message, you can use the command <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Paste filename list</guimenuitem></menuchoice> in the edit control."
-msgstr "Si vous faites un <action>clic droit</action> sur une révision, vous pouvez utiliser <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Voir le journal</guimenuitem></menuchoice> pour voir l'historique."
+msgstr "Si vous souhaitez inclure les chemins mis à jour dans votre message, vous pouvez utiliser la commande <menuchoice><guimenu>Menu Contextuel</guimenu><guimenuitem>Coller la liste des noms de fichier</guimenuitem></menuchoice> dans le champs texte."
 
 #. (para)
 msgid "Another way to insert the paths into the log message is to simply drag the files from the file list onto the edit control."
@@ -3331,9 +3329,8 @@ msgid "Integration with Bug Tracking Tools"
 msgstr "Intégration aux outils de Bug tracking"
 
 #. (para)
-#, fuzzy
 msgid "If you have activated the bug tracking system, you can set one or more Issues in the <guilabel>Bug-ID / Issue-Nr:</guilabel> text box. Multiple issues should be comma separated. Alternatively, if you are using regex-based bug tracking support, just add your issue references as part of the log message. Learn more in <xref linkend=\"tsvn-dug-bugtracker\"/>."
-msgstr "Si vous avez activé le système de bugtracking, vous pourriez définir un ou plusieurs Incidents dans la saisie <guilabel>ID Bug / No Incident:</guilabel>. Les incidents devraient être séparés par des virgules. Autrement, si vous utilisez un support de bugtracking basé sur les regexes, ajoutez simplement les références de vos incidents dans vos commentaires. Apprenez plus <xref linkend=\"tsvn-dug-bugtracker\"/>."
+msgstr "Si vous avez activé le système de bugtracking, vous pouvez indiquer un ou plusieurs bugs dans le champ <guilabel>ID Bug / No Incident:</guilabel>. Les ID doivent être séparés par des virgules. Autrement, si vous utilisez un système de bugtracking utilisant les expressions régullières, ajoutez simplement les références des bugs dans le commentaire. Pour en savoir plus : <xref linkend=\"tsvn-dug-bugtracker\"/>."
 
 #. (title)
 msgid "Commit Progress"
@@ -3566,7 +3563,6 @@ msgid "This is the file that your Subversion client just received from the serve
 msgstr "C'est le fichier que votre client de Subversion venait de recevoir du serveur quand vous avez mis à jour votre copie de travail. Ce fichier correspond à la révision de tête du référentiel."
 
 #. (para)
-#, fuzzy
 msgid ""
 "A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. Whenever a conflict is reported, you should open the file in question, and search for lines starting with the string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area is marked like this: <screen>\n"
 "\t&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
@@ -3576,13 +3572,13 @@ msgid ""
 "\t&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "\t</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
-"De temps à autre, vous obtiendrez un <emphasis>conflit</emphasis> lors d'une mise à jour de vos fichiers à partir du référentiel. Un conflit se produit quand deux développeurs ou plus ont changé les mêmes lignes d'un fichier. Comme Subversion ne connaît rien à votre projet, il laisse la résolution des conflits aux développeurs. Chaque fois qu'un conflit est annoncé, vous devriez ouvrir le fichier en question et rechercher des lignes commençant par la chaîne <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. La zone en conflit est marquée comme cela : <screen>\n"
-"&lt;&lt;&lt;&lt;&lt;&lt;&lt; nom du fichier\n"
-"    vos changements\n"
-"=======\n"
-"    code fusionné du référentiel\n"
-"&gt;&gt;&gt;&gt;&gt;&gt;&gt; révision\n"
-"</screen> Aussi, pour chaque fichier en conflit Subversion place trois fichiers supplémentaires dans votre répertoire : <placeholder-1/>"
+"Un conflit de fichier arrive quand 2 développeurs our plus modifient un même fichier. Dans la mesure où Subversion ne sait rien de votre projet, il laisse la résolution des conflits à la charge des développeurs. Dès qu'un conflit est détecté, vous devriez ouvrir le fichier en question, et chercher les lignes commençant par <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. La zone en conflit est marquée de cette manière: <screen>\n"
+"\t&lt;&lt;&lt;&lt;&lt;&lt;&lt; nom_de_fichier\n"
+"\t\tvos modifications\n"
+"\t=======\n"
+"\t\tcode fusionné depuis le référentiel\n"
+"\t&gt;&gt;&gt;&gt;&gt;&gt;&gt; révision\n"
+"\t</screen> De plus, pour chaque conflit Subversion place trois fichiers dans votre répertoire: <placeholder-1/>"
 
 #. (para)
 msgid "You can either launch an external merge tool / conflict editor with <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit Conflicts</guimenuitem></menuchoice> or you can use any other editor to manually resolve the conflict. You should decide what the code should look like, do the necessary changes and save the file."
@@ -3614,7 +3610,7 @@ msgstr "Dans Subversion, lorsque qu'un fichier est supprimé, il l'est aussi loc
 
 #. (para)
 msgid "TortoiseSVN can help find the right place to merge changes, but there may be additional work required to sort out the conflicts. Remember that after an update the working BASE will always contain the revision of each item as it was in the repository at the time of update. If you revert a change after updating it goes back to the repository state, not to the way it was when you started making your own local changes."
-msgstr ""
+msgstr "TortoiseSVN peut aider à trouver les endroits où fusionner les modifications, mais cela ne résoudra pas tous les conflits.Souvenez vous qu'après une mise à jour la base de travail contiendra la révision des éléments tels qu'ils étaient au moment de la mise à jour. Si vous annulez une modification après avoir fait une mise à jour l'élément reviendra à la version du référentiel, pas à l'état dans lequel était l'élément avant que vous fassiez vos modifications."
 
 #. (title)
 msgid "Local delete, incoming edit upon update"
@@ -3646,7 +3642,7 @@ msgstr "Une mise à jour de la copie de travail du développeur B mène à un co
 
 #. (para)
 msgid "Developer B now has to choose whether to keep Developer A's changes. In the case of a file rename, he can merge the changes to <filename>Foo.c</filename> into the renamed file <filename>Bar.c</filename>. For simple file or directory deletions he can choose to keep the item with Developer A's changes and discard the deletion. Or, by marking the conflict as resolved without doing anything he effectively discards Developer A's changes."
-msgstr ""
+msgstr "Le développeur B doit maintenant choisir s'il veut conserver les modifications du développeur A. Dans le cas d'un renommage de fichier, il peut fusionner les modifications de <filename>Foo.c</filename> dans le fichier renommé <filename>Bar.c</filename>. Pour des suppressions de fichier ou de répertoire il peut choisir de garder l'élément avec les modifications du développeur A et annuler la suppression. Ou, en ne faisant que marquer le conflit comme étant résolu, il annule les modifications du développeur A."
 
 #. (para)
 #, fuzzy
@@ -11232,9 +11228,8 @@ msgid "<option>/findtype:7</option> filter by bug ID"
 msgstr "<option>/findtype:7</option> filtrer par bug ID"
 
 #. (entry)
-#, fuzzy
 msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (enables the 'stop-on-copy' checkbox), <placeholder-5/> fills in the filter text, <placeholder-6/> (forces the filter to use text, not regex) and <placeholder-7/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-8/>"
-msgstr "Ouvre la boîte de dialogue des messages de log. Le <placeholder-1/> spécifie le fichier ou le dossier duquel il faut afficher le journal. Trois options supplémentaires peuvent être définies : <placeholder-2/>, <placeholder-3/> et <placeholder-4/>"
+msgstr "Ouvre la boîte de dialogue des commentaires. Le <placeholder-1/> spécifie le fichier ou le dossier duquel il faut afficher les commentaires. Six options supplémentaires peuvent être définies : <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (active la case à cocher 'stop-lors-de-la-copie'), <placeholder-5/> remplit le texte de filtrage, <placeholder-6/> (force le filtre à fonctionner en mode text, pas regexp) et <placeholder-7/> X étant un chiffre compris entre 1 et 7. Les chiffres correspondent à : <placeholder-8/>"
 
 #. (option)
 #. (option)
