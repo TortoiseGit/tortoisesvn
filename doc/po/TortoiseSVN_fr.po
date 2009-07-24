@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-07-07 13:23 +0000\n"
-"PO-Revision-Date: 2009-07-23 17:59+0100\n"
+"PO-Revision-Date: 2009-07-24 15:55+0100\n"
 "Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3450,9 +3450,8 @@ msgid "The progress dialog uses colour coding to highlight different update acti
 msgstr "La boîte de dialogue de progression utilise un code couleur pour mettre en évidence les diverses actions de la mise à jour <placeholder-1/>"
 
 #. (para)
-#, fuzzy
 msgid "If you get any <emphasis>conflicts</emphasis> during an update (this can happen if others changed the same lines in the same file as you did and those changes don't match) then the dialog shows those conflicts in red. You can <action>double click</action> on these lines to start the external merge tool to resolve the conflicts."
-msgstr "Si vous obtenez des <literal>conflits</literal> pendant une mise à jour (cela peut arriver si d'autres ont changé les mêmes lignes dans le même fichier que vous et que ces changements ne correspondent pas) alors la boîte de dialogue montre ces conflits en rouge. Vous pouvez <action>double-cliquer</action> sur ces lignes pour démarrer l'outil externe de fusion pour résoudre les conflits."
+msgstr "Si vous avez des <emphasis>conflits</emphasis> pendant une mise à jour (cela peut arriver si d'autres ont changé les mêmes lignes dans le même fichier que vous et que ces changements ne correspondent pas) alors la boîte de dialogue montre ces conflits en rouge. Vous pouvez <action>double-cliquer</action> sur ces lignes afin démarrer l'outil externe de fusion pour résoudre les conflits."
 
 #. (para)
 msgid "When the update is complete, the progress dialog shows a summary of the number of items updated, added, removed, conflicted, etc. below the file list. This summary information can be copied to the clipboard using <keycap>Ctrl+C</keycap>."
@@ -3474,9 +3473,8 @@ msgid "<menuchoice><guimenuitem>Update to Revision</guimenuitem></menuchoice> ca
 msgstr "<menuchoice><guimenuitem>Mettre à jour à la révision</guimenuitem></menuchoice> peut être utile de temps à autre pour voir à quoi votre ressemblait  projet à un certain point précédent plus tôt dans son histoire. Mais en général, mettre à jour des fichiers individuels à une révision précédente n'est pas une bonne idée puisque cela laisse votre copie de travail dans un état incohérent. Si le fichier que vous mettez à jour a changé de nom, vous pouvez même constater que le fichier disparaît juste de votre copie de travail parce qu'aucun fichier de ce nom n'a existé dans la révision précédente. Si vous voulez simplement une copie locale d'une vieille version d'un fichier il vaut mieux utiliser la commande <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Sauver la révision sous...</guimenuitem></menuchoice> depuis la boîte de dialogue du journal pour ce fichier."
 
 #. (para)
-#, fuzzy
 msgid "If you simply want a local copy of an old version of a file it is better to use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save revision to...</guimenuitem></menuchoice> command from the log dialog for that file."
-msgstr "Si vous faites un <action>clic droit</action> sur une révision, vous pouvez utiliser <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Voir le journal</guimenuitem></menuchoice> pour voir l'historique."
+msgstr "Si vous voulez simplement une copie locale d'une version ancienne d'un fichier, il est mieux d'utiliser la commande <menuchoice><guimenu>Menu Contextuel</guimenu><guimenuitem>Sauver la révision dans...</guimenuitem></menuchoice> depuis la fenêtre de commentaire de ce fichier."
 
 #. (title)
 msgid "Multiple Files/Folders"
@@ -3621,19 +3619,16 @@ msgid "Developer A modifies <filename>Foo.c</filename> and commits it to the rep
 msgstr "Le développeur A modifie <filename>Foo.c</filename> et en fait la livraison"
 
 #. (para)
-#, fuzzy
 msgid "Developer B has simultaneously moved <filename>Foo.c</filename> to <filename>Bar.c</filename> in his working copy, or simply deleted <filename>Foo.c</filename> or its parent folder."
-msgstr "Au même moment, le développeur B a renommé <filename>Foo.c</filename> en <filename>Bar.c</filename> dans sa copie de travail."
+msgstr "Le développeur B a renommé simultanément <filename>Foo.c</filename> en <filename>Bar.c</filename> dans sa copie de travail, ou simplement supprimé <filename>Foo.c</filename> ou son répertoire parent."
 
 #. (para)
-#, fuzzy
 msgid "<filename>Foo.c</filename> has been deleted from working copy, but is marked with a tree conflict."
-msgstr "<filename>Foo.c</filename> est supprimé de la copie de travail."
+msgstr "<filename>Foo.c</filename> a été supprimé de la copie de travail, mais est marqué comme étant en conflit d'arborescence."
 
 #. (para)
-#, fuzzy
 msgid "If the conflict results from a rename rather than a delete then <filename>Bar.c</filename> is marked as added, but does not contain developer A's modifications."
-msgstr "<filename>Bar.c</filename> est marqué comme étant ajouté, mais ne contient pas les modifications du développeur A."
+msgstr "Si le conflit vient d'un renommage plus que d'une suppression alors <filename>Bar.c</filename> est marqué comme ajouté, mais ne contient pas les modification du développeur A."
 
 #. (para)
 #. (para)
@@ -12491,7 +12486,7 @@ msgstr ""
 
 #. (para)
 msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr ""
+msgstr "Nous ne pouvons pas vous indiquer comment développer un objet COM dans votre langage préféré, mais des exemples de greffons en C++/ATL et C# sont disponibles dans notre référentiel dans le répertoire <filename>contrib/issue-tracker-plugins</filename>. Vous pouvez également y trouver les fichiers à inlcure pour compiler votre greffon. (<xref linkend=\"tsvn-preface-source\"/> explique comment accéder au référentiel)."
 
 #. (title)
 msgid "The IBugtraqProvider interface"
@@ -12532,7 +12527,7 @@ msgstr ""
 
 #. (para)
 msgid "<placeholder-1/> This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
-msgstr ""
+msgstr "<placeholder-1/> Cette méthode est appele depuis la fenêtre des paramètres là où l'utilisateur peut ajouter et configurer le greffon. La chaine <literal>parametres</literal> peut être utilisée par un greffon pour avoir plus d'informations, i.e., les identifiants, l'URL du bug tracker, etc. Le greffon doit vérifier la chaine <literal>parametres</literal> et montrer une fenêtre d'erreur si la chaine n'est pas valide. Le paramètre <literal>hParentWnd</literal> permet au plugin d'accéder à la fenêtre mère. Le greffon DOIT renvoyer TRUE si la chaine <literal>parametres</literal> est validée. Si le greffon renvoie FALSE, la fenêtre de paramètrage n'autorisera pas l'utilisateur à ajouter le greffon au chemin d'une copie de travail."
 
 #. (programlisting)
 #, no-wrap
@@ -12567,7 +12562,7 @@ msgstr ""
 
 #. (para)
 msgid "<placeholder-1/> The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
-msgstr ""
+msgstr "<placeholder-1/> Le greffon peut fournir une chaine ici laquelle sera utilisée dans la fenêtre de livraison de TortoiseSVN par le bouton qui appelle le greffon, i.e., \"Choisir le bug\" ou \"Selectionner le ticket\". Assurez vous que la chaine n'est pas trop longue, sinon elle ne rentrera pas dans le bouton. Si la méthode retourne une erreur (i.e., <literal>E_NOTIMPL</literal>), un texte par défaut est utilisé pour le bouton."
 
 #. (programlisting)
 #, no-wrap
