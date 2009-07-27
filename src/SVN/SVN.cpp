@@ -1265,12 +1265,12 @@ BOOL SVN::Diff(const CTSVNPath& path1, const SVNRev& revision1, const CTSVNPath&
 	return TRUE;
 }
 
-BOOL SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision, const SVNRev& startrev, const SVNRev& endrev, const CTSVNPath& relativeToDir, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype, const CString& options, const CTSVNPath& outputfile)
+BOOL SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision, const SVNRev& startrev, const SVNRev& endrev, const CTSVNPath& relativeToDir, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype, const CString& options, bool bAppend, const CTSVNPath& outputfile)
 {
-	return PegDiff(path, pegrevision, startrev, endrev, relativeToDir, depth, ignoreancestry, nodiffdeleted, ignorecontenttype, options, outputfile, CTSVNPath());
+	return PegDiff(path, pegrevision, startrev, endrev, relativeToDir, depth, ignoreancestry, nodiffdeleted, ignorecontenttype, options, bAppend, outputfile, CTSVNPath());
 }
 
-BOOL SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision, const SVNRev& startrev, const SVNRev& endrev, const CTSVNPath& relativeToDir, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype, const CString& options, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
+BOOL SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision, const SVNRev& startrev, const SVNRev& endrev, const CTSVNPath& relativeToDir, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype, const CString& options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
 {
 	BOOL del = FALSE;
 	apr_file_t * outfile;
@@ -1283,9 +1283,15 @@ BOOL SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision, const SVNRev
 
 	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, localpool);
 
+	apr_int32_t flags = APR_WRITE | APR_CREATE | APR_BINARY;
+	if (bAppend)
+		flags |= APR_APPEND;
+	else
+		flags |= APR_TRUNCATE;
 	Err = svn_io_file_open (&outfile, outputfile.GetSVNApiPath(localpool),
-		APR_WRITE | APR_CREATE | APR_TRUNCATE | APR_BINARY,
+		flags,
 		APR_OS_DEFAULT, localpool);
+
 	if (Err)
 		return FALSE;
 

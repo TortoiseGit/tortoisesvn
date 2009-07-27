@@ -531,10 +531,11 @@ public:
 	BOOL PegDiff(const CTSVNPath& path, const SVNRev& pegrevision, const SVNRev& startrev, 
 		const SVNRev& endrev, const CTSVNPath& relativeToDir, svn_depth_t depth, 
 		BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  const CString& options, 
-		const CTSVNPath& outputfile, const CTSVNPath& errorfile);
+		bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
 	BOOL PegDiff(const CTSVNPath& path, const SVNRev& pegrevision, const SVNRev& startrev, 
 		const SVNRev& endrev, const CTSVNPath& relativeToDir, svn_depth_t depth, 
-		BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  const CString& options, const CTSVNPath& outputfile);
+		BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  const CString& options, 
+		bool bAppend, const CTSVNPath& outputfile);
 
 	/**
 	 * Finds out what files/folders have changed between two paths/revs,
