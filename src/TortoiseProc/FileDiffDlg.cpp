@@ -29,6 +29,7 @@
 #include "PathUtils.h"
 #include "BrowseFolder.h"
 #include "RevisionDlg.h"
+#include "IconMenu.h"
 #include ".\filediffdlg.h"
 
 #define ID_COMPARE 1
@@ -588,23 +589,16 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		m_cFileList.ClientToScreen(&rect);
 		point = rect.CenterPoint();
 	}
-	CMenu popup;
+	CIconMenu popup;
 	if (popup.CreatePopupMenu())
 	{
-		CString temp;
-		temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
-		temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIFIEDDIFF, temp);
-		temp.LoadString(IDS_FILEDIFF_POPBLAME);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAME, temp);
+		popup.AppendMenuIcon(ID_COMPARE, IDS_LOG_POPUP_COMPARETWO, IDI_DIFF);
+		popup.AppendMenuIcon(ID_UNIFIEDDIFF, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);
+		popup.AppendMenuIcon(ID_BLAME, IDS_FILEDIFF_POPBLAME, IDI_BLAME);
 		popup.AppendMenu(MF_SEPARATOR, NULL);
-		temp.LoadString(IDS_FILEDIFF_POPSAVELIST);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
-		temp.LoadString(IDS_FILEDIFF_POPCLIPBOARD);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CLIPBOARD, temp);
-		temp.LoadString(IDS_FILEDIFF_POPEXPORT);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EXPORT, temp);
+		popup.AppendMenuIcon(ID_SAVEAS, IDS_FILEDIFF_POPSAVELIST, IDI_SAVEAS);
+		popup.AppendMenuIcon(ID_CLIPBOARD, IDS_FILEDIFF_POPCLIPBOARD, IDI_COPYCLIP);
+		popup.AppendMenuIcon(ID_EXPORT, IDS_FILEDIFF_POPEXPORT, IDI_EXPORT);
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		m_bCancelled = false;
 		switch (cmd)
@@ -668,6 +662,7 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					try
 					{
 						CStdioFile file(savePath.GetWinPathString(), CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
+						CString temp;
 						temp.Format(IDS_FILEDIFF_CHANGEDLISTINTRO, (LPCTSTR)m_path1.GetSVNPathString(), (LPCTSTR)m_rev1.ToString(), (LPCTSTR)m_path2.GetSVNPathString(), (LPCTSTR)m_rev2.ToString());
 						file.WriteString(temp + _T("\n"));
 						POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
