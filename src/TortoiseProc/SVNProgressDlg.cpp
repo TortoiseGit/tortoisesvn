@@ -2700,6 +2700,12 @@ void CSVNProgressDlg::OnBnClickedNoninteractive()
 
 CString CSVNProgressDlg::GetPathFromColumnText(const CString& sColumnText)
 {
+	// First check if the text in the column actually *is* already
+	// a valid path
+	if (PathFileExists(sColumnText))
+	{
+		return sColumnText;
+	}
 	CString sPath = CPathUtils::ParsePathInString(sColumnText);
 	if (sPath.Find(':')<0)
 	{
