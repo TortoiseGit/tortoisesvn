@@ -304,7 +304,14 @@ void CCopyDlg::OnCancel()
 	// check if the status thread has already finished
 	if (m_pThread)
 	{
-		WaitForSingleObject(m_pThread->m_hThread, INFINITE);
+		WaitForSingleObject(m_pThread->m_hThread, 1000);
+		if (m_bThreadRunning)
+		{
+			// we gave the thread a chance to quit. Since the thread didn't
+			// listen to us we have to kill it.
+			TerminateThread(m_pThread->m_hThread, (DWORD)-1);
+			InterlockedExchange(&m_bThreadRunning, FALSE);
+		}
 	}
 	if (m_ProjectProperties.sLogTemplate.Compare(m_cLogMessage.GetText()) != 0)
 		m_History.AddEntry(m_cLogMessage.GetText());
