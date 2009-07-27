@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-07-07 13:23 +0000\n"
-"PO-Revision-Date: 2009-07-24 15:55+0100\n"
+"PO-Revision-Date: 2009-07-27 17:57+0100\n"
 "Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3704,15 +3704,15 @@ msgstr "Pour un conflit de répertoire: <placeholder-1/>"
 #. (para)
 #. (para)
 msgid "Developer B now has to decide whether to go with developer A's reorganisation and merge her changes into the corresponding file in the new structure, or simply revert A's changes and keep the local file."
-msgstr ""
+msgstr "Le développeur B doit à présent décider de garder la réorganisation du développeur A et de fusionner ses changement dans le fichier correspondant dans la nouvelle architecture, ou simplement annuler les modifications du développeur A et garder le fichier local."
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr ""
+msgstr "Pour fusionner ses modifications locales avec la réorganisation, le développeur B doit d'abord trouver quel est le nouveau nom du fichier<filename>Foo.c</filename> dans le référentiel.  Cela peut être fait en utilisant la fenêtre de commentaires. A présent les modifications doivent être réintégrées à la main dans le mesure où il n'y a aucun outil existant pour simplifier ce processus. Dès que les modifications ont été répercutées, le chemin conflictuel est redondant et peut donc être supprimé. Dans ce cas utilisez le bouton <guilabel>Supprimer</guilabel> dans la fenêtre de résolution de conflits pour faire le nettoyage et marquer le conflit comme résolu."
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog helps to track down what was moved."
-msgstr ""
+msgstr "Si le développeur B décide que les modifications du développeur A étaient mauvaises alors elle doit choisir le bouton <guilabel>Garder</guilabel> dans la fenêtre de résolution des conflits. Cette action a pour effet de marquer le conflit du fichier/répertoire comme résolu, mais les modifications du développeur A doivent être retirées à la main. De nouveau la fenêtre de commentaires aide à trouver ce qui a été déplacé."
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
@@ -3790,7 +3790,7 @@ msgstr "Pour résoudre ce conflit, le Développeur B doit supprimer le fichier m
 
 #. (para)
 msgid "Note that if you copy the missing file from the repository and then mark as resolved, your copy will be removed again. You have to resolve the conflict first."
-msgstr ""
+msgstr "Notez que si vous copiez le fichier manquant depuis le référentiel et que vous le marquez comme résolu, votre copie sera de nouveau retirée. Vous devez résoudre d'abord le conflit."
 
 #. (title)
 msgid "Local edit, incoming delete upon merge"
@@ -3809,7 +3809,7 @@ msgstr "Le développeur B modifie le fichier <filename>Foo.c</filename> et en fa
 
 #. (para)
 msgid "There is an equivalent case for folder moves, but it is not yet detected in Subversion 1.6 ..."
-msgstr ""
+msgstr "Il y a des cas équivalents pour les déplacements de répertoire, mais ce n'est pas encore détecté dans Subversion 1.6 ..."
 
 #. (para)
 #, fuzzy
@@ -3835,7 +3835,7 @@ msgstr ""
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog for the merge source helps to track down what was moved."
-msgstr ""
+msgstr "Si le développeur B décide que les modifications du développeur A étaient mauvaises elle doit alors choisir le bouton <guilabel>Garder</guilabel> dans la fenêtre de résolution de conflit. Cette action marque le conflit  du fichier/répertoire comme étant résolu, mais le développeur A doit reporter ses modifications à la main. La fenêtre de commentaires du fichier source de la fusion aide à détecter ce qui a été déplacé."
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
@@ -3940,7 +3940,7 @@ msgstr "En fait, vous pouvez constater que ces icônes ne sont pas toutes utilis
 
 #. (para)
 msgid "Now that there are more Tortoise clients around (TortoiseCVS, TortoiseHG, ...) the icon limit becomes a real problem. To work around this, the TortoiseSVN project introduced a common shared icon set, loaded as a DLL, which can be used by all Tortoise clients. Check with your client provider to see if this has been integrated yet :-)"
-msgstr ""
+msgstr "Depuis que différent clients Tortoise sont disponibles (TortoiseCVS, TortoiseHG, ...) la limite de l'icône devient un réel problème. Pour contourner ce souci, le projet TortoiseSVN met à présent à votre disposition une série d'icones, dans une DLL, qui peuvent être utilisées par tous les clients Tortoise. Vérifiez avec votre fournisseur de client pour savoir si cette fonctionnalité a été intégrée :-)"
 
 #. (para)
 msgid "For a description of how icon overlays correspond to Subversion status and other technical details, read <xref linkend=\"tsvn-app-internals-overlays\"/>."
@@ -4193,7 +4193,7 @@ msgstr "<placeholder-1/> Il existe plusieurs endroits à partir desquels vous po
 
 #. (para)
 msgid "If the repository is unavailable you will see the <guilabel>Want to go offline?</guilabel> dialog, described in <xref linkend=\"tsvn-dug-showlog-cache\"/>."
-msgstr ""
+msgstr "Si le référentiel n'est pas joignable vous verrez une fenêtre <guilabel>Travailler hors ligne ?</guilabel>, décrite dans <xref linkend=\"tsvn-dug-showlog-cache\"/>."
 
 #. (title)
 msgid "Revision Log Actions"
@@ -4338,7 +4338,7 @@ msgstr "Revenir à une révision précédente. Si vous avez fait plusieurs chang
 #. (para)
 #. (para)
 msgid "If your working copy is in an unmodified state, after you perform this action your working copy will show as modified. If you already have local changes, this command will merge the <emphasis>undo</emphasis> changes into your working copy."
-msgstr ""
+msgstr "Si votre copie de travail n'a pas été modifiée, après avoir fait cette action elle sera marquée comme étant modifiée. Si vous avez déjà des modifications locales, cette commande fusionnera les modifications <emphasis>annulées</emphasis> dans votre copie de travail."
 
 #. (para)
 msgid "What is happening internally is that Subversion performs a reverse merge of all the changes made after the selected revision, undoing the effect of those previous commits."
@@ -4982,7 +4982,7 @@ msgstr "Les outils intégrés fournis avec TortoiseSVN ne supportent pas l'obser
 
 #. (para)
 msgid "If you have configured a third party diff tool, you can use <keycap>Shift</keycap> when selecting the Diff command to use the alternate tool. Read <xref linkend=\"tsvn-dug-settings-progs\"/> to find out about configuring other diff tools."
-msgstr ""
+msgstr "Si vous avez fourni un outil de diff alternatif, vous pouvez utiliser la touche <keycap>Shift</keycap> quand vous sélectionnez la commande Diff pour utiliser l'outil alternatif. Lisez <xref linkend=\"tsvn-dug-settings-progs\"/> pour savoir comment configurer les autres outils de diff."
 
 #. (title)
 msgid "Line-end and Whitespace Options"
@@ -6229,7 +6229,7 @@ msgstr ""
 
 #. (title)
 msgid "File externals support incomplete in Subversion 1.6"
-msgstr ""
+msgstr "Le support des fichiers externes est incomplet dans Subversion 1.6"
 
 #. (para)
 msgid "In subversion 1.6 it is not possible to remove a file external from your working copy once you have added it, even if you delete the <literal>svn:externals</literal> property altogether. You have to checkout a fresh working copy to remove the file."
@@ -6489,7 +6489,7 @@ msgstr ""
 
 #. (para)
 msgid "With the command line client you specify the changes to merge using two <quote>fence post</quote> revisions which specify the <emphasis>before</emphasis> and <emphasis>after</emphasis> points."
-msgstr ""
+msgstr "Avec le client en ligne de commande vous spécifiez les modifications à fusionner avec deux révisions <quote>limites</quote> qui spécifient les bornes <emphasis>avant</emphasis> et <emphasis>après</emphasis>."
 
 #. (para)
 msgid "With TortoiseSVN you specify the changeset to merge using <quote>fence panels</quote>. The reason for this becomes clear when you use the log dialog to specify revisions to merge, where each revision appears as a changeset."
