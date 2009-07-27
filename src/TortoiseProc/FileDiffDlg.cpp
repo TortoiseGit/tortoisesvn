@@ -36,6 +36,7 @@
 #define ID_SAVEAS 3
 #define ID_EXPORT 4
 #define ID_CLIPBOARD 5
+#define ID_UNIFIEDDIFF 6
 
 BOOL	CFileDiffDlg::m_bAscending = FALSE;
 int		CFileDiffDlg::m_nSortedColumn = -1;
@@ -593,6 +594,8 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		CString temp;
 		temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
 		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+		temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIFIEDDIFF, temp);
 		temp.LoadString(IDS_FILEDIFF_POPBLAME);
 		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAME, temp);
 		popup.AppendMenu(MF_SEPARATOR, NULL);
@@ -614,6 +617,29 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					int index = m_cFileList.GetNextSelectedItem(pos);
 					DoDiff(index, false);
 				}					
+			}
+			break;
+		case ID_UNIFIEDDIFF:
+			{
+				CTSVNPath diffFile = CTempFiles::Instance().GetTempFilePath(false);
+				POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
+				while (pos)
+				{
+					int index = m_cFileList.GetNextSelectedItem(pos);
+					CFileDiffDlg::FileDiff fd = m_arFilteredList[index];
+					CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
+					CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
+					
+					if (m_bDoPegDiff)
+					{
+						PegDiff(url1, m_peg, m_rev1, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, CString(), true, diffFile);
+					}
+					else
+					{
+						Diff(url1, m_rev1, url2, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, CString(), true, diffFile);
+					}
+				}
+				CAppUtils::StartUnifiedDiffViewer(diffFile, CString(), false);
 			}
 			break;
 		case ID_BLAME:
