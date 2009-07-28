@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-05-19 06:41 +0000\n"
-"PO-Revision-Date: 2009-05-19 23:23+0200\n"
+"POT-Creation-Date: 2009-07-07 13:23 +0000\n"
+"PO-Revision-Date: 2009-07-29 01:47+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4595,8 +4595,8 @@ msgid "Because the log dialog shows you the log from HEAD, not from the current 
 msgstr "Koska loki-ikkuna näyttää HEAD-version (eikä työkopion nykyversion) lokin, saattaa usein käydä niin, että näet lokiviestejä sisällölle, joka ei ole vielä mukana työkopiossa. Jotta tämä olisi selkeämpää, työkopiosi versiota vastaava toimitusviesti näytetään lihavoituna."
 
 #. (para)
-msgid "By default this only works for files. This is because the update revision for a folder may not correspond to the update revision of its content, and the only way to find the effective update revision for the folder is to crawl the working copy. This can be a slow operation for large working copies so if you want to enable this feature you must create a <literal>DWORD</literal> registry key with value 1 at <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal>."
-msgstr "Oletusarvoisesti tämä toimii vain tiedostoille, koska kansion päivitysversio saattaa poiketa sen sisällön päivitysversioista, ja ainoa tapa selvittää kansion todellinen versio on käydä läpi sen sisältö tiedosto kerrallaan. Tämä voi olla hidasta suurille työkopioille, joten toiminto on aktivoitava erikseen luomalla <literal>DWORD</literal>-rekisteriavain <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal> arvolla 1."
+msgid "When you show the log for a folder the revision highlighted is the highest revision found anywhere within that folder, which requires a crawl of the working copy. The crawl takes place within a separate thread so as not to delay showing the log, but as a result highlighting for folders may not appear immediately."
+msgstr "Kun näytät loki-ikkunan kansiolle, sen sisältämä suurin versionumero korostetaan; tämä vaatii työkopion läpikäymisen. Läpikäynti tapahtuu erillisessä säikeessä jotta loki-ikkunan näyttäminen ei viivästyisi, mutta tästä syystä kansioiden korostus ei välttämättä näy heti."
 
 #. (title)
 msgid "Merge Tracking Features"
@@ -9399,8 +9399,8 @@ msgid "Current revision highlighting for folders in log dialog"
 msgstr "Nykyisen version korostus loki-ikkunan kansioille"
 
 #. (para)
-msgid "The log dialog highlights the current working copy revision when the log is shown for a file. To do the same thing for a folder requires a working copy crawl, which can be a slow operation for large working copies. If you want to enable this feature you must create a <literal>DWORD</literal> registry key at <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal>. A value of 0 disables the feature (no highlighting for folders), a value of 1 (default) will fetch the status recursively (find the highest revision in the working copy tree), and a value of 2 will check the revision of the selected folder itself, but will not check any child items."
-msgstr "Loki-ikkuna korostaa nykyisen työkopion version, kun lokia näytetään tiedostolle. Kansioille tämä vaatii työkopion läpikäymistä, mikä voi olla hidasta suurille työkopioille. Jos haluat aktivoida tämän toiminnon, sinun on luotava <literal>DWORD</literal>-rekisteriavain <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal>. Arvo 0 poistaa toiminnon (ei korostusta kansioille), arvo 1 (oletus) hakee tilan palautuvasti (etsii suurimman versionumeron työkopiosta) ja arvo 2 tarkistaa itse kansion versionumeron, mutta ei tarkista sen alapuolista puuta."
+msgid "The log dialog highlights the current working copy revision when the log is shown for a file. To do the same thing for a folder requires a working copy crawl, which can be a slow operation for large working copies. However the crawling is done in a separate thread so it doesn't hold up the display of log messages. For <emphasis>really</emphasis> large working copies the disk chatter might be annoying, so if you really want to disable this you must create a <literal>DWORD</literal> registry key at <literal>HKCU\\Software\\TortoiseSVN\\LogStatusCheck</literal>. A value of 0 disables the feature (no highlighting for folders)."
+msgstr "Loki-ikkuna korostaa nykyisen työkopion version, kun lokia näytetään tiedostolle. Kansioille tämä vaatii työkopion läpikäymistä, mikä voi olla hidasta suurille työkopioille. Läpikäynti tapahtuu kuitenkin erillisessä säikeessä, joten se ei viivästytä lokiviestien näyttöä. Korostus voidaan estää luomalla <literal>DWORD</literal>-rekisteriavain <literal>HKCU\\Software\\TortoiseSVN\\LogStatusCheck</literal> ja asettamalla sen arvoksi 0. Arvo 0 poistaa toiminnon (ei korostusta kansioille). Tästä voi olla hyötyä <emphasis>todella</emphasis> suurille työkopioille."
 
 #. (term)
 msgid "Make checkout fail if an item of the same name exists"
@@ -10888,6 +10888,7 @@ msgstr "TortoiseSVN-komennot"
 
 #. (primary)
 #. (primary)
+#. (primary)
 msgid "automation"
 msgstr "automaatio"
 
@@ -11320,6 +11321,57 @@ msgstr ""
 "TortoiseProc.exe /command:log /path:\"c:\\svn_wc\\file1.txt\"\n"
 "                 /startrev:50 /endrev:60 /closeonend:0\n"
 "</screen>"
+
+#. (title)
+msgid "Tsvncmd URL handler"
+msgstr "Tsvncmd-paikantimien käsittely"
+
+#. (primary)
+msgid "URL handler"
+msgstr "Paikantimien käsittelijä"
+
+#. (para)
+msgid "Using special URLs, it is also possible to call TortoiseProc from a web page."
+msgstr "TortoiseProc-ohjelma voidaan käynnistää web-sivulta käyttämällä erityisiä paikantimia."
+
+#. (para)
+msgid "TortoiseSVN registers a new protocol <literal>tsvncmd:</literal> which can be used to create hyperlinks that execute TortoiseSVN commands. The commands and parameters are the same as when automating TortoiseSVN from the command line."
+msgstr "TortoiseSVN rekisteröi uuden<literal>tsvncmd:</literal>-yhteyskäytännön, jota voidaan käyttää luomaan hyperlinkkejä, jotka suorittavat TortoiseSVN-komentoja. Komennot ja parametrit ovat samoja kuin TortoiseSVN-komentoriviparametrit."
+
+#. (para)
+msgid "The format of the <literal>tsvncmd:</literal> URL is like this:"
+msgstr "<literal>tsvncmd:</literal>-paikantimen muoto on seuraava:"
+
+#. (literal)
+msgid "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
+msgstr "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
+
+#. (para)
+msgid "with <literal>cmd</literal> being one of the allowed commands and with <literal>parameter</literal> being a parameter like <literal>path</literal> or <literal>revision</literal>, depending on the command used."
+msgstr "missä <literal>cmd</literal> on jokin sallittu komento ja <literal>parameter</literal> on jokin parametri (esim. <literal>polku</literal> tai <literal>versio</literal>, riippuen käytetystä komennosta."
+
+#. (para)
+msgid "The following commands are allowed with <literal>tsvncmd:</literal> URLs: <placeholder-1/>"
+msgstr "Seuraavat komennot ovat sallittuja <literal>tsvncmd:</literal>-paikantimien yhteydessä: <placeholder-1/>"
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"&lt;a href=\"tsvncmd:command:showcompare?\n"
+"url1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"url2:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"revision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
+msgstr ""
+"\n"
+"&lt;a href=\"tsvncmd:command:showcompare?\n"
+"url1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"url2:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"revision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
+
+#. (para)
+msgid "An example URL might look like this: <placeholder-1/>"
+msgstr "Esimerkkipaikannin voisi näyttää seuraavalta: <placeholder-1/>"
 
 #. (title)
 msgid "TortoiseIDiff Commands"
@@ -12020,6 +12072,10 @@ msgstr "Oletamme, että olet jo asentanut Subversion-työkalut ja luonut arkisto
 #. (para)
 msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which can be found at <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
 msgstr "Seuraava teksti on suurelta osin peräisin Marc Logemannin kirjoittamasta ohjeesta, joka löytyy sivustosta <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink>.  Windows-palvelimen määrittelyyn liittyvät ohjeet on kirjoittanut Thorsten Müller. Kiitos molemmille!"
+
+#. (para)
+msgid "You can also watch a video tutorial created by Maximo Migliari which takes you through all the important steps. Watch it on <ulink url=\"http://www.vimeo.com/5378553\"><citetitle>Vimeo</citetitle></ulink>. or <ulink url=\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</citetitle></ulink>."
+msgstr "Voit myös katsoa Maximo Migliarin luoman opastusvideon, joka selvittää tärkeät kohdat. Videota voi katsella <ulink url=\"http://www.vimeo.com/5378553\"><citetitle>Vimeon</citetitle></ulink> tai <ulink url=\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTuben</citetitle></ulink> kautta."
 
 #. (title)
 msgid "Setting Up a Linux Server"
@@ -12857,6 +12913,22 @@ msgstr "Kari Granö <kari.grano@gmail.com>"
 msgid "translator-translation"
 msgstr "Käännös"
 
+#~ msgid ""
+#~ "By default this only works for files. This is because the update revision "
+#~ "for a folder may not correspond to the update revision of its content, "
+#~ "and the only way to find the effective update revision for the folder is "
+#~ "to crawl the working copy. This can be a slow operation for large working "
+#~ "copies so if you want to enable this feature you must create a "
+#~ "<literal>DWORD</literal> registry key with value 1 at <literal>HKCU"
+#~ "\\Software\\TortoiseSVN\\RecursiveLogRev</literal>."
+#~ msgstr ""
+#~ "Oletusarvoisesti tämä toimii vain tiedostoille, koska kansion "
+#~ "päivitysversio saattaa poiketa sen sisällön päivitysversioista, ja ainoa "
+#~ "tapa selvittää kansion todellinen versio on käydä läpi sen sisältö "
+#~ "tiedosto kerrallaan. Tämä voi olla hidasta suurille työkopioille, joten "
+#~ "toiminto on aktivoitava erikseen luomalla <literal>DWORD</literal>-"
+#~ "rekisteriavain <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</"
+#~ "literal> arvolla 1."
 #~ msgid ""
 #~ "Opens the check-for-modifications dialog. The <placeholder-1/> specifies "
 #~ "the working copy directory."

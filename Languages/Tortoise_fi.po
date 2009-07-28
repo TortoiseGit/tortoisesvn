@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-08 01:08+0200\n"
+"PO-Revision-Date: 2009-07-28 02:02+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1214,6 +1214,10 @@ msgstr "'ohitetut välit' kuvaavat versiovälejä, joita ei ole vielä välimuis
 msgid "(%s) %s"
 msgstr "(%s) %s"
 
+#. Resource IDs: (119)
+msgid "(Double-click to clear error message)"
+msgstr "(Kaksoisnapsauta poistaaksesi virheilmoituksen)"
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(binääriarvo)"
@@ -1221,6 +1225,10 @@ msgstr "(binääriarvo)"
 #. Resource IDs: (276)
 msgid "(copy)"
 msgstr "(kopio)"
+
+#. Resource IDs: (277)
+msgid "(create branch)"
+msgstr "(luo haara)"
 
 #. Resource IDs: (276)
 msgid "(created)"
@@ -1261,10 +1269,6 @@ msgstr "(ei arvoa)"
 #. Resource IDs: (314)
 msgid "(not found)"
 msgstr "(ei löytynyt)"
-
-#. Resource IDs: (276)
-msgid "(open branch)"
-msgstr "(avaa haara)"
 
 #. Resource IDs: (208)
 msgid "(property change only)"
@@ -3188,6 +3192,10 @@ msgstr ""
 "Poista tämä valinta jos työkopiosi ovat todella suuria ja navigointi\r\n"
 "niiden sisällä aiheuttaa liikaa levyoperaatioita."
 
+#. Resource IDs: (596)
+msgid "Discards local changes upon incoming deletes"
+msgstr "Unohtaa paikalliset muutokset saapuvien poistojen yhteydessä"
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Disk full while accessing %1."
@@ -4029,6 +4037,10 @@ msgstr "Paina F1 saadaksesi ohjeen.  Vieritä vaakasuunnassa komennolla Ctrl+kie
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "Poista valinta 'Pysähdy kopioon/uudelleennimentään' nähdäksesi täydellisen historian"
+
+#. Resource IDs: (279)
+msgid "Force"
+msgstr "Pakota"
 
 #. Resource IDs: (1480)
 msgid "Force the merge"
@@ -5338,8 +5350,8 @@ msgstr "Yhdistäminen"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s"
-msgstr "Yhdistetään %s -> %s, %s"
+msgid "Merging %s into %s, %s%s"
+msgstr "Yhdistetään %s -> %s, %s%s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -5347,8 +5359,8 @@ msgstr "Yhdistämässä arkistopaikantimien välisiä eroja"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr "Yhdistän muutokset alkaen polusta %s (versio %s) polkuun %s (versio %s) kohteeseen %s, %s%s"
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
+msgstr "Yhdistetään polusta %s (versio %s) polkuun %s (versio %s) kohteeseen %s, %s%s%s"
 
 #. Resource IDs: (264)
 #, c-format
@@ -5366,8 +5378,8 @@ msgstr "Yhdistäminen vaatii eri versioita tai eri paikantimia 'Mistä:'- ja 'Mi
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s"
-msgstr "Yhdistetään versiot %s polusta %s -> %s, %s%s"
+msgid "Merging revisions %s of %s into %s, %s%s%s"
+msgstr "Yhdistetään versiot %s polusta %s -> %s, %s%s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
