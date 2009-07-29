@@ -111,65 +111,7 @@ CCrashReport crasher("tortoisesvn@gmail.com", "Crash Report for TortoiseSVN " AP
 BOOL CTortoiseProcApp::InitInstance()
 {
 	EnableCrashHandler();
-	// for Win7 : use a custom jump list
-	{
-		CoInitialize(NULL);
-
-		SetAppID(APPID);
-		DeleteJumpList(APPID);
-		ICustomDestinationList *pcdl;
-		HRESULT hr = CoCreateInstance(CLSID_DestinationList, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&pcdl));
-		if (SUCCEEDED(hr))
-		{
-			hr = pcdl->SetAppID(APPID);
-			if (SUCCEEDED(hr))
-			{
-				UINT uMaxSlots;
-				IObjectArray *poaRemoved;
-				hr = pcdl->BeginList(&uMaxSlots, IID_PPV_ARGS(&poaRemoved));
-				if (SUCCEEDED(hr))
-				{
-					IObjectCollection *poc;
-					hr = CoCreateInstance(CLSID_EnumerableObjectCollection, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&poc));
-					if (SUCCEEDED(hr))
-					{
-						IShellLink *psl;
-						CString sTemp = CString(MAKEINTRESOURCE(IDS_MENUSETTINGS));
-						CStringUtils::RemoveAccelerators(sTemp);
-						hr = CreateShellLink(_T("/command:settings"), (LPCTSTR)sTemp, 19, &psl);
-						if (SUCCEEDED(hr))
-						{
-							poc->AddObject(psl);
-							psl->Release();
-						}
-						sTemp = CString(MAKEINTRESOURCE(IDS_MENUHELP));
-						CStringUtils::RemoveAccelerators(sTemp);
-						hr = CreateShellLink(_T("/command:help"), (LPCTSTR)sTemp, 18, &psl);
-						if (SUCCEEDED(hr))
-						{
-							poc->AddObject(psl);
-							psl->Release();
-						}
-
-						IObjectArray *poa;
-						hr = poc->QueryInterface(IID_PPV_ARGS(&poa));
-						if (SUCCEEDED(hr))
-						{
-							pcdl->AppendCategory((LPCTSTR)CString(MAKEINTRESOURCE(IDS_PROC_TASKS)), poa);
-							poa->Release();
-						}
-						poc->Release();
-					}				
-					if (SUCCEEDED(hr))
-					{
-						pcdl->CommitList();
-					}
-					poaRemoved->Release();
-				}
-			}
-		}
-		CoUninitialize();
-	}
+	InitializeJumpList();
 	svn_error_set_malfunction_handler(svn_error_handle_malfunction);
 	CheckUpgrade();
 	CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
@@ -630,6 +572,67 @@ void CTortoiseProcApp::EnableCrashHandler()
 	{
 		crasher.Enable(FALSE);
 	}
+}
+
+void CTortoiseProcApp::InitializeJumpList()
+{
+	// for Win7 : use a custom jump list
+	CoInitialize(NULL);
+
+	SetAppID(APPID);
+	DeleteJumpList(APPID);
+	ICustomDestinationList *pcdl;
+	HRESULT hr = CoCreateInstance(CLSID_DestinationList, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&pcdl));
+	if (SUCCEEDED(hr))
+	{
+		hr = pcdl->SetAppID(APPID);
+		if (SUCCEEDED(hr))
+		{
+			UINT uMaxSlots;
+			IObjectArray *poaRemoved;
+			hr = pcdl->BeginList(&uMaxSlots, IID_PPV_ARGS(&poaRemoved));
+			if (SUCCEEDED(hr))
+			{
+				IObjectCollection *poc;
+				hr = CoCreateInstance(CLSID_EnumerableObjectCollection, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&poc));
+				if (SUCCEEDED(hr))
+				{
+					IShellLink *psl;
+					CString sTemp = CString(MAKEINTRESOURCE(IDS_MENUSETTINGS));
+					CStringUtils::RemoveAccelerators(sTemp);
+					hr = CreateShellLink(_T("/command:settings"), (LPCTSTR)sTemp, 19, &psl);
+					if (SUCCEEDED(hr))
+					{
+						poc->AddObject(psl);
+						psl->Release();
+					}
+					sTemp = CString(MAKEINTRESOURCE(IDS_MENUHELP));
+					CStringUtils::RemoveAccelerators(sTemp);
+					hr = CreateShellLink(_T("/command:help"), (LPCTSTR)sTemp, 18, &psl);
+					if (SUCCEEDED(hr))
+					{
+						poc->AddObject(psl);
+						psl->Release();
+					}
+
+					IObjectArray *poa;
+					hr = poc->QueryInterface(IID_PPV_ARGS(&poa));
+					if (SUCCEEDED(hr))
+					{
+						pcdl->AppendCategory((LPCTSTR)CString(MAKEINTRESOURCE(IDS_PROC_TASKS)), poa);
+						poa->Release();
+					}
+					poc->Release();
+				}				
+				if (SUCCEEDED(hr))
+				{
+					pcdl->CommitList();
+				}
+				poaRemoved->Release();
+			}
+		}
+	}
+	CoUninitialize();
 }
 
 int CTortoiseProcApp::ExitInstance()
