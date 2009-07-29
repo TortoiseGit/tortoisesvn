@@ -5122,15 +5122,17 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				filepath = GetRepositoryRoot(CTSVNPath(filepath));
 				filepath += changedpaths[0];
 				svn_revnum_t logrev = rev1;
+				CString sCmd;
 				if (changedlogpaths[0]->action == LOGACTIONS_DELETED)
 				{
 					// if the item got deleted in this revision,
 					// fetch the log from the previous revision where it
 					// still existed.
-					logrev--;
+					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld /pegrev:%ld"), (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)filepath, logrev, logrev-1);
 				}
-				CString sCmd;
-				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /pegrev:%ld"), (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)filepath, logrev);
+				else
+					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /pegrev:%ld"), (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)filepath, logrev);
+
 				if (bMergeLog)
 					sCmd += _T(" /merge");
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
