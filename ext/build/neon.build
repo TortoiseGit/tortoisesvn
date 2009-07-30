@@ -91,6 +91,7 @@
 				<include name="src" />
 				<include name="..\apr-util\xml\expat\lib" />
 				<include name="..\..\..\common\openssl\inc32" />
+				<include name="..\..\..\common\zlib" />
 			</includedirs>
 			<defines>
 				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
@@ -103,6 +104,7 @@
 				<define name="HAVE_EXPAT" />
 				<define name="HAVE_EXPAT_H" />
 				<define name="NE_HAVE_DAV" />
+				<define name="NE_HAVE_ZLIB" />
 				<define name="WIN32" />
 				<define name="_WINDOWS" />
 				<define name="_WIN32" />
