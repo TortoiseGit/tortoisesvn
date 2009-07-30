@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-04-27 15:57+0100\n"
+"PO-Revision-Date: 2009-07-30 09:08+0100\n"
 "Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -348,13 +348,13 @@ msgstr "%s, men blev blokeret i den nuværende arbejdskopi."
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export (%d) of %s"
-msgstr "%s\\Eksport (%d) af %s"
+msgid "%s\\%s - Export"
+msgstr "%s\\%s - Export"
 
 #. Resource IDs: (145)
 #, c-format
-msgid "%s\\Export of %s"
-msgstr "%s\\Eksport af %s"
+msgid "%s\\%s - Export (%d)"
+msgstr "%s\\%s - Export (%d)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -1214,7 +1214,7 @@ msgstr "&Hovedgren"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
-msgstr "&Two Pages"
+msgstr "&To sider"
 
 #. Resource IDs: (1058, 1376, 1394)
 msgid "&URL of repository:"
@@ -1290,6 +1290,10 @@ msgstr "\"intervaller der skal springes over\" bruges til at markere revisionsin
 msgid "(%s) %s"
 msgstr "(%s) %s"
 
+#. Resource IDs: (119)
+msgid "(Double-click to clear error message)"
+msgstr "(Dobbeltklik for at slette fejlmeddelelse)"
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(binær værdi)"
@@ -1298,6 +1302,10 @@ msgstr "(binær værdi)"
 #. Resource IDs: (276)
 msgid "(copy)"
 msgstr "(kopiér)"
+
+#. Resource IDs: (277)
+msgid "(create branch)"
+msgstr "(opret sidegren)"
 
 #. Resource IDs: (276)
 msgid "(created)"
@@ -1339,10 +1347,6 @@ msgstr "(ingen værdi)"
 #. Resource IDs: (314)
 msgid "(not found)"
 msgstr "(ikke fundet)"
-
-#. Resource IDs: (276)
-msgid "(open branch)"
-msgstr "(åben sidegren)"
 
 #. Resource IDs: (208)
 msgid "(property change only)"
@@ -1703,6 +1707,10 @@ msgstr "Alder"
 #. Resource IDs: (32822)
 msgid "Align trees on top"
 msgstr "Flugt træer til top"
+
+#. Resource IDs: (1505)
+msgid "All"
+msgstr "Alle"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
@@ -2324,6 +2332,11 @@ msgstr "Marker denne for at benytte et kortere dato- og tidsformat i logbeskeder
 msgid "Check working copy for modifications"
 msgstr "Check arbejdskopi for ændringer"
 
+# Autogenereret, bruges formodentlig ikke
+#. Resource IDs: (1504)
+msgid "Check:"
+msgstr "Vælg:"
+
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Søger efter en nyere version af TortoiseSVN..."
@@ -2366,8 +2379,9 @@ msgid "Cleaning up"
 msgstr "Rydder op"
 
 #. Resource IDs: (146)
-msgid "Cleaning up."
-msgstr "Rydder op."
+#, c-format
+msgid "Cleaning up directory \"%s\""
+msgstr "Rydder op i mappe \"%s\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2591,7 +2605,7 @@ msgstr "Sammenlign og angiv &ansvar i forhold til grundrevisionen af arbejdskopi
 
 #. Resource IDs: (114)
 msgid "Compare and blame with previous revision"
-msgstr "Sammenling og angiv ansvar i forhold til forrige revision"
+msgstr "Sammenlign og angiv ansvar i forhold til forrige revision"
 
 #. Resource IDs: (1390)
 msgid "Compare whitespaces"
@@ -3268,6 +3282,10 @@ msgstr "Sammenligner"
 msgid "Diffs the working copy file with the one before the last commit."
 msgstr "Sammenligner filen i arbejdskopien med versionen før sidste arkivering"
 
+#. Resource IDs: (1513)
+msgid "Directories"
+msgstr "Mapper"
+
 #. Resource IDs: (65535)
 msgid "Directory:"
 msgstr "Mappe:"
@@ -3279,6 +3297,10 @@ msgid ""
 msgstr ""
 "Slå denne indstilling fra, hvis du har meget store arbejdskopier og oplever\r\n"
 "for meget adgang til disken når du gennemser arbejdskopien."
+
+#. Resource IDs: (596)
+msgid "Discards local changes upon incoming deletes"
+msgstr "Ignorer lokale ændringer ved indkommende sletninger"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -4057,6 +4079,10 @@ msgstr ""
 msgid "Filename"
 msgstr "Filnavn"
 
+#. Resource IDs: (1512)
+msgid "Files"
+msgstr "Filer"
+
 #. Resource IDs: (1057)
 msgid ""
 "Fill Tool\n"
@@ -4136,6 +4162,14 @@ msgstr "Tryk F1 for hjælp. Rul horisontalt med Ctrl+rullehjulet"
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "For at vise komplet historik, skal du fravælge \"Stop ved kopiering/omdøbning\""
+
+#. Resource IDs: (279)
+msgid "Force"
+msgstr "Tving"
+
+#. Resource IDs: (1480)
+msgid "Force the merge"
+msgstr "Gennemtving fletning"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -4670,7 +4704,7 @@ msgid ""
 "i.e. they get the modified overlay icon."
 msgstr ""
 "Hvis valgt, vil ikke-versionerede filer markere status af den overordnede mappe som ændret\r\n"
-"dvs. blive vist med ikonoverdæningen for \"ændret\"."
+"dvs. blive vist med ikonoverdækningen for \"ændret\"."
 
 #. Resource IDs: (2052)
 msgid "If the graph contains multiple trees, separate them by slight variations in background color."
@@ -5444,8 +5478,8 @@ msgstr "Fletning"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s"
-msgstr "Fletter %s ind i %s, %s"
+msgid "Merging %s into %s, %s%s"
+msgstr "Fletter %s ind i %s, %s%s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -5453,8 +5487,8 @@ msgstr "Fletter forskelle mellem versionsarkiv URL'er"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr "Fletter fra %s, revision %s til %s, revision %s ind i %s, %s%s"
+msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
+msgstr "Fletter fra %s, revision %s til %s, revision %s ind i  %s, %s%s%s"
 
 #. Resource IDs: (264)
 #, c-format
@@ -5472,8 +5506,8 @@ msgstr "Fletning kræver forskellige revisioner eller forskellige URL'er i \"Fra
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s"
-msgstr "Fletter revisioner %s af %s ind i %s, %s%s"
+msgid "Merging revisions %s of %s into %s, %s%s%s"
+msgstr "Fletter revisioner %s af %s ind i %s, %s%s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -8124,6 +8158,10 @@ msgstr "Marker knuder"
 msgid "Tagged the working copy to %s"
 msgstr "Arbejdskopien blev mærket til %s"
 
+#. Resource IDs: (80)
+msgid "Tasks"
+msgstr "Opgaver"
+
 #. Resource IDs: (1064)
 msgid "Tasks Pane"
 msgstr "Opgaverude"
@@ -9161,6 +9199,10 @@ msgstr ""
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Afversionér"
+
+#. Resource IDs: (1507)
+msgid "Unversioned"
+msgstr "Uversioneret"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
@@ -10242,7 +10284,7 @@ msgstr "eller"
 
 #. Resource IDs: (65535)
 msgid "pair tokens: "
-msgstr "sanmensæt symboler:"
+msgstr "sammensæt symboler:"
 
 #. Resource IDs: (65535)
 msgid "path elements: "
@@ -10343,15 +10385,15 @@ msgstr ""
 "svn:externals\r\n"
 "En linjesepareret liste af modulspecifikationer, hver indeholdende\r\n"
 "en relativ mappesti, eventuelle revisionargumenter, og en URL. Eksempel:\r\n"
-"foo\t\thttp://eksempel.dk/arkiv/zig\r\n"
-"foo/bar -r 1234\thttp://eksempel.dk/arkiv/zag\r\n"
+"http://eksempel.dk/arkiv/zig foo\r\n"
+"-r 1234 http://eksempel.dk/arkiv/zag foo/bar\r\n"
 "\r\n"
 "URL'erne kan enten være fulde URL'er eller relative. Formatet for\r\n"
 "relative URL'er er:\r\n"
-"../\trelativt til mappen med svn:externals-egenskaben\r\n"
-"^/\trelativt til versionsarkivroden\r\n"
-"//\trelativt til URL-opbygningen\r\n"
-"/\trelativt til serverens værtsnavn"
+"../ relativt til mappen med svn:externals-egenskaben\r\n"
+"^/ relativt til versionsarkivroden\r\n"
+"// relativt til URL-opbygningen\r\n"
+"/ relativt til serverens værtsnavn"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10632,6 +10674,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Cleaning up."
+#~ msgstr "Rydder op."
 #~ msgid "%s, but the local file was already edited."
 #~ msgstr "%s, men den lokale fil er allerede blevet ændret."
 #~ msgid "General::Revision Graph"
