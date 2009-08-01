@@ -276,9 +276,14 @@ size_t CRevisionGraphState::GetTreeCount() const
 {
     CSingleLock lock (&mutex);
 
-    return layout.get() != NULL
-        ? layout->GetTrees()->GetCount()
-        : 0;
+    if (layout.get() == NULL)
+        return 0;
+
+    CSyncPointer<const ILayoutRectList> trees
+        ( &mutex
+        , layout->GetTrees()
+        , true);
+    return trees->GetCount();
 }
 
 bool CRevisionGraphState::PromptShown() const
