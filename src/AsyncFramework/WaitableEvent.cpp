@@ -22,6 +22,9 @@
 #include "WaitableEvent.h"
 #include "CriticalSection.h"
 
+namespace async
+{
+
 // recycler for OS constructs
 
 namespace
@@ -200,4 +203,6 @@ bool CWaitableEvent::Test() const
 void CWaitableEvent::WaitFor()
 {
     WaitForSingleObject (event, INFINITE);
+}
+
 }

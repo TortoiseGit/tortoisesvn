@@ -58,6 +58,10 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 
 	DWORD dwOpts = CRegStdDWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 0x1ff199);
     m_Graph.m_state.GetOptions()->SetRegistryFlags (dwOpts, 0x7fbf);
+
+    // begin background operation
+
+    StartWorkerThread();
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
@@ -243,63 +247,51 @@ BOOL CRevisionGraphDlg::OnInitDialog()
     DoZoom (0.75);
 
 	EnableSaveRestore(_T("RevisionGraphDlg"));
-
-    assert (m_Graph.m_bThreadRunning == TRUE);
-	if (AfxBeginThread(WorkerThread, this)== NULL)
-	{
-        InterlockedExchange (&m_Graph.m_bThreadRunning, FALSE);
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	}
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 }
 
-UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
+bool CRevisionGraphDlg::UpdateData()
 {
-	CRevisionGraphDlg*	pDlg;
-	pDlg = (CRevisionGraphDlg*)pVoid;
-	assert (pDlg->m_Graph.m_bThreadRunning == TRUE);
 	CoInitialize(NULL);
 
-    if (pDlg->m_bFetchLogs)
+    if (m_bFetchLogs)
     {
-	    pDlg->m_Graph.m_pProgress = new CProgressDlg();
-	    pDlg->m_Graph.m_pProgress->SetTitle(IDS_REVGRAPH_PROGTITLE);
-	    pDlg->m_Graph.m_pProgress->SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
-	    pDlg->m_Graph.m_pProgress->SetTime();
-	    pDlg->m_Graph.m_pProgress->SetProgress(0, 100);
+    	CProgressDlg progress;
+	    progress.SetTitle(IDS_REVGRAPH_PROGTITLE);
+	    progress.SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
+	    progress.SetTime();
+	    progress.SetProgress(0, 100);
 
-        svn_revnum_t pegRev = pDlg->m_Graph.m_pegRev.IsNumber()
-                            ? (svn_revnum_t)pDlg->m_Graph.m_pegRev
+        svn_revnum_t pegRev = m_Graph.m_pegRev.IsNumber()
+                            ? (svn_revnum_t)m_Graph.m_pegRev
                             : (svn_revnum_t)-1;
 
-	    if (!pDlg->m_Graph.FetchRevisionData (pDlg->m_Graph.m_sPath, pegRev))
-		    CMessageBox::Show ( pDlg->m_hWnd
-                              , pDlg->m_Graph.m_state.GetLastErrorMessage()
+	    if (!m_Graph.FetchRevisionData (m_Graph.m_sPath, pegRev, &progress))
+		    CMessageBox::Show ( m_hWnd
+                              , m_Graph.m_state.GetLastErrorMessage()
                               , _T("TortoiseSVN")
                               , MB_ICONERROR);
 
-        pDlg->m_Graph.m_pProgress->Stop();
-        delete pDlg->m_Graph.m_pProgress;
-        pDlg->m_Graph.m_pProgress = NULL;
+        progress.Stop();
 
-    	pDlg->m_bFetchLogs = false;	// we've got the logs, no need to fetch them a second time
+    	m_bFetchLogs = false;	// we've got the logs, no need to fetch them a second time
     }
 
     // standard plus user settings
 
-    if (pDlg->m_Graph.AnalyzeRevisionData())
+    if (m_Graph.AnalyzeRevisionData())
     {
-        pDlg->UpdateStatusBar();
-        pDlg->UpdateOptionAvailability();
+        UpdateStatusBar();
+        UpdateOptionAvailability();
     }
 
 	CoUninitialize();
-	InterlockedExchange(&pDlg->m_Graph.m_bThreadRunning, FALSE);
+    m_Graph.PostMessage (CRevisionGraphWnd::WM_WORKERTHREADDONE, 0, 0);
 
-    pDlg->m_Graph.SendMessage (CRevisionGraphWnd::WM_WORKERTHREADDONE, 0, 0);
-	return 0;
+    return true;
 }
 
 void CRevisionGraphDlg::OnSize(UINT nType, int cx, int cy)
@@ -440,7 +432,7 @@ void CRevisionGraphDlg::OnViewZoomAll()
 
 void CRevisionGraphDlg::OnMenuexit()
 {
-	if (!m_Graph.m_bThreadRunning)
+    if (!m_Graph.IsUpdateJobRunning())
 		EndDialog(IDOK);
 }
 
@@ -511,14 +503,17 @@ BOOL CRevisionGraphDlg::ToggleOption (UINT controlID)
 {
     // check request for validity
 
-	if (m_Graph.m_bThreadRunning)
+	if (m_Graph.IsUpdateJobRunning())
 	{
+        // restore previous state
+
 		int state = m_ToolBar.GetToolBarCtrl().GetState(controlID);
 		if (state & TBSTATE_CHECKED)
 			state &= ~TBSTATE_CHECKED;
 		else
 			state |= TBSTATE_CHECKED;
 		m_ToolBar.GetToolBarCtrl().SetState (controlID, state);
+
 		return FALSE;
 	}
 
@@ -582,19 +577,13 @@ BOOL CRevisionGraphDlg::OnToggleRedrawOption (UINT controlID)
 
 void CRevisionGraphDlg::StartWorkerThread()
 {
-	if (InterlockedExchange(&m_Graph.m_bThreadRunning, TRUE) == TRUE)
-        return;
-
-	if (AfxBeginThread(WorkerThread, this)==NULL)
-	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	    InterlockedExchange(&m_Graph.m_bThreadRunning, FALSE);
-	}
+    if (!m_Graph.IsUpdateJobRunning())
+        m_Graph.updateJob.reset (new CFuture<bool>(this, &CRevisionGraphDlg::UpdateData));
 }
 
 void CRevisionGraphDlg::OnCancel()
 {
-	if (!m_Graph.m_bThreadRunning)
+    if (!m_Graph.IsUpdateJobRunning())
 		__super::OnCancel();
 }
 

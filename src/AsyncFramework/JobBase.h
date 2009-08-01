@@ -23,6 +23,9 @@
 #include "IJob.h"
 #include "WaitableEvent.h"
 
+namespace async
+{
+
 /**
  * Common base implementation of \ref IJob.
  * All your job class deriving from this one
@@ -68,3 +71,5 @@ public:
     virtual Status GetStatus() const;
     virtual void WaitUntilDone();
 };
+
+}

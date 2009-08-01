@@ -81,7 +81,7 @@ void CRevisionGraphWnd::OnPaint()
 {
 	CPaintDC dc(this); // device context for painting
 	CRect rect = GetClientRect();
-	if (m_bThreadRunning)
+    if (IsUpdateJobRunning())
 	{
 		dc.FillSolidRect(rect, ::GetSysColor(COLOR_APPWORKSPACE));
 		CWnd::OnPaint();

@@ -104,7 +104,7 @@ bool CommitCommand::Execute()
 			progDlg.SetCommitMessage(dlg.m_sLogMessage);
 			progDlg.SetDepth(dlg.m_bRecursive ? svn_depth_infinity : svn_depth_empty);
 			progDlg.SetSelectedList(dlg.m_selectedPathList);
-			progDlg.SetItemCount(dlg.m_itemsCount);
+			progDlg.SetItemCount(static_cast<long>(dlg.m_itemsCount));
 			progDlg.SetBugTraqProvider(dlg.m_BugTraqProvider);
 			progDlg.SetRevisionProperties(dlg.m_revProps);
 			progDlg.DoModal();

@@ -21,6 +21,9 @@
 #include "stdafx.h"
 #include "CriticalSection.h"
 
+namespace async
+{
+
 // construction / destruction
 
 CCriticalSection::CCriticalSection(void)
@@ -31,4 +34,6 @@ CCriticalSection::CCriticalSection(void)
 CCriticalSection::~CCriticalSection(void)
 {
     DeleteCriticalSection (&section);
+}
+
 }

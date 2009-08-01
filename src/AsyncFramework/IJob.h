@@ -20,8 +20,11 @@
 
 #pragma once
 
-// forward declaration
+namespace async
+{
 
+// forward declaration
+   
 class CJobScheduler;
 
 /**
@@ -75,3 +78,5 @@ public:
 
     virtual void WaitUntilDone() = 0;
 };
+
+}

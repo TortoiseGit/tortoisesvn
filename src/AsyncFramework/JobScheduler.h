@@ -23,6 +23,9 @@
 #include "CriticalSection.h"
 #include "WaitableEvent.h"
 
+namespace async
+{
+
 // forward declarations
 
 class IJob;
@@ -436,3 +439,5 @@ public:
 
     static size_t GetHWThreadCount();
 };
+
+}

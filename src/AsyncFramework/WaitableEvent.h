@@ -20,6 +20,9 @@
 
 #pragma once
 
+namespace async
+{
+
 /**
 * A waitable event that can be signaled only once.
 * Also, only one waiting thread is allowed.
@@ -81,3 +84,5 @@ public:
     bool Test() const;
     void WaitFor();
 };
+
+}

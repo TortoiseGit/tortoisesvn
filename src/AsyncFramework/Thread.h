@@ -36,6 +36,9 @@
 * threads may result in unstable behavior.
 */
 
+namespace async
+{
+
 class CThread
 {
 private:
@@ -80,3 +83,5 @@ public:
     void Resume();
     void Terminate();
 };
+
+}

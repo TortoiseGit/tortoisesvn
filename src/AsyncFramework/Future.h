@@ -22,6 +22,9 @@
 
 #include "JobBase.h"
 
+namespace async
+{
+
 /**
  * Execute a call to a funtion asynchronuously in the background.
  * Return the result in \ref GetResult. The latter will wait for
@@ -361,3 +364,5 @@ public:
         return job->GetStatus() == IJob::done;
     }
 };
+
+}

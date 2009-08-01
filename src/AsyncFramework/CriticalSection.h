@@ -20,6 +20,9 @@
 
 #pragma once
 
+namespace async
+{
+
 /**
 * Just a simple critical section (i.e. recursive mutex)
 * implementation with minimal overhead.
@@ -87,3 +90,5 @@ public:
         section.Release();
     }
 };
+
+}

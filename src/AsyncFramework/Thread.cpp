@@ -21,6 +21,9 @@
 #include "stdafx.h"
 #include "Thread.h"
 
+namespace async
+{
+
 /// the actual thread function
 
 void CThread::ThreadFunc (void* arg)
@@ -84,4 +87,6 @@ void CThread::Terminate()
 
     Resume();
     done.WaitFor();
+}
+
 }

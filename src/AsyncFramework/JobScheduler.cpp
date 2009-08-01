@@ -23,6 +23,9 @@
 #include "IJob.h"
 #include "Thread.h"
 
+namespace async
+{
+
 // queue size management
 
 void CJobScheduler::CQueue::Grow (size_t newSize)
@@ -353,6 +356,11 @@ CJobScheduler::CJobScheduler
     }
 
     threads.starved = false;
+
+    // auto-initialize shared threads
+
+    if (GetSharedThreadCount() == 0)
+        UseAllCPUs();
 }
 
 CJobScheduler::~CJobScheduler(void)
@@ -517,4 +525,6 @@ size_t CJobScheduler::GetHWThreadCount()
 #endif
 
     return sysNumProcs;
+}
+
 }

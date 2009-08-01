@@ -22,6 +22,9 @@
 
 #include "JobBase.h"
 
+namespace async
+{
+
 /**
  * Execute a call to a funtion returning @a void asynchronuously
  * in the background.
@@ -257,3 +260,5 @@ public:
         delete call;
     }
 };
+
+}

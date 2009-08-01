@@ -191,7 +191,8 @@ int CRevisionGraphWnd::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
 
 bool CRevisionGraphWnd::FetchRevisionData 
     ( const CString& path
-    , SVNRev pegRevision)
+    , SVNRev pegRevision
+    , CProgressDlg* progress)
 {
     // (re-)fetch the data
 
@@ -205,7 +206,7 @@ bool CRevisionGraphWnd::FetchRevisionData
                                                     , pegRevision
                                                     , showWCRev
                                                     , showWCModification
-                                                    , m_pProgress);
+                                                    , progress);
 
     m_state.SetLastErrorMessage (newFullHistory->GetLastErrorMessage());
 
@@ -262,6 +263,11 @@ bool CRevisionGraphWnd::AnalyzeRevisionData()
     }
 
     return m_state.GetNodes().get() != NULL;
+}
+
+bool CRevisionGraphWnd::IsUpdateJobRunning() const
+{
+    return (updateJob.get() != NULL) && !updateJob->IsDone();
 }
 
 bool CRevisionGraphWnd::GetShowOverview() const

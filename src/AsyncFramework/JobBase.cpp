@@ -22,6 +22,9 @@
 #include "JobBase.h"
 #include "JobScheduler.h"
 
+namespace async
+{
+
 // nothing special during construction / destuction
 
 CJobBase::CJobBase(void)
@@ -70,4 +73,6 @@ IJob::Status CJobBase::GetStatus() const
 void CJobBase::WaitUntilDone()
 {
     finished.WaitFor();
+}
+
 }
