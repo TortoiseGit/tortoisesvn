@@ -18,7 +18,6 @@
 //
 #pragma once
 
-
 /**
  * A quick linear (array) hash index class. It requires HF to
  * provide the following interface:
@@ -74,11 +73,13 @@ private:
 		static const size_t primes[31];
 		statistics_t statistics;
 		size_t index;
+        size_t nextStride;
 
 	public:
 
 		prime_grower()
 			: index (0)
+            , nextStride (1)
 			, statistics()
 		{
 			statistics.capacity = primes[index];
@@ -113,6 +114,12 @@ private:
 				statistics.max_path = path_size + 1;
 		}
 
+        void batch_inserted (size_t count, size_t collisions_count)
+        {
+			statistics.used += count;
+			statistics.collisions += collisions_count;
+        }
+
 		void grow() 
 		{
 			statistics.capacity = primes[++index];
@@ -120,6 +127,8 @@ private:
 			statistics.used = 0;
 			statistics.collision_path_sum = 0;
 			statistics.max_path = 1;
+			
+            nextStride = 46337 % capacity();
 		}
 		
 		size_t map (size_t hash_value) const 
@@ -129,7 +138,10 @@ private:
 		
 		size_t next (size_t index) const 
 		{
-			return (index + 1381000000) % capacity();
+            index += nextStride;
+            if (index >= capacity())
+                index -= capacity();
+			return index;
 		}
 
 		const statistics_t& get_statistics() const
@@ -155,6 +167,11 @@ private:
 		return grower.size() + grower.collisions() + 1 >= grower.capacity();
 	}
 
+	bool should_grow (size_t size) const
+	{
+		return grower.size() + grower.collisions() + size >= grower.capacity();
+	}
+
 	/// initialize the new array before re-hashing
 	void create_data()
 	{
@@ -166,13 +183,11 @@ private:
 	
 	/// add a value to the hash 
 	/// (must not be in it already; hash must not be full)
-	void internal_insert (const value_type& value, index_type index)
+	void internal_insert (size_t bucket, index_type index)
 	{
 		// first try: un-collisioned insertion
 
-		size_t bucket = grower.map (hf (value));
 		index_type* target = data + bucket;
-
 		if (*target == NO_INDEX)
 		{
 			*target = index;
@@ -206,7 +221,10 @@ private:
 		{
 			index_type index = old_data[i];
 			if (index != NO_INDEX)
-				internal_insert (hf.value (index), index);
+            {
+                size_t bucket = grower.map (hf (hf.value (index)));
+                internal_insert (bucket, index);
+            }
 		}
 
 		delete[] old_data;
@@ -269,13 +287,13 @@ public:
 		if (should_grow())
 			reserve (grower.capacity()+1);
 	
-		internal_insert (value, index);
+		internal_insert (grower.map (hf (value)), index);
 	}
 
 	void reserve (size_t min_bucket_count)
 	{
 		if (size_t(-1) / sizeof (index_type[4]) > min_bucket_count)
-			min_bucket_count *= 2;
+			min_bucket_count += min_bucket_count / 2;
 
 		index_type* old_data = data;
 		size_t old_data_size = grower.capacity();
@@ -285,6 +303,118 @@ public:
 			
 		if (grower.capacity() != old_data_size)
 			rehash (old_data, old_data_size);
+	}
+
+    /// batch insertion. Start at index.
+
+    template<class IT>
+	void presorted_insert (IT first, IT last, index_type index)
+    {
+        // definitions
+
+        enum {MAX_CLUSTERS = 256};
+        typedef std::pair<unsigned, index_type> TPair;
+
+        // preparation
+
+        size_t clusterSize = max (1, (last - first) / MAX_CLUSTERS);
+        size_t shift = 0;
+        while (((size_t)MAX_CLUSTERS << shift) < grower.capacity())
+            ++shift;
+
+        std::auto_ptr<TPair> tempBuffer (new TPair [MAX_CLUSTERS * clusterSize]);
+        TPair* temp = tempBuffer.get();
+
+        size_t used[MAX_CLUSTERS];
+        memset (used, 0, sizeof (used));
+
+        // sort main: fill bucket chains
+
+        for (; first != last; ++first)
+        {
+            size_t bucket = grower.map (hf (*(first)));
+            size_t clusterIndex = bucket >> shift;
+
+            size_t offset = used[clusterIndex] + clusterIndex * clusterSize;
+
+            TPair& current = temp[offset];
+            current.first = bucket;
+            current.second = index++;
+
+            if (++used[clusterIndex] == clusterSize)
+            {
+                used[clusterIndex] = 0;
+
+                // write data
+
+	            size_t collisions_count = 0;
+                for ( TPair* iter = temp + clusterIndex * clusterSize
+                    , *end = iter + clusterSize
+                    ; iter != end
+                    ; ++iter)
+                {
+                    size_t bucket = iter->first;
+		            index_type* target = data + bucket;
+
+		            while (*target != NO_INDEX)
+		            {
+			            bucket = grower.next (bucket);
+			            target = data + bucket;
+			            ++collisions_count;
+                    }
+
+                    *target = iter->second;
+                }
+
+                grower.batch_inserted (clusterSize, collisions_count);
+            }
+        }
+
+        // write remaining data
+
+        for (int i = 0; i < MAX_CLUSTERS; ++i)
+        {
+            size_t collisions_count = 0;
+            for ( TPair* iter = temp + i * clusterSize
+                , *end = iter + used[i]
+                ; iter != end
+                ; ++iter)
+            {
+                size_t bucket = iter->first;
+	            index_type* target = data + bucket;
+
+	            while (*target != NO_INDEX)
+	            {
+		            bucket = grower.next (bucket);
+		            target = data + bucket;
+		            ++collisions_count;
+                }
+
+                *target = iter->second;
+            }
+
+            grower.batch_inserted (used[i], collisions_count);
+        }
+    }
+
+    template<class IT>
+	void insert (IT first, IT last, index_type index)
+	{
+        size_t count = last - first;
+		if (should_grow (count))
+			reserve (grower.size() + count);
+
+        // small numbers should be added using conventional methods
+
+        if (count < 1000)
+        {
+            for (; first != last; ++first, ++index)
+                internal_insert (grower.map (hf (*first)), index);
+        }
+        else
+        {
+            presorted_insert (first, last, index);
+        }
 	}
 
 	/// assignment

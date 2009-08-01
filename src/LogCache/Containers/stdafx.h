@@ -62,10 +62,7 @@
 #endif
 
 // include commonly used headers
-
-#include <afxwin.h>         // MFC core and standard components
-#include <afxtempl.h>       // CArray and friend
-
+#include <windows.h>
 #include <assert.h>
 #include <time.h>
 

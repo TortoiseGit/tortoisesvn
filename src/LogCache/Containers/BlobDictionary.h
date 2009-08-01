@@ -46,12 +46,88 @@ namespace LogCache
 typedef quick_hash_map<index_t, index_t> index_mapping_t;
 
 /**
- * efficiently stores a pool of unique (UTF8) strings.
+ * generalized string data
+ */
+
+struct SBlob
+{
+    const char* data;
+    size_t size;
+
+    // construction
+
+    SBlob ()
+        : data (NULL), size (0) {}
+
+    SBlob (const char* data, size_t size)
+        : data (data), size (size) {}
+
+    SBlob (const std::string& rhs)
+        : data (rhs.c_str()), size (rhs.size()) {}
+
+    // comparison
+
+    bool operator==(const SBlob& rhs) const
+    {
+        return (size == rhs.size) 
+            && ((size == 0) || (memcmp (data, rhs.data, size) == 0));
+    }
+
+    bool operator!=(const SBlob& rhs) const
+    {
+        return !operator==(rhs);
+    }
+
+    bool operator<(const SBlob& rhs) const
+    {
+        if (size == 0)
+            return rhs.size != 0;
+
+        size_t minSize = min (size, rhs.size);
+        int diff = memcmp (data, rhs.data, minSize);
+        if (diff != 0)
+            return diff < 0;
+
+        return size < rhs.size;
+    }
+
+    bool operator>=(const SBlob& rhs) const
+    {
+        return !operator<(rhs);
+    }
+
+    bool operator>(const SBlob& rhs) const
+    {
+        return rhs.operator<(*this);
+    }
+
+    bool operator<=(const SBlob& rhs) const
+    {
+        return !rhs.operator<(*this);
+    }
+
+    // string operations
+
+    bool StartsWith (const SBlob& rhs) const
+    {
+        return (size >= rhs.size) 
+            && (memcmp (data, rhs.data, rhs.size) == 0);
+    }
+
+    bool StartsWith (const std::string& rhs) const
+    {
+        return (size >= rhs.size()) 
+            && (memcmp (data, rhs.c_str(), rhs.size()) == 0);
+    }
+};
+
+/**
+ * efficiently stores a pool of unique blobs.
  * Each string is assigned an unique, immutable index.
  *
  * Under most circumstances, O(1) lookup is provided.
  */
-class CStringDictionary
+class CBlobDictionary
 {
 private:
 
@@ -71,24 +147,24 @@ private:
 		/// the dictionary we index with the hash
 		/// (used to map index -> value)
 
-		CStringDictionary* dictionary;
+		CBlobDictionary* dictionary;
 
 	public:
 
 		/// simple construction
 
-		CHashFunction (CStringDictionary* aDictionary);
+		CHashFunction (CBlobDictionary* aDictionary);
 
 		/// required typedefs and constants
 
-		typedef const char* value_type;
+		typedef SBlob value_type;
 		typedef index_t index_type;
 
 		enum {NO_INDEX = LogCache::NO_INDEX};
 
 		/// the actual hash function
 
-		size_t operator() (value_type value) const;
+		size_t operator() (const value_type& value) const;
 
 		/// dictionary lookup
 
@@ -96,25 +172,25 @@ private:
 
 		/// lookup and comparison
 
-		bool equal (value_type value, index_type index) const;
+		bool equal (const value_type& value, index_type index) const;
 	};
 
 	/// sub-stream IDs
 
 	enum
 	{
-		PACKED_STRING_STREAM_ID = 1,
+		PACKED_BLOBS_STREAM_ID = 1,
 		OFFSETS_STREAM_ID = 2
 	};
 
 	/// the string data
 
-	std::vector<char> packedStrings;
+	std::vector<char> packedBlobs;
 	std::vector<index_t> offsets;
 
     /// equivalent to &packedStrings.at(0)
 
-    char* packedStringsStart;
+    char* packedBlobsStart;
 
 	/// the string index
 
@@ -134,8 +210,8 @@ public:
 
 	/// construction / destruction
 
-	CStringDictionary(void);
-	virtual ~CStringDictionary(void);
+	CBlobDictionary(void);
+	virtual ~CBlobDictionary(void);
 
 	/// dictionary operations
 
@@ -144,14 +220,13 @@ public:
 		return (index_t)(offsets.size()-1);
 	}
 
-	const char* operator[](index_t index) const;
-	index_t GetLength (index_t index) const;
+	SBlob operator[](index_t index) const;
 
-    void swap (CStringDictionary& rhs);
+    void swap (CBlobDictionary& rhs);
 
-	index_t Find (const char* string) const;
-	index_t Insert (const char* string);
-	index_t AutoInsert (const char* string);
+	index_t Find (const SBlob& string) const;
+	index_t Insert (const SBlob& string);
+	index_t AutoInsert (const SBlob& string);
 
 	/// reset content
 
@@ -159,16 +234,16 @@ public:
 
     /// use this to minimize re-allocation and re-hashing
 
-    void Reserve (index_t stringCount, size_t charCount);
+    void Reserve (index_t blobCount, size_t byteCount);
 
     /// statistics
 
-    size_t GetPackedStringSize() const;
+    size_t GetPackedBlobsSize() const;
 
 	/// "merge" with another container:
 	/// add new entries and return ID mapping for source container
 
-	index_mapping_t Merge (const CStringDictionary& source);
+	index_mapping_t Merge (const CBlobDictionary& source);
 
 	/// rearrange strings: put [sourceIndex[index]] into [index]
 
@@ -177,9 +252,9 @@ public:
 	/// stream I/O
 
 	friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-											 , CStringDictionary& dictionary);
+											 , CBlobDictionary& dictionary);
 	friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-											  , const CStringDictionary& dictionary);
+											  , const CBlobDictionary& dictionary);
 
 	/// for statistics
 
@@ -189,9 +264,9 @@ public:
 /// stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-								  , CStringDictionary& dictionary);
+								  , CBlobDictionary& dictionary);
 IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-								   , const CStringDictionary& dictionary);
+								   , const CBlobDictionary& dictionary);
 
 ///////////////////////////////////////////////////////////////
 // end namespace LogCache

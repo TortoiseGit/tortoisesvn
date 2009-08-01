@@ -111,16 +111,19 @@ void CStringDictionary::RebuildIndexes()
 
     // hash & index all strings
 
-	hashIndex.clear();
-	hashIndex.reserve (offsets.size());
+    std::vector<const char*> temp;
+	temp.reserve (offsets.size());
 
 	for (index_t i = 0, count = (index_t)offsets.size()-1; i < count; ++i)
     {
         *(begin+i) = offset;
-		hashIndex.insert (packedStringsStart + offset, i);
+		temp.push_back (packedStringsStart + offset);
 
         offset += static_cast<index_t>(strlen (packedStringsStart + offset) +1);
     }
+
+	hashIndex.clear();
+    hashIndex.insert (temp.begin(), temp.end(), 0);
 
     // "end of table" entry
 
@@ -235,6 +238,17 @@ void CStringDictionary::Clear()
 	Initialize();
 }
 
+// use this to minimize re-allocation and re-hashing
+
+void CStringDictionary::Reserve (index_t stringCount, size_t charCount)
+{
+    packedStrings.reserve (charCount);
+    packedStringsStart = &packedStrings.at(0);
+
+    offsets.reserve (stringCount);
+    hashIndex.reserve (stringCount);
+}
+
 // statistics
 
 size_t CStringDictionary::GetPackedStringSize() const
@@ -332,8 +346,6 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 	dictionary.hashIndex 
 		= quick_hash<CStringDictionary::CHashFunction>
 			(CStringDictionary::CHashFunction (&dictionary));
-	dictionary.hashIndex.reserve (dictionary.offsets.size());
-
     dictionary.RebuildIndexes();
 
 	// ready

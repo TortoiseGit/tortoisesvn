@@ -71,7 +71,7 @@ index_t CIndexPairDictionary::Insert (const std::pair<index_t, index_t>& value)
 	assert (Find (value) == NO_INDEX);
 
 	index_t result = (index_t)data.size();
-	hashIndex.insert (value, (index_t)result);
+	hashIndex.insert (value, result);
 	data.push_back (value);
 
 	return result;
@@ -103,7 +103,7 @@ void CIndexPairDictionary::Swap (CIndexPairDictionary& rhs)
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 								  , CIndexPairDictionary& dictionary)
 {
-	// read the first elements of all pairs
+    // read the first elements of all pairs
 
 	CDiffIntegerInStream* firstStream 
 		= dynamic_cast<CDiffIntegerInStream*>
@@ -132,10 +132,8 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 	dictionary.hashIndex 
 		= quick_hash<CIndexPairDictionary::CHashFunction>
 			(CIndexPairDictionary::CHashFunction (&dictionary));
-	dictionary.hashIndex.reserve (dictionary.data.size());
 
-	for (index_t i = 0; i < count; ++i)
-		dictionary.hashIndex.insert (*(dataBegin + i), i);
+    dictionary.hashIndex.insert (dataBegin, dataBegin + count, 0);
 
 	// ready
 
