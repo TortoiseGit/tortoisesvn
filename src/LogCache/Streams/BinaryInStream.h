@@ -111,9 +111,10 @@ public:
 //
 ///////////////////////////////////////////////////////////////
 
-class CBinaryInStream : public CInStreamImplBase< CBinaryInStream
-												, CBinaryInStreamBase
-						                        , BINARY_STREAM_TYPE_ID>
+class CBinaryInStream 
+    : public CInStreamImplBase< CBinaryInStream
+                              , CBinaryInStreamBase
+                              , BINARY_STREAM_TYPE_ID>
 {
 public:
 

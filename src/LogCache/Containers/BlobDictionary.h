@@ -22,7 +22,7 @@
 // necessary includes
 ///////////////////////////////////////////////////////////////
 
-#include "QuickHashMap.h"
+#include "../../Utils/QuickHashMap.h"
 #include "LogCacheGlobals.h"
 
 ///////////////////////////////////////////////////////////////
@@ -83,7 +83,7 @@ struct SBlob
         if (size == 0)
             return rhs.size != 0;
 
-        size_t minSize = min (size, rhs.size);
+        size_t minSize = std::min (size, rhs.size);
         int diff = memcmp (data, rhs.data, minSize);
         if (diff != 0)
             return diff < 0;

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,6 +17,12 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+
+///////////////////////////////////////////////////////////////
+// include used classes
+///////////////////////////////////////////////////////////////
+
+#include "StreamException.h"
 
 ///////////////////////////////////////////////////////////////
 // we use ints (or at least int-like types) for IDs
@@ -57,6 +63,73 @@ public:
 	virtual STREAM_TYPE_ID GetTypeID() const = 0;
 	virtual I* CreateStream ( B* buffer
 							, int id) const = 0;
+};
+
+///////////////////////////////////////////////////////////////
+//
+// CStreamFactoryPool<>
+//
+//		Pool (singleton) of all stream factories. There will be 
+//		two instances of this template (in and out).
+//
+//		I is an IStreamFactory<> instance.
+//
+//		Factories will not be removed from the pool during 
+//		application tear-down. You must not access the pool
+//		during the destruction of any static object.
+//
+//		Usage:
+//
+//		stream = pool::GetInstance()->GetFactory(type)->CreateStream(..)
+//
+///////////////////////////////////////////////////////////////
+
+template<class I>
+class CStreamFactoryPool
+{
+private:
+
+	// all factories that registered to this pool
+
+	typedef std::map<STREAM_TYPE_ID, I*> TFactories;
+	TFactories factories;
+
+	// singleton -> hide construction
+
+	CStreamFactoryPool() {};
+
+public:
+
+	// destruction (nothing to do)
+
+	~CStreamFactoryPool() {};
+
+	// find the factory to the given stream type
+
+	const I* GetFactory (STREAM_TYPE_ID type) const
+	{
+		typename TFactories::const_iterator iter = factories.find (type);
+		if (iter == factories.end())
+			throw CStreamException ("No factory for that stream type");
+
+		return iter->second;
+	}
+
+	// register a new factory (and don't register twice)
+		
+	void Add (I* factory)
+	{
+		assert (factories.find (factory->GetTypeID()) == factories.end());
+		factories [factory->GetTypeID()] = factory;
+	}
+
+	// Meyer's singleton
+
+	static CStreamFactoryPool<I>* GetInstance()
+	{
+		static CStreamFactoryPool<I> instance;
+		return &instance;
+	}
 };
 
 ///////////////////////////////////////////////////////////////
@@ -132,73 +205,6 @@ public:
 			CStreamFactory::GetInstance();
 		}
 	};
-};
-
-///////////////////////////////////////////////////////////////
-//
-// CStreamFactoryPool<>
-//
-//		Pool (singleton) of all stream factories. There will be 
-//		two instances of this template (in and out).
-//
-//		I is an IStreamFactory<> instance.
-//
-//		Factories will not be removed from the pool during 
-//		application tear-down. You must not access the pool
-//		during the destruction of any static object.
-//
-//		Usage:
-//
-//		stream = pool::GetInstance()->GetFactory(type)->CreateStream(..)
-//
-///////////////////////////////////////////////////////////////
-
-template<class I>
-class CStreamFactoryPool
-{
-private:
-
-	// all factories that registered to this pool
-
-	typedef std::map<STREAM_TYPE_ID, I*> TFactories;
-	TFactories factories;
-
-	// singleton -> hide construction
-
-	CStreamFactoryPool() {};
-
-public:
-
-	// destruction (nothing to do)
-
-	~CStreamFactoryPool() {};
-
-	// find the factory to the given stream type
-
-	const I* GetFactory (STREAM_TYPE_ID type) const
-	{
-		TFactories::const_iterator iter = factories.find (type);
-		if (iter == factories.end())
-			throw std::exception ("No factory for that stream type");
-
-		return iter->second;
-	}
-
-	// register a new factory (and don't register twice)
-		
-	void Add (I* factory)
-	{
-		assert (factories.find (factory->GetTypeID()) == factories.end());
-		factories [factory->GetTypeID()] = factory;
-	}
-
-	// Meyer's singleton
-
-	static CStreamFactoryPool<I>* GetInstance()
-	{
-		static CStreamFactoryPool<I> instance;
-		return &instance;
-	}
 };
 
 ///////////////////////////////////////////////////////////////

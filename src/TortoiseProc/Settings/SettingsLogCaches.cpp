@@ -28,7 +28,7 @@
 #include "ProgressDlg.h"
 #include "SVNLogQuery.h"
 #include "CacheLogQuery.h"
-#include "CSVWriter.h"
+#include "Access/CSVWriter.h"
 #include "XPTheme.h"
 
 using namespace LogCache;

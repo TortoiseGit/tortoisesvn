@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include "logiteratorbase.h"
 
 ///////////////////////////////////////////////////////////////
 // begin namespace LogCache
@@ -27,27 +26,25 @@ namespace LogCache
 {
 
 /**
- * Iterator class which iterates over log entries without following the
- * copy history.
+ * Per-repository server connectivity state: Default is 
+ * @a online, user can switch to one of the other states
+ * upon connection failure. Refreshing a view will always 
+ * reset to default.
  */
-class CStrictLogIterator :
-	public CLogIteratorBase
+
+enum ConnectionState 
 {
-protected:
+    /// call the server whenever necessary (default)
 
-	// implement as no-op
+    online = 0,
 
-	virtual bool HandleCopyAndDelete();
+    /// don't call the server, except when HEAD info needs to be refreshed
 
-public:
+    tempOffline = 1,
 
-	// construction / destruction 
-	// (nothing special to do)
+    /// don't contact the server for any reason whatsoever
 
-	CStrictLogIterator ( const CCachedLogInfo* cachedLog
-						, revision_t startRevision
-						, const CDictionaryBasedTempPath& startPath);
-	virtual ~CStrictLogIterator(void);
+    offline = 2
 };
 
 ///////////////////////////////////////////////////////////////

@@ -349,6 +349,10 @@
 			Name="Storage Layer"
 			>
 			<File
+				RelativePath=".\ConnectionState.h"
+				>
+			</File>
+			<File
 				RelativePath=".\LogCachePool.cpp"
 				>
 			</File>
@@ -372,105 +376,9 @@
 				RelativePath=".\RepositoryInfo.h"
 				>
 			</File>
-			<Filter
-				Name="Formatted IO"
-				>
-				<File
-					RelativePath=".\CSVWriter.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\CSVWriter.h"
-					>
-				</File>
-				<File
-					RelativePath=".\XMLLogReader.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\XMLLogReader.h"
-					>
-				</File>
-				<File
-					RelativePath=".\XMLLogWriter.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\XMLLogWriter.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="Containers"
-				>
-				<File
-					RelativePath=".\CachedLogInfo.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\CachedLogInfo.h"
-					>
-				</File>
-				<File
-					RelativePath=".\RevisionIndex.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\RevisionIndex.h"
-					>
-				</File>
-				<File
-					RelativePath=".\RevisionInfoContainer.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\RevisionInfoContainer.h"
-					>
-				</File>
-				<File
-					RelativePath=".\SkipRevisionInfo.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\SkipRevisionInfo.h"
-					>
-				</File>
-			</Filter>
 		</Filter>
 		<Filter
-			Name="Iterator Layer"
-			>
-			<File
-				RelativePath=".\CopyFollowingLogIterator.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\CopyFollowingLogIterator.h"
-				>
-			</File>
-			<File
-				RelativePath=".\ILogIterator.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LogIteratorBase.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\LogIteratorBase.h"
-				>
-			</File>
-			<File
-				RelativePath=".\StrictLogIterator.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\StrictLogIterator.h"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="Log Interface Layer"
+			Name="Query Layer"
 			>
 			<File
 				RelativePath=".\CacheLogQuery.cpp"

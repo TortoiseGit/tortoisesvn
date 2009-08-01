@@ -16,8 +16,10 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "StdAfx.h"
-#include ".\pathdictionary.h"
+#include "stdafx.h"
+#include "PathDictionary.h"
+#include "ContainerException.h"
+#include <iostream>
 
 ///////////////////////////////////////////////////////////////
 // begin namespace LogCache
@@ -36,7 +38,7 @@ void CPathDictionary::CheckParentIndex (index_t index) const
 {
 #if !defined (_SECURE_SCL)
 	if (index >= paths.size())
-		throw std::exception ("parent path index out of range");
+        throw CContainerException ("parent path index out of range");
 #else
     UNREFERENCED_PARAMETER(index);
 #endif
@@ -46,7 +48,7 @@ void CPathDictionary::CheckParentIndex (index_t index) const
 
 void CPathDictionary::Initialize()
 {
-	paths.Insert (std::make_pair (NO_INDEX, 0));
+    paths.Insert (std::make_pair ( (index_t) NO_INDEX, 0));
 }
 
 // construction (create root path) / destruction
@@ -105,6 +107,17 @@ index_t CPathDictionary::AutoInsert (index_t parent, const char* pathElement)
 	index_t pathElementIndex = pathElements.AutoInsert (pathElement);
 	return paths.AutoInsert (std::make_pair ( parent
 											, pathElementIndex));
+}
+
+// return false if concurrent read accesses
+// would potentially access invalid data.
+
+bool CPathDictionary::CanInsertThreadSafely 
+    ( index_t elements
+    , size_t chars) const
+{
+    return paths.CanInsertThreadSafely (elements)
+        && pathElements.CanInsertThreadSafely (elements, chars);
 }
 
 // reset content
@@ -198,16 +211,16 @@ void CDictionaryBasedPath::ParsePath ( const std::string& path
 									 , std::vector<std::string>* relPath)
 {
     if (!path.empty())
-    {
-        std::string temp (path);
+	{
+		std::string temp (path);
 
-        index_t currentIndex = index;
+		index_t currentIndex = index;
         size_t pos = temp[0] == '/' ? 0 : (size_t)(-1);
         size_t nextPos = temp.find ('/', pos+1);
 
         do
-        {
-            // get the current path element and terminate it properly
+		{
+			// get the current path element and terminate it properly
 
 			const char* pathElement = temp.c_str() + pos+1;
 			if (nextPos != std::string::npos)
@@ -248,12 +261,12 @@ void CDictionaryBasedPath::ParsePath ( const std::string& path
 				index = nextIndex;
 			}
 
-            currentIndex = nextIndex;
+			currentIndex = nextIndex;
             pos = nextPos;
             nextPos = temp.find ('/', nextPos);
-        }
+		}
         while (pos != std::string::npos);
-    }
+	}
 
 #ifdef _DEBUG
     _path = GetPath();
@@ -289,6 +302,54 @@ CDictionaryBasedPath::CDictionaryBasedPath ( CPathDictionary* aDictionary
 	, index (0)
 {
 	ParsePath (path, nextParent ? NULL : aDictionary);
+}
+
+// return false if concurrent read accesses
+// would potentially access invalid data.
+
+bool CDictionaryBasedPath::CanParsePathThreadSafely 
+    ( const CPathDictionary* dictionary
+    , const std::string& path)
+{
+    // trivial case
+
+    if (path.empty())
+        return true;
+
+    // parse path and look for a suitable chain of parsed elements
+    // within the path dictionary
+
+    std::string temp (path);
+
+    index_t currentIndex = (index_t)0;
+    size_t pos = temp[0] == '/' ? 0 : (size_t)(-1);
+    size_t nextPos = temp.find ('/', pos+1);
+
+    index_t toAdd = 0;
+    do
+    {
+        // get the current path element and terminate it properly
+
+        const char* pathElement = temp.c_str() + pos+1;
+        if (nextPos != std::string::npos)
+            temp[nextPos] = 0;
+
+        // try move to the next sub-path
+
+        if (currentIndex != NO_INDEX)
+            currentIndex = dictionary->Find (currentIndex, pathElement);
+
+        if (currentIndex == NO_INDEX)
+            ++toAdd;
+
+        pos = nextPos;
+        nextPos = temp.find ('/', nextPos);
+    }
+    while (pos != std::string::npos);
+
+    // no problems found
+
+    return (toAdd == 0) || dictionary->CanInsertThreadSafely (toAdd, path.size());
 }
 
 index_t CDictionaryBasedPath::GetDepth() const
@@ -342,7 +403,7 @@ std::string CDictionaryBasedPath::GetPath() const
 #else
         // an assertion is of little use here ...
 
-        throw std::exception ("Access to invalid path object");
+        throw CContainerException ("Access to invalid path object");
 #endif
     }
 
@@ -366,7 +427,7 @@ std::string CDictionaryBasedPath::GetPath() const
 
 	// build result
 
-	std::string result (max (1, size), '/');
+    std::string result (std::max ((size_t)1, size), '/');
     char* target = &result[0];
 
 	for (size_t i = depth; i > 0; --i)

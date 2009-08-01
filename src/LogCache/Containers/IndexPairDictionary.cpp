@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -16,8 +16,8 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "StdAfx.h"
-#include ".\indexpairdictionary.h"
+#include "stdafx.h"
+#include "IndexPairDictionary.h"
 
 ///////////////////////////////////////////////////////////////
 // begin namespace LogCache
@@ -96,6 +96,15 @@ void CIndexPairDictionary::Swap (CIndexPairDictionary& rhs)
 {
 	data.swap (rhs.data);
 	hashIndex.swap (rhs.hashIndex);
+}
+
+// return false if concurrent read accesses
+// would potentially access invalid data.
+
+bool CIndexPairDictionary::CanInsertThreadSafely (index_t count) const
+{
+    return (data.size() + count <= data.capacity())
+        && !hashIndex.may_cause_growth (count);
 }
 
 // stream I/O

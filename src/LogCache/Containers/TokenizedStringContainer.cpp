@@ -16,8 +16,9 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "StdAfx.h"
-#include ".\tokenizedstringcontainer.h"
+#include "stdafx.h"
+#include "TokenizedStringContainer.h"
+#include "ContainerException.h"
 
 ///////////////////////////////////////////////////////////////
 // begin namespace LogCache
@@ -391,7 +392,7 @@ void CTokenizedStringContainer::Append (index_t token)
 	if (IsToken (token))
 	{
 		if (stringData.size() == NO_INDEX)
-			throw std::exception ("string container overflow");
+			throw CContainerException ("string container overflow");
 
 		stringData.push_back (token);
 	}
@@ -487,7 +488,7 @@ void CTokenizedStringContainer::CheckIndex (index_t index) const
 {
 #if !defined (_SECURE_SCL)
 	if (index >= offsets.size()-1)
-		throw std::exception ("string container index out of range");
+		throw CContainerException ("string container index out of range");
 #else
     UNREFERENCED_PARAMETER(index);
 #endif
@@ -718,6 +719,22 @@ void CTokenizedStringContainer::AutoCompress()
 
 	if (stringData.size() < ((size_t)1 << relation))
 		Compress();
+}
+
+// return false if concurrent read accesses
+// would potentially access invalid data.
+
+bool CTokenizedStringContainer::CanInsertThreadSafely 
+    (const std::string& s) const
+{
+    // behavior in non-trival cases is too hard to predict.
+    // So, do a gross worst-case overestimation.
+
+    size_t length = s.size();
+
+    return (offsets.size() + length + 1 < offsets.capacity())
+        && (stringData.size() + length + 1 < stringData.capacity())
+        && words.CanInsertThreadSafely ((index_t)length, length);
 }
 
 // reset content

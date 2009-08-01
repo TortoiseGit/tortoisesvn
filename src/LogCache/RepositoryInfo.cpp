@@ -19,7 +19,7 @@
 
 #include "StdAfx.h"
 #include "RepositoryInfo.h"
-#include "CachedLogInfo.h"
+#include "./Containers/CachedLogInfo.h"
 #include "LogCacheSettings.h"
 
 #include "svn_client.h"
@@ -607,7 +607,7 @@ bool CRepositoryInfo::IsOffline (const CString& uuid, const CString& root, bool 
 
 // get the connection state (uninterpreted)
 
-CRepositoryInfo::ConnectionState 
+ConnectionState 
 CRepositoryInfo::GetConnectionState (const CString& uuid, const CString& url)
 {
 	// find the info

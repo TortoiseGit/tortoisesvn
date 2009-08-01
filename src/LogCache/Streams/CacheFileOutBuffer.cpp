@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -16,12 +16,17 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "CacheFileOutBuffer.h"
+#include "StreamException.h"
 
 // construction / destruction: auto- open/close
 
+#ifdef WIN32
 CCacheFileOutBuffer::CCacheFileOutBuffer (const std::wstring& fileName)
+#else
+CCacheFileOutBuffer::CCacheFileOutBuffer (const std::string& fileName)
+#endif
 	: CBufferedOutFile (fileName)
 	, streamIsOpen (false)
 {
@@ -44,7 +49,7 @@ CCacheFileOutBuffer::~CCacheFileOutBuffer()
 			size_t size = offset - lastOffset;
 
 			if (size >= (DWORD)(-1))
-				throw std::exception ("stream too large");
+				throw CStreamException ("stream too large");
 
 			Add ((DWORD)size);
 			lastOffset = offset;

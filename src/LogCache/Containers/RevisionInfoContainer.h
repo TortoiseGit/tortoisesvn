@@ -22,10 +22,9 @@
 // necessary includes
 ///////////////////////////////////////////////////////////////
 
-#include "svn_types.h"
-#include "./Containers/StringDictonary.h"
-#include "./Containers/PathDictionary.h"
-#include "./Containers/TokenizedStringContainer.h"
+#include "StringDictonary.h"
+#include "PathDictionary.h"
+#include "TokenizedStringContainer.h"
 
 ///////////////////////////////////////////////////////////////
 // begin namespace LogCache
@@ -33,6 +32,31 @@
 
 namespace LogCache
 {
+
+/**
+ * Replacement for the svn_node_kind_t from svn_types.h
+ * This serves two goals: 
+ * (1) make the storage layer compile-time-independent
+ *     from the SVN interface layer
+ * (2) support more / less node types than the respective 
+ *     SVN version that we build against. In particular,
+ *     define the binary interpretation of the enum values.
+ */
+
+enum node_kind_t
+{
+  /** absent */
+  node_none = 0,
+
+  /** regular file */
+  node_file = 1,
+
+  /** directory */
+  node_dir = 2,
+
+  /** something's here, but we don't know what */
+  node_unknown = 3
+};
 
 /**
  * stores all log information except the actual revision number. So, please note,
@@ -122,7 +146,7 @@ private:
 
 	std::vector<unsigned char> changes;
 	std::vector<index_t> changedPaths;
-	std::vector<svn_node_kind_t> changedPathTypes;
+	std::vector<node_kind_t> changedPathTypes;
 	std::vector<index_t> copyFromPaths;
 	std::vector<revision_t> copyFromRevisions;
 
@@ -310,7 +334,7 @@ public:
 		CRevisionInfoContainer::TChangeAction GetAction() const;
         int GetRawChange() const;
 
-        svn_node_kind_t GetPathType() const;
+        node_kind_t GetPathType() const;
         CDictionaryBasedPath GetPath() const;
         index_t GetPathID() const;
 
@@ -470,7 +494,7 @@ public:
                    , char flags = HAS_STANDARD_INFO);
 
 	void AddChange ( TChangeAction action
-                   , svn_node_kind_t pathType
+                   , node_kind_t pathType
 				   , const std::string& path
 				   , const std::string& fromPath
 				   , revision_t fromRevision);
@@ -480,8 +504,29 @@ public:
 				           , revision_t revisionStart
 				           , revision_t revisionDelta);
 
-	void AddUserRevProp ( const std::string& revProp
-				        , const std::string& value);
+	void AddRevProp ( const std::string& revProp
+				    , const std::string& value);
+
+    /// return false if concurrent read accesses
+    /// would potentially access invalid data.
+
+    bool CanInsertThreadSafely ( const std::string& author
+				               , const std::string& comment
+				               , __time64_t timeStamp) const;
+
+	bool CanAddChangeThreadSafely ( TChangeAction action
+                                  , node_kind_t pathType
+				                  , const std::string& path
+				                  , const std::string& fromPath
+				                  , revision_t fromRevision) const;
+
+	bool CanAddMergedRevisionThreadSafely ( const std::string& fromPath
+				                          , const std::string& toPath
+				                          , revision_t revisionStart
+				                          , revision_t revisionDelta) const;
+
+	bool CanAddRevPropThreadSafely ( const std::string& revProp
+				                   , const std::string& value) const;
 
 	/// reset content
 
@@ -553,6 +598,12 @@ public:
 ///////////////////////////////////////////////////////////////
 // inlines
 ///////////////////////////////////////////////////////////////
+
+#pragma endregion 
+
+#pragma region CMergedRevisionsIterator inlines
+
+///////////////////////////////////////////////////////////////
 // CMergedRevisionsIterator
 ///////////////////////////////////////////////////////////////
 // construction
@@ -587,7 +638,7 @@ CRevisionInfoContainer::CChangesIterator::GetAction() const
 	return (CRevisionInfoContainer::TChangeAction)(action);
 }
 
-inline svn_node_kind_t 
+inline node_kind_t 
 CRevisionInfoContainer::CChangesIterator::GetPathType() const
 {
 	assert (IsValid());
@@ -716,6 +767,10 @@ CRevisionInfoContainer::CChangesIterator::operator-
 	return changeOffset - rhs.changeOffset;
 }
 
+#pragma endregion 
+
+#pragma region CMergedRevisionsIterator<> implementation
+
 ///////////////////////////////////////////////////////////////
 // CPerRevisionInfoIteratorBase<>
 ///////////////////////////////////////////////////////////////
@@ -809,6 +864,10 @@ CRevisionInfoContainer::CPerRevisionInfoIteratorBase<T>::operator-
 	return offset - rhs.offset;
 }
 
+#pragma endregion
+
+#pragma region CMergedRevisionsIterator inlines
+
 ///////////////////////////////////////////////////////////////
 // CMergedRevisionsIterator
 ///////////////////////////////////////////////////////////////
@@ -880,6 +939,10 @@ CRevisionInfoContainer::CMergedRevisionsIterator::IsValid() const
 		&& (offset < (index_t)container->mergedFromPaths.size());
 }
 
+#pragma endregion
+
+#pragma region CUserRevPropsIterator inlines
+
 ///////////////////////////////////////////////////////////////
 // CUserRevPropsIterator
 ///////////////////////////////////////////////////////////////
@@ -932,6 +995,10 @@ CRevisionInfoContainer::CUserRevPropsIterator::IsValid() const
 		&& (offset < (index_t)container->userRevPropNames.size());
 }
 
+#pragma endregion
+
+#pragma region CRevisionInfoContainer inlines
+
 ///////////////////////////////////////////////////////////////
 // CRevisionInfoContainer
 ///////////////////////////////////////////////////////////////
@@ -942,7 +1009,7 @@ inline void CRevisionInfoContainer::CheckIndex (index_t index) const
 {
 #if !defined (_SECURE_SCL)
 	if (index >= (index_t)size())
-		throw std::exception ("revision info index out of range");
+		throw CContainerException ("revision info index out of range");
 #else
     UNREFERENCED_PARAMETER(index);
 #endif
@@ -1078,6 +1145,8 @@ inline const CStringDictionary& CRevisionInfoContainer::GetUserRevProps() const
 {
 	return userRevPropsPool;
 }
+
+#pragma endregion
 
 ///////////////////////////////////////////////////////////////
 // stream I/O

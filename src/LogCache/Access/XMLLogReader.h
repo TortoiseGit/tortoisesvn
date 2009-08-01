@@ -22,7 +22,7 @@
 // necessary includes
 ///////////////////////////////////////////////////////////////
 
-#include "CachedLogInfo.h"
+#include "../Containers/CachedLogInfo.h"
 
 ///////////////////////////////////////////////////////////////
 // begin namespace LogCache
@@ -119,8 +119,8 @@ public:
 
 	// map file to memory, parse it and fill the target
 
-	static void LoadFromXML ( const std::wstring& xmlFileName
-						    , CCachedLogInfo& target);
+	static void LoadFromXML ( const TFileName& xmlFileName
+	                        , CCachedLogInfo& target);
 };
 
 ///////////////////////////////////////////////////////////////

@@ -22,7 +22,7 @@
 // necessary includes
 ///////////////////////////////////////////////////////////////
 
-#include "QuickHashMap.h"
+#include "../../Utils/QuickHashMap.h"
 #include "LogCacheGlobals.h"
 
 ///////////////////////////////////////////////////////////////
@@ -152,6 +152,11 @@ public:
 	index_t Find (const char* string) const;
 	index_t Insert (const char* string);
 	index_t AutoInsert (const char* string);
+
+    /// return false if concurrent read accesses
+    /// would potentially access invalid data.
+
+    bool CanInsertThreadSafely (index_t elements, size_t chars) const;
 
 	/// reset content
 

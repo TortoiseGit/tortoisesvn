@@ -294,6 +294,11 @@ public:
 	void Compress();
 	void AutoCompress();
 
+    /// return false if concurrent read accesses
+    /// would potentially access invalid data.
+
+    bool CanInsertThreadSafely (const std::string& s) const;
+
 	/// reset content
 
 	void Clear();

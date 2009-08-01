@@ -22,13 +22,7 @@
 // necessary includes
 ///////////////////////////////////////////////////////////////
 
-#include "CachedLogInfo.h"
-
-///////////////////////////////////////////////////////////////
-// forward declarations
-///////////////////////////////////////////////////////////////
-
-class CBufferedOutFile;
+#include "../Containers/LogCacheGlobals.h"
 
 ///////////////////////////////////////////////////////////////
 // begin namespace LogCache
@@ -38,58 +32,43 @@ namespace LogCache
 {
 
 ///////////////////////////////////////////////////////////////
-//
-// CXMLLogReader
-//
-//		utility class to create an XML formatted log from
-//		the given changed log info.
-//
+// forward declarations
 ///////////////////////////////////////////////////////////////
 
-class CXMLLogWriter
+class CDictionaryBasedTempPath;
+
+
+/**
+ * Iterator interface for iterating over the log entries.
+ */
+class ILogIterator
 {
-private:
-
-	// for convenience
-
-	typedef CRevisionInfoContainer::TChangeAction TChangeAction;
-	typedef CRevisionInfoContainer::CChangesIterator CChangesIterator;
-
-	// write <date> tag
-
-	static void WriteTimeStamp ( CBufferedOutFile& file
-							   , __time64_t timeStamp);
-
-	// write <paths> tag
-	
-	static void WriteChanges ( CBufferedOutFile& file
-							 , CChangesIterator iter	
-							 , const CChangesIterator& last);
-
-	// write <logentry> tag
-
-	static void WriteRevisionInfo ( CBufferedOutFile& file
-								  , const CRevisionInfoContainer& info
-								  , revision_t revision
-								  , index_t index);
-
-	// dump the revisions in descending order
-
-	static void WriteRevionsTopDown ( CBufferedOutFile& file
-									, const CCachedLogInfo& source);
-
-	// dump the revisions in ascending order
-
-	static void WriteRevionsBottomUp ( CBufferedOutFile& file
-									 , const CCachedLogInfo& source);
-
 public:
 
-	// write the whole change content
+	/// data access
 
-	static void SaveToXML ( const std::wstring& xmlFileName
-						  , const CCachedLogInfo& source
-						  , bool topDown);
+	virtual bool DataIsMissing() const = 0;
+	virtual revision_t GetRevision() const = 0;
+	virtual const CDictionaryBasedTempPath& GetPath() const = 0;
+	virtual bool EndOfPath() const = 0;
+
+	/// to next / previous revision for our path
+
+	virtual void Advance (revision_t last = 0) = 0;
+
+	/// call this to efficiently skip ranges where DataIsMissing()
+
+	virtual void ToNextAvailableData() = 0;
+
+	/// call this after DataIsMissing() and you added new
+	/// revisions to the cache
+
+	virtual void Retry (revision_t last = 0) = 0;
+
+	/// modify cursor
+
+	virtual void SetRevision (revision_t revision) = 0;
+	virtual void SetPath (const CDictionaryBasedTempPath& path) = 0;
 };
 
 ///////////////////////////////////////////////////////////////

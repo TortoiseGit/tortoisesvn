@@ -21,7 +21,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 
-    LogCache::CRepositoryInfo::ConnectionState selection;
+    LogCache::ConnectionState selection;
     BOOL asDefault;
 
     afx_msg void OnBnClickedOk();

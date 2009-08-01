@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -110,9 +110,9 @@ public:
 	using TBase::Add;
 };
 
-template COutStreamImplBase< CDiffDWORDOutStream
-						   , CDiffDWORDOutStreamBase
-	                       , DIFF_DWORD_STREAM_TYPE_ID>;
+template class COutStreamImplBase< CDiffDWORDOutStream
+                                 , CDiffDWORDOutStreamBase
+                                 , DIFF_DWORD_STREAM_TYPE_ID>;
 
 ///////////////////////////////////////////////////////////////
 //
@@ -146,6 +146,6 @@ public:
 	using TBase::Add;
 };
 
-template COutStreamImplBase< CDiffIntegerOutStream
-						   , CDiffIntegerOutStreamBase
-		                   , DIFF_INTEGER_STREAM_TYPE_ID>;
+template class COutStreamImplBase< CDiffIntegerOutStream
+                                 , CDiffIntegerOutStreamBase
+                                 , DIFF_INTEGER_STREAM_TYPE_ID>;

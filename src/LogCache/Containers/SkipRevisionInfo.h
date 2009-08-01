@@ -23,7 +23,7 @@
 ///////////////////////////////////////////////////////////////
 
 #include "QuickHash.h"
-#include "./Containers/LogCacheGlobals.h"
+#include "LogCacheGlobals.h"
 
 ///////////////////////////////////////////////////////////////
 // forward declarations
@@ -222,6 +222,10 @@ public:
 					  , const CRevisionIndex& aRevisionIndex
                       , const CRevisionInfoContainer& logInfo);
 	~CSkipRevisionInfo(void);
+
+    /// provide custom assignment operator to silence C4512
+
+    CSkipRevisionInfo& operator=(const CSkipRevisionInfo& rhs);
 
 	/// query data (return NO_REVISION, if not found)
 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,9 +22,15 @@
 // required includes
 ///////////////////////////////////////////////////////////////
 
-#include "RepositoryInfo.h"
+#include "ConnectionState.h"
+
+#ifdef WIN32
 #include "Registry.h"
 #include "MiscUI/MessageBox.h"
+#else
+#include <iostream>
+#include "RegistryDummy.h"
+#endif
 
 ///////////////////////////////////////////////////////////////
 // begin namespace LogCache
@@ -46,18 +52,18 @@ class CSettings
 {
 private:
 
-	/// registry connection
+    /// registry connection
 
-	CRegDWORD		enableLogCaching;
-	CRegDWORD		supportAmbiguousURL;
-	CRegDWORD		supportAmbiguousUUID;
-    CRegDWORD		defaultConnectionState;
+    CRegDWORD enableLogCaching;
+    CRegDWORD supportAmbiguousURL;
+    CRegDWORD supportAmbiguousUUID;
+    CRegDWORD defaultConnectionState;
 
-    CRegDWORD		maxHeadAge;
-    CRegDWORD		cacheDropAge;
-    CRegDWORD		cacheDropMaxSize;
+    CRegDWORD maxHeadAge;
+    CRegDWORD cacheDropAge;
+    CRegDWORD cacheDropMaxSize;
 
-    CRegDWORD		maxFailuresUntilDrop;
+    CRegDWORD maxFailuresUntilDrop;
 
     /// singleton construction
 
@@ -74,7 +80,11 @@ private:
     {
         registryKey = value;
         if (registryKey.GetLastError() != ERROR_SUCCESS)
-	        CMessageBox::Show (NULL, registryKey.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+    #ifdef WIN32
+            CMessageBox::Show (NULL, registryKey.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+    #else
+            std::cerr << "Could not store settings" << std::endl;
+    #endif
     }
 
 public:
@@ -98,8 +108,8 @@ public:
 
     /// "go offline" usage
 
-    static CRepositoryInfo::ConnectionState GetDefaultConnectionState();
-    static void SetDefaultConnectionState (CRepositoryInfo::ConnectionState state);
+    static ConnectionState GetDefaultConnectionState();
+    static void SetDefaultConnectionState (ConnectionState state);
 
     /// controls when to bypass the repository HEAD lookup 
 

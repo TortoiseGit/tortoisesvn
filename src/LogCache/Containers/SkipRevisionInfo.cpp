@@ -16,12 +16,12 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "StdAfx.h"
-#include ".\skiprevisioninfo.h"
+#include "stdafx.h"
+#include "SkipRevisionInfo.h"
 
-#include ".\RevisionIndex.h"
-#include ".\Containers\PathDictionary.h"
-#include ".\RevisionInfoContainer.h"
+#include "RevisionIndex.h"
+#include "PathDictionary.h"
+#include "RevisionInfoContainer.h"
 
 ///////////////////////////////////////////////////////////////
 // begin namespace LogCache
@@ -45,8 +45,8 @@ revision_t CSkipRevisionInfo::SPerPathRanges::FindNext (revision_t revision) con
 
 	// look for the last range not starting behind revision
 
-	TRanges::const_iterator iter = ranges.lower_bound (revision);
-	if ((iter == ranges.end()) || (iter->first > revision))
+	TRanges::const_iterator iter = ranges.upper_bound (revision);
+	if (iter == ranges.end())
 		return (revision_t)NO_REVISION;
 
 	// return end of that range, if revision is within this range
@@ -89,7 +89,8 @@ void CSkipRevisionInfo::SPerPathRanges::Add (revision_t start, revision_t size)
 
 	// insert the new range / enlarge existing range
 
-	TRanges::_Pairib insertionResult = ranges.insert (std::make_pair (start, size));
+	std::pair<TRanges::iterator,bool> insertionResult 
+		= ranges.insert (std::make_pair (start, size));
 	if (!insertionResult.second && (insertionResult.first->second < size))
 		insertionResult.first->second = size;
 
@@ -109,7 +110,13 @@ void CSkipRevisionInfo::SPerPathRanges::Add (revision_t start, revision_t size)
 
 			iter->second = end - iter->first;
 
+		#ifdef _MSC_VER
 			insertionResult.first = ranges.erase (insertionResult.first);
+		#else
+			revision_t revision = insertionResult.first->first;
+			ranges.erase (insertionResult.first);
+			insertionResult.first = ranges.lower_bound (revision);
+		#endif
 			--insertionResult.first;
 		}
 	}
@@ -119,7 +126,7 @@ void CSkipRevisionInfo::SPerPathRanges::Add (revision_t start, revision_t size)
 	TRanges::iterator iter = insertionResult.first;
 	if ((++iter != ranges.end()) && (iter->first <= end))
 	{
-		insertionResult.first->second = max (end, iter->first + iter->second) 
+		insertionResult.first->second = std::max (end, iter->first + iter->second) 
 									  - insertionResult.first->first;
 		ranges.erase (iter);
 	}
@@ -163,15 +170,21 @@ index_t CSkipRevisionInfo::CPacker::RemoveParentRanges()
 			{
 				if (next >= iter->first + iter->second)
 				{
-					iter = ranges.erase (iter);
 					removed = true;
 				}
 				else
 				{
 					revision_t size = iter->second + iter->first - next;
 					ranges.insert (iter, std::make_pair (next, size));
-					iter = ranges.erase (iter);
 				}
+
+			#ifdef _MSC_VER
+				iter = ranges.erase (iter);
+			#else
+				revision_t revision = iter->first;
+				ranges.erase (iter);
+				iter = ranges.lower_bound (revision);
+			#endif
 			}
 
 			if (!removed)
@@ -281,7 +294,15 @@ void CSkipRevisionInfo::CPacker::RemoveEmptyRanges()
 		for (IT iter = ranges.begin(); iter != ranges.end(); )
 		{
 			if (iter->second == 0)
+			{
+			#ifdef _MSC_VER
 				iter = ranges.erase (iter);
+			#else
+				revision_t revision = iter->first;
+				ranges.erase (iter);
+				iter = ranges.lower_bound (revision);
+			#endif
+			}
 			else
 				++iter;
 		}
@@ -401,6 +422,23 @@ CSkipRevisionInfo::~CSkipRevisionInfo(void)
 }
 
 ///////////////////////////////////////////////////////////////
+/// provide custom assignment operator to silence C4512
+///////////////////////////////////////////////////////////////
+
+CSkipRevisionInfo& CSkipRevisionInfo::operator=(const CSkipRevisionInfo& rhs)
+{
+    if (this != &rhs)
+    {
+        assert (&logInfo == &rhs.logInfo);
+
+        data = rhs.data;
+        index = rhs.index;
+    }
+
+    return *this;
+}
+
+///////////////////////////////////////////////////////////////
 // query data
 ///////////////////////////////////////////////////////////////
 
@@ -506,7 +544,7 @@ void CSkipRevisionInfo::Add ( const CDictionaryBasedPath& path
 
 	assert (path.IsValid());
 	assert (revision != NO_REVISION);
-	assert (size != NO_INDEX);
+	assert (size != NO_REVISION);
 	assert (2*size > size);
 
 	// reduce the range, if we have revision info at the boundaries

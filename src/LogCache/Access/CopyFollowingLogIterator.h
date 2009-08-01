@@ -16,53 +16,43 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "StdAfx.h"
-#include "StrictLogIterator.h"
+#pragma once
+#include "LogIteratorBase.h"
 
+///////////////////////////////////////////////////////////////
 // begin namespace LogCache
+///////////////////////////////////////////////////////////////
 
 namespace LogCache
 {
 
-// implement as no-op
-
-bool CStrictLogIterator::HandleCopyAndDelete()
+/**
+ * Iterator class which follows the copies back in the log history.
+ * Used in CCacheLogQuery to find 'renamed' paths.
+ */
+class CCopyFollowingLogIterator :
+	public CLogIteratorBase
 {
-	// revision data lookup
+protected:
 
-	index_t index = revisionIndices[revision];
+	// implement copy-following and termination-on-delete
 
-	// switch to new path, if necessary
+	virtual bool HandleCopyAndDelete();
 
-	bool result = InternalHandleCopyAndDelete ( revisionInfo.GetChangesBegin(index)
-											  , revisionInfo.GetChangesEnd(index)
-											  , revisionInfo.GetRootPath (index)
-											  , path
-											  , revision);
-	if (result)
-	{
-		// stop on copy
+public:
 
-		revision = (revision_t)NO_REVISION;
-	}
+	// construction / destruction 
+	// (nothing special to do)
 
-	return result;
-}
+	CCopyFollowingLogIterator ( const CCachedLogInfo* cachedLog
+		                      , revision_t startRevision
+							  , const CDictionaryBasedTempPath& startPath);
+	virtual ~CCopyFollowingLogIterator(void);
+};
 
-// construction / destruction 
-// (nothing special to do)
-
-CStrictLogIterator::CStrictLogIterator ( const CCachedLogInfo* cachedLog
-									   , revision_t startRevision
-									   , const CDictionaryBasedTempPath& startPath)
-	: CLogIteratorBase (cachedLog, startRevision, startPath)
-{
-}
-
-CStrictLogIterator::~CStrictLogIterator(void)
-{
-}
-
+///////////////////////////////////////////////////////////////
 // end namespace LogCache
+///////////////////////////////////////////////////////////////
 
 }
+

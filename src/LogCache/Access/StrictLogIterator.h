@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include "logiteratorbase.h"
+#include "LogIteratorBase.h"
 
 ///////////////////////////////////////////////////////////////
 // begin namespace LogCache
@@ -27,15 +27,15 @@ namespace LogCache
 {
 
 /**
- * Iterator class which follows the copies back in the log history.
- * Used in CCacheLogQuery to find 'renamed' paths.
+ * Iterator class which iterates over log entries without following the
+ * copy history.
  */
-class CCopyFollowingLogIterator :
+class CStrictLogIterator :
 	public CLogIteratorBase
 {
 protected:
 
-	// implement copy-following and termination-on-delete
+	// implement as no-op
 
 	virtual bool HandleCopyAndDelete();
 
@@ -44,10 +44,10 @@ public:
 	// construction / destruction 
 	// (nothing special to do)
 
-	CCopyFollowingLogIterator ( const CCachedLogInfo* cachedLog
-		                      , revision_t startRevision
-							  , const CDictionaryBasedTempPath& startPath);
-	virtual ~CCopyFollowingLogIterator(void);
+	CStrictLogIterator ( const CCachedLogInfo* cachedLog
+						, revision_t startRevision
+						, const CDictionaryBasedTempPath& startPath);
+	virtual ~CStrictLogIterator(void);
 };
 
 ///////////////////////////////////////////////////////////////

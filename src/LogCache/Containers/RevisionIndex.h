@@ -22,7 +22,7 @@
 // include
 ///////////////////////////////////////////////////////////////
 
-#include "./Containers/LogCacheGlobals.h"
+#include "LogCacheGlobals.h"
 
 ///////////////////////////////////////////////////////////////
 // forward declarations
@@ -104,6 +104,11 @@ public:
 	/// insert info (must be NO_INDEX before)
 
 	void SetRevisionIndex (revision_t revision, index_t index);
+
+    /// return false if concurrent read accesses
+    /// would potentially access invalid data.
+
+    bool CanSetRevisionIndexThreadSafely (revision_t revision) const;
 
 	/// reset content
 

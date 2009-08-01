@@ -20,7 +20,7 @@
 #include "TortoiseProc.h"
 #include "LogCacheStatisticsDlg.h"
 #include "LogCacheStatistics.h"
-#include "RepositoryInfo.h"
+#include "ConnectionState.h"
 #include "SVN.h"
 
 // CLogCacheStatisticsDlg-Dialogfeld
@@ -36,13 +36,13 @@ CLogCacheStatisticsDlg::CLogCacheStatisticsDlg
 
     switch (data.connectionState)
     {
-    case LogCache::CRepositoryInfo::online:
+    case LogCache::online:
         connectionState.LoadString (IDS_CONNECTIONSTATE_ONLINE);
         break;
-    case LogCache::CRepositoryInfo::tempOffline:
+    case LogCache::tempOffline:
         connectionState.LoadString (IDS_CONNECTIONSTATE_TEMPOFFLINE);
         break;
-    case LogCache::CRepositoryInfo::offline:
+    case LogCache::offline:
         connectionState.LoadString (IDS_CONNECTIONSTATE_OFFLINE);
         break;
     }

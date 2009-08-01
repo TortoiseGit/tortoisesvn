@@ -16,9 +16,10 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "HierachicalInStreamBase.h"
 #include "HuffmanDecoder.h"
+#include "StreamException.h"
 
 void CHierachicalInStreamBase::ReadSubStreams ( CCacheFileInBuffer* buffer
 											  , STREAM_INDEX index)
@@ -31,13 +32,13 @@ void CHierachicalInStreamBase::ReadSubStreams ( CCacheFileInBuffer* buffer
 
 	size_t size = last - first;
 	if (sizeof (DWORD) > size)
-		throw std::exception ("stream too short");
+		throw CStreamException ("stream too short");
 
 	const DWORD *source = reinterpret_cast<const DWORD*>(first);
 	DWORD subStreamCount = *source;
 	size_t directorySize = (subStreamCount + 1) * sizeof (DWORD);
 	if (directorySize > size)
-		throw std::exception ("stream too short for sub-stream list");
+		throw CStreamException ("stream too short for sub-stream list");
 
 	// read the sub-streams
 
@@ -160,7 +161,7 @@ CHierachicalInStreamBase::GetSubStream ( SUB_STREAM_ID subStreamID
 {
 	TSubStreams::const_iterator iter = subStreams.find (subStreamID);
 	if (iter == subStreams.end())
-		throw std::exception ("no such sub-stream");
+		throw CStreamException ("no such sub-stream");
 
     if (autoOpen)
         iter->second->AutoOpen();

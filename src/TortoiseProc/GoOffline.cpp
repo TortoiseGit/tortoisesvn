@@ -13,7 +13,7 @@ IMPLEMENT_DYNAMIC(CGoOffline, CDialog)
 CGoOffline::CGoOffline(CWnd* pParent /*=NULL*/)
 	: CDialog(CGoOffline::IDD, pParent)
     , asDefault(false)
-    , selection(LogCache::CRepositoryInfo::online)
+    , selection(LogCache::online)
 {
 
 }
@@ -41,21 +41,21 @@ END_MESSAGE_MAP()
 
 void CGoOffline::OnBnClickedOk()
 {
-    selection = LogCache::CRepositoryInfo::tempOffline;
+    selection = LogCache::tempOffline;
 
     OnOK();
 }
 
 void CGoOffline::OnBnClickedPermanentlyOffline()
 {
-    selection = LogCache::CRepositoryInfo::offline;
+    selection = LogCache::offline;
 
     OnOK();
 }
 
 void CGoOffline::OnBnClickedCancel()
 {
-    selection = LogCache::CRepositoryInfo::online;
+    selection = LogCache::online;
 
     OnCancel();
 }

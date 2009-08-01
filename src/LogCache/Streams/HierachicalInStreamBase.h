@@ -81,8 +81,9 @@ protected:
 	// stream content
 	// (sub-stream info will be excluded after ReadSubStreams()) 
 
-	const unsigned char* first;
-	const unsigned char* last;
+	typedef unsigned char BYTE;
+	const BYTE* first;
+	const BYTE* last;
 
     // original stream data. NULL while not open
 
@@ -113,7 +114,7 @@ public:
     virtual void AutoClose();
     virtual void Prefetch();
 
-	virtual bool HasSubStream (SUB_STREAM_ID subStreamID) const;
+    virtual bool HasSubStream (SUB_STREAM_ID subStreamID) const;
 	virtual IHierarchicalInStream* GetSubStream ( SUB_STREAM_ID subStreamID
                                                 , bool autoOpen = true);
 };

@@ -101,6 +101,11 @@ public:
 	index_t Insert (index_t parent, const char* pathElement);
 	index_t AutoInsert (index_t parent, const char* pathElement);
 
+    /// return false if concurrent read accesses
+    /// would potentially access invalid data.
+
+    bool CanInsertThreadSafely (index_t elements, size_t chars) const;
+
 	/// reset content
 
 	void Clear();
@@ -207,6 +212,12 @@ public:
 	~CDictionaryBasedPath() 
 	{
 	}
+
+    /// return false if concurrent read accesses
+    /// would potentially access invalid data.
+
+    static bool CanParsePathThreadSafely ( const CPathDictionary* dictionary
+						                 , const std::string& path);
 
 	/// data access
 

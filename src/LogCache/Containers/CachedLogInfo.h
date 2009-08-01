@@ -22,6 +22,7 @@
 // necessary includes
 ///////////////////////////////////////////////////////////////
 
+#include "../Streams/FileName.h"
 #include "RevisionIndex.h"
 #include "RevisionInfoContainer.h"
 #include "SkipRevisionInfo.h"
@@ -78,6 +79,7 @@ private:
     {
     private:
 
+#ifdef WIN32
         /// only this value means "no crash" because "0" means
         /// TSVN didn't crash *before* the .lock file was set.
 
@@ -87,24 +89,25 @@ private:
 
         HANDLE fileHandle;
 
-	    /// we need that info to manipulate the file attributes
+        /// we need that info to manipulate the file attributes
 
-	    std::wstring fileName;
+        TFileName fileName;
 
         /// number of times this cache was not released propertly
 
         int failureCount;
+#endif
 
         /// "in use" (hidden flag) file flag handling
 
-        bool IsMarked (const std::wstring& name) const;
-        void SetMark (const std::wstring& name);
+        bool IsMarked (const TFileName& name) const;
+        void SetMark (const TFileName& name);
         void ResetMark();
 
         /// allow for multiple failures 
 
-        bool ShouldDrop (const std::wstring& name);
-        void UpdateMark (const std::wstring& name);
+        bool ShouldDrop (const TFileName& name, int maxFailures);
+        void UpdateMark (const TFileName& name);
 
         /// copying is not supported
 
@@ -113,7 +116,7 @@ private:
 
     public:
 
-        // default construction / destruction
+        /// default construction / destruction
 
         CCacheFileManager();
         ~CCacheFileManager();
@@ -121,7 +124,7 @@ private:
         /// call this *before* opening the file
         /// (will auto-drop crashed files etc.)
 
-        void AutoAcquire (const std::wstring& fileName);
+        void AutoAcquire (const TFileName& fileName, int maxFailures);
 
         /// call this *after* releasing a cache file
         /// (resets the "hidden" flag and closes the handle
@@ -136,11 +139,11 @@ private:
 
 	/// where we load / save our cached data
 
-	std::wstring fileName;
+	TFileName fileName;
 
-    /// crash detection.
-
-    CCacheFileManager fileManager;
+	/// crash detection.
+	
+	CCacheFileManager fileManager;
 
 	/// revision index and the log info itself
 
@@ -174,27 +177,27 @@ public:
 	/// construction / destruction (nothing to do)
 
 	CCachedLogInfo();
-	CCachedLogInfo (const std::wstring& aFileName);
+	CCachedLogInfo (const TFileName& aFileName);
 	~CCachedLogInfo (void);
 
 	/// cache persistence
 
-	void Load();
+	void Load (int maxFailures);
 	bool IsModified() const;
-    bool IsEmpty() const;
+	bool IsEmpty() const;
 	void Save();
-	void Save (const std::wstring& newFileName);
+	void Save (const TFileName& newFileName);
 
 	/// data access
 
-	const std::wstring& GetFileName() const;
+	const TFileName& GetFileName() const;
 	const CRevisionIndex& GetRevisions() const;
 	const CRevisionInfoContainer& GetLogInfo() const;
 	const CSkipRevisionInfo& GetSkippedRevisions() const;
 
-    /// find the highest revision not exceeding the given timestamp
-
-    revision_t FindRevisionByDate (__time64_t maxTimeStamp) const;
+	/// find the highest revision not exceeding the given timestamp
+	
+	revision_t FindRevisionByDate (__time64_t maxTimeStamp) const;
 
 	/// data modification 
 	/// (mirrors CRevisionInfoContainer and CSkipRevisionInfo)
@@ -206,7 +209,7 @@ public:
                 , char flags = CRevisionInfoContainer::HAS_STANDARD_INFO);
 
 	void AddChange ( TChangeAction action
-                   , svn_node_kind_t pathType
+                   , node_kind_t pathType
 				   , const std::string& path
 				   , const std::string& fromPath
 				   , revision_t fromRevision);
@@ -216,14 +219,31 @@ public:
 				           , revision_t revisionStart
 				           , revision_t revisionDelta);
 
-	void AddUserRevProp ( const std::string& revProp
-				        , const std::string& value);
+	void AddRevProp ( const std::string& revProp
+			        , const std::string& value);
 
-    void AddSkipRange ( const CDictionaryBasedPath& path
+	void AddSkipRange ( const CDictionaryBasedPath& path
 					  , revision_t startRevision
 					  , revision_t count);
 
 	void Clear();
+
+    /// return false if concurrent read accesses
+    /// would potentially access invalid data.
+
+	bool CanInsertThreadSafely ( revision_t revision
+				               , const std::string& author
+				               , const std::string& comment
+				               , __time64_t timeStamp) const;
+
+	bool CanAddChangeThreadSafely ( TChangeAction action
+                                  , node_kind_t pathType
+   				                  , const std::string& path
+				                  , const std::string& fromPath
+				                  , revision_t fromRevision) const;
+
+	bool CanAddRevPropThreadSafely ( const std::string& revProp
+            			           , const std::string& value) const;
 
 	/// update / modify existing data
 
@@ -254,7 +274,7 @@ inline void CCachedLogInfo::Save()
 // data access
 ///////////////////////////////////////////////////////////////
 
-inline const std::wstring& CCachedLogInfo::GetFileName() const
+inline const TFileName& CCachedLogInfo::GetFileName() const
 {
 	return fileName;
 }
@@ -279,13 +299,12 @@ inline const CSkipRevisionInfo& CCachedLogInfo::GetSkippedRevisions() const
 ///////////////////////////////////////////////////////////////
 
 inline void CCachedLogInfo::AddChange ( TChangeAction action
-                                      , svn_node_kind_t pathType
+                                      , node_kind_t pathType
 								      , const std::string& path
 									  , const std::string& fromPath
 									  , revision_t fromRevision)
 {
 	assert (revisionAdded);
-
 	logInfo.AddChange (action, pathType, path, fromPath, fromRevision);
 }
 
@@ -295,16 +314,40 @@ inline void CCachedLogInfo::AddMergedRevision ( const std::string& fromPath
 				                              , revision_t revisionDelta)
 {
 	assert (revisionAdded);
-
 	logInfo.AddMergedRevision (fromPath, toPath, revisionStart, revisionDelta);
 }
 
-inline void CCachedLogInfo::AddUserRevProp ( const std::string& revProp
-				                           , const std::string& value)
+inline void CCachedLogInfo::AddRevProp ( const std::string& revProp
+				                       , const std::string& value)
 {
 	assert (revisionAdded);
+	logInfo.AddRevProp (revProp, value);
+}
 
-	logInfo.AddUserRevProp (revProp, value);
+///////////////////////////////////////////////////////////////
+// 'pseudo-thread-safe' variants of the above:
+///////////////////////////////////////////////////////////////
+
+inline bool 
+CCachedLogInfo::CanAddChangeThreadSafely
+    ( TChangeAction action
+    , node_kind_t pathType
+    , const std::string& path
+    , const std::string& fromPath
+    , revision_t fromRevision) const
+{
+	assert (revisionAdded);
+	return logInfo.CanAddChangeThreadSafely 
+        (action, pathType, path, fromPath, fromRevision);
+}
+
+inline bool 
+CCachedLogInfo::CanAddRevPropThreadSafely 
+    ( const std::string& revProp
+ 	, const std::string& value) const
+{
+	assert (revisionAdded);
+	return logInfo.CanAddRevPropThreadSafely (revProp, value);
 }
 
 ///////////////////////////////////////////////////////////////

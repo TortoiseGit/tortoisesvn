@@ -16,7 +16,7 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "PathUtils.h"
 #include "shlobj.h"
 
@@ -194,6 +194,7 @@ void CPathUtils::ConvertToBackslash(LPTSTR dest, LPCTSTR src, size_t len)
 			*p = '\\';
 }
 
+#ifdef CSTRING_AVAILABLE
 CStringA CPathUtils::PathEscape(const CStringA& path)
 {
 	CStringA ret2;
@@ -239,7 +240,7 @@ CStringA CPathUtils::PathEscape(const CStringA& path)
 
 	return ret;
 }
-#ifdef CSTRING_AVAILABLE
+
 CString CPathUtils::GetAppDirectory(HMODULE hMod /* = NULL */)
 {
 	CString path;

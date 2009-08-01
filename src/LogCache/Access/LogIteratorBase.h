@@ -24,8 +24,8 @@
 
 #include "ILogIterator.h"
 
-#include "./Containers/DictionaryBasedTempPath.h"
-#include "CachedLogInfo.h"
+#include "../Containers/DictionaryBasedTempPath.h"
+#include "../Containers/CachedLogInfo.h"
 
 ///////////////////////////////////////////////////////////////
 // begin namespace LogCache
@@ -114,6 +114,10 @@ public:
 	// destruction
 
 	virtual ~CLogIteratorBase(void);
+
+    // provide custom assignment operator to silence C4512
+
+    CLogIteratorBase& operator=(const CLogIteratorBase& rhs);
 
 	// implement ILogIterator
 

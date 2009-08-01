@@ -31,7 +31,7 @@
 #include "CachedLogInfo.h"
 #include "RepositoryInfo.h"
 #include "RevisionIndex.h"
-#include "CopyFollowingLogIterator.h"
+#include "Access/CopyFollowingLogIterator.h"
 #include "ProgressDlg.h"
 
 #ifdef _DEBUG

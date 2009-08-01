@@ -37,12 +37,12 @@ public:
 	 */
 	static void Unescape(char * psz);
 
+#ifdef CSTRING_AVAILABLE
 	/**
 	 * Replaces non-URI chars with the corresponding escape sequences.
 	 */
 	static CStringA PathEscape(const CStringA& path);
 
-#ifdef CSTRING_AVAILABLE
 	/**
 	 * Returns the path to the installation folder, in our case the TortoiseSVN/bin folder.
 	 * \remark the path returned has a trailing backslash

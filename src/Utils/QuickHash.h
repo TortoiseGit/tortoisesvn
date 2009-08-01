@@ -178,7 +178,7 @@ private:
 		size_t new_capacity = grower.capacity();
 	
 		data = new index_type[new_capacity];
-		stdext::unchecked_fill_n (data, new_capacity, NO_INDEX);
+		stdext::unchecked_fill_n (data, new_capacity, (index_type)NO_INDEX);
 	}
 	
 	/// add a value to the hash 
@@ -338,7 +338,7 @@ public:
             size_t offset = used[clusterIndex] + clusterIndex * clusterSize;
 
             TPair& current = temp[offset];
-            current.first = bucket;
+            current.first = static_cast<index_type>(bucket);
             current.second = index++;
 
             if (++used[clusterIndex] == clusterSize)

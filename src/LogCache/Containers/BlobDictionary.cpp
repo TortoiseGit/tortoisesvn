@@ -16,8 +16,9 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "StdAfx.h"
-#include ".\blobdictionary.h"
+#include "stdafx.h"
+#include "BlobDictionary.h"
+#include "ContainerException.h"
 
 #include "../Streams/BLOBInStream.h"
 #include "../Streams/BLOBOutStream.h"
@@ -36,41 +37,41 @@ namespace LogCache
 // simple construction
 
 CBlobDictionary::CHashFunction::CHashFunction (CBlobDictionary* aDictionary)
-	: dictionary (aDictionary)
+        : dictionary (aDictionary)
 {
 }
 
 // the actual hash function
 
-size_t 
-CBlobDictionary::CHashFunction::operator() 
-	(const CBlobDictionary::CHashFunction::value_type& value) const
+size_t
+CBlobDictionary::CHashFunction::operator()
+(const CBlobDictionary::CHashFunction::value_type& value) const
 {
-	if (value.data == NULL)
-		return 0;
+    if (value.data == NULL)
+        return 0;
 
-	size_t result = 0;
-    for ( const char* iter = value.data, *end = value.data + value.size
-        ; iter != end
-        ; ++iter)
-	{
-		result = result * 33 ^ *iter;
-	}
+    size_t result = 0;
+    for (const char* iter = value.data, *end = value.data + value.size
+            ; iter != end
+            ; ++iter)
+    {
+        result = result * 33 ^ *iter;
+    }
 
-	return result;
+    return result;
 }
 
 // dictionary lookup
 
-CBlobDictionary::CHashFunction::value_type 
-CBlobDictionary::CHashFunction::value 
-	(CBlobDictionary::CHashFunction::index_type index) const
+CBlobDictionary::CHashFunction::value_type
+CBlobDictionary::CHashFunction::value
+(CBlobDictionary::CHashFunction::index_type index) const
 {
-	if (index == NO_INDEX)
+    if (index == NO_INDEX)
         return value_type (NULL, 0);
 
-	assert (dictionary->offsets.size() > index+1);
-	assert (dictionary->offsets[index] != NO_INDEX);
+    assert (dictionary->offsets.size() > index+1);
+    assert (dictionary->offsets[index] != NO_INDEX);
 
     size_t startOffset = dictionary->offsets[index];
     size_t size = dictionary->offsets[index+1] - startOffset;
@@ -79,15 +80,15 @@ CBlobDictionary::CHashFunction::value
 
 // lookup and comparison
 
-bool 
-CBlobDictionary::CHashFunction::equal 
-	( const CBlobDictionary::CHashFunction::value_type& value
-	, CBlobDictionary::CHashFunction::index_type index) const
+bool
+CBlobDictionary::CHashFunction::equal
+(const CBlobDictionary::CHashFunction::value_type& value
+ , CBlobDictionary::CHashFunction::index_type index) const
 {
-	// special case
+    // special case
 
-	if (value.data == NULL)
-		return index == 0;
+    if (value.data == NULL)
+        return index == 0;
 
     // sizes equal?
 
@@ -95,10 +96,10 @@ CBlobDictionary::CHashFunction::equal
     if (dictionary->offsets[index+1] - startOffset != value.size)
         return false;
 
-	// compare memory ranges
+    // compare memory ranges
 
     const char* rhs = dictionary->packedBlobsStart + startOffset;
-	return memcmp (value.data, rhs, value.size) == 0;
+    return memcmp (value.data, rhs, value.size) == 0;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -119,17 +120,17 @@ void CBlobDictionary::RebuildIndexes()
 
     // hash & index all strings
 
-	hashIndex.clear();
-	hashIndex.reserve (offsets.size());
+    hashIndex.clear();
+    hashIndex.reserve (offsets.size());
 
     index_t index = 0;
-    for ( std::vector<index_t>::iterator iter = offsets.begin()+1
-        , end = offsets.end()
-        ; iter != end
-        ; ++iter, ++index)
+    for (std::vector<index_t>::iterator iter = offsets.begin() +1
+            , end = offsets.end()
+                    ; iter != end
+            ; ++iter, ++index)
     {
-        size_t size = *iter - offset;
-		hashIndex.insert (SBlob (packedBlobsStart + offset, size), index);
+        index_t size = *iter - offset;
+        hashIndex.insert (SBlob (packedBlobsStart + offset, size), index);
 
         offset += size;
     }
@@ -139,24 +140,24 @@ void CBlobDictionary::RebuildIndexes()
 
 void CBlobDictionary::Initialize()
 {
-	// insert the empty string at index 0
+    // insert the empty string at index 0
 
     packedBlobsStart = NULL;
-	offsets.push_back (0);
-	offsets.push_back (0);
-	hashIndex.insert (SBlob (NULL, 0), 0);
+    offsets.push_back (0);
+    offsets.push_back (0);
+    hashIndex.insert (SBlob (NULL, 0), 0);
 }
 
 // construction / destruction
 
-CBlobDictionary::CBlobDictionary(void)
-	: hashIndex (CHashFunction (this))
+CBlobDictionary::CBlobDictionary (void)
+    : hashIndex (CHashFunction (this))
     , packedBlobsStart (NULL)
 {
-	Initialize();
+    Initialize();
 }
 
-CBlobDictionary::~CBlobDictionary(void)
+CBlobDictionary::~CBlobDictionary (void)
 {
 }
 
@@ -166,20 +167,20 @@ void CBlobDictionary::swap (CBlobDictionary& rhs)
 {
     packedBlobs.swap (rhs.packedBlobs);
     std::swap (packedBlobsStart, rhs.packedBlobsStart);
-	offsets.swap (rhs.offsets);
+    offsets.swap (rhs.offsets);
     hashIndex.swap (rhs.hashIndex);
 }
 
 index_t CBlobDictionary::Find (const SBlob& blob) const
 {
-	return hashIndex.find (blob);
+    return hashIndex.find (blob);
 }
 
-SBlob CBlobDictionary::operator[](index_t index) const
+SBlob CBlobDictionary::operator[] (index_t index) const
 {
 #if !defined (_SECURE_SCL)
-	if (index+1 < (index_t)offsets.size())
-		throw std::exception ("dictionary string index out of range");
+    if (index+1 < (index_t) offsets.size())
+        throw CContainerException ("dictionary string index out of range");
 #endif
 
     size_t startOffset = offsets[index];
@@ -190,37 +191,37 @@ SBlob CBlobDictionary::operator[](index_t index) const
 
 index_t CBlobDictionary::Insert (const SBlob& blob)
 {
-	// must not exist yet (so, it is not empty as well)
+    // must not exist yet (so, it is not empty as well)
 
-	assert (Find (blob) == NO_INDEX);
+    assert (Find (blob) == NO_INDEX);
     assert (blob.size < NO_INDEX);
 
-	// add string to container
+    // add string to container
 
-	if (packedBlobs.size() >= NO_INDEX - blob.size)
-		throw std::exception ("dictionary overflow");
+    if (packedBlobs.size() >= NO_INDEX - blob.size)
+        throw CContainerException ("dictionary overflow");
 
     packedBlobs.insert (packedBlobs.end(), blob.data, blob.data + blob.size);
-    packedBlobsStart = &packedBlobs.at(0);
+    packedBlobsStart = &packedBlobs.at (0);
 
-	// update indices
+    // update indices
 
-	index_t result = (index_t)offsets.size()-1;
-	hashIndex.insert (blob, result);
-	offsets.push_back ((index_t)packedBlobs.size());
+    index_t result = (index_t) offsets.size()-1;
+    hashIndex.insert (blob, result);
+    offsets.push_back ( (index_t) packedBlobs.size());
 
-	// ready
+    // ready
 
-	return result;
+    return result;
 }
 
 index_t CBlobDictionary::AutoInsert (const SBlob& blob)
 {
-	index_t result = Find (blob);
-	if (result == NO_INDEX)
-		result = Insert (blob);
+    index_t result = Find (blob);
+    if (result == NO_INDEX)
+        result = Insert (blob);
 
-	return result;
+    return result;
 }
 
 // reset content
@@ -228,10 +229,10 @@ index_t CBlobDictionary::AutoInsert (const SBlob& blob)
 void CBlobDictionary::Clear()
 {
     packedBlobs.clear();
-	offsets.clear();
-	hashIndex.clear();
+    offsets.clear();
+    hashIndex.clear();
 
-	Initialize();
+    Initialize();
 }
 
 // use this to minimize re-allocation and re-hashing
@@ -239,7 +240,7 @@ void CBlobDictionary::Clear()
 void CBlobDictionary::Reserve (index_t blobCount, size_t byteCount)
 {
     packedBlobs.reserve (byteCount);
-    packedBlobsStart = packedBlobs.empty() ? NULL : &packedBlobs.at(0);
+    packedBlobsStart = packedBlobs.empty() ? NULL : &packedBlobs.at (0);
 
     offsets.reserve (blobCount);
     hashIndex.reserve (blobCount);
@@ -257,50 +258,50 @@ size_t CBlobDictionary::GetPackedBlobsSize() const
 
 index_mapping_t CBlobDictionary::Merge (const CBlobDictionary& source)
 {
-	index_mapping_t result;
-	result.insert ((index_t)NO_INDEX, (index_t)NO_INDEX);
+    index_mapping_t result;
+    result.insert ( (index_t) NO_INDEX, (index_t) NO_INDEX);
 
-	for (index_t i = 0, count = source.size(); i < count; ++i)
-		result.insert (i, AutoInsert (source[i]));
+    for (index_t i = 0, count = source.size(); i < count; ++i)
+        result.insert (i, AutoInsert (source[i]));
 
-	return result;
+    return result;
 }
 
 // rearrange strings: put [sourceIndex[index]] into [index]
 
 void CBlobDictionary::Reorder (const std::vector<index_t>& sourceIndices)
 {
-	// we must remap all entries
+    // we must remap all entries
 
-	assert (size() == sourceIndices.size());
+    assert (size() == sourceIndices.size());
 
-	// we must not remap the empty string
+    // we must not remap the empty string
 
-	assert (sourceIndices[0] == 0);
+    assert (sourceIndices[0] == 0);
 
-	// we will copy the string data in this temp. array
+    // we will copy the string data in this temp. array
 
-	std::vector<char> target;
-	target.resize (packedBlobs.size());
+    std::vector<char> target;
+    target.resize (packedBlobs.size());
 
     std::vector<index_t> targetOffsets;
-	targetOffsets.resize (offsets.size());
+    targetOffsets.resize (offsets.size());
 
     // start of the string & offset arrays
 
-	char* targetBlob = &target.at(0);
+    char* targetBlob = &target.at (0);
     index_t targetOffset = 0;
 
     // copy string by string
 
-	for (index_t i = 0, count = size(); i < count; ++i)
+    for (index_t i = 0, count = size(); i < count; ++i)
     {
-		index_t sourceIndex = sourceIndices[i];
+        index_t sourceIndex = sourceIndices[i];
 
-		index_t sourceOffset = offsets[sourceIndex];
-		index_t length = offsets[sourceIndex+1] - sourceOffset;
+        index_t sourceOffset = offsets[sourceIndex];
+        index_t length = offsets[sourceIndex+1] - sourceOffset;
 
-		memcpy (targetBlob, packedBlobsStart + sourceOffset, length);
+        memcpy (targetBlob, packedBlobsStart + sourceOffset, length);
         targetOffsets[i] = targetOffset;
         targetOffset += length;
         targetBlob += length;
@@ -308,79 +309,79 @@ void CBlobDictionary::Reorder (const std::vector<index_t>& sourceIndices)
 
     *targetOffsets.rbegin() = targetOffset;
 
-	// the new order is now complete -> switch to it
+    // the new order is now complete -> switch to it
 
-	packedBlobs.swap (target);
-	offsets.swap (targetOffsets);
+    packedBlobs.swap (target);
+    offsets.swap (targetOffsets);
 
-	// re-build hash and offsets
+    // re-build hash and offsets
 
-	RebuildIndexes();
+    RebuildIndexes();
 }
 
 // stream I/O
 
-IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-								  , CBlobDictionary& dictionary)
+IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
+                                   , CBlobDictionary& dictionary)
 {
-	// read the string data
+    // read the string data
 
-	CBLOBInStream* packedBlobsStream 
-		= dynamic_cast<CBLOBInStream*>
-			(stream.GetSubStream (CBlobDictionary::PACKED_BLOBS_STREAM_ID));
+    CBLOBInStream* packedBlobsStream
+        = dynamic_cast<CBLOBInStream*>
+            (stream.GetSubStream (CBlobDictionary::PACKED_BLOBS_STREAM_ID));
 
-	if (packedBlobsStream->GetSize() >= NO_INDEX)
-		throw std::exception ("data stream to large");
+    if (packedBlobsStream->GetSize() >= NO_INDEX)
+        throw CContainerException ("data stream to large");
 
-	dictionary.packedBlobs.resize (packedBlobsStream->GetSize());
-    dictionary.packedBlobsStart = &dictionary.packedBlobs.at(0);
-	memcpy ( dictionary.packedBlobsStart
-		   , packedBlobsStream->GetData()
-		   , dictionary.packedBlobs.size());
+    dictionary.packedBlobs.resize (packedBlobsStream->GetSize());
+    dictionary.packedBlobsStart = &dictionary.packedBlobs.at (0);
+    memcpy ( dictionary.packedBlobsStart
+           , packedBlobsStream->GetData()
+           , dictionary.packedBlobs.size());
 
-	// build the hash and string offsets
+    // build the hash and string offsets
 
-	CDiffDWORDInStream* offsetsStream 
-		= dynamic_cast<CDiffDWORDInStream*>
-			(stream.GetSubStream (CBlobDictionary::OFFSETS_STREAM_ID));
+    CDiffDWORDInStream* offsetsStream
+        = dynamic_cast<CDiffDWORDInStream*>
+            (stream.GetSubStream (CBlobDictionary::OFFSETS_STREAM_ID));
 
-	*offsetsStream >> dictionary.offsets;
+    *offsetsStream >> dictionary.offsets;
 
-	dictionary.hashIndex 
-		= quick_hash<CBlobDictionary::CHashFunction>
-			(CBlobDictionary::CHashFunction (&dictionary));
-	dictionary.hashIndex.reserve (dictionary.offsets.size());
+    dictionary.hashIndex
+        = quick_hash<CBlobDictionary::CHashFunction>
+            (CBlobDictionary::CHashFunction (&dictionary));
+    dictionary.hashIndex.reserve (dictionary.offsets.size());
 
     dictionary.RebuildIndexes();
 
-	// ready
+    // ready
 
-	return stream;
+    return stream;
 }
 
-IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-								   , const CBlobDictionary& dictionary)
+IHierarchicalOutStream& operator<< (IHierarchicalOutStream& stream
+                                    , const CBlobDictionary& dictionary)
 {
-	// write string data
+    // write string data
 
-	CBLOBOutStream* packedBlobsStream 
-		= dynamic_cast<CBLOBOutStream*>
-			(stream.OpenSubStream ( CBlobDictionary::PACKED_BLOBS_STREAM_ID
-								  , BLOB_STREAM_TYPE_ID));
-	packedBlobsStream->Add ((const unsigned char*)&dictionary.packedBlobs.at(0)
-						   , dictionary.packedBlobs.size());
+    CBLOBOutStream* packedBlobsStream
+        = dynamic_cast<CBLOBOutStream*>
+            (stream.OpenSubStream ( CBlobDictionary::PACKED_BLOBS_STREAM_ID
+                                  , BLOB_STREAM_TYPE_ID));
+    packedBlobsStream->Add ( (const unsigned char*) &dictionary.packedBlobs.at (0)
+                           , dictionary.packedBlobs.size());
 
-	// write offsets
+    // write offsets
 
-	CDiffDWORDOutStream* offsetsStream 
-		= dynamic_cast<CDiffDWORDOutStream*>
-			(stream.OpenSubStream ( CBlobDictionary::OFFSETS_STREAM_ID
-								  , DIFF_DWORD_STREAM_TYPE_ID));
-	*offsetsStream << dictionary.offsets;
+    CDiffDWORDOutStream* offsetsStream
+        = dynamic_cast<CDiffDWORDOutStream*>
+            (stream.OpenSubStream ( CBlobDictionary::OFFSETS_STREAM_ID
+                                  , DIFF_DWORD_STREAM_TYPE_ID));
+    *offsetsStream << dictionary.offsets;
 
-	// ready
+    // ready
 
-	return stream;
+    return stream;
 }
 
 ///////////////////////////////////////////////////////////////

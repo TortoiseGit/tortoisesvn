@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -58,7 +58,7 @@ public:
 //
 ///////////////////////////////////////////////////////////////
 
-template COutStreamImpl< CCompositeOutStreamBase
-					   , COMPOSITE_STREAM_TYPE_ID>;
+template class COutStreamImpl< CCompositeOutStreamBase
+                             , COMPOSITE_STREAM_TYPE_ID>;
 typedef COutStreamImpl< CCompositeOutStreamBase
-					  , COMPOSITE_STREAM_TYPE_ID> CCompositeOutStream;
+                      , COMPOSITE_STREAM_TYPE_ID> CCompositeOutStream;

@@ -29,7 +29,7 @@
 #include "ProgressDlg.h"
 #include "SVNLogQuery.h"
 #include "CacheLogQuery.h"
-#include "CSVWriter.h"
+#include "Access/CSVWriter.h"
 #include "XPTheme.h"
 
 using namespace LogCache;
@@ -131,8 +131,8 @@ BOOL CSetLogCache::OnApply()
     CSettings::SetAllowAmbiguousURL (m_bSupportAmbiguousURL != FALSE);
     CSettings::SetAllowAmbiguousUUID (m_bSupportAmbiguousUUID != FALSE);
 
-    CRepositoryInfo::ConnectionState state 
-        = static_cast<CRepositoryInfo::ConnectionState>
+    ConnectionState state 
+        = static_cast<ConnectionState>
             (m_cDefaultConnectionState.GetCurSel());
 	CSettings::SetDefaultConnectionState (state);
 

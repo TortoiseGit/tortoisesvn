@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,7 +47,7 @@ private:
 	// data to write (may be NULL)
 
 	const unsigned char* data;
-	DWORD size;
+	unsigned size;
 
 	// return the (possible NULL) data we just got through Add()
 
@@ -75,7 +75,7 @@ public:
 //
 ///////////////////////////////////////////////////////////////
 
-template COutStreamImpl< CBLOBOutStreamBase
-					   , BLOB_STREAM_TYPE_ID>;
+template class COutStreamImpl< CBLOBOutStreamBase
+                             , BLOB_STREAM_TYPE_ID>;
 typedef COutStreamImpl< CBLOBOutStreamBase
-					  , BLOB_STREAM_TYPE_ID> CBLOBOutStream;
+                      , BLOB_STREAM_TYPE_ID> CBLOBOutStream;

@@ -16,28 +16,32 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "StdAfx.h"
-#include "./cachedloginfo.h"
-#include "./LogCacheSettings.h"
+#include "stdafx.h"
+#include "CachedLogInfo.h"
+//#include "LogCacheSettings.h"
 
-#include "./Streams/RootInStream.h"
-#include "./Streams/RootOutStream.h"
+#include "../Streams/RootInStream.h"
+#include "../Streams/RootOutStream.h"
 
 // begin namespace LogCache
 
 namespace LogCache
 {
 
+// .lock file mechanism is only available under Windows
+
+#ifdef WIN32
+
 // "in use" (hidden flag) file flag handling
 
-bool CCachedLogInfo::CCacheFileManager::IsMarked (const std::wstring& name) const
+bool CCachedLogInfo::CCacheFileManager::IsMarked (const TFileName& name) const
 {
     DWORD attributes = GetFileAttributes (name.c_str());
     return    (attributes != INVALID_FILE_ATTRIBUTES) 
            && ((attributes & FILE_ATTRIBUTE_HIDDEN) != 0);
 }
 
-void CCachedLogInfo::CCacheFileManager::SetMark (const std::wstring& name)
+void CCachedLogInfo::CCacheFileManager::SetMark (const TFileName& name)
 {
     fileName = name;
 
@@ -55,7 +59,9 @@ void CCachedLogInfo::CCacheFileManager::ResetMark()
 
 // allow for multiple failures 
 
-bool CCachedLogInfo::CCacheFileManager::ShouldDrop (const std::wstring& name)
+bool CCachedLogInfo::CCacheFileManager::ShouldDrop 
+    ( const TFileName& name
+    , int maxFailures)
 {
     // no mark -> no crash -> no drop here
 
@@ -78,8 +84,8 @@ bool CCachedLogInfo::CCacheFileManager::ShouldDrop (const std::wstring& name)
     if (tempHandle == INVALID_HANDLE_VALUE)
         return false;
 
-	try
-	{
+    try
+    {
         // any failure count so far?
 
         CFile file (tempHandle);
@@ -96,20 +102,21 @@ bool CCachedLogInfo::CCacheFileManager::ShouldDrop (const std::wstring& name)
         // to many of them?
 
         CloseHandle (tempHandle);
-        return failureCount >= CSettings::GetMaxFailuresUntilDrop();
-	}
-	catch (CException* /*e*/)
-	{
-	}
+        return failureCount >= maxFailures;
+    }
+    catch (CException* /*e*/)
+    {
+    }
 
     // could not access the file or similar problem 
     // -> remove it if it's no longer in use
 
     CloseHandle (tempHandle);
+
     return true;
 }
 
-void CCachedLogInfo::CCacheFileManager::UpdateMark (const std::wstring& name)
+void CCachedLogInfo::CCacheFileManager::UpdateMark (const TFileName& name)
 {
     assert (OwnsFile());
 
@@ -122,15 +129,15 @@ void CCachedLogInfo::CCacheFileManager::UpdateMark (const std::wstring& name)
 
     if (++failureCount > 0)
     {
-	    try
-	    {
+        try
+        {
             CFile file (fileHandle);
             CArchive stream (&file, CArchive::store);
             stream << failureCount;
-	    }
-	    catch (CException* /*e*/)
-	    {
-	    }
+        }
+        catch (CException* /*e*/)
+        {
+        }
     }
 }
 
@@ -152,7 +159,9 @@ CCachedLogInfo::CCacheFileManager::~CCacheFileManager()
 /// call this *before* opening the file
 /// (will auto-drop crashed files etc.)
 
-void CCachedLogInfo::CCacheFileManager::AutoAcquire (const std::wstring& fileName)
+void CCachedLogInfo::CCacheFileManager::AutoAcquire 
+    ( const TFileName& fileName
+    , int maxFailures)
 {
     assert (!OwnsFile());
 
@@ -160,7 +169,7 @@ void CCachedLogInfo::CCacheFileManager::AutoAcquire (const std::wstring& fileNam
     // (DeleteFile() will fail for open files)
 
     std::wstring lockFileName = fileName + L".lock";
-    if (ShouldDrop (lockFileName))
+    if (ShouldDrop (lockFileName, maxFailures))
     {
         if (DeleteFile (lockFileName.c_str()) == TRUE)
         {
@@ -222,6 +231,57 @@ bool CCachedLogInfo::CCacheFileManager::OwnsFile() const
     return fileHandle != INVALID_HANDLE_VALUE;
 }
 
+#else
+
+// dummy implementation for non-Windows OS
+
+bool CCachedLogInfo::CCacheFileManager::IsMarked (const TFileName&) const
+{
+    return false;
+}
+
+void CCachedLogInfo::CCacheFileManager::SetMark (const TFileName&)
+{
+}
+
+void CCachedLogInfo::CCacheFileManager::ResetMark()
+{
+}
+
+bool CCachedLogInfo::CCacheFileManager::ShouldDrop (const TFileName&, int)
+{
+    return false;
+}
+
+void CCachedLogInfo::CCacheFileManager::UpdateMark (const TFileName&)
+{
+}
+
+// default construction / destruction
+
+CCachedLogInfo::CCacheFileManager::CCacheFileManager()
+{
+}
+
+CCachedLogInfo::CCacheFileManager::~CCacheFileManager()
+{
+}
+
+void CCachedLogInfo::CCacheFileManager::AutoAcquire (const TFileName&, int)
+{
+}
+
+void CCachedLogInfo::CCacheFileManager::AutoRelease()
+{
+}
+
+bool CCachedLogInfo::CCacheFileManager::OwnsFile() const
+{
+    return true;
+}
+
+#endif
+
 // construction / destruction (nothing to do)
 
 CCachedLogInfo::CCachedLogInfo()
@@ -234,7 +294,7 @@ CCachedLogInfo::CCachedLogInfo()
 {
 }
 
-CCachedLogInfo::CCachedLogInfo (const std::wstring& aFileName)
+CCachedLogInfo::CCachedLogInfo (const TFileName& aFileName)
 	: fileName (aFileName)
 	, revisions()
 	, logInfo()
@@ -251,36 +311,43 @@ CCachedLogInfo::~CCachedLogInfo (void)
 
 // cache persistence
 
-void CCachedLogInfo::Load()
+void CCachedLogInfo::Load (int maxFailures)
 {
 	assert (revisions.GetLastRevision() == 0);
 
 	try
 	{
-        // handle crashes and lock file
-
-        fileManager.AutoAcquire (fileName);
-
-        // does log cache file exist?
-
-        if (GetFileAttributes (fileName.c_str()) != INVALID_FILE_ATTRIBUTES)
-        {
-		    // read the data
-
-		    CRootInStream stream (fileName);
-
-		    IHierarchicalInStream* revisionsStream
-			    = stream.GetSubStream (REVISIONS_STREAM_ID);
-		    *revisionsStream >> revisions;
-
-		    IHierarchicalInStream* logInfoStream
-			    = stream.GetSubStream (LOG_INFO_STREAM_ID);
-		    *logInfoStream >> logInfo;
-
-		    IHierarchicalInStream* skipRevisionsStream
-			    = stream.GetSubStream (SKIP_REVISIONS_STREAM_ID);
-		    *skipRevisionsStream >> skippedRevisions;
-        }
+		// handle crashes and lock file
+	
+		fileManager.AutoAcquire (fileName, maxFailures);
+	
+		// does log cache file exist?
+	
+	#ifdef WIN32
+		if (GetFileAttributes (fileName.c_str()) != INVALID_FILE_ATTRIBUTES)
+		{
+	#else
+		FILE* file = fopen (fileName.c_str(), "r+");
+		if (file != NULL)
+		{
+			fclose (file);
+	#endif
+			// read the data
+	
+			CRootInStream stream (fileName);
+	
+			IHierarchicalInStream* revisionsStream
+				= stream.GetSubStream (REVISIONS_STREAM_ID);
+			*revisionsStream >> revisions;
+	
+			IHierarchicalInStream* logInfoStream
+				= stream.GetSubStream (LOG_INFO_STREAM_ID);
+			*logInfoStream >> logInfo;
+	
+			IHierarchicalInStream* skipRevisionsStream
+				= stream.GetSubStream (SKIP_REVISIONS_STREAM_ID);
+			*skipRevisionsStream >> skippedRevisions;
+		}
 	}
 	catch (...)
 	{
@@ -294,14 +361,14 @@ bool CCachedLogInfo::IsEmpty() const
     return revisions.GetFirstCachedRevision() == NO_REVISION;
 }
 
-void CCachedLogInfo::Save (const std::wstring& newFileName)
+void CCachedLogInfo::Save (const TFileName& newFileName)
 {
     // switch crash and lock management to new file name
 
     if (fileName != newFileName)
     {
         fileManager.AutoRelease();
-        fileManager.AutoAcquire (newFileName);
+        fileManager.AutoAcquire (newFileName, 0);
     }
 
 	// write the data file, if we were the first to open it
@@ -394,6 +461,21 @@ void CCachedLogInfo::Clear()
 
 	revisions.Clear();
 	logInfo.Clear();
+}
+
+// return false if concurrent read accesses
+// would potentially access invalid data.
+
+bool CCachedLogInfo::CanInsertThreadSafely
+    ( revision_t revision
+    , const std::string& author
+    , const std::string& comment
+    , __time64_t timeStamp) const
+{
+    // check feasibility & add revision index
+
+    return logInfo.CanInsertThreadSafely (author, comment, timeStamp)
+        && revisions.CanSetRevisionIndexThreadSafely (revision);
 }
 
 // update / modify existing data

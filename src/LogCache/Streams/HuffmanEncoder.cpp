@@ -16,8 +16,9 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "HuffmanEncoder.h"
+#include "StreamException.h"
 
 // Huffman encoding stages:
 
@@ -190,7 +191,7 @@ DWORD CHuffmanEncoder::CalculatePackedSize()
 
 	// packed data will use full QWORDs, i.e. up to 63 unused bits
 
-	assert (bitCount < 0x800000000);
+	assert (bitCount < 0x800000000ull);
 	result += static_cast<DWORD>(bitCount / 8 + sizeof (QWORD));
 
 	// ready
@@ -365,12 +366,12 @@ CHuffmanEncoder::CHuffmanEncoder()
 std::pair<CHuffmanEncoder::BYTE*, DWORD>
 CHuffmanEncoder::Encode (const BYTE* source, size_t byteCount)
 {
-	assert (sorted[0] == NULL);
+	assert (sorted[0] == 0);
 
 	// this may fail under x64
 
 	if (byteCount > (DWORD)(-1))
-		throw std::exception ("BLOB to large for stream");
+		throw CStreamException ("BLOB to large for stream");
 
 	// calculate static Huffman encoding
 
