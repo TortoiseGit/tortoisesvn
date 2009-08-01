@@ -81,7 +81,7 @@ private:
 
 		size_t operator() (const value_type& value) const
 		{
-#ifdef _WIN64
+#ifdef _64BITS
 			return reinterpret_cast<const size_t&>(value);
 #else
 			return //(((size_t)value.first) << 24) + (((size_t)value.first) >> 8)

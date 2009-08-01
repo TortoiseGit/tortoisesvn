@@ -61,7 +61,7 @@ enum
  * - our version ID (4 bytes. Current value: 0x20070607)
  * - min. version ID (4 bytes. Current value: 0x20070607)
  * - stream(s) (N BLOBs)
- * - stream size in (N 4 byte integers)
+ * - stream size in bytes (N 4 byte integers)
  * - N (4 bytes unsigned integer)
  */
 class CCacheFileOutBuffer : public CBufferedOutFile

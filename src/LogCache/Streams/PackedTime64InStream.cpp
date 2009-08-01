@@ -72,6 +72,20 @@ __time64_t CPackedTime64InStreamBase::GetValue() throw()
 	return value;
 }
 
+// update members in this derived class as well
+
+void CPackedTime64InStreamBase::AutoOpen()
+{
+    CBinaryInStreamBase::AutoOpen();
+    lastValue = 0;
+}
+
+void CPackedTime64InStreamBase::AutoClose()
+{
+    lastValue = 0;
+    CBinaryInStreamBase::AutoClose();
+}
+
 ///////////////////////////////////////////////////////////////
 //
 // CPackedTime64InStream

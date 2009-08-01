@@ -70,7 +70,7 @@ size_t CRegHistory::Load(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix)
 	m_sKeyPrefix = lpszKeyPrefix;
 
 	int n = 0;
-	std::wstring sText;
+	tstring sText;
 	do
 	{
 		//keys are of form <lpszKeyPrefix><entrynumber>

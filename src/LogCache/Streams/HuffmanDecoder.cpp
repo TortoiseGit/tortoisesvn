@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -55,24 +55,30 @@ void CHuffmanDecoder::BuildDecodeTable (const BYTE*& first)
 	for (size_t i = 1; i < entryCount; ++i)
 	{
 		++currentKey;
-		if (keyLength[i-1] < keyLength[i])
-			currentKey <<= keyLength[i] - keyLength[i-1];
-		else
-			if (keyLength[i-1] > keyLength[i])
-				currentKey >>= keyLength[i-1] - keyLength[i];
+        BYTE prevKeyLength = keyLength[i-1];
+        BYTE thisKeylength = keyLength[i];
 
-		key[i] = ReverseBits (currentKey, keyLength[i]);
+		if (prevKeyLength < thisKeylength)
+			currentKey <<= thisKeylength - prevKeyLength;
+		else
+			if (prevKeyLength > thisKeylength)
+				currentKey >>= prevKeyLength - thisKeylength;
+
+		key[i] = ReverseBits (currentKey, thisKeylength);
 	}
 
 	// fill the decoding tables
 
 	for (size_t i = 0; i < entryCount; ++i)
 	{
-		size_t delta = 1 << keyLength[i];
+        BYTE l = keyLength[i];
+        BYTE v = values[i];
+
+		size_t delta = 1 << l;
 		for (size_t k = key[i]; k < 1 << MAX_ENCODING_LENGTH; k += delta)
 		{
-			value[k] = values[i];
-			length[k] = keyLength[i];
+			value[k] = v;
+			length[k] = l;
 		}
 	}
 }
@@ -84,7 +90,7 @@ void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
 	key_type cachedCode = 0;
 	BYTE cachedBits = 0;
 
-#ifdef _WIN64
+#ifdef _64BITS
 
 	// main loop
 
@@ -93,16 +99,19 @@ void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
 	encode_block_type* blockEnd 
 		= blockDest + decodedSize / sizeof (encode_block_type);
 
+    key_type nextCodes = *reinterpret_cast<const key_type*>(first);
 	for (; blockDest != blockEnd; ++blockDest)
 	{
 		// fetch encoded data into cache
 
-		size_t bytesToFetch = (KEY_BITS - cachedBits) / 8;
+		BYTE bitsToFetch = (KEY_BITS - cachedBits) & -8;
+        BYTE bytesToFetch = (KEY_BITS - cachedBits) / 8;
 
-		cachedCode |= *reinterpret_cast<const key_type*>(first) << cachedBits;
+		cachedCode |= nextCodes << cachedBits;
+        first += bytesToFetch;
+		cachedBits += bitsToFetch;
 
-		first += bytesToFetch;
-		cachedBits += static_cast<BYTE>(bytesToFetch * 8);
+        nextCodes = *reinterpret_cast<const key_type*>(first);
 
 		// decode 4 bytes
 
@@ -206,7 +215,7 @@ void CHuffmanDecoder::Decode (const BYTE*& source, BYTE*& target)
 	if (decodedSize == 0)
 		return;
 
-	// read all the decode-info 
+    // special case: unpacked data
 
 	BuildDecodeTable (localSource);
 

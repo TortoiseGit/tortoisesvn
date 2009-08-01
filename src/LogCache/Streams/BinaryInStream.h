@@ -96,6 +96,11 @@ public:
 	{
 		return current == last;
 	}
+
+    // update members in this derived class as well
+
+    virtual void AutoOpen();
+    virtual void AutoClose();
 };
 
 ///////////////////////////////////////////////////////////////

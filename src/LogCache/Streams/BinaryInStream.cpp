@@ -30,8 +30,22 @@
 CBinaryInStreamBase::CBinaryInStreamBase ( CCacheFileInBuffer* buffer
 									     , STREAM_INDEX index)
 	: CHierachicalInStreamBase (buffer, index)
-	, current (first)
+	, current (NULL)
 {
+}
+
+// update members in this derived class as well
+
+void CBinaryInStreamBase::AutoOpen()
+{
+    CHierachicalInStreamBase::AutoOpen();
+    current = first;
+}
+
+void CBinaryInStreamBase::AutoClose()
+{
+    current = NULL;
+    CHierachicalInStreamBase::AutoClose();
 }
 
 ///////////////////////////////////////////////////////////////

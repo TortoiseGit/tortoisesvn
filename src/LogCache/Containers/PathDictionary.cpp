@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -198,16 +198,16 @@ void CDictionaryBasedPath::ParsePath ( const std::string& path
 									 , std::vector<std::string>* relPath)
 {
     if (!path.empty())
-	{
-		std::string temp (path);
-		assert (path[0] == '/');
+    {
+        std::string temp (path);
 
-		index_t currentIndex = index;
-		for ( size_t pos = 0, nextPos = temp.find ('/', 1)
-			; pos != std::string::npos
-			; pos = nextPos, nextPos = temp.find ('/', nextPos))
-		{
-			// get the current path element and terminate it properly
+        index_t currentIndex = index;
+        size_t pos = temp[0] == '/' ? 0 : (size_t)(-1);
+        size_t nextPos = temp.find ('/', pos+1);
+
+        do
+        {
+            // get the current path element and terminate it properly
 
 			const char* pathElement = temp.c_str() + pos+1;
 			if (nextPos != std::string::npos)
@@ -248,9 +248,12 @@ void CDictionaryBasedPath::ParsePath ( const std::string& path
 				index = nextIndex;
 			}
 
-			currentIndex = nextIndex;
-		}
-	}
+            currentIndex = nextIndex;
+            pos = nextPos;
+            nextPos = temp.find ('/', nextPos);
+        }
+        while (pos != std::string::npos);
+    }
 
 #ifdef _DEBUG
     _path = GetPath();

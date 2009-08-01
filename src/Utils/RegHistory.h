@@ -49,8 +49,8 @@ public:
 	LPCTSTR GetEntry(size_t pos) {return m_arEntries[pos].c_str();}
 
 private:
-	std::wstring m_sSection;
-	std::wstring m_sKeyPrefix;
-	std::vector<std::wstring> m_arEntries;
+	tstring m_sSection;
+	tstring m_sKeyPrefix;
+	std::vector<tstring> m_arEntries;
 	int m_nMaxHistoryItems;
 };

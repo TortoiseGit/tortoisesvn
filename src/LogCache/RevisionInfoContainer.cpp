@@ -646,10 +646,6 @@ void CRevisionInfoContainer::AddChange ( TChangeAction action
 	if (changes.size() == NO_INDEX)
 		throw std::exception ("revision container change list overflow");
 
-	// another change
-
-	++(*changesOffsets.rbegin());
-
 	// add change path index and update the root path 
 	// of all changes in this revision
 
@@ -685,6 +681,9 @@ void CRevisionInfoContainer::AddChange ( TChangeAction action
 		++(*copyFromOffsets.rbegin());
 	}
 
+	// another change
+
+	++(*changesOffsets.rbegin());
 }
 
 void CRevisionInfoContainer::AddMergedRevision ( const std::string& fromPath

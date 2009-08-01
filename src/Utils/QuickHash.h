@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -317,7 +317,7 @@ public:
 
         // preparation
 
-        size_t clusterSize = max (1, (last - first) / MAX_CLUSTERS);
+        size_t clusterSize = std::max<size_t> (1, (last - first) / MAX_CLUSTERS);
         size_t shift = 0;
         while (((size_t)MAX_CLUSTERS << shift) < grower.capacity())
             ++shift;
@@ -462,6 +462,18 @@ public:
 	{
 		return grower.get_statistics();
 	}
+
+    /// test, whether a given numbers of additional entries
+    /// might cause the cache to be resized
+
+    bool may_cause_growth (size_t toAdd) const
+    {
+        size_t maxEffectiveSize 
+            = grower.size() + grower.collisions() + 2 * toAdd;
+
+        return maxEffectiveSize >= grower.capacity();
+    }
+
 };
 
 template<class HF>

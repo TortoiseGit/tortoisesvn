@@ -62,6 +62,11 @@ public:
 	// plain data access
 
 	size_t GetSizeValue();
+
+    // update members in this derived class as well
+
+    virtual void AutoOpen();
+    virtual void AutoClose();
 };
 
 ///////////////////////////////////////////////////////////////
@@ -156,4 +161,26 @@ S& operator>> (S& stream, std::vector<V>& data)
 		}
 
 	return stream;
+}
+
+template<class S, class T, class V>
+S* ReadStream (S* stream, std::vector<T>* data, V T::*member)
+{
+    // read the total entry count and entries
+
+    size_t count = stream->GetSizeValue();
+    data->resize (count);
+
+    // efficiently add all entries
+    // (don't use iterators here as they come with some index checking overhead)
+
+    if (count > 0)
+        for ( T* iter = &data->at(0), *end = iter + count
+            ; iter != end
+            ; ++iter)
+        {
+            (*iter).*member = (V)stream->GetValue();
+        }
+
+    return stream;
 }

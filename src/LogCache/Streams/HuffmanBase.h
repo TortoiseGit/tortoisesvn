@@ -26,6 +26,10 @@
 //
 ///////////////////////////////////////////////////////////////
 
+#if (defined (_WIN64) || (__WORDSIZE == 64)) && !defined(_64BITS)
+#define _64BITS
+#endif
+
 class CHuffmanBase
 {
 public:
@@ -39,7 +43,7 @@ public:
 	// value counting chunk type
 	// plain text data chunk type
 
-#ifdef _WIN64
+#ifdef _64BITS
 	typedef QWORD key_type;
 	typedef QWORD count_block_type;
 	typedef DWORD encode_block_type;

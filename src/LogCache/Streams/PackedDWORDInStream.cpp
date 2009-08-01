@@ -57,6 +57,22 @@ DWORD CPackedDWORDInStreamBase::InternalGetValue() throw()
 	}
 }
 
+// update members in this derived class as well
+
+void CPackedDWORDInStreamBase::AutoOpen()
+{
+    CBinaryInStreamBase::AutoOpen();
+    lastValue = 0;
+    count = 0;
+}
+
+void CPackedDWORDInStreamBase::AutoClose()
+{
+    lastValue = 0;
+    count = 0;
+    CBinaryInStreamBase::AutoClose();
+}
+
 ///////////////////////////////////////////////////////////////
 //
 // CPackedDWORDInStream
