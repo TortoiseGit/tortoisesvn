@@ -171,6 +171,7 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
 	result->haschildren = FALSE;
 	result->childStackDepth = 0;
 	result->bChecked = FALSE;
+    result->parent = NULL;
 
     // done here
 

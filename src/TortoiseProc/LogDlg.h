@@ -286,6 +286,10 @@ private:
 
 	CStoreSelection*	m_pStoreSelection;
     CLogDataVector		m_logEntries;
+
+    /// used temporarily when fetching logs with merge info:
+    /// contains the \ref m_childCounter parents of the current entry
+    CLogDataVector		m_logParents;   
 	
 	CXPTheme			theme;
 };

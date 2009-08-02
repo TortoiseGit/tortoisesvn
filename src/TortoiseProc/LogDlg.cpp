@@ -921,6 +921,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	if (rev == SVN_INVALID_REVNUM)
 	{
 		m_childCounter--;
+        m_logParents.pop_back();
 		return TRUE;
 	}
 	// this is the callback function which receives the data for every revision we ask the log for
@@ -973,9 +974,15 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	pLogItem->actions = actions;
 	pLogItem->haschildren = haschildren;
 	pLogItem->childStackDepth = m_childCounter;
+    pLogItem->parent = m_childCounter > 0 ? *m_logParents.rbegin() : NULL;
 	m_maxChild = max(m_childCounter, m_maxChild);
+
 	if (haschildren)
+    {
+        m_logParents.push_back (pLogItem);
 		m_childCounter++;
+    }
+
 	pLogItem->sBugIDs = m_ProjectProperties.FindBugID(message).Trim();
 	
 	// split multi line log entries and concatenate them
@@ -3580,60 +3587,109 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths 
 	return pathList;
 }
 
+namespace
+{
+
+/**
+ * Wrapper around a stateless predicate. 
+ *
+ * The function operator adds handling of revision nesting to the "flat" 
+ * comparison provided by the predicate.
+ *
+ * The \ref ColumnCond predicate is expected to sort in ascending order 
+ * (i.e. to act like operator< ).
+ */
+
+template<class ColumnCond>
+class ColumnSort
+{
+private:
+
+    /// swap parameters, if not set
+
+    bool ascending;
+
+    /// comparison after optional parameter swap:
+    /// - (ascending) order according to \ref ColumnSort
+    /// - put merged revisions below merge target revision
+
+	bool InternalCompare (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+	{
+        // are both entry sibblings on the same node level?
+        // (root -> both have NULL as parent)
+
+        if (pStart->parent == pEnd->parent)
+            return ColumnCond()(pStart, pEnd);
+
+        // special case: one is the parent of the other
+        // -> don't compare contents in that case
+
+        if (pStart->parent == pEnd)
+            return !ascending;
+        if (pStart == pEnd->parent)
+            return ascending;
+
+        // find the closed pair of parents that is related
+
+        assert ((pStart->childStackDepth == 0) || (pStart->parent != NULL));
+        assert ((pEnd->childStackDepth == 0) || (pEnd->parent != NULL));
+
+        if (pStart->childStackDepth == pEnd->childStackDepth)
+            return InternalCompare (pStart->parent, pEnd->parent);
+
+        if (pStart->childStackDepth < pEnd->childStackDepth)
+            return InternalCompare (pStart, pEnd->parent);
+        else
+            return InternalCompare (pStart->parent, pEnd);
+	}
+
+public:
+
+    /// one class for both sort directions
+
+    ColumnSort(bool ascending)
+        : ascending (ascending)
+    {
+    }
+
+    /// asjust parameter order according to sort order
+
+    bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+	{
+        return ascending 
+            ? InternalCompare (pStart, pEnd)
+            : InternalCompare (pEnd, pStart);
+	}
+};
+
+}
+
 void CLogDlg::SortByColumn(int nSortColumn, bool bAscending)
 {
 	switch(nSortColumn)
 	{
 	case 0: // Revision
-		{
-			if(bAscending)
-				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscRevSort());
-			else
-				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescRevSort());
-		}
-		break;
+            std::sort (m_logEntries.begin(), m_logEntries.end(), ColumnSort<CLogDataVector::RevSort>(bAscending));
+    		break;
 	case 1: // action
-		{
-			if(bAscending)
-				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscActionSort());
-			else
-				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescActionSort());
-		}
-		break;
+    		std::sort (m_logEntries.begin(), m_logEntries.end(), ColumnSort<CLogDataVector::ActionSort>(bAscending));
+    		break;
 	case 2: // Author
-		{
-			if(bAscending)
-				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscAuthorSort());
-			else
-				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescAuthorSort());
-		}
-		break;
+			std::sort (m_logEntries.begin(), m_logEntries.end(), ColumnSort<CLogDataVector::AuthorSort>(bAscending));
+    		break;
 	case 3: // Date
-		{
-			if(bAscending)
-				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscDateSort());
-			else
-				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescDateSort());
-		}
-		break;
+			std::sort (m_logEntries.begin(), m_logEntries.end(), ColumnSort<CLogDataVector::DateSort>(bAscending));
+    		break;
 	case 4: // Message or bug id
 		if (m_bShowBugtraqColumn)
 		{
-			if(bAscending)
-				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscBugIDSort());
-			else
-				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescBugIDSort());
+			std::sort (m_logEntries.begin(), m_logEntries.end(), ColumnSort<CLogDataVector::BugIDSort>(bAscending));
 			break;
 		}
 		// fall through here
 	case 5: // Message
-		{
-			if(bAscending)
-				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscMessageSort());
-			else
-				std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescMessageSort());
-		}
-		break;
+    		std::sort (m_logEntries.begin(), m_logEntries.end(), ColumnSort<CLogDataVector::MessageSort>(bAscending));
+	    	break;
 	default:
 		ATLASSERT(0);
 		break;

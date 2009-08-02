@@ -59,6 +59,7 @@ typedef struct LogEntryData
 	BOOL haschildren;
 	DWORD childStackDepth;
 	BOOL bChecked;
+    LogEntryData* parent;
 } LOGENTRYDATA, *PLOGENTRYDATA;
 
 /**
@@ -73,39 +74,23 @@ public:
 	void ClearAll();
 
 	/// Ascending date sorting.
-	struct AscDateSort
+	struct DateSort
 	{
 		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
 		{
 			return pStart->tmDate < pEnd->tmDate;
 		}
 	};
-	/// Descending date sorting.
-	struct DescDateSort
-	{
-		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
-			return pStart->tmDate > pEnd->tmDate;
-		}
-	};
 	/// Ascending revision sorting.
-	struct AscRevSort
+	struct RevSort
 	{
 		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
 		{
 			return pStart->Rev < pEnd->Rev;
 		}
 	};
-	/// Descending revision sorting.
-	struct DescRevSort
-	{
-		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
-			return pStart->Rev > pEnd->Rev;
-		}
-	};
 	/// Ascending author sorting.
-	struct AscAuthorSort
+	struct AuthorSort
 	{
 		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
 		{
@@ -113,21 +98,10 @@ public:
 			if (ret == 0)
 				return pStart->Rev < pEnd->Rev;
 			return ret<0;
-		}
-	};
-	/// Descending author sorting.
-	struct DescAuthorSort
-	{
-		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
-			int ret = pStart->sAuthor.CompareNoCase(pEnd->sAuthor);
-			if (ret == 0)
-				return pStart->Rev > pEnd->Rev;
-			return ret>0;
 		}
 	};
 	/// Ascending bugID sorting.
-	struct AscBugIDSort
+	struct BugIDSort
 	{
 		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
 		{
@@ -137,51 +111,22 @@ public:
 			return ret<0;
 		}
 	};
-	/// Descending bugID sorting.
-	struct DescBugIDSort
-	{
-		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
-			int ret = pStart->sBugIDs.CompareNoCase(pEnd->sBugIDs);
-			if (ret == 0)
-				return pStart->Rev > pEnd->Rev;
-			return ret>0;
-		}
-	};
 	/// Ascending message sorting.
-	struct AscMessageSort
+	struct MessageSort
 	{
 		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
 		{
 			return pStart->sShortMessage.CompareNoCase(pEnd->sShortMessage)<0;
 		}
 	};
-	/// Descending message sorting.
-	struct DescMessageSort
-	{
-		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
-			return pStart->sShortMessage.CompareNoCase(pEnd->sShortMessage)>0;
-		}
-	};
 	/// Ascending action sorting
-	struct AscActionSort
+	struct ActionSort
 	{
 		bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
 		{
 			if (pStart->actions == pEnd->actions)
 				return pStart->Rev < pEnd->Rev;
 			return pStart->actions < pEnd->actions;
-		}
-	};
-	/// Descending action sorting
-	struct DescActionSort
-	{
-		bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
-			if (pStart->actions == pEnd->actions)
-				return pStart->Rev > pEnd->Rev;
-			return pStart->actions > pEnd->actions;
 		}
 	};
 };
