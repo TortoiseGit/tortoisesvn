@@ -67,6 +67,7 @@ protected:
 protected:
 	CToolTips	m_tooltips;
 	CComboBox	m_PropNames;
+	CFont		m_valueFont;
 	std::string m_PropValue;
 	CString		m_sPropValue;
 	CString		m_sPropName;

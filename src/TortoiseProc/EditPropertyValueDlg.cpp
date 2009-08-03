@@ -165,6 +165,9 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 	if (!m_sTitle.IsEmpty())
 		SetWindowText(m_sTitle);
 
+	CAppUtils::CreateFontForLogs(m_valueFont);
+	GetDlgItem(IDC_PROPVALUE)->SetFont(&m_valueFont);
+
 	AdjustControlSize(IDC_PROPRECURSIVE);
 
 	GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps ? SW_HIDE : SW_SHOW);
