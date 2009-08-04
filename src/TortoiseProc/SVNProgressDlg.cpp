@@ -41,6 +41,7 @@
 #include "BugTraqAssociations.h"
 #include "DragDropImpl.h"
 #include "SVNDataObject.h"
+#include "SVNProperties.h"
 
 BOOL	CSVNProgressDlg::m_bAscending = FALSE;
 int		CSVNProgressDlg::m_nSortedColumn = -1;
@@ -2412,19 +2413,40 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
 		{
 			for (INT_PTR fileindex=0; (fileindex<m_targetPathList.GetCount()) && (bMarkers==FALSE); ++fileindex)
 			{
-				if (m_targetPathList[fileindex].Exists() && !m_targetPathList[fileindex].IsDirectory())
+				CTSVNPath targetPath = m_targetPathList[fileindex];
+				bool doCheck = true;
+				if (targetPath.Exists() && !targetPath.IsDirectory())	// only check existing files
 				{
-					CStdioFile file(m_targetPathList[fileindex].GetWinPath(), CFile::typeBinary | CFile::modeRead);
-					CString strLine = _T("");
-					while (file.ReadString(strLine))
+					if (targetPath.GetFileSize() < 100*1024)			// only check files smaller than 100kBytes
 					{
-						if (strLine.Find(_T("<<<<<<<"))==0)
+						SVNProperties props = SVNProperties(targetPath, SVNRev::REV_WC, false);
+						for (int i=0; i<props.GetCount(); i++)
 						{
-							bMarkers = TRUE;
-							break;
+							if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)
+							{
+								CString mimetype = CUnicodeUtils::GetUnicode((char *)props.GetItemValue(i).c_str());
+								if ((!mimetype.IsEmpty())&&(mimetype.Left(4).CompareNoCase(_T("text"))))
+								{
+									doCheck = false;	// do not check files with a non-text mimetype
+									break;
+								}
+							}
+						}
+						if (doCheck)
+						{
+							CStdioFile file(targetPath.GetWinPath(), CFile::typeBinary | CFile::modeRead);
+							CString strLine = _T("");
+							while (file.ReadString(strLine))
+							{
+								if (strLine.Find(_T("<<<<<<<"))==0)
+								{
+									bMarkers = TRUE;
+									break;
+								}
+							}
+							file.Close();
 						}
 					}
-					file.Close();
 				}
 			}
 		} 

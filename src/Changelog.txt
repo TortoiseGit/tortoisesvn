@@ -31,6 +31,8 @@ Version 1.6.4
 - CHG: Improved startup performance of the log cache. (Stefan)
 - CHG: The check state in the commit dialog is now preserved
        unconditionally after a failed commit. (Stefan)
+- CHG: When marking files as resolved, only text files are now
+       first checked for maybe still existing conflict markers. (Stefan)
 - BUG: The export dialog showed the wrong url when exporting from
        the log dialog. (Stefan)
 - BUG: The /fromurl parameter for the merge dialog was not used if the
