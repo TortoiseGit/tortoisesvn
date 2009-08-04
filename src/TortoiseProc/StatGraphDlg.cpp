@@ -906,7 +906,7 @@ void CStatGraphDlg::ShowStats()
 	if (nLeastActiveMaxCommits == -1)	nLeastActiveMaxCommits = 0;
 	if (nLeastActiveMinCommits == -1)	nLeastActiveMinCommits = 0;
 
-	int nWeeks = m_nWeeks;
+	int nWeeks = m_lastInterval-m_firstInterval;
 	if (nWeeks == 0)
 		nWeeks = 1;
 	// We have now all data we want and we can fill in the labels...
