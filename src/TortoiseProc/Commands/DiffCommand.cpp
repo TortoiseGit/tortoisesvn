@@ -32,26 +32,30 @@ bool DiffCommand::Execute()
 	bool bBlame = !!parser.HasKey(_T("blame"));
 	if (path2.IsEmpty())
 	{
-		if (cmdLinePath.IsDirectory())
+		SVNDiff diff(NULL, hwndExplorer);
+		diff.SetAlternativeTool(bAlternativeTool);
+		if ( parser.HasKey(_T("startrev")) && parser.HasKey(_T("endrev")) )
 		{
-			CChangedDlg dlg;
-			dlg.m_pathList = CTSVNPathList(cmdLinePath);
-			dlg.DoModal();
-			bRet = true;
+			SVNRev StartRevision = SVNRev(parser.GetLongVal(_T("startrev")));
+			SVNRev EndRevision = SVNRev(parser.GetLongVal(_T("endrev")));
+			bRet = diff.ShowCompare(cmdLinePath, StartRevision, cmdLinePath, EndRevision, SVNRev(), false, bBlame);
 		}
 		else
 		{
-			SVNDiff diff(NULL, hwndExplorer);
-			diff.SetAlternativeTool(bAlternativeTool);
-			if ( parser.HasKey(_T("startrev")) && parser.HasKey(_T("endrev")) )
+			svn_revnum_t baseRev = 0;
+			if (cmdLinePath.IsDirectory())
 			{
-				SVNRev StartRevision = SVNRev(parser.GetLongVal(_T("startrev")));
-				SVNRev EndRevision = SVNRev(parser.GetLongVal(_T("endrev")));
-				bRet = diff.ShowCompare(cmdLinePath, StartRevision, cmdLinePath, EndRevision, SVNRev(), false, bBlame);
+				bRet = diff.DiffProps(cmdLinePath, SVNRev::REV_WC, SVNRev::REV_BASE, baseRev);
+				if (bRet == false)
+				{
+					CChangedDlg dlg;
+					dlg.m_pathList = CTSVNPathList(cmdLinePath);
+					dlg.DoModal();
+					bRet = true;
+				}
 			}
 			else
 			{
-				svn_revnum_t baseRev = 0;
 				bRet = diff.DiffFileAgainstBase(cmdLinePath, baseRev);
 			}
 		}
