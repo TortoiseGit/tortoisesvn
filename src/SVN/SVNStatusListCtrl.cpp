@@ -5451,7 +5451,9 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
 				for(UINT i = 0; i < cFiles; ++i)
 				{
 					DragQueryFile(hDrop, i, szFileName, sizeof(szFileName)/sizeof(TCHAR));
-					changelistItems.AddPath(CTSVNPath(szFileName));
+					CTSVNPath itemPath = CTSVNPath(szFileName);
+					if (itemPath.Exists())
+						changelistItems.AddPath(itemPath);
 				}
 				// find the changelist name
 				CString sChangelist;
