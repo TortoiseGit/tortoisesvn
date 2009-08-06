@@ -14,9 +14,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge\n"
-"POT-Creation-Date: 2006-10-11 21:52GMT Daylight Time\n"
-"PO-Revision-Date: 2009-06-28 15:28+0200\n"
-"Last-Translator: Bob Hulst <bob.hulst@hiq.fi>\n"
+"POT-Creation-Date: 2009-03-03 10:39 +0000\n"
+"PO-Revision-Date: 2009-08-05 18:18+0100\n"
+"Last-Translator: Jeroen van Amstel <jvamstel@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -93,16 +93,15 @@ msgstr "TortoiseMerge helpt ook bij het sorteren van conflicterende bestanden di
 
 #. (title)
 msgid "TortoiseMerge is free!"
-msgstr "TortoiseMerge is kostenloos!"
+msgstr "TortoiseMerge is gratis!"
 
 #. (para)
 msgid "TortoiseMerge is free. You don't have to pay for it, you can use it any way you want. It is developed under the GP license (GPL)."
-msgstr "TortoiseMerge is gratis. U hoeft er niet voor te betalen en kan overal worden gebruikt. Het is ontwikkeld onder licentie van de GP license (GPL)."
+msgstr "TortoiseMerge is gratis. U hoeft er niet voor te betalen en kan op elke manier gebruikt worden. Het is ontwikkeld onder licentie van de GP license (GPL)."
 
 #. (para)
-#, fuzzy
 msgid "TortoiseMerge is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. You will be prompted to enter username and password. The username is <literal>guest</literal>, and the password must be left blank. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseMerge is een Open Source project. De volledige bron code is beschikbaar. Volg deze link voor de bron code <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Gebruikersnaam:guest, password geef enter) De meest recente versie (waar nu aan wordt gewerkt) bevindt zich in <filename>/trunk/</filename> en de uitgegeven versie staan in <filename>/tags/</filename>."
+msgstr "TortoiseMerge is een Open Source project. De volledige bron code is beschikbaar. Volg deze link voor de bron code <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. Er zal gevraagd worden om de gebruikersnaam en het wachtwoord in te vullen. De gebruikersnaam is <literal>guest</literal>, het wachtwoord mag leeg gelaten worden. De meest recente versie (waar nu aan wordt gewerkt) bevindt zich in <filename>/trunk/</filename> en de uitgegeven versie staan in <filename>/tags/</filename>."
 
 #. (title)
 msgid "Donate!"
@@ -150,7 +149,7 @@ msgstr "Onze Medewerkers"
 
 #. (para)
 msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list."
-msgstr ""
+msgstr "voor de patches, fout rapporten en nieuwe ideeën, en voor het helpen van anderen bij het beantwoorden van vragen via onze mailinglist."
 
 #. (term)
 msgid "Our Donators"
@@ -174,12 +173,11 @@ msgstr "TortoiseMerge is een gratis/open-source applicatie. Je kan er verschille
 
 #. (para)
 msgid "While working on text files, e.g. source files in your favourite programming language, or html/xml files for your documentation or website, you will often have a situation where you need to compare different versions of those files. Sometimes you get a different version from someone else, sometimes you just want to see the changes you've made."
-msgstr ""
+msgstr "Bij het werken aan tekst bestanden, bijvoorbeeld bron bestanden in jouw favoriete programmeertaal, of html/xml bestanden voor je documentatie of website, zul je regelmatig een situatie hebben waarin je verschillende versies van die bestanden wilt vergelijken. Soms krijg je misschien ook een versie van iemand anders, of wil je gewoon de verschillen zien van aanpassingen die je zelf hebt doorgevoerd."
 
 #. (para)
-#, fuzzy
 msgid "If you're working with a version control system (e.g. Subversion) then you sometimes get <emphasis>conflicts</emphasis> when you update your working copy. This happens if someone else changed the same parts of the file you're currently working on as you did. Then you have to resolve those conflicts manually. This is where TortoiseMerge can help you."
-msgstr "<emphasis></emphasis> TortoiseMerge."
+msgstr "Bij het werken met een versiebeheersysteem (bijv. Subversion) treden er soms bij het bijwerken van de werk kopie <emphasis>conflicten</emphasis> op. Dit gebeurt als iemand anders aan dezelfde delen in de file werkt als jij zelf doet. Deze conflicten moeten dan handmatig opgelost worden. Dat is precies waarbij TortoiseMerge je kan helpen."
 
 #. (para)
 msgid "The following diagram shows you the relationships between the files involved in a conflict:"
@@ -191,14 +189,12 @@ msgid "File Conflict"
 msgstr "Bestands konflikt"
 
 #. (para)
-#, fuzzy
 msgid "A conflict can also occur if you try to apply an outdated patch file. In such cases, without TortoiseMerge, you would either have to ask the person you got that patch file from for a current version or try to apply that patch file manually."
-msgstr "TortoiseMerge."
+msgstr "Er kan ook een conflict optreden als er een achterhaald patch bestand TortoiseMerge."
 
 #. (para)
-#, fuzzy
 msgid "But now with TortoiseMerge this isn't necessary anymore - at least not if you're working with a version control system like Subversion. TortoiseMerge parses the patch file for the revision/version the patch was created for and automatically tries to fetch that specific version from your source-control. Then it applies the patch and lets you review both your changes to the file, and theirs. Then you can decide which changes you want to keep."
-msgstr "TortoiseMerge TortoiseMerge."
+msgstr "Met TortoiseMerge is dit niet meer nodig – tenminste niet als je met een versiebeheersysteem werkt zoals Subversion. TortoiseMerge analyseert de patch voor welke revisie/versie de patch gemaakt is en probeert automatisch de betreffende versie op te halen uit het bron-beheersysteem. Vervolgens zal het de patch doorvoeren en de eigen wijzigingen en de wijzigingen van een ander ter controle laten zien. Het is dan mogelijk om te beslissen welke wijzigingen behouden moeten worden."
 
 #. (title)
 msgid "TortoiseMerge's History"
@@ -206,11 +202,11 @@ msgstr "TortoiseMerge geschiedenis"
 
 #. (para)
 msgid "While working on <ulink url=\"http://tortoisesvn.tigris.org\"><citetitle>TortoiseSVN</citetitle></ulink> we found that whenever users sent in patches to enhance the project or just to fix bugs, we had a lot of work just applying those patches. And many times those patches were outdated and couldn't be applied with the command line patch tool <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> because we were working on those files and had sometimes changed those files already."
-msgstr ""
+msgstr "Toen wij aan <ulink url=\"http://tortoisesvn.tigris.org\"><citetitle>TortoiseSVN</citetitle></ulink> werkten, kwamen we er achter dat als gebruikers ons patches met verbeteringen of oplossingen voor problemen voor het project stuurden, we veel werk hadden aan het verwerken van die patches. Vaak waren veel van die patches al achterhaald en konden deze niet toegepast worden voor het command line patch programma <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> omdat we met deze bestanden aan het werk waren en dus al verschillende wijzigingen hadden doorgevoerd. "
 
 #. (para)
 msgid "This was also the main reason why TortoiseSVN did not originally have a <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch</guimenuitem></menuchoice> implemented: we preferred users to send us the whole files because with those it was easier to apply patches."
-msgstr ""
+msgstr "Dit was dan ook de belangrijkste reden waarom TortoiseSVN van origine niet de optie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch</guimenuitem></menuchoice> had. We hadden liever dat gebruikers ons het hele bestand stuurden, omdat het daarmee makkelijker was om de patches toe te passen."
 
 #. (para)
 msgid "So we spent a lot of time, searching the Internet for a GUI tool which could apply patch files, but all we found was that such a tool didn't exist. So to cut a long story short: We decided that if no-one else could provide such a tool we would have to write our own. That's when TortoiseMerge was born."
@@ -226,11 +222,11 @@ msgstr "Basis Beginselen"
 
 #. (para)
 msgid "Viewing the difference between two files and merging changes into one of them, or removing unwanted changes."
-msgstr ""
+msgstr "Het bekijken van verschillen tussen twee bestanden en het samenvoegen in één van deze, of het verwijderen van ongewenste wijzigingen."
 
 #. (para)
 msgid "Editing conflicts between local changes and changes in the Subversion repository following an update."
-msgstr ""
+msgstr "Verwerken van conflicten tussen lokale wijzigingen en wijzigingen in het Subversion repository."
 
 #. (para)
 msgid "Applying patch files. This is the reason TortoiseMerge was created :)"
@@ -246,7 +242,7 @@ msgstr "Bekijken en samenvoegening van de verschillen"
 
 #. (para)
 msgid "In this mode you are comparing two files. The file in the left pane is considered to be the original file (sometimes referred to as <emphasis>Theirs</emphasis>, and the file in the right pane is the modified file (sometimes referred to as <emphasis>Mine</emphasis>."
-msgstr ""
+msgstr "In deze modus vergelijk je twee bestanden. Het bestand in het linker venster wordt verondersteld als het originele bestand (soms ook aangegeven als <emphasis>Theirs</emphasis>, hun bestand), en het bestand in het rechter venster is het bijgewerkte bestand (soms aangegeven als <emphasis>Mine</emphasis>, mijn bestand)."
 
 #. (para)
 msgid "Reverting changed lines back to the text shown in the left pane."
@@ -254,7 +250,7 @@ msgstr "Wijzigingen ongedaan maken en weergeven zoals in het linker scherm."
 
 #. (para)
 msgid "Using a combination of both blocks, either <emphasis>Theirs</emphasis> before <emphasis>Mine</emphasis> or <emphasis>Mine</emphasis> before <emphasis>Theirs</emphasis>."
-msgstr ""
+msgstr "Gebruikmakend van een combinatie van beide blokken, <emphasis>Theirs</emphasis> heeft de voorkeur boven <emphasis>Mine</emphasis> of <emphasis>Mine</emphasis> heeft de voorkeur boven <emphasis>Theirs</emphasis>."
 
 #. (para)
 msgid "You can make simple line-based changes to the file in the right pane which include: <placeholder-1/>"
@@ -262,7 +258,7 @@ msgstr "Simpele in-line wijzigingen kunnen worden gemaakt in het rechter venster
 
 #. (para)
 msgid "You can also edit the file in the right pane just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr ""
+msgstr "Het is ook mogelijk om het bestand in het rechter venster te bewerken zoals in een gewone tekstverwerker. Deze regels worden aangegeven met een potlood icoon. Hou er rekening mee dat het verstandig is om eerst de regel/blok wijzigingen, zoals boven omschreven, doorvoert. Als je aan je eigen bestand begint te bewerken wordt het voor TortoiseMerge onmogelijk om de relaties met de originele bestanden bij te houden. "
 
 #. (title)
 msgid "Editing Conflicts"
@@ -270,11 +266,11 @@ msgstr "Bestands konflikten oplossen"
 
 #. (para)
 msgid "This is sometimes referred to as a three-way merge, and is shown in three panes. However there are actually four files involved. The file which is not shown is the common base file, the last common ancestor of the two files which are now in conflict. The relationships between the three files are explained in the diagram below:"
-msgstr ""
+msgstr "Dit wordt soms omschreven als een drie-wegs samenvoeging en wordt weergegeven in drie vensters. Echter zijn er in werkelijkheid vier bestanden bij dit proces betrokken. Het bestand dat niet wordt weergegeven, is het basis bestand, de laatste gemeenschappelijke bron van de twee bestanden die nu in conflict zijn. De relaties tussen de drie bestanden is in het onderstaande figuur weergegeven."
 
 #. (para)
 msgid "The base file represents the oldest version of a file, from where <emphasis>You</emphasis> and <emphasis>They</emphasis> start making changes. <emphasis>Mine</emphasis> represents the base file with all the changes <emphasis>you</emphasis> made, and <emphasis>Theirs</emphasis> is the file with all the changes <emphasis>someone else</emphasis> made to the file. The left pane shows the changes in <emphasis>Theirs</emphasis> relative to the base file and the right pane shows the changes in <emphasis>Mine</emphasis> relative to the base file. The bottom pane is the output file which is where you are trying to resolve the conflicts."
-msgstr ""
+msgstr "Het basis bestand komt overeen met de oudste versie van het bestand die  jij, <emphasis>You</emphasis> en anderen <emphasis>They</emphasis> gaan gebruiken om aanpassingen in door te voeren. <emphasis>Mine</emphasis>is het basis bestand met daarin de wijzigingen die jij, <emphasis>You</emphasis>, hebt gemaakt, en <emphasis>Theirs</emphasis> is het bestand met de wijzigingen van een <emphasis>ander </emphasis>. Het linker venster geeft de wijzigingen van in de file van de <emphasis>ander</emphasis> ten opzichte van het basis bestand en het rechter scherm geeft de wijzigingen in <emphasis>jouw</emphasis> bestand ten opzichte van het basis bestand.  Het onderste venster geeft het uiteindelijk bestand weer, waarin jij probeert de conflicten op te lossen. "
 
 #. (para)
 msgid "In conflict resolution view, you can choose to use blocks from <emphasis>Mine</emphasis> or <emphasis>Theirs</emphasis> or both. But in this case, the changes are shown in the bottom pane."
@@ -368,18 +364,16 @@ msgid "After TortoiseMerge parses the patch file it will show you a small window
 msgstr "After TortoiseMerge parses the patch file it will show you a small window with all the files which have changes according to the patch file. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
 
 #. (para)
-#, fuzzy
 msgid "But don't worry. If you're working with Subversion you can retrieve an older version of the file and resolve the conflict. In fact, TortoiseMerge automatically tries to get that older version of the file and then shows you the diff between <emphasis>Base</emphasis> (the older version of the file), <emphasis>Mine</emphasis> (the file as it is currently in your working copy) and <emphasis>Theirs</emphasis> (the older version of the file with the patch already applied). Then you can resolve possible conflicts manually."
-msgstr "TortoiseMerge<literal></literal><literal></literal><literal></literal>."
+msgstr "Geen zorgen. Als je met Subversion werkt, kun je een oudere versie van het bestand ophalen en het conflict oplossen. In feite, TortoiseMerge probeert automatisch de oudere versie van de file op te halen om vervolgens de verschillen te laten zien tussen <emphasis>Base</emphasis> (de oude versie van het bestand), <emphasis>Mine</emphasis> (de huidige versie in de eigen werk kopie)  en <emphasis>Theirs</emphasis> (de oude versie van het bestand, waarin de patch al verwerkt is). Vervolgens is het mogelijk om de mogelijke conflicten handmatig op te lossen. "
 
 #. (para)
 msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
 msgstr ""
 
 #. (para)
-#, fuzzy
 msgid "Depending on whether TortoiseMerge can apply the patch directly or by fetching an older version of the file first, it shows you a two pane view (patch can be applied directly) or a three pane view (older version of file fetched)."
-msgstr "TortoiseMerge."
+msgstr "TortoiseMerge zal de resultaten in twee vensters weergeven als de patch direct doorgevoerd kan worden. Als eerst de oude versie van een bestand opgehaald is, zal het resultaat in drie vensters worden weergegeven."
 
 #. (title)
 msgid "Buttons and Other Controls"
@@ -398,9 +392,8 @@ msgid "<guibutton>Save</guibutton> saves any changes you have made."
 msgstr "<guibutton>Bewaar</guibutton> schrijft alle veranderingen weg naar disk."
 
 #. (para)
-#, fuzzy
 msgid "<guibutton>Reload</guibutton> discards any changes you have made in TortoiseMerge and reloads the files from disk."
-msgstr "<guibutton></guibutton> TortoiseMerge."
+msgstr "<guibutton>Reload</guibutton> verwerpt alle in TortoiseMerge ingevoerde wijzigingen and zorgt ervoor dat de bestanden opnieuw geladen worden. "
 
 #. (para)
 msgid "<guibutton>Undo</guibutton> implements a multi-level undo, allowing you to reverse any changes you have made within TortoiseMerge."
@@ -427,9 +420,8 @@ msgid "<guibutton>Theirs before Mine/Mine before Theirs</guibutton> is used when
 msgstr ""
 
 #. (para)
-#, fuzzy
 msgid "<guibutton>Mark as Resolved</guibutton> When you have resolved all the conflicts in a file and saved the changes, you can mark it as resolved from within TortoiseMerge, rather than going back to explorer and marking as resolved from there."
-msgstr "<guibutton></guibutton> TortoiseMerge."
+msgstr "<guibutton>Mark as Resolved</guibutton> Hiermee is het mogelijk om vanuit TortoiseMerge alle opgeloste en opgeslagen conflicten direct te markeren als opgelost. Hierdoor is het niet meer nodig om terug te gaan naar de verkenner en daar de markeringen door te voeren."
 
 #. (para)
 msgid "<guibutton>Show Whitespaces</guibutton> toggles the option to display space and tab characters as symbols so you can distinguish white space changes."
@@ -452,9 +444,8 @@ msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps t
 msgstr ""
 
 #. (para)
-#, fuzzy
 msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patch list, this button allows you to hide it (so you can see both windows), or show it (so you can review the file list)."
-msgstr "<guibutton></guibutton> TortoiseMerge."
+msgstr "<guibutton></guibutton> Als TortoiseMerge Patch lijst heeft, dan kan deze met deze knop verborgen (beide schermen zijn dan zichtbaar), of getoond worden (de bestandenlijst is dan zichtbaar)."
 
 #. (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
@@ -537,14 +528,12 @@ msgid "Sometimes a file will be marked as conflicted in Subversion, yet when you
 msgstr ""
 
 #. (para)
-#, fuzzy
 msgid "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
-msgstr "<literal></literal><literal></literal> TortoiseMerge."
+msgstr "Soms is een conflict to complex om op te lossen door middel van het selecteren van <literal>Theirs</literal> en <literal>Mine</literal>, daarvoor is dan handwerk nodig. Met TortoiseMerge is het mogelijk om de eenvoudige wijzigingen eerst visueel op te lossen en deze dan op te slaan, waarna de overgebleven lastigste wijzigingen handmatig opgelost kunnen worden."
 
 #. (para)
-#, fuzzy
 msgid "Note that if you use TortoiseMerge on the same files again, any changes to your working copy, whether in TortoiseMerge, or by hand-editing, <emphasis>will be discarded</emphasis> and the file will appear as it did when conflict-editing first started."
-msgstr "TortoiseMerge TortoiseMerge<emphasis></emphasis>."
+msgstr "Merk op dat bij het opnieuw gebruiken van TortoiseMerge op dezelfde bestanden, wijzigingen aan de werk kopie, met TortoiseMerge of handmatig doorgevoerd, <emphasis>genegeerd  zullen worden</emphasis> en het bestand weergegeven zal worden als toen het oplossen van de conflicten gestart werd."
 
 #. (title)
 msgid "Open Files"
@@ -563,14 +552,12 @@ msgid "The first thing you have to do is to decide whether you just want to comp
 msgstr ""
 
 #. (para)
-#, fuzzy
 msgid "If you want to compare / merge files you have to set at least two of the three possible paths for <literal>Base</literal>, <literal>Mine</literal> and <literal>Theirs</literal>. If you select only two files, then TortoiseMerge will show you the differences between those two files, either in a two pane view or in a one pane view."
-msgstr "<literal></literal><literal></literal><literal></literal> TortoiseMerge<menuchoice><guimenu></guimenu><guimenuitem></guimenuitem></menuchoice>"
+msgstr "Voor het vergelijken en samenvoegen van bestanden, moeten er tenminste twee van de drie paden ingesteld zijn voor <literal>Base</literal>, <literal>Mine</literal> en <literal>Theirs</literal>. Als er maar twee bestanden geselecteerd zijn, zal TortoiseMerge de verschillen van die twee bestanden laten zien in één of twee vensters."
 
 #. (para)
-#, fuzzy
 msgid "If you want to merge three files, TortoiseMerge will show you the differences in a three pane view. This view is generally used if you need to resolve conflicted files. The output file is not named in this case and you will have to use the <menuchoice><guimenu>File</guimenu><guimenuitem>Save As...</guimenuitem></menuchoice>. to save the results."
-msgstr "TortoiseMerge."
+msgstr "Voor het samenvoegen van drie bestanden, zal TortoiseMerge de verschillen laten zien in drie vensters. Deze weergave wordt normaal gesproken gebruikt bij het oplossen van conflicten. Het doel bestand wordt in dit geval niet aangegeven. Om de resultaten op te slaan moet de functie <menuchoice><guimenu>File</guimenu><guimenuitem>Save As...</guimenuitem></menuchoice> gebruikt worden."
 
 #. (para)
 msgid "If you want to apply a patch file you have to set both the path to the patch file itself and the path to the folder where the patch file should be applied."
@@ -689,9 +676,8 @@ msgid "Conflict resolved"
 msgstr "Conflikt verholpen"
 
 #. (listitem)
-#, fuzzy
 msgid "Where the same line has been changed in both files, and you have now selected which version should be used."
-msgstr "Waar de zelfde regel is veranderd in beide bestanden."
+msgstr "Waar de zelfde regel in beide bestanden is veranderd en waar aangegeven is welke versie gebruikt moet worden."
 
 #. (term)
 msgid "Empty"
@@ -941,9 +927,8 @@ msgid "merged"
 msgstr "samengevoegd"
 
 #. (entry)
-#, fuzzy
 msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the file path where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
-msgstr "<placeholder-1/> TortoiseMerge."
+msgstr "Specificeert het <placeholder-1> bestand bij voor een drie-wegs vergelijking. Dit is het pad waar het resultaat van het samenvoeg/conflict oplos proces wordt opgeslagen. Als hier niets is ingevuld, zal TorsoiseMerge de gebruiker vragen waar het resultaat opgeslagen moet worden."
 
 #. (entry)
 msgid "The name of the merged file. This is shown in the view title instead of the file path."
@@ -954,9 +939,8 @@ msgid "very long"
 msgstr "zeer lang"
 
 #. (entry)
-#, fuzzy
 msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patch file, but that can take <placeholder-1/>."
-msgstr "TortoiseMerge<placeholder-1/>."
+msgstr "Het pad waar een Patch op toegepast moet worden. Als dit pad niet ingesteld is, zal TortoiseMerge proberen zelf een pad te vinden dat overeenkomt met de paden die gebruikt zijn in de Patch file, maar dit kan ongeveer <placeholder-1/> duren."
 
 #. (entry)
 msgid "The name of the original file to patch. Used for the view title."
@@ -1122,9 +1106,8 @@ msgid "FSFS"
 msgstr "FSFS"
 
 #. (para)
-#, fuzzy
 msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
+msgstr "Een Subversion eigen bestandssysteem backend voor repositories. Dit kan gebruikt worden op network shares. Standaard voor 1.2 en nieuwere repositories."
 
 #. (glossterm)
 msgid "GPO"
@@ -1227,9 +1210,8 @@ msgid "Resolve"
 msgstr "Los op"
 
 #. (para)
-#, fuzzy
 msgid "When files in a working copy are left in a conflicted state following a merge, those conflicts must be sorted out by a human using an editor (or perhaps TortoiseMerge). This process is referred to as <quote>Resolving Conflicts</quote>. When this is complete you can mark the conflicted files as being resolved, which allows them to be committed."
-msgstr "TortoiseMerge<quote></quote>."
+msgstr "Als er na het samenvoegen conflicten overblijven met bestanden in een werk kopie, dan moeten deze conflicten opgelost worden door een mens en een tekstverwerker (of misschien TortoiseMerge). Dit proces staat bekend als <quote>Resolving Conflicts</quote>, conflicten oplossen. Als dit proces is afgerond, kunnen de bestanden gemarkeert worden als opgelost, waarna het mogelijk deze vast te leggen. "
 
 #. (glossterm)
 msgid "Revert"
@@ -1269,7 +1251,7 @@ msgstr "Een vaak gebruikte afkorting voor Subversion."
 
 #. (para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
-msgstr ""
+msgstr "De naam van het eigen Subversion protocol gebruikt door de <quote>svnserve</quote> archief server."
 
 #. (glossterm)
 msgid "Switch"
@@ -1285,7 +1267,7 @@ msgstr "Bijwerken"
 
 #. (para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
-msgstr ""
+msgstr "Dit Subversion commando haalt de meest recente wijzigingen uit het archief naar uw werk kopie en voegt de lokale en door andere doorgevoerde wijzigingen samen in de werk kopie."
 
 #. (glossterm)
 msgid "Working Copy"
