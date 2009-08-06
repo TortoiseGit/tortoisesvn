@@ -818,6 +818,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 	GetStatusForMember(m_directoryPath,bRecursive);
 
 	CTSVNPathList updatePathList;
+	CTSVNPathList crawlPathList;
 	DWORD now = GetTickCount();
 	{
 		AutoLocker lock(m_critSec);
@@ -843,14 +844,18 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 					{
 						// crawl all sub folders too! Otherwise a change deep inside the
 						// tree which has changed won't get propagated up the tree.
-						CSVNStatusCache::Instance().AddFolderForCrawling(filePath);
+						crawlPathList.AddPath(filePath);
 					}
 				}
 			}
 		}
 	}
+
 	for (int i = 0; i < updatePathList.GetCount(); ++i)
 		GetStatusForMember(updatePathList[i], bRecursive);
+
+	for (int i = 0; i < crawlPathList.GetCount(); ++i)
+		CSVNStatusCache::Instance().AddFolderForCrawling(crawlPathList[i]);
 }
 
 void CCachedDirectory::RefreshMostImportant()
