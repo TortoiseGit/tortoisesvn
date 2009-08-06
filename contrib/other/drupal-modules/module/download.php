@@ -2,7 +2,7 @@
 //
 // Drupal download page for TortoiseSVN
 //
-// Copyright (C) 2004-2008 the TortoiseSVN team
+// Copyright (C) 2004-2009 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // $Author$
@@ -18,15 +18,7 @@ include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/tortoisevars.inc");
 
 $w['w32']=$tsvn_var['release'].".".$tsvn_var['build']."-win32"; 
 $w['w32wrong']=$tsvn_var['release'].".".$tsvn_var['build'].""; 
-$w['x64']=$tsvn_var['release'].".".$tsvn_var['build_x64']."-x64"; 
-
-if (!function_exists('get_changelog')) {
-function get_changelog($v)
-{
-$t_ln="http://sourceforge.net/project/shownotes.php?release_id=".$v['sf_release_id'];
-return "<a href=\"$t_ln\">changelog</a>";
-}
-}
+$w['x64']=$tsvn_var['release'].".".$tsvn_var['build']."-x64"; 
 
 if (!function_exists('get_installer')) {
 function get_installer($v, $w)
@@ -80,7 +72,8 @@ function print_langpack($i, $postat, $v, $w)
 
   echo "<tr class=\"stat_ok\">";
   echo "<td>$i</td>";
-  echo "<td>$flagtag&nbsp;$lang_name</td>";
+  //echo "<td>$flagtag&nbsp;$lang_name</td>"; 
+  echo "<td>$lang_name</td>";
   echo "<td>$dlfile32</td>";
   echo "<td>$dlfile64</td>";
   echo "<td>$dlmanTSVN</td>";
@@ -97,10 +90,13 @@ function print_langpack($i, $postat, $v, $w)
 ?>
 <h1>The current version is <?php echo $tsvn_var['release'] ?>.</h1>
 <p>
-For detailed info on what's new, read the <?php echo get_changelog($v); ?> and the <a href="http://tortoisesvn.tigris.org/tsvn_1.5_releasenotes.html">release notes</a>.
+For detailed info on what's new, read the <a href="http://tortoisesvn.tigris.org/ChangeLog.txt">changelog</a> and the <a href="http://tortoisesvn.tigris.org/tsvn_1.6_releasenotes.html">release notes</a>.
 </p>
 <p>
 This page points to installers for 32 bit and 64 bit operating systems. Please make sure that you choose the right installer for your PC. Otherwise the setup will fail.
+</p>
+<p>
+We got reports that upgrading sometimes does not work properly. If you have problems after updating TortoiseSVN, just uninstall it, reboot, and then install it again.
 </p>
 <p>
 Note for x64 users: you can install both the 32 and 64-bit version side by side. This will enable the TortoiseSVN features also for 32-bit applications.
@@ -118,23 +114,19 @@ Note for x64 users: you can install both the 32 and 64-bit version side by side.
 <td>Installer</td>
 </tr>
 <tr>
-<td>&nbsp;</td>
-<td><?php echo get_checksum($tsvn_var,$w['w32']) ?></td>
-<td><a href="http://www.gnupg.org/">GPG</a> signature</td>
-</tr>
-<tr>
 <th>64 Bit</th>
 <td><?php echo get_installer($tsvn_var,$w['x64']) ?></td>
 <td>Installer</td>
 </tr>
-<tr>
-<td>&nbsp;</td>
-<td><?php echo get_checksum($tsvn_var,$w['x64']) ?></td>
-<td><a href="http://www.gnupg.org/">GPG</a> signature</td>
-</tr>
 </table>
 </div>
-The public GPG key can be found <a href="http://tortoisesvn.net/files/tortoisesvn%20(0x459E2D3E)%20pub.asc">here</a>.
+
+<p>
+
+
+To verify the file integrity follow <a href="http://tortoisesvn.net/msiverify">these instructions</a>
+</p>
+
 <br />
 <script type="text/javascript"><!--
 google_ad_client = "pub-0430507460695576";
@@ -195,12 +187,9 @@ array_multisort($potfile, $country, $countries);
 <p>To find out what is happening with the project and when you can expect the next release, take a look at our <a href="/status">project status</a> page.</p>
 
 <h1>Release Candidates</h1>
-<p>We maintain ongoing <a href="http://sourceforge.net/project/showfiles.php?group_id=138498">Release Candidates</a>
-<!--
-<a href="http://nightlybuilds.tortoisesvn.net/1.4.x/">Release Candidates</a>
--->
+<p>We maintain ongoing <a href="http://nightlybuilds.tortoisesvn.net/1.6.x/">Release Candidates</a>
 as well. These contain the latest official release plus latest bugfixes. They are not built nightly, but on demand from the current release branch. If you find that a certain bug has been fixed and you do not want to wait until the next release, install one of these. You would also help us tremendously by installing and testing release candidates.
-Please read <a href="http://nightlybuilds.tortoisesvn.net/1.4.x/Readme.txt">Readme.txt</a> first.</p>
+Please read <a href="http://nightlybuilds.tortoisesvn.net/1.6.x/Readme.txt">Readme.txt</a> first.</p>
 
 <h1>Nightly Builds</h1>
 <p><a href="http://nightlybuilds.tortoisesvn.net/latest/">Nightly Builds</a> are available too. They are built from the current development head and are for testing only. Please read <a href="http://nightlybuilds.tortoisesvn.net/latest/Readme.txt">Readme.txt</a> first.</p>
@@ -222,9 +211,12 @@ google_ad_client = "pub-0430507460695576";
 /* 300x250, tsvn.net inPage */
 google_ad_slot = "5167477883";
 google_ad_width = 300;
+
 google_ad_height = 250;
 //-->
 </script>
+
+
 <script type="text/javascript"
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>

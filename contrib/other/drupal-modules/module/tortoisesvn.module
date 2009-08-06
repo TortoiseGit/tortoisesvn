@@ -65,14 +65,6 @@ function tortoisesvn_settings() {
     '#maxlength' => 5,
     '#description' => t('The TortoiseSVN build number for 32 bit processors.'),
   );
-  $form['tsvn']['tsvn_build_x64'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Build number (x64)'),
-    '#default_value' => variable_get('tsvn_build_x64',0),
-    '#size' => 20,
-    '#maxlength' => 5,
-    '#description' => t('The TortoiseSVN build number for 64 bit processors.'),
-  );
   $form['tsvn']['svnlib'] = array(
     '#type' => 'textfield',
     '#title' => t('Subversion library version'),

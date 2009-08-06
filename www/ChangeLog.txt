@@ -1,3 +1,22 @@
+Version 1.6.4
+- CHG: Improved startup performance of the log cache. (Stefan)
+- CHG: The check state in the commit dialog is now preserved
+       unconditionally after a failed commit. (Stefan)
+- CHG: When marking files as resolved, only text files are now
+       first checked for maybe still existing conflict markers. (Stefan)
+- BUG: The export dialog showed the wrong url when exporting from
+       the log dialog. (Stefan)
+- BUG: The /fromurl parameter for the merge dialog was not used if the
+       option "use wc url as from: url" was not set. (Stefan)
+- BUG: In the log dialog, the context menu for a changed file could
+       show the wrong item as the default action. (Stefan)
+- BUG: The autocompletion in the commit dialog didn't show
+       all possible entries. (Stefan)
+- BUG: parsing of php files for autocompletion didn't work. (Stefan)
+- BUG: After a merge, the "finished" message was not shown. (Stefan)
+- BUG: Compression was not enabled for http(s) connections. (Stefan)
+- BUG: The statistics dialog could show wrong average numbers. (Stefan)
+
 Version 1.6.3
 - NEW: All binaries are now digitally signed. (Stefan)
 - CHG: Some small improvements to the status cache. (Stefan)
@@ -35,6 +54,10 @@ Version 1.6.3
        did not work. (Stefan)
 - BUG: EOLs could be lost when editing removed lines 
        in TortoiseMerge. (Stefan)
+
+Version 1.6.3
+- BUG: Included root paths didn't show overlay icons if the drive itself
+       or its parent path was excluded. (Stefan)
 
 Version 1.6.2
 - BUG: Error message about non-LF commit messages when using messages with
