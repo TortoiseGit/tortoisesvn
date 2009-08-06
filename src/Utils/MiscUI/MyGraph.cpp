@@ -975,8 +975,10 @@ void MyGraph::DrawAxes(CDC& dc) const
 		m_rcGraph.bottom - GAP_PIXELS - sizXLabel.cy, m_sXAxisLabel));
 
 	// We hardwire TITLE_DIVISOR y-axis ticks here for simplicity.
-	int nTickCount(min(Y_AXIS_MAX_TICK_COUNT, GetMaxDataValue()));
-	int nTickSpace(m_nYAxisHeight / nTickCount);
+	int nMaxDataValue(GetMaxDataValue());
+	int nTickStep(nMaxDataValue / min(Y_AXIS_MAX_TICK_COUNT, nMaxDataValue));
+	int nTickCount(nMaxDataValue / nTickStep);
+	int nTickSpace(m_nYAxisHeight * nTickStep / nMaxDataValue);
 
 	// create tick label font and set it in the device context
 	CFont fontTickLabels;
@@ -990,7 +992,7 @@ void MyGraph::DrawAxes(CDC& dc) const
 
 		// Draw tick label.
 		CString sTickLabel;
-		sTickLabel.Format(_T("%d"), (GetMaxDataValue() * (nTick + 1)) / nTickCount);
+		sTickLabel.Format(_T("%d"), nTickStep * (nTick+1));
 		CSize sizTickLabel(dc.GetTextExtent(sTickLabel));
 		
 		VERIFY(dc.TextOut(m_ptOrigin.x - GAP_PIXELS - sizTickLabel.cx - TICK_PIXELS,
