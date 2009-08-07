@@ -36,7 +36,7 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
 {
 	for (std::vector<tstring>::iterator I = files_.begin(); I != files_.end(); ++I)
 	{
-		SVNStatus svn = SVNStatus();
+		SVNStatus svn;
 		if (svn.GetStatus(CTSVNPath(I->c_str())) == (-2))
 			return NOERROR;			// file/directory not under version control
 
@@ -274,7 +274,7 @@ void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf, size_t b
 
 void CSVNPropertyPage::InitWorkfileView()
 {
-	SVNStatus svn = SVNStatus();
+	SVNStatus svn;
 	TCHAR tbuf[MAX_STRING_LENGTH];
 	if (filenames.size() == 1)
 	{

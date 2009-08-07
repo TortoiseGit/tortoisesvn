@@ -60,6 +60,9 @@ typedef std::map<CString, CString> RevPropHash;
  */
 class SVN : private ILogReceiver
 {
+private:
+	SVN(const SVN&){}
+	SVN& operator=(SVN&){};
 public:
 	SVN(void);
 	~SVN(void);

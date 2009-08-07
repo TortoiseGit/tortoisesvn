@@ -93,6 +93,9 @@ public:
  */
 class SVNInfo
 {
+private:
+	SVNInfo(const SVNInfo&){}
+	SVNInfo& operator=(SVNInfo&){};
 public:
 	SVNInfo(void);
 	~SVNInfo(void);

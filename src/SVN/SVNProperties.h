@@ -42,6 +42,10 @@
  */
 class SVNProperties
 {
+private:
+	SVNProperties(const SVNProperties&){}
+	SVNProperties& operator=(SVNProperties&){};
+
 public:
 
 #ifdef _MFC_VER
@@ -56,6 +60,8 @@ public:
 	SVNProperties(const CTSVNPath& filepath, bool bRevProps);
 #endif
 	~SVNProperties(void);
+
+public:
 
 	/**
 	 * Returns the number of properties the file/directory has.

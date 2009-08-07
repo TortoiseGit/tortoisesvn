@@ -45,6 +45,9 @@
  */
 class SVNAdminDir
 {
+private:
+	SVNAdminDir(const SVNAdminDir&){}
+	SVNAdminDir& operator=(SVNAdminDir&){};
 public:
 	SVNAdminDir();
 	~SVNAdminDir();

@@ -2419,7 +2419,7 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
 				{
 					if (targetPath.GetFileSize() < 100*1024)			// only check files smaller than 100kBytes
 					{
-						SVNProperties props = SVNProperties(targetPath, SVNRev::REV_WC, false);
+						SVNProperties props(targetPath, SVNRev::REV_WC, false);
 						for (int i=0; i<props.GetCount(); i++)
 						{
 							if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)

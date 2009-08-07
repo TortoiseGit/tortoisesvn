@@ -35,6 +35,9 @@
  */
 class SVNStatus
 {
+private:
+	SVNStatus(const SVNStatus&){}
+	SVNStatus& operator=(SVNStatus&){};
 public:
 	SVNStatus(bool * pbCanceled = NULL);
 	~SVNStatus(void);
