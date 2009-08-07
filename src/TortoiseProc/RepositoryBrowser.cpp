@@ -1070,13 +1070,14 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/, b
 		return false;
 	}
 
-    // update node status
+    // update node status and add sub-nodes for all sub-dirs
+
 	pTreeItem->children_fetched = true;
     for (size_t i = 0, count = pTreeItem->children.size(); i < count; ++i)
         if (pTreeItem->children[i].kind == svn_node_dir)
         {
             pTreeItem->has_child_folders = true;
-            break;
+            FindUrl (pTreeItem->children[i].absolutepath);
         }
 
 	// if there are no child folders, remove the '+' in front of the node
