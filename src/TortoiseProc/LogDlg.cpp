@@ -3316,9 +3316,16 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist, svn_revnum_t rev)
 				if (cpatharray)
 				{
 					bool bGoing = true;
+					UINT hideState = m_cHidePaths.GetState();
 					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount() && bGoing; ++cpPathIndex)
 					{
 						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
+						if ((hideState & 0x0003)==BST_CHECKED)
+						{
+							// skip paths that are not shown
+							if (cpath->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
+								continue;
+						}
 						if (regex_search(wstring((LPCTSTR)cpath->sCopyFromPath), pat, flags)&&IsEntryInDateRange(i))
 						{
 							bMatched = true;
