@@ -37,6 +37,9 @@ BOOL CRepositoryLister::CQuery::ReportList
     , apr_time_t lock_expirationdate
     , const CString& absolutepath)
 {
+    if (path.IsEmpty())
+        return TRUE;
+
 	int slashpos = path.ReverseFind('/');
 	bool abspath_has_slash = (absolutepath.GetAt(absolutepath.GetLength()-1) == '/');
 
@@ -72,9 +75,20 @@ BOOL CRepositoryLister::CQuery::Cancel()
 
 void CRepositoryLister::CQuery::InternalExecute()
 {
-    if (!cancelled)
+    if (cancelled)
+    {
+        error = "Request cancelled by TSVN";
+    }
+    else
 	    if (!List (path, revision, revision, svn_depth_immediates, true))
+        {
             result.clear();
+
+            error = GetLastErrorMessage();
+            if (error.IsEmpty())
+                error = "Unknown failure in SVN::List";
+        }
+
 }
 
 // auto-schedule upon construction
@@ -127,6 +141,12 @@ const std::deque<CItem>& CRepositoryLister::CQuery::GetResult()
     return result;
 }
 
+const CString& CRepositoryLister::CQuery::GetError()
+{
+    WaitUntilDone();
+    return error;
+}
+
 // cleanup utilities
 
 void CRepositoryLister::CompactDumpster()
@@ -177,19 +197,10 @@ void CRepositoryLister::Enqueue
 {
     async::CCriticalSectionLock lock (mutex);
 
-    if (revision.IsHead())
-    {
-        if (queryByPath.find (url) == queryByPath.end())
-            queryByPath[url] 
-                = new CQuery (url, repoRoot, revision, &scheduler);
-    }
-    else
-    {
-        TPathAndRev key (url, revision);
-        if (queryByPathAndRev.find (key) == queryByPathAndRev.end())
-            queryByPathAndRev[key]
-                = new CQuery (url, repoRoot, revision, &scheduler);
-    }
+    TPathAndRev key (url, revision);
+    if (queryByPathAndRev.find (key) == queryByPathAndRev.end())
+        queryByPathAndRev[key]
+            = new CQuery (url, repoRoot, revision, &scheduler);
 }
 
 // don't return results from previous or still running requests
@@ -212,9 +223,9 @@ void CRepositoryLister::Refresh()
 
     queryByPathAndRev.clear();
 
-    // move all HEAD queries to the dumpster & clear it
+    // finally destroy all entries that have already been processed
 
-    Refresh (SVNRev::REV_HEAD);
+    CompactDumpster();
 }
 
 // invalidate only those entries that belong to the given \ref revision
@@ -223,39 +234,21 @@ void CRepositoryLister::Refresh (const SVNRev& revision)
 {
     async::CCriticalSectionLock lock (mutex);
 
-    if (revision.IsHead())
-    {
-        // move all HEAD queries to the dumpster
+    // move all HEAD queries for a specific revision the dumpster
 
-        for ( TQueryByPath::iterator iter = queryByPath.begin()
-            , end = queryByPath.end()
-            ; iter != end
-            ; ++iter)
+    for ( TQueryByPathAndRev::iterator iter = queryByPathAndRev.begin()
+        ; iter != queryByPathAndRev.end()
+        ; )
+    {
+        if (iter->first.second == revision)
         {
             iter->second->Terminate();
             dumpster.push_back (iter->second);
+            iter = queryByPathAndRev.erase (iter);
         }
-
-        queryByPath.clear();
-    }
-    else
-    {
-        // move all HEAD queries for a specific revision the dumpster
-
-        for ( TQueryByPathAndRev::iterator iter = queryByPathAndRev.begin()
-            ; iter != queryByPathAndRev.end()
-            ; )
+        else
         {
-            if (iter->first.second == revision)
-            {
-                iter->second->Terminate();
-                dumpster.push_back (iter->second);
-                iter = queryByPathAndRev.erase (iter);
-            }
-            else
-            {
-                ++iter;
-            }
+            ++iter;
         }
     }
 
@@ -273,49 +266,23 @@ void CRepositoryLister::RefreshSubTree
 {
     async::CCriticalSectionLock lock (mutex);
 
-    if (revision.IsHead())
-    {
-        // move all HEAD queries to the dumpster
+    // move all HEAD queries for a specific revision the dumpster
 
-        for ( TQueryByPath::iterator iter = queryByPath.begin()
-            , end = queryByPath.end()
-            ; iter != end
-            ; ++iter)
+    for ( TQueryByPathAndRev::iterator iter = queryByPathAndRev.begin()
+        ; iter != queryByPathAndRev.end()
+        ; )
+    {
+        if (   (iter->first.second == revision)
+            && (   (url == iter->first.first)
+                || url.IsAncestorOf (iter->first.first)))
         {
-            if ((url == iter->first) || url.IsAncestorOf (iter->first))
-            {
-                iter->second->Terminate();
-                dumpster.push_back (iter->second);
-                iter = queryByPath.erase (iter);
-            }
-            else
-            {
-                ++iter;
-            }
+            iter->second->Terminate();
+            dumpster.push_back (iter->second);
+            iter = queryByPathAndRev.erase (iter);
         }
-
-        queryByPath.clear();
-    }
-    else
-    {
-        // move all HEAD queries for a specific revision the dumpster
-
-        for ( TQueryByPathAndRev::iterator iter = queryByPathAndRev.begin()
-            ; iter != queryByPathAndRev.end()
-            ; )
+        else
         {
-            if (   (iter->first.second == revision)
-                && (   (url == iter->first.first)
-                    || url.IsAncestorOf (iter->first.first)))
-            {
-                iter->second->Terminate();
-                dumpster.push_back (iter->second);
-                iter = queryByPathAndRev.erase (iter);
-            }
-            else
-            {
-                ++iter;
-            }
+            ++iter;
         }
     }
 
@@ -327,7 +294,7 @@ void CRepositoryLister::RefreshSubTree
 // get an already stored query result, if available.
 // Otherwise, get the list directly
 
-void CRepositoryLister::GetList 
+CString CRepositoryLister::GetList 
     ( const CTSVNPath& url
     , const CString& repoRoot
     , const SVNRev& revision
@@ -338,31 +305,21 @@ void CRepositoryLister::GetList
     // lets see if there is already a suitable query that will
     // finish before the one that I could start right now
 
-    if (revision.IsHead())
-    {
-        TQueryByPath::iterator iter = queryByPath.find (url);
-        if (   (iter != queryByPath.end()) 
-            && (iter->second->GetStatus() != async::IJob::waiting))
-        {
-            items = iter->second->GetResult();
-            return;
-        }
-    }
-    else
-    {
-        TPathAndRev key (url, revision);
-        TQueryByPathAndRev::iterator iter = queryByPathAndRev.find (key);
+    TPathAndRev key (url, revision);
+    TQueryByPathAndRev::iterator iter = queryByPathAndRev.find (key);
 
-        if (   (iter != queryByPathAndRev.end()) 
-            && (iter->second->GetStatus() != async::IJob::waiting))
-        {
-            items = iter->second->GetResult();
-            return;
-        }
+    if (   (iter != queryByPathAndRev.end()) 
+        && (iter->second->GetStatus() != async::IJob::waiting))
+    {
+        items = iter->second->GetResult();
+        return iter->second->GetError();
     }
 
     // query (quasi-)synchronously using the default queue
 
-    items = CQuery (url, repoRoot, revision, NULL).GetResult();
+    CQuery query (url, repoRoot, revision, NULL);
+
+    items = query.GetResult();
+    return query.GetError();
 }
 

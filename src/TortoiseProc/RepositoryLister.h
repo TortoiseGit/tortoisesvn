@@ -129,6 +129,10 @@ private:
 
         std::deque<CItem> result;
 
+        /// will be empty, iff \ref result is valid
+
+        CString error;
+
         /// if set, we should not run at all or at least try to terminat asap
 
         mutable bool cancelled;
@@ -182,6 +186,7 @@ private:
         /// result access. Automatically waits for execution to be finished.
 
         const std::deque<CItem>& GetResult();
+        const CString& GetError();
     };
 
     /// folder content at specific revisions
@@ -190,11 +195,6 @@ private:
     typedef std::map<TPathAndRev, CQuery*> TQueryByPathAndRev;
 
     TQueryByPathAndRev queryByPathAndRev;
-
-    /// folder content @HEAD
-
-    typedef std::map<CTSVNPath, CQuery*> TQueryByPath;
-    TQueryByPath queryByPath;
 
     /// move superseeded queries here
     /// (so they can finish quietly without us waiting for them)
@@ -250,11 +250,12 @@ public:
     void RefreshSubTree (const SVNRev& revision, const CTSVNPath& url);
 
     /// get an already stored query result, if available.
-    /// Otherwise, get the list directly
+    /// Otherwise, get the list directly.
+    /// \returns the error or an empty string
 
-    void GetList ( const CTSVNPath& url
-                 , const CString& repoRoot
-                 , const SVNRev& revision
-                 , std::deque<CItem>& items);
+    CString GetList ( const CTSVNPath& url
+                    , const CString& repoRoot
+                    , const SVNRev& revision
+                    , std::deque<CItem>& items);
 };
 
