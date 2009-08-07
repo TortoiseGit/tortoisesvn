@@ -5390,7 +5390,9 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
 			LVGROUP lvgroup = {0};
 			lvgroup.cbSize = sizeof(LVGROUP);
 			lvgroup.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
-			_tcsncpy_s(groupname, 1024, (LPCTSTR)it->GetFileOrDirectoryName(), 1023);
+			_tcsncpy_s(groupname, 1024, (LPCTSTR)CString(MAKEINTRESOURCE(IDS_STATUSLIST_EXTERNAL_GROUP)), 1023);
+			_tcsncat_s(groupname, 1024, _T(" "), 1023);
+			_tcsncat_s(groupname, 1024, (LPCTSTR)it->GetFileOrDirectoryName(), 1023);
 			lvgroup.pszHeader = groupname;
 			lvgroup.iGroupId = groupindex;
 			lvgroup.uAlign = LVGA_HEADER_LEFT;
