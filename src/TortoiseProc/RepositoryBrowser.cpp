@@ -713,60 +713,6 @@ void CRepositoryBrowser::DrawXorBar(CDC * pDC, int x1, int y1, int width, int he
 	DeleteObject(hbm);
 }
 
-/******************************************************************************/
-/* repository information gathering                                           */
-/******************************************************************************/
-
-BOOL CRepositoryBrowser::ReportList(const CString& path, svn_node_kind_t kind, 
-									svn_filesize_t size, bool has_props, 
-									svn_revnum_t created_rev, apr_time_t time, 
-									const CString& author, const CString& locktoken, 
-									const CString& lockowner, const CString& lockcomment, 
-									bool is_dav_comment, apr_time_t lock_creationdate, 
-									apr_time_t lock_expirationdate, 
-									const CString& absolutepath)
-{
-	static deque<CItem> * pDirList = NULL;
-	static CTreeItem * pTreeItem = NULL;
-	static CString dirPath;
-
-	CString sParent = absolutepath;
-	int slashpos = path.ReverseFind('/');
-	bool abspath_has_slash = (absolutepath.GetAt(absolutepath.GetLength()-1) == '/');
-	if ((slashpos > 0) && (!abspath_has_slash))
-		sParent += _T("/");
-	sParent += path.Left(slashpos);
-	if (sParent.Compare(_T("/"))==0)
-		sParent.Empty();
-	if ((path.IsEmpty())||
-		(pDirList == NULL)||
-		(sParent.Compare(dirPath)))
-	{
-		HTREEITEM hItem = FindUrl(m_strReposRoot + sParent);
-		pTreeItem = (CTreeItem*)m_RepoTree.GetItemData(hItem);
-		pDirList = &(pTreeItem->children);
-
-		dirPath = sParent;
-	}
-	if (path.IsEmpty())
-		return TRUE;
-
-	if (kind == svn_node_dir)
-	{
-		FindUrl(m_strReposRoot + absolutepath + (abspath_has_slash ? _T("") : _T("/")) + path);
-		if (pTreeItem)
-			pTreeItem->has_child_folders = true;
-	}
-	pDirList->push_back(CItem(path.Mid(slashpos+1), kind, size, has_props,
-		created_rev, time, author, locktoken,
-		lockowner, lockcomment, is_dav_comment,
-		lock_creationdate, lock_expirationdate,
-		m_strReposRoot+absolutepath+(abspath_has_slash ? _T("") : _T("/"))+path));
-	if (pTreeItem)
-		pTreeItem->children_fetched = true;
-	return TRUE;
-}
-
 bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked)
 {
 	CWaitCursorEx wait;
@@ -1114,13 +1060,25 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/, b
 	pTreeItem->children.clear();
 	pTreeItem->has_child_folders = false;
 	m_bCancelled = false;
-	if (!List(CTSVNPath(EscapeUrl(CTSVNPath(pTreeItem->url))), GetRevision(), GetRevision(), recursive ? svn_depth_infinity : svn_depth_immediates, true))
+
+    CTSVNPath url (EscapeUrl (CTSVNPath (pTreeItem->url)));
+    CString error = m_lister.GetList (url, m_strReposRoot, GetRevision(), pTreeItem->children);
+    if (!error.IsEmpty())
 	{
 		// error during list()
-		m_RepoList.ShowText(GetLastErrorMessage());
+		m_RepoList.ShowText (error);
 		return false;
 	}
+
+    // update node status
 	pTreeItem->children_fetched = true;
+    for (size_t i = 0, count = pTreeItem->children.size(); i < count; ++i)
+        if (pTreeItem->children[i].kind == svn_node_dir)
+        {
+            pTreeItem->has_child_folders = true;
+            break;
+        }
+
 	// if there are no child folders, remove the '+' in front of the node
 	{
 		TVITEM tvitem = {0};
