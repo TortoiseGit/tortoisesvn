@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-08-04 11:27+0900\n"
+"PO-Revision-Date: 2009-08-07 21:16+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -99,6 +99,11 @@ msgstr "%I64d Bytes 전송됨"
 
 #. Resource IDs: (357)
 #, c-format
+msgid "%I64d Bytes/s"
+msgstr "%I64d Bytes/s"
+
+#. Resource IDs: (357)
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBytes 전송됨"
 
@@ -111,11 +116,6 @@ msgstr "%d개 선택, 전체 %d"
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
 msgstr "상위 %d 명의 활발한 작성자 (최소 %d 개의 커밋을 함; %d %%)"
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%ld Bytes/s"
-msgstr "%ld Bytes/s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -1170,6 +1170,10 @@ msgstr "(생성됨)"
 #. Resource IDs: (276)
 msgid "(delete)"
 msgstr "(삭제)"
+
+#. Resource IDs: (214)
+msgid "(externals)"
+msgstr "(외부)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
