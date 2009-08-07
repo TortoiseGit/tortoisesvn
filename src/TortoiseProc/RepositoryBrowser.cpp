@@ -321,7 +321,9 @@ void CRepositoryBrowser::InitRepo()
 
     if (serverEndPos > 0)
     {
-        m_strReposRoot = GetRepositoryRoot (CTSVNPath (m_InitialUrl));
+        m_strReposRoot 
+            = GetRepositoryRootAndUUID (CTSVNPath (m_InitialUrl), m_sUUID);
+
         for ( CString path = m_InitialUrl
             ; path.GetLength() > serverEndPos
             ; path = path.Left (path.ReverseFind ('/')))
@@ -331,51 +333,73 @@ void CRepositoryBrowser::InitRepo()
         }
     }
 
-	// We don't know if the url passed to us points to a file or a folder,
-	// let's find out:
-	SVNInfo info;
-	const SVNInfoData * data = NULL;
-	CString error;	// contains the first error of GetFirstFileInfo()
-	do 
-	{
-		data = info.GetFirstFileInfo(CTSVNPath(m_InitialUrl),m_initialRev, m_initialRev);
-		if ((data == NULL)||(data->kind != svn_node_dir))
-		{
-			// in case the url is not a valid directory, try the parent dir
-			// until there's no more parent dir
-			m_InitialUrl = m_InitialUrl.Left(m_InitialUrl.ReverseFind('/'));
-			if ((m_InitialUrl.Compare(_T("http://")) == 0) ||
-				(m_InitialUrl.Compare(_T("https://")) == 0)||
-				(m_InitialUrl.Compare(_T("svn://")) == 0)||
-				(m_InitialUrl.Compare(_T("svn+ssh://")) == 0)||
-				(m_InitialUrl.Compare(_T("file:///")) == 0)||
-				(m_InitialUrl.Compare(_T("file://")) == 0))
-			{
-				m_InitialUrl.Empty();
-			}
-			if (error.IsEmpty())
-			{
-				if (((data)&&(data->kind == svn_node_dir))||(data == NULL))
-					error = info.GetLastErrorMsg();
-			}
-		}
-	} while(!m_InitialUrl.IsEmpty() && ((data == NULL) || (data->kind != svn_node_dir)));
+    // (try to) fetch the HEAD revision
 
-	if (data == NULL)
-	{
-		m_InitialUrl.Empty();
-		m_RepoList.ShowText(error, true);
-		return;
-	}
-	else if (m_initialRev.IsHead())
-	{
-		m_barRepository.SetHeadRevision(data->rev);
-	}
-	m_InitialUrl.TrimRight('/');
+    CTSVNPath initialURL (EscapeUrl (CTSVNPath (m_InitialUrl)));
+    svn_revnum_t headRevision = GetHEADRevision (initialURL);
+
+    // let's see whether the URL was a directory 
+
+    std::deque<CItem> dummy;
+    CString error 
+        = m_lister.GetList (initialURL, m_strReposRoot, m_initialRev, dummy);
+
+    if (error.IsEmpty() && (headRevision >= 0))
+    {
+        // optimistic strategy was successful
+
+        if (m_initialRev.IsHead())
+            m_barRepository.SetHeadRevision (headRevision);
+    }
+    else
+    {
+	    // We don't know if the url passed to us points to a file or a folder,
+	    // let's find out:
+	    SVNInfo info;
+	    const SVNInfoData * data = NULL;
+	    do 
+	    {
+		    data = info.GetFirstFileInfo(CTSVNPath(m_InitialUrl),m_initialRev, m_initialRev);
+		    if ((data == NULL)||(data->kind != svn_node_dir))
+		    {
+			    // in case the url is not a valid directory, try the parent dir
+			    // until there's no more parent dir
+			    m_InitialUrl = m_InitialUrl.Left(m_InitialUrl.ReverseFind('/'));
+			    if ((m_InitialUrl.Compare(_T("http://")) == 0) ||
+				    (m_InitialUrl.Compare(_T("https://")) == 0)||
+				    (m_InitialUrl.Compare(_T("svn://")) == 0)||
+				    (m_InitialUrl.Compare(_T("svn+ssh://")) == 0)||
+				    (m_InitialUrl.Compare(_T("file:///")) == 0)||
+				    (m_InitialUrl.Compare(_T("file://")) == 0))
+			    {
+				    m_InitialUrl.Empty();
+			    }
+			    if (error.IsEmpty())
+			    {
+				    if (((data)&&(data->kind == svn_node_dir))||(data == NULL))
+					    error = info.GetLastErrorMsg();
+			    }
+		    }
+	    } while(!m_InitialUrl.IsEmpty() && ((data == NULL) || (data->kind != svn_node_dir)));
+
+	    if (data == NULL)
+	    {
+		    m_InitialUrl.Empty();
+		    m_RepoList.ShowText(error, true);
+		    return;
+	    }
+	    else if (m_initialRev.IsHead())
+	    {
+		    m_barRepository.SetHeadRevision(data->rev);
+	    }
+
+        m_strReposRoot = data->reposRoot;
+    	m_sUUID = data->reposUUID;
+    }
+
+    m_InitialUrl.TrimRight('/');
 
 	m_bCancelled = false;
-	m_strReposRoot = data->reposRoot;
-	m_sUUID = data->reposUUID;
 	m_strReposRoot = CPathUtils::PathUnescape(m_strReposRoot);
 	// the initial url can be in the format file:///\, but the
 	// repository root returned would still be file://
@@ -444,8 +468,9 @@ LRESULT CRepositoryBrowser::OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam
 	}
 
 	m_barRepository.SetRevision(m_initialRev);
-	m_barRepository.GotoUrl(m_InitialUrl, m_initialRev, true);
-	m_RepoList.ClearText();
+	m_barRepository.ShowUrl(m_InitialUrl, m_initialRev);
+    ChangeToUrl (m_InitialUrl, m_initialRev, true);
+
 	m_bInitDone = TRUE;
 	return 0;
 }
