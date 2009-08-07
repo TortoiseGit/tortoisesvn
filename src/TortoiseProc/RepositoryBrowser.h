@@ -18,9 +18,6 @@
 //
 #pragma once
 
-#include <map>
-#include <deque>
-
 #include "resource.h"
 #include "TSVNPath.h"
 #include "RepositoryBar.h"

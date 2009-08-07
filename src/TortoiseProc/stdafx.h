@@ -72,6 +72,7 @@
 #include <map>
 #include <set>
 #include <algorithm>
+#include <deque>
 #pragma warning(pop)
 
 #pragma warning(push)
