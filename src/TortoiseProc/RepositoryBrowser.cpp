@@ -313,51 +313,93 @@ void CRepositoryBrowser::InitRepo()
 		m_InitialUrl = m_InitialUrl.Left(m_InitialUrl.Find('?'));
 	}
 
-	// We don't know if the url passed to us points to a file or a folder,
-	// let's find out:
-	SVNInfo info;
-	const SVNInfoData * data = NULL;
-	CString error;	// contains the first error of GetFirstFileInfo()
-	do 
-	{
-		data = info.GetFirstFileInfo(CTSVNPath(m_InitialUrl),m_initialRev, m_initialRev);
-		if ((data == NULL)||(data->kind != svn_node_dir))
-		{
-			// in case the url is not a valid directory, try the parent dir
-			// until there's no more parent dir
-			m_InitialUrl = m_InitialUrl.Left(m_InitialUrl.ReverseFind('/'));
-			if ((m_InitialUrl.Compare(_T("http://")) == 0) ||
-				(m_InitialUrl.Compare(_T("https://")) == 0)||
-				(m_InitialUrl.Compare(_T("svn://")) == 0)||
-				(m_InitialUrl.Compare(_T("svn+ssh://")) == 0)||
-				(m_InitialUrl.Compare(_T("file:///")) == 0)||
-				(m_InitialUrl.Compare(_T("file://")) == 0))
-			{
-				m_InitialUrl.Empty();
-			}
-			if (error.IsEmpty())
-			{
-				if (((data)&&(data->kind == svn_node_dir))||(data == NULL))
-					error = info.GetLastErrorMsg();
-			}
-		}
-	} while(!m_InitialUrl.IsEmpty() && ((data == NULL) || (data->kind != svn_node_dir)));
+    // let's (try to) access all levels in the folder path 
 
-	if (data == NULL)
-	{
-		m_InitialUrl.Empty();
-		m_RepoList.ShowText(error, true);
-		return;
-	}
-	else if (m_initialRev.IsHead())
-	{
-		m_barRepository.SetHeadRevision(data->rev);
-	}
-	m_InitialUrl.TrimRight('/');
+    int serverEndPos = m_InitialUrl.Find (_T("//"));
+    if (serverEndPos > 0 )
+        serverEndPos = m_InitialUrl.Find (_T('/'), serverEndPos+1);
+
+    if (serverEndPos > 0)
+    {
+        m_strReposRoot 
+            = GetRepositoryRootAndUUID (CTSVNPath (m_InitialUrl), m_sUUID);
+
+        for ( CString path = m_InitialUrl
+            ; path.GetLength() > serverEndPos
+            ; path = path.Left (path.ReverseFind ('/')))
+        {
+            CTSVNPath url (EscapeUrl (CTSVNPath (path)));
+            m_lister.Enqueue (url, m_strReposRoot, m_initialRev);
+        }
+    }
+
+    // (try to) fetch the HEAD revision
+
+    CTSVNPath initialURL (EscapeUrl (CTSVNPath (m_InitialUrl)));
+    svn_revnum_t headRevision = GetHEADRevision (initialURL);
+
+    // let's see whether the URL was a directory 
+
+    std::deque<CItem> dummy;
+    CString error 
+        = m_lister.GetList (initialURL, m_strReposRoot, m_initialRev, dummy);
+
+    if (error.IsEmpty() && (headRevision >= 0))
+    {
+        // optimistic strategy was successful
+
+        if (m_initialRev.IsHead())
+            m_barRepository.SetHeadRevision (headRevision);
+    }
+    else
+    {
+	    // We don't know if the url passed to us points to a file or a folder,
+	    // let's find out:
+	    SVNInfo info;
+	    const SVNInfoData * data = NULL;
+	    do 
+	    {
+		    data = info.GetFirstFileInfo(CTSVNPath(m_InitialUrl),m_initialRev, m_initialRev);
+		    if ((data == NULL)||(data->kind != svn_node_dir))
+		    {
+			    // in case the url is not a valid directory, try the parent dir
+			    // until there's no more parent dir
+			    m_InitialUrl = m_InitialUrl.Left(m_InitialUrl.ReverseFind('/'));
+			    if ((m_InitialUrl.Compare(_T("http://")) == 0) ||
+				    (m_InitialUrl.Compare(_T("https://")) == 0)||
+				    (m_InitialUrl.Compare(_T("svn://")) == 0)||
+				    (m_InitialUrl.Compare(_T("svn+ssh://")) == 0)||
+				    (m_InitialUrl.Compare(_T("file:///")) == 0)||
+				    (m_InitialUrl.Compare(_T("file://")) == 0))
+			    {
+				    m_InitialUrl.Empty();
+			    }
+			    if (error.IsEmpty())
+			    {
+				    if (((data)&&(data->kind == svn_node_dir))||(data == NULL))
+					    error = info.GetLastErrorMsg();
+			    }
+		    }
+	    } while(!m_InitialUrl.IsEmpty() && ((data == NULL) || (data->kind != svn_node_dir)));
+
+	    if (data == NULL)
+	    {
+		    m_InitialUrl.Empty();
+		    m_RepoList.ShowText(error, true);
+		    return;
+	    }
+	    else if (m_initialRev.IsHead())
+	    {
+		    m_barRepository.SetHeadRevision(data->rev);
+	    }
+
+        m_strReposRoot = data->reposRoot;
+    	m_sUUID = data->reposUUID;
+    }
+
+    m_InitialUrl.TrimRight('/');
 
 	m_bCancelled = false;
-	m_strReposRoot = data->reposRoot;
-	m_sUUID = data->reposUUID;
 	m_strReposRoot = CPathUtils::PathUnescape(m_strReposRoot);
 	// the initial url can be in the format file:///\, but the
 	// repository root returned would still be file://
@@ -426,8 +468,9 @@ LRESULT CRepositoryBrowser::OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam
 	}
 
 	m_barRepository.SetRevision(m_initialRev);
-	m_barRepository.GotoUrl(m_InitialUrl, m_initialRev, true);
-	m_RepoList.ClearText();
+	m_barRepository.ShowUrl(m_InitialUrl, m_initialRev);
+    ChangeToUrl (m_InitialUrl, m_initialRev, true);
+
 	m_bInitDone = TRUE;
 	return 0;
 }
@@ -711,60 +754,6 @@ void CRepositoryBrowser::DrawXorBar(CDC * pDC, int x1, int y1, int width, int he
 
 	DeleteObject(hbr);
 	DeleteObject(hbm);
-}
-
-/******************************************************************************/
-/* repository information gathering                                           */
-/******************************************************************************/
-
-BOOL CRepositoryBrowser::ReportList(const CString& path, svn_node_kind_t kind, 
-									svn_filesize_t size, bool has_props, 
-									svn_revnum_t created_rev, apr_time_t time, 
-									const CString& author, const CString& locktoken, 
-									const CString& lockowner, const CString& lockcomment, 
-									bool is_dav_comment, apr_time_t lock_creationdate, 
-									apr_time_t lock_expirationdate, 
-									const CString& absolutepath)
-{
-	static deque<CItem> * pDirList = NULL;
-	static CTreeItem * pTreeItem = NULL;
-	static CString dirPath;
-
-	CString sParent = absolutepath;
-	int slashpos = path.ReverseFind('/');
-	bool abspath_has_slash = (absolutepath.GetAt(absolutepath.GetLength()-1) == '/');
-	if ((slashpos > 0) && (!abspath_has_slash))
-		sParent += _T("/");
-	sParent += path.Left(slashpos);
-	if (sParent.Compare(_T("/"))==0)
-		sParent.Empty();
-	if ((path.IsEmpty())||
-		(pDirList == NULL)||
-		(sParent.Compare(dirPath)))
-	{
-		HTREEITEM hItem = FindUrl(m_strReposRoot + sParent);
-		pTreeItem = (CTreeItem*)m_RepoTree.GetItemData(hItem);
-		pDirList = &(pTreeItem->children);
-
-		dirPath = sParent;
-	}
-	if (path.IsEmpty())
-		return TRUE;
-
-	if (kind == svn_node_dir)
-	{
-		FindUrl(m_strReposRoot + absolutepath + (abspath_has_slash ? _T("") : _T("/")) + path);
-		if (pTreeItem)
-			pTreeItem->has_child_folders = true;
-	}
-	pDirList->push_back(CItem(path.Mid(slashpos+1), kind, size, has_props,
-		created_rev, time, author, locktoken,
-		lockowner, lockcomment, is_dav_comment,
-		lock_creationdate, lock_expirationdate,
-		m_strReposRoot+absolutepath+(abspath_has_slash ? _T("") : _T("/"))+path));
-	if (pTreeItem)
-		pTreeItem->children_fetched = true;
-	return TRUE;
 }
 
 bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked)
@@ -1114,13 +1103,32 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/, b
 	pTreeItem->children.clear();
 	pTreeItem->has_child_folders = false;
 	m_bCancelled = false;
-	if (!List(CTSVNPath(EscapeUrl(CTSVNPath(pTreeItem->url))), GetRevision(), GetRevision(), recursive ? svn_depth_infinity : svn_depth_immediates, true))
+
+    CTSVNPath url (EscapeUrl (CTSVNPath (pTreeItem->url)));
+    CString error = m_lister.GetList (url, m_strReposRoot, GetRevision(), pTreeItem->children);
+    if (!error.IsEmpty())
 	{
 		// error during list()
-		m_RepoList.ShowText(GetLastErrorMessage());
+		m_RepoList.ShowText (error);
 		return false;
 	}
+
+    // update node status and add sub-nodes for all sub-dirs
+
 	pTreeItem->children_fetched = true;
+    for (size_t i = 0, count = pTreeItem->children.size(); i < count; ++i)
+    {
+        const CItem& item = pTreeItem->children[i];
+        if (item.kind == svn_node_dir)
+        {
+            pTreeItem->has_child_folders = true;
+            FindUrl (item.absolutepath);
+
+            CTSVNPath url (EscapeUrl (CTSVNPath (item.absolutepath)));
+            m_lister.Enqueue (url, m_strReposRoot, GetRevision());
+        }
+    }
+
 	// if there are no child folders, remove the '+' in front of the node
 	{
 		TVITEM tvitem = {0};

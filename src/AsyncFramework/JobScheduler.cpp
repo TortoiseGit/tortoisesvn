@@ -422,8 +422,8 @@ void CJobScheduler::Schedule (IJob* job, bool transferOwnership)
         }
         else 
         {
-            assert (threads.fromShared < threads.maxFromShared);
-            AllocateSharedThread();
+            if (threads.fromShared < threads.maxFromShared)
+                AllocateSharedThread();
         }
     }
 }

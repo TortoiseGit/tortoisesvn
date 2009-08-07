@@ -18,9 +18,6 @@
 //
 #pragma once
 
-#include <map>
-#include <deque>
-
 #include "resource.h"
 #include "TSVNPath.h"
 #include "RepositoryBar.h"
@@ -28,6 +25,7 @@
 #include "ProjectProperties.h"
 #include "LogDlg.h"
 #include "HintListCtrl.h"
+#include "RepositoryLister.h"
 
 #define REPOBROWSER_CTRL_MIN_WIDTH	20
 #define REPOBROWSER_FETCHTIMER		101
@@ -37,72 +35,6 @@ using namespace std;
 class CInputLogDlg;
 class CTreeDropTarget;
 class CListDropTarget;
-
-/**
- * \ingroup TortoiseProc
- * helper class which holds all the information of an item (file or folder)
- * in the repository. The information gets filled by the svn_client_list()
- * callback.
- */
-class CItem
-{
-public:
-	CItem() : kind(svn_node_none)
-		, size(0)
-		, has_props(false)
-		, created_rev(0)
-		, time(0)
-		, is_dav_comment(false)
-		, lock_creationdate(0)
-		, lock_expirationdate(0)
-	{
-	}
-	CItem(const CString& _path, 
-		svn_node_kind_t _kind,
-		svn_filesize_t _size,
-		bool _has_props,
-		svn_revnum_t _created_rev,
-		apr_time_t _time,
-		const CString& _author,
-		const CString& _locktoken,
-		const CString& _lockowner,
-		const CString& _lockcomment,
-		bool _is_dav_comment,
-		apr_time_t _lock_creationdate,
-		apr_time_t _lock_expirationdate,
-		const CString& _absolutepath)
-	{
-		path = _path;
-		kind = _kind;
-		size = _size;
-		has_props = _has_props;
-		created_rev = _created_rev;
-		time = _time;
-		author = _author;
-		locktoken = _locktoken;
-		lockowner = _lockowner;
-		lockcomment = _lockcomment;
-		is_dav_comment = _is_dav_comment;
-		lock_creationdate = _lock_creationdate;
-		lock_expirationdate = _lock_expirationdate;
-		absolutepath = _absolutepath;
-	}
-public:
-	CString				path;
-	svn_node_kind_t		kind;
-	svn_filesize_t		size;
-	bool				has_props;
-	svn_revnum_t		created_rev;
-	apr_time_t			time;
-	CString				author;
-	CString				locktoken;
-	CString				lockowner;
-	CString				lockcomment;
-	bool				is_dav_comment;
-	apr_time_t			lock_creationdate;
-	apr_time_t			lock_expirationdate;
-	CString				absolutepath;			///< unescaped url stripped of repository root
-};
 
 /**
  * \ingroup TortoiseProc
@@ -194,13 +126,6 @@ protected:
 	LRESULT OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam*/);
 	/// draws the bar when the tree and list control are resized
 	void DrawXorBar(CDC * pDC, int x1, int y1, int width, int height);
-	/// callback from the SVN::List() method which stores all the information
-	virtual BOOL ReportList(const CString& path, svn_node_kind_t kind, 
-		svn_filesize_t size, bool has_props, svn_revnum_t created_rev, 
-		apr_time_t time, const CString& author, const CString& locktoken, 
-		const CString& lockowner, const CString& lockcomment, 
-		bool is_dav_comment, apr_time_t lock_creationdate, 
-		apr_time_t lock_expirationdate, const CString& absolutepath);
 
 	/// recursively removes all items from \c hItem on downwards.
 	void RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly = false);
@@ -302,6 +227,8 @@ private:
 	CTSVNPath			m_diffURL;
 
 	CString				m_origDlgTitle;
+
+    CRepositoryLister   m_lister;
 };
 
 static UINT WM_AFTERINIT = RegisterWindowMessage(_T("TORTOISESVN_AFTERINIT_MSG"));
