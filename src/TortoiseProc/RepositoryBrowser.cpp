@@ -313,6 +313,24 @@ void CRepositoryBrowser::InitRepo()
 		m_InitialUrl = m_InitialUrl.Left(m_InitialUrl.Find('?'));
 	}
 
+    // let's (try to) access all levels in the folder path 
+
+    int serverEndPos = m_InitialUrl.Find (_T("//"));
+    if (serverEndPos > 0 )
+        serverEndPos = m_InitialUrl.Find (_T('/'), serverEndPos+1);
+
+    if (serverEndPos > 0)
+    {
+        m_strReposRoot = GetRepositoryRoot (CTSVNPath (m_InitialUrl));
+        for ( CString path = m_InitialUrl
+            ; path.GetLength() > serverEndPos
+            ; path = path.Left (path.ReverseFind ('/')))
+        {
+            CTSVNPath url (EscapeUrl (CTSVNPath (path)));
+            m_lister.Enqueue (url, m_strReposRoot, m_initialRev);
+        }
+    }
+
 	// We don't know if the url passed to us points to a file or a folder,
 	// let's find out:
 	SVNInfo info;
@@ -1074,11 +1092,17 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/, b
 
 	pTreeItem->children_fetched = true;
     for (size_t i = 0, count = pTreeItem->children.size(); i < count; ++i)
-        if (pTreeItem->children[i].kind == svn_node_dir)
+    {
+        const CItem& item = pTreeItem->children[i];
+        if (item.kind == svn_node_dir)
         {
             pTreeItem->has_child_folders = true;
-            FindUrl (pTreeItem->children[i].absolutepath);
+            FindUrl (item.absolutepath);
+
+            CTSVNPath url (EscapeUrl (CTSVNPath (item.absolutepath)));
+            m_lister.Enqueue (url, m_strReposRoot, GetRevision());
         }
+    }
 
 	// if there are no child folders, remove the '+' in front of the node
 	{
