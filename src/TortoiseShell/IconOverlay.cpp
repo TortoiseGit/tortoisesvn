@@ -329,6 +329,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
                 if (m_State != FileStateModified)
 					return S_FALSE;
 			}
+			break;
 
 		default:
 			return S_FALSE;
