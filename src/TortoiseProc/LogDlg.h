@@ -32,6 +32,7 @@
 #include "SVNRev.h"
 #include "Tooltip.h"
 #include "HintListCtrl.h"
+#include "JobScheduler.h"
 
 #include <regex>
 using namespace std;
@@ -143,10 +144,8 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 private:
-	static UINT LogThreadEntry(LPVOID pVoid);
-	UINT LogThread();
-	static UINT StatusThreadEntry(LPVOID pVoid);
-	UINT StatusThread();
+	void LogThread();
+	void StatusThread();
 	void Refresh (bool autoGoOnline = false);
 	BOOL IsDiffPossible(LogChangedPath * changedpath, svn_revnum_t rev);
 	BOOL Open(bool bOpenWith, CString changedpath, svn_revnum_t rev);
@@ -292,6 +291,9 @@ private:
     CLogDataVector		m_logParents;   
 	
 	CXPTheme			theme;
+
+	async::CJobScheduler netScheduler;
+	async::CJobScheduler diskScheduler;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
 static UINT WM_REVLIST = RegisterWindowMessage(_T("TORTOISESVN_REVLIST_MSG"));

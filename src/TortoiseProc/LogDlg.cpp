@@ -51,6 +51,7 @@
 #include "SysInfo.h"
 #include "SysImageList.h"
 #include "svn_props.h"
+#include "AsyncCall.h"
 
 #if (NTDDI_VERSION < NTDDI_LONGHORN)
 
@@ -145,6 +146,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_maxChild(0)
 	, m_bIncludeMerges(FALSE)
 	, m_hAccel(NULL)
+	, netScheduler(1, 0, true)
+	, diskScheduler(1, 0, true)
 {
 	m_bFilterWithRegex = !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), TRUE);
 }
@@ -500,12 +503,8 @@ BOOL CLogDlg::OnInitDialog()
 	m_tFrom = (DWORD)-1;
 	InterlockedExchange(&m_bLogThreadRunning, TRUE);
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
-	if (AfxBeginThread(LogThreadEntry, this)==NULL)
-	{
-		InterlockedExchange(&m_bLogThreadRunning, FALSE);
-		InterlockedExchange(&m_bNoDispUpdates, FALSE);
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	}
+
+	new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
 	GetDlgItem(IDC_LOGLIST)->SetFocus();
 	return FALSE;
 }
@@ -758,11 +757,7 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 	m_limit = 0;
 
 	InterlockedExchange(&m_bLogThreadRunning, TRUE);
-	if (AfxBeginThread(LogThreadEntry, this)==NULL)
-	{
-		InterlockedExchange(&m_bLogThreadRunning, FALSE);
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	}
+	new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 	InterlockedExchange(&m_bNoDispUpdates, FALSE);
 }
@@ -819,11 +814,7 @@ void CLogDlg::Refresh (bool autoGoOnline)
     }
 
 	InterlockedExchange(&m_bLogThreadRunning, TRUE);
-	if (AfxBeginThread(LogThreadEntry, this)==NULL)
-	{
-		InterlockedExchange(&m_bLogThreadRunning, FALSE);
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	}
+	new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 	InterlockedExchange(&m_bNoDispUpdates, FALSE);
 }
@@ -863,11 +854,7 @@ void CLogDlg::OnBnClickedNexthundred()
 	// since we fetch the log from the last revision we already have,
 	// we have to remove that revision entry to avoid getting it twice
 	m_logEntries.pop_back();
-	if (AfxBeginThread(LogThreadEntry, this)==NULL)
-	{
-		InterlockedExchange(&m_bLogThreadRunning, FALSE);
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	}
+	new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 }
@@ -904,6 +891,28 @@ void CLogDlg::OnCancel()
 	temp2.LoadString(IDS_MSGBOX_CANCEL);
 	if ((temp.Compare(temp2)==0)||(m_bLogThreadRunning)||(m_bStatusThreadRunning))
 	{
+		if (m_bCancelled)
+		{
+			// we've already told the threads to cancel
+
+			if (m_bLogThreadRunning)
+			{
+				if (!netScheduler.WaitForEmptyQueueOrTimeout(2000))
+				{
+					// end the process the hard way
+					TerminateProcess(GetCurrentProcess(), 0);
+				}
+			}
+			if (m_bStatusThreadRunning)
+			{
+				if (!diskScheduler.WaitForEmptyQueueOrTimeout(2000))
+				{
+					// end the process the hard way
+					TerminateProcess(GetCurrentProcess(), 0);
+				}
+			}
+		}
+
 		m_bCancelled = true;
 		return;
 	}
@@ -1021,18 +1030,11 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 }
 
 //this is the thread function which calls the subversion function
-UINT CLogDlg::LogThreadEntry(LPVOID pVoid)
-{
-	return ((CLogDlg*)pVoid)->LogThread();
-}
-
-
-//this is the thread function which calls the subversion function
-UINT CLogDlg::LogThread()
+void CLogDlg::LogThread()
 {
 	InterlockedExchange(&m_bLogThreadRunning, TRUE);
 
-	AfxBeginThread(StatusThreadEntry, this);
+	new async::CAsyncCall(this, &CLogDlg::StatusThread, &diskScheduler);
 
 	//does the user force the cache to refresh (shift or control key down)?
     bool refresh =    (GetKeyState (VK_CONTROL) < 0) 
@@ -1063,7 +1065,7 @@ UINT CLogDlg::LogThread()
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(TRUE);
 	svn_revnum_t r = -1;
 	
-    // we need the UUID to unambigously identify the log cache
+    // we need the UUID to unambiguously identify the log cache
     BOOL succeeded = true;
     if (LogCache::CSettings::GetEnabled())
     {
@@ -1238,16 +1240,10 @@ UINT CLogDlg::LogThread()
 	// make sure the filter is applied (if any) now, after we refreshed/fetched
 	// the log messages
 	PostMessage(WM_TIMER, LOGFILTER_TIMER);
-	return 0;
-}
-
-UINT CLogDlg::StatusThreadEntry(LPVOID pVoid)
-{
-	return ((CLogDlg*)pVoid)->StatusThread();
 }
 
 //this is the thread function which calls the subversion function
-UINT CLogDlg::StatusThread()
+void CLogDlg::StatusThread()
 {
 	InterlockedExchange(&m_bStatusThreadRunning, TRUE);
 	bool bAllowStatusCheck = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogStatusCheck"), TRUE);
@@ -1270,7 +1266,6 @@ UINT CLogDlg::StatusThread()
 		}
 	}
 	InterlockedExchange(&m_bStatusThreadRunning, FALSE);
-	return 0;
 }
 
 void CLogDlg::CopySelectionToClipBoard()
