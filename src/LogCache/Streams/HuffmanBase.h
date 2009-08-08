@@ -81,7 +81,11 @@ public:
 		// mask to extract MAX_ENCODING_LENGTH bits from a 
 		// chunk of data.
 
-		MAX_KEY_VALUE = (1 << MAX_ENCODING_LENGTH) -1
+		MAX_KEY_VALUE = (1 << MAX_ENCODING_LENGTH) -1,
+
+        // minimum length of the header
+
+        MIN_HEADER_LENGTH = 2 * sizeof (DWORD) + sizeof (BYTE)
 	};
 
 	// utility function that reverses the bit order of a given key

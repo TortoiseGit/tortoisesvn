@@ -217,15 +217,26 @@ void CHuffmanDecoder::Decode (const BYTE*& source, BYTE*& target)
 
     // special case: unpacked data
 
-	BuildDecodeTable (localSource);
+    if ((encodedSize == decodedSize+MIN_HEADER_LENGTH) && (*localSource == 0))
+    {
+        // plain copy (and skip empty huffman table)
 
-	// actually decode
+        memcpy (target, ++localSource, decodedSize);
+    }
+    else
+    {
+	    // read all the decode-info 
 
-	WriteDecodedStream (localSource, target, decodedSize);
+	    BuildDecodeTable (localSource);
 
-	// update source and target buffer pointers
+	    // actually decode
 
-	source += encodedSize;
-	target += decodedSize;
+	    WriteDecodedStream (localSource, target, decodedSize);
+    }
+
+    // update source and target buffer pointers
+
+    source += encodedSize;
+    target += decodedSize;
 }
 
