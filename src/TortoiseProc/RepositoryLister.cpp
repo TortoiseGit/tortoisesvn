@@ -20,6 +20,7 @@
 #include "RepositoryLister.h"
 #include "UnicodeUtils.h"
 #include "PathUtils.h"
+#include "Resource.h"
 
 // callback from the SVN::List() method which stores all the information
 
@@ -79,7 +80,7 @@ void CRepositoryLister::CQuery::InternalExecute()
 {
     if (cancelled)
     {
-        error = "Request cancelled by TSVN";
+        error.LoadString (IDS_REPOBROWSE_ERR_CANCEL);
     }
     else
 	    if (!List (path, revision, revision, svn_depth_immediates, true))
@@ -88,7 +89,7 @@ void CRepositoryLister::CQuery::InternalExecute()
 
             error = GetLastErrorMessage();
             if (error.IsEmpty())
-                error = "Unknown failure in SVN::List";
+                error.LoadString (IDS_REPOBROWSE_ERR_UNKNOWN);
         }
 
 }
