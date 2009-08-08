@@ -53,6 +53,8 @@ public:
     void Set();
     bool Test() const;
     void WaitFor();
+	/// returns false in case of a timeout
+	bool WaitForEndOrTimeout(DWORD milliSeconds);
 };
 
 /**
@@ -83,6 +85,8 @@ public:
     void Reset();
     bool Test() const;
     void WaitFor();
+	/// returns false in case of a timeout
+	bool WaitForEndOrTimeout(DWORD milliSeconds);
 };
 
 }

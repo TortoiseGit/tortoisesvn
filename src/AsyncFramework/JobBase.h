@@ -70,6 +70,8 @@ public:
 
     virtual Status GetStatus() const;
     virtual void WaitUntilDone();
+	/// returns false in case of a timeout
+	virtual bool WaitUntilDoneOrTimeout(DWORD milliSeconds);
 };
 
 }

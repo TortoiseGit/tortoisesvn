@@ -171,6 +171,17 @@ void COneShotEvent::WaitFor()
     }
 }
 
+bool COneShotEvent::WaitForEndOrTimeout(DWORD milliSeconds)
+{
+	if (state == FALSE)
+	{
+		CWaitableEventPool::GetInstance()->AutoAlloc (event);
+		return WaitForSingleObject (event, milliSeconds) == WAIT_OBJECT_0;
+	}
+
+	return true;
+}
+
 // construction / destruction: manage event handle
 
 CWaitableEvent::CWaitableEvent()
@@ -204,5 +215,11 @@ void CWaitableEvent::WaitFor()
 {
     WaitForSingleObject (event, INFINITE);
 }
+
+bool CWaitableEvent::WaitForEndOrTimeout(DWORD milliSeconds)
+{
+	return WaitForSingleObject (event, milliSeconds) == WAIT_OBJECT_0;
+}
+
 
 }

@@ -417,7 +417,9 @@ public:
 
     /// wait for all current and follu-up jobs to terminate
 
-    void WaitForEmptyQueue();
+	void WaitForEmptyQueue();
+	
+	bool WaitForEmptyQueueOrTimeout(DWORD milliSeconds);
 
     /// Wait for some jobs to be finished.
     /// This function may return immediately if there are

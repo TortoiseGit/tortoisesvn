@@ -455,13 +455,33 @@ void CJobScheduler::WaitForEmptyQueue()
             if ((threads.runningCount == 0) && queue.empty())
                 return;
 
-            // we will be woken up as soon as both containers are emtpy
+            // we will be woken up as soon as both containers are empty
 
             empty.Reset();
         }
 
         empty.WaitFor();
     }
+}
+
+bool CJobScheduler::WaitForEmptyQueueOrTimeout(DWORD milliSeconds)
+{
+	while (true)
+	{
+		{
+			CCriticalSectionLock lock (mutex);
+			if ((threads.runningCount == 0) && queue.empty())
+				return true;
+
+			// we will be woken up as soon as both containers are empty
+
+			empty.Reset();
+		}
+
+		if (!empty.WaitForEndOrTimeout(milliSeconds))
+			return false;
+	}
+	return true;
 }
 
 // wait for some jobs to be finished.

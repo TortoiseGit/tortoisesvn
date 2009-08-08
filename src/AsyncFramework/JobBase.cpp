@@ -75,4 +75,9 @@ void CJobBase::WaitUntilDone()
     finished.WaitFor();
 }
 
+bool CJobBase::WaitUntilDoneOrTimeout(DWORD milliSeconds)
+{
+	return finished.WaitForEndOrTimeout(milliSeconds);
+}
+
 }
