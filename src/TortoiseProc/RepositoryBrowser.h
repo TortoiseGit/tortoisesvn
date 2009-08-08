@@ -136,15 +136,13 @@ protected:
 	/**
 	 * Refetches the information for \c url. If \c force is true, then the list
 	 * control is refilled again.
-	 * \param recursive if true, the information is fetched recursively.
 	 */
-	bool RefreshNode(const CString& url, bool force = false, bool recursive = false);
+	bool RefreshNode(const CString& url, bool force = false);
 	/**
 	 * Refetches the information for \c hNode. If \c force is true, then the list
 	 * control is refilled again.
-	 * \param recursive if true, the information is fetched recursively.
 	 */
-	bool RefreshNode(HTREEITEM hNode, bool force = false, bool recursive = false);
+	bool RefreshNode(HTREEITEM hNode, bool force = false);
 	/// Fills the list control with all the items in \c pItems.
 	void FillList(deque<CItem> * pItems);
 	/// Sets the sort arrow in the list view header according to the currently used sorting.

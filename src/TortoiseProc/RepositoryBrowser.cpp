@@ -1082,13 +1082,13 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 	return NULL;
 }
 
-bool CRepositoryBrowser::RefreshNode(const CString& url, bool force /* = false*/, bool recursive /* = false*/)
+bool CRepositoryBrowser::RefreshNode(const CString& url, bool force /* = false*/)
 {
 	HTREEITEM hNode = FindUrl(url);
-	return RefreshNode(hNode, force, recursive);
+	return RefreshNode(hNode, force);
 }
 
-bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/, bool recursive /* = false*/)
+bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
 {
 	if (hNode == NULL)
 		return false;
@@ -1312,7 +1312,7 @@ void CRepositoryBrowser::OnRefresh()
     else
         m_lister.RefreshSubTree (GetRevision(), pItem->url);
 
-	RefreshNode(m_RepoTree.GetSelectedItem(), true, !!(GetKeyState(VK_CONTROL)&0x8000));
+	RefreshNode(m_RepoTree.GetSelectedItem(), true);
 	m_blockEvents = false;
 }
 
