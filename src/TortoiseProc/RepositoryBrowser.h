@@ -190,11 +190,6 @@ protected:
 
 	HACCEL				m_hAccel;
 
-	// win2k doesn't have StrCmpLogicalW if not fully updated
-	HMODULE				hShlwapi;
-	typedef int (WINAPI *FN_StrCmpLogicalW) (LPCWSTR psz1, LPCWSTR psz2);
-	FN_StrCmpLogicalW	pfnStrCmpLogicalW;
-
 private:
 	bool				m_bStandAlone;
 	CString				m_InitialUrl;

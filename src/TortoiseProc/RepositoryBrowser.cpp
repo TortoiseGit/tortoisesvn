@@ -101,15 +101,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
 	, m_diffKind(svn_node_none)
 	, m_hAccel(NULL)
     , bDragMode(FALSE)
-	, pfnStrCmpLogicalW(NULL)
-	, hShlwapi(NULL)
 {
-		hShlwapi = ::LoadLibrary (_T("SHLWAPI.DLL"));
-
-		if (hShlwapi)
-		{
-			pfnStrCmpLogicalW = (FN_StrCmpLogicalW)::GetProcAddress(hShlwapi, "StrCmpLogicalW");
-		}
 }
 
 CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CWnd* pParent)
@@ -128,21 +120,11 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
 	, m_diffKind(svn_node_none)
 	, m_hAccel(NULL)
 	, bDragMode(FALSE)
-	, pfnStrCmpLogicalW(NULL)
-	, hShlwapi(NULL)
 {
-	hShlwapi = ::LoadLibrary (_T("SHLWAPI.DLL"));
-
-	if (hShlwapi)
-	{
-		pfnStrCmpLogicalW = (FN_StrCmpLogicalW)::GetProcAddress(hShlwapi, "StrCmpLogicalW");
-	}
 }
 
 CRepositoryBrowser::~CRepositoryBrowser()
 {
-	if (hShlwapi)
-		FreeLibrary(hShlwapi);
 }
 
 void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* = false */)
@@ -1481,10 +1463,7 @@ int CRepositoryBrowser::ListSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3)
 			break;
 		// fall through
 	case 0:	// filename
-		if (pThis->pfnStrCmpLogicalW)
-			nRet = pThis->pfnStrCmpLogicalW(pItem1->path, pItem2->path);
-		else
-			nRet = CompareString(LOCALE_USER_DEFAULT, 0, pItem1->path, -1, pItem2->path, -1);
+			nRet = StrCmpLogicalW(pItem1->path, pItem2->path);
 		break;
 	}
 
@@ -1503,16 +1482,11 @@ int CRepositoryBrowser::ListSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3)
 	return nRet;
 }
 
-int CRepositoryBrowser::TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3)
+int CRepositoryBrowser::TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM /*lParam3*/)
 {
-	CRepositoryBrowser * pThis = (CRepositoryBrowser*)lParam3;
-
 	CTreeItem * Item1 = (CTreeItem*)lParam1;
 	CTreeItem * Item2 = (CTreeItem*)lParam2;
-	if (pThis->pfnStrCmpLogicalW)
-		return pThis->pfnStrCmpLogicalW(Item1->unescapedname, Item2->unescapedname);
-	else
-		return CompareString(LOCALE_USER_DEFAULT, 0, Item1->unescapedname, -1, Item2->unescapedname, -1);
+	return StrCmpLogicalW(Item1->unescapedname, Item2->unescapedname);
 }
 
 void CRepositoryBrowser::SetSortArrow()
