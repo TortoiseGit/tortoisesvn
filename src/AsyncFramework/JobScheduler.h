@@ -350,7 +350,7 @@ private:
 
     /// this will be signalled when the last job is finished
 
-    CWaitableEvent empty;
+    CWaitableEvent emptyEvent;
 
     /// number of threads in \ref WaitForSomeJobs
 

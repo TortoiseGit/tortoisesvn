@@ -255,7 +255,7 @@ CJobScheduler::TJob CJobScheduler::AssignJob (SThreadInfo* info)
 
                 ++threads.unusedCount;
                 if (--threads.runningCount == 0)
-                    empty.Set();
+                    emptyEvent.Set();
 
                 break;
             }
@@ -398,7 +398,7 @@ void CJobScheduler::Schedule (IJob* job, bool transferOwnership)
     CCriticalSectionLock lock (mutex);
 
     if (queue.empty())
-        empty.Reset();
+        emptyEvent.Reset();
 
     queue.push (toAdd);
 
@@ -457,10 +457,10 @@ void CJobScheduler::WaitForEmptyQueue()
 
             // we will be woken up as soon as both containers are empty
 
-            empty.Reset();
+            emptyEvent.Reset();
         }
 
-        empty.WaitFor();
+        emptyEvent.WaitFor();
     }
 }
 
@@ -475,10 +475,10 @@ bool CJobScheduler::WaitForEmptyQueueOrTimeout(DWORD milliSeconds)
 
 			// we will be woken up as soon as both containers are empty
 
-			empty.Reset();
+			emptyEvent.Reset();
 		}
 
-		if (!empty.WaitForEndOrTimeout(milliSeconds))
+		if (!emptyEvent.WaitForEndOrTimeout(milliSeconds))
 			return false;
 	}
 	return true;
