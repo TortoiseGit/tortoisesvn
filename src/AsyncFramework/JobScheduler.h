@@ -415,10 +415,16 @@ public:
 
     void Schedule (IJob* job, bool transferOwnership);
 
-    /// wait for all current and follu-up jobs to terminate
+    /// wait for all current and follow-up jobs to terminate
 
 	void WaitForEmptyQueue();
 	
+    /// wait until either all current and follow-up jobs terminated
+    /// or the specified timeout has passed. Returns false in case
+    /// of a timeout.
+    /// Please note that in cases of high contention, internal
+    /// retries may cause the timeout to ellapse one than once.
+
 	bool WaitForEmptyQueueOrTimeout(DWORD milliSeconds);
 
     /// Wait for some jobs to be finished.

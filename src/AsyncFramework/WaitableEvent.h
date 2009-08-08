@@ -29,31 +29,33 @@ namespace async
 *
 * This is a more lightweight implementation than
 * \ref CWaitableEvent as the \ref event handle is
-* only allocated, if \ref WaitFor() requires it.
+* only allocated if \ref WaitFor() requires it.
 */
 
 class COneShotEvent
 {
 private:
 
-    // OS-specific event object
+    /// OS-specific event object
 
     HANDLE event;
     volatile LONG state;
 
 public:
 
-    // construction / destruction: manage event handle
+    /// construction / destruction: manage event handle
 
     COneShotEvent();
     ~COneShotEvent();
 
-    // eventing interface
+    /// eventing interface
 
     void Set();
     bool Test() const;
     void WaitFor();
+
 	/// returns false in case of a timeout
+
 	bool WaitForEndOrTimeout(DWORD milliSeconds);
 };
 
@@ -68,24 +70,26 @@ class CWaitableEvent
 {
 private:
 
-    // OS-specific event object
+    /// OS-specific event object
 
     HANDLE event;
 
 public:
 
-    // construction / destruction: manage event handle
+    /// construction / destruction: manage event handle
 
     CWaitableEvent();
     ~CWaitableEvent();
 
-    // eventing interface
+    /// eventing interface
 
     void Set();
     void Reset();
     bool Test() const;
     void WaitFor();
+
 	/// returns false in case of a timeout
+
 	bool WaitForEndOrTimeout(DWORD milliSeconds);
 };
 

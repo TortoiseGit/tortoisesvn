@@ -36,29 +36,31 @@ class CJobBase : public IJob
 {
 private:
 
-    // waitable event
+    /// waitable event
 
     COneShotEvent finished;
 
-    // TRUE until Execute() is called
+    /// TRUE until Execute() is called
 
     volatile LONG waiting;
 
 protected:
 
-    // base class is not intended for creation
+    /// base class is not intended for creation
 
     CJobBase(void);
 
-    // implement this in your job class
+    /// implement this in your job class
 
     virtual void InternalExecute() = 0;
 
 public:
 
+    /// asserts that the job has been finished
+
     virtual ~CJobBase(void);
 
-    // call this to put the job into the scheduler
+    /// call this to put the job into the scheduler
 
     virtual void Schedule (bool transferOwnership, CJobScheduler* scheduler);
 
@@ -70,7 +72,9 @@ public:
 
     virtual Status GetStatus() const;
     virtual void WaitUntilDone();
+
 	/// returns false in case of a timeout
+
 	virtual bool WaitUntilDoneOrTimeout(DWORD milliSeconds);
 };
 
