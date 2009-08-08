@@ -90,7 +90,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
 
 		REBARBANDINFO rbbi;
 		SecureZeroMemory(&rbbi, sizeof rbbi);
-		rbbi.cbSize = sizeof rbbi;
+		rbbi.cbSize = REBARBANDINFO_V6_SIZE;
 		rbbi.fMask  = RBBIM_TEXT | RBBIM_STYLE | RBBIM_CHILD | RBBIM_CHILDSIZE | RBBIM_SIZE;
 		rbbi.fStyle = RBBS_NOGRIPPER | RBBS_FIXEDBMP;
 
