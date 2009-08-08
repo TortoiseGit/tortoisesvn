@@ -7,6 +7,9 @@
 - CHG: In the revert dialog, only added files are checked by default.
        Renamed/moved files are not checked by default anymore. (Stefan)
 - CHG: The font used in the edit properties dialog is now fixed width. (Stefan)
+- CHG: Faster revision graph startup. (Stefan Fuhrmann)
+- CHG: Repository browser speedup by pre-loading contents. (Stefan Fuhrmann)
+- CHG: Log cache size and load performance improvements. (Stefan Fuhrmann)
 - NEW: new command line params for the log dialog
        to set the filter. (Stefan)
 - NEW: new autoclose setting for local operations only. (Stefan)
@@ -29,6 +32,8 @@
 
 Version 1.6.5
 - BUG: fixed access to freed memory. (Stefan)
+- BUG: Y coordinate in log statistics graph Repository had 
+       inconsistent scaling. (Stefan Fuhrmann)
 
 Version 1.6.4
 - CHG: Improved startup performance of the log cache. (Stefan)
