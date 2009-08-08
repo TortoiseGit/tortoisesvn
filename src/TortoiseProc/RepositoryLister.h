@@ -214,6 +214,10 @@ private:
     void CompactDumpster();
     void ClearDumpster();
 
+    /// parameter encoding utility
+
+    static CTSVNPath EscapeUrl (const CString& url);
+
     /// copy copying supported
 
     CRepositoryLister (const CRepositoryLister&);
@@ -231,7 +235,7 @@ public:
 
     /// we probably will call \ref GetList() on that \ref url soon
 
-    void Enqueue ( const CTSVNPath& url
+    void Enqueue ( const CString& url
                  , const CString& repoRoot
                  , const SVNRev& revision);
 
@@ -247,13 +251,13 @@ public:
     /// like \ref Refresh() but may only affect those nodes in the 
     /// sub-tree starting at the specified \ref url.
 
-    void RefreshSubTree (const SVNRev& revision, const CTSVNPath& url);
+    void RefreshSubTree (const SVNRev& revision, const CString& url);
 
     /// get an already stored query result, if available.
     /// Otherwise, get the list directly.
     /// \returns the error or an empty string
 
-    CString GetList ( const CTSVNPath& url
+    CString GetList ( const CString& url
                     , const CString& repoRoot
                     , const SVNRev& revision
                     , std::deque<CItem>& items);

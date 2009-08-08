@@ -328,21 +328,19 @@ void CRepositoryBrowser::InitRepo()
             ; path.GetLength() > serverEndPos
             ; path = path.Left (path.ReverseFind ('/')))
         {
-            CTSVNPath url (EscapeUrl (CTSVNPath (path)));
-            m_lister.Enqueue (url, m_strReposRoot, m_initialRev);
+            m_lister.Enqueue (path, m_strReposRoot, m_initialRev);
         }
     }
 
     // (try to) fetch the HEAD revision
 
-    CTSVNPath initialURL (EscapeUrl (CTSVNPath (m_InitialUrl)));
-    svn_revnum_t headRevision = GetHEADRevision (initialURL);
+    svn_revnum_t headRevision = GetHEADRevision (CTSVNPath (m_InitialUrl));
 
     // let's see whether the URL was a directory 
 
     std::deque<CItem> dummy;
     CString error 
-        = m_lister.GetList (initialURL, m_strReposRoot, m_initialRev, dummy);
+        = m_lister.GetList (m_InitialUrl, m_strReposRoot, m_initialRev, dummy);
 
     if (error.IsEmpty() && (headRevision >= 0))
     {
@@ -1104,8 +1102,10 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/, b
 	pTreeItem->has_child_folders = false;
 	m_bCancelled = false;
 
-    CTSVNPath url (EscapeUrl (CTSVNPath (pTreeItem->url)));
-    CString error = m_lister.GetList (url, m_strReposRoot, GetRevision(), pTreeItem->children);
+    CString error = m_lister.GetList ( pTreeItem->url
+                                     , m_strReposRoot
+                                     , GetRevision()
+                                     , pTreeItem->children);
     if (!error.IsEmpty())
 	{
 		// error during list()
@@ -1124,8 +1124,7 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/, b
             pTreeItem->has_child_folders = true;
             FindUrl (item.absolutepath);
 
-            CTSVNPath url (EscapeUrl (CTSVNPath (item.absolutepath)));
-            m_lister.Enqueue (url, m_strReposRoot, GetRevision());
+            m_lister.Enqueue (item.absolutepath, m_strReposRoot, GetRevision());
         }
     }
 

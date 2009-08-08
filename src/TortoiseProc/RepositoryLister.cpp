@@ -18,6 +18,8 @@
 //
 #include "stdafx.h"
 #include "RepositoryLister.h"
+#include "UnicodeUtils.h"
+#include "PathUtils.h"
 
 // callback from the SVN::List() method which stores all the information
 
@@ -173,6 +175,15 @@ void CRepositoryLister::ClearDumpster()
     CompactDumpster();
 }
 
+// parameter encoding utility
+
+CTSVNPath CRepositoryLister::EscapeUrl (const CString& url)
+{
+    CStringA prepUrl = CUnicodeUtils::GetUTF8 (CTSVNPath(url).GetSVNPathString());
+	prepUrl.Replace("%", "%25");
+	return CTSVNPath (CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(prepUrl)));
+}
+
 // simple construction
 
 CRepositoryLister::CRepositoryLister()
@@ -191,16 +202,18 @@ CRepositoryLister::~CRepositoryLister()
 // we probably will call \ref GetList() on that \ref url soon
 
 void CRepositoryLister::Enqueue 
-    ( const CTSVNPath& url
+    ( const CString& url
     , const CString& repoRoot
     , const SVNRev& revision)
 {
+    CTSVNPath escapedURL = EscapeUrl (url);
+
     async::CCriticalSectionLock lock (mutex);
 
-    TPathAndRev key (url, revision);
+    TPathAndRev key (escapedURL, revision);
     if (queryByPathAndRev.find (key) == queryByPathAndRev.end())
         queryByPathAndRev[key]
-            = new CQuery (url, repoRoot, revision, &scheduler);
+            = new CQuery (escapedURL, repoRoot, revision, &scheduler);
 }
 
 // don't return results from previous or still running requests
@@ -262,8 +275,10 @@ void CRepositoryLister::Refresh (const SVNRev& revision)
 
 void CRepositoryLister::RefreshSubTree 
     ( const SVNRev& revision
-    , const CTSVNPath& url)
+    , const CString& url)
 {
+    CTSVNPath escapedURL = EscapeUrl (url);
+
     async::CCriticalSectionLock lock (mutex);
 
     // move all HEAD queries for a specific revision the dumpster
@@ -273,8 +288,8 @@ void CRepositoryLister::RefreshSubTree
         ; )
     {
         if (   (iter->first.second == revision)
-            && (   (url == iter->first.first)
-                || url.IsAncestorOf (iter->first.first)))
+            && (   (escapedURL == iter->first.first)
+                || escapedURL.IsAncestorOf (iter->first.first)))
         {
             iter->second->Terminate();
             dumpster.push_back (iter->second);
@@ -295,17 +310,19 @@ void CRepositoryLister::RefreshSubTree
 // Otherwise, get the list directly
 
 CString CRepositoryLister::GetList 
-    ( const CTSVNPath& url
+    ( const CString& url
     , const CString& repoRoot
     , const SVNRev& revision
     , std::deque<CItem>& items)
 {
+    CTSVNPath escapedURL = EscapeUrl (url);
+
     async::CCriticalSectionLock lock (mutex);
 
     // lets see if there is already a suitable query that will
     // finish before the one that I could start right now
 
-    TPathAndRev key (url, revision);
+    TPathAndRev key (escapedURL, revision);
     TQueryByPathAndRev::iterator iter = queryByPathAndRev.find (key);
 
     if (   (iter != queryByPathAndRev.end()) 
@@ -317,7 +334,7 @@ CString CRepositoryLister::GetList
 
     // query (quasi-)synchronously using the default queue
 
-    CQuery query (url, repoRoot, revision, NULL);
+    CQuery query (escapedURL, repoRoot, revision, NULL);
 
     items = query.GetResult();
     return query.GetError();
