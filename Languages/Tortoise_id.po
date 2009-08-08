@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-08-01 12:09-0800\n"
+"PO-Revision-Date: 2009-08-08 11:00-0800\n"
 "Last-Translator: Evan Allrich <eallrich@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -131,6 +131,12 @@ msgstr ""
 msgid "%I64d Bytes transferred"
 msgstr "%I64d Byte ditransfer"
 
+# ID:563,
+#. Resource IDs: (357)
+#, c-format
+msgid "%I64d Bytes/s"
+msgstr "%I64d Bytes/s"
+
 # ID:357,
 #. Resource IDs: (357)
 #, c-format
@@ -147,12 +153,6 @@ msgstr "%d berkas dipilih, total %d berkas"
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
 msgstr "%d pengarang teraktif dengan paling sedikit %d komit (%d %%)"
-
-# ID:563,
-#. Resource IDs: (357)
-#, c-format
-msgid "%ld Bytes/s"
-msgstr "%ld Bytes/s"
 
 # ID:226,
 #. Resource IDs: (226)
@@ -1416,6 +1416,11 @@ msgstr "(dibuat)"
 #. Resource IDs: (276)
 msgid "(delete)"
 msgstr "(hapus)"
+
+# ID:13,
+#. Resource IDs: (214)
+msgid "(externals)"
+msgstr "(eksternal)"
 
 # ID:10,
 #. Resource IDs: (276)
@@ -5123,8 +5128,8 @@ msgstr "Nomor revisi tertinggi dalam tembolok"
 
 # Control-ID:1127,
 #. Resource IDs: (1127)
-msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
-msgstr "Petunjuk: Tekan F5 untuk menyegarkan subtree yang dipilih dan Ctrl-F5 untuk mengambil semua anaknya juga"
+msgid "Hint: Press F5 to refresh the selected subtree"
+msgstr "Petunjuk: Tekan F5 untuk menyegarkan subtree yang dipilih"
 
 #. Resource IDs: (16519)
 msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
@@ -7957,6 +7962,10 @@ msgstr "URL Repositori"
 msgid "Repository UUID:"
 msgstr "UUID Repositori:"
 
+#. Resource IDs: (106)
+msgid "Request cancelled by TSVN"
+msgstr "Permintaan dibatalkan oleh TSVN"
+
 # Control-ID:65535,
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
@@ -10626,6 +10635,10 @@ msgstr ""
 #. Resource IDs: (20)
 msgid "Unknown depth"
 msgstr "Kedalaman tak diketahui"
+
+#. Resource IDs: (106)
+msgid "Unknown failure in SVN::List"
+msgstr "Ada kegagalan yang tak diketahui dalam SVN::List"
 
 # ID:221,
 #. Resource IDs: (221, 230, 242)
