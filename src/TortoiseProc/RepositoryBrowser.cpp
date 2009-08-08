@@ -147,6 +147,20 @@ CRepositoryBrowser::~CRepositoryBrowser()
 
 void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* = false */)
 {
+    // remove old query results
+
+    if (hItem == NULL)
+    {
+        m_lister.Refresh (GetRevision());
+    }
+    else
+    {
+		CTreeItem * pTreeItem = (CTreeItem*)m_RepoTree.GetItemData(hItem);
+        m_lister.RefreshSubTree (GetRevision(), pTreeItem->url);
+    }
+
+    // remove nodes from tree view
+
 	HTREEITEM childItem;
 	if (m_RepoTree.ItemHasChildren(hItem))
 	{
@@ -1290,6 +1304,14 @@ void CRepositoryBrowser::OnInlineedit()
 void CRepositoryBrowser::OnRefresh()
 {
 	m_blockEvents = true;
+
+    HTREEITEM hItem = m_RepoTree.GetSelectedItem();
+    CTreeItem * pItem = (CTreeItem*)m_RepoTree.GetItemData (hItem);
+    if (pItem == NULL)
+        m_lister.Refresh (GetRevision());
+    else
+        m_lister.RefreshSubTree (GetRevision(), pItem->url);
+
 	RefreshNode(m_RepoTree.GetSelectedItem(), true, !!(GetKeyState(VK_CONTROL)&0x8000));
 	m_blockEvents = false;
 }
@@ -1928,6 +1950,8 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 					{
 						// mark the target as 'dirty'
 						pItem->children_fetched = false;
+                        m_lister.RefreshSubTree (GetRevision(), pItem->url);
+
 						if ((dwEffect == DROPEFFECT_MOVE)||(pItem->url.Compare(target.GetSVNPathString())==0))
 						{
 							// Refresh the current view
@@ -1981,6 +2005,9 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 					CTreeItem * pItem = (CTreeItem*)m_RepoTree.GetItemData(hSelected);
 					if (pItem)
 					{
+                        // don't access outdated query results
+                        m_lister.RefreshSubTree (GetRevision(), pItem->url);
+
 						if (pItem->url.Compare(target.GetSVNPathString())==0)
 						{
 							// Refresh the current view
