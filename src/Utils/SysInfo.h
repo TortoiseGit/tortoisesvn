@@ -32,10 +32,7 @@ public:
 	static SysInfo& Instance();
 	
 	DWORD			GetFullVersion() {return MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);}
-	bool			IsWin2k() {return (MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion) == 0x0500);}
-	bool			IsWin2kOrLater() {return (MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion) >= 0x0500);}
 	bool			IsXP() {return (MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion) == 0x0501);}
-	bool			IsXPorLater() {return (MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion) >= 0x0501);}
 	bool			IsVista() {return (MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion) == 0x0600);}
 	bool			IsVistaOrLater() {return (MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion) >= 0x0600);}
 private:

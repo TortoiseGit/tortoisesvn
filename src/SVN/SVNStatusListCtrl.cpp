@@ -2210,7 +2210,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 		ClientToScreen(&rect);
 		point = rect.CenterPoint();
 	}
-	if (!bInactiveItem && (selectedCount == 0) && (SysInfo::Instance().IsXPorLater()) && (IsGroupViewEnabled()))
+	if (!bInactiveItem && (selectedCount == 0) && IsGroupViewEnabled())
 	{
 		// nothing selected could mean the context menu is requested for
 		// a group header
@@ -2525,7 +2525,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				popup.AppendMenu(MF_SEPARATOR);
 				popup.AppendMenuIcon(IDSVNLC_COPY, IDS_STATUSLIST_CONTEXT_COPY, IDI_COPYCLIP);
 				popup.AppendMenuIcon(IDSVNLC_COPYEXT, IDS_STATUSLIST_CONTEXT_COPYEXT, IDI_COPYCLIP);
-				if ((m_dwContextMenus & SVNSLC_POPCHANGELISTS)&&(SysInfo::Instance().IsXPorLater())
+				if ((m_dwContextMenus & SVNSLC_POPCHANGELISTS)
 					&&(wcStatus != svn_wc_status_unversioned)&&(wcStatus != svn_wc_status_none))
 				{
 					popup.AppendMenu(MF_SEPARATOR);
@@ -3896,11 +3896,8 @@ void CSVNStatusListCtrl::OnContextMenuHeader(CWnd * pWnd, CPoint point)
 
 		// build control menu
 
-		if (SysInfo::Instance().IsXPorLater())
-		{
-			temp.LoadString(IDS_STATUSLIST_SHOWGROUPS);
-			popup.AppendMenu(IsGroupViewEnabled() ? uCheckedFlags : uUnCheckedFlags, columnCount, temp);
-		}
+		temp.LoadString(IDS_STATUSLIST_SHOWGROUPS);
+		popup.AppendMenu(IsGroupViewEnabled() ? uCheckedFlags : uUnCheckedFlags, columnCount, temp);
 
 		if (m_ColumnManager.AnyUnusedProperties())
 		{
