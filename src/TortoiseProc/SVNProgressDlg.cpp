@@ -2455,21 +2455,13 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
 			TRACE(_T("CFileException in Resolve!\n"));
 		}
 	}
+
+	UINT showRet = IDYES;	// default to yes
 	if (bMarkers)
 	{
-		if (CMessageBox::Show(m_hWnd, IDS_PROGRS_REVERTMARKERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
-		{
-			ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_RESOLVE)));
-			for (INT_PTR fileindex=0; fileindex<m_targetPathList.GetCount(); ++fileindex)
-			{
-				if (!Resolve(m_targetPathList[fileindex], svn_wc_conflict_choose_merged, true))
-				{
-					ReportSVNError();
-				}
-			}
-		}
+		showRet = CMessageBox::Show(m_hWnd, IDS_PROGRS_REVERTMARKERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION);
 	}
-	else
+	if (showRet == IDYES)
 	{
 		ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_RESOLVE)));
 		for (INT_PTR fileindex=0; fileindex<m_targetPathList.GetCount(); ++fileindex)
