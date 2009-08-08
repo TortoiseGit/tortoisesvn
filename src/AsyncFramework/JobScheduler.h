@@ -423,7 +423,7 @@ public:
     /// or the specified timeout has passed. Returns false in case
     /// of a timeout.
     /// Please note that in cases of high contention, internal
-    /// retries may cause the timeout to ellapse one than once.
+    /// retries may cause the timeout to elapse more than once.
 
 	bool WaitForEmptyQueueOrTimeout(DWORD milliSeconds);
 
