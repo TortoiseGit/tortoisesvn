@@ -1662,25 +1662,25 @@ svn_error_t* SVN::listReceiver(void* baton, const char* path,
 							   apr_pool_t * /*pool*/)
 {
 	SVN * svn = (SVN *)baton;
-	svn->ReportList(CUnicodeUtils::GetUnicode(path), 
-		dirent->kind,
-		dirent->size,
-		!!dirent->has_props,
-		dirent->created_rev,
-		dirent->time,
-		CUnicodeUtils::GetUnicode(dirent->last_author),
-		lock ? CUnicodeUtils::GetUnicode(lock->token) : CString(),
-		lock ? CUnicodeUtils::GetUnicode(lock->owner) : CString(),
-		lock ? CUnicodeUtils::GetUnicode(lock->comment) : CString(),
-		lock ? !!lock->is_dav_comment : false,
-		lock ? lock->creation_date : 0,
-		lock ? lock->expiration_date : 0,
-		CUnicodeUtils::GetUnicode(abs_path));
+    BOOL result = svn->ReportList(CUnicodeUtils::GetUnicode(path), 
+		                          dirent->kind,
+		                          dirent->size,
+		                          !!dirent->has_props,
+		                          dirent->created_rev,
+		                          dirent->time,
+		                          CUnicodeUtils::GetUnicode(dirent->last_author),
+		                          lock ? CUnicodeUtils::GetUnicode(lock->token) : CString(),
+		                          lock ? CUnicodeUtils::GetUnicode(lock->owner) : CString(),
+		                          lock ? CUnicodeUtils::GetUnicode(lock->comment) : CString(),
+		                          lock ? !!lock->is_dav_comment : false,
+		                          lock ? lock->creation_date : 0,
+		                          lock ? lock->expiration_date : 0,
+		                          CUnicodeUtils::GetUnicode(abs_path));
 	svn_error_t * err = NULL;
-	if (svn->Cancel())
+	if ((result == FALSE) || svn->Cancel())
 	{
 		CString temp;
-		temp.LoadString(IDS_SVN_USERCANCELLED);
+        temp.LoadString (result ? IDS_SVN_USERCANCELLED : IDS_ERR_ERROR);
 		err = svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(temp));
 	}
 	return err;
