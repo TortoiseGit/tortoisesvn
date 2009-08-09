@@ -277,14 +277,15 @@ public      :
 public      :
 
     BOOL SymEnumerateSymbols (IN DWORD_PTR          BaseOfDll,
-                              IN PSYM_ENUMSYMBOLS_CALLBACK
+                              IN PSYM_ENUMERATESYMBOLS_CALLBACK
                                                     EnumSymbolsCallback,
                               IN PVOID                     UserContext )
     {
-        return ( ::SymEnumerateSymbols ( m_hProcess          ,
-                                         BaseOfDll           ,
-                                         EnumSymbolsCallback ,
-                                         UserContext          ) ) ;
+        return ( ::SymEnumSymbols ( m_hProcess          ,
+                                    BaseOfDll           ,
+                                    NULL                ,
+                                    EnumSymbolsCallback ,
+                                    UserContext          ) ) ;
     }
 
     BOOL SymGetSymFromAddr ( IN  DWORD_PTR           dwAddr          ,
