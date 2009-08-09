@@ -380,8 +380,8 @@ CHuffmanEncoder::Encode (const BYTE* source, size_t byteCount)
 
 	// create buffer
 
-	DWORD targetSize = std::min<DWORD>( byteCount+MIN_HEADER_LENGTH
-                                      , CalculatePackedSize());
+	DWORD targetSize = std::min ( (DWORD)byteCount+MIN_HEADER_LENGTH
+                                , CalculatePackedSize());
 	std::auto_ptr<BYTE> buffer (new BYTE[targetSize]);
 
 	// fill it
