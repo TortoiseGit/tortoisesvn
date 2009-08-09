@@ -146,12 +146,19 @@ void CStringDictionary::Initialize()
 
 // construction / destruction
 
+#pragma warning (push)
+#pragma warning (disable:4355)
+
+// passing 'this' during construction is fine here
+
 CStringDictionary::CStringDictionary (void)
         : hashIndex (CHashFunction (this))
         , packedStringsStart (NULL)
 {
     Initialize();
 }
+
+#pragma warning (pop)
 
 CStringDictionary::~CStringDictionary (void)
 {

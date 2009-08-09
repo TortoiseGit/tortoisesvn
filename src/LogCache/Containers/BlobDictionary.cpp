@@ -150,12 +150,19 @@ void CBlobDictionary::Initialize()
 
 // construction / destruction
 
+#pragma warning (push)
+#pragma warning (disable:4355)
+
+// passing 'this' during construction is fine here
+
 CBlobDictionary::CBlobDictionary (void)
     : hashIndex (CHashFunction (this))
     , packedBlobsStart (NULL)
 {
     Initialize();
 }
+
+#pragma warning (pop)
 
 CBlobDictionary::~CBlobDictionary (void)
 {

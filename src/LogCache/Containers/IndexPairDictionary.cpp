@@ -44,10 +44,17 @@ CIndexPairDictionary::CHashFunction::CHashFunction
 
 // construction / destruction
 
+#pragma warning (push)
+#pragma warning (disable:4355)
+
+// passing 'this' during construction is fine here
+
 CIndexPairDictionary::CIndexPairDictionary(void)
 	: hashIndex (CHashFunction (this))
 {
 }
+
+#pragma warning (pop)
 
 CIndexPairDictionary::~CIndexPairDictionary(void)
 {
