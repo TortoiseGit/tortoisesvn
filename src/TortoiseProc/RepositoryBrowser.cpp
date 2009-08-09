@@ -1301,7 +1301,13 @@ void CRepositoryBrowser::OnInlineedit()
 
 void CRepositoryBrowser::OnRefresh()
 {
-	m_blockEvents = true;
+    CWaitCursorEx waitCursor;
+
+    m_blockEvents = true;
+
+    bool fullPrefetch = !!(GetKeyState(VK_CONTROL) & 0x8000);
+
+    // invalidate the cache
 
     HTREEITEM hItem = m_RepoTree.GetSelectedItem();
     CTreeItem * pItem = (CTreeItem*)m_RepoTree.GetItemData (hItem);
@@ -1310,8 +1316,49 @@ void CRepositoryBrowser::OnRefresh()
     else
         m_lister.RefreshSubTree (GetRevision(), pItem->url);
 
-	RefreshNode(m_RepoTree.GetSelectedItem(), true);
-	m_blockEvents = false;
+    // prefetch the whole sub-tree?
+
+    if (fullPrefetch && (pItem != NULL))
+    {
+        // initialize crawler with current tree node
+
+        std::deque<CString> urls;
+        urls.push_back (pItem->url);
+        m_lister.Enqueue (pItem->url, m_strReposRoot, GetRevision());
+
+        // breadth-first
+
+        while (!urls.empty())
+        {
+            // extract next url
+
+            CString url = urls.front();
+            urls.pop_front();
+
+            // enqueue sub-nodes for listing
+
+            std::deque<CItem> children;
+            m_lister.GetList (url, m_strReposRoot, GetRevision(), children);
+
+            for (size_t i = 0, count = children.size(); i < count; ++i)
+            {
+                const CItem& item = children[i];
+                const CString& url = item.absolutepath;
+
+                if (item.kind == svn_node_dir)
+                {
+                    urls.push_back (url);
+                    m_lister.Enqueue (url, m_strReposRoot, GetRevision());
+                }
+            }
+        }
+    }
+
+    // refresh the current node
+
+    RefreshNode(m_RepoTree.GetSelectedItem(), true);
+
+    m_blockEvents = false;
 }
 
 void CRepositoryBrowser::OnTvnSelchangedRepotree(NMHDR *pNMHDR, LRESULT *pResult)
