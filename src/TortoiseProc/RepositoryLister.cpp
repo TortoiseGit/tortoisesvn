@@ -40,14 +40,20 @@ BOOL CRepositoryLister::CQuery::ReportList
     , apr_time_t lock_expirationdate
     , const CString& absolutepath)
 {
+    // skip the parent path
+
     if (path.IsEmpty())
-        return TRUE;
+    {
+        // terminate with an error if this was actually a file
 
-	int slashpos = path.ReverseFind('/');
+        return kind == svn_node_dir ? TRUE : FALSE;
+    }
+
+    // store dir entry
+
 	bool abspath_has_slash = (absolutepath.GetAt(absolutepath.GetLength()-1) == '/');
-
     CItem entry
-        ( path.Mid (slashpos+1)
+        ( path
         , kind
         , size
         , has_props

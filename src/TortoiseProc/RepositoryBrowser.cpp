@@ -338,6 +338,22 @@ void CRepositoryBrowser::InitRepo()
     CString error 
         = m_lister.GetList (m_InitialUrl, m_strReposRoot, m_initialRev, dummy);
 
+    // the only way CQuery::List will return the following error
+    // is by calling it with a file path instead of a dir path
+
+    CString wasFileError;
+    wasFileError.LoadStringW (IDS_ERR_ERROR);
+
+    // maybe, we already know that this was a (valid) file path
+
+    if (error == wasFileError)
+    {
+	    m_InitialUrl = m_InitialUrl.Left (m_InitialUrl.ReverseFind ('/'));
+        error = m_lister.GetList (m_InitialUrl, m_strReposRoot, m_initialRev, dummy);
+    }
+
+    // did our optimistic strategy work?
+
     if (error.IsEmpty() && (headRevision >= 0))
     {
         // optimistic strategy was successful
