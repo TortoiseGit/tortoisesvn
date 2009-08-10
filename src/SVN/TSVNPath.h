@@ -184,7 +184,7 @@ public:
 	/**
 	 * Get the file size. Returns zero for directories or files that don't exist.
 	 */
-	__int64 CTSVNPath::GetFileSize() const;
+	__int64 GetFileSize() const;
 
 	
 	bool IsReadOnly() const;
