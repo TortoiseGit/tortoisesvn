@@ -170,6 +170,14 @@ protected:
 	/// converts an array of column widths to a string
 	CString WidthArrayToString(int WidthArray[]);
 
+    /// remove items for the associated URL sub-tree
+    /// from the \ref m_lister cache.
+    void InvalidateData (HTREEITEM node);
+    void InvalidateData (HTREEITEM node, const SVNRev& revision);
+
+    /// assume that the \ref urls may have become invalid
+    /// and reset the the cache accordingly
+    void InvalidateDataParents (const CTSVNPathList& urls);
 
 	static UINT InitThreadEntry(LPVOID pVoid);
 	UINT InitThread();

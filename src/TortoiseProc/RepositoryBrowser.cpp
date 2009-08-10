@@ -129,18 +129,6 @@ CRepositoryBrowser::~CRepositoryBrowser()
 
 void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* = false */)
 {
-    // remove old query results
-
-    if (hItem == NULL)
-    {
-        m_lister.Refresh (GetRevision());
-    }
-    else
-    {
-		CTreeItem * pTreeItem = (CTreeItem*)m_RepoTree.GetItemData(hItem);
-        m_lister.RefreshSubTree (GetRevision(), pTreeItem->url);
-    }
-
     // remove nodes from tree view
 
 	HTREEITEM childItem;
@@ -1309,15 +1297,12 @@ void CRepositoryBrowser::OnRefresh()
 
     // invalidate the cache
 
-    HTREEITEM hItem = m_RepoTree.GetSelectedItem();
-    CTreeItem * pItem = (CTreeItem*)m_RepoTree.GetItemData (hItem);
-    if (pItem == NULL)
-        m_lister.Refresh (GetRevision());
-    else
-        m_lister.RefreshSubTree (GetRevision(), pItem->url);
+    HTREEITEM hSelected = m_RepoTree.GetSelectedItem();
+    InvalidateData (hSelected);
 
     // prefetch the whole sub-tree?
 
+    CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData (hSelected);
     if (fullPrefetch && (pItem != NULL))
     {
         // initialize crawler with current tree node
@@ -1326,7 +1311,9 @@ void CRepositoryBrowser::OnRefresh()
         urls.push_back (pItem->url);
         m_lister.Enqueue (pItem->url, m_strReposRoot, GetRevision());
 
-        // breadth-first
+        // breadth-first. 
+        // This should maximize the interval between enqueueing 
+        // the request and fetching its result
 
         while (!urls.empty())
         {
@@ -1622,6 +1609,8 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
 			return;
 		}
 		*pResult = TRUE;
+
+        InvalidateData (m_RepoTree.GetParentItem (m_RepoTree.GetSelectedItem()));
 		RefreshNode(m_RepoTree.GetSelectedItem(), true);
 	}
 }
@@ -1663,7 +1652,10 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
 			CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return;
 		}
-		*pResult = TRUE;
+
+        InvalidateData (m_RepoTree.GetParentItem (hSelectedItem));
+
+        *pResult = TRUE;
 		if (pItem->url.Compare(m_barRepository.GetCurrentUrl()) == 0)
 		{
 			m_barRepository.ShowUrl(targetUrl.GetSVNPathString(), m_barRepository.GetCurrentRev());
@@ -1942,6 +1934,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 			{
 				// mark the target as dirty
 				HTREEITEM hTarget = FindUrl(target.GetSVNPathString(), false);
+                InvalidateData (hTarget);
 				if (hTarget)
 				{
 					CTreeItem * pItem = (CTreeItem*)m_RepoTree.GetItemData(hTarget);
@@ -1964,6 +1957,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 					for (int i=0; i<pathlist.GetCount(); ++i)
 					{
 						HTREEITEM hSource = FindUrl(pathlist[i].GetSVNPathString(), false);
+                        InvalidateData (hSource);
 						if (hSource)
 						{
 							CTreeItem * pItem = (CTreeItem*)m_RepoTree.GetItemData(hSource);
@@ -1980,6 +1974,8 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 				// if the copy/move operation was to the currently shown url,
 				// update the current view. Otherwise mark the target URL as 'not fetched'.
 				HTREEITEM hSelected = m_RepoTree.GetSelectedItem();
+                InvalidateData (hSelected);
+
 				if (hSelected)
 				{
 					CTreeItem * pItem = (CTreeItem*)m_RepoTree.GetItemData(hSelected);
@@ -1987,8 +1983,6 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 					{
 						// mark the target as 'dirty'
 						pItem->children_fetched = false;
-                        m_lister.RefreshSubTree (GetRevision(), pItem->url);
-
 						if ((dwEffect == DROPEFFECT_MOVE)||(pItem->url.Compare(target.GetSVNPathString())==0))
 						{
 							// Refresh the current view
@@ -2037,14 +2031,13 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 				// if the import operation was to the currently shown url,
 				// update the current view. Otherwise mark the target URL as 'not fetched'.
 				HTREEITEM hSelected = m_RepoTree.GetSelectedItem();
+                InvalidateData (hSelected);
 				if (hSelected)
 				{
 					CTreeItem * pItem = (CTreeItem*)m_RepoTree.GetItemData(hSelected);
 					if (pItem)
 					{
                         // don't access outdated query results
-                        m_lister.RefreshSubTree (GetRevision(), pItem->url);
-
 						if (pItem->url.Compare(target.GetSVNPathString())==0)
 						{
 							// Refresh the current view
@@ -2657,6 +2650,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				input.SetActionText(hint);
 				if (input.DoModal() == IDOK)
 				{
+                    InvalidateDataParents (urlList);
+
 					if (!Remove(urlListEscaped, true, false, input.GetLogMessage()))
 					{
 						wait_cursor.Hide();
@@ -2681,6 +2676,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					return;
 				}
+                InvalidateData (m_RepoTree.GetSelectedItem());
 				RefreshNode(m_RepoTree.GetSelectedItem(), true);
 			}
 			break;
@@ -2702,6 +2698,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					input.SetActionText(sHint);
 					if (input.DoModal() == IDOK)
 					{
+                        InvalidateDataParents (urlList);
+
 						CProgressDlg progDlg;
 						progDlg.SetTitle(IDS_APPNAME);
 						CString sInfoLine;
@@ -2746,6 +2744,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					input.SetActionText(sHint);
 					if (input.DoModal() == IDOK)
 					{
+                        InvalidateDataParents (urlList);
+
 						CProgressDlg progDlg;
 						progDlg.SetTitle(IDS_APPNAME);
 						CString sInfoLine;
@@ -2822,6 +2822,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					}
 					if (input.DoModal() == IDOK)
 					{
+                        InvalidateDataParents (urlList);
+
 						if (!Copy(urlListEscaped, CTSVNPath(dlg.m_name), GetRevision(), GetRevision(), input.GetLogMessage()))
 						{
 							wait_cursor.Hide();
@@ -2883,6 +2885,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					input.SetActionText(sHint);
 					if (input.DoModal() == IDOK)
 					{
+                        InvalidateDataParents (urlList);
+
 						// when creating the new folder, also trim any whitespace chars from it
 						if (!MakeDir(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(urlList[0].GetSVNPathString()+_T("/")+dlg.m_name.Trim())))), input.GetLogMessage(), true))
 						{
@@ -3100,4 +3104,26 @@ void CRepositoryBrowser::SaveColumnWidths(bool bSaveToRegistry /* = false */)
 	}
 }
 
+void CRepositoryBrowser::InvalidateData (HTREEITEM node)
+{
+    InvalidateData (node, GetRevision());
+}
 
+void CRepositoryBrowser::InvalidateData (HTREEITEM node, const SVNRev& revision)
+{
+    CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData (node);
+    if (pItem == NULL)
+        m_lister.Refresh (revision);
+    else
+        m_lister.RefreshSubTree (revision, pItem->url);
+}
+
+void CRepositoryBrowser::InvalidateDataParents (const CTSVNPathList& urls)
+{
+    SVNRev head (SVNRev::REV_HEAD);
+    for (int i = 0, count = urls.GetCount(); i < count; ++i)
+    {
+        const CString& url = urls[i].GetSVNPathString();
+        InvalidateData (m_RepoTree.GetParentItem (FindUrl (url, false)), head);
+    }
+}
