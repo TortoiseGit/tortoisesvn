@@ -19,7 +19,7 @@
 #include "StdAfx.h"
 #include "resource.h"			//if you defined some IDS_MSGBOX_xxxx this include is needed!
 #include "messagebox.h"
-#include ".\messagebox.h"
+#include "SysInfo.h"
 
 
 CMessageBox::CMessageBox(void)
@@ -432,6 +432,10 @@ UINT CMessageBox::GoModal(CWnd * pWnd, const CString& title, const CString& msg,
 {
 	NONCLIENTMETRICS ncm;
 	ncm.cbSize = sizeof(NONCLIENTMETRICS);
+	if (!SysInfo::Instance().IsVistaOrLater())
+	{
+		ncm.cbSize -= sizeof(int);	// subtract the size of the iPaddedBorderWidth member which is not available on XP
+	}
 	VERIFY(SystemParametersInfo(SPI_GETNONCLIENTMETRICS, sizeof(NONCLIENTMETRICS), &ncm, 0));
     memcpy(&m_LogFont, &(ncm.lfMessageFont), sizeof(LOGFONT));
 
