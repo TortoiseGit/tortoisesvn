@@ -194,7 +194,7 @@ CTSVNPath CRepositoryLister::EscapeUrl (const CString& url)
 // simple construction
 
 CRepositoryLister::CRepositoryLister()
-    : scheduler (8, 0, true)
+    : scheduler (32, 0, true)
 {
 }
 
