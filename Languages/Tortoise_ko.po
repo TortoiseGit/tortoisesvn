@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-08-07 21:16+0900\n"
+"PO-Revision-Date: 2009-08-10 22:19+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6659,6 +6659,10 @@ msgstr "저장소 URL"
 msgid "Repository UUID:"
 msgstr "저장소 UUID:"
 
+#. Resource IDs: (106)
+msgid "Request cancelled by TSVN"
+msgstr "TSVN에 의해 취소된 요청"
+
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
 msgstr "사용자명과 암호를 요구합니다."
@@ -8928,6 +8932,10 @@ msgstr ""
 #. Resource IDs: (20)
 msgid "Unknown depth"
 msgstr "알 수 없는 깊이"
+
+#. Resource IDs: (106)
+msgid "Unknown failure in SVN::List"
+msgstr "SVN::List에서 알 수 없는 실패"
 
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
