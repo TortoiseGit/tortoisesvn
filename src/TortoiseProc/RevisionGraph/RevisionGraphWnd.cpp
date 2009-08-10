@@ -741,7 +741,7 @@ CString CRevisionGraphWnd::DisplayableText ( const CString& wholeText
             if (nextPos2 < 0)
                 break;
 
-            line.Delete (pos+1, line.GetLength() - pos-1);
+            line.Delete (nextPos2+1, line.GetLength() - pos-1);
             size = dc->GetTextExtent (line);
         }
 
