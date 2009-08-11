@@ -417,7 +417,7 @@ HRESULT LoadTypeLib(HINSTANCE hInstTypeLib, LPCOLESTR lpszIndex, BSTR* pbstrPath
 		lstrcat(szModule, OLE2CT(lpszIndex));
 	LPOLESTR lpszModule = T2OLE(szModule);
 	HRESULT hr = ::LoadTypeLib(lpszModule, ppTypeLib);
-	if (!SUCCEEDED(hr))
+	if (FAILED(hr))
 	{
 		// typelib not in module, try <module>.tlb instead
 		lstrcpy(lpszExt, _T(".tlb"));
