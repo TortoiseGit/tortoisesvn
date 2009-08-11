@@ -44,6 +44,10 @@ private:
 
     volatile LONG waiting;
 
+    /// if set, we should not run at all or at least try to terminate asap
+
+    volatile LONG terminated;
+
 protected:
 
     /// base class is not intended for creation
@@ -68,7 +72,7 @@ public:
 
     virtual void Execute();
 
-    // may be called by other (observing) threads
+    /// may be called by other (observing) threads
 
     virtual Status GetStatus() const;
     virtual void WaitUntilDone();
@@ -76,6 +80,19 @@ public:
 	/// returns false in case of a timeout
 
 	virtual bool WaitUntilDoneOrTimeout(DWORD milliSeconds);
+
+    /// request early termination. 
+    /// Will even prevent execution if not yet started.
+    /// Execution will still finish 'successfully', i.e
+    /// results in \ref IJob::done state.
+
+    virtual void Terminate();
+
+    /// \returns true if termination has been requested.
+    /// Please note that execution may still be ongoing
+    /// despite the termination request.
+
+    virtual bool HasBeenTerminated() const;
 };
 
 }

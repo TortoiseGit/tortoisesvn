@@ -29,6 +29,7 @@ namespace async
 
 CJobBase::CJobBase(void)
     : waiting (TRUE)
+    , terminated (FALSE)
 {
 }
 
@@ -56,7 +57,9 @@ void CJobBase::Execute()
     assert (!finished.Test());
     InterlockedExchange (&waiting, FALSE); 
 
-    InternalExecute();
+    if (terminated == FALSE)
+        InternalExecute();
+
     finished.Set();
 }
 
@@ -78,6 +81,18 @@ void CJobBase::WaitUntilDone()
 bool CJobBase::WaitUntilDoneOrTimeout(DWORD milliSeconds)
 {
 	return finished.WaitForEndOrTimeout(milliSeconds);
+}
+
+// handle early termination
+
+void CJobBase::Terminate()
+{
+    InterlockedExchange (&terminated, TRUE);
+}
+
+bool CJobBase::HasBeenTerminated() const
+{
+    return terminated == TRUE;
 }
 
 }
