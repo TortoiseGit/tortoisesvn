@@ -2716,7 +2716,7 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
 	if ((pSVN->progress_lastTicks + 1000) < ticks)
 	{
 		double divby = (double(ticks - pSVN->progress_lastTicks)/1000.0);
-		if (divby == 0)
+		if (divby < 0.0001)
 			divby = 1;
 		pSVN->m_SVNProgressMSG.overall_total = pSVN->progress_total;
 		pSVN->m_SVNProgressMSG.progress = progress;
@@ -2728,8 +2728,15 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
 			average += *it;
 		}
 		average = apr_off_t(double(average) / divby);
+        if (average >= 0x100000000)
+        {
+            // it seems that sometimes we get ridiculous numbers here.
+            // Anyone *really* having more than 4GB/sec throughput?
+            average = 0;
+        }
+
 		pSVN->m_SVNProgressMSG.BytesPerSecond = average;
-		if (average < 1024)
+		if (average < 1024i64)
 			pSVN->m_SVNProgressMSG.SpeedString.Format(IDS_SVN_PROGRESS_BYTES_SEC, average);
 		else
 		{
