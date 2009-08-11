@@ -37,7 +37,7 @@ static char THIS_FILE[] = __FILE__;
 #define GAP_PIXELS								  6			// Better if an even value.
 #define LEGEND_COLOR_BAR_WIDTH_PIXELS			 50			// Width of color bar.
 #define LEGEND_COLOR_BAR_GAP_PIXELS				  1			// Space between color bars.
-#define Y_AXIS_MAX_TICK_COUNT					  5			// How many ticks on y axis.
+#define Y_AXIS_TICK_COUNT_TARGET		          5			// How many ticks should be there on the y axis.
 #define MIN_FONT_SIZE							 70			// The minimum font-size in pt*10.
 #define LEGEND_VISIBILITY_THRESHOLD				300			// The width of the graph in pixels when the legend gets hidden.
 
@@ -974,19 +974,29 @@ void MyGraph::DrawAxes(CDC& dc) const
 	VERIFY(dc.TextOut(m_ptOrigin.x + (m_nXAxisWidth - sizXLabel.cx) / 2,
 		m_rcGraph.bottom - GAP_PIXELS - sizXLabel.cy, m_sXAxisLabel));
 
-	// We hardwire TITLE_DIVISOR y-axis ticks here for simplicity.
+	// chose suitable tick step (1, 2, 5, 10, 20, 50, etc.)
 	int nMaxDataValue(GetMaxDataValue());
-	int nTickStep(nMaxDataValue / min(Y_AXIS_MAX_TICK_COUNT, nMaxDataValue));
+    int nTickStep = 1;
+    while (10 * nTickStep * Y_AXIS_TICK_COUNT_TARGET <= nMaxDataValue)
+        nTickStep *= 10;
+
+    if (5 * nTickStep * Y_AXIS_TICK_COUNT_TARGET <= nMaxDataValue)
+        nTickStep *= 5;
+    if (2 * nTickStep * Y_AXIS_TICK_COUNT_TARGET <= nMaxDataValue)
+        nTickStep *= 2;
+    
+	// We hardwire TITLE_DIVISOR y-axis ticks here for simplicity.
 	int nTickCount(nMaxDataValue / nTickStep);
-	int nTickSpace(m_nYAxisHeight * nTickStep / nMaxDataValue);
+	double tickSpace = (double)m_nYAxisHeight * nTickStep / (double)nMaxDataValue;
 
 	// create tick label font and set it in the device context
 	CFont fontTickLabels;
 	VERIFY(fontTickLabels.CreatePointFont(m_nAxisTickLabelHeight, _T("Arial"), &dc));
 	VERIFY(dc.SelectObject(&fontTickLabels));
 
-	for (int nTick = 0; nTick < nTickCount; ++nTick) {
-		int nTickYLocation(m_ptOrigin.y - (nTickSpace * (nTick + 1)));
+	for (int nTick = 0; nTick < nTickCount; ++nTick) 
+    {
+		int nTickYLocation = static_cast<int>(m_ptOrigin.y - tickSpace * (nTick + 1) + 0.5);
 		dc.MoveTo(m_ptOrigin.x - TICK_PIXELS, nTickYLocation);
 		VERIFY(dc.LineTo(m_ptOrigin.x + TICK_PIXELS, nTickYLocation));
 
