@@ -304,7 +304,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 	return SVN_NO_ERROR;
 }
 
-svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, void *baton, const char * /*realm*/, svn_boolean_t /*may_save*/, apr_pool_t *pool)
+svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, void *baton, const char * realm, svn_boolean_t /*may_save*/, apr_pool_t *pool)
 {
 	SVNPrompt * svn = (SVNPrompt *)baton;
 	const char *cert_file = NULL;
@@ -352,6 +352,29 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 		*cred = (svn_auth_cred_ssl_client_cert_t*)apr_pcalloc (pool, sizeof (**cred));
 		(*cred)->cert_file = cert_file;
 		(*cred)->may_save = ((ofn.Flags & OFN_READONLY)!=0);
+
+		// the svn library doesn't have a save_credentials() function for cert files
+		// (yet?). It would get implemented in subversion\libsvn_subr\ssl_client_cert_providers.c
+		// 
+		// We do the saving here ourselves (until subversion implements its own saving)
+		if ((*cred)->may_save)
+		{
+			CString regpath = _T("Software\\tigris.org\\Subversion\\Servers\\");
+			CString groups = regpath;
+			groups += _T("groups\\");
+			CString server = CString(realm);
+			int f1 = server.Find('<')+9;
+			int len = server.Find(':', 10)-f1;
+			server = server.Mid(f1, len);
+			svn->m_server = server;
+			groups += server;
+			CRegString server_groups = CRegString(groups);
+			server_groups = server;
+			regpath += server;
+			regpath += _T("\\ssl-client-cert-file");
+			CRegString client_cert_filepath_reg = CRegString(regpath);
+			client_cert_filepath_reg = filename;
+		}
 	}
 	else
 		*cred = NULL;
