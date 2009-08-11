@@ -37,6 +37,7 @@ public:
 	// construction
 
 	SVNError (svn_errno_t code, const CStringA& message);
+	explicit SVNError (svn_error_t* error);
 	explicit SVNError (const svn_error_t* error);
 
 	// access internal info

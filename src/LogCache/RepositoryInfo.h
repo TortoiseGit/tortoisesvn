@@ -244,7 +244,7 @@ public:
 
     /// access to the result of the last SVN operation
 
-    svn_error_t* GetLastError() const;
+    const svn_error_t* GetLastError() const;
 
     /// construct the dump file name
 

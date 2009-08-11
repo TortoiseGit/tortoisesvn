@@ -672,7 +672,7 @@ SVN& CRepositoryInfo::GetSVN() const
 
 // access to the result of the last SVN operation
 
-svn_error_t* CRepositoryInfo::GetLastError() const
+const svn_error_t* CRepositoryInfo::GetLastError() const
 {
     return svn.Err;
 }
