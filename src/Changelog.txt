@@ -36,6 +36,9 @@ Version 1.6.5
 - BUG: Y coordinate in log statistics graph Repository had 
        inconsistent scaling. (Stefan Fuhrmann)
 - BUG: the ssl certificate files weren't saved. (Stefan)
+- BUG: The language for the dialogs was always in English on
+       Win7 even if a language pack was installed and the
+       language setting changed. (Stefan)
 
 Version 1.6.4
 - CHG: Improved startup performance of the log cache. (Stefan)
