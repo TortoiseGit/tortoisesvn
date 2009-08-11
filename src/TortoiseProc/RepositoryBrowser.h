@@ -18,7 +18,6 @@
 //
 #pragma once
 
-#include "resource.h"
 #include "TSVNPath.h"
 #include "RepositoryBar.h"
 #include "StandAloneDlg.h"

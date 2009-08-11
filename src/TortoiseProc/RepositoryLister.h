@@ -18,21 +18,11 @@
 //
 #pragma once
 
-#include "resource.h"
 #include "TSVNPath.h"
 #include "SVN.h"
 
 #include "JobBase.h"
 #include "JobScheduler.h"
-
-#define REPOBROWSER_CTRL_MIN_WIDTH	20
-#define REPOBROWSER_FETCHTIMER		101
-
-using namespace std;
-
-class CInputLogDlg;
-class CTreeDropTarget;
-class CListDropTarget;
 
 /**
  * \ingroup TortoiseProc
