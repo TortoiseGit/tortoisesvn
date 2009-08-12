@@ -206,6 +206,7 @@ private:
 
 	int					m_nIconFolder;
 	int					m_nOpenIconFolder;
+	int					m_nExternalOvl;
 
 	volatile bool		m_blockEvents;
 

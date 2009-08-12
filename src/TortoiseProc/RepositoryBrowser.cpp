@@ -51,6 +51,8 @@
 #include "SysInfo.h"
 #include "Shlwapi.h"
 
+#define OVERLAY_EXTERNAL		1
+
 enum RepoBrowserContextMenuCommands
 {
 	// needs to start with 1, since 0 is the return value if *nothing* is clicked on in the context menu
@@ -207,6 +209,9 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	GetWindowText(m_origDlgTitle);
 
 	m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_REPOBROWSER));
+
+	m_nExternalOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_EXTERNALOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+	SYS_IMAGE_LIST().SetOverlayImage(m_nExternalOvl, OVERLAY_EXTERNAL);
 
 	m_cnrRepositoryBar.SubclassDlgItem(IDC_REPOS_BAR_CNR, this);
 	m_barRepository.Create(&m_cnrRepositoryBar, 12345);
@@ -911,6 +916,9 @@ void CRepositoryBrowser::FillList(deque<CItem> * pItems)
 		else
 			icon_idx = SYS_IMAGE_LIST().GetFileIconIndex(it->path);
 		int index = m_RepoList.InsertItem(nCount, it->path, icon_idx);
+
+		if (it->is_external)
+			m_RepoList.SetItemState(index, INDEXTOOVERLAYMASK(OVERLAY_EXTERNAL), LVIS_OVERLAYMASK);
 
 		// extension
 		temp = CPathUtils::GetFileExtFromPath(it->path);
