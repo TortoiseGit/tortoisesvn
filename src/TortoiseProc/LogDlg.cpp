@@ -350,7 +350,7 @@ BOOL CLogDlg::OnInitDialog()
 	temp.LoadString(IDS_LOG_MESSAGE);
 	m_LogList.InsertColumn(m_bShowBugtraqColumn ? 5 : 4, temp);
 	m_LogList.SetRedraw(false);
-	ResizeAllListCtrlCols();
+	ResizeAllListCtrlCols(true);
 	m_LogList.SetRedraw(true);
 
 	m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
@@ -1212,7 +1212,7 @@ void CLogDlg::LogThread()
 	InterlockedExchange(&m_bLogThreadRunning, FALSE);
 	m_LogList.RedrawItems(0, (int)m_arShownList.GetCount());
 	m_LogList.SetRedraw(false);
-	ResizeAllListCtrlCols();
+	ResizeAllListCtrlCols(true);
 	m_LogList.SetRedraw(true);
 	if ( m_pStoreSelection )
 	{
@@ -2972,7 +2972,7 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	m_LogList.SetItemCountEx(ShownCountWithStopped());
 	m_LogList.RedrawItems(0, ShownCountWithStopped());
 	m_LogList.SetRedraw(false);
-	ResizeAllListCtrlCols();
+	ResizeAllListCtrlCols(true);
 	m_LogList.SetRedraw(true);
 	theApp.DoWaitCursor(-1);
 	GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
@@ -3226,7 +3226,7 @@ void CLogDlg::OnEnChangeSearchedit()
 		m_LogList.SetItemCountEx(ShownCountWithStopped());
 		m_LogList.RedrawItems(0, ShownCountWithStopped());
 		m_LogList.SetRedraw(false);
-		ResizeAllListCtrlCols();
+		ResizeAllListCtrlCols(true);
 		m_LogList.SetRedraw(true);
 		theApp.DoWaitCursor(-1);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
@@ -3481,7 +3481,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		m_LogList.SetItemCountEx(ShownCountWithStopped());
 		m_LogList.RedrawItems(0, ShownCountWithStopped());
 		m_LogList.SetRedraw(false);
-		ResizeAllListCtrlCols();
+		ResizeAllListCtrlCols(true);
 		m_LogList.SetRedraw(true);
 		m_LogList.Invalidate();
 		if ( m_LogList.GetItemCount()==1 )
@@ -3810,7 +3810,7 @@ int CLogDlg::SortCompare(const void * pElem1, const void * pElem2)
 	return 0;
 }
 
-void CLogDlg::ResizeAllListCtrlCols()
+void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
 {
 	const int nMinimumWidth = ICONITEMBORDER+16*4;
 	int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
@@ -3819,6 +3819,13 @@ void CLogDlg::ResizeAllListCtrlCols()
 	CHeaderCtrl * pHdrCtrl = (CHeaderCtrl*)(m_LogList.GetDlgItem(0));
 	if (pHdrCtrl)
 	{
+		int startRow = 0;
+		int endRow = nItemCount;
+		if (bOnlyVisible)
+		{
+			startRow = m_LogList.GetTopIndex();
+			endRow = startRow + m_LogList.GetCountPerPage();
+		}
 		for (int col = 0; col <= maxcol; col++)
 		{
 			HDITEM hdi = {0};
@@ -3827,7 +3834,7 @@ void CLogDlg::ResizeAllListCtrlCols()
 			hdi.cchTextMax = sizeof(textbuf);
 			pHdrCtrl->GetItem(col, &hdi);
 			int cx = m_LogList.GetStringWidth(hdi.pszText)+20; // 20 pixels for col separator and margin
-			for (int index = 0; index<nItemCount; ++index)
+			for (int index = startRow; index<endRow; ++index)
 			{
 				// get the width of the string and add 14 pixels for the column separator and margins
 				int linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText(index, col)) + 14;
