@@ -2252,8 +2252,13 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 			m_options & ProgOptForce ? ((LPCTSTR)_T(", ") + sForce) : _T(""));
 		ReportCmd(sCmdInfo);
 
+		SVNRev firstRevOfRange;
+		if (m_revisionArray.GetCount())
+		{
+			firstRevOfRange = m_revisionArray[0].GetStartRevision();
+		}
 		if (!PegMerge(m_url, m_revisionArray, 
-			m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? SVNRev::REV_HEAD : SVNRev(SVNRev::REV_WC)),
+			m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? firstRevOfRange : SVNRev(SVNRev::REV_WC)),
 			m_targetPathList[0], !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
 		{
 			if (m_ProgList.GetItemCount()>1)
