@@ -28,6 +28,18 @@
 
 /**
  * \ingroup TortoiseProc
+ * structure that contains all information necessary to access a repository.
+ */
+
+struct SRepositoryInfo
+{
+    CString root;
+    CString uuid;
+    SVNRev revision;
+};
+
+/**
+ * \ingroup TortoiseProc
  * helper class which holds all the information of an item (file or folder)
  * in the repository. The information gets filled by the svn_client_list()
  * callback.
@@ -40,7 +52,7 @@ public:
 		, size(0)
 		, has_props(false)
 		, is_external(false)
-		, created_rev(0)
+		, created_rev(SVN_IGNORED_REVNUM)
 		, time(0)
 		, is_dav_comment(false)
 		, lock_creationdate(0)
@@ -62,7 +74,8 @@ public:
 		, bool is_dav_comment
 		, apr_time_t lock_creationdate
 		, apr_time_t lock_expirationdate
-		, const CString& absolutepath)
+		, const CString& absolutepath
+        , const SRepositoryInfo& repository)
 
         : path (path)
 		, kind (kind)
@@ -79,6 +92,7 @@ public:
 		, lock_creationdate (lock_creationdate)
 		, lock_expirationdate (lock_expirationdate)
 		, absolutepath (absolutepath)
+        , repository (repository)
     {
 	}
 public:
@@ -96,7 +110,8 @@ public:
 	bool				is_dav_comment;
 	apr_time_t			lock_creationdate;
 	apr_time_t			lock_expirationdate;
-	CString				absolutepath;			///< unescaped url stripped of repository root
+	CString				absolutepath;			
+    SRepositoryInfo     repository;
 };
 
 /**
@@ -189,7 +204,7 @@ private:
 
         /// additional qeuery parameters
 
-	    CString repoRoot;
+	    SRepositoryInfo repository;
 
         /// will be set, if includeExternals has been specified
 
@@ -219,8 +234,7 @@ private:
         /// auto-schedule upon construction
 
         CListQuery ( const CTSVNPath& path
-            	   , const CString& repoRoot
-                   , const SVNRev& revision
+            	   , const SRepositoryInfo& repository
                    , bool includeExternals
                    , async::CJobScheduler* scheduler);
 
@@ -283,13 +297,12 @@ public:
 
     /// we probably will call \ref GetList() on that \ref url soon.
     /// \ref includeExternals will only be taken into account if
-    /// there is no query for that \ref url and \ref resivision yet.
+    /// there is no query for that \ref url and resivision yet.
     /// It should be set to @a false only if it is certain that
     /// no externals have been defined for that URL and revision.
 
     void Enqueue ( const CString& url
-                 , const CString& repoRoot
-                 , const SVNRev& revision
+                 , const SRepositoryInfo& repository
                  , bool includeExternals);
 
     /// don't return results from previous or still running requests
@@ -315,8 +328,7 @@ public:
     /// \returns the error or an empty string
 
     CString GetList ( const CString& url
-                    , const CString& repoRoot
-                    , const SVNRev& revision
+                    , const SRepositoryInfo& repository
                     , bool includeExternals
                     , std::deque<CItem>& items);
 };

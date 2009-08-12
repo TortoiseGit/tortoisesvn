@@ -46,6 +46,7 @@
 #include "RepositoryInfo.h"
 #include "MessageBox.h"
 #include "LogCacheSettings.h"
+#include "CriticalSection.h"
 #include "..\version.h"
 
 
@@ -2556,6 +2557,12 @@ LogCache::CLogCachePool* SVN::GetLogCachePool()
 {
     if (logCachePool.get() == NULL)
     {
+        // modifying the log cache is not thread safe.
+        // In particular, we must synchronize the loading & file check.
+
+        static async::CCriticalSection mutex;
+        async::CCriticalSectionLock lock (mutex);
+
         CString cacheFolder = CPathUtils::GetAppDataDirectory()+_T("logcache\\");
         logCachePool.reset (new LogCache::CLogCachePool (*this, cacheFolder));
     }

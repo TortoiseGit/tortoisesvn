@@ -46,7 +46,8 @@ public:
 	CTreeItem() : children_fetched(false), has_child_folders(false) {}
 
 	CString			unescapedname;
-	CString			url;						///< unescaped url
+    SRepositoryInfo repository;
+    CString         url;                        ///< escaped URL
 	bool			children_fetched;			///< whether the contents of the folder are known/fetched or not
 	deque<CItem>	children;
 	bool			has_child_folders;

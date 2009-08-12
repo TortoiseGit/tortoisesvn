@@ -117,6 +117,7 @@ BOOL CRepositoryLister::CListQuery::ReportList
     // store dir entry
 
 	bool abspath_has_slash = (absolutepath.GetAt(absolutepath.GetLength()-1) == '/');
+    CString relPath = absolutepath + (abspath_has_slash ? _T("") : _T("/"));
     CItem entry
         ( path
         , kind
@@ -132,7 +133,8 @@ BOOL CRepositoryLister::CListQuery::ReportList
         , is_dav_comment
         , lock_creationdate
         , lock_expirationdate
-        , repoRoot + absolutepath + (abspath_has_slash ? _T("") : _T("/")) + path);
+        , repository.root + relPath + path
+        , repository);
 
     result.push_back (entry);
 
@@ -190,15 +192,15 @@ void CRepositoryLister::CListQuery::InternalExecute()
 
 CRepositoryLister::CListQuery::CListQuery 
     ( const CTSVNPath& path
-    , const CString& repoRoot
-    , const SVNRev& revision
+    , const SRepositoryInfo& repository
     , bool includeExternals
     , async::CJobScheduler* scheduler)
-    : CQuery (path, revision)
-    , repoRoot (repoRoot)
-    , externalsQuery (includeExternals
-                        ? new CExternalsQuery (path, revision, scheduler)
-                        : NULL)
+    : CQuery (path, repository.revision)
+    , repository (repository)
+    , externalsQuery 
+        (includeExternals
+            ? new CExternalsQuery (path, repository.revision, scheduler)
+            : NULL)
 {
     Schedule (false, scheduler);
 }
@@ -258,6 +260,8 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
     if (svnError.GetCode() == 0)
     {
+        SVN svn;
+
         // copy the parser output
 
 	    for (long i=0; i < parsedExternals->nelts; ++i)
@@ -266,6 +270,19 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
                 = APR_ARRAY_IDX( parsedExternals, i, svn_wc_external_item2_t*);
 		    if (external)
 		    {
+                // get target repositiory 
+
+                SRepositoryInfo repository;
+
+                CTSVNPath url;
+                url.SetFromSVN (external->url);
+                repository.root 
+                    = svn.GetRepositoryRootAndUUID (url, repository.uuid);
+
+                repository.revision = external->revision;
+
+                // add the new entry
+
                 CItem entry
                     ( CUnicodeUtils::GetUnicode (external->target_dir)
 
@@ -295,7 +312,8 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
                     , false
                     , 0
                     , 0
-                    , CUnicodeUtils::GetUnicode (external->url));
+                    , CUnicodeUtils::GetUnicode (external->url)
+                    , repository);
 
                 result.push_back (entry);
 		    }
@@ -377,8 +395,7 @@ CRepositoryLister::~CRepositoryLister()
 
 void CRepositoryLister::Enqueue 
     ( const CString& url
-    , const CString& repoRoot
-    , const SVNRev& revision
+    , const SRepositoryInfo& repository
     , bool includeExternals)
 {
     CTSVNPath escapedURL = EscapeUrl (url);
@@ -386,11 +403,10 @@ void CRepositoryLister::Enqueue
 
     async::CCriticalSectionLock lock (mutex);
 
-    TPathAndRev key (escapedURL, revision);
+    TPathAndRev key (escapedURL, repository.revision);
     if (queryByPathAndRev.find (key) == queryByPathAndRev.end())
         queryByPathAndRev[key] = new CListQuery ( escapedURL
-                                                , repoRoot
-                                                , revision
+                                                , repository
                                                 , includeExternals
                                                 , &scheduler);
 }
@@ -490,8 +506,7 @@ void CRepositoryLister::RefreshSubTree
 
 CString CRepositoryLister::GetList 
     ( const CString& url
-    , const CString& repoRoot
-    , const SVNRev& revision
+    , const SRepositoryInfo& repository
     , bool includeExternals
     , std::deque<CItem>& items)
 {
@@ -503,7 +518,7 @@ CString CRepositoryLister::GetList
     // lets see if there is already a suitable query that will
     // finish before the one that I could start right now
 
-    TPathAndRev key (escapedURL, revision);
+    TPathAndRev key (escapedURL, repository.revision);
     TQueryByPathAndRev::iterator iter = queryByPathAndRev.find (key);
 
     if (   (iter != queryByPathAndRev.end()) 
@@ -515,7 +530,7 @@ CString CRepositoryLister::GetList
 
     // query (quasi-)synchronously using the default queue
 
-    CListQuery query (escapedURL, repoRoot, revision, includeExternals, NULL);
+    CListQuery query (escapedURL, repository, includeExternals, NULL);
 
     items = query.GetResult();
     return query.GetError();
