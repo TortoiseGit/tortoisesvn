@@ -21,6 +21,8 @@
 #include "TSVNPath.h"
 #include "SVN.h"
 
+#include "Registry.h"
+
 #include "JobBase.h"
 #include "JobScheduler.h"
 
@@ -37,6 +39,7 @@ public:
         : kind(svn_node_none)
 		, size(0)
 		, has_props(false)
+		, is_external(false)
 		, created_rev(0)
 		, time(0)
 		, is_dav_comment(false)
@@ -49,6 +52,7 @@ public:
 		, svn_node_kind_t kind
 		, svn_filesize_t size
 		, bool has_props
+        , bool is_external
 		, svn_revnum_t created_rev
 		, apr_time_t time
 		, const CString& author
@@ -64,6 +68,7 @@ public:
 		, kind (kind)
 		, size (size)
 		, has_props (has_props)
+        , is_external (is_external)
 		, created_rev (created_rev)
 		, time (time)
 		, author (author)
@@ -81,6 +86,7 @@ public:
 	svn_node_kind_t		kind;
 	svn_filesize_t		size;
 	bool				has_props;
+    bool                is_external;
 	svn_revnum_t		created_rev;
 	apr_time_t			time;
 	CString				author;
@@ -102,17 +108,16 @@ private:
 
     /**
      * \ingroup TortoiseProc
-     * Encapsulates an asynchroneous, interruptible SVN list request.
+     * Encapsulates an asynchroneous, interruptible SVN request.
      */
 
-    class CQuery : public async::CJobBase, private SVN
+    class CQuery : public async::CJobBase
     {
-    private:
+    protected:
 
         /// qeuery parameters
 
         CTSVNPath path;
-	    CString repoRoot;
         SVNRev revision;
 
         /// here, the result will be placed once we are done
@@ -123,9 +128,72 @@ private:
 
         CString error;
 
-        /// if set, we should not run at all or at least try to terminat asap
+        /// copy copying supported
 
-        mutable bool cancelled;
+        CQuery (const CQuery&);
+        CQuery& operator=(const CQuery&);
+
+    public:
+
+        /// auto-schedule upon construction
+
+        CQuery ( const CTSVNPath& path
+               , const SVNRev& revision);
+
+        /// wait for termination
+
+        virtual ~CQuery();
+
+        /// parameter access
+
+        const CTSVNPath& GetPath() const;
+        const SVNRev& GetRevision() const;
+
+        /// result access. Automatically waits for execution to be finished.
+
+        const std::deque<CItem>& GetResult();
+        const CString& GetError();
+        bool Succeeded();
+    };
+
+    /**
+     * \ingroup TortoiseProc
+     * Encapsulates an asynchroneous, interruptible svn:externals request.
+     */
+
+    class CExternalsQuery : public CQuery
+    {
+    protected:
+
+        /// actual job code: fetch externals and parse them
+
+        virtual void InternalExecute();
+
+    public:
+
+        /// auto-schedule upon construction
+
+        CExternalsQuery ( const CTSVNPath& path
+                        , const SVNRev& revision
+                        , async::CJobScheduler* scheduler);
+    };
+
+    /**
+     * \ingroup TortoiseProc
+     * Encapsulates an asynchroneous, interruptible SVN list request.
+     */
+
+    class CListQuery : public CQuery, private SVN
+    {
+    private:
+
+        /// additional qeuery parameters
+
+	    CString repoRoot;
+
+        /// will be set, if includeExternals has been specified
+
+        std::auto_ptr<CExternalsQuery> externalsQuery;
 
 	    /// callback from the SVN::List() method which stores all the information
 
@@ -146,37 +214,23 @@ private:
 
         virtual void InternalExecute();
 
-        /// copy copying supported
-
-        CQuery (const CQuery&);
-        CQuery& operator=(const CQuery&);
-
     public:
 
         /// auto-schedule upon construction
 
-        CQuery ( const CTSVNPath& path
-        	   , const CString& repoRoot
-               , const SVNRev& revision
-               , async::CJobScheduler* scheduler);
+        CListQuery ( const CTSVNPath& path
+            	   , const CString& repoRoot
+                   , const SVNRev& revision
+                   , bool includeExternals
+                   , async::CJobScheduler* scheduler);
 
         /// wait for termination
 
-        virtual ~CQuery();
+        virtual ~CListQuery();
 
-        /// trigger cancellation
+        /// cancel the svn:externals sub query as well
 
-        void Terminate();
-
-        /// parameter access
-
-        const CTSVNPath& GetPath() const;
-        const SVNRev& GetRevision() const;
-
-        /// result access. Automatically waits for execution to be finished.
-
-        const std::deque<CItem>& GetResult();
-        const CString& GetError();
+        virtual void Terminate();
     };
 
     /// folder content at specific revisions
@@ -198,6 +252,10 @@ private:
     /// the job queue to execute the list requests
 
     async::CJobScheduler scheduler;
+
+    /// registry settings
+
+    CRegDWORD fetchingExternalsEnabled;
 
     /// cleanup utilities
 
@@ -223,11 +281,16 @@ public:
 
     ~CRepositoryLister();
 
-    /// we probably will call \ref GetList() on that \ref url soon
+    /// we probably will call \ref GetList() on that \ref url soon.
+    /// \ref includeExternals will only be taken into account if
+    /// there is no query for that \ref url and \ref resivision yet.
+    /// It should be set to @a false only if it is certain that
+    /// no externals have been defined for that URL and revision.
 
     void Enqueue ( const CString& url
                  , const CString& repoRoot
-                 , const SVNRev& revision);
+                 , const SVNRev& revision
+                 , bool includeExternals);
 
     /// don't return results from previous or still running requests
     /// the next time \ref GetList() gets called
@@ -245,11 +308,16 @@ public:
 
     /// get an already stored query result, if available.
     /// Otherwise, get the list directly.
+    /// \ref includeExternals will be ignored, if there is already
+    /// a query running or result available.
+    /// It should be set to @a false only if it is certain that
+    /// no externals have been defined for that URL and revision.
     /// \returns the error or an empty string
 
     CString GetList ( const CString& url
                     , const CString& repoRoot
                     , const SVNRev& revision
+                    , bool includeExternals
                     , std::deque<CItem>& items);
 };
 

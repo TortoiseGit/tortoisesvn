@@ -312,7 +312,7 @@ void CRepositoryBrowser::InitRepo()
             ; path.GetLength() > serverEndPos
             ; path = path.Left (path.ReverseFind ('/')))
         {
-            m_lister.Enqueue (path, m_strReposRoot, m_initialRev);
+            m_lister.Enqueue (path, m_strReposRoot, m_initialRev, true);
         }
     }
 
@@ -324,7 +324,7 @@ void CRepositoryBrowser::InitRepo()
 
     std::deque<CItem> dummy;
     CString error 
-        = m_lister.GetList (m_InitialUrl, m_strReposRoot, m_initialRev, dummy);
+        = m_lister.GetList (m_InitialUrl, m_strReposRoot, m_initialRev, true, dummy);
 
     // the only way CQuery::List will return the following error
     // is by calling it with a file path instead of a dir path
@@ -337,7 +337,7 @@ void CRepositoryBrowser::InitRepo()
     if (error == wasFileError)
     {
 	    m_InitialUrl = m_InitialUrl.Left (m_InitialUrl.ReverseFind ('/'));
-        error = m_lister.GetList (m_InitialUrl, m_strReposRoot, m_initialRev, dummy);
+        error = m_lister.GetList (m_InitialUrl, m_strReposRoot, m_initialRev, true, dummy);
     }
 
     // did our optimistic strategy work?
@@ -911,15 +911,22 @@ void CRepositoryBrowser::FillList(deque<CItem> * pItems)
 		else
 			icon_idx = SYS_IMAGE_LIST().GetFileIconIndex(it->path);
 		int index = m_RepoList.InsertItem(nCount, it->path, icon_idx);
+
 		// extension
 		temp = CPathUtils::GetFileExtFromPath(it->path);
 		if (it->kind == svn_node_file)
 			m_RepoList.SetItemText(index, 1, temp);
+
 		// revision
-		temp.Format(_T("%ld"), it->created_rev);
+        if ((it->created_rev == SVN_IGNORED_REVNUM) && (it->is_external))
+            temp = it->time != 0 ? _T("") : _T("HEAD");
+        else
+		    temp.Format(_T("%ld"), it->created_rev);
 		m_RepoList.SetItemText(index, 2, temp);
+
 		// author
 		m_RepoList.SetItemText(index, 3, it->author);
+
 		// size
 		if (it->kind == svn_node_file)
 		{
@@ -927,11 +934,18 @@ void CRepositoryBrowser::FillList(deque<CItem> * pItems)
 			temp.ReleaseBuffer();
 			m_RepoList.SetItemText(index, 4, temp);
 		}
+
 		// date
-		SVN::formatDate(date_native, (apr_time_t&)it->time, true);
+        if ((it->time == 0) && (it->is_external))
+            date_native[0] = 0;
+        else
+    		SVN::formatDate(date_native, (apr_time_t&)it->time, true);
 		m_RepoList.SetItemText(index, 5, date_native);
+
 		// lock owner
 		m_RepoList.SetItemText(index, 6, it->lockowner);
+
+        // pointer to the CItem structure
 		m_RepoList.SetItemData(index, (DWORD_PTR)&(*it));
 	}
 
@@ -1105,6 +1119,7 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
     CString error = m_lister.GetList ( pTreeItem->url
                                      , m_strReposRoot
                                      , GetRevision()
+                                     , true
                                      , pTreeItem->children);
     if (!error.IsEmpty())
 	{
@@ -1124,7 +1139,10 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
             pTreeItem->has_child_folders = true;
             FindUrl (item.absolutepath);
 
-            m_lister.Enqueue (item.absolutepath, m_strReposRoot, GetRevision());
+            m_lister.Enqueue ( item.absolutepath
+                             , m_strReposRoot
+                             , GetRevision()
+                             , item.has_props);
         }
     }
 
@@ -1309,7 +1327,7 @@ void CRepositoryBrowser::OnRefresh()
 
         std::deque<CString> urls;
         urls.push_back (pItem->url);
-        m_lister.Enqueue (pItem->url, m_strReposRoot, GetRevision());
+        m_lister.Enqueue (pItem->url, m_strReposRoot, GetRevision(), true);
 
         // breadth-first. 
         // This should maximize the interval between enqueueing 
@@ -1325,7 +1343,7 @@ void CRepositoryBrowser::OnRefresh()
             // enqueue sub-nodes for listing
 
             std::deque<CItem> children;
-            m_lister.GetList (url, m_strReposRoot, GetRevision(), children);
+            m_lister.GetList (url, m_strReposRoot, GetRevision(), true, children);
 
             for (size_t i = 0, count = children.size(); i < count; ++i)
             {
@@ -1335,7 +1353,10 @@ void CRepositoryBrowser::OnRefresh()
                 if (item.kind == svn_node_dir)
                 {
                     urls.push_back (url);
-                    m_lister.Enqueue (url, m_strReposRoot, GetRevision());
+                    m_lister.Enqueue ( url
+                                     , m_strReposRoot
+                                     , GetRevision()
+                                     , item.has_props);
                 }
             }
         }

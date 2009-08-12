@@ -22,9 +22,74 @@
 #include "PathUtils.h"
 #include "Resource.h"
 
+#include "SVNProperties.h"
+#include "SVNError.h"
+#include "SVNHelpers.h"
+
+/////////////////////////////////////////////////////////////////////
+// CRepositoryLister::CQuery
+/////////////////////////////////////////////////////////////////////
+
+// auto-schedule upon construction
+
+CRepositoryLister::CQuery::CQuery 
+    ( const CTSVNPath& path
+    , const SVNRev& revision)
+    : path (path)
+    , revision (revision)
+{
+}
+
+// wait for termination
+
+CRepositoryLister::CQuery::~CQuery()
+{
+    Terminate();
+    WaitUntilDone();
+}
+
+// parameter access
+
+const CTSVNPath& CRepositoryLister::CQuery::GetPath() const
+{
+    return path;
+}
+
+const SVNRev& CRepositoryLister::CQuery::GetRevision() const
+{
+    return revision;
+}
+
+// result access. Automatically waits for execution to be finished.
+
+const std::deque<CItem>& CRepositoryLister::CQuery::GetResult()
+{
+    WaitUntilDone();
+    return result;
+}
+
+const CString& CRepositoryLister::CQuery::GetError()
+{
+    WaitUntilDone();
+
+    if (error.IsEmpty() && HasBeenTerminated())
+        error.LoadString (IDS_REPOBROWSE_ERR_CANCEL);
+
+    return error;
+}
+
+bool CRepositoryLister::CQuery::Succeeded()
+{
+    return GetError().IsEmpty();
+}
+
+/////////////////////////////////////////////////////////////////////
+// CRepositoryLister::CListQuery
+/////////////////////////////////////////////////////////////////////
+
 // callback from the SVN::List() method which stores all the information
 
-BOOL CRepositoryLister::CQuery::ReportList
+BOOL CRepositoryLister::CListQuery::ReportList
     ( const CString& path
     , svn_node_kind_t kind
     , svn_filesize_t size
@@ -57,6 +122,7 @@ BOOL CRepositoryLister::CQuery::ReportList
         , kind
         , size
         , has_props
+        , false
         , created_rev
         , time
         , author
@@ -75,86 +141,186 @@ BOOL CRepositoryLister::CQuery::ReportList
 
 // early termination
 
-BOOL CRepositoryLister::CQuery::Cancel()
+BOOL CRepositoryLister::CListQuery::Cancel()
 {
-    return cancelled;
+    return HasBeenTerminated();
 }
 
 // actual job code: just call \ref SVN::List
 
-void CRepositoryLister::CQuery::InternalExecute()
+void CRepositoryLister::CListQuery::InternalExecute()
 {
-    if (cancelled)
+    if (!List (path, revision, revision, svn_depth_immediates, true))
     {
-        error.LoadString (IDS_REPOBROWSE_ERR_CANCEL);
+        // something went wrong or query was cancelled
+        // -> store error, clear results and terminate sub-queries
+
+        if (externalsQuery.get() != NULL)
+            externalsQuery->Terminate();
+
+        result.clear();
+
+        error = GetLastErrorMessage();
+        if (error.IsEmpty())
+            error.LoadString (IDS_REPOBROWSE_ERR_UNKNOWN);
     }
-    else
-	    if (!List (path, revision, revision, svn_depth_immediates, true))
-        {
-            result.clear();
+    else 
+    {
+        // add results from the sub-query
 
-            error = GetLastErrorMessage();
-            if (error.IsEmpty())
-                error.LoadString (IDS_REPOBROWSE_ERR_UNKNOWN);
-        }
+        if (externalsQuery.get() != NULL)
+            if (externalsQuery->Succeeded())
+            {
+                const std::deque<CItem>& externals 
+                    = externalsQuery->GetResult();
 
+                std::copy ( externals.begin()
+                          , externals.end()
+                          , std::back_inserter (result));
+            }
+            else
+            {
+                result.clear();
+                error = externalsQuery->GetError();
+            }
+    }
 }
 
 // auto-schedule upon construction
 
-CRepositoryLister::CQuery::CQuery 
+CRepositoryLister::CListQuery::CListQuery 
     ( const CTSVNPath& path
     , const CString& repoRoot
     , const SVNRev& revision
+    , bool includeExternals
     , async::CJobScheduler* scheduler)
-    : path (path)
+    : CQuery (path, revision)
     , repoRoot (repoRoot)
-    , revision (revision)
-    , cancelled (false)
+    , externalsQuery (includeExternals
+                        ? new CExternalsQuery (path, revision, scheduler)
+                        : NULL)
 {
     Schedule (false, scheduler);
 }
 
 // wait for termination
 
-CRepositoryLister::CQuery::~CQuery()
+CRepositoryLister::CListQuery::~CListQuery()
 {
-    Terminate();
-    WaitUntilDone();
 }
 
-// trigger cancellation
+// cancel the svn:externals sub query as well
 
-void CRepositoryLister::CQuery::Terminate()
+void CRepositoryLister::CListQuery::Terminate()
 {
-    cancelled = true;
+    CQuery::Terminate();
+
+    if (externalsQuery.get() != NULL)
+        externalsQuery->Terminate();
 }
 
-// parameter access
+/////////////////////////////////////////////////////////////////////
+// CRepositoryLister::CExternalsQuery
+/////////////////////////////////////////////////////////////////////
 
-const CTSVNPath& CRepositoryLister::CQuery::GetPath() const
+// actual job code: fetch externals and parse them
+
+void CRepositoryLister::CExternalsQuery::InternalExecute()
 {
-    return path;
+    // fetch externals definition for the given path
+
+    static const tstring svnExternals (_T("svn:externals"));
+
+    SVNProperties properties (path, revision, false);
+
+    std::string externals;
+    for (int i = 0, count = properties.GetCount(); i < count; ++i)
+        if (properties.GetItemName (i) == svnExternals)
+            externals = properties.GetItemValue (i);
+
+    // none there?
+
+    if (externals.empty())
+        return;
+
+    // parse externals
+
+    SVNPool pool;
+
+    apr_array_header_t* parsedExternals = NULL;
+    SVNError svnError 
+        (svn_wc_parse_externals_description3 
+            ( &parsedExternals
+            , path.GetSVNApiPath (pool)
+            , externals.c_str()
+            , TRUE
+            , pool));
+
+    if (svnError.GetCode() == 0)
+    {
+        // copy the parser output
+
+	    for (long i=0; i < parsedExternals->nelts; ++i)
+	    {
+		    svn_wc_external_item2_t * external 
+                = APR_ARRAY_IDX( parsedExternals, i, svn_wc_external_item2_t*);
+		    if (external)
+		    {
+                CItem entry
+                    ( CUnicodeUtils::GetUnicode (external->target_dir)
+
+                      // even file external will be treated as folders because
+                      // this is a safe default
+                    , svn_node_dir
+                    , 0
+
+                      // actually, we don't know for sure whether the target
+                      // URL has props but its the safe default to say 'yes'
+                    , true  
+                    , true
+
+                      // explicit revision, HEAD or DATE
+                    , external->revision.kind == svn_opt_revision_number
+                        ? external->revision.value.number
+                        : SVN_IGNORED_REVNUM
+
+                      // explicit revision, HEAD or DATE
+                    , external->revision.kind == svn_opt_revision_date
+                        ? external->revision.value.date
+                        : 0
+                    , CString()
+                    , CString()
+                    , CString()
+                    , CString()
+                    , false
+                    , 0
+                    , 0
+                    , CUnicodeUtils::GetUnicode (external->url));
+
+                result.push_back (entry);
+		    }
+	    }
+    }
+    else
+    {
+        error = CUnicodeUtils::GetUnicode (svnError.GetMessage());
+    }
 }
 
-const SVNRev& CRepositoryLister::CQuery::GetRevision() const
+// auto-schedule upon construction
+
+CRepositoryLister::CExternalsQuery::CExternalsQuery 
+    ( const CTSVNPath& path
+    , const SVNRev& revision
+    , async::CJobScheduler* scheduler)
+    : CQuery (path, revision)
 {
-    return revision;
+    Schedule (false, scheduler);
 }
 
-// result access. Automatically waits for execution to be finished.
-
-const std::deque<CItem>& CRepositoryLister::CQuery::GetResult()
-{
-    WaitUntilDone();
-    return result;
-}
-
-const CString& CRepositoryLister::CQuery::GetError()
-{
-    WaitUntilDone();
-    return error;
-}
+/////////////////////////////////////////////////////////////////////
+// CRepositoryLister
+/////////////////////////////////////////////////////////////////////
 
 // cleanup utilities
 
@@ -195,6 +361,7 @@ CTSVNPath CRepositoryLister::EscapeUrl (const CString& url)
 
 CRepositoryLister::CRepositoryLister()
     : scheduler (32, 0, true)
+    , fetchingExternalsEnabled (_T("Software\\TortoiseSVN\\ShowExternalsInBrowser"), FALSE)
 {
 }
 
@@ -211,16 +378,21 @@ CRepositoryLister::~CRepositoryLister()
 void CRepositoryLister::Enqueue 
     ( const CString& url
     , const CString& repoRoot
-    , const SVNRev& revision)
+    , const SVNRev& revision
+    , bool includeExternals)
 {
     CTSVNPath escapedURL = EscapeUrl (url);
+    includeExternals &= (DWORD)fetchingExternalsEnabled == TRUE;
 
     async::CCriticalSectionLock lock (mutex);
 
     TPathAndRev key (escapedURL, revision);
     if (queryByPathAndRev.find (key) == queryByPathAndRev.end())
-        queryByPathAndRev[key]
-            = new CQuery (escapedURL, repoRoot, revision, &scheduler);
+        queryByPathAndRev[key] = new CListQuery ( escapedURL
+                                                , repoRoot
+                                                , revision
+                                                , includeExternals
+                                                , &scheduler);
 }
 
 // don't return results from previous or still running requests
@@ -320,9 +492,11 @@ CString CRepositoryLister::GetList
     ( const CString& url
     , const CString& repoRoot
     , const SVNRev& revision
+    , bool includeExternals
     , std::deque<CItem>& items)
 {
     CTSVNPath escapedURL = EscapeUrl (url);
+    includeExternals &= (DWORD)fetchingExternalsEnabled == TRUE;
 
     async::CCriticalSectionLock lock (mutex);
 
@@ -341,7 +515,7 @@ CString CRepositoryLister::GetList
 
     // query (quasi-)synchronously using the default queue
 
-    CQuery query (escapedURL, repoRoot, revision, NULL);
+    CListQuery query (escapedURL, repoRoot, revision, includeExternals, NULL);
 
     items = query.GetResult();
     return query.GetError();
