@@ -113,7 +113,6 @@ tstring ItemIDList::toString()
 	parentFolder->Release();
 	if (szDisplayName == NULL)
 	{
-		CoTaskMemFree(szDisplayName);
 		return ret;			//to avoid a crash!
 	}
 	ret = szDisplayName;
