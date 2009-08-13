@@ -2230,6 +2230,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			{
 				urlList.AddPath(CTSVNPath(pTreeItem->url));
 				urlListEscaped.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(pTreeItem->url))));
+                repositories.push_back (pTreeItem->repository);
 				nFolders++;
 			}
 		}
