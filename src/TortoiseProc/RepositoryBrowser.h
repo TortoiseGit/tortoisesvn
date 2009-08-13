@@ -43,14 +43,21 @@ class CListDropTarget;
 class CTreeItem
 {
 public:
-	CTreeItem() : children_fetched(false), has_child_folders(false) {}
+	CTreeItem() 
+        : children_fetched(false)
+        , has_child_folders(false)
+        , is_external(false) 
+    {
+    }
 
 	CString			unescapedname;
     SRepositoryInfo repository;
     CString         url;                        ///< escaped URL
+    CString         logicalPath;                ///< concatenated unescapedname values
+	bool			is_external;                ///< if set, several operations may not be available
 	bool			children_fetched;			///< whether the contents of the folder are known/fetched or not
-	deque<CItem>	children;
 	bool			has_child_folders;
+	deque<CItem>	children;
 };
 
 
@@ -133,11 +140,10 @@ protected:
 	HTREEITEM FindUrl(const CString& fullurl, bool create = true);
 	/// searches the tree item for the specified \c fullurl.
 	HTREEITEM FindUrl(const CString& fullurl, const CString& url, bool create = true, HTREEITEM hItem = TVI_ROOT);
-	/**
-	 * Refetches the information for \c url. If \c force is true, then the list
-	 * control is refilled again.
-	 */
-	bool RefreshNode(const CString& url, bool force = false);
+	/// Find and return the sub-node to \ref hParent that follows
+    /// the spec in \ref item. Add such sub-node if it does not
+    /// exist, yet.
+    HTREEITEM AutoInsert (HTREEITEM hParent, const CItem& item);
 	/**
 	 * Refetches the information for \c hNode. If \c force is true, then the list
 	 * control is refilled again.
@@ -145,6 +151,8 @@ protected:
 	bool RefreshNode(HTREEITEM hNode, bool force = false);
 	/// Fills the list control with all the items in \c pItems.
 	void FillList(deque<CItem> * pItems);
+    /// Open / enter folder for entry number \ref item 
+    void OpenFromList (int item);
 	/// Sets the sort arrow in the list view header according to the currently used sorting.
 	void SetSortArrow();
 	/// called when a drag-n-drop operation starts

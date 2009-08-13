@@ -500,14 +500,7 @@ void CRepositoryBrowser::OnOK()
 			return;
 
 		POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
-		int selIndex = m_RepoList.GetNextSelectedItem(pos);
-		if (selIndex < 0)
-			return;
-		CItem * pItem = (CItem*)m_RepoList.GetItemData(selIndex);
-		if ((pItem)&&(pItem->kind == svn_node_dir))
-		{
-			ChangeToUrl(pItem->absolutepath, m_initialRev, true);
-		}
+		OpenFromList (m_RepoList.GetNextSelectedItem (pos));
 		return;
 	}
 
@@ -833,6 +826,7 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
 		CTreeItem * pTreeItem = new CTreeItem();
 		pTreeItem->unescapedname = root;
         pTreeItem->url = root;
+        pTreeItem->logicalPath = root;
         pTreeItem->repository.root = root;
         pTreeItem->repository.uuid = m_sUUID;
         pTreeItem->repository.revision = GetRevision();
@@ -1048,16 +1042,17 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 	CString sUrl = url;
 	int slash = -1;
 	HTREEITEM hNewItem = hItem;
-	CString sTemp;
+    CTreeItem* parentTreeItem = (CTreeItem*)m_RepoTree.GetItemData (hItem);
+
+    CString sTemp;
 	while ((slash=sUrl.Find('/')) >= 0)
 	{
 		CTreeItem * pTreeItem = new CTreeItem();
 		sTemp = sUrl.Left(slash);
 		pTreeItem->unescapedname = sTemp;
 		pTreeItem->url = fullurl.Left(fullurl.GetLength()-sUrl.GetLength()+slash);
-        pTreeItem->repository.root = root;
-        pTreeItem->repository.uuid = m_sUUID;
-        pTreeItem->repository.revision = GetRevision();
+        pTreeItem->logicalPath = parentTreeItem->logicalPath + '/' + sTemp;
+        pTreeItem->repository = parentTreeItem->repository;
 
 		UINT state = pTreeItem->url.CompareNoCase(m_diffURL.GetSVNPathString()) ? 0 : TVIS_BOLD;
 		TVINSERTSTRUCT tvinsert = {0};
@@ -1078,6 +1073,8 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 		tvs.lParam = (LPARAM)this;
 
 		hNewItem = m_RepoTree.InsertItem(&tvinsert);
+        parentTreeItem = pTreeItem;
+
 		sTemp.ReleaseBuffer();
 		m_RepoTree.SortChildrenCB(&tvs);
 		sUrl = sUrl.Mid(slash+1);
@@ -1089,7 +1086,8 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 		sTemp = sUrl;
 		pTreeItem->unescapedname = sTemp;
 		pTreeItem->url = fullurl;
-        pTreeItem->repository = ((CTreeItem*)m_RepoTree.GetItemData(hItem))->repository;
+        pTreeItem->logicalPath = parentTreeItem->logicalPath + '/' + sTemp;
+        pTreeItem->repository = parentTreeItem->repository;
 
 		UINT state = pTreeItem->url.CompareNoCase(m_diffURL.GetSVNPathString()) ? 0 : TVIS_BOLD;
 		TVINSERTSTRUCT tvinsert = {0};
@@ -1117,16 +1115,73 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 	return NULL;
 }
 
-bool CRepositoryBrowser::RefreshNode(const CString& url, bool force /* = false*/)
+HTREEITEM CRepositoryBrowser::AutoInsert (HTREEITEM hParent, const CItem& item)
 {
-	HTREEITEM hNode = FindUrl(url);
-	return RefreshNode(hNode, force);
+    // look for an existing sub-node by comparing names
+
+	for ( HTREEITEM hSibling = m_RepoTree.GetNextItem (hParent, TVGN_CHILD)
+        ; hSibling != NULL
+        ; hSibling = m_RepoTree.GetNextItem (hSibling, TVGN_NEXT))
+    {
+		CTreeItem * pTreeItem = ((CTreeItem*)m_RepoTree.GetItemData (hSibling));
+        if (pTreeItem && (pTreeItem->unescapedname == item.path))
+            return hSibling;
+    }
+
+    // no such sub-node. Create one
+
+    CTreeItem* parentTreeItem = (CTreeItem*)m_RepoTree.GetItemData (hParent);
+	CTreeItem* pTreeItem = new CTreeItem();
+    CString name = item.path;
+
+    pTreeItem->unescapedname = name;
+    pTreeItem->url = item.absolutepath;
+    pTreeItem->logicalPath = parentTreeItem->logicalPath + '/' + name;
+    pTreeItem->repository = item.repository;
+    pTreeItem->is_external = item.is_external;
+
+    bool isSelectedForDiff 
+        = pTreeItem->url.CompareNoCase (m_diffURL.GetSVNPathString()) == 0;
+
+    UINT state = isSelectedForDiff ? TVIS_BOLD : 0;
+    UINT stateMask = state;
+    if (item.is_external)
+    {
+        state |= INDEXTOOVERLAYMASK (OVERLAY_EXTERNAL);
+        stateMask |= TVIS_OVERLAYMASK;
+    }
+
+	TVINSERTSTRUCT tvinsert = {0};
+	tvinsert.hParent = hParent;
+	tvinsert.hInsertAfter = TVI_SORT;
+	tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
+	tvinsert.itemex.state = state;
+	tvinsert.itemex.stateMask = stateMask;
+	tvinsert.itemex.pszText = name.GetBuffer (name.GetLength());
+	tvinsert.itemex.cChildren = 1;
+	tvinsert.itemex.lParam = (LPARAM)pTreeItem;
+    tvinsert.itemex.iImage = m_nIconFolder;
+	tvinsert.itemex.iSelectedImage = m_nOpenIconFolder;
+
+	TVSORTCB tvs;
+	tvs.hParent = hParent;
+	tvs.lpfnCompare = TreeSort;
+	tvs.lParam = (LPARAM)this;
+
+	HTREEITEM hNewItem = m_RepoTree.InsertItem(&tvinsert);
+    parentTreeItem = pTreeItem;
+
+	name.ReleaseBuffer();
+	m_RepoTree.SortChildrenCB(&tvs);
+
+    return hNewItem;
 }
 
 bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
 {
 	if (hNode == NULL)
 		return false;
+
 	SaveColumnWidths();
 	CWaitCursorEx wait;
 	CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hNode);
@@ -1171,7 +1226,7 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
         if (item.kind == svn_node_dir)
         {
             pTreeItem->has_child_folders = true;
-            FindUrl (item.absolutepath);
+            AutoInsert (hNode, item);
 
             m_lister.Enqueue ( item.absolutepath
                              , item.repository
@@ -1499,6 +1554,8 @@ void CRepositoryBrowser::OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pRes
 
 void CRepositoryBrowser::OnNMDblclkRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 {
+    CWaitCursorEx wait;
+
 	LPNMITEMACTIVATE pNmItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
 	*pResult = 0;
 
@@ -1508,11 +1565,28 @@ void CRepositoryBrowser::OnNMDblclkRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 	if (pNmItemActivate->iItem < 0)
 		return;
 
-    CItem * pItem = (CItem*)m_RepoList.GetItemData(pNmItemActivate->iItem);
-	if ((pItem)&&(pItem->kind == svn_node_dir))
+    OpenFromList (pNmItemActivate->iItem);
+}
+
+void CRepositoryBrowser::OpenFromList (int item)
+{
+    if (item < 0)
+        return;
+
+    CWaitCursorEx wait;
+
+    CItem * pItem = (CItem*)m_RepoList.GetItemData (item);
+	if ((pItem) && (pItem->kind == svn_node_dir))
 	{
-		// a double click on a folder results in selecting that folder
-		ChangeToUrl(pItem->absolutepath, m_initialRev, true);
+        // a double click on a folder results in selecting that folder
+
+        HTREEITEM hItem = AutoInsert (m_RepoTree.GetSelectedItem(), *pItem);
+
+        m_blockEvents = true;
+	    m_RepoTree.EnsureVisible (hItem);
+	    m_RepoTree.SelectItem (hItem);
+        RefreshNode (hItem);
+	    m_blockEvents = false;
 	}
 }
 
@@ -2970,7 +3044,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_REFRESH:
 			{
-				RefreshNode(urlList[0].GetSVNPathString(), true);
+				RefreshNode(m_RepoTree.GetSelectedItem(), true);
 			}
 			break;
 		case ID_GNUDIFF:
