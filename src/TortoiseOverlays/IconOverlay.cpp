@@ -12,13 +12,25 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 {
 	int nInstalledOverlays = GetInstalledOverlays();
 	
-	if ((m_State == FileStateAdded)&&(nInstalledOverlays > 13))
+	// only 13 overlay slots can be used (13 determined by testing,
+	// since not all overlay handlers are registered in the registry, e.g., the
+	// shortcut (arrow) overlay isn't listed there).
+	//
+	// If there are more than 13 handlers registered, then
+	// we have to drop some of our handlers to get other
+	// handlers a chance too:
+	// 14 registered: drop the unversioned overlay
+	// 15 registered: drop the unversioned and the ignored overlay
+	// 16 registered: drop the unversioned, ignored and locked overlay
+	// 17 and more registered: drop the unversioned, ignored, locked and added overlay
+	
+	if ((m_State == FileStateAdded)&&(nInstalledOverlays > 16))
 		return S_FALSE;		// don't use the 'added' overlay
-	if ((m_State == FileStateLocked)&&(nInstalledOverlays > 12))
+	if ((m_State == FileStateLocked)&&(nInstalledOverlays > 15))
 		return S_FALSE;		// don't show the 'locked' overlay
-	if ((m_State == FileStateIgnored)&&(nInstalledOverlays > 11))
+	if ((m_State == FileStateIgnored)&&(nInstalledOverlays > 14))
 		return S_FALSE;		// don't use the 'ignored' overlay
-	if ((m_State == FileStateUnversioned)&&(nInstalledOverlays > 10))
+	if ((m_State == FileStateUnversioned)&&(nInstalledOverlays > 13))
 		return S_FALSE;		// don't show the 'unversioned' overlay
 
     // Get folder icons from registry
