@@ -40,6 +40,8 @@ Version 1.6.5
        Win7 even if a language pack was installed and the
        language setting changed. (Stefan)
 - BUG: Merging from an url which was renamed/deleted didn't work. (Stefan)
+- BUG: The webviewer wasn't properly started from the lower pane
+       in the log dialog for relative urls. (Stefan)
 
 Version 1.6.4
 - CHG: Improved startup performance of the log cache. (Stefan)
