@@ -1079,14 +1079,17 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
                 if (!error.IsEmpty())
                     return NULL;
 
-                pTreeItem->children_fetched = true;
-
                 for (size_t i = 0, count = children.size(); i < count; ++i)
                     if (children[i].kind == svn_node_dir)
                     {
                         pTreeItem->has_child_folders = true;
                         break;
                     }
+
+                // since we don't add *all* sub-nodes, 
+                // mark parent as 'incomplete'
+                    
+                pTreeItem->children_fetched = false;
             }
 
             // select the one that matches the node name we are looking for
