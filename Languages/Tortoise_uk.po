@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-07-29 13:36+0300\n"
+"PO-Revision-Date: 2009-08-14 15:49+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -97,6 +97,11 @@ msgstr "%I64d Байт передано"
 
 #. Resource IDs: (357)
 #, c-format
+msgid "%I64d Bytes/s"
+msgstr "%I64d Байт/с"
+
+#. Resource IDs: (357)
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d кБайт передано"
 
@@ -109,11 +114,6 @@ msgstr "Вибрано %d файлів, усього %d файлів"
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
 msgstr "%d найактивніших авторів, кожен принаймі з %d коммітами (%d %%)"
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%ld Bytes/s"
-msgstr "%ld Байт/с"
 
 #. Resource IDs: (226)
 #, c-format
@@ -1168,6 +1168,10 @@ msgstr "(створено)"
 #. Resource IDs: (276)
 msgid "(delete)"
 msgstr "(знищити)"
+
+#. Resource IDs: (214)
+msgid "(externals)"
+msgstr "(зовнішні)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -6615,6 +6619,10 @@ msgid "Renames files / folders inside version control"
 msgstr "Перейменовує файли / каталоги під керуванням версіями"
 
 #. Resource IDs: (209)
+msgid "Repair copy"
+msgstr "Полагодити копювання"
+
+#. Resource IDs: (209)
 msgid "Repair move"
 msgstr "Полагодити переміщення"
 
@@ -6653,6 +6661,10 @@ msgstr "URL сховища"
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
 msgstr "UUID сховища:"
+
+#. Resource IDs: (106)
+msgid "Request cancelled by TSVN"
+msgstr "Запит скасовано TSVN"
 
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
@@ -8933,6 +8945,10 @@ msgstr ""
 #. Resource IDs: (20)
 msgid "Unknown depth"
 msgstr "Глибина невідома"
+
+#. Resource IDs: (106)
+msgid "Unknown failure in SVN::List"
+msgstr "Невідома лажа у SVN::List"
 
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
