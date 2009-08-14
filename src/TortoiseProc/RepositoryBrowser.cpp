@@ -1566,7 +1566,8 @@ void CRepositoryBrowser::OnTimer(UINT_PTR nIDEvent)
 				}
 
 				FillList(&pTreeItem->children);
-				m_barRepository.ShowUrl(pTreeItem->url, GetRevision());
+                m_barRepository.ShowUrl ( pTreeItem->url
+                                        , pTreeItem->repository.revision);
 			}
 		}
 	}
@@ -1774,7 +1775,8 @@ void CRepositoryBrowser::OnLvnItemchangedRepolist(NMHDR *pNMHDR, LRESULT *pResul
 		{
 			CItem * pItem = (CItem*)m_RepoList.GetItemData(pNMLV->iItem);
 			if (pItem)
-				m_barRepository.ShowUrl(pItem->absolutepath, GetRevision());
+				m_barRepository.ShowUrl ( pItem->absolutepath
+                                        , pItem->repository.revision);
 		}
 	}
 }
@@ -1889,26 +1891,35 @@ void CRepositoryBrowser::OnLvnBegindragRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CRepositoryBrowser::OnBeginDrag(NMHDR *pNMHDR)
 {
-	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+    // get selected paths
 
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	if (m_RepoList.HasText())
 		return;
+
+    CRepositoryBrowserSelection selection;
+
+    POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
+	int index = -1;
+	while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
+        selection.Add ((CItem *)m_RepoList.GetItemData(index));
+
+    // must be exactly one path
+
+    if (   (selection.GetRepositoryCount() != 1)
+        || (selection.GetPathCount(0) != 1))
+        return;
+
+    // build copy source / content
+
 	CIDropSource* pdsrc = new CIDropSource;
 	if (pdsrc == NULL)
 		return;
+
 	pdsrc->AddRef();
 
-	CTSVNPathList sourceURLs;
-	POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
-	int index = -1;
-	while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
-	{
-		CItem * pItem = (CItem *)m_RepoList.GetItemData(index);
-		if (pItem)
-			sourceURLs.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(pItem->absolutepath))));
-	}
-
-	SVNDataObject* pdobj = new SVNDataObject(sourceURLs, GetRevision(), GetRevision());
+    const SVNRev& revision = selection.GetRepository (0).revision;
+    SVNDataObject* pdobj = new SVNDataObject(selection.GetURLsEscaped(0), revision, revision);
 	if (pdobj == NULL)
 	{
 		delete pdsrc;
@@ -1944,25 +1955,31 @@ void CRepositoryBrowser::OnTvnBeginrdragRepotree(NMHDR *pNMHDR, LRESULT *pResult
 
 void CRepositoryBrowser::OnBeginDragTree(NMHDR *pNMHDR)
 {
-	LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
+    // get selected paths
 
+	LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
 	if (m_blockEvents)
 		return;
 
-	CTreeItem * pTreeItem = (CTreeItem *)pNMTreeView->itemNew.lParam;
+    CRepositoryBrowserSelection selection;
+    selection.Add ((CTreeItem *)pNMTreeView->itemNew.lParam);
 
-	if (pTreeItem == NULL)
-		return;
+    // must be exactly one path
+
+    if (   (selection.GetRepositoryCount() != 1)
+        || (selection.GetPathCount(0) != 1))
+        return;
+
+    // build copy source / content
 
 	CIDropSource* pdsrc = new CIDropSource;
 	if (pdsrc == NULL)
 		return;
+
 	pdsrc->AddRef();
 
-	CTSVNPathList sourceURLs;
-	sourceURLs.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(pTreeItem->url))));
-
-	SVNDataObject* pdobj = new SVNDataObject(sourceURLs, GetRevision(), GetRevision());
+    const SVNRev& revision = selection.GetRepository (0).revision;
+    SVNDataObject* pdobj = new SVNDataObject(selection.GetURLsEscaped(0), revision, revision);
 	if (pdobj == NULL)
 	{
 		delete pdsrc;
@@ -1982,11 +1999,14 @@ void CRepositoryBrowser::OnBeginDragTree(NMHDR *pNMHDR)
 }
 
 
-bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pathlist, const SVNRev& srcRev, DWORD dwEffect, POINTL /*pt*/)
+bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, const CTSVNPathList& pathlist, const SVNRev& srcRev, DWORD dwEffect, POINTL /*pt*/)
 {
 	ATLTRACE(_T("dropped %ld items on %s, source revision is %s, dwEffect is %ld\n"), pathlist.GetCount(), (LPCTSTR)target.GetSVNPathString(), srcRev.ToString(), dwEffect);
 	if (pathlist.GetCount() == 0)
 		return false;
+
+    if (!CTSVNPath(root).IsAncestorOf (pathlist[0]))
+        return false;
 
 	CString targetName = pathlist[0].GetFileOrDirectoryName();
 	if (m_bRightDrag)
@@ -3347,7 +3367,8 @@ void CRepositoryBrowser::SaveColumnWidths(bool bSaveToRegistry /* = false */)
 
 void CRepositoryBrowser::InvalidateData (HTREEITEM node)
 {
-    InvalidateData (node, GetRevision());
+    CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData (node);
+    InvalidateData (node, pItem->repository.revision);
 }
 
 void CRepositoryBrowser::InvalidateData (HTREEITEM node, const SVNRev& revision)
