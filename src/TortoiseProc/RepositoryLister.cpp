@@ -404,11 +404,38 @@ void CRepositoryLister::Enqueue
     async::CCriticalSectionLock lock (mutex);
 
     TPathAndRev key (escapedURL, repository.revision);
-    if (queryByPathAndRev.find (key) == queryByPathAndRev.end())
-        queryByPathAndRev[key] = new CListQuery ( escapedURL
-                                                , repository
-                                                , includeExternals
-                                                , &scheduler);
+    if (queries.find (key) == queries.end())
+        queries[key] = new CListQuery ( escapedURL
+                                      , repository
+                                      , includeExternals
+                                      , &scheduler);
+}
+
+// remove all unfinished entries from the job queue
+
+void CRepositoryLister::Cancel()
+{
+    async::CCriticalSectionLock lock (mutex);
+
+    // move all unfinsiehd queries to the dumpster
+
+    for ( TQueries::iterator iter = queries.begin(); iter != queries.end(); )
+    {
+        if (iter->second->GetStatus() != async::IJob::done)
+        {
+            iter->second->Terminate();
+            dumpster.push_back (iter->second);
+            iter = queries.erase (iter);
+        }
+        else
+        {
+            ++iter;
+        }
+    }
+
+    // finally destroy all entries that have already been processed
+
+    CompactDumpster();
 }
 
 // don't return results from previous or still running requests
@@ -420,8 +447,8 @@ void CRepositoryLister::Refresh()
 
     // move all revision-specific queries to the dumpster
 
-    for ( TQueryByPathAndRev::iterator iter = queryByPathAndRev.begin()
-        , end = queryByPathAndRev.end()
+    for ( TQueries::iterator iter = queries.begin()
+        , end = queries.end()
         ; iter != end
         ; ++iter)
     {
@@ -429,7 +456,7 @@ void CRepositoryLister::Refresh()
         dumpster.push_back (iter->second);
     }
 
-    queryByPathAndRev.clear();
+    queries.clear();
 
     // finally destroy all entries that have already been processed
 
@@ -444,15 +471,13 @@ void CRepositoryLister::Refresh (const SVNRev& revision)
 
     // move all HEAD queries for a specific revision the dumpster
 
-    for ( TQueryByPathAndRev::iterator iter = queryByPathAndRev.begin()
-        ; iter != queryByPathAndRev.end()
-        ; )
+    for (TQueries::iterator iter = queries.begin(); iter != queries.end(); )
     {
         if (iter->first.second == revision)
         {
             iter->second->Terminate();
             dumpster.push_back (iter->second);
-            iter = queryByPathAndRev.erase (iter);
+            iter = queries.erase (iter);
         }
         else
         {
@@ -478,9 +503,7 @@ void CRepositoryLister::RefreshSubTree
 
     // move all HEAD queries for a specific revision the dumpster
 
-    for ( TQueryByPathAndRev::iterator iter = queryByPathAndRev.begin()
-        ; iter != queryByPathAndRev.end()
-        ; )
+    for (TQueries::iterator iter = queries.begin(); iter != queries.end(); )
     {
         if (   (iter->first.second == revision)
             && (   (escapedURL == iter->first.first)
@@ -488,7 +511,7 @@ void CRepositoryLister::RefreshSubTree
         {
             iter->second->Terminate();
             dumpster.push_back (iter->second);
-            iter = queryByPathAndRev.erase (iter);
+            iter = queries.erase (iter);
         }
         else
         {
@@ -519,9 +542,9 @@ CString CRepositoryLister::GetList
     // finish before the one that I could start right now
 
     TPathAndRev key (escapedURL, repository.revision);
-    TQueryByPathAndRev::iterator iter = queryByPathAndRev.find (key);
+    TQueries::iterator iter = queries.find (key);
 
-    if (   (iter != queryByPathAndRev.end()) 
+    if (   (iter != queries.end()) 
         && (iter->second->GetStatus() != async::IJob::waiting))
     {
         items = iter->second->GetResult();

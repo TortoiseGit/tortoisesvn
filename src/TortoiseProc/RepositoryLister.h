@@ -250,9 +250,9 @@ private:
     /// folder content at specific revisions
 
     typedef std::pair<CTSVNPath, svn_revnum_t> TPathAndRev;
-    typedef std::map<TPathAndRev, CQuery*> TQueryByPathAndRev;
+    typedef std::map<TPathAndRev, CQuery*> TQueries;
 
-    TQueryByPathAndRev queryByPathAndRev;
+    TQueries queries;
 
     /// move superseeded queries here
     /// (so they can finish quietly without us waiting for them)
@@ -304,6 +304,10 @@ public:
     void Enqueue ( const CString& url
                  , const SRepositoryInfo& repository
                  , bool includeExternals);
+
+    /// remove all unfinished entries from the job queue
+
+    void Cancel();
 
     /// don't return results from previous or still running requests
     /// the next time \ref GetList() gets called
