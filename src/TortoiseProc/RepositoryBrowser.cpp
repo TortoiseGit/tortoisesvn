@@ -442,10 +442,6 @@ void CRepositoryBrowser::InitRepo()
 		if (theme.IsAppThemed())
 			CAppUtils::SetListCtrlBackgroundImage(m_RepoList.GetSafeHwnd(), nID);
 	}
-    else
-    {
-        m_InitialUrl.Empty();
-    }
 }
 
 UINT CRepositoryBrowser::InitThreadEntry(LPVOID pVoid)
@@ -810,7 +806,7 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
         m_repository.revision = rev;
 		InitRepo();
 
-		if (m_InitialUrl.IsEmpty())
+		if (m_repository.root.IsEmpty())
 			return false;
 
         root = m_repository.root;
@@ -1468,6 +1464,19 @@ void CRepositoryBrowser::OnRefresh()
     // try to get the tree node to refresh
 
     HTREEITEM hSelected = m_RepoTree.GetSelectedItem();
+    if (hSelected == NULL)
+        hSelected = m_RepoTree.GetRootItem();
+
+    if (hSelected == NULL)
+    {
+        // empty -> try re-init
+
+        InitRepo();
+        return;
+    }
+
+    // invalidate the cache
+
     InvalidateData (hSelected);
 
     // prefetch the whole sub-tree?
