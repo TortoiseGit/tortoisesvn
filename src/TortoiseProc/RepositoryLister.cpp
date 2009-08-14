@@ -268,7 +268,9 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 	    {
 		    svn_wc_external_item2_t * external 
                 = APR_ARRAY_IDX( parsedExternals, i, svn_wc_external_item2_t*);
-		    if (external)
+
+            if (   (external != NULL)
+                && (external->peg_revision.kind == svn_opt_revision_head))
 		    {
                 // get target repositiory 
 
