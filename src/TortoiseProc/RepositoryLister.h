@@ -36,6 +36,18 @@ struct SRepositoryInfo
     CString root;
     CString uuid;
     SVNRev revision;
+
+    bool operator== (const SRepositoryInfo& rhs) const
+    {
+        return (root == rhs.root) 
+            && (uuid == rhs.uuid) 
+            && ((LONG)revision == (LONG)rhs.revision);
+    }
+
+    bool operator!= (const SRepositoryInfo& rhs) const
+    {
+        return !operator==(rhs);
+    }
 };
 
 /**

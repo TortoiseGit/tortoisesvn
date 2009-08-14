@@ -34,6 +34,7 @@ using namespace std;
 class CInputLogDlg;
 class CTreeDropTarget;
 class CListDropTarget;
+class CRepositoryBrowserSelection;
 
 /**
  * \ingroup TortoiseProc
@@ -182,7 +183,7 @@ protected:
 	/// Initializes the repository browser with a new root url
 	void InitRepo();
 	/// Helper function to show the "File Save" dialog
-	bool AskForSavePath(const CTSVNPathList& urlList, CTSVNPath &tempfile, bool bFolder);
+	bool AskForSavePath (const CRepositoryBrowserSelection& selection, CTSVNPath &tempfile, bool bFolder);
 
 	/// Saves the column widths
 	void SaveColumnWidths(bool bSaveToRegistry = false);
@@ -196,9 +197,9 @@ protected:
     void InvalidateData (HTREEITEM node);
     void InvalidateData (HTREEITEM node, const SVNRev& revision);
 
-    /// assume that the \ref urls may have become invalid
+    /// assume that the selected urls may have become invalid
     /// and reset the the cache accordingly
-    void InvalidateDataParents (const CTSVNPathList& urls);
+    void InvalidateDataParents (const CRepositoryBrowserSelection& selection);
 
 	static UINT InitThreadEntry(LPVOID pVoid);
 	UINT InitThread();
