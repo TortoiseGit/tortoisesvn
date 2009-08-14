@@ -92,18 +92,17 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
 	, m_cnrRepositoryBar(&m_barRepository)
 	, m_bStandAlone(true)
 	, m_InitialUrl(url)
-	, m_initialRev(rev)
 	, m_bInitDone(false)
 	, m_blockEvents(false)
 	, m_bSortAscending(true)
 	, m_nSortedColumn(0)
 	, m_pTreeDropTarget(NULL)
 	, m_pListDropTarget(NULL)
-	, m_bCancelled(false)
 	, m_diffKind(svn_node_none)
 	, m_hAccel(NULL)
     , bDragMode(FALSE)
 {
+    m_repository.revision = rev;
 }
 
 CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CWnd* pParent)
@@ -111,18 +110,17 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
 	, m_cnrRepositoryBar(&m_barRepository)
 	, m_bStandAlone(false)
 	, m_InitialUrl(url)
-	, m_initialRev(rev)
 	, m_bInitDone(false)
 	, m_blockEvents(false)
 	, m_bSortAscending(true)
 	, m_nSortedColumn(0)
 	, m_pTreeDropTarget(NULL)
 	, m_pListDropTarget(NULL)
-	, m_bCancelled(false)
 	, m_diffKind(svn_node_none)
 	, m_hAccel(NULL)
 	, bDragMode(FALSE)
 {
+    m_repository.revision = rev;
 }
 
 CRepositoryBrowser::~CRepositoryBrowser()
@@ -155,6 +153,14 @@ void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* 
 		delete pTreeItem;
 		m_RepoTree.SetItemData(hItem, 0);
 	}
+}
+
+void CRepositoryBrowser::ClearUI()
+{
+	RecursiveRemove (m_RepoTree.GetRootItem());
+
+	m_RepoTree.DeleteAllItems();
+	m_RepoList.DeleteAllItems();
 }
 
 void CRepositoryBrowser::DoDataExchange(CDataExchange* pDX)
@@ -295,28 +301,31 @@ void CRepositoryBrowser::InitRepo()
 {
 	CWaitCursorEx wait;
 
+    // stop running requests 
+    // (reduce time needed to change the repository or revision)
+
+    m_lister.Cancel();
+
     // repository properties
 
 	m_InitialUrl = CPathUtils::PathUnescape(m_InitialUrl);
 	if (m_InitialUrl.Find('?')>=0)
 	{
-		m_initialRev = SVNRev(m_InitialUrl.Mid(m_InitialUrl.Find('?')+1));
+        m_repository.revision = SVNRev(m_InitialUrl.Mid(m_InitialUrl.Find('?')+1));
 		m_InitialUrl = m_InitialUrl.Left(m_InitialUrl.Find('?'));
 	}
 
-    SRepositoryInfo repository;
-    repository.revision = m_initialRev;
-    repository.root 
-        = GetRepositoryRootAndUUID (CTSVNPath (m_InitialUrl), repository.uuid);
+    m_repository.root 
+        = GetRepositoryRootAndUUID (CTSVNPath (m_InitialUrl), m_repository.uuid);
 
     // let's (try to) access all levels in the folder path 
 
-    if (!repository.root.IsEmpty())
+    if (!m_repository.root.IsEmpty())
         for ( CString path = m_InitialUrl
-            ; path.GetLength() >= repository.root.GetLength()
+            ; path.GetLength() >= m_repository.root.GetLength()
             ; path = path.Left (path.ReverseFind ('/')))
         {
-            m_lister.Enqueue (path, repository, true);
+            m_lister.Enqueue (path, m_repository, true);
         }
 
     // (try to) fetch the HEAD revision
@@ -327,7 +336,7 @@ void CRepositoryBrowser::InitRepo()
 
     std::deque<CItem> dummy;
     CString error 
-        = m_lister.GetList (m_InitialUrl, repository, true, dummy);
+        = m_lister.GetList (m_InitialUrl, m_repository, true, dummy);
 
     // the only way CQuery::List will return the following error
     // is by calling it with a file path instead of a dir path
@@ -340,7 +349,7 @@ void CRepositoryBrowser::InitRepo()
     if (error == wasFileError)
     {
 	    m_InitialUrl = m_InitialUrl.Left (m_InitialUrl.ReverseFind ('/'));
-        error = m_lister.GetList (m_InitialUrl, repository, true, dummy);
+        error = m_lister.GetList (m_InitialUrl, m_repository, true, dummy);
     }
 
     // did our optimistic strategy work?
@@ -349,7 +358,7 @@ void CRepositoryBrowser::InitRepo()
     {
         // optimistic strategy was successful
 
-        if (m_initialRev.IsHead())
+        if (m_repository.revision.IsHead())
             m_barRepository.SetHeadRevision (headRevision);
     }
     else
@@ -360,7 +369,9 @@ void CRepositoryBrowser::InitRepo()
 	    const SVNInfoData * data = NULL;
 	    do 
 	    {
-		    data = info.GetFirstFileInfo(CTSVNPath(m_InitialUrl),m_initialRev, m_initialRev);
+            data = info.GetFirstFileInfo ( CTSVNPath(m_InitialUrl)
+                                         , m_repository.revision
+                                         , m_repository.revision);
 		    if ((data == NULL)||(data->kind != svn_node_dir))
 		    {
 			    // in case the url is not a valid directory, try the parent dir
@@ -389,44 +400,41 @@ void CRepositoryBrowser::InitRepo()
 		    m_RepoList.ShowText(error, true);
 		    return;
 	    }
-	    else if (m_initialRev.IsHead())
+	    else if (m_repository.revision.IsHead())
 	    {
 		    m_barRepository.SetHeadRevision(data->rev);
 	    }
 
-        repository.root = data->reposRoot;
-    	repository.uuid = data->reposUUID;
+        m_repository.root = data->reposRoot;
+    	m_repository.uuid = data->reposUUID;
     }
 
     m_InitialUrl.TrimRight('/');
-
-	m_bCancelled = false;
-
-	repository.root = CPathUtils::PathUnescape (repository.root);
+	m_repository.root = CPathUtils::PathUnescape (m_repository.root);
 
 	// the initial url can be in the format file:///\, but the
 	// repository root returned would still be file://
 	// to avoid string length comparison faults, we adjust
 	// the repository root here to match the initial url
 	if ((m_InitialUrl.Left(9).CompareNoCase(_T("file:///\\")) == 0) &&
-		(repository.root.Left(9).CompareNoCase(_T("file:///\\")) != 0))
-		repository.root.Replace(_T("file://"), _T("file:///\\"));
+		(m_repository.root.Left(9).CompareNoCase(_T("file:///\\")) != 0))
+		m_repository.root.Replace(_T("file://"), _T("file:///\\"));
 
-	SetWindowText(repository.root + _T(" - ") + m_origDlgTitle);
+	SetWindowText(m_repository.root + _T(" - ") + m_origDlgTitle);
 	// now check the repository root for the url type, then
 	// set the corresponding background image
-	if (!repository.root.IsEmpty())
+	if (!m_repository.root.IsEmpty())
 	{
 		UINT nID = IDI_REPO_UNKNOWN;
-        if (repository.root.Left(7).CompareNoCase(_T("http://"))==0)
+        if (m_repository.root.Left(7).CompareNoCase(_T("http://"))==0)
 			nID = IDI_REPO_HTTP;
-		if (repository.root.Left(8).CompareNoCase(_T("https://"))==0)
+		if (m_repository.root.Left(8).CompareNoCase(_T("https://"))==0)
 			nID = IDI_REPO_HTTPS;
-		if (repository.root.Left(6).CompareNoCase(_T("svn://"))==0)
+		if (m_repository.root.Left(6).CompareNoCase(_T("svn://"))==0)
 			nID = IDI_REPO_SVN;
-		if (repository.root.Left(10).CompareNoCase(_T("svn+ssh://"))==0)
+		if (m_repository.root.Left(10).CompareNoCase(_T("svn+ssh://"))==0)
 			nID = IDI_REPO_SVNSSH;
-		if (repository.root.Left(7).CompareNoCase(_T("file://"))==0)
+		if (m_repository.root.Left(7).CompareNoCase(_T("file://"))==0)
 			nID = IDI_REPO_FILE;
 
 		CXPTheme theme;
@@ -437,9 +445,6 @@ void CRepositoryBrowser::InitRepo()
     {
         m_InitialUrl.Empty();
     }
-
-    m_strReposRoot = repository.root;
-    m_sUUID = repository.uuid;
 }
 
 UINT CRepositoryBrowser::InitThreadEntry(LPVOID pVoid)
@@ -477,9 +482,9 @@ LRESULT CRepositoryBrowser::OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam
 	if (m_InitialUrl.IsEmpty())
 		return 0;
 
-	m_barRepository.SetRevision(m_initialRev);
-	m_barRepository.ShowUrl(m_InitialUrl, m_initialRev);
-    ChangeToUrl (m_InitialUrl, m_initialRev, true);
+	m_barRepository.SetRevision (m_repository.revision);
+	m_barRepository.ShowUrl (m_InitialUrl, m_repository.revision);
+    ChangeToUrl (m_InitialUrl, m_repository.revision, true);
 
 	m_bInitDone = TRUE;
 	return 0;
@@ -506,8 +511,7 @@ void CRepositoryBrowser::OnOK()
 
 	SaveColumnWidths(true);
 
-	HTREEITEM hItem = m_RepoTree.GetRootItem();
-	RecursiveRemove(hItem);
+    ClearUI();
 
 	m_barRepository.SaveHistory();
 	CResizableStandAloneDialog::OnOK();
@@ -520,8 +524,7 @@ void CRepositoryBrowser::OnCancel()
 
 	SaveColumnWidths(true);
 
-	HTREEITEM hItem = m_RepoTree.GetRootItem();
-	RecursiveRemove(hItem);
+    ClearUI();
 
 	__super::OnCancel();
 }
@@ -768,7 +771,6 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
 		SVNInfo info;
 		const SVNInfoData * data = NULL;
 		CString orig_url = url;
-		m_bCancelled = false;
 		do 
 		{
 			data = info.GetFirstFileInfo(CTSVNPath(url), rev, rev);
@@ -782,74 +784,38 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
 				// until there's no more parent dir
 				url = url.Left(url.ReverseFind('/'));
 			}
-		} while(!m_bCancelled && !url.IsEmpty() && ((data == NULL) || (data->kind != svn_node_dir)));
+		} while(!url.IsEmpty() && ((data == NULL) || (data->kind != svn_node_dir)));
 		if (url.IsEmpty())
 			url = orig_url;
 	}
 
-    CString root = m_strReposRoot;
+    CString root = m_repository.root;
     bool urlHasDifferentRoot 
         =    root.IsEmpty() 
           || root.Compare (url.Left (root.GetLength())) 
           || (url.GetAt (root.GetLength()) != '/');
 
 	CString partUrl = url;
-	HTREEITEM hItem = m_RepoTree.GetRootItem();
-	if ((LONG(rev) != LONG(m_initialRev)) || urlHasDifferentRoot)
+	if ((LONG(rev) != LONG(m_repository.revision)) || urlHasDifferentRoot)
 	{
 		// if the revision changed, then invalidate everything
-		RecursiveRemove(hItem);
-		m_RepoTree.DeleteAllItems();
-		m_RepoList.DeleteAllItems();
-		m_RepoList.ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_WAIT)), true);
-		hItem = m_RepoTree.GetRootItem();
+        ClearUI();
+    	m_RepoList.ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_WAIT)), true);
 
-		if (urlHasDifferentRoot)
-		{
-			// if the repository root has changed, initialize all data from scratch
-			// and clear the project properties we might have loaded previously
-			m_ProjectProperties = ProjectProperties();
-			m_InitialUrl = url;
-            m_initialRev = rev;
-			InitRepo();
+        // if the repository root has changed, initialize all data from scratch
+		// and clear the project properties we might have loaded previously
+		m_ProjectProperties = ProjectProperties();
+		m_InitialUrl = url;
+        m_repository.revision = rev;
+		InitRepo();
 
-			if (m_InitialUrl.IsEmpty())
-				return false;
+		if (m_InitialUrl.IsEmpty())
+			return false;
 
-            root = m_strReposRoot;
-		}
+        root = m_repository.root;
 	}
 
-	if (hItem == NULL)
-	{
-		// the tree view is empty, just fill in the repository root
-		CTreeItem * pTreeItem = new CTreeItem();
-		pTreeItem->unescapedname = root;
-        pTreeItem->url = root;
-        pTreeItem->logicalPath = root;
-        pTreeItem->repository.root = root;
-        pTreeItem->repository.uuid = m_sUUID;
-        pTreeItem->repository.revision = GetRevision();
-
-		TVINSERTSTRUCT tvinsert = {0};
-		tvinsert.hParent = TVI_ROOT;
-		tvinsert.hInsertAfter = TVI_ROOT;
-		tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE;
-		tvinsert.itemex.pszText = root.GetBuffer (root.GetLength());
-		tvinsert.itemex.cChildren = 1;
-		tvinsert.itemex.lParam = (LPARAM)pTreeItem;
-		tvinsert.itemex.iImage = m_nIconFolder;
-		tvinsert.itemex.iSelectedImage = m_nOpenIconFolder;
-
-		hItem = m_RepoTree.InsertItem(&tvinsert);
-		root.ReleaseBuffer();
-	}
-	if (hItem == NULL)
-	{
-		// something terrible happened!
-		return false;
-	}
-	hItem = FindUrl(url);
+	HTREEITEM hItem = AutoInsert (url);
 	if (hItem == NULL)
 		return false;
 
@@ -1000,21 +966,21 @@ void CRepositoryBrowser::FillList(deque<CItem> * pItems)
 	m_RepoList.SetRedraw(true);
 }
 
-HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, bool create /* = true */)
+HTREEITEM CRepositoryBrowser::FindUrl (const CString& fullurl)
 {
-	return FindUrl(fullurl, fullurl, create, TVI_ROOT);
+	return FindUrl (fullurl, fullurl, TVI_ROOT);
 }
 
-HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url, bool create /* true */, HTREEITEM hItem /* = TVI_ROOT */)
+HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url, HTREEITEM hItem /* = TVI_ROOT */)
 {
-    CString root = m_strReposRoot;
+    CString root = m_repository.root;
 
 	if (hItem == TVI_ROOT)
 	{
 		hItem = m_RepoTree.GetRootItem();
 		if (fullurl.Compare(root)==0)
 			return hItem;
-		return FindUrl(fullurl, url.Mid(root.GetLength()+1), create, hItem);
+		return FindUrl(fullurl, url.Mid(root.GetLength()+1), hItem);
 	}
 	HTREEITEM hSibling = hItem;
 	if (m_RepoTree.GetNextItem(hItem, TVGN_CHILD))
@@ -1031,88 +997,131 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 					if (sSibling.GetLength() == url.GetLength())
 						return hSibling;
 					if (url.GetAt(sSibling.GetLength()) == '/')
-						return FindUrl(fullurl, url.Mid(sSibling.GetLength()+1), create, hSibling);
+						return FindUrl(fullurl, url.Mid(sSibling.GetLength()+1), hSibling);
 				}
 			}
 		} while ((hSibling = m_RepoTree.GetNextItem(hSibling, TVGN_NEXT)) != NULL);	
 	}
-	if (!create)
-		return NULL;
-	// create tree items for every path part in the url
-	CString sUrl = url;
-	int slash = -1;
-	HTREEITEM hNewItem = hItem;
-    CTreeItem* parentTreeItem = (CTreeItem*)m_RepoTree.GetItemData (hItem);
 
-    CString sTemp;
-	while ((slash=sUrl.Find('/')) >= 0)
-	{
-		CTreeItem * pTreeItem = new CTreeItem();
-		sTemp = sUrl.Left(slash);
-		pTreeItem->unescapedname = sTemp;
-		pTreeItem->url = fullurl.Left(fullurl.GetLength()-sUrl.GetLength()+slash);
-        pTreeItem->logicalPath = parentTreeItem->logicalPath + '/' + sTemp;
-        pTreeItem->repository = parentTreeItem->repository;
+    return NULL;
+}
 
-		UINT state = pTreeItem->url.CompareNoCase(m_diffURL.GetSVNPathString()) ? 0 : TVIS_BOLD;
-		TVINSERTSTRUCT tvinsert = {0};
-		tvinsert.hParent = hNewItem;
-		tvinsert.hInsertAfter = TVI_SORT;
-		tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
-		tvinsert.itemex.state = state;
-		tvinsert.itemex.stateMask = state;
-		tvinsert.itemex.pszText = sTemp.GetBuffer(sTemp.GetLength());
-		tvinsert.itemex.cChildren = 1;
-		tvinsert.itemex.lParam = (LPARAM)pTreeItem;
-		tvinsert.itemex.iImage = m_nIconFolder;
-		tvinsert.itemex.iSelectedImage = m_nOpenIconFolder;
+HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
+{
+    CString currentPath;
+    HTREEITEM node = NULL;
+    do
+    {
+        // name of the node to add
 
-		TVSORTCB tvs;
-		tvs.hParent = hNewItem;
-		tvs.lpfnCompare = TreeSort;
-		tvs.lParam = (LPARAM)this;
+        CString name;
 
-		hNewItem = m_RepoTree.InsertItem(&tvinsert);
-        parentTreeItem = pTreeItem;
+        // select next path level
 
-		sTemp.ReleaseBuffer();
-		m_RepoTree.SortChildrenCB(&tvs);
-		sUrl = sUrl.Mid(slash+1);
-		ATLTRACE(_T("created tree entry %s, url %s\n"), sTemp, pTreeItem->url);
-	}
-	if (!sUrl.IsEmpty())
-	{
-		CTreeItem * pTreeItem = new CTreeItem();
-		sTemp = sUrl;
-		pTreeItem->unescapedname = sTemp;
-		pTreeItem->url = fullurl;
-        pTreeItem->logicalPath = parentTreeItem->logicalPath + '/' + sTemp;
-        pTreeItem->repository = parentTreeItem->repository;
+        if (currentPath.IsEmpty())
+        {
+            currentPath = m_repository.root;
+            name = m_repository.root;
+        }
+        else
+        {
+            int oldLength = currentPath.GetLength();
+            int pos = path.Find ('/', oldLength + 1);
+            if (pos < 0)
+                pos = path.GetLength();
 
-		UINT state = pTreeItem->url.CompareNoCase(m_diffURL.GetSVNPathString()) ? 0 : TVIS_BOLD;
-		TVINSERTSTRUCT tvinsert = {0};
-		tvinsert.hParent = hNewItem;
-		tvinsert.hInsertAfter = TVI_SORT;
-		tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
-		tvinsert.itemex.state = state;
-		tvinsert.itemex.stateMask = state;
-		tvinsert.itemex.pszText = sTemp.GetBuffer(sTemp.GetLength());
-		tvinsert.itemex.cChildren = 1;
-		tvinsert.itemex.lParam = (LPARAM)pTreeItem;
-		tvinsert.itemex.iImage = m_nIconFolder;
-		tvinsert.itemex.iSelectedImage = m_nOpenIconFolder;
+            name = path.Mid (oldLength + 1, pos - oldLength - 1);
+            currentPath = path.Left (pos);
+        }
 
-		TVSORTCB tvs;
-		tvs.hParent = hNewItem;
-		tvs.lpfnCompare = TreeSort;
-		tvs.lParam = (LPARAM)this;
+        // root node?
 
-		hNewItem = m_RepoTree.InsertItem(&tvinsert);
-		sTemp.ReleaseBuffer();
-		m_RepoTree.SortChildrenCB(&tvs);
-		return hNewItem;
-	}
-	return NULL;
+        if (node == NULL)
+        {
+	        node = m_RepoTree.GetRootItem();
+	        if (node == NULL)
+	        {
+		        // the tree view is empty, just fill in the repository root
+		        CTreeItem * pTreeItem = new CTreeItem();
+		        pTreeItem->unescapedname = name;
+                pTreeItem->url = currentPath;
+                pTreeItem->logicalPath = currentPath;
+                pTreeItem->repository = m_repository;
+
+		        TVINSERTSTRUCT tvinsert = {0};
+		        tvinsert.hParent = TVI_ROOT;
+		        tvinsert.hInsertAfter = TVI_ROOT;
+		        tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE;
+		        tvinsert.itemex.pszText = currentPath.GetBuffer (currentPath.GetLength());
+		        tvinsert.itemex.cChildren = 1;
+		        tvinsert.itemex.lParam = (LPARAM)pTreeItem;
+		        tvinsert.itemex.iImage = m_nIconFolder;
+		        tvinsert.itemex.iSelectedImage = m_nOpenIconFolder;
+
+		        node = m_RepoTree.InsertItem(&tvinsert);
+		        currentPath.ReleaseBuffer();
+	        }
+        }
+        else
+        {
+            // get all children
+
+        	CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (node);
+            std::deque<CItem>& children = pTreeItem->children;
+
+            if (!pTreeItem->children_fetched)
+            {
+                // not yet fetched -> do it now
+
+                CString error = m_lister.GetList ( pTreeItem->url
+                                                 , pTreeItem->repository
+                                                 , true
+                                                 , children);
+                if (!error.IsEmpty())
+                    return NULL;
+
+                pTreeItem->children_fetched = true;
+
+                for (size_t i = 0, count = children.size(); i < count; ++i)
+                    if (children[i].kind == svn_node_dir)
+                    {
+                        pTreeItem->has_child_folders = true;
+                        break;
+                    }
+            }
+
+            // select the one that matches the node name we are looking for
+
+            const CItem* item = NULL;
+            for (size_t i = 0, count = children.size(); i < count; ++i)
+                if (   (children[i].kind == svn_node_dir) 
+                    && (children[i].path == name))
+                {
+                    item = &children[i];
+                    break;
+                }
+
+            if (item == NULL)
+                return NULL;
+
+            // auto-add the node for the current path level
+
+            node = AutoInsert (node, *item);
+        }
+
+        // pre-fetch data for the next level
+
+    	CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (node);
+        if ((pTreeItem != NULL) && !pTreeItem->children_fetched)
+            m_lister.Enqueue ( pTreeItem->url
+                             , pTreeItem->repository
+                             , true);
+    }
+    while (currentPath != path);
+
+    // done
+
+	return node;
 }
 
 HTREEITEM CRepositoryBrowser::AutoInsert (HTREEITEM hParent, const CItem& item)
@@ -1204,7 +1213,6 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
 		return false;
 	pTreeItem->children.clear();
 	pTreeItem->has_child_folders = false;
-	m_bCancelled = false;
 
     CString error = m_lister.GetList ( pTreeItem->url
                                      , pTreeItem->repository
@@ -1733,7 +1741,6 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
 	input.SetActionText(sHint);
 	if (input.DoModal() == IDOK)
 	{
-		m_bCancelled = false;
 		if (!Move(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(pItem->absolutepath)))),
 			targetUrl,
 			true, input.GetLogMessage()))
@@ -1779,7 +1786,6 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
 	input.SetActionText(sHint);
 	if (input.DoModal() == IDOK)
 	{
-		m_bCancelled = false;
 		if (!Move(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(pItem->url)))),
 			targetUrl,
 			true, input.GetLogMessage()))
@@ -2029,7 +2035,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 
 		// drag-n-drop inside the repobrowser
 		CInputLogDlg input(this);
-		input.SetUUID(m_sUUID);
+		input.SetUUID(m_repository.uuid);
 		input.SetProjectProperties(&m_ProjectProperties);
 		CString sHint;
 		if (pathlist.GetCount() == 1)
@@ -2049,7 +2055,6 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 		input.SetActionText(sHint);
 		if (input.DoModal() == IDOK)
 		{
-			m_bCancelled = false;
 			CWaitCursorEx wait_cursor;
 			BOOL bRet = FALSE;
 			if (dwEffect == DROPEFFECT_COPY)
@@ -2070,7 +2075,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 			else if (GetRevision().IsHead())
 			{
 				// mark the target as dirty
-				HTREEITEM hTarget = FindUrl(target.GetSVNPathString(), false);
+				HTREEITEM hTarget = FindUrl(target.GetSVNPathString());
                 InvalidateData (hTarget);
 				if (hTarget)
 				{
@@ -2093,7 +2098,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 					// invalidate all sources too
 					for (int i=0; i<pathlist.GetCount(); ++i)
 					{
-						HTREEITEM hSource = FindUrl(pathlist[i].GetSVNPathString(), false);
+						HTREEITEM hSource = FindUrl(pathlist[i].GetSVNPathString());
                         InvalidateData (hSource);
 						if (hSource)
 						{
@@ -2141,7 +2146,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 
 		CInputLogDlg input(this);
 		input.SetProjectProperties(&m_ProjectProperties);
-		input.SetUUID(m_sUUID);
+        input.SetUUID(m_repository.root);
 		CString sHint;
 		if (pathlist.GetCount() == 1)
 			sHint.Format(IDS_INPUT_IMPORTFILEFULL, pathlist[0].GetWinPath(), (LPCTSTR)(target.GetSVNPathString() + _T("/") + pathlist[0].GetFileOrDirectoryName()));
@@ -2151,7 +2156,6 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 
 		if (input.DoModal() == IDOK)
 		{
-			m_bCancelled = false;
 			for (int importindex = 0; importindex<pathlist.GetCount(); ++importindex)
 			{
 				CString filename = pathlist[importindex].GetFileOrDirectoryName();
@@ -2223,7 +2227,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			point = rect.CenterPoint();
 		}
 	}
-	m_bCancelled = false;
 	CTSVNPathList urlList;
 	CTSVNPathList urlListEscaped;
     std::vector<SRepositoryInfo> repositories;
@@ -2510,7 +2513,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_PREPAREDIFF:
 			{
-				m_RepoTree.SetItemState(FindUrl(m_diffURL.GetSVNPathString(), false), 0, TVIS_BOLD);
+				m_RepoTree.SetItemState(FindUrl(m_diffURL.GetSVNPathString()), 0, TVIS_BOLD);
 				if (urlList.GetCount() == 1)
 				{
 					if (m_diffURL.IsEquivalentTo(urlList[0]))
@@ -2525,7 +2528,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 						// make the marked tree item bold
 						if (m_diffKind == svn_node_dir)
 						{
-							m_RepoTree.SetItemState(FindUrl(m_diffURL.GetSVNPathString(), false), TVIS_BOLD, TVIS_BOLD);
+							m_RepoTree.SetItemState(FindUrl(m_diffURL.GetSVNPathString()), TVIS_BOLD, TVIS_BOLD);
 						}
 					}
 				}
@@ -3049,7 +3052,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_GNUDIFF:
 			{
-				m_bCancelled = false;
 				SVNDiff diff(this, this->m_hWnd, true);
 				if (urlList.GetCount() == 1)
 				{
@@ -3073,7 +3075,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_DIFF:
 			{
-				m_bCancelled = false;
 				SVNDiff diff(this, this->m_hWnd, true);
 				diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 				if (urlList.GetCount() == 1)
@@ -3267,6 +3268,6 @@ void CRepositoryBrowser::InvalidateDataParents (const CTSVNPathList& urls)
     for (int i = 0, count = urls.GetCount(); i < count; ++i)
     {
         const CString& url = urls[i].GetSVNPathString();
-        InvalidateData (m_RepoTree.GetParentItem (FindUrl (url, false)), head);
+        InvalidateData (m_RepoTree.GetParentItem (FindUrl (url)), head);
     }
 }

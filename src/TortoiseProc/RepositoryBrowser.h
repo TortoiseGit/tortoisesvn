@@ -85,7 +85,7 @@ public:
 	/// the repository browser will show the content of that url.
 	bool ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked);
 
-	CString GetRepoRoot() { return m_strReposRoot; }
+    CString GetRepoRoot() { return m_repository.root; }
 
 	enum { IDD = IDD_REPOSITORY_BROWSER };
 
@@ -99,7 +99,6 @@ protected:
 	virtual void OnOK();
 	virtual void OnCancel();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual BOOL Cancel() {return m_bCancelled;}
 
 	afx_msg void OnBnClickedHelp();
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
@@ -136,10 +135,17 @@ protected:
 
 	/// recursively removes all items from \c hItem on downwards.
 	void RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly = false);
+    /// remove all tree nodes and empty the list view
+    void ClearUI();
 	/// searches the tree item for the specified \c fullurl.
-	HTREEITEM FindUrl(const CString& fullurl, bool create = true);
+	HTREEITEM FindUrl(const CString& fullurl);
 	/// searches the tree item for the specified \c fullurl.
-	HTREEITEM FindUrl(const CString& fullurl, const CString& url, bool create = true, HTREEITEM hItem = TVI_ROOT);
+	HTREEITEM FindUrl(const CString& fullurl, const CString& url, HTREEITEM hItem = TVI_ROOT);
+
+	/// Find and return the node that corresponds to the specified 
+    /// logical \ref path. Add such node (including parents) if it 
+    /// does not exist, yet.
+    HTREEITEM AutoInsert (const CString& path);
 	/// Find and return the sub-node to \ref hParent that follows
     /// the spec in \ref item. Add such sub-node if it does not
     /// exist, yet.
@@ -201,15 +207,13 @@ protected:
 	CTreeCtrl			m_RepoTree;
 	CHintListCtrl		m_RepoList;
 
-	CString				m_strReposRoot;
-	CString				m_sUUID;
+    SRepositoryInfo     m_repository;
 
 	HACCEL				m_hAccel;
 
 private:
 	bool				m_bStandAlone;
 	CString				m_InitialUrl;
-	SVNRev				m_initialRev;
 	bool				m_bThreadRunning;
 	static const UINT	m_AfterInitMessage;
 
@@ -230,8 +234,6 @@ private:
 
 	int					oldy, oldx;
 	bool				bDragMode;
-
-	bool				m_bCancelled;
 
 	svn_node_kind_t		m_diffKind;
 	CTSVNPath			m_diffURL;
