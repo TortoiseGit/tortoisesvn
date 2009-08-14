@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-07-07 13:23 +0000\n"
-"PO-Revision-Date: 2009-07-16 22:47+0900\n"
+"POT-Creation-Date: 2009-08-13 08:06 +0000\n"
+"PO-Revision-Date: 2009-08-14 22:32+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6250,6 +6250,27 @@ msgstr ""
 "<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>移動を修復</"
 "guimenuitem></menuchoice> を用いて 2 つのファイルが名前変更であると指定してく"
 "ださい。"
+
+#. (title)
+#. (title)
+msgid "Repairing External Copies"
+msgstr "外部でのコピーの修復"
+
+#. (para)
+#. (para)
+msgid ""
+"If you made a copy of a file but forgot to use the Subversion command to do "
+"so, you can repair that copy so the new file doesn't lose its history. "
+"Simply select both the old name (normal or modified) and the new name "
+"(unversioned) and use <menuchoice><guimenu>Context Menu</"
+"guimenu><guimenuitem>Repair Copy</guimenuitem></menuchoice> to pair the two "
+"files as a copy."
+msgstr ""
+"ファイルのコピーをしたのに、Subversion コマンドで行うのを忘れた場合、新しい"
+"ファイルが履歴を失わないように、そのコピーを修復できます。単純に古い名前 (通"
+"常ないし変更) と新しい名前 (バージョン管理外) を選択し、<menuchoice><guimenu>"
+"コンテキストメニュー</guimenu><guimenuitem>コピーの修復</guimenuitem></"
+"menuchoice> として、その 2 ファイルがコピーであるとしてください。"
 
 #. (title)
 #. (title)
@@ -16313,15 +16334,16 @@ msgstr ""
 "性は、高いレベル (<filename>trunk/</filename> に近い) のものを上書きします。"
 
 #. (para)
-#. (para)
 msgid ""
-"For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can "
-"use the <guilabel>Recursive</guilabel> checkbox to set the property to all "
-"sub-folders in the hierarchy, without also setting it on all files."
+"For <literal>tsvn:</literal> and <literal>webviewer:</literal> properties "
+"<emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> "
+"checkbox to set the property to all sub-folders in the hierarchy, without "
+"also setting it on all files."
 msgstr ""
-"<literal>tsvn:</literal> 属性 <emphasis>だけ</emphasis> ですが、<guilabel>再"
-"帰</guilabel>チェックボックスを使って階層の全サブフォルダに属性をセットできま"
-"す。このとき全ファイルが対象になるわけではありません。"
+"<literal>tsvn:</literal> 属性と <literal>webviewer:</literal> 属性<emphasis>"
+"だけ</emphasis> ですが、<guilabel>再帰</guilabel>チェックボックスを使って階層"
+"の全サブフォルダに属性をセットできます。このとき全ファイルが対象になるわけで"
+"はありません。"
 
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
@@ -16529,6 +16551,16 @@ msgstr ""
 "フォーマットは <literal>bugtraq:url</literal> 属性と同じです。<xref linkend="
 "\"tsvn-dug-bugtracker\"/> をご覧ください。"
 
+#. (para)
+msgid ""
+"For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can "
+"use the <guilabel>Recursive</guilabel> checkbox to set the property to all "
+"sub-folders in the hierarchy, without also setting it on all files."
+msgstr ""
+"<literal>tsvn:</literal> 属性 <emphasis>だけ</emphasis> ですが、<guilabel>再"
+"帰</guilabel>チェックボックスを使って階層の全サブフォルダに属性をセットできま"
+"す。このとき全ファイルが対象になるわけではありません。"
+
 #. (title)
 msgid "No Repo Viewer Links from Repository Browser"
 msgstr "リポジトリブラウザからリンクするリポジトリビューアはありません"
@@ -16538,12 +16570,16 @@ msgid ""
 "Because the repo viewer integration depends upon accessing subversion "
 "properties, you will only see the results when using a checked out working "
 "copy. Fetching properties remotely is a slow operation, so you will not see "
-"this feature in action from the repo browser."
+"this feature in action from the repo browser unless you started the repo "
+"browser from your working copy. If you started the repo browser by entering "
+"the url of the repository you won't see this feature."
 msgstr ""
 "リポジトリビューアとの統合は、subversion の属性にアクセスできることに依存して"
 "いるため、チェックアウトした作業コピーを使用するときにだけ、結果を目にするこ"
-"とになります。リモートから属性を取得するのは遅い操作ですので、作動中のこの機"
-"能をリポジトリブラウザから目にすることはないでしょう。"
+"とになります。リモートから属性を取得するのは遅い操作ですので、作業コピーから"
+"リポジトリブラウザを起動しない限り、作動中のこの機能をリポジトリブラウザから"
+"目にすることはないでしょう。リポジトリの URL を入力してリポジトリブラウザを起"
+"動した場合、この機能を目にすることになります。"
 
 #. (title)
 msgid "TortoiseSVN's Settings"
