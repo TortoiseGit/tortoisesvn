@@ -13,9 +13,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2009-06-28 15:29+0200\n"
-"Last-Translator: Bob Hulst <bob.hulst@hiq.fi>\n"
+"POT-Creation-Date: 2009-08-13 08:06 +0000\n"
+"PO-Revision-Date: 2009-08-14 17:37+0100\n"
+"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -121,9 +121,8 @@ msgid "In <xref linkend=\"tsvn-basics\"/> we give a short introduction to the <e
 msgstr "In <xref linkend=\"tsvn-basics\"/> geven we een korte introductie van het <emphasis>Subversion</emphasis> revisie beheer systeem, dat ten grondslag ligt aan TortoiseSVN. Dit is geleend van de documentatie van het Subversion project en licht de verschillende benaderingen van versie beheer toe, alsook hoe Subversion werkt."
 
 #. (para)
-#, fuzzy
 msgid "The chapter on <xref linkend=\"tsvn-repository\"/> explains how to set up a local repository, which is useful for testing Subversion and TortoiseSVN using a single PC. It also explains a bit about repository administration which is also relevant to repositories located on a server. There is also a section here on how to setup a server if you need one."
-msgstr "Het hoofdstuk over <xref linkend=\"tsvn-repository\"/> legt uit hoe een lokaal archief op te zetten, wat bruikbaar kan zijn om Subversion en TortoiseSVN te testen op een enkele PC. Het gaat ook over het beheer van een archief, wat eveneens relevant is voor archieven op een server."
+msgstr "Het hoofdstuk over <xref linkend=\"tsvn-repository\"/> legt uit hoe een lokaal archief op te zetten, wat bruikbaar kan zijn om Subversion en TortoiseSVN te testen op een enkele PC. Het gaat ook over het beheer van een archief, wat eveneens relevant is voor archieven op een server. Er is ook in een stuk beschreven hoe een server opgezet moet worden als je er een nodig hebt."
 
 #. (para)
 msgid "The <xref linkend=\"tsvn-dug\"/> is the most important section as it explains all the main features of TortoiseSVN and how to use them. It takes the form of a tutorial, starting with checking out a working copy, modifying it, committing your changes, etc. It then progresses to more advanced topics."
@@ -162,9 +161,8 @@ msgid "Community"
 msgstr "Gemeenschap"
 
 #. (para)
-#, fuzzy
 msgid "Both TortoiseSVN and Subversion are developed by a community of people who are working on those projects. They come from different countries all over the world and work together to create wonderful programs."
-msgstr "Zowel TortoiseSVN als Subversion zijn ontwikkeld door een groep mensen, die aan deze projecten werkt. Ze komen van verschillende landen uit de hele wereld en ontwikkelen samen deze mooie programma's."
+msgstr "Zowel TortoiseSVN als Subversion zijn ontwikkeld door een groep mensen, die aan deze projecten werkt. Ze komen uit verschillende landen van de hele wereld en ontwikkelen samen deze mooie programma's."
 
 #. (title)
 msgid "Acknowledgments"
@@ -224,7 +222,7 @@ msgstr "Onze medewerkers"
 
 #. (para)
 msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list."
-msgstr "voor de patches, defect rapportages en nieuwe ideeen, en voor het helpen van anderen door vragen in onze mailinglist  te beantwoorden ."
+msgstr "voor de patches, defect rapportages en nieuwe ideeen, en voor het helpen van anderen door vragen in onze mailinglist  te beantwoorden."
 
 #. (term)
 msgid "Our Donators"
@@ -354,7 +352,7 @@ msgstr "Pictogrammen overlays"
 
 #. (para)
 msgid "The status of every versioned file and folder is indicated by small overlay icons. That way you can see right away what the status of your working copy is."
-msgstr "De status van elk bestand en folder onder versiebeheer wordt"
+msgstr "De status van elk bestand en folder onder versiebeheer wordt weergegeven met een klein overlay pictogram. Op die manier kun je direct zien wat de status is van je werk kopie."
 
 #. (term)
 msgid "Easy access to Subversion commands"
@@ -668,7 +666,7 @@ msgstr "Wat doet Subversion?"
 
 #. (para)
 msgid "Subversion uses the copy-modify-merge solution by default, and in many cases this is all you will ever need. However, as of Version 1.2, Subversion also supports file locking, so if you have unmergeable files, or if you are simply forced into a locking policy by management, Subversion will still provide the features you need."
-msgstr ""
+msgstr "Subversion gebruikt standaard de kopieer-wijzigen-samenvoegen methode, en in veel gevallen is dat alles wat je nodig hebt. Echter, vanaf versie 1.2, ondersteund Subversion ook het vergrendelen van bestanden. Als je niet samenvoegbare bestanden hebt, of als het management simpelweg het gebruik van de vergrendelwerkwijze oplegt, levert Subversion nog steeds de functionaliteit die je nodig hebt."
 
 #. (title)
 msgid "Subversion in Action"
@@ -676,7 +674,7 @@ msgstr "Subversion in Actie"
 
 #. (title)
 msgid "Working Copies"
-msgstr ""
+msgstr "Werk Kopieën"
 
 #. (primary)
 msgid "working copy"
@@ -684,71 +682,71 @@ msgstr "werkkopie"
 
 #. (para)
 msgid "You've already read about working copies; now we'll demonstrate how the Subversion client creates and uses them."
-msgstr ""
+msgstr "Eerder heb je al wat gelezen over werk kopieën; nu zullen we demonstreren hoe de Subversion client deze creëert en gebruikt."
 
 #. (para)
 msgid "A Subversion working copy is an ordinary directory tree on your local system, containing a collection of files. You can edit these files however you wish, and if they're source code files, you can compile your program from them in the usual way. Your working copy is your own private work area: Subversion will never incorporate other people's changes, nor make your own changes available to others, until you explicitly tell it to do so."
-msgstr ""
+msgstr "Een Subversion werk kopie is eenvoudigweg een mapstructuur met een verzameling van bestanden op je lokale systeem. Je kunt de bestanden bewerken zoals je wilt en als het broncode bestanden zijn, is het mogelijk om ze vanaf die locatie te compileren op de gebruikelijke manier. Je werk kopie is je eigen privé werkomgeving: Subversion zal zelf geen wijzigingen van anderen in je lokale kopie verwerken, of jouw werk aan anderen beschikbaar stellen, zonder dat je daar zelf opdracht voor hebt gegeven."
 
 #. (para)
 msgid "After you've made some changes to the files in your working copy and verified that they work properly, Subversion provides you with commands to <emphasis>publish</emphasis> your changes to the other people working with you on your project (by writing to the repository). If other people publish their own changes, Subversion provides you with commands to merge those changes into your working directory (by reading from the repository)."
-msgstr ""
+msgstr "Nadat je wijzigingen in je bestanden hebt aangebracht en hebt geverifieerd of deze goed werken, biedt Subversion commando’s om je wijzigingen te <emphasis>publiceren</emphasis> voor andere mensen die met jou aan het project werken (door middel van het opslaan in het archief). Als andere mensen hun eigen werk publiceren, biedt Subversion je opdrachten om die wijzigingen samen te voegen in je werk kopie (door te lezen vanuit het archief)."
 
 #. (para)
 msgid "A working copy also contains some extra files, created and maintained by Subversion, to help it carry out these commands. In particular, each directory in your working copy contains a subdirectory named <filename>.svn</filename>, also known as the working copy <firstterm>administrative directory</firstterm>. The files in each administrative directory help Subversion recognize which files contain unpublished changes, and which files are out-of-date with respect to others' work."
-msgstr ""
+msgstr "In een werk kopie zitten ook bestanden, die door Subversion gemaakt en bijgehouden worden, die ondersteuning bieden bij het uitvoeren van deze opdrachten.  Elke map in je werk kopie heeft een submap met de naam <filename>.svn</filename>, beter bekend als de <firstterm>administratie map</firstterm> van de werk kopie. De bestanden in de administratie map helpt Subversion om bestanden te detecteren die nog ongepubliceerde wijzigingen hebben en welke bestanden achterhaald zijn ten opzicht van het werk van anderen."
 
 #. (para)
 msgid "A typical Subversion repository often holds the files (or source code) for several projects; usually, each project is a subdirectory in the repository's filesystem tree. In this arrangement, a user's working copy will usually correspond to a particular subtree of the repository."
-msgstr ""
+msgstr "A standaard Subversion archief bevat vaak de (bron) bestanden voor meerdere projecten; vaak is er voor elk project een submap in de boomstructuur van het archief bestandssysteem. Bij deze indeling correspondeert de werk kopie van een gebruiker meestal met een bepaalde submap van het archief."
 
 #. (para)
 msgid "For example, suppose you have a repository that contains two software projects."
-msgstr ""
+msgstr "Bijvoorbeeld, stel je hebt een archief met twee software projecten."
 
 #. (title)
 msgid "The Repository's Filesystem"
-msgstr ""
+msgstr "Het archief bestandssysteem"
 
 #. (para)
 msgid "In other words, the repository's root directory has two subdirectories: <filename>paint</filename> and <filename>calc</filename>."
-msgstr ""
+msgstr "Met andere woorden, de hoofdmap van het archief heeft twee submappen: <filename>paint</filename> en <filename>calc</filename>."
 
 #. (para)
 msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you)."
-msgstr ""
+msgstr "Om een werk kopie te maken, moet je een submapstructuur uit het archief <firstterm>ophalen</firstterm>.  (De term ophalen ook uitgelegd worden als een manier van vergrendelen, maar in feite wordt er voor jou eenvoudigweg een eigen kopie gemaakt van het project)."
 
 #. (para)
 msgid "Suppose you make changes to <filename>button.c</filename>. Since the <filename>.svn</filename> directory remembers the file's modification date and original contents, Subversion can tell that you've changed the file. However, Subversion does not make your changes public until you explicitly tell it to. The act of publishing your changes is more commonly known as <firstterm>committing</firstterm> (or <firstterm>checking in</firstterm>) changes to the repository."
-msgstr ""
+msgstr "Stel je brengt wijzigingen aan in <filename>button.c</filename>. Omdat in de <filename>.svn</filename> map de laatste wijzigingsdatum en originele inhoud wordt bijgehouden, kan Subversion detecteren en aangeven dat het bestand gewijzigd is. Echter maakt Subversion de wijzigingen nog niet bekend aan anderen, totdat jij daarvoor de expliciete opdracht geeft. De handeling van het publiceren van je wijzigingen staat bekend als het <firstterm>vasteleggen</firstterm> (or <firstterm>inchecken</firstterm>) van wijzigingen in het archief."
 
 #. (para)
 msgid "To publish your changes to others, you can use Subversion's <command>commit</command> command."
-msgstr ""
+msgstr "Om je wijzigingen te publiceren naar anderen, gebruik je het Subversion commando <command>Vastleggen</command>."
 
 #. (para)
 msgid "Now your changes to <filename>button.c</filename> have been committed to the repository; if another user checks out a working copy of <filename>/calc</filename>, they will see your changes in the latest version of the file."
-msgstr ""
+msgstr "Met dit commando worden je wijzigingen in <filename>button.c</filename> vastgelegd in het archief; als andere gebruikers een werk kopie ophaalt van <filename>/calc</filename>, dan zullen zij you wijzigingen in de laatste versie zien."
 
 #. (para)
 msgid "Suppose you have a collaborator, Sally, who checked out a working copy of <filename>/calc</filename> at the same time you did. When you commit your change to <filename>button.c</filename>, Sally's working copy is left unchanged; Subversion only modifies working copies at the user's request."
-msgstr ""
+msgstr "Stel je hebt een medewerker, Sally, die op hetzelfde moment als jij een werk kopie ophaalt van <filename>/calc</filename>. Als jij je wijzigingen aan <filename>button.c</filename> vastlegt, blijft Sally’s werk ongewijzigd; Subversion wijzigt alleen werk kopieën op aanvraag van de gebruiker."
 
 #. (para)
 msgid "To bring her project up to date, Sally can ask Subversion to <firstterm>update</firstterm> her working copy, by using the Subversion <command>update</command> command. This will incorporate your changes into her working copy, as well as any others that have been committed since she checked it out."
-msgstr ""
+msgstr "Om haar project bij te werken, kan Sally Subversion vragen om haar werk kopie <firstterm>bij te werken</firstterm>, door het Subversion commando <command>Verversen</command> te gebruiken. Hiermee worden jouw wijzigingen in haar kopie verwerkt, net zoals andere wijzigingen die toegepast zijn sinds zij haar werk kopie ophaalde."
 
 #. (para)
 msgid "Note that Sally didn't need to specify which files to update; Subversion uses the information in the <filename>.svn</filename> directory, and further information in the repository, to decide which files need to be brought up to date."
-msgstr ""
+msgstr "Merk op dat Sally niet aan hoefde te geven welke bestanden bijgewerkt moesten worden; Subversion gebruikt hiervoor de informatie in de <filename>.svn</filename> map and informatie uit het archief, om te bepalen welke bestanden bijgewerkt moeten worden."
 
 #. (title)
 msgid "Repository URLs"
-msgstr ""
+msgstr "Archief URLs"
 
 #. (para)
 msgid "Subversion repositories can be accessed through many different methods - on local disk, or through various network protocols. A repository location, however, is always a URL. The URL schema indicates the access method:"
-msgstr ""
+msgstr "Subversion archieven kunnen op verschillende methodes benaderd worden – vanaf de lokale harde schijf, of met verschillende netwerk protocollen. Een archief locatie is echter altijd een URL. De vorm van de URL bepaald de toegangsmethode:"
 
 #. (title)
 msgid "Repository Access URLs"
@@ -756,11 +754,11 @@ msgstr "Archief Toegang URLs"
 
 #. (entry)
 msgid "Schema"
-msgstr ""
+msgstr "Schema"
 
 #. (entry)
 msgid "Access Method"
-msgstr ""
+msgstr "Toegangsmethode"
 
 #. (literal)
 msgid "file://"
@@ -768,7 +766,7 @@ msgstr "file://"
 
 #. (entry)
 msgid "Direct repository access on local or network drive."
-msgstr ""
+msgstr "Directe archief toegang op een lokale of netwerk schijf."
 
 #. (literal)
 #. (literal)
@@ -777,7 +775,7 @@ msgstr "http://"
 
 #. (entry)
 msgid "Access via WebDAV protocol to Subversion-aware Apache server."
-msgstr ""
+msgstr "Toegang via WebDAV protocol naar een met Subversion-bekende Apache server."
 
 #. (literal)
 msgid "https://"
@@ -785,7 +783,7 @@ msgstr "https://"
 
 #. (entry)
 msgid "Same as <placeholder-1/>, but with SSL encryption."
-msgstr ""
+msgstr "Gelijk aan <placeholder-1/>, maar met SSL versleuteling."
 
 #. (literal)
 msgid "svn://"
@@ -800,7 +798,7 @@ msgstr "svnserve"
 
 #. (entry)
 msgid "Unauthenticated TCP/IP access via custom protocol to a <placeholder-1/> server."
-msgstr ""
+msgstr "Geautoriseerde TCP/IP toegang met een eigen protocol naar een <placeholder-1/> server."
 
 #. (literal)
 msgid "svn+ssh://"
@@ -808,15 +806,15 @@ msgstr "svn+ssh://"
 
 #. (entry)
 msgid "authenticated, encrypted TCP/IP access via custom protocol to a <placeholder-1/> server."
-msgstr ""
+msgstr "Geautoriseerd, versleutelde TCP/IP toegang met een eigen protocol naar een <placeholder-1/> server."
 
 #. (para)
 msgid "For the most part, Subversion's URLs use the standard syntax, allowing for server names and port numbers to be specified as part of the URL. The <literal>file://</literal> access method is normally used for local access, although it can be used with UNC paths to a networked host. The URL therefore takes the form <systemitem class=\"url\">file://hostname/path/to/repos</systemitem>. For the local machine, the <literal>hostname</literal> portion of the URL is required to be either absent or <literal>localhost</literal>. For this reason, local paths normally appear with three slashes, <systemitem class=\"url\">file:///path/to/repos</systemitem>."
-msgstr ""
+msgstr "Over het algemeen wordt voor de Subversion URLs de standaard syntax gebruikt, waardoor het mogelijk is om server namen en poort nummers als onderdeel van de URL te specificeren. De <literal>file://</literal> toegangsmethode wordt normaal gesproken alleen gebruikt voor lokale toegang, alhoewel het ook gebruikt kan worden voor UNC paden naar een netwerk host. De URL krijgt in die gevallen de schrijfwijze <systemitem class=\"url\">file://hostname/path/to/repos</systemitem>. Voor een lokale machine is de <literal>hostname</literal> niet nodig of <literal>localhost</literal>. Hierdoor verschijnen lokale paden vaak met drie schuine strepen, <systemitem class=\"url\">file:///path/to/repos</systemitem>."
 
 #. (para)
 msgid "Also, users of the <literal>file://</literal> scheme on Windows platforms will need to use an unofficially <quote>standard</quote> syntax for accessing repositories that are on the same machine, but on a different drive than the client's current working drive. Either of the two following URL path syntaxes will work where <literal>X</literal> is the drive on which the repository resides:"
-msgstr ""
+msgstr "Ook de gebruikers van het <literal>file://</literal> schema op een Windows systeem moet een onofficiële <quote>standaard</quote> syntax gebruiken voor het benaderen van archieven die op dezelfde machine staan, maar op een andere schijf dan de schijf waar op gewerkt wordt. Eén van de twee volgende URL pad vormen kunnen gebruikt worden, waarbij <literal>X</literal> de schijfletter aangeeft waarop het archief zich bevindt."
 
 #. (screen)
 #, no-wrap
@@ -835,16 +833,16 @@ msgstr ""
 
 #. (para)
 msgid "Note that a URL uses ordinary slashes even though the native (non-URL) form of a path on Windows uses backslashes."
-msgstr ""
+msgstr "Merk op dat de URL gewone schuine strepen gebruikt, terwijl de standaard (niet URL) methode voor een pad op een Windows machine een schuine streep naar links gebruikt."
 
 #. (para)
 msgid "You can safely access a FSFS repository via a network share, but you <emphasis>cannot</emphasis> access a BDB repository in this way."
-msgstr ""
+msgstr "Een FSFS archief kan zonder risico’s via een netwerk schijf benaderd worden, maar het is <emphasis>niet</emphasis> mogelijk om een BDB archief op deze manier te benaderen."
 
 #. (para)
 #. (para)
 msgid "Do not create or access a Berkeley DB repository on a network share. It <emphasis>cannot</emphasis> exist on a remote filesystem. Not even if you have the network drive mapped to a drive letter. If you attempt to use Berkeley DB on a network share, the results are unpredictable - you may see mysterious errors right away, or it may be months before you discover that your repository database is subtly corrupted."
-msgstr ""
+msgstr "Creëer of benader niet een Berkeley DB archief op een netwerk schijf. Zo’n archief bestaat <emphasis>niet </emphasis> op een niet-lokaal bestandssysteem. Ook niet als je de netwerk schijf koppelt aan een schijfletter. De resultaten zijn onvoorspelbaar als je een Berkeley DB probeert te gebruiken via een netwerk schijf. Misschien zie je direct mysterieuze foutmeldingen, of het duurt maanden voordat je er achter komt dat het archief subtiel corrupt is geraakt."
 
 #. (title)
 msgid "Revisions"
@@ -857,19 +855,21 @@ msgstr "revisie"
 
 #. (para)
 msgid "A <command>svn commit</command> operation can publish changes to any number of files and directories as a single atomic transaction. In your working copy, you can change files' contents, create, delete, rename and copy files and directories, and then commit the complete set of changes as a unit."
-msgstr ""
+msgstr "Een <command>SVN Vastleggen</command> actie worden wijzigingen aan meerdere bestanden en mappen als één enkele actie vastgelegd in het archief. In je werk kopie kun je mappen, bestanden en de inhoud daarvan wijzigen, creëren, verwijderen, hernoemen en kopiëren en vervolgens de hele set van wijzigingen in één keer vastleggen."
 
+# Geen idee hoe je dit nu goed in het nederlands vertaald. Het is een beetje hazig.
 #. (para)
+#, fuzzy
 msgid "In the repository, each commit is treated as an atomic transaction: either all the commits changes take place, or none of them take place. Subversion retains this atomicity in the face of program crashes, system crashes, network problems, and other users' actions."
-msgstr ""
+msgstr "In het archief wordt ieder vastlegging behandeld als "
 
 #. (para)
 msgid "Each time the repository accepts a commit, this creates a new state of the filesystem tree, called a <firstterm>revision</firstterm>. Each revision is assigned a unique natural number, one greater than the number of the previous revision. The initial revision of a freshly created repository is numbered zero, and consists of nothing but an empty root directory."
-msgstr ""
+msgstr "Elke keer als het archief een Vastlegging accepteert, creëert het een nieuwe status van de bestandssysteem boom, dit wordt een <firstterm>revisie</firstterm> genoemd. Elke revisie krijgt een uniek geheel getal, één nummer hoger dan het nummer van de vorige revisie. De initiële revisie van een vers archief heeft nummer nul en heeft alleen een lege hoofdmap."
 
 #. (para)
 msgid "A nice way to visualize the repository is as a series of trees. Imagine an array of revision numbers, starting at 0, stretching from left to right. Each revision number has a filesystem tree hanging below it, and each tree is a <quote>snapshot</quote> of the way the repository looked after each commit."
-msgstr ""
+msgstr "Een mooie manier om een archief te visualiseren, is het gebruik van serie van bomen. Stel je een verzameling van revisienummers voor, aan de linker kant beginnend bij 0 en oplopend van links naar rechts. Elke revisie heeft een boom van het bestandssysteem onder zich hangen en elke boom is een <quote>momentopnamen</quote> van het archief zoals het er uit zag na het vastleggen."
 
 #. (title)
 msgid "Global Revision Numbers"
@@ -1102,7 +1102,7 @@ msgstr "Lokale Toegang tot het Archief"
 
 #. (primary)
 msgid "Access"
-msgstr ""
+msgstr "Toegang"
 
 #. (primary)
 msgid "UNC paths"
@@ -1337,7 +1337,7 @@ msgstr ""
 
 #. (primary)
 msgid "TortoiseSVN link"
-msgstr ""
+msgstr "TortoiseSVN koppeling"
 
 #. (primary)
 msgid "link"
@@ -1853,7 +1853,7 @@ msgstr ""
 
 #. (para)
 msgid "Restart the Apache service again."
-msgstr ""
+msgstr "Herstart de Apache service nogmaals."
 
 #. (para)
 msgid "Point your browser to <systemitem class=\"url\">http://MyServer/svn/MyNewRepository</systemitem> (where <filename>MyNewRepository</filename> is the name of the Subversion repository you created before). If all went well you should be prompted for a username and password, then you can see the contents of your repository."
@@ -1875,7 +1875,7 @@ msgstr "SVNParentPath"
 
 #. (title)
 msgid "Apache <filename>httpd.conf</filename> Settings"
-msgstr ""
+msgstr "Apache <filename>httpd.conf</filename> Instellingen"
 
 #. (entry)
 msgid "Setting"
@@ -2556,7 +2556,7 @@ msgstr "Maximaliseren van Windows"
 
 #. (primary)
 msgid "maximize"
-msgstr ""
+msgstr "maximaliseer"
 
 #. (para)
 msgid "Many of TortoiseSVN's dialogs have a lot of information to display, but it is often useful to maximize only the height, or only the width, rather than maximizing to fill the screen. As a convenience, there are shortcuts for this on the <guilabel>Maximize</guilabel> button. Use the <action>middle mouse</action> button to maximize vertically, and <action>right mouse</action> to maximize horizontally."
@@ -2568,7 +2568,7 @@ msgstr ""
 
 #. (primary)
 msgid "import"
-msgstr ""
+msgstr "importeer"
 
 #. (primary)
 msgid "add files to repository"
@@ -2579,7 +2579,7 @@ msgstr "bestanden toevoegen aan archief"
 #. (title)
 #. (glossterm)
 msgid "Import"
-msgstr ""
+msgstr "Importeer"
 
 #. (primary)
 msgid "temporary files"
@@ -2704,7 +2704,7 @@ msgstr ""
 
 #. (primary)
 msgid "checkout"
-msgstr ""
+msgstr "ophalen"
 
 #. (primary)
 msgid "create working copy"
@@ -2816,10 +2816,11 @@ msgstr ""
 msgid "Navigate to <literal>Project76/SubProj</literal> and do the same. This time note that the <literal>Project76</literal> folder has no content except for <literal>SubProj</literal>, which itself is fully populated. Subversion has created the intermediate folders for you without populating them."
 msgstr ""
 
+# Het is lastig om een goede vertaling te bedenken voor de "diepte" van een tree.
 #. (title)
 #, fuzzy
 msgid "Changing working copy depth"
-msgstr "Verhuizen van een werkkopie"
+msgstr "Veranderen van de werk kopie map diepte"
 
 #. (para)
 #, fuzzy
@@ -2959,6 +2960,16 @@ msgstr ""
 
 #. (title)
 #. (title)
+msgid "Repairing External Copies"
+msgstr "Herstellen van Bestandhernoemingen bij externe kopieën"
+
+#. (para)
+#. (para)
+msgid "If you made a copy of a file but forgot to use the Subversion command to do so, you can repair that copy so the new file doesn't lose its history. Simply select both the old name (normal or modified) and the new name (unversioned) and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Copy</guimenuitem></menuchoice> to pair the two files as a copy."
+msgstr ""
+
+#. (title)
+#. (title)
 msgid "Change Lists"
 msgstr "Wijzig Lijsten"
 
@@ -3049,7 +3060,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Blue"
-msgstr ""
+msgstr "Blauw"
 
 #. (para)
 msgid "Committing a modification."
@@ -3059,7 +3070,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Purple"
-msgstr ""
+msgstr "Paars"
 
 #. (para)
 msgid "Committing a new addition."
@@ -3069,7 +3080,7 @@ msgstr "Een nieuwe toevoeging committen."
 #. (term)
 #. (term)
 msgid "Dark red"
-msgstr ""
+msgstr "Donker rood"
 
 #. (para)
 msgid "Committing a deletion or a replacement."
@@ -3079,7 +3090,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Black"
-msgstr ""
+msgstr "Zwart"
 
 #. (para)
 msgid "All other items."
@@ -3127,7 +3138,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Green"
-msgstr ""
+msgstr "Groen"
 
 #. (para)
 msgid "Changes from repository successfully merged with your local changes."
@@ -3136,7 +3147,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Bright red"
-msgstr ""
+msgstr "Fel rood"
 
 #. (para)
 msgid "Changes from repository merged with local changes, resulting in conflicts which you need to resolve."
@@ -3200,7 +3211,7 @@ msgstr ""
 
 #. (title)
 msgid "Resolving Conflicts"
-msgstr ""
+msgstr "Conflicten oplossen"
 
 #. (primary)
 msgid "tree conflict"
@@ -3208,7 +3219,7 @@ msgstr "tree conflicten"
 
 #. (primary)
 msgid "resolve"
-msgstr ""
+msgstr "oplossen"
 
 #. (term)
 msgid "file conflicts"
@@ -3798,7 +3809,7 @@ msgstr "log"
 
 #. (primary)
 msgid "history"
-msgstr ""
+msgstr "geschiedenis"
 
 #. (primary)
 msgid "commit messages"
@@ -4465,9 +4476,8 @@ msgid "Offline Mode"
 msgstr "Offline Mode"
 
 #. (title)
-#, fuzzy
 msgid "Go Offline Dialog"
-msgstr "Toon optie-dialoog"
+msgstr "Schakel naar Offline werken dialoog"
 
 #. (para)
 msgid "<placeholder-1/> If the server is not reachable, and you have log caching enabled you can use the log dialog and revision graph in offline mode. This uses data from the cache, which allows you to continue working although the information may not be up-to-date or even complete."
@@ -7077,9 +7087,8 @@ msgid "You can also merge changes in the selected revision(s) into a different w
 msgstr ""
 
 #. (title)
-#, fuzzy
 msgid "Learn to Read the Revision Graph"
-msgstr "Een Revisie Grafiek"
+msgstr "Hoe moet je de Revisie Grafiek lezen"
 
 #. (para)
 msgid "First-time users may be surprised by the fact that the revision graph shows something that does not match the user's mental model. If a revision changes multiple copies or branches of a file or folder, for instance, then there will be multiple nodes for that single revision. It is a good practice to start with the leftmost options in the toolbar and customize the graph step-by-step until it comes close to your mental model."
@@ -7426,8 +7435,7 @@ msgid "These properties must be set on folders for the system to work. When you 
 msgstr ""
 
 #. (para)
-#. (para)
-msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
+msgid "For <literal>tsvn:</literal> and <literal>webviewer:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
 msgstr ""
 
 #. (title)
@@ -7502,12 +7510,16 @@ msgstr ""
 msgid "You can also use relative URLs instead of absolute ones. This is useful in case your web viewer is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>webviewer:revision</literal> and <literal>webviewer:pathrevision</literal> property. The format is the same as for the <literal>bugtraq:url</literal> property. See <xref linkend=\"tsvn-dug-bugtracker\"/>."
 msgstr ""
 
+#. (para)
+msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
+msgstr ""
+
 #. (title)
 msgid "No Repo Viewer Links from Repository Browser"
 msgstr "Geen Archief Viewer Verwijzing vanaf Archief Verkenner"
 
 #. (para)
-msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
+msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the url of the repository you won't see this feature."
 msgstr ""
 
 #. (title)
@@ -8035,9 +8047,8 @@ msgid "If you opt to show an extra node for your modified working copy, attached
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "WC Node Border"
-msgstr "Kan lettertype node '%s' niet vinden."
+msgstr "Werkkopie knoop rand "
 
 #. (para)
 msgid "If you opt to show whether the working copy is modified, use this color border on the WC node when modifications are found."
@@ -8068,9 +8079,8 @@ msgid "If you use tag folding to save space, tags are marked on the copy source 
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "Selected Node Markers"
-msgstr "Kan lettertype node '%s' niet vinden."
+msgstr "Geselecteerde knoop markering"
 
 #. (para)
 msgid "When you left click on a node to select it, the marker used to indicate selection is a block in this color."
@@ -10345,6 +10355,7 @@ msgstr "TortoiseSVN commando's"
 
 #. (primary)
 #. (primary)
+#. (primary)
 msgid "automation"
 msgstr "automatisering"
 
@@ -10675,9 +10686,8 @@ msgid "/remote"
 msgstr "haal weg"
 
 #. (guilabel)
-#, fuzzy
 msgid "Check repository"
-msgstr "Het Archief"
+msgstr "Controleer archief"
 
 #. (entry)
 msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory. If <placeholder-2/> is specified, the dialog contacts the repository immediately on startup, as if the user clicked on the <placeholder-3/> button."
@@ -10768,6 +10778,52 @@ msgid ""
 "TortoiseProc.exe /command:log /path:\"c:\\svn_wc\\file1.txt\"\n"
 "                 /startrev:50 /endrev:60 /closeonend:0\n"
 "</screen>"
+msgstr ""
+
+#. (title)
+msgid "Tsvncmd URL handler"
+msgstr ""
+
+#. (primary)
+msgid "URL handler"
+msgstr "URL verwerker"
+
+#. (para)
+msgid "Using special URLs, it is also possible to call TortoiseProc from a web page."
+msgstr ""
+
+#. (para)
+msgid "TortoiseSVN registers a new protocol <literal>tsvncmd:</literal> which can be used to create hyperlinks that execute TortoiseSVN commands. The commands and parameters are the same as when automating TortoiseSVN from the command line."
+msgstr ""
+
+#. (para)
+msgid "The format of the <literal>tsvncmd:</literal> URL is like this:"
+msgstr ""
+
+#. (literal)
+msgid "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
+msgstr ""
+
+#. (para)
+msgid "with <literal>cmd</literal> being one of the allowed commands and with <literal>parameter</literal> being a parameter like <literal>path</literal> or <literal>revision</literal>, depending on the command used."
+msgstr ""
+
+#. (para)
+msgid "The following commands are allowed with <literal>tsvncmd:</literal> URLs: <placeholder-1/>"
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"&lt;a href=\"tsvncmd:command:showcompare?\n"
+"url1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"url2:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"revision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
+msgstr ""
+
+#. (para)
+msgid "An example URL might look like this: <placeholder-1/>"
 msgstr ""
 
 #. (title)
@@ -11404,6 +11460,10 @@ msgstr ""
 
 #. (para)
 msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which can be found at <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
+msgstr ""
+
+#. (para)
+msgid "You can also watch a video tutorial created by Maximo Migliari which takes you through all the important steps. Watch it on <ulink url=\"http://www.vimeo.com/5378553\"><citetitle>Vimeo</citetitle></ulink>. or <ulink url=\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</citetitle></ulink>."
 msgstr ""
 
 #. (title)
@@ -12072,7 +12132,7 @@ msgstr ""
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr "eindtitels vertaler"
+msgstr "eindtitels-vertaler"
 
 #. Place the translation of 'translation' here.
 #. (None)
