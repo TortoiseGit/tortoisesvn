@@ -301,6 +301,28 @@
 						DLLDataFileName=""
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCMIDLTool"
+						WarningLevel="4"
+						GenerateTypeLibrary="false"
+						TypeLibraryName=""
+						DLLDataFileName=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					>
+					<Tool
+						Name="VCMIDLTool"
+						WarningLevel="4"
+						GenerateTypeLibrary="false"
+						TypeLibraryName=""
+						DLLDataFileName=""
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\IBugTraqProvider_i.c"
