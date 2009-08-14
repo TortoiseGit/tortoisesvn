@@ -14,9 +14,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-07-07 13:23 +0000\n"
-"PO-Revision-Date: 2009-07-27 17:57+0100\n"
-"Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
+"POT-Creation-Date: 2009-08-13 08:06 +0000\n"
+"PO-Revision-Date: 2009-08-13 12:25+0100\n"
+"Last-Translator: Alex Garcia <thekyz@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3257,6 +3257,18 @@ msgstr "Parfois, les fichiers sont renommés en dehors de Subversion, et son don
 
 #. (title)
 #. (title)
+#, fuzzy
+msgid "Repairing External Copies"
+msgstr "Réparation des renommages externes"
+
+#. (para)
+#. (para)
+#, fuzzy
+msgid "If you made a copy of a file but forgot to use the Subversion command to do so, you can repair that copy so the new file doesn't lose its history. Simply select both the old name (normal or modified) and the new name (unversioned) and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Copy</guimenuitem></menuchoice> to pair the two files as a copy."
+msgstr "Parfois, les fichiers sont renommés en dehors de Subversion, et son donc affichés comme fichiers manquants et non versionnés. Pour éviter de perdre l'historique vous devez indiquer à Subversion la connexion. Sélectionnez le nom manquant (nom précédent) et le nouveau et utilisez <menuchoice><guimenu>Menu Contextuel</guimenu><guimenuitem>Réparer le Déplacement</guimenuitem></menuchoice> pour associer les deux fichiers au renommage."
+
+#. (title)
+#. (title)
 msgid "Change Lists"
 msgstr "Listes de changements"
 
@@ -3655,18 +3667,16 @@ msgstr "Utiliser les répertoires <filename>_svn</filename> au lieu de <filename
 
 #. (para)
 #. (para)
-#, fuzzy
 msgid "Developer B modifies <filename>Foo.c</filename> in his working copy."
-msgstr "Le développeur B modifie <filename>Foo.c</filename> dans sa copie de travail"
+msgstr "Le développeur B modifie <filename>Foo.c</filename> dans sa copie de travail."
 
 #. (para)
 msgid "Or in the case of a folder move ..."
 msgstr "Ou dans le cas d'un déplacement de répertoire ..."
 
 #. (para)
-#, fuzzy
 msgid "Developer A moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
-msgstr "Utiliser les répertoires <filename>_svn</filename> au lieu de <filename>.svn</filename>"
+msgstr "Le développeur A déplace le réperetoire parent <filename>FooFolder</filename> vers <filename>BarFolder</filename> et soumet celui-ci au dépôt."
 
 #. (para)
 #, fuzzy
@@ -7232,9 +7242,8 @@ msgid "You can also use the repository browser for drag-and-drop operations. If 
 msgstr "Vous pouvez aussi utiliser l'explorateur de référentiel pour les opérations de glisser-déplacer. Si vous glissez un dossier de l'explorateur dans l'explorateur de référentiel, il sera importé dans le référentiel. Notez que si vous glisser plusieurs éléments, ils seront importés dans des livraisons séparées."
 
 #. (para)
-#, fuzzy
 msgid "If you want to move an item within the repository, just <action>left drag</action> it to the new location. If you want to create a copy rather than moving the item, <keycap>Ctrl</keycap>-<action>left drag</action> instead. When copying, the cursor has a <quote>plus</quote> symbol on it, just as it does in Explorer."
-msgstr "Si vous voulez déplacer un élément au sein du référentiel, <action>glissez-le avec le bouton gauche</action> simplement vers le nouvel emplacement. Si vous voulez créer une copie au lieu de déplacer l'élément, <action>glissez-le avec le bouton gauche et la touche Ctrl</action> à la place. Lors de la copie, le curseur a un symbole <quote>plus</quote> à coté, comme dans l'Explorateur."
+msgstr "Si vous voulez déplacer un élément au sein du référentiel, effectuez un <action>glisser-déplacer</action> avec le bouton gauche de la souris vers le nouvel emplacement. Si vous voulez créer une copie plutôt que de déplacer l'élément, effectuez un <action>glisser-déplacer</action> avec le bouton gauche de la souris, tout en maintenant la touche <keycap>Ctrl</keycap> enfoncée. Lors de la copie, le curseur affiche un symbole <quote>plus</quote>, comme dans l'Explorateur."
 
 #. (para)
 #, fuzzy
@@ -7893,10 +7902,8 @@ msgid "These properties must be set on folders for the system to work. When you 
 msgstr "Ces propriétés doivent être définies sur des dossiers pour que le système fonctionne. Quand vous livrez un fichier ou un dossier les propriétés sont lues depuis ce dossier. Si les propriétés ne sont pas trouvées là, TortoiseSVN cherchera vers le haut dans l'arborescence des dossiers pour les trouver jusqu'à ce qu'il arrive à un dossier non versionné, ou jusqu'à ce que la racine de l'arborescence (par exemple <literal>C:\\</literal>) soit trouvée. Si vous pouvez être sûr que chaque utilisateur n'extraie que depuis <filename>trunk/</filename> par exemple et pas d'un autre sous-dossier, alors il est suffisant de définir les propriétés sur <filename>trunk/</filename>. Si vous ne pouvez pas être sûr, vous devriez définir les propriétés récursivement sur chaque sous-dossier. Un réglage de la propriété plus profondément dans la hiérarchie de projet remplace les réglages sur les niveaux supérieurs (plus près de <filename>trunk/</filename>)."
 
 #. (para)
-#. (para)
-#, fuzzy
-msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr "Pour les propriétés <literal>tsvn:</literal> <emphasis>uniquement</emphasis> vous pouvez utiliser la case à cocher guilabel>Récursif</guilabel> pour mettre la propriété à tous les sous-dossiers dans la hiérarchie, sans la mettre aussi sur tous les fichiers."
+msgid "For <literal>tsvn:</literal> and <literal>webviewer:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
+msgstr "Pour les propriétés <literal>tsvn:</literal> et <literal>webviewer:</literal> <emphasis>uniquement</emphasis> vous pouvez utiliser la case à cocher <guilabel>Récursif</guilabel> pour affecter la propriété à tous les sous-dossiers dans la hiérarchie, sans avoir à  la mettre sur tous les fichiers."
 
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
@@ -7972,14 +7979,19 @@ msgstr ""
 msgid "You can also use relative URLs instead of absolute ones. This is useful in case your web viewer is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>webviewer:revision</literal> and <literal>webviewer:pathrevision</literal> property. The format is the same as for the <literal>bugtraq:url</literal> property. See <xref linkend=\"tsvn-dug-bugtracker\"/>."
 msgstr ""
 
-#. (title)
+#. (para)
 #, fuzzy
+msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
+msgstr "Pour les propriétés <literal>tsvn:</literal> <emphasis>uniquement</emphasis> vous pouvez utiliser la case à cocher guilabel>Récursif</guilabel> pour mettre la propriété à tous les sous-dossiers dans la hiérarchie, sans la mettre aussi sur tous les fichiers."
+
+#. (title)
 msgid "No Repo Viewer Links from Repository Browser"
-msgstr "l'explorateur de référentiel"
+msgstr "Aucun visualiseur dans l'explorateurde référentiel"
 
 #. (para)
-msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
-msgstr ""
+#, fuzzy
+msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the url of the repository you won't see this feature."
+msgstr "Le formattage dépend des propriétés d'accès de subversion, vous ne verrez que le résultat lorsque vous utiliserez une copie de travail exportée. Afficher les propriétés à distance étant une opération lente, vous ne pourrez pas l'effectuer depuis l'explorateur de référentiel."
 
 #. (title)
 msgid "TortoiseSVN's Settings"
@@ -8930,9 +8942,8 @@ msgid "<placeholder-1/> In the advanced settings, you can define a different dif
 msgstr "<placeholder-1/> Dans les réglages avancés, vous pouvez définir un programme de comparaison et de fusion différent pour chaque extension de fichier. Par exemple, vous pourriez associer Photoshop comme programme de <quote>comparaison</quote> pour les fichiers .jpg :-) Vous pouvez aussi associer la propriété <literal>svn:mime-type</literal> à un programme de comparaison ou de fusion."
 
 #. (para)
-#, fuzzy
 msgid "To associate using a file extension, you need to specify the extension. Use <literal>.bmp</literal> to describe Windows bitmap files. To associate using the <literal>svn:mime-type</literal> property, specify the mime type, including a slash, for example <literal>text/xml</literal>."
-msgstr "Pour associer en utilisant une extension de fichier, vous devez spécifier seulement l'extension sans la précèder d'un point ou d'un caractère de remplacement. Utilisez <literal>BMP</literal> pour décrire les fichiers bitmap de Windows, <emphasis>pas</emphasis><literal>*.BMP</literal>. Pour associer en utilisant la propriété <literal>svn:mime-type</literal>, spécifier le type mime, en incluant un slash, par exemple <literal>text/xml</literal>."
+msgstr "Pour associer en utilisant une extension de fichier, vous devez spécifier l'extension. Utilisez <literal>.bmp</literal> pour décrire les fichiers bitmap de Windows. Pour associer en utilisant la propriété <literal>svn:mime-type</literal>, spécifier le type mime, en incluant un slash, par exemple <literal>text/xml</literal>."
 
 #. (title)
 msgid "Unified Diff Viewer"
@@ -9262,9 +9273,8 @@ msgid "Start-commit"
 msgstr "Start-commit"
 
 #. (para)
-#, fuzzy
 msgid "Called before the commit dialog is shown. You might want to use this if the hook modifies a versioned file and affects the list of files that need to be committed and/or commit message. However you should note that because the hook is called at an early stage, the full list of objects selected for commit is not available."
-msgstr "Appelé avant que la fenêtre de livraison ne s'affiche. Vous pouvez avoir besoin d'appeler ce hook pour ajouter à un fichier de version la liste des fichiers ayant été livrés et/ou le message de livraison."
+msgstr "Appelé avant que la fenêtre de livraison ne s'affiche. Vous pouvez avoir besoin d'appeler ce hook pour ajouter à un fichier de version la liste des fichiers ayant été livrés et/ou le message de livraison. Néanmoins, il est important de noter qu'étant donné que le hook est appelé tôt, la liste complète des objects à livrer n'est pas disponible."
 
 #. (term)
 #. (term)
@@ -9272,9 +9282,8 @@ msgid "Pre-commit"
 msgstr "Pre-commit"
 
 #. (para)
-#, fuzzy
 msgid "Called after the user clicks <guibutton>OK</guibutton> in the commit dialog, and before the actual commit begins. This hook has a list of exactly what will be committed."
-msgstr "Appelé lorsque l'utilisateur clique sur le bouton <guibutton>OK</guibutton> dans la fenêtre de livraison, et avant que la livraison ne commence."
+msgstr "Appelé lorsque l'utilisateur clique sur le bouton <guibutton>OK</guibutton> dans la fenêtre de livraison, et avant que la livraison ne commence. Ce hook contient une liste de tout ce qui sera livré."
 
 #. (term)
 #. (term)
@@ -9317,9 +9326,8 @@ msgid "There are currently six types of hook script available <placeholder-1/>"
 msgstr "Il existe actuellement six types de script hook disponibles <placeholder-1/>"
 
 #. (para)
-#, fuzzy
 msgid "A hook is defined for a particular working copy path. You only need to specify the top level path; if you perform an operation in a sub-folder, TortoiseSVN will automatically search upwards for a matching path."
-msgstr "Un hook est défini pour un répertoire précis d'une copie de travail. Vous n'avez besoin que de spécifier le répertoire de plus haut niveau ; Si vous faites une opération sur un sous répertoire, TortoiseSVN recherchera automatiquement haut dessus (dans l'arborescence) un répertoire correspondant."
+msgstr "Un hook est défini pour un répertoire précis d'une copie de travail. Vous n'avez besoin que de spécifier le répertoire de plus haut niveau ; si vous faites une opération sur un sous répertoire, TortoiseSVN recherchera automatiquement dans les dossiers parents un répertoire correspondant."
 
 #. (para)
 msgid "Next you must specify the command line to execute, starting with the path to the hook script or executable. This could be a batch file, an executable file or any other file which has a valid windows file association, eg. a perl script."
@@ -9423,9 +9431,8 @@ msgid "This property specifies the COM UUID of the IBugtraqProvider, for example
 msgstr ""
 
 #. (para)
-#, fuzzy
 msgid "This property specifies the parameters passed to the IBugtraqProvider."
-msgstr "Cette propriété spécifie les paramètres passés à IBugTraqProvider."
+msgstr "Cette propriété spécifie les paramètres envoyés à IBugTraqProvider."
 
 #. (para)
 msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
@@ -9476,9 +9483,8 @@ msgid "registry"
 msgstr "registre"
 
 #. (para)
-#, fuzzy
 msgid "A few infrequently used settings are available only by editing the registry directly. It goes without saying that you should only edit registry values if you know what you are doing."
-msgstr "Quelques-uns des réglages rarement utilisées ne sont disponibles qu'en éditant directement le registre."
+msgstr "Quelques-uns des réglages rarement utilisées ne sont disponibles qu'en éditant directement le registre. Il n'est nul besoin de préciser que vous ne devriez éditer le registre que si vous savez ce que vous faites."
 
 #. (para)
 msgid "You can specify a different location for the Subversion configuration file using registry location <literal>HKCU\\Software\\TortoiseSVN\\ConfigDir</literal>. This will affect all TortoiseSVN operations."
@@ -10827,18 +10833,16 @@ msgid "ASP projects"
 msgstr "projets ASP"
 
 #. (para)
-#, fuzzy
 msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable anymore, since that caused many problems and confusions with users which always install <emphasis>everything</emphasis> no matter if they know what it is for."
-msgstr "À partir des versions 1.4.0 et supérieures, l'installeur de TortoiseSVN ne fournit plus à l'utilisateur l'option pour mettre la variable d'environnement SVN_ASP_DOT_NET_HACK, puisque cela a causé beaucoup de problèmes et de confusion pour les utilisateurs qui installent toujours <emphasis>tout</emphasis> peu importe s'ils savent à quoi cela sert."
+msgstr "À partir des versions 1.4.0 et supérieures, l'installeur de TortoiseSVN ne fournit plus à l'utilisateur l'option pour mettre la variable d'environnement <literalSVN_ASP_DOT_NET_HACK</literal>, puisque cela a causé beaucoup de problèmes et de confusion pour les utilisateurs qui installent toujours <emphasis>tout</emphasis> peu importe s'ils savent à quoi cela sert."
 
 #. (para)
-#, fuzzy
 msgid ""
 "But that option is only hidden for the user. You still can force the TortoiseSVN installer to set that environment variable by setting the <literal>ASPDOTNETHACK</literal> property to TRUE. For example, you can start the installer like this: <screen>\n"
 "msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
 "</screen>"
 msgstr ""
-"Mais cette option est seulement cachée pour l'utilisateur. Vous pouvez encore forcer l'installeur de TortoiseSVN à mettre cette variable d'environnement en mettant la propriété ASPDOTNETHACK à TRUE. Par exemple, vous pouvez démarrer l'installeur comme ceci : <screen>\n"
+"Mais cette option est seulement cachée pour l'utilisateur. Vous pouvez encore forcer l'installeur de TortoiseSVN à mettre cette variable d'environnement en mettant la propriété <literal>ASPDOTNETHACK</literal> à TRUE. Par exemple, vous pouvez démarrer l'installeur comme ceci : <screen>\n"
 "msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
 "</screen>"
 
@@ -12743,9 +12747,10 @@ msgid ""
 ");\n"
 msgstr ""
 
+# There is an error in the template here. Last sentence there is 'paramameters' and it should be 'parameters'.
 #. (para)
 msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
-msgstr ""
+msgstr "<placeholder-1/> Cette méthode est appellée depuis la fenêtre de configuration lorque l'utilisateur clique sur le bouton \"Options\" qui s'affiche quand <literal>HasOptions</literal> renvoie TRUE. Un plugin peut afficher une fenêtre d'options pour faciliter sa configuration par l'utilisateur. La chaîne de charactères <literal>parameters</literal> contient les informations déjà entrées dans les paramètres du plugin. La chaîne de charactère <literal>newparameters</literal> renvoyée doit contenir la chaîne de charactères construite par le plugin via les informations collectées dans la fenêtre d'options. Cette chaîne, <literal>parameters</literal>, est envoyée à toutes les autres méthodes de type IBugtraqProvider et IBugtraqProvider2."
 
 #. (title)
 msgid "Glossary"
