@@ -1025,12 +1025,12 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
         }
         else
         {
-            int oldLength = currentPath.GetLength();
-            int pos = path.Find ('/', oldLength + 1);
+            int start = currentPath.GetLength() + 1;
+            int pos = path.Find ('/', start);
             if (pos < 0)
                 pos = path.GetLength();
 
-            name = path.Mid (oldLength + 1, pos - oldLength - 1);
+            name = path.Mid (start, pos - start);
             currentPath = path.Left (pos);
         }
 
@@ -1139,7 +1139,56 @@ HTREEITEM CRepositoryBrowser::AutoInsert (HTREEITEM hParent, const CItem& item)
 
     // no such sub-node. Create one
 
+    HTREEITEM hNewItem 
+        = Insert (hParent, (CTreeItem*)m_RepoTree.GetItemData (hParent), item);
+
+	Sort (hParent);
+
+    return hNewItem;
+}
+
+void CRepositoryBrowser::AutoInsert (HTREEITEM hParent, const std::deque<CItem>& items)
+{
+    typedef std::map<CString, const CItem*> TMap;
+    TMap newItems;
+
+    // determine what nodes need to be added
+
+    for (size_t i = 0, count = items.size(); i < count; ++i)
+        if (items[i].kind == svn_node_dir)
+            newItems.insert (std::make_pair (items[i].path, &items[i]));
+
+	for ( HTREEITEM hSibling = m_RepoTree.GetNextItem (hParent, TVGN_CHILD)
+        ; hSibling != NULL
+        ; hSibling = m_RepoTree.GetNextItem (hSibling, TVGN_NEXT))
+    {
+		CTreeItem * pTreeItem = ((CTreeItem*)m_RepoTree.GetItemData (hSibling));
+        if (pTreeItem)
+            newItems.erase (pTreeItem->unescapedname);
+    }
+
+    if (newItems.empty())
+        return;
+
+    // Create missing sub-nodes
+
     CTreeItem* parentTreeItem = (CTreeItem*)m_RepoTree.GetItemData (hParent);
+
+    for ( TMap::const_iterator iter = newItems.begin(), end = newItems.end()
+        ; iter != end
+        ; ++iter)
+    {
+        Insert (hParent, parentTreeItem, *iter->second);
+    }
+
+	Sort (hParent);
+}
+
+HTREEITEM CRepositoryBrowser::Insert 
+    ( HTREEITEM hParent
+    , CTreeItem* parentTreeItem
+    , const CItem& item)
+{
 	CTreeItem* pTreeItem = new CTreeItem();
     CString name = item.path;
 
@@ -1172,18 +1221,20 @@ HTREEITEM CRepositoryBrowser::AutoInsert (HTREEITEM hParent, const CItem& item)
     tvinsert.itemex.iImage = m_nIconFolder;
 	tvinsert.itemex.iSelectedImage = m_nOpenIconFolder;
 
+	HTREEITEM hNewItem = m_RepoTree.InsertItem(&tvinsert);
+	name.ReleaseBuffer();
+
+    return hNewItem;
+}
+
+void CRepositoryBrowser::Sort (HTREEITEM parent)
+{
 	TVSORTCB tvs;
-	tvs.hParent = hParent;
+	tvs.hParent = parent;
 	tvs.lpfnCompare = TreeSort;
 	tvs.lParam = (LPARAM)this;
 
-	HTREEITEM hNewItem = m_RepoTree.InsertItem(&tvinsert);
-    parentTreeItem = pTreeItem;
-
-	name.ReleaseBuffer();
-	m_RepoTree.SortChildrenCB(&tvs);
-
-    return hNewItem;
+	m_RepoTree.SortChildrenCB (&tvs);
 }
 
 bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
@@ -1234,13 +1285,14 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
         if (item.kind == svn_node_dir)
         {
             pTreeItem->has_child_folders = true;
-            AutoInsert (hNode, item);
-
             m_lister.Enqueue ( item.absolutepath
                              , item.repository
                              , item.has_props);
         }
     }
+
+    if (pTreeItem->has_child_folders)
+        AutoInsert (hNode, pTreeItem->children);
 
 	// if there are no child folders, remove the '+' in front of the node
 	{

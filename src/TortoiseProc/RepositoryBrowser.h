@@ -150,7 +150,14 @@ protected:
     /// the spec in \ref item. Add such sub-node if it does not
     /// exist, yet.
     HTREEITEM AutoInsert (HTREEITEM hParent, const CItem& item);
-	/**
+    /// Like the previous version but inserts more than one item.
+    void AutoInsert (HTREEITEM hParent, const std::deque<CItem>& items);
+    /// Actual sub-node creation
+    HTREEITEM Insert (HTREEITEM hParent, CTreeItem* parentTreeItem, const CItem& item);
+    /// Sort tree sub-nodes
+    void Sort (HTREEITEM parent);
+
+    /**
 	 * Refetches the information for \c hNode. If \c force is true, then the list
 	 * control is refilled again.
 	 */
