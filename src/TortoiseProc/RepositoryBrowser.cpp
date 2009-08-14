@@ -186,7 +186,9 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
 	ON_NOTIFY(LVN_BEGINDRAG, IDC_REPOLIST, &CRepositoryBrowser::OnLvnBegindragRepolist)
 	ON_NOTIFY(LVN_BEGINRDRAG, IDC_REPOLIST, &CRepositoryBrowser::OnLvnBeginrdragRepolist)
 	ON_WM_CONTEXTMENU()
+	ON_NOTIFY(LVN_BEGINLABELEDIT, IDC_REPOLIST, &CRepositoryBrowser::OnLvnBeginlabeleditRepolist)
 	ON_NOTIFY(LVN_ENDLABELEDIT, IDC_REPOLIST, &CRepositoryBrowser::OnLvnEndlabeleditRepolist)
+	ON_NOTIFY(TVN_BEGINLABELEDIT, IDC_REPOTREE, &CRepositoryBrowser::OnTvnBeginlabeleditRepotree)
 	ON_NOTIFY(TVN_ENDLABELEDIT, IDC_REPOTREE, &CRepositoryBrowser::OnTvnEndlabeleditRepotree)
 	ON_WM_TIMER()
 	ON_COMMAND(ID_URL_FOCUS, &CRepositoryBrowser::OnUrlFocus)
@@ -1440,15 +1442,23 @@ void CRepositoryBrowser::OnInlineedit()
 	m_blockEvents = true;
 	if (selIndex >= 0)
 	{
-		m_RepoList.SetFocus();
-		m_RepoList.EditLabel(selIndex);
+		CItem * pItem = (CItem *)m_RepoList.GetItemData(selIndex);
+        if (!pItem->is_external)
+        {
+		    m_RepoList.SetFocus();
+		    m_RepoList.EditLabel(selIndex);
+        }
 	}
 	else
 	{
 		m_RepoTree.SetFocus();
 		HTREEITEM hTreeItem = m_RepoTree.GetSelectedItem();
 		if (hTreeItem != m_RepoTree.GetRootItem())
-			m_RepoTree.EditLabel(hTreeItem);
+        {
+    		CTreeItem* pItem = (CTreeItem*)m_RepoTree.GetItemData (hTreeItem);
+            if (!pItem->is_external)
+    			m_RepoTree.EditLabel(hTreeItem);
+        }
 	}
 	m_blockEvents = false;
 }
@@ -1781,6 +1791,17 @@ void CRepositoryBrowser::OnLvnItemchangedRepolist(NMHDR *pNMHDR, LRESULT *pResul
 	}
 }
 
+void CRepositoryBrowser::OnLvnBeginlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	NMLVDISPINFO *info = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
+
+    // disable rename for externals
+	CItem * item = (CItem *)m_RepoList.GetItemData (info->item.iItem);
+    *pResult = (item == NULL) || (item->is_external)
+             ? TRUE
+             : FALSE;
+}
+
 void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
@@ -1818,6 +1839,17 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
         InvalidateData (m_RepoTree.GetParentItem (m_RepoTree.GetSelectedItem()));
 		RefreshNode(m_RepoTree.GetSelectedItem(), true);
 	}
+}
+
+void CRepositoryBrowser::OnTvnBeginlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	NMTVDISPINFO* info = reinterpret_cast<NMTVDISPINFO*>(pNMHDR);
+
+    // disable rename for externals
+	CTreeItem* item = (CTreeItem *)m_RepoTree.GetItemData (info->item.hItem);
+    *pResult = (item == NULL) || (item->is_external)
+             ? TRUE
+             : FALSE;
 }
 
 void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResult)
@@ -2433,7 +2465,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					popup.AppendMenu(MF_SEPARATOR, NULL);
 				}
 
-				popup.AppendMenuIcon(ID_RENAME, IDS_REPOBROWSE_RENAME, IDI_RENAME);		// "Rename"
+                if (!selection.IsExternal (0, 0))
+				    popup.AppendMenuIcon(ID_RENAME, IDS_REPOBROWSE_RENAME, IDI_RENAME);		// "Rename"
 			}
 			if (selection.IsLocked (0, 0))
 			{
