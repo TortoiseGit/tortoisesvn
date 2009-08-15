@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge\n"
 "POT-Creation-Date: 2009-03-03 10:39 +0000\n"
-"PO-Revision-Date: 2009-08-05 18:18+0100\n"
-"Last-Translator: Jeroen van Amstel <jvamstel@amstelonline.demon.nl>\n"
+"PO-Revision-Date: 2009-08-12 14:54+0100\n"
+"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,7 +121,7 @@ msgstr "Kennisgevingen"
 
 #. (term)
 msgid "Stefan Küng"
-msgstr "Stefan Kûng"
+msgstr "Stefan Küng"
 
 #. (para)
 msgid "for the hard work on TortoiseMerge"
@@ -133,7 +133,7 @@ msgstr "Lübbe Onken "
 
 #. (para)
 msgid "for the beautiful icons, logo, bug hunting and taking care of the documentation"
-msgstr "voor de mooie ikonen, het logo, software fouten zoeken en het onderhouden van de documentatie"
+msgstr "voor de mooie ikonen, het logo, zoeken van software fouten en het onderhouden van de documentatie"
 
 #. (term)
 msgid "The Tigris Style project"
@@ -141,7 +141,7 @@ msgstr "Het Tigris Style project"
 
 #. (para)
 msgid "for some of the styles which are reused in this documentation"
-msgstr "voor sommige stijlen die worden her-gebruikt in deze  documentatie"
+msgstr "voor sommige stijlen die worden hergebruikt in deze  documentatie"
 
 #. (term)
 msgid "Our Contributors"
@@ -157,7 +157,7 @@ msgstr "Onze Donateuren"
 
 #. (para)
 msgid "for many hours of joy with the music they sent us"
-msgstr "voor de vele uren plezier met de muziek die zij ons zonden"
+msgstr "voor de vele uren plezier met de muziek die zij ons stuurden"
 
 #. (title)
 msgid "Introduction"
@@ -226,7 +226,7 @@ msgstr "Het bekijken van verschillen tussen twee bestanden en het samenvoegen in
 
 #. (para)
 msgid "Editing conflicts between local changes and changes in the Subversion repository following an update."
-msgstr "Verwerken van conflicten tussen lokale wijzigingen en wijzigingen in het Subversion repository."
+msgstr "Verwerken van conflicten tussen lokale wijzigingen en wijzigingen in het Subversion archief."
 
 #. (para)
 msgid "Applying patch files. This is the reason TortoiseMerge was created :)"
@@ -254,7 +254,7 @@ msgstr "Gebruikmakend van een combinatie van beide blokken, <emphasis>Theirs</em
 
 #. (para)
 msgid "You can make simple line-based changes to the file in the right pane which include: <placeholder-1/>"
-msgstr "Simpele in-line wijzigingen kunnen worden gemaakt in het rechter venster dat bevat: <placeholder-1/>"
+msgstr "Simpel wijzigingen in een regel kunnen worden gemaakt in het rechter venster dat bevat: <placeholder-1/>"
 
 #. (para)
 msgid "You can also edit the file in the right pane just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
@@ -274,7 +274,7 @@ msgstr "Het basis bestand komt overeen met de oudste versie van het bestand die 
 
 #. (para)
 msgid "In conflict resolution view, you can choose to use blocks from <emphasis>Mine</emphasis> or <emphasis>Theirs</emphasis> or both. But in this case, the changes are shown in the bottom pane."
-msgstr ""
+msgstr "In de conflict oplossingsweergave, is het mogelijk om blokken van  <emphasis>Mine</emphasis> of <emphasis>Theirs</emphasis> of beide te kiezen. Echter in dat geval worden de wijzigingen in het onderste scherm weergegeven."
 
 #. (title)
 #. (title)
@@ -284,7 +284,7 @@ msgstr "Toepassen van Patches"
 
 #. (para)
 msgid "A patch file is a Subversion unified diff file, which contains the information required to apply changes to a set of files. The patch may have been supplied by another developer so that you can see changes he has made and possibly commit them to the repository. Or it may have been generated internally by TortoiseSVN when comparing two folders. This happens when you compare a repository revision with your working copy folder, or if you compare two different repository revisions, or if you compare two different repository paths."
-msgstr ""
+msgstr "Een patch bestand is een standaard Subversion diff (verschil) bestand, waarin de informatie voor het toepassen van wijzigingen op meerdere bestanden opgenomen is. Een patch kan aangeleverd worden door een andere ontwikkelaar, zodat het mogelijk is om de wijzigingen te zien die hij heeft gemaakt en mogelijk heeft doorgevoerd (commit) in het archief. Het kan ook zijn dat deze bij het vergelijken van twee mappen gegenereerd is door TortoiseSVN. Dit treedt op als je een vergelijk doet van een archief revisie ten opzicht van je werk kopie, of als je twee archief revisies met elkaar vergelijkt, of als je twee verschillende archief paden vergelijkt."
 
 #. (para)
 msgid "In either case TortoiseMerge will show a small window listing the files included in the patch. By double clicking on one of these files you fetch the relevant file and apply the changes. The left pane shows the original file content and the right pane shows it after the patch is applied."
@@ -321,23 +321,23 @@ msgstr "Weergave in twee vensters"
 
 #. (para)
 msgid "Changes inside the modified lines are shown in different colors. Added string parts are shown with a lighter color, but you can of course configure the colors used here. Removed parts are indicated with a dark brown vertical line in the string. Check out the screenshot above to see how this works."
-msgstr ""
+msgstr "Wijzigingen in aangepaste regels worden weergegeven met een andere kleur. Toegevoegde stukken regel worden met een lichtere kleur weergegeven, maar het is natuurlijk mogelijk om deze kleuren naar wens in te stellen. Verwijderde stukken tekst worden weergegeven met een donker bruin vertikaal streepje in de regel. Bekijk de bovenstaande plaatje om te zien hoe het werkt."
 
 #. (para)
 msgid "Code reorganization usually means a lot of changes in whitespaces (space, tab, newlines) but no actual code change. For example, you split up a very long line into several lines, or you sometimes compact several lines together into one."
-msgstr ""
+msgstr "Bij tekst herkenning worden wijzigingen zonder betekenis (spaties, tabs of nieuwe blanco regels) meestal onterecht als wijziging aangegeven. Bijvoorbeld als je een hele lange regel in twee regels opsplitst, of juist twee regels samenvoegt tot één."
 
 #. (para)
 msgid "Such changes are marked with a white circle symbol on the left side of the views. If you see such a white circle, you know immediately that no real code change is there and you don't have to check the changed block further."
-msgstr ""
+msgstr "Zulke wijzigingen worden weergegeven met een witte cirkel aan de linker kant van de vensters. Als zo'n witte cirkel weergegeven wordt, is het meteen duidelijk dat er geen echte code wijzigingen zijn doorgevoerd en aan dat blok geen verdere aandacht besteed hoeft te worden."
 
 #. (para)
 msgid "Hand editing of the file in the right pane is possible in two-pane view. Such changes are marked with a pencil symbol."
-msgstr ""
+msgstr "Handmatig bijwerken van een bestand in het rechter venster is mogelijk in de weergave met twee venters. Zulke wijzigingen worden weergegeven met het potlood icoon."
 
 #. (para)
 msgid "The two pane view has some features which are not available in the one pane view: <placeholder-1/>"
-msgstr ""
+msgstr "De weergave met twee vensters heeft functies die niet beschikbaar zijn in de weergave met maar één venster: <placeholder-1/>"
 
 #. (para)
 msgid "If you want to compare/merge three files, TortoiseMerge will show you the differences in a three pane view. This view is also used if you need to resolve conflicted files."
@@ -349,11 +349,11 @@ msgstr "Weergave in drie vensters"
 
 #. (para)
 msgid "The left pane shows you the differences between <emphasis>Their</emphasis> file and the <emphasis>Base</emphasis> file, while the right pane shows you the differences between <emphasis>Mine</emphasis> file and the <emphasis>Base</emphasis> file. The bottom pane shows you the result of merging <emphasis>Base</emphasis>, <emphasis>Mine</emphasis> and <emphasis>Theirs</emphasis> with possible conflicts."
-msgstr ""
+msgstr "Het linker venster geeft de verschillen weer tussen het bestand van de ander, <emphasis>Theirs</emphasis>, en het basis bestand, <emphasis>Base</emphasis>, terwijl het rechter venster het verschil laat zien tussen het eigen bestand, <emphasis>Mine</emphasis>, en het basis bestand, <emphasis>Base</emphasis>. Het onderste venster  geeft het resultaat van de samenvoeging en de mogelijke conflicten van het <emphasis>Base</emphasis>, <emphasis>Mine</emphasis> en <emphasis>Theirs</emphasis> bestand  weer."
 
 #. (para)
 msgid "If you hover the mouse over the pane title, a tooltip will show the filenames used for the diff in each pane."
-msgstr ""
+msgstr "Als je de muis op de titel van het venster houdt, zullen in tooltip de bestandsnamen die gebruikt zijn voor de diff worden weergegeven."
 
 #. (title)
 msgid "Patch File List"
@@ -361,7 +361,7 @@ msgstr "Lijst met Patch Bestanden"
 
 #. (para)
 msgid "After TortoiseMerge parses the patch file it will show you a small window with all the files which have changes according to the patch file. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
-msgstr "After TortoiseMerge parses the patch file it will show you a small window with all the files which have changes according to the patch file. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
+msgstr "Nadat TortoiseMerge het patch bestand verwerkt heeft, zal het een klein scherm tonen met alle bestanden welke volgens het patch bestand gewijzigd zijn. <placeholder-1/> Als de bestandsnaam in het zwart is weegegeven, dan kan de patch zonder problemen worden toegepast. Dat betekend dat het bestand niet achterhaald is volgens het patch bestand. Echter, als de bestandsnaam in het rood is weergegeven, dan kan de patch niet direct toegepast worden, omdat je zelf dit bestand al aangepast hebt."
 
 #. (para)
 msgid "But don't worry. If you're working with Subversion you can retrieve an older version of the file and resolve the conflict. In fact, TortoiseMerge automatically tries to get that older version of the file and then shows you the diff between <emphasis>Base</emphasis> (the older version of the file), <emphasis>Mine</emphasis> (the file as it is currently in your working copy) and <emphasis>Theirs</emphasis> (the older version of the file with the patch already applied). Then you can resolve possible conflicts manually."
@@ -369,7 +369,7 @@ msgstr "Geen zorgen. Als je met Subversion werkt, kun je een oudere versie van h
 
 #. (para)
 msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
-msgstr ""
+msgstr "Het patch bestandsscherm beschikt over een context menu, waarmee het effect van de patch op het huidige bestand bekeken kan worden (toepassen zonder opslaan), wijzigingen doorgevoerd en opgeslagen kunnen worden voor het geselecteerde bestand, of wijzigingen door te voeren en op te slaan voor <emphasis>alle</emphasis> bestanden in de lijst. Met dubbel klikken kan de preview bekeken worden."
 
 #. (para)
 msgid "Depending on whether TortoiseMerge can apply the patch directly or by fetching an older version of the file first, it shows you a two pane view (patch can be applied directly) or a three pane view (older version of file fetched)."
@@ -393,7 +393,7 @@ msgstr "<guibutton>Bewaar</guibutton> schrijft alle veranderingen weg naar disk.
 
 #. (para)
 msgid "<guibutton>Reload</guibutton> discards any changes you have made in TortoiseMerge and reloads the files from disk."
-msgstr "<guibutton>Reload</guibutton> verwerpt alle in TortoiseMerge ingevoerde wijzigingen and zorgt ervoor dat de bestanden opnieuw geladen worden. "
+msgstr "<guibutton>Herladen</guibutton> verwerpt alle in TortoiseMerge ingevoerde wijzigingen and zorgt ervoor dat de bestanden opnieuw geladen worden. "
 
 #. (para)
 msgid "<guibutton>Undo</guibutton> implements a multi-level undo, allowing you to reverse any changes you have made within TortoiseMerge."
@@ -401,51 +401,51 @@ msgstr "<guibutton>Ongedaan maken</guibutton> verwijderd op meerdere niveaus de 
 
 #. (para)
 msgid "<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point where the files differ. This saves scrolling through all the unchanged parts of the file."
-msgstr ""
+msgstr "<guibutton>Vorig/Volgend verschil</guibutton> zorgt er voor dat je direct bij het volgende verschil tussen de bestanden terecht komt. Dit bespaart het bladeren langs alle ongewijzigde delen van het bestand."
 
 #. (para)
 msgid "When you do this in 2-pane diff mode, the detail bar at the bottom of the screen will show you the inline differences for the first line, regardless of where the mouse is hovering."
-msgstr ""
+msgstr "Als je dit doet in de twee-venster weergave, laat de detail balk onderaan het scherm de verschillen in de eerste regel zien, onafhankelijk van waar de muis zich bevindt."
 
 #. (para)
 msgid "<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point where the file differences are in conflict and need to be resolved."
-msgstr ""
+msgstr "<guibutton>Vorig/Volgend Conflict</guibutton> brengt je direct bij het het volgende verschil wat een conflict oplevert waarvoor een oplossing gevonden moet worden."
 
 #. (para)
 msgid "<guibutton>Use Theirs/Use Mine</guibutton> selects whether to use a block from the left or the right pane. Refer to the next section for more information about editing changes and conflicts."
-msgstr ""
+msgstr "<guibutton>Gebruik hun tekstgedeeld/Gebruik mijn tekstgedeelte</guibutton> selecteert of een blok van het linker of rechter venster gebruikt moet worden. Lees de volgende paragraaf voor meer informatie over het verwerken van wijzigingen en conflicten."
 
 #. (para)
 msgid "<guibutton>Theirs before Mine/Mine before Theirs</guibutton> is used when you want to combine changes in a conflicted file. Refer to the next section for more information about editing changes and conflicts."
-msgstr ""
+msgstr "<guibutton>Gebruik hun tekst gedeelte, dan mijn/ Gerbuik mijn tekstegedeelte, dan hun</guibutton> wordt gebruikt als je wijzigingen wilt combineren bij conflicten. Lees de volgende sectie voor meer informatie over het verwerken van wijzigingen en conflicten."
 
 #. (para)
 msgid "<guibutton>Mark as Resolved</guibutton> When you have resolved all the conflicts in a file and saved the changes, you can mark it as resolved from within TortoiseMerge, rather than going back to explorer and marking as resolved from there."
-msgstr "<guibutton>Mark as Resolved</guibutton> Hiermee is het mogelijk om vanuit TortoiseMerge alle opgeloste en opgeslagen conflicten direct te markeren als opgelost. Hierdoor is het niet meer nodig om terug te gaan naar de verkenner en daar de markeringen door te voeren."
+msgstr "<guibutton>Markeer als opgelost</guibutton> Hiermee is het mogelijk om vanuit TortoiseMerge alle opgeloste en opgeslagen conflicten direct te markeren als opgelost. Hierdoor is het niet meer nodig om terug te gaan naar de verkenner en daar de markeringen door te voeren."
 
 #. (para)
 msgid "<guibutton>Show Whitespaces</guibutton> toggles the option to display space and tab characters as symbols so you can distinguish white space changes."
-msgstr ""
+msgstr "<guibutton>Toon witregels</guibutton> schakelt de weergave van speciale characters voor spaties en tabs aan of uit, zodat spatie en tab wijzigingen onderscheiding kunnen worden."
 
 #. (para)
 msgid "<guibutton>Inline Diff Word-wise</guibutton> toggles the method used to display inline diffs. In word-wise mode, when a character is changed, the whole word is highlighted. In char-wise mode, each individual changed character is highlighted."
-msgstr ""
+msgstr "<guibutton>Woordelijke verschillen in een regel</guibutton> schakelt de weergave van de woordelijke verschillen in een regel aan en uit. Als in woord-modus één karakter is gewijzigd, wordt het hele woord gemarkeerd. In character-modus wordt elk individueel karakter gemarkeerd."
 
 #. (para)
 msgid "Word-wise is the default and in most cases it works better. For example if you change a variable name, the whole name is highlighted in word-wise mode, whereas in char-wise mode you tend to get a mess of added and deleted characters which doesn't make much sense. However, some content does not resolve neatly into words, for example a hex file, and in that case, char-wise display works better."
-msgstr ""
+msgstr "Woord-modus is standaard en werkt in de meeste gevallen het beste. Bijvoorbeeld als je de naam van een variabele veranderd wordt in woord-modus de hele naam gemarkeerd. In karakter-mode wil zo'n wijziging nog weleens leiden to een rommel van toegevoegde en verwijderde karakters. Dit in tegenstelling tot inhoud die niet op woorden is gebaseerd, bijvoorbeeld een hex bestand, waarbij karakter-mode beter werkt."
 
 #. (para)
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
-msgstr ""
+msgstr "<guibutton>Wissel tussen enkelvoudig en dubbel venster</guibutton> schakelt tussen een enkelvoudig en dubbel venster weergave. Is uitgeschakeld in de weergave met drie-vensters."
 
 #. (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
-msgstr ""
+msgstr "<guibutton>Wissel linker en rechter venster</guibutton> wisselt het linker en rechter venster in de weergave met twee vensters. Bij het vergelijken van een bestand in 2 verschillende bomen, in tegenstelling tot 2 revisies van het zelfde bestand, weet TortoiseSVN niet welk bestand het origineel is voor het linker scherm.  Als dit verkeerd gaat, kan dit dus gecorrigeerd worden om het bekijken te vereenvoudigen."
 
 #. (para)
 msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patch list, this button allows you to hide it (so you can see both windows), or show it (so you can review the file list)."
-msgstr "<guibutton></guibutton> Als TortoiseMerge Patch lijst heeft, dan kan deze met deze knop verborgen (beide schermen zijn dan zichtbaar), of getoond worden (de bestandenlijst is dan zichtbaar)."
+msgstr "<guibutton>Toon of verbergt lijst met patch-bestanden</guibutton> Als TortoiseMerge Patch lijst heeft, dan kan deze met deze knop verborgen (beide schermen zijn dan zichtbaar), of getoond worden (de bestandenlijst is dan zichtbaar)."
 
 #. (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
@@ -453,15 +453,15 @@ msgstr "<guibutton>Instellingen</guibutton> opent de TortoiseMerge's instelling 
 
 #. (para)
 msgid "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Onder de menu balk staat de werk balk. Hiermee krijg je toegang tot de meest gebruikte functies, zoals:<placeholder-2/>"
 
 #. (para)
 msgid "On the left side of the window is a locator bar. This provides a quick visual reference as to where the changes lie within the file. The bar has three columns. The left column refers to the left pane, the right column to the right pane, and the centre column to the bottom pane (if present). In one-pane view only the left column is used. The locator bar can also be used as a scroll bar to scroll all the windows simultaneously."
-msgstr ""
+msgstr "Aan de linker kant van het scherm staat de plaatsbepalingsbalk. Hiermee wordt visueel weergegeven waar de wijzigingen in het bestand zich bevinden. De balk heeft drie kolommen. De linker kolom verwijst naar het linker venster, de rechter kolom naar het rechter venster en de middelste naar het onderste venster (indien weergegeven). Bij weergave met één venster wordt alleen de linker kolom gebruikt. De plaatsbepalingsbalk kan ook gebruikt worden om mee te bladeren, waarbij alle vensters gelijktijdig mee gaan."
 
 #. (para)
 msgid "Below the bottom window is the status bar. This shows the number of lines added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, and the number of unresolved conflicts remaining. You can also see which line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by TortoiseMerge, and whether there is a byte-order-mark (BOM) present in UTF-8 files. The left side of the status bar is used to display hints when you hover the mouse over a control."
-msgstr ""
+msgstr "Onder het onderste venster bevind zich de status balk. Hier wordt het aantal toegevoegde en verwijderde regels in <literal>Hun</literal> en <literal>Mijn</literal>, en het aantal overgebleven onopgeloste conflicten. Daar wordt ook weergegeven welke regeleinde stijl gebruikt wordt, welke codering (ASCII, UTF-8, etc) gedetecteerd is door TortoiseMerge, en of een byte-order-mark (BOM) aanwezig is in UTF-8 bestanden. Het linker gedeelte van de status balk wordt gebruikt om hints weer te geven als je met je mous over een besturingselement gaat."
 
 #. (title)
 msgid "Line Status Icons"
@@ -469,35 +469,35 @@ msgstr "Regel Status Pictogrammen"
 
 #. (para)
 msgid "Changed lines are marked with an icon to indicate what type of change has occurred."
-msgstr ""
+msgstr "Gewijzigde regels worden weergegeven met een icoon, waarbij het icoon aangeeft wat voor type wijziging is doorgevoerd."
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineadded.png\"/> A line has been added."
-msgstr "<graphic fileref=\"images/TMerge_lineadded.png\"/> Een regel was toegevoegd."
+msgstr "<graphic fileref=\"images/TMerge_lineadded.png\"/> Een regel is toegevoegd."
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineremoved.png\"/> A line has been removed."
-msgstr "<graphic fileref=\"images/TMerge_lineremoved.png\"/> Een regel was verwijderd."
+msgstr "<graphic fileref=\"images/TMerge_lineremoved.png\"/> Een regel is verwijderd."
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineequal.png\"/> A change has been undone by reverting to the original content of the line."
-msgstr ""
+msgstr "<graphic fileref=\"images/TMerge_lineequal.png\"/> Een wijziging is ongedaan gemaakt door terug te gaan naar de originele inhoud van de regel."
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_linewhitespace.png\"/> This line contains only whitespace changes. Where several consecutive lines are marked, the paragraph may have been re-wrapped, causing words to shuffle onto adjacent lines."
-msgstr ""
+msgstr "<graphic fileref=\"images/TMerge_linewhitespace.png\"/> Deze regel bevat alleen blanco spatie wijzigingen. Als er meerdere achtereenvolgende regels gemarkeerd zijn, kan het zijn dat een paragraaf opnieuw opgesteld is, waardoor woorden naar een aansluitende regel verschoven zijn. "
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineedited.png\"/> A line has been edited by hand, using TortoiseMerge as a text editor."
-msgstr ""
+msgstr "<graphic fileref=\"images/TMerge_lineedited.png\"/> Een regel is handmatig bewerkt, waarbij TortoiseMerge gebruikt is als programma."
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineconflicted.png\"/> This line is in conflict."
-msgstr ""
+msgstr "<graphic fileref=\"images/TMerge_lineconflicted.png\"/> Deze regel is in conflict."
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> This line is conflicted, but the effect is hidden by whitespace or line-ending settings."
-msgstr ""
+msgstr "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> Deze regel is in conflict, maar het effect is verborgen door blance karakter of regeleinde instellingen."
 
 #. (title)
 msgid "Merging / Editing Conflicts"
@@ -509,23 +509,23 @@ msgstr "TortoiseMerge geeft niet alleen <emphasis>weer</emphasis> de verschillen
 
 #. (para)
 msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right-click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
-msgstr ""
+msgstr "In de weergave met twee vensters, kan alleen in het bestand in het rechter bewerkt worden (<liteal>Mijn</literal>). Om wijzigingen in het linker bestand (<literal>Hun</literal>) te gebruiken, <action>klik met rechter muisknop</action> op de gewijzigde regels en selecteer <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Gebruik dit tekstegedeelte</guimenuitem></menuchoice>. De wijzigingen van het linker bestand worden dan in het rechter bestand toegepast."
 
 #. (para)
 msgid "Sometimes you actually want both text blocks, and the context menu also offers you <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use both text blocks (this one first)</guimenuitem></menuchoice> and <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use both text blocks (this one last)</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Soms wil je beide blokken gebruiken, het context menu geeft dan de optie <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Gebruik beide tekstgedeeltes (deze eerst)</guimenuitem></menuchoice> en <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Gebruik beide tekstgedeeltes (deze laatst)</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "You can also edit the output file just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr ""
+msgstr "Het is ook mogelijk om het bestand in het rechter venster te bewerken zoals in een gewone tekstverwerker. Deze regels worden aangegeven met een potlood icoon. Hou er rekening mee dat het verstandig is om eerst de regel/blok wijzigingen, zoals boven omschreven, doorvoert. Als je aan je eigen bestand begint te bewerken wordt het voor TortoiseMerge onmogelijk om de relaties met de originele bestanden bij te houden. "
 
 #. (para)
 msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
-msgstr ""
+msgstr "In de weergave met drie vensters (soms aangegeven als <emphasis>samenvoeg weergave</emphasis>) is het alleen mogelijk om het bestand in het onderste venster te bewerken (<literal>Samengevoegd</literal>). In de weergave met twee vensters, kun je <action>klik met rechter muisknop</action> op de conflicterende regels en selecteer <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Gebruik dit tekstgedeelte</guimenuitem></menuchoice> of <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Gebruik ander tekstgedeelte</guimenuitem></menuchoice>. Bovendien, als je <emphasis>beide</emphasis> blokken wilt gebruiken, kun je <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Gebruik beide tekstgedeeltes (deze eerst)</guimenuitem></menuchoice> of <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Gebruik beide tekstgedeeltes (deze laatst)</guimenuitem></menuchoice>. Afhankelijk van het commando dat je hebt gebruiken, worden de resultaten gebruikt in het <literal>Samengevoegde</literal> bestand."
 
 #. (para)
 msgid "Sometimes a file will be marked as conflicted in Subversion, yet when you view it using TortoiseMerge there are no conflicts shown. This may be due to the whitespace handling you have chosen. If you choose to ignore line-endings or whitespace changes, those lines will be marked using the <emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you still need to pick which version you want to use."
-msgstr ""
+msgstr "Soms wordt een bestand in Subversion aangegeven als conflicterend, maar als de bestanden worden bekeken met TortoiseMerge zijn er geen conflicten te vinden. Dit heeft te maken met de spatie en witregel instellingen. Als er gekozen is voor “Negeer wijzigingen in spaties en  lege regels”, dan worden deze regels weergegeven met het <emphasis>Conflict-genegeerd</emphasis> icoon. Om het conflict op te lossen, moet de gewenste versie gekozen worden."
 
 #. (para)
 msgid "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
@@ -549,7 +549,7 @@ msgstr "Catalogus openen"
 
 #. (para)
 msgid "The first thing you have to do is to decide whether you just want to compare/merge files, or whether you want to apply a patch file. Depending on what you choose, the corresponding edit boxes and browse buttons are activated."
-msgstr ""
+msgstr "Het eerste dat je moet doen is beslissen of je alleen bestanden wilt vergelijken/samenvoegen, of een patch toepassen op een bestand. Afhankelijk van de keuze, worden de corresponderende tekstvensters en bladerknoppen geactiveerd. "
 
 #. (para)
 msgid "If you want to compare / merge files you have to set at least two of the three possible paths for <literal>Base</literal>, <literal>Mine</literal> and <literal>Theirs</literal>. If you select only two files, then TortoiseMerge will show you the differences between those two files, either in a two pane view or in a one pane view."
@@ -561,11 +561,11 @@ msgstr "Voor het samenvoegen van drie bestanden, zal TortoiseMerge de verschille
 
 #. (para)
 msgid "If you want to apply a patch file you have to set both the path to the patch file itself and the path to the folder where the patch file should be applied."
-msgstr ""
+msgstr "Als je een patch bestand wilt toepassen, moet het pad naar het patch bestand aangegeven worden en het pad naar de folder waar de patch op toegepast moet worden."
 
 #. (para)
 msgid "Currently, only patch files in <emphasis>Unified Diff Format</emphasis> are supported. And only files which were generated from a Subversion working copy. Other formats like patch files generated by CVS are currently not supported!"
-msgstr ""
+msgstr "Op dit moment worden alleen patch bestanden in het <emphasis>Unified Diff </emphasis> formaat ondersteund en bestanden die vanuit een Subversion werk kopie zijn gegenereerd. Andere formaten zoals bijvoorbeeld patch bestanden gegenereerd door CVS worden op dit moment niet ondersteund."
 
 #. (title)
 msgid "Settings"
@@ -585,31 +585,31 @@ msgstr "De meeste opties zijn overduidelijk, slechts een paar behoeven uitleg."
 
 #. (para)
 msgid "<guilabel>Backup original file</guilabel> renames the original file in the WC to <literal>filename.bak</literal> before saving the modified version."
-msgstr ""
+msgstr "<guilabel>Maak reserverkopie van origineel</guilabel> hernoemt het originele bestand in de werkkopie naar <literal>filename.bak</literal> voordat de bijgewerkte versie wordt opgeslagen."
 
 #. (para)
 msgid "<guilabel>Ignore line endings</guilabel> hides changes which are due solely to difference in line-end style."
-msgstr ""
+msgstr "<guilabel>Negeer regeleinden</guilabel> verbergt wijzigingen die alleen veroorzaakt worden door verschillende regeleinden."
 
 #. (para)
 msgid "<guilabel>Ignore case changes</guilabel> hides changes which are due solely to case changes within the text. This can be useful with apps such as Visual Basic, which changes case in variables without warning."
-msgstr ""
+msgstr "<guilabel>Negeer wijzigingen in hoofd- en kleine letters</guilabel> verbergt wijzigingen die alleen veroorzaakt worden door verschillen in hoofd- en kleine letters. Dit is bijvoorbeeld handig met Visual Basic applicaties, waarbij er wijzigingen aan hoofd- en kleine letters zonder melding worden toegepast."
 
 #. (para)
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
-msgstr ""
+msgstr "<guilabel>Kleurcoderen van in-line wijzigingen</guilabel> gebruikt het zelfde kleurenschema als de regelverschil-balk om gedetailleerde in-line wijzigingen in de hoofdvensters weer te geven. De regels met veel wijzigingen worden niet met deze methode weergegeven. In dat geval wordt de regel weergegeven als vervangen (oude regel verwijderd, nieuwe regel toegevoegd)."
 
 #. (para)
 msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
-msgstr ""
+msgstr "<guilabel>Vergelijk spaties en witregels</guilabel> geeft alle wijzigingen qua inspringen, in-line spaties en witregels als toegevoegde/verwijderde regels (dat is zoals Subversion deze wijzigingen behandeld)."
 
 #. (para)
 msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
+msgstr "<guilabel>Negeer wijzigingen in spaties en lege regels</guilabel> verbergt wijzigingen die alleen veroorzaakt worden door het aantal spaties, lege regels en inspringen, bijv. wijzigen van inspringen of tabs naar spaties. Spaties en lege regels toevoegen op een plaats waar die niet aanwezig waren, of het weghalen van dergelijke tekens worden nog steeds als wijziging aangegeven."
 
 #. (para)
 msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
-msgstr ""
+msgstr "<guilabel>Alle spaties en witregels negeren</guilabel> verbergt alle spatie- en witregelwijzigingen."
 
 #. (title)
 msgid "Colour Settings Page"
@@ -621,7 +621,7 @@ msgstr "De Kleur Instellingen Pagina"
 
 #. (para)
 msgid "This dialog allows you to select the background color coding used to highlight the different line changes."
-msgstr ""
+msgstr "In dit dialoogvenster kun je de achtergrondkleuren voor het markeren van de verschillende soorten wijzigingen in de regels instellen."
 
 #. (term)
 msgid "Normal"
@@ -661,7 +661,7 @@ msgstr "Kleur code bij wijzigingen in-line "
 
 #. (listitem)
 msgid "Lines which have relatively small changes, and are shown using inline diff. This colour is used for the <placeholder-1/> portion of the line content. Changed portions will be shown using the inline added and deleted colours described below. If <placeholder-2/> is not enabled, this colour will not be used and changed lines will always be shown as replacements."
-msgstr ""
+msgstr "Regels met kleine wijzigingen en die weergegeven worden als verschillen binnen een regel. Deze kleur wordt gebruikt voor het <placeholder-1/> gedeelte van een regel. De gewijzigde delen worden weergegeven met de  kleuren zoals ingesteld onder het kopje Verschillen binnen een regel. Als <placeholder-2/> niet ingeschakeld is, wordt deze kleur niet gebruikt en worden de gewijzigde regels altijd weergegeven als vervangen regels."
 
 #. (term)
 msgid "Conflicted"
@@ -681,11 +681,11 @@ msgstr "Waar de zelfde regel in beide bestanden is veranderd en waar aangegeven 
 
 #. (term)
 msgid "Empty"
-msgstr "[LEEG]"
+msgstr "Leeg"
 
 #. (listitem)
 msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
-msgstr ""
+msgstr "Waar regels toegevoegd zijn in het andere venster, die niet aanwezig zijn in dit venster."
 
 #. (term)
 msgid "Inline added text"
@@ -693,7 +693,7 @@ msgstr "Inline toegevoegde tekst"
 
 #. (listitem)
 msgid "When inline diffs are shown, added text is shown in this colour."
-msgstr ""
+msgstr "Als de optie Woordelijke verschillen in de regels is ingeschakeld, dan wordt toegevoegde tekst in deze kleur weergegeven.  "
 
 #. (term)
 msgid "Inline removed text"
@@ -701,7 +701,7 @@ msgstr "Inline verwijderde tekst"
 
 #. (listitem)
 msgid "When inline diffs are shown, deleted text is shown in this colour."
-msgstr ""
+msgstr "Als de optie Verschillen binnen een regel is ingeschakeld, dan wordt verwijderde tekst in deze kleur weergegeven.  "
 
 #. (term)
 msgid "Misc whitespaces"
@@ -709,7 +709,7 @@ msgstr "Div lege karakters"
 
 #. (listitem)
 msgid "Characters used to indicate Whitespace are shown in a different colour from normal text."
-msgstr ""
+msgstr "Karakters die gebruikt worden om spaties, tabs en witregelkarakters weer te geven worden weergegeven in een andere kleur dan normale tekst."
 
 #. (title)
 msgid "keyboard shortcuts"
@@ -737,7 +737,7 @@ msgstr "ctrl-C"
 
 #. (para)
 msgid "Copy the selected text to the clipboard"
-msgstr "Kopieer de geselecteerde regel(s) naar het clipboard"
+msgstr "Kopieer de geselecteerde regel(s) naar het klembord"
 
 #. (term)
 msgid "Ctrl-F"
@@ -841,7 +841,7 @@ msgstr "Automatiseer TortoiseMerge"
 
 #. (para)
 msgid "TortoiseMerge can be started with command line parameters to avoid having to go through the <guilabel>Open</guilabel> dialog to select the files yourself. This is useful also if you want to use TortoiseMerge from another application."
-msgstr "TortoiseMerge kan worden gestart via een commando zonder eerst via het menu <guilabel>Open</guilabel> het bestand op te zoeken. Dit is handig wanneer je TortoiseMerge start vanuit een ander software pakket."
+msgstr "TortoiseMerge kan worden gestart door middel van een commando met opties, zonder dat daarvoor eerst via het menu <guilabel>Open</guilabel> het bestand op gezocht hoeft te worden. Dit is handig wanneer je TortoiseMerge start vanuit een ander software pakket."
 
 #. (title)
 msgid "TortoiseMerge Command Line Switches"
@@ -861,10 +861,13 @@ msgid ""
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
 msgstr ""
+"De meeste opties hebben extra informatie nodig zoals een pad of een ander soort toevoeging. Gebruik in die gevallen een ':' achter de optie gevolgd door het pad of de gewenste toevoegin. Bijvoorbeeld: <screen>\n"
+"/base:\"c:\\folder\\mijn basis bestand.txt\"\n"
+"</screen>"
 
 #. (title)
 msgid "List of available command line options"
-msgstr "De lijst met beschikbare commando regel opties"
+msgstr "De lijst met beschikbare commando opties"
 
 #. (entry)
 msgid "Command"
@@ -876,7 +879,7 @@ msgstr "Beschrijving"
 
 #. (entry)
 msgid "Shows a dialog box with the most important command line switches."
-msgstr ""
+msgstr "Geeft een dialoogvenster weer met de belangrijkste commondo opties."
 
 #. (option)
 msgid "?"
@@ -892,11 +895,11 @@ msgstr "Basismap:"
 
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs. This is the common ancestor of the files being diffed, although it is not shown in a separate window. For two way diffs, this is the left file."
-msgstr ""
+msgstr "Specificeert het <placeholder-1/> bestand voor een drie-wegs vergelijking. Dit is het gemeenschappelijke bronbestand van de bestanden die vergeleken worden, maar dit bestand wordt niet in een apart venster weergegeven. Bij twee-weg vergelijkingen is dit het linker bestand."
 
 #. (entry)
 msgid "The name of the base file. This is shown in the view title instead of the file path. For three way diffs it is shown in a tooltip for the view title."
-msgstr ""
+msgstr "De naam van het basis bestand. Deze wordt in plaats van het bestandspad weergegeven in de titel balk. Bij drie-wegs weergave wordt dit weergegeven in een tooltip van de weergave titel balk."
 
 #. (emphasis)
 msgid "theirs"
@@ -904,11 +907,11 @@ msgstr "theirs"
 
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the left pane."
-msgstr ""
+msgstr "Specificeert <placeholder-1/> bestand gebruikt voor drie-wegs vergelijkingen, zoals weergegeven wordt in het linker venster."
 
 #. (entry)
 msgid "The name of the theirs file. This is shown in the view title instead of the file path."
-msgstr ""
+msgstr "De naam van Hun bestand. Deze wordt in plaats van het bestandspad weergegeven in de titel balk. "
 
 #. (emphasis)
 msgid "mine"
@@ -916,11 +919,11 @@ msgstr "mijn"
 
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the right pane. For two way diffs, this is the right file."
-msgstr ""
+msgstr "Specificeert <placeholder-1/> bestand zoals gebruikt in drie-wegs weergave en wordt weergegeven in het rechter venster. Bij twee-wegs vergelijkingen wordt dit bestand ook in het rechter venster weergegeven. "
 
 #. (entry)
 msgid "The name of the mine file. This is shown in the view title instead of the file path."
-msgstr ""
+msgstr "De naam van mijn bestand. Deze wordt in plaats van het bestandspad weergegeven in de titel balk. "
 
 #. (emphasis)
 msgid "merged"
@@ -932,7 +935,7 @@ msgstr "Specificeert het <placeholder-1> bestand bij voor een drie-wegs vergelij
 
 #. (entry)
 msgid "The name of the merged file. This is shown in the view title instead of the file path."
-msgstr ""
+msgstr "De naam van het samengevoegde bestand. Deze wordt in plaats van het bestandspad weergegeven in de titel balk."
 
 #. (emphasis)
 msgid "very long"
@@ -948,11 +951,11 @@ msgstr "De naam van het originele bestand. Wordt gebruikt in de titel."
 
 #. (entry)
 msgid "The name of the resulting patched file. Used for the view title."
-msgstr ""
+msgstr "De naam van het resultaat patch bestand. Wordt gebruikt voor de weergave titel."
 
 #. (entry)
 msgid "The path to the patch/diff file to apply to a directory."
-msgstr ""
+msgstr "Het pad naar het patch/verschil bestand om toe te passen op een map."
 
 #. (entry)
 msgid "Forces TortoiseMerge to start with the one-way view instead of the view the user specified in the settings."
@@ -960,7 +963,7 @@ msgstr "Forceert TortoiseMerge te starten met slechts één venster ongeacht de 
 
 #. (entry)
 msgid "Switches the left and right view of the specified two files to diff."
-msgstr ""
+msgstr "Wisselt het linker en rechter venster van de twee te vergelijken geselecteerde bestanden."
 
 #. (literal)
 msgid "/origfile:\"path_to_original_file\""
@@ -968,7 +971,7 @@ msgstr "/origfile:\"path_naar_originele_bestand\""
 
 #. (literal)
 msgid "/modifiedfile:\"path_to_modified_file\""
-msgstr "/modifiedfile:\"path_to_modified_file\""
+msgstr "/modifiedfile:\"path_naar_gewijzigd_bestand\""
 
 #. (literal)
 msgid "/outfile:\"path_to_resulting_patchfile\""
@@ -984,7 +987,7 @@ msgstr "/createunifieddiff"
 
 #. (entry)
 msgid "Creates a unified diff file (patch file) of two files specified with <placeholder-1/> and <placeholder-2/>. The target path is set with <placeholder-3/>. If <placeholder-4/> is not set, a file save dialog is shown so the user can choose the location to save the patch file. Note: If <placeholder-5/> is set, all other parameters are ignored."
-msgstr ""
+msgstr "Creëert een standaard verschil bestand (patch bestand) van twee bestand gespecificeerd door placeholder-1/> en <placeholder-2/>. Het doelpad wordt aangegeven door <placeholder-3/>. Als <placeholder-4/> niet ingevuld is, zal er een dialoogvenster getoond worden aan de gebruiker,  zodat deze de locatie aan kan geven waar het patchbestand opgeslagen moet worden.  Noot: Als <placeholder-5/> gedefinieerd is, worden alle andere parameters genegeerd."
 
 #. (para)
 msgid ""
@@ -992,6 +995,9 @@ msgid ""
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
 "</screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
 msgstr ""
+"Het is ook mogelijk om direct twee bestandsnamen te gebruiken bij commando, voor compatibiliteit met andere vergelijkingsprogramma’s. Met deze vereenvoudigde methode zal het commando er als volgt uit zien <screen>\n"
+"TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
+"</screen> Als twee bestandsnamen opgegeven worden, dan zullen deze met elkaar vergeleken worden. Als er drie bestandsnamen opgegeven worden, dan is het eerste bestand het BASIS bestand en worden de overige twee bestanden behandeld als een drie-weg vergelijking."
 
 #. (title)
 msgid "Glossary"
@@ -1003,7 +1009,7 @@ msgstr "Toevoegen"
 
 #. (para)
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
-msgstr ""
+msgstr "Een Subversion commando dat gebruikt wordt om een bestand of map toe te voegen aan de werk kopie. De nieuwe onderdelen worden pas aan het archief toegevoegd als je de wijzigingen vastlegt."
 
 #. (glossterm)
 msgid "BASE revision"
@@ -1011,7 +1017,7 @@ msgstr "Basismap revisie:"
 
 #. (para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
-msgstr ""
+msgstr "De huidige basis versie van een bestand of map in je werk kopie. Dat is de revisie waarin een bestand of map aanwezig was tijdens de laatste keer Ophalen, Verversen, of Vastleggen. De basis revisie is normaliter niet gelijk aan de hoofd revisie."
 
 #. (glossterm)
 msgid "Blame"
@@ -1019,7 +1025,7 @@ msgstr "Blame"
 
 #. (para)
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
-msgstr ""
+msgstr "Dit commando is alleen voor tekst bestanden, en maakt bij elke regel een aantekening bij welke archief revisie de laatste wijziging is doorgevoerd en door wie. Onze GUI implementatie heeft de naam TortoiseBlame en geeft ook de Vastleggingsdatum/tijd en het log bericht weer als je er met je muis boven het revisienummer staat."
 
 #. (glossterm)
 msgid "BDB"
@@ -1031,19 +1037,19 @@ msgstr "Berkeley DB. Een uitvoerig getest database backend, die niet kan worden 
 
 #. (glossterm)
 msgid "Branch"
-msgstr "Tak"
+msgstr "Vertakking"
 
 #. (para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bug fixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
-msgstr ""
+msgstr "Een term die vaak gebruikt wordt in versiebeheersystemen om aan te geven wat er gebeurd als een ontwikkeling zich vertakt op een bepaald moment en dan in twee verschillende paden verder gaat. Je kunt van de hoofdstroom een aftakking maken om een nieuwe functie te ontwikkelen, zonder dat de hoofstroom daardoor onstabiel wordt. Of je vertakt een stabiele versie om problemen in op te lossen, terwijl nieuwe ontwikkelingen plaats vinden in de onstabiele hoofdstroom. In Subversion is een vertakking geimplementeerd als een <quote>goedkope kopie</quote>."
 
 #. (glossterm)
 msgid "Checkout"
-msgstr "Checkout"
+msgstr "Ophalen"
 
 #. (para)
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
-msgstr ""
+msgstr "Een Subversion commande waarmee een lokale werk kopie gemaakt wordt in een lege map door middel van het binnen halen van de met versies beheerde bestanden vanuit het archief."
 
 #. (glossterm)
 msgid "Cleanup"
@@ -1051,7 +1057,7 @@ msgstr "Opschonen"
 
 #. (para)
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <emphasis>working copy locked</emphasis> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <emphasis>lock</emphasis> refers to local filesystem locking, not repository locking."
-msgstr ""
+msgstr "Om een citaat aan te halen uit het Subversion boek: <quote> Recursief opschonen van de werk kopie, vergrendelingen verwijderen en doorgaan met onafgemaakt taken. Als je ooit een <emphasis>vergrendelde werk kopie</emphasis> foutmelding krijgt, gebruik dan dit commando om achterhaalde vergrendelingen te verwijderen, zodat je werk kopie weer bruikbaar wordt.</quote>. Merk op dat in deze context <emphasis>vergrendeld</emphasis> verwijst naar vergendelingen in het bestandssysteem van het bestudingssysteem en niet vergrendeling in het archief."
 
 #. (glossterm)
 msgid "Commit"
@@ -1059,7 +1065,7 @@ msgstr "Vastleggen"
 
 #. (para)
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
-msgstr ""
+msgstr "Dit Subversion commando wordt gebruikt om wijzigingen in de lokale werk kopie terug naar het archief te sturen, waardoor een nieuwe archief revisie wordt gecreëerd."
 
 #. (glossterm)
 msgid "Conflict"
@@ -1067,7 +1073,7 @@ msgstr "Validatie-conflict"
 
 #. (para)
 msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
-msgstr ""
+msgstr "Als wijzigingen uit het archief samengevoegd worden met de lokale wijzigingen, worden er soms wijzigingen in dezelfde regel doorgevoerd. In zo'n geval kan Subversion niet automatisch beslissen welke version gebruikt moet worden en wordt het bestand aangemerkt als zijnde in conflict. Het bestand moet dan handmatig bewerkt worden om het conflict op te lossen, voordat er verder gegaan kan worden met de volgende wijziging."
 
 #. (glossterm)
 msgid "Copy"
@@ -1075,7 +1081,7 @@ msgstr "Kopie"
 
 #. (para)
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
-msgstr ""
+msgstr "Met een Subversion archief is het mogelijk om een kopie te maken van een enkel bestand of een complete boom. Dit wordt gerealiseerd door een <quote>goedkope kopie</quote> wat eigenlijk inhoudt dat een koppeling gemaakt wordt naar het origineel en dus bijna geen ruimte inneemt. Door een kopie te maken, wordt de historie van een item veilig gesteld, zodat de wijzigingen achterhaald kunnen worden die door zijn gevoerd voordat de kopie is gemaakt."
 
 #. (glossterm)
 msgid "Delete"
@@ -1083,15 +1089,15 @@ msgstr "Verwijderen"
 
 #. (para)
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the committed revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
-msgstr ""
+msgstr "Als een met door versies beheerd item verwijderd wordt (en de wijziging vastgelegd wordt), zal het item niet meer bestaan in het archief vanaf de vastgelegde revisie. Natuurlijk is het item nog wel beschikbaar in eerdere revisies van het archief, waardoor het nog steeds mogelijk is om dit item te benaderen. Als het nodig is kan het verwijderde item gekopieerd worden en zo weer terug gehaald worden inclusief de historie."
 
 #. (glossterm)
 msgid "Diff"
-msgstr "Diff"
+msgstr "Verschillen"
 
 #. (para)
 msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
-msgstr ""
+msgstr "Wordt gebruikt als vertaling voor de Engelse afkorting Diff. Verschillen aanduiden is erg handig om een snel overzicht te krijgen over wat er veranderd is."
 
 #. (glossterm)
 msgid "Export"
@@ -1099,7 +1105,7 @@ msgstr "Exporteren als..."
 
 #. (para)
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
-msgstr ""
+msgstr "Dit commando genegeert een kopie van een met versies beheerde map, net zoals een werk kopie, maar dan zonder de <literal>.svn</literal> mappen."
 
 #. (glossterm)
 msgid "FSFS"
@@ -1107,7 +1113,7 @@ msgstr "FSFS"
 
 #. (para)
 msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr "Een Subversion eigen bestandssysteem backend voor repositories. Dit kan gebruikt worden op network shares. Standaard voor 1.2 en nieuwere repositories."
+msgstr "Een Subversion eigen bestandssysteem voor archieven. Dit kan gebruikt worden op network shares. Standaard voor 1.2 en nieuwere archieven."
 
 #. (glossterm)
 msgid "GPO"
@@ -1123,7 +1129,7 @@ msgstr "HEAD revisie"
 
 #. (para)
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
-msgstr ""
+msgstr "De recentste revisie van een bestand of map in het <emphasis>archief</emphasis>."
 
 #. (glossterm)
 msgid "Import"
@@ -1131,7 +1137,7 @@ msgstr "Importeer"
 
 #. (para)
 msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
-msgstr ""
+msgstr "Subversion commando om een complete map structuur in het archief te importeren in een enkele revisie."
 
 #. (glossterm)
 msgid "Lock"
@@ -1139,7 +1145,7 @@ msgstr "Bescherm"
 
 #. (para)
 msgid "When you take out a lock on a versioned item, you mark it in the repository as non-committable, except from the working copy where the lock was taken out."
-msgstr ""
+msgstr "Wanneer je een met item in het archief vergrendeld, wordt het item als niet Vast te leggen item gemarkeerd, behalve vanaf de werk kopie waar vandaan de vergrendeling is opgelegd (exclusieve rechten dus)."
 
 #. (glossterm)
 msgid "Log"
@@ -1147,7 +1153,7 @@ msgstr "Log"
 
 #. (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
-msgstr ""
+msgstr "Geef de revisie geschiedenis weer van een bestand of map. Ook bekend als <quote>Historie</quote>."
 
 #. (glossterm)
 msgid "History"
@@ -1155,7 +1161,7 @@ msgstr "Historie"
 
 #. (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
-msgstr ""
+msgstr "Geef de revisie geschiedenis weer van een bestand of map. Ook bekend als <quote>Log</quote>."
 
 #. (glossterm)
 msgid "Merge"
@@ -1163,11 +1169,11 @@ msgstr "Samenvoegen"
 
 #. (para)
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
-msgstr ""
+msgstr "Het proces waardoor de wijzigingen vanuit het archief worden toegevoegd aan de werk kopie, zonder dat lokale wijzigingen verstoord of veranderd worden. In sommige gevallen kunnen de wijzigingen niet automatisch doorgevoerd worden, waardoor de werk kopie in conflict is."
 
 #. (para)
 msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
-msgstr ""
+msgstr "Samenvoegen wordt automatisch uitgevoerd tijdens het bijwerken van de werk kopie. Het is ook mogelijk om specifieke wijzigingen vanuit een andere vertakking samen te voegen door gebruik te maken van TortoiseSVN's Merge commando."
 
 #. (glossterm)
 msgid "Patch"
@@ -1175,7 +1181,7 @@ msgstr "Patch"
 
 #. (para)
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
-msgstr ""
+msgstr "Als in een werk kopie alleen wijzigingen in tekst bestanden zijn doorgevoerd, dan kan Subversion’s Verschil commando een enkel bestand genereren in Unified Diff Format (Standaard verschil bestandsformaat) met alle wijzigingen. Zo’n bestand wordt meestal aangeduid als <quote>Patch</quote> en kan naar iemand anders (of een mailing lijst) gestuurd worden of toegepast worden in een andere werk kopie. Iemand die geen rechten heeft om wijzigingen vast te leggen, kan zo wijzigingen maken en deze opsturen naar een persoon die wel deze rechten heeft. Of in het geval dat je niet zeker bent of de wijziging de juiste oplossing, zodat iemand ander het kan nakijken."
 
 #. (glossterm)
 msgid "Property"
@@ -1183,7 +1189,7 @@ msgstr "Eigenschap"
 
 #. (para)
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
-msgstr ""
+msgstr "Naast het beheren van bestanden en mappen met versiebeheer, is het ook mogelijk om in Subversion metadata toe te kennen aan mappen en bestanden, ook wel aangegeven als <quote>eigenschappen  of properties</quote>. Elke eigenschap heeft een naam en een waarde, zoals registersleutels. Subversion heeft een aantal speciale eigenschappen welke door Subversion intern gebruikt worden, zoals <literal>svn:eol-style</literal>. TortoiseSVN heeft er ook enkele, zoals <literal>tsvn:logminsize</literal>. Het is mogelijk om eigen eigenschappen met elke gewenste naam en waarde toe te voegen."
 
 #. (glossterm)
 msgid "Relocate"
@@ -1191,11 +1197,11 @@ msgstr "Verplaats"
 
 #. (para)
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
-msgstr ""
+msgstr "Als het archief verplaatst wordt, bijvoorbeeld omdat het verplaatst is naar een andere map op de server of omdat het domein gewijzigd is, is het nodig om de werk kopie bij te werken, zodat de verwijzingen naar de juiste nieuwe archief URLs worden bijgewerkt."
 
 #. (para)
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
-msgstr ""
+msgstr "Opmerking: dit command moet alleen gebruikt worden als de werk kopie wijst naar de zelfde locatie in het zelfde archief en dus alleen het gehele archief is verplaatst. In alle andere situaties moet waarschijnlijk het <quote>Switch</quote> commando gebruikt worden."
 
 #. (glossterm)
 msgid "Repository"
@@ -1203,7 +1209,7 @@ msgstr "Archief"
 
 #. (para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
-msgstr ""
+msgstr "Een archief (repository) is een centrale plaats waar data opgeslagen en beheerd wordt. Een archief kan zich bevinden op een plaats met meerdere databases of bestanden voor verspreiding over een netwerk, of een archief kan zich bevinden op een plaats die direct toegankelijk is voor een gebruiker zonder dat er communicatie nodig is via een netwerk."
 
 #. (glossterm)
 msgid "Resolve"
@@ -1219,7 +1225,7 @@ msgstr "Maak ongedaan"
 
 #. (para)
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
-msgstr ""
+msgstr "Subversion bewaard een lokale <quote>ongerepte</quote> kopie van elk bestand in de staat zoals deze was tijdens de laatste vastlegging van de werk kopie. Als je wijzigingen hebt doorgevoerd, welke je ongedaan wilt maken, dan kan met het Terugdraaien commando de ongerepte versie hersteld worden."
 
 #. (glossterm)
 msgid "Revision"
@@ -1227,11 +1233,11 @@ msgstr "Revisie"
 
 #. (para)
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
-msgstr ""
+msgstr "Elke keer als een samenstelling van wijzigingen wordt vastgelegd, wordt er een nieuwe <quote>revisie</quote> in het archief gecreëerd. Elke revisie vertegenwoordigd de status van de archief boom op een bepaald moment. Als je terug wilt gaan in de tijd, kun je het archief onderzoeken zoals het was bij revisie N."
 
 #. (para)
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
-msgstr ""
+msgstr "Vanuit een ander oogpunt, een revisie kan naar een verzameling van wijzigingen wijzen, die toegepast zijn toen die revisie gecreëerd werd."
 
 #. (glossterm)
 msgid "Revision Property (revprop)"
@@ -1239,7 +1245,7 @@ msgstr "Revisie Eigenschap (revprop)"
 
 #. (para)
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
-msgstr ""
+msgstr "Net zoals bestanden eigenschappen kunnen hebben, kan een revisie van het archief ook eigenschappen hebben. Enkele specifieke revprops (revisie eigenschappen) worden automatisch toegevoegd zodra een revisie wordt aangemaakt, namelijk <literal>svn:date svn:author svn:log</literal> welke respectievelijk de toepassingsdatum/tijd, de persoon die de wijzigingen toepast, en het log bericht bevatten. Deze eigenschappen kunnen gewijzigd worden, maar worden niet bijgehouden door versiebeheer. Elke wijziging is dus definitief en kan niet ongedaan gemaakt worden."
 
 #. (glossterm)
 msgid "SVN"
@@ -1259,7 +1265,7 @@ msgstr "Schakel"
 
 #. (para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
-msgstr ""
+msgstr "Net zoals <quote>Bijwerken-naar-revisie</quote> het moment in tijd van een werk kopie veranderd om een status in het verleden weer geven, veranderd <quote>Switch</quote> het werkgebied van een werk kopie zodat het naar een ander deel van het archief wijst. Deze functie is vooral handig bij het werken aan de hoofdstroom en aftakkingen,  waarbij maar enkele bestanden verschillen. Het is dan mogelijk om met de werk kopie tussen de twee kopieën te schakelen waarbij dan alleen de gewijzigde bestanden worden verzonden."
 
 #. (glossterm)
 msgid "Update"
@@ -1275,12 +1281,15 @@ msgstr "Werk Kopie"
 
 #. (para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
-msgstr "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
+msgstr "Dit is de lokale <quote>zandbak</quote>, de omgeving waarin je kunt werken met door versie beheerde bestanden en welke normaalgesproken zich bevind op de lokale harde schijf. Je creëert een werk kopie door de bestanden <quote>Op te halen</quote> vanuit het archief, en slaat deze weer op in het archief door de bestanden <quote>Vast te leggen</quote>."
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr "Bob Hulst"
+msgstr ""
+"Bob Hulst\n"
+"Michel Valstar\n"
+"Jeroen van Amstel"
 
 #. Place the translation of 'translation' here.
 #. (None)
