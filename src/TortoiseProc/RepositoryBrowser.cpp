@@ -52,6 +52,7 @@
 #include "Shlwapi.h"
 #include "RepositoryBrowserSelection.h"
 
+
 #define OVERLAY_EXTERNAL		1
 
 enum RepoBrowserContextMenuCommands
@@ -83,6 +84,7 @@ enum RepoBrowserContextMenuCommands
 	ID_DIFF,
 	ID_PREPAREDIFF,
 	ID_UPDATE,
+	ID_CREATELINK,
 
 };
 
@@ -2553,6 +2555,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				popup.AppendMenuIcon(ID_UPDATE, IDS_LOG_POPUP_UPDATE, IDI_UPDATE);		// "Update item to revision"
 			}
 		}
+		popup.AppendMenuIcon(ID_CREATELINK, IDS_REPOBROWSE_CREATELINK, IDI_LINK);
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 
 		if (pWnd == &m_RepoTree)
@@ -3313,13 +3316,28 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				}
 
 			}
+			break;
+		case ID_CREATELINK:
+			{
+				CTSVNPath tempFile;
+				if (AskForSavePath(selection, tempFile, false))
+				{
+					if (tempFile.GetFileExtension().Compare(_T(".url")))
+					{
+						tempFile.AppendRawString(_T(".url"));
+					}
+					CString urlCmd = _T("tsvncmd:command:repobrowser?path:") + selection.GetURLEscaped(0, 0).GetSVNPathString() 
+										+ _T("?rev:") + selection.GetRepository(0).revision.ToString();
+					CAppUtils::CreateShortcutToURL((LPCTSTR)urlCmd, tempFile.GetWinPath());
+				}
+			}
+			break;
 		default:
 			break;
 		}
 		DialogEnableWindow(IDOK, TRUE);
 	}
 }
-
 
 bool CRepositoryBrowser::AskForSavePath 
     ( const CRepositoryBrowserSelection& selection
