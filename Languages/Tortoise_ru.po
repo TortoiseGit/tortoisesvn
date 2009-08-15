@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2009
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 16766: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 16869: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-07-31 11:56+0300\n"
+"PO-Revision-Date: 2009-08-15 17:21+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -149,6 +149,11 @@ msgstr "%I64d Байт передано"
 
 #. Resource IDs: (357)
 #, c-format
+msgid "%I64d Bytes/s"
+msgstr "%I64d Байт/с"
+
+#. Resource IDs: (357)
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d КБайт передано"
 
@@ -161,11 +166,6 @@ msgstr "файлов выбрано: %d, файлов всего: %d"
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
 msgstr "%d наиболее активных авторов, по крайней мере %d фиксаций у каждого (%d %%)"
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%ld Bytes/s"
-msgstr "%ld Байт/с"
 
 #. Resource IDs: (226)
 #, c-format
@@ -1233,6 +1233,10 @@ msgstr "(создание)"
 #. Resource IDs: (276)
 msgid "(delete)"
 msgstr "(удаление)"
+
+#. Resource IDs: (214)
+msgid "(externals)"
+msgstr "(внешние)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -6772,6 +6776,10 @@ msgstr "URL хранилища"
 msgid "Repository UUID:"
 msgstr "UUID хранилища:"
 
+#. Resource IDs: (106)
+msgid "Request cancelled by TSVN"
+msgstr "Запрос отменён TSVN"
+
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
 msgstr "запрашивает имя пользователя и пароль"
@@ -9071,6 +9079,10 @@ msgstr ""
 #. Resource IDs: (20)
 msgid "Unknown depth"
 msgstr "Неизвестная глубина"
+
+#. Resource IDs: (106)
+msgid "Unknown failure in SVN::List"
+msgstr "Неизвестная ошибка в SVN::List"
 
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
