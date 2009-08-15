@@ -314,10 +314,22 @@ void CRepositoryBrowser::InitRepo()
     // repository properties
 
 	m_InitialUrl = CPathUtils::PathUnescape(m_InitialUrl);
-	if (m_InitialUrl.Find('?')>=0)
+	int questionMarkIndex = -1;
+	if ((questionMarkIndex = m_InitialUrl.Find('?'))>=0)
 	{
-        m_repository.revision = SVNRev(m_InitialUrl.Mid(m_InitialUrl.Find('?')+1));
-		m_InitialUrl = m_InitialUrl.Left(m_InitialUrl.Find('?'));
+		// url can be in the form
+		// http://host/repos/path?[p=PEG][&r=REV]
+		CString revString = m_InitialUrl.Mid(questionMarkIndex+1);
+		if (revString.Find(_T('&'))>=0)
+		{
+			revString = revString.Mid(revString.Find('&')+1); // we don't support peg revisions for the url
+		}
+		revString.Trim(_T("r="));
+		if (!revString.IsEmpty())
+		{
+			m_repository.revision = SVNRev(revString);
+		}
+		m_InitialUrl = m_InitialUrl.Left(questionMarkIndex);
 	}
 
     m_repository.root 
@@ -1431,7 +1443,12 @@ void CRepositoryBrowser::OnCopy()
 	while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
 	{
 		CItem * pItem = (CItem *)m_RepoList.GetItemData(index);
-		url += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(pItem->absolutepath))) + _T("\r\n");
+		url += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(pItem->absolutepath)));
+		if (!GetRevision().IsHead())
+		{
+			url += _T("?r=") + GetRevision().ToString();
+		}
+		url += _T("\r\n");
 	}
 	if (!url.IsEmpty())
 	{
@@ -2640,7 +2657,12 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				for (size_t i=0; i < selection.GetPathCount(0); ++i)
                 {
                     CString path = selection.GetURL (0, i).GetSVNPathString();
-					url += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8 (path))) + _T("\r\n");
+					url += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8 (path)));
+					if (!GetRevision().IsHead())
+					{
+						url += _T("?r=") + GetRevision().ToString();
+					}
+					url += _T("\r\n");
                 }
 				url.TrimRight(_T("\r\n"));
 				CStringUtils::WriteAsciiStringToClipboard(url);
@@ -3326,8 +3348,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						tempFile.AppendRawString(_T(".url"));
 					}
-					CString urlCmd = _T("tsvncmd:command:repobrowser?path:") + selection.GetURLEscaped(0, 0).GetSVNPathString() 
-										+ _T("?rev:") + selection.GetRepository(0).revision.ToString();
+					CString urlCmd = selection.GetURLEscaped(0, 0).GetSVNPathString() + _T("?r=") + selection.GetRepository(0).revision.ToString();
 					CAppUtils::CreateShortcutToURL((LPCTSTR)urlCmd, tempFile.GetWinPath());
 				}
 			}
