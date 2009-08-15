@@ -173,6 +173,19 @@ public:
 								const SVNRev& peg = SVNRev(), const SVNRev& headpeg = SVNRev(),
 								bool bAlternateDiff = false, bool ignoreancestry = false,
 								bool blame = false, svn_node_kind_t nodekind = svn_node_unknown);
+
+	/**
+	 * Creates a .lnk file (a windows shortcut file)
+	 */
+	static HRESULT CreateShortCut(LPCTSTR pszTargetfile, LPCTSTR pszTargetargs, 
+								LPCTSTR pszLinkfile, LPCTSTR pszDescription, 
+								int iShowmode, LPCTSTR pszCurdir, LPCTSTR pszIconfile, int iIconindex);
+	/**
+	 * Creates an url shortcut file (.url)
+	 */
+	static HRESULT CreateShortcutToURL(LPCTSTR pszUrl, LPCTSTR pszLinkFile);
+
+
 private:
 	static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2);
 	static bool GetMimeType(const CTSVNPath& file, CString& mimetype);

@@ -29,6 +29,7 @@
 #include "SVN.h"
 #include "RepositoryBrowser.h"
 #include "BrowseFolder.h"
+#include <intshcut.h>
 
 
 CAppUtils::CAppUtils(void)
@@ -1079,4 +1080,83 @@ bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev&
 	}
 
 	return CAppUtils::LaunchApplication(sCmd, NULL, false);
+}
+
+
+HRESULT CAppUtils::CreateShortCut(LPCTSTR pszTargetfile, LPCTSTR pszTargetargs,
+					   LPCTSTR pszLinkfile, LPCTSTR pszDescription, 
+					   int iShowmode, LPCTSTR pszCurdir, 
+					   LPCTSTR pszIconfile, int iIconindex)
+{
+	HRESULT       hRes;
+	IShellLink*   pShellLink;
+	IPersistFile* pPersistFile;
+
+	hRes = E_INVALIDARG;
+	if ((pszTargetfile != NULL) && (_tcslen(pszTargetfile) > 0) &&
+		(pszLinkfile != NULL) && (_tcslen(pszLinkfile) > 0))
+	{
+		hRes = CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER, IID_IShellLink, (LPVOID*)&pShellLink);
+		if (SUCCEEDED(hRes))
+		{
+			hRes = pShellLink->SetPath(pszTargetfile);
+			hRes = pShellLink->SetArguments(pszTargetargs);
+			if (_tcslen(pszDescription) > 0)
+			{
+				hRes = pShellLink->SetDescription(pszDescription);
+			}
+			if (iShowmode > 0)
+			{
+				hRes = pShellLink->SetShowCmd(iShowmode);
+			}
+			if (_tcslen(pszCurdir) > 0)
+			{
+				hRes = pShellLink->SetWorkingDirectory(pszCurdir);
+			}
+			if (_tcslen(pszIconfile) > 0 && iIconindex >= 0)
+			{
+				hRes = pShellLink->SetIconLocation(pszIconfile, iIconindex);
+			}
+
+			// Use the IPersistFile object to save the shell link
+			hRes = pShellLink->QueryInterface(IID_IPersistFile, (LPVOID*)&pPersistFile);
+			if (SUCCEEDED(hRes))
+			{
+				hRes = pPersistFile->Save(pszLinkfile, TRUE);
+				pPersistFile->Release();
+			}
+			pShellLink->Release();
+		}
+
+	}
+	return (hRes);
+}
+
+HRESULT CAppUtils::CreateShortcutToURL(LPCTSTR pszURL, LPCTSTR pszLinkFile)
+{
+	HRESULT hRes;
+	IUniformResourceLocator *pURL = NULL;
+
+	// Create an IUniformResourceLocator object
+	hRes = CoCreateInstance(CLSID_InternetShortcut, NULL, CLSCTX_INPROC_SERVER, IID_IUniformResourceLocator, (LPVOID*) &pURL);
+	if (SUCCEEDED(hRes))
+	{
+		IPersistFile *pPF = NULL;
+
+		hRes = pURL->SetURL(pszURL, 0);
+
+		if (SUCCEEDED(hRes))
+		{
+			hRes = pURL->QueryInterface(IID_IPersistFile, (void **)&pPF);
+			if (SUCCEEDED(hRes))
+			{   
+				// Save the shortcut via the IPersistFile::Save member function.
+				hRes = pPF->Save(pszLinkFile, TRUE);
+
+				pPF->Release();
+			}
+		}
+		pURL->Release();
+	}
+	return hRes;
 }
