@@ -238,9 +238,8 @@ CString CRepositoryBar::GetCurrentUrl() const
 {
 	if (m_cbxUrl.m_hWnd != 0)
 	{
-		CString path, revision;
+		CString path;
 		m_cbxUrl.GetWindowText(path);
-		m_btnRevision.GetWindowText(revision);
 		return path;
 	}
 	else
@@ -253,8 +252,7 @@ SVNRev CRepositoryBar::GetCurrentRev() const
 {
 	if (m_cbxUrl.m_hWnd != 0)
 	{
-		CString path, revision;
-		m_cbxUrl.GetWindowText(path);
+		CString revision;
 		m_btnRevision.GetWindowText(revision);
 		return SVNRev(revision);
 	}
