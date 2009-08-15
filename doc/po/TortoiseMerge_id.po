@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-03 10:39 +0000\n"
-"PO-Revision-Date: 2009-08-08 11:06-0800\n"
+"PO-Revision-Date: 2009-08-15 10:30-0800\n"
 "Last-Translator: Evan Allrich <eallrich@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -542,7 +542,7 @@ msgstr "<graphic fileref=\"images/TMerge_lineremoved.png\"/> Sebuah baris telah 
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineequal.png\"/> A change has been undone by reverting to the original content of the line."
-msgstr ""
+msgstr "<graphic fileref=\"images/TMerge_lineequal.png\"/> Perubahan telah dibatalkan oleh membalik ke konten asli dari barisan."
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_linewhitespace.png\"/> This line contains only whitespace changes. Where several consecutive lines are marked, the paragraph may have been re-wrapped, causing words to shuffle onto adjacent lines."
@@ -1282,7 +1282,6 @@ msgstr "Delete (Hapus)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1215
 #. (para)
-#, fuzzy
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the committed revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
 msgstr "Ketika Anda menghapus item berversi (dan mengkomit perubahan tersebut) item tidak lagi ada dalam repositori setelah revisi yang dikomit. Tapi tentunya masih ada dalam revisi repositori sebelumnya, dan Anda masih bisa mengaksesnya. Jika perlu, Anda bisa mengcopy item yang dihapus dan <quote>menghidupkannya</quote> sepenuhnya dengan histori."
 
@@ -1313,9 +1312,8 @@ msgstr "FSFS"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1245
 #. (para)
-#, fuzzy
 msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr "FS Filesystem. Backend sistem file untuk repositori hak milik Subversion. Bisa digunakan pada jaringan berbagi. Standar untuk repositori 1.2 dan lebih baru."
+msgstr "Backend sistem file untuk repositori hak milik Subversion. Bisa digunakan pada jaringan berbagi. Standar untuk repositori 1.2 dan lebih baru."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1253
 #. (glossterm)
@@ -1354,7 +1352,6 @@ msgstr "Lock (Kunci)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1280
 #. (para)
-#, fuzzy
 msgid "When you take out a lock on a versioned item, you mark it in the repository as non-committable, except from the working copy where the lock was taken out."
 msgstr "Ketika Anda membawa kuncian pada item berversi, Anda menandainya dalam repositori sebagai tidak bisa dikomit, kecuali dari copy pekerjaan di mana kuncian tersebut dibawa."
 
