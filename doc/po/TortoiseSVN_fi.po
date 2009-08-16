@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-07-07 13:23 +0000\n"
-"PO-Revision-Date: 2009-07-29 01:47+0200\n"
+"POT-Creation-Date: 2009-08-16 09:33 +0000\n"
+"PO-Revision-Date: 2009-08-17 01:33+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3254,6 +3254,16 @@ msgstr "Joskus tiedostoja nimetään uudelleen Subversionin ulkopuolella, ja ne 
 
 #. (title)
 #. (title)
+msgid "Repairing External Copies"
+msgstr "Versioimattomien kopioiden korjaus (kytkeminen versionhallintaan)"
+
+#. (para)
+#. (para)
+msgid "If you made a copy of a file but forgot to use the Subversion command to do so, you can repair that copy so the new file doesn't lose its history. Simply select both the old name (normal or modified) and the new name (unversioned) and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Copy</guimenuitem></menuchoice> to pair the two files as a copy."
+msgstr "Jos unohdit käyttää SVN-komentoa tiedoston kopioimiseen, voit korjata kopion siten, ettei uusi tiedosto menetä historiaansa. Tämä tapahtuu seuraavasti: valitse sekä vanha nimi (normaali tai muokattu) ja uusi nimi (versioimaton) ja käytä komentoa <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Korjaa kopio</guimenuitem></menuchoice> tulkitaksesi tiedostoparin kopioksi."
+
+#. (title)
+#. (title)
 msgid "Change Lists"
 msgstr "Muutoslistat"
 
@@ -4673,6 +4683,10 @@ msgstr "Jos et halua käydä läpi satojen lokiviestien listaa, voit rajoittaa n
 #. (para)
 msgid "Click on the search icon to select which information you want to search in, and to choose <emphasis>regex</emphasis> mode. Normally you will only need a simple text search, but if you need to more flexible search terms, you can use regular expressions. If you hover the mouse over the box, a tooltip will give hints on how to use the regex functions. You can also find online documentation and a tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>. The filter works by checking whether your filter string matches the log entries, and then only those entries which <emphasis>match</emphasis> the filter string are shown."
 msgstr "Napsauta etsintäkuvaketta valitaksesi, mistä etsitään sekä aktivoidaksesi etsinnän <emphasis>säännöllisten lausekkeiden</emphasis> avulla. Tavallisesti tarvitset luultavasti vain yksinkertaista tekstihakua, mutta monimutkaisemmissa hauissa säännöllisten lausekkeiden käytöstä voi olla hyötyä. Jos viet hiiren kontrollin päälle, esiin ilmestyy työkaluvihje, jossa on vinkkejä säännöllisten lausekkeiden käytöstä. Kannattaa myös tarkistaa ohjeet ja aloittelijan opas sivulta <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>. Etsintä toimii tarkistamalla, täsmääkö hakuteksti lokiviestien kanssa. Vain täsmäävät viestit näytetään."
+
+#. (para)
+msgid "If you don't use regex mode, you can enter several strings to search for, and only those log entries which match all of your filter words will be shown."
+msgstr "Jos et käytä säännöllistä lauseketta, voit antaa useita etsittäviä merkkijonoja, jolloin näytetään kaikki lokiviestit, jotka täsmäävät kaikkien hakusanojesi kanssa."
 
 #. (para)
 msgid "To make the filter show all log entries that do <emphasis>not</emphasis> match the filter string, start the string with an exclamation mark ('!'). For example, a filter string <literal>!username</literal> will only show those entries which were not committed by <literal>username</literal>."
@@ -7751,9 +7765,8 @@ msgid "These properties must be set on folders for the system to work. When you 
 msgstr "Nämä ominaisuudet on asetettava kansioille, jotta ne toimisivat. Kun toimitat tiedoston tai kansion, ominaisuudet luetaan kansiosta. Jos niitä ei löydy sieltä, TortoiseSVN etsii ylöspäin kansiopuussa kunnes vastaan tulee versioimaton kansio tai työkopion juurikansio (esim. <literal>C:\\</literal>). Jos voit olla varma, että kukin käyttäjä hakee työkopion esim. vain päähaarasta eikä jostain sen alikansiosta, riittää asettaa ominaisuudet päähaarakansiolle (<filename>trunk/</filename>). Jos et voi olla varma tästä, ominaisuudet kannattaa asettaa palautuvasti kaikille alikansioille. Syvemmällä projektihierarkiassa oleva ominaisuus vie voiton ylemmillä tasoilla (lähempänä kansiota <filename>trunk/</filename>) olevista."
 
 #. (para)
-#. (para)
-msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr "<emphasis>Ainoastaan</emphasis> etuliitteellä <literal>tsvn:</literal> alkaville ominaisuuksille voi käyttää valintaa <guilabel>Palautuva</guilabel> asettamaan ominaisuuden kaikille alikansioille asettamatta sitä samalla kaikille tiedostoille."
+msgid "For <literal>tsvn:</literal> and <literal>webviewer:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
+msgstr "<emphasis>Ainoastaan</emphasis> etuliitteillä <literal>tsvn:</literal> ja <literal>webviewer:</literal> alkaville ominaisuuksille voi käyttää valintaa <guilabel>Palautuva</guilabel> asettamaan ominaisuuden kaikille alikansioille asettamatta sitä samalla kaikille tiedostoille."
 
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
@@ -7827,13 +7840,17 @@ msgstr "Aseta tämä ominaisuus arkistoselaimesi paikantimeen nähdäksesi muuto
 msgid "You can also use relative URLs instead of absolute ones. This is useful in case your web viewer is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>webviewer:revision</literal> and <literal>webviewer:pathrevision</literal> property. The format is the same as for the <literal>bugtraq:url</literal> property. See <xref linkend=\"tsvn-dug-bugtracker\"/>."
 msgstr "Voit myös käyttää suhteellisia paikantimia absoluuttisten sijaan. Tästä on hyötyä, mikäli selaimesi on samassa nimialueessa / palvelimella kuin arkistosi. Jos nimialue joskus muuttuu, et joudu muuttamaan <literal>webviewer:revision</literal> ja <literal>webviewer:pathrevision</literal> -ominausuuksia. Muoto on sama kuin ominaisuudella <literal>bugtraq:url</literal>, ks. luku <xref linkend=\"tsvn-dug-bugtracker\"/>."
 
+#. (para)
+msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
+msgstr "<emphasis>Ainoastaan</emphasis> etuliitteellä <literal>tsvn:</literal> alkaville ominaisuuksille voi käyttää valintaa <guilabel>Palautuva</guilabel> asettamaan ominaisuuden kaikille alikansioille asettamatta sitä samalla kaikille tiedostoille."
+
 #. (title)
 msgid "No Repo Viewer Links from Repository Browser"
 msgstr "Linkit web-selaimiin eivät ole käytettävissä arkistoselaimessa"
 
 #. (para)
-msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
-msgstr "Koska kytkentä web-selaimiin vaatii Subversion-ominaisuuksien käyttöä, näet tulokset vain työkopion kautta. Ominaisuuksien haku palvelimelta on hidasta, joten tämä toiminto ei ole käytettävissä arkistoselaimessa."
+msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the url of the repository you won't see this feature."
+msgstr "Koska kytkentä web-selaimiin vaatii Subversion-ominaisuuksien käyttöä, näet tulokset vain työkopion kautta. Ominaisuuksien haku palvelimelta on hidasta, joten tämä toiminto ei ole käytettävissä arkistoselaimessa, ellet käynnistä arkistoselainta työkopiostasi. Jos siis käynnistät arkistoselaimen antamalla arkiston paikantimen, tämä ominaisuus ei ole käytettävissä."
 
 #. (title)
 msgid "TortoiseSVN's Settings"
@@ -11013,6 +11030,10 @@ msgid "/findtext"
 msgstr "/findtext"
 
 #. (option)
+msgid "/findregex"
+msgstr "/findregex"
+
+#. (option)
 msgid "/findtype:X"
 msgstr "/findtype:X"
 
@@ -11041,8 +11062,8 @@ msgid "<option>/findtype:7</option> filter by bug ID"
 msgstr "<option>/findtype:7</option> suodata vikatunnuksista"
 
 #. (entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (enables the 'stop-on-copy' checkbox), <placeholder-5/> fills in the filter text, <placeholder-6/> (forces the filter to use text, not regex) and <placeholder-7/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-8/>"
-msgstr "Avaa loki-ikkunan. Valitsin <placeholder-1/> määrittää tiedoston tai kansion, jolle loki näytetään. Lisäksi voidaan antaa kuusi eri lisävalitsinta: <placeholder-2/>, <placeholder-3/> ja <placeholder-4/> (pysäytä kopiointiin-valinta), <placeholder-5/> asettaa suodatustekstin, <placeholder-6/> (suodata teksti, ei säännöllistä lauseketta -valinta) ja <placeholder-7/> missä X on luku väliltä 1-7. Numeroiden merkitys on seuraava: <placeholder-8/>"
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> fills in the filter text, <placeholder-6/> forces the filter to use text, not regex, or <placeholder-7/> forces the filter to use regex, not simple textsearch, and <placeholder-8/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-9/>"
+msgstr "Avaa loki-ikkunan. Valitsin <placeholder-1/> määrittää tiedoston tai kansion, jolle loki näytetään. Lisäksi voidaan antaa kuusi eri lisävalitsinta: <placeholder-2/>, <placeholder-3/> ja <placeholder-4/> (pysäytä kopiointiin-valinta), <placeholder-5/> asettaa suodatustekstin, <placeholder-6/> (suodata käyttämällä tekstiä), tai <placeholder-7/> (suodata käyttämällä säännöllistä lauseketta), ja <placeholder-8/> missä X on luku väliltä 1-7. Numeroiden merkitys on seuraava: <placeholder-9/>"
 
 #. (option)
 #. (option)
