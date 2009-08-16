@@ -820,6 +820,11 @@
 			the filter string are shown.
 		</para>
 		<para>
+			If you don't use regex mode, you can enter several strings to
+			search for, and only those log entries which match all of your
+			filter words will be shown.
+		</para>
+		<para>
 			To make the filter show all log entries that do <emphasis>not</emphasis>
 			match the filter string, start the string with an exclamation mark ('!').
 			For example, a filter string <literal>!username</literal> will only

@@ -135,9 +135,10 @@ Don't touch these lines:
 								Six additional options can be set:
 								<option>/startrev:xxx</option>, 
 								<option>/endrev:xxx</option>,
-								<option>/strict</option> (enables the 'stop-on-copy' checkbox),
+								<option>/strict</option> enables the 'stop-on-copy' checkbox,
 								<option>/findstring:"filterstring"</option> fills in the filter text,
-								<option>/findtext</option> (forces the filter to use text, not regex) and
+								<option>/findtext</option> forces the filter to use text, not regex, or
+								<option>/findregex</option> forces the filter to use regex, not simple textsearch, and
 								<option>/findtype:X</option> with X being a number between 1 and 7. The numbers
 								correspond to:
 								<itemizedlist>

@@ -65,7 +65,11 @@ bool LogCommand::Execute()
 	}
 	CString findStr = parser.GetVal(_T("findstring"));
 	LONG findType = parser.GetLongVal(_T("findtype"));
-	bool findRegex = !parser.HasKey(_T("findtext"));
+	bool findRegex = !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), FALSE);
+	if (parser.HasKey(_T("findtext")))
+		findRegex = false;
+	if (parser.HasKey(_T("findregex")))
+		findRegex = true;
 
 	CLogDlg dlg;
 	theApp.m_pMainWnd = &dlg;
