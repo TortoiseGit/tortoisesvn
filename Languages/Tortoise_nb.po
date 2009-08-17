@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-15 09:24+0100\n"
+"PO-Revision-Date: 2009-08-17 14:00+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -155,6 +155,11 @@ msgstr "%I64d Byte overført"
 
 #. Resource IDs: (357)
 #, c-format
+msgid "%I64d Bytes/s"
+msgstr "%I64d Byte/s"
+
+#. Resource IDs: (357)
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kByte overført"
 
@@ -167,11 +172,6 @@ msgstr "%d filer valgt, totalt %d filer"
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
 msgstr "%d mest aktive forfatter(e) med minst %d innsendinger hver (%d %%)"
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%ld Bytes/s"
-msgstr "%ld Byte/s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -539,6 +539,10 @@ msgstr "&Slett"
 #. Resource IDs: (17)
 msgid "&Delete (keep local)"
 msgstr "&Slett (behold lokalt)"
+
+#. Resource IDs: (1514)
+msgid "&Delete unversioned items..."
+msgstr "&Slett ikke-versjonerte elementer..."
 
 #. Resource IDs: (101)
 msgid "&Delete..."
@@ -1215,6 +1219,10 @@ msgstr "(binær verdi)"
 msgid "(copy)"
 msgstr "(kopi)"
 
+#. Resource IDs: (277)
+msgid "(create branch)"
+msgstr "(lag gren)"
+
 #. Resource IDs: (276)
 msgid "(created)"
 msgstr "(opprettet)"
@@ -1222,6 +1230,10 @@ msgstr "(opprettet)"
 #. Resource IDs: (276)
 msgid "(delete)"
 msgstr "(slett)"
+
+#. Resource IDs: (214)
+msgid "(externals)"
+msgstr "(ekstern)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -1254,10 +1266,6 @@ msgstr "(ingen verdi)"
 #. Resource IDs: (314)
 msgid "(not found)"
 msgstr "(ikke funnet)"
-
-#. Resource IDs: (276)
-msgid "(open branch)"
-msgstr "(åpne gren)"
 
 #. Resource IDs: (208)
 msgid "(property change only)"
@@ -2932,6 +2940,10 @@ msgstr ""
 #. Resource IDs: (8)
 msgid "Create repositor&y here"
 msgstr "Lag de&pot her..."
+
+#. Resource IDs: (102)
+msgid "Create shortcut"
+msgstr "Lag snarvei"
 
 #. Resource IDs: (32828)
 msgid "Create unified diff file"
@@ -6662,6 +6674,10 @@ msgid "Renames files / folders inside version control"
 msgstr "Omdøper filer/mapper under kildekontroll"
 
 #. Resource IDs: (209)
+msgid "Repair copy"
+msgstr "Reparer kopi"
+
+#. Resource IDs: (209)
 msgid "Repair move"
 msgstr "Reparer flytting"
 
@@ -6700,6 +6716,10 @@ msgstr "Depotets URL"
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
 msgstr "Depot UUID:"
+
+#. Resource IDs: (106)
+msgid "Request cancelled by TSVN"
+msgstr "Forespørsel avbrutt av TSVN"
 
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
@@ -8980,6 +9000,10 @@ msgstr ""
 #. Resource IDs: (20)
 msgid "Unknown depth"
 msgstr "Ukjent dybde"
+
+#. Resource IDs: (106)
+msgid "Unknown failure in SVN::List"
+msgstr "Ukjent feil i SVN::List"
 
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
