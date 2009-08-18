@@ -322,10 +322,13 @@
 		<tip>
 			<title>No Issue Tracker Information from Repository Browser</title>
 			<para>
-				Because the issue tracker integration depends upon accessing subversion
+				Because the repo viewer integration depends upon accessing subversion
 				properties, you will only see the results when using a checked
 				out working copy. Fetching properties remotely is a slow operation,
-				so you will not see this feature in action from the repo browser.
+				so you will not see this feature in action from the repo browser
+				unless you started the repo browser from your working copy. If you
+				started the repo browser by entering the url of the repository
+				you won't see this feature.
 			</para>
 		</tip>
 		<para>
