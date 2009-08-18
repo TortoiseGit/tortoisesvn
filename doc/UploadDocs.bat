@@ -10,7 +10,7 @@ rem
 rem @echo off
 rem set USERNAME=myname
 rem set PASSWORD=mypassword
-rem set PsCP="C:\Programme\PuttY\pscp.exe"
+rem set PSCP="C:\Programme\PuttY\pscp.exe"
 rem set PLINK="C:\Programme\Putty\plink.exe"
 rem set ZIP="C:\Programme\7-zip\7z.exe"
 
