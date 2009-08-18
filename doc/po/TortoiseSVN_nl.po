@@ -13,12 +13,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"POT-Creation-Date: 2009-08-13 08:06 +0000\n"
-"PO-Revision-Date: 2009-08-14 17:37+0100\n"
+"POT-Creation-Date: 2009-08-16 09:33 +0000\n"
+"PO-Revision-Date: 2009-08-17 16:56+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Dutch\n"
 "X-Poedit-Country: NETHERLANDS\n"
@@ -734,7 +734,7 @@ msgstr "Stel je hebt een medewerker, Sally, die op hetzelfde moment als jij een 
 
 #. (para)
 msgid "To bring her project up to date, Sally can ask Subversion to <firstterm>update</firstterm> her working copy, by using the Subversion <command>update</command> command. This will incorporate your changes into her working copy, as well as any others that have been committed since she checked it out."
-msgstr "Om haar project bij te werken, kan Sally Subversion vragen om haar werk kopie <firstterm>bij te werken</firstterm>, door het Subversion commando <command>Verversen</command> te gebruiken. Hiermee worden jouw wijzigingen in haar kopie verwerkt, net zoals andere wijzigingen die toegepast zijn sinds zij haar werk kopie ophaalde."
+msgstr "Om haar project bij te werken, kan Sally Subversion vragen om haar werk kopie <firstterm>bij te werken</firstterm>, door het Subversion commando <command>Verversen</command> te gebruiken. Hiermee worden jouw wijzigingen in haar kopie verwerkt, net zoals andere wijzigingen die vastgelegd zijn sinds zij haar werk kopie ophaalde."
 
 #. (para)
 msgid "Note that Sally didn't need to specify which files to update; Subversion uses the information in the <filename>.svn</filename> directory, and further information in the repository, to decide which files need to be brought up to date."
@@ -877,11 +877,11 @@ msgstr "Globaal Revisie Nummer"
 
 #. (para)
 msgid "Unlike those of many other version control systems, Subversion's revision numbers apply to <emphasis>entire trees</emphasis>, not individual files. Each revision number selects an entire tree, a particular state of the repository after some committed change. Another way to think about it is that revision N represents the state of the repository filesystem after the Nth commit. When a Subversion user talks about ``revision 5 of <filename>foo.c</filename>'', they really mean ``<filename>foo.c</filename> as it appears in revision 5.'' Notice that in general, revisions N and M of a file do <emphasis>not</emphasis> necessarily differ!"
-msgstr ""
+msgstr "In tegenstelling tot veel andere versie beheersystemen, past Subversion revisie nummers toe op een <emphasis>complete boom</emphasis>, niet op individuele bestanden. Elk revisienummer selecteert een gehele boom, een specifieke status waarin het archief zich bevond nadat iemand zijn wijzigingen had vastgelegd. Anders gezegd, revisie N geeft de status van het archief weer naar de Nde vastlegging. Als een Subversion gebruiker praat over ``revisie 5 van <filename>foo.c</filename>'', dan bedoeld diegene echt ``<filename>foo.c</filename> zoals het in revisie 5 aanwezig is.'' Merk op dat over het algemeen een bestand aanwezig in revisie N en M <emphasis>niet</emphasis> perse verschillend zijn."
 
 #. (para)
 msgid "It's important to note that working copies do not always correspond to any single revision in the repository; they may contain files from several different revisions. For example, suppose you check out a working copy from a repository whose most recent revision is 4:"
-msgstr ""
+msgstr "Het is belangrijk om op te merken dat werk kopieën niet altijd overeen komen met één enkele revisie in het archief; er kunnen bestanden in zitten die uit verschillende revisies komen.  Bijvoorbeeld, je haalt een werk kopie op uit een archief, waarvan de meest recente revisie nummer 4 is:"
 
 #. (screen)
 #, no-wrap
@@ -898,7 +898,7 @@ msgstr ""
 
 #. (para)
 msgid "At the moment, this working directory corresponds exactly to revision 4 in the repository. However, suppose you make a change to <filename>button.c</filename>, and commit that change. Assuming no other commits have taken place, your commit will create revision 5 of the repository, and your working copy will now look like this:"
-msgstr ""
+msgstr "Op dit moment komt de werk map precies overeen met revisie 4 in het archief. Echter, stel je wijzigt nu <filename>button.c</filename> en legt de wijziging vast. Er van uitgaande dat niemand anders wijzigingen heeft vastgelegd, zal jouw toepassing revisie 5 van het archief creëren, en zal je werk kopie er als volgt uit zien."
 
 #. (screen)
 #, no-wrap
@@ -915,7 +915,7 @@ msgstr ""
 
 #. (para)
 msgid "Suppose that, at this point, Sally commits a change to <filename>integer.c</filename>, creating revision 6. If you use <command>svn update</command> to bring your working copy up to date, then it will look like this:"
-msgstr ""
+msgstr "Stel dat op dit moment Sally een wijziging in <filename>integer.c</filename> vastlegt, dan wordt revisie 6 aangemaakt. Als jij zelf dan <command>svn verversen</command> uitvoert om je werk kopie bij te werken, dan zal deze er zo uitzien:"
 
 #. (screen)
 #, no-wrap
@@ -932,27 +932,27 @@ msgstr ""
 
 #. (para)
 msgid "Sally's changes to <filename>integer.c</filename> will appear in your working copy, and your change will still be present in <filename>button.c</filename>. In this example, the text of <filename>Makefile</filename> is identical in revisions 4, 5, and 6, but Subversion will mark your working copy of <filename>Makefile</filename> with revision 6 to indicate that it is still current. So, after you do a clean update at the top of your working copy, it will generally correspond to exactly one revision in the repository."
-msgstr ""
+msgstr "Sally’s wijziging aan <filename>integer.c</filename> zal in je werk kopie zichtbaar worden en je eigen wijziging zal nog steeds in <filename>button.c</filename> zitten. In dit voorbeeld zal de tekst van <filename>Makefile</filename> gelijk zijn voor revisie 4, 5 en 6, maar zal Subversion je werk kopie van <filename>Makefile</filename> markeren met revisie 6. Dit om aan te geven dat dit nog de actuele versie is. Kortweg, als je een schone versie ophaalt van je werk kopie, dan komt die kopie overeen met één enkele revisie in het archief."
 
 #. (title)
 msgid "How Working Copies Track the Repository"
-msgstr ""
+msgstr "Hoe Werk Kopieën Het Archief Bijhouden"
 
 #. (para)
 msgid "For each file in a working directory, Subversion records two essential pieces of information in the <filename>.svn/</filename> administrative area:"
-msgstr ""
+msgstr "Voor elk bestand in een werk map houdt Subversion twee essentiële stukjes informatie bij in de <filename>.svn/</filename> administratie map:"
 
 #. (para)
 msgid "what revision your working file is based on (this is called the file's <firstterm>working revision</firstterm>), and"
-msgstr ""
+msgstr "op welke revisie je werk kopie gebaseerd is (bekend als de <firstterm>werk revisie</firstterm> van een bestand) en"
 
 #. (para)
 msgid "a timestamp recording when the local copy was last updated by the repository."
-msgstr ""
+msgstr "een tijdstempel met het tijdstip van de laatste keer dat je lokale kopie is ververst vanuit het archief."
 
 #. (para)
 msgid "Given this information, by talking to the repository, Subversion can tell which of the following four states a working file is in:"
-msgstr ""
+msgstr "Met deze informatie en communicerend met het archief, kan Subversion bepalen in welke van de volgende vier fases een bestand verkeert:"
 
 #. (term)
 msgid "Unchanged, and current"
@@ -960,31 +960,31 @@ msgstr "Niet gewijzigd en actueel"
 
 #. (para)
 msgid "The file is unchanged in the working directory, and no changes to that file have been committed to the repository since its working revision. A <command>commit</command> of the file will do nothing, and an <command>update</command> of the file will do nothing."
-msgstr ""
+msgstr "Het bestand is ongewijzigd in de werk map en er zijn geen wijzigingen in het archief vastgelegd sinds de werk revisie is aangemaakt. Het <command>vastleggen</command> en het  commando <command>verversen</command> op zo’n bestand zal geen actie tot gevolg hebben."
 
 #. (term)
 msgid "Locally changed, and current"
-msgstr ""
+msgstr "Lokaal gewijzigd en actueel"
 
 #. (para)
 msgid "The file has been changed in the working directory, and no changes to that file have been committed to the repository since its base revision. There are local changes that have not been committed to the repository, thus a <command>commit</command> of the file will succeed in publishing your changes, and an <command>update</command> of the file will do nothing."
-msgstr ""
+msgstr "Het bestand is in de werk map gewijzigd en er zijn nog geen wijzigingen aan het bestand vastgelegd in het archief na de basis revisie. De lokale wijzigingen zijn nog niet vastgelegd in het archief, dus het <command>vastleggen</command> commando zal je wijzigingen succesvol publiceren en het <command>verversen</command> commando zal niets doen."
 
 #. (term)
 msgid "Unchanged, and out-of-date"
-msgstr ""
+msgstr "Ongewijzigd en achterhaald"
 
 #. (para)
 msgid "The file has not been changed in the working directory, but it has been changed in the repository. The file should eventually be updated, to make it current with the public revision. A <command>commit</command> of the file will do nothing, and an <command>update</command> of the file will fold the latest changes into your working copy."
-msgstr ""
+msgstr "Dit bestand is niet gewijzigd in de werk map, maar er is wel een wijziging in het archief. Dit bestand moet uiteindelijk bijgewerkt worden om overeen te komen met de gepubliceerde revisie. Het <command>commit</command> commando zal niets doen, het <command>verversen</command> zal de laatste wijzigingen in je werk kopie beschikbaar stellen."
 
 #. (term)
 msgid "Locally changed, and out-of-date"
-msgstr ""
+msgstr "Lokaal gewijzigd en achterhaald"
 
 #. (para)
 msgid "The file has been changed both in the working directory, and in the repository. A <command>commit</command> of the file will fail with an <emphasis>out-of-date</emphasis> error. The file should be updated first; an <command>update</command> command will attempt to merge the public changes with the local changes. If Subversion can't complete the merge in a plausible way automatically, it leaves it to the user to resolve the conflict."
-msgstr ""
+msgstr "Het bestand is lokaal en in het archief gewijzigd. Het <command>vastleggen</command> commando zal een <emphasis>bestand achterhaald</emphasis> foutmelding geven. Het bestand moet eerst ververst worden; het <command>verversen</command> zal proberen de gepubliceerde wijzigingen samen te voegen met de lokale wijzigingen. Als het Subversion niet lukt om de bestanden samen te voegen op een voor hand liggende manier, dan laat Subversion het aan de gebruiker over om dit probleem op te lossen. "
 
 #. (title)
 msgid "Summary"
@@ -992,27 +992,27 @@ msgstr "Samenvatting"
 
 #. (para)
 msgid "We've covered a number of fundamental Subversion concepts in this chapter:"
-msgstr ""
+msgstr "In dit hoofdstuk is een aantal fundamentele Subversion concepten behandeld:"
 
 #. (para)
 msgid "We've introduced the notions of the central repository, the client working copy, and the array of repository revision trees."
-msgstr ""
+msgstr "De begrippen van het centrale archief, de werk kopie van de gebruiker en de verzameling van archief revisie bomen zijn geïntroduceerd."
 
 #. (para)
 msgid "We've seen some simple examples of how two collaborators can use Subversion to publish and receive changes from one another, using the 'copy-modify-merge' model."
-msgstr ""
+msgstr "Enkele eenvoudige voorbeelden zijn gegeven over hoe twee medewerkers Subversion kunnen gebruiken om wijzigingen naar elkaar te publiceren en van elkaar te ontvangen, door gebruik te maken van het 'kopieer-wijzig-samenvoeg' model."
 
 #. (para)
 msgid "We've talked a bit about the way Subversion tracks and manages information in a working copy."
-msgstr ""
+msgstr "Er is kort gesproken over hoe Subversion informatie en wijzigingen bijhoudt in een werk kopie."
 
 #. (para)
 msgid "No matter which protocol you use to access your repositories, you always need to create at least one repository. This can either be done with the Subversion command line client or with TortoiseSVN."
-msgstr ""
+msgstr "Onafhankelijk van welk protocol er gebruikt wordt om een archief te benaderen, tenminste één keer moet het archief aangemaakt worden. Dit kan gedaan worden met via een Subversion opdracht scherm of met TortoiseSVN."
 
 #. (para)
 msgid "If you haven't created a Subversion repository yet, it's time to do that now."
-msgstr ""
+msgstr "Als je nog geen Subversion archief aangemaakt hebt, dan wordt het nu tijd om dat te doen."
 
 #. (title)
 msgid "Repository Creation"
@@ -1024,11 +1024,11 @@ msgstr "repository aanmaken"
 
 #. (para)
 msgid "You can create a repository with the FSFS backend or with the older Berkeley Database (BDB) format. The FSFS format is generally faster and easier to administer, and it works on network shares and Windows 98 without problems. The BDB format was once considered more stable simply because it has been in use for longer, but since FSFS has now been in use in the field for several years, that argument is now rather weak. Read <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> in the Subversion book for more information."
-msgstr ""
+msgstr "Het is mogelijk om een archief aan te maken met een FSFS backend of met het oudere Berkeley Database (BDB) formaat. Het FSFS formaat is over het algemeen sneller en makkelijker de administreren, bovendien werkt het zonder problemen om netwerk schijven en Windows 98. Het is lang verondersteld dat het BDB formaat stabieler was, eenvoudigweg omdat het langer gebruikt is. Echter aangezien FSFS nu ook al meerdere jaren in het veld in gebruik is, is dat argument niet zo sterk meer. Lees ook eens <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> in het Subversion boek voor meer informatie."
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
-msgstr ""
+msgstr "Een archief aanmaken via de opdrachtregel applicatie."
 
 #. (primary)
 #. (primary)
@@ -1041,11 +1041,11 @@ msgstr "Command Line Client"
 
 #. (para)
 msgid "Create an empty folder with the name SVN (e.g. <filename>D:\\SVN\\</filename>), which is used as root for all your repositories."
-msgstr ""
+msgstr "Maak een lege map aan met de naam SVN (bijv. <filename>D:\\SVN\\</filename>), welke gebruikt zal worden als basis map voor alle archieven."
 
 #. (para)
 msgid "Create another folder <filename>MyNewRepository</filename> inside <filename>D:\\SVN\\</filename>."
-msgstr ""
+msgstr "Maak nog een map aan <filename>MyNewRepository</filename> in <filename>D:\\SVN\\</filename>."
 
 #. (para)
 msgid ""
@@ -4381,6 +4381,10 @@ msgstr ""
 
 #. (para)
 msgid "Click on the search icon to select which information you want to search in, and to choose <emphasis>regex</emphasis> mode. Normally you will only need a simple text search, but if you need to more flexible search terms, you can use regular expressions. If you hover the mouse over the box, a tooltip will give hints on how to use the regex functions. You can also find online documentation and a tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>. The filter works by checking whether your filter string matches the log entries, and then only those entries which <emphasis>match</emphasis> the filter string are shown."
+msgstr ""
+
+#. (para)
+msgid "If you don't use regex mode, you can enter several strings to search for, and only those log entries which match all of your filter words will be shown."
 msgstr ""
 
 #. (para)
@@ -10480,6 +10484,10 @@ msgid "/findtext"
 msgstr ""
 
 #. (option)
+msgid "/findregex"
+msgstr ""
+
+#. (option)
 msgid "/findtype:X"
 msgstr ""
 
@@ -10508,7 +10516,7 @@ msgid "<option>/findtype:7</option> filter by bug ID"
 msgstr ""
 
 #. (entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (enables the 'stop-on-copy' checkbox), <placeholder-5/> fills in the filter text, <placeholder-6/> (forces the filter to use text, not regex) and <placeholder-7/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-8/>"
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> fills in the filter text, <placeholder-6/> forces the filter to use text, not regex, or <placeholder-7/> forces the filter to use regex, not simple textsearch, and <placeholder-8/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-9/>"
 msgstr ""
 
 #. (option)
