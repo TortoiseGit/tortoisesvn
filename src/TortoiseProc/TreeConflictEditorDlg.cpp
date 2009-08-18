@@ -207,7 +207,7 @@ void CTreeConflictEditorDlg::OnBnClickedResolveusingtheirs()
 		{
 			if (m_path.Exists())
 			{
-				if (!svn.Remove(CTSVNPathList(m_path), TRUE, FALSE))
+				if (!svn.Remove(CTSVNPathList(m_path), true, false))
 				{
 					CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					retVal = IDCANCEL;
@@ -241,7 +241,7 @@ void CTreeConflictEditorDlg::OnBnClickedResolveusingmine()
 		{
 			if (m_path.Exists())
 			{
-				if (!svn.Remove(CTSVNPathList(m_path), TRUE, FALSE))
+				if (!svn.Remove(CTSVNPathList(m_path), true, false))
 				{
 					CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					retVal = IDCANCEL;

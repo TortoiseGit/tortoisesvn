@@ -96,7 +96,7 @@ bool DropCopyCommand::Execute()
 				sReplace.Format(IDS_PROC_REPLACEEXISTING, fullDropPath.GetWinPath());
 				if (CMessageBox::Show(hwndExplorer, sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES)
 				{
-					if (!svn.Remove(CTSVNPathList(fullDropPath), TRUE, FALSE))
+					if (!svn.Remove(CTSVNPathList(fullDropPath), true, false))
 					{
 						fullDropPath.Delete(true);
 					}

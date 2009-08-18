@@ -40,7 +40,7 @@ bool BlameCommand::Execute()
 		dlg.EndRev = parser.GetLongVal(_T("endrev"));
 		if (parser.HasKey(_T("ignoreeol")) || parser.HasKey(_T("ignorespaces")) || parser.HasKey(_T("ignoreallspaces")))
 		{
-			options = SVN::GetOptionsString(parser.HasKey(_T("ignoreeol")), parser.HasKey(_T("ignorespaces")), parser.HasKey(_T("ignoreallspaces")));
+			options = SVN::GetOptionsString(!!parser.HasKey(_T("ignoreeol")), !!parser.HasKey(_T("ignorespaces")), !!parser.HasKey(_T("ignoreallspaces")));
 		}
 	}
 	if ((!bShowDialog)||(dlg.DoModal() == IDOK))
@@ -50,7 +50,7 @@ bool BlameCommand::Execute()
 		{
 			CBlame blame;
 			if (bShowDialog)
-				options = SVN::GetOptionsString(dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces);
+				options = SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, !!dlg.m_IgnoreSpaces);
 
 			tempfile = blame.BlameToTempFile(cmdLinePath, dlg.StartRev, dlg.EndRev, 
 				cmdLinePath.IsUrl() ? SVNRev() : SVNRev::REV_WC, logfile, 

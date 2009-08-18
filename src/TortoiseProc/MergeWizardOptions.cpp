@@ -231,7 +231,7 @@ void CMergeWizardOptions::OnBnClickedDryrun()
 
 	progDlg.SetDepth(pWizard->m_depth);
 	pWizard->m_IgnoreSpaces = GetIgnores();
-	progDlg.SetDiffOptions(SVN::GetOptionsString(pWizard->m_bIgnoreEOL, pWizard->m_IgnoreSpaces));
+	progDlg.SetDiffOptions(SVN::GetOptionsString(!!pWizard->m_bIgnoreEOL, !!pWizard->m_IgnoreSpaces));
 	progDlg.DoModal();
 }
 

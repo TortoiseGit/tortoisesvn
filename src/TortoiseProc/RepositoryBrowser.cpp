@@ -3306,7 +3306,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                                                      , dlg.EndRev
                                                      , dlg.EndRev
                                                      , logfile
-                                                     , SVN::GetOptionsString (dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces)
+                                                     , SVN::GetOptionsString (!!dlg.m_bIgnoreEOL, !!dlg.m_IgnoreSpaces)
                                                      , dlg.m_bIncludeMerge
                                                      , TRUE
                                                      , TRUE);

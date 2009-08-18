@@ -101,7 +101,7 @@ bool RenameCommand::Execute()
 			progDlg.SetPathList(pathList);
 			progDlg.SetUrl(destinationPath.GetWinPathString());
 			progDlg.SetCommitMessage(sMsg);
-			progDlg.SetRevision(SVNRev::REV_WC);
+			progDlg.SetOptions(ProgOptForce);
 			progDlg.DoModal();
 			bRet = !progDlg.DidErrorsOccur();
 		}
@@ -125,7 +125,7 @@ bool RenameCommand::Execute()
 			if (((!sFilemask.IsEmpty()) && (parser.HasKey(_T("noquestion")))) ||
 				(cmdLinePath.GetFileExtension().Compare(destinationPath.GetFileExtension())!=0))
 			{
-				if (RenameWithReplace(hwndExplorer, CTSVNPathList(cmdLinePath), destinationPath, TRUE, sMsg))
+				if (RenameWithReplace(hwndExplorer, CTSVNPathList(cmdLinePath), destinationPath, true, sMsg))
 					bRet = true;
 			}
 			else
@@ -144,7 +144,7 @@ bool RenameCommand::Execute()
 				{
 					// we couldn't find any other matching files
 					// just do the default...
-					if (RenameWithReplace(hwndExplorer, CTSVNPathList(cmdLinePath), destinationPath, TRUE, sMsg))
+					if (RenameWithReplace(hwndExplorer, CTSVNPathList(cmdLinePath), destinationPath, true, sMsg))
 					{
 						bRet = true;
 						CShellUpdater::Instance().AddPathForUpdate(destinationPath);
@@ -209,7 +209,7 @@ bool RenameCommand::Execute()
 }
 
 bool RenameCommand::RenameWithReplace(HWND hWnd, const CTSVNPathList &srcPathList, 
-									  const CTSVNPath &destPath, BOOL force, 
+									  const CTSVNPath &destPath, bool force, 
 									  const CString &message /* = L"" */, 
 									  bool move_as_child /* = false */, 
 									  bool make_parents /* = false */)
@@ -224,7 +224,7 @@ bool RenameCommand::RenameWithReplace(HWND hWnd, const CTSVNPathList &srcPathLis
 		idret = CMessageBox::Show(hWnd, sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNOCANCEL);
 		if (idret == IDYES)
 		{
-			if (!svn.Remove(CTSVNPathList(destPath), TRUE, FALSE))
+			if (!svn.Remove(CTSVNPathList(destPath), true, false))
 			{
 				destPath.Delete(true);
 			}

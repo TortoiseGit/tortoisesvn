@@ -33,7 +33,7 @@ public:
 private:
 	bool					RenameWithReplace(HWND hWnd, const CTSVNPathList& srcPathList, 
 											const CTSVNPath& destPath, 
-											BOOL force, const CString& message = _T(""), 
+											bool force, const CString& message = _T(""), 
 											bool move_as_child = false, bool make_parents = false);
 };
 

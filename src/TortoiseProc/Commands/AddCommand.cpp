@@ -33,7 +33,7 @@ bool AddCommand::Execute()
 		SVN svn;
 		ProjectProperties props;
 		props.ReadPropsPathList(pathList);
-		bRet = !!svn.Add(pathList, &props, svn_depth_empty, FALSE, FALSE, TRUE);
+		bRet = !!svn.Add(pathList, &props, svn_depth_empty, false, false, true);
 		CShellUpdater::Instance().AddPathsForUpdate(pathList);
 	}
 	else
@@ -70,7 +70,7 @@ bool AddCommand::Execute()
 									pathList.RemovePath(pathList[i]);
 								}
 								else if (ret != 2)
-									return FALSE;
+									return false;
 								break;
 							}
 						}
@@ -82,7 +82,7 @@ bool AddCommand::Execute()
 			SVN svn;
 			ProjectProperties props;
 			props.ReadPropsPathList(pathList);
-			bRet = !!svn.Add(pathList, &props, svn_depth_empty, FALSE, FALSE, TRUE);
+			bRet = !!svn.Add(pathList, &props, svn_depth_empty, false, false, true);
 			CShellUpdater::Instance().AddPathsForUpdate(pathList);
 		}
 		else

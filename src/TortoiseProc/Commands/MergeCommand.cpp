@@ -103,7 +103,7 @@ bool MergeCommand::Execute()
 			break;
 		}
 		progDlg.SetDepth(wizard.m_depth);
-		progDlg.SetDiffOptions(SVN::GetOptionsString(wizard.m_bIgnoreEOL, wizard.m_IgnoreSpaces));
+		progDlg.SetDiffOptions(SVN::GetOptionsString(!!wizard.m_bIgnoreEOL, !!wizard.m_IgnoreSpaces));
 		progDlg.DoModal();
 		return !progDlg.DidErrorsOccur();
 	}

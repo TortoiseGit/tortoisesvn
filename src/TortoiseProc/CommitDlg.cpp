@@ -480,7 +480,7 @@ void CCommitDlg::OnOK()
 	// are added before their children
 	itemsToAdd.SortByPathname();
 	SVN svn;
-	if (!svn.Add(itemsToAdd, &m_ProjectProperties, svn_depth_empty, FALSE, FALSE, TRUE))
+	if (!svn.Add(itemsToAdd, &m_ProjectProperties, svn_depth_empty, false, false, true))
 	{
 		CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		InterlockedExchange(&m_bBlock, FALSE);
@@ -491,7 +491,7 @@ void CCommitDlg::OnOK()
 	// Remove any missing items
 	// Not sure that this sort is really necessary - indeed, it might be better to do a reverse sort at this point
 	itemsToRemove.SortByPathname();
-	svn.Remove(itemsToRemove, TRUE);
+	svn.Remove(itemsToRemove, true);
 
 	//the next step: find all deleted files and check if they're 
 	//inside a deleted folder. If that's the case, then remove those

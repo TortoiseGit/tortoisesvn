@@ -145,8 +145,8 @@ bool ExportCommand::Execute()
 				TRACE(_T("export %s to %s\n"), (LPCTSTR)cmdLinePath.GetUIPathString(), (LPCTSTR)saveto);
 				SVN svn;
 				if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, 
-					bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, FALSE, folderBrowser.m_bCheck2, svn_depth_infinity,
-					hwndExplorer, folderBrowser.m_bCheck))
+					bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, false, !!folderBrowser.m_bCheck2, svn_depth_infinity,
+					hwndExplorer, !!folderBrowser.m_bCheck))
 				{
 					CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 					bRet = false;
