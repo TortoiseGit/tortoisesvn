@@ -943,7 +943,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 		m_limitcounter--;
 		m_LogProgress.SetPos(m_limit - m_limitcounter);
 	}
-	else if (m_startrev.IsNumber() && m_startrev.IsNumber())
+	else if (m_startrev.IsNumber() && m_endrev.IsNumber())
 		m_LogProgress.SetPos((svn_revnum_t)m_startrev-rev+(svn_revnum_t)m_endrev);
 	__time64_t ttime = time/1000000L;
 	if (m_tTo < (DWORD)ttime)
