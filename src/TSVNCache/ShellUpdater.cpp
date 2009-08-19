@@ -136,16 +136,9 @@ void CShellUpdater::WorkerThread()
 			}
 			if (workingPath.IsEmpty())
 				continue;
-			ATLTRACE(_T("Update notifications for: %s\n"), workingPath.GetWinPath());
+			CTraceToOutputDebugString::Instance()(_T("ShellUpdater.cpp: shell notification for %s\n"), workingPath.GetWinPath());
 			if (workingPath.IsDirectory())
 			{
-				// check if the path is monitored by the watcher. If it isn't, then we have to invalidate the cache
-				// for that path and add it to the watcher.
-				if (!CSVNStatusCache::Instance().IsPathWatched(workingPath))
-				{
-					if (workingPath.HasAdminDir())
-						CSVNStatusCache::Instance().AddPathToWatch(workingPath);
-				}
 				// first send a notification about a sub folder change, so explorer doesn't discard
 				// the folder notification. Since we only know for sure that the subversion admin
 				// dir is present, we send a notification for that folder.

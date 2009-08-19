@@ -42,6 +42,7 @@ using namespace ATL;
 #include "svn_utf.h"
 #pragma warning(pop)
 
+#include "DebugOutput.h"
 
 typedef CComCritSecLock<CComAutoCriticalSection> AutoLocker;
 

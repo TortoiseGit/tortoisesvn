@@ -396,6 +396,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				m_currentStatusFetchingPath = m_directoryPath;
 			}
 			//ATLTRACE(_T("svn_cli_stat for '%s' (req %s)\n"), m_directoryPath.GetWinPath(), path.GetWinPath());
+			CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: stat for %s\n"), m_directoryPath.GetWinPath());
 			svn_error_t* pErr = svn_client_status4 (
 				NULL,
 				m_directoryPath.GetSVNApiPath(subPool),
@@ -819,6 +820,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 
 	CTSVNPathList updatePathList;
 	CTSVNPathList crawlPathList;
+	CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: RefreshStatus for %s\n"), m_directoryPath.GetWinPath());
 	DWORD now = GetTickCount();
 	{
 		AutoLocker lock(m_critSec);

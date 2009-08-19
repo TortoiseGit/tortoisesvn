@@ -213,7 +213,7 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path, bool bCloseInfoMap)
 	}
 	if (!newroot.IsEmpty())
 	{
-		ATLTRACE(_T("add path to watch %s\n"), newroot.GetWinPath());
+		CTraceToOutputDebugString::Instance()(_T("DirectoryWatcher.cpp: AddPath for %s\n"), newroot.GetWinPath());
 		watchedPaths.AddPath(newroot);
 		watchedPaths.RemoveChildren();
 		if (bCloseInfoMap)
@@ -221,7 +221,7 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path, bool bCloseInfoMap)
 
 		return true;
 	}
-	ATLTRACE(_T("add path to watch %s\n"), path.GetWinPath());
+	CTraceToOutputDebugString::Instance()(_T("DirectoryWatcher.cpp: AddPath for %s\n"), path.GetWinPath());
 	watchedPaths.AddPath(path);
 	if (bCloseInfoMap)
 		ClearInfoMap();
@@ -273,6 +273,7 @@ void CDirectoryWatcher::WorkerThread()
 				if (!m_bRunning)
 					return;
 
+				CTraceToOutputDebugString::Instance()(_T("DirectoryWatcher.cpp: restarting watcher\n"));
 				CloseHandle(m_hCompPort);
 				m_hCompPort = INVALID_HANDLE_VALUE;
 
@@ -471,7 +472,7 @@ void CDirectoryWatcher::WorkerThread()
 									break;
 								continue;
 							}
-							ATLTRACE(_T("change notification: %s\n"), buf);
+							CTraceToOutputDebugString::Instance()(_T("DirectoryWatcher.cpp: change notification for %s\n"), buf);
 							m_FolderCrawler->AddPathForUpdate(CTSVNPath(buf));
 						}
 						if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)

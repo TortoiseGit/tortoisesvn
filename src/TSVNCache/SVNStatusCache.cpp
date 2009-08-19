@@ -343,7 +343,7 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
 		itMap = m_directoryCache.lower_bound(cdir->m_directoryPath);
 	} while (itMap != m_directoryCache.end() && cdir->m_directoryPath.IsAncestorOf(itMap->first));
 
-	ATLTRACE(_T("removed path %s from cache\n"), cdir->m_directoryPath);
+	CTraceToOutputDebugString::Instance()(_T("SVNStatusCache.cpp: removed from cache %s\n"), cdir->m_directoryPath.GetWinPath());
 	delete cdir;
 	cdir = NULL;
 	return true;

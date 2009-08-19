@@ -37,3 +37,5 @@ void TRACE(LPCTSTR str, ...)
 #else
 void TRACE(LPCTSTR str, ...) {UNREFERENCED_PARAMETER(str);}
 #endif
+
+CTraceToOutputDebugString* CTraceToOutputDebugString::m_pInstance;

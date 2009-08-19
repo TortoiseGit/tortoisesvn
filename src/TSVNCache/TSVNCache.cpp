@@ -103,32 +103,6 @@ DWORD GetDllVersion(LPCTSTR lpszDllName)
 	return dwVersion;
 }
 
-void DebugOutputLastError()
-{
-	LPVOID lpMsgBuf;
-	if (!FormatMessage( 
-		FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-		FORMAT_MESSAGE_FROM_SYSTEM | 
-		FORMAT_MESSAGE_IGNORE_INSERTS,
-		NULL,
-		GetLastError(),
-		MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-		(LPTSTR) &lpMsgBuf,
-		0,
-		NULL ))
-	{
-		return;
-	}
-
-	// Display the string.
-	OutputDebugStringA("TSVNCache GetLastError(): ");
-	OutputDebugString((LPCTSTR)lpMsgBuf);
-	OutputDebugStringA("\n");
-
-	// Free the buffer.
-	LocalFree( lpMsgBuf );
-}
-
 svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
 										   const char *file, int line,
 										   const char *expr)
@@ -503,11 +477,13 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
 
 	if (CSVNStatusCache::Instance().WaitToRead(2000))
 	{
+		CTraceToOutputDebugString::Instance()(_T("TSVNCache.cpp: app asked for status of %s\n"), pRequest->path);
 		CSVNStatusCache::Instance().GetStatusForPath(path, pRequest->flags, false).BuildCacheResponse(*pReply, *pResponseLength);
 		CSVNStatusCache::Instance().Done();
 	}
 	else
 	{
+		CTraceToOutputDebugString::Instance()(_T("TSVNCache.cpp: timeout for asked status of %s\n"), pRequest->path);
 		CStatusCacheEntry entry;
 		entry.BuildCacheResponse(*pReply, *pResponseLength);
 	}
