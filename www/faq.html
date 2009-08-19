@@ -628,6 +628,9 @@ force security mode = 0600
 </pre>
 
 </p>
+<p>The information we have received suggests that the main problem is fixed in SAMBA 3.2.3.
+There is a supplementary problem with making files with the svn:needs-lock property read-only.
+This is reported to be fixed in SAMBA 3.2.6 or 3.3.0.</p>
 </div>
 
 <div class="h3" id="slowbrowse" title="slowbrowse">
@@ -670,7 +673,7 @@ explorer), change the "Update depth" combobox to "Fully recursive".</p>
 </div>
 
 <div class="h3" id="releases" title="releases">
-<h3>I was told that issue/bug X was fixed in rXXX, but the latest release still doesn't has this implemented/fixed?</h3>
+<h3>I was told that issue/bug X was fixed in rXXX, but the latest release still doesn't have this implemented/fixed?</h3>
 <p>Our release policy is to never introduce new features or resource changes on the stable branch. We work on the trunk, 
 where we fix bugs, introduce new features or change the behavior of features. Only important bugfixes are merged back
 to the stable branch, and the stable branch is where we create our releases from.</p>
