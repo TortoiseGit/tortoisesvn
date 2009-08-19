@@ -102,7 +102,9 @@
 			higher levels (closer to <filename>trunk/</filename>).
 		</para>
 		<para>
-			For <literal>tsvn:</literal> properties <emphasis>only</emphasis>
+			For project properties <emphasis>only</emphasis>,
+			i.e. <literal>tsvn:</literal>, <literal>bugtraq:</literal>
+			and <literal>webviewer:</literal>
 			you can use the <guilabel>Recursive</guilabel> checkbox to set
 			the property to all sub-folders in the hierarchy, without also
 			setting it on all files.
