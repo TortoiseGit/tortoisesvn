@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-08-03 20:04+0800\n"
+"PO-Revision-Date: 2009-08-19 21:48+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -100,6 +100,11 @@ msgstr "傳輸了 %I64d k位元組"
 
 #. Resource IDs: (357)
 #, c-format
+msgid "%I64d Bytes/s"
+msgstr "%I64d 位元組/秒"
+
+#. Resource IDs: (357)
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "傳輸了 %I64d k位元組"
 
@@ -112,11 +117,6 @@ msgstr "選擇了 %d 個檔案, 共有 %d 個檔案"
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
 msgstr "%d 個最活躍的作者 (至少有 %d(%d%%) 次送交數)"
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%ld Bytes/s"
-msgstr "%ld 位元組/秒"
 
 #. Resource IDs: (226)
 #, c-format
@@ -484,6 +484,10 @@ msgstr "刪除(&D)"
 #. Resource IDs: (17)
 msgid "&Delete (keep local)"
 msgstr "刪除並保留檔案(&D)"
+
+#. Resource IDs: (1514)
+msgid "&Delete unversioned items..."
+msgstr "刪除無版本控制的檔案(&D)..."
 
 #. Resource IDs: (101)
 msgid "&Delete..."
@@ -1171,6 +1175,10 @@ msgstr "(已建立)"
 #. Resource IDs: (276)
 msgid "(delete)"
 msgstr "(刪除)"
+
+#. Resource IDs: (214)
+msgid "(externals)"
+msgstr "(外部)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -2877,6 +2885,10 @@ msgstr ""
 #. Resource IDs: (8)
 msgid "Create repositor&y here"
 msgstr "在此建立檔案庫(&Y)"
+
+#. Resource IDs: (102)
+msgid "Create shortcut"
+msgstr "建立捷徑"
 
 #. Resource IDs: (32828)
 msgid "Create unified diff file"
@@ -6658,6 +6670,10 @@ msgstr "檔案庫 URL"
 msgid "Repository UUID:"
 msgstr "檔案庫 UUID:"
 
+#. Resource IDs: (106)
+msgid "Request cancelled by TSVN"
+msgstr "要求已被 TSVN 取消"
+
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
 msgstr "需要帳號和密碼"
@@ -8937,6 +8953,10 @@ msgstr ""
 #. Resource IDs: (20)
 msgid "Unknown depth"
 msgstr "不明層數"
+
+#. Resource IDs: (106)
+msgid "Unknown failure in SVN::List"
+msgstr "SVN::List 發生不明錯誤"
 
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
