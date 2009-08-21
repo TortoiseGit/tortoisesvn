@@ -90,3 +90,12 @@
 #include "../Streams/PackedTime64OutStream.h"
 #include "../Streams/CompositeInStream.h"
 #include "../Streams/CompositeOutStream.h"
+
+const char* Time64ToZuluString (char* buffer, size_t size, __time64_t timeStamp);
+
+template <size_t SIZE>
+const char* Time64ToZuluString (char (&buffer) [SIZE], __time64_t timeStamp)
+{
+    return Time64ToZuluString (buffer, SIZE, timeStamp);
+}
+

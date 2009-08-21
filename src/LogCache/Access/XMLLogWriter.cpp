@@ -34,42 +34,12 @@ namespace LogCache
 void CXMLLogWriter::WriteTimeStamp ( CBufferedOutFile& file
                                    , __time64_t timeStamp )
 {
-    // empty time stamps don't show up in the log
-
-    if ( timeStamp == 0 )
-        return;
-
-    // decode 64 bit time stamp
-
-    int musecs = ( int ) ( timeStamp % 1000000 );
-    timeStamp /= 1000000;
-    tm time;
-
-#ifdef WIN32
-    if ( _gmtime64_s ( &time, &timeStamp ) != 0 )
-        return;
-#else
-    time_t temp = (time_t)(timeStamp);
-    time = *gmtime (&temp);
-#endif
-
-    // fill the template & write to stream
-
     enum {BUFFER_SIZE = 100};
     char buffer[BUFFER_SIZE];
 
-    _snprintf_s ( buffer
-                , BUFFER_SIZE
-                , "<date>%04d-%02d-%02dT%02d:%02d:%02d.%06dZ</date>\n"
-                , time.tm_year + 1900
-                , time.tm_mon + 1
-                , time.tm_mday
-                , time.tm_hour
-                , time.tm_min
-                , time.tm_sec
-                , musecs );
-
-    file << buffer;
+    Time64ToZuluString (buffer, timeStamp);
+    if (buffer[0] != 0)
+        file << "<date>" << buffer << "</date>\n";
 }
 
 ///////////////////////////////////////////////////////////////

@@ -270,9 +270,14 @@ void CCSVWriter::WriteRevisions (std::ostream& os, const CCachedLogInfo& cache)
 		bool hasRevPropInfo 
 			= (presenceFlags & CRevisionInfoContainer::HAS_USERREVPROPS) != 0;
 
+        enum {BUFFER_SIZE = 100};
+        char buffer[BUFFER_SIZE];
+
+        __time64_t timestamp = logInfo.GetTimeStamp(index);
+
 		os << revision << ','
 		   << logInfo.GetAuthorID(index) << ','
-		   << logInfo.GetTimeStamp(index) << ",\""
+		   << Time64ToZuluString (buffer, timestamp) << ",\""
 		   << comment.c_str() << "\","
 		   << hasStdInfo << ','
 		   << hasChangeInfo << ','

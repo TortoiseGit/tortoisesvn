@@ -18,3 +18,49 @@
 //
 #include "stdafx.h"
 
+const char* Time64ToZuluString (char* buffer, size_t size, __time64_t timeStamp)
+{
+    // default on error: empty string
+
+    if (size <= 0)
+        return buffer;
+
+    buffer[0] = 0;
+
+    // empty time stamps don't show up in the log
+
+    if ( timeStamp == 0 )
+        return buffer;
+
+    // decode 64 bit time stamp
+
+    int musecs = ( int ) ( timeStamp % 1000000 );
+    timeStamp /= 1000000;
+    tm time;
+
+#ifdef WIN32
+    if ( _gmtime64_s ( &time, &timeStamp ) != 0 )
+        return buffer;
+#else
+    time_t temp = (time_t)(timeStamp);
+    time = *gmtime (&temp);
+#endif
+
+    // fill the template & write to stream
+
+    _snprintf_s ( buffer
+                , size
+                , size-1
+                , "%04d-%02d-%02dT%02d:%02d:%02d.%06dZ"
+                , time.tm_year + 1900
+                , time.tm_mon + 1
+                , time.tm_mday
+                , time.tm_hour
+                , time.tm_min
+                , time.tm_sec
+                , musecs );
+
+    // done
+
+    return buffer;
+}
