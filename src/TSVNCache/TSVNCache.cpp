@@ -366,6 +366,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_QUERYENDSESSION:
 		{
 			ATLTRACE("WM_QUERYENDSESSION\n");
+			bRun = false;
 			if (CSVNStatusCache::Instance().WaitToWrite(200))
 			{
 				CSVNStatusCache::Instance().Stop();
@@ -380,12 +381,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_QUIT:
 		{
 			ATLTRACE("WM_CLOSE/DESTROY/ENDSESSION/QUIT\n");
+			bRun = false;
 			CSVNStatusCache::Instance().WaitToWrite();
 			CSVNStatusCache::Instance().Stop();
 			CSVNStatusCache::Instance().SaveCache();
 			if (message != WM_QUIT)
 				PostQuitMessage(0);
-			bRun = false;
 			return 1;
 		}
 		break;
