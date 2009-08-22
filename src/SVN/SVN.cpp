@@ -365,12 +365,7 @@ bool SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, const
 								m_pctx,
 								subpool );
 
-	if(Err != NULL)
-	{
-		return false;
-	}
-
-	return true;
+	return (Err == NULL);
 }
 
 bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, const CString& message, const RevPropHash revProps)
@@ -443,12 +438,7 @@ bool SVN::Revert(const CTSVNPathList& pathlist, const CStringArray& changelists,
 		m_pctx, 
 		subpool);
 
-	if(Err != NULL)
-	{
-		return FALSE;
-	}
-
-	return TRUE;
+	return (Err == NULL);
 }
 
 
