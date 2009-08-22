@@ -61,19 +61,13 @@ BOOL CImportDlg::OnInitDialog()
 
 	m_History.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
 
-	if (m_url.IsEmpty())
-	{
-		m_URLCombo.SetURLHistory(TRUE);
-		m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
-	}
-	else
+	m_URLCombo.SetURLHistory(TRUE);
+	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
+	m_URLCombo.SetCurSel(0);
+	if (!m_url.IsEmpty())
 	{
 		m_URLCombo.SetWindowText(m_url);
-		if (GetFocus() == &m_URLCombo)
-			SendMessage(WM_NEXTDLGCTL, 0, FALSE);
-		m_URLCombo.EnableWindow(FALSE);
 	}
-	m_URLCombo.SetCurSel(0);
 	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
 	m_tooltips.Create(this);

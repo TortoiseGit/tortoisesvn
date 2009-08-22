@@ -33,6 +33,9 @@
 - NEW: Repository browser shows svn:externals as sub-trees. (Stefan Fuhrmann)
 - NEW: Improved filter in the log dialog. (Stefan)
 
+Version 1.6.6
+- BUG: The /url parameter was ignored for import commands. (Stefan)
+
 Version 1.6.5
 - BUG: fixed access to freed memory which could crash
        the 'resolve' command. (Stefan)

@@ -27,6 +27,8 @@ bool ImportCommand::Execute()
 	bool bRet = false;
 	CImportDlg dlg;
 	dlg.m_path = cmdLinePath;
+	if (parser.HasVal(_T("url")))
+		dlg.m_url = parser.GetVal(_T("url"));
 	if (dlg.DoModal() == IDOK)
 	{
 		TRACE(_T("url = %s\n"), (LPCTSTR)dlg.m_url);
