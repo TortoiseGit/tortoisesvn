@@ -299,8 +299,8 @@ BOOL CLogDlg::OnInitDialog()
 		dwStyle |= LVS_EX_CHECKBOXES | 0x08000000 /*LVS_EX_AUTOCHECKSELECT*/;
 	m_LogList.SetExtendedStyle(dwStyle);
 
-	// the "hide unrelated paths" checkbox should be indeterminate
-	m_cHidePaths.SetCheck(BST_INDETERMINATE);
+	int checkState = (int)DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\LogHidePaths"), BST_INDETERMINATE));
+	m_cHidePaths.SetCheck(checkState);
 
 	// load the icons for the action columns
 	m_hModifiedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONMODIFIED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
@@ -921,6 +921,10 @@ void CLogDlg::OnCancel()
 		m_regLastStrict = m_bStrict;
 	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
 	reg = (DWORD)m_btnShow.GetCurrentEntry();
+
+	CRegDWORD reg2 = CRegDWORD(_T("Software\\TortoiseSVN\\LogHidePaths"));
+	reg2 = (DWORD)m_cHidePaths.GetCheck();
+
 	SaveSplitterPos();
 	__super::OnCancel();
 }
@@ -1702,6 +1706,8 @@ void CLogDlg::OnOK()
 		m_regLastStrict = m_bStrict;
 	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
 	reg = (DWORD)m_btnShow.GetCurrentEntry();
+	CRegDWORD reg2 = CRegDWORD(_T("Software\\TortoiseSVN\\LogHidePaths"));
+	reg2 = (DWORD)m_cHidePaths.GetCheck();
 	SaveSplitterPos();
 
 	CString buttontext;
