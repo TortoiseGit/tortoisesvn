@@ -38,12 +38,15 @@ public:
 	CIconMenu(void);
 	~CIconMenu(void);
 
+    BOOL CreateMenu();
+    BOOL CreatePopupMenu();
 	BOOL AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uIcon = 0);
 	BOOL AppendMenuIcon(UINT_PTR nIDNewItem, UINT_PTR nNewItem, UINT uIcon = 0);
 	void DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct);
 	void MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct);
 
 private:
+    BOOL SetMenuStyle(void);
 	HBITMAP IconToBitmapPARGB32(UINT uIcon);
 	HRESULT Create32BitHBITMAP(HDC hdc, const SIZE *psize, __deref_opt_out void **ppvBits, __out HBITMAP* phBmp);
 	HRESULT ConvertBufferToPARGB32(HPAINTBUFFER hPaintBuffer, HDC hdc, HICON hicon, SIZE& sizIcon);

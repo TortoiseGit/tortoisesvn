@@ -51,6 +51,42 @@ CIconMenu::~CIconMenu(void)
 	bitmaps.clear();
 }
 
+BOOL CIconMenu::CreateMenu()
+{
+	if (__super::CreateMenu() == FALSE)
+        return FALSE;
+
+    SetMenuStyle();
+
+    return TRUE;
+}
+
+BOOL CIconMenu::CreatePopupMenu()
+{
+	if (__super::CreatePopupMenu() == FALSE)
+        return FALSE;
+
+    SetMenuStyle();
+
+    return TRUE;
+}
+
+BOOL CIconMenu::SetMenuStyle(void)
+{
+	MENUINFO MenuInfo;
+
+
+	memset(&MenuInfo, 0, sizeof(MenuInfo));
+	
+	MenuInfo.cbSize  = sizeof(MenuInfo);
+	MenuInfo.fMask   = MIM_STYLE | MIM_APPLYTOSUBMENUS;
+	MenuInfo.dwStyle = MNS_CHECKORBMP;
+	
+	SetMenuInfo(&MenuInfo);
+
+    return TRUE;
+}
+
 BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uIcon /* = 0 */)
 {
 	TCHAR menutextbuffer[255] = {0};
@@ -76,6 +112,7 @@ BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uI
 		info.hbmpItem = HBMMENU_CALLBACK;
 	}
 	icons[nIDNewItem] = uIcon;
+	
 	return InsertMenuItem((UINT)nIDNewItem, &info);
 }
 
