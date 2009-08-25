@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-07-20 10:10+0100\n"
+"PO-Revision-Date: 2009-08-25 20:21+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -121,6 +121,11 @@ msgstr "%I64d Бајта пренето"
 
 #. Resource IDs: (357)
 #, c-format
+msgid "%I64d Bytes/s"
+msgstr "%I64d Бајта/с"
+
+#. Resource IDs: (357)
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d кБајта пренето"
 
@@ -133,11 +138,6 @@ msgstr "%d фајла означено, %d укупно фајл"
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
 msgstr "%d најактивнији(х) аутор(а) са најмање %d  урезивања сваки (%d %%)"
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%ld Bytes/s"
-msgstr "%ld Бајта/с"
 
 #. Resource IDs: (226)
 #, c-format
@@ -534,6 +534,10 @@ msgstr "&Бриши"
 #. Resource IDs: (17)
 msgid "&Delete (keep local)"
 msgstr "&Бриши (сачувај локално) "
+
+#. Resource IDs: (1514)
+msgid "&Delete unversioned items..."
+msgstr "&Брише неверзионисане ставке..."
 
 #
 #. Resource IDs: (101)
@@ -1368,6 +1372,10 @@ msgstr "(креирано)"
 #. Resource IDs: (276)
 msgid "(delete)"
 msgstr "(бриши)"
+
+#. Resource IDs: (214)
+msgid "(externals)"
+msgstr "(спољни)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -3086,6 +3094,10 @@ msgstr ""
 #. Resource IDs: (8)
 msgid "Create repositor&y here"
 msgstr "Креираји спремиш&те овде"
+
+#. Resource IDs: (102)
+msgid "Create shortcut"
+msgstr "Изради пречицу"
 
 #. Resource IDs: (32828)
 msgid "Create unified diff file"
@@ -6831,6 +6843,10 @@ msgid "Renames files / folders inside version control"
 msgstr "Преименује фајлове / именике  унутар управљања верзијама"
 
 #. Resource IDs: (209)
+msgid "Repair copy"
+msgstr "Поправи копију"
+
+#. Resource IDs: (209)
 msgid "Repair move"
 msgstr "Поправи померање"
 
@@ -6869,6 +6885,10 @@ msgstr "УРЛ спремишта"
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
 msgstr "УУИД спремишта:"
+
+#. Resource IDs: (106)
+msgid "Request cancelled by TSVN"
+msgstr "Захтев прекинут од ТСВН"
 
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
@@ -9149,6 +9169,10 @@ msgstr ""
 #. Resource IDs: (20)
 msgid "Unknown depth"
 msgstr "Непозната дубина"
+
+#. Resource IDs: (106)
+msgid "Unknown failure in SVN::List"
+msgstr "Непозната грешка у СВН::Лист"
 
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"

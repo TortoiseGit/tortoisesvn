@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-07-07 13:23 +0000\n"
-"PO-Revision-Date: 2009-07-12 20:23+0100\n"
+"POT-Creation-Date: 2009-08-19 21:51 +0000\n"
+"PO-Revision-Date: 2009-08-25 20:45+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3256,6 +3256,16 @@ msgstr "Ponekad se fajlovi preimenuju van Subverzije, i oni su prikazani u listi
 
 #. (title)
 #. (title)
+msgid "Repairing External Copies"
+msgstr "Popravka spoljašnjih kopija"
+
+#. (para)
+#. (para)
+msgid "If you made a copy of a file but forgot to use the Subversion command to do so, you can repair that copy so the new file doesn't lose its history. Simply select both the old name (normal or modified) and the new name (unversioned) and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Copy</guimenuitem></menuchoice> to pair the two files as a copy."
+msgstr "Ako napravite kopiju fajla ali ste zaboravili da koristite Subverzionu komandu da to uradi, možete popraviti tu kopiju tako da novi fajl ne gubi svoju istoriju. Jednostavno izaberite i staro ime (normalno ili izmenjeno) i novo ime (neverzionisano) i koristite <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Popravi Kopiju</guimenuitem></menuchoice> da sparite dva fajla kao kopiju."
+
+#. (title)
+#. (title)
 msgid "Change Lists"
 msgstr "Liste izmena"
 
@@ -4677,6 +4687,10 @@ msgid "Click on the search icon to select which information you want to search i
 msgstr "Kliknite na ikonu pretraživanja da izaberete koje informacije želite da tražite, i izaberite <emphasis>regex</emphasis> mod. Normalno je da vam samo treba jednostavno pretraživanje teksta, ali ako vam treba fleksibilnije pretraživanje možete koristiti regularne izraze. Ako lebdite mišem preko boksa, alatsavet će vam dati napomenu kako da koristite regeks funkcije. Možete takođe naći onlajn dokumentaciju i tutorijal na <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>. Filter radi tako što proveri dali vaš filter string nalazi dnevnik ulaze, i zatim samo one ulaze koji <emphasis>nalaze</emphasis>  filter string koji je prikazan."
 
 #. (para)
+msgid "If you don't use regex mode, you can enter several strings to search for, and only those log entries which match all of your filter words will be shown."
+msgstr "Ako ne koristite regeks mod, možete uneti više tekstova za pretraživanje, i samo  ove ulaze dnevnika koji nalaze sve vaše filter reči koje su prikazane."
+
+#. (para)
 msgid "To make the filter show all log entries that do <emphasis>not</emphasis> match the filter string, start the string with an exclamation mark ('!'). For example, a filter string <literal>!username</literal> will only show those entries which were not committed by <literal>username</literal>."
 msgstr "Da se napravi filter prikažite sve dnevnik ulaze i zatim <emphasis>nemojte</emphasis> naći filter string, počnite string znakom uzvika ('!'). Na primer, filter string <literal>!username</literal> će prikazati one ulaze koji nisu urezani sa <literal>username</literal>."
 
@@ -5945,8 +5959,10 @@ msgid "These special project properties must be set on <emphasis>folders</emphas
 msgstr "Ove specijalne osobine projekta moraju biti podešene na <emphasis>imenike</emphasis> za sistem da rade. kada urezujete fajl ili imenik osobine se čitaju iz tog imenika. Ako se osobine ne nađu ovde TortoiseSVN će potražiti nagore kroz stblo imenika da ih nađe sve dok ne dođe do neverzionisanog imenika, ili koren stabla (npr. <literal>C:\\</literal>) se nađe. Ako možete biti sigurni da svaki korisnik preuzima samo iz npr. <filename>trunk/</filename> i ne isti sub-imenik, zatim je dovoljno da se podese osobine na <filename>trunk/</filename>. Ako niste sigurni, morate podesiti osobine rekurzivno na svakom sub-imeniku. Podešavanje osobine dublje u hijerarhiji projekta prebaci podešavanje na viši nivo (bliže <filename>trunk/</filename>)."
 
 #. (para)
-msgid "For project properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr "Za osobine projekta <emphasis>samo</emphasis> možete koristiti <guilabel>Rekurziv</guilabel> čekboks da podesite osobine svih sub-imenika u hijerarhiji, takođe bez podešavanja na sve fajlove."
+#. (para)
+#. (para)
+msgid "For project properties <emphasis>only</emphasis>, i.e. <literal>tsvn:</literal>, <literal>bugtraq:</literal> and <literal>webviewer:</literal> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
+msgstr "Za osobine projekta <emphasis>samo</emphasis>, tj <literal>tsvn:</literal>, <literal>bugtraq:</literal> i <literal>webviewer:</literal> možete koristiti <guilabel>Rekurziv</guilabel> čekboks da podesite osobine svih sub-imenika u hijerarhiji, takođe bez podešavanja na sve fajlove."
 
 #. (para)
 msgid "When you add new sub-folders using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
@@ -6272,8 +6288,8 @@ msgid "To be able to work with your freshly generated branch or tag you have sev
 msgstr "Da bi bili sposobni da radite sa sveže generisanom granom ili znakom imate više načina da rukujete time. Možete: <placeholder-1/><placeholder-2/>"
 
 #. (para)
-msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
-msgstr "Značke se obično koriste da se kreira statička slika projekta u pojedinom stanju. Kao takvi se ne koriste normalno pri razvoju - to je zašto postoje grane, koji rezon mi preporučujemo <filename>/trunk /branches /tags</filename> strukturu spremišta na prvom mestu. Rad na znak revizijama <emphasis>nije dobra ideja</emphasis>, ali vaši lokalni fajlovi nisu zaštićeni od upisivanja pa nema ništa da vas zaustavi da to uradite greškom. Međutim, ako pokušate da urežete putanju u spremište koja sadrži <filename>/tags/</filename>, TortoiseSVN će vas upozoriti."
+msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they are not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
+msgstr "Značke se obično koriste da se kreira statička slika projekta u pojedinačnom stanju. Kao takvi se ne koriste normalno pri razvoju - to je zašto postoje grane, koji rezon mi preporučujemo <filename>/trunk /branches /tags</filename> strukturu spremišta na prvom mestu. Rad na znak revizijama <emphasis>nije dobra ideja</emphasis>, ali vaši lokalni fajlovi nisu zaštićeni od upisivanja pa nema ništa da vas zaustavi da to uradite greškom. Međutim, ako pokušate da urežete putanju u spremište koja sadrži <filename>/tags/</filename>, TortoiseSVN će vas upozoriti."
 
 #. (para)
 msgid "It may be that you need to make further changes to a release which you have already tagged. The correct way to handle this is to create a new branch from the tag first and commit the branch. Do your Changes on this branch and then create a new tag from this new branch, e.g. <filename>Version_1.0.1</filename>."
@@ -7752,18 +7768,13 @@ msgstr "Podešavabje osobina imenika"
 msgid "These properties must be set on folders for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it's enough if you set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
 msgstr "Ove osobine moraju biti podešene na imeniku za sistem koji radi. Kada urezujete fajl ili imenik osobine su pročitane iz imenika. Ako osobine nisu nađene tamo, TortoiseSVN će pretraživati nagore kroz stablo imenika da ga nađete dok ne dođe neverzionisani imenik, ili koren stabla (npr. <literal>C:\\</literal>) nađen. Ako možete biti sigurni da svaki korisnik preuzima samo sa npr. <filename>trunk/</filename> a ne neke sub-imenike, zatim to je dovoljno ako podesite osobine  na <filename>trunk/</filename>. Ako možete biti sigurni, morate podesiti osobine rekurzivno na svakom sub-imeniku. osobine podešene dublje u hijerarhiji projekta koja prepisuje podešavanje na višim nivoima (bliže ka <filename>trunk/</filename>)."
 
-#. (para)
-#. (para)
-msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr "Za <literal>tsvn:</literal> osobine <emphasis>samo</emphasis> možete koristite  <guilabel>Rekurzivno</guilabel> čekboks da podesi osobine na sve sub-imenike u hierarhiji, bez podešavanje na sve fajlove takođe."
-
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
 msgstr "Nema Problem Tragač Informacije iz Pretraživača Spremišta"
 
 #. (para)
-msgid "Because the issue tracker integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
-msgstr "Zato što problem tragač integracija zavisi od pristupa subverzionih osobina, vi ćete samo videti rezultate kada koristite preuzetu radnu kopiju. Dobavljanje osobina daljinski je sporo, tako ne možete videti ovu osobinu u akciji repo pretraživača."
+msgid "Because the issue tracker integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the URL of the repository you won't see this feature."
+msgstr "Zato što problem tragač integracija zavisi od pristupa subverzionih osobina, vi ćete samo videti rezultate kada koristite preuzetu radnu kopiju. Danjinsko dobavljanje osobina  je spora operacija, tako ne možete videti ovu osobinu u akciji repo pretraživača ako ne započnete repo pretraživač iz vaše radne kopije. Ako započnete repo pretraživač unosom URL spremišta vi nećete moći da vidite ovu osobinu."
 
 #. (para)
 msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
@@ -7834,8 +7845,8 @@ msgid "No Repo Viewer Links from Repository Browser"
 msgstr "Nema Repo Pregledač Veza iz Pretraživača Spremišta"
 
 #. (para)
-msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
-msgstr "Zato što problem tragač integracija zavisi od pristupa subverzionih osobina, vi ćete samo videti rezultate kada koristite preuzetu radnu kopiju. Dobavljanje osobina daljinski je sporo, tako ne možete videti ovu osobinu u akciji repo pretraživača."
+msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the URL of the repository you won't see this feature."
+msgstr "Zato što problem tragač integracija zavisi od pristupa subverzionih osobina, vi ćete samo videti rezultate kada koristite preuzetu radnu kopiju. Danjinsko dobavljanje osobina je spora operacija, tako ne možete videti ovu osobinu u akciji repo pretraživača ako ne započnete repo pretraživač iz vaše radne kopije. Ako započnete repo pretraživač unosom URL spremišta nećete videti ovu osobinu."
 
 #. (title)
 msgid "TortoiseSVN's Settings"
@@ -11016,6 +11027,10 @@ msgid "/findtext"
 msgstr "/findtext"
 
 #. (option)
+msgid "/findregex"
+msgstr "/findregex"
+
+#. (option)
 msgid "/findtype:X"
 msgstr "/findtype:X"
 
@@ -11044,8 +11059,8 @@ msgid "<option>/findtype:7</option> filter by bug ID"
 msgstr "<option>/findtype:7</option> filtriranje pomoću bag ID"
 
 #. (entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (enables the 'stop-on-copy' checkbox), <placeholder-5/> fills in the filter text, <placeholder-6/> (forces the filter to use text, not regex) and <placeholder-7/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-8/>"
-msgstr "Otvara dnevnik dijalog. <placeholder-1/> specificira fajl ili imenik za koji dnevnik treba da bude prikazan. Šest dodatnih opcija treba da budu podešene: <placeholder-2/>, <placeholder-3/> i <placeholder-4/> (omogućava 'stani-na-kopiju' čekboks), <placeholder-5/> popunjava filter tekst, <placeholder-6/> (forsira filter da koriste tekst, ne regeks) i <placeholder-7/> sa X koje je broj između 1 i 7. Brojevi odgovaraju: <placeholder-8/>"
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> fills in the filter text, <placeholder-6/> forces the filter to use text, not regex, or <placeholder-7/> forces the filter to use regex, not simple text search, and <placeholder-8/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-9/>"
+msgstr "Otvara dnevnik dijalog. <placeholder-1/> specificira fajl ili imenik za koji dnevnik treba da bude prikazan. Šest dodatnih opcija treba da budu podešene: <placeholder-2/>, <placeholder-3/> i <placeholder-4/> omogućava 'stani-na-kopiju' čekboks, <placeholder-5/> popunjava filter tekst, <placeholder-6/> forsira filter da koriste tekst, ne regeks i <placeholder-7/> forsira filter da koristi regeks, ne jednostavno pretraživanje teksta, i<placeholder-8/> sa X koje je broj između 1 i 7. Brojevi odgovaraju: <placeholder-9/>"
 
 #. (option)
 #. (option)
@@ -12928,3 +12943,13 @@ msgstr "Milorad Popović <MiloradSPopovic@gmail.com>"
 #. (None)
 msgid "translator-translation"
 msgstr "Prevod"
+
+#~ msgid ""
+#~ "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can "
+#~ "use the <guilabel>Recursive</guilabel> checkbox to set the property to "
+#~ "all sub-folders in the hierarchy, without also setting it on all files."
+#~ msgstr ""
+#~ "За <literal>tsvn:</literal> особине <emphasis>само</emphasis> можете "
+#~ "користите  <guilabel>Рекурзивно</guilabel> чекбокс да подеси особине на "
+#~ "све суб-именике у хиерархији, без подешавање на све фајлове такође."
+
