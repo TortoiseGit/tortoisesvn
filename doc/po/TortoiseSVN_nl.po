@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-08-19 21:51 +0000\n"
-"PO-Revision-Date: 2009-08-21 16:53+0100\n"
+"PO-Revision-Date: 2009-08-25 17:54+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1452,7 +1452,7 @@ msgstr "Als je een archief op een netwerk schijf wilt maken voor meerdere gebrui
 
 #. (para)
 msgid "The next sections are a step-by-step guide on how you can set up such a server on a Windows machine. Of course you can also set up a server on a Linux machine, but that is beyond the scope of this guide. More detailed information on the Subversion server options, and how to choose the best architecture for your situation, can be found in the Subversion book under <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.html\"><citetitle>Server Configuration</citetitle></ulink>."
-msgstr ""
+msgstr "De volgende paragraven beschrijven stapsgewijs hoe een server op een Windows machine opgezet moet worden. Natuurlijk is het ook mogelijk om de server op een Linux machine te bouwen, maar dat ligt buiten de scoop van dit document. Meer informatie over de Subversion opties en hoe de beste architectuur te kiezen voor jouw situatie is beschreven in het Subversion boek onder <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.html\"><citetitle>Server Configuration</citetitle></ulink>."
 
 #. (title)
 msgid "Svnserve Based Server"
@@ -1460,11 +1460,11 @@ msgstr "Svnserve Based Server"
 
 #. (para)
 msgid "Subversion includes Svnserve - a lightweight stand-alone server which uses a custom protocol over an ordinary TCP/IP connection. It is ideal for smaller installations, or where a full blown Apache server cannot be used."
-msgstr ""
+msgstr "Bij Subversion zit Svnserve, een lichtgewicht stand-alone server, die gebruikt maakt van een standaard TCP/IP verbinding. Deze is ideaal voor kleine installaties of daar waar een volledige Apache server niet gebruikt kan worden."
 
 #. (para)
 msgid "In most cases svnserve is easier to setup and runs faster than the Apache based server, although it doesn't have some of the advanced features. And now that SASL support is included it is easy to secure as well."
-msgstr ""
+msgstr "In de meeste gevallen is svnserve makkelijker om op te zetten en werkt sneller dan een Apache server, maar ontbeerd enkele geavanceerde functies. Nu SASL ook ondersteund wordt is het nog veilig ook."
 
 #. (title)
 msgid "Installing svnserve"
@@ -1472,23 +1472,23 @@ msgstr "Installatie svnserve"
 
 #. (para)
 msgid "Get the latest version of Subversion from <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>. Alternatively get a pre-packaged installer from CollabNet at <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. This installer will setup svnserve as a Windows service, and also includes some of the tools you need if you are going to use SASL for security."
-msgstr ""
+msgstr "Haal de meest recente versie van Subversion op via <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>.Een voorbereid installatie programma kan opgehaald worden vanaf CollabNet via <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. Dit installatie programma stelt svnserve in als een Windows service en installeert ook de onderdelen die nodig zijn voor SASL beveiliging."
 
 #. (para)
 msgid "If you already have a version of Subversion installed, and svnserve is running, you will need to stop it before continuing."
-msgstr ""
+msgstr "Als je al een versie van Subversion geïnstalleerd hebt en svnserve opgestart is, dan moet je deze eerst stoppen."
 
 #. (para)
 msgid "Run the Subversion installer. If you run the installer on your server (recommended) you can skip step 4."
-msgstr ""
+msgstr "Start de Subversion installatie. Als je de installatie op je server uitvoert (aanbevolen), dan kun stap 4 overslaan."
 
 #. (para)
 msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files, or just copy all of the <filename>bin</filename> directory, into a directory on your server e.g. <filename>c:\\svnserve</filename>"
-msgstr ""
+msgstr "Open de windows verkenner, ga naar de installatie map van Subversion (meestal <filename>C:\\Program Files\\Subversion</filename>) en zoek in de <filename>bin</filename> map de bestanden <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> en <filename>ssleay32.dll</filename>. Kopieer deze bestanden, of kopieer alle bestanden in de <filename>bin</filename> map, naar een map op de server, bijvoorbeeld <filename>c:\\svnserve</filename>."
 
 #. (title)
 msgid "Running svnserve"
-msgstr ""
+msgstr "Svnserve opstarten"
 
 #. (para)
 msgid ""
@@ -1496,14 +1496,17 @@ msgid ""
 "svnserve.exe --daemon\n"
 "</screen> svnserve will now start waiting for incoming requests on port 3690. The --daemon switch tells svnserve to run as a daemon process, so it will always exist until it is manually terminated."
 msgstr ""
+"Nu svnserve geïnstalleerd is, moet deze nog op je server opgestart worden. Dit kan het makkelijkst in een opdrachtprompt of met een snelkoppeling en het volgende commando te gebruiken: : <screen>\n"
+"svnserve.exe --daemon\n"
+"</screen>. Svnserve gaat nu wachten op binnenkomende aanvragen op poort 3690. De --daemon optie geeft aan dat svnserve als daemon process moet werken, zodat het altijd loopt totdat het handmatig wordt gestopt."
 
 #. (para)
 msgid "If you have not yet created a repository, follow the instructions given with the Apache server setup <xref linkend=\"tsvn-serversetup-apache-4\"/>."
-msgstr ""
+msgstr "Als je nog geen archief hebt aangemaakt, volg dan de instructies van de Apache server installatie configuratie <xref linkend=\"tsvn-serversetup-apache-4\"/>."
 
 #. (para)
 msgid "To test that svnserve is working, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to view a repository."
-msgstr ""
+msgstr "Om te testen of svnserve werk, kies <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Archief-verkenner</guimenuitem></menuchoice> om een archief te bekijken."
 
 #. (para)
 msgid ""
@@ -1511,6 +1514,9 @@ msgid ""
 "svn://localhost/repos/TestRepo\n"
 "</screen> when prompted by the repo browser."
 msgstr ""
+"Stel dat je archief opgeslagen is op <filename>c:\\repos\\TestRepo</filename> en je server heeft de naam <filename>localhost</filename>, voer dan <screen>\n"
+"svn://localhost/repos/TestRepo\n"
+"</screen> in als de archief-verkenner daar om vraagt."
 
 #. (para)
 msgid ""
@@ -1522,18 +1528,25 @@ msgid ""
 "svn://localhost/TestRepo\n"
 "</screen> Note that the --root switch is also needed if your repository is located on a different partition or drive than the location of svnserve on your server."
 msgstr ""
+"Het is ook mogelijk in de veiligheid te verhogen en tijd te besparen bij het invoeren van URLs met svnserve door gebruik te maken van de –root optie  voor het instellen van de hoofd map en beperken van toegang tot een bepaalde map op de server: <screen>\n"
+"svnserve.exe --daemon --root drive:\\path\\to\\repository\\root\n"
+"</screen> Met de vorige test kan svnserve  opstarten met: <screen>\n"
+"svnserve.exe --daemon --root c:\\repos\n"
+"</screen> En in TortoiseSVN is de archief-verkenner URL verkort tot: <screen>\n"
+"svn://localhost/TestRepo\n"
+"</screen> Merk op dat de –root optie ook nodig als het archief op een andere partitie of schijf dan svnserve is opgeslagen."
 
 #. (para)
 msgid "Svnserve will service any number of repositories. Just locate them somewhere below the root folder you just defined, and access them using a URL relative to that root."
-msgstr ""
+msgstr "Svnserve kan elk willekeurig aantal archieven bedienen. Sla de archieven op in de hoofd of een onderliggende map zoals zojuist gedefinieerd en benader deze door gebruik te maken van de relatieve URL vanaf de hoofdmap."
 
 #. (title)
 msgid "Run svnserve as a Service"
-msgstr ""
+msgstr "Svnserve als service laten draaien"
 
 #. (para)
 msgid "Running svnserve as a user is usually not the best way. It means always having a user logged in on your server, and remembering to restart it after a reboot. A better way is to run svnserve as a windows service. Starting with Subversion 1.4, svnserve can be installed as a native windows service."
-msgstr ""
+msgstr "Svnserve de een gebruiker laten opstarten is niet de beste methode. Er moet dan altijd een gebruiker ingelogd zijn en onthouden moet worden dat svnserve gestart moet worden na het herstarten van het systeem. Beter is het om svnserve als een Windows service te laten lopen. Vanaf Subversion 1.4 kan svnserve als native Windows service geïnstalleerd worden."
 
 #. (para)
 msgid ""
@@ -1550,10 +1563,22 @@ msgid ""
 "sc description svnserve \"Subversion server (svnserve)\"\n"
 "</screen>"
 msgstr ""
+"Om svnserve als Windows service te installeren, zodat deze automatisch start bij het opstarten van Windows, moet het volgende commando in zijn geheel gegeven worden: <screen>\n"
+"sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service \n"
+"    --root c:\\repos\" displayname= \"Subversion\" depend= tcpip \n"
+"    start= auto\n"
+"</screen> Als één van de paden spaties bevat, dan moet je quotes gebruiken, zoals volgt: <screen>\n"
+"sc create svnserve binpath= \"\n"
+"    \\\"C:\\Program Files\\Subversion\\bin\\svnserve.exe\\\"\n"
+"    --service --root c:\\repos\" displayname= \"Subversion\" \n"
+"    depend= tcpip start= auto\n"
+"</screen> Het is ook mogelijk om een beschrijving achter het commando op te geven. Dit wordt dan weergegeven in de Windows Service Manager. <screen>\n"
+"sc description svnserve \"Subversion server (svnserve)\"\n"
+"</screen>"
 
 #. (para)
 msgid "Note the rather unusual command line format used by <literal>sc</literal>. In the <literal>key= value</literal> pairs there must be no space between the key and the <literal>=</literal> but there must be a space before the value."
-msgstr ""
+msgstr "Merk de ongebruikelijke opmaak op van <literal>sc</literal>. Bij een <literal>optie= waarde</literal> paar staat er een spatie na de <literal>=</literal> voor de waarde, niet tussen de optie en de <literal>=</literal>."
 
 #. (para)
 msgid ""
@@ -1561,14 +1586,17 @@ msgid ""
 "obj= \"NT AUTHORITY\\LocalService\"\n"
 "</screen> Note that you would have to give the Local Service account appropriate rights to both Subversion and your repositories, as well as any applications which are used by hook scripts. The built-in group for this is called \"LOCAL SERVICE\"."
 msgstr ""
+"Microsoft beveelt aan om services te laten draaien onder het Local Service of Network Service account. Lees voor meer informatie <ulink url=\"http://www.microsoft.com/technet/security/topics/serversecurity/serviceaccount/default.mspx\"><citetitle>The Services and Service Accounts Security Planning Guide</citetitle></ulink>. Om een service aan te maken onder het Local Service account, voeg het volgende toe aan het voorbeeld van hierboven. <screen>\n"
+"obj= \"NT AUTHORITY\\LocalService\"\n"
+"</screen> Merk op dat je de Local Service rechten moet toekennen aan Subversion en je archieven, als ook aan elke applicatie die gebruikt wordt door een hook script. De gedefinieerde groep hiervoor heet \"LOCAL SERVICE\"."
 
 #. (para)
 msgid "Once you have installed the service, you need to go to the services manager to start it (this time only; it will start automatically when the server reboots)."
-msgstr ""
+msgstr "Zodra je de service geïnstalleerd hebt, moet je de services manager starten om de gedefinieerde service te starten (dit is alleen de eerste keer nodig, daarna start het elke keer als je het systeem opnieuw start)"
 
 #. (para)
 msgid "For more detailed information, refer to <ulink url=\"http://svn.collab.net/repos/svn/trunk/notes/windows-service.txt\"><citetitle>Windows Service Support for Svnserve</citetitle></ulink>."
-msgstr ""
+msgstr "Lees voor meer informatie <ulink url=\"http://svn.collab.net/repos/svn/trunk/notes/windows-service.txt\"><citetitle>Windows Service Support for Svnserve</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -1576,18 +1604,21 @@ msgid ""
 "svnservice -remove\n"
 "</screen> to remove the service registry entry."
 msgstr ""
+"Als je een eerdere versie van svnserve geïnstalleerd hebt, waarbij de <literal>SVNService</literal> wrapper is gebruikt, moet je de wrapper eerst als service stoppen en dan de-installeren als service. Gebruik het commando <screen>\n"
+"svnservice -remove\n"
+"</screen> om de register sleutel te verwijderen."
 
 #. (title)
 msgid "Basic Authentication with svnserve"
-msgstr ""
+msgstr "Standaard Autorisatie met svnserve"
 
 #. (para)
 msgid "The default svnserve setup provides anonymous read-only access. This means that you can use an <literal>svn://</literal> URL to checkout and update, or use the repo-browser in TortoiseSVN to view the repository, but you won't be able to commit any changes."
-msgstr ""
+msgstr "De standaard svnserve instellingen geven anoniemen alleen-lezen rechten. Dit houdt in dat je een <literal>svn://</literal> URL kunt gebruiken om te verversen of op te halen, of de archief-verkenner in TortoiseSVN om het archief te bekijken, maar het vastleggen van aanpassingen is niet mogelijk."
 
 #. (para)
 msgid "To enable write access to a repository, you need to edit the <filename>conf/svnserve.conf</filename> file in your repository directory. This file controls the configuration of the svnserve daemon, and also contains useful documentation."
-msgstr ""
+msgstr "Om schijf-rechten toe te kennen op een archief, moet je het <filename>conf/svnserve.conf</filename> bestand in je archief map bewerken. Dit bestand bestuurd de instellingen van de svnserve daemon en bevat ook nog nuttige documentatie."
 
 #. (para)
 msgid ""
@@ -1596,6 +1627,10 @@ msgid ""
 "anon-access = write\n"
 "</screen> However, you will not know who has made changes to a repository, as the <literal>svn:author</literal> property will be empty. You will also be unable to control who makes changes to a repository. This is a somewhat risky setup!"
 msgstr ""
+"Het is mogelijk om anoniemen schrijf-rechten te geven door het volgende in te stellen: <screen>\n"
+"[general]\n"
+"anon-access = write\n"
+"</screen> Je weet dan echter niet wie er wijzigingen in het archief heeft vastgelegd, omdat de <literal>svn:author</literal> optie dan leeg blijft. Je hebt dan ook geen controle over wie er wijzigingen vastlegt in het archief. Dit is best wel een riskante configuratie!"
 
 #. (para)
 msgid ""
@@ -1699,7 +1734,7 @@ msgstr ""
 
 #. (title)
 msgid "Authentication with svn+ssh"
-msgstr ""
+msgstr "Authenticatie met svn+ssh"
 
 #. (para)
 msgid "Another way to authenticate users with a svnserve based server is to use a secure shell (SSH) to tunnel requests through. It is not as simple to set up as SASL, but it may be useful is some cases."
@@ -1719,7 +1754,7 @@ msgstr ""
 
 #. (title)
 msgid "Path-based Authorization with svnserve"
-msgstr ""
+msgstr "Pad-gebaseerde Autorisatie met svnserve"
 
 #. (para)
 msgid ""
@@ -1752,7 +1787,7 @@ msgstr ""
 
 #. (term)
 msgid "Browsing The Repository"
-msgstr ""
+msgstr "Het Archief Verkennen"
 
 #. (para)
 msgid "You can point your browser to the URL of your repository and browse the contents of it without having a Subversion client installed. This gives access to your data to a much wider circle of users."
@@ -2011,7 +2046,7 @@ msgstr ""
 
 #. (title)
 msgid "Multiple Repositories"
-msgstr ""
+msgstr "Meerdere Archieven"
 
 #. (primary)
 msgid "Index of projects"
@@ -2178,7 +2213,7 @@ msgstr "Meerdere authenticatie sources"
 
 #. (primary)
 msgid "Multiple authentication"
-msgstr ""
+msgstr "Meervoudige authenticatie"
 
 #. (para)
 msgid "It is also possible to have more than one authentication source for your Subversion repository. To do this, you need to make each authentication type non-authoritative, so that Apache will check multiple sources for a matching username/password."
@@ -10451,7 +10486,7 @@ msgstr "Lijst van alle beschikbare commando's en opties"
 
 #. (entry)
 msgid "Command"
-msgstr "COmmando"
+msgstr "Commando"
 
 #. (entry)
 msgid "Shows the about dialog. This is also shown if no command is given."
@@ -12172,8 +12207,7 @@ msgstr ""
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr "eindtitels-vertaler"
-"Jeroen van Amstel"
+msgstr "eindtitels-vertalerJeroen van Amstel"
 
 #. Place the translation of 'translation' here.
 #. (None)
