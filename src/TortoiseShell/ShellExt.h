@@ -174,7 +174,6 @@ protected:
 	};
 
 	static MenuInfo menuInfo[];
-	WORD fullver;
 	FileState m_State;
 	ULONG	m_cRef;
 	//std::map<int,std::string> verbMap;

@@ -59,4 +59,6 @@
 #include "svn_subst.h"
 #pragma warning(pop)
 
+#include "SysInfo.h"
+
 #define CSTRING_AVAILABLE

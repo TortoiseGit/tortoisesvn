@@ -613,7 +613,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	return NOERROR;
 }
 
-void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com, UINT uFlags)
+void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com, UINT /*uFlags*/)
 {
 	TCHAR menutextbuffer[255] = {0};
 	TCHAR verbsbuffer[255] = {0};
@@ -626,30 +626,16 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
 		_tcscpy_s(menutextbuffer, 255, _T("SVN "));
 	}
 	_tcscat_s(menutextbuffer, 255, stringtablebuffer);
-	if ((fullver < 0x500)||(fullver == 0x500 && !uFlags))
-	{
-		InsertMenu(menu, pos, MF_BYPOSITION | MF_STRING , id, menutextbuffer);
-		if (fullver >= 0x500)
-		{
-			// on win2k, the context menu does not work properly if we use
-			// icon bitmaps. At least the menu text is empty in the context menu
-			// for folder backgrounds (seems like a win2k bug).
-			HBITMAP bmp = IconToBitmap(icon); 
-			SetMenuItemBitmaps(menu, pos, MF_BYPOSITION, bmp, bmp);
-		}
-	}
-	else
-	{
-		MENUITEMINFO menuiteminfo = {0};
-		menuiteminfo.cbSize = sizeof(menuiteminfo);
-		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_BITMAP | MIIM_STRING;
-		menuiteminfo.fType = MFT_STRING;
-		menuiteminfo.dwTypeData = menutextbuffer;
-		if (icon)
-			menuiteminfo.hbmpItem = (fullver >= 0x600) ? IconToBitmapPARGB32(icon) : HBMMENU_CALLBACK;
-		menuiteminfo.wID = (UINT)id;
-		InsertMenuItem(menu, pos, TRUE, &menuiteminfo);
-	}
+
+	MENUITEMINFO menuiteminfo = {0};
+	menuiteminfo.cbSize = sizeof(menuiteminfo);
+	menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_BITMAP | MIIM_STRING;
+	menuiteminfo.fType = MFT_STRING;
+	menuiteminfo.dwTypeData = menutextbuffer;
+	if (icon)
+		menuiteminfo.hbmpItem = SysInfo::Instance().IsVistaOrLater() ? IconToBitmapPARGB32(icon) : HBMMENU_CALLBACK;
+	menuiteminfo.wID = (UINT)id;
+	InsertMenuItem(menu, pos, TRUE, &menuiteminfo);
 
 	if (istop)
 	{
@@ -1059,8 +1045,6 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	// insert separator at start
 	InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); idCmd++;
 	bool bShowIcons = !!DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\ShowContextMenuIcons"), TRUE));
-	if (fullver <= 0x0500)
-		bShowIcons = false;
 	while (menuInfo[menuIndex].command != ShellMenuLastEntry)
 	{
 		if (menuInfo[menuIndex].command == ShellSeparator)
@@ -1215,17 +1199,10 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		myIDMap[idCmd] = ShellSubMenu;
 	}
 	HBITMAP bmp = NULL;
-	if ((fullver < 0x500)||(fullver == 0x500 && !uFlags))
-	{
-		bmp = IconToBitmap(uIcon);
-		menuiteminfo.fMask = MIIM_STRING | MIIM_ID | MIIM_SUBMENU | MIIM_CHECKMARKS | MIIM_DATA;
-	}
-	else
-	{
-		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA | MIIM_BITMAP | MIIM_STRING;
-		if (bShowIcons)
-			menuiteminfo.hbmpItem = (fullver >= 0x600) ? IconToBitmapPARGB32(uIcon) : HBMMENU_CALLBACK;
-	}
+
+	menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA | MIIM_BITMAP | MIIM_STRING;
+	if (bShowIcons)
+		menuiteminfo.hbmpItem = SysInfo::Instance().IsVistaOrLater() ? IconToBitmapPARGB32(uIcon) : HBMMENU_CALLBACK;
 	menuiteminfo.hbmpChecked = bmp;
 	menuiteminfo.hbmpUnchecked = bmp;
 	menuiteminfo.hSubMenu = subMenu;
@@ -2327,9 +2304,9 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
 		menuiteminfo.cbSize = sizeof(menuiteminfo);
 		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA | MIIM_BITMAP | MIIM_STRING;
 		menuiteminfo.fType = MFT_STRING;
-		HBITMAP bmp = (fullver >= 0x600) ? IconToBitmapPARGB32(icon) : IconToBitmap(icon);
+		HBITMAP bmp = SysInfo::Instance().IsVistaOrLater() ? IconToBitmapPARGB32(icon) : IconToBitmap(icon);
 		if (icon)
-			menuiteminfo.hbmpItem = (fullver >= 0x600) ? bmp : HBMMENU_CALLBACK;
+			menuiteminfo.hbmpItem = SysInfo::Instance().IsVistaOrLater() ? bmp : HBMMENU_CALLBACK;
 		menuiteminfo.hbmpChecked = bmp;
 		menuiteminfo.hbmpUnchecked = bmp;
 		menuiteminfo.hSubMenu = ignoresubmenu;

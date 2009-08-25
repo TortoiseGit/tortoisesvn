@@ -35,12 +35,6 @@ extern ShellObjects g_shellObjects;
 // *********************** CShellExt *************************
 CShellExt::CShellExt(FileState state)
 {
-	OSVERSIONINFOEX inf;
-	SecureZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
-	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-	GetVersionEx((OSVERSIONINFO *)&inf);
-	fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
-
     m_State = state;
 
     m_cRef = 0L;
@@ -56,7 +50,7 @@ CShellExt::CShellExt(FileState state)
 	LoadLangDll();
 
 	hUxTheme = NULL;
-	if (fullver >= 0x0600)
+	if (SysInfo::Instance().IsVistaOrLater())
 	{
 		hUxTheme = LoadLibrary(_T("UXTHEME.DLL"));
 
