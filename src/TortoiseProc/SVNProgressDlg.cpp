@@ -1298,7 +1298,7 @@ void CSVNProgressDlg::OnTimer(UINT_PTR nIDEvent)
 	{
 		CString progText;
 		CString progSpeed;
-		progSpeed.Format(IDS_SVN_PROGRESS_BYTES_SEC, 0);
+		progSpeed.Format(IDS_SVN_PROGRESS_BYTES_SEC, 0i64);
 		progText.Format(IDS_SVN_PROGRESS_TOTALANDSPEED, (LPCTSTR)m_sTotalBytesTransferred, (LPCTSTR)progSpeed);
 		SetDlgItemText(IDC_PROGRESSLABEL, progText);
 		KillTimer(TRANSFERTIMER);
