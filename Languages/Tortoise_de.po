@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-07-31 09:12+0100\n"
+"PO-Revision-Date: 2009-08-25 10:07+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -102,6 +102,11 @@ msgstr "%I64d Bytes übertragen"
 
 #. Resource IDs: (357)
 #, c-format
+msgid "%I64d Bytes/s"
+msgstr "%I64d Bytes/s"
+
+#. Resource IDs: (357)
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d KBytes übertragen"
 
@@ -114,11 +119,6 @@ msgstr "%d Dateien gewählt, %d Dateien insgesamt"
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
 msgstr "%d aktivste Autoren mit je mindestens %d Übertragungen (%d %%)"
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%ld Bytes/s"
-msgstr "%ld Bytes/s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -486,6 +486,10 @@ msgstr "&Löschen"
 #. Resource IDs: (17)
 msgid "&Delete (keep local)"
 msgstr "&Löschen (lokal erhalten)"
+
+#. Resource IDs: (1514)
+msgid "&Delete unversioned items..."
+msgstr "Nicht versionierte Objekte &löschen..."
 
 #. Resource IDs: (101)
 msgid "&Delete..."
@@ -1173,6 +1177,10 @@ msgstr "(Erstellt)"
 #. Resource IDs: (276)
 msgid "(delete)"
 msgstr "(Gelöscht)"
+
+#. Resource IDs: (214)
+msgid "(externals)"
+msgstr "(Extern)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -2884,6 +2892,10 @@ msgstr ""
 #. Resource IDs: (8)
 msgid "Create repositor&y here"
 msgstr "&Projektarchiv hier erstellen"
+
+#. Resource IDs: (102)
+msgid "Create shortcut"
+msgstr "Verknüpfung erzeugen"
 
 #. Resource IDs: (32828)
 msgid "Create unified diff file"
@@ -6685,6 +6697,10 @@ msgstr "Projektarchiv URL"
 msgid "Repository UUID:"
 msgstr "UUID des Projektarchivs:"
 
+#. Resource IDs: (106)
+msgid "Request cancelled by TSVN"
+msgstr "Anfrage durch TSVN abgebrochen"
+
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
 msgstr "Erfragt Anwendername und Passwort"
@@ -8974,6 +8990,10 @@ msgstr ""
 #. Resource IDs: (20)
 msgid "Unknown depth"
 msgstr "Unbekannte Tiefe"
+
+#. Resource IDs: (106)
+msgid "Unknown failure in SVN::List"
+msgstr "Unbekannter Fehler in SVN::List"
 
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
