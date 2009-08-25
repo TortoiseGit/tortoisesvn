@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-08-18 15:57Central Europe Daylight Time\n"
+"PO-Revision-Date: 2009-08-25 12:02+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6718,7 +6718,7 @@ msgstr "Vyřešit konflikt"
 
 #. Resource IDs: (1382)
 msgid "Resolve all later"
-msgstr "Vyřešit všechno pozdeji"
+msgstr "Vyřešit všechno později"
 
 #. Resource IDs: (282)
 msgid "Resolve conflict using 'mine'"
@@ -10474,10 +10474,8 @@ msgstr "{BugTraq}"
 
 #~ msgid "Cleaning up."
 #~ msgstr "Čistím."
-
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Floppy disky (A: B:)"
-
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
@@ -10486,131 +10484,90 @@ msgstr "{BugTraq}"
 #~ "GDI+ je vyžadováno pro uložení grafu revizí jako obrázku.\n"
 #~ "GDI+ můžete stáhnout z\n"
 #~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-
 #~ msgid "Go offline?"
 #~ msgstr "Přejít do offline?"
-
 #~ msgid "Only record the merge"
 #~ msgstr "Sloučení jen zaznamenat"
-
 #~ msgid "Replaced node"
 #~ msgstr "Nahrazen uzel"
-
 #~ msgid "(deleted) %s"
 #~ msgstr "(smazáno) %s"
-
 #~ msgid "alias (deleted): %s"
 #~ msgstr "alias (smazáno): %s"
-
 #~ msgid "&?"
 #~ msgstr "&?"
-
 #~ msgid "Merge all..."
 #~ msgstr "Sloučit vše..."
-
 #~ msgid "SVN Export to here"
 #~ msgstr "SVN Exportovat sem"
-
 #~ msgid "%1 contains an invalid path."
 #~ msgstr "%1 obsahuje neplatnou cestu."
-
 #~ msgid "&Berkeley database (BDB)"
 #~ msgstr "&Berkeley Database (BDB)"
-
 #~ msgid "&Dry run"
 #~ msgstr "&Zkušební běh"
-
 #~ msgid "&Native filesystem (FSFS)"
 #~ msgstr "&Nativní Filesystem (FSFS)"
-
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "Otevřít Ctrl-O"
-
 #~ msgid "&Save Ctrl-S"
 #~ msgstr "&Uložit Ctrl-S"
-
 #~ msgid "&Undo\tCtrl+Z"
 #~ msgstr "&Zpět\tCtrl+Z"
-
 #~ msgid "An invalid argument was encountered."
 #~ msgstr "Zjištěn neplatný argument."
-
 #~ msgid "Analyze revision data..."
 #~ msgstr "Analyzovat data revize..."
-
 #~ msgid "Bro&wse..."
 #~ msgstr "Pr&ocházet..."
-
 #~ msgid "Brows&e..."
 #~ msgstr "Procház&et..."
-
 #~ msgid "Cache log messages"
 #~ msgstr "Cachovat záznamy logu"
-
 #~ msgid "Checking for forward copies"
 #~ msgstr "Kontroluji předčasné kopie"
-
 #~ msgid "Cleanup has finished"
 #~ msgstr "Čištění skončilo"
-
 #~ msgid "Commit threshold:"
 #~ msgstr "Práh odevzdání:"
-
 #~ msgid "D&iff"
 #~ msgstr "Rozdíl (&Diff)"
-
 #~ msgid "Diff With URL"
 #~ msgstr "Rozdíl s URL"
-
 #~ msgid "Documentation - Simon Large"
 #~ msgstr "Dokumentace - Simon Large"
-
 #~ msgid "Dry Run"
 #~ msgstr "&Zkušební běh"
-
 #~ msgid "Groups branches together"
 #~ msgstr "Seskupí větve(branches) dohromady"
-
 #~ msgid "Look and Feel"
 #~ msgstr "Vzhled a pocit"
-
 #~ msgid "Look and Feel::Colors"
 #~ msgstr "Vzhled a pocit::Barvy"
-
 #~ msgid "Merged revisions %s to %s from %s:\n"
 #~ msgstr "Sloučeny revize %s až %s z %s:\n"
-
 #~ msgid "Not descending"
 #~ msgstr "Bez sestupných"
-
 #~ msgid "Remove..."
 #~ msgstr "Odstranit..."
-
 #~ msgid "Specify the revision range which you want to merge:"
 #~ msgstr "Určete rozsah revizí, které chcete sloučit (merge):"
-
 #~ msgid "Split long, inactive branches into segments"
 #~ msgstr "Rozdělit dlouhé, neaktivní větve na segmenty"
-
 #~ msgid "Two-way &Diff"
 #~ msgstr "Dva panely"
-
 #~ msgid "Use &magnifier on locatorbar"
 #~ msgstr "Použít lupu na lokační&m panelu"
-
 #~ msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 #~ msgstr "Použijte \"Z:\" URL (rozsah revizí je volitelný v log dialogu)"
-
 #~ msgid ""
 #~ "You've selected added folders. The patch won't contain added files within such added folders.\n"
 #~ "Do you want to proceed anyway?"
 #~ msgstr ""
 #~ "Vybral(a) jste přidané složky. Záplata nebude obsahovat přidané soubory v těchto přidaných složkách.\n"
 #~ "Opravdu chcete pokračovat?"
-
 #~ msgid "cleaning up"
 #~ msgstr "čistím"
-
 #~ msgid ""
 #~ "svn:externals\n"
 #~ "A newline separated list of module specifiers, each of which consists of\n"
@@ -10622,6 +10579,6 @@ msgstr "{BugTraq}"
 #~ "Seznam oddělený řádky, kde na každé je relativní cesta, volitelně příznak revize a URL. Například\n"
 #~ "foo\t\thttp://example.com/repos/zig\n"
 #~ "foo/bar -r 1234\thttp://example.com/repos/zag"
-
 #~ msgid "which points to the repository at URL:"
 #~ msgstr "které ukazuje na úložiště na URL:"
+
