@@ -60,25 +60,28 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 	// this prevents other apps from loading the dll and locking
 	// it.
 
-	bool bInShellTest = false;
-	TCHAR buf[_MAX_PATH + 1];		// MAX_PATH ok, the test really is for debugging anyway.
-	DWORD pathLength = GetModuleFileName(NULL, buf, _MAX_PATH);
-	if(pathLength >= 14)
+	if (!SysInfo::Instance().IsWin7OrLater())
 	{
-		if ((_tcsicmp(&buf[pathLength-14], _T("\\ShellTest.exe"))) == 0)
+		bool bInShellTest = false;
+		TCHAR buf[_MAX_PATH + 1];		// MAX_PATH ok, the test really is for debugging anyway.
+		DWORD pathLength = GetModuleFileName(NULL, buf, _MAX_PATH);
+		if(pathLength >= 14)
 		{
-			bInShellTest = true;
+			if ((_tcsicmp(&buf[pathLength-14], _T("\\ShellTest.exe"))) == 0)
+			{
+				bInShellTest = true;
+			}
+			if ((_tcsicmp(&buf[pathLength-13], _T("\\verclsid.exe"))) == 0)
+			{
+				bInShellTest = true;
+			}
 		}
-		if ((_tcsicmp(&buf[pathLength-13], _T("\\verclsid.exe"))) == 0)
-		{
-			bInShellTest = true;
-		}
-	}
 
-	if (!::IsDebuggerPresent() && !bInShellTest)
-	{
-		ATLTRACE("In debug load preventer\n");
-		return FALSE;
+		if (!::IsDebuggerPresent() && !bInShellTest)
+		{
+			ATLTRACE("In debug load preventer\n");
+			return FALSE;
+		}
 	}
 #endif
 
