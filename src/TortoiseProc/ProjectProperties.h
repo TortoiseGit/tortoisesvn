@@ -22,6 +22,9 @@
 #include "TSVNPath.h"
 using namespace std;
 
+// when adding new properties, don't forget to change the
+// method AddAutoProps() so the new properties are automatically
+// added to new folders
 #define BUGTRAQPROPNAME_LABEL             _T("bugtraq:label")
 #define BUGTRAQPROPNAME_MESSAGE           _T("bugtraq:message")
 #define BUGTRAQPROPNAME_NUMBER            _T("bugtraq:number")
