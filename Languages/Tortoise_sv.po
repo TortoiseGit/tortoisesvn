@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-07-24 12:02+0100\n"
+"PO-Revision-Date: 2009-08-25 13:37+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -102,6 +102,11 @@ msgstr "%I64d Bytes överförda"
 
 #. Resource IDs: (357)
 #, c-format
+msgid "%I64d Bytes/s"
+msgstr "%I64d Bytes/s"
+
+#. Resource IDs: (357)
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBytes överförda"
 
@@ -114,11 +119,6 @@ msgstr "%d filer markerade, %d filer totalt"
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
 msgstr "%d mest aktiva användarna med minst %d arkiveringar var (%d %%)"
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%ld Bytes/s"
-msgstr "%ld Bytes/s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -492,6 +492,10 @@ msgstr "&Ta bort"
 #. Resource IDs: (17)
 msgid "&Delete (keep local)"
 msgstr "&Ta bort (behåll lokalt)"
+
+#. Resource IDs: (1514)
+msgid "&Delete unversioned items..."
+msgstr "Ta bort icke versionshantera&de objekt..."
 
 #. Resource IDs: (101)
 msgid "&Delete..."
@@ -1187,6 +1191,10 @@ msgstr "(skapad)"
 #. Resource IDs: (276)
 msgid "(delete)"
 msgstr "(borttagen)"
+
+#. Resource IDs: (214)
+msgid "(externals)"
+msgstr "(externa)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -2907,6 +2915,10 @@ msgstr ""
 #. Resource IDs: (8)
 msgid "Create repositor&y here"
 msgstr "Skapa arki&v här"
+
+#. Resource IDs: (102)
+msgid "Create shortcut"
+msgstr "Skapa genväg"
 
 #. Resource IDs: (32828)
 msgid "Create unified diff file"
@@ -6668,6 +6680,10 @@ msgid "Renames files / folders inside version control"
 msgstr "Byter namn på filer / mappar i arkivet"
 
 #. Resource IDs: (209)
+msgid "Repair copy"
+msgstr "Reparera kopiera"
+
+#. Resource IDs: (209)
 msgid "Repair move"
 msgstr "Reparera flytta"
 
@@ -6706,6 +6722,10 @@ msgstr "Arkiv URL"
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
 msgstr "Arkivets UUID:"
+
+#. Resource IDs: (106)
+msgid "Request cancelled by TSVN"
+msgstr "Åtgärden avbruten av TSVN"
 
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
@@ -8996,6 +9016,10 @@ msgstr ""
 #. Resource IDs: (20)
 msgid "Unknown depth"
 msgstr "Okänt djup"
+
+#. Resource IDs: (106)
+msgid "Unknown failure in SVN::List"
+msgstr "Okänt fel i SVN::List"
 
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
