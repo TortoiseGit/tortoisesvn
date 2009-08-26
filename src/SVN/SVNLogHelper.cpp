@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "SVNLogHelper.h"
 
-BOOL SVNLogHelper::Log(LONG rev, const CString& author, const CString& /*date*/, const CString& message, LogChangedPathArray * cpaths, apr_time_t /*time*/, int /*filechanges*/, BOOL /*copies*/, DWORD /*actions*/, BOOL /*haschildren*/)
+BOOL SVNLogHelper::Log(LONG rev, const CString& author, const CString& /*date*/, const CString& message, LogChangedPathArray * cpaths, apr_time_t /*time*/, BOOL /*haschildren*/)
 {
 	messages[rev] = message;
 	authors[rev] = author;

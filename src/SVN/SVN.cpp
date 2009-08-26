@@ -199,7 +199,7 @@ BOOL SVN::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_notify_actio
 				const CString& propertyName,
 				svn_merge_range_t * range,
 				svn_error_t * err, apr_pool_t * pool) {return TRUE;};
-BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, BOOL haschildren) {return TRUE;};
+BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, BOOL haschildren) {return TRUE;}
 BOOL SVN::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path, const CStringA& line) {return TRUE;}
 svn_error_t* SVN::DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node) {return SVN_NO_ERROR;}
 BOOL SVN::ReportList(const CString& path, svn_node_kind_t kind, 
@@ -1654,20 +1654,6 @@ void SVN::ReceiveLog ( LogChangedPathArray* changes
                      , UserRevPropArray* /* userRevProps*/
                      , bool mergesFollow)
 {
-	// aggregate common change mask
-
-	DWORD actions = 0;
-	BOOL copies = FALSE;
-    if (changes != NULL)
-    {
-	    for (INT_PTR i = 0, count = changes->GetCount(); i < count; ++i)
-	    {
-		    const LogChangedPath* change = changes->GetAt (i);
-		    actions |= change->action;
-		    copies |= change->lCopyFromRev != 0;
-	    }
-    }
-
 	// convert time stamp to string
 
 	TCHAR date_native[SVN_DATE_BUFFER] = {0};
@@ -1690,9 +1676,6 @@ void SVN::ReceiveLog ( LogChangedPathArray* changes
         , stdRevProps == NULL ? emptyString : stdRevProps->message
 		, changes
         , stdRevProps == NULL ? apr_time_t(0) : stdRevProps->timeStamp
-        , changes == NULL ? 0 : static_cast<int>(changes->GetCount())
-		, copies
-		, actions
         , mergesFollow);
 }
 

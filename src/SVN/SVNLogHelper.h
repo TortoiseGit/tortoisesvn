@@ -66,7 +66,7 @@ public:
 protected:
 	virtual BOOL Log(LONG rev, const CString& author, const CString& date, 
 		const CString& message, LogChangedPathArray * cpaths, 
-		apr_time_t time, int filechanges, BOOL copies, DWORD actions, BOOL haschildren);
+		apr_time_t time, BOOL haschildren);
 
 private:
 	CString								m_reposroot;

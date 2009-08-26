@@ -89,7 +89,7 @@ public:
 
 protected:
 	//implement the virtual methods from SVN base class
-	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, BOOL haschildren);
+	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, BOOL haschildren);
 	virtual BOOL Cancel();
 	virtual bool Validate(LPCTSTR string);
 
