@@ -647,19 +647,23 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
 		}
 		else if (status->text_status == svn_wc_status_external)
 		{
-			CSVNStatusCache::Instance().AddFolderForCrawling(svnPath);
-			// Mark the directory as 'versioned' (status 'normal' for now).
-			// This initial value will be overwritten from below some time later
+			if ((status->entry && status->entry->kind == svn_node_dir) ||
+				(svnPath.IsDirectory()))
 			{
-				AutoLocker lock(pThis->m_critSec);
-				pThis->m_childDirectories[svnPath] = svn_wc_status_normal;
+				CSVNStatusCache::Instance().AddFolderForCrawling(svnPath);
+				// Mark the directory as 'versioned' (status 'normal' for now).
+				// This initial value will be overwritten from below some time later
+				{
+					AutoLocker lock(pThis->m_critSec);
+					pThis->m_childDirectories[svnPath] = svn_wc_status_normal;
+				}
+				// we have added a directory to the child-directory list of this
+				// directory. We now must make sure that this directory also has
+				// an entry in the cache.
+				CSVNStatusCache::Instance().GetDirectoryCacheEntry(svnPath);
+				// also mark the status in the status object as normal
+				forceNormal = true;
 			}
-			// we have added a directory to the child-directory list of this
-			// directory. We now must make sure that this directory also has
-			// an entry in the cache.
-			CSVNStatusCache::Instance().GetDirectoryCacheEntry(svnPath);
-			// also mark the status in the status object as normal
-			forceNormal = true;
 		}
 		else
 		{
