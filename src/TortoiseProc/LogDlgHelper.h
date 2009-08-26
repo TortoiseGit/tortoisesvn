@@ -42,8 +42,13 @@ protected:
  * \ingroup TortoiseProc
  * Contains the data of one log entry, used in the log dialog
  */
-typedef struct LogEntryData
+
+class LogEntryData
 {   
+private:
+
+    /// encapsulate data
+
 	svn_revnum_t Rev;
 	__time64_t tmDate;
 	CString sDate;
@@ -51,6 +56,11 @@ typedef struct LogEntryData
 	CString sMessage;
 	CString sShortMessage;
 	CString sBugIDs;
+
+    LogEntryData();
+
+public:
+
 	DWORD dwFileChanges;
 	LogChangedPathArray* pArChangedPaths;
 	BOOL bCopies;
@@ -60,7 +70,37 @@ typedef struct LogEntryData
 	DWORD childStackDepth;
 	BOOL bChecked;
     LogEntryData* parent;
-} LOGENTRYDATA, *PLOGENTRYDATA;
+
+    /// initialization
+
+    LogEntryData ( svn_revnum_t Rev
+                 , __time64_t tmDate
+                 , const CString& sDate
+                 , const CString& sAuthor
+                 , const CString& sMessage
+                 , ProjectProperties* projectProperties);
+
+    /// modification
+
+    void SetAuthor 
+        ( const CString& author);
+    void SetMessage 
+        ( const CString& message
+        , ProjectProperties* projectProperties);
+
+    /// r/o access to the data
+
+    svn_revnum_t GetRevision() const {return Rev;}
+    __time64_t GetDate() const {return tmDate;}
+
+    const CString& GetDateString() const {return sDate;}
+	const CString& GetAuthor() const {return sAuthor;}
+	const CString& GetMessage() const {return sMessage;}
+	const CString& GetShortMessage() const {return sShortMessage;}
+	const CString& GetBugIDs() const {return sBugIDs;}
+};
+
+typedef LogEntryData LOGENTRYDATA, *PLOGENTRYDATA;
 
 /**
  * \ingroup TortoiseProc
@@ -78,7 +118,7 @@ public:
 	{
 		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
 		{
-			return pStart->tmDate < pEnd->tmDate;
+			return pStart->GetDate() < pEnd->GetDate();
 		}
 	};
 	/// Ascending revision sorting.
@@ -86,7 +126,7 @@ public:
 	{
 		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
 		{
-			return pStart->Rev < pEnd->Rev;
+            return pStart->GetRevision() < pEnd->GetRevision();
 		}
 	};
 	/// Ascending author sorting.
@@ -94,9 +134,9 @@ public:
 	{
 		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
 		{
-			int ret = pStart->sAuthor.CompareNoCase(pEnd->sAuthor);
+			int ret = pStart->GetAuthor().CompareNoCase(pEnd->GetAuthor());
 			if (ret == 0)
-				return pStart->Rev < pEnd->Rev;
+				return pStart->GetRevision() < pEnd->GetRevision();
 			return ret<0;
 		}
 	};
@@ -105,9 +145,9 @@ public:
 	{
 		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
 		{
-			int ret = pStart->sBugIDs.CompareNoCase(pEnd->sBugIDs);
+			int ret = pStart->GetBugIDs().CompareNoCase(pEnd->GetBugIDs());
 			if (ret == 0)
-				return pStart->Rev < pEnd->Rev;
+				return pStart->GetRevision() < pEnd->GetRevision();
 			return ret<0;
 		}
 	};
@@ -116,7 +156,7 @@ public:
 	{
 		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
 		{
-			return pStart->sShortMessage.CompareNoCase(pEnd->sShortMessage)<0;
+			return pStart->GetShortMessage().CompareNoCase(pEnd->GetShortMessage())<0;
 		}
 	};
 	/// Ascending action sorting
@@ -125,7 +165,7 @@ public:
 		bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
 		{
 			if (pStart->actions == pEnd->actions)
-				return pStart->Rev < pEnd->Rev;
+				return pStart->GetRevision() < pEnd->GetRevision();
 			return pStart->actions < pEnd->actions;
 		}
 	};

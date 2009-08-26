@@ -617,10 +617,10 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(selIndex));
 
 		// set the log message text
-		pMsgView->SetWindowText(pLogEntry->sMessage);
+		pMsgView->SetWindowText(pLogEntry->GetMessage());
 		// turn bug ID's into links if the bugtraq: properties have been set
 		// and we can find a match of those in the log message
-		m_ProjectProperties.FindBugID(pLogEntry->sMessage, pMsgView);
+		m_ProjectProperties.FindBugID(pLogEntry->GetMessage(), pMsgView);
 		// underline all revisions mentioned in the message
 		CAppUtils::UnderlineRegexMatches(pMsgView, m_ProjectProperties.sLogRevRegex, _T("\\d+"));
 		CAppUtils::FormatTextInRichEditControl(pMsgView);
@@ -779,7 +779,7 @@ void CLogDlg::Refresh (bool autoGoOnline)
 	{
 		if (m_logEntries.size() != 0)
 		{
-			m_endrev = m_logEntries[m_logEntries.size()-1]->Rev;
+			m_endrev = m_logEntries[m_logEntries.size()-1]->GetRevision();
 		}
 	}
 	m_startrev = -1;
@@ -830,7 +830,7 @@ void CLogDlg::OnBnClickedNexthundred()
 		// messages from.
 		return GetAll(true);
 	}
-	svn_revnum_t rev = m_logEntries[m_logEntries.size()-1]->Rev;
+	svn_revnum_t rev = m_logEntries[m_logEntries.size()-1]->GetRevision();
 
 	if (rev < 1)
 		return;		// do nothing! No more revisions to get
@@ -956,12 +956,8 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 		m_tFrom = (DWORD)ttime;
 	if ((m_lowestRev > rev)||(m_lowestRev < 0))
 		m_lowestRev = rev;
-	// Add as many characters from the log message to the list control
-	PLOGENTRYDATA pLogItem = new LOGENTRYDATA;
-	pLogItem->bChecked = false;
-	pLogItem->bCopies = !!copies;
-	
-	// find out if this item was copied in the revision
+
+    // find out if this item was copied in the revision
 	BOOL copiedself = FALSE;
 	if (copies)
 	{
@@ -978,11 +974,22 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 			}
 		}
 	}
-	pLogItem->bCopiedSelf = copiedself;
-	pLogItem->tmDate = ttime;
-	pLogItem->sAuthor = author;
-	pLogItem->sDate = date;
-	pLogItem->sShortMessage = m_ProjectProperties.MakeShortMessage(message);
+
+	// Add as many characters from the log message to the list control
+
+    PLOGENTRYDATA pLogItem 
+        = new LogEntryData
+            ( rev
+            , ttime
+            , date
+            , author
+            , message
+            , &m_ProjectProperties
+            );
+
+	pLogItem->bChecked = false;
+	pLogItem->bCopies = !!copies;
+    pLogItem->bCopiedSelf = copiedself;
 	pLogItem->dwFileChanges = filechanges;
 	pLogItem->actions = actions;
 	pLogItem->haschildren = haschildren;
@@ -995,27 +1002,9 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
         m_logParents.push_back (pLogItem);
 		m_childCounter++;
     }
-
-	pLogItem->sBugIDs = m_ProjectProperties.FindBugID(message).Trim();
 	
-	// split multi line log entries and concatenate them
-	// again but this time with \r\n as line separators
-	// so that the edit control recognizes them
 	try
 	{
-		if (message.GetLength()>0)
-		{
-			m_sMessageBuf = message;
-			m_sMessageBuf.Replace(_T("\n\r"), _T("\n"));
-			m_sMessageBuf.Replace(_T("\r\n"), _T("\n"));
-			if (m_sMessageBuf.Right(1).Compare(_T("\n"))==0)
-				m_sMessageBuf = m_sMessageBuf.Left(m_sMessageBuf.GetLength()-1);
-		}
-		else
-			m_sMessageBuf.Empty();
-        pLogItem->sMessage = m_sMessageBuf;
-        pLogItem->Rev = rev;
-
         // move-construct path array
 
         pLogItem->pArChangedPaths = new LogChangedPathArray (*cpaths);
@@ -1310,10 +1299,10 @@ void CLogDlg::CopySelectionToClipBoard()
 			}
 			sPaths.Trim();
 			sLogCopyText.Format(_T("%s: %d\r\n%s: %s\r\n%s: %s\r\n%s:\r\n%s\r\n----\r\n%s\r\n\r\n"),
-				(LPCTSTR)sRev, pLogEntry->Rev,
-				(LPCTSTR)sAuthor, (LPCTSTR)pLogEntry->sAuthor,
-				(LPCTSTR)sDate, (LPCTSTR)pLogEntry->sDate,
-				(LPCTSTR)sMessage, (LPCTSTR)pLogEntry->sMessage,
+				(LPCTSTR)sRev, pLogEntry->GetRevision(),
+				(LPCTSTR)sAuthor, (LPCTSTR)pLogEntry->GetAuthor(),
+				(LPCTSTR)sDate, (LPCTSTR)pLogEntry->GetDateString(),
+				(LPCTSTR)sMessage, (LPCTSTR)pLogEntry->GetMessage(),
 				(LPCTSTR)sPaths);
 			sClipdata +=  sLogCopyText;
 		}
@@ -1512,7 +1501,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 			{
 				PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
 
-				if (regex_search(wstring((LPCTSTR)pLogEntry->sMessage), pat, flags))
+				if (regex_search(wstring((LPCTSTR)pLogEntry->GetMessage()), pat, flags))
 				{
 					bFound = true;
 					break;
@@ -1539,7 +1528,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 			{
 				if (bMatchCase)
 				{
-					if (m_logEntries[i]->sMessage.Find(FindText) >= 0)
+					if (m_logEntries[i]->GetMessage().Find(FindText) >= 0)
 					{
 						bFound = true;
 						break;
@@ -1566,7 +1555,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 				else
 				{
 				    PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
-					CString msg = pLogEntry->sMessage;
+					CString msg = pLogEntry->GetMessage();
 					msg = msg.MakeLower();
 					CString find = FindText.MakeLower();
 					if (msg.Find(find) >= 0)
@@ -1640,14 +1629,14 @@ void CLogDlg::OnOK()
 		    PLOGENTRYDATA pLogEntry = NULL;
 			POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-			m_selectedRevs.AddRevision(pLogEntry->Rev);
-			svn_revnum_t lowerRev = pLogEntry->Rev;
+			m_selectedRevs.AddRevision(pLogEntry->GetRevision());
+			svn_revnum_t lowerRev = pLogEntry->GetRevision();
 			svn_revnum_t higherRev = lowerRev;
 			while (pos)
 			{
 			    pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-				svn_revnum_t rev = pLogEntry->Rev;
-				m_selectedRevs.AddRevision(pLogEntry->Rev);
+				svn_revnum_t rev = pLogEntry->GetRevision();
+				m_selectedRevs.AddRevision(pLogEntry->GetRevision());
 				if (lowerRev > rev)
 					lowerRev = rev;
 				if (higherRev < rev)
@@ -1738,7 +1727,7 @@ void CLogDlg::DiffSelectedFile()
 	// find out if there's an entry selected in the log list
 	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-	svn_revnum_t rev1 = pLogEntry->Rev;
+	svn_revnum_t rev1 = pLogEntry->GetRevision();
 	svn_revnum_t rev2 = rev1;
 	if (pos)
 	{
@@ -1748,8 +1737,8 @@ void CLogDlg::DiffSelectedFile()
 			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 			if (pLogEntry)
 			{
-				rev1 = max(rev1,(long)pLogEntry->Rev);
-				rev2 = min(rev2,(long)pLogEntry->Rev);
+				rev1 = max(rev1,(long)pLogEntry->GetRevision());
+				rev2 = min(rev2,(long)pLogEntry->GetRevision());
 			}
 		}
 		rev2--;
@@ -1878,7 +1867,7 @@ void CLogDlg::DiffSelectedRevWithPrevious()
 	// Find selected entry in the log list
 	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-	long rev1 = pLogEntry->Rev;
+	long rev1 = pLogEntry->GetRevision();
 	long rev2 = rev1-1;
 	CTSVNPath path = m_path;
 
@@ -2090,7 +2079,7 @@ void CLogDlg::EditAuthor(const CLogDataVector& logs)
 	}
 	name = SVN_PROP_REVISION_AUTHOR;
 
-	CString value = RevPropertyGet(name, CTSVNPath(url), logs[0]->Rev);
+	CString value = RevPropertyGet(name, CTSVNPath(url), logs[0]->GetRevision());
 	CString sOldValue = value;
 	value.Replace(_T("\n"), _T("\r\n"));
 	CInputDlg dlg(this);
@@ -2114,7 +2103,7 @@ void CLogDlg::EditAuthor(const CLogDataVector& logs)
 		progDlg.ShowModeless(m_hWnd);
 		for (DWORD i=0; i<logs.size(); ++i)
 		{
-			if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), logs[i]->Rev))
+			if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), logs[i]->GetRevision()))
 			{
 				progDlg.Stop();
 				CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -2123,7 +2112,7 @@ void CLogDlg::EditAuthor(const CLogDataVector& logs)
 			else
 			{
 
-				logs[i]->sAuthor = dlg.m_sInputText;
+				logs[i]->SetAuthor (dlg.m_sInputText);
 				m_LogList.Invalidate();
 
 				// update the log cache 
@@ -2133,8 +2122,8 @@ void CLogDlg::EditAuthor(const CLogDataVector& logs)
 					// log caching is active
 
 					LogCache::CCachedLogInfo newInfo;
-					newInfo.Insert ( logs[i]->Rev
-						, (const char*) CUnicodeUtils::GetUTF8 (logs[i]->sAuthor)
+					newInfo.Insert ( logs[i]->GetRevision()
+						, (const char*) CUnicodeUtils::GetUTF8 (logs[i]->GetAuthor())
 						, ""
 						, 0
 						, LogCache::CRevisionInfoContainer::HAS_AUTHOR);
@@ -2168,7 +2157,7 @@ void CLogDlg::EditLogMessage(int index)
 
 	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
 	m_bCancelled = FALSE;
-	CString value = RevPropertyGet(name, CTSVNPath(url), pLogEntry->Rev);
+	CString value = RevPropertyGet(name, CTSVNPath(url), pLogEntry->GetRevision());
 	CString sOldValue = value;
 	value.Replace(_T("\n"), _T("\r\n"));
 	CInputDlg dlg(this);
@@ -2180,28 +2169,14 @@ void CLogDlg::EditLogMessage(int index)
 	if (dlg.DoModal() == IDOK)
 	{
 		dlg.m_sInputText.Replace(_T("\r"), _T(""));
-		if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), pLogEntry->Rev))
+		if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), pLogEntry->GetRevision()))
 		{
 			CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		}
 		else
 		{
-			pLogEntry->sShortMessage = m_ProjectProperties.MakeShortMessage(dlg.m_sInputText);
-			// split multi line log entries and concatenate them
-			// again but this time with \r\n as line separators
-			// so that the edit control recognizes them
-			if (dlg.m_sInputText.GetLength()>0)
-			{
-				m_sMessageBuf = dlg.m_sInputText;
-				dlg.m_sInputText.Replace(_T("\n\r"), _T("\n"));
-				dlg.m_sInputText.Replace(_T("\r\n"), _T("\n"));
-				if (dlg.m_sInputText.Right(1).Compare(_T("\n"))==0)
-					dlg.m_sInputText = dlg.m_sInputText.Left(dlg.m_sInputText.GetLength()-1);
-			} 
-			else
-				dlg.m_sInputText.Empty();
-			pLogEntry->sMessage = dlg.m_sInputText;
-			pLogEntry->sBugIDs = m_ProjectProperties.FindBugID(dlg.m_sInputText);
+            pLogEntry->SetMessage (dlg.m_sInputText, &m_ProjectProperties);
+
 			CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 			pMsgView->SetWindowText(_T(" "));
 			pMsgView->SetWindowText(dlg.m_sInputText);
@@ -2217,9 +2192,9 @@ void CLogDlg::EditLogMessage(int index)
                 // log caching is active
 
                 LogCache::CCachedLogInfo newInfo;
-                newInfo.Insert ( pLogEntry->Rev
+                newInfo.Insert ( pLogEntry->GetRevision()
                                , ""
-                               , (const char*) CUnicodeUtils::GetUTF8 (pLogEntry->sMessage)
+                               , (const char*) CUnicodeUtils::GetUTF8 (pLogEntry->GetMessage())
                                , 0
                                , LogCache::CRevisionInfoContainer::HAS_COMMENT);
 
@@ -2419,7 +2394,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 								PLOGENTRYDATA data = (PLOGENTRYDATA)m_arShownList.GetAt(i);
 								if (data)
 								{
-									if (data->Rev == rev)
+									if (data->GetRevision() == rev)
 									{
 										int selMark = m_LogList.GetSelectionMark();
 										if (selMark>=0)
@@ -2438,33 +2413,30 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 								CLogCacheUtility logUtil(GetLogCachePool()->GetCache(m_sUUID, m_sRepositoryRoot), &m_ProjectProperties);
 								if (logUtil.IsCached(rev))
 								{
-									PLOGENTRYDATA ldata = logUtil.GetRevisionData(rev);
-									if (ldata)
+									PLOGENTRYDATA pLogItem = logUtil.GetRevisionData(rev);
+									if (pLogItem)
 									{
 										// insert the data
-										PLOGENTRYDATA pLogItem = new LOGENTRYDATA;
-										*pLogItem = *ldata;
-										pLogItem->tmDate = ldata->tmDate/1000000L;
-
 										SortByColumn(0, false);
 										bool bInsert = true;
 										CLogDataVector::iterator itinsert = m_logEntries.begin();
 										for (CLogDataVector::iterator itlog = m_logEntries.begin(); itlog != m_logEntries.end(); ++itlog)
 										{
 											itinsert = itlog;
-											if (rev == (*itlog)->Rev)
+											if (rev == (*itlog)->GetRevision())
 											{
 												// avoid inserting duplicates which could happen if a filter is active
 												bInsert = false;
 												break;
 											}
-											if (rev > (*itlog)->Rev)
+											if (rev > (*itlog)->GetRevision())
 												break;
 										}
 										if (bInsert)
 											m_logEntries.insert(itinsert, pLogItem);
 										else
 											delete pLogItem;
+
 										int selMark = m_LogList.GetSelectionMark();
 										// now start filter the log list
 										InterlockedExchange(&m_bNoDispUpdates, TRUE);
@@ -2483,7 +2455,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 											PLOGENTRYDATA data = (PLOGENTRYDATA)m_arShownList.GetAt(i);
 											if (data)
 											{
-												if (data->Rev == rev)
+												if (data->GetRevision() == rev)
 												{
 													if (selMark>=0)
 													{
@@ -2538,13 +2510,13 @@ void CLogDlg::OnBnClickedStatbutton()
 	for (INT_PTR i=0; i<shownlist.GetCount(); ++i)
 	{
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(shownlist.GetAt(i));
-		CString strAuthor = pLogEntry->sAuthor;
+		CString strAuthor = pLogEntry->GetAuthor();
 		if ( strAuthor.IsEmpty() )
 		{
 			strAuthor.LoadString(IDS_STATGRAPH_EMPTYAUTHOR);
 		}
 		m_arAuthorsFiltered.Add(strAuthor);
-		m_arDatesFiltered.Add(static_cast<DWORD>(pLogEntry->tmDate));
+		m_arDatesFiltered.Add(static_cast<DWORD>(pLogEntry->GetDate()));
 		m_arFileChangesFiltered.Add(pLogEntry->dwFileChanges);
 	}
 	CStatGraphDlg dlg;
@@ -2598,9 +2570,9 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					}
 					if (data->bCopies)
 						crText = m_Colors.GetColor(CColors::Modified);
-					if ((data->childStackDepth)||(m_mergedRevs.find(data->Rev) != m_mergedRevs.end()))
+					if ((data->childStackDepth)||(m_mergedRevs.find(data->GetRevision()) != m_mergedRevs.end()))
 						crText = GetSysColor(COLOR_GRAYTEXT);
-					if (data->Rev == m_wcRev)
+					if (data->GetRevision() == m_wcRev)
 					{
 						SelectObject(pLVCD->nmcd.hdc, m_boldFont);
 						// We changed the font, so we're returning CDRF_NEWFONT. This
@@ -3069,7 +3041,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		case 0:	//revision
 			if (pLogEntry)
 			{
-				_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), pLogEntry->Rev);
+				_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), pLogEntry->GetRevision());
 				// to make the child entries indented, add spaces
 				size_t len = _tcslen(pItem->pszText);
 				TCHAR * pBuf = pItem->pszText + len;
@@ -3087,17 +3059,17 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			break;
 		case 2: //author
 			if (pLogEntry)
-				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sAuthor, pItem->cchTextMax);
+				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->GetAuthor(), pItem->cchTextMax);
 			break;
 		case 3: //date
 			if (pLogEntry)
-				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sDate, pItem->cchTextMax);
+				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->GetDateString(), pItem->cchTextMax);
 			break;
 		case 4: //message or bug id
 			if (m_bShowBugtraqColumn)
 			{
 				if (pLogEntry)
-					lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sBugIDs, pItem->cchTextMax);
+					lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->GetBugIDs(), pItem->cchTextMax);
 				break;
 			}
 			// fall through here!
@@ -3108,13 +3080,13 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				// to the list control. If the message is longer than
 				// allowed width, add "..." as an indication.
 				const int dots_len = 3;
-				if (pLogEntry->sShortMessage.GetLength() >= pItem->cchTextMax && pItem->cchTextMax > dots_len)
+				if (pLogEntry->GetShortMessage().GetLength() >= pItem->cchTextMax && pItem->cchTextMax > dots_len)
 				{
-					lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sShortMessage, pItem->cchTextMax - dots_len);
+					lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->GetShortMessage(), pItem->cchTextMax - dots_len);
 					lstrcpyn(pItem->pszText + pItem->cchTextMax - dots_len - 1, _T("..."), dots_len + 1);
 				}
 				else
-					lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sShortMessage, pItem->cchTextMax);
+					lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->GetShortMessage(), pItem->cchTextMax);
 			}
 			else if ((itemid == m_arShownList.GetCount()) && m_bStrict && m_bStrictStopped)
 			{
@@ -3349,12 +3321,12 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist, svn_revnum_t rev)
 			searchText.reserve(4096);
 			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_BUGID))
 			{
-				searchText.append(m_logEntries[i]->sBugIDs);
+				searchText.append(m_logEntries[i]->GetBugIDs());
 			}
 			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
 			{
 				searchText.append(_T(" "));
-				searchText.append(m_logEntries[i]->sMessage);
+				searchText.append(m_logEntries[i]->GetMessage());
 			}
 			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))
 			{
@@ -3385,12 +3357,12 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist, svn_revnum_t rev)
 			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))
 			{
 				searchText.append(_T(" "));
-				searchText.append(m_logEntries[i]->sAuthor);
+				searchText.append(m_logEntries[i]->GetAuthor());
 			}
 			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))
 			{
 				searchText.append(_T(" "));
-				sRev.Format(_T("%ld"), m_logEntries[i]->Rev);
+				sRev.Format(_T("%ld"), m_logEntries[i]->GetRevision());
 				searchText.append(sRev);
 			}
 			bMatched = MatchText(patterns, searchText);
@@ -3399,7 +3371,7 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist, svn_revnum_t rev)
 			pShownlist->Add(m_logEntries[i]);
 		else if (!bMatched && bNegate)
 			pShownlist->Add(m_logEntries[i]);
-		else if (m_logEntries[i]->Rev == rev)
+		else if (m_logEntries[i]->GetRevision() == rev)
 			pShownlist->Add(m_logEntries[i]);
 	}
 }
@@ -3502,7 +3474,7 @@ void CLogDlg::OnDtnDatetimechangeDatefrom(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 
 BOOL CLogDlg::IsEntryInDateRange(int i)
 {
-	__time64_t time = m_logEntries[i]->tmDate;
+	__time64_t time = m_logEntries[i]->GetDate();
 	if ((time >= m_tFrom)&&(time <= m_tTo))
 		return TRUE;
 	return FALSE;
@@ -3801,7 +3773,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
 				if (index < m_arShownList.GetCount())
 				{
 					PLOGENTRYDATA pCurLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
-					if ((pCurLogEntry)&&(pCurLogEntry->Rev == m_wcRev))
+					if ((pCurLogEntry)&&(pCurLogEntry->GetRevision() == m_wcRev))
 					{
 						HFONT hFont = (HFONT)m_LogList.SendMessage(WM_GETFONT);
 						// set the bold font and ask for the string width again
@@ -3873,7 +3845,7 @@ void CLogDlg::OnLvnOdfinditemLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	for (int i=pFindInfo->iStart; i<m_arShownList.GetCount(); ++i)
 	{
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
-		sRev.Format(_T("%ld"), pLogEntry->Rev);
+		sRev.Format(_T("%ld"), pLogEntry->GetRevision());
 		if (pFindInfo->lvfi.flags & LVFI_PARTIAL)
 		{
 			if (sCmp.Compare(sRev.Left(sCmp.GetLength()))==0)
@@ -3896,7 +3868,7 @@ void CLogDlg::OnLvnOdfinditemLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		for (int i=0; i<pFindInfo->iStart; ++i)
 		{
 			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
-			sRev.Format(_T("%ld"), pLogEntry->Rev);
+			sRev.Format(_T("%ld"), pLogEntry->GetRevision());
 			if (pFindInfo->lvfi.flags & LVFI_PARTIAL)
 			{
 				if (sCmp.Compare(sRev.Left(sCmp.GetLength()))==0)
@@ -3953,9 +3925,9 @@ void CLogDlg::UpdateLogInfoLabel()
 	if (m_arShownList.GetCount())
 	{
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(0));
-		rev1 = pLogEntry->Rev;
+		rev1 = pLogEntry->GetRevision();
 		pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_arShownList.GetCount()-1));
-		rev2 = pLogEntry->Rev;
+		rev2 = pLogEntry->GetRevision();
 		selectedrevs = m_LogList.GetSelectedCount();
 	}
 	CString sTemp;
@@ -3994,7 +3966,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 	if (indexNext < 0)
 		return;
 	PLOGENTRYDATA pSelLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(indexNext));
-	SVNRev revSelected = pSelLogEntry->Rev;
+	SVNRev revSelected = pSelLogEntry->GetRevision();
 	SVNRev revPrevious = svn_revnum_t(revSelected)-1;
 	if ((pSelLogEntry->pArChangedPaths)&&(pSelLogEntry->pArChangedPaths->GetCount() <= 2))
 	{
@@ -4009,7 +3981,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 	if (pos)
 	{
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-		revSelected2 = pLogEntry->Rev;
+		revSelected2 = pLogEntry->GetRevision();
 	}
 	bool bAllFromTheSameAuthor = true;
 	CString firstAuthor;
@@ -4019,20 +3991,20 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 	{
 		POSITION pos2 = m_LogList.GetFirstSelectedItemPosition();
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos2)));
-		revisionRanges.AddRevision(pLogEntry->Rev);
+		revisionRanges.AddRevision(pLogEntry->GetRevision());
 		selEntries.push_back(pLogEntry);
-		firstAuthor = pLogEntry->sAuthor;
-		revLowest = pLogEntry->Rev;
-		revHighest = pLogEntry->Rev;
+		firstAuthor = pLogEntry->GetAuthor();
+		revLowest = pLogEntry->GetRevision();
+		revHighest = pLogEntry->GetRevision();
 		while (pos2)
 		{
 			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos2)));
-			revisionRanges.AddRevision(pLogEntry->Rev);
+			revisionRanges.AddRevision(pLogEntry->GetRevision());
 			selEntries.push_back(pLogEntry);
-			if (firstAuthor.Compare(pLogEntry->sAuthor))
+			if (firstAuthor.Compare(pLogEntry->GetAuthor()))
 				bAllFromTheSameAuthor = false;
-			revLowest = (svn_revnum_t(pLogEntry->Rev) > svn_revnum_t(revLowest) ? revLowest : pLogEntry->Rev);
-			revHighest = (svn_revnum_t(pLogEntry->Rev) < svn_revnum_t(revHighest) ? revHighest : pLogEntry->Rev);
+			revLowest = (svn_revnum_t(pLogEntry->GetRevision()) > svn_revnum_t(revLowest) ? revLowest : pLogEntry->GetRevision());
+			revHighest = (svn_revnum_t(pLogEntry->GetRevision()) < svn_revnum_t(revHighest) ? revHighest : pLogEntry->GetRevision());
 		}
 	}
 
@@ -4667,7 +4639,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 		return;	// nothing is selected, get out of here
 
 	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-	svn_revnum_t rev1 = pLogEntry->Rev;
+	svn_revnum_t rev1 = pLogEntry->GetRevision();
 	svn_revnum_t rev2 = rev1;
 	bool bOneRev = true;
 	if (pos)
@@ -4677,8 +4649,8 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 			if (pLogEntry)
 			{
-				rev1 = max(rev1,(svn_revnum_t)pLogEntry->Rev);
-				rev2 = min(rev2,(svn_revnum_t)pLogEntry->Rev);
+				rev1 = max(rev1,(svn_revnum_t)pLogEntry->GetRevision());
+				rev2 = min(rev2,(svn_revnum_t)pLogEntry->GetRevision());
 				bOneRev = false;
 			}				
 		}
@@ -5168,7 +5140,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 		case ID_VIEWPATHREV:
 			{
 				PLOGENTRYDATA pLogEntry2 = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
-				SVNRev rev = pLogEntry2->Rev;
+				SVNRev rev = pLogEntry2->GetRevision();
 				CString relurl = changedpaths[0];
 				CString url = m_ProjectProperties.sWebViewerPathRev;
 				url = GetAbsoluteUrlFromRelativeUrl(url);

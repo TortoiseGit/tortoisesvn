@@ -35,14 +35,14 @@ CStoreSelection::CStoreSelection(CLogDlg* dlg)
 		if ( nIndex!=-1 && nIndex < m_logdlg->m_arShownList.GetSize() )
 		{
 			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_logdlg->m_arShownList.GetAt(nIndex));
-			m_SetSelectedRevisions.insert(pLogEntry->Rev);
+			m_SetSelectedRevisions.insert(pLogEntry->GetRevision());
 			while (pos)
 			{
 				nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
 				if ( nIndex!=-1 && nIndex < m_logdlg->m_arShownList.GetSize() )
 				{
 					pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_logdlg->m_arShownList.GetAt(nIndex));
-					m_SetSelectedRevisions.insert(pLogEntry->Rev);
+					m_SetSelectedRevisions.insert(pLogEntry->GetRevision());
 				}
 			}
 		}
@@ -55,7 +55,7 @@ CStoreSelection::~CStoreSelection()
 	{
 		for (int i=0; i<m_logdlg->m_arShownList.GetCount(); ++i)
 		{
-			LONG nRevision = reinterpret_cast<PLOGENTRYDATA>(m_logdlg->m_arShownList.GetAt(i))->Rev;
+			LONG nRevision = reinterpret_cast<PLOGENTRYDATA>(m_logdlg->m_arShownList.GetAt(i))->GetRevision();
 			if ( m_SetSelectedRevisions.find(nRevision)!=m_SetSelectedRevisions.end() )
 			{
 				m_logdlg->m_LogList.SetSelectionMark(i);
@@ -64,6 +64,53 @@ CStoreSelection::~CStoreSelection()
 			}
 		}
 	}
+}
+
+LogEntryData::LogEntryData 
+    ( svn_revnum_t Rev
+    , __time64_t tmDate
+    , const CString& date
+    , const CString& author
+    , const CString& message
+    , ProjectProperties* projectProperties)
+    : Rev (Rev)
+    , tmDate (tmDate)
+    , sDate (date)
+    , sAuthor (author)
+{
+    SetMessage (message, projectProperties);
+}
+
+void LogEntryData::SetAuthor 
+    ( const CString& author)
+{
+    sAuthor = author;
+}
+
+void LogEntryData::SetMessage 
+    ( const CString& message
+    , ProjectProperties* projectProperties)
+{
+    // split multi line log entries and concatenate them
+    // again but this time with \r\n as line separators
+    // so that the edit control recognizes them
+
+    sMessage = message;
+    if (sMessage.GetLength()>0)
+    {
+        sMessage.Replace(_T("\n\r"), _T("\n"));
+        sMessage.Replace(_T("\r\n"), _T("\n"));
+        if (sMessage.Right(1).Compare(_T("\n"))==0)
+	        sMessage = sMessage.Left (sMessage.GetLength()-1);
+    } 
+
+    // derived data
+
+    if (projectProperties)
+    {
+        sShortMessage = projectProperties->MakeShortMessage (message);
+        sBugIDs = projectProperties->FindBugID (message);
+    }
 }
 
 void CLogDataVector::ClearAll()
@@ -127,7 +174,7 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
     __time64_t date = data.GetTimeStamp (index);
     SVN().formatDate (date_native, date);
     const char * author = data.GetAuthor (index);
-    std::string message = data.GetComment (index);
+    CString message (data.GetComment (index).c_str());
 
     std::auto_ptr<LogChangedPathArray> changes (new LogChangedPathArray);
     CCacheLogQuery::GetChanges (*changes
@@ -147,21 +194,16 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
 
     // construct result
 
-    std::auto_ptr<LOGENTRYDATA> result (new LOGENTRYDATA);
-
-    result->Rev = revision;
-    result->tmDate = date;
-    result->sDate = date_native;
-    result->sAuthor = author != NULL ? author : "";
-    result->sMessage = message.c_str();
-
-    if (projectProperties)
-    {
-	    result->sShortMessage 
-            = projectProperties->MakeShortMessage (result->sMessage);
-        result->sBugIDs 
-            = projectProperties->FindBugID (result->sMessage);
-    }
+    std::auto_ptr<LOGENTRYDATA> result 
+        (new LogEntryData
+            ( revision
+            , date / 1000000L
+            , date_native
+            , CString (author != NULL ? author : "")
+            , message
+            , projectProperties
+            )
+        );
 
     result->dwFileChanges = (DWORD)changes->GetCount();
     result->pArChangedPaths = changes.release();
