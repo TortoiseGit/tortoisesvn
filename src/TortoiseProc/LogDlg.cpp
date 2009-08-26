@@ -142,7 +142,6 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_bAscending(FALSE)
 	, m_pStoreSelection(NULL)
 	, m_limit(0)
-	, m_childCounter(0)
 	, m_maxChild(0)
 	, m_bIncludeMerges(FALSE)
 	, m_hAccel(NULL)
@@ -773,7 +772,6 @@ void CLogDlg::Refresh (bool autoGoOnline)
 	// refreshing means re-downloading the already shown log messages
 	UpdateData();
 	m_maxChild = 0;
-	m_childCounter = 0;
 
 	if ((m_limit == 0)||(m_bStrict)||(int(m_logEntries.size()-1) > m_limit))
 	{
@@ -933,7 +931,6 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 {
 	if (rev == SVN_INVALID_REVNUM)
 	{
-		m_childCounter--;
         m_logParents.pop_back();
 		return TRUE;
 	}
@@ -979,7 +976,8 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 
     PLOGENTRYDATA pLogItem 
         = new LogEntryData
-            ( rev
+            ( m_logParents.empty() ? NULL : *m_logParents.rbegin()
+            , rev
             , ttime
             , date
             , author
@@ -992,16 +990,10 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
     pLogItem->bCopiedSelf = copiedself;
 	pLogItem->dwFileChanges = filechanges;
 	pLogItem->actions = actions;
-	pLogItem->haschildren = haschildren;
-	pLogItem->childStackDepth = m_childCounter;
-    pLogItem->parent = m_childCounter > 0 ? *m_logParents.rbegin() : NULL;
-	m_maxChild = max(m_childCounter, m_maxChild);
+    m_maxChild = max (pLogItem->GetChildStackDepth(), m_maxChild);
 
 	if (haschildren)
-    {
         m_logParents.push_back (pLogItem);
-		m_childCounter++;
-    }
 	
 	try
 	{
@@ -2570,7 +2562,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					}
 					if (data->bCopies)
 						crText = m_Colors.GetColor(CColors::Modified);
-					if ((data->childStackDepth)||(m_mergedRevs.find(data->GetRevision()) != m_mergedRevs.end()))
+					if ((data->GetChildStackDepth())||(m_mergedRevs.find(data->GetRevision()) != m_mergedRevs.end()))
 						crText = GetSysColor(COLOR_GRAYTEXT);
 					if (data->GetRevision() == m_wcRev)
 					{
@@ -3045,7 +3037,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				// to make the child entries indented, add spaces
 				size_t len = _tcslen(pItem->pszText);
 				TCHAR * pBuf = pItem->pszText + len;
-				DWORD nSpaces = m_maxChild-pLogEntry->childStackDepth;
+				DWORD nSpaces = m_maxChild-pLogEntry->GetChildStackDepth();
 				while ((pItem->cchTextMax >= (int)len)&&(nSpaces))
 				{
 					*pBuf = ' ';
@@ -3547,34 +3539,34 @@ private:
     /// - (ascending) order according to \ref ColumnSort
     /// - put merged revisions below merge target revision
 
-	bool InternalCompare (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+	bool InternalCompare (PLOGENTRYDATA pStart, PLOGENTRYDATA pEnd)
 	{
         // are both entry sibblings on the same node level?
         // (root -> both have NULL as parent)
 
-        if (pStart->parent == pEnd->parent)
+        if (pStart->GetParent() == pEnd->GetParent())
             return ColumnCond()(pStart, pEnd);
 
         // special case: one is the parent of the other
         // -> don't compare contents in that case
 
-        if (pStart->parent == pEnd)
+        if (pStart->GetParent() == pEnd)
             return !ascending;
-        if (pStart == pEnd->parent)
+        if (pStart == pEnd->GetParent())
             return ascending;
 
         // find the closed pair of parents that is related
 
-        assert ((pStart->childStackDepth == 0) || (pStart->parent != NULL));
-        assert ((pEnd->childStackDepth == 0) || (pEnd->parent != NULL));
+        assert ((pStart->GetChildStackDepth() == 0) || (pStart->GetParent() != NULL));
+        assert ((pEnd->GetChildStackDepth() == 0) || (pEnd->GetParent() != NULL));
 
-        if (pStart->childStackDepth == pEnd->childStackDepth)
-            return InternalCompare (pStart->parent, pEnd->parent);
+        if (pStart->GetChildStackDepth() == pEnd->GetChildStackDepth())
+            return InternalCompare (pStart->GetParent(), pEnd->GetParent());
 
-        if (pStart->childStackDepth < pEnd->childStackDepth)
-            return InternalCompare (pStart, pEnd->parent);
+        if (pStart->GetChildStackDepth() < pEnd->GetChildStackDepth())
+            return InternalCompare (pStart, pEnd->GetParent());
         else
-            return InternalCompare (pStart->parent, pEnd);
+            return InternalCompare (pStart->GetParent(), pEnd);
 	}
 
 public:

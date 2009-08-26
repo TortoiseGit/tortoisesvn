@@ -67,18 +67,24 @@ CStoreSelection::~CStoreSelection()
 }
 
 LogEntryData::LogEntryData 
-    ( svn_revnum_t Rev
+    ( LogEntryData* parent
+    , svn_revnum_t Rev
     , __time64_t tmDate
     , const CString& date
     , const CString& author
     , const CString& message
     , ProjectProperties* projectProperties)
-    : Rev (Rev)
+    : parent (parent)
+    , hasChildren (false)
+    , childStackDepth (parent == NULL ? 0 : parent->childStackDepth+1)
+    , Rev (Rev)
     , tmDate (tmDate)
     , sDate (date)
     , sAuthor (author)
 {
     SetMessage (message, projectProperties);
+    if (parent)
+        parent->hasChildren = true;
 }
 
 void LogEntryData::SetAuthor 
@@ -196,7 +202,8 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
 
     std::auto_ptr<LOGENTRYDATA> result 
         (new LogEntryData
-            ( revision
+            ( NULL
+            , revision
             , date / 1000000L
             , date_native
             , CString (author != NULL ? author : "")
@@ -210,10 +217,7 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
 	result->bCopies = copies;
 	result->bCopiedSelf = FALSE;
 	result->actions = actions;
-	result->haschildren = FALSE;
-	result->childStackDepth = 0;
 	result->bChecked = FALSE;
-    result->parent = NULL;
 
     // done here
 

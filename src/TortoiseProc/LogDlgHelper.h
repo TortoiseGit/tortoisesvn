@@ -49,15 +49,17 @@ private:
 
     /// encapsulate data
 
-	svn_revnum_t Rev;
+    LogEntryData* parent;
+	bool hasChildren;
+	DWORD childStackDepth;
+
+    svn_revnum_t Rev;
 	__time64_t tmDate;
 	CString sDate;
 	CString sAuthor;
 	CString sMessage;
 	CString sShortMessage;
 	CString sBugIDs;
-
-    LogEntryData();
 
 public:
 
@@ -66,14 +68,12 @@ public:
 	BOOL bCopies;
 	BOOL bCopiedSelf;
 	DWORD actions;
-	BOOL haschildren;
-	DWORD childStackDepth;
 	BOOL bChecked;
-    LogEntryData* parent;
 
     /// initialization
 
-    LogEntryData ( svn_revnum_t Rev
+    LogEntryData ( LogEntryData* parent
+                 , svn_revnum_t Rev
                  , __time64_t tmDate
                  , const CString& sDate
                  , const CString& sAuthor
@@ -89,6 +89,11 @@ public:
         , ProjectProperties* projectProperties);
 
     /// r/o access to the data
+
+    LogEntryData* GetParent() {return parent;}
+    const LogEntryData* GetParent() const {return parent;}
+    bool HasChildren() const {return hasChildren;}
+    DWORD GetChildStackDepth() const {return childStackDepth;}
 
     svn_revnum_t GetRevision() const {return Rev;}
     __time64_t GetDate() const {return tmDate;}
@@ -209,7 +214,7 @@ public:
     /// \returns NULL if \ref IsCached returns false for that \ref revision.
     /// Otherwise, all cached log information for the respective revisin 
     /// will be returned. 
-    /// The bCopiedSelf, bChecked and haschildren members will always be 
+    /// The bCopiedSelf, bChecked and hasChildren members will always be 
     /// @a FALSE; childStackDepth will be 0.
 
     PLOGENTRYDATA GetRevisionData (svn_revnum_t revision);

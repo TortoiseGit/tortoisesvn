@@ -281,15 +281,13 @@ private:
 	int					m_nIconFolder;
 
 
-	DWORD				m_childCounter;
 	DWORD				m_maxChild;
 	HACCEL				m_hAccel;
 
 	CStoreSelection*	m_pStoreSelection;
     CLogDataVector		m_logEntries;
 
-    /// used temporarily when fetching logs with merge info:
-    /// contains the \ref m_childCounter parents of the current entry
+    /// used temporarily when fetching logs with merge info
     CLogDataVector		m_logParents;   
 	
 	CXPTheme			theme;
