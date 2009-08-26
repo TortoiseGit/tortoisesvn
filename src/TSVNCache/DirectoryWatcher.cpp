@@ -411,14 +411,18 @@ void CDirectoryWatcher::WorkerThread()
 							continue;
                         }
 					}
+					
 					PFILE_NOTIFY_INFORMATION pnotify = (PFILE_NOTIFY_INFORMATION)pdi->m_Buffer;
-					DWORD nOffset = numBytes == 0 
-						? 0 
-						: pnotify->NextEntryOffset;
+					DWORD nOffset = 0;
 
-					while (nOffset > 0)
+					do
 					{
+						pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
 						nOffset = pnotify->NextEntryOffset;
+
+						if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
+							break;
+
 						if (pnotify->FileNameLength >= (READ_DIR_CHANGE_BUFFER_SIZE*sizeof(TCHAR)))
 							continue;
 
@@ -427,11 +431,10 @@ void CDirectoryWatcher::WorkerThread()
 						errno_t err = _tcsncat_s(buf+pdi->m_DirPath.GetLength(), READ_DIR_CHANGE_BUFFER_SIZE-pdi->m_DirPath.GetLength(), pnotify->FileName, _TRUNCATE);
 						if (err == STRUNCATE)
 						{
-							pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
 							continue;
 						}
 						buf[(pnotify->FileNameLength/sizeof(TCHAR))+pdi->m_DirPath.GetLength()] = 0;
-						pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
+
 						if (m_FolderCrawler)
 						{
 							if ((pFound = wcsstr(buf, L"\\tmp"))!=NULL)
@@ -439,8 +442,6 @@ void CDirectoryWatcher::WorkerThread()
 								pFound += 4;
 								if (((*pFound)=='\\')||((*pFound)=='\0'))
 								{
-									if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
-										break;
 									continue;
 								}
 							}
@@ -449,8 +450,6 @@ void CDirectoryWatcher::WorkerThread()
 								if ((pFound-buf) < 5)
 								{
 									// a notification for the recycle bin - ignore it
-									if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
-										break;
 									continue;
 								}
 							}
@@ -459,8 +458,6 @@ void CDirectoryWatcher::WorkerThread()
 								if ((pFound-buf) < 5)
 								{
 									// a notification for the recycle bin - ignore it
-									if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
-										break;
 									continue;
 								}
 							}
@@ -468,16 +465,12 @@ void CDirectoryWatcher::WorkerThread()
 							{
 								// assume files with a .tmp extension are not versioned and interesting,
 								// so ignore them.
-								if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
-									break;
 								continue;
 							}
 							CTraceToOutputDebugString::Instance()(_T("DirectoryWatcher.cpp: change notification for %s\n"), buf);
 							m_FolderCrawler->AddPathForUpdate(CTSVNPath(buf));
 						}
-						if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
-							break;
-					};
+					} while (nOffset > 0);
 
 					// setup next notification cycle
 
