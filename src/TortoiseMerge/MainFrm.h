@@ -179,6 +179,6 @@ public:
 	void			ShowDiffBar(bool bShow);
 
 private:
-	onViewLineUpDown(int direction);
-	onViewLineLeftRight(int direction);
+	void onViewLineUpDown(int direction);
+	void onViewLineLeftRight(int direction);
 };
