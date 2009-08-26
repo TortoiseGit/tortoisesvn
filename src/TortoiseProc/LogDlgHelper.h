@@ -61,13 +61,14 @@ private:
 	CString sShortMessage;
 	CString sBugIDs;
 
+	LogChangedPathArray* changedPaths;
+	DWORD changedPathCount;
+	bool copies;
+	bool copiedSelf;
+	DWORD actions;
+
 public:
 
-	DWORD dwFileChanges;
-	LogChangedPathArray* pArChangedPaths;
-	BOOL bCopies;
-	BOOL bCopiedSelf;
-	DWORD actions;
 	BOOL bChecked;
 
     /// initialization
@@ -78,7 +79,9 @@ public:
                  , const CString& sDate
                  , const CString& sAuthor
                  , const CString& sMessage
-                 , ProjectProperties* projectProperties);
+                 , ProjectProperties* projectProperties
+                 , LogChangedPathArray* changedPaths
+                 , CString& selfRelativeURL);
 
     /// modification
 
@@ -103,6 +106,14 @@ public:
 	const CString& GetMessage() const {return sMessage;}
 	const CString& GetShortMessage() const {return sShortMessage;}
 	const CString& GetBugIDs() const {return sBugIDs;}
+
+    LogChangedPathArray* GetChangedPaths() {return changedPaths;}
+    const LogChangedPathArray* GetChangedPaths() const {return changedPaths;}
+    DWORD GetChangedPathCount() const {return changedPathCount;}
+    bool ContainsCopies() const {return copies;}
+    bool ContainsSelfCopy() const {return copiedSelf;}
+    DWORD GetActions() const {return actions;}
+
 };
 
 typedef LogEntryData LOGENTRYDATA, *PLOGENTRYDATA;
@@ -169,9 +180,10 @@ public:
 	{
 		bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
 		{
-			if (pStart->actions == pEnd->actions)
+			if (pStart->GetActions() == pEnd->GetActions())
 				return pStart->GetRevision() < pEnd->GetRevision();
-			return pStart->actions < pEnd->actions;
+
+			return pStart->GetActions() < pEnd->GetActions();
 		}
 	};
 };

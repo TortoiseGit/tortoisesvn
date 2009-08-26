@@ -73,7 +73,9 @@ LogEntryData::LogEntryData
     , const CString& date
     , const CString& author
     , const CString& message
-    , ProjectProperties* projectProperties)
+    , ProjectProperties* projectProperties
+    , LogChangedPathArray* changedPaths
+    , CString& selfRelativeURL)
     : parent (parent)
     , hasChildren (false)
     , childStackDepth (parent == NULL ? 0 : parent->childStackDepth+1)
@@ -81,10 +83,39 @@ LogEntryData::LogEntryData
     , tmDate (tmDate)
     , sDate (date)
     , sAuthor (author)
+    , changedPaths (changedPaths)
+    , changedPathCount (changedPaths == NULL ? 0 : changedPaths->GetCount())
+    , copies (false)
+	, copiedSelf (false)
+	, actions (0)
 {
+    // derived header info
+
     SetMessage (message, projectProperties);
+
+    // update nesting info
+
     if (parent)
         parent->hasChildren = true;
+
+    // derived change path info and update current URL
+
+	for (size_t i = 0; i < changedPathCount; ++i)
+	{
+		LogChangedPath * cpath = changedPaths->GetAt (i);
+	    actions |= cpath->action;
+	    copies |= cpath->lCopyFromRev != 0;
+
+        if (   !cpath->sCopyFromPath.IsEmpty() 
+            && (cpath->sPath.Compare (selfRelativeURL) == 0))
+		{
+			// note: this only works if the log is fetched top-to-bottom
+			// but since we do that, it shouldn't be a problem
+
+            selfRelativeURL = cpath->sCopyFromPath;
+			copiedSelf = true;
+		}
+	}
 }
 
 void LogEntryData::SetAuthor 
@@ -125,7 +156,7 @@ void CLogDataVector::ClearAll()
 	{
 		for(iterator it=begin(); it!=end(); ++it)
 		{
-			delete (*it)->pArChangedPaths;
+            delete (*it)->GetChangedPaths();
 			delete *it;
 		}     
 		clear();
@@ -200,6 +231,8 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
 
     // construct result
 
+    CString dummyURL (_T("NO://URL"));
+
     std::auto_ptr<LOGENTRYDATA> result 
         (new LogEntryData
             ( NULL
@@ -209,14 +242,11 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
             , CString (author != NULL ? author : "")
             , message
             , projectProperties
+            , changes.release()
+            , dummyURL
             )
         );
 
-    result->dwFileChanges = (DWORD)changes->GetCount();
-    result->pArChangedPaths = changes.release();
-	result->bCopies = copies;
-	result->bCopiedSelf = FALSE;
-	result->actions = actions;
 	result->bChecked = FALSE;
 
     // done here
