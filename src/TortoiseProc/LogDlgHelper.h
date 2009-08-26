@@ -67,9 +67,14 @@ private:
 	bool copiedSelf;
 	DWORD actions;
 
-public:
+	bool checked;
 
-	BOOL bChecked;
+    /// no copy support
+
+    LogEntryData (const LogEntryData&);
+    LogEntryData& operator=(const LogEntryData&);
+
+public:
 
     /// initialization
 
@@ -83,6 +88,10 @@ public:
                  , LogChangedPathArray* changedPaths
                  , CString& selfRelativeURL);
 
+    /// destruction
+
+    ~LogEntryData();
+
     /// modification
 
     void SetAuthor 
@@ -90,6 +99,8 @@ public:
     void SetMessage 
         ( const CString& message
         , ProjectProperties* projectProperties);
+    void SetChecked
+        ( bool newState);
 
     /// r/o access to the data
 
@@ -114,6 +125,7 @@ public:
     bool ContainsSelfCopy() const {return copiedSelf;}
     DWORD GetActions() const {return actions;}
 
+    bool GetChecked() const {return checked;}
 };
 
 typedef LogEntryData LOGENTRYDATA, *PLOGENTRYDATA;

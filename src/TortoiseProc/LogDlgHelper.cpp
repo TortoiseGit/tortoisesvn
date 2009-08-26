@@ -88,6 +88,7 @@ LogEntryData::LogEntryData
     , copies (false)
 	, copiedSelf (false)
 	, actions (0)
+    , checked (false)
 {
     // derived header info
 
@@ -116,6 +117,11 @@ LogEntryData::LogEntryData
 			copiedSelf = true;
 		}
 	}
+}
+
+LogEntryData::~LogEntryData()
+{
+    delete changedPaths;
 }
 
 void LogEntryData::SetAuthor 
@@ -150,16 +156,20 @@ void LogEntryData::SetMessage
     }
 }
 
+void LogEntryData::SetChecked
+    ( bool newState)
+{
+    checked = newState;
+}
+
 void CLogDataVector::ClearAll()
 {
 	if(size() > 0)
 	{
 		for(iterator it=begin(); it!=end(); ++it)
-		{
-            delete (*it)->GetChangedPaths();
 			delete *it;
-		}     
-		clear();
+
+        clear();
 	}
 }
 
@@ -246,8 +256,6 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
             , dummyURL
             )
         );
-
-	result->bChecked = FALSE;
 
     // done here
 

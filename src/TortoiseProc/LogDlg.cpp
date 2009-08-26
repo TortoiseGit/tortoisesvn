@@ -970,8 +970,6 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
             );
 
     cpaths->RemoveAll();
-
-	pLogItem->bChecked = false;
     m_maxChild = max (pLogItem->GetChildStackDepth(), m_maxChild);
 
 	if (haschildren)
@@ -2251,7 +2249,7 @@ void CLogDlg::ToggleCheckbox(int item)
 			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(item));
 			if (pLogEntry)
 			{
-				pLogEntry->bChecked = !pLogEntry->bChecked;
+				pLogEntry->SetChecked (!pLogEntry->GetChecked());
 				m_LogList.RedrawItems(item, item);
 			}
 		}
@@ -2292,7 +2290,7 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(pNMLV->iItem));
 				if (pLogEntry)
 				{
-					pLogEntry->bChecked = (pNMLV->uNewState & LVIS_SELECTED) != 0;
+					pLogEntry->SetChecked ((pNMLV->uNewState & LVIS_SELECTED) != 0);
 				}
 			}
 		}
@@ -2973,7 +2971,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 
 		if (pLogEntry)
 		{
-			if (pLogEntry->bChecked)
+			if (pLogEntry->GetChecked())
 			{
 				//Turn check box on
 				pItem->state = INDEXTOSTATEIMAGEMASK(2);
