@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-07-07 13:23 +0000\n"
-"PO-Revision-Date: 2009-07-09 14:04+0100\n"
+"POT-Creation-Date: 2009-08-19 21:51 +0000\n"
+"PO-Revision-Date: 2009-08-26 09:11+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3273,6 +3273,16 @@ msgstr "Manchmal werden Dateien außerhalb von Subversion umbenannt, und sie wer
 
 #. (title)
 #. (title)
+msgid "Repairing External Copies"
+msgstr "Repariere externe Kopien"
+
+#. (para)
+#. (para)
+msgid "If you made a copy of a file but forgot to use the Subversion command to do so, you can repair that copy so the new file doesn't lose its history. Simply select both the old name (normal or modified) and the new name (unversioned) and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Copy</guimenuitem></menuchoice> to pair the two files as a copy."
+msgstr "Falls Sie eine Datei kopiert haben, ohne den entsprechenden Subversion Befehl zu benutzen, können Sie diese Kopie reparieren, so dass die neue Datei ihre Historie nicht verliert. Markieren Sie einfach beide, die alte (normal oder verändert) und die neue (unversionierte) Datei und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Kopie reparieren</guimenuitem></menuchoice>, um die beiden Dateien zu einer Kopie zusammenzufassen."
+
+#. (title)
+#. (title)
 msgid "Change Lists"
 msgstr "Änderungslisten"
 
@@ -4711,6 +4721,10 @@ msgid "Click on the search icon to select which information you want to search i
 msgstr "Klicken Sie auf das Suchsymbol, um auszuwählen welche Werte Sie durchsuchen möchten und um die Suche mit regulären Ausdrücken zu aktivieren. Normalerweise benötigen Sie nur eine einfache Textsuche, aber falls Sie komplexere Suchbegriffe formulieren wollen, können Sie reguläre Ausdrücke verwenden. Wenn Sie mit dem Mauszeiger über das Eingabefeld fahren, erscheint ein Hinweistext zu den regulären Ausdrücken. Unter <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink> stehen eine Dokumentation und Übungen zur Verfügung. Der Filter vergleicht Ihren Suchtext mit den Logmeldungen und zeigt nur die Einträge an, die mit dem Suchtext <emphasis>übereinstimmen</emphasis>."
 
 #. (para)
+msgid "If you don't use regex mode, you can enter several strings to search for, and only those log entries which match all of your filter words will be shown."
+msgstr "Falls Sie keine regulären Ausdrücke verwenden, können Sie mehrere Zeichenketten zur Suche angeben und es werden nur die Log-Einträge angezeigt, die alle Wörter enthalten."
+
+#. (para)
 msgid "To make the filter show all log entries that do <emphasis>not</emphasis> match the filter string, start the string with an exclamation mark ('!'). For example, a filter string <literal>!username</literal> will only show those entries which were not committed by <literal>username</literal>."
 msgstr "Damit der Filter alle Einträge anzeigt, die <emphasis>nicht</emphasis> mit dem Suchtext übereinstimmen, beginnen Sie den Suchtext mit einem Ausrufezeichen ('!'). Zum Beispiel würde der Suchtext <literal>!Harry</literal> nur die Einträge anzeigen, die nicht durch <literal>Harry</literal> übertragen wurden."
 
@@ -5979,8 +5993,10 @@ msgid "These special project properties must be set on <emphasis>folders</emphas
 msgstr "Diese speziellen Eigenschaften müssen für Ordner und nicht für Dateien gesetzt werden. Wenn Sie eine Datei oder einen Ordner übertragen dann werden die Eigenschaften aus eben diesem Ordner gelesen. Wenn die Eigenschaften nicht gefunden werden, sucht TortoiseSVN im Ordnerbaum aufwärts nach diesen Eigenschaften, bis entweder die Eigenschaften gefunden wurden oder der oberste Ordner der Arbeitskopie gefunden wurde. Wenn Sie also sicher sind dass alle Benutzer ihre Arbeitskopie z.B. von <filename>/trunk</filename> ausgecheckt haben, reicht es aus die Eigenschaften dort zu setzen. Wenn Sie hingegen nicht sicher sein können, dann müssen Sie diese Eigenschaften rekursiv auf alle Unterordner Ihres Projektes setzen. Beachten Sie: eine Eigenschaft welche auf Unterordnern gesetzt ist überschreibt dieselbe Eigenschaft für übergeordnete Ordner."
 
 #. (para)
-msgid "For project properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr "<emphasis>Ausschließlich</emphasis> für Projekteigenschaften können Sie die <guilabel>Rekursiv</guilabel> Option wählen, um die Eigenschaft auf alle Unterordner zu übertragen, ohne sie gleichzeitig auch für alle Dateien zu setzen."
+#. (para)
+#. (para)
+msgid "For project properties <emphasis>only</emphasis>, i.e. <literal>tsvn:</literal>, <literal>bugtraq:</literal> and <literal>webviewer:</literal> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
+msgstr "<emphasis>Ausschließlich</emphasis> für Projekteigenschaften (z.B. <literal>tsvn:</literal>, <literal>bugtraq:</literal> und <literal>webviewer:</literal>), können Sie die <guilabel>Rekursiv</guilabel> Option wählen, um die Eigenschaft auf alle Unterordner zu übertragen, ohne sie gleichzeitig auch für alle Dateien zu setzen."
 
 #. (para)
 msgid "When you add new sub-folders using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
@@ -6307,8 +6323,8 @@ msgid "To be able to work with your freshly generated branch or tag you have sev
 msgstr "Es gibt mehrere Möglichkeiten, mit Ihrer neuen Verzweigung oder Markierung weiterzuarbeiten. Sie können: <placeholder-1/><placeholder-2/>"
 
 #. (para)
-msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
-msgstr "Tags (=Marken) werden typischerweise dafür verwendet, einen Entwicklungszeitpunkt einzufrieren . Als solche werden sie normalerweise nicht für die Weiterentwicklung genutzt. Dafür sind <literal>branches</literal> gedacht. Das ist auch der Hauptgrund, warum wir die <filename>/trunk /branches /tags</filename> Struktur für Projektarchive empfehlen. Änderungen an einer markierten Revision vorzunehmen ist <emphasis>keine gute Idee</emphasis>, aber da die Daten in Ihrer Arbeitskopie nicht schreibgeschützt sind, kann es aus Versehen doch passieren. TortoiseSVN wird Sie jedoch warnen, wenn Sie versuchen, Änderungen in einem Pfad im Projektarchiv zu übertragen, den die Zeichenfolge <literal>/tags</literal> enthält."
+msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they are not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
+msgstr "<emphasis>Tags</emphasis> (=Marken) werden typischerweise dafür verwendet, einen Entwicklungszeitpunkt einzufrieren. Als solche werden sie normalerweise nicht für die Weiterentwicklung genutzt. Dafür sind <emphasis>branches</emphasis> (=Verzweigungen) gedacht. Das ist auch der Hauptgrund, warum wir die <filename>/trunk /branches /tags</filename> Struktur für Projektarchive empfehlen. Änderungen an einer markierten Revision vorzunehmen ist <emphasis>keine gute Idee</emphasis>, aber da die Daten in Ihrer Arbeitskopie nicht schreibgeschützt sind, kann es aus Versehen doch passieren. TortoiseSVN wird Sie jedoch warnen, wenn Sie versuchen, Änderungen in einem Pfad im Projektarchiv zu übertragen, den die Zeichenfolge <literal>/tags</literal> enthält."
 
 #. (para)
 msgid "It may be that you need to make further changes to a release which you have already tagged. The correct way to handle this is to create a new branch from the tag first and commit the branch. Do your Changes on this branch and then create a new tag from this new branch, e.g. <filename>Version_1.0.1</filename>."
@@ -7789,18 +7805,13 @@ msgstr "Setzen Sie die Eigenschaften auf Ordner"
 msgid "These properties must be set on folders for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it's enough if you set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
 msgstr "Die obigen Eigenschaften müssen auf Ordner gesetzt sein, damit das System richtig funktioniert. Beim Übertragen werden die Eigenschaften des aktuellen Ordners gelesen. Falls die Eigenschaften nicht gefunden werden, sucht TortoiseSVN nach oben durch die Ordnerstruktur bis es auf einen nicht versionierten Ordner oder die Wurzel (z.B. <literal>C:\\</literal>) stößt. Wenn Sie sicher gehen können, dass jeder Benutzer z.B. von <filename>trunk/</filename> und nicht aus einem Unterordner auscheckt, definieren Sie die Eigenschaften nur für <filename>trunk/</filename>. Wenn Sie nicht sicher sein können, definieren Sie die Eigenschaft rekursiv für jeden Unterordner. Eigenschaften in einem Unterordner überschreiben die Einstellungen in einem übergeordneten Ordner. "
 
-#. (para)
-#. (para)
-msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr "<emphasis>Ausschließlich</emphasis> für <literal>tsvn:</literal> Eigenschaften können Sie die <guilabel>Rekursiv</guilabel> Option wählen, um die Eigenschaft auf alle Unterordner zu setzen, ohne sie gleichzeitig auch für alle Dateien zu setzen."
-
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
 msgstr "Keine Fehlerverfolgungsinformationen im Projektarchivbetrachter"
 
 #. (para)
-msgid "Because the issue tracker integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
-msgstr "Da die Integration mit Fehlerverfolgungssystemen vom Zugriff auf Subversion Eigenschaften abhängt, sehen Sie die Ergebnisse nur in einer Arbeitskopie. Im Projektarchivbetrachter steht diese Funktion nicht zur Verfügung, weil das Holen der Eigenschaften von einem Server eine zeitintensive Operation list."
+msgid "Because the issue tracker integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the URL of the repository you won't see this feature."
+msgstr "Da die Integration mit Fehlerverfolgungssystemen vom Zugriff auf Subversion Eigenschaften abhängt, sehen Sie die Ergebnisse nur in einer Arbeitskopie. Da das Holen der Eigenschaften von einem Server eine zeitintensive Operation ist, steht diese Funktion im Projektarchivbetrachter nicht zur Verfügung, es sei denn er wurde aus der Arbeitskopie heraus gestartet. Wenn Sie die URL des Projektarchivs direkt eingeben steht die Funktion nicht zur Verfügung."
 
 #. (para)
 msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
@@ -7871,8 +7882,8 @@ msgid "No Repo Viewer Links from Repository Browser"
 msgstr "Keine Projektarchiv-Verweise im Projektarchivbetrachter"
 
 #. (para)
-msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
-msgstr "Da die Integration des Projektarchivbetrachters vom Zugriff auf Subversion Eigenschaften abhängt, sehen Sie die Ergebnisse nur in einer Arbeitskopie. Im Projektarchivbetrachter steht diese Funktion nicht zur Verfügung, weil das Holen der Eigenschaften von einem Server eine zeitintensive Operation list."
+msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the URL of the repository you won't see this feature."
+msgstr "Da die Integration des Projektarchivbetrachters vom Zugriff auf Subversion Eigenschaften abhängt, sehen Sie die Ergebnisse nur in einer Arbeitskopie. Da das Holen der Eigenschaften von einem Server eine zeitintensive Operation ist, steht diese Funktion im Projektarchivbetrachter nicht zur Verfügung, es sei denn er wurde aus der Arbeitskopie heraus gestartet. Wenn Sie die URL des Projektarchivs direkt eingeben steht die Funktion nicht zur Verfügung."
 
 #. (title)
 msgid "TortoiseSVN's Settings"
@@ -11052,6 +11063,10 @@ msgid "/findtext"
 msgstr "/findtext"
 
 #. (option)
+msgid "/findregex"
+msgstr "/findregex"
+
+#. (option)
 msgid "/findtype:X"
 msgstr "/findtype:X"
 
@@ -11080,8 +11095,8 @@ msgid "<option>/findtype:7</option> filter by bug ID"
 msgstr "<option>/findtype:7</option> Filter nach Fehler ID"
 
 #. (entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (enables the 'stop-on-copy' checkbox), <placeholder-5/> fills in the filter text, <placeholder-6/> (forces the filter to use text, not regex) and <placeholder-7/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-8/>"
-msgstr "Öffnet den Log-Dialog. Der <placeholder-1/> definiert die Datei oder den Ordner, für den das Log angezeigt werden soll. Sechs weitere Optionen können angegeben werden: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (aktiviert die 'Bei Kopien anhalten' Option), <placeholder-5/> enthält den Filtertext, <placeholder-6/> (erzwingt Filterung nach Text anstatt RegEx) und <placeholder-7/> mit X als Zahl von 1 bis 7 Die Zahlen entsprechen <placeholder-8/>"
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> fills in the filter text, <placeholder-6/> forces the filter to use text, not regex, or <placeholder-7/> forces the filter to use regex, not simple text search, and <placeholder-8/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-9/>"
+msgstr "Öffnet den Log-Dialog. Der <placeholder-1/> definiert die Datei oder den Ordner, für den das Log angezeigt werden soll. Sechs weitere Optionen können angegeben werden: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (aktiviert die 'Bei Kopien anhalten' Option), <placeholder-5/> enthält den Filtertext, <placeholder-6/> erzwingt Filterung nach Text anstatt RegEx,<placeholder-7/> erzwingt Filterung nach RegEx anstatt Text und <placeholder-8/>, mit x als Zahl von 1 bis 7. Die Zahlen entsprechen: <placeholder-9/>"
 
 #. (option)
 #. (option)
@@ -12979,6 +12994,15 @@ msgstr ""
 msgid "translator-translation"
 msgstr "Übersetzung"
 
+#~ msgid ""
+#~ "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can "
+#~ "use the <guilabel>Recursive</guilabel> checkbox to set the property to "
+#~ "all sub-folders in the hierarchy, without also setting it on all files."
+#~ msgstr ""
+#~ "<emphasis>Ausschließlich</emphasis> für <literal>tsvn:</literal> "
+#~ "Eigenschaften können Sie die <guilabel>Rekursiv</guilabel> Option wählen, "
+#~ "um die Eigenschaft auf alle Unterordner zu setzen, ohne sie gleichzeitig "
+#~ "auch für alle Dateien zu setzen."
 #~ msgid ""
 #~ "By default this only works for files. This is because the update revision "
 #~ "for a folder may not correspond to the update revision of its content, "
