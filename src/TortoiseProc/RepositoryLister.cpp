@@ -381,7 +381,7 @@ CTSVNPath CRepositoryLister::EscapeUrl (const CString& url)
 
 CRepositoryLister::CRepositoryLister()
     : scheduler (32, 0, true)
-    , fetchingExternalsEnabled (_T("Software\\TortoiseSVN\\ShowExternalsInBrowser"), FALSE)
+    , fetchingExternalsEnabled (_T("Software\\TortoiseSVN\\ShowExternalsInBrowser"), TRUE)
 {
 }
 
