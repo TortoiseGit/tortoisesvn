@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-08-19 21:51 +0000\n"
-"PO-Revision-Date: 2009-08-25 17:54+0100\n"
+"PO-Revision-Date: 2009-08-26 18:47+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1645,10 +1645,20 @@ msgid ""
 "...\n"
 "</screen> This example would deny all access for unauthenticated (anonymous) users, and give read-write access to users listed in <filename>userfile</filename>."
 msgstr ""
+"Om dit te voorkomen kun je een database beveiligen met een wachtwoord: <screen>\n"
+"[general]\n"
+"anon-access = none\n"
+"auth-access = write\n"
+"password-db = userfile\n"
+"</screen> Waarbij <filename>userfile</filename> een bestand is die opgeslagen is in dezelfde map als <filename>svnserve.conf</filename>. Dit bestand kan ergens anders in je bestandssysteem opgeslagen worden (handig als je meerdere archieven hebt die dezelfde toegangsrechten nodig hebben) en er kan naar verwezen worden met een absoluut pad, of een pad relatief ten opzichte van de <filename>conf</filename> map. Als je een pad gebruikt, dan moet dit met <filename>/de/unix/methode</filename>.  Het gebruik van \\ of schijfletters zal niet werken. De <filename>userfile</filename> moet er uit zien als <screen>\n"
+"[users]\n"
+"username = password\n"
+"...\n"
+"</screen> Dit voorbeeld verbied alle toegang voor ongeautoriseerde (anonieme) gebruikers en geeft lees- en schrijfrechten aan de gebruikers in de <filename>userfile</filename>."
 
 #. (para)
 msgid "If you maintain multiple repositories using the same password database, the use of an authentication realm will make life easier for users, as TortoiseSVN can cache your credentials so that you only have to enter them once. More information can be found in the Subversion book, specifically in the sections <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.auth.users\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>Client Credentials Caching</citetitle></ulink>"
-msgstr ""
+msgstr "Als je meerdere archieven beheerd met dezelfde wachtwoord database, dan kan het makkelijker worden door gebruik te maken van een zogenaamd authenticatie gebied. TortoiseSVN kan de gebruikerslidmaatschappen tijdelijk opslaan, zodat je deze maar één keer in hoeft te vullen. Meer informatie hierover staat in het Subversion boek, <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.auth.users\"><citetitle>Create a 'users' file and realm</citetitle></ulink> en <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>Client Credentials Caching</citetitle></ulink>"
 
 #. (title)
 msgid "Better Security with SASL"
@@ -1664,11 +1674,11 @@ msgstr "Wat is SALS?"
 
 #. (para)
 msgid "The Cyrus Simple Authentication and Security Layer is open source software written by Carnegie Mellon University. It adds generic authentication and encryption capabilities to any network protocol, and as of Subversion 1.5 and later, both the svnserve server and TortoiseSVN client know how to make use of this library."
-msgstr ""
+msgstr "De Cyrus Simple Authentication en Secruity Layer is openbron software geschreven door de Carnegie Mellon Universiteit. Het voegt generieke authenticatie en encryptie mogelijkheden toe aan een netwerk protocol. Sinds versie 1.5 kunnen Subversion’s svnserve server en de TortoiseSVN applicatie omgaan met deze bibliotheek."
 
 #. (para)
 msgid "For a more complete discussion of the options available, you should look at the Subversion book in the section <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.sasl\"><citetitle>Using svnserve with SASL</citetitle></ulink>. If you are just looking for a simple way to set up secure authentication and encryption on a Windows server, so that your repository can be accessed safely over the big bad Internet, read on."
-msgstr ""
+msgstr "Voor een completere beschrijving van de mogelijkheden, moet je het Subversion boek lezen <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.sasl\"><citetitle>Using svnserve with SASL</citetitle></ulink>. Als je alleen op eenvoudige manier veilige authenticatie en encryptie op en Windows server wilt gebruiken, zodat je archief veilig gebruikt kan worden via het grote gemene Internet, lees dan verder..."
 
 #. (title)
 msgid "SASL Authentication"
@@ -1680,14 +1690,17 @@ msgid ""
 "use-sasl = true\n"
 "</screen>"
 msgstr ""
+"Om specifieke SASL mechanismes op de server aan te zetten moet je eerst drie dingen doen. Ten eerste, maak een <literal>[sasl]</literal> sectie in het <filename>svnserve.conf</filename> bestand van je archief, met de volgende parameter: <screen>\n"
+"use-sasl = true\n"
+"</screen>"
 
 #. (para)
 msgid "Second, create a file called <filename>svn.conf</filename> in a convenient location - typically in the directory where subversion is installed."
-msgstr ""
+msgstr "Vervolgens maak je een bestand met de naam <filename>svn.conf</filename> op een makkelijk plaats – normaal gesproken in de map waar subversion is geïnstalleerd."
 
 #. (para)
 msgid "Thirdly, create two new registry entries to tell SASL where to find things. Create a registry key named <literal>[HKEY_LOCAL_MACHINE\\SOFTWARE\\Carnegie Mellon\\Project Cyrus\\SASL Library]</literal> and place two new string values inside it: <literal>SearchPath</literal> set to the directory path containing the <filename>sasl*.dll</filename> plug-ins (normally in the Subversion install directory), and <literal>ConfFile</literal> set to the directory containing the <filename>svn.conf</filename> file. If you used the CollabNet installer, these registry keys will already have been created for you."
-msgstr ""
+msgstr "Daarna maak je twee nieuwe register sleutels om SASL aan te geven waar de gegevens gevonden kunnen worden. Maak een sleutel aan met de naam <literal>[HKEY_LOCAL_MACHINE\\SOFTWARE\\Carnegie Mellon\\Project Cyrus\\SASL Library]</literal> en creëer daar twee nieuwe waardes in: <literal>SearchPath</literal> wijzend naar de map met de <filename>sasl*.dll</filename> plug-ins (meestal in de Subversion map) en <literal>ConfFile</literal> wijzend naar de map met <filename>svn.conf</filename>. Deze sleutels zijn al aangemaakt als je de CollabNet installatie gebruikt hebt."
 
 #. (para)
 msgid ""
@@ -1698,10 +1711,16 @@ msgid ""
 "sasldb_path: C:\\TortoiseSVN\\sasldb\n"
 "</screen> The last line shows the location of the authentication database, which is a file called <filename>sasldb</filename>. This could go anywhere, but a convenient choice is the repository parent path. Make sure that the svnserve service has read access to this file."
 msgstr ""
+"Bewerk <filename>svn.conf</filename> zodat het volgende er in staat: <screen>\n"
+"pwcheck_method: auxprop\n"
+"auxprop_plugin: sasldb\n"
+"mech_list: DIGEST-MD5\n"
+"sasldb_path: C:\\TortoiseSVN\\sasldb\n"
+"</screen> De laatste regel toont de locatie van de authenticatie database, een bestand me de naam <filename>sasldb</filename>. Deze kan overal staan, maar een logische plaats is één map hoger dan het archief pad. Zorg er voor dat de svnserve service leesrechten heeft voor dit bestand."
 
 #. (para)
 msgid "If svnserve was already running, you will need to restart it to ensure it reads the updated configuration."
-msgstr ""
+msgstr "Als svnserve al draaide, dan moet je deze opnieuw starten zodat het de bijgewerkte configuratie inleest."
 
 #. (para)
 msgid ""
@@ -12207,10 +12226,10 @@ msgstr ""
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr "eindtitels-vertalerJeroen van Amstel"
+msgstr "Jeroen van Amstel"
 
 #. Place the translation of 'translation' here.
 #. (None)
 msgid "translator-translation"
-msgstr "vertaler-vertaling"
+msgstr "Vertaling"
 
