@@ -177,10 +177,8 @@ public:
 	int				m_nMoveMovesToIgnore;
 
 	void			ShowDiffBar(bool bShow);
+
+private:
+	onViewLineUpDown(int direction);
+	onViewLineLeftRight(int direction);
 };
-
-
-
-
-
-

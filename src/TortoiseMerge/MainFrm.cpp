@@ -1511,44 +1511,43 @@ int CMainFrame::FindSearchStart(int nDefault)
 
 void CMainFrame::OnViewLinedown()
 {
-	if (m_pwndLeftView)
-		m_pwndLeftView->ScrollToLine(m_pwndLeftView->m_nTopLine+1);
-	if (m_pwndRightView)
-		m_pwndRightView->ScrollToLine(m_pwndRightView->m_nTopLine+1);
-	if (m_pwndBottomView)
-		m_pwndBottomView->ScrollToLine(m_pwndBottomView->m_nTopLine+1);
-	m_wndLocatorBar.Invalidate();
+	onViewLineUpDown(1);
 }
 
 void CMainFrame::OnViewLineup()
 {
+	onViewLineUpDown(-1);
+}
+
+void CMainFrame::onViewLineUpDown(int direction)
+{
 	if (m_pwndLeftView)
-		m_pwndLeftView->ScrollToLine(m_pwndLeftView->m_nTopLine-1);
+		m_pwndLeftView->ScrollToLine(m_pwndLeftView->m_nTopLine+direction);
 	if (m_pwndRightView)
-		m_pwndRightView->ScrollToLine(m_pwndRightView->m_nTopLine-1);
+		m_pwndRightView->ScrollToLine(m_pwndRightView->m_nTopLine+direction);
 	if (m_pwndBottomView)
-		m_pwndBottomView->ScrollToLine(m_pwndBottomView->m_nTopLine-1);
+		m_pwndBottomView->ScrollToLine(m_pwndBottomView->m_nTopLine+direction);
 	m_wndLocatorBar.Invalidate();
 }
 
 void CMainFrame::OnViewLineleft()
 {
-	if (m_pwndLeftView)
-		m_pwndLeftView->ScrollSide(-1);
-	if (m_pwndRightView)
-		m_pwndRightView->ScrollSide(-1);
-	if (m_pwndBottomView)
-		m_pwndBottomView->ScrollSide(-1);
+	onViewLineLeftRight(-1);
 }
 
 void CMainFrame::OnViewLineright()
 {
+	onViewLineLeftRight(1);
+}
+
+void CMainFrame::onViewLineLeftRight(int direction)
+{
 	if (m_pwndLeftView)
-		m_pwndLeftView->ScrollSide(1);
+		m_pwndLeftView->ScrollSide(direction);
 	if (m_pwndRightView)
-		m_pwndRightView->ScrollSide(1);
+		m_pwndRightView->ScrollSide(direction);
 	if (m_pwndBottomView)
-		m_pwndBottomView->ScrollSide(1);
+		m_pwndBottomView->ScrollSide(direction);
 }
 
 void CMainFrame::OnEditUseTheirs()
@@ -1565,7 +1564,6 @@ void CMainFrame::OnUpdateEditUsetheirblock(CCmdUI *pCmdUI)
 	pCmdUI->Enable((nSelBlockStart >= 0)&&(nSelBlockEnd >= 0));
 }
 
-
 void CMainFrame::OnEditUseMine()
 {
 	if (m_pwndBottomView)
@@ -1573,41 +1571,29 @@ void CMainFrame::OnEditUseMine()
 }
 void CMainFrame::OnUpdateEditUsemyblock(CCmdUI *pCmdUI)
 {
-	int nSelBlockStart = -1;
-	int nSelBlockEnd = -1;
-	if (m_pwndBottomView)
-		m_pwndBottomView->GetSelection(nSelBlockStart, nSelBlockEnd);
-	pCmdUI->Enable((nSelBlockStart >= 0)&&(nSelBlockEnd >= 0));
+	OnUpdateEditUsetheirblock(pCmdUI);
 }
-
 
 void CMainFrame::OnEditUseTheirsThenMine()
 {
 	if (m_pwndBottomView)
 		m_pwndBottomView->UseTheirThenMyTextBlock();
 }
+
 void CMainFrame::OnUpdateEditUsetheirthenmyblock(CCmdUI *pCmdUI)
 {
-	int nSelBlockStart = -1;
-	int nSelBlockEnd = -1;
-	if (m_pwndBottomView)
-		m_pwndBottomView->GetSelection(nSelBlockStart, nSelBlockEnd);
-	pCmdUI->Enable((nSelBlockStart >= 0)&&(nSelBlockEnd >= 0));
+	OnUpdateEditUsetheirblock(pCmdUI);
 }
-
 
 void CMainFrame::OnEditUseMineThenTheirs()
 {
 	if (m_pwndBottomView)
 		m_pwndBottomView->UseMyThenTheirTextBlock();
 }
+
 void CMainFrame::OnUpdateEditUseminethentheirblock(CCmdUI *pCmdUI)
 {
-	int nSelBlockStart = -1;
-	int nSelBlockEnd = -1;
-	if (m_pwndBottomView)
-		m_pwndBottomView->GetSelection(nSelBlockStart, nSelBlockEnd);
-	pCmdUI->Enable((nSelBlockStart >= 0)&&(nSelBlockEnd >= 0));
+	OnUpdateEditUsetheirblock(pCmdUI);
 }
 
 void CMainFrame::OnEditUseleftblock()
@@ -1654,7 +1640,6 @@ void CMainFrame::OnUpdateEditUseblockfromrightbeforeleft(CCmdUI *pCmdUI)
 	pCmdUI->Enable(m_pwndRightView && m_pwndRightView->IsWindowVisible() && m_pwndRightView->HasCaret() && m_pwndRightView->HasSelection());
 }
 
-
 void CMainFrame::OnFileReload()
 {
 	if (CheckForSave()==IDCANCEL)
@@ -1698,7 +1683,6 @@ void CMainFrame::ActivateFrame(int nCmdShow)
 		// and finally, bring to top after showing
 		BringToTop(nCmdShow);
 	}
-	return;
 }
 
 BOOL CMainFrame::ReadWindowPlacement(WINDOWPLACEMENT * pwp)

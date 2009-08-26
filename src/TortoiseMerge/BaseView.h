@@ -279,7 +279,8 @@ protected:
 	HICON			m_hLineEndingLF;
 
 	LOGFONT			m_lfBaseFont;
-	CFont *			m_apFonts[8];
+	static const int fontsCount = 8;
+	CFont *			m_apFonts[fontsCount];
 	CString			m_sConflictedText;
 	CString			m_sNoLineNr;
 
@@ -299,6 +300,6 @@ protected:
 	static CBaseView * m_pwndLeft;		///< Pointer to the left view. Must be set by the CLeftView parent class.
 	static CBaseView * m_pwndRight;		///< Pointer to the right view. Must be set by the CRightView parent class.
 	static CBaseView * m_pwndBottom;	///< Pointer to the bottom view. Must be set by the CBottomView parent class.
+
+	void deleteFonts();
 };
-
-

@@ -38,8 +38,6 @@
 #define MARGINWIDTH 20
 #define HEADERHEIGHT 10
 
-#define MAXFONTS 8
-
 #define INLINEADDED_COLOR			RGB(255, 255, 150)
 #define INLINEREMOVED_COLOR			RGB(200, 100, 100)
 #define MODIFIED_COLOR				RGB(220, 220, 255)
@@ -98,7 +96,7 @@ CBaseView::CBaseView()
 	m_bOtherDiffChecked = false;
 	m_bInlineWordDiff = true;
 	m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
-	for (int i=0; i<MAXFONTS; i++)
+	for (int i=0; i<fontsCount; i++)
 	{
 		m_apFonts[i] = NULL;
 	}
@@ -135,15 +133,7 @@ CBaseView::~CBaseView()
 		m_pCacheBitmap->DeleteObject();
 		delete m_pCacheBitmap;
 	}
-	for (int i=0; i<MAXFONTS; i++)
-	{
-		if (m_apFonts[i] != NULL)
-		{
-			m_apFonts[i]->DeleteObject();
-			delete m_apFonts[i];
-		}
-		m_apFonts[i] = NULL;
-	}
+	deleteFonts();
 	DestroyIcon(m_hAddedIcon);
 	DestroyIcon(m_hRemovedIcon);
 	DestroyIcon(m_hConflictedIcon);
@@ -220,15 +210,7 @@ void CBaseView::DocumentUpdated()
 	m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorModifiedB"), MODIFIED_COLOR);
 	m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
 	m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 0);
-	for (int i=0; i<MAXFONTS; i++)
-	{
-		if (m_apFonts[i] != NULL)
-		{
-			m_apFonts[i]->DeleteObject();
-			delete m_apFonts[i];
-		}
-		m_apFonts[i] = NULL;
-	}
+	deleteFonts();
 	m_nSelBlockStart = -1;
 	m_nSelBlockEnd = -1;
 	RecalcVertScrollBar();
@@ -1682,15 +1664,7 @@ int CBaseView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 void CBaseView::OnDestroy()
 {
 	CView::OnDestroy();
-	for (int i=0; i<MAXFONTS; i++)
-	{
-		if (m_apFonts[i] != NULL)
-		{
-			m_apFonts[i]->DeleteObject();
-			delete m_apFonts[i];
-			m_apFonts[i] = NULL;
-		}
-	}
+	deleteFonts();
 	if (m_pCacheBitmap != NULL)
 	{
 		delete m_pCacheBitmap;
@@ -3167,4 +3141,15 @@ void CBaseView::OnEditPaste()
 	}
 }
 
-
+void CBaseView::deleteFonts()
+{
+	for (int i=0; i<fontsCount; i++)
+	{
+		if (m_apFonts[i] != NULL)
+		{
+			m_apFonts[i]->DeleteObject();
+			delete m_apFonts[i];
+			m_apFonts[i] = NULL;
+		}
+	}
+}
