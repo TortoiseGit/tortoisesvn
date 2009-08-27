@@ -91,8 +91,7 @@ void CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
 		// with the worker thread
 		m_bItemsAddedSinceLastCrawl = true;
 	}
-	if (SetHoldoff())
-		SetEvent(m_hWakeEvent);
+	SetEvent(m_hWakeEvent);
 }
 
 void CFolderCrawler::AddPathForUpdate(const CTSVNPath& path)
@@ -105,8 +104,7 @@ void CFolderCrawler::AddPathForUpdate(const CTSVNPath& path)
 		m_pathsToUpdate.back().SetCustomData(GetTickCount()+1000);
 		m_bPathsAddedSinceLastCrawl = true;
 	}
-	if (SetHoldoff())
-		SetEvent(m_hWakeEvent);
+	SetEvent(m_hWakeEvent);
 }
 
 unsigned int CFolderCrawler::ThreadEntry(void* pContext)
@@ -158,6 +156,11 @@ void CFolderCrawler::WorkerThread()
 		{
 			if (!m_bRun)
 				break;
+			if (IsHoldOff())
+			{
+				Sleep(2000);
+				continue;
+			}
 			// Any locks today?
 			if (CSVNStatusCache::Instance().m_bClearMemory)
 			{
@@ -456,6 +459,11 @@ bool CFolderCrawler::SetHoldoff(DWORD milliseconds /* = 500*/)
 	bool ret = ((tick - m_crawlHoldoffReleasesAt) > 0);
 	m_crawlHoldoffReleasesAt = tick + milliseconds;
 	return ret;
+}
+
+bool CFolderCrawler::IsHoldOff()
+{
+	return (((long)GetTickCount() - m_crawlHoldoffReleasesAt) < 0);
 }
 
 void CFolderCrawler::BlockPath(const CTSVNPath& path, DWORD ticks)

@@ -423,7 +423,7 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
                     itMap = m_directoryCache.insert 
                         (itMap, std::make_pair (path, newcdir.release()));
                     if (!path.IsEmpty() && path.HasAdminDir())
-						watcher.AddPath(path);
+						CSVNStatusCache::Instance().AddFolderForCrawling(path);
 
 					return itMap->second;		
 				}
