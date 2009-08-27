@@ -57,7 +57,11 @@ public:
 private:
 	CTraceToOutputDebugString()
 	{
+#ifdef DEBUG
+		m_bActive = true;
+#else
 		m_bActive = !!CRegStdDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE);
+#endif
 	}
 	~CTraceToOutputDebugString()
 	{
