@@ -358,82 +358,80 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	}
 
 	{
+		AutoLocker pathlock(m_critSecPath);
+		if ((!bFetch)&&(!m_currentStatusFetchingPath.IsEmpty()))
+		{
+			if (m_currentStatusFetchingPath.IsAncestorOf(path))
+			{
+				//ATLTRACE(_T("returning empty status (status fetch in progress) for %s\n"), path.GetWinPath());
+				m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
+				return CStatusCacheEntry();
+			}
+		}
+	}
+	SVNPool subPool(CSVNStatusCache::Instance().m_svnHelp.Pool());
+	{
+		AutoLocker lock(m_critSec);
+		m_mostImportantFileStatus = svn_wc_status_none;
+		m_childDirectories.clear();
+		m_entryCache.clear();
+		m_ownStatus.SetStatus(NULL, false);
+		m_bRecursive = bRecursive;
+	}
+	if(!bThisDirectoryIsUnversioned)
+	{
 		{
 			AutoLocker pathlock(m_critSecPath);
-			if ((!bFetch)&&(!m_currentStatusFetchingPath.IsEmpty()))
-			{
-				if (m_currentStatusFetchingPath.IsAncestorOf(path))
-				{
-					//ATLTRACE(_T("returning empty status (status fetch in progress) for %s\n"), path.GetWinPath());
-					m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
-					return CStatusCacheEntry();
-				}
-			}
+			m_currentStatusFetchingPath = m_directoryPath;
 		}
-		SVNPool subPool(CSVNStatusCache::Instance().m_svnHelp.Pool());
+		CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: stat for %s\n"), m_directoryPath.GetWinPath());
+		svn_error_t* pErr = svn_client_status4 (
+			NULL,
+			m_directoryPath.GetSVNApiPath(subPool),
+			&revision,
+			GetStatusCallback,
+			this,
+			svn_depth_immediates,
+			TRUE,		// get all
+			FALSE,		// update
+			TRUE,		// no ignores
+			FALSE,		// ignore externals
+			NULL,									//changelists
+			CSVNStatusCache::Instance().m_svnHelp.ClientContext(),
+			subPool
+			);
 		{
-			AutoLocker lock(m_critSec);
-			m_mostImportantFileStatus = svn_wc_status_none;
-			m_childDirectories.clear();
-			m_entryCache.clear();
-			m_ownStatus.SetStatus(NULL, false);
-			m_bRecursive = bRecursive;
+			AutoLocker pathlock(m_critSecPath);
+			m_currentStatusFetchingPath.Reset();
 		}
-		if(!bThisDirectoryIsUnversioned)
+		if(pErr)
 		{
+			// Handle an error
+			// The most likely error on a folder is that it's not part of a WC
+			// In most circumstances, this will have been caught earlier,
+			// but in some situations, we'll get this error.
+			// If we allow ourselves to fall on through, then folders will be asked
+			// for their own status, and will set themselves as unversioned, for the 
+			// benefit of future requests
+			CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: svn_cli_stat error '%s'\n"), pErr->message);
+			svn_error_clear(pErr);
+			// No assert here! Since we _can_ get here, an assertion is not an option!
+			// Reasons to get here: 
+			// - renaming a folder with many sub folders --> results in "not a working copy" if the revert
+			//   happens between our checks and the svn_client_status() call.
+			// - reverting a move/copy --> results in "not a working copy" (as above)
+			if (!m_directoryPath.HasAdminDir())
 			{
-				AutoLocker pathlock(m_critSecPath);
-				m_currentStatusFetchingPath = m_directoryPath;
+				m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
+				return CStatusCacheEntry();
 			}
-			CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: stat for %s\n"), m_directoryPath.GetWinPath());
-			svn_error_t* pErr = svn_client_status4 (
-				NULL,
-				m_directoryPath.GetSVNApiPath(subPool),
-				&revision,
-				GetStatusCallback,
-				this,
-				svn_depth_immediates,
-				TRUE,		// get all
-				FALSE,		// update
-				TRUE,		// no ignores
-				FALSE,		// ignore externals
-				NULL,									//changelists
-				CSVNStatusCache::Instance().m_svnHelp.ClientContext(),
-				subPool
-				);
+			else
 			{
-				AutoLocker pathlock(m_critSecPath);
-				m_currentStatusFetchingPath.Reset();
-			}
-			if(pErr)
-			{
-				// Handle an error
-				// The most likely error on a folder is that it's not part of a WC
-				// In most circumstances, this will have been caught earlier,
-				// but in some situations, we'll get this error.
-				// If we allow ourselves to fall on through, then folders will be asked
-				// for their own status, and will set themselves as unversioned, for the 
-				// benefit of future requests
-				CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: svn_cli_stat error '%s'\n"), pErr->message);
-				svn_error_clear(pErr);
-				// No assert here! Since we _can_ get here, an assertion is not an option!
-				// Reasons to get here: 
-				// - renaming a folder with many sub folders --> results in "not a working copy" if the revert
-				//   happens between our checks and the svn_client_status() call.
-				// - reverting a move/copy --> results in "not a working copy" (as above)
-				if (!m_directoryPath.HasAdminDir())
-				{
-					m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
-					return CStatusCacheEntry();
-				}
-				else
-				{
-					// Since we only assume a none status here due to svn_client_status()
-					// returning an error, make sure that this status times out soon.
-					CSVNStatusCache::Instance().m_folderCrawler.BlockPath(m_directoryPath, 2000);
-					CSVNStatusCache::Instance().AddFolderForCrawling(m_directoryPath);
-					return CStatusCacheEntry();
-				}
+				// Since we only assume a none status here due to svn_client_status()
+				// returning an error, make sure that this status times out soon.
+				CSVNStatusCache::Instance().m_folderCrawler.BlockPath(m_directoryPath, 2000);
+				CSVNStatusCache::Instance().AddFolderForCrawling(m_directoryPath);
+				return CStatusCacheEntry();
 			}
 		}
 	}
