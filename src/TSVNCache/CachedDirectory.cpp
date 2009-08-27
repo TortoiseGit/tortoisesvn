@@ -265,6 +265,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			CCachedDirectory * dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
 			if ((dirEntry)&&(dirEntry->IsOwnStatusValid()))
 			{
+				return dirEntry->GetOwnStatus(bRecursive);
 			}
 		}
 		else
