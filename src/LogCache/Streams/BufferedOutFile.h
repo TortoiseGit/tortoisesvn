@@ -23,6 +23,7 @@
 #endif
 
 #include "FileName.h"
+#include "auto_buffer.h"
 
 /**
  * class that provides a simple, buffered file write stream.
@@ -45,7 +46,7 @@ private:
 
 	enum {BUFFER_SIZE = 1024*1024};
 
-	std::auto_ptr<unsigned char> buffer;
+	auto_buffer<unsigned char> buffer;
 	unsigned used;
 
 	// physical file size + used

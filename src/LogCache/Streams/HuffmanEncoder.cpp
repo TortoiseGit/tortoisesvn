@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "HuffmanEncoder.h"
 #include "StreamException.h"
+#include "auto_buffer.h"
 
 // Huffman encoding stages:
 
@@ -382,7 +383,7 @@ CHuffmanEncoder::Encode (const BYTE* source, size_t byteCount)
 
 	DWORD targetSize = std::min ( (DWORD)byteCount+MIN_HEADER_LENGTH
                                 , CalculatePackedSize());
-	std::auto_ptr<BYTE> buffer (new BYTE[targetSize]);
+	auto_buffer<BYTE> buffer (targetSize);
 
 	// fill it
 

@@ -18,6 +18,8 @@
 //
 #pragma once
 
+#include "auto_buffer.h"
+
 /**
  * A quick linear (array) hash index class. It requires HF to
  * provide the following interface:
@@ -322,7 +324,7 @@ public:
         while (((size_t)MAX_CLUSTERS << shift) < grower.capacity())
             ++shift;
 
-        std::auto_ptr<TPair> tempBuffer (new TPair [MAX_CLUSTERS * clusterSize]);
+        auto_buffer<TPair> tempBuffer (MAX_CLUSTERS * clusterSize);
         TPair* temp = tempBuffer.get();
 
         size_t used[MAX_CLUSTERS];

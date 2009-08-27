@@ -67,7 +67,7 @@ CBinaryOutStreamBase::CBinaryOutStreamBase ( CCacheFileOutBuffer* aBuffer
     , current (NULL)
     , last (NULL)
 {
-    data.reset (new unsigned char[CHUNK_SIZE]);
+    data.reset (CHUNK_SIZE);
     current = data.get();
     last = current + CHUNK_SIZE;
 }

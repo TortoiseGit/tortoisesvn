@@ -47,7 +47,7 @@ void CBufferedOutFile::Flush()
 #ifdef WIN32
 CBufferedOutFile::CBufferedOutFile (const std::wstring& fileName)
 	: file (INVALID_HANDLE_VALUE)
-	, buffer (new unsigned char [BUFFER_SIZE])
+	, buffer (BUFFER_SIZE)
 	, used (0)
 	, fileSize (0)
 {
@@ -64,7 +64,7 @@ CBufferedOutFile::CBufferedOutFile (const std::wstring& fileName)
 }
 #else
 CBufferedOutFile::CBufferedOutFile (const std::string& fileName)
-    : buffer (new unsigned char [BUFFER_SIZE])
+    : buffer (BUFFER_SIZE)
     , used (0)
     , fileSize (0)
 {

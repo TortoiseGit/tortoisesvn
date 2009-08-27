@@ -72,7 +72,7 @@ void CRegRect::InternalRead (HKEY hKey, CRect& value)
 	DWORD type = 0;
 	RegQueryValueEx(hKey, m_key, NULL, &type, NULL, (LPDWORD) &size);
 
-    std::auto_ptr<char> buffer (new char[size]);
+    auto_buffer<char> buffer (size);
     if ((LastError = RegQueryValueEx(hKey, m_key, NULL, &type, (BYTE*) buffer.get(), &size))==ERROR_SUCCESS)
     {
     	ASSERT(type==REG_BINARY);
@@ -107,7 +107,7 @@ void CRegPoint::InternalRead (HKEY hKey, CPoint& value)
 	DWORD type = 0;
 	RegQueryValueEx(hKey, m_key, NULL, &type, NULL, (LPDWORD) &size);
 
-    std::auto_ptr<char> buffer(new char[size]);
+    auto_buffer<char> buffer(size);
     if ((LastError = RegQueryValueEx(hKey, m_key, NULL, &type, (BYTE*) buffer.get(), &size))==ERROR_SUCCESS)
     {
     	ASSERT(type==REG_BINARY);

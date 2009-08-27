@@ -23,6 +23,7 @@
 ///////////////////////////////////////////////////////////////
 
 #include "HierachicalOutStreamBase.h"
+#include "auto_buffer.h"
 
 ///////////////////////////////////////////////////////////////
 //
@@ -47,7 +48,7 @@ private:
 
 	// data to write (may be NULL)
 
-	std::auto_ptr<unsigned char> data;
+	auto_buffer<unsigned char> data;
 	unsigned char* current;
 	unsigned char* last;
 

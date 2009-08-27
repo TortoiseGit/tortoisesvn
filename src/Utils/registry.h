@@ -21,6 +21,7 @@
 #include <memory>
 #include "shlwapi.h"
 #include "tstring.h"
+#include "auto_buffer.h"
 
 #ifndef ASSERT
 #define ASSERT(x)
@@ -650,7 +651,7 @@ void CRegStringCommon<Base>::InternalRead (HKEY hKey, typename Base::StringT& va
 	DWORD type = 0;
 	LastError = RegQueryValueEx(hKey, GetPlainString (m_key), NULL, &type, NULL, &size);
 
-    std::auto_ptr<TCHAR> pStr (new TCHAR[size]);
+    auto_buffer<TCHAR> pStr (size);
 	if ((LastError = RegQueryValueEx(hKey, GetPlainString (m_key), NULL, &type, (BYTE*) pStr.get(), &size))==ERROR_SUCCESS)
     {
         ASSERT(type==REG_SZ || type==REG_EXPAND_SZ);

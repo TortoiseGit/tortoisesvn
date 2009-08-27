@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "PathUtils.h"
 #include "shlobj.h"
+#include "auto_buffer.h"
 
 BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 {
@@ -369,7 +370,7 @@ CString CPathUtils::GetAppDataDirectory()
 
 CStringA CPathUtils::PathUnescape(const CStringA& path)
 {
-	std::auto_ptr<char> urlabuf (new char[path.GetLength()+1]);
+	auto_buffer<char> urlabuf (path.GetLength()+1);
 
 	strcpy_s(urlabuf.get(), path.GetLength()+1, path);
 	Unescape(urlabuf.get());
