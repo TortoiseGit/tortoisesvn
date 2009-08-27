@@ -1,6 +1,6 @@
 #
 # French translation for TortoiseSVN
-# Copyright (C) 2004-2008 the TortoiseSVN team
+# Copyright (C) 2004-2009 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Last commit by:
@@ -12239,23 +12239,23 @@ msgstr "Sécuriser Svnserve grâce à SSH"
 
 #. (para)
 msgid "This section provides a step-by-step guide to setting up Subversion and TortoiseSVN to use the <literal>svn+ssh</literal> protocol. If you already use authenticated SSH connections to login to your server, then you are already there and you can find more detail in the Subversion book. If you are not using SSH but would like to do so to protect your Subversion installation, this guide gives a simple method which does not involve creating a separate SSH user account on the server for every subversion user."
-msgstr ""
+msgstr "Cette section fournit un guide pas-à-pas pour configurer Subversion et TortoiseSVN pour utiliser le protocole <literal>svn+ssh</literal>. Si vous utilisez déjà une authentification SSH pour vous connecter à votre serveur, alors vous pouvez passer cette section et trouver plus de détails dans le livre Subversion. Si vous n'utilisez pas encore SSH mais aimeriez le faire pour protéger votre installation Subversion, ce guide donne une méthode simple qui n'implique pas la création d'un compte utilisateur SSH pour chaque utilisateur subversion présent sur le serveur."
 
 #. (para)
 msgid "In this implementation we create a single SSH user account for all subversion users, and use different authentication keys to differentiate between the real Subversion users."
-msgstr ""
+msgstr "Dans cette implémentation nous créons un unique compte utilisateur SSH pour tous les utilisateurs subversion et utilisons différentes clés d'authentification pour les différencier des véritables utilisateurs Subversion."
 
 #. (para)
 msgid "In this appendix we assume that you already have the subversion tools installed, and that you have created a repository as detailed elsewhere in this manual. Note that you should <emphasis>not</emphasis> start svnserve as a service or daemon when used with SSH."
-msgstr ""
+msgstr "Dans cette annexe, nous supposons que vous avez déjà les outils subversion installés et que vous avez créé un dépôt comme expliqué ailleurs dans ce manuel. Notez bien que vous ne devriez <emphasis>pas</emphasis> démarrer svnserve en tant que service ou démon lorsqu'il est utilisé avec SSH."
 
 #. (para)
 msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which can be found at <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
-msgstr ""
+msgstr "La plupart de ces informations est associé à un tutoriel fourni par Marc Logemann et qui peut être trouvé sur <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink>.  Des informations supplémentaires sur la configuration d'un serveur Windows sont fournies par Thorsten Müller. Merci les gars!"
 
 #. (para)
 msgid "You can also watch a video tutorial created by Maximo Migliari which takes you through all the important steps. Watch it on <ulink url=\"http://www.vimeo.com/5378553\"><citetitle>Vimeo</citetitle></ulink>. or <ulink url=\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</citetitle></ulink>."
-msgstr ""
+msgstr "Vous pouvez aussi regarder un tutoriel vidéo créé par Maximo Migliari qui vous mènera à travers toutes les étapes importantes. Regarez la sur <ulink url=\"http://www.vimeo.com/5378553\"><citetitle>Vimeo</citetitle></ulink> ou <ulink url=\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</citetitle></ulink>."
 
 #. (title)
 msgid "Setting Up a Linux Server"
@@ -12266,11 +12266,13 @@ msgid ""
 "You need to have SSH enabled on the server, and here we assume that you will be using OpenSSH. On most distributions this will already be installed. To find out, type: <screen>\n"
 "ps xa | grep sshd\n"
 "</screen> and look for ssh jobs."
-msgstr ""
+msgstr "Vous devez avoir SSH activé sur votre serveur, et dans ce cas nous supposons que vous utilisez OpenSSH. Dans la plupart des distributions, il sera déjà installé. Pour le savoir, tapez: <screen>\n"
+"ps xa | grep sshd\n"
+"</screen> et cherchez les processus ssh."
 
 #. (para)
 msgid "One point to note is that if you build Subversion from source and do not provide any argument to <filename>./configure</filename>, Subversion creates a <filename>bin</filename> directory under <filename>/usr/local</filename> and places its binaries there. If you want to use tunneling mode with SSH, you have to be aware that the user logging in via SSH needs to execute the svnserve program and some other binaries. For this reason, either place <filename>/usr/local/bin</filename> into the <literal>PATH</literal> variable or create symbolic links of your binaries to the <filename>/usr/sbin</filename> directory, or to any other directory which is commonly in the <literal>PATH</literal>."
-msgstr ""
+msgstr "Un détail à relever est que si vous compilez Subversion depuis le code source sans préciser de paramètres au <filename>./configure</filename>, Subversion créé un répertoire <filename>bin</filename> dabs <filename>/usr/local</filename> et y place les binaires. Si vous désirez utiliser le mode de tunnelage avec SSH, vous devez avoir conscience que l'utilisateur se connectant via SSH a besoin d'exécuter le programme svnserve et quelques autres binaires. Pour cette raison, placez <filename>/usr/local/bin</filename> dans la variable <literal>PATH</literal> ou créez les liens symboliques de vos binaires dans le répertoire <filename>/usr/sbin</filename>, ou dans tout autre répertoire communément inclus dans le <literal>PATH</literal>."
 
 #. (para)
 msgid ""
@@ -12287,7 +12289,9 @@ msgid ""
 "Create a new user which we will use to access the svn repository: <screen>\n"
 "useradd -m svnuser\n"
 "</screen> Be sure to give this user full access rights to the repository."
-msgstr ""
+msgstr "Créé un nouvel utilisateur que nous utiliserons pour accéder au dépôt svn: <screen>\n"
+"useradd -m svnuser\n"
+"</screen> Assurez-vous de donner à cette utilisateur tous les droits d'accès au dépôt."
 
 #. (title)
 msgid "Setting Up a Windows Server"
