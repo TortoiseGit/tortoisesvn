@@ -42,7 +42,7 @@ CRepositoryBrowserSelection::AutoAddRepository
     newEntry.lockCount = 0;
 
     repositories.push_back (newEntry);
-    return *repositories.rbegin();
+    return repositories.back();
 }
 
 // store & accumulate in the corresponding repository bucket

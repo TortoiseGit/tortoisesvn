@@ -104,7 +104,7 @@ CJobScheduler::SThreadInfo* CJobScheduler::CThreadPool::TryAlloc()
     if (pool.empty())
         return NULL;
 
-    CJobScheduler::SThreadInfo* thread = *pool.rbegin();
+    CJobScheduler::SThreadInfo* thread = pool.back();
     pool.pop_back();
     ++allocCount;
 
@@ -163,7 +163,7 @@ void CJobScheduler::CThreadPool::SetThreadCount (size_t count)
 
     while ((pool.size() + allocCount > maxCount) && !pool.empty())
     {
-        SThreadInfo* info = *pool.rbegin();
+        SThreadInfo* info = pool.back();
         pool.pop_back();
 
         delete info->thread;
@@ -410,7 +410,7 @@ void CJobScheduler::Schedule (IJob* job, bool transferOwnership)
     {
         if (threads.suspendedCount > 0) 
         {
-            SThreadInfo* info = *threads.suspended.rbegin();
+            SThreadInfo* info = threads.suspended.back();
             threads.suspended.pop_back();
 
             --threads.suspendedCount;

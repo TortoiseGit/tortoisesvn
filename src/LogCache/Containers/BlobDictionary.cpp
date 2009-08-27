@@ -209,7 +209,7 @@ index_t CBlobDictionary::Insert (const SBlob& blob)
         throw CContainerException ("dictionary overflow");
 
     packedBlobs.insert (packedBlobs.end(), blob.data, blob.data + blob.size);
-    packedBlobsStart = &packedBlobs.at (0);
+    packedBlobsStart = &packedBlobs.front();
 
     // update indices
 
@@ -247,7 +247,7 @@ void CBlobDictionary::Clear()
 void CBlobDictionary::Reserve (index_t blobCount, size_t byteCount)
 {
     packedBlobs.reserve (byteCount);
-    packedBlobsStart = packedBlobs.empty() ? NULL : &packedBlobs.at (0);
+    packedBlobsStart = packedBlobs.empty() ? NULL : &packedBlobs.front();
 
     offsets.reserve (blobCount);
     hashIndex.reserve (blobCount);
@@ -296,7 +296,7 @@ void CBlobDictionary::Reorder (const std::vector<index_t>& sourceIndices)
 
     // start of the string & offset arrays
 
-    char* targetBlob = &target.at (0);
+    char* targetBlob = &target.front();
     index_t targetOffset = 0;
 
     // copy string by string
@@ -314,7 +314,7 @@ void CBlobDictionary::Reorder (const std::vector<index_t>& sourceIndices)
         targetBlob += length;
     }
 
-    *targetOffsets.rbegin() = targetOffset;
+    targetOffsets.back() = targetOffset;
 
     // the new order is now complete -> switch to it
 
@@ -341,7 +341,7 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
         throw CContainerException ("data stream to large");
 
     dictionary.packedBlobs.resize (packedBlobsStream->GetSize());
-    dictionary.packedBlobsStart = &dictionary.packedBlobs.at (0);
+    dictionary.packedBlobsStart = &dictionary.packedBlobs.front();
     memcpy ( dictionary.packedBlobsStart
            , packedBlobsStream->GetData()
            , dictionary.packedBlobs.size());
@@ -375,7 +375,7 @@ IHierarchicalOutStream& operator<< (IHierarchicalOutStream& stream
         = dynamic_cast<CBLOBOutStream*>
             (stream.OpenSubStream ( CBlobDictionary::PACKED_BLOBS_STREAM_ID
                                   , BLOB_STREAM_TYPE_ID));
-    packedBlobsStream->Add ( (const unsigned char*) &dictionary.packedBlobs.at (0)
+    packedBlobsStream->Add ( (const unsigned char*) &dictionary.packedBlobs.front()
                            , dictionary.packedBlobs.size());
 
     // write offsets

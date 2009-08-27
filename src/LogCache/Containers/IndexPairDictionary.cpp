@@ -129,7 +129,7 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 	dictionary.data.resize (count);
 
 	std::pair<index_t, index_t>* dataBegin 
-		= count > 0 ? &dictionary.data.at(0) : NULL;
+		= count > 0 ? &dictionary.data.front() : NULL;
 
 	for (index_t i = 0; i < count; ++i)
 		(dataBegin + i)->first = firstStream->GetValue();
@@ -169,7 +169,7 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 								  , DIFF_INTEGER_STREAM_TYPE_ID));
 
 	const std::pair<index_t, index_t>* dataBegin 
-		= size > 0 ? &dictionary.data.at(0) : NULL;
+		= size > 0 ? &dictionary.data.front() : NULL;
 
 	firstStream->Add ((int)size);
 	for (size_t i = 0; i != size; ++i)

@@ -90,7 +90,7 @@ namespace
             CCriticalSectionLock lock (mutex);
             if (!handles.empty())
             {
-                HANDLE result = *handles.rbegin();
+                HANDLE result = handles.back();
                 handles.pop_back();
                 return result;
             }
@@ -107,7 +107,7 @@ namespace
 
         if (!handles.empty())
         {
-            handle = *handles.rbegin();
+            handle = handles.back();
             handles.pop_back();
         }
         else

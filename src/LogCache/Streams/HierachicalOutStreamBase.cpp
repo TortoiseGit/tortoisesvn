@@ -25,7 +25,7 @@
 void CHierachicalOutStreamBase::CloseLatestSubStream()
 {
 	if (!subStreams.empty())
-		(*subStreams.rbegin())->AutoClose();
+		subStreams.back()->AutoClose();
 }
 
 void CHierachicalOutStreamBase::WriteSubStreamList()

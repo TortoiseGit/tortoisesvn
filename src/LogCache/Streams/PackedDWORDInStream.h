@@ -153,7 +153,7 @@ S& operator>> (S& stream, std::vector<V>& data)
 	// (don't use iterators here as they come with some index checking overhead)
 
 	if (count > 0)
-		for ( V* iter = &data.at(0), *end = iter + count
+		for ( V* iter = &data.front(), *end = iter + count
 			; iter != end
 			; ++iter)
 		{
@@ -175,7 +175,7 @@ S* ReadStream (S* stream, std::vector<T>* data, V T::*member)
     // (don't use iterators here as they come with some index checking overhead)
 
     if (count > 0)
-        for ( T* iter = &data->at(0), *end = iter + count
+        for ( T* iter = &data->front(), *end = iter + count
             ; iter != end
             ; ++iter)
         {

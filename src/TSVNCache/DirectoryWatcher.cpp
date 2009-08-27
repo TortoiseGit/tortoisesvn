@@ -89,7 +89,7 @@ void CDirectoryWatcher::CleanupWatchInfo()
 	AutoLocker lock(m_critSec);
     while (!infoToDelete.empty())
     {
-        CDirWatchInfo* info = *infoToDelete.rbegin();
+        CDirWatchInfo* info = infoToDelete.back();
         infoToDelete.pop_back();
         delete info;
     }

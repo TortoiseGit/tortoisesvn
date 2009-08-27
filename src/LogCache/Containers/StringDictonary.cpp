@@ -128,7 +128,7 @@ void CStringDictionary::RebuildIndexes()
 
     // "end of table" entry
 
-    *offsets.rbegin() = (index_t) packedStrings.size();
+    offsets.back() = (index_t) packedStrings.size();
 }
 
 // construction utility
@@ -138,7 +138,7 @@ void CStringDictionary::Initialize()
     // insert the empty string at index 0
 
     packedStrings.push_back (0);
-    packedStringsStart = &packedStrings.at (0);
+    packedStringsStart = &packedStrings.front();
     offsets.push_back (0);
     offsets.push_back (1);
     hashIndex.insert ("", 0);
@@ -213,7 +213,7 @@ index_t CStringDictionary::Insert (const char* string)
         throw CContainerException ("dictionary overflow");
 
     packedStrings.insert (packedStrings.end(), string, string + size);
-    packedStringsStart = &packedStrings.at (0);
+    packedStringsStart = &packedStrings.front();
 
     // update indices
 
@@ -263,7 +263,7 @@ void CStringDictionary::Clear()
 void CStringDictionary::Reserve (index_t stringCount, size_t charCount)
 {
     packedStrings.reserve (charCount);
-    packedStringsStart = &packedStrings.at (0);
+    packedStringsStart = &packedStrings.front();
 
     offsets.reserve (stringCount);
     hashIndex.reserve (stringCount);
@@ -309,7 +309,7 @@ void CStringDictionary::Reorder (const std::vector<index_t>& sourceIndices)
 
     // start of the string & offset arrays
 
-    char* targetString = &target.at (0);
+    char* targetString = &target.front();
 
     // copy string by string
 
@@ -327,7 +327,7 @@ void CStringDictionary::Reorder (const std::vector<index_t>& sourceIndices)
     // the new order is now complete -> switch to it
 
     packedStrings.swap (target);
-    packedStringsStart = &packedStrings.at (0);
+    packedStringsStart = &packedStrings.front();
 
     // re-build hash and offsets
 
@@ -349,7 +349,7 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
         throw CContainerException ("data stream to large");
 
     dictionary.packedStrings.resize (packedStringStream->GetSize());
-    dictionary.packedStringsStart = &dictionary.packedStrings.at (0);
+    dictionary.packedStringsStart = &dictionary.packedStrings.front();
     memcpy ( dictionary.packedStringsStart
            , packedStringStream->GetData()
            , dictionary.packedStrings.size());
@@ -382,7 +382,7 @@ IHierarchicalOutStream& operator<< (IHierarchicalOutStream& stream
         = dynamic_cast<CBLOBOutStream*>
             (stream.OpenSubStream ( CStringDictionary::PACKED_STRING_STREAM_ID
                                   , BLOB_STREAM_TYPE_ID));
-    packedStringStream->Add ( (const unsigned char*) &dictionary.packedStrings.at (0)
+    packedStringStream->Add ( (const unsigned char*) &dictionary.packedStrings.front()
                               , dictionary.packedStrings.size());
 
     // write offsets

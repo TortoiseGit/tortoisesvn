@@ -958,7 +958,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 
     PLOGENTRYDATA pLogItem 
         = new LogEntryData
-            ( m_logParents.empty() ? NULL : *m_logParents.rbegin()
+            ( m_logParents.empty() ? NULL : m_logParents.back()
             , rev
             , ttime
             , date

@@ -183,7 +183,7 @@ void CRepositoryInfo::CData::Remove (SPerRepositoryInfo* info)
     TData::iterator iter = std::find (data.begin(), data.end(), info);
     assert (iter != data.end());
 
-    *iter = *data.rbegin();
+    *iter = data.back();
     data.pop_back();
 
     // remove it from the indices
@@ -339,7 +339,7 @@ bool CRepositoryInfo::CData::empty() const
 const CRepositoryInfo::SPerRepositoryInfo* const * 
 CRepositoryInfo::CData::begin() const
 {
-    return data.empty() ? NULL : &data.at(0);
+    return data.empty() ? NULL : &data.front();
 }
 
 const CRepositoryInfo::SPerRepositoryInfo* const * 

@@ -414,10 +414,10 @@ void CRevisionInfoContainer::AppendNewEntries
 
         // all changes, revprops and merge info is empty as well
 
-        changesOffsets.insert (changesOffsets.end(), toAppend, *changesOffsets.rbegin());
-        copyFromOffsets.insert (copyFromOffsets.end(), toAppend, *copyFromOffsets.rbegin());
-        mergedRevisionsOffsets.insert (mergedRevisionsOffsets.end(), toAppend, *mergedRevisionsOffsets.rbegin());
-        userRevPropOffsets.insert (userRevPropOffsets.end(), toAppend, *userRevPropOffsets.rbegin());
+        changesOffsets.insert (changesOffsets.end(), toAppend, changesOffsets.back());
+        copyFromOffsets.insert (copyFromOffsets.end(), toAppend, copyFromOffsets.back());
+        mergedRevisionsOffsets.insert (mergedRevisionsOffsets.end(), toAppend, mergedRevisionsOffsets.back());
+        userRevPropOffsets.insert (userRevPropOffsets.end(), toAppend, userRevPropOffsets.back());
     }
 }
 
@@ -630,10 +630,10 @@ index_t CRevisionInfoContainer::Insert ( const std::string& author
 
     // empty range for changes
 
-    changesOffsets.push_back (*changesOffsets.rbegin());
-    copyFromOffsets.push_back (*copyFromOffsets.rbegin());
-    mergedRevisionsOffsets.push_back (*mergedRevisionsOffsets.rbegin());
-    userRevPropOffsets.push_back (*userRevPropOffsets.rbegin());
+    changesOffsets.push_back (changesOffsets.back());
+    copyFromOffsets.push_back (copyFromOffsets.back());
+    mergedRevisionsOffsets.push_back (mergedRevisionsOffsets.back());
+    userRevPropOffsets.push_back (userRevPropOffsets.back());
 
     // ready
 
@@ -646,7 +646,7 @@ void CRevisionInfoContainer::AddChange ( TChangeAction action
                                        , const std::string& fromPath
                                        , revision_t fromRevision)
 {
-    assert (*presenceFlags.rbegin() & HAS_CHANGEDPATHS);
+    assert (presenceFlags.back() & HAS_CHANGEDPATHS);
 
     // under x64, there might actually be an overflow
 
@@ -659,7 +659,7 @@ void CRevisionInfoContainer::AddChange ( TChangeAction action
     CDictionaryBasedPath parsedPath (&paths, path, false);
     changedPaths.push_back (parsedPath.GetIndex());
 
-    index_t& rootPathIndex = *rootPaths.rbegin();
+    index_t& rootPathIndex = rootPaths.back();
     rootPathIndex = rootPathIndex == NO_INDEX
                     ? parsedPath.GetIndex()
                     : parsedPath.GetCommonRoot (rootPathIndex).GetIndex();
@@ -674,7 +674,7 @@ void CRevisionInfoContainer::AddChange ( TChangeAction action
                  ? (char) action
                  : (char) action | HAS_COPY_FROM;
 
-    *sumChanges.rbegin() |= flags;
+    sumChanges.back() |= flags;
     changes.push_back (flags);
 
     if (!fromPath.empty())
@@ -685,12 +685,12 @@ void CRevisionInfoContainer::AddChange ( TChangeAction action
         copyFromPaths.push_back (parsedFromPath.GetIndex());
         copyFromRevisions.push_back (fromRevision);
 
-        ++ (*copyFromOffsets.rbegin());
+        ++copyFromOffsets.back();
     }
 
     // another change
 
-    ++ (*changesOffsets.rbegin());
+    ++changesOffsets.back();
 }
 
 void CRevisionInfoContainer::AddMergedRevision ( const std::string& fromPath
@@ -699,7 +699,7 @@ void CRevisionInfoContainer::AddMergedRevision ( const std::string& fromPath
                                                , revision_t revisionDelta)
 {
     assert (revisionDelta != 0);
-    assert (*presenceFlags.rbegin() & HAS_MERGEINFO);
+    assert (presenceFlags.back() & HAS_MERGEINFO);
 
     // under x64, there might actually be an overflow
 
@@ -708,7 +708,7 @@ void CRevisionInfoContainer::AddMergedRevision ( const std::string& fromPath
 
     // another merge
 
-    ++ (*mergedRevisionsOffsets.rbegin());
+    ++mergedRevisionsOffsets.back();
 
     // add merged revision range and path info
 
@@ -734,14 +734,14 @@ void CRevisionInfoContainer::AddRevProp ( const std::string& revProp
     {
         // update the revision info
 
-        assert (*presenceFlags.rbegin() & HAS_AUTHOR);
-        *authors.rbegin() = authorPool.AutoInsert (value.c_str());
+        assert (presenceFlags.back() & HAS_AUTHOR);
+        authors.back() = authorPool.AutoInsert (value.c_str());
     }
     else if (revProp == svnDate)
     {
         // update the revision info
 
-        assert (*presenceFlags.rbegin() & HAS_TIME_STAMP);
+        assert (presenceFlags.back() & HAS_TIME_STAMP);
 
         __time64_t timeStamp = 0;
         if (!value.empty())
@@ -769,13 +769,13 @@ void CRevisionInfoContainer::AddRevProp ( const std::string& revProp
         #endif
         }
 
-        *timeStamps.rbegin() = timeStamp;
+        timeStamps.back() = timeStamp;
     }
     else if (revProp == svnLog)
     {
         // update the revision info
 
-        assert (*presenceFlags.rbegin() & HAS_COMMENT);
+        assert (presenceFlags.back() & HAS_COMMENT);
         comments.Remove (comments.size()-1);
         comments.Insert (value);
     }
@@ -783,7 +783,7 @@ void CRevisionInfoContainer::AddRevProp ( const std::string& revProp
     {
         // it's a user rev prop
 
-        assert (*presenceFlags.rbegin() & HAS_USERREVPROPS);
+        assert (presenceFlags.back() & HAS_USERREVPROPS);
 
         // under x64, there might actually be an overflow
 
@@ -792,7 +792,7 @@ void CRevisionInfoContainer::AddRevProp ( const std::string& revProp
 
         // another revProp
 
-        ++ (*userRevPropOffsets.rbegin());
+        ++userRevPropOffsets.back();
 
         // add (revPropName, value) pair
 
@@ -1037,8 +1037,8 @@ void CRevisionInfoContainer::CalculateSumChanges()
     //  ~6 ticks vs. ~20 ticks per change)
 
     const index_t *iter = &changesOffsets.at (1);
-    unsigned char *target = &sumChanges.at (0);
-    const unsigned char *source = &changes.at (0);
+    unsigned char *target = &sumChanges.front();
+    const unsigned char *source = &changes.front();
 
     unsigned char sum = 0;
     for (size_t i = 0, count = changes.size(); i < count; ++i)

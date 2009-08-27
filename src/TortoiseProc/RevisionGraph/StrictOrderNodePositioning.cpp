@@ -66,7 +66,7 @@ void CStrictOrderNodePositioning::SortRevisions
             // store the new order
 
             CStandardLayoutNodeInfo* previousSubBranch = NULL;
-            CStandardLayoutNodeInfo* lastSubBranch = subBranches.rbegin()->second;
+            CStandardLayoutNodeInfo* lastSubBranch = subBranches.back().second;
             lastSubBranch->nextBranch = NULL;
 
             for ( size_t k = 0, branchCount = subBranches.size()

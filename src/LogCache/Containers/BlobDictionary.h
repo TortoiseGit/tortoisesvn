@@ -188,7 +188,7 @@ private:
 	std::vector<char> packedBlobs;
 	std::vector<index_t> offsets;
 
-    /// equivalent to &packedStrings.at(0)
+    /// equivalent to &packedStrings.front()
 
     char* packedBlobsStart;
 

@@ -993,14 +993,14 @@ void CTokenizedStringContainer::Unify (std::vector<index_t>& newIndexes)
             index_t length = offsets[source+1] - sourceOffset;
 
             offsets[i+1] = targetOffset + length;
-            memmove ( &stringData.at (targetOffset)
-                    , &stringData.at (sourceOffset)
+            memmove ( &stringData[targetOffset]
+                    , &stringData[sourceOffset]
                     , length * sizeof (index_t));
         }
     }
 
     offsets.resize (remainingIndices.size()+1);
-    stringData.resize (*offsets.rbegin());
+    stringData.resize (offsets.back());
 }
 
 // stream I/O
