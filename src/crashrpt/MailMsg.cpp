@@ -10,6 +10,7 @@
 
 #include "stdafx.h"
 #include "MailMsg.h"
+#include "auto_buffer.h"
 
 CMailMsg::CMailMsg()
 {
@@ -32,7 +33,7 @@ CMailMsg::~CMailMsg()
 
 CMailMsg& CMailMsg::SetFrom(string sAddress, string sName)
 {
-   if (m_bReady || Initialize())
+   if (initIfNeeded())
    {
       // only one sender allowed
       if (m_from.size())
@@ -46,7 +47,7 @@ CMailMsg& CMailMsg::SetFrom(string sAddress, string sName)
 
 CMailMsg& CMailMsg::SetTo(string sAddress, string sName)
 {
-   if (m_bReady || Initialize())
+   if (initIfNeeded())
    {
       // only one recipient allowed
       if (m_to.size())
@@ -60,7 +61,7 @@ CMailMsg& CMailMsg::SetTo(string sAddress, string sName)
 
 CMailMsg& CMailMsg::SetCc(string sAddress, string sName)
 {
-   if (m_bReady || Initialize())
+   if (initIfNeeded())
    {
       m_cc.push_back(TStrStrPair(sAddress,sName));
    }
@@ -70,7 +71,7 @@ CMailMsg& CMailMsg::SetCc(string sAddress, string sName)
 
 CMailMsg& CMailMsg::SetBc(string sAddress, string sName)
 {
-   if (m_bReady || Initialize())
+   if (initIfNeeded())
    {
 	   m_bcc.push_back(TStrStrPair(sAddress, sName));
    }
@@ -80,7 +81,7 @@ CMailMsg& CMailMsg::SetBc(string sAddress, string sName)
 
 CMailMsg& CMailMsg::AddAttachment(string sAttachment, string sTitle)
 {
-   if (m_bReady || Initialize())
+   if (initIfNeeded())
    {
       m_attachments.push_back(TStrStrPair(sAttachment, sTitle));
    }
@@ -91,7 +92,7 @@ CMailMsg& CMailMsg::AddAttachment(string sAttachment, string sTitle)
 BOOL CMailMsg::Send()
 {
    // try mapi
-   int status = MAPISend();
+   const int status = MAPISend();
    if (status != 0)
       return status == 1;
    // try cmc
@@ -120,110 +121,105 @@ BOOL CMailMsg::Send()
 */
 int CMailMsg::cResolveName( LHANDLE m_lhSession, const char * lpszName, lpMapiRecipDesc *ppRecip )
 {	
-	HRESULT hRes = E_FAIL;
+	// Always check to make sure there is an active session
+	if (!m_lhSession)
+	{
+		return E_FAIL;
+	}
+
 	FLAGS flFlags = 0L;
 	ULONG ulReserved = 0L;
 	lpMapiRecipDesc pRecips = NULL;
-	
-	// Always check to make sure there is an active session
-	if ( m_lhSession )		
-	{
-		hRes = m_lpMapiResolveName (
-								     m_lhSession,	// Session handle
-									 0L,			// Parent window.
-									 const_cast<LPSTR>(lpszName),		// Name of recipient.  Passed in by argv.
-									 flFlags,		// Flags set to 0 for MAPIResolveName.
-									 ulReserved,
-									 &pRecips
-								  );				
 
-		if ( hRes == SUCCESS_SUCCESS )
-		{  
-			// Copy the recipient descriptor returned from MAPIResolveName to 
-			// the out parameter for this function,
-			*ppRecip = pRecips;
-		}  
-	}
+	const HRESULT hRes = m_lpMapiResolveName (
+							     m_lhSession,	// Session handle
+								 0L,			// Parent window.
+								 const_cast<LPSTR>(lpszName),		// Name of recipient.  Passed in by argv.
+								 flFlags,		// Flags set to 0 for MAPIResolveName.
+								 ulReserved,
+								 &pRecips
+								 );				
+
+	if ( hRes == SUCCESS_SUCCESS )
+	{  
+		// Copy the recipient descriptor returned from MAPIResolveName to 
+		// the out parameter for this function,
+		*ppRecip = pRecips;
+	}  
 	return hRes;
 }
 
-
-
 int CMailMsg::MAPISend()
 {
+	if (!initIfNeeded())
+	{
+		return 1;
+	}
 
    TStrStrVector::iterator p;
    int                  nIndex = 0;
-   size_t               nRecipients = 0;
-   MapiRecipDesc*       pRecipients = NULL;
    MapiRecipDesc*       pOriginator = NULL;
    MapiRecipDesc*       pFirstRecipient = NULL;
-   ULONG                nAttachments = 0;
-   MapiFileDesc*        pAttachments = NULL;
-   ULONG                status = 0;
    MapiMessage          message;
    std::vector<MapiRecipDesc*>	buffersToFree;
    MapiRecipDesc*       pRecip;
    MapiRecipDesc		grecip;
 
-   if (m_bReady || Initialize())
-   {
-	  LHANDLE hMapiSession;
-	  status = m_lpMapiLogon(NULL, NULL, NULL, MAPI_NEW_SESSION | MAPI_LOGON_UI, 0, &hMapiSession);
-	  if (SUCCESS_SUCCESS != status) {
-		  return FALSE;
-	  }
 
-      nRecipients = m_to.size() + m_cc.size() + m_bcc.size() + m_from.size();
-      if (nRecipients)
-	  {
-         pRecipients = new MapiRecipDesc[nRecipients];
-		 memset(pRecipients, 0, nRecipients * sizeof  MapiRecipDesc);
-	  }
+	LHANDLE hMapiSession;
+	ULONG status = m_lpMapiLogon(NULL, NULL, NULL, MAPI_NEW_SESSION | MAPI_LOGON_UI, 0, &hMapiSession);
+	if (SUCCESS_SUCCESS != status) {
+		return FALSE;
+	}
 
-      nAttachments = (ULONG)m_attachments.size();
-      if (nAttachments)
-         pAttachments = new MapiFileDesc[nAttachments];
+	const size_t nRecipients = m_to.size() + m_cc.size() + m_bcc.size() + m_from.size();
+	auto_buffer<MapiRecipDesc> pRecipients(nRecipients);
+	if (nRecipients)
+	{
+		memset(pRecipients, 0, nRecipients * sizeof  MapiRecipDesc);
+	}
 
-      if (pRecipients)
-      {
-         pFirstRecipient = pRecipients;
-         if (m_from.size())
-         {
-            // set from
-			 if (cResolveName(hMapiSession, m_from.begin()->first.c_str(), &pOriginator) == SUCCESS_SUCCESS) {
+	const ULONG nAttachments = (ULONG)m_attachments.size();
+	auto_buffer<MapiFileDesc> pAttachments(nAttachments);
+
+	if (pRecipients)
+	{
+		pFirstRecipient = pRecipients;
+		if (m_from.size())
+		{
+			// set from
+			if (cResolveName(hMapiSession, m_from.begin()->first.c_str(), &pOriginator) == SUCCESS_SUCCESS) {
 				buffersToFree.push_back(pOriginator);
-			 }
-         }
-         if (m_to.size())
-         {
-			 if (cResolveName(hMapiSession, m_to.begin()->first.c_str(), &pRecip) == SUCCESS_SUCCESS) {
+			}
+		}
+		if (m_to.size())
+		{
+			if (cResolveName(hMapiSession, m_to.begin()->first.c_str(), &pRecip) == SUCCESS_SUCCESS) {
 				if (pFirstRecipient == NULL)
 					pFirstRecipient = &pRecipients[nIndex];
 				pRecip->ulRecipClass = MAPI_TO;
 				memcpy(&pRecipients[nIndex], pRecip, sizeof pRecipients[nIndex]);
 				buffersToFree.push_back(pRecip);
-				nIndex++;
-			 }
-			 else
-			 {
-				 if (pFirstRecipient == NULL)
-					 pFirstRecipient = &pRecipients[nIndex];
-				 grecip.ulRecipClass = MAPI_TO;
-				 grecip.lpEntryID = 0;
-				 grecip.lpszName = 0;
-				 grecip.ulEIDSize = 0;
-				 grecip.ulReserved = 0;
-				 grecip.lpszAddress = (LPTSTR)(LPCTSTR)m_to.begin()->first.c_str();
-				 memcpy(&pRecipients[nIndex], &grecip, sizeof pRecipients[nIndex]);
-				 nIndex++;
-			 }
-         }		
-         if (m_cc.size())
-         {
-            // set cc's
-            for (p = m_cc.begin(); p != m_cc.end(); p++, nIndex++)
-            {
+			}
+			else
+			{
+				if (pFirstRecipient == NULL)
+					pFirstRecipient = &pRecipients[nIndex];
+				grecip.ulRecipClass = MAPI_TO;
+				grecip.lpEntryID = 0;
+				grecip.lpszName = 0;
+				grecip.ulEIDSize = 0;
+				grecip.ulReserved = 0;
+				grecip.lpszAddress = (LPTSTR)(LPCTSTR)m_to.begin()->first.c_str();
+				memcpy(&pRecipients[nIndex], &grecip, sizeof pRecipients[nIndex]);
+			}
+			nIndex++;
+		}		
+		if (m_cc.size())
+		{
+			// set cc's
+			for (p = m_cc.begin(); p != m_cc.end(); p++, nIndex++)
+			{
 				if ( cResolveName(hMapiSession, p->first.c_str(), &pRecip) == SUCCESS_SUCCESS) {
 					if (pFirstRecipient == NULL)
 						pFirstRecipient = &pRecipients[nIndex];
@@ -233,12 +229,12 @@ int CMailMsg::MAPISend()
 					nIndex++;
 				}
             }
-         }
-   
-         if (m_bcc.size())
-         {
-            // set bcc
-            for (p = m_bcc.begin(); p != m_bcc.end(); p++, nIndex++)
+		}
+
+		if (m_bcc.size())
+		{
+			// set bcc
+			for (p = m_bcc.begin(); p != m_bcc.end(); p++, nIndex++)
             {
 				if ( cResolveName(hMapiSession, p->first.c_str(), &pRecip) == SUCCESS_SUCCESS) {
 					if (pFirstRecipient == NULL)
@@ -249,235 +245,225 @@ int CMailMsg::MAPISend()
 					nIndex++;
 				}
             }
-         }
-      }
-      if (pAttachments)
-      {
-         // add attachments
-         for (p = m_attachments.begin(), nIndex = 0;
-              p != m_attachments.end(); p++, nIndex++)
-         {
-            pAttachments[nIndex].ulReserved        = 0;
+		}
+	}
+	if (pAttachments)
+	{
+		// add attachments
+		for (p = m_attachments.begin(), nIndex = 0;
+			p != m_attachments.end(); p++, nIndex++)
+		{
+			pAttachments[nIndex].ulReserved        = 0;
             pAttachments[nIndex].flFlags           = 0;
             pAttachments[nIndex].nPosition         = 0;
             pAttachments[nIndex].lpszPathName      = (LPTSTR)p->first.c_str();
             pAttachments[nIndex].lpszFileName      = (LPTSTR)p->second.c_str();
             pAttachments[nIndex].lpFileType        = NULL;
-         }
-      }
-	  memset(&message, 0, sizeof message);
-      message.ulReserved                        = 0;
-	  if (!m_sSubject.empty())
-	      message.lpszSubject                       = (LPTSTR)m_sSubject.c_str();
-	  else
-		  message.lpszSubject = "No Subject";
-	  if (!m_sMessage.empty())
-	      message.lpszNoteText                      = (LPTSTR)m_sMessage.c_str();
-	  else
-		  message.lpszNoteText = "No Message Body";
-      message.lpszMessageType                   = NULL;
-      message.lpszDateReceived                  = NULL;
-      message.lpszConversationID                = NULL;
-      message.flFlags                           = 0;
-      message.lpOriginator                      = pOriginator;
-      message.nRecipCount                       = nIndex;
-      message.lpRecips                          = pFirstRecipient;
-      message.nFileCount                        = nAttachments;
-      message.lpFiles                           = pAttachments;
+		}
+	}
+	memset(&message, 0, sizeof message);
+	message.ulReserved = 0;
+	if (m_sSubject.empty())
+		message.lpszSubject = "No Subject";
+	else
+		message.lpszSubject = (LPTSTR)m_sSubject.c_str();		
+	if (m_sMessage.empty())
+		message.lpszNoteText = "No Message Body";
+	else
+		message.lpszNoteText = (LPTSTR)m_sMessage.c_str();
 
-      status = m_lpMapiSendMail(hMapiSession, 0, &message, MAPI_DIALOG, 0);
-		  
-      m_lpMapiLogoff(hMapiSession, NULL, 0, 0);
-	  std::vector<MapiRecipDesc*>::iterator iter;
-	  for (iter = buffersToFree.begin(); iter != buffersToFree.end(); iter++) {
-		  m_lpMapiFreeBuffer(*iter);
-	  }
-if (SUCCESS_SUCCESS != status) {
-				string txt;
-				TCHAR buf[MAX_PATH];
-				_tprintf_s(buf, "Message did not get sent due to error code %d.\r\n", status);
-				txt = buf;
-			switch (status)
-			{  
-			case MAPI_E_AMBIGUOUS_RECIPIENT:
-				txt += "A recipient matched more than one of the recipient descriptor structures and MAPI_DIALOG was not set. No message was sent.\r\n" ;
-				break;
-			case MAPI_E_ATTACHMENT_NOT_FOUND:
-				txt += "The specified attachment was not found. No message was sent.\r\n" ;
-				break;
-			case MAPI_E_ATTACHMENT_OPEN_FAILURE:
-				txt += "The specified attachment could not be opened. No message was sent.\r\n" ;
-				break;
-			case MAPI_E_BAD_RECIPTYPE:
-				txt += "The type of a recipient was not MAPI_TO, MAPI_CC, or MAPI_BCC. No message was sent.\r\n" ;
-				break;
-			case MAPI_E_FAILURE:
-				txt += "One or more unspecified errors occurred. No message was sent.\r\n" ;
-				break;
-			case MAPI_E_INSUFFICIENT_MEMORY:
-				txt += "There was insufficient memory to proceed. No message was sent.\r\n" ;
-				break;
-			case MAPI_E_INVALID_RECIPS:
-				txt += "One or more recipients were invalid or did not resolve to any address.\r\n" ;
-				break;
-			case MAPI_E_LOGIN_FAILURE:
-				txt += "There was no default logon, and the user failed to log on successfully when the logon dialog box was displayed. No message was sent.\r\n" ;
-				break;
-			case MAPI_E_TEXT_TOO_LARGE:
-				txt += "The text in the message was too large. No message was sent.\r\n" ;
-				break;
-			case MAPI_E_TOO_MANY_FILES:
-				txt += "There were too many file attachments. No message was sent.\r\n" ;
-				break;
-			case MAPI_E_TOO_MANY_RECIPIENTS:
-				txt += "There were too many recipients. No message was sent.\r\n" ;
-				break;
-			case MAPI_E_UNKNOWN_RECIPIENT:
-				txt += "A recipient did not appear in the address list. No message was sent.\r\n" ;
-				break;
-			case MAPI_E_USER_ABORT:
-				txt += "The user canceled one of the dialog boxes. No message was sent.\r\n" ;
-				break;
-			default:
-				txt += "Unknown error code.\r\n" ;
-				break;
-			}
-			::MessageBox(0, txt.c_str(), "Error", MB_OK);
-}
+	message.lpszMessageType                   = NULL;
+	message.lpszDateReceived                  = NULL;
+	message.lpszConversationID                = NULL;
+	message.flFlags                           = 0;
+	message.lpOriginator                      = pOriginator;
+	message.nRecipCount                       = nIndex;
+	message.lpRecips                          = pFirstRecipient;
+	message.nFileCount                        = nAttachments;
+	message.lpFiles                           = pAttachments;
 
-      if (pRecipients)
-         delete [] pRecipients;
+	status = m_lpMapiSendMail(hMapiSession, 0, &message, MAPI_DIALOG, 0);
+	m_lpMapiLogoff(hMapiSession, NULL, 0, 0);
 
-      if (nAttachments)
-         delete [] pAttachments;
-   }
+	std::vector<MapiRecipDesc*>::iterator iter;
+	for (iter = buffersToFree.begin(); iter != buffersToFree.end(); iter++) {
+		m_lpMapiFreeBuffer(*iter);
+	}
 
-   if (SUCCESS_SUCCESS == status)
-	   return 1;
-   if (MAPI_E_USER_ABORT == status)
-	   return -1;
-   // other failure
-   return 0;
+	if (SUCCESS_SUCCESS == status) {
+		return 1;
+	}
+
+	string txt;
+	TCHAR buf[MAX_PATH];
+	_tprintf_s(buf, "Message did not get sent due to error code %d.\r\n", status);
+	txt = buf;
+	switch (status)
+	{  
+	case MAPI_E_AMBIGUOUS_RECIPIENT:
+		txt += "A recipient matched more than one of the recipient descriptor structures and MAPI_DIALOG was not set. No message was sent.\r\n" ;
+		break;
+	case MAPI_E_ATTACHMENT_NOT_FOUND:
+		txt += "The specified attachment was not found. No message was sent.\r\n" ;
+		break;
+	case MAPI_E_ATTACHMENT_OPEN_FAILURE:
+		txt += "The specified attachment could not be opened. No message was sent.\r\n" ;
+		break;
+	case MAPI_E_BAD_RECIPTYPE:
+		txt += "The type of a recipient was not MAPI_TO, MAPI_CC, or MAPI_BCC. No message was sent.\r\n" ;
+		break;
+	case MAPI_E_FAILURE:
+		txt += "One or more unspecified errors occurred. No message was sent.\r\n" ;
+		break;
+	case MAPI_E_INSUFFICIENT_MEMORY:
+		txt += "There was insufficient memory to proceed. No message was sent.\r\n" ;
+		break;
+	case MAPI_E_INVALID_RECIPS:
+		txt += "One or more recipients were invalid or did not resolve to any address.\r\n" ;
+		break;
+	case MAPI_E_LOGIN_FAILURE:
+		txt += "There was no default logon, and the user failed to log on successfully when the logon dialog box was displayed. No message was sent.\r\n" ;
+		break;
+	case MAPI_E_TEXT_TOO_LARGE:
+		txt += "The text in the message was too large. No message was sent.\r\n" ;
+		break;
+	case MAPI_E_TOO_MANY_FILES:
+		txt += "There were too many file attachments. No message was sent.\r\n" ;
+		break;
+	case MAPI_E_TOO_MANY_RECIPIENTS:
+		txt += "There were too many recipients. No message was sent.\r\n" ;
+		break;
+	case MAPI_E_UNKNOWN_RECIPIENT:
+		txt += "A recipient did not appear in the address list. No message was sent.\r\n" ;
+		break;
+	case MAPI_E_USER_ABORT:
+		txt += "The user canceled one of the dialog boxes. No message was sent.\r\n" ;
+		break;
+	default:
+		txt += "Unknown error code.\r\n" ;
+		break;
+	}
+	::MessageBox(0, txt.c_str(), "Error", MB_OK);
+
+	if (MAPI_E_USER_ABORT == status)
+		return -1;
+	// other failure
+	return 0;
 }
 
 BOOL CMailMsg::CMCSend()
 {
-   TStrStrVector::iterator p;
-   int                  nIndex = 0;
-   CMC_recipient*       pRecipients;
-   CMC_attachment*      pAttachments;
-   CMC_session_id       session;
-   CMC_return_code      status = 0;
-   CMC_message          message;
-   CMC_boolean          bAvailable = FALSE;
-   CMC_time             t_now = {0};
+	if (!initIfNeeded())
+	{
+		return FALSE;
+	}
 
-   if (m_bReady || Initialize())
-   {
-      pRecipients = new CMC_recipient[m_to.size() + m_cc.size() + m_bcc.size() + m_from.size()];
-      pAttachments = new CMC_attachment[m_attachments.size()];
+	auto_buffer<CMC_recipient> pRecipients(m_to.size() + m_cc.size() + m_bcc.size() + m_from.size());
+	auto_buffer<CMC_attachment> pAttachments(m_attachments.size());
 
-      // set cc's
-      for (p = m_cc.begin(); p != m_cc.end(); p++, nIndex++)
-      {
-         pRecipients[nIndex].name                = (LPTSTR)(LPCTSTR)p->second.c_str();
-         pRecipients[nIndex].name_type           = CMC_TYPE_INDIVIDUAL;
-         pRecipients[nIndex].address             = (LPTSTR)(LPCTSTR)p->first.c_str();
-         pRecipients[nIndex].role                = CMC_ROLE_CC;
-         pRecipients[nIndex].recip_flags         = 0;
-         pRecipients[nIndex].recip_extensions    = NULL;
-      }
-   
-      // set bcc
-      for (p = m_bcc.begin(); p != m_bcc.end(); p++, nIndex++)
-      {
-         pRecipients[nIndex].name                = (LPTSTR)(LPCTSTR)p->second.c_str();
-         pRecipients[nIndex].name_type           = CMC_TYPE_INDIVIDUAL;
-         pRecipients[nIndex].address             = (LPTSTR)(LPCTSTR)p->first.c_str();
-         pRecipients[nIndex].role                = CMC_ROLE_BCC;
-         pRecipients[nIndex].recip_flags         = 0;
-         pRecipients[nIndex].recip_extensions    = NULL;
-      }
-   
-      // set to
-      pRecipients[nIndex].name                   = (LPTSTR)(LPCTSTR)m_to.begin()->second.c_str();
-      pRecipients[nIndex].name_type              = CMC_TYPE_INDIVIDUAL;
-      pRecipients[nIndex].address                = (LPTSTR)(LPCTSTR)m_to.begin()->first.c_str();
-      pRecipients[nIndex].role                   = CMC_ROLE_TO;
-      pRecipients[nIndex].recip_flags            = 0;
-      pRecipients[nIndex].recip_extensions       = NULL;
-   
-      // set from
-      pRecipients[nIndex+1].name                 = (LPTSTR)(LPCTSTR)m_from.begin()->second.c_str();
-      pRecipients[nIndex+1].name_type            = CMC_TYPE_INDIVIDUAL;
-      pRecipients[nIndex+1].address              = (LPTSTR)(LPCTSTR)m_from.begin()->first.c_str();
-      pRecipients[nIndex+1].role                 = CMC_ROLE_ORIGINATOR;
-      pRecipients[nIndex+1].recip_flags          = CMC_RECIP_LAST_ELEMENT;
-      pRecipients[nIndex+1].recip_extensions     = NULL;
-   
-      // add attachments
-      for (p = m_attachments.begin(), nIndex = 0;
-           p != m_attachments.end(); p++, nIndex++)
-      {
-         pAttachments[nIndex].attach_title       = (LPTSTR)(LPCTSTR)p->second.c_str();
-         pAttachments[nIndex].attach_type        = NULL;
-         pAttachments[nIndex].attach_filename    = (LPTSTR)(LPCTSTR)p->first.c_str();
-         pAttachments[nIndex].attach_flags       = 0;
-         pAttachments[nIndex].attach_extensions  = NULL;
-      }
-      pAttachments[nIndex-1].attach_flags        = CMC_ATT_LAST_ELEMENT;
+	TStrStrVector::iterator p;
+	int                  nIndex = 0;
+	CMC_message          message;
+	CMC_boolean          bAvailable = FALSE;
+	CMC_time             t_now = {0};
+	
+	// set cc's
+	for (p = m_cc.begin(); p != m_cc.end(); p++, nIndex++)
+	{
+		pRecipients[nIndex].name                = (LPTSTR)(LPCTSTR)p->second.c_str();
+		pRecipients[nIndex].name_type           = CMC_TYPE_INDIVIDUAL;
+		pRecipients[nIndex].address             = (LPTSTR)(LPCTSTR)p->first.c_str();
+		pRecipients[nIndex].role                = CMC_ROLE_CC;
+		pRecipients[nIndex].recip_flags         = 0;
+		pRecipients[nIndex].recip_extensions    = NULL;
+	}
 
-      message.message_reference                 = NULL;
-      message.message_type                      = NULL;
-	  if (m_sSubject.empty())
-		  message.subject = "No Subject";
-	  else
-	      message.subject                           = (LPTSTR)(LPCTSTR)m_sSubject.c_str();
-      message.time_sent                         = t_now;
-	  if (m_sMessage.empty())
-		  message.text_note = "No Body";
-	  else
-		  message.text_note                         = (LPTSTR)(LPCTSTR)m_sMessage.c_str();
-      message.recipients                        = pRecipients;
-      message.attachments                       = pAttachments;
-      message.message_flags                     = 0;
-      message.message_extensions                = NULL;
+	// set bcc
+	for (p = m_bcc.begin(); p != m_bcc.end(); p++, nIndex++)
+	{
+		pRecipients[nIndex].name                = (LPTSTR)(LPCTSTR)p->second.c_str();
+		pRecipients[nIndex].name_type           = CMC_TYPE_INDIVIDUAL;
+		pRecipients[nIndex].address             = (LPTSTR)(LPCTSTR)p->first.c_str();
+		pRecipients[nIndex].role                = CMC_ROLE_BCC;
+		pRecipients[nIndex].recip_flags         = 0;
+		pRecipients[nIndex].recip_extensions    = NULL;
+	}
 
-      status = m_lpCmcQueryConfiguration(
-                  0, 
-                  CMC_CONFIG_UI_AVAIL, 
-                  (void*)&bAvailable, 
-                  NULL
-                  );
+	// set to
+	pRecipients[nIndex].name                   = (LPTSTR)(LPCTSTR)m_to.begin()->second.c_str();
+	pRecipients[nIndex].name_type              = CMC_TYPE_INDIVIDUAL;
+	pRecipients[nIndex].address                = (LPTSTR)(LPCTSTR)m_to.begin()->first.c_str();
+	pRecipients[nIndex].role                   = CMC_ROLE_TO;
+	pRecipients[nIndex].recip_flags            = 0;
+	pRecipients[nIndex].recip_extensions       = NULL;
 
-      if (CMC_SUCCESS == status && bAvailable)
-      {
-         status = m_lpCmcLogon(
-                     NULL,
-                     NULL,
-                     NULL,
-                     NULL,
-                     0,
-                     CMC_VERSION,
-                     CMC_LOGON_UI_ALLOWED |
-                     CMC_ERROR_UI_ALLOWED,
-                     &session,
-                     NULL
-                     );
+	// set from
+	pRecipients[nIndex+1].name                 = (LPTSTR)(LPCTSTR)m_from.begin()->second.c_str();
+	pRecipients[nIndex+1].name_type            = CMC_TYPE_INDIVIDUAL;
+	pRecipients[nIndex+1].address              = (LPTSTR)(LPCTSTR)m_from.begin()->first.c_str();
+	pRecipients[nIndex+1].role                 = CMC_ROLE_ORIGINATOR;
+	pRecipients[nIndex+1].recip_flags          = CMC_RECIP_LAST_ELEMENT;
+	pRecipients[nIndex+1].recip_extensions     = NULL;
 
-         if (CMC_SUCCESS == status)
-         {
-            status = m_lpCmcSend(session, &message, 0, 0, NULL);
+	// add attachments
+	for (p = m_attachments.begin(), nIndex = 0;
+		p != m_attachments.end(); p++, nIndex++)
+	{
+		pAttachments[nIndex].attach_title       = (LPTSTR)(LPCTSTR)p->second.c_str();
+		pAttachments[nIndex].attach_type        = NULL;
+		pAttachments[nIndex].attach_filename    = (LPTSTR)(LPCTSTR)p->first.c_str();
+		pAttachments[nIndex].attach_flags       = 0;
+		pAttachments[nIndex].attach_extensions  = NULL;
+	}
+	pAttachments[nIndex-1].attach_flags = CMC_ATT_LAST_ELEMENT;
 
-            m_lpCmcLogoff(session, NULL, CMC_LOGON_UI_ALLOWED, NULL);
-         }
-      }
+	message.message_reference = NULL;
+	message.message_type = NULL;
+	if (m_sSubject.empty())
+		message.subject = "No Subject";
+	else
+		message.subject = (LPTSTR)(LPCTSTR)m_sSubject.c_str();
+	message.time_sent = t_now;
+	if (m_sMessage.empty())
+		message.text_note = "No Body";
+	else
+		message.text_note = (LPTSTR)(LPCTSTR)m_sMessage.c_str();
 
-      delete [] pRecipients;
-      delete [] pAttachments;
-   }
+	message.recipients                        = pRecipients;
+	message.attachments                       = pAttachments;
+	message.message_flags                     = 0;
+	message.message_extensions                = NULL;
 
-   return ((CMC_SUCCESS == status) && bAvailable);
+	CMC_return_code status = m_lpCmcQueryConfiguration(
+								0,
+								CMC_CONFIG_UI_AVAIL,
+								(void*)&bAvailable,
+								NULL
+								);
+
+	if (CMC_SUCCESS == status && bAvailable)
+	{
+		CMC_session_id session;
+		status = m_lpCmcLogon(
+					NULL,
+					NULL,
+					NULL,
+					NULL,
+					0,
+					CMC_VERSION,
+					CMC_LOGON_UI_ALLOWED |
+					CMC_ERROR_UI_ALLOWED,
+					&session,
+					NULL
+					);
+
+		if (CMC_SUCCESS == status)
+		{
+			status = m_lpCmcSend(session, &message, 0, 0, NULL);
+			m_lpCmcLogoff(session, NULL, CMC_LOGON_UI_ALLOWED, NULL);
+		}
+	}
+	return ((CMC_SUCCESS == status) && bAvailable);
 }
 
 BOOL CMailMsg::Initialize()
@@ -506,4 +492,9 @@ BOOL CMailMsg::Initialize()
 void CMailMsg::Uninitialize()
 {
    ::FreeLibrary(m_hMapi);
+}
+
+bool CMailMsg::initIfNeeded()
+{
+	return (m_bReady || Initialize());
 }

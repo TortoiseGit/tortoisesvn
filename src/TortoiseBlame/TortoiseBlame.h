@@ -158,4 +158,7 @@ protected:
 
 	CRegStdDWORD					m_regOldLinesColor;
 	CRegStdDWORD					m_regNewLinesColor;
+
+private:
+	static void makeLower( char* buffer, size_t length );
 };

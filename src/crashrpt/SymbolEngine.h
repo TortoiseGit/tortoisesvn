@@ -30,6 +30,7 @@ USE_BUGSLAYERUTIL - If defined, the class will have another
 // You could include either IMAGEHLP.DLL or DBGHELP.DLL.
 #include "imagehlp.h"
 #include <tchar.h>
+#include "auto_buffer.h"
 
 // Include these in case the user forgets to link against them.
 #pragma comment (lib,"dbghelp.lib")
@@ -156,19 +157,18 @@ public      :
         }
 
         // Got the version size, now get the version information.
-        LPVOID lpData = (LPVOID)new TCHAR [ dwVerSize ] ;
+        auto_buffer<TCHAR> lpData(dwVerSize);
         if ( FALSE == GetFileVersionInfo ( szImageHlp       ,
                                            dwVerInfoHandle  ,
                                            dwVerSize        ,
-                                           lpData            ) )
+                                           lpData.get() ) )
         {
-            delete [] lpData ;
-            return ( FALSE ) ;
+            return FALSE;
         }
 
         VS_FIXEDFILEINFO * lpVerInfo ;
         UINT uiLen ;
-        BOOL bRet = VerQueryValue ( lpData              ,
+        BOOL bRet = VerQueryValue ( lpData.get()      ,
                                      ( "\\" )         ,
                                     (LPVOID*)&lpVerInfo ,
                                     &uiLen               ) ;
@@ -178,9 +178,7 @@ public      :
             dwLS = lpVerInfo->dwFileVersionLS ;
         }
 
-        delete [] lpData ;
-
-        return ( bRet ) ;
+		return bRet;
     }
 
 /*----------------------------------------------------------------------

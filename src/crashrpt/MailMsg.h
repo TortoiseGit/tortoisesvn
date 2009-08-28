@@ -317,4 +317,7 @@ protected:
    LPMAPIFREEBUFFER m_lpMapiFreeBuffer;         // Mapi func pointer
    
    BOOL           m_bReady;                     // MAPI is loaded
+
+private:
+	bool initIfNeeded();
 };

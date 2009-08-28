@@ -21,6 +21,7 @@
 #include "TortoiseBlame.h"
 #include "registry.h"
 #include "LangDll.h"
+#include "auto_buffer.h"
 
 #define MAX_LOADSTRING 1000
 
@@ -98,10 +99,9 @@ std::string TortoiseBlame::GetAppDirectory()
 	do 
 	{
 		bufferlen += MAX_PATH;		// MAX_PATH is not the limit here!
-		TCHAR * pBuf = new TCHAR[bufferlen];
+		auto_buffer<TCHAR> pBuf(bufferlen);
 		len = GetModuleFileName(NULL, pBuf, bufferlen);	
 		path = std::string(pBuf, len);
-		delete [] pBuf;
 	} while(len == bufferlen);
 	path = path.substr(0, path.rfind('\\') + 1);
 
@@ -502,13 +502,7 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 
 	if(!bCaseSensitive)
 	{
-		char *p;
-		size_t len = strlen(szWhat);
-		for (p = szWhat; p < szWhat + len; p++)
-		{
-			if (isupper(*p)&&__isascii(*p))
-				*p = _tolower(*p);
-		}
+		makeLower(szWhat, strlen(szWhat));
 	}
 
 	std::string sWhat = std::string(szWhat);
@@ -517,18 +511,13 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 	int i=0;
 	for (i=line; (i<(int)authors.size())&&(!bFound); ++i)
 	{
-		int bufsize = (int)SendEditor(SCI_GETLINE, i);
-		char * linebuf = new char[bufsize+1];
+		const int bufsize = (int)SendEditor(SCI_GETLINE, i);
+		auto_buffer<char> linebuf(bufsize+1);
 		SecureZeroMemory(linebuf, bufsize+1);
-		SendEditor(SCI_GETLINE, i, (LPARAM)linebuf);
+		SendEditor(SCI_GETLINE, i, (LPARAM)linebuf.get());
 		if (!bCaseSensitive)
 		{
-			char *p;
-			for (p = linebuf; p < linebuf + bufsize; p++)
-			{
-				if (isupper(*p)&&__isascii(*p))
-					*p = _tolower(*p);
-			}
+			makeLower(linebuf, bufsize);
 		}
 		_stprintf_s(buf, 20, _T("%ld"), revs[i]);
 		if (authors[i].compare(sWhat)==0)
@@ -539,24 +528,18 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 			bFound = true;
 		else if (strstr(linebuf, szWhat))
 			bFound = true;
-		delete [] linebuf;
 	}
 	if (!bFound)
 	{
 		for (i=0; (i<line)&&(!bFound); ++i)
 		{
-			int bufsize = (int)SendEditor(SCI_GETLINE, i);
-			char * linebuf = new char[bufsize+1];
+			const int bufsize = (int)SendEditor(SCI_GETLINE, i);
+			auto_buffer<char> linebuf(bufsize+1);
 			SecureZeroMemory(linebuf, bufsize+1);
-			SendEditor(SCI_GETLINE, i, (LPARAM)linebuf);
+			SendEditor(SCI_GETLINE, i, (LPARAM)linebuf.get());
 			if (!bCaseSensitive)
 			{
-				char *p;
-				for (p = linebuf; p < linebuf + bufsize; p++)
-				{
-					if (isupper(*p)&&__isascii(*p))
-						*p = _tolower(*p);
-				}
+				makeLower(linebuf, bufsize);
 			}
 			_stprintf_s(buf, 20, _T("%ld"), revs[i]);
 			if (authors[i].compare(sWhat)==0)
@@ -567,7 +550,6 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 				bFound = true;
 			else if (strstr(linebuf, szWhat))
 				bFound = true;
-			delete [] linebuf;
 		}
 	}
 	if (bFound)
@@ -1201,6 +1183,15 @@ void TortoiseBlame::StringExpand(LPWSTR str)
 			cPos++;
 		}
 	} while (cPos != NULL);
+}
+
+void TortoiseBlame::makeLower( char* buffer, size_t len )
+{
+	for (char *p = buffer; p < buffer + len; p++)
+	{
+		if (isupper(*p)&&__isascii(*p))
+			*p = _tolower(*p);
+	}
 }
 
 // Forward declarations of functions included in this code module:
