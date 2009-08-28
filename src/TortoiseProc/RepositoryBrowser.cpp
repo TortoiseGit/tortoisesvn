@@ -787,7 +787,7 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
 		do 
 		{
 			data = info.GetFirstFileInfo(CTSVNPath(url), rev, rev);
-			if (data && rev.IsHead())
+			if (data && !rev.IsHead())
 			{
 				rev = data->rev;
 			}
