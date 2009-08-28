@@ -18,8 +18,8 @@
 //
 #include "StdAfx.h"
 #include "DelUnversionedCommand.h"
-
 #include "DeleteUnversionedDlg.h"
+#include "auto_buffer.h"
 
 bool DelUnversionedCommand::Execute()
 {
@@ -40,7 +40,7 @@ bool DelUnversionedCommand::Execute()
 		}
 		filelist += _T("|");
 		int len = filelist.GetLength();
-		TCHAR * buf = new TCHAR[len+2];
+		auto_buffer<TCHAR> buf(len+2);
 		_tcscpy_s(buf, len+2, filelist);
 		for (int i=0; i<len; ++i)
 			if (buf[i] == '|')
@@ -53,7 +53,6 @@ bool DelUnversionedCommand::Execute()
 		fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | FOF_ALLOWUNDO;
 		fileop.lpszProgressTitle = _T("deleting file");
 		bRet = (SHFileOperation(&fileop) == 0);
-		delete [] buf;
 	}
 	return true;
 }

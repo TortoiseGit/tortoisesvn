@@ -42,6 +42,7 @@
 #include "..\version.h"
 #include "JumpListHelpers.h"
 #include "CmdUrlParser.h"
+#include "auto_buffer.h"
 
 #define APPID (_T("TSVN.TSVN.1") _T(TSVN_PLATFORM))
 
@@ -295,13 +296,12 @@ BOOL CTortoiseProcApp::InitInstance()
 		DWORD len = GetCurrentDirectory(0, NULL);
 		if (len)
 		{
-			TCHAR * originalCurrentDirectory = new TCHAR[len];
+			auto_buffer<TCHAR> originalCurrentDirectory(len);
 			if (GetCurrentDirectory(len, originalCurrentDirectory))
 			{
 				sOrigCWD = originalCurrentDirectory;
 				sOrigCWD = CPathUtils::GetLongPathname(sOrigCWD);
 			}
-			delete [] originalCurrentDirectory;
 		}
 		TCHAR pathbuf[MAX_PATH];
 		GetTempPath(MAX_PATH, pathbuf);
@@ -394,11 +394,11 @@ BOOL CTortoiseProcApp::InitInstance()
 	// apps might still be needing the recent ones.
 	{
 		DWORD len = ::GetTempPath(0, NULL);
-		TCHAR * path = new TCHAR[len + 100];
+		auto_buffer<TCHAR> path(len + 100);
 		len = ::GetTempPath (len+100, path);
 		if (len != 0)
 		{
-			CSimpleFileFind finder = CSimpleFileFind(path, _T("*svn*.*"));
+			CSimpleFileFind finder = CSimpleFileFind(path.get(), _T("*svn*.*"));
 			FILETIME systime_;
 			::GetSystemTimeAsFileTime(&systime_);
 			__int64 systime = (((_int64)systime_.dwHighDateTime)<<32) | ((__int64)systime_.dwLowDateTime);
@@ -424,7 +424,6 @@ BOOL CTortoiseProcApp::InitInstance()
 				}
 			}
 		}	
-		delete[] path;		
 	}
 
 

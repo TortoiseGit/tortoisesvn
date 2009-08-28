@@ -26,6 +26,7 @@
 #include "SVN.h"
 #include "TempFile.h"
 #include "ProgressDlg.h"
+#include "auto_buffer.h"
 
 #define PATCH_TO_CLIPBOARD_PSEUDO_FILENAME		_T(".TSVNPatchToClipboard")
 
@@ -94,7 +95,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 
 		CString sFilter;
 		sFilter.LoadString(IDS_PATCHFILEFILTER);
-		TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+		auto_buffer<TCHAR> pszFilters(sFilter.GetLength()+4);
 		_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
 		// Replace '|' delimiters with '\0's
 		TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
@@ -109,10 +110,8 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 		// Display the Open dialog box. 
 		if (GetSaveFileName(&ofn)==FALSE)
 		{
-			delete [] pszFilters;
 			return FALSE;
 		}
-		delete [] pszFilters;
 		savePath = CTSVNPath(ofn.lpstrFile);
 		if (ofn.nFilterIndex == 1)
 		{

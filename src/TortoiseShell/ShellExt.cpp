@@ -28,6 +28,7 @@
 #include "ShellObjects.h"
 #include "..\version.h"
 #include "libintl.h"
+#include "auto_buffer.h"
 #undef swprintf
 
 extern ShellObjects g_shellObjects;
@@ -212,10 +213,9 @@ tstring GetAppDirectory()
 	do 
 	{
 		bufferlen += MAX_PATH;		// MAX_PATH is not the limit here!
-		TCHAR * pBuf = new TCHAR[bufferlen];
+		auto_buffer<TCHAR> pBuf(bufferlen);
 		len = GetModuleFileName(g_hmodThisDll, pBuf, bufferlen);	
 		path = tstring(pBuf, len);
-		delete [] pBuf;
 	} while(len == bufferlen);
 	path = path.substr(0, path.rfind('\\') + 1);
 

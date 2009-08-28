@@ -30,7 +30,7 @@
 #include "RepositoryBrowser.h"
 #include "BrowseFolder.h"
 #include <intshcut.h>
-
+#include "auto_buffer.h"
 
 CAppUtils::CAppUtils(void)
 {
@@ -429,15 +429,12 @@ BOOL CAppUtils::StartTextViewer(CString file)
 	viewer = txtexe;
 
 	DWORD len = ExpandEnvironmentStrings(viewer, NULL, 0);
-	TCHAR * buf = new TCHAR[len+1];
+	auto_buffer<TCHAR> buf(len+1);
 	ExpandEnvironmentStrings(viewer, buf, len);
 	viewer = buf;
-	delete [] buf;
 	len = ExpandEnvironmentStrings(file, NULL, 0);
-	buf = new TCHAR[len+1];
 	ExpandEnvironmentStrings(file, buf, len);
 	file = buf;
-	delete [] buf;
 	file = _T("\"")+file+_T("\"");
 	if (viewer.IsEmpty())
 	{
@@ -450,8 +447,9 @@ BOOL CAppUtils::StartTextViewer(CString file)
 		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 		CString sFilter;
 		sFilter.LoadString(IDS_PROGRAMSFILEFILTER);
-		TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-		_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
+		const int filterLength = sFilter.GetLength()+4;
+		auto_buffer<TCHAR> pszFilters(filterLength);
+		_tcscpy_s (pszFilters, filterLength, sFilter);
 		// Replace '|' delimiters with '\0's
 		TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 		while (ptr != pszFilters)
@@ -475,12 +473,10 @@ BOOL CAppUtils::StartTextViewer(CString file)
 
 		if (GetOpenFileName(&ofn)==TRUE)
 		{
-			delete [] pszFilters;
 			viewer = CString(ofn.lpstrFile);
 		}
 		else
 		{
-			delete [] pszFilters;
 			return FALSE;
 		}
 	}
@@ -868,12 +864,13 @@ bool CAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title, UINT 
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 	CString sFilter;
-	TCHAR * pszFilters = NULL;
+	auto_buffer<TCHAR> pszFilters;
 	if (filter)
 	{
 		sFilter.LoadString(filter);
-		pszFilters = new TCHAR[sFilter.GetLength()+4];
-		_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
+		const int filtersLength = sFilter.GetLength()+4;
+		pszFilters.reset(filtersLength);
+		_tcscpy_s (pszFilters, filtersLength, sFilter);
 		// Replace '|' delimiters with '\0's
 		TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 		while (ptr != pszFilters)
@@ -913,15 +910,11 @@ bool CAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title, UINT 
 	}
 	if (bRet)
 	{
-		if (pszFilters)
-			delete [] pszFilters;
 		path = CString(ofn.lpstrFile);
 		if (filterindex)
 			*filterindex = ofn.nFilterIndex;
 		return true;
 	}
-	if (pszFilters)
-		delete [] pszFilters;
 	return false;
 }
 

@@ -23,9 +23,10 @@
 
 BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 {
-	size_t len = _tcslen(path);
-	TCHAR * buf = new TCHAR[len+10];
-	TCHAR * internalpathbuf = new TCHAR[len+10];
+	const size_t len = _tcslen(path);
+	const size_t fullLen = len+10;
+	auto_buffer<TCHAR> buf(fullLen);
+	auto_buffer<TCHAR> internalpathbuf(fullLen);
 	TCHAR * pPath = internalpathbuf;
 	SECURITY_ATTRIBUTES attribs;
 
@@ -34,24 +35,22 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 	attribs.nLength = sizeof(SECURITY_ATTRIBUTES);
 	attribs.bInheritHandle = FALSE;
 
-	ConvertToBackslash(internalpathbuf, path, len+10);
+	ConvertToBackslash(internalpathbuf, path, fullLen);
 	if (_tcsncmp(internalpathbuf, _T("\\\\?\\"), 4) == 0)
 		pPath += 4;
 	do
 	{
-		SecureZeroMemory(buf, (len+10)*sizeof(TCHAR));
+		SecureZeroMemory(buf, fullLen*sizeof(TCHAR));
 		TCHAR * slashpos = _tcschr(pPath, '\\');
 		if (slashpos)
-			_tcsncpy_s(buf, len+10, internalpathbuf, slashpos - internalpathbuf);
+			_tcsncpy_s(buf, fullLen, internalpathbuf, slashpos - internalpathbuf);
 		else
-			_tcsncpy_s(buf, len+10, internalpathbuf, len+10);
+			_tcsncpy_s(buf, fullLen, internalpathbuf, fullLen);
 		CreateDirectory(buf, &attribs);
 		pPath = _tcschr(pPath, '\\');
 	} while ((pPath++)&&(_tcschr(pPath, '\\')));
 	
-	BOOL bRet = CreateDirectory(internalpathbuf, &attribs);
-	delete[] buf;
-	delete[] internalpathbuf;
+	const BOOL bRet = CreateDirectory(internalpathbuf, &attribs);
 	return bRet;
 }
 
@@ -279,29 +278,26 @@ CString CPathUtils::GetLongPathname(const CString& path)
 		ret = GetFullPathName(path, 0, NULL, NULL);
 		if (ret)
 		{
-			TCHAR * pathbuf = new TCHAR[ret+1];
+			auto_buffer<TCHAR> pathbuf(ret+1);
 			if ((ret = GetFullPathName(path, ret, pathbuf, NULL))!=0)
 			{
 				sRet = CString(pathbuf, ret);
 			}
-			delete [] pathbuf;
 		}
 	}
 	else if (PathCanonicalize(pathbufcanonicalized, path))
 	{
 		ret = ::GetLongPathName(pathbufcanonicalized, NULL, 0);
-		TCHAR * pathbuf = new TCHAR[ret+2];	
+		auto_buffer<TCHAR> pathbuf(ret+2);
 		ret = ::GetLongPathName(pathbufcanonicalized, pathbuf, ret+1);
 		sRet = CString(pathbuf, ret);
-		delete[] pathbuf;
 	}
 	else
 	{
 		ret = ::GetLongPathName(path, NULL, 0);
-		TCHAR * pathbuf = new TCHAR[ret+2];
+		auto_buffer<TCHAR> pathbuf(ret+2);
 		ret = ::GetLongPathName(path, pathbuf, ret+1);
 		sRet = CString(pathbuf, ret);
-		delete[] pathbuf;
 	}
 	if (ret == 0)
 		return path;
@@ -391,13 +387,11 @@ CStringW CPathUtils::PathUnescape(const CStringW& path)
 
 	patha = PathUnescape(patha);
 
-	WCHAR * bufw;
 	len = patha.GetLength();
-	bufw = new WCHAR[len*4 + 1];
+	auto_buffer<WCHAR> bufw(len*4 + 1);
 	SecureZeroMemory(bufw, (len*4 + 1)*sizeof(WCHAR));
 	MultiByteToWideChar(CP_UTF8, 0, patha, -1, bufw, len*4);
 	CStringW ret = CStringW(bufw);
-	delete [] bufw;
 	return ret;
 }
 

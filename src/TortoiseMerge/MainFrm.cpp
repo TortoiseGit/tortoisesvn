@@ -31,6 +31,7 @@
 #include "BottomView.h"
 #include "DiffColors.h"
 #include ".\mainfrm.h"
+#include "auto_buffer.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -1063,7 +1064,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 		CString cmd = _T("\"") + CPathUtils::GetAppDirectory();
 		cmd += _T("TortoiseProc.exe\" /command:add /noui /path:\"");
 		cmd += m_Data.m_mergedFile.GetFilename() + _T("\"");
-		TCHAR * buf = new TCHAR[cmd.GetLength()+1];
+		auto_buffer<TCHAR> buf(cmd.GetLength()+1);
 		_tcscpy_s(buf, cmd.GetLength()+1, cmd);
 		STARTUPINFO startup;
 		PROCESS_INFORMATION process;
@@ -1072,7 +1073,6 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 		memset(&process, 0, sizeof(process));
 		if (CreateProcess(NULL, buf, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
 		{
-			delete [] buf;
 			LPVOID lpMsgBuf;
 			FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
 				FORMAT_MESSAGE_FROM_SYSTEM | 
@@ -1088,7 +1088,6 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 			LocalFree( lpMsgBuf );
 			return FALSE;
 		}
-		delete [] buf;
 		CloseHandle(process.hThread);
 		CloseHandle(process.hProcess);
 	}
@@ -1130,7 +1129,7 @@ bool CMainFrame::FileSaveAs(bool bCheckResolved /*=true*/)
 	ofn.Flags = OFN_OVERWRITEPROMPT;
 	CString sFilter;
 	sFilter.LoadString(IDS_COMMONFILEFILTER);
-	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+	auto_buffer<TCHAR> pszFilters(sFilter.GetLength()+4);
 	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
 	// Replace '|' delimiters with '\0's
 	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
@@ -1149,10 +1148,8 @@ bool CMainFrame::FileSaveAs(bool bCheckResolved /*=true*/)
 	{
 		sFile = CString(ofn.lpstrFile);
 		SaveFile(sFile);
-		delete [] pszFilters;
 		return true;
 	}
-	delete [] pszFilters;
 	return false;
 }
 
@@ -2010,7 +2007,7 @@ void CMainFrame::OnEditCreateunifieddifffile()
 		ofn.Flags = OFN_OVERWRITEPROMPT;
 		CString sFilter;
 		sFilter.LoadString(IDS_COMMONFILEFILTER);
-		TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+		auto_buffer<TCHAR> pszFilters(sFilter.GetLength()+4);
 		_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
 		// Replace '|' delimiters with '\0's
 		TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
@@ -2030,7 +2027,6 @@ void CMainFrame::OnEditCreateunifieddifffile()
 			outputFile = CString(ofn.lpstrFile);
 			CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outputFile, true);
 		}
-		delete [] pszFilters;
 	}
 }
 

@@ -23,6 +23,7 @@
 #include "UnicodeUtils.h"
 #include "SVNProperties.h"
 #include "SVNStatus.h"
+#include "auto_buffer.h"
 
 #define GetPIDLFolder(pida) (LPCITEMIDLIST)(((LPBYTE)pida)+(pida)->aoffset[0])
 #define GetPIDLItem(pida, i) (LPCITEMIDLIST)(((LPBYTE)pida)+(pida)->aoffset[i+1])
@@ -249,14 +250,12 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					UINT len = DragQueryFile(drop, i, NULL, 0);
 					if (len == 0)
 						continue;
-					TCHAR * szFileName = new TCHAR[len+1];
+					auto_buffer<TCHAR> szFileName(len+1);
 					if (0 == DragQueryFile(drop, i, szFileName, len+1))
 					{
-						delete [] szFileName;
 						continue;
 					}
 					tstring str = tstring(szFileName);
-					delete [] szFileName;
 					if ((str.empty() == false)&&(g_ShellCache.IsContextPathAllowed(szFileName)))
 					{
 						if (itemStates & ITEMIS_ONLYONE)
@@ -746,8 +745,8 @@ bool CShellExt::WriteClipboardPathsToTempFile(tstring& tempfile)
 	//for TortoiseProc.exe to read out again.
 	DWORD written = 0;
 	DWORD pathlength = GetTempPath(0, NULL);
-	TCHAR * path = new TCHAR[pathlength+1];
-	TCHAR * tempFile = new TCHAR[pathlength + 100];
+	auto_buffer<TCHAR> path(pathlength+1);
+	auto_buffer<TCHAR> tempFile(pathlength + 100);
 	GetTempPath (pathlength+1, path);
 	GetTempFileName (path, _T("svn"), 0, tempFile);
 	tempfile = tstring(tempFile);
@@ -760,8 +759,6 @@ bool CShellExt::WriteClipboardPathsToTempFile(tstring& tempfile)
 		FILE_ATTRIBUTE_TEMPORARY,
 		0);
 
-	delete [] path;
-	delete [] tempFile;
 	if (file == INVALID_HANDLE_VALUE)
 		return false;
 
@@ -800,8 +797,8 @@ tstring CShellExt::WriteFileListToTempFile()
 	//write all selected files and paths to a temporary file
 	//for TortoiseProc.exe to read out again.
 	DWORD pathlength = GetTempPath(0, NULL);
-	TCHAR * path = new TCHAR[pathlength+1];
-	TCHAR * tempFile = new TCHAR[pathlength + 100];
+	auto_buffer<TCHAR> path(pathlength+1);
+	auto_buffer<TCHAR> tempFile(pathlength + 100);
 	GetTempPath (pathlength+1, path);
 	GetTempFileName (path, _T("svn"), 0, tempFile);
 	tstring retFilePath = tstring(tempFile);
@@ -814,8 +811,6 @@ tstring CShellExt::WriteFileListToTempFile()
 								FILE_ATTRIBUTE_TEMPORARY,
 								0);
 
-	delete [] path;
-	delete [] tempFile;
 	if (file == INVALID_HANDLE_VALUE)
 		return tstring();
 		
@@ -1665,13 +1660,11 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						LPCSTR lpstr = (LPCSTR)GlobalLock(hglb); 
 
 						DWORD len = GetTempPath(0, NULL);
-						TCHAR * path = new TCHAR[len+1];
-						TCHAR * tempF = new TCHAR[len+100];
+						auto_buffer<TCHAR> path(len+1);
+						auto_buffer<TCHAR> tempF(len+100);
 						GetTempPath (len+1, path);
 						GetTempFileName (path, TEXT("svn"), 0, tempF);
 						std::wstring sTempFile = std::wstring(tempF);
-						delete [] path;
-						delete [] tempF;
 
 						FILE * outFile;
 						size_t patchlen = strlen(lpstr);

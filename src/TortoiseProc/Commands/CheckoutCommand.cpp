@@ -23,6 +23,7 @@
 #include "SVNProgressDlg.h"
 #include "BrowseFolder.h"
 #include "MessageBox.h"
+#include "auto_buffer.h"
 
 bool CheckoutCommand::Execute()
 {
@@ -39,7 +40,7 @@ bool CheckoutCommand::Execute()
 		{
 			checkoutDirectory.SetFromWin(sOrigCWD, true);
 			DWORD len = ::GetTempPath(0, NULL);
-			TCHAR * tszPath = new TCHAR[len];
+			auto_buffer<TCHAR> tszPath(len);
 			::GetTempPath(len, tszPath);
 			if (_tcsncicmp(checkoutDirectory.GetWinPath(), tszPath, len-2 /* \\ and \0 */) == 0)
 			{
@@ -47,7 +48,6 @@ bool CheckoutCommand::Execute()
 				// we don't use that but leave it empty instead.
 				checkoutDirectory.Reset();
 			}
-			delete [] tszPath;
 		}
 		else
 		{

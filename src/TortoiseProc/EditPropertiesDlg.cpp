@@ -29,7 +29,7 @@
 #include "ProgressDlg.h"
 #include "InputLogDlg.h"
 #include "XPTheme.h"
-
+#include "auto_buffer.h"
 
 IMPLEMENT_DYNAMIC(CEditPropertiesDlg, CResizableStandAloneDialog)
 
@@ -666,18 +666,18 @@ void CEditPropertiesDlg::OnBnClickedImport()
 			}
 			if (fread(&nNameBytes, sizeof(int), 1, stream) == 1)
 			{
-				TCHAR * pNameBuf = new TCHAR[nNameBytes/sizeof(TCHAR)];
+				auto_buffer<TCHAR> pNameBuf(nNameBytes/sizeof(TCHAR));
 				if (fread(pNameBuf, 1, nNameBytes, stream) == (size_t)nNameBytes)
 				{
 					CString sName = CString(pNameBuf, nNameBytes/sizeof(TCHAR));
 					int nValueBytes = 0;
 					if (fread(&nValueBytes, sizeof(int), 1, stream) == 1)
 					{
-						BYTE * pValueBuf = new BYTE[nValueBytes];
+						auto_buffer<BYTE> pValueBuf(nValueBytes);
 						if (fread(pValueBuf, sizeof(char), nValueBytes, stream) == (size_t)nValueBytes)
 						{
 							std::string propertyvalue;
-							propertyvalue.assign((const char*)pValueBuf, nValueBytes);
+							propertyvalue.assign((const char*)pValueBuf.get(), nValueBytes);
 							CString sMsg;
 							if (m_pathlist[0].IsUrl())
 							{
@@ -718,7 +718,6 @@ void CEditPropertiesDlg::OnBnClickedImport()
 							CMessageBox::Show(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
 							bFailed = true;
 						}
-						delete [] pValueBuf;
 					}
 					else
 					{
@@ -733,7 +732,6 @@ void CEditPropertiesDlg::OnBnClickedImport()
 					CMessageBox::Show(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
 					bFailed = true;
 				}
-				delete [] pNameBuf;
 			}
 			else
 			{

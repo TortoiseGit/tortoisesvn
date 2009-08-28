@@ -23,7 +23,7 @@
 #include "AppUtils.h"
 #include "StringUtils.h"
 #include "EditPropertyValueDlg.h"
-
+#include "auto_buffer.h"
 
 IMPLEMENT_DYNAMIC(CEditPropertyValueDlg, CResizableStandAloneDialog)
 
@@ -376,12 +376,11 @@ void CEditPropertyValueDlg::OnBnClickedLoadprop()
 		DWORD size = GetFileSize(hFile, NULL);
 		FILE * stream;
 		_tfopen_s(&stream, openPath, _T("rbS"));
-		char * buf = new char[size];
+		auto_buffer<char> buf(size);
 		if (fread(buf, sizeof(char), size, stream)==size)
 		{
 			m_PropValue.assign(buf, size);
 		}
-		delete [] buf;
 		fclose(stream);
 		// see if the loaded file contents are binary
 		SetPropertyValue(m_PropValue);

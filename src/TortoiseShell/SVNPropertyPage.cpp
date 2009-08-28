@@ -23,6 +23,7 @@
 #include "UnicodeUtils.h"
 #include "PathUtils.h"
 #include "SVNStatus.h"
+#include "auto_buffer.h"
 
 #define MAX_STRING_LENGTH		4096			//should be big enough
 
@@ -188,8 +189,8 @@ BOOL CSVNPropertyPage::PageProc (HWND /*hwnd*/, UINT uMessage, WPARAM wParam, LP
 					if (LOWORD(wParam) == IDC_EDITPROPERTIES)
 					{
 						DWORD pathlength = GetTempPath(0, NULL);
-						TCHAR * path = new TCHAR[pathlength+1];
-						TCHAR * tempFile = new TCHAR[pathlength + 100];
+						auto_buffer<TCHAR> path(pathlength+1);
+						auto_buffer<TCHAR> tempFile(pathlength + 100);
 						GetTempPath (pathlength+1, path);
 						GetTempFileName (path, _T("svn"), 0, tempFile);
 						tstring retFilePath = tstring(tempFile);
@@ -202,8 +203,6 @@ BOOL CSVNPropertyPage::PageProc (HWND /*hwnd*/, UINT uMessage, WPARAM wParam, LP
 							FILE_ATTRIBUTE_TEMPORARY,
 							0);
 
-						delete [] path;
-						delete [] tempFile;
 						if (file != INVALID_HANDLE_VALUE)
 						{
 							DWORD written = 0;
@@ -301,10 +300,10 @@ void CSVNPropertyPage::InitWorkfileView()
 				if (svn.status->entry->url)
 				{
 					size_t len = strlen(svn.status->entry->url);
-					char * unescapedurl = new char[len+1];
+					auto_buffer<char> unescapedurl(len+1);
 					strcpy_s(unescapedurl, len+1, svn.status->entry->url);
 					CPathUtils::Unescape(unescapedurl);
-					SetDlgItemText(m_hwnd, IDC_REPOURL, UTF8ToWide(unescapedurl).c_str());
+					SetDlgItemText(m_hwnd, IDC_REPOURL, UTF8ToWide(unescapedurl.get()).c_str());
 					if (strcmp(unescapedurl, svn.status->entry->url))
 					{
 						ShowWindow(GetDlgItem(m_hwnd, IDC_ESCAPEDURLLABEL), SW_SHOW);
@@ -316,7 +315,6 @@ void CSVNPropertyPage::InitWorkfileView()
 						ShowWindow(GetDlgItem(m_hwnd, IDC_ESCAPEDURLLABEL), SW_HIDE);
 						ShowWindow(GetDlgItem(m_hwnd, IDC_REPOURLUNESCAPED), SW_HIDE);
 					}
-					delete [] unescapedurl;
 				}
 				else
 				{

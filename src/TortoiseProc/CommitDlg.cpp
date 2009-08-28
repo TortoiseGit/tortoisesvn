@@ -31,6 +31,7 @@
 #include "SVNStatus.h"
 #include "HistoryDlg.h"
 #include "Hooks.h"
+#include "auto_buffer.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -1153,7 +1154,7 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex)
 			return;
 		}
 		// allocate memory to hold file contents
-		char * buffer = new char[size];
+		auto_buffer<char> buffer(size);
 		DWORD readbytes;
 		ReadFile(hFile, buffer, size, &readbytes, NULL);
 		CloseHandle(hFile);
@@ -1161,23 +1162,20 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex)
 		IsTextUnicode(buffer, readbytes, &opts);
 		if (opts & IS_TEXT_UNICODE_NULL_BYTES)
 		{
-			delete [] buffer;
 			return;
 		}
 		if (opts & IS_TEXT_UNICODE_UNICODE_MASK)
 		{
-			sFileContent = wstring((wchar_t*)buffer, readbytes/sizeof(WCHAR));
+			sFileContent = wstring((wchar_t*)buffer.get(), readbytes/sizeof(WCHAR));
 		}
 		if ((opts & IS_TEXT_UNICODE_NOT_UNICODE_MASK)||(opts == 0))
 		{
-			int ret = MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, (LPCSTR)buffer, readbytes, NULL, 0);
-			wchar_t * pWideBuf = new wchar_t[ret];
-			int ret2 = MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, (LPCSTR)buffer, readbytes, pWideBuf, ret);
+			const int ret = MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, (LPCSTR)buffer, readbytes, NULL, 0);
+			auto_buffer<wchar_t> pWideBuf(ret);
+			const int ret2 = MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, (LPCSTR)buffer, readbytes, pWideBuf, ret);
 			if (ret2 == ret)
 				sFileContent = wstring(pWideBuf, ret);
-			delete [] pWideBuf;
 		}
-		delete [] buffer;
 	}
 	if (sFileContent.empty()|| !m_bRunThread)
 	{

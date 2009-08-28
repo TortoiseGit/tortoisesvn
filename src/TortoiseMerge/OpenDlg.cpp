@@ -20,7 +20,7 @@
 #include "TortoiseMerge.h"
 #include "BrowseFolder.h"
 #include ".\opendlg.h"
-
+#include "auto_buffer.h"
 
 // COpenDlg dialog
 
@@ -155,7 +155,7 @@ BOOL COpenDlg::BrowseForFile(CString& filepath, CString title, UINT nFileFilter)
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 	CString sFilter;
 	sFilter.LoadString(nFileFilter);
-	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+	auto_buffer<TCHAR> pszFilters(sFilter.GetLength()+4);
 	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
 	// Replace '|' delimiters with '\0's
 	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
@@ -178,10 +178,8 @@ BOOL COpenDlg::BrowseForFile(CString& filepath, CString title, UINT nFileFilter)
 	if (GetOpenFileName(&ofn)==TRUE)
 	{
 		filepath = CString(ofn.lpstrFile);
-		delete [] pszFilters;
 		return TRUE;
 	}
-	delete [] pszFilters;
 	return FALSE;			//user canceled the dialog
 }
 
@@ -292,13 +290,11 @@ void COpenDlg::OnOK()
 			LPCSTR lpstr = (LPCSTR)GlobalLock(hglb); 
 
 			DWORD len = GetTempPath(0, NULL);
-			TCHAR * path = new TCHAR[len+1];
-			TCHAR * tempF = new TCHAR[len+100];
+			auto_buffer<TCHAR> path(len+1);
+			auto_buffer<TCHAR> tempF(len+100);
 			GetTempPath (len+1, path);
 			GetTempFileName (path, TEXT("tsm"), 0, tempF);
 			CString sTempFile = CString(tempF);
-			delete [] path;
-			delete [] tempF;
 
 			FILE * outFile;
 			size_t patchlen = strlen(lpstr);
