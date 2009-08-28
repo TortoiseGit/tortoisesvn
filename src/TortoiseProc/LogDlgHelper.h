@@ -62,7 +62,7 @@ private:
 	CString sBugIDs;
 
 	LogChangedPathArray* changedPaths;
-	DWORD changedPathCount;
+	INT_PTR changedPathCount;
 	bool copies;
 	bool copiedSelf;
 	DWORD actions;
@@ -120,7 +120,7 @@ public:
 
     LogChangedPathArray* GetChangedPaths() {return changedPaths;}
     const LogChangedPathArray* GetChangedPaths() const {return changedPaths;}
-    DWORD GetChangedPathCount() const {return changedPathCount;}
+    INT_PTR GetChangedPathCount() const {return changedPathCount;}
     bool ContainsCopies() const {return copies;}
     bool ContainsSelfCopy() const {return copiedSelf;}
     DWORD GetActions() const {return actions;}

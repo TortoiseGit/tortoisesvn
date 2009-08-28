@@ -101,7 +101,7 @@ LogEntryData::LogEntryData
 
     // derived change path info and update current URL
 
-	for (size_t i = 0; i < changedPathCount; ++i)
+	for (INT_PTR i = 0; i < changedPathCount; ++i)
 	{
 		LogChangedPath * cpath = changedPaths->GetAt (i);
 	    actions |= cpath->action;
