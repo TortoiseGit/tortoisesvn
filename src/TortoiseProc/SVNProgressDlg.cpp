@@ -2295,6 +2295,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 			bFailed = true;
 		}
 	}
+	CShellUpdater::Instance().AddPathsForUpdate(m_targetPathList);
 	GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDC_INFOTEXT)->ShowWindow(SW_SHOW);
 	return !bFailed;
@@ -2351,6 +2352,7 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
 		return false;
 	}
 
+	CShellUpdater::Instance().AddPathsForUpdate(m_targetPathList);
 	GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
 	return true;
 }
@@ -2383,6 +2385,7 @@ bool CSVNProgressDlg::CmdMergeReintegrate(CString& sWindowTitle, bool& /*localop
 		return false;
 	}
 
+	CShellUpdater::Instance().AddPathsForUpdate(m_targetPathList);
 	GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
 	return true;
 }
@@ -2401,6 +2404,7 @@ bool CSVNProgressDlg::CmdRename(CString& sWindowTitle, bool& localoperation)
 		ReportSVNError();
 		return false;
 	}
+	CShellUpdater::Instance().AddPathsForUpdate(m_targetPathList);
 	return true;
 }
 
@@ -2532,6 +2536,7 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
 		ReportSVNError();
 		return false;
 	}
+	CShellUpdater::Instance().AddPathsForUpdate(m_targetPathList);
 	m_UpdateStartRevMap[m_targetPathList[0].GetSVNApiPath(pool)] = rev;
 	if ((m_RevisionEnd >= 0)&&(rev >= 0)
 		&&((LONG)m_RevisionEnd > (LONG)rev))
