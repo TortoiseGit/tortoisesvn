@@ -31,6 +31,8 @@ DWORD				g_langid;
 DWORD				g_langTimeout = 0;
 HINSTANCE			g_hResInst = NULL;
 tstring			g_filepath;
+int					g_filepathCacheCount = 0;
+int					g_overlayCount = 0;
 svn_wc_status_kind	g_filestatus = svn_wc_status_none;	///< holds the corresponding status to the file/dir above
 bool				g_readonlyoverlay = false;
 bool				g_lockedoverlay = false;

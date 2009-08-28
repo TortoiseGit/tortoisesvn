@@ -39,15 +39,15 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR /*pwszIconFile*/, int /*cchMax*/, 
 	// loaded, so we can later check if some are missing
 	switch (m_State)
 	{
-		case FileStateVersioned				: g_normalovlloaded = true; break;
-		case FileStateModified				: g_modifiedovlloaded = true; break;
-		case FileStateConflict				: g_conflictedovlloaded = true; break;
-		case FileStateDeleted				: g_deletedovlloaded = true; break;
-		case FileStateReadOnly				: g_readonlyovlloaded = true; break;
-		case FileStateLockedOverlay			: g_lockedovlloaded = true; break;
-		case FileStateAddedOverlay			: g_addedovlloaded = true; break;
-		case FileStateIgnoredOverlay		: g_ignoredovlloaded = true; break;
-		case FileStateUnversionedOverlay	: g_unversionedovlloaded = true; break;
+		case FileStateVersioned				: g_normalovlloaded = true; g_overlayCount++; break;
+		case FileStateModified				: g_modifiedovlloaded = true; g_overlayCount++; break;
+		case FileStateConflict				: g_conflictedovlloaded = true; g_overlayCount++; break;
+		case FileStateDeleted				: g_deletedovlloaded = true; g_overlayCount++; break;
+		case FileStateReadOnly				: g_readonlyovlloaded = true; g_overlayCount++; break;
+		case FileStateLockedOverlay			: g_lockedovlloaded = true; g_overlayCount++; break;
+		case FileStateAddedOverlay			: g_addedovlloaded = true; g_overlayCount++; break;
+		case FileStateIgnoredOverlay		: g_ignoredovlloaded = true; g_overlayCount++; break;
+		case FileStateUnversionedOverlay	: g_unversionedovlloaded = true; g_overlayCount++; break;
 	}
 
 	// we don't have to set the icon file and/or the index here:
@@ -110,11 +110,13 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 		return S_FALSE;
 	// since the shell calls each and every overlay handler with the same filepath
 	// we use a small 'fast' cache of just one path here.
-	// To make sure that cache expires, clear it as soon as one handler is used.
+	// To make sure that cache expires, only allow it to be reused count of overlay handlers(-1) times.
 
 	AutoLocker lock(g_csGlobalCOMGuard);
-	if (_tcscmp(pPath, g_filepath.c_str())==0)
+
+	if (_tcscmp(pPath, g_filepath.c_str())==0 && g_filepathCacheCount > 0)
 	{
+		g_filepathCacheCount--;
 		status = g_filestatus;
 		readonlyoverlay = g_readonlyoverlay;
 		lockedoverlay = g_lockedoverlay;
@@ -228,8 +230,13 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			}
 			break;
 		}
+
 		ATLTRACE(_T("Status %d for file %s\n"), status, pwszPath);
+		
+		// allow this path's status to be reused by the other handlers
+		g_filepathCacheCount = g_overlayCount-1;
 	}
+
 	g_filepath.clear();
 	g_filepath = pPath;
 	g_filestatus = status;
@@ -337,8 +344,6 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
     //return S_FALSE;
 
     // we want to show the overlay icon specified in m_State
-
-	g_filepath.clear();
 	return S_OK;
 }
 

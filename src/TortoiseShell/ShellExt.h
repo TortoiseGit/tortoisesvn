@@ -33,6 +33,8 @@ extern	DWORD				g_langid;
 extern	DWORD				g_langTimeout;
 extern	HINSTANCE			g_hResInst;
 extern	tstring			g_filepath;
+extern int					g_filepathCacheCount;
+extern int					g_overlayCount;
 extern	svn_wc_status_kind	g_filestatus;			///< holds the corresponding status to the file/dir above
 extern  bool				g_readonlyoverlay;		///< whether to show the read only overlay or not
 extern	bool				g_lockedoverlay;		///< whether to show the locked overlay or not
