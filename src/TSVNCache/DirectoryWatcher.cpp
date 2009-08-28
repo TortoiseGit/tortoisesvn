@@ -266,7 +266,7 @@ void CDirectoryWatcher::WorkerThread()
 											  &numBytes,
 											  (PULONG_PTR) &pdi,
 											  &lpOverlapped,
-											  INFINITE))
+											  600000 /*10 minutes*/))
 			{
                 // No. Still trying?
 
