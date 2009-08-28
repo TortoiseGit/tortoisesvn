@@ -73,9 +73,9 @@ public:
         return temp;
     }
 
-    void reset (size_t size = 0)
+    void reset (size_t newSize = 0)
     {
         delete[] buffer;
-        buffer = (size == 0 ? NULL : new T[size]);
+        buffer = (newSize == 0 ? NULL : new T[newSize]);
     }
 };
