@@ -639,7 +639,9 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 				LogChangedPath * cpath = m_currentChangedArray->GetAt(c);
 				if (cpath == NULL)
 					continue;
-				if (m_currentChangedArray->GetAt(c)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+
+                const CString& path = m_currentChangedArray->GetAt(c)->GetPath();
+				if (path.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
 				{
 					m_CurrentFilteredChangedArray.Add(cpath);
 				}
@@ -1243,16 +1245,16 @@ void CLogDlg::CopySelectionToClipBoard()
 			for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
 			{
 				LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-				sPaths += cpath->GetAction() + _T(" : ") + cpath->sPath;
-				if (cpath->sCopyFromPath.IsEmpty())
+				sPaths += cpath->GetActionString() + _T(" : ") + cpath->GetPath();
+				if (cpath->GetCopyFromPath().IsEmpty())
 					sPaths += _T("\r\n");
 				else
 				{
 					CString sCopyFrom;
 					sCopyFrom.Format(_T(" (%s: %s, %s, %ld)\r\n"), (LPCTSTR)CString(MAKEINTRESOURCE(IDS_LOG_COPYFROM)), 
-						(LPCTSTR)cpath->sCopyFromPath, 
+						(LPCTSTR)cpath->GetCopyFromPath(), 
 						(LPCTSTR)CString(MAKEINTRESOURCE(IDS_LOG_REVISION)), 
-						cpath->lCopyFromRev);
+						cpath->GetCopyFromRev());
 					sPaths += sCopyFrom;
 				}
 			}
@@ -1304,7 +1306,8 @@ void CLogDlg::CopyChangedSelectionToClipBoard()
 				INT_PTR selRealIndex = -1;
                 for (INT_PTR hiddenindex=0; hiddenindex<pLogEntry->GetChangedPathCount(); ++hiddenindex)
 				{
-					if (pLogEntry->GetChangedPaths()->GetAt(hiddenindex)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+                    const CString& path = pLogEntry->GetChangedPaths()->GetAt(hiddenindex)->GetPath();
+					if (path.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
 						selRealIndex++;
 					if (selRealIndex == nItem)
 					{
@@ -1315,7 +1318,7 @@ void CLogDlg::CopyChangedSelectionToClipBoard()
 			}
 			if (changedlogpath)
 			{
-				sPaths += changedlogpath->sPath;
+				sPaths += changedlogpath->GetPath();
 				sPaths += _T("\r\n");
 			}
 		}
@@ -1330,11 +1333,11 @@ BOOL CLogDlg::IsDiffPossible(LogChangedPath * changedpath, svn_revnum_t rev)
 	if (changedpath == NULL)
 		return false;
 
-	if ((rev > 1)&&(changedpath->action != LOGACTIONS_DELETED))
+	if ((rev > 1)&&(changedpath->GetAction() != LOGACTIONS_DELETED))
 	{
-		if (changedpath->action == LOGACTIONS_ADDED) // file is added
+		if (changedpath->GetAction() == LOGACTIONS_ADDED) // file is added
 		{
-			if (changedpath->lCopyFromRev == 0)
+			if (changedpath->GetCopyFromRev() == 0)
 				return FALSE; // but file was not added with history
 		}
 		return TRUE;
@@ -1469,13 +1472,13 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 				for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
 				{
 					LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-					if (regex_search(wstring((LPCTSTR)cpath->sCopyFromPath), pat, flags))
+					if (regex_search(wstring((LPCTSTR)cpath->GetCopyFromPath()), pat, flags))
 					{
 						bFound = true;
 						--i;
 						break;
 					}
-					if (regex_search(wstring((LPCTSTR)cpath->sPath), pat, flags))
+					if (regex_search(wstring((LPCTSTR)cpath->GetPath()), pat, flags))
 					{
 						bFound = true;
 						--i;
@@ -1497,13 +1500,13 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
 					{
 						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-						if (cpath->sCopyFromPath.Find(FindText)>=0)
+						if (cpath->GetCopyFromPath().Find(FindText)>=0)
 						{
 							bFound = true;
 							--i;
 							break;
 						}
-						if (cpath->sPath.Find(FindText)>=0)
+						if (cpath->GetPath().Find(FindText)>=0)
 						{
 							bFound = true;
 							--i;
@@ -1526,7 +1529,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
 					{
 						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-						CString lowerpath = cpath->sCopyFromPath;
+						CString lowerpath = cpath->GetCopyFromPath();
 						lowerpath.MakeLower();
 						if (lowerpath.Find(find)>=0)
 						{
@@ -1534,7 +1537,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 							--i;
 							break;
 						}
-						lowerpath = cpath->sPath;
+						lowerpath = cpath->GetPath();
 						lowerpath.MakeLower();
 						if (lowerpath.Find(find)>=0)
 						{
@@ -1624,11 +1627,11 @@ void CLogDlg::OnOK()
 						LogChangedPath * pData = pLogEntry->GetChangedPaths()->GetAt(cp);
 						if (pData)
 						{
-							if (sUrl.Compare(pData->sPath) == 0)
+							if (sUrl.Compare(pData->GetPath()) == 0)
 							{
-								if (!pData->sCopyFromPath.IsEmpty())
+								if (!pData->GetCopyFromPath().IsEmpty())
 								{
-									lowerRev = pData->lCopyFromRev;
+									lowerRev = pData->GetCopyFromRev();
 									m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTSTART), lowerRev);
 									m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND), higherRev);
 									m_pNotifyWindow->SendMessage(WM_REVLIST, m_selectedRevs.GetCount(), (LPARAM)&m_selectedRevs);
@@ -1717,7 +1720,8 @@ void CLogDlg::DiffSelectedFile()
 			INT_PTR selRealIndex = -1;
 			for (INT_PTR hiddenindex=0; hiddenindex<pLogEntry->GetChangedPathCount(); ++hiddenindex)
 			{
-				if (pLogEntry->GetChangedPaths()->GetAt(hiddenindex)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+                const CString& path = pLogEntry->GetChangedPaths()->GetAt(hiddenindex)->GetPath();
+				if (path.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
 					selRealIndex++;
 				if (selRealIndex == selIndex)
 				{
@@ -1731,20 +1735,20 @@ void CLogDlg::DiffSelectedFile()
 		if (IsDiffPossible(changedpath, rev1))
 		{
 			// diffs with renamed files are possible
-			if ((changedpath)&&(!changedpath->sCopyFromPath.IsEmpty()))
-				rev2 = changedpath->lCopyFromRev;
+			if ((changedpath)&&(!changedpath->GetCopyFromPath().IsEmpty()))
+				rev2 = changedpath->GetCopyFromRev();
 			else
 			{
 				// if the path was modified but the parent path was 'added with history'
 				// then we have to use the copy from revision of the parent path
-				CTSVNPath cpath = CTSVNPath(changedpath->sPath);
+				CTSVNPath cpath = CTSVNPath(changedpath->GetPath());
                 for (int flist = 0; flist < pLogEntry->GetChangedPathCount(); ++flist)
 				{
-					CTSVNPath p = CTSVNPath(pLogEntry->GetChangedPaths()->GetAt(flist)->sPath);
+					CTSVNPath p = CTSVNPath(pLogEntry->GetChangedPaths()->GetAt(flist)->GetPath());
 					if (p.IsAncestorOf(cpath))
 					{
-						if (!pLogEntry->GetChangedPaths()->GetAt(flist)->sCopyFromPath.IsEmpty())
-							rev2 = pLogEntry->GetChangedPaths()->GetAt(flist)->lCopyFromRev;
+						if (!pLogEntry->GetChangedPaths()->GetAt(flist)->GetCopyFromPath().IsEmpty())
+							rev2 = pLogEntry->GetChangedPaths()->GetAt(flist)->GetCopyFromRev();
 					}
 				}
 			}
@@ -1752,11 +1756,11 @@ void CLogDlg::DiffSelectedFile()
 		}
 		else 
 		{
-			CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(changedpath->sPath));
-			CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(changedpath->sPath));
+			CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(changedpath->GetPath()));
+			CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(changedpath->GetPath()));
 			SVNRev r = rev1;
 			// deleted files must be opened from the revision before the deletion
-			if (changedpath->action == LOGACTIONS_DELETED)
+			if (changedpath->GetAction() == LOGACTIONS_DELETED)
 				r = rev1-1;
 			m_bCancelled = false;
 
@@ -1764,15 +1768,15 @@ void CLogDlg::DiffSelectedFile()
 			progDlg.SetTitle(IDS_APPNAME);
 			progDlg.SetAnimation(IDR_DOWNLOAD);
 			CString sInfoLine;
-			sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)(m_sRepositoryRoot + changedpath->sPath), (LPCTSTR)r.ToString());
+			sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)(m_sRepositoryRoot + changedpath->GetPath()), (LPCTSTR)r.ToString());
 			progDlg.SetLine(1, sInfoLine, true);
 			SetAndClearProgressInfo(&progDlg);
 			progDlg.ShowModeless(m_hWnd);
 
-			if (!Cat(CTSVNPath(m_sRepositoryRoot + changedpath->sPath), r, r, tempfile))
+			if (!Cat(CTSVNPath(m_sRepositoryRoot + changedpath->GetPath()), r, r, tempfile))
 			{
 				m_bCancelled = false;
-				if (!Cat(CTSVNPath(m_sRepositoryRoot + changedpath->sPath), SVNRev::REV_HEAD, r, tempfile))
+				if (!Cat(CTSVNPath(m_sRepositoryRoot + changedpath->GetPath()), SVNRev::REV_HEAD, r, tempfile))
 				{
 					progDlg.Stop();
 					SetAndClearProgressInfo((HWND)NULL);
@@ -1784,11 +1788,11 @@ void CLogDlg::DiffSelectedFile()
 			SetAndClearProgressInfo((HWND)NULL);
 
 			CString sName1, sName2;
-			sName1.Format(_T("%s - Revision %ld"), (LPCTSTR)CPathUtils::GetFileNameFromPath(changedpath->sPath), (svn_revnum_t)rev1);
-			sName2.Format(_T("%s - Revision %ld"), (LPCTSTR)CPathUtils::GetFileNameFromPath(changedpath->sPath), (svn_revnum_t)rev1-1);
+			sName1.Format(_T("%s - Revision %ld"), (LPCTSTR)CPathUtils::GetFileNameFromPath(changedpath->GetPath()), (svn_revnum_t)rev1);
+			sName2.Format(_T("%s - Revision %ld"), (LPCTSTR)CPathUtils::GetFileNameFromPath(changedpath->GetPath()), (svn_revnum_t)rev1-1);
 			CAppUtils::DiffFlags flags;
 			flags.AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-			if (changedpath->action == LOGACTIONS_DELETED)
+			if (changedpath->GetAction() == LOGACTIONS_DELETED)
 				CAppUtils::StartExtDiff(tempfile, tempfile2, sName2, sName1, flags);
 			else
 				CAppUtils::StartExtDiff(tempfile2, tempfile, sName2, sName1, flags);
@@ -1836,7 +1840,7 @@ void CLogDlg::DiffSelectedRevWithPrevious()
 	for (INT_PTR c = 0; c < pLogEntry->GetChangedPathCount(); ++c)
 	{
 		LogChangedPath * cpath = pLogEntry->GetChangedPaths()->GetAt(c);
-		if (cpath  &&  cpath -> sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+		if (cpath  &&  cpath->GetPath().Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
 		{
 			++nChanged;
 			changed = cpath;
@@ -1847,7 +1851,7 @@ void CLogDlg::DiffSelectedRevWithPrevious()
 	{
 		// We're looking at the log for a directory and only one file under dir was changed in the revision
 		// Do diff on that file instead of whole directory
-		path.AppendPathString(changed->sPath.Mid(m_sRelativeRoot.GetLength()));
+		path.AppendPathString(changed->GetPath().Mid(m_sRelativeRoot.GetLength()));
 	} 
 
 	m_bCancelled = FALSE;
@@ -1907,13 +1911,13 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
 		int s = m_LogList.GetSelectionMark();
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(s));
 		LogChangedPath * changedpath = pLogEntry->GetChangedPaths()->GetAt(selIndex);
-		nodekind = changedpath->nodeKind;
-		firstfile = changedpath->sPath;
+		nodekind = changedpath->GetNodeKind();
+		firstfile = changedpath->GetPath();
 		secondfile = firstfile;
-		if ((rev2 == rev1-1)&&(changedpath->lCopyFromRev > 0)) // is it an added file with history?
+		if ((rev2 == rev1-1)&&(changedpath->GetCopyFromRev() > 0)) // is it an added file with history?
 		{
-			secondfile = changedpath->sCopyFromPath;
-			rev2 = changedpath->lCopyFromRev;
+			secondfile = changedpath->GetCopyFromPath();
+			rev2 = changedpath->GetCopyFromRev();
 		}
 	}
 	else
@@ -2698,7 +2702,7 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 		{
 			if ((m_currentChangedArray)&&((m_currentChangedArray->GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)))
 			{
-				if (m_currentChangedArray->GetAt(pLVCD->nmcd.dwItemSpec)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
+				if (m_currentChangedArray->GetAt(pLVCD->nmcd.dwItemSpec)->GetPath().Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
 				{
 					crText = GetSysColor(COLOR_GRAYTEXT);
 					bGrayed = true;
@@ -2716,7 +2720,7 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 
 		if ((!bGrayed)&&(m_currentChangedArray)&&(m_currentChangedArray->GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec))
 		{
-			DWORD action = m_currentChangedArray->GetAt(pLVCD->nmcd.dwItemSpec)->action;
+			DWORD action = m_currentChangedArray->GetAt(pLVCD->nmcd.dwItemSpec)->GetAction();
 			if (action == LOGACTIONS_MODIFIED)
 				crText = m_Colors.GetColor(CColors::Modified);
 			if (action == LOGACTIONS_REPLACED)
@@ -3097,27 +3101,27 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 		{
 		case 0: //path
 			if (lcpath)
-				lstrcpyn(pItem->pszText, (LPCTSTR)lcpath->sPath, pItem->cchTextMax);
+				lstrcpyn(pItem->pszText, (LPCTSTR)lcpath->GetPath(), pItem->cchTextMax);
 			else
 				lstrcpyn(pItem->pszText, (LPCTSTR)m_currentChangedPathList[pItem->iItem].GetSVNPathString(), pItem->cchTextMax);
 			break;
 		case 1:	//Action
 			if (lcpath)
-				lstrcpyn(pItem->pszText, (LPCTSTR)lcpath->GetAction(), pItem->cchTextMax);
+				lstrcpyn(pItem->pszText, (LPCTSTR)lcpath->GetActionString(), pItem->cchTextMax);
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);				
 			break;
 		case 2: //copyfrom path
 			if (lcpath)
-				lstrcpyn(pItem->pszText, (LPCTSTR)lcpath->sCopyFromPath, pItem->cchTextMax);
+				lstrcpyn(pItem->pszText, (LPCTSTR)lcpath->GetCopyFromPath(), pItem->cchTextMax);
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
 		case 3: //revision
-			if ((lcpath==NULL)||(lcpath->sCopyFromPath.IsEmpty()))
+			if ((lcpath==NULL)||(lcpath->GetCopyFromPath().IsEmpty()))
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			else
-				_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), lcpath->lCopyFromRev);
+				_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), lcpath->GetCopyFromRev());
 			break;
 		}
 	}
@@ -3126,10 +3130,10 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 		int icon_idx = 0;
 		if (lcpath)
 		{
-			if (lcpath->nodeKind == svn_node_dir)
+			if (lcpath->GetNodeKind() == svn_node_dir)
 				icon_idx = m_nIconFolder;
 			else
-				icon_idx = SYS_IMAGE_LIST().GetPathIconIndex(CTSVNPath(lcpath->sPath));
+				icon_idx = SYS_IMAGE_LIST().GetPathIconIndex(CTSVNPath(lcpath->GetPath()));
 		}
 		else
 		{
@@ -3301,15 +3305,15 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist, svn_revnum_t rev)
 						if ((hideState & 0x0003)==BST_CHECKED)
 						{
 							// skip paths that are not shown
-							if (cpath->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
+							if (cpath->GetPath().Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
 								continue;
 						}
 						searchText.append(_T(" "));
-						searchText.append(cpath->sCopyFromPath);
+						searchText.append(cpath->GetCopyFromPath());
 						searchText.append(_T(" "));
-						searchText.append(cpath->sPath);
+						searchText.append(cpath->GetPath());
 						searchText.append(_T(" "));
-						searchText.append(cpath->GetAction());
+						searchText.append(cpath->GetActionString());
 					}
 				}
 			}
@@ -3467,10 +3471,10 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths 
 				CTSVNPath path;
 				if (!bRelativePaths)
 					path.SetFromSVN(m_sRepositoryRoot);
-				path.AppendPathString(cpath->sPath);
+				path.AppendPathString(cpath->GetPath());
 				if ((!bUseFilter)||
 					((m_cHidePaths.GetState() & 0x0003)!=BST_CHECKED)||
-					(cpath->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0))
+					(cpath->GetPath().Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0))
 					pathList.AddPath(path);
 				
 			}
@@ -3680,22 +3684,22 @@ int CLogDlg::SortCompare(const void * pElem1, const void * pElem2)
 	switch (m_nSortColumnPathList)
 	{
 	case 0:	// action
-			cmp = cpath2->GetAction().Compare(cpath1->GetAction());
+			cmp = cpath2->GetActionString().Compare(cpath1->GetActionString());
 			if (cmp)
 				return cmp;
 			// fall through
 	case 1:	// path
-			cmp = cpath2->sPath.CompareNoCase(cpath1->sPath);
+			cmp = cpath2->GetPath().CompareNoCase(cpath1->GetPath());
 			if (cmp)
 				return cmp;
 			// fall through
 	case 2:	// copy from path
-			cmp = cpath2->sCopyFromPath.Compare(cpath1->sCopyFromPath);
+			cmp = cpath2->GetCopyFromPath().Compare(cpath1->GetCopyFromPath());
 			if (cmp)
 				return cmp;
 			// fall through
 	case 3:	// copy from revision
-			return cpath2->lCopyFromRev > cpath1->lCopyFromRev;
+			return cpath2->GetCopyFromRev() > cpath1->GetCopyFromRev();
 	}
 	return 0;
 }
@@ -3931,8 +3935,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		for (int i=0; i<pSelLogEntry->GetChangedPathCount(); ++i)
 		{
             LogChangedPath * changedpath = (LogChangedPath *)pSelLogEntry->GetChangedPaths()->GetAt(i);
-			if (changedpath->lCopyFromRev)
-				revPrevious = changedpath->lCopyFromRev;
+			if (changedpath->GetCopyFromRev())
+				revPrevious = changedpath->GetCopyFromRev();
 		}
 	}
 	SVNRev revSelected2;
@@ -4635,20 +4639,20 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 
 			if (m_ChangedFileListCtrl.GetSelectedCount() == 1)
 			{
-				if ((changedlogpath)&&(!changedlogpath->sCopyFromPath.IsEmpty()))
-					rev2 = changedlogpath->lCopyFromRev;
+				if ((changedlogpath)&&(!changedlogpath->GetCopyFromPath().IsEmpty()))
+					rev2 = changedlogpath->GetCopyFromRev();
 				else
 				{
 					// if the path was modified but the parent path was 'added with history'
 					// then we have to use the copy from revision of the parent path
-					CTSVNPath cpath = CTSVNPath(changedlogpath->sPath);
+					CTSVNPath cpath = CTSVNPath(changedlogpath->GetPath());
 					for (int flist = 0; flist < pLogEntry->GetChangedPathCount(); ++flist)
 					{
-						CTSVNPath p = CTSVNPath(pLogEntry->GetChangedPaths()->GetAt(flist)->sPath);
+						CTSVNPath p = CTSVNPath(pLogEntry->GetChangedPaths()->GetAt(flist)->GetPath());
 						if (p.IsAncestorOf(cpath))
 						{
-							if (!pLogEntry->GetChangedPaths()->GetAt(flist)->sCopyFromPath.IsEmpty())
-								rev2 = pLogEntry->GetChangedPaths()->GetAt(flist)->lCopyFromRev;
+							if (!pLogEntry->GetChangedPaths()->GetAt(flist)->GetCopyFromPath().IsEmpty())
+								rev2 = pLogEntry->GetChangedPaths()->GetAt(flist)->GetCopyFromRev();
 						}
 					}
 				}
@@ -4659,7 +4663,8 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				INT_PTR selRealIndex = -1;
 				for (INT_PTR hiddenindex=0; hiddenindex<pLogEntry->GetChangedPathCount(); ++hiddenindex)
 				{
-					if (pLogEntry->GetChangedPaths()->GetAt(hiddenindex)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+                    const CString& path = pLogEntry->GetChangedPaths()->GetAt(hiddenindex)->GetPath();
+					if (path.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
 						selRealIndex++;
 					if (selRealIndex == nItem)
 					{
@@ -4671,7 +4676,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 			}
 			if (changedlogpath)
 			{
-				changedpaths.push_back(changedlogpath->sPath);
+				changedpaths.push_back(changedlogpath->GetPath());
 				changedlogpaths.push_back(changedlogpath);
 			}
 		}
@@ -4796,7 +4801,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				wcPath += fileURL.Mid(i);
 				wcPath.Replace('/', '\\');
 				CSVNProgressDlg dlg;
-				if (changedlogpaths[0]->action == LOGACTIONS_DELETED)
+				if (changedlogpaths[0]->GetAction() == LOGACTIONS_DELETED)
 				{
 					// a deleted path! Since the path isn't there anymore, merge
 					// won't work. So just do a copy url->wc
@@ -4930,7 +4935,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					progDlg.SetAnimation(IDR_DOWNLOAD);
 					for (std::vector<LogChangedPath*>::iterator it = changedlogpaths.begin(); it!= changedlogpaths.end(); ++it)
 					{
-						SVNRev getrev = ((*it)->action == LOGACTIONS_DELETED) ? rev2 : rev1;
+						SVNRev getrev = ((*it)->GetAction() == LOGACTIONS_DELETED) ? rev2 : rev1;
 
 						CString sInfoLine;
 						sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)filepath, (LPCTSTR)getrev.ToString());
@@ -4944,7 +4949,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 							// if multiple items are selected, then the TargetPath
 							// points to a folder and we have to append the filename
 							// to save to to that folder.
-							CString sName = (*it)->sPath;
+							CString sName = (*it)->GetPath();
 							int slashpos = sName.ReverseFind('/');
 							if (slashpos >= 0)
 								sName = sName.Mid(slashpos);
@@ -4965,7 +4970,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 							// out multiple items at once, the better way is still to
 							// use the export command from the top pane of the log dialog.
 						}
-						filepath = sRoot + (*it)->sPath;
+						filepath = sRoot + (*it)->GetPath();
 						if (!Cat(CTSVNPath(filepath), getrev, getrev, tempfile))
 						{
 							progDlg.Stop();
@@ -4988,7 +4993,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 			bOpenWith = true;
 		case ID_OPEN:
 			{
-				SVNRev getrev = pLogEntry->GetChangedPaths()->GetAt(selIndex)->action == LOGACTIONS_DELETED ? rev2 : rev1;
+				SVNRev getrev = pLogEntry->GetChangedPaths()->GetAt(selIndex)->GetAction() == LOGACTIONS_DELETED ? rev2 : rev1;
 				Open(bOpenWith,changedpaths[0],getrev);
 			}
 			break;
@@ -5078,7 +5083,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				filepath += changedpaths[0];
 				svn_revnum_t logrev = rev1;
 				CString sCmd;
-				if (changedlogpaths[0]->action == LOGACTIONS_DELETED)
+				if (changedlogpaths[0]->GetAction() == LOGACTIONS_DELETED)
 				{
 					// if the item got deleted in this revision,
 					// fetch the log from the previous revision where it
@@ -5254,36 +5259,28 @@ CString CLogDlg::GetToolTipText(int nItem, int nSubItem)
 		// Draw the icon(s) into the compatible DC
 		if (pLogEntry->GetActions() & LOGACTIONS_MODIFIED)
 		{
-			LogChangedPath lcpath;
-			lcpath.action = LOGACTIONS_MODIFIED;
-			sToolTipText += lcpath.GetAction();
+            sToolTipText += LogChangedPath::GetActionString (LOGACTIONS_MODIFIED);
 		}
 
 		if (pLogEntry->GetActions() & LOGACTIONS_ADDED)
 		{
-			LogChangedPath lcpath;
-			lcpath.action = LOGACTIONS_ADDED;
 			if (!sToolTipText.IsEmpty())
 				sToolTipText += _T("\r\n");
-			sToolTipText += lcpath.GetAction();
+			sToolTipText += LogChangedPath::GetActionString (LOGACTIONS_ADDED);
 		}
 
 		if (pLogEntry->GetActions() & LOGACTIONS_DELETED)
 		{
-			LogChangedPath lcpath;
-			lcpath.action = LOGACTIONS_DELETED;
 			if (!sToolTipText.IsEmpty())
 				sToolTipText += _T("\r\n");
-			sToolTipText += lcpath.GetAction();
+			sToolTipText += LogChangedPath::GetActionString (LOGACTIONS_DELETED);
 		}
 
 		if (pLogEntry->GetActions() & LOGACTIONS_REPLACED)
 		{
-			LogChangedPath lcpath;
-			lcpath.action = LOGACTIONS_REPLACED;
 			if (!sToolTipText.IsEmpty())
 				sToolTipText += _T("\r\n");
-			sToolTipText += lcpath.GetAction();
+			sToolTipText += LogChangedPath::GetActionString (LOGACTIONS_REPLACED);
 		}
 		if (!sToolTipText.IsEmpty())
 		{

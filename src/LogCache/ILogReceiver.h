@@ -36,21 +36,47 @@
 /**
  * data structure to accommodate the change list.
  */
-struct LogChangedPath
+class LogChangedPath
 {
-	CString sPath;
-	CString sCopyFromPath;
-	svn_revnum_t lCopyFromRev;
+private:
+
+	CString path;
+	CString copyFromPath;
+	svn_revnum_t copyFromRev;
 	svn_node_kind_t nodeKind;
 	DWORD action;
 
-	/// returns the action as a string
-	const CString& GetAction() const;
-
-private:
-
 	/// cached return value of GetAction()
 	mutable CString actionAsString;
+
+public:
+
+    /// construction 
+
+    LogChangedPath 
+        ( const CString& path
+        , const CString& copyFromPath
+        , svn_revnum_t copyFromRev
+        , svn_node_kind_t nodeKind
+        , DWORD action);
+
+    LogChangedPath 
+        ( const CString& path
+        , svn_node_kind_t nodeKind
+        , DWORD action);
+
+    /// r/o data access
+
+    const CString& GetPath() const {return path;}
+    const CString& GetCopyFromPath() const {return copyFromPath;}
+    svn_revnum_t GetCopyFromRev() const {return copyFromRev;}
+    svn_node_kind_t GetNodeKind() const {return nodeKind;}
+    DWORD GetAction() const {return action;}
+
+	/// returns the action as a string
+
+	static const CString& GetActionString (DWORD action);
+	const CString& GetActionString() const;
 };
 
 enum

@@ -280,18 +280,18 @@ void CCacheLogQuery::CLogFiller::WriteToCache
 		    const LogChangedPath* change = changes->GetAt (i);
 
 		    CRevisionInfoContainer::TChangeAction action 
-			    = (CRevisionInfoContainer::TChangeAction)(change->action * 4);
+			    = (CRevisionInfoContainer::TChangeAction)(change->GetAction() * 4);
 		    std::string path 
-				= (const char*)CUnicodeUtils::GetUTF8 (change->sPath);
+				= (const char*)CUnicodeUtils::GetUTF8 (change->GetPath());
 		    std::string copyFromPath 
-			    = (const char*)CUnicodeUtils::GetUTF8 (change->sCopyFromPath);
+			    = (const char*)CUnicodeUtils::GetUTF8 (change->GetCopyFromPath());
 		    revision_t copyFromRevision 
-			    = change->lCopyFromRev == 0 
+			    = change->GetCopyFromRev() == 0 
 			    ? NO_REVISION 
-			    : static_cast<revision_t>(change->lCopyFromRev);
+			    : static_cast<revision_t>(change->GetCopyFromRev());
 
 		    targetCache->AddChange ( action
-                                   , static_cast<node_kind_t>(change->nodeKind)
+                                   , static_cast<node_kind_t>(change->GetNodeKind())
                                    , path
                                    , copyFromPath
                                    , copyFromRevision);
@@ -779,6 +779,26 @@ revision_t CCacheLogQuery::FillLog ( revision_t startRevision
 
 // fill the receiver's change list buffer 
 
+namespace
+{
+    const CString& ConvertMapString 
+        ( quick_hash_map<index_t, CString>& pathToStringMap
+        , const CDictionaryBasedPath& path)
+    {
+        quick_hash_map<index_t, CString>::const_iterator 
+            iter (pathToStringMap.find (path.GetIndex()));
+
+        if (iter == pathToStringMap.end())
+        {
+    		CString s = SVN::MakeUIUrlOrPath (path.GetPath().c_str());
+            pathToStringMap.insert (path.GetIndex(), s);
+            iter = pathToStringMap.find (path.GetIndex());
+        }
+            
+        return *iter;
+    }
+}
+
 void CCacheLogQuery::GetChanges 
     ( LogChangedPathArray& result
     , TID2String& pathToStringMap
@@ -787,50 +807,27 @@ void CCacheLogQuery::GetChanges
 {
 	for (; first != last; ++first)
 	{
-		// find the item in the hash
+		std::auto_ptr<LogChangedPath> changedPath 
+            (first.HasFromPath() && (first.GetFromRevision() != NO_REVISION)
 
-		std::auto_ptr<LogChangedPath> changedPath (new LogChangedPath);
+                // log entry with copy-from info
 
-		// extract the path name
-        // use map to cache results (speed-up and reduce memory footprint)
+                ? new LogChangedPath 
+                    ( ConvertMapString (pathToStringMap, first.GetPath())
+                    , ConvertMapString (pathToStringMap, first.GetFromPath())
+                    , first.GetFromRevision()
+                    , static_cast<svn_node_kind_t>(first->GetPathType())
+                    , (DWORD)first.GetAction() / 4
+                    )
 
-        CDictionaryBasedPath path = first.GetPath();
-        TID2String::const_iterator iter (pathToStringMap.find (path.GetIndex()));
-        if (iter == pathToStringMap.end())
-        {
-    		changedPath->sPath = SVN::MakeUIUrlOrPath (path.GetPath().c_str());
-            pathToStringMap.insert (path.GetIndex(), changedPath->sPath);
-        }
-        else
-        {
-            changedPath->sPath = *iter;
-        }
+                // log entry w/o copy-from info
 
-        // path type (aka node kind)
-
-        changedPath->nodeKind 
-            = static_cast<svn_node_kind_t>(first->GetPathType());
-
-		// decode the action
-
-		CRevisionInfoContainer::TChangeAction action = first.GetAction();
-		changedPath->action = (DWORD)action / 4;
-
-		// decode copy-from info
-
-		if (   first.HasFromPath()
-			&& (first.GetFromRevision() != NO_REVISION))
-		{
-			std::string path2 = first.GetFromPath().GetPath();
-
-			changedPath->lCopyFromRev = first.GetFromRevision();
-			changedPath->sCopyFromPath 
-				= SVN::MakeUIUrlOrPath (path2.c_str());
-		}
-		else
-		{
-			changedPath->lCopyFromRev = 0;
-		}
+                : new LogChangedPath 
+                    ( ConvertMapString (pathToStringMap, first.GetPath())
+                    , static_cast<svn_node_kind_t>(first->GetPathType())
+                    , (DWORD)first.GetAction() / 4
+                    )
+            );
 
 		result.Add (changedPath.release());
 	} 

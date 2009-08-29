@@ -163,15 +163,13 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 			{
 				// find the item in the hash
 
-				std::auto_ptr<LogChangedPath> changedPath (new LogChangedPath);
 				svn_sort__item_t *item = &(APR_ARRAY_IDX ( sorted_paths
 					, i
 					, svn_sort__item_t));
 
 				// extract the path name
 
-				const char *path = (const char *)item->key;
-				changedPath->sPath = SVN::MakeUIUrlOrPath (path);
+				CString path = SVN::MakeUIUrlOrPath ((const char *)item->key);
 
 				// decode the action
 
@@ -182,28 +180,35 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 				static const char actionKeys[5] = "AMRD";
 				const char* actionKey = strchr (actionKeys, log_item->action);
 
-				changedPath->action = actionKey == NULL 
+				DWORD action = actionKey == NULL 
 					? 0
 					: 1 << (actionKey - actionKeys);
 
-                // extract the node kind
-
-                changedPath->nodeKind = log_item->node_kind;
-
 				// decode copy-from info
 
-				if (   log_item->copyfrom_path 
-					&& SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
-				{
-					changedPath->lCopyFromRev = log_item->copyfrom_rev;
-					changedPath->sCopyFromPath 
-						= SVN::MakeUIUrlOrPath (log_item->copyfrom_path);
-				}
-				else
-				{
-					changedPath->lCopyFromRev = 0;
-				}
-				changedPath->nodeKind = log_item->node_kind;
+		        std::auto_ptr<LogChangedPath> changedPath 
+                    (    log_item->copyfrom_path 
+                      && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev)
+
+                        // log entry with copy-from info
+
+                        ? new LogChangedPath 
+                            ( path
+                            , SVN::MakeUIUrlOrPath (log_item->copyfrom_path)
+                            , log_item->copyfrom_rev
+                            , log_item->node_kind
+                            , action
+                            )
+
+                        // log entry w/o copy-from info
+
+                        : new LogChangedPath 
+                            ( path
+                            , log_item->node_kind
+                            , action
+                            )
+                    );
+
 				changedPaths.Add (changedPath.release());
 			} 
 		} 
@@ -216,15 +221,13 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 			{
 				// find the item in the hash
 
-				std::auto_ptr<LogChangedPath> changedPath (new LogChangedPath);
 				svn_sort__item_t *item = &(APR_ARRAY_IDX ( sorted_paths
 														 , i
 														 , svn_sort__item_t));
 
 				// extract the path name
 
-				const char *path = (const char *)item->key;
-				changedPath->sPath = SVN::MakeUIUrlOrPath (path);
+				CString path = SVN::MakeUIUrlOrPath ((const char *)item->key);
 
 				// decode the action
 
@@ -235,25 +238,36 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 				static const char actionKeys[5] = "AMRD";
 				const char* actionKey = strchr (actionKeys, log_item->action);
 
-				changedPath->action = actionKey == NULL 
-									? 0
-									: 1 << (actionKey - actionKeys);
+				DWORD action = actionKey == NULL 
+                    ? 0
+                    : 1 << (actionKey - actionKeys);
 
 				// decode copy-from info
 
-				if (   log_item->copyfrom_path 
-					&& SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
-				{
-					changedPath->lCopyFromRev = log_item->copyfrom_rev;
-					changedPath->sCopyFromPath 
-						= SVN::MakeUIUrlOrPath (log_item->copyfrom_path);
-				}
-				else
-				{
-					changedPath->lCopyFromRev = 0;
-				}
-				changedPath->nodeKind = svn_node_unknown;
-				changedPaths.Add (changedPath.release());
+		        std::auto_ptr<LogChangedPath> changedPath 
+                    (    log_item->copyfrom_path 
+                      && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev)
+
+                        // log entry with copy-from info
+
+                        ? new LogChangedPath 
+                            ( path
+                            , SVN::MakeUIUrlOrPath (log_item->copyfrom_path)
+                            , log_item->copyfrom_rev
+                            , svn_node_unknown
+                            , action
+                            )
+
+                        // log entry w/o copy-from info
+
+                        : new LogChangedPath 
+                            ( path
+                            , svn_node_unknown
+                            , action
+                            )
+                    );
+
+                changedPaths.Add (changedPath.release());
 			} 
 		} 
 	}
