@@ -42,6 +42,7 @@ Version 1.6.6
 - BUG: The /url parameter was ignored for import commands. (Stefan)
 - BUG: Some project properites were not automatically added
        to newly added folders. (Stefan)
+- BUG: Resolving tree conflicts resulted in an error message. (Stefan)
 
 Version 1.6.5
 - BUG: fixed access to freed memory which could crash

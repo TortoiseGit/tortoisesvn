@@ -191,7 +191,7 @@ void CTreeConflictEditorDlg::OnBnClickedResolveusingtheirs()
 		}
 	}
 
-	if (!svn.Resolve(m_path, svn_wc_conflict_choose_theirs_full, false))
+	if (!svn.Resolve(m_path, svn_wc_conflict_choose_merged, false))
 	{
 		CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		retVal = IDCANCEL;
@@ -225,7 +225,7 @@ void CTreeConflictEditorDlg::OnBnClickedResolveusingmine()
 
 	int retVal = IDC_RESOLVEUSINGMINE;
 	SVN svn;
-	if (!svn.Resolve(m_path, svn_wc_conflict_choose_mine_full, false))
+	if (!svn.Resolve(m_path, svn_wc_conflict_choose_merged, false))
 	{
 		CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		retVal = IDCANCEL;
