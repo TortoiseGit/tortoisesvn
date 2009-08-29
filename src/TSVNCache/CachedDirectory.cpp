@@ -233,10 +233,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 
 	if ( !entiesFileTimeChanged && !propsFileTimeChanged )
 	{
-		m_entriesFileTime = entriesFilePath.GetLastWriteTime();
-		if (m_entriesFileTime)
-			m_propsFileTime = propsDirPath.GetLastWriteTime();
-
 		if(m_entriesFileTime == 0)
 		{
 			// We are a folder which is not in a working copy
