@@ -265,6 +265,21 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			CCachedDirectory * dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
 			if ((dirEntry)&&(dirEntry->IsOwnStatusValid()))
 			{
+				// To keep recursive status up to date, we'll request that children are all crawled again
+				// We have to do this because the directory watcher isn't very reliable (especially under heavy load)
+				// and also has problems with SUBSTed drives.
+				// If nothing has changed in those directories, this crawling is fast and only checks
+				// accesses two files for each directory.
+				if (bRecursive)
+				{
+					AutoLocker lock(dirEntry->m_critSec);
+					ChildDirStatus::const_iterator it;
+					for(it = dirEntry->m_childDirectories.begin(); it != dirEntry->m_childDirectories.end(); ++it)
+					{
+						CSVNStatusCache::Instance().AddFolderForCrawling(it->first);
+					}
+				}
+
 				return dirEntry->GetOwnStatus(bRecursive);
 			}
 		}
