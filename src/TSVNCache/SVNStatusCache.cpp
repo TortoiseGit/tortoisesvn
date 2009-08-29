@@ -436,8 +436,6 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 
 CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntryNoCreate(const CTSVNPath& path)
 {
-	ATLASSERT(path.IsDirectory() || !PathFileExists(path.GetWinPath()));
-
 	CCachedDirectory::ItDir itMap;
 	itMap = m_directoryCache.find(path);
 	if(itMap != m_directoryCache.end())

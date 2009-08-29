@@ -29,6 +29,7 @@ CCachedDirectory::CCachedDirectory(void)
 {
 	m_entriesFileTime = 0;
 	m_propsFileTime = 0;
+	m_lastFileTimeCheck = 0;
 	m_bCurrentFullStatusValid = false;
 	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 	m_bRecursive = true;
@@ -45,6 +46,7 @@ CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
 	m_directoryPath = directoryPath;
 	m_entriesFileTime = 0;
 	m_propsFileTime = 0;
+	m_lastFileTimeCheck = 0;
 	m_bCurrentFullStatusValid = false;
 	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 	m_bRecursive = true;
@@ -212,7 +214,24 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		entriesFilePath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\entries"));
 		propsDirPath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\dir-prop-base"));
 	}
-	if ( (m_entriesFileTime == entriesFilePath.GetLastWriteTime()) && ((entriesFilePath.GetLastWriteTime() == 0) || (m_propsFileTime == propsDirPath.GetLastWriteTime())) )
+
+	bool entiesFileTimeChanged = false;
+	bool propsFileTimeChanged = false;
+	if (GetTickCount() > (m_lastFileTimeCheck+2000))
+	{
+		entiesFileTimeChanged = (m_entriesFileTime != entriesFilePath.GetLastWriteTime());
+		propsFileTimeChanged = (m_propsFileTime != propsDirPath.GetLastWriteTime());
+		m_entriesFileTime = entriesFilePath.GetLastWriteTime();
+		if (m_entriesFileTime)
+			m_propsFileTime = propsDirPath.GetLastWriteTime();
+		m_lastFileTimeCheck = GetTickCount();
+	}
+	else
+	{
+		CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: skipped file tome check for for %s\n"), m_directoryPath.GetWinPath());
+	}
+
+	if ( !entiesFileTimeChanged && !propsFileTimeChanged )
 	{
 		m_entriesFileTime = entriesFilePath.GetLastWriteTime();
 		if (m_entriesFileTime)
@@ -258,7 +277,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			}
 		}
 
-		if(path.IsDirectory())
+		if (CSVNStatusCache::Instance().GetDirectoryCacheEntryNoCreate(path) != NULL)
 		{
 			// We don't have directory status in our cache
 			// Ask the directory if it knows its own status
