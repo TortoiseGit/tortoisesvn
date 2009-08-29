@@ -73,8 +73,10 @@ BOOL CIconMenu::CreatePopupMenu()
 
 BOOL CIconMenu::SetMenuStyle(void)
 {
-	MENUINFO MenuInfo;
+	if (!SysInfo::Instance().IsVistaOrLater())
+		return FALSE;
 
+	MENUINFO MenuInfo;
 
 	memset(&MenuInfo, 0, sizeof(MenuInfo));
 	

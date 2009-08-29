@@ -899,15 +899,18 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
 	if (idCmd != idCmdFirst)
 		InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		
-	MENUINFO MenuInfo;
-	
-	memset(&MenuInfo, 0, sizeof(MenuInfo));
-	
-	MenuInfo.cbSize  = sizeof(MenuInfo);
-	MenuInfo.fMask   = MIM_STYLE | MIM_APPLYTOSUBMENUS;
-	MenuInfo.dwStyle = MNS_CHECKORBMP;
-	
-	SetMenuInfo(hMenu, &MenuInfo);
+	if (SysInfo::Instance().IsVistaOrLater())
+	{
+		MENUINFO MenuInfo;
+
+		memset(&MenuInfo, 0, sizeof(MenuInfo));
+
+		MenuInfo.cbSize  = sizeof(MenuInfo);
+		MenuInfo.fMask   = MIM_STYLE | MIM_APPLYTOSUBMENUS;
+		MenuInfo.dwStyle = MNS_CHECKORBMP;
+
+		SetMenuInfo(hMenu, &MenuInfo);
+	}
 		
 	return ResultFromScode(MAKE_SCODE(SEVERITY_SUCCESS, 0, (USHORT)(idCmd - idCmdFirst)));
 }
@@ -1207,16 +1210,18 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	//separator after
 	InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); idCmd++;
 
-	MENUINFO MenuInfo;
-	
-	memset(&MenuInfo, 0, sizeof(MenuInfo));
-	
-	MenuInfo.cbSize  = sizeof(MenuInfo);
-	MenuInfo.fMask   = MIM_STYLE | MIM_APPLYTOSUBMENUS;
-	MenuInfo.dwStyle = MNS_CHECKORBMP;
-	
-	SetMenuInfo(hMenu, &MenuInfo);
+	if (SysInfo::Instance().IsVistaOrLater())
+	{
+		MENUINFO MenuInfo;
 
+		memset(&MenuInfo, 0, sizeof(MenuInfo));
+
+		MenuInfo.cbSize  = sizeof(MenuInfo);
+		MenuInfo.fMask   = MIM_STYLE | MIM_APPLYTOSUBMENUS;
+		MenuInfo.dwStyle = MNS_CHECKORBMP;
+
+		SetMenuInfo(hMenu, &MenuInfo);
+	}
 	//return number of menu items added
 	return ResultFromScode(MAKE_SCODE(SEVERITY_SUCCESS, 0, (USHORT)(idCmd - idCmdFirst)));
 }
