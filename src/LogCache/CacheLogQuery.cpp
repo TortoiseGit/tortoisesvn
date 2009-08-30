@@ -942,6 +942,11 @@ void CCacheLogQuery::SendToReceiver ( revision_t revision
                            ? &userRevProps 
                            : NULL
                      , mergesFollow);
+
+    // clean-up
+
+    if (standardRevProps)
+        standardRevProps->~StandardRevProps();
 }
 
 // clear string translating caches
