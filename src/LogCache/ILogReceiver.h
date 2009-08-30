@@ -119,54 +119,85 @@ public:
     const LogChangedPath& operator[] (size_t index) const {return at (index);}
 };
 
-/// auto-deleting extension of MFC Arrays for pointer arrays
-
-template<class T>
-class CAutoArray : public CArray<T*,T*>
-{
-public:
-
-    // default and copy construction
-
-    CAutoArray() 
-    {
-    }
-
-    CAutoArray (const CAutoArray& rhs)
-    {
-        Copy (rhs);
-    }
-
-    // destruction deletes members
-
-    ~CAutoArray()
-    {
-	    for (INT_PTR i = 0, count = GetCount(); i < count; ++i)
-		    delete GetAt (i);
-    }
-};
-
 /**
  * standard revision properties
  */
 
-struct StandardRevProps
+class StandardRevProps
 {
+private:
+
     CString author;
-    apr_time_t timeStamp;
     CString message;
+    apr_time_t timeStamp;
+
+public:
+
+    /// construction
+
+    StandardRevProps 
+        ( const CString& author
+        , const CString& message
+        , apr_time_t timeStamp);
+
+    /// r/o data access
+
+    const CString& GetAuthor() const {return author;}
+    const CString& GetMessage() const {return message;}
+    apr_time_t GetTimeStamp() const {return timeStamp;}
+
 };
 
 /**
  * data structure to accommodate the list of user-defined revision properties.
  */
-struct UserRevProp
+
+class UserRevProp
 {
+private:
+
 	CString name;
 	CString value;
+
+    // construction is only allowed through the container
+
+    friend class UserRevPropArray;
+
+public:
+
+    /// r/o data access
+
+    const CString& GetName() const {return name;}
+    const CString& GetValue() const {return value;}
+
 };
 
-typedef CAutoArray<UserRevProp> UserRevPropArray;
+/**
+ * Factory and container for UserRevProp objects.
+ * Provides just enough methods to read them.
+ */
+
+class UserRevPropArray : private std::vector<UserRevProp>
+{
+public:
+
+    /// construction
+
+    UserRevPropArray();
+    UserRevPropArray (size_t initialCapacity);
+
+    /// modification
+
+    void Add
+        ( const CString& name
+        , const CString& value);
+
+    /// data access
+
+    size_t GetCount() const {return size();}
+    const UserRevProp& GetAt (size_t index) const {return at (index);}
+    const UserRevProp& operator[] (size_t index) const {return at (index);}
+};
 
 
 /**

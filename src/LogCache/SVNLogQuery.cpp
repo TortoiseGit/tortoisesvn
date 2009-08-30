@@ -92,8 +92,10 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 
 	// parse revprops
 
-    StandardRevProps standardRevProps;
-	standardRevProps.timeStamp = NULL;
+    CString author;
+    CString message;
+	__time64_t timeStamp = 0;
+
     UserRevPropArray userRevProps;
 
 	try
@@ -123,23 +125,18 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 	            CString value = CUnicodeUtils::GetUnicode (*val);
 
                 if (name == svnLog)
-                    standardRevProps.message = value;
+                    message = value;
                 else if (name == svnAuthor)
-                    standardRevProps.author = value;
+                    author = value;
                 else if (name == svnDate)
                 {
-	                standardRevProps.timeStamp = NULL;
+	                timeStamp = NULL;
 	                if (value[0])
-		                SVN_ERR (svn_time_from_cstring 
-                                    (&standardRevProps.timeStamp, *val, pool));
+		                SVN_ERR (svn_time_from_cstring (&timeStamp, *val, pool));
                 }
                 else
                 {
-				    std::auto_ptr<UserRevProp> revProp (new UserRevProp);
-                    revProp->name = name;
-                    revProp->value = value;
-
-                    userRevProps.Add (revProp.release());
+                    userRevProps.Add (name, value);
                 }
             }
         }
@@ -149,7 +146,9 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 		e->Delete();
 	}
 
-	// the individual changes
+    StandardRevProps standardRevProps (author, message, timeStamp);
+
+    // the individual changes
 
 	LogChangedPathArray changedPaths;
 	try
@@ -263,7 +262,10 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 	try
 	{
 		// treat revision 0 special: only report/show it if either the author or a message is set, or if user props are set
-		if ((log_entry->revision)||(userRevProps.GetCount())||(!standardRevProps.author.IsEmpty())||(!standardRevProps.message.IsEmpty()))
+		if (   log_entry->revision
+            || userRevProps.GetCount()
+            || !standardRevProps.GetAuthor().IsEmpty()
+            || !standardRevProps.GetMessage().IsEmpty())
 		{
 			receiver->ReceiveLog ( receiverBaton->includeChanges 
 									   ? &changedPaths 

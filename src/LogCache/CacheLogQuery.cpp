@@ -252,9 +252,9 @@ void CCacheLogQuery::CLogFiller::WriteToCache
 
     if (stdRevProps)
     {
-        author = (const char*)CUnicodeUtils::GetUTF8 (stdRevProps->author);
-        message = (const char*)CUnicodeUtils::GetUTF8 (stdRevProps->message);
-        timeStamp = stdRevProps->timeStamp;
+        author = (const char*)CUnicodeUtils::GetUTF8 (stdRevProps->GetAuthor());
+        message = (const char*)CUnicodeUtils::GetUTF8 (stdRevProps->GetMessage());
+        timeStamp = stdRevProps->GetTimeStamp();
     }
 
     char presenceMask = 0; 
@@ -304,12 +304,12 @@ void CCacheLogQuery::CLogFiller::WriteToCache
     {
 	    for (INT_PTR i = 0, count = userRevProps->GetCount(); i < count; ++i)
 	    {
-		    const UserRevProp* revprop = userRevProps->GetAt (i);
+		    const UserRevProp& revprop = userRevProps->GetAt (i);
 
             std::string name 
-                = (const char*)CUnicodeUtils::GetUTF8 (revprop->name);
+                = (const char*)CUnicodeUtils::GetUTF8 (revprop.GetName());
             std::string value 
-                = (const char*)CUnicodeUtils::GetUTF8 (revprop->value);
+                = (const char*)CUnicodeUtils::GetUTF8 (revprop.GetValue());
 
             targetCache->AddRevProp (name, value);
 	    }
@@ -839,19 +839,14 @@ void CCacheLogQuery::GetUserRevProps
 
 	for (; first != last; ++first)
 	{
-		std::auto_ptr<UserRevProp> revProp (new UserRevProp);
-
-        revProp->name = CUnicodeUtils::GetUnicode (first.GetName());
-        revProp->value = CUnicodeUtils::GetUnicode (first.GetValue().c_str());
+        CString name = CUnicodeUtils::GetUnicode (first.GetName());
+        CString value = CUnicodeUtils::GetUnicode (first.GetValue().c_str());
 
         // add to output list, 
         // if it matches the filter (or if there is no filter)
 
-        if (   userRevProps.empty() 
-            || std::find (begin, end, revProp->name) != end)
-        {
-		    result.Add (revProp.release());
-        }
+        if (userRevProps.empty() || (std::find (begin, end, name) != end))
+		    result.Add (name, value);
 	} 
 }
 
@@ -894,7 +889,7 @@ void CCacheLogQuery::SendToReceiver ( revision_t revision
 
     // standard revprops
 
-    StandardRevProps standardRevProps;
+    StandardRevProps* standardRevProps = NULL;
     if (options.GetIncludeStandardRevProps())
     {
         // author
@@ -903,23 +898,27 @@ void CCacheLogQuery::SendToReceiver ( revision_t revision
         TID2String::const_iterator iter = authorToStringMap.find (authorID);
         if (iter == authorToStringMap.end())
         {
-            standardRevProps.author     
+            CString author     
                 = CUnicodeUtils::GetUnicode (logInfo.GetAuthor (logIndex));
-            authorToStringMap.insert (authorID, standardRevProps.author);
+            authorToStringMap.insert (authorID, author);
+            iter = authorToStringMap.find (authorID);
         }
-        else
-        {
-            standardRevProps.author = *iter;
-        }
+            
+        const CString& author = *iter;
 
         // comment
 
-		standardRevProps.message 
+        CString message
 			= CUnicodeUtils::GetUnicode (logInfo.GetComment (logIndex).c_str());
 
         // time stamp
 
-        standardRevProps.timeStamp = logInfo.GetTimeStamp (logIndex);
+        __time64_t timeStamp = logInfo.GetTimeStamp (logIndex);
+
+        // create the actual object
+
+        standardRevProps = new (alloca (sizeof (StandardRevProps)))
+                            StandardRevProps (author, message, timeStamp);
     }
 
     // user revprops
@@ -938,9 +937,7 @@ void CCacheLogQuery::SendToReceiver ( revision_t revision
                            ? &changes 
                            : NULL
 				     , revision
-                     , options.GetIncludeStandardRevProps() 
-                           ? &standardRevProps 
-                           : NULL
+                     , standardRevProps 
                      , options.GetIncludeUserRevProps() 
                            ? &userRevProps 
                            : NULL

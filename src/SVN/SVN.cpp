@@ -1659,7 +1659,7 @@ void SVN::ReceiveLog ( LogChangedPathArray* changes
 	TCHAR date_native[SVN_DATE_BUFFER] = {0};
     if (stdRevProps != NULL)
     {
-        apr_time_t temp = stdRevProps->timeStamp;
+        apr_time_t temp = stdRevProps->GetTimeStamp();
 	    formatDate (date_native, temp);
     }
     
@@ -1671,11 +1671,11 @@ void SVN::ReceiveLog ( LogChangedPathArray* changes
 
     static const CString emptyString;
 	Log ( rev
-		, stdRevProps == NULL ? emptyString : stdRevProps->author
+		, stdRevProps == NULL ? emptyString : stdRevProps->GetAuthor()
 		, date_native
-        , stdRevProps == NULL ? emptyString : stdRevProps->message
+        , stdRevProps == NULL ? emptyString : stdRevProps->GetMessage()
 		, changes
-        , stdRevProps == NULL ? apr_time_t(0) : stdRevProps->timeStamp
+        , stdRevProps == NULL ? apr_time_t(0) : stdRevProps->GetTimeStamp()
         , mergesFollow);
 }
 

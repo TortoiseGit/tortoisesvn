@@ -184,5 +184,39 @@ void LogChangedPathArray::Sort (int column, bool ascending)
     std::sort (begin(), end(), Order (column, ascending));
 }
 
+// construction
 
+StandardRevProps::StandardRevProps 
+    ( const CString& author
+    , const CString& message
+    , apr_time_t timeStamp)
+    : author (author)
+    , message (message)
+    , timeStamp (timeStamp)
+{
+}
+
+// construction
+
+UserRevPropArray::UserRevPropArray()
+{
+}
+
+UserRevPropArray::UserRevPropArray (size_t initialCapacity)
+{
+    reserve (initialCapacity);
+}
+
+// modification
+
+void UserRevPropArray::Add
+    ( const CString& name
+    , const CString& value)
+{
+    push_back (UserRevProp());
+
+    UserRevProp& item = back();
+    item.name = name;
+    item.value = value;
+}
 
