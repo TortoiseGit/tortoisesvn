@@ -26,11 +26,11 @@ BOOL SVNLogHelper::Log(LONG rev, const CString& author, const CString& /*date*/,
 	m_rev = rev;
 	for (int i=0; i<cpaths->GetCount(); ++i)
 	{
-		LogChangedPath * cpath = cpaths->GetAt(i);
-		if (m_relativeurl.Compare (cpath->GetPath())== 0)
+		const LogChangedPath& cpath = cpaths->GetAt(i);
+		if (m_relativeurl.Compare (cpath.GetPath())== 0)
 		{
-			m_copyfromurl = m_reposroot + cpath->GetCopyFromPath();
-			m_rev = cpath->GetCopyFromRev();
+			m_copyfromurl = m_reposroot + cpath.GetCopyFromPath();
+			m_rev = cpath.GetCopyFromRev();
 		}
 	}
 	return TRUE;

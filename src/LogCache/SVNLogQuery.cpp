@@ -186,30 +186,21 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 
 				// decode copy-from info
 
-		        std::auto_ptr<LogChangedPath> changedPath 
-                    (    log_item->copyfrom_path 
-                      && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev)
-
-                        // log entry with copy-from info
-
-                        ? new LogChangedPath 
-                            ( path
-                            , SVN::MakeUIUrlOrPath (log_item->copyfrom_path)
-                            , log_item->copyfrom_rev
-                            , log_item->node_kind
-                            , action
-                            )
-
-                        // log entry w/o copy-from info
-
-                        : new LogChangedPath 
-                            ( path
-                            , log_item->node_kind
-                            , action
-                            )
-                    );
-
-				changedPaths.Add (changedPath.release());
+                if (    log_item->copyfrom_path 
+                     && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
+                {
+                    changedPaths.Add ( path
+                                     , SVN::MakeUIUrlOrPath (log_item->copyfrom_path)
+                                     , log_item->copyfrom_rev
+                                     , log_item->node_kind
+                                     , action);
+                }
+                else
+                {
+                    changedPaths.Add ( path
+                                     , log_item->node_kind
+                                     , action);
+                }
 			} 
 		} 
         else if (log_entry->changed_paths != NULL)
@@ -244,30 +235,21 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 
 				// decode copy-from info
 
-		        std::auto_ptr<LogChangedPath> changedPath 
-                    (    log_item->copyfrom_path 
-                      && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev)
-
-                        // log entry with copy-from info
-
-                        ? new LogChangedPath 
-                            ( path
-                            , SVN::MakeUIUrlOrPath (log_item->copyfrom_path)
-                            , log_item->copyfrom_rev
-                            , svn_node_unknown
-                            , action
-                            )
-
-                        // log entry w/o copy-from info
-
-                        : new LogChangedPath 
-                            ( path
-                            , svn_node_unknown
-                            , action
-                            )
-                    );
-
-                changedPaths.Add (changedPath.release());
+                if (    log_item->copyfrom_path 
+                     && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
+                {
+                    changedPaths.Add ( path
+                                     , SVN::MakeUIUrlOrPath (log_item->copyfrom_path)
+                                     , log_item->copyfrom_rev
+                                     , svn_node_unknown
+                                     , action);
+                }
+                else
+                {
+                    changedPaths.Add ( path
+                                     , svn_node_unknown
+                                     , action);
+                }
 			} 
 		} 
 	}

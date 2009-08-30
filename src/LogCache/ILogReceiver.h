@@ -49,21 +49,11 @@ private:
 	/// cached return value of GetAction()
 	mutable CString actionAsString;
 
+    // construction is only allowed through the container
+
+    friend class LogChangedPathArray;
+
 public:
-
-    /// construction 
-
-    LogChangedPath 
-        ( const CString& path
-        , const CString& copyFromPath
-        , svn_revnum_t copyFromRev
-        , svn_node_kind_t nodeKind
-        , DWORD action);
-
-    LogChangedPath 
-        ( const CString& path
-        , svn_node_kind_t nodeKind
-        , DWORD action);
 
     /// r/o data access
 
@@ -85,6 +75,48 @@ enum
 	LOGACTIONS_MODIFIED	= 0x00000002,
 	LOGACTIONS_REPLACED	= 0x00000004,
 	LOGACTIONS_DELETED	= 0x00000008
+};
+
+/**
+ * Factory and container for LogChangedPath objects.
+ * Provides just enough methods to read them.
+ */
+
+class LogChangedPathArray : private std::vector<LogChangedPath>
+{
+public:
+
+    /// construction
+
+    LogChangedPathArray();
+    LogChangedPathArray (size_t initialCapacity);
+
+    /// modification
+
+    void Add
+        ( const CString& path
+        , const CString& copyFromPath
+        , svn_revnum_t copyFromRev
+        , svn_node_kind_t nodeKind
+        , DWORD action);
+
+    void Add
+        ( const CString& path
+        , svn_node_kind_t nodeKind
+        , DWORD action);
+
+    void Add
+        ( const LogChangedPath& item);
+
+    void RemoveAll();
+
+    void Sort (int column, bool ascending);
+
+    /// data access
+
+    size_t GetCount() const {return size();}
+    const LogChangedPath& GetAt (size_t index) const {return at (index);}
+    const LogChangedPath& operator[] (size_t index) const {return at (index);}
 };
 
 /// auto-deleting extension of MFC Arrays for pointer arrays
@@ -113,8 +145,6 @@ public:
 		    delete GetAt (i);
     }
 };
-
-typedef CAutoArray<LogChangedPath> LogChangedPathArray;
 
 /**
  * standard revision properties

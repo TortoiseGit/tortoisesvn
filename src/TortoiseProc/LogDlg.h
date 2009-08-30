@@ -147,7 +147,7 @@ private:
 	void LogThread();
 	void StatusThread();
 	void Refresh (bool autoGoOnline = false);
-	BOOL IsDiffPossible(LogChangedPath * changedpath, svn_revnum_t rev);
+	BOOL IsDiffPossible (const LogChangedPath& changedpath, svn_revnum_t rev);
 	BOOL Open(bool bOpenWith, CString changedpath, svn_revnum_t rev);
 	void EditAuthor(const CLogDataVector& logs);
 	void EditLogMessage(int index);
@@ -182,9 +182,7 @@ private:
 
 	inline int ShownCountWithStopped() const { return (int)m_arShownList.GetCount() + (m_bStrictStopped ? 1 : 0); }
 
-
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
-	static int __cdecl	SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function
 
 	void ResizeAllListCtrlCols(bool bOnlyVisible);
 

@@ -103,17 +103,17 @@ LogEntryData::LogEntryData
 
 	for (INT_PTR i = 0; i < changedPathCount; ++i)
 	{
-		LogChangedPath * cpath = changedPaths->GetAt (i);
-	    actions |= cpath->GetAction();
-	    copies |= cpath->GetCopyFromRev() != 0;
+		const LogChangedPath& cpath = changedPaths->GetAt (i);
+	    actions |= cpath.GetAction();
+	    copies |= cpath.GetCopyFromRev() != 0;
 
-        if (   !cpath->GetCopyFromPath().IsEmpty() 
-            && (cpath->GetPath().Compare (selfRelativeURL) == 0))
+        if (   !cpath.GetCopyFromPath().IsEmpty() 
+            && (cpath.GetPath().Compare (selfRelativeURL) == 0))
 		{
 			// note: this only works if the log is fetched top-to-bottom
 			// but since we do that, it shouldn't be a problem
 
-            selfRelativeURL = cpath->GetCopyFromPath();
+            selfRelativeURL = cpath.GetCopyFromPath();
 			copiedSelf = true;
 		}
 	}
@@ -234,9 +234,9 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
 
     for (INT_PTR i = 0, count = changes->GetCount(); i < count; ++i)
     {
-	    const LogChangedPath* change = changes->GetAt (i);
-	    actions |= change->GetAction();
-	    copies |= change->GetCopyFromRev() != 0;
+	    const LogChangedPath& change = changes->GetAt (i);
+	    actions |= change.GetAction();
+	    copies |= change.GetCopyFromRev() != 0;
     }
 
     // construct result

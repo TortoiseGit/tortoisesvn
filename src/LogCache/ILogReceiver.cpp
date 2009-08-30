@@ -26,34 +26,6 @@
 // (taken from the SVN class)
 ///////////////////////////////////////////////////////////////
 
-// construction 
-
-LogChangedPath::LogChangedPath 
-    ( const CString& path
-    , const CString& copyFromPath
-    , svn_revnum_t copyFromRev
-    , svn_node_kind_t nodeKind
-    , DWORD action)
-    : path (path)
-    , copyFromPath (copyFromPath)
-    , copyFromRev (copyFromRev)
-    , nodeKind (nodeKind)
-    , action (action)
-{
-}
-
-LogChangedPath::LogChangedPath 
-    ( const CString& path
-    , svn_node_kind_t nodeKind
-    , DWORD action)
-    : path (path)
-    , copyFromPath()
-    , copyFromRev (0)
-    , nodeKind (nodeKind)
-    , action (action)
-{
-}
-
 // convenience method
 
 const CString& LogChangedPath::GetActionString (DWORD action)
@@ -106,3 +78,111 @@ const CString& LogChangedPath::GetActionString() const
 
     return actionAsString;
 }
+
+// construction
+
+LogChangedPathArray::LogChangedPathArray()
+{
+}
+
+LogChangedPathArray::LogChangedPathArray (size_t initialCapacity)
+{
+    reserve (initialCapacity);
+}
+
+// modification
+
+void LogChangedPathArray::Add
+    ( const CString& path
+    , const CString& copyFromPath
+    , svn_revnum_t copyFromRev
+    , svn_node_kind_t nodeKind
+    , DWORD action)
+{
+    push_back (LogChangedPath());
+
+    LogChangedPath& item = back();
+    item.path = path;
+    item.copyFromPath = copyFromPath;
+    item.copyFromRev = copyFromRev;
+    item.nodeKind = nodeKind;
+    item.action = action;
+}
+
+void LogChangedPathArray::Add
+    ( const CString& path
+    , svn_node_kind_t nodeKind
+    , DWORD action)
+{
+    push_back (LogChangedPath());
+
+    LogChangedPath& item = back();
+    item.path = path;
+    item.copyFromRev = 0;
+    item.nodeKind = nodeKind;
+    item.action = action;
+}
+
+void LogChangedPathArray::Add (const LogChangedPath& item)
+{
+    push_back (item);
+}
+
+void LogChangedPathArray::RemoveAll()
+{
+    clear();
+}
+
+void LogChangedPathArray::Sort (int column, bool ascending)
+{
+    struct Order
+    {
+    private:
+
+        int column;
+        bool ascending;
+
+    public:
+
+        Order (int column, bool ascending)
+            : column (column)
+            , ascending (ascending)
+        {
+        }
+
+        bool operator()(const LogChangedPath& lhs, const LogChangedPath& rhs) const
+        {
+            const LogChangedPath* cpath1 = ascending ? &lhs : &rhs;
+	        const LogChangedPath* cpath2 = ascending ? &rhs : &lhs;
+
+	        int cmp = 0;
+	        switch (column)
+	        {
+	        case 0:	// action
+			        cmp = cpath2->GetActionString().Compare (cpath1->GetActionString());
+			        if (cmp)
+				        return cmp > 0;
+			        // fall through
+	        case 1:	// path
+			        cmp = cpath2->GetPath().CompareNoCase (cpath1->GetPath());
+			        if (cmp)
+				        return cmp > 0;
+			        // fall through
+	        case 2:	// copy from path
+			        cmp = cpath2->GetCopyFromPath().Compare (cpath1->GetCopyFromPath());
+			        if (cmp)
+				        return cmp > 0;
+			        // fall through
+	        case 3:	// copy from revision
+			        return cpath2->GetCopyFromRev() > cpath1->GetCopyFromRev();
+	        }
+
+	        return false;
+        }
+    };
+
+    std::sort (begin(), end(), Order (column, ascending));
+}
+
+
+
