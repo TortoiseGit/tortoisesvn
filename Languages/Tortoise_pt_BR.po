@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-07-23 16:00-0300\n"
-"Last-Translator: Humberto Osório <humberto@virtual.ufc.br>\n"
+"PO-Revision-Date: 2009-08-30 16:01-0300\n"
+"Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -108,6 +108,11 @@ msgstr "%I64d Bytes transferidos"
 
 #. Resource IDs: (357)
 #, c-format
+msgid "%I64d Bytes/s"
+msgstr "%I64d Bytes/s"
+
+#. Resource IDs: (357)
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBytes transferidos"
 
@@ -120,11 +125,6 @@ msgstr "%d arquivos selecionados, %d arquivos no total"
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
 msgstr "%d autor(es) mais ativos com pelo menos %d submissões cada um (%d %%)"
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%ld Bytes/s"
-msgstr "%ld Bytes/s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -492,6 +492,10 @@ msgstr "&Excluir"
 #. Resource IDs: (17)
 msgid "&Delete (keep local)"
 msgstr "&Excluir (manter local)"
+
+#. Resource IDs: (1514)
+msgid "&Delete unversioned items..."
+msgstr "&Excluir itens sem controle de versão..."
 
 #. Resource IDs: (101)
 msgid "&Delete..."
@@ -1179,6 +1183,10 @@ msgstr "(criado)"
 #. Resource IDs: (276)
 msgid "(delete)"
 msgstr "(excluir)"
+
+#. Resource IDs: (214)
+msgid "(externals)"
+msgstr "(externos)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -2888,6 +2896,10 @@ msgstr ""
 #. Resource IDs: (8)
 msgid "Create repositor&y here"
 msgstr "Criar repositó&rio aqui"
+
+#. Resource IDs: (102)
+msgid "Create shortcut"
+msgstr "Criar atalho"
 
 #. Resource IDs: (32828)
 msgid "Create unified diff file"
@@ -6636,6 +6648,10 @@ msgid "Renames files / folders inside version control"
 msgstr "Renomeia arquivos / pastas dentro do controle de versão"
 
 #. Resource IDs: (209)
+msgid "Repair copy"
+msgstr "Reparar cópia"
+
+#. Resource IDs: (209)
 msgid "Repair move"
 msgstr "Reparar movimento"
 
@@ -6674,6 +6690,10 @@ msgstr "URL do Repositório"
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
 msgstr "UUID do repositório:"
+
+#. Resource IDs: (106)
+msgid "Request cancelled by TSVN"
+msgstr "Requisição cancelada pelo TSVN"
 
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
@@ -8957,6 +8977,10 @@ msgstr ""
 #. Resource IDs: (20)
 msgid "Unknown depth"
 msgstr "Profundidade desconhecida"
+
+#. Resource IDs: (106)
+msgid "Unknown failure in SVN::List"
+msgstr "Falha desconhecida no SVN::List"
 
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
