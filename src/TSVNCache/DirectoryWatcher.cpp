@@ -394,13 +394,19 @@ void CDirectoryWatcher::WorkerThread()
 				if (!m_bRunning)
 					return;
 
-				if (numBytes == 0)
-					continue;
 				// NOTE: the longer this code takes to execute until ReadDirectoryChangesW
 				// is called again, the higher the chance that we miss some
 				// changes in the file system! 
 				if (pdi)
 				{
+					// This means the (kernel) buffer was over-flooded and cleared, and we have lost some changes.
+					// Recrawl the watched folder we lost changes for.
+					if (numBytes == 0)
+					{
+						m_FolderCrawler->AddPathForUpdate(pdi->m_DirName);
+						continue;
+					}
+
 					BOOL bRet = false;
 
 					{
