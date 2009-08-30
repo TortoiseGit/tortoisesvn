@@ -261,7 +261,6 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				OptimizeForWindows98="0"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
 				TargetMachine="1"
@@ -357,7 +356,6 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				OptimizeForWindows98="1"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
 				TargetMachine="17"
@@ -1690,11 +1688,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Resources\link.ico"
+				RelativePath=".\link.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\link.ico"
+				RelativePath="..\Resources\link.ico"
 				>
 			</File>
 			<File
