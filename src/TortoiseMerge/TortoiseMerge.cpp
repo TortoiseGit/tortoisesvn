@@ -284,7 +284,6 @@ BOOL CTortoiseMergeApp::InitInstance()
 		ofn.nFilterIndex = 1;
 
 		// Display the Open dialog box. 
-		CString tempfile;
 		if (GetOpenFileName(&ofn)==FALSE)
 		{
 			return FALSE;
@@ -400,7 +399,6 @@ BOOL CTortoiseMergeApp::InitInstance()
 				ofn.nFilterIndex = 1;
 
 				// Display the Save dialog box. 
-				CString sFile;
 				if (GetSaveFileName(&ofn)==TRUE)
 				{
 					outfile = CString(ofn.lpstrFile);
