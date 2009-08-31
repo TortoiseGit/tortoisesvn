@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-23 21:50+0100\n"
+"PO-Revision-Date: 2009-08-31 11:43+0100\n"
 "Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -110,6 +110,11 @@ msgstr "%I64d Bytes verstuurd"
 
 #. Resource IDs: (357)
 #, c-format
+msgid "%I64d Bytes/s"
+msgstr "%I64d Bytes/s"
+
+#. Resource IDs: (357)
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBytes verstuurd"
 
@@ -122,11 +127,6 @@ msgstr "%d bestanden geselecteerd, %d bestanden totaal"
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
 msgstr "%d meest actieve auteur(s) met elk minstens %d vastleggingen (%d %%)"
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%ld Bytes/s"
-msgstr "%ld Bytes/s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -494,6 +494,10 @@ msgstr "&Verwijderen"
 #. Resource IDs: (17)
 msgid "&Delete (keep local)"
 msgstr "&Verwijderen (lokaal behouden)"
+
+#. Resource IDs: (1514)
+msgid "&Delete unversioned items..."
+msgstr "&Verwijder objecten zonder versiebeheer..."
 
 #. Resource IDs: (101)
 msgid "&Delete..."
@@ -1170,6 +1174,10 @@ msgstr "(binaire waarde)"
 msgid "(copy)"
 msgstr "(kopie)"
 
+#. Resource IDs: (277)
+msgid "(create branch)"
+msgstr "(creëer tak)"
+
 #. Resource IDs: (276)
 msgid "(created)"
 msgstr "(gemaakt)"
@@ -1177,6 +1185,10 @@ msgstr "(gemaakt)"
 #. Resource IDs: (276)
 msgid "(delete)"
 msgstr "(verwijder)"
+
+#. Resource IDs: (214)
+msgid "(externals)"
+msgstr "(externen)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -1209,10 +1221,6 @@ msgstr "(geen waarde)"
 #. Resource IDs: (314)
 msgid "(not found)"
 msgstr "(niet gevonden)"
-
-#. Resource IDs: (276)
-msgid "(open branch)"
-msgstr "(open tak)"
 
 #. Resource IDs: (208)
 msgid "(property change only)"
@@ -2885,6 +2893,10 @@ msgstr ""
 #. Resource IDs: (8)
 msgid "Create repositor&y here"
 msgstr "Maak hier een &archief"
+
+#. Resource IDs: (102)
+msgid "Create shortcut"
+msgstr "Maak snelkoppeling"
 
 #. Resource IDs: (32828)
 msgid "Create unified diff file"
@@ -6615,6 +6627,10 @@ msgid "Renames files / folders inside version control"
 msgstr "Hernoemt bestanden/mappen binnen versiebeheer"
 
 #. Resource IDs: (209)
+msgid "Repair copy"
+msgstr "Repareer kopiëer-actie"
+
+#. Resource IDs: (209)
 msgid "Repair move"
 msgstr "Repareer verplaatsing"
 
@@ -6653,6 +6669,10 @@ msgstr "Archief URL"
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
 msgstr "UUID van Archief:"
+
+#. Resource IDs: (106)
+msgid "Request cancelled by TSVN"
+msgstr "Verzoek afgebroken door TSVN"
 
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
@@ -8935,6 +8955,10 @@ msgstr ""
 #. Resource IDs: (20)
 msgid "Unknown depth"
 msgstr "Onbekende diepte"
+
+#. Resource IDs: (106)
+msgid "Unknown failure in SVN::List"
+msgstr "Onbekende fout in SVN::List"
 
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
