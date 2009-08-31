@@ -13,8 +13,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"POT-Creation-Date: 2009-08-19 21:51 +0000\n"
-"PO-Revision-Date: 2009-08-26 18:47+0100\n"
+"POT-Creation-Date: 2009-08-30 22:36 +0000\n"
+"PO-Revision-Date: 2009-08-31 16:02+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1728,10 +1728,13 @@ msgid ""
 "saslpasswd2 -c -f C:\\TortoiseSVN\\sasldb -u realm username\n"
 "</screen> The <literal>-f</literal> switch gives the database location, <literal>realm</literal> must be the same as the value you defined in your repository's <filename>svnserve.conf</filename> file, and username is exactly what you expect it to be. Note that the realm is not allowed to contain space characters."
 msgstr ""
+"Nu alles ingesteld is, moet je alleen nog gebruikers en wachtwoorden aanmaken. Hiervoor heb je <literal>saslpasswd2</literal> nodig. Als je de CollabNet installatie hebt gebruikt, staat dat programma in de installatie map. Gebruik het commando ongeveer zoals volgt: <screen>\n"
+"saslpasswd2 -c -f C:\\TortoiseSVN\\sasldb -u realm username\n"
+"</screen> De <literal>-f</literal> optie bepaald de database locatie, <literal>realm</lliteral> moet gelijk zijn aan de waarde van het <filename>svnserve.conf</filename> bestand en <literal>username</literal> is de gebruikersnaam. Merk op dat de realm geen spaties mag bevatten."
 
 #. (para)
 msgid "You can list the usernames stored in the database using the <literal>sasldblistusers2</literal> program."
-msgstr ""
+msgstr "Met <literal>sasldblistusers2</literal> kun je een lijst maken van de gebruikersnamen opgeslagen in de database."
 
 #. (title)
 msgid "SASL Encryption"
@@ -1746,10 +1749,16 @@ msgid ""
 "max-encryption = 256\n"
 "</screen>"
 msgstr ""
+"Met twee waardes in de <filename>svnserve.conf</filename> van het archief kun je verschillende encryptie niveaus instellen: <screen>\n"
+"[sasl]\n"
+"use-sasl = true\n"
+"min-encryption = 128\n"
+"max-encryption = 256\n"
+"</screen>"
 
 #. (para)
 msgid "The <literal>min-encryption</literal> and <literal>max-encryption</literal> variables control the level of encryption demanded by the server. To disable encryption completely, set both values to 0. To enable simple checksumming of data (i.e., prevent tampering and guarantee data integrity without encryption), set both values to 1. If you wish to allow (but not require) encryption, set the minimum value to 0, and the maximum value to some bit-length. To require encryption unconditionally, set both values to numbers greater than 1. In our previous example, we require clients to do at least 128-bit encryption, but no more than 256-bit encryption."
-msgstr ""
+msgstr "De <literal>min-encryption</literal> en <literal>max-encryption</literal> variabelen stellen het encryptieniveau in dat nodig is voor de server. Zet beide waardes op 0 om de encryptie helemaal uit te schakelen. Stel beide waardes in op 1 om gebruik te maken van cheksums (ter voorkoming van geknoei met data en het garanderen van de integriteit zonder encryptie te gebruiken) . Als je encryptie toe wilt staan, maar niet wilt verplichten, stel dan de minimumwaarde in op 0 en de maximumwaarde op een bitlengte. Voor het onvoorwaardelijk eisen van encryptie stel je beide waardes in op een getal groter dan 1. In ons vorige voorbeeld, verlangen we het gebruik van 128-bit encryprie, maar niet meer dan 256-bit."
 
 #. (title)
 msgid "Authentication with svn+ssh"
@@ -1757,19 +1766,19 @@ msgstr "Authenticatie met svn+ssh"
 
 #. (para)
 msgid "Another way to authenticate users with a svnserve based server is to use a secure shell (SSH) to tunnel requests through. It is not as simple to set up as SASL, but it may be useful is some cases."
-msgstr ""
+msgstr "Een andere manier om gebruikers te authenticeren met een svnserve server, is door gebruik te maken van een Secure SHell (SSH). Dit is niet zo eenvoudig in te stellen als SASL, maar kan nuttig zijn in bepaalde gevallen."
 
 #. (para)
 msgid "With this approach, svnserve is not run as a daemon process, rather, the secure shell starts svnserve for you, running it as the SSH authenticated user. To enable this, you need a secure shell daemon on your server."
-msgstr ""
+msgstr "Bij deze methode wordt svnserve niet als een daemon proces gebruikt, want de secure Shell start svnserve voor je, zodat het draait als een SSH geauthenticeerde gebruiker. Om dit te kunnen gebruiken, heb je een secure shell daemon nodig op je server."
 
 #. (para)
 msgid "A basic method for setting up your server is given in <xref linkend=\"tsvn-ssh-howto\"/>. You can find other SSH topics within the FAQ by searching for <quote>SSH</quote>."
-msgstr ""
+msgstr "Een basismethode voor het installeren van je server wordt beschreven in <xref linkend=\"tsvn-ssh-howto\"/>. Andere informatie over SHH vind je in de FAQ als je zoekt op <quote>SSH</quote>."
 
 #. (para)
 msgid "Further information about svnserve can be found in the <ulink url=\"http://svnbook.red-bean.com\"><citetitle>Version Control with Subversion</citetitle></ulink>."
-msgstr ""
+msgstr "Meer detailinformatie over svnserve kun je vinden in <ulink url=\"http://svnbook.red-bean.com\"><citetitle>Version Control with Subversion</citetitle></ulink>."
 
 #. (title)
 msgid "Path-based Authorization with svnserve"
@@ -1782,6 +1791,10 @@ msgid ""
 "authz-db = authz\n"
 "</screen> Here, <filename>authz</filename> is a file you create to define the access permissions. You can use a separate file for each repository, or you can use the same file for several repositories. Read <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/> for a description of the file format."
 msgstr ""
+"Sinds Subversion 1.3, ondersteunt svnserve ook het <literal>mod_authz_svn</literal> padgebaseerde autorisatie model dat beschikbaar is op een Apache server. Hiervoor moet je in het <filename>conf/svnserve.conf</filename> bestand in je archief map een regel toevoegen die refereert naar je autorisatiebestand. <screen>\n"
+"[general]\n"
+"authz-db = authz\n"
+"</screen> Hierbij is <filename>authz</filename> een bestand dat je aan moet maken om de toegangsrechten in te stellen.  Je kunt voor elk archief een apart bestand gebruiken of één bestand voor meerdere archieven. Lees <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/> voor een beschrijving van het bestandsformaat."
 
 #. (title)
 msgid "Apache Based Server"
@@ -1793,7 +1806,7 @@ msgstr "Apache"
 
 #. (para)
 msgid "The most flexible of all possible server setups for Subversion is the Apache based one. Although a bit more complicated to set up, it offers benefits that other servers cannot:"
-msgstr ""
+msgstr "De op Apache gebaseerde Subversion installatie is de meest flexibile installatie. Ondanks het feit dat deze installatie iets ingewikkelder is, levert het voordelen op die andere servers niet hebben. "
 
 #. (primary)
 #. (term)
@@ -1802,7 +1815,7 @@ msgstr "WebDAV"
 
 #. (para)
 msgid "The Apache based Subversion server uses the WebDAV protocol which is supported by many other programs as well. You could e.g. mount such a repository as a <quote>Web folder</quote> in the Windows explorer and then access it like any other folder in the file system."
-msgstr ""
+msgstr "De op Apache gebaseerde Subversion server gebruikt het WebDAV protocol, wat door veel andere programma’s ook ondersteund wordt. Het is bijvoorbeeld mogelijk om een archief te koppelen als een <quote>Web map</quote> in de Windows verkenner en het te gebruiken als een normale map in je bestandssysteem."
 
 #. (term)
 msgid "Browsing The Repository"
@@ -1810,7 +1823,7 @@ msgstr "Het Archief Verkennen"
 
 #. (para)
 msgid "You can point your browser to the URL of your repository and browse the contents of it without having a Subversion client installed. This gives access to your data to a much wider circle of users."
-msgstr ""
+msgstr "Je kunt met je browser naar de URL van je archief gaan en door de inhoud bladeren, zonder dat je daarvoor een Subversion client nodig hebt. Hierdoor kunnen veel meer gebruikers bij je gegevens komen."
 
 #. (term)
 #. (title)
@@ -1819,7 +1832,7 @@ msgstr "Authenticatie"
 
 #. (para)
 msgid "You can use any authentication mechanism Apache supports, including SSPI and LDAP."
-msgstr ""
+msgstr "Je kunt elke authenticatiemethode gebruiken die Apache ondersteund, inclusief SSPI en LDAP."
 
 #. (term)
 msgid "Security"
@@ -1827,7 +1840,7 @@ msgstr "Beveiliging"
 
 #. (para)
 msgid "Since Apache is very stable and secure, you automatically get the same security for your repository. This includes SSL encryption."
-msgstr ""
+msgstr "Aangezien Apache zeer stabiel en veilig is, krijg je vanzelf dezelfde beveiliging voor je archief. Hierbij inbegrepen zit SSL encryptie."
 
 #. (title)
 msgid "Installing Apache"
@@ -1835,15 +1848,15 @@ msgstr "Installatie van Apache"
 
 #. (para)
 msgid "Please note that Windows XP without the service pack 1 will lead to bogus network data and could therefore corrupt your repository!"
-msgstr ""
+msgstr "Merk op dat Windows XP zonder service pack 1 valse netwerk data kan genereren en daarmee het archief kan beschadigen!"
 
 #. (para)
 msgid "Download the latest version of the Apache web server from <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Make sure that you download the version 2.2.x - the version 1.3.xx won't work!"
-msgstr ""
+msgstr "Haal de laatste versie van de Apache web server op via <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Zorg ervoor dat je versie 2.2.x ophaalt – versie 1.3.xx zal niet werken!"
 
 #. (para)
 msgid "The msi installer for Apache can be found by clicking on <literal>other files</literal>, then browse to <filename>binaries/win32</filename>. You may want to choose the msi file <filename>apache-2.2.x-win32-x86-openssl-0.9.x.msi</filename> (the one that includes OpenSSL)."
-msgstr ""
+msgstr "De msi installatie van Apache wordt gevonden door de klikken op <literal>other files</literal>, blader dan naar <filename>binaries/win32</filename>.  Waarschijnlijk is het het beste om te kiezen voor de msi installatie <filename>apache-2.2.x-win32-x86-openssl-0.9.x.msi</filename> (deze bevat OpenSSL)."
 
 #. (para)
 msgid "Once you have the Apache2 installer you can double click on it and it will guide you through the installation process. Make sure that you enter the server-URL correctly (if you don't have a DNS name for your server just enter the IP-address). I recommend to install Apache <emphasis>for All Users, on Port 80, as a Service</emphasis>. Note: if you already have IIS or any other program running which listens on port 80 the installation might fail. If that happens, go to the programs directory, <filename>\\Apache Group\\Apache2\\conf</filename> and locate the file <filename>httpd.conf</filename>. Edit that file so that <literal>Listen 80</literal> is changed to a free port, e.g. <literal>Listen 81</literal>. Then restart the installation - this time it should finish without problems."
@@ -9739,6 +9752,245 @@ msgid "The following example shows how the interface might be used. <placeholder
 msgstr ""
 
 #. (title)
+msgid "IBugtraqProvider interface"
+msgstr ""
+
+#. (primary)
+msgid "plugin"
+msgstr "plugin"
+
+#. (primary)
+msgid "IBugtraqProvider"
+msgstr ""
+
+#. (para)
+msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
+msgstr ""
+
+#. (para)
+msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgstr ""
+
+#. (title)
+msgid "The IBugtraqProvider interface"
+msgstr ""
+
+#. (para)
+msgid "TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT ValidateParameters (\n"
+"  // Parent window for any UI that needs to be\n"
+"  // displayed during validation.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // The parameter string that needs to be validated.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // Is the string valid?\n"
+"  [out, retval] VARIANT_BOOL *valid\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT GetLinkText (\n"
+"  // Parent window for any (error) UI that needs to be displayed.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // The parameter string, just in case you need to talk to your\n"
+"  // web service (e.g.) to find out what the correct text is.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // What text do you want to display?\n"
+"  // Use the current thread locale.\n"
+"  [out, retval] BSTR *linkText\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT GetCommitMessage (\n"
+"  // Parent window for your provider's UI.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parameters for your provider.\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // The text already present in the commit message.\n"
+"  // Your provider should include this text in the new message,\n"
+"  // where appropriate.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // The new text for the commit message.\n"
+"  // This replaces the original message.\n"
+"  [out, retval] BSTR *newMessage\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
+msgstr ""
+
+#. (title)
+msgid "The IBugtraqProvider2 interface"
+msgstr ""
+
+#. (para)
+msgid "In TortoiseSVN 1.6 a new interface was added which provides more functionality for plugins. This IBugtraqProvider2 interface inherits from IBugtraqProvider."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT GetCommitMessage2 (\n"
+"  // Parent window for your provider's UI.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parameters for your provider.\n"
+"  [in] BSTR parameters,\n"
+"  // The common URL of the commit\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // The text already present in the commit message.\n"
+"  // Your provider should include this text in the new message,\n"
+"  // where appropriate.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // You can assign custom revision properties to a commit\n"
+"  // by setting the next two params.\n"
+"  // note: Both safearrays must be of the same length.\n"
+"  //       For every property name there must be a property value!\n"
+"\n"
+"  // The content of the bugID field (if shown)\n"
+"  [in] BSTR bugID,\n"
+"\n"
+"  // Modified content of the bugID field\n"
+"  [out] BSTR * bugIDOut,\n"
+"\n"
+"  // The list of revision property names.\n"
+"  [out] SAFEARRAY(BSTR) * revPropNames,\n"
+"\n"
+"  // The list of revision property values.\n"
+"  [out] SAFEARRAY(BSTR) * revPropValues,\n"
+"\n"
+"  // The new text for the commit message.\n"
+"  // This replaces the original message\n"
+"  [out, retval] BSTR * newMessage\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there. The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path. The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>). The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns. The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT CheckCommit (\n"
+"  [in] HWND hParentWnd,\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"  [in] BSTR commitMessage,\n"
+"  [out, retval] BSTR * errorMessage\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT  OnCommitFinished (\n"
+"  // Parent window for any (error) UI that needs to be displayed.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // The common root of all paths that got committed.\n"
+"  [in] BSTR commonRoot,\n"
+"\n"
+"  // All the paths that got committed.\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"\n"
+"  // The text already present in the commit message.\n"
+"  [in] BSTR logMessage,\n"
+"\n"
+"  // The revision of the commit.\n"
+"  [in] ULONG revision,\n"
+"\n"
+"\n"
+"  // An error to show to the user if this function\n"
+"  // returns something else than S_OK\n"
+"  [out, retval] BSTR * error\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT HasOptions(\n"
+"  // Whether the provider provides options\n"
+"  [out, retval] VARIANT_BOOL *ret\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT ShowOptionsDialog(\n"
+"  // Parent window for the options dialog\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parameters for your provider.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // The parameters string\n"
+"  [out, retval] BSTR * newparameters\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
+msgstr ""
+
+#. (title)
 msgid "Frequently Asked Questions (FAQ)"
 msgstr ""
 
@@ -11766,245 +12018,6 @@ msgstr ""
 
 #. (para)
 msgid "If you use this last method, be sure you do not have a default username set in PuTTY. We have had reports of a bug in PuTTY causing connections to close in this case. To remove the default user, simply clear <filename>HKEY_CURRENT_USER\\Software\\SimonTatham\\Putty\\Sessions\\Default%20Settings\\HostName</filename>"
-msgstr ""
-
-#. (title)
-msgid "IBugtraqProvider interface"
-msgstr ""
-
-#. (primary)
-msgid "plugin"
-msgstr "plugin"
-
-#. (primary)
-msgid "IBugtraqProvider"
-msgstr ""
-
-#. (para)
-msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
-msgstr ""
-
-#. (para)
-msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr ""
-
-#. (title)
-msgid "The IBugtraqProvider interface"
-msgstr ""
-
-#. (para)
-msgid "TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT ValidateParameters (\n"
-"  // Parent window for any UI that needs to be\n"
-"  // displayed during validation.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // The parameter string that needs to be validated.\n"
-"  [in] BSTR parameters,\n"
-"\n"
-"  // Is the string valid?\n"
-"  [out, retval] VARIANT_BOOL *valid\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT GetLinkText (\n"
-"  // Parent window for any (error) UI that needs to be displayed.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // The parameter string, just in case you need to talk to your\n"
-"  // web service (e.g.) to find out what the correct text is.\n"
-"  [in] BSTR parameters,\n"
-"\n"
-"  // What text do you want to display?\n"
-"  // Use the current thread locale.\n"
-"  [out, retval] BSTR *linkText\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT GetCommitMessage (\n"
-"  // Parent window for your provider's UI.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // Parameters for your provider.\n"
-"  [in] BSTR parameters,\n"
-"  [in] BSTR commonRoot,\n"
-"  [in] SAFEARRAY(BSTR) pathList,\n"
-"\n"
-"  // The text already present in the commit message.\n"
-"  // Your provider should include this text in the new message,\n"
-"  // where appropriate.\n"
-"  [in] BSTR originalMessage,\n"
-"\n"
-"  // The new text for the commit message.\n"
-"  // This replaces the original message.\n"
-"  [out, retval] BSTR *newMessage\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
-msgstr ""
-
-#. (title)
-msgid "The IBugtraqProvider2 interface"
-msgstr ""
-
-#. (para)
-msgid "In TortoiseSVN 1.6 a new interface was added which provides more functionality for plugins. This IBugtraqProvider2 interface inherits from IBugtraqProvider."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT GetCommitMessage2 (\n"
-"  // Parent window for your provider's UI.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // Parameters for your provider.\n"
-"  [in] BSTR parameters,\n"
-"  // The common URL of the commit\n"
-"  [in] BSTR commonURL,\n"
-"  [in] BSTR commonRoot,\n"
-"  [in] SAFEARRAY(BSTR) pathList,\n"
-"\n"
-"  // The text already present in the commit message.\n"
-"  // Your provider should include this text in the new message,\n"
-"  // where appropriate.\n"
-"  [in] BSTR originalMessage,\n"
-"\n"
-"  // You can assign custom revision properties to a commit\n"
-"  // by setting the next two params.\n"
-"  // note: Both safearrays must be of the same length.\n"
-"  //       For every property name there must be a property value!\n"
-"\n"
-"  // The content of the bugID field (if shown)\n"
-"  [in] BSTR bugID,\n"
-"\n"
-"  // Modified content of the bugID field\n"
-"  [out] BSTR * bugIDOut,\n"
-"\n"
-"  // The list of revision property names.\n"
-"  [out] SAFEARRAY(BSTR) * revPropNames,\n"
-"\n"
-"  // The list of revision property values.\n"
-"  [out] SAFEARRAY(BSTR) * revPropValues,\n"
-"\n"
-"  // The new text for the commit message.\n"
-"  // This replaces the original message\n"
-"  [out, retval] BSTR * newMessage\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there. The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path. The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>). The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns. The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT CheckCommit (\n"
-"  [in] HWND hParentWnd,\n"
-"  [in] BSTR parameters,\n"
-"  [in] BSTR commonURL,\n"
-"  [in] BSTR commonRoot,\n"
-"  [in] SAFEARRAY(BSTR) pathList,\n"
-"  [in] BSTR commitMessage,\n"
-"  [out, retval] BSTR * errorMessage\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT  OnCommitFinished (\n"
-"  // Parent window for any (error) UI that needs to be displayed.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // The common root of all paths that got committed.\n"
-"  [in] BSTR commonRoot,\n"
-"\n"
-"  // All the paths that got committed.\n"
-"  [in] SAFEARRAY(BSTR) pathList,\n"
-"\n"
-"\n"
-"  // The text already present in the commit message.\n"
-"  [in] BSTR logMessage,\n"
-"\n"
-"  // The revision of the commit.\n"
-"  [in] ULONG revision,\n"
-"\n"
-"\n"
-"  // An error to show to the user if this function\n"
-"  // returns something else than S_OK\n"
-"  [out, retval] BSTR * error\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT HasOptions(\n"
-"  // Whether the provider provides options\n"
-"  [out, retval] VARIANT_BOOL *ret\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT ShowOptionsDialog(\n"
-"  // Parent window for the options dialog\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // Parameters for your provider.\n"
-"  [in] BSTR parameters,\n"
-"\n"
-"  // The parameters string\n"
-"  [out, retval] BSTR * newparameters\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
 msgstr ""
 
 #. (title)
