@@ -94,7 +94,7 @@ void CDiffColors::GetColors(DiffStates state, COLORREF &crBkgnd, COLORREF &crTex
 	}
 }
 
-void CDiffColors::SetColors(DiffStates state, COLORREF &crBkgnd, COLORREF &crText)
+void CDiffColors::SetColors(DiffStates state, const COLORREF &crBkgnd, const COLORREF &crText)
 {
 	if ((state < DIFFSTATE_END)&&(state >= 0))
 	{

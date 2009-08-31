@@ -76,7 +76,7 @@ public:
 	static CDiffColors&			GetInstance();
 
 	void						GetColors(DiffStates state, COLORREF &crBkgnd, COLORREF &crText);
-	void						SetColors(DiffStates state, COLORREF &crBkgnd, COLORREF &crText);
+	void						SetColors(DiffStates state, const COLORREF &crBkgnd, const COLORREF &crText);
 	void						LoadRegistry();
 
 protected:
