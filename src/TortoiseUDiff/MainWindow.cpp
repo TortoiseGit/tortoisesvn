@@ -19,6 +19,7 @@
 #include "StdAfx.h"
 #include "MainWindow.h"
 #include "UnicodeUtils.h"
+#include "StringUtils.h"
 
 CMainWindow::CMainWindow(HINSTANCE hInst, const WNDCLASSEX* wcx /* = NULL*/) 
 	: CWindow(hInst, wcx)
@@ -200,14 +201,7 @@ LRESULT CMainWindow::DoCommand(int id)
 			TCHAR filter[1024];
 			LoadString(hResource, IDS_PATCHFILEFILTER, filter, sizeof(filter)/sizeof(TCHAR));
 			TCHAR * pszFilters = filter;
-			// Replace '|' delimiters with '\0's
-			TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-			while (ptr != pszFilters)
-			{
-				if (*ptr == '|')
-					*ptr = '\0';
-				ptr--;
-			}
+			CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
 			ofn.lpstrFilter = pszFilters;
 			ofn.nFilterIndex = 1;
 			ofn.lpstrFileTitle = NULL;
@@ -236,14 +230,7 @@ LRESULT CMainWindow::DoCommand(int id)
 			TCHAR filter[1024];
 			LoadString(hResource, IDS_PATCHFILEFILTER, filter, sizeof(filter)/sizeof(TCHAR));
 			TCHAR * pszFilters = filter;
-			// Replace '|' delimiters with '\0's
-			TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-			while (ptr != pszFilters)
-			{
-				if (*ptr == '|')
-					*ptr = '\0';
-				ptr--;
-			}
+			CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
 			ofn.lpstrFilter = pszFilters;
 			ofn.nFilterIndex = 1;
 			ofn.lpstrFileTitle = NULL;

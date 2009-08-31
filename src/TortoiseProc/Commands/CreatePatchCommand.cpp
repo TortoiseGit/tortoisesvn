@@ -97,14 +97,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 		sFilter.LoadString(IDS_PATCHFILEFILTER);
 		auto_buffer<TCHAR> pszFilters(sFilter.GetLength()+4);
 		_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-		// Replace '|' delimiters with '\0's
-		TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-		while (ptr != pszFilters)
-		{
-			if (*ptr == '|')
-				*ptr = '\0';
-			ptr--;
-		}
+		CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
 		ofn.lpstrFilter = pszFilters;
 		ofn.nFilterIndex = 1;
 		// Display the Open dialog box. 

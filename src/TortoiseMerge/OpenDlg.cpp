@@ -21,6 +21,7 @@
 #include "BrowseFolder.h"
 #include ".\opendlg.h"
 #include "auto_buffer.h"
+#include "StringUtils.h"
 
 // COpenDlg dialog
 
@@ -157,14 +158,7 @@ BOOL COpenDlg::BrowseForFile(CString& filepath, CString title, UINT nFileFilter)
 	sFilter.LoadString(nFileFilter);
 	auto_buffer<TCHAR> pszFilters(sFilter.GetLength()+4);
 	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-	// Replace '|' delimiters with '\0's
-	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-	while (ptr != pszFilters)
-	{
-		if (*ptr == '|')
-			*ptr = '\0';
-		ptr--;
-	}
+	CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
 	ofn.lpstrFilter = pszFilters;
 	ofn.nFilterIndex = 1;
 	ofn.lpstrFileTitle = NULL;

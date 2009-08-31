@@ -446,6 +446,17 @@ bool CStringUtils::WriteStringToTextFile(const std::wstring& path, const std::ws
 	return true;
 }
 
+void CStringUtils::PipesToNulls(TCHAR* buffer, size_t length )
+{
+	TCHAR* ptr = buffer + length;
+	while (ptr != buffer)
+	{
+		if (*ptr == '|')
+			*ptr = '\0';
+		ptr--;
+	}
+}
+
 #define IsCharNumeric(C) (!IsCharAlpha(C) && IsCharAlphaNumeric(C))
 
 

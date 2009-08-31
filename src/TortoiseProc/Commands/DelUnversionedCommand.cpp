@@ -20,6 +20,7 @@
 #include "DelUnversionedCommand.h"
 #include "DeleteUnversionedDlg.h"
 #include "auto_buffer.h"
+#include "StringUtils.h"
 
 bool DelUnversionedCommand::Execute()
 {
@@ -42,9 +43,7 @@ bool DelUnversionedCommand::Execute()
 		int len = filelist.GetLength();
 		auto_buffer<TCHAR> buf(len+2);
 		_tcscpy_s(buf, len+2, filelist);
-		for (int i=0; i<len; ++i)
-			if (buf[i] == '|')
-				buf[i] = 0;
+		CStringUtils::PipesToNulls(buf, len);
 		SHFILEOPSTRUCT fileop;
 		fileop.hwnd = hwndExplorer;
 		fileop.wFunc = FO_DELETE;

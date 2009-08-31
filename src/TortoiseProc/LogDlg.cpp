@@ -2234,10 +2234,9 @@ void CLogDlg::ToggleCheckbox(int item)
 {
 	if (!SysInfo::Instance().IsVistaOrLater())
 	{
-		PLOGENTRYDATA pLogEntry = NULL;
 		if (item < m_arShownList.GetCount())
 		{
-			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(item));
+			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(item));
 			if (pLogEntry)
 			{
 				pLogEntry->SetChecked (!pLogEntry->GetChecked());
@@ -2276,12 +2275,13 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			UpdateData(FALSE);
 			if (SysInfo::Instance().IsVistaOrLater())
 			{
-				PLOGENTRYDATA pLogEntry = NULL;
 				if (pNMLV->iItem < m_arShownList.GetCount())
-					pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(pNMLV->iItem));
-				if (pLogEntry)
 				{
-					pLogEntry->SetChecked ((pNMLV->uNewState & LVIS_SELECTED) != 0);
+					PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(pNMLV->iItem));
+					if (pLogEntry)
+					{
+						pLogEntry->SetChecked ((pNMLV->uNewState & LVIS_SELECTED) != 0);
+					}
 				}
 			}
 		}

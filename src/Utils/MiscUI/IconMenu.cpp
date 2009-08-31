@@ -99,18 +99,16 @@ BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uI
 
 	MENUITEMINFO info = {0};
 	info.cbSize = sizeof(info);
-	info.fMask = MIIM_STRING | MIIM_FTYPE | MIIM_ID;
+	info.fMask = MIIM_STRING | MIIM_FTYPE | MIIM_ID | MIIM_BITMAP;
 	info.fType = MFT_STRING;
 	info.wID = (UINT)nIDNewItem;
 	info.dwTypeData = menutextbuffer;
 	if (SysInfo::Instance().IsVistaOrLater())
 	{
-		info.fMask |= MIIM_BITMAP;
 		info.hbmpItem = IconToBitmapPARGB32(uIcon);
 	}
 	else
 	{
-		info.fMask |= MIIM_BITMAP;
 		info.hbmpItem = HBMMENU_CALLBACK;
 	}
 	icons[nIDNewItem] = uIcon;

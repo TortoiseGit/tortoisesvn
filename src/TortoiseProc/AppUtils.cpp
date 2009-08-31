@@ -31,6 +31,7 @@
 #include "BrowseFolder.h"
 #include <intshcut.h>
 #include "auto_buffer.h"
+#include "StringUtils.h"
 
 CAppUtils::CAppUtils(void)
 {
@@ -450,14 +451,7 @@ BOOL CAppUtils::StartTextViewer(CString file)
 		const int filterLength = sFilter.GetLength()+4;
 		auto_buffer<TCHAR> pszFilters(filterLength);
 		_tcscpy_s (pszFilters, filterLength, sFilter);
-		// Replace '|' delimiters with '\0's
-		TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-		while (ptr != pszFilters)
-		{
-			if (*ptr == '|')
-				*ptr = '\0';
-			ptr--;
-		}
+		CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
 		ofn.lpstrFilter = pszFilters;
 		ofn.nFilterIndex = 1;
 		ofn.lpstrFileTitle = NULL;
@@ -871,14 +865,7 @@ bool CAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title, UINT 
 		const int filtersLength = sFilter.GetLength()+4;
 		pszFilters.reset(filtersLength);
 		_tcscpy_s (pszFilters, filtersLength, sFilter);
-		// Replace '|' delimiters with '\0's
-		TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-		while (ptr != pszFilters)
-		{
-			if (*ptr == '|')
-				*ptr = '\0';
-			ptr--;
-		}
+		CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
 		ofn.lpstrFilter = pszFilters;
 	}
 	ofn.nFilterIndex = 1;

@@ -50,6 +50,7 @@
 #include "CreateChangelistDlg.h"
 #include "SysInfo.h"
 #include "ProgressDlg.h"
+#include "StringUtils.h"
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
 					= ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
@@ -3022,9 +3023,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					int len = filelist.GetLength();
 					TCHAR * buf = new TCHAR[len+2];
 					_tcscpy_s(buf, len+2, filelist);
-					for (int i=0; i<len; ++i)
-						if (buf[i] == '|')
-							buf[i] = 0;
+					CStringUtils::PipesToNulls(buf, len);
 					SHFILEOPSTRUCT fileop;
 					fileop.hwnd = this->m_hWnd;
 					fileop.wFunc = FO_DELETE;
