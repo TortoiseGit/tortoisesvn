@@ -44,70 +44,67 @@ CSetColorPage::~CSetColorPage()
 
 void CSetColorPage::SaveData()
 {
-	if (m_bInit)
-	{
-		COLORREF cBk;
-		COLORREF cFg;
+	if (!m_bInit)
+		return;
 
-		cFg = ::GetSysColor(COLOR_WINDOWTEXT);
+	COLORREF cFg = ::GetSysColor(COLOR_WINDOWTEXT);
 
-		cBk = m_cBkNormal.GetColor();
-		if (cBk == -1)
-			cBk = m_cBkNormal.GetAutomaticColor();
-		CDiffColors::GetInstance().SetColors(DIFFSTATE_NORMAL, cBk, cFg);
-		CDiffColors::GetInstance().SetColors(DIFFSTATE_UNKNOWN, cBk, cFg);
+	COLORREF cBk = m_cBkNormal.GetColor();
+	if (cBk == -1)
+		cBk = m_cBkNormal.GetAutomaticColor();
+	CDiffColors::GetInstance().SetColors(DIFFSTATE_NORMAL, cBk, cFg);
+	CDiffColors::GetInstance().SetColors(DIFFSTATE_UNKNOWN, cBk, cFg);
 
-		cBk = m_cBkRemoved.GetColor();
-		if (cBk == -1)
-			cBk = m_cBkRemoved.GetAutomaticColor();
-		CDiffColors::GetInstance().SetColors(DIFFSTATE_REMOVED, cBk, cFg);
-		CDiffColors::GetInstance().SetColors(DIFFSTATE_IDENTICALREMOVED, cBk, cFg);
-		CDiffColors::GetInstance().SetColors(DIFFSTATE_THEIRSREMOVED, cBk, cFg);
-		CDiffColors::GetInstance().SetColors(DIFFSTATE_YOURSREMOVED, cBk, cFg);
+	cBk = m_cBkRemoved.GetColor();
+	if (cBk == -1)
+		cBk = m_cBkRemoved.GetAutomaticColor();
+	CDiffColors::GetInstance().SetColors(DIFFSTATE_REMOVED, cBk, cFg);
+	CDiffColors::GetInstance().SetColors(DIFFSTATE_IDENTICALREMOVED, cBk, cFg);
+	CDiffColors::GetInstance().SetColors(DIFFSTATE_THEIRSREMOVED, cBk, cFg);
+	CDiffColors::GetInstance().SetColors(DIFFSTATE_YOURSREMOVED, cBk, cFg);
 
-		cBk = m_cBkAdded.GetColor();
-		if (cBk == -1)
-			cBk = m_cBkAdded.GetAutomaticColor();
-		CDiffColors::GetInstance().SetColors(DIFFSTATE_ADDED, cBk, cFg);
-		CDiffColors::GetInstance().SetColors(DIFFSTATE_IDENTICALADDED, cBk, cFg);
-		CDiffColors::GetInstance().SetColors(DIFFSTATE_THEIRSADDED, cBk, cFg);
-		CDiffColors::GetInstance().SetColors(DIFFSTATE_YOURSADDED, cBk, cFg);
+	cBk = m_cBkAdded.GetColor();
+	if (cBk == -1)
+		cBk = m_cBkAdded.GetAutomaticColor();
+	CDiffColors::GetInstance().SetColors(DIFFSTATE_ADDED, cBk, cFg);
+	CDiffColors::GetInstance().SetColors(DIFFSTATE_IDENTICALADDED, cBk, cFg);
+	CDiffColors::GetInstance().SetColors(DIFFSTATE_THEIRSADDED, cBk, cFg);
+	CDiffColors::GetInstance().SetColors(DIFFSTATE_YOURSADDED, cBk, cFg);
 
-		if ((DWORD)m_regInlineAdded != (DWORD)m_cBkInlineAdded.GetColor())
-			m_bReloadNeeded = true;
-		m_regInlineAdded = (m_cBkInlineAdded.GetColor() == -1 ? m_cBkInlineAdded.GetAutomaticColor() : m_cBkInlineAdded.GetColor());
-		if ((DWORD)m_regInlineRemoved != (DWORD)m_cBkInlineRemoved.GetColor())
-			m_bReloadNeeded = true;
-		m_regInlineRemoved = (m_cBkInlineRemoved.GetColor() == -1 ? m_cBkInlineRemoved.GetAutomaticColor() : m_cBkInlineRemoved.GetColor());
-		if ((DWORD)m_regModifiedBackground != (DWORD)m_cBkModified.GetColor())
-			m_bReloadNeeded = true;
-		m_regModifiedBackground = (m_cBkModified.GetColor() == -1 ? m_cBkModified.GetAutomaticColor() : m_cBkModified.GetColor());
+	if ((DWORD)m_regInlineAdded != (DWORD)m_cBkInlineAdded.GetColor())
+		m_bReloadNeeded = true;
+	m_regInlineAdded = (m_cBkInlineAdded.GetColor() == -1 ? m_cBkInlineAdded.GetAutomaticColor() : m_cBkInlineAdded.GetColor());
+	if ((DWORD)m_regInlineRemoved != (DWORD)m_cBkInlineRemoved.GetColor())
+		m_bReloadNeeded = true;
+	m_regInlineRemoved = (m_cBkInlineRemoved.GetColor() == -1 ? m_cBkInlineRemoved.GetAutomaticColor() : m_cBkInlineRemoved.GetColor());
+	if ((DWORD)m_regModifiedBackground != (DWORD)m_cBkModified.GetColor())
+		m_bReloadNeeded = true;
+	m_regModifiedBackground = (m_cBkModified.GetColor() == -1 ? m_cBkModified.GetAutomaticColor() : m_cBkModified.GetColor());
 
-		cBk = m_cBkEmpty.GetColor();
-		if (cBk == -1)
-			cBk = m_cBkEmpty.GetAutomaticColor();
-		CDiffColors::GetInstance().SetColors(DIFFSTATE_EMPTY, cBk, cFg);
+	cBk = m_cBkEmpty.GetColor();
+	if (cBk == -1)
+		cBk = m_cBkEmpty.GetAutomaticColor();
+	CDiffColors::GetInstance().SetColors(DIFFSTATE_EMPTY, cBk, cFg);
 
-		COLORREF adjustedcolor;
-		cBk = m_cBkConflict.GetColor();
-		if (cBk == -1)
-			cBk = m_cBkConflict.GetAutomaticColor();
-		CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTED, cBk, cFg);
-		CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTED_IGNORED, cBk, cFg);
-		CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTADDED, cBk, cFg);
-		CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTEMPTY, adjustedcolor, cFg);
-		
-		cBk = m_cBkConflictResolved.GetColor();
-		if (cBk == -1)
-			cBk = m_cBkConflictResolved.GetAutomaticColor();
-		CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTRESOLVED, cBk, cFg);
+	COLORREF adjustedcolor;
+	cBk = m_cBkConflict.GetColor();
+	if (cBk == -1)
+		cBk = m_cBkConflict.GetAutomaticColor();
+	CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTED, cBk, cFg);
+	CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTED_IGNORED, cBk, cFg);
+	CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTADDED, cBk, cFg);
+	CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTEMPTY, adjustedcolor, cFg);
 
-		cFg = m_cFgWhitespaces.GetColor();
-		if (cFg == -1)
-			cFg = m_cFgWhitespaces.GetAutomaticColor();
-		CRegDWORD regWhitespaceColor(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
-		regWhitespaceColor = cFg;
-	}
+	cBk = m_cBkConflictResolved.GetColor();
+	if (cBk == -1)
+		cBk = m_cBkConflictResolved.GetAutomaticColor();
+	CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTRESOLVED, cBk, cFg);
+
+	cFg = m_cFgWhitespaces.GetColor();
+	if (cFg == -1)
+		cFg = m_cFgWhitespaces.GetAutomaticColor();
+	CRegDWORD regWhitespaceColor(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
+	regWhitespaceColor = cFg;
 }
 
 void CSetColorPage::DoDataExchange(CDataExchange* pDX)

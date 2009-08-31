@@ -39,8 +39,9 @@ bool CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 		return false;
 
 	CMenu popup;
-	if (popup.CreatePopupMenu())
-	{
+	if (!popup.CreatePopupMenu())
+		return false;
+
 #define ID_USEBLOCK 1
 #define ID_USEFILE 2
 #define ID_USETHEIRANDYOURBLOCK 3
@@ -48,124 +49,111 @@ bool CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 #define ID_USEBOTHTHISFIRST 5
 #define ID_USEBOTHTHISLAST 6
 
-		UINT uEnabled = MF_ENABLED;
-		if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
-			uEnabled |= MF_DISABLED | MF_GRAYED;
-		CString temp;
+	UINT uEnabled = MF_ENABLED;
+	if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
+		uEnabled |= MF_DISABLED | MF_GRAYED;
+	CString temp;
 
-		bool bImportantBlock = true;
-		switch (state)
-		{
-		case DIFFSTATE_UNKNOWN:
-			bImportantBlock = false;
-			break;
-		}
-
-		if (!m_pwndBottom->IsWindowVisible())
-		{
-			temp.LoadString(IDS_VIEWCONTEXTMENU_USEOTHERBLOCK);
-		}
-		else
-			temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
-		popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEBLOCK, temp);
-
-		if (!m_pwndBottom->IsWindowVisible())
-		{
-			temp.LoadString(IDS_VIEWCONTEXTMENU_USEOTHERFILE);
-		}
-		else
-			temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISFILE);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_USEFILE, temp);
-
-		if (m_pwndBottom->IsWindowVisible())
-		{
-			temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
-			popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEYOURANDTHEIRBLOCK, temp);
-			temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
-			popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USETHEIRANDYOURBLOCK, temp);
-		}
-		else
-		{
-			temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISFIRST);
-			popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEBOTHTHISFIRST, temp);
-			temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISLAST);
-			popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEBOTHTHISLAST, temp);
-		}
-
-		popup.AppendMenu(MF_SEPARATOR, NULL);
-
-		temp.LoadString(IDS_EDIT_COPY);
-		popup.AppendMenu(MF_STRING | (HasTextSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_COPY, temp);
-		if (!m_bCaretHidden)
-		{
-			temp.LoadString(IDS_EDIT_CUT);
-			popup.AppendMenu(MF_STRING | (HasTextSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_CUT, temp);
-			temp.LoadString(IDS_EDIT_PASTE);
-			popup.AppendMenu(MF_STRING | (CAppUtils::HasClipboardFormat(CF_UNICODETEXT)||CAppUtils::HasClipboardFormat(CF_TEXT) ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_PASTE, temp);
-		}
-
-		// if the context menu is invoked through the keyboard, we have to use
-		// a calculated position on where to anchor the menu on
-		if ((point.x == -1) && (point.y == -1))
-		{
-			CRect rect;
-			GetWindowRect(&rect);
-			point = rect.CenterPoint();
-		}
-		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-		viewstate rightstate;
-		viewstate bottomstate;
-		viewstate leftstate;
-		switch (cmd)
-		{
-		case ID_EDIT_COPY:
-			OnEditCopy();
-			return true;
-		case ID_EDIT_CUT:
-			OnEditCopy();
-			RemoveSelectedText();
-			return false;
-		case ID_EDIT_PASTE:
-			PasteText();
-			return false;
-		case ID_USEFILE:
-			{
-				UseFile(false);
-			} 
-			break;
-		case ID_USEBLOCK:
-			{
-				UseBlock(false);
-			} 
+	bool bImportantBlock = true;
+	switch (state)
+	{
+	case DIFFSTATE_UNKNOWN:
+		bImportantBlock = false;
 		break;
-		case ID_USEYOURANDTHEIRBLOCK:
-			{
-				UseYourAndTheirBlock(rightstate, bottomstate, leftstate);
-				CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
-			}
-			break;
-		case ID_USETHEIRANDYOURBLOCK:
-			{
-				UseTheirAndYourBlock(rightstate, bottomstate, leftstate);
-				CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
-			}
-			break;
-		case ID_USEBOTHTHISFIRST:
-			{
-				UseBothRightFirst(rightstate, leftstate);
-				CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
-			}
-			break;
-		case ID_USEBOTHTHISLAST:
-			{
-				UseBothLeftFirst(rightstate, leftstate);
-				CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
-			}
-			break;
-		default:
-			return false;
-		} // switch (cmd) 
-	} // if (popup.CreatePopupMenu()) 
+	}
+
+	if (!m_pwndBottom->IsWindowVisible())
+	{
+		temp.LoadString(IDS_VIEWCONTEXTMENU_USEOTHERBLOCK);
+	}
+	else
+		temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
+	popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEBLOCK, temp);
+
+	if (!m_pwndBottom->IsWindowVisible())
+	{
+		temp.LoadString(IDS_VIEWCONTEXTMENU_USEOTHERFILE);
+	}
+	else
+		temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISFILE);
+	popup.AppendMenu(MF_STRING | MF_ENABLED, ID_USEFILE, temp);
+
+	if (m_pwndBottom->IsWindowVisible())
+	{
+		temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
+		popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEYOURANDTHEIRBLOCK, temp);
+		temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
+		popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USETHEIRANDYOURBLOCK, temp);
+	}
+	else
+	{
+		temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISFIRST);
+		popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEBOTHTHISFIRST, temp);
+		temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISLAST);
+		popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEBOTHTHISLAST, temp);
+	}
+
+	popup.AppendMenu(MF_SEPARATOR, NULL);
+
+	temp.LoadString(IDS_EDIT_COPY);
+	popup.AppendMenu(MF_STRING | (HasTextSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_COPY, temp);
+	if (!m_bCaretHidden)
+	{
+		temp.LoadString(IDS_EDIT_CUT);
+		popup.AppendMenu(MF_STRING | (HasTextSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_CUT, temp);
+		temp.LoadString(IDS_EDIT_PASTE);
+		popup.AppendMenu(MF_STRING | (CAppUtils::HasClipboardFormat(CF_UNICODETEXT)||CAppUtils::HasClipboardFormat(CF_TEXT) ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_PASTE, temp);
+	}
+
+	// if the context menu is invoked through the keyboard, we have to use
+	// a calculated position on where to anchor the menu on
+	if ((point.x == -1) && (point.y == -1))
+	{
+		CRect rect;
+		GetWindowRect(&rect);
+		point = rect.CenterPoint();
+	}
+	int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+	viewstate rightstate;
+	viewstate bottomstate;
+	viewstate leftstate;
+	switch (cmd)
+	{
+	case ID_EDIT_COPY:
+		OnEditCopy();
+		return true;
+	case ID_EDIT_CUT:
+		OnEditCopy();
+		RemoveSelectedText();
+		return false;
+	case ID_EDIT_PASTE:
+		PasteText();
+		return false;
+	case ID_USEFILE:
+		UseFile(false);
+		break;
+	case ID_USEBLOCK:
+		UseBlock(false);
+		break;
+	case ID_USEYOURANDTHEIRBLOCK:
+		UseYourAndTheirBlock(rightstate, bottomstate, leftstate);
+		CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
+		break;
+	case ID_USETHEIRANDYOURBLOCK:
+		UseTheirAndYourBlock(rightstate, bottomstate, leftstate);
+		CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
+		break;
+	case ID_USEBOTHTHISFIRST:
+		UseBothRightFirst(rightstate, leftstate);
+		CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
+		break;
+	case ID_USEBOTHTHISLAST:
+		UseBothLeftFirst(rightstate, leftstate);
+		CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
+		break;
+	default:
+		return false;
+	} // switch (cmd) 
 	return false;
 }
 

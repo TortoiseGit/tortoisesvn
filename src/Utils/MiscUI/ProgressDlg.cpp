@@ -43,18 +43,18 @@ CProgressDlg::~CProgressDlg()
 
 bool CProgressDlg::EnsureValid()
 {
-	if (!m_bValid)
-	{
-		HRESULT hr;
+	if(m_bValid)
+		return true;
 
-		hr = CoCreateInstance (CLSID_ProgressDialog, NULL, CLSCTX_INPROC_SERVER,
-			IID_IProgressDialog, (void**)&m_pIDlg);
+	HRESULT hr = CoCreateInstance (CLSID_ProgressDialog, NULL, CLSCTX_INPROC_SERVER,
+		IID_IProgressDialog, (void**)&m_pIDlg);
 
-		if (SUCCEEDED(hr))
-			m_bValid = true;				//instance successfully created
-	}
+	if (SUCCEEDED(hr))
+		m_bValid = true;				//instance successfully created
+
 	return m_bValid;
 }
+
 void CProgressDlg::SetTitle(LPCTSTR szTitle)
 {
     USES_CONVERSION;
@@ -188,34 +188,32 @@ void CProgressDlg::FormatNonPathLine(DWORD dwLine, UINT idFormatText, ...)
 HRESULT CProgressDlg::ShowModeless(HWND hWndParent, BOOL immediately)
 {
 	EnsureValid();
-	HRESULT hr = E_FAIL;
 	m_hWndProgDlg = NULL;
-	if (m_bValid)
+	if (!m_bValid)
+		return E_FAIL;
+
+	HRESULT hr = m_pIDlg->StartProgressDialog(hWndParent, NULL, m_dwDlgFlags, NULL);
+	if(FAILED(hr))
+		return hr;
+
+	m_isVisible = true;
+
+	if (!immediately)
+		return hr;
+
+	// The progress window can be remarkably slow to display, particularly
+	// if its parent is blocked.
+	// This process finds the hwnd for the progress window and gives it a kick...
+	IOleWindow *pOleWindow;
+	HRESULT hr2 = m_pIDlg->QueryInterface(IID_IOleWindow,(LPVOID *)&pOleWindow);
+	if(SUCCEEDED(hr2))
 	{
-		hr = m_pIDlg->StartProgressDialog(hWndParent, NULL, m_dwDlgFlags, NULL);
-
-		if (SUCCEEDED(hr))
+		hr2 = pOleWindow->GetWindow(&m_hWndProgDlg);
+		if(SUCCEEDED(hr2))
 		{
-			m_isVisible = true;
-
-			if (immediately)
-			{
-				// The progress window can be remarkably slow to display, particularly
-				// if its parent is blocked.
-				// This process finds the hwnd for the progress window and gives it a kick...
-				IOleWindow *pOleWindow;
-				HRESULT hr2 = m_pIDlg->QueryInterface(IID_IOleWindow,(LPVOID *)&pOleWindow);
-				if(SUCCEEDED(hr2))
-				{
-					hr2 = pOleWindow->GetWindow(&m_hWndProgDlg);
-					if(SUCCEEDED(hr2))
-					{
-						ShowWindow(m_hWndProgDlg, SW_NORMAL);
-					}
-					pOleWindow->Release();
-				}
-			}
+			ShowWindow(m_hWndProgDlg, SW_NORMAL);
 		}
+		pOleWindow->Release();
 	}
 	return hr;
 }
@@ -228,7 +226,6 @@ void CProgressDlg::SetProgress(DWORD dwProgress, DWORD dwMax)
 	}
 }
 
-
 void CProgressDlg::SetProgress64(ULONGLONG u64Progress, ULONGLONG u64ProgressMax)
 {
 	if (m_bValid)
@@ -237,14 +234,12 @@ void CProgressDlg::SetProgress64(ULONGLONG u64Progress, ULONGLONG u64ProgressMax
 	}
 }
 
-
 bool CProgressDlg::HasUserCancelled()
 {
-	if (m_bValid)
-	{
-		return (0 != m_pIDlg->HasUserCancelled());
-	}
-	return FALSE;
+	if (!m_bValid)
+		return false;
+
+	return (0 != m_pIDlg->HasUserCancelled());
 }
 
 void CProgressDlg::Stop()

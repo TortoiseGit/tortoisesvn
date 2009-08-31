@@ -282,102 +282,92 @@ void CFilePatchesDlg::OnNMRclickFilelist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	DWORD ptW = GetMessagePos();
 	point.x = GET_X_LPARAM(ptW);
 	point.y = GET_Y_LPARAM(ptW);
-	if (popup.CreatePopupMenu())
+	if (!popup.CreatePopupMenu())
+		return;
+
+	UINT nFlags = MF_STRING | (m_cFileList.GetSelectedCount()==1 ? MF_ENABLED : MF_DISABLED | MF_GRAYED);
+	temp.LoadString(IDS_PATCH_PREVIEW);
+	popup.AppendMenu(nFlags, ID_PATCHPREVIEW, temp);
+	popup.SetDefaultItem(ID_PATCHPREVIEW, FALSE);
+
+	temp.LoadString(IDS_PATCH_ALL);
+	popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PATCHALL, temp);
+		
+	nFlags = MF_STRING | (m_cFileList.GetSelectedCount()>0 ? MF_ENABLED : MF_DISABLED | MF_GRAYED);
+	temp.LoadString(IDS_PATCH_SELECTED);
+	popup.AppendMenu(nFlags, ID_PATCHSELECTED, temp);
+
+	// if the context menu is invoked through the keyboard, we have to use
+	// a calculated position on where to anchor the menu on
+	if ((point.x == -1) && (point.y == -1))
 	{
-		UINT nFlags;
-		
-		nFlags = MF_STRING | (m_cFileList.GetSelectedCount()==1 ? MF_ENABLED : MF_DISABLED | MF_GRAYED);
-		temp.LoadString(IDS_PATCH_PREVIEW);
-		popup.AppendMenu(nFlags, ID_PATCHPREVIEW, temp);
-		popup.SetDefaultItem(ID_PATCHPREVIEW, FALSE);
+		CRect rect;
+		GetWindowRect(&rect);
+		point = rect.CenterPoint();
+	}
 
-		temp.LoadString(IDS_PATCH_ALL);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PATCHALL, temp);
-		
-		nFlags = MF_STRING | (m_cFileList.GetSelectedCount()>0 ? MF_ENABLED : MF_DISABLED | MF_GRAYED);
-		temp.LoadString(IDS_PATCH_SELECTED);
-		popup.AppendMenu(nFlags, ID_PATCHSELECTED, temp);
-		
-		// if the context menu is invoked through the keyboard, we have to use
-		// a calculated position on where to anchor the menu on
-		if ((point.x == -1) && (point.y == -1))
+	int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+	switch (cmd)
+	{
+	case ID_PATCHPREVIEW:
+		if (m_pCallBack)
 		{
-			CRect rect;
-			GetWindowRect(&rect);
-			point = rect.CenterPoint();
-		}
-
-		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-		switch (cmd)
-		{
-		case ID_PATCHPREVIEW:
+			int nIndex = m_cFileList.GetSelectionMark();
+			if ( m_arFileStates.GetAt(nIndex)!=FPDLG_FILESTATE_PATCHED)
 			{
-				if (m_pCallBack)
-				{
-					int nIndex = m_cFileList.GetSelectionMark();
-					if ( m_arFileStates.GetAt(nIndex)!=FPDLG_FILESTATE_PATCHED)
-					{
-						m_pCallBack->PatchFile(GetFullPath(nIndex), m_pPatch->GetRevision(nIndex));
-					}
-				}
+				m_pCallBack->PatchFile(GetFullPath(nIndex), m_pPatch->GetRevision(nIndex));
 			}
-			break;
-		case ID_PATCHALL:
-			{
-				if (m_pCallBack)
-				{
-					CProgressDlg progDlg;
-					progDlg.SetTitle(IDR_MAINFRAME);
-					progDlg.SetShowProgressBar(true);
-					progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PATCH_ALL)));
-					progDlg.ShowModeless(m_hWnd);
-
-					for (int i=0; i<m_arFileStates.GetCount() && !progDlg.HasUserCancelled(); i++)
-					{
-						if (m_arFileStates.GetAt(i)!= FPDLG_FILESTATE_PATCHED)
-						{
-							progDlg.SetLine(2, GetFullPath(i), true);
-							m_pCallBack->PatchFile(GetFullPath(i), m_pPatch->GetRevision(i), TRUE);
-						}
-						progDlg.SetProgress64(i, m_arFileStates.GetCount());
-					}
-					progDlg.Stop();
-				}
-			} 
-			break;
-		case ID_PATCHSELECTED:
-			{
-				if (m_pCallBack)
-				{
-					CProgressDlg progDlg;
-					progDlg.SetTitle(IDR_MAINFRAME);
-					progDlg.SetShowProgressBar(true);
-					progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PATCH_SELECTED)));
-					progDlg.ShowModeless(m_hWnd);
-
-					// The list cannot be sorted by user, so the order of the
-					// items in the list is identical to the order in the array
-					// m_arFileStates.
-					int selCount = m_cFileList.GetSelectedCount();
-					int count = 1;
-					POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
-					int index;
-					while (((index = m_cFileList.GetNextSelectedItem(pos)) >= 0) && (!progDlg.HasUserCancelled()))
-					{
-						if (m_arFileStates.GetAt(index)!= FPDLG_FILESTATE_PATCHED)
-						{
-							progDlg.SetLine(2, GetFullPath(index), true);
-							m_pCallBack->PatchFile(GetFullPath(index), m_pPatch->GetRevision(index), TRUE);
-						}
-						progDlg.SetProgress64(count++, selCount);
-					}
-					progDlg.Stop();
-				}
-			} 
-			break;
-		default:
-			break;
 		}
+		break;
+	case ID_PATCHALL:
+		if (m_pCallBack)
+		{
+			CProgressDlg progDlg;
+			progDlg.SetTitle(IDR_MAINFRAME);
+			progDlg.SetShowProgressBar(true);
+			progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PATCH_ALL)));
+			progDlg.ShowModeless(m_hWnd);
+			for (int i=0; i<m_arFileStates.GetCount() && !progDlg.HasUserCancelled(); i++)
+			{
+				if (m_arFileStates.GetAt(i)!= FPDLG_FILESTATE_PATCHED)
+				{
+					progDlg.SetLine(2, GetFullPath(i), true);
+					m_pCallBack->PatchFile(GetFullPath(i), m_pPatch->GetRevision(i), TRUE);
+				}
+				progDlg.SetProgress64(i, m_arFileStates.GetCount());
+			}
+			progDlg.Stop();
+		}
+		break;
+	case ID_PATCHSELECTED:
+		if (m_pCallBack)
+		{
+			CProgressDlg progDlg;
+			progDlg.SetTitle(IDR_MAINFRAME);
+			progDlg.SetShowProgressBar(true);
+			progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PATCH_SELECTED)));
+			progDlg.ShowModeless(m_hWnd);
+			// The list cannot be sorted by user, so the order of the
+			// items in the list is identical to the order in the array
+			// m_arFileStates.
+			int selCount = m_cFileList.GetSelectedCount();
+			int count = 1;
+			POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
+			int index;
+			while (((index = m_cFileList.GetNextSelectedItem(pos)) >= 0) && (!progDlg.HasUserCancelled()))
+			{
+				if (m_arFileStates.GetAt(index)!= FPDLG_FILESTATE_PATCHED)
+				{
+					progDlg.SetLine(2, GetFullPath(index), true);
+					m_pCallBack->PatchFile(GetFullPath(index), m_pPatch->GetRevision(index), TRUE);
+				}
+				progDlg.SetProgress64(count++, selCount);
+			}
+			progDlg.Stop();
+		}
+		break;
+	default:
+		break;
 	}
 }
 
@@ -406,10 +396,10 @@ void CFilePatchesDlg::OnNcLButtonDblClk(UINT nHitTest, CPoint point)
 
 void CFilePatchesDlg::OnMoving(UINT fwSide, LPRECT pRect)
 {
-#define STICKYSIZE 5
 	RECT parentRect;
 	m_pMainFrame->GetWindowRect(&parentRect);
-	if (abs(parentRect.left - pRect->right) < STICKYSIZE)
+	const int stickySize = 5;
+	if (abs(parentRect.left - pRect->right) < stickySize)
 	{
 		int width = pRect->right - pRect->left;
 		pRect->right = parentRect.left;

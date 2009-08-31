@@ -576,7 +576,8 @@ void CMainFrame::OnFileOpen()
 	LoadViews();
 }
 
-void CMainFrame::ClearViewNamesAndPaths() {
+void CMainFrame::ClearViewNamesAndPaths()
+{
 	m_pwndLeftView->m_sWindowName.Empty();
 	m_pwndLeftView->m_sFullFilePath.Empty();
 	m_pwndRightView->m_sWindowName.Empty();
@@ -1137,10 +1138,9 @@ bool CMainFrame::FileSaveAs(bool bCheckResolved /*=true*/)
 	ofn.nFilterIndex = 1;
 
 	// Display the Open dialog box. 
-	CString sFile;
 	if (GetSaveFileName(&ofn)==TRUE)
 	{
-		sFile = CString(ofn.lpstrFile);
+		CString sFile = CString(ofn.lpstrFile);
 		SaveFile(sFile);
 		return true;
 	}
@@ -1275,18 +1275,14 @@ void CMainFrame::OnClose()
 void CMainFrame::OnEditFind()
 {
 	if (m_pFindDialog)
-	{
 		return;
-	}
-	else
-	{
-		// start searching from the start again
-		// if no line is selected, otherwise start from
-		// the selected line
-		m_nSearchIndex = FindSearchStart(0);
-		m_pFindDialog = new CFindDlg();
-		m_pFindDialog->Create(this);
-	}
+
+	// start searching from the start again
+	// if no line is selected, otherwise start from
+	// the selected line
+	m_nSearchIndex = FindSearchStart(0);
+	m_pFindDialog = new CFindDlg();
+	m_pFindDialog->Create(this);
 }
 
 LRESULT CMainFrame::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
@@ -1353,112 +1349,112 @@ void CMainFrame::Search(SearchDirection srchDir)
 {
 	if (m_sFindText.IsEmpty())
 		return;
+	if (!m_pwndLeftView)
+		return;
+	if(!m_pwndLeftView->m_pViewData)
+		return;
 
-	if ((m_pwndLeftView)&&(m_pwndLeftView->m_pViewData))
+	bool bFound = FALSE;
+
+	CString left;
+	CString right;
+	CString bottom;
+	DiffStates leftstate = DIFFSTATE_NORMAL;
+	DiffStates rightstate = DIFFSTATE_NORMAL;
+	DiffStates bottomstate = DIFFSTATE_NORMAL;
+	int i = 0;
+	
+	m_nSearchIndex = FindSearchStart(m_nSearchIndex);
+	m_nSearchIndex++;
+	if (m_nSearchIndex >= m_pwndLeftView->m_pViewData->GetCount())
+		m_nSearchIndex = 0;
+	if (srchDir == SearchPrevious)
 	{
-		bool bFound = FALSE;
-
-		CString left;
-		CString right;
-		CString bottom;
-		DiffStates leftstate = DIFFSTATE_NORMAL;
-		DiffStates rightstate = DIFFSTATE_NORMAL;
-		DiffStates bottomstate = DIFFSTATE_NORMAL;
-		int i = 0;
-		
-		m_nSearchIndex = FindSearchStart(m_nSearchIndex);
-		m_nSearchIndex++;
-		if (m_nSearchIndex >= m_pwndLeftView->m_pViewData->GetCount())
-			m_nSearchIndex = 0;
-		if (srchDir == SearchPrevious)
-		{
-			// SearchIndex points 1 past where we found the last match, 
-			// so if we are searching backwards we need to adjust accordingly
-			m_nSearchIndex -= 2;
-			// if at the top, start again from the end
-			if (m_nSearchIndex < 0)
-				m_nSearchIndex += m_pwndLeftView->m_pViewData->GetCount();
-		}
-		const int idxLimits[2][2][2]={{{m_nSearchIndex, m_pwndLeftView->m_pViewData->GetCount()},
+		// SearchIndex points 1 past where we found the last match, 
+		// so if we are searching backwards we need to adjust accordingly
+		m_nSearchIndex -= 2;
+		// if at the top, start again from the end
+		if (m_nSearchIndex < 0)
+			m_nSearchIndex += m_pwndLeftView->m_pViewData->GetCount();
+	}
+	const int idxLimits[2][2][2]={{{m_nSearchIndex, m_pwndLeftView->m_pViewData->GetCount()},
 									   {0, m_nSearchIndex}},
-									  {{m_nSearchIndex, -1},
+								  {{m_nSearchIndex, -1},
 									   {m_pwndLeftView->m_pViewData->GetCount()-1, m_nSearchIndex}}};
-		const int offsets[2]={+1, -1};
-		
-		for (int j=0; j != 2 && !bFound; ++j)
+	const int offsets[2]={+1, -1};
+	
+	for (int j=0; j != 2 && !bFound; ++j)
+	{
+		for (i=idxLimits[srchDir][j][0]; i != idxLimits[srchDir][j][1]; i += offsets[srchDir])
 		{
-			for (i=idxLimits[srchDir][j][0]; i != idxLimits[srchDir][j][1]; i += offsets[srchDir])
+			left = m_pwndLeftView->m_pViewData->GetLine(i);
+			leftstate = m_pwndLeftView->m_pViewData->GetState(i);
+			if ((!m_bOneWay)&&(m_pwndRightView->m_pViewData))
 			{
-				left = m_pwndLeftView->m_pViewData->GetLine(i);
-				leftstate = m_pwndLeftView->m_pViewData->GetState(i);
-				if ((!m_bOneWay)&&(m_pwndRightView->m_pViewData))
-				{
-					right = m_pwndRightView->m_pViewData->GetLine(i);
-					rightstate = m_pwndRightView->m_pViewData->GetState(i);
-				}
-				if ((m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
-				{
-					bottom = m_pwndBottomView->m_pViewData->GetLine(i);
-					bottomstate = m_pwndBottomView->m_pViewData->GetState(i);
-				}
-
-				if (!m_bMatchCase)
-				{
-					left = left.MakeLower();
-					right = right.MakeLower();
-					bottom = bottom.MakeLower();
-					m_sFindText = m_sFindText.MakeLower();
-				}
-				if (StringFound(left))
-				{
-					if ((!m_bLimitToDiff)||(leftstate != DIFFSTATE_NORMAL))
-					{
-						bFound = TRUE;
-						break;
-					}
-				} 
-				else if (StringFound(right))
-				{
-					if ((!m_bLimitToDiff)||(rightstate != DIFFSTATE_NORMAL))
-					{
-						bFound = TRUE;
-						break;
-					}
-				} 
-				else if (StringFound(bottom))
-				{
-					if ((!m_bLimitToDiff)||(bottomstate != DIFFSTATE_NORMAL))
-					{
-						bFound = TRUE;
-						break;
-					}
-				} 
+				right = m_pwndRightView->m_pViewData->GetLine(i);
+				rightstate = m_pwndRightView->m_pViewData->GetState(i);
 			}
-		}
-		if (bFound)
-		{
-			m_nSearchIndex = i;
-			m_pwndLeftView->GoToLine(m_nSearchIndex);
+			if ((m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
+			{
+				bottom = m_pwndBottomView->m_pViewData->GetLine(i);
+				bottomstate = m_pwndBottomView->m_pViewData->GetState(i);
+			}
+
+			if (!m_bMatchCase)
+			{
+				left = left.MakeLower();
+				right = right.MakeLower();
+				bottom = bottom.MakeLower();
+				m_sFindText = m_sFindText.MakeLower();
+			}
 			if (StringFound(left))
 			{
-				m_pwndLeftView->SetFocus();
-				m_pwndLeftView->HiglightLines(m_nSearchIndex);
-			}
+				if ((!m_bLimitToDiff)||(leftstate != DIFFSTATE_NORMAL))
+				{
+					bFound = TRUE;
+					break;
+				}
+			} 
 			else if (StringFound(right))
 			{
-				m_pwndRightView->SetFocus();
-				m_pwndRightView->HiglightLines(m_nSearchIndex);
-			}
+				if ((!m_bLimitToDiff)||(rightstate != DIFFSTATE_NORMAL))
+				{
+					bFound = TRUE;
+					break;
+				}
+			} 
 			else if (StringFound(bottom))
 			{
-				m_pwndBottomView->SetFocus();
-				m_pwndBottomView->HiglightLines(m_nSearchIndex);
-			}
+				if ((!m_bLimitToDiff)||(bottomstate != DIFFSTATE_NORMAL))
+				{
+					bFound = TRUE;
+					break;
+				}
+			} 
 		}
-		else
-		{
-			m_nSearchIndex = 0;
-		}
+	}
+	if (!bFound)
+	{
+		m_nSearchIndex = 0;
+		return;
+	}
+
+	m_nSearchIndex = i;
+	m_pwndLeftView->GoToLine(m_nSearchIndex);
+	if (StringFound(left))
+	{
+		m_pwndLeftView->SetFocus();
+		m_pwndLeftView->HiglightLines(m_nSearchIndex);
+	}
+	else if (StringFound(right))
+	{
+		m_pwndRightView->SetFocus();
+		m_pwndRightView->HiglightLines(m_nSearchIndex);
+	}
+	else if (StringFound(bottom))
+	{
+		m_pwndBottomView->SetFocus();
+		m_pwndBottomView->HiglightLines(m_nSearchIndex);
 	}
 }
 
@@ -1617,7 +1613,7 @@ void CMainFrame::OnEditUseblockfromleftbeforeright()
 
 void CMainFrame::OnUpdateEditUseblockfromleftbeforeright(CCmdUI *pCmdUI)
 {
-	pCmdUI->Enable(m_pwndRightView && m_pwndRightView->IsWindowVisible() && m_pwndRightView->HasCaret() && m_pwndRightView->HasSelection());
+	OnUpdateEditUseleftblock(pCmdUI);
 }
 
 void CMainFrame::OnEditUseblockfromrightbeforeleft()
@@ -1628,7 +1624,7 @@ void CMainFrame::OnEditUseblockfromrightbeforeleft()
 
 void CMainFrame::OnUpdateEditUseblockfromrightbeforeleft(CCmdUI *pCmdUI)
 {
-	pCmdUI->Enable(m_pwndRightView && m_pwndRightView->IsWindowVisible() && m_pwndRightView->HasCaret() && m_pwndRightView->HasSelection());
+	OnUpdateEditUseleftblock(pCmdUI);
 }
 
 void CMainFrame::OnFileReload()
@@ -1909,7 +1905,6 @@ void CMainFrame::OnEditUndo()
 	if (CUndo::GetInstance().CanUndo())
 	{
 		CUndo::GetInstance().Undo(m_pwndLeftView, m_pwndRightView, m_pwndBottomView);
-
 	}
 }
 
@@ -1980,40 +1975,39 @@ void CMainFrame::OnUpdateEditCreateunifieddifffile(CCmdUI *pCmdUI)
 
 void CMainFrame::OnEditCreateunifieddifffile()
 {
-	CString origFile, modifiedFile, outputFile;
+	CString origFile, modifiedFile;
 	// the original file is the one on the left
 	if (m_pwndLeftView)
 		origFile = m_pwndLeftView->m_sFullFilePath;
 	if (m_pwndRightView)
 		modifiedFile = m_pwndRightView->m_sFullFilePath;
-	if (!origFile.IsEmpty() && !modifiedFile.IsEmpty())
-	{
-		// ask for the path to save the unified diff file to
-		OPENFILENAME ofn = {0};			// common dialog box structure
-		TCHAR szFile[MAX_PATH] = {0};	// buffer for file name
-		ofn.lStructSize = sizeof(OPENFILENAME);
-		ofn.lpstrFile = szFile;
-		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-		CString temp;
-		temp.LoadString(IDS_SAVEASTITLE);
-		if (!temp.IsEmpty())
-			ofn.lpstrTitle = temp;
-		ofn.Flags = OFN_OVERWRITEPROMPT;
-		CString sFilter;
-		sFilter.LoadString(IDS_COMMONFILEFILTER);
-		auto_buffer<TCHAR> pszFilters(sFilter.GetLength()+4);
-		_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-		CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
-		ofn.lpstrFilter = pszFilters;
-		ofn.nFilterIndex = 1;
+	if (origFile.IsEmpty() || modifiedFile.IsEmpty())
+		return;
 
-		// Display the Save dialog box. 
-		CString sFile;
-		if (GetSaveFileName(&ofn)==TRUE)
-		{
-			outputFile = CString(ofn.lpstrFile);
-			CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outputFile, true);
-		}
+	// ask for the path to save the unified diff file to
+	OPENFILENAME ofn = {0};			// common dialog box structure
+	TCHAR szFile[MAX_PATH] = {0};	// buffer for file name
+	ofn.lStructSize = sizeof(OPENFILENAME);
+	ofn.lpstrFile = szFile;
+	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+	CString temp;
+	temp.LoadString(IDS_SAVEASTITLE);
+	if (!temp.IsEmpty())
+		ofn.lpstrTitle = temp;
+	ofn.Flags = OFN_OVERWRITEPROMPT;
+	CString sFilter;
+	sFilter.LoadString(IDS_COMMONFILEFILTER);
+	auto_buffer<TCHAR> pszFilters(sFilter.GetLength()+4);
+	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
+	CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
+	ofn.lpstrFilter = pszFilters;
+	ofn.nFilterIndex = 1;
+
+	// Display the Save dialog box. 
+	if (GetSaveFileName(&ofn)==TRUE)
+	{
+		CString outputFile = CString(ofn.lpstrFile);
+		CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outputFile, true);
 	}
 }
 
