@@ -51,6 +51,7 @@
 #include "SysInfo.h"
 #include "ProgressDlg.h"
 #include "StringUtils.h"
+#include "auto_buffer.h"
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
 					= ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
@@ -3021,7 +3022,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					}
 					filelist += _T("|");
 					int len = filelist.GetLength();
-					TCHAR * buf = new TCHAR[len+2];
+					auto_buffer<TCHAR> buf(len+2);
 					_tcscpy_s(buf, len+2, filelist);
 					CStringUtils::PipesToNulls(buf, len);
 					SHFILEOPSTRUCT fileop;
@@ -3032,7 +3033,6 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | ((GetAsyncKeyState(VK_SHIFT) & 0x8000) ? 0 : FOF_ALLOWUNDO);
 					fileop.lpszProgressTitle = _T("deleting file");
 					int result = SHFileOperation(&fileop);
-					delete [] buf;
 
 					if ( (result==0) && (!fileop.fAnyOperationsAborted) )
 					{

@@ -23,6 +23,7 @@
 #include "PathUtils.h"
 #include "svn_dirent_uri.h"
 #include <regex>
+#include "auto_buffer.h"
 
 #if defined(_MFC_VER)
 #include "MessageBox.h"
@@ -313,7 +314,7 @@ bool CTSVNPath::Delete(bool bTrash) const
 	{
 		if ((bTrash)||(IsDirectory()))
 		{
-			TCHAR * buf = new TCHAR[m_sBackslashPath.GetLength()+2];
+			auto_buffer<TCHAR> buf(m_sBackslashPath.GetLength()+2);
 			_tcscpy_s(buf, m_sBackslashPath.GetLength()+2, m_sBackslashPath);
 			buf[m_sBackslashPath.GetLength()] = 0;
 			buf[m_sBackslashPath.GetLength()+1] = 0;
@@ -324,7 +325,6 @@ bool CTSVNPath::Delete(bool bTrash) const
 			if (bTrash)
 				shop.fFlags |= FOF_ALLOWUNDO;
 			bRet = (SHFileOperation(&shop) == 0);
-			delete [] buf;
 		}
 		else
 		{

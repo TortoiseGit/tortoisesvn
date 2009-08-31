@@ -22,6 +22,7 @@
 #include "Registry.h"
 #include <string>
 #include <Commdlg.h>
+#include "auto_buffer.h"
 
 using namespace std;
 
@@ -85,13 +86,10 @@ LRESULT CFindBar::DoCommand(int id, int msg)
 void CFindBar::DoFind(bool bFindPrev)
 {
 	int len = ::GetWindowTextLength(GetDlgItem(*this, IDC_FINDTEXT));
-	TCHAR * findtext = new TCHAR[len+1];
+	auto_buffer<TCHAR> findtext(len+1);
 	::GetWindowText(GetDlgItem(*this, IDC_FINDTEXT), findtext, len+1);
 	wstring ft = wstring(findtext);
-	delete [] findtext;
-	bool bCaseSensitive = !!SendMessage(GetDlgItem(*this, IDC_MATCHCASECHECK), BM_GETCHECK, 0, NULL);
-	if (bFindPrev)
-		::SendMessage(m_hParent, COMMITMONITOR_FINDMSGPREV, (WPARAM)bCaseSensitive, (LPARAM)ft.c_str());
-	else
-		::SendMessage(m_hParent, COMMITMONITOR_FINDMSGNEXT, (WPARAM)bCaseSensitive, (LPARAM)ft.c_str());
+	const bool bCaseSensitive = !!SendMessage(GetDlgItem(*this, IDC_MATCHCASECHECK), BM_GETCHECK, 0, NULL);
+	const UINT message = bFindPrev ? COMMITMONITOR_FINDMSGPREV : COMMITMONITOR_FINDMSGNEXT;
+	::SendMessage(m_hParent, message, (WPARAM)bCaseSensitive, (LPARAM)ft.c_str());
 }

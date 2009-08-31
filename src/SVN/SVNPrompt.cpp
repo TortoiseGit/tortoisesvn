@@ -28,7 +28,7 @@
 #include "AppUtils.h"
 #include "StringUtils.h"
 #include "TSVNAuth.h"
-
+#include "auto_buffer.h"
 
 SVNPrompt::SVNPrompt()
 {
@@ -320,7 +320,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 	CString sFilter;
 	sFilter.LoadString(IDS_CERTIFICATESFILEFILTER);
-	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+	auto_buffer<TCHAR> pszFilters(sFilter.GetLength()+4);
 	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
 	CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
 	ofn.lpstrFilter = pszFilters;
@@ -371,7 +371,6 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 	}
 	else
 		*cred = NULL;
-	delete [] pszFilters;
 	if (svn->m_app)
 		svn->m_app->DoWaitCursor(0);
 	return SVN_NO_ERROR;
