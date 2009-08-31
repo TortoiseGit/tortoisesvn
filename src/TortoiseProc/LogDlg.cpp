@@ -1611,7 +1611,7 @@ void CLogDlg::OnOK()
 						sUrl = GetURLFromPath(m_path);
 					}
 					sUrl = sUrl.Mid(m_sRepositoryRoot.GetLength());
-					for (int cp = 0; cp < pLogEntry->GetChangedPaths()->GetCount(); ++cp)
+					for (size_t cp = 0; cp < pLogEntry->GetChangedPaths()->GetCount(); ++cp)
 					{
 						const LogChangedPath& pData = pLogEntry->GetChangedPaths()->GetAt(cp);
 						if (sUrl.Compare(pData.GetPath()) == 0)
@@ -2695,7 +2695,7 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 					bGrayed = true;
 				}
 			}
-			else if (m_currentChangedPathList.GetCount() > pLVCD->nmcd.dwItemSpec)
+			else if ((DWORD_PTR)m_currentChangedPathList.GetCount() > pLVCD->nmcd.dwItemSpec)
 			{
 				if (m_currentChangedPathList[pLVCD->nmcd.dwItemSpec].GetSVNPathString().Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
 				{
@@ -3065,7 +3065,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 			lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 		return;
 	}
-	if ((m_currentChangedArray!=NULL)&&(pItem->iItem >= m_currentChangedArray->GetCount()))
+	if ((m_currentChangedArray!=NULL)&&((size_t)pItem->iItem >= m_currentChangedArray->GetCount()))
 	{
 		if (pItem->mask & LVIF_TEXT)
 			lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);

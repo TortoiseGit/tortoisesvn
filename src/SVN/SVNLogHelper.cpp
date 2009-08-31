@@ -24,7 +24,7 @@ BOOL SVNLogHelper::Log(LONG rev, const CString& author, const CString& /*date*/,
 	messages[rev] = message;
 	authors[rev] = author;
 	m_rev = rev;
-	for (int i=0; i<cpaths->GetCount(); ++i)
+	for (size_t i=0; i<cpaths->GetCount(); ++i)
 	{
 		const LogChangedPath& cpath = cpaths->GetAt(i);
 		if (m_relativeurl.Compare (cpath.GetPath())== 0)
