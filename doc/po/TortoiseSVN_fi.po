@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-08-16 09:33 +0000\n"
-"PO-Revision-Date: 2009-08-17 01:33+0200\n"
+"POT-Creation-Date: 2009-08-19 21:51 +0000\n"
+"PO-Revision-Date: 2009-08-23 20:02+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5957,8 +5957,10 @@ msgid "These special project properties must be set on <emphasis>folders</emphas
 msgstr "Nämä erityiset projektiominaisuudet täytyy asettaa <emphasis>kansioille</emphasis> jotta ne toimisivat. Kun toimitat tiedoston tai kansion arkistoon,  ominaisuudet luetaan ko. kansiosta. Jos ominaisuuksia ei löydy sieltä, TortoiseSVN etsii ylöspäin kansiopuussa, kunnes löytää ne, saapuu versioimattomaan kansioon tai työkopion juureen (esim. <literal>C:\\</literal>). Jos olet varma, että käyttäjät hakevat työkopion vain arkiston juuresta  (esim. <filename>trunk/</filename>) eikä jostain alikansiosta, niin riittää asettaa ominaisuudet kansiolle <filename>trunk/</filename>. Jos et ole varma tästä, ominaisuudet pitäisi asettaa palautuvasti kaikille alikansioille. Syvemmällä projektihierarkiassa olevat ominaisuudet ohittavat korkeammilla tasoilla (lähempänä <filename>trunk/</filename>-kansiota) olevat asetukset. "
 
 #. (para)
-msgid "For project properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr "<emphasis>Projektiominaisuuksien</emphasis> yhteydessä valinta <guilabel>Sovella palautuvasti</guilabel> asettaa ominaisuuden vain alikansioille, ei tiedostoille."
+#. (para)
+#. (para)
+msgid "For project properties <emphasis>only</emphasis>, i.e. <literal>tsvn:</literal>, <literal>bugtraq:</literal> and <literal>webviewer:</literal> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
+msgstr "<emphasis>Projektiominaisuuksien</emphasis> yhteydessä (ts.  i.e. <literal>tsvn:</literal>, <literal>bugtraq:</literal> ja <literal>webviewer:</literal>) valinta <guilabel>Sovella palautuvasti</guilabel> asettaa ominaisuuden kaikille kansiopuun alikansioille (muttei tiedostoille)."
 
 #. (para)
 msgid "When you add new sub-folders using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
@@ -6284,8 +6286,8 @@ msgid "To be able to work with your freshly generated branch or tag you have sev
 msgstr "On useita tapoja ottaa käyttöön juuri luomasi haara tai merkitty versio. Voit: <placeholder-1/><placeholder-2/>"
 
 #. (para)
-msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
-msgstr "Merkittyjä versioita käytetään tavallisesti luomaan muuttumaton otos projektista tietyssä vaiheessa. Niitä ei yleensä sellaisinaan käytetä jatkokehitykseen - haarat ovat sitä varten; tästä syystä suosittelimme <filename>/trunk /branches /tags</filename> -arkistorakennetta alun perin. Merkityn version muuttaminen <emphasis>ei ole hyvä ajatus</emphasis>, mutta koska paikalliset tiedostot eivät ole kirjoitussuojattuja, mikään ei estä sinua tekemästä tätä vahingossa. Jos kuitenkin koetat toimittaa muutoksia arkistoon polulle, joka sisältää osan <filename>/tags/</filename>, TortoiseSVN varoittaa tästä."
+msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they are not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
+msgstr "Merkittyjä versioita käytetään tavallisesti luomaan muuttumaton otos projektista tietyssä vaiheessa. Niitä ei yleensä sellaisinaan käytetä jatkokehitykseen - haarat ovat sitä varten; siksi suosittelimme <filename>/trunk /branches /tags</filename> -arkistorakennetta alun perin. Merkityn version muuttaminen <emphasis>ei ole hyvä ajatus</emphasis>, mutta koska paikalliset tiedostot eivät ole kirjoitussuojattuja, mikään ei estä sinua tekemästä tätä vahingossa. Jos kuitenkin koetat toimittaa muutoksia arkistoon polulle, joka sisältää osan <filename>/tags/</filename>, TortoiseSVN varoittaa tästä."
 
 #. (para)
 msgid "It may be that you need to make further changes to a release which you have already tagged. The correct way to handle this is to create a new branch from the tag first and commit the branch. Do your Changes on this branch and then create a new tag from this new branch, e.g. <filename>Version_1.0.1</filename>."
@@ -7764,17 +7766,13 @@ msgstr "Aseta ominaisuudet kansioille"
 msgid "These properties must be set on folders for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it's enough if you set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
 msgstr "Nämä ominaisuudet on asetettava kansioille, jotta ne toimisivat. Kun toimitat tiedoston tai kansion, ominaisuudet luetaan kansiosta. Jos niitä ei löydy sieltä, TortoiseSVN etsii ylöspäin kansiopuussa kunnes vastaan tulee versioimaton kansio tai työkopion juurikansio (esim. <literal>C:\\</literal>). Jos voit olla varma, että kukin käyttäjä hakee työkopion esim. vain päähaarasta eikä jostain sen alikansiosta, riittää asettaa ominaisuudet päähaarakansiolle (<filename>trunk/</filename>). Jos et voi olla varma tästä, ominaisuudet kannattaa asettaa palautuvasti kaikille alikansioille. Syvemmällä projektihierarkiassa oleva ominaisuus vie voiton ylemmillä tasoilla (lähempänä kansiota <filename>trunk/</filename>) olevista."
 
-#. (para)
-msgid "For <literal>tsvn:</literal> and <literal>webviewer:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr "<emphasis>Ainoastaan</emphasis> etuliitteillä <literal>tsvn:</literal> ja <literal>webviewer:</literal> alkaville ominaisuuksille voi käyttää valintaa <guilabel>Palautuva</guilabel> asettamaan ominaisuuden kaikille alikansioille asettamatta sitä samalla kaikille tiedostoille."
-
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
 msgstr "Vikaseurantatiedot eivät ole käytettävissä arkistoselaimessa"
 
 #. (para)
-msgid "Because the issue tracker integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
-msgstr "Koska kytkentä vikaseurantaohjelmiin vaatii Subversion-ominaisuuksien käyttöä, näet tulokset vain työkopion kautta. Ominaisuuksien haku palvelimelta on hidasta, joten tämä toiminto ei ole käytettävissä arkistoselaimessa."
+msgid "Because the issue tracker integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the URL of the repository you won't see this feature."
+msgstr "Koska kytkentä web-selaimiin vaatii Subversion-ominaisuuksien käyttöä, näet tulokset vain työkopion kautta. Ominaisuuksien haku palvelimelta on hidasta, joten tämä toiminto ei ole käytettävissä arkistoselaimessa, ellet käynnistä arkistoselainta työkopiostasi. Jos siis käynnistät arkistoselaimen antamalla arkiston paikantimen, tämä ominaisuus ei ole käytettävissä."
 
 #. (para)
 msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
@@ -7840,16 +7838,12 @@ msgstr "Aseta tämä ominaisuus arkistoselaimesi paikantimeen nähdäksesi muuto
 msgid "You can also use relative URLs instead of absolute ones. This is useful in case your web viewer is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>webviewer:revision</literal> and <literal>webviewer:pathrevision</literal> property. The format is the same as for the <literal>bugtraq:url</literal> property. See <xref linkend=\"tsvn-dug-bugtracker\"/>."
 msgstr "Voit myös käyttää suhteellisia paikantimia absoluuttisten sijaan. Tästä on hyötyä, mikäli selaimesi on samassa nimialueessa / palvelimella kuin arkistosi. Jos nimialue joskus muuttuu, et joudu muuttamaan <literal>webviewer:revision</literal> ja <literal>webviewer:pathrevision</literal> -ominausuuksia. Muoto on sama kuin ominaisuudella <literal>bugtraq:url</literal>, ks. luku <xref linkend=\"tsvn-dug-bugtracker\"/>."
 
-#. (para)
-msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr "<emphasis>Ainoastaan</emphasis> etuliitteellä <literal>tsvn:</literal> alkaville ominaisuuksille voi käyttää valintaa <guilabel>Palautuva</guilabel> asettamaan ominaisuuden kaikille alikansioille asettamatta sitä samalla kaikille tiedostoille."
-
 #. (title)
 msgid "No Repo Viewer Links from Repository Browser"
 msgstr "Linkit web-selaimiin eivät ole käytettävissä arkistoselaimessa"
 
 #. (para)
-msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the url of the repository you won't see this feature."
+msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the URL of the repository you won't see this feature."
 msgstr "Koska kytkentä web-selaimiin vaatii Subversion-ominaisuuksien käyttöä, näet tulokset vain työkopion kautta. Ominaisuuksien haku palvelimelta on hidasta, joten tämä toiminto ei ole käytettävissä arkistoselaimessa, ellet käynnistä arkistoselainta työkopiostasi. Jos siis käynnistät arkistoselaimen antamalla arkiston paikantimen, tämä ominaisuus ei ole käytettävissä."
 
 #. (title)
@@ -11062,7 +11056,7 @@ msgid "<option>/findtype:7</option> filter by bug ID"
 msgstr "<option>/findtype:7</option> suodata vikatunnuksista"
 
 #. (entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> fills in the filter text, <placeholder-6/> forces the filter to use text, not regex, or <placeholder-7/> forces the filter to use regex, not simple textsearch, and <placeholder-8/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-9/>"
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> fills in the filter text, <placeholder-6/> forces the filter to use text, not regex, or <placeholder-7/> forces the filter to use regex, not simple text search, and <placeholder-8/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-9/>"
 msgstr "Avaa loki-ikkunan. Valitsin <placeholder-1/> määrittää tiedoston tai kansion, jolle loki näytetään. Lisäksi voidaan antaa kuusi eri lisävalitsinta: <placeholder-2/>, <placeholder-3/> ja <placeholder-4/> (pysäytä kopiointiin-valinta), <placeholder-5/> asettaa suodatustekstin, <placeholder-6/> (suodata käyttämällä tekstiä), tai <placeholder-7/> (suodata käyttämällä säännöllistä lauseketta), ja <placeholder-8/> missä X on luku väliltä 1-7. Numeroiden merkitys on seuraava: <placeholder-9/>"
 
 #. (option)
@@ -12934,6 +12928,35 @@ msgstr "Kari Granö <kari.grano@gmail.com>"
 msgid "translator-translation"
 msgstr "Käännös"
 
+#~ msgid ""
+#~ "For <literal>tsvn:</literal> and <literal>webviewer:</literal> properties "
+#~ "<emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> "
+#~ "checkbox to set the property to all sub-folders in the hierarchy, without "
+#~ "also setting it on all files."
+#~ msgstr ""
+#~ "<emphasis>Ainoastaan</emphasis> etuliitteillä <literal>tsvn:</literal> ja "
+#~ "<literal>webviewer:</literal> alkaville ominaisuuksille voi käyttää "
+#~ "valintaa <guilabel>Palautuva</guilabel> asettamaan ominaisuuden kaikille "
+#~ "alikansioille asettamatta sitä samalla kaikille tiedostoille."
+#~ msgid ""
+#~ "Because the issue tracker integration depends upon accessing subversion "
+#~ "properties, you will only see the results when using a checked out "
+#~ "working copy. Fetching properties remotely is a slow operation, so you "
+#~ "will not see this feature in action from the repo browser."
+#~ msgstr ""
+#~ "Koska kytkentä vikaseurantaohjelmiin vaatii Subversion-ominaisuuksien "
+#~ "käyttöä, näet tulokset vain työkopion kautta. Ominaisuuksien haku "
+#~ "palvelimelta on hidasta, joten tämä toiminto ei ole käytettävissä "
+#~ "arkistoselaimessa."
+#~ msgid ""
+#~ "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can "
+#~ "use the <guilabel>Recursive</guilabel> checkbox to set the property to "
+#~ "all sub-folders in the hierarchy, without also setting it on all files."
+#~ msgstr ""
+#~ "<emphasis>Ainoastaan</emphasis> etuliitteellä <literal>tsvn:</literal> "
+#~ "alkaville ominaisuuksille voi käyttää valintaa <guilabel>Palautuva</"
+#~ "guilabel> asettamaan ominaisuuden kaikille alikansioille asettamatta sitä "
+#~ "samalla kaikille tiedostoille."
 #~ msgid ""
 #~ "By default this only works for files. This is because the update revision "
 #~ "for a folder may not correspond to the update revision of its content, "
