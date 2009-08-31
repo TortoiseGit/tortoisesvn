@@ -72,4 +72,6 @@ private:
 	bool				m_bShowFindBar;
 	bool				m_bMatchCase;
 	wstring				m_findtext;
+
+	void loadOrSaveFile( bool doLoad );
 };

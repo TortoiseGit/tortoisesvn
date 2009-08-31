@@ -20,6 +20,7 @@
 #include "MainWindow.h"
 #include "UnicodeUtils.h"
 #include "StringUtils.h"
+#include "auto_buffer.h"
 
 CMainWindow::CMainWindow(HINSTANCE hInst, const WNDCLASSEX* wcx /* = NULL*/) 
 	: CWindow(hInst, wcx)
@@ -190,62 +191,10 @@ LRESULT CMainWindow::DoCommand(int id)
 	switch (id) 
 	{
 	case ID_FILE_OPEN:
-		{
-			OPENFILENAME ofn = {0};				// common dialog box structure
-			TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
-			// Initialize OPENFILENAME
-			ofn.lStructSize = sizeof(OPENFILENAME);
-			ofn.hwndOwner = *this;
-			ofn.lpstrFile = szFile;
-			ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-			TCHAR filter[1024];
-			LoadString(hResource, IDS_PATCHFILEFILTER, filter, sizeof(filter)/sizeof(TCHAR));
-			TCHAR * pszFilters = filter;
-			CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
-			ofn.lpstrFilter = pszFilters;
-			ofn.nFilterIndex = 1;
-			ofn.lpstrFileTitle = NULL;
-			ofn.nMaxFileTitle = 0;
-			ofn.lpstrInitialDir = NULL;
-			TCHAR opentitle[1024];
-			LoadString(hResource, IDS_OPENPATCH, opentitle, sizeof(opentitle)/sizeof(TCHAR));
-			ofn.lpstrTitle = opentitle;
-			ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_ENABLESIZING | OFN_EXPLORER;
-			// Display the Open dialog box. 
-			if (GetOpenFileName(&ofn)==TRUE)
-			{
-				LoadFile(ofn.lpstrFile);
-			}
-		}
+		loadOrSaveFile(true);
 		break;
 	case ID_FILE_SAVEAS:
-		{
-			OPENFILENAME ofn = {0};				// common dialog box structure
-			TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
-			// Initialize OPENFILENAME
-			ofn.lStructSize = sizeof(OPENFILENAME);
-			ofn.hwndOwner = *this;
-			ofn.lpstrFile = szFile;
-			ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-			TCHAR filter[1024];
-			LoadString(hResource, IDS_PATCHFILEFILTER, filter, sizeof(filter)/sizeof(TCHAR));
-			TCHAR * pszFilters = filter;
-			CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
-			ofn.lpstrFilter = pszFilters;
-			ofn.nFilterIndex = 1;
-			ofn.lpstrFileTitle = NULL;
-			ofn.nMaxFileTitle = 0;
-			ofn.lpstrInitialDir = NULL;
-			TCHAR savetitle[1024];
-			LoadString(hResource, IDS_SAVEPATCH, savetitle, sizeof(savetitle)/sizeof(TCHAR));
-			ofn.lpstrTitle = savetitle;
-			ofn.Flags = OFN_OVERWRITEPROMPT | OFN_ENABLESIZING | OFN_EXPLORER;
-			// Display the Open dialog box. 
-			if (GetSaveFileName(&ofn)==TRUE)
-			{
-				SaveFile(ofn.lpstrFile);
-			}
-		}
+		loadOrSaveFile(false);
 		break;
 	case ID_FILE_EXIT:
 		::PostQuitMessage(0);
@@ -282,21 +231,19 @@ LRESULT CMainWindow::DoCommand(int id)
 		SendEditor(SCI_SCROLLCARET);
 		break;
 	case IDM_FINDEXIT:
+		if (IsWindowVisible(m_FindBar))
 		{
-			if (IsWindowVisible(m_FindBar))
-			{
-				RECT rect;
-				GetClientRect(*this, &rect);
-				m_bShowFindBar = false;
-				::ShowWindow(m_FindBar, SW_HIDE);
-				::SetWindowPos(m_hWndEdit, HWND_TOP, 
-					rect.left, rect.top,
-					rect.right-rect.left, rect.bottom-rect.top,
-					SWP_SHOWWINDOW);
-			}
-			else
-				PostQuitMessage(0);
+			RECT rect;
+			GetClientRect(*this, &rect);
+			m_bShowFindBar = false;
+			::ShowWindow(m_FindBar, SW_HIDE);
+			::SetWindowPos(m_hWndEdit, HWND_TOP, 
+				rect.left, rect.top,
+				rect.right-rect.left, rect.bottom-rect.top,
+				SWP_SHOWWINDOW);
 		}
+		else
+			PostQuitMessage(0);
 		break;
 	default:
 		break;
@@ -462,10 +409,9 @@ bool CMainWindow::SaveFile(LPCTSTR filename)
 void CMainWindow::SetTitle(LPCTSTR title)
 {
 	size_t len = _tcslen(title);
-	TCHAR * pBuf = new TCHAR[len+40];
+	auto_buffer<TCHAR> pBuf(len+40);
 	_stprintf_s(pBuf, len+40, _T("%s - TortoiseUDiff"), title);
 	SetWindowTitle(std::wstring(pBuf));
-	delete [] pBuf;
 }
 
 void CMainWindow::SetAStyle(int style, COLORREF fore, COLORREF back, int size, const char *face) 
@@ -548,4 +494,47 @@ bool CMainWindow::IsUTF8(LPVOID pBuffer, size_t cb)
 	if (bUTF8)
 		return true;
 	return false;
+}
+
+void CMainWindow::loadOrSaveFile(bool doLoad)
+{
+	OPENFILENAME ofn = {0};				// common dialog box structure
+	TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
+	// Initialize OPENFILENAME
+	ofn.lStructSize = sizeof(OPENFILENAME);
+	ofn.hwndOwner = *this;
+	ofn.lpstrFile = szFile;
+	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+	TCHAR filter[1024];
+	LoadString(hResource, IDS_PATCHFILEFILTER, filter, sizeof(filter)/sizeof(TCHAR));
+	TCHAR * pszFilters = filter;
+	CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
+	ofn.lpstrFilter = pszFilters;
+	ofn.nFilterIndex = 1;
+	ofn.lpstrFileTitle = NULL;
+	ofn.nMaxFileTitle = 0;
+	ofn.lpstrInitialDir = NULL;
+	TCHAR fileTitle[1024];
+	LoadString(hResource, doLoad ? IDS_OPENPATCH : IDS_SAVEPATCH, fileTitle, sizeof(fileTitle)/sizeof(TCHAR));
+	ofn.lpstrTitle = fileTitle;
+	ofn.Flags = OFN_ENABLESIZING | OFN_EXPLORER;
+	if(doLoad)
+		ofn.Flags |= OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+	else
+		ofn.Flags |= OFN_OVERWRITEPROMPT;
+	// Display the Open dialog box.
+	if( doLoad )
+	{
+		if (GetOpenFileName(&ofn)==TRUE)
+		{
+			LoadFile(ofn.lpstrFile);
+		}
+	}
+	else
+	{
+		if (GetSaveFileName(&ofn)==TRUE)
+		{
+			SaveFile(ofn.lpstrFile);
+		}
+	}
 }
