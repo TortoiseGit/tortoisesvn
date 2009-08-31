@@ -50,7 +50,9 @@ void CSettings::AddPropPages()
 void CSettings::RemovePropPages()
 {
 	delete m_pMainPage;
+	m_pMainPage = NULL;
 	delete m_pColorPage;
+	m_pColorPage = NULL;
 }
 
 void CSettings::SaveData()
