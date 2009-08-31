@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge\n"
 "POT-Creation-Date: 2009-08-18 16:05 +0000\n"
-"PO-Revision-Date: 2009-08-31 17:25+0100\n"
+"PO-Revision-Date: 2009-08-31 17:58+0100\n"
 "Last-Translator: Christian Peper <jcapeper@peper-it.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -366,11 +366,11 @@ msgstr "Nadat TortoiseMerge het patchbestand verwerkt heeft, zal het een klein v
 
 #. (para)
 msgid "But don't worry. If you're working with Subversion you can retrieve an older version of the file and resolve the conflict. In fact, TortoiseMerge automatically tries to get that older version of the file and then shows you the diff between <emphasis>Base</emphasis> (the older version of the file), <emphasis>Mine</emphasis> (the file as it is currently in your working copy) and <emphasis>Theirs</emphasis> (the older version of the file with the patch already applied). Then you can resolve possible conflicts manually."
-msgstr "Geen zorgen. Als je met Subversion werkt, kun je een oudere versie van het bestand ophalen en het conflict oplossen. In feite, TortoiseMerge probeert automatisch de oudere versie van de file op te halen om vervolgens de verschillen te laten zien tussen <emphasis>Base</emphasis> (de oude versie van het bestand), <emphasis>Mine</emphasis> (de huidige versie in de eigen werk kopie)  en <emphasis>Theirs</emphasis> (de oude versie van het bestand, waarin de patch al verwerkt is). Vervolgens is het mogelijk om de mogelijke conflicten handmatig op te lossen. "
+msgstr "Geen zorgen. Als je met Subversion werkt, kun je een oudere versie van het bestand ophalen en het conflict oplossen. In feite probeert TortoiseMerge automatisch de oudere versie van de file op te halen om vervolgens de verschillen te laten zien tussen <emphasis>Base</emphasis> (de oude versie van het bestand), <emphasis>Mine</emphasis> (de huidige versie in de eigen werk kopie)  en <emphasis>Theirs</emphasis> (de oude versie van het bestand, waarin de patch al verwerkt is). Vervolgens is het mogelijk om de mogelijke conflicten handmatig op te lossen. "
 
 #. (para)
 msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
-msgstr "Het patch bestandsscherm beschikt over een context menu, waarmee het effect van de patch op het huidige bestand bekeken kan worden (toepassen zonder opslaan), wijzigingen doorgevoerd en opgeslagen kunnen worden voor het geselecteerde bestand, of wijzigingen door te voeren en op te slaan voor <emphasis>alle</emphasis> bestanden in de lijst. Met dubbel klikken kan de preview bekeken worden."
+msgstr "Het patch bestandsscherm beschikt over een context menu, waarmee het effect van de patch op het huidige bestand getest kan worden (toepassen zonder opslaan), wijzigingen doorgevoerd en opgeslagen kunnen worden voor het geselecteerde bestand, of wijzigingen door te voeren en op te slaan voor <emphasis>alle</emphasis> bestanden in de lijst. Met dubbel klikken kan de preview bekeken worden."
 
 #. (para)
 msgid "Depending on whether TortoiseMerge can apply the patch directly or by fetching an older version of the file first, it shows you a two pane view (patch can be applied directly) or a three pane view (older version of file fetched)."
@@ -386,7 +386,7 @@ msgstr "De Toolbar"
 
 #. (para)
 msgid "<guibutton>Open</guibutton> accesses the file-open dialog. What else?"
-msgstr "<guibutton>Open</guibutton> geeft het bestands dialoog venster weer. Wat had je anders gedacht?"
+msgstr "<guibutton>Open</guibutton> om bestanden mee te openen. Wat anders?"
 
 #. (para)
 msgid "<guibutton>Save</guibutton> saves any changes you have made."
@@ -394,7 +394,7 @@ msgstr "<guibutton>Bewaar</guibutton> schrijft alle veranderingen weg naar disk.
 
 #. (para)
 msgid "<guibutton>Reload</guibutton> discards any changes you have made in TortoiseMerge and reloads the files from disk."
-msgstr "<guibutton>Herladen</guibutton> verwerpt alle in TortoiseMerge ingevoerde wijzigingen and zorgt ervoor dat de bestanden opnieuw geladen worden. "
+msgstr "<guibutton>Herladen</guibutton> verwerpt alle in TortoiseMerge doorgevoerde wijzigingen and laadt de oorspronkelijke bestanden opnieuw in."
 
 #. (para)
 msgid "<guibutton>Undo</guibutton> implements a multi-level undo, allowing you to reverse any changes you have made within TortoiseMerge."
@@ -402,23 +402,23 @@ msgstr "<guibutton>Ongedaan maken</guibutton> verwijderd op meerdere niveaus de 
 
 #. (para)
 msgid "<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point where the files differ. This saves scrolling through all the unchanged parts of the file."
-msgstr "<guibutton>Vorig/Volgend verschil</guibutton> zorgt er voor dat je direct bij het volgende verschil tussen de bestanden terecht komt. Dit bespaart het bladeren langs alle ongewijzigde delen van het bestand."
+msgstr "<guibutton>Vorig/Volgend verschil</guibutton> verspringt direct naar het volgende verschil tussen de bestanden. Heen en weer bladeren om alle verschillen te zien is niet nodig."
 
 #. (para)
 msgid "When you do this in 2-pane diff mode, the detail bar at the bottom of the screen will show you the inline differences for the first line, regardless of where the mouse is hovering."
-msgstr "Als je dit doet in de twee-venster weergave, laat de detail balk onderaan het scherm de verschillen in de eerste regel zien, onafhankelijk van waar de muis zich bevindt."
+msgstr "Als je dit doet in de twee-venster weergave, laat de detailbalk onderaan het scherm de verschillen in de eerste regel zien, onafhankelijk van waar de muis zich bevindt."
 
 #. (para)
 msgid "<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point where the file differences are in conflict and need to be resolved."
-msgstr "<guibutton>Vorig/Volgend Conflict</guibutton> brengt je direct bij het het volgende verschil wat een conflict oplevert waarvoor een oplossing gevonden moet worden."
+msgstr "<guibutton>Vorig/Volgend Conflict</guibutton> verspringt direct naar het volgende conflict dat opgelost moet worden."
 
 #. (para)
 msgid "<guibutton>Use Theirs/Use Mine</guibutton> selects whether to use a block from the left or the right pane. Refer to the next section for more information about editing changes and conflicts."
-msgstr "<guibutton>Gebruik hun tekstgedeeld/Gebruik mijn tekstgedeelte</guibutton> selecteert of een blok van het linker of rechter venster gebruikt moet worden. Lees de volgende paragraaf voor meer informatie over het verwerken van wijzigingen en conflicten."
+msgstr "<guibutton>Hun versie/Mijn versie</guibutton> selecteert of een blok van het linker of het rechter venster gebruikt moet worden. De volgende paragraaf bevat meer informatie over het verwerken van wijzigingen en conflicten."
 
 #. (para)
 msgid "<guibutton>Theirs before Mine/Mine before Theirs</guibutton> is used when you want to combine changes in a conflicted file. Refer to the next section for more information about editing changes and conflicts."
-msgstr "<guibutton>Gebruik hun tekst gedeelte, dan mijn/ Gerbuik mijn tekstegedeelte, dan hun</guibutton> wordt gebruikt als je wijzigingen wilt combineren bij conflicten. Lees de volgende sectie voor meer informatie over het verwerken van wijzigingen en conflicten."
+msgstr "<guibutton>Zij eerst/Ik eerst</guibutton> wordt gebruikt als je wijzigingen wilt combineren bij conflicten. Lees de volgende sectie voor meer informatie over het verwerken van wijzigingen en conflicten."
 
 #. (para)
 msgid "<guibutton>Mark as Resolved</guibutton> When you have resolved all the conflicts in a file and saved the changes, you can mark it as resolved from within TortoiseMerge, rather than going back to explorer and marking as resolved from there."
@@ -426,19 +426,19 @@ msgstr "<guibutton>Markeer als opgelost</guibutton> Hiermee is het mogelijk om v
 
 #. (para)
 msgid "<guibutton>Show Whitespaces</guibutton> toggles the option to display space and tab characters as symbols so you can distinguish white space changes."
-msgstr "<guibutton>Toon witregels</guibutton> schakelt de weergave van speciale characters voor spaties en tabs aan of uit, zodat spatie en tab wijzigingen onderscheiding kunnen worden."
+msgstr "<guibutton>Witruimte tonen</guibutton> schakelt de weergave van speciale characters voor spaties en tabs aan of uit, zodat spatie en tab wijzigingen onderscheiden kunnen worden."
 
 #. (para)
 msgid "<guibutton>Inline Diff Word-wise</guibutton> toggles the method used to display inline diffs. In word-wise mode, when a character is changed, the whole word is highlighted. In char-wise mode, each individual changed character is highlighted."
-msgstr "<guibutton>Woordelijke verschillen in een regel</guibutton> schakelt de weergave van de woordelijke verschillen in een regel aan en uit. Als in woord-modus één karakter is gewijzigd, wordt het hele woord gemarkeerd. In character-modus wordt elk individueel karakter gemarkeerd."
+msgstr "<guibutton>Inline woordelijke verschillen</guibutton> schakelt de weergave van de woordelijke verschillen in een regel aan en uit. Als in woord-modus één karakter is gewijzigd, wordt het hele woord gemarkeerd. In karacter-modus wordt elk individueel karakter gemarkeerd."
 
 #. (para)
 msgid "Word-wise is the default and in most cases it works better. For example if you change a variable name, the whole name is highlighted in word-wise mode, whereas in char-wise mode you tend to get a mess of added and deleted characters which doesn't make much sense. However, some content does not resolve neatly into words, for example a hex file, and in that case, char-wise display works better."
-msgstr "Woord-modus is standaard en werkt in de meeste gevallen het beste. Bijvoorbeeld als je de naam van een variabele veranderd wordt in woord-modus de hele naam gemarkeerd. In karakter-mode wil zo'n wijziging nog weleens leiden to een rommel van toegevoegde en verwijderde karakters. Dit in tegenstelling tot inhoud die niet op woorden is gebaseerd, bijvoorbeeld een hex bestand, waarbij karakter-mode beter werkt."
+msgstr "Woord-modus is standaard en werkt in de meeste gevallen het beste. Bijvoorbeeld, als je de naam van een variabele veranderd wordt in woord-modus de hele naam gemarkeerd. In karakter-mode wil zo'n wijziging nog weleens leiden tot een brei van toegevoegde en verwijderde karakters. Maar met bijvoorbeeld een hex bestand, werkt karakter-mode juist beter."
 
 #. (para)
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
-msgstr "<guibutton>Wissel tussen enkelvoudig en dubbel venster</guibutton> schakelt tussen een enkelvoudig en dubbel venster weergave. Is uitgeschakeld in de weergave met drie-vensters."
+msgstr "<guibutton>Wissel weergave</guibutton> schakelt tussen een- en twee-venster weergave. Is uitgeschakeld in de weergave met drie-vensters."
 
 #. (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
