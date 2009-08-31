@@ -86,7 +86,7 @@ void CSetColorPage::SaveData()
 		cBk = m_cBkEmpty.GetAutomaticColor();
 	CDiffColors::GetInstance().SetColors(DIFFSTATE_EMPTY, cBk, cFg);
 
-	COLORREF adjustedcolor;
+	COLORREF adjustedcolor = cBk;
 	cBk = m_cBkConflict.GetColor();
 	if (cBk == -1)
 		cBk = m_cBkConflict.GetAutomaticColor();
