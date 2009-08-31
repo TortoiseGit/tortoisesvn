@@ -460,7 +460,7 @@ void CStringUtils::PipesToNulls(TCHAR* buffer, size_t length )
 #define IsCharNumeric(C) (!IsCharAlpha(C) && IsCharAlphaNumeric(C))
 
 
-#if defined(_DEBUG)
+#if defined(_DEBUG) && defined(CSTRING_AVAILABLE)
 // Some test cases for these classes
 static class StringUtilsTest
 {
