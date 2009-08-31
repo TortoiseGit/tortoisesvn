@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-08-30 22:36 +0000\n"
-"PO-Revision-Date: 2009-08-31 16:02+0100\n"
-"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
+"PO-Revision-Date: 2009-08-31 18:06+0100\n"
+"Last-Translator: Christian Peper <jcapeper@peper-it.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2147,7 +2147,7 @@ msgstr ""
 
 #. (title)
 msgid "Authentication With a Windows Domain"
-msgstr ""
+msgstr "Authenticatie door een Windows Domein"
 
 #. (primary)
 msgid "Windows domain"
@@ -2155,7 +2155,7 @@ msgstr "Windows domein"
 
 #. (primary)
 msgid "domaincontroller"
-msgstr ""
+msgstr "domeincontroller"
 
 #. (para)
 msgid "As you might have noticed you need to make a username/password entry in the <filename>passwd</filename> file for each user separately. And if (for security reasons) you want your users to periodically change their passwords you have to make the change manually."
@@ -2410,11 +2410,11 @@ msgstr ""
 
 #. (title)
 msgid "Using client certificates with virtual SSL hosts"
-msgstr ""
+msgstr "Werken met virtuele SSL hosts en client certificaten"
 
 #. (para)
 msgid "Sent to the TortoiseSVN mailing list by Nigel Green. Thanks!"
-msgstr ""
+msgstr "Door Nigel Green naar de TortoiseSVN mailinglijst gestuurd. Bedankt!"
 
 #. (para)
 msgid "In some server configurations you may need to setup a single server containing 2 virtual SSL hosts: The first one for public web access, with no requirement for a client certificate. The second one to be secure with a required client certificate, running a Subversion server."
@@ -2497,7 +2497,7 @@ msgstr ""
 
 #. (title)
 msgid "Getting Started"
-msgstr ""
+msgstr "Aan de slag"
 
 #. (title)
 #. (title)
@@ -2516,11 +2516,11 @@ msgstr ""
 
 #. (title)
 msgid "Context Menus"
-msgstr ""
+msgstr "Contekstmenus"
 
 #. (primary)
 msgid "context menu"
-msgstr ""
+msgstr "contekstmenu"
 
 #. (primary)
 msgid "right-click"
@@ -2528,7 +2528,7 @@ msgstr "rechterklik"
 
 #. (title)
 msgid "Context menu for a directory under version control"
-msgstr ""
+msgstr "Contekstmenu van een directory reeds onder versiebeheer"
 
 #. (para)
 msgid "<placeholder-1/> All TortoiseSVN commands are invoked from the context menu of the windows explorer. Most are directly visible, when you <action>right click</action> on a file or folder. The commands that are available depend on whether the file or folder or its parent folder is under version control or not. You can also see the TortoiseSVN menu as part of the Explorer file menu."
@@ -2578,7 +2578,7 @@ msgstr ""
 
 #. (title)
 msgid "Common Shortcuts"
-msgstr ""
+msgstr "Algemene snelkoppelingen"
 
 #. (term)
 msgid "F1"
@@ -2618,7 +2618,7 @@ msgstr ""
 
 #. (primary)
 msgid "authentication"
-msgstr ""
+msgstr "authenticatie"
 
 #. (title)
 msgid "Authentication Dialog"
@@ -2670,7 +2670,7 @@ msgstr ""
 
 #. (title)
 msgid "Importing Data Into A Repository"
-msgstr ""
+msgstr "Data importeren in een repository"
 
 #. (primary)
 msgid "import"
@@ -2806,7 +2806,7 @@ msgstr ""
 
 #. (title)
 msgid "Checking Out A Working Copy"
-msgstr ""
+msgstr "Een lokale werkkopie (WC) uitchecken"
 
 #. (primary)
 msgid "checkout"
@@ -2830,19 +2830,19 @@ msgstr ""
 
 #. (title)
 msgid "Checkout Depth"
-msgstr ""
+msgstr "Uitcheck diepte"
 
 #. (term)
 msgid "Fully recursive"
-msgstr ""
+msgstr "Volledig recursief"
 
 #. (para)
 msgid "Checkout the entire tree, including all child folders and sub-folders."
-msgstr ""
+msgstr "Gehele boom uitchecken, inclusief alle knopen en subfolders"
 
 #. (term)
 msgid "Immediate children, including folders"
-msgstr ""
+msgstr "Directe knopen, inclusief folders"
 
 #. (para)
 msgid "Checkout the specified directory, including all files and child folders, but do not populate the child folders."
@@ -2876,7 +2876,7 @@ msgstr ""
 
 #. (term)
 msgid "Exclude"
-msgstr ""
+msgstr "Exclusief"
 
 #. (para)
 msgid "Used to reduce working copy depth after a folder has already been populated. This option is only available in the <guilabel>Update to revision</guilabel> dialog."
