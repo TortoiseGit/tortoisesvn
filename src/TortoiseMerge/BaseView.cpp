@@ -133,7 +133,7 @@ CBaseView::~CBaseView()
 		m_pCacheBitmap->DeleteObject();
 		delete m_pCacheBitmap;
 	}
-	deleteFonts();
+	DeleteFonts();
 	DestroyIcon(m_hAddedIcon);
 	DestroyIcon(m_hRemovedIcon);
 	DestroyIcon(m_hConflictedIcon);
@@ -210,7 +210,7 @@ void CBaseView::DocumentUpdated()
 	m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorModifiedB"), MODIFIED_COLOR);
 	m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
 	m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 0);
-	deleteFonts();
+	DeleteFonts();
 	m_nSelBlockStart = -1;
 	m_nSelBlockEnd = -1;
 	RecalcVertScrollBar();
@@ -1600,18 +1600,10 @@ void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &
 
 void CBaseView::ScrollAllToLine(int nNewTopLine, BOOL bTrackScrollBar)
 {
-	if ((m_pwndLeft)&&(m_pwndRight))
-	{
+	if (m_pwndLeft)
 		m_pwndLeft->ScrollToLine(nNewTopLine, bTrackScrollBar);
+	if (m_pwndRight)
 		m_pwndRight->ScrollToLine(nNewTopLine, bTrackScrollBar);
-	}
-	else
-	{
-		if (m_pwndLeft)
-			m_pwndLeft->ScrollToLine(nNewTopLine, bTrackScrollBar);
-		if (m_pwndRight)
-			m_pwndRight->ScrollToLine(nNewTopLine, bTrackScrollBar);
-	}
 	if (m_pwndBottom)
 		m_pwndBottom->ScrollToLine(nNewTopLine, bTrackScrollBar);
 	if (m_pwndLocator)
@@ -1664,7 +1656,7 @@ int CBaseView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 void CBaseView::OnDestroy()
 {
 	CView::OnDestroy();
-	deleteFonts();
+	DeleteFonts();
 	if (m_pCacheBitmap != NULL)
 	{
 		delete m_pCacheBitmap;
@@ -2950,12 +2942,7 @@ void CBaseView::OnCaretDown()
 	m_ptCaretPos.y++;
 	m_ptCaretPos.y = min(m_ptCaretPos.y, GetLineCount()-1);
 	m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
-	if (GetKeyState(VK_SHIFT)&0x8000)
-		AdjustSelection();
-	else
-		ClearSelection();
-	UpdateCaret();
-	EnsureCaretVisible();
+	OnCaretMove();
 	ShowDiffLines(m_ptCaretPos.y);
 }
 
@@ -3005,23 +2992,13 @@ void CBaseView::UpdateGoalPos()
 void CBaseView::OnCaretLeft()
 {
 	MoveCaretLeft();
-	if (GetKeyState(VK_SHIFT)&0x8000)
-		AdjustSelection();
-	else
-		ClearSelection();
-	EnsureCaretVisible();
-	UpdateCaret();
+	OnCaretMove();
 }
 
 void CBaseView::OnCaretRight()
 {
 	MoveCaretRight();
-	if (GetKeyState(VK_SHIFT)&0x8000)
-		AdjustSelection();
-	else
-		ClearSelection();
-	EnsureCaretVisible();
-	UpdateCaret();
+	OnCaretMove();
 }
 
 void CBaseView::OnCaretUp()
@@ -3029,12 +3006,7 @@ void CBaseView::OnCaretUp()
 	m_ptCaretPos.y--;
 	m_ptCaretPos.y = max(0, m_ptCaretPos.y);
 	m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
-	if (GetKeyState(VK_SHIFT)&0x8000)
-		AdjustSelection();
-	else
-		ClearSelection();
-	UpdateCaret();
-	EnsureCaretVisible();
+	OnCaretMove();
 	ShowDiffLines(m_ptCaretPos.y);
 }
 
@@ -3062,12 +3034,7 @@ void CBaseView::OnCaretWordleft()
 	while (MoveCaretLeft() && !IsCaretAtWordBoundary())
 	{
 	}
-	if (GetKeyState(VK_SHIFT)&0x8000)
-		AdjustSelection();
-	else
-		ClearSelection();
-	EnsureCaretVisible();
-	UpdateCaret();
+	OnCaretMove();
 }
 
 void CBaseView::OnCaretWordright()
@@ -3075,12 +3042,7 @@ void CBaseView::OnCaretWordright()
 	while (MoveCaretRight() && !IsCaretAtWordBoundary())
 	{
 	}
-	if (GetKeyState(VK_SHIFT)&0x8000)
-		AdjustSelection();
-	else
-		ClearSelection();
-	EnsureCaretVisible();
-	UpdateCaret();
+	OnCaretMove();
 }
 
 void CBaseView::ClearCurrentSelection()
@@ -3141,7 +3103,7 @@ void CBaseView::OnEditPaste()
 	}
 }
 
-void CBaseView::deleteFonts()
+void CBaseView::DeleteFonts()
 {
 	for (int i=0; i<fontsCount; i++)
 	{
@@ -3152,4 +3114,14 @@ void CBaseView::deleteFonts()
 			m_apFonts[i] = NULL;
 		}
 	}
+}
+
+void CBaseView::OnCaretMove()
+{
+	if (GetKeyState(VK_SHIFT)&0x8000)
+		AdjustSelection();
+	else
+		ClearSelection();
+	EnsureCaretVisible();
+	UpdateCaret();
 }

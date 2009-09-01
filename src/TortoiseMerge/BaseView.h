@@ -169,6 +169,7 @@ protected:
 	void			ShowDiffLines(int nLine);
 	
 	int				GetTabSize() const {return m_nTabSize;}
+	void			DeleteFonts();
 
 	int				GetLineActualLength(int index) const;
 	int				GetLineCount() const;
@@ -223,6 +224,7 @@ protected:
 	
 	bool			MoveCaretLeft();
 	bool			MoveCaretRight();
+	void			OnCaretMove();
 	void			UpdateGoalPos();
 
 	bool			IsWordSeparator(wchar_t ch) const;
@@ -300,6 +302,4 @@ protected:
 	static CBaseView * m_pwndLeft;		///< Pointer to the left view. Must be set by the CLeftView parent class.
 	static CBaseView * m_pwndRight;		///< Pointer to the right view. Must be set by the CRightView parent class.
 	static CBaseView * m_pwndBottom;	///< Pointer to the bottom view. Must be set by the CBottomView parent class.
-
-	void deleteFonts();
 };
