@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006, 2009 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,9 +24,6 @@
 
 CWaterEffect::CWaterEffect()
 {
-	m_iBuffer1 = NULL;
-	m_iBuffer2 = NULL;
-
 	m_iWidth = 0;
 	m_iHeight = 0;
 
@@ -37,25 +34,12 @@ CWaterEffect::CWaterEffect()
 
 CWaterEffect::~CWaterEffect()
 {
-	// free memory
-	if (m_iBuffer1 != NULL)
-		delete [] m_iBuffer1;
-	if (m_iBuffer2 != NULL)
-		delete [] m_iBuffer2;
-
-	m_iBuffer1 = NULL;
-	m_iBuffer2 = NULL;
 }
 
 void CWaterEffect::Create(int iWidth, int iHeight)
 {
-	if (m_iBuffer1 != NULL)
-		delete [] m_iBuffer1;
-	if (m_iBuffer2 != NULL)
-		delete [] m_iBuffer2;
-
-	m_iBuffer1 = new int[(iWidth*iHeight)];
-	m_iBuffer2 = new int[(iWidth*iHeight)];
+	m_iBuffer1.reset (iWidth*iHeight);
+	m_iBuffer2.reset (iWidth*iHeight);
 
 	m_iWidth = iWidth;
 	m_iHeight = iHeight;
@@ -77,13 +61,13 @@ void CWaterEffect::Blob(int x, int y, int radius, int height, int page)
 	
 	if (page == 0)
 	{
-		pNew = &m_iBuffer1[0];
-		pOld = &m_iBuffer2[0];
+		pNew = m_iBuffer1;
+		pOld = m_iBuffer2;
 	}
 	else
 	{
-		pNew = &m_iBuffer2[0];
-		pOld = &m_iBuffer1[0];
+		pNew = m_iBuffer2;
+		pOld = m_iBuffer1;
 	}
 	
 	rquad = radius * radius;
@@ -148,13 +132,13 @@ void CWaterEffect::CalcWater(int npage, int density)
 	
 	if (npage == 0)
 	{
-		pNew = &m_iBuffer1[0];
-		pOld = &m_iBuffer2[0];
+		pNew = m_iBuffer1;
+		pOld = m_iBuffer2;
 	}
 	else
 	{
-		pNew = &m_iBuffer2[0];
-		pOld = &m_iBuffer1[0];
+		pNew = m_iBuffer2;
+		pOld = m_iBuffer1;
 	}
 	
 	int x, y;
@@ -194,13 +178,13 @@ void CWaterEffect::SmoothWater(int npage)
 	
 	if (npage == 0)
 	{
-		pNew = &m_iBuffer1[0];
-		pOld = &m_iBuffer2[0];
+		pNew = m_iBuffer1;
+		pOld = m_iBuffer2;
 	}
 	else
 	{
-		pNew = &m_iBuffer2[0];
-		pOld = &m_iBuffer1[0];
+		pNew = m_iBuffer2;
+		pOld = m_iBuffer1;
 	}
 	
 	int x, y;

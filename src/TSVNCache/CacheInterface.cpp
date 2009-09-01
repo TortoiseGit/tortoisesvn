@@ -18,6 +18,7 @@
 //
 #include "stdafx.h"
 #include "CacheInterface.h"
+#include "auto_buffer.h"
 
 CString GetCachePipeName()
 {
@@ -44,11 +45,10 @@ CString GetCacheID()
 		GetTokenInformation(token, TokenStatistics, NULL, 0, &len);
         if (len >= sizeof (TOKEN_STATISTICS))
         {
-		    LPBYTE data = new BYTE[len];
+            auto_buffer<BYTE> data (len);
 		    GetTokenInformation(token, TokenStatistics, data, len, &len);
-		    LUID uid = ((PTOKEN_STATISTICS)data)->AuthenticationId;
+		    LUID uid = ((PTOKEN_STATISTICS)data.get())->AuthenticationId;
 		    t.Format(_T("-%08x%08x"), uid.HighPart, uid.LowPart);
-		    delete [ ] data;
         }
 
         CloseHandle(token);

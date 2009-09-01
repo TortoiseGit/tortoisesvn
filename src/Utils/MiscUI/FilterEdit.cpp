@@ -37,7 +37,6 @@ CFilterEdit::CFilterEdit() : m_hIconCancelNormal(NULL)
 	, m_pValidator(NULL)
 	, m_backColor(GetSysColor(COLOR_WINDOW))
 	, m_brBack(NULL)
-	, m_pCueBanner(NULL)
 {
 	m_rcEditArea.SetRect(0, 0, 0, 0);
 	m_rcButtonArea.SetRect(0, 0, 0, 0);
@@ -56,8 +55,6 @@ CFilterEdit::~CFilterEdit()
 		DestroyIcon(m_hIconInfo);
 	if (m_brBack)
 		DeleteObject(m_brBack);
-	if (m_pCueBanner)
-		delete [] m_pCueBanner;
 }
 
 BEGIN_MESSAGE_MAP(CFilterEdit, CEdit)
@@ -136,10 +133,8 @@ BOOL CFilterEdit::SetCueBanner(LPCWSTR lpcwText)
 {
 	if (lpcwText)
 	{
-		if (m_pCueBanner)
-			delete [] m_pCueBanner;
 		size_t len = _tcslen(lpcwText);
-		m_pCueBanner = new TCHAR[len+1];
+		m_pCueBanner.reset (len+1);
 		_tcscpy_s(m_pCueBanner, len+1, lpcwText);
 		InvalidateRect(NULL, TRUE);
 		return TRUE;
@@ -326,7 +321,7 @@ void CFilterEdit::Validate()
 	if (m_pValidator)
 	{
 		int len = GetWindowTextLength();
-		TCHAR * pBuf = new TCHAR[len+1];
+		auto_buffer<TCHAR> pBuf (len+1);
 		GetWindowText(pBuf, len+1);
 		m_backColor = GetSysColor(COLOR_WINDOW);
 		if (!m_pValidator->Validate(pBuf))
@@ -348,7 +343,6 @@ void CFilterEdit::Validate()
 				DeleteObject(m_brBack);
 			m_brBack = CreateSolidBrush(m_backColor);
 		}
-		delete [] pBuf;
 	}
 }
 

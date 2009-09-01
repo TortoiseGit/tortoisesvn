@@ -18,6 +18,7 @@
 //
 #pragma once
 
+#include "auto_buffer.h"
 
 /**
  * \ingroup Utils
@@ -145,7 +146,7 @@ protected:
 	COLORREF				m_backColor;
 	HBRUSH					m_brBack;
 	IFilterEditValidator *	m_pValidator;
-	TCHAR *					m_pCueBanner;
+	auto_buffer<TCHAR>		m_pCueBanner;
 };
 
 

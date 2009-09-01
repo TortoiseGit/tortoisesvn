@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2008 - TortoiseSVN
+// Copyright (C) 2003-2006,2008-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,6 +17,8 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+
+#include "auto_buffer.h"
 
 #define random( min, max ) (( rand() % (int)((( max ) + 1 ) - ( min ))) + ( min ))
 
@@ -145,8 +147,8 @@ private:
 	int			m_iWidth;
 	int			m_iHeight;
 
-	int*		m_iBuffer1;
-	int*		m_iBuffer2;
+	auto_buffer<int>	m_iBuffer1;
+	auto_buffer<int>	m_iBuffer2;
 
 };
 

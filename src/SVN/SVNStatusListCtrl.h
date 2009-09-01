@@ -1012,7 +1012,7 @@ private:
 	bool						m_bUnversionedRecurse;
 
 	bool						m_bCheckChildrenWithParent;
-	CSVNStatusListCtrlDropTarget * m_pDropTarget;
+    std::auto_ptr<CSVNStatusListCtrlDropTarget> m_pDropTarget;
 
     ColumnManager               m_ColumnManager;
 

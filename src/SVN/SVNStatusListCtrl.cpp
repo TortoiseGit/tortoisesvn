@@ -144,7 +144,6 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_bEmpty(false)
 	, m_bUnversionedRecurse(true)
 	, m_bShowIgnores(false)
-	, m_pDropTarget(NULL)
 	, m_bIgnoreRemoveOnly(false)
 	, m_bCheckChildrenWithParent(false)
 	, m_bUnversionedLast(true)
@@ -169,8 +168,6 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 
 CSVNStatusListCtrl::~CSVNStatusListCtrl()
 {
-	if (m_pDropTarget)
-		delete m_pDropTarget;
 	ClearStatusArray();
 }
 
@@ -265,10 +262,10 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
     m_ColumnManager.ReadSettings (m_dwDefaultColumns, sColumnInfoContainer);
 
 	// enable file drops
-	if (m_pDropTarget == NULL)
+	if (m_pDropTarget.get() == NULL)
 	{
-		m_pDropTarget = new CSVNStatusListCtrlDropTarget(this);
-		RegisterDragDrop(m_hWnd,m_pDropTarget);
+		m_pDropTarget.reset (new CSVNStatusListCtrlDropTarget(this));
+		RegisterDragDrop(m_hWnd,m_pDropTarget.get());
 		// create the supported formats:
 		FORMATETC ftetc={0};
 		ftetc.dwAspect = DVASPECT_CONTENT;

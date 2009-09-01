@@ -22,7 +22,7 @@
 #include "StringUtils.h"
 #include "TempFile.h"
 
-CHooks* CHooks::m_pInstance;
+CHooks* CHooks::m_pInstance = NULL;
 
 CHooks::CHooks()
 {
