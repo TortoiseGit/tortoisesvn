@@ -3661,9 +3661,8 @@ msgid "Local edit, incoming delete upon update"
 msgstr "Modification locale, suppression dans la mise à jour"
 
 #. (para)
-#, fuzzy
 msgid "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository."
-msgstr "Utiliser les répertoires <filename>_svn</filename> au lieu de <filename>.svn</filename>"
+msgstr "Le développeur A renomme <filename>Foo.c</filename> en <filename>Bar.c</filanem> et envoie les modifications au dépôt."
 
 #. (para)
 #. (para)
@@ -3729,9 +3728,8 @@ msgid "Local delete, incoming delete upon update"
 msgstr "Suppression locale, suppression dans la mise à jour"
 
 #. (para)
-#, fuzzy
 msgid "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr "Utiliser les répertoires <filename>_svn</filename> au lieu de <filename>.svn</filename>"
+msgstr "Le développeur A renomme <filename>Foo.c</filename> en <filename>Bar.c</filename> et envoie les modifications au dépôt"
 
 #. (para)
 msgid "Developer B moves <filename>Foo.c</filename> to <filename>Bix.c</filename>"
@@ -3774,9 +3772,8 @@ msgid "Developer A working on trunk modifies <filename>Foo.c</filename> and comm
 msgstr "Le développeur A modifie <filename>Foo.c</filename> et en fait la livraison"
 
 #. (para)
-#, fuzzy
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr "Utiliser les répertoires <filename>_svn</filename> au lieu de <filename>.svn</filename>"
+msgstr "Le développeur B travaillant sur une branche renomme <filename>Foo.c</filename> en <filename>Bar.c</filename> et envoie les modifications au dépôt"
 
 #. (para)
 msgid "<filename>Bar.c</filename> is already in the working copy with status 'normal'."
@@ -3810,12 +3807,12 @@ msgstr "Modification locale, suppression dans la fusion"
 #. (para)
 #, fuzzy
 msgid "Developer A working on trunk moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr "Utiliser les répertoires <filename>_svn</filename> au lieu de <filename>.svn</filename>"
+msgstr "Le développeur A travaillant sur trunk renomme <filename>Foo.c</filename> en <filename>Bar.c</filename> et l'envoie au dépôt"
 
 #. (para)
 #, fuzzy
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> and commits it to the repository."
-msgstr "Le développeur B modifie le fichier <filename>Foo.c</filename> et en fait la livraison."
+msgstr "Le développeur B travaillant sur une branche modifie le fichier <filename>Foo.c</filename> et l'envoie au dépôt."
 
 #. (para)
 msgid "There is an equivalent case for folder moves, but it is not yet detected in Subversion 1.6 ..."
@@ -3824,7 +3821,7 @@ msgstr "Il y a des cas équivalents pour les déplacements de répertoire, mais 
 #. (para)
 #, fuzzy
 msgid "Developer A working on trunk moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
-msgstr "Utiliser les répertoires <filename>_svn</filename> au lieu de <filename>.svn</filename>"
+msgstr "Le développeur A travaillant sur trunk déplace le dossier parent <filename>FooFolder</filename> vers <filename>BarFolder</filename> et l'envoie au dépôt."
 
 #. (para)
 #, fuzzy
@@ -3841,7 +3838,7 @@ msgstr "<filename>Foo.c</filename> est marqué quand ayant été modifié et com
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr ""
+msgstr "Pour fusionner ses modifications locales avec les autre remaniements, le développeur B doit trouver à quel fichier renommé/déplacé correspond la version conflictueuse de <filename>Foo.c</filename> dans le dépôt. Cela peut être fait en utilisant la fenêtre de commentaires du fichier source. L'éditeur de conflit ne montre que les commentaires relatifs à la copie de travail puisqu'il ne sait pas quel chemin a été utilisé lors de la fusion, donc vous devrez le découvrir vous même. Les modifications doivent alors être fusionnées à la main puisqu'il n'existe actuellement aucun moyen d'automatiser ou de simplifier ce processus. Une fois que les changement ont été effectués, le chemin conflictueux est superflu et peut être supprimé. Dans de cas, utilisez le bouton <guilabel>Supprimer</guilabel> dans la fenêtre d'édition de conflits pour marquer le conflit comme étant résolu."
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog for the merge source helps to track down what was moved."
@@ -3852,9 +3849,8 @@ msgid "Local delete, incoming delete upon merge"
 msgstr "Suppression locale, suppression dans la fusion"
 
 #. (para)
-#, fuzzy
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bix.c</filename> and commits it to the repository"
-msgstr "Utiliser les répertoires <filename>_svn</filename> au lieu de <filename>.svn</filename>"
+msgstr "Le développeur B travaillant sur une branche renomme <filename>Foo.c</filename> en <filename>Bix.c</filename> et envoie les modifications au dépôt"
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
@@ -3871,7 +3867,7 @@ msgstr "<filename>Foo.c</filename> est marqué comme manquant et générant une 
 #. (para)
 #, fuzzy
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself."
-msgstr "Pour résoudre ce conflit, le développeur B doit trouver à quel fichier renommé/déplacé correspond la version conflictueuse de <filename>Foo.c</filename> dans le référentiel. Ce peut être fait en utilisant la fenêtre de log."
+msgstr "Pour résoudre ce conflit, le développeur B doit trouver à quel fichier renommé/déplacé correspond la version conflictueuse de <filename>Foo.c</filename> dans le référentiel. Ce peut être fait en utilisant la fenêtre de commentaires. L'éditeur de conflit ne montre que les commentaires relatifs à la copie de travail puisqu'il ne sait pas quel chemin a été utilisé lors de la fusion, donc vous devrez le découvrir vous même."
 
 #. (title)
 msgid "Getting Status Information"
@@ -8134,11 +8130,11 @@ msgstr "<placeholder-1/> Cette page vous permet de spécifier quelles entrées d
 
 #. (para)
 msgid "There is a special case for <guilabel>Get Lock</guilabel>. You can of course promote it to the top level using the list above, but as most files don't need locking this just adds clutter. However, a file with the <literal>svn:needs-lock</literal> property needs this action every time it is edited, so in that case it is very useful to have at the top level. Checking the box here means that when a file is selected which has the <literal>svn:needs-lock</literal> property set, <guilabel>Get Lock</guilabel> will always appear at the top level."
-msgstr ""
+msgstr "Il existe un cas spécial pour <guilabel>Obtenir un verrou</guilabel>. Vous pouvez bien sûr le promouvoir au niveau supérieur en utilisant la liste ci-dessus mais puisque la plupart des fichiers n'ont pas besoin du verrouillage, cela ajoute juste du désordre. Cependant, un fichier avec la propriété <literal>svn:needs-lock</literal> nécessite cette action à chaque fois qu'il est modifié, donc dans ce cas, il est très utile de l'avoir au premier niveau. Ici, cocher la case signifie que lorsqu'un fichier ayant la propriété <literal>svn:needs-lock</literal> est sélectionné, <guilabel>Obtenir un verrou</guilabel> apparaitra toujours au premier niveau."
 
 #. (para)
 msgid "If there are some paths on your computer where you just don't want TortoiseSVN's context menu to appear at all, you can list them in the box at the bottom."
-msgstr ""
+msgstr "S'il y a quelques chemins sur votre ordinateur où vous ne voulez pas qu'apparaisse le menu contextuel de TortoiseSVN, vous pouvez les lister dans la zone en bas."
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 1"
@@ -8183,7 +8179,7 @@ msgstr "Vous pouvez double cliquer sur la liste des messages de log pour compare
 
 #. (para)
 msgid "If you frequently find yourself comparing revisions in the top pane of the log dialog, you can use this option to allow that action on double-click. It is not enabled by default because fetching the diff is often a long process, and many people prefer to avoid the wait after an accidental double-click, which is why this option is not enabled by default."
-msgstr ""
+msgstr "Si vous vous trouvez régulièrement à comparer les révisions dans le panneau supérieur de la fenêtre de commentaires, vous pouvez utiliser cette option pour exécuter cette action suite à un double-click. Elle n'est pas activée par défaut car consulter les différences est souvent un long processus et beaucoup de personnes préfèrent éviter l'attente suite à un double-click accidentel."
 
 #. (term)
 msgid "Progress Dialog"
@@ -8215,7 +8211,7 @@ msgstr "Utiliser la poubelle lors d'un retour en arrière"
 
 #. (para)
 msgid "When you revert local modifications, your changes are discarded. TortoiseSVN gives you an extra safety net by sending the modified file to the recycle bin before bringing back the pristine copy. If you prefer to skip the recycle bin, uncheck this option."
-msgstr ""
+msgstr "Lorsque vous annulez des modifications locales, vos changements sont oubliés. TortoiseSVN vous donne un filet de sécurité supplémentaire en envoyant le fichier modifié à la corbeille avant de rendre la copie primitive. Si vous préférez ne pas passer par la corbeille, décochez cette option."
 
 #. (term)
 msgid "Use URL of WC as the default <quote>From:</quote> URL"
@@ -8231,7 +8227,7 @@ msgstr "Chemin d'extraction par défaut"
 
 #. (para)
 msgid "You can specify the default path for checkouts. If you keep all your checkouts in one place, it is useful to have the drive and folder pre-filled so you only have to add the new folder name to the end."
-msgstr ""
+msgstr "Vous pouvez spécifier le chemin par défaut pour les extractions. Si vous gardez toutes vos extractions à un seul endroit, il est utile d'avoir le disque et le dossier pré-rempli pour que vous n'ayez plus qu'à ajouter le nouveau nom du dossier à la fin."
 
 #. (term)
 msgid "Default checkout URL"
@@ -8239,7 +8235,7 @@ msgstr "URL d'extraction par défaut"
 
 #. (para)
 msgid "You can also specify the default URL for checkouts. If you often checkout sub-projects of some very large project, it can be useful to have the URL pre-filled so you only have to add the sub-project name to the end."
-msgstr ""
+msgstr "Vous pouvez aussi spécifier le chemin par défaut l'URL par défaut des extractions. Si vous extrayez souvent des sous-projets d'un très gros projet, il peut être utile d'avoir l'URL pré-remplie pour que vous n'ayez plus qu'à ajouter le nom du sous-projet à la fin."
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 2"
@@ -8259,7 +8255,7 @@ msgstr "Si cette case est cochée (l'état par défaut), alors à chaque fois qu
 
 #. (para)
 msgid "In the <guilabel>Check for Modifications</guilabel> dialog you can opt to see ignored items. If this box is checked then whenever an ignored folder is found, all child items will be shown as well."
-msgstr ""
+msgstr "Dans la fenêtre <guilabel>Vérifier les modifications</guilabel> vous pouvez choisir de voir les éléments ignorés. Si cette case est cochée alors dès qu'un dossier ignoré est trouvé, tous les éléments enfants seront également affichés."
 
 #. (term)
 msgid "Use auto-completion of file paths and keywords"
@@ -8297,7 +8293,7 @@ msgstr "TortoiseSVN stocke les 25 derniers commentaires que vous avez entrés po
 
 #. (para)
 msgid "Note that this setting applies only to messages that you type in on this computer. It has nothing to do with the log cache."
-msgstr ""
+msgstr "Notez que cette configuration s'appliques uniquement aux messages que vous créez sur cet ordinateur. Cela n'a aucune relation avec le cache des commentaires."
 
 #. (term)
 msgid "Re-open commit and branch/tag dialog after a commit failed"
@@ -8313,7 +8309,7 @@ msgstr "Sélectionner les éléments automatiquement"
 
 #. (para)
 msgid "The normal behaviour in the commit dialog is for all modified (versioned) items to be selected for commit automatically. If you prefer to start with nothing selected and pick the items for commit manually, uncheck this box."
-msgstr ""
+msgstr "Le comportement normal dans la fenêtre de livraison est la sélection automatique de tous les éléments modifiés (et versionnés) en vue d'une livraison. Si vous préférez démarrer sans aucune sélection et choisir les éléments manuellement, décochez cette case."
 
 #. (term)
 msgid "Contact the repository on startup"
@@ -8442,11 +8438,11 @@ msgstr "Filtres de classification"
 
 #. (para)
 msgid "The revision graph attempts to show a clearer picture of your repository structure by distinguishing between trunk, branches and tags. As there is no such classification built into Subversion, this information is extracted from the path names. The default settings assume that you use the conventional English names as suggested in the Subversion documentation, but of course your usage may vary."
-msgstr ""
+msgstr "Le graphe de révision tente de montrer une image plus claire de la structure de votre dépôt en distinguant le trunk, les branches et les tags. Puisqu'il n'existe pas de telle classidication construite dans Subversion, cette information est extraite à partir des chemins. La configuration par défaut suppose que vous utilisez les noms englais conventionnels comme il est suggéré dans la documentation Subversion, mais bien sûr, votre utilisation peut varier."
 
 #. (para)
 msgid "Specify the patterns used to recognise these paths in the three boxes provided. The patterns will be matched case-insensitively, but you must specify them in lower case. Wild cards <literal>*</literal> and <literal>?</literal> will work as usual, and you can use <literal>;</literal> to separate multiple patterns. Do not include any extra white space as it will be included in the matching specification."
-msgstr ""
+msgstr "Spécifiez les patrons utilisées pour reconnaître ces chemins dans les trois champs prévus à cette effet. Les patrons sont insensibles à la casse, mais vous devez les spécifier en minuscule. Les caractères spéciaux <literal>*</literal> et <literal>?</literal> fonctionneront comme d'habitude. Vous pouvez utiliser <literal>;</literal> pour séparer plusieurs patrons. N'incluez pas d'espaces supplémentaires comme ils seraient inclus dans la spécification correspondante."
 
 #. (term)
 msgid "Modify Colors"
@@ -8454,7 +8450,7 @@ msgstr "Modifier les Couleurs"
 
 #. (para)
 msgid "Colors are used in the revision graph to indicate the node type, i.e. whether a node is added, deleted, renamed. In order to help pick out node classifications, you can allow the revision graph to blend colors to give an indication of both node type and classification. If the box is checked, blending is used. If the box is unchecked, color is used to indicate node type only. Use the color selection dialog to allocate the specific colors used."
-msgstr ""
+msgstr "Les couleurs sont utilisées dans le graphe de révision pour indiquer le type de noeud, c'est à dire si le noeud a été ajouté, supprimé ou supprimé. Afin de faciliter la classification des noeuds, vous pouvez permettre au graphe de mélanger les couleurs pour donner une identification à la fois au type et à la classification des noeuds. Si la case est cochée, le mélange sera utilisé. Dans le cas contraire, la couleur est utilisée pour indiquer uniquement le type du noeud. Utilisez cette fenêtre de sélection de couleurs pour allouer les couleurs spécifiques utilisées."
 
 #. (title)
 msgid "Revision Graph Colors"
@@ -8466,7 +8462,7 @@ msgstr "La boîte de dialogue Configuration, page des couleur du graphe de révi
 
 #. (para)
 msgid "<placeholder-1/> This page allows you to configure the colors used. Note that the color specified here is the solid color. Most nodes are colored using a blend of the node type color, the background color and optionally the classification color."
-msgstr ""
+msgstr "<placeholder-1/> Cette page vous permet de configurer les couleurs utilisées. Notez bien que les couleurs spécifiées ici sont des couleurs pleines. La plupart des noeuds sont colorés en utilisant un mélange de la couleur de leur type, de celle du fond d'écran et éventuellement, de la couleur de classification"
 
 #. (term)
 msgid "Deleted Node"
@@ -8506,7 +8502,7 @@ msgstr "Noeud inchangé"
 
 #. (para)
 msgid "May be used to show the revision used as the source of a copy, even when no change (to the item being graphed) took place in that revision."
-msgstr ""
+msgstr "Peut être utilisée pour montrer la révision utilisée en tant que source d'une copie, même lorsqu'aucune modification (de l'élément représenté sur le graphe) n'a eut lieu lors de cette révision."
 
 #. (term)
 msgid "HEAD node"
@@ -8522,7 +8518,7 @@ msgstr "Noeud de la CdT"
 
 #. (para)
 msgid "If you opt to show an extra node for your modified working copy, attached to its last-commit revision on the graph, use this color."
-msgstr ""
+msgstr "Si vous choisissez de montrer, sur le graphe, un noeud supplémentaire pour votre copie de travail modifiée, attachée à la révision de la dernière livraison, utilisez cette couleur."
 
 #. (term)
 msgid "WC Node Border"
@@ -8530,7 +8526,7 @@ msgstr "Bordure du noeud CdT"
 
 #. (para)
 msgid "If you opt to show whether the working copy is modified, use this color border on the WC node when modifications are found."
-msgstr ""
+msgstr "Si vous choisissez d'afficher si la copie de travail est modifiée, utilisez cette bordure de couleur sur le noeud WC lorsque des modifications sont trouvées."
 
 #. (term)
 msgid "Tag Nodes"
@@ -8554,7 +8550,7 @@ msgstr "Marqueurs de Tags Fermés"
 
 #. (para)
 msgid "If you use tag folding to save space, tags are marked on the copy source using a block in this color."
-msgstr ""
+msgstr "Si vous avez l'habitude de replier les étiquettes pour économiser de l'espace, elles sont marquées sur la copie source en utilisant un bloc de cette couleur"
 
 #. (term)
 msgid "Selected Node Markers"
@@ -8562,7 +8558,7 @@ msgstr "Marqueurs du Noeud Sélectionné"
 
 #. (para)
 msgid "When you left click on a node to select it, the marker used to indicate selection is a block in this color."
-msgstr ""
+msgstr "Lorsque vous cliquez sur un noeud pour le sélectionner, le marqueur utilisée pour indiquer la sélection est un bloc de cette couleur."
 
 #. (term)
 msgid "Stripes"
@@ -8570,7 +8566,7 @@ msgstr "Rayures"
 
 #. (para)
 msgid "These colors are used when the graph is split into sub-trees and the background is colored in alternating stripes to help pick out the separate trees."
-msgstr ""
+msgstr "Ces couleurs sont utilisées lorsque le graphe est divisé en sous-arbres et que le fond est coloré en rayures alternées pour aider à choisir les arbres séparés."
 
 #. (title)
 msgid "Icon Overlay Settings"
@@ -8591,12 +8587,12 @@ msgstr "Par défaut, les icônes de recouvrement apparaîtront dans toutes les b
 
 #. (para)
 msgid "Ignored items and Unversioned items are not usually given an overlay. If you want to show an overlay in these cases, just check the boxes."
-msgstr ""
+msgstr "Les éléments ignorés ainsi que les éléments non versionnés ne donnent généralement généralement pas de recouvrement. Si vous désirez afficher un recouvrement dans ces cas-là, cochez les cases."
 
 #. (para)
 #, fuzzy
 msgid "You can also choose to mark folders as modified if they contain unversioned items. This could be useful for reminding you that you have created new files which are not yet versioned. This option is only available when you use the <emphasis>default</emphasis> status cache option (see below)."
-msgstr "Si vous sélectionnez l'option par défaut, vous pouvez aussi choisir de marquer les répertoires comme modifiés s'ils contiennent des éléments non versionnés. Cela peut être utile pour vous rappeler que vous avez créé de nouveaux fichiers qui ne sont pas encore versionnés."
+msgstr "Si vous sélectionnez l'option par défaut, vous pouvez aussi choisir de marquer les répertoires comme modifiés s'ils contiennent des éléments non versionnés. Cela peut être utile pour vous rappeler que vous avez créé de nouveaux fichiers qui ne sont pas encore versionnés. Cette option n'est disponible que lorsque vous utilisez l'option de statut de cache <emphasis>par défaut</emphasis> (voir ci-dessous)"
 
 #. (term)
 msgid "Default"
@@ -8661,7 +8657,7 @@ msgstr "<placeholder-1/> Cette page vous permet de choisir les éléments pour l
 
 #. (para)
 msgid "Network drives can be very slow, so by default icons are not shown for working copies located on network shares."
-msgstr ""
+msgstr "Les disques réseau peuvent être très lents, dont par défaut les icônes ne sont pas affichées pour les copies de travail situées dans des dossiers partagés."
 
 #. (para)
 msgid "USB Flash drives appear to be a special case in that the drive type is identified by the device itself. Some appear as fixed drives, and some as removable drives."
@@ -13089,8 +13085,8 @@ msgstr "traduction"
 #~ "<filename>Foo.c</filename> is marked as deleted. and <filename>Bix.c</"
 #~ "filename> is marked as added."
 #~ msgstr ""
-#~ "Utiliser les répertoires <filename>_svn</filename> au lieu de <filename>."
-#~ "svn</filename>"
+#~ "<filename>Foo.c</filename> est marqué comme supprimé et <filename>Bix.c</"
+#~ "filename> est marqué comme ajouté."
 
 #, fuzzy
 #~ msgid ""
