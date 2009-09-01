@@ -142,7 +142,7 @@ std::wstring MultibyteToWide(const std::string& multibyte)
 		return std::wstring();
 
 	auto_buffer<wchar_t> wide (multibyte.length()*2+2);
-	int ret = wide == NULL
+	int ret = wide.get() == NULL
         ? 0
         : (int)MultiByteToWideChar(CP_ACP, 0, multibyte.c_str(), (int)multibyte.size(), wide, (int)length*2 - 1);
 
@@ -156,7 +156,7 @@ std::wstring UTF8ToWide(const std::string& multibyte)
 		return std::wstring();
 
 	auto_buffer<wchar_t> wide (length*2+2);
-	int ret = wide == NULL
+	int ret = wide.get() == NULL
         ? 0
         : (int)MultiByteToWideChar(CP_UTF8, 0, multibyte.c_str(), (int)multibyte.size(), wide, (int)length*2 - 1);
 
