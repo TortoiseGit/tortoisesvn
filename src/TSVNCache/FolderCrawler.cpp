@@ -142,11 +142,6 @@ void CFolderCrawler::WorkerThread()
 		}
 		CTraceToOutputDebugString::Instance()(_T("FolderCrawler.cpp: waking up crawler\n"));
 
-		if (SysInfo::Instance().IsVistaOrLater())
-		{
-			SetThreadPriority(GetCurrentThread(), THREAD_MODE_BACKGROUND_BEGIN);
-		}
-
 		// If we get here, we've been woken up by something being added to the queue.
 		// However, it's important that we don't do our crawling while
 		// the shell is still asking for items
@@ -357,6 +352,10 @@ void CFolderCrawler::WorkerThread()
 			}
 			else if (!m_foldersToUpdate.empty())
 			{
+				if (SysInfo::Instance().IsVistaOrLater())
+				{
+					SetThreadPriority(GetCurrentThread(), THREAD_MODE_BACKGROUND_BEGIN);
+				}
 				{
 					AutoLocker lock(m_critSec);
 
