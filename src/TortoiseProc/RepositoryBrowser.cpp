@@ -1718,9 +1718,16 @@ int CRepositoryBrowser::ListSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3)
 	int nRet = 0;
 	switch (pThis->m_nSortedColumn)
 	{
+	case 0:	// filename
+		nRet = StrCmpLogicalW(pItem1->path, pItem2->path);
+		if (nRet != 0)
+			break;
+		// fall through
 	case 1: // extension
 		nRet = pThis->m_RepoList.GetItemText(static_cast<int>(lParam1), 1)
                  .CompareNoCase(pThis->m_RepoList.GetItemText(static_cast<int>(lParam2), 1));
+		if (nRet == 0)	// if extensions are the same, use the filename to sort
+			nRet = StrCmpLogicalW(pItem1->path, pItem2->path);
 		if (nRet != 0)
 			break;
 		// fall through
@@ -1746,11 +1753,6 @@ int CRepositoryBrowser::ListSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3)
 		// fall through
 	case 6: // lock owner
 		nRet = pItem1->lockowner.CompareNoCase(pItem2->lockowner);
-		if (nRet != 0)
-			break;
-		// fall through
-	case 0:	// filename
-			nRet = StrCmpLogicalW(pItem1->path, pItem2->path);
 		break;
 	}
 
