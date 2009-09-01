@@ -239,6 +239,9 @@ Don't touch these lines:
 							<entry>
 								Cleans up interrupted or aborted operations and
 								unlocks the working copy in <option>/path</option>.
+								Use <option>/noui</option> to prevent the result
+								dialog from popping up (either telling about
+								the cleanup being finished or showing an error message).
 							</entry>
 						</row>
 						<row>
