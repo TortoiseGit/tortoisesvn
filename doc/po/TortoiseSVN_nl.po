@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-08-30 22:36 +0000\n"
-"PO-Revision-Date: 2009-08-31 18:06+0100\n"
-"Last-Translator: Christian Peper <jcapeper@peper-it.nl>\n"
+"PO-Revision-Date: 2009-09-01 18:14+0100\n"
+"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1860,31 +1860,31 @@ msgstr "De msi installatie van Apache wordt gevonden door de klikken op <literal
 
 #. (para)
 msgid "Once you have the Apache2 installer you can double click on it and it will guide you through the installation process. Make sure that you enter the server-URL correctly (if you don't have a DNS name for your server just enter the IP-address). I recommend to install Apache <emphasis>for All Users, on Port 80, as a Service</emphasis>. Note: if you already have IIS or any other program running which listens on port 80 the installation might fail. If that happens, go to the programs directory, <filename>\\Apache Group\\Apache2\\conf</filename> and locate the file <filename>httpd.conf</filename>. Edit that file so that <literal>Listen 80</literal> is changed to a free port, e.g. <literal>Listen 81</literal>. Then restart the installation - this time it should finish without problems."
-msgstr ""
+msgstr "Als je het Apache2 installatieprogramma op je computer hebt staan, kun je er dubbel op klikken. Het programma zal je dan door het installatieproces leiden. Zorg er voor dat je de server-URL goed ingeeft (als je geen DNS naam voor je server hebt, gebruik dan het IP-adres). Het is aanbevolen om Apache te installeren <emphasis>voor alle gebruikers, op poort 80 en als een Service</emphasis>. Let op: de installatie kan fout gaan als je IIS of een ander programma hebt dat luistert op poort 80. Als dat gebeurt, ga dan naar de programs map, <filename>\\Apache Group\\Apache2\\conf</filename> en zoek het bestand <filename>httpd.conf</filename>. Bewerk dat zo dat <literal>Listen 80</literal> gewijzigd wordt naar een vrije poort, bijvoorbeeld <literal>Listen 81</literal>. Herstart de installatie – nu zal deze zonder fouten moeten kunnen lopen."
 
 #. (para)
 msgid "Now test if the Apache web server is running correctly by pointing your web browser to <systemitem class=\"url\">http://localhost/</systemitem> - a preconfigured Website should show up."
-msgstr ""
+msgstr "Test nu of de Apache web server goed draait door met je web browser naar <systemitem class=\"url\">http://localhost/</systemitem> te surfen – een vooraf ingesteld website zal dan weergegeven worden."
 
 #. (para)
 msgid "If you decide to install Apache as a service, be warned that by default it will run as the local system account. It would be a more secure practice for you to create a separate account for Apache to run as."
-msgstr ""
+msgstr "Als je er voor kiest om Apache als service te installeren, hou er dan rekening mee dat deze dan standaard under het lokaal systeem account zal draaien. Het is verstandiger en veiliger om voor Apache een apart account aan te maken."
 
 #. (para)
 msgid "Make sure that the account on the server that Apache is running as has an explicit entry in the repository directory's access control list (right-click directory | properties | security), with full control. Otherwise, users will not be able to commit their changes."
-msgstr ""
+msgstr "Zorg er voor dat het Account, waaronder Apache draait, een expliciete vermeld is in de toegangscontrolelijst van van de map met het archief (rechter muisknop | eigenschappen | beveiliging) en alle rechten daarin heeft. Gebruikers zijn anders niet in staat om hun wijzigingen vast te leggen."
 
 #. (para)
 msgid "Even if Apache runs as local system, you still need such an entry (which will be the SYSTEM account in this case)."
-msgstr ""
+msgstr "Zelfs als Apache onder het lokaal systeem account draait, heb je deze vermelding nodig (wat in dit geval dan het SYSTEEM account is)."
 
 #. (para)
 msgid "If Apache does not have this permission set up, your users will get <quote>Access denied</quote> error messages, which show up in the Apache error log as error 500."
-msgstr ""
+msgstr "Als Apache niet deze rechten heft, zullen je gebruikers <quote>Toegang geweigerd</quote> foutmeldingen krijgen, welke in de Apache foutlog als error 500 zullen staan."
 
 #. (para)
 msgid "The first thing you need before installing Apache is a computer with Windows 2000, Windows XP+SP1, Windows 2003, Vista or Server 2008. <warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
-msgstr ""
+msgstr "Het eerste wat je nodig hebt voor het installeren van Apache is een computer met Windows 2000, Windows XP+SP1, Windows 2003, Vista of Server 2008. <warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
 
 #. (title)
 msgid "Installing Subversion"
@@ -1892,11 +1892,11 @@ msgstr "Installatie van Subversion"
 
 #. (para)
 msgid "Download the latest version of the Subversion Win32 binaries for Apache. Be sure to get the right version to integrate with your version of Apache, otherwise you will get an obscure error message when you try to restart. If you have Apache 2.2.x go to <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100</citetitle></ulink>."
-msgstr ""
+msgstr "Download de laatste versie van de Subversion Win32 binaries voor Apache. Let er op dat je de juiste versie hebt voor integratie met jouw versie van Apache, anders krijg je een vreemde foutmelding bij het herstarten. Als je Apache 2.2.x hebt, ga dan naar <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100</citetitle></ulink>."
 
 #. (para)
 msgid "Run the Subversion installer and follow the instructions. If the Subversion installer recognized that you've installed Apache, then you're almost done. If it couldn't find an Apache server then you have to do some additional steps."
-msgstr ""
+msgstr "Start de Subversion installatie en volg de instructies. Als de Subversion installatie detecteert dat je Apache hebt geïnstalleerd, dan ben je al bijna klaar. Als de installatie geen Apache server heeft gevonden, dan moet je enkele extra acties uitvoeren."
 
 #. (primary)
 #. (primary)
@@ -1905,15 +1905,15 @@ msgstr "mod_authz_svn"
 
 #. (para)
 msgid "Using the windows explorer, go to the installation directory of Subversion (usually <filename>c:\\program files\\Subversion</filename>) and find the files <filename>/httpd/mod_dav_svn.so</filename> and <filename>mod_authz_svn.so</filename>. Copy these files to the Apache modules directory (usually <filename>c:\\program files\\apache group\\apache2\\modules </filename>)."
-msgstr ""
+msgstr "Gebruik de windows verkenner en ga naar de installatie map van Subversion (meestal <filename>c:\\program files\\Subversion</filename>) en zoek de bestanden <filename>/httpd/mod_dav_svn.so</filename> en <filename>mod_authz_svn.so</filename>. Kopieer deze bestanden naar de Apache modules map (meestal <filename>c:\\program files\\apache group\\apache2\\modules </filename>)."
 
 #. (para)
 msgid "Copy the file <filename>/bin/libdb*.dll</filename> and <filename>/bin/intl3_svn.dll</filename> from the Subversion installation directory to the Apache bin directory."
-msgstr ""
+msgstr "Kopieer de bestanden <filename>/bin/libdb*.dll</filename> en <filename>/bin/intl3_svn.dll</filename> vanuit de installatie map van Subversion naar de Apache bin map."
 
 #. (para)
 msgid "Edit Apache's configuration file (usually <filename> C:\\Program Files\\Apache Group\\Apache2\\conf\\httpd.conf</filename>) with a text editor such as Notepad and make the following changes:"
-msgstr ""
+msgstr "Bewerk het configuratie bestand van Apache (meestal <filename> C:\\Program Files\\Apache Group\\Apache2\\conf\\httpd.conf</filename>) met een text bewerkingsprogramma zoals Notepad en voer de volgende wijzigingen door:"
 
 #. (para)
 msgid ""
@@ -1925,6 +1925,13 @@ msgid ""
 "LoadModule authz_svn_module modules/mod_authz_svn.so\n"
 "</screen>"
 msgstr ""
+"Verwijder het commentaar teken (het '<literal>#</literal>' teken) bij de volgende regels: <screen>\n"
+"#LoadModule dav_fs_module modules/mod_dav_fs.so\n"
+"#LoadModule dav_module modules/mod_dav.so\n"
+"</screen> Voeg de volgende twee regels toe aan het eind van de <literal>LoadModule</literal> sectie. <screen>\n"
+"LoadModule dav_svn_module modules/mod_dav_svn.so\n"
+"LoadModule authz_svn_module modules/mod_authz_svn.so\n"
+"</screen>"
 
 #. (title)
 #. (term)
@@ -1947,6 +1954,19 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen> This configures Apache so that all your Subversion repositories are physically located below <filename>D:\\SVN</filename>. The repositories are served to the outside world from the URL: <systemitem class=\"url\"> http://MyServer/svn/ </systemitem>. Access is restricted to known users/passwords listed in the <filename>passwd</filename> file."
 msgstr ""
+"Voeg de volgende regels toe aan het eind van het configuratiebestand: <screen>\n"
+"&lt;Location /svn&gt;\n"
+"  DAV svn\n"
+"  SVNListParentPath on\n"
+"  SVNParentPath D:\\SVN\n"
+"  #SVNIndexXSLT \"/svnindex.xsl\"\n"
+"  AuthType Basic\n"
+"  AuthName \"Subversion repositories\"\n"
+"  AuthUserFile passwd\n"
+"  #AuthzSVNAccessFile svnaccessfile\n"
+"  Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen> Hiermee stel je Apache zo in dat alle Subversion archieven zich bevinden in <filename>D:\\SVN</filename>. De archieven worden naar de buitenwereld bedoeld vanaf URL <systemitem class=\"url\"> http://MyServer/svn/ </systemitem>. Toegang wordt alleen verleend aan gebruikers die opgenomen zijn in het <filename>passwd</filename> bestand."
 
 #. (para)
 msgid ""
@@ -1956,6 +1976,11 @@ msgid ""
 "bin\\htpasswd passwd &lt;username&gt;\n"
 "</screen>"
 msgstr ""
+"Voor het aanmaken van een <filename>passwd</filename> bestand open je een (DOS) opdrachtprompt, ga naar de <filename>apache2</filename> map (meestal <filename>c:\\program files\\apache group\\apache2</filename>) en maak het bestand aan met <screen>\n"
+"bin\\htpasswd -c passwd &lt;username&gt;\n"
+"</screen>. Hiermee wordt het bestand <filename>passwd</filename> aangemaakt, die gebruikt wordt voor authenticatie. Gebruikers kunnen toegevoegd worden met <screen>\n"
+"bin\\htpasswd passwd &lt;username&gt;\n"
+"</screen>"
 
 #. (para)
 msgid "Restart the Apache service again."
@@ -1963,11 +1988,11 @@ msgstr "Herstart de Apache service nogmaals."
 
 #. (para)
 msgid "Point your browser to <systemitem class=\"url\">http://MyServer/svn/MyNewRepository</systemitem> (where <filename>MyNewRepository</filename> is the name of the Subversion repository you created before). If all went well you should be prompted for a username and password, then you can see the contents of your repository."
-msgstr ""
+msgstr "Ga met je browser naar <systemitem class=\"url\">http://MyServer/svn/MyNewRepository</systemitem> (waarin <filename>MyNewRepository</filename> de naam is van het Subversion archief dat je eerder hebt aangemaakt). Als alles goed is gegaan, word je gevraagd om je gebruikersnaam en wachtwoord in te voeren, waarna je de inhoud van je archief kunt bekijken."
 
 #. (para)
 msgid "Now you have set up Apache and Subversion, but Apache doesn't know how to handle Subversion clients like TortoiseSVN yet. To get Apache to know which URL will be used for Subversion repositories you have to edit the Apache configuration file (usually located in <filename>c:\\program files\\apache group\\apache2\\conf\\httpd.conf</filename>) with any text editor you like (e.g. Notepad): <placeholder-1/>"
-msgstr ""
+msgstr "Nu is alles voor Apache en Subversion ingesteld, maar Apache weet nog niet hoe er omgegaan moet worden moet Subversion programma’s zoals TortoiseSVN. Om Apache te laten weten welke URL gebruikt wordt voor Subversion archieven, moet je het Apache configuratiebestand bewerken (meestal te vinden in <filename>c:\\program files\\apache group\\apache2\\conf\\httpd.conf</filename>) met een tekst bewerkingsprogramma (bijv. Notepad): <placeholder-1/>"
 
 #. (primary)
 msgid "SVNPath"
@@ -1997,11 +2022,11 @@ msgstr "http://MyServer/svn/"
 
 #. (entry)
 msgid "means that the Subversion repositories are available from the URL <placeholder-1/>"
-msgstr ""
+msgstr "geeft aan dat Subversion archieven beschikbaar zijn via URL <placeholder-1/>"
 
 #. (entry)
 msgid "tells Apache which module will be responsible to serve that URL - in this case the Subversion module."
-msgstr ""
+msgstr "geeft aan welke module verantwoordelijk is voor het afhandelen van die URL – in dit geval de Subversion module."
 
 #. (entry)
 msgid "For Subversion version 1.3 and higher, this directive enables listing all the available repositories under <placeholder-1/>."
