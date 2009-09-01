@@ -56,6 +56,16 @@ public:
 		return buffer;
 	}
 
+	operator void*() const throw()
+    {	
+		return buffer;
+	}
+
+    operator bool() const throw()
+    {
+        return buffer != NULL;
+    }
+
 	T* operator->() const throw()
 	{
 		return buffer;
