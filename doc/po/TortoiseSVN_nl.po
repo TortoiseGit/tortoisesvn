@@ -13,8 +13,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"POT-Creation-Date: 2009-08-30 22:36 +0000\n"
-"PO-Revision-Date: 2009-09-01 18:14+0100\n"
+"POT-Creation-Date: 2009-09-01 17:51 +0000\n"
+"PO-Revision-Date: 2009-09-02 18:10+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10947,8 +10947,13 @@ msgstr ""
 msgid "Reverts local modifications of a working copy. The <placeholder-1/> tells which items to revert."
 msgstr ""
 
+#. (option)
+#, fuzzy
+msgid "/noui"
+msgstr "/noquestion"
+
 #. (entry)
-msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>."
+msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from popping up (either telling about the cleanup being finished or showing an error message)."
 msgstr ""
 
 #. (option)
