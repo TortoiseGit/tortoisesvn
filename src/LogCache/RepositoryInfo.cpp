@@ -651,8 +651,9 @@ void CRepositoryInfo::Flush()
         data.Save (fileName);
 		modified = false;
 	}
-	catch (CException* /*e*/)
+	catch (CException* e)
 	{
+		e->Delete();
 	}
 }
 

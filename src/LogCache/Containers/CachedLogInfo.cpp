@@ -104,8 +104,9 @@ bool CCachedLogInfo::CCacheFileManager::ShouldDrop
         CloseHandle (tempHandle);
         return failureCount >= maxFailures;
     }
-    catch (CException* /*e*/)
+    catch (CException* e)
     {
+		e->Delete();
     }
 
     // could not access the file or similar problem 
@@ -135,8 +136,9 @@ void CCachedLogInfo::CCacheFileManager::UpdateMark (const TFileName& name)
             CArchive stream (&file, CArchive::store);
             stream << failureCount;
         }
-        catch (CException* /*e*/)
+        catch (CException* e)
         {
+			e->Delete();
         }
     }
 }

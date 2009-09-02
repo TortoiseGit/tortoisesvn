@@ -197,6 +197,7 @@ BOOL CDiffData::Load()
 	{
 		e->GetErrorMessage(m_sError.GetBuffer(255), 255);
 		m_sError.ReleaseBuffer();
+		e->Delete();
 		return FALSE;
 	}
 

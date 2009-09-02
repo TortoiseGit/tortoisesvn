@@ -409,9 +409,10 @@ bool CStringUtils::ReadStringFromTextFile(const CString& path, CString& text)
 		text = CUnicodeUtils::GetUnicode(filecontent);
 		file.Close();
 	} 
-	catch (CFileException* /*pE*/)
+	catch (CFileException* pE)
 	{
 		text.Empty();
+		pE->Delete();
 	}
 	return true;
 }
