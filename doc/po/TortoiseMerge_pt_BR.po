@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-08-18 16:05 +0000\n"
-"PO-Revision-Date: 2009-09-01 00:37-0300\n"
+"PO-Revision-Date: 2009-09-01 23:56-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -265,11 +265,11 @@ msgstr "Isto algumas vezes se refere a unificação de três arquivos, e neste c
 
 #. (para)
 msgid "The base file represents the oldest version of a file, from where <emphasis>You</emphasis> and <emphasis>They</emphasis> start making changes. <emphasis>Mine</emphasis> represents the base file with all the changes <emphasis>you</emphasis> made, and <emphasis>Theirs</emphasis> is the file with all the changes <emphasis>someone else</emphasis> made to the file. The left pane shows the changes in <emphasis>Theirs</emphasis> relative to the base file and the right pane shows the changes in <emphasis>Mine</emphasis> relative to the base file. The bottom pane is the output file which is where you are trying to resolve the conflicts."
-msgstr ""
+msgstr "O arquivo base representa a versão mais antiga do arquivo, de onde <emphasis>Você</emphasis> e <emphasis>Eles</emphasis> começaram as modificações. <emphasis>Meu</emphasis> representa o arquivo base com todas as mudanças que <emphasis>você</emphasis> fez, e <emphasis>Deles</emphasis> é o arquivo com todas as alterações que <emphasis>alguém</emphasis> fez no arquivo. O painel da esquerda mostra as modificações <emphasis>Deles</emphasis> relativo ao arquivo base, e o painel direito mostra as alterações no <emphasis>Meu</emphasis> arquivo em relação ao arquivo base. O painel inferior é o arquivo de saída onde você está tentando resolver os conflitos."
 
 #. (para)
 msgid "In conflict resolution view, you can choose to use blocks from <emphasis>Mine</emphasis> or <emphasis>Theirs</emphasis> or both. But in this case, the changes are shown in the bottom pane."
-msgstr ""
+msgstr "Na janela de resolução do conflito, você pode escolher usar blocos do <emphasis>Meu<emphasis> ou do <emphasis>Deles</emphasis> ou ambos. Mas neste caso, as alterações serão mostradas no painel inferior."
 
 #. (title)
 #. (title)
@@ -279,11 +279,11 @@ msgstr "Aplicando Correções"
 
 #. (para)
 msgid "A patch file is a Subversion unified diff file, which contains the information required to apply changes to a set of files. The patch may have been supplied by another developer so that you can see changes he has made and possibly commit them to the repository. Or it may have been generated internally by TortoiseSVN when comparing two folders. This happens when you compare a repository revision with your working copy folder, or if you compare two different repository revisions, or if you compare two different repository paths."
-msgstr ""
+msgstr "Um arquivo de correção é um arquivo de diferenças unificadas do Subversion, o qual contém a informação necessária para aplicar as alterações nos arquivos. A correção pode ter sido enviada por outro desenvolvedor então você pode ver as alterações feitas e possivelmente submeter elas para o repositório. Ou o arquivo de correção pode ter sido gerado internamente pelo TortoiseSVN quando comparando dois diretórios. Isto acontece quando você compara uma revisão do repositório com a sua cópia de trabalho, ou se você compara duas revisões diferentes do repositório, ou se você compara dois caminhos diferentes no repositório."
 
 #. (para)
 msgid "In either case TortoiseMerge will show a small window listing the files included in the patch. By double clicking on one of these files you fetch the relevant file and apply the changes. The left pane shows the original file content and the right pane shows it after the patch is applied."
-msgstr ""
+msgstr "Em cada caso TortoiseMerge vai mostrar uma pequena janela listando os arquivos incluidos na correção. Um duplo clique em um desses arquivos buscará o arquivo em questão e aplicará as mudanças. O painel da esquerda mostra o conteúdo do arquivo original e o painel da direita mostra o arquivo depois que as mudanças foram aplicadas."
 
 #. (para)
 msgid "You can edit the file in the right pane exactly as you would in compare/edit mode."
@@ -299,7 +299,7 @@ msgstr "Visualizando Modos"
 
 #. (para)
 msgid "TortoiseMerge has three main viewing modes: one-pane, two-pane and three-pane view. One/two-pane view is used to view changes and three-pane view is used to resolve conflicts."
-msgstr ""
+msgstr "TortoiseMerge tem três principais modos de visualização: um painel, dois painéis e três painéis de visualização. Um/Dois painéis de visualização são usados para ver alterações e o terceiro painel é usado para resolver conflitos."
 
 #. (title)
 #. (title)
@@ -316,27 +316,27 @@ msgstr "Dois Painéis de Visualização"
 
 #. (para)
 msgid "Changes inside the modified lines are shown in different colors. Added string parts are shown with a lighter color, but you can of course configure the colors used here. Removed parts are indicated with a dark brown vertical line in the string. Check out the screenshot above to see how this works."
-msgstr ""
+msgstr "As linhas modificadas são apresentadas em cores diferentes. Partes adicionadas são apresentadas com cores claras, mas claro que você pode configurar as cores que você quer usar. Partes removidas são mostradas com uma linha vertical marrom escura. Confira a imagem acima para entender como isso funciona."
 
 #. (para)
 msgid "Code reorganization usually means a lot of changes in whitespaces (space, tab, newlines) but no actual code change. For example, you split up a very long line into several lines, or you sometimes compact several lines together into one."
-msgstr ""
+msgstr "Reorganização de códigio geralmente significa uma porção de modificações com espaços em branco (espaços, tabulações, linhas novas) mas sem realmente alteração de código. Por exemplo, você dividiu uma linha extensa em várias linhas, ou você algumas vezes compactou várias linhas em uma só."
 
 #. (para)
 msgid "Such changes are marked with a white circle symbol on the left side of the views. If you see such a white circle, you know immediately that no real code change is there and you don't have to check the changed block further."
-msgstr ""
+msgstr "Cada uma dessas alterações são marcadas com um símbolo branco em forma de círculo no lado esquerdo do painel. Se você ve esse círculo branco, você sabe imediatamente que nenhuma modificação no código propriamente dito foi feita e você não precisa verificar todo o bloco alterado."
 
 #. (para)
 msgid "Hand editing of the file in the right pane is possible in two-pane view. Such changes are marked with a pencil symbol."
-msgstr ""
+msgstr "A edição manual do arquivo no painél direito é possível em uma visualização com dois painéis. Cada alteração é marcada com um símbolo em forma de lápis."
 
 #. (para)
 msgid "The two pane view has some features which are not available in the one pane view: <placeholder-1/>"
-msgstr ""
+msgstr "A visualização com dois painéis tem algumas características que não estão disponíveis na visualização de um painel: <placeholder-1/>"
 
 #. (para)
 msgid "If you want to compare/merge three files, TortoiseMerge will show you the differences in a three pane view. This view is also used if you need to resolve conflicted files."
-msgstr ""
+msgstr "Se você quer comparar/unificar três arquivos, TortoiseMerge vai mostrar para você as diferenças em três painéis. Esta visualização é também usado se você precisar resolver conflitos entre os arquivos."
 
 #. (title)
 msgid "Three Pane View"
@@ -344,11 +344,11 @@ msgstr "Três Painéis de Visualização"
 
 #. (para)
 msgid "The left pane shows you the differences between <emphasis>Their</emphasis> file and the <emphasis>Base</emphasis> file, while the right pane shows you the differences between <emphasis>Mine</emphasis> file and the <emphasis>Base</emphasis> file. The bottom pane shows you the result of merging <emphasis>Base</emphasis>, <emphasis>Mine</emphasis> and <emphasis>Theirs</emphasis> with possible conflicts."
-msgstr ""
+msgstr "O painel da esquerda mostra as diferenças entre o arquivo <emphasis>Deles<emphasis> e o arquivo <emphasis>Base</emphasis>, enquanto o painel direito mostra para você as diferenças entre o arquivo <emphasis>Meu</emphasis> e o arquivo <emphasis>Base</emphasis>. O painel inferior mostra a você o resultado da unificação dos arquivos <emphasis>Base</emphasis>, <emphasis>Meu</emphasis> e <emphasis>Deles</emphasis> com possíveis conflitos."
 
 #. (para)
 msgid "If you hover the mouse over the pane title, a tooltip will show the filenames used for the diff in each pane."
-msgstr ""
+msgstr "Se você colocar o mouse sobre o título do painel, um balão será mostrado com o nome do arquivo usado para gerar as diferenças em cada painel."
 
 #. (title)
 msgid "Patch File List"
@@ -356,19 +356,19 @@ msgstr "Lista de Arquivo de Correção"
 
 #. (para)
 msgid "After TortoiseMerge parses the patch file it will show you a small window with all the files which have changes according to the patch file. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
-msgstr ""
+msgstr "Depois que TortoiseMerge analisar o arquivo de correção ele irá mostrar a você uma pequena janela com todos os arquivos que possuem alterações conforme o arquivo de correção. <placeholder-1/> Se o nome do arquivo é mostrado em preto, então o arquivo de correção pode ser aplicado sem problemas. Isto significa que o arquivo não está desatualizado em relação à correção. Entretanto, se o nome do arquivo aparecer em vermelho, então a correção não pode ser aplicada diretamente porque você já tem alterado o arquivo."
 
 #. (para)
 msgid "But don't worry. If you're working with Subversion you can retrieve an older version of the file and resolve the conflict. In fact, TortoiseMerge automatically tries to get that older version of the file and then shows you the diff between <emphasis>Base</emphasis> (the older version of the file), <emphasis>Mine</emphasis> (the file as it is currently in your working copy) and <emphasis>Theirs</emphasis> (the older version of the file with the patch already applied). Then you can resolve possible conflicts manually."
-msgstr ""
+msgstr "Mas não se preocupe. Se você está trabalhando com o Subversion você pode recuperar uma revisão antiga do arquivo e resolver o conflito. De fato, TortoiseMerge automaticamente tenta recuperar uma versão antiga do arquivo e então mostra a você as diferenças entre os arquivos <emphasis>Base</emphasis> (a versão antiga do arquivo), <emphasis>Meu</emphasis> (o arquivo que está atualmente na cópia de trabalho) e <emphasis>Deles</emphasis> (a versão antiga do arquivo com a correção aplicada). Então você pode resolver possíveis conflitos manualmente."
 
 #. (para)
 msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
-msgstr ""
+msgstr "A janela do arquivo de correção  tem um menu flutuante que permite a você visualizar o resultado da correção sobre o arquivo atual (aplicar sem salvar), para aplicar e salvar as alterações para o arquivo selecionado, ou para alicar e salvar as alterações para <emphasis>todos</emphasis> os arquivos da lista. Um duplo clique mostrará a visualização."
 
 #. (para)
 msgid "Depending on whether TortoiseMerge can apply the patch directly or by fetching an older version of the file first, it shows you a two pane view (patch can be applied directly) or a three pane view (older version of file fetched)."
-msgstr ""
+msgstr "Dependendo se TortoiseMerge pode aplicar a correção diretamente ou primeiro recuperar um versão antiga do arquivo, ele mostrará a você dois painéis de visualização (correção pode ser aplicada diretamente) ou três painéis de visualização (uma versão antiga do arquivo foi recuperada)."
 
 #. (title)
 msgid "Buttons and Other Controls"
@@ -408,55 +408,55 @@ msgstr "<guibutton>Ant/Prox Conflito</guibutton> vai diretamente para o próximo
 
 #. (para)
 msgid "<guibutton>Use Theirs/Use Mine</guibutton> selects whether to use a block from the left or the right pane. Refer to the next section for more information about editing changes and conflicts."
-msgstr ""
+msgstr "<guibutton>Usar Deles/Usar Meu</guibutton> seleciona se vai usar o bloco do painel esquerdo ou do painel direito. Veja a próxima seção para mais informações sobre editação de alterações e conflitos."
 
 #. (para)
 msgid "<guibutton>Theirs before Mine/Mine before Theirs</guibutton> is used when you want to combine changes in a conflicted file. Refer to the next section for more information about editing changes and conflicts."
-msgstr ""
+msgstr "<guibutton>Deles antes Meu/Meu antes Deles</guibutton> é usado quando você quer combinar as alterações em um arquivo conflitante. Veja a próxima seção para mais informações sobre editação de alterações e conflitos."
 
 #. (para)
 msgid "<guibutton>Mark as Resolved</guibutton> When you have resolved all the conflicts in a file and saved the changes, you can mark it as resolved from within TortoiseMerge, rather than going back to explorer and marking as resolved from there."
-msgstr ""
+msgstr "<guibutton>Marcar como Resolvido</guibutton> Quando você resolveu todos os conflitos do arquivo e salvou as alterações, você pode marcar o arquivo como resolvido dentro do TortoiseMerge, ao invés de voltar para o explorer e marcar como resolvido lá."
 
 #. (para)
 msgid "<guibutton>Show Whitespaces</guibutton> toggles the option to display space and tab characters as symbols so you can distinguish white space changes."
-msgstr ""
+msgstr "<guibutton>Mostrar Espaços em Branco</guibutton> alterna entre mostrar espaços e caracteres de tabulação como símbolos então você pode distinguir alterações de espaços."
 
 #. (para)
 msgid "<guibutton>Inline Diff Word-wise</guibutton> toggles the method used to display inline diffs. In word-wise mode, when a character is changed, the whole word is highlighted. In char-wise mode, each individual changed character is highlighted."
-msgstr ""
+msgstr "<guibutton>Diferenças numa linha palavra por palavra</guibutton> alterna o modo usado para mostrar as diferenças na linha. No modo palavra por palavra, quando um caracter é alterado, a palavra inteira é destacada. No modo caracter por caracter, cada caracter alterado é destacado."
 
 #. (para)
 msgid "Word-wise is the default and in most cases it works better. For example if you change a variable name, the whole name is highlighted in word-wise mode, whereas in char-wise mode you tend to get a mess of added and deleted characters which doesn't make much sense. However, some content does not resolve neatly into words, for example a hex file, and in that case, char-wise display works better."
-msgstr ""
+msgstr "Palavra por palavra é o modo padrão e na maioria dos casos é a melhor forma. Por exemplo, se você mudou o nome de uma variável, o nome inteiro é destacado no modo palavra por palavra, enquanto no modo caracter por caracter tende a ficar uma bagunça de caracteres adicionados e excluídos, o que não faz muito sentido. Entretanto, em alguns conteúdos o modo palavra por palavra não resolve de forma clara, como um arquivo hexadecimal por exemplo, e neste caso, caracter por caracter funciona melhor."
 
 #. (para)
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
-msgstr ""
+msgstr "<guibutton>Alterar Visualização</guibutton> seleciona entre um painel e dois painéis de visualização. Desabilitado no modo 3-painéis."
 
 #. (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
-msgstr ""
+msgstr "<guibutton>Alterar Visualização Esquerda e Direita</guibutton> visualizando dois painéis, troca a janela da esquerda pela direita. Quando você está comparando dois arquivos de diferentes estruturas, como duas revisões diferentes do mesmo arquivo, TortoiseSVN não sabe qual deverá ficar no painel esquerdo como versão <quote>original/base</quote>. Se ao abrir estiver trocado, você pode trocar para visualizar mais facilmente."
 
 #. (para)
 msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patch list, this button allows you to hide it (so you can see both windows), or show it (so you can review the file list)."
-msgstr ""
+msgstr "<guibutton>Mostrar/Esconder Lista de Correções</guibutton> Quando TortoiseMerge possui uma lista de arquivos, este botão permitirá a você esconder a lista (então você pode ver ambas as janelas), ou mostrá-la (então você pode rever a lista de arquivos)."
 
 #. (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
-msgstr ""
+msgstr "<guibutton>Configurações</guibutton> abre a janela de configurações do TortoiseMerge."
 
 #. (para)
 msgid "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Abaixo da barra de menu fica a barra de ferramentas. Isto provê fácil acesso para as ferramentas mais usadas, que são <placeholder-2/>"
 
 #. (para)
 msgid "On the left side of the window is a locator bar. This provides a quick visual reference as to where the changes lie within the file. The bar has three columns. The left column refers to the left pane, the right column to the right pane, and the centre column to the bottom pane (if present). In one-pane view only the left column is used. The locator bar can also be used as a scroll bar to scroll all the windows simultaneously."
-msgstr ""
+msgstr "No lado esquerdo da janela está a barra de localização. Ela provê uma referência visual rápida como onde as alterações foram feitas no arquivo. A barra possui três colunas. A coluna da esquerda refere-se ao painel esquerdo, a coluna direito refere-se ao painel esquerdo, e a coluna do meio refere-se ao painel inferior (se estiver presente). Ao visualizar apenas um painel somente a coluna da esquerda é usada. A barra de localização pode também ser usada com uma barra de rolagem para se mover em todos os painéis simultaneamente."
 
 #. (para)
 msgid "Below the bottom window is the status bar. This shows the number of lines added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, and the number of unresolved conflicts remaining. You can also see which line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by TortoiseMerge, and whether there is a byte-order-mark (BOM) present in UTF-8 files. The left side of the status bar is used to display hints when you hover the mouse over a control."
-msgstr ""
+msgstr "Abaixo da janela inferior está a barra de situação. Ela mostra o número de linhas adicionadas ou removidas nos arquivos <literal>Deles</literal> e <literal>Meu</literal>, e o número de conflitos não resolvidos restantes. Você pode também ver qual formato de fim de linha está sendo usado, qual codificação (ASCII, UTF-8, etc) está sendo usada pelo TortoiseMerge, e se existe algum byte-order-mark (BOM) presente em arquivos UTF-8. O lado esquerdo da barra de situação é usado para mostrar dicas quando você coloca o mouse  sobre algum controle."
 
 #. (title)
 msgid "Line Status Icons"
@@ -464,7 +464,7 @@ msgstr "Ícones da Situação da Linha"
 
 #. (para)
 msgid "Changed lines are marked with an icon to indicate what type of change has occurred."
-msgstr ""
+msgstr "Linhas alteradas são marcadas com um ícone para indicar que tipo de alteração sofreu."
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineadded.png\"/> A line has been added."
@@ -683,9 +683,8 @@ msgid "Where lines have been added in the opposite pane, and no such line existe
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "Inline added text"
-msgstr "Texto adiciona "
+msgstr "Texto adiciona na linha"
 
 #. (listitem)
 msgid "When inline diffs are shown, added text is shown in this colour."
@@ -693,11 +692,11 @@ msgstr ""
 
 #. (term)
 msgid "Inline removed text"
-msgstr ""
+msgstr "Texto removido da linha"
 
 #. (listitem)
 msgid "When inline diffs are shown, deleted text is shown in this colour."
-msgstr ""
+msgstr "Quando as diferenças na linha são apresentadas, textos removidos são mostrados nesta cor."
 
 #. (term)
 msgid "Misc whitespaces"
@@ -705,7 +704,7 @@ msgstr ""
 
 #. (listitem)
 msgid "Characters used to indicate Whitespace are shown in a different colour from normal text."
-msgstr ""
+msgstr "Caracteres usados para indicar Espaços em Branco são mostrados com cores diferentes da cor do texto normal."
 
 #. (title)
 msgid "keyboard shortcuts"
@@ -805,7 +804,7 @@ msgstr "Ctrl-D"
 
 #. (para)
 msgid "Toggle between one-pane diff and two-pane diff"
-msgstr ""
+msgstr "Anternar entre um painel com diferenças e dois painéis com diferenças"
 
 #. (term)
 msgid "Ctrl-R"
@@ -813,7 +812,7 @@ msgstr "Ctrl-R"
 
 #. (para)
 msgid "Reload the files and revert all changes made"
-msgstr ""
+msgstr "Recarregar os arquivos e reverter todas as alterações feitas"
 
 #. (term)
 msgid "Ctrl-T"
@@ -821,7 +820,7 @@ msgstr "Ctrl-T"
 
 #. (para)
 msgid "Toggles between showing whitespaces or not"
-msgstr ""
+msgstr "Alterna entre mostrar os espaços em branco ou não"
 
 #. (term)
 msgid "Ctrl-mousewheel"
@@ -841,7 +840,7 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseMerge Command Line Switches"
-msgstr ""
+msgstr "Opções da Linha de Comando do TortoiseMerge"
 
 #. (primary)
 msgid "automation"
@@ -860,7 +859,7 @@ msgstr ""
 
 #. (title)
 msgid "List of available command line options"
-msgstr ""
+msgstr "Lista de opções disponíveis na linha de comando"
 
 #. (entry)
 msgid "Command"
@@ -872,7 +871,7 @@ msgstr "Descrição"
 
 #. (entry)
 msgid "Shows a dialog box with the most important command line switches."
-msgstr ""
+msgstr "Mostra uma janela com as opções mais importantes da linha de comando"
 
 # Não deve ser traduzido, é um parâmetro recebido pelo executável na linha de comando
 # ****
@@ -883,7 +882,7 @@ msgstr "?"
 
 #. (entry)
 msgid "The same as <placeholder-1/>."
-msgstr ""
+msgstr "O mesmo que <placeholder-1/>."
 
 # Não deve ser traduzido, é um parâmetro recebido pelo executável na linha de comando
 # ****
@@ -955,23 +954,23 @@ msgstr ""
 
 #. (entry)
 msgid "The name of the original file to patch. Used for the view title."
-msgstr ""
+msgstr "O nome do arquivo original da correção. Usado no título do painel."
 
 #. (entry)
 msgid "The name of the resulting patched file. Used for the view title."
-msgstr ""
+msgstr "O nome do arquivo com as correções aplicadas. Usado no título do painel."
 
 #. (entry)
 msgid "The path to the patch/diff file to apply to a directory."
-msgstr ""
+msgstr "O caminho do arquivo de correção/diferença para aplicar para o diretório."
 
 #. (entry)
 msgid "Forces TortoiseMerge to start with the one-way view instead of the view the user specified in the settings."
-msgstr ""
+msgstr "Força o TortoiseMerge a iniciar com a visualação de um caminho ao invés de usar o que o usuário configurou."
 
 #. (entry)
 msgid "Switches the left and right view of the specified two files to diff."
-msgstr ""
+msgstr "Muda a visualização da esquerda para a direita das diferenças de dois arquivos."
 
 #. (literal)
 msgid "/origfile:\"path_to_original_file\""
@@ -1126,7 +1125,7 @@ msgstr "GPO"
 
 #. (para)
 msgid "Group policy object"
-msgstr ""
+msgstr "Objeto da política do grupo"
 
 #. (glossterm)
 msgid "HEAD revision"
@@ -1134,7 +1133,7 @@ msgstr "Revisão PRINCIPAL"
 
 #. (para)
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
-msgstr ""
+msgstr "A última revisão do arquivo ou diretório no <emphasis>repositório</emphasis>."
 
 #. (glossterm)
 msgid "Import"
@@ -1258,7 +1257,7 @@ msgstr "SVN"
 
 #. (para)
 msgid "A frequently-used abbreviation for Subversion."
-msgstr ""
+msgstr "Uma abreviação frequentemente usada para Subversion."
 
 #. (para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
