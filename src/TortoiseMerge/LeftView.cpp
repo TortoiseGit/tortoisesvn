@@ -49,20 +49,12 @@ bool CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 #define ID_USEBOTHTHISFIRST 5
 #define ID_USEBOTHTHISLAST 6
 
-	UINT uFlags = MF_ENABLED;
-	if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
-		uFlags |= MF_DISABLED | MF_GRAYED;
+	const UINT uFlags = GetMenuFlags(state);
+
 	CString temp;
-		
-	bool bImportantBlock = true;
-	switch (state)
-	{
-	case DIFFSTATE_UNKNOWN:
-		bImportantBlock = false;
-		break;
-	}
+
 	temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
-	popup.AppendMenu(MF_STRING | uFlags | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEBLOCK, temp);
+	popup.AppendMenu(uFlags, ID_USEBLOCK, temp);
 
 	temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISFILE);
 	popup.AppendMenu(MF_STRING | MF_ENABLED, ID_USEFILE, temp);
@@ -70,38 +62,22 @@ bool CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 	if (m_pwndBottom->IsWindowVisible())
 	{
 		temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
-		popup.AppendMenu(MF_STRING | uFlags | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEYOURANDTHEIRBLOCK, temp);
+		popup.AppendMenu(uFlags, ID_USEYOURANDTHEIRBLOCK, temp);
 		temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
-		popup.AppendMenu(MF_STRING | uFlags | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USETHEIRANDYOURBLOCK, temp);
+		popup.AppendMenu(uFlags, ID_USETHEIRANDYOURBLOCK, temp);
 	}
 	else
 	{
 		temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISFIRST);
-		popup.AppendMenu(MF_STRING | uFlags | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEBOTHTHISFIRST, temp);
+		popup.AppendMenu(uFlags, ID_USEBOTHTHISFIRST, temp);
 		temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISLAST);
-		popup.AppendMenu(MF_STRING | uFlags | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEBOTHTHISLAST, temp);
+		popup.AppendMenu(uFlags, ID_USEBOTHTHISLAST, temp);
 	}
 
-	popup.AppendMenu(MF_SEPARATOR, NULL);
+	AddCutCopyAndPaste(popup);
 
-	temp.LoadString(IDS_EDIT_COPY);
-	popup.AppendMenu(MF_STRING | (HasTextSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_COPY, temp);
-	if (!m_bCaretHidden)
-	{
-		temp.LoadString(IDS_EDIT_CUT);
-		popup.AppendMenu(MF_STRING | (HasTextSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_CUT, temp);
-		temp.LoadString(IDS_EDIT_PASTE);
-		popup.AppendMenu(MF_STRING | (CAppUtils::HasClipboardFormat(CF_UNICODETEXT)||CAppUtils::HasClipboardFormat(CF_TEXT) ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_PASTE, temp);
-	}
+	CompensateForKeyboard(point);
 
-	// if the context menu is invoked through the keyboard, we have to use
-	// a calculated position on where to anchor the menu on
-	if ((point.x == -1) && (point.y == -1))
-	{
-		CRect rect;
-		GetWindowRect(&rect);
-		point = rect.CenterPoint();
-	}
 	int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 	viewstate leftstate;
 	viewstate bottomstate;

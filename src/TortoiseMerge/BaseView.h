@@ -302,4 +302,8 @@ protected:
 	static CBaseView * m_pwndLeft;		///< Pointer to the left view. Must be set by the CLeftView parent class.
 	static CBaseView * m_pwndRight;		///< Pointer to the right view. Must be set by the CRightView parent class.
 	static CBaseView * m_pwndBottom;	///< Pointer to the bottom view. Must be set by the CBottomView parent class.
+
+	UINT GetMenuFlags(DiffStates state) const;
+	void AddCutCopyAndPaste(CMenu& popup);
+	void CompensateForKeyboard(CPoint& point);
 };

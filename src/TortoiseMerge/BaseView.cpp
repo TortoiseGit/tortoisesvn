@@ -24,6 +24,7 @@
 #include "BaseView.h"
 #include "DiffColors.h"
 #include "StringUtils.h"
+#include "AppUtils.h"
 
 #include <deque>
 
@@ -3124,4 +3125,44 @@ void CBaseView::OnCaretMove()
 		ClearSelection();
 	EnsureCaretVisible();
 	UpdateCaret();
+}
+
+UINT CBaseView::GetMenuFlags(DiffStates state) const
+{
+	UINT uFlags = MF_ENABLED | MF_STRING;
+	if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
+		uFlags |= MF_DISABLED | MF_GRAYED;
+	
+	const bool bImportantBlock = state != DIFFSTATE_UNKNOWN;
+	if(bImportantBlock)
+		return uFlags | MF_ENABLED;
+
+	return uFlags | MF_DISABLED | MF_GRAYED;
+}
+
+void CBaseView::AddCutCopyAndPaste(CMenu& popup)
+{
+	popup.AppendMenu(MF_SEPARATOR, NULL);
+	CString temp;
+	temp.LoadString(IDS_EDIT_COPY);
+	popup.AppendMenu(MF_STRING | (HasTextSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_COPY, temp);
+	if (!m_bCaretHidden)
+	{
+		temp.LoadString(IDS_EDIT_CUT);
+		popup.AppendMenu(MF_STRING | (HasTextSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_CUT, temp);
+		temp.LoadString(IDS_EDIT_PASTE);
+		popup.AppendMenu(MF_STRING | (CAppUtils::HasClipboardFormat(CF_UNICODETEXT)||CAppUtils::HasClipboardFormat(CF_TEXT) ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_PASTE, temp);
+	}
+}
+
+void CBaseView::CompensateForKeyboard(CPoint& point)
+{
+	// if the context menu is invoked through the keyboard, we have to use
+	// a calculated position on where to anchor the menu on
+	if ((point.x == -1) && (point.y == -1))
+	{
+		CRect rect;
+		GetWindowRect(&rect);
+		point = rect.CenterPoint();
+	}
 }

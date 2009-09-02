@@ -39,86 +39,59 @@ bool CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 		return false;
 
 	CMenu popup;
-	if (popup.CreatePopupMenu())
-	{
+	if (!popup.CreatePopupMenu())
+		return false;
+
 #define ID_USETHEIRBLOCK 1
 #define ID_USEYOURBLOCK 2
 #define ID_USETHEIRANDYOURBLOCK 3
 #define ID_USEYOURANDTHEIRBLOCK 4
-		UINT uEnabled = MF_ENABLED;
-		if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
-			uEnabled |= MF_DISABLED | MF_GRAYED;
-		CString temp;
+	const UINT uFlags = GetMenuFlags( state );
 
-		bool bImportantBlock = true;
-		switch (state)
-		{
-		case DIFFSTATE_UNKNOWN:
-			bImportantBlock = false;
-			break;
-		}
+	CString temp;
+	temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRBLOCK);
+	popup.AppendMenu(uFlags, ID_USETHEIRBLOCK, temp);
+	temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURBLOCK);
+	popup.AppendMenu(uFlags, ID_USEYOURBLOCK, temp);
+	temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
+	popup.AppendMenu(uFlags, ID_USEYOURANDTHEIRBLOCK, temp);
+	temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
+	popup.AppendMenu(uFlags, ID_USETHEIRANDYOURBLOCK, temp);
 
-		temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRBLOCK);
-		popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USETHEIRBLOCK, temp);
-		temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURBLOCK);
-		popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEYOURBLOCK, temp);
-		temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
-		popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEYOURANDTHEIRBLOCK, temp);
-		temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
-		popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USETHEIRANDYOURBLOCK, temp);
+	AddCutCopyAndPaste(popup);
 
-		popup.AppendMenu(MF_SEPARATOR, NULL);
+	CompensateForKeyboard(point);
 
-		temp.LoadString(IDS_EDIT_COPY);
-		popup.AppendMenu(MF_STRING | (HasTextSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_COPY, temp);
-		if (!m_bCaretHidden)
-		{
-			temp.LoadString(IDS_EDIT_CUT);
-			popup.AppendMenu(MF_STRING | (HasTextSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_CUT, temp);
-			temp.LoadString(IDS_EDIT_PASTE);
-			popup.AppendMenu(MF_STRING | (CAppUtils::HasClipboardFormat(CF_UNICODETEXT)||CAppUtils::HasClipboardFormat(CF_TEXT) ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_PASTE, temp);
-		}
-
-		// if the context menu is invoked through the keyboard, we have to use
-		// a calculated position on where to anchor the menu on
-		if ((point.x == -1) && (point.y == -1))
-		{
-			CRect rect;
-			GetWindowRect(&rect);
-			point = rect.CenterPoint();
-		}
-
-		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-		viewstate rightstate;
-		viewstate bottomstate;
-		viewstate leftstate;
-		switch (cmd)
-		{
-		case ID_USETHEIRBLOCK:
-			UseTheirTextBlock();
-			break;
-		case ID_USEYOURBLOCK:
-			UseMyTextBlock();
-			break;
-		case ID_USEYOURANDTHEIRBLOCK:
-			UseYourAndTheirBlock(rightstate, bottomstate, leftstate);
-			CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
-			break;
-		case ID_USETHEIRANDYOURBLOCK:
-			UseTheirAndYourBlock(rightstate, bottomstate, leftstate);
-			CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
-			break;
-		case ID_EDIT_COPY:
-			OnEditCopy();
-			return true;
-		case ID_EDIT_CUT:
-			OnEditCopy();
-			RemoveSelectedText();
-			break;
-		case ID_EDIT_PASTE:
-			PasteText();
-			break;
-		}
+	int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+	viewstate rightstate;
+	viewstate bottomstate;
+	viewstate leftstate;
+	switch (cmd)
+	{
+	case ID_USETHEIRBLOCK:
+		UseTheirTextBlock();
+		break;
+	case ID_USEYOURBLOCK:
+		UseMyTextBlock();
+		break;
+	case ID_USEYOURANDTHEIRBLOCK:
+		UseYourAndTheirBlock(rightstate, bottomstate, leftstate);
+		CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
+		break;
+	case ID_USETHEIRANDYOURBLOCK:
+		UseTheirAndYourBlock(rightstate, bottomstate, leftstate);
+		CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
+		break;
+	case ID_EDIT_COPY:
+		OnEditCopy();
+		return true;
+	case ID_EDIT_CUT:
+		OnEditCopy();
+		RemoveSelectedText();
+		break;
+	case ID_EDIT_PASTE:
+		PasteText();
+		break;
 	}
 	return false;
 }
