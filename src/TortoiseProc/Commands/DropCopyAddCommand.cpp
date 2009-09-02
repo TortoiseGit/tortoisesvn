@@ -33,64 +33,64 @@ bool DropCopyAddCommand::Execute()
 	CTSVNPathList copiedFiles;
 	for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
 	{
-		if (!pathList[nPath].IsEquivalentTo(CTSVNPath(droppath)))
+		if (pathList[nPath].IsEquivalentTo(CTSVNPath(droppath)))
+			continue;
+
+		//copy the file to the new location
+		CString name = pathList[nPath].GetFileOrDirectoryName();
+		if (::PathFileExists(droppath+_T("\\")+name))
 		{
-			//copy the file to the new location
-			CString name = pathList[nPath].GetFileOrDirectoryName();
-			if (::PathFileExists(droppath+_T("\\")+name))
+			CString strMessage;
+			strMessage.Format(IDS_PROC_OVERWRITE_CONFIRM, (LPCTSTR)(droppath+_T("\\")+name));
+			const int ret = CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_YESNOCANCEL | MB_ICONQUESTION);
+			if (ret == IDCANCEL)
 			{
-				CString strMessage;
-				strMessage.Format(IDS_PROC_OVERWRITE_CONFIRM, (LPCTSTR)(droppath+_T("\\")+name));
-				int ret = CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_YESNOCANCEL | MB_ICONQUESTION);
-				if (ret == IDYES)
+				return FALSE;		//cancel the whole operation
+			}
+			if (ret == IDYES)
+			{
+				if (!::CopyFile(pathList[nPath].GetWinPath(), droppath+_T("\\")+name, FALSE))
 				{
-					if (!::CopyFile(pathList[nPath].GetWinPath(), droppath+_T("\\")+name, FALSE))
-					{
-						//the copy operation failed! Get out of here!
-						LPVOID lpMsgBuf;
-						FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-							FORMAT_MESSAGE_FROM_SYSTEM | 
-							FORMAT_MESSAGE_IGNORE_INSERTS,
-							NULL,
-							GetLastError(),
-							MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-							(LPTSTR) &lpMsgBuf,
-							0,
-							NULL 
-							);
-						strMessage.Format(IDS_ERR_COPYFILES, (LPTSTR)lpMsgBuf);
-						CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-						LocalFree( lpMsgBuf );
-						return FALSE;
-					}
-				}
-				if (ret == IDCANCEL)
-				{
-					return FALSE;		//cancel the whole operation
+					//the copy operation failed! Get out of here!
+					LPVOID lpMsgBuf;
+					FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+						FORMAT_MESSAGE_FROM_SYSTEM | 
+						FORMAT_MESSAGE_IGNORE_INSERTS,
+						NULL,
+						GetLastError(),
+						MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+						(LPTSTR) &lpMsgBuf,
+						0,
+						NULL 
+						);
+					strMessage.Format(IDS_ERR_COPYFILES, (LPTSTR)lpMsgBuf);
+					CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+					LocalFree( lpMsgBuf );
+					return FALSE;
 				}
 			}
-			else if (!CopyFile(pathList[nPath].GetWinPath(), droppath+_T("\\")+name, FALSE))
-			{
-				//the copy operation failed! Get out of here!
-				LPVOID lpMsgBuf;
-				FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-					FORMAT_MESSAGE_FROM_SYSTEM | 
-					FORMAT_MESSAGE_IGNORE_INSERTS,
-					NULL,
-					GetLastError(),
-					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-					(LPTSTR) &lpMsgBuf,
-					0,
-					NULL 
-					);
-				CString strMessage;
-				strMessage.Format(IDS_ERR_COPYFILES, lpMsgBuf);
-				CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-				LocalFree( lpMsgBuf );
-				return FALSE;
-			}
-			copiedFiles.AddPath(CTSVNPath(droppath+_T("\\")+name));		//add the new filepath
 		}
+		else if (!CopyFile(pathList[nPath].GetWinPath(), droppath+_T("\\")+name, FALSE))
+		{
+			//the copy operation failed! Get out of here!
+			LPVOID lpMsgBuf;
+			FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+				FORMAT_MESSAGE_FROM_SYSTEM | 
+				FORMAT_MESSAGE_IGNORE_INSERTS,
+				NULL,
+				GetLastError(),
+				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+				(LPTSTR) &lpMsgBuf,
+				0,
+				NULL 
+				);
+			CString strMessage;
+			strMessage.Format(IDS_ERR_COPYFILES, lpMsgBuf);
+			CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+			LocalFree( lpMsgBuf );
+			return FALSE;
+		}
+		copiedFiles.AddPath(CTSVNPath(droppath+_T("\\")+name));		//add the new filepath
 	}
 	//now add all the newly copied files to the working copy
 	CSVNProgressDlg progDlg;

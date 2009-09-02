@@ -339,25 +339,21 @@ bool CMainWindow::LoadFile(LPCTSTR filename)
 
 	FILE *fp = NULL;
 	_tfopen_s(&fp, filename, _T("rb"));
-	if (fp) 
-	{
-		//SetTitle();
-		char data[4096];
-		size_t lenFile = fread(data, 1, sizeof(data), fp);
-		bool bUTF8 = IsUTF8(data, lenFile);
-		while (lenFile > 0) 
-		{
-			SendEditor(SCI_ADDTEXT, lenFile,
-				reinterpret_cast<LPARAM>(static_cast<char *>(data)));
-			lenFile = fread(data, 1, sizeof(data), fp);
-		}
-		fclose(fp);
-		SendEditor(SCI_SETCODEPAGE, bUTF8 ? SC_CP_UTF8 : GetACP());
-	}
-	else 
-	{
+	if (!fp)
 		return false;
+
+	//SetTitle();
+	char data[4096];
+	size_t lenFile = fread(data, 1, sizeof(data), fp);
+	bool bUTF8 = IsUTF8(data, lenFile);
+	while (lenFile > 0) 
+	{
+		SendEditor(SCI_ADDTEXT, lenFile,
+			reinterpret_cast<LPARAM>(static_cast<char *>(data)));
+		lenFile = fread(data, 1, sizeof(data), fp);
 	}
+	fclose(fp);
+	SendEditor(SCI_SETCODEPAGE, bUTF8 ? SC_CP_UTF8 : GetACP());
 
 	SendEditor(SCI_SETUNDOCOLLECTION, 1);
 	::SetFocus(m_hWndEdit);
@@ -388,18 +384,14 @@ bool CMainWindow::SaveFile(LPCTSTR filename)
 {
 	FILE *fp = NULL;
 	_tfopen_s(&fp, filename, _T("w+b"));
-	if (fp) 
-	{
-		LRESULT len = SendEditor(SCI_GETTEXT, 0, 0);
-		auto_buffer<char> data (len+1);
-		SendEditor(SCI_GETTEXT, len, (LPARAM)data);
-		fwrite(data, sizeof(char), len-1, fp);
-		fclose(fp);
-	}
-	else 
-	{
+	if (!fp)
 		return false;
-	}
+
+	LRESULT len = SendEditor(SCI_GETTEXT, 0, 0);
+	auto_buffer<char> data (len+1);
+	SendEditor(SCI_GETTEXT, len, (LPARAM)data);
+	fwrite(data, sizeof(char), len-1, fp);
+	fclose(fp);
 
 	SendEditor(SCI_SETSAVEPOINT);
 	::ShowWindow(m_hWndEdit, SW_SHOW);
@@ -507,9 +499,8 @@ void CMainWindow::loadOrSaveFile(bool doLoad)
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 	TCHAR filter[1024];
 	LoadString(hResource, IDS_PATCHFILEFILTER, filter, sizeof(filter)/sizeof(TCHAR));
-	TCHAR * pszFilters = filter;
-	CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
-	ofn.lpstrFilter = pszFilters;
+	CStringUtils::PipesToNulls(filter, _tcslen(filter));
+	ofn.lpstrFilter = filter;
 	ofn.nFilterIndex = 1;
 	ofn.lpstrFileTitle = NULL;
 	ofn.nMaxFileTitle = 0;

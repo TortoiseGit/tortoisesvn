@@ -454,42 +454,39 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
             ToggleNodeFlag (hitGlyph->node, hitGlyph->state);
         	return __super::OnLButtonDown(nFlags, point);
         }
-        else
-        {
-            index_t nodeIndex = GetHitNode (point);
-	        if (nodeIndex != NO_INDEX)
-	        {
-                const CVisibleGraphNode* reventry = nodeList->GetNode (nodeIndex).node;
-		        if (bControl)
-		        {
-			        if (m_SelectedEntry1 == reventry)
-			        {
-				        if (m_SelectedEntry2)
-				        {
-					        m_SelectedEntry1 = m_SelectedEntry2;
-					        m_SelectedEntry2 = NULL;
-				        }
-				        else
-					        m_SelectedEntry1 = NULL;
-			        }
-			        else if (m_SelectedEntry2 == reventry)
-				        m_SelectedEntry2 = NULL;
-			        else if (m_SelectedEntry1)
-				        m_SelectedEntry2 = reventry;
-			        else
-				        m_SelectedEntry1 = reventry;
-		        }
-		        else
-		        {
-			        if (m_SelectedEntry1 == reventry)
-				        m_SelectedEntry1 = NULL;
-			        else
-				        m_SelectedEntry1 = reventry;
-			        m_SelectedEntry2 = NULL;
-		        }
-		        bHit = true;
-		        Invalidate(FALSE);
-	        }
+		index_t nodeIndex = GetHitNode (point);
+		if (nodeIndex != NO_INDEX)
+		{
+			const CVisibleGraphNode* reventry = nodeList->GetNode (nodeIndex).node;
+			if (bControl)
+			{
+				if (m_SelectedEntry1 == reventry)
+				{
+					if (m_SelectedEntry2)
+					{
+						m_SelectedEntry1 = m_SelectedEntry2;
+						m_SelectedEntry2 = NULL;
+					}
+					else
+						m_SelectedEntry1 = NULL;
+				}
+				else if (m_SelectedEntry2 == reventry)
+					m_SelectedEntry2 = NULL;
+				else if (m_SelectedEntry1)
+					m_SelectedEntry2 = reventry;
+				else
+					m_SelectedEntry1 = reventry;
+			}
+			else
+			{
+				if (m_SelectedEntry1 == reventry)
+					m_SelectedEntry1 = NULL;
+				else
+					m_SelectedEntry1 = reventry;
+				m_SelectedEntry2 = NULL;
+			}
+			bHit = true;
+			Invalidate(FALSE);
         }
     }
 
@@ -857,7 +854,7 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 			// paint the whole graph
 			DrawGraph(&dc, rect, 0, 0, true);
 			// now use GDI+ to save the picture
-			CLSID   encoderClsid;
+			CLSID encoderClsid;
 			{
 				Bitmap bitmap(hbm, NULL);
 				if (bitmap.GetLastStatus()==Ok)
@@ -1268,89 +1265,91 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         clickedentry = nodeList->GetNode (nodeIndex).node;
     }
 
-    if (   !UpdateSelectedEntry (clickedentry) 
+    if ( !UpdateSelectedEntry (clickedentry) 
         && !m_state.GetNodeStates()->GetCombinedFlags())
+	{
 		return;
+	}
 
     CMenu popup;
-	if (popup.CreatePopupMenu())
+	if (!popup.CreatePopupMenu())
+		return;
+
+	AddSVNOps (popup);
+	AddGraphOps (popup, clickedentry);
+
+	// if the context menu is invoked through the keyboard, we have to use
+	// a calculated position on where to anchor the menu on
+	if ((point.x == -1) && (point.y == -1))
 	{
-        AddSVNOps (popup);
-        AddGraphOps (popup, clickedentry);
+		CRect rect = GetWindowRect();
+		point = rect.CenterPoint();
+	}
 
-		// if the context menu is invoked through the keyboard, we have to use
-		// a calculated position on where to anchor the menu on
-		if ((point.x == -1) && (point.y == -1))
-		{
-			CRect rect = GetWindowRect();
-			point = rect.CenterPoint();
-		}
-
-		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-		switch (cmd)
-		{
-		case ID_COMPAREREVS:
-    		if (m_SelectedEntry1 != NULL)
-	    		CompareRevs(false);
-			break;
-		case ID_COMPAREHEADS:
-    		if (m_SelectedEntry1 != NULL)
-    			CompareRevs(true);
-			break;
-		case ID_UNIDIFFREVS:
-    		if (m_SelectedEntry1 != NULL)
-    			UnifiedDiffRevs(false);
-			break;
-		case ID_UNIDIFFHEADS:
-    		if (m_SelectedEntry1 != NULL)
-    			UnifiedDiffRevs(true);
-			break;
-		case ID_SHOWLOG:
-			DoShowLog();
-			break;
-        case ID_CFM:
-            DoCheckForModification();
-            break;
-		case ID_MERGETO:
-            DoMergeTo();
-			break;
-        case ID_UPDATE:
-            DoUpdate();
-            break;
-        case ID_SWITCHTOHEAD:
-            DoSwitchToHead();
-            break;
-        case ID_SWITCH:
-            DoSwitch();
-            break;
-        case ID_BROWSEREPO:
-            DoBrowseRepo();
-            break;
-        case ID_EXPAND_ALL:
-            ResetNodeFlags (CGraphNodeStates::COLLAPSED_ALL);
-            break;
-        case ID_JOIN_ALL:
-            ResetNodeFlags (CGraphNodeStates::SPLIT_ALL);
-            break;
-        case ID_GRAPH_EXPANDCOLLAPSE_ABOVE:
-            ToggleNodeFlag (clickedentry, CGraphNodeStates::COLLAPSED_ABOVE);
-            break;
-        case ID_GRAPH_EXPANDCOLLAPSE_RIGHT:
-            ToggleNodeFlag (clickedentry, CGraphNodeStates::COLLAPSED_RIGHT);
-            break;
-        case ID_GRAPH_EXPANDCOLLAPSE_BELOW:
-            ToggleNodeFlag (clickedentry, CGraphNodeStates::COLLAPSED_BELOW);
-            break;
-        case ID_GRAPH_SPLITJOIN_ABOVE:
-            ToggleNodeFlag (clickedentry, CGraphNodeStates::SPLIT_ABOVE);
-            break;
-        case ID_GRAPH_SPLITJOIN_RIGHT:
-            ToggleNodeFlag (clickedentry, CGraphNodeStates::SPLIT_RIGHT);
-            break;
-        case ID_GRAPH_SPLITJOIN_BELOW:
-            ToggleNodeFlag (clickedentry, CGraphNodeStates::SPLIT_BELOW);
-            break;
-		}
+	int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+	switch (cmd)
+	{
+	case ID_COMPAREREVS:
+    	if (m_SelectedEntry1 != NULL)
+	   		CompareRevs(false);
+		break;
+	case ID_COMPAREHEADS:
+    	if (m_SelectedEntry1 != NULL)
+    		CompareRevs(true);
+		break;
+	case ID_UNIDIFFREVS:
+    	if (m_SelectedEntry1 != NULL)
+    		UnifiedDiffRevs(false);
+		break;
+	case ID_UNIDIFFHEADS:
+    	if (m_SelectedEntry1 != NULL)
+    		UnifiedDiffRevs(true);
+		break;
+	case ID_SHOWLOG:
+		DoShowLog();
+		break;
+	case ID_CFM:
+		DoCheckForModification();
+		break;
+	case ID_MERGETO:
+		DoMergeTo();
+		break;
+	case ID_UPDATE:
+		DoUpdate();
+		break;
+	case ID_SWITCHTOHEAD:
+		DoSwitchToHead();
+		break;
+	case ID_SWITCH:
+		DoSwitch();
+		break;
+	case ID_BROWSEREPO:
+		DoBrowseRepo();
+		break;
+	case ID_EXPAND_ALL:
+		ResetNodeFlags (CGraphNodeStates::COLLAPSED_ALL);
+		break;
+	case ID_JOIN_ALL:
+		ResetNodeFlags (CGraphNodeStates::SPLIT_ALL);
+		break;
+	case ID_GRAPH_EXPANDCOLLAPSE_ABOVE:
+		ToggleNodeFlag (clickedentry, CGraphNodeStates::COLLAPSED_ABOVE);
+		break;
+	case ID_GRAPH_EXPANDCOLLAPSE_RIGHT:
+		ToggleNodeFlag (clickedentry, CGraphNodeStates::COLLAPSED_RIGHT);
+		break;
+	case ID_GRAPH_EXPANDCOLLAPSE_BELOW:
+		ToggleNodeFlag (clickedentry, CGraphNodeStates::COLLAPSED_BELOW);
+		break;
+	case ID_GRAPH_SPLITJOIN_ABOVE:
+		ToggleNodeFlag (clickedentry, CGraphNodeStates::SPLIT_ABOVE);
+		break;
+	case ID_GRAPH_SPLITJOIN_RIGHT:
+		ToggleNodeFlag (clickedentry, CGraphNodeStates::SPLIT_RIGHT);
+		break;
+	case ID_GRAPH_SPLITJOIN_BELOW:
+		ToggleNodeFlag (clickedentry, CGraphNodeStates::SPLIT_BELOW);
+		break;
 	}
 }
 

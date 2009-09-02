@@ -590,129 +590,126 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		point = rect.CenterPoint();
 	}
 	CIconMenu popup;
-	if (popup.CreatePopupMenu())
+	if (!popup.CreatePopupMenu())
+		return;
+
+	popup.AppendMenuIcon(ID_COMPARE, IDS_LOG_POPUP_COMPARETWO, IDI_DIFF);
+	popup.AppendMenuIcon(ID_UNIFIEDDIFF, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);
+	popup.AppendMenuIcon(ID_BLAME, IDS_FILEDIFF_POPBLAME, IDI_BLAME);
+	popup.AppendMenu(MF_SEPARATOR, NULL);
+	popup.AppendMenuIcon(ID_SAVEAS, IDS_FILEDIFF_POPSAVELIST, IDI_SAVEAS);
+	popup.AppendMenuIcon(ID_CLIPBOARD, IDS_FILEDIFF_POPCLIPBOARD, IDI_COPYCLIP);
+	popup.AppendMenuIcon(ID_EXPORT, IDS_FILEDIFF_POPEXPORT, IDI_EXPORT);
+	int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+	m_bCancelled = false;
+	switch (cmd)
 	{
-		popup.AppendMenuIcon(ID_COMPARE, IDS_LOG_POPUP_COMPARETWO, IDI_DIFF);
-		popup.AppendMenuIcon(ID_UNIFIEDDIFF, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);
-		popup.AppendMenuIcon(ID_BLAME, IDS_FILEDIFF_POPBLAME, IDI_BLAME);
-		popup.AppendMenu(MF_SEPARATOR, NULL);
-		popup.AppendMenuIcon(ID_SAVEAS, IDS_FILEDIFF_POPSAVELIST, IDI_SAVEAS);
-		popup.AppendMenuIcon(ID_CLIPBOARD, IDS_FILEDIFF_POPCLIPBOARD, IDI_COPYCLIP);
-		popup.AppendMenuIcon(ID_EXPORT, IDS_FILEDIFF_POPEXPORT, IDI_EXPORT);
-		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-		m_bCancelled = false;
-		switch (cmd)
+	case ID_COMPARE:
 		{
-		case ID_COMPARE:
+			POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
+			while (pos)
 			{
+				int index = m_cFileList.GetNextSelectedItem(pos);
+				DoDiff(index, false);
+			}					
+		}
+		break;
+	case ID_UNIFIEDDIFF:
+		{
+			CTSVNPath diffFile = CTempFiles::Instance().GetTempFilePath(false);
+			POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
+			while (pos)
+			{
+				int index = m_cFileList.GetNextSelectedItem(pos);
+				CFileDiffDlg::FileDiff fd = m_arFilteredList[index];
+				CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
+				CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
+				
+				if (m_bDoPegDiff)
+				{
+					PegDiff(url1, m_peg, m_rev1, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, CString(), true, diffFile);
+				}
+				else
+				{
+					Diff(url1, m_rev1, url2, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, CString(), true, diffFile);
+				}
+			}
+			CAppUtils::StartUnifiedDiffViewer(diffFile, CString(), false);
+		}
+		break;
+	case ID_BLAME:
+		{
+			POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
+			while (pos)
+			{
+				int index = m_cFileList.GetNextSelectedItem(pos);
+				DoDiff(index, true);
+			}					
+		}
+		break;
+	case ID_SAVEAS:
+		if (m_cFileList.GetSelectedCount() > 0)
+		{
+			CTSVNPath savePath;
+			CString pathSave;
+			if (!CAppUtils::FileOpenSave(pathSave, NULL, IDS_REPOBROWSE_SAVEAS, IDS_COMMONFILEFILTER, false, m_hWnd))
+			{
+				break;
+			}
+			savePath = CTSVNPath(pathSave);
+
+			// now open the selected file for writing
+			try
+			{
+				CStdioFile file(savePath.GetWinPathString(), CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
+				CString temp;
+				temp.Format(IDS_FILEDIFF_CHANGEDLISTINTRO, (LPCTSTR)m_path1.GetSVNPathString(), (LPCTSTR)m_rev1.ToString(), (LPCTSTR)m_path2.GetSVNPathString(), (LPCTSTR)m_rev2.ToString());
+				file.WriteString(temp + _T("\n"));
 				POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
 				while (pos)
 				{
 					int index = m_cFileList.GetNextSelectedItem(pos);
-					DoDiff(index, false);
-				}					
-			}
-			break;
-		case ID_UNIFIEDDIFF:
+					FileDiff fd = m_arFilteredList[index];
+					file.WriteString(fd.path.GetSVNPathString());
+					file.WriteString(_T("\n"));
+				}
+				file.Close();
+			} 
+			catch (CFileException* pE)
 			{
-				CTSVNPath diffFile = CTempFiles::Instance().GetTempFilePath(false);
+				pE->ReportError();
+				pE->Delete();
+			}
+		}
+		break;
+	case ID_CLIPBOARD:
+		CopySelectionToClipboard();
+		break;
+	case ID_EXPORT:
+		{
+			// export all changed files to a folder
+			CBrowseFolder browseFolder;
+			browseFolder.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+			if (browseFolder.Show(GetSafeHwnd(), m_strExportDir) == CBrowseFolder::OK) 
+			{
+				m_arSelectedFileList.RemoveAll();
 				POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
 				while (pos)
 				{
 					int index = m_cFileList.GetNextSelectedItem(pos);
 					CFileDiffDlg::FileDiff fd = m_arFilteredList[index];
-					CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
-					CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
-					
-					if (m_bDoPegDiff)
-					{
-						PegDiff(url1, m_peg, m_rev1, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, CString(), true, diffFile);
-					}
-					else
-					{
-						Diff(url1, m_rev1, url2, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, CString(), true, diffFile);
-					}
+					m_arSelectedFileList.Add(fd);
 				}
-				CAppUtils::StartUnifiedDiffViewer(diffFile, CString(), false);
-			}
-			break;
-		case ID_BLAME:
-			{
-				POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
-				while (pos)
+				m_pProgDlg = new CProgressDlg();
+				InterlockedExchange(&m_bThreadRunning, TRUE);
+				if (AfxBeginThread(ExportThreadEntry, this)==NULL)
 				{
-					int index = m_cFileList.GetNextSelectedItem(pos);
-					DoDiff(index, true);
-				}					
-			}
-			break;
-		case ID_SAVEAS:
-			{
-				if (m_cFileList.GetSelectedCount() > 0)
-				{
-					CTSVNPath savePath;
-					CString pathSave;
-					if (!CAppUtils::FileOpenSave(pathSave, NULL, IDS_REPOBROWSE_SAVEAS, IDS_COMMONFILEFILTER, false, m_hWnd))
-					{
-						break;
-					}
-					savePath = CTSVNPath(pathSave);
-
-					// now open the selected file for writing
-					try
-					{
-						CStdioFile file(savePath.GetWinPathString(), CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
-						CString temp;
-						temp.Format(IDS_FILEDIFF_CHANGEDLISTINTRO, (LPCTSTR)m_path1.GetSVNPathString(), (LPCTSTR)m_rev1.ToString(), (LPCTSTR)m_path2.GetSVNPathString(), (LPCTSTR)m_rev2.ToString());
-						file.WriteString(temp + _T("\n"));
-						POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
-						while (pos)
-						{
-							int index = m_cFileList.GetNextSelectedItem(pos);
-							FileDiff fd = m_arFilteredList[index];
-							file.WriteString(fd.path.GetSVNPathString());
-							file.WriteString(_T("\n"));
-						}
-						file.Close();
-					} 
-					catch (CFileException* pE)
-					{
-						pE->ReportError();
-					}
+					InterlockedExchange(&m_bThreadRunning, FALSE);
+					CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 				}
 			}
-			break;
-		case ID_CLIPBOARD:
-			{
-				CopySelectionToClipboard();
-			}
-			break;
-		case ID_EXPORT:
-			{
-				// export all changed files to a folder
-				CBrowseFolder browseFolder;
-				browseFolder.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
-				if (browseFolder.Show(GetSafeHwnd(), m_strExportDir) == CBrowseFolder::OK) 
-				{
-					m_arSelectedFileList.RemoveAll();
-					POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
-					while (pos)
-					{
-						int index = m_cFileList.GetNextSelectedItem(pos);
-						CFileDiffDlg::FileDiff fd = m_arFilteredList[index];
-						m_arSelectedFileList.Add(fd);
-					}
-					m_pProgDlg = new CProgressDlg();
-					InterlockedExchange(&m_bThreadRunning, TRUE);
-					if (AfxBeginThread(ExportThreadEntry, this)==NULL)
-					{
-						InterlockedExchange(&m_bThreadRunning, FALSE);
-						CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-					}
-				}
-			}
-			break;
 		}
+		break;
 	}
 }
 

@@ -1042,9 +1042,9 @@ void CCommitDlg::ParseRegexFile(const CString& sFile, std::map<CString, CString>
 	{
 		TRACE("CFileException loading auto list regex file\n");
 		pE->Delete();
-		return;
 	}
 }
+
 void CCommitDlg::GetAutocompletionList()
 {
 	// the auto completion list is made of strings from each selected files.

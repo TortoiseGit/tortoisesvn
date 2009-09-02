@@ -1914,83 +1914,79 @@ bool CSVNStatusListCtrl::BuildStatistics()
 	for (int i=0; i < (int)m_arStatusArray.size(); ++i)
 	{
 		const FileEntry * entry = m_arStatusArray[i];
-		if (entry)
+		if (!entry)
+			continue;
+		if (entry->tree_conflicted)
 		{
-			if (entry->tree_conflicted)
-				m_nConflicted++;
-			else
+			m_nConflicted++;
+			continue;
+		}
+		switch (entry->status)
+		{
+		case svn_wc_status_normal:
+			m_nNormal++;
+			break;
+		case svn_wc_status_added:
+			m_nAdded++;
+			break;
+		case svn_wc_status_missing:
+		case svn_wc_status_deleted:
+			m_nDeleted++;
+			break;
+		case svn_wc_status_replaced:
+		case svn_wc_status_modified:
+		case svn_wc_status_merged:
+			m_nModified++;
+			break;
+		case svn_wc_status_conflicted:
+		case svn_wc_status_obstructed:
+			m_nConflicted++;
+			break;
+		case svn_wc_status_ignored:
+			m_nUnversioned++;
+			break;
+		default:
+			if (SVNStatus::IsImportant(entry->remotestatus))
+				break;
+			m_nUnversioned++;
+			// If an entry is in an unversioned folder, we don't have to do an expensive array search
+			// to find out if it got case-renamed: an unversioned folder can't have versioned files
+			// But nested folders are also considered to be in unversioned folders, we have to do the
+			// check in that case too, otherwise we would miss case-renamed folders - they show up
+			// as nested folders.
+			if (((!entry->inunversionedfolder)||(entry->isNested))&&(m_bUnversionedLast))
 			{
-				switch (entry->status)
+				// check if the unversioned item is just
+				// a file differing in case but still versioned
+				FileEntryVector::iterator itMatchingItem;
+				if(std::binary_search(m_arStatusArray.begin(), itFirstUnversionedEntry, entry, EntryPathCompareNoCase))
 				{
-				case svn_wc_status_normal:
-					m_nNormal++;
-					break;
-				case svn_wc_status_added:
-					m_nAdded++;
-					break;
-				case svn_wc_status_missing:
-				case svn_wc_status_deleted:
-					m_nDeleted++;
-					break;
-				case svn_wc_status_replaced:
-				case svn_wc_status_modified:
-				case svn_wc_status_merged:
-					m_nModified++;
-					break;
-				case svn_wc_status_conflicted:
-				case svn_wc_status_obstructed:
-					m_nConflicted++;
-					break;
-				case svn_wc_status_ignored:
-					m_nUnversioned++;
-					break;
-				default:
+					// We've confirmed that there *is* a matching file
+					// Find its exact location
+					itMatchingItem = std::lower_bound(m_arStatusArray.begin(), itFirstUnversionedEntry, entry, EntryPathCompareNoCase);
+					// adjust the case of the filename
+					if (MoveFileEx(entry->path.GetWinPath(), (*itMatchingItem)->path.GetWinPath(), MOVEFILE_REPLACE_EXISTING))
 					{
-						if (SVNStatus::IsImportant(entry->remotestatus))
-							break;
-						m_nUnversioned++;
-						// If an entry is in an unversioned folder, we don't have to do an expensive array search
-						// to find out if it got case-renamed: an unversioned folder can't have versioned files
-						// But nested folders are also considered to be in unversioned folders, we have to do the
-						// check in that case too, otherwise we would miss case-renamed folders - they show up
-						// as nested folders.
-						if (((!entry->inunversionedfolder)||(entry->isNested))&&(m_bUnversionedLast))
-						{
-							// check if the unversioned item is just
-							// a file differing in case but still versioned
-							FileEntryVector::iterator itMatchingItem;
-							if(std::binary_search(m_arStatusArray.begin(), itFirstUnversionedEntry, entry, EntryPathCompareNoCase))
-							{
-								// We've confirmed that there *is* a matching file
-								// Find its exact location
-								itMatchingItem = std::lower_bound(m_arStatusArray.begin(), itFirstUnversionedEntry, entry, EntryPathCompareNoCase);
-
-								// adjust the case of the filename
-								if (MoveFileEx(entry->path.GetWinPath(), (*itMatchingItem)->path.GetWinPath(), MOVEFILE_REPLACE_EXISTING))
-								{
-									// We successfully adjusted the case in the filename. But there is now a file with status 'missing'
-									// in the array, because that's the status of the file before we adjusted the case.
-									// We have to refetch the status of that file.
-									// Since fetching the status of single files/directories is very expensive and there can be
-									// multiple case-renames here, we just set a flag and refetch the status at the end from scratch.
-									bRefetchStatus = true;
-									DeleteItem(i);
-									m_arStatusArray.erase(m_arStatusArray.begin()+i);
-									delete entry;
-									i--;
-									m_nUnversioned--;
-									// now that we removed an unversioned item from the array, find the first unversioned item in the 'new'
-									// list again.
-									itFirstUnversionedEntry = std::partition(m_arStatusArray.begin(), m_arStatusArray.end(), IsEntryVersioned);
-								}
-								break;
-							}
-						}
+						// We successfully adjusted the case in the filename. But there is now a file with status 'missing'
+						// in the array, because that's the status of the file before we adjusted the case.
+						// We have to refetch the status of that file.
+						// Since fetching the status of single files/directories is very expensive and there can be
+						// multiple case-renames here, we just set a flag and refetch the status at the end from scratch.
+						bRefetchStatus = true;
+						DeleteItem(i);
+						m_arStatusArray.erase(m_arStatusArray.begin()+i);
+						delete entry;
+						i--;
+						m_nUnversioned--;
+						// now that we removed an unversioned item from the array, find the first unversioned item in the 'new'
+						// list again.
+						itFirstUnversionedEntry = std::partition(m_arStatusArray.begin(), m_arStatusArray.end(), IsEntryVersioned);
 					}
 					break;
-				} // switch (entry->status)
+				}
 			}
-		} // if (entry)
+			break;
+		} // switch (entry->status)
 	} // for (int i=0; i < (int)m_arStatusArray.size(); ++i)
 	return !bRefetchStatus;
 }
@@ -2108,62 +2104,62 @@ void CSVNStatusListCtrl::OnContextMenuGroup(CWnd * /*pWnd*/, CPoint point)
 {
 	POINT clientpoint = point;
 	ScreenToClient(&clientpoint);
-	if ((IsGroupViewEnabled())&&(GetGroupFromPoint(&clientpoint) >= 0))
+	if ((!IsGroupViewEnabled())||(GetGroupFromPoint(&clientpoint) < 0))
+		return;
+
+	if (!m_bHasCheckboxes)
+		return;		// no checkboxes, so nothing to select
+	CMenu popup;
+	if (!popup.CreatePopupMenu())
+		return;
+
+	CString temp;
+	temp.LoadString(IDS_STATUSLIST_CHECKGROUP);
+	popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_CHECKGROUP, temp);
+	temp.LoadString(IDS_STATUSLIST_UNCHECKGROUP);
+	popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNCHECKGROUP, temp);
+	int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+	bool bCheck = false;
+	switch (cmd)
 	{
-		if (!m_bHasCheckboxes)
-			return;		// no checkboxes, so nothing to select
-		CMenu popup;
-		if (popup.CreatePopupMenu())
+	case IDSVNLC_CHECKGROUP:
+		bCheck = true;
+		// fall through here
+	case IDSVNLC_UNCHECKGROUP:
 		{
-			CString temp;
-			temp.LoadString(IDS_STATUSLIST_CHECKGROUP);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_CHECKGROUP, temp);
-			temp.LoadString(IDS_STATUSLIST_UNCHECKGROUP);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNCHECKGROUP, temp);
-			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-			bool bCheck = false;
-			switch (cmd)
+			int group = GetGroupFromPoint(&clientpoint);
+			// go through all items and check/uncheck those assigned to the group
+			// but block the OnLvnItemChanged handler
+			m_bBlock = true;
+			LVITEM lv;
+			for (int i=0; i<GetItemCount(); ++i)
 			{
-			case IDSVNLC_CHECKGROUP:
-				bCheck = true;
-				// fall through here
-			case IDSVNLC_UNCHECKGROUP:
+				SecureZeroMemory(&lv, sizeof(LVITEM));
+				lv.mask = LVIF_GROUPID;
+				lv.iItem = i;
+				GetItem(&lv);
+				if (lv.iGroupId == group)
 				{
-					int group = GetGroupFromPoint(&clientpoint);
-					// go through all items and check/uncheck those assigned to the group
-					// but block the OnLvnItemChanged handler
-					m_bBlock = true;
-					LVITEM lv;
-					for (int i=0; i<GetItemCount(); ++i)
+					FileEntry * entry = GetListEntry(i);
+					if (entry)
 					{
-						SecureZeroMemory(&lv, sizeof(LVITEM));
-						lv.mask = LVIF_GROUPID;
-						lv.iItem = i;
-						GetItem(&lv);
-						if (lv.iGroupId == group)
+						bool bOldCheck = !!GetCheck(i);
+						SetEntryCheck(entry, i, bCheck);
+						if (bCheck != bOldCheck)
 						{
-							FileEntry * entry = GetListEntry(i);
-							if (entry)
-							{
-								bool bOldCheck = !!GetCheck(i);
-								SetEntryCheck(entry, i, bCheck);
-								if (bCheck != bOldCheck)
-								{
-									if (bCheck)
-										m_nSelected++;
-									else
-										m_nSelected--;
-								}
-							}
+							if (bCheck)
+								m_nSelected++;
+							else
+								m_nSelected--;
 						}
 					}
-					GetStatisticsString();
-					NotifyCheck();
-					m_bBlock = false;
 				}
-				break;
 			}
+			GetStatisticsString();
+			NotifyCheck();
+			m_bBlock = false;
 		}
+		break;
 	}
 }
 
@@ -3871,7 +3867,6 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 
 void CSVNStatusListCtrl::OnContextMenuHeader(CWnd * pWnd, CPoint point)
 {
-
 	CHeaderCtrl * pHeaderCtrl = (CHeaderCtrl *)pWnd;
 	if ((point.x == -1) && (point.y == -1))
 	{
@@ -3882,86 +3877,85 @@ void CSVNStatusListCtrl::OnContextMenuHeader(CWnd * pWnd, CPoint point)
 	}
 	Locker lock(m_critSec);
 	CMenu popup;
-	if (popup.CreatePopupMenu())
+	if (!popup.CreatePopupMenu())
+		return;
+
+	const int columnCount = m_ColumnManager.GetColumnCount();
+
+	CString temp;
+	const UINT uCheckedFlags = MF_STRING | MF_ENABLED | MF_CHECKED;
+	const UINT uUnCheckedFlags = MF_STRING | MF_ENABLED;
+
+	// build control menu
+
+	temp.LoadString(IDS_STATUSLIST_SHOWGROUPS);
+	popup.AppendMenu(IsGroupViewEnabled() ? uCheckedFlags : uUnCheckedFlags, columnCount, temp);
+
+	if (m_ColumnManager.AnyUnusedProperties())
 	{
-		int columnCount = m_ColumnManager.GetColumnCount();
+		temp.LoadString(IDS_STATUSLIST_REMOVEUNUSEDPROPS);
+		popup.AppendMenu(uUnCheckedFlags, columnCount+1, temp);
+	}
 
-		CString temp;
-		UINT uCheckedFlags = MF_STRING | MF_ENABLED | MF_CHECKED;
-		UINT uUnCheckedFlags = MF_STRING | MF_ENABLED;
+	temp.LoadString(IDS_STATUSLIST_RESETCOLUMNORDER);
+	popup.AppendMenu(uUnCheckedFlags, columnCount+2, temp);
+	popup.AppendMenu(MF_SEPARATOR);
 
-		// build control menu
+	// standard columns
+	for (int i = 1; i < SVNSLC_NUMCOLUMNS; ++i)
+	{
+		popup.AppendMenu ( m_ColumnManager.IsVisible(i) 
+			? uCheckedFlags 
+			: uUnCheckedFlags
+			, i
+			, m_ColumnManager.GetName(i));
+	}
 
-		temp.LoadString(IDS_STATUSLIST_SHOWGROUPS);
-		popup.AppendMenu(IsGroupViewEnabled() ? uCheckedFlags : uUnCheckedFlags, columnCount, temp);
+	// user-prop columns:
+	// find relevant ones and sort 'em
 
-		if (m_ColumnManager.AnyUnusedProperties())
-		{
-			temp.LoadString(IDS_STATUSLIST_REMOVEUNUSEDPROPS);
-			popup.AppendMenu(uUnCheckedFlags, columnCount+1, temp);
-		}
+	std::map<CString, int> sortedProps;
+	for (int i = SVNSLC_NUMCOLUMNS; i < columnCount; ++i)
+		if (m_ColumnManager.IsRelevant(i))
+			sortedProps[m_ColumnManager.GetName(i)] = i;
 
-		temp.LoadString(IDS_STATUSLIST_RESETCOLUMNORDER);
-		popup.AppendMenu(uUnCheckedFlags, columnCount+2, temp);
+	if (!sortedProps.empty())
+	{
+		// add 'em to the menu
+
 		popup.AppendMenu(MF_SEPARATOR);
 
-		// standard columns
-
-		for (int i = 1; i < SVNSLC_NUMCOLUMNS; ++i)
+		typedef std::map<CString, int>::const_iterator CIT;
+		for ( CIT iter = sortedProps.begin(), end = sortedProps.end()
+			; iter != end
+			; ++iter)
 		{
-			popup.AppendMenu ( m_ColumnManager.IsVisible(i) 
+			popup.AppendMenu ( m_ColumnManager.IsVisible(iter->second) 
 				? uCheckedFlags 
 				: uUnCheckedFlags
-				, i
-				, m_ColumnManager.GetName(i));
+				, iter->second
+				, iter->first);
 		}
+	}
 
-		// user-prop columns:
-		// find relevant ones and sort 'em
+	// show menu & let user pick an entry
 
-		std::map<CString, int> sortedProps;
-		for (int i = SVNSLC_NUMCOLUMNS; i < columnCount; ++i)
-			if (m_ColumnManager.IsRelevant(i))
-				sortedProps[m_ColumnManager.GetName(i)] = i;
-
-		if (!sortedProps.empty())
-		{
-			// add 'em to the menu
-
-			popup.AppendMenu(MF_SEPARATOR);
-
-			typedef std::map<CString, int>::const_iterator CIT;
-			for ( CIT iter = sortedProps.begin(), end = sortedProps.end()
-				; iter != end
-				; ++iter)
-			{
-				popup.AppendMenu ( m_ColumnManager.IsVisible(iter->second) 
-					? uCheckedFlags 
-					: uUnCheckedFlags
-					, iter->second
-					, iter->first);
-			}
-		}
-
-		// show menu & let user pick an entry
-
-		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-		if ((cmd >= 1)&&(cmd < columnCount))
-		{
-			m_ColumnManager.SetVisible (cmd, !m_ColumnManager.IsVisible(cmd));
-		} 
-		else if (cmd == columnCount)
-		{
-			EnableGroupView(!IsGroupViewEnabled());
-		} 
-		else if (cmd == columnCount+1)
-		{
-			m_ColumnManager.RemoveUnusedProps();
-		} 
-		else if (cmd == columnCount+2)
-		{
-			m_ColumnManager.ResetColumns (m_dwDefaultColumns);
-		}
+	int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+	if ((cmd >= 1)&&(cmd < columnCount))
+	{
+		m_ColumnManager.SetVisible (cmd, !m_ColumnManager.IsVisible(cmd));
+	} 
+	else if (cmd == columnCount)
+	{
+		EnableGroupView(!IsGroupViewEnabled());
+	} 
+	else if (cmd == columnCount+1)
+	{
+		m_ColumnManager.RemoveUnusedProps();
+	} 
+	else if (cmd == columnCount+2)
+	{
+		m_ColumnManager.ResetColumns (m_dwDefaultColumns);
 	}
 }
 
