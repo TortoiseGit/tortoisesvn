@@ -17,13 +17,14 @@
 # Tiago Deliberali Santos <tiago@gtplenus.com.br>
 # Leandro Herrera <leogherrera@msn.com>
 # Alex Vieira <chermucsnis@yahoo.com.br>
+# Rafael M. Heise <rmheise@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-08-30 16:01-0300\n"
+"PO-Revision-Date: 2009-09-02 00:16-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +32,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Portuguese\n"
 "X-Poedit-Country: BRAZIL\n"
-"X-Poedit-Bookmarks: -1,-1,-1,-1,-1,-1,1675,-1,-1,-1\n"
 
 #. Resource IDs: (10, 126)
 msgid " "
@@ -503,15 +503,15 @@ msgstr "E&xcluir..."
 
 #. Resource IDs: (12)
 msgid "&Diff"
-msgstr "&Comparar"
+msgstr "&Diferenças"
 
 #. Resource IDs: (17)
 msgid "&Diff with URL"
-msgstr "&Comparar com URL"
+msgstr "&Diferenças com URL"
 
 #. Resource IDs: (14)
 msgid "&Diff with previous version"
-msgstr "&Comparar com revisão anterior"
+msgstr "&Diferenças da revisão anterior"
 
 #. Resource IDs: (1066)
 msgid "&Docking"
@@ -1186,7 +1186,7 @@ msgstr "(excluir)"
 
 #. Resource IDs: (214)
 msgid "(externals)"
-msgstr "(externos)"
+msgstr "(referências externas)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -2499,7 +2499,7 @@ msgstr "Concluído"
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
-msgstr "Configurar Scripts de Gancho"
+msgstr "Configurar Script para Eventos"
 
 #. Resource IDs: (284)
 msgid "Configure Issue Tracker Integration"
@@ -3931,7 +3931,7 @@ msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
 msgstr ""
-"Filtrar os caminhos que contém um dos strings seguintes\n"
+"Filtrar os caminhos que contém um dos textos que segue\n"
 "(separe os caminhos com o caractere '*'):"
 
 #. Resource IDs: (321)
@@ -4264,11 +4264,11 @@ msgstr "Início"
 
 #. Resource IDs: (103)
 msgid "Hook Scripts"
-msgstr "Scripts de Gancho"
+msgstr "Script para Eventos"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Scripts de Gancho::Integração com Gerenciador de Casos"
+msgstr "Script para Eventos::Integração com Gerenciador de Casos"
 
 #. Resource IDs: (198)
 msgid "Hook Type"
@@ -5799,7 +5799,7 @@ msgstr "Omitir e&xternos"
 
 #. Resource IDs: (145)
 msgid "Omit externals"
-msgstr "Omitir externos"
+msgstr "Omitir referências externas"
 
 #. Resource IDs: (63)
 msgid ""
@@ -6046,11 +6046,11 @@ msgstr "Gráfico em Pizza"
 
 #. Resource IDs: (83)
 msgid "Please enter a hook script to execute."
-msgstr "Por favor, especifique o script de gancho para executar."
+msgstr "Por favor, especifique o script para executar."
 
 #. Resource IDs: (83)
 msgid "Please enter a path where to apply the hook script to."
-msgstr "Por favor, especifique o caminho onde o script de gancho deve ser aplicado."
+msgstr "Por favor, especifique o caminho onde o script deve ser aplicado."
 
 #. Resource IDs: (251)
 msgid "Please execute the 'Cleanup' command."
@@ -6439,7 +6439,7 @@ msgstr ""
 "c*   : corresponde ao caractere c zero ou mais vezes\r\n"
 "^   : início de linha\r\n"
 "$   : fim de linha\r\n"
-"(string){n} : corresponde a string repetida n vezes\r\n"
+"(texto){n} : corresponde ao texto repetido n vezes\r\n"
 "(abcd)   : subexpressão\r\n"
 "[aei0-9]   : corresponde a a,e,i e 0..9\r\n"
 "[^aei0-9] : qualquer coisa exceto a,e,i e 0..9\r\n"
@@ -7125,7 +7125,7 @@ msgstr "Procurar:"
 
 #. Resource IDs: (7)
 msgid "Search string not found!"
-msgstr "String procurada não encontrada!"
+msgstr "Texto procurado não encontrado!"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -7222,7 +7222,7 @@ msgstr "Selecione a pasta onde os arquivos selecionados serão salvos"
 
 #. Resource IDs: (197)
 msgid "Select hook script file"
-msgstr "Selecionar arquivo script de gancho"
+msgstr "Selecionar arquivo com o script para eventos"
 
 #. Resource IDs: (1405)
 msgid "Select items automatically"
@@ -7484,7 +7484,7 @@ msgstr "Mostrar pastas excluídas como normais"
 
 #. Resource IDs: (1480)
 msgid "Show externals from different repositories"
-msgstr "Mostrar externos de repositórios diferentes"
+msgstr "Mostrar referências externas de repositórios diferentes"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7496,7 +7496,7 @@ msgstr "Mostrar arquivos i&gnorados"
 
 #. Resource IDs: (1480)
 msgid "Show items in externals"
-msgstr "Mostrar itens em externos"
+msgstr "Mostrar itens de referências externas"
 
 #. Resource IDs: (1037)
 msgid "Show l&og"
@@ -7774,7 +7774,7 @@ msgstr "Cache de status"
 
 #. Resource IDs: (196)
 msgid "Status cache kept in an external process, can show the overlay recursively"
-msgstr "Cache de status mantido em um processo externo, poderá mostrar a sobre-escrita recursivamente"
+msgstr "Cache de situação mantido em um processo externo, poderá mostrar a sobre-escrita recursivamente"
 
 #. Resource IDs: (196)
 msgid "Status cache only for one folder, no recursive overlays"
@@ -7939,7 +7939,7 @@ msgstr "Alternar:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
-msgstr "Alternar comparação esquerda<->direita"
+msgstr "Alternar comparação esquerda<<->direita"
 
 #. Resource IDs: (65535)
 msgid "System &sounds"
@@ -8122,7 +8122,7 @@ msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr ""
-"O script de gancho retornou um erro:\n"
+"O script retornou um erro:\n"
 "%s"
 
 #. Resource IDs: (7)
@@ -9845,8 +9845,8 @@ msgid ""
 msgstr ""
 "bugtraq:logregex\r\n"
 "duas expressões regulares separadas por uma quebra-de-linha.\r\n"
-"A primeira expressão é usada para encontrar uma string associada a uma ocorrência,\r\n"
-"a segunda expressão é usada para extrair o ID do bug daquela string."
+"A primeira expressão é usada para encontrar um texto associado a uma ocorrência,\r\n"
+"a segunda expressão é usada para extrair o ID do bug daquele texto."
 
 #. Resource IDs: (577)
 #, c-format
@@ -9961,7 +9961,7 @@ msgstr "externo"
 
 #. Resource IDs: (65535)
 msgid "file external:"
-msgstr "externo de arquivo:"
+msgstr "arquivo externo:"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -9997,7 +9997,7 @@ msgstr "item mantido localmente"
 
 #. Resource IDs: (65535)
 msgid "last head update: "
-msgstr "última atualização HEAD:"
+msgstr "última atualização principal:"
 
 #. Resource IDs: (65535)
 msgid "last read: "
@@ -10005,7 +10005,7 @@ msgstr "última leitura:"
 
 #. Resource IDs: (65535)
 msgid "last update: "
-msgstr "última atualização"
+msgstr "última atualização:"
 
 #. Resource IDs: (11, 195)
 msgid "locked"
@@ -10310,11 +10310,11 @@ msgstr "para %s"
 
 #. Resource IDs: (208, 264)
 msgid "tree conflict"
-msgstr "conflito de árvore"
+msgstr "conflito de estrutura"
 
 #. Resource IDs: (65535)
 msgid "tree conflict:"
-msgstr "conflito de árvore:"
+msgstr "conflito de estrutura:"
 
 #. Resource IDs: (578)
 msgid ""
@@ -10446,8 +10446,8 @@ msgid ""
 msgstr ""
 "webviewer:pathrevision\r\n"
 "URL apontando para visualizador Web do repositório para um arquivo e revisão específicos.\r\n"
-"A string %REVISION% na URL é substituída pelo número da revisão,\r\n"
-"a string %PATH% é substituída pelo caminho do arquivo, relativo à raiz do repositório."
+"O parâmetro %REVISION% na URL é substituído pelo número da revisão,\r\n"
+"o parâmetro %PATH% é substituído pelo caminho do arquivo, relativo à raiz do repositório."
 
 #. Resource IDs: (579)
 #, c-format
@@ -10458,7 +10458,7 @@ msgid ""
 msgstr ""
 "webviewer:revisão\r\n"
 "URL apontando para o visualizador web de um repositório em uma revisão específica.\r\n"
-"A string %REVISION% nessa URL está sendo substituída pelo número da revisão."
+"O parâmetro %REVISION% nessa URL está sendo substituído pelo número da revisão."
 
 #. Resource IDs: (245)
 msgid "week"
