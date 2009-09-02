@@ -264,7 +264,8 @@ void CPathWatcher::WorkerThread()
 					}
 					AutoLocker lock(m_critSec);
 					ATLTRACE(_T("watching path %s\n"), pDirInfo->m_DirName.GetWinPath());
-                    watchInfoMap[pDirInfo->m_hDir] = pDirInfo.release();
+                    watchInfoMap[pDirInfo->m_hDir] = pDirInfo.get();
+                    pDirInfo.release();
 				}
 			}
 			else
