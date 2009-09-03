@@ -49,8 +49,6 @@ SVNInfo::SVNInfo(void)
 	: m_pctx(NULL)
 	, m_pos(0)
 {
-    SVNTRACE_BLOCK
-
 	m_pool = svn_pool_create (NULL);
 
 	svn_error_clear(svn_client_create_context(&m_pctx, m_pool));
@@ -89,8 +87,6 @@ SVNInfo::SVNInfo(void)
 
 SVNInfo::~SVNInfo(void)
 {
-    SVNTRACE_BLOCK
-
 	svn_error_clear(m_err);
 	svn_pool_destroy (m_pool);					// free the allocated memory
 }

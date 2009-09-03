@@ -42,10 +42,10 @@ CSVNTrace::CSVNTrace
     svnAPI = svnAPI.TrimLeft().SpanExcluding (" \r\n\t(");
     CStringA path;
     if (svnPath)
-        path = CStringA ("P:") + svnPath;
+        path = CStringA ("Path=") + svnPath;
 
     CStringA s;
-    s.Format ( "C:%d T:%d %s(%d) %s %s\n"
+    s.Format ( "#%d Thread:%d %s(%d) %s %s\n"
              , id
              , threadID
              , name

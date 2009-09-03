@@ -75,7 +75,7 @@ public:
     SVNTRACE_CONCAT(__svnTrace,__LINE__).Stop();
 
 #define SVNTRACE_BLOCK\
-    CSVNTrace SVNTRACE_CONCAT(__svnTrace,__LINE__) (__FUNCTION__,__LINE__,"<block>",NULL);
+    CSVNTrace SVNTRACE_CONCAT(__svnTrace,__LINE__) (__FUNCTION__,__LINE__,"<whole_block>",NULL);
 
 #else
 

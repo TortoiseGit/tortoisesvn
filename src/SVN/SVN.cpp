@@ -84,8 +84,6 @@ SVN::SVN(void) : m_progressWnd(0)
 	, progress_lasttotal(0)
 	, logCachePool()
 {
-    SVNTRACE_BLOCK
-
 	parentpool = svn_pool_create(NULL);
 	svn_error_clear(svn_client_create_context(&m_pctx, parentpool));
 
@@ -146,8 +144,6 @@ SVN::SVN(void) : m_progressWnd(0)
 
 SVN::~SVN(void)
 {
-    SVNTRACE_BLOCK
-
 	svn_error_clear(Err);
 	svn_pool_destroy (parentpool);
 

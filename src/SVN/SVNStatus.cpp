@@ -39,8 +39,6 @@
 SVNStatus::SVNStatus(bool * pbCanceled)
 	: status(NULL)
 {
-    SVNTRACE_BLOCK
-
 	m_pool = svn_pool_create (NULL);
 	
 	svn_error_clear(svn_client_create_context(&ctx, m_pool));
@@ -90,8 +88,6 @@ SVNStatus::SVNStatus(bool * pbCanceled)
 
 SVNStatus::~SVNStatus(void)
 {
-    SVNTRACE_BLOCK
-
 	svn_error_clear(m_err);
 	svn_pool_destroy (m_pool);					// free the allocated memory
 }
