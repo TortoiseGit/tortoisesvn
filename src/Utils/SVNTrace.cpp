@@ -19,6 +19,8 @@
 
 #include "stdafx.h"
 #include "SVNTrace.h"
+#include "DebugOutput.h"
+#include "UnicodeUtils.h"
 
 // global instance counter
 
@@ -27,33 +29,30 @@ volatile LONG CSVNTrace::counter = 0;
 // construction: write call description to ODS and start clock
 
 CSVNTrace::CSVNTrace 
-    ( const char* name
+    ( const wchar_t* name
     , int lineNo     
-    , const char* line
+    , const wchar_t* line
     , const char* svnPath)
     : id (InterlockedIncrement (&counter))
     , threadID (GetCurrentThreadId())
 {
-    CStringA svnAPI = line;
+    CString svnAPI = line;
     int assignPos = svnAPI.Find ('=');
     if (assignPos > 0)
         svnAPI.Delete (0, assignPos+1);
 
-    svnAPI = svnAPI.TrimLeft().SpanExcluding (" \r\n\t(");
-    CStringA path;
+    svnAPI = svnAPI.TrimLeft().SpanExcluding (_T(" \r\n\t("));
+    CString path;
     if (svnPath)
-        path = CStringA ("Path=") + svnPath;
+		path = CString (_T("Path=")) + CUnicodeUtils::GetUnicode(svnPath);
 
-    CStringA s;
-    s.Format ( "#%d Thread:%d %s(%d) %s %s\n"
+	CTraceToOutputDebugString::Instance()(_T("#%d Thread:%d %s(%d) %s %s\n")
              , id
              , threadID
              , name
              , lineNo
-             , (const char*)svnAPI
-             , (const char*)path);
-
-    OutputDebugStringA (s);
+             , (const wchar_t*)svnAPI
+             , (const wchar_t*)path);
 }
 
 
@@ -71,13 +70,12 @@ void CSVNTrace::Stop()
 {
     clock.Stop();
 
+
     CStringA s;
-    s.Format ( "C:%d T:%d done (%d µs)\n"
+    CTraceToOutputDebugString::Instance() ( _T("C:%d T:%d done (%d µs)\n")
              , id
              , threadID
              , clock.GetMusecsTaken());
     
-    OutputDebugStringA (s);
-
     id = -1;
 }

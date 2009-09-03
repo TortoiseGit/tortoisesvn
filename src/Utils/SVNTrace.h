@@ -44,9 +44,9 @@ public:
 
     /// construction: write call description to ODS and start clock
 
-    CSVNTrace ( const char* name    ///< name of the calling function
-              , int lineNo          ///< line number in the same source file
-              , const char* line    ///< svn API call
+    CSVNTrace ( const wchar_t* name		///< name of the calling function
+              , int lineNo				///< line number in the same source file
+              , const wchar_t* line		///< svn API call
               , const char* svnPath = NULL  ///< usually the main parameter
               );
 
@@ -63,25 +63,15 @@ public:
 * Tracing macros
 */
 
-#ifdef ENABLE_SVNTRACE
-
 #define SVNTRACE_CONCAT3( a, b )  a##b
 #define SVNTRACE_CONCAT2( a, b )  SVNTRACE_CONCAT3( a, b )
 #define SVNTRACE_CONCAT( a, b )   SVNTRACE_CONCAT2( a, b )
 
 #define SVNTRACE(line,path)\
-    CSVNTrace SVNTRACE_CONCAT(__svnTrace,__LINE__) (__FUNCTION__,__LINE__,#line,path);\
+    CSVNTrace SVNTRACE_CONCAT(__svnTrace,__LINE__) (_T(__FUNCTION__),__LINE__,_T(#line),path);\
     line;\
     SVNTRACE_CONCAT(__svnTrace,__LINE__).Stop();
 
 #define SVNTRACE_BLOCK\
-    CSVNTrace SVNTRACE_CONCAT(__svnTrace,__LINE__) (__FUNCTION__,__LINE__,"<whole_block>",NULL);
+    CSVNTrace SVNTRACE_CONCAT(__svnTrace,__LINE__) (_T(__FUNCTION__),__LINE__,_T("<whole block>"),NULL);
 
-#else
-
-#define SVNTRACE(line,path)\
-    line;
-
-#define SVNTRACE_BLOCK
-
-#endif
