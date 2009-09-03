@@ -3460,7 +3460,9 @@ void CRepositoryBrowser::InvalidateData (HTREEITEM node)
 
 void CRepositoryBrowser::InvalidateData (HTREEITEM node, const SVNRev& revision)
 {
-    CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData (node);
+	CTreeItem * pItem = NULL;
+	if (node != NULL) 
+		pItem = (CTreeItem *)m_RepoTree.GetItemData (node);
     if (pItem == NULL)
         m_lister.Refresh (revision);
     else
