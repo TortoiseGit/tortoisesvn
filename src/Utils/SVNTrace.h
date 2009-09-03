@@ -26,18 +26,29 @@
 #include "HighResClock.h"
 
 /**
-* RAII class that encapsulates a single execution of a profiled
-* block / line. The result gets added to an existing profiling record.
+* RAII class that encapsulates a single execution of a profiled block / line. 
+* Writes the results to TSVN's OutputDebugString wrapper.
 */
 
 class CSVNTrace
 {
 private:
 
+    /// global instance counter
+
     static volatile LONG counter;
 
+    /// used to measure the execution time until \ref Stop() gets called
+
     CHighResClock clock;
+
+    /// value of \ref counter upon construction,
+    /// i.e. unique call number
+
     LONG id;
+
+    /// thread identifier
+
     DWORD threadID;
 
 public:
@@ -73,5 +84,5 @@ public:
     SVNTRACE_CONCAT(__svnTrace,__LINE__).Stop();
 
 #define SVNTRACE_BLOCK\
-    CSVNTrace SVNTRACE_CONCAT(__svnTrace,__LINE__) (_T(__FUNCTION__),__LINE__,_T("<whole block>"),NULL);
+    CSVNTrace SVNTRACE_CONCAT(__svnTrace,__LINE__) (_T(__FUNCTION__),__LINE__,_T("<whole_block>"),NULL);
 
