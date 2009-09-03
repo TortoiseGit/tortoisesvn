@@ -809,9 +809,12 @@ void CCacheLogQuery::GetChanges
 	{
         if (first.HasFromPath() && (first.GetFromRevision() != NO_REVISION))
         {
+            CString fromPath 
+                = ConvertMapString (pathToStringMap, first.GetFromPath());
+
             result.Add 
                 ( ConvertMapString (pathToStringMap, first.GetPath())
-                , ConvertMapString (pathToStringMap, first.GetFromPath())
+                , fromPath
                 , first.GetFromRevision()
                 , static_cast<svn_node_kind_t>(first->GetPathType())
                 , (DWORD)first.GetAction() / 4);
