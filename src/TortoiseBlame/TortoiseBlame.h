@@ -131,7 +131,7 @@ protected:
 	void SetupLexer(LPCSTR filename);
 	void SetupCppLexer();
 	COLORREF InterColor(COLORREF c1, COLORREF c2, int Slider);
-	std::string GetAppDirectory();
+	static std::string GetAppDirectory();
 	std::vector<COLORREF>		colors;
 	HFONT						m_font;
 	HFONT						m_italicfont;
@@ -160,5 +160,6 @@ protected:
 	CRegStdDWORD					m_regNewLinesColor;
 
 private:
-	static void makeLower( char* buffer, size_t length );
+	static void MakeLower( char* buffer, size_t length );
+	static void RunCommand(const tstring& command);
 };

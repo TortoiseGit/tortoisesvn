@@ -179,6 +179,7 @@ public:
 	void			ShowDiffBar(bool bShow);
 
 private:
-	void onViewLineUpDown(int direction);
-	void onViewLineLeftRight(int direction);
+	void OnViewLineUpDown(int direction);
+	void OnViewLineLeftRight(int direction);
+	bool RunCommand(TCHAR* command);
 };

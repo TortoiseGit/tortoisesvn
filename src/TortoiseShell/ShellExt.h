@@ -225,7 +225,7 @@ private:
 	HRESULT			ConvertBufferToPARGB32(HPAINTBUFFER hPaintBuffer, HDC hdc, HICON hicon, SIZE& sizIcon);
 	bool			HasAlpha(__in ARGB *pargb, SIZE& sizImage, int cxRow);
 	HRESULT			ConvertToPARGB32(HDC hdc, __inout ARGB *pargb, HBITMAP hbmp, SIZE& sizImage, int cxRow);
-
+	static void		RunCommand( const tstring& path, const tstring& command, const tstring& folder, LPCTSTR errorMessage );
 
 public:
 	CShellExt(FileState state);

@@ -22,6 +22,7 @@
 #include "..\TSVNCache\CacheInterface.h"
 #include "TSVNPath.h"
 #include "PathUtils.h"
+#include "CreateProcessHelper.h"
 
 CRemoteCacheLink::CRemoteCacheLink(void) 
 	: m_hPipe(INVALID_HANDLE_VALUE)
@@ -182,14 +183,9 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 		if (GetProcessIntegrityLevel() < SECURITY_MANDATORY_MEDIUM_RID)
 			return false;
 
-		STARTUPINFO startup;
 		PROCESS_INFORMATION process;
-		memset(&startup, 0, sizeof(startup));
-		startup.cb = sizeof(startup);
-		memset(&process, 0, sizeof(process));
-
 		CString sCachePath = CPathUtils::GetAppDirectory(g_hmodThisDll) + _T("TSVNCache.exe");
-		if (CreateProcess(sCachePath.GetBuffer(sCachePath.GetLength()+1), NULL, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+		if (!CCreateProcessHelper::CreateProcess(sCachePath.GetBuffer(sCachePath.GetLength()+1), NULL, &process))
 		{
 			// It's not appropriate to do a message box here, because there may be hundreds of calls
 			sCachePath.ReleaseBuffer();

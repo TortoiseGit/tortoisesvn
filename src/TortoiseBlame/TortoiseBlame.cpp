@@ -22,6 +22,7 @@
 #include "registry.h"
 #include "LangDll.h"
 #include "auto_buffer.h"
+#include "CreateProcessHelper.h"
 
 #define MAX_LOADSTRING 1000
 
@@ -502,7 +503,7 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 
 	if(!bCaseSensitive)
 	{
-		makeLower(szWhat, strlen(szWhat));
+		MakeLower(szWhat, strlen(szWhat));
 	}
 
 	std::string sWhat = std::string(szWhat);
@@ -517,7 +518,7 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 		SendEditor(SCI_GETLINE, i, (LPARAM)linebuf.get());
 		if (!bCaseSensitive)
 		{
-			makeLower(linebuf, bufsize);
+			MakeLower(linebuf, bufsize);
 		}
 		_stprintf_s(buf, 20, _T("%ld"), revs[i]);
 		if (authors[i].compare(sWhat)==0)
@@ -539,7 +540,7 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 			SendEditor(SCI_GETLINE, i, (LPARAM)linebuf.get());
 			if (!bCaseSensitive)
 			{
-				makeLower(linebuf, bufsize);
+				MakeLower(linebuf, bufsize);
 			}
 			_stprintf_s(buf, 20, _T("%ld"), revs[i]);
 			if (authors[i].compare(sWhat)==0)
@@ -689,12 +690,6 @@ void TortoiseBlame::BlamePreviousRevision()
 	char bufLine[20];
 	_stprintf_s(bufLine, 20, _T("%d"), m_SelectedLine+1); //using the current line is a good guess.
 
-	STARTUPINFO startup;
-	PROCESS_INFORMATION process;
-	memset(&startup, 0, sizeof(startup));
-	startup.cb = sizeof(startup);
-	memset(&process, 0, sizeof(process));
-	tstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
 	tstring svnCmd = _T(" /command:blame ");
 	svnCmd += _T(" /path:\"");
 	svnCmd += szOrigPath;
@@ -711,11 +706,7 @@ void TortoiseBlame::BlamePreviousRevision()
 		svnCmd += _T(" /ignorespaces");
 	if (bIgnoreAllSpaces)
 		svnCmd += _T(" /ignoreallspaces");
-    if (CreateProcess(tortoiseProcPath.c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
-	{
-		CloseHandle(process.hThread);
-		CloseHandle(process.hProcess);
-	}
+	RunCommand(svnCmd);
 }
 
 void TortoiseBlame::DiffPreviousRevision()
@@ -734,12 +725,6 @@ void TortoiseBlame::DiffPreviousRevision()
 	char bufEndRev[20];
 	_stprintf_s(bufEndRev, 20, _T("%d"), nRevisionTo);
 
-	STARTUPINFO startup;
-	PROCESS_INFORMATION process;
-	memset(&startup, 0, sizeof(startup));
-	startup.cb = sizeof(startup);
-	memset(&process, 0, sizeof(process));
-	tstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
 	tstring svnCmd = _T(" /command:diff ");
 	svnCmd += _T(" /path:\"");
 	svnCmd += szOrigPath;
@@ -748,11 +733,7 @@ void TortoiseBlame::DiffPreviousRevision()
 	svnCmd += bufStartRev;
 	svnCmd += _T(" /endrev:");
 	svnCmd += bufEndRev;
-	if (CreateProcess(tortoiseProcPath.c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
-	{
-		CloseHandle(process.hThread);
-		CloseHandle(process.hProcess);
-	}
+	RunCommand(svnCmd);
 }
 
 void TortoiseBlame::ShowLog()
@@ -760,12 +741,6 @@ void TortoiseBlame::ShowLog()
 	char bufRev[20];
 	_stprintf_s(bufRev, 20, _T("%d"), m_selectedorigrev);
 
-	STARTUPINFO startup;
-	PROCESS_INFORMATION process;
-	memset(&startup, 0, sizeof(startup));
-	startup.cb = sizeof(startup);
-	memset(&process, 0, sizeof(process));
-	tstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
 	tstring svnCmd = _T(" /command:log ");
 	svnCmd += _T(" /path:\"");
 	svnCmd += szOrigPath;
@@ -774,11 +749,7 @@ void TortoiseBlame::ShowLog()
 	svnCmd += bufRev;
 	svnCmd += _T(" /pegrev:");
 	svnCmd += bufRev;
-	if (CreateProcess(tortoiseProcPath.c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
-	{
-		CloseHandle(process.hThread);
-		CloseHandle(process.hProcess);
-	}
+	RunCommand(svnCmd);
 }
 
 void TortoiseBlame::Notify(SCNotification *notification) 
@@ -1185,13 +1156,25 @@ void TortoiseBlame::StringExpand(LPWSTR str)
 	} while (cPos != NULL);
 }
 
-void TortoiseBlame::makeLower( char* buffer, size_t len )
+void TortoiseBlame::MakeLower( char* buffer, size_t len )
 {
 	for (char *p = buffer; p < buffer + len; p++)
 	{
 		if (isupper(*p)&&__isascii(*p))
 			*p = _tolower(*p);
 	}
+}
+
+void TortoiseBlame::RunCommand(const tstring& command)
+{
+	PROCESS_INFORMATION process;
+	memset(&process, 0, sizeof(process));
+	tstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
+	if(!CCreateProcessHelper::CreateProcess(tortoiseProcPath.c_str(), const_cast<TCHAR*>(command.c_str()), &process))
+		return;
+
+	CloseHandle(process.hThread);
+	CloseHandle(process.hProcess);
 }
 
 // Forward declarations of functions included in this code module:

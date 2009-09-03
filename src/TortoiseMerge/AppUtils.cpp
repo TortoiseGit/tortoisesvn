@@ -29,6 +29,7 @@
 #include "svn_diff.h"
 #include "svn_string.h"
 #include "svn_utf.h"
+#include "CreateProcessHelper.h"
 
 CAppUtils::CAppUtils(void)
 {
@@ -54,12 +55,8 @@ BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSaveP
 	sSCMPath.Replace(_T("%3"), sSavePath);
 	sSCMPath.Replace(_T("%4"), sTemp);
 	// start the external SCM program to fetch the specific version of the file
-	STARTUPINFO startup;
 	PROCESS_INFORMATION process;
-	memset(&startup, 0, sizeof(startup));
-	startup.cb = sizeof(startup);
-	memset(&process, 0, sizeof(process));
-	if (CreateProcess(NULL, (LPTSTR)(LPCTSTR)sSCMPath, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+	if (!CCreateProcessHelper::CreateProcess(NULL, (LPTSTR)(LPCTSTR)sSCMPath, &process))
 	{
 		LPVOID lpMsgBuf;
 		FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
@@ -220,7 +217,3 @@ bool CAppUtils::HasClipboardFormat(UINT format)
 	}
 	return false;
 }
-
-
-
-

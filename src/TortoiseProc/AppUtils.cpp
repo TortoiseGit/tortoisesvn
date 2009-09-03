@@ -32,6 +32,7 @@
 #include <intshcut.h>
 #include "auto_buffer.h"
 #include "StringUtils.h"
+#include "CreateProcessHelper.h"
 
 CAppUtils::CAppUtils(void)
 {
@@ -533,15 +534,9 @@ void CAppUtils::CreateFontForLogs(CFont& fontToCreate)
 
 bool CAppUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessageFormat, bool bWaitForStartup)
 {
-	STARTUPINFO startup;
 	PROCESS_INFORMATION process;
-	memset(&startup, 0, sizeof(startup));
-	startup.cb = sizeof(startup);
-	memset(&process, 0, sizeof(process));
-
 	CString cleanCommandLine(sCommandLine);
-
-	if (CreateProcess(NULL, const_cast<TCHAR*>((LPCTSTR)cleanCommandLine), NULL, NULL, FALSE, 0, 0, sOrigCWD, &startup, &process)==0)
+	if (!CCreateProcessHelper::CreateProcess(NULL, const_cast<TCHAR*>((LPCTSTR)cleanCommandLine), sOrigCWD, &process))
 	{
 		if(idErrMessageFormat != 0)
 		{

@@ -33,6 +33,7 @@
 #include ".\mainfrm.h"
 #include "auto_buffer.h"
 #include "StringUtils.h"
+#include "CreateProcessHelper.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -911,12 +912,13 @@ int CMainFrame::CheckResolved()
 	m_bHasConflicts = true;
 	if (m_pwndBottomView->IsWindowVisible())
 	{
-		if (m_pwndBottomView->m_pViewData)
+		CViewData* viewdata = m_pwndBottomView->m_pViewData;
+		if (viewdata)
 		{
-			for (int i=0; i<m_pwndBottomView->m_pViewData->GetCount(); i++)
+			for (int i=0; i<viewdata->GetCount(); i++)
 			{
-				if ((DIFFSTATE_CONFLICTED == m_pwndBottomView->m_pViewData->GetState(i))||
-					(DIFFSTATE_CONFLICTED_IGNORED == m_pwndBottomView->m_pViewData->GetState(i)))
+				const DiffStates state = viewdata->GetState(i);
+				if ((DIFFSTATE_CONFLICTED == state)||(DIFFSTATE_CONFLICTED_IGNORED == state))
 					return i;
 			}
 		}
@@ -1068,30 +1070,8 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 		cmd += m_Data.m_mergedFile.GetFilename() + _T("\"");
 		auto_buffer<TCHAR> buf(cmd.GetLength()+1);
 		_tcscpy_s(buf, cmd.GetLength()+1, cmd);
-		STARTUPINFO startup;
-		PROCESS_INFORMATION process;
-		memset(&startup, 0, sizeof(startup));
-		startup.cb = sizeof(startup);
-		memset(&process, 0, sizeof(process));
-		if (CreateProcess(NULL, buf, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
-		{
-			LPVOID lpMsgBuf;
-			FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-				FORMAT_MESSAGE_FROM_SYSTEM | 
-				FORMAT_MESSAGE_IGNORE_INSERTS,
-				NULL,
-				GetLastError(),
-				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-				(LPTSTR) &lpMsgBuf,
-				0,
-				NULL 
-				);
-			MessageBox((LPCTSTR)lpMsgBuf, _T("TortoiseMerge"), MB_OK | MB_ICONINFORMATION);
-			LocalFree( lpMsgBuf );
+		if(!RunCommand(buf))
 			return FALSE;
-		}
-		CloseHandle(process.hThread);
-		CloseHandle(process.hProcess);
 	}
 	return true;
 }
@@ -1190,7 +1170,6 @@ void CMainFrame::OnUpdateFileSaveAs(CCmdUI *pCmdUI)
 	} 
 	pCmdUI->Enable(bEnable);
 }
-
 
 void CMainFrame::OnUpdateViewOnewaydiff(CCmdUI *pCmdUI)
 {
@@ -1498,15 +1477,15 @@ int CMainFrame::FindSearchStart(int nDefault)
 
 void CMainFrame::OnViewLinedown()
 {
-	onViewLineUpDown(1);
+	OnViewLineUpDown(1);
 }
 
 void CMainFrame::OnViewLineup()
 {
-	onViewLineUpDown(-1);
+	OnViewLineUpDown(-1);
 }
 
-void CMainFrame::onViewLineUpDown(int direction)
+void CMainFrame::OnViewLineUpDown(int direction)
 {
 	if (m_pwndLeftView)
 		m_pwndLeftView->ScrollToLine(m_pwndLeftView->m_nTopLine+direction);
@@ -1519,15 +1498,15 @@ void CMainFrame::onViewLineUpDown(int direction)
 
 void CMainFrame::OnViewLineleft()
 {
-	onViewLineLeftRight(-1);
+	OnViewLineLeftRight(-1);
 }
 
 void CMainFrame::OnViewLineright()
 {
-	onViewLineLeftRight(1);
+	OnViewLineLeftRight(1);
 }
 
-void CMainFrame::onViewLineLeftRight(int direction)
+void CMainFrame::OnViewLineLeftRight(int direction)
 {
 	if (m_pwndLeftView)
 		m_pwndLeftView->ScrollSide(direction);
@@ -1756,42 +1735,18 @@ BOOL CMainFrame::MarkAsResolved()
 {
 	if (m_bReadOnly)
 		return FALSE;
-	if ((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible()))
-	{
-		TCHAR buf[MAX_PATH*3];
-		GetModuleFileName(NULL, buf, MAX_PATH);
-		TCHAR * end = _tcsrchr(buf, '\\');
-		end++;
-		(*end) = 0;
-		_tcscat_s(buf, MAX_PATH*3, _T("TortoiseProc.exe /command:resolve /path:\""));
-		_tcscat_s(buf, MAX_PATH*3, m_Data.m_mergedFile.GetFilename());
-		_tcscat_s(buf, MAX_PATH*3, _T("\" /closeonend:1 /noquestion /skipcheck"));
-		STARTUPINFO startup;
-		PROCESS_INFORMATION process;
-		memset(&startup, 0, sizeof(startup));
-		startup.cb = sizeof(startup);
-		memset(&process, 0, sizeof(process));
-		if (CreateProcess(NULL, buf, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
-		{
-			LPVOID lpMsgBuf;
-			FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-				FORMAT_MESSAGE_FROM_SYSTEM | 
-				FORMAT_MESSAGE_IGNORE_INSERTS,
-				NULL,
-				GetLastError(),
-				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-				(LPTSTR) &lpMsgBuf,
-				0,
-				NULL 
-				);
-			MessageBox((LPCTSTR)lpMsgBuf, _T("TortoiseMerge"), MB_OK | MB_ICONINFORMATION);
-			LocalFree( lpMsgBuf );
-			return FALSE;
-		}
-		CloseHandle(process.hThread);
-		CloseHandle(process.hProcess);
-	}
-	else
+	if ((!m_pwndBottomView)||(!m_pwndBottomView->IsWindowVisible()))
+		return FALSE;
+
+	TCHAR buf[MAX_PATH*3];
+	GetModuleFileName(NULL, buf, MAX_PATH);
+	TCHAR * end = _tcsrchr(buf, '\\');
+	end++;
+	(*end) = 0;
+	_tcscat_s(buf, MAX_PATH*3, _T("TortoiseProc.exe /command:resolve /path:\""));
+	_tcscat_s(buf, MAX_PATH*3, m_Data.m_mergedFile.GetFilename());
+	_tcscat_s(buf, MAX_PATH*3, _T("\" /closeonend:1 /noquestion /skipcheck"));
+	if(!RunCommand(buf))
 		return FALSE;
 	return TRUE;
 }
@@ -2041,3 +1996,29 @@ void CMainFrame::OnViewLocatorbar()
 	m_wndLineDiffBar.DocumentUpdated();
 }
 
+bool CMainFrame::RunCommand(TCHAR* command)
+{
+	PROCESS_INFORMATION process;
+	if(CCreateProcessHelper::CreateProcess (NULL, command, &process))
+	{
+		CloseHandle(process.hThread);
+		CloseHandle(process.hProcess);
+		return true;
+	}
+
+	LPVOID lpMsgBuf;
+	FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+		FORMAT_MESSAGE_FROM_SYSTEM | 
+		FORMAT_MESSAGE_IGNORE_INSERTS,
+		NULL,
+		GetLastError(),
+		MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+		(LPTSTR) &lpMsgBuf,
+		0,
+		NULL 
+		);
+
+    MessageBox((LPCTSTR)lpMsgBuf, _T("TortoiseMerge"), MB_OK | MB_ICONINFORMATION);
+	LocalFree( lpMsgBuf );
+	return false;
+}
