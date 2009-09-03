@@ -72,7 +72,7 @@ void CSVNTrace::Stop()
 
 
     CStringA s;
-    CTraceToOutputDebugString::Instance() ( _T("C:%d T:%d done (%d µs)\n")
+    CTraceToOutputDebugString::Instance() ( _T("#%d Thread:%d done (%d µs)\n")
              , id
              , threadID
              , clock.GetMusecsTaken());
