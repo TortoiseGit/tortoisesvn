@@ -457,6 +457,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\Utils\DebugOutput.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\IconOverlay.cpp"
 				>
 			</File>
@@ -569,6 +573,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\Utils\SVNTrace.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\Utils\SysInfo.cpp"
 				>
 			</File>
@@ -589,6 +597,10 @@
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc"
 			>
+			<File
+				RelativePath="..\Utils\DebugOutput.h"
+				>
+			</File>
 			<File
 				RelativePath=".\Globals.h"
 				>
@@ -679,6 +691,10 @@
 			</File>
 			<File
 				RelativePath="..\SVN\SVNStatus.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\SVNTrace.h"
 				>
 			</File>
 			<File
