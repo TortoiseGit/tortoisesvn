@@ -101,26 +101,17 @@ CBaseView::CBaseView()
 	{
 		m_apFonts[i] = NULL;
 	}
-	m_hConflictedIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_CONFLICTEDLINE), 
-									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-	m_hConflictedIgnoredIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_CONFLICTEDIGNOREDLINE), 
-									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-	m_hRemovedIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_REMOVEDLINE), 
-									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-	m_hAddedIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ADDEDLINE), 
-									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-	m_hWhitespaceBlockIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_WHITESPACELINE),
-									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-	m_hEqualIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_EQUALLINE),
-									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-	m_hLineEndingCR = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_LINEENDINGCR),
-									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-	m_hLineEndingCRLF = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_LINEENDINGCRLF),
-									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-	m_hLineEndingLF = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_LINEENDINGLF),
-									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-	m_hEditedIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_LINEEDITED),
-									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	m_hConflictedIcon = LoadIcon(IDI_CONFLICTEDLINE);
+	m_hConflictedIgnoredIcon = LoadIcon(IDI_CONFLICTEDIGNOREDLINE); 
+	m_hRemovedIcon = LoadIcon(IDI_REMOVEDLINE);
+	m_hAddedIcon = LoadIcon(IDI_ADDEDLINE);
+	m_hWhitespaceBlockIcon = LoadIcon(IDI_WHITESPACELINE);
+	m_hEqualIcon = LoadIcon(IDI_EQUALLINE);
+	m_hLineEndingCR = LoadIcon(IDI_LINEENDINGCR);
+	m_hLineEndingCRLF = LoadIcon(IDI_LINEENDINGCRLF);
+	m_hLineEndingLF = LoadIcon(IDI_LINEENDINGLF);
+	m_hEditedIcon = LoadIcon(IDI_LINEEDITED);
+
 	for (int i=0; i<1024; ++i)
 		m_sConflictedText += _T("??");
 	m_sNoLineNr.LoadString(IDS_EMPTYLINETT);
@@ -129,11 +120,7 @@ CBaseView::CBaseView()
 
 CBaseView::~CBaseView()
 {
-	if (m_pCacheBitmap)
-	{
-		m_pCacheBitmap->DeleteObject();
-		delete m_pCacheBitmap;
-	}
+	ReleaseBitmap();
 	DeleteFonts();
 	DestroyIcon(m_hAddedIcon);
 	DestroyIcon(m_hRemovedIcon);
@@ -186,12 +173,7 @@ END_MESSAGE_MAP()
 
 void CBaseView::DocumentUpdated()
 {
-	if (m_pCacheBitmap != NULL)
-	{
-		m_pCacheBitmap->DeleteObject();
-		delete m_pCacheBitmap;
-		m_pCacheBitmap = NULL;
-	}
+	ReleaseBitmap();
 	m_nLineHeight = -1;
 	m_nCharWidth = -1;
 	m_nScreenChars = -1;
@@ -588,7 +570,6 @@ CString CBaseView::GetWhitespaceBlock(CViewData *viewData, int nLineIndex)
 
 bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 {
-	enum { MAX_WHITESPACEBLOCK_SIZE	= 8 };
 	CheckOtherView();
 	if (!m_pOtherViewData)
 		return false;
@@ -596,11 +577,15 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 		(m_pViewData->GetState(nLineIndex) == DIFFSTATE_NORMAL) &&
 		(m_pOtherViewData->GetLine(nLineIndex) == m_pViewData->GetLine(nLineIndex))
 		)
+	{
 		return false;
+	}
 
 	CString mine = GetWhitespaceBlock(m_pViewData, nLineIndex);
 	CString other;
-	if (!mine.IsEmpty())
+	if (mine.IsEmpty())
+		bIdentical = false;
+	else
 	{
 		other = GetWhitespaceBlock(m_pOtherViewData, min(nLineIndex, m_pOtherViewData->GetCount() - 1));
 		bIdentical = mine == other;
@@ -613,10 +598,8 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 		other.Replace(_T("\r"), _T(""));
 		other.Replace(_T("\n"), _T(""));
 	}
-	else
-		bIdentical = false;
-		
-	return (mine == other) && (!mine.IsEmpty());
+
+	return (!mine.IsEmpty()) && (mine == other);
 }
 
 int CBaseView::GetLineNumber(int index) const
@@ -1658,21 +1641,12 @@ void CBaseView::OnDestroy()
 {
 	CView::OnDestroy();
 	DeleteFonts();
-	if (m_pCacheBitmap != NULL)
-	{
-		delete m_pCacheBitmap;
-		m_pCacheBitmap = NULL;
-	}
+	ReleaseBitmap();
 }
 
 void CBaseView::OnSize(UINT nType, int cx, int cy)
 {
-	if (m_pCacheBitmap != NULL)
-	{
-		m_pCacheBitmap->DeleteObject();
-		delete m_pCacheBitmap;
-		m_pCacheBitmap = NULL;
-	}
+	ReleaseBitmap();
 	// make sure the view header is redrawn
 	CRect rcScroll;
 	GetClientRect(&rcScroll);
@@ -2426,27 +2400,28 @@ void CBaseView::SelectLines(int nLine1, int nLine2)
 
 void CBaseView::ShowDiffLines(int nLine)
 {
-	if ((nLine >= m_nTopLine)&&(nLine < GetLineCount()))
+	if ((nLine < m_nTopLine)||(nLine >= GetLineCount()))
 	{
-		if ((m_pwndRight)&&(m_pwndRight->m_pViewData)&&(m_pwndLeft)&&(m_pwndLeft->m_pViewData)&&(!m_pMainFrame->m_bOneWay))
-		{
-			nLine = (nLine > m_pwndRight->m_pViewData->GetCount() ? -1 : nLine);
-			nLine = (nLine > m_pwndLeft->m_pViewData->GetCount() ? -1 : nLine);
-
-			if (nLine >= 0)
-			{
-				if (nLine != m_nMouseLine)
-				{
-					m_nMouseLine = nLine;
-					if (nLine >= GetLineCount())
-						nLine = -1;
-					m_pwndLineDiffBar->ShowLines(nLine);
-				}
-			}
-		}
+		m_pwndLineDiffBar->ShowLines(nLine);
+		return;
 	}
-	else
+
+	if ((!m_pwndRight)||(!m_pwndRight->m_pViewData)||(!m_pwndLeft)||(!m_pwndLeft->m_pViewData))
+		return;
+	if(m_pMainFrame->m_bOneWay)
+		return;
+
+	nLine = (nLine > m_pwndRight->m_pViewData->GetCount() ? -1 : nLine);
+	nLine = (nLine > m_pwndLeft->m_pViewData->GetCount() ? -1 : nLine);
+
+	if (nLine < 0)
+		return;
+
+	if (nLine != m_nMouseLine)
 	{
+		m_nMouseLine = nLine;
+		if (nLine >= GetLineCount())
+			nLine = -1;
 		m_pwndLineDiffBar->ShowLines(nLine);
 	}
 }
@@ -2743,7 +2718,9 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 	if ((::GetKeyState(VK_LBUTTON) & 0x8000) != 0 ||
 		(::GetKeyState(VK_RBUTTON) & 0x8000) != 0)
+	{
 		return;
+	}
 
 	if ((nChar > 31)||(nChar == VK_TAB))
 	{
@@ -3164,5 +3141,22 @@ void CBaseView::CompensateForKeyboard(CPoint& point)
 		CRect rect;
 		GetWindowRect(&rect);
 		point = rect.CenterPoint();
+	}
+}
+
+HICON CBaseView::LoadIcon(WORD iconId)
+{
+	HANDLE icon = ::LoadImage( AfxGetResourceHandle(), MAKEINTRESOURCE(iconId), 
+						IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	return (HICON)icon;
+}
+
+void CBaseView::ReleaseBitmap()
+{
+	if (m_pCacheBitmap != NULL)
+	{
+		m_pCacheBitmap->DeleteObject();
+		delete m_pCacheBitmap;
+		m_pCacheBitmap = NULL;
 	}
 }

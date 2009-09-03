@@ -306,4 +306,6 @@ protected:
 	UINT GetMenuFlags(DiffStates state) const;
 	void AddCutCopyAndPaste(CMenu& popup);
 	void CompensateForKeyboard(CPoint& point);
+	static HICON LoadIcon(WORD iconId);
+	void ReleaseBitmap();
 };
