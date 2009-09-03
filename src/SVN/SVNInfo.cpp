@@ -26,6 +26,7 @@
 #include "registry.h"
 #include "TSVNPath.h"
 #include "PathUtils.h"
+#include "SVNTrace.h"
 
 SVNInfoData::SVNInfoData()
     : kind(svn_node_none)
@@ -48,6 +49,8 @@ SVNInfo::SVNInfo(void)
 	: m_pctx(NULL)
 	, m_pos(0)
 {
+    SVNTRACE_BLOCK
+
 	m_pool = svn_pool_create (NULL);
 
 	svn_error_clear(svn_client_create_context(&m_pctx, m_pool));
@@ -86,6 +89,8 @@ SVNInfo::SVNInfo(void)
 
 SVNInfo::~SVNInfo(void)
 {
+    SVNTRACE_BLOCK
+
 	svn_error_clear(m_err);
 	svn_pool_destroy (m_pool);					// free the allocated memory
 }
@@ -115,7 +120,12 @@ const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegr
 	svn_error_clear(m_err);
 	m_arInfo.clear();
 	m_pos = 0;
-	m_err = svn_client_info2(path.GetSVNApiPath(m_pool), pegrev, revision, infoReceiver, this, depth, NULL, m_pctx, m_pool);
+
+    const char* svnPath = path.GetSVNApiPath(m_pool);
+    SVNTRACE (
+	    m_err = svn_client_info2(svnPath, pegrev, revision, infoReceiver, this, depth, NULL, m_pctx, m_pool),
+        svnPath
+    )
 	if (m_err != NULL)
 		return NULL;
 	if (m_arInfo.size() == 0)

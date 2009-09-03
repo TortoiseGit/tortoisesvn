@@ -390,14 +390,6 @@
 			Name="Utils"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc"
 			>
-			<File
-				RelativePath="..\Utils\ProfilingInfo.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\ProfilingInfo.h"
-				>
-			</File>
 			<Filter
 				Name="General"
 				>
@@ -550,6 +542,14 @@
 					>
 				</File>
 				<File
+					RelativePath="..\Utils\ProfilingInfo.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\ProfilingInfo.h"
+					>
+				</File>
+				<File
 					RelativePath=".\ProjectProperties.cpp"
 					>
 				</File>
@@ -619,6 +619,14 @@
 				</File>
 				<File
 					RelativePath="..\Utils\StringUtils.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\SVNTrace.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\SVNTrace.h"
 					>
 				</File>
 				<File
@@ -1688,11 +1696,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\link.ico"
+				RelativePath="..\Resources\link.ico"
 				>
 			</File>
 			<File
-				RelativePath="..\Resources\link.ico"
+				RelativePath=".\link.ico"
 				>
 			</File>
 			<File
