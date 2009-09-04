@@ -52,6 +52,7 @@
 #include "SysImageList.h"
 #include "svn_props.h"
 #include "AsyncCall.h"
+#include "svntrace.h"
 
 #if (NTDDI_VERSION < NTDDI_LONGHORN)
 
@@ -1054,7 +1055,13 @@ void CLogDlg::LogThread()
 	    SVNPool localpool(pool);
 	    svn_error_clear(Err);
 	    apr_hash_t * mergeinfo = NULL;
-	    if (svn_client_mergeinfo_get_merged (&mergeinfo, m_mergePath.GetSVNApiPath(localpool), SVNRev(SVNRev::REV_WC), m_pctx, localpool) == NULL)
+
+        const char* svnPath = m_mergePath.GetSVNApiPath(localpool);
+        SVNTRACE (
+            Err = svn_client_mergeinfo_get_merged (&mergeinfo, svnPath, SVNRev(SVNRev::REV_WC), m_pctx, localpool),
+            svnPath
+        )
+	    if (Err == NULL)
 	    {
 		    // now check the relative paths
 		    apr_hash_index_t *hi;

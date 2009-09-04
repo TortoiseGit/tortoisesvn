@@ -32,6 +32,7 @@
 #include "SVNError.h"
 #include "SVNHelpers.h"
 #include "TSVNPath.h"
+#include "svntrace.h"
 
 // SVN API utility
 
@@ -385,18 +386,21 @@ void CSVNLogQuery::Log ( const CTSVNPathList& targets
         }
     }
 
-	svn_error_t *result = svn_client_log5 ( targets.MakePathArray (localpool)
-										  , peg_revision
-                                          , revision_ranges
-										  , limit
-										  , includeChanges
-										  , strictNodeHistory
-										  , includeMerges
-                                          , revprops
-										  , LogReceiver
-										  , (void *)&baton
-										  , context
-										  , localpool);
+    SVNTRACE (
+	    svn_error_t *result = svn_client_log5 ( targets.MakePathArray (localpool)
+										      , peg_revision
+                                              , revision_ranges
+										      , limit
+										      , includeChanges
+										      , strictNodeHistory
+										      , includeMerges
+                                              , revprops
+										      , LogReceiver
+										      , (void *)&baton
+										      , context
+										      , localpool),
+        NULL
+    );
 
     if (result != NULL)
 		throw SVNError (result);

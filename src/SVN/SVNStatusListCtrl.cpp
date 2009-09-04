@@ -52,6 +52,7 @@
 #include "ProgressDlg.h"
 #include "StringUtils.h"
 #include "auto_buffer.h"
+#include "svntrace.h"
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
 					= ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
@@ -465,6 +466,8 @@ void CSVNStatusListCtrl::FetchUserProperties()
 
     for (size_t i = 0, count = m_arStatusArray.size(); i < count; ++i)
     {
+        SVNTRACE_BLOCK
+
         // local / temp pool to hold parameters and props for a single item
 
     	SVNPool localPool ((apr_pool_t*)globalPool);
