@@ -555,113 +555,110 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 	status.GetExternals(m_externalSet);
 
 	m_HeadRev = SVNRev(status.headrev);
-	if (s!=0)
-	{
-		svn_wc_status_kind wcFileStatus = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-
-		// This one fixes a problem with externals:
-		// If a strLine is a file, svn:externals and its parent directory
-		// will also be returned by GetXXXFileStatus. Hence, we skip all
-		// status info until we find the one matching workingTarget.
-		if (!workingTarget.IsDirectory())
-		{
-			if (!workingTarget.IsEquivalentTo(svnPath))
-			{
-				while (s != 0)
-				{
-					s = status.GetNextFileStatus(svnPath);
-					if(workingTarget.IsEquivalentTo(svnPath))
-					{
-						break;
-					}
-				}
-				if (s == 0)
-				{
-					m_sLastError = status.GetLastErrorMsg();
-					return false;
-				}
-				// Now, set working target to be the base folder of this item
-				workingTarget = workingTarget.GetDirectory();
-			}
-		}
-		bool bEntryFromDifferentRepo = false;
-		// Is this a versioned item with an associated repos UUID?
-		if ((s->entry)&&(s->entry->uuid))
-		{
-			// Have we seen a repos UUID yet?
-			if (strCurrentRepositoryUUID.IsEmpty())
-			{
-				// This is the first repos UUID we've seen - record it
-				strCurrentRepositoryUUID = s->entry->uuid;
-				m_sUUID = strCurrentRepositoryUUID;
-			}
-			else
-			{
-				if (strCurrentRepositoryUUID.Compare(s->entry->uuid)!=0)
-				{
-					// This item comes from a different repository than our main one
-					m_bHasExternalsFromDifferentRepos = TRUE;
-					bEntryFromDifferentRepo = true;
-					if (s->entry->kind == svn_node_dir)
-						arExtPaths.AddPath(workingTarget);
-				}
-			}
-		}
-		else if (strCurrentRepositoryUUID.IsEmpty() && (s->text_status == svn_wc_status_added))
-		{
-			// An added entry doesn't have an UUID assigned to it yet.
-			// So we fetch the status of the parent directory instead and
-			// check if that one has an UUID assigned to it.
-			svn_wc_status2_t * sparent;
-			CTSVNPath path = workingTarget;
-			do
-			{
-				CTSVNPath svnParentPath;
-				SVNStatus tempstatus;
-				sparent = tempstatus.GetFirstFileStatus(path.GetContainingDirectory(), svnParentPath, false, svn_depth_empty, false);
-				path = svnParentPath;
-			} while ( (sparent) && (sparent->entry) && (!sparent->entry->uuid) && (sparent->text_status==svn_wc_status_added) );
-			if (sparent && sparent->entry && sparent->entry->uuid)
-			{
-				strCurrentRepositoryUUID = sparent->entry->uuid;
-				m_sUUID = strCurrentRepositoryUUID;
-			}
-		}
-
-		if ((wcFileStatus == svn_wc_status_unversioned)&& svnPath.IsDirectory())
-		{
-			// check if the unversioned folder is maybe versioned. This
-			// could happen with nested layouts
-			svn_wc_status_kind st = SVNStatus::GetAllStatus(workingTarget);
-			if ((st != svn_wc_status_unversioned)&&(st != svn_wc_status_none))
-			{
-				return true;	// ignore nested layouts
-			}
-		}
-		if (status.IsExternal(svnPath))
-		{
-			m_bHasExternals = TRUE;
-		}
-
-		AddNewFileEntry(s, svnPath, workingTarget, true, m_bHasExternals, bEntryFromDifferentRepo);
-
-		if (((wcFileStatus == svn_wc_status_unversioned)||(wcFileStatus == svn_wc_status_none)||((wcFileStatus == svn_wc_status_ignored)&&(m_bShowIgnores))) && svnPath.IsDirectory())
-		{
-			// we have an unversioned folder -> get all files in it recursively!
-			AddUnversionedFolder(svnPath, workingTarget.GetContainingDirectory(), &config);
-		}
-
-		// for folders, get all statuses inside it too
-		if(workingTarget.IsDirectory())
-		{
-			ReadRemainingItemsStatus(status, workingTarget, strCurrentRepositoryUUID, arExtPaths, &config, bAllDirect);
-		}
-
-	} // if (s!=0)
-	else
+	if (s==0)
 	{
 		m_sLastError = status.GetLastErrorMsg();
 		return false;
+	}
+
+	svn_wc_status_kind wcFileStatus = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+
+	// This one fixes a problem with externals:
+	// If a strLine is a file, svn:externals and its parent directory
+	// will also be returned by GetXXXFileStatus. Hence, we skip all
+	// status info until we find the one matching workingTarget.
+	if (!workingTarget.IsDirectory())
+	{
+		if (!workingTarget.IsEquivalentTo(svnPath))
+		{
+			while (s != 0)
+			{
+				s = status.GetNextFileStatus(svnPath);
+				if(workingTarget.IsEquivalentTo(svnPath))
+				{
+					break;
+				}
+			}
+			if (s == 0)
+			{
+				m_sLastError = status.GetLastErrorMsg();
+				return false;
+			}
+			// Now, set working target to be the base folder of this item
+			workingTarget = workingTarget.GetDirectory();
+		}
+	}
+	bool bEntryFromDifferentRepo = false;
+	// Is this a versioned item with an associated repos UUID?
+	if ((s->entry)&&(s->entry->uuid))
+	{
+		// Have we seen a repos UUID yet?
+		if (strCurrentRepositoryUUID.IsEmpty())
+		{
+			// This is the first repos UUID we've seen - record it
+			strCurrentRepositoryUUID = s->entry->uuid;
+			m_sUUID = strCurrentRepositoryUUID;
+		}
+		else
+		{
+			if (strCurrentRepositoryUUID.Compare(s->entry->uuid)!=0)
+			{
+				// This item comes from a different repository than our main one
+				m_bHasExternalsFromDifferentRepos = TRUE;
+				bEntryFromDifferentRepo = true;
+				if (s->entry->kind == svn_node_dir)
+					arExtPaths.AddPath(workingTarget);
+			}
+		}
+	}
+	else if (strCurrentRepositoryUUID.IsEmpty() && (s->text_status == svn_wc_status_added))
+	{
+		// An added entry doesn't have an UUID assigned to it yet.
+		// So we fetch the status of the parent directory instead and
+		// check if that one has an UUID assigned to it.
+		svn_wc_status2_t * sparent;
+		CTSVNPath path = workingTarget;
+		do
+		{
+			CTSVNPath svnParentPath;
+			SVNStatus tempstatus;
+			sparent = tempstatus.GetFirstFileStatus(path.GetContainingDirectory(), svnParentPath, false, svn_depth_empty, false);
+			path = svnParentPath;
+		} while ( (sparent) && (sparent->entry) && (!sparent->entry->uuid) && (sparent->text_status==svn_wc_status_added) );
+		if (sparent && sparent->entry && sparent->entry->uuid)
+		{
+			strCurrentRepositoryUUID = sparent->entry->uuid;
+			m_sUUID = strCurrentRepositoryUUID;
+		}
+	}
+
+	if ((wcFileStatus == svn_wc_status_unversioned)&& svnPath.IsDirectory())
+	{
+		// check if the unversioned folder is maybe versioned. This
+		// could happen with nested layouts
+		svn_wc_status_kind st = SVNStatus::GetAllStatus(workingTarget);
+		if ((st != svn_wc_status_unversioned)&&(st != svn_wc_status_none))
+		{
+			return true;	// ignore nested layouts
+		}
+	}
+	if (status.IsExternal(svnPath))
+	{
+		m_bHasExternals = TRUE;
+	}
+
+	AddNewFileEntry(s, svnPath, workingTarget, true, m_bHasExternals, bEntryFromDifferentRepo);
+
+	if (((wcFileStatus == svn_wc_status_unversioned)||(wcFileStatus == svn_wc_status_none)||((wcFileStatus == svn_wc_status_ignored)&&(m_bShowIgnores))) && svnPath.IsDirectory())
+	{
+		// we have an unversioned folder -> get all files in it recursively!
+		AddUnversionedFolder(svnPath, workingTarget.GetContainingDirectory(), &config);
+	}
+
+	// for folders, get all statuses inside it too
+	if(workingTarget.IsDirectory())
+	{
+		ReadRemainingItemsStatus(status, workingTarget, strCurrentRepositoryUUID, arExtPaths, &config, bAllDirect);
 	}
 
 	return true;
@@ -2141,21 +2138,20 @@ void CSVNStatusListCtrl::OnContextMenuGroup(CWnd * /*pWnd*/, CPoint point)
 				lv.mask = LVIF_GROUPID;
 				lv.iItem = i;
 				GetItem(&lv);
-				if (lv.iGroupId == group)
+				if (lv.iGroupId != group)
+					continue;
+
+				FileEntry * entry = GetListEntry(i);
+				if (!entry)
+					continue;
+				bool bOldCheck = !!GetCheck(i);
+				SetEntryCheck(entry, i, bCheck);
+				if (bCheck != bOldCheck)
 				{
-					FileEntry * entry = GetListEntry(i);
-					if (entry)
-					{
-						bool bOldCheck = !!GetCheck(i);
-						SetEntryCheck(entry, i, bCheck);
-						if (bCheck != bOldCheck)
-						{
-							if (bCheck)
-								m_nSelected++;
-							else
-								m_nSelected--;
-						}
-					}
+					if (bCheck)
+						m_nSelected++;
+					else
+						m_nSelected--;
 				}
 			}
 			GetStatisticsString();
@@ -3601,19 +3597,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 									}
 									else
 									{
-										LPVOID lpMsgBuf;
-										FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-											FORMAT_MESSAGE_FROM_SYSTEM | 
-											FORMAT_MESSAGE_IGNORE_INSERTS,
-											NULL,
-											GetLastError(),
-											MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-											(LPTSTR) &lpMsgBuf,
-											0,
-											NULL 
-											);
-										MessageBox((LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
-										LocalFree( lpMsgBuf );
+										ShowErrorMessage();
 									}
 								}
 							}
@@ -3694,37 +3678,13 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 											}
 											else
 											{
-												LPVOID lpMsgBuf;
-												FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-													FORMAT_MESSAGE_FROM_SYSTEM | 
-													FORMAT_MESSAGE_IGNORE_INSERTS,
-													NULL,
-													GetLastError(),
-													MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-													(LPTSTR) &lpMsgBuf,
-													0,
-													NULL 
-													);
-												MessageBox((LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
-												LocalFree( lpMsgBuf );
+												ShowErrorMessage();
 											}
 										}
 									}
 									else
 									{
-										LPVOID lpMsgBuf;
-										FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-											FORMAT_MESSAGE_FROM_SYSTEM | 
-											FORMAT_MESSAGE_IGNORE_INSERTS,
-											NULL,
-											GetLastError(),
-											MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-											(LPTSTR) &lpMsgBuf,
-											0,
-											NULL 
-											);
-										MessageBox((LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
-										LocalFree( lpMsgBuf );
+										ShowErrorMessage();
 									}
 								}
 							}
@@ -3964,7 +3924,6 @@ void CSVNStatusListCtrl::OnContextMenuHeader(CWnd * pWnd, CPoint point)
 
 void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 {
-
 	if (pWnd == this)
 	{
 		OnContextMenuList(pWnd, point);
@@ -4572,25 +4531,24 @@ void CSVNStatusListCtrl::OnNMReturn(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	{
 		int index = GetNextSelectedItem(pos);
 		FileEntry * entry = GetListEntry(index);
-		if (entry)
+		if (!entry)
+			continue;
+		if (entry->isConflicted)
 		{
-			if (entry->isConflicted)
+			CString sCmd;
+			sCmd.Format(_T("\"%s\" /command:conflicteditor /path:\"%s\""),
+				(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), entry->GetPath().GetWinPath());
+			if (!entry->GetPath().IsUrl())
 			{
-				CString sCmd;
-				sCmd.Format(_T("\"%s\" /command:conflicteditor /path:\"%s\""),
-					(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), entry->GetPath().GetWinPath());
-				if (!entry->GetPath().IsUrl())
-				{
-					sCmd += _T(" /propspath:\"");
-					sCmd += entry->GetPath().GetWinPathString();
-					sCmd += _T("\"");
-				}	
-				CAppUtils::LaunchApplication(sCmd, NULL, false);
-			}
-			else
-			{
-				StartDiff(index);
-			}
+				sCmd += _T(" /propspath:\"");
+				sCmd += entry->GetPath().GetWinPathString();
+				sCmd += _T("\"");
+			}	
+			CAppUtils::LaunchApplication(sCmd, NULL, false);
+		}
+		else
+		{
+			StartDiff(index);
 		}
 	}
 }
@@ -4605,15 +4563,10 @@ void CSVNStatusListCtrl::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	switch (nChar)
 	{
 	case (VK_TAB):
-		{
-			::PostMessage(GetParent()->GetSafeHwnd(), WM_NEXTDLGCTL, GetKeyState(VK_SHIFT)&0x8000, 0);
-			return;
-		}
-		break;
+		::PostMessage(GetParent()->GetSafeHwnd(), WM_NEXTDLGCTL, GetKeyState(VK_SHIFT)&0x8000, 0);
+		return;
 	case (VK_ESCAPE):
-		{
-			::SendMessage(GetParent()->GetSafeHwnd(), WM_CLOSE, 0, 0);
-		}
+		::SendMessage(GetParent()->GetSafeHwnd(), WM_CLOSE, 0, 0);
 		break;
 	}
 
@@ -4634,7 +4587,6 @@ INT_PTR CSVNStatusListCtrl::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 
 	if (row == -1)
 		return -1;
-
 
 	pTI->hwnd = m_hWnd;
 	pTI->uId = (UINT)((row<<10)+(col&0x3ff)+1);
@@ -4669,29 +4621,28 @@ int CSVNStatusListCtrl::CellRectFromPoint(CPoint& point, RECT *cellrect, int *co
 		// Get bounding rect of item and check whether point falls in it.
 		CRect rect;
 		GetItemRect(row, &rect, LVIR_BOUNDS);
-		if (rect.PtInRect(point))
+		if (!rect.PtInRect(point))
+			continue;
+		// Now find the column
+		for (colnum = 0; colnum < nColumnCount; colnum++)
 		{
-			// Now find the column
-			for (colnum = 0; colnum < nColumnCount; colnum++)
+			int colwidth = GetColumnWidth(colnum);
+			if (point.x >= rect.left && point.x <= (rect.left + colwidth))
 			{
-				int colwidth = GetColumnWidth(colnum);
-				if (point.x >= rect.left && point.x <= (rect.left + colwidth))
-				{
-					RECT rectClient;
-					GetClientRect(&rectClient);
-					if (col)
-						*col = colnum;
-					rect.right = rect.left + colwidth;
+				RECT rectClient;
+				GetClientRect(&rectClient);
+				if (col)
+					*col = colnum;
+				rect.right = rect.left + colwidth;
 
-					// Make sure that the right extent does not exceed
-					// the client area
-					if (rect.right > rectClient.right)
-						rect.right = rectClient.right;
-					*cellrect = rect;
-					return row;
-				}
-				rect.left += colwidth;
+				// Make sure that the right extent does not exceed
+				// the client area
+				if (rect.right > rectClient.right)
+					rect.right = rectClient.right;
+				*cellrect = rect;
+				return row;
 			}
+			rect.left += colwidth;
 		}
 	}
 	return -1;
@@ -4870,6 +4821,23 @@ void CSVNStatusListCtrl::OnDestroy()
 {
 	SaveColumnWidths(true);
 	CListCtrl::OnDestroy();
+}
+
+void CSVNStatusListCtrl::ShowErrorMessage()
+{
+	LPVOID lpMsgBuf;
+	FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+			FORMAT_MESSAGE_FROM_SYSTEM | 
+			FORMAT_MESSAGE_IGNORE_INSERTS,
+			NULL,
+			GetLastError(),
+			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+			(LPTSTR) &lpMsgBuf,
+			0,
+			NULL 
+			);
+	MessageBox((LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+	LocalFree( lpMsgBuf );
 }
 
 void CSVNStatusListCtrl::OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult)

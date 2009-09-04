@@ -52,20 +52,7 @@ bool DropCopyAddCommand::Execute()
 				if (!::CopyFile(pathList[nPath].GetWinPath(), droppath+_T("\\")+name, FALSE))
 				{
 					//the copy operation failed! Get out of here!
-					LPVOID lpMsgBuf;
-					FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-						FORMAT_MESSAGE_FROM_SYSTEM | 
-						FORMAT_MESSAGE_IGNORE_INSERTS,
-						NULL,
-						GetLastError(),
-						MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-						(LPTSTR) &lpMsgBuf,
-						0,
-						NULL 
-						);
-					strMessage.Format(IDS_ERR_COPYFILES, (LPTSTR)lpMsgBuf);
-					CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-					LocalFree( lpMsgBuf );
+					ShowErrorMessage();
 					return FALSE;
 				}
 			}
@@ -73,21 +60,7 @@ bool DropCopyAddCommand::Execute()
 		else if (!CopyFile(pathList[nPath].GetWinPath(), droppath+_T("\\")+name, FALSE))
 		{
 			//the copy operation failed! Get out of here!
-			LPVOID lpMsgBuf;
-			FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-				FORMAT_MESSAGE_FROM_SYSTEM | 
-				FORMAT_MESSAGE_IGNORE_INSERTS,
-				NULL,
-				GetLastError(),
-				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-				(LPTSTR) &lpMsgBuf,
-				0,
-				NULL 
-				);
-			CString strMessage;
-			strMessage.Format(IDS_ERR_COPYFILES, lpMsgBuf);
-			CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-			LocalFree( lpMsgBuf );
+			ShowErrorMessage();
 			return FALSE;
 		}
 		copiedFiles.AddPath(CTSVNPath(droppath+_T("\\")+name));		//add the new filepath
@@ -107,4 +80,24 @@ bool DropCopyAddCommand::Execute()
 	progDlg.DoModal();
 	bRet = !progDlg.DidErrorsOccur();
 	return bRet;
+}
+
+void DropCopyAddCommand::ShowErrorMessage()
+{
+	LPVOID lpMsgBuf;
+	FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+			FORMAT_MESSAGE_FROM_SYSTEM | 
+			FORMAT_MESSAGE_IGNORE_INSERTS,
+			NULL,
+			GetLastError(),
+			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+			(LPTSTR) &lpMsgBuf,
+			0,
+			NULL 
+			);
+
+	CString strMessage;
+	strMessage.Format(IDS_ERR_COPYFILES, (LPTSTR)lpMsgBuf);
+	CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+	LocalFree( lpMsgBuf );
 }
