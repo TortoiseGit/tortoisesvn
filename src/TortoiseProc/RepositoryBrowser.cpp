@@ -1970,39 +1970,7 @@ void CRepositoryBrowser::OnBeginDrag(NMHDR *pNMHDR)
 	while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
         selection.Add ((CItem *)m_RepoList.GetItemData(index));
 
-    // must be exactly one path
-
-    if (   (selection.GetRepositoryCount() != 1)
-        || (selection.GetPathCount(0) != 1))
-        return;
-
-    // build copy source / content
-
-	CIDropSource* pdsrc = new CIDropSource;
-	if (pdsrc == NULL)
-		return;
-
-	pdsrc->AddRef();
-
-    const SVNRev& revision = selection.GetRepository (0).revision;
-    SVNDataObject* pdobj = new SVNDataObject(selection.GetURLsEscaped(0), revision, revision);
-	if (pdobj == NULL)
-	{
-		delete pdsrc;
-		return;
-	}
-	pdobj->AddRef();
-	pdobj->SetAsyncMode(TRUE);
-	CDragSourceHelper dragsrchelper;
-	dragsrchelper.InitializeFromWindow(m_RepoList.GetSafeHwnd(), pNMLV->ptAction, pdobj);
-	pdsrc->m_pIDataObj = pdobj;
-	pdsrc->m_pIDataObj->AddRef();
-
-	// Initiate the Drag & Drop
-	DWORD dwEffect;
-	::DoDragDrop(pdobj, pdsrc, DROPEFFECT_MOVE|DROPEFFECT_COPY, &dwEffect);
-	pdsrc->Release();
-	pdobj->Release();
+    BeginDrag(m_RepoList, selection, pNMLV->ptAction, true);
 }
 
 void CRepositoryBrowser::OnTvnBegindragRepotree(NMHDR *pNMHDR, LRESULT *pResult)
@@ -2030,40 +1998,8 @@ void CRepositoryBrowser::OnBeginDragTree(NMHDR *pNMHDR)
     CRepositoryBrowserSelection selection;
     selection.Add ((CTreeItem *)pNMTreeView->itemNew.lParam);
 
-    // must be exactly one path
-
-    if (   (selection.GetRepositoryCount() != 1)
-        || (selection.GetPathCount(0) != 1))
-        return;
-
-    // build copy source / content
-
-	CIDropSource* pdsrc = new CIDropSource;
-	if (pdsrc == NULL)
-		return;
-
-	pdsrc->AddRef();
-
-    const SVNRev& revision = selection.GetRepository (0).revision;
-    SVNDataObject* pdobj = new SVNDataObject(selection.GetURLsEscaped(0), revision, revision);
-	if (pdobj == NULL)
-	{
-		delete pdsrc;
-		return;
-	}
-	pdobj->AddRef();
-
-	CDragSourceHelper dragsrchelper;
-	dragsrchelper.InitializeFromWindow(m_RepoTree.GetSafeHwnd(), pNMTreeView->ptDrag, pdobj);
-	pdsrc->m_pIDataObj = pdobj;
-	pdsrc->m_pIDataObj->AddRef();
-	// Initiate the Drag & Drop
-	DWORD dwEffect;
-	::DoDragDrop(pdobj, pdsrc, DROPEFFECT_MOVE|DROPEFFECT_COPY, &dwEffect);
-	pdsrc->Release();
-	pdobj->Release();
+	BeginDrag(m_RepoTree, selection, pNMTreeView->ptDrag, false);
 }
-
 
 bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, const CTSVNPathList& pathlist, const SVNRev& srcRev, DWORD dwEffect, POINTL /*pt*/)
 {
@@ -3481,4 +3417,43 @@ void CRepositoryBrowser::InvalidateDataParents
             InvalidateData (m_RepoTree.GetParentItem (FindUrl (url)), revision);
         }
     }
+}
+
+void CRepositoryBrowser::BeginDrag(const CWnd& window,
+	CRepositoryBrowserSelection& selection, POINT& point, bool setAsyncMode)
+{
+	// must be exactly one path	
+	if ( (selection.GetRepositoryCount() != 1)
+        || (selection.GetPathCount(0) != 1))
+	{
+		return;
+	}
+	
+	// build copy source / content
+	CIDropSource* pdsrc = new CIDropSource;
+	if (pdsrc == NULL)
+		return;
+
+	pdsrc->AddRef();
+
+    const SVNRev& revision = selection.GetRepository(0).revision;
+    SVNDataObject* pdobj = new SVNDataObject(selection.GetURLsEscaped(0), revision, revision);
+	if (pdobj == NULL)
+	{
+		delete pdsrc;
+		return;
+	}
+	pdobj->AddRef();
+	if(setAsyncMode)
+		pdobj->SetAsyncMode(TRUE);
+	CDragSourceHelper dragsrchelper;
+	dragsrchelper.InitializeFromWindow(window.GetSafeHwnd(), point, pdobj);
+	pdsrc->m_pIDataObj = pdobj;
+	pdsrc->m_pIDataObj->AddRef();
+
+	// Initiate the Drag & Drop
+	DWORD dwEffect;
+	::DoDragDrop(pdobj, pdsrc, DROPEFFECT_MOVE|DROPEFFECT_COPY, &dwEffect);
+	pdsrc->Release();
+	pdobj->Release();
 }

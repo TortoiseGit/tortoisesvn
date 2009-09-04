@@ -209,6 +209,9 @@ protected:
 	static int CALLBACK TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3);
 	static int CALLBACK ListSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3);
 
+	void BeginDrag(const CWnd& window, CRepositoryBrowserSelection& selection,
+		POINT& point, bool setAsyncMode);
+
 protected:
 	bool				m_bInitDone;
 	CRepositoryBar		m_barRepository;
