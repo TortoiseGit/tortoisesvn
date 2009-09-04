@@ -182,4 +182,7 @@ private:
 	void OnViewLineUpDown(int direction);
 	void OnViewLineLeftRight(int direction);
 	bool RunCommand(TCHAR* command);
+public:
+	afx_msg void OnUpdateNavigateNextdifference(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateNavigatePreviousdifference(CCmdUI *pCmdUI);
 };

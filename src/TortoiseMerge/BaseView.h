@@ -80,6 +80,10 @@ public:
 	BOOL			IsLineRemoved(int nLineIndex);
 	bool			IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical);
 	bool			IsLineConflicted(int nLineIndex);
+	bool			HasNextConflict();
+	bool			HasPrevConflict();
+	bool			HasNextDiff();
+	bool			HasPrevDiff();
 
 	CViewData *		m_pViewData;
 	CViewData *		m_pOtherViewData;
@@ -215,7 +219,7 @@ protected:
 	void			DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff);
 	void			ClearCurrentSelection();
 	void			AdjustSelection();
-	void			SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfCurrentBlock = true);
+	bool			SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfCurrentBlock = true, bool dryrun = false);
 
 	void			RemoveLine(int nLineIndex);
 	void			RemoveSelectedText();
@@ -253,6 +257,10 @@ protected:
 	int				m_nOffsetChar;
 	int				m_nTabSize;
 	int				m_nDigits;
+	int				m_nFirstDiffLine;
+	int				m_nLastDiffLine;
+	int				m_nFirstConflictLine;
+	int				m_nLastConflictLine;
 	bool			m_bInlineWordDiff;
 
 	int				m_nSelBlockStart;

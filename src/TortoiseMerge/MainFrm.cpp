@@ -112,6 +112,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT, &CMainFrame::OnUpdateEditUseblockfromleftbeforeright)
 	ON_COMMAND(ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT, &CMainFrame::OnEditUseblockfromrightbeforeleft)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT, &CMainFrame::OnUpdateEditUseblockfromrightbeforeleft)
+	ON_UPDATE_COMMAND_UI(ID_NAVIGATE_NEXTDIFFERENCE, &CMainFrame::OnUpdateNavigateNextdifference)
+	ON_UPDATE_COMMAND_UI(ID_NAVIGATE_PREVIOUSDIFFERENCE, &CMainFrame::OnUpdateNavigatePreviousdifference)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -1753,13 +1755,52 @@ BOOL CMainFrame::MarkAsResolved()
 
 void CMainFrame::OnUpdateMergeNextconflict(CCmdUI *pCmdUI)
 {
-	pCmdUI->Enable(m_bHasConflicts);
+	BOOL bShow = FALSE;
+	if ((m_pwndBottomView)&&(m_pwndBottomView->HasNextConflict()))
+		bShow = TRUE;
+	if ((m_pwndRightView)&&(m_pwndRightView->HasNextConflict()))
+		bShow = TRUE;
+	if ((m_pwndLeftView)&&(m_pwndLeftView->HasNextConflict()))
+		bShow = TRUE;
+	pCmdUI->Enable(bShow);
 }
 
 void CMainFrame::OnUpdateMergePreviousconflict(CCmdUI *pCmdUI)
 {
-	pCmdUI->Enable(m_bHasConflicts);
+	BOOL bShow = FALSE;
+	if ((m_pwndBottomView)&&(m_pwndBottomView->HasPrevConflict()))
+		bShow = TRUE;
+	if ((m_pwndRightView)&&(m_pwndRightView->HasPrevConflict()))
+		bShow = TRUE;
+	if ((m_pwndLeftView)&&(m_pwndLeftView->HasPrevConflict()))
+		bShow = TRUE;
+	pCmdUI->Enable(bShow);
 }
+
+void CMainFrame::OnUpdateNavigateNextdifference(CCmdUI *pCmdUI)
+{
+	BOOL bShow = FALSE;
+	if ((m_pwndBottomView)&&(m_pwndBottomView->HasNextDiff()))
+		bShow = TRUE;
+	if ((m_pwndRightView)&&(m_pwndRightView->HasNextDiff()))
+		bShow = TRUE;
+	if ((m_pwndLeftView)&&(m_pwndLeftView->HasNextDiff()))
+		bShow = TRUE;
+	pCmdUI->Enable(bShow);
+}
+
+void CMainFrame::OnUpdateNavigatePreviousdifference(CCmdUI *pCmdUI)
+{
+	BOOL bShow = FALSE;
+	if ((m_pwndBottomView)&&(m_pwndBottomView->HasPrevDiff()))
+		bShow = TRUE;
+	if ((m_pwndRightView)&&(m_pwndRightView->HasPrevDiff()))
+		bShow = TRUE;
+	if ((m_pwndLeftView)&&(m_pwndLeftView->HasPrevDiff()))
+		bShow = TRUE;
+	pCmdUI->Enable(bShow);
+}
+
 
 void CMainFrame::OnMoving(UINT fwSide, LPRECT pRect)
 {
@@ -2022,3 +2063,4 @@ bool CMainFrame::RunCommand(TCHAR* command)
 	LocalFree( lpMsgBuf );
 	return false;
 }
+

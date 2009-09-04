@@ -36,6 +36,8 @@
 - NEW: Improved filter in the log dialog. (Stefan)
 - NEW: The state of the "hide unrelated changed paths" in the log
        dialog is remembered over sessions. (Stefan)
+- NEW: TortoiseMerge disables the next/prev buttons if there are no
+       next/previous diffs/conflicts. (Stefan)
 
 Version 1.6.6
 - CHG: Reduced disk access in the status cache. (Stefan)

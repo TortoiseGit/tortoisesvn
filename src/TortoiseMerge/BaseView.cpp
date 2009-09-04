@@ -69,6 +69,10 @@ CBaseView::CBaseView()
 	m_nOffsetChar = 0;
 	m_nDigits = 0;
 	m_nMouseLine = -1;
+	m_nFirstDiffLine = -1;
+	m_nLastDiffLine = -1;
+	m_nFirstConflictLine = -1;
+	m_nLastConflictLine = -1;
 	m_bMouseWithin = FALSE;
 	m_bIsHidden = FALSE;
 	lineendings = EOL_AUTOLINE;
@@ -1907,13 +1911,34 @@ void CBaseView::OnMergePreviousdifference()
 	SelectNextBlock(-1, false);
 }
 
-void CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfCurrentBlock /* = true */)
+bool CBaseView::HasNextConflict()
+{
+	return SelectNextBlock(1, true, true, true);
+}
+
+bool CBaseView::HasPrevConflict()
+{
+	return SelectNextBlock(-1, true, true, true);
+}
+
+bool CBaseView::HasNextDiff()
+{
+	return SelectNextBlock(1, false, true, true);
+}
+
+bool CBaseView::HasPrevDiff()
+{
+	return SelectNextBlock(-1, false, true, true);
+}
+
+
+bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfCurrentBlock /* = true */, bool dryrun /* = false */)
 {
 	if (! m_pViewData)
-		return;
+		return false;
 
 	if (m_pViewData->GetCount() == 0)
-		return;
+		return false;
 
 	int nCenterPos = m_ptCaretPos.y;
 	int nLimit = 0;
@@ -1949,6 +1974,27 @@ void CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 
 		nCenterPos += nDirection;
 	}
+	if (nCenterPos != nLimit)
+	{
+		if (nDirection > 0)
+		{
+			if (bConflict)
+				m_nLastConflictLine = nCenterPos;
+			else
+				m_nLastDiffLine = nCenterPos;
+		}
+		else
+		{
+			if (bConflict)
+				m_nFirstConflictLine = nCenterPos;
+			else
+				m_nFirstDiffLine = nCenterPos;
+		}
+	}
+	else
+		return false;
+	if (dryrun)
+		return (nCenterPos != nLimit);
 
 	// Find end of new block
 	DiffStates state = m_pViewData->GetState(nCenterPos);
@@ -1991,6 +2037,7 @@ void CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 
 	UpdateCaret();
 	ShowDiffLines(nCenterPos);
+	return true;
 }
 
 BOOL CBaseView::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
