@@ -48,6 +48,8 @@ revision_t CSkipRevisionInfo::SPerPathRanges::FindNext (revision_t revision) con
 	TRanges::const_iterator iter = ranges.upper_bound (revision);
 	if (iter == ranges.end())
 		return (revision_t)NO_REVISION;
+    if (iter->first > revision)
+		return (revision_t)NO_REVISION;
 
 	// return end of that range, if revision is within this range
 
