@@ -19,7 +19,8 @@
 #pragma once
 
 /**
- * A helper class for invoking CreateProcess() and a wrapper class for STARTUPINFO
+ * A helper class for invoking CreateProcess(). The lpProcessInformation
+ * can point to an uninitialized struct - it's memset to all zeroes inside.
  */
 
 class CCreateProcessHelper
