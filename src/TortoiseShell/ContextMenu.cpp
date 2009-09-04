@@ -1541,7 +1541,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			svnCmd += _T(" /deletepathfile");
 			svnCmd += _T(" /droptarget:\"");
 			svnCmd += folder_;
-			svnCmd += _T("\" /rename";)
+			svnCmd += _T("\" /rename");
 			break;
 		case ShellMenuDropMove:
 			tempfile = WriteFileListToTempFile();
@@ -1561,7 +1561,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			svnCmd += _T(" /deletepathfile");
 			svnCmd += _T(" /droptarget:\"");
 			svnCmd += folder_;
-			svnCmd += _T("\" /rename";)
+			svnCmd += _T("\" /rename");
 			break;
 		case ShellMenuDropExport:
 			tempfile = WriteFileListToTempFile();
