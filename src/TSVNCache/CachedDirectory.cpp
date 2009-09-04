@@ -481,7 +481,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 
 		// If the status *still* isn't valid here, it means that 
 		// the current directory is unversioned, and we shall need to ask its children for info about themselves
-		if ((dirEntry)&&(!dirEntry->m_directoryPath.IsEquivalentToWithoutCase(path)))
+		if ((dirEntry)&&(dirEntry != this))
 			return dirEntry->GetStatusForMember(path,bRecursive);
 		// add the path for crawling: if it's really unversioned, the crawler will
 		// only check for the admin dir and do nothing more. But if it is
