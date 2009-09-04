@@ -1014,7 +1014,6 @@ void CLogDlg::LogThread()
 	m_LogProgress.SetRange32(0, 100);
 	m_LogProgress.SetPos(0);
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(TRUE);
-	svn_revnum_t r = -1;
 	
     // we need the UUID to unambiguously identify the log cache
     BOOL succeeded = true;
@@ -1029,7 +1028,31 @@ void CLogDlg::LogThread()
 	// paths shown there relative to the repository root.
 	CTSVNPath rootpath;
     if (succeeded)
-        succeeded = GetRootAndHead(m_path, rootpath, r);
+    {
+        // e.g. when we show the "next 100", we already have proper 
+        // start and end revs.
+        // -> we don't need to look for the head revision in these cases
+
+        if ((m_startrev == SVNRev::REV_HEAD) || (m_endrev == SVNRev::REV_HEAD))
+        {
+            // expensive repository lookup 
+            // (if maxHeadAge has expired, which is the default setting)
+
+    	    svn_revnum_t head = -1;
+            succeeded = GetRootAndHead(m_path, rootpath, head);
+            if (m_startrev == SVNRev::REV_HEAD) 
+	            m_startrev = head;
+            if (m_endrev == SVNRev::REV_HEAD)
+	            m_endrev = head;
+        }
+        else
+        {
+            // far less expensive root lookup
+
+            rootpath.SetFromSVN (GetRepositoryRoot (m_path));
+            succeeded = !rootpath.IsEmpty();
+        }
+    }
 
     m_sRepositoryRoot = rootpath.GetSVNPathString();
     m_sURL = m_path.GetSVNPathString();
@@ -1100,15 +1123,6 @@ void CLogDlg::LogThread()
     }
 
     m_LogProgress.SetPos(1);
-    if (m_startrev == SVNRev::REV_HEAD)
-    {
-	    m_startrev = r;
-    }
-    if (m_endrev == SVNRev::REV_HEAD)
-    {
-	    m_endrev = r;
-    }
-
     if (m_limit != 0)
     {
 	    m_limitcounter = m_limit;
