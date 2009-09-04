@@ -147,8 +147,11 @@ bool CCacheLogQuery::CDataAvailable::operator() (revision_t revision) const
 
 void CCacheLogQuery::CLogFiller::MergeFromUpdateCache()
 {
-    cache->Update (*updateData);
-    updateData->Clear();
+    if (!updateData->IsEmpty())
+    {
+        cache->Update (*updateData);
+        updateData->Clear();
+    }
 }
 
 ///////////////////////////////////////////////////////////////
@@ -298,7 +301,7 @@ void CCacheLogQuery::CLogFiller::WriteToCache
 	    }
     }
 
-	// add use revprops
+	// add user revprops
 
     if (userRevProps != NULL)
     {
@@ -317,7 +320,13 @@ void CCacheLogQuery::CLogFiller::WriteToCache
 
 	// update our path info
 
-	currentPath->RepeatLookup();
+    if (!currentPath->IsFullyCachedPath())
+    {
+        if (!updateData->IsEmpty())
+            MergeFromUpdateCache();
+
+	    currentPath->RepeatLookup();
+    }
 
 	// mark the gap and update the current path
 
