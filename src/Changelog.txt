@@ -45,6 +45,8 @@ Version 1.6.6
 - BUG: Some project properites were not automatically added
        to newly added folders. (Stefan)
 - BUG: Resolving tree conflicts resulted in an error message. (Stefan)
+- BUG: Under rare conditions, missing data would not be added
+       to the log cache. (Stefan Fuhrmann)
 
 Version 1.6.5
 - BUG: fixed access to freed memory which could crash
