@@ -39,7 +39,7 @@ public:
 				char buff[BUF_SIZE+1];
 				ULONG cbRead=0;
 				HRESULT hr = medium.pstm->Read(buff, BUF_SIZE, &cbRead);
-				if( SUCCEEDED(hr) && cbRead > 0 && cbRead < BUF_SIZE)
+				if (SUCCEEDED(hr) && (cbRead > 0) && (cbRead < BUF_SIZE))
 				{
 					buff[cbRead]=0;
 					LRESULT nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);
@@ -48,7 +48,8 @@ public:
 					::SendMessage(m_hTargetWnd, EM_REPLACESEL, TRUE, (LPARAM)str.c_str());
 				}
 				else
-					for(;(hr==S_OK && cbRead >0) && SUCCEEDED(hr) ;)
+				{
+					for( ; (hr==S_OK) && (cbRead >0); )
 					{
 						buff[cbRead]=0;
 						LRESULT nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);
@@ -58,6 +59,7 @@ public:
 						cbRead=0;
 						hr = medium.pstm->Read(buff, BUF_SIZE, &cbRead);
 					}
+				}
 			}
 		}
 		if(pFmtEtc->cfFormat == CF_UNICODETEXT && medium.tymed == TYMED_ISTREAM)
@@ -68,7 +70,7 @@ public:
 				TCHAR buff[BUF_SIZE+1];
 				ULONG cbRead=0;
 				HRESULT hr = medium.pstm->Read(buff, BUF_SIZE, &cbRead);
-				if( SUCCEEDED(hr) && cbRead > 0 && cbRead < BUF_SIZE)
+				if (SUCCEEDED(hr) && (cbRead > 0) && (cbRead < BUF_SIZE))
 				{
 					buff[cbRead]=0;
 					LRESULT nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);
@@ -76,7 +78,8 @@ public:
 					::SendMessage(m_hTargetWnd, EM_REPLACESEL, TRUE, (LPARAM)buff);
 				}
 				else
-					for(;(hr==S_OK && cbRead >0) && SUCCEEDED(hr) ;)
+				{
+					for( ; (hr==S_OK) && (cbRead >0); )
 					{
 						buff[cbRead]=0;
 						LRESULT nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);
@@ -85,6 +88,7 @@ public:
 						cbRead=0;
 						hr = medium.pstm->Read(buff, BUF_SIZE, &cbRead);
 					}
+				}
 			}
 		}
 		if(pFmtEtc->cfFormat == CF_TEXT && medium.tymed == TYMED_HGLOBAL)
