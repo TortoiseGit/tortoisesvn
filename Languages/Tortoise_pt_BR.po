@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-09-02 00:16-0300\n"
+"PO-Revision-Date: 2009-09-03 21:46-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -511,7 +511,7 @@ msgstr "&Diferenças com URL"
 
 #. Resource IDs: (14)
 msgid "&Diff with previous version"
-msgstr "&Diferenças da revisão anterior"
+msgstr "&Diferenças à revisão anterior"
 
 #. Resource IDs: (1066)
 msgid "&Docking"
@@ -615,15 +615,15 @@ msgstr "A&grupar por ramo"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
-msgstr "Revisão &HEAD (mais recente)"
+msgstr "&Última Revisão"
 
 #. Resource IDs: (1019, 1032, 1034)
 msgid "&HEAD revision"
-msgstr "Revisão &HEAD (mais recente)"
+msgstr "&Última revisão"
 
 #. Resource IDs: (1182)
 msgid "&HEAD revision in the repository"
-msgstr "Revisão &HEAD (mais recente) no repositório"
+msgstr "&Última revisão no repositório"
 
 #. Resource IDs: (12, 32781, 57670, 65535)
 msgid "&Help"
@@ -965,7 +965,7 @@ msgstr "&Preferências"
 
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
-msgstr "&Mostrar revisões HEAD (mais recentes)"
+msgstr "&Mostrar últimas revisões"
 
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
@@ -1037,11 +1037,11 @@ msgstr "Somente &texto"
 
 #. Resource IDs: (1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
-msgstr "&Timeout, em segundos, antes de atualizar a revisão HEAD"
+msgstr "&Tempo limite, em segundos, antes de atualizar a última revisão"
 
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
-msgstr "&Timeout, em segundos, para parar a interpretação do autocompletar"
+msgstr "&Tempo limite, em segundos, para parar a interpretação do autocompletar"
 
 #. Resource IDs: (65535)
 msgid "&To Revision"
@@ -1194,7 +1194,7 @@ msgstr "(modificado)"
 
 #. Resource IDs: (276)
 msgid "(modified, HEAD revision)"
-msgstr "(modificado, revisão HEAD)"
+msgstr "(modificado, última revisão)"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -2454,7 +2454,7 @@ msgstr ""
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
-msgstr "Comparar as revisões &HEAD"
+msgstr "Comparar as &últimas revisões"
 
 #. Resource IDs: (114)
 msgid "Compare and &blame with working BASE"
@@ -4191,16 +4191,16 @@ msgstr "Mati&z:"
 
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
-msgstr "HEAD (mais recente)"
+msgstr "Atual"
 
 #. Resource IDs: (65535)
 msgid "HEAD node"
-msgstr "Nó HEAD"
+msgstr "Nó Principal"
 
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
-msgstr "A revisão HEAD (mais recente) é %s"
+msgstr "A última revisão é %s"
 
 #. Resource IDs: (9, 73, 332, 1004)
 msgid "Help"
@@ -4943,7 +4943,7 @@ msgstr "Última vez que o cache foi acessado"
 
 #. Resource IDs: (338)
 msgid "Last time the repository was asked for the HEAD revision number"
-msgstr "Última vez que o número da revisão HEAD (mais recente) foi consultado no repositório"
+msgstr "Última vez que a última revisão foi consultado no repositório"
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
@@ -5136,7 +5136,7 @@ msgstr "Revisão visível mais baixa: %ld - Revisão visível mais alta: %ld"
 #. Resource IDs: (238)
 #, c-format
 msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
-msgstr "Revisão visível mais baixa: %ld - Revisão visível mais alta: %ld - Revisão HEAD (mais recente): %ld"
+msgstr "Revisão visível mais baixa: %ld - Revisão visível mais alta: %ld - Última revisão: %ld"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -7428,7 +7428,7 @@ msgstr "Mostrar Lista de Arquivos"
 
 #. Resource IDs: (2051)
 msgid "Show HEAD revision nodes"
-msgstr "Mostrar nós da revisão HEAD (mais recente)"
+msgstr "Mostrar nós da última revisão"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -8961,7 +8961,7 @@ msgstr ""
 
 #. Resource IDs: (274, 32786)
 msgid "Unified &diff of HEAD revisions"
-msgstr "Comparação unifica&da das revisões HEAD (mais recentes)"
+msgstr "Comparação unifica&da das últimas revisões"
 
 #. Resource IDs: (81)
 #, c-format
@@ -9666,7 +9666,7 @@ msgid ""
 "show up in the branch/tag!"
 msgstr ""
 "Sua cópia local possui modificações.\n"
-"Se você ramificou/rotulou a partir da revisão HEAD, suas\n"
+"Se você ramificou/rotulou a partir da última revisão, suas\n"
 "modificações locais não surgirão no ramo/rótulo!"
 
 #. Resource IDs: (32783)
