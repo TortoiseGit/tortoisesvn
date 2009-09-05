@@ -1069,34 +1069,29 @@ void MyGraph::DrawSeriesBar(CDC& dc) const
 
 	// How much space does each series get (includes inter series space)?
 	// We ignore series whose members are all zero.
-	int nSeriesSpace(0);
+    double availableSpace = m_saLegendLabels.GetSize()
+        ? m_nXAxisWidth - m_rcLegend.Width() - (GAP_PIXELS * 2)
+        : m_nXAxisWidth;
 
-	if (m_saLegendLabels.GetSize()) {
-
-		nSeriesSpace = (m_nXAxisWidth - m_rcLegend.Width() - (GAP_PIXELS * 2)) /
-			GetNonZeroSeriesCount();
-	}
-	else {
-		nSeriesSpace = m_nXAxisWidth / GetNonZeroSeriesCount();
-	}
+    double seriesSpace = availableSpace / (double)GetNonZeroSeriesCount();
 
 	// Determine width of bars.  Data points with a value of zero are assumed 
 	// to be empty.  This is a bad assumption.
-	int nBarWidth(0);
+	double barWidth(0.0);
 
 	// This is the width of the largest series (no inter series space).
-	int nMaxSeriesPlotSize(0);
+	double maxSeriesPlotSize(0.0);
 
 	if(!m_bStackedGraph){
-		nBarWidth = nSeriesSpace / GetMaxNonZeroSeriesSize();
+		barWidth = seriesSpace / GetMaxNonZeroSeriesSize();
 		if (1 < GetNonZeroSeriesCount()) {
-			nBarWidth = (int) ((double) nBarWidth * INTERSERIES_PERCENT_USED);
+			barWidth *= INTERSERIES_PERCENT_USED;
 		}
-		nMaxSeriesPlotSize = GetMaxNonZeroSeriesSize() * nBarWidth;
+		maxSeriesPlotSize = GetMaxNonZeroSeriesSize() * barWidth;
 	}
 	else{
-		nBarWidth = (int) ((double) nSeriesSpace * INTERSERIES_PERCENT_USED);
-		nMaxSeriesPlotSize = nBarWidth;
+		barWidth = seriesSpace * INTERSERIES_PERCENT_USED;
+		maxSeriesPlotSize = barWidth;
 	}
 
 	// Iterate the series.
@@ -1112,25 +1107,27 @@ void MyGraph::DrawSeriesBar(CDC& dc) const
 		if (0 < pSeries->GetNonZeroElementCount()) {
 
 			// Draw each bar; empty bars are not drawn.
-			int nRunningLeft(m_ptOrigin.x + ((nSeries + 1) * nSeriesSpace) - 
-				nMaxSeriesPlotSize);
+			double runningLeft(m_ptOrigin.x + (nSeries + 1) * seriesSpace - 
+				maxSeriesPlotSize);
 
-			int stackAccumulator(0);
+			double stackAccumulator(0.0);
 
 			for (int nGroup = 0; nGroup < GetMaxSeriesSize(); ++nGroup) {
 
 				if (pSeries->GetData(nGroup)) {
 
+                    double barTop = m_ptOrigin.y - (double)m_nYAxisHeight *
+						pSeries->GetData(nGroup) / (double)GetMaxDataValue() - stackAccumulator;
+
 					CRect rcBar;
-					rcBar.left = nRunningLeft; 
-					rcBar.top = (m_ptOrigin.y - (m_nYAxisHeight *
-						pSeries->GetData(nGroup)) / GetMaxDataValue()) - stackAccumulator;
+					rcBar.left = (int)runningLeft; 
+					rcBar.top = (int)barTop;
 					// Make adjacent bar borders overlap, so there's only one pixel border line between them.
-					rcBar.right = rcBar.left + nBarWidth + 1;
-					rcBar.bottom = m_ptOrigin.y - stackAccumulator + 1;
+					rcBar.right = (int)(runningLeft + barWidth) + 1;
+					rcBar.bottom = (int)((double)m_ptOrigin.y - stackAccumulator) + 1;
 
 					if(m_bStackedGraph){
-						stackAccumulator = (m_ptOrigin.y - rcBar.top);
+						stackAccumulator = (double)m_ptOrigin.y - barTop;
 					}
 
 					pSeries->SetTipRegion(nGroup, rcBar);
@@ -1145,7 +1142,7 @@ void MyGraph::DrawSeriesBar(CDC& dc) const
 					br.DeleteObject();
 
 					if(!m_bStackedGraph){
-						nRunningLeft += nBarWidth;
+						runningLeft += barWidth;
 					}
 				}
 			}
