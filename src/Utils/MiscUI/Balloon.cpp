@@ -828,11 +828,15 @@ LPLOGFONT CBalloon::GetSystemToolTipFont() const
 
     NONCLIENTMETRICS ncm;
     ncm.cbSize = sizeof(NONCLIENTMETRICS);
+
+#if (WINVER >= 0x600)
 	if (!SysInfo::Instance().IsVistaOrLater())
 	{
 		ncm.cbSize -= sizeof(int);	// subtract the size of the iPaddedBorderWidth member which is not available on XP
 	}
-    if (!SystemParametersInfo(SPI_GETNONCLIENTMETRICS, sizeof(NONCLIENTMETRICS), &ncm, 0))
+#endif
+
+    if (!SystemParametersInfo(SPI_GETNONCLIENTMETRICS, ncm.cbSize, &ncm, 0))
         return FALSE;
 
     memcpy(&LogFont, &(ncm.lfStatusFont), sizeof(LOGFONT));

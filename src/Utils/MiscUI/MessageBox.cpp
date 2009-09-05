@@ -432,11 +432,15 @@ UINT CMessageBox::GoModal(CWnd * pWnd, const CString& title, const CString& msg,
 {
 	NONCLIENTMETRICS ncm;
 	ncm.cbSize = sizeof(NONCLIENTMETRICS);
+
+#if (WINVER >= 0x600)
 	if (!SysInfo::Instance().IsVistaOrLater())
 	{
 		ncm.cbSize -= sizeof(int);	// subtract the size of the iPaddedBorderWidth member which is not available on XP
 	}
-	VERIFY(SystemParametersInfo(SPI_GETNONCLIENTMETRICS, sizeof(NONCLIENTMETRICS), &ncm, 0));
+#endif
+
+    VERIFY(SystemParametersInfo(SPI_GETNONCLIENTMETRICS, ncm.cbSize, &ncm, 0));
     memcpy(&m_LogFont, &(ncm.lfMessageFont), sizeof(LOGFONT));
 
 	//the problem with the LOGFONT lfHeight is that it is not in pixels,

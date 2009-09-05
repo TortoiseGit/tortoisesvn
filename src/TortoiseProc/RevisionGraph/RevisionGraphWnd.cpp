@@ -706,7 +706,7 @@ CString CRevisionGraphWnd::DisplayableText ( const CString& wholeText
 	{
 		metrics.cbSize -= sizeof(int);	// subtract the size of the iPaddedBorderWidth member which is not available on XP
 	}
-    SystemParametersInfo (SPI_GETNONCLIENTMETRICS, sizeof(NONCLIENTMETRICS), &metrics, 0);
+    SystemParametersInfo (SPI_GETNONCLIENTMETRICS, metrics.cbSize, &metrics, 0);
 
     CFont font;
     font.CreateFontIndirect(&metrics.lfStatusFont);
