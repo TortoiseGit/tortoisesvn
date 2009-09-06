@@ -2555,7 +2555,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				for (size_t i=0; i < selection.GetPathCount(0); ++i)
 				{
 					CTSVNPath wcPath = m_path;
-                    const CTSVNPath& url = selection.GetURL (0, 0);
+                    const CTSVNPath& url = selection.GetURL (0, i);
 					wcPath.AppendPathString(url.GetWinPathString().Mid(m_InitialUrl.GetLength()));
 					updateList.AddPath(wcPath);
 				}
