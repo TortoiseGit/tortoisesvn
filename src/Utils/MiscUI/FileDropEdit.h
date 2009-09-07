@@ -49,7 +49,7 @@ public:
 				}
 				else
 				{
-					for( ; (hr==S_OK) && (cbRead >0); )
+					while( (hr==S_OK) && (cbRead >0) )
 					{
 						buff[cbRead]=0;
 						LRESULT nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);
@@ -79,7 +79,7 @@ public:
 				}
 				else
 				{
-					for( ; (hr==S_OK) && (cbRead >0); )
+					while( (hr==S_OK) && (cbRead >0) )
 					{
 						buff[cbRead]=0;
 						LRESULT nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);

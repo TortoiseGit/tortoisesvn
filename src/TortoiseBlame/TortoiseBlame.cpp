@@ -1032,8 +1032,7 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 		else
 		{
 			::SetBkColor(hDC, m_windowcolor);
-			for (int j=0; j< MAX_PATH; ++j)
-				buf[j]=' ';
+			std::fill_n(buf, MAX_PATH, _T(' '));
 			::ExtTextOut(hDC, 0, (int)Y, ETO_CLIPPED, &rc, buf, MAX_PATH-1, 0);
 			Y += height;
 		}
