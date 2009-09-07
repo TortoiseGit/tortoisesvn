@@ -160,6 +160,7 @@ protected:
     /// Sort tree sub-nodes
     void Sort (HTREEITEM parent);
 
+    void RefreshChildren(CTreeItem * pTreeItem);
     /**
 	 * Refetches the information for \c hNode. If \c force is true, then the list
 	 * control is refilled again.

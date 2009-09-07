@@ -1253,6 +1253,41 @@ void CRepositoryBrowser::Sort (HTREEITEM parent)
 	m_RepoTree.SortChildrenCB (&tvs);
 }
 
+void CRepositoryBrowser::RefreshChildren (CTreeItem * pTreeItem)
+{
+	if (pTreeItem == NULL)
+		return;
+
+	pTreeItem->children.clear();
+	pTreeItem->has_child_folders = false;
+
+    CString error = m_lister.GetList ( pTreeItem->url
+                                     , pTreeItem->repository
+                                     , true
+                                     , pTreeItem->children);
+    if (!error.IsEmpty())
+	{
+		// error during list()
+		m_RepoList.ShowText (error);
+		return;
+	}
+
+    // update node status and add sub-nodes for all sub-dirs
+
+	pTreeItem->children_fetched = true;
+    for (size_t i = 0, count = pTreeItem->children.size(); i < count; ++i)
+    {
+        const CItem& item = pTreeItem->children[i];
+        if (item.kind == svn_node_dir)
+        {
+            pTreeItem->has_child_folders = true;
+            m_lister.Enqueue ( item.absolutepath
+                             , item.repository
+                             , item.has_props);
+        }
+    }
+}
+
 bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
 {
 	if (hNode == NULL)
@@ -1278,34 +1313,8 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
 	}
 	if (pTreeItem == NULL)
 		return false;
-	pTreeItem->children.clear();
-	pTreeItem->has_child_folders = false;
 
-    CString error = m_lister.GetList ( pTreeItem->url
-                                     , pTreeItem->repository
-                                     , true
-                                     , pTreeItem->children);
-    if (!error.IsEmpty())
-	{
-		// error during list()
-		m_RepoList.ShowText (error);
-		return false;
-	}
-
-    // update node status and add sub-nodes for all sub-dirs
-
-	pTreeItem->children_fetched = true;
-    for (size_t i = 0, count = pTreeItem->children.size(); i < count; ++i)
-    {
-        const CItem& item = pTreeItem->children[i];
-        if (item.kind == svn_node_dir)
-        {
-            pTreeItem->has_child_folders = true;
-            m_lister.Enqueue ( item.absolutepath
-                             , item.repository
-                             , item.has_props);
-        }
-    }
+    RefreshChildren (pTreeItem);
 
     if (pTreeItem->has_child_folders)
         AutoInsert (hNode, pTreeItem->children);
@@ -1925,19 +1934,24 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
 			return;
 		}
 
-        InvalidateData (m_RepoTree.GetParentItem (hSelectedItem));
+        HTREEITEM parent = m_RepoTree.GetParentItem (hSelectedItem);
+        InvalidateData (parent);
 
         *pResult = TRUE;
 		if (pItem->url.Compare(m_barRepository.GetCurrentUrl()) == 0)
 		{
 			m_barRepository.ShowUrl(targetUrl.GetSVNPathString(), m_barRepository.GetCurrentRev());
 		}
-		pItem->url = targetUrl.GetSVNPathString();
+
+        pItem->url = targetUrl.GetSVNPathString();
 		pItem->unescapedname = pTVDispInfo->item.pszText;
         pItem->repository = repository;
 		m_RepoTree.SetItemData(hSelectedItem, (DWORD_PTR)pItem);
-		if (hSelectedItem == m_RepoTree.GetSelectedItem())
-			RefreshNode(hSelectedItem, true);
+
+        RefreshChildren ((CTreeItem*)m_RepoTree.GetItemData (parent));
+
+        if (hSelectedItem == m_RepoTree.GetSelectedItem())
+		    RefreshNode (hSelectedItem, true);
 	}
 }
 
