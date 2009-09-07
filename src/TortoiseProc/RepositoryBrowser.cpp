@@ -1868,9 +1868,9 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
 			CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return;
 		}
-		*pResult = TRUE;
+		*pResult = 0;
 
-        InvalidateData (m_RepoTree.GetParentItem (m_RepoTree.GetSelectedItem()));
+        InvalidateData (m_RepoTree.GetSelectedItem());
 		RefreshNode(m_RepoTree.GetSelectedItem(), true);
 	}
 }
