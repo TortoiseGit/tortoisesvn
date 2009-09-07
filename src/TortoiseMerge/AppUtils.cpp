@@ -60,7 +60,6 @@ BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSaveP
 	if (!CCreateProcessHelper::CreateProcess(NULL, (LPTSTR)(LPCTSTR)sSCMPath, &process))
 	{
 		CFormatMessageWrapper errorDetails;
-		errorDetails.ObtainMessage();
 		MessageBox(NULL, errorDetails, _T("TortoiseMerge"), MB_OK | MB_ICONERROR);
 	}
 	DWORD ret = 0;

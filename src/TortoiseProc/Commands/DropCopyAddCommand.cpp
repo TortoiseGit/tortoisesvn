@@ -85,7 +85,6 @@ bool DropCopyAddCommand::Execute()
 void DropCopyAddCommand::ShowErrorMessage()
 {
 	CFormatMessageWrapper errorDetails;
-	errorDetails.ObtainMessage();
 	CString strMessage;
 	strMessage.Format(IDS_ERR_COPYFILES, errorDetails);
 	CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);

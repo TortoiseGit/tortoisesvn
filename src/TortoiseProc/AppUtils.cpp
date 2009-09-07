@@ -542,7 +542,6 @@ bool CAppUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessage
 		if(idErrMessageFormat != 0)
 		{
 			CFormatMessageWrapper errorDetails;
-			errorDetails.ObtainMessage();
 			CString temp;
 			temp.Format(idErrMessageFormat, errorDetails);
 			CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);

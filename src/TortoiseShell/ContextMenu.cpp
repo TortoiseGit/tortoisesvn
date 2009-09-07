@@ -2492,6 +2492,5 @@ void CShellExt::RunCommand(const tstring& path, const tstring& command,
 	}
 
 	CFormatMessageWrapper errorDetails;
-	errorDetails.ObtainMessage();
 	MessageBox( NULL, errorDetails, errorMessage, MB_OK | MB_ICONINFORMATION );
 }

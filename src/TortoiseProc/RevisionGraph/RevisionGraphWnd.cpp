@@ -807,10 +807,9 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 			if (!dc.CreateCompatibleDC(&ddc))
 			{
 				CFormatMessageWrapper errorDetails;
-				if( !errorDetails.ObtainMessage() ) {
-					return;
-				}
-				MessageBox( errorDetails, _T("Error"), MB_OK | MB_ICONINFORMATION );
+				if( errorDetails )
+    				MessageBox( errorDetails, _T("Error"), MB_OK | MB_ICONINFORMATION );
+
 				return;
 			}
 			CRect rect;

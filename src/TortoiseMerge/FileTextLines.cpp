@@ -569,9 +569,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 
 void CFileTextLines::SetErrorString()
 {
-	CFormatMessageWrapper errorDetails;
-	errorDetails.ObtainMessage();
-	m_sErrorString = lpMsgBuf;
+	m_sErrorString = CFormatMessageWrapper();
 }
 
 void CFileTextLines::CopySettings(CFileTextLines * pFileToCopySettingsTo)

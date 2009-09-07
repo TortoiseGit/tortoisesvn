@@ -1491,8 +1491,6 @@ void CStatGraphDlg::StoreCurrentGraphType()
 void CStatGraphDlg::ShowErrorMessage()
 {
 	CFormatMessageWrapper errorDetails;
-	if(!errorDetails.ObtainMessage()) {
-		return;
-	}
-	MessageBox( errorDetails, _T("Error"), MB_OK | MB_ICONINFORMATION );
+	if (errorDetails)
+    	MessageBox( errorDetails, _T("Error"), MB_OK | MB_ICONINFORMATION );
 }

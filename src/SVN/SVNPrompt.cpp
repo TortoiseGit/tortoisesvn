@@ -149,7 +149,6 @@ BOOL SVNPrompt::SimplePrompt(CString& username, CString& password, const CString
 void SVNPrompt::ShowErrorMessage()
 {
 	CFormatMessageWrapper errorDetails;
-	errorDetails.ObtainMessage();
 	MessageBox( NULL, errorDetails, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION );
 }
 

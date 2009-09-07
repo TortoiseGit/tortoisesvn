@@ -2049,7 +2049,6 @@ bool CMainFrame::RunCommand(TCHAR* command)
 	}
 
 	CFormatMessageWrapper errorDetails;
-	errorDetails.ObtainMessage();
     MessageBox(errorDetails, _T("TortoiseMerge"), MB_OK | MB_ICONINFORMATION);
 	return false;
 }

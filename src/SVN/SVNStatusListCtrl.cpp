@@ -4827,7 +4827,6 @@ void CSVNStatusListCtrl::OnDestroy()
 void CSVNStatusListCtrl::ShowErrorMessage()
 {
 	CFormatMessageWrapper errorDetails;
-	errorDetails.ObtainMessage();
 	MessageBox(errorDetails, _T("Error"), MB_OK | MB_ICONINFORMATION );
 }
 

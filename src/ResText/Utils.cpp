@@ -131,10 +131,6 @@ void CUtils::StringCollapse(LPTSTR str)
 void CUtils::Error()
 {
 	CFormatMessageWrapper errorDetails;
-	if(!errorDetails.ObtainMessage())
-	{
-		return;
-	}
-	// Display the string.
-	_ftprintf(stderr, _T("%s\n"), (LPCTSTR)errorDetails);
+	if (errorDetails)
+    	_ftprintf (stderr, _T("%s\n"), (LPCTSTR)errorDetails);
 }

@@ -26,14 +26,17 @@
 class CFormatMessageWrapper {
 private:
 	LPTSTR buffer;
+    DWORD result;
 	void release();
 
 public:
-	CFormatMessageWrapper() : buffer(0) {}
+	CFormatMessageWrapper() : buffer(0), result(S_FALSE) {ObtainMessage();}
 	~CFormatMessageWrapper() { release(); }
 	bool ObtainMessage() { return ObtainMessage(::GetLastError()); }
 	bool ObtainMessage(DWORD errorCode);
 	operator LPCTSTR() { return buffer; }
+    operator bool() { return result == S_OK; }
+    bool operator!() { return result != S_OK; }
 };
 
 inline bool CFormatMessageWrapper::ObtainMessage(DWORD errorCode)
@@ -41,16 +44,16 @@ inline bool CFormatMessageWrapper::ObtainMessage(DWORD errorCode)
 	// First of all release the buffer to make it possible to call this
 	// method more than once on the same object.
 	release();
-	const DWORD result = FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER |
-									FORMAT_MESSAGE_FROM_SYSTEM |
-									FORMAT_MESSAGE_IGNORE_INSERTS,
-									NULL,
-									errorCode,
-									MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-									(LPTSTR) &buffer,
-									0,
-									NULL
-									);
+	result = FormatMessage (FORMAT_MESSAGE_ALLOCATE_BUFFER |
+							FORMAT_MESSAGE_FROM_SYSTEM |
+							FORMAT_MESSAGE_IGNORE_INSERTS,
+							NULL,
+							errorCode,
+							MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+							(LPTSTR) &buffer,
+							0,
+							NULL
+							);
 	return result != 0;
 }
 
@@ -60,4 +63,6 @@ inline void CFormatMessageWrapper::release()
 		LocalFree(buffer);
 		buffer = 0;
 	}
+
+    result = S_FALSE;
 }
