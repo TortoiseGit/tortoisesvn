@@ -29,6 +29,7 @@
 #include "StringUtils.h"
 #include "TSVNAuth.h"
 #include "auto_buffer.h"
+#include "FormatMessageWrapper.h"
 
 SVNPrompt::SVNPrompt()
 {
@@ -116,21 +117,7 @@ BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may
 	if (nResponse == IDABORT)
 	{
 		//the prompt dialog box could not be shown!
-		LPVOID lpMsgBuf;
-		FormatMessage( 
-			FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-			FORMAT_MESSAGE_FROM_SYSTEM | 
-			FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL,
-			GetLastError(),
-			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-			(LPTSTR) &lpMsgBuf,
-			0,
-			NULL 
-		);
-		MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION );
-		// Free the buffer.
-		LocalFree( lpMsgBuf );
+		ShowErrorMessage();
 	}
 	return FALSE;
 }
@@ -154,23 +141,16 @@ BOOL SVNPrompt::SimplePrompt(CString& username, CString& password, const CString
 	if (nResponse == IDABORT)
 	{
 		//the prompt dialog box could not be shown!
-		LPVOID lpMsgBuf;
-		FormatMessage( 
-			FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-			FORMAT_MESSAGE_FROM_SYSTEM | 
-			FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL,
-			GetLastError(),
-			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-			(LPTSTR) &lpMsgBuf,
-			0,
-			NULL 
-		);
-		MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION );
-		// Free the buffer.
-		LocalFree( lpMsgBuf );
+		ShowErrorMessage();
 	}
 	return FALSE;
+}
+
+void SVNPrompt::ShowErrorMessage()
+{
+	CFormatMessageWrapper errorDetails;
+	errorDetails.ObtainMessage();
+	MessageBox( NULL, errorDetails, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION );
 }
 
 svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton, const char * realm, svn_boolean_t may_save, apr_pool_t *pool)

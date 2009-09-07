@@ -152,6 +152,7 @@ protected:
 	int	 GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 
 	void StoreCurrentGraphType();
+	void ShowErrorMessage();
 
 	CPtrArray		m_graphDataArray;
 	MyGraph			m_graph;

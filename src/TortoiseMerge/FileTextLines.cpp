@@ -21,7 +21,7 @@
 #include "UnicodeUtils.h"
 #include "registry.h"
 #include ".\filetextlines.h"
-
+#include "FormatMessageWrapper.h"
 
 CFileTextLines::CFileTextLines(void)
 {
@@ -569,19 +569,9 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 
 void CFileTextLines::SetErrorString()
 {
-	LPVOID lpMsgBuf;
-	FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-		FORMAT_MESSAGE_FROM_SYSTEM | 
-		FORMAT_MESSAGE_IGNORE_INSERTS,
-		NULL,
-		::GetLastError(),
-		MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-		(LPTSTR) &lpMsgBuf,
-		0,
-		NULL 
-		);
-	m_sErrorString = (LPCTSTR)lpMsgBuf;
-	LocalFree( lpMsgBuf );
+	CFormatMessageWrapper errorDetails;
+	errorDetails.ObtainMessage();
+	m_sErrorString = lpMsgBuf;
 }
 
 void CFileTextLines::CopySettings(CFileTextLines * pFileToCopySettingsTo)
@@ -592,8 +582,3 @@ void CFileTextLines::CopySettings(CFileTextLines * pFileToCopySettingsTo)
 		pFileToCopySettingsTo->m_LineEndings = m_LineEndings;
 	}
 }
-
-
-
-
-

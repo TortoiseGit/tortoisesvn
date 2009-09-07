@@ -34,6 +34,7 @@
 #include "auto_buffer.h"
 #include "StringUtils.h"
 #include "CreateProcessHelper.h"
+#include "FormatMessageWrapper.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -2047,20 +2048,8 @@ bool CMainFrame::RunCommand(TCHAR* command)
 		return true;
 	}
 
-	LPVOID lpMsgBuf;
-	FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-		FORMAT_MESSAGE_FROM_SYSTEM | 
-		FORMAT_MESSAGE_IGNORE_INSERTS,
-		NULL,
-		GetLastError(),
-		MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-		(LPTSTR) &lpMsgBuf,
-		0,
-		NULL 
-		);
-
-    MessageBox((LPCTSTR)lpMsgBuf, _T("TortoiseMerge"), MB_OK | MB_ICONINFORMATION);
-	LocalFree( lpMsgBuf );
+	CFormatMessageWrapper errorDetails;
+	errorDetails.ObtainMessage();
+    MessageBox(errorDetails, _T("TortoiseMerge"), MB_OK | MB_ICONINFORMATION);
 	return false;
 }
-

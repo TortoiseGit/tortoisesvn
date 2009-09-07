@@ -25,6 +25,7 @@
 #include "SVNStatus.h"
 #include "auto_buffer.h"
 #include "CreateProcessHelper.h"
+#include "FormatMessageWrapper.h"
 
 #define GetPIDLFolder(pida) (LPCITEMIDLIST)(((LPBYTE)pida)+(pida)->aoffset[0])
 #define GetPIDLItem(pida, i) (LPCITEMIDLIST)(((LPBYTE)pida)+(pida)->aoffset[i+1])
@@ -2490,17 +2491,7 @@ void CShellExt::RunCommand(const tstring& path, const tstring& command,
 		return;
 	}
 
-	LPVOID lpMsgBuf;
-	FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-			FORMAT_MESSAGE_FROM_SYSTEM | 
-			FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL,
-			GetLastError(),
-			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-			(LPTSTR) &lpMsgBuf,
-			0,
-			NULL 
-			);
-	MessageBox( NULL, (LPCTSTR)lpMsgBuf, errorMessage, MB_OK | MB_ICONINFORMATION );
-	LocalFree( lpMsgBuf );
+	CFormatMessageWrapper errorDetails;
+	errorDetails.ObtainMessage();
+	MessageBox( NULL, errorDetails, errorMessage, MB_OK | MB_ICONINFORMATION );
 }

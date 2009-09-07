@@ -30,6 +30,7 @@
 #include "svn_string.h"
 #include "svn_utf.h"
 #include "CreateProcessHelper.h"
+#include "FormatMessageWrapper.h"
 
 CAppUtils::CAppUtils(void)
 {
@@ -58,19 +59,9 @@ BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSaveP
 	PROCESS_INFORMATION process;
 	if (!CCreateProcessHelper::CreateProcess(NULL, (LPTSTR)(LPCTSTR)sSCMPath, &process))
 	{
-		LPVOID lpMsgBuf;
-		FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-			FORMAT_MESSAGE_FROM_SYSTEM | 
-			FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL,
-			GetLastError(),
-			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-			(LPTSTR) &lpMsgBuf,
-			0,
-			NULL 
-			);
-		MessageBox(NULL, (LPCTSTR)lpMsgBuf, _T("TortoiseMerge"), MB_OK | MB_ICONERROR);
-		LocalFree( lpMsgBuf );
+		CFormatMessageWrapper errorDetails;
+		errorDetails.ObtainMessage();
+		MessageBox(NULL, errorDetails, _T("TortoiseMerge"), MB_OK | MB_ICONERROR);
 	}
 	DWORD ret = 0;
 	do

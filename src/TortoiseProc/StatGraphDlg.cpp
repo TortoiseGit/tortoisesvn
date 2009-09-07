@@ -25,6 +25,7 @@
 #include "PathUtils.h"
 #include "MessageBox.h"
 #include "Registry.h"
+#include "FormatMessageWrapper.h"
 
 #include <cmath>
 #include <locale>
@@ -1337,22 +1338,7 @@ void CStatGraphDlg::SaveGraph(CString sFilename)
 			CDC dc;
 			if (!dc.CreateCompatibleDC(&ddc))
 			{
-				LPVOID lpMsgBuf;
-				if (!FormatMessage( 
-					FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-					FORMAT_MESSAGE_FROM_SYSTEM | 
-					FORMAT_MESSAGE_IGNORE_INSERTS,
-					NULL,
-					GetLastError(),
-					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-					(LPTSTR) &lpMsgBuf,
-					0,
-					NULL ))
-				{
-					return;
-				}
-				MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
-				LocalFree( lpMsgBuf );
+				ShowErrorMessage();
 				return;
 			}
 			CRect rect;
@@ -1360,22 +1346,7 @@ void CStatGraphDlg::SaveGraph(CString sFilename)
 			HBITMAP hbm = ::CreateCompatibleBitmap(ddc.m_hDC, rect.Width(), rect.Height());
 			if (hbm==0)
 			{
-				LPVOID lpMsgBuf;
-				if (!FormatMessage( 
-					FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-					FORMAT_MESSAGE_FROM_SYSTEM | 
-					FORMAT_MESSAGE_IGNORE_INSERTS,
-					NULL,
-					GetLastError(),
-					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-					(LPTSTR) &lpMsgBuf,
-					0,
-					NULL ))
-				{
-					return;
-				}
-				MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
-				LocalFree( lpMsgBuf );
+				ShowErrorMessage();
 				return;
 			}
 			HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
@@ -1515,4 +1486,13 @@ void CStatGraphDlg::StoreCurrentGraphType()
 
 	CRegDWORD regSort = CRegDWORD(_T("Software\\TortoiseSVN\\StatSortByCommitCount"));
 	regSort = m_bSortByCommitCount;
+}
+
+void CStatGraphDlg::ShowErrorMessage()
+{
+	CFormatMessageWrapper errorDetails;
+	if(!errorDetails.ObtainMessage()) {
+		return;
+	}
+	MessageBox( errorDetails, _T("Error"), MB_OK | MB_ICONINFORMATION );
 }

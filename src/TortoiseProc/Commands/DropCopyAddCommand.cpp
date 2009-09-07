@@ -18,7 +18,7 @@
 //
 #include "StdAfx.h"
 #include "DropCopyAddCommand.h"
-
+#include "FormatMessageWrapper.h"
 #include "SVNProgressDlg.h"
 #include "MessageBox.h"
 
@@ -84,20 +84,9 @@ bool DropCopyAddCommand::Execute()
 
 void DropCopyAddCommand::ShowErrorMessage()
 {
-	LPVOID lpMsgBuf;
-	FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-			FORMAT_MESSAGE_FROM_SYSTEM | 
-			FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL,
-			GetLastError(),
-			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-			(LPTSTR) &lpMsgBuf,
-			0,
-			NULL 
-			);
-
+	CFormatMessageWrapper errorDetails;
+	errorDetails.ObtainMessage();
 	CString strMessage;
-	strMessage.Format(IDS_ERR_COPYFILES, (LPTSTR)lpMsgBuf);
+	strMessage.Format(IDS_ERR_COPYFILES, errorDetails);
 	CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-	LocalFree( lpMsgBuf );
 }

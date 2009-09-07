@@ -53,6 +53,7 @@
 #include "StringUtils.h"
 #include "auto_buffer.h"
 #include "svntrace.h"
+#include "FormatMessageWrapper.h"
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
 					= ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
@@ -4825,19 +4826,9 @@ void CSVNStatusListCtrl::OnDestroy()
 
 void CSVNStatusListCtrl::ShowErrorMessage()
 {
-	LPVOID lpMsgBuf;
-	FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-			FORMAT_MESSAGE_FROM_SYSTEM | 
-			FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL,
-			GetLastError(),
-			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-			(LPTSTR) &lpMsgBuf,
-			0,
-			NULL 
-			);
-	MessageBox((LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
-	LocalFree( lpMsgBuf );
+	CFormatMessageWrapper errorDetails;
+	errorDetails.ObtainMessage();
+	MessageBox(errorDetails, _T("Error"), MB_OK | MB_ICONINFORMATION );
 }
 
 void CSVNStatusListCtrl::OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult)

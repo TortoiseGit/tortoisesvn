@@ -38,6 +38,7 @@
 #include "RevisionGraph/StandardLayout.h"
 #include "RevisionGraph/UpsideDownLayout.h"
 #include "SysInfo.h"
+#include "FormatMessageWrapper.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -96,10 +97,7 @@ CRevisionGraphWnd::CRevisionGraphWnd()
     , m_showHoverGlyphs (false)
 {
 	memset(&m_lfBaseFont, 0, sizeof(LOGFONT));	
-	for (int i=0; i<MAXFONTS; i++)
-	{
-		m_apFonts[i] = NULL;
-	}
+	std::fill_n(m_apFonts, MAXFONTS, (CFont*)NULL);
 
 	WNDCLASS wndcls;
 	HINSTANCE hInst = AfxGetInstanceHandle();
@@ -808,22 +806,11 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 			CDC dc;
 			if (!dc.CreateCompatibleDC(&ddc))
 			{
-				LPVOID lpMsgBuf;
-				if (!FormatMessage( 
-					FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-					FORMAT_MESSAGE_FROM_SYSTEM | 
-					FORMAT_MESSAGE_IGNORE_INSERTS,
-					NULL,
-					GetLastError(),
-					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-					(LPTSTR) &lpMsgBuf,
-					0,
-					NULL ))
-				{
+				CFormatMessageWrapper errorDetails;
+				if( !errorDetails.ObtainMessage() ) {
 					return;
 				}
-				MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
-				LocalFree( lpMsgBuf );
+				MessageBox( errorDetails, _T("Error"), MB_OK | MB_ICONINFORMATION );
 				return;
 			}
 			CRect rect;

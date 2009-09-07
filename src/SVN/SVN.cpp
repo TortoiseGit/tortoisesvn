@@ -49,6 +49,7 @@
 #include "CriticalSection.h"
 #include "..\version.h"
 #include "SVNTrace.h"
+#include "FormatMessageWrapper.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -933,22 +934,12 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
 					}
 					if (lastError)
 					{
-						LPVOID lpMsgBuf;
-						if (!FormatMessage( 
-							FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-							FORMAT_MESSAGE_FROM_SYSTEM | 
-							FORMAT_MESSAGE_IGNORE_INSERTS,
-							NULL,
-							lastError,
-							MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-							(LPTSTR) &lpMsgBuf,
-							0,
-							NULL ))
+						CFormatMessageWrapper errorDetails;
+						if(!errorDetails.ObtainMessage(lastError))
 						{
 							return false;
 						}
-						Err = svn_error_create(NULL, NULL, CUnicodeUtils::GetUTF8(CString((LPCTSTR)lpMsgBuf)));
-						LocalFree(lpMsgBuf);
+						Err = svn_error_create(NULL, NULL, CUnicodeUtils::GetUTF8(CString(errorDetails)));
 						return false;
 					}
 				}

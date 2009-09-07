@@ -53,6 +53,7 @@ public:
 private:
 	BOOL Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may_save);
 	BOOL SimplePrompt(CString& username, CString& password, const CString& Realm, BOOL& may_save);
+	void ShowErrorMessage();
 
 	static svn_error_t* userprompt(svn_auth_cred_username_t **cred, void *baton, const char *realm, svn_boolean_t may_save, apr_pool_t *pool);
 	static svn_error_t* simpleprompt(svn_auth_cred_simple_t **cred, void *baton, const char *realm, const char *username, svn_boolean_t may_save, apr_pool_t *pool);
@@ -69,5 +70,4 @@ private:
 	CWinApp *					m_app;
 	HWND						m_hParentWnd;
 	bool						m_bPromptShown;
-
 };

@@ -33,6 +33,7 @@
 #include "auto_buffer.h"
 #include "StringUtils.h"
 #include "CreateProcessHelper.h"
+#include "FormatMessageWrapper.h"
 
 CAppUtils::CAppUtils(void)
 {
@@ -540,21 +541,11 @@ bool CAppUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessage
 	{
 		if(idErrMessageFormat != 0)
 		{
-			LPVOID lpMsgBuf;
-			FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-				FORMAT_MESSAGE_FROM_SYSTEM | 
-				FORMAT_MESSAGE_IGNORE_INSERTS,
-				NULL,
-				GetLastError(),
-				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-				(LPTSTR) &lpMsgBuf,
-				0,
-				NULL 
-				);
+			CFormatMessageWrapper errorDetails;
+			errorDetails.ObtainMessage();
 			CString temp;
-			temp.Format(idErrMessageFormat, lpMsgBuf);
+			temp.Format(idErrMessageFormat, errorDetails);
 			CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-			LocalFree( lpMsgBuf );
 		}
 		return false;
 	}
