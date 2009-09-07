@@ -257,10 +257,6 @@ protected:
 	int				m_nOffsetChar;
 	int				m_nTabSize;
 	int				m_nDigits;
-	int				m_nFirstDiffLine;
-	int				m_nLastDiffLine;
-	int				m_nFirstConflictLine;
-	int				m_nLastConflictLine;
 	bool			m_bInlineWordDiff;
 
 	int				m_nSelBlockStart;

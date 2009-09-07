@@ -69,10 +69,6 @@ CBaseView::CBaseView()
 	m_nOffsetChar = 0;
 	m_nDigits = 0;
 	m_nMouseLine = -1;
-	m_nFirstDiffLine = -1;
-	m_nLastDiffLine = -1;
-	m_nFirstConflictLine = -1;
-	m_nLastConflictLine = -1;
 	m_bMouseWithin = FALSE;
 	m_bIsHidden = FALSE;
 	lineendings = EOL_AUTOLINE;
@@ -1974,24 +1970,7 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 
 		nCenterPos += nDirection;
 	}
-	if (nCenterPos != nLimit)
-	{
-		if (nDirection > 0)
-		{
-			if (bConflict)
-				m_nLastConflictLine = nCenterPos;
-			else
-				m_nLastDiffLine = nCenterPos;
-		}
-		else
-		{
-			if (bConflict)
-				m_nFirstConflictLine = nCenterPos;
-			else
-				m_nFirstDiffLine = nCenterPos;
-		}
-	}
-	else
+	if (nCenterPos == nLimit)
 		return false;
 	if (dryrun)
 		return (nCenterPos != nLimit);
