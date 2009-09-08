@@ -1905,7 +1905,6 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
 			CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 			TRACE(_T("could not retrieve the URL of the file!\n"));
 			EnableOKButton();
-			theApp.DoWaitCursor(-11);
 			return;		//exit
 		}
 	}
