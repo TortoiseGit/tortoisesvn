@@ -32,7 +32,6 @@ CCachedDirectory::CCachedDirectory(void)
 	m_lastFileTimeCheck = 0;
 	m_bCurrentFullStatusValid = false;
 	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
-	m_bRecursive = true;
 }
 
 CCachedDirectory::~CCachedDirectory(void)
@@ -49,7 +48,6 @@ CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
 	m_lastFileTimeCheck = 0;
 	m_bCurrentFullStatusValid = false;
 	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
-	m_bRecursive = true;
 }
 
 BOOL CCachedDirectory::SaveToDisk(FILE * pFile)
@@ -204,16 +202,8 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	// Check if the entries file has been changed
 	CTSVNPath entriesFilePath(m_directoryPath);
 	CTSVNPath propsDirPath(m_directoryPath);
-	if (g_SVNAdminDir.IsVSNETHackActive())
-	{
-		entriesFilePath.AppendPathString(g_SVNAdminDir.GetVSNETAdminDirName() + _T("\\entries"));
-		propsDirPath.AppendPathString(g_SVNAdminDir.GetVSNETAdminDirName() + _T("\\dir-prop-base"));
-	}
-	else
-	{
-		entriesFilePath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\entries"));
-		propsDirPath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\dir-prop-base"));
-	}
+	entriesFilePath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\entries"));
+	propsDirPath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\dir-prop-base"));
 
 	bool entiesFileTimeChanged = false;
 	bool propsFileTimeChanged = false;
@@ -228,7 +218,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	}
 	else
 	{
-		CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: skipped file tome check for for %s\n"), m_directoryPath.GetWinPath());
+		CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: skipped file time check for for %s\n"), m_directoryPath.GetWinPath());
 	}
 
 	if ( !entiesFileTimeChanged && !propsFileTimeChanged )
@@ -374,9 +364,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		strCacheKey = GetCacheKey(path);
 	}
 
-	svn_opt_revision_t revision;
-	revision.kind = svn_opt_revision_unspecified;
-
 	// We've not got this item in the cache - let's add it
 	// We never bother asking SVN for the status of just one file, always for its containing directory
 
@@ -399,71 +386,18 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			}
 		}
 	}
-	SVNPool subPool(CSVNStatusCache::Instance().m_svnHelp.Pool());
+
 	{
 		AutoLocker lock(m_critSec);
 		m_mostImportantFileStatus = svn_wc_status_none;
 		m_childDirectories.clear();
 		m_entryCache.clear();
 		m_ownStatus.SetStatus(NULL, false);
-		m_bRecursive = bRecursive;
 	}
 	if(!bThisDirectoryIsUnversioned)
 	{
-		{
-			AutoLocker pathlock(m_critSecPath);
-			m_currentStatusFetchingPath = m_directoryPath;
-		}
-		CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: stat for %s\n"), m_directoryPath.GetWinPath());
-		svn_error_t* pErr = svn_client_status4 (
-			NULL,
-			m_directoryPath.GetSVNApiPath(subPool),
-			&revision,
-			GetStatusCallback,
-			this,
-			svn_depth_immediates,
-			TRUE,		// get all
-			FALSE,		// update
-			TRUE,		// no ignores
-			FALSE,		// ignore externals
-			NULL,									//changelists
-			CSVNStatusCache::Instance().m_svnHelp.ClientContext(),
-			subPool
-			);
-		{
-			AutoLocker pathlock(m_critSecPath);
-			m_currentStatusFetchingPath.Reset();
-		}
-		if(pErr)
-		{
-			// Handle an error
-			// The most likely error on a folder is that it's not part of a WC
-			// In most circumstances, this will have been caught earlier,
-			// but in some situations, we'll get this error.
-			// If we allow ourselves to fall on through, then folders will be asked
-			// for their own status, and will set themselves as unversioned, for the 
-			// benefit of future requests
-			CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: svn_cli_stat error '%s'\n"), pErr->message);
-			svn_error_clear(pErr);
-			// No assert here! Since we _can_ get here, an assertion is not an option!
-			// Reasons to get here: 
-			// - renaming a folder with many sub folders --> results in "not a working copy" if the revert
-			//   happens between our checks and the svn_client_status() call.
-			// - reverting a move/copy --> results in "not a working copy" (as above)
-			if (!m_directoryPath.HasAdminDir())
-			{
-				m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
-				return CStatusCacheEntry();
-			}
-			else
-			{
-				// Since we only assume a none status here due to svn_client_status()
-				// returning an error, make sure that this status times out soon.
-				CSVNStatusCache::Instance().m_folderCrawler.BlockPath(m_directoryPath, 2000);
-				CSVNStatusCache::Instance().AddFolderForCrawling(m_directoryPath);
-				return CStatusCacheEntry();
-			}
-		}
+		if (!SvnUpdateMembersStatus())
+			return CStatusCacheEntry();
 	}
 	// Now that we've refreshed our SVN status, we can see if it's 
 	// changed the 'most important' status value for this directory.
@@ -555,6 +489,71 @@ CString
 CCachedDirectory::GetFullPathString(const CString& cacheKey)
 {
 	return m_directoryPath.GetWinPathString() + _T("\\") + cacheKey;
+}
+
+
+bool
+CCachedDirectory::SvnUpdateMembersStatus()
+{
+	svn_opt_revision_t revision;
+	revision.kind = svn_opt_revision_unspecified;
+
+	SVNPool subPool(CSVNStatusCache::Instance().m_svnHelp.Pool());
+	{
+		AutoLocker pathlock(m_critSecPath);
+		m_currentStatusFetchingPath = m_directoryPath;
+	}
+	CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: stat for %s\n"), m_directoryPath.GetWinPath());
+	svn_error_t* pErr = svn_client_status4 (
+		NULL,
+		m_directoryPath.GetSVNApiPath(subPool),
+		&revision,
+		GetStatusCallback,
+		this,
+		svn_depth_immediates,
+		TRUE,		// get all
+		FALSE,		// update
+		TRUE,		// no ignores
+		FALSE,		// ignore externals
+		NULL,									//changelists
+		CSVNStatusCache::Instance().m_svnHelp.ClientContext(),
+		subPool
+		);
+	{
+		AutoLocker pathlock(m_critSecPath);
+		m_currentStatusFetchingPath.Reset();
+	}
+	if(pErr)
+	{
+		// Handle an error
+		// The most likely error on a folder is that it's not part of a WC
+		// In most circumstances, this will have been caught earlier,
+		// but in some situations, we'll get this error.
+		// If we allow ourselves to fall on through, then folders will be asked
+		// for their own status, and will set themselves as unversioned, for the 
+		// benefit of future requests
+		CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: svn_cli_stat error '%s'\n"), pErr->message);
+		svn_error_clear(pErr);
+		// No assert here! Since we _can_ get here, an assertion is not an option!
+		// Reasons to get here: 
+		// - renaming a folder with many sub folders --> results in "not a working copy" if the revert
+		//   happens between our checks and the svn_client_status() call.
+		// - reverting a move/copy --> results in "not a working copy" (as above)
+		if (!m_directoryPath.HasAdminDir())
+		{
+			m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
+			return false;
+		}
+		else
+		{
+			// Since we only assume a none status here due to svn_client_status()
+			// returning an error, make sure that this status times out soon.
+			CSVNStatusCache::Instance().m_folderCrawler.BlockPath(m_directoryPath, 2000);
+			CSVNStatusCache::Instance().AddFolderForCrawling(m_directoryPath);
+			return false;
+		}
+	}
+	return true;
 }
 
 svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_status2_t *status, apr_pool_t * /*pool*/)
@@ -844,9 +843,6 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 	{
 		AutoLocker lock(m_critSec);
 		// We also need to check if all our file members have the right date on them
-		if (m_entryCache.size() == 0)
-			return;
-
 		for (CacheEntryMap::iterator itMembers = m_entryCache.begin(); itMembers != m_entryCache.end(); ++itMembers)
 		{
 			if ((itMembers->first)&&(!itMembers->first.IsEmpty()))
@@ -856,18 +852,25 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 				std::set<CTSVNPath>::iterator refr_it;
 				if (!filePath.IsEquivalentToWithoutCase(m_directoryPath))
 				{
+					// we only have file members in our entry cache
+					ATLASSERT(!itMembers->second.IsDirectory());
+
 					if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
 					{
 						// We need to request this item as well
 						updatePathList.AddPath(filePath);
 					}
-					else if ((bRecursive)&&(itMembers->second.IsDirectory()))
-					{
-						// crawl all sub folders too! Otherwise a change deep inside the
-						// tree which has changed won't get propagated up the tree.
-						crawlPathList.AddPath(filePath);
-					}
 				}
+			}
+		}
+
+		if (bRecursive)
+		{
+			// crawl all sub folders too! Otherwise a change deep inside the
+			// tree which has changed won't get propagated up the tree.
+			for(ChildDirStatus::const_iterator it = m_childDirectories.begin(); it != m_childDirectories.end(); ++it)
+			{
+				crawlPathList.AddPath(it->first);
 			}
 		}
 	}

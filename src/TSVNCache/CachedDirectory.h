@@ -54,6 +54,7 @@ private:
 	CString GetFullPathString(const CString& cacheKey);
 	CStatusCacheEntry LookForItemInCache(const CTSVNPath& path, bool &bFound);
 	void UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn_wc_status_kind childStatus);
+	bool SvnUpdateMembersStatus();
 
 	// Calculate the complete, composite status from ourselves, our files, and our descendants
 	svn_wc_status_kind CalculateRecursiveStatus();
@@ -94,7 +95,6 @@ private:
 	// The most important status from all our file entries
 	svn_wc_status_kind m_mostImportantFileStatus;
 
-	bool m_bRecursive;		// used in the status callback
 	friend class CSVNStatusCache;		
 };
 
