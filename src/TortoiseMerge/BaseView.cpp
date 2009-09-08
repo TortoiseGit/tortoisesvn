@@ -97,10 +97,7 @@ CBaseView::CBaseView()
 	m_bOtherDiffChecked = false;
 	m_bInlineWordDiff = true;
 	m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
-	for (int i=0; i<fontsCount; i++)
-	{
-		m_apFonts[i] = NULL;
-	}
+	std::fill_n(m_apFonts, fontsCount, (CFont*)NULL);
 	m_hConflictedIcon = LoadIcon(IDI_CONFLICTEDLINE);
 	m_hConflictedIgnoredIcon = LoadIcon(IDI_CONFLICTEDIGNOREDLINE); 
 	m_hRemovedIcon = LoadIcon(IDI_REMOVEDLINE);
@@ -1950,7 +1947,9 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 		DiffStates state = m_pViewData->GetState(nCenterPos);
 		while ((nCenterPos != nLimit) && 
 		       (m_pViewData->GetState(nCenterPos)==state))
+		{
 			nCenterPos += nDirection;
+		}
 	}
 
 	// Find next diff/conflict block
@@ -1960,13 +1959,17 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 		if (!bConflict &&
 			(linestate != DIFFSTATE_NORMAL) &&
 			(linestate != DIFFSTATE_UNKNOWN))
+		{
 			break;
+		}
 		if (bConflict &&
 			((linestate == DIFFSTATE_CONFLICTADDED) ||
 			 (linestate == DIFFSTATE_CONFLICTED_IGNORED) ||
 			 (linestate == DIFFSTATE_CONFLICTED) ||
 			 (linestate == DIFFSTATE_CONFLICTEMPTY)))
+		{
 			break;
+		}
 
 		nCenterPos += nDirection;
 	}
@@ -1980,7 +1983,9 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 	int nBlockEnd = nCenterPos;
 	while ((nBlockEnd != nLimit) &&  
 			 (state == m_pViewData->GetState(nBlockEnd + nDirection)))
+	{
 		nBlockEnd += nDirection;
+	}
 
 	int nTopPos = nCenterPos - (GetScreenLines()/2);
 	if (nTopPos < 0)
@@ -2103,12 +2108,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			m_ptCaretPos.y -= GetScreenLines();
 			m_ptCaretPos.y = max(m_ptCaretPos.y, 0);
 			m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
-			if (bShift)
-				AdjustSelection();
-			else
-				ClearSelection();
-			UpdateCaret();
-			EnsureCaretVisible();
+			OnCaretMove(bShift);
 			ShowDiffLines(m_ptCaretPos.y);
 		}
 		break;
@@ -2118,12 +2118,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			if (m_ptCaretPos.y >= GetLineCount())
 				m_ptCaretPos.y = GetLineCount()-1;
 			m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
-			if (bShift)
-				AdjustSelection();
-			else
-				ClearSelection();
-			UpdateCaret();
-			EnsureCaretVisible();
+			OnCaretMove(bShift);
 			ShowDiffLines(m_ptCaretPos.y);
 		}
 		break;
@@ -2145,12 +2140,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			{
 				m_ptCaretPos.x = 0;
 				m_nCaretGoalPos = 0;
-				if (bShift)
-					AdjustSelection();
-				else
-					ClearSelection();
-				EnsureCaretVisible();
-				UpdateCaret();
+				OnCaretMove(bShift);
 			}
 		}
 		break;
@@ -2172,12 +2162,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			{
 				m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
 				UpdateGoalPos();
-				if (bShift)
-					AdjustSelection();
-				else
-					ClearSelection();
-				EnsureCaretVisible();
-				UpdateCaret();
+				OnCaretMove(bShift);
 			}
 		}
 		break;
@@ -3122,7 +3107,13 @@ void CBaseView::DeleteFonts()
 
 void CBaseView::OnCaretMove()
 {
-	if (GetKeyState(VK_SHIFT)&0x8000)
+	const bool isShiftPressed = (GetKeyState(VK_SHIFT)&0x8000) != 0;
+	OnCaretMove(isShiftPressed);
+}
+
+void CBaseView::OnCaretMove(bool isShiftPressed)
+{
+	if(isShiftPressed)
 		AdjustSelection();
 	else
 		ClearSelection();

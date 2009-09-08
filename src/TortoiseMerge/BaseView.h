@@ -229,6 +229,7 @@ protected:
 	bool			MoveCaretLeft();
 	bool			MoveCaretRight();
 	void			OnCaretMove();
+	void			OnCaretMove(bool isShiftPressed);
 	void			UpdateGoalPos();
 
 	bool			IsWordSeparator(wchar_t ch) const;
