@@ -30,13 +30,13 @@ private:
 	void release();
 
 public:
-	CFormatMessageWrapper() : buffer(0), result(S_FALSE) {ObtainMessage();}
+	CFormatMessageWrapper() : buffer(0), result(0) {ObtainMessage();}
 	~CFormatMessageWrapper() { release(); }
 	bool ObtainMessage() { return ObtainMessage(::GetLastError()); }
 	bool ObtainMessage(DWORD errorCode);
 	operator LPCTSTR() { return buffer; }
-    operator bool() { return result == S_OK; }
-    bool operator!() { return result != S_OK; }
+    operator bool() { return result != 0; }
+    bool operator!() { return result == 0; }
 };
 
 inline bool CFormatMessageWrapper::ObtainMessage(DWORD errorCode)
@@ -64,5 +64,5 @@ inline void CFormatMessageWrapper::release()
 		buffer = 0;
 	}
 
-    result = S_FALSE;
+    result = 0;
 }
