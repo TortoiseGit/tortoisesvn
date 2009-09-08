@@ -37,6 +37,7 @@ public:
 	void SetUUID(const CString& sUUID) {m_sUUID = sUUID;}
 	void SetActionText(const CString& sAction) {m_sActionText = sAction;}
 	CString GetLogMessage() {return m_sLogMsg;}
+    void SetForceFocus(bool force) {m_bForceFocus = force;}
 
 protected:
 	virtual BOOL OnInitDialog();
@@ -62,4 +63,5 @@ private:
 	CString				m_sLogMsg;
 	CString				m_sUUID;
 	CString				m_sActionText;
+    bool                m_bForceFocus;
 };

@@ -31,6 +31,7 @@ IMPLEMENT_DYNAMIC(CInputLogDlg, CResizableStandAloneDialog)
 CInputLogDlg::CInputLogDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CInputLogDlg::IDD, pParent)
 	, m_pProjectProperties(NULL)
+    , m_bForceFocus(false)
 {
 
 }
@@ -99,6 +100,17 @@ BOOL CInputLogDlg::OnInitDialog()
 	EnableSaveRestore(_T("InputDlg"));
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
+
+    // HACK! Under certain conditions, the dialog box
+    // will not get the input focus. 
+    // Call SetForceFocus() to work around that problem.
+
+    if (m_bForceFocus)
+    {
+        ShowWindow (SW_HIDE);
+        ShowWindow (SW_SHOW);
+    }
+
 	GetDlgItem(IDC_INPUTTEXT)->SetFocus();
 	return FALSE;
 }

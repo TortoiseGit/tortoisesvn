@@ -1854,7 +1854,6 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
 	// rename the item in the repository
 	CItem * pItem = (CItem *)m_RepoList.GetItemData(pDispInfo->item.iItem);
 
-	CWaitCursorEx wait_cursor;
 	CInputLogDlg input(this);
     input.SetUUID (pItem->repository.uuid);
 	input.SetProjectProperties(&m_ProjectProperties);
@@ -1867,8 +1866,11 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
 	CString sHint;
 	sHint.Format(IDS_INPUT_RENAME, (LPCTSTR)(pItem->absolutepath), (LPCTSTR)targetUrl.GetSVNPathString());
 	input.SetActionText(sHint);
+    input.SetForceFocus (true);
 	if (input.DoModal() == IDOK)
 	{
+    	CWaitCursorEx wait_cursor;
+
 		if (!Move(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(pItem->absolutepath)))),
 			targetUrl,
 			true, input.GetLogMessage()))
@@ -1910,7 +1912,6 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
 
     SRepositoryInfo repository = pItem->repository;
 
-    CWaitCursorEx wait_cursor;
 	CInputLogDlg input(this);
 	input.SetUUID(pItem->repository.uuid);
 	input.SetProjectProperties(&m_ProjectProperties);
@@ -1923,8 +1924,11 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
 	CString sHint;
 	sHint.Format(IDS_INPUT_RENAME, (LPCTSTR)(pItem->url), (LPCTSTR)targetUrl.GetSVNPathString());
 	input.SetActionText(sHint);
+    input.SetForceFocus (true);
 	if (input.DoModal() == IDOK)
 	{
+        CWaitCursorEx wait_cursor;
+
 		if (!Move(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(pItem->url)))),
 			targetUrl,
 			true, input.GetLogMessage()))
