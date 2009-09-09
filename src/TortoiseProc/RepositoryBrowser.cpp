@@ -857,9 +857,11 @@ void CRepositoryBrowser::FillList(deque<CItem> * pItems)
 {
 	if (pItems == NULL)
 		return;
+
 	CWaitCursorEx wait;
 	m_RepoList.SetRedraw(false);
 	m_RepoList.DeleteAllItems();
+    m_RepoList.ClearText();
 
 	int c = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
 	while (c>=0)
@@ -1268,7 +1270,8 @@ void CRepositoryBrowser::RefreshChildren (CTreeItem * pTreeItem)
     if (!error.IsEmpty())
 	{
 		// error during list()
-		m_RepoList.ShowText (error);
+        m_RepoList.DeleteAllItems();
+		m_RepoList.ShowText (error, true);
 		return;
 	}
 
@@ -1327,10 +1330,12 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
 		tvitem.cChildren = pTreeItem->has_child_folders ? 1 : 0;
 		m_RepoTree.SetItem(&tvitem);
 	}
-	if ((force)||(hSel1 == hNode)||(hSel1 != m_RepoTree.GetSelectedItem()))
-	{
-		FillList(&pTreeItem->children);
-	}
+    if (pTreeItem->children_fetched)
+	    if ((force)||(hSel1 == hNode)||(hSel1 != m_RepoTree.GetSelectedItem()))
+	    {
+		    FillList(&pTreeItem->children);
+	    }
+
 	return true;
 }
 
@@ -1473,7 +1478,7 @@ void CRepositoryBrowser::OnInlineedit()
 	m_blockEvents = true;
 	if (selIndex >= 0)
 	{
-		CItem * pItem = (CItem *)m_RepoList.GetItemData(selIndex);
+	CItem * pItem = (CItem *)m_RepoList.GetItemData(selIndex);
         if (!pItem->is_external)
         {
 		    m_RepoList.SetFocus();
@@ -1601,12 +1606,14 @@ void CRepositoryBrowser::OnTimer(UINT_PTR nIDEvent)
 			{
 				if (!pTreeItem->children_fetched)
 				{
-					m_RepoList.ShowText(_T(" "), true);
+                    m_RepoList.DeleteAllItems();
 					RefreshNode(hSelItem);
-					m_RepoList.ClearText();
 				}
+                else
+                {
+    				FillList(&pTreeItem->children);
+                }
 
-				FillList(&pTreeItem->children);
                 m_barRepository.ShowUrl ( pTreeItem->url
                                         , pTreeItem->repository.revision);
 			}
