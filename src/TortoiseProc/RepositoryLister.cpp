@@ -314,7 +314,8 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
                     , false
                     , 0
                     , 0
-                    , CUnicodeUtils::GetUnicode (external->url)
+                    , CPathUtils::PathUnescape 
+                        (CUnicodeUtils::GetUnicode (external->url))
                     , repository);
 
                 result.push_back (entry);
