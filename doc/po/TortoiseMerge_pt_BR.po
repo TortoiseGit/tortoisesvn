@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-08-18 16:05 +0000\n"
-"PO-Revision-Date: 2009-09-08 00:24-0300\n"
+"PO-Revision-Date: 2009-09-09 01:55-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -656,7 +656,7 @@ msgstr "Cor das alterações do conteúdo"
 
 #. (listitem)
 msgid "Lines which have relatively small changes, and are shown using inline diff. This colour is used for the <placeholder-1/> portion of the line content. Changed portions will be shown using the inline added and deleted colours described below. If <placeholder-2/> is not enabled, this colour will not be used and changed lines will always be shown as replacements."
-msgstr ""
+msgstr "Linhas das quais possuem relativamente pequenas mudanças, são mostradas com as diferenças do contéudo da linha. Esta cor é usada para o <placeholder-1/> parte do conteúdo da linha. Partes alteradas serão mostradas usando as cores de conteúdo de linha adicionado ou excluído descritos abaixo. Se <placeholder-1/> não está habilitado, esta cor náo será usada e as alterações da linha seráo sempre apresentadas como substituidas."
 
 #. (term)
 msgid "Conflicted"
@@ -664,7 +664,7 @@ msgstr "Conflitantes"
 
 #. (listitem)
 msgid "Where the same line has been changed in both files."
-msgstr ""
+msgstr "Onde a mesma linha foi alterada em ambos os arquivos."
 
 #. (term)
 msgid "Conflict resolved"
@@ -672,7 +672,7 @@ msgstr "Conflito resolvido"
 
 #. (listitem)
 msgid "Where the same line has been changed in both files, and you have now selected which version should be used."
-msgstr ""
+msgstr "Onde a mesma linha foi alterada em ambos os arquivos, e você precisa agora selecionar qual versão deverá ser usada."
 
 #. (term)
 msgid "Empty"
@@ -680,7 +680,7 @@ msgstr "Vazio"
 
 #. (listitem)
 msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
-msgstr ""
+msgstr "Onde as linhas foram adicionadas no painel oposto, e nenhuma linha existe neste painel."
 
 #. (term)
 msgid "Inline added text"
@@ -688,7 +688,7 @@ msgstr "Texto adiciona na linha"
 
 #. (listitem)
 msgid "When inline diffs are shown, added text is shown in this colour."
-msgstr ""
+msgstr "Quando as diferenças do conteúdo da linha são apresentados, o texto adicionado é mostrado neste cor."
 
 #. (term)
 msgid "Inline removed text"
@@ -699,8 +699,9 @@ msgid "When inline diffs are shown, deleted text is shown in this colour."
 msgstr "Quando as diferenças na linha são apresentadas, textos removidos são mostrados nesta cor."
 
 #. (term)
+#, fuzzy
 msgid "Misc whitespaces"
-msgstr ""
+msgstr "Vários espaços em branco"
 
 #. (listitem)
 msgid "Characters used to indicate Whitespace are shown in a different colour from normal text."
@@ -836,7 +837,7 @@ msgstr "Automatizando TortoiseMerge"
 
 #. (para)
 msgid "TortoiseMerge can be started with command line parameters to avoid having to go through the <guilabel>Open</guilabel> dialog to select the files yourself. This is useful also if you want to use TortoiseMerge from another application."
-msgstr ""
+msgstr "TortoiseMergepode ser executado com parâmetros a partir da linha de comando evitando que você mesmo precise selecionar o arquivo através da janela <guilabel>Abrir</guilabel>. Isto também é útil se você quer usar TortoiseMerge através de outra aplicação."
 
 #. (title)
 msgid "TortoiseMerge Command Line Switches"
@@ -856,6 +857,9 @@ msgid ""
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
 msgstr ""
+"A maioria dos parâmetros requer informações adicionais como caminhos ou algum outro texto. Nestes casos, concatena um ':' ao parâmetro e coloque o texto/caminho depois do sinal. Exemplo: <screen>\n"
+"/base:\"c:\\diretorio\\meu arquivo base.txt\"\n"
+"</screen>"
 
 #. (title)
 msgid "List of available command line options"
@@ -893,11 +897,12 @@ msgstr "base"
 
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs. This is the common ancestor of the files being diffed, although it is not shown in a separate window. For two way diffs, this is the left file."
-msgstr ""
+msgstr "Especifica o <placeholder-1/> arquivo usado na visualização de diferenças com três paineis. Este é o ancestral comum dos arquivos que serão comparados, apesar de que este arquivo não será mostrado em uma janela separada. Para a visualização com dois paineis, este é o arquivo da esquerda."
 
 #. (entry)
+#, fuzzy
 msgid "The name of the base file. This is shown in the view title instead of the file path. For three way diffs it is shown in a tooltip for the view title."
-msgstr ""
+msgstr "O nome do arquivo base. É mostrado no título do painel ao invés do caminho do arquivo. Para a visualização com três paineis é mostrando um tooltip no título do painel."
 
 # Não deve ser traduzido, é um parâmetro recebido pelo executável na linha de comando
 # ****
@@ -908,11 +913,11 @@ msgstr "theirs"
 
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the left pane."
-msgstr ""
+msgstr "Especifica o <placeholder-1/> arquivo usado na visualização em três paineis, mostrado no painel esquerdo."
 
 #. (entry)
 msgid "The name of the theirs file. This is shown in the view title instead of the file path."
-msgstr ""
+msgstr "O nome do arquivo deles. É mostrado no título do painel ao invés do caminho do arquivo."
 
 # Não deve ser traduzido, é um parâmetro recebido pelo executável na linha de comando
 # ****
@@ -923,11 +928,11 @@ msgstr "mine"
 
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the right pane. For two way diffs, this is the right file."
-msgstr ""
+msgstr "Especifica o <placeholder-1/> arquivo usado na visualização com três paineis, mostrado no painel direito. Para a visualização de diferenças com dois paineis, este é o arquivo da direita."
 
 #. (entry)
 msgid "The name of the mine file. This is shown in the view title instead of the file path."
-msgstr ""
+msgstr "O nome do meu arquivo. É mostrado no título do painel ao invés do caminho do arquivo."
 
 # Não deve ser traduzido, é um parâmetro recebido pelo executável na linha de comando
 # ****
@@ -938,11 +943,11 @@ msgstr "merged"
 
 #. (entry)
 msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the file path where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
-msgstr ""
+msgstr "Especifica o resultado <placeholder-1/> arquivo usado na visualização com três paineis. Este é o caminho do arquivo onde o resultado da combinação/conflito resolvido é salvo. Se ainda não foi definido, então TortoiseMerge vai pergunta para o usuário onde o resultado será salvo."
 
 #. (entry)
 msgid "The name of the merged file. This is shown in the view title instead of the file path."
-msgstr ""
+msgstr "O nome do arquivo combinado. É mostrado no título do painel ao invés do caminho do arquivo."
 
 #. (emphasis)
 msgid "very long"
@@ -950,7 +955,7 @@ msgstr "muito longo"
 
 #. (entry)
 msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patch file, but that can take <placeholder-1/>."
-msgstr ""
+msgstr "O caminho onde o arquivo de correção será aplicado. Se você não definir este caminho, então TortoiseMerge vai tentar encontrar o caminho por conta própria que corresponda aos caminhos no arquivo de correção. mas isto pode <placeholder-1/>."
 
 #. (entry)
 msgid "The name of the original file to patch. Used for the view title."
@@ -994,7 +999,7 @@ msgstr "/createunifieddiff"
 
 #. (entry)
 msgid "Creates a unified diff file (patch file) of two files specified with <placeholder-1/> and <placeholder-2/>. The target path is set with <placeholder-3/>. If <placeholder-4/> is not set, a file save dialog is shown so the user can choose the location to save the patch file. Note: If <placeholder-5/> is set, all other parameters are ignored."
-msgstr ""
+msgstr "Cria um arquivo de diferenças (arquivo de correção) de dois arquivos especificados com <placeholder-1/> e <placeholder-2/>, O arquivo final é definido com <placeholder-3/>. Se <placeholder-4/> não está definido, a janela para salvar o arquivo é mostrada para o usuário escolher o local onde o arquivo de correção será salvo. Nota: Se <placeholder-5/> está definido, todos os outros parâmetros são ignorados."
 
 #. (para)
 msgid ""
@@ -1002,6 +1007,9 @@ msgid ""
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
 "</screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
 msgstr ""
+"Você pode também fornecer apenas nomes de arquivos na linha de comando para compatibilidade com outros programas de diferenças. Esta é a forma simples de linha de comando <screen>\n"
+"TortoiseMerge CaminhoArquivoBase CaminhoMeuArquivo [ CaminhoArquivoDeles ]\n"
+"</screen> Se dois arquivos são informados eles vão ser comparados um com o outro. Se três arquivos são informados, o primeiro é usado como arquivo BASE, e os outros dois são comparados com este e apresentados usando a visualização com três paineis."
 
 #. (title)
 msgid "Glossary"
@@ -1013,7 +1021,7 @@ msgstr "Adicionar"
 
 #. (para)
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
-msgstr ""
+msgstr "Um comando do Subversion que é usado para adicionar um arquivo ou diretório para a sua cópia de trabalho. Os novos itens são adicionados para o repositório quando você submetê-los."
 
 #. (glossterm)
 msgid "BASE revision"
@@ -1021,7 +1029,7 @@ msgstr "Revisão BASE"
 
 #. (para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
-msgstr ""
+msgstr "A revisão base atual de um arquivo ou diretório na sua <emphasis>cópia de trabalho</emphasis>. Está é a revisão que o arquivo ou diretório está, quando a última obtenção, atualização ou submissão foi feita. A revisão BASE normalmente não é igual a ÚLTIMA revisão."
 
 #. (glossterm)
 msgid "Blame"
@@ -1029,7 +1037,7 @@ msgstr "Autoria"
 
 #. (para)
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
-msgstr ""
+msgstr "Este comando é apenas para arquivos texto, e ele apresenta para cada lista a revisão do repositório a qual pertence a última alteração, e o autor que fez a alteração. Nossa implementação de interface é chamada TortoiseBlame e também mostra a data/hora da submissão e a mensagem de log quando você passar o mouse sobre o número da revisão."
 
 #. (glossterm)
 msgid "BDB"
@@ -1037,7 +1045,7 @@ msgstr "BDB"
 
 #. (para)
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
-msgstr ""
+msgstr "Berkeley DB. Uma base de dados bem testada para repositórios, que não pode ser usada em uma rede compartilhada. Padrão para repositórios anteriores a versão 1.2."
 
 #. (glossterm)
 msgid "Branch"
@@ -1045,7 +1053,7 @@ msgstr "Ramificação"
 
 #. (para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bug fixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
-msgstr ""
+msgstr "Um termo frequentemente usado em sistemas de controle de versão descreve o que acontece quando o desenvolvimento se ramifica num ponto em particular e segue dois caminhos diferentes. Você pode criar uma ramificação desligada da linha principal de desenvolvimento, logo, pode desenvolver novas funcionalidades sem desestabilizar a linha principal. Ou você pode criar uma ramificação da versão estável para a qual você apenas fará correções de erros, enquanto insere novas funcionalidades em uma versão instável no tronco. No Subversion uma ramificação é criada como uma <quote>cópia leve</quote>."
 
 #. (glossterm)
 msgid "Checkout"
@@ -1053,7 +1061,7 @@ msgstr "Obter"
 
 #. (para)
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
-msgstr ""
+msgstr "Um comando do Subversion que cria uma cópia local em uma diretório vazio baixando os arquivos controlados do repositório."
 
 #. (glossterm)
 msgid "Cleanup"
@@ -1061,7 +1069,7 @@ msgstr "Limpar"
 
 #. (para)
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <emphasis>working copy locked</emphasis> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <emphasis>lock</emphasis> refers to local filesystem locking, not repository locking."
-msgstr ""
+msgstr "Uma citação do livro do Subversion: <quote>Limpar recursivamente a cópia de trabalho, removendo travas e encerrando operação não finalizadas. Se você sempre recebe o erro <emphasis>cópia de trabalho travada</emphasis>, execute este comando para remove travas obsoletas e voltar a sua cópia de trabalho para o estado normal novamente. </quote> Note que neste contexto, <emphasis>trava</emphasis> refere-se ao travamento do sistema de arquivos, e não ao bloqueio no repositório."
 
 #. (glossterm)
 msgid "Commit"
@@ -1069,7 +1077,7 @@ msgstr "Submeter"
 
 #. (para)
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
-msgstr ""
+msgstr "Este comando do Subversion é usado para passar as alterações da sua cópia de trabalho de volta para o repositório, criando uma nova revisão no repositório."
 
 #. (glossterm)
 msgid "Conflict"
@@ -1077,7 +1085,7 @@ msgstr "Conflito"
 
 #. (para)
 msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
-msgstr ""
+msgstr "Quando as alterações do repositório são combinadas com as alterações locais, algumas vezes estas alterações ocorrem nas mesmas linhas. Neste caso Subversion não pode decidir automaticamente qual versão usar e o arquivo é marcado como em conflito. Você precisa editar este arquivo manualmente e resolver o conflito antes que você possa submeter qualquer alteração adicional."
 
 #. (glossterm)
 msgid "Copy"
@@ -1085,7 +1093,7 @@ msgstr "Copiar"
 
 #. (para)
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
-msgstr ""
+msgstr "Em um repositório do Subversion você pode criar uma cópia de de um arquivo apenas ou de uma estrutura inteira. Estas cópias são feitas como <quote>cópias leves</quotes> que funcionam mais ou menos como um atalho para o arquivo original, e que consome quase nenhum espaço. Fazendo a cópia preserva-se o histórico do item em uma cópia, então você pode rastrear as alterações feitas antes da cópia ser feita."
 
 #. (glossterm)
 msgid "Delete"
@@ -1093,7 +1101,7 @@ msgstr "Apagar"
 
 #. (para)
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the committed revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
-msgstr ""
+msgstr "Quando vocë excluir um item controlado (e submeter a alteração) este item não existirá mais no repositório depois da revisão submetida. Mas é claro que continuará a existir em revisões anteriores no repositório, logo você pode continuar acessando o arquivo. Se necessário, você pode copiar um item excluído e <quote>recuperar</quote> o mesmo completamente com o histórico."
 
 #. (glossterm)
 msgid "Diff"
@@ -1101,7 +1109,7 @@ msgstr "Diferença"
 
 #. (para)
 msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
-msgstr ""
+msgstr "Atalho para <quote>Mostrar Diferenças</quote>. Muito prático quando você quer ver exatamente as alterações que foram feitas."
 
 #. (glossterm)
 msgid "Export"
@@ -1109,7 +1117,7 @@ msgstr "Exportar"
 
 #. (para)
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
-msgstr ""
+msgstr "Este comando produz uma cópia de uma diretório controlado, assim como uma cópia de trabalho, mas sem os diretórios locais <loteral>.svn</literal>."
 
 #. (glossterm)
 msgid "FSFS"
@@ -1117,7 +1125,7 @@ msgstr "FSFS"
 
 #. (para)
 msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr ""
+msgstr "Um sistema de arquivo proprietário do Subversion para repositórios. Pode ser usado em uma rede compartilhada. O padrão para a versão do repositório 1.2 ou posterior."
 
 #. (glossterm)
 msgid "GPO"
@@ -1141,7 +1149,7 @@ msgstr "Importar"
 
 #. (para)
 msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
-msgstr ""
+msgstr "Comando do Subversion para importar um diretório e sua subestrutura inteira para o repositório em uma única revisão."
 
 #. (glossterm)
 msgid "Lock"
@@ -1149,7 +1157,7 @@ msgstr "Bloquear"
 
 #. (para)
 msgid "When you take out a lock on a versioned item, you mark it in the repository as non-committable, except from the working copy where the lock was taken out."
-msgstr ""
+msgstr "Quando você bloqueia um item controlado, você marca o item no repositório como um arquivo não atualizável, exceto para a cópia de trabalho que bloqueiou o arquivo."
 
 #. (glossterm)
 msgid "Log"
@@ -1157,7 +1165,7 @@ msgstr "Log"
 
 #. (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
-msgstr ""
+msgstr "Mostra o histórico de revisão de um arquivo ou diretório. Também conhecido como <quote>Histórico</quote>."
 
 #. (glossterm)
 msgid "History"
@@ -1165,7 +1173,7 @@ msgstr "Histórico"
 
 #. (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
-msgstr ""
+msgstr "Mostra o histórico de revisões de um arquivo ou diretório. Também conhecido como <quote>Log</quote>."
 
 #. (glossterm)
 msgid "Merge"
@@ -1173,11 +1181,11 @@ msgstr "Unificar"
 
 #. (para)
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
-msgstr ""
+msgstr "O processo pelo qual as mudanças do repositório são adicionadas na sua cópia de trabalho sem perder qualquer alteração que você tenha feita localmente. Algumas vezes essas alterações não podem ser combinar automaticamente e a cópia de trabalho indicará que há conflito."
 
 #. (para)
 msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
-msgstr ""
+msgstr "Combinar acontece automaticamente quando você atualiza sua cópia de trabalho. Você pode também combinar mudanças específicas de outra ramificação usando o comando Combinar do TortoiseSVN."
 
 #. (glossterm)
 msgid "Patch"
@@ -1185,7 +1193,7 @@ msgstr "Correção"
 
 #. (para)
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
-msgstr ""
+msgstr "Se uma cópia de trabalho possui alterações apenas em arquivos texto, é possível usar o comando Diferenças do Subversion para gerar um arquivo simples de resumo dessas alterações no formato Unified Diff. Um arquivo deste tipo é oferecido como <quote>Correção</quote>, e ele pode ser enviado por e-mail para alguém (ou para uma lista de discussão) e ser aplicado em outra cópia de trabalho. Alguém sem acesso para submissão pode fazer alterações e enviar um arquivo de correção para alguém com permissão de escrita submeter as alterações. Ou se você não tem certeza sobre a alteração você pode enviar o arquivo de correção para outros revisarem."
 
 #. (glossterm)
 msgid "Property"
@@ -1193,7 +1201,7 @@ msgstr "Propriedade"
 
 #. (para)
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
-msgstr ""
+msgstr "Como complemento para versionamento de diretórios e arquivos, Subversion permite adicionar metadados controlados - referenciado como <quote>propriedades</quote> para cada diretório ou arquivo controlado. Cada propriedade tem um nome e um valor, assim como uma chave de registro. Subversion tem algumas propriedades especiais que são usadas internamente, tal como <literal>svn:eol-style</literal>. TortoiseSVN tem algumas também, tal como <literal>tsvn:logminsize</literal>. Você pode adicionar suas próprias propriedades com qualquer nome ou valor que você queira."
 
 #. (glossterm)
 msgid "Relocate"
@@ -1201,11 +1209,11 @@ msgstr "Realocar"
 
 #. (para)
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
-msgstr ""
+msgstr "Se seu repositório for movido, talvez porque você precisou movê-lo para um diretório diferente no servidor, ou porque o nome do domínio do servidor foi alterado, você precisa <quote>realocar</quote> sua cópia de trabalho para a nova URL onde o seu repositório está localizado."
 
 #. (para)
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
-msgstr ""
+msgstr "Nota: você deverá somente usar este comando se sua cópia de trabalho aponta para o mesmo local no mesmo repositório, mas o repositório foi movido. Em qualquer outra circustância você provavelmente deverá usar <quote>Alternar</quote> ao invés deste comando."
 
 #. (glossterm)
 msgid "Repository"
@@ -1213,7 +1221,7 @@ msgstr "Repositório"
 
 #. (para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
-msgstr ""
+msgstr "Um repositório é um lugar central onde os dados são guardados e mantidos. Um repositório pode ser um lugar onde várias bases de dados ou arquivos são localizados para distribuir pela rede, ou um repositório pode ser um local que é diretamente acessado pelos usuários sem ter que atravessar uma rede."
 
 #. (glossterm)
 msgid "Resolve"
@@ -1221,7 +1229,7 @@ msgstr "Resolver"
 
 #. (para)
 msgid "When files in a working copy are left in a conflicted state following a merge, those conflicts must be sorted out by a human using an editor (or perhaps TortoiseMerge). This process is referred to as <quote>Resolving Conflicts</quote>. When this is complete you can mark the conflicted files as being resolved, which allows them to be committed."
-msgstr ""
+msgstr "Quando os arquivos na cópia de trabalho são deixados em estado de conflito logo depois de serem unificados, estes conflitos devem ser resolvidos por um ser humano usando um editor (ou talvez o TortoiseMerge). Este processo é referenciado como <quote>Resolvendo Conflitos</quote>. Quando tudo foi resolvido você pode marcar os arquivos conflitantes como resolvidos, e então será permtido submeter estes arquivos."
 
 #. (glossterm)
 msgid "Revert"
@@ -1229,7 +1237,7 @@ msgstr "Reverter"
 
 #. (para)
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
-msgstr ""
+msgstr "Subversion mantém uma cópia local <quote>original</quote> de cada arquivo de como ele era quando foi feita a última atualização da cópia de trabalho. Se você fez alterações e decidir que quer desfazê-las, você pode usar o comando <quote>reverter</quote> para voltar para a revisão original."
 
 #. (glossterm)
 msgid "Revision"
@@ -1237,11 +1245,11 @@ msgstr "Revisão"
 
 #. (para)
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
-msgstr ""
+msgstr "Cada vez que você submete um conjunto de alterações, você cria uma nova <quote>revisão</quote> no repositório. Cada revisão representa um estado da estrutura do repositório em um certo ponto de sua história. Se você quer voltar no tempo você pode examiar o repositório como ele era na revisão N."
 
 #. (para)
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
-msgstr ""
+msgstr "De outro ponto de vista, uma revisão pode referenciar um conjunto de mudanças que foram feitas quando a revisão foi criada."
 
 #. (glossterm)
 msgid "Revision Property (revprop)"
@@ -1249,7 +1257,7 @@ msgstr "Propriedade de Revisão (revprop)"
 
 #. (para)
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
-msgstr ""
+msgstr "Assim como os arquivo possuem propriedades, assim também é para cada revisão no repositório. Algumas revprops especiais são adicionadas automaticamente quando a revisão é criada, chamadas: <literal>svn:date svn:author svn:log</literal> que representam a data/hora, o autor e a mensagem de log da submissão respectivamente. Estas propriedades podem ser editadas, mas elas não são controladas, então qualquer alteração é permanente e não pode ser desfeita."
 
 #. (glossterm)
 msgid "SVN"
@@ -1261,7 +1269,7 @@ msgstr "Uma abreviação frequentemente usada para Subversion."
 
 #. (para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
-msgstr ""
+msgstr "O nome do protocolo personalizado do Subversion usado pelo servidor de respotório <quote>svnserve</quote>."
 
 #. (glossterm)
 msgid "Switch"
@@ -1269,7 +1277,7 @@ msgstr "Alternar"
 
 #. (para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
-msgstr ""
+msgstr "Assim como <quote>Atualizar para a revisão</quote> alterar a versão de uma cópia de trabalho apontando para um ponto diferente no histórico, assim também <quote>Alternar</quote> alterar o espaço de uma cópia de trabalho que aponta para uma parte diferente do repositório. Isto é particularmente útil quando se está trabalhando no tronco e na ramificação e apenas poucos arquivos são diferentes. Você pode alternar sua cópia de trabalho entre os dois e somente os arquivos diferentes serão transferidos."
 
 #. (glossterm)
 msgid "Update"
@@ -1277,7 +1285,7 @@ msgstr "Atualizar"
 
 #. (para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
-msgstr ""
+msgstr "Este comando do Subversion baixa as últimas alterações do repositório para a sua cópia de trabalho, combinando qualquer alteração feita por outros usuários com suas alterações locais na cópia de trabalho."
 
 #. (glossterm)
 msgid "Working Copy"
@@ -1285,7 +1293,7 @@ msgstr "Cópia de Trabalho"
 
 #. (para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
-msgstr ""
+msgstr "Está a sua estrutura local <quote>isolada</quote>, e é onde você vai trabalhar sobre os arquivos controlados, e isto normalmente ficará em seu disco local. Você cria uma cópia de trabalho executando um <quote>Obter</quote> de um repositório, e você envia suas alterações de volta para o repositório executando um <quote>Submeter</quote>."
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
