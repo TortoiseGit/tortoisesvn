@@ -244,6 +244,10 @@ private:
 
         mutable size_t maxCount;
 
+        /// number of threads that may still be created (lazily)
+
+        size_t yetToCreate;
+
         /// access sync. object
 
         CCriticalSection mutex;
@@ -316,6 +320,11 @@ private:
      *
      * Should the global pool be exhausted while we would like
      * to allocate more threads, register as "starved".
+     *
+     * Scheduler-private threads will be created lazily, i.e.
+     * if \ref suspended is empty and \ref yetToCreate is not 0
+     * yet, the latter will be decremented and a new thread is
+     * being started instead of allocating a shared one.
      */
 
     struct SThreads
@@ -327,6 +336,11 @@ private:
 
         size_t runningCount;
         size_t suspendedCount;
+
+        /// number of private threads that may still be created.
+        /// (used to start threads lazily).
+
+        size_t yetToCreate;
 
         /// how many of the \ref running threads have been allocated
         /// from \ref CThreadPool. Must be 0, if \ref suspended is

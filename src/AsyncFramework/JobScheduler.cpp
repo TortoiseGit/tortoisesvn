@@ -78,6 +78,9 @@ CJobScheduler* CJobScheduler::CThreadPool::SelectStarving()
 // create empty thread pool
 
 CJobScheduler::CThreadPool::CThreadPool()
+    : yetToCreate (0)
+    , allocCount (0)
+    , maxCount (0)
 {
 }
 
@@ -102,7 +105,21 @@ CJobScheduler::SThreadInfo* CJobScheduler::CThreadPool::TryAlloc()
 {
     CCriticalSectionLock lock (mutex);
     if (pool.empty())
-        return NULL;
+    {
+        if (yetToCreate == 0)
+            return NULL;
+
+        // lazy thread creation
+
+        SThreadInfo* info = new SThreadInfo;
+        info->owner = NULL;
+        info->thread = new CThread (&ThreadFunc, info, true);
+
+        --yetToCreate;
+        ++allocCount;
+
+        return info;
+    }
 
     CJobScheduler::SThreadInfo* thread = pool.back();
     pool.pop_back();
@@ -152,14 +169,8 @@ void CJobScheduler::CThreadPool::SetThreadCount (size_t count)
     CCriticalSectionLock lock (mutex);
 
     maxCount = count;
-    while (pool.size() + allocCount < maxCount)
-    {
-        SThreadInfo* info = new SThreadInfo;
-        info->owner = NULL;
-        info->thread = new CThread (&ThreadFunc, info, true);
-
-        pool.push_back (info);
-    }
+    if (pool.size() + allocCount < maxCount)
+        yetToCreate = maxCount - pool.size() + allocCount;
 
     while ((pool.size() + allocCount > maxCount) && !pool.empty())
     {
@@ -339,21 +350,13 @@ CJobScheduler::CJobScheduler
     , aggressiveThreadStart (aggressiveThreadStart)
 {
     threads.runningCount = 0;
-    threads.suspendedCount = threadCount;
+    threads.suspendedCount = 0;
 
     threads.fromShared = 0;
     threads.maxFromShared = sharedThreads;
 
     threads.unusedCount = threadCount + sharedThreads;
-
-    for (size_t i = 0; i < threadCount; ++i)
-    {
-        SThreadInfo* info = new SThreadInfo;
-        info->owner = this;
-        info->thread = new CThread (&ThreadFunc, info, true);
-
-        threads.suspended.push_back (info);
-    }
+    threads.yetToCreate = threadCount;
 
     threads.starved = false;
 
@@ -410,6 +413,8 @@ void CJobScheduler::Schedule (IJob* job, bool transferOwnership)
     {
         if (threads.suspendedCount > 0) 
         {
+            // recycle suspended, private thread
+
             SThreadInfo* info = threads.suspended.back();
             threads.suspended.pop_back();
 
@@ -420,8 +425,26 @@ void CJobScheduler::Schedule (IJob* job, bool transferOwnership)
             threads.running.push_back (info);
             info->thread->Resume();
         }
-        else 
+        else if (threads.yetToCreate > 0)
         {
+            // time to start a new private thread
+
+            --threads.yetToCreate;
+
+            --threads.unusedCount;
+            ++threads.runningCount;
+
+            SThreadInfo* info = new SThreadInfo;
+            info->owner = this;
+            info->thread = new CThread (&ThreadFunc, info, true);
+            threads.running.push_back (info);
+
+            info->thread->Resume();
+        }
+        else
+        {
+            // try to allocate a shared thread
+
             if (threads.fromShared < threads.maxFromShared)
                 AllocateSharedThread();
         }
@@ -437,6 +460,7 @@ void CJobScheduler::ThreadAvailable()
 
     while (   (queue.size() > 2 * threads.runningCount)
            && (threads.suspendedCount == 0)
+           && (threads.yetToCreate == 0)
            && (threads.fromShared < threads.maxFromShared))
     {
          if (!AllocateSharedThread())
