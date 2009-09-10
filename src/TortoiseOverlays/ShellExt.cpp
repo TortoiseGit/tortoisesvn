@@ -59,7 +59,7 @@ STDMETHODIMP CShellExt::QueryInterface(REFIID riid, LPVOID FAR *ppv)
     {
         AddRef();
 		
-        return NOERROR;
+        return S_OK;
     }
 	
     return E_NOINTERFACE;

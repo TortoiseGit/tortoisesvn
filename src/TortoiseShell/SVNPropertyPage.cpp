@@ -40,14 +40,14 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
 	{
 		SVNStatus svn;
 		if (svn.GetStatus(CTSVNPath(I->c_str())) == (-2))
-			return NOERROR;			// file/directory not under version control
+			return S_OK;			// file/directory not under version control
 
 		if (svn.status->entry == NULL)
-			return NOERROR;
+			return S_OK;
 	}
 
 	if (files_.size() == 0)
-		return NOERROR;
+		return S_OK;
 
 	LoadLangDll();
     PROPSHEETPAGE psp;
@@ -77,7 +77,7 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
         }
 	}
 
-    return NOERROR;
+    return S_OK;
 }
 
 

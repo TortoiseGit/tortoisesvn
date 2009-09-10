@@ -611,7 +611,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		}
 	}
 		
-	return NOERROR;
+	return S_OK;
 }
 
 void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com, UINT /*uFlags*/)
@@ -838,13 +838,13 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
 	LoadLangDll();
 
 	if ((uFlags & CMF_DEFAULTONLY)!=0)
-		return NOERROR;					//we don't change the default action
+		return S_OK;					//we don't change the default action
 
 	if ((files_.size() == 0)||(folder_.size() == 0))
-		return NOERROR;
+		return S_OK;
 
 	if (((uFlags & 0x000f)!=CMF_NORMAL)&&(!(uFlags & CMF_EXPLORE))&&(!(uFlags & CMF_VERBSONLY)))
-		return NOERROR;
+		return S_OK;
 
 	bool bSourceAndTargetFromSameRepository = (uuidSource.compare(uuidTarget) == 0) || uuidSource.empty() || uuidTarget.empty();
 
@@ -935,13 +935,13 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	}
 
 	if ((uFlags & CMF_DEFAULTONLY)!=0)
-		return NOERROR;					//we don't change the default action
+		return S_OK;					//we don't change the default action
 
 	if ((files_.size() == 0)&&(folder_.size() == 0))
-		return NOERROR;
+		return S_OK;
 
 	if (((uFlags & 0x000f)!=CMF_NORMAL)&&(!(uFlags & CMF_EXPLORE))&&(!(uFlags & CMF_VERBSONLY)))
-		return NOERROR;
+		return S_OK;
 
 	int csidlarray[] = 
 	{
@@ -968,30 +968,30 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		0
 	};
 	if (IsIllegalFolder(folder_, csidlarray))
-		return NOERROR;
+		return S_OK;
 
 	if (folder_.empty())
 	{
 		// folder is empty, but maybe files are selected
 		if (files_.size() == 0)
-			return NOERROR;	// nothing selected - we don't have a menu to show
+			return S_OK;	// nothing selected - we don't have a menu to show
 		// check whether a selected entry is an UID - those are namespace extensions
 		// which we can't handle
 		for (std::vector<tstring>::const_iterator it = files_.begin(); it != files_.end(); ++it)
 		{
 			if (_tcsncmp(it->c_str(), _T("::{"), 3)==0)
-				return NOERROR;
+				return S_OK;
 		}
 	}
 	else
 	{
 		if (_tcsncmp(folder_.c_str(), _T("::{"), 3)==0)
-			return NOERROR;
+			return S_OK;
 	}
 
 	//check if our menu is requested for a subversion admin directory
 	if (g_SVNAdminDir.IsAdminDirPath(folder_.c_str()))
-		return NOERROR;
+		return S_OK;
 
 	if (uFlags & CMF_EXTENDEDVERBS)
 		itemStates |= ITEMIS_EXTENDED;
@@ -1006,7 +1006,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		CString path = files_.front().c_str();
 		if ( !g_ShellCache.HasSVNAdminDir(path, PathIsDirectory(path)) )
 		{
-			return NOERROR;
+			return S_OK;
 		}
 	}
 
@@ -1026,7 +1026,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		miif.cch = sizeof(menubuf)/sizeof(TCHAR);
 		GetMenuItemInfo(hMenu, i, TRUE, &miif);
 		if (miif.dwItemData == (ULONG_PTR)g_MenuIDString)
-			return NOERROR;
+			return S_OK;
 	}
 
 	LoadLangDll();
@@ -1719,7 +1719,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			myVerbsIDMap.clear();
 			myVerbsMap.clear();
 			RunCommand(tortoiseMergePath, svnCmd, cwdFolder, _T("TortoiseMerge launch failed") );
-			return NOERROR;
+			return S_OK;
 		case ShellMenuRevisionGraph:
 			svnCmd += _T("revisiongraph /path:\"");
 			if (files_.size() > 0)
@@ -1790,7 +1790,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				svnCmd += _T("\"");
 			}
 			else
-				return NOERROR;
+				return S_OK;
 			break;
 		default:
 			break;
@@ -1804,7 +1804,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 		myVerbsIDMap.clear();
 		myVerbsMap.clear();
 		RunCommand(tortoiseProcPath, svnCmd, cwdFolder.c_str(), _T("TortoiseProc Launch failed"));
-		return NOERROR;
+		return S_OK;
 	} // if (id_it != myIDMap.end() && id_it->first == idCmd) 
 	return hr;
 }
@@ -1938,7 +1938,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 			LPCTSTR resource;
 			TCHAR *szItem;
 			if (HIWORD(wParam) != MF_POPUP)
-				return NOERROR;
+				return S_OK;
 			int nChar = LOWORD(wParam);
 			if (_istascii((wint_t)nChar) && _istupper((wint_t)nChar))
 				nChar = tolower(nChar);
@@ -1970,14 +1970,14 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 			{
 				// no menu with that accelerator key.
 				*pResult = MAKELONG(0, MNC_IGNORE);
-				return NOERROR;
+				return S_OK;
 			}
 			if (accmenus.size() == 1)
 			{
 				// Only one menu with that accelerator key. We're lucky!
 				// So just execute that menu entry.
 				*pResult = MAKELONG(accmenus[0], MNC_EXECUTE);
-				return NOERROR;
+				return S_OK;
 			}
 			if (accmenus.size() > 1)
 			{
@@ -1996,7 +1996,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 							*pResult = MAKELONG(accmenus[0], MNC_SELECT);
 						else
 							*pResult = MAKELONG(*it, MNC_SELECT);
-						return NOERROR;
+						return S_OK;
 					}
 				}
 				*pResult = MAKELONG(accmenus[0], MNC_SELECT);
@@ -2004,10 +2004,10 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 		}
 		break;
 	default:
-		return NOERROR;
+		return S_OK;
 	}
 
-	return NOERROR;
+	return S_OK;
 }
 
 LPCTSTR CShellExt::GetMenuTextFromResource(int id)

@@ -479,7 +479,7 @@ HRESULT SubWCRev::LoadTypeInfo(ITypeInfo ** pptinfo, const CLSID &libid, const C
 
 	ptlib->Release();
 	*pptinfo = ptinfo;
-	return NOERROR;
+	return S_OK;
 }
 
 HRESULT __stdcall SubWCRev::GetTypeInfoCount(UINT* pctinfo)
@@ -498,7 +498,7 @@ HRESULT __stdcall SubWCRev::GetTypeInfo(UINT itinfo, LCID /*lcid*/, ITypeInfo** 
 	// typeinfo for this object.
 	*pptinfo = m_ptinfo;
 
-	return NOERROR;
+	return S_OK;
 }
 
 HRESULT __stdcall SubWCRev::GetIDsOfNames(REFIID /*riid*/, LPOLESTR* rgszNames, UINT cNames,
