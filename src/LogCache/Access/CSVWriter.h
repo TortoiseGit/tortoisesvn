@@ -63,6 +63,7 @@ private:
 	void WriteRevProps (std::ostream& os, const CCachedLogInfo& cache);
 
 	void WriteRevisions (std::ostream& os, const CCachedLogInfo& cache);
+	void WriteSkipRanges (std::ostream& os, const CCachedLogInfo& cache);
 
 public:
 

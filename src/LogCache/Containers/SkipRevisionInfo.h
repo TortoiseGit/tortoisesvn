@@ -241,6 +241,14 @@ public:
 
 	void Compress();
 
+    /// r/o data access
+
+    size_t GetPathCount() const;
+    CDictionaryBasedPath GetPath (size_t index) const;
+
+    typedef std::vector<std::pair<revision_t, revision_t> > TRanges;
+    TRanges GetRanges (size_t index) const;
+
 	/// stream I/O
 
 	friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream

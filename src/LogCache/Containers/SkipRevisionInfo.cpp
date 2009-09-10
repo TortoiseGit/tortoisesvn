@@ -601,6 +601,38 @@ void CSkipRevisionInfo::Compress()
 }
 
 ///////////////////////////////////////////////////////////////
+// r/o data access
+///////////////////////////////////////////////////////////////
+
+size_t CSkipRevisionInfo::GetPathCount() const
+{
+    return data.size();
+}
+
+CDictionaryBasedPath CSkipRevisionInfo::GetPath (size_t index) const
+{
+    return CDictionaryBasedPath (&paths, data[index]->pathID);
+}
+
+CSkipRevisionInfo::TRanges CSkipRevisionInfo::GetRanges (size_t index) const
+{
+    TRanges result;
+
+    const SPerPathRanges::TRanges& ranges = data[index]->ranges;
+    result.reserve (ranges.size());
+
+    for ( SPerPathRanges::TRanges::const_iterator iter = ranges.begin()
+        , end = ranges.end()
+        ; iter != end 
+        ; ++iter)
+    {
+        result.push_back (std::make_pair (iter->first, iter->second));
+    }
+
+    return result;
+}
+
+///////////////////////////////////////////////////////////////
 // stream I/O
 ///////////////////////////////////////////////////////////////
 

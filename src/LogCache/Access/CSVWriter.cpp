@@ -287,6 +287,34 @@ void CCSVWriter::WriteRevisions (std::ostream& os, const CCachedLogInfo& cache)
 	}
 }
 
+void CCSVWriter::WriteSkipRanges (std::ostream& os, const CCachedLogInfo& cache)
+{
+	// header
+
+	os << "PathID,Path,StartRevision,Length\n";
+
+	// content
+
+    const CSkipRevisionInfo& info = cache.GetSkippedRevisions();
+
+	// ids will be added on-the-fly
+
+	for (size_t i = 0; i < info.GetPathCount(); ++i)
+	{
+        CDictionaryBasedPath path = info.GetPath(i);
+        CSkipRevisionInfo::TRanges ranges = info.GetRanges(i);
+
+        for (size_t k = 0, count = ranges.size(); k < count; ++k)
+        {
+            os << path.GetIndex() << ",\"" 
+               << path.GetPath().c_str() << "\","
+			   << ranges[k].first << ','
+			   << ranges[k].second
+			   << "\n";
+		}
+	}
+}
+
 ///////////////////////////////////////////////////////////////
 // construction / destruction (nothing to do)
 ///////////////////////////////////////////////////////////////
@@ -323,6 +351,8 @@ void CCSVWriter::Write ( const CCachedLogInfo& cache
 
 	std::ofstream revisions ((fileName + _T(".revisions.csv")).c_str());
 	WriteRevisions (revisions, cache);
+	std::ofstream skipranges ((fileName + _T(".skipranges.csv")).c_str());
+    WriteSkipRanges (skipranges, cache);
 }
 
 ///////////////////////////////////////////////////////////////
