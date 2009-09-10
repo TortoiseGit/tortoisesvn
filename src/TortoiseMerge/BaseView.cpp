@@ -2218,7 +2218,21 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 			SetupSelection(m_ptCaretPos.y, m_ptCaretPos.y);
 		}
 
-		UpdateCaret();
+		if (m_pwndBottom)
+		{
+			m_pwndBottom->m_ptCaretPos = m_ptCaretPos;
+			m_pwndBottom->UpdateCaret();
+		}
+		if (m_pwndLeft)
+		{
+			m_pwndLeft->m_ptCaretPos = m_ptCaretPos;
+			m_pwndLeft->UpdateCaret();
+		}
+		if (m_pwndRight)
+		{
+			m_pwndRight->m_ptCaretPos = m_ptCaretPos;
+			m_pwndRight->UpdateCaret();
+		}
 
 		Invalidate();
 	}

@@ -1757,11 +1757,11 @@ BOOL CMainFrame::MarkAsResolved()
 void CMainFrame::OnUpdateMergeNextconflict(CCmdUI *pCmdUI)
 {
 	BOOL bShow = FALSE;
-	if ((m_pwndBottomView)&&(m_pwndBottomView->HasNextConflict()))
+	if ((m_pwndBottomView)&&(m_pwndBottomView->HasCaret())&&(m_pwndBottomView->HasNextConflict()))
 		bShow = TRUE;
-	if ((m_pwndRightView)&&(m_pwndRightView->HasNextConflict()))
+	if ((m_pwndRightView)&&(m_pwndRightView->HasCaret())&&(m_pwndRightView->HasNextConflict()))
 		bShow = TRUE;
-	if ((m_pwndLeftView)&&(m_pwndLeftView->HasNextConflict()))
+	if ((m_pwndLeftView)&&(m_pwndLeftView->HasCaret())&&(m_pwndLeftView->HasNextConflict()))
 		bShow = TRUE;
 	pCmdUI->Enable(bShow);
 }
@@ -1769,11 +1769,11 @@ void CMainFrame::OnUpdateMergeNextconflict(CCmdUI *pCmdUI)
 void CMainFrame::OnUpdateMergePreviousconflict(CCmdUI *pCmdUI)
 {
 	BOOL bShow = FALSE;
-	if ((m_pwndBottomView)&&(m_pwndBottomView->HasPrevConflict()))
+	if ((m_pwndBottomView)&&(m_pwndBottomView->HasCaret())&&(m_pwndBottomView->HasPrevConflict()))
 		bShow = TRUE;
-	if ((m_pwndRightView)&&(m_pwndRightView->HasPrevConflict()))
+	if ((m_pwndRightView)&&(m_pwndRightView->HasCaret())&&(m_pwndRightView->HasPrevConflict()))
 		bShow = TRUE;
-	if ((m_pwndLeftView)&&(m_pwndLeftView->HasPrevConflict()))
+	if ((m_pwndLeftView)&&(m_pwndLeftView->HasCaret())&&(m_pwndLeftView->HasPrevConflict()))
 		bShow = TRUE;
 	pCmdUI->Enable(bShow);
 }
@@ -1781,11 +1781,11 @@ void CMainFrame::OnUpdateMergePreviousconflict(CCmdUI *pCmdUI)
 void CMainFrame::OnUpdateNavigateNextdifference(CCmdUI *pCmdUI)
 {
 	BOOL bShow = FALSE;
-	if ((m_pwndBottomView)&&(m_pwndBottomView->HasNextDiff()))
+	if ((m_pwndBottomView)&&(m_pwndBottomView->HasCaret())&&(m_pwndBottomView->HasNextDiff()))
 		bShow = TRUE;
-	if ((m_pwndRightView)&&(m_pwndRightView->HasNextDiff()))
+	if ((m_pwndRightView)&&(m_pwndRightView->HasCaret())&&(m_pwndRightView->HasNextDiff()))
 		bShow = TRUE;
-	if ((m_pwndLeftView)&&(m_pwndLeftView->HasNextDiff()))
+	if ((m_pwndLeftView)&&(m_pwndLeftView->HasCaret())&&(m_pwndLeftView->HasNextDiff()))
 		bShow = TRUE;
 	pCmdUI->Enable(bShow);
 }
@@ -1793,11 +1793,11 @@ void CMainFrame::OnUpdateNavigateNextdifference(CCmdUI *pCmdUI)
 void CMainFrame::OnUpdateNavigatePreviousdifference(CCmdUI *pCmdUI)
 {
 	BOOL bShow = FALSE;
-	if ((m_pwndBottomView)&&(m_pwndBottomView->HasPrevDiff()))
+	if ((m_pwndBottomView)&&(m_pwndBottomView->HasCaret())&&(m_pwndBottomView->HasPrevDiff()))
 		bShow = TRUE;
-	if ((m_pwndRightView)&&(m_pwndRightView->HasPrevDiff()))
+	if ((m_pwndRightView)&&(m_pwndRightView->HasCaret())&&(m_pwndRightView->HasPrevDiff()))
 		bShow = TRUE;
-	if ((m_pwndLeftView)&&(m_pwndLeftView->HasPrevDiff()))
+	if ((m_pwndLeftView)&&(m_pwndLeftView->HasCaret())&&(m_pwndLeftView->HasPrevDiff()))
 		bShow = TRUE;
 	pCmdUI->Enable(bShow);
 }
