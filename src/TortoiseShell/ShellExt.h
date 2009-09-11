@@ -150,6 +150,7 @@ protected:
 		ShellMenuProperties,
 		ShellMenuDelUnversioned,
 		ShellMenuClipPaste,
+		ShellMenuUpgradeWC,
 		ShellMenuLastEntry			// used to mark the menu array end
 	};
 

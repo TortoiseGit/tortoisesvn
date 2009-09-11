@@ -326,6 +326,8 @@ BEGIN
                             "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
     IDS_MENUCLIPPASTE       "&Paste"
     IDS_MENUDESCCLIPPASTE   "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
+    IDS_MENUUPGRADE         "Upgrade working copy"
+    IDS_MENUDESCUPGRADE     "Converts the working copy format to the new version"
     IDS_ERR_PROPNOTONFILE   "This property is only allowed on folders, not files."
     IDS_MENUIGNOREMULTIPLE  "&Ignore %d items by name"
     IDS_ERR_PROPNOMULTILINE "This property must not have multiple lines. Only one line is allowed."
