@@ -174,6 +174,11 @@ friend class SVN;	// So that SVN can get to our m_err
 	 */
 	tstring GetLastErrorMsg() const;
 #endif
+	/**
+	 * Returns true if the last error was SVN_ERR_WC_UNSUPPORTED_FORMAT, indicating that the
+	 * working copy is still in the old format (or a newer format than this client supports)
+	 */
+	bool IsUnsupportedFormat() {return m_err ? m_err->apr_err == SVN_ERR_WC_UNSUPPORTED_FORMAT : false;}
 
 
 protected:
