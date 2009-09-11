@@ -21,7 +21,7 @@
 #include <apr_pools.h>
 #include "svn_client.h"
 #include "svn_wc.h"
-#include "svn_path.h"
+#include "svn_dirent_uri.h"
 #include "svn_utf.h"
 #pragma warning(pop)
 #include "SubWCRev.h"
@@ -85,6 +85,20 @@ void UnescapeCopy(char * src, char * dest, int buf_len)
 	}
 
 	*pszDest = '\0';
+}
+
+svn_error_t * getfirststatus(void * baton, const char * /*path*/, svn_wc_status2_t * status, apr_pool_t * /*pool*/)
+{
+	SubWCRev_StatusBaton_t * sb = (SubWCRev_StatusBaton_t *) baton;
+	if((NULL == status) || (NULL == sb) || (NULL == sb->SubStat))
+	{
+		return SVN_NO_ERROR;
+	}
+	if ((status->entry)&&(status->entry->url)&&(sb->SubStat->Url[0] == 0))
+	{
+		UnescapeCopy((char *) status->entry->url, sb->SubStat->Url, URL_BUF);
+	}
+	return SVN_NO_ERROR;
 }
 
 svn_error_t * getallstatus(void * baton, const char * path, svn_wc_status2_t * status, apr_pool_t * /*pool*/)
@@ -215,59 +229,19 @@ svn_status (	const char *path,
 				svn_client_ctx_t *ctx,
 				apr_pool_t *pool)
 {
-	svn_wc_adm_access_t *adm_access;
-	svn_wc_traversal_info_t *traversal_info = svn_wc_init_traversal_info (pool);
-	const char *anchor, *target;
-	const svn_delta_editor_t *editor;
-	void *edit_baton;
-	const svn_wc_entry_t *entry;
-	svn_revnum_t edit_revision = SVN_INVALID_REVNUM;
 	SubWCRev_StatusBaton_t sb;
 	std::vector<const char *> * extarray = new std::vector<const char *>;
 	sb.SubStat = (SubWCRev_t *)status_baton;
 	sb.extarray = extarray;
 	sb.pool = pool;
 
-  	// Need to lock the tree as even a non-recursive status requires the
-	// immediate directories to be locked.
-	SVN_ERR (svn_wc_adm_probe_open3 (&adm_access, NULL, path, FALSE, 0, NULL, NULL, pool));
+	svn_opt_revision_t wcrev;
+	wcrev.kind = svn_opt_revision_working;
 
-	// Get the entry for this path so we can determine our anchor and
-	// target.  If the path is unversioned, and the caller requested
-	// that we contact the repository, we error.
-	SVN_ERR (svn_wc_entry (&entry, path, adm_access, FALSE, pool));
-	if (entry)
-	{
-		SVN_ERR (svn_wc_get_actual_target (path, &anchor, &target, pool));
-		SubWCRev_t * SubStat = (SubWCRev_t *) status_baton;
-		if ((entry->url)&&(SubStat->Url[0] == 0))
-		{
-			UnescapeCopy((char *) entry->url, SubStat->Url, URL_BUF);
-		}
-	}
-	else
-	{
-		svn_path_split (path, &anchor, &target, pool);
-	}
+	SVN_ERR(svn_client_status4(NULL, path, &wcrev, getfirststatus, &sb, svn_depth_empty, true, false, true, true, NULL, ctx, pool));
+	SVN_ERR(svn_client_status4(NULL, path, &wcrev, getallstatus, &sb, svn_depth_infinity, true, false, true, true, NULL, ctx, pool));
 
-	// Close up our ADM area.  We'll be re-opening soon.
-	SVN_ERR (svn_wc_adm_close2 (adm_access, pool));
 
-	// Need to lock the tree as even a non-recursive status requires the
-	// immediate directories to be locked.
-	SVN_ERR (svn_wc_adm_probe_open3 (&adm_access, NULL, anchor, FALSE, -1, NULL, NULL, pool));
-
-	// Get the status edit, and use our wrapping status function/baton
-	// as the callback pair.
-	SVN_ERR (svn_wc_get_status_editor4 (&editor, &edit_baton, NULL, &edit_revision,
-									   adm_access, target, svn_depth_infinity, 
-									   TRUE, no_ignore, NULL, getallstatus, &sb,
-									   ctx->cancel_func, ctx->cancel_baton,
-									   traversal_info, pool));
-
-	SVN_ERR (editor->close_edit (edit_baton, pool));
-
-	SVN_ERR (svn_wc_adm_close2 (adm_access, pool));
 
 	// now crawl through all externals
 	for (std::vector<const char *>::iterator I = extarray->begin(); I != extarray->end(); ++I)
