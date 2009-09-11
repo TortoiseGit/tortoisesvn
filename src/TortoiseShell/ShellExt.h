@@ -154,6 +154,11 @@ protected:
 	};
 
 	// helper struct for context menu entries
+	typedef struct YesNoPair
+	{
+		DWORD				yes;
+		DWORD				no;
+	};
 	typedef struct MenuInfo
 	{
 		SVNCommands			command;		///< the command which gets executed for this menu entry
@@ -165,14 +170,10 @@ protected:
 		/// be added automatically, based on states of the selected item(s).
 		/// The 'yes' states must be set, the 'no' states must not be set
 		/// the four pairs are OR'ed together, the 'yes'/'no' states are AND'ed together.
-		DWORD				firstyes;
-		DWORD				firstno;
-		DWORD				secondyes;
-		DWORD				secondno;
-		DWORD				thirdyes;
-		DWORD				thirdno;
-		DWORD				fourthyes;
-		DWORD				fourthno;
+		YesNoPair			first;
+		YesNoPair			second;
+		YesNoPair			third;
+		YesNoPair			fourth;
 	};
 
 	static MenuInfo menuInfo[];
@@ -226,6 +227,8 @@ private:
 	bool			HasAlpha(__in ARGB *pargb, SIZE& sizImage, int cxRow);
 	HRESULT			ConvertToPARGB32(HDC hdc, __inout ARGB *pargb, HBITMAP hbmp, SIZE& sizImage, int cxRow);
 	static void		RunCommand( const tstring& path, const tstring& command, const tstring& folder, LPCTSTR errorMessage );
+	bool			ShouldInsertItem(const MenuInfo& pair) const;
+	bool			ShouldEnableMenu(const YesNoPair& pair) const;
 
 public:
 	CShellExt(FileState state);
