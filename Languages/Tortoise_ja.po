@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-07-29 14:22+0900\n"
+"PO-Revision-Date: 2009-09-11 18:50+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -107,6 +107,11 @@ msgstr "%I64d バイトを転送しました"
 
 #. Resource IDs: (357)
 #, c-format
+msgid "%I64d Bytes/s"
+msgstr "%I64d Bytes/s"
+
+#. Resource IDs: (357)
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d Kバイトを転送しました"
 
@@ -119,11 +124,6 @@ msgstr "選択ファイル数 %d 、全体ファイル数 %d"
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
 msgstr "%d 人のアクティブな作者がいます（少なくとも %d コミット，全体の %d %%）"
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%ld Bytes/s"
-msgstr "%ld Bytes/s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -491,6 +491,10 @@ msgstr "削除(&D)"
 #. Resource IDs: (17)
 msgid "&Delete (keep local)"
 msgstr "削除(&D) - ローカルファイルを保持"
+
+#. Resource IDs: (1514)
+msgid "&Delete unversioned items..."
+msgstr "バージョン管理外の項目を削除する(&D) ..."
 
 #. Resource IDs: (101)
 msgid "&Delete..."
@@ -1178,6 +1182,10 @@ msgstr "(作成)"
 #. Resource IDs: (276)
 msgid "(delete)"
 msgstr "(削除)"
+
+#. Resource IDs: (214)
+msgid "(externals)"
+msgstr "(外部)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -2883,6 +2891,10 @@ msgstr ""
 msgid "Create repositor&y here"
 msgstr "ここにリポジトリを作成(&Y)"
 
+#. Resource IDs: (102)
+msgid "Create shortcut"
+msgstr "ショートカットを作成"
+
 #. Resource IDs: (32828)
 msgid "Create unified diff file"
 msgstr "Unified Diff ファイルを作成"
@@ -3261,10 +3273,10 @@ msgstr "ドキュメント:"
 #. Resource IDs: (65535)
 msgid ""
 "Documentation : Simon Large\n"
-"Code : Tobias Schäfer, Stefan Fuhrmann"
+"Code : Tobias Schafer, Stefan Fuhrmann"
 msgstr ""
 "ドキュメント : Simon Large\n"
-"コード : Tobias Schäfer, Stefan Fuhrmann"
+"コード : Tobias Schafer, Stefan Fuhrmann"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -6624,6 +6636,10 @@ msgid "Renames files / folders inside version control"
 msgstr "バージョン管理内のファイル／フォルダの名前を変更"
 
 #. Resource IDs: (209)
+msgid "Repair copy"
+msgstr "コピーを修復"
+
+#. Resource IDs: (209)
 msgid "Repair move"
 msgstr "移動を修復"
 
@@ -6662,6 +6678,10 @@ msgstr "リポジトリのURL"
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
 msgstr "リポジトリ UUID:"
+
+#. Resource IDs: (106)
+msgid "Request cancelled by TSVN"
+msgstr "TSVN によってキャンセルされたリクエスト"
 
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
@@ -7760,8 +7780,8 @@ msgid "Steal the lock"
 msgstr "ロックを横取りする"
 
 #. Resource IDs: (65535)
-msgid "Stefan Küng, Lübbe Onken"
-msgstr "Stefan Küng, Lübbe Onken"
+msgid "Stefan Kung, Lubbe Onken"
+msgstr "Stefan Kung, Lubbe Onken"
 
 #. Resource IDs: (65535)
 msgid "Stripes"
@@ -7798,15 +7818,17 @@ msgstr ""
 #. Resource IDs: (84)
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "\n"
 "Subversion reported the following:"
 msgstr ""
 "Subversion は深刻な問題に遭遇しました。\n"
-"あなたが何をしようとしたのかについて、可能な限り\n"
-"多くの情報とともに我々のメーリングリストに報告してください。\n"
+"あなたが何をしようとしたのかについて、Subversionのメーリングリスト\n"
+"(users@subversion.tigris.org)\n"
+"へ可能な限り多くの情報とともに報告してください。\n"
 "\n"
 "Subversion の報告内容:"
 
@@ -8942,6 +8964,10 @@ msgstr ""
 #. Resource IDs: (20)
 msgid "Unknown depth"
 msgstr "未知の深さ"
+
+#. Resource IDs: (106)
+msgid "Unknown failure in SVN::List"
+msgstr "SVN::List での不明な失敗"
 
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
