@@ -18,8 +18,10 @@
 //
 #pragma once
 
+#pragma warning(push)
 #include "svn_diff.h"
 #include "apr_pools.h"
+#pragma warning(pop)
 #include "FileTextLines.h"
 #include "Registry.h"
 #include "WorkingFile.h"
