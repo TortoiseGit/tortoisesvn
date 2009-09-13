@@ -49,33 +49,12 @@ CShellExt::CShellExt(FileState state)
     };
     InitCommonControlsEx(&used);
 	LoadLangDll();
-
-	hUxTheme = NULL;
-	if (SysInfo::Instance().IsVistaOrLater())
-	{
-		hUxTheme = LoadLibrary(_T("UXTHEME.DLL"));
-
-		if (hUxTheme)
-		{
-			pfnGetBufferedPaintBits = (FN_GetBufferedPaintBits)::GetProcAddress(hUxTheme, "GetBufferedPaintBits");
-			pfnBeginBufferedPaint = (FN_BeginBufferedPaint)::GetProcAddress(hUxTheme, "BeginBufferedPaint");
-			pfnEndBufferedPaint = (FN_EndBufferedPaint)::GetProcAddress(hUxTheme, "EndBufferedPaint");
-		}
-	}
 }
 
 CShellExt::~CShellExt()
 {
-	std::map<UINT, HBITMAP>::iterator it;
-	for (it = bitmaps.begin(); it != bitmaps.end(); ++it)
-	{
-		::DeleteObject(it->second);
-	}
-	bitmaps.clear();
 	g_cRefThisDll--;
 	g_shellObjects.Erase(this);
-	if (hUxTheme)
-		FreeLibrary(hUxTheme);
 }
 
 void LoadLangDll()
