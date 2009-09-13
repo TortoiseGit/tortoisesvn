@@ -69,6 +69,7 @@ public:
 class CRepositoryBrowser : public CResizableStandAloneDialog, public SVN, public IRepo
 {
 	DECLARE_DYNAMIC(CRepositoryBrowser)
+friend class CBaseDropTarget;
 friend class CTreeDropTarget;
 friend class CListDropTarget;
 
