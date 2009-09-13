@@ -59,8 +59,9 @@ public:
 	void			GoToLine(int nNewLine, BOOL bAll = TRUE);
 	void			ScrollToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);
 	void			UseCaret(bool bUse = true) {m_bCaretHidden = !bUse;}
-	bool			HasCaret() {return !m_bCaretHidden;}
-	void			SetCaretPosition(POINT pt) {m_ptCaretPos = pt ; m_nCaretGoalPos = pt.x; UpdateCaret();}
+	bool			HasCaret() const {return !m_bCaretHidden;}
+	void			SetCaretPosition(const POINT& pt) {m_ptCaretPos = pt; m_nCaretGoalPos = pt.x; UpdateCaret();}
+	void			UpdateCaretPosition(const POINT& pt) {m_ptCaretPos = pt; UpdateCaret();}
 	void			EnsureCaretVisible();
 	void			UpdateCaret();
 	void			ClearSelection();
@@ -234,6 +235,7 @@ protected:
 
 	bool			IsWordSeparator(wchar_t ch) const;
 	bool			IsCaretAtWordBoundary() const;
+	void			UpdateViewsCaretPosition();
 
 protected:
 	COLORREF		m_InlineRemovedBk;

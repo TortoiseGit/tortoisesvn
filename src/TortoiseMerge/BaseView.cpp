@@ -2003,22 +2003,7 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 	RecalcAllVertScrollBars(TRUE);
 	m_nCaretGoalPos = 0;
 
-	if (m_pwndBottom)
-	{
-		m_pwndBottom->m_ptCaretPos = m_ptCaretPos;
-		m_pwndBottom->UpdateCaret();
-	}
-	if (m_pwndLeft)
-	{
-		m_pwndLeft->m_ptCaretPos = m_ptCaretPos;
-		m_pwndLeft->UpdateCaret();
-	}
-	if (m_pwndRight)
-	{
-		m_pwndRight->m_ptCaretPos = m_ptCaretPos;
-		m_pwndRight->UpdateCaret();
-	}
-
+	UpdateViewsCaretPosition();
 	UpdateCaret();
 	ShowDiffLines(nCenterPos);
 	return true;
@@ -2218,22 +2203,7 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 			SetupSelection(m_ptCaretPos.y, m_ptCaretPos.y);
 		}
 
-		if (m_pwndBottom)
-		{
-			m_pwndBottom->m_ptCaretPos = m_ptCaretPos;
-			m_pwndBottom->UpdateCaret();
-		}
-		if (m_pwndLeft)
-		{
-			m_pwndLeft->m_ptCaretPos = m_ptCaretPos;
-			m_pwndLeft->UpdateCaret();
-		}
-		if (m_pwndRight)
-		{
-			m_pwndRight->m_ptCaretPos = m_ptCaretPos;
-			m_pwndRight->UpdateCaret();
-		}
-
+		UpdateViewsCaretPosition()
 		Invalidate();
 	}
 
@@ -3030,6 +3000,16 @@ bool CBaseView::IsCaretAtWordBoundary() const
 	return
 		IsWordSeparator(line[m_ptCaretPos.x]) !=
 		IsWordSeparator(line[m_ptCaretPos.x - 1]);
+}
+
+void CBaseView::UpdateViewsCaretPosition()
+{
+	if (m_pwndBottom)
+		m_pwndBottom->UpdateCaretPosition(m_ptCaretPos);
+	if (m_pwndLeft)
+		m_pwndLeft->UpdateCaretPosition(m_ptCaretPos);
+	if (m_pwndRight)
+		m_pwndRight->UpdateCaretPosition(m_ptCaretPos);
 }
 
 void CBaseView::OnCaretWordleft()
