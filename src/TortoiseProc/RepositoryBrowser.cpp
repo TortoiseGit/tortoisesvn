@@ -663,7 +663,7 @@ void CRepositoryBrowser::OnLButtonDown(UINT nFlags, CPoint point)
 	OffsetRect(&treelist, -treelist.left, -treelist.top);
 
 	if (point.x < treelist.left+REPOBROWSER_CTRL_MIN_WIDTH)
-		point.x = treelist.left+REPOBROWSER_CTRL_MIN_WIDTH;
+		return CStandAloneDialogTmpl<CResizableDialog>::OnLButtonDown(nFlags, point);
     if (point.x > treelist.right-3) 
         return CStandAloneDialogTmpl<CResizableDialog>::OnLButtonDown(nFlags, point);
 	if (point.x > treelist.right-REPOBROWSER_CTRL_MIN_WIDTH) 
