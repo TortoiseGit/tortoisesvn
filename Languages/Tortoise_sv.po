@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-08-25 13:37+0100\n"
+"PO-Revision-Date: 2009-09-14 10:48+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2573,6 +2573,10 @@ msgstr "Fortsätt"
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Förminska det dockade fönstret"
+
+#. Resource IDs: (15)
+msgid "Converts the working copy format to the new version"
+msgstr "Konverterar arbetskopians format till den nya versionen"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -7871,7 +7875,8 @@ msgstr ""
 #. Resource IDs: (84)
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "\n"
@@ -7879,6 +7884,7 @@ msgid ""
 msgstr ""
 "Subversion stött på ett allvarligt problem.\n"
 "Ta dig tid att rapportera detta på vår e-postlista\n"
+"(users@subversion.tigris.org)\n"
 "med så mycket information som möjligt om vad\n"
 "du försökte göra.\n"
 "\n"
@@ -9114,6 +9120,11 @@ msgstr "Uppdaterar och försöker låsa igen..."
 #. Resource IDs: (199)
 msgid "Updating log cache"
 msgstr "Uppdaterar logg cache"
+
+# Osäker på var denna visas
+#. Resource IDs: (15)
+msgid "Upgrade working copy"
+msgstr "Uppgradera arbetskopia"
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
