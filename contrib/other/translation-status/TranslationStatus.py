@@ -90,32 +90,27 @@ class includeWriter:
         self.out.write('"zzz" => array(-1, %s, 0, 0, %s, 0, "%s", "%s")\n' \
           %(total, total ,file+'.pot', date))
         self.out.write(');\n')
-
-class transCountryWriter:
-    def __init__(self, outfile):
-        self.out = file(outfile, 'w')
-        self.out.write('<?php\n')
+    
+    def addCountries(self, langSource):
         self.out.write('$countries = array(\n')
-        self.writeList()
-        self.out.write(');\n')
-        self.out.write('?>\n')
-
-    def writeList(self):
+        langList = os.path.join('gui', langSource, 'Languages.txt')
         csvReader = csv.DictReader(open(langList), langFields, delimiter=';', quotechar='"')
         csvReader.skipinitialspace = True
 
         for row in csvReader:
           # Ignore lines beginning with a '#'
           if row['Tag'][0] != '#':
-            self.writeRow(row['LangCC'].strip(), row['Tag'].strip(), row['FlagByte'].strip(), \
+            self.addCountryRow(row['LangCC'].strip(), row['Tag'].strip(), row['FlagByte'].strip(), \
               row['LangName'].strip(), row['Translators'].strip())
+        self.out.write(');\n')
+        self.out.write('?>\n')
 
-    def writeRow(self, LangCC, Tag, Flag, LangName, Translators):
+    def addCountryRow(self, LangCC, Tag, Flag, LangName, Translators):
         self.out.write('"%s" => array("%s", "%s", "%s", "%s", %s)' \
           % (LangCC,Tag,Flag,LangCC,LangName,Translators))
         self.out.write(',')
         self.out.write('\n')
-
+        
 class transReport:
     def __init__(self, to_email_id='luebbe@tigris.org'):
         self.to_email_id = to_email_id
@@ -371,12 +366,13 @@ def main():
 
     report.createReport()
 
+    outTrunk.addCountries('trunk')
+    outBranch.addCountries('branch')
+    
     timestamp = makeTimeString('%a, %d %b %Y %H:%M UTC', time.time())
 
     outTrunk.addFooter(wcrev, timestamp)
     outBranch.addFooter(wcrev, timestamp)
-
-    transCountryWriter('trans_countries.inc')
 
 if __name__ == '__main__':
     main()
