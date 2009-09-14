@@ -2203,7 +2203,7 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 			SetupSelection(m_ptCaretPos.y, m_ptCaretPos.y);
 		}
 
-		UpdateViewsCaretPosition()
+		UpdateViewsCaretPosition();
 		Invalidate();
 	}
 
