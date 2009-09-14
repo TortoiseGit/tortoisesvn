@@ -103,7 +103,6 @@ class includeWriter:
             self.addCountryRow(row['LangCC'].strip(), row['Tag'].strip(), row['FlagByte'].strip(), \
               row['LangName'].strip(), row['Translators'].strip())
         self.out.write(');\n')
-        self.out.write('?>\n')
 
     def addCountryRow(self, LangCC, Tag, Flag, LangName, Translators):
         self.out.write('"%s" => array("%s", "%s", "%s", "%s", %s)' \
