@@ -97,7 +97,7 @@ t_print_header($tsvn_var);
 
 // Print Alphabetical statistics
 t_print_table_header('alpha', 'Translator credits', $tsvn_var);
-t_print_all_stats($TortoiseGUI, $countries, $tsvn_var);
+t_print_all_stats($Tortoise, $countries, $tsvn_var);
 t_print_table_footer();
 
 t_print_footer($tsvn_var);
