@@ -261,83 +261,81 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						continue;
 					}
 					tstring str = tstring(szFileName);
-					if ((str.empty() == false)&&(g_ShellCache.IsContextPathAllowed(szFileName)))
+					if (str.empty()||(!g_ShellCache.IsContextPathAllowed(szFileName)))
+						continue;
+					if (itemStates & ITEMIS_ONLYONE)
 					{
-						if (itemStates & ITEMIS_ONLYONE)
+						CTSVNPath strpath;
+						strpath.SetFromWin(str.c_str());
+						itemStates |= (strpath.GetFileExtension().CompareNoCase(_T(".diff"))==0) ? ITEMIS_PATCHFILE : 0;
+						itemStates |= (strpath.GetFileExtension().CompareNoCase(_T(".patch"))==0) ? ITEMIS_PATCHFILE : 0;
+					}
+					files_.push_back(str);
+					if (i != 0)
+						continue;
+					//get the Subversion status of the item
+					svn_wc_status_kind status = svn_wc_status_none;
+					try
+					{
+						SVNStatus stat;
+						stat.GetStatus(CTSVNPath(str.c_str()), false, true, true);
+						if (stat.status)
 						{
-							CTSVNPath strpath;
-							strpath.SetFromWin(str.c_str());
-							itemStates |= (strpath.GetFileExtension().CompareNoCase(_T(".diff"))==0) ? ITEMIS_PATCHFILE : 0;
-							itemStates |= (strpath.GetFileExtension().CompareNoCase(_T(".patch"))==0) ? ITEMIS_PATCHFILE : 0;
-						}
-						files_.push_back(str);
-						if (i == 0)
-						{
-							//get the Subversion status of the item
-							svn_wc_status_kind status = svn_wc_status_none;
-							try
+							statuspath = str;
+							status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+							itemStates |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
+							fetchedstatus = status;
+							if ((stat.status->entry)&&(stat.status->entry->lock_token))
+								itemStates |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
+							if ((stat.status->entry)&&(stat.status->entry->kind == svn_node_dir))
 							{
-								SVNStatus stat;
-								stat.GetStatus(CTSVNPath(str.c_str()), false, true, true);
-								if (stat.status)
-								{
-									statuspath = str;
-									status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-									itemStates |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
-									fetchedstatus = status;
-									if ((stat.status->entry)&&(stat.status->entry->lock_token))
-										itemStates |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
-									if ((stat.status->entry)&&(stat.status->entry->kind == svn_node_dir))
-									{
-										itemStates |= ITEMIS_FOLDER;
-										if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
-											itemStates |= ITEMIS_FOLDERINSVN;
-									}
-									if ((stat.status->entry)&&(stat.status->entry->present_props))
-									{
-										if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
-											itemStates |= ITEMIS_NEEDSLOCK;
-									}
-									if ((stat.status->entry)&&(stat.status->entry->uuid))
-										uuidSource = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
-									if (stat.status->file_external)
-										itemStates |= ITEMIS_FILEEXTERNAL;
-									if (stat.status->tree_conflict)
-										itemStates |= ITEMIS_CONFLICTED;
-									if ((stat.status->entry)&&(stat.status->entry->copyfrom_url))
-										itemStates |= ITEMIS_ADDEDWITHHISTORY;
-								}
-								else
-								{
-									if (stat.IsUnsupportedFormat())
-									{
-										itemStates |= ITEMIS_UNSUPPORTEDFORMAT;
-									}
-									// sometimes, svn_client_status() returns with an error.
-									// in that case, we have to check if the working copy is versioned
-									// anyway to show the 'correct' context menu
-									if (g_ShellCache.HasSVNAdminDir(str.c_str(), true))
-										status = svn_wc_status_normal;
-								}
+								itemStates |= ITEMIS_FOLDER;
+								if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
+									itemStates |= ITEMIS_FOLDERINSVN;
 							}
-							catch ( ... )
+							if ((stat.status->entry)&&(stat.status->entry->present_props))
 							{
-								ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+								if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+									itemStates |= ITEMIS_NEEDSLOCK;
 							}
-							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
-								itemStates |= ITEMIS_INSVN;
-							if (status == svn_wc_status_ignored)
-								itemStates |= ITEMIS_IGNORED;
-							if (status == svn_wc_status_normal)
-								itemStates |= ITEMIS_NORMAL;
-							if (status == svn_wc_status_conflicted)
+							if ((stat.status->entry)&&(stat.status->entry->uuid))
+								uuidSource = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
+							if (stat.status->file_external)
+								itemStates |= ITEMIS_FILEEXTERNAL;
+							if (stat.status->tree_conflict)
 								itemStates |= ITEMIS_CONFLICTED;
-							if (status == svn_wc_status_added)
-								itemStates |= ITEMIS_ADDED;
-							if (status == svn_wc_status_deleted)
-								itemStates |= ITEMIS_DELETED;
+							if ((stat.status->entry)&&(stat.status->entry->copyfrom_url))
+								itemStates |= ITEMIS_ADDEDWITHHISTORY;
+						}
+						else
+						{
+							if (stat.IsUnsupportedFormat())
+							{
+								itemStates |= ITEMIS_UNSUPPORTEDFORMAT;
+							}
+							// sometimes, svn_client_status() returns with an error.
+							// in that case, we have to check if the working copy is versioned
+							// anyway to show the 'correct' context menu
+							if (g_ShellCache.HasSVNAdminDir(str.c_str(), true))
+								status = svn_wc_status_normal;
 						}
 					}
+					catch ( ... )
+					{
+						ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+					}
+					if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
+						itemStates |= ITEMIS_INSVN;
+					if (status == svn_wc_status_ignored)
+						itemStates |= ITEMIS_IGNORED;
+					if (status == svn_wc_status_normal)
+						itemStates |= ITEMIS_NORMAL;
+					if (status == svn_wc_status_conflicted)
+						itemStates |= ITEMIS_CONFLICTED;
+					if (status == svn_wc_status_added)
+						itemStates |= ITEMIS_ADDED;
+					if (status == svn_wc_status_deleted)
+						itemStates |= ITEMIS_DELETED;
 				} // for (int i = 0; i < count; i++)
 				GlobalUnlock ( drop );
 				ReleaseStgMedium ( &stg );
@@ -354,116 +352,114 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 				{
 					ItemIDList child (GetPIDLItem (cida, i), &parent);
 					tstring str = child.toString();
-					if ((str.empty() == false)&&(g_ShellCache.IsContextPathAllowed(str.c_str())))
-					{
-						//check if our menu is requested for a subversion admin directory
-						if (g_SVNAdminDir.IsAdminDirPath(str.c_str()))
-							continue;
+					if (str.empty()||(!g_ShellCache.IsContextPathAllowed(str.c_str())))
+						continue;
+					//check if our menu is requested for a subversion admin directory
+					if (g_SVNAdminDir.IsAdminDirPath(str.c_str()))
+						continue;
 
-						files_.push_back(str);
-						CTSVNPath strpath;
-						strpath.SetFromWin(str.c_str());
-						itemStates |= (strpath.GetFileExtension().CompareNoCase(_T(".diff"))==0) ? ITEMIS_PATCHFILE : 0;
-						itemStates |= (strpath.GetFileExtension().CompareNoCase(_T(".patch"))==0) ? ITEMIS_PATCHFILE : 0;
-						if (!statfetched)
+					files_.push_back(str);
+					CTSVNPath strpath;
+					strpath.SetFromWin(str.c_str());
+					itemStates |= (strpath.GetFileExtension().CompareNoCase(_T(".diff"))==0) ? ITEMIS_PATCHFILE : 0;
+					itemStates |= (strpath.GetFileExtension().CompareNoCase(_T(".patch"))==0) ? ITEMIS_PATCHFILE : 0;
+					if (statfetched)
+						continue;
+					//get the Subversion status of the item
+					svn_wc_status_kind status = svn_wc_status_none;
+					if ((g_ShellCache.IsSimpleContext())&&(strpath.IsDirectory()))
+					{
+						if (g_ShellCache.HasSVNAdminDir(strpath.GetWinPath(), strpath.IsDirectory()))
+							status = svn_wc_status_normal;
+					}
+					else
+					{
+						try
 						{
-							//get the Subversion status of the item
-							svn_wc_status_kind status = svn_wc_status_none;
-							if ((g_ShellCache.IsSimpleContext())&&(strpath.IsDirectory()))
+							SVNStatus stat;
+							if (g_ShellCache.HasSVNAdminDir(strpath.GetWinPath(), strpath.IsDirectory()))
+								stat.GetStatus(strpath, false, true, true);
+							statuspath = str;
+							if (stat.status)
 							{
-								if (g_ShellCache.HasSVNAdminDir(strpath.GetWinPath(), strpath.IsDirectory()))
-									status = svn_wc_status_normal;
-							}
+								status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+								itemStates |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
+								fetchedstatus = status;
+								if ((stat.status->entry)&&(stat.status->entry->lock_token))
+									itemStates |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
+								if ((stat.status->entry)&&(stat.status->entry->kind == svn_node_dir))
+								{
+									itemStates |= ITEMIS_FOLDER;
+									if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
+										itemStates |= ITEMIS_FOLDERINSVN;
+								}
+								if ((stat.status->entry)&&(stat.status->entry->conflict_wrk))
+									itemStates |= ITEMIS_CONFLICTED;
+								if ((stat.status->entry)&&(stat.status->entry->present_props))
+								{
+									if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+										itemStates |= ITEMIS_NEEDSLOCK;
+								}
+								if ((stat.status->entry)&&(stat.status->entry->uuid))
+									uuidSource = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
+								if (stat.status->file_external)
+									itemStates |= ITEMIS_FILEEXTERNAL;
+								if (stat.status->tree_conflict)
+									itemStates |= ITEMIS_CONFLICTED;
+								if ((stat.status->entry)&&(stat.status->entry->copyfrom_url))
+									itemStates |= ITEMIS_ADDEDWITHHISTORY;
+							}	
 							else
 							{
-								try
+								if (stat.IsUnsupportedFormat())
 								{
-									SVNStatus stat;
-									if (g_ShellCache.HasSVNAdminDir(strpath.GetWinPath(), strpath.IsDirectory()))
-										stat.GetStatus(strpath, false, true, true);
-									statuspath = str;
-									if (stat.status)
-									{
-										status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-										itemStates |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
-										fetchedstatus = status;
-										if ((stat.status->entry)&&(stat.status->entry->lock_token))
-											itemStates |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
-										if ((stat.status->entry)&&(stat.status->entry->kind == svn_node_dir))
-										{
-											itemStates |= ITEMIS_FOLDER;
-											if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
-												itemStates |= ITEMIS_FOLDERINSVN;
-										}
-										if ((stat.status->entry)&&(stat.status->entry->conflict_wrk))
-											itemStates |= ITEMIS_CONFLICTED;
-										if ((stat.status->entry)&&(stat.status->entry->present_props))
-										{
-											if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
-												itemStates |= ITEMIS_NEEDSLOCK;
-										}
-										if ((stat.status->entry)&&(stat.status->entry->uuid))
-											uuidSource = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
-										if (stat.status->file_external)
-											itemStates |= ITEMIS_FILEEXTERNAL;
-										if (stat.status->tree_conflict)
-											itemStates |= ITEMIS_CONFLICTED;
-										if ((stat.status->entry)&&(stat.status->entry->copyfrom_url))
-											itemStates |= ITEMIS_ADDEDWITHHISTORY;
-									}	
-									else
-									{
-										if (stat.IsUnsupportedFormat())
-										{
-											itemStates |= ITEMIS_UNSUPPORTEDFORMAT;
-										}
-										// sometimes, svn_client_status() returns with an error.
-										// in that case, we have to check if the working copy is versioned
-										// anyway to show the 'correct' context menu
-										if (g_ShellCache.HasSVNAdminDir(strpath.GetWinPath(), strpath.IsDirectory()))
-										{
-											status = svn_wc_status_normal;
-											fetchedstatus = status;
-										}
-									}
-									statfetched = TRUE;
+									itemStates |= ITEMIS_UNSUPPORTEDFORMAT;
 								}
-								catch ( ... )
+								// sometimes, svn_client_status() returns with an error.
+								// in that case, we have to check if the working copy is versioned
+								// anyway to show the 'correct' context menu
+								if (g_ShellCache.HasSVNAdminDir(strpath.GetWinPath(), strpath.IsDirectory()))
 								{
-									ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+									status = svn_wc_status_normal;
+									fetchedstatus = status;
 								}
 							}
-							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
-								itemStates |= ITEMIS_INSVN;
-							if (status == svn_wc_status_ignored)
-							{
-								itemStates |= ITEMIS_IGNORED;
-								// the item is ignored. Get the svn:ignored properties so we can (maybe) later
-								// offer a 'remove from ignored list' entry
-								SVNProperties props(strpath.GetContainingDirectory(), false);
-								ignoredprops.empty();
-								for (int p=0; p<props.GetCount(); ++p)
-								{
-									if (props.GetItemName(p).compare(tstring(_T("svn:ignore")))==0)
-									{
-										std::string st = props.GetItemValue(p);
-										ignoredprops = UTF8ToWide(st.c_str());
-										// remove all escape chars ('\\')
-										std::remove(ignoredprops.begin(), ignoredprops.end(), '\\');
-										break;
-									}
-								}
-							}
-							if (status == svn_wc_status_normal)
-								itemStates |= ITEMIS_NORMAL;
-							if (status == svn_wc_status_conflicted)
-								itemStates |= ITEMIS_CONFLICTED;
-							if (status == svn_wc_status_added)
-								itemStates |= ITEMIS_ADDED;
-							if (status == svn_wc_status_deleted)
-								itemStates |= ITEMIS_DELETED;
+							statfetched = TRUE;
+						}
+						catch ( ... )
+						{
+							ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 						}
 					}
+					if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
+						itemStates |= ITEMIS_INSVN;
+					if (status == svn_wc_status_ignored)
+					{
+						itemStates |= ITEMIS_IGNORED;
+						// the item is ignored. Get the svn:ignored properties so we can (maybe) later
+						// offer a 'remove from ignored list' entry
+						SVNProperties props(strpath.GetContainingDirectory(), false);
+						ignoredprops.empty();
+						for (int p=0; p<props.GetCount(); ++p)
+						{
+							if (props.GetItemName(p).compare(tstring(_T("svn:ignore")))==0)
+							{
+								std::string st = props.GetItemValue(p);
+								ignoredprops = UTF8ToWide(st.c_str());
+								// remove all escape chars ('\\')
+								std::remove(ignoredprops.begin(), ignoredprops.end(), '\\');
+								break;
+							}
+						}
+					}
+					if (status == svn_wc_status_normal)
+						itemStates |= ITEMIS_NORMAL;
+					if (status == svn_wc_status_conflicted)
+						itemStates |= ITEMIS_CONFLICTED;
+					if (status == svn_wc_status_added)
+						itemStates |= ITEMIS_ADDED;
+					if (status == svn_wc_status_deleted)
+						itemStates |= ITEMIS_DELETED;
 				} // for (int i = 0; i < count; ++i)
 				ItemIDList child (GetPIDLItem (cida, 0), &parent);
 				if (g_ShellCache.HasSVNAdminDir(child.toString().c_str(), FALSE))
@@ -688,7 +684,6 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
 
 bool CShellExt::WriteClipboardPathsToTempFile(tstring& tempfile)
 {
-	bool bRet = true;
 	tempfile = tstring();
 	//write all selected files and paths to a temporary file
 	//for TortoiseProc.exe to read out again.
@@ -719,7 +714,8 @@ bool CShellExt::WriteClipboardPathsToTempFile(tstring& tempfile)
 	tstring sClipboardText;
 	HGLOBAL hglb = GetClipboardData(CF_HDROP);
 	HDROP hDrop = (HDROP)GlobalLock(hglb);
-	if(hDrop != NULL)
+	const bool bRet = (hDrop != NULL);
+	if(bRet)
 	{
 		TCHAR szFileName[MAX_PATH];
 		UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0); 
@@ -732,7 +728,6 @@ bool CShellExt::WriteClipboardPathsToTempFile(tstring& tempfile)
 		}
 		GlobalUnlock(hDrop);
 	}
-	else bRet = false;
 	GlobalUnlock(hglb);
 
 	CloseClipboard();
@@ -986,73 +981,69 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	unsigned __int64 topmenu = g_ShellCache.GetMenuLayout();
 	unsigned __int64 menumask = g_ShellCache.GetMenuMask();
 
-	int menuIndex = 0;
 	bool bAddSeparator = false;
 	bool bMenuEntryAdded = false;
 	// insert separator at start
 	InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); idCmd++;
 	bool bShowIcons = !!DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\ShowContextMenuIcons"), TRUE));
-	while (menuInfo[menuIndex].command != ShellMenuLastEntry)
+	for (int menuIndex = 0; menuInfo[menuIndex].command != ShellMenuLastEntry; menuIndex++)
 	{
-		if (menuInfo[menuIndex].command == ShellSeparator)
+		MenuInfo& menuItem = menuInfo[menuIndex];
+		if (menuItem.command == ShellSeparator)
 		{
 			// we don't add a separator immediately. Because there might not be
 			// another 'normal' menu entry after we insert a separator.
 			// we simply set a flag here, indicating that before the next
 			// 'normal' menu entry, a separator should be added.
 			bAddSeparator = true;
+			continue;
+		}
+		// check the conditions whether to show the menu entry or not
+		if ((menuItem.menuID & (~menumask)) == 0)
+			continue;
+
+		const bool bInsertMenu = ShouldInsertItem(menuItem);
+		if (!bInsertMenu)
+			continue;
+		// insert a separator
+		if ((bMenuEntryAdded)&&(bAddSeparator))
+		{
+			bAddSeparator = false;
+			bMenuEntryAdded = false;
+			InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
+			idCmd++;
+		}
+
+		// handle special cases (sub menus)
+		if ((menuItem.command == ShellMenuIgnoreSub)||
+			(menuItem.command == ShellMenuDeleteIgnoreSub)||
+			(menuItem.command == ShellMenuUnIgnoreSub))
+		{
+			InsertIgnoreSubmenus(idCmd, idCmdFirst, hMenu, subMenu, indexMenu, indexSubMenu, topmenu, bShowIcons);
+			bMenuEntryAdded = true;
 		}
 		else
 		{
-			// check the conditions whether to show the menu entry or not
-			const bool bInsertMenu = ShouldInsertItem(menuInfo[menuIndex]);
-			if (menuInfo[menuIndex].menuID & (~menumask))
+			// the 'get lock' command is special
+			bool bIsTop = ((topmenu & menuItem.menuID) != 0);
+			if (menuItem.command == ShellMenuLock)
 			{
-				if (bInsertMenu)
-				{
-					// insert a separator
-					if ((bMenuEntryAdded)&&(bAddSeparator))
-					{
-						bAddSeparator = false;
-						bMenuEntryAdded = false;
-						InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
-						idCmd++;
-					}
-					
-					// handle special cases (sub menus)
-					if ((menuInfo[menuIndex].command == ShellMenuIgnoreSub)||
-						(menuInfo[menuIndex].command == ShellMenuDeleteIgnoreSub)||
-						(menuInfo[menuIndex].command == ShellMenuUnIgnoreSub))
-					{
-						InsertIgnoreSubmenus(idCmd, idCmdFirst, hMenu, subMenu, indexMenu, indexSubMenu, topmenu, bShowIcons);
-						bMenuEntryAdded = true;
-					}
-					else
-					{
-						// the 'get lock' command is special
-						bool bIsTop = ((topmenu & menuInfo[menuIndex].menuID) != 0);
-						if (menuInfo[menuIndex].command == ShellMenuLock)
-						{
-							if ((itemStates & ITEMIS_NEEDSLOCK) && g_ShellCache.IsGetLockTop())
-								bIsTop = true;
-						}
-						// insert the menu entry
-						InsertSVNMenu(	bIsTop,
-										bIsTop ? hMenu : subMenu,
-										bIsTop ? indexMenu++ : indexSubMenu++,
-										idCmd++,
-										menuInfo[menuIndex].menuTextID,
-										bShowIcons ? menuInfo[menuIndex].iconID : 0,
-										idCmdFirst,
-										menuInfo[menuIndex].command,
-										uFlags);
-						if (!bIsTop)
-							bMenuEntryAdded = true;
-					}
-				}
+				if ((itemStates & ITEMIS_NEEDSLOCK) && g_ShellCache.IsGetLockTop())
+					bIsTop = true;
 			}
+			// insert the menu entry
+			InsertSVNMenu(	bIsTop,
+							bIsTop ? hMenu : subMenu,
+							bIsTop ? indexMenu++ : indexSubMenu++,
+							idCmd++,
+							menuItem.menuTextID,
+							bShowIcons ? menuItem.iconID : 0,
+							idCmdFirst,
+							menuItem.command,
+							uFlags);
+			if (!bIsTop)
+				bMenuEntryAdded = true;
 		}
-		menuIndex++;
 	}
 
 	//add sub menu to main context menu
@@ -1126,12 +1117,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	return ResultFromScode(MAKE_SCODE(SEVERITY_SUCCESS, 0, (USHORT)(idCmd - idCmdFirst)));
 }
 
-
 // This is called when you invoke a command on the menu:
 STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 {
 	PreserveChdir preserveChdir;
-	HRESULT hr = E_INVALIDARG;
+	const HRESULT hr = E_INVALIDARG;
 	if (lpcmi == NULL)
 		return hr;
 
@@ -1727,21 +1717,19 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
 	}
 
 	LoadLangDll();
-	HRESULT hr = E_INVALIDARG;
 
 	MAKESTRING(IDS_MENUDESCDEFAULT);
-	int menuIndex = 0;
-	while (menuInfo[menuIndex].command != ShellMenuLastEntry)
+	for (int menuIndex = 0; menuInfo[menuIndex].command != ShellMenuLastEntry; menuIndex++)
 	{
 		if (menuInfo[menuIndex].command == (SVNCommands)id_it->second)
 		{
 			MAKESTRING(menuInfo[menuIndex].menuDescID);
 			break;
 		}
-		menuIndex++;
 	}
 
 	const TCHAR * desc = stringtablebuffer;
+	HRESULT hr = E_INVALIDARG;
 	switch(uFlags)
 	{
 	case GCS_HELPTEXTA:
@@ -1919,37 +1907,22 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 	unsigned __int64 layout = g_ShellCache.GetMenuLayout();
 	space = 6;
 
-	int menuIndex = 0;
-	while (menuInfo[menuIndex].command != ShellMenuLastEntry)
+	for (int menuIndex = 0; menuInfo[menuIndex].command != ShellMenuLastEntry; menuIndex++)
 	{
-		if (menuInfo[menuIndex].command == id)
+		MenuInfo& menuItem = menuInfo[menuIndex];
+		if (menuItem.command != id)
+			continue;
+		MAKESTRING(menuItem.menuTextID);
+		resource = MAKEINTRESOURCE(menuItem.iconID);
+		switch (id)
 		{
-			MAKESTRING(menuInfo[menuIndex].menuTextID);
-			resource = MAKEINTRESOURCE(menuInfo[menuIndex].iconID);
-			switch (id)
+		case ShellMenuLock:
 			{
-			case ShellMenuLock:
 				// menu lock is special because it can be set to the top
 				// with a separate option in the registry
-				space = ((layout & MENULOCK) || ((itemStates & ITEMIS_NEEDSLOCK) && g_ShellCache.IsGetLockTop())) ? 0 : 6;
-				if ((layout & MENULOCK) || ((itemStates & ITEMIS_NEEDSLOCK) && g_ShellCache.IsGetLockTop()))
-				{
-					_tcscpy_s(textbuf, 255, _T("SVN "));
-					_tcscat_s(textbuf, 255, stringtablebuffer);
-					_tcscpy_s(stringtablebuffer, 255, textbuf);
-				}
-				break;
-				// the sub menu entries are special because they're *always* on the top level menu
-			case ShellSubMenuMultiple:
-			case ShellSubMenuLink:
-			case ShellSubMenuFolder:
-			case ShellSubMenuFile:
-			case ShellSubMenu:
-				space = 0;
-				break;
-			default:
-				space = layout & menuInfo[menuIndex].menuID ? 0 : 6;
-				if (layout & (menuInfo[menuIndex].menuID)) 
+				const bool lock = (layout & MENULOCK) || ((itemStates & ITEMIS_NEEDSLOCK) && g_ShellCache.IsGetLockTop());
+				space = lock ? 0 : 6;
+				if (lock)
 				{
 					_tcscpy_s(textbuf, 255, _T("SVN "));
 					_tcscat_s(textbuf, 255, stringtablebuffer);
@@ -1957,23 +1930,37 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 				}
 				break;
 			}
-			return resource;
+			// the sub menu entries are special because they're *always* on the top level menu
+		case ShellSubMenuMultiple:
+		case ShellSubMenuLink:
+		case ShellSubMenuFolder:
+		case ShellSubMenuFile:
+		case ShellSubMenu:
+			space = 0;
+			break;
+		default:
+			space = layout & menuItem.menuID ? 0 : 6;
+			if (layout & (menuItem.menuID)) 
+			{
+				_tcscpy_s(textbuf, 255, _T("SVN "));
+				_tcscat_s(textbuf, 255, stringtablebuffer);
+				_tcscpy_s(stringtablebuffer, 255, textbuf);
+			}
+			break;
 		}
-		menuIndex++;
+		return resource;
 	}
 	return NULL;
 }
 
 bool CShellExt::IsIllegalFolder(std::wstring folder, int * csidlarray)
 {
-	int i=0;
 	TCHAR buf[MAX_PATH];	//MAX_PATH ok, since SHGetSpecialFolderPath doesn't return the required buffer length!
 	LPITEMIDLIST pidl = NULL;
-	while (csidlarray[i])
+	for (int i = 0; csidlarray[i]; i++)
 	{
-		++i;
 		pidl = NULL;
-		if (SHGetFolderLocation(NULL, csidlarray[i-1], NULL, 0, &pidl)!=S_OK)
+		if (SHGetFolderLocation(NULL, csidlarray[i], NULL, 0, &pidl)!=S_OK)
 			continue;
 		if (!SHGetPathFromIDList(pidl, buf))
 		{
