@@ -5,7 +5,6 @@
 // Main page.  Lists all the translations
 
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_data_trunk.inc");
-include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_countries.inc");
 
 $vars['release']=variable_get('tsvn_version', '');
 $vars['build']=variable_get('tsvn_build', '');

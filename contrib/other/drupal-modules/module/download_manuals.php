@@ -15,7 +15,7 @@
 //         Stefan Küng 2004-2008
 //
 
-include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_countries.inc");
+include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_data_branch.inc");
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/tortoisevars.inc");
 
 $tsvn_var['devurl']='http://www.tortoisesvn.net/docs/nightly/';

@@ -18,7 +18,6 @@
 //
 
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_data_trunk.inc");
-include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_countries.inc");
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/tortoisevars.inc");
 
 // different settings depending on dev or release report

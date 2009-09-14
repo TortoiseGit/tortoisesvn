@@ -15,7 +15,6 @@
 //
 
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_data_trunk.inc");
-include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_countries.inc");
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/tortoisevars.inc");
 
 function t_print_header($tsvn_var)
