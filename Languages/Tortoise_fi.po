@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-08-23 19:55+0200\n"
+"PO-Revision-Date: 2009-09-13 21:16+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2246,7 +2246,7 @@ msgstr "Tarkista työkopion muutokset"
 
 #. Resource IDs: (1504)
 msgid "Check:"
-msgstr "Tarkista:"
+msgstr "Valitse:"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -2610,6 +2610,10 @@ msgstr "Jatka"
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Kutista ankkuroitu ikkuna"
+
+#. Resource IDs: (15)
+msgid "Converts the working copy format to the new version"
+msgstr "Päivittää työkopion rakenteen uuteen versioon"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -7876,14 +7880,16 @@ msgstr ""
 #. Resource IDs: (84)
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "\n"
 "Subversion reported the following:"
 msgstr ""
 "Subversion kohtasi vakavan ongelman.\n"
-"Ole hyvä ja raportoi tästä postituslistallemme,\n"
+"Ole hyvä ja raportoi tästä Subversion-postituslistalle\n"
+"(users@subversion.tigris.org)\n"
 "sisällyttäen mukaan mahdollisimman paljon tietoa\n"
 "siitä, mitä yritit tehdä.\n"
 "\n"
@@ -9117,6 +9123,10 @@ msgstr "Päivittämässä ja yrittämässä lukitusta uudelleen..."
 #. Resource IDs: (199)
 msgid "Updating log cache"
 msgstr "Päivitetään lokiviestien välimuisti"
+
+#. Resource IDs: (15)
+msgid "Upgrade working copy"
+msgstr "Päivitä työkopion rakenne"
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
