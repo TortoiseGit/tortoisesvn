@@ -699,7 +699,7 @@ UINT CCommitDlg::StatusThread()
 			GetDlgItem(IDC_EXTERNALWARNING)->ShowWindow(SW_SHOW);
 			DialogEnableWindow(IDC_EXTERNALWARNING, TRUE);
 		}
-		SetDlgItemText(IDC_COMMIT_TO, m_ListCtrl.m_sURL);
+		AdjustToUrl();
 		m_tooltips.AddTool(GetDlgItem(IDC_STATISTICS), m_ListCtrl.GetStatisticsString());
 
 		{
@@ -789,6 +789,28 @@ UINT CCommitDlg::StatusThread()
 	// force the cursor to normal
 	RefreshCursor();
 	return 0;
+}
+
+void CCommitDlg::AdjustToUrl()
+{
+	CRect rect;
+	CWnd * pWnd = GetDlgItem(IDC_COMMIT_TO);
+	if (pWnd)
+	{
+		pWnd->GetClientRect(&rect);
+		CString url = m_ListCtrl.m_sURL;
+		CDC * pDC = GetDC();
+		if (pDC)
+		{
+			CFont * pFont = pDC->SelectObject(pWnd->GetFont());
+			PathCompactPath(pDC->m_hDC, url.GetBuffer(), rect.Width());
+			pDC->SelectObject(pFont);
+			ReleaseDC(pDC);
+		}
+		url.ReleaseBuffer();
+		url.Replace('\\', '/');
+		SetDlgItemText(IDC_COMMIT_TO, url);
+	}
 }
 
 void CCommitDlg::OnCancel()
@@ -1557,6 +1579,7 @@ void CCommitDlg::OnSize(UINT nType, int cx, int cy)
 
     //set range
     SetSplitterRange();
+	AdjustToUrl();
 }
 
 

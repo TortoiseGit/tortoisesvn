@@ -94,6 +94,7 @@ protected:
 	void SaveSplitterPos();
 	void ParseRegexFile(const CString& sFile, std::map<CString, CString>& mapRegex);
 	void UpdateCheckLinks();
+	void AdjustToUrl();
 
 	DECLARE_MESSAGE_MAP()
 
