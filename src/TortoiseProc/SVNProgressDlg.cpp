@@ -796,7 +796,8 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("SVNProgressDlg"));
-	return TRUE;
+	GetDlgItem(IDOK)->SetFocus();
+	return FALSE;
 }
 
 bool CSVNProgressDlg::SetBackgroundImage(UINT nID)
