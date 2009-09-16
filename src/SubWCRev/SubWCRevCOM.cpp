@@ -290,29 +290,29 @@ HRESULT __stdcall SubWCRev::get_Author(/*[out, retval]*/VARIANT* author)
 
 HRESULT __stdcall SubWCRev::get_HasModifications(VARIANT_BOOL* modifications)
 {
-	return BoolToVariantBool(!!SubStat.HasMods, modifications);
+	return BoolToVariantBool(SubStat.HasMods, modifications);
 }
 
 HRESULT __stdcall SubWCRev::get_IsSvnItem(/*[out, retval]*/VARIANT_BOOL* svn_item)
 {
-	return BoolToVariantBool(!!SubStat.bIsSvnItem, svn_item);
+	return BoolToVariantBool(SubStat.bIsSvnItem, svn_item);
 }
 
 HRESULT __stdcall SubWCRev::get_NeedsLocking(/*[out, retval]*/VARIANT_BOOL* needs_locking)
 {
-	return BoolToVariantBool(!!SubStat.LockData.NeedsLocks, needs_locking);
+	return BoolToVariantBool(SubStat.LockData.NeedsLocks, needs_locking);
 }
 
 HRESULT __stdcall SubWCRev::get_IsLocked(/*[out, retval]*/VARIANT_BOOL* locked)
 {
-	return BoolToVariantBool(!!SubStat.LockData.IsLocked, locked);
+	return BoolToVariantBool(SubStat.LockData.IsLocked, locked);
 }
 
-HRESULT SubWCRev::BoolToVariantBool(bool value, VARIANT_BOOL* result)
+HRESULT SubWCRev::BoolToVariantBool(BOOL value, VARIANT_BOOL* result)
 {
 	if(result == 0)
 		return E_POINTER;
-	*result = value ? VARIANT_TRUE : VARIANT_FALSE;
+	*result = (value == 0) ? VARIANT_FALSE : VARIANT_TRUE;
 	return S_OK;
 }
 

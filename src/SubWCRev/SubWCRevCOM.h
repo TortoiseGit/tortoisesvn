@@ -83,7 +83,7 @@ private:
 	BOOL IsLockDataAvailable();
 
 	HRESULT LoadTypeInfo(ITypeInfo ** pptinfo, const CLSID& libid, const CLSID& iid, LCID lcid);
-	static HRESULT BoolToVariantBool(bool value, VARIANT_BOOL* result);
+	static HRESULT BoolToVariantBool(BOOL value, VARIANT_BOOL* result);
 	static HRESULT LongToVariant(LONG value, VARIANT* result);
 
 	// Reference count
