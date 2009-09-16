@@ -214,6 +214,7 @@ private:
 	static void		RunCommand( const tstring& path, const tstring& command, const tstring& folder, LPCTSTR errorMessage );
 	bool			ShouldInsertItem(const MenuInfo& pair) const;
 	bool			ShouldEnableMenu(const YesNoPair& pair) const;
+	void			GetColumnInfo(SHCOLUMNINFO* to, DWORD index, UINT charactersCount, UINT titleId, UINT descriptionId);
 
 public:
 	CShellExt(FileState state);

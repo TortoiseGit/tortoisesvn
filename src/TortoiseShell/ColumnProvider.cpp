@@ -45,29 +45,20 @@ const static int ColumnFlags = SHCOLSTATE_TYPE_STR | SHCOLSTATE_ONBYDEFAULT;
 // IColumnProvider members
 STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 {
-	PreserveChdir preserveChdir;
+	if (psci == 0)
+		return E_POINTER;
 	if (dwIndex > 8)
 		return S_FALSE;
 
+	PreserveChdir preserveChdir;
 	ShellCache::CacheType cachetype = g_ShellCache.GetCacheType();
 	LoadLangDll();
-	std::wstring ws;
 	switch (dwIndex)
 	{
 		case 0:	// SVN Status
 			if (cachetype == ShellCache::none)
 				return S_FALSE;
-			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
-			psci->scid.pid = dwIndex;
-			psci->vt = VT_BSTR;
-			psci->fmt = LVCFMT_LEFT;
-			psci->cChars = 15;
-			psci->csFlags = ColumnFlags;
-
-			MAKESTRING(IDS_COLTITLESTATUS);
-			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
-			MAKESTRING(IDS_COLDESCSTATUS);
-			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
+			GetColumnInfo(psci, dwIndex, 15, IDS_COLTITLESTATUS, IDS_COLDESCSTATUS);
 			break;
 		case 1:	// SVN Revision
 			if (cachetype == ShellCache::none)
@@ -87,32 +78,12 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 		case 2:	// SVN Url
 			if (cachetype == ShellCache::none)
 				return S_FALSE;
-			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
-			psci->scid.pid = dwIndex;
-			psci->vt = VT_BSTR;
-			psci->fmt = LVCFMT_LEFT;
-			psci->cChars = 30;
-			psci->csFlags = ColumnFlags;
-
-			MAKESTRING(IDS_COLTITLEURL);
-			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
-			MAKESTRING(IDS_COLDESCURL);
-			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
+			GetColumnInfo(psci, dwIndex, 30, IDS_COLTITLEURL, IDS_COLDESCURL);
 			break;
 		case 3:	// SVN Short Url
 			if (cachetype == ShellCache::none)
 				return S_FALSE;
-			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
-			psci->scid.pid = dwIndex;
-			psci->vt = VT_BSTR;
-			psci->fmt = LVCFMT_LEFT;
-			psci->cChars = 30;
-			psci->csFlags = ColumnFlags;
-
-			MAKESTRING(IDS_COLTITLESHORTURL);
-			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
-			MAKESTRING(IDS_COLDESCSHORTURL);
-			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
+			GetColumnInfo(psci, dwIndex, 30, IDS_COLTITLESHORTURL, IDS_COLDESCSHORTURL);
 			break;
 		case 4:	// Author
 			if (cachetype == ShellCache::none)
@@ -127,70 +98,50 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 		case 5:	// SVN mime-type
 			if (cachetype == ShellCache::none)
 				return S_FALSE;
-			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
-			psci->scid.pid = dwIndex;
-			psci->vt = VT_BSTR;
-			psci->fmt = LVCFMT_LEFT;
-			psci->cChars = 30;
-			psci->csFlags = ColumnFlags;
-
-			MAKESTRING(IDS_COLTITLEMIMETYPE);
-			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
-			MAKESTRING(IDS_COLDESCMIMETYPE);
-			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
+			GetColumnInfo(psci, dwIndex, 30, IDS_COLTITLEMIMETYPE, IDS_COLDESCMIMETYPE);
 			break;
 		case 6:	// SVN Lock Owner
 			if (cachetype == ShellCache::none)
 				return S_FALSE;
-			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
-			psci->scid.pid = dwIndex;
-			psci->vt = VT_BSTR;
-			psci->fmt = LVCFMT_LEFT;
-			psci->cChars = 30;
-			psci->csFlags = ColumnFlags;
-
-			MAKESTRING(IDS_COLTITLEOWNER);
-			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
-			MAKESTRING(IDS_COLDESCOWNER);
-			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
+			GetColumnInfo(psci, dwIndex, 30, IDS_COLTITLEOWNER, IDS_COLDESCOWNER);
 			break;
 		case 7:	// SVN eol-style
 			if (cachetype == ShellCache::none)
 				return S_FALSE;
-			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
-			psci->scid.pid = dwIndex;
-			psci->vt = VT_BSTR;
-			psci->fmt = LVCFMT_LEFT;
-			psci->cChars = 30;
-			psci->csFlags = ColumnFlags;
-
-			MAKESTRING(IDS_COLTITLEEOLSTYLE);
-			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
-			MAKESTRING(IDS_COLDESCEOLSTYLE);
-			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
+			GetColumnInfo(psci, dwIndex, 30, IDS_COLTITLEEOLSTYLE, IDS_COLDESCEOLSTYLE);
 			break;
 		case 8:	// SVN Author
 			if (cachetype == ShellCache::none)
 				return S_FALSE;
-			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
-			psci->scid.pid = dwIndex;
-			psci->vt = VT_BSTR;
-			psci->fmt = LVCFMT_LEFT;
-			psci->cChars = 30;
-			psci->csFlags = ColumnFlags;
-
-			MAKESTRING(IDS_COLTITLEAUTHOR);
-			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
-			MAKESTRING(IDS_COLDESCAUTHOR);
-			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
+			GetColumnInfo(psci, dwIndex, 30, IDS_COLTITLEAUTHOR, IDS_COLDESCAUTHOR);
 			break;
 	}
 
 	return S_OK;
 }
 
+void CShellExt::GetColumnInfo(SHCOLUMNINFO* psci, DWORD dwIndex, UINT charactersCount, UINT titleId, UINT descriptionId)
+{
+	psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
+	psci->scid.pid = dwIndex;
+	psci->vt = VT_BSTR;
+	psci->fmt = LVCFMT_LEFT;
+	psci->cChars = charactersCount;
+	psci->csFlags = ColumnFlags;
+
+	MAKESTRING(titleId);
+	lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
+	MAKESTRING(descriptionId);
+	lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
+}
+
 STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, VARIANT *pvarData)
 {
+	if((pscid == 0) || (pscd == 0))
+		return E_INVALIDARG;
+	if(pvarData == 0)
+		return E_POINTER;
+
 	PreserveChdir preserveChdir;
 	if (!g_ShellCache.IsPathAllowed((TCHAR *)pscd->wszFile))
 	{
@@ -301,6 +252,8 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 
 STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
 {
+	if(psci == 0)
+		return E_INVALIDARG;
 	// psci->wszFolder (WCHAR) holds the path to the folder to be displayed
 	// Should check to see if its a "SVN" folder and if not return E_FAIL
 
@@ -458,4 +411,3 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 		itemurl = UTF8ToWide(url);
 	}
 }
-
