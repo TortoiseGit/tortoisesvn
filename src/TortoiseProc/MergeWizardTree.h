@@ -20,6 +20,7 @@
 #include "MergeWizardBasePage.h"
 #include "HistoryCombo.h"
 #include "LogDlg.h"
+#include "PathEdit.h"
 
 /**
  * Page in the merge wizard for selecting two urls and revisions for
@@ -65,6 +66,7 @@ protected:
 	CHistoryCombo		m_URLCombo2;
 	CString				m_sStartRev;
 	CString				m_sEndRev;
+	CPathEdit			m_WC;
 public:
 	CString				m_URLFrom;
 	CString				m_URLTo;

@@ -77,6 +77,7 @@ void CCommitDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_KEEPLOCK, m_bKeepLocks);
 	DDX_Control(pDX, IDC_SPLITTER, m_wndSplitter);
 	DDX_Check(pDX, IDC_KEEPLISTS, m_bKeepChangeList);
+	DDX_Control(pDX, IDC_COMMIT_TO, m_CommitTo);
 }
 
 BEGIN_MESSAGE_MAP(CCommitDlg, CResizableStandAloneDialog)
@@ -699,7 +700,7 @@ UINT CCommitDlg::StatusThread()
 			GetDlgItem(IDC_EXTERNALWARNING)->ShowWindow(SW_SHOW);
 			DialogEnableWindow(IDC_EXTERNALWARNING, TRUE);
 		}
-		AdjustToUrl();
+		m_CommitTo.SetWindowText(m_ListCtrl.m_sURL);
 		m_tooltips.AddTool(GetDlgItem(IDC_STATISTICS), m_ListCtrl.GetStatisticsString());
 
 		{
@@ -789,28 +790,6 @@ UINT CCommitDlg::StatusThread()
 	// force the cursor to normal
 	RefreshCursor();
 	return 0;
-}
-
-void CCommitDlg::AdjustToUrl()
-{
-	CRect rect;
-	CWnd * pWnd = GetDlgItem(IDC_COMMIT_TO);
-	if (pWnd)
-	{
-		pWnd->GetClientRect(&rect);
-		CString url = m_ListCtrl.m_sURL;
-		CDC * pDC = GetDC();
-		if (pDC)
-		{
-			CFont * pFont = pDC->SelectObject(pWnd->GetFont());
-			PathCompactPath(pDC->m_hDC, url.GetBuffer(), rect.Width());
-			pDC->SelectObject(pFont);
-			ReleaseDC(pDC);
-		}
-		url.ReleaseBuffer();
-		url.Replace('\\', '/');
-		SetDlgItemText(IDC_COMMIT_TO, url);
-	}
 }
 
 void CCommitDlg::OnCancel()
@@ -1579,7 +1558,6 @@ void CCommitDlg::OnSize(UINT nType, int cx, int cy)
 
     //set range
     SetSplitterRange();
-	AdjustToUrl();
 }
 
 

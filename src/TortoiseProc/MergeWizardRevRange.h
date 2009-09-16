@@ -20,6 +20,7 @@
 #include "MergeWizardBasePage.h"
 #include "HistoryCombo.h"
 #include "LogDlg.h"
+#include "PathEdit.h"
 
 /**
  * Page in the merge wizard for selecting a revision range to merge.
@@ -54,4 +55,5 @@ protected:
 	CLogDlg	*			m_pLogDlg;
 	CLogDlg	*			m_pLogDlg2;
 	SVNRev				m_HEAD;
+	CPathEdit			m_WC;
 };

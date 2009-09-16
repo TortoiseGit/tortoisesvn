@@ -26,6 +26,7 @@
 #include "SVNRev.h"
 #include "LogDlg.h"
 #include "Tooltip.h"
+#include "PathEdit.h"
 
 #define WM_TSVN_MAXREVFOUND			(WM_APP + 1)
 
@@ -87,6 +88,7 @@ private:
 	CButton			m_butBrowse;
 	CRegHistory		m_History;
 	CToolTips		m_tooltips;
+	CPathEdit		m_FromUrl;
 
 	svn_revnum_t	m_minrev;
 	svn_revnum_t	m_maxrev;

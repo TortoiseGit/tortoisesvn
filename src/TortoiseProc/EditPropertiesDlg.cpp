@@ -50,6 +50,7 @@ void CEditPropertiesDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_EDITPROPLIST, m_propList);
+	DDX_Control(pDX, IDC_PROPPATH, m_PropPath);
 }
 
 

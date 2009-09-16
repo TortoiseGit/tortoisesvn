@@ -30,6 +30,7 @@
 #include "BugTraqAssociations.h"
 #include "Tooltip.h"
 #include "..\IBugTraqProvider\IBugTraqProvider_h.h"
+#include "PathEdit.h"
 
 #include <regex>
 using namespace std;
@@ -94,7 +95,6 @@ protected:
 	void SaveSplitterPos();
 	void ParseRegexFile(const CString& sFile, std::map<CString, CString>& mapRegex);
 	void UpdateCheckLinks();
-	void AdjustToUrl();
 
 	DECLARE_MESSAGE_MAP()
 
@@ -140,6 +140,7 @@ private:
 	CRect				m_LogMsgOrigRect;
 	CPathWatcher		m_pathwatcher;
 	CLinkControl		m_linkControl;
+	CPathEdit			m_CommitTo;
 
 	CBugTraqAssociation m_bugtraq_association;
 

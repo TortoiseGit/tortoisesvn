@@ -57,6 +57,7 @@ void CMergeWizardRevRange::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_REVISION_RANGE, m_sRevRange);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Check(pDX, IDC_REVERSEMERGE, ((CMergeWizard*)GetParent())->bReverseMerge);
+	DDX_Control(pDX, IDC_WCEDIT, m_WC);
 }
 
 

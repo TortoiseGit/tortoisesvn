@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2008-2009 - TortoiseSVN
+// Copyright (C) 2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,39 +17,32 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include "StandAloneDlg.h"
-#include "HistoryCombo.h"
-#include "PathEdit.h"
+
 
 /**
- * \ingroup TortoiseProc
- * Dialog asking for a new URL for the working copy.
+ * \ingroup Utils
+ * Implements an edit control used for showing paths. If the path
+ * gets longer than the edit control, the path is shown compacted.
+ * But copying the path text to the clipboard always copies the
+ * full (not compacted) path string.
+ * TODO: show a tooltip with the full path on this control
  */
-class CRelocateDlg : public CResizableStandAloneDialog
+class CPathEdit : public CEdit
 {
-	DECLARE_DYNAMIC(CRelocateDlg)
+	DECLARE_DYNAMIC(CPathEdit)
 
 public:
-	CRelocateDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CRelocateDlg();
-
-	enum { IDD = IDD_RELOCATE };
+	CPathEdit();
+	virtual ~CPathEdit();
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual void OnOK();
-	virtual BOOL OnInitDialog();
-	afx_msg void OnBnClickedBrowse();
-	afx_msg void OnBnClickedHelp();
-	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
-	afx_msg void OnCbnEditchangeTourl();
-
 	DECLARE_MESSAGE_MAP()
-
-	int				m_height;
-	CPathEdit		m_FromUrl;
 public:
-	CHistoryCombo m_URLCombo;
-	CString m_sToUrl;
-	CString m_sFromUrl;
+	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
+
+private:
+	CString		m_sRealText;
+	bool		m_bInternalCall;
 };
+
+

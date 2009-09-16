@@ -57,6 +57,7 @@ void CMergeWizardReintegrate::DoDataExchange(CDataExchange* pDX)
 {
 	CMergeWizardBasePage::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
+	DDX_Control(pDX, IDC_WCEDIT, m_WCPath);
 }
 
 

@@ -44,6 +44,7 @@ void CSwitchDlg::DoDataExchange(CDataExchange* pDX)
 	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Text(pDX, IDC_REVISION_NUM, m_rev);
+	DDX_Control(pDX, IDC_SWITCHPATH, m_SwitchPath);
 }
 
 
