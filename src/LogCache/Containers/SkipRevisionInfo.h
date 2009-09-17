@@ -80,7 +80,6 @@ private:
 
 		/// find next / previous "gap"
 
-		revision_t FindNext (revision_t revision) const;
 		revision_t FindPrevious (revision_t revision) const;
 
 		/// update / insert range
@@ -156,14 +155,10 @@ private:
 	private:
 
 		CSkipRevisionInfo* parent;
-		std::vector<IT> allRanges;
 
 		/// individual compression steps
 
-		index_t RemoveParentRanges();
-		void SortRanges (index_t rangeCount);
 		void RemoveKnownRevisions();
-		void RemoveEmptyRanges();
         void RebuildHash();
 
 	public:
@@ -229,7 +224,6 @@ public:
 
 	/// query data (return NO_REVISION, if not found)
 
-	revision_t GetNextRevision (const CDictionaryBasedPath& path, revision_t revision) const;
 	revision_t GetPreviousRevision (const CDictionaryBasedPath& path, revision_t revision) const;
 
 	/// add / remove data

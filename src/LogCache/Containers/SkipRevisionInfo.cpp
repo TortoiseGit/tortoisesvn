@@ -33,31 +33,8 @@ namespace LogCache
 ///////////////////////////////////////////////////////////////
 // CSkipRevisionInfo::SPerPathRanges
 ///////////////////////////////////////////////////////////////
-// find next / previous "gap"
+// find previous "gap"
 ///////////////////////////////////////////////////////////////
-
-revision_t CSkipRevisionInfo::SPerPathRanges::FindNext (revision_t revision) const
-{
-	// special case
-
-	if (ranges.empty())
-		return (revision_t)NO_REVISION;
-
-	// look for the last range not starting behind revision
-
-	TRanges::const_iterator iter = ranges.upper_bound (revision);
-	if (iter == ranges.end())
-		return (revision_t)NO_REVISION;
-    if (iter->first > revision)
-		return (revision_t)NO_REVISION;
-
-	// return end of that range, if revision is within this range
-
-	revision_t next = iter->first + iter->second;
-	return next <= revision 
-		? NO_REVISION
-		: next;
-}
 
 revision_t CSkipRevisionInfo::SPerPathRanges::FindPrevious (revision_t revision) const
 {
@@ -137,193 +114,62 @@ void CSkipRevisionInfo::SPerPathRanges::Add (revision_t start, revision_t size)
 ///////////////////////////////////////////////////////////////
 // CSkipRevisionInfo::CPacker
 ///////////////////////////////////////////////////////////////
-// remove ranges already covered by parent path ranges
-///////////////////////////////////////////////////////////////
-
-index_t CSkipRevisionInfo::CPacker::RemoveParentRanges()
-{
-	// count the number of remaining ranges
-
-	index_t rangeCount = 0;
-
-	// remove all parent ranges
-
-	const CPathDictionary& paths = parent->paths;
-
-	for (size_t i = 0, count = parent->data.size(); i < count; ++i)
-	{
-		SPerPathRanges* perPathInfo = parent->data[i];
-		CDictionaryBasedPath parentPath 
-			= CDictionaryBasedPath (&paths, perPathInfo->pathID).GetParent();
-
-		SPerPathRanges::TRanges& ranges = perPathInfo->ranges;
-		IT iter = ranges.begin();
-
-		// check all ranges of data[i]
-
-		while (iter != ranges.end())
-		{
-			bool removed = false;
-			revision_t next = parent->GetNextRevision (parentPath, iter->first);
-
-			// does the parent cover at least the begin of this range?
-
-			if (next != NO_REVISION)
-			{
-				if (next >= iter->first + iter->second)
-				{
-					removed = true;
-				}
-				else
-				{
-					revision_t size = iter->second + iter->first - next;
-					ranges.insert (iter, std::make_pair (next, size));
-				}
-
-			#ifdef _MSC_VER
-				iter = ranges.erase (iter);
-			#else
-				revision_t revision = iter->first;
-				ranges.erase (iter);
-				iter = ranges.lower_bound (revision);
-			#endif
-			}
-
-			if (!removed)
-			{
-				// the range wasn't entirely covered
-
-				revision_t end = iter->first + iter->second-1;
-				revision_t previous = parent->GetPreviousRevision (parentPath, end);
-
-				// parent covers the end of the range?
-
-				if (previous != NO_REVISION)
-				{
-					// reduce the size of the range
-
-					iter->second = previous - iter->first + 1;
-				}
-			}
-
-			// update counter and iterator
-
-			if (!removed)
-			{
-				++rangeCount;
-				++iter;
-			}
-		}
-	}
-
-	// sort all ranges
-
-	return rangeCount;
-}
-
-///////////////////////////////////////////////////////////////
-// build a sorted list of all ranges
-///////////////////////////////////////////////////////////////
-
-void CSkipRevisionInfo::CPacker::SortRanges (index_t rangeCount)
-{
-	allRanges.clear();
-	allRanges.reserve (rangeCount);
-
-	// remove all parent ranges
-
-	std::vector<SPerPathRanges*>& data = parent->data;
-	for (size_t i = 0, count = data.size(); i < count; ++i)
-	{
-		SPerPathRanges::TRanges& ranges = data[i]->ranges;
-		for (IT iter = ranges.begin(), end = ranges.end(); iter != end; ++iter)
-		{
-			allRanges.push_back (iter);
-		}
-	}
-
-	// sort all ranges
-
-	std::sort (allRanges.begin(), allRanges.end(), CIterComp());
-}
-
-///////////////////////////////////////////////////////////////
 // reset ranges completely covered by cached revision info
 ///////////////////////////////////////////////////////////////
 
 void CSkipRevisionInfo::CPacker::RemoveKnownRevisions()
 {
-	revision_t firstKnownRevision = 0;
-	revision_t nextUnknownRevision = 0;
-	revision_t lastRevision = parent->revisions.GetLastRevision();
-
-	for (size_t i = 0; i < allRanges.size(); ++i)
-	{
-		IT& iter = allRanges[i];
-		if (iter->first > nextUnknownRevision)
-		{
-			firstKnownRevision = iter->first;
-			while (   (!parent->DataAvailable (firstKnownRevision)) 
-				   && (firstKnownRevision < lastRevision))
-				++firstKnownRevision;
-
-			nextUnknownRevision = firstKnownRevision;
-			while (   (parent->DataAvailable (nextUnknownRevision)) 
-				   && (nextUnknownRevision < lastRevision))
-				++nextUnknownRevision;
-		}
-
-		if (   (iter->first >= firstKnownRevision)
-			&& (iter->first + iter->second <= nextUnknownRevision))
-			iter->second = 0;
-	}
-}
-
-///////////////////////////////////////////////////////////////
-// remove all ranges that have been reset to size 0
-///////////////////////////////////////////////////////////////
-
-void CSkipRevisionInfo::CPacker::RemoveEmptyRanges()
-{
-	// remove all ranges that have been reset to size 0
-
 	std::vector<SPerPathRanges*>& data = parent->data;
-
-	std::vector<SPerPathRanges*>::iterator dest = data.begin();
-	for (size_t i = 0, count = data.size(); i < count; ++i)
+	for (size_t i = data.size(); i > 0; --i)
 	{
-		SPerPathRanges::TRanges& ranges = data[i]->ranges;
-		for (IT iter = ranges.begin(); iter != ranges.end(); )
+		SPerPathRanges::TRanges& ranges = data[i-1]->ranges;
+		for (IT iter = ranges.begin(), end = ranges.end(); iter != end; )
 		{
-			if (iter->second == 0)
-			{
-			#ifdef _MSC_VER
-				iter = ranges.erase (iter);
-			#else
-				revision_t revision = iter->first;
-				ranges.erase (iter);
-				iter = ranges.lower_bound (revision);
-			#endif
-			}
-			else
-				++iter;
+            revision_t start = iter->first;
+            revision_t length = iter->second;
+            
+            // remove known revisions from the beginning
+            // of the skip range
+
+            while ((length > 0) && parent->DataAvailable (start))
+            {
+                ++start;
+                --length;
+            }
+
+            // remove known revisions from the end
+            // of the skip range
+
+            while ((length > 0) && parent->DataAvailable (start + length-1))
+            {
+                --length;
+            }
+
+            // update, if there was a change
+
+            if (length == 0)
+                iter = ranges.erase (iter);
+            else
+                if (start != iter->first)
+                {
+                    iter = ranges.insert (std::make_pair (start, length)).first;
+                }
+                else
+                {
+                    iter->second = length;
+                    ++iter;
+                }
 		}
 
-		// remove path data if there are no ranges left 
-		// for the respective path ID
+        // remove unused paths info containers
 
-		if (ranges.empty())
-		{
-			delete data[i];
-		}
-		else
-		{
-			*dest = data[i];
-			++dest;
-		}
+        if (ranges.empty())
+        {
+            delete data[i-1];
+            data[i-1] = data.back();
+            data.pop_back();
+        }
 	}
-
-	data.erase (dest, data.end());
 }
 
 ///////////////////////////////////////////////////////////////
@@ -363,10 +209,7 @@ void CSkipRevisionInfo::CPacker::operator()(CSkipRevisionInfo* aParent)
 {
 	parent = aParent;
 
-	index_t rangeCount = RemoveParentRanges();
-	SortRanges (rangeCount);
 	RemoveKnownRevisions();
-	RemoveEmptyRanges();
     RebuildHash();
 }
 
@@ -438,55 +281,6 @@ CSkipRevisionInfo& CSkipRevisionInfo::operator=(const CSkipRevisionInfo& rhs)
     }
 
     return *this;
-}
-
-///////////////////////////////////////////////////////////////
-// query data
-///////////////////////////////////////////////////////////////
-
-revision_t CSkipRevisionInfo::GetNextRevision ( const CDictionaryBasedPath& path
-										      , revision_t revision) const
-{
-	// above the root or invalid parameter ?
-
-	if (!path.IsValid() || (revision == NO_REVISION))
-		return (revision_t)NO_REVISION;
-
-	// lookup the entry for this path
-
-	index_t dataIndex = index.find (path.GetIndex());
-	SPerPathRanges* ranges = dataIndex == NO_INDEX
-						   ? NULL
-						   : data[dataIndex];
-
-	// crawl this and the parent path data
-	// until we found a gap (i.e. could not improve further)
-
-	revision_t startRevision = revision;
-	revision_t result = revision;
-
-	do
-	{
-		result = revision;
-
-		revision_t parentNext = GetNextRevision (path.GetParent(), revision);
-		if (parentNext != NO_REVISION)
-			revision = parentNext;
-
-		if (ranges != NULL)
-		{
-			revision_t next = ranges->FindNext (revision);
-			if (next != (revision_t)NO_REVISION)
-				revision = next;
-		}
-	}
-	while (revision > result);
-
-	// ready
-
-	return revision == startRevision 
-		? NO_REVISION 
-		: result;
 }
 
 revision_t CSkipRevisionInfo::GetPreviousRevision ( const CDictionaryBasedPath& path
