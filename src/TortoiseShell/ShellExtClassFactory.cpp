@@ -39,7 +39,7 @@ STDMETHODIMP CShellExtClassFactory::QueryInterface(REFIID riid,
                                                    LPVOID FAR *ppv)
 {
     if(ppv == 0)
-		return E_PONTER;
+		return E_POINTER;
 
 	*ppv = NULL;
 
