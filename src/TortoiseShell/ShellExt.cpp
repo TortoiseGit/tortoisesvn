@@ -203,7 +203,10 @@ tstring GetAppDirectory()
 
 STDMETHODIMP CShellExt::QueryInterface(REFIID riid, LPVOID FAR *ppv)
 {
-    *ppv = NULL; 
+    if(ppv == 0)
+		return E_POINTER;
+
+	*ppv = NULL;
 
     if (IsEqualIID(riid, IID_IShellExtInit) || IsEqualIID(riid, IID_IUnknown))
     {

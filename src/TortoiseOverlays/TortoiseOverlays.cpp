@@ -40,7 +40,9 @@ STDAPI DllCanUnloadNow(void)
 
 STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
 {
-    *ppvOut = NULL;
+    if(ppvOut == 0)
+		return E_POINTER;
+	*ppvOut = NULL;
 	
     FileState state = FileStateInvalid;
     if (IsEqualIID(rclsid, CLSID_Tortoise_NORMAL))

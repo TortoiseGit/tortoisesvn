@@ -34,6 +34,8 @@ CIDataObject::~CIDataObject()
 STDMETHODIMP CIDataObject::QueryInterface(/* [in] */ REFIID riid,
 /* [iid_is][out] */ void __RPC_FAR *__RPC_FAR *ppvObject)
 {
+	if(ppvObject == 0)
+		return E_POINTER;
 	*ppvObject = NULL;
 	if (IID_IUnknown==riid || IID_IDataObject==riid)
              *ppvObject=this;
@@ -65,8 +67,10 @@ STDMETHODIMP CIDataObject::GetData(
     /* [unique][in] */ FORMATETC __RPC_FAR *pformatetcIn,
     /* [out] */ STGMEDIUM __RPC_FAR *pmedium)
 { 
-	if(pformatetcIn == NULL || pmedium == NULL)
+	if(pformatetcIn == NULL)
 		return E_INVALIDARG;
+	if(pmedium == NULL)
+		return E_POINTER;
 	pmedium->hGlobal = NULL;
 
 	ATLASSERT(m_StgMedium.GetSize() == m_ArrFormatEtc.GetSize());
@@ -133,11 +137,15 @@ STDMETHODIMP CIDataObject::SetData(
       return E_INVALIDARG;
 
 	ATLASSERT(pformatetc->tymed == pmedium->tymed);
-	FORMATETC* fetc=new FORMATETC;
+	FORMATETC* fetc = new FORMATETC;
 	STGMEDIUM* pStgMed = new STGMEDIUM;
 
 	if(fetc == NULL || pStgMed == NULL)
+	{
+		delete fetc;
+		delete pStgMed;
 		return E_OUTOFMEMORY;
+	}
 
 	SecureZeroMemory(fetc,sizeof(FORMATETC));
 	SecureZeroMemory(pStgMed,sizeof(STGMEDIUM));
@@ -174,10 +182,11 @@ STDMETHODIMP CIDataObject::SetData(
 
     return S_OK;
 }
+
 void CIDataObject::CopyMedium(STGMEDIUM* pMedDest, STGMEDIUM* pMedSrc, FORMATETC* pFmtSrc)
 {
-		switch(pMedSrc->tymed)
-		{
+	switch(pMedSrc->tymed)
+	{
 		case TYMED_HGLOBAL:
 			pMedDest->hGlobal = (HGLOBAL)OleDuplicateData(pMedSrc->hGlobal,pFmtSrc->cfFormat, NULL);
 			break;
@@ -204,39 +213,38 @@ void CIDataObject::CopyMedium(STGMEDIUM* pMedDest, STGMEDIUM* pMedSrc, FORMATETC
 		case TYMED_NULL:
 		default:
 			break;
-		}
-		pMedDest->tymed = pMedSrc->tymed;
-		pMedDest->pUnkForRelease = NULL;
-		if(pMedSrc->pUnkForRelease != NULL)
-		{
-			pMedDest->pUnkForRelease = pMedSrc->pUnkForRelease;
-			pMedSrc->pUnkForRelease->AddRef();
-		}
+	}
+	pMedDest->tymed = pMedSrc->tymed;
+	pMedDest->pUnkForRelease = NULL;
+	if(pMedSrc->pUnkForRelease != NULL)
+	{
+		pMedDest->pUnkForRelease = pMedSrc->pUnkForRelease;
+		pMedSrc->pUnkForRelease->AddRef();
+	}
 }
+
 STDMETHODIMP CIDataObject::EnumFormatEtc(
    /* [in] */ DWORD dwDirection,
    /* [out] */ IEnumFORMATETC __RPC_FAR *__RPC_FAR *ppenumFormatEtc)
 { 
 	if(ppenumFormatEtc == NULL)
-      return E_POINTER;
+		return E_POINTER;
 
 	*ppenumFormatEtc=NULL;
 	switch (dwDirection)
     {
-      case DATADIR_GET:
-         *ppenumFormatEtc= new CEnumFormatEtc(m_ArrFormatEtc);
-		 if(*ppenumFormatEtc == NULL)
-			 return E_OUTOFMEMORY;
-         (*ppenumFormatEtc)->AddRef(); 
-         break;
-      
-	  case DATADIR_SET:
-      default:
-		 return E_NOTIMPL;
-         break;
-    }
-
-   return S_OK;
+		case DATADIR_GET:
+			*ppenumFormatEtc = new CEnumFormatEtc(m_ArrFormatEtc);
+			if(*ppenumFormatEtc == NULL)
+				return E_OUTOFMEMORY;
+			(*ppenumFormatEtc)->AddRef(); 
+			break;
+		case DATADIR_SET:
+		default:
+			return E_NOTIMPL;
+			break;
+	}
+	return S_OK;
 }
 
 STDMETHODIMP CIDataObject::DAdvise( 
@@ -275,19 +283,15 @@ HRESULT CIDataObject::SetDropDescription(DROPIMAGETYPE image, LPCTSTR format, LP
 
 	STGMEDIUM medium = {0};
 	medium.hGlobal = GlobalAlloc(GHND, sizeof(DROPDESCRIPTION));
-	if(medium.hGlobal) 
-	{
-		DROPDESCRIPTION* pDropDescription = (DROPDESCRIPTION*)GlobalLock(medium.hGlobal);
+	if(medium.hGlobal == 0)
+		return E_OUTOFMEMORY;
 
-		lstrcpyW(pDropDescription->szInsert, insert);
-		lstrcpyW(pDropDescription->szMessage, format);
-		pDropDescription->type = image;
-		GlobalUnlock(medium.hGlobal);
-
-		return SetData(&fetc, &medium, TRUE);
-	}
-
-	return E_OUTOFMEMORY;
+	DROPDESCRIPTION* pDropDescription = (DROPDESCRIPTION*)GlobalLock(medium.hGlobal);
+	lstrcpyW(pDropDescription->szInsert, insert);
+	lstrcpyW(pDropDescription->szMessage, format);
+	pDropDescription->type = image;
+	GlobalUnlock(medium.hGlobal);
+	return SetData(&fetc, &medium, TRUE);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -352,7 +356,6 @@ STDMETHODIMP CIDropSource::QueryContinueDrag(
    }
 
    return S_OK;
-
 }
 
 STDMETHODIMP CIDropSource::GiveFeedback(
@@ -402,9 +405,11 @@ m_cRefCount(0),m_iCur(0)
 
 STDMETHODIMP  CEnumFormatEtc::QueryInterface(REFIID refiid, void FAR* FAR* ppv)
 {
-   *ppv = NULL;
-   if (IID_IUnknown==refiid || IID_IEnumFORMATETC==refiid)
-             *ppv=this;
+	if(ppv == 0)
+		return E_POINTER;
+	*ppv = NULL;
+	if (IID_IUnknown == refiid || IID_IEnumFORMATETC == refiid)
+		*ppv = this;
 
     if (*ppv != NULL)
     {
@@ -431,17 +436,19 @@ STDMETHODIMP_(ULONG) CEnumFormatEtc::Release(void)
 
 STDMETHODIMP CEnumFormatEtc::Next( ULONG celt,LPFORMATETC lpFormatEtc, ULONG FAR *pceltFetched)
 {
-   if(pceltFetched != NULL)
-   	   *pceltFetched=0;
+	if(celt <= 0)
+		return E_INVALIDARG;
+	if (pceltFetched == NULL && celt != 1) // pceltFetched can be NULL only for 1 item request
+		return E_POINTER;
+	if(lpFormatEtc == NULL)
+		return E_POINTER;
+
+	if (pceltFetched != NULL)
+		*pceltFetched = 0;
+	if (m_iCur >= m_pFmtEtc.GetSize())
+		return S_FALSE;
 	
-   ULONG cReturn = celt;
-
-   if(celt <= 0 || lpFormatEtc == NULL || m_iCur >= m_pFmtEtc.GetSize())
-      return S_FALSE;
-
-   if(pceltFetched == NULL && celt != 1) // pceltFetched can be NULL only for 1 item request
-      return S_FALSE;
-
+	ULONG cReturn = celt;
 	while (m_iCur < m_pFmtEtc.GetSize() && cReturn > 0)
 	{
 		*lpFormatEtc++ = m_pFmtEtc[m_iCur++];
@@ -492,7 +499,9 @@ CIDropTarget::CIDropTarget(HWND hTargetWnd):
 {
 	if(FAILED(CoCreateInstance(CLSID_DragDropHelper,NULL,CLSCTX_INPROC_SERVER,
                      IID_IDropTargetHelper,(LPVOID*)&m_pDropTargetHelper)))
+	{
 		m_pDropTargetHelper = NULL;
+	}
 }
 
 CIDropTarget::~CIDropTarget()
@@ -507,9 +516,11 @@ CIDropTarget::~CIDropTarget()
 HRESULT STDMETHODCALLTYPE CIDropTarget::QueryInterface( /* [in] */ REFIID riid,
 						/* [iid_is][out] */ void __RPC_FAR *__RPC_FAR *ppvObject)
 {
-   *ppvObject = NULL;
-   if (IID_IUnknown==riid || IID_IDropTarget==riid)
-			 *ppvObject=this;
+	if(ppvObject == 0)
+		return E_POINTER;
+	*ppvObject = NULL;
+	if (IID_IUnknown == riid || IID_IDropTarget == riid)
+		*ppvObject = this;
 
 	if (*ppvObject != NULL)
 	{
@@ -531,7 +542,7 @@ ULONG STDMETHODCALLTYPE CIDropTarget::Release( void)
 
 bool CIDropTarget::QueryDrop(DWORD grfKeyState, LPDWORD pdwEffect)
 {  
-	DWORD dwOKEffects = *pdwEffect; 
+	DWORD dwOKEffects = *pdwEffect;
 
 	if(!m_bAllowDrop)
 	{
@@ -578,6 +589,8 @@ HRESULT STDMETHODCALLTYPE CIDropTarget::DragEnter(
 {
 	if(pDataObj == NULL)
 		return E_INVALIDARG;
+	if(pdwEffect == 0)
+		return E_POINTER;
 
 	pDataObj->AddRef();
 	m_pIDataObject = pDataObj;
@@ -588,7 +601,7 @@ HRESULT STDMETHODCALLTYPE CIDropTarget::DragEnter(
 	m_pSupportedFrmt = NULL;
 	for(int i =0; i<m_formatetc.GetSize(); ++i)
 	{
-		m_bAllowDrop = (pDataObj->QueryGetData(&m_formatetc[i]) == S_OK)?true:false;
+		m_bAllowDrop = (pDataObj->QueryGetData(&m_formatetc[i]) == S_OK);
 		if(m_bAllowDrop)
 		{
 			m_pSupportedFrmt = &m_formatetc[i];
@@ -605,6 +618,8 @@ HRESULT STDMETHODCALLTYPE CIDropTarget::DragOver(
         /* [in] */ POINTL pt,
         /* [out][in] */ DWORD __RPC_FAR *pdwEffect)
 {
+	if(pdwEffect == 0)
+		return E_POINTER;
 	if(m_pDropTargetHelper)
 		m_pDropTargetHelper->DragOver((LPPOINT)&pt, *pdwEffect);
 	QueryDrop(grfKeyState, pdwEffect);
@@ -629,7 +644,9 @@ HRESULT STDMETHODCALLTYPE CIDropTarget::Drop(
 	/* [out][in] */ DWORD __RPC_FAR *pdwEffect)
 {
 	if (pDataObj == NULL)
-		return E_INVALIDARG;	
+		return E_INVALIDARG;
+	if(pdwEffect == 0)
+		return E_POINTER;
 
 	if(m_pDropTargetHelper)
 		m_pDropTargetHelper->Drop(pDataObj, (LPPOINT)&pt, *pdwEffect);

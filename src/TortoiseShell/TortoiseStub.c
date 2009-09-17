@@ -249,8 +249,6 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppv)
 	{
 		if (ppv)
 			*ppv = NULL;
-		else
-			ppv = NULL;
 
 		TRACE(_T("DllGetClassObject() - Bypass\n"));
 		return CLASS_E_CLASSNOTAVAILABLE;

@@ -53,6 +53,8 @@ SVNDataObject::~SVNDataObject()
 
 STDMETHODIMP SVNDataObject::QueryInterface(REFIID riid, void** ppvObject)
 {
+	if(ppvObject == 0)
+		return E_POINTER;
 	*ppvObject = NULL;
 	if (IID_IUnknown==riid || IID_IDataObject==riid)
 		*ppvObject=this;
@@ -88,8 +90,10 @@ STDMETHODIMP_(ULONG) SVNDataObject::Release(void)
 //////////////////////////////////////////////////////////////////////////
 STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 {
-	if (pformatetcIn == NULL || pmedium == NULL)
+	if (pformatetcIn == NULL)
 		return E_INVALIDARG;
+	if (pmedium == NULL)
+		return E_POINTER;
 	pmedium->hGlobal = NULL;
 
 	if ((pformatetcIn->tymed & TYMED_ISTREAM) && (pformatetcIn->dwAspect == DVASPECT_CONTENT) && (pformatetcIn->cfFormat == CF_FILECONTENTS))
@@ -640,22 +644,16 @@ HRESULT SVNDataObject::SetDropDescription(DROPIMAGETYPE image, LPCTSTR format, L
 
 	STGMEDIUM medium = {0};
 	medium.hGlobal = GlobalAlloc(GHND, sizeof(DROPDESCRIPTION));
-	if(medium.hGlobal) 
-	{
-		DROPDESCRIPTION* pDropDescription = (DROPDESCRIPTION*)GlobalLock(medium.hGlobal);
+	if(medium.hGlobal == 0)
+		return E_OUTOFMEMORY;
 
-		lstrcpyW(pDropDescription->szInsert, insert);
-		lstrcpyW(pDropDescription->szMessage, format);
-		pDropDescription->type = image;
-		GlobalUnlock(medium.hGlobal);
-
-		return SetData(&fetc, &medium, TRUE);
-	}
-
-	return E_OUTOFMEMORY;
+	DROPDESCRIPTION* pDropDescription = (DROPDESCRIPTION*)GlobalLock(medium.hGlobal);
+	lstrcpyW(pDropDescription->szInsert, insert);
+	lstrcpyW(pDropDescription->szMessage, format);
+	pDropDescription->type = image;
+	GlobalUnlock(medium.hGlobal);
+	return SetData(&fetc, &medium, TRUE);
 }
-
-
 
 void CSVNEnumFormatEtc::Init(bool localonly)
 {
@@ -745,9 +743,11 @@ CSVNEnumFormatEtc::CSVNEnumFormatEtc(const vector<FORMATETC*>& vec, bool localon
 
 STDMETHODIMP  CSVNEnumFormatEtc::QueryInterface(REFIID refiid, void** ppv)
 {
+	if(ppv == 0)
+		return E_POINTER;
 	*ppv = NULL;
-	if (IID_IUnknown==refiid || IID_IEnumFORMATETC==refiid)
-		*ppv=this;
+	if (IID_IUnknown == refiid || IID_IEnumFORMATETC == refiid)
+		*ppv = this;
 
 	if (*ppv != NULL)
 	{
@@ -775,16 +775,20 @@ STDMETHODIMP_(ULONG) CSVNEnumFormatEtc::Release(void)
 
 STDMETHODIMP CSVNEnumFormatEtc::Next(ULONG celt, LPFORMATETC lpFormatEtc, ULONG* pceltFetched)
 {
+	if(celt <= 0)
+		return E_INVALIDARG;
+	if (pceltFetched == NULL && celt != 1) // pceltFetched can be NULL only for 1 item request
+		return E_POINTER;
+	if(lpFormatEtc == NULL)
+		return E_POINTER;
+
 	if (pceltFetched != NULL)
 		*pceltFetched = 0;
 
+	if (m_iCur >= SVNDATAOBJECT_NUMFORMATS)
+		return S_FALSE;
+
 	ULONG cReturn = celt;
-
-	if (celt <= 0 || lpFormatEtc == NULL || m_iCur >= SVNDATAOBJECT_NUMFORMATS)
-		return S_FALSE;
-
-	if (pceltFetched == NULL && celt != 1) // pceltFetched can be NULL only for 1 item request
-		return S_FALSE;
 
 	while (m_iCur < (SVNDATAOBJECT_NUMFORMATS + m_vecFormatEtc.size()) && cReturn > 0)
 	{
@@ -829,6 +833,3 @@ STDMETHODIMP CSVNEnumFormatEtc::Clone(IEnumFORMATETC** ppCloneEnumFormatEtc)
 	*ppCloneEnumFormatEtc = newEnum;
 	return S_OK;
 }
-
-
-
