@@ -108,12 +108,13 @@ void CSplitterControl::OnMouseMove(UINT nFlags, CPoint point)
 {
 	if (m_bIsPressed)
 	{
-		CWindowDC dc(NULL);
-		DrawLine(&dc);
+		CWnd * pParent = GetParent();
+		CDC * pDC = pParent->GetDC();
+		DrawLine(pDC);
 		
 		CPoint pt = point;
 		ClientToScreen(&pt);
-		GetParent()->ScreenToClient(&pt);
+		pParent->ScreenToClient(&pt);
 
 		if (pt.x < m_nMin)
 			pt.x = m_nMin;
@@ -128,9 +129,10 @@ void CSplitterControl::OnMouseMove(UINT nFlags, CPoint point)
 		GetParent()->ClientToScreen(&pt);
 		m_nX = pt.x;
 		m_nY = pt.y;
-		DrawLine(&dc);
+		DrawLine(pDC);
+		pParent->ReleaseDC(pDC);
 	}
-	if (!m_bMouseOverControl)
+	else if (!m_bMouseOverControl)
 	{
 		TRACKMOUSEEVENT Tme;
 		Tme.cbSize = sizeof(TRACKMOUSEEVENT);
@@ -183,18 +185,20 @@ void CSplitterControl::OnLButtonDown(UINT nFlags, CPoint point)
 	else
 		m_nSavePos = m_nY;
 
-	CWindowDC dc(NULL);
-	DrawLine(&dc);
+	CWnd * pParent = GetParent();
+	CDC * pDC = pParent->GetDC();
+	DrawLine(pDC);
+	pParent->ReleaseDC(pDC);
 }
 
 void CSplitterControl::OnLButtonUp(UINT nFlags, CPoint point) 
 {
 	if (m_bIsPressed)
 	{
-		ClientToScreen(&point);
-		CWindowDC dc(NULL);
+		CWnd * pParent = GetParent();
+		CDC * pDC = pParent->GetDC();
 
-		DrawLine(&dc);
+		DrawLine(pDC);
 		CPoint pt(m_nX, m_nY);
 		m_bIsPressed = FALSE;
 		CWnd *pOwner = GetOwner();
@@ -232,27 +236,33 @@ void CSplitterControl::DrawLine(CDC* pDC)
 	int nRop = pDC->SetROP2(R2_NOTXORPEN);
 
 	CRect rcWnd;
-	int d = 1;
+	const int d = 1;
 	GetWindowRect(rcWnd);
+	GetParent()->ScreenToClient(&rcWnd);
+	CPoint pt;
+	pt.x = m_nX;
+	pt.y = m_nY;
+	GetParent()->ScreenToClient(&pt);
+
 	CPen  pen;
 	pen.CreatePen(0, 1, ::GetSysColor(COLOR_GRAYTEXT));
 	CPen *pOP = pDC->SelectObject(&pen);
 	
 	if (m_nType == SPS_VERTICAL)
 	{
-		pDC->MoveTo(m_nX - d, rcWnd.top);
-		pDC->LineTo(m_nX - d, rcWnd.bottom);
+		pDC->MoveTo(pt.x - d, rcWnd.top);
+		pDC->LineTo(pt.x - d, rcWnd.bottom);
 
-		pDC->MoveTo(m_nX + d, rcWnd.top);
-		pDC->LineTo(m_nX + d, rcWnd.bottom);
+		pDC->MoveTo(pt.x + d, rcWnd.top);
+		pDC->LineTo(pt.x + d, rcWnd.bottom);
 	}
 	else // m_nType == SPS_HORIZONTAL
 	{
-		pDC->MoveTo(rcWnd.left, m_nY - d);
-		pDC->LineTo(rcWnd.right, m_nY - d);
+		pDC->MoveTo(rcWnd.left, pt.y - d);
+		pDC->LineTo(rcWnd.right, pt.y - d);
 		
-		pDC->MoveTo(rcWnd.left, m_nY + d);
-		pDC->LineTo(rcWnd.right, m_nY + d);
+		pDC->MoveTo(rcWnd.left, pt.y + d);
+		pDC->LineTo(rcWnd.right, pt.y + d);
 	}
 	pDC->SetROP2(nRop);
 	pDC->SelectObject(pOP);
