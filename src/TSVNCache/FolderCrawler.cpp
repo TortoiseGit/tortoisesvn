@@ -325,14 +325,12 @@ void CFolderCrawler::WorkerThread()
 					// Invalidate the cache of folders manually. The cache of files is invalidated
 					// automatically if the status is asked for it and the file times don't match
 					// anymore, so we don't need to manually invalidate those.
-					if (workingPath.IsDirectory())
+					CCachedDirectory * cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath.GetDirectory());
+					if (cachedDir && workingPath.IsDirectory())
 					{
-						CCachedDirectory * cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath);
-						if (cachedDir)
-							cachedDir->Invalidate();
+						cachedDir->Invalidate();
 					}
-					CStatusCacheEntry ce = CSVNStatusCache::Instance().GetStatusForPath(workingPath, flags);
-					if (ce.GetEffectiveStatus() > svn_wc_status_unversioned)
+					if (cachedDir && cachedDir->GetStatusForMember(workingPath, bRecursive).GetEffectiveStatus() > svn_wc_status_unversioned)
 					{
 						CSVNStatusCache::Instance().UpdateShell(workingPath);
 					}
