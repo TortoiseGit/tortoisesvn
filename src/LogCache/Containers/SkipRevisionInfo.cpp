@@ -148,17 +148,18 @@ void CSkipRevisionInfo::CPacker::RemoveKnownRevisions()
             // update, if there was a change
 
             if (length == 0)
+            {
                 iter = ranges.erase (iter);
+            }
             else
+            {
                 if (start != iter->first)
-                {
                     iter = ranges.insert (std::make_pair (start, length)).first;
-                }
                 else
-                {
                     iter->second = length;
-                    ++iter;
-                }
+
+                ++iter;
+            }
 		}
 
         // remove unused paths info containers
