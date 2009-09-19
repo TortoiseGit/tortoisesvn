@@ -49,6 +49,10 @@ private:
 	/// cached return value of GetAction()
 	mutable CString actionAsString;
 
+    /// true, if it affects the content of the path that
+    /// the log was originally shown for
+    bool relevantForStartPath;  
+
     // construction is only allowed through the container
 
     friend class LogChangedPathArray;
@@ -62,6 +66,7 @@ public:
     svn_revnum_t GetCopyFromRev() const {return copyFromRev;}
     svn_node_kind_t GetNodeKind() const {return nodeKind;}
     DWORD GetAction() const {return action;}
+    bool IsRelevantForStartPath() const {return relevantForStartPath;}
 
 	/// returns the action as a string
 
@@ -86,7 +91,12 @@ class LogChangedPathArray : private std::vector<LogChangedPath>
 {
 private:
 
-    // cached actions info
+    /// \ref MarkRelevantChanges found that the log path
+    /// has been copied in this revision
+
+	bool copiedSelf;
+
+    /// cached actions info
 
     mutable DWORD actions;
 
@@ -118,10 +128,16 @@ public:
 
     void Sort (int column, bool ascending);
 
+    /// Mark paths that are relevant for the given path.
+    /// Update that path info upon copy.
+
+    void MarkRelevantChanges (CString& selfRelativeURL);
+
     /// data access
 
     size_t GetCount() const {return size();}
     const LogChangedPath& operator[] (size_t index) const {return at (index);}
+    bool ContainsSelfCopy() const {return copiedSelf;}
 
     /// derived information
 

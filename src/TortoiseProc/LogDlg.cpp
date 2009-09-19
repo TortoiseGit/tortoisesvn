@@ -633,13 +633,10 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 			m_CurrentFilteredChangedArray.RemoveAll();
 			for (size_t c = 0; c < m_currentChangedArray.GetCount(); ++c)
 			{
-                const LogChangedPath& cpath = m_currentChangedArray[c];
-                const CString& path = cpath.GetPath();
-				if (path.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
-				{
-					m_CurrentFilteredChangedArray.Add (cpath);
-				}
-			}
+                const LogChangedPath& path = m_currentChangedArray[c];
+				if (path.IsRelevantForStartPath())
+					m_CurrentFilteredChangedArray.Add (path);
+            }
 			m_currentChangedArray = m_CurrentFilteredChangedArray;
 		}
 	}
@@ -2538,7 +2535,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				PLOGENTRYDATA data = (PLOGENTRYDATA)m_arShownList.GetAt(pLVCD->nmcd.dwItemSpec);
 				if (data)
 				{
-                    if (data->ContainsSelfCopy())
+                    if (data->GetChangedPaths().ContainsSelfCopy())
 					{
 						// only change the background color if the item is not 'hot' (on vista with themes enabled)
 						if (!theme.IsAppThemed() || !SysInfo::Instance().IsVistaOrLater() || ((pLVCD->nmcd.uItemState & CDIS_HOT)==0))
@@ -2612,7 +2609,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					}
 					else
 					{
-                        if (pLogEntry->ContainsSelfCopy())
+                        if (pLogEntry->GetChangedPaths().ContainsSelfCopy())
 						{
 							// unfortunately, the pLVCD->nmcd.uItemState does not contain valid
 							// information at this drawing stage. But we can check the whether the
@@ -2647,7 +2644,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					}
 					else
 					{
-						if (pLogEntry->ContainsSelfCopy())
+						if (pLogEntry->GetChangedPaths().ContainsSelfCopy())
 							brush = ::CreateSolidBrush(::GetSysColor(COLOR_MENU));
 						else
 							brush = ::CreateSolidBrush(::GetSysColor(COLOR_WINDOW));
@@ -2717,7 +2714,7 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 		{
 			if (m_currentChangedArray.GetCount() > pLVCD->nmcd.dwItemSpec)
 			{
-				if (m_currentChangedArray[pLVCD->nmcd.dwItemSpec].GetPath().Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
+                if (!m_currentChangedArray[pLVCD->nmcd.dwItemSpec].IsRelevantForStartPath())
 				{
 					crText = GetSysColor(COLOR_GRAYTEXT);
 					bGrayed = true;
@@ -3327,7 +3324,7 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist, svn_revnum_t rev)
 					if ((hideState & 0x0003)==BST_CHECKED)
 					{
 						// skip paths that are not shown
-						if (cpath.GetPath().Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
+                        if (!cpath.IsRelevantForStartPath())
 							continue;
 					}
 					searchText.append(_T(" "));

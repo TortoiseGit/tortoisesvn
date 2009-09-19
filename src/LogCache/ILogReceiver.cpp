@@ -20,6 +20,7 @@
 #include "Resource.h"
 
 #include "ILogReceiver.h"
+#include "StringUtils.h"
 
 ///////////////////////////////////////////////////////////////
 // data structures to accommodate the change list 
@@ -83,11 +84,13 @@ const CString& LogChangedPath::GetActionString() const
 
 LogChangedPathArray::LogChangedPathArray()
     : actions (0)
+    , copiedSelf (false)
 {
 }
 
 LogChangedPathArray::LogChangedPathArray (size_t initialCapacity)
     : actions (0)
+    , copiedSelf (false)
 {
     reserve (initialCapacity);
 }
@@ -109,6 +112,7 @@ void LogChangedPathArray::Add
     item.copyFromRev = copyFromRev;
     item.nodeKind = nodeKind;
     item.action = action;
+    item.relevantForStartPath = false;
 
     actions = 0;
 }
@@ -125,6 +129,7 @@ void LogChangedPathArray::Add
     item.copyFromRev = 0;
     item.nodeKind = nodeKind;
     item.action = action;
+    item.relevantForStartPath = false;
 
     actions = 0;
 }
@@ -190,6 +195,51 @@ void LogChangedPathArray::Sort (int column, bool ascending)
     };
 
     std::sort (begin(), end(), Order (column, ascending));
+}
+
+// Mark paths that are relevant for the given path.
+// Update that path info upon copy.
+
+void LogChangedPathArray::MarkRelevantChanges (CString& selfRelativeURL)
+{
+	for (size_t i = 0, count = size(); i < count; ++i)
+	{
+		LogChangedPath& path = at(i);
+
+        // relevant for this path?
+
+        int matchLength 
+            = CStringUtils::GetMatchingLength (path.GetPath(), selfRelativeURL);
+
+        if (path.GetPath().GetLength() == matchLength)
+        {
+            // could be equal to or parent of the log path
+
+            path.relevantForStartPath 
+                =    (selfRelativeURL.GetLength() == matchLength)
+                  || (selfRelativeURL[matchLength] == '/');
+        }
+        else if (selfRelativeURL.GetLength() == matchLength)
+        {
+            // path may be a sub-path of the log path
+
+            path.relevantForStartPath = path.GetPath()[matchLength] == '/';
+        }
+
+        // has the log path be renamed?
+
+        if (   path.relevantForStartPath 
+            && (path.GetCopyFromRev() > 0)
+            && (selfRelativeURL.GetLength() >= matchLength))
+        {
+			// note: this only works if the log is fetched top-to-bottom
+			// but since we do that, it shouldn't be a problem
+
+            selfRelativeURL 
+                = path.GetCopyFromPath() + selfRelativeURL.Mid (matchLength);
+			copiedSelf = true;
+		}
+	}
 }
 
 // derived information

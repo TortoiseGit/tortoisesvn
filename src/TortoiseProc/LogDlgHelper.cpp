@@ -74,7 +74,7 @@ LogEntryData::LogEntryData
     , const CString& author
     , const CString& message
     , ProjectProperties* projectProperties
-    , LogChangedPathArray* changedPaths
+    , LogChangedPathArray* _changedPaths
     , CString& selfRelativeURL)
     : parent (parent)
     , hasChildren (false)
@@ -83,10 +83,9 @@ LogEntryData::LogEntryData
     , tmDate (tmDate)
     , sDate (date)
     , sAuthor (author)
-    , changedPaths (changedPaths == NULL 
+    , changedPaths (_changedPaths == NULL 
                         ? &LogChangedPathArray::GetEmptyInstance() 
-                        : changedPaths)
-	, copiedSelf (false)
+                        : _changedPaths)
     , checked (false)
 {
     // derived header info
@@ -100,19 +99,8 @@ LogEntryData::LogEntryData
 
     // derived change path info and update current URL
 
-	for (size_t i = 0, count = changedPaths->GetCount(); i < count; ++i)
-	{
-		const LogChangedPath& cpath = (*changedPaths)[i];
-        if (   !cpath.GetCopyFromPath().IsEmpty() 
-            && (cpath.GetPath().Compare (selfRelativeURL) == 0))
-		{
-			// note: this only works if the log is fetched top-to-bottom
-			// but since we do that, it shouldn't be a problem
-
-            selfRelativeURL = cpath.GetCopyFromPath();
-			copiedSelf = true;
-		}
-	}
+    if (_changedPaths != NULL)
+        _changedPaths->MarkRelevantChanges (selfRelativeURL);
 }
 
 LogEntryData::~LogEntryData()

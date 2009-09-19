@@ -13,6 +13,8 @@
 - CHG: Repository browser speedup by pre-loading contents. (Stefan Fuhrmann)
 - CHG: Log cache size and load performance improvements. (Stefan Fuhrmann)
 - CHG: Log CSV export formats timestamps as UTC strings. (Stefan Fuhrmann)
+- CHG: 'Hide unrelated changed paths' now works across path copies as well.
+       (Stefan Fuhrmann)
 - NEW: new command line params for the log dialog
        to set the filter. (Stefan)
 - NEW: new autoclose setting for local operations only. (Stefan)

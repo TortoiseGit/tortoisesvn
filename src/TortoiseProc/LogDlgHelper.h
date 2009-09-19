@@ -62,7 +62,6 @@ private:
 	CString sBugIDs;
 
 	const LogChangedPathArray* changedPaths;
-	bool copiedSelf;
 
 	bool checked;
 
@@ -116,7 +115,6 @@ public:
 	const CString& GetBugIDs() const {return sBugIDs;}
 
     const LogChangedPathArray& GetChangedPaths() const {return *changedPaths;}
-    bool ContainsSelfCopy() const {return copiedSelf;}
 
     bool GetChecked() const {return checked;}
 };
