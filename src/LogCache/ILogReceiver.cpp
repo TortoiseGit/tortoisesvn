@@ -82,10 +82,12 @@ const CString& LogChangedPath::GetActionString() const
 // construction
 
 LogChangedPathArray::LogChangedPathArray()
+    : actions (0)
 {
 }
 
 LogChangedPathArray::LogChangedPathArray (size_t initialCapacity)
+    : actions (0)
 {
     reserve (initialCapacity);
 }
@@ -107,6 +109,8 @@ void LogChangedPathArray::Add
     item.copyFromRev = copyFromRev;
     item.nodeKind = nodeKind;
     item.action = action;
+
+    actions = 0;
 }
 
 void LogChangedPathArray::Add
@@ -121,16 +125,20 @@ void LogChangedPathArray::Add
     item.copyFromRev = 0;
     item.nodeKind = nodeKind;
     item.action = action;
+
+    actions = 0;
 }
 
 void LogChangedPathArray::Add (const LogChangedPath& item)
 {
     push_back (item);
+    actions = 0;
 }
 
 void LogChangedPathArray::RemoveAll()
 {
     clear();
+    actions = 0;
 }
 
 void LogChangedPathArray::Sort (int column, bool ascending)
@@ -182,6 +190,34 @@ void LogChangedPathArray::Sort (int column, bool ascending)
     };
 
     std::sort (begin(), end(), Order (column, ascending));
+}
+
+// derived information
+
+DWORD LogChangedPathArray::GetActions() const
+{
+    if (actions == 0)
+	    for (size_t i = 0, count = size(); i < count; ++i)
+	        actions |= (*this)[i].GetAction();
+
+    return actions;
+}
+
+bool LogChangedPathArray::ContainsCopies() const
+{
+	for (size_t i = 0, count = size(); i < count; ++i)
+	    if ((*this)[i].GetCopyFromRev() != 0)
+            return true;
+
+    return false;
+}
+
+// to be used whenever no other content is available
+
+const LogChangedPathArray& LogChangedPathArray::GetEmptyInstance()
+{
+    static LogChangedPathArray instance;
+    return instance;
 }
 
 // construction

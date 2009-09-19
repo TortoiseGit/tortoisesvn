@@ -226,7 +226,9 @@ private:
 	BOOL				m_bIncludeMerges;
 	svn_revnum_t		m_lowestRev;
 	BOOL				m_bSaveStrict;
-	LogChangedPathArray * m_currentChangedArray;
+
+    bool                m_bSingleRevision;
+	LogChangedPathArray m_currentChangedArray;
 	LogChangedPathArray m_CurrentFilteredChangedArray;
 	CTSVNPathList		m_currentChangedPathList;
 	CPtrArray			m_arShownList;

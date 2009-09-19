@@ -83,11 +83,10 @@ LogEntryData::LogEntryData
     , tmDate (tmDate)
     , sDate (date)
     , sAuthor (author)
-    , changedPaths (changedPaths)
-    , changedPathCount (changedPaths == NULL ? 0 : changedPaths->GetCount())
-    , copies (false)
+    , changedPaths (changedPaths == NULL 
+                        ? &LogChangedPathArray::GetEmptyInstance() 
+                        : changedPaths)
 	, copiedSelf (false)
-	, actions (0)
     , checked (false)
 {
     // derived header info
@@ -101,12 +100,9 @@ LogEntryData::LogEntryData
 
     // derived change path info and update current URL
 
-	for (INT_PTR i = 0; i < changedPathCount; ++i)
+	for (size_t i = 0, count = changedPaths->GetCount(); i < count; ++i)
 	{
-		const LogChangedPath& cpath = changedPaths->GetAt (i);
-	    actions |= cpath.GetAction();
-	    copies |= cpath.GetCopyFromRev() != 0;
-
+		const LogChangedPath& cpath = (*changedPaths)[i];
         if (   !cpath.GetCopyFromPath().IsEmpty() 
             && (cpath.GetPath().Compare (selfRelativeURL) == 0))
 		{
@@ -232,9 +228,9 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
 	DWORD actions = 0;
 	BOOL copies = FALSE;
 
-    for (INT_PTR i = 0, count = changes->GetCount(); i < count; ++i)
+    for (size_t i = 0, count = changes->GetCount(); i < count; ++i)
     {
-	    const LogChangedPath& change = changes->GetAt (i);
+	    const LogChangedPath& change = (*changes)[i];
 	    actions |= change.GetAction();
 	    copies |= change.GetCopyFromRev() != 0;
     }

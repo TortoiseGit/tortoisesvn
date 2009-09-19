@@ -61,11 +61,8 @@ private:
 	CString sShortMessage;
 	CString sBugIDs;
 
-	LogChangedPathArray* changedPaths;
-	INT_PTR changedPathCount;
-	bool copies;
+	const LogChangedPathArray* changedPaths;
 	bool copiedSelf;
-	DWORD actions;
 
 	bool checked;
 
@@ -118,12 +115,8 @@ public:
 	const CString& GetShortMessage() const {return sShortMessage;}
 	const CString& GetBugIDs() const {return sBugIDs;}
 
-    LogChangedPathArray* GetChangedPaths() {return changedPaths;}
-    const LogChangedPathArray* GetChangedPaths() const {return changedPaths;}
-    INT_PTR GetChangedPathCount() const {return changedPathCount;}
-    bool ContainsCopies() const {return copies;}
+    const LogChangedPathArray& GetChangedPaths() const {return *changedPaths;}
     bool ContainsSelfCopy() const {return copiedSelf;}
-    DWORD GetActions() const {return actions;}
 
     bool GetChecked() const {return checked;}
 };
@@ -192,10 +185,13 @@ public:
 	{
 		bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
 		{
-			if (pStart->GetActions() == pEnd->GetActions())
+            int diff = pStart->GetChangedPaths().GetActions()
+                     - pEnd->GetChangedPaths().GetActions();
+
+            if (diff == 0)
 				return pStart->GetRevision() < pEnd->GetRevision();
 
-			return pStart->GetActions() < pEnd->GetActions();
+			return diff < 0;
 		}
 	};
 };

@@ -84,6 +84,12 @@ enum
 
 class LogChangedPathArray : private std::vector<LogChangedPath>
 {
+private:
+
+    // cached actions info
+
+    mutable DWORD actions;
+
 public:
 
     /// construction
@@ -115,8 +121,16 @@ public:
     /// data access
 
     size_t GetCount() const {return size();}
-    const LogChangedPath& GetAt (size_t index) const {return at (index);}
     const LogChangedPath& operator[] (size_t index) const {return at (index);}
+
+    /// derived information
+
+    DWORD GetActions() const;
+    bool ContainsCopies() const;
+
+    /// to be used whenever no other content is available
+
+    static const LogChangedPathArray& GetEmptyInstance();
 };
 
 /**

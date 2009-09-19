@@ -280,7 +280,7 @@ void CCacheLogQuery::CLogFiller::WriteToCache
     {
 	    for (INT_PTR i = 0, count = changes->GetCount(); i < count; ++i)
 	    {
-		    const LogChangedPath& change = changes->GetAt (i);
+		    const LogChangedPath& change = (*changes)[i];
 
 		    CRevisionInfoContainer::TChangeAction action 
 			    = (CRevisionInfoContainer::TChangeAction)(change.GetAction() * 4);
