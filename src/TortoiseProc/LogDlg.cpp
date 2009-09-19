@@ -1753,7 +1753,7 @@ void CLogDlg::DiffSelectedFile()
 				// if the path was modified but the parent path was 'added with history'
 				// then we have to use the copy from revision of the parent path
 				CTSVNPath cpath = CTSVNPath(changedpath.GetPath());
-                for (int flist = 0; flist < paths.GetCount(); ++flist)
+                for (size_t flist = 0; flist < paths.GetCount(); ++flist)
 				{
                     const LogChangedPath& path = paths[flist];
 					CTSVNPath p = CTSVNPath(path.GetPath());
@@ -3122,7 +3122,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 
         case 1:	//Action
 			lstrcpyn ( pItem->pszText
-                     , m_currentChangedArray.GetCount() > pItem->iItem
+                     , m_currentChangedArray.GetCount() > (size_t)pItem->iItem
                            ? (LPCTSTR)m_currentChangedArray[pItem->iItem].GetActionString()
                            : _T("")
                      , pItem->cchTextMax);
@@ -3130,7 +3130,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 
 		case 2: //copyfrom path
 			lstrcpyn ( pItem->pszText
-                     , m_currentChangedArray.GetCount() > pItem->iItem
+                     , m_currentChangedArray.GetCount() > (size_t)pItem->iItem
                            ? (LPCTSTR)m_currentChangedArray[pItem->iItem].GetCopyFromPath()
                            : _T("")
                      , pItem->cchTextMax);
@@ -3138,7 +3138,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 
 		case 3: //revision
             svn_revnum_t revision = 0;
-			if (m_currentChangedArray.GetCount() > pItem->iItem)
+			if (m_currentChangedArray.GetCount() > (size_t)pItem->iItem)
                 revision = m_currentChangedArray[pItem->iItem].GetCopyFromRev();
 
 			if (revision == 0)
@@ -3151,7 +3151,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 	if (pItem->mask & LVIF_IMAGE)
 	{
 		int icon_idx = 0;
-		if (m_currentChangedArray.GetCount() > pItem->iItem)
+		if (m_currentChangedArray.GetCount() > (size_t)pItem->iItem)
 		{
             const LogChangedPath& cpath = m_currentChangedArray[pItem->iItem];
 			if (cpath.GetNodeKind() == svn_node_dir)
@@ -3924,7 +3924,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
     const LogChangedPathArray& paths = pSelLogEntry->GetChangedPaths();
 	if (paths.GetCount() <= 2)
 	{
-        for (int i=0; i<paths.GetCount(); ++i)
+        for (size_t i=0; i<paths.GetCount(); ++i)
 		{
             const LogChangedPath& changedpath = paths[i];
 			if (changedpath.GetCopyFromRev())
@@ -4656,7 +4656,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					// if the path was modified but the parent path was 'added with history'
 					// then we have to use the copy from revision of the parent path
 					CTSVNPath cpath = CTSVNPath(changedlogpath.GetPath());
-					for (int flist = 0; flist < paths.GetCount(); ++flist)
+					for (size_t flist = 0; flist < paths.GetCount(); ++flist)
 					{
 						CTSVNPath p = CTSVNPath(paths[flist].GetPath());
 						if (p.IsAncestorOf(cpath))
