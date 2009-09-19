@@ -25,11 +25,6 @@
 		<loadfile file="include\apr.hw" property="configfile">
 			<filterchain>
 				<replacestring from="#define APR_HAVE_IPV6           0" to="#define APR_HAVE_IPV6           1" if="${ipv6 == 'enabled'}" />
-				<!-- With the Vista SDK, it's necessary to define _WIN32_WINNT to 0x0501 to gt IPv6 support,
-				     but that value also breaks the app on Win2k. To get a stub compiled in, we must include
-				     Wspiapi.h, this will make it work again on win2k. -->
-				<replacestring from='#if APR_HAVE_IPV6' to='#if APR_HAVE_IPV6
-#include "Wspiapi.h"' if="${ipv6 == 'enabled'}" />
 			</filterchain>
 		</loadfile>
 		<echo file="include\apr.h" message="${configfile}" />
@@ -104,7 +99,7 @@
 				<define name="WIN32" />
 				<define name="_WINDOWS" />
 				<define name="_WIN32" />
-				<define name="_WIN32_WINNT" value="0x0501" if="${ipv6 == 'enabled'}" />
+				<define name="_WIN32_WINNT" value="0x0501"/>
 				<define name="WIN64" if="${platform == 'x64'}" />
 				<define name="_WINDLL" if="${static != 'static'}" />
 				<define name="NDEBUG" if="${configuration == 'release'}"/>
