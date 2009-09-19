@@ -3099,7 +3099,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 			lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 		return;
 	}
-	if (m_bSingleRevision && (pItem->iItem >= m_currentChangedPathList.GetCount()))
+	if (!m_bSingleRevision && (pItem->iItem >= m_currentChangedPathList.GetCount()))
 	{
 		if (pItem->mask & LVIF_TEXT)
 			lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
