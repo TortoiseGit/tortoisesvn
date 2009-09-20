@@ -610,13 +610,13 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 		// list fully.
 		POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 		int selIndex = m_LogList.GetNextSelectedItem(pos);
-		if (selIndex >= m_arShownList.GetCount())
+        if (selIndex >= m_logEntries.GetVisibleCount())
 		{
 			InterlockedExchange(&m_bNoDispUpdates, FALSE);
 			m_ChangedFileListCtrl.SetRedraw(TRUE);
 			return;
 		}
-		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(selIndex));
+        PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (selIndex);
 
 		// set the log message text
 		pMsgView->SetWindowText(pLogEntry->GetMessage());
@@ -734,7 +734,6 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 	SetSortArrow(&m_LogList, -1, true);
 
 	m_LogList.DeleteAllItems();
-	m_arShownList.RemoveAll();
 	m_logEntries.ClearAll();
 
 	m_logcounter = 0;
@@ -788,7 +787,6 @@ void CLogDlg::Refresh (bool autoGoOnline)
 	SetSortArrow(&m_LogList, -1, true);
 
 	m_LogList.DeleteAllItems();
-	m_arShownList.RemoveAll();
 	m_logEntries.ClearAll();
 
     // reset the cached HEAD property & go on-line
@@ -964,8 +962,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
         m_logParents.push_back (pLogItem);
 	
 	m_logEntries.Add(pLogItem);
-	m_arShownList.Add(pLogItem);
-	
+
 	return TRUE;
 }
 
@@ -1170,7 +1167,7 @@ void CLogDlg::LogThread()
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
 	m_bCancelled = true;
 	InterlockedExchange(&m_bLogThreadRunning, FALSE);
-	m_LogList.RedrawItems(0, (int)m_arShownList.GetCount());
+    m_LogList.RedrawItems(0, (int)m_logEntries.GetVisibleCount());
 	m_LogList.SetRedraw(false);
 	ResizeAllListCtrlCols(true);
 	m_LogList.SetRedraw(true);
@@ -1246,7 +1243,7 @@ void CLogDlg::CopySelectionToClipBoard()
 		{
 			CString sLogCopyText;
 			CString sPaths;
-			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
             const LogChangedPathArray& cpatharray = pLogEntry->GetChangedPaths();
 			for (size_t cpPathIndex = 0; cpPathIndex < cpatharray.GetCount(); ++cpPathIndex)
 			{
@@ -1285,7 +1282,7 @@ void CLogDlg::CopyChangedSelectionToClipBoard()
 
 	CString sPaths;
 
-	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+	PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos));
 	if (pos)
 	{
 		POSITION pos2 = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
@@ -1417,7 +1414,7 @@ bool CLogDlg::IsSelectionContinuous()
 	}
 
 	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-	bool bContinuous = (m_arShownList.GetCount() == (INT_PTR)m_logEntries.size());
+	bool bContinuous = m_logEntries.GetVisibleCount() == m_logEntries.size();
 	if (bContinuous)
 	{
 		int itemindex = m_LogList.GetNextSelectedItem(pos);
@@ -1458,12 +1455,11 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 		tr1::regex_constants::match_flag_type flags = tr1::regex_constants::match_not_null;
 
 		int i;
-		for (i = this->m_nSearchIndex; i<m_arShownList.GetCount()&&!bFound; i++)
+        for (i = this->m_nSearchIndex; i<m_logEntries.GetVisibleCount()&&!bFound; i++)
 		{
+            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(i);
 			if (bRegex)
 			{
-				PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
-
 				if (regex_search(wstring((LPCTSTR)pLogEntry->GetMessage()), pat, flags))
 				{
 					bFound = true;
@@ -1496,7 +1492,6 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 						bFound = true;
 						break;
 					}
-					PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
 					const LogChangedPathArray& cpatharray = pLogEntry->GetChangedPaths();
 					for (size_t cpPathIndex = 0; cpPathIndex<cpatharray.GetCount(); ++cpPathIndex)
 					{
@@ -1517,7 +1512,6 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 				}
 				else
 				{
-				    PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
 					CString msg = pLogEntry->GetMessage();
 					msg = msg.MakeLower();
 					CString find = FindText.MakeLower();
@@ -1549,7 +1543,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 					}
 				} 
 			}
-		} // for (i = this->m_nSearchIndex; i<m_arShownList.GetItemCount()&&!bFound; i++)
+		} // for (i = this->m_nSearchIndex; i<m_logEntries.GetVisibleCount()&&!bFound; i++)
 		if (bFound)
 		{
 			this->m_nSearchIndex = (i+1);
@@ -1559,9 +1553,9 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 			m_LogList.SetSelectionMark(i);
 			FillLogMessageCtrl();
 			UpdateData(FALSE);
-			m_nSearchIndex++;
-			if (m_nSearchIndex >= m_arShownList.GetCount())
-				m_nSearchIndex = (int)m_arShownList.GetCount()-1;
+
+            m_nSearchIndex = max ( m_nSearchIndex+1
+                                 , (int)m_logEntries.GetVisibleCount()-1);
 		}
     } // if(m_pFindDialog->FindNext()) 
 	UpdateLogInfoLabel();
@@ -1591,13 +1585,13 @@ void CLogDlg::OnOK()
 		{	
 		    PLOGENTRYDATA pLogEntry = NULL;
 			POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+            pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
 			m_selectedRevs.AddRevision(pLogEntry->GetRevision());
 			svn_revnum_t lowerRev = pLogEntry->GetRevision();
 			svn_revnum_t higherRev = lowerRev;
 			while (pos)
 			{
-			    pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+                pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
 				svn_revnum_t rev = pLogEntry->GetRevision();
 				m_selectedRevs.AddRevision(pLogEntry->GetRevision());
 				if (lowerRev > rev)
@@ -1688,7 +1682,7 @@ void CLogDlg::DiffSelectedFile()
 		return;
 	// find out if there's an entry selected in the log list
 	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+	PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos));
 	svn_revnum_t rev1 = pLogEntry->GetRevision();
 	svn_revnum_t rev2 = rev1;
 	if (pos)
@@ -1696,7 +1690,7 @@ void CLogDlg::DiffSelectedFile()
 		while (pos)
 		{
 			// there's at least a second entry selected in the log list: several revisions selected!
-			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+			pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos));
 			if (pLogEntry)
 			{
 				rev1 = max(rev1,(long)pLogEntry->GetRevision());
@@ -1830,7 +1824,7 @@ void CLogDlg::DiffSelectedRevWithPrevious()
 
 	// Find selected entry in the log list
 	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+	PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
 	long rev1 = pLogEntry->GetRevision();
 	long rev2 = rev1-1;
 	CTSVNPath path = m_path;
@@ -1913,7 +1907,7 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
 	if (m_LogList.GetSelectedCount()==1)
 	{
 		int s = m_LogList.GetSelectionMark();
-		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(s));
+		PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(s);
 		const LogChangedPath& changedpath = pLogEntry->GetChangedPaths()[selIndex];
 		nodekind = changedpath.GetNodeKind();
 		firstfile = changedpath.GetPath();
@@ -2122,7 +2116,7 @@ void CLogDlg::EditLogMessage(int index)
 	}
 	name = SVN_PROP_REVISION_LOG;
 
-	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
+	PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(index);
 	m_bCancelled = FALSE;
 	CString value = RevPropertyGet(name, CTSVNPath(url), pLogEntry->GetRevision());
 	CString sOldValue = value;
@@ -2251,9 +2245,9 @@ void CLogDlg::ToggleCheckbox(int item)
 {
 	if (!SysInfo::Instance().IsVistaOrLater())
 	{
-		if (item < m_arShownList.GetCount())
+		if (item < m_logEntries.GetVisibleCount())
 		{
-			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(item));
+			PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(item);
 			if (pLogEntry)
 			{
 				pLogEntry->SetChecked (!pLogEntry->GetChecked());
@@ -2274,7 +2268,7 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		m_nSearchIndex = pNMLV->iItem;
 		if (pNMLV->iSubItem != 0)
 			return;
-		if ((pNMLV->iItem == m_arShownList.GetCount())&&(m_bStrict)&&(m_bStrictStopped))
+		if ((pNMLV->iItem == m_logEntries.GetVisibleCount())&&(m_bStrict)&&(m_bStrictStopped))
 		{
 			// remove the selected state
 			if (pNMLV->uChanged & LVIF_STATE)
@@ -2292,9 +2286,9 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			UpdateData(FALSE);
 			if (SysInfo::Instance().IsVistaOrLater())
 			{
-				if (pNMLV->iItem < m_arShownList.GetCount())
+				if (pNMLV->iItem < m_logEntries.GetVisibleCount())
 				{
-					PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(pNMLV->iItem));
+					PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(pNMLV->iItem);
 					if (pLogEntry)
 					{
 						pLogEntry->SetChecked ((pNMLV->uNewState & LVIS_SELECTED) != 0);
@@ -2357,9 +2351,9 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 						svn_revnum_t rev = _ttol(matchedRevString.c_str());
 						ATLTRACE(_T("found revision %ld\n"), rev);
 						// do we already show this revision? If yes, just select that revision and 'scroll' to it
-						for (INT_PTR i=0; i<m_arShownList.GetCount(); ++i)
+						for (size_t i=0; i<m_logEntries.GetVisibleCount(); ++i)
 						{
-							PLOGENTRYDATA data = (PLOGENTRYDATA)m_arShownList.GetAt(i);
+							PLOGENTRYDATA data = m_logEntries.GetVisible(i);
 							if (!data)
 								continue;
 							if (data->GetRevision() != rev)
@@ -2396,9 +2390,9 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 										m_LogList.SetSelectionMark(selMark);
 									m_LogList.Invalidate();
 
-									for (INT_PTR i=0; i<m_arShownList.GetCount(); ++i)
+									for (size_t i=0; i<m_logEntries.GetVisibleCount(); ++i)
 									{
-										PLOGENTRYDATA data = (PLOGENTRYDATA)m_arShownList.GetAt(i);
+										PLOGENTRYDATA data = m_logEntries.GetVisible(i);
 										if (!data)
 											continue;
 										if (data->GetRevision() != rev)
@@ -2442,7 +2436,7 @@ void CLogDlg::OnBnClickedStatbutton()
 {
 	if ((m_bLogThreadRunning)||(m_LogList.HasText()))
 		return;
-	if (m_arShownList.IsEmpty())
+    if (m_logEntries.GetVisibleCount() == 0)
 		return;		// nothing is shown, so no statistics.
 
     // the statistics dialog expects the log entries to be sorted by date
@@ -2452,9 +2446,9 @@ void CLogDlg::OnBnClickedStatbutton()
     TMap revsByDate;
 
     std::set<svn_revnum_t> revisionsCovered;
-    for (INT_PTR i=0; i<m_arShownList.GetCount(); ++i)
+    for (size_t i=0; i<m_logEntries.GetVisibleCount(); ++i)
     {
-		PLOGENTRYDATA entry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
+		PLOGENTRYDATA entry = m_logEntries.GetVisible(i);
         if (revisionsCovered.insert (entry->GetRevision()).second)
             revsByDate.insert (std::make_pair (entry->GetDate(), entry));
     }
@@ -2514,9 +2508,9 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 
 			COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
 
-			if (m_arShownList.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
+			if (m_logEntries.GetVisibleCount() > pLVCD->nmcd.dwItemSpec)
 			{
-				PLOGENTRYDATA data = (PLOGENTRYDATA)m_arShownList.GetAt(pLVCD->nmcd.dwItemSpec);
+				PLOGENTRYDATA data = m_logEntries.GetVisible (pLVCD->nmcd.dwItemSpec);
 				if (data)
 				{
                     if (data->GetChangedPaths().ContainsSelfCopy())
@@ -2538,7 +2532,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					}
 				}
 			}
-			if (m_arShownList.GetCount() == (INT_PTR)pLVCD->nmcd.dwItemSpec)
+			if (m_logEntries.GetVisibleCount() == pLVCD->nmcd.dwItemSpec)
 			{
 				if (m_bStrictStopped)
 					crText = GetSysColor(COLOR_GRAYTEXT);
@@ -2550,7 +2544,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		break;
 	case CDDS_ITEMPREPAINT|CDDS_ITEM|CDDS_SUBITEM:
 		{
-			if ((m_bStrictStopped)&&(m_arShownList.GetCount() == (INT_PTR)pLVCD->nmcd.dwItemSpec))
+			if ((m_bStrictStopped)&&(m_logEntries.GetVisibleCount() == pLVCD->nmcd.dwItemSpec))
 			{
 				pLVCD->nmcd.uItemState &= ~(CDIS_SELECTED|CDIS_FOCUS);
 			}
@@ -2558,14 +2552,14 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			{
 				*pResult = CDRF_DODEFAULT;
 
-				if (m_arShownList.GetCount() <= (INT_PTR)pLVCD->nmcd.dwItemSpec)
+				if (m_logEntries.GetVisibleCount() <= pLVCD->nmcd.dwItemSpec)
 					return;
 
 				int		nIcons = 0;
 				int		iconwidth = ::GetSystemMetrics(SM_CXSMICON);
 				int		iconheight = ::GetSystemMetrics(SM_CYSMICON);
 
-				PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(pLVCD->nmcd.dwItemSpec));
+				PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (pLVCD->nmcd.dwItemSpec);
 
 				// Get the selected state of the
 				// item being drawn.
@@ -2898,10 +2892,7 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	m_DateTo.SetTime(&m_timTo);
 	m_DateFrom.SetRange(&m_timFrom, &m_timTo);
 	m_DateTo.SetRange(&m_timFrom, &m_timTo);
-
     m_logEntries.ClearFilter();
-    DuplicateShownList();
-
     InterlockedExchange(&m_bNoDispUpdates, FALSE);
 	m_LogList.DeleteAllItems();
 	m_LogList.SetItemCountEx(ShownCountWithStopped());
@@ -2955,8 +2946,8 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	// Which item number?
 	int itemid = pItem->iItem;
 	PLOGENTRYDATA pLogEntry = NULL;
-	if (itemid < m_arShownList.GetCount())
-		pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(pItem->iItem));
+	if (itemid < m_logEntries.GetVisibleCount())
+		pLogEntry = m_logEntries.GetVisible (pItem->iItem);
 
 	if (pItem->mask & LVIF_INDENT)
 	{
@@ -3045,7 +3036,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				else
 					lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->GetShortMessage(), pItem->cchTextMax);
 			}
-			else if ((itemid == m_arShownList.GetCount()) && m_bStrict && m_bStrictStopped)
+			else if ((itemid == m_logEntries.GetVisibleCount()) && m_bStrict && m_bStrictStopped)
 			{
 				CString sTemp;
 				sTemp.LoadString(IDS_LOG_STOPONCOPY_HINT);
@@ -3160,7 +3151,6 @@ void CLogDlg::OnEnChangeSearchedit()
 		FillLogMessageCtrl(false);
 		InterlockedExchange(&m_bNoDispUpdates, TRUE);
         m_logEntries.Filter (m_tFrom, m_tTo);
-        DuplicateShownList();
 		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		m_LogList.DeleteAllItems();
 		m_LogList.SetItemCountEx(ShownCountWithStopped());
@@ -3172,7 +3162,7 @@ void CLogDlg::OnEnChangeSearchedit()
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
-		DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_arShownList.IsEmpty()))));
+		DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_logEntries.GetVisibleCount() == 0))));
 		return;
 	}
 	if (Validate(m_sFilterText))
@@ -3215,17 +3205,6 @@ void CLogDlg::RecalculateShownList(svn_revnum_t revToKeep)
                         , m_tTo
                         , scanRelevantPathsOnly
                         , revToKeep);
-
-    // duplicate the result in our legacy container
-
-    DuplicateShownList();
-}
-
-void CLogDlg::DuplicateShownList()
-{
-	m_arShownList.RemoveAll();
-    for (size_t i = 0, count = m_logEntries.GetVisibleCount(); i < count; ++i)
-        m_arShownList.Add (m_logEntries.GetVisible (i));
 }
 
 void CLogDlg::OnTimer(UINT_PTR nIDEvent)
@@ -3243,11 +3222,11 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 			&& (focusWnd != GetDlgItem(IDC_LOGLIST)));
 		if (m_sFilterText.IsEmpty())
 		{
-			DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_arShownList.IsEmpty()))));
+			DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_logEntries.GetVisibleCount() == 0))));
 			// do not return here!
 			// we also need to run the filter if the filter text is empty:
 			// 1. to clear an existing filter
-			// 2. to rebuild the m_arShownList after sorting
+			// 2. to rebuild the filtered list after sorting
 		}
 		theApp.DoWaitCursor(1);
 		CStoreSelection storeselection(this);
@@ -3276,7 +3255,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 			GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
 		UpdateLogInfoLabel();
 	} // if (nIDEvent == LOGFILTER_TIMER)
-	DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_arShownList.IsEmpty()))));
+	DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_logEntries.GetVisibleCount() == 0))));
 	__super::OnTimer(nIDEvent);
 }
 
@@ -3344,9 +3323,9 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths 
 		while (pos)
 		{
 			int nextpos = m_LogList.GetNextSelectedItem(pos);
-			if (nextpos >= m_arShownList.GetCount())
+			if (nextpos >= m_logEntries.GetVisibleCount())
 				continue;
-			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(nextpos));
+			PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (nextpos);
 			const LogChangedPathArray& cpatharray = pLogEntry->GetChangedPaths();
 			for (size_t cpPathIndex = 0; cpPathIndex<cpatharray.GetCount(); ++cpPathIndex)
 			{
@@ -3495,9 +3474,9 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
 			{
 				// get the width of the string and add 14 pixels for the column separator and margins
 				int linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText(index, col)) + 14;
-				if (index < m_arShownList.GetCount())
+				if (index < m_logEntries.GetVisibleCount())
 				{
-					PLOGENTRYDATA pCurLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
+					PLOGENTRYDATA pCurLogEntry = m_logEntries.GetVisible(index);
 					if ((pCurLogEntry)&&(pCurLogEntry->GetRevision() == m_wcRev))
 					{
 						HFONT hFont = (HFONT)m_LogList.SendMessage(WM_GETFONT);
@@ -3560,16 +3539,16 @@ void CLogDlg::OnLvnOdfinditemLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	
 	if (pFindInfo->lvfi.flags & LVFI_PARAM)
 		return;	
-	if ((pFindInfo->iStart < 0)||(pFindInfo->iStart >= m_arShownList.GetCount()))
+	if ((pFindInfo->iStart < 0)||(pFindInfo->iStart >= m_logEntries.GetVisibleCount()))
 		return;
 	if (pFindInfo->lvfi.psz == 0)
 		return;
 		
 	CString sCmp = pFindInfo->lvfi.psz;
 	CString sRev;	
-	for (int i=pFindInfo->iStart; i<m_arShownList.GetCount(); ++i)
+	for (int i=pFindInfo->iStart; i<m_logEntries.GetVisibleCount(); ++i)
 	{
-		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
+		PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(i);
 		sRev.Format(_T("%ld"), pLogEntry->GetRevision());
 		if (pFindInfo->lvfi.flags & LVFI_PARTIAL)
 		{
@@ -3592,7 +3571,7 @@ void CLogDlg::OnLvnOdfinditemLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	{
 		for (int i=0; i<pFindInfo->iStart; ++i)
 		{
-			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
+			PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(i);
 			sRev.Format(_T("%ld"), pLogEntry->GetRevision());
 			if (pFindInfo->lvfi.flags & LVFI_PARTIAL)
 			{
@@ -3647,16 +3626,16 @@ void CLogDlg::UpdateLogInfoLabel()
 	svn_revnum_t rev1 = 0;
 	svn_revnum_t rev2 = 0;
 	long selectedrevs = 0;
-	if (m_arShownList.GetCount())
+	if (m_logEntries.GetVisibleCount())
 	{
-		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(0));
+		PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(0);
 		rev1 = pLogEntry->GetRevision();
-		pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_arShownList.GetCount()-1));
+		pLogEntry = m_logEntries.GetVisible (m_logEntries.GetVisibleCount()-1);
 		rev2 = pLogEntry->GetRevision();
 		selectedrevs = m_LogList.GetSelectedCount();
 	}
 	CString sTemp;
-	sTemp.Format(IDS_LOG_LOGINFOSTRING, m_arShownList.GetCount(), rev2, rev1, selectedrevs);
+	sTemp.Format(IDS_LOG_LOGINFOSTRING, m_logEntries.GetVisibleCount(), rev2, rev1, selectedrevs);
 	m_sLogInfo = sTemp;
 	UpdateData(FALSE);
 }
@@ -3669,7 +3648,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 
 	// if the user selected the info text telling about not all revisions shown due to
 	// the "stop on copy/rename" option, we also don't show the context menu
-	if ((m_bStrictStopped)&&(selIndex == m_arShownList.GetCount()))
+	if ((m_bStrictStopped)&&(selIndex == m_logEntries.GetVisibleCount()))
 		return;
 
 	// if the context menu is invoked through the keyboard, we have to use
@@ -3690,7 +3669,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 	int indexNext = m_LogList.GetNextSelectedItem(pos);
 	if (indexNext < 0)
 		return;
-	PLOGENTRYDATA pSelLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(indexNext));
+	PLOGENTRYDATA pSelLogEntry = m_logEntries.GetVisible(indexNext);
 	SVNRev revSelected = pSelLogEntry->GetRevision();
 	SVNRev revPrevious = svn_revnum_t(revSelected)-1;
 
@@ -3707,7 +3686,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 	SVNRev revSelected2;
 	if (pos)
 	{
-		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+		PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
 		revSelected2 = pLogEntry->GetRevision();
 	}
 	bool bAllFromTheSameAuthor = true;
@@ -3717,7 +3696,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 	SVNRevRangeArray revisionRanges;
 	{
 		POSITION pos2 = m_LogList.GetFirstSelectedItemPosition();
-		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos2)));
+		PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos2));
 		revisionRanges.AddRevision(pLogEntry->GetRevision());
 		selEntries.push_back(pLogEntry);
 		firstAuthor = pLogEntry->GetAuthor();
@@ -3725,7 +3704,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		revHighest = pLogEntry->GetRevision();
 		while (pos2)
 		{
-			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos2)));
+			pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos2));
 			revisionRanges.AddRevision(pLogEntry->GetRevision());
 			selEntries.push_back(pLogEntry);
 			if (firstAuthor.Compare(pLogEntry->GetAuthor()))
@@ -4365,7 +4344,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 	if (pos == NULL)
 		return;	// nothing is selected, get out of here
 
-	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+	PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
 	svn_revnum_t rev1 = pLogEntry->GetRevision();
 	svn_revnum_t rev2 = rev1;
 	bool bOneRev = true;
@@ -4373,7 +4352,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 	{
 		while (pos)
 		{
-			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+			pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
 			if (pLogEntry)
 			{
 				rev1 = max(rev1,(svn_revnum_t)pLogEntry->GetRevision());
@@ -4880,7 +4859,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 			break;
 		case ID_VIEWPATHREV:
 			{
-				PLOGENTRYDATA pLogEntry2 = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
+				PLOGENTRYDATA pLogEntry2 = m_logEntries.GetVisible (m_LogList.GetSelectionMark());
 				SVNRev rev = pLogEntry2->GetRevision();
 				CString relurl = changedpaths[0];
 				CString url = m_ProjectProperties.sWebViewerPathRev;
@@ -5028,9 +5007,9 @@ void CLogDlg::OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 
 CString CLogDlg::GetToolTipText(int nItem, int nSubItem)
 {
-	if ((nSubItem == 1) && (nItem <= m_arShownList.GetCount()))
+	if ((nSubItem == 1) && (nItem <= m_logEntries.GetVisibleCount()))
 	{
-		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(nItem));
+		PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (nItem);
 
 		CString sToolTipText;
 

@@ -159,7 +159,6 @@ private:
 	void CopyChangedSelectionToClipBoard();
 	CTSVNPathList GetChangedPathsFromSelectedRevisions(bool bRelativePaths = false, bool bUseFilter = true);
 	void RecalculateShownList(svn_revnum_t revToKeep = -1);
-    void DuplicateShownList();
     void SetSortArrow(CListCtrl * control, int nColumn, bool bAscending);
 	void SortByColumn(int nSortColumn, bool bAscending);
     void SortAndFilter (svn_revnum_t revToKeep = -1);
@@ -177,7 +176,7 @@ private:
 	CString GetAbsoluteUrlFromRelativeUrl(const CString& url);
 	void ToggleCheckbox(int item);
 
-	inline int ShownCountWithStopped() const { return (int)m_arShownList.GetCount() + (m_bStrictStopped ? 1 : 0); }
+	inline int ShownCountWithStopped() const { return (int)m_logEntries.GetVisibleCount() + (m_bStrictStopped ? 1 : 0); }
 
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -227,7 +226,6 @@ private:
     bool                m_bSingleRevision;
 	LogChangedPathArray m_currentChangedArray;
 	CTSVNPathList		m_currentChangedPathList;
-	CPtrArray			m_arShownList;
 	bool				m_hasWC;
 	int					m_nSearchIndex;
 	bool				m_bFilterWithRegex;
