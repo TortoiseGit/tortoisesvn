@@ -87,6 +87,12 @@ public:
 	 * Reads the string \text from the file \path in utf8 encoding.
 	 */
 	static bool ReadStringFromTextFile(const CString& path, CString& text);
+
+	/**
+	 * Find and return the number n of starting characters equal between 
+	 * \ref lhs and \ref rhs. (max n: lhs.Left(n) == rhs.Left(n))
+	 */
+	static int GetMatchingLength (const CString& lhs, const CString& rhs);
 #endif
 
 	/**
@@ -100,11 +106,5 @@ public:
 	 * for passing into Win32 functions that require such representation
 	 */
 	static void PipesToNulls(TCHAR* buffer, size_t length );
-
-    /**
-     * Find and return the number n of starting characters equal between 
-     * \ref lhs and \ref rhs. (max n: lhs.Left(n) == rhs.Left(n))
-     */
-    static int GetMatchingLength (const CString& lhs, const CString& rhs);
 };
 
