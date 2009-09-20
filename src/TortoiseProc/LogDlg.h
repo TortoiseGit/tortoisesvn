@@ -229,7 +229,6 @@ private:
 
     bool                m_bSingleRevision;
 	LogChangedPathArray m_currentChangedArray;
-	LogChangedPathArray m_CurrentFilteredChangedArray;
 	CTSVNPathList		m_currentChangedPathList;
 	CPtrArray			m_arShownList;
 	bool				m_hasWC;

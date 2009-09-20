@@ -125,6 +125,7 @@ public:
         ( const LogChangedPath& item);
 
     void RemoveAll();
+    void RemoveIrrelevantPaths();
 
     void Sort (int column, bool ascending);
 

@@ -627,18 +627,10 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 		CAppUtils::UnderlineRegexMatches(pMsgView, m_ProjectProperties.sLogRevRegex, _T("\\d+"));
 		CAppUtils::FormatTextInRichEditControl(pMsgView);
         m_currentChangedArray = pLogEntry->GetChangedPaths();
-		// fill in the changed files list control
+
+        // fill in the changed files list control
 		if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
-		{
-			m_CurrentFilteredChangedArray.RemoveAll();
-			for (size_t c = 0; c < m_currentChangedArray.GetCount(); ++c)
-			{
-                const LogChangedPath& path = m_currentChangedArray[c];
-				if (path.IsRelevantForStartPath())
-					m_CurrentFilteredChangedArray.Add (path);
-            }
-			m_currentChangedArray = m_CurrentFilteredChangedArray;
-		}
+            m_currentChangedArray.RemoveIrrelevantPaths();
 	}
 	else
 	{

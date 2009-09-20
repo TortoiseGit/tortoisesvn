@@ -146,6 +146,21 @@ void LogChangedPathArray::RemoveAll()
     actions = 0;
 }
 
+void LogChangedPathArray::RemoveIrrelevantPaths()
+{
+    struct IsRelevant
+    {
+        bool operator()(const LogChangedPath& path) const
+        {
+            return !path.IsRelevantForStartPath();
+        }
+    };
+
+    iterator first = begin();
+    iterator last = end();
+    erase (std::remove_copy_if (first, last, first, IsRelevant()), last);
+}
+
 void LogChangedPathArray::Sort (int column, bool ascending)
 {
     struct Order
