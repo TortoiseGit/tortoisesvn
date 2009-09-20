@@ -30,18 +30,20 @@ CStoreSelection::CStoreSelection(CLogDlg* dlg)
 	int selIndex = m_logdlg->m_LogList.GetSelectionMark();
 	if ( selIndex>=0 )
 	{
+        int shownRows = static_cast<int>(m_logdlg->m_logEntries.GetVisibleCount());
+
 		POSITION pos = m_logdlg->m_LogList.GetFirstSelectedItemPosition();
 		int nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
-		if ( nIndex!=-1 && nIndex < m_logdlg->m_arShownList.GetSize() )
+		if ( nIndex!=-1 && nIndex < shownRows )
 		{
-			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_logdlg->m_arShownList.GetAt(nIndex));
+            PLOGENTRYDATA pLogEntry = m_logdlg->m_logEntries.GetVisible (nIndex);
 			m_SetSelectedRevisions.insert(pLogEntry->GetRevision());
 			while (pos)
 			{
 				nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
-				if ( nIndex!=-1 && nIndex < m_logdlg->m_arShownList.GetSize() )
+				if ( nIndex!=-1 && nIndex < shownRows )
 				{
-					pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_logdlg->m_arShownList.GetAt(nIndex));
+                    pLogEntry = m_logdlg->m_logEntries.GetVisible (nIndex);
 					m_SetSelectedRevisions.insert(pLogEntry->GetRevision());
 				}
 			}
@@ -53,9 +55,9 @@ CStoreSelection::~CStoreSelection()
 {
 	if ( m_SetSelectedRevisions.size()>0 )
 	{
-		for (int i=0; i<m_logdlg->m_arShownList.GetCount(); ++i)
+		for (int i=0; i<m_logdlg->m_logEntries.GetVisibleCount(); ++i)
 		{
-			LONG nRevision = reinterpret_cast<PLOGENTRYDATA>(m_logdlg->m_arShownList.GetAt(i))->GetRevision();
+			LONG nRevision = m_logdlg->m_logEntries.GetVisible(i)->GetRevision();
 			if ( m_SetSelectedRevisions.find(nRevision)!=m_SetSelectedRevisions.end() )
 			{
 				m_logdlg->m_LogList.SetSelectionMark(i);
@@ -479,7 +481,7 @@ void CLogDataVector::Filter
                     ; ++cpPathIndex)
 				{
 					const LogChangedPath& cpath = paths[cpPathIndex];
-					if (scanRelevantPathsOnly && cpath.IsRelevantForStartPath())
+					if (!scanRelevantPathsOnly || cpath.IsRelevantForStartPath())
                     {
 					    searchText.append(_T(" "));
 					    searchText.append(cpath.GetCopyFromPath());
