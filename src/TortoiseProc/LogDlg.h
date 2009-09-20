@@ -34,7 +34,6 @@
 #include "HintListCtrl.h"
 #include "JobScheduler.h"
 
-#include <regex>
 using namespace std;
 
 
@@ -169,8 +168,6 @@ private:
 	void UpdateLogInfoLabel();
 	void SaveSplitterPos();
 	bool ValidateRegexp(LPCTSTR regexp_str, tr1::wregex& pat, bool bMatchCase);
-	bool ValidateRegexp(LPCTSTR regexp_str, vector<tr1::wregex>& patterns);
-	bool MatchText(const vector<tr1::wregex>& patterns, const wstring& text);
 	void CheckRegexpTooltip();
 	void GetChangedPaths(std::vector<CString>& changedpaths, std::vector<LogChangedPath*>& changedlogpaths);
 	void DiffSelectedFile();

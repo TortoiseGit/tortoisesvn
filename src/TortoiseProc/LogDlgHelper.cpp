@@ -146,6 +146,20 @@ void LogEntryData::SetChecked
     checked = newState;
 }
 
+bool CLogDataVector::MatchText(const vector<tr1::wregex>& patterns, const wstring& text)
+{
+	bool bMatched = true;
+	for (vector<tr1::wregex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
+	{
+		if (!regex_search(text, *it, tr1::regex_constants::match_any))
+		{
+			bMatched = false;
+			break;
+		}
+	}
+	return bMatched;
+}
+
 void CLogDataVector::ClearAll()
 {
 	if(size() > 0)
@@ -200,7 +214,7 @@ size_t CLogDataVector::GetVisibleCount() const
     return visible.size();
 }
 
-PLOGENTRYDATA CLogDataVector::GetVivisible (size_t index) const 
+PLOGENTRYDATA CLogDataVector::GetVisible (size_t index) const 
 {
     return at (visible.at (index));
 }
@@ -370,6 +384,127 @@ void CLogDataVector::Sort (CLogDataVector::SortColumn column, bool ascending)
 	case MessageCol: // Message
     		std::sort (begin(), end(), ColumnSort<MessageSort>(ascending));
 	    	break;
+	}
+}
+
+bool CLogDataVector::ValidateRegexp (LPCTSTR regexp_str, vector<tr1::wregex>& patterns)
+{
+	try
+	{
+		tr1::wregex pat;
+		tr1::regex_constants::syntax_option_type type = tr1::regex_constants::ECMAScript | tr1::regex_constants::icase;
+		pat = tr1::wregex(regexp_str, type);
+		patterns.push_back(pat);
+		return true;
+	}
+	catch (exception) {}
+	return false;
+}
+
+void CLogDataVector::Filter 
+    ( const CString& filter
+    , bool filterWithRegex
+    , int selectedFilter
+    , __time64_t from
+    , __time64_t to
+    , bool scanRelevantPathsOnly
+    , svn_revnum_t revToKeep)
+{
+    visible.clear();
+	vector<tr1::wregex> patterns;
+	bool bRegex = false;
+	bool bNegate = false;
+
+	CString sFilterText = filter;
+
+	// if the first char is '!', negate the filter
+	if (filter.GetLength() && filter[0] == '!')
+	{
+		bNegate = true;
+		sFilterText = sFilterText.Mid(1);
+	}
+	if (filterWithRegex)
+		bRegex = ValidateRegexp(sFilterText, patterns);
+
+	if (!bRegex)
+	{
+		// use a regex anyway, but escape all chars and do an 'and' search on all the words
+		sFilterText.Replace(_T("["), _T("\\["));
+		sFilterText.Replace(_T("\\"), _T("\\\\"));
+		sFilterText.Replace(_T("^"), _T("\\^"));
+		sFilterText.Replace(_T("$"), _T("\\$"));
+		sFilterText.Replace(_T("."), _T("\\."));
+		sFilterText.Replace(_T("|"), _T("\\|"));
+		sFilterText.Replace(_T("?"), _T("\\?"));
+		sFilterText.Replace(_T("*"), _T("\\*"));
+		sFilterText.Replace(_T("+"), _T("\\+"));
+		sFilterText.Replace(_T("("), _T("\\("));
+		sFilterText.Replace(_T(")"), _T("\\)"));
+		// now split the search string into words so we can search for each of them
+		CString sToken;
+		int curPos = 0;
+		sToken = sFilterText.Tokenize(_T(" "), curPos);
+		while (!sToken.IsEmpty())
+		{
+			ValidateRegexp(sToken, patterns);
+			sToken = sFilterText.Tokenize(_T(" "), curPos);
+		}
+	}
+
+	CString sRev;
+	for (size_t i=0, count = size(); i < count; ++i)
+	{
+        const PLOGENTRYDATA entry = inherited::operator[](i);
+        __time64_t date = entry->GetDate();
+
+		bool bMatched = false;
+    	if ((date >= from) && (date <= to))
+		{
+			wstring searchText;
+			searchText.reserve(4096);
+			if ((selectedFilter == LOGFILTER_ALL)||(selectedFilter == LOGFILTER_BUGID))
+			{
+				searchText.append(entry->GetBugIDs());
+			}
+			if ((selectedFilter == LOGFILTER_ALL)||(selectedFilter == LOGFILTER_MESSAGES))
+			{
+				searchText.append(_T(" "));
+				searchText.append(entry->GetMessage());
+			}
+			if ((selectedFilter == LOGFILTER_ALL)||(selectedFilter == LOGFILTER_PATHS))
+			{
+				const LogChangedPathArray& paths = entry->GetChangedPaths();
+				for ( size_t cpPathIndex = 0, pathCount = paths.GetCount()
+                    ; cpPathIndex < pathCount
+                    ; ++cpPathIndex)
+				{
+					const LogChangedPath& cpath = paths[cpPathIndex];
+					if (scanRelevantPathsOnly && cpath.IsRelevantForStartPath())
+                    {
+					    searchText.append(_T(" "));
+					    searchText.append(cpath.GetCopyFromPath());
+					    searchText.append(_T(" "));
+					    searchText.append(cpath.GetPath());
+					    searchText.append(_T(" "));
+					    searchText.append(cpath.GetActionString());
+                    }
+				}
+			}
+			if ((selectedFilter == LOGFILTER_ALL)||(selectedFilter == LOGFILTER_AUTHORS))
+			{
+				searchText.append(_T(" "));
+				searchText.append(entry->GetAuthor());
+			}
+			if ((selectedFilter == LOGFILTER_ALL)||(selectedFilter == LOGFILTER_REVS))
+			{
+				searchText.append(_T(" "));
+				sRev.Format(_T("%ld"), entry->GetRevision());
+				searchText.append(sRev);
+			}
+			bMatched = MatchText(patterns, searchText);
+		}
+        if ((bMatched ^ bNegate) || (entry->GetRevision() == revToKeep))
+            visible.push_back (i);
 	}
 }
 

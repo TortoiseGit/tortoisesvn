@@ -136,6 +136,10 @@ private:
 
     std::vector<size_t> visible;
 
+    /// filter utiltiy method
+
+    bool MatchText(const vector<tr1::wregex>& patterns, const wstring& text);
+
 public:
 	/// De-allocates log items.
 	void ClearAll();
@@ -154,7 +158,7 @@ public:
     /// access to the filtered info
 
     size_t GetVisibleCount() const;
-    PLOGENTRYDATA GetVivisible (size_t index) const;
+    PLOGENTRYDATA GetVisible (size_t index) const;
 
     /// encapsulate sorting
 
@@ -170,6 +174,20 @@ public:
 
     void Sort (SortColumn column, bool ascending);
 
+    /// filter support
+
+    void Filter 
+        ( const CString& filter
+        , bool filterWithRegex
+        , int selectedFilter
+        , __time64_t from
+        , __time64_t to
+        , bool scanRelevantPathsOnly
+        , svn_revnum_t revToKeep);
+
+    static bool ValidateRegexp 
+        ( LPCTSTR regexp_str
+        , vector<tr1::wregex>& patterns);
 };
 
 /**

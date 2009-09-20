@@ -73,6 +73,7 @@
 #include <set>
 #include <algorithm>
 #include <deque>
+#include <regex>
 #pragma warning(pop)
 
 #pragma warning(push)

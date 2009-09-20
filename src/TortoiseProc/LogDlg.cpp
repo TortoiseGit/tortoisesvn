@@ -3201,20 +3201,6 @@ bool CLogDlg::ValidateRegexp(LPCTSTR regexp_str, tr1::wregex& pat, bool bMatchCa
 	return false;
 }
 
-bool CLogDlg::ValidateRegexp(LPCTSTR regexp_str, vector<tr1::wregex>& patterns)
-{
-	try
-	{
-		tr1::wregex pat;
-		tr1::regex_constants::syntax_option_type type = tr1::regex_constants::ECMAScript | tr1::regex_constants::icase;
-		pat = tr1::wregex(regexp_str, type);
-		patterns.push_back(pat);
-		return true;
-	}
-	catch (exception) {}
-	return false;
-}
-
 bool CLogDlg::Validate(LPCTSTR string)
 {
 	if (!m_bFilterWithRegex)
@@ -3223,120 +3209,24 @@ bool CLogDlg::Validate(LPCTSTR string)
 	return ValidateRegexp(string, pat, false);
 }
 
-bool CLogDlg::MatchText(const vector<tr1::wregex>& patterns, const wstring& text)
+void CLogDlg::RecalculateShownList(svn_revnum_t revToKeep)
 {
-	bool bMatched = true;
-	for (vector<tr1::wregex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
-	{
-		if (!regex_search(text, *it, tr1::regex_constants::match_any))
-		{
-			bMatched = false;
-			break;
-		}
-	}
-	return bMatched;
-}
+    // actually filter the data
 
-void CLogDlg::RecalculateShownList(svn_revnum_t rev)
-{
+    bool scanRelevantPathsOnly = (m_cHidePaths.GetState() & 0x0003)==BST_CHECKED;
+    m_logEntries.Filter ( m_sFilterText
+                        , m_bFilterWithRegex
+                        , m_nSelectedFilter
+                        , m_tFrom
+                        , m_tTo
+                        , scanRelevantPathsOnly
+                        , revToKeep);
+
+    // duplicate the result in our legacy container
+
 	m_arShownList.RemoveAll();
-	vector<tr1::wregex> patterns;
-	bool bRegex = false;
-	bool bNegate = false;
-
-	CString sFilterText = m_sFilterText;
-
-	// if the first char is '!', negate the filter
-	if (m_sFilterText.GetLength() && m_sFilterText[0] == '!')
-	{
-		bNegate = true;
-		sFilterText = sFilterText.Mid(1);
-	}
-	if (m_bFilterWithRegex)
-		bRegex = ValidateRegexp(sFilterText, patterns);
-
-	if (!bRegex)
-	{
-		// use a regex anyway, but escape all chars and do an 'and' search on all the words
-		sFilterText.Replace(_T("["), _T("\\["));
-		sFilterText.Replace(_T("\\"), _T("\\\\"));
-		sFilterText.Replace(_T("^"), _T("\\^"));
-		sFilterText.Replace(_T("$"), _T("\\$"));
-		sFilterText.Replace(_T("."), _T("\\."));
-		sFilterText.Replace(_T("|"), _T("\\|"));
-		sFilterText.Replace(_T("?"), _T("\\?"));
-		sFilterText.Replace(_T("*"), _T("\\*"));
-		sFilterText.Replace(_T("+"), _T("\\+"));
-		sFilterText.Replace(_T("("), _T("\\("));
-		sFilterText.Replace(_T(")"), _T("\\)"));
-		// now split the search string into words so we can search for each of them
-		CString sToken;
-		int curPos = 0;
-		sToken = sFilterText.Tokenize(_T(" "), curPos);
-		while (!sToken.IsEmpty())
-		{
-			ValidateRegexp(sToken, patterns);
-			sToken = sFilterText.Tokenize(_T(" "), curPos);
-		}
-	}
-	CString sRev;
-	for (DWORD i=0; i<m_logEntries.size(); ++i)
-	{
-		bool bMatched = false;
-		if (IsEntryInDateRange(i))
-		{
-			wstring searchText;
-			searchText.reserve(4096);
-			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_BUGID))
-			{
-				searchText.append(m_logEntries[i]->GetBugIDs());
-			}
-			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
-			{
-				searchText.append(_T(" "));
-				searchText.append(m_logEntries[i]->GetMessage());
-			}
-			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))
-			{
-				const LogChangedPathArray& cpatharray = m_logEntries[i]->GetChangedPaths();
-
-				bool bGoing = true;
-				UINT hideState = m_cHidePaths.GetState();
-				for (size_t cpPathIndex = 0; cpPathIndex<cpatharray.GetCount() && bGoing; ++cpPathIndex)
-				{
-					const LogChangedPath& cpath = cpatharray[cpPathIndex];
-					if ((hideState & 0x0003)==BST_CHECKED)
-					{
-						// skip paths that are not shown
-                        if (!cpath.IsRelevantForStartPath())
-							continue;
-					}
-					searchText.append(_T(" "));
-					searchText.append(cpath.GetCopyFromPath());
-					searchText.append(_T(" "));
-					searchText.append(cpath.GetPath());
-					searchText.append(_T(" "));
-					searchText.append(cpath.GetActionString());
-				}
-			}
-			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))
-			{
-				searchText.append(_T(" "));
-				searchText.append(m_logEntries[i]->GetAuthor());
-			}
-			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))
-			{
-				searchText.append(_T(" "));
-				sRev.Format(_T("%ld"), m_logEntries[i]->GetRevision());
-				searchText.append(sRev);
-			}
-			bMatched = MatchText(patterns, searchText);
-		}
-		if (bMatched ^ bNegate)
-			m_arShownList.Add(m_logEntries[i]);
-		else if (m_logEntries[i]->GetRevision() == rev)
-			m_arShownList.Add(m_logEntries[i]);
-	}
+    for (size_t i = 0, count = m_logEntries.GetVisibleCount(); i < count; ++i)
+        m_arShownList.Add (m_logEntries.GetVisible (i));
 }
 
 void CLogDlg::OnTimer(UINT_PTR nIDEvent)
