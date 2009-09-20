@@ -15,6 +15,7 @@
 - CHG: Log CSV export formats timestamps as UTC strings. (Stefan Fuhrmann)
 - CHG: 'Hide unrelated changed paths' now works across path copies as well.
        (Stefan Fuhrmann)
+- BUG: Merged revisions must be counted only once in stats (Stefa Fuhrmann)
 - NEW: new command line params for the log dialog
        to set the filter. (Stefan)
 - NEW: new autoclose setting for local operations only. (Stefan)

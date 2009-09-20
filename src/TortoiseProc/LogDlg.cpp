@@ -839,7 +839,7 @@ void CLogDlg::OnBnClickedNexthundred()
 
 	// since we fetch the log from the last revision we already have,
 	// we have to remove that revision entry to avoid getting it twice
-	m_logEntries.pop_back();
+	m_logEntries.RemoveLast();
 	new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
@@ -963,7 +963,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	if (haschildren)
         m_logParents.push_back (pLogItem);
 	
-	m_logEntries.push_back(pLogItem);
+	m_logEntries.Add(pLogItem);
 	m_arShownList.Add(pLogItem);
 	
 	return TRUE;
@@ -2029,7 +2029,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
 	return TRUE;
 }
 
-void CLogDlg::EditAuthor(const CLogDataVector& logs)
+void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
 {
 	CString url;
 	CString name;
@@ -2383,32 +2383,12 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 								if (pLogItem)
 								{
 									// insert the data
-									SortByColumn(0, false);
-									bool bInsert = true;
-									CLogDataVector::iterator itinsert = m_logEntries.begin();
-									for (CLogDataVector::iterator itlog = m_logEntries.begin(); itlog != m_logEntries.end(); ++itlog)
-									{
-										itinsert = itlog;
-										if (rev == (*itlog)->GetRevision())
-										{
-											// avoid inserting duplicates which could happen if a filter is active
-											bInsert = false;
-											break;
-										}
-										if (rev > (*itlog)->GetRevision())
-											break;
-									}
-									if (bInsert)
-										m_logEntries.insert(itinsert, pLogItem);
-									else
-										delete pLogItem;
+                                    m_logEntries.Sort(CLogDataVector::RevisionCol, false);
+                                    m_logEntries.AddSorted (pLogItem);
 
 									int selMark = m_LogList.GetSelectionMark();
 									// now start filter the log list
-									InterlockedExchange(&m_bNoDispUpdates, TRUE);
-									SortByColumn(m_nSortColumn, m_bAscending);
-									RecalculateShownList(&m_arShownList, rev);
-									InterlockedExchange(&m_bNoDispUpdates, FALSE);
+                                    SortAndFilter (rev);
 									m_LogList.DeleteAllItems();
 									m_LogList.SetItemCountEx(ShownCountWithStopped());
 									m_LogList.RedrawItems(0, ShownCountWithStopped());
@@ -2464,17 +2444,31 @@ void CLogDlg::OnBnClickedStatbutton()
 		return;
 	if (m_arShownList.IsEmpty())
 		return;		// nothing is shown, so no statistics.
-	// the statistics dialog expects the log entries to be sorted by date
-	SortByColumn(3, false);
-	CPtrArray shownlist;
-	RecalculateShownList(&shownlist);
-	// create arrays which are aware of the current filter
+
+    // the statistics dialog expects the log entries to be sorted by date
+    // and we must remove duplicate entries created by merge info etc.
+
+    typedef std::map<__time64_t, PLOGENTRYDATA> TMap;
+    TMap revsByDate;
+
+    std::set<svn_revnum_t> revisionsCovered;
+    for (INT_PTR i=0; i<m_arShownList.GetCount(); ++i)
+    {
+		PLOGENTRYDATA entry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
+        if (revisionsCovered.insert (entry->GetRevision()).second)
+            revsByDate.insert (std::make_pair (entry->GetDate(), entry));
+    }
+
+    // create arrays which are aware of the current filter
 	CStringArray m_arAuthorsFiltered;
 	CDWordArray m_arDatesFiltered;
 	CDWordArray m_arFileChangesFiltered;
-	for (INT_PTR i=0; i<shownlist.GetCount(); ++i)
+    for ( TMap::const_reverse_iterator iter = revsByDate.rbegin()
+        , end = revsByDate.rend()
+        ; iter != end
+        ; ++iter)
 	{
-		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(shownlist.GetAt(i));
+		PLOGENTRYDATA pLogEntry = iter->second;
 		CString strAuthor = pLogEntry->GetAuthor();
 		if ( strAuthor.IsEmpty() )
 		{
@@ -2490,8 +2484,6 @@ void CLogDlg::OnBnClickedStatbutton()
 	dlg.m_parFileChanges = &m_arFileChangesFiltered;
 	dlg.m_path = m_path;
 	dlg.DoModal();
-	// restore the previous sorting
-	SortByColumn(m_nSortColumn, m_bAscending);
 	OnTimer(LOGFILTER_TIMER);
 }
 
@@ -3245,9 +3237,9 @@ bool CLogDlg::MatchText(const vector<tr1::wregex>& patterns, const wstring& text
 	return bMatched;
 }
 
-void CLogDlg::RecalculateShownList(CPtrArray * pShownlist, svn_revnum_t rev)
+void CLogDlg::RecalculateShownList(svn_revnum_t rev)
 {
-	pShownlist->RemoveAll();
+	m_arShownList.RemoveAll();
 	vector<tr1::wregex> patterns;
 	bool bRegex = false;
 	bool bNegate = false;
@@ -3340,12 +3332,10 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist, svn_revnum_t rev)
 			}
 			bMatched = MatchText(patterns, searchText);
 		}
-		if (bMatched && !bNegate)
-			pShownlist->Add(m_logEntries[i]);
-		else if (!bMatched && bNegate)
-			pShownlist->Add(m_logEntries[i]);
+		if (bMatched ^ bNegate)
+			m_arShownList.Add(m_logEntries[i]);
 		else if (m_logEntries[i]->GetRevision() == rev)
-			pShownlist->Add(m_logEntries[i]);
+			m_arShownList.Add(m_logEntries[i]);
 	}
 }
 
@@ -3376,11 +3366,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		FillLogMessageCtrl(false);
 
 		// now start filter the log list
-		InterlockedExchange(&m_bNoDispUpdates, TRUE);
-		SortByColumn(m_nSortColumn, m_bAscending);
-		RecalculateShownList(&m_arShownList);
-		InterlockedExchange(&m_bNoDispUpdates, FALSE);
-
+        SortAndFilter();
 
 		m_LogList.DeleteAllItems();
 		m_LogList.SetItemCountEx(ShownCountWithStopped());
@@ -3493,113 +3479,29 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths 
 	return pathList;
 }
 
-namespace
-{
-
-/**
- * Wrapper around a stateless predicate. 
- *
- * The function operator adds handling of revision nesting to the "flat" 
- * comparison provided by the predicate.
- *
- * The \ref ColumnCond predicate is expected to sort in ascending order 
- * (i.e. to act like operator< ).
- */
-
-template<class ColumnCond>
-class ColumnSort
-{
-private:
-
-    /// swap parameters, if not set
-
-    bool ascending;
-
-    /// comparison after optional parameter swap:
-    /// - (ascending) order according to \ref ColumnSort
-    /// - put merged revisions below merge target revision
-
-	bool InternalCompare (PLOGENTRYDATA pStart, PLOGENTRYDATA pEnd)
-	{
-        // are both entry sibblings on the same node level?
-        // (root -> both have NULL as parent)
-
-        if (pStart->GetParent() == pEnd->GetParent())
-            return ColumnCond()(pStart, pEnd);
-
-        // special case: one is the parent of the other
-        // -> don't compare contents in that case
-
-        if (pStart->GetParent() == pEnd)
-            return !ascending;
-        if (pStart == pEnd->GetParent())
-            return ascending;
-
-        // find the closed pair of parents that is related
-
-        assert ((pStart->GetChildStackDepth() == 0) || (pStart->GetParent() != NULL));
-        assert ((pEnd->GetChildStackDepth() == 0) || (pEnd->GetParent() != NULL));
-
-        if (pStart->GetChildStackDepth() == pEnd->GetChildStackDepth())
-            return InternalCompare (pStart->GetParent(), pEnd->GetParent());
-
-        if (pStart->GetChildStackDepth() < pEnd->GetChildStackDepth())
-            return InternalCompare (pStart, pEnd->GetParent());
-        else
-            return InternalCompare (pStart->GetParent(), pEnd);
-	}
-
-public:
-
-    /// one class for both sort directions
-
-    ColumnSort(bool ascending)
-        : ascending (ascending)
-    {
-    }
-
-    /// asjust parameter order according to sort order
-
-    bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-	{
-        return ascending 
-            ? InternalCompare (pStart, pEnd)
-            : InternalCompare (pEnd, pStart);
-	}
-};
-
-}
-
 void CLogDlg::SortByColumn(int nSortColumn, bool bAscending)
 {
-	switch(nSortColumn)
-	{
-	case 0: // Revision
-            std::sort (m_logEntries.begin(), m_logEntries.end(), ColumnSort<CLogDataVector::RevSort>(bAscending));
-    		break;
-	case 1: // action
-    		std::sort (m_logEntries.begin(), m_logEntries.end(), ColumnSort<CLogDataVector::ActionSort>(bAscending));
-    		break;
-	case 2: // Author
-			std::sort (m_logEntries.begin(), m_logEntries.end(), ColumnSort<CLogDataVector::AuthorSort>(bAscending));
-    		break;
-	case 3: // Date
-			std::sort (m_logEntries.begin(), m_logEntries.end(), ColumnSort<CLogDataVector::DateSort>(bAscending));
-    		break;
-	case 4: // Message or bug id
-		if (m_bShowBugtraqColumn)
-		{
-			std::sort (m_logEntries.begin(), m_logEntries.end(), ColumnSort<CLogDataVector::BugIDSort>(bAscending));
-			break;
-		}
-		// fall through here
-	case 5: // Message
-    		std::sort (m_logEntries.begin(), m_logEntries.end(), ColumnSort<CLogDataVector::MessageSort>(bAscending));
-	    	break;
-	default:
+    if (nSortColumn > 5)
+    {
 		ATLASSERT(0);
-		break;
-	}
+		return;
+    }
+
+    // sort by message instead of bug id, if bug ids are not visible
+    if ((nSortColumn == 4) && !m_bShowBugtraqColumn)
+        ++nSortColumn;
+
+    m_logEntries.Sort (CLogDataVector::SortColumn (nSortColumn), bAscending);
+}
+
+void CLogDlg::SortAndFilter (svn_revnum_t revToKeep)
+{
+    BOOL previousState = InterlockedExchange (&m_bNoDispUpdates, TRUE);
+
+    SortByColumn (m_nSortColumn, m_bAscending);
+    RecalculateShownList (revToKeep);
+
+    InterlockedExchange (&m_bNoDispUpdates, previousState);
 }
 
 void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
@@ -3610,10 +3512,16 @@ void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
 	const int nColumn = pNMLV->iSubItem;
 	m_bAscending = nColumn == m_nSortColumn ? !m_bAscending : TRUE;
 	m_nSortColumn = nColumn;
-	SortByColumn(m_nSortColumn, m_bAscending);
+	SortAndFilter();
 	SetSortArrow(&m_LogList, m_nSortColumn, !!m_bAscending);
-	SortShownListArray();
-	m_LogList.Invalidate();
+	
+    // clear the selection states
+	for (POSITION pos = m_LogList.GetFirstSelectedItemPosition(); pos != NULL; )
+		m_LogList.SetItemState(m_LogList.GetNextSelectedItem(pos), 0, LVIS_SELECTED);
+
+    m_LogList.SetSelectionMark(-1);
+
+    m_LogList.Invalidate();
 	UpdateLogInfoLabel();
 	// the "next 100" button only makes sense if the log messages
 	// are sorted by revision in descending order
@@ -3626,19 +3534,6 @@ void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
 		DialogEnableWindow(IDC_NEXTHUNDRED, true);
 	}
 	*pResult = 0;
-}
-
-void CLogDlg::SortShownListArray()
-{
-	// make sure the shown list still matches the filter after sorting.
-    OnTimer(LOGFILTER_TIMER);
-    // clear the selection states
-	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-	while (pos)
-	{
-		m_LogList.SetItemState(m_LogList.GetNextSelectedItem(pos), 0, LVIS_SELECTED);
-	}    
-	m_LogList.SetSelectionMark(-1);
 }
 
 void CLogDlg::SetSortArrow(CListCtrl * control, int nColumn, bool bAscending)
@@ -3928,7 +3823,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 	}
 	bool bAllFromTheSameAuthor = true;
 	CString firstAuthor;
-	CLogDataVector selEntries;
+    std::vector<PLOGENTRYDATA> selEntries;
 	SVNRev revLowest, revHighest;
 	SVNRevRangeArray revisionRanges;
 	{

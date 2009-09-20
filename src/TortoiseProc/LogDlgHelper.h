@@ -126,72 +126,50 @@ typedef LogEntryData LOGENTRYDATA, *PLOGENTRYDATA;
  * Helper class for the log dialog, handles all the log entries, including
  * sorting.
  */
-class CLogDataVector : 	public std::vector<PLOGENTRYDATA>
+class CLogDataVector : private std::vector<PLOGENTRYDATA>
 {
+private:
+
+    typedef std::vector<PLOGENTRYDATA> inherited;
+
+    /// indices of visible entries
+
+    std::vector<size_t> visible;
+
 public:
 	/// De-allocates log items.
 	void ClearAll();
 
-	/// Ascending date sorting.
-	struct DateSort
-	{
-		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
-			return pStart->GetDate() < pEnd->GetDate();
-		}
-	};
-	/// Ascending revision sorting.
-	struct RevSort
-	{
-		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
-            return pStart->GetRevision() < pEnd->GetRevision();
-		}
-	};
-	/// Ascending author sorting.
-	struct AuthorSort
-	{
-		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
-			int ret = pStart->GetAuthor().CompareNoCase(pEnd->GetAuthor());
-			if (ret == 0)
-				return pStart->GetRevision() < pEnd->GetRevision();
-			return ret<0;
-		}
-	};
-	/// Ascending bugID sorting.
-	struct BugIDSort
-	{
-		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
-			int ret = pStart->GetBugIDs().CompareNoCase(pEnd->GetBugIDs());
-			if (ret == 0)
-				return pStart->GetRevision() < pEnd->GetRevision();
-			return ret<0;
-		}
-	};
-	/// Ascending message sorting.
-	struct MessageSort
-	{
-		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
-			return pStart->GetShortMessage().CompareNoCase(pEnd->GetShortMessage())<0;
-		}
-	};
-	/// Ascending action sorting
-	struct ActionSort
-	{
-		bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
-            int diff = pStart->GetChangedPaths().GetActions()
-                     - pEnd->GetChangedPaths().GetActions();
+    /// add / remove items
 
-            if (diff == 0)
-				return pStart->GetRevision() < pEnd->GetRevision();
+    void Add (PLOGENTRYDATA item);
+    void AddSorted (PLOGENTRYDATA item);
+    void RemoveLast();
 
-			return diff < 0;
-		}
-	};
+    /// access to unfilered info
+
+    size_t size() const {return inherited::size();}
+    PLOGENTRYDATA operator[](size_t index) const {return at (index);}
+
+    /// access to the filtered info
+
+    size_t GetVisibleCount() const;
+    PLOGENTRYDATA GetVivisible (size_t index) const;
+
+    /// encapsulate sorting
+
+    enum SortColumn
+    {
+        RevisionCol = 0,
+        ActionCol,
+        AuthorCol,
+        DateCol,
+        BugTraqCol,
+        MessageCol
+    };
+
+    void Sort (SortColumn column, bool ascending);
+
 };
 
 /**

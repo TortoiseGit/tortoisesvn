@@ -70,7 +70,6 @@ public:
 	CLogDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CLogDlg();
 
-
 	void SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, int limit, 
 		BOOL bStrict = CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE), BOOL bSaveStrict = TRUE);
 	void SetFilter(const CString& findstr, LONG findtype, bool findregex);
@@ -149,7 +148,7 @@ private:
 	void Refresh (bool autoGoOnline = false);
 	BOOL IsDiffPossible (const LogChangedPath& changedpath, svn_revnum_t rev);
 	BOOL Open(bool bOpenWith, CString changedpath, svn_revnum_t rev);
-	void EditAuthor(const CLogDataVector& logs);
+	void EditAuthor(const std::vector<PLOGENTRYDATA>& logs);
 	void EditLogMessage(int index);
 	void DoSizeV1(int delta);
 	void DoSizeV2(int delta);
@@ -160,10 +159,10 @@ private:
 	void CopySelectionToClipBoard();
 	void CopyChangedSelectionToClipBoard();
 	CTSVNPathList GetChangedPathsFromSelectedRevisions(bool bRelativePaths = false, bool bUseFilter = true);
-    void SortShownListArray();
-	void RecalculateShownList(CPtrArray * pShownlist, svn_revnum_t rev = -1);
+	void RecalculateShownList(svn_revnum_t revToKeep = -1);
     void SetSortArrow(CListCtrl * control, int nColumn, bool bAscending);
 	void SortByColumn(int nSortColumn, bool bAscending);
+    void SortAndFilter (svn_revnum_t revToKeep = -1);
 	bool IsSelectionContinuous();
 	void EnableOKButton();
 	void GetAll(bool bForceAll = false);
@@ -287,7 +286,7 @@ private:
     CLogDataVector		m_logEntries;
 
     /// used temporarily when fetching logs with merge info
-    CLogDataVector		m_logParents;   
+    std::vector<PLOGENTRYDATA>	m_logParents;   
 	
 	CXPTheme			theme;
 

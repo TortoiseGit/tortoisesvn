@@ -157,6 +157,222 @@ void CLogDataVector::ClearAll()
 	}
 }
 
+// add items
+
+void CLogDataVector::Add (PLOGENTRYDATA item)
+{
+    visible.push_back (size());
+    push_back (item);
+}
+
+void CLogDataVector::AddSorted (PLOGENTRYDATA item)
+{
+    svn_revnum_t revision = item->GetRevision();
+	for (iterator iter = begin(), last = end(); iter != last; ++iter)
+	{
+        int diff = revision - (*iter)->GetRevision();
+        if (diff == 0)
+		{
+			// avoid inserting duplicates which could happen if a filter is active
+    		delete item;
+            return;
+		}
+		if (diff > 0)
+        {
+    		insert (iter, item);
+            visible.clear();
+            return;
+        }
+	}
+
+    Add (item);
+}
+
+void CLogDataVector::RemoveLast()
+{
+    delete back();
+    pop_back();
+    visible.clear();
+}
+
+size_t CLogDataVector::GetVisibleCount() const 
+{
+    return visible.size();
+}
+
+PLOGENTRYDATA CLogDataVector::GetVivisible (size_t index) const 
+{
+    return at (visible.at (index));
+}
+
+namespace
+{
+
+/**
+ * Wrapper around a stateless predicate. 
+ *
+ * The function operator adds handling of revision nesting to the "flat" 
+ * comparison provided by the predicate.
+ *
+ * The \ref ColumnCond predicate is expected to sort in ascending order 
+ * (i.e. to act like operator< ).
+ */
+
+template<class ColumnCond>
+class ColumnSort
+{
+private:
+
+    /// swap parameters, if not set
+
+    bool ascending;
+
+    /// comparison after optional parameter swap:
+    /// - (ascending) order according to \ref ColumnSort
+    /// - put merged revisions below merge target revision
+
+	bool InternalCompare (PLOGENTRYDATA pStart, PLOGENTRYDATA pEnd)
+	{
+        // are both entry sibblings on the same node level?
+        // (root -> both have NULL as parent)
+
+        if (pStart->GetParent() == pEnd->GetParent())
+            return ColumnCond()(pStart, pEnd);
+
+        // special case: one is the parent of the other
+        // -> don't compare contents in that case
+
+        if (pStart->GetParent() == pEnd)
+            return !ascending;
+        if (pStart == pEnd->GetParent())
+            return ascending;
+
+        // find the closed pair of parents that is related
+
+        assert ((pStart->GetChildStackDepth() == 0) || (pStart->GetParent() != NULL));
+        assert ((pEnd->GetChildStackDepth() == 0) || (pEnd->GetParent() != NULL));
+
+        if (pStart->GetChildStackDepth() == pEnd->GetChildStackDepth())
+            return InternalCompare (pStart->GetParent(), pEnd->GetParent());
+
+        if (pStart->GetChildStackDepth() < pEnd->GetChildStackDepth())
+            return InternalCompare (pStart, pEnd->GetParent());
+        else
+            return InternalCompare (pStart->GetParent(), pEnd);
+	}
+
+public:
+
+    /// one class for both sort directions
+
+    ColumnSort(bool ascending)
+        : ascending (ascending)
+    {
+    }
+
+    /// asjust parameter order according to sort order
+
+    bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+	{
+        return ascending 
+            ? InternalCompare (pStart, pEnd)
+            : InternalCompare (pEnd, pStart);
+	}
+};
+
+}
+
+void CLogDataVector::Sort (CLogDataVector::SortColumn column, bool ascending)
+{
+	/// Ascending date sorting.
+	struct DateSort
+	{
+		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+		{
+			return pStart->GetDate() < pEnd->GetDate();
+		}
+	};
+
+	/// Ascending revision sorting.
+	struct RevSort
+	{
+		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+		{
+            return pStart->GetRevision() < pEnd->GetRevision();
+		}
+	};
+
+	/// Ascending author sorting.
+	struct AuthorSort
+	{
+		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+		{
+			int ret = pStart->GetAuthor().CompareNoCase(pEnd->GetAuthor());
+			if (ret == 0)
+				return pStart->GetRevision() < pEnd->GetRevision();
+			return ret<0;
+		}
+	};
+
+	/// Ascending bugID sorting.
+	struct BugIDSort
+	{
+		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+		{
+			int ret = pStart->GetBugIDs().CompareNoCase(pEnd->GetBugIDs());
+			if (ret == 0)
+				return pStart->GetRevision() < pEnd->GetRevision();
+			return ret<0;
+		}
+	};
+
+	/// Ascending message sorting.
+	struct MessageSort
+	{
+		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+		{
+			return pStart->GetShortMessage().CompareNoCase(pEnd->GetShortMessage())<0;
+		}
+	};
+
+	/// Ascending action sorting
+	struct ActionSort
+	{
+		bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+		{
+            int diff = pStart->GetChangedPaths().GetActions()
+                     - pEnd->GetChangedPaths().GetActions();
+
+            if (diff == 0)
+				return pStart->GetRevision() < pEnd->GetRevision();
+
+			return diff < 0;
+		}
+	};
+
+	switch(column)
+	{
+	case RevisionCol: // Revision
+            std::sort (begin(), end(), ColumnSort<RevSort>(ascending));
+    		break;
+	case ActionCol: // action
+    		std::sort (begin(), end(), ColumnSort<ActionSort>(ascending));
+    		break;
+	case AuthorCol: // Author
+			std::sort (begin(), end(), ColumnSort<AuthorSort>(ascending));
+    		break;
+	case DateCol: // Date
+			std::sort (begin(), end(), ColumnSort<DateSort>(ascending));
+    		break;
+	case BugTraqCol: // Message or bug id
+			std::sort (begin(), end(), ColumnSort<BugIDSort>(ascending));
+			break;
+	case MessageCol: // Message
+    		std::sort (begin(), end(), ColumnSort<MessageSort>(ascending));
+	    	break;
+	}
+}
+
 CLogCacheUtility::CLogCacheUtility 
     ( LogCache::CCachedLogInfo* cache
     , ProjectProperties* projectProperties)
