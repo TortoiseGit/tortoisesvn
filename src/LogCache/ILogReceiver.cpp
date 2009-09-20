@@ -202,6 +202,8 @@ void LogChangedPathArray::Sort (int column, bool ascending)
 
 void LogChangedPathArray::MarkRelevantChanges (CString& selfRelativeURL)
 {
+    CString newSelfRelativeURL;
+
 	for (size_t i = 0, count = size(); i < count; ++i)
 	{
 		LogChangedPath& path = at(i);
@@ -235,11 +237,17 @@ void LogChangedPathArray::MarkRelevantChanges (CString& selfRelativeURL)
 			// note: this only works if the log is fetched top-to-bottom
 			// but since we do that, it shouldn't be a problem
 
-            selfRelativeURL 
+            newSelfRelativeURL 
                 = path.GetCopyFromPath() + selfRelativeURL.Mid (matchLength);
 			copiedSelf = true;
 		}
 	}
+
+    // update log path to the *last* copy source we found
+    // because it will also be the closed one (parent may
+    // have copied from somewhere else)
+
+    selfRelativeURL = newSelfRelativeURL;
 }
 
 // derived information
