@@ -2890,7 +2890,6 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	CStoreSelection storeselection(this);
 	FillLogMessageCtrl(false);
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
-	m_arShownList.RemoveAll();
 
 	// reset the time filter too
 	m_timFrom = (__time64_t(m_tFrom));
@@ -2900,11 +2899,10 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	m_DateFrom.SetRange(&m_timFrom, &m_timTo);
 	m_DateTo.SetRange(&m_timFrom, &m_timTo);
 
-	for (DWORD i=0; i<m_logEntries.size(); ++i)
-	{
-		m_arShownList.Add(m_logEntries[i]);
-	}
-	InterlockedExchange(&m_bNoDispUpdates, FALSE);
+    m_logEntries.ClearFilter();
+    DuplicateShownList();
+
+    InterlockedExchange(&m_bNoDispUpdates, FALSE);
 	m_LogList.DeleteAllItems();
 	m_LogList.SetItemCountEx(ShownCountWithStopped());
 	m_LogList.RedrawItems(0, ShownCountWithStopped());
@@ -3161,12 +3159,8 @@ void CLogDlg::OnEnChangeSearchedit()
 		KillTimer(LOGFILTER_TIMER);
 		FillLogMessageCtrl(false);
 		InterlockedExchange(&m_bNoDispUpdates, TRUE);
-		m_arShownList.RemoveAll();
-		for (DWORD i=0; i<m_logEntries.size(); ++i)
-		{
-			if (IsEntryInDateRange(i))
-				m_arShownList.Add(m_logEntries[i]);
-		}
+        m_logEntries.Filter (m_tFrom, m_tTo);
+        DuplicateShownList();
 		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		m_LogList.DeleteAllItems();
 		m_LogList.SetItemCountEx(ShownCountWithStopped());
@@ -3224,6 +3218,11 @@ void CLogDlg::RecalculateShownList(svn_revnum_t revToKeep)
 
     // duplicate the result in our legacy container
 
+    DuplicateShownList();
+}
+
+void CLogDlg::DuplicateShownList()
+{
 	m_arShownList.RemoveAll();
     for (size_t i = 0, count = m_logEntries.GetVisibleCount(); i < count; ++i)
         m_arShownList.Add (m_logEntries.GetVisible (i));

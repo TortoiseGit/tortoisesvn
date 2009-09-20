@@ -159,6 +159,7 @@ private:
 	void CopyChangedSelectionToClipBoard();
 	CTSVNPathList GetChangedPathsFromSelectedRevisions(bool bRelativePaths = false, bool bUseFilter = true);
 	void RecalculateShownList(svn_revnum_t revToKeep = -1);
+    void DuplicateShownList();
     void SetSortArrow(CListCtrl * control, int nColumn, bool bAscending);
 	void SortByColumn(int nSortColumn, bool bAscending);
     void SortAndFilter (svn_revnum_t revToKeep = -1);

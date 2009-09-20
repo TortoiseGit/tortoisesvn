@@ -508,6 +508,28 @@ void CLogDataVector::Filter
 	}
 }
 
+void CLogDataVector::Filter (__time64_t from, __time64_t to)
+{
+    visible.clear();
+	for (size_t i=0, count = size(); i < count; ++i)
+	{
+        const PLOGENTRYDATA entry = inherited::operator[](i);
+        __time64_t date = entry->GetDate();
+
+    	if ((date >= from) && (date <= to))
+            visible.push_back (i);
+	}
+}
+
+void CLogDataVector::ClearFilter()
+{
+    visible.clear();
+    visible.reserve (size());
+
+	for (size_t i=0, count = size(); i < count; ++i)
+        visible.push_back (i);
+}
+
 CLogCacheUtility::CLogCacheUtility 
     ( LogCache::CCachedLogInfo* cache
     , ProjectProperties* projectProperties)
