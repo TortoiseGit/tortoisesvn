@@ -609,7 +609,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 		// with the corresponding log message, and also fill the changed files
 		// list fully.
 		POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-		int selIndex = m_LogList.GetNextSelectedItem(pos);
+		size_t selIndex = m_LogList.GetNextSelectedItem(pos);
         if (selIndex >= m_logEntries.GetVisibleCount())
 		{
 			InterlockedExchange(&m_bNoDispUpdates, FALSE);
@@ -1454,7 +1454,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 
 		tr1::regex_constants::match_flag_type flags = tr1::regex_constants::match_not_null;
 
-		int i;
+        size_t i;
         for (i = this->m_nSearchIndex; i<m_logEntries.GetVisibleCount()&&!bFound; i++)
 		{
             PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(i);
@@ -2241,7 +2241,7 @@ void CLogDlg::OnBnClickedHelp()
 	OnHelp();
 }
 
-void CLogDlg::ToggleCheckbox(int item)
+void CLogDlg::ToggleCheckbox(size_t item)
 {
 	if (!SysInfo::Instance().IsVistaOrLater())
 	{
@@ -2268,7 +2268,9 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		m_nSearchIndex = pNMLV->iItem;
 		if (pNMLV->iSubItem != 0)
 			return;
-		if ((pNMLV->iItem == m_logEntries.GetVisibleCount())&&(m_bStrict)&&(m_bStrictStopped))
+
+        size_t item = pNMLV->iItem;
+		if ((item == m_logEntries.GetVisibleCount())&&(m_bStrict)&&(m_bStrictStopped))
 		{
 			// remove the selected state
 			if (pNMLV->uChanged & LVIF_STATE)
@@ -2286,9 +2288,9 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			UpdateData(FALSE);
 			if (SysInfo::Instance().IsVistaOrLater())
 			{
-				if (pNMLV->iItem < m_logEntries.GetVisibleCount())
+				if (item < m_logEntries.GetVisibleCount())
 				{
-					PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(pNMLV->iItem);
+					PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(item);
 					if (pLogEntry)
 					{
 						pLogEntry->SetChecked ((pNMLV->uNewState & LVIS_SELECTED) != 0);
@@ -2944,7 +2946,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	LV_ITEM* pItem = &(pDispInfo)->item;
 
 	// Which item number?
-	int itemid = pItem->iItem;
+	size_t itemid = pItem->iItem;
 	PLOGENTRYDATA pLogEntry = NULL;
 	if (itemid < m_logEntries.GetVisibleCount())
 		pLogEntry = m_logEntries.GetVisible (pItem->iItem);
@@ -3322,7 +3324,7 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths 
 	{
 		while (pos)
 		{
-			int nextpos = m_LogList.GetNextSelectedItem(pos);
+			size_t nextpos = m_LogList.GetNextSelectedItem(pos);
 			if (nextpos >= m_logEntries.GetVisibleCount())
 				continue;
 			PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (nextpos);
@@ -3455,8 +3457,8 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
 	CHeaderCtrl * pHdrCtrl = (CHeaderCtrl*)(m_LogList.GetDlgItem(0));
 	if (pHdrCtrl)
 	{
-		int startRow = 0;
-		int endRow = nItemCount;
+		size_t startRow = 0;
+		size_t endRow = nItemCount;
 		if (bOnlyVisible)
 		{
 			startRow = m_LogList.GetTopIndex();
@@ -3470,7 +3472,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
 			hdi.cchTextMax = sizeof(textbuf);
 			pHdrCtrl->GetItem(col, &hdi);
 			int cx = m_LogList.GetStringWidth(hdi.pszText)+20; // 20 pixels for col separator and margin
-			for (int index = startRow; index<endRow; ++index)
+			for (size_t index = startRow; index<endRow; ++index)
 			{
 				// get the width of the string and add 14 pixels for the column separator and margins
 				int linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText(index, col)) + 14;
@@ -3539,14 +3541,14 @@ void CLogDlg::OnLvnOdfinditemLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	
 	if (pFindInfo->lvfi.flags & LVFI_PARAM)
 		return;	
-	if ((pFindInfo->iStart < 0)||(pFindInfo->iStart >= m_logEntries.GetVisibleCount()))
+	if ((pFindInfo->iStart < 0)||(pFindInfo->iStart >= (int)m_logEntries.GetVisibleCount()))
 		return;
 	if (pFindInfo->lvfi.psz == 0)
 		return;
 		
 	CString sCmp = pFindInfo->lvfi.psz;
 	CString sRev;	
-	for (int i=pFindInfo->iStart; i<m_logEntries.GetVisibleCount(); ++i)
+	for (size_t i=pFindInfo->iStart; i<m_logEntries.GetVisibleCount(); ++i)
 	{
 		PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(i);
 		sRev.Format(_T("%ld"), pLogEntry->GetRevision());
@@ -3648,7 +3650,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 
 	// if the user selected the info text telling about not all revisions shown due to
 	// the "stop on copy/rename" option, we also don't show the context menu
-	if ((m_bStrictStopped)&&(selIndex == m_logEntries.GetVisibleCount()))
+	if ((m_bStrictStopped)&&(selIndex == (int)m_logEntries.GetVisibleCount()))
 		return;
 
 	// if the context menu is invoked through the keyboard, we have to use
@@ -5007,7 +5009,7 @@ void CLogDlg::OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 
 CString CLogDlg::GetToolTipText(int nItem, int nSubItem)
 {
-	if ((nSubItem == 1) && (nItem <= m_logEntries.GetVisibleCount()))
+	if ((nSubItem == 1) && (nItem <= (int)m_logEntries.GetVisibleCount()))
 	{
 		PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (nItem);
 

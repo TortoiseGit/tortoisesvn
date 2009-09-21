@@ -55,7 +55,7 @@ CStoreSelection::~CStoreSelection()
 {
 	if ( m_SetSelectedRevisions.size()>0 )
 	{
-		for (int i=0; i<m_logdlg->m_logEntries.GetVisibleCount(); ++i)
+		for (int i=0, count = (int)m_logdlg->m_logEntries.GetVisibleCount(); i < count; ++i)
 		{
 			LONG nRevision = m_logdlg->m_logEntries.GetVisible(i)->GetRevision();
 			if ( m_SetSelectedRevisions.find(nRevision)!=m_SetSelectedRevisions.end() )

@@ -174,7 +174,7 @@ private:
 	void DiffSelectedRevWithPrevious();
 	void SetDlgTitle(bool bOffline);
 	CString GetAbsoluteUrlFromRelativeUrl(const CString& url);
-	void ToggleCheckbox(int item);
+	void ToggleCheckbox(size_t item);
 
 	inline int ShownCountWithStopped() const { return (int)m_logEntries.GetVisibleCount() + (m_bStrictStopped ? 1 : 0); }
 
