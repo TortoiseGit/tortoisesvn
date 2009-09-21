@@ -79,11 +79,10 @@ BOOL COpenDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	GroupRadio(IDC_MERGERADIO);
-
 	CRegDWORD lastRadioButton(_T("Software\\TortoiseMerge\\OpenRadio"), IDC_MERGERADIO);
 	if (((DWORD)lastRadioButton != IDC_MERGERADIO)&&((DWORD)lastRadioButton != IDC_APPLYRADIO))
 		lastRadioButton = IDC_MERGERADIO;
+	GroupRadio((DWORD)lastRadioButton);
 	CheckRadioButton(IDC_MERGERADIO, IDC_APPLYRADIO, (DWORD)lastRadioButton);
 
 	// turn on auto completion for the edit controls
