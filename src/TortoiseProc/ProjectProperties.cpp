@@ -30,15 +30,16 @@ using namespace std;
 
 
 ProjectProperties::ProjectProperties(void)
+    : regExNeedUpdate (true)
+	, bNumber (TRUE)
+	, bWarnIfNoIssue (FALSE)
+	, nLogWidthMarker (0)
+	, nMinLogSize (0)
+	, nMinLockMsgSize (0)
+	, bFileListInEnglish (TRUE)
+	, bAppend (TRUE)
+	, lProjectLanguage (0)
 {
-	bNumber = TRUE;
-	bWarnIfNoIssue = FALSE;
-	nLogWidthMarker = 0;
-	nMinLogSize = 0;
-	nMinLockMsgSize = 0;
-	bFileListInEnglish = TRUE;
-	bAppend = TRUE;
-	lProjectLanguage = 0;
 }
 
 ProjectProperties::~ProjectProperties(void)
@@ -60,6 +61,8 @@ BOOL ProjectProperties::ReadPropsPathList(const CTSVNPathList& pathList)
 
 BOOL ProjectProperties::ReadProps(CTSVNPath path)
 {
+    regExNeedUpdate = true;
+
 	BOOL bFoundBugtraqLabel = FALSE;
 	BOOL bFoundBugtraqMessage = FALSE;
 	BOOL bFoundBugtraqNumber = FALSE;
@@ -367,6 +370,17 @@ CString ProjectProperties::GetBugIDFromLog(CString& msg)
 	return sBugID;
 }
 
+void ProjectProperties::AutoUpdateRegEx()
+{
+    if (regExNeedUpdate)
+    {
+		regCheck = tr1::wregex (sCheckRe);
+		regBugID = tr1::wregex (sBugIDRe);
+
+        regExNeedUpdate = false;
+    }
+}
+
 BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 {
 	size_t offset1 = 0;
@@ -385,8 +399,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 			// match with two regex strings (without grouping!)
 			try
 			{
-				const tr1::wregex regCheck(sCheckRe);
-				const tr1::wregex regBugID(sBugIDRe);
+                AutoUpdateRegEx();
 				const tr1::wsregex_iterator end;
 				wstring s = msg;
 				for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
@@ -416,7 +429,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 		{
 			try
 			{
-				const tr1::wregex regCheck(sCheckRe);
+                AutoUpdateRegEx();
 				const tr1::wsregex_iterator end;
 				wstring s = msg;
 				for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
@@ -534,8 +547,7 @@ std::set<CString> ProjectProperties::FindBugIDs(const CString& msg)
 			// match with two regex strings (without grouping!)
 			try
 			{
-				const tr1::wregex regCheck(sCheckRe);
-				const tr1::wregex regBugID(sBugIDRe);
+                AutoUpdateRegEx();
 				const tr1::wsregex_iterator end;
 				wstring s = msg;
 				for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
@@ -555,7 +567,7 @@ std::set<CString> ProjectProperties::FindBugIDs(const CString& msg)
 		{
 			try
 			{
-				const tr1::wregex regCheck(sCheckRe);
+                AutoUpdateRegEx();
 				const tr1::wsregex_iterator end;
 				wstring s = msg;
 				for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
@@ -703,8 +715,8 @@ BOOL ProjectProperties::HasBugID(const CString& sMessage)
 	{
 		try
 		{
-			tr1::wregex rx(sCheckRe);
-			return tr1::regex_search((LPCTSTR)sMessage, rx);
+            AutoUpdateRegEx();
+			return tr1::regex_search((LPCTSTR)sMessage, regCheck);
 		}
 		catch (exception) {}
 	}

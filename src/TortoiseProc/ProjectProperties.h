@@ -19,6 +19,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <regex>
 #include "TSVNPath.h"
 using namespace std;
 
@@ -229,7 +230,18 @@ public:
 	 * A regex string to extract revisions from a log message.
 	 */
 	CString		sLogRevRegex;
+
 private:
+
+    /**
+     * Constructing rexex objects is expensive. Therefore, cache them here.
+     */
+    void AutoUpdateRegEx();
+
+    bool regExNeedUpdate;
+    tr1::wregex regCheck;
+    tr1::wregex regBugID;
+
 	CString		sAutoProps;
 	CTSVNPath	propsPath;
 #ifdef DEBUG
