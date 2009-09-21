@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008 - TortoiseSVN
+// Copyright (C) 2006-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include ".\opendlg.h"
 #include "auto_buffer.h"
 #include "StringUtils.h"
+#include "registry.h"
 
 // COpenDlg dialog
 
@@ -80,7 +81,10 @@ BOOL COpenDlg::OnInitDialog()
 
 	GroupRadio(IDC_MERGERADIO);
 
-	CheckRadioButton(IDC_MERGERADIO, IDC_APPLYRADIO, IDC_MERGERADIO);
+	CRegDWORD lastRadioButton(_T("Software\\TortoiseMerge\\OpenRadio"), IDC_MERGERADIO);
+	if (((DWORD)lastRadioButton != IDC_MERGERADIO)&&((DWORD)lastRadioButton != IDC_APPLYRADIO))
+		lastRadioButton = IDC_MERGERADIO;
+	CheckRadioButton(IDC_MERGERADIO, IDC_APPLYRADIO, (DWORD)lastRadioButton);
 
 	// turn on auto completion for the edit controls
 	HWND hwndEdit;
@@ -319,6 +323,8 @@ void COpenDlg::OnOK()
 		MessageBox(sErr, NULL, MB_ICONERROR);
 		return;
 	}
+	CRegDWORD lastRadioButton(_T("Software\\TortoiseMerge\\OpenRadio"), IDC_MERGERADIO);
+	lastRadioButton = GetCheckedRadioButton(IDC_MERGERADIO, IDC_APPLYRADIO);
 	CDialog::OnOK();
 }
 
