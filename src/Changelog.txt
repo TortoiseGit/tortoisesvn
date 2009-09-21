@@ -43,6 +43,9 @@
        next/previous diffs/conflicts. (Stefan)
 - NEW: The TMerge open dialog remembes the merge/apply patch
        state of the radio button. (Stefan)
+- NEW: When searching for a better path to apply a patch file,
+       a progress dialog is shown with the ability to cancel
+       the search. (Stefan)
 
 Version 1.6.6
 - CHG: Reduced disk access in the status cache. (Stefan)
