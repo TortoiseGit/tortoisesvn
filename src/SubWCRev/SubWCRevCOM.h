@@ -85,6 +85,7 @@ private:
 	HRESULT LoadTypeInfo(ITypeInfo ** pptinfo, const CLSID& libid, const CLSID& iid, LCID lcid);
 	static HRESULT BoolToVariantBool(BOOL value, VARIANT_BOOL* result);
 	static HRESULT LongToVariant(LONG value, VARIANT* result);
+	static HRESULT Utf8StringToVariant(const char* string, VARIANT* result );
 
 	// Reference count
 	long		m_cRef ;

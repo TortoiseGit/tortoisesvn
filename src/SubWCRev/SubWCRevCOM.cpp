@@ -36,6 +36,7 @@
 #pragma warning(pop)
 #include "Register.h"
 #include "UnicodeUtils.h"
+#include "auto_buffer.h"
 
 STDAPI DllRegisterServer();
 STDAPI DllUnregisterServer();
@@ -254,37 +255,25 @@ HRESULT __stdcall SubWCRev::get_Date(/*[out, retval]*/VARIANT* date)
 
 HRESULT __stdcall SubWCRev::get_Url(/*[out, retval]*/VARIANT* url)
 {
-	if(url == 0)
-		return E_POINTER;
-
-	url->vt = VT_BSTR;
-
-	WCHAR * buf;
-	size_t len = strlen(SubStat.Url);
-	buf = new WCHAR[len*4 + 1];
-	SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
-	MultiByteToWideChar(CP_UTF8, 0, SubStat.Url, -1, buf, (int)len*4);
-	url->bstrVal = SysAllocString(buf);
-	delete [] buf;
-
-	return S_OK;
+	return Utf8StringToVariant(SubStat.Url, url);
 }
 
 HRESULT __stdcall SubWCRev::get_Author(/*[out, retval]*/VARIANT* author)
 {
-	if(author == 0)
+	return Utf8StringToVariant(SubStat.Author, author);
+}
+
+HRESULT SubWCRev::Utf8StringToVariant(const char* string, VARIANT* result )
+{
+	if(result == 0)
 		return E_POINTER;
 
-	author->vt = VT_BSTR;
-
-	WCHAR * buf;
-	size_t len = strlen(SubStat.Author);
-	buf = new WCHAR[len*4 + 1];
+	result->vt = VT_BSTR;
+	const size_t len = strlen(string);
+	auto_buffer<WCHAR> buf(len*4 + 1);
 	SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
-	MultiByteToWideChar(CP_UTF8, 0, SubStat.Author, -1, buf, (int)len*4);
-	author->bstrVal = SysAllocString(buf);
-	delete [] buf;
-
+	MultiByteToWideChar(CP_UTF8, 0, string, -1, buf, (int)len*4);
+	result->bstrVal = SysAllocString(buf);
 	return S_OK;
 }
 
