@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-09-01 09:30 Central Europe Daylight Time\n"
+"PO-Revision-Date: 2009-09-22 15:41 Central Europe Daylight Time\n"
 "Last-Translator: Jiri Sedlak <jiri_sedlak@users.sourceforge.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -109,6 +109,7 @@ msgid "%I64d Bytes transferred"
 msgstr "%I64d Bajtů přeneseno"
 
 #. Resource IDs: (357)
+#, c-format
 msgid "%I64d Bytes/s"
 msgstr "%I64d Bajtů/s"
 
@@ -2555,6 +2556,10 @@ msgstr "Pokračovat"
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Zmenšit kotvící okno"
+
+#. Resource IDs: (15)
+msgid "Converts the working copy format to the new version"
+msgstr "Zkonvertuje formát pracovní kopie na novou verzi"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -5252,7 +5257,7 @@ msgstr "Hloubka sloučení:"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
-msgstr "Neinteraktívní slučování"
+msgstr "Neinteraktivní slučování"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge options"
@@ -7120,6 +7125,10 @@ msgstr "Hledat:"
 msgid "Search string not found!"
 msgstr "Hledaný výraz nenalezen!"
 
+#. Resource IDs: (169)
+msgid "Searching for better path to apply patch..."
+msgstr "Hledám lepší cestu pro aplikování záplaty..."
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Seek failed on %1"
@@ -7615,7 +7624,7 @@ msgstr "Zobrazit informace o TortoiseSVN"
 
 #. Resource IDs: (198)
 msgid "Shows the action log file in the default text editor"
-msgstr "Otevře soubor s logem akcí v defaultním textovém editoru"
+msgstr "Otevře soubor s logem akcí ve výchozím textovém editoru"
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
@@ -7823,16 +7832,18 @@ msgstr ""
 #. Resource IDs: (84)
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "\n"
 "Subversion reported the following:"
 msgstr ""
 "V Subversion se vyskytl závažný problém.\n"
-"Prosím, oznamte toto na náš mailing list\n"
+"Prosím, oznamte toto na Subversion mailovou konferenci\n"
+"(users@subversion.tigris.org)\n"
 "s co nejvíce informacemi o tom\n"
-"co jste se pokoušeli dělat.\n"
+"co jste se pokoušeli udělat.\n"
 "\n"
 "Subversion oznámilo následující:"
 
@@ -9065,6 +9076,10 @@ msgstr "Aktualizace a pokus o zopakování zamčení..."
 msgid "Updating log cache"
 msgstr "Aktualizace cache logu"
 
+#. Resource IDs: (15)
+msgid "Upgrade working copy"
+msgstr "Modernizovat pracovní kopii"
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Použít &Předvolený Obrázek: "
@@ -10145,6 +10160,10 @@ msgstr "revize:"
 msgid "root project"
 msgstr "kořenový projekt"
 
+#. Resource IDs: (169)
+msgid "scanning path:"
+msgstr "prohledávám cestu:"
+
 #. Resource IDs: (65535)
 msgid "skip ranges: "
 msgstr "vynechat rozsahy:"
@@ -10474,8 +10493,10 @@ msgstr "{BugTraq}"
 
 #~ msgid "Cleaning up."
 #~ msgstr "Čistím."
+
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Floppy disky (A: B:)"
+
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
@@ -10484,90 +10505,128 @@ msgstr "{BugTraq}"
 #~ "GDI+ je vyžadováno pro uložení grafu revizí jako obrázku.\n"
 #~ "GDI+ můžete stáhnout z\n"
 #~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+
 #~ msgid "Go offline?"
 #~ msgstr "Přejít do offline?"
+
 #~ msgid "Only record the merge"
 #~ msgstr "Sloučení jen zaznamenat"
+
 #~ msgid "Replaced node"
 #~ msgstr "Nahrazen uzel"
+
 #~ msgid "(deleted) %s"
 #~ msgstr "(smazáno) %s"
+
 #~ msgid "alias (deleted): %s"
 #~ msgstr "alias (smazáno): %s"
+
 #~ msgid "&?"
 #~ msgstr "&?"
+
 #~ msgid "Merge all..."
 #~ msgstr "Sloučit vše..."
+
 #~ msgid "SVN Export to here"
 #~ msgstr "SVN Exportovat sem"
+
 #~ msgid "%1 contains an invalid path."
 #~ msgstr "%1 obsahuje neplatnou cestu."
+
 #~ msgid "&Berkeley database (BDB)"
 #~ msgstr "&Berkeley Database (BDB)"
+
 #~ msgid "&Dry run"
 #~ msgstr "&Zkušební běh"
+
 #~ msgid "&Native filesystem (FSFS)"
 #~ msgstr "&Nativní Filesystem (FSFS)"
+
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "Otevřít Ctrl-O"
+
 #~ msgid "&Save Ctrl-S"
 #~ msgstr "&Uložit Ctrl-S"
+
 #~ msgid "&Undo\tCtrl+Z"
 #~ msgstr "&Zpět\tCtrl+Z"
+
 #~ msgid "An invalid argument was encountered."
 #~ msgstr "Zjištěn neplatný argument."
+
 #~ msgid "Analyze revision data..."
 #~ msgstr "Analyzovat data revize..."
+
 #~ msgid "Bro&wse..."
 #~ msgstr "Pr&ocházet..."
+
 #~ msgid "Brows&e..."
 #~ msgstr "Procház&et..."
+
 #~ msgid "Cache log messages"
 #~ msgstr "Cachovat záznamy logu"
+
 #~ msgid "Checking for forward copies"
 #~ msgstr "Kontroluji předčasné kopie"
+
 #~ msgid "Cleanup has finished"
 #~ msgstr "Čištění skončilo"
+
 #~ msgid "Commit threshold:"
 #~ msgstr "Práh odevzdání:"
+
 #~ msgid "D&iff"
 #~ msgstr "Rozdíl (&Diff)"
+
 #~ msgid "Diff With URL"
 #~ msgstr "Rozdíl s URL"
+
 #~ msgid "Documentation - Simon Large"
 #~ msgstr "Dokumentace - Simon Large"
+
 #~ msgid "Dry Run"
 #~ msgstr "&Zkušební běh"
+
 #~ msgid "Groups branches together"
 #~ msgstr "Seskupí větve(branches) dohromady"
+
 #~ msgid "Look and Feel"
 #~ msgstr "Vzhled a pocit"
+
 #~ msgid "Look and Feel::Colors"
 #~ msgstr "Vzhled a pocit::Barvy"
+
 #~ msgid "Merged revisions %s to %s from %s:\n"
 #~ msgstr "Sloučeny revize %s až %s z %s:\n"
+
 #~ msgid "Not descending"
 #~ msgstr "Bez sestupných"
+
 #~ msgid "Remove..."
 #~ msgstr "Odstranit..."
+
 #~ msgid "Specify the revision range which you want to merge:"
 #~ msgstr "Určete rozsah revizí, které chcete sloučit (merge):"
+
 #~ msgid "Split long, inactive branches into segments"
 #~ msgstr "Rozdělit dlouhé, neaktivní větve na segmenty"
+
 #~ msgid "Two-way &Diff"
 #~ msgstr "Dva panely"
+
 #~ msgid "Use &magnifier on locatorbar"
 #~ msgstr "Použít lupu na lokační&m panelu"
+
 #~ msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 #~ msgstr "Použijte \"Z:\" URL (rozsah revizí je volitelný v log dialogu)"
+
 #~ msgid ""
 #~ "You've selected added folders. The patch won't contain added files within such added folders.\n"
 #~ "Do you want to proceed anyway?"
 #~ msgstr ""
 #~ "Vybral(a) jste přidané složky. Záplata nebude obsahovat přidané soubory v těchto přidaných složkách.\n"
 #~ "Opravdu chcete pokračovat?"
-#~ msgid "cleaning up"
-#~ msgstr "čistím"
+
 #~ msgid ""
 #~ "svn:externals\n"
 #~ "A newline separated list of module specifiers, each of which consists of\n"
@@ -10579,6 +10638,6 @@ msgstr "{BugTraq}"
 #~ "Seznam oddělený řádky, kde na každé je relativní cesta, volitelně příznak revize a URL. Například\n"
 #~ "foo\t\thttp://example.com/repos/zig\n"
 #~ "foo/bar -r 1234\thttp://example.com/repos/zag"
+
 #~ msgid "which points to the repository at URL:"
 #~ msgstr "které ukazuje na úložiště na URL:"
-
