@@ -20,7 +20,7 @@
 #include "TortoiseProc.h"
 #include "UpdateDlg.h"
 #include "registry.h"
-
+#include "LogDialog\LogDlg.h"
 
 IMPLEMENT_DYNAMIC(CUpdateDlg, CStandAloneDialog)
 CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)

@@ -20,7 +20,6 @@
 #include "SettingsPropPage.h"
 #include "Tooltip.h"
 #include "Registry.h"
-#include "afxwin.h"
 
 
 /**

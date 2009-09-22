@@ -22,7 +22,7 @@
 #include "RepositoryBar.h"
 #include "StandAloneDlg.h"
 #include "ProjectProperties.h"
-#include "LogDlg.h"
+#include "LogDialog\LogDlg.h"
 #include "HintListCtrl.h"
 #include "RepositoryLister.h"
 

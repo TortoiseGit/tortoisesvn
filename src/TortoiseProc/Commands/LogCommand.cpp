@@ -18,8 +18,7 @@
 //
 #include "StdAfx.h"
 #include "LogCommand.h"
-
-#include "LogDlg.h"
+#include "LogDialog\LogDlg.h"
 
 bool LogCommand::Execute()
 {

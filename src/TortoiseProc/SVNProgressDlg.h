@@ -24,7 +24,6 @@
 #include "SVN.h"
 #include "Colors.h"
 #include "..\IBugTraqProvider\IBugTraqProvider_h.h"
-#include "afxwin.h"
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 

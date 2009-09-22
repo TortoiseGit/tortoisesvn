@@ -19,8 +19,11 @@
 #pragma once
 #include "MergeWizardBasePage.h"
 #include "HistoryCombo.h"
-#include "LogDlg.h"
 #include "PathEdit.h"
+
+/// forward declarations
+
+class CLogDlg;
 
 /**
  * Page in the merge wizard for selecting two urls and revisions for

@@ -21,9 +21,11 @@
 #include "StandAloneDlg.h"
 #include "HistoryCombo.h"
 #include "FileDropEdit.h"
-#include "LogDlg.h"
-#include "afxwin.h"
 #include "Tooltip.h"
+
+/// forward declarations
+
+class CLogDlg;
 
 /**
  * \ingroup TortoiseProc

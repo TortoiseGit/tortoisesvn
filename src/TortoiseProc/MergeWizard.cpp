@@ -19,7 +19,8 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "MergeWizard.h"
-
+#include "SVN.h"
+#include "Registry.h"
 
 // CMergeWizard
 

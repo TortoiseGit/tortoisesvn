@@ -1728,11 +1728,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Resources\link.ico"
+				RelativePath=".\link.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\link.ico"
+				RelativePath="..\Resources\link.ico"
 				>
 			</File>
 			<File
@@ -2159,19 +2159,27 @@
 					>
 				</File>
 				<File
-					RelativePath=".\LogDlg.cpp"
+					RelativePath=".\LogDialog\LogDlg.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\LogDlg.h"
+					RelativePath=".\LogDialog\LogDlg.h"
 					>
 				</File>
 				<File
-					RelativePath=".\LogDlgHelper.cpp"
+					RelativePath=".\LogDialog\LogDlgHelper.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\LogDlgHelper.h"
+					RelativePath=".\LogDialog\LogDlgHelper.h"
+					>
+				</File>
+				<File
+					RelativePath=".\LogDialog\StatGraphDlg.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LogDialog\StatGraphDlg.h"
 					>
 				</File>
 			</Filter>
@@ -3629,14 +3637,6 @@
 			</File>
 			<File
 				RelativePath=".\SimplePrompt.h"
-				>
-			</File>
-			<File
-				RelativePath=".\StatGraphDlg.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\StatGraphDlg.h"
 				>
 			</File>
 			<File

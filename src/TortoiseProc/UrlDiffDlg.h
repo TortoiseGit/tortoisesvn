@@ -19,8 +19,11 @@
 #pragma once
 #include "StandAloneDlg.h"
 #include "HistoryCombo.h"
-#include "LogDlg.h"
 #include "SVNRev.h"
+
+/// forward declarations
+
+class CLogDlg;
 
 /**
  * \ingroup TortoiseProc

@@ -22,7 +22,7 @@
 #include "MergeWizardRevRange.h"
 #include "AppUtils.h"
 #include "PathUtils.h"
-
+#include "LogDialog\LogDlg.h"
 
 IMPLEMENT_DYNAMIC(CMergeWizardRevRange, CMergeWizardBasePage)
 

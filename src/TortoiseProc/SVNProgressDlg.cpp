@@ -20,7 +20,7 @@
 #include "TortoiseProc.h"
 #include "messagebox.h"
 #include "SVNProgressDlg.h"
-#include "LogDlg.h"
+#include "LogDialog\LogDlg.h"
 #include "TSVNPath.h"
 #include "Registry.h"
 #include "SVNStatus.h"

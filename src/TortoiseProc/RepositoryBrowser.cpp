@@ -21,7 +21,6 @@
 
 #include "MessageBox.h"
 #include "InputLogDlg.h"
-#include "LogDlg.h"
 #include "PropDlg.h"
 #include "EditPropertiesDlg.h"
 #include "Blame.h"

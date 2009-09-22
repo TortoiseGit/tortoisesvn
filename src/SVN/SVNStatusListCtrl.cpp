@@ -32,7 +32,7 @@
 #include "SVNProperties.h"
 #include "SVN.h"
 #include "SVNDiff.h"
-#include "LogDlg.h"
+#include "LogDialog\LogDlg.h"
 #include "SVNProgressDlg.h"
 #include "SysImageList.h"
 #include "Svnstatuslistctrl.h"

@@ -24,11 +24,15 @@
 #include "SciEdit.h"
 #include "TSVNPath.h"
 #include "SVNRev.h"
-#include "LogDlg.h"
+#include "SVN.h"
 #include "Tooltip.h"
 #include "PathEdit.h"
 
 #define WM_TSVN_MAXREVFOUND			(WM_APP + 1)
+
+/// forward declarations
+
+class CLogDlg;
 
 /**
  * \ingroup TortoiseProc
