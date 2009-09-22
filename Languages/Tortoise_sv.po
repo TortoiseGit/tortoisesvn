@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-09-14 10:48+0100\n"
+"PO-Revision-Date: 2009-09-22 09:35+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7166,6 +7166,10 @@ msgstr "Sök:"
 msgid "Search string not found!"
 msgstr "Söksträngen hittades inte!"
 
+#. Resource IDs: (169)
+msgid "Searching for better path to apply patch..."
+msgstr "Söker efter en bättre sökväg för att applicera patch..."
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Seek failed on %1"
@@ -10208,6 +10212,10 @@ msgstr "revisioner:"
 msgid "root project"
 msgstr "root-projekt"
 
+#. Resource IDs: (169)
+msgid "scanning path:"
+msgstr "scannar sökväg:"
+
 #. Resource IDs: (65535)
 msgid "skip ranges: "
 msgstr "överhoppade interval:"
@@ -10586,8 +10594,6 @@ msgstr "{BugTraq}"
 #~ msgstr "Ta bort.."
 #~ msgid "Use &magnifier on locatorbar"
 #~ msgstr "Använd &förstoring på översikten"
-#~ msgid "cleaning up"
-#~ msgstr "rensar"
 #~ msgid "%1 contains an invalid path."
 #~ msgstr "%1 innehåller en felaktig sökväg."
 #~ msgid "&Berkeley database (BDB)"
