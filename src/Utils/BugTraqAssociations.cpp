@@ -238,13 +238,13 @@ std::vector<CBugTraqProvider> CBugTraqAssociations::GetAvailableProviders()
 {
 	std::vector<CBugTraqProvider> results;
 
-	ICatInformation *pCatInformation = NULL;
-
-	HRESULT hr;
-	if (SUCCEEDED(hr = CoCreateInstance(CLSID_StdComponentCategoriesMgr, NULL, CLSCTX_ALL, IID_ICatInformation, (void **)&pCatInformation)))
+	CComPtr<ICatInformation> pCatInformation;
+	HRESULT hr = pCatInformation.CoCreateInstance(CLSID_StdComponentCategoriesMgr, NULL, CLSCTX_ALL);
+	if (SUCCEEDED(hr))
 	{
-		IEnumGUID *pEnum = NULL;
-		if (SUCCEEDED(hr = pCatInformation->EnumClassesOfCategories(1, &CATID_BugTraqProvider, 0, NULL, &pEnum)))
+		CComPtr<IEnumGUID> pEnum;
+		hr = pCatInformation->EnumClassesOfCategories(1, &CATID_BugTraqProvider, 0, NULL, &pEnum);
+		if (SUCCEEDED(hr))
 		{
 			HRESULT hrEnum;
 			do
@@ -265,15 +265,6 @@ std::vector<CBugTraqProvider> CBugTraqAssociations::GetAvailableProviders()
 				}
 			} while (hrEnum == S_OK);
 		}
-
-		if (pEnum)
-			pEnum->Release();
-		pEnum = NULL;
 	}
-
-	if (pCatInformation)
-		pCatInformation->Release();
-	pCatInformation = NULL;
-
 	return results;
 }

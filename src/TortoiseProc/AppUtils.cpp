@@ -1053,75 +1053,63 @@ HRESULT CAppUtils::CreateShortCut(LPCTSTR pszTargetfile, LPCTSTR pszTargetargs,
 					   int iShowmode, LPCTSTR pszCurdir, 
 					   LPCTSTR pszIconfile, int iIconindex)
 {
-	HRESULT       hRes;
-	IShellLink*   pShellLink;
-	IPersistFile* pPersistFile;
-
-	hRes = E_INVALIDARG;
-	if ((pszTargetfile != NULL) && (_tcslen(pszTargetfile) > 0) &&
-		(pszLinkfile != NULL) && (_tcslen(pszLinkfile) > 0))
+	if ((pszTargetfile == NULL) || (_tcslen(pszTargetfile) == 0) ||
+		(pszLinkfile == NULL) || (_tcslen(pszLinkfile) == 0))
 	{
-		hRes = CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER, IID_IShellLink, (LPVOID*)&pShellLink);
-		if (SUCCEEDED(hRes))
-		{
-			hRes = pShellLink->SetPath(pszTargetfile);
-			hRes = pShellLink->SetArguments(pszTargetargs);
-			if (_tcslen(pszDescription) > 0)
-			{
-				hRes = pShellLink->SetDescription(pszDescription);
-			}
-			if (iShowmode > 0)
-			{
-				hRes = pShellLink->SetShowCmd(iShowmode);
-			}
-			if (_tcslen(pszCurdir) > 0)
-			{
-				hRes = pShellLink->SetWorkingDirectory(pszCurdir);
-			}
-			if (_tcslen(pszIconfile) > 0 && iIconindex >= 0)
-			{
-				hRes = pShellLink->SetIconLocation(pszIconfile, iIconindex);
-			}
+		return E_INVALIDARG;
+	}
+	CComPtr<IShellLink> pShellLink;
+	HRESULT hRes = pShellLink.CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER);
+	if (FAILED(hRes))
+		return hRes;
 
-			// Use the IPersistFile object to save the shell link
-			hRes = pShellLink->QueryInterface(IID_IPersistFile, (LPVOID*)&pPersistFile);
-			if (SUCCEEDED(hRes))
-			{
-				hRes = pPersistFile->Save(pszLinkfile, TRUE);
-				pPersistFile->Release();
-			}
-			pShellLink->Release();
-		}
+	hRes = pShellLink->SetPath(pszTargetfile);
+	hRes = pShellLink->SetArguments(pszTargetargs);
+	if (_tcslen(pszDescription) > 0)
+	{
+		hRes = pShellLink->SetDescription(pszDescription);
+	}
+	if (iShowmode > 0)
+	{
+		hRes = pShellLink->SetShowCmd(iShowmode);
+	}
+	if (_tcslen(pszCurdir) > 0)
+	{
+		hRes = pShellLink->SetWorkingDirectory(pszCurdir);
+	}
+	if (_tcslen(pszIconfile) > 0 && iIconindex >= 0)
+	{
+		hRes = pShellLink->SetIconLocation(pszIconfile, iIconindex);
+	}
 
+	// Use the IPersistFile object to save the shell link
+	CComPtr<IPersistFile> pPersistFile;
+	hRes = pShellLink.QueryInterface(&pPersistFile);
+	if (SUCCEEDED(hRes))
+	{
+		hRes = pPersistFile->Save(pszLinkfile, TRUE);
 	}
 	return (hRes);
 }
 
 HRESULT CAppUtils::CreateShortcutToURL(LPCTSTR pszURL, LPCTSTR pszLinkFile)
 {
-	HRESULT hRes;
-	IUniformResourceLocator *pURL = NULL;
-
+	CComPtr<IUniformResourceLocator> pURL;
 	// Create an IUniformResourceLocator object
-	hRes = CoCreateInstance(CLSID_InternetShortcut, NULL, CLSCTX_INPROC_SERVER, IID_IUniformResourceLocator, (LPVOID*) &pURL);
+	HRESULT hRes = pURL.CoCreateInstance(CLSID_InternetShortcut, NULL, CLSCTX_INPROC_SERVER);
+	if(FAILED(hRes))
+		return hRes;
+
+	hRes = pURL->SetURL(pszURL, 0);
+	if(FAILED(hRes))
+		return hRes;
+
+	CComPtr<IPersistFile> pPF;
+	hRes = pURL.QueryInterface(&pPF);
 	if (SUCCEEDED(hRes))
-	{
-		IPersistFile *pPF = NULL;
-
-		hRes = pURL->SetURL(pszURL, 0);
-
-		if (SUCCEEDED(hRes))
-		{
-			hRes = pURL->QueryInterface(IID_IPersistFile, (void **)&pPF);
-			if (SUCCEEDED(hRes))
-			{   
-				// Save the shortcut via the IPersistFile::Save member function.
-				hRes = pPF->Save(pszLinkFile, TRUE);
-
-				pPF->Release();
-			}
-		}
-		pURL->Release();
+	{   
+		// Save the shortcut via the IPersistFile::Save member function.
+		hRes = pPF->Save(pszLinkFile, TRUE);
 	}
 	return hRes;
 }
