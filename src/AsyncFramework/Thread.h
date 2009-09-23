@@ -25,6 +25,8 @@
 /** 
 * Repeatedly executes a function until \ref Terminate
 * is called. The function should not be long-running.
+* If the function returns \a true, the thread will terminate
+* automatically and delete the CThread instance.
 *
 * \ref Suspend and \ref Resume will not wait until the
 * thread actually enters the respective state. 
@@ -63,7 +65,7 @@ private:
 
     /// to be executed cyclicly
 
-    void (*func)(void *);
+    bool (*func)(void *);
     void* args;
 
     /// the actual thread function
@@ -74,7 +76,7 @@ public:
 
     /// auto-start thread during construction
 
-    CThread (void (*func)(void *), void* args, bool startSuspended = false);
+    CThread (bool (*func)(void *), void* args, bool startSuspended = false);
     ~CThread(void);
 
     /// thread control

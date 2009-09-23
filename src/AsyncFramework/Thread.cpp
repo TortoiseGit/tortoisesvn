@@ -39,7 +39,17 @@ void CThread::ThreadFunc (void* arg)
 
     while (!self->terminated)
     {
-        (*self->func)(self->args);
+        if ((*self->func)(self->args))
+        {
+            // auto-deletion 
+
+            self->terminated = true;
+            self->done.Set();
+            delete self;
+
+            return;
+        }
+
         if (self->suspended)
             self->resume.WaitFor();
     }
@@ -51,7 +61,7 @@ void CThread::ThreadFunc (void* arg)
 
 /// auto-start thread during construction
 
-CThread::CThread (void (*func)(void *), void* args, bool startSuspended)
+CThread::CThread (bool (*func)(void *), void* args, bool startSuspended)
     : thread (NULL)
     , terminated (false)
     , suspended (startSuspended)

@@ -147,8 +147,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_maxChild(0)
 	, m_bIncludeMerges(FALSE)
 	, m_hAccel(NULL)
-	, netScheduler(1, 0, true)
-	, diskScheduler(1, 0, true)
+	, netScheduler(1, 0, true, true)
+	, diskScheduler(1, 0, true, true)
 {
 	m_bFilterWithRegex = !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), FALSE);
 }

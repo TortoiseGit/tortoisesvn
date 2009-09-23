@@ -233,6 +233,7 @@ CJobScheduler::TJob CJobScheduler::AssignJob (SThreadInfo* info)
         // remove from "running" list and put it back either to
         // "suspended" pool or global shared pool
 
+        bool terminateThread = false;
         for (size_t i = 0, count = threads.running.size(); i < count; ++i)
             if (threads.running[i] == info)
             {
@@ -254,8 +255,17 @@ CJobScheduler::TJob CJobScheduler::AssignJob (SThreadInfo* info)
 
                     --threads.fromShared;
                 }
+                else if (aggressiveThreadTermination)
+                {
+                    // don't keep private idle threads
+
+                    delete info;
+                    ++threads.yetToCreate;
+                    terminateThread = true;
+                }
                 else
                 {
+                    
                     // add to local pool
 
                     threads.suspended.push_back (info);
@@ -271,7 +281,7 @@ CJobScheduler::TJob CJobScheduler::AssignJob (SThreadInfo* info)
                 break;
             }
 
-        return TJob (NULL, false);
+        return TJob (NULL, terminateThread);
     }
 
     // extract one job
@@ -327,7 +337,7 @@ void CJobScheduler::StopStarvation()
 
 // worker thread function
 
-void CJobScheduler::ThreadFunc (void* arg)
+bool CJobScheduler::ThreadFunc (void* arg)
 {
     SThreadInfo* info = reinterpret_cast<SThreadInfo*>(arg);
 
@@ -337,6 +347,16 @@ void CJobScheduler::ThreadFunc (void* arg)
         job.first->Execute();
         if (job.second)
             delete job.first;
+
+        // continue
+
+        return false;
+    }
+    else
+    {
+        // maybe, auto-delete thread object
+
+        return job.second;
     }
 }
 
@@ -345,9 +365,11 @@ void CJobScheduler::ThreadFunc (void* arg)
 CJobScheduler::CJobScheduler 
     ( size_t threadCount
     , size_t sharedThreads
-    , bool aggressiveThreadStart)
+    , bool aggressiveThreadStart
+    , bool aggressiveThreadTermination)
     : waitingThreads (0)
     , aggressiveThreadStart (aggressiveThreadStart)
+    , aggressiveThreadTermination (aggressiveThreadTermination)
 {
     threads.runningCount = 0;
     threads.suspendedCount = 0;

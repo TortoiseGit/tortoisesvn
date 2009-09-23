@@ -379,9 +379,15 @@ private:
 
     bool aggressiveThreadStart;
 
+    /// if this is set, worker threads will be destroyed 
+    /// as soon as the job queue runs low (i.e. threads
+    /// won't be kept around in suspended state).
+
+    bool aggressiveThreadTermination;
+
     /// worker thread function
 
-    static void ThreadFunc (void* arg);
+    static bool ThreadFunc (void* arg);
 
     /// job execution helper
 
@@ -411,7 +417,8 @@ public:
 
     CJobScheduler ( size_t threadCount
                   , size_t sharedThreads
-                  , bool aggressiveThreadStart = false);
+                  , bool aggressiveThreadStart = false
+                  , bool aggressiveThreadTermination = false);
 
     /// End threads. Job queue must have run empty before calling this.
 
