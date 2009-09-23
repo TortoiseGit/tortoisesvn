@@ -79,6 +79,7 @@ public:
 
     /// apply filter
 
+    bool Matches (const LogEntryData& entry, wstring& scratch) const;
     bool operator() (const LogEntryData& entry) const;
 };
 

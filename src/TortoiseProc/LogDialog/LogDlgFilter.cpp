@@ -90,7 +90,18 @@ CLogDlgFilter::CLogDlgFilter
 	}
 }
 
-bool CLogDlgFilter::operator() (const LogEntryData& entry) const
+namespace
+{
+    void AppendString (wstring& target, const CString& toAppend)
+    {
+        target.push_back (' ');
+        target.append (toAppend, toAppend.GetLength());
+    }
+}
+
+bool CLogDlgFilter::Matches 
+    ( const LogEntryData& entry
+    , wstring& scratch) const
 {
     // quick checks
 
@@ -106,19 +117,16 @@ bool CLogDlgFilter::operator() (const LogEntryData& entry) const
 
     // we need to perform expensive string / pattern matching
 
-	wstring searchText;
-	searchText.reserve(4096);
+    scratch.clear();
+	scratch.reserve(4096);
 
 	if (attributeSelector & (1 << LOGFILTER_BUGID))
-	{
-		searchText.append(entry.GetBugIDs());
-	}
-	if (attributeSelector & (1 << LOGFILTER_MESSAGES))
-	{
-		searchText.append(_T(" "));
-		searchText.append(entry.GetMessage());
-	}
-	if (attributeSelector & (1 << LOGFILTER_PATHS))
+        AppendString (scratch, entry.GetBugIDs());
+
+    if (attributeSelector & (1 << LOGFILTER_MESSAGES))
+		AppendString (scratch, entry.GetMessage());
+
+    if (attributeSelector & (1 << LOGFILTER_PATHS))
 	{
 		const LogChangedPathArray& paths = entry.GetChangedPaths();
 		for ( size_t cpPathIndex = 0, pathCount = paths.GetCount()
@@ -128,29 +136,31 @@ bool CLogDlgFilter::operator() (const LogEntryData& entry) const
 			const LogChangedPath& cpath = paths[cpPathIndex];
 			if (!scanRelevantPathsOnly || cpath.IsRelevantForStartPath())
             {
-			    searchText.append(_T(" "));
-			    searchText.append(cpath.GetCopyFromPath());
-			    searchText.append(_T(" "));
-			    searchText.append(cpath.GetPath());
-			    searchText.append(_T(" "));
-			    searchText.append(cpath.GetActionString());
+			    AppendString (scratch, cpath.GetCopyFromPath());
+			    AppendString (scratch, cpath.GetPath());
+			    AppendString (scratch, cpath.GetActionString());
             }
 		}
 	}
 	if (attributeSelector & (1 << LOGFILTER_AUTHORS))
+		AppendString (scratch, entry.GetAuthor());
+
+    if (attributeSelector & (1 << LOGFILTER_REVS))
 	{
-		searchText.append(_T(" "));
-		searchText.append(entry.GetAuthor());
-	}
-	if (attributeSelector & (1 << LOGFILTER_REVS))
-	{
-		searchText.append(_T(" "));
+		scratch.push_back (' ');
 
         wchar_t buffer[10];
         _itow_s (entry.GetRevision(), buffer, 10);
-		searchText.append (buffer);
+		scratch.append (buffer);
 	}
 			
-    return Match (searchText) ^ negate;
+    return Match (scratch) ^ negate;
 }
+
+bool CLogDlgFilter::operator() (const LogEntryData& entry) const
+{
+	wstring scratch;
+    return Matches (entry, scratch); 
+}
+
 

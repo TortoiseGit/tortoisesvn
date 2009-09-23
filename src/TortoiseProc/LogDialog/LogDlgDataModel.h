@@ -173,7 +173,10 @@ private:
 
     /// filter utiltiy method
 
-    bool MatchText(const vector<tr1::wregex>& patterns, const wstring& text);
+    std::vector<size_t> FilterRange 
+        ( const CLogDlgFilter* filter
+        , size_t first
+        , size_t last);
 
 public:
 	/// De-allocates log items.

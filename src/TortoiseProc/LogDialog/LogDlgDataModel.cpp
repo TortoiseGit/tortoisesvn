@@ -20,6 +20,8 @@
 #include "LogDlgDataModel.h"
 #include "LogDlg.h"
 #include "LogDlgFilter.h"
+#include "ProfilingInfo.h"
+#include "Future.h"
 
 LogEntryData::LogEntryData 
     ( LogEntryData* parent
@@ -99,20 +101,6 @@ void LogEntryData::SetChecked
     ( bool newState)
 {
     checked = newState;
-}
-
-bool CLogDataVector::MatchText(const vector<tr1::wregex>& patterns, const wstring& text)
-{
-	bool bMatched = true;
-	for (vector<tr1::wregex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
-	{
-		if (!regex_search(text, *it, tr1::regex_constants::match_any))
-		{
-			bMatched = false;
-			break;
-		}
-	}
-	return bMatched;
 }
 
 void CLogDataVector::ClearAll()
@@ -356,13 +344,60 @@ bool CLogDataVector::ValidateRegexp (LPCTSTR regexp_str, vector<tr1::wregex>& pa
 	return false;
 }
 
+std::vector<size_t> 
+CLogDataVector::FilterRange 
+    ( const CLogDlgFilter* filter
+    , size_t first
+    , size_t last)
+{
+    std::vector<size_t> result;
+    result.reserve (last - first);
+
+	wstring scratch;
+    for (size_t i = first; i < last; ++i)
+        if (filter->Matches (*inherited::operator[](i), scratch))
+            result.push_back (i);
+
+    return result;
+}
+
 void CLogDataVector::Filter (const CLogDlgFilter& filter) 
 {
-    visible.clear();
+    PROFILE_BLOCK
 
-    for (size_t i=0, count = size(); i < count; ++i)
-        if (filter (*inherited::operator[](i)))
-            visible.push_back (i);
+    size_t count = size();
+
+    visible.clear();
+    visible.reserve (count);
+
+    // run approx. 4 jobs per core / HW thread to even out 
+    // changed commit policies. Don't make the jobs too small, though.
+
+    size_t itemsPerJob 
+        = max ( 1 + count / (4 * async::CJobScheduler::GetSharedThreadCount())
+              , 1000);
+
+    // start jobs
+
+    typedef async::CFuture<vector<size_t> > TFuture;
+    vector<TFuture*> jobs;
+
+    for (size_t i = 0; i < count; i += itemsPerJob)
+        jobs.push_back (new TFuture ( this
+                                    , &CLogDataVector::FilterRange
+                                    , &filter
+                                    , i
+                                    , min (i + itemsPerJob, count)));
+
+    // collect results
+
+    for (size_t i = 0; i < jobs.size(); ++i)
+    {
+        const vector<size_t> result = jobs[i]->GetResult();
+        visible.insert (visible.end(), result.begin(), result.end());
+
+        delete jobs[i];
+    }
 }
 
 void CLogDataVector::Filter (__time64_t from, __time64_t to)
