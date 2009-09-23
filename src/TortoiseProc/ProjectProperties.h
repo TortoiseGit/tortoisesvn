@@ -144,6 +144,14 @@ public:
 	 * Returns the path from which the properties were read.
 	 */
 	CTSVNPath GetPropsPath() {return propsPath;}
+
+	/** replaces bNumer: a regular expression string to check the validity of
+	  * the entered bug ID. */
+    const CString& GetCheckRe() const {return sCheckRe;}
+	
+	/** used to extract the bug ID from the string matched by sCheckRe */
+    const CString& GetBugIDRe() const {return sBugIDRe;}
+
 public:
 	/** The label to show in the commit dialog where the issue number/bug id
 	 * is entered. Example: "Bug-ID: " or "Issue-No.:". Default is "Bug-ID :" */
@@ -157,13 +165,6 @@ public:
 	/** If this is set, then the bug-id / issue number must be a number, no text */
 	BOOL		bNumber;
 
-	/** replaces bNumer: a regular expression string to check the validity of
-	  * the entered bug ID. */
-	CString		sCheckRe;
-	
-	/** used to extract the bug ID from the string matched by sCheckRe */
-	CString		sBugIDRe;
-	
 	/** The url pointing to the issue tracker. If the url contains the string
 	 * "%BUGID% the client has to replace it with the issue number / bug id
 	 * the user entered. */
@@ -247,4 +248,12 @@ private:
 #ifdef DEBUG
 	friend class PropTest;
 #endif
+
+	/** replaces bNumer: a regular expression string to check the validity of
+	  * the entered bug ID. */
+	CString		sCheckRe;
+	
+	/** used to extract the bug ID from the string matched by sCheckRe */
+	CString		sBugIDRe;
+	
 };

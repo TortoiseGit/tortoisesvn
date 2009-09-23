@@ -896,12 +896,14 @@ public:
 		CString sRet = props.FindBugID(_T("This is a test for PAF-88"));
 		ATLASSERT(sRet.IsEmpty());
 		props.sCheckRe = _T("[Ii]ssue #?(\\d+)");
+        props.regExNeedUpdate = true;
 		sRet = props.FindBugID(_T("Testing issue #99"));
 		sRet.Trim();
 		ATLASSERT(sRet.Compare(_T("99"))==0);
 		props.sCheckRe = _T("[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+");
 		props.sBugIDRe = _T("(\\d+)");
 		props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
+        props.regExNeedUpdate = true;
 		sRet = props.FindBugID(_T("This is a test for Issue #7463,#666"));
 		ATLASSERT(props.HasBugID(_T("This is a test for Issue #7463,#666")));
 		ATLASSERT(!props.HasBugID(_T("This is a test for Issue 7463,666")));
@@ -909,11 +911,13 @@ public:
 		ATLASSERT(sRet.Compare(_T("666 7463"))==0);
 		props.sCheckRe = _T("^\\[(\\d+)\\].*");
 		props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
+        props.regExNeedUpdate = true;
 		sRet = props.FindBugID(_T("[000815] some stupid programming error fixed"));
 		sRet.Trim();
 		ATLASSERT(sRet.Compare(_T("000815"))==0);
 		props.sCheckRe = _T("\\[\\[(\\d+)\\]\\]\\]");
 		props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
+        props.regExNeedUpdate = true;
 		sRet = props.FindBugID(_T("test test [[000815]]] some stupid programming error fixed"));
 		sRet.Trim();
 		ATLASSERT(sRet.Compare(_T("000815"))==0);
