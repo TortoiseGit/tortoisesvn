@@ -19,6 +19,10 @@
 #pragma once
 #include "SVN.h"
 
+/// forward declaration
+
+class CLogDlgFilter;
+
 /**
  * \ingroup TortoiseProc
  * Contains the data of one log entry, used in the log dialog
@@ -117,6 +121,56 @@ private:
 
     std::vector<size_t> visible;
 
+    /// structure containing the pre-processed filter spec
+
+    class CFilter
+    {
+    private:
+
+        /// if empty, use sub-string matching
+
+	    vector<tr1::wregex> patterns;
+
+        /// list of sub-strings to find
+
+	    vector<CString> subStrings;
+
+        /// attribute selector 
+        /// (i.e. what members of LogEntryData shall be used for comparison)
+
+        DWORD attributeSelector;
+
+        /// date range to filter for
+
+        __time64_t from;
+        __time64_t to;
+
+        /// test paths only if they are related to the log path
+
+        bool scanRelevantPathsOnly;
+
+        /// revision number that will uncondionally return true
+
+        svn_revnum_t revToKeep;
+
+    public:
+
+        /// construction
+
+        CFilter 
+            ( const CString& filter
+            , bool filterWithRegex
+            , int selectedFilter
+            , __time64_t from
+            , __time64_t to
+            , bool scanRelevantPathsOnly
+            , svn_revnum_t revToKeep);
+
+        /// apply filter
+
+        bool operator() (const LogEntryData& entry);
+    };
+
     /// filter utiltiy method
 
     bool MatchText(const vector<tr1::wregex>& patterns, const wstring& text);
@@ -157,18 +211,8 @@ public:
 
     /// filter support
 
-    void Filter 
-        ( const CString& filter
-        , bool filterWithRegex
-        , int selectedFilter
-        , __time64_t from
-        , __time64_t to
-        , bool scanRelevantPathsOnly
-        , svn_revnum_t revToKeep);
-
-    void Filter 
-        ( __time64_t from
-        , __time64_t to);
+    void Filter (const CLogDlgFilter& filter);
+    void Filter (__time64_t from, __time64_t to);
 
     void ClearFilter();
 

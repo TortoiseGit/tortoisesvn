@@ -53,6 +53,7 @@
 #include "svn_props.h"
 #include "AsyncCall.h"
 #include "svntrace.h"
+#include "LogDlgFilter.h"
 
 #if (NTDDI_VERSION < NTDDI_LONGHORN)
 
@@ -3200,13 +3201,14 @@ void CLogDlg::RecalculateShownList(svn_revnum_t revToKeep)
     // actually filter the data
 
     bool scanRelevantPathsOnly = (m_cHidePaths.GetState() & 0x0003)==BST_CHECKED;
-    m_logEntries.Filter ( m_sFilterText
-                        , m_bFilterWithRegex
-                        , m_nSelectedFilter
-                        , m_tFrom
-                        , m_tTo
-                        , scanRelevantPathsOnly
-                        , revToKeep);
+    CLogDlgFilter filter ( m_sFilterText
+                         , m_bFilterWithRegex
+                         , m_nSelectedFilter
+                         , m_tFrom
+                         , m_tTo
+                         , scanRelevantPathsOnly
+                         , revToKeep);
+    m_logEntries.Filter (filter);
 }
 
 void CLogDlg::OnTimer(UINT_PTR nIDEvent)
