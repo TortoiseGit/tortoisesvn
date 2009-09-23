@@ -1547,11 +1547,11 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 		} // for (i = this->m_nSearchIndex; i<m_logEntries.GetVisibleCount()&&!bFound; i++)
 		if (bFound)
 		{
-			this->m_nSearchIndex = (i+1);
-			m_LogList.EnsureVisible(i, FALSE);
+			m_nSearchIndex = (int)(i+1);
+			m_LogList.EnsureVisible((int)i, FALSE);
 			m_LogList.SetItemState(m_LogList.GetSelectionMark(), 0, LVIS_SELECTED);
-			m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
-			m_LogList.SetSelectionMark(i);
+			m_LogList.SetItemState((int)i, LVIS_SELECTED, LVIS_SELECTED);
+			m_LogList.SetSelectionMark((int)i);
 			FillLogMessageCtrl();
 			UpdateData(FALSE);
 
@@ -2252,7 +2252,7 @@ void CLogDlg::ToggleCheckbox(size_t item)
 			if (pLogEntry)
 			{
 				pLogEntry->SetChecked (!pLogEntry->GetChecked());
-				m_LogList.RedrawItems(item, item);
+				m_LogList.RedrawItems ((int)item, (int)item);
 			}
 		}
 	}
@@ -3477,7 +3477,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
 			for (size_t index = startRow; index<endRow; ++index)
 			{
 				// get the width of the string and add 14 pixels for the column separator and margins
-				int linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText(index, col)) + 14;
+				int linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText((int)index, col)) + 14;
 				if (index < m_logEntries.GetVisibleCount())
 				{
 					PLOGENTRYDATA pCurLogEntry = m_logEntries.GetVisible(index);
@@ -3486,7 +3486,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
 						HFONT hFont = (HFONT)m_LogList.SendMessage(WM_GETFONT);
 						// set the bold font and ask for the string width again
 						m_LogList.SendMessage(WM_SETFONT, (WPARAM)m_boldFont, NULL);
-						linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText(index, col)) + 14;
+						linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText((int)index, col)) + 14;
 						// restore the system font
 						m_LogList.SendMessage(WM_SETFONT, (WPARAM)hFont, NULL);
 					}
