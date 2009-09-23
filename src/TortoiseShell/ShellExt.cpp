@@ -268,7 +268,9 @@ STDMETHODIMP_(ULONG) CShellExt::Release()
 // IPersistFile members
 STDMETHODIMP CShellExt::GetClassID(CLSID *pclsid) 
 {
-    *pclsid = CLSID_TortoiseSVN_UNCONTROLLED;
+    if(pclsid == 0)
+		return E_POINTER;
+	*pclsid = CLSID_TortoiseSVN_UNCONTROLLED;
     return S_OK;
 }
 

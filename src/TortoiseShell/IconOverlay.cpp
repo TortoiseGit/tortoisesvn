@@ -96,12 +96,12 @@ STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 
 STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 {
+	if (pwszPath == NULL)
+		return E_INVALIDARG;
 	PreserveChdir preserveChdir;
 	svn_wc_status_kind status = svn_wc_status_none;
 	bool readonlyoverlay = false;
 	bool lockedoverlay = false;
-	if (pwszPath == NULL)
-		return S_FALSE;
 	const TCHAR* pPath = pwszPath;
 
 	// the shell sometimes asks overlays for invalid paths, e.g. for network
