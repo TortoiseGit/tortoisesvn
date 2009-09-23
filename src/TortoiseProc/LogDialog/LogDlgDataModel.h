@@ -218,8 +218,4 @@ public:
     void Filter (__time64_t from, __time64_t to);
 
     void ClearFilter();
-
-    static bool ValidateRegexp 
-        ( LPCTSTR regexp_str
-        , vector<tr1::wregex>& patterns);
 };

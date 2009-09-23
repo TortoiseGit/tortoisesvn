@@ -64,6 +64,12 @@ private:
 
     bool Match (wstring& text) const;
 
+    /// called to parse a (potentially incorrect) regex spec
+
+    bool ValidateRegexp 
+        ( LPCTSTR regexp_str
+        , vector<tr1::wregex>& patterns);
+
 public:
 
     /// construction

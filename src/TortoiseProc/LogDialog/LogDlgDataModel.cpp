@@ -330,20 +330,6 @@ void CLogDataVector::Sort (CLogDataVector::SortColumn column, bool ascending)
 	}
 }
 
-bool CLogDataVector::ValidateRegexp (LPCTSTR regexp_str, vector<tr1::wregex>& patterns)
-{
-	try
-	{
-		tr1::wregex pat;
-		tr1::regex_constants::syntax_option_type type = tr1::regex_constants::ECMAScript | tr1::regex_constants::icase;
-		pat = tr1::wregex(regexp_str, type);
-		patterns.push_back(pat);
-		return true;
-	}
-	catch (exception) {}
-	return false;
-}
-
 std::vector<size_t> 
 CLogDataVector::FilterRange 
     ( const CLogDlgFilter* filter

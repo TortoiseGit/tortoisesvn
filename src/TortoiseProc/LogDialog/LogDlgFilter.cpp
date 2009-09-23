@@ -20,6 +20,8 @@
 #include "LogDlgFilter.h"
 #include "LogDlg.h"
 
+// filter utiltiy method
+
 bool CLogDlgFilter::Match (wstring& text) const
 {
     if (patterns.empty())
@@ -40,6 +42,24 @@ bool CLogDlgFilter::Match (wstring& text) const
 
     return true;
 }
+
+// called to parse a (potentially incorrect) regex spec
+
+bool CLogDlgFilter::ValidateRegexp (LPCTSTR regexp_str, vector<tr1::wregex>& patterns)
+{
+	try
+	{
+		tr1::wregex pat;
+		tr1::regex_constants::syntax_option_type type = tr1::regex_constants::ECMAScript | tr1::regex_constants::icase;
+		pat = tr1::wregex(regexp_str, type);
+		patterns.push_back(pat);
+		return true;
+	}
+	catch (exception) {}
+	return false;
+}
+
+// construction
 
 CLogDlgFilter::CLogDlgFilter 
     ( const CString& filter
@@ -72,7 +92,7 @@ CLogDlgFilter::CLogDlgFilter
 	}
 
 	if (useRegex)
-        useRegex = CLogDataVector::ValidateRegexp (sFilterText, patterns);
+        useRegex = ValidateRegexp (sFilterText, patterns);
 
 	if (!useRegex)
 	{
@@ -89,6 +109,8 @@ CLogDlgFilter::CLogDlgFilter
 		}
 	}
 }
+
+ // apply filter
 
 namespace
 {
