@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-09-13 21:14-0300\n"
+"PO-Revision-Date: 2009-09-22 21:59-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2417,7 +2417,7 @@ msgstr "Submeter - TortoiseSVN"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
-msgstr "Submeter a:"
+msgstr "Submeter para:"
 
 #. Resource IDs: (209)
 msgid "Commit..."
@@ -7130,6 +7130,10 @@ msgstr "Procurar:"
 msgid "Search string not found!"
 msgstr "Texto procurado não encontrado!"
 
+#. Resource IDs: (169)
+msgid "Searching for better path to apply patch..."
+msgstr "Procurando pelo melhor caminho para aplicar a correção..."
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Seek failed on %1"
@@ -9341,7 +9345,7 @@ msgstr "Informação de Versão"
 
 #. Resource IDs: (264)
 msgid "Versioned"
-msgstr "Com controle de versão"
+msgstr "Versionado"
 
 #. Resource IDs: (65535)
 msgid "View"
@@ -10163,6 +10167,10 @@ msgstr "revisões:"
 msgid "root project"
 msgstr "projeto raiz:"
 
+#. Resource IDs: (169)
+msgid "scanning path:"
+msgstr "verificando caminho:"
+
 #. Resource IDs: (65535)
 msgid "skip ranges: "
 msgstr "intervalos omitidos:"
@@ -10549,8 +10557,6 @@ msgstr "{BugTraq}"
 #~ msgstr "Remover..."
 #~ msgid "Use &magnifier on locatorbar"
 #~ msgstr "Usar lente de au&mento na barra de localização"
-#~ msgid "cleaning up"
-#~ msgstr "Limpando"
 #~ msgid "%1 contains an invalid path."
 #~ msgstr "%1 contém um caminho inválido."
 #~ msgid "&Berkeley database (BDB)"
