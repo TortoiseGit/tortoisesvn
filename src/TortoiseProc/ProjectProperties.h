@@ -237,7 +237,7 @@ private:
     /**
      * Constructing rexex objects is expensive. Therefore, cache them here.
      */
-    void AutoUpdateRegEx();
+    void AutoUpdateRegex();
 
     bool regExNeedUpdate;
     tr1::wregex regCheck;
