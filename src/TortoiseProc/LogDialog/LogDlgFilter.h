@@ -81,5 +81,10 @@ public:
 
     bool Matches (const LogEntryData& entry, wstring& scratch) const;
     bool operator() (const LogEntryData& entry) const;
+
+    /// tr1::regex is very slow when running concurrently 
+    /// in multiple threads. Empty filters don't need MT as well.
+
+    bool BenefitsFromMT() const;
 };
 

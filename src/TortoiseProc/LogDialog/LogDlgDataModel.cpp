@@ -363,40 +363,47 @@ CLogDataVector::FilterRange
 
 void CLogDataVector::Filter (const CLogDlgFilter& filter) 
 {
-    PROFILE_BLOCK
-
     size_t count = size();
 
     visible.clear();
     visible.reserve (count);
 
-    // run approx. 4 jobs per core / HW thread to even out 
-    // changed commit policies. Don't make the jobs too small, though.
-
-    size_t itemsPerJob 
-        = max ( 1 + count / (4 * async::CJobScheduler::GetSharedThreadCount())
-              , 1000);
-
-    // start jobs
-
-    typedef async::CFuture<vector<size_t> > TFuture;
-    vector<TFuture*> jobs;
-
-    for (size_t i = 0; i < count; i += itemsPerJob)
-        jobs.push_back (new TFuture ( this
-                                    , &CLogDataVector::FilterRange
-                                    , &filter
-                                    , i
-                                    , min (i + itemsPerJob, count)));
-
-    // collect results
-
-    for (size_t i = 0; i < jobs.size(); ++i)
+    if (filter.BenefitsFromMT())
     {
-        const vector<size_t> result = jobs[i]->GetResult();
-        visible.insert (visible.end(), result.begin(), result.end());
+        // run approx. 4 jobs per core / HW thread to even out 
+        // changed commit policies. Don't make the jobs too small, though.
 
-        delete jobs[i];
+        size_t itemsPerJob 
+            = max ( 1 + count / (4 * async::CJobScheduler::GetSharedThreadCount())
+                  , 1000);
+
+        // start jobs
+
+        typedef async::CFuture<vector<size_t> > TFuture;
+        vector<TFuture*> jobs;
+
+        for (size_t i = 0; i < count; i += itemsPerJob)
+            jobs.push_back (new TFuture ( this
+                                        , &CLogDataVector::FilterRange
+                                        , &filter
+                                        , i
+                                        , min (i + itemsPerJob, count)));
+
+        // collect results
+
+        for (size_t i = 0; i < jobs.size(); ++i)
+        {
+            const vector<size_t> result = jobs[i]->GetResult();
+            visible.insert (visible.end(), result.begin(), result.end());
+
+            delete jobs[i];
+        }
+    }
+    else
+    {
+        // execute in this thread directly
+
+        visible = FilterRange (&filter, 0, count);
     }
 }
 

@@ -163,4 +163,11 @@ bool CLogDlgFilter::operator() (const LogEntryData& entry) const
     return Matches (entry, scratch); 
 }
 
+// tr1::regex is very slow when running concurrently 
+// in multiple threads. Empty filters don't need MT as well.
+
+bool CLogDlgFilter::BenefitsFromMT() const
+{
+    return patterns.empty() && !subStrings.empty();
+}
 
