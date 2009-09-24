@@ -43,11 +43,6 @@ public:
 	SVNRev GetCopyFromRev(CTSVNPath url, SVNRev pegrev, CString& copyfromURL);
 
 	/**
-	 * Retrieves the log messages and authors of the specified revision range
-	 */
-	bool GetLogMessagesAndAuthors(CTSVNPath url, SVNRev start, SVNRev end, SVNRev pegrev);
-
-	/**
 	 * Sets the repository root if it is already known. If it is not set here,
 	 * the methods of this class will retrieve the repository root themselves.
 	 */

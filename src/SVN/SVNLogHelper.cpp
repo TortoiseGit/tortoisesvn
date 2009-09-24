@@ -45,7 +45,7 @@ SVNRev SVNLogHelper::GetCopyFromRev(CTSVNPath url, SVNRev pegrev, CString& copyf
 	if (m_reposroot.IsEmpty())
 		m_reposroot = GetRepositoryRoot(url);
 	m_relativeurl = url.GetSVNPathString().Mid(m_reposroot.GetLength());
-	if (ReceiveLog (CTSVNPathList(url), pegrev, SVNRev::REV_HEAD, 1, 0, TRUE, FALSE, true))
+	if (NULL != ReceiveLog (CTSVNPathList(url), pegrev, SVNRev::REV_HEAD, 1, 0, TRUE, FALSE, true).get())
 	{
 		rev = m_rev;
 		copyfromURL = m_copyfromurl;
@@ -53,9 +53,3 @@ SVNRev SVNLogHelper::GetCopyFromRev(CTSVNPath url, SVNRev pegrev, CString& copyf
 	return rev;
 }
 
-bool SVNLogHelper::GetLogMessagesAndAuthors(CTSVNPath url, SVNRev start, SVNRev end, SVNRev pegrev)
-{
-	messages.clear();
-	authors.clear();
-	return !!ReceiveLog(CTSVNPathList(url), pegrev, start, end, 0, FALSE, FALSE, true);
-}

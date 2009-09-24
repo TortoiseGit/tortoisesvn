@@ -28,6 +28,7 @@
 
 #include "ILogReceiver.h"
 #include "LogCachePool.h"
+#include "CacheLogQuery.h"
 
 class CProgressDlg;
 class CTSVNPath;
@@ -587,9 +588,11 @@ public:
 	 * \param refresh fetch data from repository even if log caching
      *        is enabled. Merge the result with the existing caches.
      *        Ignored if log caching has been disabled.
-	 * \return TRUE if successful
+	 * \return pointer to the query run (and thus the resulting data),
+     *        if successful. NULL, otherwise.
 	 */
-	bool ReceiveLog(const CTSVNPathList& pathlist, const SVNRev& revisionPeg, const SVNRev& revisionStart, 
+    std::auto_ptr<const CCacheLogQuery>
+	ReceiveLog(const CTSVNPathList& pathlist, const SVNRev& revisionPeg, const SVNRev& revisionStart, 
 		const SVNRev& revisionEnd, int limit, bool strict, bool withMerges, bool refresh);
 
 	/**

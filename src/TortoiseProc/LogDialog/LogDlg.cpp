@@ -1124,15 +1124,18 @@ void CLogDlg::LogThread()
     m_lowestRev = -1;
     m_bStrictStopped = false;
 
+    std::auto_ptr<const CCacheLogQuery> cachedData;
     if (succeeded)
     {
-        succeeded = ReceiveLog (CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, refresh);
-        if ((!succeeded)&&(!m_path.IsUrl()))
+        cachedData = ReceiveLog (CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, refresh);
+        if ((cachedData.get() == NULL)&&(!m_path.IsUrl()))
         {
 	        // try again with REV_WC as the start revision, just in case the path doesn't
 	        // exist anymore in HEAD
-	        succeeded = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, refresh);
+	        cachedData = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, refresh);
         }
+
+        succeeded = cachedData.get() != NULL;
     }
 	m_LogList.ClearText();
     if (!succeeded)

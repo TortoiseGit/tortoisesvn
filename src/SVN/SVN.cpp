@@ -1432,9 +1432,10 @@ LogCache::CCachedLogInfo* SVN::GetLogCache (const CTSVNPath& path)
     return GetLogCachePool()->GetCache (uuid, root);
 }
 
-bool SVN::ReceiveLog(const CTSVNPathList& pathlist, const SVNRev& revisionPeg, 
-					 const SVNRev& revisionStart, const SVNRev& revisionEnd, 
-					 int limit, bool strict, bool withMerges, bool refresh)
+std::auto_ptr<const CCacheLogQuery> 
+SVN::ReceiveLog (const CTSVNPathList& pathlist, const SVNRev& revisionPeg, 
+				 const SVNRev& revisionStart, const SVNRev& revisionEnd, 
+				 int limit, bool strict, bool withMerges, bool refresh)
 {
 	svn_error_clear(Err);
 	Err = NULL;
@@ -1442,14 +1443,26 @@ bool SVN::ReceiveLog(const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
 	{
 		SVNPool localpool(pool);
 
-        CSVNLogQuery svnQuery (m_pctx, localpool);
-		CCacheLogQuery cacheQuery (GetLogCachePool(), &svnQuery);
-		CCacheLogQuery refreshQuery (*this, &svnQuery);
+        // query used internally to contact the repository if necessary
 
-		ILogQuery* query = logCachePool->IsEnabled()
-						 ? refresh ? static_cast<ILogQuery*>(&refreshQuery)
-                                   : static_cast<ILogQuery*>(&cacheQuery)
-						 : static_cast<ILogQuery*>(&svnQuery);
+        CSVNLogQuery svnQuery (m_pctx, localpool);
+
+        // cached-based queries. 
+        // Use & update exisiting cache
+
+		std::auto_ptr<CCacheLogQuery> cacheQuery 
+            (new CCacheLogQuery (GetLogCachePool(), &svnQuery));
+
+        // run query through SVN but collect results in a temporary cache
+
+		std::auto_ptr<CCacheLogQuery> tempQuery 
+            (new CCacheLogQuery (*this, &svnQuery));
+
+        // select query and run it
+
+		ILogQuery* query = !logCachePool->IsEnabled() || refresh
+						 ? tempQuery.get()
+                         : cacheQuery.get();
 
 		query->Log ( pathlist
 				   , revisionPeg
@@ -1464,13 +1477,15 @@ bool SVN::ReceiveLog(const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
                    , false
                    , TRevPropNames());
 
+        // merge temp results with permanent cache, if applicable
+
         if (refresh && logCachePool->IsEnabled())
         {
             // handle cache refresh results
 
-            if (refreshQuery.GotAnyData())
+            if (tempQuery->GotAnyData())
             {
-                refreshQuery.UpdateCache (GetLogCachePool());
+                tempQuery->UpdateCache (GetLogCachePool());
             }
             else
             {
@@ -1483,14 +1498,19 @@ bool SVN::ReceiveLog(const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
                                   , false);
             }
         }
+
+        // return the cache that contains the log info
+
+	    return std::auto_ptr<const CCacheLogQuery>
+            (logCachePool->IsEnabled() 
+                ? cacheQuery.release() 
+                : tempQuery.release() );
 	}
 	catch (SVNError& e)
 	{
 		Err = svn_error_create (e.GetCode(), NULL, e.GetMessage());
-		return false;
+		return std::auto_ptr<const CCacheLogQuery>();
 	}
-
-	return true;
 }
 
 bool SVN::Cat(const CTSVNPath& url, const SVNRev& pegrevision, const SVNRev& revision, const CTSVNPath& localpath)

@@ -180,8 +180,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 			logfile.Empty();
 			return m_sSavePath;
 		}
-		BOOL bRet = ReceiveLog(CTSVNPathList(path), pegrev, m_nHeadRev, m_lowestrev, 0, FALSE, m_bHasMerges, false);
-		if (!bRet)
+		if (NULL == ReceiveLog (CTSVNPathList(path), pegrev, m_nHeadRev, m_lowestrev, 0, FALSE, m_bHasMerges, false).get())
 		{
 			m_saveLog.Close();
 			DeleteFile(logfile);
