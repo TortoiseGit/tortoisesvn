@@ -1148,9 +1148,9 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex)
 	if (hFile != INVALID_HANDLE_VALUE)
 	{
 		DWORD size = GetFileSize(hFile, NULL);
-		if (size > 1000000L)
+		if (size > 300000L)
 		{
-			// no files bigger than 1 Meg
+			// no files bigger than 300k
 			CloseHandle(hFile);
 			return;
 		}
