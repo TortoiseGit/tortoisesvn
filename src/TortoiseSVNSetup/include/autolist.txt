@@ -7,8 +7,8 @@
 .php = ^\s*class\s+(\w+)|^\s*(?:(?:public|private)?\s+function)\s+(\w+)|::(\w+)|->(\w+)
 .vb, .vb6 = (?:class|function|sub)\s+(\w+)(?:\s*(?:[\(\']|$))
 .bas, .frm, .cls = ^\s*(?:(?:Public (?:Default )?|Private )?(?:Sub|Function|Property Get|Property Set|Property Let) ?)(\w+)\(|^Attribute VB_Name = "(\w+)"
-.cs, .asp, .aspx = (?:public|protected|private|internal)\s+(?:[\w\d_\.]+\s+)*([\w\d_\.]+)
-.java = (?:public|protected|private|internal)\s+(?:[\w\d_\.]+\s+)*([\w\d_\.]+)|class\s+([\w_]+)(?:(?:\s+)?(?:extends|implements)(?:\s+)?([\w_]+)?)
+.cs, .asp, .aspx = (?:public|protected|private|internal)\s+(?:[\w\.]+\s+)*([\w\.]+)
+.java = (?:public|protected|private|internal)\s+(?:[\w\.]+\s+)*([\w\.]+)|class\s+([\w_]+)(?:(?:\s+)?(?:extends|implements)(?:\s+)?([\w_]+)?)
 .cbl, .cpy = ^.{6} ([A-Z][A-Z0-9-]*)(?: SECTION)?\.
 .au3, .auh = Func\s+([\w_]+)|\$([\w_]+)
 .asm = ^([\w]+) *
