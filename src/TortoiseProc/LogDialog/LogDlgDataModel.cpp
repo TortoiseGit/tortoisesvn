@@ -105,12 +105,13 @@ void LogEntryData::SetChecked
 
 void CLogDataVector::ClearAll()
 {
-	if(size() > 0)
+	if (size() > 0)
 	{
 		for(iterator it=begin(); it!=end(); ++it)
 			delete *it;
 
         clear();
+        visible.clear();
 	}
 }
 
