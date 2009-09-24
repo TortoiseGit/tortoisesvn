@@ -213,14 +213,12 @@ private:
 	SVNRevRangeArray	m_selectedRevs;
 	SVNRevRangeArray	m_selectedRevsOneRange;
 	bool				m_bSelectionMustBeContinuous;
-	long				m_logcounter;
 	bool				m_bCancelled;
 	volatile LONG 		m_bLogThreadRunning;
 	volatile LONG 		m_bStatusThreadRunning;
 	BOOL				m_bStrict;
 	bool				m_bStrictStopped;
 	BOOL				m_bIncludeMerges;
-	svn_revnum_t		m_lowestRev;
 	BOOL				m_bSaveStrict;
 
     bool                m_bSingleRevision;
@@ -244,10 +242,9 @@ private:
 	volatile LONG		m_bNoDispUpdates;
 	CDateTimeCtrl		m_DateFrom;
 	CDateTimeCtrl		m_DateTo;
-	DWORD				m_tFrom;
-	DWORD				m_tTo;
+	__time64_t			m_tFrom;
+	__time64_t			m_tTo;
 	int					m_limit;
-	int					m_limitcounter;
 	int                 m_nSortColumn;
 	bool                m_bAscending;
 	static int			m_nSortColumnPathList;
@@ -274,16 +271,11 @@ private:
 	HICON				m_hDeletedIcon;
 	int					m_nIconFolder;
 
-
-	DWORD				m_maxChild;
 	HACCEL				m_hAccel;
 
 	CStoreSelection*	m_pStoreSelection;
     CLogDataVector		m_logEntries;
 
-    /// used temporarily when fetching logs with merge info
-    std::vector<PLOGENTRYDATA>	m_logParents;   
-	
 	CXPTheme			theme;
 
 	async::CJobScheduler netScheduler;

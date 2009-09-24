@@ -120,7 +120,6 @@ enum LogDlgContextMenuCommands
 IMPLEMENT_DYNAMIC(CLogDlg, CResizableStandAloneDialog)
 CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CLogDlg::IDD, pParent)
-	, m_logcounter(0)
 	, m_nSearchIndex(0)
 	, m_wParam(0)
 	, m_nSelectedFilter(LOGFILTER_ALL)
@@ -132,7 +131,6 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_regMaxBugIDColWidth(_T("Software\\TortoiseSVN\\MaxBugIDColWidth"), 200)
 	, m_bSelectionMustBeContinuous(false)
 	, m_bShowBugtraqColumn(false)
-	, m_lowestRev(-1)
 	, m_bStrictStopped(false)
     , m_bSingleRevision(true)
 	, m_sLogInfo(_T(""))
@@ -144,7 +142,6 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_bAscending(FALSE)
 	, m_pStoreSelection(NULL)
 	, m_limit(0)
-	, m_maxChild(0)
 	, m_bIncludeMerges(FALSE)
 	, m_hAccel(NULL)
 	, netScheduler(1, 0, true, true)
@@ -374,8 +371,6 @@ BOOL CLogDlg::OnInitDialog()
 
 
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
-
-	m_logcounter = 0;
 	m_sMessageBuf.Preallocate(100000);
 
 	// set the dialog title to "Log - path/to/whatever/we/show/the/log/for"
@@ -499,8 +494,6 @@ BOOL CLogDlg::OnInitDialog()
 
 	// first start a thread to obtain the log messages without
 	// blocking the dialog
-	m_tTo = 0;
-	m_tFrom = (DWORD)-1;
 	InterlockedExchange(&m_bLogThreadRunning, TRUE);
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 
@@ -737,10 +730,7 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 	m_LogList.DeleteAllItems();
 	m_logEntries.ClearAll();
 
-	m_logcounter = 0;
 	m_bCancelled = FALSE;
-	m_tTo = 0;
-	m_tFrom = (DWORD)-1;
 	m_limit = 0;
 
 	InterlockedExchange(&m_bLogThreadRunning, TRUE);
@@ -759,8 +749,6 @@ void CLogDlg::Refresh (bool autoGoOnline)
 {
 	// refreshing means re-downloading the already shown log messages
 	UpdateData();
-	m_maxChild = 0;
-
 	if ((m_limit == 0)||(m_bStrict)||(int(m_logEntries.size()-1) > m_limit))
 	{
 		if (m_logEntries.size() != 0)
@@ -916,53 +904,40 @@ void CLogDlg::OnCancel()
 
 BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, BOOL haschildren)
 {
-	if (rev == SVN_INVALID_REVNUM)
-	{
-        m_logParents.pop_back();
-		return TRUE;
-	}
 	// this is the callback function which receives the data for every revision we ask the log for
 	// we store this information here one by one.
-	m_logcounter += 1;
-	if (m_startrev == -1)
+
+	__time64_t ttime = time / 1000000L;
+    m_logEntries.Add ( rev
+                     , ttime
+                     , date
+                     , author
+                     , message
+                     , &m_ProjectProperties
+                     , cpaths
+                     , m_sSelfRelativeURL
+                     , haschildren != FALSE);
+
+    // end of child list
+
+	if (rev == SVN_INVALID_REVNUM)
+		return TRUE;
+
+    // update progress
+
+    if (m_startrev == -1)
 		m_startrev = rev;
-	if (m_limit != 0)
+
+    if (m_limit != 0)
 	{
-		m_limitcounter--;
-		m_LogProgress.SetPos(m_limit - m_limitcounter);
+        m_LogProgress.SetPos ((int)m_logEntries.size());
 	}
 	else if (m_startrev.IsNumber() && m_endrev.IsNumber())
+    {
 		m_LogProgress.SetPos((svn_revnum_t)m_startrev-rev+(svn_revnum_t)m_endrev);
-	__time64_t ttime = time/1000000L;
-	if (m_tTo < (DWORD)ttime)
-		m_tTo = (DWORD)ttime;
-	if (m_tFrom > (DWORD)ttime)
-		m_tFrom = (DWORD)ttime;
-	if ((m_lowestRev > rev)||(m_lowestRev < 0))
-		m_lowestRev = rev;
+    }
 
-	// Add as many characters from the log message to the list control
-
-    PLOGENTRYDATA pLogItem 
-        = new LogEntryData
-            ( m_logParents.empty() ? NULL : m_logParents.back()
-            , rev
-            , ttime
-            , date
-            , author
-            , message
-            , &m_ProjectProperties
-            , new LogChangedPathArray (*cpaths)
-            , m_sSelfRelativeURL
-            );
-
-    cpaths->RemoveAll();
-    m_maxChild = max (pLogItem->GetChildStackDepth(), m_maxChild);
-
-	if (haschildren)
-        m_logParents.push_back (pLogItem);
-	
-	m_logEntries.Add(pLogItem);
+    // clean-up
 
 	return TRUE;
 }
@@ -1111,17 +1086,13 @@ void CLogDlg::LogThread()
 
     m_LogProgress.SetPos(1);
     if (m_limit != 0)
-    {
-	    m_limitcounter = m_limit;
 	    m_LogProgress.SetRange32(0, m_limit);
-    }
     else
 	    m_LogProgress.SetRange32(m_endrev, m_startrev);
 	
     if (!m_pegrev.IsValid())
 	    m_pegrev = m_startrev;
     size_t startcount = m_logEntries.size();
-    m_lowestRev = -1;
     m_bStrictStopped = false;
 
     std::auto_ptr<const CCacheLogQuery> cachedData;
@@ -1145,12 +1116,20 @@ void CLogDlg::LogThread()
 		FillLogMessageCtrl(false);
 	}
 
-	if (m_bStrict && (m_lowestRev>1) && ((m_limit>0) ? ((startcount + m_limit)>m_logEntries.size()) : (m_endrev<m_lowestRev)))
+	if (   m_bStrict 
+        && (m_logEntries.GetMinRevision() > 1) 
+        && (m_limit > 0
+               ? (startcount + m_limit > m_logEntries.size()) 
+               : (m_endrev < m_logEntries.GetMinRevision())))
+    {
 		m_bStrictStopped = true;
+    }
 	m_LogList.SetItemCountEx(ShownCountWithStopped());
 
-	m_timFrom = (__time64_t(m_tFrom));
-	m_timTo = (__time64_t(m_tTo));
+    m_tFrom = m_logEntries.GetMinDate();
+	m_tTo = m_logEntries.GetMaxDate();
+    m_timFrom = m_tFrom;
+	m_timTo = m_tTo;
 	m_DateFrom.SetRange(&m_timFrom, &m_timTo);
 	m_DateTo.SetRange(&m_timFrom, &m_timTo);
 	m_DateFrom.SetTime(&m_timFrom);
@@ -2384,7 +2363,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 								{
 									// insert the data
                                     m_logEntries.Sort(CLogDataVector::RevisionCol, false);
-                                    m_logEntries.AddSorted (pLogItem);
+                                    m_logEntries.AddSorted (pLogItem, &m_ProjectProperties);
 
 									int selMark = m_LogList.GetSelectionMark();
 									// now start filter the log list
@@ -2527,7 +2506,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					}
                     if (data->GetChangedPaths().ContainsCopies())
 						crText = m_Colors.GetColor(CColors::Modified);
-					if ((data->GetChildStackDepth())||(m_mergedRevs.find(data->GetRevision()) != m_mergedRevs.end()))
+					if ((data->GetDepth())||(m_mergedRevs.find(data->GetRevision()) != m_mergedRevs.end()))
 						crText = GetSysColor(COLOR_GRAYTEXT);
 					if (data->GetRevision() == m_wcRev)
 					{
@@ -2892,8 +2871,8 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 
 	// reset the time filter too
-	m_timFrom = (__time64_t(m_tFrom));
-	m_timTo = (__time64_t(m_tTo));
+    m_timFrom = m_logEntries.GetMinDate();
+	m_timTo = m_logEntries.GetMaxDate();
 	m_DateFrom.SetTime(&m_timFrom);
 	m_DateTo.SetTime(&m_timTo);
 	m_DateFrom.SetRange(&m_timFrom, &m_timTo);
@@ -2999,7 +2978,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				// to make the child entries indented, add spaces
 				size_t len = _tcslen(pItem->pszText);
 				TCHAR * pBuf = pItem->pszText + len;
-				DWORD nSpaces = m_maxChild-pLogEntry->GetChildStackDepth();
+				DWORD nSpaces = m_logEntries.GetMaxDepth() - pLogEntry->GetDepth();
 				while ((pItem->cchTextMax >= (int)len)&&(nSpaces))
 				{
 					*pBuf = ' ';

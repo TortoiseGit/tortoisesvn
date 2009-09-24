@@ -103,6 +103,19 @@ void LogEntryData::SetChecked
     checked = newState;
 }
 
+// construction
+
+CLogDataVector::CLogDataVector()
+    : maxDepth (0)
+    , maxDate (0)
+    , minDate (LLONG_MAX)
+    , minRevision (INT_MAX)
+    , maxRevision (-1)
+{
+}
+
+// De-allocates log items.
+
 void CLogDataVector::ClearAll()
 {
 	if (size() > 0)
@@ -112,18 +125,75 @@ void CLogDataVector::ClearAll()
 
         clear();
         visible.clear();
+        logParents.clear();
+
+        maxDepth = 0;
+        maxDate = 0;
+        minDate = LLONG_MAX;
+        maxRevision = -1;
+        minRevision = INT_MAX;
 	}
 }
 
 // add items
 
-void CLogDataVector::Add (PLOGENTRYDATA item)
+void CLogDataVector::Add ( svn_revnum_t revision
+                         , __time64_t tmDate
+                         , const CString& date
+                         , const CString& author
+                         , const CString& message
+                         , ProjectProperties* projectProperties
+                         , LogChangedPathArray* changedPaths
+                         , CString& selfRelativeURL
+                         , bool childrenFollow)
 {
+    // end of child list?
+
+	if (revision == SVN_INVALID_REVNUM)
+    {
+        logParents.pop_back();
+        return;
+    }
+
+    // add ordinary entry
+
+    LogEntryData* item
+        = new LogEntryData
+            ( logParents.empty() ? NULL : logParents.back()
+            , revision
+            , tmDate
+            , date
+            , author
+            , message
+            , projectProperties
+            , new LogChangedPathArray (*changedPaths)
+            , selfRelativeURL
+            );
+
+    changedPaths->RemoveAll();
+
     visible.push_back (size());
     push_back (item);
+
+    // update min / max values
+
+    maxDepth = max (maxDepth, item->GetDepth());
+
+    maxDate = max (maxDate, tmDate);
+    minDate = min (minDate, tmDate);
+
+    minRevision = min (minRevision, revision);
+    minRevision = max (minRevision, revision);
+
+    // update parent info
+
+    if (childrenFollow)
+        logParents.push_back (item);
 }
 
-void CLogDataVector::AddSorted (PLOGENTRYDATA item)
+void CLogDataVector::AddSorted 
+    ( PLOGENTRYDATA item
+    , ProjectProperties* projectProperties)
 {
     svn_revnum_t revision = item->GetRevision();
 	for (iterator iter = begin(), last = end(); iter != last; ++iter)
@@ -139,11 +209,25 @@ void CLogDataVector::AddSorted (PLOGENTRYDATA item)
         {
     		insert (iter, item);
             visible.clear();
+
             return;
         }
 	}
 
-    Add (item);
+    // append entry
+
+    CString dummy;
+
+    LogChangedPathArray temp (item->GetChangedPaths());
+    Add ( item->GetRevision()
+        , item->GetDate()
+        , item->GetDateString()
+        , item->GetAuthor()
+        , item->GetMessage()
+        , projectProperties
+        , &temp
+        , dummy
+        , false);
 }
 
 void CLogDataVector::RemoveLast()
@@ -207,13 +291,13 @@ private:
 
         // find the closed pair of parents that is related
 
-        assert ((pStart->GetChildStackDepth() == 0) || (pStart->GetParent() != NULL));
-        assert ((pEnd->GetChildStackDepth() == 0) || (pEnd->GetParent() != NULL));
+        assert ((pStart->GetDepth() == 0) || (pStart->GetParent() != NULL));
+        assert ((pEnd->GetDepth() == 0) || (pEnd->GetParent() != NULL));
 
-        if (pStart->GetChildStackDepth() == pEnd->GetChildStackDepth())
+        if (pStart->GetDepth() == pEnd->GetDepth())
             return InternalCompare (pStart->GetParent(), pEnd->GetParent());
 
-        if (pStart->GetChildStackDepth() < pEnd->GetChildStackDepth())
+        if (pStart->GetDepth() < pEnd->GetDepth())
             return InternalCompare (pStart, pEnd->GetParent());
         else
             return InternalCompare (pStart->GetParent(), pEnd);

@@ -88,7 +88,7 @@ public:
     LogEntryData* GetParent() {return parent;}
     const LogEntryData* GetParent() const {return parent;}
     bool HasChildren() const {return hasChildren;}
-    DWORD GetChildStackDepth() const {return childStackDepth;}
+    DWORD GetDepth() const {return childStackDepth;}
 
     svn_revnum_t GetRevision() const {return Rev;}
     __time64_t GetDate() const {return tmDate;}
@@ -121,56 +121,20 @@ private:
 
     std::vector<size_t> visible;
 
-    /// structure containing the pre-processed filter spec
+    /// max of LogEntryData::GetDepth
 
-    class CFilter
-    {
-    private:
+	DWORD maxDepth;
 
-        /// if empty, use sub-string matching
+	__time64_t minDate;
+	__time64_t maxDate;
 
-	    vector<tr1::wregex> patterns;
+    svn_revnum_t minRevision;
+    svn_revnum_t maxRevision;
 
-        /// list of sub-strings to find
+    /// used temporarily when fetching logs with merge info
 
-	    vector<CString> subStrings;
-
-        /// attribute selector 
-        /// (i.e. what members of LogEntryData shall be used for comparison)
-
-        DWORD attributeSelector;
-
-        /// date range to filter for
-
-        __time64_t from;
-        __time64_t to;
-
-        /// test paths only if they are related to the log path
-
-        bool scanRelevantPathsOnly;
-
-        /// revision number that will uncondionally return true
-
-        svn_revnum_t revToKeep;
-
-    public:
-
-        /// construction
-
-        CFilter 
-            ( const CString& filter
-            , bool filterWithRegex
-            , int selectedFilter
-            , __time64_t from
-            , __time64_t to
-            , bool scanRelevantPathsOnly
-            , svn_revnum_t revToKeep);
-
-        /// apply filter
-
-        bool operator() (const LogEntryData& entry);
-    };
-
+    std::vector<PLOGENTRYDATA> logParents;   
+	
     /// filter utiltiy method
 
     std::vector<size_t> FilterRange 
@@ -179,19 +143,41 @@ private:
         , size_t last);
 
 public:
+
+    /// construction
+
+    CLogDataVector();
+
 	/// De-allocates log items.
+
 	void ClearAll();
 
     /// add / remove items
 
-    void Add (PLOGENTRYDATA item);
-    void AddSorted (PLOGENTRYDATA item);
+    void Add ( svn_revnum_t revision
+             , __time64_t tmDate
+             , const CString& date
+             , const CString& author
+             , const CString& message
+             , ProjectProperties* projectProperties
+             , LogChangedPathArray* changedPaths
+             , CString& selfRelativeURL
+             , bool childrenFollow);
+
+    void AddSorted ( PLOGENTRYDATA item
+                   , ProjectProperties* projectProperties);
     void RemoveLast();
 
     /// access to unfilered info
 
     size_t size() const {return inherited::size();}
     PLOGENTRYDATA operator[](size_t index) const {return at (index);}
+
+    DWORD GetMaxDepth() const {return maxDepth;}
+    __time64_t GetMinDate() const {return minDate;}
+	__time64_t GetMaxDate() const {return maxDate;}
+    svn_revnum_t GetMinRevision() const {return minRevision;}
+    svn_revnum_t GetMaxRevision() const {return maxRevision;}
 
     /// access to the filtered info
 
