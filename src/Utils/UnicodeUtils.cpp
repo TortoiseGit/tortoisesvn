@@ -150,7 +150,7 @@ CString CUnicodeUtils::UTF8ToUTF16 (const std::string& string)
         while (c != 0);
     }
 
-    return CString (result, target - result);
+    return CString (result, static_cast<int>(target - result));
 }
 
 CStringA CUnicodeUtils::ConvertWCHARStringToUTF8(const CString& string)
