@@ -653,15 +653,18 @@ std::set<CString> ProjectProperties::FindBugIDs(const CString& msg)
 CString ProjectProperties::FindBugID(const CString& msg)
 {
 	CString sRet;
+	if (!sCheckRe.IsEmpty() || (sMessage.Find(_T("%BUGID%")) >= 0))
+    {
+	    std::set<CString> bugIDs = FindBugIDs(msg);
 
-	std::set<CString> bugIDs = FindBugIDs(msg);
+	    for (std::set<CString>::iterator it = bugIDs.begin(); it != bugIDs.end(); ++it)
+	    {
+		    sRet += *it;
+		    sRet += _T(" ");
+	    }
+	    sRet.Trim();
+    }
 
-	for (std::set<CString>::iterator it = bugIDs.begin(); it != bugIDs.end(); ++it)
-	{
-		sRet += *it;
-		sRet += _T(" ");
-	}
-	sRet.Trim();
 	return sRet;
 }
 

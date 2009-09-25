@@ -136,21 +136,22 @@ private:
 
     /// encapsulate data
 
+	CLogChangedPathArray changedPaths;
+
+	CString sDate;
+	CString sAuthor;
+	CString sMessage;
+	CString sBugIDs;
+    svn_revnum_t revision;
+	__time64_t tmDate;
+
     CLogEntryData* parent;
 	bool hasChildren;
 	DWORD childStackDepth;
 
-    svn_revnum_t revision;
-	__time64_t tmDate;
-	CString sDate;
-	CString sAuthor;
-	CString sMessage;
-	CString sShortMessage;
-	CString sBugIDs;
+    ProjectProperties* projectProperties;
 
-	CLogChangedPathArray changedPaths;
-
-	bool checked;
+    bool checked;
 
     /// no copy support
 
@@ -202,8 +203,8 @@ public:
     const CString& GetDateString() const {return sDate;}
 	const CString& GetAuthor() const {return sAuthor;}
 	const CString& GetMessage() const {return sMessage;}
-	const CString& GetShortMessage() const {return sShortMessage;}
 	const CString& GetBugIDs() const {return sBugIDs;}
+	CString GetShortMessage() const;
 
     const CLogChangedPathArray& GetChangedPaths() const {return changedPaths;}
 

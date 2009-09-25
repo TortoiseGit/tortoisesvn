@@ -317,19 +317,19 @@ void CLogEntryData::SetMessage
     sMessage = message;
     if (sMessage.GetLength()>0)
     {
-        sMessage.Replace(_T("\n\r"), _T("\n"));
-        sMessage.Replace(_T("\r\n"), _T("\n"));
-        if (sMessage.Right(1).Compare(_T("\n"))==0)
+        if (sMessage.Find (_T('\r')) >= 0)
+        {
+            sMessage.Replace(_T("\n\r"), _T("\n"));
+            sMessage.Replace(_T("\r\n"), _T("\n"));
+        }
+        if (sMessage[0] == _T('\n'))
 	        sMessage = sMessage.Left (sMessage.GetLength()-1);
     } 
 
     // derived data
 
     if (projectProperties)
-    {
-        sShortMessage = projectProperties->MakeShortMessage (message);
         sBugIDs = projectProperties->FindBugID (message);
-    }
 }
 
 void CLogEntryData::SetChecked
@@ -351,6 +351,15 @@ void CLogEntryData::Finalize
     CRevisionInfoContainer::CChangesIterator last = info.GetChangesEnd (index);
 
     changedPaths.Add (first, last, logPath);
+}
+
+// r/o access to the data
+
+CString CLogEntryData::GetShortMessage() const 
+{
+    return projectProperties
+        ? projectProperties->MakeShortMessage (sMessage)
+        : CString();
 }
 
 // construction
