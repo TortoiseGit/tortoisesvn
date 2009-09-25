@@ -138,7 +138,7 @@ private:
 
 	CLogChangedPathArray changedPaths;
 
-	CString sDate;
+	mutable CString sDate;
 	CString sAuthor;
 	CString sMessage;
 	CString sBugIDs;
@@ -165,7 +165,6 @@ public:
     CLogEntryData ( CLogEntryData* parent
                   , svn_revnum_t revision
                   , __time64_t tmDate
-                  , const CString& sDate
                   , const CString& sAuthor
                   , const CString& sMessage
                   , ProjectProperties* projectProperties);
@@ -200,7 +199,7 @@ public:
     svn_revnum_t GetRevision() const {return revision;}
     __time64_t GetDate() const {return tmDate;}
 
-    const CString& GetDateString() const {return sDate;}
+    const CString& GetDateString() const;
 	const CString& GetAuthor() const {return sAuthor;}
 	const CString& GetMessage() const {return sMessage;}
 	const CString& GetBugIDs() const {return sBugIDs;}
@@ -267,7 +266,6 @@ public:
 
     void Add ( svn_revnum_t revision
              , __time64_t tmDate
-             , const CString& date
              , const CString& author
              , const CString& message
              , ProjectProperties* projectProperties

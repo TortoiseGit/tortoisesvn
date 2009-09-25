@@ -273,7 +273,6 @@ CLogEntryData::CLogEntryData
     ( CLogEntryData* parent
     , svn_revnum_t revision
     , __time64_t tmDate
-    , const CString& date
     , const CString& author
     , const CString& message
     , ProjectProperties* projectProperties)
@@ -282,8 +281,8 @@ CLogEntryData::CLogEntryData
     , childStackDepth (parent == NULL ? 0 : parent->childStackDepth+1)
     , revision (revision)
     , tmDate (tmDate)
-    , sDate (date)
     , sAuthor (author)
+    , projectProperties (projectProperties)
     , checked (false)
 {
     // derived header info
@@ -355,6 +354,28 @@ void CLogEntryData::Finalize
 
 // r/o access to the data
 
+const CString& CLogEntryData::GetDateString() const
+{
+    if (sDate.IsEmpty())
+    {
+	    TCHAR date_native[SVN_DATE_BUFFER] = {0};
+        if (tmDate == 0)
+        {
+		    _tcscpy_s (date_native, SVN_DATE_BUFFER, _T("(no date)"));
+        }
+        else
+        {
+	        FILETIME ft = {0};
+	        AprTimeToFileTime (&ft, tmDate * 1000000L);
+            SVN::formatDate (date_native, ft);
+        }
+
+        sDate = date_native;
+    }
+
+    return sDate;
+}
+
 CString CLogEntryData::GetShortMessage() const 
 {
     return projectProperties
@@ -400,7 +421,6 @@ void CLogDataVector::ClearAll()
 
 void CLogDataVector::Add ( svn_revnum_t revision
                          , __time64_t tmDate
-                         , const CString& date
                          , const CString& author
                          , const CString& message
                          , ProjectProperties* projectProperties
@@ -421,7 +441,6 @@ void CLogDataVector::Add ( svn_revnum_t revision
             ( logParents.empty() ? NULL : logParents.back()
             , revision
             , tmDate
-            , date
             , author
             , message
             , projectProperties
@@ -473,7 +492,6 @@ void CLogDataVector::AddSorted
 
     Add ( item->GetRevision()
         , item->GetDate()
-        , item->GetDateString()
         , item->GetAuthor()
         , item->GetMessage()
         , projectProperties

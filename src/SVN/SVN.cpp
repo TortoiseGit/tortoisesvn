@@ -66,7 +66,7 @@ bool SVN::s_useSystemLocale = !!(DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\U
 */
 #define APR_DELTA_EPOCH_IN_USEC   APR_TIME_C(11644473600000000);
 
-__inline void AprTimeToFileTime(LPFILETIME pft, apr_time_t t)
+void AprTimeToFileTime(LPFILETIME pft, apr_time_t t)
 {
 	LONGLONG ll;
 	t += APR_DELTA_EPOCH_IN_USEC;
@@ -202,7 +202,7 @@ BOOL SVN::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_notify_actio
 				const CString& propertyName,
 				svn_merge_range_t * range,
 				svn_error_t * err, apr_pool_t * pool) {return TRUE;};
-BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, apr_time_t time, BOOL haschildren) {return TRUE;}
+BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& message, apr_time_t time, BOOL haschildren) {return TRUE;}
 BOOL SVN::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path, const CStringA& line) {return TRUE;}
 svn_error_t* SVN::DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node) {return SVN_NO_ERROR;}
 BOOL SVN::ReportList(const CString& path, svn_node_kind_t kind, 
@@ -1774,25 +1774,15 @@ void SVN::ReceiveLog ( TChangedPaths* /* changes */
                      , UserRevPropArray* /* userRevProps*/
                      , bool mergesFollow)
 {
-	// convert time stamp to string
-
-	TCHAR date_native[SVN_DATE_BUFFER] = {0};
-    if (stdRevProps != NULL)
-    {
-        apr_time_t temp = stdRevProps->GetTimeStamp();
-	    formatDate (date_native, temp);
-    }
-    
 	// check for user pressing "Cancel" somewhere
 
 	cancel();
 
-	// finally, use the log info (in a derived class specific way)
+	// use the log info (in a derived class specific way)
 
     static const CString emptyString;
 	Log ( rev
 		, stdRevProps == NULL ? emptyString : stdRevProps->GetAuthor()
-		, date_native
         , stdRevProps == NULL ? emptyString : stdRevProps->GetMessage()
         , stdRevProps == NULL ? apr_time_t(0) : stdRevProps->GetTimeStamp()
         , mergesFollow);

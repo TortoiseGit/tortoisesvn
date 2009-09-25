@@ -902,7 +902,7 @@ void CLogDlg::OnCancel()
 	__super::OnCancel();
 }
 
-BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, apr_time_t time, BOOL haschildren)
+BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& message, apr_time_t time, BOOL haschildren)
 {
 	// this is the callback function which receives the data for every revision we ask the log for
 	// we store this information here one by one.
@@ -910,7 +910,6 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	__time64_t ttime = time / 1000000L;
     m_logEntries.Add ( rev
                      , ttime
-                     , date
                      , author
                      , message
                      , &m_ProjectProperties

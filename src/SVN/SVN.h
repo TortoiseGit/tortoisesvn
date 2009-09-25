@@ -78,7 +78,7 @@ public:
 							const CString& propertyName,
 							svn_merge_range_t * range,
 							svn_error_t * err, apr_pool_t * pool);
-	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, apr_time_t time, BOOL haschildren);
+	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& message, apr_time_t time, BOOL haschildren);
 	virtual BOOL BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date,
 							svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path,
 							const CStringA& line);
@@ -954,3 +954,4 @@ private:
 
 static UINT WM_SVNPROGRESS = RegisterWindowMessage(_T("TORTOISESVN_SVNPROGRESS_MSG"));
 
+void AprTimeToFileTime(LPFILETIME pft, apr_time_t t);

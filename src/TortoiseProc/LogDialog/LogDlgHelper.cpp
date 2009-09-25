@@ -112,9 +112,7 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
 
     // query data
 
-    TCHAR date_native[SVN_DATE_BUFFER] = {0};
     __time64_t date = data.GetTimeStamp (index);
-    SVN().formatDate (date_native, date);
     const char * author = data.GetAuthor (index);
     CString message (data.GetComment (index).c_str());
 
@@ -125,7 +123,6 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
             ( NULL
             , revision
             , date / 1000000L
-            , date_native
             , CString (author != NULL ? author : "")
             , message
             , projectProperties
