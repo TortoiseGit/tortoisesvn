@@ -2545,32 +2545,32 @@ void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_f
 
 	// Convert UTC to local time
 	SYSTEMTIME systemtime;
-	VERIFY( FileTimeToSystemTime(&filetime,&systemtime) );
+	VERIFY ( FileTimeToSystemTime(&filetime,&systemtime) );
 	
+    static TIME_ZONE_INFORMATION timeZone = {-1};
+    if (timeZone.Bias == -1)
+	    GetTimeZoneInformation (&timeZone);
+
 	SYSTEMTIME localsystime;
-	VERIFY( SystemTimeToTzSpecificLocalTime(NULL, &systemtime,&localsystime));
+	VERIFY ( SystemTimeToTzSpecificLocalTime(&timeZone, &systemtime,&localsystime));
 
 	TCHAR timebuf[SVN_DATE_BUFFER] = {0};
 	TCHAR datebuf[SVN_DATE_BUFFER] = {0};
 
 	LCID locale = s_useSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : s_locale;
 
-	if (force_short_fmt || CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat")) == 1)
-	{
-		GetDateFormat(locale, DATE_SHORTDATE, &localsystime, NULL, datebuf, SVN_DATE_BUFFER);
-		GetTimeFormat(locale, 0, &localsystime, NULL, timebuf, SVN_DATE_BUFFER);
-		_tcsncat_s(date_native, SVN_DATE_BUFFER, datebuf, SVN_DATE_BUFFER);
-		_tcsncat_s(date_native, SVN_DATE_BUFFER, _T(" "), SVN_DATE_BUFFER);
-		_tcsncat_s(date_native, SVN_DATE_BUFFER, timebuf, SVN_DATE_BUFFER);
-	}
-	else
-	{
-		GetDateFormat(locale, DATE_LONGDATE, &localsystime, NULL, datebuf, SVN_DATE_BUFFER);
-		GetTimeFormat(locale, 0, &localsystime, NULL, timebuf, SVN_DATE_BUFFER);
-		_tcsncat_s(date_native, SVN_DATE_BUFFER, timebuf, SVN_DATE_BUFFER);
-		_tcsncat_s(date_native, SVN_DATE_BUFFER, _T(", "), SVN_DATE_BUFFER);
-		_tcsncat_s(date_native, SVN_DATE_BUFFER, datebuf, SVN_DATE_BUFFER);
-	}
+    /// reusing this instance is vital for \ref formatDate performance
+
+    static CRegDWORD logDateFormat (500, _T("Software\\TortoiseSVN\\LogDateFormat"));
+    DWORD flags = force_short_fmt || (logDateFormat == 1)
+                ? DATE_SHORTDATE
+                : DATE_LONGDATE;
+
+	GetDateFormat(locale, flags, &localsystime, NULL, datebuf, SVN_DATE_BUFFER);
+	GetTimeFormat(locale, 0, &localsystime, NULL, timebuf, SVN_DATE_BUFFER);
+	_tcsncat_s(date_native, SVN_DATE_BUFFER, datebuf, SVN_DATE_BUFFER);
+	_tcsncat_s(date_native, SVN_DATE_BUFFER, _T(" "), SVN_DATE_BUFFER);
+	_tcsncat_s(date_native, SVN_DATE_BUFFER, timebuf, SVN_DATE_BUFFER);
 }
 
 CString SVN::formatDate(apr_time_t& date_svn)
