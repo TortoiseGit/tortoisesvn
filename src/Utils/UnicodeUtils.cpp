@@ -90,7 +90,9 @@ CString CUnicodeUtils::UTF8ToUTF16 (const std::string& string)
         result = dynamicBuffer;
     }
 
-    const char* source = string.c_str();
+    const unsigned char* source 
+        = reinterpret_cast<const unsigned char*>(string.c_str());
+
     wchar_t* target = result;
     if (size > 0)
     {
