@@ -32,46 +32,17 @@
 
 #include "svn_types.h"
 
-
 /**
  * data structure to accommodate the change list.
  */
-class LogChangedPath
-{
-private:
 
+struct SChangedPath
+{
 	CString path;
 	CString copyFromPath;
 	svn_revnum_t copyFromRev;
 	svn_node_kind_t nodeKind;
 	DWORD action;
-
-	/// cached return value of GetAction()
-	mutable CString actionAsString;
-
-    /// true, if it affects the content of the path that
-    /// the log was originally shown for
-    bool relevantForStartPath;  
-
-    // construction is only allowed through the container
-
-    friend class LogChangedPathArray;
-
-public:
-
-    /// r/o data access
-
-    const CString& GetPath() const {return path;}
-    const CString& GetCopyFromPath() const {return copyFromPath;}
-    svn_revnum_t GetCopyFromRev() const {return copyFromRev;}
-    svn_node_kind_t GetNodeKind() const {return nodeKind;}
-    DWORD GetAction() const {return action;}
-    bool IsRelevantForStartPath() const {return relevantForStartPath;}
-
-	/// returns the action as a string
-
-	static const CString& GetActionString (DWORD action);
-	const CString& GetActionString() const;
 };
 
 enum
@@ -87,68 +58,7 @@ enum
  * Provides just enough methods to read them.
  */
 
-class LogChangedPathArray : private std::vector<LogChangedPath>
-{
-private:
-
-    /// \ref MarkRelevantChanges found that the log path
-    /// has been copied in this revision
-
-	bool copiedSelf;
-
-    /// cached actions info
-
-    mutable DWORD actions;
-
-public:
-
-    /// construction
-
-    LogChangedPathArray();
-    LogChangedPathArray (size_t initialCapacity);
-
-    /// modification
-
-    void Add
-        ( const CString& path
-        , const CString& copyFromPath
-        , svn_revnum_t copyFromRev
-        , svn_node_kind_t nodeKind
-        , DWORD action);
-
-    void Add
-        ( const CString& path
-        , svn_node_kind_t nodeKind
-        , DWORD action);
-
-    void Add
-        ( const LogChangedPath& item);
-
-    void RemoveAll();
-    void RemoveIrrelevantPaths();
-
-    void Sort (int column, bool ascending);
-
-    /// Mark paths that are relevant for the given path.
-    /// Update that path info upon copy.
-
-    void MarkRelevantChanges (CString& selfRelativeURL);
-
-    /// data access
-
-    size_t GetCount() const {return size();}
-    const LogChangedPath& operator[] (size_t index) const {return at (index);}
-    bool ContainsSelfCopy() const {return copiedSelf;}
-
-    /// derived information
-
-    DWORD GetActions() const;
-    bool ContainsCopies() const;
-
-    /// to be used whenever no other content is available
-
-    static const LogChangedPathArray& GetEmptyInstance();
-};
+typedef std::vector<SChangedPath> TChangedPaths;
 
 /**
  * standard revision properties
@@ -251,7 +161,7 @@ public:
 	///
 	/// may throw a SVNError to cancel the log
 
-	virtual void ReceiveLog ( LogChangedPathArray* changes
+	virtual void ReceiveLog ( TChangedPaths* changes
 							, svn_revnum_t rev
                             , const StandardRevProps* stdRevProps
                             , UserRevPropArray* userRevProps

@@ -19,26 +19,128 @@
 #pragma once
 #include "SVN.h"
 
+using namespace LogCache;
+
 /// forward declaration
 
 class CLogDlgFilter;
+
+/**
+ * data structure to accommodate the change list.
+ */
+class CLogChangedPath
+{
+private:
+
+    CDictionaryBasedPath path;
+	CDictionaryBasedPath copyFromPath;
+	svn_revnum_t copyFromRev;
+	svn_node_kind_t nodeKind;
+	DWORD action;
+
+    /// true, if it affects the content of the path that
+    /// the log was originally shown for
+
+    bool relevantForStartPath;  
+
+    // construction is only allowed through the container
+
+    friend class LogChangedPathArray;
+
+public:
+
+    /// construction
+
+    CLogChangedPath 
+        ( const CRevisionInfoContainer::CChangesIterator& iter
+        , const CDictionaryBasedTempPath& logPath);
+
+    /// r/o data access
+
+    const CDictionaryBasedPath& GetCachedPath() const {return path;}
+    const CDictionaryBasedPath& GetCachedCopyFromPath() const {return copyFromPath;}
+
+    CString GetPath() const;
+    CString GetCopyFromPath() const;
+    svn_revnum_t GetCopyFromRev() const {return copyFromRev;}
+    svn_node_kind_t GetNodeKind() const {return nodeKind;}
+    DWORD GetAction() const {return action;}
+
+    bool IsRelevantForStartPath() const {return relevantForStartPath;}
+
+	/// returns the action as a string
+
+	static const CString& GetActionString (DWORD action);
+	const CString& GetActionString() const;
+};
+
+/**
+ * Factory and container for \ref CLogChangedPath objects.
+ * Provides just enough methods to read them.
+ */
+
+class CLogChangedPathArray : private std::vector<CLogChangedPath>
+{
+private:
+
+    /// \ref MarkRelevantChanges found that the log path
+    /// has been copied in this revision
+
+	bool copiedSelf;
+
+    /// cached actions info
+
+    mutable DWORD actions;
+
+public:
+
+    /// construction
+
+    CLogChangedPathArray();
+
+    /// modification
+
+    void Add
+        ( CRevisionInfoContainer::CChangesIterator& first
+        , const CRevisionInfoContainer::CChangesIterator& last
+        , CDictionaryBasedTempPath& logPath);
+
+    void Add
+        ( const CLogChangedPath& item);
+
+    void RemoveAll();
+    void RemoveIrrelevantPaths();
+
+    void Sort (int column, bool ascending);
+
+    /// data access
+
+    size_t GetCount() const {return size();}
+    const CLogChangedPath& operator[] (size_t index) const {return at (index);}
+    bool ContainsSelfCopy() const {return copiedSelf;}
+
+    /// derived information
+
+    DWORD GetActions() const;
+    bool ContainsCopies() const;
+};
 
 /**
  * \ingroup TortoiseProc
  * Contains the data of one log entry, used in the log dialog
  */
 
-class LogEntryData
+class CLogEntryData
 {   
 private:
 
     /// encapsulate data
 
-    LogEntryData* parent;
+    CLogEntryData* parent;
 	bool hasChildren;
 	DWORD childStackDepth;
 
-    svn_revnum_t Rev;
+    svn_revnum_t revision;
 	__time64_t tmDate;
 	CString sDate;
 	CString sAuthor;
@@ -46,32 +148,30 @@ private:
 	CString sShortMessage;
 	CString sBugIDs;
 
-	const LogChangedPathArray* changedPaths;
+	CLogChangedPathArray changedPaths;
 
 	bool checked;
 
     /// no copy support
 
-    LogEntryData (const LogEntryData&);
-    LogEntryData& operator=(const LogEntryData&);
+    CLogEntryData (const CLogEntryData&);
+    CLogEntryData& operator=(const CLogEntryData&);
 
 public:
 
     /// initialization
 
-    LogEntryData ( LogEntryData* parent
-                 , svn_revnum_t Rev
-                 , __time64_t tmDate
-                 , const CString& sDate
-                 , const CString& sAuthor
-                 , const CString& sMessage
-                 , ProjectProperties* projectProperties
-                 , LogChangedPathArray* changedPaths
-                 , CString& selfRelativeURL);
+    CLogEntryData ( CLogEntryData* parent
+                  , svn_revnum_t revision
+                  , __time64_t tmDate
+                  , const CString& sDate
+                  , const CString& sAuthor
+                  , const CString& sMessage
+                  , ProjectProperties* projectProperties);
 
     /// destruction
 
-    ~LogEntryData();
+    ~CLogEntryData();
 
     /// modification
 
@@ -83,14 +183,20 @@ public:
     void SetChecked
         ( bool newState);
 
+    /// finalization (call this once the cache is available)
+
+    void Finalize
+        ( const CCachedLogInfo* cache
+        , CDictionaryBasedTempPath& logPath);
+
     /// r/o access to the data
 
-    LogEntryData* GetParent() {return parent;}
-    const LogEntryData* GetParent() const {return parent;}
+    CLogEntryData* GetParent() {return parent;}
+    const CLogEntryData* GetParent() const {return parent;}
     bool HasChildren() const {return hasChildren;}
     DWORD GetDepth() const {return childStackDepth;}
 
-    svn_revnum_t GetRevision() const {return Rev;}
+    svn_revnum_t GetRevision() const {return revision;}
     __time64_t GetDate() const {return tmDate;}
 
     const CString& GetDateString() const {return sDate;}
@@ -99,12 +205,12 @@ public:
 	const CString& GetShortMessage() const {return sShortMessage;}
 	const CString& GetBugIDs() const {return sBugIDs;}
 
-    const LogChangedPathArray& GetChangedPaths() const {return *changedPaths;}
+    const CLogChangedPathArray& GetChangedPaths() const {return changedPaths;}
 
     bool GetChecked() const {return checked;}
 };
 
-typedef LogEntryData LOGENTRYDATA, *PLOGENTRYDATA;
+typedef CLogEntryData LOGENTRYDATA, *PLOGENTRYDATA;
 
 /**
  * \ingroup TortoiseProc
@@ -135,6 +241,10 @@ private:
 
     std::vector<PLOGENTRYDATA> logParents;   
 	
+    /// the query used to fill this container
+
+    std::auto_ptr<const CCacheLogQuery> query;
+
     /// filter utiltiy method
 
     std::vector<size_t> FilterRange 
@@ -160,13 +270,16 @@ public:
              , const CString& author
              , const CString& message
              , ProjectProperties* projectProperties
-             , LogChangedPathArray* changedPaths
-             , CString& selfRelativeURL
              , bool childrenFollow);
 
     void AddSorted ( PLOGENTRYDATA item
                    , ProjectProperties* projectProperties);
     void RemoveLast();
+
+    /// finalization (call this after receiving all log entries)
+
+    void Finalize ( std::auto_ptr<const CCacheLogQuery> query
+                  , const CString& startLogPath);
 
     /// access to unfilered info
 

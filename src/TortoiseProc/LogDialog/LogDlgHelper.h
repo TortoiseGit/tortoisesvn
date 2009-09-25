@@ -55,11 +55,6 @@ private:
 
     ProjectProperties* projectProperties;
 
-    /// efficient map cached string / path -> CString
-
-    typedef quick_hash_map<LogCache::index_t, CString> TID2String;
-    TID2String pathToStringMap;
-
 public:
 
     /// construction

@@ -233,7 +233,7 @@ void CCacheLogQuery::CLogFiller::MakeRangeIterable ( const CDictionaryBasedPath&
 // cache data
 
 void CCacheLogQuery::CLogFiller::WriteToCache 
-    ( LogChangedPathArray* changes
+    ( TChangedPaths* changes
     , revision_t revision
     , const StandardRevProps* stdRevProps
     , UserRevPropArray* userRevProps)
@@ -278,23 +278,23 @@ void CCacheLogQuery::CLogFiller::WriteToCache
 
     if (changes != NULL)
     {
-	    for (INT_PTR i = 0, count = changes->GetCount(); i < count; ++i)
+	    for (size_t i = 0, count = changes->size(); i < count; ++i)
 	    {
-		    const LogChangedPath& change = (*changes)[i];
+		    const SChangedPath& change = (*changes)[i];
 
 		    CRevisionInfoContainer::TChangeAction action 
-			    = (CRevisionInfoContainer::TChangeAction)(change.GetAction() * 4);
+			    = (CRevisionInfoContainer::TChangeAction)(change.action * 4);
 		    std::string path 
-				= (const char*)CUnicodeUtils::GetUTF8 (change.GetPath());
+				= (const char*)CUnicodeUtils::GetUTF8 (change.path);
 		    std::string copyFromPath 
-			    = (const char*)CUnicodeUtils::GetUTF8 (change.GetCopyFromPath());
+			    = (const char*)CUnicodeUtils::GetUTF8 (change.copyFromPath);
 		    revision_t copyFromRevision 
-			    = change.GetCopyFromRev() == 0 
+			    = change.copyFromRev == 0 
 			    ? NO_REVISION 
-			    : static_cast<revision_t>(change.GetCopyFromRev());
+			    : static_cast<revision_t>(change.copyFromRev);
 
 		    targetCache->AddChange ( action
-                                   , static_cast<node_kind_t>(change.GetNodeKind())
+                                   , static_cast<node_kind_t>(change.nodeKind)
                                    , path
                                    , copyFromPath
                                    , copyFromRevision);
@@ -336,7 +336,7 @@ void CCacheLogQuery::CLogFiller::WriteToCache
 // implement ILogReceiver
 
 void CCacheLogQuery::CLogFiller::ReceiveLog 
-    ( LogChangedPathArray* changes
+    ( TChangedPaths* changes
     , svn_revnum_t rev
     , const StandardRevProps* stdRevProps
     , UserRevPropArray* userRevProps
@@ -559,7 +559,7 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
 ///////////////////////////////////////////////////////////////
 
 void CCacheLogQuery::CMergeLogger::ReceiveLog 
-    ( LogChangedPathArray* changes
+    ( TChangedPaths* changes
     , svn_revnum_t rev
     , const StandardRevProps* stdRevProps
     , UserRevPropArray* userRevProps
@@ -809,31 +809,28 @@ namespace
 }
 
 void CCacheLogQuery::GetChanges 
-    ( LogChangedPathArray& result
+    ( TChangedPaths& result
     , TID2String& pathToStringMap
     , CRevisionInfoContainer::CChangesIterator first
     , const CRevisionInfoContainer::CChangesIterator& last)
 {
 	for (; first != last; ++first)
 	{
+        result.push_back (SChangedPath());
+
+        SChangedPath& entry = result.back();
+        entry.path = ConvertMapString (pathToStringMap, first.GetPath());
+        entry.nodeKind = static_cast<svn_node_kind_t>(first->GetPathType());
+        entry.action = (DWORD)first.GetAction() / 4;
+
         if (first.HasFromPath() && (first.GetFromRevision() != NO_REVISION))
         {
-            CString fromPath 
-                = ConvertMapString (pathToStringMap, first.GetFromPath());
-
-            result.Add 
-                ( ConvertMapString (pathToStringMap, first.GetPath())
-                , fromPath
-                , first.GetFromRevision()
-                , static_cast<svn_node_kind_t>(first->GetPathType())
-                , (DWORD)first.GetAction() / 4);
+            entry.copyFromPath = ConvertMapString (pathToStringMap, first.GetFromPath());
+            entry.copyFromRev = first.GetFromRevision();
         }
         else
         {
-            result.Add
-                ( ConvertMapString (pathToStringMap, first.GetPath())
-                , static_cast<svn_node_kind_t>(first->GetPathType())
-                , (DWORD)first.GetAction() / 4);
+            entry.copyFromRev = 0;
         }
 	} 
 }
@@ -895,7 +892,8 @@ void CCacheLogQuery::SendToReceiver ( revision_t revision
     CRevisionInfoContainer::CChangesIterator last
         (logInfo.GetChangesEnd (logIndex));
 
-    LogChangedPathArray changes (last - first);
+    TChangedPaths changes;
+    changes.reserve (last - first);
     if (options.GetIncludeChanges())
         GetChanges (changes, pathToStringMap, first, last);
 

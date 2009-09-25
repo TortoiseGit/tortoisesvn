@@ -151,7 +151,7 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 
     // the individual changes
 
-	LogChangedPathArray changedPaths;
+	TChangedPaths changedPaths;
 	try
 	{
 		if (log_entry->changed_paths2 != NULL)
@@ -161,7 +161,10 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 
 			for (int i = 0, count = sorted_paths->nelts; i < count; ++i)
 			{
-				// find the item in the hash
+                changedPaths.push_back (SChangedPath());
+                SChangedPath& entry = changedPaths.back();
+
+                // find the item in the hash
 
 				svn_sort__item_t *item = &(APR_ARRAY_IDX ( sorted_paths
 					, i
@@ -169,7 +172,7 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 
 				// extract the path name
 
-				CString path = SVN::MakeUIUrlOrPath ((const char *)item->key);
+				entry.path = SVN::MakeUIUrlOrPath ((const char *)item->key);
 
 				// decode the action
 
@@ -180,26 +183,25 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 				static const char actionKeys[5] = "AMRD";
 				const char* actionKey = strchr (actionKeys, log_item->action);
 
-				DWORD action = actionKey == NULL 
+				entry.action = actionKey == NULL 
 					? 0
 					: 1 << (actionKey - actionKeys);
+
+                // node type
+
+                entry.nodeKind = log_item->node_kind;
 
 				// decode copy-from info
 
                 if (    log_item->copyfrom_path 
                      && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
                 {
-                    changedPaths.Add ( path
-                                     , SVN::MakeUIUrlOrPath (log_item->copyfrom_path)
-                                     , log_item->copyfrom_rev
-                                     , log_item->node_kind
-                                     , action);
+                    entry.copyFromPath = SVN::MakeUIUrlOrPath (log_item->copyfrom_path);
+                    entry.copyFromRev = log_item->copyfrom_rev;
                 }
                 else
                 {
-                    changedPaths.Add ( path
-                                     , log_item->node_kind
-                                     , action);
+                    entry.copyFromRev = 0;
                 }
 			} 
 		} 
@@ -210,6 +212,9 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 
 			for (int i = 0, count = sorted_paths->nelts; i < count; ++i)
 			{
+                changedPaths.push_back (SChangedPath());
+                SChangedPath& entry = changedPaths.back();
+
 				// find the item in the hash
 
 				svn_sort__item_t *item = &(APR_ARRAY_IDX ( sorted_paths
@@ -218,7 +223,7 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 
 				// extract the path name
 
-				CString path = SVN::MakeUIUrlOrPath ((const char *)item->key);
+				entry.path = SVN::MakeUIUrlOrPath ((const char *)item->key);
 
 				// decode the action
 
@@ -229,26 +234,25 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 				static const char actionKeys[5] = "AMRD";
 				const char* actionKey = strchr (actionKeys, log_item->action);
 
-				DWORD action = actionKey == NULL 
+				entry.action = actionKey == NULL 
                     ? 0
                     : 1 << (actionKey - actionKeys);
+
+                // node type
+
+                entry.nodeKind = svn_node_unknown;
 
 				// decode copy-from info
 
                 if (    log_item->copyfrom_path 
                      && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
                 {
-                    changedPaths.Add ( path
-                                     , SVN::MakeUIUrlOrPath (log_item->copyfrom_path)
-                                     , log_item->copyfrom_rev
-                                     , svn_node_unknown
-                                     , action);
+                    entry.copyFromPath = SVN::MakeUIUrlOrPath (log_item->copyfrom_path);
+                    entry.copyFromRev = log_item->copyfrom_rev;
                 }
                 else
                 {
-                    changedPaths.Add ( path
-                                     , svn_node_unknown
-                                     , action);
+                    entry.copyFromRev = 0;
                 }
 			} 
 		} 

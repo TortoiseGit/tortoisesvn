@@ -183,7 +183,7 @@ private:
 	
 	/// implement ILogReceiver
 
-	void ReceiveLog ( LogChangedPathArray* changes
+	void ReceiveLog ( TChangedPaths* changes
 					, svn_revnum_t rev
                     , const StandardRevProps* stdRevProps
                     , UserRevPropArray* userRevProps

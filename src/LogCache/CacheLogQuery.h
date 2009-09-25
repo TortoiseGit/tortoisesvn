@@ -206,13 +206,13 @@ private:
 							   , revision_t count);
 
         /// cache data
-        void WriteToCache ( LogChangedPathArray* changes
+        void WriteToCache ( TChangedPaths* changes
                           , revision_t revision
                           , const StandardRevProps* stdRevProps
                           , UserRevPropArray* userRevProps);
 
 		/// implement ILogReceiver
-	    virtual void ReceiveLog ( LogChangedPathArray* changes
+	    virtual void ReceiveLog ( TChangedPaths* changes
 							    , svn_revnum_t rev
                                 , const StandardRevProps* stdRevProps
                                 , UserRevPropArray* userRevProps
@@ -255,7 +255,7 @@ private:
         CLogOptions options;
 
 		/// implement ILogReceiver
-	    virtual void ReceiveLog ( LogChangedPathArray* changes
+	    virtual void ReceiveLog ( TChangedPaths* changes
 							    , svn_revnum_t rev
                                 , const StandardRevProps* stdRevProps
                                 , UserRevPropArray* userRevProps
@@ -412,7 +412,7 @@ public:
 
     /// utility function:
 	/// fill the receiver's change list buffer 
-	static void GetChanges ( LogChangedPathArray& result
+	static void GetChanges ( TChangedPaths& result
                            , TID2String& pathToStringMap
                            , CRevisionInfoContainer::CChangesIterator first
 		                   , const CRevisionInfoContainer::CChangesIterator& last);

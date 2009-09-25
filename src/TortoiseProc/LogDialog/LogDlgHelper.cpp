@@ -118,28 +118,10 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
     const char * author = data.GetAuthor (index);
     CString message (data.GetComment (index).c_str());
 
-    std::auto_ptr<LogChangedPathArray> changes (new LogChangedPathArray);
-    CCacheLogQuery::GetChanges (*changes
-                               , pathToStringMap
-                               , data.GetChangesBegin (index)
-		                       , data.GetChangesEnd (index));
-
-	DWORD actions = 0;
-	BOOL copies = FALSE;
-
-    for (size_t i = 0, count = changes->GetCount(); i < count; ++i)
-    {
-	    const LogChangedPath& change = (*changes)[i];
-	    actions |= change.GetAction();
-	    copies |= change.GetCopyFromRev() != 0;
-    }
-
     // construct result
 
-    CString dummyURL (_T("NO://URL"));
-
     std::auto_ptr<LOGENTRYDATA> result 
-        (new LogEntryData
+        (new CLogEntryData
             ( NULL
             , revision
             , date / 1000000L
@@ -147,8 +129,6 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
             , CString (author != NULL ? author : "")
             , message
             , projectProperties
-            , changes.release()
-            , dummyURL
             )
         );
 

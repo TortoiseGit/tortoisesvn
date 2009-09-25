@@ -216,7 +216,7 @@ void CSettingsLogCaches::FillRepositoryList()
 
 // implement ILogReceiver
 
-void CSettingsLogCaches::ReceiveLog ( LogChangedPathArray* 
+void CSettingsLogCaches::ReceiveLog ( TChangedPaths* 
 					                , svn_revnum_t rev
                                     , const StandardRevProps* 
                                     , UserRevPropArray* 

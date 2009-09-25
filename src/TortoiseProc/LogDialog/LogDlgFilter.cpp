@@ -122,7 +122,7 @@ namespace
 }
 
 bool CLogDlgFilter::Matches 
-    ( const LogEntryData& entry
+    ( const CLogEntryData& entry
     , wstring& scratch) const
 {
     // quick checks
@@ -150,12 +150,12 @@ bool CLogDlgFilter::Matches
 
     if (attributeSelector & (1 << LOGFILTER_PATHS))
 	{
-		const LogChangedPathArray& paths = entry.GetChangedPaths();
+		const CLogChangedPathArray& paths = entry.GetChangedPaths();
 		for ( size_t cpPathIndex = 0, pathCount = paths.GetCount()
             ; cpPathIndex < pathCount
             ; ++cpPathIndex)
 		{
-			const LogChangedPath& cpath = paths[cpPathIndex];
+			const CLogChangedPath& cpath = paths[cpPathIndex];
 			if (!scanRelevantPathsOnly || cpath.IsRelevantForStartPath())
             {
 			    AppendString (scratch, cpath.GetCopyFromPath());
@@ -179,7 +179,7 @@ bool CLogDlgFilter::Matches
     return Match (scratch) ^ negate;
 }
 
-bool CLogDlgFilter::operator() (const LogEntryData& entry) const
+bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
 {
 	wstring scratch;
     return Matches (entry, scratch); 

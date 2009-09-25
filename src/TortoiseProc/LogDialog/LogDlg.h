@@ -87,7 +87,7 @@ public:
 
 protected:
 	//implement the virtual methods from SVN base class
-	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, BOOL haschildren);
+	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, apr_time_t time, BOOL haschildren);
 	virtual BOOL Cancel();
 	virtual bool Validate(LPCTSTR string);
 
@@ -145,7 +145,7 @@ private:
 	void LogThread();
 	void StatusThread();
 	void Refresh (bool autoGoOnline = false);
-	BOOL IsDiffPossible (const LogChangedPath& changedpath, svn_revnum_t rev);
+	BOOL IsDiffPossible (const CLogChangedPath& changedpath, svn_revnum_t rev);
 	BOOL Open(bool bOpenWith, CString changedpath, svn_revnum_t rev);
 	void EditAuthor(const std::vector<PLOGENTRYDATA>& logs);
 	void EditLogMessage(int index);
@@ -169,7 +169,6 @@ private:
 	void SaveSplitterPos();
 	bool ValidateRegexp(LPCTSTR regexp_str, tr1::wregex& pat, bool bMatchCase);
 	void CheckRegexpTooltip();
-	void GetChangedPaths(std::vector<CString>& changedpaths, std::vector<LogChangedPath*>& changedlogpaths);
 	void DiffSelectedFile();
 	void DiffSelectedRevWithPrevious();
 	void SetDlgTitle(bool bOffline);
@@ -195,7 +194,6 @@ private:
 	HFONT				m_boldFont;
 	CString				m_sRelativeRoot;
 	CString				m_sRepositoryRoot;
-	CString				m_sSelfRelativeURL;
 	CString				m_sURL;
 	CString				m_sUUID;    ///< empty if the log cache is not used
 	CHintListCtrl		m_LogList;
@@ -222,7 +220,7 @@ private:
 	BOOL				m_bSaveStrict;
 
     bool                m_bSingleRevision;
-	LogChangedPathArray m_currentChangedArray;
+	CLogChangedPathArray m_currentChangedArray;
 	CTSVNPathList		m_currentChangedPathList;
 	bool				m_hasWC;
 	int					m_nSearchIndex;

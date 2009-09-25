@@ -21,7 +21,7 @@
 
 /// forward declaration
 
-class LogEntryData;
+class CLogEntryData;
 
 /// structure containing the pre-processed filter spec
 
@@ -85,8 +85,8 @@ public:
 
     /// apply filter
 
-    bool Matches (const LogEntryData& entry, wstring& scratch) const;
-    bool operator() (const LogEntryData& entry) const;
+    bool Matches (const CLogEntryData& entry, wstring& scratch) const;
+    bool operator() (const CLogEntryData& entry) const;
 
     /// tr1::regex is very slow when running concurrently 
     /// in multiple threads. Empty filters don't need MT as well.

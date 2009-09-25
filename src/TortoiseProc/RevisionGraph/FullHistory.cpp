@@ -139,7 +139,7 @@ svn_error_t* CFullHistory::cancel(void *baton)
 
 // implement ILogReceiver
 
-void CFullHistory::ReceiveLog ( LogChangedPathArray* changes
+void CFullHistory::ReceiveLog ( TChangedPaths* changes
 					          , svn_revnum_t rev
                               , const StandardRevProps* stdRevProps
                               , UserRevPropArray* userRevProps
