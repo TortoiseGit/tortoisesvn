@@ -931,7 +931,12 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& messag
 	}
 	else if (m_startrev.IsNumber() && m_endrev.IsNumber())
     {
-		m_LogProgress.SetPos((svn_revnum_t)m_startrev-rev+(svn_revnum_t)m_endrev);
+        svn_revnum_t range = (svn_revnum_t)m_startrev - (svn_revnum_t)m_endrev;
+        if ((rev > m_temprev) || (m_temprev - rev) > (range / 1000))
+        {
+            m_temprev = rev;
+		    m_LogProgress.SetPos((svn_revnum_t)m_startrev-rev+(svn_revnum_t)m_endrev);
+        }
     }
 
     // clean-up
