@@ -75,19 +75,19 @@ CString CUnicodeUtils::UTF8ToUTF16 (const std::string& string)
     enum {FIXED_BUFFER_SIZE = 1024};
 
     wchar_t fixedBuffer[FIXED_BUFFER_SIZE];
-    auto_buffer<wchar_t> dynamic_buffer; 
+    auto_buffer<wchar_t> dynamicBuffer; 
 
     wchar_t* result = NULL;
 
-    size_t size = string.size();
-    if (size < FIXED_BUFFER_SIZE)
+    size_t size = string.length()+1;
+    if (size <= FIXED_BUFFER_SIZE)
     {
         result = fixedBuffer;
     }
     else
     {
-        dynamic_buffer.reset (size+1);
-        result = dynamic_buffer;
+        dynamicBuffer.reset (size);
+        result = dynamicBuffer;
     }
 
     const char* source = string.c_str();
