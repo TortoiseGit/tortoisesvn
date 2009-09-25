@@ -396,9 +396,9 @@ std::string CDictionaryBasedPath::GetPath() const
 #ifdef _DEBUG
         // only used to set _path to a proper value
 
-        assert (_path.empty());
-
         static const std::string noPath ("<INVALID_PATH>");
+        assert (_path.empty() || (_path == noPath));
+
         return noPath;
 #else
         // an assertion is of little use here ...
