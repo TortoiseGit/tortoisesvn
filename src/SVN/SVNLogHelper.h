@@ -33,7 +33,7 @@ using namespace std;
 class SVNLogHelper : public SVN
 {
 public:
-	/**
+    /**
 	 * Finds the copy from revision and URL of a branch/tag URL.
 	 * \param url			the url of the branch/tag to find the copy from data for (input)
 	 * \param pegrev		the peg revision to use to find the copy from data (input)
@@ -42,30 +42,4 @@ public:
 	 */
 	SVNRev GetCopyFromRev(CTSVNPath url, SVNRev pegrev, CString& copyfromURL);
 
-	/**
-	 * Sets the repository root if it is already known. If it is not set here,
-	 * the methods of this class will retrieve the repository root themselves.
-	 */
-	void SetRepositoryRoot(const CString& root) {m_reposroot = root;}
-
-	/**
-	 * If the command had to fetch the repository root to do its job,
-	 * this method returns that repository root for further use.
-	 */
-	CString RepositoryRoot() {return m_reposroot;}
-
-	/// map containing all the messages
-	map<svn_revnum_t, CString>			messages;
-	/// map containing all the authors
-	map<svn_revnum_t, CString>			authors;
-protected:
-	virtual BOOL Log(LONG rev, const CString& author, const CString& date, 
-		const CString& message, LogChangedPathArray * cpaths, 
-		apr_time_t time, BOOL haschildren);
-
-private:
-	CString								m_reposroot;
-	CString								m_relativeurl;
-	SVNRev								m_rev;
-	CString								m_copyfromurl;
 };

@@ -1564,6 +1564,14 @@ CCachedLogInfo* CCacheLogQuery::GetCache() const
 	return cache;
 }
 
+// get the repository root URL
+
+const CStringA& CCacheLogQuery::GetRootURL() const
+{
+	assert (!URL.IsEmpty());
+    return URL;
+}
+
 // could we get at least some data
 
 bool CCacheLogQuery::GotAnyData() const
@@ -1574,7 +1582,7 @@ bool CCacheLogQuery::GotAnyData() const
 // for tempCaches: write content to "real" cache files
 // (no-op if this is does not use a temp. cache)
 
-void CCacheLogQuery::UpdateCache (CLogCachePool* caches)
+void CCacheLogQuery::UpdateCache (CCacheLogQuery* targetQuery)
 {
 	// resolve URL
 
@@ -1593,8 +1601,18 @@ void CCacheLogQuery::UpdateCache (CLogCachePool* caches)
 
 	assert(!uuid.IsEmpty());
 
+    CLogCachePool* caches 
+        = targetQuery->repositoryInfoCache->GetSVN().GetLogCachePool();
     CCachedLogInfo* cache 
         = caches->GetCache (uuid, CUnicodeUtils::GetUnicode (URL));
     if ((cache != this->cache) && (this->cache != NULL))
+    {
         cache->Update (*this->cache);
+
+        //
+
+        targetQuery->cache = cache;
+        targetQuery->uuid = uuid;
+        targetQuery->URL = URL;
+    }
 }

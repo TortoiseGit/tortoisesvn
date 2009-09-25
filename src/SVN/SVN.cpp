@@ -1485,7 +1485,7 @@ SVN::ReceiveLog (const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
 
             if (tempQuery->GotAnyData())
             {
-                tempQuery->UpdateCache (GetLogCachePool());
+                tempQuery->UpdateCache (cacheQuery.get());
             }
             else
             {

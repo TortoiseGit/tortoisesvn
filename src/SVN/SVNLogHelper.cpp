@@ -18,38 +18,60 @@
 //
 #include "stdafx.h"
 #include "SVNLogHelper.h"
-
-BOOL SVNLogHelper::Log(LONG rev, const CString& author, const CString& /*date*/, const CString& message, LogChangedPathArray * cpaths, apr_time_t /*time*/, BOOL /*haschildren*/)
-{
-	messages[rev] = message;
-	authors[rev] = author;
-	m_rev = rev;
-	for (size_t i=0; i<cpaths->GetCount(); ++i)
-	{
-		const LogChangedPath& cpath = (*cpaths)[i];
-		if (m_relativeurl.Compare (cpath.GetPath())== 0)
-		{
-			m_copyfromurl = m_reposroot + cpath.GetCopyFromPath();
-			m_rev = cpath.GetCopyFromRev();
-		}
-	}
-	return TRUE;
-}
+#include "UnicodeUtils.h"
+#include "PathUtils.h"
+#include "Access\StrictLogIterator.h"
 
 SVNRev SVNLogHelper::GetCopyFromRev(CTSVNPath url, SVNRev pegrev, CString& copyfromURL)
 {
-	SVNRev rev;
+    SVNRev result;
 
-	messages.clear();
-	authors.clear();
-	if (m_reposroot.IsEmpty())
-		m_reposroot = GetRepositoryRoot(url);
-	m_relativeurl = url.GetSVNPathString().Mid(m_reposroot.GetLength());
-	if (NULL != ReceiveLog (CTSVNPathList(url), pegrev, SVNRev::REV_HEAD, 1, 0, TRUE, FALSE, true).get())
-	{
-		rev = m_rev;
-		copyfromURL = m_copyfromurl;
-	}
-	return rev;
+    // fill / update a suitable log cache
+
+    if (pegrev.IsHead())
+        pegrev = GetHEADRevision (url);
+
+    std::auto_ptr<const CCacheLogQuery> query
+        (ReceiveLog (CTSVNPathList(url), pegrev, SVNRev::REV_HEAD, 1, 0, TRUE, FALSE, false));
+    if (query.get() == NULL)
+        return result;
+
+    // get a concrete revision for the log start
+
+    assert (pegrev.IsNumber());
+
+	// construct the path object 
+	// (URLs are always escaped, so we must unescape them)
+
+    CStringA svnURLPath = CUnicodeUtils::GetUTF8 (url.GetSVNPathString());
+	if (svnURLPath.Left(9).CompareNoCase("file:///\\") == 0)
+		svnURLPath.Delete (7, 2);
+
+    CStringA relPath = svnURLPath.Mid (query->GetRootURL().GetLength());
+	relPath = CPathUtils::PathUnescape (relPath);
+
+	const CPathDictionary* paths = &query->GetCache()->GetLogInfo().GetPaths();
+	CDictionaryBasedTempPath path (paths, (const char*)relPath);
+
+    // follow the log
+
+    LogCache::CStrictLogIterator iterator 
+        ( query->GetCache()
+        , pegrev
+        , path);
+
+    result = pegrev;
+    iterator.Retry();
+    while (!iterator.EndOfPath())
+    {
+        result = iterator.GetRevision();
+        iterator.Advance();
+    }
+
+    // return the results
+
+    copyfromURL = MakeUIUrlOrPath (  query->GetRootURL() 
+                                   + iterator.GetPath().GetPath().c_str());
+	return result;
 }
 

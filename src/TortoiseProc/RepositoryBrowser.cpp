@@ -2701,7 +2701,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					// get log of first URL
 					CString sCopyFrom1, sCopyFrom2;
 					SVNLogHelper helper;
-                    helper.SetRepositoryRoot (selection.GetRepository (0).root);
 					SVNRev rev1 = helper.GetCopyFromRev(firstPath, pegRevision, sCopyFrom1);
 					if (!rev1.IsValid())
 					{

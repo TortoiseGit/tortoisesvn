@@ -398,13 +398,17 @@ public:
 	/// (only valid after calling Log())
 	CCachedLogInfo* GetCache() const;
 
+	/// get the repository root URL
+	/// (only valid after calling Log())
+    const CStringA& GetRootURL() const;
+
     /// could we get at least some data?
     /// (such as an empty log but still UUID and HEAD info)
     bool GotAnyData() const;
 
     /// for tempCaches: write content to "real" cache files
-    /// (no-op if this is does not use a temp. cache)
-    void UpdateCache (CLogCachePool* caches);
+    /// (no-op if this does not use a temp. cache)
+    void UpdateCache (CCacheLogQuery* targetQuery);
 
     /// utility function:
 	/// fill the receiver's change list buffer 
