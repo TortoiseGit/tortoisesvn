@@ -146,6 +146,7 @@ public:
 
 	const char* operator[](index_t index) const;
 	index_t GetLength (index_t index) const;
+    char* CopyTo (char* target, index_t index) const;
 
     void swap (CStringDictionary& rhs);
 

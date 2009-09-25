@@ -541,6 +541,7 @@ public:
 	const char* GetAuthor (index_t index) const;
 	__time64_t GetTimeStamp (index_t index) const;
 	std::string GetComment (index_t index) const;
+    void GetComment (index_t index, std::string& result) const;
 
 	index_t GetAuthorID (index_t index) const;
 	CDictionaryBasedPath GetRootPath (index_t index) const;
@@ -1048,9 +1049,14 @@ inline __time64_t CRevisionInfoContainer::GetTimeStamp (index_t index) const
 	return timeStamps [index];
 }
 
+inline void 
+CRevisionInfoContainer::GetComment (index_t index, std::string& result) const
+{
+	return comments.GetAt (index, result);
+}
+
 inline std::string CRevisionInfoContainer::GetComment (index_t index) const
 {
-	CheckIndex (index);
 	return comments [index];
 }
 

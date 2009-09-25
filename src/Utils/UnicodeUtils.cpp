@@ -70,6 +70,89 @@ CString CUnicodeUtils::GetUnicode(const CStringA& string)
     return buf.get();
 }
 
+CString CUnicodeUtils::UTF8ToUTF16 (const std::string& string)
+{
+    enum {FIXED_BUFFER_SIZE = 1024};
+
+    wchar_t fixedBuffer[FIXED_BUFFER_SIZE];
+    auto_buffer<wchar_t> dynamic_buffer; 
+
+    wchar_t* result = NULL;
+
+    size_t size = string.size();
+    if (size < FIXED_BUFFER_SIZE)
+    {
+        result = fixedBuffer;
+    }
+    else
+    {
+        dynamic_buffer.reset (size+1);
+        result = dynamic_buffer;
+    }
+
+    const char* source = string.c_str();
+    wchar_t* target = result;
+    if (size > 0)
+    {
+        unsigned c;
+        do
+        {
+            if (--size == 0)
+            {
+                *target = 0;
+                break;
+            }
+
+            c = *source;
+
+            // decode 1 .. 4 byte sequences
+
+            if (c < 0x80)
+            {
+                ++source;
+            }
+            else if (c < 0xE0)
+            {
+                c = ((c & 0x1f) << 6) + (source[1] & 0x3f);
+                source += 2;
+            }
+            else if (c < 0xF0)
+            {
+                c =   ((c & 0x1f) << 12)
+                    + (static_cast<unsigned>(source[1] & 0x3f) << 6)
+                    + (source[2] & 0x3f);
+                source += 3;
+            }
+            else 
+            {
+                c =   ((c & 0x1f) << 12)
+                    + (static_cast<unsigned>(source[1] & 0x3f) << 6)
+                    + (static_cast<unsigned>(source[2] & 0x3f) << 6)
+                    + (source[3] & 0x3f);
+                source += 4;
+            }
+
+            // write result (1 or 2 wchars)
+
+            if (c < 0x10000)
+            {
+                *target = static_cast<wchar_t>(c);
+                ++target;
+            }
+            else
+            {
+                c -= 0x10000;
+                *target = static_cast<wchar_t>((c >> 10) + 0xd800);
+                *(target+1) = static_cast<wchar_t>((c & 0x3ff) + 0xdc00);
+                target += 2;
+            }
+        }
+        while (c != 0);
+    }
+
+    return CString (result, target - result);
+}
+
 CStringA CUnicodeUtils::ConvertWCHARStringToUTF8(const CString& string)
 {
 	CStringA sRet;

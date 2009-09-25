@@ -199,6 +199,22 @@ index_t CStringDictionary::GetLength (index_t index) const
     return offsets[index+1] - offsets[index] - 1;
 }
 
+char* CStringDictionary::CopyTo (char* target, index_t index) const
+{
+#if !defined (_SECURE_SCL)
+    if (index >= (index_t) offsets.size()-1)
+        throw CContainerException ("dictionary string index out of range");
+#endif
+
+    const char* first = packedStringsStart + offsets[index];
+    const char* last = packedStringsStart + offsets[index+1] - 1;
+    size_t count = last - first;
+
+    memcpy (target, first, count);
+
+    return target + count;
+}
+
 index_t CStringDictionary::Insert (const char* string)
 {
     // must not exist yet (so, it is not empty as well)

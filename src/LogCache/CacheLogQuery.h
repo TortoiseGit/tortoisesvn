@@ -291,6 +291,9 @@ private:
     TID2String authorToStringMap;
     TID2String pathToStringMap;
 
+    /// used for temporary string objects to prevent frequent allocations
+    std::string scratch;
+
 	/// Determine the revision range to pass to SVN.
 	revision_t NextAvailableRevision ( const CDictionaryBasedTempPath& path
 									 , revision_t firstMissingRevision

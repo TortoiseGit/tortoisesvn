@@ -363,14 +363,14 @@ bool CTokenizedStringContainer::CHashFunction::equal
 
 // data access utility
 
-void CTokenizedStringContainer::AppendToken ( std::string& target
+void CTokenizedStringContainer::AppendToken ( char*& target
 											, index_t token) const
 {
 	if (IsDictionaryWord (token))
 	{
 		// uncompressed token
 
-		target.append (words [GetWordIndex (token)]);
+		target = words.CopyTo (target, GetWordIndex (token));
 	}
 	else
 	{
@@ -382,6 +382,27 @@ void CTokenizedStringContainer::AppendToken ( std::string& target
 
 		AppendToken (target, subTokens.first);
 		AppendToken (target, subTokens.second);
+	}
+}
+
+size_t CTokenizedStringContainer::GetTokenLength (index_t token) const
+{
+	if (IsDictionaryWord (token))
+	{
+		// uncompressed token
+
+		return words.GetLength (GetWordIndex (token));
+	}
+	else
+	{
+		// token is a compressed pair of tokens
+
+		std::pair<index_t, index_t> subTokens = pairs [GetPairIndex (token)];
+
+		// add them recursively
+
+		return GetTokenLength (subTokens.first) 
+             + GetTokenLength (subTokens.second);
 	}
 }
 
@@ -591,7 +612,7 @@ CTokenizedStringContainer::~CTokenizedStringContainer(void)
 
 // data access
 
-std::string CTokenizedStringContainer::operator[] (index_t index) const
+void CTokenizedStringContainer::GetAt (index_t index, std::string& result) const
 {
 	// range check
 
@@ -605,10 +626,21 @@ std::string CTokenizedStringContainer::operator[] (index_t index) const
 
 	// re-construct the string token by token
 
-	std::string result;
+    size_t length = 0;
 	for (TSDIterator iter = first; (iter != last) && IsToken (*iter); ++iter)
-		AppendToken (result, *iter);
+        length += GetTokenLength (*iter);
 
+    result.resize (length);
+
+    char* buffer = &result[0];
+	for (TSDIterator iter = first; (iter != last) && IsToken (*iter); ++iter)
+		AppendToken (buffer, *iter);
+}
+
+std::string CTokenizedStringContainer::operator[] (index_t index) const
+{
+    std::string result;
+    GetAt (index, result);
 	return result;
 }
 

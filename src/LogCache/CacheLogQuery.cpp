@@ -887,15 +887,17 @@ void CCacheLogQuery::SendToReceiver ( revision_t revision
 
     // change list
 
-    CRevisionInfoContainer::CChangesIterator first
-        (logInfo.GetChangesBegin (logIndex));
-    CRevisionInfoContainer::CChangesIterator last
-        (logInfo.GetChangesEnd (logIndex));
-
     TChangedPaths changes;
-    changes.reserve (last - first);
     if (options.GetIncludeChanges())
+    {
+        CRevisionInfoContainer::CChangesIterator first
+            (logInfo.GetChangesBegin (logIndex));
+        CRevisionInfoContainer::CChangesIterator last
+            (logInfo.GetChangesEnd (logIndex));
+
+        changes.reserve (last - first);
         GetChanges (changes, pathToStringMap, first, last);
+    }
 
     // standard revprops
 
@@ -918,8 +920,8 @@ void CCacheLogQuery::SendToReceiver ( revision_t revision
 
         // comment
 
-        CString message
-			= CUnicodeUtils::GetUnicode (logInfo.GetComment (logIndex).c_str());
+        logInfo.GetComment (logIndex, scratch);
+        CString message = CUnicodeUtils::UTF8ToUTF16 (scratch);
 
         // time stamp
 

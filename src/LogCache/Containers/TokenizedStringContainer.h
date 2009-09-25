@@ -250,7 +250,8 @@ private:
 
 	/// data access utility
 
-	void AppendToken (std::string& target, index_t token) const;
+	void AppendToken (char*& target, index_t token) const;
+    size_t GetTokenLength (index_t token) const;
 
 	/// insertion utilities
 
@@ -279,6 +280,7 @@ public:
 		return (index_t)offsets.size() -1;
 	}
 
+    void GetAt (index_t index, std::string& result) const;
 	std::string operator[] (index_t index) const;
 
     /// STL-like behavior
