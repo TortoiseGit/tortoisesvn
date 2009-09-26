@@ -1126,7 +1126,7 @@ void CCommitDlg::GetAutocompletionList()
 		if (rdata.IsEmpty())
 			continue;
 
-		ScanFile(entry->GetPath().GetWinPathString(), rdata);
+		ScanFile(entry->GetPath().GetWinPathString(), rdata, sExt);
 		if ((entry->textstatus != svn_wc_status_unversioned) &&
 			(entry->textstatus != svn_wc_status_none) &&
 			(entry->textstatus != svn_wc_status_ignored) &&
@@ -1135,14 +1135,16 @@ void CCommitDlg::GetAutocompletionList()
 		{
 			CTSVNPath basePath = SVN::GetPristinePath(entry->GetPath());
 			if (!basePath.IsEmpty())
-				ScanFile(basePath.GetWinPathString(), rdata);
+				ScanFile(basePath.GetWinPathString(), rdata, sExt);
 		}
 	}
 	ATLTRACE(_T("Auto completion list loaded in %d msec\n"), GetTickCount() - starttime);
 }
 
-void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex)
+void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, const CString& sExt)
 {
+	static std::map<CString, tr1::wregex> regexmap;
+
 	wstring sFileContent;
 	HANDLE hFile = CreateFile(sFilePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
 	if (hFile != INVALID_HANDLE_VALUE)
@@ -1185,7 +1187,16 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex)
 
 	try
 	{
-		const tr1::wregex regCheck(sRegex, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
+
+		tr1::wregex regCheck;
+		std::map<CString, tr1::wregex>::const_iterator regIt;
+		if ((regIt = regexmap.find(sExt)) != regexmap.end())
+			regCheck = regIt->second;
+		else
+		{
+			regCheck = tr1::wregex(sRegex, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
+			regexmap[sExt] = regCheck;
+		}
 		const tr1::wsregex_iterator end;
 		wstring s = sFileContent;
 		for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
