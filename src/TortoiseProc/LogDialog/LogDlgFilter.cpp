@@ -20,6 +20,27 @@
 #include "LogDlgFilter.h"
 #include "LogDlg.h"
 
+namespace
+{
+    // case-sensitivity optimization functions
+
+    bool IsAllASCII7 (const CString& s)
+    {
+        for (int i = 0, count = s.GetLength(); i < count; ++i)
+            if (s[i] >= 0x80)
+                return false;
+
+        return true;
+    }
+
+    void FastLowerCaseConversion (wchar_t* s)
+    {
+        for (wchar_t c = *s; c != 0; c = *++s)
+            if ((c <= 'Z') && (c >= 'A'))
+                *s += 'a' - 'A';
+    }
+};
+
 // filter utiltiy method
 
 bool CLogDlgFilter::Match (wstring& text) const
@@ -29,7 +50,12 @@ bool CLogDlgFilter::Match (wstring& text) const
         // normalize to lower case
 
         if (!caseSensitive)
-            _wcslwr_s (&text.at(0), text.length()+1);
+            if (fastLowerCase)
+                FastLowerCaseConversion (&text.at(0));
+            else
+                _wcslwr_s (&text.at(0), text.length()+1);
+
+        // require all strings to be present
 
 	    for (vector<wstring>::const_iterator it = subStrings.begin(); it != subStrings.end(); ++it)
             if (wcsstr (text.c_str(), it->c_str()) == NULL)
@@ -82,6 +108,7 @@ CLogDlgFilter::CLogDlgFilter
                         ? UINT_MAX
                         : (1 << selectedFilter))
     , caseSensitive (caseSensitive)
+    , fastLowerCase (false)
     , from (from)
     , to (to)
     , scanRelevantPathsOnly (scanRelevantPathsOnly)
@@ -109,10 +136,22 @@ CLogDlgFilter::CLogDlgFilter
 		CString sToken;
 		int curPos = 0;
 		sToken = sFilterText.Tokenize(_T(" "), curPos);
+
+        fastLowerCase = !caseSensitive;
 		while (!sToken.IsEmpty())
 		{
             if (!caseSensitive)
+            {
                 sToken.MakeLower();
+
+                // If the search string (UTF16!) is pure ASCII-7, 
+                // no locale specifics should apply.
+                // Exceptions to C-locale are usually either limited 
+                // to lowercase -> uppercase conversion or they map
+                // their lowercase chars beyond U+0x80.
+
+                fastLowerCase |= IsAllASCII7 (sToken);
+            }
 
             subStrings.push_back ((LPCTSTR)sToken);
 			sToken = sFilterText.Tokenize(_T(" "), curPos);

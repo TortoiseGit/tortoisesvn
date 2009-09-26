@@ -51,6 +51,10 @@ private:
 
     bool caseSensitive;
 
+    /// if set, we don't need to apply locales to convert the string
+
+    bool fastLowerCase;
+
     /// date range to filter for
 
     __time64_t from;
