@@ -788,29 +788,9 @@ revision_t CCacheLogQuery::FillLog ( revision_t startRevision
 
 // fill the receiver's change list buffer 
 
-namespace
-{
-    const CString& ConvertMapString 
-        ( quick_hash_map<index_t, CString>& pathToStringMap
-        , const CDictionaryBasedPath& path)
-    {
-        quick_hash_map<index_t, CString>::const_iterator 
-            iter (pathToStringMap.find (path.GetIndex()));
-
-        if (iter == pathToStringMap.end())
-        {
-    		CString s = SVN::MakeUIUrlOrPath (path.GetPath().c_str());
-            pathToStringMap.insert (path.GetIndex(), s);
-            iter = pathToStringMap.find (path.GetIndex());
-        }
-            
-        return *iter;
-    }
-}
-
 void CCacheLogQuery::GetChanges 
     ( TChangedPaths& result
-    , TID2String& pathToStringMap
+    , CPathToStringMap& pathToStringMap
     , CRevisionInfoContainer::CChangesIterator first
     , const CRevisionInfoContainer::CChangesIterator& last)
 {
@@ -819,13 +799,13 @@ void CCacheLogQuery::GetChanges
         result.push_back (SChangedPath());
 
         SChangedPath& entry = result.back();
-        entry.path = ConvertMapString (pathToStringMap, first.GetPath());
+        entry.path = pathToStringMap.AsString (first.GetPath());
         entry.nodeKind = static_cast<svn_node_kind_t>(first->GetPathType());
         entry.action = (DWORD)first.GetAction() / 4;
 
         if (first.HasFromPath() && (first.GetFromRevision() != NO_REVISION))
         {
-            entry.copyFromPath = ConvertMapString (pathToStringMap, first.GetFromPath());
+            entry.copyFromPath = pathToStringMap.AsString (first.GetFromPath());
             entry.copyFromRev = first.GetFromRevision();
         }
         else
@@ -966,7 +946,7 @@ void CCacheLogQuery::SendToReceiver ( revision_t revision
 void CCacheLogQuery::ResetObjectTranslations()
 {
     authorToStringMap.clear();
-    pathToStringMap.clear();
+    pathToStringMap.Clear();
 }
 
 // log from cache w/o merge history. Auto-fill cache if data is missing.

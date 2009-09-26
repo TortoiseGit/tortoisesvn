@@ -26,9 +26,8 @@
 #include "ILogReceiver.h"
 
 #include "./Containers/RevisionInfoContainer.h"
-#include "./Containers/DictionaryBasedTempPath.h"
 
-#include "QuickHashMap.h"
+#include "PathToStringMap.h"
 
 ///////////////////////////////////////////////////////////////
 // forward declarations
@@ -289,7 +288,7 @@ private:
     typedef quick_hash_map<index_t, CString> TID2String;
 
     TID2String authorToStringMap;
-    TID2String pathToStringMap;
+    CPathToStringMap pathToStringMap;
 
     /// used for temporary string objects to prevent frequent allocations
     std::string scratch;
@@ -416,7 +415,7 @@ public:
     /// utility function:
 	/// fill the receiver's change list buffer 
 	static void GetChanges ( TChangedPaths& result
-                           , TID2String& pathToStringMap
+                           , CPathToStringMap& pathToStringMap
                            , CRevisionInfoContainer::CChangesIterator first
 		                   , const CRevisionInfoContainer::CChangesIterator& last);
 
