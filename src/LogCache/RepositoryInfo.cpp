@@ -523,9 +523,17 @@ revision_t CRepositoryInfo::GetHeadRevision (CString uuid, const CTSVNPath& url)
 
     __time64_t now = CTime::GetCurrentTime().GetTime();
 
+    // is the current info outdated?
+    // (and don't try to update the info if we are off-line,
+    //  as long as we have at least *some* HEAD info).
+
+    bool outdated = info->connectionState == online
+        ? now - info->headLookupTime > CSettings::GetMaxHeadAge()
+        : false;
+
     // is there a valid cached entry?
 
-    if (   (now - info->headLookupTime > CSettings::GetMaxHeadAge())
+    if (   outdated
         || !IsParentDirectory (info->headURL, sURL)
         || (info->headRevision == NO_REVISION))
     {
