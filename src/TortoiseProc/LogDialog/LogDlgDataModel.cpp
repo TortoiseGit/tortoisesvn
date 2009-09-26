@@ -730,11 +730,10 @@ CLogDataVector::FilterRange
     std::vector<size_t> result;
     result.reserve (last - first);
 
-	wstring scratch;
-    scratch.reserve (1000000);
+    CLogDlgFilter privateFilter (*filter);
 
     for (size_t i = first; i < last; ++i)
-        if (filter->Matches (*inherited::operator[](i), scratch))
+        if (privateFilter(*inherited::operator[](i)))
             result.push_back (i);
 
     return result;

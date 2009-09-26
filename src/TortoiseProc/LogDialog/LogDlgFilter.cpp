@@ -19,6 +19,8 @@
 #include "stdafx.h"
 #include "LogDlgFilter.h"
 #include "LogDlg.h"
+#include "PathUtils.h"
+#include "UnicodeUtils.h"
 
 namespace
 {
@@ -118,6 +120,12 @@ CLogDlgFilter::CLogDlgFilter
     , scanRelevantPathsOnly (scanRelevantPathsOnly)
     , revToKeep (revToKeep)
 {
+    // initialize scratch objects
+
+    scratch.reserve (0xfff0);
+    utf8PathScratch.reserve (0xff0);
+    utf16PathScratch.reserve (0xff0);
+
     // decode string matching spec
 
 	bool useRegex = filterWithRegex && !filter.IsEmpty();
@@ -175,19 +183,48 @@ CLogDlgFilter::CLogDlgFilter
 
 namespace
 {
-    void AppendString (wstring& target, const CString& toAppend)
+    // concatenate strings
+
+    void AppendString (wstring& target, const wchar_t* toAppend, size_t length)
     {
-        if (target.size() + toAppend.GetLength() + 1 > target.capacity())
+        if (target.size() + length + 1 > target.capacity())
             target.reserve (2 * target.capacity());
 
         target.push_back (' ');
-        target.append (toAppend, toAppend.GetLength());
+        target.append (toAppend, length);
+    }
+
+    void AppendString (wstring& target, const CString& toAppend)
+    {
+        AppendString (target, toAppend, toAppend.GetLength());
+    }
+
+    void AppendString (wstring& target, const wstring& toAppend)
+    {
+        AppendString (target, toAppend.c_str(), toAppend.length());
+    }
+
+    // convert path objects
+
+    void GetPath 
+        ( const LogCache::CDictionaryBasedPath& path
+        , std::string& utf8Path
+        , std::wstring& utf16Path) 
+    {
+        path.GetPath (utf8Path);
+
+        // relative path strings are never empty
+
+        CPathUtils::Unescape (&utf8Path[0]);
+
+        // we don't need to adjust the path length as
+        // the conversion will automatically stop at \0.
+
+        CUnicodeUtils::UTF8ToUTF16 (utf8Path, utf16Path);
     }
 }
 
-bool CLogDlgFilter::Matches 
-    ( const CLogEntryData& entry
-    , wstring& scratch) const
+bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
 {
     // quick checks
 
@@ -220,9 +257,21 @@ bool CLogDlgFilter::Matches
 			const CLogChangedPath& cpath = paths[cpPathIndex];
 			if (!scanRelevantPathsOnly || cpath.IsRelevantForStartPath())
             {
-			    AppendString (scratch, cpath.GetCopyFromPath());
-			    AppendString (scratch, cpath.GetPath());
+                GetPath (cpath.GetCachedPath(), utf8PathScratch, utf16PathScratch);
+			    AppendString (scratch, utf16PathScratch);
 			    AppendString (scratch, cpath.GetActionString());
+
+                if (cpath.GetCopyFromRev() > 0)
+                {
+                    GetPath (cpath.GetCachedCopyFromPath(), utf8PathScratch, utf16PathScratch);
+	    		    AppendString (scratch, utf16PathScratch);
+
+		            scratch.push_back (' ');
+
+                    wchar_t buffer[10];
+                    _itow_s (cpath.GetCopyFromRev(), buffer, 10);
+		            scratch.append (buffer);
+                }
             }
 		}
 	}
@@ -239,14 +288,6 @@ bool CLogDlgFilter::Matches
 	}
 			
     return Match (scratch) ^ negate;
-}
-
-bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
-{
-	wstring scratch;
-	scratch.reserve(4096);
-
-    return Matches (entry, scratch); 
 }
 
 // tr1::regex is very slow when running concurrently 

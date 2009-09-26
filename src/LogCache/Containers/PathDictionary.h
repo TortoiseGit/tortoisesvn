@@ -311,6 +311,7 @@ public:
 	/// convert to string
 
 	std::string GetPath() const;
+	void GetPath (std::string& result) const;
 };
 
 /// standard operator used by STL containers

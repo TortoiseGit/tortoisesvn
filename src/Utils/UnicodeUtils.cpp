@@ -70,30 +70,10 @@ CString CUnicodeUtils::GetUnicode(const CStringA& string)
     return buf.get();
 }
 
-CString CUnicodeUtils::UTF8ToUTF16 (const std::string& string)
+wchar_t* CUnicodeUtils::UTF8ToUTF16 
+    (const char* source, size_t size, wchar_t* target)
 {
-    enum {FIXED_BUFFER_SIZE = 1024};
-
-    wchar_t fixedBuffer[FIXED_BUFFER_SIZE];
-    auto_buffer<wchar_t> dynamicBuffer; 
-
-    wchar_t* result = NULL;
-
-    size_t size = string.length()+1;
-    if (size <= FIXED_BUFFER_SIZE)
-    {
-        result = fixedBuffer;
-    }
-    else
-    {
-        dynamicBuffer.reset (size);
-        result = dynamicBuffer;
-    }
-
-    const unsigned char* source 
-        = reinterpret_cast<const unsigned char*>(string.c_str());
-
-    wchar_t* target = result;
+    const unsigned char* s = reinterpret_cast<const unsigned char*>(source);
     if (size > 0)
     {
         unsigned c;
@@ -106,33 +86,33 @@ CString CUnicodeUtils::UTF8ToUTF16 (const std::string& string)
                 break;
             }
 
-            c = *source;
+            c = *s;
 
             // decode 1 .. 4 byte sequences
 
             if (c < 0x80)
             {
-                ++source;
+                ++s;
             }
             else if (c < 0xE0)
             {
-                c = ((c & 0x1f) << 6) + (source[1] & 0x3f);
-                source += 2;
+                c = ((c & 0x1f) << 6) + (s[1] & 0x3f);
+                s += 2;
             }
             else if (c < 0xF0)
             {
                 c =   ((c & 0x1f) << 12)
-                    + (static_cast<unsigned>(source[1] & 0x3f) << 6)
-                    + (source[2] & 0x3f);
-                source += 3;
+                    + (static_cast<unsigned>(s[1] & 0x3f) << 6)
+                    + (s[2] & 0x3f);
+                s += 3;
             }
             else 
             {
                 c =   ((c & 0x1f) << 12)
-                    + (static_cast<unsigned>(source[1] & 0x3f) << 6)
-                    + (static_cast<unsigned>(source[2] & 0x3f) << 6)
-                    + (source[3] & 0x3f);
-                source += 4;
+                    + (static_cast<unsigned>(s[1] & 0x3f) << 6)
+                    + (static_cast<unsigned>(s[2] & 0x3f) << 6)
+                    + (s[3] & 0x3f);
+                s += 4;
             }
 
             // write result (1 or 2 wchars)
@@ -158,7 +138,39 @@ CString CUnicodeUtils::UTF8ToUTF16 (const std::string& string)
         ++target;
     }
 
-    return CString (result, static_cast<int>(target - result - 1));
+    return target-1;
+}
+
+CString CUnicodeUtils::UTF8ToUTF16 (const std::string& string)
+{
+    enum {FIXED_BUFFER_SIZE = 1024};
+
+    wchar_t fixedBuffer[FIXED_BUFFER_SIZE];
+    auto_buffer<wchar_t> dynamicBuffer; 
+
+    wchar_t* result = NULL;
+
+    size_t size = string.length()+1;
+    if (size <= FIXED_BUFFER_SIZE)
+    {
+        result = fixedBuffer;
+    }
+    else
+    {
+        dynamicBuffer.reset (size);
+        result = dynamicBuffer;
+    }
+
+    wchar_t* target = UTF8ToUTF16 (string.c_str(), size, result);
+    return CString (result, static_cast<int>(target - result));
+}
+
+void CUnicodeUtils::UTF8ToUTF16 (const std::string& source, std::wstring& target)
+{
+    size_t size = source.size();
+    target.resize (size);
+    wchar_t* buffer = &target[0];
+    target.resize (UTF8ToUTF16 (source.c_str(), size+1, buffer) - buffer);
 }
 
 CStringA CUnicodeUtils::ConvertWCHARStringToUTF8(const CString& string)

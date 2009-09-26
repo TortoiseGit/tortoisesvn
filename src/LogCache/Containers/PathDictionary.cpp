@@ -389,7 +389,7 @@ bool CDictionaryBasedPath::IsSameOrParentOf ( index_t lhsIndex
 
 // convert to string
 
-std::string CDictionaryBasedPath::GetPath() const
+void CDictionaryBasedPath::GetPath (std::string& result) const
 {
     if (index == NO_INDEX)
     {
@@ -399,7 +399,8 @@ std::string CDictionaryBasedPath::GetPath() const
         static const std::string noPath ("<INVALID_PATH>");
         assert (_path.empty() || (_path == noPath));
 
-        return noPath;
+        result = noPath;
+        return;
 #else
         // an assertion is of little use here ...
 
@@ -427,7 +428,8 @@ std::string CDictionaryBasedPath::GetPath() const
 
 	// build result
 
-    std::string result (std::max ((size_t)1, size), '/');
+    result.clear();
+    result.resize (std::max ((size_t)1, size), '/');
     char* target = &result[0];
 
 	for (size_t i = depth; i > 0; --i)
@@ -435,9 +437,12 @@ std::string CDictionaryBasedPath::GetPath() const
         memcpy (++target, pathElements[i-1], sizes[i-1]);
         target += sizes[i-1];
 	}
+}
 
-	// ready
-
+std::string CDictionaryBasedPath::GetPath() const
+{
+    std::string result;
+    GetPath (result);
 	return result;
 }
 

@@ -35,7 +35,9 @@ public:
 	static CStringA GetUTF8(const CStringW& string);
 	static CStringA GetUTF8(const CStringA& string);
 	static CString GetUnicode(const CStringA& string);
+    static wchar_t* UTF8ToUTF16 (const char* source, size_t size, wchar_t* target);
     static CString UTF8ToUTF16 (const std::string& string);
+    static void UTF8ToUTF16 (const std::string& source, std::wstring& target);
 	static CStringA ConvertWCHARStringToUTF8(const CString& string);
 #endif
 #ifdef UNICODE

@@ -23,7 +23,10 @@
 
 class CLogEntryData;
 
-/// structure containing the pre-processed filter spec
+/// structure containing the pre-processed filter spec.
+/// Note that the \ref Matches() function cannot be called
+/// from multiple threads. For use in a multi-threaded
+/// application, clone the filter instance (one per thread).
 
 class CLogDlgFilter
 {
@@ -72,6 +75,13 @@ private:
 
     svn_revnum_t revToKeep;
 
+    /// temp / scratch objects to minimize the number memory 
+    /// allocation operations
+
+    mutable wstring scratch;
+    mutable string utf8PathScratch;
+    mutable wstring utf16PathScratch;
+
     /// filter utiltiy method
 
     bool Match (wstring& text) const;
@@ -98,7 +108,6 @@ public:
 
     /// apply filter
 
-    bool Matches (const CLogEntryData& entry, wstring& scratch) const;
     bool operator() (const CLogEntryData& entry) const;
 
     /// tr1::regex is very slow when running concurrently 
