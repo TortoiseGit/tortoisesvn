@@ -3227,7 +3227,6 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		// now start filter the log list
         SortAndFilter();
 
-		m_LogList.DeleteAllItems();
 		m_LogList.SetItemCountEx(ShownCountWithStopped());
 		m_LogList.RedrawItems(0, ShownCountWithStopped());
 		m_LogList.SetRedraw(false);
