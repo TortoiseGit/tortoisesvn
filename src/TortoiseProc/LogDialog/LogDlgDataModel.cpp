@@ -32,6 +32,22 @@
 // (taken from the SVN class)
 ///////////////////////////////////////////////////////////////
 
+// conversion utility
+
+CString CLogChangedPath::GetUIPath (const CDictionaryBasedPath& path) const 
+{
+    std::string utf8Path = path.GetPath();
+
+    // relative path strings are never empty
+
+    CPathUtils::Unescape (&utf8Path[0]);
+
+    // we don't need to adjust the path length as
+    // the conversion will automatically stop at \0.
+
+    return CUnicodeUtils::UTF8ToUTF16 (utf8Path);
+}
+
 // construction
 
 CLogChangedPath::CLogChangedPath 
@@ -61,13 +77,13 @@ CLogChangedPath::CLogChangedPath
 
 CString CLogChangedPath::GetPath() const 
 {
-    return SVN::MakeUIUrlOrPath (path.GetPath().c_str());
+    return GetUIPath (path);
 }
 
 CString CLogChangedPath::GetCopyFromPath() const 
 {
     return copyFromPath.IsValid()
-        ? SVN::MakeUIUrlOrPath (copyFromPath.GetPath().c_str())
+        ? GetUIPath (copyFromPath)
         : CString();
 }
 

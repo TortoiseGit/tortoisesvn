@@ -43,9 +43,9 @@ private:
 
     bool relevantForStartPath;  
 
-    // construction is only allowed through the container
+    // conversion utility
 
-    friend class LogChangedPathArray;
+    CString GetUIPath (const CDictionaryBasedPath& path) const;
 
 public:
 
