@@ -57,9 +57,13 @@ bool CLogDlgFilter::Match (wstring& text) const
 
         // require all strings to be present
 
-	    for (vector<wstring>::const_iterator it = subStrings.begin(); it != subStrings.end(); ++it)
-            if (wcsstr (text.c_str(), it->c_str()) == NULL)
+        assert (subStrings.size() == exclude.size());
+	    for (size_t i = 0, count = subStrings.size(); i < count; ++i)
+        {
+            bool found = wcsstr (text.c_str(), subStrings[i].c_str()) != NULL;
+            if (found == exclude[i])
                 return false;
+        }
     }
     else
     {
@@ -138,7 +142,7 @@ CLogDlgFilter::CLogDlgFilter
 		sToken = sFilterText.Tokenize(_T(" "), curPos);
 
         fastLowerCase = !caseSensitive;
-		while (!sToken.IsEmpty())
+		while (!sToken.IsEmpty() && (sToken.Compare (_T("-")) != 0))
 		{
             if (!caseSensitive)
             {
@@ -152,6 +156,14 @@ CLogDlgFilter::CLogDlgFilter
 
                 fastLowerCase |= IsAllASCII7 (sToken);
             }
+
+            // handle token exclusion
+
+            exclude.push_back (sToken[0] == '-');
+            if (sToken[0] == '-')
+                sToken.Delete (0);
+
+            // store token & get the next one
 
             subStrings.push_back ((LPCTSTR)sToken);
 			sToken = sFilterText.Tokenize(_T(" "), curPos);

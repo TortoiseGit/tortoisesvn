@@ -33,10 +33,14 @@ private:
 
     vector<tr1::wregex> patterns;
 
-    /// list of sub-strings to find
-    /// normalized to lower case
+    /// list of sub-strings to find; normalized to lower case
 
     vector<wstring> subStrings;
+
+    /// indicated for each entry in \ref subStrings
+    /// whether is had been predicated by a '-'
+
+    vector<bool> exclude;
 
     /// negate pattern matching result
 
