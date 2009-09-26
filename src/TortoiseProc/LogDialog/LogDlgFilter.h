@@ -47,6 +47,10 @@ private:
 
     DWORD attributeSelector;
 
+    /// if false, normalize all strings to lower case before comparing them
+
+    bool caseSensitive;
+
     /// date range to filter for
 
     __time64_t from;
@@ -78,6 +82,7 @@ public:
         ( const CString& filter
         , bool filterWithRegex
         , int selectedFilter
+        , bool caseSensitive
         , __time64_t from
         , __time64_t to
         , bool scanRelevantPathsOnly

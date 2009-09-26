@@ -28,7 +28,9 @@ bool CLogDlgFilter::Match (wstring& text) const
     {
         // normalize to lower case
 
-        _wcslwr_s (&text.at(0), text.length()+1);
+        if (!caseSensitive)
+            _wcslwr_s (&text.at(0), text.length()+1);
+
 	    for (vector<wstring>::const_iterator it = subStrings.begin(); it != subStrings.end(); ++it)
             if (wcsstr (text.c_str(), it->c_str()) == NULL)
                 return false;
@@ -50,7 +52,11 @@ bool CLogDlgFilter::ValidateRegexp (LPCTSTR regexp_str, vector<tr1::wregex>& pat
 	try
 	{
 		tr1::wregex pat;
-		tr1::regex_constants::syntax_option_type type = tr1::regex_constants::ECMAScript | tr1::regex_constants::icase;
+		tr1::regex_constants::syntax_option_type type 
+            = caseSensitive
+            ? tr1::regex_constants::ECMAScript
+            : tr1::regex_constants::ECMAScript | tr1::regex_constants::icase;
+
 		pat = tr1::wregex(regexp_str, type);
 		patterns.push_back(pat);
 		return true;
@@ -65,6 +71,7 @@ CLogDlgFilter::CLogDlgFilter
     ( const CString& filter
 	, bool filterWithRegex
     , int selectedFilter
+    , bool caseSensitive
     , __time64_t from
     , __time64_t to
     , bool scanRelevantPathsOnly
@@ -74,6 +81,7 @@ CLogDlgFilter::CLogDlgFilter
     , attributeSelector ( selectedFilter == LOGFILTER_ALL 
                         ? UINT_MAX
                         : (1 << selectedFilter))
+    , caseSensitive (caseSensitive)
     , from (from)
     , to (to)
     , scanRelevantPathsOnly (scanRelevantPathsOnly)
@@ -103,7 +111,9 @@ CLogDlgFilter::CLogDlgFilter
 		sToken = sFilterText.Tokenize(_T(" "), curPos);
 		while (!sToken.IsEmpty())
 		{
-            sToken.MakeLower();
+            if (!caseSensitive)
+                sToken.MakeLower();
+
             subStrings.push_back ((LPCTSTR)sToken);
 			sToken = sFilterText.Tokenize(_T(" "), curPos);
 		}
@@ -116,6 +126,9 @@ namespace
 {
     void AppendString (wstring& target, const CString& toAppend)
     {
+        if (target.size() + toAppend.GetLength() + 1 > target.capacity())
+            target.reserve (2 * target.capacity());
+
         target.push_back (' ');
         target.append (toAppend, toAppend.GetLength());
     }
@@ -140,8 +153,6 @@ bool CLogDlgFilter::Matches
     // we need to perform expensive string / pattern matching
 
     scratch.clear();
-	scratch.reserve(4096);
-
 	if (attributeSelector & (1 << LOGFILTER_BUGID))
         AppendString (scratch, entry.GetBugIDs());
 
@@ -182,6 +193,8 @@ bool CLogDlgFilter::Matches
 bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
 {
 	wstring scratch;
+	scratch.reserve(4096);
+
     return Matches (entry, scratch); 
 }
 

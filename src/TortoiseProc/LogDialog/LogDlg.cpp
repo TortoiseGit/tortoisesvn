@@ -147,7 +147,10 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, netScheduler(1, 0, true, true)
 	, diskScheduler(1, 0, true, true)
 {
-	m_bFilterWithRegex = !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), FALSE);
+	m_bFilterWithRegex = 
+        !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), FALSE);
+    m_bFilterCaseSensitively =  
+        !!CRegDWORD(_T("Software\\TortoiseSVN\\FilterCaseSensitively"), FALSE);
 }
 
 CLogDlg::~CLogDlg()
@@ -2840,26 +2843,35 @@ LRESULT CLogDlg::OnClickedInfoIcon(WPARAM /*wParam*/, LPARAM lParam)
 
 		temp.LoadString(IDS_LOG_FILTER_REGEX);
 		popup.AppendMenu(MF_STRING | MF_ENABLED | (m_bFilterWithRegex ? MF_CHECKED : MF_UNCHECKED), LOGFILTER_REGEX, temp);
+		temp.LoadString(IDS_LOG_FILTER_CASESENSITIVE);
+		popup.AppendMenu(MF_STRING | MF_ENABLED | (m_bFilterCaseSensitively ? MF_CHECKED : MF_UNCHECKED), LOGFILTER_CASE, temp);
 
 		m_tooltips.Pop();
 		int selection = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-		if (selection != 0)
+		switch (selection)
 		{
+        case 0 : 
+            break;
 
-			if (selection == LOGFILTER_REGEX)
-			{
-				m_bFilterWithRegex = !m_bFilterWithRegex;
-				CRegDWORD b = CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), FALSE);
-				b = m_bFilterWithRegex;
-				CheckRegexpTooltip();
-			}
-			else
-			{
-				m_nSelectedFilter = selection;
-				SetFilterCueText();
-			}
-			SetTimer(LOGFILTER_TIMER, 1000, NULL);
+        case LOGFILTER_REGEX :
+			m_bFilterWithRegex = !m_bFilterWithRegex;
+			CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter")) = m_bFilterWithRegex;
+			CheckRegexpTooltip();
+            break;
+
+        case LOGFILTER_CASE:
+			m_bFilterCaseSensitively = !m_bFilterCaseSensitively;
+			CRegDWORD(_T("Software\\TortoiseSVN\\FilterCaseSensitively")) = m_bFilterCaseSensitively;
+            break;
+
+        default:
+
+            m_nSelectedFilter = selection;
+		    SetFilterCueText();
 		}
+
+        if (selection != 0)
+			SetTimer(LOGFILTER_TIMER, 1000, NULL);
 	}
 	return 0L;
 }
@@ -3191,6 +3203,7 @@ void CLogDlg::RecalculateShownList(svn_revnum_t revToKeep)
     CLogDlgFilter filter ( m_sFilterText
                          , m_bFilterWithRegex
                          , m_nSelectedFilter
+                         , m_bFilterCaseSensitively
                          , m_tFrom
                          , m_tTo
                          , scanRelevantPathsOnly

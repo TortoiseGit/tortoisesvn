@@ -49,7 +49,7 @@ using namespace std;
 #define LOGFILTER_REVS	   5
 #define LOGFILTER_REGEX	   6
 #define LOGFILTER_BUGID    7
-
+#define LOGFILTER_CASE     8
 
 #define LOGFILTER_TIMER		101
 
@@ -226,6 +226,7 @@ private:
 	bool				m_hasWC;
 	int					m_nSearchIndex;
 	bool				m_bFilterWithRegex;
+	bool				m_bFilterCaseSensitively;
 	static const UINT	m_FindDialogMessage;
 	CFindReplaceDialog *m_pFindDialog;
 	CFont				m_logFont;

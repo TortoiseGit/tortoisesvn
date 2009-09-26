@@ -731,6 +731,8 @@ CLogDataVector::FilterRange
     result.reserve (last - first);
 
 	wstring scratch;
+    scratch.reserve (1000000);
+
     for (size_t i = first; i < last; ++i)
         if (filter->Matches (*inherited::operator[](i), scratch))
             result.push_back (i);
