@@ -240,7 +240,6 @@ private:
 	CRect				m_ChgOrigRect;
 	CString				m_sFilterText;
 	int					m_nSelectedFilter;
-	volatile LONG		m_bNoDispUpdates;
 	CDateTimeCtrl		m_DateFrom;
 	CDateTimeCtrl		m_DateTo;
 	__time64_t			m_tFrom;

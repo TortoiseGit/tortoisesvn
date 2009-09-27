@@ -123,7 +123,6 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_nSearchIndex(0)
 	, m_wParam(0)
 	, m_nSelectedFilter(LOGFILTER_ALL)
-	, m_bNoDispUpdates(FALSE)
 	, m_nSortColumn(0)
 	, m_bShowedAll(false)
 	, m_bSelect(false)
@@ -156,7 +155,9 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 
 CLogDlg::~CLogDlg()
 {
-	InterlockedExchange(&m_bNoDispUpdates, TRUE);
+    // prevent further event processing
+
+	InterlockedExchange(&m_bLogThreadRunning, TRUE);
 	m_logEntries.ClearAll();
 	DestroyIcon(m_hModifiedIcon);
 	DestroyIcon(m_hReplacedIcon);
@@ -497,7 +498,6 @@ BOOL CLogDlg::OnInitDialog()
 	// first start a thread to obtain the log messages without
 	// blocking the dialog
 	InterlockedExchange(&m_bLogThreadRunning, TRUE);
-	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 
 	new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
 	GetDlgItem(IDC_LOGLIST)->SetFocus();
@@ -568,7 +568,6 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 	pMsgView->SetWindowText(_T(" "));
 	// empty the changed files list
 	m_ChangedFileListCtrl.SetRedraw(FALSE);
-	InterlockedExchange(&m_bNoDispUpdates, TRUE);
     m_currentChangedArray.RemoveAll();
 	m_ChangedFileListCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 	m_ChangedFileListCtrl.SetItemCountEx(0);
@@ -580,7 +579,6 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 	{
 		// force a redraw
 		m_ChangedFileListCtrl.Invalidate();
-		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		m_ChangedFileListCtrl.SetRedraw(TRUE);
 		return;
 	}
@@ -591,7 +589,6 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 	if (selCount == 0)
 	{
 		// if nothing is selected, we have nothing more to do
-		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		m_ChangedFileListCtrl.SetRedraw(TRUE);
 		return;
 	}
@@ -607,7 +604,6 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 		size_t selIndex = m_LogList.GetNextSelectedItem(pos);
         if (selIndex >= m_logEntries.GetVisibleCount())
 		{
-			InterlockedExchange(&m_bNoDispUpdates, FALSE);
 			m_ChangedFileListCtrl.SetRedraw(TRUE);
 			return;
 		}
@@ -640,7 +636,6 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 	}
 	
 	// redraw the views
-	InterlockedExchange(&m_bNoDispUpdates, FALSE);
 	if (m_bSingleRevision)
 	{
 		m_ChangedFileListCtrl.SetItemCountEx((int)m_currentChangedArray.GetCount());
@@ -722,7 +717,6 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 	m_pStoreSelection = new CStoreSelection(this);
 	m_LogList.SetItemCountEx(0);
 	m_LogList.Invalidate();
-	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 	pMsgView->SetWindowText(_T(""));
 
@@ -736,7 +730,6 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 	InterlockedExchange(&m_bLogThreadRunning, TRUE);
 	new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
-	InterlockedExchange(&m_bNoDispUpdates, FALSE);
 }
 
 void CLogDlg::OnBnClickedRefresh()
@@ -773,7 +766,6 @@ void CLogDlg::Refresh (bool autoGoOnline)
 	m_ChangedFileListCtrl.Invalidate();
 	m_LogList.SetItemCountEx(0);
 	m_LogList.Invalidate();
-	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 	pMsgView->SetWindowText(_T(""));
 
@@ -791,7 +783,6 @@ void CLogDlg::Refresh (bool autoGoOnline)
 	InterlockedExchange(&m_bLogThreadRunning, TRUE);
 	new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
-	InterlockedExchange(&m_bNoDispUpdates, FALSE);
 }
 
 void CLogDlg::OnBnClickedNexthundred()
@@ -817,9 +808,8 @@ void CLogDlg::OnBnClickedNexthundred()
     // -> fetch one extra revision to get NumberOfLogs *new* revisions
 
 	m_limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100) +1;
-	InterlockedExchange(&m_bNoDispUpdates, TRUE);
-	SetSortArrow(&m_LogList, -1, true);
 	InterlockedExchange(&m_bLogThreadRunning, TRUE);
+	SetSortArrow(&m_LogList, -1, true);
 	// We need to create CStoreSelection on the heap or else
 	// the variable will run out of the scope before the
 	// thread ends. Therefore we let the thread delete
@@ -830,7 +820,6 @@ void CLogDlg::OnBnClickedNexthundred()
 	// we have to remove that revision entry to avoid getting it twice
 	m_logEntries.RemoveLast();
 	new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
-	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 }
 
@@ -1153,10 +1142,8 @@ void CLogDlg::LogThread()
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
 	m_bCancelled = true;
 	InterlockedExchange(&m_bLogThreadRunning, FALSE);
+    m_LogList.SetItemCountEx((int)m_logEntries.GetVisibleCount());
     m_LogList.RedrawItems(0, (int)m_logEntries.GetVisibleCount());
-	m_LogList.SetRedraw(false);
-	ResizeAllListCtrlCols(true);
-	m_LogList.SetRedraw(true);
 	if ( m_pStoreSelection )
 	{
 		// Deleting the instance will restore the
@@ -2474,7 +2461,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	// Take the default processing unless we set this to something else below.
 	*pResult = CDRF_DODEFAULT;
 
-	if (m_bNoDispUpdates)
+	if (m_bLogThreadRunning)
 		return;
 
 	switch (pLVCD->nmcd.dwDrawStage)
@@ -2654,7 +2641,7 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 	// Take the default processing unless we set this to something else below.
 	*pResult = CDRF_DODEFAULT;
 
-	if (m_bNoDispUpdates)
+	if (m_bLogThreadRunning)
 		return;
 
 	// First thing - check the draw stage. If it's the control's prepaint
@@ -2879,23 +2866,23 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	theApp.DoWaitCursor(1);
 	CStoreSelection storeselection(this);
 	FillLogMessageCtrl(false);
-	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 
 	// reset the time filter too
+    m_logEntries.ClearFilter();
     m_timFrom = m_logEntries.GetMinDate();
 	m_timTo = m_logEntries.GetMaxDate();
 	m_DateFrom.SetTime(&m_timFrom);
 	m_DateTo.SetTime(&m_timTo);
 	m_DateFrom.SetRange(&m_timFrom, &m_timTo);
 	m_DateTo.SetRange(&m_timFrom, &m_timTo);
-    m_logEntries.ClearFilter();
-    InterlockedExchange(&m_bNoDispUpdates, FALSE);
-	m_LogList.SetItemCountEx(ShownCountWithStopped());
+
+    m_LogList.SetItemCountEx(ShownCountWithStopped());
 	m_LogList.RedrawItems(0, ShownCountWithStopped());
 	m_LogList.SetRedraw(false);
 	ResizeAllListCtrlCols(true);
 	m_LogList.SetRedraw(true);
-	theApp.DoWaitCursor(-1);
+
+    theApp.DoWaitCursor(-1);
 	GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
 	GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
@@ -2974,7 +2961,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 
 		bool bOutOfRange = pItem->iItem >= ShownCountWithStopped();
 
-		if (m_bNoDispUpdates || m_bLogThreadRunning || bOutOfRange)
+		if (m_bLogThreadRunning || bOutOfRange)
 			return;
 
 
@@ -3052,7 +3039,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 	LV_ITEM* pItem= &(pDispInfo)->item;
 
 	*pResult = 0;
-	if ((m_bNoDispUpdates)||(m_bLogThreadRunning))
+	if (m_bLogThreadRunning)
 	{
 		if (pItem->mask & LVIF_TEXT)
 			lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
@@ -3144,9 +3131,7 @@ void CLogDlg::OnEnChangeSearchedit()
 		theApp.DoWaitCursor(1);
 		KillTimer(LOGFILTER_TIMER);
 		FillLogMessageCtrl(false);
-		InterlockedExchange(&m_bNoDispUpdates, TRUE);
         m_logEntries.Filter (m_tFrom, m_tTo);
-		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		m_LogList.SetItemCountEx(ShownCountWithStopped());
 		m_LogList.RedrawItems(0, ShownCountWithStopped());
 		m_LogList.SetRedraw(false);
@@ -3358,12 +3343,8 @@ void CLogDlg::SortByColumn(int nSortColumn, bool bAscending)
 
 void CLogDlg::SortAndFilter (svn_revnum_t revToKeep)
 {
-    BOOL previousState = InterlockedExchange (&m_bNoDispUpdates, TRUE);
-
     SortByColumn (m_nSortColumn, m_bAscending);
     RecalculateShownList (revToKeep);
-
-    InterlockedExchange (&m_bNoDispUpdates, previousState);
 }
 
 void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
