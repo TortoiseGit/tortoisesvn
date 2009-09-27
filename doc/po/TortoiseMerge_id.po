@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-03 10:39 +0000\n"
-"PO-Revision-Date: 2009-09-12 12:50-0600\n"
+"PO-Revision-Date: 2009-09-26 20:38-0600\n"
 "Last-Translator: Evan Allrich <eallrich@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -321,7 +321,7 @@ msgstr ""
 
 #. (para)
 msgid "In either case TortoiseMerge will show a small window listing the files included in the patch. By double clicking on one of these files you fetch the relevant file and apply the changes. The left pane shows the original file content and the right pane shows it after the patch is applied."
-msgstr ""
+msgstr "Dalam kedua kasus TortoiseMerge akan menampilkan jendela kecil yang berisi daftar berkas yang disertakan dalam tambalan. Dengan klik-ganda pada salah satu berkas ini Anda mengambil berkas yang relevan dan menerapkan perubahan. Jendela sebelah kiri menampilkan isi berkas asli dan jendela kanan memperlihatkan isi berkas setelah tambalan diterapkan."
 
 #. (para)
 msgid "You can edit the file in the right pane exactly as you would in compare/edit mode."
@@ -406,21 +406,18 @@ msgstr "Daftar Berkas Tambalan"
 
 # Indonesian#: source/TortoiseMerge_en.xml:413
 #. (para)
-#, fuzzy
 msgid "After TortoiseMerge parses the patch file it will show you a small window with all the files which have changes according to the patch file. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
-msgstr "Jika TortoiseMerge bisa mengurai patchfile ia akan memperlihatkan kepada Anda jendela kecil dengan semua file yang mempunyai perubahan menurut patchfile. <placeholder-1/> Jika nama file ditampilkan hitam, maka patch bisa diterapkan tanpa masalah. Itu berarti file tidak ketinggalan jaman menurut patch. Akan tetapi, jika nama file ditampilkan merah, patch tidak bisa diterapkan secara langsung karena Anda sudah mengubah file itu."
+msgstr "Jika TortoiseMerge bisa mengurai berkas tambalan ia akan memperlihatkan kepada Anda jendela kecil dengan semua berkas yang mempunyai perubahan menurut berkas tambalan. <placeholder-1/> Jika nama berkas ditampilkan hitam, maka tambalan bisa diterapkan tanpa masalah. Itu berarti file tidak ketinggalan jaman menurut tambalan. Akan tetapi, jika nama berkas ditampilkan merah, tambalan tidak bisa diterapkan secara langsung karena Anda sudah mengubah berkas itu."
 
 # Indonesian#: source/TortoiseMerge_en.xml:427
 #. (para)
-#, fuzzy
 msgid "But don't worry. If you're working with Subversion you can retrieve an older version of the file and resolve the conflict. In fact, TortoiseMerge automatically tries to get that older version of the file and then shows you the diff between <emphasis>Base</emphasis> (the older version of the file), <emphasis>Mine</emphasis> (the file as it is currently in your working copy) and <emphasis>Theirs</emphasis> (the older version of the file with the patch already applied). Then you can resolve possible conflicts manually."
-msgstr "Tapi jangan khawatir. Jika Anda bekerja dengan Subversion Anda bisa mengambil versi file lama dan menyelesaikan konflik tersebut. Kenyataannya, TortoiseMerge secara otomatis mencoba mendapatkan versi file lama itu dan kemudian memperlihatkannya kepada Anda perbedaan di antara <literal>Base</literal> (file versi lebih lama), <literal>Saya</literal> (file di mana copy pekerjaan Anda saat ini) dan <literal>Mereka</literal> (versi file lama dengan patch yang sudah diterapkan). Selanjutnya Anda bisa menyelesaikan kemungkinan konflik secara manual."
+msgstr "Tapi jangan khawatir. Jika Anda bekerja dengan Subversion Anda bisa mengambil versi berkas lama dan menyelesaikan konflik tersebut. Kenyataannya, TortoiseMerge secara otomatis mencoba mendapatkan versi berkas lama itu dan kemudian memperlihatkannya kepada Anda perbedaan di antara <emphasis>Base</emphasis> (berkas versi lebih lama), <emphasis>Saya</emphasis> (berkas ini saat ini sedang dalam salinan pekerjaan Anda) dan <emphasis>Mereka</emphasis> (versi berkas lama dengan tambalan yang sudah diterapkan). Selanjutnya Anda bisa menyelesaikan kemungkinan konflik secara manual."
 
 # Indonesian#: source/TortoiseMerge_en.xml:438
 #. (para)
-#, fuzzy
 msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
-msgstr "Jendela patchfile mempunyai menu konteks yang membolehkan Anda untuk meninjau akibat dari patch pada file saat ini (menerapkan tanpa menyimpan), untuk menerapkan dan menyimpan perubahan untuk file yang dipilih, atau menerapkan dan menyimpan perubahan ke <emphasis>semua</emphasis> file dalam daftar. Aksi klik-ganda untuk meninjau."
+msgstr "Jendela berkas tambalan mempunyai menu konteks yang membolehkan Anda untuk meninjau akibat dari tambalan pada berkas saat ini (menerapkan tanpa menyimpan), untuk menerapkan dan menyimpan perubahan untuk berkas yang dipilih, atau menerapkan dan menyimpan perubahan ke <emphasis>semua</emphasis> berkas dalam daftar. Aksi klik-ganda untuk meninjau."
 
 # Indonesian#: source/TortoiseMerge_en.xml:447
 #. (para)
@@ -617,9 +614,8 @@ msgstr "Dialog Buka"
 
 # Indonesian#: source/TortoiseMerge_en.xml:301
 #. (para)
-#, fuzzy
 msgid "The first thing you have to do is to decide whether you just want to compare/merge files, or whether you want to apply a patch file. Depending on what you choose, the corresponding edit boxes and browse buttons are activated."
-msgstr "Hal pertama yang harus Anda kerjakan adalah memutuskan apakah Anda hanya ingin membandingkan/menggabung file, atau apakah Anda ingin menerapkan patchfile. Tergantung pada apa yang Anda pilih, kotak edit terkait dan tombol lihat diaktifkan."
+msgstr "Hal pertama yang harus Anda kerjakan adalah memutuskan apakah Anda hanya ingin membandingkan/menggabung berkas, atau apakah Anda ingin menerapkan berkas tambalan. Tergantung pada apa yang Anda pilih, kotak edit dan tombol lihat diaktifkan."
 
 # Indonesian#: source/TortoiseMerge_en.xml:309
 #. (para)
