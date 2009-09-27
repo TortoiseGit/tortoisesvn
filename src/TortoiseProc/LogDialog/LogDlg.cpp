@@ -322,7 +322,6 @@ BOOL CLogDlg::OnInitDialog()
 	theme.SetWindowTheme(m_ChangedFileListCtrl.GetSafeHwnd(), L"Explorer", NULL);
 
 	// set up the columns
-	m_LogList.DeleteAllItems();
 	int c = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
 	while (c>=0)
 		m_LogList.DeleteColumn(c--);
@@ -357,7 +356,6 @@ BOOL CLogDlg::OnInitDialog()
 	m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
 	m_ChangedFileListCtrl.SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
 	m_ChangedFileListCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
-	m_ChangedFileListCtrl.DeleteAllItems();
 	c = ((CHeaderCtrl*)(m_ChangedFileListCtrl.GetDlgItem(0)))->GetItemCount()-1;
 	while (c>=0)
 		m_ChangedFileListCtrl.DeleteColumn(c--);
@@ -573,7 +571,6 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
     m_currentChangedArray.RemoveAll();
 	m_ChangedFileListCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
-	m_ChangedFileListCtrl.DeleteAllItems();
 	m_ChangedFileListCtrl.SetItemCountEx(0);
 
 	// if we're not here to really show a selected revision, just
@@ -731,7 +728,6 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 
 	SetSortArrow(&m_LogList, -1, true);
 
-	m_LogList.DeleteAllItems();
 	m_logEntries.ClearAll();
 
 	m_bCancelled = FALSE;
@@ -2375,7 +2371,6 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 									int selMark = m_LogList.GetSelectionMark();
 									// now start filter the log list
                                     SortAndFilter (rev);
-									m_LogList.DeleteAllItems();
 									m_LogList.SetItemCountEx(ShownCountWithStopped());
 									m_LogList.RedrawItems(0, ShownCountWithStopped());
 									if (selMark >= 0)
@@ -2895,7 +2890,6 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	m_DateTo.SetRange(&m_timFrom, &m_timTo);
     m_logEntries.ClearFilter();
     InterlockedExchange(&m_bNoDispUpdates, FALSE);
-	m_LogList.DeleteAllItems();
 	m_LogList.SetItemCountEx(ShownCountWithStopped());
 	m_LogList.RedrawItems(0, ShownCountWithStopped());
 	m_LogList.SetRedraw(false);
@@ -3153,7 +3147,6 @@ void CLogDlg::OnEnChangeSearchedit()
 		InterlockedExchange(&m_bNoDispUpdates, TRUE);
         m_logEntries.Filter (m_tFrom, m_tTo);
 		InterlockedExchange(&m_bNoDispUpdates, FALSE);
-		m_LogList.DeleteAllItems();
 		m_LogList.SetItemCountEx(ShownCountWithStopped());
 		m_LogList.RedrawItems(0, ShownCountWithStopped());
 		m_LogList.SetRedraw(false);
@@ -3234,7 +3227,6 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		theApp.DoWaitCursor(1);
 		CStoreSelection storeselection(this);
 		KillTimer(LOGFILTER_TIMER);
-		FillLogMessageCtrl(false);
 
 		// now start filter the log list
         SortAndFilter();
