@@ -38,9 +38,8 @@ CStringA CUnicodeUtils::GetUTF8(const CStringW& string)
 	if (len==0)
 		return retVal;
 	buf = retVal.GetBuffer(len*4 + 1);
-//	SecureZeroMemory(buf, (string.GetLength()*4 + 1)*sizeof(char));
 	int lengthIncTerminator = WideCharToMultiByte(CP_UTF8, 0, string, -1, buf, len*4, NULL, NULL);
-	retVal.ReleaseBuffer(lengthIncTerminator-1);
+	retVal.ReleaseBuffer(lengthIncTerminator == 0 ? 0 : lengthIncTerminator-1);
 	return retVal;
 }
 
@@ -51,9 +50,9 @@ CStringA CUnicodeUtils::GetUTF8(const CStringA& string)
 		return CStringA();
 
 	auto_buffer<WCHAR> buf (len*4 + 1);
-	SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
-	MultiByteToWideChar(CP_ACP, 0, string, -1, buf, len*4);
-
+	int ret = MultiByteToWideChar(CP_ACP, 0, string, -1, buf, len*4);
+	if (ret == 0)
+		return CStringA();
     return (CUnicodeUtils::GetUTF8 (CStringW(buf)));
 }
 
@@ -64,8 +63,9 @@ CString CUnicodeUtils::GetUnicode(const CStringA& string)
 		return CString();
 
 	auto_buffer<WCHAR> buf (len*4 + 1);
-	SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
-	MultiByteToWideChar(CP_UTF8, 0, string, -1, buf, len*4);
+	int ret = MultiByteToWideChar(CP_UTF8, 0, string, -1, buf, len*4);
+	if (ret == 0)
+		return CString();
 
     return buf.get();
 }
