@@ -174,8 +174,9 @@ void CLogChangedPathArray::Add
 			// note: this only works if the log is fetched top-to-bottom
 			// but since we do that, it shouldn't be a problem
 
-            logPath.ReplaceParent ( change.GetCachedPath()
-                                  , change.GetCachedCopyFromPath());
+			logPath = logPath.ReplaceParent 
+						 ( change.GetCachedPath()
+                         , change.GetCachedCopyFromPath());
 			copiedSelf = true;
 
             return;
@@ -530,8 +531,7 @@ void CLogDataVector::Finalize
     // construct an object for the path that 'log' was called for
 
     CStringA utf8Path = CUnicodeUtils::GetUTF8 (startLogPath);
-    CStringA relPath = utf8Path.Mid (query->GetRootURL().GetLength());
-	relPath = CPathUtils::PathUnescape (relPath);
+	CStringA relPath = CPathUtils::PathUnescape (utf8Path);
 
     const CCachedLogInfo* cache = query->GetCache();
 	const CPathDictionary* paths = &cache->GetLogInfo().GetPaths();
