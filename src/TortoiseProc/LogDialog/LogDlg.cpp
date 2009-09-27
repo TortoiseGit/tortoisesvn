@@ -3304,6 +3304,7 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths 
 	if (m_sRepositoryRoot.IsEmpty() && (bRelativePaths == false))
 		return pathList;
 	
+    quick_hash_set<LogCache::index_t> pathIDsAdded;
 	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 	if (pos != NULL)
 	{
@@ -3312,11 +3313,18 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths 
 			size_t nextpos = m_LogList.GetNextSelectedItem(pos);
 			if (nextpos >= m_logEntries.GetVisibleCount())
 				continue;
+
 			PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (nextpos);
 			const CLogChangedPathArray& cpatharray = pLogEntry->GetChangedPaths();
 			for (size_t cpPathIndex = 0; cpPathIndex<cpatharray.GetCount(); ++cpPathIndex)
 			{
 				const CLogChangedPath& cpath = cpatharray[cpPathIndex];
+
+                LogCache::index_t pathID = cpath.GetCachedPath().GetIndex();
+                if (pathIDsAdded.contains (pathID))
+                    continue;
+
+                pathIDsAdded.insert (pathID);
 
                 CTSVNPath path;
 				if (!bRelativePaths)
@@ -3330,7 +3338,6 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths 
 			}
 		}
 	}
-	pathList.RemoveDuplicates();
 	return pathList;
 }
 

@@ -19,7 +19,7 @@
 #pragma once
 #include "LogDlgDataModel.h"
 #include "LogCacheGlobals.h"
-#include "QuickHashMap.h"
+#include "QuickHashSet.h"
 
 class CLogDlg;
 
@@ -35,7 +35,7 @@ public:
 	~CStoreSelection();
 protected:
 	CLogDlg* m_logdlg;
-	std::set<LONG> m_SetSelectedRevisions;
+    quick_hash_set<long> m_SetSelectedRevisions;
 };
 
 /**

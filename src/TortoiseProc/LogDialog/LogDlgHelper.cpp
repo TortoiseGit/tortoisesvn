@@ -37,14 +37,14 @@ CStoreSelection::CStoreSelection(CLogDlg* dlg)
 		if ( nIndex!=-1 && nIndex < shownRows )
 		{
             PLOGENTRYDATA pLogEntry = m_logdlg->m_logEntries.GetVisible (nIndex);
-			m_SetSelectedRevisions.insert(pLogEntry->GetRevision());
+            m_SetSelectedRevisions.auto_insert (pLogEntry->GetRevision());
 			while (pos)
 			{
 				nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
 				if ( nIndex!=-1 && nIndex < shownRows )
 				{
                     pLogEntry = m_logdlg->m_logEntries.GetVisible (nIndex);
-					m_SetSelectedRevisions.insert(pLogEntry->GetRevision());
+					m_SetSelectedRevisions.auto_insert(pLogEntry->GetRevision());
 				}
 			}
 		}
@@ -55,16 +55,47 @@ CStoreSelection::~CStoreSelection()
 {
 	if ( m_SetSelectedRevisions.size()>0 )
 	{
+        // inhibit UI event processing (and combined path list updates)
+
+	    InterlockedExchange (&m_logdlg->m_bLogThreadRunning, TRUE);
+
+        int firstSelected = INT_MAX;
+        int lastSelected = INT_MIN;
+
 		for (int i=0, count = (int)m_logdlg->m_logEntries.GetVisibleCount(); i < count; ++i)
 		{
 			LONG nRevision = m_logdlg->m_logEntries.GetVisible(i)->GetRevision();
-			if ( m_SetSelectedRevisions.find(nRevision)!=m_SetSelectedRevisions.end() )
+			if ( m_SetSelectedRevisions.contains (nRevision) )
 			{
 				m_logdlg->m_LogList.SetSelectionMark(i);
 				m_logdlg->m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
-				m_logdlg->m_LogList.EnsureVisible(i, FALSE);
+
+                // record range of selected items.
+                // We must not call EnsureVisible here because it will scroll
+                // for a very long time if many items have been selected.
+
+                firstSelected = min (firstSelected, i);
+                lastSelected = max (lastSelected, i);
 			}
 		}
+
+        // ensure that the selected items are visible and
+        // prefer the first one to be visible
+
+        if (lastSelected != INT_MIN)
+        {
+            m_logdlg->m_LogList.EnsureVisible (lastSelected, FALSE);
+            m_logdlg->m_LogList.EnsureVisible (firstSelected, FALSE);
+        }
+
+        // UI updates are allowed, again
+
+	    InterlockedExchange (&m_logdlg->m_bLogThreadRunning, FALSE);
+
+        // manually trigger UI processing that had been blocked before
+
+		m_logdlg->FillLogMessageCtrl();
+	    m_logdlg->UpdateLogInfoLabel();
 	}
 }
 

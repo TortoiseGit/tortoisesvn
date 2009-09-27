@@ -243,6 +243,12 @@ public:
                : begin() + index;
     }
     
+    bool contains (const value_type& value) const
+    {
+        assert (batch_insert_start == (size_t)-1);
+        return hash.find (value) != CHashFunction::NO_INDEX;
+    }
+    
     // insert a new key, value pair
     
     void insert (const value_type& value)
