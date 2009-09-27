@@ -24,6 +24,7 @@
 #include "SVN.h"
 #include "Colors.h"
 #include "..\IBugTraqProvider\IBugTraqProvider_h.h"
+#include "Win7.h"
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
@@ -212,7 +213,7 @@ protected:
 	afx_msg void	OnLvnBegindragSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void	OnSize(UINT nType, int cx, int cy);
 	LRESULT			OnShowConflictResolver(WPARAM, LPARAM);
-
+	afx_msg LRESULT	OnTaskbarBtnCreated(WPARAM wParam, LPARAM lParam);
 	DECLARE_MESSAGE_MAP()
 
 	void			Sort();
@@ -326,6 +327,7 @@ private:
 	bool					m_AlwaysConflicted;
 
 	CComPtr<IBugTraqProvider> m_BugTraqProvider;
+	CComPtr<ITaskbarList3>	m_pTaskbarList;
 
 	// some strings different methods can use
 	CString					sIgnoredIncluded;
@@ -337,3 +339,5 @@ private:
 	CString					sRecordOnly;
 	CString					sForce;
 };
+
+static UINT	WM_TASKBARBTNCREATED = RegisterWindowMessage(_T("TaskbarButtonCreated"));
