@@ -507,7 +507,10 @@ void CCachedLogInfo::Update ( const CCachedLogInfo& newData
 		{
 			index_t destIndex = revisions[i];
 			if (destIndex == NO_INDEX)
+			{
 				destIndex = newIndex++;
+				revisions.SetRevisionIndex (i, destIndex);
+			}
 
 			indexMap.insert (destIndex, sourceIndex);
 		}
