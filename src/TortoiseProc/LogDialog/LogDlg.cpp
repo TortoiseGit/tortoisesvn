@@ -534,13 +534,10 @@ void CLogDlg::SetDlgTitle(bool bOffline)
 void CLogDlg::CheckRegexpTooltip()
 {
 	CWnd *pWnd = GetDlgItem(IDC_SEARCHEDIT);
-	// Since tooltip describes regexp features, show it only if regexps are enabled.
-	if (m_bFilterWithRegex)
-	{
-		m_tooltips.AddTool(pWnd, IDS_LOG_FILTER_REGEX_TT);
-	}
-	else
-		m_tooltips.DelTool(pWnd);
+
+    m_tooltips.DelTool(pWnd);
+    m_tooltips.AddTool(pWnd, m_bFilterWithRegex ? IDS_LOG_FILTER_REGEX_TT
+                                                : IDS_LOG_FILTER_SUBSTRING_TT);
 }
 
 void CLogDlg::EnableOKButton()
