@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-26 06:46+0300\n"
+"PO-Revision-Date: 2009-09-27 04:12+0300\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -101,6 +101,11 @@ msgstr "გადაწერილია %I64d ბაიტი"
 
 #. Resource IDs: (357)
 #, c-format
+msgid "%I64d Bytes/s"
+msgstr "%I64d ბაიტი/წმ"
+
+#. Resource IDs: (357)
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "გადაწერილია %I64d კბაიტი"
 
@@ -113,11 +118,6 @@ msgstr "შეირჩა %d ფაილი, სულ %d ფაილიდ�
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
 msgstr "%d ყველაზე აქტიური ავტორ(ებ)ი %d მაინც ფიქსაციით (%d %%)"
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%ld Bytes/s"
-msgstr "%ld ბაიტი/წმ"
 
 #. Resource IDs: (226)
 #, c-format
@@ -485,6 +485,10 @@ msgstr "&წაშლა"
 #. Resource IDs: (17)
 msgid "&Delete (keep local)"
 msgstr "&წაშლა (ლოკალურის შენარჩუნებით)"
+
+#. Resource IDs: (1514)
+msgid "&Delete unversioned items..."
+msgstr "არავერსიული ელემენტების &წაშლა..."
 
 #. Resource IDs: (101)
 msgid "&Delete..."
@@ -1161,6 +1165,10 @@ msgstr "(ორობითი მნიშვნელობა)"
 msgid "(copy)"
 msgstr "(კოპირება)"
 
+#. Resource IDs: (277)
+msgid "(create branch)"
+msgstr "(განშტოების შექმნა)"
+
 #. Resource IDs: (276)
 msgid "(created)"
 msgstr "(შეიქმნა)"
@@ -1168,6 +1176,10 @@ msgstr "(შეიქმნა)"
 #. Resource IDs: (276)
 msgid "(delete)"
 msgstr "(წაშლა)"
+
+#. Resource IDs: (214)
+msgid "(externals)"
+msgstr "(გარე)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -1200,10 +1212,6 @@ msgstr "(მნიშვნელობის გარეშე)"
 #. Resource IDs: (314)
 msgid "(not found)"
 msgstr "(ვერ მოიძებნა)"
-
-#. Resource IDs: (276)
-msgid "(open branch)"
-msgstr "(ღია განშტოება)"
 
 #. Resource IDs: (208)
 msgid "(property change only)"
@@ -2052,6 +2060,10 @@ msgstr "კასკადი"
 msgid "Cascaded context menu"
 msgstr "კასკადური კონტექსტური მენიუ"
 
+#. Resource IDs: (117)
+msgid "Case-sensitive"
+msgstr "რეგისტრის გათვალისწინებით"
+
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
 msgstr "კა&ტეგორიები:"
@@ -2541,6 +2553,10 @@ msgstr "გაგრძელება"
 msgid "Contract docked window"
 msgstr "მიმაგრებული სარკმლის აკეცვა"
 
+#. Resource IDs: (15)
+msgid "Converts the working copy format to the new version"
+msgstr "სამუშაო ასლის ფორმატს გარდაქმნის ახლად"
+
 #. Resource IDs: (376)
 msgid "Cop&y"
 msgstr "&კოპირება"
@@ -2879,6 +2895,10 @@ msgstr ""
 #. Resource IDs: (8)
 msgid "Create repositor&y here"
 msgstr "&საცავის შექმნა აქ"
+
+#. Resource IDs: (102)
+msgid "Create shortcut"
+msgstr "მალმხმობის შექმნა"
 
 #. Resource IDs: (32828)
 msgid "Create unified diff file"
@@ -6649,6 +6669,10 @@ msgid "Renames files / folders inside version control"
 msgstr "ფაილის/დასტის გადარქმევა ვერსიის კონტროლში"
 
 #. Resource IDs: (209)
+msgid "Repair copy"
+msgstr "ასლის აღდგენა"
+
+#. Resource IDs: (209)
 msgid "Repair move"
 msgstr "გადატანა აღდგენა"
 
@@ -6687,6 +6711,10 @@ msgstr "საცავის მისამართი"
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
 msgstr "საცავის UUID:"
+
+#. Resource IDs: (106)
+msgid "Request cancelled by TSVN"
+msgstr "მოთხოვნა გაუქმდა TSVN-ის მიერ"
 
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
@@ -7119,6 +7147,10 @@ msgstr "ძიება:"
 #. Resource IDs: (7)
 msgid "Search string not found!"
 msgstr "საძიებო ტექსტი ვერ მოიძებნა!"
+
+#. Resource IDs: (169)
+msgid "Searching for better path to apply patch..."
+msgstr "უკეთესი გეზის ძიება ბებკის ასატვირთად..."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -7823,16 +7855,18 @@ msgstr ""
 #. Resource IDs: (84)
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "\n"
 "Subversion reported the following:"
 msgstr ""
 "ქვევერსიაში სერიოზული პრობლემაა.\n"
-"გთხოვთ გამოყოთ დრო და ჩვენი დაგზავნის\n"
-"სიებში რაც შეიძლება დაწვრილებით\n"
-"შეგვატყობინოთ, თუ რას აკეთებდით.\n"
+"გთხოვთ გამოყოთ დრო და ჩვენი დაგზავნის სიებში\n"
+"(users@subversion.tigris.org)\n"
+"რაც შეიძლება დაწვრილებით შეგვატყობინოთ,\n"
+"თუ რას აკეთებდით.\n"
 "\n"
 "ქვევერსიის პატაკი შემდეგია:"
 
@@ -8969,6 +9003,10 @@ msgstr ""
 msgid "Unknown depth"
 msgstr "უცნობი სიღრმე"
 
+#. Resource IDs: (106)
+msgid "Unknown failure in SVN::List"
+msgstr "უცნობი შეცდომა - SVN::List"
+
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
 msgstr "დაბლოკვის მოხსნა"
@@ -9062,6 +9100,10 @@ msgstr "განახლება და ხელახლა დაბლო
 #. Resource IDs: (199)
 msgid "Updating log cache"
 msgstr "დავთრის ბუფერის განახლება"
+
+#. Resource IDs: (15)
+msgid "Upgrade working copy"
+msgstr "სამუშაო ასლის განახლება"
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -10141,6 +10183,10 @@ msgstr "ვერსიები:"
 msgid "root project"
 msgstr "ძირეული პროექტი"
 
+#. Resource IDs: (169)
+msgid "scanning path:"
+msgstr "სკანირების გეზი:"
+
 #. Resource IDs: (65535)
 msgid "skip ranges: "
 msgstr "დიაპაზონების გამოტოვება:"
@@ -10531,6 +10577,4 @@ msgstr "{BugTraq}"
 #~ msgstr "ამოღება..."
 #~ msgid "Use &magnifier on locatorbar"
 #~ msgstr "მისამართების ველზე &ლუპის გამოყენება."
-#~ msgid "cleaning up"
-#~ msgstr "დასუფთავება"
 
