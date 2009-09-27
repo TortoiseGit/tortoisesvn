@@ -144,6 +144,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_limit(0)
 	, m_bIncludeMerges(FALSE)
 	, m_hAccel(NULL)
+	, m_bRefresh(false)
 	, netScheduler(1, 0, true, true)
 	, diskScheduler(1, 0, true, true)
 {
@@ -750,6 +751,10 @@ void CLogDlg::OnBnClickedRefresh()
 
 void CLogDlg::Refresh (bool autoGoOnline)
 {
+	//does the user force the cache to refresh (shift or control key down)?
+    m_bRefresh =   (GetKeyState (VK_CONTROL) < 0) 
+                || (GetKeyState (VK_SHIFT) < 0);
+
 	// refreshing means re-downloading the already shown log messages
 	UpdateData();
 	if ((m_limit == 0)||(m_bStrict)||(int(m_logEntries.size()-1) > m_limit))
@@ -777,8 +782,6 @@ void CLogDlg::Refresh (bool autoGoOnline)
 	pMsgView->SetWindowText(_T(""));
 
 	SetSortArrow(&m_LogList, -1, true);
-
-	m_LogList.DeleteAllItems();
 	m_logEntries.ClearAll();
 
     // reset the cached HEAD property & go on-line
@@ -954,10 +957,6 @@ void CLogDlg::LogThread()
 
 	new async::CAsyncCall(this, &CLogDlg::StatusThread, &diskScheduler);
 
-	//does the user force the cache to refresh (shift or control key down)?
-    bool refresh =    (GetKeyState (VK_CONTROL) < 0) 
-                   || (GetKeyState (VK_SHIFT) < 0);
-
 	//disable the "Get All" button while we're receiving
 	//log messages.
 	DialogEnableWindow(IDC_GETALL, FALSE);
@@ -1102,12 +1101,12 @@ void CLogDlg::LogThread()
     std::auto_ptr<const CCacheLogQuery> cachedData;
     if (succeeded)
     {
-        cachedData = ReceiveLog (CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, refresh);
+        cachedData = ReceiveLog (CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, m_bRefresh);
         if ((cachedData.get() == NULL)&&(!m_path.IsUrl()))
         {
 	        // try again with REV_WC as the start revision, just in case the path doesn't
 	        // exist anymore in HEAD
-	        cachedData = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, refresh);
+	        cachedData = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, m_bRefresh);
         }
 
         succeeded = cachedData.get() != NULL;

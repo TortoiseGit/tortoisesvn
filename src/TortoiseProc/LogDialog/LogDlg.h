@@ -205,6 +205,7 @@ private:
 	CTSVNPath			m_mergePath;
 	SVNRev				m_pegrev;
 	SVNRev				m_startrev;
+	bool				m_bRefresh;
 	svn_revnum_t    	m_temprev;  ///< only used during ReceiveLog
 	SVNRev				m_LogRevision;
 	SVNRev				m_endrev;
