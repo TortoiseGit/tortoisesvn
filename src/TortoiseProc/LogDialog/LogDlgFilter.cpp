@@ -295,6 +295,18 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
 
 bool CLogDlgFilter::BenefitsFromMT() const
 {
-    return patterns.empty() && !subStrings.empty();
+	// case-insensitive regular expressions don't like MT
+
+	if (!patterns.empty() && !caseSensitive)
+		return false;
+
+	// empty filters don't need MT (and its potential overhead)
+
+	if (patterns.empty() && subStrings.empty())
+		return false;
+
+	// otherwise, go mult-threading!
+
+	return true;
 }
 
