@@ -186,6 +186,11 @@ private:
 
 	virtual CString GetToolTipText(int nItem, int nSubItem);
 
+    // selection management
+
+    void AutoStoreSelection();
+    void AutoRestoreSelection();
+
 public:
 	CWnd *				m_pNotifyWindow;
 	ProjectProperties	m_ProjectProperties;

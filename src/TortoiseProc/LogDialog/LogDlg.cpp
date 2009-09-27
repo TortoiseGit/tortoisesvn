@@ -714,8 +714,9 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 	// the variable will run out of the scope before the
 	// thread ends. Therefore we let the thread delete
 	// the instance.
-	m_pStoreSelection = new CStoreSelection(this);
-	m_LogList.SetItemCountEx(0);
+    AutoStoreSelection();
+
+    m_LogList.SetItemCountEx(0);
 	m_LogList.Invalidate();
 	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 	pMsgView->SetWindowText(_T(""));
@@ -761,8 +762,9 @@ void CLogDlg::Refresh (bool autoGoOnline)
 	// the variable will run out of the scope before the
 	// thread ends. Therefore we let the thread delete
 	// the instance.
-	m_pStoreSelection = new CStoreSelection(this);
-	m_ChangedFileListCtrl.SetItemCountEx(0);
+    AutoStoreSelection();
+
+    m_ChangedFileListCtrl.SetItemCountEx(0);
 	m_ChangedFileListCtrl.Invalidate();
 	m_LogList.SetItemCountEx(0);
 	m_LogList.Invalidate();
@@ -814,7 +816,7 @@ void CLogDlg::OnBnClickedNexthundred()
 	// the variable will run out of the scope before the
 	// thread ends. Therefore we let the thread delete
 	// the instance.
-	m_pStoreSelection = new CStoreSelection(this);
+    AutoStoreSelection();
 
 	// since we fetch the log from the last revision we already have,
 	// we have to remove that revision entry to avoid getting it twice
@@ -1147,16 +1149,7 @@ void CLogDlg::LogThread()
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
 	m_bCancelled = true;
 	InterlockedExchange(&m_bLogThreadRunning, FALSE);
-    m_LogList.SetItemCountEx((int)m_logEntries.GetVisibleCount());
-    m_LogList.RedrawItems(0, (int)m_logEntries.GetVisibleCount());
-	if ( m_pStoreSelection )
-	{
-		// Deleting the instance will restore the
-		// selection of the CLogDlg.
-		delete m_pStoreSelection;
-		m_pStoreSelection = NULL;
-	}
-	else
+	if ( m_pStoreSelection == NULL )
 	{
 		// If no selection has been set then this must be the first time
 		// the revisions are shown. Let's preselect the topmost revision.
@@ -2870,7 +2863,7 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	m_sFilterText.Empty();
 	UpdateData(FALSE);
 	theApp.DoWaitCursor(1);
-	CStoreSelection storeselection(this);
+    AutoStoreSelection();
 	FillLogMessageCtrl(false);
 
 	// reset the time filter too
@@ -2882,6 +2875,7 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	m_DateFrom.SetRange(&m_timFrom, &m_timTo);
 	m_DateTo.SetRange(&m_timFrom, &m_timTo);
 
+    m_LogList.SetItemCountEx(0);
     m_LogList.SetItemCountEx(ShownCountWithStopped());
 	m_LogList.RedrawItems(0, ShownCountWithStopped());
 	m_LogList.SetRedraw(false);
@@ -2892,7 +2886,9 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
 	GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
-	UpdateLogInfoLabel();
+
+    AutoRestoreSelection();
+
 	return 0L;	
 }
 
@@ -3132,12 +3128,14 @@ void CLogDlg::OnEnChangeSearchedit()
 	UpdateData();
 	if (m_sFilterText.IsEmpty())
 	{
-		CStoreSelection storeselection(this);
-		// clear the filter, i.e. make all entries appear
+        AutoStoreSelection();
+
+        // clear the filter, i.e. make all entries appear
 		theApp.DoWaitCursor(1);
 		KillTimer(LOGFILTER_TIMER);
 		FillLogMessageCtrl(false);
         m_logEntries.Filter (m_tFrom, m_tTo);
+		m_LogList.SetItemCountEx(0);
 		m_LogList.SetItemCountEx(ShownCountWithStopped());
 		m_LogList.RedrawItems(0, ShownCountWithStopped());
 		m_LogList.SetRedraw(false);
@@ -3148,6 +3146,8 @@ void CLogDlg::OnEnChangeSearchedit()
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
 		DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_logEntries.GetVisibleCount() == 0))));
+
+        AutoRestoreSelection();
 		return;
 	}
 	if (Validate(m_sFilterText))
@@ -3216,12 +3216,13 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 			// 2. to rebuild the filtered list after sorting
 		}
 		theApp.DoWaitCursor(1);
-		CStoreSelection storeselection(this);
+        AutoStoreSelection();
 		KillTimer(LOGFILTER_TIMER);
 
 		// now start filter the log list
         SortAndFilter();
 
+		m_LogList.SetItemCountEx(0);
 		m_LogList.SetItemCountEx(ShownCountWithStopped());
 		m_LogList.RedrawItems(0, ShownCountWithStopped());
 		m_LogList.SetRedraw(false);
@@ -3238,7 +3239,8 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
 		if (bSetFocusToFilterControl)
 			GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
-		UpdateLogInfoLabel();
+
+        AutoRestoreSelection();
 	} // if (nIDEvent == LOGFILTER_TIMER)
 	DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_logEntries.GetVisibleCount() == 0))));
 	__super::OnTimer(nIDEvent);
@@ -5030,4 +5032,24 @@ CString CLogDlg::GetToolTipText(int nItem, int nSubItem)
 		return sToolTipText;
 	}
 	return CString();
+}
+
+// selection management
+
+void CLogDlg::AutoStoreSelection()
+{
+    if (m_pStoreSelection == NULL)
+        m_pStoreSelection = new CStoreSelection(this);
+}
+
+void CLogDlg::AutoRestoreSelection()
+{
+    if (m_pStoreSelection != NULL)
+    {
+        delete m_pStoreSelection;
+        m_pStoreSelection = NULL;
+
+        FillLogMessageCtrl();
+        UpdateLogInfoLabel();
+    }
 }
