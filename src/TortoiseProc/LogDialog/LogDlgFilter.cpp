@@ -275,8 +275,11 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
             }
 		}
 	}
-	if (attributeSelector & (1 << LOGFILTER_AUTHORS))
+
+    if (attributeSelector & (1 << LOGFILTER_AUTHORS))
 		AppendString (scratch, entry.GetAuthor());
+	if (attributeSelector & (1 << LOGFILTER_DATE))
+        AppendString (scratch, entry.GetDateString());
 
     if (attributeSelector & (1 << LOGFILTER_REVS))
 	{

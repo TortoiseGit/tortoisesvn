@@ -50,6 +50,7 @@ using namespace std;
 #define LOGFILTER_REGEX	   6
 #define LOGFILTER_BUGID    7
 #define LOGFILTER_CASE     8
+#define LOGFILTER_DATE     9
 
 #define LOGFILTER_TIMER		101
 
