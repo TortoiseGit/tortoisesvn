@@ -1094,7 +1094,16 @@ void CLogDlg::LogThread()
 	        cachedData = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, m_bRefresh);
         }
 
-        succeeded = cachedData.get() != NULL;
+        // Err will also be set if the user cancelled.
+
+        succeeded = Err == NULL;
+
+        // make sure the m_logEntries is consistent
+
+        if (cachedData.get() != NULL)
+            m_logEntries.Finalize (cachedData, m_sRelativeRoot);
+        else
+            m_logEntries.ClearAll();
     }
 	m_LogList.ClearText();
     if (!succeeded)
@@ -1103,10 +1112,6 @@ void CLogDlg::LogThread()
 		m_LogList.ShowText(GetLastErrorMessage() + _T("\n\n") + temp, true);
 		FillLogMessageCtrl(false);
 	}
-    else
-    {
-        m_logEntries.Finalize (cachedData, m_sRelativeRoot);
-    }
 
 	if (   m_bStrict 
         && (m_logEntries.GetMinRevision() > 1) 

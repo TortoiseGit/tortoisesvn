@@ -1464,18 +1464,32 @@ SVN::ReceiveLog (const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
 						 ? tempQuery.get()
                          : cacheQuery.get();
 
-		query->Log ( pathlist
-				   , revisionPeg
-				   , revisionStart
-				   , revisionEnd
-				   , limit
-				   , strict != FALSE
-				   , this
-                   , false // changes will be fetched but not forwarded to receiver
-                   , withMerges != FALSE
-                   , true
-                   , false
-                   , TRevPropNames());
+	    try
+	    {
+		    query->Log ( pathlist
+				       , revisionPeg
+				       , revisionStart
+				       , revisionEnd
+				       , limit
+				       , strict != FALSE
+				       , this
+                       , false // changes will be fetched but not forwarded to receiver
+                       , withMerges != FALSE
+                       , true
+                       , false
+                       , TRevPropNames());
+        }
+	    catch (SVNError& e)
+	    {
+            // cancellation is no actual error condition
+
+            if (e.GetCode() != SVN_ERR_CANCELLED)
+                throw;
+
+            // caller shall be able to detect the cancellation, though
+
+		    Err = svn_error_create (e.GetCode(), NULL, e.GetMessage());
+	    }
 
         // merge temp results with permanent cache, if applicable
 

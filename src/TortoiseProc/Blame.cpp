@@ -180,8 +180,11 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 			logfile.Empty();
 			return m_sSavePath;
 		}
-		if (NULL == ReceiveLog (CTSVNPathList(path), pegrev, m_nHeadRev, m_lowestrev, 0, FALSE, m_bHasMerges, false).get())
+		if (   (NULL == ReceiveLog (CTSVNPathList(path), pegrev, m_nHeadRev, m_lowestrev, 0, FALSE, m_bHasMerges, false).get())
+            || (Err != NULL))
 		{
+            // we don't want partial logs
+
 			m_saveLog.Close();
 			DeleteFile(logfile);
 			logfile.Empty();
