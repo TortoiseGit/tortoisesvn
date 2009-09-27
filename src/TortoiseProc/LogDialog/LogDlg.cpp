@@ -1782,6 +1782,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	if (m_LogList.HasText())
 	{
 		m_LogList.ClearText();
+        FillLogMessageCtrl();
 		return;
 	}
 	if (CRegDWORD(_T("Software\\TortoiseSVN\\DiffByDoubleClickInLog"), FALSE))
