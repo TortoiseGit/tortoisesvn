@@ -92,6 +92,10 @@ private:
         ( LPCTSTR regexp_str
         , vector<tr1::wregex>& patterns);
 
+    // construction utility
+
+    void AddSubString (CString token, bool negate);
+
 public:
 
     /// construction

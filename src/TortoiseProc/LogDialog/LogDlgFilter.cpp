@@ -97,6 +97,35 @@ bool CLogDlgFilter::ValidateRegexp (LPCTSTR regexp_str, vector<tr1::wregex>& pat
 	return false;
 }
 
+// construction utility
+
+void CLogDlgFilter::AddSubString (CString token, bool negate)
+{
+    if (token.IsEmpty())
+        return;
+
+    if (!caseSensitive)
+    {
+        token.MakeLower();
+
+        // If the search string (UTF16!) is pure ASCII-7, 
+        // no locale specifics should apply.
+        // Exceptions to C-locale are usually either limited 
+        // to lowercase -> uppercase conversion or they map
+        // their lowercase chars beyond U+0x80.
+
+        fastLowerCase |= IsAllASCII7 (token);
+    }
+
+    // handle token exclusion
+
+    exclude.push_back (negate);
+
+    // store token & get the next one
+
+    subStrings.push_back ((LPCTSTR)token);
+}
+
 // construction
 
 CLogDlgFilter::CLogDlgFilter 
@@ -129,53 +158,72 @@ CLogDlgFilter::CLogDlgFilter
     // decode string matching spec
 
 	bool useRegex = filterWithRegex && !filter.IsEmpty();
-	CString sFilterText = filter;
+	CString filterText = filter;
 
 	// if the first char is '!', negate the filter
 	if (filter.GetLength() && filter[0] == '!')
 	{
 		negate = true;
-		sFilterText = sFilterText.Mid(1);
+		filterText = filterText.Mid(1);
 	}
 
 	if (useRegex)
-        useRegex = ValidateRegexp (sFilterText, patterns);
+        useRegex = ValidateRegexp (filterText, patterns);
 
 	if (!useRegex)
 	{
+        fastLowerCase = !caseSensitive;
+
 		// now split the search string into words so we can search for each of them
 
-		CString sToken;
-		int curPos = 0;
-		sToken = sFilterText.Tokenize(_T(" "), curPos);
+        int curPos = 0;
+        int length = filterText.GetLength();
 
-        fastLowerCase = !caseSensitive;
-		while (!sToken.IsEmpty() && (sToken.Compare (_T("-")) != 0))
-		{
-            if (!caseSensitive)
+        while ((curPos < length) && (curPos >= 0))
+        {
+            // skip spaces
+
+            for (; (curPos < length) && (filterText[curPos] == ' '); ++curPos)
             {
-                sToken.MakeLower();
-
-                // If the search string (UTF16!) is pure ASCII-7, 
-                // no locale specifics should apply.
-                // Exceptions to C-locale are usually either limited 
-                // to lowercase -> uppercase conversion or they map
-                // their lowercase chars beyond U+0x80.
-
-                fastLowerCase |= IsAllASCII7 (sToken);
             }
 
-            // handle token exclusion
+            // negation?
 
-            exclude.push_back (sToken[0] == '-');
-            if (sToken[0] == '-')
-                sToken.Delete (0);
+            bool negation = false;
+            if ((curPos < length) && (filterText[curPos] == '-'))
+            {
+                negation = true;
+                ++curPos;
+            }
 
-            // store token & get the next one
+            // escaped string?
 
-            subStrings.push_back ((LPCTSTR)sToken);
-			sToken = sFilterText.Tokenize(_T(" "), curPos);
-		}
+            if ((curPos < length) && (filterText[curPos] == '"'))
+            {
+                int endPos = filterText.Find ('"', curPos+1);
+                while (   (endPos > curPos) 
+                       && (endPos+1 < length)
+                       && (filterText[endPos+1] != ' '))
+                {
+                    // found a " but not a terminating one -> keep looking
+
+                    endPos = filterText.Find ('"', endPos+1);
+                }
+
+                if (   (endPos > curPos) 
+                    && ((endPos+1 == length) || (filterText[endPos+1] == ' ')))
+                {
+                    AddSubString ( filterText.Mid (curPos+1, endPos - curPos-1)
+                                 , negation);
+                    curPos = endPos+1;
+                    continue;
+                }
+            }
+
+            // ordinary sub-string
+
+		    AddSubString (filterText.Tokenize (_T(" "), curPos), negation);
+        }
 	}
 }
 
@@ -185,23 +233,37 @@ namespace
 {
     // concatenate strings
 
-    void AppendString (wstring& target, const wchar_t* toAppend, size_t length)
+    void AppendString 
+        ( wstring& target
+        , const wchar_t* toAppend
+        , size_t length
+        , wchar_t separator)
     {
         if (target.size() + length + 1 > target.capacity())
             target.reserve (2 * target.capacity());
 
-        target.push_back (' ');
+        target.push_back (separator);
         target.append (toAppend, length);
     }
 
     void AppendString (wstring& target, const CString& toAppend)
     {
-        AppendString (target, toAppend, toAppend.GetLength());
+        AppendString (target, toAppend, toAppend.GetLength(), ' ');
     }
 
     void AppendString (wstring& target, const wstring& toAppend)
     {
-        AppendString (target, toAppend.c_str(), toAppend.length());
+        AppendString (target, toAppend.c_str(), toAppend.length(), ' ');
+    }
+
+    void AppendPath (wstring& target, const CString& toAppend)
+    {
+        AppendString (target, toAppend, toAppend.GetLength(), '|');
+    }
+
+    void AppendPath (wstring& target, const wstring& toAppend)
+    {
+        AppendString (target, toAppend.c_str(), toAppend.length(), '|');
     }
 
     // convert path objects
@@ -258,15 +320,15 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
 			if (!scanRelevantPathsOnly || cpath.IsRelevantForStartPath())
             {
                 GetPath (cpath.GetCachedPath(), utf8PathScratch, utf16PathScratch);
-			    AppendString (scratch, utf16PathScratch);
-			    AppendString (scratch, cpath.GetActionString());
+			    AppendPath (scratch, utf16PathScratch);
+			    AppendPath (scratch, cpath.GetActionString());
 
                 if (cpath.GetCopyFromRev() > 0)
                 {
                     GetPath (cpath.GetCachedCopyFromPath(), utf8PathScratch, utf16PathScratch);
-	    		    AppendString (scratch, utf16PathScratch);
+	    		    AppendPath (scratch, utf16PathScratch);
 
-		            scratch.push_back (' ');
+		            scratch.push_back ('|');
 
                     wchar_t buffer[10];
                     _itow_s (cpath.GetCopyFromRev(), buffer, 10);
