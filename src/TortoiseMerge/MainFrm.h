@@ -30,6 +30,7 @@
 class CLeftView;
 class CRightView;
 class CBottomView;
+#define MOVESTOIGNORE 3
 
 /**
  * \ingroup TortoiseMerge

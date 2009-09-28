@@ -40,7 +40,6 @@
 #define new DEBUG_NEW
 #endif						 
 
-
 // CMainFrame
 const UINT CMainFrame::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
 
@@ -792,7 +791,7 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 			pwndActiveView->GoToFirstDifference();
 			// Ignore the first few Mouse Move messages, so that the line diff stays on
 			// the first diff line until the user actually moves the mouse
-			m_nMoveMovesToIgnore = 3; 
+			m_nMoveMovesToIgnore = MOVESTOIGNORE; 
 		}
 
 	}
@@ -1438,6 +1437,7 @@ void CMainFrame::Search(SearchDirection srchDir)
 		m_pwndBottomView->SetFocus();
 		m_pwndBottomView->HiglightLines(m_nSearchIndex);
 	}
+	m_nMoveMovesToIgnore = MOVESTOIGNORE;
 }
 
 int CMainFrame::FindSearchStart(int nDefault)
@@ -1497,6 +1497,7 @@ void CMainFrame::OnViewLineUpDown(int direction)
 	if (m_pwndBottomView)
 		m_pwndBottomView->ScrollToLine(m_pwndBottomView->m_nTopLine+direction);
 	m_wndLocatorBar.Invalidate();
+	m_nMoveMovesToIgnore = MOVESTOIGNORE;
 }
 
 void CMainFrame::OnViewLineleft()

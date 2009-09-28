@@ -2419,6 +2419,7 @@ void CBaseView::ShowDiffLines(int nLine)
 			nLine = -1;
 		m_pwndLineDiffBar->ShowLines(nLine);
 	}
+	m_pMainFrame->m_nMoveMovesToIgnore = MOVESTOIGNORE;
 }
 
 void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomstate, viewstate &leftstate)
