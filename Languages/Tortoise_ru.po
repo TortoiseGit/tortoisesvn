@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2009
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 17168: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 17277: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-09-15 10:41+0300\n"
+"PO-Revision-Date: 2009-09-28 09:23+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2128,6 +2128,10 @@ msgstr "Каскадом"
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
 msgstr "Вложенное контекстное меню"
+
+#. Resource IDs: (117)
+msgid "Case-sensitive"
+msgstr "C учётом регистра"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
@@ -7228,6 +7232,10 @@ msgstr "Что искать:"
 msgid "Search string not found!"
 msgstr "Искомая строка не найдена!"
 
+#. Resource IDs: (169)
+msgid "Searching for better path to apply patch..."
+msgstr "Поиск подходящего пути для применения заплатки..."
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Seek failed on %1"
@@ -10293,6 +10301,10 @@ msgstr "Ревизий:"
 msgid "root project"
 msgstr "корневой проект"
 
+#. Resource IDs: (169)
+msgid "scanning path:"
+msgstr "просматриваем путь:"
+
 # статистика кэша
 #. Resource IDs: (65535)
 msgid "skip ranges: "
@@ -10724,8 +10736,6 @@ msgstr "{СОП}"
 #~ msgstr "Отслеживание ошибок..."
 #~ msgid "Remove..."
 #~ msgstr "Убрать..."
-#~ msgid "cleaning up"
-#~ msgstr "идет очистка"
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "&Открыть\tCtrl-O"
 #~ msgid "&Save Ctrl-S"
