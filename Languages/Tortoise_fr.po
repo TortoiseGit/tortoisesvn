@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-08-31 12:11+0100\n"
-"Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
+"PO-Revision-Date: 2009-09-29 00:18+0100\n"
+"Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2066,6 +2066,10 @@ msgstr "Cascade"
 msgid "Cascaded context menu"
 msgstr "Menu contextuel en cascade"
 
+#. Resource IDs: (117)
+msgid "Case-sensitive"
+msgstr "Sensible à la casse"
+
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
 msgstr "Caté&gories :"
@@ -2553,6 +2557,10 @@ msgstr "Continuer"
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Contracter la fenêtre rangée"
+
+#. Resource IDs: (15)
+msgid "Converts the working copy format to the new version"
+msgstr "Convertit le format de la copie de travail pour la nouvelle version"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -7117,6 +7125,10 @@ msgstr "Rechercher :"
 msgid "Search string not found!"
 msgstr "Chaîne recherchée non trouvée !"
 
+#. Resource IDs: (169)
+msgid "Searching for better path to apply patch..."
+msgstr "Recherche d'un meilleur chemin pour appliquer le correctif..."
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Seek failed on %1"
@@ -7820,18 +7832,20 @@ msgstr ""
 #. Resource IDs: (84)
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "\n"
 "Subversion reported the following:"
 msgstr ""
 "Un problème grave est arrivé à Subversion.\n"
-"Veuillez s'il vous plaît le rapporter via notre liste de diffusion\n"
-"Avec autant d'informations que possible concernant ce\n"
+"Veuillez prendre le temps de la rapporter sur la liste de diffusion de Subversion\n"
+"(users@subversion.tigris.org)\n"
+"avec autant d'informations que possible concernant ce\n"
 "que vous essayiez de faire.\n"
 "\n"
-"Subversion rapporte les informations suivantes :"
+"Subversion a rapporté les informations suivantes :"
 
 #. Resource IDs: (79)
 msgid ""
@@ -9062,6 +9076,10 @@ msgstr "Mise à jour et nouvel essai du verrou..."
 msgid "Updating log cache"
 msgstr "Mise à jour du cache du journal"
 
+#. Resource IDs: (15)
+msgid "Upgrade working copy"
+msgstr "Mettre à jour la copie de travail"
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Utiliser l'Image par &Défaut:"
@@ -10142,6 +10160,10 @@ msgstr "révisions : "
 msgid "root project"
 msgstr "projet principal"
 
+#. Resource IDs: (169)
+msgid "scanning path:"
+msgstr "chemin en cours d'analyse :"
+
 #. Resource IDs: (65535)
 msgid "skip ranges: "
 msgstr "Passer les plages:"
@@ -10526,8 +10548,6 @@ msgstr "{BugTraq}"
 #~ msgstr "Forcer une annotation"
 #~ msgid "Bug Tracker..."
 #~ msgstr "Pisteur de bogues..."
-#~ msgid "cleaning up"
-#~ msgstr "nettoyage"
 #~ msgid "Remove..."
 #~ msgstr "Supprimer..."
 #~ msgid "&Open Ctrl-O"
