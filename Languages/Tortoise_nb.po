@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-09-17 08:48+0100\n"
+"PO-Revision-Date: 2009-09-28 16:18+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2113,6 +2113,10 @@ msgstr "Kaskade"
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
 msgstr "Hovedmeny"
+
+#. Resource IDs: (117)
+msgid "Case-sensitive"
+msgstr "Stor/liten bokstav teller"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
@@ -7157,6 +7161,10 @@ msgstr "Let etter:"
 msgid "Search string not found!"
 msgstr "Søkestrengen ble ikke funnet!"
 
+#. Resource IDs: (169)
+msgid "Searching for better path to apply patch..."
+msgstr "Leter etter en bedre sti til å anvende korreksjonen på..."
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Seek failed on %1"
@@ -10189,6 +10197,10 @@ msgstr "revisjoner: "
 msgid "root project"
 msgstr "rotprosjekt"
 
+#. Resource IDs: (169)
+msgid "scanning path:"
+msgstr "skanner sti:"
+
 #. Resource IDs: (65535)
 msgid "skip ranges: "
 msgstr "oversette intervaller: "
@@ -10568,8 +10580,6 @@ msgstr "{BugTraq}"
 #~ msgstr "Feil-Sporingssystem..."
 #~ msgid "Remove..."
 #~ msgstr "Fjern..."
-#~ msgid "cleaning up"
-#~ msgstr "rydder opp"
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "Å&pne Ctrl-O"
 #~ msgid "&Save Ctrl-S"
