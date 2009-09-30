@@ -662,7 +662,8 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
 		//the menu text to indicate where the entry comes from
 		_tcscpy_s(menutextbuffer, 255, _T("SVN "));
 	}
-	LoadString(g_hResInst, stringid, verbsbuffer, sizeof(verbsbuffer)/sizeof(TCHAR));
+	// always load the verbs from the plain dll, not the language resource dll!
+	LoadString(g_hmodThisDll, stringid, verbsbuffer, sizeof(verbsbuffer)/sizeof(TCHAR));
 	_tcscat_s(menutextbuffer, 255, verbsbuffer);
 	tstring verb = tstring(menutextbuffer);
 	if (verb.find('&') != -1)
