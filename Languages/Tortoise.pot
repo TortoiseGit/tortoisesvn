@@ -1311,10 +1311,6 @@ msgstr ""
 msgid "A viewer program for GNU diff files (patch files).\r\nIf you don't have one use NotePad."
 msgstr ""
 
-#. Resource IDs: (9)
-msgid "A&bout"
-msgstr ""
-
 #. Resource IDs: (101)
 msgid "A&dd folder..."
 msgstr ""
@@ -1325,6 +1321,10 @@ msgstr ""
 
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
+msgstr ""
+
+#. Resource IDs: (9)
+msgid "About"
 msgstr ""
 
 #. Resource IDs: (136)
@@ -4950,6 +4950,10 @@ msgstr ""
 msgid "No image encoder found for %s."
 msgstr ""
 
+#. Resource IDs: (84)
+msgid "No path or pathfile specified on the command line!"
+msgstr ""
+
 #. Resource IDs: (188)
 msgid "No spell corrections"
 msgstr ""
@@ -6875,6 +6879,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Stripes"
+msgstr ""
+
+#. Resource IDs: (117)
+msgid "Sub-string filter:\r\n* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n* Enclose strings that contain spaces etc. with \".\r\n* Put a ! at the beginning of the line to invert the whole filter condition.\r\n\r\nExamples:\r\nmyname  2008    : my commits of 2008\r\n.h  -.cpp              : commits that changed headers but no implementations\r\n\" \"                        : commits with spaces (ex. when searching in paths only)\r\n-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
 
 #. Resource IDs: (65535)

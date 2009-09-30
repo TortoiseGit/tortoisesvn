@@ -256,6 +256,11 @@ BOOL CTortoiseProcApp::InitInstance()
 	if ( parser.HasKey(_T("pathfile")) )
 	{
 		CString sPathfileArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("pathfile")));
+		if (sPathfileArgument.IsEmpty())
+		{
+			CMessageBox::Show(hWndExplorer, IDS_ERR_NOPATH, IDS_APPNAME, MB_ICONERROR);
+			return FALSE;
+		}
 		cmdLinePath.SetFromUnknown(sPathfileArgument);
 		if (pathList.LoadFromFile(cmdLinePath)==false)
 			return FALSE;		// no path specified!
