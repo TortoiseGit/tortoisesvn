@@ -656,15 +656,9 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
 	menuiteminfo.wID = (UINT)id;
 	InsertMenuItem(menu, pos, TRUE, &menuiteminfo);
 
-	if (istop)
-	{
-		//menu entry for the top context menu, so append an "SVN " before
-		//the menu text to indicate where the entry comes from
-		_tcscpy_s(menutextbuffer, 255, _T("SVN "));
-	}
+
 	// always load the verbs from the plain dll, not the language resource dll!
-	LoadString(g_hmodThisDll, stringid, verbsbuffer, sizeof(verbsbuffer)/sizeof(TCHAR));
-	_tcscat_s(menutextbuffer, 255, verbsbuffer);
+	LoadString(g_hmodThisDll, stringid, menutextbuffer, sizeof(menutextbuffer)/sizeof(TCHAR));
 	tstring verb = tstring(menutextbuffer);
 	if (verb.find('&') != -1)
 	{
