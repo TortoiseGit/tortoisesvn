@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-09-28 11:06+0100\n"
+"PO-Revision-Date: 2009-10-01 09:21+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1367,10 +1367,6 @@ msgstr ""
 "Falls Sie keines haben wählen Sie einen normalen Texteditor\r\n"
 "(z.B. Notepad.exe)."
 
-#. Resource IDs: (9)
-msgid "A&bout"
-msgstr "Ü&ber"
-
 #. Resource IDs: (101)
 msgid "A&dd folder..."
 msgstr "Ordner hinzu&fügen..."
@@ -1382,6 +1378,10 @@ msgstr "Abbrechen"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "Zusammenführen &Abbrechen"
+
+#. Resource IDs: (9)
+msgid "About"
+msgstr "Über"
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
@@ -5663,6 +5663,10 @@ msgstr "Keine Grafik vorhanden"
 msgid "No image encoder found for %s."
 msgstr "Kein Bildkodierer für %s gefunden."
 
+#. Resource IDs: (84)
+msgid "No path or pathfile specified on the command line!"
+msgstr "Es wurde weder ein Pfad noch eine Date mit Pfaden auf der Kommandozeile übergeben!"
+
 #. Resource IDs: (188)
 msgid "No spell corrections"
 msgstr "Keine Korrekturvorschläge"
@@ -7816,6 +7820,35 @@ msgstr "Stefan Küng, Lübbe Onken"
 #. Resource IDs: (65535)
 msgid "Stripes"
 msgstr "Streifenfarben"
+
+#. Resource IDs: (117)
+msgid ""
+"Sub-string filter:\r\n"
+"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Enclose strings that contain spaces etc. with \".\r\n"
+"* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
+"\r\n"
+"Examples:\r\n"
+"myname  2008    : my commits of 2008\r\n"
+".h  -.cpp              : commits that changed headers but no implementations\r\n"
+"\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"!myname  .cpp    : everything but my commits to .cpp files"
+msgstr ""
+"Teiltextfilter:\r\n"
+"* Geben Sie eine oder mehrere durch Leerzeichen getrennte Zeichenketten an.\r\n"
+"* Alle (Teil)-Zeichenketten müssen übereinstimmen.\r\n"
+"* Stellen Sie ein - voran, um Revisionen, die diese Zeichenkette enthalten auszuschließen.\r\n"
+"* Schließen Sie Zeichenketten, die Leerzeichen enthalten in \" ein.\r\n"
+"* Stellen Sie ein ! an den Anfang der Zeile um die gesamte Bedinung zu negieren.\r\n"
+"\r\n"
+"Beispiele:\r\n"
+"MeinName 2008  : Meine Übertragungen in 2008\r\n"
+".h -.cpp  : Zeigt .h Dateien an und schließt .cpp Dateien aus\r\n"
+"\" \"  : Übertragungen mit Leerzeichen (z.B. wenn man nur in Pfaden sucht)\r\n"
+"-\"\"zeige alle\"\"  : Übertragunen, die den Text '\"zeige alle\"' nicht enthalten\r\n"
+"!MeinName .cpp  : Alles außer meinen Übertragenen .cpp Dateien"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
