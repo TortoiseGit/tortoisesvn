@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-07-30 15:37-0000\n"
-"Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
+"PO-Revision-Date: 2009-10-01 22:41+0200\n"
+"Last-Translator: Florin Daneliuc <dfev77@google.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5960,7 +5960,7 @@ msgstr "Inserează lista numelor de fişiere"
 
 #. Resource IDs: (15)
 msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
-msgstr ""
+msgstr "Inserează calea svn din clipboard, rezultând într-o operațiune de mutare sau copiere."
 
 #. Resource IDs: (376)
 msgid "Patch all"
@@ -6034,6 +6034,11 @@ msgid ""
 "then you need to switch your working copy over to the new URL.\n"
 "Use the Switch command to do that."
 msgstr ""
+"Atentie:\n"
+"Copia d-voastră de lucru va rămane pe calea anterioară. Dacă doriți ca modificarile d-voastră\n"
+"ulterioare sa fie incredințate în copia sau ramura tocmai creeată,\n"
+"v-a trebui sa comutați copia de lucru pe noul URL.\n"
+"Pentru aceasta utilizați comanda Comutare."
 
 #. Resource IDs: (1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
@@ -6101,11 +6106,11 @@ msgstr "Hook pre-actualizare"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
-msgstr ""
+msgstr "Apăsați &noua tastă rapidă"
 
 #. Resource IDs: (65535)
 msgid "Press &new shortcut key:"
-msgstr ""
+msgstr "Apăsați &noua tastă rapidă"
 
 #. Resource IDs: (2052)
 msgid "Prevents most cases in which connection lines cross revision nodes"
@@ -7295,7 +7300,7 @@ msgstr "S-a recompilat cache-ul de iconiţe shell!"
 
 #. Resource IDs: (2052)
 msgid "Shift trees to the top of the window. Alignment to other trees will be lost."
-msgstr ""
+msgstr "Mută arborii in partea de sus a ferestrei. Se va pierde alinierea cu ceilalți arbori."
 
 #. Resource IDs: (101)
 msgid "Sho&w properties"
@@ -8379,6 +8384,9 @@ msgid ""
 "A lower value will make the auto-completion list available sooner,\r\n"
 "but maybe not scan all files."
 msgstr ""
+"Timpul în secunde după care prelucrarea fișierelor selectate este oprită.\r\n"
+"O valuare mai mică face ca lista de sugestii sa fie disponibilă mai repede,\r\n"
+"dar s-ar putea să nu citească toate fișierele."
 
 #. Resource IDs: (82)
 msgid ""
@@ -8501,15 +8509,15 @@ msgstr ""
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
-msgstr ""
+msgstr "Această metodă acoperă cazul in care a-ți creat o ramură pentru functionalități după descrierea din manualul Subversion. Utilizați această metodă pentru a aduce modificările din ramură in trunchi."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
-msgstr ""
+msgstr "Această metodă acoperă cazul când a-ți făcut una sau mai multe versiuni a unei ramuri (sau a trunchiului) și doriți să mutați aceste modificări intr-o alta ramură."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
-msgstr ""
+msgstr "Această metodă acoperă cazul in care doriți sa îmbinați modificările din două ramuri diferite în copia d-voastră de lucru."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -8949,14 +8957,12 @@ msgstr ""
 " respectiv este mai mic decât mărimea stabilită în kocteţi."
 
 #. Resource IDs: (146)
-#, fuzzy
 msgid "Unversion"
-msgstr "Unversion"
+msgstr "Elimină versionarea"
 
 #. Resource IDs: (1507)
-#, fuzzy
 msgid "Unversioned"
-msgstr "Unversioned"
+msgstr "Neversionat"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
@@ -10298,6 +10304,10 @@ msgid ""
 "The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
+"webviewer:pathrevision\r\n"
+"URL indicând vizualizatorul web al depozitului pentru un anumit fișier sau versiune.\r\n"
+"Șirul %REVISION% din URL este înlocuit cu numărul reviziei,\r\n"
+"șirul %PATH% este înlocuit cu calea fișierierului relativ la rădacina depozitului."
 
 #. Resource IDs: (579)
 #, c-format
