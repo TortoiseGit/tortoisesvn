@@ -201,7 +201,7 @@ CLogDlgFilter::CLogDlgFilter
             if ((curPos < length) && (filterText[curPos] == '"'))
             {
                 int endPos = filterText.Find ('"', curPos+1);
-                while (   (endPos > curPos) 
+                while (   (endPos > curPos)
                        && (endPos+1 < length)
                        && (filterText[endPos+1] != ' '))
                 {
@@ -210,8 +210,11 @@ CLogDlgFilter::CLogDlgFilter
                     endPos = filterText.Find ('"', endPos+1);
                 }
 
+                if (endPos == -1) 
+                    endPos = length;
+
                 if (   (endPos > curPos) 
-                    && ((endPos+1 == length) || (filterText[endPos+1] == ' ')))
+                    && ((endPos+1 >= length) || (filterText[endPos+1] == ' ')))
                 {
                     AddSubString ( filterText.Mid (curPos+1, endPos - curPos-1)
                                  , negation);
