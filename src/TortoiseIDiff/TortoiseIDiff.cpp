@@ -74,7 +74,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	curHandDown = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANDOWNCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
 
 	CMainWindow mainWindow(hResource);
-
+	mainWindow.SetRegistryPath(_T("Software\\TortoiseSVN\\TortoiseIDiffWindowPos"));
 
 	mainWindow.SetLeft(parser.HasVal(_T("left")) ? parser.GetVal(_T("left")) : _T(""), parser.HasVal(_T("lefttitle")) ? parser.GetVal(_T("lefttitle")) : _T(""));
 	mainWindow.SetRight(parser.HasVal(_T("right")) ? parser.GetVal(_T("right")) : _T(""), parser.HasVal(_T("righttitle")) ? parser.GetVal(_T("righttitle")) : _T(""));

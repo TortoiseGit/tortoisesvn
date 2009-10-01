@@ -60,6 +60,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 		return FALSE;
 	
 	CMainWindow mainWindow(hInstance);
+	mainWindow.SetRegistryPath(_T("Software\\TortoiseSVN\\UDiffViewerWindowPos"));
 	if (parser.HasVal(_T("title")))
 		mainWindow.SetTitle(parser.GetVal(_T("title")));
 	else

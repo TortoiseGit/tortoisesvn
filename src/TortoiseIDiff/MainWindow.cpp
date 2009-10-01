@@ -52,7 +52,6 @@ bool CMainWindow::RegisterAndCreateWindow()
 	{
 		if (Create(WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN | WS_VISIBLE, NULL))
 		{
-			ShowWindow(m_hwnd, SW_SHOW);
 			UpdateWindow(m_hwnd);
 			return true;
 		}
