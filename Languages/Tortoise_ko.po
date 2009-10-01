@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-09-27 17:36+0900\n"
+"PO-Revision-Date: 2009-10-01 19:18+0900\n"
 "Last-Translator: Taedong Kim <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1364,10 +1364,6 @@ msgstr ""
 "GNU diff(patch 파일) 파일을 보기 위한 뷰어 프로그램.\r\n"
 "적절한 것이 없으면 메모장을 사용하십시오."
 
-#. Resource IDs: (9)
-msgid "A&bout"
-msgstr "제품 정보(&B)"
-
 #. Resource IDs: (101)
 msgid "A&dd folder..."
 msgstr "폴더 추가(&D)"
@@ -1379,6 +1375,10 @@ msgstr "취소"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "병합 취소(&M)"
+
+#. Resource IDs: (9)
+msgid "About"
+msgstr "제품 정보"
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
@@ -5633,6 +5633,10 @@ msgstr "사용할 수 있는 그래프가 없습니다."
 msgid "No image encoder found for %s."
 msgstr "%s의 이미지 인코더를 발견할 수 없습니다."
 
+#. Resource IDs: (84)
+msgid "No path or pathfile specified on the command line!"
+msgstr "명령 라인에서 어떤 경로나 경로파일도 지정되지 않았습니다!"
+
 #. Resource IDs: (188)
 msgid "No spell corrections"
 msgstr "철자 교정 하지 않음"
@@ -7784,6 +7788,34 @@ msgstr "Stefan Küng, Lübbe Onken"
 #. Resource IDs: (65535)
 msgid "Stripes"
 msgstr "줄무늬"
+
+#. Resource IDs: (117)
+msgid ""
+"Sub-string filter:\r\n"
+"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Enclose strings that contain spaces etc. with \".\r\n"
+"* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
+"\r\n"
+"Examples:\r\n"
+"myname  2008    : my commits of 2008\r\n"
+".h  -.cpp              : commits that changed headers but no implementations\r\n"
+"\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"!myname  .cpp    : everything but my commits to .cpp files"
+msgstr ""
+"서브-스트링 필터:\r\n"
+"* 공백 문자로 분리해서 하나 이상의 스트링을 지정하십시오. 모든 서브-스트링이 검색됩니다.\r\n"
+"* 서브-스트링을 포함하는 리비전들을 제외하기 위해서 서브-스트링의 앞에 - 문자를 넣으십시오.\r\n"
+"* 공백을 포함하는 스트링을 \" 문자로 감싸십시오.\r\n"
+"* 모든 필터 조건을 반대로 적용하기 위해서 라인의 시작부분에 ! 문자를 넣으십시오.\r\n"
+"\r\n"
+"예제:\r\n"
+"myname  2008    : 2008의 나의 커밋들\r\n"
+".h  -.cpp              : 구현이 아니라 헤더만 변경된 커밋들\r\n"
+"\" \"                        : 공백들이 있는 커밋들 (예. 단지 경로들에서 검색할 때)\r\n"
+"-\"\"show all\"\"        : '\"show all\"' 스트링을 포함하지 않는 커밋들\r\n"
+"!myname  .cpp    : .cpp 파일들에서 나의 커밋을 제외한 모든 것"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
