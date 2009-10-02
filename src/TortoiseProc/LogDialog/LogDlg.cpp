@@ -604,6 +604,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 			m_ChangedFileListCtrl.SetRedraw(TRUE);
 			return;
 		}
+		m_nSearchIndex = (int)selIndex;
         PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (selIndex);
 
 		// set the log message text
@@ -1414,116 +1415,37 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
     if(m_pFindDialog->FindNext())
     {
         //read data from dialog
-        CString FindText = m_pFindDialog->GetFindString();
+        CString findText = m_pFindDialog->GetFindString();
         bool bMatchCase = (m_pFindDialog->MatchCase() == TRUE);
 		bool bFound = false;
 		tr1::wregex pat;
-		bool bRegex = ValidateRegexp(FindText, pat, bMatchCase);
+		bool bRegex = ValidateRegexp(findText, pat, bMatchCase);
 
-		tr1::regex_constants::match_flag_type flags = tr1::regex_constants::match_not_null;
+        bool scanRelevantPathsOnly = (m_cHidePaths.GetState() & 0x0003)==BST_CHECKED;
+        CLogDlgFilter filter ( findText
+                             , bRegex
+                             , LOGFILTER_ALL
+                             , bMatchCase
+                             , m_tFrom
+                             , m_tTo
+                             , scanRelevantPathsOnly
+                             , -1);
 
-        size_t i;
-        for (i = this->m_nSearchIndex; i<m_logEntries.GetVisibleCount()&&!bFound; i++)
+        for (size_t i = m_nSearchIndex; i < m_logEntries.GetVisibleCount() && !bFound; i++)
 		{
-            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(i);
-			if (bRegex)
-			{
-				if (regex_search(wstring((LPCTSTR)pLogEntry->GetMessage()), pat, flags))
-				{
-					bFound = true;
-					break;
-				}
-				const CLogChangedPathArray& cpatharray = pLogEntry->GetChangedPaths();
-				for (size_t cpPathIndex = 0; cpPathIndex<cpatharray.GetCount(); ++cpPathIndex)
-				{
-					const CLogChangedPath& cpath = cpatharray[cpPathIndex];
-					if (regex_search(wstring((LPCTSTR)cpath.GetCopyFromPath()), pat, flags))
-					{
-						bFound = true;
-						--i;
-						break;
-					}
-					if (regex_search(wstring((LPCTSTR)cpath.GetPath()), pat, flags))
-					{
-						bFound = true;
-						--i;
-						break;
-					}
-				}
-			}
-			else
-			{
-				if (bMatchCase)
-				{
-					if (m_logEntries[i]->GetMessage().Find(FindText) >= 0)
-					{
-						bFound = true;
-						break;
-					}
-					const CLogChangedPathArray& cpatharray = pLogEntry->GetChangedPaths();
-					for (size_t cpPathIndex = 0; cpPathIndex<cpatharray.GetCount(); ++cpPathIndex)
-					{
-						const CLogChangedPath& cpath = cpatharray[cpPathIndex];
-						if (cpath.GetCopyFromPath().Find(FindText)>=0)
-						{
-							bFound = true;
-							--i;
-							break;
-						}
-						if (cpath.GetPath().Find(FindText)>=0)
-						{
-							bFound = true;
-							--i;
-							break;
-						}
-					}
-				}
-				else
-				{
-					CString msg = pLogEntry->GetMessage();
-					msg = msg.MakeLower();
-					CString find = FindText.MakeLower();
-					if (msg.Find(find) >= 0)
-					{
-						bFound = TRUE;
-						break;
-					}
-					const CLogChangedPathArray& cpatharray = pLogEntry->GetChangedPaths();
-					for (size_t cpPathIndex = 0; cpPathIndex<cpatharray.GetCount(); ++cpPathIndex)
-					{
-						const CLogChangedPath& cpath = cpatharray[cpPathIndex];
-						CString lowerpath = cpath.GetCopyFromPath();
-						lowerpath.MakeLower();
-						if (lowerpath.Find(find)>=0)
-						{
-							bFound = TRUE;
-							--i;
-							break;
-						}
-						lowerpath = cpath.GetPath();
-						lowerpath.MakeLower();
-						if (lowerpath.Find(find)>=0)
-						{
-							bFound = TRUE;
-							--i;
-							break;
-						}
-					}
-				} 
-			}
-		} // for (i = this->m_nSearchIndex; i<m_logEntries.GetVisibleCount()&&!bFound; i++)
-		if (bFound)
-		{
-			m_nSearchIndex = (int)(i+1);
-			m_LogList.EnsureVisible((int)i, FALSE);
-			m_LogList.SetItemState(m_LogList.GetSelectionMark(), 0, LVIS_SELECTED);
-			m_LogList.SetItemState((int)i, LVIS_SELECTED, LVIS_SELECTED);
-			m_LogList.SetSelectionMark((int)i);
-			FillLogMessageCtrl();
-			UpdateData(FALSE);
+            if (filter (*m_logEntries.GetVisible (i)))
+            {
+			    m_LogList.EnsureVisible((int)i, FALSE);
+			    m_LogList.SetItemState(m_LogList.GetSelectionMark(), 0, LVIS_SELECTED);
+			    m_LogList.SetItemState((int)i, LVIS_SELECTED, LVIS_SELECTED);
+			    m_LogList.SetSelectionMark((int)i);
 
-            m_nSearchIndex = max ( m_nSearchIndex+1
-                                 , (int)m_logEntries.GetVisibleCount()-1);
+			    FillLogMessageCtrl();
+			    UpdateData(FALSE);
+
+    			m_nSearchIndex = (int)(i+1);
+                break;
+            }
 		}
     } // if(m_pFindDialog->FindNext()) 
 	UpdateLogInfoLabel();
@@ -2234,7 +2156,6 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		return;
 	if (pNMLV->iItem >= 0)
 	{
-		m_nSearchIndex = pNMLV->iItem;
 		if (pNMLV->iSubItem != 0)
 			return;
 
