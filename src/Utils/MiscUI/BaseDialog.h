@@ -30,9 +30,13 @@ class CDialog
 {
 public:
 	INT_PTR DoModal(HINSTANCE hInstance, int resID, HWND hWndParent);
+	INT_PTR DoModal(HINSTANCE hInstance, int resID, HWND hWndParent, UINT idAccel);
     HWND    Create(HINSTANCE hInstance, int resID, HWND hWndParent);
+	BOOL	EndDialog(HWND hDlg, INT_PTR nResult);
+	void	AddToolTip(UINT ctrlID, LPTSTR text);
 
 	virtual LRESULT CALLBACK DlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam) = 0;
+	virtual bool PreTranslateMessage(MSG* pMsg);
 
 	operator HWND() {return m_hwnd;}
 protected:
@@ -49,5 +53,10 @@ protected:
 	{
 		return (CDialog *)GetWindowLongPtr(hWnd, GWLP_USERDATA);
 	}
+private:
+	bool		m_bPseudoModal;
+	bool		m_bPseudoEnded;
+	int			m_iPseudoRet;
+	HWND		m_hToolTips;
 };
 
