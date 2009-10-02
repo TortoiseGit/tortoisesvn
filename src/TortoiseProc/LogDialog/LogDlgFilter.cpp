@@ -200,27 +200,45 @@ CLogDlgFilter::CLogDlgFilter
 
             if ((curPos < length) && (filterText[curPos] == '"'))
             {
-                int endPos = filterText.Find ('"', curPos+1);
-                while (   (endPos > curPos)
-                       && (endPos+1 < length)
-                       && (filterText[endPos+1] != ' '))
+                CString subString;
+                while (++curPos < length)
                 {
-                    // found a " but not a terminating one -> keep looking
+                    if (filterText[curPos] == '"')
+                    {
+                        // double double quotes?
 
-                    endPos = filterText.Find ('"', endPos+1);
+                        if ((++curPos < length) && (filterText[curPos] == '"'))
+                        {
+                            // keep one and continue within sub-string
+
+                            subString.AppendChar ('"');
+                        }
+                        else
+                        {
+                            // end of sub-string?
+
+                            if ((curPos >= length) || (filterText[curPos] == ' '))
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                // add to sub-string & continue within it
+
+                                subString.AppendChar ('"');
+                                subString.AppendChar (filterText[curPos]);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        subString.AppendChar (filterText[curPos]);
+                    }
                 }
 
-                if (endPos == -1) 
-                    endPos = length;
-
-                if (   (endPos > curPos) 
-                    && ((endPos+1 >= length) || (filterText[endPos+1] == ' ')))
-                {
-                    AddSubString ( filterText.Mid (curPos+1, endPos - curPos-1)
-                                 , negation);
-                    curPos = endPos+1;
-                    continue;
-                }
+                AddSubString (subString, negation);
+                ++curPos;
+                continue;
             }
 
             // ordinary sub-string
