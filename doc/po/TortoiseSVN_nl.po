@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-09-01 17:51 +0000\n"
-"PO-Revision-Date: 2009-09-02 18:10+0100\n"
+"PO-Revision-Date: 2009-10-02 17:04+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2030,7 +2030,7 @@ msgstr "geeft aan welke module verantwoordelijk is voor het afhandelen van die U
 
 #. (entry)
 msgid "For Subversion version 1.3 and higher, this directive enables listing all the available repositories under <placeholder-1/>."
-msgstr ""
+msgstr "Voor Subversion versie 1.3 en hoger, kan met deze optie een lijst van alle beschikbare archieven onder <placeholder-1/> weergegeven worden."
 
 #. (filename)
 msgid "D:\\SVN"
@@ -2038,31 +2038,31 @@ msgstr "D:\\SVN"
 
 #. (entry)
 msgid "tells Subversion to look for repositories below <placeholder-1/>"
-msgstr ""
+msgstr "geeft aan Subversion door dat er ook naar archieven onder <placeholder-1/> gezocht moet worden."
 
 #. (entry)
 msgid "Used to make the browsing with a web browser prettier."
-msgstr ""
+msgstr "Wordt gebruikt om het bladeren met een web browser mooier te maken."
 
 #. (entry)
 msgid "is to activate basic authentication, i.e. Username/password"
-msgstr ""
+msgstr "wordt gebruikt om basis authenticatie, dus Username/password, aan te schakelen."
 
 #. (entry)
 msgid "is used as an information whenever an authentication dialog pops up to tell the user what the authentication is for"
-msgstr ""
+msgstr "wordt gebruikt om aan de gebruiker aan te geven waarvoor authenticatie nodig is als er een authenticatie dialoog venster getoond wordt. "
 
 #. (entry)
 msgid "specifies which password file to use for authentication"
-msgstr ""
+msgstr "specificeert welk bestand met wachtwoorden gebruikt moet worden voor authenticatie.specificeert welk bestand met wachtwoorden gebruikt moet worden voor authenticatie."
 
 #. (entry)
 msgid "Location of the Access file for paths inside a Subversion repository"
-msgstr ""
+msgstr "specificeert de lokatie van het toegangsbestand voor paden binnen een Subversion archief."
 
 #. (entry)
 msgid "specifies that only users who entered a correct username/password are allowed to access the URL"
-msgstr ""
+msgstr "specificeert dat alleen gebruikers die een geldig gebruikersnaam en wachtwoord hebben ingevoerd, de URL kunnen laden."
 
 #. (para)
 msgid ""
@@ -2074,6 +2074,13 @@ msgid ""
 "&lt;/LimitExcept&gt;\n"
 "</screen>"
 msgstr ""
+"Als je wilt dat je archief voor iedereen te lezen is, terwijl schrijfrechten alleen toegekend worden aan specifieke gebruikers, dan kun je de volgende regel wijzigen: <screen>\n"
+"Require valid-user\n"
+"</screen> to <screen>\n"
+"&lt;LimitExcept GET PROPFIND OPTIONS REPORT&gt;\n"
+"Require valid-user\n"
+"&lt;/LimitExcept&gt;\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -2081,6 +2088,9 @@ msgid ""
 "#AuthzSVNAccessFile svnaccessfile\n"
 "</screen> and create a Subversion access file. Apache will make sure that only valid users are able to access your <filename>/svn</filename> location, and will then pass the username to Subversion's <literal>AuthzSVNAccessFile</literal> module so that it can enforce more granular access based upon rules listed in the Subversion access file. Note that paths are specified either as <literal>repos:path</literal> or simply <literal>path</literal>. If you don't specify a particular repository, that access rule will apply to all repositories under <literal>SVNParentPath</literal>. The format of the authorization-policy file used by <literal>mod_authz_svn</literal> is described in <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>"
 msgstr ""
+"Met een <filename>passwd</filename> bestand beperk en geef je toegang tot alle archieven in één geheel. Als je controle wilt hebben over wie toegang heeft tot elke map in een archief, verwijder dan de commentaartekens bij de regel <screen>\n"
+"#AuthzSVNAccessFile svnaccessfile\n"
+"</screen> en maak een Subversion toegangsbestand aan. Apache zorgt er voor dat alleen gerechtigde gebruikers toegang hebben tot de <filename>/svn</filename> locatie en geeft dan direct ook de gebruikersnaam door aan Subversion’s <literal>AuthzSVNAccessFile</literal> module, waardoor het de toegangsregels kan afdwingen zoals opgeslagen in het Subversion toegangsbestand. Merk op dat paden gespecificeerd worden als <literal>repos:path</literal> of <literal>path</literal>. Als je geen bepaald archief opgeeft, zal de regel toegepast worden op alle archieven onder <literal>SVNParentPath</literal>. Het formaat van het authorisatie-policy bestand die gebruikt wordt door <literal>mod_authz_svn</literal> is beschreven in <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>."
 
 #. (para)
 msgid ""
@@ -2088,18 +2098,21 @@ msgid ""
 "#SVNIndexXSLT \"/svnindex.xsl\"\n"
 "</screen> and put the files <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> and <filename>menucheckout.ico</filename> in your document root directory (usually <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>). The directory is set with the <literal>DocumentRoot</literal> directive in your Apache config file."
 msgstr ""
+"Om het bladeren door een archief met een browser 'mooier' te maken, verwijder je de commentaartekens bij de regel <screen>\n"
+"#SVNIndexXSLT \"/svnindex.xsl\"\n"
+"</screen> en sla de bestanden <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> en <filename>menucheckout.ico</filename> in de hoofdmap (meestal <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>). De map wordt ingesteld met de <literal>DocumentRoot</literal> optie in je Apache configuratie bestand."
 
 #. (para)
 msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
-msgstr ""
+msgstr "Deze drie bestanden kun je direct uit ons archief halen via <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> geeft en beschrijving hoe je het TortoiseSVN bronbestanden archief moet benaderen)"
 
 #. (para)
 msgid "The XSL file from the TortoiseSVN repository has a nice gimmick: if you browse the repository with your web browser, then every folder in your repository has an icon on the right shown. If you click on that icon, the TortoiseSVN checkout dialog is started for this URL."
-msgstr ""
+msgstr "Het XSL bestand van het TortoiseSVN archief heeft een gimmick: als je met je web browser door je archief bladert, dan heeft elke map in je archief een icoontje aan de rechter kant. Als je op dat icoontje klikt, wordt het TortoiseSVN Ophalen venster gestart met die URL."
 
 #. (para)
 msgid "A short explanation of what you just entered: <placeholder-1/> But that's just an example. There are many, many more possibilities of what you can do with the Apache web server. <placeholder-2/>"
-msgstr ""
+msgstr "Een korte uitleg van wat je zojuist hebt ingevoerd: <placeholder-1/> Dat zomaar een voorbeeld. Er zijn veel en veel meer dingen die je met de Apache web server kunt doen. <placeholder-2/>"
 
 #. (title)
 msgid "Multiple Repositories"
@@ -2111,7 +2124,7 @@ msgstr "Index van projecten"
 
 #. (para)
 msgid "If you used the <literal>SVNParentPath</literal> directive then you don't have to change the Apache config file every time you add a new Subversion repository. Simply create the new repository under the same location as the first repository and you're done! In my company I have direct access to that specific folder on the server via SMB (normal windows file access). So I just create a new folder there, run the TortoiseSVN command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create repository here...</guimenuitem></menuchoice> and a new project has a home..."
-msgstr ""
+msgstr "Als je de <literal>SVNParentPath</literal> optie hebt gebruikt, hoef je niet het Apache configuratiebestand te veranderen als je een nieuw Subversion archief hebt aangemaakt. Maak eenvoudigweg het nieuwe archief aan op de zelfde locatie als de eerste en je bent klaar! In mijn bedrijf heb ik direct toegang tot die specifieke map op de server via SMB (via normale Windows bestandstoegang). Ik kan hier dus gewoon een nieuwe map aanmaken, het TortoiseSVN commando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Maak hier een archief</guimenuitem></menuchoice> en het nieuwe project heeft een thuis…"
 
 #. (para)
 msgid "If you are using Subversion 1.3 or later, you can use the <literal>SVNListParentPath on</literal> directive to allow Apache to produce a listing of all available projects if you point your browser at the parent path rather than at a specific repository."
