@@ -624,6 +624,24 @@ int CBaseView::GetScreenLines()
 	return m_nScreenLines;
 }
 
+int CBaseView::GetFullScreenLines()
+{
+	int screenLines = GetScreenLines();
+	if ((m_pViewData)&&(m_pMainFrame->m_bCollapsed))
+	{
+		int lastLine = m_nTopLine + screenLines;
+		for (int i = m_nTopLine; (i < lastLine)&&(i < m_pViewData->GetCount()); ++i)
+		{
+			if (m_pViewData->GetHideState(i) == HIDESTATE_HIDDEN)
+			{
+				screenLines++;
+				lastLine++;
+			}
+		}
+	}
+	return screenLines;
+}
+
 int CBaseView::GetAllMinScreenLines() const
 {
 	int nLines = 0;
@@ -914,7 +932,7 @@ void CBaseView::ScrollToLine(int nNewTopLine, BOOL bTrackScrollBar /*= TRUE*/)
 			nNewTopLine = 0;
 		int nScrollLines = m_nTopLine - nNewTopLine;
 
-		if (m_pMainFrame->m_bCollapsed)
+		if ((m_pViewData)&&(m_pMainFrame->m_bCollapsed))
 		{
 			int nLineCount = GetLineCount();
 			if (nNewTopLine > m_nTopLine)
@@ -1635,7 +1653,7 @@ void CBaseView::GoToLine(int nNewLine, BOOL bAll)
 {
 	//almost the same as ScrollAllToLine, but try to put the line in the
 	//middle of the view, not on top
-	int nNewTopLine = nNewLine - GetScreenLines()/2;
+	int nNewTopLine = nNewLine - GetFullScreenLines()/2;
 	if (nNewTopLine < 0)
 		nNewTopLine = 0;
 	if (m_pViewData)
@@ -2027,7 +2045,7 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 		nBlockEnd += nDirection;
 	}
 
-	int nTopPos = nCenterPos - (GetScreenLines()/2);
+	int nTopPos = nCenterPos - (GetFullScreenLines()/2);
 	if (nTopPos < 0)
 		nTopPos = 0;
 
@@ -2130,8 +2148,13 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	{
 	case VK_PRIOR:
 		{
-			m_ptCaretPos.y -= GetScreenLines();
+			m_ptCaretPos.y -= GetFullScreenLines();
 			m_ptCaretPos.y = max(m_ptCaretPos.y, 0);
+			if ((m_pMainFrame->m_bCollapsed)&&(m_pViewData))
+			{
+				while ((m_ptCaretPos.y > 0)&&(m_pViewData->GetHideState(m_ptCaretPos.y) == HIDESTATE_MARKER))
+					m_ptCaretPos.y--;
+			}
 			m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
 			OnCaretMove(bShift);
 			ShowDiffLines(m_ptCaretPos.y);
@@ -2139,9 +2162,17 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		break;
 	case VK_NEXT:
 		{
-			m_ptCaretPos.y += GetScreenLines();
+			m_ptCaretPos.y += GetFullScreenLines();
 			if (m_ptCaretPos.y >= GetLineCount())
 				m_ptCaretPos.y = GetLineCount()-1;
+			else
+			{
+				if ((m_pMainFrame->m_bCollapsed)&&(m_pViewData))
+				{
+					while ((m_ptCaretPos.y < GetLineCount())&&(m_pViewData->GetHideState(m_ptCaretPos.y) == HIDESTATE_MARKER))
+						m_ptCaretPos.y++;
+				}
+			}
 			m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
 			OnCaretMove(bShift);
 			ShowDiffLines(m_ptCaretPos.y);
@@ -2341,7 +2372,7 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 			ScrollToLine(m_nTopLine-1, TRUE);
 			SetTimer(IDT_SCROLLTIMER, 20, NULL);
 		}
-		if (nMouseLine >= m_nTopLine + GetScreenLines())
+		if (nMouseLine >= m_nTopLine + GetFullScreenLines())
 		{
 			ScrollToLine(m_nTopLine+1, TRUE);
 			SetTimer(IDT_SCROLLTIMER, 20, NULL);
@@ -2402,7 +2433,7 @@ void CBaseView::OnTimer(UINT_PTR nIDEvent)
 				ScrollToLine(m_nTopLine-1, TRUE);
 				SetTimer(IDT_SCROLLTIMER, 20, NULL);
 			}
-			if (nMouseLine >= m_nTopLine + GetScreenLines())
+			if (nMouseLine >= m_nTopLine + GetFullScreenLines())
 			{
 				ScrollToLine(m_nTopLine+1, TRUE);
 				SetTimer(IDT_SCROLLTIMER, 20, NULL);
@@ -2669,7 +2700,7 @@ void CBaseView::UpdateCaret()
 
 	if (m_bFocused && !m_bCaretHidden &&
 		m_ptCaretPos.y >= m_nTopLine &&
-		m_ptCaretPos.y < (m_nTopLine+GetScreenLines()) &&
+		m_ptCaretPos.y < (m_nTopLine+GetFullScreenLines()) &&
 		nCaretOffset >= m_nOffsetChar &&
 		nCaretOffset < (m_nOffsetChar+GetScreenChars()))
 	{
@@ -2689,8 +2720,17 @@ void CBaseView::EnsureCaretVisible()
 
 	if (m_ptCaretPos.y < m_nTopLine)
 		ScrollAllToLine(m_ptCaretPos.y);
-	if (m_ptCaretPos.y >= (m_nTopLine+GetScreenLines()))
-		ScrollAllToLine(m_ptCaretPos.y-GetScreenLines()+1);
+	int screnLines = GetScreenLines();
+	if ((m_pViewData)&&(m_pMainFrame->m_bCollapsed))
+	{
+		for (int i=m_nTopLine; i < m_ptCaretPos.y; ++i)
+		{
+			if (m_pViewData->GetHideState(i) == HIDESTATE_HIDDEN)
+				screnLines++;
+		}
+	}
+	if (m_ptCaretPos.y >= (m_nTopLine+screnLines))
+		ScrollAllToLine(m_ptCaretPos.y-screnLines+1);
 	if (nCaretOffset < m_nOffsetChar)
 		ScrollToChar(nCaretOffset);
 	if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
@@ -2737,7 +2777,16 @@ int	CBaseView::CalculateCharIndex(int nLineIndex, int nActualOffset) const
 POINT CBaseView::TextToClient(const POINT& point)
 {
 	POINT pt;
-	pt.y = max(0, (point.y - m_nTopLine) * GetLineHeight());
+	pt.y = max(0, (point.y - m_nTopLine));
+	if ((m_pViewData)&&(m_pMainFrame->m_bCollapsed))
+	{
+		for (int i = m_nTopLine; i < point.y; ++i)
+		{
+			if (m_pViewData->GetHideState(i) == HIDESTATE_HIDDEN)
+				pt.y--;
+		}
+	}
+	pt.y *= GetLineHeight();
 	pt.x = CalculateActualOffset(point.y, point.x);
 
 	pt.x = (pt.x - m_nOffsetChar) * GetCharWidth() + GetMarginWidth();
@@ -2955,6 +3004,11 @@ void CBaseView::OnCaretDown()
 {
 	m_ptCaretPos.y++;
 	m_ptCaretPos.y = min(m_ptCaretPos.y, GetLineCount()-1);
+	if ((m_pMainFrame->m_bCollapsed)&&(m_pViewData))
+	{
+		while ((m_ptCaretPos.y < GetLineCount())&&(m_pViewData->GetHideState(m_ptCaretPos.y) != HIDESTATE_SHOWN))
+			m_ptCaretPos.y++;
+	}
 	m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
 	OnCaretMove();
 	ShowDiffLines(m_ptCaretPos.y);
@@ -3019,6 +3073,11 @@ void CBaseView::OnCaretUp()
 {
 	m_ptCaretPos.y--;
 	m_ptCaretPos.y = max(0, m_ptCaretPos.y);
+	if ((m_pMainFrame->m_bCollapsed)&&(m_pViewData))
+	{
+		while ((m_ptCaretPos.y > 0)&&(m_pViewData->GetHideState(m_ptCaretPos.y) != HIDESTATE_SHOWN))
+			m_ptCaretPos.y--;
+	}
 	m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
 	OnCaretMove();
 	ShowDiffLines(m_ptCaretPos.y);

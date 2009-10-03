@@ -49,6 +49,10 @@ public:
 	 */
 	int				GetScreenLines();
 	/**
+	 * Returns the number of file lines which fit into the view, including the hidden lines.
+	 */
+	int				GetFullScreenLines();
+	/**
 	 * Scrolls the view to the given line.
 	 * \param nNewTopLine The new top line to scroll the view to
 	 * \param bTrackScrollBar If TRUE, then the scrollbars are affected too.
