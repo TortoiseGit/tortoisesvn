@@ -2258,7 +2258,16 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	int nClickedLine = (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
+	int nLineFromTop = (point.y - HEADERHEIGHT) / GetLineHeight();
+	if ((m_pViewData)&&(m_pMainFrame->m_bCollapsed))
+	{
+		for (int i = 0; (i < nLineFromTop) && ((i + m_nTopLine) < m_pViewData->GetCount()); ++i)
+		{
+			if (m_pViewData->GetHideState(i + m_nTopLine) == HIDESTATE_HIDDEN)
+				nLineFromTop++;
+		}
+	}
+	int nClickedLine = nLineFromTop + m_nTopLine;
 	nClickedLine--;		//we need the index
 	if ((nClickedLine >= m_nTopLine)&&(nClickedLine < GetLineCount()))
 	{
@@ -2341,8 +2350,16 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 		CView::OnMouseMove(nFlags, point);
 		return;
 	}
-
-	int nMouseLine = (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
+	int nLineFromTop = (point.y - HEADERHEIGHT) / GetLineHeight();
+	if ((m_pViewData)&&(m_pMainFrame->m_bCollapsed))
+	{
+		for (int i = 0; (i < nLineFromTop) && ((i + m_nTopLine) < m_pViewData->GetCount()); ++i)
+		{
+			if (m_pViewData->GetHideState(i + m_nTopLine) == HIDESTATE_HIDDEN)
+				nLineFromTop++;
+		}
+	}
+	int nMouseLine = nLineFromTop + m_nTopLine;
 	nMouseLine--;		//we need the index
 	if (nMouseLine < -1)
 	{
