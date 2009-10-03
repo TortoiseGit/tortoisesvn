@@ -116,6 +116,10 @@ protected:
 	afx_msg void	OnUpdateEditUseblockfromleftbeforeright(CCmdUI *pCmdUI);
 	afx_msg void	OnEditUseblockfromrightbeforeleft();
 	afx_msg void	OnUpdateEditUseblockfromrightbeforeleft(CCmdUI *pCmdUI);
+	afx_msg void	OnUpdateNavigateNextdifference(CCmdUI *pCmdUI);
+	afx_msg void	OnUpdateNavigatePreviousdifference(CCmdUI *pCmdUI);
+	afx_msg void	OnViewCollapsed();
+	afx_msg void	OnUpdateViewCollapsed(CCmdUI *pCmdUI);
 
 	DECLARE_MESSAGE_MAP()
 protected:
@@ -138,6 +142,9 @@ protected:
 	/// If the user wanted to save the modifications, this method does the saving
 	/// itself.
 	int				CheckForSave();
+	void			OnViewLineUpDown(int direction);
+	void			OnViewLineLeftRight(int direction);
+	bool			RunCommand(TCHAR* command);
 
 protected: 
 	CMFCMenuBar     m_wndMenuBar;
@@ -176,14 +183,7 @@ public:
 	bool			m_bReadOnly;
 	bool			m_bBlame;
 	int				m_nMoveMovesToIgnore;
+	bool			m_bCollapsed;
 
 	void			ShowDiffBar(bool bShow);
-
-private:
-	void OnViewLineUpDown(int direction);
-	void OnViewLineLeftRight(int direction);
-	bool RunCommand(TCHAR* command);
-public:
-	afx_msg void OnUpdateNavigateNextdifference(CCmdUI *pCmdUI);
-	afx_msg void OnUpdateNavigatePreviousdifference(CCmdUI *pCmdUI);
 };

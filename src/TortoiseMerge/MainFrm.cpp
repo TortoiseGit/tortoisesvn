@@ -114,6 +114,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT, &CMainFrame::OnUpdateEditUseblockfromrightbeforeleft)
 	ON_UPDATE_COMMAND_UI(ID_NAVIGATE_NEXTDIFFERENCE, &CMainFrame::OnUpdateNavigateNextdifference)
 	ON_UPDATE_COMMAND_UI(ID_NAVIGATE_PREVIOUSDIFFERENCE, &CMainFrame::OnUpdateNavigatePreviousdifference)
+	ON_COMMAND(ID_VIEW_COLLAPSED, &CMainFrame::OnViewCollapsed)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_COLLAPSED, &CMainFrame::OnUpdateViewCollapsed)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -143,6 +145,7 @@ CMainFrame::CMainFrame()
 	m_bLocatorBar = true;
 	m_nMoveMovesToIgnore = 0;
 	theApp.m_nAppLook = theApp.GetInt(_T("ApplicationLook"), ID_VIEW_APPLOOK_VS_2005);
+	m_bCollapsed = CRegDWORD(_T("Software\\TortoiseMerge\\Collapsed"), 0);
 }
 
 CMainFrame::~CMainFrame()
@@ -866,6 +869,30 @@ void CMainFrame::OnUpdateViewWhitespaces(CCmdUI *pCmdUI)
 {
 	if (m_pwndLeftView)
 		pCmdUI->SetCheck(m_pwndLeftView->m_bViewWhitespace);
+}
+
+void CMainFrame::OnViewCollapsed()
+{
+	CRegDWORD regViewCollapsed = CRegDWORD(_T("Software\\TortoiseMerge\\Collapsed"), 0);
+	regViewCollapsed = !(DWORD)regViewCollapsed;
+	m_bCollapsed = regViewCollapsed;
+	if (m_pwndLeftView)
+	{
+		m_pwndLeftView->Invalidate();
+	}
+	if (m_pwndRightView)
+	{
+		m_pwndRightView->Invalidate();
+	}
+	if (m_pwndBottomView)
+	{
+		m_pwndBottomView->Invalidate();
+	}
+}
+
+void CMainFrame::OnUpdateViewCollapsed(CCmdUI *pCmdUI)
+{
+	pCmdUI->SetCheck(m_bCollapsed);
 }
 
 void CMainFrame::OnViewOnewaydiff()
@@ -2053,3 +2080,4 @@ bool CMainFrame::RunCommand(TCHAR* command)
     MessageBox(errorDetails, _T("TortoiseMerge"), MB_OK | MB_ICONINFORMATION);
 	return false;
 }
+

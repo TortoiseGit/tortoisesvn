@@ -153,7 +153,7 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 	}
 	for (std::map<int, viewdata>::const_iterator it = state.removedlines.begin(); it != state.removedlines.end(); ++it)
 	{
-		viewData->InsertData(it->first, it->second.sLine, it->second.state, it->second.linenumber, it->second.ending);
+		viewData->InsertData(it->first, it->second.sLine, it->second.state, it->second.linenumber, it->second.ending, it->second.hidestate);
 	}
 }
 

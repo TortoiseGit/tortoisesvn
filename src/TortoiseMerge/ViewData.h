@@ -22,6 +22,13 @@
 
 #include <vector>
 
+enum HIDESTATE
+{
+	HIDESTATE_SHOWN,
+	HIDESTATE_HIDDEN,
+	HIDESTATE_MARKER,
+};
+
 /**
  * \ingroup TortoiseMerge
  * Holds the information which is required to define a single line of text.
@@ -32,6 +39,7 @@ typedef struct
 	DiffStates					state;
 	int							linenumber; 
 	EOL							ending;
+	HIDESTATE					hidestate;
 } viewdata;
 
 /**
@@ -44,15 +52,16 @@ public:
 	CViewData(void);
 	~CViewData(void);
 
-	void			AddData(const CString& sLine, DiffStates state, int linenumber, EOL ending);
+	void			AddData(const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide);
 	void			AddData(const viewdata& data);
-	void			InsertData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending);
+	void			InsertData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide);
 	void			InsertData(int index, const viewdata& data);
 	void			RemoveData(int index) {m_data.erase(m_data.begin() + index);}
 
 	const viewdata&	GetData(int index) {return m_data[index];}
 	const CString&	GetLine(int index) {return m_data[index].sLine;}
 	DiffStates		GetState(int index) {return m_data[index].state;}
+	HIDESTATE		GetHideState(int index) {return m_data[index].hidestate;}
 	int				GetLineNumber(int index) {return m_data.size() ? m_data[index].linenumber : 0;}
 	int				FindLineNumber(int number);
 	EOL				GetLineEnding(int index) {return m_data[index].ending;}
@@ -63,6 +72,7 @@ public:
 	void			SetLine(int index, const CString& sLine) {m_data[index].sLine = sLine;}
 	void			SetLineNumber(int index, int linenumber) {m_data[index].linenumber = linenumber;}
 	void			SetLineEnding(int index, EOL ending) {m_data[index].ending = ending;}
+	void			SetLineHideState(int index, HIDESTATE state) {m_data[index].hidestate = state;}
 
 	void			Clear() {m_data.clear();}
 	void			Reserve(int length) {m_data.reserve(length);}

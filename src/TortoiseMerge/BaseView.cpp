@@ -913,6 +913,22 @@ void CBaseView::ScrollToLine(int nNewTopLine, BOOL bTrackScrollBar /*= TRUE*/)
 		if (nNewTopLine < 0)
 			nNewTopLine = 0;
 		int nScrollLines = m_nTopLine - nNewTopLine;
+
+		if (m_pMainFrame->m_bCollapsed)
+		{
+			int nLineCount = GetLineCount();
+			if (nNewTopLine > m_nTopLine)
+			{
+				while ((nNewTopLine < nLineCount)&&(m_pViewData->GetHideState(nNewTopLine) == HIDESTATE_HIDDEN))
+					nNewTopLine++;
+			}
+			else
+			{
+				while ((nNewTopLine > 0)&&(m_pViewData->GetHideState(nNewTopLine) == HIDESTATE_HIDDEN))
+					nNewTopLine--;
+			}
+		}
+
 		m_nTopLine = nNewTopLine;
 		CRect rcScroll;
 		GetClientRect(&rcScroll);
@@ -1099,6 +1115,15 @@ void CBaseView::OnDraw(CDC * pDC)
 	int nCurrentLine = m_nTopLine;
 	while (rcLine.top < rcClient.bottom)
 	{
+		if (m_pMainFrame->m_bCollapsed)
+		{
+			if (m_pViewData)
+			{
+				while ((nCurrentLine < nLineCount)&&(m_pViewData->GetHideState(nCurrentLine) == HIDESTATE_HIDDEN))
+					nCurrentLine++;
+			}
+		}
+
 		if (nCurrentLine < nLineCount)
 		{
 			DrawMargin(&cacheDC, rcCacheMargin, nCurrentLine);
@@ -1398,6 +1423,21 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 		CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
 		pDC->FillSolidRect(rc, crBkgnd);
 		return;
+	}
+
+	if (m_pMainFrame->m_bCollapsed)
+	{
+		if (m_pViewData->GetHideState(nLineIndex) == HIDESTATE_MARKER)
+		{
+			COLORREF crBkgnd, crText;
+			CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
+			pDC->FillSolidRect(rc, crBkgnd);
+
+			const int THICKNESS = 2;
+			COLORREF rectcol = GetSysColor(COLOR_WINDOWTEXT);
+			pDC->FillSolidRect(rc.left, rc.top + (rc.Height()/2), rc.Width(), THICKNESS, rectcol);
+			return;
+		}
 	}
 
 	DiffStates diffState = m_pViewData->GetState(nLineIndex);
@@ -2471,8 +2511,8 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 	{
 		rightstate.addedlines.push_back(m_nSelBlockStart);
-		m_pwndRight->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
+		m_pwndRight->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN);
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN);
 		leftstate.addedlines.push_back(m_nSelBlockEnd+1);
 	}
 	RecalcAllVertScrollBars();
@@ -2532,8 +2572,8 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 	{
 		leftstate.addedlines.push_back(m_nSelBlockStart);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
-		m_pwndRight->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN);
+		m_pwndRight->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN);
 		rightstate.addedlines.push_back(m_nSelBlockEnd+1);
 	}
 
@@ -2574,7 +2614,7 @@ void CBaseView::UseBothRightFirst(viewstate &rightstate, viewstate &leftstate)
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 	{
 		leftstate.addedlines.push_back(m_nSelBlockStart);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN);
 	}
 	RecalcAllVertScrollBars();
 	m_pwndLeft->SetModified();
@@ -2593,7 +2633,7 @@ void CBaseView::UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate)
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		rightstate.addedlines.push_back(m_nSelBlockStart);
-		m_pwndRight->m_pViewData->InsertData(i, m_pwndLeft->m_pViewData->GetLine(i), DIFFSTATE_THEIRSADDED, linenumber++, m_pwndLeft->m_pViewData->GetLineEnding(i));
+		m_pwndRight->m_pViewData->InsertData(i, m_pwndLeft->m_pViewData->GetLine(i), DIFFSTATE_THEIRSADDED, linenumber++, m_pwndLeft->m_pViewData->GetLineEnding(i), HIDESTATE_SHOWN);
 	}
 	// adjust line numbers
 	for (int i=m_nSelBlockEnd+1; i<m_pwndRight->GetLineCount(); ++i)
@@ -2607,7 +2647,7 @@ void CBaseView::UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate)
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 	{
 		leftstate.addedlines.push_back(m_nSelBlockEnd + 1);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd + 1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd + 1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN);
 	}
 	RecalcAllVertScrollBars();
 	m_pwndLeft->SetModified();
@@ -2770,10 +2810,10 @@ void CBaseView::AddEmptyLine(int nLineIndex)
 		CString sPartLine = GetLineChars(nLineIndex);
 		m_pViewData->SetLine(nLineIndex, sPartLine.Left(m_ptCaretPos.x));
 		sPartLine = sPartLine.Mid(m_ptCaretPos.x);
-		m_pViewData->InsertData(nLineIndex+1, sPartLine, DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(nLineIndex) == EOL_NOENDING ? EOL_AUTOLINE : m_pViewData->GetLineEnding(nLineIndex));
+		m_pViewData->InsertData(nLineIndex+1, sPartLine, DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(nLineIndex) == EOL_NOENDING ? EOL_AUTOLINE : m_pViewData->GetLineEnding(nLineIndex), HIDESTATE_SHOWN);
 	}
 	else
-		m_pViewData->InsertData(nLineIndex+1, _T(""), DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(nLineIndex) == EOL_NOENDING ? EOL_AUTOLINE : m_pViewData->GetLineEnding(nLineIndex));
+		m_pViewData->InsertData(nLineIndex+1, _T(""), DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(nLineIndex) == EOL_NOENDING ? EOL_AUTOLINE : m_pViewData->GetLineEnding(nLineIndex), HIDESTATE_SHOWN);
 	Invalidate(FALSE);
 }
 

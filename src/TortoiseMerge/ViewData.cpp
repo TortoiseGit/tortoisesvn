@@ -27,13 +27,14 @@ CViewData::~CViewData(void)
 {
 }
 
-void CViewData::AddData(const CString& sLine, DiffStates state, int linenumber, EOL ending)
+void CViewData::AddData(const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide)
 {
 	viewdata data;
 	data.sLine = sLine;
 	data.state = state;
 	data.linenumber = linenumber;
 	data.ending = ending;
+	data.hidestate = hide;
 	return AddData(data);
 }
 
@@ -42,13 +43,14 @@ void CViewData::AddData(const viewdata& data)
 	return m_data.push_back(data);
 }
 
-void CViewData::InsertData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending)
+void CViewData::InsertData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide)
 {
 	viewdata data;
 	data.sLine = sLine;
 	data.state = state;
 	data.linenumber = linenumber;
 	data.ending = ending;
+	data.hidestate = hide;
 	return InsertData(index, data);
 }
 
