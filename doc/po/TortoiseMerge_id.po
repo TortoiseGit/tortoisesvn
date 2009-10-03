@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-03-03 10:39 +0000\n"
-"PO-Revision-Date: 2009-09-26 20:38-0600\n"
+"PO-Revision-Date: 2009-10-03 09:59-0600\n"
 "Last-Translator: Evan Allrich <eallrich@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -540,7 +540,7 @@ msgstr "<graphic fileref=\"images/TMerge_lineequal.png\"/> Perubahan telah dibat
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_linewhitespace.png\"/> This line contains only whitespace changes. Where several consecutive lines are marked, the paragraph may have been re-wrapped, causing words to shuffle onto adjacent lines."
-msgstr ""
+msgstr "<graphic fileref=\"images/TMerge_linewhitespace.png\"/> Baris ini hanya berisi perubahan spasi. Mana beberapa baris berturut-turut ditandai, paragraf mungkin telah kembali terbungkus, menyebabkan kata-kata untuk mengocok ke garis yang berdekatan."
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineedited.png\"/> A line has been edited by hand, using TortoiseMerge as a text editor."
@@ -667,9 +667,8 @@ msgstr "<guilabel>Backup file original</guilabel> mengganti nama file original d
 
 # Indonesian#: source/TortoiseMerge_en.xml:690
 #. (para)
-#, fuzzy
 msgid "<guilabel>Ignore line endings</guilabel> hides changes which are due solely to difference in line-end style."
-msgstr "<guilabel>Abaikan akhir baris</guilabel> menyembunyikan perubahan karena perbedaan dalam gaya akhir baris."
+msgstr "<guilabel>Abaikan akhir baris</guilabel> menyembunyikan perubahan karena semata-mata untuk perbedaan dalam gaya akhir baris."
 
 # Indonesian#: source/TortoiseMerge_en.xml:694
 #. (para)
