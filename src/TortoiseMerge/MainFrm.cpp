@@ -145,7 +145,7 @@ CMainFrame::CMainFrame()
 	m_bLocatorBar = true;
 	m_nMoveMovesToIgnore = 0;
 	theApp.m_nAppLook = theApp.GetInt(_T("ApplicationLook"), ID_VIEW_APPLOOK_VS_2005);
-	m_bCollapsed = CRegDWORD(_T("Software\\TortoiseMerge\\Collapsed"), 0);
+	m_bCollapsed = !!(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Collapsed"), 0);
 }
 
 CMainFrame::~CMainFrame()
@@ -875,7 +875,7 @@ void CMainFrame::OnViewCollapsed()
 {
 	CRegDWORD regViewCollapsed = CRegDWORD(_T("Software\\TortoiseMerge\\Collapsed"), 0);
 	regViewCollapsed = !(DWORD)regViewCollapsed;
-	m_bCollapsed = regViewCollapsed;
+	m_bCollapsed = !!(DWORD)regViewCollapsed;
 	if (m_pwndLeftView)
 	{
 		m_pwndLeftView->Invalidate();
