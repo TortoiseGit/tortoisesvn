@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-09-26 11:51-0600\n"
+"PO-Revision-Date: 2009-10-03 09:49-0600\n"
 "Last-Translator: Evan Allrich <eallrich@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1671,11 +1671,6 @@ msgstr ""
 "Program peninjau untuk berkas-berkas GNU diff (berkas tambalan)\r\n"
 "Jika Anda tidak mempunyainya gunakan NotePad."
 
-# ID:9,
-#. Resource IDs: (9)
-msgid "A&bout"
-msgstr "&Tentang"
-
 # ID:101,
 #. Resource IDs: (101)
 msgid "A&dd folder..."
@@ -1690,6 +1685,11 @@ msgstr "Batalkan"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "Batalkan &Gabung"
+
+# ID:9,
+#. Resource IDs: (9)
+msgid "About"
+msgstr "Tentang"
 
 # Dlg-ID:136,
 #. Resource IDs: (136)
@@ -6745,6 +6745,10 @@ msgstr "Tidak ada grafik tersedia"
 msgid "No image encoder found for %s."
 msgstr "Tidak ada enkoder gambar ditemukan untuk %s"
 
+#. Resource IDs: (84)
+msgid "No path or pathfile specified on the command line!"
+msgstr "Tidak ada path atau pathfile ditentukan pada baris perintah!"
+
 # ID:188,
 #. Resource IDs: (188)
 msgid "No spell corrections"
@@ -9329,6 +9333,34 @@ msgstr "Stefan Küng, Lübbe Onken"
 #. Resource IDs: (65535)
 msgid "Stripes"
 msgstr "Garis"
+
+#. Resource IDs: (117)
+msgid ""
+"Sub-string filter:\r\n"
+"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Enclose strings that contain spaces etc. with \".\r\n"
+"* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
+"\r\n"
+"Examples:\r\n"
+"myname  2008    : my commits of 2008\r\n"
+".h  -.cpp              : commits that changed headers but no implementations\r\n"
+"\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"!myname  .cpp    : everything but my commits to .cpp files"
+msgstr ""
+"Sub-string saring:\r\n"
+"* Tentukan satu atau lebih string, dipisahkan oleh spasi. Semua sub-string harus cocok.\r\n"
+"* Meletakkan - di depan sub-string untuk mengecualikan revisi yang mengandung sub-string.\r\n"
+"* Menyertakan string yang mengandung spasi dll dengan \".\r\n"
+"* Letakkan! pada awal baris untuk membalikkan seluruh kondisi saring.\r\n"
+"\r\n"
+"Contoh:\r\n"
+"namasaya  2008    : komit saya dari tahun 2008\r\n"
+".h  -.cpp              : komit yang berubah berkas header tetapi tidak berkas implementasi\r\n"
+"\" \"                     : komit dengan spasi (seperti ketika mencari di jalur saja)\r\n"
+"-\"\"tampilkan semua\"\"     : komit yang tidak mengandung string '\"tampilkan semua\"'\r\n"
+"!namasaya  .cpp    : semuanya kecuali komit saya kepada berkas .cpp"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
