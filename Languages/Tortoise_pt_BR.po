@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-09-26 23:28-0300\n"
+"PO-Revision-Date: 2009-10-02 21:18-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -494,7 +494,7 @@ msgstr "&Excluir (manter local)"
 
 #. Resource IDs: (1514)
 msgid "&Delete unversioned items..."
-msgstr "&Excluir itens sem controle de versão..."
+msgstr "&Excluir não versionados..."
 
 #. Resource IDs: (101)
 msgid "&Delete..."
@@ -1372,10 +1372,6 @@ msgstr ""
 "Um programa visualizador de arquivos de comparação GNU (arquivos de correção).\r\n"
 "Se não possui esse tipo de programa, use o Bloco de Notas."
 
-#. Resource IDs: (9)
-msgid "A&bout"
-msgstr "So&bre"
-
 #. Resource IDs: (101)
 msgid "A&dd folder..."
 msgstr "A&dicionar pasta..."
@@ -1387,6 +1383,10 @@ msgstr "Abortar"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "Abortar &Combinação"
+
+#. Resource IDs: (9)
+msgid "About"
+msgstr "Sobre"
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
@@ -3031,7 +3031,7 @@ msgstr "Excluir"
 
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
-msgstr "Excluir Itens sem Controle de Versão"
+msgstr "Excluir Não Versionados"
 
 #. Resource IDs: (14)
 #, c-format
@@ -3049,7 +3049,7 @@ msgstr "Excluir e ignorar %d itens por &extensão "
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
-msgstr "Excluir itens sem controle de versão..."
+msgstr "Excluir não versionados..."
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
@@ -3655,7 +3655,7 @@ msgstr "Exportar o cache selecionado como um conjunto de arquivos com valores se
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
-msgstr "Exportar também arquivos sem controle de versão"
+msgstr "Exportar também não versionados"
 
 #. Resource IDs: (284)
 #, c-format
@@ -5654,6 +5654,10 @@ msgstr "Não há gráfico disponível"
 msgid "No image encoder found for %s."
 msgstr "Nenhum codificador de imagens encontrado para %s."
 
+#. Resource IDs: (84)
+msgid "No path or pathfile specified on the command line!"
+msgstr "Nenhum caminho ou arquivo especificado na linha de comando!"
+
 #. Resource IDs: (188)
 msgid "No spell corrections"
 msgstr "Não há correções de ortografia"
@@ -6396,7 +6400,7 @@ msgstr ""
 
 #. Resource IDs: (1260)
 msgid "Recurse into unversioned folders"
-msgstr "Usar recursividade nas pastas sem controle de versão"
+msgstr "Usar recursividade nas pastas não versionadas"
 
 #. Resource IDs: (563)
 msgid "Recursive"
@@ -7810,6 +7814,34 @@ msgstr "Stefan Küng, Lübbe Onken"
 #. Resource IDs: (65535)
 msgid "Stripes"
 msgstr "Faixas"
+
+#. Resource IDs: (117)
+msgid ""
+"Sub-string filter:\r\n"
+"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Enclose strings that contain spaces etc. with \".\r\n"
+"* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
+"\r\n"
+"Examples:\r\n"
+"myname  2008    : my commits of 2008\r\n"
+".h  -.cpp              : commits that changed headers but no implementations\r\n"
+"\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"!myname  .cpp    : everything but my commits to .cpp files"
+msgstr ""
+"Filtro por texto parcial:\r\n"
+"* Especifique um ou mais textos, separados por espaços. Todos os textos devem existir.\r\n"
+"* Coloque um - na frente do texto para excluir as revisões que contêm o texto.\r\n"
+"* Use \" no texto que contêm espaço.\r\n"
+"* Coloque um ! no início da linha para inverter toda a condição do filtro.\r\n"
+"\r\n"
+"Exemplos:\r\n"
+"meunome  2008    : todos as minhas submissões de 2008\r\n"
+".h  -.cpp              : todas as submissões que mudaram definições mas não implementações\r\n"
+"\" \"                        : submissões com espaço (ex. quando procurando apenas em caminhos)\r\n"
+"-\"\"mostrar tudo\"\"        : submissões que não contêm o texto '\"mostrar tudo\"'\r\n"
+"!meunome  .cpp    : todas as coisas menos as minhas submissões para arquivo .cpp"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
