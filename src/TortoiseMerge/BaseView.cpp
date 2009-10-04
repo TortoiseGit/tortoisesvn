@@ -926,26 +926,41 @@ void CBaseView::ScrollSide(int delta)
 
 void CBaseView::ScrollToLine(int nNewTopLine, BOOL bTrackScrollBar /*= TRUE*/)
 {
-	if (m_nTopLine != nNewTopLine)
+	if ((m_nTopLine != nNewTopLine)||((m_pViewData)&&(m_pMainFrame->m_bCollapsed)))
 	{
 		if (nNewTopLine < 0)
 			nNewTopLine = 0;
-		int nScrollLines = m_nTopLine - nNewTopLine;
 
+		int nHiddenLines = 0;
 		if ((m_pViewData)&&(m_pMainFrame->m_bCollapsed))
 		{
 			int nLineCount = GetLineCount();
 			if (nNewTopLine > m_nTopLine)
 			{
 				while ((nNewTopLine < nLineCount)&&(m_pViewData->GetHideState(nNewTopLine) == HIDESTATE_HIDDEN))
+				{
 					nNewTopLine++;
+				}
+				for (int i = m_nTopLine; i < nNewTopLine; ++i)
+				{
+					if (m_pViewData->GetHideState(i) == HIDESTATE_HIDDEN)
+						nHiddenLines--;
+				}
 			}
 			else
 			{
 				while ((nNewTopLine > 0)&&(m_pViewData->GetHideState(nNewTopLine) == HIDESTATE_HIDDEN))
+				{
 					nNewTopLine--;
+				}
+				for (int i = nNewTopLine; i < m_nTopLine; ++i)
+				{
+					if (m_pViewData->GetHideState(i) == HIDESTATE_HIDDEN)
+						nHiddenLines++;
+				}
 			}
 		}
+		int nScrollLines = m_nTopLine - nNewTopLine - nHiddenLines;
 
 		m_nTopLine = nNewTopLine;
 		CRect rcScroll;
@@ -2833,6 +2848,12 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		return;
 	}
 
+	if (nChar == 't')
+	{
+		ScrollAllToLine(265, true);
+		ScrollAllToLine(265, true);
+		return;
+	}
 	if ((nChar > 31)||(nChar == VK_TAB))
 	{
 		RemoveSelectedText();
