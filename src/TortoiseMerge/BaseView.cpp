@@ -1337,8 +1337,9 @@ void CBaseView::DrawText(
 	DiffStates diffState = m_pViewData->GetState(nLineIndex);
 	
 	// first suppose the whole line is selected
-	int selectedStart = 0, selectedEnd = textlength;
-	
+	int selectedStart = 0;
+	int selectedEnd = textlength;
+
 	if ((m_ptSelectionStartPos.y > nLineIndex) || (m_ptSelectionEndPos.y < nLineIndex)
 		|| ! m_bShowSelection)
 	{
@@ -1370,25 +1371,41 @@ void CBaseView::DrawText(
 		crBkgnd = m_ModifiedBk;
 	if (bInlineDiff)
 		crBkgnd = InlineDiffColor(nLineIndex);
-
-	pDC->SetBkColor(crBkgnd);
-	pDC->SetTextColor(crText);
-	if (selectedStart>=0)
-		VERIFY(pDC->ExtTextOut(coords.x, coords.y, ETO_CLIPPED, &rc, text, selectedStart, NULL));
-
 	long intenseColorScale = m_bFocused ? 70 : 30;
-	pDC->SetBkColor(IntenseColor(intenseColorScale, crBkgnd));
-	pDC->SetTextColor(IntenseColor(intenseColorScale, crText));
-	VERIFY(pDC->ExtTextOut(
-		coords.x + selectedStart * GetCharWidth(), coords.y, ETO_CLIPPED, &rc,
-		text + selectedStart, selectedEnd - selectedStart, NULL));
 
-	pDC->SetBkColor(crBkgnd);
-	pDC->SetTextColor(crText);
-	if (textlength - selectedEnd >= 0)
-		VERIFY(pDC->ExtTextOut(
-					coords.x + selectedEnd * GetCharWidth(), coords.y, ETO_CLIPPED, &rc,
-					text + selectedEnd, textlength - selectedEnd, NULL));
+	LineColors lineCols;
+	lineCols.SetColor(0, crText, crBkgnd);
+	if (selectedStart != selectedEnd)
+	{
+		lineCols.SetColor(selectedStart, IntenseColor(intenseColorScale, crText), IntenseColor(intenseColorScale, crBkgnd));
+		lineCols.SetColor(selectedEnd, crText, crBkgnd);
+	}
+
+	if (!m_sMarkedWord.IsEmpty())
+	{
+		const TCHAR * findText = text;
+		while ((findText = _tcsstr(findText, (LPCTSTR)m_sMarkedWord))!=0)
+		{
+			lineCols.SetColor(findText - text, IntenseColor(200, crText), IntenseColor(200, crBkgnd));
+			lineCols.SetColor(findText - text + m_sMarkedWord.GetLength());
+			findText += m_sMarkedWord.GetLength();
+		}
+	}
+
+	std::map<int, linecolors_t>::const_iterator lastIt = lineCols.begin();
+	for (std::map<int, linecolors_t>::const_iterator it = lastIt; it != lineCols.end(); ++it)
+	{
+		pDC->SetBkColor(lastIt->second.background);
+		pDC->SetTextColor(lastIt->second.text);
+		pDC->ExtTextOut(coords.x + lastIt->first * GetCharWidth(), coords.y, ETO_CLIPPED, &rc, text + lastIt->first, it->first - lastIt->first, NULL);
+		lastIt = it;
+	}
+	if (lastIt != lineCols.end())
+	{
+		pDC->SetBkColor(lastIt->second.background);
+		pDC->SetTextColor(lastIt->second.text);
+		pDC->ExtTextOut(coords.x + lastIt->first * GetCharWidth(), coords.y, ETO_CLIPPED, &rc, text + lastIt->first, textlength - lastIt->first, NULL);
+	}
 }
 
 bool CBaseView::DrawInlineDiff(CDC *pDC, const CRect &rc, int nLineIndex, const CString &line, CPoint &origin)
@@ -2375,6 +2392,20 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 		{
 		}
 		m_ptSelectionEndPos = m_ptCaretPos;
+
+		LPCTSTR line = GetLineChars(m_ptCaretPos.y);
+		if ((m_ptSelectionEndPos.x - m_ptSelectionStartPos.x) > 0)
+			m_sMarkedWord = CString(&line[m_ptSelectionStartPos.x], m_ptSelectionEndPos.x - m_ptSelectionStartPos.x);
+		else
+			m_sMarkedWord.Empty();
+
+		if (m_pwndLeft)
+			m_pwndLeft->SetMarkedWord(m_sMarkedWord);
+		if (m_pwndRight)
+			m_pwndRight->SetMarkedWord(m_sMarkedWord);
+		if (m_pwndBottom)
+			m_pwndBottom->SetMarkedWord(m_sMarkedWord);
+
 
 		SetupSelection(m_ptCaretPos.y, m_ptCaretPos.y);
 

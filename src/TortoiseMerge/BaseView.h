@@ -81,6 +81,7 @@ public:
 	BOOL			HasTextSelection() {return ((m_ptSelectionStartPos.x != m_ptSelectionEndPos.x)||(m_ptSelectionStartPos.y != m_ptSelectionEndPos.y));}
 	BOOL			GetSelection(int& start, int& end) {start=m_nSelBlockStart; end=m_nSelBlockEnd; return HasSelection();}
 	void			SetInlineWordDiff(bool bWord) {m_bInlineWordDiff = bWord;}
+	void			SetMarkedWord(const CString& word) {m_sMarkedWord = word;}
 
 	BOOL			IsLineRemoved(int nLineIndex);
 	bool			IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical);
@@ -297,6 +298,7 @@ protected:
 	CFont *			m_apFonts[fontsCount];
 	CString			m_sConflictedText;
 	CString			m_sNoLineNr;
+	CString			m_sMarkedWord;
 
 	CBitmap *		m_pCacheBitmap;
 	CDC *			m_pDC;
@@ -320,4 +322,39 @@ protected:
 	void CompensateForKeyboard(CPoint& point);
 	static HICON LoadIcon(WORD iconId);
 	void ReleaseBitmap();
+
+	typedef struct linecolors_t
+	{
+		COLORREF text;
+		COLORREF background;
+	};
+
+	class LineColors : public std::map<int, linecolors_t>
+	{
+	public:
+		void SetColor(int pos, COLORREF f, COLORREF b) 
+		{
+			linecolors_t c;
+			c.text = f;
+			c.background = b;
+			(*this)[pos] = c;
+		}
+
+		void SetColor(int pos)
+		{
+			int backpos = pos - 1;
+			std::map<int, linecolors_t>::const_iterator foundIt;
+			while ((backpos >= 0)&&((foundIt = this->find(backpos)) == this->end()))
+			{
+				backpos--;
+			}
+			backpos--;
+			while ((backpos >= 0)&&((foundIt = this->find(backpos)) == this->end()))
+			{
+				backpos--;
+			}
+			linecolors_t c = foundIt->second;
+			(*this)[pos] = c;
+		}
+	};
 };
