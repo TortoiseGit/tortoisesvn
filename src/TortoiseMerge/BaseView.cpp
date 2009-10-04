@@ -2434,7 +2434,16 @@ void CBaseView::OnTimer(UINT_PTR nIDEvent)
 		POINT point;
 		GetCursorPos(&point);
 		ScreenToClient(&point);
-		int nMouseLine = (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
+		int nLineFromTop = (point.y - HEADERHEIGHT) / GetLineHeight();
+		if ((m_pViewData)&&(m_pMainFrame->m_bCollapsed))
+		{
+			for (int i = 0; (i < nLineFromTop) && ((i + m_nTopLine) < m_pViewData->GetCount()); ++i)
+			{
+				if (m_pViewData->GetHideState(i + m_nTopLine) == HIDESTATE_HIDDEN)
+					nLineFromTop++;
+			}
+		}
+		int nMouseLine = nLineFromTop + m_nTopLine;
 		nMouseLine--;		//we need the index
 		if (nMouseLine < -1)
 		{
