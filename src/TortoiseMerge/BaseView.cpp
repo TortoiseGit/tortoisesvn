@@ -2282,7 +2282,7 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 	{
 		for (int i = 0; (i < nLineFromTop) && ((i + m_nTopLine) < m_pViewData->GetCount()); ++i)
 		{
-			if (m_pViewData->GetHideState(i + m_nTopLine) == HIDESTATE_HIDDEN)
+			if (m_pViewData->GetHideState(i + m_nTopLine) != HIDESTATE_SHOWN)
 				nLineFromTop++;
 		}
 	}
