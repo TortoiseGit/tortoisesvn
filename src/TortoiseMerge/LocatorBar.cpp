@@ -157,7 +157,7 @@ void CLocatorBar::OnPaint()
 	if ((m_pMainFrm)&&(m_pMainFrm->m_pwndLeftView))
 	{
 		nTopLine = m_pMainFrm->m_pwndLeftView->m_nTopLine;
-		nBottomLine = nTopLine + m_pMainFrm->m_pwndLeftView->GetScreenLines();
+		nBottomLine = nTopLine + m_pMainFrm->m_pwndLeftView->GetFullScreenLines();
 	}
 	CDC cacheDC;
 	VERIFY(cacheDC.CreateCompatibleDC(&dc));
