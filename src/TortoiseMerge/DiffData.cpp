@@ -238,7 +238,6 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 	// convert CString filenames (UTF-16 or ANSI) to UTF-8
 	CStringA sBaseFilenameUtf8 = CUnicodeUtils::GetUTF8(sBaseFilename);
 	CStringA sYourFilenameUtf8 = CUnicodeUtils::GetUTF8(sYourFilename);
-	CRegDWORD contextLines = CRegDWORD(_T("Software\\TortoiseMerge\\ContextLines"), 1);
 
 	svn_diff_t * diffYourBase = NULL;
 	svn_error_t * svnerr = NULL;
@@ -362,44 +361,7 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 		tempdiff = tempdiff->next;
 	}
 
-	if (m_YourBaseBoth.GetCount() > 1)
-	{
-		HIDESTATE lastHideState = m_YourBaseBoth.GetHideState(0);
-		for (int i = 1; i < m_YourBaseBoth.GetCount(); ++i)
-		{
-			HIDESTATE hideState = m_YourBaseBoth.GetHideState(i);
-			if (hideState != lastHideState)
-			{
-				if (hideState == HIDESTATE_SHOWN)
-				{
-					// go back and show the last 'contextLines' lines to "SHOWN"
-					int lineback = i - 1;
-					int stopline = lineback - (int)(DWORD)contextLines;
-					while ((lineback >= 0)&&(lineback > stopline))
-					{
-						m_YourBaseBoth.SetLineHideState(lineback, HIDESTATE_SHOWN);
-						lineback--;
-					}
-				}
-				else if ((hideState == HIDESTATE_HIDDEN)&&(lastHideState != HIDESTATE_MARKER))
-				{
-					// go forward and show the next 'contextLines' lines to "SHOWN"
-					int lineforward = i + 1;
-					int stopline = lineforward + (int)(DWORD)contextLines;
-					while ((lineforward < m_YourBaseBoth.GetCount())&&(lineforward < stopline))
-					{
-						m_YourBaseBoth.SetLineHideState(lineforward, HIDESTATE_SHOWN);
-						lineforward++;
-					}
-					if ((lineforward < m_YourBaseBoth.GetCount())&&(m_YourBaseBoth.GetHideState(lineforward) == HIDESTATE_HIDDEN))
-					{
-						m_YourBaseBoth.SetLineHideState(lineforward, HIDESTATE_MARKER);
-					}
-				}
-			}
-			lastHideState = hideState;
-		}
-	}
+	HideUnchangedSections(&m_YourBaseBoth, NULL, NULL);
 
 	tempdiff = diffYourBase;
 	baseline = 0;
@@ -504,47 +466,7 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 	}
 	TRACE(_T("done with 2-way diff\n"));
 
-	if (m_YourBaseLeft.GetCount() > 1)
-	{
-		HIDESTATE lastHideState = m_YourBaseLeft.GetHideState(0);
-		for (int i = 1; i < m_YourBaseLeft.GetCount(); ++i)
-		{
-			HIDESTATE hideState = m_YourBaseLeft.GetHideState(i);
-			if (hideState != lastHideState)
-			{
-				if (hideState == HIDESTATE_SHOWN)
-				{
-					// go back and show the last 'contextLines' lines to "SHOWN"
-					int lineback = i - 1;
-					int stopline = lineback - (int)(DWORD)contextLines;
-					while ((lineback >= 0)&&(lineback > stopline))
-					{
-						m_YourBaseLeft.SetLineHideState(lineback, HIDESTATE_SHOWN);
-						m_YourBaseRight.SetLineHideState(lineback, HIDESTATE_SHOWN);
-						lineback--;
-					}
-				}
-				else if ((hideState == HIDESTATE_HIDDEN)&&(lastHideState != HIDESTATE_MARKER))
-				{
-					// go forward and show the next 'contextLines' lines to "SHOWN"
-					int lineforward = i + 1;
-					int stopline = lineforward + (int)(DWORD)contextLines;
-					while ((lineforward < m_YourBaseLeft.GetCount())&&(lineforward < stopline))
-					{
-						m_YourBaseLeft.SetLineHideState(lineforward, HIDESTATE_SHOWN);
-						m_YourBaseRight.SetLineHideState(lineforward, HIDESTATE_SHOWN);
-						lineforward++;
-					}
-					if ((lineforward < m_YourBaseLeft.GetCount())&&(m_YourBaseLeft.GetHideState(lineforward) == HIDESTATE_HIDDEN))
-					{
-						m_YourBaseLeft.SetLineHideState(lineforward, HIDESTATE_MARKER);
-						m_YourBaseRight.SetLineHideState(lineforward, HIDESTATE_MARKER);
-					}
-				}
-			}
-			lastHideState = hideState;
-		}
-	}
+	HideUnchangedSections(&m_YourBaseLeft, &m_YourBaseRight, NULL);
 
 	return true;
 }
@@ -962,12 +884,24 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 
 	TRACE(_T("done with 3-way diff\n"));
 
-	if (m_Diff3.GetCount() > 1)
+	HideUnchangedSections(&m_Diff3, &m_YourBaseBoth, &m_TheirBaseBoth);
+
+	return true;
+}
+
+void CDiffData::HideUnchangedSections(CViewData * data1, CViewData * data2, CViewData * data3)
+{
+	if (data1 == NULL)
+		return;
+
+	CRegDWORD contextLines = CRegDWORD(_T("Software\\TortoiseMerge\\ContextLines"), 1);
+
+	if (data1->GetCount() > 1)
 	{
-		HIDESTATE lastHideState = m_Diff3.GetHideState(0);
-		for (int i = 1; i < m_Diff3.GetCount(); ++i)
+		HIDESTATE lastHideState = data1->GetHideState(0);
+		for (int i = 1; i < data1->GetCount(); ++i)
 		{
-			HIDESTATE hideState = m_Diff3.GetHideState(i);
+			HIDESTATE hideState = data1->GetHideState(i);
 			if (hideState != lastHideState)
 			{
 				if (hideState == HIDESTATE_SHOWN)
@@ -977,9 +911,11 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 					int stopline = lineback - (int)(DWORD)contextLines;
 					while ((lineback >= 0)&&(lineback > stopline))
 					{
-						m_Diff3.SetLineHideState(lineback, HIDESTATE_SHOWN);
-						m_YourBaseBoth.SetLineHideState(lineback, HIDESTATE_SHOWN);
-						m_TheirBaseBoth.SetLineHideState(lineback, HIDESTATE_SHOWN);
+						data1->SetLineHideState(lineback, HIDESTATE_SHOWN);
+						if (data2)
+							data2->SetLineHideState(lineback, HIDESTATE_SHOWN);
+						if (data3)
+							data3->SetLineHideState(lineback, HIDESTATE_SHOWN);
 						lineback--;
 					}
 				}
@@ -988,24 +924,26 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 					// go forward and show the next 'contextLines' lines to "SHOWN"
 					int lineforward = i + 1;
 					int stopline = lineforward + (int)(DWORD)contextLines;
-					while ((lineforward < m_Diff3.GetCount())&&(lineforward < stopline))
+					while ((lineforward < data1->GetCount())&&(lineforward < stopline))
 					{
-						m_Diff3.SetLineHideState(lineforward, HIDESTATE_SHOWN);
-						m_YourBaseBoth.SetLineHideState(lineforward, HIDESTATE_SHOWN);
-						m_TheirBaseBoth.SetLineHideState(lineforward, HIDESTATE_SHOWN);
+						data1->SetLineHideState(lineforward, HIDESTATE_SHOWN);
+						if (data2)
+							data2->SetLineHideState(lineforward, HIDESTATE_SHOWN);
+						if (data3)
+							data3->SetLineHideState(lineforward, HIDESTATE_SHOWN);
 						lineforward++;
 					}
-					if ((lineforward < m_Diff3.GetCount())&&(m_Diff3.GetHideState(lineforward) == HIDESTATE_HIDDEN))
+					if ((lineforward < data1->GetCount())&&(data1->GetHideState(lineforward) == HIDESTATE_HIDDEN))
 					{
-						m_Diff3.SetLineHideState(lineforward, HIDESTATE_MARKER);
-						m_YourBaseBoth.SetLineHideState(lineforward, HIDESTATE_MARKER);
-						m_TheirBaseBoth.SetLineHideState(lineforward, HIDESTATE_MARKER);
+						data1->SetLineHideState(lineforward, HIDESTATE_MARKER);
+						if (data2)
+							data2->SetLineHideState(lineforward, HIDESTATE_MARKER);
+						if (data3)
+							data3->SetLineHideState(lineforward, HIDESTATE_MARKER);
 					}
 				}
 			}
 			lastHideState = hideState;
 		}
 	}
-
-	return true;
 }
