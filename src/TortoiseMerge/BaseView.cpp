@@ -165,6 +165,7 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
 	ON_COMMAND(ID_EDIT_PASTE, &CBaseView::OnEditPaste)
 	ON_WM_MOUSELEAVE()
 	ON_WM_TIMER()
+	ON_WM_LBUTTONDBLCLK()
 END_MESSAGE_MAP()
 
 
@@ -1803,6 +1804,17 @@ BOOL CBaseView::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
 	if (nHitTest == HTCLIENT)
 	{
+		if ((m_pViewData)&&(m_pMainFrame->m_bCollapsed))
+		{
+			if ((m_nMouseLine >= 0)&&(m_nMouseLine < m_pViewData->GetCount()))
+			{
+				if (m_pViewData->GetHideState(m_nMouseLine) == HIDESTATE_MARKER)
+				{
+					::SetCursor(::LoadCursor(NULL, MAKEINTRESOURCE(IDC_HAND)));
+					return TRUE;
+				}
+			}
+		}
 		::SetCursor(::LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW)));	// Set To Arrow Cursor
 		return TRUE;
 	}
@@ -2307,6 +2319,47 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 	}
 
 	CView::OnLButtonDown(nFlags, point);
+}
+
+void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
+{
+	int nLineFromTop = (point.y - HEADERHEIGHT) / GetLineHeight();
+	if ((m_pViewData)&&(m_pMainFrame->m_bCollapsed))
+	{
+		for (int i = 0; (i < nLineFromTop) && ((i + m_nTopLine) < m_pViewData->GetCount()); ++i)
+		{
+			if (m_pViewData->GetHideState(i + m_nTopLine) == HIDESTATE_HIDDEN)
+				nLineFromTop++;
+		}
+	}
+	int nClickedLine = nLineFromTop + m_nTopLine;
+	nClickedLine--;		//we need the index
+	if ((m_pViewData)&&(m_pMainFrame->m_bCollapsed))
+	{
+		if (m_pViewData->GetHideState(nClickedLine) == HIDESTATE_MARKER)
+		{
+			// a double click on a marker expands the hidden text
+			int i = nClickedLine;
+			while ((i < m_pViewData->GetCount())&&(m_pViewData->GetHideState(i) != HIDESTATE_SHOWN))
+			{
+				if ((m_pwndLeft)&&(m_pwndLeft->m_pViewData))
+					m_pwndLeft->m_pViewData->SetLineHideState(i, HIDESTATE_SHOWN);
+				if ((m_pwndRight)&&(m_pwndRight->m_pViewData))
+					m_pwndRight->m_pViewData->SetLineHideState(i, HIDESTATE_SHOWN);
+				if ((m_pwndBottom)&&(m_pwndBottom->m_pViewData))
+					m_pwndBottom->m_pViewData->SetLineHideState(i, HIDESTATE_SHOWN);
+				i++;
+			}
+			if (m_pwndLeft)
+				m_pwndLeft->Invalidate();
+			if (m_pwndRight)
+				m_pwndRight->Invalidate();
+			if (m_pwndBottom)
+				m_pwndBottom->Invalidate();
+		}
+	}
+
+	CView::OnLButtonDblClk(nFlags, point);
 }
 
 void CBaseView::OnEditCopy()
@@ -3322,3 +3375,4 @@ void CBaseView::ReleaseBitmap()
 		m_pCacheBitmap = NULL;
 	}
 }
+
