@@ -2294,9 +2294,12 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 	{
 		for (int i = 0; (i < nLineFromTop) && ((i + m_nTopLine) < m_pViewData->GetCount()); ++i)
 		{
-			if (m_pViewData->GetHideState(i + m_nTopLine) != HIDESTATE_SHOWN)
+			if (m_pViewData->GetHideState(i + m_nTopLine) == HIDESTATE_HIDDEN)
 				nLineFromTop++;
 		}
+		if (nLineFromTop > 0)
+			while ((nLineFromTop-1 < m_pViewData->GetCount()) && (m_pViewData->GetHideState(nLineFromTop-1) == HIDESTATE_MARKER))
+				nLineFromTop++;
 	}
 	int nClickedLine = nLineFromTop + m_nTopLine;
 	nClickedLine--;		//we need the index
@@ -2334,29 +2337,26 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 	}
 	int nClickedLine = nLineFromTop + m_nTopLine;
 	nClickedLine--;		//we need the index
-	if ((m_pViewData)&&(m_pMainFrame->m_bCollapsed))
+	if ((m_pViewData)&&(m_pMainFrame->m_bCollapsed)&&(m_pViewData->GetHideState(nClickedLine) == HIDESTATE_MARKER))
 	{
-		if (m_pViewData->GetHideState(nClickedLine) == HIDESTATE_MARKER)
+		// a double click on a marker expands the hidden text
+		int i = nClickedLine;
+		while ((i < m_pViewData->GetCount())&&(m_pViewData->GetHideState(i) != HIDESTATE_SHOWN))
 		{
-			// a double click on a marker expands the hidden text
-			int i = nClickedLine;
-			while ((i < m_pViewData->GetCount())&&(m_pViewData->GetHideState(i) != HIDESTATE_SHOWN))
-			{
-				if ((m_pwndLeft)&&(m_pwndLeft->m_pViewData))
-					m_pwndLeft->m_pViewData->SetLineHideState(i, HIDESTATE_SHOWN);
-				if ((m_pwndRight)&&(m_pwndRight->m_pViewData))
-					m_pwndRight->m_pViewData->SetLineHideState(i, HIDESTATE_SHOWN);
-				if ((m_pwndBottom)&&(m_pwndBottom->m_pViewData))
-					m_pwndBottom->m_pViewData->SetLineHideState(i, HIDESTATE_SHOWN);
-				i++;
-			}
-			if (m_pwndLeft)
-				m_pwndLeft->Invalidate();
-			if (m_pwndRight)
-				m_pwndRight->Invalidate();
-			if (m_pwndBottom)
-				m_pwndBottom->Invalidate();
+			if ((m_pwndLeft)&&(m_pwndLeft->m_pViewData))
+				m_pwndLeft->m_pViewData->SetLineHideState(i, HIDESTATE_SHOWN);
+			if ((m_pwndRight)&&(m_pwndRight->m_pViewData))
+				m_pwndRight->m_pViewData->SetLineHideState(i, HIDESTATE_SHOWN);
+			if ((m_pwndBottom)&&(m_pwndBottom->m_pViewData))
+				m_pwndBottom->m_pViewData->SetLineHideState(i, HIDESTATE_SHOWN);
+			i++;
 		}
+		if (m_pwndLeft)
+			m_pwndLeft->Invalidate();
+		if (m_pwndRight)
+			m_pwndRight->Invalidate();
+		if (m_pwndBottom)
+			m_pwndBottom->Invalidate();
 	}
 
 	CView::OnLButtonDblClk(nFlags, point);
