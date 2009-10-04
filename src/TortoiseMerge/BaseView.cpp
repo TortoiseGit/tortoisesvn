@@ -2358,6 +2358,29 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 		if (m_pwndBottom)
 			m_pwndBottom->Invalidate();
 	}
+	else
+	{
+		m_ptCaretPos.y = nClickedLine;
+		m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
+		UpdateGoalPos();
+
+		ClearSelection();
+		while (MoveCaretLeft() && !IsCaretAtWordBoundary())
+		{
+		}
+		m_ptSelectionStartPos = m_ptCaretPos;
+		m_ptSelectionEndPos = m_ptCaretPos;
+		m_ptSelectionOrigin = m_ptCaretPos;
+		while (MoveCaretRight() && !IsCaretAtWordBoundary())
+		{
+		}
+		m_ptSelectionEndPos = m_ptCaretPos;
+
+		SetupSelection(m_ptCaretPos.y, m_ptCaretPos.y);
+
+		UpdateViewsCaretPosition();
+		Invalidate();
+	}
 
 	CView::OnLButtonDblClk(nFlags, point);
 }
