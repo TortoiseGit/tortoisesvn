@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2009
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 17277: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 17351: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-09-28 09:23+0300\n"
+"PO-Revision-Date: 2009-10-05 00:28+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1428,10 +1428,6 @@ msgstr ""
 "Программа просмотра файлов различий GNU (файлов заплаток).\r\n"
 "Если у вас такой нет, можно использовать Блокнот."
 
-#. Resource IDs: (9)
-msgid "A&bout"
-msgstr "&О программе"
-
 #. Resource IDs: (101)
 msgid "A&dd folder..."
 msgstr "&Добавить папку..."
@@ -1443,6 +1439,10 @@ msgstr "Прервать"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "Прервать с&лияние"
+
+#. Resource IDs: (9)
+msgid "About"
+msgstr "О программе"
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
@@ -2427,6 +2427,18 @@ msgstr "Све&рнуть исходное дерево"
 #. Resource IDs: (275)
 msgid "Collapse &following tree"
 msgstr "Свернуть &последующее дерево"
+
+#. Resource IDs: (2055)
+msgid ""
+"Collapse unchanged sections\n"
+"Collapse"
+msgstr ""
+"Свернуть неизменённые части\n"
+"Свернуть"
+
+#. Resource IDs: (32870)
+msgid "Collapsed"
+msgstr "Свёрнуто"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -5741,6 +5753,10 @@ msgstr "Нет ни одного графа в наличии"
 msgid "No image encoder found for %s."
 msgstr "Не найден ни один обработчик для изображения %s."
 
+#. Resource IDs: (84)
+msgid "No path or pathfile specified on the command line!"
+msgstr "Не указан путь или файл с путями в командной строке!"
+
 #. Resource IDs: (188)
 msgid "No spell corrections"
 msgstr "Без исправлений"
@@ -7908,6 +7924,34 @@ msgstr "Stefan Küng, Lübbe Onken"
 #. Resource IDs: (65535)
 msgid "Stripes"
 msgstr "Полосы"
+
+#. Resource IDs: (117)
+msgid ""
+"Sub-string filter:\r\n"
+"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Enclose strings that contain spaces etc. with \".\r\n"
+"* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
+"\r\n"
+"Examples:\r\n"
+"myname  2008    : my commits of 2008\r\n"
+".h  -.cpp              : commits that changed headers but no implementations\r\n"
+"\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"!myname  .cpp    : everything but my commits to .cpp files"
+msgstr ""
+"Фильтр подстрок:\r\n"
+"* Укажите одну или несколько строк, разделённых пробелом. Все подстроки должны совпасть.\r\n"
+"* Поместите - перед подстрокой для исключения ревизий, содержащих эту подстроку.\r\n"
+"* Заключите в \" строки с пробелами и т.п.\r\n"
+"* Поместите ! в начале строки для инверсии всего условия фильтра.\r\n"
+"\r\n"
+"Примеры:\r\n"
+"МоёИмя  2008    : мои фиксации в 2008\r\n"
+".h  -.cpp              : фиксации, изменившие заголовочные файлы, но не файлы реализации\r\n"
+"\" \"                        : фиксации с пробелами (напр. при поиске только в путях)\r\n"
+"-\"\"это всё\"\"        : фиксации, не содержащие строку '\"это всё\"'\r\n"
+"!МоёИмя  .cpp    : всё, кроме моих фиксаций файлов .cpp"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
