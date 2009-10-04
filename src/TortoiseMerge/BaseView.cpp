@@ -1469,6 +1469,10 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 			const int THICKNESS = 2;
 			COLORREF rectcol = GetSysColor(COLOR_WINDOWTEXT);
 			pDC->FillSolidRect(rc.left, rc.top + (rc.Height()/2), rc.Width(), THICKNESS, rectcol);
+			pDC->SetTextColor(GetSysColor(COLOR_GRAYTEXT));
+			pDC->SetBkColor(crBkgnd);
+			CRect rect = rc;
+			pDC->DrawText(_T("{...}"), &rect, DT_NOPREFIX|DT_SINGLELINE|DT_CENTER);
 			return;
 		}
 	}
