@@ -899,6 +899,14 @@ void CDiffData::HideUnchangedSections(CViewData * data1, CViewData * data2, CVie
 	if (data1->GetCount() > 1)
 	{
 		HIDESTATE lastHideState = data1->GetHideState(0);
+		if (lastHideState == HIDESTATE_HIDDEN)
+		{
+			data1->SetLineHideState(0, HIDESTATE_MARKER);
+			if (data2)
+				data2->SetLineHideState(0, HIDESTATE_MARKER);
+			if (data3)
+				data3->SetLineHideState(0, HIDESTATE_MARKER);
+		}
 		for (int i = 1; i < data1->GetCount(); ++i)
 		{
 			HIDESTATE hideState = data1->GetHideState(i);
