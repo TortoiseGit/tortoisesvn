@@ -888,6 +888,7 @@ void CMainFrame::OnViewCollapsed()
 	{
 		m_pwndBottomView->Invalidate();
 	}
+	m_wndLocatorBar.Invalidate();
 }
 
 void CMainFrame::OnUpdateViewCollapsed(CCmdUI *pCmdUI)
