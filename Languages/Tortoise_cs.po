@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-09-22 15:41 Central Europe Daylight Time\n"
+"PO-Revision-Date: 2009-10-05 15:12 Central Europe Daylight Time\n"
 "Last-Translator: Jiri Sedlak <jiri_sedlak@users.sourceforge.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -293,7 +293,7 @@ msgstr "Přid&at >>"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
-msgstr "Přid&at nebo Odstranit Tlačítka"
+msgstr "Přid&at nebo Odstranit tlačítka"
 
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
@@ -417,7 +417,7 @@ msgstr "&Zavřít"
 
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
-msgstr "&Zavřít Okno(a)"
+msgstr "&Zavřít okno(a)"
 
 #. Resource IDs: (32785)
 msgid "&Color age of lines"
@@ -461,7 +461,7 @@ msgstr "&Kopírovat"
 
 #. Resource IDs: (16911)
 msgid "&Copy Button Image"
-msgstr "&Kopírovat Obrázek Tlačítka"
+msgstr "&Kopírovat obrázek tlačítka"
 
 #. Resource IDs: (32776)
 msgid "&Copy log message to clipboard"
@@ -1375,10 +1375,6 @@ msgstr ""
 "Prohlížecí program pro rozdílové soubory GNU diff (patch files).\r\n"
 "Pokud nemáte, použijte Poznámkový blok."
 
-#. Resource IDs: (9)
-msgid "A&bout"
-msgstr "O &aplikaci"
-
 #. Resource IDs: (101)
 msgid "A&dd folder..."
 msgstr "Při&dat složku..."
@@ -1390,6 +1386,10 @@ msgstr "Zrušit"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "Zrušit &slučování"
+
+#. Resource IDs: (9)
+msgid "About"
+msgstr "O aplikaci"
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
@@ -2069,6 +2069,10 @@ msgstr "Kaskáda"
 msgid "Cascaded context menu"
 msgstr "Kaskádové kontextové menu"
 
+#. Resource IDs: (117)
+msgid "Case-sensitive"
+msgstr "Rozlišovat velikost písmen"
+
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
 msgstr "Kate&gorie:"
@@ -2359,6 +2363,17 @@ msgstr "Sbal &zdrojový strom"
 msgid "Collapse &following tree"
 msgstr "Sbal &následující strom"
 
+#. Resource IDs: (2055)
+msgid ""
+"Collapse unchanged sections\n"
+"Collapse"
+msgstr "Sbalit nezměněné části\n"
+"Sbalit"
+
+#. Resource IDs: (32870)
+msgid "Collapsed"
+msgstr "Sbalené"
+
 #. Resource IDs: (16662)
 msgid "Color"
 msgstr "Barva"
@@ -2498,7 +2513,7 @@ msgstr "Dokončeno"
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
-msgstr "Konfigurovat Hook Skripty"
+msgstr "Konfigurovat hook Skripty"
 
 #. Resource IDs: (284)
 msgid "Configure Issue Tracker Integration"
@@ -4267,19 +4282,19 @@ msgstr "Domů"
 
 #. Resource IDs: (103)
 msgid "Hook Scripts"
-msgstr "Hook Skripty"
+msgstr "Hook skripty"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Hook Skripty::Integrace s  hlídačem problémů"
+msgstr "Hook skripty::Integrace s  hlídačem problémů"
 
 #. Resource IDs: (198)
 msgid "Hook Type"
-msgstr "Hook Typ"
+msgstr "Hook typ"
 
 #. Resource IDs: (1334)
 msgid "Hook Type:"
-msgstr "Hook Typ:"
+msgstr "Hook typ:"
 
 #. Resource IDs: (82)
 #, c-format
@@ -5648,6 +5663,10 @@ msgstr "Graf není k dispozici"
 msgid "No image encoder found for %s."
 msgstr "Nebyl nalezen image encoder pro %s."
 
+#. Resource IDs: (84)
+msgid "No path or pathfile specified on the command line!"
+msgstr "Není specifikována cesta nebo soubor s cestami na příkazové řádce!"
+
 #. Resource IDs: (188)
 msgid "No spell corrections"
 msgstr "Žádné opravy překlepů"
@@ -6115,11 +6134,11 @@ msgstr "Rozsah hodnot: 0 (zcela průhledný) .. 255 (neprůhledný)"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
-msgstr "Post-Commit Hook"
+msgstr "Po-odevzdávací hook"
 
 #. Resource IDs: (570)
 msgid "Post-Update Hook"
-msgstr "Post-Update Hook"
+msgstr "Po-aktualizační hook"
 
 #. Resource IDs: (58115)
 msgid "Pre&v Page"
@@ -6127,11 +6146,11 @@ msgstr "&Předchozí Strana"
 
 #. Resource IDs: (569)
 msgid "Pre-Commit Hook"
-msgstr "Pre-Commit Hook"
+msgstr "Před-odevzdávací hook"
 
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
-msgstr "Pre-Update Hook"
+msgstr "Před-aktualizační hook"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -7738,7 +7757,7 @@ msgstr "Standardní"
 
 #. Resource IDs: (569)
 msgid "Start Commit Hook"
-msgstr "Spustit Commit Hook"
+msgstr "Spustit odevzdávací hook"
 
 #. Resource IDs: (65535)
 msgid "Start Revision"
@@ -7746,7 +7765,7 @@ msgstr "Počáteční revize"
 
 #. Resource IDs: (569)
 msgid "Start Update Hook"
-msgstr "Spustit Update Hook"
+msgstr "Spustit Update hook"
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -7800,9 +7819,35 @@ msgstr "Stefan Küng, Lübbe Onken"
 msgid "Stripes"
 msgstr "Pruhy"
 
+#. Resource IDs: (117)
+msgid ""
+"Sub-string filter:\r\n"
+"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Enclose strings that contain spaces etc. with \".\r\n"
+"* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
+"\r\n"
+"Examples:\r\n"
+"myname  2008    : my commits of 2008\r\n"
+".h  -.cpp              : commits that changed headers but no implementations\r\n"
+"\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"!myname  .cpp    : everything but my commits to .cpp files"
+msgstr "Podřetězcový filtr:\r\n"
+"* Pro vyjmutí revizí obsahujících podřetězec vložte před něj - .\r\n"
+"* Řetězce obsahující mezery uzavřete do \".\r\n"
+"* Pro negaci celého filtru vložte ! na začátek řádku.\r\n"
+"\r\n"
+"Příklady:\r\n"
+"moje-jméno  2008    : moje odevzdání v roce 2008\r\n"
+".h  -.cpp              : odevzdání, která změnily hlavičkové soubory, ale ne implementaci.\r\n"
+"\" \"                        : odevzdání s mezerami (např. když prohledáváte cesty)\r\n"
+"-\"\"zobrazit vše\"\"        : odevzdání, která neobsahují řetězec '\"zobrazit vše\"'\r\n"
+"!moje-jméno  .cpp    : vše kromě mých odevzdání .cpp souborů"
+
 #. Resource IDs: (65535)
 msgid "Subversion"
-msgstr "SubVersion"
+msgstr "Subversion"
 
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
@@ -7840,7 +7885,7 @@ msgid ""
 "Subversion reported the following:"
 msgstr ""
 "V Subversion se vyskytl závažný problém.\n"
-"Prosím, oznamte toto na Subversion mailovou konferenci\n"
+"Prosím, oznamte toto na mailovou konferenci pro Subversion\n"
 "(users@subversion.tigris.org)\n"
 "s co nejvíce informacemi o tom\n"
 "co jste se pokoušeli udělat.\n"
