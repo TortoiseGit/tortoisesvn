@@ -876,17 +876,24 @@ void CMainFrame::OnViewCollapsed()
 	CRegDWORD regViewCollapsed = CRegDWORD(_T("Software\\TortoiseMerge\\Collapsed"), 0);
 	regViewCollapsed = !(DWORD)regViewCollapsed;
 	m_bCollapsed = !!(DWORD)regViewCollapsed;
+
 	if (m_pwndLeftView)
 	{
+		m_pwndLeftView->UpdateCaret();
 		m_pwndLeftView->Invalidate();
+		m_pwndLeftView->EnsureCaretVisible();
 	}
 	if (m_pwndRightView)
 	{
+		m_pwndRightView->UpdateCaret();
 		m_pwndRightView->Invalidate();
+		m_pwndRightView->EnsureCaretVisible();
 	}
 	if (m_pwndBottomView)
 	{
+		m_pwndBottomView->UpdateCaret();
 		m_pwndBottomView->Invalidate();
+		m_pwndBottomView->EnsureCaretVisible();
 	}
 	m_wndLocatorBar.Invalidate();
 }
