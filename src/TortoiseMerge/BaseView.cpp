@@ -2959,12 +2959,6 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		return;
 	}
 
-	if (nChar == 't')
-	{
-		ScrollAllToLine(265, true);
-		ScrollAllToLine(265, true);
-		return;
-	}
 	if ((nChar > 31)||(nChar == VK_TAB))
 	{
 		RemoveSelectedText();
