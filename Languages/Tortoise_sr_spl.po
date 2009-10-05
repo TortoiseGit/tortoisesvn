@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-09-28 18:38+0100\n"
+"PO-Revision-Date: 2009-10-05 09:08+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1574,10 +1574,6 @@ msgstr ""
 "Program za pregled GNU diff fajlova (fajlovi zakrpa)\r\n"
 "Ako nemate takav, koristite NotePad."
 
-#. Resource IDs: (9)
-msgid "A&bout"
-msgstr "O &programu"
-
 #. Resource IDs: (101)
 msgid "A&dd folder..."
 msgstr "D&odaj imenik..."
@@ -1589,6 +1585,10 @@ msgstr "Prekini"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "Prekid &Stapanje"
+
+#. Resource IDs: (9)
+msgid "About"
+msgstr "Opis &programa "
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
@@ -2561,6 +2561,18 @@ msgstr "Sa&žeti izvorno stablo"
 #. Resource IDs: (275)
 msgid "Collapse &following tree"
 msgstr "Sažeti &sledeće stablo"
+
+#. Resource IDs: (2055)
+msgid ""
+"Collapse unchanged sections\n"
+"Collapse"
+msgstr ""
+"Slaže neizmenjene delove\n"
+"Složi"
+
+#. Resource IDs: (32870)
+msgid "Collapsed"
+msgstr "Složen"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -5853,6 +5865,10 @@ msgstr "Graf nije dostupan"
 msgid "No image encoder found for %s."
 msgstr "Program za kodiranje slika nije nađen za %s."
 
+#. Resource IDs: (84)
+msgid "No path or pathfile specified on the command line!"
+msgstr "Nema putanje ili fajlputanje na komandnoj liniji!"
+
 #. Resource IDs: (188)
 msgid "No spell corrections"
 msgstr "Nema korekcija pravopisa"
@@ -8004,6 +8020,34 @@ msgstr "Stefan Küng, Lübbe Onken"
 #. Resource IDs: (65535)
 msgid "Stripes"
 msgstr "Trake"
+
+#. Resource IDs: (117)
+msgid ""
+"Sub-string filter:\r\n"
+"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Enclose strings that contain spaces etc. with \".\r\n"
+"* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
+"\r\n"
+"Examples:\r\n"
+"myname  2008    : my commits of 2008\r\n"
+".h  -.cpp              : commits that changed headers but no implementations\r\n"
+"\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"!myname  .cpp    : everything but my commits to .cpp files"
+msgstr ""
+"Sub-string filter:\r\n"
+"* Specificirajte jedan ili više tekstova, odvojene razmakom. Svi sub-stringovi moraju biti nađeni.\r\n"
+"* Stavite jedno - ispred sub-stringa da odstranite revizije koje sadrže taj sub-string.\r\n"
+"* Zaokružite tekst koji sadrži razmak itd. sa \".\r\n"
+"* Stavite ! na početak linije da invertjete celikupne uslove filtra\r\n"
+"\r\n"
+"Primeri:\r\n"
+"myname  2008    : moje urezivanje 2008\r\n"
+".h  -.cpp              : urezivanje koje menja zaglavlje ali ne i primenu\r\n"
+"\" \"                        : urezivanje sa razmakom (npr. kada se pretražuje samo u putanjama)\r\n"
+"-\"\"show all\"\"        : urezivanja koja ne sadrže tekst '\"prikaži svel\"'\r\n"
+"!myname  .cpp    : sve osim mog urezivanja u .cpp fajlove"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
