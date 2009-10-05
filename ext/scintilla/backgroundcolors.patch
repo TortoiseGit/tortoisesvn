@@ -1,8 +1,8 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(revision 16667)
+--- include/Scintilla.h	(revision 17365)
 +++ include/Scintilla.h	(working copy)
-@@ -800,6 +800,7 @@
+@@ -849,6 +849,7 @@
  #define SCN_INDICATORRELEASE 2024
  #define SCN_AUTOCCANCELLED 2025
  #define SCN_AUTOCCHARDELETED 2026
@@ -12,9 +12,9 @@ Index: include/Scintilla.h
  /* These structures are defined to be exactly the same shape as the Win32
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(revision 16667)
+--- src/Editor.cxx	(revision 17365)
 +++ src/Editor.cxx	(working copy)
-@@ -2408,6 +2408,17 @@
+@@ -2527,6 +2527,17 @@
  		}
  	}
  
@@ -34,9 +34,9 @@ Index: src/Editor.cxx
  
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(revision 16667)
+--- src/Editor.h	(revision 17365)
 +++ src/Editor.h	(working copy)
-@@ -361,6 +361,7 @@
+@@ -377,6 +377,7 @@
  	virtual void NotifyFocus(bool focus);
  	virtual int GetCtrlID() { return ctrlID; }
  	virtual void NotifyParent(SCNotification scn) = 0;
@@ -46,9 +46,9 @@ Index: src/Editor.h
  	void NotifySavePoint(bool isSavePoint);
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(revision 16667)
+--- win32/ScintillaWin.cxx	(revision 17365)
 +++ win32/ScintillaWin.cxx	(working copy)
-@@ -209,6 +209,7 @@
+@@ -213,6 +213,7 @@
  	virtual void NotifyFocus(bool focus);
  	virtual int GetCtrlID();
  	virtual void NotifyParent(SCNotification scn);
@@ -56,7 +56,7 @@ Index: win32/ScintillaWin.cxx
  	virtual void NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt);
  	virtual void Copy();
  	virtual void CopyAllowLine();
-@@ -1247,6 +1248,13 @@
+@@ -1250,6 +1251,13 @@
  	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
  }
  
