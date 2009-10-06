@@ -552,6 +552,12 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
 				progControl->ShowWindow(SW_SHOW);
 				progControl->SetPos((int)(m_itemCountTotal - m_itemCount));
 				progControl->SetRange32(0, (int)m_itemCountTotal);
+				if (m_pTaskbarList)
+				{
+					m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NORMAL);
+					m_pTaskbarList->SetProgressValue(m_hWnd, m_itemCountTotal-m_itemCount, m_itemCountTotal);
+				}
+
 			}
 		}
 		if ((action == svn_wc_notify_commit_postfix_txdelta)&&(bSecondResized == FALSE))
