@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-08-18 14:25+0100\n"
+"PO-Revision-Date: 2009-10-07 00:29+0100\n"
 "Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1513,10 +1513,6 @@ msgstr ""
 "Et visningsprogram for GNU diff-filer (rettelsesfiler).\r\n"
 "Hvis du ikke har et, kan Notesblok benyttes."
 
-#. Resource IDs: (9)
-msgid "A&bout"
-msgstr "&Om"
-
 #. Resource IDs: (101)
 msgid "A&dd folder..."
 msgstr "T&ilføj mappe..."
@@ -1528,6 +1524,10 @@ msgstr "Afbryd"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "&Afbryd fletning"
+
+#. Resource IDs: (9)
+msgid "About"
+msgstr "Om"
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
@@ -2218,6 +2218,10 @@ msgstr "Udvid"
 msgid "Cascaded context menu"
 msgstr "Udvidet højrekliksmenu"
 
+#. Resource IDs: (117)
+msgid "Case-sensitive"
+msgstr "Forskel på store/små bogstaver."
+
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
 msgstr "Kate&gorier:"
@@ -2511,6 +2515,18 @@ msgstr "Koll&aps kilde-træ"
 msgid "Collapse &following tree"
 msgstr "Kollaps &følgende træ"
 
+#. Resource IDs: (2055)
+msgid ""
+"Collapse unchanged sections\n"
+"Collapse"
+msgstr ""
+"Skjul uændrede sektioner\n"
+"Skjul"
+
+#. Resource IDs: (32870)
+msgid "Collapsed"
+msgstr "Sammentrukket"
+
 #. Resource IDs: (16662)
 msgid "Color"
 msgstr "Farve"
@@ -2709,6 +2725,10 @@ msgstr "Fortsæt"
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "Sammentræk fastgjort vindue"
+
+#. Resource IDs: (15)
+msgid "Converts the working copy format to the new version"
+msgstr "Konverterer arbejdskopien til den nyeste version"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -5824,6 +5844,10 @@ msgstr "Der er ingen graf tilgængelig"
 msgid "No image encoder found for %s."
 msgstr "Der blev ikke fundet nogen billed-indkoder til %s."
 
+#. Resource IDs: (84)
+msgid "No path or pathfile specified on the command line!"
+msgstr "Ingen sti eller sti-fil specificeret på kommandolinien"
+
 #. Resource IDs: (188)
 msgid "No spell corrections"
 msgstr "Ingen stavekontrol-rettelser"
@@ -7321,6 +7345,10 @@ msgstr "Søg efter:"
 msgid "Search string not found!"
 msgstr "Søgestrengen blev ikke fundet."
 
+#. Resource IDs: (169)
+msgid "Searching for better path to apply patch..."
+msgstr "Søger efter en bedre sti til at placere rettelse..."
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Seek failed on %1"
@@ -8003,6 +8031,34 @@ msgstr "Stefan Küng, Lübbe Onken"
 msgid "Stripes"
 msgstr "Striber"
 
+#. Resource IDs: (117)
+msgid ""
+"Sub-string filter:\r\n"
+"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Enclose strings that contain spaces etc. with \".\r\n"
+"* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
+"\r\n"
+"Examples:\r\n"
+"myname  2008    : my commits of 2008\r\n"
+".h  -.cpp              : commits that changed headers but no implementations\r\n"
+"\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"!myname  .cpp    : everything but my commits to .cpp files"
+msgstr ""
+"Del-streng filter:\r\n"
+"* Specificer en eller flere strenge, adskilt af mellemrum. Alle del-strenge skal matche.\r\n"
+"* Placer et '-' tegn foran en del-streng for at udelukke revisioner med denne del-streng.\r\n"
+"* Omgiv strenge der indeholder mellemrum med \".\r\n"
+"* Placer et '!' tegn foran en linie for at invertere hele filter betingelsen.\r\n"
+"\r\n"
+"Eksepler:\r\n"
+"mitname  2008    : mine commits fra 2008\r\n"
+".h  -.cpp              : commits som ændrede headerfiler men ikke implementationsfiler\r\n"
+"\" \"                        : commits med mellemrum (f.eks. når man søger i stier)\r\n"
+"-\"\"show all\"\"        : commits som ikke indeholder strengen '\"show all\"'\r\n"
+"!mitname  .cpp    : alt undtagen mine commits til .cpp filer"
+
 #. Resource IDs: (65535)
 msgid "Subversion"
 msgstr "Subversion"
@@ -8035,15 +8091,17 @@ msgstr ""
 #. Resource IDs: (84)
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "\n"
 "Subversion reported the following:"
 msgstr ""
 "Subversion løb ind i et alvorligt  problem.\n"
-"Vi vil bede dig om at tage dig tid til at rapportere dette til\n"
-"vores email liste med så megen information som muligt om\n"
+"Vi vil bede dig om at tage dig tid til at rapportere dette til vores email liste\n"
+"(users@subversion.tigris.org)\n"
+"med så megen information som muligt om\n"
 "hvad du gjorde før problemet opstod.\n"
 "\n"
 "Subversion rapporterede følgende:"
@@ -9286,6 +9344,10 @@ msgstr "Opdaterer og forsøger låsning igen..."
 msgid "Updating log cache"
 msgstr "Opdaterer log-cache"
 
+#. Resource IDs: (15)
+msgid "Upgrade working copy"
+msgstr "Opgrader arbejdskopi"
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Benyt &Standardbillede:"
@@ -10367,6 +10429,10 @@ msgstr "revisioner:"
 #. Resource IDs: (214)
 msgid "root project"
 msgstr "grund projekt"
+
+#. Resource IDs: (169)
+msgid "scanning path:"
+msgstr "gennemser sti:"
 
 #. Resource IDs: (65535)
 msgid "skip ranges: "
