@@ -633,6 +633,15 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 		m_currentChangedPathList = GetChangedPathsFromSelectedRevisions(true);
 	}
 	
+	// sort according to the settings
+	if (m_nSortColumnPathList > 0)
+    {
+        m_currentChangedArray.Sort (m_nSortColumnPathList, m_bAscendingPathList);
+        SetSortArrow(&m_ChangedFileListCtrl, m_nSortColumnPathList, m_bAscendingPathList);
+    }
+	else
+		SetSortArrow(&m_ChangedFileListCtrl, -1, false);
+
 	// redraw the views
 	if (m_bSingleRevision)
 	{
@@ -649,12 +658,8 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 		m_ChangedFileListCtrl.SetItemCountEx(0);
 		m_ChangedFileListCtrl.Invalidate();
 	}
-	CAppUtils::ResizeAllListCtrlCols(&m_ChangedFileListCtrl);
-	// sort according to the settings
-	if (m_nSortColumnPathList > 0)
-		SetSortArrow(&m_ChangedFileListCtrl, m_nSortColumnPathList, m_bAscendingPathList);
-	else
-		SetSortArrow(&m_ChangedFileListCtrl, -1, false);
+
+    CAppUtils::ResizeAllListCtrlCols(&m_ChangedFileListCtrl);
 	m_ChangedFileListCtrl.SetRedraw(TRUE);
 }
 

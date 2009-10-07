@@ -240,13 +240,13 @@ void CLogChangedPathArray::Sort (int column, bool ascending)
 	        int cmp = 0;
 	        switch (column)
 	        {
-	        case 0:	// action
-			        cmp = cpath2->GetActionString().Compare (cpath1->GetActionString());
+	        case 0:	// path
+			        cmp = cpath2->GetPath().CompareNoCase (cpath1->GetPath());
 			        if (cmp)
 				        return cmp > 0;
 			        // fall through
-	        case 1:	// path
-			        cmp = cpath2->GetPath().CompareNoCase (cpath1->GetPath());
+	        case 1:	// action
+			        cmp = cpath2->GetActionString().Compare (cpath1->GetActionString());
 			        if (cmp)
 				        return cmp > 0;
 			        // fall through
