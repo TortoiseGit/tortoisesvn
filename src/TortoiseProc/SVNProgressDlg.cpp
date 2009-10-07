@@ -42,6 +42,7 @@
 #include "DragDropImpl.h"
 #include "SVNDataObject.h"
 #include "SVNProperties.h"
+#include "COMError.h"
 
 BOOL	CSVNProgressDlg::m_bAscending = FALSE;
 int		CSVNProgressDlg::m_nSortedColumn = -1;
@@ -2097,7 +2098,13 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 				{
 					CString sErr = temp;
 					if (!sErr.IsEmpty())
-						ReportError(temp);
+						ReportError(sErr);
+					else
+					{
+						COMError ce(hr);
+						sErr.Format(IDS_ERR_FAILEDISSUETRACKERCOM, ce.GetSource().c_str(), ce.GetMessageAndDescription().c_str());
+						ReportError(sErr);
+					}
 				}
 
 				SysFreeString(temp);

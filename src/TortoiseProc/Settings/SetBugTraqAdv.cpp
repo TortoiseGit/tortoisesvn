@@ -19,6 +19,8 @@
 #include "stdafx.h"
 #include "SetBugTraqAdv.h"
 #include "BrowseFolder.h"
+#include "COMError.h"
+#include "MessageBox.h"
 #include "BugTraqAssociations.h"
 #include "..\IBugTraqProvider\IBugTraqProvider_h.h"
 
@@ -233,6 +235,13 @@ void CSetBugTraqAdv::OnBnClickedOptions()
 		if (SUCCEEDED(hr = pProvider->ShowOptionsDialog(GetSafeHwnd(), params, &temp)))
 		{
 			SetDlgItemText(IDC_BUGTRAQPARAMETERS, temp);
+		}
+		else
+		{
+			COMError ce(hr);
+			CString sErr;
+			sErr.Format(IDS_ERR_FAILEDISSUETRACKERCOM, ce.GetSource().c_str(), ce.GetMessageAndDescription().c_str());
+			CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
 		}
 		SysFreeString(temp);
 	}
