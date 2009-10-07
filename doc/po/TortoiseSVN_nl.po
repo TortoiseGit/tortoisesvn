@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-09-01 17:51 +0000\n"
-"PO-Revision-Date: 2009-10-02 17:04+0100\n"
+"PO-Revision-Date: 2009-10-07 15:51+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -859,9 +859,8 @@ msgstr "Een <command>SVN Vastleggen</command> actie worden wijzigingen aan meerd
 
 # Geen idee hoe je dit nu goed in het nederlands vertaald. Het is een beetje hazig.
 #. (para)
-#, fuzzy
 msgid "In the repository, each commit is treated as an atomic transaction: either all the commits changes take place, or none of them take place. Subversion retains this atomicity in the face of program crashes, system crashes, network problems, and other users' actions."
-msgstr "In het archief wordt ieder vastlegging behandeld als "
+msgstr "In het archief wordt ieder vastlegging behandeld als behandeld als een complete transactie in zijn geheel: dat houdt in dat of alle wijzigingen wordt vastgelegd of geen enkele wijziging wordt vastgelegd. Subversion houdt vast aan deze werkwijze met het oog op programma crashes, netwerk problemen en andere gebruikersacties."
 
 #. (para)
 msgid "Each time the repository accepts a commit, this creates a new state of the filesystem tree, called a <firstterm>revision</firstterm>. Each revision is assigned a unique natural number, one greater than the number of the previous revision. The initial revision of a freshly created repository is numbered zero, and consists of nothing but an empty root directory."
@@ -2962,14 +2961,12 @@ msgstr ""
 
 # Het is lastig om een goede vertaling te bedenken voor de "diepte" van een tree.
 #. (title)
-#, fuzzy
 msgid "Changing working copy depth"
-msgstr "Veranderen van de werk kopie map diepte"
+msgstr "Veranderen van de werkkopie mapdiepte"
 
 #. (para)
-#, fuzzy
 msgid "Once you have checked out a working copy to a particular depth you can change that depth later to get more or less content using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice>."
-msgstr "Als een lokaal context menu in een van de TortoiseSVN dialogs verschijnt, wordt het als volgt weergegeven: <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save As ...</guimenuitem></menuchoice>"
+msgstr "Als je een werk kopie met een bepaalde mapdiepte hebt opgehaald, dan kun je de mapdiepte later veranderen met behulp van  <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Verversen naar revisie...</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "Using an older server"
@@ -10961,9 +10958,8 @@ msgid "Reverts local modifications of a working copy. The <placeholder-1/> tells
 msgstr ""
 
 #. (option)
-#, fuzzy
 msgid "/noui"
-msgstr "/noquestion"
+msgstr ""
 
 #. (entry)
 msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from popping up (either telling about the cleanup being finished or showing an error message)."
