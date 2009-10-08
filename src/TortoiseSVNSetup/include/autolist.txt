@@ -14,3 +14,7 @@
 .asm = ^([\w]+) *
 .sd = ^\s*(?:procedure|function)\s+(\w+)
 .ps1 = ^\s*(?:function)\s+(\w+[\w\-]*)
+.bat = ^\:(\w+)|^set\s+(\w+)
+.build = <\w+\s+name\s*=\s*\"(\w+)\"
+.xaml = name\s*=\s*\"(\w+)\"
+.html = \"#(\w+)\"
