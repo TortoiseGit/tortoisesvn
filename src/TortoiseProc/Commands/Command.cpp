@@ -21,6 +21,7 @@
 
 #include "AboutCommand.h"
 #include "AddCommand.h"
+#include "AutoTextTestCommand.h"
 #include "BlameCommand.h"
 #include "CatCommand.h"
 #include "CheckoutCommand.h"
@@ -68,10 +69,12 @@
 #include "UpdateCommand.h"
 #include "UrlDiffCommand.h"
 
+
 typedef enum
 {
 	cmdAbout,
 	cmdAdd,
+	cmdAutoTextTest,
 	cmdBlame,
 	cmdCat,
 	cmdCheckout,
@@ -128,6 +131,7 @@ static const struct CommandInfo
 {
 	{	cmdAbout,			_T("about")				},
 	{	cmdAdd,				_T("add")				},
+	{	cmdAutoTextTest,	_T("autotexttest")		},
 	{	cmdBlame,			_T("blame")				},
 	{	cmdCat,				_T("cat")				},
 	{	cmdCheckout,		_T("checkout")			},
@@ -203,6 +207,8 @@ Command * CommandServer::GetCommand(const CString& sCmd)
 		return new AboutCommand;
 	case cmdAdd:
 		return new AddCommand;
+	case cmdAutoTextTest:
+		return new AutoTextTestCommand;
 	case cmdBlame:
 		return new BlameCommand;
 	case cmdCat:
