@@ -189,6 +189,13 @@ Don't touch these lines:
 								all other parameters are ignored.
 							</entry>
 						</row>
+						<row>
+							<entry condition="pot">/line</entry>
+							<entry>
+								Specifies a line number to jump to after loading
+								the files.
+							</entry>
+						</row>
 					</tbody>
 				</tgroup>
 			</table>

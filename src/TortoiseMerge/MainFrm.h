@@ -53,7 +53,10 @@ protected:
 	virtual BOOL	PreCreateWindow(CREATESTRUCT& cs);
 	virtual BOOL	OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
 	virtual void	ActivateFrame(int nCmdShow = -1);
-	bool			LoadViews(bool bRetainPosition = false);
+	/// line = -1 means keep the current position, 
+	/// line >= 0 means scroll to that line, 
+	/// and line == -2 means do nothing or scroll to first diff depending on registry setting
+	bool			LoadViews(int line = -2);
 	void			ClearViewNamesAndPaths();
 	afx_msg LRESULT OnFindDialogMessage(WPARAM wParam, LPARAM lParam);
 	afx_msg void	OnApplicationLook(UINT id);

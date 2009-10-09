@@ -592,7 +592,7 @@ void CMainFrame::ClearViewNamesAndPaths()
 	m_pwndBottomView->m_sFullFilePath.Empty();
 }
 
-bool CMainFrame::LoadViews(bool bRetainPosition)
+bool CMainFrame::LoadViews(int line)
 {
 	m_Data.SetBlame(m_bBlame);
 	m_bHasConflicts = false;
@@ -773,19 +773,21 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 	UpdateLayout();
 	SetActiveView(pwndActiveView);
 
-	if (bRetainPosition && m_pwndLeftView->m_pViewData)
+	if ((line >= -1) && m_pwndRightView->m_pViewData)
 	{
-		int n = nOldLineNumber;
+		int n = line == -1 ? nOldLineNumber : line;
 		if (n >= 0)
-			n = m_pwndLeftView->m_pViewData->FindLineNumber(n);
+			n = m_pwndRightView->m_pViewData->FindLineNumber(n);
 		if (n < 0)
 			n = nOldLine;
 
-		m_pwndLeftView->ScrollAllToLine(n);
+		m_pwndRightView->ScrollAllToLine(n);
 		POINT p;
 		p.x = 0;
 		p.y = n;
 		m_pwndLeftView->SetCaretPosition(p);
+		m_pwndRightView->SetCaretPosition(p);
+		m_pwndBottomView->SetCaretPosition(p);
 	}
 	else
 	{
@@ -922,7 +924,7 @@ void CMainFrame::OnViewOnewaydiff()
 		m_wndLocatorBar.ShowPane(m_bLocatorBar, false, true);
 		m_wndLocatorBar.DocumentUpdated();
 	}
-	LoadViews(true);
+	LoadViews(-1);
 }
 
 void CMainFrame::ShowDiffBar(bool bShow)
@@ -1650,7 +1652,7 @@ void CMainFrame::OnFileReload()
 	if (CheckForSave()==IDCANCEL)
 		return;
 	CDiffColors::GetInstance().LoadRegistry();
-	LoadViews(true);
+	LoadViews(-1);
 }
 
 void CMainFrame::ActivateFrame(int nCmdShow)

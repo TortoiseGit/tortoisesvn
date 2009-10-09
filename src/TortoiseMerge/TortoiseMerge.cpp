@@ -422,7 +422,14 @@ BOOL CTortoiseMergeApp::InitInstance()
 		return TRUE;
 	}
 
-	return pFrame->LoadViews();
+	int line = -2;
+	if (parser.HasVal(_T("line")))
+	{
+		line = parser.GetLongVal(_T("line"));
+		line--;	// we need the index
+	}
+
+	return pFrame->LoadViews(line);
 }
 
 // CTortoiseMergeApp message handlers
