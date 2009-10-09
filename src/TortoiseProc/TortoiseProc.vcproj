@@ -390,14 +390,6 @@
 			Name="Utils"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc"
 			>
-			<File
-				RelativePath=".\AutoTextTestDlg.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\AutoTextTestDlg.h"
-				>
-			</File>
 			<Filter
 				Name="General"
 				>
@@ -1744,11 +1736,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\link.ico"
+				RelativePath="..\Resources\link.ico"
 				>
 			</File>
 			<File
-				RelativePath="..\Resources\link.ico"
+				RelativePath=".\link.ico"
 				>
 			</File>
 			<File
@@ -2132,6 +2124,14 @@
 				>
 				<File
 					RelativePath=".\Commands\AutoTextTestCommand.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AutoTextTestDlg.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\AutoTextTestDlg.h"
 					>
 				</File>
 				<File
