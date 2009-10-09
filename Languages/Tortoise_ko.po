@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-01 19:18+0900\n"
+"PO-Revision-Date: 2009-10-10 08:54+0900\n"
 "Last-Translator: Taedong Kim <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1839,6 +1839,10 @@ msgstr "자동으로"
 msgid "Automatically check for &newer versions every week"
 msgstr "매주 새 버전을 확인합니다.(&N)"
 
+#. Resource IDs: (306)
+msgid "Autotext Tester"
+msgstr "Autotext 테스터"
+
 #. Resource IDs: (1157)
 msgid "Average"
 msgstr "평균"
@@ -2349,6 +2353,18 @@ msgstr "소스 트리 축소하기(&A)"
 #. Resource IDs: (275)
 msgid "Collapse &following tree"
 msgstr "다음 트리 축소하기(&F)"
+
+#. Resource IDs: (2055)
+msgid ""
+"Collapse unchanged sections\n"
+"Collapse"
+msgstr ""
+"변경되지 않은 섹션들을 축소\n"
+"축소"
+
+#. Resource IDs: (32870)
+msgid "Collapsed"
+msgstr "축소됨"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -3528,6 +3544,10 @@ msgstr "0 ~ 255 사이의 정수를 입력하십시오."
 msgid "Enter an integer."
 msgstr "정수를 입력하십시오."
 
+#. Resource IDs: (65535)
+msgid "Enter file content to test for below:"
+msgstr "아래를 위해 테스트할 파일 내용을 입력하십시오:"
+
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
 msgstr "로그 메시지 입력(&M):"
@@ -3540,6 +3560,10 @@ msgstr "로그 메시지 입력:"
 #, c-format
 msgid "Enter no more than %1 characters."
 msgstr "글자 %1개까지만 입력하십시오."
+
+#. Resource IDs: (65535)
+msgid "Enter the regex string below:"
+msgstr "아래에 정규 표현식을 입력하십시오:"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3594,6 +3618,10 @@ msgstr "실행파일 (*.exe)|*.exe|명령 (*.com)|*.com|정보 (*.pdf)|*.pdf|배
 #. Resource IDs: (1002)
 msgid "Existing"
 msgstr "존재하는"
+
+#. Resource IDs: (2)
+msgid "Exit"
+msgstr "종료"
 
 #. Resource IDs: (275)
 msgid "Exp&and source tree"
@@ -4003,6 +4031,10 @@ msgstr "강제로 병합하기"
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "다음"
+
+#. Resource IDs: (65535)
+msgid "Found auto words:"
+msgstr "발견된 자동 단어들:"
 
 #. Resource IDs: (65535)
 msgid "From URL:"
@@ -7090,6 +7122,10 @@ msgstr "파일 저장 중"
 #. Resource IDs: (144)
 msgid "Saving patchfile to:"
 msgstr "패치 파일 저장:"
+
+#. Resource IDs: (1522)
+msgid "Scan"
+msgstr "검색"
 
 #. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
