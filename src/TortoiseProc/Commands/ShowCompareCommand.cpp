@@ -49,6 +49,7 @@ bool ShowCompareCommand::Execute()
 	diff.SetAlternativeTool(!!parser.HasKey(_T("alternatediff")));
 	if (parser.HasVal(_T("nodekind")))
 		nodekind = (svn_node_kind_t)parser.GetLongVal(_T("nodekind"));
+	diff.SetJumpLine(parser.GetLongVal(_T("line")));
 
 	if (unified)
 		bRet = diff.ShowUnifiedDiff(url1, rev1, url2, rev2, pegrev, ignoreancestry);

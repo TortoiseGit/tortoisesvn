@@ -1683,9 +1683,9 @@ void CLogDlg::DiffSelectedFile()
 			CAppUtils::DiffFlags flags;
 			flags.AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 			if (changedpath.GetAction() == LOGACTIONS_DELETED)
-				CAppUtils::StartExtDiff(tempfile, tempfile2, sName2, sName1, flags);
+				CAppUtils::StartExtDiff(tempfile, tempfile2, sName2, sName1, flags, 0);
 			else
-				CAppUtils::StartExtDiff(tempfile2, tempfile, sName2, sName1, flags);
+				CAppUtils::StartExtDiff(tempfile2, tempfile, sName2, sName1, flags, 0);
 		}
 	}
 }

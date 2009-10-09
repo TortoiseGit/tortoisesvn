@@ -38,6 +38,7 @@ bool PrevDiffCommand::Execute()
 	{
 		SVNDiff diff(NULL, hWndExplorer);
 		diff.SetAlternativeTool(bAlternativeTool);
+		diff.SetJumpLine(parser.GetLongVal(_T("line")));
 		SVNStatus st;
 		st.GetStatus(cmdLinePath);
 		if (st.status && st.status->entry && st.status->entry->cmt_rev)

@@ -199,7 +199,7 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
 		// no base file, start TortoiseMerge in Two-way diff mode
 		CAppUtils::StartExtDiff(CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_file)),
 			CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_file)),
-			n3, n1, flags);
+			n3, n1, flags, 0);
 	}
 	else
 	{

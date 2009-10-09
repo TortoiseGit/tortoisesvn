@@ -354,6 +354,8 @@ Don't touch these lines:
 								If <option>/blame</option> is set and <option>/path2</option>
 								is not set, then the diff is done by first blaming 
 								the files with the given revisions.
+								The parameter <option>/line:xxx</option> specifies the
+								line to jump to when the diff is shown.
 							</entry>
 						</row>
 						<row>

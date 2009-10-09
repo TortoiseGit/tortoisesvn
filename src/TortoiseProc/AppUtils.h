@@ -88,7 +88,8 @@ public:
 	 */
 	static bool StartExtDiff(
 		const CTSVNPath& file1, const CTSVNPath& file2, 
-		const CString& sName1, const CString& sName2, const DiffFlags& flags);
+		const CString& sName1, const CString& sName2, const DiffFlags& flags,
+		int line);
 
 	/**
 	 * Starts the external diff application for properties
@@ -172,7 +173,8 @@ public:
 								const CTSVNPath& url2, const SVNRev& rev2, 
 								const SVNRev& peg = SVNRev(), const SVNRev& headpeg = SVNRev(),
 								bool bAlternateDiff = false, bool ignoreancestry = false,
-								bool blame = false, svn_node_kind_t nodekind = svn_node_unknown);
+								bool blame = false, svn_node_kind_t nodekind = svn_node_unknown,
+								int line = 0);
 
 	/**
 	 * Creates a .lnk file (a windows shortcut file)

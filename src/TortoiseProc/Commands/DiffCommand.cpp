@@ -34,6 +34,7 @@ bool DiffCommand::Execute()
 	{
 		SVNDiff diff(NULL, hwndExplorer);
 		diff.SetAlternativeTool(bAlternativeTool);
+		diff.SetJumpLine(parser.GetLongVal(_T("line")));
 		if ( parser.HasKey(_T("startrev")) && parser.HasKey(_T("endrev")) )
 		{
 			SVNRev StartRevision = SVNRev(parser.GetLongVal(_T("startrev")));
@@ -63,6 +64,6 @@ bool DiffCommand::Execute()
 	else
 		bRet = CAppUtils::StartExtDiff(
 			CTSVNPath(path2), cmdLinePath, CString(), CString(),
-			CAppUtils::DiffFlags().AlternativeTool(bAlternativeTool));
+			CAppUtils::DiffFlags().AlternativeTool(bAlternativeTool), parser.GetLongVal(_T("line")));
 	return bRet;
 }

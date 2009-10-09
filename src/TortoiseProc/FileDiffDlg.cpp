@@ -327,7 +327,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
 	flags.AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 	flags.Blame(blame);
 	CAppUtils::StartExtDiff(
-		tempfile, tempfile2, rev1name, rev2name, flags);
+		tempfile, tempfile2, rev1name, rev2name, flags, 0);
 }
 
 void CFileDiffDlg::DiffProps(int selIndex)

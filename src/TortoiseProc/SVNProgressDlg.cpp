@@ -1703,7 +1703,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetUIFileOrDirectoryName());
 				CAppUtils::StartExtDiff(
 					tempfile, data->path, revname, wcname,
-						CAppUtils::DiffFlags().AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000)));
+						CAppUtils::DiffFlags().AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000)), 0);
 			}
 		}
 		break;

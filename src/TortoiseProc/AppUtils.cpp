@@ -273,7 +273,7 @@ CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2)
 
 bool CAppUtils::StartExtDiff(
 	const CTSVNPath& file1, const CTSVNPath& file2,
-	const CString& sName1, const CString& sName2, const DiffFlags& flags)
+	const CString& sName1, const CString& sName2, const DiffFlags& flags, int line)
 {
 	CString viewer;
 
@@ -331,6 +331,13 @@ bool CAppUtils::StartExtDiff(
 
 	if (flags.bReadOnly && bInternal)
 		viewer += _T(" /readonly");
+	if (line > 0)
+	{
+		viewer += _T(" /line:");
+		CString temp;
+		temp.Format(_T("%ld"), line);
+		viewer += temp;
+	}
 
 	return LaunchApplication(viewer, IDS_ERR_EXTDIFFSTART, flags.bWait);
 }
@@ -1014,7 +1021,8 @@ bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev&
 								 const CTSVNPath& url2, const SVNRev& rev2, 
 								 const SVNRev& peg /* = SVNRev */, const SVNRev& headpeg /* = SVNRev */, 
 								 bool bAlternateDiff /* = false */, bool bIgnoreAncestry /* = false */, 
-								 bool blame /* = false */, svn_node_kind_t nodekind /* = svn_node_unknown */)
+								 bool blame /* = false */, svn_node_kind_t nodekind /* = svn_node_unknown */,
+								 int line /* = 0 */)
 {
 	CString sCmd;
 	sCmd.Format(_T("%s /command:showcompare /nodekind:%d"),
@@ -1042,6 +1050,14 @@ bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev&
 		TCHAR buf[30];
 		_stprintf_s(buf, 30, _T("%ld"), (DWORD)hWnd);
 		sCmd += buf;
+	}
+
+	if (line > 0)
+	{
+		sCmd += _T(" /line:");
+		CString temp;
+		temp.Format(_T("%ld"), line);
+		sCmd += temp;
 	}
 
 	return CAppUtils::LaunchApplication(sCmd, NULL, false);

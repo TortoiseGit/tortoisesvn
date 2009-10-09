@@ -35,6 +35,7 @@ public:
 	~SVNDiff(void);
 
 	void SetAlternativeTool(bool bAlternativeTool) { m_bAlternativeTool = bAlternativeTool; }
+	void SetJumpLine(int line) {m_JumpLine = line;}
 
 	/**
 	 * Diff a single file against its text-base
@@ -108,4 +109,5 @@ private:
 	bool			m_bRemoveTempFiles;
 	SVNRev			m_headPeg;
 	bool			m_bAlternativeTool;
+	int				m_JumpLine;
 };
