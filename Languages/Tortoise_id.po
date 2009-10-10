@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-03 09:49-0600\n"
+"PO-Revision-Date: 2009-10-10 10:48-0600\n"
 "Last-Translator: Evan Allrich <eallrich@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2252,6 +2252,10 @@ msgstr "Otomatis"
 msgid "Automatically check for &newer versions every week"
 msgstr "Pemeriksaa&n otomatis untuk versi lebih baru setiap minggu"
 
+#. Resource IDs: (306)
+msgid "Autotext Tester"
+msgstr "Penguji Teks-Otomatis"
+
 # Control-ID:1157,
 #. Resource IDs: (1157)
 msgid "Average"
@@ -2862,6 +2866,19 @@ msgstr "Run&tuhkan pohon sumber"
 #. Resource IDs: (275)
 msgid "Collapse &following tree"
 msgstr "Runtuhkan &pohon berikut"
+
+#. Resource IDs: (2055)
+msgid ""
+"Collapse unchanged sections\n"
+"Collapse"
+msgstr ""
+"Runtuhkan bagian berubah\n"
+"Runtuhkan"
+
+# ID:73,
+#. Resource IDs: (32870)
+msgid "Collapsed"
+msgstr "Runtuh"
 
 # Dlg-ID:138,
 #. Resource IDs: (16662)
@@ -4290,6 +4307,10 @@ msgstr "Masukkan integer antara 0 dan 255."
 msgid "Enter an integer."
 msgstr "Masukkan integer."
 
+#. Resource IDs: (65535)
+msgid "Enter file content to test for below:"
+msgstr "Masukkan isi berkas untuk menguji di bawah ini:"
+
 # Control-ID:1065,
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
@@ -4306,6 +4327,10 @@ msgstr "Masukkan pesan log:"
 #, c-format
 msgid "Enter no more than %1 characters."
 msgstr "Masukkan tidak lebih dari %1 karakter."
+
+#. Resource IDs: (65535)
+msgid "Enter the regex string below:"
+msgstr "Masukkan string regex di bawah ini:"
 
 # ID:3603,
 #. Resource IDs: (3603)
@@ -4369,6 +4394,10 @@ msgstr "Berkas eksekusi (*.exe)|*.exe|Perintah (*.com)|*.com|Informasi (*.pdf)|*
 #. Resource IDs: (1002)
 msgid "Existing"
 msgstr "Sudah ada"
+
+#. Resource IDs: (2)
+msgid "Exit"
+msgstr "Keluar"
 
 #. Resource IDs: (275)
 msgid "Exp&and source tree"
@@ -4859,6 +4888,10 @@ msgstr "Memaksa menggabung"
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "Teruskan"
+
+#. Resource IDs: (65535)
+msgid "Found auto words:"
+msgstr "Menemukan kata-kata otomatis:"
 
 # ID:501,#:
 # Control-ID:65535,
@@ -8486,6 +8519,10 @@ msgstr "Menyimpan berkas"
 #. Resource IDs: (144)
 msgid "Saving patchfile to:"
 msgstr "Menyimpan berkas tambalan ke:"
+
+#. Resource IDs: (1522)
+msgid "Scan"
+msgstr "Mencari"
 
 # Control-ID:1014,#:
 # Control-ID:1017,#:
