@@ -1086,7 +1086,7 @@ void CCommitDlg::GetAutocompletionList()
 	// the next step is to go over all files shown in the commit dialog
 	// and scan them for strings we can use
 	int nListItems = m_ListCtrl.GetItemCount();
-
+	CRegDWORD removedExtension(_T("Software\\TortoiseSVN\\AutocompleteRemovesExtensions"), FALSE);
 	for (int i=0; i<nListItems && m_bRunThread; ++i)
 	{
 		// stop parsing after timeout
@@ -1111,7 +1111,7 @@ void CCommitDlg::GetAutocompletionList()
 
 		// Last inserted entry is a file name.
 		// Some users prefer to also list file name without extension.
-		if (CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteRemovesExtensions"), FALSE))
+		if ((DWORD)removedExtension)
 		{
 			int dotPos = sPartPath.ReverseFind('.');
 			if ((dotPos >= 0) && (dotPos > lastPos))
@@ -1200,15 +1200,13 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, const
 			regexmap[sExt] = regCheck;
 		}
 		const tr1::wsregex_iterator end;
-		wstring s = sFileContent;
-		for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
+		for (tr1::wsregex_iterator it(sFileContent.begin(), sFileContent.end(), regCheck); it != end; ++it)
 		{
 			const tr1::wsmatch match = *it;
 			for (size_t i=1; i<match.size(); ++i)
 			{
 				if (match[i].second-match[i].first)
 				{
-					ATLTRACE(_T("matched keyword : %s\n"), wstring(match[i]).c_str());
 					m_autolist.insert(wstring(match[i]).c_str());
 				}
 			}
