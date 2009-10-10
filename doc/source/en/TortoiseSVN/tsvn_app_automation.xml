@@ -49,6 +49,13 @@
 			to add it anymore.
 		</para>
 		<para>
+			You can also specify a file which contains a list of paths, separated by
+			newlines. The file must be in UTF-16 format. If you pass such a file, use
+			<option>/pathfile</option> instead of <option>/path</option>. To have
+			TortoiseProc delete that file after the command is finished, you
+			can pass the parameter <option>/deletepathfile</option>.
+		</para>
+		<para>
 			The progress dialog which is used for commits, updates and many more commands
 			usually stays open after the command has finished until the user presses
 			the <guibutton>OK</guibutton> button. This can be changed by checking
