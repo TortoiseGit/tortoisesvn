@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "AutoTextTestDlg.h"
+#include "HighResClock.h"
 #include <regex>
 #include <string>
 
@@ -29,9 +30,9 @@ IMPLEMENT_DYNAMIC(CAutoTextTestDlg, CDialog)
 
 CAutoTextTestDlg::CAutoTextTestDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CAutoTextTestDlg::IDD, pParent)
-	, m_sContent(_T(""))
 	, m_sRegex(_T(""))
 	, m_sResult(_T(""))
+	, m_sTimingLabel(_T(""))
 {
 
 }
@@ -43,9 +44,10 @@ CAutoTextTestDlg::~CAutoTextTestDlg()
 void CAutoTextTestDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_AUTOTEXTCONTENT, m_sContent);
 	DDX_Text(pDX, IDC_AUTOTEXTREGEX, m_sRegex);
-	DDX_Text(pDX, IDC_EDIT3, m_sResult);
+	DDX_Text(pDX, IDC_TESTRESULT, m_sResult);
+	DDX_Text(pDX, IDC_TIMINGLABEL, m_sTimingLabel);
+	DDX_Control(pDX, IDC_AUTOTEXTCONTENT, m_cContent);
 }
 
 
@@ -54,24 +56,34 @@ BEGIN_MESSAGE_MAP(CAutoTextTestDlg, CDialog)
 END_MESSAGE_MAP()
 
 
-// CAutoTextTestDlg message handlers
+BOOL CAutoTextTestDlg::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	m_cContent.LimitText(200*1024);
+
+	return TRUE;
+}
 
 void CAutoTextTestDlg::OnBnClickedAutotextscan()
 {
 	UpdateData();
 
 	m_sResult.Empty();
-
+	m_sTimingLabel.Empty();
+	m_cContent.GetTextRange(0, m_cContent.GetTextLength(), m_sContent);
 	if ((!m_sContent.IsEmpty())&&(!m_sRegex.IsEmpty()))
 	{
 		try
 		{
+			std::set<CString> autolist;
+			wstring s = m_sContent;
+			CHighResClock timer;
 
 			tr1::wregex regCheck;
 			std::map<CString, tr1::wregex>::const_iterator regIt;
 			regCheck = tr1::wregex(m_sRegex, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
 			const tr1::wsregex_iterator end;
-			wstring s = m_sContent;
 			for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
 			{
 				const tr1::wsmatch match = *it;
@@ -83,12 +95,18 @@ void CAutoTextTestDlg::OnBnClickedAutotextscan()
 						wstring result = wstring(match[i]);
 						if (!result.empty())
 						{
-							m_sResult += result.c_str();
-							m_sResult += _T("\r\n");
+							autolist.insert(result.c_str());
 						}
 					}
 				}
 			}
+			timer.Stop();
+			for (std::set<CString>::iterator it = autolist.begin(); it != autolist.end(); ++it)
+			{
+				m_sResult += *it;
+				m_sResult += _T("\r\n");
+			}
+			m_sTimingLabel.Format(_T("Parse time: %ld uSecs"), timer.GetMusecsTaken());
 		}
 		catch (exception) 
 		{
@@ -97,3 +115,4 @@ void CAutoTextTestDlg::OnBnClickedAutotextscan()
 	}
 	UpdateData(FALSE);
 }
+

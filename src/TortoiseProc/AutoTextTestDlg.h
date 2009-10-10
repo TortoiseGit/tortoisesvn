@@ -17,7 +17,8 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-
+#include "SciEdit.h"
+#include "afxcmn.h"
 
 // CAutoTextTestDlg dialog
 
@@ -34,6 +35,7 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedAutotextscan();
 
 	DECLARE_MESSAGE_MAP()
@@ -42,4 +44,6 @@ private:
 	CString m_sContent;
 	CString m_sRegex;
 	CString m_sResult;
+	CString m_sTimingLabel;
+	CRichEditCtrl m_cContent;
 };
