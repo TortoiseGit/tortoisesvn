@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-05 08:53+0100\n"
+"PO-Revision-Date: 2009-10-11 16:57+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -848,6 +848,10 @@ msgstr "&Druckvorschau"
 #. Resource IDs: (58116)
 msgid "&Print..."
 msgstr "&Drucken..."
+
+#. Resource IDs: (1265)
+msgid "&Properties"
+msgstr "&Eigenschaften"
 
 #. Resource IDs: (11021)
 msgid "&Properties..."
@@ -1846,6 +1850,10 @@ msgstr "Automatisch"
 #. Resource IDs: (1073)
 msgid "Automatically check for &newer versions every week"
 msgstr "&Wöchentlich auf neue Version prüfen"
+
+#. Resource IDs: (306)
+msgid "Autotext Tester"
+msgstr "Autotext Tester"
 
 #. Resource IDs: (1157)
 msgid "Average"
@@ -3550,6 +3558,10 @@ msgstr "Bitte geben Sie eine Ganzzahl zwischen 0 und 255 ein."
 msgid "Enter an integer."
 msgstr "Bitte geben Sie eine Ganzzahl ein."
 
+#. Resource IDs: (65535)
+msgid "Enter file content to test for below:"
+msgstr "Tragen Sie die zu testenden Texte hier ein:"
+
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
 msgstr "Log-&Meldung eingeben"
@@ -3562,6 +3574,10 @@ msgstr "Logmeldung eingeben:"
 #, c-format
 msgid "Enter no more than %1 characters."
 msgstr "Bitte nicht mehr als %1 Zeichen eingeben."
+
+#. Resource IDs: (65535)
+msgid "Enter the regex string below:"
+msgstr "Geben Sie den RegEx Text hier ein:"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3616,6 +3632,10 @@ msgstr "Ausführbar (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pd
 #. Resource IDs: (1002)
 msgid "Existing"
 msgstr "Vorhanden"
+
+#. Resource IDs: (2)
+msgid "Exit"
+msgstr "Beenden"
 
 #. Resource IDs: (275)
 msgid "Exp&and source tree"
@@ -4027,6 +4047,10 @@ msgid "Forward"
 msgstr "Weiter"
 
 #. Resource IDs: (65535)
+msgid "Found auto words:"
+msgstr "Gefundene Autotexte:"
+
+#. Resource IDs: (65535)
 msgid "From URL:"
 msgstr "Von URL:"
 
@@ -4301,6 +4325,10 @@ msgstr "Servernamen stimmen nicht überein (%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "Wie wollen Sie den Konflikt auflösen?"
+
+#. Resource IDs: (1264)
+msgid "I&gnored"
+msgstr "I&gnoriert"
 
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
@@ -4905,6 +4933,14 @@ msgstr ""
 "\n"
 "Wollen Sie wirklich umplatzieren?"
 
+#. Resource IDs: (1480)
+msgid "Items in externals"
+msgstr "Objekte in Externals"
+
+#. Resource IDs: (1527)
+msgid "Items to show"
+msgstr "Anzuzeigende Objekte"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "Mit &folgendem Baum verbinden"
@@ -5159,8 +5195,12 @@ msgstr "Kleinste angezeigte Revision: %ld - Größte angezeigte Revision: %ld"
 
 #. Resource IDs: (238)
 #, c-format
-msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
-msgstr "Kleinste angezeigte Revision: %ld - Größte angezeigte Revision: %ld - HEAD Revision: %ld"
+msgid ""
+"Lowest shown revision: %ld - Highest shown revision: %ld\n"
+"HEAD revision: %ld"
+msgstr ""
+"Kleinste angezeigte Revision: %ld - Größte angezeigte Revision: %ld\n"
+"HEAD Revision: %ld"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -7133,6 +7173,10 @@ msgstr "Speichere Dateien"
 msgid "Saving patchfile to:"
 msgstr "Speichere Patchdatei in:"
 
+#. Resource IDs: (1522)
+msgid "Scan"
+msgstr "Durchsuchen"
+
 #. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
 msgstr "Scintilla"
@@ -7435,10 +7479,6 @@ msgstr "Zeige &Log..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "&Überlagerte Symbole und Kontextmenü nur im Explorer anzeigen"
 
-#. Resource IDs: (1265)
-msgid "Show &properties"
-msgstr "Zeige &Eigenschaften"
-
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "Zeige &nicht versionierte Dateien"
@@ -7523,14 +7563,6 @@ msgstr "Zeige Externals von anderen Projektarchiven"
 msgid "Show f&ull menus after a short delay"
 msgstr "Zeige &vollständige Menüs nach einer kurzen Pause"
 
-#. Resource IDs: (1264)
-msgid "Show i&gnored files"
-msgstr "Zeige i&gnorierte Dateien"
-
-#. Resource IDs: (1480)
-msgid "Show items in externals"
-msgstr "Objekte in Externals anzeigen"
-
 #. Resource IDs: (1037)
 msgid "Show l&og"
 msgstr "Zeige l&og"
@@ -7610,14 +7642,6 @@ msgstr "Zeige Statistiken für den gewählten Log-Puffer"
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Zeige Marken an der Quelle, nicht als separate Knoten"
-
-#. Resource IDs: (1209)
-msgid "Show un&modified files"
-msgstr "Zeige un&modifizierte Dateien"
-
-#. Resource IDs: (1073)
-msgid "Show un&versioned files"
-msgstr "Zeige un&versionierte Dateien"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -7874,9 +7898,14 @@ msgstr "Subversion &Konfigurationsdatei:"
 #, c-format
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion encountered the problem in:\n"
 "file %s, line %ld\n"
@@ -7884,8 +7913,12 @@ msgid ""
 msgstr ""
 "Subversion hat ein ernstes Problem festgestellt.\n"
 "Bitte nehmen Sie sich die Zeit, es mit einer möglichst\n"
-"ausführlichen Beschreibung, was sie zu tun versuchten,\n"
-"an unsere Mailingliste weiterzuleiten.\n"
+"ausführlichen Beschreibung, was sie zu tun versuchten, an\n"
+"die Subversion Mailingliste weiterzuleiten.\n"
+"(users@subversion.tigris.org)\n"
+"Bitte durchsuchen Sie zuerst das Listenarchiv nach der Fehlermeldung,\n"
+"um doppelte Berichte zu vermeiden.Das Listenarchiv finden Sie unterhttp://subversion.tigris.org/mailing-lists.html\n"
+"\n"
 "\n"
 "Subversion hat das Problem festgestellt in:\n"
 "Datei: %s, Zeile %ld\n"
@@ -7898,13 +7931,20 @@ msgid ""
 "(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion reported the following:"
 msgstr ""
 "Subversion hat ein ernstes Problem festgestellt.\n"
 "Bitte nehmen Sie sich die Zeit, es mit einer möglichst\n"
 "ausführlichen Beschreibung, was sie zu tun versuchten, an\n"
-"die Subversion Mailingliste (users@subversion.tigris.org) weiterzuleiten.\n"
+"die Subversion Mailingliste weiterzuleiten.\n"
+"(users@subversion.tigris.org)\n"
+"Bitte durchsuchen Sie zuerst das Listenarchiv nach der Fehlermeldung,\n"
+"um doppelte Berichte zu vermeiden.Das Listenarchiv finden Sie unterhttp://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion berichtet folgendes:"
 
@@ -8939,6 +8979,14 @@ msgstr "URL:"
 #. Resource IDs: (75)
 msgid "URL: "
 msgstr "URL: "
+
+#. Resource IDs: (1209)
+msgid "Un&modified"
+msgstr "U&nverändert"
+
+#. Resource IDs: (1073)
+msgid "Un&versioned"
+msgstr "Un&versioniert"
 
 #. Resource IDs: (220)
 #, c-format
@@ -10568,6 +10616,14 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Show &properties"
+#~ msgstr "Zeige &Eigenschaften"
+#~ msgid "Show i&gnored files"
+#~ msgstr "Zeige i&gnorierte Dateien"
+#~ msgid "Show un&modified files"
+#~ msgstr "Zeige un&modifizierte Dateien"
+#~ msgid "Show un&versioned files"
+#~ msgstr "Zeige un&versionierte Dateien"
 #~ msgid "Cleaning up."
 #~ msgstr "Beim Aufräumen."
 #~ msgid "General::Revision Graph"
