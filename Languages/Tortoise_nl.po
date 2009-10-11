@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-09 22:48+0100\n"
+"PO-Revision-Date: 2009-10-11 17:16+0100\n"
 "Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -857,6 +857,10 @@ msgstr "&Afdrukvoorbeeld"
 #. Resource IDs: (58116)
 msgid "&Print..."
 msgstr "&Afdrukken..."
+
+#. Resource IDs: (1265)
+msgid "&Properties"
+msgstr "&Eigenschappen"
 
 #. Resource IDs: (11021)
 msgid "&Properties..."
@@ -4325,6 +4329,10 @@ msgstr "Verschil in hostnamen (%s)"
 msgid "How do you want to resolve this conflict?"
 msgstr "Hoe wilt u dt conflict oplossen?"
 
+#. Resource IDs: (1264)
+msgid "I&gnored"
+msgstr "Ge&negeerd"
+
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
 msgstr "&Inclusief paden:"
@@ -4904,6 +4912,14 @@ msgstr ""
 "Als u niet zeker weet wat u moet doen, raadpleeg dan de documentatie over <i>verhuizen</i>.\n"
 "Wilt u echt verhuizen?"
 
+#. Resource IDs: (1480)
+msgid "Items in externals"
+msgstr "Onderdelen in 'externals'"
+
+#. Resource IDs: (1527)
+msgid "Items to show"
+msgstr "Te tonen onderdelen"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "Samennemen met volgende &boom"
@@ -5158,8 +5174,12 @@ msgstr "Laagste getoonde revisie: %ld - Hoogste getoonde revisie: %ld"
 
 #. Resource IDs: (238)
 #, c-format
-msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
-msgstr "Laagste getoonde revisie: %ld - Hoogste getoonde revisie: %ld - HEAD revisie: %ld"
+msgid ""
+"Lowest shown revision: %ld - Highest shown revision: %ld\n"
+"HEAD revision: %ld"
+msgstr ""
+"Laagste getoonde revisie: %ld - Hoogste getoonde revisie: %ld\n"
+"HEAD revisie: %ld"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -7433,10 +7453,6 @@ msgstr "Toon &logboek..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "Toon &overlays en contextmenu alleen in verkenner"
 
-#. Resource IDs: (1265)
-msgid "Show &properties"
-msgstr "&Toon eigenschappen"
-
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "Toon bestanden &zonder versiebeheer"
@@ -7521,14 +7537,6 @@ msgstr "Toon externen uit andere archieven"
 msgid "Show f&ull menus after a short delay"
 msgstr "Toon &gehele menu na korte tijd"
 
-#. Resource IDs: (1264)
-msgid "Show i&gnored files"
-msgstr "Toon &genegeerde bestanden"
-
-#. Resource IDs: (1480)
-msgid "Show items in externals"
-msgstr "Toon onderdelen in 'externals'"
-
 #. Resource IDs: (1037)
 msgid "Show l&og"
 msgstr "Toon &logboek"
@@ -7608,14 +7616,6 @@ msgstr "Toon statistieken van de geselecteerde cache"
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Toon labels op de bron van de kopie en niet als apart knooppunt"
-
-#. Resource IDs: (1209)
-msgid "Show un&modified files"
-msgstr "Toon on&gewijzigde bestanden"
-
-#. Resource IDs: (1073)
-msgid "Show un&versioned files"
-msgstr "Toon bestanden &zonder versiebeheer"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -7870,9 +7870,14 @@ msgstr "Subversion &configuratiebestand:"
 #, c-format
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion encountered the problem in:\n"
 "file %s, line %ld\n"
@@ -7880,7 +7885,13 @@ msgid ""
 msgstr ""
 "Subversion heeft een ernstig probleem.\n"
 "Neem alstublieft de tijd om dit te melden via de mailing list\n"
+"(users@subversion.tigris.org)\n"
 "met zo veel mogelijk informatie over wat u probeerde te doen.\n"
+"\n"
+"Zoek echter eerst in de archieven van de mailing list of deze\n"
+"foutmelding al bekend is, om herhaalde meldingen te voorkomen.\n"
+"De archieven van de mailing list kunt u vinden op\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion constateerde het probleem in:\n"
 "bestand %s, regel %ld\n"
@@ -7893,6 +7904,10 @@ msgid ""
 "(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion reported the following:"
 msgstr ""
@@ -7901,7 +7916,12 @@ msgstr ""
 "(users@subversion.tigris.org)\n"
 "met zo veel mogelijk informatie over wat u probeerde te doen.\n"
 "\n"
-"Subversion rapporteerde het volgende:"
+"Zoek echter eerst in de archieven van de mailing list of deze\n"
+"foutmelding al bekend is, om herhaalde meldingen te voorkomen.\n"
+"De archieven van de mailing list kunt u vinden op\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
+"\n"
+"Subversion constateerde het volgende:"
 
 #. Resource IDs: (79)
 msgid ""
@@ -8929,6 +8949,14 @@ msgstr "URL:"
 #. Resource IDs: (75)
 msgid "URL: "
 msgstr "URL: "
+
+#. Resource IDs: (1209)
+msgid "Un&modified"
+msgstr "Onge&wijzigd"
+
+#. Resource IDs: (1073)
+msgid "Un&versioned"
+msgstr "&Zonder versiebeheer"
 
 #. Resource IDs: (220)
 #, c-format
@@ -10557,4 +10585,13 @@ msgstr "ja"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+#~ msgid "Show &properties"
+#~ msgstr "&Toon eigenschappen"
+#~ msgid "Show i&gnored files"
+#~ msgstr "Toon &genegeerde bestanden"
+#~ msgid "Show un&modified files"
+#~ msgstr "Toon on&gewijzigde bestanden"
+#~ msgid "Show un&versioned files"
+#~ msgstr "Toon bestanden &zonder versiebeheer"
 
