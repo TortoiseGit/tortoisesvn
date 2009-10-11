@@ -443,6 +443,7 @@ BOOL CAppUtils::StartTextViewer(CString file)
 	ExpandEnvironmentStrings(viewer, buf, len);
 	viewer = buf;
 	len = ExpandEnvironmentStrings(file, NULL, 0);
+	buf.reset(len+1);
 	ExpandEnvironmentStrings(file, buf, len);
 	file = buf;
 	file = _T("\"")+file+_T("\"");
