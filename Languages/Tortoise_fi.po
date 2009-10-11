@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-09-13 21:16+0200\n"
+"PO-Revision-Date: 2009-10-12 02:41+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -912,6 +912,10 @@ msgstr "&Esikatselu"
 msgid "&Print..."
 msgstr "&Tulosta..."
 
+#. Resource IDs: (1265)
+msgid "&Properties"
+msgstr "&Ominaisuudet"
+
 #. Resource IDs: (11021)
 msgid "&Properties..."
 msgstr "&Ominaisuudet..."
@@ -1431,10 +1435,6 @@ msgstr ""
 "Ohjelma, jolla voit katsoa GNU diff-tiedostoja (paikkatiedostot).\r\n"
 "Jos sinulla ei ole muuta, käytä Notepad-ohjelmaa."
 
-#. Resource IDs: (9)
-msgid "A&bout"
-msgstr "&Tietoja"
-
 #. Resource IDs: (101)
 msgid "A&dd folder..."
 msgstr "&Lisää kansio..."
@@ -1446,6 +1446,10 @@ msgstr "Peruuta"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "&Keskeytä"
+
+#. Resource IDs: (9)
+msgid "About"
+msgstr "Tietoja"
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
@@ -1908,6 +1912,10 @@ msgstr "Automaattinen"
 msgid "Automatically check for &newer versions every week"
 msgstr "Tarkista &uuden version saatavuus automaattisesti joka viikko"
 
+#. Resource IDs: (306)
+msgid "Autotext Tester"
+msgstr "Tekstin automaattisen täydennyksen testaaja"
+
 #. Resource IDs: (1157)
 msgid "Average"
 msgstr "Keskiarvo"
@@ -2122,6 +2130,10 @@ msgstr "Sarjoita"
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
 msgstr "Kontekstivalikko"
+
+#. Resource IDs: (117)
+msgid "Case-sensitive"
+msgstr "Huomioi kirjaintaso"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
@@ -2412,6 +2424,18 @@ msgstr "S&ulje lähdepuu"
 #. Resource IDs: (275)
 msgid "Collapse &following tree"
 msgstr "Sulje s&euraava puu"
+
+#. Resource IDs: (2055)
+msgid ""
+"Collapse unchanged sections\n"
+"Collapse"
+msgstr ""
+"Sulje muuttumattomat osat\n"
+"Sulje"
+
+#. Resource IDs: (32870)
+msgid "Collapsed"
+msgstr "Suljettu"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -3590,6 +3614,10 @@ msgstr "Syötä kokonaisluku väliltä 0-255."
 msgid "Enter an integer."
 msgstr "Syötä kokonaisluku."
 
+#. Resource IDs: (65535)
+msgid "Enter file content to test for below:"
+msgstr "Syötä testattavan tiedoston sisältö:"
+
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
 msgstr "Syötä &lokiviesti:"
@@ -3602,6 +3630,10 @@ msgstr "Syötä lokiviesti:"
 #, c-format
 msgid "Enter no more than %1 characters."
 msgstr "Lisää korkeintaani %1 merkkiä."
+
+#. Resource IDs: (65535)
+msgid "Enter the regex string below:"
+msgstr "Syötä säännöllinen lauseke:"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3656,6 +3688,10 @@ msgstr "Suoritettava (*.exe)|*.exe|Command (*.com)|*.com|Informaatio (*.pdf)|*.p
 #. Resource IDs: (1002)
 msgid "Existing"
 msgstr "Olemassaoleva"
+
+#. Resource IDs: (2)
+msgid "Exit"
+msgstr "Lopeta"
 
 #. Resource IDs: (275)
 msgid "Exp&and source tree"
@@ -4067,6 +4103,10 @@ msgid "Forward"
 msgstr "Eteenpäin"
 
 #. Resource IDs: (65535)
+msgid "Found auto words:"
+msgstr "Löytyneet automaattiset täydennykset:"
+
+#. Resource IDs: (65535)
 msgid "From URL:"
 msgstr "Paikantimesta:"
 
@@ -4343,6 +4383,10 @@ msgstr "Isäntänimi ei täsmää (%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "Miten haluat ratkaista tämän ristiriidan?"
+
+#. Resource IDs: (1264)
+msgid "I&gnored"
+msgstr "&Ohitetut"
 
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
@@ -4933,6 +4977,16 @@ msgstr ""
 "Jos olet epävarma, mitä tehdä, katso lisätietoa käyttöohjeen kohdasta <i>relocate</i>.\n"
 "Haluatko todella jatkaa?"
 
+#. Resource IDs: (1480)
+#, fuzzy
+msgid "Items in externals"
+msgstr "Ulkoisten viittausten tiedostot"
+
+#. Resource IDs: (1527)
+#, fuzzy
+msgid "Items to show"
+msgstr "Näytettävät tiedostot"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "Yhdistä seuraavan &puun kanssa"
@@ -5187,8 +5241,12 @@ msgstr "Näytetyt versiot: Pienin: %ld - Suurin: %ld"
 
 #. Resource IDs: (238)
 #, c-format
-msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
-msgstr "Näytetyt versiot: Pienin: %ld - Suurin: %ld - Uusin versio (HEAD): %ld"
+msgid ""
+"Lowest shown revision: %ld - Highest shown revision: %ld\n"
+"HEAD revision: %ld"
+msgstr ""
+"Näkyvissä olevat versiot: %ld - %ld\n"
+"HEAD-versio: %ld"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -5696,6 +5754,10 @@ msgstr "Graafi ei saatavilla"
 #, c-format
 msgid "No image encoder found for %s."
 msgstr "Kuvaenkooderia ei löydetty tiedostolle %s."
+
+#. Resource IDs: (84)
+msgid "No path or pathfile specified on the command line!"
+msgstr "Polku tai polkutiedosto puuttuu komentoriviltä!"
 
 #. Resource IDs: (188)
 msgid "No spell corrections"
@@ -7153,6 +7215,10 @@ msgstr "Tallennetaan tiedostoja"
 msgid "Saving patchfile to:"
 msgstr "Tallennetaan paikkatiedosto:"
 
+#. Resource IDs: (1522)
+msgid "Scan"
+msgstr "Aloita"
+
 #. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
 msgstr "Scintilla"
@@ -7176,6 +7242,10 @@ msgstr "Etsi:"
 #. Resource IDs: (7)
 msgid "Search string not found!"
 msgstr "Haettavaa merkkijonoa ei löydy!"
+
+#. Resource IDs: (169)
+msgid "Searching for better path to apply patch..."
+msgstr "Etsitään parempaa polkua paikkatiedoston käyttämiseksi..."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -7451,10 +7521,6 @@ msgstr "Näytä &loki..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "Näytä kuvakepäällykset &ja kontekstivalikko vain Resurssienhallinnassa"
 
-#. Resource IDs: (1265)
-msgid "Show &properties"
-msgstr "Näytä &ominaisuudet"
-
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "&Näytä versioimattomat tiedostot"
@@ -7539,14 +7605,6 @@ msgstr "Näytä svn:externals-viitteet muihin arkistoihin"
 msgid "Show f&ull menus after a short delay"
 msgstr "Näytä &koko valikko viiveen jälkeen"
 
-#. Resource IDs: (1264)
-msgid "Show i&gnored files"
-msgstr "Näytä &ohitetut tiedostot"
-
-#. Resource IDs: (1480)
-msgid "Show items in externals"
-msgstr "Näytä ulkoisten viittausten kohteet"
-
 #. Resource IDs: (1037)
 msgid "Show l&og"
 msgstr "Näytä &loki"
@@ -7624,14 +7682,6 @@ msgstr "Näytä tilastot valitulle lokivälimuistille"
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Näytä merkityt versiot lähtösolmussa, ei erillisinä solmuina"
-
-#. Resource IDs: (1209)
-msgid "Show un&modified files"
-msgstr "Näytä &muuttumattomat tiedostot"
-
-#. Resource IDs: (1073)
-msgid "Show un&versioned files"
-msgstr "Näytä &versioimattomat tiedostot"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -7848,6 +7898,34 @@ msgstr "Stefan Küng, Lübbe Onken"
 msgid "Stripes"
 msgstr "Raidoitus"
 
+#. Resource IDs: (117)
+msgid ""
+"Sub-string filter:\r\n"
+"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Enclose strings that contain spaces etc. with \".\r\n"
+"* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
+"\r\n"
+"Examples:\r\n"
+"myname  2008    : my commits of 2008\r\n"
+".h  -.cpp              : commits that changed headers but no implementations\r\n"
+"\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"!myname  .cpp    : everything but my commits to .cpp files"
+msgstr ""
+"Osajonosuodatin:\r\n"
+"* Anna yksi tai useampia välilyönnein eroltuja merkkijonoja. Kaikkien osajonojen on täsmättävä.\r\n"
+"* Aseta '-' merkkijonon eteen jättääksesi pois versiot, joissa merkkijono esiintyy.\r\n"
+"* Ympäröi välilyöntejä sisältävät merkkijonot lainausmerkein (\").\r\n"
+"* Aseta '!' rivin alkuun kääntääksesi suodattimen toiminnan päinvastaikseksi.\r\n"
+"\r\n"
+"Esimerkkejä:\r\n"
+"myname  2008    : Toimitukseni vuonna 2008\r\n"
+".h  -.cpp              : toiimitukset, jotka muutivat otsikkotietoja mutteivat toteutusta.\r\n"
+"\" \"                        : toimitukset, joissa on välilyöntejä (esim. etsittäessä pelkästään polkuja)\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"!myname  .cpp    : Kaikki paitsi toimitiukseni .cpp-tiedostoihin."
+
 #. Resource IDs: (65535)
 msgid "Subversion"
 msgstr "Subversion"
@@ -7860,20 +7938,30 @@ msgstr "Subversionin &asetustiedosto:"
 #, c-format
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion encountered the problem in:\n"
 "file %s, line %ld\n"
 "expression = %s"
 msgstr ""
 "Subversion kohtasi vakavan ongelman.\n"
-"Ole hyvä ja raportoi tästä postituslistallemme,\n"
+"Ole hyvä ja raportoi tästä Subversion-postituslistalle\n"
+"(users@subversion.tigris.org)\n"
 "sisällyttäen mukaan mahdollisimman paljon tietoa\n"
 "siitä, mitä yritit tehdä.\n"
+"Etsi kuitenkin ensin virheilmoitusta postituslistan arkistoista\n"
+"jottei samaa ongelmaa raportoida toistuvasti.\n"
+"Löydät postituslistan arkiston osoitteesta\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
-"Lisätietoja:\n"
+"Ongelmakohta:\n"
 "tiedosto %s, rivi %ld\n"
 "lauseke = %s"
 
@@ -7884,6 +7972,10 @@ msgid ""
 "(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion reported the following:"
 msgstr ""
@@ -7892,6 +7984,10 @@ msgstr ""
 "(users@subversion.tigris.org)\n"
 "sisällyttäen mukaan mahdollisimman paljon tietoa\n"
 "siitä, mitä yritit tehdä.\n"
+"Etsi kuitenkin ensin virheilmoitusta postituslistan arkistoista\n"
+"jottei samaa ongelmaa raportoida toistuvasti.\n"
+"Löydät postituslistan arkiston osoitteesta\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion raportoi seuraavaa:"
 
@@ -8915,6 +9011,14 @@ msgstr "Paikannin:"
 #. Resource IDs: (75)
 msgid "URL: "
 msgstr "Paikannin:"
+
+#. Resource IDs: (1209)
+msgid "Un&modified"
+msgstr "&Muuttamaton"
+
+#. Resource IDs: (1073)
+msgid "Un&versioned"
+msgstr "&Versioimaton"
 
 #. Resource IDs: (220)
 #, c-format
@@ -10200,6 +10304,10 @@ msgstr "versioita:"
 msgid "root project"
 msgstr "juuriprojekti"
 
+#. Resource IDs: (169)
+msgid "scanning path:"
+msgstr "tutkitaan polkua:"
+
 #. Resource IDs: (65535)
 msgid "skip ranges: "
 msgstr "ohitettuja välejä:"
@@ -10526,6 +10634,14 @@ msgstr "kyllä"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Show &properties"
+#~ msgstr "Näytä &ominaisuudet"
+#~ msgid "Show i&gnored files"
+#~ msgstr "Näytä &ohitetut tiedostot"
+#~ msgid "Show un&modified files"
+#~ msgstr "Näytä &muuttumattomat tiedostot"
+#~ msgid "Show un&versioned files"
+#~ msgstr "Näytä &versioimattomat tiedostot"
 #~ msgid "Cleaning up."
 #~ msgstr "Siivoamassa."
 #~ msgid "%s, but the local file was already edited."

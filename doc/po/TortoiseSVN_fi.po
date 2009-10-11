@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-09-01 17:51 +0000\n"
-"PO-Revision-Date: 2009-09-16 00:37+0200\n"
+"POT-Creation-Date: 2009-10-10 16:07 +0000\n"
+"PO-Revision-Date: 2009-10-10 23:02+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -11279,6 +11279,10 @@ msgid "TortoiseSVN uses temporary files to pass multiple arguments between the s
 msgstr "TortoiseSVN käyttää väliaikaisia tiedostoja välittääkseen useita valitsimia komentotulkin laajennuksen ja pääohjelman välillä. Versiosta 1.5 alkaen valitsin <option>/notempfile</option> on vanhentunut, eikä sitä tarvita enää."
 
 #. (para)
+msgid "You can also specify a file which contains a list of paths, separated by newlines. The file must be in UTF-16 format. If you pass such a file, use <option>/pathfile</option> instead of <option>/path</option>. To have TortoiseProc delete that file after the command is finished, you can pass the parameter <option>/deletepathfile</option>."
+msgstr "Voit myös luoda tiedoston, jossa on joukko rivinvaihtoin eroeltuja polkuja.  Tiedoston on oltava UTF-16-muodossa.  Jos välität ko. tiedoston, käytä valitsinta <option>/pathfile</option> valitsimen <option>/path</option> sijaan.  Jos haluat TortoiseSVN:n poistavan tiedoston komennon suorituksen päätyttyä, anna valitsin parameter <option>/deletepathfile</option>."
+
+#. (para)
 msgid "The progress dialog which is used for commits, updates and many more commands usually stays open after the command has finished until the user presses the <guibutton>OK</guibutton> button. This can be changed by checking the corresponding option in the settings dialog. But using that setting will close the progress dialog, no matter if you start the command from your batch file or from the TortoiseSVN context menu."
 msgstr "Edistymiskkuna, jota käytetään arkistotoimituksiin, päivityksiin ja muille komennoille, pysyy komennon suorituksen päätyttyä yleensä auki, kunnes käyttäjä napsauttaa <guibutton>OK</guibutton>-painiketta. Tätä voidaan muuttaa asettamalla vastaava valitsin asetusikkunassa. Asetuksen muuttaminen sulkee kuitenkin edistymisikkunan, käynnistitpä komennon komentojonosta tai TortoiseSVN-kontekstivalikosta."
 
@@ -11566,9 +11570,13 @@ msgstr "/path2"
 msgid "/blame"
 msgstr "/blame"
 
+#. (option)
+msgid "/line:xxx"
+msgstr "/line:xxx"
+
 #. (entry)
-msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, then the diff is done by first blaming the files with the given revisions."
-msgstr "Käynnistää TortoiseSVN-asetuksissa määritellyn ulkoisen vertailuohjelman. Valitsin <placeholder-1/> määrittää ensimmäisen tiedoston. Jos valitsin <placeholder-2/> on annettu, vertailuohjelma käynnistetään annetuilla kahdella valitsimella. Jos <placeholder-3/> jätetään antamatta, vertailu tehdään tiedoston <placeholder-4/> ja sen kantaversion (BASE) kanssa. Asettaaksesi versionumerot eksplisiittisesti käytä valitsimia <placeholder-5/> ja <placeholder-6/>. Jos valitsin <placeholder-7/> on annettu ja valitsin <placeholder-8/> puuttuu, vertailu tehdään selvittämällä ensin tekijät annetuille versioille."
+msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, then the diff is done by first blaming the files with the given revisions. The parameter <placeholder-9/> specifies the line to jump to when the diff is shown."
+msgstr "Käynnistää TortoiseSVN-asetuksissa määritellyn ulkoisen vertailuohjelman. Valitsin <placeholder-1/> määrittää ensimmäisen tiedoston. Jos valitsin <placeholder-2/> on annettu, vertailuohjelma käynnistetään annetuilla kahdella tiedostolla. Jos <placeholder-3/> jätetään antamatta, vertailu tehdään tiedoston <placeholder-4/> ja sen kantaversion (BASE) kanssa. Asettaaksesi versionumerot eksplisiittisesti käytä valitsimia <placeholder-5/> ja <placeholder-6/>. Jos valitsin <placeholder-7/> on annettu ja valitsin <placeholder-8/> puuttuu, vertailu tehdään selvittämällä ensin tekijät annetuille versioille. Valitsin <placeholder-9/> määrittää rivin, jolle siirrytään eroja näytettäessä."
 
 #. (para)
 msgid "Depending on the URLs and revisions to compare, this either shows a unified diff (if the option <option>unified</option> is set), a dialog with a list of files that have changed or if the URLs point to files starts the diff viewer for those two files."
