@@ -135,7 +135,7 @@ UINT CResolveDlg::ResolveThread()
 	{
 		m_resolveListCtrl.SetEmptyString(m_resolveListCtrl.GetLastErrorMessage());
 	}
-	m_resolveListCtrl.Show(SVNSLC_SHOWCONFLICTED|SVNSLC_SHOWINEXTERNALS, CTSVNPathList(), SVNSLC_SHOWCONFLICTED);
+	m_resolveListCtrl.Show(SVNSLC_SHOWCONFLICTED|SVNSLC_SHOWINEXTERNALS, CTSVNPathList(), SVNSLC_SHOWCONFLICTED, true, true);
 
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	return 0;

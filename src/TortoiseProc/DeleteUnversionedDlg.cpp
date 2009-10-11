@@ -106,7 +106,7 @@ UINT CDeleteUnversionedDlg::StatusThread()
 		m_StatusList.SetEmptyString(m_StatusList.GetLastErrorMessage());
 	}
 	m_StatusList.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWIGNORED, CTSVNPathList(),
-		SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWIGNORED);
+		SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWIGNORED, true, true);
 
 	CTSVNPath commonDir = m_StatusList.GetCommonDirectory(false);
 	SetWindowText(m_sWindowTitle + _T(" - ") + commonDir.GetWinPathString());

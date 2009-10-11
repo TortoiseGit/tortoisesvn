@@ -1088,7 +1088,7 @@ DWORD CSVNStatusListCtrl::GetShowFlagsFromFileEntry(const FileEntry* entry)
 	return showFlags;
 }
 
-void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DWORD dwCheck /*=0*/, bool bShowFolders /* = true */)
+void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DWORD dwCheck, bool bShowFolders, bool bShowFiles)
 {
 	Locker lock(m_critSec);
 	WORD langID = (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
@@ -1098,6 +1098,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
 		pApp->DoWaitCursor(1);
 	m_dwShow = dwShow;
 	m_bShowFolders = bShowFolders;
+	m_bShowFiles = bShowFiles;
 	m_nSelected = 0;
 	int nTopIndex = GetTopIndex();
 	int selMark = GetSelectionMark();
@@ -1136,6 +1137,8 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
 			continue;
 		if (entry->IsFolder() && (!bShowFolders))
 			continue;	// don't show folders if they're not wanted.
+		if (!entry->IsFolder() && (!bShowFiles))
+			continue;
 		svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
 		DWORD showFlags = GetShowFlagsFromFileEntry(entry);
 		bool bAllowCheck = ((entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0) && (m_bCheckIfGroupsExist || (m_changelists.size()==0 || (m_changelists.size()==1 && m_bHasIgnoreGroup))));
@@ -1611,7 +1614,7 @@ void CSVNStatusListCtrl::Sort()
 
 	std::sort(m_arStatusArray.begin(), m_arStatusArray.end(), predicate);
 	SaveColumnWidths();
-	Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders);
+	Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
 }
 
 void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
@@ -2726,7 +2729,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							}
 							SetRedraw(TRUE);
 							SaveColumnWidths();
-							Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders);
+							Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
 							NotifyCheck();
 						}
 					}
@@ -2998,7 +3001,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						}
 					}
 					SaveColumnWidths();
-					Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders);
+					Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
 					NotifyCheck();
 				}
 				break;
@@ -3410,7 +3413,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 								fentry->isConflicted = false;
 							}
 						}
-						Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders);
+						Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
 					}
 				}
 				break;
@@ -3446,7 +3449,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					}
 					SaveColumnWidths();
-					Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders);
+					Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
 					NotifyCheck();
 				}
 				break;

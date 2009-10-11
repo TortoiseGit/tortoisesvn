@@ -142,7 +142,7 @@ UINT CUnlockDlg::UnlockThread()
 		m_unlockListCtrl.SetEmptyString(m_unlockListCtrl.GetLastErrorMessage());
 	}
 	m_unlockListCtrl.Show(SVNSLC_SHOWLOCKS | SVNSLC_SHOWDIRECTFILES, CTSVNPathList(),
-		SVNSLC_SHOWLOCKS | SVNSLC_SHOWDIRECTFILES);
+		SVNSLC_SHOWLOCKS | SVNSLC_SHOWDIRECTFILES, true, true);
 
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	return 0;

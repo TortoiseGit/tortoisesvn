@@ -823,6 +823,10 @@ msgstr ""
 msgid "&Print..."
 msgstr ""
 
+#. Resource IDs: (1265)
+msgid "&Properties"
+msgstr ""
+
 #. Resource IDs: (11021)
 msgid "&Properties..."
 msgstr ""
@@ -3871,6 +3875,10 @@ msgstr ""
 msgid "How do you want to resolve this conflict?"
 msgstr ""
 
+#. Resource IDs: (1264)
+msgid "I&gnored"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
 msgstr ""
@@ -4274,6 +4282,14 @@ msgstr ""
 msgid "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n\nFrom:\t%s\nTo:\t\t%s\n\nA relocate is only needed if the path <b>to</b> a repository has changed.\nChanging to a different path <b>inside</b> a repository is done by a switch operation.\n\nImproper use of relocate <b>will corrupt your working copy!</b>\nIf you are not sure what to do, please refer to our docs on <i>relocate</i>.\nDo you really want to relocate?"
 msgstr ""
 
+#. Resource IDs: (1480)
+msgid "Items in externals"
+msgstr ""
+
+#. Resource IDs: (1527)
+msgid "Items to show"
+msgstr ""
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr ""
@@ -4512,7 +4528,7 @@ msgstr ""
 
 #. Resource IDs: (238)
 #, c-format
-msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
+msgid "Lowest shown revision: %ld - Highest shown revision: %ld\nHEAD revision: %ld"
 msgstr ""
 
 #. Resource IDs: (16973)
@@ -6550,10 +6566,6 @@ msgstr ""
 msgid "Show &overlays and context menu only in explorer"
 msgstr ""
 
-#. Resource IDs: (1265)
-msgid "Show &properties"
-msgstr ""
-
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr ""
@@ -6634,14 +6646,6 @@ msgstr ""
 msgid "Show f&ull menus after a short delay"
 msgstr ""
 
-#. Resource IDs: (1264)
-msgid "Show i&gnored files"
-msgstr ""
-
-#. Resource IDs: (1480)
-msgid "Show items in externals"
-msgstr ""
-
 #. Resource IDs: (1037)
 msgid "Show l&og"
 msgstr ""
@@ -6700,14 +6704,6 @@ msgstr ""
 
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
-msgstr ""
-
-#. Resource IDs: (1209)
-msgid "Show un&modified files"
-msgstr ""
-
-#. Resource IDs: (1073)
-msgid "Show un&versioned files"
 msgstr ""
 
 #. Resource IDs: (198)
@@ -6927,11 +6923,11 @@ msgstr ""
 
 #. Resource IDs: (84)
 #, c-format
-msgid "Subversion encountered a serious problem.\nPlease take the time to report this on our mailing list\nwith as much information as possible about what\nyou were trying to do.\n\nSubversion encountered the problem in:\nfile %s, line %ld\nexpression = %s"
+msgid "Subversion encountered a serious problem.\nPlease take the time to report this on the Subversion mailing list\n(users@subversion.tigris.org)\nwith as much information as possible about what\nyou were trying to do.\nBut please first search the mailing list archives for the error message\nto avoid reporting the same problem repeatedly.\nYou can find the mailing list archives at\nhttp://subversion.tigris.org/mailing-lists.html\n\nSubversion encountered the problem in:\nfile %s, line %ld\nexpression = %s"
 msgstr ""
 
 #. Resource IDs: (84)
-msgid "Subversion encountered a serious problem.\nPlease take the time to report this on the Subversion mailing list\n(users@subversion.tigris.org)\nwith as much information as possible about what\nyou were trying to do.\n\nSubversion reported the following:"
+msgid "Subversion encountered a serious problem.\nPlease take the time to report this on the Subversion mailing list\n(users@subversion.tigris.org)\nwith as much information as possible about what\nyou were trying to do.\nBut please first search the mailing list archives for the error message\nto avoid reporting the same problem repeatedly.\nYou can find the mailing list archives at\nhttp://subversion.tigris.org/mailing-lists.html\n\nSubversion reported the following:"
 msgstr ""
 
 #. Resource IDs: (79)
@@ -7650,6 +7646,14 @@ msgstr ""
 
 #. Resource IDs: (75)
 msgid "URL: "
+msgstr ""
+
+#. Resource IDs: (1209)
+msgid "Un&modified"
+msgstr ""
+
+#. Resource IDs: (1073)
+msgid "Un&versioned"
 msgstr ""
 
 #. Resource IDs: (220)

@@ -34,6 +34,8 @@ CChangedDlg::CChangedDlg(CWnd* pParent /*=NULL*/)
 	, m_bShowIgnored(FALSE)
 	, m_bShowExternals(TRUE)
     , m_bShowUserProps(FALSE)
+	, m_bShowDirs(TRUE)
+	, m_bShowFiles(TRUE)
 	, m_bDepthInfinity(false)
 	, m_bRemote(false)
 	, m_bContactRepository(false)
@@ -53,6 +55,8 @@ void CChangedDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_SHOWIGNORED, m_bShowIgnored);
 	DDX_Check(pDX, IDC_SHOWEXTERNALS, m_bShowExternals);
 	DDX_Check(pDX, IDC_SHOWUSERPROPS, m_bShowUserProps);
+	DDX_Check(pDX, IDC_SHOWFILES, m_bShowFiles);
+	DDX_Check(pDX, IDC_SHOWFOLDERS, m_bShowDirs);
 }
 
 
@@ -66,6 +70,8 @@ BEGIN_MESSAGE_MAP(CChangedDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_SHOWIGNORED, &CChangedDlg::OnBnClickedShowignored)
 	ON_BN_CLICKED(IDC_REFRESH, &CChangedDlg::OnBnClickedRefresh)
 	ON_BN_CLICKED(IDC_SHOWEXTERNALS, &CChangedDlg::OnBnClickedShowexternals)
+	ON_BN_CLICKED(IDC_SHOWFOLDERS, &CChangedDlg::OnBnClickedShowfolders)
+	ON_BN_CLICKED(IDC_SHOWFILES, &CChangedDlg::OnBnClickedShowfiles)
 END_MESSAGE_MAP()
 
 BOOL CChangedDlg::OnInitDialog()
@@ -96,14 +102,19 @@ BOOL CChangedDlg::OnInitDialog()
 	AdjustControlSize(IDC_SHOWIGNORED);
 	AdjustControlSize(IDC_SHOWEXTERNALS);
     AdjustControlSize(IDC_SHOWUSERPROPS);
+	AdjustControlSize(IDC_SHOWFILES);
+	AdjustControlSize(IDC_SHOWFOLDERS);
 
 	AddAnchor(IDC_CHANGEDLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SUMMARYTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SHOWGROUP, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SHOWUNVERSIONED, BOTTOM_LEFT);
-	AddAnchor(IDC_SHOWUNMODIFIED, BOTTOM_LEFT);
-	AddAnchor(IDC_SHOWIGNORED, BOTTOM_LEFT);
-	AddAnchor(IDC_SHOWEXTERNALS, BOTTOM_LEFT);
-	AddAnchor(IDC_SHOWUSERPROPS, BOTTOM_LEFT);
+	AddAnchor(IDC_SHOWUNMODIFIED, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SHOWIGNORED, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SHOWEXTERNALS, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SHOWUSERPROPS, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SHOWFILES, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SHOWFOLDERS, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_INFOLABEL, BOTTOM_RIGHT);
 	AddAnchor(IDC_REFRESH, BOTTOM_RIGHT);
 	AddAnchor(IDC_CHECKREPO, BOTTOM_RIGHT);
@@ -142,6 +153,8 @@ UINT CChangedDlg::ChangedStatusThread()
 	DialogEnableWindow(IDC_SHOWIGNORED, FALSE);
     DialogEnableWindow(IDC_SHOWUSERPROPS, FALSE);
 	DialogEnableWindow(IDC_SHOWEXTERNALS, FALSE);
+	DialogEnableWindow(IDC_SHOWFILES, FALSE);
+	DialogEnableWindow(IDC_SHOWFOLDERS, FALSE);
 	CString temp;
 	m_FileListCtrl.SetDepthInfinity(m_bDepthInfinity);
 	if (!m_FileListCtrl.GetStatus(m_pathList, m_bRemote, m_bShowIgnored != FALSE, m_bShowUserProps != FALSE))
@@ -154,7 +167,7 @@ UINT CChangedDlg::ChangedStatusThread()
 	dwShow |= m_iShowUnmodified ? SVNSLC_SHOWNORMAL : 0;
 	dwShow |= m_bShowIgnored ? SVNSLC_SHOWIGNORED : 0;
 	dwShow |= m_bShowExternals ? SVNSLC_SHOWEXTERNAL | SVNSLC_SHOWINEXTERNALS | SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO : 0;
-	m_FileListCtrl.Show(dwShow);
+	m_FileListCtrl.Show(dwShow, CTSVNPathList(), 0, !!m_bShowDirs, !!m_bShowFiles);
 	UpdateStatistics();
 
 	CTSVNPath commonDir = m_FileListCtrl.GetCommonDirectory(false);
@@ -171,6 +184,8 @@ UINT CChangedDlg::ChangedStatusThread()
 	DialogEnableWindow(IDC_SHOWIGNORED, !bSingleFile);
     DialogEnableWindow(IDC_SHOWUSERPROPS, TRUE);
 	DialogEnableWindow(IDC_SHOWEXTERNALS, !bSingleFile);
+	DialogEnableWindow(IDC_SHOWFILES, TRUE);
+	DialogEnableWindow(IDC_SHOWFOLDERS, TRUE);
 	InterlockedExchange(&m_bBlock, FALSE);
 	// revert the remote flag back to the default
 	m_bRemote = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\CheckRepo"), FALSE);
@@ -234,7 +249,7 @@ DWORD CChangedDlg::UpdateShowFlags()
 void CChangedDlg::OnBnClickedShowunversioned()
 {
 	UpdateData();
-	m_FileListCtrl.Show(UpdateShowFlags());
+	m_FileListCtrl.Show(UpdateShowFlags(), CTSVNPathList(), 0, !!m_bShowDirs, !!m_bShowFiles);
 	m_regAddBeforeCommit = m_bShowUnversioned;
 	UpdateStatistics();
 }
@@ -242,7 +257,7 @@ void CChangedDlg::OnBnClickedShowunversioned()
 void CChangedDlg::OnBnClickedShowUnmodified()
 {
 	UpdateData();
-	m_FileListCtrl.Show(UpdateShowFlags());
+	m_FileListCtrl.Show(UpdateShowFlags(), CTSVNPathList(), 0, !!m_bShowDirs, !!m_bShowFiles);
 	m_regAddBeforeCommit = m_bShowUnversioned;
 	UpdateStatistics();
 }
@@ -259,7 +274,7 @@ void CChangedDlg::OnBnClickedShowignored()
 void CChangedDlg::OnBnClickedShowexternals()
 {
 	UpdateData();
-	m_FileListCtrl.Show(UpdateShowFlags());
+	m_FileListCtrl.Show(UpdateShowFlags(), CTSVNPathList(), 0, !!m_bShowDirs, !!m_bShowFiles);
 	UpdateStatistics();
 }
 
@@ -270,6 +285,20 @@ void CChangedDlg::OnBnClickedShowUserProps()
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
+}
+
+void CChangedDlg::OnBnClickedShowfolders()
+{
+	UpdateData();
+	m_FileListCtrl.Show(UpdateShowFlags(), CTSVNPathList(), 0, !!m_bShowDirs, !!m_bShowFiles);
+	UpdateStatistics();
+}
+
+void CChangedDlg::OnBnClickedShowfiles()
+{
+	UpdateData();
+	m_FileListCtrl.Show(UpdateShowFlags(), CTSVNPathList(), 0, !!m_bShowDirs, !!m_bShowFiles);
+	UpdateStatistics();
 }
 
 LRESULT CChangedDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)

@@ -54,6 +54,8 @@ protected:
 	afx_msg void			OnBnClickedShowignored();
 	afx_msg void			OnBnClickedShowexternals();
     afx_msg void			OnBnClickedShowUserProps();
+	afx_msg void			OnBnClickedShowfolders();
+	afx_msg void			OnBnClickedShowfiles();
 	afx_msg LRESULT			OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
 	afx_msg LRESULT			OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM);
 
@@ -80,8 +82,11 @@ private:
 	BOOL					m_bShowIgnored;
 	BOOL					m_bShowExternals;
 	BOOL					m_bShowUserProps;
+	BOOL					m_bShowDirs;
+	BOOL					m_bShowFiles;
 	bool					m_bDepthInfinity;
 	CToolTips				m_tooltips;
 	bool					m_bContactRepository;
+public:
 };
 

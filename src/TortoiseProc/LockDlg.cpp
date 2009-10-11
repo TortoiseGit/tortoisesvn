@@ -202,7 +202,7 @@ UINT CLockDlg::StatusThread()
 	}
 
 	DWORD dwShow = SVNSLC_SHOWNORMAL | SVNSLC_SHOWMODIFIED | SVNSLC_SHOWMERGED | SVNSLC_SHOWLOCKS;
-	m_cFileList.Show(dwShow, CTSVNPathList(), dwShow, false);
+	m_cFileList.Show(dwShow, CTSVNPathList(), dwShow, false, true);
 
 	RefreshCursor();
 	CString logmsg;

@@ -117,7 +117,7 @@ UINT CRevertDlg::RevertThread()
 	m_RevertList.Show(SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO | SVNSLC_SHOWNESTED, 
 						CTSVNPathList(),
 						// do not select all files, only the ones the user has selected directly
-						SVNSLC_SHOWDIRECTFILES|SVNSLC_SHOWADDED);
+						SVNSLC_SHOWDIRECTFILES|SVNSLC_SHOWADDED, true, true);
 
 	CTSVNPath commonDir = m_RevertList.GetCommonDirectory(false);
 	SetWindowText(m_sWindowTitle + _T(" - ") + commonDir.GetWinPathString());

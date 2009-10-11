@@ -118,7 +118,7 @@ UINT CCreatePatch::PatchThread()
 	}
 
 	m_PatchList.Show(
-		ShowMask(),	CTSVNPathList(), SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS);
+		ShowMask(),	CTSVNPathList(), SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS, true, true);
 
 	DialogEnableWindow(IDC_SHOWUNVERSIONED, true);
 	InterlockedExchange(&m_bThreadRunning, FALSE);
@@ -181,7 +181,7 @@ void CCreatePatch::OnBnClickedShowunversioned()
 {
 	UpdateData();
 	if (!m_bThreadRunning)
-		m_PatchList.Show(ShowMask());
+		m_PatchList.Show(ShowMask(), CTSVNPathList(), 0, true, true);
 }
 
 void CCreatePatch::OnBnClickedHelp()

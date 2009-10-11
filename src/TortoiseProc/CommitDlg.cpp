@@ -689,11 +689,11 @@ UINT CCommitDlg::StatusThread()
 		m_cLogMessage.SetRepositoryRoot(m_ListCtrl.m_sRepositoryRoot);
 
 		if (m_checkedPathList.GetCount())
-			m_ListCtrl.Show(dwShow, m_checkedPathList);
+			m_ListCtrl.Show(dwShow, m_checkedPathList, 0, true, true);
 		else
 		{
 			DWORD dwCheck = m_bSelectFilesForCommit ? SVNSLC_SHOWDIRECTS|SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWADDEDHISTORY|SVNSLC_SHOWREMOVED|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|SVNSLC_SHOWLOCKS : 0;
-			m_ListCtrl.Show(dwShow, CTSVNPathList(), dwCheck);
+			m_ListCtrl.Show(dwShow, CTSVNPathList(), dwCheck, true, true);
 			m_bSelectFilesForCommit = true;
 		}
 
@@ -745,7 +745,7 @@ UINT CCommitDlg::StatusThread()
 	{
 		if (!m_ListCtrl.GetLastErrorMessage().IsEmpty())
 			m_ListCtrl.SetEmptyString(m_ListCtrl.GetLastErrorMessage());
-		m_ListCtrl.Show(dwShow);
+		m_ListCtrl.Show(dwShow, CTSVNPathList(), 0, true, true);
 	}
 	if ((m_ListCtrl.GetItemCount()==0)&&(m_ListCtrl.HasUnversionedItems())&&((dwShow & SVNSLC_SHOWUNVERSIONED) == 0))
 	{
@@ -754,7 +754,7 @@ UINT CCommitDlg::StatusThread()
 			m_bShowUnversioned = TRUE;
 			GetDlgItem(IDC_SHOWUNVERSIONED)->SendMessage(BM_SETCHECK, BST_CHECKED);
 			dwShow |= SVNSLC_SHOWUNVERSIONED;
-			m_ListCtrl.Show(dwShow);
+			m_ListCtrl.Show(dwShow, CTSVNPathList(), 0, true, true);
 		}
 	}
 
@@ -909,7 +909,7 @@ void CCommitDlg::OnBnClickedShowunversioned()
 			dwShow |= SVNSLC_SHOWUNVERSIONED;
 		else
 			dwShow &= ~SVNSLC_SHOWUNVERSIONED;
-		m_ListCtrl.Show(dwShow);
+		m_ListCtrl.Show(dwShow, CTSVNPathList(), 0, true, true);
 		UpdateCheckLinks();
 	}
 }
@@ -932,7 +932,7 @@ LRESULT CCommitDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 		{
 			m_bShowUnversioned = TRUE;
 			DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWLOCKS | SVNSLC_SHOWINCHANGELIST | SVNSLC_SHOWEXTERNAL | SVNSLC_SHOWINEXTERNALS | SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO | SVNSLC_SHOWEXTDISABLED | SVNSLC_SHOWUNVERSIONED;
-			m_ListCtrl.Show(dwShow);
+			m_ListCtrl.Show(dwShow, CTSVNPathList(), 0, true, true);
 			UpdateCheckLinks();
 			UpdateData(FALSE);
 		}
@@ -1587,7 +1587,7 @@ void CCommitDlg::OnBnClickedShowexternals()
 			dwShow |= SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO|SVNSLC_SHOWEXTDISABLED;
 		else
 			dwShow &= ~(SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO|SVNSLC_SHOWEXTDISABLED);
-		m_ListCtrl.Show(dwShow);
+		m_ListCtrl.Show(dwShow, CTSVNPathList(), 0, true, true);
 		UpdateCheckLinks();
 	}
 }
