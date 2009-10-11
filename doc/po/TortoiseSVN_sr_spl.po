@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-09-01 17:51 +0000\n"
-"PO-Revision-Date: 2009-09-07 18:04+0100\n"
+"POT-Creation-Date: 2009-10-10 16:07 +0000\n"
+"PO-Revision-Date: 2009-10-11 22:19+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -11295,6 +11295,10 @@ msgid "TortoiseSVN uses temporary files to pass multiple arguments between the s
 msgstr "TortoiseSVN koristi privremene fajlove da provuče višestruke argumente između proširenja školjke i glavnog programa. Iz TortoiseSVN 1.5.0 i dalje, <option>/notempfile</option> parametar je napušten i nema potrebe da se više dodaje."
 
 #. (para)
+msgid "You can also specify a file which contains a list of paths, separated by newlines. The file must be in UTF-16 format. If you pass such a file, use <option>/pathfile</option> instead of <option>/path</option>. To have TortoiseProc delete that file after the command is finished, you can pass the parameter <option>/deletepathfile</option>."
+msgstr "Možete takođe specificirati fajl koji sadrži listu putanja, razdvojenih novim linijama. Fajl mora biti UTF-16 format. Ako vučete takav fajl koristite <option>/pathfile</option>umesto <option>/path</option>. Da TortoiseProc obriše taj fajl posle završetka komande, možete uključiti parametar  <option>/deletepathfile</option>."
+
+#. (para)
 msgid "The progress dialog which is used for commits, updates and many more commands usually stays open after the command has finished until the user presses the <guibutton>OK</guibutton> button. This can be changed by checking the corresponding option in the settings dialog. But using that setting will close the progress dialog, no matter if you start the command from your batch file or from the TortoiseSVN context menu."
 msgstr "Progres dijalog koji se koristi za urezivanje, ažurira i mnogo više komandi obično ostaje otvoreno posle zavreštka rada komande dok korisnik ne pritisne <guibutton>OK</guibutton> dugme. Ovo bi se moglo promeniti proverom odgovarajiće opvžcije u dijalogu podešavanja. Koristeći to  podešavanje zatvoriće se progres dijalog, nije bitno da li ste počeli komandu iz beč fajla ili iz TortoiseSVN kontekst menija."
 
@@ -11582,9 +11586,13 @@ msgstr "/path2"
 msgid "/blame"
 msgstr "/krivac"
 
+#. (option)
+msgid "/line:xxx"
+msgstr "/linija:xxx"
+
 #. (entry)
-msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, then the diff is done by first blaming the files with the given revisions."
-msgstr "Pokreće spoljašnji diff program specificiran u TortoiseSVN podešavanju. <placeholder-1/>  specificira prvi fajl. Ako je opcija <placeholder-2/> podešena, onda diff program počinje sa ta dva fajla. Ako  je <placeholder-3/> izostavljen, onda diffovi između fajlova u <placeholder-4/> i njenu OSNOVU. Da se eksplicitno podesi broj revizije koristite <placeholder-5/> i <placeholder-6/>. Ako <placeholder-7/> je podešen i <placeholder-8/> nije podešen, onda je diff urađen najpre okrivljavanjem fajlova sa datim revizijama."
+msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, then the diff is done by first blaming the files with the given revisions. The parameter <placeholder-9/> specifies the line to jump to when the diff is shown."
+msgstr "Pokreće spoljašnji diff program specificiran u TortoiseSVN podešavanju. <placeholder-1/>  specificira prvi fajl. Ako je opcija <placeholder-2/> podešena, onda diff program počinje sa ta dva fajla. Ako  je <placeholder-3/> izostavljen, onda diffovi između fajlova u <placeholder-4/> i njenu OSNOVU. Da se eksplicitno podesi broj revizije koristite <placeholder-5/> i <placeholder-6/>. Ako je <placeholder-7/>  podešen i <placeholder-8/> nije podešen, onda je diff urađen najpre okrivljavanjem fajlova sa datim revizijama.Parametar <placeholder-9/> specificira liniju na koju se skače kada je diff prikazan."
 
 #. (para)
 msgid "Depending on the URLs and revisions to compare, this either shows a unified diff (if the option <option>unified</option> is set), a dialog with a list of files that have changed or if the URLs point to files starts the diff viewer for those two files."
@@ -12947,3 +12955,4 @@ msgstr "Milorad Popović <MiloradSPopovic@gmail.com>"
 #. (None)
 msgid "translator-translation"
 msgstr "Prevod"
+

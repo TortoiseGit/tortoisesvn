@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-05 09:08+0100\n"
+"PO-Revision-Date: 2009-10-11 21:45+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -975,6 +975,10 @@ msgstr "&Штампај преглед"
 #. Resource IDs: (58116)
 msgid "&Print..."
 msgstr "&Штампај..."
+
+#. Resource IDs: (1265)
+msgid "&Properties"
+msgstr "&Особине"
 
 #
 #. Resource IDs: (11021)
@@ -2050,6 +2054,10 @@ msgstr "Аутоматски"
 #. Resource IDs: (1073)
 msgid "Automatically check for &newer versions every week"
 msgstr "Аутоматски провери &новије верзије једном недељно"
+
+#. Resource IDs: (306)
+msgid "Autotext Tester"
+msgstr "Аутотекст тестер"
 
 #. Resource IDs: (1157)
 msgid "Average"
@@ -3753,6 +3761,10 @@ msgstr "Молим унесите цели број између 0 и 255."
 msgid "Enter an integer."
 msgstr "Молим унесите цели број."
 
+#. Resource IDs: (65535)
+msgid "Enter file content to test for below:"
+msgstr "Унесите садржај фајла за тест доле:"
+
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
 msgstr "Упиши &поруку дневника:"
@@ -3765,6 +3777,10 @@ msgstr "Упиши поруку дневника:"
 #, c-format
 msgid "Enter no more than %1 characters."
 msgstr "Молим унесите не више од %1 знака(ова)."
+
+#. Resource IDs: (65535)
+msgid "Enter the regex string below:"
+msgstr "Унесите регекс текст доле:"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3819,6 +3835,11 @@ msgstr "Извршна (*.еxе)|*.еxе|Команда (*.цом)|*.цом|Ин
 #. Resource IDs: (1002)
 msgid "Existing"
 msgstr "Постојећи"
+
+#
+#. Resource IDs: (2)
+msgid "Exit"
+msgstr "Излаз"
 
 #. Resource IDs: (275)
 msgid "Exp&and source tree"
@@ -4230,6 +4251,10 @@ msgid "Forward"
 msgstr "Напред"
 
 #. Resource IDs: (65535)
+msgid "Found auto words:"
+msgstr "Налази аутентичне речи:"
+
+#. Resource IDs: (65535)
 msgid "From URL:"
 msgstr "Из УРЛ-а:"
 
@@ -4504,6 +4529,10 @@ msgstr "Неслагање имена домаћина (%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "Како желите да решите овај сукоб?"
+
+#. Resource IDs: (1264)
+msgid "I&gnored"
+msgstr "&Занемарен"
 
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
@@ -5098,6 +5127,14 @@ msgstr ""
 "Ако нисте сигурни што учинити, молим погледајте документацију за наредбу <i>Премести</i> (енгл. <i>relocate</i>).\n"
 "Да ли стварно желите преместити радну копију?"
 
+#. Resource IDs: (1480)
+msgid "Items in externals"
+msgstr "Ставке у екстерналима"
+
+#. Resource IDs: (1527)
+msgid "Items to show"
+msgstr "Ставка за приказивање"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "Спојити са следећим &стаблом"
@@ -5353,8 +5390,12 @@ msgstr "Најнижа приказана ревизија: %ld - Највиша
 
 #. Resource IDs: (238)
 #, c-format
-msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
-msgstr "Најнижа приказана ревизија: %ld - Највиша приказана ревизија: %ld - Главна ревизија: %ld"
+msgid ""
+"Lowest shown revision: %ld - Highest shown revision: %ld\n"
+"HEAD revision: %ld"
+msgstr ""
+"Најнижа приказана ревизија: %ld - Највиша приказана ревизија: %ld\n"
+"ГЛАВНА ревизија: %ld"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -7322,6 +7363,10 @@ msgstr "Чувам фајлове"
 msgid "Saving patchfile to:"
 msgstr "Чувам фајл закрпа у:"
 
+#. Resource IDs: (1522)
+msgid "Scan"
+msgstr "Скенира"
+
 #. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
 msgstr "Мрва"
@@ -7624,10 +7669,6 @@ msgstr "Прикажи &дневник..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "Прикажи п&реклапања и контекст мени само у еxплореру"
 
-#. Resource IDs: (1265)
-msgid "Show &properties"
-msgstr "Прикажи &својства ревизије"
-
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "Прикажи фајлове без &верзија"
@@ -7712,14 +7753,6 @@ msgstr "Прикакажите екстернале из различитих с
 msgid "Show f&ull menus after a short delay"
 msgstr "Прикажи п&ун  мени после кратког кашњења"
 
-#. Resource IDs: (1264)
-msgid "Show i&gnored files"
-msgstr "Прикажи фајлови без &верзија"
-
-#. Resource IDs: (1480)
-msgid "Show items in externals"
-msgstr "Прикажи ставке у екстерналима"
-
 #. Resource IDs: (1037)
 msgid "Show l&og"
 msgstr "Прикажи &Дневник"
@@ -7799,14 +7832,6 @@ msgstr "Прикажи статистику кеш за означен днев�
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Покажи ознаке на извору копирања, а не као одвојене чворове"
-
-#. Resource IDs: (1209)
-msgid "Show un&modified files"
-msgstr "Прикажи фајлове без из&мена"
-
-#. Resource IDs: (1073)
-msgid "Show un&versioned files"
-msgstr "Прикажи фајлове бе&з верзија"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -8061,9 +8086,14 @@ msgstr "Субверзијин конфигурациони &фајл:"
 #, c-format
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion encountered the problem in:\n"
 "file %s, line %ld\n"
@@ -8071,8 +8101,13 @@ msgid ""
 msgstr ""
 "Субверзија је наишла на озбиљан проблем.\n"
 "Молимо вас да нађете времена да нас известите на нашу мејлинг листу\n"
-"са што више  што је могуће информација о томе шта \n"
+"(users@subversion.tigris.org)\n"
+"са што више  могуће информација о томе шта \n"
 "сте покушали да урадите.\n"
+"Али молимо најпре претражите мејлинг листу архиве за поруке грешке\n"
+"да бисте избегли понављање истих проблема\n"
+"Можете наћи архиву мејлинг листе на \n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Субверзија налази проблем у:\n"
 "file %s, line %ld\n"
@@ -8085,6 +8120,10 @@ msgid ""
 "(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion reported the following:"
 msgstr ""
@@ -8093,6 +8132,10 @@ msgstr ""
 "(users@subversion.tigris.org)\n"
 "са што је могуће  више  информација о томе шта \n"
 "сте покушали да урадите.\n"
+"Али молимо најпре претражите мејлинг листу архиве за поруке грешке\n"
+"да бисте избегли понављање истих проблема\n"
+"Можете наћи архиву мејлинг листе на \n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Субверзија извештава о следећем:"
 
@@ -9118,6 +9161,14 @@ msgstr "УРЛ:"
 #. Resource IDs: (75)
 msgid "URL: "
 msgstr "УРЛ:"
+
+#. Resource IDs: (1209)
+msgid "Un&modified"
+msgstr "Неиз&мењено"
+
+#. Resource IDs: (1073)
+msgid "Un&versioned"
+msgstr "Раз&верзионисан"
 
 #. Resource IDs: (220)
 #, c-format
@@ -10743,4 +10794,3 @@ msgstr "да"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{БагТрек}"
-
