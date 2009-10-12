@@ -14,9 +14,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-08-13 08:06 +0000\n"
-"PO-Revision-Date: 2009-08-13 12:25+0100\n"
-"Last-Translator: Alex Garcia <thekyz@gmail.com>\n"
+"POT-Creation-Date: 2009-10-10 16:07 +0000\n"
+"PO-Revision-Date: 2009-10-12 15:51+0100\n"
+"Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4729,6 +4729,10 @@ msgid "Click on the search icon to select which information you want to search i
 msgstr "Cliquez sur l'icone de recherche pour sélectionner le type d'information que vous souhaitez rechercher, et choisir le mode <emphasis>regex</emphasis>. Vous ne devriez avoir besoin que d'une simple recherche de texte, mais si vous souhaitez plus de flexibilité, vous pouvez alors utiliser les expressions regulières. Si vous passez la souris au dessus de la boite, une tooltip vous donnera des informations sur comment utiliser les fonctions d'expressions regulières. Vous pouvez également trouver l'aide en ligne et un tutoriel à cette adresse <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>. Seuls les messages de log passant le filtre (i.e. qui <emphasis>matchent</emphasis> le filtre) sont affichés."
 
 #. (para)
+msgid "If you don't use regex mode, you can enter several strings to search for, and only those log entries which match all of your filter words will be shown."
+msgstr ""
+
+#. (para)
 msgid "To make the filter show all log entries that do <emphasis>not</emphasis> match the filter string, start the string with an exclamation mark ('!'). For example, a filter string <literal>!username</literal> will only show those entries which were not committed by <literal>username</literal>."
 msgstr "Pour faire en sorte que tous les messages <emphasis>ne vérifiant pas</emphasis> le filtre s'affichent, commencez l'expression régulière par un point d'exclamation ('!'). Par exemple, la chaine <literal>!username</literal> ne montrera que les entrées n'ayant pas été livrés par <literal>username</literal>."
 
@@ -6039,8 +6043,10 @@ msgid "These special project properties must be set on <emphasis>folders</emphas
 msgstr "Ces propriétés <literal>tsvn:</literal> doivent être mises sur les <emphasis>dossiers</emphasis> pour que le système fonctionne. Quand vous livrez un fichier ou un dossier, les propriétés sont lues à partir de ce dossier. Si les propriétés ne sont pas trouvées là, TortoiseSVN cherchera vers le haut dans l'arborescence des dossiers pour les trouver jusqu'à ce qu'il arrive à un dossier non versionné, ou jusqu'à ce que la racine de l'arbre (par exemple <literal>C:\\</literal>) soit trouvée. Si vous pouvez être sûr que chaque utilisateur extraie seulement du <filename>trunk/</filename> par exemple  et non d'un sous-dossier, il est alors suffisant de mettre les propriétés sur <filename>trunk/</filename>. Si vous ne pouvez pas être sûr, vous devriez définir les propriétés récursivement sur chaque sous-dossier. Une propriété définit plus profondemment dans la hiérarchie du projet ignore les réglages sur les niveaux supérieurs (plus près de <filename>trunk/</filename>)."
 
 #. (para)
+#. (para)
+#. (para)
 #, fuzzy
-msgid "For project properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
+msgid "For project properties <emphasis>only</emphasis>, i.e. <literal>tsvn:</literal>, <literal>bugtraq:</literal> and <literal>webviewer:</literal> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
 msgstr "Pour les propriétés <literal>tsvn:</literal> <emphasis>uniquement</emphasis> vous pouvez utiliser la case à cocher guilabel>Récursif</guilabel> pour mettre la propriété à tous les sous-dossiers dans la hiérarchie, sans la mettre aussi sur tous les fichiers."
 
 #. (para)
@@ -6374,7 +6380,8 @@ msgid "To be able to work with your freshly generated branch or tag you have sev
 msgstr "Pour pouvoir travailler avec votre branche ou votre tag récemments générés, vous avez plusieurs méthodes. Vous pouvez : <placeholder-1/><placeholder-2/>"
 
 #. (para)
-msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
+#, fuzzy
+msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they are not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
 msgstr "Les étiquettes sont typiquement utilisées pour créer un instantané statique du projet à une étape particulière. Comme tels, ils ne sont normalement pas utilisés pour le développement - c'est à cela que servent les branches, c'est la raison pour laquelle nous avons recommandé la structure de référentiel <filename>/trunk /branches /tags</filename> en premier lieu. Travailler sur une révision d'étiquette n'est <emphasis>pas une bonne idée</emphasis>, mais parce que vos fichiers locaux ne sont pas protégés en écriture, il n'y a rien pour vous empêcher de faire cela par erreur. Cependant, si vous essayez de livrer vers un chemin dans le référentiel qui contient <filename>/tags/</filename>, TortoiseSVN vous avertira."
 
 #. (para)
@@ -7897,17 +7904,14 @@ msgstr "Mettre les propriétés sur les dossiers"
 msgid "These properties must be set on folders for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it's enough if you set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
 msgstr "Ces propriétés doivent être définies sur des dossiers pour que le système fonctionne. Quand vous livrez un fichier ou un dossier les propriétés sont lues depuis ce dossier. Si les propriétés ne sont pas trouvées là, TortoiseSVN cherchera vers le haut dans l'arborescence des dossiers pour les trouver jusqu'à ce qu'il arrive à un dossier non versionné, ou jusqu'à ce que la racine de l'arborescence (par exemple <literal>C:\\</literal>) soit trouvée. Si vous pouvez être sûr que chaque utilisateur n'extraie que depuis <filename>trunk/</filename> par exemple et pas d'un autre sous-dossier, alors il est suffisant de définir les propriétés sur <filename>trunk/</filename>. Si vous ne pouvez pas être sûr, vous devriez définir les propriétés récursivement sur chaque sous-dossier. Un réglage de la propriété plus profondément dans la hiérarchie de projet remplace les réglages sur les niveaux supérieurs (plus près de <filename>trunk/</filename>)."
 
-#. (para)
-msgid "For <literal>tsvn:</literal> and <literal>webviewer:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr "Pour les propriétés <literal>tsvn:</literal> et <literal>webviewer:</literal> <emphasis>uniquement</emphasis> vous pouvez utiliser la case à cocher <guilabel>Récursif</guilabel> pour affecter la propriété à tous les sous-dossiers dans la hiérarchie, sans avoir à  la mettre sur tous les fichiers."
-
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
 msgstr ""
 
 #. (para)
-msgid "Because the issue tracker integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
-msgstr ""
+#, fuzzy
+msgid "Because the issue tracker integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the URL of the repository you won't see this feature."
+msgstr "Le formattage dépend des propriétés d'accès de subversion, vous ne verrez que le résultat lorsque vous utiliserez une copie de travail exportée. Afficher les propriétés à distance étant une opération lente, vous ne pourrez pas l'effectuer depuis l'explorateur de référentiel."
 
 #. (para)
 #, fuzzy
@@ -7975,18 +7979,13 @@ msgstr ""
 msgid "You can also use relative URLs instead of absolute ones. This is useful in case your web viewer is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>webviewer:revision</literal> and <literal>webviewer:pathrevision</literal> property. The format is the same as for the <literal>bugtraq:url</literal> property. See <xref linkend=\"tsvn-dug-bugtracker\"/>."
 msgstr ""
 
-#. (para)
-#, fuzzy
-msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr "Pour les propriétés <literal>tsvn:</literal> <emphasis>uniquement</emphasis> vous pouvez utiliser la case à cocher guilabel>Récursif</guilabel> pour mettre la propriété à tous les sous-dossiers dans la hiérarchie, sans la mettre aussi sur tous les fichiers."
-
 #. (title)
 msgid "No Repo Viewer Links from Repository Browser"
 msgstr "Aucun visualiseur dans l'explorateurde référentiel"
 
 #. (para)
 #, fuzzy
-msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the url of the repository you won't see this feature."
+msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the URL of the repository you won't see this feature."
 msgstr "Le formattage dépend des propriétés d'accès de subversion, vous ne verrez que le résultat lorsque vous utiliserez une copie de travail exportée. Afficher les propriétés à distance étant une opération lente, vous ne pourrez pas l'effectuer depuis l'explorateur de référentiel."
 
 #. (title)
@@ -9569,7 +9568,7 @@ msgstr ""
 
 #. (term)
 msgid "Make checkout fail if an item of the same name exists"
-msgstr ""
+msgstr "Faire échouer la récupération si un élément du même nom existe déjà"
 
 #. (para)
 msgid "By default, if you checkout a working copy over an existing unversioned folder structure, as you might do after import, then any existing which differ from the repository content will be left unchanged and marked as modified. When you come to commit, it is your local copy which will then be sent back to the repository. Some people would prefer the checkout to fail if the existing content differs, so that if two people add the same file the second person's version does not overwrite the original version by mistake. If you want to force checkouts to fail in this instance you must create a <literal>DWORD</literal> registry key with value 0 at <literal>HKCU\\Software\\TortoiseSVN\\AllowUnversionedObstruction</literal>."
@@ -10321,6 +10320,286 @@ msgstr ""
 #. (para)
 msgid "The following example shows how the interface might be used. <placeholder-1/>"
 msgstr "Les exemples suivants montrent comment l'interface devrait être utilisée. <placeholder-1/>"
+
+#. (title)
+msgid "IBugtraqProvider interface"
+msgstr "IBugtraqProvider interface"
+
+#. (primary)
+msgid "plugin"
+msgstr "greffon"
+
+#. (primary)
+msgid "IBugtraqProvider"
+msgstr "IBugtraqProvider"
+
+#. (para)
+msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
+msgstr ""
+
+#. (para)
+msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgstr "Nous ne pouvons pas vous indiquer comment développer un objet COM dans votre langage préféré, mais des exemples de greffons en C++/ATL et C# sont disponibles dans notre référentiel dans le répertoire <filename>contrib/issue-tracker-plugins</filename>. Vous pouvez également y trouver les fichiers à inlcure pour compiler votre greffon. (<xref linkend=\"tsvn-preface-source\"/> explique comment accéder au référentiel)."
+
+#. (title)
+msgid "The IBugtraqProvider interface"
+msgstr "L'interface de IBugtraqProvider"
+
+#. (para)
+msgid "TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
+msgstr "TortoiseSVN 1.5 peut être agrémenté de greffons qui ajouteront une interface pour IBugtraqProvider. Cette dernière fournira quelques méthodes que les greffons pourront utiliser pour s'interfacer avec le système de suivi d'anomalies logicielles."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT ValidateParameters (\n"
+"  // Parent window for any UI that needs to be\n"
+"  // displayed during validation.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // The parameter string that needs to be validated.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // Is the string valid?\n"
+"  [out, retval] VARIANT_BOOL *valid\n"
+");\n"
+msgstr ""
+"\n"
+"HRESULT ValidateParameters (\n"
+"  // Fenêtre parent pour toutes les interfaces devant être\n"
+"  // affichées pendant la validation.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // La chaine en paramètre doit être validée.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // La chaine est elle valide ?\n"
+"  [out, retval] VARIANT_BOOL *valid\n"
+");\n"
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
+msgstr "<placeholder-1/> Cette méthode est appele depuis la fenêtre des paramètres là où l'utilisateur peut ajouter et configurer le greffon. La chaine <literal>parametres</literal> peut être utilisée par un greffon pour avoir plus d'informations, i.e., les identifiants, l'URL du bug tracker, etc. Le greffon doit vérifier la chaine <literal>parametres</literal> et montrer une fenêtre d'erreur si la chaine n'est pas valide. Le paramètre <literal>hParentWnd</literal> permet au plugin d'accéder à la fenêtre mère. Le greffon DOIT renvoyer TRUE si la chaine <literal>parametres</literal> est validée. Si le greffon renvoie FALSE, la fenêtre de paramètrage n'autorisera pas l'utilisateur à ajouter le greffon au chemin d'une copie de travail."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT GetLinkText (\n"
+"  // Parent window for any (error) UI that needs to be displayed.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // The parameter string, just in case you need to talk to your\n"
+"  // web service (e.g.) to find out what the correct text is.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // What text do you want to display?\n"
+"  // Use the current thread locale.\n"
+"  [out, retval] BSTR *linkText\n"
+");\n"
+msgstr ""
+"\n"
+"HRESULT GetLinkText (\n"
+"  // Fenêtre parent pour toutes les interfaces (d'erreur) devant être affiché.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // La chaine en paramètre, au cas où vous devriez communiquer avec votre\n"
+"  // service web (i.e.) pour savoir qu'est ce qu'un texte correct.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // Quel texte voulez vous afficher ?\n"
+"  // Utilisez le thread local courant.\n"
+"  [out, retval] BSTR *linkText\n"
+");\n"
+
+#. (para)
+msgid "<placeholder-1/> The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
+msgstr "<placeholder-1/> Le greffon peut fournir une chaine ici laquelle sera utilisée dans la fenêtre de livraison de TortoiseSVN par le bouton qui appelle le greffon, i.e., \"Choisir le bug\" ou \"Selectionner le ticket\". Assurez vous que la chaine n'est pas trop longue, sinon elle ne rentrera pas dans le bouton. Si la méthode retourne une erreur (i.e., <literal>E_NOTIMPL</literal>), un texte par défaut est utilisé pour le bouton."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT GetCommitMessage (\n"
+"  // Parent window for your provider's UI.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parameters for your provider.\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // The text already present in the commit message.\n"
+"  // Your provider should include this text in the new message,\n"
+"  // where appropriate.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // The new text for the commit message.\n"
+"  // This replaces the original message.\n"
+"  [out, retval] BSTR *newMessage\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
+msgstr ""
+
+#. (title)
+msgid "The IBugtraqProvider2 interface"
+msgstr "L'interface de IBugtraqProvider2"
+
+#. (para)
+msgid "In TortoiseSVN 1.6 a new interface was added which provides more functionality for plugins. This IBugtraqProvider2 interface inherits from IBugtraqProvider."
+msgstr "Dans TortoiseSVN 1.6 une nouvelle interface a été ajoutée, augmentant le potentiel des greffons. Cet interface IBugtraqProvider2 hérite de IBugtraqProvider."
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT GetCommitMessage2 (\n"
+"  // Parent window for your provider's UI.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parameters for your provider.\n"
+"  [in] BSTR parameters,\n"
+"  // The common URL of the commit\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // The text already present in the commit message.\n"
+"  // Your provider should include this text in the new message,\n"
+"  // where appropriate.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // You can assign custom revision properties to a commit\n"
+"  // by setting the next two params.\n"
+"  // note: Both safearrays must be of the same length.\n"
+"  //       For every property name there must be a property value!\n"
+"\n"
+"  // The content of the bugID field (if shown)\n"
+"  [in] BSTR bugID,\n"
+"\n"
+"  // Modified content of the bugID field\n"
+"  [out] BSTR * bugIDOut,\n"
+"\n"
+"  // The list of revision property names.\n"
+"  [out] SAFEARRAY(BSTR) * revPropNames,\n"
+"\n"
+"  // The list of revision property values.\n"
+"  [out] SAFEARRAY(BSTR) * revPropValues,\n"
+"\n"
+"  // The new text for the commit message.\n"
+"  // This replaces the original message\n"
+"  [out, retval] BSTR * newMessage\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there. The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path. The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>). The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns. The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT CheckCommit (\n"
+"  [in] HWND hParentWnd,\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"  [in] BSTR commitMessage,\n"
+"  [out, retval] BSTR * errorMessage\n"
+");\n"
+msgstr ""
+"\n"
+"HRESULT CheckCommit (\n"
+"  [in] HWND hParentWnd,\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"  [in] BSTR commitMessage,\n"
+"  [out, retval] BSTR * errorMessage\n"
+");\n"
+
+#. (para)
+msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT  OnCommitFinished (\n"
+"  // Parent window for any (error) UI that needs to be displayed.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // The common root of all paths that got committed.\n"
+"  [in] BSTR commonRoot,\n"
+"\n"
+"  // All the paths that got committed.\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"\n"
+"  // The text already present in the commit message.\n"
+"  [in] BSTR logMessage,\n"
+"\n"
+"  // The revision of the commit.\n"
+"  [in] ULONG revision,\n"
+"\n"
+"\n"
+"  // An error to show to the user if this function\n"
+"  // returns something else than S_OK\n"
+"  [out, retval] BSTR * error\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT HasOptions(\n"
+"  // Whether the provider provides options\n"
+"  [out, retval] VARIANT_BOOL *ret\n"
+");\n"
+msgstr ""
+"\n"
+"HRESULT HasOptions(\n"
+"  // Si le fournisseur fournit des options\n"
+"  [out, retval] VARIANT_BOOL *ret\n"
+");\n"
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT ShowOptionsDialog(\n"
+"  // Parent window for the options dialog\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parameters for your provider.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // The parameters string\n"
+"  [out, retval] BSTR * newparameters\n"
+");\n"
+msgstr ""
+
+# There is an error in the template here. Last sentence there is 'paramameters' and it should be 'parameters'.
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
+msgstr "<placeholder-1/> Cette méthode est appellée depuis la fenêtre de configuration lorque l'utilisateur clique sur le bouton \"Options\" qui s'affiche quand <literal>HasOptions</literal> renvoie TRUE. Un plugin peut afficher une fenêtre d'options pour faciliter sa configuration par l'utilisateur. La chaîne de charactères <literal>parameters</literal> contient les informations déjà entrées dans les paramètres du plugin. La chaîne de charactère <literal>newparameters</literal> renvoyée doit contenir la chaîne de charactères construite par le plugin via les informations collectées dans la fenêtre d'options. Cette chaîne, <literal>parameters</literal>, est envoyée à toutes les autres méthodes de type IBugtraqProvider et IBugtraqProvider2."
 
 #. (title)
 msgid "Frequently Asked Questions (FAQ)"
@@ -11091,6 +11370,10 @@ msgid "TortoiseSVN uses temporary files to pass multiple arguments between the s
 msgstr "TortoiseSVN utilise des fichiers temporaires pour passer des arguments multiples entre l'extension du shell et le programme principal. À partir de la version 1.5.0 et supérieures, le paramètre <option>/notempfile</option> est obsolète et il est inutile de l'ajouter désormais."
 
 #. (para)
+msgid "You can also specify a file which contains a list of paths, separated by newlines. The file must be in UTF-16 format. If you pass such a file, use <option>/pathfile</option> instead of <option>/path</option>. To have TortoiseProc delete that file after the command is finished, you can pass the parameter <option>/deletepathfile</option>."
+msgstr ""
+
+#. (para)
 msgid "The progress dialog which is used for commits, updates and many more commands usually stays open after the command has finished until the user presses the <guibutton>OK</guibutton> button. This can be changed by checking the corresponding option in the settings dialog. But using that setting will close the progress dialog, no matter if you start the command from your batch file or from the TortoiseSVN context menu."
 msgstr "D'habitude, la barre de progression utilisée pour les livraisons, les mises à jour et beaucoup d'autres commandes reste ouverte après que la commande ait fini et jusqu'à ce que l'utilisateur appuie sur le bouton <guibutton>OK</guibutton>. Ce comportement peut être modifié en cochant l'option correspondante dans la boîte de dialogue de configuration. Mais ainsi la barre de progression se fermera à la fin de l'opération, que vous ayez lancé la commande depuis un fichier batch ou depuis le menu contextuel TortoiseSVN."
 
@@ -11195,6 +11478,10 @@ msgid "/findtext"
 msgstr "/findtext"
 
 #. (option)
+msgid "/findregex"
+msgstr "/findregex"
+
+#. (option)
 msgid "/findtype:X"
 msgstr "/findtype:X"
 
@@ -11223,7 +11510,8 @@ msgid "<option>/findtype:7</option> filter by bug ID"
 msgstr "<option>/findtype:7</option> filtrer par bug ID"
 
 #. (entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (enables the 'stop-on-copy' checkbox), <placeholder-5/> fills in the filter text, <placeholder-6/> (forces the filter to use text, not regex) and <placeholder-7/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-8/>"
+#, fuzzy
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> fills in the filter text, <placeholder-6/> forces the filter to use text, not regex, or <placeholder-7/> forces the filter to use regex, not simple text search, and <placeholder-8/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-9/>"
 msgstr "Ouvre la boîte de dialogue des commentaires. Le <placeholder-1/> spécifie le fichier ou le dossier duquel il faut afficher les commentaires. Six options supplémentaires peuvent être définies : <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (active la case à cocher 'stop-lors-de-la-copie'), <placeholder-5/> remplit le texte de filtrage, <placeholder-6/> (force le filtre à fonctionner en mode text, pas regexp) et <placeholder-7/> X étant un chiffre compris entre 1 et 7. Les chiffres correspondent à : <placeholder-8/>"
 
 #. (option)
@@ -11290,9 +11578,13 @@ msgstr "Ajoute les fichiers de <placeholder-1/> au contrôle de version."
 msgid "Reverts local modifications of a working copy. The <placeholder-1/> tells which items to revert."
 msgstr "Annule les modifications locales d'une copie de travail. Le <placeholder-1/> indique quels éléments annuler."
 
+#. (option)
+msgid "/noui"
+msgstr "/noui"
+
 #. (entry)
-msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>."
-msgstr "Nettoie les opérations interrompues ou annulées et déverrouille la copie de travail dans <placeholder-1/>."
+msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from popping up (either telling about the cleanup being finished or showing an error message)."
+msgstr ""
 
 #. (option)
 #. (option)
@@ -11371,8 +11663,13 @@ msgstr "/path2"
 msgid "/blame"
 msgstr "/blame"
 
+#. (option)
+msgid "/line:xxx"
+msgstr "/line:xxx"
+
 #. (entry)
-msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, then the diff is done by first blaming the files with the given revisions."
+#, fuzzy
+msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, then the diff is done by first blaming the files with the given revisions. The parameter <placeholder-9/> specifies the line to jump to when the diff is shown."
 msgstr "Démarre le programme externe de comparaison indiqué dans la configuration de TortoiseSVN. Le <placeholder-1/> spécifie le premier fichier. Si l'option <placeholder-2/> est activée, alors le programme de comparaison est lancé avec ces deux fichiers. Si <placeholder-3/> est omit, alors la comparaison est faite entre le fichier dans <placeholder-4/> et sa BASE.Pour renseigner explicitement les révisions à comparer, utiliser <placeholder-5/> et <placeholder-6/>. Si <placeholder-7/> est activé et <placeholder-8/> non, alors la comparaison est faite en bannissant d'abord les révisions données."
 
 #. (para)
@@ -12262,7 +12559,8 @@ msgid ""
 "You need to have SSH enabled on the server, and here we assume that you will be using OpenSSH. On most distributions this will already be installed. To find out, type: <screen>\n"
 "ps xa | grep sshd\n"
 "</screen> and look for ssh jobs."
-msgstr "Vous devez avoir SSH activé sur votre serveur, et dans ce cas nous supposons que vous utilisez OpenSSH. Dans la plupart des distributions, il sera déjà installé. Pour le savoir, tapez: <screen>\n"
+msgstr ""
+"Vous devez avoir SSH activé sur votre serveur, et dans ce cas nous supposons que vous utilisez OpenSSH. Dans la plupart des distributions, il sera déjà installé. Pour le savoir, tapez: <screen>\n"
 "ps xa | grep sshd\n"
 "</screen> et cherchez les processus ssh."
 
@@ -12285,7 +12583,8 @@ msgid ""
 "Create a new user which we will use to access the svn repository: <screen>\n"
 "useradd -m svnuser\n"
 "</screen> Be sure to give this user full access rights to the repository."
-msgstr "Créé un nouvel utilisateur que nous utiliserons pour accéder au dépôt svn: <screen>\n"
+msgstr ""
+"Créé un nouvel utilisateur que nous utiliserons pour accéder au dépôt svn: <screen>\n"
 "useradd -m svnuser\n"
 "</screen> Assurez-vous de donner à cette utilisateur tous les droits d'accès au dépôt."
 
@@ -12471,286 +12770,6 @@ msgstr ""
 #. (para)
 msgid "If you use this last method, be sure you do not have a default username set in PuTTY. We have had reports of a bug in PuTTY causing connections to close in this case. To remove the default user, simply clear <filename>HKEY_CURRENT_USER\\Software\\SimonTatham\\Putty\\Sessions\\Default%20Settings\\HostName</filename>"
 msgstr ""
-
-#. (title)
-msgid "IBugtraqProvider interface"
-msgstr "IBugtraqProvider interface"
-
-#. (primary)
-msgid "plugin"
-msgstr "greffon"
-
-#. (primary)
-msgid "IBugtraqProvider"
-msgstr "IBugtraqProvider"
-
-#. (para)
-msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
-msgstr ""
-
-#. (para)
-msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Nous ne pouvons pas vous indiquer comment développer un objet COM dans votre langage préféré, mais des exemples de greffons en C++/ATL et C# sont disponibles dans notre référentiel dans le répertoire <filename>contrib/issue-tracker-plugins</filename>. Vous pouvez également y trouver les fichiers à inlcure pour compiler votre greffon. (<xref linkend=\"tsvn-preface-source\"/> explique comment accéder au référentiel)."
-
-#. (title)
-msgid "The IBugtraqProvider interface"
-msgstr "L'interface de IBugtraqProvider"
-
-#. (para)
-msgid "TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
-msgstr "TortoiseSVN 1.5 peut être agrémenté de greffons qui ajouteront une interface pour IBugtraqProvider. Cette dernière fournira quelques méthodes que les greffons pourront utiliser pour s'interfacer avec le système de suivi d'anomalies logicielles."
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT ValidateParameters (\n"
-"  // Parent window for any UI that needs to be\n"
-"  // displayed during validation.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // The parameter string that needs to be validated.\n"
-"  [in] BSTR parameters,\n"
-"\n"
-"  // Is the string valid?\n"
-"  [out, retval] VARIANT_BOOL *valid\n"
-");\n"
-msgstr ""
-"\n"
-"HRESULT ValidateParameters (\n"
-"  // Fenêtre parent pour toutes les interfaces devant être\n"
-"  // affichées pendant la validation.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // La chaine en paramètre doit être validée.\n"
-"  [in] BSTR parameters,\n"
-"\n"
-"  // La chaine est elle valide ?\n"
-"  [out, retval] VARIANT_BOOL *valid\n"
-");\n"
-
-#. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
-msgstr "<placeholder-1/> Cette méthode est appele depuis la fenêtre des paramètres là où l'utilisateur peut ajouter et configurer le greffon. La chaine <literal>parametres</literal> peut être utilisée par un greffon pour avoir plus d'informations, i.e., les identifiants, l'URL du bug tracker, etc. Le greffon doit vérifier la chaine <literal>parametres</literal> et montrer une fenêtre d'erreur si la chaine n'est pas valide. Le paramètre <literal>hParentWnd</literal> permet au plugin d'accéder à la fenêtre mère. Le greffon DOIT renvoyer TRUE si la chaine <literal>parametres</literal> est validée. Si le greffon renvoie FALSE, la fenêtre de paramètrage n'autorisera pas l'utilisateur à ajouter le greffon au chemin d'une copie de travail."
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT GetLinkText (\n"
-"  // Parent window for any (error) UI that needs to be displayed.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // The parameter string, just in case you need to talk to your\n"
-"  // web service (e.g.) to find out what the correct text is.\n"
-"  [in] BSTR parameters,\n"
-"\n"
-"  // What text do you want to display?\n"
-"  // Use the current thread locale.\n"
-"  [out, retval] BSTR *linkText\n"
-");\n"
-msgstr ""
-"\n"
-"HRESULT GetLinkText (\n"
-"  // Fenêtre parent pour toutes les interfaces (d'erreur) devant être affiché.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // La chaine en paramètre, au cas où vous devriez communiquer avec votre\n"
-"  // service web (i.e.) pour savoir qu'est ce qu'un texte correct.\n"
-"  [in] BSTR parameters,\n"
-"\n"
-"  // Quel texte voulez vous afficher ?\n"
-"  // Utilisez le thread local courant.\n"
-"  [out, retval] BSTR *linkText\n"
-");\n"
-
-#. (para)
-msgid "<placeholder-1/> The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
-msgstr "<placeholder-1/> Le greffon peut fournir une chaine ici laquelle sera utilisée dans la fenêtre de livraison de TortoiseSVN par le bouton qui appelle le greffon, i.e., \"Choisir le bug\" ou \"Selectionner le ticket\". Assurez vous que la chaine n'est pas trop longue, sinon elle ne rentrera pas dans le bouton. Si la méthode retourne une erreur (i.e., <literal>E_NOTIMPL</literal>), un texte par défaut est utilisé pour le bouton."
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT GetCommitMessage (\n"
-"  // Parent window for your provider's UI.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // Parameters for your provider.\n"
-"  [in] BSTR parameters,\n"
-"  [in] BSTR commonRoot,\n"
-"  [in] SAFEARRAY(BSTR) pathList,\n"
-"\n"
-"  // The text already present in the commit message.\n"
-"  // Your provider should include this text in the new message,\n"
-"  // where appropriate.\n"
-"  [in] BSTR originalMessage,\n"
-"\n"
-"  // The new text for the commit message.\n"
-"  // This replaces the original message.\n"
-"  [out, retval] BSTR *newMessage\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
-msgstr ""
-
-#. (title)
-msgid "The IBugtraqProvider2 interface"
-msgstr "L'interface de IBugtraqProvider2"
-
-#. (para)
-msgid "In TortoiseSVN 1.6 a new interface was added which provides more functionality for plugins. This IBugtraqProvider2 interface inherits from IBugtraqProvider."
-msgstr "Dans TortoiseSVN 1.6 une nouvelle interface a été ajoutée, augmentant le potentiel des greffons. Cet interface IBugtraqProvider2 hérite de IBugtraqProvider."
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT GetCommitMessage2 (\n"
-"  // Parent window for your provider's UI.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // Parameters for your provider.\n"
-"  [in] BSTR parameters,\n"
-"  // The common URL of the commit\n"
-"  [in] BSTR commonURL,\n"
-"  [in] BSTR commonRoot,\n"
-"  [in] SAFEARRAY(BSTR) pathList,\n"
-"\n"
-"  // The text already present in the commit message.\n"
-"  // Your provider should include this text in the new message,\n"
-"  // where appropriate.\n"
-"  [in] BSTR originalMessage,\n"
-"\n"
-"  // You can assign custom revision properties to a commit\n"
-"  // by setting the next two params.\n"
-"  // note: Both safearrays must be of the same length.\n"
-"  //       For every property name there must be a property value!\n"
-"\n"
-"  // The content of the bugID field (if shown)\n"
-"  [in] BSTR bugID,\n"
-"\n"
-"  // Modified content of the bugID field\n"
-"  [out] BSTR * bugIDOut,\n"
-"\n"
-"  // The list of revision property names.\n"
-"  [out] SAFEARRAY(BSTR) * revPropNames,\n"
-"\n"
-"  // The list of revision property values.\n"
-"  [out] SAFEARRAY(BSTR) * revPropValues,\n"
-"\n"
-"  // The new text for the commit message.\n"
-"  // This replaces the original message\n"
-"  [out, retval] BSTR * newMessage\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there. The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path. The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>). The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns. The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT CheckCommit (\n"
-"  [in] HWND hParentWnd,\n"
-"  [in] BSTR parameters,\n"
-"  [in] BSTR commonURL,\n"
-"  [in] BSTR commonRoot,\n"
-"  [in] SAFEARRAY(BSTR) pathList,\n"
-"  [in] BSTR commitMessage,\n"
-"  [out, retval] BSTR * errorMessage\n"
-");\n"
-msgstr ""
-"\n"
-"HRESULT CheckCommit (\n"
-"  [in] HWND hParentWnd,\n"
-"  [in] BSTR parameters,\n"
-"  [in] BSTR commonURL,\n"
-"  [in] BSTR commonRoot,\n"
-"  [in] SAFEARRAY(BSTR) pathList,\n"
-"  [in] BSTR commitMessage,\n"
-"  [out, retval] BSTR * errorMessage\n"
-");\n"
-
-#. (para)
-msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT  OnCommitFinished (\n"
-"  // Parent window for any (error) UI that needs to be displayed.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // The common root of all paths that got committed.\n"
-"  [in] BSTR commonRoot,\n"
-"\n"
-"  // All the paths that got committed.\n"
-"  [in] SAFEARRAY(BSTR) pathList,\n"
-"\n"
-"\n"
-"  // The text already present in the commit message.\n"
-"  [in] BSTR logMessage,\n"
-"\n"
-"  // The revision of the commit.\n"
-"  [in] ULONG revision,\n"
-"\n"
-"\n"
-"  // An error to show to the user if this function\n"
-"  // returns something else than S_OK\n"
-"  [out, retval] BSTR * error\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT HasOptions(\n"
-"  // Whether the provider provides options\n"
-"  [out, retval] VARIANT_BOOL *ret\n"
-");\n"
-msgstr ""
-"\n"
-"HRESULT HasOptions(\n"
-"  // Si le fournisseur fournit des options\n"
-"  [out, retval] VARIANT_BOOL *ret\n"
-");\n"
-
-#. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT ShowOptionsDialog(\n"
-"  // Parent window for the options dialog\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // Parameters for your provider.\n"
-"  [in] BSTR parameters,\n"
-"\n"
-"  // The parameters string\n"
-"  [out, retval] BSTR * newparameters\n"
-");\n"
-msgstr ""
-
-# There is an error in the template here. Last sentence there is 'paramameters' and it should be 'parameters'.
-#. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
-msgstr "<placeholder-1/> Cette méthode est appellée depuis la fenêtre de configuration lorque l'utilisateur clique sur le bouton \"Options\" qui s'affiche quand <literal>HasOptions</literal> renvoie TRUE. Un plugin peut afficher une fenêtre d'options pour faciliter sa configuration par l'utilisateur. La chaîne de charactères <literal>parameters</literal> contient les informations déjà entrées dans les paramètres du plugin. La chaîne de charactère <literal>newparameters</literal> renvoyée doit contenir la chaîne de charactères construite par le plugin via les informations collectées dans la fenêtre d'options. Cette chaîne, <literal>parameters</literal>, est envoyée à toutes les autres méthodes de type IBugtraqProvider et IBugtraqProvider2."
 
 #. (title)
 msgid "Glossary"
@@ -12978,6 +12997,34 @@ msgstr "Jérémy Badier <jeremy.badier@gmail.com>"
 msgid "translator-translation"
 msgstr "traduction"
 
+#~ msgid ""
+#~ "For <literal>tsvn:</literal> and <literal>webviewer:</literal> properties "
+#~ "<emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> "
+#~ "checkbox to set the property to all sub-folders in the hierarchy, without "
+#~ "also setting it on all files."
+#~ msgstr ""
+#~ "Pour les propriétés <literal>tsvn:</literal> et <literal>webviewer:</"
+#~ "literal> <emphasis>uniquement</emphasis> vous pouvez utiliser la case à "
+#~ "cocher <guilabel>Récursif</guilabel> pour affecter la propriété à tous "
+#~ "les sous-dossiers dans la hiérarchie, sans avoir à  la mettre sur tous "
+#~ "les fichiers."
+
+#, fuzzy
+#~ msgid ""
+#~ "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can "
+#~ "use the <guilabel>Recursive</guilabel> checkbox to set the property to "
+#~ "all sub-folders in the hierarchy, without also setting it on all files."
+#~ msgstr ""
+#~ "Pour les propriétés <literal>tsvn:</literal> <emphasis>uniquement</"
+#~ "emphasis> vous pouvez utiliser la case à cocher guilabel>Récursif</"
+#~ "guilabel> pour mettre la propriété à tous les sous-dossiers dans la "
+#~ "hiérarchie, sans la mettre aussi sur tous les fichiers."
+#~ msgid ""
+#~ "Cleans up interrupted or aborted operations and unlocks the working copy "
+#~ "in <placeholder-1/>."
+#~ msgstr ""
+#~ "Nettoie les opérations interrompues ou annulées et déverrouille la copie "
+#~ "de travail dans <placeholder-1/>."
 #~ msgid ""
 #~ "Opens the check-for-modifications dialog. The <placeholder-1/> specifies "
 #~ "the working copy directory."
