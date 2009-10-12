@@ -14,9 +14,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-03 10:39 +0000\n"
-"PO-Revision-Date: 2009-05-13 15:41+0100\n"
-"Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
+"POT-Creation-Date: 2009-10-09 18:46 +0000\n"
+"PO-Revision-Date: 2009-10-12 15:48+0100\n"
+"Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -985,6 +985,10 @@ msgstr "/createunifieddiff"
 #. (entry)
 msgid "Creates a unified diff file (patch file) of two files specified with <placeholder-1/> and <placeholder-2/>. The target path is set with <placeholder-3/>. If <placeholder-4/> is not set, a file save dialog is shown so the user can choose the location to save the patch file. Note: If <placeholder-5/> is set, all other parameters are ignored."
 msgstr "Crée une fichier de différences unifiées (fichier patch) à partir les deux fichiers spécifiés avec <placeholder-1/> et <placeholder-2/>. Le fichier cible est défini avec <placeholder-3/>. Si <placeholder-4/> n'est pas défini, une boîte de dialogue Enregistrer sous s'affiche pour permettre à l'utilisateur de choisir l'emplacement du fichier patch. Note : Si <placeholder-5/> est défini, tous les autres paramètres sont ignorés."
+
+#. (entry)
+msgid "Specifies a line number to jump to after loading the files."
+msgstr "Spécifie le numéro de ligne où aller à la fin du chargement des fichiers."
 
 #. (para)
 msgid ""
