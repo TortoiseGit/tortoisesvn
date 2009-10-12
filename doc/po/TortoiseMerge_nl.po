@@ -15,9 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge\n"
-"POT-Creation-Date: 2009-08-18 16:05 +0000\n"
-"PO-Revision-Date: 2009-08-31 17:58+0100\n"
-"Last-Translator: Christian Peper <jcapeper@peper-it.nl>\n"
+"POT-Creation-Date: 2009-10-09 18:46 +0000\n"
+"PO-Revision-Date: 2009-10-12 12:39+0100\n"
+"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -989,6 +989,10 @@ msgstr "/createunifieddiff"
 #. (entry)
 msgid "Creates a unified diff file (patch file) of two files specified with <placeholder-1/> and <placeholder-2/>. The target path is set with <placeholder-3/>. If <placeholder-4/> is not set, a file save dialog is shown so the user can choose the location to save the patch file. Note: If <placeholder-5/> is set, all other parameters are ignored."
 msgstr "Creëert een standaard verschil bestand (patch bestand) van twee bestand gespecificeerd door placeholder-1/> en <placeholder-2/>. Het doelpad wordt aangegeven door <placeholder-3/>. Als <placeholder-4/> niet ingevuld is, zal er een dialoogvenster getoond worden aan de gebruiker,  zodat deze de locatie aan kan geven waar het patchbestand opgeslagen moet worden.  Noot: Als <placeholder-5/> gedefinieerd is, worden alle andere parameters genegeerd."
+
+#. (entry)
+msgid "Specifies a line number to jump to after loading the files."
+msgstr "Specificeert een regelnummer waarnaar gesprongen moet worden als het bestand geladen is."
 
 #. (para)
 msgid ""
