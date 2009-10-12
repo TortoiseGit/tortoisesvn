@@ -552,6 +552,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		{
 			folder_.clear();
 			status = fetchedstatus;
+			itemStatesFolder = itemStates;
 		}
 		if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
 		{
@@ -635,7 +636,6 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com, UINT /*uFlags*/)
 {
 	TCHAR menutextbuffer[255] = {0};
-	TCHAR verbsbuffer[255] = {0};
 	MAKESTRING(stringid);
 
 	if (istop)
