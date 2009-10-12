@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-06 20:18+0200\n"
+"PO-Revision-Date: 2009-10-12 23:29+0200\n"
 "Last-Translator: Florin Daneliuc <dfev77@google.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1575,7 +1575,7 @@ msgstr "Vârsta"
 
 #. Resource IDs: (32822)
 msgid "Align trees on top"
-msgstr ""
+msgstr "Aliniază arborii la partea de sus"
 
 #. Resource IDs: (1505)
 msgid "All"
@@ -4535,6 +4535,8 @@ msgid ""
 "If set, files inside unversioned folders can be shown in the status control.\r\n"
 "The status control is used for example in the commit dialog."
 msgstr ""
+"Dacă este aplicat, fișierele din dosare neversionate pot fi afișate in controlul de stare.\r\n"
+"Controlul de stare este utilizat, de exemplu, în fereastra de încredințare."
 
 #. Resource IDs: (196)
 msgid ""
@@ -4546,7 +4548,7 @@ msgstr ""
 
 #. Resource IDs: (2052)
 msgid "If the graph contains multiple trees, separate them by slight variations in background color."
-msgstr ""
+msgstr "Daca un grafic conține mai mulți arbori, separă-i prin varierea culorii de fundal."
 
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
@@ -5644,7 +5646,7 @@ msgstr "Nu s-a găsit nici un codor de imagine pentru %s."
 
 #. Resource IDs: (84)
 msgid "No path or pathfile specified on the command line!"
-msgstr ""
+msgstr "Nu a fost specificată nici o cale de fișier sau depozit în linia de comandă!"
 
 #. Resource IDs: (188)
 msgid "No spell corrections"
@@ -5652,7 +5654,7 @@ msgstr "Nici o corectare ortografică"
 
 #. Resource IDs: (196)
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
-msgstr ""
+msgstr "Fără status prestocat. Doar dosarele versionate pot avea imagini suprapuse, fișierele nu posedă imagini suprapuse"
 
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
@@ -5685,6 +5687,9 @@ msgid ""
 "Try reducing the size of the revision graph by either\n"
 "collapsing nodes or reducing the zoom factor."
 msgstr ""
+"Memorie insuficientă!\n"
+"Încercați sa reduce-ți marimea arborelui de versiuni prin\n"
+"colapsarea nodurilor sau scăderea factorului de mărire."
 
 #. Resource IDs: (563)
 msgid "Not recursive"
@@ -5755,6 +5760,8 @@ msgid ""
 "Number of times a log cache can fail to close properly\n"
 "due to crashes etc. until it gets deleted automatically."
 msgstr ""
+"De cate ori este permis ca memoria tampon a jurnalului să nu fie închisă corespunzător\n"
+"ca urmare a unor avarii, etc. înainte de a fi ștearsă automat."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -6687,7 +6694,7 @@ msgstr "Depozit UUID:"
 
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
-msgstr ""
+msgstr "Comandă anulată de TSVN"
 
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
@@ -7123,7 +7130,7 @@ msgstr "Textul căutat nu a fost găsit!"
 
 #. Resource IDs: (169)
 msgid "Searching for better path to apply patch..."
-msgstr ""
+msgstr "Se caută o locație mai bună pentru aplicarea peticului..."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -7457,7 +7464,7 @@ msgstr ""
 
 #. Resource IDs: (16651)
 msgid "Show Screen&Tips on toolbars"
-msgstr ""
+msgstr "Afișează mesaje de ajutor pentru barele de unelte"
 
 #. Resource IDs: (32831)
 msgid "Show WC &modifications"
@@ -7557,7 +7564,7 @@ msgstr "Afişează proprietăţile reviziei"
 
 #. Resource IDs: (16652)
 msgid "Show shortcut &keys in ScreenTips"
-msgstr ""
+msgstr "Afișează comenzile rapide în mesajele de ajutor."
 
 #. Resource IDs: (2049)
 msgid ""
@@ -7573,7 +7580,7 @@ msgstr "Afişează statistici pentru cache-ul jurnalului selectat"
 
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
-msgstr ""
+msgstr "Afișsează etichetele pe sursa copierii, nu ca noduri separate"
 
 #. Resource IDs: (1209)
 msgid "Show un&modified files"
@@ -7811,6 +7818,18 @@ msgid ""
 "-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
+"Filtre subșir:\r\n"
+"* Specifică unul sau mai multe șiruri, separate prin spații. Toate subșirurile trebuie sa se potrivească.\r\n"
+"* Adăuga-ți un - în fața subșirului pentru a exclude versiuni ce conțin acest text.\r\n"
+"* Pune-ti textele ce conțin spații intre ghilimele utilizând \".\r\n"
+"* Adăuga-ți un ! la începutul unei linii pentru a inversa semnificația întregii conditii.\r\n"
+"\r\n"
+"Exemple:\r\n"
+"numelemeu  2008    : încredințările mele din 2008\r\n"
+".h  -.cpp              : încredințari ce modifică antetul dar nu și implementarea\r\n"
+"\" \"                        :încredințari ce conțin spații (ex. când se caută doar în căile obiectelor)\r\n"
+"-\"\"afisează toate\"\"        : încredințarile care nu conțin textul '\"afisează toate\"'\r\n"
+"!numelemeu  .cpp    : toate cu excepția fișierelor .cpp încredințate de mine"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -8018,11 +8037,11 @@ msgstr "Începutul de chunk '@@' s-a aşteptat în linia %d !"
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
-msgstr ""
+msgstr "Culoarea nodurilor de creere, copiere sau redenumire din trunchi v-or fi deplasate spre galben."
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
-msgstr ""
+msgstr "Culoarea nodurilor de creere, copiere sau redenumire din trunchi v-or fi deplasate spre verde."
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
@@ -8602,7 +8621,7 @@ msgstr "Această proprietate nu trebuie să aibă mai multe linii. Numai o linie
 
 #. Resource IDs: (1016)
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr ""
+msgstr "Aceasta va șterge lista de comenzipe care le-ați utilizat in această aplicație și va restabili lista implicită de comenzi vizibile in meniuri si bare de unelte. Nu va elimina nici o personalizare explicită. Sunte-ți sigur(ă) că doriți asta?"
 
 #. Resource IDs: (16924)
 msgid "Tile &Horizontally"
@@ -8624,12 +8643,19 @@ msgid ""
 "Otherwise, TortoiseSVN must do a non-recursive commit\n"
 "which does not allow directory deletion."
 msgstr ""
+"Pentru a incredința recursiv și a evita această eroare,\n"
+"asigurați-va că toate subelementele unui dosar marcat\n"
+"sunt de asemenea marcate în dialogul de încredințare.\n"
+"În caz contrar, TortoiseSVN trebuie sa efectueze o încredințare nerecursivă\n"
+"lucru care nu permite ștergerea de dosare."
 
 #. Resource IDs: (284)
 msgid ""
 "To steal the lock, right-click on the parent folder of this item and select 'Get Lock' from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
+"Pentru a fura o blocare, click-dreapta pe dosarul parinte al obiectului și selectați 'Obține blocarea' din meniul contextual.\n"
+"Aceasta va afișa dialogul de blocare unde aveți posibilitatea de a impune blocajul, altfel zis, de a-l 'fura' de la deținatorul actual."
 
 #. Resource IDs: (1201, 65535)
 msgid "To:"
@@ -9412,7 +9438,7 @@ msgstr ""
 
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
-msgstr ""
+msgstr "Când este activat, obiectele versionate afișate în dialogul de incredințare sunt automat selectate"
 
 #. Resource IDs: (197)
 msgid ""
@@ -9850,6 +9876,10 @@ msgid ""
 "The first expression is used to find a string referring to an issue,\r\n"
 "the second expression is used to extract the bare bug ID from that string."
 msgstr ""
+"bugtraq:logregex\r\n"
+"doua expresii regulare separate prin linie nouă.\r\n"
+"Prima expresie este untilizata la găsirea unui text ce refera o problema,\r\n"
+"cea de a doua expresie este utilizată la extragerea identificatorului problemei din respectivul text."
 
 #. Resource IDs: (577)
 #, c-format
