@@ -13,8 +13,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-08-18 16:05 +0000\n"
-"PO-Revision-Date: 2009-09-09 01:55-0300\n"
+"POT-Creation-Date: 2009-10-09 18:46 +0000\n"
+"PO-Revision-Date: 2009-10-12 23:25-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -516,7 +516,7 @@ msgstr "Você pode também editar o arquivo como você faria em um editor de tex
 
 #. (para)
 msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
-msgstr "Se você está visualizando três paineis (algumas vezes chamado <emphasis>visualização combinada</emphasis>) você pode somente editar o arquivo no painel inferior (<literal>Combinado</literal>). Como numa visualização com dois paineis você pode <action>clique-direito</action> sobre as linhas conflitantes e então selecionar <menuchoise><guimenu>Menu do Contexto</guimenu><guimenuitem>Usar o bloco de texto <quote>deles</quote></guimenuitem></menuchoise> ou <menuchoise><guimenu>Menu do Contexto</guimenu><guimenuitem>Usar o bloco de texto <quote>meu</quote></guimenuitem></menuchoise>. Para complementar, se você quer <emphasis>ambos</emphasis> os blocos, você pode selecionar <menuchoise><guimenu>Menu do Contexto</guimenu><guimenuitem>Usar bloco de texto <quote>meu</quote> antes <quote>deles</quote><guimenuitem></menuchoise> ou <menuchoise><guimenu>Menu do Contexto</guimenu><guimenuitem>Usar bloco de texto <quote>deles</quote> antes <quote>meu</quote></guimenuitem></menuchoise>. De acordo com o comando que você escolher, as alterações serão usadas no arquivo final <literal>Combinado</literal>."
+msgstr "Se você está visualizando três painéis (algumas vezes chamado <emphasis>visualização combinada</emphasis>) você pode somente editar o arquivo no painel inferior (<literal>Combinado</literal>). Como numa visualização com dois painéis você pode <action>clique-direito</action> sobre as linhas conflitantes e então selecionar <menuchoise><guimenu>Menu do Contexto</guimenu><guimenuitem>Usar o bloco de texto <quote>deles</quote></guimenuitem></menuchoise> ou <menuchoise><guimenu>Menu do Contexto</guimenu><guimenuitem>Usar o bloco de texto <quote>meu</quote></guimenuitem></menuchoise>. Para complementar, se você quer <emphasis>ambos</emphasis> os blocos, você pode selecionar <menuchoise><guimenu>Menu do Contexto</guimenu><guimenuitem>Usar bloco de texto <quote>meu</quote> antes <quote>deles</quote><guimenuitem></menuchoise> ou <menuchoise><guimenu>Menu do Contexto</guimenu><guimenuitem>Usar bloco de texto <quote>deles</quote> antes <quote>meu</quote></guimenuitem></menuchoise>. De acordo com o comando que você escolher, as alterações serão usadas no arquivo final <literal>Combinado</literal>."
 
 #. (para)
 msgid "Sometimes a file will be marked as conflicted in Subversion, yet when you view it using TortoiseMerge there are no conflicts shown. This may be due to the whitespace handling you have chosen. If you choose to ignore line-endings or whitespace changes, those lines will be marked using the <emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you still need to pick which version you want to use."
@@ -552,7 +552,7 @@ msgstr "Se você quer comparar/combinar arquivos você tem que definir pelo meno
 
 #. (para)
 msgid "If you want to merge three files, TortoiseMerge will show you the differences in a three pane view. This view is generally used if you need to resolve conflicted files. The output file is not named in this case and you will have to use the <menuchoice><guimenu>File</guimenu><guimenuitem>Save As...</guimenuitem></menuchoice>. to save the results."
-msgstr "Se você quer combinar três arquivos, TortoiseMerge vai mostrar a você as diferenças em três paineis. Está visualização é geralmente usada se você precisa resolver arquivos conflitantes. O arquivo de saída não possui nome, no caso, e você terá que usar o <menuchoise><guimenu>Arquivo</guimenu><guimenuitem>Salvar como...</guimenuitem><menuchoise> para salvar o resultado."
+msgstr "Se você quer combinar três arquivos, TortoiseMerge vai mostrar a você as diferenças em três painéis. Está visualização é geralmente usada se você precisa resolver arquivos conflitantes. O arquivo de saída não possui nome, no caso, e você terá que usar o <menuchoise><guimenu>Arquivo</guimenu><guimenuitem>Salvar como...</guimenuitem><menuchoise> para salvar o resultado."
 
 #. (para)
 msgid "If you want to apply a patch file you have to set both the path to the patch file itself and the path to the folder where the patch file should be applied."
@@ -699,9 +699,8 @@ msgid "When inline diffs are shown, deleted text is shown in this colour."
 msgstr "Quando as diferenças na linha são apresentadas, textos removidos são mostrados nesta cor."
 
 #. (term)
-#, fuzzy
 msgid "Misc whitespaces"
-msgstr "Vários espaços em branco"
+msgstr "Espaços em branco"
 
 #. (listitem)
 msgid "Characters used to indicate Whitespace are shown in a different colour from normal text."
@@ -897,12 +896,11 @@ msgstr "base"
 
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs. This is the common ancestor of the files being diffed, although it is not shown in a separate window. For two way diffs, this is the left file."
-msgstr "Especifica o <placeholder-1/> arquivo usado na visualização de diferenças com três paineis. Este é o ancestral comum dos arquivos que serão comparados, apesar de que este arquivo não será mostrado em uma janela separada. Para a visualização com dois paineis, este é o arquivo da esquerda."
+msgstr "Especifica o <placeholder-1/> arquivo usado na visualização de diferenças com três painéis. Este é o ancestral comum dos arquivos que serão comparados, apesar de que este arquivo não será mostrado em uma janela separada. Para a visualização com dois painéis, este é o arquivo da esquerda."
 
 #. (entry)
-#, fuzzy
 msgid "The name of the base file. This is shown in the view title instead of the file path. For three way diffs it is shown in a tooltip for the view title."
-msgstr "O nome do arquivo base. É mostrado no título do painel ao invés do caminho do arquivo. Para a visualização com três paineis é mostrando um tooltip no título do painel."
+msgstr "O nome do arquivo base. É mostrado no título do painel ao invés do caminho do arquivo. Para a visualização com três painéis o nome é mostrando em uma caixa de ajuda no título do painel."
 
 # Não deve ser traduzido, é um parâmetro recebido pelo executável na linha de comando
 # ****
@@ -913,7 +911,7 @@ msgstr "theirs"
 
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the left pane."
-msgstr "Especifica o <placeholder-1/> arquivo usado na visualização em três paineis, mostrado no painel esquerdo."
+msgstr "Especifica o <placeholder-1/> arquivo usado na visualização em três painéis, mostrado no painel esquerdo."
 
 #. (entry)
 msgid "The name of the theirs file. This is shown in the view title instead of the file path."
@@ -928,7 +926,7 @@ msgstr "mine"
 
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the right pane. For two way diffs, this is the right file."
-msgstr "Especifica o <placeholder-1/> arquivo usado na visualização com três paineis, mostrado no painel direito. Para a visualização de diferenças com dois paineis, este é o arquivo da direita."
+msgstr "Especifica o <placeholder-1/> arquivo usado na visualização com três painéis, mostrado no painel direito. Para a visualização de diferenças com dois painéis, este é o arquivo da direita."
 
 #. (entry)
 msgid "The name of the mine file. This is shown in the view title instead of the file path."
@@ -943,7 +941,7 @@ msgstr "merged"
 
 #. (entry)
 msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the file path where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
-msgstr "Especifica o resultado <placeholder-1/> arquivo usado na visualização com três paineis. Este é o caminho do arquivo onde o resultado da combinação/conflito resolvido é salvo. Se ainda não foi definido, então TortoiseMerge vai pergunta para o usuário onde o resultado será salvo."
+msgstr "Especifica o resultado <placeholder-1/> arquivo usado na visualização com três painéis. Este é o caminho do arquivo onde o resultado da combinação/conflito resolvido é salvo. Se ainda não foi definido, então TortoiseMerge vai pergunta para o usuário onde o resultado será salvo."
 
 #. (entry)
 msgid "The name of the merged file. This is shown in the view title instead of the file path."
@@ -1001,6 +999,10 @@ msgstr "/createunifieddiff"
 msgid "Creates a unified diff file (patch file) of two files specified with <placeholder-1/> and <placeholder-2/>. The target path is set with <placeholder-3/>. If <placeholder-4/> is not set, a file save dialog is shown so the user can choose the location to save the patch file. Note: If <placeholder-5/> is set, all other parameters are ignored."
 msgstr "Cria um arquivo de diferenças (arquivo de correção) de dois arquivos especificados com <placeholder-1/> e <placeholder-2/>, O arquivo final é definido com <placeholder-3/>. Se <placeholder-4/> não está definido, a janela para salvar o arquivo é mostrada para o usuário escolher o local onde o arquivo de correção será salvo. Nota: Se <placeholder-5/> está definido, todos os outros parâmetros são ignorados."
 
+#. (entry)
+msgid "Specifies a line number to jump to after loading the files."
+msgstr "Especifica o número de uma linha para ir depois de carregar os arquivos."
+
 #. (para)
 msgid ""
 "You can also supply simple filenames on the command line for compatibility with other diff programs. In this simplified form the command line is <screen>\n"
@@ -1009,7 +1011,7 @@ msgid ""
 msgstr ""
 "Você pode também fornecer apenas nomes de arquivos na linha de comando para compatibilidade com outros programas de diferenças. Esta é a forma simples de linha de comando <screen>\n"
 "TortoiseMerge CaminhoArquivoBase CaminhoMeuArquivo [ CaminhoArquivoDeles ]\n"
-"</screen> Se dois arquivos são informados eles vão ser comparados um com o outro. Se três arquivos são informados, o primeiro é usado como arquivo BASE, e os outros dois são comparados com este e apresentados usando a visualização com três paineis."
+"</screen> Se dois arquivos são informados eles vão ser comparados um com o outro. Se três arquivos são informados, o primeiro é usado como arquivo BASE, e os outros dois são comparados com este e apresentados usando a visualização com três painéis."
 
 #. (title)
 msgid "Glossary"
@@ -1302,7 +1304,6 @@ msgstr "créditos de tradução"
 
 #. Place the translation of 'translation' here.
 #. (None)
-#, fuzzy
 msgid "translator-translation"
-msgstr "traduções da tradução"
+msgstr "tradutor-tradução"
 
