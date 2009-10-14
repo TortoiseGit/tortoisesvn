@@ -495,64 +495,71 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		svn_wc_status_kind status = svn_wc_status_none;
 		if (IsClipboardFormatAvailable(CF_HDROP)) 
 			itemStatesFolder |= ITEMIS_PATHINCLIPBOARD;
-		if ((folder_.compare(statuspath)!=0)&&(g_ShellCache.IsContextPathAllowed(folder_.c_str())))
+		if (g_ShellCache.IsContextPathAllowed(folder_.c_str()))
 		{
-			try
+			if (folder_.compare(statuspath)!=0)
 			{
-				SVNStatus stat;
-				if (g_ShellCache.HasSVNAdminDir(folder_.c_str(), true))
-					stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
-				if (stat.status)
+				try
 				{
-					status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-					itemStatesFolder |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
-					if ((stat.status->entry)&&(stat.status->entry->lock_token))
-						itemStatesFolder |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
-					if ((stat.status->entry)&&(stat.status->entry->present_props))
-					{
-						if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
-							itemStatesFolder |= ITEMIS_NEEDSLOCK;
-					}
-					if ((stat.status->entry)&&(stat.status->entry->uuid))
-						uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
-					if (stat.status->tree_conflict)
-						itemStates |= ITEMIS_CONFLICTED;
-					if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
-						itemStatesFolder |= ITEMIS_INSVN;
-					if (status == svn_wc_status_normal)
-						itemStatesFolder |= ITEMIS_NORMAL;
-					if (status == svn_wc_status_conflicted)
-						itemStatesFolder |= ITEMIS_CONFLICTED;
-					if (status == svn_wc_status_added)
-						itemStatesFolder |= ITEMIS_ADDED;
-					if (status == svn_wc_status_deleted)
-						itemStatesFolder |= ITEMIS_DELETED;
-					if ((stat.status->entry)&&(stat.status->entry->copyfrom_url))
-						itemStates |= ITEMIS_ADDEDWITHHISTORY;
-				}
-				else
-				{
-					if (stat.IsUnsupportedFormat())
-					{
-						itemStates |= ITEMIS_UNSUPPORTEDFORMAT;
-					}
-					// sometimes, svn_client_status() returns with an error.
-					// in that case, we have to check if the working copy is versioned
-					// anyway to show the 'correct' context menu
+					SVNStatus stat;
 					if (g_ShellCache.HasSVNAdminDir(folder_.c_str(), true))
-						status = svn_wc_status_normal;
+						stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
+					if (stat.status)
+					{
+						status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+						itemStatesFolder |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
+						if ((stat.status->entry)&&(stat.status->entry->lock_token))
+							itemStatesFolder |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
+						if ((stat.status->entry)&&(stat.status->entry->present_props))
+						{
+							if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+								itemStatesFolder |= ITEMIS_NEEDSLOCK;
+						}
+						if ((stat.status->entry)&&(stat.status->entry->uuid))
+							uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
+						if (stat.status->tree_conflict)
+							itemStates |= ITEMIS_CONFLICTED;
+						if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
+							itemStatesFolder |= ITEMIS_INSVN;
+						if (status == svn_wc_status_normal)
+							itemStatesFolder |= ITEMIS_NORMAL;
+						if (status == svn_wc_status_conflicted)
+							itemStatesFolder |= ITEMIS_CONFLICTED;
+						if (status == svn_wc_status_added)
+							itemStatesFolder |= ITEMIS_ADDED;
+						if (status == svn_wc_status_deleted)
+							itemStatesFolder |= ITEMIS_DELETED;
+						if ((stat.status->entry)&&(stat.status->entry->copyfrom_url))
+							itemStates |= ITEMIS_ADDEDWITHHISTORY;
+					}
+					else
+					{
+						if (stat.IsUnsupportedFormat())
+						{
+							itemStates |= ITEMIS_UNSUPPORTEDFORMAT;
+						}
+						// sometimes, svn_client_status() returns with an error.
+						// in that case, we have to check if the working copy is versioned
+						// anyway to show the 'correct' context menu
+						if (g_ShellCache.HasSVNAdminDir(folder_.c_str(), true))
+							status = svn_wc_status_normal;
+					}
+				}
+				catch ( ... )
+				{
+					ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 				}
 			}
-			catch ( ... )
+			else
 			{
-				ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+				status = fetchedstatus;
+				itemStatesFolder = itemStates;
 			}
 		}
 		else
 		{
 			folder_.clear();
 			status = fetchedstatus;
-			itemStatesFolder = itemStates;
 		}
 		if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
 		{
