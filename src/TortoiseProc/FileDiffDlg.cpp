@@ -904,6 +904,18 @@ BOOL CFileDiffDlg::PreTranslateMessage(MSG* pMsg)
 				}
 			}
 			break;
+		case VK_F5:
+			{
+				if (!m_bThreadRunning)
+				{
+					InterlockedExchange(&m_bThreadRunning, TRUE);
+					if (AfxBeginThread(DiffThreadEntry, this)==NULL)
+					{
+						InterlockedExchange(&m_bThreadRunning, FALSE);
+					}
+				}
+			}
+			break;
 		}
 	}
 	return __super::PreTranslateMessage(pMsg);
