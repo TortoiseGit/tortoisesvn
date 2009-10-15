@@ -16,7 +16,6 @@
 - CHG: 'Hide unrelated changed paths' now works across path copies as well.
        (Stefan Fuhrmann)
 - CHG: Log dialog much faster when showing many revisions (Stefan Fuhrmann)
-- BUG: Merged revisions must be counted only once in stats (Stefa Fuhrmann)
 - NEW: new command line params for the log dialog
        to set the filter. (Stefan)
 - NEW: new autoclose setting for local operations only. (Stefan)
@@ -51,6 +50,7 @@
        the diff or merge. (Stefan)
 - NEW: Double clicking on a word in TortoiseMerge marks all
        occurrences of that word in all views. (Stefan)
+- BUG: Merged revisions must be counted only once in stats (Stefa Fuhrmann)
 
 Version 1.6.6
 - CHG: Reduced disk access in the status cache. (Stefan)
