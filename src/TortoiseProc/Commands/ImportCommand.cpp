@@ -21,12 +21,24 @@
 
 #include "ImportDlg.h"
 #include "SVNProgressDlg.h"
+#include "StringUtils.h"
 
 bool ImportCommand::Execute()
 {
 	bool bRet = false;
+	CString msg;
+	if (parser.HasKey(_T("logmsg")))
+	{
+		msg = parser.GetVal(_T("logmsg"));
+	}
+	if (parser.HasKey(_T("logmsgfile")))
+	{
+		CString logmsgfile = parser.GetVal(_T("logmsgfile"));
+		CStringUtils::ReadStringFromTextFile(logmsgfile, msg);
+	}
 	CImportDlg dlg;
 	dlg.m_path = cmdLinePath;
+	dlg.m_sMessage = msg;
 	if (parser.HasVal(_T("url")))
 		dlg.m_url = parser.GetVal(_T("url"));
 	if (dlg.DoModal() == IDOK)
