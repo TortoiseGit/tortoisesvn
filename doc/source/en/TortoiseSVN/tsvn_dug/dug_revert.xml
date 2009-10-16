@@ -46,6 +46,12 @@
 		columns in the <guilabel>Check for modifications</guilabel> dialog.
 		Read <xref linkend="tsvn-dug-wcstatus-2"/> for further details.
 	</para>
+	<para>
+		Since revert is sometimes used to clean up a working copy, there is an
+		extra button which allows you to delete unversioned items as well.
+		When you click this button another dialog comes up listing all the
+		unversioned items, which you can then select for deletion.
+	</para>
 	<tip>
 		<title>Undoing Changes which have been Committed</title>
 		<para>
