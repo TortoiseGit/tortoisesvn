@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-16 17:51+0200\n"
+"PO-Revision-Date: 2009-10-16 18:41+0200\n"
 "Last-Translator: Vural Goze <vuralgoze@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1658,16 +1658,14 @@ msgid "All your changes will be lost! Do you really want to reset the toolbar '%
 msgstr "Tüm değişiklikleriniz kaybolacak! '%s' araç çubuğunu sıfırlamak istiyor musunuz?"
 
 #. Resource IDs: (1484)
-#, fuzzy
 msgid "Allow ambiguous &UUIDs"
-msgstr "&Şüpheli sitelere izin ver"
+msgstr "&Muğlak UUIDlere izin ver"
 
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
 msgstr "Farklı depoların aynı URL'yi kullanmasına izin ver. örn. http://localhost/myrepos/"
 
 #. Resource IDs: (345)
-#, fuzzy
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Farklı depoların aynı UUID'yi kullanmasına izin ver. örn. kopyalanmış depolar"
 
@@ -2925,13 +2923,13 @@ msgid "Could not start print job."
 msgstr "Çiktı alma (Print) işlemi başlatılamadı."
 
 #. Resource IDs: (83)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not start text viewer!\n"
 "<hr=100%%>\n"
 "%s"
 msgstr ""
-"Karşılaştırma dosyası görüntüleyicisi başlatılamadı\n"
+"Metin görüntüleyicisi başlatılamadı!\n"
 "<hr=100%%>\n"
 "%s"
 
@@ -4463,9 +4461,8 @@ msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
 #. Accelerator Entry for Menu ID:32824; ''
-#, fuzzy
 msgid "ID:32824:V C +F"
-msgstr "ID:32822:V C +F"
+msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -4559,11 +4556,12 @@ msgid "If activated, prevents the overlays and the context menu from showing in 
 msgstr "Aktive edildiğinde,\"Farklı kaydet..\" yada \"Aç\" diyaloglarında işaretlerin gösterilmesini engeller"
 
 #. Resource IDs: (198)
-#, fuzzy
 msgid ""
 "If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
-msgstr "Aktive edildiğinde, eğer svn:needs-lock özelliği işaretli ise menüdeki \"Kilidi Al\" seçeneği  üst menüde gösterilir"
+msgstr ""
+"Aktive edildiğinde, eğer seçili dosyada svn:needs-lock özelliği işaretli ise menüdeki\n"
+" \"Kilidi Al\" seçeneği her zaman en üst seviye menüde gösterilir"
 
 #. Resource IDs: (95)
 msgid ""
@@ -4665,18 +4663,17 @@ msgstr ""
 "Bu işlemi yapmak istediğinizden eminmisiniz?"
 
 #. Resource IDs: (251)
-#, fuzzy
 msgid "If you want to break the lock, use the 'Check For Modifications' dialog."
-msgstr "Eğer kilidi kırmak istiyorsanız, \"Modifikasyon ara\" diyalogunu kullanınız. "
+msgstr "Eğer kilidi kırmak istiyorsanız, \"Değişiklikleri Kontrol Et\" diyaloğunu kullanın. "
 
 #. Resource IDs: (73)
 msgid "Ignore"
 msgstr "Aldırma"
 
 #. Resource IDs: (14)
-#, fuzzy, c-format
+#, c-format
 msgid "Ignore %d items by &extension"
-msgstr "%d elemana al&dırma"
+msgstr "%d elemana uzantısına göre al&dırma"
 
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
@@ -4950,7 +4947,7 @@ msgstr ""
 "Bunun sınırlamanın üstesinden gelmek için lütfen yardım dosyasına bakınız."
 
 #. Resource IDs: (88)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
 "\n"
@@ -4964,17 +4961,17 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
 "Do you really want to relocate?"
 msgstr ""
-"Aynı depo içerisinde çalişan kopyanızı başka bir dizine <b>taşımaya</b> çalışıyorsunuz\n"
+"Çalişan kopyanızı aynı depo içerisinde başka bir dizine <b>taşımaya</b> çalışıyorsunuz.\n"
 "\n"
-"From: %s 'dan\n"
-"To: %s 'e\n"
+"Buradan:\t%s\n"
+"Buraya:\t\t%s\n"
 "\n"
-"Başka bir dizine taşıma sadece deponun dizini değiştiğinde gereklidir.Depo içerisinde başka bir \n"
-"dizine değiştirmek değiştir/geç işlemi ile yapılır.\n"
+"Başka bir dizine taşıma sadece depo<b>nun</b> dizini değiştiğinde gereklidir.\n"
+"Depo içerisinde başka bir dizine değiştirmek değiştir/geç işlemi ile yapılır.\n"
 "\n"
-"Başka bir dizine taşıma uygunsuz bir şekilde kullanıldığında <b>çalışan kopyanızı tahrip eder!</b>\n"
-"Ne yapmanız gerektiğinden emin değilseniz lütfen <b>Taşı</b> hakkındaki yardım dosyalarına bakınız.\n"
-"Taşımak istediğinizden eminmisiniz?"
+"Başka bir dizine taşımanın yanlış kullanımı <b>çalışan kopyanızı tahrip eder!</b>\n"
+"Ne yapmanız gerektiğinden emin değilseniz lütfen <b>taşı</b> hakkındaki belgelerimize başvurun.\n"
+"Taşımak istediğinizden emin misiniz?"
 
 #. Resource IDs: (1480)
 msgid "Items in externals"
@@ -5202,9 +5199,8 @@ msgid "Log Caching"
 msgstr "Günlük Önbellekleme"
 
 #. Resource IDs: (295)
-#, fuzzy
 msgid "Log Caching::Cached Repositories"
-msgstr "Depo oluştur"
+msgstr "Günlük Önbelleği::Önbelleğe Kaydedilmiş Depolar"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -5231,16 +5227,18 @@ msgid "Log messages (Show log dialog)"
 msgstr "Günlük mesajları (Günlük diyaloğunu göster)"
 
 #. Resource IDs: (238)
-#, fuzzy, c-format
+#, c-format
 msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
-msgstr "En düşük revizyon: %ld - En yüksek revizyon: %ld"
+msgstr "Gösterilen en düşük revizyon: %ld - Gösterilen en yüksek revizyon: %ld"
 
 #. Resource IDs: (238)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Lowest shown revision: %ld - Highest shown revision: %ld\n"
 "HEAD revision: %ld"
-msgstr "En düşük revizyon: %ld - En yüksek revizyon: %ld - Baş revizyon: %ld"
+msgstr ""
+"Gösterilen en düşük revizyon: %ld - Gösterilen en yüksek revizyon: %ld\n"
+"BAŞ revizyon: %ld"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -6160,7 +6158,6 @@ msgid "Please execute the 'Cleanup' command."
 msgstr "Lütfen \"Cleanup\" komutunu çalıştırınız."
 
 #. Resource IDs: (78)
-#, fuzzy
 msgid ""
 "Please note:\n"
 "Your working copy remains on the previous path. If you want your next changes\n"
@@ -6169,9 +6166,10 @@ msgid ""
 "Use the Switch command to do that."
 msgstr ""
 "Not:\n"
-"Çalışan kopyanız bir önceki dizininde bulunmakta. Eğer bir sonraki değişikliklerinizin\n"
-"az önce yaratılan kopyaya kopyalanmasını istiyorsanız o zaman o kopyanın \n"
-"bulunduğu dizine geçmelisiniz. Bu işlemi yapmak için Taşı komutunu kullanın. "
+"Çalışan kopyanız önceki dizininde kalacak. Eğer bundan sonraki değişikliklerinizin\n"
+"az önce yaratılan kopya veya dala teslim edilmesini istiyorsanız o zaman çalışan \n"
+"kopyanızı yeni URL'ye değiştirmelisiniz. \n"
+"Bu işlemi yapmak için Değiştir komutunu kullanın. "
 
 #. Resource IDs: (1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
@@ -6198,9 +6196,8 @@ msgid "Please wait while differences are obtained..."
 msgstr "Farklılıkları alana kadar lütfen bekleyiniz..."
 
 #. Resource IDs: (104)
-#, fuzzy
 msgid "Please wait while the repository browser is initializing..."
-msgstr "Depo tarayıcısı başlayana kadar lütfen bekleyiniz..."
+msgstr "Lütfen depo tarayıcısı başlarken bekleyin..."
 
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
@@ -6472,9 +6469,8 @@ msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Takılmadan önce günlük kullanım kılavuzunu okuyunuz..."
 
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "Recent"
-msgstr "Reddet"
+msgstr "Son"
 
 #. Resource IDs: (65535)
 msgid "Recently modified lines"
@@ -7192,9 +7188,8 @@ msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
 msgstr "0 saniyeden daha uzun bir süreye ayarlandığında sunucuya gelgitleri azaltır."
 
 #. Resource IDs: (581)
-#, fuzzy
 msgid "Saves the selected property value to a file"
-msgstr "Özellik değerlerini eol-stilinde gösterir"
+msgstr "Seçili özellik değerini bir dosyaya kaydeder"
 
 #. Resource IDs: (103)
 #, c-format
@@ -7315,9 +7310,8 @@ msgid "Select end revision"
 msgstr "Bitiş revizyonunu seç"
 
 #. Resource IDs: (64)
-#, fuzzy
 msgid "Select folder to associate with this issue tracker"
-msgstr "Dosyasını kopyalamak istediğiniz klasörü seçiniz"
+msgstr "Bu problem izleyicisiyle ilişkilendirmek için bir klasör seçin"
 
 #. Resource IDs: (79)
 msgid ""
@@ -7364,9 +7358,8 @@ msgid "Select text editor application"
 msgstr "Metin editörü seç"
 
 #. Resource IDs: (595)
-#, fuzzy
 msgid "Select the URL from which to reintegrate"
-msgstr "Ağaç birleştirme işlemi için adresleri (URL) girin"
+msgstr "Yeniden entegre edilecek kaynak URL'yi seçin"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
@@ -7604,7 +7597,6 @@ msgid "Show f&ull menus after a short delay"
 msgstr "Menülerin tamamını kısa aralıklarla göster"
 
 #. Resource IDs: (1037)
-#, fuzzy
 msgid "Show l&og"
 msgstr "&Günlüğü göster"
 
@@ -7621,13 +7613,12 @@ msgid "Show only the changed parts of the path name. Replace unchanged elements 
 msgstr "Yol adının sadece değiştirilmiş kısımlarını göster. Değiştirilmemiş kısımları noktalarla belirt."
 
 #. Resource IDs: (2054)
-#, fuzzy
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr ""
-"Araç çubuğunu göster yada gizle\n"
-"Araç çubuğu"
+"Satır karşılaştırma çubuğunu göster yada gizle\n"
+"Satır karşılaştırma çubuğunu Aç/Kapa"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -8174,7 +8165,7 @@ msgid "The file %s was not found in the patch file!"
 msgstr "%s Dosyası yama dosyasında bulunamadı!"
 
 #. Resource IDs: (314)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The file \n"
 "%s\n"
@@ -8182,7 +8173,9 @@ msgid ""
 "Do you want to remove the file?"
 msgstr ""
 "%s\n"
-"Dosya adı bulunmakta! Üstüne yazmak istiyormusunuz?"
+"dosyası\n"
+"boş değil\n"
+"Dosyayı kaldırmak istiyor musunuz?"
 
 #. Resource IDs: (69)
 msgid "The file is too big"
@@ -8203,7 +8196,7 @@ msgstr ""
 "Dosya adı bulunmakta! Üstüne yazmak istiyormusunuz?"
 
 #. Resource IDs: (69)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The file\n"
 "%s\n"
@@ -8211,9 +8204,9 @@ msgid ""
 "Note that UTF32 files are treated as binary too."
 msgstr ""
 "%s\n"
-"Dosyası\n"
-"Geçerli bir metin dosyası değil!\n"
-"Not: UTF32 dosyaları da ikili(binary) dosya olarak algılanır."
+"dosyası\n"
+"geçerli bir metin dosyası değil!\n"
+"Not: UTF32 dosyalarına da ikili(binary) dosya olarak işlem yapılır."
 
 #. Resource IDs: (145)
 #, c-format
@@ -8265,9 +8258,8 @@ msgid "The issue-tracker provider could not be created. Please check that it is 
 msgstr "Problem-izleyici sağlayıcı oluşturulamıyor. Lütfen doğru olarak yüklendiğini kontrol ediniz."
 
 #. Resource IDs: (64)
-#, fuzzy
 msgid "The issue-tracker provider was unable to validate the parameter string"
-msgstr "Problem-izleyici sağlayıcı parametre dizisini doğrulama işleminde başarısız oldu."
+msgstr "Problem-izleyici sağlayıcı parametre dizisini doğrulamayamadı."
 
 #. Resource IDs: (597)
 #, c-format
@@ -8365,18 +8357,17 @@ msgid "The last update operation tried to modify the file '%s'"
 msgstr "Son güncelleme işlemi '%s' dosyasını değiştirmeyi denedi"
 
 #. Resource IDs: (63)
-#, fuzzy, c-format
+#, c-format
 msgid "The line '====' was expected in line %d !"
-msgstr "%d satırında beklenen \"====\" satırı bulunamadı!"
+msgstr "%d satırında '====' satırı bekleniyordu!"
 
 #. Resource IDs: (63)
-#, fuzzy
 msgid ""
 "The line 'Index: ' was not found!\n"
 "Either this is not a diff file or the diff is empty."
 msgstr ""
 "\"Index: \" satırı bulunamadı!\n"
-"Ya bu bir karşılaştırma dosyası değil yada karşılaştırma dosyası boş."
+"Ya bu bir karşılaştırma dosyası değil ya da karşılaştırma dosyası boş."
 
 #. Resource IDs: (63)
 #, c-format
@@ -8667,15 +8658,14 @@ msgstr ""
 "Lütfen buraya geçerli bir URL giriniz."
 
 #. Resource IDs: (82)
-#, fuzzy
 msgid ""
 "This is not a valid path!\n"
 "A valid path must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
-"Bu geçerli bir dizin değil!\n"
-"Geçerli bir dizin '<>|\"?*:'  yada :\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$ içermemeli"
+"Bu geçerli bir yol değil!\n"
+"Geçerli bir yol '<<>|\"?*:'  veya aşağıdaki aygıt isimlerinden birini içermemelidir:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
@@ -8928,9 +8918,8 @@ msgid "Total number of user revision properties"
 msgstr "Kullanıcı revizyon özelliklerini toplamı"
 
 #. Resource IDs: (32821)
-#, fuzzy
 msgid "Tr&ee stripes"
-msgstr "Birleştirme ağacı"
+msgstr "Ağaç şeritleri"
 
 #. Resource IDs: (357)
 #, c-format
@@ -9356,9 +9345,8 @@ msgstr ""
 "'Benim' metin bloğunu kullan."
 
 #. Resource IDs: (251)
-#, fuzzy
 msgid "Use text block from 't&heirs' before 'mine'"
-msgstr "'Onların'dan sonra ve 'Benim'den önce metin bloğunu kullanınız"
+msgstr "'Benim'kinden önce 'Onlar'ın metin bloğunu kullan"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -9465,9 +9453,9 @@ msgid "Version"
 msgstr "Versiyon"
 
 #. Resource IDs: (7)
-#, fuzzy, c-format
+#, c-format
 msgid "Version %d.%d.%d.%d"
-msgstr "Versiyonunuz: %d.%d.%d.%d"
+msgstr "Versiyon %d.%d.%d.%d"
 
 #. Resource IDs: (1075)
 msgid "Version Information"
@@ -9609,30 +9597,28 @@ msgid "You already have the latest version installed."
 msgstr "Sizde zaten en son versiyon yüklenmiş durumda."
 
 #. Resource IDs: (144)
-#, fuzzy
 msgid ""
 "You are creating a repository on a network share.\n"
 "This is safe, but once the repository is created you must access it by some other means.\n"
 "Accessing a repository via file:// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
-"Ağ paylaşımında depo yaratmaktasınız.\n"
-"Bu güvenlidir fakat depo yaratıldıktan sonra başka yollardan erişmeniz gerekecektir.\n"
-"Ağ paylaşımındaki bir depoya file:/// ile erişirseniz bilgileriniz tahrip olabilir!\n"
+"Ağ paylaşımında bir depo yaratıyorsunuz.\n"
+"Bu güvenlidir, fakat depo bir kez yaratıldıktan sonra başka yollardan erişmeniz gerekecektir.\n"
+"Ağ paylaşımındaki bir depoya file:/// ile erişmek verilerinizi tahrip edebilir!\n"
 "Yine de depo yaratılsın mı?"
 
 #. Resource IDs: (88)
-#, fuzzy
 msgid ""
 "You are trying to access a repository via file:// on\n"
 "a shared network drive.\n"
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"Ağ paylaşımındaki bir depoya file:/// ile erişmeye \n"
+"Paylaşılan bir ağ sürücüsündeki bir depoya file:// ile erişmeye \n"
 "çalışıyorsunuz.\n"
-"Bu işlem deponun ciddi bir şekide tahrip olamasına neden olabilir!\n"
-"Yine de işleme devam etmek istiyormusunuz?"
+"Bu işlem deponun ciddi bir şekilde tahrip olmasına neden olabilir!\n"
+"Bunu gerçekten yapmak istiyor musunuz?"
 
 #. Resource IDs: (105)
 msgid ""
