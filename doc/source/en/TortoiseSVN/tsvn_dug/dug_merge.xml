@@ -354,6 +354,13 @@
 			as real changes to be merged.
 		</para>
 		<para>
+			The checkbox marked <guilabel>Force the merge</guilabel> is used to
+			avoid a tree conflict where an incoming delete affects a file that
+			is either modified locally or not versioned at all. If the file is
+			deleted then there is no way to recover it, which is why that option
+			is not checked by default.
+		</para>
+		<para>
 			If you are using merge tracking and you want to mark a revision as
 			having been merged, without actually doing the merge here, check the
 			<guilabel>Only record the merge</guilabel> checkbox. There are two
