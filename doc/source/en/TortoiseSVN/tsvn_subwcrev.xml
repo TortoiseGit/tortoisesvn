@@ -555,5 +555,22 @@ WScript.Echo(wcInfoString4);
 
 </programlisting>
 		</para>
+		<para>
+		The following listing is an example on how to use the SubWCRev COM
+		object from C#:
+<programlisting>
+using LibSubWCRev;
+SubWCRev sub = new SubWCRev();
+sub.GetWCInfo("C:\\PathToMyFile\\MyFile.cc", true, true);
+if (sub.IsSvnItem == true)
+{
+    MessageBox.Show("versioned");
+}
+else
+{
+    MessageBox.Show("not versioned");
+}
+</programlisting>
+		</para>
 	</sect1>
 </chapter>
