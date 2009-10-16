@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-09-24 10:33+0300\n"
+"PO-Revision-Date: 2009-10-15 11:59+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -844,6 +844,10 @@ msgstr "Попередній перегляд &друку"
 msgid "&Print..."
 msgstr "&Друк..."
 
+#. Resource IDs: (1265)
+msgid "&Properties"
+msgstr "В&ластивості"
+
 #. Resource IDs: (11021)
 msgid "&Properties..."
 msgstr "&Властивості..."
@@ -1362,10 +1366,6 @@ msgstr ""
 "Програма перегляду файлів відмінностей GNU (файлів-латок).\r\n"
 "Якщо у вас такої немає, скористайтеся NotePad."
 
-#. Resource IDs: (9)
-msgid "A&bout"
-msgstr "&Про"
-
 #. Resource IDs: (101)
 msgid "A&dd folder..."
 msgstr "&Додати каталог..."
@@ -1377,6 +1377,10 @@ msgstr "Припинити"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "Припинити &злиття"
+
+#. Resource IDs: (9)
+msgid "About"
+msgstr "Про"
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
@@ -1839,6 +1843,10 @@ msgstr "Автоматичне"
 msgid "Automatically check for &newer versions every week"
 msgstr "Автоматично перевіряти щотижня наявність &нових версій"
 
+#. Resource IDs: (306)
+msgid "Autotext Tester"
+msgstr "Тестер Автотексту"
+
 #. Resource IDs: (1157)
 msgid "Average"
 msgstr "Середнє"
@@ -2055,6 +2063,10 @@ msgstr "Каскадом"
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
 msgstr "Каскадні контекстні меню"
+
+#. Resource IDs: (117)
+msgid "Case-sensitive"
+msgstr "Чутливі до регістра"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
@@ -2345,6 +2357,18 @@ msgstr "&Згорнути вихідне дерево"
 #. Resource IDs: (275)
 msgid "Collapse &following tree"
 msgstr "Згорнути &вказане дерево"
+
+#. Resource IDs: (2055)
+msgid ""
+"Collapse unchanged sections\n"
+"Collapse"
+msgstr ""
+"Згорнути незмінені секції\n"
+"Згорнути"
+
+#. Resource IDs: (32870)
+msgid "Collapsed"
+msgstr "Згорнуто"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -3522,6 +3546,10 @@ msgstr "Введіть ціле число від 0 до 255."
 msgid "Enter an integer."
 msgstr "Введіть ціле число."
 
+#. Resource IDs: (65535)
+msgid "Enter file content to test for below:"
+msgstr "Введіть тут файловий вміст для тестування:"
+
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
 msgstr "Введіть логове повідо&млення:"
@@ -3534,6 +3562,10 @@ msgstr "Введіть логове повідомлення:"
 #, c-format
 msgid "Enter no more than %1 characters."
 msgstr "Введіть не більше ніж %1 символів."
+
+#. Resource IDs: (65535)
+msgid "Enter the regex string below:"
+msgstr "Введіть тут регулярний вираз:"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3588,6 +3620,10 @@ msgstr "Виконувані  (*.exe)|*.exe|Командні (*.com)|*.com|Ін�
 #. Resource IDs: (1002)
 msgid "Existing"
 msgstr "Існуючі"
+
+#. Resource IDs: (2)
+msgid "Exit"
+msgstr "Вийти"
 
 #. Resource IDs: (275)
 msgid "Exp&and source tree"
@@ -3999,6 +4035,10 @@ msgid "Forward"
 msgstr "Уперед"
 
 #. Resource IDs: (65535)
+msgid "Found auto words:"
+msgstr "Знайти автослова:"
+
+#. Resource IDs: (65535)
 msgid "From URL:"
 msgstr "З URL:"
 
@@ -4273,6 +4313,10 @@ msgstr "Невідповідність імені хоста (%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "Як бажаєте вирішити цей конфлікт?"
+
+#. Resource IDs: (1264)
+msgid "I&gnored"
+msgstr "І&гнорувати"
 
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
@@ -4866,6 +4910,14 @@ msgstr ""
 "Якщо ви не певні, що слід зробити, зверніться до документації про <i>перенесення</i>.\n"
 "Чи все-таки перенести?"
 
+#. Resource IDs: (1480)
+msgid "Items in externals"
+msgstr "Елементи у зовнішніх"
+
+#. Resource IDs: (1527)
+msgid "Items to show"
+msgstr "Елементи для показу"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "Сполучити з вказаним &деревом"
@@ -5120,8 +5172,12 @@ msgstr "Найменша показана модифікація: %ld - Найб
 
 #. Resource IDs: (238)
 #, c-format
-msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
-msgstr "Найстарша показана модифікація: %ld - Найновіша показана модифікація: %ld - HEAD-модифікація: %ld"
+msgid ""
+"Lowest shown revision: %ld - Highest shown revision: %ld\n"
+"HEAD revision: %ld"
+msgstr ""
+"Найстарша показана модифікація: %ld - Найновіша показана модифікація: %ld \n"
+"HEAD-модифікація: %ld"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -5631,6 +5687,10 @@ msgstr "Графа нема в наявності"
 #, c-format
 msgid "No image encoder found for %s."
 msgstr "Не знайдено кодувальник зображень для %s."
+
+#. Resource IDs: (84)
+msgid "No path or pathfile specified on the command line!"
+msgstr "У командному рядку не вказано шлях або файл шляху!"
 
 #. Resource IDs: (188)
 msgid "No spell corrections"
@@ -7086,6 +7146,10 @@ msgstr "Зберігаються файли"
 msgid "Saving patchfile to:"
 msgstr "Файл латки зберігається до:"
 
+#. Resource IDs: (1522)
+msgid "Scan"
+msgstr "Сканувати"
+
 #. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
 msgstr "Scintilla"
@@ -7388,10 +7452,6 @@ msgstr "Показати &лог..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "Показувати пе&рекриття та контекстні меню тільки у провіднику"
 
-#. Resource IDs: (1265)
-msgid "Show &properties"
-msgstr "Показати в&ластивості"
-
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "Показувати &неверсійні файли"
@@ -7476,14 +7536,6 @@ msgstr "Показати зовнішні з різних сховищ"
 msgid "Show f&ull menus after a short delay"
 msgstr "Показати &повні меню після короткої затримки"
 
-#. Resource IDs: (1264)
-msgid "Show i&gnored files"
-msgstr "Показати &ігноровані файли"
-
-#. Resource IDs: (1480)
-msgid "Show items in externals"
-msgstr "Показувати елементи у зовнішніх"
-
 #. Resource IDs: (1037)
 msgid "Show l&og"
 msgstr "Показати &лог"
@@ -7563,14 +7615,6 @@ msgstr "Показати статистику для вибраного лого
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Показувати зрізи на джерелі копії, а не як окремі вузли"
-
-#. Resource IDs: (1209)
-msgid "Show un&modified files"
-msgstr "Показати не&модифіковані файли"
-
-#. Resource IDs: (1073)
-msgid "Show un&versioned files"
-msgstr "Показувати не&версійні файли"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -7785,6 +7829,22 @@ msgstr "Stefan Küng, Lübbe Onken"
 msgid "Stripes"
 msgstr "Полоси"
 
+#. Resource IDs: (117)
+msgid ""
+"Sub-string filter:\r\n"
+"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Enclose strings that contain spaces etc. with \".\r\n"
+"* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
+"\r\n"
+"Examples:\r\n"
+"myname  2008    : my commits of 2008\r\n"
+".h  -.cpp              : commits that changed headers but no implementations\r\n"
+"\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"!myname  .cpp    : everything but my commits to .cpp files"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Subversion"
 msgstr "Subversion"
@@ -7797,9 +7857,14 @@ msgstr "&Файл налаштувань Subversion:"
 #, c-format
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion encountered the problem in:\n"
 "file %s, line %ld\n"
@@ -7809,6 +7874,10 @@ msgstr ""
 "Будьласка, повідомте про це в наш список розсилки,\n"
 "та надайте якомога більше інформації про те,\n"
 "що ви намагалися зробити.\n"
+"Але спершу пошукайте це повідомлення про помилку\n"
+"в архівах розсилки, щоб не повторюватись.\n"
+"Архіви розсилки знаходяться тут:\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion зіштовхнулося з проблемою у:\n"
 "file %s, рядок %ld\n"
@@ -7821,6 +7890,10 @@ msgid ""
 "(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion reported the following:"
 msgstr ""
@@ -7829,6 +7902,10 @@ msgstr ""
 "(users@subversion.tigris.org)\n"
 "та надайте якомога більше інформації про те,\n"
 "що ви намагалися зробити.\n"
+"Але спершу пошукайте це повідомлення про помилку\n"
+"в архівах розсилки, щоб не повторюватись.\n"
+"Архіви розсилки знаходяться тут:\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion доповідає про таке:"
 
@@ -8854,6 +8931,14 @@ msgstr "URL:"
 #. Resource IDs: (75)
 msgid "URL: "
 msgstr "URL:"
+
+#. Resource IDs: (1209)
+msgid "Un&modified"
+msgstr "Не&змінені"
+
+#. Resource IDs: (1073)
+msgid "Un&versioned"
+msgstr "Не&версійні"
 
 #. Resource IDs: (220)
 #, c-format
@@ -10476,6 +10561,14 @@ msgstr "так"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Show &properties"
+#~ msgstr "Показати в&ластивості"
+#~ msgid "Show i&gnored files"
+#~ msgstr "Показати &ігноровані файли"
+#~ msgid "Show un&modified files"
+#~ msgstr "Показати не&модифіковані файли"
+#~ msgid "Show un&versioned files"
+#~ msgstr "Показувати не&версійні файли"
 #~ msgid "Cleaning up."
 #~ msgstr "Очищується."
 #~ msgid "%s, but the local file was already edited."
