@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-10-10 16:07 +0000\n"
+"POT-Creation-Date: 2009-10-16 22:51 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1225,6 +1225,14 @@ msgid "Sample hook scripts can be found in the <filename>hooks</filename> direct
 msgstr ""
 
 #.(title)
+msgid "Overriding Hooks"
+msgstr ""
+
+#.(para)
+msgid "If a hook script rejects your commit then its decision is final. But you can build an override mechanism into the script itself using the <emphasis>Magic Word</emphasis> technique. If the script wants to reject the operation it first scans the log message for a special pass phrase, either a fixed phrase or perhaps the filename with a prefix. If it finds the magic word then it allows the commit to proceed. If the phrase is not found then it can block the commit with a message like <quote>You didn't say the magic word</quote> :-)"
+msgstr ""
+
+#.(title)
 msgid "Checkout Links"
 msgstr ""
 
@@ -1918,7 +1926,7 @@ msgid "Normally the <filename>privkey.pem</filename> file is created automatical
 msgstr ""
 
 #.(para)
-msgid "Next type the commands <screen>\nbin\\openssl rsa -in conf\\privkey.pem -out conf\\server.key\n</screen> and (on one line) <screen>\nbin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n-config conf\\openssl.cnf\n</screen> and then (on one line) <screen>\nbin\\openssl x509 -in conf\\server.csr -out conf\\server.crt\n                 -req -signkey conf\\server.key -days 4000\n</screen> This will create a certificate which will expire in 4000 days. And finally enter (on one line): <screen>\nbin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n                 -outform DER\n</screen> These commands created some files in the Apache <filename>conf</filename> folder (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>)."
+msgid "Next type the commands <screen>\nbin\\openssl rsa -in conf\\privkey.pem -out conf\\server.key\n</screen> and (on one line) <screen>\nbin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n-config conf\\openssl.cnf\n</screen> and then (on one line) <screen>\nbin\\openssl x509 -in conf\\server.csr -out conf\\server.cert\n                 -req -signkey conf\\server.key -days 4000\n</screen> This will create a certificate which will expire in 4000 days. And finally enter (on one line): <screen>\nbin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n                 -outform DER\n</screen> These commands created some files in the Apache <filename>conf</filename> folder (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>)."
 msgstr ""
 
 #.(para)
@@ -4911,6 +4919,10 @@ msgstr ""
 msgid "undo"
 msgstr ""
 
+#.(primary)
+msgid "clean"
+msgstr ""
+
 #.(title)
 msgid "Revert dialog"
 msgstr ""
@@ -4930,6 +4942,10 @@ msgstr ""
 #.(para)
 #.(para)
 msgid "The columns in this dialog can be customized in the same way as the columns in the <guilabel>Check for modifications</guilabel> dialog. Read <xref linkend=\"tsvn-dug-wcstatus-2\"/> for further details."
+msgstr ""
+
+#.(para)
+msgid "Since revert is sometimes used to clean up a working copy, there is an extra button which allows you to delete unversioned items as well. When you click this button another dialog comes up listing all the unversioned items, which you can then select for deletion."
 msgstr ""
 
 #.(title)
@@ -5780,6 +5796,10 @@ msgid "You can specify the way that line ending and whitespace changes are handl
 msgstr ""
 
 #.(para)
+msgid "The checkbox marked <guilabel>Force the merge</guilabel> is used to avoid a tree conflict where an incoming delete affects a file that is either modified locally or not versioned at all. If the file is deleted then there is no way to recover it, which is why that option is not checked by default."
+msgstr ""
+
+#.(para)
 msgid "If you are using merge tracking and you want to mark a revision as having been merged, without actually doing the merge here, check the <guilabel>Only record the merge</guilabel> checkbox. There are two possible reasons you might want to do this. It may be that the merge is too complicated for the merge algorithms, so you code the changes by hand, then mark the change as merged so that the merge tracking algorithm is aware of it. Or you might want to prevent a particular revision from being merged. Marking it as already merged will prevent the merge occurring with merge-tracking-aware clients."
 msgstr ""
 
@@ -6128,7 +6148,7 @@ msgid "In order to apply a patch file to your working copy, you need to have at 
 msgstr ""
 
 #.(para)
-msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog."
+msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog. Note that this option only appears if you saved the patch to the clipboard using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice>. Copying a patch to the clipboard from another app will not make the button appear."
 msgstr ""
 
 #.(para)
@@ -9042,6 +9062,15 @@ msgstr ""
 
 #.(para)
 msgid "The following example shows how the interface might be used. <placeholder-1/>"
+msgstr ""
+
+#.(programlisting)
+#, no-wrap
+msgid "\nusing LibSubWCRev;\nSubWCRev sub = new SubWCRev();\nsub.GetWCInfo(\"C:\\\\PathToMyFile\\\\MyFile.cc\", true, true);\nif (sub.IsSvnItem == true)\n{\n    MessageBox.Show(\"versioned\");\n}\nelse\n{\n    MessageBox.Show(\"not versioned\");\n}\n"
+msgstr ""
+
+#.(para)
+msgid "The following listing is an example on how to use the SubWCRev COM object from C#: <placeholder-1/>"
 msgstr ""
 
 #.(title)
