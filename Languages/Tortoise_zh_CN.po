@@ -141,6 +141,11 @@ msgstr "已传输 %I64d 字节"
 
 #. Resource IDs: (357)
 #, c-format
+msgid "%I64d Bytes/s"
+msgstr "%I64d Bytes/s"
+
+#. Resource IDs: (357)
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "已传输 %I64d KB"
 
@@ -153,11 +158,6 @@ msgstr "选择了 %d 个文件，共有 %d 个文件"
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
 msgstr "%d 个最活跃的作者各自至少提交 %d 次 (%d %%)"
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%ld Bytes/s"
-msgstr "%ld Bytes/s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -526,9 +526,13 @@ msgstr "删除(&D)"
 msgid "&Delete (keep local)"
 msgstr "删除(保留本地副本，&D)"
 
+#. Resource IDs: (1514)
+msgid "&Delete unversioned items..."
+msgstr "删除非版本控制的条目(&D) ..."
+
 #. Resource IDs: (101)
 msgid "&Delete..."
-msgstr "删除(&D)"
+msgstr "删除(&D) ..."
 
 #. Resource IDs: (12)
 msgid "&Diff"
@@ -884,6 +888,10 @@ msgstr "打印预览(&P)"
 msgid "&Print..."
 msgstr "打印(&P)..."
 
+#. Resource IDs: (1265)
+msgid "&Properties"
+msgstr "属性(&P)"
+
 #. Resource IDs: (11021)
 msgid "&Properties..."
 msgstr "属性(&P)..."
@@ -1201,6 +1209,10 @@ msgstr "(二进制)"
 msgid "(copy)"
 msgstr "(复制)"
 
+#. Resource IDs: (277)
+msgid "(create branch)"
+msgstr "(创建分支)"
+
 #. Resource IDs: (276)
 msgid "(created)"
 msgstr "(已创建)"
@@ -1208,6 +1220,10 @@ msgstr "(已创建)"
 #. Resource IDs: (276)
 msgid "(delete)"
 msgstr "(删除)"
+
+#. Resource IDs: (214)
+msgid "(externals)"
+msgstr "(外部)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -1240,10 +1256,6 @@ msgstr "(无值)"
 #. Resource IDs: (314)
 msgid "(not found)"
 msgstr "(未找到)"
-
-#. Resource IDs: (276)
-msgid "(open branch)"
-msgstr "(打开分支)"
 
 #. Resource IDs: (208)
 msgid "(property change only)"
@@ -1398,10 +1410,6 @@ msgstr ""
 "用来查看 GNU 差异文件(补丁文件)的程序。\r\n"
 "如果没有，可以使用记事本。"
 
-#. Resource IDs: (9)
-msgid "A&bout"
-msgstr "关于(&B)"
-
 #. Resource IDs: (101)
 msgid "A&dd folder..."
 msgstr "加入文件夹(&D)..."
@@ -1413,6 +1421,10 @@ msgstr "放弃"
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
 msgstr "取消合并(&M)"
+
+#. Resource IDs: (9)
+msgid "About"
+msgstr "关于"
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
@@ -1873,6 +1885,10 @@ msgstr "自动"
 msgid "Automatically check for &newer versions every week"
 msgstr "每周都自动检查新版本(&N)"
 
+#. Resource IDs: (306)
+msgid "Autotext Tester"
+msgstr ""
+
 #. Resource IDs: (1157)
 msgid "Average"
 msgstr "平均"
@@ -2089,6 +2105,10 @@ msgstr "层叠"
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
 msgstr "右键菜单"
+
+#. Resource IDs: (117)
+msgid "Case-sensitive"
+msgstr "区分大小写"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
@@ -2380,6 +2400,18 @@ msgstr "折叠源树(&A)"
 msgid "Collapse &following tree"
 msgstr "折叠下列树(&F)"
 
+#. Resource IDs: (2055)
+msgid ""
+"Collapse unchanged sections\n"
+"Collapse"
+msgstr ""
+"折叠未改变的部分\n"
+"折叠"
+
+#. Resource IDs: (32870)
+msgid "Collapsed"
+msgstr "已折叠"
+
 #. Resource IDs: (16662)
 msgid "Color"
 msgstr "颜色"
@@ -2577,6 +2609,10 @@ msgstr "继续"
 #. Resource IDs: (1001)
 msgid "Contract docked window"
 msgstr "契约钉住的窗口"
+
+#. Resource IDs: (15)
+msgid "Converts the working copy format to the new version"
+msgstr "升级工作副本格式至新版本"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -2916,6 +2952,10 @@ msgstr ""
 #. Resource IDs: (8)
 msgid "Create repositor&y here"
 msgstr "在此创建版本库(&Y)"
+
+#. Resource IDs: (102)
+msgid "Create shortcut"
+msgstr "创建快捷方式"
 
 #. Resource IDs: (32828)
 msgid "Create unified diff file"
@@ -3549,6 +3589,10 @@ msgstr "请输入介于 0 到 255 之间的整数。"
 msgid "Enter an integer."
 msgstr "请输入整数。"
 
+#. Resource IDs: (65535)
+msgid "Enter file content to test for below:"
+msgstr ""
+
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
 msgstr "输入日志信息(&M): "
@@ -3561,6 +3605,10 @@ msgstr "输入日志信息: "
 #, c-format
 msgid "Enter no more than %1 characters."
 msgstr "请勿输入超过 %1 个字符。"
+
+#. Resource IDs: (65535)
+msgid "Enter the regex string below:"
+msgstr ""
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3615,6 +3663,10 @@ msgstr "可执行 (*.exe)|*.exe|命令 (*.com)|*.com|信息 (*.pdf)|*.pdf|批处
 #. Resource IDs: (1002)
 msgid "Existing"
 msgstr "已经存在"
+
+#. Resource IDs: (2)
+msgid "Exit"
+msgstr "退出"
 
 #. Resource IDs: (275)
 msgid "Exp&and source tree"
@@ -4024,6 +4076,10 @@ msgid "Forward"
 msgstr "前进"
 
 #. Resource IDs: (65535)
+msgid "Found auto words:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "From URL:"
 msgstr "从 URL: "
 
@@ -4298,6 +4354,10 @@ msgstr "站点名称不符(%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "你准备如何解决此冲突？"
+
+#. Resource IDs: (1264)
+msgid "I&gnored"
+msgstr "忽略(&G)"
 
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
@@ -4886,6 +4946,14 @@ msgstr ""
 "如果你不确定要进行什么操作，请在文档中查阅<i>重定位</i>的相关内容。\n"
 "你确定要重定位吗？"
 
+#. Resource IDs: (1480)
+msgid "Items in externals"
+msgstr "外部的条目"
+
+#. Resource IDs: (1527)
+msgid "Items to show"
+msgstr "显示的条目"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "与下列树连接(&T)"
@@ -5138,8 +5206,12 @@ msgstr "最低显示版本: %ld - 最高显示版本: %ld"
 
 #. Resource IDs: (238)
 #, c-format
-msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
-msgstr "最低显示版本 %ld - 最高显示版本: %ld - 最新版本: %ld"
+msgid ""
+"Lowest shown revision: %ld - Highest shown revision: %ld\n"
+"HEAD revision: %ld"
+msgstr ""
+"最低显示版本: %ld - 最高显示版本n: %ld\n"
+"最新版本: %ld"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -5647,6 +5719,10 @@ msgstr "没有图片。"
 #, c-format
 msgid "No image encoder found for %s."
 msgstr "没有找到适用于 %s 的图像解码器。"
+
+#. Resource IDs: (84)
+msgid "No path or pathfile specified on the command line!"
+msgstr ""
 
 #. Resource IDs: (188)
 msgid "No spell corrections"
@@ -6642,8 +6718,12 @@ msgid "Renames files / folders inside version control"
 msgstr "改名版本控制树中的文件/文件夹"
 
 #. Resource IDs: (209)
+msgid "Repair copy"
+msgstr "修复复制"
+
+#. Resource IDs: (209)
 msgid "Repair move"
-msgstr "准备移动"
+msgstr "修复移动"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -6680,6 +6760,10 @@ msgstr "版本库 URL"
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
 msgstr "版本库 UUID: "
+
+#. Resource IDs: (106)
+msgid "Request cancelled by TSVN"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
@@ -7089,6 +7173,10 @@ msgstr "保存文件"
 msgid "Saving patchfile to:"
 msgstr "保存补丁文件至: "
 
+#. Resource IDs: (1522)
+msgid "Scan"
+msgstr ""
+
 #. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
 msgstr "Scintilla"
@@ -7112,6 +7200,10 @@ msgstr "查找内容: "
 #. Resource IDs: (7)
 msgid "Search string not found!"
 msgstr "没有找到要查找的字符串！"
+
+#. Resource IDs: (169)
+msgid "Searching for better path to apply patch..."
+msgstr ""
 
 #. Resource IDs: (3867)
 #, c-format
@@ -7387,10 +7479,6 @@ msgstr "显示日志(&L)..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "仅在资源管理器中显示图标覆盖和上下文菜单(&O)"
 
-#. Resource IDs: (1265)
-msgid "Show &properties"
-msgstr "显示属性(&P)"
-
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "显示无版本控制的文件(&U)"
@@ -7475,14 +7563,6 @@ msgstr "从不同的版本库显示外部引用"
 msgid "Show f&ull menus after a short delay"
 msgstr "在短暂延时后显示全部菜单(&U)"
 
-#. Resource IDs: (1264)
-msgid "Show i&gnored files"
-msgstr "显示被忽略的文件(&G)"
-
-#. Resource IDs: (1480)
-msgid "Show items in externals"
-msgstr "显示外部条目"
-
 #. Resource IDs: (1037)
 msgid "Show l&og"
 msgstr "显示日志(&O)"
@@ -7562,14 +7642,6 @@ msgstr "显示选定的日志缓存统计"
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "在复制源显示标签，而不是单独节点"
-
-#. Resource IDs: (1209)
-msgid "Show un&modified files"
-msgstr "显示未修改的文件(&M)"
-
-#. Resource IDs: (1073)
-msgid "Show un&versioned files"
-msgstr "显示无版本控制的文件(&V)"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -7783,6 +7855,22 @@ msgstr "Stefan Küng, Lübbe Onken"
 msgid "Stripes"
 msgstr "修剪"
 
+#. Resource IDs: (117)
+msgid ""
+"Sub-string filter:\r\n"
+"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Enclose strings that contain spaces etc. with \".\r\n"
+"* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
+"\r\n"
+"Examples:\r\n"
+"myname  2008    : my commits of 2008\r\n"
+".h  -.cpp              : commits that changed headers but no implementations\r\n"
+"\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"!myname  .cpp    : everything but my commits to .cpp files"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Subversion"
 msgstr "Subversion"
@@ -7795,16 +7883,24 @@ msgstr "Subversion 配置文件(&F): "
 #, c-format
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion encountered the problem in:\n"
 "file %s, line %ld\n"
 "expression = %s"
 msgstr ""
 "Subversion 遇到一个严重问题。\n"
-"请花费一些时间，尽可能的把你的操作信息报告给我们的邮件列表。\n"
+"请花费一些时间，尽可能多的把你的操作信息报告给 Subversion 的邮件列表\n"
+"(users@subversion.tigris.org)。\n"
+"但是请先搜索邮件列表归档，以避免重复报告相同的错误消息。邮件列表归档位于\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion 遇到的问题位于:\n"
 "file %s, line %ld\n"
@@ -7813,14 +7909,22 @@ msgstr ""
 #. Resource IDs: (84)
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion reported the following:"
 msgstr ""
 "Subversion 遇到一个严重问题。\n"
-"请花费一些时间，尽可能的把你的操作信息报告给我们的邮件列表。\n"
+"请花费一些时间，尽可能多的把你的操作信息报告给 Subversion 的邮件列表。\n"
+"(users@subversion.tigris.org)\n"
+"但是请先搜索邮件列表归档，以避免重复报告相同的错误消息。邮件列表归档位于\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion 报告了下述信息:"
 
@@ -8841,6 +8945,14 @@ msgstr "URL: "
 msgid "URL: "
 msgstr "URL: "
 
+#. Resource IDs: (1209)
+msgid "Un&modified"
+msgstr "未修改的(&M)"
+
+#. Resource IDs: (1073)
+msgid "Un&versioned"
+msgstr "未版本控制的(&V)"
+
 #. Resource IDs: (220)
 #, c-format
 msgid ""
@@ -8949,6 +9061,10 @@ msgstr ""
 msgid "Unknown depth"
 msgstr "未知深度"
 
+#. Resource IDs: (106)
+msgid "Unknown failure in SVN::List"
+msgstr ""
+
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
 msgstr "解除锁定"
@@ -9042,6 +9158,10 @@ msgstr "更新并重新锁定..."
 #. Resource IDs: (199)
 msgid "Updating log cache"
 msgstr "正在更新日志缓存"
+
+#. Resource IDs: (15)
+msgid "Upgrade working copy"
+msgstr "升级工作副本"
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -10115,6 +10235,10 @@ msgstr "版本: "
 #. Resource IDs: (214)
 msgid "root project"
 msgstr "根项目"
+
+#. Resource IDs: (169)
+msgid "scanning path:"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "skip ranges: "
