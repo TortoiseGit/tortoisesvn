@@ -50,4 +50,18 @@ exit 1
 		send it to stderr. In a batch file this is achieved using
 		<filename>&gt;&amp;2</filename>
 	</para>
+	<tip>
+		<title>Overriding Hooks</title>
+		<para>
+			If a hook script rejects your commit then its decision is final.
+			But you can build an override mechanism into the script itself
+			using the <emphasis>Magic Word</emphasis> technique. If the script
+			wants to reject the operation it first scans the log message for
+			a special pass phrase, either a fixed phrase or perhaps the
+			filename with a prefix. If it finds the magic word then it allows
+			the commit to proceed. If the phrase is not found then it can
+			block the commit with a message like
+			<quote>You didn't say the magic word</quote> :-)
+		</para>
+	</tip>
 </sect1>
