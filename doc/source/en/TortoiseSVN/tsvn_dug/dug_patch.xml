@@ -114,7 +114,14 @@
 			files are shown, but you can opt for <quote>All files</quote>.
 			If you previously saved a patch to the clipboard, you can use
 			<guibutton>Open from clipboard...</guibutton> in the file
-			open dialog.
+			open dialog. Note that this option only appears if you
+			saved the patch to the clipboard using
+			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Create Patch...</guimenuitem>
+			</menuchoice>.
+			Copying a patch to the clipboard from another app will not
+			make the button appear.
 		</para>
 		<para>
 			Alternatively, if the patch file has a <filename>.patch</filename>
