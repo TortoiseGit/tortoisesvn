@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -48,7 +48,7 @@ CRepositoryBar::~CRepositoryBar()
 }
 
 BEGIN_MESSAGE_MAP(CRepositoryBar, CReBarCtrl)
-	ON_CBN_SELCHANGE(IDC_URL_COMBO, OnCbnSelChange)
+	ON_CBN_SELENDOK(IDC_URL_COMBO, OnCbnSelEndOK)
 	ON_BN_CLICKED(IDC_REVISION_BTN, OnBnClicked)
 	ON_BN_CLICKED(IDC_UP_BTN, OnGoUp)
 	ON_WM_DESTROY()
@@ -277,7 +277,7 @@ bool CRepositoryBar::CRepositoryCombo::OnReturnKeyPressed()
 }
 
 
-void CRepositoryBar::OnCbnSelChange()
+void CRepositoryBar::OnCbnSelEndOK()
 {
 	int idx = m_cbxUrl.GetCurSel();
 	if (idx >= 0)
