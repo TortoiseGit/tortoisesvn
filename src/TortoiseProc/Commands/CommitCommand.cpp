@@ -40,6 +40,26 @@ CString CommitCommand::LoadLogMessage()
 	return msg;
 }
 
+void CommitCommand::InitProgressDialog 
+    ( CCommitDlg& commitDlg
+    , CSVNProgressDlg& progDlg)
+{
+	progDlg.SetChangeList(commitDlg.m_sChangeList, !!commitDlg.m_bKeepChangeList);
+	if (parser.HasVal(_T("closeonend")))
+		progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+	if (parser.HasKey(_T("closeforlocal")))
+		progDlg.SetAutoCloseLocal(TRUE);
+	progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Commit);
+	progDlg.SetOptions(commitDlg.m_bKeepLocks ? ProgOptKeeplocks : ProgOptNone);
+	progDlg.SetPathList(commitDlg.m_pathList);
+	progDlg.SetCommitMessage(commitDlg.m_sLogMessage);
+	progDlg.SetDepth(commitDlg.m_bRecursive ? svn_depth_infinity : svn_depth_empty);
+	progDlg.SetSelectedList(commitDlg.m_selectedPathList);
+	progDlg.SetItemCount(static_cast<long>(commitDlg.m_itemsCount));
+	progDlg.SetBugTraqProvider(commitDlg.m_BugTraqProvider);
+	progDlg.SetRevisionProperties(commitDlg.m_revProps);
+}
+
 bool CommitCommand::Execute()
 {
 	bool bRet = false;
@@ -93,28 +113,56 @@ bool CommitCommand::Execute()
 			sLogMsg = dlg.m_sLogMessage;
 			bSelectFilesForCommit = true;
 			CSVNProgressDlg progDlg;
-			progDlg.SetChangeList(dlg.m_sChangeList, !!dlg.m_bKeepChangeList);
-			if (parser.HasVal(_T("closeonend")))
-				progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
-			if (parser.HasKey(_T("closeforlocal")))
-				progDlg.SetAutoCloseLocal(TRUE);
-			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Commit);
-			progDlg.SetOptions(dlg.m_bKeepLocks ? ProgOptKeeplocks : ProgOptNone);
-			progDlg.SetPathList(dlg.m_pathList);
-			progDlg.SetCommitMessage(dlg.m_sLogMessage);
-			progDlg.SetDepth(dlg.m_bRecursive ? svn_depth_infinity : svn_depth_empty);
-			progDlg.SetSelectedList(dlg.m_selectedPathList);
-			progDlg.SetItemCount(static_cast<long>(dlg.m_itemsCount));
-			progDlg.SetBugTraqProvider(dlg.m_BugTraqProvider);
-			progDlg.SetRevisionProperties(dlg.m_revProps);
+            InitProgressDialog (dlg, progDlg);
 			progDlg.DoModal();
-			CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
-			err = (DWORD)progDlg.DidErrorsOccur();
-			bFailed = progDlg.DidErrorsOccur();
-			bRet = progDlg.DidErrorsOccur();
-			CRegDWORD bFailRepeat = CRegDWORD(_T("Software\\TortoiseSVN\\CommitReopen"), FALSE);
-			if (DWORD(bFailRepeat)==0)
-				bFailed = false;		// do not repeat if the user chose not to in the settings.
+
+            if (   (progDlg.Err != NULL)
+                && (progDlg.Err->apr_err == SVN_ERR_FS_TXN_OUT_OF_DATE))
+            {
+                // the commit failed at least one of the items was outdated.
+                // -> suggest to update them
+
+                CString title;
+                title.LoadString (IDS_MSG_NEEDSUPDATE_TITLE);
+                CString question;
+                question.Format ( IDS_MSG_NEEDSUPDATE_QUESTION
+                                , (LPCTSTR)progDlg.GetLastErrorMessage());
+                if (CMessageBox::Show ( NULL
+                                      , question
+                                      , title
+                                      , MB_YESNO | MB_ICONQUESTION) == IDYES)
+                {
+                    // auto-update
+
+			        CSVNProgressDlg updateProgDlg;
+                    InitProgressDialog (dlg, updateProgDlg);
+                    updateProgDlg.SetCommand (CSVNProgressDlg::SVNProgress_Update);
+        			updateProgDlg.DoModal();
+
+                    // re-open commit dialog only if update *SUCCEEDED*
+                    // (don't pass update errors to caller and *never*
+                    // auto-reopen commit dialog upon error)
+
+                    bFailed =    !updateProgDlg.DidErrorsOccur() 
+                              && !updateProgDlg.DidConflictsOccur();
+                    bRet = bFailed;
+			        CRegDWORD (_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE) 
+                        = bRet ? TRUE : FALSE;
+
+                    continue;
+                }
+            }
+
+            // If there was an error and the user set the 
+            // "automatically re-open commit dialog" option, do so.
+
+		    CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
+		    err = (DWORD)progDlg.DidErrorsOccur();
+		    bFailed = progDlg.DidErrorsOccur();
+		    bRet = progDlg.DidErrorsOccur();
+		    CRegDWORD bFailRepeat = CRegDWORD(_T("Software\\TortoiseSVN\\CommitReopen"), FALSE);
+		    if (DWORD(bFailRepeat)==0)
+			    bFailed = false;		// do not repeat if the user chose not to in the settings.
 		}
 	}
 	return bRet;

@@ -134,6 +134,7 @@ public:
 	bool SetBackgroundImage(UINT nID);
 
 	bool DidErrorsOccur() {return m_bErrorsOccurred;}
+	bool DidConflictsOccur() {return m_nConflicts > 0;}
 
 	enum { IDD = IDD_SVNPROGRESS };
 

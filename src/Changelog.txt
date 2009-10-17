@@ -50,7 +50,9 @@
        the diff or merge. (Stefan)
 - NEW: Double clicking on a word in TortoiseMerge marks all
        occurrences of that word in all views. (Stefan)
-- BUG: Merged revisions must be counted only once in stats (Stefa Fuhrmann)
+- NEW: Offer automatic update and retry if a commit failed due
+       to an outdated working copy (Stefan Fuhrmann)
+- BUG: Merged revisions must be counted only once in stats (Stefan Fuhrmann)
 
 Version 1.6.6
 - CHG: Reduced disk access in the status cache. (Stefan)

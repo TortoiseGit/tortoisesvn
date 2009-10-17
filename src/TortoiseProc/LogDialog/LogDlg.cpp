@@ -1283,8 +1283,7 @@ void CLogDlg::CopyChangedSelectionToClipBoard()
 				int selRealIndex = -1;
                 for (size_t hiddenindex=0; hiddenindex<paths.GetCount(); ++hiddenindex)
 				{
-                    const CString& path = paths[hiddenindex].GetPath();
-					if (path.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+					if (paths[hiddenindex].IsRelevantForStartPath())
 						selRealIndex++;
 					if (selRealIndex == nItem)
 					{
@@ -1609,8 +1608,7 @@ void CLogDlg::DiffSelectedFile()
 			INT_PTR selRealIndex = -1;
             for (size_t hiddenindex=0; hiddenindex<paths.GetCount(); ++hiddenindex)
 			{
-                const CString& path = paths[hiddenindex].GetPath();
-				if (path.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+                if (paths[hiddenindex].IsRelevantForStartPath())
 					selRealIndex++;
 				if (selRealIndex == selIndex)
 				{
@@ -1731,14 +1729,11 @@ void CLogDlg::DiffSelectedRevWithPrevious()
 
     const CLogChangedPathArray& paths = pLogEntry->GetChangedPaths();
     for (size_t c = 0; c < paths.GetCount(); ++c)
-	{
-		const CLogChangedPath& cpath = paths[c];
-		if (cpath.GetPath().Left (m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+        if (paths[c].IsRelevantForStartPath())
 		{
 			++nChanged;
 			lastChangedIndex = c;
 		}
-	}
 
 	if (m_path.IsDirectory() && nChanged == 1) 
 	{
@@ -1746,7 +1741,7 @@ void CLogDlg::DiffSelectedRevWithPrevious()
 		// Do diff on that file instead of whole directory
 
         const CLogChangedPath& cpath = pLogEntry->GetChangedPaths()[lastChangedIndex];
-		path.AppendPathString (cpath.GetPath().Mid(m_sRelativeRoot.GetLength()));
+		path.SetFromWin (cpath.GetPath());
 	} 
 
 	m_bCancelled = FALSE;
@@ -3253,9 +3248,9 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths 
 				if (!bRelativePaths)
 					path.SetFromSVN(m_sRepositoryRoot);
 				path.AppendPathString(cpath.GetPath());
-				if ((!bUseFilter)||
-					((m_cHidePaths.GetState() & 0x0003)!=BST_CHECKED)||
-					(cpath.GetPath().Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0))
+				if (   !bUseFilter
+					|| ((m_cHidePaths.GetState() & 0x0003)!=BST_CHECKED)
+                    || cpath.IsRelevantForStartPath())
 					pathList.AddPath(path);
 				
 			}
@@ -4300,8 +4295,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				INT_PTR selRealIndex = -1;
 				for (INT_PTR hiddenindex=0; hiddenindex<(INT_PTR)paths.GetCount(); ++hiddenindex)
 				{
-                    const CString& path = paths[hiddenindex].GetPath();
-					if (path.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+                    if (paths[hiddenindex].IsRelevantForStartPath())
 						selRealIndex++;
 					if (selRealIndex == nItem)
 					{
