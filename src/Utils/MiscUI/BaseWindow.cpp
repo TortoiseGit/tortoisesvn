@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -94,8 +94,10 @@ LRESULT CALLBACK CWindow::stWinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, L
 			{
 				WINDOWPLACEMENT wpl = {0};
 				DWORD size = sizeof(wpl);
-				SHGetValue(HKEY_CURRENT_USER, pWnd->sRegistryPath.c_str(), pWnd->sRegistryValue.c_str(), REG_NONE, &wpl, &size);
-				SetWindowPlacement(hwnd, &wpl);
+				if (SHGetValue(HKEY_CURRENT_USER, pWnd->sRegistryPath.c_str(), pWnd->sRegistryValue.c_str(), REG_NONE, &wpl, &size) == ERROR_SUCCESS)
+					SetWindowPlacement(hwnd, &wpl);
+				else
+					ShowWindow(hwnd, SW_SHOW);
 				pWnd->bWindowRestored = true;
 			}
 			break;
