@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-10-10 16:07 +0000\n"
-"PO-Revision-Date: 2009-10-10 23:02+0200\n"
+"POT-Creation-Date: 2009-10-16 22:51 +0000\n"
+"PO-Revision-Date: 2009-10-17 02:58+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1357,6 +1357,14 @@ msgstr ""
 "</screen> Huomaa, että kaikki komennon stdout-kahvaan tehty tulostus katoaa.  Mikäli haluat virheilmoituksen ilmestyvän Toimitus peruttu -ikkunaan, se on kirjoitettava stderr-kahvaan. .bat-tiedostossa tämän voi tehdä lausekkeella <filename>&gt;&amp;2</filename>."
 
 #. (title)
+msgid "Overriding Hooks"
+msgstr "Komentojonojen ohittaminen"
+
+#. (para)
+msgid "If a hook script rejects your commit then its decision is final. But you can build an override mechanism into the script itself using the <emphasis>Magic Word</emphasis> technique. If the script wants to reject the operation it first scans the log message for a special pass phrase, either a fixed phrase or perhaps the filename with a prefix. If it finds the magic word then it allows the commit to proceed. If the phrase is not found then it can block the commit with a message like <quote>You didn't say the magic word</quote> :-)"
+msgstr "Mikäli komentojono estää toimituksen arkistoon, ei paljoa ole tehtävissä. Voit kuitenkin rakentaa itse komentojonoon ohitusmekanismin käyttämällä erityistä <emphasis>taikasanaa</emphasis>. Mikäli komentojono päättää perua toiminnon, se etsii ensin lokiviestistä taikasanaa. Mikäli taikasana löytyy, toimituksen annetaan jatkua."
+
+#. (title)
 msgid "Checkout Links"
 msgstr "Noutolinkit"
 
@@ -2467,7 +2475,7 @@ msgid ""
 "bin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n"
 "-config conf\\openssl.cnf\n"
 "</screen> and then (on one line) <screen>\n"
-"bin\\openssl x509 -in conf\\server.csr -out conf\\server.crt\n"
+"bin\\openssl x509 -in conf\\server.csr -out conf\\server.cert\n"
 "                 -req -signkey conf\\server.key -days 4000\n"
 "</screen> This will create a certificate which will expire in 4000 days. And finally enter (on one line): <screen>\n"
 "bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
@@ -2480,7 +2488,7 @@ msgstr ""
 "bin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n"
 "-config conf\\openssl.cnf\n"
 "</screen> ja sitten (yhdellä rivillä) <screen>\n"
-"bin\\openssl x509 -in conf\\server.csr -out conf\\server.crt\n"
+"bin\\openssl x509 -in conf\\server.csr -out conf\\server.cert\n"
 "                 -req -signkey conf\\server.key -days 4000\n"
 "</screen> Tämä luo varmenteen, joka vanhenee 4000 päivän kuluttua. Anna lopuksi (yhdellä rivillä) komento <screen>\n"
 "bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
@@ -5595,6 +5603,10 @@ msgstr "palauta"
 msgid "undo"
 msgstr "peru"
 
+#. (primary)
+msgid "clean"
+msgstr "siivota"
+
 #. (title)
 msgid "Revert dialog"
 msgstr "Palautusikkuna"
@@ -5615,6 +5627,10 @@ msgstr "Komento, jolla perutaan kohteen lisäys, näkyy kontekstivalikossa muodo
 #. (para)
 msgid "The columns in this dialog can be customized in the same way as the columns in the <guilabel>Check for modifications</guilabel> dialog. Read <xref linkend=\"tsvn-dug-wcstatus-2\"/> for further details."
 msgstr "Tämän ikkunan sarakkeet voidaan mukauttaa samaan tapaan kuin <guilabel>Tarkista muutokset</guilabel>-ikkunassa. Lue yksityiskohdat luvusta <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
+
+#. (para)
+msgid "Since revert is sometimes used to clean up a working copy, there is an extra button which allows you to delete unversioned items as well. When you click this button another dialog comes up listing all the unversioned items, which you can then select for deletion."
+msgstr "Koska palautustoimintoa käytetään joskus työkopion siivoamiseen, on ikkunassa painike, jonka avulla voi poistaa myös versioimattomat tiedostot. Painikkeen napsauttaminen versioimattomat tiedostot uudessa ikkunassa, josta ne voi valita poistettaviksi."
 
 #. (title)
 msgid "Undoing Changes which have been Committed"
@@ -6514,6 +6530,10 @@ msgid "You can specify the way that line ending and whitespace changes are handl
 msgstr "Voit määrittää, millä tapaa rivinloppu- ja tyhjämerkkejä käsitellään yhdistettäessä. Nämä valinnat on kuvattu luvussa <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. Oletusarvoisesti erot rivinloppu- ja tyhjämerkeissä ovat todellisia yhdistettäviä muutoksia."
 
 #. (para)
+msgid "The checkbox marked <guilabel>Force the merge</guilabel> is used to avoid a tree conflict where an incoming delete affects a file that is either modified locally or not versioned at all. If the file is deleted then there is no way to recover it, which is why that option is not checked by default."
+msgstr "Valinta <guilabel>Pakotettu yhdistäminen</guilabel> estää puuristiriidan, joka syntyy, kun yhdistettävä poisto koskee tiedostoa, jossa on paikallisia muutoksia tai jota ei ole versioitu ollenkaan. Tiedoston poistoa ei ole mahdollista perua, mistä syystä valinta ei ole oletusarvoisesti päällä."
+
+#. (para)
 msgid "If you are using merge tracking and you want to mark a revision as having been merged, without actually doing the merge here, check the <guilabel>Only record the merge</guilabel> checkbox. There are two possible reasons you might want to do this. It may be that the merge is too complicated for the merge algorithms, so you code the changes by hand, then mark the change as merged so that the merge tracking algorithm is aware of it. Or you might want to prevent a particular revision from being merged. Marking it as already merged will prevent the merge occurring with merge-tracking-aware clients."
 msgstr "Jos yhdistämisjäljitys on käytössä ja haluat merkitä version yhdistetyksi ilman, että oikeasti teet sen, ruksaa valinta <guilabel>Pelkkä yhdistämistietojen päivitys</guilabel>. Saatat haluta tätä ainakin kahdesta eri syystä: yhdistäminen voi olla liian mutkikas, joten päätät yhdistää muutokset käsin ja tehdä yhdistämisjäljityksen tietoiseksi tästä. Toisaalta voit haluta estää tietyn version yhdistämisen - sen merkitseminen yhdistetyksi estää version ottamisen mukaan yhdistämiseen yhdistämisjäljitystä tukevissa asiakasohjelmissa."
 
@@ -6862,8 +6882,8 @@ msgid "In order to apply a patch file to your working copy, you need to have at 
 msgstr "Käyttääksesi paikan työkopioosi tarvitset ainakin lukuoikeuden arkistoon. Tämä siitä syystä, että yhdistämiskomennon on noudettava yhdistämisen pohjaksi versio, jota vastaan paikan tekijä teki muutoksensa."
 
 #. (para)
-msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog."
-msgstr "Valitse kansion kontekstivalikosta komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Käytä paikkatiedosto...</guimenuitem></menuchoice> Tämä avaa tiedoston avausikkunan, josta voit valita käytettävän paikkatiedoston. Oletusarvoisesti vain <filename>.patch</filename> ja <filename>.diff</filename> -päätteiset tiedostot näytetään, mutta voit valita näytettäväksi <quote>Kaikki tiedostot</quote>. Jos talletit aiemmin paikan leikepöydälle, voit napsauttaa painiketta <guibutton>Avaa leikepöydältä...</guibutton>."
+msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog. Note that this option only appears if you saved the patch to the clipboard using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice>. Copying a patch to the clipboard from another app will not make the button appear."
+msgstr "Valitse kansion kontekstivalikosta komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Käytä paikkatiedosto...</guimenuitem></menuchoice> Tämä avaa tiedoston avausikkunan, josta voit valita käytettävän paikkatiedoston. Oletusarvoisesti vain <filename>.patch</filename> ja <filename>.diff</filename> -päätteiset tiedostot näytetään, mutta voit valita näytettäväksi <quote>Kaikki tiedostot</quote>. Jos talletit aiemmin paikan leikepöydälle, voit napsauttaa painiketta <guibutton>Avaa leikepöydältä...</guibutton>  tiedoston avausikkunassa. Huomaa, että tämä valinta on käytössä vain, jos talletit paikan leikepöydälle käyttämällä komentoa  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Luo paikkatiedosto...</guimenuitem></menuchoice>. Paikan kopioiminen leikepöydälle muista sovelluksista ei tuo painiketta näkyville."
 
 #. (para)
 msgid "Alternatively, if the patch file has a <filename>.patch</filename> or <filename>.diff</filename> extension, you can right click on it directly and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice>. In this case you will be prompted to enter a working copy location."
@@ -10162,6 +10182,39 @@ msgstr ""
 #. (para)
 msgid "The following example shows how the interface might be used. <placeholder-1/>"
 msgstr "Seuraava esimerkki näyttää, miten rajapintaa voi käyttää. <placeholder-1/>"
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"using LibSubWCRev;\n"
+"SubWCRev sub = new SubWCRev();\n"
+"sub.GetWCInfo(\"C:\\\\PathToMyFile\\\\MyFile.cc\", true, true);\n"
+"if (sub.IsSvnItem == true)\n"
+"{\n"
+"    MessageBox.Show(\"versioned\");\n"
+"}\n"
+"else\n"
+"{\n"
+"    MessageBox.Show(\"not versioned\");\n"
+"}\n"
+msgstr ""
+"\n"
+"using LibSubWCRev;\n"
+"SubWCRev sub = new SubWCRev();\n"
+"sub.GetWCInfo(\"C:\\\\PathToMyFile\\\\MyFile.cc\", true, true);\n"
+"if (sub.IsSvnItem == true)\n"
+"{\n"
+"    MessageBox.Show(\"versioned\");\n"
+"}\n"
+"else\n"
+"{\n"
+"    MessageBox.Show(\"not versioned\");\n"
+"}\n"
+
+#. (para)
+msgid "The following listing is an example on how to use the SubWCRev COM object from C#: <placeholder-1/>"
+msgstr "Seuraava esimerkki näyttää, miten SubWCRev-ohjelman COM-rajapintaa voi käyttää C#-kielellä: <placeholder-1/>"
 
 #. (title)
 msgid "IBugtraqProvider interface"

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-12 02:41+0200\n"
+"PO-Revision-Date: 2009-10-17 14:43+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -305,6 +305,19 @@ msgid ""
 msgstr ""
 "%s\n"
 "Haluatko silti poistaa sen?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Shall I update the working copy now\n"
+"and reopen the commit dialog?"
+msgstr ""
+"%s\n"
+"\n"
+"Päivitetäänkö työkopio\n"
+"ja avataan toimitusikkuna sen jälkeen uudelleen?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -2492,6 +2505,10 @@ msgstr "Toimita"
 #. Resource IDs: (77)
 msgid "Commit - TortoiseSVN"
 msgstr "Toimita - TortoiseSVN"
+
+#. Resource IDs: (616)
+msgid "Commit failed - Update needed"
+msgstr "Toimitus epäonnistui - työkopio on päivitettävä arkiston HEAD-versioon"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -4978,14 +4995,12 @@ msgstr ""
 "Haluatko todella jatkaa?"
 
 #. Resource IDs: (1480)
-#, fuzzy
 msgid "Items in externals"
-msgstr "Ulkoisten viittausten tiedostot"
+msgstr "Ulkoiset viittaukset"
 
 #. Resource IDs: (1527)
-#, fuzzy
 msgid "Items to show"
-msgstr "Näytettävät tiedostot"
+msgstr "Näytä"
 
 #. Resource IDs: (275)
 msgid "Join with following &tree"
