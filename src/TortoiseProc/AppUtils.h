@@ -187,6 +187,13 @@ public:
 	 */
 	static HRESULT CreateShortcutToURL(LPCTSTR pszUrl, LPCTSTR pszLinkFile);
 
+	/**
+	 * Sets up all the default diff and merge scripts.
+	 * \param force if true, overwrite all existing entries
+	 * \param either "Diff", "Merge" or an empty string
+	 */
+	static bool SetupDiffScripts(bool force, const CString& type);
+
 
 private:
 	static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2);

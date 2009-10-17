@@ -496,50 +496,7 @@ void CTortoiseProcApp::CheckUpgrade()
 		CRegStdDWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus")).removeValue();
 	}
 	
-	// set the custom diff scripts for every user
-	CString scriptsdir = CPathUtils::GetAppParentDirectory();
-	scriptsdir += _T("Diff-Scripts");
-	CSimpleFileFind files(scriptsdir);
-	while (files.FindNextFileNoDirectories())
-	{
-		CString file = files.GetFilePath();
-		CString filename = files.GetFileName();
-		CString ext = file.Mid(file.ReverseFind('-')+1);
-		ext = _T(".")+ext.Left(ext.ReverseFind('.'));
-		CString kind;
-		if (file.Right(3).CompareNoCase(_T("vbs"))==0)
-		{
-			kind = _T(" //E:vbscript");
-		}
-		if (file.Right(2).CompareNoCase(_T("js"))==0)
-		{
-			kind = _T(" //E:javascript");
-		}
-		
-		if (filename.Left(5).CompareNoCase(_T("diff-"))==0)
-		{
-			CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\")+ext);
-			CString diffregstring = diffreg;
-			if ((diffregstring.IsEmpty()) || (diffregstring.Find(filename)>=0))
-				diffreg = _T("wscript.exe \"") + file + _T("\" %base %mine") + kind;
-		}
-		if (filename.Left(6).CompareNoCase(_T("merge-"))==0)
-		{
-			CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\MergeTools\\")+ext);
-			CString diffregstring = diffreg;
-			if ((diffregstring.IsEmpty()) || (diffregstring.Find(filename)>=0))
-				diffreg = _T("wscript.exe \"") + file + _T("\" %merged %theirs %mine %base") + kind;
-		}
-	}
-
-	// Initialize "Software\\TortoiseSVN\\DiffProps" once with the same value as "Software\\TortoiseSVN\\Diff"
-	CRegString regDiffPropsPath = CRegString(_T("Software\\TortoiseSVN\\DiffProps"),_T("non-existant"));
-	CString strDiffPropsPath = regDiffPropsPath;
-	if ( strDiffPropsPath==_T("non-existant") )
-	{
-		CString strDiffPath = CRegString(_T("Software\\TortoiseSVN\\Diff"));
-		regDiffPropsPath = strDiffPath;
-	}
+	CAppUtils::SetupDiffScripts(false, CString());
 
 	// set the current version so we don't come here again until the next update!
 	regVersion = _T(STRPRODUCTVER);	

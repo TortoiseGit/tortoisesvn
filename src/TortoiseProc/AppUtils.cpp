@@ -34,6 +34,7 @@
 #include "StringUtils.h"
 #include "CreateProcessHelper.h"
 #include "FormatMessageWrapper.h"
+#include "DirFileEnum.h"
 
 CAppUtils::CAppUtils(void)
 {
@@ -1129,4 +1130,58 @@ HRESULT CAppUtils::CreateShortcutToURL(LPCTSTR pszURL, LPCTSTR pszLinkFile)
 		hRes = pPF->Save(pszLinkFile, TRUE);
 	}
 	return hRes;
+}
+
+bool CAppUtils::SetupDiffScripts(bool force, const CString& type)
+{
+	CString scriptsdir = CPathUtils::GetAppParentDirectory();
+	scriptsdir += _T("Diff-Scripts");
+	CSimpleFileFind files(scriptsdir);
+	while (files.FindNextFileNoDirectories())
+	{
+		CString file = files.GetFilePath();
+		CString filename = files.GetFileName();
+		CString ext = file.Mid(file.ReverseFind('-')+1);
+		ext = _T(".")+ext.Left(ext.ReverseFind('.'));
+		CString kind;
+		if (file.Right(3).CompareNoCase(_T("vbs"))==0)
+		{
+			kind = _T(" //E:vbscript");
+		}
+		if (file.Right(2).CompareNoCase(_T("js"))==0)
+		{
+			kind = _T(" //E:javascript");
+		}
+
+		if (type.IsEmpty() || (type.Compare(_T("Diff"))==0))
+		{
+			if (filename.Left(5).CompareNoCase(_T("diff-"))==0)
+			{
+				CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\")+ext);
+				CString diffregstring = diffreg;
+				if (force || (diffregstring.IsEmpty()) || (diffregstring.Find(filename)>=0))
+					diffreg = _T("wscript.exe \"") + file + _T("\" %base %mine") + kind;
+			}
+		}
+		if (type.IsEmpty() || (type.Compare(_T("Merge"))==0))
+		{
+			if (filename.Left(6).CompareNoCase(_T("merge-"))==0)
+			{
+				CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\MergeTools\\")+ext);
+				CString diffregstring = diffreg;
+				if (force || (diffregstring.IsEmpty()) || (diffregstring.Find(filename)>=0))
+					diffreg = _T("wscript.exe \"") + file + _T("\" %merged %theirs %mine %base") + kind;
+			}
+		}
+	}
+	// Initialize "Software\\TortoiseSVN\\DiffProps" once with the same value as "Software\\TortoiseSVN\\Diff"
+	CRegString regDiffPropsPath = CRegString(_T("Software\\TortoiseSVN\\DiffProps"),_T("non-existant"));
+	CString strDiffPropsPath = regDiffPropsPath;
+	if ( force || strDiffPropsPath==_T("non-existant") )
+	{
+		CString strDiffPath = CRegString(_T("Software\\TortoiseSVN\\Diff"));
+		regDiffPropsPath = strDiffPath;
+	}
+
+	return true;
 }
