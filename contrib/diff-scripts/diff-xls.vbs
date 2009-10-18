@@ -1,3 +1,4 @@
+' extensions: xls;xlsx;xlsm;xlsb;xlam
 '
 ' TortoiseSVN Diff script for Excel files
 '

@@ -1,3 +1,4 @@
+// extensions: ppt;pptx;pptm
 //
 // TortoiseSVN Diff script for Powerpoint files
 //

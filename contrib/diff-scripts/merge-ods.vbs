@@ -1,3 +1,4 @@
+' extensions: ods;odt;sxw
 '
 ' TortoiseSVN Merge script for Open Office Calc files
 '

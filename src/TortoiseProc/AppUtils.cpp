@@ -1143,6 +1143,8 @@ bool CAppUtils::SetupDiffScripts(bool force, const CString& type)
 		CString filename = files.GetFileName();
 		CString ext = file.Mid(file.ReverseFind('-')+1);
 		ext = _T(".")+ext.Left(ext.ReverseFind('.'));
+		std::set<CString> extensions;
+		extensions.insert(ext);
 		CString kind;
 		if (file.Right(3).CompareNoCase(_T("vbs"))==0)
 		{
@@ -1152,25 +1154,62 @@ bool CAppUtils::SetupDiffScripts(bool force, const CString& type)
 		{
 			kind = _T(" //E:javascript");
 		}
-
-		if (type.IsEmpty() || (type.Compare(_T("Diff"))==0))
+		// open the file, read the first line and find possible extensions
+		// this script can handle
+		try
 		{
-			if (filename.Left(5).CompareNoCase(_T("diff-"))==0)
+			CStdioFile f(file, CFile::modeRead | CFile::shareDenyNone);
+			CString extline;
+			if (f.ReadString(extline))
 			{
-				CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\")+ext);
-				CString diffregstring = diffreg;
-				if (force || (diffregstring.IsEmpty()) || (diffregstring.Find(filename)>=0))
-					diffreg = _T("wscript.exe \"") + file + _T("\" %base %mine") + kind;
+				if ( (extline.GetLength() > 15 ) && 
+					((extline.Left(15).Compare(_T("// extensions: "))==0) ||
+					 (extline.Left(14).Compare(_T("' extensions: "))==0)) )
+				{
+					extline = extline.Mid(15);
+					CString sToken;
+					int curPos = 0;
+					sToken = extline.Tokenize(_T(";"), curPos);
+					while (!sToken.IsEmpty())
+					{
+						if (!sToken.IsEmpty())
+						{
+							if (sToken[0] != '.')
+								sToken = _T(".") + sToken;
+							extensions.insert(sToken);
+						}
+						sToken = extline.Tokenize(_T(";"), curPos);
+					}
+				}
 			}
+			f.Close();
 		}
-		if (type.IsEmpty() || (type.Compare(_T("Merge"))==0))
+		catch (CFileException* e)
 		{
-			if (filename.Left(6).CompareNoCase(_T("merge-"))==0)
+			UNREFERENCED_PARAMETER(e);
+		}
+
+		for (std::set<CString>::const_iterator it = extensions.begin(); it != extensions.end(); ++it)
+		{
+			if (type.IsEmpty() || (type.Compare(_T("Diff"))==0))
 			{
-				CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\MergeTools\\")+ext);
-				CString diffregstring = diffreg;
-				if (force || (diffregstring.IsEmpty()) || (diffregstring.Find(filename)>=0))
-					diffreg = _T("wscript.exe \"") + file + _T("\" %merged %theirs %mine %base") + kind;
+				if (filename.Left(5).CompareNoCase(_T("diff-"))==0)
+				{
+					CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\")+*it);
+					CString diffregstring = diffreg;
+					if (force || (diffregstring.IsEmpty()) || (diffregstring.Find(filename)>=0))
+						diffreg = _T("wscript.exe \"") + file + _T("\" %base %mine") + kind;
+				}
+			}
+			if (type.IsEmpty() || (type.Compare(_T("Merge"))==0))
+			{
+				if (filename.Left(6).CompareNoCase(_T("merge-"))==0)
+				{
+					CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\MergeTools\\")+*it);
+					CString diffregstring = diffreg;
+					if (force || (diffregstring.IsEmpty()) || (diffregstring.Find(filename)>=0))
+						diffreg = _T("wscript.exe \"") + file + _T("\" %merged %theirs %mine %base") + kind;
+				}
 			}
 		}
 	}

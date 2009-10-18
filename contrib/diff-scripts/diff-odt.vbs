@@ -1,3 +1,4 @@
+' extensions: odt;ods
 '
 ' TortoiseSVN Diff script for Open Office Text files
 '
