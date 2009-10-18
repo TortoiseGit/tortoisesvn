@@ -1185,7 +1185,7 @@ void CLogDlg::StatusThread()
 
 		svn_revnum_t minrev, maxrev;
 		bool switched, modified, sparse;
-		GetWCRevisionStatus(revWCPath, true, minrev, maxrev, switched, modified, sparse);
+		SVN().GetWCRevisionStatus(revWCPath, true, minrev, maxrev, switched, modified, sparse);
 		if (maxrev)
 		{
 			m_wcRev = maxrev;
@@ -4977,3 +4977,4 @@ void CLogDlg::AutoRestoreSelection()
         UpdateLogInfoLabel();
     }
 }
+
