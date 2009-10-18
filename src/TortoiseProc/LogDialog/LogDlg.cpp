@@ -614,7 +614,8 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 		m_ProjectProperties.FindBugID(pLogEntry->GetMessage(), pMsgView);
 		// underline all revisions mentioned in the message
 		CAppUtils::UnderlineRegexMatches(pMsgView, m_ProjectProperties.sLogRevRegex, _T("\\d+"));
-		CAppUtils::FormatTextInRichEditControl(pMsgView);
+		if (((DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\StyleCommitMessages"), TRUE))==TRUE)
+			CAppUtils::FormatTextInRichEditControl(pMsgView);
         m_currentChangedArray = pLogEntry->GetChangedPaths();
 
         // fill in the changed files list control

@@ -120,6 +120,7 @@ void CSciEdit::Init(LONG lLanguage)
 	}
 	Call(SCI_SETWORDCHARS, 0, (LPARAM)(LPCSTR)sWordChars);
 	Call(SCI_SETWHITESPACECHARS, 0, (LPARAM)(LPCSTR)sWhiteSpace);
+	m_bDoStyle = ((DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\StyleCommitMessages"), TRUE))==TRUE;
 	// look for dictionary files and use them if found
 	long langId = GetUserDefaultLCID();
 
@@ -651,7 +652,8 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 				int startstylepos = (int)Call(SCI_GETENDSTYLED);
 				int endstylepos = ((SCNotification *)lpnmhdr)->position;
 				MarkEnteredBugID(startstylepos, endstylepos);
-				StyleEnteredText(startstylepos, endstylepos);
+				if (m_bDoStyle)
+					StyleEnteredText(startstylepos, endstylepos);
 				StyleURLs(startstylepos, endstylepos);
 				CheckSpelling();
 				WrapLines(startstylepos, endstylepos);
