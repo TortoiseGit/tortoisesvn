@@ -75,7 +75,7 @@ public:
 	void SetFilter(const CString& findstr, LONG findtype, bool findregex);
 	void SetIncludeMerge(bool bInclude = true) {m_bIncludeMerges = bInclude;}
 	void SetProjectPropertiesPath(const CTSVNPath& path) {m_ProjectProperties.ReadProps(path);}
-	bool IsThreadRunning() {return !!m_bLogThreadRunning;}
+	bool IsThreadRunning() {return !netScheduler.WaitForEmptyQueueOrTimeout(0);}
 	void SetDialogTitle(const CString& sTitle) {m_sTitle = sTitle;}
 	void SetSelect(bool bSelect) {m_bSelect = bSelect;}
 	void ContinuousSelection(bool bCont = true) {m_bSelectionMustBeContinuous = bCont;}
@@ -221,7 +221,6 @@ private:
 	bool				m_bSelectionMustBeContinuous;
 	bool				m_bCancelled;
 	volatile LONG 		m_bLogThreadRunning;
-	volatile LONG 		m_bStatusThreadRunning;
 	BOOL				m_bStrict;
 	bool				m_bStrictStopped;
 	BOOL				m_bIncludeMerges;

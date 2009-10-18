@@ -137,7 +137,6 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_bCancelled(FALSE)
 	, m_pNotifyWindow(NULL)
 	, m_bLogThreadRunning(FALSE)
-	, m_bStatusThreadRunning(FALSE)
 	, m_bAscending(FALSE)
 	, m_pStoreSelection(NULL)
 	, m_limit(0)
@@ -854,38 +853,27 @@ void CLogDlg::OnCancel()
 {
 	// canceling means stopping the working thread if it's still running.
 	// we do this by using the Subversion cancel callback.
+
+	m_bCancelled = true;
+    bool threadsStillRunning
+        =    !netScheduler.WaitForEmptyQueueOrTimeout(2000)
+		  || !diskScheduler.WaitForEmptyQueueOrTimeout(2000);
+
 	// But canceling can also mean just to close the dialog, depending on the
 	// text shown on the cancel button (it could simply read "OK").
+
 	CString temp, temp2;
 	GetDlgItemText(IDOK, temp);
 	temp2.LoadString(IDS_MSGBOX_CANCEL);
-	if ((temp.Compare(temp2)==0)||(m_bLogThreadRunning)||(m_bStatusThreadRunning))
-	{
-		if (m_bCancelled)
-		{
-			// we've already told the threads to cancel
+    if (temp.Compare(temp2)==0)
+    {
+        // "Cancel" was hit. We told the SVN ops to stop
 
-			if (m_bLogThreadRunning)
-			{
-				if (!netScheduler.WaitForEmptyQueueOrTimeout(2000))
-				{
-					// end the process the hard way
-					TerminateProcess(GetCurrentProcess(), 0);
-				}
-			}
-			if (m_bStatusThreadRunning)
-			{
-				if (!diskScheduler.WaitForEmptyQueueOrTimeout(2000))
-				{
-					// end the process the hard way
-					TerminateProcess(GetCurrentProcess(), 0);
-				}
-			}
-		}
+        return;
+    }
 
-		m_bCancelled = true;
-		return;
-	}
+    // we hit "Ok"
+
 	UpdateData();
 	if (m_bSaveStrict)
 		m_regLastStrict = m_bStrict;
@@ -894,9 +882,19 @@ void CLogDlg::OnCancel()
 
 	CRegDWORD reg2 = CRegDWORD(_T("Software\\TortoiseSVN\\LogHidePaths"));
 	reg2 = (DWORD)m_cHidePaths.GetCheck();
-
 	SaveSplitterPos();
-	__super::OnCancel();
+
+    // can we close the app cleanly?
+
+    if (threadsStillRunning)
+    {
+		// end the process the hard way
+		TerminateProcess(GetCurrentProcess(), 0);
+	}
+    else
+    {
+	    __super::OnCancel();
+    }
 }
 
 BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& message, apr_time_t time, BOOL haschildren)
@@ -1177,7 +1175,6 @@ void CLogDlg::LogThread()
 //this is the thread function which calls the subversion function
 void CLogDlg::StatusThread()
 {
-	InterlockedExchange(&m_bStatusThreadRunning, TRUE);
 	bool bAllowStatusCheck = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogStatusCheck"), TRUE);
 	if ((bAllowStatusCheck)&&(!m_wcRev.IsValid()))
 	{
@@ -1197,7 +1194,6 @@ void CLogDlg::StatusThread()
 			m_LogList.Invalidate(FALSE);
 		}
 	}
-	InterlockedExchange(&m_bStatusThreadRunning, FALSE);
 }
 
 void CLogDlg::CopySelectionToClipBoard()
@@ -1467,9 +1463,12 @@ void CLogDlg::OnOK()
 		return; // the Cancel button works as the OK button. But if the cancel button has not the focus, do nothing.
 
 	CString temp;
-	m_bCancelled = TRUE;
-	if (m_bLogThreadRunning || m_bStatusThreadRunning)
+	m_bCancelled = true;
+    if (   !netScheduler.WaitForEmptyQueueOrTimeout(0)
+		|| !diskScheduler.WaitForEmptyQueueOrTimeout(0))
+    {
 		return;
+    }
 
 	m_selectedRevs.Clear();
 	m_selectedRevsOneRange.Clear();
