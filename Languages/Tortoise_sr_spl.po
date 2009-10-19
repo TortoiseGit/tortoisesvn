@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-11 21:45+0100\n"
+"PO-Revision-Date: 2009-10-19 19:48+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -261,6 +261,19 @@ msgid ""
 msgstr ""
 "%s\n"
 "Da li ipak želite da ga svakako uklonite?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Shall I update the working copy now\n"
+"and reopen the commit dialog?"
+msgstr ""
+"%s\n"
+"\n"
+"Mogu li sada da ažuriram radnu kopiju\n"
+"i ponovo otvorim dijalog urezivanja?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -2637,6 +2650,10 @@ msgstr "Ureži"
 #. Resource IDs: (77)
 msgid "Commit - TortoiseSVN"
 msgstr "Urezan - TortoiseSVN"
+
+#. Resource IDs: (616)
+msgid "Commit failed - Update needed"
+msgstr "Urezivanje neispravno - potrebno ažuriranje"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -10794,3 +10811,4 @@ msgstr "da"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BagTrek}"
+

@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-10-10 16:07 +0000\n"
-"PO-Revision-Date: 2009-10-11 22:19+0100\n"
+"POT-Creation-Date: 2009-10-16 22:51 +0000\n"
+"PO-Revision-Date: 2009-10-19 20:15+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1357,6 +1357,14 @@ msgstr ""
 "</screen> Primetimo sve poslato na stdout se odbacuje ako želite poruku da se pojavi u Ureži Odbaci dijalogu morate je poslati na stderr. U grupnom fajlu to se postiže korišćenjem <filename>&gt;&amp;2</filename>"
 
 #. (title)
+msgid "Overriding Hooks"
+msgstr "Prekrivanje zakačaljki"
+
+#. (para)
+msgid "If a hook script rejects your commit then its decision is final. But you can build an override mechanism into the script itself using the <emphasis>Magic Word</emphasis> technique. If the script wants to reject the operation it first scans the log message for a special pass phrase, either a fixed phrase or perhaps the filename with a prefix. If it finds the magic word then it allows the commit to proceed. If the phrase is not found then it can block the commit with a message like <quote>You didn't say the magic word</quote> :-)"
+msgstr "Ako zakačivi skript odbija vaše urezivanje onda je njegova odluka izvršna. Ali možete izgraditi mehanizam prekrivanja u samom skriptu koristeći  tehniku <emphasis>Magična reč</emphasis>. Ako skript želi da odbije operaciju on najpre skenira poruku dnevnikaza specijalnu prolaznu frazu,ili fiksnu frazu ili možda prefiks imena fajla. Ako nađe magičnu reč dozvoljava nastavak urezivanja. Ako faza nije nađena onda ona  možeurezivati sa porukama kao <quote>Niste rekli magičnu reč</quote> :-)"
+
+#. (title)
 msgid "Checkout Links"
 msgstr "Veze preuzimanja"
 
@@ -2467,7 +2475,7 @@ msgid ""
 "bin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n"
 "-config conf\\openssl.cnf\n"
 "</screen> and then (on one line) <screen>\n"
-"bin\\openssl x509 -in conf\\server.csr -out conf\\server.crt\n"
+"bin\\openssl x509 -in conf\\server.csr -out conf\\server.cert\n"
 "                 -req -signkey conf\\server.key -days 4000\n"
 "</screen> This will create a certificate which will expire in 4000 days. And finally enter (on one line): <screen>\n"
 "bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
@@ -2482,7 +2490,7 @@ msgstr ""
 "</screen> and then (on one line) <screen>\n"
 "bin\\openssl x509 -in conf\\server.csr -out conf\\server.crt\n"
 "                 -req -signkey conf\\server.key -days 4000\n"
-"</screen> This will create a certificate which will expire in 4000 days. And finally enter (on one line): <screen>\n"
+"</screen> Ovoće kreirati sertifikat koji ističe za 4000 dana. I krajni ulaz (najednu liniju): <screen>\n"
 "bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
 "                 -outform DER\n"
 "</screen> Ove komande su kreirale neke fajlove u Apaš <filename>konf</filename> imenik (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>)."
@@ -5597,6 +5605,10 @@ msgstr "vrati"
 msgid "undo"
 msgstr "poništi"
 
+#. (primary)
+msgid "clean"
+msgstr "čist"
+
 #. (title)
 msgid "Revert dialog"
 msgstr "Vrati dijalog"
@@ -5617,6 +5629,10 @@ msgstr "Ako želite poništiti dodavanje stavke to se pojavljuje u kontekst meni
 #. (para)
 msgid "The columns in this dialog can be customized in the same way as the columns in the <guilabel>Check for modifications</guilabel> dialog. Read <xref linkend=\"tsvn-dug-wcstatus-2\"/> for further details."
 msgstr "Kolone u ovom dijalogu mogu se podesiti na isti način kao kolone u <guilabel>Proveri za modifikaciju</guilabel> dijalogu. Pročitajte <xref linkend=\"tsvn-dug-wcstatus-2\"/> za više detalja."
+
+#. (para)
+msgid "Since revert is sometimes used to clean up a working copy, there is an extra button which allows you to delete unversioned items as well. When you click this button another dialog comes up listing all the unversioned items, which you can then select for deletion."
+msgstr "Kako se vraćanjeponekad koristi da obriše radnu kopiju postoji dodatno dugme koje omogućava da obrišete neverzionisane stavke. Kada kliknete na ovo dugme drugi dijalog se pojavljuje listajući neverzionisane stavke koje zatim možete izabrati za brisanje."
 
 #. (title)
 msgid "Undoing Changes which have been Committed"
@@ -6516,6 +6532,10 @@ msgid "You can specify the way that line ending and whitespace changes are handl
 msgstr "Možete odrediti način rukovanja sa završetkom linija i izmenama razmaka. Ove opcije su opisane u <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>.  Uobičajeno ponašanje je da se tretiraju sve razmake i kraj-linije razlike kao stvarne izmen koje se stapaju."
 
 #. (para)
+msgid "The checkbox marked <guilabel>Force the merge</guilabel> is used to avoid a tree conflict where an incoming delete affects a file that is either modified locally or not versioned at all. If the file is deleted then there is no way to recover it, which is why that option is not checked by default."
+msgstr "Čekboks označen <guilabel>Forsiraj stapanje</guilabel> se koristi da se izbegne konflikt stabla gde dolazeće brisanje utiče na fajl koji je izmenjen lokalno ili uopšte nije verzionisan. Ako je fajl obrisan onda nema načina da sevrati,zbog čega ova opcija nije čekirana uobičajeno."
+
+#. (para)
 msgid "If you are using merge tracking and you want to mark a revision as having been merged, without actually doing the merge here, check the <guilabel>Only record the merge</guilabel> checkbox. There are two possible reasons you might want to do this. It may be that the merge is too complicated for the merge algorithms, so you code the changes by hand, then mark the change as merged so that the merge tracking algorithm is aware of it. Or you might want to prevent a particular revision from being merged. Marking it as already merged will prevent the merge occurring with merge-tracking-aware clients."
 msgstr "Ako koristite stapanja praćenje i želite da označite reviziju da je stopljena, bez stvarnog stapanja ovde, čekirajte <guilabel>Samo obeležite stapanje</guilabel> čekboks. Postoje dva moguća razloga koja možete želeti da ovo uradite. Može biti da je stapanje jako komplikovano za algoritam stapanja, onda ćete uraditi izmene ručno, zatim markirate izmene kao stopljene da bi stapanja praćenje algoritam bio upoznat sa tim. Ili možete želeti da predupredite posebne revizije da budu stopljene. Označavajuči ih već stopljenim predupređujete pojavu stapanja pomoću stopi-tragač-upoznat klijentima."
 
@@ -6864,8 +6884,8 @@ msgid "In order to apply a patch file to your working copy, you need to have at 
 msgstr "Da bi primenili fajl zakrpe na vašu radnu kopiju potrebno vm je da imate najmanje pristup za čitanje spremišta. Razlog za ovo je da program stapanja mora da uporedi izmene nazad sa revizijom prema kojoj je urađen od udaljenog programera."
 
 #. (para)
-msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog."
-msgstr "Iz kontekst menija za taj imenik, kliknite na <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Primeni Zakrpu...</guimenuitem></menuchoice> Ovo će prikazati fajl otvori dijalog dozvoljavajući vam da izaberete fajl zakrpu za primenu. Uobičajeno samo <filename>.patch</filename> ili <filename>.diff</filename> fajlovi su prikazani, ali može se izabrati opcija za <quote>All files</quote>. Ako ste prethodno sačuvali zakrpu u klipbord možete koristiti <guibutton>Otvori iz klipborda...</guibutton> u fajl open dijalogu."
+msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog. Note that this option only appears if you saved the patch to the clipboard using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice>. Copying a patch to the clipboard from another app will not make the button appear."
+msgstr "Iz kontekst menija za taj imenik, kliknite na <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Primeni Zakrpu...</guimenuitem></menuchoice> Ovo će prikazati fajl otvori dijalog dozvoljavajući vam da izaberete fajl zakrpu za primenu. Uobičajeno samo <filename>.patch</filename> ili <filename>.diff</filename> fajlovi su prikazani, ali može se izabrati opcija za <quote>All files</quote>. Ako ste prethodno sačuvali zakrpu u klipbord možete koristiti <guibutton>Otvori iz klipborda...</guibutton> u fajl open dijalogu. Primetimo da se ova opcija pojavljuje ako zapamtite zakrpu na klipbord koristeći <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Kreiraj zakrpu...</guimenuitem></menuchoice>. Kopiranjem zakrpe na klipbordiz druge app ne čini da se dugme pojavi."
 
 #. (para)
 msgid "Alternatively, if the patch file has a <filename>.patch</filename> or <filename>.diff</filename> extension, you can right click on it directly and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice>. In this case you will be prompted to enter a working copy location."
@@ -10165,6 +10185,39 @@ msgstr ""
 #. (para)
 msgid "The following example shows how the interface might be used. <placeholder-1/>"
 msgstr "Sledeći primer prikazuje kako interfejs može da se koristi. <placeholder-1/>"
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"using LibSubWCRev;\n"
+"SubWCRev sub = new SubWCRev();\n"
+"sub.GetWCInfo(\"C:\\\\PathToMyFile\\\\MyFile.cc\", true, true);\n"
+"if (sub.IsSvnItem == true)\n"
+"{\n"
+"    MessageBox.Show(\"versioned\");\n"
+"}\n"
+"else\n"
+"{\n"
+"    MessageBox.Show(\"not versioned\");\n"
+"}\n"
+msgstr ""
+"\n"
+"using LibSubWCRev;\n"
+"SubWCRev sub = new SubWCRev();\n"
+"sub.GetWCInfo(\"C:\\\\PathToMyFile\\\\MyFile.cc\", true, true);\n"
+"if (sub.IsSvnItem == true)\n"
+"{\n"
+"    MessageBox.Show(\"versioned\");\n"
+"}\n"
+"else\n"
+"{\n"
+"    MessageBox.Show(\"not versioned\");\n"
+"}\n"
+
+#. (para)
+msgid "The following listing is an example on how to use the SubWCRev COM object from C#: <placeholder-1/>"
+msgstr "Sledeći primer prikazuje kako interfejs može da se koristi SubVCRev COM objekat iz C#: <placeholder-1/>"
 
 #. (title)
 msgid "IBugtraqProvider interface"
