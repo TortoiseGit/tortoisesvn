@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-12 21:32+0800\n"
+"PO-Revision-Date: 2009-10-19 21:00+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -240,6 +240,19 @@ msgid ""
 msgstr ""
 "%s\n"
 "確定真的要移除嗎?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Shall I update the working copy now\n"
+"and reopen the commit dialog?"
+msgstr ""
+"%s\n"
+"\n"
+"要立刻自動更新工作複本\n"
+"再重新執行送交嗎?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -2428,6 +2441,10 @@ msgstr "送交"
 #. Resource IDs: (77)
 msgid "Commit - TortoiseSVN"
 msgstr "送交 - TortoiseSVN"
+
+#. Resource IDs: (616)
+msgid "Commit failed - Update needed"
+msgstr "送交失敗 - 請先更新"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
