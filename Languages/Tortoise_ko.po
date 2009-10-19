@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-12 17:28+0900\n"
+"PO-Revision-Date: 2009-10-19 17:28+0900\n"
 "Last-Translator: Taedong Kim <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -239,6 +239,19 @@ msgid ""
 msgstr ""
 "%s\n"
 "삭제하시겠습니까?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Shall I update the working copy now\n"
+"and reopen the commit dialog?"
+msgstr ""
+"%s\n"
+"\n"
+"지금 작업 사본을 업데이트하고\n"
+"커밋 다이얼로그를 다시 열까요?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -2425,6 +2438,10 @@ msgstr "커밋"
 #. Resource IDs: (77)
 msgid "Commit - TortoiseSVN"
 msgstr "커밋 - TortoiseSVN"
+
+#. Resource IDs: (616)
+msgid "Commit failed - Update needed"
+msgstr "커밋 실패 - 업데이트가 필요함"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
