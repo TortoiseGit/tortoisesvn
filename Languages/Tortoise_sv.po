@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-12 11:46+0100\n"
+"PO-Revision-Date: 2009-10-19 09:19+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -246,6 +246,19 @@ msgid ""
 msgstr ""
 "%s\n"
 "Vill du ta bort den i alla fall?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Shall I update the working copy now\n"
+"and reopen the commit dialog?"
+msgstr ""
+"%s\n"
+"\n"
+"Ska jag uppdatera arbetskopian nu\n"
+"och öppna arkiveringsfönstret igen?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -2453,6 +2466,10 @@ msgstr "Arkivera"
 #. Resource IDs: (77)
 msgid "Commit - TortoiseSVN"
 msgstr "Arkivera - TortoiseSVN"
+
+#. Resource IDs: (616)
+msgid "Commit failed - Update needed"
+msgstr "Arkiveringen misslyckades - Uppdatering behövs"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
