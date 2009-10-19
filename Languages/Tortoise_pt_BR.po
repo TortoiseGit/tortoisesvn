@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-16 23:22-0300\n"
+"PO-Revision-Date: 2009-10-18 23:39-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -901,7 +901,7 @@ msgstr "&Renomear"
 
 #. Resource IDs: (1316)
 msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "&Reabrir caixa de diálogo de submissão e ramificação/rotulação após falha na submissão"
+msgstr "&Reabrir a janela de submissão e ramificação/rotulação após falha na submissão"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
@@ -1640,7 +1640,7 @@ msgstr "Permitir que repositórios diferentes usem o mesmo UUID, ex. repositóri
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
-msgstr "Sempre fechar caixas de diálogo para operações locais"
+msgstr "Sempre fechar as janelas para operações locais"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1822,7 +1822,7 @@ msgstr "Autores"
 
 #. Resource IDs: (1265)
 msgid "Authors case sensitive"
-msgstr "Autores sensível a caixa (maiúsculas/minúsculas)"
+msgstr "Autores sensíveis à caixa"
 
 #. Resource IDs: (65535)
 msgid "Authors:"
@@ -2092,7 +2092,7 @@ msgstr "Menu de contexto em cascata"
 
 #. Resource IDs: (117)
 msgid "Case-sensitive"
-msgstr "Sensível à caixa"
+msgstr "Diferenciar maiúscula/minúscula"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
@@ -2331,7 +2331,7 @@ msgstr ""
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears the stored sizes and positions of %ld dialogs"
-msgstr "Apaga os tamanhos e posições salvos de %ld diálogos"
+msgstr "Apaga os tamanhos e posições salvos de %ld janelas"
 
 #. Resource IDs: (1466)
 msgid "Click here to go to the website"
@@ -2694,7 +2694,7 @@ msgstr "Copiar mensagem de erro para a área de transferência"
 
 #. Resource IDs: (76)
 msgid "Copy from path"
-msgstr "Copiar a partir do caminho"
+msgstr "Copiado de"
 
 #. Resource IDs: (103)
 msgid "Copy items to here"
@@ -3151,7 +3151,7 @@ msgstr ""
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
-msgstr "Dimensões e posições dos diálogos"
+msgstr "Dimensões e posições das janelas"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -3462,7 +3462,7 @@ msgstr "Vazio"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
-msgstr "Habilitar armazenamento de log para acelerar os diálogos de log e de gráfico de revisão"
+msgstr "Habilitar armazenamento de log para acelerar as janelas de log e de gráfico de revisão"
 
 #. Resource IDs: (196)
 msgid ""
@@ -4120,11 +4120,11 @@ msgstr "Geral::Menu de Contexto"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
-msgstr "Geral::Diálogos 1"
+msgstr "Geral::Janelas 1"
 
 #. Resource IDs: (213)
 msgid "General::Dialogs 2"
-msgstr "Geral::Diálogos 2"
+msgstr "Geral::Janelas 2"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -4528,7 +4528,7 @@ msgstr ""
 
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
-msgstr "Se ativado, impede que as sobreposições ou menus de contexto apareçam nas caixas de diálogos 'salvar como..' ou 'abrir'"
+msgstr "Se ativado, impede que as sobreposições ou menus de contexto apareçam nas janelas 'salvar como..' ou 'abrir'"
 
 #. Resource IDs: (198)
 msgid ""
@@ -4563,7 +4563,7 @@ msgid ""
 "If checked, the commit dialog will be started again automatically after an error,\r\n"
 "while preserving your last selection and log message."
 msgstr ""
-"Se selecionado, o diálogo de submissão será reaberto automaticamente após um erro,\r\n"
+"Se selecionado, a janela de submissão será reaberto automaticamente após um erro,\r\n"
 "preservando sua última seleção e mensagem de log."
 
 #. Resource IDs: (194)
@@ -4575,7 +4575,7 @@ msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
 msgstr ""
-"Se habilitado, o diálogo de Combinação preenche a URL 'De:' com a URL da cópia de trabalho selecionada\r\n"
+"Se habilitado, a janela de Combinação preenche a URL 'De:' com a URL da cópia de trabalho selecionada\r\n"
 "e não com a última URL utilizada. "
 
 #. Resource IDs: (195)
@@ -4583,7 +4583,7 @@ msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\r\n"
 "You don't have to click on 'Check Repository' anymore."
 msgstr ""
-"Se habilitado, o repositório é acessado quando a caixa de diálogo é aberta.\r\n"
+"Se habilitado, o repositório é acessado quando a janela é aberta.\r\n"
 "Você não precisará mais clicar em 'Verificar Repositório'."
 
 #. Resource IDs: (197)
@@ -4609,7 +4609,7 @@ msgid ""
 "The status control is used for example in the commit dialog."
 msgstr ""
 "Se ativo, arquivos pertencentes a pastas que não estão sob controle de versão poderão ser mostrados no controle de estado.\r\n"
-"O controle de estado é usado, por exemplo, na caixa de diálogo de submissão."
+"O controle de estado é usado, por exemplo, na janela de submissão."
 
 #. Resource IDs: (196)
 msgid ""
@@ -4641,7 +4641,7 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "If you want to break the lock, use the 'Check For Modifications' dialog."
-msgstr "Se você quiser quebrar a trava, use o diálogo 'Verificar Alterações'."
+msgstr "Se você quiser quebrar a trava, use a janela 'Verificar Alterações'."
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -5198,11 +5198,11 @@ msgstr "Mensagens de log"
 
 #. Resource IDs: (1274)
 msgid "Log messages (Input dialog)"
-msgstr "Mensagens de log (Caixa de diálogo de entrada)"
+msgstr "Mensagens de log (Janela de entrada)"
 
 #. Resource IDs: (1280)
 msgid "Log messages (Show log dialog)"
-msgstr "Mensagens de log (Mostra diálogo de log)"
+msgstr "Mensagens de log (Mostra janela de log)"
 
 #. Resource IDs: (238)
 #, c-format
@@ -7351,7 +7351,7 @@ msgstr "Selecionar as URLs para combinação em árvore"
 
 #. Resource IDs: (79)
 msgid "Select the behaviour of the progress dialog at the end of the operation."
-msgstr "Selecione o comportamento do diálogo de progresso ao final da operação."
+msgstr "Selecione o comportamento da janela de progresso ao final da operação."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -7529,7 +7529,7 @@ msgstr ""
 
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
-msgstr "Mostrar caixa de diálogo de Bloqueio antes de bloquear arquivos"
+msgstr "Mostrar janela de Bloqueio antes de bloquear arquivos"
 
 #. Resource IDs: (1065)
 msgid "Show More Buttons"
@@ -7756,7 +7756,7 @@ msgstr "Fonte à Direita:"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
-msgstr "Especifica quantos itens você quer manter no diálogo de mensagens de log mais recentes."
+msgstr "Especifica quantos itens você quer manter na janela de mensagens de log mais recentes."
 
 #. Resource IDs: (79)
 msgid ""
@@ -8736,7 +8736,7 @@ msgid ""
 msgstr ""
 "Para submeter recursivamente e contornar este erro,\n"
 "tenha certeza de que todos os itens filho de uma pasta selecionada\n"
-"também estejam marcados na caixa de diálogo de submissão.\n"
+"também estejam marcados na janela de submissão.\n"
 "Caso contrário, TortoiseSVN deve fazer uma submissão não recursiva\n"
 "que não permite a exclusão de diretórios."
 
@@ -8746,7 +8746,7 @@ msgid ""
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
 "Para roubar o bloqueio, clique com o botão direito sobre o diretório-pai desse item e selecione 'Obter Bloqueio' do menu de contexto.\n"
-"Isso fará abrir uma caixa de diálogo na qual você poderá impor o bloqueio, i.e., 'roubá-lo' de quem estava com ele."
+"Isso fará abrir uma janela na qual você poderá impor o bloqueio, i.e., 'roubá-lo' de quem estava com ele."
 
 #. Resource IDs: (1201, 65535)
 msgid "To:"
@@ -9007,7 +9007,7 @@ msgid ""
 msgstr ""
 "Impossível determinar a origem da combinação para\n"
 "%s\n"
-"Por favor, use o diálogo principal de combinação."
+"Por favor, use a janela principal de combinação."
 
 #. Resource IDs: (3866)
 msgid "Unable to load mail system support."
@@ -9035,8 +9035,8 @@ msgid ""
 msgstr ""
 "Impossível reconstruir caminho da cópia de trabalho!\n"
 "Isso pode acontecer quando o arquivo é renomeado.\n"
-"Por favor, inicie o diálogo de log apenas nesse arquivo específico e então reverta as alterações\n"
-"a partir do painel superior no diálogo de log."
+"Por favor, inicie a janela de log apenas nesse arquivo específico e então reverta as alterações\n"
+"a partir do painel superior na janela de log."
 
 #. Resource IDs: (3865)
 msgid "Unable to write read-only property."
@@ -9536,7 +9536,7 @@ msgstr ""
 
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
-msgstr "Quando habilitado, os itens com controle de versão listados no diálogo de submissão serão automaticamente selecionados "
+msgstr "Quando habilitado, os itens com controle de versão listados na janela de submissão serão automaticamente selecionados "
 
 #. Resource IDs: (197)
 msgid ""
@@ -9544,7 +9544,7 @@ msgid ""
 "asking for a descriptive message about the locking"
 msgstr ""
 "Quando forem bloqueados um ou mais arquivos selecionados, mostrar uma\n"
-"caixa de diálogo pedindo por uma mensagem a respeito do bloqueio"
+"janela pedindo por uma mensagem a respeito do bloqueio"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -9927,7 +9927,7 @@ msgstr "e"
 
 #. Resource IDs: (1085)
 msgid "and support the developers"
-msgstr "e apoie os desenvolvedores"
+msgstr "e ajude os desenvolvedores"
 
 #. Resource IDs: (583)
 msgid "another item already exists in its place."
@@ -10481,7 +10481,7 @@ msgid ""
 msgstr ""
 "tsvn:logfilelistenglish\r\n"
 "Ajuste para 'falso' se você não quiser que a lista de arquivos alterados seja colada\r\n"
-"em inglês no diálogo de submissão."
+"em inglês na janela de submissão."
 
 #. Resource IDs: (578)
 msgid ""
@@ -10514,7 +10514,7 @@ msgid ""
 "Use this as a log message template for users to fill in."
 msgstr ""
 "tsvn:logtemplate\r\n"
-"Texto inserido nas caixas de mensagem de log nos diálogos de submissão.\r\n"
+"Texto inserido nas caixas de mensagem de log nas janelas de submissão.\r\n"
 "Use como um modelo para mensagem de log para os usuários preencherem."
 
 #. Resource IDs: (578)
@@ -10525,7 +10525,7 @@ msgid ""
 msgstr ""
 "tsvn:logwidthmarker\r\n"
 "Configure para o número de caracteres que o comentário não deve exceder.\r\n"
-"Uma linha sombreada é mostrada nas caixas de diálogo de submissão nessa posição. O padrão é 80 caracteres."
+"Uma linha sombreada é mostrada nas janelas de submissão nessa posição. O padrão é 80 caracteres."
 
 #. Resource IDs: (578)
 msgid ""
@@ -10545,7 +10545,7 @@ msgid ""
 msgstr ""
 "tsvn:userfileproperties\r\n"
 "Uma lista de propriedades de arquivos definidas pelo utilizador, separadas por fins-de-linha,\r\n"
-"que serão mostradas na caixa de diálogo de propriedades para seleção."
+"que serão mostradas na janela de propriedades para seleção."
 
 #. Resource IDs: (581)
 msgid ""
@@ -10555,7 +10555,7 @@ msgid ""
 msgstr ""
 "tsvn:userfolderproperties\r\n"
 "Uma lista de propriedades de pastas definidas pelo usuário, separadas por quebra-de-linha,\r\n"
-"que serão mostradas na caixa de diálogo de propriedades para seleção."
+"que serão mostradas na janela de propriedades para seleção."
 
 #. Resource IDs: (577)
 msgid ""
@@ -10563,7 +10563,7 @@ msgid ""
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 "tsvn:warnifnoissue\r\n"
-"Coloque 'sim' para que seja mostrado um aviso quando nada for inserido no diálogo de submissão."
+"Coloque 'sim' para que seja mostrado um aviso quando nada for inserido na janela de submissão."
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
