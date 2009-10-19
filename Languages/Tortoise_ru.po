@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2009
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 17351: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 17466: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-05 00:28+0300\n"
+"PO-Revision-Date: 2009-10-19 17:55+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -289,6 +289,19 @@ msgid ""
 msgstr ""
 "%s\n"
 "Вы всё равно желаете это удалить?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Shall I update the working copy now\n"
+"and reopen the commit dialog?"
+msgstr ""
+"%s\n"
+"\n"
+"Выполнить обновление рабочей копии\n"
+"и переоткрытие диалога фиксации?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -902,6 +915,10 @@ msgstr "&Предварительный просмотр"
 #. Resource IDs: (58116)
 msgid "&Print..."
 msgstr "&Печать..."
+
+#. Resource IDs: (1265)
+msgid "&Properties"
+msgstr "Сво&йства"
 
 #. Resource IDs: (11021)
 msgid "&Properties..."
@@ -1911,6 +1928,10 @@ msgstr "Авто"
 msgid "Automatically check for &newer versions every week"
 msgstr "Автоматически проверять наличие новой &версии каждую неделю"
 
+#. Resource IDs: (306)
+msgid "Autotext Tester"
+msgstr "Проверка Автотекста"
+
 #. Resource IDs: (1157)
 msgid "Average"
 msgstr "В среднем"
@@ -2495,6 +2516,10 @@ msgstr "Фиксация"
 #. Resource IDs: (77)
 msgid "Commit - TortoiseSVN"
 msgstr "Фиксация - TortoiseSVN"
+
+#. Resource IDs: (616)
+msgid "Commit failed - Update needed"
+msgstr "Фиксация не удалась - Необходимо обновление"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -3630,6 +3655,10 @@ msgstr "Введите целое число между 0 и 255."
 msgid "Enter an integer."
 msgstr "Введите целое число."
 
+#. Resource IDs: (65535)
+msgid "Enter file content to test for below:"
+msgstr "Ввежите содержимое файла для проверки:"
+
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
 msgstr "Введите &сообщение журнала:"
@@ -3642,6 +3671,10 @@ msgstr "Введите сообщение журнала:"
 #, c-format
 msgid "Enter no more than %1 characters."
 msgstr "Введите не более %1 символов."
+
+#. Resource IDs: (65535)
+msgid "Enter the regex string below:"
+msgstr "Введите строку регулярного выражения:"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3696,6 +3729,10 @@ msgstr "Исполняемые (*.exe)|*.exe|Командные (*.com)|*.com|И
 #. Resource IDs: (1002)
 msgid "Existing"
 msgstr "Существующий"
+
+#. Resource IDs: (2)
+msgid "Exit"
+msgstr "Выход"
 
 #. Resource IDs: (275)
 msgid "Exp&and source tree"
@@ -4110,6 +4147,10 @@ msgid "Forward"
 msgstr "Вперёд"
 
 #. Resource IDs: (65535)
+msgid "Found auto words:"
+msgstr "Автоматически обнаруженные слова:"
+
+#. Resource IDs: (65535)
 msgid "From URL:"
 msgstr "Исходный URL:"
 
@@ -4386,6 +4427,10 @@ msgstr "Имя хоста не соответствует (%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "Каким образом вы желаете уладить этот конфликт?"
+
+#. Resource IDs: (1264)
+msgid "I&gnored"
+msgstr "И&гнорируемые"
 
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
@@ -4982,6 +5027,14 @@ msgstr ""
 "Если вы не уверены в том, что надо сделать, обратитесь к описанию <i>перебазирования</i> в нашей документации.\n"
 "Вы действительно желаете перебазировать?"
 
+#. Resource IDs: (1480)
+msgid "Items in externals"
+msgstr "Элементы во внешних"
+
+#. Resource IDs: (1527)
+msgid "Items to show"
+msgstr "Показывать элементы"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "Соединить с последующим &деревом"
@@ -5240,8 +5293,12 @@ msgstr "Показанные ревизии:- меньшая: %ld - больша
 
 #. Resource IDs: (238)
 #, c-format
-msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
-msgstr "Показанные ревизии:- меньшая: %ld - большая: %ld - ведущая: %ld"
+msgid ""
+"Lowest shown revision: %ld - Highest shown revision: %ld\n"
+"HEAD revision: %ld"
+msgstr ""
+"Показанные ревизии - Меньшая: %ld, Большая: %ld\n"
+"Ведущая ревизия: %ld"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -7224,6 +7281,10 @@ msgstr "Сохранение файлов"
 msgid "Saving patchfile to:"
 msgstr "Сохранить файл заплатки в:"
 
+#. Resource IDs: (1522)
+msgid "Scan"
+msgstr "Попробовать"
+
 #. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
 msgstr "Scintilla"
@@ -7527,10 +7588,6 @@ msgstr "&Журнал..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "Показывать &пометки и контекстное меню только в проводнике"
 
-#. Resource IDs: (1265)
-msgid "Show &properties"
-msgstr "Показать сво&йства"
-
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "Показать неверсированные &файлы"
@@ -7615,14 +7672,6 @@ msgstr "Показывать внешнее из других хранилищ"
 msgid "Show f&ull menus after a short delay"
 msgstr "Показывать &полные меню после небольшой задержки"
 
-#. Resource IDs: (1264)
-msgid "Show i&gnored files"
-msgstr "Показать &игнорируемые файлы"
-
-#. Resource IDs: (1480)
-msgid "Show items in externals"
-msgstr "Показать элементы во внешних"
-
 #. Resource IDs: (1037)
 msgid "Show l&og"
 msgstr "Жу&рнал"
@@ -7702,14 +7751,6 @@ msgstr "Показывает статистику для выбранного к
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Показать метки на источнике копирования, а не как отдельные узлы"
-
-#. Resource IDs: (1209)
-msgid "Show un&modified files"
-msgstr "Показать файлы без из&менений"
-
-#. Resource IDs: (1073)
-msgid "Show un&versioned files"
-msgstr "Показать не&версированные файлы"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -7965,18 +8006,28 @@ msgstr "Конфигурационный &файл Subversion:"
 #, c-format
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion encountered the problem in:\n"
 "file %s, line %ld\n"
 "expression = %s"
 msgstr ""
 "Subversion столкнулась с серьёзной проблемой.\n"
-"Пожалуйста, уделите время и сообщите о ней в нашем\n"
-"списке рассылки вместе со всей возможной информацией\n"
-"о том, что вы пытались сделать.\n"
+"Пожалуйста, уделите время и сообщите о ней в списке\n"
+"рассылки Subversion (users@subversion.tigris.org)\n"
+"вместе со всей возможной информацией о том,\n"
+"что вы пытались сделать.\n"
+"Но, пожалуйста, сначала поищите сообщение об ошибке в архивах\n"
+"списка рассылки, чтобы не сообщать повторно об одной и той же проблеме.\n"
+"Вы можете найти архивы списка рассылки по адресу\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion столкнулась с проблемой в следующем месте:\n"
 "файл %s, строка %ld\n"
@@ -7989,6 +8040,10 @@ msgid ""
 "(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion reported the following:"
 msgstr ""
@@ -7997,6 +8052,10 @@ msgstr ""
 "рассылки Subversion (users@subversion.tigris.org)\n"
 "вместе со всей возможной информацией о том,\n"
 "что вы пытались сделать.\n"
+"Но, пожалуйста, сначала поищите сообщение об ошибке в архивах\n"
+"списка рассылки, чтобы не сообщать повторно об одной и той же проблеме.\n"
+"Вы можете найти архивы списка рассылки по адресу\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion сообщила следующее:"
 
@@ -9032,6 +9091,14 @@ msgstr "URL:"
 #. Resource IDs: (75)
 msgid "URL: "
 msgstr "URL: "
+
+#. Resource IDs: (1209)
+msgid "Un&modified"
+msgstr "Неиз&менённые"
+
+#. Resource IDs: (1073)
+msgid "Un&versioned"
+msgstr "Неве&рсированные"
 
 #. Resource IDs: (220)
 #, c-format
@@ -10683,6 +10750,14 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{СОП}"
 
+#~ msgid "Show &properties"
+#~ msgstr "Показать сво&йства"
+#~ msgid "Show i&gnored files"
+#~ msgstr "Показать &игнорируемые файлы"
+#~ msgid "Show un&modified files"
+#~ msgstr "Показать файлы без из&менений"
+#~ msgid "Show un&versioned files"
+#~ msgstr "Показать не&версированные файлы"
 #~ msgid "Cleaning up."
 #~ msgstr "Производится очистка."
 #~ msgid "%s, but the local file was already edited."
