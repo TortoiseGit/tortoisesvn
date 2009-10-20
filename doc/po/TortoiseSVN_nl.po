@@ -13,8 +13,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"POT-Creation-Date: 2009-10-10 16:07 +0000\n"
-"PO-Revision-Date: 2009-10-12 12:40+0100\n"
+"POT-Creation-Date: 2009-10-16 22:51 +0000\n"
+"PO-Revision-Date: 2009-10-20 16:32+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1291,7 +1291,7 @@ msgstr "Archief Reservekopie"
 
 #. (primary)
 msgid "backup"
-msgstr "backup"
+msgstr "reservekopie"
 
 #. (para)
 msgid "Whichever type of repository you use, it is vitally important that you maintain regular backups, and that you verify the backup. If the server fails, you may be able to access a recent version of your files, but without the repository all your history is lost forever."
@@ -1317,7 +1317,7 @@ msgstr "De <literal>svnadmin</literal> tool wordt automatisch geïnstalleerd als
 
 #. (title)
 msgid "Server side hook scripts"
-msgstr "Server side hook scripts"
+msgstr "Server gesitueerde hook scripts"
 
 #. (primary)
 msgid "hooks"
@@ -1355,6 +1355,14 @@ msgstr ""
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
 "exit 1\n"
 "</screen> Merk op dat alles wat verstuurd wordt met stdout genegeerd wordt. Als je een bericht wilt tonen in het Vastleggen geweigerd dialoogvenster, dan moet je dit sturen naar stderr. In een batch bestand kun je dit doen met <filename>&gt;&amp;2</filename>"
+
+#. (title)
+msgid "Overriding Hooks"
+msgstr "Dwingende Hooks"
+
+#. (para)
+msgid "If a hook script rejects your commit then its decision is final. But you can build an override mechanism into the script itself using the <emphasis>Magic Word</emphasis> technique. If the script wants to reject the operation it first scans the log message for a special pass phrase, either a fixed phrase or perhaps the filename with a prefix. If it finds the magic word then it allows the commit to proceed. If the phrase is not found then it can block the commit with a message like <quote>You didn't say the magic word</quote> :-)"
+msgstr "Als een hook script een vastlegging weigert, dan is die beslissing definitief. Het is mogelijk om een dwingend mechanisme in het script te bouwen met een <emphasis>Magisch Woord</emphasis>. Als het script een actie will weigeren zal het eerst het log bericht scannen op een speciale zin, een standaard in of een bestandsnaam met een prefix. Als het het magische woord vindt, dan zal het de vastlegging toestaan. Als de zin niet gevonden is, dan kan het de vastlegging blokkeren met een bericht zoals <quote>Je hebt het magische woord niet gezegd</quote> :-)"
 
 #. (title)
 msgid "Checkout Links"
@@ -2127,7 +2135,7 @@ msgstr "Als je de <literal>SVNParentPath</literal> optie hebt gebruikt, hoef je 
 
 #. (para)
 msgid "If you are using Subversion 1.3 or later, you can use the <literal>SVNListParentPath on</literal> directive to allow Apache to produce a listing of all available projects if you point your browser at the parent path rather than at a specific repository."
-msgstr ""
+msgstr "Als je Subversion 1.3 of later gebruikt, kun je de <literal>SVNListParentPath on</literal> optie gebruiken om Apache toe te staan een lijst te maken van alle beschikbare projecten als je met je browser naar het pad van de hoofdmap gaat in plaats van een specifiek archief."
 
 #. (title)
 msgid "Path-Based Authorization"
@@ -2139,7 +2147,7 @@ msgstr "Authorisatie"
 
 #. (para)
 msgid "The <literal>mod_authz_svn</literal> module permits fine-grained control of access permissions based on user names and repository paths. This is available with the Apache server, and as of Subversion 1.3 it is available with svnserve as well."
-msgstr ""
+msgstr "De <literal>mod_authz_svn</literal> module maakt het mogelijk om nauwkeurig afgestemde toegangscontrole gebaseerd op gebruikers namen en archiefpaden te organiseren. Deze methode is beschikbaar in Apache en, vanaf Subversion 1.3, ook in svnserve."
 
 #. (para)
 msgid ""
@@ -2173,14 +2181,43 @@ msgid ""
 "@training = rw\n"
 "</screen>"
 msgstr ""
+"Een voorbeeld bestand kan er zo uit zien: <screen>\n"
+"[groups]\n"
+"admin = john, kate\n"
+"devteam1 = john, rachel, sally\n"
+"devteam2 = kate, peter, mark\n"
+"docs = bob, jane, mike\n"
+"training = zak\n"
+"# Standaard toegangsregel voor alle archieven \n"
+"# Iedereen can lezen, admins kunnen schrijven, Dan German is uitgesloten.\n"
+"[/]\n"
+"* = r\n"
+"@admin = rw\n"
+"dangerman =\n"
+"# Geef ontwikkelaars complete toegang tot hun project archieven \n"
+"[proj1:/]\n"
+"@devteam1 = rw\n"
+"[proj2:/]\n"
+"@devteam2 = rw\n"
+"[bigproj:/]\n"
+"@devteam1 = rw\n"
+"@devteam2 = rw\n"
+"trevor = rw\n"
+"# Geef de documentatie mensen schrijfrechten op alle document mappen\n"
+"[/trunk/doc]\n"
+"@docs = rw\n"
+"# Geeft stagiaires alleen schrijfrechten in training archieven\n"
+"[TrainingRepos:/]\n"
+"@training = rw\n"
+"</screen>"
 
 #. (para)
 msgid "Note that checking every path can be an expensive operation, particularly in the case of the revision log. The server checks every changed path in each revision and checks it for readability, which can be time-consuming on revisions which affect large numbers of files."
-msgstr ""
+msgstr "Merk op dat het controleren van elk pad tijdrovend is, vooral bij een revisie log. De server controleert elk gewijzigd pad in elke revisie and controleert of er gelezen kan worden, hetgeen erg lang kan duren voor revisies die veel bestanden betreffen."
 
 #. (para)
 msgid "Authentication and authorization are separate processes. If a user wants to gain access to a repository path, she has to meet <emphasis>both</emphasis>, the usual authentication requirements and the authorization requirements of the access file."
-msgstr ""
+msgstr "Authenticatie en autorisatie zijn losstaande processen. Als een gebruiker toegang wil tot een archief, dan moet <emphasis>zowel</emphasis> aan de authenticatie voorwaarden <emphasis>als ook</emphasis> aan de autorisatie voorwaarden voldaan worden."
 
 #. (title)
 msgid "Authentication With a Windows Domain"
@@ -2196,11 +2233,11 @@ msgstr "domeincontroller"
 
 #. (para)
 msgid "As you might have noticed you need to make a username/password entry in the <filename>passwd</filename> file for each user separately. And if (for security reasons) you want your users to periodically change their passwords you have to make the change manually."
-msgstr ""
+msgstr "Zoals je mogelijk al opgemerkt hebt, moet je voor elke gebruiker een aparte gebruikersnaam/wachtwoord combinatie opnemen in het <filename>passwd</filename> bestand. Als je (vanwege veiligheidsredenen) wilt dat gebruikers periodiek hun wachtwoord wijzigen, dan moet je dat handmatig doen."
 
 #. (para)
 msgid "But there's a solution for that problem - at least if you're accessing the repository from inside a LAN with a windows domain controller: <literal>mod_auth_sspi</literal>!"
-msgstr ""
+msgstr "Maar er is een oplossing voor dat probleem – tenminste als je het archief benaderd vanbinnen een LAN met een windows domein controller: <literal>mod_auth_sspi</literal>!"
 
 #. (primary)
 msgid "SSPI"
@@ -2212,11 +2249,11 @@ msgstr "NTLM"
 
 #. (para)
 msgid "The original SSPI module was offered by Syneapps including source code. But the development for it has been stopped. But don't despair, the community has picked it up and improved it. It has a new home on <ulink url=\"http://sourceforge.net/projects/mod-auth-sspi/\"><citetitle>SourceForge</citetitle></ulink>."
-msgstr ""
+msgstr "De originele SSPI module is aangeleverd door Syneapps, inclusief broncode. Maar de ontwikkeling daarvan is gestopt. Maar wanhoop niet, de community heeft het opgepakt en verbeterd. Het heeft een nieuw thuis op <ulink url=\"http://sourceforge.net/projects/mod-auth-sspi/\"><citetitle>SourceForge</citetitle></ulink>."
 
 #. (para)
 msgid "Download the module which matches your apache version, then copy the file <filename>mod_auth_sspi.so</filename> into the Apache modules folder."
-msgstr ""
+msgstr "Haal de module die bij jouw apache versie hoort op en kopieer het bestand <filename>mod_auth_sspi.so</filename> naar de Apache module map."
 
 #. (para)
 msgid ""
@@ -2226,6 +2263,11 @@ msgid ""
 "LoadModule auth_module modules/mod_auth.so\n"
 "</screen>"
 msgstr ""
+"Bewerk het Apache configuratie bestand: voeg de regel <screen>\n"
+"LoadModule sspi_auth_module modules/mod_auth_sspi.so\n"
+"</screen> toen aan de <literal>LoadModule</literal> sectie. Let op dat je deze regel toevoegt <emphasis>voor</emphasis> de regel <screen>\n"
+"LoadModule auth_module modules/mod_auth.so\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -2243,30 +2285,43 @@ msgid ""
 "SSPIOfferBasic On\n"
 "</screen> within the <literal>&lt;Location /svn&gt;</literal> block. If you don't have a domain controller, leave the name of the domain control as <literal>&lt;domaincontroller&gt;</literal>."
 msgstr ""
+"Om ervoor te zorgen dat op deze Subversion locatie deze methode van euthenticatie gebruikt, moet je de regel <screen>\n"
+"AuthType Basic\n"
+"</screen> wijzigen in <screen>\n"
+"AuthType SSPI\n"
+"</screen> en moet je ook <screen>\n"
+"SSPIAuth On\n"
+"SSPIAuthoritative On\n"
+"SSPIDomain &lt;domaincontroller&gt;\n"
+"SSPIOmitDomain on\n"
+"SSPIUsernameCase lower\n"
+"SSPIPerRequestAuth on\n"
+"SSPIOfferBasic On\n"
+"</screen> toevoegen binnen het <literal>&lt;Location /svn&gt;</literal> blok. Als je geen domein controller hebt, laat dan de naam van de domein controle staan op <literal>&lt;domaincontroller&gt;</literal>."
 
 #. (para)
 msgid "Note that if you are authenticating using SSPI, then you don't need the <literal>AuthUserFile</literal> line to define a password file any more. Apache authenticates your username and password against your windows domain instead. You will need to update the users list in your <filename>svnaccessfile</filename> to reference <literal>DOMAIN\\username</literal> as well."
-msgstr ""
+msgstr "Merk op dat als je SSPI gebruikt voor authenticatie, dat je dan de regel <literal>AuthUserFile</literal> niet meer nodig hebt om een wachtwoord bestand te definiëren. Apache authenticeert je gebruikersnaam en wachtwoord dan via je windows domein. Je moet dan je gebruikerslijst in je <filename>svnaccessfile</filename> naar <literal>DOMAIN\\username</literal> laten verwijzen."
 
 #. (para)
 msgid "The SSPI authentication is only enabled for SSL secured connections (https). If you're only using normal http connections to your server, it won't work."
-msgstr ""
+msgstr "De SSPI authenticatie is alleen mogelijk voor met SSL beveiligde verbindingen (https). Als je alleen normale http verbindingen gebruikt naar je server, dan zal het niet werken. "
 
 #. (para)
 msgid "To enable SSL on your server, see the chapter: <xref linkend=\"tsvn-serversetup-apache-7\"/>"
-msgstr ""
+msgstr "Om SSL op je server aan te zetten, lees hoofdstuk: <xref linkend=\"tsvn-serversetup-apache-7\"/>"
 
 #. (para)
 msgid "Subversion <filename>AuthzSVNAccessFile</filename> files are case sensitive in regard to user names (<literal>JUser</literal> is different from <literal>juser</literal>)."
-msgstr ""
+msgstr "Subversion <filename>AuthzSVNAccessFile</filename> bestanden zijn hoofdlettergevoelig in relatie tot gebruikersnamen (<literal>JUser</literal> is anders dan <literal>juser</literal>)."
 
 #. (para)
 msgid "In Microsoft's world, Windows domains and user names are not case sensitive. Even so, some network administrators like to create user accounts in CamelCase (e.g. <literal>JUser</literal>)."
-msgstr ""
+msgstr "In Microsoft’s wereld, Windows domeinen en gebruikersnamen zijn niet hoofdlettergevoelig. Sommige netwerkbeheerders vinden het leuk om voor gebruikersnamen CamelCase te gebruiken (bijv. <literal>JUser</literal>)."
 
 #. (para)
 msgid "This difference can bite you when using SSPI authentication as the windows domain and user names are passed to Subversion in the same case as the user types them in at the prompt. Internet Explorer often passes the username to Apache automatically using whatever case the account was created with."
-msgstr ""
+msgstr "Door dit verschil kun je gebeten worden als je SSPI authenticatie gebruikt onder windows en de gebruikersnamen op dezelfde manier als de gebruiker deze heeft ingevoerd worden doorgegeven aan Subversion, omdat <liteal>JUser</literal> en <literal>juser</literal> voor Subversion verschillende gebruikers zijn. Internet Explorer geeft vaak de gebruikersnaam automatisch door aan Apache onafhankelijk van de manier waarop het geschreven is."
 
 #. (para)
 msgid "The end result is that you may need at least two entries in your <literal>AuthzSVNAccessFile</literal> for each user -- a lowercase entry and an entry in the same case that Internet Explorer passes to Apache. You will also need to train your users to also type in their credentials using lower case when accessing repositories via TortoiseSVN."
@@ -2376,7 +2431,7 @@ msgid ""
 "bin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n"
 "-config conf\\openssl.cnf\n"
 "</screen> and then (on one line) <screen>\n"
-"bin\\openssl x509 -in conf\\server.csr -out conf\\server.crt\n"
+"bin\\openssl x509 -in conf\\server.csr -out conf\\server.cert\n"
 "                 -req -signkey conf\\server.key -days 4000\n"
 "</screen> This will create a certificate which will expire in 4000 days. And finally enter (on one line): <screen>\n"
 "bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
@@ -5435,6 +5490,10 @@ msgstr ""
 msgid "undo"
 msgstr "ongedaan maken"
 
+#. (primary)
+msgid "clean"
+msgstr ""
+
 #. (title)
 msgid "Revert dialog"
 msgstr "Herstel dialoog"
@@ -5454,6 +5513,10 @@ msgstr ""
 #. (para)
 #. (para)
 msgid "The columns in this dialog can be customized in the same way as the columns in the <guilabel>Check for modifications</guilabel> dialog. Read <xref linkend=\"tsvn-dug-wcstatus-2\"/> for further details."
+msgstr ""
+
+#. (para)
+msgid "Since revert is sometimes used to clean up a working copy, there is an extra button which allows you to delete unversioned items as well. When you click this button another dialog comes up listing all the unversioned items, which you can then select for deletion."
 msgstr ""
 
 #. (title)
@@ -6329,6 +6392,10 @@ msgid "You can specify the way that line ending and whitespace changes are handl
 msgstr ""
 
 #. (para)
+msgid "The checkbox marked <guilabel>Force the merge</guilabel> is used to avoid a tree conflict where an incoming delete affects a file that is either modified locally or not versioned at all. If the file is deleted then there is no way to recover it, which is why that option is not checked by default."
+msgstr ""
+
+#. (para)
 msgid "If you are using merge tracking and you want to mark a revision as having been merged, without actually doing the merge here, check the <guilabel>Only record the merge</guilabel> checkbox. There are two possible reasons you might want to do this. It may be that the merge is too complicated for the merge algorithms, so you code the changes by hand, then mark the change as merged so that the merge tracking algorithm is aware of it. Or you might want to prevent a particular revision from being merged. Marking it as already merged will prevent the merge occurring with merge-tracking-aware clients."
 msgstr ""
 
@@ -6677,7 +6744,7 @@ msgid "In order to apply a patch file to your working copy, you need to have at 
 msgstr ""
 
 #. (para)
-msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog."
+msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog. Note that this option only appears if you saved the patch to the clipboard using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice>. Copying a patch to the clipboard from another app will not make the button appear."
 msgstr ""
 
 #. (para)
@@ -9784,6 +9851,27 @@ msgstr ""
 
 #. (para)
 msgid "The following example shows how the interface might be used. <placeholder-1/>"
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"using LibSubWCRev;\n"
+"SubWCRev sub = new SubWCRev();\n"
+"sub.GetWCInfo(\"C:\\\\PathToMyFile\\\\MyFile.cc\", true, true);\n"
+"if (sub.IsSvnItem == true)\n"
+"{\n"
+"    MessageBox.Show(\"versioned\");\n"
+"}\n"
+"else\n"
+"{\n"
+"    MessageBox.Show(\"not versioned\");\n"
+"}\n"
+msgstr ""
+
+#. (para)
+msgid "The following listing is an example on how to use the SubWCRev COM object from C#: <placeholder-1/>"
 msgstr ""
 
 #. (title)
