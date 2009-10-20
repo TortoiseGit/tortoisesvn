@@ -92,6 +92,10 @@ C:\Path-To\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine
 C:\Path-To\compare.exe /max /wait /title1:%bname /title2:%yname
     %base %mine
 </screen>
+            or with UltraCompare:
+<screen>
+C:\Path-To\uc.exe %base %mine -title1 %bname -title2 %yname
+</screen>
 		</para>
 		<para>
 			If you use the <literal>svn:keywords</literal> property to
