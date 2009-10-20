@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-10-10 16:07 +0000\n"
-"PO-Revision-Date: 2009-10-11 17:03+0100\n"
+"POT-Creation-Date: 2009-10-16 22:51 +0000\n"
+"PO-Revision-Date: 2009-10-20 15:40+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1372,6 +1372,14 @@ msgstr ""
 "</screen> Beachten Sie dass alle Ausgaben via stdout verworfen werden. Wenn Sie möchten, dass eine Fehlermeldung auch in TortoiseSVN angezeigt wird, müssen Sie diese Fehlermeldung via stderr ausgeben. In einer Batchdatei erreichen Sie dies über <filename>&gt;&amp;2</filename>."
 
 #. (title)
+msgid "Overriding Hooks"
+msgstr "Aktionen überschreiben"
+
+#. (para)
+msgid "If a hook script rejects your commit then its decision is final. But you can build an override mechanism into the script itself using the <emphasis>Magic Word</emphasis> technique. If the script wants to reject the operation it first scans the log message for a special pass phrase, either a fixed phrase or perhaps the filename with a prefix. If it finds the magic word then it allows the commit to proceed. If the phrase is not found then it can block the commit with a message like <quote>You didn't say the magic word</quote> :-)"
+msgstr "Falls ein Aktionsskript ihr Übertragung verwirft, handelt es sich um eine entgültige Entscheidung. Sie können jedoch in das Skript selbst mit Hilfe der <emphasis>Zauberwort</emphasis>-Technik eine Ausnahmebehandlung einbauen. Falls das Skript eine Übertragung verwerfen will, durchsucht es zunächst die Logmeldung nach der Passphrase, einem bestimmten Wort oder auch einem Präfix eines Dateinamens. Wenn es das Zauberwort findet, akzeptiert es die Übertragung trotzdem. Andernfalls kann es die Übertragung, z.B. mit einer Meldung wie <quote>Du hast das Zauberwort nicht gesagt</quote>, blockieren."
+
+#. (title)
 msgid "Checkout Links"
 msgstr "Auschecken aus Webseiten"
 
@@ -2484,7 +2492,7 @@ msgid ""
 "bin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n"
 "-config conf\\openssl.cnf\n"
 "</screen> and then (on one line) <screen>\n"
-"bin\\openssl x509 -in conf\\server.csr -out conf\\server.crt\n"
+"bin\\openssl x509 -in conf\\server.csr -out conf\\server.cert\n"
 "                 -req -signkey conf\\server.key -days 4000\n"
 "</screen> This will create a certificate which will expire in 4000 days. And finally enter (on one line): <screen>\n"
 "bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
@@ -2497,7 +2505,7 @@ msgstr ""
 "<screen>bin\\openssl req -new -key conf\\server.key -out conf\\server.csr\n"
 "                 -config conf\\openssl.cnf</screen>\n"
 "und danach\n"
-"<screen>bin\\openssl x509 -in conf\\server.csr -out conf\\server.crt\n"
+"<screen>bin\\openssl x509 -in conf\\server.csr -out conf\\server.cert\n"
 "                 -req -signkey conf\\server.key -days 4000</screen>\n"
 "Dies wird ein Zertifikat erstellen, das in 4000 Tagen verfällt. Abschließend geben Sie:\n"
 "<screen>bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
@@ -5631,6 +5639,10 @@ msgstr "Rückgängig"
 msgid "undo"
 msgstr "Rückgängig"
 
+#. (primary)
+msgid "clean"
+msgstr "Aufräumen"
+
 #. (title)
 msgid "Revert dialog"
 msgstr "Rückgängig-Dialog"
@@ -5651,6 +5663,10 @@ msgstr "Wenn Sie das Hinzufügen eines Objekts zur Versionskontrolle zurücknehm
 #. (para)
 msgid "The columns in this dialog can be customized in the same way as the columns in the <guilabel>Check for modifications</guilabel> dialog. Read <xref linkend=\"tsvn-dug-wcstatus-2\"/> for further details."
 msgstr "Die Spalten in diesem Dialog können, genau wie im <guilabel>Auf Änderungen prüfen</guilabel>-Dialog, angepasst werden. Lesen Sie in <xref linkend=\"tsvn-dug-wcstatus-2\"/> nach, wie das geht."
+
+#. (para)
+msgid "Since revert is sometimes used to clean up a working copy, there is an extra button which allows you to delete unversioned items as well. When you click this button another dialog comes up listing all the unversioned items, which you can then select for deletion."
+msgstr "Da Rückgängig manchmal dazu verwendet wird, um Arbeitskopien aufzuräumen, gibt es eine extra Schaltfläche, die Ihnen erlaubt, nicht versionierte Objekte zu entfernen. Wenn Sie diese Schaltfläche betätigen, erscheint ein zusätzlicher Dialog, der die nicht versionierte Objekte auflistet, die Sie dann zum Löschen auswählen können."
 
 #. (title)
 msgid "Undoing Changes which have been Committed"
@@ -6551,6 +6567,10 @@ msgid "You can specify the way that line ending and whitespace changes are handl
 msgstr "Sie können festlegen, wie Änderungen an Zeilenumbrüchen und Leerzeichen behandelt werden sollen. Diese Optionen sind in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/> beschrieben. Die Vorgabe ist, dass alle Zeilenenden- und Leerzeichenänderungen als echte, zusammenzuführende Änderungen behandelt werden."
 
 #. (para)
+msgid "The checkbox marked <guilabel>Force the merge</guilabel> is used to avoid a tree conflict where an incoming delete affects a file that is either modified locally or not versioned at all. If the file is deleted then there is no way to recover it, which is why that option is not checked by default."
+msgstr "Die Option <guilabel>Zusammenführen erzwingen</guilabel> dient dazu, Baumkonflikte zu vermeiden, wenn durch ein eingehendes Löschen eine veränderte oder nicht versionierte lokale Datei betroffen ist. Falls dadurch die Datei gelöscht wird, kann sie im Ursprungszustand nicht wieder hergestellt werden, weshalb die Option standardmäßig deaktiviert ist."
+
+#. (para)
 msgid "If you are using merge tracking and you want to mark a revision as having been merged, without actually doing the merge here, check the <guilabel>Only record the merge</guilabel> checkbox. There are two possible reasons you might want to do this. It may be that the merge is too complicated for the merge algorithms, so you code the changes by hand, then mark the change as merged so that the merge tracking algorithm is aware of it. Or you might want to prevent a particular revision from being merged. Marking it as already merged will prevent the merge occurring with merge-tracking-aware clients."
 msgstr "Falls Sie Ihre Datenintegrationsschritte verfolgen und eine Revision als zusammengeführt markieren wollen, ohne die Daten wirklich zusammenzuführen, aktivieren Sie die Option <guilabel>Zusammenführen nur aufzeichnen</guilabel>. Es gibt mehrere Gründe, dies zu tun. Zum Beispiel könnten die zusammenzuführenden Änderungen zu komplex für den Algorithmus sein, so dass Sie die Daten von Hand integrieren und die Revisionen als zusammengeführt markieren, damit die Änderungsverfolgung darüber informiert ist. Oder Sie möchten verhindern, dass eine bestimmte Revision zusammengeführt werden kann. Clients die die Verfolgung der Datenintegration bereits beherrschen, werden diese Revision dann überspringen."
 
@@ -6899,8 +6919,8 @@ msgid "In order to apply a patch file to your working copy, you need to have at 
 msgstr "Um den Patch anwenden zu können, benötigen Sie zumindest Lesezugriff auf das Projektarchiv, denn das Programm zum Zusammenführen (Patchen) der Daten muss eventuell auf dieses zurückgreifen, um die Änderungen auf die Revision im Projektarchiv zurückzuführen, auf der sie basieren."
 
 #. (para)
-msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog."
-msgstr "Vom Kontextmenü des betroffenen Ordners aus wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Patch anwenden...</guimenuitem> </menuchoice> Dies öffnet einen Dateidialog von TortoiseMerge, in dem sie die anzuwendende Patchdatei auswählen können. Standardmäßig werden nur <filename>.patch</filename> Dateien angezeigt, aber sie können auch <quote>Alle Dateien</quote> auswählen. Wenn Sie einen Patch in der Zwischenablage gespeichert haben, können Sie <guibutton>Aus Zwischenablage öffnen</guibutton> im <guilabel>Datei Öffnen</guilabel>-Dialog aufrufen."
+msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog. Note that this option only appears if you saved the patch to the clipboard using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice>. Copying a patch to the clipboard from another app will not make the button appear."
+msgstr "Vom Kontextmenü des betroffenen Ordners aus wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Patch anwenden...</guimenuitem> </menuchoice> Dies öffnet einen Dateidialog von TortoiseMerge, in dem sie die anzuwendende Patchdatei auswählen können. Standardmäßig werden nur <filename>.patch</filename> Dateien angezeigt, aber sie können auch <quote>Alle Dateien</quote> auswählen. Wenn Sie einen Patch in der Zwischenablage gespeichert haben, können Sie <guibutton>Aus Zwischenablage öffnen...</guibutton> im Datei Öffnen-Dialog aufrufen. Beachten Sie bitte, dass diese Option nur zur Verfügung steht, wenn Sie den Patch aus dem <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Erzeuge Patch...</guimenuitem></menuchoice> Dialog heraus in die Zwischenablage kopiert haben. Wenn Sie einen Patch auf andere Art in die Zwischenablage kopieren, erscheint die Schaltfläche nicht."
 
 #. (para)
 msgid "Alternatively, if the patch file has a <filename>.patch</filename> or <filename>.diff</filename> extension, you can right click on it directly and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice>. In this case you will be prompted to enter a working copy location."
@@ -10199,6 +10219,39 @@ msgstr ""
 #. (para)
 msgid "The following example shows how the interface might be used. <placeholder-1/>"
 msgstr "Das folgende Beispiel zeigt, wie die Schnittstelle genutzt werden kann. <placeholder-1/>"
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"using LibSubWCRev;\n"
+"SubWCRev sub = new SubWCRev();\n"
+"sub.GetWCInfo(\"C:\\\\PathToMyFile\\\\MyFile.cc\", true, true);\n"
+"if (sub.IsSvnItem == true)\n"
+"{\n"
+"    MessageBox.Show(\"versioned\");\n"
+"}\n"
+"else\n"
+"{\n"
+"    MessageBox.Show(\"not versioned\");\n"
+"}\n"
+msgstr ""
+"\n"
+"using LibSubWCRev;\n"
+"SubWCRev sub = new SubWCRev();\n"
+"sub.GetWCInfo(\"C:\\\\PfadZuMeinerDatei\\\\MeineDatei.cc\", true, true);\n"
+"if (sub.IsSvnItem == true)\n"
+"{\n"
+"    MessageBox.Show(\"versioniert\");\n"
+"}\n"
+"else\n"
+"{\n"
+"    MessageBox.Show(\"nicht versioniert\");\n"
+"}\n"
+
+#. (para)
+msgid "The following listing is an example on how to use the SubWCRev COM object from C#: <placeholder-1/>"
+msgstr "Das folgende Beispiel zeigt, wie die SubWCRev COM-Schnittstelle aus C# heraus genutzt werden kann. <placeholder-1/>"
 
 #. (title)
 msgid "IBugtraqProvider interface"
