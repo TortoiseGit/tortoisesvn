@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-10 10:48-0600\n"
+"PO-Revision-Date: 2009-10-21 08:11-0600\n"
 "Last-Translator: Evan Allrich <eallrich@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -291,6 +291,19 @@ msgid ""
 msgstr ""
 "%s\n"
 "Anda tetap ingin menghapusnya?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Shall I update the working copy now\n"
+"and reopen the commit dialog?"
+msgstr ""
+"%s\n"
+"\n"
+"Haruskah aku memperbarui salinan pekerjaan sekarang\n"
+"dan membuka kembali dialog komit?"
 
 # ID:69,
 #. Resource IDs: (69)
@@ -1024,6 +1037,13 @@ msgstr "&Pratilik Halaman"
 #. Resource IDs: (58116)
 msgid "&Print..."
 msgstr "&Cetak..."
+
+# ID:17,#:
+# Dlg-ID:177,#:
+# Dlg-ID:226,
+#. Resource IDs: (1265)
+msgid "&Properties"
+msgstr "&Properti"
 
 # Control-ID:11021,
 #. Resource IDs: (11021)
@@ -2951,6 +2971,10 @@ msgstr "Komit"
 #. Resource IDs: (77)
 msgid "Commit - TortoiseSVN"
 msgstr "Komit - TortoiseSVN"
+
+#. Resource IDs: (616)
+msgid "Commit failed - Update needed"
+msgstr "Komit gagal - Update diperlukan"
 
 # Control-ID:1110,
 #. Resource IDs: (1110)
@@ -5222,6 +5246,11 @@ msgstr "Nama host idak sama (%s)"
 msgid "How do you want to resolve this conflict?"
 msgstr "Bagaimana Anda ingin menyelesaikan konflik ini?"
 
+# ID:73,
+#. Resource IDs: (1264)
+msgid "I&gnored"
+msgstr "&Abaikan"
+
 # Control-ID:65535,
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
@@ -5863,6 +5892,15 @@ msgstr ""
 "Jika anda tidak yakin apa yang harus dikerjakan, silahkan rujuk ke dokumen kami pada <i>relokasi</i>.\n"
 "Apakah Anda ingin relokasi?"
 
+# ID:145,
+#. Resource IDs: (1480)
+msgid "Items in externals"
+msgstr "Item dalam eksternal"
+
+#. Resource IDs: (1527)
+msgid "Items to show"
+msgstr "Item untuk menunjukkan"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "Hubungkan &dengan pohon berikut"
@@ -6165,8 +6203,12 @@ msgstr "Revisi terendah: %ld - Revisi tertinggi: %ld"
 # ID:238,
 #. Resource IDs: (238)
 #, c-format
-msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
-msgstr "Revisi terendah: %ld - Revisi tertinggi: %ld - Revisi HEAD: %ld"
+msgid ""
+"Lowest shown revision: %ld - Highest shown revision: %ld\n"
+"HEAD revision: %ld"
+msgstr ""
+"Revisi terendah: %ld - Revisi tertinggi: %ld\n"
+"Revisi HEAD: %ld"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -8905,11 +8947,6 @@ msgstr "Tampilkan &log..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "Tampilkan lapisan dan menu k&onteks hanya dalam penjelajah"
 
-# ID:101,
-#. Resource IDs: (1265)
-msgid "Show &properties"
-msgstr "Tampilkan &properti-properti"
-
 # Control-ID:1073,
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
@@ -8997,16 +9034,6 @@ msgstr "Tampilkan eksternal dari repositori berbeda"
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
 msgstr "Tampilkan menu pen&uh setelah jeda pendek"
-
-# Control-ID:1264,
-#. Resource IDs: (1264)
-msgid "Show i&gnored files"
-msgstr "Tampilkan berkas &diabaikan"
-
-# ID:145,
-#. Resource IDs: (1480)
-msgid "Show items in externals"
-msgstr "Tampilkan item dalam eksternal"
 
 # ID:12,#:
 # ID:101,#:
@@ -9105,16 +9132,6 @@ msgstr "Tampilkan statistik untuk tembolok log terpilih"
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Tampilkan tag pada sumber penyalinan, bukan sebagai noda terpisah"
-
-# Control-ID:1209,
-#. Resource IDs: (1209)
-msgid "Show un&modified files"
-msgstr "Ta&mpilkan berkas yang tidak diubah"
-
-# Control-ID:1073,
-#. Resource IDs: (1073)
-msgid "Show un&versioned files"
-msgstr "Tampilkan berkas tidak ber&versi"
 
 # ID:198,
 #. Resource IDs: (198)
@@ -9413,9 +9430,14 @@ msgstr "Ber&kas konfigurasi Subversion:"
 #, c-format
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion encountered the problem in:\n"
 "file %s, line %ld\n"
@@ -9425,6 +9447,10 @@ msgstr ""
 "Tolong luangkan waktu untuk melaporkannya ke milis kami\n"
 "dengan sebanyak mungkin informasi tentang apa\n"
 "yang Anda ingin lakukan.\n"
+"Tapi tolong untuk mencari di arsip milis untuk pesan kesalahan\n"
+"untuk menghindari pelaporan masalah yang sama berulang kali.\n"
+"Anda dapat menemukan arsip milis di\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion mengalami masalah di:\n"
 "berkas %s, baris %ld\n"
@@ -9437,6 +9463,10 @@ msgid ""
 "(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion reported the following:"
 msgstr ""
@@ -9445,6 +9475,10 @@ msgstr ""
 "(users@subversion.tigris.org)\n"
 "dengan sebanyak mungkin informasi tentang apa\n"
 "yang Anda ingin lakukan.\n"
+"Tapi tolong untuk mencari di arsip milis untuk pesan kesalahan\n"
+"untuk menghindari pelaporan masalah yang sama berulang kali.\n"
+"Anda dapat menemukan arsip milis di\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion melaporkan:"
 
@@ -10598,6 +10632,17 @@ msgstr "URL:"
 #. Resource IDs: (75)
 msgid "URL: "
 msgstr "URL: "
+
+# ID:10,
+#. Resource IDs: (1209)
+msgid "Un&modified"
+msgstr "&Diubah"
+
+# Control-ID:1075,#:
+# Control-ID:1075,
+#. Resource IDs: (1073)
+msgid "Un&versioned"
+msgstr "Tak &Berversi"
 
 #. Resource IDs: (220)
 #, c-format
