@@ -130,6 +130,7 @@ $WCISLOCKED$    True if the item is locked\n"
 #define ERR_SVN_MODS	7	// Local mods found (-n)
 #define ERR_SVN_MIXED	8	// Mixed rev WC found (-m)
 #define ERR_OUT_EXISTS	9	// Output file already exists (-d)
+#define ERR_NOWC       10	// the path is not a working copy or part of one
 
 // Value for apr_time_t to signify "now"
 #define USE_TIME_NOW	-2	// 0 and -1 might already be significant.
@@ -381,7 +382,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	memset (&SubStat, 0, sizeof (SubStat));
 	SubStat.bFolders = FALSE;
 
-	_set_invalid_parameter_handler(customInvalidParameterHandler);
+	//_set_invalid_parameter_handler(customInvalidParameterHandler);
 
 	if (argc >= 2 && argc <= 5)
 	{
@@ -587,6 +588,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	TCHAR wcfullpath[MAX_PATH];
 	LPTSTR dummy;
 	GetFullPathName(wc, MAX_PATH, wcfullpath, &dummy);
+	apr_status_t e = 0;
+	if (svnerr)
+		e = svnerr->apr_err;
 	apr_terminate2();
 	if (svnerr)
 	{
@@ -594,6 +598,8 @@ int _tmain(int argc, _TCHAR* argv[])
 		delete [] wc;
 		delete [] dst;
 		delete [] src;
+		if (e == SVN_ERR_WC_NOT_DIRECTORY)
+			return ERR_NOWC;
 		return ERR_SVN_ERR;
 	}
 	
