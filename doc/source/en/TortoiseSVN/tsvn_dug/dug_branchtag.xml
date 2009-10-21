@@ -139,6 +139,30 @@
 			WC may still be marked as modified with respect to the trunk.
 		</para>
 	</sect2>
+	<sect2 id="tsvn-dug-branch-2">
+		<title>Other ways to create a branch or tag</title>
+		<para>
+			You can also create a branch or tag without having a working copy.
+			To do that, open the repository browser. You can there drag folders
+			to a new location. You have to hold down the <keycap>Ctrl</keycap>
+			key while you drag to create a copy, otherwise the folder gets moved,
+			not copied.
+		</para>
+		<para>
+			You can also drag a folder with the right mouse button. Once you
+			release the mouse button you can choose from the context menu whether
+			you want the folder to be moved or copied. Of course to create a branch
+			or tag you must copy the folder, not move it.
+		</para>
+		<para>
+			Yet another way is from the log dialog. You can show the log dialog
+			for e.g. trunk, select a revision (either the HEAD revision at the
+			very top or an earlier revision), right-click and choose 
+			<menuchoice>
+				<guimenuitem>create branch/tag from revision...</guimenuitem>
+			</menuchoice>
+		</para>
+	</sect2>
 	<sect2 id="tsvn-dug-switch-1">
 		<title>To Checkout or to Switch...</title>
 		<?dbhh topicname="HIDD_SWITCH"?>
