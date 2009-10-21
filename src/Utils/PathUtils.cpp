@@ -222,8 +222,18 @@ CStringA CPathUtils::PathEscape(const CStringA& path)
 		c = (unsigned char)ret2[i];
 		if (uri_autoescape_chars[c])
 		{
-			// no escaping needed for that char
-			ret += (unsigned char)ret2[i];
+			if ((c == '%')&&(DoesPercentNeedEscaping(ret2.Mid(i))))
+			{
+				// this percent sign needs escaping!
+				CStringA temp;
+				temp.Format("%%%02X", (unsigned char)c);
+				ret += temp;
+			}
+			else
+			{
+				// no escaping needed for that char
+				ret += (unsigned char)ret2[i];
+			}
 		}
 		else
 		{
@@ -239,6 +249,17 @@ CStringA CPathUtils::PathEscape(const CStringA& path)
 	ret.Replace(("file:////%5C"), ("file://"));
 
 	return ret;
+}
+
+bool CPathUtils::DoesPercentNeedEscaping(LPCSTR str)
+{
+	if (str[1] == 0)
+		return true;
+	if (!(((str[1] >= '0')&&(str[1] <= '9'))||((str[1] >= 'A')&&(str[1] <= 'F'))||((str[1] >= 'a')&&(str[1] <= 'f'))))
+		return true;
+	if (!(((str[2] >= '0')&&(str[2] <= '9'))||((str[2] >= 'A')&&(str[2] <= 'F'))||((str[2] >= 'a')&&(str[2] <= 'f'))))
+		return true;
+	return false;
 }
 
 CString CPathUtils::GetAppDirectory(HMODULE hMod /* = NULL */)
@@ -485,13 +506,13 @@ public:
 private:
 	void UnescapeTest()
 	{
-		CString test(_T("file:///d:/REpos1/uCOS-100/Trunk/name%20with%20spaces/NewTest%20%%20NewTest"));
+		CString test(_T("file:///d:/REpos1/uCOS-100/Trunk/name%20with%20spaces/NewTest%20%25%20NewTest"));
 		CString test2 = CPathUtils::PathUnescape(test);
 		ATLASSERT(test2.Compare(_T("file:///d:/REpos1/uCOS-100/Trunk/name with spaces/NewTest % NewTest")) == 0);
 		CStringA test3 = CPathUtils::PathEscape("file:///d:/REpos1/uCOS-100/Trunk/name with spaces/NewTest % NewTest");
-		ATLASSERT(test3.Compare("file:///d:/REpos1/uCOS-100/Trunk/name%20with%20spaces/NewTest%20%%20NewTest") == 0);
+		ATLASSERT(test3.Compare("file:///d:/REpos1/uCOS-100/Trunk/name%20with%20spaces/NewTest%20%25%20NewTest") == 0);
 		CStringA test4 = CPathUtils::PathEscape("file:///d:/REpos1/uCOS 1.0/Trunk/name with spaces/NewTest % NewTest");
-		ATLASSERT(test4.Compare("file:///d:/REpos1/uCOS%201.0/Trunk/name%20with%20spaces/NewTest%20%%20NewTest") == 0);
+		ATLASSERT(test4.Compare("file:///d:/REpos1/uCOS%201.0/Trunk/name%20with%20spaces/NewTest%20%25%20NewTest") == 0);
 	}
 	void ExtTest()
 	{

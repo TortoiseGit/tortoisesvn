@@ -115,6 +115,7 @@ public:
 	 */
 	static CString GetVersionFromFile(const CString & p_strDateiname);
 
-
+private:
+	static bool DoesPercentNeedEscaping(LPCSTR str);
 #endif
 };
