@@ -19,6 +19,12 @@
 # Create complete statistics for trunk and branch
 ./TranslationStatus.py
 
-# Copy results into web space
-cp trans_*.inc htdocs/modules/tortoisesvn/
-cp tortoisevars.inc htdocs/modules/tortoisesvn/
+# Copy results into web space if the Python script didn't fail
+
+if [ "$?" -eq 0 ]
+then
+  cp trans_*.inc htdocs/modules/tortoisesvn/
+  cp tortoisevars.inc htdocs/modules/tortoisesvn/
+else
+  echo "Error"
+fi
