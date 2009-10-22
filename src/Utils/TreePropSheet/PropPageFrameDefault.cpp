@@ -20,144 +20,18 @@
 #include "stdafx.h"
 #include "PropPageFrameDefault.h"
 #include "ExtTextOutFL.h"
+#include "XPTheme.h"
 
 namespace TreePropSheet
 {
 
 
-//uncomment the following line, if you don't have installed the
-//new platform SDK
-#define XPSUPPORT
-
-#ifdef XPSUPPORT
-#include <uxtheme.h>
-#include <vssym32.h>
-#endif
-
+static CXPTheme g_ThemeLib;
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
 static char THIS_FILE[] = __FILE__;
 #endif
-
-//-------------------------------------------------------------------
-// class CThemeLib
-//-------------------------------------------------------------------
-
-#define THEMEAPITYPE(f)					typedef HRESULT (__stdcall *_##f)
-#define THEMEAPITYPE_(t, f)			typedef t (__stdcall *_##f)
-#define THEMEAPIPTR(f)					_##f m_p##f
-
-#ifdef XPSUPPORT
-	#define THEMECALL(f)						return (*m_p##f)
-	#define GETTHEMECALL(f)					m_p##f = (_##f)GetProcAddress(m_hThemeLib, #f)
-#else
-	void ThemeDummy(...) {ASSERT(FALSE);}
-	#define HTHEME									void*
-	#define TABP_PANE								0
-	#define THEMECALL(f)						return 0; ThemeDummy
-	#define GETTHEMECALL(f)					m_p##f = NULL
-#endif
-
-
-/**
-Helper class for loading the uxtheme DLL and providing their 
-functions.
-
-One global object of this class exists.
-
-@author Sven Wiegand
-*/
-class CThemeLib
-{
-// construction/destruction
-public:
-	CThemeLib();
-	~CThemeLib();
-
-// operations
-public:
-	/**
-	Returns TRUE if the call wrappers are available, FALSE otherwise.
-	*/
-	BOOL IsAvailable() const;
-
-// call wrappers
-public:
-	BOOL IsThemeActive() 
-	{THEMECALL(IsThemeActive)();}
-
-	HTHEME OpenThemeData(HWND hwnd, LPCWSTR pszClassList) 
-	{THEMECALL(OpenThemeData)(hwnd, pszClassList);}
-
-	HRESULT CloseThemeData(HTHEME hTheme) 
-	{THEMECALL(CloseThemeData)(hTheme);}
-
-	HRESULT GetThemeBackgroundContentRect(HTHEME hTheme, OPTIONAL HDC hdc, int iPartId, int iStateId,  const RECT *pBoundingRect, OUT RECT *pContentRect)
-	{THEMECALL(GetThemeBackgroundContentRect)(hTheme, hdc, iPartId, iStateId, pBoundingRect, pContentRect);}
-
-	HRESULT DrawThemeBackground(HTHEME hTheme, HDC hdc, int iPartId, int iStateId, const RECT *pRect, OPTIONAL const RECT *pClipRect)
-	{THEMECALL(DrawThemeBackground)(hTheme, hdc, iPartId, iStateId, pRect, pClipRect);}
-
-// function pointers
-private:
-#ifdef XPSUPPORT
-	THEMEAPITYPE_(BOOL, IsThemeActive)();
-	THEMEAPIPTR(IsThemeActive);
-
-	THEMEAPITYPE_(HTHEME, OpenThemeData)(HWND hwnd, LPCWSTR pszClassList);
-	THEMEAPIPTR(OpenThemeData);
-
-	THEMEAPITYPE(CloseThemeData)(HTHEME hTheme);
-	THEMEAPIPTR(CloseThemeData);
-
-	THEMEAPITYPE(GetThemeBackgroundContentRect)(HTHEME hTheme, OPTIONAL HDC hdc, int iPartId, int iStateId,  const RECT *pBoundingRect, OUT RECT *pContentRect);
-	THEMEAPIPTR(GetThemeBackgroundContentRect);
-
-	THEMEAPITYPE(DrawThemeBackground)(HTHEME hTheme, HDC hdc, int iPartId, int iStateId, const RECT *pRect, OPTIONAL const RECT *pClipRect);
-	THEMEAPIPTR(DrawThemeBackground);
-#endif
-
-// properties
-private:
-	/** instance handle to the library or NULL. */
-	HINSTANCE m_hThemeLib;
-};
-
-/**
-One and only instance of CThemeLib.
-*/
-static CThemeLib g_ThemeLib;
-
-
-CThemeLib::CThemeLib()
-:	m_hThemeLib(NULL)
-{
-#ifdef XPSUPPORT
-	m_hThemeLib = LoadLibrary(_T("uxtheme.dll"));
-	if (!m_hThemeLib)
-		return;
-
-	GETTHEMECALL(IsThemeActive);
-	GETTHEMECALL(OpenThemeData);
-	GETTHEMECALL(CloseThemeData);
-	GETTHEMECALL(GetThemeBackgroundContentRect);
-	GETTHEMECALL(DrawThemeBackground);
-#endif
-}
-
-
-CThemeLib::~CThemeLib()
-{
-	if (m_hThemeLib)
-		FreeLibrary(m_hThemeLib);
-}
-
-
-BOOL CThemeLib::IsAvailable() const
-{
-	return m_hThemeLib!=NULL;
-}
 
 
 //-------------------------------------------------------------------
@@ -235,16 +109,15 @@ CRect CPropPageFrameDefault::CalcMsgArea()
 {
 	CRect	rect;
 	GetClientRect(rect);
-	if (g_ThemeLib.IsAvailable() && g_ThemeLib.IsThemeActive())
+	if (g_ThemeLib.IsAvailable() && g_ThemeLib.IsAppThemed())
 	{
-		HTHEME	hTheme = g_ThemeLib.OpenThemeData(m_hWnd, L"Tab");
-		if (hTheme)
+		if (g_ThemeLib.Open(m_hWnd, L"Tab"))
 		{
 			CRect	rectContent;
 			CDC		*pDc = GetDC();
-			g_ThemeLib.GetThemeBackgroundContentRect(hTheme, pDc->m_hDC, TABP_PANE, 0, rect, rectContent);
+			g_ThemeLib.GetBackgroundContentRect(pDc->m_hDC, TABP_PANE, 0, rect, rectContent);
 			ReleaseDC(pDc);
-			g_ThemeLib.CloseThemeData(hTheme);
+			g_ThemeLib.Close();
 			
 			if (GetShowCaption())
 				rectContent.top = rect.top+GetCaptionHeight()+1;
@@ -262,16 +135,15 @@ CRect CPropPageFrameDefault::CalcCaptionArea()
 {
 	CRect	rect;
 	GetClientRect(rect);
-	if (g_ThemeLib.IsAvailable() && g_ThemeLib.IsThemeActive())
+	if (g_ThemeLib.IsAvailable() && g_ThemeLib.IsAppThemed())
 	{
-		HTHEME	hTheme = g_ThemeLib.OpenThemeData(m_hWnd, L"Tab");
-		if (hTheme)
+		if (g_ThemeLib.Open(m_hWnd, L"Tab"))
 		{
 			CRect	rectContent;
 			CDC		*pDc = GetDC();
-			g_ThemeLib.GetThemeBackgroundContentRect(hTheme, pDc->m_hDC, TABP_PANE, 0, rect, rectContent);
+			g_ThemeLib.GetBackgroundContentRect(pDc->m_hDC, TABP_PANE, 0, rect, rectContent);
 			ReleaseDC(pDc);
-			g_ThemeLib.CloseThemeData(hTheme);
+			g_ThemeLib.Close();
 			
 			if (GetShowCaption())
 				rectContent.bottom = rect.top+GetCaptionHeight();
@@ -372,16 +244,15 @@ void CPropPageFrameDefault::OnPaint()
 
 BOOL CPropPageFrameDefault::OnEraseBkgnd(CDC* pDC) 
 {
-	if (g_ThemeLib.IsAvailable() && g_ThemeLib.IsThemeActive())
+	if (g_ThemeLib.IsAvailable() && g_ThemeLib.IsAppThemed())
 	{
-		HTHEME	hTheme = g_ThemeLib.OpenThemeData(m_hWnd, L"TREEVIEW");
-		if (hTheme)
+		if (g_ThemeLib.Open(m_hWnd, L"TREEVIEW"))
 		{
 			CRect	rect;
 			GetClientRect(rect);
-			g_ThemeLib.DrawThemeBackground(hTheme, pDC->m_hDC, 0, 0, rect, NULL);
+			g_ThemeLib.DrawBackground(pDC->m_hDC, 0, 0, rect, NULL);
 
-			g_ThemeLib.CloseThemeData(hTheme);
+			g_ThemeLib.Close();
 		}
 		return TRUE;
 	}

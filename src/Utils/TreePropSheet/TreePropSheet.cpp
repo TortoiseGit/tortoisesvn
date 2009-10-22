@@ -22,6 +22,7 @@
 #include "TreePropSheet.h"
 #include "PropPageFrameDefault.h"
 #include "HighColorTab.hpp"
+#include "XPTheme.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -845,7 +846,7 @@ BOOL CTreePropSheet::OnInitDialog()
 	// MFC7-support here (Thanks to Rainer Wollgarten)
 	// YT: Cast tree control to CWnd and calls CWnd::CreateEx in all cases (VC 6 and7).
 	((CWnd*)m_pwndPageTree)->CreateEx(
-		WS_EX_CLIENTEDGE|WS_EX_NOPARENTNOTIFY,
+		WS_EX_CLIENTEDGE|WS_EX_NOPARENTNOTIFY|TVS_EX_DOUBLEBUFFER,
 		_T("SysTreeView32"), _T("PageTree"),
 		WS_TABSTOP|WS_CHILD|WS_VISIBLE|dwTreeStyle,
 		rectTree, this, s_unPageTreeId);
@@ -855,6 +856,8 @@ BOOL CTreePropSheet::OnInitDialog()
 		m_pwndPageTree->SetImageList(&m_Images, TVSIL_NORMAL);
 		m_pwndPageTree->SetImageList(&m_Images, TVSIL_STATE);
 	}
+	CXPTheme theme;
+	theme.SetWindowTheme(m_pwndPageTree->GetSafeHwnd(), L"Explorer", NULL);
 
 	// Fill the tree ctrl
 	RefillPageTree();
