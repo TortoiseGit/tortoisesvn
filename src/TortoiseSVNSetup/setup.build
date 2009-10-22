@@ -58,8 +58,19 @@
 					<variable name="Platform" value="win32" />
 				</setenv>
 			</if>
+      <if test="${environment::variable-exists('VS100COMNTOOLS')}">
+        <setenv>
+          <variable name="VCVERSION" value="100" />
+        </setenv>
+      </if>
+      <if test="${not environment::variable-exists('VS100COMNTOOLS')}">
+        <setenv>
+          <variable name="VCVERSION" value="90" />
+          <variable name="VCPOLICYVERSION" value="9_0" />
+        </setenv>
+      </if>
 
-			<!-- find the path to the merge modules -->
+      <!-- find the path to the merge modules -->
 			<script language="C#">
 				<code>
 					<![CDATA[

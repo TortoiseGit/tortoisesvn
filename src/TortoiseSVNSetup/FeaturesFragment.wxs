@@ -29,14 +29,18 @@
 
 			<Feature Id="F_CRT" Level="1" Title="C-Runtime" Description="The Visual-C Runtime libs" TypicalDefault="install" Display="hidden" >
 				<MergeRef Id="CRT" />
-				<MergeRef Id="CRT Policy" />
+        <?ifdef env.VCPOLICYVERSION ?>
+          <MergeRef Id="CRT Policy" />
+        <?endif?>
 			</Feature>
 			<Feature Id="F_MFC" Level="1" Title="MFC 9.0" Description="The MFC 9.0 libs" TypicalDefault="install" Display="hidden" >
 				<MergeRef Id="MFC" />
-				<MergeRef Id="MFC Policy" />
-				<MergeRef Id="MFCLOC" />
-				<MergeRef Id="MFCLOC Policy" />
-			</Feature>
+        <MergeRef Id="MFCLOC" />
+        <?ifdef env.VCPOLICYVERSION ?>
+          <MergeRef Id="MFC Policy" />
+          <MergeRef Id="MFCLOC Policy" />
+        <?endif?>
+      </Feature>
 			<Feature Id="F_OVL" Level="1" Title="Tortoise Overlay handler" Description="The overlay handler for all Tortoise clients" TypicalDefault="install" Display="hidden" >
 				<MergeRef Id="Ovlays" />
 			</Feature>

@@ -13,22 +13,26 @@
 				<Directory Id="INSTALLDIR" Name="TortoiseSVN">
 
 					<?if $(env.Platform) = "win32" ?>
-					<Merge Id='CRT' Language='0' SourceFile='$(env.MergeModules)\microsoft_vc90_crt_x86.msm' DiskId='1' />
-					<Merge Id='CRT Policy' Language='0' SourceFile='$(env.MergeModules)\policy_9_0_Microsoft_VC90_CRT_x86.msm' DiskId='1' />
-					<Merge Id='MFC' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC90_MFC_x86.msm' DiskId='1' />
-					<Merge Id='MFC Policy' Language='0' SourceFile='$(env.MergeModules)\policy_9_0_Microsoft_VC90_MFC_x86.msm' DiskId='1' />
-					<Merge Id='MFCLOC' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC90_MFCLOC_x86.msm' DiskId='1' />
-					<Merge Id='MFCLOC Policy' Language='0' SourceFile='$(env.MergeModules)\policy_9_0_Microsoft_VC90_MFCLOC_x86.msm' DiskId='1' />
-					<?endif ?>
+					<Merge Id='CRT' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_CRT_x86.msm' DiskId='1' />
+          <Merge Id='MFC' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_MFC_x86.msm' DiskId='1' />
+          <Merge Id='MFCLOC' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_MFCLOC_x86.msm' DiskId='1' />
+          <?ifdef env.VCPOLICYVERSION ?>
+          <Merge Id='CRT Policy' Language='0' SourceFile='$(env.MergeModules)\policy_$(env.VCPOLICYVERSION)_Microsoft_VC$(env.VCVERSION)_CRT_x86.msm' DiskId='1' />
+          <Merge Id='MFC Policy' Language='0' SourceFile='$(env.MergeModules)\policy_$(env.VCPOLICYVERSION)_Microsoft_VC$(env.VCVERSION)_MFC_x86.msm' DiskId='1' />
+          <Merge Id='MFCLOC Policy' Language='0' SourceFile='$(env.MergeModules)\policy_$(env.VCPOLICYVERSION)_Microsoft_VC$(env.VCVERSION)_MFCLOC_x86.msm' DiskId='1' />
+          <?endif ?>
+          <?endif ?>
 
 					<?if $(env.Platform) = "x64" ?>
-					<Merge Id='CRT' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC90_CRT_x86_x64.msm' DiskId='1' />
-					<Merge Id='CRT Policy' Language='0' SourceFile='$(env.MergeModules)\policy_9_0_Microsoft_VC90_CRT_x86_x64.msm' DiskId='1' />
-					<Merge Id='MFC' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC90_MFC_x86_x64.msm' DiskId='1' />
-					<Merge Id='MFC Policy' Language='0' SourceFile='$(env.MergeModules)\policy_9_0_Microsoft_VC90_MFC_x86_x64.msm' DiskId='1' />
-					<Merge Id='MFCLOC' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC90_MFCLOC_x86_x64.msm' DiskId='1' />
-					<Merge Id='MFCLOC Policy' Language='0' SourceFile='$(env.MergeModules)\policy_9_0_Microsoft_VC90_MFCLOC_x86_x64.msm' DiskId='1' />
-					<?endif ?>
+					<Merge Id='CRT' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_CRT_x86_x64.msm' DiskId='1' />
+					<Merge Id='MFC' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_MFC_x86_x64.msm' DiskId='1' />
+					<Merge Id='MFCLOC' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_MFCLOC_x86_x64.msm' DiskId='1' />
+          <?ifdef env.VCPOLICYVERSION ?>
+          <Merge Id='CRT Policy' Language='0' SourceFile='$(env.MergeModules)\policy_$(env.VCPOLICYVERSION)_Microsoft_VC$(env.VCVERSION)_CRT_x86_x64.msm' DiskId='1' />
+          <Merge Id='MFC Policy' Language='0' SourceFile='$(env.MergeModules)\policy_$(env.VCPOLICYVERSION)_Microsoft_VC$(env.VCVERSION)_MFC_x86_x64.msm' DiskId='1' />
+          <Merge Id='MFCLOC Policy' Language='0' SourceFile='$(env.MergeModules)\policy_$(env.VCPOLICYVERSION)_Microsoft_VC$(env.VCVERSION)_MFCLOC_x86_x64.msm' DiskId='1' />
+          <?endif ?>
+          <?endif ?>
 
 					<?if $(env.Platform) = "win32" ?>
 					<Merge Id='Ovlays' Language='0' SourceFile='..\..\ext\TortoiseOverlays\TortoiseOverlays-1.0.10.17375-win32.msm' DiskId='1' />
