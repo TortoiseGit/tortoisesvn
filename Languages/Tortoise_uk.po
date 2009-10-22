@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-15 11:59+0300\n"
+"PO-Revision-Date: 2009-10-22 12:42+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -113,7 +113,7 @@ msgstr "Вибрано %d файлів, усього %d файлів"
 #. Resource IDs: (246)
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
-msgstr "%d найактивніших авторів, кожен принаймі з %d коммітами (%d %%)"
+msgstr "%d найактивніших авторів, кожен принаймі з %d фіксуваннями (%d %%)"
 
 #. Resource IDs: (226)
 #, c-format
@@ -237,6 +237,19 @@ msgid ""
 msgstr ""
 "%s\n"
 "Ви все-таки хочете його видалити?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Shall I update the working copy now\n"
+"and reopen the commit dialog?"
+msgstr ""
+"%s\n"
+"\n"
+"Оновити зараз робочу копію\n"
+"та перевідкрити діалог фіксування?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -2425,6 +2438,10 @@ msgstr "Зафіксувати"
 #. Resource IDs: (77)
 msgid "Commit - TortoiseSVN"
 msgstr "Зафіксувати - TortoiseSVN"
+
+#. Resource IDs: (616)
+msgid "Commit failed - Update needed"
+msgstr "Фіксування накрилось - спершу слід оновити"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -7844,6 +7861,18 @@ msgid ""
 "-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
+"Фільтр підрядків:\r\n"
+"* Вкажіть не менш одного рядка, розділених пробілами. Усі підрядки мають співпадати.\r\n"
+"* Поставте - (мінус) перед підрядком, щоб виключити модифікації, які містять цей підрядок.\r\n"
+"* Оточіть рядки, що містять пробіли ітп, лапками \".\r\n"
+"* Поставте ! на початку рядка для заперечення умови фільтрування.\r\n"
+"\r\n"
+"Приклади:\r\n"
+"Vasya  2008    : фіксування від Vasya у 2008\r\n"
+".h  -.cpp              : фіксування, що змінили заголовки але не імплементацію\r\n"
+"\" \"                        : фіксування з пробілами (напр. для пошуку лише у шляхах)\r\n"
+"-\"\"show all\"\"        : фіксування, що не містять рядок '\"show all\"'\r\n"
+"!vasya  .cpp    : усе крім фіксувань від vasya у файли .cpp "
 
 #. Resource IDs: (65535)
 msgid "Subversion"
