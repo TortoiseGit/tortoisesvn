@@ -770,7 +770,11 @@ bool CTSVNPath::IsValidOnWindows() const
 			// the check for _Mycont to be != 0 is required since the regex_match returns
 			// sometimes matches that have 'matched == true) but the iterators are actually null
 			// which results without that check in a debug assertion (debug mode) or an abort() (!!!) (release mode)
+#if _MSC_VER >= 1600
+			if ((match[0].matched)&&(match[0].first._Ptr != 0)&&(wstring(match[0]).compare((LPCTSTR)sMatch)==0))
+#else
 			if ((match[0].matched)&&(match[0].first._Mycont != 0)&&(wstring(match[0]).compare((LPCTSTR)sMatch)==0))
+#endif
 				m_bIsValidOnWindows = true;
 		}
 		if (m_bIsValidOnWindows)
