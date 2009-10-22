@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-10-16 22:51 +0000\n"
-"PO-Revision-Date: 2009-10-19 20:15+0100\n"
+"POT-Creation-Date: 2009-10-21 19:07 +0000\n"
+"PO-Revision-Date: 2009-10-22 21:45+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6264,6 +6264,22 @@ msgid "Note that unless you opted to switch your working copy to the newly creat
 msgstr "Приметимо да осим што сте одлучили да пребаците вашу радну копију на новокреирану грану, креирање Гране или Знака <emphasis>не</emphasis> утиче на вашу радну копију. Чак и ако креирате грану из ваше РК, ове измене су урезане у нову грану, не у дебло, тако да ваша РК може још увек бити маркирана као измењена са респектом на дебло."
 
 #. (title)
+msgid "Other ways to create a branch or tag"
+msgstr "Други начин креирања гране или знака"
+
+#. (para)
+msgid "You can also create a branch or tag without having a working copy. To do that, open the repository browser. You can there drag folders to a new location. You have to hold down the <keycap>Ctrl</keycap> key while you drag to create a copy, otherwise the folder gets moved, not copied."
+msgstr "Можете такођекреиратиграну или знак и ако немате радну копију. Да то урадите, отворите претраживач спремишта.Можете тамо вући именике у нову локацију. Треба да држите <keycap>Цтрл</keycap> тастер док вучете да креирате копију, иначе ће именик бити померен, а неће бити копиран."
+
+#. (para)
+msgid "You can also drag a folder with the right mouse button. Once you release the mouse button you can choose from the context menu whether you want the folder to be moved or copied. Of course to create a branch or tag you must copy the folder, not move it."
+msgstr "Такођеможете вући именик помоћу десног дугмета миша.Кадаотпустите дугме миша можете изабрати из контекстног менија гдежелите да померите именик или да га копирате. Свакако, да креирате грану или знак морате копирати именик, не померати га."
+
+#. (para)
+msgid "Yet another way is from the log dialog. You can show the log dialog for e.g. trunk, select a revision (either the HEAD revision at the very top or an earlier revision), right-click and choose <menuchoice><guimenuitem>create branch/tag from revision...</guimenuitem></menuchoice>"
+msgstr "Још један начин је из дијалога дневника. Можете приказати дијалог дневника нпр. дебло, изаберите ревизију (или ГЛАВНУ ревизију на врх или претходну ревизију), десни-клики изаберите <menuchoice><guimenuitem>креирајте грану/знак из ревизије...</guimenuitem></menuchoice>"
+
+#. (title)
 msgid "To Checkout or to Switch..."
 msgstr "Преузети или пребацити..."
 
@@ -7113,8 +7129,8 @@ msgid "Delete or rename the folder."
 msgstr "Избриши или преименуј именик."
 
 #. (para)
-msgid "Make a copy of the folder, either to a different part of the repository, or to a working copy rooted in the same repository."
-msgstr "Направите копију именика, или у различит део спремишта, или у радну копију са кореном у истом спремишту."
+msgid "Make a copy of the folder, either to a different part of the repository, or to a working copy rooted in the same repository. This can also be used to create a branch/tag without the need to have a working copy checked out."
+msgstr "Направите копију именика, или у различит део спремишта, или у радну копију са кореном у истом спремишту.Ово такође можебити коришћење гране/знака без потребе да имате преузету радну копију."
 
 #. (para)
 msgid "View/Edit the folder's properties."
@@ -8714,6 +8730,8 @@ msgid ""
 "</screen> or with Araxis: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
 "    %base %mine\n"
+"</screen> or with UltraCompare: <screen>\n"
+"C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
 "</screen>"
 msgstr ""
 "На пример, са ЕгзамДиффПро: <screen>\n"
@@ -8726,6 +8744,8 @@ msgstr ""
 "</screen> or with Araxis: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
 "    %base %mine\n"
+"</screen> или са УлтраЦомпаре: <screen>\n"
+"C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
 "</screen>"
 
 #. (para)
