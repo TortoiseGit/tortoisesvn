@@ -180,7 +180,8 @@ private:
 		size_t new_capacity = grower.capacity();
 	
 		data = new index_type[new_capacity];
-		stdext::unchecked_fill_n (data, new_capacity, (index_type)NO_INDEX);
+		for (size_t i = 0; i < new_capacity; ++i)
+			data[i] = (index_type)NO_INDEX;
 	}
 	
 	/// add a value to the hash 
@@ -431,7 +432,13 @@ public:
 
 		grower = rhs.grower;
 
-		stdext::unchecked_copy (rhs.data, rhs.data + rhs.grower.capacity(), data);
+		for ( index_type* source = rhs.data, *target = data
+			, *end = source + rhs.grower.capacity()
+			; source != end
+			; ++source, ++target)
+		{
+			*target = *source;
+		}
 
 		return *this;
 	}

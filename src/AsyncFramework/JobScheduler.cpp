@@ -281,7 +281,7 @@ CJobScheduler::TJob CJobScheduler::AssignJob (SThreadInfo* info)
                 break;
             }
 
-        return TJob (NULL, terminateThread);
+        return TJob ((IJob*)NULL, terminateThread);
     }
 
     // extract one job
