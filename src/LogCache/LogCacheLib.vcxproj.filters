@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Query Layer">
+      <UniqueIdentifier>{a5a64b9d-77c5-4e15-9f6b-eb788c1483af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Storage Layer">
+      <UniqueIdentifier>{e58ce10e-1df3-403c-8ba3-47d96a9dda26}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CacheLogQuery.cpp">
+      <Filter>Query Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="ILogReceiver.cpp">
+      <Filter>Query Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="LogCachePool.cpp">
+      <Filter>Storage Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="LogCacheSettings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LogCacheStatistics.cpp">
+      <Filter>Storage Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="PathToStringMap.cpp">
+      <Filter>Query Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="RepositoryInfo.cpp">
+      <Filter>Storage Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SVNLogQuery.cpp">
+      <Filter>Query Layer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CacheLogQuery.h">
+      <Filter>Query Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectionState.h">
+      <Filter>Storage Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="ILogQuery.h">
+      <Filter>Query Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="ILogReceiver.h">
+      <Filter>Query Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="LogCachePool.h">
+      <Filter>Storage Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="LogCacheSettings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LogCacheStatistics.h">
+      <Filter>Storage Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="PathToStringMap.h">
+      <Filter>Query Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="RepositoryInfo.h">
+      <Filter>Storage Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SVNLogQuery.h">
+      <Filter>Query Layer</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

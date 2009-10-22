@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Formatted IO">
+      <UniqueIdentifier>{cc75ea03-2e18-46eb-8cc6-a1c54ffc621b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{6f3901af-9c36-4d5e-9011-bbfcf0a49597}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Iterator Layer">
+      <UniqueIdentifier>{d6ab99f8-ce82-459d-8bf7-1a2492a40424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{c0c38071-372b-437b-a5f0-6a72465d3b2a}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CopyFollowingLogIterator.cpp">
+      <Filter>Iterator Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="CSVWriter.cpp">
+      <Filter>Formatted IO</Filter>
+    </ClCompile>
+    <ClCompile Include="LogIteratorBase.cpp">
+      <Filter>Iterator Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StrictLogIterator.cpp">
+      <Filter>Iterator Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLLogReader.cpp">
+      <Filter>Formatted IO</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLLogWriter.cpp">
+      <Filter>Formatted IO</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CopyFollowingLogIterator.h">
+      <Filter>Iterator Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="CSVWriter.h">
+      <Filter>Formatted IO</Filter>
+    </ClInclude>
+    <ClInclude Include="ILogIterator.h">
+      <Filter>Iterator Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="LogIteratorBase.h">
+      <Filter>Iterator Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StrictLogIterator.h">
+      <Filter>Iterator Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLLogReader.h">
+      <Filter>Formatted IO</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLLogWriter.h">
+      <Filter>Formatted IO</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
