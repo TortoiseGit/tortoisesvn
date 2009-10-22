@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-07 00:29+0100\n"
+"PO-Revision-Date: 2009-10-22 10:23+0100\n"
 "Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -373,6 +373,19 @@ msgid ""
 msgstr ""
 "%s\n"
 "Vil du fjerne alligevel?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Shall I update the working copy now\n"
+"and reopen the commit dialog?"
+msgstr ""
+"%s\n"
+"\n"
+"Skal jeg opdatere arbejdskopien nu\n"
+"og genåbne arkiveringsdialogen?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -985,6 +998,10 @@ msgstr "&Vis Udskrift"
 #. Resource IDs: (58116)
 msgid "&Print..."
 msgstr "&Udskriv..."
+
+#. Resource IDs: (1265)
+msgid "&Properties"
+msgstr "&Egenskaber"
 
 #. Resource IDs: (11021)
 msgid "&Properties..."
@@ -1991,6 +2008,10 @@ msgstr "Automatisk"
 msgid "Automatically check for &newer versions every week"
 msgstr "Check automatisk efter &ny version hver uge"
 
+#. Resource IDs: (306)
+msgid "Autotext Tester"
+msgstr "Autotext Tester"
+
 #. Resource IDs: (1157)
 msgid "Average"
 msgstr "Gennemsnit"
@@ -2582,6 +2603,10 @@ msgstr "Arkivér"
 #. Resource IDs: (77)
 msgid "Commit - TortoiseSVN"
 msgstr "Arkivér - TortoiseSVN"
+
+#. Resource IDs: (616)
+msgid "Commit failed - Update needed"
+msgstr "Arkivering fejlede - Opdater venligst"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -3732,6 +3757,10 @@ msgstr "Indtast et heltal mellem 0 og 255."
 msgid "Enter an integer."
 msgstr "Indtast et heltal."
 
+#. Resource IDs: (65535)
+msgid "Enter file content to test for below:"
+msgstr "Indtast fil indhold til test nedenfor:"
+
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
 msgstr "Indtast log-&besked:"
@@ -3744,6 +3773,10 @@ msgstr "Indtast logbesked:"
 #, c-format
 msgid "Enter no more than %1 characters."
 msgstr "Indtast højest %1 tegn."
+
+#. Resource IDs: (65535)
+msgid "Enter the regex string below:"
+msgstr "Indsæt regulært udtryk nedenfor:"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3798,6 +3831,10 @@ msgstr "Program (*.exe)|*.exe|Kommando (*.com)|*.com|PDF-fil (*.pdf)|*.pdf|Batch
 #. Resource IDs: (1002)
 msgid "Existing"
 msgstr "Eksisterende"
+
+#. Resource IDs: (2)
+msgid "Exit"
+msgstr "Afslut"
 
 #. Resource IDs: (275)
 msgid "Exp&and source tree"
@@ -4208,6 +4245,10 @@ msgid "Forward"
 msgstr "Fremad"
 
 #. Resource IDs: (65535)
+msgid "Found auto words:"
+msgstr "Fandt auto ord:"
+
+#. Resource IDs: (65535)
 msgid "From URL:"
 msgstr "Fra URL:"
 
@@ -4486,6 +4527,10 @@ msgstr "Værtsnavnet passer ikke (%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "Hvordan ønsker du at løse denne konflikt?"
+
+#. Resource IDs: (1264)
+msgid "I&gnored"
+msgstr "&Ignoreret"
 
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
@@ -5070,6 +5115,14 @@ msgstr ""
 "Hvis du ikke er sikker på hvad du skal gøre, læs da dokumentationen for <i>omlæg</i>.\n"
 "Ønsker du virkelig at omlægge?"
 
+#. Resource IDs: (1480)
+msgid "Items in externals"
+msgstr "Elementer i externe egenskaber"
+
+#. Resource IDs: (1527)
+msgid "Items to show"
+msgstr "Vis elementer"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "Foren med følgende &træ"
@@ -5327,8 +5380,12 @@ msgstr "Laveste viste revision: %ld - Højeste viste revision: %ld"
 
 #. Resource IDs: (238)
 #, c-format
-msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
-msgstr "Laveste viste revision: %ld - Højeste viste revision: %ld - HEAD-revision: %ld"
+msgid ""
+"Lowest shown revision: %ld - Highest shown revision: %ld\n"
+"HEAD revision: %ld"
+msgstr ""
+"Laveste viste revision: %ld - Højeste viste revision: %ld\n"
+"HEAD-revision: %ld"
 
 # Antager at der med "lum" menes luminans...
 #. Resource IDs: (16973)
@@ -7320,6 +7377,10 @@ msgstr "Gemmer filer"
 msgid "Saving patchfile to:"
 msgstr "Gemmer rettelsesfil til:"
 
+#. Resource IDs: (1522)
+msgid "Scan"
+msgstr "Gennemse"
+
 # Autogenereret, bruges ikke
 #. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
@@ -7625,10 +7686,6 @@ msgstr "&Vis log..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "Vis kun &overdækninger og kontekstmenu i Windows Stifinder"
 
-#. Resource IDs: (1265)
-msgid "Show &properties"
-msgstr "Vis &egenskaber"
-
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "Vis &ikke-versionerede filer"
@@ -7719,14 +7776,6 @@ msgstr "Vis externe elementer fra forskellige versionsarkiver"
 msgid "Show f&ull menus after a short delay"
 msgstr "Vis f&ulde menuer efter en kort forsinkelse"
 
-#. Resource IDs: (1264)
-msgid "Show i&gnored files"
-msgstr "Vis i&gnorerede filer"
-
-#. Resource IDs: (1480)
-msgid "Show items in externals"
-msgstr "Vis elementer i externe egenskaber"
-
 #. Resource IDs: (1037)
 msgid "Show l&og"
 msgstr "&Vis log"
@@ -7808,14 +7857,6 @@ msgstr "Vis statistik for den valgte logcache"
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Vis mærker på kilden til kopieringen, ikke som separate knuder"
-
-#. Resource IDs: (1209)
-msgid "Show un&modified files"
-msgstr "Vis ikke-&ændrede filer"
-
-#. Resource IDs: (1073)
-msgid "Show un&versioned files"
-msgstr "Vis ikke-&versionerede filer"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -8071,18 +8112,28 @@ msgstr "Subversion-konfigurations&fil:"
 #, c-format
 msgid ""
 "Subversion encountered a serious problem.\n"
-"Please take the time to report this on our mailing list\n"
+"Please take the time to report this on the Subversion mailing list\n"
+"(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion encountered the problem in:\n"
 "file %s, line %ld\n"
 "expression = %s"
 msgstr ""
 "Subversion løb ind i et alvorligt  problem.\n"
-"Vi vil bede dig om at tage dig tid til at rapportere dette til\n"
-"vores email liste med så megen information som muligt om\n"
+"Vi vil bede dig om at rapportere dette på vores email liste\n"
+"(users@subversion.tigris.org)\n"
+"med så megen information som muligt om\n"
 "hvad du gjorde før problemet opstod.\n"
+"Men søg venligst først i email arkivet for at se om problemet allerede findes\n"
+"for at undgå at rapportere det same problem flere gange.\n"
+"Du finder emailarkivet på \n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion fandt problemet i :\n"
 "file %s, line %ld\n"
@@ -8095,16 +8146,24 @@ msgid ""
 "(users@subversion.tigris.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
+"But please first search the mailing list archives for the error message\n"
+"to avoid reporting the same problem repeatedly.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion reported the following:"
 msgstr ""
 "Subversion løb ind i et alvorligt  problem.\n"
-"Vi vil bede dig om at tage dig tid til at rapportere dette til vores email liste\n"
+"Vi vil bede dig om at rapportere dette på vores email liste\n"
 "(users@subversion.tigris.org)\n"
 "med så megen information som muligt om\n"
 "hvad du gjorde før problemet opstod.\n"
+"Men søg venligst først i email arkivet for at se om problemet allerede findes\n"
+"for at undgå at rapportere det same problem flere gange.\n"
+"Du finder emailarkivet på \n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
-"Subversion rapporterede følgende:"
+"Subversion rapporterede følgende problem:"
 
 #. Resource IDs: (79)
 msgid ""
@@ -9136,6 +9195,14 @@ msgstr "URL:"
 #. Resource IDs: (75)
 msgid "URL: "
 msgstr "URL: "
+
+#. Resource IDs: (1209)
+msgid "Un&modified"
+msgstr "U&ændret"
+
+#. Resource IDs: (1073)
+msgid "Un&versioned"
+msgstr "U&versioneret"
 
 #. Resource IDs: (220)
 #, c-format
@@ -10764,6 +10831,14 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Show &properties"
+#~ msgstr "Vis &egenskaber"
+#~ msgid "Show i&gnored files"
+#~ msgstr "Vis i&gnorerede filer"
+#~ msgid "Show un&modified files"
+#~ msgstr "Vis ikke-&ændrede filer"
+#~ msgid "Show un&versioned files"
+#~ msgstr "Vis ikke-&versionerede filer"
 #~ msgid "Cleaning up."
 #~ msgstr "Rydder op."
 #~ msgid "%s, but the local file was already edited."
