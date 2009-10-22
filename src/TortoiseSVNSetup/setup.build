@@ -58,12 +58,12 @@
 					<variable name="Platform" value="win32" />
 				</setenv>
 			</if>
-      <if test="${environment::variable-exists('VS100COMNTOOLS')}">
+      <if test="${string::contains (environment::get-variable('VCINSTALLDIR'), '10.0')}">
         <setenv>
           <variable name="VCVERSION" value="100" />
         </setenv>
       </if>
-      <if test="${not environment::variable-exists('VS100COMNTOOLS')}">
+      <if test="${not string::contains (environment::get-variable('VCINSTALLDIR'), '10.0')}">
         <setenv>
           <variable name="VCVERSION" value="90" />
           <variable name="VCPOLICYVERSION" value="9_0" />
