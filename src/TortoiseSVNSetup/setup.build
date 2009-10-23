@@ -58,19 +58,19 @@
 					<variable name="Platform" value="win32" />
 				</setenv>
 			</if>
-      <if test="${string::contains (environment::get-variable('VCINSTALLDIR'), '10.0')}">
-        <setenv>
-          <variable name="VCVERSION" value="100" />
-        </setenv>
-      </if>
-      <if test="${not string::contains (environment::get-variable('VCINSTALLDIR'), '10.0')}">
-        <setenv>
-          <variable name="VCVERSION" value="90" />
-          <variable name="VCPOLICYVERSION" value="9_0" />
-        </setenv>
-      </if>
+            <if test="${studioversion == '2008'}">
+                <setenv>
+                    <variable name="VCVERSION" value="90" />
+                    <variable name="VCPOLICYVERSION" value="9_0" />
+                </setenv>
+            </if>
+            <if test="${studioversion == '2010'}">
+                <setenv>
+                    <variable name="VCVERSION" value="100" />
+                </setenv>
+            </if>
 
-      <!-- find the path to the merge modules -->
+            <!-- find the path to the merge modules -->
 			<script language="C#">
 				<code>
 					<![CDATA[

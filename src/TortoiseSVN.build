@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <project name="TortoiseSVN" default="all">
 
+    <property name="solutionname" value="TortoiseSVN.sln" if="${studioversion == '2008'}"/>
+    <property name="solutionname" value="TortoiseSVN_VS10.sln" if="${studioversion == '2010'}"/>
 
-	<target name="clean">
+    <target name="clean">
 
 		<if test="${cleanup == 'yes'}">
 			<if test="${static != 'static'}">
@@ -18,14 +20,14 @@
 					</fileset>
 				</delete>
 				<exec program="devenv.com" >
-					<arg value="TortoiseSVN.sln" />
+					<arg value="${solutionname}" />
 					<arg value="/clean" />
 					<arg value="${configuration}|${platform}" />
 				</exec>
 			</if>
 			<if test="${static == 'static'}">
 				<exec program="devenv.com" >
-					<arg value="TortoiseSVN.sln" />
+					<arg value="${solutionname}" />
 					<arg value="/clean" />
 					<arg value="${configuration}_static|${platform}" />
 				</exec>
@@ -102,14 +104,14 @@
 	<target name="TortoiseSVN" depends="clean,versioninfo,scintilla">
 		<if test="${static != 'static'}">
 			<exec program="devenv.com" >
-				<arg value="TortoiseSVN.sln" />
+				<arg value="${solutionname}" />
 				<arg value="/rebuild" />
 				<arg value="${configuration}|${platform}" />
 			</exec>
 		</if>
 		<if test="${static == 'static'}">
 			<exec program="devenv.com" >
-				<arg value="TortoiseSVN.sln" />
+				<arg value="${solutionname}" />
 				<arg value="/rebuild" />
 				<arg value="${configuration}_static|${platform}" />
 			</exec>
