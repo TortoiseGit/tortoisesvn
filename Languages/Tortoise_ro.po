@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-12 23:29+0200\n"
-"Last-Translator: Florin Daneliuc <dfev77@google.com>\n"
+"PO-Revision-Date: 2009-10-23 14:58+0200\n"
+"Last-Translator: Florin Daneliuc <dfev77@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1184,9 +1184,8 @@ msgid "(delete)"
 msgstr "(şterge)"
 
 #. Resource IDs: (214)
-#, fuzzy
 msgid "(externals)"
-msgstr "extern"
+msgstr "(externe)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -1229,9 +1228,8 @@ msgid "(rename)"
 msgstr "(redenumeşte)"
 
 #. Resource IDs: (276)
-#, fuzzy
 msgid "(tagged)"
-msgstr "(tagged)"
+msgstr "(etichetat)"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
@@ -1740,7 +1738,7 @@ msgstr "Sigur vreţi să eliminaţi cache-ul celor %d elemente selectate?"
 #. Resource IDs: (79)
 #, c-format
 msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
-msgstr "Sigur doriţi să inversaţi %d element(e)? Veţi pierde<b>toate</b> schimbările făcute după ultima actualizare!"
+msgstr "Sigur doriţi să inversaţi %d element(e)? Veţi pierde <b>toate</b> schimbările făcute după ultima actualizare!"
 
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
@@ -2478,7 +2476,7 @@ msgstr "Compară cu copia de &lucru"
 
 #. Resource IDs: (138)
 msgid "Compare with b&ase"
-msgstr "Compară cu &baza"
+msgstr "Compară cu &originalul"
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -2878,7 +2876,7 @@ msgstr "Nu s-a putut porni thread-ul!"
 
 #. Resource IDs: (13)
 msgid "Create &patch..."
-msgstr "Creeză &petic..."
+msgstr "Creează &petic..."
 
 #. Resource IDs: (243)
 msgid "Create Changelist"
@@ -4261,7 +4259,7 @@ msgstr "Numărul de revizie cel mai mare din cache"
 
 #. Resource IDs: (1127)
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
-msgstr "Sugestie: Apăsaţi pe F5 pentru a împrospăta subarborele selectat şi Ctrl-F5 pentru a încărca toţi copiii de asemenea"
+msgstr "Sugestie: Apăsaţi F5 pentru a împrospăta subarborele selectat şi Ctrl-F5 pentru a reîncărca toţi descendentii lui"
 
 #. Resource IDs: (16519)
 msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
@@ -5475,7 +5473,7 @@ msgstr "Mută la %1"
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
-msgstr "Mută la lista de schimbări"
+msgstr "Mută în lista de schimbări"
 
 #. Resource IDs: (229)
 msgid "Move/Rename"
@@ -7480,7 +7478,7 @@ msgstr "Afişează schimbări ca o diferenţiere &unificată"
 
 #. Resource IDs: (113)
 msgid "Show differences as &unified diff"
-msgstr "Afişează diferenţe ca o diferenţiere &unificată"
+msgstr "Afişează diferenţele ca o diferenţiere &unificată"
 
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
@@ -9109,7 +9107,7 @@ msgstr "Se actualizează cache-ul jurnalului"
 
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
-msgstr "Înoiește copia de lucru"
+msgstr "Înnoieşte copia de lucru"
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
