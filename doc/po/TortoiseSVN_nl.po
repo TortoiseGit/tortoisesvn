@@ -13,8 +13,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"POT-Creation-Date: 2009-10-16 22:51 +0000\n"
-"PO-Revision-Date: 2009-10-20 16:32+0100\n"
+"POT-Creation-Date: 2009-10-21 19:07 +0000\n"
+"PO-Revision-Date: 2009-10-23 16:41+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2325,11 +2325,11 @@ msgstr "Door dit verschil kun je gebeten worden als je SSPI authenticatie gebrui
 
 #. (para)
 msgid "The end result is that you may need at least two entries in your <literal>AuthzSVNAccessFile</literal> for each user -- a lowercase entry and an entry in the same case that Internet Explorer passes to Apache. You will also need to train your users to also type in their credentials using lower case when accessing repositories via TortoiseSVN."
-msgstr ""
+msgstr "Het eindresultaat is dat je voor elke gebruiker soms op zijn minst twee vermeldingen nodig hebt in je <literal>AuthzSVNAccessFile</literal> voor elke gebruiker -- één met kleine letters en één met de zelfde indeling zoals Internet Explorer deze doorgeeft aan Apache. Je zult je gebruikers ook moeten aanleren om voor hun inloggegevens altijd kleine letters te gebruiken als zij de archieven benaderen via TortoiseSVN."
 
 #. (para)
 msgid "Apache's Error and Access logs are your best friend in deciphering problems such as these as they will help you determine the username string passed onto Subversion's <literal>AuthzSVNAccessFile</literal> module. You may need to experiment with the exact format of the user string in the <literal>svnaccessfile</literal> (e.g. <literal>DOMAIN\\user</literal> vs. <literal>DOMAIN//user</literal>) in order to get everything working."
-msgstr ""
+msgstr "De fout and toegang logbestanden van Apache zijn je beste vriend bij het ontrafelen van dit soort problemen, omdat deze je helpen de gebruikersnaam te bepalen die doorgegeven zijn aan Subversion’s <literal>AuthzSVNAccessFile</literal> module. Om alles werkend te krijgen zul je soms wat moeten experimenteren met het exacte formaat van de gebruikersregel in de <literal>svnaccessfile</literal> (bijv. <literal>DOMAIN\\user</literal> vs. <literal>DOMAIN//user</literal>)."
 
 #. (title)
 msgid "Multiple Authentication Sources"
@@ -2341,11 +2341,11 @@ msgstr "Meervoudige authenticatie"
 
 #. (para)
 msgid "It is also possible to have more than one authentication source for your Subversion repository. To do this, you need to make each authentication type non-authoritative, so that Apache will check multiple sources for a matching username/password."
-msgstr ""
+msgstr "Het is mogelijk om meer dan één authenticatiebron te gebruiken voor je Subversion archief. Om dit te gebruiken, moet je elke authenticatie type instellen als niet-gezaghebbend (non-authoritive), zodat Apache bij meerdere bronnen de gebruikersnaam/wachtwoordcombinatie zal controleren."
 
 #. (para)
 msgid "A common scenario is to use both Windows domain authentication and a <literal>passwd</literal> file, so that you can provide SVN access to users who don't have a Windows domain login."
-msgstr ""
+msgstr "Een gebruikelijke oplossing is om de Windows domein authenticatie en een <literal>passwd</literal> bestand te gebruiken, zodat je gebruikers zonder een Windows domein account toch toegang kunt geven tot het SVN archief."
 
 #. (para)
 msgid ""
@@ -2354,6 +2354,10 @@ msgid ""
 "SSPIAuthoritative Off\n"
 "</screen>"
 msgstr ""
+"Om Windows domein en <filename>passwd</filename> bestand authenticatie te gebruiken, moet je de volgende opties opnemen binnen het <literal>&lt;Location&gt;</literal> blok van je Apache configuratiebestand: <screen>\n"
+"AuthBasicAuthoritative Off\n"
+"SSPIAuthoritative Off\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -2382,10 +2386,34 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen>"
 msgstr ""
+"Dit is een voorbeeld van de complete Apache configuratie met de gecombineerd Windows domein en <literal>passwd</literal> bestand authenticatie: <screen>\n"
+"&lt;Location /svn&gt;\n"
+"  DAV svn\n"
+"  SVNListParentPath on\n"
+"  SVNParentPath D:\\SVN\n"
+"\n"
+"  AuthName \"Subversion repositories\"\n"
+"  AuthzSVNAccessFile svnaccessfile.txt\n"
+"\n"
+"# NT Domain Logins.\n"
+"  AuthType SSPI\n"
+"  SSPIAuth On\n"
+"  SSPIAuthoritative Off\n"
+"  SSPIDomain &lt;domaincontroller&gt;\n"
+"  SSPIOfferBasic On\n"
+"\n"
+"# Htpasswd Logins.\n"
+"  AuthType Basic\n"
+"  AuthBasicAuthoritative Off\n"
+"  AuthUserFile passwd\n"
+"\n"
+"  Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen>"
 
 #. (title)
 msgid "Securing the server with SSL"
-msgstr ""
+msgstr "De server beveiligen met SSL"
 
 #. (primary)
 msgid "SSL"
@@ -2393,7 +2421,7 @@ msgstr "SSL"
 
 #. (para)
 msgid "Even though Apache 2.2.x has OpenSSL support, it is not activated by default. You need to activate this manually."
-msgstr ""
+msgstr "Apache 2.2.x ondersteunt OpenSSL, maar dit is niet standaard ingeschakeld. Je moet dit handmatig aanzetten."
 
 #. (para)
 msgid ""
@@ -2408,6 +2436,16 @@ msgid ""
 "SSLMutex default\n"
 "</screen>"
 msgstr ""
+"Verwijder in het apache configuratiebestand de commentaar tekens op de regels: <screen>\n"
+"#LoadModule ssl_module modules/mod_ssl.so\n"
+"</screen> en onderaan <screen>\n"
+"#Include conf/extra/httpd-ssl.conf\n"
+"</screen> verander dan de regel (op een regel) <screen>\n"
+"SSLMutex \"file:C:/Program Files/Apache Software Foundation/\\\n"
+"Apache2.2/logs/ssl_mutex\"\n"
+"</screen> in <screen>\n"
+"SSLMutex default\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -2415,6 +2453,9 @@ msgid ""
 "bin\\openssl req -config conf\\openssl.cnf -new -out my-server.csr\n"
 "</screen> You will be asked for a passphrase. Please don't use simple words but whole sentences, e.g. a part of a poem. The longer the phrase the better. Also you have to enter the URL of your server. All other questions are optional but we recommend you fill those in too."
 msgstr ""
+"Vervolgens moet je een SSL certificaat aanmaken. Open hiervoor een opdrachtprompt (DOS-scherm) en ga naar de Apache map (bijv. <filename>C:\\program files\\apache group\\apache2</filename>) en geef het volgende commando: <screen>\n"
+"bin\\openssl req -config conf\\openssl.cnf -new -out my-server.csr\n"
+"</screen> Je zult gevraagd worden om een beveiligingszin op te geven. Gebruik hiervoor niet alleen korte eenvoudige woorden, maar gebruik een hele zin (bijv. een deel van een gedicht). Hoe langer de zin is, hoe beter. Je moet ook de URL van je server opgeven. Alle andere vragen zijn optioneel, maar we bevelen aan om die ook in te vullen."
 
 #. (para)
 msgid ""
@@ -2422,6 +2463,9 @@ msgid ""
 "bin\\openssl genrsa -out conf\\privkey.pem 2048\n"
 "</screen>"
 msgstr ""
+"Normaalgesproken zal het <filename>privkey.pem</filename> automatisch gegenereerd worden, als dit niet gedaan wordt, moet je dit commando geven om het alsnog te genereren: <screen>\n"
+"bin\\openssl genrsa -out conf\\privkey.pem 2048\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -2438,14 +2482,26 @@ msgid ""
 "                 -outform DER\n"
 "</screen> These commands created some files in the Apache <filename>conf</filename> folder (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>)."
 msgstr ""
+"Voer vervolgens de volgende commando’s in <screen>\n"
+"bin\\openssl rsa -in conf\\privkey.pem -out conf\\server.key\n"
+"</screen> en (op ééb regel) <screen>\n"
+"bin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n"
+"-config conf\\openssl.cnf\n"
+"</screen> en dan (op één regel) <screen>\n"
+"bin\\openssl x509 -in conf\\server.csr -out conf\\server.cert\n"
+"                 -req -signkey conf\\server.key -days 4000\n"
+"</screen> Hiermee wordt een certificaat aangemaakt die over 4000 dagen verloopt. Als geef als laatste commando (op één regel): <screen>\n"
+"bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
+"                 -outform DER\n"
+"</screen> Deze commando’s genereren enkele bestanden in de Apache <filename>conf</filename> map (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>)."
 
 #. (para)
 msgid "Restart the Apache service."
-msgstr ""
+msgstr "Herstart de Apache service."
 
 #. (para)
 msgid "Point your browser to <systemitem class=\"url\">https://servername/svn/project</systemitem> ..."
-msgstr ""
+msgstr "Ga met je browser naar <systemitem class=\"url\">https://servername/svn/project</systemitem> ..."
 
 #. (title)
 msgid "SSL and Internet Explorer"
@@ -2453,15 +2509,15 @@ msgstr "SSL en Internet Explorer"
 
 #. (para)
 msgid "If you're securing your server with SSL and use authentication against a windows domain you will encounter that browsing the repository with the Internet Explorer doesn't work anymore. Don't worry - this is only the Internet Explorer not able to authenticate. Other browsers don't have that problem and TortoiseSVN and any other Subversion client are still able to authenticate."
-msgstr ""
+msgstr "Als je je server met SSL beveiligd en je gebruikt authenticatie met een Windows domein, dan zul je merken dat het verkennen van je archief met Internet Explorer niet meer werkt. Geen zorgen – dit komt alleen doordat Internet Explorer niet kan authenticeren. Andere browsers hebben dit probleem niet en TortoiseSVN en andere Subversion applicaties kunnen nog steeds authenticeren. "
 
 #. (para)
 msgid "define a separate <literal>&lt;Location /path&gt;</literal> directive in the Apache config file, and add the <literal>SSPIBasicPreferred On</literal>. This will allow IE to authenticate again, but other browsers and Subversion won't be able to authenticate against that location."
-msgstr ""
+msgstr "een aparte <literal>&lt;Location /path&gt;</literal> richtlijn in het Apache configuratiebestand definieren en de <literal>SSPIBasicPreferred On</literal> optie toevoegen. Dit zorgt er voor dat IE weer kan authenticeren, maar andere browsers en Subversion kunnen niet op deze locatie authenticeren. "
 
 #. (para)
 msgid "Offer browsing with unencrypted authentication (without SSL) too. Strangely IE doesn't have any problems with authenticating if the connection is not secured with SSL."
-msgstr ""
+msgstr "Verkennen met unencrypteed authenticatie (zonder SSL). Vreemd genoeg heeft IE geen problemen met authenticeren als een verbinding niet beveiligd is met SSL."
 
 #. (para)
 msgid ""
@@ -2471,10 +2527,15 @@ msgid ""
 "             downgrade-1.0 force-response-1.0\n"
 "</screen> There are (were?) good reasons for this configuration, see <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> But if you want NTLM authentication you have to use <literal>keepalive</literal>. If You uncomment the whole <literal>SetEnvIf</literal> you should be able to authenticate IE with windows authentication over SSL against the Apache on Win32 with included <literal>mod_auth_sspi</literal>."
 msgstr ""
+"Bij de “standaard” SSL installatie staat vaak het volgende statement in Apache’s virtuele SSL host: <screen>\n"
+"SetEnvIf User-Agent \".*MSIE.*\" \\\n"
+"             nokeepalive ssl-unclean-shutdown \\\n"
+"             downgrade-1.0 force-response-1.0\n"
+"</screen> Er zijn (waren?) goede redenen voor deze configuratie, lees <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink>. Als je NTLM authenticatie wilt gebruiken, dan moet je <literal>keepalive</literal> gebruiken.  Als de commentaartekens weghaalt bij <literal>SetEnvIf</literal> dan moet het mogelijk zijn om IE met Windows authenticatie over SSL te laten authenticeren met Apache op Win32 inclusief <literal>mod_auth_sspi</literal>."
 
 #. (para)
 msgid "If you still want to use IE to browse the repository you can either: <placeholder-1/>"
-msgstr ""
+msgstr "Als je IE nog steeds wilt kunnen gebruiken om het archief te verkennen, kun je: "
 
 #. (title)
 msgid "Forcing SSL access"
@@ -2482,7 +2543,7 @@ msgstr "SSL toegang forceren"
 
 #. (para)
 msgid "When you've set up SSL to make your repository more secure, you might want to disable the normal access via non-SSL (http) and only allow https access. To do this, you have to add another directive to the Subversion <literal>&lt;Location&gt;</literal> block: <literal>SSLRequireSSL</literal>."
-msgstr ""
+msgstr "Als je SSL ingesteld hebt om je archief veiliger te maken, dan wil je waarschijnlijk de normale toegang zonder SSL (http) uitschakelen en dus alleen https toegang toestaan. Om dit te doen moet je nog een extra richtlijn toevoegen aan het Subversion <literal>&lt;Location&gt;</literal> blok: <literal>SSLRequireSSL</literal>."
 
 #. (para)
 msgid ""
@@ -2499,6 +2560,18 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen>"
 msgstr ""
+"Een voorbeeld <literal>&lt;Location&gt;</literal> blok zal er dan zo uit zien: <screen>\n"
+"&lt;Location /svn&gt;\n"
+"  DAV svn\n"
+"  SVNParentPath D:\\SVN\n"
+"  SSLRequireSSL\n"
+"  AuthType Basic\n"
+"  AuthName \"Subversion repositories\"\n"
+"  AuthUserFile passwd\n"
+"  #AuthzSVNAccessFile svnaccessfile\n"
+"  Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen>"
 
 #. (title)
 msgid "Using client certificates with virtual SSL hosts"
@@ -2510,11 +2583,11 @@ msgstr "Door Nigel Green naar de TortoiseSVN mailinglijst gestuurd. Bedankt!"
 
 #. (para)
 msgid "In some server configurations you may need to setup a single server containing 2 virtual SSL hosts: The first one for public web access, with no requirement for a client certificate. The second one to be secure with a required client certificate, running a Subversion server."
-msgstr ""
+msgstr "Bij bepaalde server configuraties moet je een enkele server opzetten met 2 virtuele SSL hosts: De eerste voor publieke toegang zonder eisen voor een client certificaat. De tweede als beveiligde, die een client certificaat vereist, waarop de Subversion server draait."
 
 #. (para)
 msgid "Adding an <literal>SSLVerifyClient Optional</literal> directive to the <emphasis>per-server</emphasis> section of the Apache configuration (i.e. outside of any <literal>VirtualHost</literal> and <literal>Directory</literal> blocks) forces Apache to request a client Certificate in the initial SSL handshake. Due to a bug in <literal>mod_ssl</literal> it is essential that the certificate is requested at this point as it does not work if the SSL connection is re-negotiated."
-msgstr ""
+msgstr "Door een <literal>SSLVerifyClient Optional</literal> richtlijn aan de <emphasis>per-server</emphasis> sectie van de Apache configuratie toe te voegen (d.w.z. buiten de <literal>VirtualHost</literal> en <literal>Directory</literal> blokken), moet Apache een client certificaat opvragen voor de initiële SSL handdruk. Door een fout in the <literal>mod_ssl</literal> is het van essentieel belang dat dit certificaat op dit moment opgevraagd wordt, omdat het niet werkt als de SSL verbinding opnieuw uitonderhandeld wordt. "
 
 #. (para)
 msgid ""
@@ -2557,35 +2630,35 @@ msgstr "Dagelijkse gebruikersgids"
 
 #. (para)
 msgid "This document describes day to day usage of the TortoiseSVN client. It is <emphasis>not</emphasis> an introduction to version control systems, and <emphasis>not</emphasis> an introduction to Subversion (SVN). It is more like a place you may turn to when you know approximately what you want to do, but don't quite remember how to do it."
-msgstr ""
+msgstr "Dit document beschrijft het dagelijkse gebruik van de TortoiseSVN client. Het is <emphasis>geen</emphasis> introductie tot versiebeheersystemen en <emphasis>geen</emphasis> introductie tot Subversion (SVN). Het is meer een document wat je opent als je ongeveer weet wat je wilt doen, maar niet meer weet hoe je het moet doen."
 
 #. (para)
 msgid "If you need an introduction to version control with Subversion, then we recommend you read the fantastic book: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Version Control with Subversion</citetitle></ulink>."
-msgstr ""
+msgstr "Als je een introductie tot versiebeheer met Subversion zoekt, dan bevelen we het fantastische boek <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Version Control with Subversion</citetitle></ulink> aan."
 
 #. (para)
 msgid "This document is also a work in progress, just as TortoiseSVN and Subversion are. If you find any mistakes, please report them to the mailing list so we can update the documentation. Some of the screenshots in the Daily Use Guide (DUG) might not reflect the current state of the software. Please forgive us. We're working on TortoiseSVN in our free time."
-msgstr ""
+msgstr "Dit document wordt continue verbeterd, net zoals TortoiseSVN en Subversion.  Als je een fout vindt, meld deze dan aan via de maillijst, zodat we de documentatie kunnen bijwerken. Enkele screenshots in dit document geven mogelijk niet de actuele status van de software weer. Vergeef ons alsjeblieft. We werken aan TortoiseSVN in onze vrije tijd."
 
 #. (para)
 msgid "You should have installed TortoiseSVN already."
-msgstr ""
+msgstr "TortoiseSVN al geïnstalleerd hebben."
 
 #. (para)
 msgid "You should be familiar with version control systems."
-msgstr ""
+msgstr "bekend zijn met versiebeheersystemen."
 
 #. (para)
 msgid "You should know the basics of Subversion."
-msgstr ""
+msgstr "de basis van Subversion kennen."
 
 #. (para)
 msgid "You should have set up a server and/or have access to a Subversion repository."
-msgstr ""
+msgstr "een server geïnstalleerd hebben en/of toegang hebben tot een Subversion archief."
 
 #. (para)
 msgid "In order to get the most out of the Daily Use Guide: <placeholder-1/>"
-msgstr ""
+msgstr "Om het meeste effect te bereiken met de Daily User Guide, moet je: <placeholder-1/>"
 
 #. (title)
 msgid "Getting Started"
@@ -2600,11 +2673,11 @@ msgstr "Laag over pictogram"
 #. (title)
 #. (title)
 msgid "Explorer showing icon overlays"
-msgstr ""
+msgstr "Overlay iconen weergegeven in de verkenner"
 
 #. (para)
 msgid "<placeholder-1/> One of the most visible features of TortoiseSVN is the icon overlays which appear on files in your working copy. These show you at a glance which of your files have been modified. Refer to <xref linkend=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays represent."
-msgstr ""
+msgstr "<placeholder-1/>Eén van de meest zichtbare functies van TortoiseSVN zijn de icoon bedekkingen (overlays genoemd), welke weergegeven worden op bestanden in je werkkopie. Deze laten in één oogopslag zien welke bestanden gewijzigd zijn. Lees <xref linkend=\"tsvn-dug-wcstatus-1\"/> om te leren wat de verschillende overlays betekenen."
 
 #. (title)
 msgid "Context Menus"
@@ -2624,15 +2697,15 @@ msgstr "Contekstmenu van een directory reeds onder versiebeheer"
 
 #. (para)
 msgid "<placeholder-1/> All TortoiseSVN commands are invoked from the context menu of the windows explorer. Most are directly visible, when you <action>right click</action> on a file or folder. The commands that are available depend on whether the file or folder or its parent folder is under version control or not. You can also see the TortoiseSVN menu as part of the Explorer file menu."
-msgstr ""
+msgstr "<placeholder-1/>Alle TortoiseSVN commando’s worden vanuit het context menu van een verkenner gegeven. De meeste zijn direct zichtbaar als je met <action>rechts klikt</action> op een bestand of map. Welke commando’s beschikbaar zijn, hangt af van het feit of het bestand, de map of de bovenliggende map beheerd wordt met versiebeheer. Het TortoiseSVN menu is ook te zien als onderdeel van het Verkenner bestandsmenu."
 
 #. (para)
 msgid "Some commands which are very rarely used are only available in the extended context menu. To bring up the extended context menu, hold down the <keycap>Shift</keycap> key when you <action>right-click</action>."
-msgstr ""
+msgstr "Commando’s die minder vaak worden gebruikt, zijn alleen beschikbaar in het uitgebreide context menu. Om het uitgebreidere menu aan te roepen, hou dan de <keycap>Shift</keycap> toets ingedrukt als je met <action>rechts klikt</action>."
 
 #. (title)
 msgid "Explorer file menu for a shortcut in a versioned folder"
-msgstr ""
+msgstr "Verkenner bestandmenu van een snelkoppeling in een versiebeheerde map"
 
 #. (para)
 msgid "In some cases you may see several TortoiseSVN entries. This is not a bug! <placeholder-1/> This example is for an unversioned shortcut within a versioned folder, and in the Explorer file menu there are <emphasis>three</emphasis> entries for TortoiseSVN. One is for the folder, one for the shortcut itself, and the third for the object the shortcut is pointing to. To help you distinguish between them, the icons have an indicator in the lower right corner to show whether the menu entry is for a file, a folder, a shortcut or for multiple selected items."
@@ -2759,6 +2832,18 @@ msgstr "maximaliseer"
 #. (para)
 msgid "Many of TortoiseSVN's dialogs have a lot of information to display, but it is often useful to maximize only the height, or only the width, rather than maximizing to fill the screen. As a convenience, there are shortcuts for this on the <guilabel>Maximize</guilabel> button. Use the <action>middle mouse</action> button to maximize vertically, and <action>right mouse</action> to maximize horizontally."
 msgstr ""
+"Een voorbeeld <literal>&lt;Location&gt;</literal> blok zal er dan zo uit zien: <screen>\n"
+"&lt;Location /svn&gt;\n"
+"  DAV svn\n"
+"  SVNParentPath D:\\SVN\n"
+"  SSLRequireSSL\n"
+"  AuthType Basic\n"
+"  AuthName \"Subversion repositories\"\n"
+"  AuthUserFile passwd\n"
+"  #AuthzSVNAccessFile svnaccessfile\n"
+"  Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen>"
 
 #. (title)
 msgid "Importing Data Into A Repository"
@@ -6124,6 +6209,22 @@ msgid "Note that unless you opted to switch your working copy to the newly creat
 msgstr ""
 
 #. (title)
+msgid "Other ways to create a branch or tag"
+msgstr ""
+
+#. (para)
+msgid "You can also create a branch or tag without having a working copy. To do that, open the repository browser. You can there drag folders to a new location. You have to hold down the <keycap>Ctrl</keycap> key while you drag to create a copy, otherwise the folder gets moved, not copied."
+msgstr ""
+
+#. (para)
+msgid "You can also drag a folder with the right mouse button. Once you release the mouse button you can choose from the context menu whether you want the folder to be moved or copied. Of course to create a branch or tag you must copy the folder, not move it."
+msgstr ""
+
+#. (para)
+msgid "Yet another way is from the log dialog. You can show the log dialog for e.g. trunk, select a revision (either the HEAD revision at the very top or an earlier revision), right-click and choose <menuchoice><guimenuitem>create branch/tag from revision...</guimenuitem></menuchoice>"
+msgstr ""
+
+#. (title)
 msgid "To Checkout or to Switch..."
 msgstr ""
 
@@ -6973,7 +7074,7 @@ msgid "Delete or rename the folder."
 msgstr ""
 
 #. (para)
-msgid "Make a copy of the folder, either to a different part of the repository, or to a working copy rooted in the same repository."
+msgid "Make a copy of the folder, either to a different part of the repository, or to a working copy rooted in the same repository. This can also be used to create a branch/tag without the need to have a working copy checked out."
 msgstr ""
 
 #. (para)
@@ -8562,6 +8663,8 @@ msgid ""
 "</screen> or with Araxis: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
 "    %base %mine\n"
+"</screen> or with UltraCompare: <screen>\n"
+"C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
 "</screen>"
 msgstr ""
 
