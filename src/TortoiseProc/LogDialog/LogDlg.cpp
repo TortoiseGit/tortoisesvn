@@ -4356,7 +4356,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				popup.SetDefaultItem(ID_DIFF, FALSE);
 				bEntryAdded = true;
 			}
-			if (rev2 == rev1-1)
+			if ((rev2 == rev1-1)||(changedpaths.size() == 1))
 			{
 				if (bEntryAdded)
 					popup.AppendMenu(MF_SEPARATOR, NULL);
