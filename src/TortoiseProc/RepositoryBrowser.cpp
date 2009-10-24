@@ -552,7 +552,7 @@ void CRepositoryBrowser::OnBnClickedHelp()
 
 BOOL CRepositoryBrowser::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message) 
 {
-	if (m_bThreadRunning)
+	if ((m_bThreadRunning)&&(!IsCursorOverWindowBorder()))
 	{
 		HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
 		SetCursor(hCur);

@@ -65,6 +65,7 @@ BEGIN_MESSAGE_MAP(CEditPropertiesDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_ADDPROPS, &CEditPropertiesDlg::OnBnClickedAddprops)
 	ON_BN_CLICKED(IDC_EXPORT, &CEditPropertiesDlg::OnBnClickedExport)
 	ON_BN_CLICKED(IDC_IMPORT, &CEditPropertiesDlg::OnBnClickedImport)
+	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 void CEditPropertiesDlg::OnBnClickedHelp()
@@ -746,4 +747,22 @@ void CEditPropertiesDlg::OnBnClickedImport()
 	}
 
 	Refresh();
+}
+
+BOOL CEditPropertiesDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	if (m_bThreadRunning)
+	{
+		// only show the wait cursor over the main controls
+		if (!IsCursorOverWindowBorder())
+		{
+			HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+			SetCursor(hCur);
+			return TRUE;
+		}
+	}
+	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
+	SetCursor(hCur);
+
+	return CResizableStandAloneDialog::OnSetCursor(pWnd, nHitTest, message);
 }

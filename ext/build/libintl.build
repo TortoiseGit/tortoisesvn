@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<project name="libintl" default="build" basedir="..\libintl">
+
+	<!-- ====================================================================== -->
+	<!-- Project targets														-->
+	<!-- ====================================================================== -->
+	<target name="rebuild" depends="clean,build" />
+
+	<target name="clean">
+		<description>
+			Cleans previous built files.
+		</description>
+
+		<delete>
+			<fileset>
+				<include name="*.obj" />
+				<include name="*.lib" />
+				<include name="*.exp" />
+				<include name="*.dll" />
+				<include name="*.res" />
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="build" >
+		<exec program="nmake.exe" workingdir="gettext-0.14.6\gettext-runtime\intl">
+			<arg value="-f" />
+			<arg value="Makefile.msvc" />
+			<arg value="DLL=1" />
+			<arg value="MFLAGS=-MD" />
+		</exec>
+		<exec program="mt.exe" workingdir="gettext-0.14.6\gettext-runtime\intl">
+			<arg value="-nologo" />
+			<arg value="-manifest" />
+			<arg value="intl3_tsvn.dll.manifest" />
+			<arg value='/outputresource:".\intl3_tsvn.dll;#2"' />
+		</exec>
+
+		<copy todir="${configuration}_${platform}\lib" overwrite="true" flatten="true" failonerror="false">
+			<fileset>
+				<include name="gettext-0.14.6\gettext-runtime\intl\*.lib" />
+				<include name="gettext-0.14.6\gettext-runtime\intl\*.exp" />
+			</fileset>
+		</copy>
+		<copy todir="..\..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="false">
+			<fileset>
+				<include name="gettext-0.14.6\gettext-runtime\intl\*.dll" />
+			</fileset>
+		</copy>
+
+		<delete>
+			<fileset>
+				<include name="*.obj" />
+				<include name="*.lib" />
+				<include name="*.exp" />
+				<include name="*.dll" />
+				<include name="*.res" />
+			</fileset>
+		</delete>
+
+	</target>
+
+</project>

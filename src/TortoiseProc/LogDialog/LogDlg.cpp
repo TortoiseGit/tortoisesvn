@@ -2108,11 +2108,7 @@ BOOL CLogDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
 	if (m_bLogThreadRunning)
 	{
-		// only show the wait cursor over the list control
-		if ((pWnd)&&
-			((pWnd == GetDlgItem(IDC_LOGLIST))||
-			(pWnd == GetDlgItem(IDC_MSGVIEW))||
-			(pWnd == GetDlgItem(IDC_LOGMSG))))
+		if (!IsCursorOverWindowBorder() && ((pWnd)&&(pWnd != GetDlgItem(IDCANCEL))))
 		{
 			HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
 			SetCursor(hCur);

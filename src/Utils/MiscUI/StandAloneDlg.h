@@ -201,6 +201,19 @@ protected:
 		GetCursorPos(&pt);
 		SetCursorPos(pt.x, pt.y);
 	}
+
+	bool IsCursorOverWindowBorder()
+	{
+		RECT wrc, crc;
+		this->GetWindowRect(&wrc);
+		this->GetClientRect(&crc);
+		ClientToScreen(&crc);
+		DWORD pos = GetMessagePos();
+		POINT pt;
+		pt.x = GET_X_LPARAM(pos);
+		pt.y = GET_Y_LPARAM(pos);
+		return (PtInRect(&wrc, pt) && !PtInRect(&crc, pt));
+	}
 private:
 	HCURSOR OnQueryDragIcon()
 	{

@@ -142,7 +142,7 @@ UINT CPropDlg::PropThread()
 
 BOOL CPropDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
-	if ((GetDlgItem(IDOK)->IsWindowEnabled())||(pWnd != GetDlgItem(IDC_PROPERTYLIST)))
+	if ((GetDlgItem(IDOK)->IsWindowEnabled())||(IsCursorOverWindowBorder()))
 	{
 		HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
 		SetCursor(hCur);

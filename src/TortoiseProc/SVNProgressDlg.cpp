@@ -1429,8 +1429,7 @@ BOOL CSVNProgressDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
 	if (!GetDlgItem(IDOK)->IsWindowEnabled())
 	{
-		// only show the wait cursor over the list control
-		if ((pWnd)&&(pWnd == GetDlgItem(IDC_SVNPROGRESS)))
+		if (!IsCursorOverWindowBorder() && ((pWnd)&&(pWnd != GetDlgItem(IDCANCEL))))
 		{
 			HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
 			SetCursor(hCur);

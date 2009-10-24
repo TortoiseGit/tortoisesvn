@@ -29,6 +29,7 @@
 		<nant target="build" buildfile="sasl.build" />
 		<nant target="build" buildfile="neon.build" />
 		<nant target="build" buildfile="serf.build" />
+		<nant target="build" buildfile="libintl.build" />
 		<nant target="build" buildfile="subversion.build" />
 	</target>
 

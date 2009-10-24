@@ -938,18 +938,14 @@
     <ClCompile Include="SimplePrompt.cpp">
       <Filter>Utility Dialogs</Filter>
     </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Utils</Filter>
-    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="SVNProgressDlg.cpp">
       <Filter>Utility Dialogs</Filter>
     </ClCompile>
     <ClCompile Include="SwitchDlg.cpp">
       <Filter>Commands\Switch</Filter>
     </ClCompile>
-    <ClCompile Include="TortoiseProc.cpp">
-      <Filter>Utils</Filter>
-    </ClCompile>
+    <ClCompile Include="TortoiseProc.cpp" />
     <ClCompile Include="TreeConflictEditorDlg.cpp">
       <Filter>Commands\ConflictEditor</Filter>
     </ClCompile>
@@ -1567,9 +1563,7 @@
     <ClInclude Include="ResolveDlg.h">
       <Filter>Commands\Resolve</Filter>
     </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Utils</Filter>
-    </ClInclude>
+    <ClInclude Include="Resource.h" />
     <ClInclude Include="RevertDlg.h">
       <Filter>Commands\Revert</Filter>
     </ClInclude>
@@ -1804,18 +1798,14 @@
     <ClInclude Include="SimplePrompt.h">
       <Filter>Utility Dialogs</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Utils</Filter>
-    </ClInclude>
+    <ClInclude Include="stdafx.h" />
     <ClInclude Include="SVNProgressDlg.h">
       <Filter>Utility Dialogs</Filter>
     </ClInclude>
     <ClInclude Include="SwitchDlg.h">
       <Filter>Commands\Switch</Filter>
     </ClInclude>
-    <ClInclude Include="TortoiseProc.h">
-      <Filter>Utils</Filter>
-    </ClInclude>
+    <ClInclude Include="TortoiseProc.h" />
     <ClInclude Include="TreeConflictEditorDlg.h">
       <Filter>Commands\ConflictEditor</Filter>
     </ClInclude>
