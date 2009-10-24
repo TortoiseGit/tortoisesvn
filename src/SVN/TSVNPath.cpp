@@ -739,52 +739,19 @@ bool CTSVNPath::IsValidOnWindows() const
 	if (m_bIsValidOnWindowsKnown)
 		return m_bIsValidOnWindows;
 
-	m_bIsValidOnWindows = false;
+	m_bIsValidOnWindows = true;
 	EnsureBackslashPathSet();
-	CString sMatch = m_sBackslashPath + _T("\r\n");
-	wstring sPattern;
-	// the 'file://' URL is just a normal windows path:
-	if (sMatch.Left(7).CompareNoCase(_T("file:\\\\"))==0)
+	wstring checkPath = m_sBackslashPath;
+	if (IsUrl())
 	{
-		sMatch = sMatch.Mid(7);
-		sMatch.TrimLeft(_T("\\"));
-		sPattern = _T("^(\\\\\\\\\\?\\\\)?(([a-zA-Z]:|\\\\)\\\\)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$");
+		checkPath = m_sBackslashPath.Mid(m_sBackslashPath.Find('\\', m_sBackslashPath.Find(_T(":\\\\"))+3)+1);
 	}
-	else if (IsUrl())
-	{
-		sPattern = _T("^((http|https|svn|svn\\+ssh|file)\\:\\\\+([^\\\\@\\:]+\\:[^\\\\@\\:]+@)?\\\\[^\\\\]+(\\:\\d+)?)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<>\\. ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<>\\. ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$");
-	}
-	else
-	{
-		sPattern = _T("^(\\\\\\\\\\?\\\\)?(([a-zA-Z]:|\\\\)\\\\)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$");
-	}
-
 	try
 	{
-		tr1::wregex rx(sPattern, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
-		tr1::wsmatch match;
-
-		wstring rmatch = wstring((LPCTSTR)sMatch);
-		if (tr1::regex_match(rmatch, match, rx))
-		{
-			// the check for _Mycont to be != 0 is required since the regex_match returns
-			// sometimes matches that have 'matched == true) but the iterators are actually null
-			// which results without that check in a debug assertion (debug mode) or an abort() (!!!) (release mode)
-#if _MSC_VER >= 1600
-			if ((match[0].matched)&&(match[0].first._Ptr != 0)&&(wstring(match[0]).compare((LPCTSTR)sMatch)==0))
-#else
-			if ((match[0].matched)&&(match[0].first._Mycont != 0)&&(wstring(match[0]).compare((LPCTSTR)sMatch)==0))
-#endif
-				m_bIsValidOnWindows = true;
-		}
-		if (m_bIsValidOnWindows)
-		{
-			// now check for illegal filenames
-			tr1::wregex rx2(_T("\\\\(lpt\\d|com\\d|aux|nul|prn|con)(\\\\|$)"), tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
-			rmatch = m_sBackslashPath;
-			if (tr1::regex_search(rmatch, rx2, tr1::regex_constants::match_default))
-				m_bIsValidOnWindows = false;
-		}
+		// now check for illegal filenames
+		tr1::wregex rx2(_T("(\\\\(lpt\\d|com\\d|aux|nul|prn|con)(\\\\|$))|\\*|[^\\\\]\\?|\\||<|>|\\:[^\\\\]"), tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
+		if (tr1::regex_search(checkPath, rx2, tr1::regex_constants::match_default))
+			m_bIsValidOnWindows = false;
 	}
 	catch (exception) {}
 
@@ -1584,8 +1551,6 @@ private:
 		testPath.SetFromSVN(_T("file:///C:/SVNRepos/Tester/Proj1/tags/t2"));
 		ATLASSERT(testPath.IsValidOnWindows());
 		// and some negative URL tests
-		testPath.SetFromSVN(_T("httpp://myserver.com/repos/trunk"));
-		ATLASSERT(!testPath.IsValidOnWindows());
 		testPath.SetFromSVN(_T("https://myserver.com/rep:os/trunk/file%20with%20spaces"));
 		ATLASSERT(!testPath.IsValidOnWindows());
 		testPath.SetFromSVN(_T("svn://myserver.com/rep<os/trunk/file with spaces"));
