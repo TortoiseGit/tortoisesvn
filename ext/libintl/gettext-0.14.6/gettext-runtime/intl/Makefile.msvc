@@ -68,19 +68,19 @@ PICFLAGS =
 # mscv4 doesn't know about this flag and ignores it.
 # -DBUILDING_LIBINTL: Change expansion of LIBINTL_DLL_EXPORTED macro.
 # -DBUILDING_DLL: Change expansion of RELOCATABLE_DLL_EXPORTED macro.
-PICFLAGS = -GD -DBUILDING_LIBINTL -DBUILDING_DLL
+PICFLAGS = -DBUILDING_LIBINTL -DBUILDING_DLL
 !endif
 
 !if $(DEBUG)
-OPTIMFLAGS = -Od -Z7
-DEBUGFLAGS = -Z7
+OPTIMFLAGS = -FD -O2 -EHsc -Zi
+DEBUGFLAGS = -Zi
 !else
 # Some people prefer -O2 -G6 instead of -O1, but -O2 is not reliable in MSVC5.
-OPTIMFLAGS = -D_NDEBUG -O1
-DEBUGFLAGS =
+OPTIMFLAGS = -D_NDEBUG -FD -O2 -EHsc -Zi
+DEBUGFLAGS = -Zi
 !endif
 
-CFLAGS = $(MFLAGS) $(WARN_CFLAGS) $(OPTIMFLAGS) -DHAVE_CONFIG_H -DLOCALEDIR=\"$(IIlocaledir)\" -DLOCALE_ALIAS_PATH=\"$(IIaliaspath)\" -DIN_LIBINTL -DENABLE_RELOCATABLE=1 -DIN_LIBRARY -DINSTALLDIR=\"$(IIbindir)\" -DNO_XMALLOC -Dset_relocation_prefix=libintl_set_relocation_prefix -Drelocate=libintl_relocate -DDEPENDS_ON_LIBICONV=1
+CFLAGS = $(MFLAGS) $(WARN_CFLAGS) $(OPTIMFLAGS) -DHAVE_CONFIG_H -DLOCALEDIR=\"$(IIlocaledir)\" -DLOCALE_ALIAS_PATH=\"$(IIaliaspath)\" -DIN_LIBINTL -DENABLE_RELOCATABLE=1 -DIN_LIBRARY -DINSTALLDIR=\"$(IIbindir)\" -DNO_XMALLOC -Dset_relocation_prefix=libintl_set_relocation_prefix -Drelocate=libintl_relocate -DDEPENDS_ON_LIBICONV=0
 
 INCLUDES = -I. -I.. -I$(includedir)
 
@@ -103,7 +103,7 @@ OBJECTS = bindtextdom.obj dcgettext.obj dgettext.obj gettext.obj finddomain.obj 
 
 RESOURCES = intl.res
 
-all : intl.lib libintl.h
+all : intl3_tsvn.lib libintl.h
 
 libgnuintl.h :
 !if !$(DLL)
@@ -186,18 +186,18 @@ intl-compat.obj : $(srcdir)\intl-compat.c libgnuintl.h $(srcdir)\gettextP.h $(sr
 
 !if !$(DLL)
 
-intl.lib : $(OBJECTS)
-	-$(RM) intl.lib
-	$(AR) $(AR_FLAGS)intl.lib $(OBJECTS)
+intl3_tsvn.lib : $(OBJECTS)
+	-$(RM) intl3_tsvn.lib
+	$(AR) $(AR_FLAGS)intl3_tsvn.lib $(OBJECTS)
 
 !else
 
 # intl.dll and intl.lib are created together.
-intl.lib : $(OBJECTS) $(RESOURCES)
-	$(CC) $(MFLAGS) $(DEBUGFLAGS) -LD $(OBJECTS) $(libdir)\iconv.lib $(RESOURCES) -Feintl.dll
+intl3_tsvn.lib : $(OBJECTS) $(RESOURCES)
+	$(CC) $(MFLAGS) $(DEBUGFLAGS) -LD $(OBJECTS) $(RESOURCES) -Feintl3_tsvn.dll
 
 intl.res : $(srcdir)\..\windows\intl.rc
-	rc -Fo intl.res $(srcdir)\..\windows\intl.rc
+	rc -Fo intl.res $(srcdir)\libintl3-dll.rc
 
 !endif
 
