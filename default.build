@@ -22,17 +22,19 @@
 	<property name="ipv6" value="" />
 	<!-- default: we build with openssl support -->
 	<property name="skipssl" value="" />
-    <!-- default: we build with VS2008, unless we use VC from a 10.0 path -->
+    <!-- default: we build with VS2008 -->
     <property name="studioversion" value="2008"/>
-    <property name="studioversion" value="2010" if="${string::contains (environment::get-variable('VCINSTALLDIR'), '10.0')}"/>
 
     <include buildfile="default.build.user" />
 
-	<!-- the signinfo.txt file has to contain one line with parameters for signtool.exe,
+    <!-- build with VS2010, if there is a 10.0 in the VC path -->
+    <property name="studioversion" value="2010" if="${string::contains (environment::get-variable('VCINSTALLDIR'), '10.0')}"/>
+
+    <!-- the signinfo.txt file has to contain one line with parameters for signtool.exe,
 	     for example:
 		 /t "url/to/timestamp/server" /q
 	-->
-	<loadfile file="signinfo.txt" property="signinfo" failonerror="false" />
+	<loadfile file="signinfo.txt" property="signinfo" failonerror="false" if="${file::exists('signinfo.txt')}"/>
 
 	<!-- ====================================================================== -->
 	<!-- Configuration targets													-->
