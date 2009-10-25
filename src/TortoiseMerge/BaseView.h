@@ -343,15 +343,16 @@ protected:
 		void SetColor(int pos)
 		{
 			int backpos = pos - 1;
-			std::map<int, linecolors_t>::const_iterator foundIt;
-			while ((backpos >= 0)&&((foundIt = this->find(backpos)) == this->end()))
+			std::map<int, linecolors_t>::const_reverse_iterator foundIt;
+			std::map<int, linecolors_t>::const_reverse_iterator reverseIt = this->rbegin();
+			while ((reverseIt != this->rend()) && (reverseIt->first > backpos))
+				++reverseIt;
+			if (reverseIt != this->rend())
 			{
-				backpos--;
-			}
-			backpos--;
-			while ((backpos >= 0)&&((foundIt = this->find(backpos)) == this->end()))
-			{
-				backpos--;
+				foundIt = reverseIt;
+				++reverseIt;
+				if (reverseIt != this->rend())
+					foundIt = reverseIt;
 			}
 			linecolors_t c = foundIt->second;
 			(*this)[pos] = c;
