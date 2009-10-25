@@ -932,6 +932,9 @@ UINT CSVNProgressDlg::ProgressThread()
 	case SVNProgress_Checkout:
 		bSuccess = CmdCheckout(sWindowTitle, localoperation);
 		break;
+	case SVNProgress_SingleFileCheckout:
+		bSuccess = CmdSingleFileCheckout(sWindowTitle, localoperation);
+		break;
 	case SVNProgress_Commit:
 		bSuccess = CmdCommit(sWindowTitle, localoperation);
 		break;
@@ -1962,6 +1965,30 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
 		}
 	}
 	return true;
+}
+
+bool CSVNProgressDlg::CmdSingleFileCheckout(CString& sWindowTitle, bool& localoperation)
+{
+	CTSVNPath url = m_url;
+	CTSVNPath checkoutdir = m_targetPathList[0];
+	svn_depth_t	depth = m_depth;
+
+	m_url = m_url.GetContainingDirectory();
+	m_targetPathList = CTSVNPathList (checkoutdir.GetContainingDirectory());
+	m_depth = svn_depth_empty;
+
+	if (CmdCheckout (sWindowTitle, localoperation))
+	{
+		m_url = CTSVNPath();
+		CTSVNPath filePath (checkoutdir.GetWinPathString() + url.GetFilename());
+		m_targetPathList = CTSVNPathList (checkoutdir);
+		m_depth = svn_depth_unknown;
+		m_options = ProgOptNone;
+
+		return CmdUpdate (sWindowTitle, localoperation);
+	}
+
+	return false;
 }
 
 bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)

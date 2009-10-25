@@ -61,7 +61,9 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 
-	void		SetRevision(const SVNRev& rev);
+	bool IsFile();
+	void SetRevision(const SVNRev& rev);
+
 protected:
 	CToolTips		m_tooltips;
 	CString			m_sRevision;
@@ -79,4 +81,7 @@ public:
 	CFileDropEdit	m_cCheckoutEdit;
 	CLogDlg	*		m_pLogDlg;
 	svn_depth_t		m_depth;
+
+	bool			m_isFile;	///< true only if we are sure it is
+	bool			m_parentExists;	///< W/C for parent folder already exists. Only valid if \ref m_isFile is true.
 };

@@ -137,7 +137,14 @@ bool CheckoutCommand::Execute()
 
 		CSVNProgressDlg progDlg;
 		theApp.m_pMainWnd = &progDlg;
-		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Checkout);
+
+		progDlg.SetCommand 
+			(dlg.m_isFile
+				? dlg.m_parentExists 
+					? CSVNProgressDlg::SVNProgress_Update
+					: CSVNProgressDlg::SVNProgress_SingleFileCheckout
+				: CSVNProgressDlg::SVNProgress_Checkout);
+
 		if (parser.HasVal(_T("closeonend")))
 			progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
 		if (parser.HasKey(_T("closeforlocal")))

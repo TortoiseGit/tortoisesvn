@@ -24,7 +24,7 @@
 #include "PathUtils.h"
 #include "BrowseFolder.h"
 #include "AppUtils.h"
-
+#include "SVNInfo.h"
 
 IMPLEMENT_DYNAMIC(CCheckoutDlg, CResizableStandAloneDialog)
 CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
@@ -34,6 +34,8 @@ CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
 	, m_sCheckoutDirOrig(_T(""))
 	, m_bNoExternals(FALSE)
 	, m_pLogDlg(NULL)
+	, m_isFile(false)
+	, m_parentExists(false)
 {
 }
 
@@ -158,10 +160,26 @@ BOOL CCheckoutDlg::OnInitDialog()
 	return TRUE;
 }
 
+bool CCheckoutDlg::IsFile()
+{
+	SVNInfo info;
+	const SVNInfoData* infoData 
+		= info.GetFirstFileInfo (CTSVNPath(m_URL), Revision, Revision);
+
+	return (infoData != NULL) && (infoData->kind == svn_node_file);
+}
+
 void CCheckoutDlg::OnOK()
 {
 	if (!UpdateData(TRUE))
 		return; // don't dismiss dialog (error message already shown by MFC framework)
+
+	// require a syntactically valid target path
+
+	if (m_strCheckoutDirectory.IsEmpty())
+	{
+		return;			//don't dismiss the dialog
+	}
 
 	CTSVNPath checkoutDirectory;
 	if (::PathIsRelative(m_strCheckoutDirectory))
@@ -178,6 +196,8 @@ void CCheckoutDlg::OnOK()
 		return;
 	}
 
+	// require a source revision
+
 	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
 	{
 		Revision = SVNRev(_T("HEAD"));
@@ -189,6 +209,8 @@ void CCheckoutDlg::OnOK()
 		ShowBalloon(IDC_REVISION_NUM, IDS_ERR_INVALIDREV);
 		return;
 	}
+
+	// require a syntactically valid source path
 
 	bool bAutoCreateTargetName = m_bAutoCreateTargetName;
 	m_bAutoCreateTargetName = false;
@@ -202,24 +224,8 @@ void CCheckoutDlg::OnOK()
 		return;
 	}
 
-	if (m_strCheckoutDirectory.IsEmpty())
-	{
-		return;			//don't dismiss the dialog
-	}
-	if (!PathFileExists(m_strCheckoutDirectory))
-	{
-		CPathUtils::MakeSureDirectoryPathExists(m_strCheckoutDirectory);
-	}
-	if (!PathIsDirectoryEmpty(m_strCheckoutDirectory))
-	{
-		CString message;
-		message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)),(LPCTSTR)m_strCheckoutDirectory);
-		if (CMessageBox::Show(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
-		{
-			m_bAutoCreateTargetName = bAutoCreateTargetName;
-			return;		//don't dismiss the dialog
-		}
-	}
+	// decode depth info
+
 	switch (m_depthCombo.GetCurSel())
 	{
 	case 0:
@@ -238,6 +244,81 @@ void CCheckoutDlg::OnOK()
 		m_depth = svn_depth_empty;
 		break;
 	}
+
+	// require the target path to be actually valid
+	// - depending on whether it is a file
+
+	m_isFile = IsFile();
+	if (m_isFile)
+	{
+		CTSVNPath targetPath (m_strCheckoutDirectory);
+
+		// single-file checkouts are not supported directly by SVN.
+
+		if (PathFileExists(m_strCheckoutDirectory) && targetPath.IsDirectory())
+		{
+			ShowBalloon(IDC_CHECKOUTDIRECTORY, IDS_ERR_ISEXISINGDIR);
+			return;
+		}
+
+		// the parent must exist
+
+		targetPath = targetPath.GetContainingDirectory();
+		CPathUtils::MakeSureDirectoryPathExists(targetPath.GetWinPath());
+
+		// is it already a w/c for the directory we want?
+
+		CString parentURL 
+			= CTSVNPath(m_URL).GetContainingDirectory().GetSVNPathString();
+
+		SVNInfo info;
+		const SVNInfoData* infoData 
+			= info.GetFirstFileInfo (targetPath, SVNRev(), SVNRev());
+		if ((infoData == NULL) || (infoData->url != parentURL))
+		{
+			m_parentExists = false;
+
+			if (!PathIsDirectoryEmpty(targetPath.GetWinPath()))
+			{
+				CString message;
+				message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)), targetPath.GetWinPath());
+				if (CMessageBox::Show(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
+				{
+					m_bAutoCreateTargetName = bAutoCreateTargetName;
+					return;		//don't dismiss the dialog
+				}
+			}
+		}
+		else
+		{
+			// we don't need to c/o again
+
+			m_parentExists = true;
+		}
+	}
+	else
+	{
+		// our default is that the target is a directory.
+		// If it doesn't exist yet, we create it and it should be empty.
+
+		if (!PathFileExists(m_strCheckoutDirectory))
+		{
+			CPathUtils::MakeSureDirectoryPathExists(m_strCheckoutDirectory);
+		}
+		if (!PathIsDirectoryEmpty(m_strCheckoutDirectory))
+		{
+			CString message;
+			message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)),(LPCTSTR)m_strCheckoutDirectory);
+			if (CMessageBox::Show(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
+			{
+				m_bAutoCreateTargetName = bAutoCreateTargetName;
+				return;		//don't dismiss the dialog
+			}
+		}
+	}
+
+	// store state info & close dialog
+
 	UpdateData(FALSE);
 	CRegString lastCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\History\\lastCheckoutPath"));
 	lastCheckoutPath = m_strCheckoutDirectory.Left(m_strCheckoutDirectory.ReverseFind('\\'));

@@ -78,6 +78,7 @@ public:
 	{
 		SVNProgress_Add,
 		SVNProgress_Checkout,
+		SVNProgress_SingleFileCheckout,
 		SVNProgress_Commit,
 		SVNProgress_Copy,
 		SVNProgress_Export,
@@ -249,6 +250,7 @@ private:
 	// the commands to execute
 	bool		CmdAdd(CString& sWindowTitle, bool& localoperation);
 	bool		CmdCheckout(CString& sWindowTitle, bool& localoperation);
+	bool		CmdSingleFileCheckout(CString& sWindowTitle, bool& localoperation);
 	bool		CmdCommit(CString& sWindowTitle, bool& localoperation);
 	bool		CmdCopy(CString& sWindowTitle, bool& localoperation);
 	bool		CmdExport(CString& sWindowTitle, bool& localoperation);
