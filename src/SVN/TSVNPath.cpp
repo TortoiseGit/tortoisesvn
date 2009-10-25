@@ -765,20 +765,30 @@ bool CTSVNPath::IsValidOnWindows() const
 	EnsureBackslashPathSet();
 	CString sMatch = m_sBackslashPath + _T("\r\n");
 	wstring sPattern;
-	// the 'file://' URL is just a normal windows path:
+
+    // commonly used sub-patterns
+    wstring firstCharPattern = _T("[^\\\\/:\\*\\?\"\\|<> ]");
+    wstring innerCharPattern = _T("[^\\\\/:\\*\\?\"\\|<>]");
+    wstring endCharPattern = _T("[^\\\\/:\\*\\?\"\\|<>\\. ]");
+    wstring namePattern = _T("((") + endCharPattern + _T(")|(") + innerCharPattern + _T("*") + endCharPattern + _T("))?");
+    wstring filePattern = firstCharPattern + namePattern;               
+    wstring relPathPattern = _T("(((\\.)|(\\.\\.)|(") + filePattern + _T("))\\\\)*") + filePattern + _T("$");
+    wstring fullPathPattern = _T("^(\\\\\\\\\\?\\\\)?(([a-zA-Z]:|\\\\)\\\\)?") + relPathPattern;
+
+    // the 'file://' URL is just a normal windows path:
 	if (sMatch.Left(7).CompareNoCase(_T("file:\\\\"))==0)
 	{
 		sMatch = sMatch.Mid(7);
 		sMatch.TrimLeft(_T("\\"));
-		sPattern = _T("^(\\\\\\\\\\?\\\\)?(([a-zA-Z]:|\\\\)\\\\)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$");
+		sPattern = fullPathPattern;
 	}
 	else if (IsUrl())
 	{
-		sPattern = _T("^((http|https|svn|svn\\+ssh|file)\\:\\\\+([^\\\\@\\:]+\\:[^\\\\@\\:]+@)?\\\\[^\\\\]+(\\:\\d+)?)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<>\\. ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<>\\. ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$");
+		sPattern = _T("^((http|https|svn|svn\\+ssh|file)\\:\\\\+([^\\\\@\\:]+\\:[^\\\\@\\:]+@)?\\\\[^\\\\]+(\\:\\d+)?)?(((\\.)|(\\.\\.)|(") + endCharPattern + namePattern + _T("))\\\\)*") + endCharPattern + namePattern + _T("$");
 	}
 	else
 	{
-		sPattern = _T("^(\\\\\\\\\\?\\\\)?(([a-zA-Z]:|\\\\)\\\\)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$");
+		sPattern = fullPathPattern;
 	}
 
 	try
