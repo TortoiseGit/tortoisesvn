@@ -767,11 +767,9 @@ bool CTSVNPath::IsValidOnWindows() const
 	wstring sPattern;
 
     // commonly used sub-patterns
-    wstring firstCharPattern = _T("[^\\\\/:\\*\\?\"\\|<> ]");
     wstring innerCharPattern = _T("[^\\\\/:\\*\\?\"\\|<>]");
     wstring endCharPattern = _T("[^\\\\/:\\*\\?\"\\|<>\\. ]");
-    wstring namePattern = _T("((") + endCharPattern + _T(")|(") + innerCharPattern + _T("*") + endCharPattern + _T("))?");
-    wstring filePattern = firstCharPattern + namePattern;               
+    wstring filePattern = _T("(") + innerCharPattern + _T("*") + endCharPattern + _T(")?"); 
     wstring relPathPattern = _T("(((\\.)|(\\.\\.)|(") + filePattern + _T("))\\\\)*") + filePattern + _T("$");
     wstring fullPathPattern = _T("^(\\\\\\\\\\?\\\\)?(([a-zA-Z]:|\\\\)\\\\)?") + relPathPattern;
 
@@ -784,7 +782,7 @@ bool CTSVNPath::IsValidOnWindows() const
 	}
 	else if (IsUrl())
 	{
-		sPattern = _T("^((http|https|svn|svn\\+ssh|file)\\:\\\\+([^\\\\@\\:]+\\:[^\\\\@\\:]+@)?\\\\[^\\\\]+(\\:\\d+)?)?(((\\.)|(\\.\\.)|(") + endCharPattern + namePattern + _T("))\\\\)*") + endCharPattern + namePattern + _T("$");
+		sPattern = _T("^((http|https|svn|svn\\+ssh|file)\\:\\\\+([^\\\\@\\:]+\\:[^\\\\@\\:]+@)?\\\\[^\\\\]+(\\:\\d+)?)?") + relPathPattern;
 	}
 	else
 	{
