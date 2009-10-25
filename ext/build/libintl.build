@@ -13,16 +13,16 @@
 
 		<delete>
 			<fileset>
-				<include name="*.obj" />
-				<include name="*.lib" />
-				<include name="*.exp" />
-				<include name="*.dll" />
-				<include name="*.res" />
+				<include name="gettext-0.14.6\gettext-runtime\intl\*.obj" />
+				<include name="gettext-0.14.6\gettext-runtime\intl\*.lib" />
+				<include name="gettext-0.14.6\gettext-runtime\intl\*.exp" />
+				<include name="gettext-0.14.6\gettext-runtime\intl\*.dll" />
+				<include name="gettext-0.14.6\gettext-runtime\intl\*.res" />
 			</fileset>
 		</delete>
 	</target>
 
-	<target name="build" >
+	<target name="build" depends="clean">
 		<exec program="nmake.exe" workingdir="gettext-0.14.6\gettext-runtime\intl">
 			<arg value="-f" />
 			<arg value="Makefile.msvc" />
@@ -50,11 +50,11 @@
 
 		<delete>
 			<fileset>
-				<include name="*.obj" />
-				<include name="*.lib" />
-				<include name="*.exp" />
-				<include name="*.dll" />
-				<include name="*.res" />
+				<include name="gettext-0.14.6\gettext-runtime\intl\*.obj" />
+				<include name="gettext-0.14.6\gettext-runtime\intl\*.lib" />
+				<include name="gettext-0.14.6\gettext-runtime\intl\*.exp" />
+				<include name="gettext-0.14.6\gettext-runtime\intl\*.dll" />
+				<include name="gettext-0.14.6\gettext-runtime\intl\*.res" />
 			</fileset>
 		</delete>
 
