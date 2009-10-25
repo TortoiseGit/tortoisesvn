@@ -81,7 +81,8 @@ public:
 	BOOL			HasTextSelection() {return ((m_ptSelectionStartPos.x != m_ptSelectionEndPos.x)||(m_ptSelectionStartPos.y != m_ptSelectionEndPos.y));}
 	BOOL			GetSelection(int& start, int& end) {start=m_nSelBlockStart; end=m_nSelBlockEnd; return HasSelection();}
 	void			SetInlineWordDiff(bool bWord) {m_bInlineWordDiff = bWord;}
-	void			SetMarkedWord(const CString& word) {m_sMarkedWord = word;}
+	void			SetMarkedWord(const CString& word) {m_sMarkedWord = word; BuildMarkedWordArray();}
+	LPCTSTR			GetMarkedWord() {return (LPCTSTR)m_sMarkedWord;}
 
 	BOOL			IsLineRemoved(int nLineIndex);
 	bool			IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical);
@@ -103,6 +104,7 @@ public:
 	BOOL			m_bShowInlineDiff;	///< If TRUE, diffs in lines are marked colored
 	bool			m_bShowSelection;	///< If true, selection bars are shown and selected text darkened
 	int				m_nTopLine;			///< The topmost text line in the view
+	std::vector<int> m_arMarkedWordLines;	///< which lines contain a marked word
 
 	static CLocatorBar * m_pwndLocator;	///< Pointer to the locator bar on the left
 	static CLineDiffBar * m_pwndLineDiffBar;	///< Pointer to the line diff bar at the bottom
@@ -199,7 +201,6 @@ protected:
 	CFont *			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE, BOOL bStrikeOut = FALSE);
 	int				GetLineFromPoint(CPoint point);
 	int				GetMarginWidth();
-	COLORREF		IntenseColor(long scale, COLORREF col);
 	COLORREF		InlineDiffColor(int nLineIndex);
 	void			CheckOtherView();
 	static CString	GetWhitespaceBlock(CViewData *viewData, int nLineIndex);
@@ -243,6 +244,7 @@ protected:
 	bool			IsCaretAtWordBoundary() const;
 	void			UpdateViewsCaretPosition();
 
+	void			BuildMarkedWordArray();
 protected:
 	COLORREF		m_InlineRemovedBk;
 	COLORREF		m_InlineAddedBk;

@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008 - TortoiseSVN
+// Copyright (C) 2006-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -49,5 +49,5 @@ public:
 
 	static bool HasClipboardFormat(UINT format);
 	static CString GetErrorString(svn_error_t * Err);
-
+	static COLORREF IntenseColor(long scale, COLORREF col);
 };

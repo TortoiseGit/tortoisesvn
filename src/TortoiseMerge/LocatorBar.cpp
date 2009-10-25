@@ -24,6 +24,7 @@
 #include "RightView.h"
 #include "BottomView.h"
 #include "DiffColors.h"
+#include "AppUtils.h"
 
 
 IMPLEMENT_DYNAMIC(CLocatorBar, CPaneDialog)
@@ -195,6 +196,19 @@ void CLocatorBar::OnPaint()
 							barwidth, max(height*identcount/m_nLines,1), color);
 			linecount += identcount;
 		}
+		if (m_pMainFrm->m_pwndLeftView->GetMarkedWord()[0])
+		{
+			CDiffColors::GetInstance().GetColors(DIFFSTATE_NORMAL, color, color2);
+			color = CAppUtils::IntenseColor(200, color);
+			for (size_t i=0; i<m_pMainFrm->m_pwndLeftView->m_arMarkedWordLines.size(); ++i)
+			{
+				if (m_pMainFrm->m_pwndLeftView->m_arMarkedWordLines[i])
+				{
+					cacheDC.FillSolidRect(rect.left, height*i/m_nLines, 
+								barwidth, max(height/m_nLines,2), color);
+				}
+			}
+		}
 	}
 	state = 0;
 	identcount = 0;
@@ -212,6 +226,19 @@ void CLocatorBar::OnPaint()
 							barwidth, max(height*identcount/m_nLines,1), color);
 			linecount += identcount;
 		}
+		if (m_pMainFrm->m_pwndRightView->GetMarkedWord()[0])
+		{
+			CDiffColors::GetInstance().GetColors(DIFFSTATE_NORMAL, color, color2);
+			color = CAppUtils::IntenseColor(200, color);
+			for (size_t i=0; i<m_pMainFrm->m_pwndRightView->m_arMarkedWordLines.size(); ++i)
+			{
+				if (m_pMainFrm->m_pwndRightView->m_arMarkedWordLines[i])
+				{
+					cacheDC.FillSolidRect(rect.left + (width*2/3), height*i/m_nLines, 
+								barwidth, max(height/m_nLines,2), color);
+				}
+			}
+		}
 	}
 	state = 0;
 	identcount = 0;
@@ -227,6 +254,19 @@ void CLocatorBar::OnPaint()
 				cacheDC.FillSolidRect(rect.left + (width/3), height*linecount/m_nLines, 
 							barwidth, max(height*identcount/m_nLines,1), color);
 			linecount += identcount;
+		}
+		if (m_pMainFrm->m_pwndBottomView->GetMarkedWord()[0])
+		{
+			CDiffColors::GetInstance().GetColors(DIFFSTATE_NORMAL, color, color2);
+			color = CAppUtils::IntenseColor(200, color);
+			for (size_t i=0; i<m_pMainFrm->m_pwndBottomView->m_arMarkedWordLines.size(); ++i)
+			{
+				if (m_pMainFrm->m_pwndBottomView->m_arMarkedWordLines[i])
+				{
+					cacheDC.FillSolidRect(rect.left + (width/3), height*i/m_nLines, 
+								barwidth, max(height/m_nLines,2), color);
+				}
+			}
 		}
 	}
 

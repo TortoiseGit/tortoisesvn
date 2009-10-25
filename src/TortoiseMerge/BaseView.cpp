@@ -1221,26 +1221,6 @@ bool CBaseView::IsLineConflicted(int nLineIndex)
 	return ret;
 }
 
-COLORREF CBaseView::IntenseColor(long scale, COLORREF col)
-{
-	// if the color is already dark (gray scale below 127),
-	// then lighten the color by 'scale', otherwise darken it
-	int Gray  = (((int)GetRValue(col)) + GetGValue(col) + GetBValue(col))/3;
-	if (Gray > 127)
-	{
-		long red   = MulDiv(GetRValue(col),(255-scale),255);
-		long green = MulDiv(GetGValue(col),(255-scale),255);
-		long blue  = MulDiv(GetBValue(col),(255-scale),255);
-
-		return RGB(red, green, blue);
-	}
-	long R = MulDiv(255-GetRValue(col),scale,255)+GetRValue(col);
-	long G = MulDiv(255-GetGValue(col),scale,255)+GetGValue(col);
-	long B = MulDiv(255-GetBValue(col),scale,255)+GetBValue(col);
-
-	return RGB(R, G, B);
-}
-
 COLORREF CBaseView::InlineDiffColor(int nLineIndex)
 {
 	return IsLineRemoved(nLineIndex) ? m_InlineRemovedBk : m_InlineAddedBk;
@@ -1377,7 +1357,7 @@ void CBaseView::DrawText(
 	lineCols.SetColor(0, crText, crBkgnd);
 	if (selectedStart != selectedEnd)
 	{
-		lineCols.SetColor(selectedStart, IntenseColor(intenseColorScale, crText), IntenseColor(intenseColorScale, crBkgnd));
+		lineCols.SetColor(selectedStart, CAppUtils::IntenseColor(intenseColorScale, crText), CAppUtils::IntenseColor(intenseColorScale, crBkgnd));
 		lineCols.SetColor(selectedEnd, crText, crBkgnd);
 	}
 
@@ -1386,7 +1366,7 @@ void CBaseView::DrawText(
 		const TCHAR * findText = text;
 		while ((findText = _tcsstr(findText, (LPCTSTR)m_sMarkedWord))!=0)
 		{
-			lineCols.SetColor(findText - text, IntenseColor(200, crText), IntenseColor(200, crBkgnd));
+			lineCols.SetColor(findText - text, CAppUtils::IntenseColor(200, crText), CAppUtils::IntenseColor(200, crBkgnd));
 			lineCols.SetColor(findText - text + m_sMarkedWord.GetLength());
 			findText += m_sMarkedWord.GetLength();
 		}
@@ -1505,7 +1485,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 		CRect rect = rc;
 		pDC->FillSolidRect(rc, crBkgnd);
 		// now draw some faint text patterns
-		pDC->SetTextColor(IntenseColor(130, crBkgnd));
+		pDC->SetTextColor(CAppUtils::IntenseColor(130, crBkgnd));
 		pDC->DrawText(m_sConflictedText, rect, DT_LEFT|DT_NOPREFIX|DT_SINGLELINE);
 		DrawBlockLine(pDC, rc, nLineIndex);
 		return;
@@ -2411,6 +2391,8 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 
 		UpdateViewsCaretPosition();
 		Invalidate();
+		if (m_pwndLocator)
+			m_pwndLocator->Invalidate();
 	}
 
 	CView::OnLButtonDblClk(nFlags, point);
@@ -3424,3 +3406,17 @@ void CBaseView::ReleaseBitmap()
 	}
 }
 
+void CBaseView::BuildMarkedWordArray()
+{
+	int lineCount = GetLineCount();
+	m_arMarkedWordLines.clear();
+	m_arMarkedWordLines.reserve(lineCount);
+	for (int i = 0; i < lineCount; ++i)
+	{
+		LPCTSTR line = GetLineChars(i);
+		if (line)
+			m_arMarkedWordLines.push_back(_tcsstr(line, (LPCTSTR)m_sMarkedWord) != NULL);
+		else
+			m_arMarkedWordLines.push_back(0);
+	}
+}

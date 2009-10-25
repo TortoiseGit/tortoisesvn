@@ -207,3 +207,23 @@ bool CAppUtils::HasClipboardFormat(UINT format)
 	}
 	return false;
 }
+
+COLORREF CAppUtils::IntenseColor(long scale, COLORREF col)
+{
+	// if the color is already dark (gray scale below 127),
+	// then lighten the color by 'scale', otherwise darken it
+	int Gray  = (((int)GetRValue(col)) + GetGValue(col) + GetBValue(col))/3;
+	if (Gray > 127)
+	{
+		long red   = MulDiv(GetRValue(col),(255-scale),255);
+		long green = MulDiv(GetGValue(col),(255-scale),255);
+		long blue  = MulDiv(GetBValue(col),(255-scale),255);
+
+		return RGB(red, green, blue);
+	}
+	long R = MulDiv(255-GetRValue(col),scale,255)+GetRValue(col);
+	long G = MulDiv(255-GetGValue(col),scale,255)+GetGValue(col);
+	long B = MulDiv(255-GetBValue(col),scale,255)+GetBValue(col);
+
+	return RGB(R, G, B);
+}
