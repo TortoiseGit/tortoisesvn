@@ -1639,6 +1639,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		break;
 	case ID_EXPLORE:
 		{
+			if (data == NULL)
+				break;
 			CString sPath = GetPathFromColumnText(data->sPathColumnText);
 			CTSVNPath path = CTSVNPath(sPath);
 			ShellExecute(m_hWnd, _T("explore"), path.GetDirectory().GetWinPath(), NULL, path.GetDirectory().GetWinPath(), SW_SHOW);
