@@ -123,6 +123,12 @@ protected:
 	afx_msg void	OnUpdateNavigatePreviousdifference(CCmdUI *pCmdUI);
 	afx_msg void	OnViewCollapsed();
 	afx_msg void	OnUpdateViewCollapsed(CCmdUI *pCmdUI);
+	afx_msg void	OnViewComparewhitespaces();
+	afx_msg void	OnUpdateViewComparewhitespaces(CCmdUI *pCmdUI);
+	afx_msg void	OnViewIgnorewhitespacechanges();
+	afx_msg void	OnUpdateViewIgnorewhitespacechanges(CCmdUI *pCmdUI);
+	afx_msg void	OnViewIgnoreallwhitespacechanges();
+	afx_msg void	OnUpdateViewIgnoreallwhitespacechanges(CCmdUI *pCmdUI);
 
 	DECLARE_MESSAGE_MAP()
 protected:

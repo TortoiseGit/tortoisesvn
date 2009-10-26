@@ -116,6 +116,12 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_UPDATE_COMMAND_UI(ID_NAVIGATE_PREVIOUSDIFFERENCE, &CMainFrame::OnUpdateNavigatePreviousdifference)
 	ON_COMMAND(ID_VIEW_COLLAPSED, &CMainFrame::OnViewCollapsed)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_COLLAPSED, &CMainFrame::OnUpdateViewCollapsed)
+	ON_COMMAND(ID_VIEW_COMPAREWHITESPACES, &CMainFrame::OnViewComparewhitespaces)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_COMPAREWHITESPACES, &CMainFrame::OnUpdateViewComparewhitespaces)
+	ON_COMMAND(ID_VIEW_IGNOREWHITESPACECHANGES, &CMainFrame::OnViewIgnorewhitespacechanges)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_IGNOREWHITESPACECHANGES, &CMainFrame::OnUpdateViewIgnorewhitespacechanges)
+	ON_COMMAND(ID_VIEW_IGNOREALLWHITESPACECHANGES, &CMainFrame::OnViewIgnoreallwhitespacechanges)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_IGNOREALLWHITESPACECHANGES, &CMainFrame::OnUpdateViewIgnoreallwhitespacechanges)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -2089,5 +2095,53 @@ bool CMainFrame::RunCommand(TCHAR* command)
 	CFormatMessageWrapper errorDetails;
     MessageBox(errorDetails, _T("TortoiseMerge"), MB_OK | MB_ICONINFORMATION);
 	return false;
+}
+
+void CMainFrame::OnViewComparewhitespaces()
+{
+	if (CheckForSave()==IDCANCEL)
+		return;
+	CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
+	regIgnoreWS = 0;
+	LoadViews(-1);
+}
+
+void CMainFrame::OnUpdateViewComparewhitespaces(CCmdUI *pCmdUI)
+{
+	CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
+	DWORD dwIgnoreWS = regIgnoreWS;
+	pCmdUI->SetCheck(dwIgnoreWS == 0);
+}
+
+void CMainFrame::OnViewIgnorewhitespacechanges()
+{
+	if (CheckForSave()==IDCANCEL)
+		return;
+	CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
+	regIgnoreWS = 2;
+	LoadViews(-1);
+}
+
+void CMainFrame::OnUpdateViewIgnorewhitespacechanges(CCmdUI *pCmdUI)
+{
+	CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
+	DWORD dwIgnoreWS = regIgnoreWS;
+	pCmdUI->SetCheck(dwIgnoreWS == 2);
+}
+
+void CMainFrame::OnViewIgnoreallwhitespacechanges()
+{
+	if (CheckForSave()==IDCANCEL)
+		return;
+	CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
+	regIgnoreWS = 1;
+	LoadViews(-1);
+}
+
+void CMainFrame::OnUpdateViewIgnoreallwhitespacechanges(CCmdUI *pCmdUI)
+{
+	CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
+	DWORD dwIgnoreWS = regIgnoreWS;
+	pCmdUI->SetCheck(dwIgnoreWS == 1);
 }
 
