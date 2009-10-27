@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-10-16 22:51 +0000\n"
-"PO-Revision-Date: 2009-10-17 02:58+0200\n"
+"POT-Creation-Date: 2009-10-21 19:07 +0000\n"
+"PO-Revision-Date: 2009-10-27 23:18+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6262,6 +6262,22 @@ msgid "Note that unless you opted to switch your working copy to the newly creat
 msgstr "Huomaa, että mikäli et pyytänyt työkopion vaihtamista osoittamaan uuteen haaraan, niin haaran tai merkityn version luonti <emphasis>ei</emphasis> vaikuta työkopioosi. Vaikka loisit haaran muuttuneesta työkopiostasi, voi työkopiosi luonnin jälkeen yhä olla muuttunut suhteessa päähaaraan, koska muutokset toimitetaan uuteen haaraan, ei päähaaraan (jonne haara osoittaa)."
 
 #. (title)
+msgid "Other ways to create a branch or tag"
+msgstr "Muita tapoja haaran tai merkityn version luontiin"
+
+#. (para)
+msgid "You can also create a branch or tag without having a working copy. To do that, open the repository browser. You can there drag folders to a new location. You have to hold down the <keycap>Ctrl</keycap> key while you drag to create a copy, otherwise the folder gets moved, not copied."
+msgstr "Voit myös luoda haaran tai merkityn version ilman työkopiota.  Tämä tapahtuu arkistoselaimessa, missä voit raahata kansioita uuteen paikkaan. Sinun on pidettävä  <keycap>Ctrl</keycap>-näppäin painettuna raahattaessa, jotta kansio kopioidaan - muussa tapauksessa se siirretään."
+
+#. (para)
+msgid "You can also drag a folder with the right mouse button. Once you release the mouse button you can choose from the context menu whether you want the folder to be moved or copied. Of course to create a branch or tag you must copy the folder, not move it."
+msgstr "Voit myös raahata kansioita hiiren oikealla näppäimellä. Kun vapautat hiiren painikkeen, voit valita kontekstivalikosta, haluatko siirtää vai kopioida kansion.  Haaran tai merkityn version luomiseksi kansio on tietenkin kopioitava, ei siirrettävä."
+
+#. (para)
+msgid "Yet another way is from the log dialog. You can show the log dialog for e.g. trunk, select a revision (either the HEAD revision at the very top or an earlier revision), right-click and choose <menuchoice><guimenuitem>create branch/tag from revision...</guimenuitem></menuchoice>"
+msgstr "Vielä yksi tapa haaran luomiseen on käyttää loki-ikkunaa. Voit näyttää lokin esimerkiksi päähaaralle, valita version (joko HEAD-version ylhäältä tai jonkin aiemman version) ja napsauttaa hiiren oikeaa näppäintä sen kohdalla.  Esiin aukeavasta kontekstivalikosta löytyy komento <menuchoice><guimenuitem>Luo versiosta haara / merkitty versio...</guimenuitem></menuchoice>"
+
+#. (title)
 msgid "To Checkout or to Switch..."
 msgstr "Hakeako työkopio vai vaihtaa..."
 
@@ -7111,8 +7127,8 @@ msgid "Delete or rename the folder."
 msgstr "Poistaa tai nimetä kansion uudelleen."
 
 #. (para)
-msgid "Make a copy of the folder, either to a different part of the repository, or to a working copy rooted in the same repository."
-msgstr "Tehdä kopion kansiosta, joko eri paikkaan arkistossa, tai samasta arkistosta tehtyyn työkopioon."
+msgid "Make a copy of the folder, either to a different part of the repository, or to a working copy rooted in the same repository. This can also be used to create a branch/tag without the need to have a working copy checked out."
+msgstr "Tehdä kopion kansiosta, joko eri paikkaan arkistossa, tai samasta arkistosta tehtyyn työkopioon.  Tätä voidaan myös käyttää haaran tai merkityn version luontiin ilman, että joudutaan hakemaan erillistä työkopiota."
 
 #. (para)
 msgid "View/Edit the folder's properties."
@@ -8712,10 +8728,13 @@ msgid ""
 "</screen> or with Araxis: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
 "    %base %mine\n"
+"</screen> or with UltraCompare: <screen>\n"
+"C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
 "</screen>"
 msgstr ""
 "Esimerkkinä ExamDiff Pro-ohjelma: <screen>\n"
 "C:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname\n"
+"    --right_display_name:%yname\n"
 "</screen> tai KDiff3: <screen>\n"
 "C:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n"
 "</screen> tai WinMerge: <screen>\n"
@@ -8723,6 +8742,8 @@ msgstr ""
 "</screen> tai Araxis: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
 "    %base %mine\n"
+"</screen> tai UltraCompare: <screen>\n"
+"C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
 "</screen>"
 
 #. (para)

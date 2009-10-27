@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-17 14:43+0200\n"
+"PO-Revision-Date: 2009-10-27 23:18+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2053,7 +2053,7 @@ msgstr "K&omennot:"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
-msgstr "&Luo versiosta haara / merkitty versio"
+msgstr "&Luo versiosta haara / merkitty versio..."
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
@@ -2573,6 +2573,14 @@ msgstr "Vertaa kantaversion (&BASE) kanssa"
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
 msgstr "Vertaa edelliseen versioon"
+
+#. Resource IDs: (2055)
+msgid ""
+"Compares all whitespaces when diffing\n"
+"Compare whitespaces"
+msgstr ""
+"Ota kaikki tyhjämerkit huomioon vertailtaessa\n"
+"Vertaa tyhjämerkkejä"
 
 #. Resource IDs: (12)
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -4705,6 +4713,10 @@ msgstr "Ohita &kaikki tyhjämerkit"
 msgid "Ignore &case changes"
 msgstr "Älä välitä &kirjainkoosta"
 
+#. Resource IDs: (32873)
+msgid "Ignore all whitespace changes"
+msgstr "Ohita kaikki muutokset tyhjämerkeissä"
+
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Ohita kaikki tyhjämerkit"
@@ -4728,6 +4740,22 @@ msgstr "Ohita muuttuneet tyhjämerkit"
 #. Resource IDs: (226)
 msgid "Ignored items included"
 msgstr "Mukaan lukien ohitettavat (svn:ignore) kohteet"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores all whitespace changes when diffing\n"
+"Ignore all whitespace changes"
+msgstr ""
+"Ohita kaikki muutokset tyhjämerkeissä vertailtaessa\n"
+"Ohita kaikki muutokset tyhjämerkeissä"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores changes in whitespaces when diffing\n"
+"Ignore whitespace changes"
+msgstr ""
+"Ohita muutokset tyhjämerkeissä vertailtaessa\n"
+"Ohita muutokset tyhjämerkeissä"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -8154,6 +8182,14 @@ msgstr "Tekstin tila:"
 #. Resource IDs: (207)
 msgid "Text status"
 msgstr "Tekstin tila"
+
+#. Resource IDs: (84)
+msgid ""
+"The URL to check out refers to a file but this\n"
+"working copy path is an existing directory."
+msgstr ""
+"Haettava paikannin viittaa tiedostoon, mutta tämä\n"
+"työkopiopolku on olemassa oleva hakemisto."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
