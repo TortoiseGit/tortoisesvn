@@ -322,7 +322,7 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 						}
 						else
 						{
-							m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_NORMAL, yourline, endingBase, HIDESTATE_HIDDEN);
+							m_YourBaseBoth.AddData(sCurrentYourLine, DIFFSTATE_NORMAL, yourline, endingBase, HIDESTATE_HIDDEN);
 						}
 					}
 					else if (dwIgnoreWS == 0)
@@ -332,12 +332,12 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 					}
 					else
 					{
-						m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_NORMAL, yourline, endingBase, HIDESTATE_HIDDEN);
+						m_YourBaseBoth.AddData(sCurrentYourLine, DIFFSTATE_NORMAL, yourline, endingBase, HIDESTATE_HIDDEN);
 					}
 				}
 				else
 				{
-					m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_NORMAL, yourline, endingBase, HIDESTATE_HIDDEN);
+					m_YourBaseBoth.AddData(sCurrentYourLine, DIFFSTATE_NORMAL, yourline, endingBase, HIDESTATE_HIDDEN);
 				}
 				yourline++;		//in both files
 			}
