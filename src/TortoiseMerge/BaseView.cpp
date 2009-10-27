@@ -2197,7 +2197,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			{
 				if ((m_pMainFrame->m_bCollapsed)&&(m_pViewData))
 				{
-					while ((m_ptCaretPos.y < GetLineCount())&&(m_pViewData->GetHideState(m_ptCaretPos.y) == HIDESTATE_MARKER))
+					while ((m_ptCaretPos.y < (GetLineCount()-1))&&(m_pViewData->GetHideState(m_ptCaretPos.y) == HIDESTATE_MARKER))
 						m_ptCaretPos.y++;
 				}
 			}
@@ -3140,7 +3140,7 @@ void CBaseView::OnCaretDown()
 	m_ptCaretPos.y = min(m_ptCaretPos.y, GetLineCount()-1);
 	if ((m_pMainFrame->m_bCollapsed)&&(m_pViewData))
 	{
-		while ((m_ptCaretPos.y < GetLineCount())&&(m_pViewData->GetHideState(m_ptCaretPos.y) != HIDESTATE_SHOWN))
+		while ((m_ptCaretPos.y < (GetLineCount()-1))&&(m_pViewData->GetHideState(m_ptCaretPos.y) != HIDESTATE_SHOWN))
 			m_ptCaretPos.y++;
 	}
 	m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
