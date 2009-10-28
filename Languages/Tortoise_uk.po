@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-22 12:42+0300\n"
+"PO-Revision-Date: 2009-10-28 10:27+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2507,6 +2507,14 @@ msgstr "Порівняти з &базовим"
 msgid "Compare with previous revision"
 msgstr "Порівняти з попередньою модифікацією"
 
+#. Resource IDs: (2055)
+msgid ""
+"Compares all whitespaces when diffing\n"
+"Compare whitespaces"
+msgstr ""
+"Порівнює всі пробіли під час порівнювання\n"
+"Порівнювати пробіли"
+
 #. Resource IDs: (12)
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "Порівнює файл з останньою зафіксованою модифікацією, щоб показати внесені зміни"
@@ -4639,6 +4647,10 @@ msgstr "Ігнорувати &всі пробіли"
 msgid "Ignore &case changes"
 msgstr "Ігнорувати зміни &регістра"
 
+#. Resource IDs: (32873)
+msgid "Ignore all whitespace changes"
+msgstr "Ігнорувати всі зміни пробілів"
+
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Ігнорувати всі пробіли"
@@ -4662,6 +4674,22 @@ msgstr "Ігнорувати зміни пробілів"
 #. Resource IDs: (226)
 msgid "Ignored items included"
 msgstr "Ігноровані елементи включено"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores all whitespace changes when diffing\n"
+"Ignore all whitespace changes"
+msgstr ""
+"Ігнорує всі зміни пробілів під час порівнювання\n"
+"Ігнорувати всі зміни пробілів"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores changes in whitespaces when diffing\n"
+"Ignore whitespace changes"
+msgstr ""
+"Ігнорує зміни у пробілах під час порівнювання\n"
+"Ігнорувати зміни пробілів"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -8086,6 +8114,14 @@ msgstr "Статус тексту:"
 #. Resource IDs: (207)
 msgid "Text status"
 msgstr "Статус тексту"
+
+#. Resource IDs: (84)
+msgid ""
+"The URL to check out refers to a file but this\n"
+"working copy path is an existing directory."
+msgstr ""
+"URL для вивірки вказує на файл, тоді як\n"
+"шлях до робочої копії - це існуючий каталог."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
