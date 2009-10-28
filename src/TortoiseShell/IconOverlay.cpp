@@ -121,6 +121,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	}
 	else
 	{
+		g_filepath.clear();
 		if (!g_ShellCache.IsPathAllowed(pPath))
 		{
 			int drivenumber = -1;
