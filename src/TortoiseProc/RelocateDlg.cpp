@@ -62,6 +62,9 @@ BOOL CRelocateDlg::OnInitDialog()
 	GetWindowRect(&rect);
 	m_height = rect.bottom - rect.top;
 
+	AddAnchor(IDC_FROMURLLABEL, TOP_LEFT);
+	AddAnchor(IDC_FROMURL, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_TOURLLABEL, TOP_LEFT);
 	AddAnchor(IDC_TOURL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BROWSE, TOP_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
