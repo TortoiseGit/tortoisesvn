@@ -23,7 +23,7 @@
 #include "SVNStatusListCtrl.h"
 #include <iterator>
 
-#define SVNSLC_COL_VERSION 5
+#define SVNSLC_COL_VERSION 6
 
 // assign property list
 
@@ -284,6 +284,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetName (int column) const
 		  , IDS_STATUSLIST_COLSVNLOCK
 
 		  , IDS_STATUSLIST_COLCOPYFROM
+		  , IDS_STATUSLIST_COLCOPYFROMREV
           , IDS_STATUSLIST_COLMODIFICATIONDATE
 		  , IDS_STATUSLIST_COLSIZE};
 
@@ -918,7 +919,7 @@ bool CSVNStatusListCtrl::CSorter::operator()
 	int result = 0;
 	switch (sortedColumn)
 	{
-	case 21:
+	case 22:
 		{
 			if (result == 0)
 			{
@@ -928,7 +929,7 @@ bool CSVNStatusListCtrl::CSorter::operator()
 				result = int(fileSize1 - fileSize2);
 			}
 		}
-	case 20:
+	case 21:
 		{
 			if (result == 0)
 			{
@@ -939,6 +940,13 @@ bool CSVNStatusListCtrl::CSorter::operator()
 				FILETIME* filetime2 = (FILETIME*)(__int64*)&writetime2;
 
 				result = CompareFileTime(filetime1,filetime2);
+			}
+		}
+	case 20:
+		{
+			if (result == 0)
+			{
+				result = entry1->copyfrom_rev - entry2->copyfrom_rev;
 			}
 		}
 	case 19:

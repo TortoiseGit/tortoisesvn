@@ -1510,6 +1510,12 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	else
 		temp = entry->copyfrom_url;
 	SetItemText(index, nCol++, temp);
+	// SVNSLC_COLCOPYFROMREV
+	temp.Format(_T("%ld"), entry->copyfrom_rev);
+	if (entry->copyfrom_rev > 0)
+		SetItemText(index, nCol++, temp);
+	else
+		SetItemText(index, nCol++, _T(""));
 	// SVNSLC_COLMODIFICATIONDATE
 	__int64 filetime = entry->GetPath().GetLastWriteTime();
 	if ( (filetime) && (entry->textstatus!=svn_wc_status_deleted) )
@@ -5211,10 +5217,17 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 		}
 		if (selection & SVNSLC_COLCOPYFROM)
 		{
-			if (m_sURL.Compare(entry->copyfrom_url.Left(m_sURL.GetLength()))==0)
-				temp = entry->copyfrom_url.Mid(m_sURL.GetLength());
+			if (m_sRepositoryRoot.Compare(entry->copyfrom_url.Left(m_sRepositoryRoot.GetLength()))==0)
+				temp = entry->copyfrom_url.Mid(m_sRepositoryRoot.GetLength());
 			else
 				temp = entry->copyfrom_url;
+			sClipboard += _T("\t")+temp;
+		}
+		if (selection & SVNSLC_COLCOPYFROMREV)
+		{
+			temp.Format(_T("%ld"), entry->copyfrom_rev);
+			if (entry->copyfrom_rev == 0)
+				temp.Empty();
 			sClipboard += _T("\t")+temp;
 		}
 		if (selection & SVNSLC_COLMODIFICATIONDATE)

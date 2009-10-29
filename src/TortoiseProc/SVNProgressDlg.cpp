@@ -1973,7 +1973,6 @@ bool CSVNProgressDlg::CmdSingleFileCheckout(CString& sWindowTitle, bool& localop
 {
 	CTSVNPath url = m_url;
 	CTSVNPath checkoutdir = m_targetPathList[0];
-	svn_depth_t	depth = m_depth;
 
 	m_url = m_url.GetContainingDirectory();
 	m_targetPathList = CTSVNPathList (checkoutdir.GetContainingDirectory());
