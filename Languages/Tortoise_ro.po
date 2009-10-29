@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-26 09:57+0200\n"
+"PO-Revision-Date: 2009-10-29 19:05+0200\n"
 "Last-Translator: Florin Daneliuc <dfev77@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -192,7 +192,7 @@ msgstr "%s, la %s"
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it already exists unversioned locally."
-msgstr "%s, dar există deja local fără versiune."
+msgstr "%s, dar există deja local neversionat."
 
 #. Resource IDs: (609)
 #, c-format
@@ -493,7 +493,7 @@ msgstr "Ş&terge (păstrează local)"
 
 #. Resource IDs: (1514)
 msgid "&Delete unversioned items..."
-msgstr "Ş&terge elemente fără versiune..."
+msgstr "Ş&terge elementele neversionate..."
 
 #. Resource IDs: (101)
 msgid "&Delete..."
@@ -2449,7 +2449,7 @@ msgid ""
 "\n"
 "Are you sure that you want to continue the commit?"
 msgstr ""
-"Transmiterea unui dosar fără versiune nu va adăuga recursiv elementele copii ale acestuia!\n"
+"Transmiterea unui dosar neversionat nu va adăuga recursiv elementele copii ale acestuia!\n"
 "Poate doriţi să adăugaţi eceste dosare recursiv folosind elementul meniului contextual 'Adaugă...'.\n"
 "\n"
 "Sigur doriţi să continuaţi aceasta transmitere?"
@@ -3031,7 +3031,7 @@ msgstr "Şterge"
 
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
-msgstr "Şterge elemente fără versiune"
+msgstr "Şterge elementele neversionate"
 
 #. Resource IDs: (14)
 #, c-format
@@ -3049,7 +3049,7 @@ msgstr "Şterge şi ignoră %d elemente după &extensie"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
-msgstr "Şterge elemente fără versiune..."
+msgstr "Şterge elementele neversionate..."
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
@@ -3251,8 +3251,8 @@ msgid ""
 "This will remove all Subversion admin directories from\n"
 "%s!"
 msgstr ""
-"Doriţi ca aceasta copie de lucru să fie fără versiune?\n"
-"Acesta va elimina toate dosarele de administrare Subersion din\n"
+"Doriţi ca aceasta copie de lucru să nu fie versionată?\n"
+"Acesta va elimina toate dosarele de administrare a Subversion din\n"
 "%s!"
 
 #. Resource IDs: (76)
@@ -3655,7 +3655,7 @@ msgstr "Exportă cache-ul selectat ca un set de fişiere CSV (Comma Separated Va
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
-msgstr "Exportă şi fişierele fără versiune"
+msgstr "Exportă şi fişierele neversionate"
 
 #. Resource IDs: (284)
 #, c-format
@@ -4541,7 +4541,7 @@ msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
 msgstr ""
-"Dacă este aplicat, fişiere fără versiune vor marca dosarul părinte ca fiind modificat\r\n"
+"Dacă este aplicat, fişiere neversionate vor marca dosarul părinte ca fiind modificat\r\n"
 "şi vor folosi iconiţa de suprapunere modificată."
 
 #. Resource IDs: (2052)
@@ -4883,7 +4883,7 @@ msgstr "Uneşte cu arborele sursă"
 
 #. Resource IDs: (1203)
 msgid "Keep &locks"
-msgstr "Păstraţi b&locări"
+msgstr "Păstrează b&locările"
 
 #. Resource IDs: (1126)
 msgid "Keep changelists"
@@ -5037,7 +5037,7 @@ msgstr "Data blocării"
 
 #. Resource IDs: (191)
 msgid "Lock Files"
-msgstr "Blocează fişiere"
+msgstr "Blochează fişierele"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -5049,7 +5049,7 @@ msgstr "Mesaj de blocare"
 
 #. Resource IDs: (65535)
 msgid "Lock creation date:"
-msgstr "Data de creare a blocării:"
+msgstr "Data blocării:"
 
 #. Resource IDs: (263)
 msgid "Lock failed"
@@ -5609,7 +5609,7 @@ msgid ""
 "To see remote changes, click on 'Check Repository'"
 msgstr ""
 "Cu preferinţele actuale, nu se va afişa nici un fişier.\n"
-"Bifaţi una sau mai multe preferinţe de mai jos pentru a vedea fişiere fără versiune, ignorate şi/sau nemodificate.\n"
+"Bifaţi una sau mai multe preferinţe de mai jos pentru a vedea fişierele neversionate, ignorate şi/sau nemodificate.\n"
 "Pentru a vedea schimbări făcute de la distanţă, apăsaţi pe 'Verifică depozit'"
 
 #. Resource IDs: (77)
@@ -5632,7 +5632,7 @@ msgstr ""
 "Nici un fişier nu a fost modificat sau adăugat\n"
 "de când s-a făcut ultima transmitere.\n"
 "TortoiseSVN nu are ce face...\n"
-"Doriţi să vedeţi fişierele fără versiune?"
+"Doriţi să vedeţi fişierele neversionate?"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -5696,7 +5696,7 @@ msgstr "Nerecursiv"
 
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
-msgstr "Notiţă: dosarul conţine obiecte fără versiune"
+msgstr "Nota: dosarul conţine elemente neversionate"
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
@@ -6599,7 +6599,7 @@ msgstr ""
 
 #. Resource IDs: (17)
 msgid "Removes all unversioned and ignored items"
-msgstr "Elimină toate fişierele ignorate sau fără versiune"
+msgstr "Elimină toate fişierele ignorate sau neversionate"
 
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
@@ -7411,7 +7411,7 @@ msgstr "Afişează &proprietăţi"
 
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
-msgstr "Afişează fişiere &fără versiune"
+msgstr "Afişează fişierele neversionate"
 
 #. Resource IDs: (1069)
 msgid "Show Above the Ribbon"
@@ -7555,7 +7555,7 @@ msgstr "Afişează suprapunere pentru elemente ignorate"
 
 #. Resource IDs: (1462)
 msgid "Show overlay for unversioned items"
-msgstr "Afişează suprapunere pentru elemente fără versiune"
+msgstr "Afişează suprapunere pentru elemente neversionate"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
@@ -8121,7 +8121,7 @@ msgid ""
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
 "Dosarul %s\n"
-"conţine fişiere fără versiune şi/sau modificate. Vreţi să îl ştergeţi oricum?"
+"conţine fişiere neversionate şi/sau modificate. Doriţi totuşi să-l ştergeţi?"
 
 #. Resource IDs: (88)
 #, c-format
@@ -8509,7 +8509,7 @@ msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr ""
-"Există elemente schimbate sau fără versiune în unu sau mai multe dosare pe care le aţi inclus cu svn:externals.\n"
+"Există elemente schimbate sau neversionate în unu sau mai multe dosare pe care le aţi inclus cu svn:externals.\n"
 "Acele fişiere nu sunt afişate pentru transmitere. Trebuie să le transmiteţi separat."
 
 #. Resource IDs: (64)
@@ -9050,7 +9050,7 @@ msgstr "Neversionat"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
-msgstr "Fişierele fără versiune marchează dosarul părinte ca modificat"
+msgstr "Fişierele neversionate marchează dosarul părinte ca modificat"
 
 #. Resource IDs: (286)
 #, fuzzy, c-format
@@ -9600,7 +9600,7 @@ msgid ""
 "You selected an unversioned file.\n"
 "The file will be added to version control when you commit."
 msgstr ""
-"Aţi selectat un fişier fără versiune.\n"
+"Aţi selectat un fişier neversionat.\n"
 "Fişierul va fi adăugat la control de versiune când îl transmiteţi."
 
 #. Resource IDs: (1001)
@@ -10023,7 +10023,7 @@ msgstr "este deja şters."
 
 #. Resource IDs: (583)
 msgid "it is unversioned."
-msgstr "este fără versiune."
+msgstr "este neversionat."
 
 #. Resource IDs: (214)
 msgid "item kept locally"
