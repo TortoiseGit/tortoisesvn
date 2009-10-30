@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-29 19:05+0200\n"
+"PO-Revision-Date: 2009-10-30 18:24+0200\n"
 "Last-Translator: Florin Daneliuc <dfev77@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -31,6 +31,10 @@ msgstr ""
 # commit - transmite (could use also "încredintează", "consemnează")
 # merge - îmbina (could also use "fuzioneaza", "uneste")
 # S-au folosit glosarul de la http://i18n.ro, grupul 'diacritice' de la google groups, şi traducerile în limbile Franceză şi Italiană.
+#
+#Probleme:
+# - de gasit o traducere pt 'ribbon' (http://en.wikipedia.org/wiki/Ribbon_(computing))
+#
 #. Resource IDs: (10, 126)
 msgid " "
 msgstr " "
@@ -417,7 +421,7 @@ msgstr "În&chide fereastră (ferestrele)"
 
 #. Resource IDs: (32785)
 msgid "&Color age of lines"
-msgstr ""
+msgstr "&Colorează vârsta liniilor"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -2916,9 +2920,8 @@ msgid "Created folder remotely"
 msgstr "Fişierul s-a creat de la distanţă"
 
 #. Resource IDs: (10)
-#, fuzzy
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "Crează o copie 'ieftină' în depozit folosit pentru ramuri sau tagging"
+msgstr "Crează o copie 'ieftină' în depozitul folosit pentru ramuri sau etichete"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -3133,7 +3136,7 @@ msgstr "Diferenţa dintre"
 
 #. Resource IDs: (32817)
 msgid "Differential path &names"
-msgstr ""
+msgstr "&Nume de căi diferenţial"
 
 #. Resource IDs: (1022)
 msgid "Diffing"
@@ -3962,9 +3965,8 @@ msgid "Finished!"
 msgstr "Terminat!"
 
 #. Resource IDs: (32804)
-#, fuzzy
 msgid "Fit graph"
-msgstr "Potriveşte graficul"
+msgstr "Ajustează graficul"
 
 #. Resource IDs: (32802)
 msgid "Fit height"
@@ -5232,9 +5234,8 @@ msgid "Merge - TortoiseSVN"
 msgstr "Îmbinare - TortoiseSVN"
 
 #. Resource IDs: (221)
-#, fuzzy
 msgid "Merge Reintegrate"
-msgstr "Reintegrează îmbinare"
+msgstr "Reintegrează îmbinarea"
 
 #. Resource IDs: (1468)
 msgid "Merge a range of revisions"
@@ -5257,9 +5258,8 @@ msgid "Merge options"
 msgstr "Opţiuni de îmbinare"
 
 #. Resource IDs: (14)
-#, fuzzy
 msgid "Merge reintegrate..."
-msgstr "Reintegrează îmbinare..."
+msgstr "Reintegrează îmbinarea..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -5370,6 +5370,7 @@ msgid "Mine"
 msgstr "Al meu"
 
 #. Resource IDs: (1068)
+#, fuzzy
 msgid "Minimize the Ribbon"
 msgstr "Minimizează ribbon-ul"
 
@@ -6958,8 +6959,9 @@ msgid "S&how Buttons on Two Rows"
 msgstr "&Afişează butoanele în două rânduri"
 
 #. Resource IDs: (17078)
+#, fuzzy
 msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr ""
+msgstr "&Afişează bara de acces rapid sub Ribbon"
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
@@ -7414,10 +7416,12 @@ msgid "Show &unversioned files"
 msgstr "Afişează fişierele neversionate"
 
 #. Resource IDs: (1069)
+#, fuzzy
 msgid "Show Above the Ribbon"
 msgstr "Afişează deasupra ribbon-ului"
 
 #. Resource IDs: (1069)
+#, fuzzy
 msgid "Show Below the Ribbon"
 msgstr "Afişează sub ribbon"
 
@@ -7454,12 +7458,14 @@ msgid "Show Ove&rview"
 msgstr "Afişează &vedere generală"
 
 #. Resource IDs: (1068)
+#, fuzzy
 msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr ""
+msgstr "Afişează bara de acces rapid deasupra de Ribbon"
 
 #. Resource IDs: (1068)
+#, fuzzy
 msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr ""
+msgstr "Afişează bara de acces rapid sub Ribbon"
 
 #. Resource IDs: (16651)
 msgid "Show Screen&Tips on toolbars"
@@ -9053,9 +9059,9 @@ msgid "Unversioned files mark parent folder as modified"
 msgstr "Fişierele neversionate marchează dosarul părinte ca modificat"
 
 #. Resource IDs: (286)
-#, fuzzy, c-format
+#, c-format
 msgid "Unversioning %s"
-msgstr "Unversioning %s"
+msgstr "Elimin versionarea %s"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
