@@ -60,6 +60,7 @@ public:
 		excludelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayExcludeList"));
 		includelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
 		simplecontext = CRegStdDWORD(_T("Software\\TortoiseSVN\\SimpleContext"), FALSE);
+		shellmenuaccelerators = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShellMenuAccelerators"), TRUE);
 		unversionedasmodified = CRegStdDWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
 		showunversionedoverlay = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShowUnversionedOverlay"), TRUE);
 		showignoredoverlay = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShowIgnoredOverlay"), TRUE);
@@ -76,6 +77,7 @@ public:
 		excludelistticker2 = 0;
 		includelistticker = 0;
 		simplecontextticker = cachetypeticker;
+		shellmenuacceleratorsticker = cachetypeticker;
 		unversionedasmodifiedticker = cachetypeticker;
 		showunversionedoverlayticker = cachetypeticker;
 		showignoredoverlayticker = cachetypeticker;
@@ -130,6 +132,7 @@ public:
 		excludelist.read();
 		includelist.read();
 		simplecontext.read();
+		shellmenuaccelerators.read();
 		unversionedasmodified.read();
 		showunversionedoverlay.read();
 		showignoredoverlay.read();
@@ -218,6 +221,15 @@ public:
 			simplecontext.read();
 		}
 		return (simplecontext!=0);
+	}
+	BOOL HasShellMenuAccelerators()
+	{
+		if ((GetTickCount() - shellmenuacceleratorsticker)>REGISTRYTIMEOUT)
+		{
+			shellmenuacceleratorsticker = GetTickCount();
+			shellmenuaccelerators.read();
+		}
+		return (shellmenuaccelerators!=0);
 	}
 	BOOL IsUnversionedAsModified()
 	{
@@ -617,6 +629,7 @@ private:
 	CRegStdDWORD menulayoutlow;
 	CRegStdDWORD menulayouthigh;
 	CRegStdDWORD simplecontext;
+	CRegStdDWORD shellmenuaccelerators;
 	CRegStdDWORD menumasklow_lm;
 	CRegStdDWORD menumaskhigh_lm;
 	CRegStdDWORD menumasklow_cu;
@@ -647,6 +660,7 @@ private:
 	DWORD excludelistticker2;
 	DWORD includelistticker;
 	DWORD simplecontextticker;
+	DWORD shellmenuacceleratorsticker;
 	DWORD unversionedasmodifiedticker;
 	DWORD showunversionedoverlayticker;
 	DWORD showignoredoverlayticker;

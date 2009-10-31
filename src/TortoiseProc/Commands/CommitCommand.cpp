@@ -117,7 +117,9 @@ bool CommitCommand::Execute()
 			progDlg.DoModal();
 
             if (   (progDlg.Err != NULL)
-                && (progDlg.Err->apr_err == SVN_ERR_FS_TXN_OUT_OF_DATE))
+                && ((progDlg.Err->apr_err == SVN_ERR_FS_TXN_OUT_OF_DATE) ||
+					(progDlg.Err->apr_err == SVN_ERR_RA_OUT_OF_DATE))
+				)
             {
                 // the commit failed at least one of the items was outdated.
                 // -> suggest to update them

@@ -650,6 +650,13 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
 		//menu entry for the top context menu, so append an "SVN " before
 		//the menu text to indicate where the entry comes from
 		_tcscpy_s(menutextbuffer, 255, _T("SVN "));
+		if (!g_ShellCache.HasShellMenuAccelerators())
+		{
+			// remove the accelerators
+			tstring temp = stringtablebuffer;
+			temp.erase(std::remove(temp.begin(), temp.end(), '&'), temp.end());
+			_tcscpy_s(stringtablebuffer, 255, temp.c_str());
+		}
 	}
 	_tcscat_s(menutextbuffer, 255, stringtablebuffer);
 
@@ -1044,6 +1051,13 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	//don't use InsertMenu because this will lead to multiple menu entries in the explorer file menu.
 	//see http://support.microsoft.com/default.aspx?scid=kb;en-us;214477 for details of that.
 	MAKESTRING(IDS_MENUSUBMENU);
+	if (!g_ShellCache.HasShellMenuAccelerators())
+	{
+		// remove the accelerators
+		tstring temp = stringtablebuffer;
+		temp.erase(std::remove(temp.begin(), temp.end(), '&'), temp.end());
+		_tcscpy_s(stringtablebuffer, 255, temp.c_str());
+	}
 	MENUITEMINFO menuiteminfo;
 	SecureZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
 	menuiteminfo.cbSize = sizeof(menuiteminfo);
