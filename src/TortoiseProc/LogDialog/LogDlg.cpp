@@ -3414,7 +3414,10 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
 					cx = nMinimumWidth;
 				}
 			}
-			
+			if ((col == 0)&&(m_bSelect)&&(SysInfo::Instance().IsVistaOrLater()))
+			{
+				cx += 16;	// add space for the checkbox
+			}
 			// keep the bug id column small
 			if ((col == 4)&&(m_bShowBugtraqColumn))
 			{
