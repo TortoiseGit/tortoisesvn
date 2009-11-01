@@ -910,6 +910,14 @@ void CStatGraphDlg::ShowStats()
 	int nWeeks = m_lastInterval-m_firstInterval;
 	if (nWeeks == 0)
 		nWeeks = 1;
+	// Adjust the labels with the unit type (week, month, ...)
+	CString labelText;
+	labelText.Format(IDS_STATGRAPH_NUMBEROFUNIT, GetUnitString());
+	SetDlgItemText(IDC_NUMWEEK, labelText);
+	labelText.Format(IDS_STATGRAPH_COMMITSBYUNIT, GetUnitString());
+	SetDlgItemText(IDC_COMMITSEACHWEEK, labelText);
+	labelText.Format(IDS_STATGRAPH_FILECHANGESBYUNIT, GetUnitString());
+	SetDlgItemText(IDC_FILECHANGESEACHWEEK, labelText);
 	// We have now all data we want and we can fill in the labels...
 	CString number;
 	number.Format(_T("%ld"), nWeeks);
