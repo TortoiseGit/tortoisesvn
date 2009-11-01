@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-25 21:17+0100\n"
+"PO-Revision-Date: 2009-11-01 21:10+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2671,6 +2671,11 @@ msgstr "Урезивање према аутору"
 msgid "Commits by date"
 msgstr "Урезивање према датуму"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "Commits each %s"
+msgstr "Урезује сваки %s"
+
 #. Resource IDs: (1135)
 msgid "Commits each week:"
 msgstr "Урезивање једном  недељно:"
@@ -2718,6 +2723,14 @@ msgstr "Упореди с о&сновом"
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
 msgstr "Упореди са претходном ревизијом"
+
+#. Resource IDs: (2055)
+msgid ""
+"Compares all whitespaces when diffing\n"
+"Compare whitespaces"
+msgstr ""
+"Упоређује сва бела поља када разликује\n"
+"Упоређује бела поља"
 
 #. Resource IDs: (12)
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -2812,6 +2825,10 @@ msgstr "Копирано"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "Копирано с УРЛ-а"
+
+#. Resource IDs: (208)
+msgid "Copied from revision"
+msgstr "Копирано из ревизије"
 
 #. Resource IDs: (275)
 #, c-format
@@ -4043,6 +4060,11 @@ msgstr "Дохватање ревизије %s фајлова:"
 msgid "File"
 msgstr "Фајл"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "File changes each %s"
+msgstr "Промене фајла сваки %s"
+
 #. Resource IDs: (1138)
 msgid "File changes each week:"
 msgstr "Промене фајла сваке недеље:"
@@ -4856,6 +4878,10 @@ msgstr "Занемари &све размаке"
 msgid "Ignore &case changes"
 msgstr "Занемари &промене великих и малих слова"
 
+#. Resource IDs: (32873)
+msgid "Ignore all whitespace changes"
+msgstr "Занемарује све измене белих поља"
+
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Занемари све размаке"
@@ -4879,6 +4905,22 @@ msgstr "Занемари промене у размацима"
 #. Resource IDs: (226)
 msgid "Ignored items included"
 msgstr "Занемарене укључене ставке"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores all whitespace changes when diffing\n"
+"Ignore all whitespace changes"
+msgstr ""
+"Занемарује све измене белих поља када разликује\n"
+"Занемарује све измене белих поља"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores changes in whitespaces when diffing\n"
+"Ignore whitespace changes"
+msgstr ""
+"Занемарује измене у белим пољима када разликује\n"
+"Занемарује измене белих поља"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5984,6 +6026,11 @@ msgstr "Напомена: подешавања фонта утичу и на Т�
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Белешка"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "Number of %s"
+msgstr "Број %s"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
