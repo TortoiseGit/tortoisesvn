@@ -84,6 +84,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <li><a href="#logcrash">Showing the log often crashes.</a></li>
 <li><a href="#incompleteupdate">When I update a working copy, new files are not added!</a></li>
 <li><a href="#releases">I was told that issue/bug X was fixed in rXXX, but the latest release still doesn't has this implemented/fixed?</a></li>
+<li><a href="#svnbinaries">Will you add the standard subversion client to the installer?</a></li>
 </ul>
 
 <h4>How can I...</h4>
@@ -680,6 +681,22 @@ to the stable branch, and the stable branch is where we create our releases from
 <p>We have this policy to prevent getting new bugs into the stable branch. After all, it's called the <em>stable</em> branch.</p>
 <p>Your requested feature/reported bug, even though it is fixed/implemented on trunk was not merged back to
 the stable branch due to this policy. That's why you don't see the change in the latest release.</p>
+</div>
+
+<div class="h3" id="svnbinaries" title="svn binaries">
+<h3>Will you add the standard subversion client to the installer?</h3>
+<p>No. The subversion command line binaries are available from several places already, notably tigris.org and CollabNet.
+Whilst it would be a convenience for our users there are several good reasons, both technical and
+paractical, why we will not do this.</p>
+<p>If we ship those binaries we have to support them too, which we do not have time for.
+Although we include the basic <i>svn.exe</i> and <i>svnadmin.exe</i> on our nightly build site,
+these are not 100% compatible with the official binaries. For a start they are statically linked,
+they are built using a different compiler and our own build scripts, and we use a few different
+build options, notably in the authentication area. If you were to report a subversion bug using
+those binaries it is not guaranteed that the official subversion client would show the same bug,
+so any bug reports sent to the subversion list would simply get bounced back to us.</p>
+<p>As our binaries are statically linked, adding the subversion binaries would increase the size
+of the installer by several MB, and it is already quite large.</p>
 </div>
 
 
