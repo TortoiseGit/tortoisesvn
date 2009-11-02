@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-10-21 19:07 +0000\n"
-"PO-Revision-Date: 2009-10-29 13:12+0100\n"
+"PO-Revision-Date: 2009-11-02 14:48+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2794,7 +2794,7 @@ msgstr "Ctrl-A"
 
 #. (para)
 msgid "Select all. This can be used if you get an error message and want to copy and paste into an email. Use Ctrl-A to select the error message and then ..."
-msgstr ""
+msgstr "Selecteer alles. Dit kun je gebruiken als je een foutmelding krijgt en deze wilt kopiëren en plakken in bijvoorbeeld een email. Gebruik Ctrl-A om een foutmelding de selecteren en dan..."
 
 #. (term)
 msgid "Ctrl-C"
@@ -2806,7 +2806,7 @@ msgstr "...Kopieer de geselecteerde tekst."
 
 #. (para)
 msgid "Some common operations have well-known Windows shortcuts, but do not appear on buttons or in menus. If you can't work out how to do something obvious, like refreshing a view, check here. <placeholder-1/>"
-msgstr ""
+msgstr "Enkele veel gebruikte acties hebben de welke bekende Windows sneltoets combinaties, hoewel deze niet zijn aangegeven bij de knoppen of in menu’s. Als je niet weet hoe je de voor de hand liggende functies moet gebruiken, bijvoorbeeld verversen, lees dan deze paragraaf."
 
 #. (primary)
 msgid "authentication"
@@ -2818,23 +2818,23 @@ msgstr "Authenticatie dialoog"
 
 #. (para)
 msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password)."
-msgstr ""
+msgstr "<filename>svn.simple</filename> bevat inloggegevens voor basis authenticatie (gebruikersnaam/wachtwoord)."
 
 #. (para)
 msgid "<filename>svn.ssl.server</filename> contains SSL server certificates."
-msgstr ""
+msgstr "<filename>svn.ssl.server</filename> bevat SSL server certificaten."
 
 #. (para)
 msgid "<filename>svn.username</filename> contains credentials for username-only authentication (no password needed)."
-msgstr ""
+msgstr "<filename>svn.username</filename> bevat alleen gebruikersnamen, voor authenticatie zonder wachtwoord."
 
 #. (para)
 msgid "If the repository that you are trying to access is password protected, an authentication Dialog will show up. <placeholder-1/> Enter your username and password. The checkbox will make TortoiseSVN store the credentials in Subversion's default directory: <filename>%APPDATA%\\Subversion\\auth</filename> in three subdirectories: <placeholder-2/>"
-msgstr ""
+msgstr "Als je een archief met wachtwoordbeveiliging probeert te bereiken, dan krijg je een authenticatie scherm te zien.<placeholder-1/> Voer je gebruikersnaam en wachtwoord in. Het selectievakje zorgt ervoor dat TortoiseSVN je logingegevens opslaat in Subversion’s standaard map: <filename>%APPDATA%\\Subversion\\auth</filename> in drie submappen.<placeholder-2/>"
 
 #. (para)
 msgid "If you want to clear the authentication cache for all servers, you can do so from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings dialog. That button will clear all cached authentication data from the Subversion <filename>auth</filename> directories, as well as any authentication data stored in the registry by earlier versions of TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
-msgstr ""
+msgstr "Als je de authenticatie cache voor alle servers wilt wissen, ga dan naar de<guilabel>Opgeslagen Gegevens</guilabel> sectie van het Instellingen venster van TortoiseSVN. Met de “Wissen” knop bij de optie “Authenticatie gegevens” kun je alle opgeslagen gegevens uit de <filename>auth</filename> mappen wissen, alsook de gegevens opgeslagen in het register door oudere TortoiseSVN versies. Lees ook <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
 
 #. (para)
 msgid ""
