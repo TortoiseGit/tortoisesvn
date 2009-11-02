@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-26 10:53+0100\n"
+"PO-Revision-Date: 2009-11-02 11:55+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2487,6 +2487,11 @@ msgstr "Arkiveringar per användarnamn"
 msgid "Commits by date"
 msgstr "Arkiveringar per datum"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "Commits each %s"
+msgstr "Arkivera varje %s"
+
 #. Resource IDs: (1135)
 msgid "Commits each week:"
 msgstr "Arkiveringar varje vecka:"
@@ -2535,6 +2540,14 @@ msgstr "Jämför med &basrevision"
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
 msgstr "Jämför med föregående revision"
+
+#. Resource IDs: (2055)
+msgid ""
+"Compares all whitespaces when diffing\n"
+"Compare whitespaces"
+msgstr ""
+"Visa tomrumsskillnader vid jämförelse\n"
+"Jämför tomrum"
 
 #. Resource IDs: (12)
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -2630,6 +2643,10 @@ msgstr "Kopierad"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "Kopierad från URL"
+
+#. Resource IDs: (208)
+msgid "Copied from revision"
+msgstr "Kopierat från revision"
 
 #. Resource IDs: (275)
 #, c-format
@@ -3868,6 +3885,11 @@ msgstr "Hämtar revision %s av filen:"
 msgid "File"
 msgstr "Filnamn"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "File changes each %s"
+msgstr "Filändringar varje: %s"
+
 #. Resource IDs: (1138)
 msgid "File changes each week:"
 msgstr "Filändringar varje vecka:"
@@ -4686,6 +4708,10 @@ msgstr "Ignorera &alla tomrum"
 msgid "Ignore &case changes"
 msgstr "&Ignorera ändringar mellan gemener/versaler"
 
+#. Resource IDs: (32873)
+msgid "Ignore all whitespace changes"
+msgstr "Ignorera ändringar av tomrum"
+
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Ignorera alla tomrum"
@@ -4709,6 +4735,22 @@ msgstr "Ignorera ändringar av tomrum"
 #. Resource IDs: (226)
 msgid "Ignored items included"
 msgstr "Inkluderade ignorerade objekt"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores all whitespace changes when diffing\n"
+"Ignore all whitespace changes"
+msgstr ""
+"Ignorera tomrumsskillnader vid jämförelse\n"
+"Ignorera tomrum"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores changes in whitespaces when diffing\n"
+"Ignore whitespace changes"
+msgstr ""
+"Visa förändringar av tomrum vid jämförelse\n"
+"Jämför tomrum"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5815,6 +5857,11 @@ msgstr "OBS! Font inställningen påverkar också TortoiseUDiff"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Notera"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "Number of %s"
+msgstr "Antal %s"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
