@@ -45,6 +45,8 @@ public:
 	CResizableSheetEx(LPCTSTR pszCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0,
 		HBITMAP hbmWatermark = NULL, HPALETTE hpalWatermark = NULL, HBITMAP hbmHeader = NULL);
 
+	void ShowGrip(BOOL bShow) {m_bShowGrip = bShow;}
+
 // Attributes
 private:
 	// support for temporarily hiding the grip
@@ -53,6 +55,7 @@ private:
 	// flags
 	BOOL m_bEnableSaveRestore;
 	BOOL m_bRectOnly;
+	BOOL m_bShowGrip;
 	BOOL m_bSavePage;
 
 	// layout vars
@@ -62,6 +65,9 @@ private:
 
 	// internal status
 	CString m_sSection;			// section name (identifies a parent window)
+
+	HINSTANCE m_hDwmApiLib;
+	BOOL IsDwmCompositionEnabled(void);
 
 // Operations
 public:

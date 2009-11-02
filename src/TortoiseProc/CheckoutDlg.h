@@ -22,6 +22,7 @@
 #include "HistoryCombo.h"
 #include "FileDropEdit.h"
 #include "Tooltip.h"
+#include "AeroControls.h"
 
 /// forward declarations
 
@@ -70,6 +71,7 @@ protected:
 	CString			m_sCheckoutDirOrig;
 	bool			m_bAutoCreateTargetName;
 	CComboBox		m_depthCombo;
+	AeroControlBase m_aeroControls;
 public:
 	CHistoryCombo	m_URLCombo;
 	CString			m_URL;

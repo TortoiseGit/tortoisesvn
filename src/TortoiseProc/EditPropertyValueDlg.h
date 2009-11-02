@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - Stefan Kueng
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 #include "StandAloneDlg.h"
 #include "ProjectProperties.h"
 #include "Tooltip.h"
+#include "AeroControls.h"
 
 #define	MAX_TT_LENGTH			10000
 
@@ -79,4 +80,5 @@ protected:
 	bool		m_bRevProps;
 	CTSVNPathList		m_pathList;
 	ProjectProperties	m_ProjectProperties;
+	AeroControlBase		m_aeroControls;
 };

@@ -25,6 +25,7 @@
 #include "RegHistory.h"
 #include "TSVNPath.h"
 #include "Tooltip.h"
+#include "AeroControls.h"
 
 /**
  * \ingroup TortoiseProc
@@ -68,4 +69,5 @@ private:
 	CHistoryCombo		m_URLCombo;
 	ProjectProperties	m_ProjectProperties;
 	CRegHistory			m_History;
+	AeroControlBase		m_aeroControls;
 };

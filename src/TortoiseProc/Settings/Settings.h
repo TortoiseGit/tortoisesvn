@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,6 +39,9 @@
 #include "SettingsRevisionGraph.h"
 #include "SettingsRevGraphColors.h"
 #include "TreePropSheet/TreePropSheet.h"
+
+#include "AeroGlass.h"
+#include "AeroControls.h"
 
 using namespace TreePropSheet;
 
@@ -86,6 +89,8 @@ private:
 	CSettingsTBlame *		m_pTBlamePage;
 
 	HICON					m_hIcon;
+	CDwmApiImpl				m_Dwm;
+	AeroControlBase			m_aeroControls;
 public:
 	CSettings(UINT nIDCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0);
 	virtual ~CSettings();
@@ -98,6 +103,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
+	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	afx_msg HCURSOR OnQueryDragIcon();
 };
 

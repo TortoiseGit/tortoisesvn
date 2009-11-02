@@ -29,6 +29,26 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CResizableSheetEx
 
+typedef HRESULT (__stdcall *DWM_EXTEND_FRAME_INTO_CLIENT_AREA)(HWND ,const MARGINS* );
+typedef HRESULT (__stdcall *DWM_IS_COMPOSITION_ENABLED)(BOOL *pfEnabled);
+typedef HRESULT (__stdcall *DWM_ENABLE_COMPOSITION)(UINT uCompositionAction);
+
+
+BOOL CResizableSheetEx::IsDwmCompositionEnabled(void)
+{
+	if(m_hDwmApiLib == NULL)
+	{
+		return FALSE;
+	}
+	DWM_IS_COMPOSITION_ENABLED pfnDwmIsCompositionEnabled = (DWM_IS_COMPOSITION_ENABLED)GetProcAddress(m_hDwmApiLib, "DwmIsCompositionEnabled");
+	if(!pfnDwmIsCompositionEnabled)
+		return FALSE;
+	BOOL bEnabled = FALSE;
+	HRESULT hRes = pfnDwmIsCompositionEnabled(&bEnabled);
+	return SUCCEEDED(hRes) && bEnabled;
+}
+
+
 IMPLEMENT_DYNAMIC(CResizableSheetEx, CPropertySheetEx)
 
 inline void CResizableSheetEx::PrivateConstruct()
@@ -37,6 +57,8 @@ inline void CResizableSheetEx::PrivateConstruct()
 	m_bSavePage = FALSE;
 	m_dwGripTempState = 1;
 	m_bLayoutDone = FALSE;
+	m_hDwmApiLib = LoadLibraryW(L"dwmapi.dll");
+	m_bShowGrip = !IsDwmCompositionEnabled();
 }
 
 inline BOOL CResizableSheetEx::IsWizard() const
@@ -75,6 +97,9 @@ CResizableSheetEx::CResizableSheetEx(LPCTSTR pszCaption, CWnd* pParentWnd,
 
 CResizableSheetEx::~CResizableSheetEx()
 {
+	if (m_hDwmApiLib)
+		FreeLibrary(m_hDwmApiLib);
+	m_hDwmApiLib = NULL;
 }
 
 BEGIN_MESSAGE_MAP(CResizableSheetEx, CPropertySheetEx)
@@ -302,13 +327,16 @@ void CResizableSheetEx::OnSize(UINT nType, int cx, int cy)
 	if (nType == SIZE_MAXHIDE || nType == SIZE_MAXSHOW)
 		return;		// arrangement not needed
 
-	if (nType == SIZE_MAXIMIZED)
-		HideSizeGrip(&m_dwGripTempState);
-	else
-		ShowSizeGrip(&m_dwGripTempState);
+	if ((m_bShowGrip)||(!IsDwmCompositionEnabled()))
+	{
+		if (nType == SIZE_MAXIMIZED)
+			HideSizeGrip(&m_dwGripTempState);
+		else
+			ShowSizeGrip(&m_dwGripTempState);
+		// update grip and layout
+		UpdateSizeGrip();
+	}
 
-	// update grip and layout
-	UpdateSizeGrip();
 	ArrangeLayout();
 
 	OSVERSIONINFOEX inf;

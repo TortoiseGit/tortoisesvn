@@ -74,6 +74,11 @@ BOOL CExportDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	ExtendFrameIntoClientArea(0, 0, 0, IDC_REVISIONGROUP);
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
 	m_sExportDirOrig = m_strExportDirectory;
 	m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sExportDirOrig);
 

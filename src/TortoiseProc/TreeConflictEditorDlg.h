@@ -21,6 +21,7 @@
 #include "StandAloneDlg.h"
 #include "TSVNPath.h"
 #include "ProgressDlg.h"
+#include "AeroControls.h"
 
 class CTreeConflictEditorDlg : public CResizableStandAloneDialog
 {
@@ -65,6 +66,7 @@ private:
 	CString				m_sUseMine;
 	CTSVNPath			m_path;
 	CTSVNPath			m_copyfromPath;
+	AeroControlBase		m_aeroControls;
 	svn_wc_conflict_version_t *	src_left;
 	svn_wc_conflict_version_t *	src_right;
 	svn_wc_conflict_reason_t conflict_reason;

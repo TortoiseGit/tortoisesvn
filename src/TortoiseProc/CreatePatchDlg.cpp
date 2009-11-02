@@ -60,6 +60,13 @@ BOOL CCreatePatch::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	ExtendFrameIntoClientArea(IDC_PATCHLIST, IDC_PATCHLIST, IDC_PATCHLIST, IDC_PATCHLIST);
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWUNVERSIONED)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_SELECTALL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
 	UpdateData(FALSE);
 
 	m_PatchList.Init(0, _T("CreatePatchDlg"), SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPCOMMIT|SVNSLC_POPCREATEPATCH));

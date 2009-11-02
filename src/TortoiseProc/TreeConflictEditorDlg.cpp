@@ -67,6 +67,15 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	ExtendFrameIntoClientArea(IDC_SOURCEGROUP, IDC_SOURCEGROUP, IDC_SOURCEGROUP, IDC_SOURCEGROUP);
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_CONFLICTINFO)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_INFOLABEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_RESOLVEUSINGTHEIRS)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_RESOLVEUSINGMINE)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_LOG)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
 	SetDlgItemText(IDC_CONFLICTINFO, m_sConflictInfo);
 	SetDlgItemText(IDC_RESOLVEUSINGTHEIRS, m_sUseTheirs);
 	SetDlgItemText(IDC_RESOLVEUSINGMINE, m_sUseMine);

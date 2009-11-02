@@ -118,6 +118,13 @@ BOOL CCommitDlg::OnInitDialog()
 	SVNConfig config;
 	m_bKeepLocks = config.KeepLocks();
 
+	ExtendFrameIntoClientArea(0, 0, 0, IDC_LISTGROUP);
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_KEEPLOCK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_KEEPLISTS)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
 	UpdateData(FALSE);
 	
 	m_ListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS | SVNSLC_COLLOCK, _T("CommitDlg"));

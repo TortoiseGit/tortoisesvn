@@ -78,6 +78,21 @@ BOOL CChangedDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 	
+	ExtendFrameIntoClientArea(IDC_CHANGEDLIST, IDC_CHANGEDLIST, IDC_CHANGEDLIST, IDC_CHANGEDLIST);
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWGROUP)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWFOLDERS)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWFILES)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWUNVERSIONED)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWUNMODIFIED)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWIGNORED)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWUSERPROPS)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWEXTERNALS)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_INFOLABEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_SUMMARYTEXT)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_REFRESH)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_CHECKREPO)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+
 	GetWindowText(m_sTitle);
 
 	m_tooltips.Create(this);
@@ -365,10 +380,12 @@ void CChangedDlg::UpdateStatistics()
 		temp.Format(IDS_REPOSTATUS_WCINFO, lMin, lMax);
 		SetDlgItemText(IDC_SUMMARYTEXT, temp);
 	}
+	GetDlgItem(IDC_SUMMARYTEXT)->Invalidate();
 	temp = m_FileListCtrl.GetStatisticsString();
 	temp.Replace(_T(" = "), _T("="));
 	temp.Replace(_T("\n"), _T(", "));
 	SetDlgItemText(IDC_INFOLABEL, temp);
+	GetDlgItem(IDC_INFOLABEL)->Invalidate();
 }
 
 

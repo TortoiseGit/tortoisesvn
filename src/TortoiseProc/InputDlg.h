@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006, 2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,7 @@
 #include "StandAloneDlg.h"
 #include "SciEdit.h"
 #include "ProjectProperties.h"
+#include "AeroControls.h"
 
 /**
  * \ingroup TortoiseProc
@@ -38,6 +39,7 @@ public:
 
 protected:
 	CFont			m_logFont;
+	AeroControlBase m_aeroControls;
 
 	virtual void DoDataExchange(CDataExchange* pDX);
 	virtual BOOL OnInitDialog();

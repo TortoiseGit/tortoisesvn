@@ -61,6 +61,11 @@ BOOL CUrlDiffDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	ExtendFrameIntoClientArea(0, 0, 0, IDC_REVGROUP);
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
 	CTSVNPath svnPath(m_path);
 	m_bFolder = svnPath.IsDirectory();
 	SVN svn;

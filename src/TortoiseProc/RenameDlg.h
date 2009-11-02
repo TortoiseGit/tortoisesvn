@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006, 2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,6 +18,7 @@
 //
 #pragma once
 #include "StandAloneDlg.h"
+#include "AeroControls.h"
 
 /**
  * \ingroup TortoiseProc
@@ -39,12 +40,14 @@ protected:
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 
+	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
+	afx_msg void OnEnChangeName();
+
 	DECLARE_MESSAGE_MAP()
+
+	AeroControlBase m_aeroControls;
 public:
 	CString m_name;
 	CString m_windowtitle;
 	CString m_label;
-public:
-	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
-	afx_msg void OnEnChangeName();
 };

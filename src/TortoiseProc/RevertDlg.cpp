@@ -64,6 +64,14 @@ BOOL CRevertDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	ExtendFrameIntoClientArea(IDC_REVERTLIST, IDC_REVERTLIST, IDC_REVERTLIST, IDC_REVERTLIST);
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_SELECTALL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_UNVERSIONEDITEMS)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_DELUNVERSIONED)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
 	m_RevertList.Init(SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS, _T("RevertDlg"));
 	m_RevertList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_RevertList.SetSelectButton(&m_SelectAll);

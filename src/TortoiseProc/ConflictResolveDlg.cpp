@@ -63,6 +63,11 @@ BOOL CConflictResolveDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	ExtendFrameIntoClientArea(0, IDC_GROUP, 0, IDC_GROUP);
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_INFOLABEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_ABORT)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
 	// without a conflict description, this dialog is useless.
 	ASSERT(m_pConflictDescription);
 

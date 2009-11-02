@@ -75,6 +75,11 @@ BOOL CCheckoutDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	ExtendFrameIntoClientArea(0, 0, 0, IDC_GROUPBOTTOM);
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
 	AdjustControlSize(IDC_NOEXTERNALS);
 	AdjustControlSize(IDC_REVISION_HEAD);
 	AdjustControlSize(IDC_REVISION_N);

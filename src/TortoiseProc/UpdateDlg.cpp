@@ -56,6 +56,10 @@ BOOL CUpdateDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
 
+	ExtendFrameIntoClientArea(0, 0, 0, IDC_GROUPMIDDLE);
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+
 	AdjustControlSize(IDC_NEWEST);
 	AdjustControlSize(IDC_REVISION_N);
 	AdjustControlSize(IDC_NOEXTERNALS);

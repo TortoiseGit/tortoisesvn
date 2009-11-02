@@ -256,6 +256,20 @@ void CLogDlg::SetFilter(const CString& findstr, LONG findtype, bool findregex)
 BOOL CLogDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
+
+	ExtendFrameIntoClientArea(0, 0, 0, IDC_LOGMSG);
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_LOGINFO)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_HIDEPATHS)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_STATBUTTON)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_CHECK_STOPONCOPY)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_INCLUDEMERGE)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_GETALL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_NEXTHUNDRED)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_REFRESH)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
 	// use the default GUI font, create a copy of it and
 	// change the copy to BOLD (leave the rest of the font
 	// the same)
@@ -3545,6 +3559,7 @@ void CLogDlg::UpdateLogInfoLabel()
 	sTemp.Format(IDS_LOG_LOGINFOSTRING, m_logEntries.GetVisibleCount(), rev2, rev1, selectedrevs);
 	m_sLogInfo = sTemp;
 	UpdateData(FALSE);
+	GetDlgItem(IDC_LOGINFO)->Invalidate();
 }
 
 void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)

@@ -24,6 +24,8 @@
 #include "MergeWizardRevRange.h"
 #include "MergeWizardOptions.h"
 #include "MergeWizardReintegrate.h"
+#include "AeroGlass.h"
+#include "AeroControls.h"
 
 #define MERGEWIZARD_REVRANGE	0
 #define MERGEWIZARD_TREE		1
@@ -42,6 +44,7 @@ protected:
 	virtual BOOL OnInitDialog();
 
 	afx_msg void OnPaint();
+	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	afx_msg HCURSOR OnQueryDragIcon();
 
 	CMergeWizardStart				page1;
@@ -77,6 +80,8 @@ public:
 private:
 	bool							m_FirstPageActivation;
 	HICON							m_hIcon;
+	CDwmApiImpl						m_Dwm;
+	AeroControlBase					m_aeroControls;
 };
 
 

@@ -54,6 +54,11 @@ BOOL CRelocateDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	ExtendFrameIntoClientArea(0, 0, 0, IDC_DWM);
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
 	m_URLCombo.SetCurSel(0);
@@ -67,6 +72,7 @@ BOOL CRelocateDlg::OnInitDialog()
 	AddAnchor(IDC_TOURLLABEL, TOP_LEFT);
 	AddAnchor(IDC_TOURL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BROWSE, TOP_RIGHT);
+	AddAnchor(IDC_DWM, TOP_LEFT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);

@@ -29,10 +29,31 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CResizableDialog
 
+typedef HRESULT (__stdcall *DWM_EXTEND_FRAME_INTO_CLIENT_AREA)(HWND ,const MARGINS* );
+typedef HRESULT (__stdcall *DWM_IS_COMPOSITION_ENABLED)(BOOL *pfEnabled);
+typedef HRESULT (__stdcall *DWM_ENABLE_COMPOSITION)(UINT uCompositionAction);
+
+
+BOOL CResizableDialog::IsDwmCompositionEnabled(void)
+{
+	if(m_hDwmApiLib == NULL)
+	{
+		return FALSE;
+	}
+	DWM_IS_COMPOSITION_ENABLED pfnDwmIsCompositionEnabled = (DWM_IS_COMPOSITION_ENABLED)GetProcAddress(m_hDwmApiLib, "DwmIsCompositionEnabled");
+	if(!pfnDwmIsCompositionEnabled)
+		return FALSE;
+	BOOL bEnabled = FALSE;
+	HRESULT hRes = pfnDwmIsCompositionEnabled(&bEnabled);
+	return SUCCEEDED(hRes) && bEnabled;
+}
+
 inline void CResizableDialog::PrivateConstruct()
 {
 	m_bEnableSaveRestore = FALSE;
 	m_dwGripTempState = 1;
+	m_hDwmApiLib = LoadLibraryW(L"dwmapi.dll");
+	m_bShowGrip = !IsDwmCompositionEnabled();
 }
 
 CResizableDialog::CResizableDialog()
@@ -54,6 +75,9 @@ CResizableDialog::CResizableDialog(LPCTSTR lpszTemplateName, CWnd* pParentWnd)
 
 CResizableDialog::~CResizableDialog()
 {
+	if (m_hDwmApiLib)
+		FreeLibrary(m_hDwmApiLib);
+	m_hDwmApiLib = NULL;
 }
 
 
@@ -112,13 +136,16 @@ void CResizableDialog::OnSize(UINT nType, int cx, int cy)
 	if (nType == SIZE_MAXHIDE || nType == SIZE_MAXSHOW)
 		return;		// arrangement not needed
 
-	if (nType == SIZE_MAXIMIZED)
-		HideSizeGrip(&m_dwGripTempState);
-	else
-		ShowSizeGrip(&m_dwGripTempState);
+	if ((m_bShowGrip)||(!IsDwmCompositionEnabled()))
+	{
+		if (nType == SIZE_MAXIMIZED)
+			HideSizeGrip(&m_dwGripTempState);
+		else
+			ShowSizeGrip(&m_dwGripTempState);
+		// update grip and layout
+		UpdateSizeGrip();
+	}
 
-	// update grip and layout
-	UpdateSizeGrip();
 	ArrangeLayout();
 	// on Vista, the redrawing doesn't work right, so we have to work
 	// around this by invalidating the whole dialog so the DWM recognizes

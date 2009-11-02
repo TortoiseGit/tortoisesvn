@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,7 @@
 #include "MessageBox.h"
 #include "..\..\TSVNCache\CacheInterface.h"
 
-
+#define BOTTOMMARG 32
 
 IMPLEMENT_DYNAMIC(CSettings, CTreePropSheet)
 CSettings::CSettings(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
@@ -223,6 +223,7 @@ void CSettings::HandleRestart()
 BEGIN_MESSAGE_MAP(CSettings, CTreePropSheet)
 	ON_WM_QUERYDRAGICON()
 	ON_WM_PAINT()
+	ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()
 
 BOOL CSettings::OnInitDialog()
@@ -231,6 +232,19 @@ BOOL CSettings::OnInitDialog()
 
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
+
+	MARGINS margs;
+	margs.cxLeftWidth = 0;
+	margs.cyTopHeight = 0;
+	margs.cxRightWidth = 0;
+	margs.cyBottomHeight = BOTTOMMARG;
+
+	m_Dwm.Initialize();
+	m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &margs);
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(ID_APPLY_NOW)->GetSafeHwnd());
 
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return bResult;
@@ -264,4 +278,18 @@ void CSettings::OnPaint()
 HCURSOR CSettings::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
+}
+
+BOOL CSettings::OnEraseBkgnd(CDC* pDC)
+{
+	CTreePropSheet::OnEraseBkgnd(pDC);
+	
+	if (m_Dwm.IsDwmCompositionEnabled())
+	{
+		// draw the frame margins in black
+		RECT rc;
+		GetClientRect(&rc);
+		pDC->FillSolidRect(rc.left, rc.bottom-BOTTOMMARG, rc.right-rc.left, BOTTOMMARG, RGB(0,0,0));
+	}
+	return TRUE;
 }

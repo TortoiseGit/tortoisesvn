@@ -20,6 +20,7 @@
 #include "SVNRev.h"
 #include "Registry.h"
 #include "StandAloneDlg.h"
+#include "AeroControls.h"
 
 /**
  * \ingroup TortoiseProc
@@ -51,6 +52,7 @@ protected:
 	CString m_sEndRev;
 	CRegDWORD m_regTextView;
 	CRegDWORD m_regIncludeMerge;
+	AeroControlBase m_aeroControls;
 
 public:
 	SVNRev	StartRev;

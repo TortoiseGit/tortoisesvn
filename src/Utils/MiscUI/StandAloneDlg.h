@@ -20,6 +20,8 @@
 
 #include "ResizableDialog.h"
 #include "Balloon.h"
+#include "registry.h"
+#include "AeroGlass.h"
 
 #pragma comment(lib, "htmlhelp.lib")
 
@@ -39,9 +41,11 @@ protected:
 	CStandAloneDialogTmpl(UINT nIDTemplate, CWnd* pParentWnd = NULL) : BaseType(nIDTemplate, pParentWnd)
 	{
 		m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+		m_regEnableDWMFrame = CRegDWORD(_T("Software\\TortoiseSVN\\EnableDWMFrame"), FALSE);
 	}
 	virtual BOOL OnInitDialog()
 	{
+		m_Dwm.Initialize();
 		BaseType::OnInitDialog();
 
 		// Set the icon for this dialog.  The framework does this automatically
@@ -76,6 +80,104 @@ protected:
 			BaseType::OnPaint();
 		}
 	}
+
+	BOOL OnEraseBkgnd(CDC*  pDC)
+	{
+		BaseType::OnEraseBkgnd(pDC);
+		if ((m_Dwm.IsDwmCompositionEnabled())&&((DWORD)m_regEnableDWMFrame))
+		{
+			// draw the frame margins in black
+			RECT rc;
+			GetClientRect(&rc);
+			if (m_margins.cxLeftWidth < 0)
+				pDC->FillSolidRect(rc.left, rc.top, rc.right-rc.left, rc.bottom-rc.top, RGB(0,0,0));
+			else
+			{
+				pDC->FillSolidRect(rc.left, rc.top, m_margins.cxLeftWidth, rc.bottom-rc.top, RGB(0,0,0));
+				pDC->FillSolidRect(rc.left, rc.top, rc.right-rc.left, m_margins.cyTopHeight, RGB(0,0,0));
+				pDC->FillSolidRect(rc.right-m_margins.cxRightWidth, rc.top, m_margins.cxRightWidth, rc.bottom-rc.top, RGB(0,0,0));
+				pDC->FillSolidRect(rc.left, rc.bottom-m_margins.cyBottomHeight, rc.right-rc.left, m_margins.cyBottomHeight, RGB(0,0,0));
+			}
+		}
+		return TRUE;
+	}
+	/**
+	 *
+	 */
+	void ExtendFrameIntoClientArea(UINT leftControl, UINT topControl, UINT rightControl, UINT botomControl)
+	{
+		if (!(DWORD)m_regEnableDWMFrame)
+			return;
+		RECT rc, rc2;
+		GetWindowRect(&rc);
+		GetClientRect(&rc2);
+		ClientToScreen(&rc2);
+		
+		RECT rccontrol;
+		if (leftControl)
+		{
+			HWND hw = GetDlgItem(leftControl)->GetSafeHwnd();
+			if (hw == NULL)
+				return;
+			::GetWindowRect(hw, &rccontrol);
+			m_margins.cxLeftWidth = rccontrol.left - rc.left;
+			m_margins.cxLeftWidth -= (rc2.left-rc.left);
+		}
+		else
+			m_margins.cxLeftWidth = 0;
+
+		if (topControl)
+		{
+			HWND hw = GetDlgItem(topControl)->GetSafeHwnd();
+			if (hw == NULL)
+				return;
+			::GetWindowRect(hw, &rccontrol);
+			m_margins.cyTopHeight = rccontrol.top - rc.top;
+			m_margins.cyTopHeight -= (rc2.top-rc.top);
+		}
+		else
+			m_margins.cyTopHeight = 0;
+
+		if (rightControl)
+		{
+			HWND hw = GetDlgItem(rightControl)->GetSafeHwnd();
+			if (hw == NULL)
+				return;
+			::GetWindowRect(hw, &rccontrol);
+			m_margins.cxRightWidth = rc.right - rccontrol.right;
+			m_margins.cxRightWidth -= (rc.right-rc2.right);
+		}
+		else
+			m_margins.cxRightWidth = 0;
+
+		if (botomControl)
+		{
+			HWND hw = GetDlgItem(botomControl)->GetSafeHwnd();
+			if (hw == NULL)
+				return;
+			::GetWindowRect(hw, &rccontrol);
+			m_margins.cyBottomHeight = rc.bottom - rccontrol.bottom;
+			m_margins.cyBottomHeight -= (rc.bottom-rc2.bottom);
+		}
+		else
+			m_margins.cyBottomHeight = 0;
+
+		if ((m_margins.cxLeftWidth == 0)&&
+			(m_margins.cyTopHeight == 0)&&
+			(m_margins.cxRightWidth == 0)&&
+			(m_margins.cyBottomHeight == 0))
+		{
+			m_margins.cxLeftWidth = -1;
+			m_margins.cyTopHeight = -1;
+			m_margins.cxRightWidth = -1;
+			m_margins.cyBottomHeight = -1;
+		}
+		if (m_Dwm.IsDwmCompositionEnabled())
+		{
+			m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &m_margins);
+		}
+	}
+
 	/**
 	 * Wrapper around the CWnd::EnableWindow() method, but
 	 * makes sure that a control that has the focus is not disabled
@@ -214,6 +316,12 @@ protected:
 		pt.y = GET_Y_LPARAM(pos);
 		return (PtInRect(&wrc, pt) && !PtInRect(&crc, pt));
 	}
+protected:
+	CDwmApiImpl		m_Dwm;
+	MARGINS			m_margins;
+	CRegDWORD		m_regEnableDWMFrame;
+
+	DECLARE_MESSAGE_MAP()
 private:
 	HCURSOR OnQueryDragIcon()
 	{
@@ -239,8 +347,7 @@ private:
 		}
 	}
 
-
-	HICON m_hIcon;
+	HICON			m_hIcon;
 };
 
 class CStateDialog : public CDialog, public CResizableWndState
@@ -249,7 +356,7 @@ public:
 	CStateDialog() {m_bEnableSaveRestore = false;}
 	CStateDialog(UINT /*nIDTemplate*/, CWnd* /*pParentWnd = NULL*/) {m_bEnableSaveRestore = false;}
 	CStateDialog(LPCTSTR /*lpszTemplateName*/, CWnd* /*pParentWnd = NULL*/) {m_bEnableSaveRestore = false;}
-	virtual ~CStateDialog();
+	virtual ~CStateDialog(){};
 
 private:
 	// flags
@@ -311,5 +418,22 @@ private:
 	CRect		m_rcOrgWindowRect;
 };
 
-typedef CStandAloneDialogTmpl<CDialog> CStandAloneDialog;
-typedef CStandAloneDialogTmpl<CStateDialog> CStateStandAloneDialog;
+class CStandAloneDialog : public CStandAloneDialogTmpl<CDialog>
+{
+public:
+	CStandAloneDialog(UINT nIDTemplate, CWnd* pParentWnd = NULL);
+protected:
+	DECLARE_MESSAGE_MAP()
+private:
+	DECLARE_DYNAMIC(CStandAloneDialog)
+};
+
+class CStateStandAloneDialog : public CStandAloneDialogTmpl<CStateDialog>
+{
+public:
+	CStateStandAloneDialog(UINT nIDTemplate, CWnd* pParentWnd = NULL);
+protected:
+	DECLARE_MESSAGE_MAP()
+private:
+	DECLARE_DYNAMIC(CStateStandAloneDialog)
+};

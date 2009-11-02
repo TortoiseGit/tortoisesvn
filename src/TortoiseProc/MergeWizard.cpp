@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,7 @@
 #include "SVN.h"
 #include "Registry.h"
 
-// CMergeWizard
+#define BOTTOMMARG 48
 
 IMPLEMENT_DYNAMIC(CMergeWizard, CResizableSheetEx)
 
@@ -59,6 +59,7 @@ CMergeWizard::~CMergeWizard()
 BEGIN_MESSAGE_MAP(CMergeWizard, CResizableSheetEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()
 
 
@@ -74,6 +75,22 @@ BOOL CMergeWizard::OnInitDialog()
 	SVN svn;
 	url = svn.GetURLFromPath(wcPath);
 	sUUID = svn.GetUUIDFromPath(wcPath);
+
+	MARGINS margs;
+	margs.cxLeftWidth = 0;
+	margs.cyTopHeight = 0;
+	margs.cxRightWidth = 0;
+	margs.cyBottomHeight = BOTTOMMARG;
+
+	m_Dwm.Initialize();
+	m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &margs);
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(ID_WIZFINISH)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(ID_WIZBACK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(ID_WIZNEXT)->GetSafeHwnd());
+	ShowGrip(false);
 
 	return bResult;
 }
@@ -144,4 +161,18 @@ void CMergeWizard::OnPaint()
 HCURSOR CMergeWizard::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
+}
+
+BOOL CMergeWizard::OnEraseBkgnd(CDC* pDC)
+{
+	CResizableSheetEx::OnEraseBkgnd(pDC);
+
+	if (m_Dwm.IsDwmCompositionEnabled())
+	{
+		// draw the frame margins in black
+		RECT rc;
+		GetClientRect(&rc);
+		pDC->FillSolidRect(rc.left, rc.bottom-BOTTOMMARG, rc.right-rc.left, BOTTOMMARG, RGB(0,0,0));
+	}
+	return TRUE;
 }

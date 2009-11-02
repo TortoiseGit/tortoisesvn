@@ -21,6 +21,7 @@
 #include "HistoryCombo.h"
 #include "SVNRev.h"
 #include "PathEdit.h"
+#include "AeroControls.h"
 
 /// forward declarations
 
@@ -81,6 +82,7 @@ protected:
 	CLogDlg *		m_pLogDlg;
 	int				m_height;
 	CPathEdit		m_SwitchPath;
+	AeroControlBase m_aeroControls;
 
 public:
 	CString			m_path;

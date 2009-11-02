@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,28 @@
 #include "stdafx.h"
 #include "Resource.h"
 #include "StandAloneDlg.h"
+
+BEGIN_TEMPLATE_MESSAGE_MAP(CStandAloneDialogTmpl, BaseType, BaseType)
+	ON_WM_ERASEBKGND()
+	ON_WM_PAINT()
+END_MESSAGE_MAP()
+
+IMPLEMENT_DYNAMIC(CStandAloneDialog, CStandAloneDialogTmpl<CDialog>)
+CStandAloneDialog::CStandAloneDialog(UINT nIDTemplate, CWnd* pParentWnd /*= NULL*/)
+: CStandAloneDialogTmpl<CDialog>(nIDTemplate, pParentWnd)
+{
+}
+BEGIN_MESSAGE_MAP(CStandAloneDialog, CStandAloneDialogTmpl<CDialog>)
+END_MESSAGE_MAP()
+
+IMPLEMENT_DYNAMIC(CStateStandAloneDialog, CStandAloneDialogTmpl<CStateDialog>)
+CStateStandAloneDialog::CStateStandAloneDialog(UINT nIDTemplate, CWnd* pParentWnd /*= NULL*/)
+: CStandAloneDialogTmpl<CStateDialog>(nIDTemplate, pParentWnd)
+{
+}
+BEGIN_MESSAGE_MAP(CStateStandAloneDialog, CStandAloneDialogTmpl<CStateDialog>)
+END_MESSAGE_MAP()
+
 
 IMPLEMENT_DYNAMIC(CResizableStandAloneDialog, CStandAloneDialogTmpl<CResizableDialog>)
 CResizableStandAloneDialog::CResizableStandAloneDialog(UINT nIDTemplate, CWnd* pParentWnd /*= NULL*/)
@@ -103,3 +125,6 @@ void CResizableStandAloneDialog::OnNcRButtonUp(UINT nHitTest, CPoint point)
 	}
 	CStandAloneDialogTmpl<CResizableDialog>::OnNcRButtonUp(nHitTest, point);
 }
+
+BEGIN_MESSAGE_MAP(CStateDialog, CDialog)
+END_MESSAGE_MAP()

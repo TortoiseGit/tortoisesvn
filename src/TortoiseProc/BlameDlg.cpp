@@ -63,6 +63,13 @@ BOOL CBlameDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
 
+	ExtendFrameIntoClientArea(0, 0, 0, IDC_DIFFGROUP);
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_USETEXTVIEWER)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_INCLUDEMERGEINFO)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
 	AdjustControlSize(IDC_USETEXTVIEWER);
 	AdjustControlSize(IDC_IGNOREEOL);
 	AdjustControlSize(IDC_COMPAREWHITESPACES);

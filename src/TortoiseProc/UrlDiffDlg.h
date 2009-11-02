@@ -20,6 +20,7 @@
 #include "StandAloneDlg.h"
 #include "HistoryCombo.h"
 #include "SVNRev.h"
+#include "AeroControls.h"
 
 /// forward declarations
 
@@ -63,6 +64,7 @@ protected:
 	CHistoryCombo	m_URLCombo;
 	BOOL			m_bFolder;
 	CLogDlg *		m_pLogDlg;
+	AeroControlBase m_aeroControls;
 
 public:
 	CString			m_path;

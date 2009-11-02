@@ -77,6 +77,10 @@ BOOL CEditPropertiesDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	ExtendFrameIntoClientArea(IDC_GROUP, IDC_GROUP, IDC_GROUP, IDC_GROUP);
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
 	// fill in the path edit control
 	if (m_pathlist.GetCount() == 1)
 	{

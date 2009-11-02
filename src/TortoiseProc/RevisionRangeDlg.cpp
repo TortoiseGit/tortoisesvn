@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -51,6 +51,10 @@ END_MESSAGE_MAP()
 BOOL CRevisionRangeDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
+
+	ExtendFrameIntoClientArea(0, 0, 0, IDC_ENDREVGROUP);
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
 
 	if (m_StartRev.IsHead())
 	{

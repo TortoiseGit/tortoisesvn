@@ -33,6 +33,7 @@
 #include "Tooltip.h"
 #include "HintListCtrl.h"
 #include "JobScheduler.h"
+#include "AeroControls.h"
 
 using namespace std;
 
@@ -282,6 +283,7 @@ private:
     CLogDataVector		m_logEntries;
 
 	CXPTheme			theme;
+	AeroControlBase		m_aeroControls;
 
 	async::CJobScheduler netScheduler;
 	async::CJobScheduler diskScheduler;

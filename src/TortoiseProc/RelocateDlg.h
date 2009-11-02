@@ -20,6 +20,7 @@
 #include "StandAloneDlg.h"
 #include "HistoryCombo.h"
 #include "PathEdit.h"
+#include "AeroControls.h"
 
 /**
  * \ingroup TortoiseProc
@@ -48,6 +49,7 @@ protected:
 
 	int				m_height;
 	CPathEdit		m_FromUrl;
+	AeroControlBase m_aeroControls;
 public:
 	CHistoryCombo m_URLCombo;
 	CString m_sToUrl;

@@ -83,6 +83,11 @@ BOOL CEditPropConflictDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	ExtendFrameIntoClientArea(0, 0, 0, IDC_DIFFGROUP);
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_RESOLVE)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_EDITPROPS)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+
 	CString sInfo;
 	sInfo.Format(IDS_PROPCONFLICT_INFO, (LPCTSTR)m_conflictItem.GetFileOrDirectoryName());
 	SetDlgItemText(IDC_PROPINFO, sInfo);

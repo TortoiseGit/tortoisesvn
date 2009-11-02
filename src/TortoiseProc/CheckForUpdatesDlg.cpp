@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -56,6 +56,14 @@ END_MESSAGE_MAP()
 BOOL CCheckForUpdatesDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
+
+	ExtendFrameIntoClientArea(0, 0, 0, 0);
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_INFO)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_YOURVERSION)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_CURRENTVERSION)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_CHECKRESULT)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_LINK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
 
 	CString temp;
 	temp.Format(IDS_CHECKNEWER_YOURVERSION, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);

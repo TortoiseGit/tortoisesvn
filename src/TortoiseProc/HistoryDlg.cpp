@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -62,6 +62,10 @@ void CHistoryDlg::OnBnClickedOk()
 BOOL CHistoryDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
+
+	ExtendFrameIntoClientArea(IDC_HISTORYLIST, IDC_HISTORYLIST, IDC_HISTORYLIST, IDC_HISTORYLIST);
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
 
 	// calculate and set listbox width
 	CDC* pDC=m_List.GetDC();

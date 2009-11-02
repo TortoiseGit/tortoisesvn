@@ -62,6 +62,13 @@ END_MESSAGE_MAP()
 BOOL CEditPropertyValueDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
+
+	ExtendFrameIntoClientArea(0, 0, 0, IDC_PROPVALUEGROUP);
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_PROPRECURSIVE)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
 	CString resToken;
 	int curPos = 0;
 

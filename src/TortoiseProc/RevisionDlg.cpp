@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,9 +22,9 @@
 #include "Balloon.h"
 
 
-IMPLEMENT_DYNAMIC(CRevisionDlg, CDialog)
+IMPLEMENT_DYNAMIC(CRevisionDlg, CStandAloneDialog)
 CRevisionDlg::CRevisionDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CRevisionDlg::IDD, pParent)
+	: CStandAloneDialog(CRevisionDlg::IDD, pParent)
 	, SVNRev(_T("HEAD"))
 	, m_bAllowWCRevs(true)
 {
@@ -36,18 +36,22 @@ CRevisionDlg::~CRevisionDlg()
 
 void CRevisionDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_REVNUM, m_sRevision);
 }
 
 
-BEGIN_MESSAGE_MAP(CRevisionDlg, CDialog)
+BEGIN_MESSAGE_MAP(CRevisionDlg, CStandAloneDialog)
 	ON_EN_CHANGE(IDC_REVNUM, OnEnChangeRevnum)
 END_MESSAGE_MAP()
 
 BOOL CRevisionDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CStandAloneDialog::OnInitDialog();
+
+	ExtendFrameIntoClientArea(0, 0, 0, IDC_REVGROUP);
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
 
 	if (IsHead())
 	{
@@ -91,7 +95,7 @@ void CRevisionDlg::OnOK()
 
 	UpdateData(FALSE);
 
-	CDialog::OnOK();
+	CStandAloneDialog::OnOK();
 }
 
 void CRevisionDlg::OnEnChangeRevnum()

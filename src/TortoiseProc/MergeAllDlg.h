@@ -18,6 +18,7 @@
 //
 #pragma once
 #include "StandAloneDlg.h"
+#include "AeroControls.h"
 
 
 /**
@@ -43,6 +44,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 	CComboBox						m_depthCombo;
+	AeroControlBase					m_aeroControls;
 
 public:
 	BOOL							m_bForce;

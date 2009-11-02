@@ -43,6 +43,7 @@ public:
 	CResizableDialog(UINT nIDTemplate, CWnd* pParentWnd = NULL);
 	CResizableDialog(LPCTSTR lpszTemplateName, CWnd* pParentWnd = NULL);
 
+	void ShowGrip(BOOL bShow) {m_bShowGrip = bShow;}
 // Attributes
 private:
 	// support for temporarily hiding the grip
@@ -51,7 +52,7 @@ private:
 	// flags
 	BOOL m_bEnableSaveRestore;
 	BOOL m_bRectOnly;
-
+	BOOL m_bShowGrip;
 	// internal status
 	CString m_sSection;			// section name (identifies a parent window)
 
@@ -94,6 +95,10 @@ protected:
 	afx_msg BOOL OnNcCreate(LPCREATESTRUCT lpCreateStruct);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+
+	HINSTANCE m_hDwmApiLib;
+	BOOL IsDwmCompositionEnabled(void);
 };
 
 /////////////////////////////////////////////////////////////////////////////

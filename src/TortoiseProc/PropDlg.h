@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 
 #include "StandAloneDlg.h"
 #include "SVNRev.h"
+#include "AeroControls.h"
 
 /**
  * \ingroup TortoiseProc
@@ -54,5 +55,6 @@ public:
 private:
 	HANDLE		m_hThread;
 	CListCtrl	m_proplist;
+	AeroControlBase m_aeroControls;
 };
 

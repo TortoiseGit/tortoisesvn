@@ -64,6 +64,11 @@ BOOL CMergeAllDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
 
+	ExtendFrameIntoClientArea(IDC_MERGEOPTIONS, IDC_MERGEOPTIONS, IDC_MERGEOPTIONS, IDC_MERGEOPTIONS);
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_WORKING)));
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE)));

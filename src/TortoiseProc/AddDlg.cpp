@@ -58,6 +58,12 @@ BOOL CAddDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	ExtendFrameIntoClientArea(IDC_ADDLIST, IDC_ADDLIST, IDC_ADDLIST, IDC_ADDLIST);
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_SELECTALL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
 	// initialize the svn status list control
 	m_addListCtrl.Init(SVNSLC_COLEXT, _T("AddDlg"), SVNSLC_POPALL ^ (SVNSLC_POPADD|SVNSLC_POPCOMMIT|SVNSLC_POPCHANGELISTS|SVNSLC_POPCREATEPATCH)); // adding and committing is useless in the add dialog
 	m_addListCtrl.SetIgnoreRemoveOnly();	// when ignoring, don't add the parent folder since we're in the add dialog

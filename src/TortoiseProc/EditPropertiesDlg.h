@@ -23,6 +23,7 @@
 #include "Tooltip.h"
 #include "tstring.h"
 #include "PathEdit.h"
+#include "AeroControls.h"
 
 /**
  * \ingroup TortoiseProc
@@ -98,4 +99,5 @@ protected:
 
 	CString			m_sUUID;
 	ProjectProperties *	m_pProjectProperties;
+	AeroControlBase m_aeroControls;
 };
