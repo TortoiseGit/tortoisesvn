@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-19 21:00+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2009-11-02 20:57+0800\n"
+"Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2462,6 +2462,11 @@ msgstr "依作者排序的送交紀錄"
 msgid "Commits by date"
 msgstr "依日期排序的送交紀錄"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "Commits each %s"
+msgstr "每 %s 的送交數"
+
 #. Resource IDs: (1135)
 msgid "Commits each week:"
 msgstr "每週送交:"
@@ -2509,6 +2514,14 @@ msgstr "與基礎檔比對(&A)"
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
 msgstr "與前一個版本比對"
+
+#. Resource IDs: (2055)
+msgid ""
+"Compares all whitespaces when diffing\n"
+"Compare whitespaces"
+msgstr ""
+"比對差異時需要比對所有空白字元\n"
+"比對空白字元"
 
 #. Resource IDs: (12)
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -2603,6 +2616,10 @@ msgstr "已複製"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "複製來源路徑"
+
+#. Resource IDs: (208)
+msgid "Copied from revision"
+msgstr "複製自版本"
 
 #. Resource IDs: (275)
 #, c-format
@@ -3832,6 +3849,11 @@ msgstr "正在取得第 %s 版的:"
 msgid "File"
 msgstr "檔案"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "File changes each %s"
+msgstr "每 %s 的檔案變更數"
+
 #. Resource IDs: (1138)
 msgid "File changes each week:"
 msgstr "每週檔案變更:"
@@ -4640,6 +4662,10 @@ msgstr "忽略所有空白字元(&A)"
 msgid "Ignore &case changes"
 msgstr "無視大小寫變更(&C)"
 
+#. Resource IDs: (32873)
+msgid "Ignore all whitespace changes"
+msgstr "無視所有空白字元變更"
+
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "忽略所有空白字元"
@@ -4663,6 +4689,22 @@ msgstr "無視空白字元變更"
 #. Resource IDs: (226)
 msgid "Ignored items included"
 msgstr "包含忽略的項目"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores all whitespace changes when diffing\n"
+"Ignore all whitespace changes"
+msgstr ""
+"比對差異時忽略所有空白字元變更\n"
+"忽略所有空白字元變更"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores changes in whitespaces when diffing\n"
+"Ignore whitespace changes"
+msgstr ""
+"比對差異時忽略空白字元\n"
+"忽略空白字元變更"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5767,6 +5809,11 @@ msgstr "注意: 字型設定也會影響 TortoiseDiff"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "注意"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "Number of %s"
+msgstr "%s  數"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
@@ -8086,6 +8133,14 @@ msgstr "文字狀態:"
 #. Resource IDs: (207)
 msgid "Text status"
 msgstr "文字狀態"
+
+#. Resource IDs: (84)
+msgid ""
+"The URL to check out refers to a file but this\n"
+"working copy path is an existing directory."
+msgstr ""
+"要取出的 URL 是個檔案但是當前工作\n"
+"複本中已經有同名目錄."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
