@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-30 18:56+0200\n"
+"PO-Revision-Date: 2009-11-02 09:46+0200\n"
 "Last-Translator: Florin Daneliuc <dfev77@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2481,6 +2481,11 @@ msgstr "Transmiteri grupate pe autori"
 msgid "Commits by date"
 msgstr "Transmiteri grupate pe autori"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "Commits each %s"
+msgstr "Transmiteri pe %s"
+
 #. Resource IDs: (1135)
 msgid "Commits each week:"
 msgstr "Transmiteri pe săptămână:"
@@ -2630,6 +2635,10 @@ msgstr "Copiat"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "Copiat din URL"
+
+#. Resource IDs: (208)
+msgid "Copied from revision"
+msgstr "Copiat din revizia"
 
 #. Resource IDs: (275)
 #, c-format
@@ -3858,6 +3867,11 @@ msgstr "Recuperează revizia %s a fişierului:"
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr "Fişier"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "File changes each %s"
+msgstr "Modificate de fişieri in fiecare %s"
 
 #. Resource IDs: (1138)
 msgid "File changes each week:"
@@ -5810,6 +5824,11 @@ msgstr "Notiţă: schimbarea preferinţelor de font afectează şi vizualizatoru
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Notiţă"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "Number of %s"
+msgstr "Numărul de %s"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
