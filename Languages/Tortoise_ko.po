@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-19 17:28+0900\n"
+"PO-Revision-Date: 2009-11-03 08:18+0900\n"
 "Last-Translator: Taedong Kim <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2459,6 +2459,11 @@ msgstr "작성자에 따른 커밋수"
 msgid "Commits by date"
 msgstr "날짜별 커밋수"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "Commits each %s"
+msgstr "%s 각각을 커밋"
+
 #. Resource IDs: (1135)
 msgid "Commits each week:"
 msgstr "각 주 단위의 커밋수:"
@@ -2506,6 +2511,14 @@ msgstr "작업하기 위해 꺼냈던 것과 비교(&A)"
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
 msgstr "이전 리비전 비교"
+
+#. Resource IDs: (2055)
+msgid ""
+"Compares all whitespaces when diffing\n"
+"Compare whitespaces"
+msgstr ""
+"차이점을 비교할 때 모든 공백문자를 비교\n"
+"공백문자 비교"
 
 #. Resource IDs: (12)
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -2600,6 +2613,10 @@ msgstr "복사됨"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "복사된 원본 경로"
+
+#. Resource IDs: (208)
+msgid "Copied from revision"
+msgstr "리비전으로부터 복사됨"
 
 #. Resource IDs: (275)
 #, c-format
@@ -3829,6 +3846,11 @@ msgstr "리비전 %s 가져오기 파일명:"
 msgid "File"
 msgstr "파일"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "File changes each %s"
+msgstr ""
+
 #. Resource IDs: (1138)
 msgid "File changes each week:"
 msgstr "각 주단위의 변경된 파일 수:"
@@ -4639,6 +4661,10 @@ msgstr "모든 공백 무시(&A)"
 msgid "Ignore &case changes"
 msgstr "대/소문자를 구분하지 않음(&C)"
 
+#. Resource IDs: (32873)
+msgid "Ignore all whitespace changes"
+msgstr "모든 공백문자의 변경을 무시"
+
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "모든 공백 무시"
@@ -4662,6 +4688,22 @@ msgstr "공백의 차이는 무시함"
 #. Resource IDs: (226)
 msgid "Ignored items included"
 msgstr "무시된 아이템들을 포함함"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores all whitespace changes when diffing\n"
+"Ignore all whitespace changes"
+msgstr ""
+"차이점을 비교할 때 모든 공백문자의 변경을 무시\n"
+"모든 공백문자의 변경을 무시"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores changes in whitespaces when diffing\n"
+"Ignore whitespace changes"
+msgstr ""
+"차이점을 비교할 때 공백문자에서의 변경을 무시\n"
+"공백문자의 변경을 무시"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5763,6 +5805,11 @@ msgstr "주의: 글꼴 설정은 TortoiseUDiff 뷰어에도 영향을 미칩니�
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "주의"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "Number of %s"
+msgstr "%s의 수"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
@@ -8081,6 +8128,12 @@ msgstr "텍스트 상태:"
 #. Resource IDs: (207)
 msgid "Text status"
 msgstr "텍스트 상태"
+
+#. Resource IDs: (84)
+msgid ""
+"The URL to check out refers to a file but this\n"
+"working copy path is an existing directory."
+msgstr ""
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
