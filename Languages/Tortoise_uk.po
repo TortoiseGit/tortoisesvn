@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-28 10:27+0300\n"
+"PO-Revision-Date: 2009-11-02 11:58+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2459,6 +2459,11 @@ msgstr "Фіксування за автором"
 msgid "Commits by date"
 msgstr "Фіксування за датою"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "Commits each %s"
+msgstr "Фіксувань кожного %s"
+
 #. Resource IDs: (1135)
 msgid "Commits each week:"
 msgstr "Фіксувань щотижня:"
@@ -2608,6 +2613,10 @@ msgstr "Скопійовано"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "Скопійовано з URL"
+
+#. Resource IDs: (208)
+msgid "Copied from revision"
+msgstr "Скопійовано з модифікації"
 
 #. Resource IDs: (275)
 #, c-format
@@ -3834,6 +3843,11 @@ msgstr "Видобувається %s модифікація файла:"
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr "Файл"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "File changes each %s"
+msgstr "Змін файлів кожного %s"
 
 #. Resource IDs: (1138)
 msgid "File changes each week:"
@@ -5794,6 +5808,11 @@ msgstr "Зауваження: налаштування шрифта вплива
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Зауваження"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "Number of %s"
+msgstr "Кількість %s"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
