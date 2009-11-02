@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-29 12:51+0100\n"
+"PO-Revision-Date: 2009-11-02 13:20+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2471,6 +2471,11 @@ msgstr "Vastleggingen per auteur"
 msgid "Commits by date"
 msgstr "Vastleggingen per datum"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "Commits each %s"
+msgstr "Vastleggingen per %s"
+
 #. Resource IDs: (1135)
 msgid "Commits each week:"
 msgstr "Vastleggingen per week:"
@@ -2621,6 +2626,10 @@ msgstr "Gekopieerd"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "Gekopiëerd van URL"
+
+#. Resource IDs: (208)
+msgid "Copied from revision"
+msgstr "gekopieerd van revisie"
 
 #. Resource IDs: (275)
 #, c-format
@@ -3850,6 +3859,11 @@ msgstr "Revisie %s van bestand ophalen:"
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr "Bestand"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "File changes each %s"
+msgstr "Bestandswijzigingen per %s"
 
 #. Resource IDs: (1138)
 msgid "File changes each week:"
@@ -5799,6 +5813,11 @@ msgstr "N.B.: de lettertype instellingen gelden ook voor TortoiseUDiff"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Opmerking"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "Number of %s"
+msgstr "Aantal %s"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
