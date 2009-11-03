@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-10-21 19:07 +0000\n"
-"PO-Revision-Date: 2009-11-02 14:48+0100\n"
+"PO-Revision-Date: 2009-11-03 16:35+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2843,10 +2843,14 @@ msgid ""
 "rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
 "</screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>windows-help-central.com</citetitle></ulink>."
 msgstr ""
+"Sommige mensen hebben graag dat de authenticatie gegevens worden verwijderd als ze uitloggen uit Windows of de pc uitschakelen. Dat kan gedaan worden met een script dat gestart wordt bij het afsluiten. Dit script kan de welke <filename>%APPDATA%\\Subversion\\auth</filename> map wissen, bijvoorbeeld <screen>\n"
+"@echo off\n"
+"rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
+"</screen> Je kunt een beschrijving vinden over hoe je zo’n script moet maken op  <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>windows-help-central.com</citetitle></ulink>."
 
 #. (para)
 msgid "For more information on how to set up your server for authentication and access control, refer to <xref linkend=\"tsvn-serversetup\"/>"
-msgstr ""
+msgstr "Lees <xref linkend=\"tsvn-serversetup\"/> voor meer informatie over hoe je authenticatie en toegangsbeveiliging installeert op je server."
 
 #. (title)
 msgid "Maximizing Windows"
@@ -2874,11 +2878,11 @@ msgstr ""
 
 #. (title)
 msgid "Importing Data Into A Repository"
-msgstr "Data importeren in een repository"
+msgstr "Data Importeren In Een Archief"
 
 #. (primary)
 msgid "import"
-msgstr "importeer"
+msgstr "importeren"
 
 #. (primary)
 msgid "add files to repository"
@@ -2889,7 +2893,7 @@ msgstr "bestanden toevoegen aan archief"
 #. (title)
 #. (glossterm)
 msgid "Import"
-msgstr "Importeer"
+msgstr "Importeren"
 
 #. (primary)
 msgid "temporary files"
@@ -2897,19 +2901,19 @@ msgstr "tijdelijke bestanden"
 
 #. (para)
 msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If are importing data into a new repository then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
-msgstr ""
+msgstr "Als je data importeert in een bestaand archief waarin al enkele project aanwezig zijn, dan is de structuur van het archief al vastgesteld. Als je gegevens importeert in een nieuw archief, dan is het de moeite waard om even goed na te denken over de structuur van het archief. Lees <xref linkend=\"tsvn-repository-layout\"/> voor advies hierover."
 
 #. (para)
 msgid "There is no way to select files and folders to include, aside from using the global ignore settings."
-msgstr ""
+msgstr "Het is niet mogelijk om aan te geven welke bestanden en mappen geïmporteerd moeten worden, behalve dan door het gebruik van globale negeer instellingen."
 
 #. (para)
 msgid "The folder imported does not become a working copy. You have to do a checkout to copy the files back from the server."
-msgstr ""
+msgstr "De geïmporteerde map wordt geen werkkopie. Je moet het Ophalen commando gebruiken om weer een kopie van de bestanden van de server te halen."
 
 #. (para)
 msgid "It is easy to import to the wrong folder level in the repository."
-msgstr ""
+msgstr "Het importeren vanaf een verkeerd mapniveau gaat erg makkelijk."
 
 #. (para)
 msgid "This section describes the Subversion import command, which was designed for importing a directory hierarchy into the repository in one shot. Although it does the job, it has several shortcomings: <placeholder-1/> For these reasons we recommend that you do not use the import command at all but rather follow the two-step method described in <xref linkend=\"tsvn-dug-import-in-place\"/>. But since you are here, this is how the basic import works ..."
@@ -2929,7 +2933,7 @@ msgstr ""
 
 #. (title)
 msgid "The Import dialog"
-msgstr "De invoer dialoog"
+msgstr "Het invoer venster"
 
 #. (para)
 msgid "Now select the top-level folder of your project directory structure in the windows explorer and <action>right click</action> to open the context menu. Select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> which brings up a dialog box: <placeholder-1/>"
@@ -2958,11 +2962,11 @@ msgstr ""
 
 #. (title)
 msgid "Import in Place"
-msgstr "Invoer op zijn Plaats"
+msgstr "Invoeren op zijn Plaats"
 
 #. (primary)
 msgid "import in place"
-msgstr "invoer op zijn plaats"
+msgstr "invoeren op zijn plaats"
 
 #. (para)
 msgid "Use the repository browser to create a new project folder directly in the repository."
@@ -3026,7 +3030,7 @@ msgstr ""
 
 #. (title)
 msgid "The Checkout dialog"
-msgstr "De Ophalen dialoog"
+msgstr "Het Ophalen venster"
 
 #. (para)
 msgid "Select a directory in windows explorer where you want to place your working copy. <action>Right click</action> to pop up the context menu and select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>, which brings up the following dialog box: <placeholder-1/> If you enter a folder name that does not yet exist, then a directory with that name is created."
