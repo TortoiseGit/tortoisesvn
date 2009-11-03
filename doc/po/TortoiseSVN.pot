@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-10-21 19:07 +0000\n"
+"POT-Creation-Date: 2009-11-03 23:39 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2158,12 +2158,16 @@ msgstr ""
 msgid "authentication"
 msgstr ""
 
+#.(primary)
+msgid "authentication cache"
+msgstr ""
+
 #.(title)
 msgid "Authentication Dialog"
 msgstr ""
 
 #.(para)
-msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password)."
+msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password). Note that passwords are stored using the WinCrypt API, not in plain text form. form"
 msgstr ""
 
 #.(para)
@@ -2180,6 +2184,10 @@ msgstr ""
 
 #.(para)
 msgid "If you want to clear the authentication cache for all servers, you can do so from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings dialog. That button will clear all cached authentication data from the Subversion <filename>auth</filename> directories, as well as any authentication data stored in the registry by earlier versions of TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
+msgstr ""
+
+#.(para)
+msgid "If you want to clear authentication for one realm only then you will have to dig into those directories, find the file which contains the information you want to clear and delete the file."
 msgstr ""
 
 #.(para)
@@ -2226,7 +2234,7 @@ msgid "temporary files"
 msgstr ""
 
 #.(para)
-msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If are importing data into a new repository then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
+msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If you are importing data into a new repository, then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
 msgstr ""
 
 #.(para)
