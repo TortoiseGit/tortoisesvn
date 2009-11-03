@@ -37,6 +37,7 @@ CSetMainPage::CSetMainPage()
 	, m_bCheckNewer(TRUE)
 	, m_bLastCommitTime(FALSE)
 	, m_bUseDotNetHack(FALSE)
+	, m_bUseAero(TRUE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	CString temp(SVN_CONFIG_DEFAULT_GLOBAL_IGNORES);
@@ -47,6 +48,7 @@ CSetMainPage::CSetMainPage()
 		m_bUseDotNetHack = false;
 	else
 		m_bUseDotNetHack = true;
+	m_regUseAero = CRegDWORD(_T("Software\\TortoiseSVN\\EnableDWMFrame"), TRUE);
 }
 
 CSetMainPage::~CSetMainPage()
@@ -62,6 +64,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CHECKNEWERVERSION, m_bCheckNewer);
 	DDX_Check(pDX, IDC_COMMITFILETIMES, m_bLastCommitTime);
 	DDX_Check(pDX, IDC_ASPDOTNETHACK, m_bUseDotNetHack);
+	DDX_Check(pDX, IDC_AERODWM, m_bUseAero);
 }
 
 
@@ -74,6 +77,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, ISettingsPropPage)
 	ON_BN_CLICKED(IDC_COMMITFILETIMES, OnModified)
 	ON_BN_CLICKED(IDC_SOUNDS, OnBnClickedSounds)
 	ON_BN_CLICKED(IDC_ASPDOTNETHACK, OnASPHACK)
+	ON_BN_CLICKED(IDC_AERODWM, OnModified)
 END_MESSAGE_MAP()
 
 BOOL CSetMainPage::OnInitDialog()
@@ -85,6 +89,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_sTempExtensions = m_regExtensions;
 	m_dwLanguage = m_regLanguage;
 	m_bCheckNewer = m_regCheckNewer;
+	m_bUseAero = m_regUseAero;
 
 	CString temp;
 	temp = m_regLastCommitTime;
@@ -171,6 +176,7 @@ BOOL CSetMainPage::OnApply()
 	}
 	Store (m_bCheckNewer, m_regCheckNewer);
 	Store ((m_bLastCommitTime ? _T("yes") : _T("no")), m_regLastCommitTime);
+	Store (m_bUseAero, m_regUseAero);
 
 	CRegString asphack_local(_T("System\\CurrentControlSet\\Control\\Session Manager\\Environment\\SVN_ASP_DOT_NET_HACK"), _T(""), FALSE, HKEY_LOCAL_MACHINE);
 	CRegString asphack_user(_T("Environment\\SVN_ASP_DOT_NET_HACK"));

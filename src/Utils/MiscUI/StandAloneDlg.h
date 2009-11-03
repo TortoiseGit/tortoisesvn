@@ -41,7 +41,7 @@ protected:
 	CStandAloneDialogTmpl(UINT nIDTemplate, CWnd* pParentWnd = NULL) : BaseType(nIDTemplate, pParentWnd)
 	{
 		m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
-		m_regEnableDWMFrame = CRegDWORD(_T("Software\\TortoiseSVN\\EnableDWMFrame"), FALSE);
+		m_regEnableDWMFrame = CRegDWORD(_T("Software\\TortoiseSVN\\EnableDWMFrame"), TRUE);
 	}
 	virtual BOOL OnInitDialog()
 	{

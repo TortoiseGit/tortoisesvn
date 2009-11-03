@@ -39,7 +39,7 @@ AeroControlBase::AeroControlBase()
 {
 	m_dwm.Initialize();
 	m_theme.Initialize();
-	m_regEnableDWMFrame = CRegDWORD(_T("Software\\TortoiseSVN\\EnableDWMFrame"), FALSE);
+	m_regEnableDWMFrame = CRegDWORD(_T("Software\\TortoiseSVN\\EnableDWMFrame"), TRUE);
 }
 
 AeroControlBase::~AeroControlBase()
