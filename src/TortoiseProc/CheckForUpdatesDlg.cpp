@@ -32,7 +32,7 @@ CCheckForUpdatesDlg::CCheckForUpdatesDlg(CWnd* pParent /*=NULL*/)
 	, m_bShowInfo(FALSE)
 	, m_bVisible(FALSE)
 {
-	m_sUpdateDownloadLink = _T("http://tortoisesvn.tigris.org");
+	m_sUpdateDownloadLink = _T("http://tortoisesvn.net");
 }
 
 CCheckForUpdatesDlg::~CCheckForUpdatesDlg()
