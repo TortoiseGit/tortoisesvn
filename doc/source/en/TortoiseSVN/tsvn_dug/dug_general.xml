@@ -141,6 +141,9 @@
 		<indexterm>
 			<primary>authentication</primary>
 		</indexterm>
+		<indexterm>
+			<primary>authentication cache</primary>
+		</indexterm>
 		<para>
 			If the repository that you are trying to access is password protected, an 
 			authentication Dialog will show up.
@@ -156,6 +159,9 @@
 					<para>
 						<filename>svn.simple</filename> contains credentials
 						for basic authentication (username/password).
+						Note that passwords are stored using the WinCrypt API,
+						not in plain text form.
+						form
 					</para>
 				</listitem>
 				<listitem>
@@ -180,6 +186,11 @@
 			directories, as well as any authentication
 			data stored in the registry by earlier versions of TortoiseSVN.
 			Refer to <xref linkend="tsvn-dug-settings-saved-data"/>.
+		</para>
+		<para>
+			If you want to clear authentication for one realm only then you will
+			have to dig into those directories, find the file which contains the
+			information you want to clear and delete the file.
 		</para>
 		<para>
 			Some people like to have the authentication data deleted when they
