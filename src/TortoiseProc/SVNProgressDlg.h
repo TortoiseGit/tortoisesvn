@@ -25,6 +25,7 @@
 #include "Colors.h"
 #include "..\IBugTraqProvider\IBugTraqProvider_h.h"
 #include "Win7.h"
+#include "AeroControls.h"
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
@@ -211,7 +212,6 @@ protected:
 	afx_msg void	OnContextMenu(CWnd* pWnd, CPoint point);
 	afx_msg LRESULT OnSVNProgress(WPARAM wParam, LPARAM lParam);
 	afx_msg void	OnTimer(UINT_PTR nIDEvent);
-	afx_msg void	OnEnSetfocusInfotext();
 	afx_msg void	OnLvnBegindragSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void	OnSize(UINT nType, int cx, int cy);
 	LRESULT			OnShowConflictResolver(WPARAM, LPARAM);
@@ -331,6 +331,7 @@ private:
 
 	CComPtr<IBugTraqProvider> m_BugTraqProvider;
 	CComPtr<ITaskbarList3>	m_pTaskbarList;
+	AeroControlBase			m_aeroControls;
 
 	// some strings different methods can use
 	CString					sIgnoredIncluded;

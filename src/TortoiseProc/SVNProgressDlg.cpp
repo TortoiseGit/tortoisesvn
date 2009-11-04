@@ -128,7 +128,6 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
 	ON_WM_CONTEXTMENU()
 	ON_REGISTERED_MESSAGE(WM_SVNPROGRESS, OnSVNProgress)
 	ON_WM_TIMER()
-	ON_EN_SETFOCUS(IDC_INFOTEXT, &CSVNProgressDlg::OnEnSetfocusInfotext)
 	ON_NOTIFY(LVN_BEGINDRAG, IDC_SVNPROGRESS, &CSVNProgressDlg::OnLvnBegindragSvnprogress)
 	ON_WM_SIZE()
 	ON_NOTIFY(LVN_GETDISPINFO, IDC_SVNPROGRESS, &CSVNProgressDlg::OnLvnGetdispinfoSvnprogress)
@@ -764,6 +763,13 @@ void CSVNProgressDlg::ResizeColumns()
 BOOL CSVNProgressDlg::OnInitDialog()
 {
 	__super::OnInitDialog();
+
+	ExtendFrameIntoClientArea(0, 0, 0, IDC_PROGRESSBAR);
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_INFOTEXT)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_LOGBUTTON)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
 
 	// Let the TaskbarButtonCreated message through the UIPI filter. If we don't
 	// do this, Explorer would be unable to send that message to our window if we
@@ -1825,14 +1831,6 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 	}
 	DialogEnableWindow(IDOK, TRUE);
 	theApp.DoWaitCursor(-1);
-}
-
-void CSVNProgressDlg::OnEnSetfocusInfotext()
-{
-	CString sTemp;
-	GetDlgItemText(IDC_INFOTEXT, sTemp);
-	if (sTemp.IsEmpty())
-		GetDlgItem(IDC_INFOTEXT)->HideCaret();
 }
 
 void CSVNProgressDlg::OnLvnBegindragSvnprogress(NMHDR* pNMHDR, LRESULT *pResult)
