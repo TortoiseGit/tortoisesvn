@@ -23,9 +23,9 @@
 #include "XPTheme.h"
 #include "AppUtils.h"
 
-IMPLEMENT_DYNAMIC(CSetProgsAdvDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CSetProgsAdvDlg, CResizableStandAloneDialog)
 CSetProgsAdvDlg::CSetProgsAdvDlg(const CString& type, CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CSetProgsAdvDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CSetProgsAdvDlg::IDD, pParent)
 	, m_sType(type)
 	, m_regToolKey(_T("Software\\TortoiseSVN\\") + type + _T("Tools"))
 	, m_ToolsValid(false)
@@ -90,7 +90,7 @@ int CSetProgsAdvDlg::SaveData()
 
 void CSetProgsAdvDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_TOOLLISTCTRL, m_ToolListCtrl);
 
 	if (pDX->m_bSaveAndValidate)
@@ -117,7 +117,7 @@ void CSetProgsAdvDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CSetProgsAdvDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CSetProgsAdvDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_ADDTOOL, OnBnClickedAddtool)
 	ON_BN_CLICKED(IDC_REMOVETOOL, OnBnClickedRemovetool)
 	ON_BN_CLICKED(IDC_EDITTOOL, OnBnClickedEdittool)
@@ -129,7 +129,7 @@ END_MESSAGE_MAP()
 
 BOOL CSetProgsAdvDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	ExtendFrameIntoClientArea(0, 0, 0, IDC_GROUP);
 	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
@@ -167,6 +167,16 @@ BOOL CSetProgsAdvDlg::OnInitDialog()
 	LoadData();
 	UpdateData(FALSE);
 	EnableBtns();
+
+	AddAnchor(IDC_GROUP, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_TOOLLISTCTRL, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_ADDTOOL, BOTTOM_LEFT);
+	AddAnchor(IDC_EDITTOOL, BOTTOM_LEFT);
+	AddAnchor(IDC_REMOVETOOL, BOTTOM_LEFT);
+	AddAnchor(IDC_RESTOREDEFAULTS, BOTTOM_LEFT);
+	AddAnchor(IDOK, BOTTOM_RIGHT);
+	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+
 	return TRUE;
 }
 

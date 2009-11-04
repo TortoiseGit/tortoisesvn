@@ -26,7 +26,7 @@
  * \ingroup TortoiseProc
  * Helper dialog to configure the external tools used e.g. for diffing/merging/...
  */
-class CSetProgsAdvDlg : public CStandAloneDialog
+class CSetProgsAdvDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CSetProgsAdvDlg)
 
