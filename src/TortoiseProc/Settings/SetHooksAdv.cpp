@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -59,6 +59,13 @@ BOOL CSetHooksAdv::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	ExtendFrameIntoClientArea(0, 0, 0, IDC_DWM);
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_WAITCHECK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_HIDECHECK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
 	// initialize the combo box with all the hook types we have
 	int index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_STARTCOMMIT)));
 	m_cHookTypeCombo.SetItemData(index, start_commit_hook);
@@ -99,6 +106,7 @@ BOOL CSetHooksAdv::OnInitDialog()
 	AddAnchor(IDC_HOOKCMLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_HOOKCOMMANDLINE, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_HOOKCOMMANDBROWSE, TOP_RIGHT);
+	AddAnchor(IDC_DWM, TOP_RIGHT);
 	AddAnchor(IDC_WAITCHECK, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_HIDECHECK, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);

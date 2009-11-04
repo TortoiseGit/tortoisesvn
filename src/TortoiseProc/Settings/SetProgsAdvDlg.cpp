@@ -23,9 +23,9 @@
 #include "XPTheme.h"
 #include "AppUtils.h"
 
-IMPLEMENT_DYNAMIC(CSetProgsAdvDlg, CDialog)
+IMPLEMENT_DYNAMIC(CSetProgsAdvDlg, CStandAloneDialog)
 CSetProgsAdvDlg::CSetProgsAdvDlg(const CString& type, CWnd* pParent /*=NULL*/)
-	: CDialog(CSetProgsAdvDlg::IDD, pParent)
+	: CStandAloneDialog(CSetProgsAdvDlg::IDD, pParent)
 	, m_sType(type)
 	, m_regToolKey(_T("Software\\TortoiseSVN\\") + type + _T("Tools"))
 	, m_ToolsValid(false)
@@ -90,7 +90,7 @@ int CSetProgsAdvDlg::SaveData()
 
 void CSetProgsAdvDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_TOOLLISTCTRL, m_ToolListCtrl);
 
 	if (pDX->m_bSaveAndValidate)
@@ -117,7 +117,7 @@ void CSetProgsAdvDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CSetProgsAdvDlg, CDialog)
+BEGIN_MESSAGE_MAP(CSetProgsAdvDlg, CStandAloneDialog)
 	ON_BN_CLICKED(IDC_ADDTOOL, OnBnClickedAddtool)
 	ON_BN_CLICKED(IDC_REMOVETOOL, OnBnClickedRemovetool)
 	ON_BN_CLICKED(IDC_EDITTOOL, OnBnClickedEdittool)
@@ -129,7 +129,11 @@ END_MESSAGE_MAP()
 
 BOOL CSetProgsAdvDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CStandAloneDialog::OnInitDialog();
+
+	ExtendFrameIntoClientArea(0, 0, 0, IDC_GROUP);
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
 
 	m_ToolListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
 
