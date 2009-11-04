@@ -42,6 +42,10 @@ protected:
 	{
 		m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 		m_regEnableDWMFrame = CRegDWORD(_T("Software\\TortoiseSVN\\EnableDWMFrame"), TRUE);
+		m_margins.cxLeftWidth = 0;
+		m_margins.cyTopHeight = 0;
+		m_margins.cxRightWidth = 0;
+		m_margins.cyBottomHeight = 0;
 	}
 	virtual BOOL OnInitDialog()
 	{
