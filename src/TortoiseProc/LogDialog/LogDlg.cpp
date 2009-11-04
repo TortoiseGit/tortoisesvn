@@ -270,6 +270,9 @@ BOOL CLogDlg::OnInitDialog()
 	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
 
+	m_pTaskbarList.Release();
+	m_pTaskbarList.CoCreateInstance(CLSID_TaskbarList);
+
 	// use the default GUI font, create a copy of it and
 	// change the copy to BOLD (leave the rest of the font
 	// the same)
@@ -937,6 +940,11 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& messag
     if (m_limit != 0)
 	{
         m_LogProgress.SetPos ((int)m_logEntries.size());
+		if (m_pTaskbarList)
+		{
+			m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NORMAL);
+			m_pTaskbarList->SetProgressValue(m_hWnd, m_logEntries.size(), m_limit);
+		}
 	}
 	else if (m_startrev.IsNumber() && m_endrev.IsNumber())
     {
@@ -945,6 +953,11 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& messag
         {
             m_temprev = rev;
 		    m_LogProgress.SetPos((svn_revnum_t)m_startrev-rev+(svn_revnum_t)m_endrev);
+			if (m_pTaskbarList)
+			{
+				m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NORMAL);
+				m_pTaskbarList->SetProgressValue(m_hWnd, rev, (svn_revnum_t)m_endrev-(svn_revnum_t)m_startrev);
+			}
         }
     }
 
@@ -1091,6 +1104,10 @@ void CLogDlg::LogThread()
     }
 
     m_LogProgress.SetPos(1);
+	if (m_pTaskbarList)
+	{
+		m_pTaskbarList->SetProgressState(m_hWnd, TBPF_INDETERMINATE);
+	}
     if (m_limit != 0)
 	    m_LogProgress.SetRange32(0, m_limit);
     else
@@ -1129,6 +1146,10 @@ void CLogDlg::LogThread()
 		temp.LoadString(IDS_LOG_CLEARERROR);
 		m_LogList.ShowText(GetLastErrorMessage() + _T("\n\n") + temp, true);
 		FillLogMessageCtrl(false);
+		if (m_pTaskbarList)
+		{
+			m_pTaskbarList->SetProgressState(m_hWnd, TBPF_ERROR);
+		}
 	}
 
 	if (   m_bStrict 
@@ -1163,6 +1184,10 @@ void CLogDlg::LogThread()
 	SetDlgTitle(cachedProperties.IsOffline (m_sUUID, m_sRepositoryRoot, false));
 
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
+	if (m_pTaskbarList)
+	{
+		m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NOPROGRESS);
+	}
 	m_bCancelled = true;
 	InterlockedExchange(&m_bLogThreadRunning, FALSE);
 	if ( m_pStoreSelection == NULL )
@@ -1712,6 +1737,10 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	{
 		m_LogList.ClearText();
         FillLogMessageCtrl();
+		if (m_pTaskbarList)
+		{
+			m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NOPROGRESS);
+		}
 		return;
 	}
 	if (CRegDWORD(_T("Software\\TortoiseSVN\\DiffByDoubleClickInLog"), FALSE))

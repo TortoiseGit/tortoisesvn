@@ -47,6 +47,8 @@ using namespace async;
 CFullHistory::CFullHistory(void) 
     : cancelled (false)
     , progress (NULL)
+	, taskbarlist (NULL)
+	, hwnd (NULL)
     , headRevision ((revision_t)NO_REVISION)
     , pegRevision ((revision_t)NO_REVISION)
     , firstRevision ((revision_t)NO_REVISION)
@@ -174,10 +176,15 @@ void CFullHistory::ReceiveLog ( TChangedPaths* changes
 		    progress->SetLine(1, text);
 		    progress->SetLine(2, text2);
 		    progress->SetProgress (headRevision - rev, revisionCount);
+			if (taskbarlist)
+			{
+				taskbarlist->SetProgressState(hwnd, TBPF_NORMAL);
+				taskbarlist->SetProgressValue(hwnd, headRevision - rev, revisionCount);
+			}
             if (!progress->IsVisible())
-    	        progress->ShowModeless ((CWnd*)NULL);
+    	        progress->ShowModeless (hwnd);
 
-		    if (progress->HasUserCancelled())
+			if (progress->HasUserCancelled())
 		    {
 			    cancelled = true;
 			    throw SVNError (cancel (this));
@@ -190,7 +197,9 @@ bool CFullHistory::FetchRevisionData ( CString path
                                      , SVNRev pegRev
                                      , bool showWCRev
                                      , bool showWCModification
-                                     , CProgressDlg* progress)
+                                     , CProgressDlg* progress
+									 , ITaskbarList3 * pTaskBarList
+									 , HWND hWnd)
 {
     // clear any previously existing SVN error info
 
@@ -204,6 +213,8 @@ bool CFullHistory::FetchRevisionData ( CString path
 	// set some text on the progress dialog, before we wait
 	// for the log operation to start
     this->progress = progress;
+	this->taskbarlist = pTaskBarList;
+	this->hwnd = hWnd;
 
 	CString temp;
 	temp.LoadString (IDS_REVGRAPH_PROGGETREVS);
@@ -212,7 +223,11 @@ bool CFullHistory::FetchRevisionData ( CString path
     temp.LoadString (IDS_REVGRAPH_PROGPREPARING);
     progress->SetLine(2, temp);
     progress->SetProgress(0, 1);
-    progress->ShowModeless ((CWnd*)NULL);
+    progress->ShowModeless (hWnd);
+	if (taskbarlist)
+	{
+		taskbarlist->SetProgressState(hwnd, TBPF_INDETERMINATE);
+	}
 
 	// prepare the path for Subversion
     CTSVNPath svnPath (path);

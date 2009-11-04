@@ -115,7 +115,9 @@ public:
 
     bool            FetchRevisionData ( const CString& path
                                       , SVNRev pegRevision
-                                      , CProgressDlg* progress);
+                                      , CProgressDlg* progress
+									  , ITaskbarList3* pTaskbarList
+									  , HWND hWnd);
     bool            AnalyzeRevisionData();
     bool            IsUpdateJobRunning() const;
 

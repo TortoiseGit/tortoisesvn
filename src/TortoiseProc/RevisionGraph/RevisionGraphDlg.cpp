@@ -221,6 +221,9 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	if (InitializeToolbar() != TRUE)
 		return FALSE;
 
+	m_pTaskbarList.Release();
+	m_pTaskbarList.CoCreateInstance(CLSID_TaskbarList);
+
     CSyncPointer<CAllRevisionGraphOptions> 
         options (m_Graph.m_state.GetOptions());
 
@@ -264,18 +267,27 @@ bool CRevisionGraphDlg::UpdateData()
 	    progress.SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
 	    progress.SetTime();
 	    progress.SetProgress(0, 100);
+		if (m_pTaskbarList)
+		{
+			m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NORMAL);
+			m_pTaskbarList->SetProgressValue(m_hWnd, 0, 100);
+		}
 
         svn_revnum_t pegRev = m_Graph.m_pegRev.IsNumber()
                             ? (svn_revnum_t)m_Graph.m_pegRev
                             : (svn_revnum_t)-1;
 
-	    if (!m_Graph.FetchRevisionData (m_Graph.m_sPath, pegRev, &progress))
+	    if (!m_Graph.FetchRevisionData (m_Graph.m_sPath, pegRev, &progress, m_pTaskbarList, m_hWnd))
 		    CMessageBox::Show ( m_hWnd
                               , m_Graph.m_state.GetLastErrorMessage()
                               , _T("TortoiseSVN")
                               , MB_ICONERROR);
 
         progress.Stop();
+		if (m_pTaskbarList)
+		{
+			m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NOPROGRESS);
+		}
 
     	m_bFetchLogs = false;	// we've got the logs, no need to fetch them a second time
     }

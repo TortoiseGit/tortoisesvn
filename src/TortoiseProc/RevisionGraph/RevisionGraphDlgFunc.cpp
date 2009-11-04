@@ -192,7 +192,9 @@ int CRevisionGraphWnd::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
 bool CRevisionGraphWnd::FetchRevisionData 
     ( const CString& path
     , SVNRev pegRevision
-    , CProgressDlg* progress)
+    , CProgressDlg* progress
+	, ITaskbarList3 * pTaskbarList
+	, HWND hWnd)
 {
     // (re-)fetch the data
 
@@ -206,7 +208,9 @@ bool CRevisionGraphWnd::FetchRevisionData
                                                     , pegRevision
                                                     , showWCRev
                                                     , showWCModification
-                                                    , progress);
+                                                    , progress
+													, pTaskbarList
+													, hWnd);
 
     m_state.SetLastErrorMessage (newFullHistory->GetLastErrorMessage());
 

@@ -34,6 +34,7 @@
 #include "HintListCtrl.h"
 #include "JobScheduler.h"
 #include "AeroControls.h"
+#include "Win7.h"
 
 using namespace std;
 
@@ -281,6 +282,8 @@ private:
 
 	CStoreSelection*	m_pStoreSelection;
     CLogDataVector		m_logEntries;
+
+	CComPtr<ITaskbarList3>	m_pTaskbarList;
 
 	CXPTheme			theme;
 	AeroControlBase		m_aeroControls;
