@@ -98,11 +98,14 @@ LRESULT AeroControlBase::StaticWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
 {
 	switch (uMsg)
 	{
-	case WM_ENABLE:
-		InvalidateRgn(hWnd, NULL, FALSE);
-		break;
 	case WM_SETTEXT:
-		InvalidateRgn(hWnd, NULL, FALSE);
+	case WM_ENABLE:
+	case WM_STYLECHANGED:
+		{
+			LRESULT res = DefSubclassProc(hWnd, uMsg, wParam, lParam);
+			InvalidateRgn(hWnd, NULL, FALSE);
+			return res;
+		}
 		break;
 	case WM_PAINT:
 		{
@@ -308,7 +311,11 @@ LRESULT AeroControlBase::ButtonWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
 	case WM_SETTEXT:
 	case WM_ENABLE:
 	case WM_STYLECHANGED:
-		InvalidateRgn(hWnd, NULL, FALSE);
+		{
+			LRESULT res = DefSubclassProc(hWnd, uMsg, wParam, lParam);
+			InvalidateRgn(hWnd, NULL, FALSE);
+			return res;
+		}
 		break;
 	case WM_PAINT:
 		{
