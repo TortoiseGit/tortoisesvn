@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-10-21 19:07 +0000\n"
-"PO-Revision-Date: 2009-10-27 23:18+0200\n"
+"POT-Creation-Date: 2009-11-04 09:10 +0000\n"
+"PO-Revision-Date: 2009-11-05 01:27+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2810,13 +2810,17 @@ msgstr "Joillakin tavallisilla toiminnoilla on vakiintuneet Windows-pikanäppäi
 msgid "authentication"
 msgstr "tunnistus"
 
+#. (primary)
+msgid "authentication cache"
+msgstr "tunnistusvälimuisti"
+
 #. (title)
 msgid "Authentication Dialog"
 msgstr "Tunnistusikkuna"
 
 #. (para)
-msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password)."
-msgstr "<filename>svn.simple</filename> sisältää tiedot perustunnistukseen (käyttäjätunnus/salasana)."
+msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password). Note that passwords are stored using the WinCrypt API, not in plain text form."
+msgstr "<filename>svn.simple</filename> sisältää tiedot perustunnistukseen (käyttäjätunnus/salasana). Huomaa, että salasanat talletetaan WinCrypt-APIn avulla, ei pelkkänä tekstinä."
 
 #. (para)
 msgid "<filename>svn.ssl.server</filename> contains SSL server certificates."
@@ -2833,6 +2837,10 @@ msgstr "Mikäli arkisto käyttää salasanasuojausta, esiin aukeaa tunnistusikku
 #. (para)
 msgid "If you want to clear the authentication cache for all servers, you can do so from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings dialog. That button will clear all cached authentication data from the Subversion <filename>auth</filename> directories, as well as any authentication data stored in the registry by earlier versions of TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
 msgstr "Mikäli haluat tyhjentää talletetut tunnistetiedot <emphasis>kaikille</emphasis> palvelimille, voit tehdä sen TortoiseSVN:n asetusikkunan <guilabel>Tallennetut tiedot</guilabel> -sivulla. Painike tyhjentää kaikki talletetut tunnistetiedot Subversionin <filename>auth</filename>-hakemistoista, samoin kuin TortoiseSVN:n aiempien versioiden rekisteriin tallettamat tunnistetiedot. Katso myös <xref linkend=\"tsvn-dug-settings-main\"/>."
+
+#. (para)
+msgid "If you want to clear authentication for one realm only then you will have to dig into those directories, find the file which contains the information you want to clear and delete the file."
+msgstr "Jos haluat tyhjentää tallennetut tunnistetiedot vain yhdelle kohteelle, joudut etsimään tyhjennettävät tiedot sisältävän tiedoston itse ja poistamaan sen käsin."
 
 #. (para)
 msgid ""
@@ -2886,8 +2894,8 @@ msgid "temporary files"
 msgstr "väliaikaiset tiedostot"
 
 #. (para)
-msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If are importing data into a new repository then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
-msgstr "Jos olet tuomassa projektia arkistoon, joka sisältää jo projekteja, on kansiorakenne jo kiinnitetty. Jos sen sijaan olet tuomassa projektia uuteen arkistoon, kannattaa miettiä hetki arkiston rakenteen organisointia. Luku <xref linkend=\"tsvn-repository-layout\"/> käsittelee asiaa tarkemmin."
+msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If you are importing data into a new repository, then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
+msgstr "Jos olet tuomassa uutta projektia arkistoon, joka sisältää olemassa olevia projekteja, on kansiorakenne jo kiinnitetty. Jos sen sijaan olet tuomassa projektia uuteen arkistoon, kannattaa miettiä hetki arkiston rakenteen organisointia. Luku <xref linkend=\"tsvn-repository-layout\"/> käsittelee asiaa tarkemmin."
 
 #. (para)
 msgid "There is no way to select files and folders to include, aside from using the global ignore settings."

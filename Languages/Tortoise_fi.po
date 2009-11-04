@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-27 23:18+0200\n"
+"PO-Revision-Date: 2009-11-05 01:23+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2526,6 +2526,11 @@ msgstr "Toimitukset tekijän mukaan"
 msgid "Commits by date"
 msgstr "Toimitukset päiväyksen mukaan"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "Commits each %s"
+msgstr "Toimituksia / %s"
+
 #. Resource IDs: (1135)
 msgid "Commits each week:"
 msgstr "Toimitukset per viikko:"
@@ -2675,6 +2680,10 @@ msgstr "Kopioitu"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "Kopioitu paikantimesta"
+
+#. Resource IDs: (208)
+msgid "Copied from revision"
+msgstr "Kopioitu versiosta"
 
 #. Resource IDs: (275)
 #, c-format
@@ -3902,6 +3911,11 @@ msgstr "Haetaan versio %s tiedostosta:"
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr "Tiedosto"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "File changes each %s"
+msgstr "Tiedostomuutoksia / %s"
 
 #. Resource IDs: (1138)
 msgid "File changes each week:"
@@ -5859,6 +5873,11 @@ msgstr "Huomaa: kirjasinasetukset vaikuttavat myös TortoiseUDiff-ohjelmaan"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Huomautus"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "Number of %s"
+msgstr "%slukumäärä"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
@@ -9312,6 +9331,10 @@ msgstr ""
 "Käytä '*' jokerimerkkinä poikkeuksia määriteltäessä.\r\n"
 "Erota poikkeukset pilkuin (',').\r\n"
 "Esimerkki: *.mylan.com, *.company.com"
+
+#. Resource IDs: (1538)
+msgid "Use Aero dialogs"
+msgstr "Käytä Aero-ikkunoita"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
