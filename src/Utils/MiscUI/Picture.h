@@ -191,6 +191,7 @@ private:
 	bool				bHaveGDIPlus;
 	InterpolationMode	m_ip;
 	bool				bIsIcon;
+	bool				bIsTiff;
 	UINT				nCurrentIcon;
 	BYTE *				lpIcons;
 	HICON *				hIcons;

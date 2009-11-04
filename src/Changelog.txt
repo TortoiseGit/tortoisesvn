@@ -65,6 +65,8 @@ Version 1.6.7
 - BUG: Memory leak in SubWCRevCOM. (Stefan)
 - BUG: The copy-from url in the Check-for-modifications Dialog
        was wrong for single files. (Stefan)
+- BUG: TortoiseIDiff didn't handel multi-page tiff images
+       properly and could even crash. (Stefan)
 
 Version 1.6.6
 - CHG: Reduced disk access in the status cache. (Stefan)

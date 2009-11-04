@@ -41,6 +41,7 @@ CPicture::CPicture()
 	lpIcons = NULL;
 	nCurrentIcon = 0;
 	bIsIcon = false;
+	bIsTiff = false;
 	m_nSize = 0;
 	m_ColorDepth = 0;
 }
@@ -162,6 +163,7 @@ bool CPicture::Load(tstring sFilePathName)
 		// file extension for ".ico".
 		std::transform(sFilePathName.begin(), sFilePathName.end(), sFilePathName.begin(), ::tolower);
 		bIsIcon = (guid == ImageFormatIcon) || (_tcsstr(sFilePathName.c_str(), _T(".ico")) != NULL);
+		bIsTiff = (guid == ImageFormatTIFF) || (_tcsstr(sFilePathName.c_str(), _T(".tiff")) != NULL);
 
 		if (bIsIcon)
 		{
@@ -606,6 +608,8 @@ long CPicture::SetActiveFrame(UINT frame)
 		return 0;
 
 	GUID pageGuid = FrameDimensionTime;
+	if (bIsTiff)
+		pageGuid = FrameDimensionPage;
 	pBitmap->SelectActiveFrame(&pageGuid, frame);
 
 	// Assume that the image has a property item of type PropertyItemEquipMake.
@@ -615,14 +619,18 @@ long CPicture::SetActiveFrame(UINT frame)
 	// Allocate a buffer to receive the property item.
 	PropertyItem* pPropertyItem = (PropertyItem*) malloc(nSize);
 
-	pBitmap->GetPropertyItem(PropertyTagFrameDelay, nSize, pPropertyItem);
+	Status s = pBitmap->GetPropertyItem(PropertyTagFrameDelay, nSize, pPropertyItem);
 
 	UINT prevframe = frame;
 	prevframe--;
 	if (prevframe < 0)
 		prevframe = 0;
-	long delay = ((long*)pPropertyItem->value)[prevframe] * 10;
-	free(pPropertyItem);
+	long delay = 0;
+	if (s == Ok)
+	{
+		delay = ((long*)pPropertyItem->value)[prevframe] * 10;
+		free(pPropertyItem);
+	}
 	m_Height = GetHeight();
 	m_Width = GetWidth();
 	return delay;
