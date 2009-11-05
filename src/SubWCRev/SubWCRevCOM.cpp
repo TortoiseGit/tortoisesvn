@@ -79,7 +79,7 @@ void AutomationMain()
 	svn_client_ctx_t ctx;
 
 	apr_initialize();
-	svn_dso_initialize();
+	svn_dso_initialize2();
 	apr_pool_create_ex (&pool, NULL, NULL, NULL);
 	memset (&ctx, 0, sizeof (ctx));
 
@@ -109,6 +109,7 @@ void AutomationMain()
 	// unregister from the known table of class objects
 	CoEXEUninitialize(nToken);
 
+	apr_pool_destroy(pool);
 	apr_terminate2();
 
 	// 
@@ -170,7 +171,8 @@ ULONG __stdcall SubWCRev::Release()
 	if (InterlockedDecrement(&m_cRef) == 0)
 	{
 		delete this ;
-		::PostMessage(NULL,WM_QUIT,0,0);
+		if (g_cComponents == 0)
+			::PostMessage(NULL,WM_QUIT,0,0);
 		return 0 ;
 	}
 	return m_cRef ;
@@ -216,6 +218,7 @@ HRESULT __stdcall SubWCRev::GetWCInfo(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL
 	if (svnerr)
 	{
 		hr = S_FALSE;
+		svn_error_clear(svnerr);
 	}
 	apr_pool_destroy(pool);
 	return hr;
