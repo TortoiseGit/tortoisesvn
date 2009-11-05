@@ -13,8 +13,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"POT-Creation-Date: 2009-10-21 19:07 +0000\n"
-"PO-Revision-Date: 2009-11-03 16:35+0100\n"
+"POT-Creation-Date: 2009-11-04 09:10 +0000\n"
+"PO-Revision-Date: 2009-11-05 11:23+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2812,13 +2812,17 @@ msgstr "Enkele veel gebruikte acties hebben de welke bekende Windows sneltoets c
 msgid "authentication"
 msgstr "authenticatie"
 
+#. (primary)
+msgid "authentication cache"
+msgstr "authenticatie cache"
+
 #. (title)
 msgid "Authentication Dialog"
 msgstr "Authenticatie dialoog"
 
 #. (para)
-msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password)."
-msgstr "<filename>svn.simple</filename> bevat inloggegevens voor basis authenticatie (gebruikersnaam/wachtwoord)."
+msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password). Note that passwords are stored using the WinCrypt API, not in plain text form."
+msgstr "<filename>svn.simple</filename> bevat inloggegevens voor basis authenticatie (gebruikersnaam/wachtwoord). Merk op dat wachtwoorden worden opgeslagen met WinCrypt API encryptie, niet als platte tekst."
 
 #. (para)
 msgid "<filename>svn.ssl.server</filename> contains SSL server certificates."
@@ -2835,6 +2839,10 @@ msgstr "Als je een archief met wachtwoordbeveiliging probeert te bereiken, dan k
 #. (para)
 msgid "If you want to clear the authentication cache for all servers, you can do so from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings dialog. That button will clear all cached authentication data from the Subversion <filename>auth</filename> directories, as well as any authentication data stored in the registry by earlier versions of TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
 msgstr "Als je de authenticatie cache voor alle servers wilt wissen, ga dan naar de<guilabel>Opgeslagen Gegevens</guilabel> sectie van het Instellingen venster van TortoiseSVN. Met de “Wissen” knop bij de optie “Authenticatie gegevens” kun je alle opgeslagen gegevens uit de <filename>auth</filename> mappen wissen, alsook de gegevens opgeslagen in het register door oudere TortoiseSVN versies. Lees ook <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
+
+#. (para)
+msgid "If you want to clear authentication for one realm only then you will have to dig into those directories, find the file which contains the information you want to clear and delete the file."
+msgstr "Als je de authenticatie voor maar één gebruiker wilt wissen, dan moet je in die mappen duiken. Het bestand vinden met de informatie die je wilt wissen en het bestand verwijderen."
 
 #. (para)
 msgid ""
@@ -2900,8 +2908,8 @@ msgid "temporary files"
 msgstr "tijdelijke bestanden"
 
 #. (para)
-msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If are importing data into a new repository then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
-msgstr "Als je data importeert in een bestaand archief waarin al enkele project aanwezig zijn, dan is de structuur van het archief al vastgesteld. Als je gegevens importeert in een nieuw archief, dan is het de moeite waard om even goed na te denken over de structuur van het archief. Lees <xref linkend=\"tsvn-repository-layout\"/> voor advies hierover."
+msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If you are importing data into a new repository, then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
+msgstr "Als je data importeert in een bestaand archief waarin al enkele projecten aanwezig zijn, dan is de structuur van het archief al vastgesteld. Als je gegevens importeert in een nieuw archief, dan is het de moeite waard om even goed na te denken over de structuur van het archief. Lees <xref linkend=\"tsvn-repository-layout\"/> voor advies hierover."
 
 #. (para)
 msgid "There is no way to select files and folders to include, aside from using the global ignore settings."
@@ -2917,19 +2925,19 @@ msgstr "Het importeren vanaf een verkeerd mapniveau gaat erg makkelijk."
 
 #. (para)
 msgid "This section describes the Subversion import command, which was designed for importing a directory hierarchy into the repository in one shot. Although it does the job, it has several shortcomings: <placeholder-1/> For these reasons we recommend that you do not use the import command at all but rather follow the two-step method described in <xref linkend=\"tsvn-dug-import-in-place\"/>. But since you are here, this is how the basic import works ..."
-msgstr ""
+msgstr "Deze sectie beschrijft het Subversion Importeren commando, welke ontwikkeld is voor het importeren van een complete mapstructuur in een archief in één keer. De functie heeft echter wel wat tekortkomingen: <placeholder-1/>Vanwege deze redenen adviseren wij het importeer commando niet te gebruiken. In plaats daarvan is het beter om een twee-staps methode te gebruiken die beschreven is in <xref linkend=\"tsvn-dug-import-in-place\"/>. Maar omdat je dit toch leest, volgt hier een korte beschrijving hoe de importeer functie werkt..."
 
 #. (para)
 msgid "Remove all files which are not needed to build the project (temporary files, files which are generated by a compiler e.g. *.obj, compiled binaries, ...)"
-msgstr ""
+msgstr "Alle bestanden verwijderen die niet nodig zijn om het project te bouwen (tijdelijke bestanden, bestanden die door een compiler gemaakt worden bijv. *.obj, gecompileerde binaire bestanden,...)"
 
 #. (para)
 msgid "Organize the files in folders and sub-folders. Although it is possible to rename/move files later it is highly recommended to get your project's structure straight before importing!"
-msgstr ""
+msgstr "De bestanden in mappen en sub-mappen sorteren. Ondanks dat het mogelijk is om bestanden te hernoemen of verplaatsen, is het verstandig om je projectstructuur in één keer goed te hebben voordat je importeert."
 
 #. (para)
 msgid "Before you import your project into a repository you should: <placeholder-1/>"
-msgstr ""
+msgstr "Voordat je je project in het archief importeert, moet je:<placeholder-1/>"
 
 #. (title)
 msgid "The Import dialog"
@@ -2937,7 +2945,7 @@ msgstr "Het invoer venster"
 
 #. (para)
 msgid "Now select the top-level folder of your project directory structure in the windows explorer and <action>right click</action> to open the context menu. Select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> which brings up a dialog box: <placeholder-1/>"
-msgstr ""
+msgstr "Selecteer nu in de Windows verkenner de hoofdmap van je project mapstructuur en <action>klik met rechts</action> om het context menu te openen. Selecteer <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Importeren...</guimenuitem></menuchoice> waardoor dit venster wordt geopend: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -3105,6 +3113,11 @@ msgstr ""
 #. (para)
 msgid "In the check for modifications dialog, first click on the button <guibutton>Check repository</guibutton>. The dialog will show all the files and folders which are in the repository but which you have not checked out as <literal>remotely added</literal>. <action>Right click</action> on the folder(s) you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
 msgstr ""
+"In dit venster moet je de URL van het archief opgeven, waarin je je project wilt importeren. Het is belangrijk om je te realiseren dat de map zelf die je geselecteerd hebt, niet in het archief verschijnt, alleen de inhoud daarvan. Bijvoorbeeld heb je de volgende structuur: <screen>\n"
+"C:\\Projects\\Widget\\source\n"
+"C:\\Projects\\Widget\\doc\n"
+"C:\\Projects\\Widget\\images\n"
+"</screen> and je wilt filename>C:\\Projects\\Widget</filename> importeren in <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem>, dan zul je verrast worden dat je de submappen direct in je <literal>trunk</literal> ziet terechtkomen in plaats van in een <literal>Widget</literal> submap. Je moet de submap als onderdeel van de URL meegeven, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Merk op dat het importeren commando automatisch de mappen aan zal maken in het archief als deze niet bestaan."
 
 #. (para)
 msgid "This feature is very useful when you only want to checkout parts of a large tree, but you want the convenience of updating a single working copy. Suppose you have a large tree which has sub-folders <literal>Project01</literal> to <literal>Project99</literal>, and you only want to checkout <literal>Project03</literal>, <literal>Project25</literal> and <literal>Project76/SubProj</literal>. Use these steps:"
