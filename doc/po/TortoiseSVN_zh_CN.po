@@ -2718,7 +2718,7 @@ msgid ""
 msgstr ""
 "如果你使用公共的主机服务，例如 <ulink url=\"http://code.google.com/hosting/"
 "\"><citetitle>Google Code</citetitle></ulink>，或者已经有人为你架设好了服务"
-"器，那么在这里你也不用做什么。前进到  <xref linkend=\"tsvn-dug\"/> 。"
+"器，那么在这里你不用做什么。前进到  <xref linkend=\"tsvn-dug\"/> 。"
 
 #. (para)
 #, fuzzy
@@ -4976,18 +4976,17 @@ msgstr ""
 
 #. (para)
 msgid "<filename>svn.ssl.server</filename> contains SSL server certificates."
-msgstr "<filename>svn.ssl.server</filename>文件里包含了SSL服务器证书。"
+msgstr "<filename>svn.ssl.server</filename> 里包含了SSL服务器证书。"
 
 #. (para)
 msgid ""
 "<filename>svn.username</filename> contains credentials for username-only "
 "authentication (no password needed)."
 msgstr ""
-"<filename>svn.username</filename>文件里包含了用户名认证的认证信息(不需要提供密"
+"<filename>svn.username</filename> 里包含了用户名认证的认证信息(不需要提供密"
 "码)。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "If the repository that you are trying to access is password protected, an "
 "authentication Dialog will show up. <placeholder-1/> Enter your username and "
@@ -4996,11 +4995,8 @@ msgid ""
 "filename> in three subdirectories: <placeholder-2/>"
 msgstr ""
 "如果连接的版本库需要口令，就会显示认证对话框。<placeholder-1/> 输入你的用户名"
-"和口令。其检查框能让 TortoiseSVN 在 Subversion的 缺省目录：<filename>%APPDATA%"
-"\\Subversion\\auth</filename> 的三个子目录内保存认证信息：<placeholder-2/> 每"
-"个文件对应一个服务器，文件是纯文本格式，因此可以用文本编辑器查看文件是对应哪个"
-"服务器。如果希望 Subversion 和 TortoiseSVN(或者其它 Subversion 客户端) 忘记某"
-"个服务器的凭证信息，只需删除这个服务器的对应文件即可。"
+"和口令。复选框能让 TortoiseSVN 在 Subversion 的缺省目录: <filename>%APPDATA%"
+"\\Subversion\\auth</filename> 的三个子目录内保存认证信息:<placeholder-2/>"
 
 #. (para)
 #, fuzzy
@@ -5121,7 +5117,7 @@ msgstr "不能选择包括哪些文件或文件夹，除非使用全局忽略设
 msgid ""
 "The folder imported does not become a working copy. You have to do a checkout "
 "to copy the files back from the server."
-msgstr "导入的文件夹不能变成工作拷贝。你必须通过签出操作从服务器拿回文件。"
+msgstr "导入的文件夹不能变成工作副本。你必须通过签出操作从服务器拿回文件。"
 
 #. (para)
 #, fuzzy
@@ -5450,7 +5446,7 @@ msgstr ""
 
 #. (term)
 msgid "Exclude"
-msgstr ""
+msgstr "排除"
 
 #. (para)
 msgid ""
@@ -5458,6 +5454,8 @@ msgid ""
 "This option is only available in the <guilabel>Update to revision</guilabel> "
 "dialog."
 msgstr ""
+"对于已经创建好的工作副本，可以使用此选项来缩减文件夹的深度。这个选项只在"
+"<guilabel>更新至版本</guilabel>对话框中可用。"
 
 #. (para)
 msgid ""
@@ -5478,6 +5476,9 @@ msgid ""
 "\"tsvn-dug-repobrowser\"/>) or the check for modifications dialog (<xref "
 "linkend=\"tsvn-dug-wcstatus-2\"/>)."
 msgstr ""
+"如果你检出了一个稀疏的工作副本(例如，在签出时选择的签出深度不是<literal>全递归"
+"</literal>)，你可以使用版本库浏览器(<xref linkend=\"tsvn-dug-repobrowser\"/>)"
+"或检查修改对话框(<xref linkend=\"tsvn-dug-wcstatus-2\"/>)来获得其它子文件夹。"
 
 #. (para)
 #, fuzzy
@@ -5507,8 +5508,13 @@ msgid ""
 "<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update</guimenuitem></"
 "menuchoice>."
 msgstr ""
+"在检查修改对话框中，首先点击<guibutton>检查版本库</guibutton>按钮。对话框会将"
+"你未检出，但是位于版本库中的文件和文件夹显示为<literal>远程加入</literal>。"
+"<action>右键单击</action>你需要加入工作副本的文件夹，选择<menuchoice><guimenu>"
+"右键菜单</guimenu><guimenuitem>更新</guimenuitem></menuchoice>。"
 
 #. (para)
+#, fuzzy
 msgid ""
 "This feature is very useful when you only want to checkout parts of a large "
 "tree, but you want the convenience of updating a single working copy. Suppose "
@@ -5517,12 +5523,19 @@ msgid ""
 "<literal>Project03</literal>, <literal>Project25</literal> and "
 "<literal>Project76/SubProj</literal>. Use these steps:"
 msgstr ""
+"当你想要检出一个很大的目录结构中的一部分时这个功能非常有用，你可以利用更新单独"
+"的工作副本这一便利方法。假设有一个很大的目录结构，它包含有子文件夹 "
+"<literal>Project01</literal> 到 <literal>Project99</literal>，你只想检出 "
+"<literal>Project03</literal>，<literal>Project25</literal> 和 "
+"<literal>Project76/SubProj</literal>。按下面的步骤操作:"
 
 #. (para)
 msgid ""
 "Checkout the parent folder with depth <quote>Only this item</quote> You now "
 "have an empty top level folder."
 msgstr ""
+"检出父文件夹时检出深度使用<quote>仅此项</quote>。现在，你获得一个空的顶级文件"
+"夹。"
 
 #. (para)
 #, fuzzy
@@ -5531,8 +5544,8 @@ msgid ""
 "guimenu><guimenuitem>Repo browser</guimenuitem></menuchoice> to display the "
 "repository content."
 msgstr ""
-"为了验证svnserve正常工作，使用<menuchoice><guimenu>TortoiseSVN</"
-"guimenu><guimenuitem>版本库浏览器</guimenuitem></menuchoice>来查看版本库。"
+"选择新的文件夹，并使用 <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>"
+"版本库浏览器</guimenuitem></menuchoice>来显示版本库的内容。"
 
 #. (para)
 msgid ""
@@ -5541,10 +5554,13 @@ msgid ""
 "menuchoice>. Keep the default settings and click on <guibutton>OK</"
 "guibutton>. You now have that folder fully populated."
 msgstr ""
+"右键单击 <literal>Project03</literal> 然后选择<menuchoice><guimenu>右键菜单</"
+"guimenu><guimenuitem>更新项目至版本...</guimenuitem></menuchoice>。保持默认设"
+"置并单击 <guibutton>确定</guibutton>。现在这个文件夹就位于你的工作副本中了。"
 
 #. (para)
 msgid "Repeat the same process for <literal>Project25</literal>."
-msgstr ""
+msgstr "为 <literal>Project25</literal> 重复相同的操作。"
 
 #. (para)
 msgid ""
@@ -5553,22 +5569,24 @@ msgid ""
 "<literal>SubProj</literal>, which itself is fully populated. Subversion has "
 "created the intermediate folders for you without populating them."
 msgstr ""
+"定位至 <literal>Project76/SubProj</literal> 并且进行相同的操作。这次需要注意，"
+"<literal>Project76</literal> 文件夹中除了新增的 <literal>SubProj</literal> 没"
+"有其它内容。Subversion 创建了相关的文件夹并没有拿出其全部内容。"
 
 #. (title)
-#, fuzzy
 msgid "Changing working copy depth"
-msgstr "重新定位工作副本"
+msgstr "改变工作副本深度"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Once you have checked out a working copy to a particular depth you can change "
 "that depth later to get more or less content using "
 "<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>."
 msgstr ""
-"你也可以使用 <menuchoice><guimenu>编辑</guimenu><guimenuitem>转到行 ...</"
-"guimenuitem></menuchoice> 来跳到指定行。"
+"一旦你检出一个特定深度的工作副本，你可以使用<menuchoice><guimenu>右键菜单</"
+"guimenu><guimenuitem>更新项目至版本...</guimenuitem></menuchoice>更改深度获得"
+"更多和更少的内容。"
 
 #. (title)
 msgid "Using an older server"
@@ -5582,6 +5600,9 @@ msgid ""
 "what is not required, which may mean a lot of network traffic. If possible "
 "you should upgrade your server to 1.5."
 msgstr ""
+"1.5 版之前的服务器不支持设置工作副本深度的请求，所以它们不能有效的处理请求。不"
+"过该命令仍然可以工作，但是旧版的服务器会发送全部数据，由客户端过滤掉不需要的内"
+"容，这意味着会产生很多的网络数据流量。如果可能，应该升级服务器到 1.5 版"
 
 #. (para)
 msgid ""
@@ -5895,10 +5916,12 @@ msgid ""
 "grouping related files together. Find out about this feature in <xref linkend="
 "\"tsvn-dug-changelists\"/>."
 msgstr ""
+"提交对话框支持 Subversion 的更改列表功能来分组相关的文件。关于这个功能，请查看"
+"<xref linkend=\"tsvn-dug-changelists\"/>。"
 
 #. (title)
 msgid "Excluding Items from the Commit List"
-msgstr ""
+msgstr "从提交列表中排除项目"
 
 #. (para)
 msgid ""
@@ -5910,6 +5933,11 @@ msgid ""
 "be versioned as it includes all the build settings, but it doesn't need to be "
 "committed just because the timestamp changed."
 msgstr ""
+"有时，你经常更改一些版本控制的文件但你却不打算提交它们。这有可能说明你的构建过"
+"程中存在瑕疵 - 那些文件为什么是版本控制的？应该使用模版文件吗？但可能这是无法"
+"避免的。一个经典的原因是当你每次构建的时候，集成开发环境(IDE)更改了项目文件的"
+"时间戳。项目文件是版本控制的，因为它包含全部的构建设置。但是，仅仅因为时间戳更"
+"改了的情况下，你并不需要提交它。"
 
 #. (para)
 msgid ""
@@ -5918,6 +5946,9 @@ msgid ""
 "automatically be unchecked in the commit dialog. You can still commit "
 "changes, but you have to select it manually in the commit dialog."
 msgstr ""
+"为了解决这样一个棘手的问题，我们准备了一个名叫 <literal>ignore-on-commit</"
+"literal> 的更改列表。任何一个被添加到这个列表的文件在提交对话框中将不会自动选"
+"中。你仍然可以提交此文件的更改，不过你需要在提交对话框中手动选中它。"
 
 #. (title)
 msgid "Commit Log Messages"
@@ -6001,6 +6032,8 @@ msgid ""
 "messages you entered for this working copy. The number of stored messages can "
 "be customized in the TortoiseSVN settings dialog."
 msgstr ""
+"你可以重复使用先前键入的日志信息。只需要点击<guibutton>最近信息</guibutton>即"
+"可查看你为此工作副本键入的最近几条信息。"
 
 #. (para)
 msgid ""
@@ -6009,6 +6042,9 @@ msgid ""
 "messages from within the <guilabel>Recent messages</guilabel> dialog using "
 "the <keycap>Delete</keycap> key."
 msgstr ""
+"你可以从 TortoiseSVN 的设置窗口的<guilabel>已保存数据</guilabel>页中清除所有的"
+"保存消息，或者你可以在<guilabel>最近信息</guilabel>对话框中使用 "
+"<keycap>Delete</keycap> 键单独删除某条消息。"
 
 #. (para)
 #, fuzzy
@@ -6024,7 +6060,7 @@ msgstr ""
 msgid ""
 "Another way to insert the paths into the log message is to simply drag the "
 "files from the file list onto the edit control."
-msgstr ""
+msgstr "另一个向日志消息中插入路径的方法是: 从文件列表中将文件拖拽到文本框中。"
 
 #. (title)
 msgid "Special Folder Properties"
@@ -6368,29 +6404,27 @@ msgid "Resolving Conflicts"
 msgstr "解决冲突"
 
 #. (primary)
-#, fuzzy
 msgid "tree conflict"
-msgstr "合并冲突"
+msgstr "树冲突"
 
 #. (primary)
 msgid "resolve"
 msgstr "解决"
 
 #. (term)
-#, fuzzy
 msgid "file conflicts"
-msgstr "合并冲突"
+msgstr "文件冲突"
 
 #. (para)
 msgid ""
 "A file conflict occurs if two (or more) developers have changed the same few "
 "lines of a file."
 msgstr ""
+"当两名(或更多)开发人员修改了同一个文件中相邻或相同的行时就会发生文件冲突。"
 
 #. (term)
-#, fuzzy
 msgid "tree conflicts"
-msgstr "合并冲突"
+msgstr "树冲突"
 
 #. (para)
 msgid ""
@@ -6398,6 +6432,8 @@ msgid ""
 "folder, which another developer either also has moved/renamed/deleted or just "
 "modified."
 msgstr ""
+"当一名开发人员移动、重命名、删除一个文件或文件夹，而另一名开发人员也对它们进行"
+"了移动、重命名、删除或者仅仅是修改时就会发生树冲突。"
 
 #. (para)
 msgid ""
@@ -6405,15 +6441,16 @@ msgid ""
 "merge your files from the repository or when you switch your working copy to "
 "a different URL. There are two kinds of conflicts: <placeholder-1/>"
 msgstr ""
+"偶尔，当你从版本库更新、合并文件时，或者切换工作副本至一个不同的 URL 时你会遇"
+"到<emphasis>冲突</emphasis>。有两种冲突: <placeholder-1/>"
 
 #. (title)
-#, fuzzy
 msgid "File Conflicts"
-msgstr "编辑冲突"
+msgstr "文件冲突"
 
 #. (term)
 msgid "filename.ext.mine"
-msgstr "filename.ext.mine"
+msgstr "文件名.ext.mine"
 
 #. (para)
 msgid ""
@@ -6426,7 +6463,7 @@ msgstr ""
 
 #. (term)
 msgid "filename.ext.rOLDREV"
-msgstr "filename.ext.rOLDREV"
+msgstr "文件名.ext.r旧版本"
 
 #. (para)
 msgid ""
@@ -6439,7 +6476,7 @@ msgstr ""
 
 #. (term)
 msgid "filename.ext.rNEWREV"
-msgstr "filename.ext.rNEWREV"
+msgstr "文件名.ext.r新版本"
 
 #. (para)
 msgid ""
@@ -6447,11 +6484,10 @@ msgid ""
 "when you updated your working copy. This file corresponds to the HEAD "
 "revision of the repository."
 msgstr ""
-"这个文件是当你更新你的工作副本时，你的Subversion客户端从服务器接收到的。这个文"
-"件对应与版本库中的最新版本。"
+"这个文件是当你更新你的工作副本时，你的 Subversion 客户端从服务器接收到的。这个"
+"文件对应于版本库中的最新版本。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "A file conflict occurs when two or more developers have changed the same few "
 "lines of a file. As Subversion knows nothing of your project, it leaves "
@@ -6467,17 +6503,16 @@ msgid ""
 "\t</screen> Also, for every conflicted file Subversion places three "
 "additional files in your directory: <placeholder-1/>"
 msgstr ""
-"有时当你从版本库中更新你的文件时，会有<emphasis>冲突</emphasis>。冲突出现的原"
-"因是两个开发人员修改了文件中相同的几行。由于Subversion不知道你的项目的具体情"
-"况，它把解决冲突的工作留给了开发人员。一旦出现冲突，你就应该打开有问题的文件，"
-"查找以字符串<literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>开头的行。有冲突的"
-"区域用如下的方式标记: <screen>\n"
-"&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
-"    你的修改\n"
-"=======\n"
-"    来自版本库中的代码\n"
-"&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
-"</screen> 对于每个冲突的文件Subversion在你的目录下放置了三个文件: "
+"当两名或更多开发人员修改了同一个文件中相邻或相同的行时就会发生文件冲突。由于 "
+"Subversion 不知道你的项目的具体情况，它把解决冲突的工作留给了开发人员。一旦出"
+"现冲突，你就应该打开有问题的文件，查找以字符串<literal>&lt;&lt;&lt;&lt;&lt;"
+"&lt;&lt;</literal>开头的行。有冲突的区域用如下的方式标记: <screen>\n"
+"\t&lt;&lt;&lt;&lt;&lt;&lt;&lt; 文件名\n"
+"\t\t你的修改\n"
+"\t=======\n"
+"\t\t合并自版本库中的代码\n"
+"\t&gt;&gt;&gt;&gt;&gt;&gt;&gt; 版本\n"
+"</screen>对于每个冲突的文件 Subversion 在你的目录下放置了三个文件: "
 "<placeholder-1/>"
 
 #. (para)
@@ -6534,9 +6569,8 @@ msgstr ""
 "择将哪些标记成已解决。"
 
 #. (title)
-#, fuzzy
 msgid "Tree Conflicts"
-msgstr "合并冲突"
+msgstr "树冲突"
 
 #. (para)
 msgid ""
@@ -6545,6 +6579,9 @@ msgid ""
 "modified. There are many different situations that can result in a tree "
 "conflict, and all of them require different steps to resolve the conflict."
 msgstr ""
+"当一名开发人员移动、重命名、删除一个文件或文件夹，而另一名开发人员也对它们进行"
+"了移动、重命名、删除或者仅仅是修改时就会发生树冲突。有很多种不同的情形可以导致"
+"树冲突，而且不同的情形需要不同的步骤来解决冲突。"
 
 #. (para)
 msgid ""
@@ -6554,6 +6591,9 @@ msgid ""
 "conflict. Use the <guilabel>Check for Modifications</guilabel> dialog instead "
 "to access the <guilabel>Edit conflicts</guilabel> option."
 msgstr ""
+"当一个文件通过 Subversion 在本机删除后，文件也从本机文件系统中删除。因此即使它"
+"是树冲突的一部分，却既不能显示冲突的叠加图标也不能通过右键单击来解决冲突。使用"
+"<guilabel>检查修改</guilabel>对话框来获得<guilabel>编辑冲突</guilabel>选项。"
 
 #. (para)
 msgid ""
@@ -6564,16 +6604,20 @@ msgid ""
 "updating it goes back to the repository state, not to the way it was when you "
 "started making your own local changes."
 msgstr ""
+"TortoiseSVN 能够协助找到合并更改的正确位置，但是需要作一些额外的工作来整理冲"
+"突。请牢记: 当进行一次更新操作后，工作副本的基础文件将会包括每一个项目在执行更"
+"新操作时版本库中的版本。如果你在进行更新后再撤销更改，工作副本将返回到版本库的"
+"状态，而不是你开始进行更改前的状态。"
 
 #. (title)
 msgid "Local delete, incoming edit upon update"
-msgstr ""
+msgstr "本地删除，当更新时有更改进入"
 
 #. (para)
 msgid ""
 "Developer A modifies <filename>Foo.c</filename> and commits it to the "
 "repository"
-msgstr ""
+msgstr "开发人员 A 修改 <filename>Foo.c</filename> 并将其提交至版本库中"
 
 #. (para)
 msgid ""
@@ -6581,12 +6625,15 @@ msgid ""
 "<filename>Bar.c</filename> in his working copy, or simply deleted "
 "<filename>Foo.c</filename> or its parent folder."
 msgstr ""
+"开发人员 B 同时在他的工作副本中将文件 <filename>Foo.c</filename> 改名为 "
+"<filename>Bar.c</filename>，或者仅仅是删除了 <filename>Foo.c</filename> 或它的"
+"父文件夹。"
 
 #. (para)
 msgid ""
 "<filename>Foo.c</filename> has been deleted from working copy, but is marked "
 "with a tree conflict."
-msgstr ""
+msgstr "在工作副本中，<filename>Foo.c</filename> 被删除了，但是被标记为树冲突。"
 
 #. (para)
 msgid ""
@@ -6594,13 +6641,15 @@ msgid ""
 "c</filename> is marked as added, but does not contain developer A's "
 "modifications."
 msgstr ""
+"如果冲突是由于更改文件名引起的而不是删除文件引起的，那么 <filename>Bar.c</"
+"filename> 被标记为添加，但是其中却不包括开发人员 A 修改的内容。"
 
 #. (para)
 #. (para)
 msgid ""
 "An update of developer B's working copy results in a tree conflict: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "更新开发人员 B 的工作副本会导致树冲突: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -6611,6 +6660,11 @@ msgid ""
 "and discard the deletion. Or, by marking the conflict as resolved without "
 "doing anything he effectively discards Developer A's changes."
 msgstr ""
+"开发人员 B 现在必须做出选择是否保留开发人员 A 的更改。在更改文件名的案例中，他"
+"可以将 <filename>Foo.c</filename> 的更改合并到改名后的文件 <filename>Bar.c</"
+"filename> 中去。对于删除文件或文件夹的案例中，他可以选择保留包含开发人员 A 更"
+"改内容的项目并放弃删除操作。或什么也不做而直接将冲突标记为已解决，那样他实际上"
+"丢弃了开发人员 A 的更改。"
 
 #. (para)
 msgid ""
@@ -6618,71 +6672,79 @@ msgid ""
 "file of the renamed <filename>Bar.c</filename>. Depending on where the update "
 "was invoked, it may not be possible to find the source file."
 msgstr ""
+"如果 TortoiseSVN 能够找到被改名为 <filename>Bar.c</filename> 的原始文件，冲突"
+"编辑对话框将可以合并更改。这取决于在什么地方调用更新操作，它也许不能找到原始文"
+"件。"
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
-msgstr ""
+msgstr "本地更改，当更新时有删除进入"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> "
 "and commits it to the repository."
 msgstr ""
-"使用文本编辑器打开 Apache 子目录 conf 中的文件 <filename>ssl.conf</filename>。"
+"开发人员 A 将文件 <filename>Foo.c</filename> 改名为 <filename>Bar.c</"
+"filename> 并将其提交至版本库中。"
 
 #. (para)
 #. (para)
 msgid "Developer B modifies <filename>Foo.c</filename> in his working copy."
-msgstr ""
+msgstr "开发人员 B 在他的工作副本中修改文件 <filename>Foo.c</filename>。"
 
 #. (para)
 msgid "Or in the case of a folder move ..."
-msgstr ""
+msgstr "或者在一个文件夹改名的案例中..."
 
 #. (para)
 msgid ""
 "Developer A moves parent folder <filename>FooFolder</filename> to "
 "<filename>BarFolder</filename> and commits it to the repository."
 msgstr ""
+"开发人员 A 将父文件夹 <filename>FooFolder</filename> 改名为 "
+"<filename>BarFolder</filename> 并将其提交至版本库中。"
 
 #. (para)
 msgid ""
 "<filename>Bar.c</filename> is added to the working copy as a normal file."
-msgstr ""
+msgstr "<filename>Bar.c</filename> 被当作一个正常文件添加到工作副本中。"
 
 #. (para)
 msgid ""
 "<filename>Foo.c</filename> is marked as added (with history) and has a tree "
 "conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> 被标记为添加(包括其历史记录)并且产生树冲突。"
 
 #. (para)
 msgid ""
 "An update of developer B's working copy results in a tree conflict. For a "
 "simple file conflict: <placeholder-1/>"
 msgstr ""
+"更新开发人员 B 的工作副本会导致树冲突。对于一个简单的文件冲突: <placeholder-1/"
+">"
 
 #. (para)
 msgid ""
 "<filename>BarFolder</filename> is added to the working copy as a normal "
 "folder."
-msgstr ""
+msgstr "<filename>BarFolder</filename> 被当作一个正常文件夹添加到工作副本中。"
 
 #. (para)
 msgid ""
 "<filename>FooFolder</filename> is marked as added (with history) and has a "
 "tree conflict."
 msgstr ""
+"<filename>FooFolder</filename> 被标记为添加(包括其历史记录)并且产生树冲突。"
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified."
-msgstr ""
+msgstr "<filename>Foo.c</filename> 被标记为已修改。"
 
 #. (para)
 #, fuzzy
 msgid "For a folder conflict: <placeholder-1/>"
-msgstr "以下情况不支持:  <placeholder-1/>"
+msgstr "对于一个文件夹冲突: <placeholder-1/>"
 
 #. (para)
 #. (para)
@@ -6691,6 +6753,8 @@ msgid ""
 "and merge her changes into the corresponding file in the new structure, or "
 "simply revert A's changes and keep the local file."
 msgstr ""
+"开发人员 B 现在需要做出决定是否接受开发人员 A 作出的结构改变并且合并她的更改到"
+"新结构下适当的文件中，或者直接放弃开发人员 A 的更改并保留本地文件。"
 
 #. (para)
 msgid ""
@@ -6703,6 +6767,11 @@ msgid ""
 "the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean "
 "up and mark the conflict as resolved."
 msgstr ""
+"要合并她的本机更改到新布局中，开发人员 B 必须先找出冲突的文件 <filename>Foo."
+"c</filename> 经过改名/移动后在版本库中的新文件名是什么。可以使用日志对话框来完"
+"成这个任务。更改必须要手工合并，因为没有办法自动的或者简单的完成此操作。一旦更"
+"改移植完毕，冲突的路径就是多余的并且可以删除。在此案例中，使用冲突编辑对话框中"
+"的<guilabel>删除</guilabel>按钮进行清理并将冲突标记为已解决。"
 
 #. (para)
 msgid ""
@@ -6711,39 +6780,40 @@ msgid ""
 "the conflicted file/folder as resolved, but Developer A's changes need to be "
 "removed by hand. Again the log dialog helps to track down what was moved."
 msgstr ""
+"如果开发人员 B 认为 A 的更改是错误的，那么在冲突编辑对话框中她必须选择"
+"<guilabel>保留</guilabel>按钮。这样就会标记冲突的文件/文件夹为已解决，但是需要"
+"手工删除开发人员 A 的更改。又是通过日志对话框帮助追踪哪些文件移动了。"
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
-msgstr ""
+msgstr "本地删除，当更新时有删除进入"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> "
 "and commits it to the repository"
 msgstr ""
-"使用文本编辑器打开 Apache 子目录 conf 中的文件 <filename>ssl.conf</filename>。"
+"开发人员 A 将文件 <filename>Foo.c</filename> 改名为 <filename>Bar.c</"
+"filename> 并将其提交至版本库中。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Developer B moves <filename>Foo.c</filename> to <filename>Bix.c</filename>"
 msgstr ""
-"在<filename>D:\\SVN\\</filename>里创建另一个目录<filename>MyNewRepository</"
-"filename>。"
+"开发人员 B 将文件 <filename>Foo.c</filename> 改名为 <filename>Bix.c</filename>"
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked as added with history."
-msgstr ""
+msgstr "<filename>Bix.c</filename> 被标记为添加(包括其历史记录)。"
 
 #. (para)
 msgid ""
 "<filename>Bar.c</filename> is added to the working copy with status 'normal'."
-msgstr ""
+msgstr "<filename>Bar.c</filename> 被添加到工作副本中，其状态为‘正常’。"
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as deleted and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> 被标记为删除并且产生一个树冲突。"
 
 #. (para)
 msgid ""
@@ -6751,6 +6821,8 @@ msgid ""
 "conflicted file <filename>Foo.c</filename> was renamed/moved in the "
 "repository. This can be done by using the log dialog."
 msgstr ""
+"要解决这个冲突，开发人员 B 必须找出冲突的文件 <filename>Foo.c</filename> 经过"
+"改名/移动后在版本库中的新文件名是什么。可以使用日志对话框来完成这个任务。"
 
 #. (para)
 #. (para)
@@ -6758,6 +6830,8 @@ msgid ""
 "Then developer B has to decide which new filename of <filename>Foo.c</"
 "filename> to keep - the one done by developer A or the rename done by himself."
 msgstr ""
+"然后，开发人员 B 需要决定 <filename>Foo.c</filename> 的新文件名中的哪一个需要"
+"保留 - 开发人员 A 改的那个还是他自己改的那个。"
 
 #. (para)
 #. (para)
@@ -6765,32 +6839,36 @@ msgid ""
 "After developer B has manually resolved the conflict, the tree conflict has "
 "to be marked as resolved with the button in the conflict editor dialog."
 msgstr ""
+"在开发人员 B 手工解决冲突后，使用冲突编辑对话框中的按钮将树冲突标记为已解决。"
 
 #. (title)
 msgid "Local missing, incoming edit upon merge"
-msgstr ""
+msgstr "本地缺少，当合并时有更改进入"
 
 #. (para)
 msgid ""
 "Developer A working on trunk modifies <filename>Foo.c</filename> and commits "
 "it to the repository"
 msgstr ""
+"开发人员 A 在主干上工作，修改 <filename>Foo.c</filename> 并将其提交至版本库中"
 
 #. (para)
 msgid ""
 "Developer B working on a branch moves <filename>Foo.c</filename> to "
 "<filename>Bar.c</filename> and commits it to the repository"
 msgstr ""
+"开发人员 B 在分支上工作，将 <filename>Foo.c</filename> 改名为 <filename>Bar."
+"c</filename> 并将其提交至版本库中"
 
 #. (para)
 msgid ""
 "<filename>Bar.c</filename> is already in the working copy with status "
 "'normal'."
-msgstr ""
+msgstr "<filename>Bar.c</filename> 已经存在于工作副本中，其状态为‘正常’。"
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> 被标记为缺少并产生树冲突。"
 
 #. (para)
 #. (para)
@@ -6799,6 +6877,8 @@ msgid ""
 "A merge of developer A's trunk changes to developer B's branch working copy "
 "results in a tree conflict: <placeholder-1/>"
 msgstr ""
+"合并开发人员 A 的主干更改到开发人员 B 的分支工作副本会导致树冲突: "
+"<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -6810,6 +6890,11 @@ msgid ""
 "filename> or whether to ignore the changes by marking the conflict as "
 "resolved and doing nothing else."
 msgstr ""
+"要解决这个冲突，开发人员 B 要在冲突编辑对话框中标记文件为已解决，这样就会将其"
+"从冲突列表中删除。她接下来需要决定是否将缺少的文件 <filename>Foo.c</filename> "
+"从版本库中复制到工作副本中，是否将开发人员 A 的对 <filename>Foo.c</filename> "
+"的更改和合并到改名后的 <filename>Bar.c</filename> 或者是否通过标记冲突为已解决"
+"来忽略更改什么事也不做。"
 
 #. (para)
 msgid ""
@@ -6817,10 +6902,12 @@ msgid ""
 "resolved, your copy will be removed again. You have to resolve the conflict "
 "first."
 msgstr ""
+"注意，如果你将缺少的文件从版本库中复制到工作副本中然后再标记为已解决，你复制下"
+"来的文件将被再次删除。你必须先解决冲突。"
 
 #. (title)
 msgid "Local edit, incoming delete upon merge"
-msgstr ""
+msgstr "本地更改，当合并时有删除进入"
 
 #. (para)
 #. (para)
@@ -6828,43 +6915,44 @@ msgid ""
 "Developer A working on trunk moves <filename>Foo.c</filename> to "
 "<filename>Bar.c</filename> and commits it to the repository"
 msgstr ""
+"开发人员 A 在主干上工作，将 <filename>Foo.c</filename> 改名为 <filename>Bar."
+"c</filename> 并将其提交至版本库中"
 
 #. (para)
 msgid ""
 "Developer B working on a branch modifies <filename>Foo.c</filename> and "
 "commits it to the repository."
 msgstr ""
+"开发人员 B 在分支上工作，修改 <filename>Foo.c</filename> 并将其提交至版本库中"
 
 #. (para)
 msgid ""
 "There is an equivalent case for folder moves, but it is not yet detected in "
 "Subversion 1.6 ..."
-msgstr ""
+msgstr "当文件夹改名时有类似的案例，但是在 Subversion 1.6 中还未被识别..."
 
 #. (para)
-#, fuzzy
 msgid ""
 "Developer A working on trunk moves parent folder <filename>FooFolder</"
 "filename> to <filename>BarFolder</filename> and commits it to the repository."
 msgstr ""
-"使用文本编辑器打开 Apache 子目录 conf 中的文件 <filename>ssl.conf</filename>。"
+"开发人员 A 在主干上工作，将父文件夹 <filename>FooFolder</filename> 改名为 "
+"<filename>BarFolder</filename> 并将其提交至版本库中。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Developer B working on a branch modifies <filename>Foo.c</filename> in her "
 "working copy."
 msgstr ""
-"在<filename>D:\\SVN\\</filename>里创建另一个目录<filename>MyNewRepository</"
-"filename>。"
+"开发人员 B 在分支上工作，在她的工作副本中修改 <filename>Foo.c</filename> 。"
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added."
-msgstr ""
+msgstr "<filename>Bar.c</filename> 被标记为添加。"
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> 被标记为修改并产生树冲突。"
 
 #. (para)
 msgid ""
@@ -6879,6 +6967,13 @@ msgid ""
 "In this case use the <guilabel>Remove</guilabel> button in the conflict "
 "editor dialog to clean up and mark the conflict as resolved."
 msgstr ""
+"要合并她的本机更改到新布局中，开发人员 B 必须先找出冲突的文件 <filename>Foo."
+"c</filename> 经过改名/移动后在版本库中的新文件名是什么。可以通过适用于合并源码"
+"的日志对话框来完成这个任务。冲突编辑器仅显示工作副本的日志因为它不知道将哪个路"
+"径的更改合并进来，所以你需要自己找到它。更改必须要手工合并，因为没有办法自动的"
+"或者简单的完成此操作。一旦更改移植完毕，冲突的路径就是多余的并且可以删除。在此"
+"案例中，使用冲突编辑对话框中的<guilabel>删除</guilabel>按钮进行清理并将冲突标"
+"记为已解决。"
 
 #. (para)
 msgid ""
@@ -6888,28 +6983,33 @@ msgid ""
 "removed by hand. Again the log dialog for the merge source helps to track "
 "down what was moved."
 msgstr ""
+"如果开发人员 B 认为 A 的更改是错误的，那么在冲突编辑对话框中她必须选择"
+"<guilabel>保留</guilabel>按钮。这样就会标记冲突的文件/文件夹为已解决，但是需要"
+"手工删除开发人员 A 的更改。又是通过日志对话框帮助追踪哪些文件移动了。"
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
-msgstr ""
+msgstr "本地删除，当合并时有删除进入"
 
 #. (para)
 msgid ""
 "Developer B working on a branch moves <filename>Foo.c</filename> to "
 "<filename>Bix.c</filename> and commits it to the repository"
 msgstr ""
+"开发人员 B 工作在分之上，将 <filename>Foo.c</filename> 改名为 <filename>Bix."
+"c</filename> 并将其提交至版本库中"
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
-msgstr ""
+msgstr "<filename>Bix.c</filename> 被标记为正常(未修改)状态。"
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added with history."
-msgstr ""
+msgstr "<filename>Bar.c</filename> 被标记为添加(包括其历史记录)。"
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> 被标记为缺少并且产生树冲突。"
 
 #. (para)
 msgid ""
@@ -6919,6 +7019,10 @@ msgid ""
 "The conflict editor only shows the log for the working copy as it does not "
 "know which path was used in the merge, so you will have to find that yourself."
 msgstr ""
+"要解决这个冲突，开发人员 B 必须先找出冲突的文件 <filename>Foo.c</filename> 经"
+"过改名/移动后在版本库中的新文件名是什么。可以通过适用于合并源码的日志对话框来"
+"完成这个任务。冲突编辑器仅显示工作副本的日志因为它不知道将哪个路径的更改合并进"
+"来，所以你需要自己找到它。"
 
 #. (title)
 msgid "Getting Status Information"
@@ -7042,14 +7146,13 @@ msgstr ""
 "调度<emphasis>加入</emphasis>版本控制。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "<graphic fileref=\"../images/IgnoredIcon.png\"/> The bar sign tells you that "
 "a file or folder is <emphasis>ignored</emphasis> for version control "
 "purposes. This overlay is optional."
 msgstr ""
-"<graphic fileref=\"../images/AddedIcon.png\"/>加号告诉你有一个文件或目录已经被"
-"调度<emphasis>加入</emphasis>版本控制。"
+"<graphic fileref=\"../images/IgnoredIcon.png\"/>横条告诉你有一个文件或目录被版"
+"本控制系统所<emphasis>忽略</emphasis>。这个图标重载是可选的。"
 
 #. (para)
 msgid ""
@@ -7057,9 +7160,10 @@ msgid ""
 "and folders which are not under version control, but have not been ignored. "
 "This overlay is optional."
 msgstr ""
+"<graphic fileref=\"../images/UnversionedIcon.png\"/>这个图标说明文件和目录未被"
+"版本控制，但是也没有被忽略。这个图标重载是可选的。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "In fact, you may find that not all of these icons are used on your system. "
 "This is because the number of overlays allowed by Windows is very limited and "
@@ -7067,9 +7171,10 @@ msgid ""
 "enough overlay slots available. TortoiseSVN tries to be a <quote>Good Citizen "
 "(TM)</quote> and limits its use of overlays to give other apps a chance too."
 msgstr ""
-"事实上，你会发现并不是所有的图标被你的系统使用。这是由于 Windows 的重载图标很"
-"有限。如果你同时使用了 TortoiseCVS，就没有足够的重载可用。TortoiseSVN 试图成为"
-"一个<quote>良好市民(TM)</quote>，限制自身使用重载图标，为别的应用留下机会。"
+"事实上，你会发现并不是所有的图标被你的系统使用。这是由于 Windows 允许的重载图"
+"标数量很有限，如果你同时使用旧版的 TortoiseCVS，就没有足够的重载可用。"
+"TortoiseSVN 试图成为一个<quote>良好市民(TM)</quote>，限制自身使用重载图标，为"
+"别的程序留下机会。"
 
 #. (para)
 msgid ""
@@ -7079,6 +7184,10 @@ msgid ""
 "which can be used by all Tortoise clients. Check with your client provider to "
 "see if this has been integrated yet :-)"
 msgstr ""
+"现在有很多 Tortoise 客户端工具(TortoiseCVS, TortoiseHG, ...)所以图标限制成为一"
+"个实实在在的问题。为了在这种条件下工作，TortoiseSVN 项目引入了一种通用的共享的"
+"图标集，以动态链接库的形式加载，可以被所有的 Tortoise 客户端工具所使用。联系你"
+"的客户端程序提供者确认是否支持这一功能。"
 
 #. (para)
 msgid ""
@@ -7106,7 +7215,6 @@ msgstr ""
 "息(还可以显示更多其他信息)。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Simply right click on one of the headings of a column, choose "
 "<guimenuitem>More...</guimenuitem> from the context menu displayed. A dialog "
@@ -7118,10 +7226,10 @@ msgid ""
 "reorder them by drag and drop, or resize them, so that they fit your needs."
 msgstr ""
 "右键点击列头，从出现的右键菜单中选择<guimenuitem>其他...</guimenuitem>。出现一"
-"个对话框，你可以指定在“详细信息视图”中要显示的列及其顺序。滚动对话框中的条目直"
-"到SVN开头的条目出现。在你要显示的条目上打勾，然后点击<guibutton>OK</guibutton>"
-"按扭关闭对话框。你选择的列就会出现在当前显示的列的右边。你可以通过拖放它们来达"
-"到重新排序或是修改列宽度的目的。"
+"个对话框，你可以指定在<quote>详细信息</quote>视图中要显示的列及其顺序。滚动对"
+"话框中的条目直到SVN开头的条目出现。在你要显示的条目上打勾，然后点击<guibutton>"
+"确定</guibutton>按扭关闭对话框。你选择的列就会出现在当前显示的列的右边。你可以"
+"通过拖放它们来重新排序或是修改列宽度，使它们适合你的需求。"
 
 #. (para)
 msgid ""
@@ -7129,6 +7237,8 @@ msgid ""
 "since Microsoft decided to not allow such columns for <emphasis>all</"
 "emphasis> files anymore but only for specific file types."
 msgstr ""
+"Windows 资源管理器中的附加列在 Vista 系统中不可用，因为微软决定除了特定的文件"
+"类型外，不再允许为<emphasis>所有类型</emphasis>的文件显示这样的列。"
 
 #. (para)
 msgid ""
@@ -7148,7 +7258,7 @@ msgstr "修改"
 #. (title)
 #. (title)
 msgid "Check for Modifications"
-msgstr "检查所作的修改"
+msgstr "检查修改"
 
 #. (para)
 msgid ""
@@ -7180,7 +7290,10 @@ msgid ""
 msgstr ""
 "如果你点击<guibutton>检查版本库</guibutton>，那你还可以看到版本库里的改动。这"
 "样，你就可以在提交之前检查是否有存在冲突的可能。你也可以从版本库中更新选中的文"
-"件而用不着更新整个文件夹。"
+"件而用不着更新整个文件夹。另外，<guibutton>检查版本库</guibutton>按钮只获取工"
+"作副本中检出深度部分的远程状态。如果你要查看版本库中所有文件和文件夹，即使你没"
+"有将它们检出，那么你要在点击<guibutton>检查版本库</guibutton>时按下 "
+"<keycap>Shift</keycap> 键。"
 
 #. (para)
 msgid "Locally modified items."
@@ -7258,7 +7371,7 @@ msgid ""
 "bin) hold the <keycap>Shift</keycap> key while clicking on <guilabel>Delete</"
 "guilabel>."
 msgstr ""
-"可以使用<menuchoice><guimenu>邮件菜单</guimenu><guimenuitem>删除</"
+"可以使用<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>删除</"
 "guimenuitem></menuchoice>将未版本控制的或忽略的文件丢到垃圾箱。如果你想彻底删"
 "除(不使用垃圾箱)，在点击<guilabel>删除</guilabel>时，请按着<keycap>Shift</"
 "keycap>键。"
@@ -7319,8 +7432,8 @@ msgid ""
 "files in your working copy."
 msgstr ""
 "如果你需要工作目录的全面视图，也就是所有文件和文件夹都同时显示，以便方便的使用"
-"<guilabel>检查修改对话框</guilabel>。只要选择<guilabel>现实未修改文件</"
-"guilabel>检查栏，显示工作目录中的所有文件即可。"
+"<guilabel>检查修改</guilabel>。只要选择<guilabel>现实未修改文件</guilabel>检查"
+"栏，显示工作目录中的所有文件即可。"
 
 #. (title)
 msgid "Viewing Diffs"
@@ -7385,14 +7498,14 @@ msgstr ""
 "离修改。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "The changelist feature in TortoiseSVN is only available in Windows XP and "
 "later, as it depends on a shell capability which is not present in Windows "
 "2000. Sorry, but Win2K is really quite old now, so please don't complain."
 msgstr ""
-"修改列表依赖一个不存在于 Windows 2000 的外壳特性，所以它只能用于 Windows XP 或"
-"更新的系统。抱歉，但是现在 Windows 2000 真的很古老了，请不要抱怨。"
+"TortoiseSVN 中的修改列表依赖一个不存在于 Windows 2000 的外壳特性，所以它只能用"
+"于 Windows XP 或更新的系统。抱歉，但是现在 Windows 2000 真的很古老了，请不要抱"
+"怨。"
 
 #. (para)
 msgid ""
@@ -7403,9 +7516,12 @@ msgid ""
 "together. Suppose you now want to organise things and group those files "
 "according to feature."
 msgstr ""
+"在很多地方可以看到修改列表，但是最常见的是提交对话框和检查修改对话框。让我们从"
+"检查修改对话框开始--在你完成了多个特性和很多文件后的检查修改对话框。当你第一次"
+"打开对话框，所有的修改过的文件被列在一起。假设你现在想要组织任务并且按照特性将"
+"这些文件分组。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Select one or more files and use <menuchoice><guimenu>Context Menu</"
 "guimenu><guimenuitem>Move to changelist</guimenuitem></menuchoice> to add an "
@@ -7414,11 +7530,10 @@ msgid ""
 "describes what you are using it for, and click <guibutton>OK</guibutton>. The "
 "dialog will now change to show groups of items."
 msgstr ""
-"使用<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>移到修改列表</"
-"guimenuitem></menuchoice> 可以增加一个项目到修改列表。最初没有修改列表，所以你"
-"第一次做的时候，会创建一个新的修改列表。给出一个能描述它的作用的名称，然后点"
-"击 <guibutton>OK</guibutton>。提交对话框会改变为显示项目分组。 <placeholder-1/"
-">"
+"选择一个或多个文件并且使用<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>"
+"移动到修改列表</guimenuitem></menuchoice>可以增加一个项目到修改列表。最初没有"
+"修改列表，所以你第一次做的时候，会创建一个新的修改列表。给出一个能描述它的作用"
+"的名称，然后点击<guibutton>确定</guibutton>。提交对话框会改变为显示项目分组。"
 
 #. (para)
 msgid ""
@@ -7428,18 +7543,22 @@ msgid ""
 "the file is modified. You could do that from the check-for-modifications "
 "dialog, but only by displaying all unmodified files."
 msgstr ""
+"当你创建好修改列表后，你就可以将文件拖放进去，既可以从其它修改表中拖过去，也可"
+"以从 Windows 资源管理中拖过去。将一个未被修改的文件加入修改列表时，从 Windows "
+"资源管理器拖拽就很有用。你可以在检查修改对话框中这样做，但要显示未修改的文件。"
 
 #. (title)
 msgid "Commit dialog with Changelists"
 msgstr "带有修改列表的提交对话框"
 
 #. (para)
-#, fuzzy
 msgid ""
 "<placeholder-1/> In the commit dialog you can see those same files, grouped "
 "by changelist. Apart from giving an immediate visual indication of groupings, "
 "you can also use the group headings to select which files to commit."
-msgstr "除了分组可以直接指示之外，你也可以使用组头选择提交哪些文件。"
+msgstr ""
+"<placeholder-1/> 在提交对话框中可以看到被修改列表分组的那文件。除了分组可以直"
+"接指示之外，你也可以使用组头选择提交哪些文件。"
 
 #. (para)
 msgid ""
@@ -7448,6 +7567,9 @@ msgid ""
 "the context menu is not necessary. Click on the group header to select all "
 "entries, then check one of the selected entries to check all."
 msgstr ""
+"在 XP 中，当你右键点击组头的时候，会有一个右键菜单让你选定或取消选定全组的条"
+"目。但在 Wista 中右键菜单不是必需的。点击组头可以选择全部条目，然后点击被选中"
+"的任一个条目就可以选中全组。"
 
 #. (para)
 msgid ""
@@ -7456,6 +7578,9 @@ msgid ""
 "which you almost never want to commit even though they have local changes. "
 "This feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 msgstr ""
+"TortoiseSVN 保留了一个它自己使用的修改列表名称--<literal>ignore-on-commit</"
+"literal>。这个列表用于标记某些版本控制的文件，它们在本地被修改你却不打算提交他"
+"们。这个特性在 <xref linkend=\"tsvn-dug-commit-ignore\"/> 中有描述。"
 
 #. (para)
 msgid ""
@@ -7465,6 +7590,9 @@ msgid ""
 "retain the file in its changelist, use the <guilabel>Keep changelists</"
 "guilabel> checkbox at the bottom of the commit dialog."
 msgstr ""
+"当提交属于修改列表的文件后，通常情况下用户不再需要修改列表的成员关系。所以在默"
+"认情况下，当提交时文件会从修改列表中除去。如果你希望文件被保留在更改列表中，选"
+"中提交对话框底部的 <guilabel>保持修改列表</guilabel>。"
 
 #. (para)
 #, fuzzy
@@ -7578,6 +7706,8 @@ msgid ""
 "offline?</guilabel> dialog, described in <xref linkend=\"tsvn-dug-showlog-"
 "cache\"/>."
 msgstr ""
+"如果版本库不可用，你将会看到 <guilabel>要离线?</guilabel> 对话框，在 <xref "
+"linkend=\"tsvn-dug-showlog-cache\"/> 中有详细描述。"
 
 #. (title)
 msgid "Revision Log Actions"
@@ -7593,44 +7723,40 @@ msgstr ""
 "同的图标，每个都在自己的列显示。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "<graphic fileref=\"../images/ActionModifiedIcon.png\"/> If a revision "
 "modified a file or directory, the <emphasis>modified</emphasis> icon is shown "
 "in the first column."
 msgstr ""
 "<graphic fileref=\"../images/ActionModifiedIcon.png\"/> 如果某个版本修改了文件"
-"和目录，<literal>已修改</literal> 图表就会在首列显示。"
+"或目录，<emphasis>已修改</emphasis> 图表就会在首列显示。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "<graphic fileref=\"../images/ActionAddedIcon.png\"/> If a revision added a "
 "file or directory, the <emphasis>added</emphasis> icon is shown in the second "
 "column."
 msgstr ""
-"<graphic fileref=\"../images/ActionAddedIcon.png\"/> 如果某个版本增加了文件和"
-"目录，<literal>已增加</literal> 图表就会在第二列显示。"
+"<graphic fileref=\"../images/ActionAddedIcon.png\"/> 如果某个版本增加了文件或"
+"目录，<emphasis>已增加</emphasis> 图表就会在第二列显示。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "<graphic fileref=\"../images/ActionDeletedIcon.png\"/> If a revision deleted "
 "a file or directory, the <emphasis>deleted</emphasis> icon is shown in the "
 "third column."
 msgstr ""
 "<graphic fileref=\"../images/ActionDeletedIcon.png\"/> 如果某个版本删除了文件"
-"和目录，<literal>已删除</literal> 图表就会在第三列显示。"
+"或目录，<emphasis>已删除</emphasis> 图表就会在第三列显示。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "<graphic fileref=\"../images/ActionReplacedIcon.png\"/> If a revision "
 "replaced a file or directory, the <emphasis>replaced</emphasis> icon is shown "
 "in the fourth column."
 msgstr ""
 "<graphic fileref=\"../images/ActionReplacedIcon.png\"/> 如果某个版本替换了文件"
-"和目录，<literal>已替换</literal> 图标就会在第四列显示。"
+"或目录，<emphasis>已替换</emphasis> 图标就会在第四列显示。"
 
 #. (title)
 msgid "Getting Additional Information"
@@ -7641,9 +7767,8 @@ msgid "The Revision Log Dialog Top Pane with Context Menu"
 msgstr "版本日志对话框的顶部面板的右键菜单"
 
 #. (term)
-#, fuzzy
 msgid "Compare with working copy"
-msgstr "创建工作副本"
+msgstr "与工作副本比较"
 
 #. (para)
 msgid ""
@@ -7652,14 +7777,13 @@ msgid ""
 "a folder, this will show you a list of changed files, and allow you to review "
 "the changes made to each file individually."
 msgstr ""
-"将你的工作版本与选中的版本进行比较。默认的比较工具是与TortoiseSNV一同发布的"
+"将你的工作版本与选中的版本进行比较。默认的比较工具是与 TortoiseSNV 一同发布的 "
 "TortoiseMerge，如果日志对话框是针对文件夹的，那么就会出现一个被修改的文件的列"
 "表，你可以单独地查看每个文件所做的修改。"
 
 #. (term)
-#, fuzzy
 msgid "Compare and blame with working BASE"
-msgstr "与工作副本比较并追溯"
+msgstr "与工作基础版本比较并追溯"
 
 #. (para)
 msgid ""
@@ -7671,9 +7795,8 @@ msgstr ""
 "<xref linkend=\"tsvn-dug-blame-diffs\"/> 以获得更多信息(仅对于文件)。"
 
 #. (term)
-#, fuzzy
 msgid "Show changes as unified diff"
-msgstr "统一差异"
+msgstr "以标准差异文件显示改变"
 
 #. (para)
 msgid ""
@@ -7688,35 +7811,35 @@ msgstr ""
 #. (term)
 #, fuzzy
 msgid "Compare with previous revision"
-msgstr "两个历史版本的比较"
+msgstr "与前一版本比较差异"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Compare the selected revision with the previous revision. This works in a "
 "similar manner to comparing with your working copy. For folders this option "
 "will first show the changed files dialog allowing you to select files to "
 "compare."
-msgstr "比较选择的版本和以前版本。它与你比较工作副本类似。"
+msgstr ""
+"比较选中的版本和以前版本。它与比较工作副本类似。对于文件夹，这个选项首先会显示"
+"已修改的文件对话框让你选择要比较的文件。"
 
 #. (term)
-#, fuzzy
 msgid "Compare and blame with previous revision"
-msgstr "与工作副本比较并追溯"
+msgstr "与前一版本比较并追溯"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Show the changed files dialog allowing you to select files. Blame the "
 "selected revision, and the previous revision, and compare the results using a "
 "visual diff tool. (folders only)."
-msgstr "追溯选中的版本和旧版本，用可视化差异工具比较结果(仅对于目录)。"
+msgstr ""
+"显示已修改的文件对话框，让你选择文件。追溯选中的版本和旧版本，用可视化差异工具"
+"比较结果(仅对于文件夹)。"
 
 #. (term)
 #. (term)
-#, fuzzy
 msgid "Save revision to..."
-msgstr "最大版本号"
+msgstr "保存版本至..."
 
 #. (para)
 msgid ""
@@ -7727,7 +7850,7 @@ msgstr "将选中的版本保存到文件，你可以得到一份该文件的旧
 #. (term)
 #. (term)
 msgid "Open / Open with..."
-msgstr ""
+msgstr "打开 / 打开方式..."
 
 #. (para)
 msgid ""
@@ -7737,16 +7860,14 @@ msgstr "用此文件类型的默认查看器，或你指定的程序打开选中
 
 #. (term)
 #. (term)
-#, fuzzy
 msgid "Blame..."
-msgstr "追溯"
+msgstr "追溯..."
 
 #. (para)
 msgid "Blame the file up to the selected revision. (files only)."
 msgstr "追溯文件直到选中的版本(仅对于文件)。"
 
 #. (term)
-#, fuzzy
 msgid "Browse repository"
 msgstr "浏览版本库"
 
@@ -7757,27 +7878,23 @@ msgid ""
 msgstr "打开版本库浏览器，基于选中的版本，在版本库中检查选中的文件或目录。"
 
 #. (term)
-#, fuzzy
 msgid "Create branch/tag from revision"
-msgstr "合并版本范围"
+msgstr "从版本创建分支/标记"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Create a branch or tag from a selected revision. This is useful e.g. if you "
 "forgot to create a tag and already committed some changes which weren't "
 "supposed to get into that release."
 msgstr ""
-"从选中的版本建立一个分支/标记。这个选项很有用。比如: 如果你提交了某些你不想使"
-"其进入发行版的修改，却忘记了为此建立标记。"
+"从选中的版本建立一个分支/标记。这个选项很有用。比如: 如果你忘记建立标记，并且"
+"提交了某些你不想使其进入发行版的修改。"
 
 #. (term)
-#, fuzzy
 msgid "Update item to revision"
-msgstr "更新到版本"
+msgstr "更新项目至版本"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Update your working copy to the selected revision. Useful if you want to have "
 "your working copy reflect a time in the past, or if there have been further "
@@ -7785,23 +7902,22 @@ msgid ""
 "at a time. It is best to update a whole directory in your working copy, not "
 "just one file, otherwise your working copy could be inconsistent."
 msgstr ""
-"将你的工作副本更新到选中的版本。如果你想要你的工作副本折返到过去的某个时间，那"
-"这个功能就很好用。你最好是更新工作副本的整个目录而不是单一某个文件，因为如果只"
-"更新某个文件，你的工作副本就可能不一致，从而导致你无法提交任何修改。"
+"将你的工作副本更新到选中的版本。如果你想要你的工作副本折返到过去的某个时间，或"
+"者在版本库中有一系列提交而你想每次只更新工作副本一小步，那这个功能就很好用。你"
+"最好是更新工作副本的整个目录而不是单一某个文件，因为如果只更新某个文件，否则你"
+"的工作副本就可能不一致。"
 
 #. (para)
 msgid ""
 "If you want to undo an earlier change permanently, use <guilabel>Revert to "
 "this revision</guilabel> instead."
-msgstr ""
+msgstr "如果你想要永久撤销先前的更改，使用 <guilabel>复原到此版本</guilabel>。"
 
 #. (term)
-#, fuzzy
 msgid "Revert to this revision"
-msgstr "更新到版本"
+msgstr "复原到此版本"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Revert to an earlier revision. If you have made several changes, and then "
 "decide that you really want to go back to how things were in revision N, this "
@@ -7812,9 +7928,9 @@ msgid ""
 "version."
 msgstr ""
 "恢复到某个以前的版本。如果你做了多处修改，然后决定要返回到版本 N，你就可以使用"
-"这个命令。再次说明，恢复的修改位于你的工作副本，在你提交之前，并<emphasis>不会"
-"</emphasis>影响版本库。注意，这将会丢弃从那个版本以来的<emphasis>所有</"
-"emphasis>修改，使用选中的版本来替换文件/文件夹。"
+"这个命令。恢复的修改位于你的工作副本，在你提交之前，并<emphasis>不会</"
+"emphasis>影响版本库。注意，这将会丢弃从那个版本以来的<emphasis>所有</emphasis>"
+"修改，使用选中的版本来替换文件/文件夹。"
 
 #. (para)
 #. (para)
@@ -7824,6 +7940,9 @@ msgid ""
 "this command will merge the <emphasis>undo</emphasis> changes into your "
 "working copy."
 msgstr ""
+"如果你的工作副本处于未修改的状态，在执行此操作后，工作副本将会显示为已修改。如"
+"果你已经进行了本地修改，这个命令将会把<emphasis>撤销</emphasis>的改变合并至你"
+"的工作副本中。"
 
 #. (para)
 msgid ""
@@ -7831,6 +7950,8 @@ msgid ""
 "all the changes made after the selected revision, undoing the effect of those "
 "previous commits."
 msgstr ""
+"内部的动作是 Subversion 对选中版本之后的修改内容执行了反向合并，撤销这些先前提"
+"交产生的影响。"
 
 #. (para)
 msgid ""
@@ -7841,6 +7962,10 @@ msgid ""
 "Explorer, which will discard the local modifications made by this reverse "
 "merge action."
 msgstr ""
+"如果在执行这个动作后你察觉到你需要<emphasis>撤销这次撤销</emphasis>并且让工作"
+"副本返回到先前没有修改的状态，你应该在 Windows 资源管理器中使用 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>SVN 还原</"
+"guimenuitem></menuchoice>， 这个命令将会丢弃本次撤销动作带来的修改。"
 
 #. (para)
 msgid ""
@@ -7848,15 +7973,15 @@ msgid ""
 "revision, use <guilabel>Update to revision</guilabel> or <guilabel>Save "
 "revision as...</guilabel> instead."
 msgstr ""
+"如果你只是想看看某个文件或者文件夹在先前的版本是什么样子，使用 <guilabel>更新"
+"至版本</guilabel> 或 <guilabel>保存版本为...</guilabel> 功能替代此操作。"
 
 #. (term)
 #. (term)
-#, fuzzy
 msgid "Revert changes from this revision"
-msgstr "与历史版本的比较差异"
+msgstr "复原此版本作出的修改"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Undo changes from which were made in the selected revision. The changes are "
 "undone in your working copy so this operation does <emphasis>not</emphasis> "
@@ -7868,24 +7993,27 @@ msgstr ""
 "还原选中版本所做的修改。还原的内容只在你的工作副本中，所以此操作完全<emphasis>"
 "不会</emphasis>影响版本库！要注意的是，这个操作仅仅还原该版本中的修改。不是将"
 "整个文件替换成选中的那个版本。它对于已经做过其它无关修改的还原早期修改非常有"
-"用。如果你做了本地修改，此命令将会合并修改到工作副本。"
+"用。"
 
 #. (para)
 msgid ""
 "What is happening internally is that Subversion performs a reverse merge of "
 "that one revision, undoing its effect from a previous commit."
 msgstr ""
+"内部的动作是 Subversion 对这个版本的修改内容执行了反向合并，撤销先前提交产生的"
+"影响。"
 
 #. (para)
 msgid ""
 "You can <emphasis>undo the undo</emphasis> as described above in "
 "<guilabel>Revert to this revision</guilabel>."
 msgstr ""
+"你可以使用上文<guilabel>复原到此版本</guilabel>中描述的<emphasis>撤销这次撤销"
+"</emphasis>。"
 
 #. (term)
-#, fuzzy
 msgid "Merge revision to..."
-msgstr "最大版本号"
+msgstr "合并版本到..."
 
 #. (para)
 msgid ""
@@ -7896,11 +8024,14 @@ msgid ""
 "can revert the changes if it doesn't work out! This is a useful feature if "
 "you want to merge selected revisions from one branch to another."
 msgstr ""
+"合并选中的版本到不同的工作副本。可以通过文件夹选择对话框来确定合并到哪一个工作"
+"副本中，但是此操作没有冲突对话框，也没有尝试测试合并的机会。合并到未修改的工作"
+"副本是一个好主意，这样当合并不成功时你可以还原工作副本。当你想要将某个分支上选"
+"中的版本合并至其他分支时，这个功能很有用。"
 
 #. (term)
-#, fuzzy
 msgid "Checkout..."
-msgstr "检出"
+msgstr "检出..."
 
 #. (para)
 msgid ""
@@ -7912,9 +8043,8 @@ msgstr ""
 "本，并且选择保存的位置。"
 
 #. (term)
-#, fuzzy
 msgid "Export..."
-msgstr "输出"
+msgstr "导出..."
 
 #. (para)
 msgid ""
@@ -7925,9 +8055,8 @@ msgstr ""
 "导出选择的文件/目录的选中版本。它弹出对话框，让你确认URL和版本，选择导出位置。"
 
 #. (term)
-#, fuzzy
 msgid "Edit author / log message"
-msgstr "日志信息字体"
+msgstr "编辑作者 / 日志信息"
 
 #. (para)
 msgid ""
@@ -7938,20 +8067,21 @@ msgstr ""
 ">，了解其工作原理。"
 
 #. (term)
-#, fuzzy
 msgid "Show revision properties"
-msgstr "Subversion 属性"
+msgstr "显示版本属性"
 
 #. (para)
 msgid ""
 "View and edit any revision property, not just log message and author. Refer "
 "to <xref linkend=\"tsvn-dug-showlog-4\"/>."
 msgstr ""
+"查看和编辑任何版本属性，不仅仅是日志信息和作者。参看 <xref linkend=\"tsvn-dug-"
+"showlog-4\"/>。"
 
 #. (term)
 #. (term)
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "复制到剪贴板"
 
 #. (para)
 msgid ""
@@ -7964,9 +8094,8 @@ msgstr ""
 
 #. (term)
 #. (term)
-#, fuzzy
 msgid "Search log messages..."
-msgstr "日志信息"
+msgstr "查找日志信息..."
 
 #. (para)
 msgid ""
@@ -7984,15 +8113,17 @@ msgid ""
 "only when the log is shown for a file, and some only when the log is shown "
 "for a folder. <placeholder-2/>"
 msgstr ""
+"<placeholder-1/> 日志对话框的顶部面板有一个右键菜单，通过此菜单你可以获得更多"
+"的信息。这些菜单条目中的有些内容只会在显示文件日志时出现，有些内容只会在显示文"
+"件夹日志时出现。 <placeholder-2/>"
 
 #. (title)
 msgid "Top Pane Context Menu for 2 Selected Revisions"
-msgstr "选种两个版本的顶部面板的右键菜单"
+msgstr "选中两个版本的顶部面板的右键菜单"
 
 #. (term)
-#, fuzzy
 msgid "Compare revisions"
-msgstr "比较两个修订版本"
+msgstr "比较版本差异"
 
 #. (para)
 msgid ""
@@ -8013,23 +8144,21 @@ msgstr ""
 "compare-revs\"/>。"
 
 #. (term)
-#, fuzzy
 msgid "Blame revisions"
 msgstr "追溯版本"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Blame the two revisions and compare the blame reports using a visual "
 "difference tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more "
 "detail."
 msgstr ""
-"评审两个版本，并使用差异比较工作比较结果。详情请参考<xref linkend=\"tsvn-dug-"
-"blame-diffs\"/> 。"
+"追溯两个版本，并使用可视化差异工具显示差异。详情请参考<xref linkend=\"tsvn-"
+"dug-blame-diffs\"/> 。"
 
 #. (term)
 msgid "Show differences as unified diff"
-msgstr ""
+msgstr "以标准差异文件显示修改"
 
 #. (para)
 msgid ""
@@ -8055,76 +8184,69 @@ msgstr ""
 "菜单有所改变: <placeholder-2/>"
 
 #. (para)
-#, fuzzy
 msgid ""
 "If you select two or more revisions (using the usual <keycap>Ctrl</keycap> or "
 "<keycap>Shift</keycap> modifiers), the context menu will include an entry to "
 "Revert all changes which were made in the selected revisions. This is the "
 "easiest way to rollback a group of revisions in one go."
 msgstr ""
-"如果你用<keycap>Ctrl</keycap>或<keycap>Shift</keycap>组合键选择了多个连续的版"
-"本，右键菜单将有一个选项，可以让你还原这些版本中的修改。这是一次性还原多个版本"
-"中修改的最简方法。"
+"如果你用 <keycap>Ctrl</keycap> 或 <keycap>Shift</keycap> 组合键选择了两个或多"
+"个版本，右键菜单将有一个选项，可以让你还原这些选中的版本中的修改。这是一次性还"
+"原一组版本中修改的最简方法。"
 
 #. (para)
 msgid ""
 "You can also choose to merge the selected revisions to another working copy, "
 "as described above."
-msgstr ""
+msgstr "你也可以合并选中的版本到别的工作副本，就像上面描述的那样。"
 
 #. (para)
 msgid ""
 "If all selected revisions have the same author, you can edit the author of "
 "all those revisions in one go."
-msgstr ""
+msgstr "如果所有选中的版本作者是相同的，你可以同时修改这些版本的作者。"
 
 #. (title)
 msgid "The Log Dialog Bottom Pane with Context Menu"
 msgstr "日志对话框的底部面板的右键菜单"
 
 #. (term)
-#, fuzzy
 msgid "Show changes"
-msgstr "查看修改"
+msgstr "显示改变"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Show changes made in the selected revision for the selected file. This "
 "context menu is only available for files shown as <emphasis>modified</"
 "emphasis>."
 msgstr ""
-"显示选中版本中的选中文件的差异。这个操作只对显示为<literal>已修改</literal>的"
-"文件有效。"
+"显示选中版本中的选中文件的改变。这个菜单条目只对显示为<literal>已修改</"
+"literal>的文件有效。"
 
 #. (term)
-#, fuzzy
 msgid "Blame changes"
-msgstr "追溯修改"
+msgstr "追溯改变"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Blame the selected revision and the previous revision for the selected file, "
 "and compare the blame reports using a visual diff tool. Read <xref linkend="
 "\"tsvn-dug-blame-diffs\"/> for more detail."
 msgstr ""
-"评审选中文件的选中版本与前一个版本，使用可视化差异工具显示差异。详情请参阅"
+"追溯选中文件的选中版本与前一个版本，使用可视化差异工具显示差异。详情请参阅"
 "<xref linkend=\"tsvn-dug-blame-diffs\"/> 。"
 
 #. (term)
-#, fuzzy
 msgid "Show as unified diff"
-msgstr "统一差异"
+msgstr "以标准差异格式显示改变"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Show file changes in unified diff format. This context menu is only available "
 "for files shown as <emphasis>modified</emphasis>."
 msgstr ""
-"显示选中版本中的选中文件的差异。这个操作只对显示为<literal>已修改</literal>的"
-"文件有效。"
+"以标准差异格式显示改变。这个菜单条目只对显示为<literal>已修改</literal>的文件"
+"有效。"
 
 #. (para)
 #. (para)
@@ -8136,23 +8258,21 @@ msgstr "用默认查看器或你指定的程序打开选中文件的选中版本
 #. (para)
 msgid ""
 "Opens the Blame dialog, allowing you to blame up to the selected revision."
-msgstr ""
+msgstr "打开追溯对话框，你可以追溯到选中的版本。"
 
 #. (para)
 msgid "Revert the changes made to the selected file in that revision."
 msgstr "还原选中文件的选中版本所作的变更。"
 
 #. (term)
-#, fuzzy
 msgid "Show properties"
-msgstr "属性"
+msgstr "显示属性"
 
 #. (para)
 msgid "View the Subversion properties for the selected item."
 msgstr "查看选中项的Subversion属性。"
 
 #. (term)
-#, fuzzy
 msgid "Show log"
 msgstr "显示日志"
 
@@ -8161,15 +8281,16 @@ msgid "Show the revision log for the selected single file."
 msgstr "显示选中的单个文件的版本日志。"
 
 #. (term)
-#, fuzzy
 msgid "Get merge logs"
-msgstr "使用合并对话框"
+msgstr "取得合并日志"
 
 #. (para)
 msgid ""
 "Show the revision log for the selected single file, including merged changes. "
 "Find out more in <xref linkend=\"tsvn-dug-showlog-mergetrack\"/>."
 msgstr ""
+"显示被选中的单个文件的版本日志，包括合并修改。在 <xref linkend=\"tsvn-dug-"
+"showlog-mergetrack\"/> 中查看更多信息。"
 
 #. (para)
 msgid ""
@@ -8191,7 +8312,6 @@ msgid ""
 msgstr "你可能会注意到，我们有时候说改变，有时候说差异。它们的区别在哪儿？"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Subversion uses revision numbers to mean 2 different things. A revision "
 "generally represents the state of the repository at a point in time, but it "
@@ -8201,8 +8321,9 @@ msgid ""
 "different terms."
 msgstr ""
 "Subversion 使用版本号表达两个意思。版本号通常意味着版本库在那个时间的状态，也"
-"用来表达那个版本创建的结果集，例如 “r1234 所做” 意味着 r1234 版本提交的改变实"
-"现了特性 X。为了能更清晰的知道使用了哪个语义，我们使用两个不同的术语。"
+"用来表达那个版本创建的结果集，例如 <quote>r1234 所做</quote> 意味着 r1234 版本"
+"提交的改变实现了特性 X。为了能更清晰的知道使用了哪个语义，我们使用两个不同的术"
+"语。"
 
 #. (para)
 msgid ""
@@ -8224,20 +8345,18 @@ msgstr ""
 "c N</literal>。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "The bottom pane shows the files changed in all selected revisions, so the "
 "context menu always offers to show <emphasis>changes</emphasis>."
 msgstr ""
-"显示选中版本中的选中文件的差异。这个操作只对显示为<literal>已修改</literal>的"
-"文件有效。"
+"底部面板显示在所有选中版本中被修改的文件，所以右键菜单通常会提供显示<emphasis>"
+"改变</emphasis>。"
 
 #. (title)
 msgid "Getting more log messages"
 msgstr "获取更多的日志信息"
 
 #. (para)
-#, fuzzy
 msgid ""
 "For a large repository there may be hundreds or even thousands of changes and "
 "fetching them all could take a long time. Normally you are only interested in "
@@ -8249,7 +8368,7 @@ msgstr ""
 "对于一个大的库，可能存在几百上千个改动，全部得到它们可能要花上很久的时间。通常"
 "你只关心最近的修改。默认情况下，日志消息限制只获取100条，但你可以在"
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>设置</guimenuitem></"
-"menuchoice>中修改这个值 (<xref linkend=\"tsvn-dug-settings\"/>)，"
+"menuchoice>中修改这个值 (<xref linkend=\"tsvn-dug-settings-dialogs\"/>)，"
 
 #. (para)
 msgid ""
@@ -8343,6 +8462,9 @@ msgid ""
 "this clearer, the commit message which corresponds to the revision you have "
 "in your working copy is shown in bold."
 msgstr ""
+"因为日志对话框从最新版本开始显示日志，而不是从当前工作副本的版本开始。还未被更"
+"新至工作副本中的版本的日志消息也经常会显示出来。为了使其更清楚，符合当前工作副"
+"本版本的提交信息使用粗体显示。"
 
 #. (para)
 msgid ""
@@ -8352,6 +8474,9 @@ msgid ""
 "delay showing the log, but as a result highlighting for folders may not "
 "appear immediately."
 msgstr ""
+"当你显示文件夹的日志时，高亮的版本是此文件夹中的最高版本，这就需要遍历工作副"
+"本。遍历操作在单独的进程中进行，因此不会使显示日志有延迟，但是这样的结果就是高"
+"亮也许不会立刻显示出来。"
 
 #. (title)
 msgid "Merge Tracking Features"
@@ -8370,6 +8495,10 @@ msgid ""
 "commit for the merge, even though there may have been 1000 commits during "
 "branch development."
 msgstr ""
+"Subversion 1.5 及以后的版本使用属性保留合并记录。关于已合并的修改，我们可以获"
+"得更详细的历史。例如，你在分支中开发了一个新特性并且将此分支合并到主干，此特性"
+"开发将会以一次合并提交的形式显示在主干的日志中，即使在分支开发中可能有 1000 次"
+"提交。"
 
 #. (title)
 msgid "The Log Dialog Showing Merge Tracking Revisions"
@@ -8383,6 +8512,9 @@ msgid ""
 "from revisions which were merged. Merged revisions are shown in grey because "
 "they represent changes made on a different part of the tree."
 msgstr ""
+"如果你想查看此次提交中有哪些版本被合并的详细信息，选中 <guilabel>包含合并版本"
+"</guilabel>。这样将会再次获取日志信息，同时也会插入被合并的版本的日志信息。被"
+"合并的版本使用灰色显示，因为它们代表在版本库中不同部分的修改。"
 
 #. (para)
 msgid ""
@@ -8392,6 +8524,9 @@ msgid ""
 "include another layer of merge history. These different layers are shown in "
 "the log dialog using indentation levels."
 msgstr ""
+"当然，合并绝非简单！在分支上进行特性开发过程中，也许不时的会将主干的内容合并至"
+"分支使分支保持同步。所以分支的合并历史将会包含其它层次的合并历史。这些不同层次"
+"的信息在日志对话框中使用不同的缩进级别显示。"
 
 #. (title)
 msgid "Changing the Log Message and Author"
@@ -8402,14 +8537,12 @@ msgid "edit log/author"
 msgstr "编辑日志/作者"
 
 #. (primary)
-#, fuzzy
 msgid "revision properties"
-msgstr "Subversion 属性"
+msgstr "版本属性"
 
 #. (primary)
-#, fuzzy
 msgid "revprops"
-msgstr "版本库浏览器"
+msgstr "版本属性"
 
 #. (para)
 msgid ""
@@ -8418,6 +8551,8 @@ msgid ""
 "specific revision number in the repository, such as log message, commit date "
 "and committer name (author)."
 msgstr ""
+"版本属性完全不同于其它的 Subversion 属性。版本属性是关联于版本库中的特定版本号"
+"的描述项目，例如日志消息，提交日期和提交者名称(作者)。"
 
 #. (para)
 msgid ""
@@ -8430,7 +8565,6 @@ msgstr ""
 "容，或是其他别的原因。偶尔你还想修改提交者，可能是你忘了设置认证等原因。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Subversion lets you change revision properties any time you want. But since "
 "such changes can't be undone (those changes are not versioned) this feature "
@@ -8444,12 +8578,12 @@ msgstr ""
 "Subversion允许你在任何时候修改日志消息和作者。但这种改变不可还原(不在版本控制"
 "之下)，正因如此，这些功能默认是不可用的，如果要开启它，必须设置一个pre-"
 "revprop-change钩子。具体如何做，请参考《使用 Subversion 进行版本管理》的相关章"
-"节<ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.reposadmin.create.html"
-"\"><citetitle>钩子脚本</citetitle></ulink>。在Windows机器上实现钩子的注意事项"
-"请阅读<xref linkend=\"tsvn-repository-hooks\"/>。"
+"节<ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create."
+"html#svn.reposadmin.create.hooks\"><citetitle>钩子脚本</citetitle></ulink>。在"
+"Windows机器上实现钩子的注意事项请阅读<xref linkend=\"tsvn-repository-hooks\"/"
+">。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Once you've set up your server with the required hooks, you can change the "
 "author and log message (or any other revprop) of any revision, using the "
@@ -8457,7 +8591,8 @@ msgid ""
 "message using the context menu for the middle pane."
 msgstr ""
 "一旦你按需要为服务器设置了钩子，你就可以使用日志对话框顶部面板的右键菜单来修改"
-"任意版本的作者和日志信息了。"
+"任意版本的作者和日志信息(或其它版本属性)了。你也可以使用中间面板的右键菜单编辑"
+"日志信息。"
 
 #. (para)
 msgid ""
@@ -8466,8 +8601,8 @@ msgid ""
 "commit message property) will overwrite the previous value of that property "
 "<emphasis>forever</emphasis>."
 msgstr ""
-"由于Subversion的版本属性不受版本控制，对于这种属性的修改(如 <literal>svn:log</"
-"literal>提交信息属性将<emphasis>永久</emphasis>覆盖该属性之前的值。"
+"由于 Subversion 的版本属性不受版本控制，对于这种属性(如 <literal>svn:log</"
+"literal>提交信息属性)作出的修改将<emphasis>永久</emphasis>覆盖该属性之前的值。"
 
 #. (title)
 msgid "Filtering Log Messages"
@@ -8502,12 +8637,21 @@ msgid ""
 "entries, and then only those entries which <emphasis>match</emphasis> the "
 "filter string are shown."
 msgstr ""
+"点击查找图标来选择你要查找信息的类型，并且选择<emphasis>正则表达式</emphasis>"
+"模式。一般情况下你只需要简单的文本查找，但是如果你需要更有弹性的查找规则，你就"
+"可以使用正则表达式。鼠标指针停留在文版框上面时，会显示如何使用正则表达式功能的"
+"的提示。你也可以在这里 <ulink url=\"http://www.regular-expressions.info/"
+"\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink> 查看在"
+"线文档和指导。过滤器检查你的过滤字符串是否与日志条目匹配，并且只显示与过滤字符"
+"串<emphasis>匹配</emphasis>的条目。"
 
 #. (para)
 msgid ""
 "If you don't use regex mode, you can enter several strings to search for, and "
 "only those log entries which match all of your filter words will be shown."
 msgstr ""
+"如果你不使用正则表达式模式，你可以输入几个字符串进行查找，只有那些匹配所有过滤"
+"词的日志条目才会被显示。"
 
 #. (para)
 msgid ""
@@ -8516,6 +8660,9 @@ msgid ""
 "example, a filter string <literal>!username</literal> will only show those "
 "entries which were not committed by <literal>username</literal>."
 msgstr ""
+"要使过滤所有日志条目的结果中<emphasis>不</emphasis>包含过滤字符串，在字符串的"
+"前面加一个感叹号('!')。例如，过滤字符串 <literal>!username</literal> 将会显示"
+"那些不是由 <literal>username</literal> 提交的条目。"
 
 #. (para)
 msgid ""
@@ -8525,7 +8672,6 @@ msgstr ""
 "要注意的是，这些过滤器只对已经获取的信息有效。它们并不从版本库中下载信息。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "You can also filter the path names in the bottom pane using the "
 "<guilabel>Hide unrelated changed paths</guilabel> checkbox. Related paths are "
@@ -8534,7 +8680,7 @@ msgid ""
 "means just that one file. The checkbox is tristate: you can show all paths, "
 "grey out the unrelated ones, or hide the unrelated paths completely."
 msgstr ""
-"你还可以使用<guilabel>隐藏无关的修改路径</guilabel> 复选框来过滤底部面板中的路"
+"你还可以使用<guilabel>隐藏无关的修改路径</guilabel>复选框来过滤底部面板中的路"
 "径名称。所谓相关路径，是指那些与日志相关的路径。对于一个文件夹的日志来说，相关"
 "路径就是该文件夹以其下的所有内容。对于一个文件的日志来说，相关路径就是与该文件"
 "的路径。该复选框是3态的: 可以显示所有的路径，将无关的内容灰色显示，或是完全隐"
@@ -8549,11 +8695,14 @@ msgid ""
 "log message to be shown in the top pane. Read <xref linkend=\"tsvn-dug-"
 "propertypage-tsvn-props\"/> to find out how to use this property."
 msgstr ""
+"有时，工作规范要求日志消息符合一个特定的格式，这就意味着描述修改的文本不能在顶"
+"部面板中以简短的摘要形式显示。属性 <literal>tsvn:logsummary</literal> 可以用于"
+"提取日志消息的一部分显示在顶部面板中。参阅 <xref linkend=\"tsvn-dug-"
+"propertypage-tsvn-props\"/> 了解如何使用这个属性。"
 
 #. (title)
-#, fuzzy
 msgid "No Log Formatting from Repository Browser"
-msgstr "版本库浏览器"
+msgstr "在版本库浏览器中没有日志格式化"
 
 #. (para)
 msgid ""
@@ -8562,6 +8711,9 @@ msgid ""
 "properties remotely is a slow operation, so you will not see this feature in "
 "action from the repo browser."
 msgstr ""
+"因为格式化依赖于对 subversion 版本库的访问，所以只能在已签出的工作副本中看到结"
+"果。从远程获取属性是一个很慢的操作，所以你在从版本库浏览器中进行操作时不能看到"
+"这个特性。"
 
 #. (title)
 msgid "Statistical Information"
@@ -8617,16 +8769,15 @@ msgstr ""
 "跃了。 <placeholder-2/>"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Where there are a few major authors and many minor contributors, the number "
 "of tiny segments can make the graph more difficult to read. The slider at the "
 "bottom allows you to set a threshold (as a percentage of total commits) below "
 "which any activity is grouped into an <emphasis>Others</emphasis> category."
 msgstr ""
-"其中有几个主要作者和许多辅助的作者。由于太小的部分会导致图形难于阅读，所以在底"
-"部有个滑动条，可以设置一个范围(占所有提交的百分比)，在这个范围下的所有行为都整"
-"合成<emphasis>其他</emphasis>类。"
+"其中有几个主要作者和许多辅助的贡献者。由于太小的部分会导致图形难于阅读，所以在"
+"底部有个滑动条，可以设置一个范围(占所有提交的百分比)，在这个范围下的所有行为都"
+"整合成<emphasis>其他</emphasis>类。"
 
 #. (title)
 msgid "Commits by date Page"
@@ -8661,7 +8812,6 @@ msgstr ""
 "明了，但对查看一个作者的输出比较不直观。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "By default the analysis is case-sensitive, so users <literal>PeterEgan</"
 "literal> and <literal>PeteRegan</literal> are treated as different authors. "
@@ -8671,11 +8821,11 @@ msgid ""
 "<guilabel>Authors case insensitive</guilabel> checkbox to control how this is "
 "handled."
 msgstr ""
-"默认统计是区别大小写的，也就是说用户<literal>PeterEgan</literal>与"
-"<literal>PeteRegan</literal>被认为是两个不同的作者。但在多数时候用户名并不区别"
-"大小写，有时会存在不一致，所以你可能希望<literal>PeterEgan</literal>和"
-"<literal>PeteRegan</literal>能被当成是同一个作者。使用<guilabel>作者不区分大小"
-"写</guilabel>复选框来控制。"
+"默认统计是区别大小写的，也就是说用户 <literal>PeterEgan</literal> 与 "
+"<literal>PeteRegan</literal> 被认为是两个不同的作者。但在多数时候用户名并不区"
+"别大小写，有时会存在不一致，所以你可能希望 <literal>DavidMorgan</literal> 和 "
+"<literal>davidmorgan</literal> 能被当成是同一个作者。使用<guilabel>作者区分大"
+"小写</guilabel>复选框来控制。"
 
 #. (para)
 msgid ""
@@ -8690,9 +8840,8 @@ msgid "Offline Mode"
 msgstr "离线方式"
 
 #. (title)
-#, fuzzy
 msgid "Go Offline Dialog"
-msgstr "离线方式"
+msgstr "要离线对话框"
 
 #. (para)
 msgid ""
@@ -8701,42 +8850,45 @@ msgid ""
 "uses data from the cache, which allows you to continue working although the "
 "information may not be up-to-date or even complete."
 msgstr ""
+"<placeholder-1/> 如果服务器不可用，并且你已经启用了日志缓存，那么你可以在离线"
+"方式下使用日志对话框和版本图。它使用缓存中的数据，使得你可以继续工作，尽管信息"
+"可能不是最新的甚至不完整。"
 
 #. (term)
-#, fuzzy
 msgid "Offline for now"
-msgstr "离线方式"
+msgstr "立即离线"
 
 #. (para)
 msgid ""
 "Complete the current operation in offline mode, but retry the repository next "
 "time log data is requested."
-msgstr ""
+msgstr "使用离线方式完成当前操作，但当下次需要日志数据时重新尝试链接版本库。"
 
 #. (term)
 msgid "Permanently offline"
-msgstr ""
+msgstr "永久离线"
 
 #. (para)
 msgid ""
 "Remain in offline mode until a repository check is specifically requested. "
 "See <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
 msgstr ""
+"保持离线方式，直到特别要求进行版本库检查。参见 <xref linkend=\"tsvn-dug-"
+"showlog-refresh\"/>。"
 
 #. (term)
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #. (para)
 msgid ""
 "If you don't want to continue the operation with possibly stale data, just "
 "cancel."
-msgstr ""
+msgstr "如果你不想使用失效的数据来继续操作，就取消吧。"
 
 #. (para)
-#, fuzzy
 msgid "Here you have three options: <placeholder-1/>"
-msgstr "在<placeholder-1/>创建一个版本库。"
+msgstr "这里你有三个选择: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -12730,7 +12882,7 @@ msgid ""
 "guibutton>."
 msgstr ""
 "<placeholder-1/>要查看你和他人所拥有的锁，你可以使用"
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>检查更新...</"
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>检查修改...</"
 "guimenuitem></menuchoice>命令。本地的锁定令牌会立即显示出来，要查看别人拥用的"
 "锁定(或是检查你的锁是否被破坏或窃取)你需要点击<guibutton>检查版本库</"
 "guibutton>。"
@@ -15461,7 +15613,7 @@ msgid ""
 "added recursively."
 msgstr ""
 "若这个选项框被选中(默认状态)，那么一个非版本控制的文件夹，不论在 <guilabel>添"
-"加</guilabel>，<guilabel>提交</guilabel> 或 <guilabel>检查更新</guilabel> 时显"
+"加</guilabel>，<guilabel>提交</guilabel> 或 <guilabel>检查修改</guilabel> 时显"
 "示的是什么状态，它的每个子文件和子文件夹都要同样显示。取消选择将减少这些对话框"
 "中的混乱程度。这样一来如果你选择添加一个非版本控制的文件夹，将会非递归地添加。"
 
@@ -15579,7 +15731,7 @@ msgid ""
 "guibutton>. If you always want to check the repository, you can use this "
 "setting to make that action happen automatically."
 msgstr ""
-"“检查更新”对话框将默认检查工作副本，但仅当你点击 <guibutton>检查版本库</"
+"“检查修改”对话框将默认检查工作副本，但仅当你点击 <guibutton>检查版本库</"
 "guibutton> 时才连接你的版本库做检查。若你想总是去检查版本库，就可以使用该设置"
 "来使版本库检查的动作每次都自动启动。"
 
@@ -16073,7 +16225,7 @@ msgid ""
 "<quote>Check for modifications</quote> dialog."
 msgstr ""
 "缺点: 文件、文件夹的状态信息不会显示在浏览器中。要获知你的工作副本是否被修改"
-"了，你需要使用“检查更新”对话框。"
+"了，你需要使用“检查修改”对话框。"
 
 #. (para)
 #, fuzzy
@@ -16534,7 +16686,7 @@ msgid ""
 "substitution is used in the same way as with the Diff Program. <placeholder-1/"
 ">"
 msgstr ""
-"外部合并程序被用来解决文件冲突。像差异查看程序那样，替代参数同样被用在命令行"
+"外部合并程序被用来解决冲突的文件。像差异查看程序那样，替代参数同样被用在命令行"
 "中。<placeholder-1/>"
 
 #. (para)
