@@ -57,8 +57,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-06-18 10:38+0800\n"
-"Last-Translator: 宋冬生 <songdonogsheng@live.cn>\n"
+"PO-Revision-Date: 2009-11-06 23:41+0800\n"
+"Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1887,7 +1887,7 @@ msgstr "每周都自动检查新版本(&N)"
 
 #. Resource IDs: (306)
 msgid "Autotext Tester"
-msgstr ""
+msgstr "Autotext 测试"
 
 #. Resource IDs: (1157)
 msgid "Average"
@@ -3591,7 +3591,7 @@ msgstr "请输入整数。"
 
 #. Resource IDs: (65535)
 msgid "Enter file content to test for below:"
-msgstr ""
+msgstr "请输入需要测试的文件内容:"
 
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
@@ -3608,7 +3608,7 @@ msgstr "请勿输入超过 %1 个字符。"
 
 #. Resource IDs: (65535)
 msgid "Enter the regex string below:"
-msgstr ""
+msgstr "请输入正则表达式:"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -4077,7 +4077,7 @@ msgstr "前进"
 
 #. Resource IDs: (65535)
 msgid "Found auto words:"
-msgstr ""
+msgstr "找到了 auto word:"
 
 #. Resource IDs: (65535)
 msgid "From URL:"
@@ -5722,7 +5722,7 @@ msgstr "没有找到适用于 %s 的图像解码器。"
 
 #. Resource IDs: (84)
 msgid "No path or pathfile specified on the command line!"
-msgstr ""
+msgstr "没有在命令行指定路径或文件！"
 
 #. Resource IDs: (188)
 msgid "No spell corrections"
@@ -6763,7 +6763,7 @@ msgstr "版本库 UUID: "
 
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
-msgstr ""
+msgstr "TSVN取消了请求"
 
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
@@ -7175,7 +7175,7 @@ msgstr "保存补丁文件至: "
 
 #. Resource IDs: (1522)
 msgid "Scan"
-msgstr ""
+msgstr "扫描"
 
 #. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
@@ -7203,7 +7203,7 @@ msgstr "没有找到要查找的字符串！"
 
 #. Resource IDs: (169)
 msgid "Searching for better path to apply patch..."
-msgstr ""
+msgstr "正在搜索应用补丁的更合适的路径..."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -7870,6 +7870,18 @@ msgid ""
 "-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
+"子字符串过滤器:\r\n"
+"* 指定一个或多个字符串，用空格分开。所有的字符串都必须匹配。\r\n"
+"* 在字符串前放一个“-”来排除包含该字符串的版本。\r\n"
+"* 使用双引号来扩起包含空格的字符串。\r\n"
+"* 在行首放一个“!”来反转整个匹配模式。\r\n"
+"\r\n"
+"例如：\r\n"
+"myname 2008    : 自己在 2008 年提交的版本\r\n"
+".h -.cpp            : 有头文件的修改(.h文件)，而没有修改代码(.cpp文件)的版本\r\n"
+"\" \"                 : 包括空格的提交(如只搜索路径时)\r\n"
+"-\"\"show all\"\" : 不包含字符串“\"show all\"”的版本\r\n"
+"!myname .cpp   : 除了我提交之外的所有修改了.cpp的版本"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -9063,7 +9075,7 @@ msgstr "未知深度"
 
 #. Resource IDs: (106)
 msgid "Unknown failure in SVN::List"
-msgstr ""
+msgstr "SVN::List中发生未知错误"
 
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
@@ -10238,7 +10250,7 @@ msgstr "根项目"
 
 #. Resource IDs: (169)
 msgid "scanning path:"
-msgstr ""
+msgstr "扫描路径:"
 
 #. Resource IDs: (65535)
 msgid "skip ranges: "
@@ -10562,3 +10574,4 @@ msgstr "是"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
