@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-11-03 08:18+0900\n"
+"PO-Revision-Date: 2009-11-06 13:12+0900\n"
 "Last-Translator: Taedong Kim <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8134,6 +8134,8 @@ msgid ""
 "The URL to check out refers to a file but this\n"
 "working copy path is an existing directory."
 msgstr ""
+"체크아웃의 URL이 파일을 참조합니다.\n"
+"하지만 이 작업 사본의 경로는 존재하는 디렉토리입니다."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -9250,6 +9252,10 @@ msgstr ""
 "예외를 명시할 때, '*'를 와일드카드로 사용할 수 있습니다.\r\n"
 "복수의 예외를 구별할때는 쉼표(',')를 사용합니다.\r\n"
 "예:  *.mylan.com, *.company.com"
+
+#. Resource IDs: (1538)
+msgid "Use Aero dialogs"
+msgstr "Aero 다이얼로그들 사용"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
