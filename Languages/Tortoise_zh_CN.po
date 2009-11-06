@@ -57,7 +57,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-11-06 23:41+0800\n"
+"PO-Revision-Date: 2009-11-06 23:54+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -281,6 +281,19 @@ msgid ""
 msgstr ""
 "%s\n"
 "确定要删除吗？"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Shall I update the working copy now\n"
+"and reopen the commit dialog?"
+msgstr ""
+"%s\n"
+"\n"
+"要自动更新工作副本\n"
+"并重新打开提交对话框吗？"
 
 #. Resource IDs: (69)
 #, c-format
@@ -2468,6 +2481,10 @@ msgstr "提交"
 msgid "Commit - TortoiseSVN"
 msgstr "提交 - TortoiseSVN"
 
+#. Resource IDs: (616)
+msgid "Commit failed - Update needed"
+msgstr "提交失败，请先更新"
+
 #. Resource IDs: (1110)
 msgid "Commit to:"
 msgstr "提交至: "
@@ -2483,6 +2500,11 @@ msgstr "按作者提交次数"
 #. Resource IDs: (244)
 msgid "Commits by date"
 msgstr "按日提交次数"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "Commits each %s"
+msgstr "每%s提交次数"
 
 #. Resource IDs: (1135)
 msgid "Commits each week:"
@@ -2531,6 +2553,14 @@ msgstr "与基础版本比较(&A)"
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
 msgstr "与前一版本比较差异"
+
+#. Resource IDs: (2055)
+msgid ""
+"Compares all whitespaces when diffing\n"
+"Compare whitespaces"
+msgstr ""
+"比较差异时要比较所有空白字符\n"
+"比较空白字符"
 
 #. Resource IDs: (12)
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -2625,6 +2655,10 @@ msgstr "已复制"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "复制自路径"
+
+#. Resource IDs: (208)
+msgid "Copied from revision"
+msgstr "复制自版本"
 
 #. Resource IDs: (275)
 #, c-format
@@ -3853,6 +3887,11 @@ msgstr "正在获取文件的 %s 版本: "
 msgid "File"
 msgstr "文件"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "File changes each %s"
+msgstr "每%s修改次数"
+
 #. Resource IDs: (1138)
 msgid "File changes each week:"
 msgstr "每周修改次数: "
@@ -4658,6 +4697,10 @@ msgstr "忽略所有空白字符(&A)"
 msgid "Ignore &case changes"
 msgstr "忽略大/小写(&C)"
 
+#. Resource IDs: (32873)
+msgid "Ignore all whitespace changes"
+msgstr "忽略所有空白字符的变化"
+
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "忽略所有空白字符"
@@ -4681,6 +4724,22 @@ msgstr "忽略空白字符的变化"
 #. Resource IDs: (226)
 msgid "Ignored items included"
 msgstr "包含忽略的项目"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores all whitespace changes when diffing\n"
+"Ignore all whitespace changes"
+msgstr ""
+"比较差异时忽略所有空白字符的改变\n"
+"忽略全部空白字符的改变"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores changes in whitespaces when diffing\n"
+"Ignore whitespace changes"
+msgstr ""
+"比较差异时忽略空白字符的改变\n"
+"忽略空白字符的改变"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5780,6 +5839,11 @@ msgstr "说明: 此字体配置也影响 TortoiseUDiff 察看器"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "告示"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "Number of %s"
+msgstr "%s数"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
@@ -8089,6 +8153,14 @@ msgstr "文字状态: "
 msgid "Text status"
 msgstr "文字状态"
 
+#. Resource IDs: (84)
+msgid ""
+"The URL to check out refers to a file but this\n"
+"working copy path is an existing directory."
+msgstr ""
+"检出的URL是一个文件，\n"
+"但是工作副本是一个已有的目录。"
+
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "区块大小与加入/删除的行数不符！"
@@ -9204,6 +9276,10 @@ msgstr ""
 "可以使用通配符“*”指定例外。\r\n"
 "多个例外可以使用逗号“,”进行分隔。\r\n"
 "例: *.mylan.com, *.company.com"
+
+#. Resource IDs: (1538)
+msgid "Use Aero dialogs"
+msgstr "使用Aero对话框"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
