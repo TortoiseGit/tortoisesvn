@@ -56,7 +56,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-03-18 00:31 +0000\n"
+"POT-Creation-Date: 2009-11-04 09:10 +0000\n"
 "PO-Revision-Date: 2009-03-19 18:00+0800\n"
 "Last-Translator: Garfield Yao <field977@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
@@ -2567,6 +2567,22 @@ msgstr ""
 "<filename>&gt;&amp;2</filename>实现。"
 
 #. (title)
+msgid "Overriding Hooks"
+msgstr ""
+
+#. (para)
+msgid ""
+"If a hook script rejects your commit then its decision is final. But you can "
+"build an override mechanism into the script itself using the <emphasis>Magic "
+"Word</emphasis> technique. If the script wants to reject the operation it "
+"first scans the log message for a special pass phrase, either a fixed phrase "
+"or perhaps the filename with a prefix. If it finds the magic word then it "
+"allows the commit to proceed. If the phrase is not found then it can block "
+"the commit with a message like <quote>You didn't say the magic word</"
+"quote> :-)"
+msgstr ""
+
+#. (title)
 msgid "Checkout Links"
 msgstr "检出链接"
 
@@ -4438,7 +4454,7 @@ msgid ""
 "bin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n"
 "-config conf\\openssl.cnf\n"
 "</screen> and then (on one line) <screen>\n"
-"bin\\openssl x509 -in conf\\server.csr -out conf\\server.crt\n"
+"bin\\openssl x509 -in conf\\server.csr -out conf\\server.cert\n"
 "                 -req -signkey conf\\server.key -days 4000\n"
 "</screen> This will create a certificate which will expire in 4000 days. And "
 "finally enter (on one line): <screen>\n"
@@ -4939,14 +4955,21 @@ msgstr ""
 msgid "authentication"
 msgstr "认证"
 
+#. (primary)
+#, fuzzy
+msgid "authentication cache"
+msgstr "认证"
+
 #. (title)
 msgid "Authentication Dialog"
 msgstr "认证对话框"
 
 #. (para)
+#, fuzzy
 msgid ""
 "<filename>svn.simple</filename> contains credentials for basic authentication "
-"(username/password)."
+"(username/password). Note that passwords are stored using the WinCrypt API, "
+"not in plain text form."
 msgstr ""
 "<filename>svn.simple</filename>文件里包含了基本认证方式所需要的认证信息(用户"
 "名/口令)。"
@@ -4993,6 +5016,13 @@ msgstr ""
 "置对话框的<guilabel>常规设置</guilabel>页来实现。那个按钮能够清除 Subversion "
 "的 auth 目录中缓存的所有认证数据，以及老版本的 TortoiseSVN 存储在注册表里的认"
 "证数据。请参考 <xref linkend=\"tsvn-dug-settings-main\"/>。"
+
+#. (para)
+msgid ""
+"If you want to clear authentication for one realm only then you will have to "
+"dig into those directories, find the file which contains the information you "
+"want to clear and delete the file."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -5069,12 +5099,13 @@ msgid "temporary files"
 msgstr "临时文件"
 
 #. (para)
+#, fuzzy
 msgid ""
 "If you are importing into an existing repository which already contains some "
 "projects, then the repository structure will already have been decided. If "
-"are importing data into a new repository then it is worth taking the time to "
-"think about how it will be organised. Read <xref linkend=\"tsvn-repository-"
-"layout\"/> for further advice."
+"you are importing data into a new repository, then it is worth taking the "
+"time to think about how it will be organised. Read <xref linkend=\"tsvn-"
+"repository-layout\"/> for further advice."
 msgstr ""
 "如果你要将数据导入到已经包括一些项目的版本库中，那么版本库的结构应该已经确定"
 "了。如果你要将数据导入到一个新的版本库中，那么应该花点时间确定版本库的组织结"
@@ -5826,6 +5857,27 @@ msgid ""
 "both the old name (missing) and the new name (unversioned) and use "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Move</"
 "guimenuitem></menuchoice> to pair the two files as a rename."
+msgstr ""
+"有时候文件不是用Subversion改名，于是它们在文件列表中作为丢失和未版本控制的文件"
+"出现。为了避免丢失历史，你需要通知Subversion。简单的选择老名称(丢失)和新名称"
+"(未版本控制)，然后使用<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>修复"
+"移动</guimenuitem></menuchoice>来指明这两个文件是改名关系。"
+
+#. (title)
+#. (title)
+#, fuzzy
+msgid "Repairing External Copies"
+msgstr "修复外部改名"
+
+#. (para)
+#. (para)
+#, fuzzy
+msgid ""
+"If you made a copy of a file but forgot to use the Subversion command to do "
+"so, you can repair that copy so the new file doesn't lose its history. Simply "
+"select both the old name (normal or modified) and the new name (unversioned) "
+"and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Copy</"
+"guimenuitem></menuchoice> to pair the two files as a copy."
 msgstr ""
 "有时候文件不是用Subversion改名，于是它们在文件列表中作为丢失和未版本控制的文件"
 "出现。为了避免丢失历史，你需要通知Subversion。简单的选择老名称(丢失)和新名称"
@@ -8294,13 +8346,11 @@ msgstr ""
 
 #. (para)
 msgid ""
-"By default this only works for files. This is because the update revision for "
-"a folder may not correspond to the update revision of its content, and the "
-"only way to find the effective update revision for the folder is to crawl the "
-"working copy. This can be a slow operation for large working copies so if you "
-"want to enable this feature you must create a <literal>DWORD</literal> "
-"registry key with value 1 at <literal>HKCU\\Software\\TortoiseSVN"
-"\\RecursiveLogRev</literal>."
+"When you show the log for a folder the revision highlighted is the highest "
+"revision found anywhere within that folder, which requires a crawl of the "
+"working copy. The crawl takes place within a separate thread so as not to "
+"delay showing the log, but as a result highlighting for folders may not "
+"appear immediately."
 msgstr ""
 
 #. (title)
@@ -8451,6 +8501,12 @@ msgid ""
 "The filter works by checking whether your filter string matches the log "
 "entries, and then only those entries which <emphasis>match</emphasis> the "
 "filter string are shown."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you don't use regex mode, you can enter several strings to search for, and "
+"only those log entries which match all of your filter words will be shown."
 msgstr ""
 
 #. (para)
@@ -10196,6 +10252,11 @@ msgstr "恢复"
 msgid "undo"
 msgstr "撤消"
 
+#. (primary)
+#, fuzzy
+msgid "clean"
+msgstr "清理"
+
 #. (title)
 msgid "Revert dialog"
 msgstr "恢复对话框"
@@ -10241,6 +10302,14 @@ msgid ""
 msgstr ""
 "在这一对话框中，纵列和在 <guilabel>检查修改</guilabel>对话框中的纵列同样是可以"
 "定制的。更多细节请阅读<xref linkend=\"tsvn-dug-wcstatus-2\"/> "
+
+#. (para)
+msgid ""
+"Since revert is sometimes used to clean up a working copy, there is an extra "
+"button which allows you to delete unversioned items as well. When you click "
+"this button another dialog comes up listing all the unversioned items, which "
+"you can then select for deletion."
+msgstr ""
 
 #. (title)
 msgid "Undoing Changes which have been Committed"
@@ -10856,6 +10925,29 @@ msgstr ""
 
 #. (para)
 msgid ""
+"The property <literal>tsvn:logrevregex</literal> defines a regular expression "
+"which matches references to revisions in a log message. This is used in the "
+"log dialog to turn such references into links which when clicked will either "
+"scroll to that revision (if the revision is already shown in the log dialog, "
+"or if it's available from the log cache) or open a new log dialog showing "
+"that revision."
+msgstr ""
+
+#. (para)
+msgid ""
+"The regular expression must match the whole reference, not just the revision "
+"number. The revision number is extracted from the matched reference string "
+"automatically."
+msgstr ""
+
+#. (para)
+msgid ""
+"If this property is not set, a default regular expression is used to link "
+"revision references."
+msgstr ""
+
+#. (para)
+msgid ""
 "When you want to add a new property, you can either pick one from the list in "
 "the combo box, or you can enter any property name you like. If your project "
 "uses some custom properties, and you want those properties to appear in the "
@@ -10941,11 +11033,14 @@ msgstr ""
 "近 <filename>trunk/</filename>)。"
 
 #. (para)
+#. (para)
+#. (para)
 #, fuzzy
 msgid ""
-"For project properties <emphasis>only</emphasis> you can use the "
-"<guilabel>Recursive</guilabel> checkbox to set the property to all sub-"
-"folders in the hierarchy, without also setting it on all files."
+"For project properties <emphasis>only</emphasis>, i.e. <literal>tsvn:</"
+"literal>, <literal>bugtraq:</literal> and <literal>webviewer:</literal> you "
+"can use the <guilabel>Recursive</guilabel> checkbox to set the property to "
+"all sub-folders in the hierarchy, without also setting it on all files."
 msgstr ""
 "对于<literal>tsvn:</literal>属性，你<emphasis>只能</emphasis>对于所有子目录使"
 "用<guilabel>递归</guilabel>检查框设置属性，不能设置文件的属性。"
@@ -11020,13 +11115,10 @@ msgid ""
 "property from the combobox and write in the edit box the repository URL in "
 "the format <literal>url folder</literal> or if you want to specify a "
 "particular revision, <literal>-rREV url folder</literal> You can add multiple "
-"external projects, 1 per line. Note that URLs must be properly escaped or "
-"they will not work. For example you must replace each space with <literal>%"
-"20</literal>. Note that it is not possible to use folder names with spaces in "
-"them. Suppose that you have set these properties on <filename>D:\\dev"
-"\\project1</filename>: <screen>\n"
+"external projects, 1 per line. Suppose that you have set these properties on "
+"<filename>D:\\dev\\project1</filename>: <screen>\n"
 "http://sounds.red-bean.com/repos  sounds\n"
-"http://graphics.red-bean.com/repos/fast%20graphics  quick_graphs\n"
+"http://graphics.red-bean.com/repos/fast%20graphics  \"quick graphs\"\n"
 "-r21 http://svn.red-bean.com/repos/skin-maker  skins/toolkit\n"
 "</screen> Now click <guibutton>Set</guibutton> and commit your changes. When "
 "you (or any other user) update your working copy, Subversion will create a "
@@ -11055,6 +11147,22 @@ msgstr ""
 "\\project1\\quick_graphs</filename>包含graphics工程，最后一个嵌套的子目录"
 "<filename>D:\\dev\\project1\\skins\\toolkit</filename>包含的skin-maker工程的版"
 "本21。"
+
+#. (para)
+msgid ""
+"URLs must be properly escaped or they will not work, e.g. you must replace "
+"each space with <literal>%20</literal> as shown in the second example above."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you want the local path to include spaces or other special characters, you "
+"can enclose it in double quotes, or you can use the <literal>\\</literal> "
+"(backslash) character as a Unix shell style escape character preceding any "
+"special character. Of course this also means that you must use <literal>/</"
+"literal> (forward slash) as a path delimiter. Note that this behaviour is new "
+"in Subversion 1.6 and will not work with older clients."
+msgstr ""
 
 #. (title)
 #, fuzzy
@@ -11256,10 +11364,11 @@ msgstr ""
 
 #. (para)
 msgid ""
-"The path to the file external must be in a working copy that is already "
-"checked out. While directory externals can place the external directory at "
-"any depth and it will create any intermediate directories, file externals "
-"must be placed into a working copy that is already checked out."
+"The path to the file external must place the file in an existing versioned "
+"folder. In general it makes most sense to place the file directly in the "
+"folder that has <literal>svn:externals</literal> set, but it can be in a "
+"versioned sub-folder if necessary. By contrast, directory externals will "
+"automatically create any intermediate unversioned folders as required."
 msgstr ""
 
 #. (para)
@@ -11451,6 +11560,35 @@ msgstr ""
 "可能仍然标记为已修改状态。"
 
 #. (title)
+#, fuzzy
+msgid "Other ways to create a branch or tag"
+msgstr "创建一个分支或标记"
+
+#. (para)
+msgid ""
+"You can also create a branch or tag without having a working copy. To do "
+"that, open the repository browser. You can there drag folders to a new "
+"location. You have to hold down the <keycap>Ctrl</keycap> key while you drag "
+"to create a copy, otherwise the folder gets moved, not copied."
+msgstr ""
+
+#. (para)
+msgid ""
+"You can also drag a folder with the right mouse button. Once you release the "
+"mouse button you can choose from the context menu whether you want the folder "
+"to be moved or copied. Of course to create a branch or tag you must copy the "
+"folder, not move it."
+msgstr ""
+
+#. (para)
+msgid ""
+"Yet another way is from the log dialog. You can show the log dialog for e.g. "
+"trunk, select a revision (either the HEAD revision at the very top or an "
+"earlier revision), right-click and choose <menuchoice><guimenuitem>create "
+"branch/tag from revision...</guimenuitem></menuchoice>"
+msgstr ""
+
+#. (title)
 msgid "To Checkout or to Switch..."
 msgstr "检出或者切换"
 
@@ -11544,9 +11682,10 @@ msgstr ""
 "><placeholder-2/>"
 
 #. (para)
+#, fuzzy
 msgid ""
 "Tags are typically used to create a static snapshot of the project at a "
-"particular stage. As such they not normally used for development - that's "
+"particular stage. As such they are not normally used for development - that's "
 "what branches are for, which is the reason we recommended the <filename>/"
 "trunk /branches /tags</filename> repository structure in the first place. "
 "Working on a tag revision is <emphasis>not a good idea</emphasis>, but "
@@ -12041,6 +12180,14 @@ msgid ""
 "These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/"
 ">. The default behaviour is to treat all whitespace and line-end differences "
 "as real changes to be merged."
+msgstr ""
+
+#. (para)
+msgid ""
+"The checkbox marked <guilabel>Force the merge</guilabel> is used to avoid a "
+"tree conflict where an incoming delete affects a file that is either modified "
+"locally or not versioned at all. If the file is deleted then there is no way "
+"to recover it, which is why that option is not checked by default."
 msgstr ""
 
 #. (para)
@@ -12833,7 +12980,10 @@ msgid ""
 "filename> or <filename>.diff</filename> files are shown, but you can opt for "
 "<quote>All files</quote>. If you previously saved a patch to the clipboard, "
 "you can use <guibutton>Open from clipboard...</guibutton> in the file open "
-"dialog."
+"dialog. Note that this option only appears if you saved the patch to the "
+"clipboard using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create "
+"Patch...</guimenuitem></menuchoice>. Copying a patch to the clipboard from "
+"another app will not make the button appear."
 msgstr ""
 "从那个目录的上下文菜单，点击<menuchoice><guimenu>TortoiseSVN</"
 "guimenu><guimenuitem>应用补丁...</guimenuitem></menuchoice> 系统会弹出一个打开"
@@ -13287,9 +13437,11 @@ msgid "Delete or rename the folder."
 msgstr "删除或改名文件夹。"
 
 #. (para)
+#, fuzzy
 msgid ""
 "Make a copy of the folder, either to a different part of the repository, or "
-"to a working copy rooted in the same repository."
+"to a working copy rooted in the same repository. This can also be used to "
+"create a branch/tag without the need to have a working copy checked out."
 msgstr ""
 "复制这个目录，目的可以是版本库中的其它地方，也可以是同一版本库中的工作副本。"
 
@@ -14629,17 +14781,6 @@ msgstr ""
 "确定，你必须为每个子目录设置这些属性。一个深级目录的设置会覆盖高级目录(离"
 "<filename>trunk/</filename>更近的)。"
 
-#. (para)
-#. (para)
-#, fuzzy
-msgid ""
-"For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use "
-"the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-"
-"folders in the hierarchy, without also setting it on all files."
-msgstr ""
-"对于<literal>tsvn:</literal>属性，你<emphasis>只能</emphasis>对于所有子目录使"
-"用<guilabel>递归</guilabel>检查框设置属性，不能设置文件的属性。"
-
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
 msgstr ""
@@ -14649,7 +14790,9 @@ msgid ""
 "Because the issue tracker integration depends upon accessing subversion "
 "properties, you will only see the results when using a checked out working "
 "copy. Fetching properties remotely is a slow operation, so you will not see "
-"this feature in action from the repo browser."
+"this feature in action from the repo browser unless you started the repo "
+"browser from your working copy. If you started the repo browser by entering "
+"the URL of the repository you won't see this feature."
 msgstr ""
 
 #. (para)
@@ -14815,7 +14958,9 @@ msgid ""
 "Because the repo viewer integration depends upon accessing subversion "
 "properties, you will only see the results when using a checked out working "
 "copy. Fetching properties remotely is a slow operation, so you will not see "
-"this feature in action from the repo browser."
+"this feature in action from the repo browser unless you started the repo "
+"browser from your working copy. If you started the repo browser by entering "
+"the URL of the repository you won't see this feature."
 msgstr ""
 
 #. (title)
@@ -15320,6 +15465,13 @@ msgstr ""
 "示的是什么状态，它的每个子文件和子文件夹都要同样显示。取消选择将减少这些对话框"
 "中的混乱程度。这样一来如果你选择添加一个非版本控制的文件夹，将会非递归地添加。"
 
+#. (para)
+msgid ""
+"In the <guilabel>Check for Modifications</guilabel> dialog you can opt to see "
+"ignored items. If this box is checked then whenever an ignored folder is "
+"found, all child items will be shown as well."
+msgstr ""
+
 #. (term)
 msgid "Use auto-completion of file paths and keywords"
 msgstr "自动完成文件路径和关键词"
@@ -15729,10 +15881,7 @@ msgid "Tag Nodes"
 msgstr ""
 
 #. (para)
-msgid ""
-"Nodes classified as tags may be blended with this color. If you use tag "
-"folding to save space, tags are marked on the copy source using a block in "
-"this color."
+msgid "Nodes classified as tags may be blended with this color."
 msgstr ""
 
 #. (term)
@@ -16286,6 +16435,8 @@ msgid ""
 "</screen> or with Araxis: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
 "    %base %mine\n"
+"</screen> or with UltraCompare: <screen>\n"
+"C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
 "</screen>"
 msgstr ""
 "例如，使用 ExamDiff Pro：<screen>\n"
@@ -17288,17 +17439,18 @@ msgid ""
 msgstr ""
 
 #. (term)
-msgid "Owner-Drawn Menus"
-msgstr ""
+#, fuzzy
+msgid "Context Menu Icons"
+msgstr "右键菜单"
 
 #. (para)
 msgid ""
 "This can be useful if you use something other than the windows explorer or if "
 "you get problems with the context menu displaying correctly. create a "
 "<literal>DWORD</literal> key with a value of 0 at <literal>HKCU\\Software"
-"\\TortoiseSVN\\OwnerdrawnMenus</literal> if you don't want TortoiseSVN to use "
-"owner-draw menu items in the shell context menu. Set this value to 2 if you "
-"don't want TortoiseSVN to use icons in the context menu at all."
+"\\TortoiseSVN\\ShowContextMenuIcons</literal> if you don't want TortoiseSVN "
+"to not show icons for the shell context menu items. Set this value to 1 to "
+"show the icons again."
 msgstr ""
 
 #. (term)
@@ -17391,13 +17543,13 @@ msgstr ""
 msgid ""
 "The log dialog highlights the current working copy revision when the log is "
 "shown for a file. To do the same thing for a folder requires a working copy "
-"crawl, which can be a slow operation for large working copies. If you want to "
-"enable this feature you must create a <literal>DWORD</literal> registry key "
-"at <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal>. A value "
-"of 0 disables the feature (no highlighting for folders), a value of 1 "
-"(default) will fetch the status recursively (find the highest revision in the "
-"working copy tree), and a value of 2 will check the revision of the selected "
-"folder itself, but will not check any child items."
+"crawl, which can be a slow operation for large working copies. However the "
+"crawling is done in a separate thread so it doesn't hold up the display of "
+"log messages. For <emphasis>really</emphasis> large working copies the disk "
+"chatter might be annoying, so if you really want to disable this you must "
+"create a <literal>DWORD</literal> registry key at <literal>HKCU\\Software"
+"\\TortoiseSVN\\LogStatusCheck</literal>. A value of 0 disables the feature "
+"(no highlighting for folders)."
 msgstr ""
 
 #. (term)
@@ -17883,6 +18035,16 @@ msgstr ""
 "如果提供了源文件和目的文件，SubWCRev 会复制源文件到目标文件，执行如下所属的关"
 "键字替换: <placeholder-1/>"
 
+#. (para)
+msgid ""
+"Some of these keywords apply to single files rather than to an entire working "
+"copy, so it only makes sense to use these when SubWCRev is called to scan a "
+"single file. This applies to <literal>$WCINSVN$</literal>, <literal>"
+"$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE"
+"$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</"
+"literal>."
+msgstr ""
+
 #. (title)
 msgid "Keyword Example"
 msgstr "关键字例子"
@@ -18270,6 +18432,367 @@ msgstr ""
 msgid ""
 "The following example shows how the interface might be used. <placeholder-1/>"
 msgstr "下述例子显示了如何使用接口。<placeholder-1/>"
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"using LibSubWCRev;\n"
+"SubWCRev sub = new SubWCRev();\n"
+"sub.GetWCInfo(\"C:\\\\PathToMyFile\\\\MyFile.cc\", true, true);\n"
+"if (sub.IsSvnItem == true)\n"
+"{\n"
+"    MessageBox.Show(\"versioned\");\n"
+"}\n"
+"else\n"
+"{\n"
+"    MessageBox.Show(\"not versioned\");\n"
+"}\n"
+msgstr ""
+
+#. (para)
+#, fuzzy
+msgid ""
+"The following listing is an example on how to use the SubWCRev COM object "
+"from C#: <placeholder-1/>"
+msgstr "下述例子显示了如何使用接口。<placeholder-1/>"
+
+#. (title)
+msgid "IBugtraqProvider interface"
+msgstr ""
+
+#. (primary)
+#, fuzzy
+msgid "plugin"
+msgstr "链接"
+
+#. (primary)
+msgid "IBugtraqProvider"
+msgstr ""
+
+#. (para)
+msgid ""
+"To get a tighter integration with issue trackers than by simply using the "
+"<literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM "
+"plugins. With such plugins it is possible to fetch information directly from "
+"the issue tracker, interact with the user and provide information back to "
+"TortoiseSVN about open issues, verify log messages entered by the user and "
+"even run actions after a successful commit to e.g, close an issue."
+msgstr ""
+
+#. (para)
+msgid ""
+"We can't provide information and tutorials on how you have to implement a COM "
+"object in your preferred programming language, but we have example plugins in "
+"C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-"
+"plugins</filename> folder. In that folder you can also find the required "
+"include files you need to build your plugin. (<xref linkend=\"tsvn-preface-"
+"source\"/> explains how to access the repository)."
+msgstr ""
+
+#. (title)
+msgid "The IBugtraqProvider interface"
+msgstr ""
+
+#. (para)
+msgid ""
+"TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider "
+"interface. The interface provides a few methods which plugins can use to "
+"interact with the issue tracker."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT ValidateParameters (\n"
+"  // Parent window for any UI that needs to be\n"
+"  // displayed during validation.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // The parameter string that needs to be validated.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // Is the string valid?\n"
+"  [out, retval] VARIANT_BOOL *valid\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> This method is called from the settings dialog where the "
+"user can add and configure the plugin. The <literal>parameters</literal> "
+"string can be used by a plugin to get additional required information, e.g., "
+"the URL to the issue tracker, login information, etc. The plugin should "
+"verify the <literal>parameters</literal> string and show an error dialog if "
+"the string is not valid. The <literal>hParentWnd</literal> parameter should "
+"be used for any dialog the plugin shows as the parent window. The plugin must "
+"return TRUE if the validation of the <literal>parameters</literal> string is "
+"successful. If the plugin returns FALSE, the settings dialog won't allow the "
+"user to add the plugin to a working copy path."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT GetLinkText (\n"
+"  // Parent window for any (error) UI that needs to be displayed.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // The parameter string, just in case you need to talk to your\n"
+"  // web service (e.g.) to find out what the correct text is.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // What text do you want to display?\n"
+"  // Use the current thread locale.\n"
+"  [out, retval] BSTR *linkText\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> The plugin can provide a string here which is used in the "
+"TortoiseSVN commit dialog for the button which invokes the plugin, e.g., "
+"\"Choose issue\" or \"Select ticket\". Make sure the string is not too long, "
+"otherwise it might not fit into the button. If the method returns an error (e."
+"g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT GetCommitMessage (\n"
+"  // Parent window for your provider's UI.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parameters for your provider.\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // The text already present in the commit message.\n"
+"  // Your provider should include this text in the new message,\n"
+"  // where appropriate.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // The new text for the commit message.\n"
+"  // This replaces the original message.\n"
+"  [out, retval] BSTR *newMessage\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> This is the main method of the plugin. This method is called "
+"from the TortoiseSVN commit dialog when the user clicks on the plugin button. "
+"The <literal>parameters</literal> string is the string the user has to enter "
+"in the settings dialog when he configures the plugin. Usually a plugin would "
+"use this to find the URL of the issue tracker and/or login information or "
+"more. The <literal>commonRoot</literal> string contains the parent path of "
+"all items selected to bring up the commit dialog. Note that this is "
+"<emphasis>not</emphasis> the root path of all items which the user has "
+"selected in the commit dialog. The <literal>pathList</literal> parameter "
+"contains an array of paths (as strings) which the user has selected for the "
+"commit. The <literal>originalMessage</literal> parameter contains the text "
+"entered in the log message box in the commit dialog. If the user has not yet "
+"entered any text, this string will be empty. The <literal>newMessage</"
+"literal> return string is copied into the log message edit box in the commit "
+"dialog, replacing whatever is already there. If a plugin does not modify the "
+"<literal>originalMessage</literal> string, it must return the same string "
+"again here, otherwise any text the user has entered will be lost."
+msgstr ""
+
+#. (title)
+msgid "The IBugtraqProvider2 interface"
+msgstr ""
+
+#. (para)
+msgid ""
+"In TortoiseSVN 1.6 a new interface was added which provides more "
+"functionality for plugins. This IBugtraqProvider2 interface inherits from "
+"IBugtraqProvider."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT GetCommitMessage2 (\n"
+"  // Parent window for your provider's UI.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parameters for your provider.\n"
+"  [in] BSTR parameters,\n"
+"  // The common URL of the commit\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // The text already present in the commit message.\n"
+"  // Your provider should include this text in the new message,\n"
+"  // where appropriate.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // You can assign custom revision properties to a commit\n"
+"  // by setting the next two params.\n"
+"  // note: Both safearrays must be of the same length.\n"
+"  //       For every property name there must be a property value!\n"
+"\n"
+"  // The content of the bugID field (if shown)\n"
+"  [in] BSTR bugID,\n"
+"\n"
+"  // Modified content of the bugID field\n"
+"  [out] BSTR * bugIDOut,\n"
+"\n"
+"  // The list of revision property names.\n"
+"  [out] SAFEARRAY(BSTR) * revPropNames,\n"
+"\n"
+"  // The list of revision property values.\n"
+"  [out] SAFEARRAY(BSTR) * revPropValues,\n"
+"\n"
+"  // The new text for the commit message.\n"
+"  // This replaces the original message\n"
+"  [out, retval] BSTR * newMessage\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> This method is called from the TortoiseSVN commit dialog "
+"when the user clicks on the plugin button. This method is called instead of "
+"<literal>GetCommitMessage()</literal>. Please refer to the documentation for "
+"<literal>GetCommitMessage</literal> for the parameters that are also used "
+"there. The parameter <literal>commonURL</literal> is the parent URL of all "
+"items selected to bring up the commit dialog. This is basically the URL of "
+"the <literal>commonRoot</literal> path. The parameter <literal>bugID</"
+"literal> contains the content of the bug-ID field (if it is shown, configured "
+"with the property <literal>bugtraq:message</literal>). The return parameter "
+"<literal>bugIDOut</literal> is used to fill the bug-ID field when the method "
+"returns. The <literal>revPropNames</literal> and <literal>revPropValues</"
+"literal> return parameters can contain name/value pairs for revision "
+"properties that the commit should set. A plugin must make sure that both "
+"arrays have the same size on return! Each property name in "
+"<literal>revPropNames</literal> must also have a corresponding value in "
+"<literal>revPropValues</literal>. If no revision properties are to be set, "
+"the plugin must return empty arrays."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT CheckCommit (\n"
+"  [in] HWND hParentWnd,\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"  [in] BSTR commitMessage,\n"
+"  [out, retval] BSTR * errorMessage\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> This method is called right before the commit dialog is "
+"closed and the commit begins. A plugin can use this method to validate the "
+"selected files/folders for the commit and/or the commit message entered by "
+"the user. The parameters are the same as for <literal>GetCommitMessage2()</"
+"literal>, with the difference that <literal>commonURL</literal> is now the "
+"common URL of all <emphasis>checked</emphasis> items, and "
+"<literal>commonRoot</literal> the root path of all checked items. The return "
+"parameter <literal>errorMessage</literal> must either contain an error "
+"message which TortoiseSVN shows to the user or be empty for the commit to "
+"start. If an error message is returned, TortoiseSVN shows the error string in "
+"a dialog and keeps the commit dialog open so the user can correct whatever is "
+"wrong. A plugin should therefore return an error string which informs the "
+"user <emphasis>what</emphasis> is wrong and how to correct it."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT  OnCommitFinished (\n"
+"  // Parent window for any (error) UI that needs to be displayed.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // The common root of all paths that got committed.\n"
+"  [in] BSTR commonRoot,\n"
+"\n"
+"  // All the paths that got committed.\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"\n"
+"  // The text already present in the commit message.\n"
+"  [in] BSTR logMessage,\n"
+"\n"
+"  // The revision of the commit.\n"
+"  [in] ULONG revision,\n"
+"\n"
+"\n"
+"  // An error to show to the user if this function\n"
+"  // returns something else than S_OK\n"
+"  [out, retval] BSTR * error\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> This method is called after a successful commit. A plugin "
+"can use this method to e.g., close the selected issue or add information "
+"about the commit to the issue. The parameters are the same as for "
+"<literal>GetCommitMessage2</literal>."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT HasOptions(\n"
+"  // Whether the provider provides options\n"
+"  [out, retval] VARIANT_BOOL *ret\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> This method is called from the settings dialog where the "
+"user can configure the plugins. If a plugin provides its own configuration "
+"dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, "
+"otherwise it must return FALSE."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT ShowOptionsDialog(\n"
+"  // Parent window for the options dialog\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parameters for your provider.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // The parameters string\n"
+"  [out, retval] BSTR * newparameters\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid ""
+"<placeholder-1/> This method is called from the settings dialog when the user "
+"clicks on the \"Options\" button that is shown if <literal>HasOptions</"
+"literal> returns TRUE. A plugin can show an options dialog to make it easier "
+"for the user to configure the plugin. The <literal>parameters</literal> "
+"string contains the plugin parameters string that is already set/entered. The "
+"<literal>newparameters</literal> return parameter must contain the parameters "
+"string which the plugin constructed from the info it gathered in its options "
+"dialog. That <literal>paramameters</literal> string is passed to all other "
+"IBugtraqProvider and IBugtraqProvider2 methods."
+msgstr ""
 
 #. (title)
 msgid "Frequently Asked Questions (FAQ)"
@@ -19483,6 +20006,7 @@ msgstr "TortoiseSVN 命令"
 
 #. (primary)
 #. (primary)
+#. (primary)
 msgid "automation"
 msgstr "自动化"
 
@@ -19527,6 +20051,15 @@ msgstr ""
 "1.5.0 开始，废弃<option>/notempfile</option>参数，不再需要增加此参数。"
 
 #. (para)
+msgid ""
+"You can also specify a file which contains a list of paths, separated by "
+"newlines. The file must be in UTF-16 format. If you pass such a file, use "
+"<option>/pathfile</option> instead of <option>/path</option>. To have "
+"TortoiseProc delete that file after the command is finished, you can pass the "
+"parameter <option>/deletepathfile</option>."
+msgstr ""
+
+#. (para)
 #, fuzzy
 msgid ""
 "The progress dialog which is used for commits, updates and many more commands "
@@ -19568,16 +20101,13 @@ msgid ""
 msgstr "<option>/closeonend:3</option>如果没有错误、冲突和合并，会自动关闭"
 
 #. (para)
-msgid ""
-"<option>/closeonend:4</option> auto close if no errors, conflicts and merges "
-"for local operations"
-msgstr "<option>/closeonend:4</option>如果没有错误、冲突和合并，会自动关闭"
-
-#. (para)
+#, fuzzy
 msgid ""
 "To close the progress dialog at the end of a command automatically without "
 "using the permanent setting you can pass the <option>/closeonend</option> "
-"parameter. <placeholder-1/>"
+"parameter. <placeholder-1/> To close the progress dialog for local operations "
+"if there were no errors or conflicts, pass the <option>/closeforlocal</"
+"option> parameter."
 msgstr ""
 "如果想在进度对话框执行完毕后自动关闭，而又不必设置永久性的参数，可以传递"
 "<option>/closeonend</option>参数。<placeholder-1/>"
@@ -19656,14 +20186,56 @@ msgstr "/endrev:xxx"
 msgid "/strict"
 msgstr "/strict"
 
+#. (option)
+msgid "/findstring:\"filterstring\""
+msgstr ""
+
+#. (option)
+msgid "/findtext"
+msgstr ""
+
+#. (option)
+msgid "/findregex"
+msgstr ""
+
+#. (option)
+msgid "/findtype:X"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:1</option> filter by everything"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:2</option> filter by messages"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:3</option> filter by path"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:4</option> filter by authors"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:5</option> filter by revisions"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:7</option> filter by bug ID"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Opens the log dialog. The <placeholder-1/> specifies the file or folder for "
-"which the log should be shown. Three additional options can be set: "
-"<placeholder-2/>, <placeholder-3/> and <placeholder-4/>"
+"which the log should be shown. Six additional options can be set: "
+"<placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-"
+"copy' checkbox, <placeholder-5/> fills in the filter text, <placeholder-6/> "
+"forces the filter to use text, not regex, or <placeholder-7/> forces the "
+"filter to use regex, not simple text search, and <placeholder-8/> with X "
+"being a number between 1 and 7. The numbers correspond to: <placeholder-9/>"
 msgstr ""
-"打开日志对话框，<placeholder-1/> 指定了显示日志的文件或目录，另外还有三个选项"
-"可以设置: <placeholder-2/>、<placeholder-3/>和<placeholder-4/>"
 
 #. (option)
 #. (option)
@@ -19756,11 +20328,18 @@ msgid ""
 "which items to revert."
 msgstr "恢复工作副本的本地修改，<placeholder-1/>说明恢复哪些条目。"
 
+#. (option)
+#, fuzzy
+msgid "/noui"
+msgstr "/noquestion"
+
 #. (entry)
 msgid ""
 "Cleans up interrupted or aborted operations and unlocks the working copy in "
-"<placeholder-1/>."
-msgstr "清理中断和终止的操作，将工作副本的<placeholder-1/>解锁。"
+"<placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from "
+"popping up (either telling about the cleanup being finished or showing an "
+"error message)."
+msgstr ""
 
 #. (option)
 #. (option)
@@ -19880,6 +20459,11 @@ msgstr "/path2"
 msgid "/blame"
 msgstr "/blame"
 
+#. (option)
+#, fuzzy
+msgid "/line:xxx"
+msgstr "/rev:xxx"
+
 #. (entry)
 #, fuzzy
 msgid ""
@@ -19889,7 +20473,9 @@ msgid ""
 "> is omitted, then the diff is done between the file in <placeholder-4/> and "
 "its BASE. To explicitly set the revision numbers use <placeholder-5/> and "
 "<placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, "
-"then the diff is done by first blaming the files with the given revisions."
+"then the diff is done by first blaming the files with the given revisions. "
+"The parameter <placeholder-9/> specifies the line to jump to when the diff is "
+"shown."
 msgstr ""
 "启动 TortoiseSVN 设置的外置比较程序，<placeholder-1/>指定了第一个文件，如果设"
 "置了<placeholder-2/>选项，比较程序会用这两个文件启动，如果省略<placeholder-3/"
@@ -19930,11 +20516,26 @@ msgstr "打开重定位对话框，<placeholder-1/>指定了重定位的工作�
 msgid "Opens the help file."
 msgstr "打开帮助文件"
 
+#. (option)
+#, fuzzy
+msgid "/remote"
+msgstr "删除"
+
+#. (guilabel)
+#, fuzzy
+msgid "Check repository"
+msgstr "版本库"
+
 #. (entry)
+#, fuzzy
 msgid ""
 "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the "
-"working copy directory."
-msgstr "打开为修改检出对话框，<placeholder-1/> 指定了工作副本目录。"
+"working copy directory. If <placeholder-2/> is specified, the dialog contacts "
+"the repository immediately on startup, as if the user clicked on the "
+"<placeholder-3/> button."
+msgstr ""
+"打开检出对话框，<placeholder-1/>指定了目标路径，而<placeholder-2/>制定了检出的"
+"URL。"
 
 #. (option)
 #. (option)
@@ -20077,6 +20678,63 @@ msgstr ""
 "TortoiseProc.exe /command:log /path:\"c:\\svn_wc\\file1.txt\"\n"
 "                 /startrev:50 /endrev:60 /closeonend\n"
 "</screen>"
+
+#. (title)
+msgid "Tsvncmd URL handler"
+msgstr ""
+
+#. (primary)
+#, fuzzy
+msgid "URL handler"
+msgstr "URL 已改变"
+
+#. (para)
+msgid ""
+"Using special URLs, it is also possible to call TortoiseProc from a web page."
+msgstr ""
+
+#. (para)
+msgid ""
+"TortoiseSVN registers a new protocol <literal>tsvncmd:</literal> which can be "
+"used to create hyperlinks that execute TortoiseSVN commands. The commands and "
+"parameters are the same as when automating TortoiseSVN from the command line."
+msgstr ""
+
+#. (para)
+msgid "The format of the <literal>tsvncmd:</literal> URL is like this:"
+msgstr ""
+
+#. (literal)
+msgid "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
+msgstr ""
+
+#. (para)
+msgid ""
+"with <literal>cmd</literal> being one of the allowed commands and with "
+"<literal>parameter</literal> being a parameter like <literal>path</literal> "
+"or <literal>revision</literal>, depending on the command used."
+msgstr ""
+
+#. (para)
+#, fuzzy
+msgid ""
+"The following commands are allowed with <literal>tsvncmd:</literal> URLs: "
+"<placeholder-1/>"
+msgstr "下述例子显示了如何使用接口。<placeholder-1/>"
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"&lt;a href=\"tsvncmd:command:showcompare?\n"
+"url1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"url2:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"revision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
+msgstr ""
+
+#. (para)
+msgid "An example URL might look like this: <placeholder-1/>"
+msgstr ""
 
 #. (title)
 msgid "TortoiseIDiff Commands"
@@ -21149,6 +21807,15 @@ msgid ""
 "Thorsten Müller. Thanks guys!"
 msgstr ""
 
+#. (para)
+msgid ""
+"You can also watch a video tutorial created by Maximo Migliari which takes "
+"you through all the important steps. Watch it on <ulink url=\"http://www."
+"vimeo.com/5378553\"><citetitle>Vimeo</citetitle></ulink>. or <ulink url="
+"\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</"
+"citetitle></ulink>."
+msgstr ""
+
 #. (title)
 msgid "Setting Up a Linux Server"
 msgstr "配置 Linux 服务器"
@@ -21496,280 +22163,6 @@ msgid ""
 "in this case. To remove the default user, simply clear "
 "<filename>HKEY_CURRENT_USER\\Software\\SimonTatham\\Putty\\Sessions\\Default%"
 "20Settings\\HostName</filename>"
-msgstr ""
-
-#. (title)
-msgid "IBugtraqProvider interface"
-msgstr ""
-
-#. (primary)
-#, fuzzy
-msgid "plugin"
-msgstr "链接"
-
-#. (primary)
-msgid "IBugtraqProvider"
-msgstr ""
-
-#. (para)
-msgid ""
-"To get a tighter integration with issue trackers than by simply using the "
-"<literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM "
-"plugins. With such plugins it is possible to fetch information directly from "
-"the issue tracker, interact with the user and provide information back to "
-"TortoiseSVN about open issues, verify log messages entered by the user and "
-"even run actions after a successful commit to e.g, close an issue."
-msgstr ""
-
-#. (para)
-msgid ""
-"We can't provide information and tutorials on how you have to implement a COM "
-"object in your preferred programming language, but we have example plugins in "
-"C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-"
-"plugins</filename> folder. In that folder you can also find the required "
-"include files you need to build your plugin. (<xref linkend=\"tsvn-preface-"
-"source\"/> explains how to access the repository)."
-msgstr ""
-
-#. (title)
-msgid "The IBugtraqProvider interface"
-msgstr ""
-
-#. (para)
-msgid ""
-"TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider "
-"interface. The interface provides a few methods which plugins can use to "
-"interact with the issue tracker."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"\tHRESULT ValidateParameters (\n"
-"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any UI that needs to be displayed during validation.\n"
-"\t\t[in] BSTR parameters,\t\t\t\t\t// The parameter string that needs to be validated.\n"
-"\t\t[out, retval] VARIANT_BOOL *valid\t\t// Is the string valid?\n"
-msgstr ""
-
-#. (para)
-msgid ""
-"<placeholder-1/> This method is called from the settings dialog where the "
-"user can add and configure the plugin. The <literal>parameters</literal> "
-"string can be used by a plugin to get additional required information, e.g., "
-"the URL to the issue tracker, login information, etc. The plugin should "
-"verify the <literal>parameters</literal> string and show an error dialog if "
-"the string is not valid. The <literal>hParentWnd</literal> parameter should "
-"be used for any dialog the plugin shows as the parent window. The plugin must "
-"return TRUE if the validation of the <literal>parameters</literal> string is "
-"successful. If the plugin returns FALSE, the settings dialog won't allow the "
-"user to add the plugin to a working copy path."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"\tHRESULT GetLinkText (\n"
-"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any (error) UI that needs to be displayed.\n"
-"\t\t[in] BSTR parameters,\t\t\t\t\t// The parameter string, just in case you need to talk to your web\n"
-"\t\t\t\t\t\t\t\t\t\t\t\t// service (e.g.) to find out what the correct text is.\n"
-"\t\t[out, retval] BSTR *linkText\t\t\t// What text do you want to display? Use the current thread locale.\n"
-"\t);\n"
-msgstr ""
-
-#. (para)
-msgid ""
-"<placeholder-1/> The plugin can provide a string here which is used in the "
-"TortoiseSVN commit dialog for the button which invokes the plugin, e.g., "
-"\"Choose issue\" or \"Select ticket\". Make sure the string is not too long, "
-"otherwise it might not fit into the button. If the method returns an error (e."
-"g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"\tHRESULT GetCommitMessage (\n"
-"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for your provider's UI.\n"
-"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
-"\t\t[in] BSTR commonRoot,\n"
-"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
-"\t\t[in] BSTR originalMessage,\t\t\t\t// The text already present in the commit message.\n"
-"\t\t\t\t\t\t\t\t\t\t\t\t// Your provider should include this text in the new message, where appropriate.\n"
-"\t\t[out, retval] BSTR *newMessage\t\t\t// The new text for the commit message. This replaces the original message.\n"
-"\t);\t\t\t\n"
-msgstr ""
-
-#. (para)
-msgid ""
-"<placeholder-1/> This is the main method of the plugin. This method is called "
-"from the TortoiseSVN commit dialog when the user clicks on the plugin button. "
-"The <literal>parameters</literal> string is the string the user has to enter "
-"in the settings dialog when he configures the plugin. Usually a plugin would "
-"use this to find the URL of the issue tracker and/or login information or "
-"more. The <literal>commonRoot</literal> string contains the parent path of "
-"all items selected to bring up the commit dialog. Note that this is "
-"<emphasis>not</emphasis> the root path of all items which the user has "
-"selected in the commit dialog. The <literal>pathList</literal> parameter "
-"contains an array of paths (as strings) which the user has selected for the "
-"commit. The <literal>originalMessage</literal> parameter contains the text "
-"entered in the log message box in the commit dialog. If the user has not yet "
-"entered any text, this string will be empty. The <literal>newMessage</"
-"literal> return string is copied into the log message edit box in the commit "
-"dialog, replacing whatever is already there. If a plugin does not modify the "
-"<literal>originalMessage</literal> string, it must return the same string "
-"again here, otherwise any text the user has entered will be lost."
-msgstr ""
-
-#. (title)
-msgid "The IBugtraqProvider2 interface"
-msgstr ""
-
-#. (para)
-msgid ""
-"In TortoiseSVN 1.6 a new interface was added which provides more "
-"functionality for plugins. This IBugtraqProvider2 interface inherits from "
-"IBugtraqProvider."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"\tHRESULT GetCommitMessage2 (\n"
-"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for your provider's UI.\n"
-"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
-"\t\t[in] BSTR commonURL,\t\t\t\t\t// the common URL of the commit\n"
-"\t\t[in] BSTR commonRoot,\n"
-"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
-"\t\t[in] BSTR originalMessage,\t\t\t\t// The text already present in the commit message.\n"
-"\t\t\t\t\t\t\t\t\t\t\t\t// Your provider should include this text in the new message, where appropriate.\n"
-"\t\t// you can assign custom revision properties to a commit by setting the next two params.\n"
-"\t\t// note: both safearrays must be of the same length. For every property name there must be a property value!\n"
-"\t\t[in] BSTR bugID,\t\t\t\t\t\t// the content of the bugID field (if shown)\n"
-"\t\t[out] BSTR * bugIDOut,\t\t\t\t\t// modified content of the bugID field\n"
-"\t\t[out] SAFEARRAY(BSTR) * revPropNames,\t// a list of revision property names which are applied to the commit\n"
-"\t\t[out] SAFEARRAY(BSTR) * revPropValues,\t// a list of revision property values which are applied to the commit\n"
-"\t\t[out, retval] BSTR * newMessage\t\t\t// The new text for the commit message. This replaces the original message.\n"
-"\t);\t\t\t\n"
-msgstr ""
-
-#. (para)
-msgid ""
-"<placeholder-1/> This method is called from the TortoiseSVN commit dialog "
-"when the user clicks on the plugin button. This method is called instead of "
-"<literal>GetCommitMessage()</literal>. Please refer to the documentation for "
-"<literal>GetCommitMessage</literal> for the parameters that are also used "
-"there. The parameter <literal>commonURL</literal> is the parent URL of all "
-"items selected to bring up the commit dialog. This is basically the URL of "
-"the <literal>commonRoot</literal> path. The parameter <literal>bugID</"
-"literal> contains the content of the bug-ID field (if it is shown, configured "
-"with the property <literal>bugtraq:message</literal>). The return parameter "
-"<literal>bugIDOut</literal> is used to fill the bug-ID field when the method "
-"returns. The <literal>revPropNames</literal> and <literal>revPropValues</"
-"literal> return parameters can contain name/value pairs for revision "
-"properties that the commit should set. A plugin must make sure that both "
-"arrays have the same size on return! Each property name in "
-"<literal>revPropNames</literal> must also have a corresponding value in "
-"<literal>revPropValues</literal>. If no revision properties are to be set, "
-"the plugin must return empty arrays."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"\tHRESULT CheckCommit (\n"
-"\t\t[in] HWND hParentWnd,\n"
-"\t\t[in] BSTR parameters,\n"
-"\t\t[in] BSTR commonURL,\n"
-"\t\t[in] BSTR commonRoot,\n"
-"\t\t[in] SAFEARRAY(BSTR) pathList,\n"
-"\t\t[in] BSTR commitMessage,\n"
-"\t\t[out, retval] BSTR * errorMessage\n"
-"\t\t);\n"
-msgstr ""
-
-#. (para)
-msgid ""
-"<placeholder-1/> This method is called right before the commit dialog is "
-"closed and the commit begins. A plugin can use this method to validate the "
-"selected files/folders for the commit and/or the commit message entered by "
-"the user. The parameters are the same as for <literal>GetCommitMessage2()</"
-"literal>, with the difference that <literal>commonURL</literal> is now the "
-"common URL of all <emphasis>checked</emphasis> items, and "
-"<literal>commonRoot</literal> the root path of all checked items. The return "
-"parameter <literal>errorMessage</literal> must either contain an error "
-"message which TortoiseSVN shows to the user or be empty for the commit to "
-"start. If an error message is returned, TortoiseSVN shows the error string in "
-"a dialog and keeps the commit dialog open so the user can correct whatever is "
-"wrong. A plugin should therefore return an error string which informs the "
-"user <emphasis>what</emphasis> is wrong and how to correct it."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"\tHRESULT\tOnCommitFinished (\n"
-"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for any (error) UI that needs to be displayed.\n"
-"\t\t[in] BSTR commonRoot,\t\t\t\t\t// The common root of all paths that got committed.\n"
-"\t\t[in] SAFEARRAY(BSTR) pathList,\t\t\t// All the paths that got committed.\n"
-"\t\t[in] BSTR logMessage,\t\t\t\t\t// The text already present in the commit message.\n"
-"\t\t[in] ULONG revision,\t\t\t\t\t// The revision of the commit.\n"
-"\t\t[out, retval] BSTR * error\t\t\t\t// An error to show to the user if this function returns something else than S_OK\n"
-"\t\t);\n"
-msgstr ""
-
-#. (para)
-msgid ""
-"<placeholder-1/> This method is called after a successful commit. A plugin "
-"can use this method to e.g., close the selected issue or add information "
-"about the commit to the issue. The parameters are the same as for "
-"<literal>GetCommitMessage2</literal>."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"\tHRESULT HasOptions(\n"
-"\t\t[out, retval] VARIANT_BOOL *ret\t\t\t// Whether the provider provides options\n"
-"\t\t);\n"
-msgstr ""
-
-#. (para)
-msgid ""
-"<placeholder-1/> This method is called from the settings dialog where the "
-"user can configure the plugins. If a plugin provides its own configuration "
-"dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, "
-"otherwise it must return FALSE."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"\tHRESULT ShowOptionsDialog(\n"
-"\t\t[in] HWND hParentWnd,\t\t\t\t\t// Parent window for the options dialog\n"
-"\t\t[in] BSTR parameters,\t\t\t\t\t// Parameters for your provider.\n"
-"\t\t[out, retval] BSTR * newparameters\t\t// the parameters string\n"
-"\t\t);\n"
-msgstr ""
-
-#. (para)
-msgid ""
-"<placeholder-1/> This method is called from the settings dialog when the user "
-"clicks on the \"Options\" button that is shown if <literal>HasOptions</"
-"literal> returns TRUE. A plugin can show an options dialog to make it easier "
-"for the user to configure the plugin. The <literal>parameters</literal> "
-"string contains the plugin parameters string that is already set/entered. The "
-"<literal>newparameters</literal> return parameter must contain the parameters "
-"string which the plugin constructed from the info it gathered in its options "
-"dialog. That <literal>paramameters</literal> string is passed to all other "
-"IBugtraqProvider and IBugtraqProvider2 methods."
 msgstr ""
 
 #. (title)
