@@ -764,7 +764,9 @@ BOOL CSVNProgressDlg::OnInitDialog()
 {
 	__super::OnInitDialog();
 
-	ExtendFrameIntoClientArea(0, 0, 0, IDC_PROGRESSBAR);
+	ExtendFrameIntoClientArea(IDC_SVNPROGRESS, IDC_SVNPROGRESS, IDC_SVNPROGRESS, IDC_SVNPROGRESS);
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_PROGRESSLABEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_PROGRESSBAR)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_INFOTEXT)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_LOGBUTTON)->GetSafeHwnd());

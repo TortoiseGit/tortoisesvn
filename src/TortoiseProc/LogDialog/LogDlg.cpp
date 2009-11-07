@@ -257,12 +257,13 @@ BOOL CLogDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(0, 0, 0, IDC_LOGMSG);
+	ExtendFrameIntoClientArea(IDC_LOGMSG, 0, IDC_LOGMSG, IDC_LOGMSG);
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_LOGINFO)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_HIDEPATHS)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_STATBUTTON)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_CHECK_STOPONCOPY)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_INCLUDEMERGE)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_PROGRESS)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_GETALL)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_NEXTHUNDRED)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_REFRESH)->GetSafeHwnd());
@@ -467,7 +468,7 @@ BOOL CLogDlg::OnInitDialog()
 
 		if ((rcLogList.bottom + delta > rcLogList.top)&&(rcLogList.bottom + delta < rcChgMsg.bottom - 30))
 		{
-			m_wndSplitter1.SetWindowPos(NULL, 0, yPos1, 0, 0, SWP_NOSIZE);
+			m_wndSplitter1.SetWindowPos(NULL, rectSplitter.left, yPos1, 0, 0, SWP_NOSIZE);
 			DoSizeV1(delta);
 		}
 	}
@@ -480,7 +481,7 @@ BOOL CLogDlg::OnInitDialog()
 
 		if ((rcChgMsg.top + delta < rcChgMsg.bottom)&&(rcChgMsg.top + delta > rcLogList.top + 30))
 		{
-			m_wndSplitter2.SetWindowPos(NULL, 0, yPos2, 0, 0, SWP_NOSIZE);
+			m_wndSplitter2.SetWindowPos(NULL, rectSplitter.left, yPos2, 0, 0, SWP_NOSIZE);
 			DoSizeV2(delta);
 		}
 	}
