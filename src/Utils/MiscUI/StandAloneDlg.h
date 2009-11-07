@@ -105,6 +105,29 @@ protected:
 		}
 		return TRUE;
 	}
+
+	LRESULT OnNcHitTest(CPoint pt)
+	{
+		if ((m_Dwm.IsDwmCompositionEnabled())&&((DWORD)m_regEnableDWMFrame))
+		{
+			CRect rc;
+			GetClientRect(&rc);
+			ClientToScreen(&rc);
+
+			if (m_margins.cxLeftWidth < 0)
+			{
+				return rc.PtInRect(pt) ? HTCAPTION : BaseType::OnNcHitTest(pt);
+			}
+			else
+			{
+				CRect m = rc;
+				m.DeflateRect(m_margins.cxLeftWidth, m_margins.cyTopHeight, m_margins.cxRightWidth, m_margins.cyBottomHeight);
+				return (rc.PtInRect(pt) && !m.PtInRect(pt)) ? HTCAPTION : BaseType::OnNcHitTest(pt);
+			}
+		}
+		return BaseType::OnNcHitTest(pt);
+	}
+
 	/**
 	 *
 	 */

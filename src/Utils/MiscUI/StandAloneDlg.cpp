@@ -23,6 +23,7 @@
 BEGIN_TEMPLATE_MESSAGE_MAP(CStandAloneDialogTmpl, BaseType, BaseType)
 	ON_WM_ERASEBKGND()
 	ON_WM_PAINT()
+	ON_WM_NCHITTEST()
 END_MESSAGE_MAP()
 
 IMPLEMENT_DYNAMIC(CStandAloneDialog, CStandAloneDialogTmpl<CDialog>)
