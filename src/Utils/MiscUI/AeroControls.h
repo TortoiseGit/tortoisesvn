@@ -36,6 +36,7 @@ private:
 	static LRESULT CALLBACK SubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT_PTR uidSubclass, DWORD_PTR dwRefData);
 	LRESULT StaticWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 	LRESULT ButtonWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+	LRESULT ProgressbarWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 	void DrawFocusRect(LPRECT prcFocus, HDC hdcPaint);
 	void DrawRect(LPRECT prc, HDC hdcPaint, DashStyle dashStyle, Color clr, REAL width);

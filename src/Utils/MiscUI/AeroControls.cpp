@@ -23,7 +23,8 @@
 enum ControlType
 {
 	Static,
-	Button
+	Button,
+	Progressbar
 };
 
 #ifndef RECTWIDTH
@@ -68,6 +69,11 @@ bool AeroControlBase::SubclassControl(HWND hControl)
 			bRet = !!SetWindowSubclass(hControl, SubclassProc, Button, (DWORD_PTR)this);
 			subclassedControls[hControl] = Button;
 		}
+		if(!_tcscmp(szWndClassName, _T("msctls_progress32")))
+		{
+			bRet = !!SetWindowSubclass(hControl, SubclassProc, Progressbar, (DWORD_PTR)this);
+			subclassedControls[hControl] = Progressbar;
+		}
 	}
 	return bRet;
 }
@@ -86,6 +92,9 @@ LRESULT AeroControlBase::SubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARA
 				break;
 			case Button:
 				return pThis->ButtonWindowProc(hWnd, uMsg, wParam, lParam);
+				break;
+			case Progressbar:
+				return pThis->ProgressbarWindowProc(hWnd, uMsg, wParam, lParam);
 				break;
 			}
 		}
@@ -780,6 +789,61 @@ LRESULT AeroControlBase::ButtonWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
 	case WM_DESTROY:
 	case WM_NCDESTROY:
 		RemoveWindowSubclass(hWnd, SubclassProc, Button);
+		subclassedControls.erase(hWnd);
+		break;
+	}
+
+	return DefSubclassProc(hWnd, uMsg, wParam, lParam);
+}
+
+LRESULT AeroControlBase::ProgressbarWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+	switch (uMsg)
+	{
+	case WM_ENABLE:
+	case WM_STYLECHANGED:
+		{
+			LRESULT res = DefSubclassProc(hWnd, uMsg, wParam, lParam);
+			InvalidateRgn(hWnd, NULL, FALSE);
+			return res;
+		}
+		break;
+	case WM_PAINT:
+		{
+			PAINTSTRUCT ps;
+			HDC hdc = BeginPaint(hWnd, &ps);
+			RECT rc;
+			GetWindowRect(hWnd, &rc);
+			MapWindowPoints(NULL, hWnd, (LPPOINT) &rc, 2);
+
+			if(hdc)
+			{
+				PaintControl(hWnd, hdc, &rc, false);
+
+				BP_PAINTPARAMS params = { sizeof(BP_PAINTPARAMS) };
+				params.dwFlags        = 0L;
+				HDC hdcPaint = NULL;
+				params.dwFlags        = 0L;
+				HPAINTBUFFER hBufferedPaint = m_theme.BeginBufferedPaint(hdc, &rc, BPBF_TOPDOWNDIB, &params, &hdcPaint);
+				if (hdcPaint)
+				{
+					COLORREF cr = RGB(0x00, 0x00, 0x00);
+					SetPixel(hdcPaint, 0, 0, cr);
+					SetPixel(hdcPaint, 0, RECTHEIGHT(rc) - 1, cr);
+					SetPixel(hdcPaint, RECTWIDTH(rc) - 1, 0, cr);
+					SetPixel(hdcPaint, RECTWIDTH(rc) - 1, RECTHEIGHT(rc) - 1, cr);
+
+					m_theme.EndBufferedPaint(hBufferedPaint, TRUE);    
+				}
+			}
+
+			EndPaint(hWnd, &ps);
+			return 1;
+		}
+		break;
+	case WM_NCDESTROY:
+	case WM_DESTROY:
+		RemoveWindowSubclass(hWnd, SubclassProc, Static);
 		subclassedControls.erase(hWnd);
 		break;
 	}
