@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-10-21 19:07 +0000\n"
-"PO-Revision-Date: 2009-10-22 21:45+0100\n"
+"POT-Creation-Date: 2009-11-04 09:10 +0000\n"
+"PO-Revision-Date: 2009-11-08 20:24+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2812,13 +2812,17 @@ msgstr "Neke zajedničke operacije imaju dobro poznate Vindouz skraćenice, ali 
 msgid "authentication"
 msgstr "autentikacija"
 
+#. (primary)
+msgid "authentication cache"
+msgstr "autentikacioni keš"
+
 #. (title)
 msgid "Authentication Dialog"
 msgstr "Autentifikacioni dijalog"
 
 #. (para)
-msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password)."
-msgstr "<filename>svn.simple</filename> sadrži akreditaciju osnove autentifikacije (korisnik/lozinka)."
+msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password). Note that passwords are stored using the WinCrypt API, not in plain text form."
+msgstr "<filename>svn.simple</filename> sadrži akreditaciju osnove autentifikacije (korisnik/lozinka). Primetimo da su lozinke memorisane korišćenjem VinCript Api, nije u punom tekst formatu."
 
 #. (para)
 msgid "<filename>svn.ssl.server</filename> contains SSL server certificates."
@@ -2835,6 +2839,10 @@ msgstr "Ako je spremište kome pokušavate da pristupite zaštićeno lozinkom, a
 #. (para)
 msgid "If you want to clear the authentication cache for all servers, you can do so from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings dialog. That button will clear all cached authentication data from the Subversion <filename>auth</filename> directories, as well as any authentication data stored in the registry by earlier versions of TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
 msgstr "Ako želite da obrišete autentifikacioni keš za sve servere, možete to uraditi od <guilabel>Zapamćeni podaci</guilabel>  strane TortoiseSVN dijaloga podešavanja.To dugme će očistiti sve autentifikacione keširane podatke iz Subverzionog <filename>auth</filename>  imenika, kao i bilo koji autentifikacioni podatak smešten u registru od ranijih verzija TortoiseSVN. Uporedite sa <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
+
+#. (para)
+msgid "If you want to clear authentication for one realm only then you will have to dig into those directories, find the file which contains the information you want to clear and delete the file."
+msgstr "Ako želite da obrišete autentikaciju za jedan opseg samo tada ćete ga posaditi u ovaj imenik, nađite fajl koji sadrži informacije koje hoćete da obrišete i obrišite fajl."
 
 #. (para)
 msgid ""
@@ -2888,8 +2896,8 @@ msgid "temporary files"
 msgstr "privremeni fajlovi"
 
 #. (para)
-msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If are importing data into a new repository then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
-msgstr "Ako uvozite u postojeće spremište koje već sadrži neke projekte, tada bi trebalo da su strukture spremišta već određene. Ako uvozite podatke u novo spremište vredi potrošiti vreme na razmišljanju o tome kako bi ga trebalo organizovati. Pročitajte  <xref linkend=\"tsvn-repository-layout\"/> za dalje savete."
+msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If you are importing data into a new repository, then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
+msgstr "Ako uvozite u postojeće spremište koje već sadrži neke projekte, tada bi trebalo da su već određene strukture spremišta. Ako uvozite podatke u novo spremište vredi potrošiti vreme na razmišljanju o tome kako bi ga trebalo organizovati. Pročitajte  <xref linkend=\"tsvn-repository-layout\"/> za dalje savete."
 
 #. (para)
 msgid "There is no way to select files and folders to include, aside from using the global ignore settings."
