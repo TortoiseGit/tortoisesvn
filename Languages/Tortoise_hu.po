@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-11-02 19:00+0100\n"
+"PO-Revision-Date: 2009-11-09 02:54+0100\n"
 "Last-Translator: Halász Gábor <k@elitonline.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -310,7 +310,7 @@ msgstr "&Speciális..."
 
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
-msgstr "&Nem egyértelmű URL-ek"
+msgstr "&Nem egyértelmű URL-ek engedélyezése"
 
 #. Resource IDs: (65535)
 msgid "&Application Look"
@@ -530,7 +530,7 @@ msgstr "&Szerkesztés"
 
 #. Resource IDs: (12)
 msgid "&Edit conflicts"
-msgstr "&Ellentmondások szerkesztése"
+msgstr "&Konfliktusok szerkesztése"
 
 #. Resource IDs: (1099, 1282, 16510)
 msgid "&Edit..."
@@ -663,7 +663,7 @@ msgstr "&Kép"
 
 #. Resource IDs: (32790)
 msgid "&Image Info"
-msgstr "&Kép info"
+msgstr "&Információ"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1517,7 +1517,7 @@ msgstr "Kiterjeszésfüggő diff/egyesítő program hozzáadása/szerkesztése"
 
 #. Resource IDs: (73, 264, 65535)
 msgid "Added"
-msgstr "Hozzáadva"
+msgstr "Hozzáadott"
 
 #. Resource IDs: (126)
 msgid "Added a file remotely"
@@ -1592,7 +1592,7 @@ msgstr "Fák igazítása az ábra tetejéhez"
 
 #. Resource IDs: (1505)
 msgid "All"
-msgstr ""
+msgstr "Összeset"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
@@ -1630,15 +1630,15 @@ msgstr "&Nem egyértelmű UUID-k engedélyezése"
 
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
-msgstr "Ha be van jelölve, több tároló is használhatja ugyanazt az URL-t, pl. http://localhost/sajattarolo/"
+msgstr "Több tároló is használhatja ugyanazt az URL-t, pl. http://localhost/sajattarolo/"
 
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
-msgstr ""
+msgstr "Több tároló is használhatja ugyanazt az UUID-t, pl. tárolók másolásakor"
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
-msgstr ""
+msgstr "Helyi műveleteknél automatikusan zárja be az ablakot"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1677,14 +1677,14 @@ msgid ""
 "%mine : your own file, with your changes\r\n"
 "%base : the original file without your changes"
 msgstr ""
-"Külső egyesítő program, amelyet az ellentmondásos\r\n"
+"Külső egyesítő program, amelyet az konfliktusos\r\n"
 "fájlok javításához lehet használni.\r\n"
 "\r\n"
 "Az alábbi paramétereket használhatod:\r\n"
-"%merged\taz ellentmondásos fájl mentésének a helye\r\n"
+"%merged\taz konfliktusos fájl mentésének a helye\r\n"
 "%theirs\t\ta tárolóban lévő fájl\r\n"
-"%mine\t\ta te fájlod, a változtatásaiddal\r\n"
-"%base\t\taz eredeti fájl, változtatás nélkül"
+"%mine\t\ta te fájlod a változtatásaiddal\r\n"
+"%base\t\taz eredeti fájl változtatásaid nélkül"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -1743,7 +1743,7 @@ msgstr "Egyesített diff alkalmazása"
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
-msgstr "Biztos, hogy az ellentmondásos fájlokat feloldottnak jelölöd?"
+msgstr "Biztos, hogy a konfliktusos fájlokat feloldottnak jelölöd?"
 
 #. Resource IDs: (199)
 #, c-format
@@ -1838,7 +1838,7 @@ msgstr "Automatikus átnevezés"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
-msgstr "Ha nincs ellentmondás"
+msgstr "Ha nincs konfliktus"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no errors"
@@ -2143,7 +2143,7 @@ msgstr "Változáslista:"
 
 #. Resource IDs: (1242)
 msgid "Changes made (double-click on file for diff):"
-msgstr "Változások (duplakatt a fájlra a részletekért):"
+msgstr "Változások (kattints duplán a fájlra a részletekért):"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -2212,7 +2212,7 @@ msgstr "Változások keresése a munkapéldányban"
 
 #. Resource IDs: (1504)
 msgid "Check:"
-msgstr ""
+msgstr "Kijelölés:"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -2382,10 +2382,12 @@ msgid ""
 "Collapse unchanged sections\n"
 "Collapse"
 msgstr ""
+"Változatlan részek elrejtése\n"
+"Változatlan részek elrejtése"
 
 #. Resource IDs: (32870)
 msgid "Collapsed"
-msgstr ""
+msgstr "Változatlan részek elrejtése"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -2393,11 +2395,11 @@ msgstr "Szín"
 
 #. Resource IDs: (65535)
 msgid "Color 1"
-msgstr ""
+msgstr "Egyik szín"
 
 #. Resource IDs: (65535)
 msgid "Color 2"
-msgstr ""
+msgstr "Másik szín"
 
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
@@ -2560,7 +2562,7 @@ msgstr "Válaszd ki a programot, amellyel a fájlok tulajdonságait hasonlítod 
 
 #. Resource IDs: (65535)
 msgid "Configure the program used to resolve conflicted files."
-msgstr "Válaszd ki a programot, amellyel feloldod az ellentmondásokat a fájlokban."
+msgstr "Válaszd ki a programot, amellyel feloldod a konfliktusokat a fájlokban."
 
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
@@ -2572,16 +2574,16 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
-msgstr "Ellentmondás feloldva"
+msgstr "Konfliktus feloldva"
 
 #. Resource IDs: (263, 65535)
 msgid "Conflicted"
-msgstr "Ellentmondásos"
+msgstr "Konfliktusos"
 
 #. Resource IDs: (188)
 #, c-format
 msgid "Conflicts: %d"
-msgstr "Ellentmondások: %d"
+msgstr "Konfliktusok: %d"
 
 #. Resource IDs: (345)
 msgid "Connect to the repository server and download missing log data"
@@ -3069,7 +3071,6 @@ msgid "Default path:"
 msgstr "Alapértelmezett útvonal:"
 
 #. Resource IDs: (1064)
-#, fuzzy
 msgid "Default to UTF-8 encoding"
 msgstr "UTF-8 az alapértelmezett kódolás"
 
@@ -3101,7 +3102,7 @@ msgstr "Nem verziókezelt elemek törlése..."
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
-msgstr "Törölve"
+msgstr "Törölt"
 
 #. Resource IDs: (65535)
 msgid "Deleted node"
@@ -3191,7 +3192,7 @@ msgstr "Összehasonlítja a munkapéldányban lévő fájlt a legutolsó beküld
 
 #. Resource IDs: (1513)
 msgid "Directories"
-msgstr ""
+msgstr "Mappák"
 
 #. Resource IDs: (65535)
 msgid "Directory:"
@@ -3937,7 +3938,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Fájlméret:\t\t\t%s (%s)\n"
+"Fájlméret:\t\t%s (%s)\n"
 "Szélesség:\t\t%ld pixel\n"
 "Magasság:\t\t%ld pixel\n"
 "Vízszintes felbontás:\t%.1f dpi\n"
@@ -3964,7 +3965,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Fájlméret:\t\t\t%s (%s)\n"
+"Fájlméret:\t\t%s (%s)\n"
 "Szélesség:\t\t%ld pixel\n"
 "Magasság:\t\t%ld pixel\n"
 "Vízszintes felbontás:\t%.1f dpi\n"
@@ -3972,7 +3973,7 @@ msgstr ""
 "Színmélység:\t\t%d bit\n"
 "Nagyítás:\t\t\t%d%%\n"
 "\n"
-"Fájlméret:\t\t\t%s (%s)\n"
+"Fájlméret:\t\t%s (%s)\n"
 "Szélesség:\t\t%ld pixel\n"
 "Magasság:\t\t%ld pixel\n"
 "Vízszintes felbontás:\t%.1f dpi\n"
@@ -3986,7 +3987,7 @@ msgstr "Fájlnév"
 
 #. Resource IDs: (1512)
 msgid "Files"
-msgstr ""
+msgstr "Fájlok"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4050,7 +4051,7 @@ msgstr "&Kiadásokat ne mutassa külön"
 
 #. Resource IDs: (65535)
 msgid "Folded tag"
-msgstr ""
+msgstr "Összecskott elem"
 
 #. Resource IDs: (1002)
 msgid "Folder"
@@ -4212,8 +4213,8 @@ msgid ""
 "Go to the next conflict\n"
 "Next conflict"
 msgstr ""
-"Ugrás a következő ellentmondáshoz\n"
-"Következő ellentmondás"
+"Ugrás a következő konfliktushoz\n"
+"Következő konfliktus"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -4228,8 +4229,8 @@ msgid ""
 "Go to the previous conflict\n"
 "Previous conflict"
 msgstr ""
-"Ugrás az előző ellentmondáshoz\n"
-"Előző ellentmondás"
+"Ugrás az előző konfliktushoz\n"
+"Előző konfliktus"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -4701,6 +4702,7 @@ msgid "Ignore &case changes"
 msgstr "Kisbetű/nagybetű különbség &nem számít"
 
 #. Resource IDs: (32873)
+#, fuzzy
 msgid "Ignore all whitespace changes"
 msgstr "Láthatatlan karakterek eltérésének figyelmen kívül hagyása"
 
@@ -4721,6 +4723,7 @@ msgid "Ignore line endings"
 msgstr "Sorvégek figyelmen kívül hagyása"
 
 #. Resource IDs: (1391)
+#, fuzzy
 msgid "Ignore whitespace changes"
 msgstr "Láthatatlan karakterek eltérésének figyelmen kívül hagyása"
 
@@ -5076,7 +5079,7 @@ msgstr "A tároló legutóbbi ellenőrzésének időpontja"
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
-msgstr "Elindítja a külső diff / egyesítő programot az ellentmondások feloldásáért"
+msgstr "Elindítja a külső diff / egyesítő programot a konfliktusok feloldásához"
 
 #. Resource IDs: (1137)
 msgid "Least active author:"
@@ -5524,7 +5527,7 @@ msgstr "Módosítás dátuma"
 
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
-msgstr "Módosítva"
+msgstr "Módosított"
 
 #. Resource IDs: (65535)
 msgid "Modified node"
@@ -5645,7 +5648,7 @@ msgstr "Saját fájl:"
 
 #. Resource IDs: (32804)
 msgid "N&ext Conflict"
-msgstr "&Következő ellentmondás"
+msgstr "&Következő konfliktus"
 
 #. Resource IDs: (3697)
 msgid "NUM"
@@ -5800,7 +5803,7 @@ msgstr "Csomópontok színei"
 
 #. Resource IDs: (1271)
 msgid "None"
-msgstr "Nincs"
+msgstr "Semelyik"
 
 #. Resource IDs: (264, 65535)
 msgid "Normal"
@@ -5957,7 +5960,7 @@ msgstr ""
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
-msgstr "Egy vagy több fájlban ellentmondások találhatóak."
+msgstr "Egy vagy több fájlban konfliktusok találhatóak."
 
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
@@ -6075,7 +6078,7 @@ msgstr "Felülírás"
 
 #. Resource IDs: (32802)
 msgid "P&revious Conflict"
-msgstr "&Előző ellentmondás"
+msgstr "&Előző konfliktus"
 
 #. Resource IDs: (76)
 msgid "PEM"
@@ -6210,7 +6213,7 @@ msgstr ""
 
 #. Resource IDs: (1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
-msgstr "Az ellentmondás feloldásához válassz az alábbiak közül:"
+msgstr "Az konfliktus feloldásához válassz az alábbiak közül:"
 
 #. Resource IDs: (83)
 msgid "Please select a hook type"
@@ -6874,7 +6877,7 @@ msgstr "Feloldás a másik verzió alapján"
 
 #. Resource IDs: (1403)
 msgid "Resolve conflict:"
-msgstr "Ellentmondás feloldása:"
+msgstr "Konfliktus feloldása:"
 
 #. Resource IDs: (2)
 msgid "Resolve later"
@@ -6895,7 +6898,7 @@ msgstr ""
 
 #. Resource IDs: (9)
 msgid "Resolves conflicted files"
-msgstr "Ellentmondásos fájlok ellentmondásainak feloldása"
+msgstr "Konfliktusok feloldása"
 
 #. Resource IDs: (1254)
 msgid "Restore Default"
@@ -7429,7 +7432,7 @@ msgstr "Válssz diff fájl megjelenítőt"
 
 #. Resource IDs: (65535)
 msgid "Selected node"
-msgstr "Kiválasztott csomópont"
+msgstr "Kiválasztott elem"
 
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
@@ -8297,7 +8300,7 @@ msgstr "A hibakövető-szolgáltató nem tudta ellenőrizni a paramétereket"
 #. Resource IDs: (597)
 #, c-format
 msgid "The item '%s' has property conflicts:"
-msgstr "A(z) \"%s\" elem egy (vagy több) tulajdonsága ellentmondásba került:"
+msgstr "A(z) \"%s\" elem egy (vagy több) tulajdonsága konfliktusba került:"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8535,7 +8538,7 @@ msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr ""
-"A kiválasztott fájlban még vannak ellentmondások.\n"
+"A kiválasztott fájlban még vannak konfliktusok.\n"
 "Biztos hogy feloldottnak jelölöd a fájlt?"
 
 #. Resource IDs: (102)
@@ -8647,9 +8650,9 @@ msgid ""
 "Do you want to save the file with the conflicts still there?\n"
 "If you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr ""
-"Még vannak feloldatlan ellentmondások a(z) %d. sorban!\n"
+"Még vannak feloldatlan konfliktusok a(z) %d. sorban!\n"
 "Ezeket célszerű feloldani a mentés előt.\n"
-"Biztos, hogy elmented a fájlt az ellentmondásokkal együtt?\n"
+"Biztos, hogy elmented a fájlt a konfliktusokkal együtt?\n"
 "Ha az igenre kattintasz, akkor a feloldást kézzel, egy másik programmal kell megtenned!"
 
 #. Resource IDs: (313)
@@ -9274,6 +9277,11 @@ msgstr ""
 "A kivételeknél használhatod a \"*\" jokerkaraktert.\r\n"
 "Több kivétel elválasztásához használj vesszőt (\",\").\r\n"
 "Példa: *.pelda.hu, *.sajatcegem.com"
+
+#. Resource IDs: (1538)
+#, fuzzy
+msgid "Use Aero dialogs"
+msgstr "Aero ablakok használata"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -10069,7 +10077,7 @@ msgstr "beküldések"
 
 #. Resource IDs: (11)
 msgid "conflicted"
-msgstr "ellentmondásos"
+msgstr "konfliktusos"
 
 #. Resource IDs: (65535)
 msgid "connection: "
@@ -10276,7 +10284,7 @@ msgstr "képpontok"
 
 #. Resource IDs: (65535)
 msgid "possible or real conflict / obstructed"
-msgstr "ellentmondásos / akadályozva"
+msgstr "konfliktusos / akadályozva"
 
 #. Resource IDs: (3845)
 msgid "prn"
@@ -10465,7 +10473,7 @@ msgstr "szöveg [szópárok]: "
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
-msgstr "ellentmondásos módosítások történtek."
+msgstr "konfliktusos módosítások történtek."
 
 #. Resource IDs: (3845)
 #, c-format
