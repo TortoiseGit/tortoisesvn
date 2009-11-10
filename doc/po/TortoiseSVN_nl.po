@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-11-04 09:10 +0000\n"
-"PO-Revision-Date: 2009-11-06 17:24+0100\n"
+"PO-Revision-Date: 2009-11-10 16:53+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2871,18 +2871,6 @@ msgstr "maximaliseer"
 #. (para)
 msgid "Many of TortoiseSVN's dialogs have a lot of information to display, but it is often useful to maximize only the height, or only the width, rather than maximizing to fill the screen. As a convenience, there are shortcuts for this on the <guilabel>Maximize</guilabel> button. Use the <action>middle mouse</action> button to maximize vertically, and <action>right mouse</action> to maximize horizontally."
 msgstr ""
-"Een voorbeeld <literal>&lt;Location&gt;</literal> blok zal er dan zo uit zien: <screen>\n"
-"&lt;Location /svn&gt;\n"
-"  DAV svn\n"
-"  SVNParentPath D:\\SVN\n"
-"  SSLRequireSSL\n"
-"  AuthType Basic\n"
-"  AuthName \"Subversion repositories\"\n"
-"  AuthUserFile passwd\n"
-"  #AuthzSVNAccessFile svnaccessfile\n"
-"  Require valid-user\n"
-"&lt;/Location&gt;\n"
-"</screen>"
 
 #. (title)
 msgid "Importing Data Into A Repository"
@@ -3015,15 +3003,15 @@ msgstr "Soms wil je een bestand van versiebeheer voorzien, waarin gebruiker spec
 
 #. (para)
 msgid "In such cases we suggest to use <emphasis>template</emphasis> files. You create a file which contains all the data your developers will need, add that file to version control and let the developers check this file out. Then, each developer has to <emphasis>make a copy</emphasis> of that file and rename that copy. After that, modifying the copy is not a problem anymore."
-msgstr ""
+msgstr "In zulke situaties bevelen we het gebruik van sjablonen aan. Maak een bestand aan met alle gegevens die je gebruikers nodig hebben. Sla het bestand op in het archief en laat de ontwikkelaars het bestand ophalen. Vervolgens moet elke ontwikkelaar een <emphasis>kopie maken</emphasis> en deze hernoemen. Daarna levert het wijzigen van het bestand geen problemen meer op."
 
 #. (para)
 msgid "As an example, you can have a look at TortoiseSVN's build script. It calls a file named <filename>TortoiseVars.bat</filename> which doesn't exist in the repository. Only the file <filename>TortoiseVars.tmpl</filename>. <filename>TortoiseVars.tmpl</filename> is the template file which every developer has to create a copy from and rename that file to <filename>TortoiseVars.bat</filename>. Inside that file, we added comments so that the users will see which lines they have to edit and change according to their local setup to get it working."
-msgstr ""
+msgstr "Het TortoiseSVN bouwscript kun je als voorbeeld bekijken. Deze roept het bestand <filename>TortoiseVars.bat</filename> aan, welke niet in het archief bestaat. Het bestand <filename>TortoiseVars.tmpl</filename> is wel aanwezig. <filename>TortoiseVars.tmpl</filename> is de sjabloon waarvan elke ontwikkelaar een kopie moet maken en deze moet hernoemen naar <filename>TortoiseVars.bat</filename>. In dat bestand is commentaar toegevoegd, zodat elke ontwikkelaar weet welke regels hij/zij in zijn/haar gewenste lokale instellingen moet wijzigen."
 
 #. (para)
 msgid "So as not to disturb the users, we also added the file <filename>TortoiseVars.bat</filename> to the ignore list of its parent folder, i.e. we've set the Subversion property <literal>svn:ignore</literal> to include that filename. That way it won't show up as unversioned on every commit."
-msgstr ""
+msgstr "Om de gebruikers niet te verstoren, hebben ook het bestand <filename>TortoiseVars.bat</filename> op de negeren lijst van de bovenliggende map gezet, oftewel we hebben de bestandsnaam in de Subversion eigenschap <literal>svn:ignore</literal> opgenomen. Hierdoor wordt hij niet telkens als bestand zonder versie beheer aangegeven bij een vastlegging."
 
 #. (title)
 msgid "Checking Out A Working Copy"
@@ -3039,7 +3027,7 @@ msgstr "maak een werkkopie"
 
 #. (para)
 msgid "To obtain a working copy you need to do a <firstterm>checkout</firstterm> from a repository."
-msgstr ""
+msgstr "Om een werkkopie te verkrijgen, moet je de bestanden <firstterm>ophalen</firstterm> uit het archief."
 
 #. (title)
 msgid "The Checkout dialog"
@@ -3047,11 +3035,11 @@ msgstr "Het Ophalen venster"
 
 #. (para)
 msgid "Select a directory in windows explorer where you want to place your working copy. <action>Right click</action> to pop up the context menu and select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>, which brings up the following dialog box: <placeholder-1/> If you enter a folder name that does not yet exist, then a directory with that name is created."
-msgstr ""
+msgstr "Selecteer in windows verkenner een map waarin je je werkkopie wilt hebben. <action>Klik rechts</action> om het context menu te openen en selecteer <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>SVN Ophalen...</guimenuitem></menuchoice>, waarna het volgende venster wordt geopend: <placeholder-1/> Als je een mapnaam invoert die nog niet bestaat, dan zal deze automatisch worden aangemaakt."
 
 #. (title)
 msgid "Checkout Depth"
-msgstr "Uitcheck diepte"
+msgstr "Ophaaldiepte"
 
 #. (term)
 msgid "Fully recursive"
@@ -3063,11 +3051,11 @@ msgstr "Gehele boom uitchecken, inclusief alle knopen en subfolders"
 
 #. (term)
 msgid "Immediate children, including folders"
-msgstr "Directe knopen, inclusief folders"
+msgstr "Enkel niveau, inclusief folders"
 
 #. (para)
 msgid "Checkout the specified directory, including all files and child folders, but do not populate the child folders."
-msgstr ""
+msgstr "Haal de gespecificeerd map op, inclusief alle bestanden en onderliggende mappen, maar niet de inhoud van de onderliggende mappen."
 
 #. (term)
 msgid "Only file children"
@@ -3075,15 +3063,15 @@ msgstr "Alleen bestanden"
 
 #. (para)
 msgid "Checkout the specified directory, including all files but do not checkout any child folders."
-msgstr ""
+msgstr "Haal de gespecificeerde map op, inclusief alle bestanden, maar haal niet de mappen op."
 
 #. (term)
 msgid "Only this item"
-msgstr "Alleen dit item"
+msgstr "Alleen dit object"
 
 #. (para)
 msgid "Checkout the directory only. Do not populate it with files or child folders."
-msgstr ""
+msgstr "Haal alleen de map op. Haal de bestanden en onderliggende mappen niet op."
 
 #. (term)
 #. (term)
@@ -3093,7 +3081,7 @@ msgstr "Werkkopie"
 
 #. (para)
 msgid "Retain the depth specified in the working copy. This option is not used in the checkout dialog, but it is the default in all other dialogs which have a depth setting."
-msgstr ""
+msgstr "Behoudt de mapdiepte zoals in de werkkopie gespecificeerd is. Deze optie is niet gebruikt in het Ophalen venster, maar wordt standaard gebruikt bij vensters die mapdiepte gebruiken."
 
 #. (term)
 msgid "Exclude"
@@ -3101,7 +3089,7 @@ msgstr "Exclusief"
 
 #. (para)
 msgid "Used to reduce working copy depth after a folder has already been populated. This option is only available in the <guilabel>Update to revision</guilabel> dialog."
-msgstr ""
+msgstr "Wordt gebruikt om de werkkopie mapdiepte te beperken, nadat een map al met de inhoud is gevuld. Deze optie is alleen beschikbaar in het <guilabel>Verversen naar revisie</guilabel> venster."
 
 #. (para)
 msgid "You can choose the <firstterm>depth</firstterm> you want to checkout, which allows you to specify the depth of recursion into child folders. If you want just a few sections of a large tree, You can checkout the top level folder only, then update selected folders recursively. <placeholder-1/>"
@@ -3179,7 +3167,7 @@ msgstr ""
 
 #. (title)
 msgid "Exporting"
-msgstr ""
+msgstr "Exporteren"
 
 #. (para)
 msgid "Sometimes you may want to create a local copy without any of those <filename>.svn</filename> directories, e.g. to create a zipped tarball of your source. Read <xref linkend=\"tsvn-dug-export\"/> to find out how to do that."
@@ -10851,7 +10839,7 @@ msgstr "Hernoemen"
 
 #. (entry)
 msgid "Update to revision"
-msgstr "Update naar revisie"
+msgstr "Verversen naar revisie"
 
 #. (entry)
 #. (title)
