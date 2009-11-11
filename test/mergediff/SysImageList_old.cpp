@@ -106,3 +106,4 @@ int CSysImageList::GetPathIconIndex(const CTSVNPath& filePath) const
 	// We must have found it
 	return it->second;
 }
+

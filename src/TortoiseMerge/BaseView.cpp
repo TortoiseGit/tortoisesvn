@@ -2022,7 +2022,7 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 	int nCenterPos = m_ptCaretPos.y;
 	int nLimit = 0;
 	if (nDirection > 0)
-		nLimit = m_pViewData->GetCount() - 1;
+		nLimit = m_pViewData->GetCount();
 
 	if (nCenterPos >= m_pViewData->GetCount())
 		nCenterPos = m_pViewData->GetCount()-1;
@@ -2067,7 +2067,7 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 	// Find end of new block
 	DiffStates state = m_pViewData->GetState(nCenterPos);
 	int nBlockEnd = nCenterPos;
-	while ((nBlockEnd != nLimit) &&  
+	while ((nBlockEnd != nLimit) &&  ((nBlockEnd + nDirection) < m_pViewData->GetCount()) &&
 			 (state == m_pViewData->GetState(nBlockEnd + nDirection)))
 	{
 		nBlockEnd += nDirection;
