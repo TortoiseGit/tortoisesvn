@@ -324,6 +324,16 @@ BOOL CTortoiseProcApp::InitInstance()
 		if ((now != 0) && (localtime_s(&ptm, &now)==0))
 		{
 			int week = 0;
+
+			DWORD count = MAX_PATH;
+			TCHAR username[MAX_PATH] = {0};
+			GetUserName(username, &count);
+			// add a user specific diff to the current day count
+			// so that the update check triggers for different users
+			// at different days. This way we can 'spread' the update hits
+			// to our website a little bit
+			ptm.tm_yday += (username[0] % 7);
+
 			// we don't calculate the real 'week of the year' here
 			// because just to decide if we should check for an update
 			// that's not needed.
