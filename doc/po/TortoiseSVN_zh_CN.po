@@ -1,4 +1,3 @@
-#
 # Simplified Chinese translation for TortoiseSVN
 # Copyright (C) 2004-2008 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
@@ -57,7 +56,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-11-04 09:10 +0000\n"
-"PO-Revision-Date: 2009-03-19 18:00+0800\n"
+"PO-Revision-Date: 2009-11-10 22:27-0500\n"
 "Last-Translator: Garfield Yao <field977@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4971,8 +4970,8 @@ msgid ""
 "(username/password). Note that passwords are stored using the WinCrypt API, "
 "not in plain text form."
 msgstr ""
-"<filename>svn.simple</filename>文件里包含了基本认证方式所需要的认证信息(用户"
-"名/口令)。"
+"<filename>svn.simple</filename> 里包含了基本认证方式所需要的认证信息(用户名/口"
+"令)。"
 
 #. (para)
 msgid "<filename>svn.ssl.server</filename> contains SSL server certificates."
@@ -8898,6 +8897,9 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</"
 "guimenuitem></menuchoice>."
 msgstr ""
+"选中<guilabel>设为默认值</guilabel>复选框使用你本次的选项作为以后的选择，避免"
+"再次显示此对话框。你可以通过 <menuchoice><guimenu>TortoiseSVN</"
+"guimenu><guimenuitem>设置</guimenuitem></menuchoice>修改(或删除)此默认值。"
 
 #. (title)
 #. (title)
@@ -8912,6 +8914,9 @@ msgid ""
 "fetch only the new ones. If the log cache was in offline mode, this will also "
 "attempt to go back online."
 msgstr ""
+"如果你想再次检查服务器是否有新的日志消息，可以使用 <keycap>F5</keycap> 键来刷"
+"新视图。如果使用日志缓存(默认启用)，这将会检查版本库是否有新的消息并且只获取新"
+"的消息。如果日志缓存处于离线模式，这将会尝试恢复在线模式。"
 
 #. (para)
 msgid ""
@@ -8921,6 +8926,10 @@ msgid ""
 "cache. Note that this only affects messages currently shown and does not "
 "invalidate the entire cache for that repository."
 msgstr ""
+"如果使用日志缓存并且你认为消息内容或者作者可能被更改，你可以使用 "
+"<keycap>Shift-F5</keycap> 或 <keycap>Ctrl-F5</keycap> 来从服务器重新获取显示的"
+"消息并更新日志缓存。注意: 此动作只影响当前显示的消息并不会影响此版本库的全部缓"
+"存。"
 
 #. (title)
 msgid "Viewing Differences"
@@ -8936,7 +8945,6 @@ msgid "compare"
 msgstr "比较"
 
 #. (para)
-#, fuzzy
 msgid ""
 "One of the commonest requirements in project development is to see what has "
 "changed. You might want to look at the differences between two revisions of "
@@ -8947,10 +8955,10 @@ msgid ""
 "Of course, you can use your own favourite diff program if you like."
 msgstr ""
 "在项目开发中，有一个很常用的要求就是查看更改。可能是你要求查看同一文件的两个版"
-"本之间的差异，或者是查看两个独立的文件的差异。TortoiseSVN自带了一个工具叫"
-"<application>TortoiseMerge</application>用来查看文本文件的差异。也有一个叫"
-"<application>TortoiseIDiff</application>的工具来比较图像文件的差异。当然，你可"
-"以根据你自己的喜好来选择比较差异的工具。"
+"本之间的差异，或者是查看两个独立的文件的差异。TortoiseSVN 自带了一个工具叫 "
+"<application>TortoiseMerge</application> 用来查看文本文件的差异。也有一个叫 "
+"<application>TortoiseIDiff</application> 的工具来查看图像文件的差异。当然，你"
+"可以根据你自己的喜好来选择比较差异的工具。"
 
 #. (title)
 msgid "File Differences"
@@ -9027,6 +9035,11 @@ msgid ""
 "change made to that file to bring it to the state you now see in your working "
 "copy. It will not show changes newer than your working copy."
 msgstr ""
+"如果你想查看上一次提交的版本和你的工作副本之间的差异，假设你的工作副本没有被修"
+"改，只要用右键单击文件。然后选择 <menuchoice><guimenu>TortoiseSVN</"
+"guimenu><guimenuitem>与前一版本比较</guimenuitem></menuchoice>。这样将会对上一"
+"次提交时间(记录在你的工作副本中)之前的版本和工作基础版本进行差异比较。它将会显"
+"示工作副本中此文件变成当前状态的那一次修改。它不会显示比工作副本更新的修改。"
 
 #. (term)
 msgid "Difference between two previous revisions"
@@ -9093,7 +9106,6 @@ msgid "Difference between WC file/folder and a URL"
 msgstr "WC文件/文件夹与URL之间的比较差异"
 
 #. (para)
-#, fuzzy
 msgid ""
 "If you want to see the differences between a file in your working copy, and a "
 "file in any Subversion repository, you can do that directly in explorer by "
@@ -9103,7 +9115,13 @@ msgid ""
 "guimenuitem></menuchoice>. You can do the same thing for a working copy "
 "folder. TortoiseMerge shows these differences in the same way as it shows a "
 "patch file - a list of changed files which you can view one at a time."
-msgstr "如果你要查看你本地副本中的任一文件与版本库中任一文件之间差异，"
+msgstr ""
+"如果你要查看你本地副本中的某个文件与任意 Subversion 版本库中的某个文件之间的差"
+"异，你可以之间在资源管理器中操作，选中文件然后按下 <keycap>Shift</keycap> 键，"
+"同时右键单击显示右键菜单。选中 <menuchoice><guimenu>TortoiseSVN</"
+"guimenu><guimenuitem>与 URL 比较</guimenuitem></menuchoice>。你可以对工作副本"
+"文件夹做相同的操作。TortoiseMerge 通过与显示补丁文件相同的方法显示文件夹差异 "
+"- 你可以通过一个已修改文件列表分别查看某个文件。"
 
 #. (term)
 msgid "Difference with blame information"
@@ -9142,6 +9160,9 @@ msgid ""
 "linkend=\"tsvn-dug-settings-progs\"/> to find out about configuring other "
 "diff tools."
 msgstr ""
+"如果你已经配置了第三方的比较工具，你可以在选择比较差异命令的时候按下 "
+"<keycap>Shift</keycap> 键来选择替代工具。关于配置其它比较工具，请参阅 <xref "
+"linkend=\"tsvn-dug-settings-progs\"/>。"
 
 #. (title)
 msgid "Line-end and Whitespace Options"
@@ -11712,9 +11733,8 @@ msgstr ""
 "可能仍然标记为已修改状态。"
 
 #. (title)
-#, fuzzy
 msgid "Other ways to create a branch or tag"
-msgstr "创建一个分支或标记"
+msgstr ""
 
 #. (para)
 msgid ""
