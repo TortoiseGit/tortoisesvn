@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-18 23:39-0300\n"
+"PO-Revision-Date: 2009-11-12 00:08-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2473,6 +2473,11 @@ msgstr "Submissões por autor"
 msgid "Commits by date"
 msgstr "Submissões por data"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "Commits each %s"
+msgstr "Submissões a cada %s"
+
 #. Resource IDs: (1135)
 msgid "Commits each week:"
 msgstr "Submissões cada semana:"
@@ -2520,6 +2525,14 @@ msgstr "Comparar com a b&ase"
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
 msgstr "Comparar com a revisão anterior"
+
+#. Resource IDs: (2055)
+msgid ""
+"Compares all whitespaces when diffing\n"
+"Compare whitespaces"
+msgstr ""
+"Comparar todos os caracteres especiais usando diferenças\n"
+"Comparar caracteres especiais"
 
 #. Resource IDs: (12)
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -2614,6 +2627,10 @@ msgstr "Copiado"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "Copiado a partir da URL"
+
+#. Resource IDs: (208)
+msgid "Copied from revision"
+msgstr "Copiado da revisão"
 
 #. Resource IDs: (275)
 #, c-format
@@ -3845,6 +3862,11 @@ msgstr "Obtendo revisão %s do arquivo:"
 msgid "File"
 msgstr "Arquivo"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "File changes each %s"
+msgstr "Alterações do arquivo a cada %s"
+
 #. Resource IDs: (1138)
 msgid "File changes each week:"
 msgstr "Alterações de arquivos a cada semana:"
@@ -4660,6 +4682,10 @@ msgstr "Ignor&ar todos os espaços em branco"
 msgid "Ignore &case changes"
 msgstr "Ignorar alterações de &caixa (maiúsculas/minúsculas)"
 
+#. Resource IDs: (32873)
+msgid "Ignore all whitespace changes"
+msgstr "Ignorar todas as alterações de caracteres especiais"
+
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Ignorar todos os espaços em branco"
@@ -4683,6 +4709,22 @@ msgstr "Ignorar alterações em espaços em branco"
 #. Resource IDs: (226)
 msgid "Ignored items included"
 msgstr "Itens ignorados incluídos"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores all whitespace changes when diffing\n"
+"Ignore all whitespace changes"
+msgstr ""
+"Ignorar todas as alterações de caracteres especiais usando diferenças\n"
+"Ignorar todas as alterações de caracteres especiais"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores changes in whitespaces when diffing\n"
+"Ignore whitespace changes"
+msgstr ""
+"Ignorar alterações nos caracteres especiais usando diferenças\n"
+"Ignorar alterações nos caracteres especiais"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5788,6 +5830,11 @@ msgstr "Note: as configurações da fonte também afetam o visualizador Tortoise
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Aviso"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "Number of %s"
+msgstr "Número de %s"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
@@ -8116,6 +8163,14 @@ msgstr "Status do Texto:"
 msgid "Text status"
 msgstr "Status do texto"
 
+#. Resource IDs: (84)
+msgid ""
+"The URL to check out refers to a file but this\n"
+"working copy path is an existing directory."
+msgstr ""
+"A URL da obteção refere-se a um arquivo mas\n"
+"o caminho da cópia de trabalho é de um diretório existente."
+
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "O tamanho do bloco não coincide com o número de linhas adicionadas/removidas!"
@@ -9238,6 +9293,10 @@ msgstr ""
 "Use '*' como caractere de máscara ao especificar uma exceção\r\n"
 "Para separar múltiplas exceções, use vírgulas (',').\r\n"
 "Exemplo: *.minhalan.com, *.companhia.com"
+
+#. Resource IDs: (1538)
+msgid "Use Aero dialogs"
+msgstr "Usar janelas Aero"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
