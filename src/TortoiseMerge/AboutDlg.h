@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006,2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,8 @@
 #include "Watereffect.h"
 #include "Dib.h"
 #include "HyperLink.h"
+#include "AeroBaseDlg.h"
+#include "AeroControls.h"
 
 #define ID_EFFECTTIMER 1111
 #define ID_DROPTIMER 1112
@@ -31,7 +33,7 @@
  * with the TortoiseMerge logo with a nice water effect. See CWaterEffect
  * for the implementation.
  */
-class CAboutDlg : public CDialog
+class CAboutDlg : public CStandAloneDialog
 {
 	DECLARE_DYNAMIC(CAboutDlg)
 
@@ -43,12 +45,10 @@ public:
 	enum { IDD = IDD_ABOUT };
 
 protected:
-	HICON m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-
 	virtual BOOL OnInitDialog();
-	afx_msg void OnPaint();
-	afx_msg HCURSOR OnQueryDragIcon();
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 
 	DECLARE_MESSAGE_MAP()
 public:
@@ -59,7 +59,5 @@ private:
 	CDib m_renderDest;
 	CHyperLink m_cWebLink;
 	CHyperLink m_cSupportLink;
-public:
-	afx_msg void OnTimer(UINT_PTR nIDEvent);
-	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
+	AeroControlBase m_aeroControls;
 };

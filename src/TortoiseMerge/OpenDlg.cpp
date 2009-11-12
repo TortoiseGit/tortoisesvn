@@ -26,9 +26,9 @@
 
 // COpenDlg dialog
 
-IMPLEMENT_DYNAMIC(COpenDlg, CDialog)
+IMPLEMENT_DYNAMIC(COpenDlg, CStandAloneDialog)
 COpenDlg::COpenDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(COpenDlg::IDD, pParent)
+	: CStandAloneDialog(COpenDlg::IDD, pParent)
 	, m_sBaseFile(_T(""))
 	, m_sTheirFile(_T(""))
 	, m_sYourFile(_T(""))
@@ -46,7 +46,7 @@ COpenDlg::~COpenDlg()
 
 void COpenDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_BASEFILEEDIT, m_sBaseFile);
 	DDX_Text(pDX, IDC_THEIRFILEEDIT, m_sTheirFile);
 	DDX_Text(pDX, IDC_YOURFILEEDIT, m_sYourFile);
@@ -60,7 +60,7 @@ void COpenDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_PATCHFROMCLIPBOARD, m_bFromClipboard);
 }
 
-BEGIN_MESSAGE_MAP(COpenDlg, CDialog)
+BEGIN_MESSAGE_MAP(COpenDlg, CStandAloneDialog)
 	ON_BN_CLICKED(IDC_BASEFILEBROWSE, OnBnClickedBasefilebrowse)
 	ON_BN_CLICKED(IDC_THEIRFILEBROWSE, OnBnClickedTheirfilebrowse)
 	ON_BN_CLICKED(IDC_YOURFILEBROWSE, OnBnClickedYourfilebrowse)
@@ -77,7 +77,15 @@ END_MESSAGE_MAP()
 
 BOOL COpenDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CStandAloneDialog::OnInitDialog();
+
+	ExtendFrameIntoClientArea(IDC_MERGEGROUP, IDC_MERGEGROUP, IDC_MERGEGROUP, IDC_UNIDIFFGROUP);
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_VERSIONSTRING)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_MERGERADIO)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_APPLYRADIO)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_HELPBUTTON)->GetSafeHwnd());
 
 	CRegDWORD lastRadioButton(_T("Software\\TortoiseMerge\\OpenRadio"), IDC_MERGERADIO);
 	if (((DWORD)lastRadioButton != IDC_MERGERADIO)&&((DWORD)lastRadioButton != IDC_APPLYRADIO))
@@ -324,12 +332,12 @@ void COpenDlg::OnOK()
 	}
 	CRegDWORD lastRadioButton(_T("Software\\TortoiseMerge\\OpenRadio"), IDC_MERGERADIO);
 	lastRadioButton = GetCheckedRadioButton(IDC_MERGERADIO, IDC_APPLYRADIO);
-	CDialog::OnOK();
+	CStandAloneDialog::OnOK();
 }
 
 void COpenDlg::OnChangeCbChain(HWND hWndRemove, HWND hWndAfter)
 {
-	CDialog::OnChangeCbChain(hWndRemove, hWndAfter);
+	CStandAloneDialog::OnChangeCbChain(hWndRemove, hWndAfter);
 }
 
 bool COpenDlg::CheckAndEnableClipboardChecker()
@@ -359,13 +367,13 @@ bool COpenDlg::CheckAndEnableClipboardChecker()
 void COpenDlg::OnDrawClipboard()
 {
 	CheckAndEnableClipboardChecker();
-	CDialog::OnDrawClipboard();
+	CStandAloneDialog::OnDrawClipboard();
 }
 
 void COpenDlg::OnDestroy()
 {
 	ChangeClipboardChain(m_nextViewer);
-	CDialog::OnDestroy();
+	CStandAloneDialog::OnDestroy();
 }
 
 BOOL COpenDlg::DialogEnableWindow(UINT nID, BOOL bEnable)

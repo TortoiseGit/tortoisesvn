@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006, 2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,11 +18,12 @@
 //
 #pragma once
 #include "FileDropEdit.h"
-#include "afxwin.h"
+#include "AeroBaseDlg.h"
+#include "AeroControls.h"
 
 // COpenDlg dialog
 
-class COpenDlg : public CDialog
+class COpenDlg : public CStandAloneDialog
 {
 	DECLARE_DYNAMIC(COpenDlg)
 
@@ -66,6 +67,7 @@ protected:
 	afx_msg void OnChangeCbChain(HWND hWndRemove, HWND hWndAfter);
 	afx_msg void OnDrawClipboard();
 	afx_msg void OnDestroy();
+	afx_msg void OnBnClickedPatchfromclipboard();
 
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
@@ -73,6 +75,5 @@ protected:
 	BOOL	m_bFromClipboard;
 	UINT	m_cFormat;
 	HWND	m_nextViewer;
-public:
-	afx_msg void OnBnClickedPatchfromclipboard();
+	AeroControlBase m_aeroControls;
 };
