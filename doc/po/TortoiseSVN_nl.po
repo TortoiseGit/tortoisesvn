@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-11-04 09:10 +0000\n"
-"PO-Revision-Date: 2009-11-11 16:47+0100\n"
+"PO-Revision-Date: 2009-11-12 13:34+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3011,11 +3011,11 @@ msgstr "Het TortoiseSVN bouwscript kun je als voorbeeld bekijken. Deze roept het
 
 #. (para)
 msgid "So as not to disturb the users, we also added the file <filename>TortoiseVars.bat</filename> to the ignore list of its parent folder, i.e. we've set the Subversion property <literal>svn:ignore</literal> to include that filename. That way it won't show up as unversioned on every commit."
-msgstr "Om de gebruikers niet te verstoren, hebben ook het bestand <filename>TortoiseVars.bat</filename> op de negeren lijst van de bovenliggende map gezet, oftewel we hebben de bestandsnaam in de Subversion eigenschap <literal>svn:ignore</literal> opgenomen. Hierdoor wordt hij niet telkens als bestand zonder versie beheer aangegeven bij een vastlegging."
+msgstr "Om de gebruikers niet te verstoren, hebben ook het bestand <filename>TortoiseVars.bat</filename> op de negeerlijst van de bovenliggende map gezet, oftewel we hebben de bestandsnaam in de Subversion eigenschap <literal>svn:ignore</literal> opgenomen. Hierdoor wordt hij niet telkens als bestand zonder versie beheer aangegeven bij een vastlegging."
 
 #. (title)
 msgid "Checking Out A Working Copy"
-msgstr "Een lokale werkkopie (WC) uitchecken"
+msgstr "Een lokale werkkopie (WC) ophalen"
 
 #. (primary)
 msgid "checkout"
@@ -3105,38 +3105,32 @@ msgstr "<action>Klik met rechts</action> in de windows verkenner op de opgehaald
 
 #. (para)
 msgid "In the check for modifications dialog, first click on the button <guibutton>Check repository</guibutton>. The dialog will show all the files and folders which are in the repository but which you have not checked out as <literal>remotely added</literal>. <action>Right click</action> on the folder(s) you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
-msgstr ""
-"In dit venster moet je de URL van het archief opgeven, waarin je je project wilt importeren. Het is belangrijk om je te realiseren dat de map zelf die je geselecteerd hebt, niet in het archief verschijnt, alleen de inhoud daarvan. Bijvoorbeeld heb je de volgende structuur: <screen>\n"
-"C:\\Projects\\Widget\\source\n"
-"C:\\Projects\\Widget\\doc\n"
-"C:\\Projects\\Widget\\images\n"
-"</screen> and je wilt filename>C:\\Projects\\Widget</filename> importeren in <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem>, dan zul je verrast worden dat je de submappen direct in je <literal>trunk</literal> ziet terechtkomen in plaats van in een <literal>Widget</literal> submap. Je moet de submap als onderdeel van de URL meegeven, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Merk op dat het importeren commando automatisch de mappen aan zal maken in het archief als deze niet bestaan."
+msgstr "In het kijk of er updates zijn venster, klik op de knop <guibutton>Controleer archief</guibutton>. Het venster zal alle bestanden en mappen laten zien die in het archief zijn, maar die je niet opgehaald hebt als <literal>Op afstand toegevoegd</literal>. <action>Klik rechts</action> op de map(pen) die je aan je werkkopie wilt toevoegen en kies dan <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Verversen</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "This feature is very useful when you only want to checkout parts of a large tree, but you want the convenience of updating a single working copy. Suppose you have a large tree which has sub-folders <literal>Project01</literal> to <literal>Project99</literal>, and you only want to checkout <literal>Project03</literal>, <literal>Project25</literal> and <literal>Project76/SubProj</literal>. Use these steps:"
-msgstr ""
+msgstr "Deze functie is handig als je maar een klein deel wilt ophalen van een grote mapstructuur, maar ook het gemak wilt hebben dat je maar één werkkopie hoeft bij te werken. Stel je heb een grote mapstructuur met de submappen <literal>Project01</literal> tot <literal>Project99</literal>, waarvan je alleen <literal>Project03</literal>, <literal>Project25</literal> en <literal>Project76/SubProj</literal> wilt ophalen. Doorloop dan de volgende stappen:"
 
 #. (para)
 msgid "Checkout the parent folder with depth <quote>Only this item</quote> You now have an empty top level folder."
-msgstr ""
+msgstr "Haal de hoofdmap op met diepte <quote>Alleen dit object</quote>. Je krijgt dan alleen een lege hoofdmap."
 
 #. (para)
 msgid "Select the new folder and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo browser</guimenuitem></menuchoice> to display the repository content."
-msgstr ""
+msgstr "Selecteer de nieuwe map en kies <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Archief-verkenner</guimenuitem></menuchoice> om de inhoud van het archief te bekijken."
 
 #. (para)
 msgid "Right click on <literal>Project03</literal> and <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice>. Keep the default settings and click on <guibutton>OK</guibutton>. You now have that folder fully populated."
-msgstr ""
+msgstr "Klik met rechts op <literal>Project03</literal> en <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Verversen naar revisie...</guimenuitem></menuchoice>. Laat de standaard instellingen zo staan en klik op <guibutton>OK</guibutton>. Die map is nu volledig gevuld."
 
 #. (para)
 msgid "Repeat the same process for <literal>Project25</literal>."
-msgstr ""
+msgstr "Herhaal dezelfde stappen voor <literal>Project25</literal>."
 
 #. (para)
 msgid "Navigate to <literal>Project76/SubProj</literal> and do the same. This time note that the <literal>Project76</literal> folder has no content except for <literal>SubProj</literal>, which itself is fully populated. Subversion has created the intermediate folders for you without populating them."
-msgstr ""
+msgstr "Ga naar literal>Project76/SubProj</literal> en herhaal dezelfde stappen. Merk in dit geval op dat <literal>Project76</literal> nu alleen <literal>SubProj</literal> bevat met daarin de bijbehorende bestanden. Subversion heeft de tussenliggende mappen voor je aangemaakt zonder deze verder te vullen."
 
-# Het is lastig om een goede vertaling te bedenken voor de "diepte" van een tree.
 #. (title)
 msgid "Changing working copy depth"
 msgstr "Veranderen van de werkkopie mapdiepte"
@@ -3151,19 +3145,19 @@ msgstr "Een oudere server gebruiken"
 
 #. (para)
 msgid "Pre-1.5 servers do not understand the working copy depth request, so they cannot always deal with requests efficiently. The command will still work, but an older server may send all the data, leaving the client to filter out what is not required, which may mean a lot of network traffic. If possible you should upgrade your server to 1.5."
-msgstr ""
+msgstr "Servers met oudere versies dan 1.5 begrijpen de werkkopie mapdiepte aanvragen niet. Deze kunnen dus niet altijd efficiënt met zulke aanvragen omgaan. Het commando werkt wel, maar een oudere server verzend waarschijnlijk alle data. De gebruiker moet dan eruit filteren wat hij/zij er niet bij wil hebben. Dit kan betekenen dat er meer netwerkverkeer optreedt dan gewenst. Als het mogelijk is, zou je de server moeten bijwerken naar versie 1.5."
 
 #. (para)
 msgid "If the project contains references to external projects which you do <emphasis>not</emphasis> want checked out at the same time, use the <guilabel>Omit externals</guilabel> checkbox."
-msgstr ""
+msgstr "Als het project referenties heeft naar externe projecten die je <emphasis>niet</emphasis> direct wilt ophalen, gebruik dan het selectievak <guilabel>Externen uitsluiten</guilabel>."
 
 #. (para)
 msgid "If <guilabel>Omit externals</guilabel> is checked, or if you wish to increase the depth value, you will have to perform updates to your working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead of <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. The standard update will include all externals and keep the existing depth."
-msgstr ""
+msgstr "Als <guilabel>Externen uitslaten</guilabel> aangevinkt is of je wilt de mapdiepte vergroten, dan moet je hiervoor gebruikmaken van <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verversen naar revisie...</guimenuitem></menuchoice> in plaats van <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verversen</guimenuitem></menuchoice>. De normale Verversen functie zal alle externe verbindingen verversen en de bestaande mapdiepte blijven gebruiken. "
 
 #. (para)
 msgid "It is recommended that you check out only the <literal>trunk</literal> part of the directory tree, or lower. If you specify the parent path of the directory tree in the URL then you might end up with a full hard disk since you will get a copy of the entire repository tree including every branch and tag of your project!"
-msgstr ""
+msgstr "Het is aanbevolen om alleen de <literal>trunk</literal> of dieper gelegen mappen van je mapstructuur op te halen. Als je de hoofdmap van het hele archief in je URL opneemt, dan zal je harddisk waarschijnlijk vollopen. Je krijgt dan namelijk een complete kopie van het hele archief, inclusief alle takken en labels van je project."
 
 #. (title)
 msgid "Exporting"
@@ -3171,15 +3165,15 @@ msgstr "Exporteren"
 
 #. (para)
 msgid "Sometimes you may want to create a local copy without any of those <filename>.svn</filename> directories, e.g. to create a zipped tarball of your source. Read <xref linkend=\"tsvn-dug-export\"/> to find out how to do that."
-msgstr ""
+msgstr "Soms wil je een locale kopie maken zonder de <filename>.svn</filename> mappen, bijvoorbeeld om een zip-bestand te maken van je bronbestanden. Lees <xref linkend=\"tsvn-dug-export\"/> om te weten te komen hoe dit moet."
 
 #. (title)
 msgid "Committing Your Changes To The Repository"
-msgstr ""
+msgstr "Je Wijzigingen Vastleggen In Het Archief"
 
 #. (primary)
 msgid "commit"
-msgstr ""
+msgstr "vastleggen"
 
 #. (primary)
 msgid "send changes"
@@ -3191,7 +3185,7 @@ msgstr "check in"
 
 #. (para)
 msgid "Sending the changes you made to your working copy is known as <firstterm>committing</firstterm> the changes. But before you commit you have to make sure that your working copy is up to date. You can either use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> directly. Or you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice> first, to see which files have changed locally or on the server."
-msgstr ""
+msgstr "Het versturen van de wijzigingen die jij hebt gedaan, staat bekend als <firstterm>vastleggen</firstterm> van de wijzigingen.  Voordat je je wijzigingen vastlegt, moet je zekerstellen dat je werkkopie bijgewerkt is naar de laatste stand van zaken. Dit kun je doen door <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verversen</guimenuitem></menuchoice> te kiezen. Je kunt ook eerst <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Kijk of er updates zijn</guimenuitem></menuchoice> gebruiken, om te bekijken welke bestanden er lokaal en op de server gewijzigd zijn."
 
 #. (title)
 msgid "The Commit Dialog"
@@ -3203,56 +3197,56 @@ msgstr "De Commit dialoog"
 
 #. (para)
 msgid "If your working copy is up to date and there are no conflicts, you are ready to commit your changes. Select any file and/or folders you want to commit, then <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice>. <placeholder-1/>"
-msgstr ""
+msgstr "Als je werkkopie helemaal bij is en er zijn geen conflicten, dan ben je klaar om je wijzigingen vast te leggen. Selecteer de bestanden en mappen die je wilt vastleggen en kies <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vastleggen...</guimenuitem></menuchoice>. <placeholder-1/>"
 
 #. (para)
 msgid "The commit dialog will show you every changed file, including added, deleted and unversioned files. If you don't want a changed file to be committed, just uncheck that file. If you want to include an unversioned file, just check that file to add it to the commit."
-msgstr ""
+msgstr "De vastleggen dialoog geeft elk gewijzigd bestand weer, inclusief toegevoegde, verwijderde en bestanden zonder versiebeheer. Deselecteer een gewijzigd bestand, als je deze niet wilt vastleggen. Als je een bestand zonder versiebeheer in het archief wilt opnemen, dan kun je deze direct aanvinken zodat deze ook vastgelegd wordt."
 
 #. (para)
 #. (para)
 msgid "Items which have been switched to a different repository path are also indicated using an <literal>(s)</literal> marker. You may have switched something while working on a branch and forgotten to switch back to trunk. This is your warning sign!"
-msgstr ""
+msgstr "Objecten die verplaatst zijn naar een andere archieflocatie worden aangeduid met een <literal>(s)</literal> teken. Het kan zijn dat je omgeschakeld bent terwijl je werkte aan een tak en vergeten was om terug te schakelen naar de trunk. Dit is je waarschuwing!"
 
 #. (title)
 msgid "Commit files or folders?"
-msgstr ""
+msgstr "Bestanden of mappen vastleggen?"
 
 #. (para)
 msgid "When you commit files, the commit dialog shows only the files you have selected. When you commit a folder the commit dialog will select the changed files automatically. If you forget about a new file you created, committing the folder will find it anyway. Committing a folder does <emphasis>not</emphasis> mean that every file gets marked as changed; It just makes your life easier by doing more work for you."
-msgstr ""
+msgstr "Als je bestanden vastlegt, dan zal de vastleggen dialoog alleen de bestanden laten zien die je geselecteerd hebt. Als je een map vastlegt, dan zal de vastleggen dialoog de gewijzigde bestanden automatisch selecteren. Als je een nieuw aangemaakt bestand vergeten bent, dan wordt deze automatisch gevonden als je een map vastlegt. Het vastleggen van een map betekend <emphasis>niet</emphasis> dat elk bestand als gewijzigd wordt aangeduid; het wordt alleen maar eenvoudiger voor doordat het je werk uit handen neemt."
 
 #. (para)
 msgid "If you have modified files which have been included from a different repository using <literal>svn:externals</literal>, those changes cannot be included in the same atomic commit. A warning symbol below the file list tells you if this has happened, and the tooltip explains that those external files have to be committed separately."
-msgstr ""
+msgstr "Als je bestanden hebt gewijzigd die vanuit een ander archief komen door het gebruik van <literal>svn:externals</literal>, dan kunnen die wijzigingen niet als één enkele vastlegging worden vastgelegd.  Een waarschuwingsteken onderaan de lijst geeft aan of dit gebeurd is. De tooltip geeft aan dat die externe bestanden apart vastgelegd moeten worden."
 
 #. (title)
 msgid "Many unversioned files in the commit dialog"
-msgstr ""
+msgstr "Veel bestanden zonder versiebeheer in de vastleggen dialoog."
 
 #. (para)
 msgid "add the file (or a wildcard extension) to the list of files to exclude on the settings page. This will affect every working copy you have."
-msgstr ""
+msgstr "het bestand (of een wildcard extensie) toevoegen aan de lijst met de te negeren bestanden op de instellingen pagina. Dit zal op elke werkkopie die je hebt worden toegepast."
 
 #. (para)
 msgid "add the file to the <literal>svn:ignore</literal> list using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to ignore list</guimenuitem></menuchoice> This will only affect the directory on which you set the <literal>svn:ignore</literal> property. Using the SVN Property Dialog, you can alter the <literal>svn:ignore</literal> property for a directory."
-msgstr ""
+msgstr "het bestand toevoegen aan de literal>svn:ignore</literal> met <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verwijder en voeg toe aan negeerlijst </guimenuitem></menuchoice>. Dit zal alleen de mappen raken waarvoor de <literal>svn:ignore</literal> eigenschap is ingesteld. Met het SVN Eigenschappen venster kun je de <literal>svn:ignore</literal> eigenschap van een map aanpassen."
 
 #. (para)
 msgid "If you think that the commit dialog shows you too many unversioned (e.g. compiler generated or editor backup) files, there are several ways to handle this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> for more information."
-msgstr ""
+msgstr "Als je vindt dat het vastleggen venster te veel bestanden zonder versiebeheer weergeeft (bijv. reservekopie bestanden van de compiler of tekstverwerker), dan zijn daar verschillende oplossingen voor. Je kunt: <placeholder-1> Lees <xref linkend=\"tsvn-dug-ignore\"/>  voor meer informatie."
 
 #. (para)
 msgid "<action>Double clicking</action> on any modified file in the commit dialog will launch the external diff tool to show your changes. The context menu will give you more options, as shown in the screenshot. You can also drag files from here into another application such as a text editor or an IDE."
-msgstr ""
+msgstr "<action>Dubbelklikken</action> op een gewijzigd bestand in het vastleggen venster zal het externe vergelijkingsprogramma opstarten om jouw wijzigingen te laten zien. Het context menu zal je meer opties geven, zoals weergegeven in de screenshot. Je kunt ook bestanden hier vandaan verslepen naar andere programma’s zoals een tekstverwerker of IDE."
 
 #. (para)
 msgid "You can select or deselect items by clicking on the checkbox to the left of the item. For directories you can use <keycap>Shift</keycap>-<action>select</action> to make the action recursive."
-msgstr ""
+msgstr "Je kunt objecten selecteren en de-selecteren door op het selectievak links ervan te klikken. Bij mappen kun je <keycap>Shift</keycap>-<action>selecteren</action> gebruiken om de actie recursief te maken."
 
 #. (para)
 msgid "The columns displayed in the bottom pane are customizable. If you <action>right click</action> on any column header you will see a context menu allowing you to select which columns are displayed. You can also change column width by using the drag handle which appears when you move the mouse over a column boundary. These customizations are preserved, so you will see the same headings next time."
-msgstr ""
+msgstr "De kolommen in het onderste venster kunnen aangepast worden. Als je met <action>rechts klikt</action> op een kolom koptekst, dan wordt er een context menu weergegeven waarmee je kunt selecteren welke kolommen er getoond moeten worden. Je kunt ook de breedte van de kolommen aanpassen door de overgang tussen twee kolommen in het koptekst van de kolommen te verslepen. De aanpassingen worden opgeslagen, waardoor je de volgende keer dezelfde weergave weer terugkrijgt."
 
 #. (para)
 msgid "By default when you commit changes, any locks that you hold on files are released automatically after the commit succeeds. If you want to keep those locks, make sure the <guilabel>Keep locks</guilabel> checkbox is checked. The default state of this checkbox is taken from the <literal>no_unlock</literal> option in the Subversion configuration file. Read <xref linkend=\"tsvn-dug-settings-main\"/> for information on how to edit the Subversion configuration file."
@@ -3431,7 +3425,7 @@ msgstr ""
 #. (primary)
 #. (primary)
 msgid "update"
-msgstr "update"
+msgstr "verversen"
 
 #. (primary)
 msgid "fetch changes"
@@ -3873,11 +3867,11 @@ msgstr "status"
 
 #. (primary)
 msgid "view changes"
-msgstr "weergeef wijzigingen"
+msgstr "wijzigingen weergeven"
 
 #. (primary)
 msgid "working copy status"
-msgstr "Werkkopie status"
+msgstr "werkkopie status"
 
 #. (para)
 msgid "While you are working on your working copy you often need to know which files you have changed/added/removed or renamed, or even which files got changed and committed by others."
@@ -4131,7 +4125,7 @@ msgstr "geschiedenis"
 
 #. (primary)
 msgid "commit messages"
-msgstr "commit bericht"
+msgstr "vestleggen berichten"
 
 #. (primary)
 msgid "log messages"
@@ -5318,7 +5312,7 @@ msgstr ""
 
 #. (title)
 msgid "The Global Ignore List"
-msgstr "De Globale Ignoreer Lijst"
+msgstr "De Globale Negeerlijst"
 
 #. (para)
 msgid "Another way to ignore files is to add them to the <firstterm>global ignore list</firstterm>. The big difference here is that the global ignore list is a client property. It applies to <emphasis>all</emphasis> Subversion projects, but on the client PC only. In general it is better to use the <filename>svn:ignore</filename> property where possible, because it can be applied to specific project areas, and it works for everyone who checks out the project. Read <xref linkend=\"tsvn-dug-settings-main\"/> for more information."
@@ -5382,7 +5376,7 @@ msgstr ""
 
 #. (title)
 msgid "No Paths in Global Ignore List"
-msgstr "Geen Paden in de Globale Ignoreer Lijst"
+msgstr "Geen Paden in de Globale Negeerlijst"
 
 #. (para)
 msgid "You should not include path information in your pattern. The pattern matching is intended to be used against plain file names and folder names. If you want to ignore all <literal>CVS</literal> folders, just add <literal>CVS</literal> to the ignore list. There is no need to specify <literal>CVS */CVS</literal> as you did in earlier versions. If you want to ignore all <literal>tmp</literal> folders when they exist within a <literal>prog</literal> folder but not within a <literal>doc</literal> folder you should use the <literal>svn:ignore</literal> property instead. There is no reliable way to achieve this using global ignore patterns."
@@ -7011,7 +7005,7 @@ msgstr ""
 
 #. (term)
 msgid "Blame Changes"
-msgstr "Verklaar Wijgigingen"
+msgstr "Verklaar Wijzigingen"
 
 #. (para)
 msgid "Select one revision in the top pane, then pick one file in the bottom pane and select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame changes</guimenuitem></menuchoice>. This will fetch the blame data for the selected revision and the previous revision, then use the diff viewer to compare the two blame files."
@@ -7400,7 +7394,7 @@ msgstr ""
 
 #. (term)
 msgid "Show overview"
-msgstr "Weergeef overzicht"
+msgstr "Geef overzicht weer"
 
 #. (para)
 msgid "Shows a small picture of the entire graph, with the current view window as a rectangle which you can drag. This allows you to navigate the graph more easily. Note that for very large graphs the overview may become useless due to the extreme zoom factor and will therefore not be shown in such cases."
@@ -7492,11 +7486,11 @@ msgstr ""
 
 #. (primary)
 msgid "export"
-msgstr "Exporteer"
+msgstr "exporteren"
 
 #. (primary)
 msgid "unversioned 'working copy'"
-msgstr "niet-geversioneerde 'werkkopie'"
+msgstr "'werkkopie' zonder versiebeheer"
 
 #. (para)
 msgid "Sometimes you may want a copy of your working tree without any of those <filename>.svn</filename> directories, e.g. to create a zipped tarball of your source, or to export to a web server. Instead of making a copy and then deleting all those <filename>.svn</filename> directories manually, TortoiseSVN offers the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>. Exporting from a URL and exporting from a working copy are treated slightly differently."
@@ -7828,7 +7822,7 @@ msgstr "web weergave"
 
 #. (primary)
 msgid "repo viewer"
-msgstr "repository venster"
+msgstr "archief venster"
 
 #. (primary)
 msgid "ViewVC"
@@ -7932,7 +7926,7 @@ msgstr ""
 
 #. (term)
 msgid "Global ignore pattern"
-msgstr "Globaal ignoreer patroon"
+msgstr "Globaal negeer patroon"
 
 #. (primary)
 msgid "exclude pattern"
@@ -11945,7 +11939,7 @@ msgstr ""
 
 #. (title)
 msgid "Add to Ignore List"
-msgstr "Voeg aan Ignoreer Lijst toe"
+msgstr "Voeg aan Negeerlijst toe"
 
 #. (screen)
 #, no-wrap
