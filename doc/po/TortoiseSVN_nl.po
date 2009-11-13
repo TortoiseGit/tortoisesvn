@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-11-04 09:10 +0000\n"
-"PO-Revision-Date: 2009-11-12 13:34+0100\n"
+"PO-Revision-Date: 2009-11-12 15:25+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3250,7 +3250,7 @@ msgstr "De kolommen in het onderste venster kunnen aangepast worden. Als je met 
 
 #. (para)
 msgid "By default when you commit changes, any locks that you hold on files are released automatically after the commit succeeds. If you want to keep those locks, make sure the <guilabel>Keep locks</guilabel> checkbox is checked. The default state of this checkbox is taken from the <literal>no_unlock</literal> option in the Subversion configuration file. Read <xref linkend=\"tsvn-dug-settings-main\"/> for information on how to edit the Subversion configuration file."
-msgstr ""
+msgstr "Als je een vastlegging opstart, wordt standaard alle blokkades die jij gezet hebt op bestanden verwijderd nadat de vastlegging succesvol is afgerond. Als je deze blokkades wilt behouden, zorg er dan voor dat het <guilabel>Blokkades behouden</guilabel> selectievak is aangekruist. De standaard status van deze optie wordt gelezen uit de <literal>no_unlock</literal> optie in het Subversion configuratiebestand. Lees <xref linkend=\"tsvn-dug-settings-main\"/> voor informatie over hoe je het configuratiebestand kunt aanpassen."
 
 #. (para)
 msgid "You can drag files into the commit dialog from elsewhere, so long as the working copies are checked out from the same repository. For example, you may have a huge working copy with several explorer windows open to look at distant folders of the hierarchy. If you want to avoid committing from the top level folder (with a lengthy folder crawl to check for changes) you can open the commit dialog for one folder and drag in items from the other windows to include within the same atomic commit."
@@ -3263,7 +3263,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Repairing External Renames"
-msgstr ""
+msgstr "Externe Hernoemingen Repareren"
 
 #. (para)
 #. (para)
@@ -3291,7 +3291,7 @@ msgstr ""
 
 #. (title)
 msgid "Excluding Items from the Commit List"
-msgstr ""
+msgstr "Objecten van de vastleggingslijst uitsluiten"
 
 #. (para)
 msgid "Sometimes you have versioned files that change frequently but that you really don't want to commit. Sometimes this indicates a flaw in your build process - why are those files versioned? should you be using template files? But occasionally it is inevitable. A classic reason is that your IDE changes a timestamp in the project file every time you build. The project file has to be versioned as it includes all the build settings, but it doesn't need to be committed just because the timestamp changed."
@@ -3359,7 +3359,7 @@ msgstr ""
 
 #. (title)
 msgid "Commit Progress"
-msgstr ""
+msgstr "Vastlegging voortgang"
 
 #. (title)
 msgid "The Progress dialog showing a commit in progress"
