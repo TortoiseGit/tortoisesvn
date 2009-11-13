@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007,2009 - TortoiseSVN
 #include "stdafx.h"
 #include "ShellExt.h"
 #include "Guids.h"
@@ -12,25 +12,31 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 {
 	int nInstalledOverlays = GetInstalledOverlays();
 	
-	// only 13 overlay slots can be used (13 determined by testing,
+	// only 12 overlay slots can be used (12 determined by testing,
 	// since not all overlay handlers are registered in the registry, e.g., the
 	// shortcut (arrow) overlay isn't listed there).
+	// Known system overlays:
+	// * shortcut (arrow)
+	// * shared (hand)
+	// * UAC (shield)
+	// * Offline
 	//
-	// If there are more than 13 handlers registered, then
-	// we have to drop some of our handlers to get other
-	// handlers a chance too:
-	// 14 registered: drop the unversioned overlay
-	// 15 registered: drop the unversioned and the ignored overlay
-	// 16 registered: drop the unversioned, ignored and locked overlay
-	// 17 and more registered: drop the unversioned, ignored, locked and added overlay
+	// If there are more than 12 handlers registered, then
+	// we have to drop some of our handlers to make sure that
+	// the 'important' handlers are loaded properly:
+	//
+	// 10 registered: drop the unversioned overlay
+	// 11 registered: drop the unversioned and the ignored overlay
+	// 12 registered: drop the unversioned, ignored and locked overlay
+	// 13 and more registered: drop the unversioned, ignored, locked and added overlay
 	
-	if ((m_State == FileStateAdded)&&(nInstalledOverlays > 16))
+	if ((m_State == FileStateAdded)&&(nInstalledOverlays > 12))
 		return S_FALSE;		// don't use the 'added' overlay
-	if ((m_State == FileStateLocked)&&(nInstalledOverlays > 15))
+	if ((m_State == FileStateLocked)&&(nInstalledOverlays > 11))
 		return S_FALSE;		// don't show the 'locked' overlay
-	if ((m_State == FileStateIgnored)&&(nInstalledOverlays > 14))
+	if ((m_State == FileStateIgnored)&&(nInstalledOverlays > 10))
 		return S_FALSE;		// don't use the 'ignored' overlay
-	if ((m_State == FileStateUnversioned)&&(nInstalledOverlays > 13))
+	if ((m_State == FileStateUnversioned)&&(nInstalledOverlays > 9))
 		return S_FALSE;		// don't show the 'unversioned' overlay
 
     // Get folder icons from registry
