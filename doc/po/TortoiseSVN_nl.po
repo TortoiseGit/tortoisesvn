@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-11-04 09:10 +0000\n"
-"PO-Revision-Date: 2009-11-12 15:25+0100\n"
+"PO-Revision-Date: 2009-11-14 15:16+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3254,11 +3254,11 @@ msgstr "Als je een vastlegging opstart, wordt standaard alle blokkades die jij g
 
 #. (para)
 msgid "You can drag files into the commit dialog from elsewhere, so long as the working copies are checked out from the same repository. For example, you may have a huge working copy with several explorer windows open to look at distant folders of the hierarchy. If you want to avoid committing from the top level folder (with a lengthy folder crawl to check for changes) you can open the commit dialog for one folder and drag in items from the other windows to include within the same atomic commit."
-msgstr ""
+msgstr "Je kunt bestanden van een andere locatie naar het vastleggen venster slepen, als de werkkopieën maar in het zelfde archief zitten. Bijvoorbeeld, je hebt een enorm grote werkkopie met meerdere windows verkenners open om verschillende mappen in de hiërarchie te bekijken. Als je niet vanaf je hoofdmap wilt vastleggen (met een langdurende zoektoch naar alle wijzigingen), dan kun je het vastleggen venster openen op één map en bestanden vanaf een andere locatie in het venster slepen, zodat het in één actie meegenomen wordt bij het vastleggen."
 
 #. (para)
 msgid "You can drag unversioned files which reside within a working copy into the commit dialog, and they will be SVN added automatically."
-msgstr ""
+msgstr "Je kunt bestanden zonder versiebeheer in de werkkopie ook naar het vastleggen venster slepen, dan worden deze automatisch in SVN opgeslagen."
 
 #. (title)
 #. (title)
@@ -3268,7 +3268,7 @@ msgstr "Externe Hernoemingen Repareren"
 #. (para)
 #. (para)
 msgid "Sometimes files get renamed outside of Subversion, and they show up in the file list as a missing file and an unversioned file. To avoid losing the history you need to notify Subversion about the connection. Simply select both the old name (missing) and the new name (unversioned) and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Move</guimenuitem></menuchoice> to pair the two files as a rename."
-msgstr ""
+msgstr "Soms worden bestanden hernoemt buiten Subversion, waardoor deze bestanden in de lijst weergegeven worden als missend of zonder versiebeheer. Om te voorkomen dat je de geschiedenis verliest, moet je Subversion vertellen dat er een verbinding is. Selecteer de oude (missende) naam en de nieuwe nieuwe en gebruik <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repareer Verplaatsing</guimenuitem></menuchoice> om de bestanden aan elkaar te koppelen als hernoemden."
 
 #. (title)
 #. (title)
@@ -3278,16 +3278,16 @@ msgstr "Herstellen van Bestandhernoemingen bij externe kopieën"
 #. (para)
 #. (para)
 msgid "If you made a copy of a file but forgot to use the Subversion command to do so, you can repair that copy so the new file doesn't lose its history. Simply select both the old name (normal or modified) and the new name (unversioned) and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Copy</guimenuitem></menuchoice> to pair the two files as a copy."
-msgstr ""
+msgstr "Als je een kopie van een bestand hebt gemaakt en vergeten bent om het Subversion commando te gebruiken, dan kun je dat repareren om te ervoor te zorgen dat de geschiedenis niet verloren gaat. Selecteer de oude (normaal of gewijzigde) en de nieuwe naam (zonder versiebeheer) en gebruik <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repareer Kopieer-actie</guimenuitem></menuchoice> om de twee bestanden aan elkaar te koppelen als kopie."
 
 #. (title)
 #. (title)
 msgid "Change Lists"
-msgstr "Wijzig Lijsten"
+msgstr "Wijzigingen Lijsten"
 
 #. (para)
 msgid "The commit dialog supports Subversion's changelist feature to help with grouping related files together. Find out about this feature in <xref linkend=\"tsvn-dug-changelists\"/>."
-msgstr ""
+msgstr "Het vastleggen venster ondersteunt de lijst met wijzigingen functie van Subversion om te helpen bij het groeperen van gerelateerde bestanden. Lees meer over deze functie in <xref linkend=\"tsvn-dug-changelists\"/>."
 
 #. (title)
 msgid "Excluding Items from the Commit List"
@@ -3295,11 +3295,11 @@ msgstr "Objecten van de vastleggingslijst uitsluiten"
 
 #. (para)
 msgid "Sometimes you have versioned files that change frequently but that you really don't want to commit. Sometimes this indicates a flaw in your build process - why are those files versioned? should you be using template files? But occasionally it is inevitable. A classic reason is that your IDE changes a timestamp in the project file every time you build. The project file has to be versioned as it includes all the build settings, but it doesn't need to be committed just because the timestamp changed."
-msgstr ""
+msgstr "Soms heb je bestanden met versiebeheer die regelmatig wijzigen, maar die je eigenlijk niet wilt vastleggen. Dit kan er op duiden dat je een zwak punt heb in je bouwproces – waarom zitten die bestanden in versiebeheer? Zou je sjablonen moeten gebruiken? Soms is het gewoon onoverkomelijk. Een klassieke reden is dat je IDE  de tijdstempel wijzigt elke keer als je het bouwproces hebt doorlopen. Het projectbestand moet wel in subverion komen, omdat het je instellingen bevat, maar het is niet nodig om deze elke keer vast te leggen als de alleen de tijdstempel is gewijzigd."
 
 #. (para)
 msgid "To help out in awkward cases like this, we have reserved a changelist called <literal>ignore-on-commit</literal>. Any file added to this changelist will automatically be unchecked in the commit dialog. You can still commit changes, but you have to select it manually in the commit dialog."
-msgstr ""
+msgstr "Om je uit dit soort vervelende situaties te helpen, hebben we een wijzigingenlijst gemaakt met de naam <literal>ignore-on-commit</literal> (negeren-bij-vastleggen). Elk bestand dat op deze lijst staat, zal automatisc gedeselecteerd worden in het vastleggen venster. Je kunt wijzigingen nog steeds wel vastleggen, maar je moet de bestanden dan handmatig selecteren in het vastleggen venster."
 
 #. (title)
 msgid "Commit Log Messages"
