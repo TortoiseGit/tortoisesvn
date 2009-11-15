@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -72,4 +72,32 @@ protected:
 	    if (registryKey.GetLastError() != ERROR_SUCCESS)
 		    CMessageBox::Show (m_hWnd, registryKey.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
     }
+
+	/**
+	 * Wrapper around the CWnd::EnableWindow() method, but
+	 * makes sure that a control that has the focus is not disabled
+	 * before the focus is passed on to the next control.
+	 */
+	BOOL DialogEnableWindow(UINT nID, BOOL bEnable)
+	{
+		CWnd * pwndDlgItem = GetDlgItem(nID);
+		return DialogEnableWindow(pwndDlgItem, bEnable);
+	}
+	/**
+	 * Wrapper around the CWnd::EnableWindow() method, but
+	 * makes sure that a control that has the focus is not disabled
+	 * before the focus is passed on to the next control.
+	 */
+	BOOL DialogEnableWindow(CWnd * pwndDlgItem, BOOL bEnable)
+	{
+		if (pwndDlgItem == NULL)
+			return FALSE;
+		if (bEnable)
+			return pwndDlgItem->EnableWindow(bEnable);
+		if (GetFocus() == pwndDlgItem)
+		{
+			SendMessage(WM_NEXTDLGCTL, 0, FALSE);
+		}
+		return pwndDlgItem->EnableWindow(bEnable);
+	}
 };
