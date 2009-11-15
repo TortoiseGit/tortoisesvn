@@ -40,6 +40,7 @@ IMPLEMENT_DYNAMIC(CSettingsLogCaches, ISettingsPropPage)
 CSettingsLogCaches::CSettingsLogCaches()
 	: ISettingsPropPage(CSettingsLogCaches::IDD)
     , progress(NULL)
+	, m_bThreadRunning(0)
 {
 }
 
@@ -248,9 +249,12 @@ void CSettingsLogCaches::ReceiveLog ( TChangedPaths*
 
 UINT CSettingsLogCaches::WorkerThread(LPVOID pVoid)
 {
-    CoInitialize (NULL);
-
 	CSettingsLogCaches* dialog = (CSettingsLogCaches*)pVoid;
+	InterlockedExchange(&dialog->m_bThreadRunning, TRUE);
+
+	CoInitialize (NULL);
+
+	dialog->DialogEnableWindow(IDC_CACHEUPDATE, false);
 
     dialog->progress = new CProgressDlg();
 	dialog->progress->SetTitle(IDS_SETTINGS_LOGCACHE_UPDATETITLE);
@@ -309,6 +313,9 @@ UINT CSettingsLogCaches::WorkerThread(LPVOID pVoid)
 
     dialog->PostMessage (WM_REFRESH_REPOSITORYLIST);
 
+	dialog->DialogEnableWindow(IDC_CACHEUPDATE, true);
+
+	InterlockedExchange(&dialog->m_bThreadRunning, FALSE);
 	return 0;
 }
 
@@ -321,9 +328,31 @@ void CSettingsLogCaches::OnNMDblclkRepositorylist(NMHDR * /*pNMHDR*/, LRESULT *p
 void CSettingsLogCaches::OnLvnItemchangedRepositorylist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	UINT count = m_cRepositoryList.GetSelectedCount();
-	GetDlgItem(IDC_CACHEDETAILS)->EnableWindow(count == 1);
-	GetDlgItem(IDC_CACHEUPDATE)->EnableWindow(count == 1);
-	GetDlgItem(IDC_CACHEEXPORT)->EnableWindow(count == 1);
-	GetDlgItem(IDC_CACHEDELETE)->EnableWindow(count >= 1);
+	DialogEnableWindow(IDC_CACHEDETAILS, count == 1);
+	DialogEnableWindow(IDC_CACHEUPDATE, count == 1);
+	DialogEnableWindow(IDC_CACHEEXPORT, count == 1);
+	DialogEnableWindow(IDC_CACHEDELETE, count >= 1);
 	*pResult = 0;
+}
+
+BOOL CSettingsLogCaches::OnKillActive()
+{
+	if (m_bThreadRunning)
+	{
+		// don't allow closing this page if
+		// the update thread is still running.
+		return 0;
+	}
+	return __super::OnKillActive();
+}
+
+BOOL CSettingsLogCaches::OnQueryCancel()
+{
+	if (m_bThreadRunning)
+	{
+		// don't allow closing this page if
+		// the update thread is still running.
+		return FALSE;
+	}
+	return __super::OnQueryCancel();
 }
