@@ -38,9 +38,12 @@ enum ControlType
 
 AeroControlBase::AeroControlBase()
 {
+	GdiplusStartupInput gdiplusStartupInput;
+
 	m_dwm.Initialize();
 	m_theme.Initialize();
 	m_regEnableDWMFrame = CRegDWORD(_T("Software\\TortoiseSVN\\EnableDWMFrame"), TRUE);
+	GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
 }
 
 AeroControlBase::~AeroControlBase()
@@ -49,6 +52,7 @@ AeroControlBase::~AeroControlBase()
 	{
 		RemoveWindowSubclass(it->first, SubclassProc, it->second);
 	}
+	GdiplusShutdown(gdiplusToken);
 }
 
 bool AeroControlBase::SubclassControl(HWND hControl)
@@ -427,8 +431,13 @@ LRESULT AeroControlBase::ButtonWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
 								if(myGraphics)
 								{
 									int iY = RECTHEIGHT(rcDraw)/2;
-									myGraphics->DrawRectangle(myPen, rcClient.left, rcClient.top + iY, 
-										RECTWIDTH(rcClient)-1, RECTHEIGHT(rcClient) - iY-1);
+									Rect rr = Rect(rcClient.left, rcClient.top+iY, 
+										RECTWIDTH(rcClient), RECTHEIGHT(rcClient)-iY-1);
+									GraphicsPath path;
+									GetRoundRectPath(&path, rr, 10);
+									myGraphics->DrawPath(myPen, &path);
+									//myGraphics->DrawRectangle(myPen, rcClient.left, rcClient.top + iY, 
+									//	RECTWIDTH(rcClient)-1, RECTHEIGHT(rcClient) - iY-1);
 									delete myGraphics;
 								}
 								delete myPen;
@@ -1088,4 +1097,36 @@ void AeroControlBase::ScreenToClient(HWND hWnd, LPRECT lprc)
 	VERIFY(::ScreenToClient(hWnd, &pt));
 	lprc->right = pt.x;
 	lprc->bottom = pt.y;
+}
+
+void AeroControlBase::GetRoundRectPath(GraphicsPath *pPath, Rect r, int dia)
+{
+	// diameter can't exceed width or height
+	if(dia > r.Width)	dia = r.Width;
+	if(dia > r.Height)	dia = r.Height;
+
+	// define a corner 
+	Rect Corner(r.X, r.Y, dia, dia);
+
+	// begin path
+	pPath->Reset();
+	pPath->StartFigure();
+
+	// top left
+	pPath->AddArc(Corner, 180, 90);	
+
+	// top right
+	Corner.X += (r.Width - dia - 1);
+	pPath->AddArc(Corner, 270, 90);	
+
+	// bottom right
+	Corner.Y += (r.Height - dia - 1);
+	pPath->AddArc(Corner,   0, 90);	
+
+	// bottom left
+	Corner.X -= (r.Width - dia - 1);
+	pPath->AddArc(Corner,  90, 90);
+
+	// end path
+	pPath->CloseFigure();
 }

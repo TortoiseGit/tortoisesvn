@@ -47,10 +47,12 @@ private:
 	void DrawSolidWndRectOnParent(HWND hWnd, Color clr);
 	void DrawEditBorder(HWND hWnd);
 	BOOL GetEditBorderColor(HWND hWnd, COLORREF *pClr);
+	void GetRoundRectPath(GraphicsPath *pPath, Rect r, int dia);
 
 	CDwmApiImpl					m_dwm;
 	CUxThemeAeroImpl			m_theme;
 	CRegDWORD					m_regEnableDWMFrame;
 	std::map<HWND, UINT_PTR>	subclassedControls;
+	ULONG_PTR					gdiplusToken;
 };
 
