@@ -56,7 +56,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-11-04 09:10 +0000\n"
-"PO-Revision-Date: 2009-11-10 22:27-0500\n"
+"PO-Revision-Date: 2009-11-14 21:14-0500\n"
 "Last-Translator: Garfield Yao <field977@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6741,7 +6741,6 @@ msgid "<filename>Foo.c</filename> is marked as modified."
 msgstr "<filename>Foo.c</filename> 被标记为已修改。"
 
 #. (para)
-#, fuzzy
 msgid "For a folder conflict: <placeholder-1/>"
 msgstr "对于一个文件夹冲突: <placeholder-1/>"
 
@@ -9135,7 +9134,7 @@ msgid ""
 "for more detail."
 msgstr ""
 "如果你要查看的不仅是比较差异而且包括修改该版本的作者，版本号和日期，你可以在版"
-"本日志对话框中综合比较差异和谴责信息。这里有更多详细介绍<xref linkend=\"tsvn-"
+"本日志对话框中综合比较差异和追溯信息。这里有更多详细介绍<xref linkend=\"tsvn-"
 "dug-blame-diffs\"/>。"
 
 #. (term)
@@ -9179,19 +9178,24 @@ msgid ""
 "guilabel> and <guilabel>Blame</guilabel> dialogs, as well as in the settings "
 "for TortoiseMerge."
 msgstr ""
+"在项目的生命周期中，有时可能会将行结束符由 <literal>CRLF</literal> 改为 "
+"<literal>LF</literal>，或者修改一段代码的缩进。不幸的是这样将会使大量的代码行"
+"被标记为已修改，尽管代码本身并没有被修改。这里列出的选项将会在比较差异和应用补"
+"丁时帮助你应对这些修改。你将会在<guilabel>合并</guilabel>和<guilabel>追溯</"
+"guilabel>对话框中看到这些设置，它们同样也出现在 TortoiseMerge 的设置中。"
 
 #. (para)
 msgid ""
 "<guilabel>Ignore line endings</guilabel> excludes changes which are due "
 "solely to difference in line-end style."
-msgstr "<guilabel>忽略行结束符</guilabel>排除仅行结束符的差异。"
+msgstr "<guilabel>忽略行结束符</guilabel> 排除仅行结束符的差异。"
 
 #. (para)
 msgid ""
 "<guilabel>Compare whitespaces</guilabel> includes all changes in indentation "
 "and inline whitespace as added/removed lines."
 msgstr ""
-"<guilabel>比较空白</guilabel>将所有缩进和行内空白差异视为增加/删除的行。"
+"<guilabel>比较空白</guilabel> 将所有缩进和行内空白差异视为增加/删除的行。"
 
 #. (para)
 msgid ""
@@ -9200,12 +9204,15 @@ msgid ""
 "indentation or changing tabs to spaces. Adding whitespace where there was "
 "none before, or removing a whitespace completely is still shown as a change."
 msgstr ""
+"<guilabel>忽略空白修改</guilabel> 排除那些完全是针对空白数量或类型的修改，例"
+"如，修改缩进或者将 tab 改为空格。在原来没有空白的地方增加空白或删除全部空白仍"
+"然会显示为修改。"
 
 #. (para)
 msgid ""
 "<guilabel>Ignore all whitespaces</guilabel> excludes all whitespace-only "
 "changes."
-msgstr "<guilabel>忽略所有空白</guilabel>排除仅空白改变的差异。"
+msgstr "<guilabel>忽略所有空白</guilabel> 排除仅空白改变的差异。"
 
 #. (para)
 msgid "Naturally, any line with changed content is always included in the diff."
@@ -9225,7 +9232,7 @@ msgstr "导出修改"
 
 #. (title)
 msgid "The Compare Revisions Dialog"
-msgstr "修订版本版本比较对话框"
+msgstr "比较修订版本对话框"
 
 #. (para)
 msgid ""
@@ -9235,15 +9242,15 @@ msgid ""
 "guimenuitem></menuchoice>."
 msgstr ""
 "<placeholder-1/> 当你在版本库浏览器中选择了两个树，或者在日志对话框中选择了一"
-"个文件夹的两个版本，就可以使用<menuchoice><guimenu>上下文菜单</"
-"guimenu><guimenuitem>比较版本</guimenuitem></menuchoice>。"
+"个文件夹的两个版本，就可以使用<menuchoice><guimenu>右键菜单</"
+"guimenu><guimenuitem>比较版本差异</guimenuitem></menuchoice>。"
 
 #. (para)
 msgid ""
 "This dialog shows a list of all files which have changed and allows you to "
 "compare or blame them individually using context menu."
 msgstr ""
-"这个对话框显示一个所有已经修改的文件列表，允许你使用邮件菜单单独的比较或回溯它"
+"这个对话框显示一个所有已经修改的文件列表，允许你使用右键菜单单独的比较或追溯它"
 "们。"
 
 #. (para)
@@ -9256,28 +9263,32 @@ msgid ""
 "guimenu><guimenuitem>Export selection to...</guimenuitem></menuchoice>. You "
 "will be prompted for a location to save the change tree."
 msgstr ""
+"你可以导出<emphasis>修改树</emphasis>，当你需要将仅包含已修改文件的项目树结构"
+"发送给其它人的时候很有用。这个操作仅对选中的文件有效，所以需要选择你感兴趣的文"
+"件 - 通常这就意味着全部文件 - 然后使用<menuchoice><guimenu>右键菜单</"
+"guimenu><guimenuitem>导出选择项...</guimenuitem></menuchoice>。然后会提示你选"
+"择目录保存修改树。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "You can also export the <emphasis>list</emphasis> of changed files to a text "
 "file using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Save list "
 "of selected files to...</guimenuitem></menuchoice>."
 msgstr ""
-"你也可以使用 <menuchoice><guimenu>编辑</guimenu><guimenuitem>转到行 ...</"
-"guimenuitem></menuchoice> 来跳到指定行。"
+"你也可以通过<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>保存选择文件列"
+"表</guimenuitem></menuchoice>将修改过的文件<emphasis>列表</emphasis>导出为文本"
+"文件。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "If you want to export the list of files <emphasis>and</emphasis> the actions "
 "(modified, added, deleted) as well, you can do that using "
 "<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Copy selection to "
 "clipboard</guimenuitem></menuchoice>."
 msgstr ""
-"如果你需要导出文件列表<emphasis>和</emphasis>和动作(修改，增加，删除)，你可以"
-"使用快捷键<action>Ctrl-A</action>选择所有项，用<action>Ctrl-C</action>将详细列"
-"表复制到剪贴板。"
+"如果你需要导出文件列表<emphasis>和</emphasis>动作(修改，增加，删除)，你可以使"
+"用<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>复制到剪贴板</"
+"guimenuitem></menuchoice>。"
 
 #. (para)
 msgid ""
@@ -9303,6 +9314,9 @@ msgid ""
 "search is used, so if you want to restrict the list to C source files you "
 "should enter <filename>.c</filename> rather than <filename>*.c</filename>."
 msgstr ""
+"如果列表中的文件非常多，你可以使用查找框来筛选文件名中包含指定文字的文件，从而"
+"减少列表中的文件。注意这里使用的是简单文本查找，所以当你需要显示 C 语言源码的"
+"列表时，你应该输入<filename>.c</filename> 而不是 <filename>*.c</filename>。"
 
 #. (title)
 msgid "Diffing Images Using TortoiseIDiff"
@@ -9344,19 +9358,17 @@ msgstr ""
 "示的模式，或者如果你愿意，也可以重叠显示图像。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Naturally you can also zoom in and out and pan around the image. You can also "
 "pan the image simply by left-dragging it. If you select the <guilabel>Link "
 "images together</guilabel> option, then the pan controls (scrollbars, "
 "mousewheel) on both images are linked."
 msgstr ""
-"当然你也可以放大和缩小，或者拉伸图像。你也可以简单的通过左拖组合图像。如果你选"
-"择<guilabel>连接图像</guilabel>，则被选择(滑动条，鼠标)的两个图像就被关联起"
-"来。"
+"当然你也可以放大和缩小，或者移动图像。你也可以简单的通过左键拖拽来移动图像。如"
+"果你选择<guilabel>链接图像位置</guilabel>，则移动控制(滑动条，鼠标滚轮)对两幅"
+"图像同时生效。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "An image info box shows details about the image file, such as the size in "
 "pixels, resolution and colour depth. If this box gets in the way, use "
@@ -9366,10 +9378,10 @@ msgid ""
 msgstr ""
 "在图像信息框中显示了图像的基本信息，比如像素的大小，颜色的深度。如果觉得这个框"
 "碍眼可以选择<menuchoice><guimenu>视图</guimenu><guimenuitem>图像信息</"
-"guimenuitem></menuchoice>来隐藏它"
+"guimenuitem></menuchoice>来隐藏它。当你的鼠标指针位于图像标题栏上方时，可以从"
+"工具提示中获得同样的信息。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "When the images are overlaid, the relative intensity of the images (alpha "
 "blend) is controlled by a slider control at the left side. You can click "
@@ -9377,9 +9389,9 @@ msgid ""
 "to change the blend interactively. <keycap>Ctrl+Shift</keycap>-<action>Wheel</"
 "action> to change the blend."
 msgstr ""
-"当图像重载时，其亮度(alpha 混合)由左边的滑杆控制。你可以在滑杆的任意地方点击，"
-"直接设置混合参数，或者通过拖曳滑板来交互改变。<action>Ctrl-Shift-Wheel</"
-"action>也可以改变混合。"
+"当图像叠加时，图像的相对亮度(alpha 混合)由左边的滑杆控制。你可以点击滑杆的任意"
+"地方来设置混合参数，或者通过拖曳滑杆来交互改变。<keycap>Ctrl+Shift</keycap>-"
+"<action>鼠标滚轮</action>也可以改变混合参数。"
 
 #. (para)
 msgid ""
@@ -9388,6 +9400,8 @@ msgid ""
 "you click the button again. This can be useful when looking for multiple "
 "small changes."
 msgstr ""
+"滑杆上方的按钮可以切换 0% 和 100% 混合，如果你双击按钮，会每隔两秒钟自动切换，"
+"直到再次点击按钮为止。当查看多处小更改时，这个功能很有用。"
 
 #. (para)
 msgid ""
@@ -9397,6 +9411,9 @@ msgid ""
 "will be shown as an <emphasis>XOR</emphasis> of the pixel colour values. "
 "Unchanged areas will be plain white and changes will be coloured."
 msgstr ""
+"有时你想要查看不同但不是混合图像。也许你有两个版本的印刷电路板图像文件，想查看"
+"哪些线条改变了。如果你关闭 alpha 混合模式，不同之处会以像素颜色值的<emphasis>"
+"或非(XOR)</emphasis>结果显示。未修改的区域是纯白色的，修改的部分则是彩色的。"
 
 #. (title)
 msgid "External Diff/Merge Tools"
@@ -9496,7 +9513,6 @@ msgid "Araxis Merge"
 msgstr "Araxis Merge"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Araxis Merge is a useful commercial tool for diff and merging both files and "
 "folders. It does three-way comparison in merges and has synchronization links "
@@ -9504,8 +9520,8 @@ msgid ""
 "\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></"
 "ulink>."
 msgstr ""
-"Araxis Merge是一款能对文件和文件夹进行比较和合并的商业软件。它从三条比较路径进"
-"行合并，而且在你修改的同时进行及时有效的链接。可以从这里下载<ulink url="
+"Araxis Merge是一款能对文件和文件夹进行比较和合并的商业软件。在合并时它进行三路"
+"比较，而且在你修改函数的顺序时可以进行异步链接。可以从这里下载 <ulink url="
 "\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></"
 "ulink>。"
 
@@ -9594,16 +9610,15 @@ msgid "Many Adds"
 msgstr "更多"
 
 #. (para)
-#, fuzzy
 msgid ""
 "You can also use the Add command on already versioned folders. In that case, "
 "the add dialog will show you all unversioned files inside that versioned "
 "folder. This helps if you have many new files and need to add them all at "
 "once."
 msgstr ""
-"你也可以在已经版本控制的目录上使用Add命令。那样的话，添加对话框会显示该版本控"
-"制目录下所有未版本控制的文件。如果你有许多新文件需要一起添加的话，这是很有帮助"
-"的。"
+"你也可以在已经版本控制的文件夹上使用增加命令。那样的话，增加对话框会显示该版本"
+"控制文件夹中所有未版本控制的文件。如果你有许多新文件需要一起增加的话，这是很有"
+"帮助的。"
 
 #. (para)
 msgid "select the files you want to add"
@@ -9642,19 +9657,18 @@ msgid ""
 msgstr "你可以在工作副本中通过左拖，将文件放到提交对话框中，来增加文件。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "If you add a file or folder by mistake, you can undo the addition before you "
 "commit using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Undo "
 "add...</guimenuitem></menuchoice>."
 msgstr ""
-"在工作副本上选择<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>合并</"
-"guimenuitem></menuchoice>。"
+"如果你误增加了文件或文件夹，你可以在提交前撤销增加，使用"
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>撤销增加</"
+"guimenuitem></menuchoice>."
 
 #. (title)
-#, fuzzy
 msgid "Copying/Moving/Renaming Files and Folders"
-msgstr "复制已存在的文件和目录"
+msgstr "复制/移动/重命名文件和文件夹"
 
 #. (primary)
 msgid "copy files"
@@ -9717,21 +9731,25 @@ msgid ""
 "Windows <action>Paste</action>) to copy or move those items to the new "
 "working copy location."
 msgstr ""
+"你也可以使用熟悉的剪切-粘贴方式在一个工作副本中或两个工作副本之间复制或移动版"
+"本控制的文件。使用标准的 Windows <action>复制</action> 或 <action>剪切</"
+"action>来复制或移动版本控制的条目到剪贴板中。如果剪贴板中包含这样的版本控制的"
+"条目，就可以使用 <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>粘贴</"
+"guimenuitem></menuchoice>(注意: 不是标准的 Windows <action>粘贴</action>)来复"
+"制或移动这些条目到工作副本中的新位置。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "You can copy files and folders from your working copy to another location in "
 "the repository using <menuchoice><guimenu>TortoiseSVN</"
 "guimenu><guimenuitem>Branch/Tag</guimenuitem></menuchoice>. Refer to <xref "
 "linkend=\"tsvn-dug-branch-1\"/> to find out more."
 msgstr ""
-"你要在同一个版本库中切换一个分支或目录。这么做你可以用"
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>切换...</guimenuitem></"
-"menuchoice>. "
+"你可以使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>分支/标记</"
+"guimenuitem></menuchoice>将工作副本中的文件和文件夹复制到版本库中的另一个位"
+"置。参看 <xref linkend=\"tsvn-dug-branch-1\"/> 获得更多信息。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "You can locate an older version of a file or folder in the log dialog and "
 "copy it to a new location in the repository directly from the log dialog "
@@ -9739,25 +9757,25 @@ msgid ""
 "tag from revision</guimenuitem></menuchoice>. Refer to <xref linkend=\"tsvn-"
 "dug-showlog-2\"/> to find out more."
 msgstr ""
-"你要在同一个版本库中切换一个分支或目录。这么做你可以用"
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>切换...</guimenuitem></"
-"menuchoice>. "
+"你可以直接在日志对话框中定位一个文件或文件夹的旧版本并使用"
+"<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>从版本创建分支/标记</"
+"guimenuitem></menuchoice>将其复制到版本库中的新位置。参看 <xref linkend="
+"\"tsvn-dug-showlog-2\"/> 获得更多信息。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "You can also use the repository browser to locate content you want, and copy "
 "it into your working copy directly from the repository, or copy between two "
 "locations within the repository. Refer to <xref linkend=\"tsvn-dug-repobrowser"
 "\"/> to find out more."
 msgstr ""
-"你也可以使用版本库浏览器定位内容，直接从版本库复制到你的工作副本中。参见 "
-"<xref linkend=\"tsvn-dug-repobrowser\"/> 以获得更多信息。"
+"你也可以使用版本库浏览器定位内容，并从版本库直接复制到你的工作副本中，或复制到"
+"版本库中的另一个位置。参看 <xref linkend=\"tsvn-dug-repobrowser\"/> 获得更多信"
+"息。"
 
 #. (title)
-#, fuzzy
 msgid "Cannot copy between repositories"
-msgstr "外部版本库"
+msgstr "不能在版本库之间复制"
 
 #. (para)
 msgid ""
@@ -9767,6 +9785,10 @@ msgid ""
 "repositories live on the same server. All you can do is copy the content in "
 "its current state and add it as new content to the second repository."
 msgstr ""
+"虽然可以在<emphasis>同一个</emphasis>版本库中复制或移动文件和文件夹，你却"
+"<emphasis>不能</emphasis>使用 TortoiseSVN 从一个版本库中复制或移动到另一个版本"
+"库并保留完整的历史。即使版本库在同一个服务器上也不可以。你能做的就是复制它当前"
+"的状态并以新内容的形式添加到第二个版本库中。"
 
 #. (para)
 msgid ""
@@ -9775,6 +9797,9 @@ msgid ""
 "where the repository root is. If you can see both locations in one repo "
 "browser window then they are in the same repository."
 msgstr ""
+"如果你不能确定位于同一个服务器上的两个 URL 指向相同的还是不同的版本库，使用版"
+"本库浏览器打开其中一个URL，并且找到版本库的根。如果你能在这一个版本库浏览器中"
+"看到那两个地址，那么它们就在同一个版本库中。"
 
 #. (title)
 msgid "Ignoring Files And Directories"
