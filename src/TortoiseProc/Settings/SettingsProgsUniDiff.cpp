@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,8 +42,8 @@ void CSettingsProgsUniDiff::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_DIFFVIEWER, m_sDiffViewerPath);
 	DDX_Radio(pDX, IDC_DIFFVIEWER_OFF, m_iDiffViewer);
 
-	GetDlgItem(IDC_DIFFVIEWER)->EnableWindow(m_iDiffViewer == 1);
-	GetDlgItem(IDC_DIFFVIEWERBROWSE)->EnableWindow(m_iDiffViewer == 1);
+	DialogEnableWindow(IDC_DIFFVIEWER, m_iDiffViewer == 1);
+	DialogEnableWindow(IDC_DIFFVIEWERBROWSE, m_iDiffViewer == 1);
 	DDX_Control(pDX, IDC_DIFFVIEWER, m_cUnifiedDiffEdit);
 }
 
@@ -59,8 +59,8 @@ void CSettingsProgsUniDiff::OnBnClickedDiffviewerOff()
 {
 	m_iDiffViewer = 0;
 	SetModified();
-	GetDlgItem(IDC_DIFFVIEWER)->EnableWindow(FALSE);
-	GetDlgItem(IDC_DIFFVIEWERBROWSE)->EnableWindow(FALSE);
+	DialogEnableWindow(IDC_DIFFVIEWER, false);
+	DialogEnableWindow(IDC_DIFFVIEWERBROWSE, false);
 	CheckProgComment();
 }
 
@@ -68,8 +68,8 @@ void CSettingsProgsUniDiff::OnBnClickedDiffviewerOn()
 {
 	m_iDiffViewer = 1;
 	SetModified();
-	GetDlgItem(IDC_DIFFVIEWER)->EnableWindow(TRUE);
-	GetDlgItem(IDC_DIFFVIEWERBROWSE)->EnableWindow(TRUE);
+	DialogEnableWindow(IDC_DIFFVIEWER, true);
+	DialogEnableWindow(IDC_DIFFVIEWERBROWSE, true);
 	GetDlgItem(IDC_DIFFVIEWER)->SetFocus();
 	CheckProgComment();
 }

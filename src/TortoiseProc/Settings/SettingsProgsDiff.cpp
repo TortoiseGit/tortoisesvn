@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -51,10 +51,10 @@ void CSettingsProgsDiff::DoDataExchange(CDataExchange* pDX)
 	DDX_Radio(pDX, IDC_EXTDIFFPROPS_OFF, m_iExtDiffProps);
 	DDX_Check(pDX, IDC_DONTCONVERT, m_bConvertBase);
 
-	GetDlgItem(IDC_EXTDIFF)->EnableWindow(m_iExtDiff == 1);
-	GetDlgItem(IDC_EXTDIFFBROWSE)->EnableWindow(m_iExtDiff == 1);
-	GetDlgItem(IDC_EXTDIFFPROPS)->EnableWindow(m_iExtDiffProps == 1);
-	GetDlgItem(IDC_EXTDIFFPROPSBROWSE)->EnableWindow(m_iExtDiffProps == 1);
+	DialogEnableWindow(IDC_EXTDIFF, m_iExtDiff == 1);
+	DialogEnableWindow(IDC_EXTDIFFBROWSE, m_iExtDiff == 1);
+	DialogEnableWindow(IDC_EXTDIFFPROPS, m_iExtDiffProps == 1);
+	DialogEnableWindow(IDC_EXTDIFFPROPSBROWSE, m_iExtDiffProps == 1);
 	DDX_Control(pDX, IDC_EXTDIFF, m_cDiffEdit);
 	DDX_Control(pDX, IDC_EXTDIFFPROPS, m_cDiffPropsEdit);
 }
@@ -127,8 +127,8 @@ void CSettingsProgsDiff::OnBnClickedExtdiffOff()
 {
 	m_iExtDiff = 0;
 	SetModified();
-	GetDlgItem(IDC_EXTDIFF)->EnableWindow(false);
-	GetDlgItem(IDC_EXTDIFFBROWSE)->EnableWindow(false);
+	DialogEnableWindow(IDC_EXTDIFF, false);
+	DialogEnableWindow(IDC_EXTDIFFBROWSE, false);
 	CheckProgComment();
 }
 
@@ -136,8 +136,8 @@ void CSettingsProgsDiff::OnBnClickedExtdiffpropsOff()
 {
 	m_iExtDiffProps = 0;
 	SetModified();
-	GetDlgItem(IDC_EXTDIFFPROPS)->EnableWindow(false);
-	GetDlgItem(IDC_EXTDIFFPROPSBROWSE)->EnableWindow(false);
+	DialogEnableWindow(IDC_EXTDIFFPROPS, false);
+	DialogEnableWindow(IDC_EXTDIFFPROPSBROWSE, false);
 	CheckProgCommentProps();
 }
 
@@ -145,8 +145,8 @@ void CSettingsProgsDiff::OnBnClickedExtdiffOn()
 {
 	m_iExtDiff = 1;
 	SetModified();
-	GetDlgItem(IDC_EXTDIFF)->EnableWindow(true);
-	GetDlgItem(IDC_EXTDIFFBROWSE)->EnableWindow(true);
+	DialogEnableWindow(IDC_EXTDIFF, true);
+	DialogEnableWindow(IDC_EXTDIFFBROWSE, true);
 	GetDlgItem(IDC_EXTDIFF)->SetFocus();
 	CheckProgComment();
 }
@@ -155,8 +155,8 @@ void CSettingsProgsDiff::OnBnClickedExtdiffpropsOn()
 {
 	m_iExtDiffProps = 1;
 	SetModified();
-	GetDlgItem(IDC_EXTDIFFPROPS)->EnableWindow(true);
-	GetDlgItem(IDC_EXTDIFFPROPSBROWSE)->EnableWindow(true);
+	DialogEnableWindow(IDC_EXTDIFFPROPS, true);
+	DialogEnableWindow(IDC_EXTDIFFPROPSBROWSE, true);
 	GetDlgItem(IDC_EXTDIFFPROPS)->SetFocus();
 	CheckProgCommentProps();
 }

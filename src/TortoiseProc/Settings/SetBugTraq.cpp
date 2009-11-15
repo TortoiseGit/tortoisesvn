@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008 - TortoiseSVN
+// Copyright (C) 2008-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -156,9 +156,9 @@ void CSetBugTraq::OnBnClickedAddbutton()
 void CSetBugTraq::OnLvnItemchangedBugTraqlist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	UINT count = m_cBugTraqList.GetSelectedCount();
-	GetDlgItem(IDC_BUGTRAQREMOVEBUTTON)->EnableWindow(count > 0);
-	GetDlgItem(IDC_BUGTRAQEDITBUTTON)->EnableWindow(count == 1);
-	GetDlgItem(IDC_BUGTRAQCOPYBUTTON)->EnableWindow(count == 1);
+	DialogEnableWindow(IDC_BUGTRAQREMOVEBUTTON, count > 0);
+	DialogEnableWindow(IDC_BUGTRAQEDITBUTTON, count == 1);
+	DialogEnableWindow(IDC_BUGTRAQCOPYBUTTON, count == 1);
 	*pResult = 0;
 }
 

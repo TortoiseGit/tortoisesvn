@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -140,7 +140,7 @@ BOOL CSetOverlayPage::OnInitDialog()
 		CheckRadioButton(IDC_CACHEDEFAULT, IDC_CACHENONE, IDC_CACHESHELL);
 		break;
 	}
-	GetDlgItem(IDC_UNVERSIONEDASMODIFIED)->EnableWindow(m_dwCacheType == 1);
+	DialogEnableWindow(IDC_UNVERSIONEDASMODIFIED, m_dwCacheType == 1);
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_ONLYEXPLORER, IDS_SETTINGS_ONLYEXPLORER_TT);
@@ -182,7 +182,7 @@ void CSetOverlayPage::OnChange()
 		m_dwCacheType = 0;
 		break;
 	}
-	GetDlgItem(IDC_UNVERSIONEDASMODIFIED)->EnableWindow(m_dwCacheType == 1);
+	DialogEnableWindow(IDC_UNVERSIONEDASMODIFIED, m_dwCacheType == 1);
 	SetModified();
 }
 

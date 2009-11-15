@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -168,9 +168,9 @@ void CSetHooks::OnBnClickedAddbutton()
 void CSetHooks::OnLvnItemchangedHooklist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	UINT count = m_cHookList.GetSelectedCount();
-	GetDlgItem(IDC_HOOKREMOVEBUTTON)->EnableWindow(count > 0);
-	GetDlgItem(IDC_HOOKEDITBUTTON)->EnableWindow(count == 1);
-	GetDlgItem(IDC_HOOKCOPYBUTTON)->EnableWindow(count == 1);
+	DialogEnableWindow(IDC_HOOKREMOVEBUTTON, count > 0);
+	DialogEnableWindow(IDC_HOOKEDITBUTTON, count == 1);
+	DialogEnableWindow(IDC_HOOKCOPYBUTTON, count == 1);
 	*pResult = 0;
 }
 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -43,8 +43,8 @@ void CSettingsProgsMerge::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EXTMERGE, m_sMergePath);
 	DDX_Radio(pDX, IDC_EXTMERGE_OFF, m_iExtMerge);
 
-	GetDlgItem(IDC_EXTMERGE)->EnableWindow(m_iExtMerge == 1);
-	GetDlgItem(IDC_EXTMERGEBROWSE)->EnableWindow(m_iExtMerge == 1);
+	DialogEnableWindow(IDC_EXTMERGE, m_iExtMerge == 1);
+	DialogEnableWindow(IDC_EXTMERGEBROWSE, m_iExtMerge == 1);
 	DDX_Control(pDX, IDC_EXTMERGE, m_cMergeEdit);
 }
 
@@ -99,8 +99,8 @@ void CSettingsProgsMerge::OnBnClickedExtmergeOff()
 {
 	m_iExtMerge = 0;
 	SetModified();
-	GetDlgItem(IDC_EXTMERGE)->EnableWindow(FALSE);
-	GetDlgItem(IDC_EXTMERGEBROWSE)->EnableWindow(FALSE);
+	DialogEnableWindow(IDC_EXTMERGE, false);
+	DialogEnableWindow(IDC_EXTMERGEBROWSE, false);
 	CheckProgComment();
 }
 
@@ -108,8 +108,8 @@ void CSettingsProgsMerge::OnBnClickedExtmergeOn()
 {
 	m_iExtMerge = 1;
 	SetModified();
-	GetDlgItem(IDC_EXTMERGE)->EnableWindow(TRUE);
-	GetDlgItem(IDC_EXTMERGEBROWSE)->EnableWindow(TRUE);
+	DialogEnableWindow(IDC_EXTMERGE, true);
+	DialogEnableWindow(IDC_EXTMERGEBROWSE, true);
 	GetDlgItem(IDC_EXTMERGE)->SetFocus();
 	CheckProgComment();
 }
