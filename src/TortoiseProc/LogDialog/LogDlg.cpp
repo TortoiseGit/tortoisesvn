@@ -881,7 +881,7 @@ void CLogDlg::OnCancel()
 	// text shown on the cancel button (it could simply read "OK").
 
 	CString temp, temp2;
-	GetDlgItemText(IDOK, temp);
+	GetDlgItemText(IDCANCEL, temp);
 	temp2.LoadString(IDS_MSGBOX_CANCEL);
     if (temp.Compare(temp2)==0)
     {
