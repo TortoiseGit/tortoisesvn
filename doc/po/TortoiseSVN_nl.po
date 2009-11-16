@@ -13,8 +13,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"POT-Creation-Date: 2009-11-04 09:10 +0000\n"
-"PO-Revision-Date: 2009-11-14 15:16+0100\n"
+"POT-Creation-Date: 2009-11-16 07:38 +0000\n"
+"PO-Revision-Date: 2009-11-16 16:52+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3307,11 +3307,11 @@ msgstr "Vastleg Log Meldingen"
 
 #. (para)
 msgid "Be sure to enter a log message which describes the changes you are committing. This will help you to see what happened and when, as you browse through the project log messages at a later date. The message can be as long or as brief as you like; many projects have guidelines for what should be included, the language to use, and sometimes even a strict format."
-msgstr ""
+msgstr "Zorg er voor dat je een log bericht invult, welke de wijzigingen beschrijft die je doorgevoerd hebt. Dit helpt om te bepalen wat er wanneer gewijzigd is als je op een later moment door de log berichten bladert. Het bericht kan zo kort of lang zijn als je wilt; bij veel project is gedefinieerd wat je er in moet zetten, welke taal je moet gebruiken en soms zelfs een strakke formattering."
 
 #. (para)
 msgid "You can apply simple formatting to your log messages using a convention similar to that used within emails. To apply styling to <literal>text</literal>, use <literal>*text*</literal> for bold, <literal>_text_</literal> for underlining, and <literal>^text^</literal> for italics."
-msgstr ""
+msgstr "Je kunt je tekst eenvoudig opmaken door gebruik te maken van stijlregels die lijken op de regels van emails. Om stijlen toe te passen op <literal>tekst</literal>, gebruikt <literal>*tekst*</literal> voor vet, <literal>_tekst_</literal> voor onderstrepen  en <literal>^tekst^</literal> voor cursief."
 
 #. (title)
 msgid "The Commit Dialog Spellchecker"
@@ -3319,43 +3319,43 @@ msgstr "De Vastleggen Dialoog Spellingscontrole"
 
 #. (para)
 msgid "<placeholder-1/> TortoiseSVN includes a spellchecker to help you get your log messages right. This will highlight any mis-spelled words. Use the context menu to access the suggested corrections. Of course, it doesn't know <emphasis>every</emphasis> technical term that you do, so correctly spelt words will sometimes show up as errors. But don't worry. You can just add them to your personal dictionary using the context menu."
-msgstr ""
+msgstr "<placeholder-1/> TortoiseSVN bevat spellingscontrole om je te helpen berichten te maken zonder typefouten. Verkeerd gespelde woorden worden gemarkeerd. Gebruik het context menu om de suggesties te bekijken.  Natuurlijk is niet <emphasis>technische</emphasis> technische term die je kent bekend, waardoor correct gespelde worden soms worden aangeduid als verkeerd gespeld. Maak je geen zorgen. Je kunt deze toevoegen aan je persoonlijke woordenboek via het context menu."
 
 #. (para)
 msgid "The log message window also includes a filename and function auto-completion facility. This uses regular expressions to extract class and function names from the (text) files you are committing, as well as the filenames themselves. If a word you are typing matches anything in the list (after you have typed at least 3 characters, or pressed <keycap>Ctrl+Space</keycap>), a drop-down appears allowing you to select the full name. The regular expressions supplied with TortoiseSVN are held in the TortoiseSVN installation <filename>bin</filename> folder. You can also define your own regexes and store them in <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Of course your private autolist will not be overwritten when you update your installation of TortoiseSVN. If you are unfamiliar with regular expressions, take a look at the introduction at <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, and the online documentation and tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "Het log venster heeft ook een automatisch aanvullingsfunctie voor bestandsnamen en functies. Hiervoor worden gebruikelijke expressies en functienamen uit en de namen van de (tekst)bestanden, die je wilt vastleggen, gelezen. Als een woord dat je aan het typen bent overeen komt met een woord uit de lijst (als je tenminste 3 karakters hebt getypt of <keycap>Ctrl+Spatie</keycap> hebt ingedrukt), verschijnt er een lijst met complete namen waaruit je kunt selecteren. De gebruikelijke expressies die meegeleverd worden met TortoiseSVN worden opgeslagen in de TortoiseSVN installatie <filename>bin</filename> map. Je kunt ook je eigen gebruikelijke expressies definiëren en deze opslaan in <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Uiteraard wordt je eigen lijst niet overschrijven als je je TortoiseSVN installatie update. Als je niet bekend bent met reguliere expressies, bekijk dan eens <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink> en de online documentatie en tutorial: <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>. "
 
 #. (para)
 msgid "You can re-use previously entered log messages. Just click on <guibutton>Recent messages</guibutton> to view a list of the last few messages you entered for this working copy. The number of stored messages can be customized in the TortoiseSVN settings dialog."
-msgstr ""
+msgstr "Je kunt eerder gebruikte log berichten hergebruiken. Klik hiervoor op <guibutton>Recente boodschappen</guibutton>. Je kunt dan de laatste paar berichten die je gebruikt hebt bij deze werkkopie zien. Het aantal opgeslagen berichten kan aangepast worden in het TortoiseSVN instellingen venster."
 
 #. (para)
 msgid "You can clear all stored commit messages from the <guilabel>Saved data</guilabel> page of TortoiseSVN's settings, or you can clear individual messages from within the <guilabel>Recent messages</guilabel> dialog using the <keycap>Delete</keycap> key."
-msgstr ""
+msgstr "Je kunt alle opgeslagen vastleggingsberichten wissen bij de <guilabel>Opgeslagen gegevens</guilabel> pagina van TortoiseSVN’s instellingen. Je kunt ook individuele berichten wissen vanuit het <guilabel>Recente boodschappen</guilabel> venster door op de <keycap>Delete</keycap> knop te drukken."
 
 #. (para)
 msgid "If you want to include the checked paths in your log message, you can use the command <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Paste filename list</guimenuitem></menuchoice> in the edit control."
-msgstr ""
+msgstr "Met het commando <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Plak lijst bestandsnamen </guimenuitem></menuchoice> kun je de gemarkeerde paden in het bericht invoegen."
 
 #. (para)
 msgid "Another way to insert the paths into the log message is to simply drag the files from the file list onto the edit control."
-msgstr ""
+msgstr "Een andere methode voor het invoegen van de paden is door de bestanden te slepen van de bestandslijst naar het bewerk venster."
 
 #. (title)
 msgid "Special Folder Properties"
-msgstr ""
+msgstr "Speciale Map Instellingen"
 
 #. (para)
 msgid "There are several special folder properties which can be used to help give more control over the formatting of commit log messages and the language used by the spellchecker module. Read <xref linkend=\"tsvn-dug-propertypage\"/> for further information."
-msgstr ""
+msgstr "Er zijn verschillende speciale mapeigenschappen, waarmee er meer controle gekregen wordt over de formattering van vastleggingsberichten en de taal van de spellingscontrole. Lees voor meer informatie <xref linkend=\"tsvn-dug-propertypage\"/>."
 
 #. (title)
 msgid "Integration with Bug Tracking Tools"
-msgstr ""
+msgstr "Integratie met Bug Tracking Programma's"
 
 #. (para)
 msgid "If you have activated the bug tracking system, you can set one or more Issues in the <guilabel>Bug-ID / Issue-Nr:</guilabel> text box. Multiple issues should be comma separated. Alternatively, if you are using regex-based bug tracking support, just add your issue references as part of the log message. Learn more in <xref linkend=\"tsvn-dug-bugtracker\"/>."
-msgstr ""
+msgstr "Als het bug tracking systeem hebt geactiveerd, dan kun je één of meerdere Problemen in het <guilabel>Bug-ID / Issue-Nr:</guilabel> tekstveld invullen. Meerdere problemen moeten gescheiden worden door komma’s. Als je gebruik maakt van gebruikelijke expressies bij Bug tracking, voeg dan je referenties toe als onderdeel van het log bericht. Voor meer informatie: <xref linkend=\"tsvn-dug-bugtracker\"/>."
 
 #. (title)
 msgid "Commit Progress"
@@ -3363,11 +3363,11 @@ msgstr "Vastlegging voortgang"
 
 #. (title)
 msgid "The Progress dialog showing a commit in progress"
-msgstr ""
+msgstr "Het voortgangsvenster geeft de voortgang van een vastlegging weer"
 
 #. (para)
 msgid "After pressing <guibutton>OK</guibutton>, a dialog appears displaying the progress of the commit. <placeholder-1/>"
-msgstr ""
+msgstr "Na het drukken op de <guibutton>OK</guibutton> knop zal een venster verschijnen met de voortgang van de vastlegging. <placeholder-1/>"
 
 #. (term)
 #. (term)
@@ -3376,7 +3376,7 @@ msgstr "Blauw"
 
 #. (para)
 msgid "Committing a modification."
-msgstr ""
+msgstr "Vastleggen van een wijziging."
 
 #. (term)
 #. (term)
@@ -3396,7 +3396,7 @@ msgstr "Donker rood"
 
 #. (para)
 msgid "Committing a deletion or a replacement."
-msgstr ""
+msgstr "Vastleggen van een verwijdering of vervanging."
 
 #. (term)
 #. (term)
@@ -3410,17 +3410,17 @@ msgstr "Alle andere items."
 
 #. (para)
 msgid "The progress dialog uses colour coding to highlight different commit actions <placeholder-1/>"
-msgstr ""
+msgstr "Het voortgangsvenster gebruikt kleurcodering om de verschillende vastleggingsacties weer te geven. <placeholder-1/>"
 
 #. (para)
 #. (para)
 #. (para)
 msgid "This is the default colour scheme, but you can customise those colours using the settings dialog. Read <xref linkend=\"tsvn-dug-settings-colours\"/> for more information."
-msgstr ""
+msgstr "Dit is het standaard kleurenschema, maar je kunt deze naar je eigen wensen aanpassen in het instellingen venster. Lees voor meer informatie <xref linkend=\"tsvn-dug-settings-colours\"/>."
 
 #. (title)
 msgid "Update Your Working Copy With Changes From Others"
-msgstr ""
+msgstr "Je Werkkopie Bijwerken Met De Wijzigingen Van Anderen"
 
 #. (primary)
 #. (primary)
@@ -3433,7 +3433,7 @@ msgstr "wijzigingen ophalen"
 
 #. (title)
 msgid "Progress dialog showing finished update"
-msgstr ""
+msgstr "Voorgangsvenster van een afgeronde verversing"
 
 #. (para)
 msgid "<placeholder-1/> Periodically, you should ensure that changes done by others get incorporated in your local working copy. The process of getting changes from the server to your local copy is known as <emphasis>updating</emphasis>. Updating may be done on single files, a set of selected files, or recursively on entire directory hierarchies. To update, select the files and/or directories you want, <action>right click</action> and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> in the explorer context menu. A window will pop up displaying the progress of the update as it runs. Changes done by others will be merged into your files, keeping any changes you may have done to the same files. The repository is <emphasis>not</emphasis> affected by an update."
@@ -3441,7 +3441,7 @@ msgstr ""
 
 #. (para)
 msgid "New item added to your WC."
-msgstr ""
+msgstr "Nieuw object toegevoegd aan je werkkopie."
 
 #. (para)
 msgid "Redundant item deleted from your WC, or missing item replaced in your WC."
@@ -5275,7 +5275,7 @@ msgid "Cannot copy between repositories"
 msgstr "Kan niet tussen archieven kopieren"
 
 #. (para)
-msgid "Whilst you can copy and files and folders <emphasis>within</emphasis> a repository, you <emphasis>cannot</emphasis> copy or move from one repository to another while preserving history using TortoiseSVN. Not even if the repositories live on the same server. All you can do is copy the content in its current state and add it as new content to the second repository."
+msgid "Whilst you can copy or move files and folders <emphasis>within</emphasis> a repository, you <emphasis>cannot</emphasis> copy or move from one repository to another while preserving history using TortoiseSVN. Not even if the repositories live on the same server. All you can do is copy the content in its current state and add it as new content to the second repository."
 msgstr ""
 
 #. (para)
