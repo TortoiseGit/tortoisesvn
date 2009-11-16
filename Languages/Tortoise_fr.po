@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-12 15:45+0100\n"
-"Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
+"PO-Revision-Date: 2009-11-16 22:31+0100\n"
+"Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -247,6 +247,19 @@ msgid ""
 msgstr ""
 "%s\n"
 "Voulez-vous le supprimer de toute façon?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Shall I update the working copy now\n"
+"and reopen the commit dialog?"
+msgstr ""
+"%s\n"
+"\n"
+"Devrais-je mettre à jour la copie de travail maintenant\n"
+"et reouvrir la boîte de dialogue de livraison ?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -2436,6 +2449,10 @@ msgstr "Livrer"
 msgid "Commit - TortoiseSVN"
 msgstr "Livrer - TortoiseSVN"
 
+#. Resource IDs: (616)
+msgid "Commit failed - Update needed"
+msgstr "Livraison impossible - Mise à jour requise"
+
 #. Resource IDs: (1110)
 msgid "Commit to:"
 msgstr "Livrer vers :"
@@ -2451,6 +2468,11 @@ msgstr "Livraisons par auteur"
 #. Resource IDs: (244)
 msgid "Commits by date"
 msgstr "Livraisons par date"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "Commits each %s"
+msgstr "Livrer chaque %s"
 
 #. Resource IDs: (1135)
 msgid "Commits each week:"
@@ -2499,6 +2521,14 @@ msgstr "Comparer avec la b&ase"
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
 msgstr "Comparer avec la révision précédente"
+
+#. Resource IDs: (2055)
+msgid ""
+"Compares all whitespaces when diffing\n"
+"Compare whitespaces"
+msgstr ""
+"Compare tous les espaces lors d'un différentiel\n"
+"Comparer les espaces"
 
 #. Resource IDs: (12)
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -2593,6 +2623,10 @@ msgstr "Copié"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "Copié depuis l'URL"
+
+#. Resource IDs: (208)
+msgid "Copied from revision"
+msgstr "Copié depuis la révision"
 
 #. Resource IDs: (275)
 #, c-format
@@ -3823,6 +3857,11 @@ msgstr "Récupération de la révision %s du fichier :"
 msgid "File"
 msgstr "Fichier"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "File changes each %s"
+msgstr "Modification de fichier chaque %s"
+
 #. Resource IDs: (1138)
 msgid "File changes each week:"
 msgstr "Modifications de fichier chaque semaine :"
@@ -4632,6 +4671,10 @@ msgstr "Ignorer tous les esp&acements"
 msgid "Ignore &case changes"
 msgstr "Ignorer les &changements de casse"
 
+#. Resource IDs: (32873)
+msgid "Ignore all whitespace changes"
+msgstr "Ignorer toutes les modifications d'espaces"
+
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Ignorer tous les espacements"
@@ -4655,6 +4698,22 @@ msgstr "Ignorer les changements d'espaces"
 #. Resource IDs: (226)
 msgid "Ignored items included"
 msgstr "Éléments ignorés inclus"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores all whitespace changes when diffing\n"
+"Ignore all whitespace changes"
+msgstr ""
+"Ignore toutes les modifications d'espace lors d'un différentiel\n"
+"Ignorer toutes les modifications d'espace"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores changes in whitespaces when diffing\n"
+"Ignore whitespace changes"
+msgstr ""
+"Ignore les modifications d'espace lors d'un différentiel\n"
+"Ignorer les modifications d'espace"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5759,6 +5818,11 @@ msgstr "Note : les réglages de police de caractères affectent également Torto
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Instructions"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "Number of %s"
+msgstr "Nombre de %s"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
@@ -8083,6 +8147,14 @@ msgstr "Statut du texte :"
 msgid "Text status"
 msgstr "Statut du texte"
 
+#. Resource IDs: (84)
+msgid ""
+"The URL to check out refers to a file but this\n"
+"working copy path is an existing directory."
+msgstr ""
+"L'URL à extraire fait référence à une fichier\n"
+"mais le chemin de cette copie de travail est un répertoire existant."
+
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "La taille du marquage ne correspond pas aux lignes ajoutées/supprimées !"
@@ -9204,6 +9276,10 @@ msgstr ""
 "Utilisez '*' comme caractère générique quand vous spécifiez une exception\r\n"
 "Pour séparer de multiples exceptions, utilisez les virgules (',').\r\n"
 "Exemple : *.monlan.com, *.compagnie.com"
+
+#. Resource IDs: (1538)
+msgid "Use Aero dialogs"
+msgstr "Utiliser les boîtes de dialogue Aero"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
