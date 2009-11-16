@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-11-04 09:10 +0000\n"
-"PO-Revision-Date: 2009-11-04 10:13+0100\n"
+"POT-Creation-Date: 2009-11-16 07:38 +0000\n"
+"PO-Revision-Date: 2009-11-16 08:43+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5316,8 +5316,8 @@ msgid "Cannot copy between repositories"
 msgstr "Kann nicht zwischen Projektarchiven kopieren"
 
 #. (para)
-msgid "Whilst you can copy and files and folders <emphasis>within</emphasis> a repository, you <emphasis>cannot</emphasis> copy or move from one repository to another while preserving history using TortoiseSVN. Not even if the repositories live on the same server. All you can do is copy the content in its current state and add it as new content to the second repository."
-msgstr "Während Sie  Dateien und Ordner <emphasis>innerhalb</emphasis> eines Projektarchivs kopieren können, ist es <emphasis>nicht möglich</emphasis>, Objekte unter Beibehaltung der Historie in ein anderes Projektarchiv zu kopieren oder zu verschieben. Das geht selbst dann nicht, wenn die Projektarchive sich auf dem selben Server befinden. Alles was Sie tun können, ist den aktuellen Inhalt zu kopieren und als neuen Inhalt zum zweiten Projektarchiv hinzuzufügen."
+msgid "Whilst you can copy or move files and folders <emphasis>within</emphasis> a repository, you <emphasis>cannot</emphasis> copy or move from one repository to another while preserving history using TortoiseSVN. Not even if the repositories live on the same server. All you can do is copy the content in its current state and add it as new content to the second repository."
+msgstr "Während Sie  Dateien und Ordner <emphasis>innerhalb</emphasis> eines Projektarchivs kopieren oder verschieben können, ist es <emphasis>nicht möglich</emphasis>, Objekte unter Beibehaltung der Historie in ein anderes Projektarchiv zu kopieren oder zu verschieben. Das geht selbst dann nicht, wenn die Projektarchive sich auf dem selben Server befinden. Alles was Sie tun können, ist den aktuellen Inhalt zu kopieren und als neuen Inhalt zum zweiten Projektarchiv hinzuzufügen."
 
 #. (para)
 msgid "If you are uncertain whether two URLs on the same server refer to the same or different repositories, use the repo browser to open one URL and find out where the repository root is. If you can see both locations in one repo browser window then they are in the same repository."
