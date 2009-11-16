@@ -56,7 +56,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-11-04 09:10 +0000\n"
-"PO-Revision-Date: 2009-11-14 21:14-0500\n"
+"PO-Revision-Date: 2009-11-15 20:14-0500\n"
 "Last-Translator: Garfield Yao <field977@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -172,26 +172,23 @@ msgid "Reading Guide"
 msgstr "阅读指南"
 
 #. (para)
-#, fuzzy
 msgid ""
 "This <xref linkend=\"tsvn-preface\"/> explains a little about the TortoiseSVN "
 "project, the community of people who work on it, and the licensing conditions "
 "for using it and distributing it."
 msgstr ""
-"在<emphasis>前言</emphasis>里简单介绍了 TortoiseSVN 项目，以及其开发团体，还介"
-"绍了使用及分发该软件应遵循的许可证。"
+"在<xref linkend=\"tsvn-preface\"/>里简单介绍了 TortoiseSVN 项目，以及其开发团"
+"体，还介绍了使用及分发该软件应遵循的许可证。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "The <xref linkend=\"tsvn-introduction\"/> explains what TortoiseSVN is, what "
 "it does, where it comes from and the basics for installing it on your PC."
 msgstr ""
-"在<emphasis>简介</emphasis>一章里解释了 TortoiseSVN 是什么，能够做什么，它的开"
-"发过程以及安装相关的基础知识。"
+"在<xref linkend=\"tsvn-introduction\"/>一章里解释了 TortoiseSVN 是什么，能够做"
+"什么，它的开发过程以及在你的个人电脑中安装它的基础知识。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "In <xref linkend=\"tsvn-basics\"/> we give a short introduction to the "
 "<emphasis>Subversion</emphasis> revision control system which underlies "
@@ -199,12 +196,11 @@ msgid ""
 "project and explains the different approaches to version control, and how "
 "Subversion works."
 msgstr ""
-"在<emphasis>基本概念</emphasis>一章里简短地介绍了 <emphasis>Subversion</"
-"emphasis> 版本控制系统，Subversion 是 TortoiseSVN 的基础。这一章引用了 "
-"Subversion 工程的文档，介绍了各种版本控制模式，以及 Subversion 的工作原理。"
+"在<xref linkend=\"tsvn-basics\"/>一章里简短地介绍了 <emphasis>Subversion</"
+"emphasis> 版本控制系统，Subversion 是 TortoiseSVN 的基础。这一章借用了 "
+"Subversion 项目的文档，介绍了各种版本控制模式，以及 Subversion 的工作原理。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "The chapter on <xref linkend=\"tsvn-repository\"/> explains how to set up a "
 "local repository, which is useful for testing Subversion and TortoiseSVN "
@@ -212,61 +208,57 @@ msgid ""
 "which is also relevant to repositories located on a server. There is also a "
 "section here on how to setup a server if you need one."
 msgstr ""
-"<emphasis>版本库</emphasis>这一章解释了如何设置一个本地版本库，怎样在一台 PC "
-"上测试 Subversion 和 TortoiseSVN，这一章也介绍了一点版本库管理，也就是如何管理"
-"服务器上的版本库。"
+"<xref linkend=\"tsvn-repository\"/>这一章解释了如何设置一个本地版本库，本地版"
+"本库对于在一台 PC 上测试 Subversion 和 TortoiseSVN 非常有用，这一章也介绍了一"
+"点版本库管理，也就是如何管理服务器上的版本库。如果你需要一台服务器，这里还有一"
+"节介绍如何搭建服务器"
 
 #. (para)
-#, fuzzy
 msgid ""
 "The <xref linkend=\"tsvn-dug\"/> is the most important section as it explains "
 "all the main features of TortoiseSVN and how to use them. It takes the form "
 "of a tutorial, starting with checking out a working copy, modifying it, "
 "committing your changes, etc. It then progresses to more advanced topics."
 msgstr ""
-"<emphasis>日常使用指南</emphasis>是最重要的章节，介绍了 TortoiseSVN 最主要特性"
-"的使用。它以教程的形式，从检出一个工作副本开始，然后修改，提交你的修改，之后进"
-"入高级主题。"
+"<xref linkend=\"tsvn-dug\"/>是最重要的章节，介绍了 TortoiseSVN 最主要特性的使"
+"用。它以教程的形式，从检出一个工作副本开始，然后修改，提交你的修改，之后进入高"
+"级主题。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "<xref linkend=\"tsvn-subwcrev\"/> is a separate program included with "
 "TortoiseSVN which can extract the information from your working copy and "
 "write it into a file. This is useful for including build information in your "
 "projects."
 msgstr ""
-"<emphasis>SubWCRev</emphasis> 是 TortoiseSVN 的一个独立程序，可以从工作副本抽"
-"取信息并记录到一个文件，可以用来在项目中包含构建信息。"
+"<xref linkend=\"tsvn-subwcrev\"/> 是 TortoiseSVN 的一个独立程序，可以从工作副"
+"本抽取信息并记录到一个文件，可以用来在项目中包含构建信息。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "The <xref linkend=\"tsvn-howto\"/> section answers some common questions "
 "about performing tasks which are not explicitly covered elsewhere."
 msgstr ""
-"<emphasis>我该怎么做 …</emphasis>这一节回答了一些操作方面的常见问题。这些常见"
-"问题在其他章节没有被明确的提到过。"
+"<xref linkend=\"tsvn-howto\"/>这一节回答了一些操作方面的常见问题。这些常见问题"
+"在其他章节没有被明确的提到过。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "The section on <xref linkend=\"tsvn-automation\"/> shows how the TortoiseSVN "
 "GUI dialogs can be called from the command line. This is useful for scripting "
 "where you still need user interaction."
 msgstr ""
-"<emphasis>自动化 TortoiseSVN</emphasis> 这一小节展示了如何使用命令行调用 "
+"<xref linkend=\"tsvn-automation\"/> 这一节展示了如何使用命令行调用 "
 "TortoiseSVN 的 GUI 对话框，当你在使用脚本时仍希望用户交互时非常有用。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "The <xref linkend=\"tsvn-cli\"/> give a correlation between TortoiseSVN "
 "commands and their equivalents in the Subversion command line client "
 "<literal>svn.exe</literal>."
 msgstr ""
-"<emphasis>命令行交叉索引</emphasis>给出了 TortoiseSVN 命令与其对应的 "
-"Subversion 命令行工具 <literal>svn.exe</literal> 命令之间的关系。"
+"<xref linkend=\"tsvn-cli\"/>给出了 TortoiseSVN 命令与其对应的 Subversion 命令"
+"行工具 <literal>svn.exe</literal> 命令之间的关系。"
 
 #. (title)
 msgid "TortoiseSVN is free!"
@@ -303,7 +295,6 @@ msgid "Community"
 msgstr "社区"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Both TortoiseSVN and Subversion are developed by a community of people who "
 "are working on those projects. They come from different countries all over "
@@ -337,11 +328,10 @@ msgid "Lübbe Onken"
 msgstr "Lübbe Onken"
 
 #. (para)
-#, fuzzy
 msgid ""
 "for the beautiful icons, logo, bug hunting, translating and managing the "
 "translations"
-msgstr "制作了漂亮的图标、Logo，错误跟踪及文档维护"
+msgstr "制作了漂亮的图标，Logo，跟踪错误，翻译并且维护翻译结果"
 
 #. (term)
 msgid "Simon Large"
@@ -9628,7 +9618,7 @@ msgstr "选择你要添加的文件"
 #. (para)
 msgid ""
 "<action>right-drag</action> them to the new location inside the working copy"
-msgstr "<action>拖拽(right-drag)</action>他们到新的工作副本下，"
+msgstr "用<action>鼠标右键拖拽</action>它们到工作副本的新位置"
 
 #. (para)
 #. (para)
@@ -9641,8 +9631,8 @@ msgid ""
 "to this WC</guimenuitem></menuchoice>. The files will then be copied to the "
 "working copy and added to version control."
 msgstr ""
-"选择<menuchoice><guimenu>上下文菜单</guimenu><guimenuitem>SVN 增加文件到工作副"
-"本</guimenuitem></menuchoice>。这些文件会被复制到工作副本，加入版本控制。"
+"选择<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>SVN 增加文件到工作副本"
+"</guimenuitem></menuchoice>。这些文件会被复制到工作副本，加入版本控制。"
 
 #. (para)
 msgid ""
@@ -9810,12 +9800,10 @@ msgid "ignore"
 msgstr "忽略"
 
 #. (primary)
-#, fuzzy
 msgid "unversioned files/folders"
-msgstr "已删除文件/文件夹"
+msgstr "未版本控制的文件/文件夹"
 
 #. (para)
-#, fuzzy
 msgid ""
 "<placeholder-1/> In most projects you will have files and folders that should "
 "not be subject to version control. These might include files created by the "
@@ -9826,9 +9814,9 @@ msgid ""
 "source file."
 msgstr ""
 "<placeholder-1/>在多数项目中你总会有文件和目录不需要进行版本控制。这可能包括一"
-"些由编译器生成的文件，<filename>*.obj,*.lst</filename>。或许是一个外部的用于存"
-"放可执行程序的目录。只要你提交变更，TSVN就会在提交对话框的文件列表中列表显示出"
-"你的未版本控制文件。当然你可以关闭这个显示，不过你可能会忘记添加新的版本文件。"
+"些由编译器生成的文件，<filename>*.obj,*.lst</filename>，或许是一个用于存放可执"
+"行程序的输出文件夹。只要你提交修改，TortoiseSVN 就会在提交对话框的文件列表中显"
+"示出未版本控制文件。当然你可以关闭这个显示，不过你可能会忘记添加新的源文件。"
 
 #. (para)
 msgid ""
@@ -9951,7 +9939,7 @@ msgid ""
 msgstr ""
 "匹配任何单在方括号[]内的单字符，在方括号内，一对字符被<quote>-</quote>分隔，匹"
 "配任何词汇表(lexically)上在他们中间的字符。例如<literal>[AGm-p]</literal>匹配"
-"任何但个的<literal>A</literal>,<literal>G</literal>,<literal>m</literal>,"
+"任何单个的<literal>A</literal>,<literal>G</literal>,<literal>m</literal>,"
 "<literal>n</literal>,<literal>o</literal>或者<literal>p</literal>。"
 
 #. (para)
@@ -9970,9 +9958,9 @@ msgid ""
 "ignore <literal>*.tmp</literal> regardless of case, you could use a pattern "
 "like <literal>*.[Tt][Mm][Pp]</literal>."
 msgstr ""
-"模式匹配是大小写敏感的，这在windows平台下会出问题。你可以要比较的字符硬性的强"
-"制忽略大小写。例如，忽略不记<literal>*.tmp</literal>的大小写。那么你可以使用像"
-"<literal>*.[Tt][Mm][Pp]</literal>这样的模式。"
+"模式匹配是大小写敏感的，这在 Windows 平台下会出问题。你可以使用成对的字符来强"
+"制忽略大小写。例如，忽略不记 <literal>*.tmp</literal> 的大小写，那么你可以使用"
+"像 <literal>*.[Tt][Mm][Pp]</literal> 这样的模式。"
 
 #. (para)
 msgid ""
@@ -9981,15 +9969,14 @@ msgid ""
 "opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13"
 "\"><citetitle>Pattern Matching Notation</citetitle></ulink>."
 msgstr ""
-"如果你想要定义一个特殊的忽略规则。你可以在关于shell命令行语言的IEEE规范中找到"
-"<ulink url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/"
-"xcu_chap02.html#tag_02_13\"><citetitle>Pattern Matching Notation</citetitle></"
-"ulink>。"
+"如果你想要一个官方定义的匹配规则。你可以在关于shell命令行语言的IEEE规范<ulink "
+"url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02."
+"html#tag_02_13\"><citetitle>Pattern Matching Notation</citetitle></ulink>中找"
+"到。"
 
 #. (title)
-#, fuzzy
 msgid "No Paths in Global Ignore List"
-msgstr "全局忽略列表"
+msgstr "全局忽略列表中不要使用路径"
 
 #. (para)
 msgid ""
@@ -10003,6 +9990,12 @@ msgid ""
 "ignore</literal> property instead. There is no reliable way to achieve this "
 "using global ignore patterns."
 msgstr ""
+"不应该在模式中包含路径信息。模式匹配的目标是纯文本的文件名和文件夹名。如果你想"
+"忽略所有的 <literal>CVS</literal> 文件夹，只要向忽略列表中添加 <literal>CVS</"
+"literal> 即可。不再需要像在早先的版本中那样指定 <literal>CVS */CVS</literal>。"
+"如果你想忽略所有在 <literal>prog</literal> 文件夹下的 <literal>tmp</literal> "
+"文件夹，但不忽略在 <literal>doc</literal> 文件夹下的，你应该使用 <literal>svn:"
+"ignore</literal> 属性来替代。使用全局忽略模式不能可靠的完成这一目标。"
 
 #. (title)
 msgid "Deleting, Moving and Renaming"
@@ -10018,8 +10011,8 @@ msgid ""
 "there are menu entries for delete and rename in the TortoiseSVN submenu. "
 "<placeholder-1/>"
 msgstr ""
-"不像CVS,Subversion允许重命名和移动文件和目录。因此在TortoiseSVN 的子菜单中有删"
-"除和重命名的菜单项。<placeholder-1/>"
+"不像 CVS，Subversion 允许重命名和移动文件和目录。因此在 TortoiseSVN 的子菜单中"
+"有删除和更名的菜单项。<placeholder-1/>"
 
 #. (title)
 msgid "Deleting files and folders"
@@ -10034,16 +10027,14 @@ msgid "remove"
 msgstr "删除"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</"
 "guimenuitem></menuchoice> to remove files or folders from subversion."
 msgstr ""
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>提交</guimenuitem></"
-"menuchoice>父目录。"
+"使用 <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>删除</"
+"guimenuitem></menuchoice> 从 subversion 中删除文件或文件夹。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</"
 "guimenuitem></menuchoice> a file, it is removed from your working copy "
@@ -10053,13 +10044,14 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></"
 "menuchoice> on the parent folder."
 msgstr ""
-"如果你通过TSVN删除了一个文件/目录，吗呢这个文件被移出你的工作副本并标记为删"
-"除。该文件的父目录会覆盖上一个\"删除\"标记。你随时可以通过在父目录调用"
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></"
-"menuchoice>命令来恢复该文件。"
+"当你 <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>删除</"
+"guimenuitem></menuchoice> 一个文件后，该文件立刻就从工作副本中移除，并且被标"
+"记，在下次提交时从版本库删除。该文件的父文件夹会覆盖上一个<quote>已删除</"
+"quote>重载图标。在你提交修改之前，你可以在父文件夹通过 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>SVN 还原</"
+"guimenuitem></menuchoice> 命令找回文件。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</"
 "guimenuitem></menuchoice> a folder, it remains in your working copy, but the "
@@ -10070,13 +10062,13 @@ msgid ""
 "and folders is a part of Subversion, not TortoiseSVN."
 msgstr ""
 "当你<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>删除</"
-"guimenuitem></menuchoice>一个文件，它立即被从工作副本删除，并且标记为下次提交"
-"从版本库删除。当你<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>删除"
-"</guimenuitem></menuchoice>一个目录，它仍旧在你的工作副本中，但是重载图标指出"
-"了它标记为删除。这个区别是 Subversion 的特性，与 TortoiseSVN 无关。"
+"guimenuitem></menuchoice>一个文件夹，它仍旧在你的工作副本中，但是重载图标指出"
+"了它标记为删除。在你提交修改之前，你可以通过 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>SVN 还原</"
+"guimenuitem></menuchoice> 命令找回文件夹。文件和文件夹处理方式的区别是 "
+"Subversion 的特性，与 TortoiseSVN 无关。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "If you want to delete an item from the repository, but keep it locally as an "
 "unversioned file/folder, use <menuchoice><guimenu>Extended Context Menu</"
@@ -10085,10 +10077,10 @@ msgid ""
 "the explorer list pane (right pane) in order to see this in the extended "
 "context menu."
 msgstr ""
-"如果你想从版本库删除项目，但是在本地作为非版本控制的文件/目录保留，可以使用 "
-"<menuchoice><guimenu>扩展上下文菜单</guimenu><guimenuitem>删除(保留本地副本)</"
-"guimenuitem></menuchoice>。为了看到扩展上下文菜单，你必须在文件管理器列表窗格"
-"(右窗格)中的项目上点击右键，同时按着 <keycap>Shift</keycap> 键。"
+"如果你想从版本库删除项目，但是在本地作为非版本控制的文件/文件夹保留，可以使用 "
+"<menuchoice><guimenu>扩展右键菜单</guimenu><guimenuitem>删除(保留本地副本)</"
+"guimenuitem></menuchoice>。为了看到扩展右键菜单，当你在文件管理器列表窗格(右窗"
+"格)中的项目上点击右键时，必须同时按下 <keycap>Shift</keycap> 键。"
 
 #. (para)
 msgid ""
@@ -10162,14 +10154,14 @@ msgid "move"
 msgstr "移动"
 
 #. (para)
-#, fuzzy
 msgid ""
 "If you want to do a simple in-place rename of a file or folder, use "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Rename...</"
 "guimenuitem></menuchoice> Enter the new name for the item and you're done."
 msgstr ""
-"如果<action>右击</action>一个版本你可以使用<menuchoice><guimenu>右键菜单</"
-"guimenu><guimenuitem>显示日志</guimenuitem></menuchoice> 来查看它的历史。"
+"如果你仅想重命名文件或文件夹，使用 <menuchoice><guimenu>右键菜单</"
+"guimenu><guimenuitem>改名...</guimenuitem></menuchoice> 为此条目输入新的名称就"
+"可以了。"
 
 #. (para)
 msgid "select the files or directories you want to move"
@@ -10180,24 +10172,23 @@ msgid ""
 "in the popup menu select <menuchoice><guimenu>Context Menu</"
 "guimenu><guimenuitem>SVN Move versioned files here</guimenuitem></menuchoice>"
 msgstr ""
-"在弹出菜单选择<menuchoice><guimenu>上下文菜单</guimenu><guimenuitem>SVN 移动文"
-"件</guimenuitem></menuchoice>。"
+"在弹出菜单选择<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>SVN 移动版本"
+"控制的条目到当前位置</guimenuitem></menuchoice>。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "If you want to move files around inside your working copy, perhaps to a "
 "different sub-folder, use the right-mouse drag-and-drop handler: <placeholder-"
 "1/>"
 msgstr ""
-"如果你想在工作副本中移动文件，那么可以这样使用鼠标拖拽: <placeholder-1/>"
+"如果你想在工作副本中移动文件，可能是移动到一个不同的子文件夹下，那么使用鼠标右"
+"键拖拽: <placeholder-1/>"
 
 #. (title)
 msgid "Commit the parent folder"
 msgstr "提交父目录"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Since renames and moves are done as a delete followed by an add you must "
 "commit the parent folder of the renamed/moved file so that the deleted part "
@@ -10206,10 +10197,10 @@ msgid ""
 "when your co-workers update, the old file will not be removed. i.e. they will "
 "have <emphasis>both</emphasis> the old and the new copies."
 msgstr ""
-"既然重命名和移动都可以像添加之后又删除一样被执行，你必需提交该重命名/移动文件"
-"的父目录，所以重命名/移动的删除部分将出现在提交对话框中。如果你不提交重命名/移"
-"动的已删除部分，他将保留在仓库中并且你的同组人将更新该未移除的旧文件。例如，他"
-"们将有<emphasis>两个</emphasis>一老一新的副本。"
+"既然重命名和移动都是像添加之后跟随着删除一样被执行，你必需提交该重命名/移动文"
+"件的父文件夹，所以重命名/移动的删除部分将出现在提交对话框中。如果你不提交重命"
+"名/移动的已删除部分，他将保留在仓库中并且你的同组人更新工作副本时，该文件也不"
+"会被删除。例如，他们将有<emphasis>两个</emphasis>一老一新的副本。"
 
 #. (para)
 msgid ""
@@ -10217,17 +10208,16 @@ msgid ""
 "the files inside the folder, otherwise your working copy can get really "
 "messed up."
 msgstr ""
-"你 <emphasis>必须</emphasis>在重命名目录后而在更改目录下的任何文件前进行提交，"
-"不然你的工作副本就回真的混淆。"
+"你<emphasis>必须</emphasis>在重命名文件夹后立刻进行提交，在提交前不要更改文件"
+"夹下的任何文件，不然你的工作副本就会真的混淆。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "You can also use the repository browser to move items around. Read <xref "
 "linkend=\"tsvn-dug-repobrowser\"/> to find out more."
 msgstr ""
-"你也可以使用版本库浏览器定位内容，直接从版本库复制到你的工作副本中。参见 "
-"<xref linkend=\"tsvn-dug-repobrowser\"/> 以获得更多信息。"
+"你也可以使用版本库浏览器在版本库中移动条目。阅读 <xref linkend=\"tsvn-dug-"
+"repobrowser\"/> 以获得更多信息。"
 
 #. (title)
 msgid "Do Not SVN Move Externals"
@@ -10269,14 +10259,13 @@ msgstr ""
 "用平常的改名命令是不能工作的。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Fortunately there are (at least) two possible methods to rename a file "
 "without losing its log history. It is important to rename it within "
 "subversion. Just renaming in the explorer will corrupt your working copy!"
 msgstr ""
-"这里(至少)有两种可能的解决方案来重命名文件而不丢失他的日志记录。在subversion里"
-"重命名它是很重要的。仅在浏览器中重命名将会损坏你的工作副本。"
+"这里(至少)有两种可能的解决方案来重命名文件而不丢失它的日志记录。在 subversion "
+"里重命名是很重要的。仅在 Windows 资源管理器中重命名将会损坏你的工作副本！"
 
 #. (para)
 msgid "Commit the changes in your working copy."
@@ -10320,7 +10309,6 @@ msgid "Dealing with filename case conflicts"
 msgstr "处理文件名称大小写冲突"
 
 #. (para)
-#, fuzzy
 msgid ""
 "If the repository already contains two files with the same name but differing "
 "only in case (e.g. <filename>TEST.TXT</filename> and <filename>test.txt</"
@@ -10328,8 +10316,10 @@ msgid ""
 "on a Windows client. Whilst Subversion supports case-sensitive filenames, "
 "Windows does not."
 msgstr ""
-"万一在你的版本库中有两个名字相同但大小拼写不同(例如: TEST.TXT和test.txt)的文"
-"件，你是不能更新或者检出该包含该文件的目录的。"
+"万一在你的版本库中有两个名字相同但大小拼写不同(例如: <filename>TEST.TXT</"
+"filename> 和 <filename>test.txt</filename>)的文件，你是不能在 Windows 客户端更"
+"新或者检出该包含该文件的目录的。当 Subversion 支持大小写敏感的文件名时，"
+"Windows 不支持。"
 
 #. (para)
 msgid ""
@@ -10468,11 +10458,11 @@ msgid ""
 "showing you the files that you've changed and can revert. Select those you "
 "want to revert and click on <guibutton>OK</guibutton>. <placeholder-1/>"
 msgstr ""
-"如果你想要撤消一个文件自上次更新后的所有的变更，你需要选择该文件, <action>右击"
-"</action>弹出快捷菜单，然后选择<menuchoice><guimenu>TortoiseSVN</"
-"guimenu><guimenuitem>Revert</guimenuitem></menuchoice>命令，将会弹出一个显示这"
-"个你已经变更并能恢复的文件。选择那些你想要恢复的然后按<guibutton>OK</"
-"guibutton>. <placeholder-1/>。"
+"如果你想要撤消一个文件自上次更新后的所有的变更，你需要选择该文件, <action>右键"
+"点击</action>弹出右键菜单，然后选择<menuchoice><guimenu>TortoiseSVN</"
+"guimenu><guimenuitem>SVN 还原</guimenuitem></menuchoice>命令，将会弹出一个对话"
+"框显示你已经变更并能恢复的文件。选择那些你想要恢复的然后按<guibutton>确定</"
+"guibutton>。 <placeholder-1/>"
 
 #. (para)
 msgid ""
