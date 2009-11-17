@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-11-16 16:52+0100\n"
+"PO-Revision-Date: 2009-11-17 13:22+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3437,7 +3437,7 @@ msgstr "Voorgangsvenster van een afgeronde verversing"
 
 #. (para)
 msgid "<placeholder-1/> Periodically, you should ensure that changes done by others get incorporated in your local working copy. The process of getting changes from the server to your local copy is known as <emphasis>updating</emphasis>. Updating may be done on single files, a set of selected files, or recursively on entire directory hierarchies. To update, select the files and/or directories you want, <action>right click</action> and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> in the explorer context menu. A window will pop up displaying the progress of the update as it runs. Changes done by others will be merged into your files, keeping any changes you may have done to the same files. The repository is <emphasis>not</emphasis> affected by an update."
-msgstr ""
+msgstr "<placeholder-1/> Je moet regelmatig er voor zorgen dat wijzigingen die door anderen gemaakt zijn, in jouw werkkopie meegenomen worden. Het proces van het ophalen van de wijzigingen vanaf de server naar je lokale werkkopie staat bekend als <emphasis>verversen</emphasis>. Verversen kan op een enkel bestand, een aantal bestanden of recursief op een hele mapstructuur. Om te verversen, selecteer de bestanden en mappen. <action>Klik rechts</action> en selecteer <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verversen</guimenuitem></menuchoice> in het verkenner context menu. Er zal een venster getoond worden die de voortgang van de verversing weergeeft. Wijzigingen van anderen worden in jouw bestanden verwerkt, zonder dat jouw wijzigingen in (mogelijk) dezelfde bestanden daarbij verloren gaan. Het archief wordt niet door het verversen bijgewerkt of veranderd."
 
 #. (para)
 msgid "New item added to your WC."
@@ -3445,7 +3445,7 @@ msgstr "Nieuw object toegevoegd aan je werkkopie."
 
 #. (para)
 msgid "Redundant item deleted from your WC, or missing item replaced in your WC."
-msgstr ""
+msgstr "Overtollig object verwijdert uit je werkkopie, of missend object vervangen in je werkkopie."
 
 #. (term)
 #. (term)
@@ -3454,7 +3454,7 @@ msgstr "Groen"
 
 #. (para)
 msgid "Changes from repository successfully merged with your local changes."
-msgstr ""
+msgstr "Wijzigingen uit het archief succesvol samengevoegd met je lokale wijzigingen."
 
 #. (term)
 #. (term)
@@ -3463,23 +3463,23 @@ msgstr "Fel rood"
 
 #. (para)
 msgid "Changes from repository merged with local changes, resulting in conflicts which you need to resolve."
-msgstr ""
+msgstr "Het samenvoegen van wijzigingen uit het archief met de lokale wijzigingen heeft geresulteerd in conflicten die opgelost moeten worden."
 
 #. (para)
 msgid "Unchanged item in your WC updated with newer version from the repository."
-msgstr ""
+msgstr "Ongewijzigd object in je werkkopie bijgewerkt met de nieuwe versie uit het archief."
 
 #. (para)
 msgid "The progress dialog uses colour coding to highlight different update actions <placeholder-1/>"
-msgstr ""
+msgstr "Het voortgangsvenster gebruikt kleurcodering om verschillende acties te markeren. <placeholder-1/>"
 
 #. (para)
 msgid "If you get any <emphasis>conflicts</emphasis> during an update (this can happen if others changed the same lines in the same file as you did and those changes don't match) then the dialog shows those conflicts in red. You can <action>double click</action> on these lines to start the external merge tool to resolve the conflicts."
-msgstr ""
+msgstr "Als er tijdens het samenvoegen <emphasis>conflicten</emphasis> zijn opgetreden (als bijvoorbeeld anderen dezelfde regel op een andere manier hebben gewijzigd als jijzelf hebt gedaan), dan zal het venster deze met rood weergeven. Je kunt <action>dubbel klikken</action> op deze regels om het externe samenvoegprogramma te starten."
 
 #. (para)
 msgid "When the update is complete, the progress dialog shows a summary of the number of items updated, added, removed, conflicted, etc. below the file list. This summary information can be copied to the clipboard using <keycap>Ctrl+C</keycap>."
-msgstr ""
+msgstr "Als het verversen afgerond is, geeft het voortgangsvenster onder de bestandslijst een samenvatting weer van het aantal vernieuwingen, toevoegingen, verwijderingen, conflicten, etc.. Deze samenvatting kan naar het klembord gekopieerd worden met <keycap>Ctrl+C</keycap>."
 
 #. (para)
 msgid "The standard Update command has no options and just updates your working copy to the HEAD revision of the repository, which is the most common use case. If you want more control over the update process, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead. This allows you to update your working copy to a specific revision, not only to the most recent one. Suppose your working copy is at revision 100, but you want it to reflect the state which it had in revision 50 - then simply update to revision 50. In the same dialog you can also choose the <firstterm>depth</firstterm> at which to update the current folder. The terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which preserves the existing depth setting. You can also choose whether to ignore any external projects in the update (i.e. projects referenced using <literal>svn:externals</literal>)."
