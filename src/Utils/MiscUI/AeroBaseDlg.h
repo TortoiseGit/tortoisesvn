@@ -121,6 +121,15 @@ protected:
 		return BaseType::OnNcHitTest(pt);
 	}
 
+	void OnCompositionChanged()
+	{
+		if (m_Dwm.IsDwmCompositionEnabled())
+		{
+			m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &m_margins);
+		}
+		BaseType::OnCompositionChanged();
+	}
+
 	/**
 	 *
 	 */

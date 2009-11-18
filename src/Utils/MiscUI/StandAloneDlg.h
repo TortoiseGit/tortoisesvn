@@ -374,6 +374,15 @@ private:
 		}
 	}
 
+	void OnCompositionChanged()
+	{
+		if (m_Dwm.IsDwmCompositionEnabled())
+		{
+			m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &m_margins);
+		}
+		BaseType::OnCompositionChanged();
+	}
+
 	HICON			m_hIcon;
 };
 
