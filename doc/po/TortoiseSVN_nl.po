@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-11-17 13:22+0100\n"
+"PO-Revision-Date: 2009-11-19 09:32+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3483,11 +3483,11 @@ msgstr "Als het verversen afgerond is, geeft het voortgangsvenster onder de best
 
 #. (para)
 msgid "The standard Update command has no options and just updates your working copy to the HEAD revision of the repository, which is the most common use case. If you want more control over the update process, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead. This allows you to update your working copy to a specific revision, not only to the most recent one. Suppose your working copy is at revision 100, but you want it to reflect the state which it had in revision 50 - then simply update to revision 50. In the same dialog you can also choose the <firstterm>depth</firstterm> at which to update the current folder. The terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which preserves the existing depth setting. You can also choose whether to ignore any external projects in the update (i.e. projects referenced using <literal>svn:externals</literal>)."
-msgstr ""
+msgstr "Het normale Verversen commando heeft geen opties en zorgt er alleen voor dat je werkkopie ververst wordt naar de HEAD revisie van het archief. Dat is wat je eigenlijk normaal gesproken altijd wilt doen.  Als je meer controle wilt hebben over het ververs proces, dan moet je de functie  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verversen naar revisie...</guimenuitem></menuchoice> gebruiken. Hiermee kun je je werkkopie bijwerken naar een specifieke revisie, niet alleen de meest recente. Stel, je werkkopie bevat revisie 100 en je wilt de status van revisie 50 bekijken. Je kunt dan eenvoudig verversen naar revisie 50. In hetzelfde venster kun je ook de <firstterm>mapdiepte</firstterm> instellen van de huidige map. De termen die gebruikt worden, staan beschreven in <xref linkend=\"tsvn-dug-checkout-depth\"/>. De standaard diepte is <guilabel>Werkkopie</guilabel>, waarmee de huidige mapdiepte behouden wordt. Je kunt ook aangeven of externe referenties genegeerd moeten worden bij de verversing (oftewel projecten die gekoppeld zijn met <literal>svn:externals</literal>)."
 
 #. (para)
 msgid "If you update a file or folder to a specific revision, you should not make changes to those files. You will get <quote>out of date</quote> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you can rollback to a previous revision from the revision log dialog. Take a look at <xref linkend=\"tsvn-howto-rollback\"/> for further instructions, and alternative methods."
-msgstr ""
+msgstr "Als je een bestand of map naar een bepaalde revisie ververst, dan moet je geen wijzigingen in die bestanden aanbrengen. Je krijgt dan een foutmelding als je je wijzigingen probeert vast te leggen dat je niet aan de laatste versie hebt gewerkt. Als je wijzigingen ongedaan wilt maken en opnieuw wilt starten vanaf een eerdere revisie, dan kun je dat doen via het revisie log venster. Lees <xref linkend=\"tsvn-howto-rollback\"/>  voor meer instructies en alternatieve methodes."
 
 #. (para)
 msgid "<menuchoice><guimenuitem>Update to Revision</guimenuitem></menuchoice> can occasionally be useful to see what your project looked like at some earlier point in its history. But in general, updating individual files to an earlier revision is not a good idea as it leaves your working copy in an inconsistent state. If the file you are updating has changed name, you may even find that the file just disappears from your working copy because no file of that name existed in the earlier revision. You should also note that the item will show a normal green overlay, so it is indistinguishable from files which are up-to-date."
