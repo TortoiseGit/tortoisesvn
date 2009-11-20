@@ -369,7 +369,7 @@ void CSVNStatusListCtrl::ColumnManager::ColumnMoved (int column, int position)
     {
     }
 
-    int next = visiblePosition == columnCount
+    int next = visiblePosition == (columnCount-1)
              ? -1 
              : gridColumnOrder[visiblePosition];
 
