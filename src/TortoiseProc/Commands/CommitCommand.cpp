@@ -116,10 +116,20 @@ bool CommitCommand::Execute()
             InitProgressDialog (dlg, progDlg);
 			progDlg.DoModal();
 
-            if (   (progDlg.Err != NULL)
-                && ((progDlg.Err->apr_err == SVN_ERR_FS_TXN_OUT_OF_DATE) ||
-					(progDlg.Err->apr_err == SVN_ERR_RA_OUT_OF_DATE))
-				)
+			bool isOutOfDate = false;
+			svn_error_t * pErr = progDlg.Err;
+			while (pErr)
+			{
+				if ((pErr->apr_err == SVN_ERR_FS_TXN_OUT_OF_DATE)||
+					(pErr->apr_err == SVN_ERR_RA_OUT_OF_DATE)||
+					(pErr->apr_err == SVN_ERR_FS_CONFLICT))
+				{
+					isOutOfDate = true;
+					break;
+				}
+				pErr = pErr->child;
+			}
+            if (isOutOfDate)
             {
                 // the commit failed at least one of the items was outdated.
                 // -> suggest to update them
