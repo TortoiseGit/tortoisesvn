@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-11-19 09:32+0100\n"
+"PO-Revision-Date: 2009-11-20 16:42+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3491,11 +3491,11 @@ msgstr "Als je een bestand of map naar een bepaalde revisie ververst, dan moet j
 
 #. (para)
 msgid "<menuchoice><guimenuitem>Update to Revision</guimenuitem></menuchoice> can occasionally be useful to see what your project looked like at some earlier point in its history. But in general, updating individual files to an earlier revision is not a good idea as it leaves your working copy in an inconsistent state. If the file you are updating has changed name, you may even find that the file just disappears from your working copy because no file of that name existed in the earlier revision. You should also note that the item will show a normal green overlay, so it is indistinguishable from files which are up-to-date."
-msgstr ""
+msgstr "<menuchoice><guimenuitem>Verversen naar Revisie</guimenuitem></menuchoice> kan soms handig om te bekijken hoe je project er een tijd geleden uitzag. Het verversen van individuele bestanden naar een eerdere revisie is zeker geen goed idee, omdat je werkkopie dan inconsistent wordt. Als de naam van een bestand gewijzigd is, dan zal dat bestand gewoon uit je werkkopie verdwijnen. Dit komt omdat er geen bestand met die naam in een eerdere revisie aanwezig was. Je moet je ook realiseren dat zo’n object (uit een eerdere revisie) een normaal overlay icoon heeft, waardoor het niet te onderscheiden is welke bestanden van de laatste revisie zijn."
 
 #. (para)
 msgid "If you simply want a local copy of an old version of a file it is better to use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save revision to...</guimenuitem></menuchoice> command from the log dialog for that file."
-msgstr ""
+msgstr "Als je een lokale kopie wilt hebben van een oude versie van een bestand, dan kun je beter het <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Bewaar revisie in...</guimenuitem></menuchoice> commando gebruiken vanuit het log venster van het betreffende bestand."
 
 #. (title)
 msgid "Multiple Files/Folders"
@@ -3503,7 +3503,7 @@ msgstr "Meerdere Bestanden/Mappen"
 
 #. (para)
 msgid "If you select multiple files and folders in the explorer and then select <menuchoice><guimenuitem>Update</guimenuitem></menuchoice>, all of those files/folders are updated one by one. TortoiseSVN makes sure that all files/folders which are from the same repository are updated to the exact same revision! Even if between those updates another commit occurred."
-msgstr ""
+msgstr "Als je in de verkenner meerdere bestanden selecteert en vervolgens <menuchoice><guimenuitem>Verversen</guimenuitem></menuchoice> kiest, dan worden al die bestanden en mappen stuk voor stuk ververst. TortoiseSVN zorgt er voor dat bestanden en mappen uit hetzelfde archief bijgewerkt worden naar dezelfde revisie, zelfs als er gedurende het verversen een andere vastlegging heeft plaatsgevonden."
 
 #. (title)
 msgid "Local File Already Exists"
@@ -3511,15 +3511,15 @@ msgstr "Lokale bestandsnaam bestaat al."
 
 #. (para)
 msgid "Sometimes when you try to update, the update fails with a message to say that there is already a local file of the same name. This typically happens when Subversion tries to checkout a newly versioned file, and finds that an unversioned file of the same name already exists in your working folder. Subversion will never overwrite an unversioned file - it might contain something you are working on, which coincidentally has the same filename as another developer has used for his newly committed file."
-msgstr ""
+msgstr "Het komt soms voor dat het verversen een foutmelding geeft dat er al een lokaal bestand bestaat met dezelfde naam. Dit gebeurt als Subversion een bestand, dat recent in versiebeheer is opgeslagen, probeert op te halen en er al een lokaal bestand in de werkkopie is zonder versiebeheer, maar met dezelfde naam. Subversion zal nooit een bestand zonder versiebeheer overschrijven – het bestand bevat misschien gegevens waarmee je aan het werk bent, terwijl het per toeval dezelfde bestandsnaam heeft als een nieuw bestand die net door een andere ontwikkelaar is vastgelegd. "
 
 #. (para)
 msgid "If you get this error message, the solution is simply to rename the local unversioned file. After completing the update, you can check whether the renamed file is still needed."
-msgstr ""
+msgstr "Als je deze foutmelding krijgt, kun je dit probleem eenvoudig oplossen door het lokale bestand zonder versiebeheer te hernoemen. Nadat het verversen is afgerond, kun je kijken of het hernoemde bestand nog nodig is."
 
 #. (para)
 msgid "If you keep getting error messages, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice> instead to list all the problem files. That way you can deal with them all at once."
-msgstr ""
+msgstr "Als je foutmeldingen blijft krijgen, gebruik dan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Kijk of er updates zijn</guimenuitem></menuchoice>om een lijst te laten maken van alle bestanden met problemen. Op die manier kun je ze allemaal in één keer afhandelen."
 
 #. (title)
 msgid "Resolving Conflicts"
@@ -3527,7 +3527,7 @@ msgstr "Conflicten oplossen"
 
 #. (primary)
 msgid "tree conflict"
-msgstr "tree conflicten"
+msgstr "mapstructuur conflicten"
 
 #. (primary)
 msgid "resolve"
@@ -3539,47 +3539,47 @@ msgstr "bestandsconflicten"
 
 #. (para)
 msgid "A file conflict occurs if two (or more) developers have changed the same few lines of a file."
-msgstr ""
+msgstr "Een bestandsconflict treedt op als er twee of meer ontwikkelaars dezelfde regel in één bestand hebben aangepast."
 
 #. (term)
 msgid "tree conflicts"
-msgstr "tree conflicten"
+msgstr "mapstructuur conflicten"
 
 #. (para)
 msgid "A tree conflict occurs when a developer moved/renamed/deleted a file or folder, which another developer either also has moved/renamed/deleted or just modified."
-msgstr ""
+msgstr "Een mapstructuur conflict treedt op als een ontwikkelaar een bestand of map verplaatst, hernoemd of verwijderd heeft, welke ook door een andere ontwikkelaar is verplaatst, hernoemd, verwijderd of gewijzigd is."
 
 #. (para)
 msgid "Once in a while, you will get a <emphasis>conflict</emphasis> when you update/merge your files from the repository or when you switch your working copy to a different URL. There are two kinds of conflicts: <placeholder-1/>"
-msgstr ""
+msgstr "Zo af en toe zul je tegen een <emphasis>conflict</emphasis> aanlopen als je bestanden in het archief ververst of samenvoegt, of als je je werkkopie omschakelt naar een andere URL. Er zijn twee soorten conflicten: <placeholder-1/>"
 
 #. (title)
 msgid "File Conflicts"
-msgstr "bestandsconflicten"
+msgstr "Bestandsconflicten"
 
 #. (term)
 msgid "filename.ext.mine"
-msgstr ""
+msgstr "filename.ext.mine"
 
 #. (para)
 msgid "This is your file as it existed in your working copy before you updated your working copy - that is, without conflict markers. This file has your latest changes in it and nothing else."
-msgstr ""
+msgstr "Dit is het bestand zoals het aanwezig was in je werkkopie, voordat je je werkkopie ging verversen. Oftewel de versie zonder conflictmarkeringen. Dit bestand bevat jouw laatste wijzigingen en niets anders."
 
 #. (term)
 msgid "filename.ext.rOLDREV"
-msgstr ""
+msgstr "filename.ext.rOLDREV"
 
 #. (para)
 msgid "This is the file that was the BASE revision before you updated your working copy. That is, it the file that you checked out before you made your latest edits."
-msgstr ""
+msgstr "Dit de BASE revisie van het is bestand voordat je je werkkopie ging verversen. Oftewel het bestand die je opgehaald hebt voordat je jouw laatste wijzigingen er in ging zetten."
 
 #. (term)
 msgid "filename.ext.rNEWREV"
-msgstr ""
+msgstr "filename.ext.rNEWREV"
 
 #. (para)
 msgid "This is the file that your Subversion client just received from the server when you updated your working copy. This file corresponds to the HEAD revision of the repository."
-msgstr ""
+msgstr "Dit is het bestand die zojuist door je Subversion applicatie is ontvangen van de server toen je jouw werkkopie ging verversen. Dit bestand komt overeen met de HEAD revisie in het archief."
 
 #. (para)
 msgid ""
@@ -3591,14 +3591,21 @@ msgid ""
 "\t&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "\t</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
+"Een bestandsconflict treedt op als twee of meer ontwikkelaars dezelfde regels in een bestand hebben gewijzigd. Omdat Subversion niets van de projecten weer, laat het het oplossen van conflicten over aan de gebruikers. Als er een conflict gemeld wordt, dan moet je het bestand in kwestie openen en de regels zoeken die beginnen met <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. Het conflicterende gedeelte wordt als volgt gemarkeerd: <screen>\n"
+"\t&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
+"\t\tyour changes\n"
+"\t=======\n"
+"\t\tcode merged from repository\n"
+"\t&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
+"\t</screen> Daarnaast plaatst Subversion drie additionele bestanden in je map: <placeholder-1/>"
 
 #. (para)
 msgid "You can either launch an external merge tool / conflict editor with <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit Conflicts</guimenuitem></menuchoice> or you can use any other editor to manually resolve the conflict. You should decide what the code should look like, do the necessary changes and save the file."
-msgstr ""
+msgstr "Je kunt of een extern samenvoeg/conflict bewerkingsprogramma openen met <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Bewerk Conflicten</guimenuitem></menuchoice> of je kunt elke tekstverwerker gebruiken om handmatig de conflicten op te lossen. Je moet beslissen hoe de code er uit zou moeten zien, de noodzakelijke wijzigingen doorvoeren en het bestand opslaan."
 
 #. (para)
 msgid "Afterwards execute the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved</guimenuitem></menuchoice> and commit your modifications to the repository. Please note that the Resolve command does not really resolve the conflict. It just removes the <filename>filename.ext.mine</filename> and <filename>filename.ext.r*</filename> files, to allow you to commit your changes."
-msgstr ""
+msgstr "Daarna moet je het commando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Opgelost</guimenuitem></menuchoice> kiezen en je wijzigingen vastleggen in het archief. Merk op dat het Opgelost commando het conflict zelf niet oplost. Het zorgt er alleen voor dat de bestanden <filename>filename.ext.mine</filename> en <filename>filename.ext.r*</filename> worden verwijderd, zodat je je wijzigingen kunt vastleggen. "
 
 #. (para)
 msgid "If you have conflicts with binary files, Subversion does not attempt to merge the files itself. The local file remains unchanged (exactly as you last changed it) and you have <filename>filename.ext.r*</filename> files. If you want to discard your changes and keep the repository version, just use the Revert command. If you want to keep your version and overwrite the repository version, use the Resolved command, then commit your version."
@@ -3610,7 +3617,7 @@ msgstr ""
 
 #. (title)
 msgid "Tree Conflicts"
-msgstr "Tree conflicten"
+msgstr "Mapstructuur conflicten"
 
 #. (para)
 msgid "A tree conflict occurs when a developer moved/renamed/deleted a file or folder, which another developer either also has moved/renamed/deleted or just modified. There are many different situations that can result in a tree conflict, and all of them require different steps to resolve the conflict."
