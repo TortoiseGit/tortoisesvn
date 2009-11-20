@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-21 10:18+0100\n"
+"PO-Revision-Date: 2009-11-20 09:26+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2517,6 +2517,11 @@ msgstr "Innsendinger per forfatter"
 msgid "Commits by date"
 msgstr "Innsendinger etter dato"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "Commits each %s"
+msgstr "Innsendinger per %s"
+
 #. Resource IDs: (1135)
 msgid "Commits each week:"
 msgstr "Innsendinger hver uke:"
@@ -2564,6 +2569,14 @@ msgstr "Sammenligne med &basis"
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
 msgstr "Sammenlign med forrige revisjon"
+
+#. Resource IDs: (2055)
+msgid ""
+"Compares all whitespaces when diffing\n"
+"Compare whitespaces"
+msgstr ""
+"Sammenligner alle blanktegn ved diff\n"
+"Sammenlign blanktegn"
 
 #. Resource IDs: (12)
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -2658,6 +2671,10 @@ msgstr "Kopiert"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "Kopiert fra URL"
+
+#. Resource IDs: (208)
+msgid "Copied from revision"
+msgstr "Kopiert fra revisjon"
 
 #. Resource IDs: (275)
 #, c-format
@@ -3887,6 +3904,11 @@ msgstr "Henter revisjon %s av filen:"
 msgid "File"
 msgstr "Fil"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "File changes each %s"
+msgstr "Filendringer per %s"
+
 #. Resource IDs: (1138)
 msgid "File changes each week:"
 msgstr "Filendringer pr. uke:"
@@ -4686,6 +4708,10 @@ msgstr "Ignorer &alle blanktegn"
 msgid "Ignore &case changes"
 msgstr "Ignore&r at tegn er store og små"
 
+#. Resource IDs: (32873)
+msgid "Ignore all whitespace changes"
+msgstr "Ignorer alle endringer i blanktegn"
+
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Ignorer alle blanktegn"
@@ -4709,6 +4735,22 @@ msgstr "Ignorer endringer i blanktegn"
 #. Resource IDs: (226)
 msgid "Ignored items included"
 msgstr "Ignorerte elementer inkludert"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores all whitespace changes when diffing\n"
+"Ignore all whitespace changes"
+msgstr ""
+"Ignorerer alle blanktegnsendringer ved diff\n"
+"Ignorer alle blanktegnsendringer"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores changes in whitespaces when diffing\n"
+"Ignore whitespace changes"
+msgstr ""
+"Ignorerer endringer i blanktegn ved diff\n"
+"Ignorer blanktegnsendringer"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5813,6 +5855,11 @@ msgstr "Merk: Innstillinger for skrift påvirker også TortoiseUDiff-viseren"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Notis"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "Number of %s"
+msgstr "Antall %s"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
@@ -8135,6 +8182,14 @@ msgstr "Tekst-status:"
 msgid "Text status"
 msgstr "Tekst-status"
 
+#. Resource IDs: (84)
+msgid ""
+"The URL to check out refers to a file but this\n"
+"working copy path is an existing directory."
+msgstr ""
+"URLen som skal sjekkes ut refererer til en fil, men\n"
+"denne stien er i arbeidskopien en eksisterende katalog."
+
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "Størrelsen på avsnittet passer ikke med antall linjer som er lagt til eller trukket fra!"
@@ -9257,6 +9312,10 @@ msgstr ""
 "Bruk '*' som jokertegn når unntak angis\r\n"
 "Kommaer (',') brukes for å skille flere unntak\r\n"
 "Eksempel: *.mittlan.no, *.firmanavn.no"
+
+#. Resource IDs: (1538)
+msgid "Use Aero dialogs"
+msgstr "Bruk Aero-dialoger"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
