@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-11-20 16:42+0100\n"
+"PO-Revision-Date: 2009-11-23 16:57+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3609,11 +3609,11 @@ msgstr "Daarna moet je het commando <menuchoice><guimenu>TortoiseSVN</guimenu><g
 
 #. (para)
 msgid "If you have conflicts with binary files, Subversion does not attempt to merge the files itself. The local file remains unchanged (exactly as you last changed it) and you have <filename>filename.ext.r*</filename> files. If you want to discard your changes and keep the repository version, just use the Revert command. If you want to keep your version and overwrite the repository version, use the Resolved command, then commit your version."
-msgstr ""
+msgstr "Subversion zal niet proberen om conflicten met binaire bestanden zelf op te lossen. Het lokale bestand blijft ongewijzigd (precies zoals je het als laatste had opgeslagen) en je krijgt <filename>filename.ext.r*</filename> bestanden ernaast. Als je je eigen wijzigingen wilt laten vervallen en de versie in het archief wilt behouden, gebruik dan het Terugzetten commando. Als je je eigen versie wilt gebruiken en de versie in het archief wilt overschrijven, gebruik dan het Opgelost commando en leg vervolgens je wijzigingen vast."
 
 #. (para)
 msgid "You can use the Resolved command for multiple files if you right click on the parent folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved...</guimenuitem></menuchoice> This will bring up a dialog listing all conflicted files in that folder, and you can select which ones to mark as resolved."
-msgstr ""
+msgstr "Het is mogelijk om het Opgelost commando op meerdere bestanden toe te passen. Klik met rechts op de bovenliggende map en selecteer <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Opgelost...</guimenuitem></menuchoice>. Er wordt dan een venster geopend met alle conflicterende bestanden in die map. Je kunt dan selecteren welke bestanden gemarkeerd moeten worden als Opgelost."
 
 #. (title)
 msgid "Tree Conflicts"
@@ -3621,7 +3621,7 @@ msgstr "Mapstructuur conflicten"
 
 #. (para)
 msgid "A tree conflict occurs when a developer moved/renamed/deleted a file or folder, which another developer either also has moved/renamed/deleted or just modified. There are many different situations that can result in a tree conflict, and all of them require different steps to resolve the conflict."
-msgstr ""
+msgstr "Een conflict in mapstructuur ontstaat als een ontwikkelaar bestanden of mappen verplaatst, hernoemd of verwijderd heeft, die een andere ontwikkelaar toevallig ook verplaatst, hernoemd, verwijderd of gewijzigd heeft. Er zijn nog veel meer situaties die tot een mapstructuur conflict kunnen leiden en elke situatie heeft weer een andere oplossing nodig."
 
 #. (para)
 msgid "When a file is deleted locally in Subversion, the file is also deleted from the local file system, so even if it is part of a tree conflict it cannot show a conflicted overlay and you cannot right click on it to resolve the conflict. Use the <guilabel>Check for Modifications</guilabel> dialog instead to access the <guilabel>Edit conflicts</guilabel> option."
@@ -3629,7 +3629,7 @@ msgstr ""
 
 #. (para)
 msgid "TortoiseSVN can help find the right place to merge changes, but there may be additional work required to sort out the conflicts. Remember that after an update the working BASE will always contain the revision of each item as it was in the repository at the time of update. If you revert a change after updating it goes back to the repository state, not to the way it was when you started making your own local changes."
-msgstr ""
+msgstr "TortoiseSVN kan helpen om de beste plaatst voor het samenvoegen van wijzigingen te vinden, maar voor het oplossen van conflicten is er toch meer handwerk nodig. Onthoudt dat na een verversing de BASE altijd de revisie van bestanden uit het archief bevat van het moment van verversen. Als je een wijziging terugzet nadat je ververst hebt, dan kom je terug op de stand van het archief, niet naar de stand die je toen je begon met het wijzigen. "
 
 #. (title)
 msgid "Local delete, incoming edit upon update"
