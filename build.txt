@@ -67,8 +67,6 @@ You only have to do this once.
 
 (\b 2) Install Votive to be able to load .wixproj project files.
 
-(\b 3) This is only required for RELEASE builds which you want to sign with your GPG passphrase. In order to do that, install GPG and create a file called 'gpgpassphrase.txt' which has your GPG passphrase in it (plaintext). Then the build will automatically sign the msi file with your GPG signature.
-
 \subsection Requirements3 Next you need to download some more.
 - OpenSSL source              http://www.openssl.org/source/
                               You will need version 0.9.8k
