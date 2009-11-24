@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-11-23 16:57+0100\n"
+"PO-Revision-Date: 2009-11-24 16:57+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1521,7 +1521,7 @@ msgid ""
 "svn://localhost/repos/TestRepo\n"
 "</screen> when prompted by the repo browser."
 msgstr ""
-"Stel dat je archief opgeslagen is op <filename>c:\\repos\\TestRepo</filename> en je server heeft de naam <filename>localhost</filename>, voer dan <screen>\n"
+"Stel dat je archief opgeslagen is op <filename>c:\\repos\\TestRepo</filename> en je server heeft de naam <filename>localhost</filename>, voer dan: <screen>\n"
 "svn://localhost/repos/TestRepo\n"
 "</screen> in als de archief-verkenner daar om vraagt."
 
@@ -1535,13 +1535,13 @@ msgid ""
 "svn://localhost/TestRepo\n"
 "</screen> Note that the --root switch is also needed if your repository is located on a different partition or drive than the location of svnserve on your server."
 msgstr ""
-"Het is ook mogelijk in de veiligheid te verhogen en tijd te besparen bij het invoeren van URLs met svnserve door gebruik te maken van de –root optie  voor het instellen van de hoofd map en beperken van toegang tot een bepaalde map op de server: <screen>\n"
+"Het is ook mogelijk in de veiligheid te verhogen en tijd te besparen bij het invoeren van URLs met svnserve door gebruik te maken van de --root optie voor het instellen van de hoofd map en het beperken van toegang tot een bepaalde map op de server: <screen>\n"
 "svnserve.exe --daemon --root drive:\\path\\to\\repository\\root\n"
-"</screen> Met de vorige test kan svnserve  opstarten met: <screen>\n"
+"</screen> Met de vorige test kan svnserve  opstarten als: <screen>\n"
 "svnserve.exe --daemon --root c:\\repos\n"
-"</screen> En in TortoiseSVN is de archief-verkenner URL verkort tot: <screen>\n"
+"</screen> En in TortoiseSVN is de archiefverkenner URL verkort tot: : <screen>\n"
 "svn://localhost/TestRepo\n"
-"</screen> Merk op dat de –root optie ook nodig als het archief op een andere partitie of schijf dan svnserve is opgeslagen."
+"</screen> Merk op dat de --root optie ook nodig als het archief op een andere partitie of schijf dan svnserve is opgeslagen."
 
 #. (para)
 msgid "Svnserve will service any number of repositories. Just locate them somewhere below the root folder you just defined, and access them using a URL relative to that root."
@@ -3625,7 +3625,7 @@ msgstr "Een conflict in mapstructuur ontstaat als een ontwikkelaar bestanden of 
 
 #. (para)
 msgid "When a file is deleted locally in Subversion, the file is also deleted from the local file system, so even if it is part of a tree conflict it cannot show a conflicted overlay and you cannot right click on it to resolve the conflict. Use the <guilabel>Check for Modifications</guilabel> dialog instead to access the <guilabel>Edit conflicts</guilabel> option."
-msgstr ""
+msgstr "Als een bestand lokaal uit Subversion verwijderd is, dan wordt deze ook van het lokale bestandssysteem verwijderd. Dat houdt in dat er geen Overlay icoon weergegeven kan worden als dit bestand onderdeel is van een mapstructuurconflict en je er dus ook niet met rechts op kunt klikken om het probleem op te lossen. Gebruik dan het <guilabel>Kijk of er updates zijn</guilabel> venster om de <guilabel>Conflicten oplossen</guilabel> optie te kunnen benaderen."
 
 #. (para)
 msgid "TortoiseSVN can help find the right place to merge changes, but there may be additional work required to sort out the conflicts. Remember that after an update the working BASE will always contain the revision of each item as it was in the repository at the time of update. If you revert a change after updating it goes back to the repository state, not to the way it was when you started making your own local changes."
@@ -3633,162 +3633,162 @@ msgstr "TortoiseSVN kan helpen om de beste plaatst voor het samenvoegen van wijz
 
 #. (title)
 msgid "Local delete, incoming edit upon update"
-msgstr ""
+msgstr "Lokale verwijdering, inkomende wijziging bij verversing"
 
 #. (para)
 msgid "Developer A modifies <filename>Foo.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Ontwikkelaar A wijzigt <filename>Foo.c</filename> en legt deze vast in het archief"
 
 #. (para)
 msgid "Developer B has simultaneously moved <filename>Foo.c</filename> to <filename>Bar.c</filename> in his working copy, or simply deleted <filename>Foo.c</filename> or its parent folder."
-msgstr ""
+msgstr "Ontwikkelaar B heeft tegelijkertijd <filename>Foo.c</filename> naar <filename>Bar.c</filename> verplaatst in zijn werkkopie of heeft <filename>Foo.c</filename> of de bovenliggende map verwijderd."
 
 #. (para)
 msgid "<filename>Foo.c</filename> has been deleted from working copy, but is marked with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> is verwijderd uit de werkkopie, maar deze is gemarkeerd als een mapstructuur conflict."
 
 #. (para)
 msgid "If the conflict results from a rename rather than a delete then <filename>Bar.c</filename> is marked as added, but does not contain developer A's modifications."
-msgstr ""
+msgstr "Als het conflict veroorzaakt is door een hernoeming in plaats van verwijdering, dan zal <filename>Bar.c</filename> gemarkeerd worden als toegevoegd, maar deze zal dan niet de wijzigingen van ontwikkelaar A bevatten."
 
 #. (para)
 #. (para)
 msgid "An update of developer B's working copy results in a tree conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Een verversing van de werkkopie van ontwikkelaar B resulteert in een mapstructuur conflict: <placeholder-1/>"
 
 #. (para)
 msgid "Developer B now has to choose whether to keep Developer A's changes. In the case of a file rename, he can merge the changes to <filename>Foo.c</filename> into the renamed file <filename>Bar.c</filename>. For simple file or directory deletions he can choose to keep the item with Developer A's changes and discard the deletion. Or, by marking the conflict as resolved without doing anything he effectively discards Developer A's changes."
-msgstr ""
+msgstr "Ontwikkelaar B moet nu kiezen of hij de wijzigingen van ontwikkelaar A wil behouden. Als het om een naamswijziging gaat, dan kan hij de wijzigingen van <filename>Foo.c</filename> samenvoegen in het naar <filename>Bar.c</filename> hernoemde bestand. Bij eenvoudige bestands- of mapverwijderingen kan hij er voor kiezen om het object met de wijzigingen van ontwikkelaar A te behouden en de verwijdering te negeren. Of, door middel van het als Opgelost markeren van de conflicten zonder iets gewijzigd te hebben, worden de wijzigingen van ontwikkelaar A volledig genegeerd. "
 
 #. (para)
 msgid "The conflict edit dialog offers to merge changes if it can find the original file of the renamed <filename>Bar.c</filename>. Depending on where the update was invoked, it may not be possible to find the source file."
-msgstr ""
+msgstr "Het conflicten bewerkingsvenster beidt de mogelijkheid om wijzigingen samen te voegen, als het originele bestand van de hernoemde <filename>Bar.c</filename> aangewezen kan worden. Afhankelijk van waar de verversing was aangeroepen, is het misschien niet mogelijk om het bronbestand te vinden."
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
-msgstr ""
+msgstr "Lokale wijziging, inkomende verwijdering bij verversing"
 
 #. (para)
 msgid "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository."
-msgstr ""
+msgstr "Ontwikkelaar A hernoemt <filename>Foo.c</filename> naar <filename>Bar.c</filename> en legt de wijziging vast in het archief."
 
 #. (para)
 #. (para)
 msgid "Developer B modifies <filename>Foo.c</filename> in his working copy."
-msgstr ""
+msgstr "Ontwikkelaar B wijzigt <filename>Foo.c</filename> in zijn werkkopie."
 
 #. (para)
 msgid "Or in the case of a folder move ..."
-msgstr ""
+msgstr "Of bij een verplaatsing van een map ..."
 
 #. (para)
 msgid "Developer A moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
-msgstr ""
+msgstr "Ontwikkelaar A hernoemt hoofdmap <filename>FooFolder</filename> in <filename>BarFolder</filename> en legt de wijziging vast in het archief."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is added to the working copy as a normal file."
-msgstr ""
+msgstr "<filename>Bar.c</filename> wordt toegevoegd aan de werkkopie als een normaal bestand."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as added (with history) and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> wordt als toegevoegd (inclusief geschiedenis) gemarkeerd en heeft een mapstructuur conflict."
 
 #. (para)
 msgid "An update of developer B's working copy results in a tree conflict. For a simple file conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Een verversing van de werkkopie van ontwikkelaar B leidt tot een mapstructuur conflict. Een eenvoudig bestandsconflict: <placeholder-1/>"
 
 #. (para)
 msgid "<filename>BarFolder</filename> is added to the working copy as a normal folder."
-msgstr ""
+msgstr "<filename>BarFolder</filename> wordt aan de werkkopie toegevoegd als een normale map."
 
 #. (para)
 msgid "<filename>FooFolder</filename> is marked as added (with history) and has a tree conflict."
-msgstr ""
+msgstr "<filename>FooFolder</filename> wordt gemarkeerd als toegevoegd (inclusief geschiedenis) en heeft een mapstructuurconflict."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified."
-msgstr ""
+msgstr "<filename>Foo.c</filename> wordt gemarkeerd als gewijzigd."
 
 #. (para)
 msgid "For a folder conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Een mapstructuur conflict: <placeholder-1/>"
 
 #. (para)
 #. (para)
 msgid "Developer B now has to decide whether to go with developer A's reorganisation and merge her changes into the corresponding file in the new structure, or simply revert A's changes and keep the local file."
-msgstr ""
+msgstr "Ontwikkelaar B moet nu de keuze maken of deze meegaat met de herindeling van ontwikkelaar A. Als ontwikkelaar B daarin meegaat, kan hij zijn wijzigingen in het nieuwe bestand samenvoegen. Zo niet, dan kan ontwikkelaar B de wijzigingen van A terugdraaien en zijn eigen lokale versie behouden."
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr ""
+msgstr "Om de eigen wijzigingen in de herindeling te verwerken, moet ontwikkelaar B uitvinden welke naam <filename>Foo.c</filename> heeft gekregen in het archief. Dit kan met het log venster. De wijzigingen moeten vervolgens met de hand verwerkt worden, omdat er nu nog geen mogelijkheid dit te automatiseren of te vereenvoudigen. Als de wijzigingen doorgevoerd zijn, is het conflicterende pad overbodig en kan dan verwijderd worden. Gebruik hiervoor de <guilabel>Verwijderen</guilabel> knop in de conflict bewerkingsvenster om het conflict als opgelost ge markeren."
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog helps to track down what was moved."
-msgstr ""
+msgstr "Als ontwikkelaar B tot de conclusie komt dat de wijzigingen van A verkeerd zijn, dan moet dat aangegeven worden met de <guilabel>Behouden</guilabel> knop in het conflict bewerkingsvenster. Hiermee wordt het conflicterende bestand of de map gemarkeerd als opgelost. De wijzigingen van ontwikkelaar A moeten wel nog met de hand verwijderd worden. Ook hier helpt het log venster met te bepalen wat er gewijzigd/hernoemd is."
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
-msgstr ""
+msgstr "Lokale verwijdering, inkomende verwijdering bij verversing"
 
 #. (para)
 msgid "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Ontwikkelaar A hernoemt <filename>Foo.c</filename> in <filename>Bar.c</filename> en legt dit vast in het archief."
 
 #. (para)
 msgid "Developer B moves <filename>Foo.c</filename> to <filename>Bix.c</filename>"
-msgstr ""
+msgstr "Ontwikkelaar B hernoemt <filename>Foo.c</filename> in <filename>Bix.c</filename>"
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked as added with history."
-msgstr ""
+msgstr "<filename>Bix.c</filename> wordt gemarkeerd als toegevoegd inclusief geschiedenis."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is added to the working copy with status 'normal'."
-msgstr ""
+msgstr "<filename>Bar.c</filename> is toegevoegd aan de werkkopie met 'normale' status."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as deleted and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> wordt gemarkeerd als verwijderd en leidt tot een mapstructuur conflict."
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog."
-msgstr ""
+msgstr "Om dit conflict op te lossen, moet ontwikkelaar B uitzoeken welke bestandsnaam de conflicterend <filename>Foo.c</filename> heeft gekregen in het archief. Het log venster kan hiervoor gebruikt worden."
 
 #. (para)
 #. (para)
 msgid "Then developer B has to decide which new filename of <filename>Foo.c</filename> to keep - the one done by developer A or the rename done by himself."
-msgstr ""
+msgstr "Ontwikkelaar B moet dan bepalen welke bestandsnaam van <filename>Foo.c</filename> behouden moet worden, degene van ontwikkelaar A of de zelf gekozen nieuwe bestandsnaam."
 
 #. (para)
 #. (para)
 msgid "After developer B has manually resolved the conflict, the tree conflict has to be marked as resolved with the button in the conflict editor dialog."
-msgstr ""
+msgstr "Wanneer ontwikkelaar B het conflict handmatig heeft opgelost, dan moet het conflict als opgelost worden gemarkeerd in het conflict bewerkingsvenster."
 
 #. (title)
 msgid "Local missing, incoming edit upon merge"
-msgstr ""
+msgstr "Lokaal missend, binnenkomende wijziging bij het samenvoegen"
 
 #. (para)
 msgid "Developer A working on trunk modifies <filename>Foo.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Ontwikkelaar A werkt in de trunk en wijzigt <filename>Foo.c</filename> en legt de wijzigingen vast in het archief."
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Ontwikkelaar B werkt aan een branch en hernoemd <filename>Foo.c</filename> in <filename>Bar.c</filename> en legt zijn wijzigingen vast in het archief."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is already in the working copy with status 'normal'."
-msgstr ""
+msgstr "<filename>Bar.c</filename> bevindt zich al in de werkkopie met status 'normaal'."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> wordt gemarkeerd als missend met een mapstructuur conflict."
 
 #. (para)
 #. (para)
 #. (para)
 msgid "A merge of developer A's trunk changes to developer B's branch working copy results in a tree conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Het samenvoegen van de wijzigingen van A op de trunk naar de branch werkkopie van ontwikkelaar B leidt tot een mapstructuur conflict: <placeholder-1/>"
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to mark the file as resolved in the conflict editor dialog, which will remove it from the conflict list. She then has to decide whether to copy the missing file <filename>Foo.c</filename> from the repository to the working copy, whether to merge Developer A's changes to <filename>Foo.c</filename> into the renamed <filename>Bar.c</filename> or whether to ignore the changes by marking the conflict as resolved and doing nothing else."
