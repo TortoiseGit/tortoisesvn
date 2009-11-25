@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-11-24 16:57+0100\n"
+"PO-Revision-Date: 2009-11-25 17:04+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -344,15 +344,15 @@ msgstr "TortoiseSVN integreert naadloos in de Windows shell (i.e. de Verkenner).
 
 #. (para)
 msgid "And you are not even forced to use the Windows Explorer. TortoiseSVN's context menus work in many other file managers, and in the File/Open dialog which is common to most standard Windows applications. You should, however, bear in mind that TortoiseSVN is intentionally developed as extension for the Windows Explorer. Thus it is possible that in other applications the integration is not as complete and e.g. the icon overlays may not be shown."
-msgstr "En daarbij komt nog dat je de Windows Verkenner niet persee hoeft te gebruiken. TortoiseSVN's context menus werken in vele andere bestandbeheer programma's, alsook in de Bestand/Open dialoog, welke in de meeste standaard Windows applicaties aanwezig is. Je moet hierbij wel bedenken dat TortoiseSVN in eerste instantie ontwikkeld is als uitbreiding op de Windows Verkenner. Daardoor is het mogelijk dat in andere applicaties de integratie niet zo compleet is en bijvoorbeeld de laag over de pictogrammen niet zichtbaar is."
+msgstr "En daarbij komt nog dat je de Windows Verkenner niet persee hoeft te gebruiken. TortoiseSVN's context menus werken in vele andere bestandbeheer programma's, alsook in de Bestand/Open dialoog, welke in de meeste standaard Windows applicaties aanwezig is. Je moet hierbij wel bedenken dat TortoiseSVN in eerste instantie ontwikkeld is als uitbreiding op de Windows Verkenner. Daardoor is het mogelijk dat in andere applicaties de integratie niet zo compleet is en bijvoorbeeld de overlappende pictogrammen niet zichtbaar zijn."
 
 #. (term)
 msgid "Icon overlays"
-msgstr "Pictogrammen overlays"
+msgstr "Overlappende pictogrammen"
 
 #. (para)
 msgid "The status of every versioned file and folder is indicated by small overlay icons. That way you can see right away what the status of your working copy is."
-msgstr "De status van elk bestand en folder onder versiebeheer wordt weergegeven met een klein overlay pictogram. Op die manier kun je direct zien wat de status is van je werk kopie."
+msgstr "De status van elk bestand en folder onder versiebeheer wordt weergegeven met een klein overlappend pictogram. Op die manier kun je direct zien wat de status is van je werk kopie."
 
 #. (term)
 msgid "Easy access to Subversion commands"
@@ -2695,16 +2695,16 @@ msgstr "Aan de slag"
 #. (title)
 #. (title)
 msgid "Icon Overlays"
-msgstr "Laag over pictogram"
+msgstr "Overlappende Pictogrammen"
 
 #. (title)
 #. (title)
 msgid "Explorer showing icon overlays"
-msgstr "Overlay iconen weergegeven in de verkenner"
+msgstr "Overlappende pictogrammen weergegeven in de verkenner"
 
 #. (para)
 msgid "<placeholder-1/> One of the most visible features of TortoiseSVN is the icon overlays which appear on files in your working copy. These show you at a glance which of your files have been modified. Refer to <xref linkend=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays represent."
-msgstr "<placeholder-1/>Eén van de meest zichtbare functies van TortoiseSVN zijn de icoon bedekkingen (overlays genoemd), welke weergegeven worden op bestanden in je werkkopie. Deze laten in één oogopslag zien welke bestanden gewijzigd zijn. Lees <xref linkend=\"tsvn-dug-wcstatus-1\"/> om te leren wat de verschillende overlays betekenen."
+msgstr "<placeholder-1/>Eén van de meest zichtbare functies van TortoiseSVN zijn de overlappende pictogrammen (ook wel icon overlays genoemd), welke weergegeven worden op bestanden in je werkkopie. Deze laten in één oogopslag zien welke bestanden gewijzigd zijn. Lees <xref linkend=\"tsvn-dug-wcstatus-1\"/> om te leren wat de verschillende overlappende pictogrammen betekenen."
 
 #. (title)
 msgid "Context Menus"
@@ -2786,7 +2786,7 @@ msgstr "F5"
 
 #. (para)
 msgid "Refresh the current view. This is perhaps the single most useful one-key command. For example ... In Explorer this will refresh the icon overlays on your working copy. In the commit dialog it will re-scan the working copy to see what may need to be committed. In the Revision Log dialog it will contact the repository again to check for more recent changes."
-msgstr "Ververs de huidige weergave. Dit is waarschijnlijk het enige meest nuttige één-knopscommando. Bijvoorbeeld ... In de verkenner ververst dit de overlays van iconen van je werkkopie. In het vastleggen venster zal je werkkopie opnieuw gescand worden om na te gaan wat er vastgelegd moet worden. In het revisie log venster zal er in het archief gekeken worden of er recente wijzigingen zijn."
+msgstr "Ververs de huidige weergave. Dit is waarschijnlijk het enige meest nuttige één-knopscommando. Bijvoorbeeld ... In de verkenner ververst dit de overlappende pictogrammen van je werkkopie. In het vastleggen venster zal je werkkopie opnieuw gescand worden om na te gaan wat er vastgelegd moet worden. In het revisie log venster zal er in het archief gekeken worden of er recente wijzigingen zijn."
 
 #. (term)
 msgid "Ctrl-A"
@@ -3491,7 +3491,7 @@ msgstr "Als je een bestand of map naar een bepaalde revisie ververst, dan moet j
 
 #. (para)
 msgid "<menuchoice><guimenuitem>Update to Revision</guimenuitem></menuchoice> can occasionally be useful to see what your project looked like at some earlier point in its history. But in general, updating individual files to an earlier revision is not a good idea as it leaves your working copy in an inconsistent state. If the file you are updating has changed name, you may even find that the file just disappears from your working copy because no file of that name existed in the earlier revision. You should also note that the item will show a normal green overlay, so it is indistinguishable from files which are up-to-date."
-msgstr "<menuchoice><guimenuitem>Verversen naar Revisie</guimenuitem></menuchoice> kan soms handig om te bekijken hoe je project er een tijd geleden uitzag. Het verversen van individuele bestanden naar een eerdere revisie is zeker geen goed idee, omdat je werkkopie dan inconsistent wordt. Als de naam van een bestand gewijzigd is, dan zal dat bestand gewoon uit je werkkopie verdwijnen. Dit komt omdat er geen bestand met die naam in een eerdere revisie aanwezig was. Je moet je ook realiseren dat zo’n object (uit een eerdere revisie) een normaal overlay icoon heeft, waardoor het niet te onderscheiden is welke bestanden van de laatste revisie zijn."
+msgstr "<menuchoice><guimenuitem>Verversen naar Revisie</guimenuitem></menuchoice> kan soms handig om te bekijken hoe je project er een tijd geleden uitzag. Het verversen van individuele bestanden naar een eerdere revisie is zeker geen goed idee, omdat je werkkopie dan inconsistent wordt. Als de naam van een bestand gewijzigd is, dan zal dat bestand gewoon uit je werkkopie verdwijnen. Dit komt omdat er geen bestand met die naam in een eerdere revisie aanwezig was. Je moet je ook realiseren dat zo’n object (uit een eerdere revisie) een normaal overlappend pictogram heeft, waardoor het niet te onderscheiden is welke bestanden van de laatste revisie zijn."
 
 #. (para)
 msgid "If you simply want a local copy of an old version of a file it is better to use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save revision to...</guimenuitem></menuchoice> command from the log dialog for that file."
@@ -3625,7 +3625,7 @@ msgstr "Een conflict in mapstructuur ontstaat als een ontwikkelaar bestanden of 
 
 #. (para)
 msgid "When a file is deleted locally in Subversion, the file is also deleted from the local file system, so even if it is part of a tree conflict it cannot show a conflicted overlay and you cannot right click on it to resolve the conflict. Use the <guilabel>Check for Modifications</guilabel> dialog instead to access the <guilabel>Edit conflicts</guilabel> option."
-msgstr "Als een bestand lokaal uit Subversion verwijderd is, dan wordt deze ook van het lokale bestandssysteem verwijderd. Dat houdt in dat er geen Overlay icoon weergegeven kan worden als dit bestand onderdeel is van een mapstructuurconflict en je er dus ook niet met rechts op kunt klikken om het probleem op te lossen. Gebruik dan het <guilabel>Kijk of er updates zijn</guilabel> venster om de <guilabel>Conflicten oplossen</guilabel> optie te kunnen benaderen."
+msgstr "Als een bestand lokaal uit Subversion verwijderd is, dan wordt deze ook van het lokale bestandssysteem verwijderd. Dat houdt in dat er geen overlappend pictogram weergegeven kan worden als dit bestand onderdeel is van een mapstructuurconflict en je er dus ook niet met rechts op kunt klikken om het probleem op te lossen. Gebruik dan het <guilabel>Kijk of er updates zijn</guilabel> venster om de <guilabel>Conflicten oplossen</guilabel> optie te kunnen benaderen."
 
 #. (para)
 msgid "TortoiseSVN can help find the right place to merge changes, but there may be additional work required to sort out the conflicts. Remember that after an update the working BASE will always contain the revision of each item as it was in the repository at the time of update. If you revert a change after updating it goes back to the repository state, not to the way it was when you started making your own local changes."
@@ -3720,7 +3720,7 @@ msgstr "Ontwikkelaar B moet nu de keuze maken of deze meegaat met de herindeling
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr "Om de eigen wijzigingen in de herindeling te verwerken, moet ontwikkelaar B uitvinden welke naam <filename>Foo.c</filename> heeft gekregen in het archief. Dit kan met het log venster. De wijzigingen moeten vervolgens met de hand verwerkt worden, omdat er nu nog geen mogelijkheid dit te automatiseren of te vereenvoudigen. Als de wijzigingen doorgevoerd zijn, is het conflicterende pad overbodig en kan dan verwijderd worden. Gebruik hiervoor de <guilabel>Verwijderen</guilabel> knop in de conflict bewerkingsvenster om het conflict als opgelost ge markeren."
+msgstr "Om de eigen wijzigingen in de herindeling te verwerken, moet ontwikkelaar B uitvinden welke naam <filename>Foo.c</filename> heeft gekregen in het archief. Dit kan met het log venster. De wijzigingen moeten vervolgens met de hand verwerkt worden, omdat er nu nog geen mogelijkheid is dit te automatiseren of te vereenvoudigen. Als de wijzigingen doorgevoerd zijn, is het conflicterende pad overbodig en kan dan verwijderd worden. Gebruik hiervoor de <guilabel>Verwijderen</guilabel> knop in de conflict bewerkingsvenster om het conflict als opgelost ge markeren."
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog helps to track down what was moved."
@@ -3792,76 +3792,76 @@ msgstr "Het samenvoegen van de wijzigingen van A op de trunk naar de branch werk
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to mark the file as resolved in the conflict editor dialog, which will remove it from the conflict list. She then has to decide whether to copy the missing file <filename>Foo.c</filename> from the repository to the working copy, whether to merge Developer A's changes to <filename>Foo.c</filename> into the renamed <filename>Bar.c</filename> or whether to ignore the changes by marking the conflict as resolved and doing nothing else."
-msgstr ""
+msgstr "Ontwikkelaar B moet het bestand als opgelost markeren in het conflict bewerkingsvenster, om ervoor te zorgen dat het bestand van de conflict lijst wordt gehaald. Vervolgens moet besloten worden of het missende bestand <filename>Foo.c</filename> vanuit het archief naar de werkkopie gekopieerd moet worden, of dat de wijzigingen van ontwikkelaar A in <filename>Foo.c</filename> samengevoegd moeten worden in <filename>Bar.c</filename>, of de wijzigingen te negeren door het conflict als opgelost te markeren zonder iets gewijzigd te hebben."
 
 #. (para)
 msgid "Note that if you copy the missing file from the repository and then mark as resolved, your copy will be removed again. You have to resolve the conflict first."
-msgstr ""
+msgstr "Merk op dat als je het missende bestand eerst uit het archief kopieert en het dan als opgelost markeert, dan je kopie meteen weer verwijderd wordt. Je moet eerst het conflict oplossen en daarna pas kopiëren."
 
 #. (title)
 msgid "Local edit, incoming delete upon merge"
-msgstr ""
+msgstr "Lokale wijziging, inkomende verwijdering bij samenvoegen"
 
 #. (para)
 #. (para)
 msgid "Developer A working on trunk moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Ontwikkelaar A werkt aan de trunk en hernoemt <filename>Foo.c</filename> in <filename>Bar.c</filename> en legt de wijziging vast in het archief."
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> and commits it to the repository."
-msgstr ""
+msgstr "Ontwikkelaar B werkt aan een vertakking (branch), wijzigt <filename>Foo.c</filename> en legt de wijziging vast in het archief."
 
 #. (para)
 msgid "There is an equivalent case for folder moves, but it is not yet detected in Subversion 1.6 ..."
-msgstr ""
+msgstr "Er is een vergelijkbare situatie voor verplaatste mappen, maar dit wordt nog niet gedetecteerd in Subversion 1.6 ..."
 
 #. (para)
 msgid "Developer A working on trunk moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
-msgstr ""
+msgstr "Ontwikkelaar A werkt aan de trunk en hernoemt de bovenliggende map <filename>FooFolder</filename> in <filename>BarFolder</filename> en legt de wijziging vast in het archief."
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> in her working copy."
-msgstr ""
+msgstr "Ontwikkelaar B werkt aan de vertakking (branch) en wijzigt <filename>Foo.c</filename> in de werkkopie."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added."
-msgstr ""
+msgstr "<filename>Bar.c</filename> is gemarkeerd als toegevoegd."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> is gemarkeerd als gewijzigd en met een mapstructuur conflict. "
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr ""
+msgstr "Om de eigen wijzigingen in de herindeling te verwerken, moet ontwikkelaar B uitvinden welke naam <filename>Foo.c</filename> heeft gekregen in het archief. Dit kan met het log venster van het samen te voegen bronbestand. De conflict verwerker toont alleen het log van de werkkopie, omdat niet bekend is welk pad gebruikt is bij het samenvoegen. Dit moet je zelf handmatig uitzoeken. De wijzigingen moeten vervolgens met de hand verwerkt worden, omdat er nu nog geen mogelijkheid is dit te automatiseren of te vereenvoudigen.  Als de wijzigingen doorgevoerd zijn, is het conflicterende pad overbodig en kan dan verwijderd worden. Gebruik hiervoor de <guilabel>Verwijderen</guilabel> knop in de conflict bewerkingsvenster om het conflict als opgelost ge markeren."
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog for the merge source helps to track down what was moved."
-msgstr ""
+msgstr "Als ontwikkelaar B tot de conclusie komt dat de wijzigingen van A verkeerd zijn, dan moet dat aangegeven worden met de <guilabel>Behouden</guilabel> knop in het conflict bewerkingsvenster. Hiermee wordt het conflicterende bestand of de map gemarkeerd als opgelost. De wijzigingen van ontwikkelaar A moeten wel nog met de hand verwijderd worden. Ook hier helpt het log venster met te bepalen wat er gewijzigd/hernoemd is."
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
-msgstr ""
+msgstr "Lokale verwijdering, inkomende verwijdering bij samenvoegen"
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bix.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Ontwikkelaar B werkt aan een vertakking (branch) en hernoemt <filename>Foo.c</filename> naar <filename>Bix.c</filename> en legt de wijziging vast in het archief."
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
-msgstr ""
+msgstr "<filename>Bix.c</filename> is gemarkeerd met de normale (ongewijzigde) status."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added with history."
-msgstr ""
+msgstr "<filename>Bar.c</filename> is gemarkeerd als toegevoegd inclusief geschiedenis."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> is gemarkeerd als missend en heeft een mapstructuur conflict."
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself."
-msgstr ""
+msgstr "Om dit conflict op te lossen, moet ontwikkelaar B uitzoeken welke bestandsnaam de conflicterend <filename>Foo.c</filename> heeft gekregen in het archief. Het log venster van het samen te voegen bronbestand kan hiervoor gebruikt worden. Het conflict verwerker toont alleen het log van de werkkopie, omdat niet bekend is welk pad gebruikt is bij het samenvoegen. Je moet dat pad zelf handmatig opzoeken."
 
 #. (title)
 msgid "Getting Status Information"
@@ -3882,12 +3882,12 @@ msgstr "werkkopie status"
 
 #. (para)
 msgid "While you are working on your working copy you often need to know which files you have changed/added/removed or renamed, or even which files got changed and committed by others."
-msgstr ""
+msgstr "Terwijl je aan je werkkopie werkt, wil je vaak weten welke bestanden je gewijzigd, toegevoegd, verwijderd of hernoemt hebt, maar ook welke bestanden gewijzigd en vastgelegd zijn door anderen."
 
 #. (primary)
 #. (primary)
 msgid "overlays"
-msgstr ""
+msgstr "overlays"
 
 #. (primary)
 msgid "icons"
@@ -3895,87 +3895,87 @@ msgstr "pictogrammen"
 
 #. (para)
 msgid "Now that you have checked out a working copy from a Subversion repository you can see your files in the windows explorer with changed icons. This is one of the reasons why TortoiseSVN is so popular. TortoiseSVN adds a so called overlay icon to each file icon which overlaps the original file icon. Depending on the Subversion status of the file the overlay icon is different."
-msgstr ""
+msgstr "Nu je een werkkopie hebt opgehaald uit het Subversion archief, kun je de bestanden zien in de Windows verkenner met de gewijzigde pictogrammen/iconen. Dit is één van de redenen waarom TortoiseSVN zo populair is. TortoiseSVN voegt zogenaamde overlay iconen, dat zijn iconen die over de normale iconen geprojecteerd worden, toe aan de originele iconen. Afhankelijk van de status in Subversion wordt telkens een ander pictogram weergegeven."
 
 #. (para)
 msgid "<graphic fileref=\"../images/InSubVersionIcon.png\"/> A fresh checked out working copy has a green checkmark as overlay. That means the Subversion status is <emphasis>normal</emphasis>."
-msgstr ""
+msgstr "<graphic fileref=\"../images/InSubVersionIcon.png\"/> Een verse werkkopie opgehaald uit het archief heeft een groen vinkje als overlappend pictogram. Dit betekend dat dit object de Subversion status <emphasis>normaal</emphasis> heeft."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ModifiedIcon.png\"/> As soon as you start editing a file, the status changes to <emphasis>modified</emphasis> and the icon overlay then changes to a red exclamation mark. That way you can easily see which files were changed since you last updated your working copy and need to be committed."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ModifiedIcon.png\"/> Zodra je een bestand gewijzigd en opgeslagen hebt, wordt de status gewijzigd in <emphasis>gewijzigd</emphasis> en zal het overlappende pictogram wijzigen in een rood pictogram met een uitroepteken. Op deze manier kun je makkelijk zien welke bestanden gewijzigd zijn sinds de laatste keer dat je je werkkopie ververst hebt."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ConflictIcon.png\"/> If during an update a <emphasis>conflict</emphasis> occurs then the icon changes to a yellow exclamation mark."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ConflictIcon.png\"/> Als bij het verversen zich een <emphasis>conflict</emphasis> voordoet, dan zal er een geel pictogram met een uitroepteken te zien zijn."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> If you have set the <literal>svn:needs-lock</literal> property on a file, Subversion makes that file read-only until you get a lock on that file. Such files have this overlay to indicate that you have to get a lock first before you can edit that file."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> Als je de <literal>svn:needs-lock</literal> eigenschap ingesteld hebt op een bestand, dan zal Subversion dat bestand als alleen-lezen instellen totdat het bestand voor jou vergrendeld is. Dergelijke bestanden krijgen deze pictogram om aan te geven dat je het bestand eerst moet vergrendelen, voordat je het kunt wijzigen."
 
 #. (para)
 msgid "<graphic fileref=\"../images/LockedIcon.png\"/> If you hold a lock on a file, and the Subversion status is <emphasis>normal</emphasis>, this icon overlay reminds you that you should release the lock if you are not using it to allow others to commit their changes to the file."
-msgstr ""
+msgstr "<graphic fileref=\"../images/LockedIcon.png\"/> Als je een bestand vergrendeld hebt en de Subversion status is <emphasis>normaal</emphasis>, dan herinnert dit opverlappend pictogram je eraan dat je het bestand nog vrij moet geven als je anderen de mogelijkheid wilt geven om daarin wijzigingen vast te laten leggen."
 
 #. (para)
 msgid "<graphic fileref=\"../images/DeletedIcon.png\"/> This icon shows you that some files or folders inside the current folder have been scheduled to be <emphasis>deleted</emphasis> from version control or a file under version control is missing in a folder."
-msgstr ""
+msgstr "<graphic fileref=\"../images/DeletedIcon.png\"/> Dit pictogram geeft aan dat bestanden of mappen in de huidige map gemarkeerd zijn om te <emphasis>verwijderen</emphasis> uit het archief of dat een bestand in het archief mist in de folder van je werkkopie."
 
 #. (para)
 msgid "<graphic fileref=\"../images/AddedIcon.png\"/> The plus sign tells you that a file or folder has been scheduled to be <emphasis>added</emphasis> to version control."
-msgstr ""
+msgstr "<graphic fileref=\"../images/AddedIcon.png\"/> Het plusteken geeft aan dat het bestand of de map van versiebeheer voorzien moet worden en dus aan het archief <emphasis>toegevoegd</emphasis> moet worden."
 
 #. (para)
 msgid "<graphic fileref=\"../images/IgnoredIcon.png\"/> The bar sign tells you that a file or folder is <emphasis>ignored</emphasis> for version control purposes. This overlay is optional."
-msgstr ""
+msgstr "<graphic fileref=\"../images/IgnoredIcon.png\"/> Het balk-teken geeft aan dat een bestand of map <emphasis>genegeerd</emphasis> wordt voor versiebeheer. Dit pictogram is optioneel."
 
 #. (para)
 msgid "<graphic fileref=\"../images/UnversionedIcon.png\"/> This icon shows files and folders which are not under version control, but have not been ignored. This overlay is optional."
-msgstr ""
+msgstr "<graphic fileref=\"../images/UnversionedIcon.png\"/> Dit pictogram geeft de bestanden en mappen aan die niet van versiebeheer voorzien zijn, maar ook niet genegeerd worden. Dit pictogram is optioneel."
 
 #. (para)
 msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is very limited and if you are also using an old version of TortoiseCVS, then there are not enough overlay slots available. TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance too."
-msgstr ""
+msgstr "In de praktijk zul je zien dat niet alle pictogrammen gebruikt zullen worden op jouw systeem. Dit komt doordat Windows maar een beperkt aantal overlappende pictogrammen toestaat. Als je ook nog een oude versie van TortoiseCVS gebruikt, dan zijn er niet genoeg sloten voor overlappende pictogrammen beschikbaar. TortoiseSVN probeert een goede burger (<quote>Good Citizen (TM)</quote>) te zijn en beperkt het gebruik van overlappende pictogrammen om andere applicaties ook een kans te geven. "
 
 #. (para)
 msgid "Now that there are more Tortoise clients around (TortoiseCVS, TortoiseHG, ...) the icon limit becomes a real problem. To work around this, the TortoiseSVN project introduced a common shared icon set, loaded as a DLL, which can be used by all Tortoise clients. Check with your client provider to see if this has been integrated yet :-)"
-msgstr ""
+msgstr "Tegenwoordig zijn er meerdere Tortoise applicaties beschikbaar (TortoiseCVS, TortoiseHG, ...), waardoor de beperking van het aantal pictogrammen echt een probleem begint te worden.  Om dit probleem te omzeilen is er in het TortoiseSVN project een standaard gedeelde set van pictogrammen geïntroduceerd. Deze set kan geladen worden als een DLL, welke door alle Tortoise applicaties gebruikt kan worden. Ga bij jouw applicatie leverancier na of daar deze set al geïntegreerd is. :-)"
 
 #. (para)
 msgid "For a description of how icon overlays correspond to Subversion status and other technical details, read <xref linkend=\"tsvn-app-internals-overlays\"/>."
-msgstr ""
+msgstr "Een beschrijving van de overlappende pictogrammen en hoe deze zich met de Subversion status en andere technische details verhouden kun je vinden in <xref linkend=\"tsvn-app-internals-overlays\"/>."
 
 #. (title)
 msgid "TortoiseSVN Columns In Windows Explorer"
-msgstr ""
+msgstr "TortoiseSVN Kolommen In Windows Verkenner"
 
 #. (primary)
 msgid "Explorer Columns"
-msgstr ""
+msgstr "Verkenner Kolommen"
 
 #. (para)
 msgid "The same information which is available from the icon overlays (and much more) can be displayed as additional columns in Windows Explorer's Details View."
-msgstr ""
+msgstr "De informatie die door de overlappende pictogrammen weergeven (en nog veel meer), kan ook in een extra kolom weergegeven worden in de Gedetailleerde Weergave van Windows Verkenner."
 
 #. (para)
 msgid "Simply right click on one of the headings of a column, choose <guimenuitem>More...</guimenuitem> from the context menu displayed. A dialog will appear where you can specify the columns and their order, which is displayed in the <quote>Detailed View</quote>. Scroll down until the entries starting with SVN come into view. Check the ones you would like to have displayed and close the dialog by pressing <guibutton>OK</guibutton>. The columns will be appended to the right of those currently displayed. You can reorder them by drag and drop, or resize them, so that they fit your needs."
-msgstr ""
+msgstr "Klik met rechts op de koptekst van een kolom, selecteer <guimenuitem>Meer ...</guimenuitem> in het weergegeven contextmenu. Er verschijnt dan een venster waarin je de gewenste kolommen en volgorde kunt aangeven van de weer te geven kolommen in de <quote>Gedetailleerde Weergave</quote>. Scroll naar beneden totdat je de opties beginnend met SVN in beeld komen. Selecteer degene die je wilt zien en sluit af door op <guibutton>OK</guibutton> te klikken. De kolommen zullen dan aan de rechter zijde worden toegevoegd. Je kunt de volgorde veranderen door de kolommen te verslepen en de breedte aanpassen, zodat het past bij jouw wensen."
 
 #. (para)
 msgid "The additional columns in the Windows Explorer are not available on Vista, since Microsoft decided to not allow such columns for <emphasis>all</emphasis> files anymore but only for specific file types."
-msgstr ""
+msgstr "In Windows Vista zijn de extra kolommen niet beschikbaar. Microsoft heeft besloten extra kolommen niet meer voor elk type bestand toe te staan, alleen voor bepaalde bestanden kan dat nog. "
 
 #. (para)
 msgid "If you want the current layout to be displayed in all your working copies, you may want to make this the default view."
-msgstr ""
+msgstr "If you want the current layout to be displayed in all your working copies, you may want to make this the default view."
 
 #. (title)
 msgid "Local and Remote Status"
-msgstr ""
+msgstr "Lokale en Server Status"
 
 #. (primary)
 msgid "modifications"
-msgstr ""
+msgstr "wijzigingen"
 
 #. (title)
 #. (title)
@@ -8441,7 +8441,7 @@ msgstr ""
 
 #. (title)
 msgid "Icon Overlay Settings"
-msgstr "Pictogram Laag Instellingen"
+msgstr "Overlappende Pictogram Instellingen"
 
 #. (title)
 msgid "The Settings Dialog, Icon Overlays Page"
@@ -9349,7 +9349,7 @@ msgstr ""
 
 #. (term)
 msgid "Block Overlay Status"
-msgstr "Blok Laag Status"
+msgstr "Blokkeer Overlappende Pictrogram Status"
 
 #. (para)
 msgid "If you don't want the explorer to update the status overlays while another TortoiseSVN command is running (e.g. Update, Commit, ...) then create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\BlockStatus</literal>."
