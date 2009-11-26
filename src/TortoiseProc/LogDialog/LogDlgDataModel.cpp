@@ -524,9 +524,15 @@ void CLogDataVector::RemoveLast()
 
 void CLogDataVector::Finalize 
     ( std::auto_ptr<const CCacheLogQuery> aQuery
-    , const CString& startLogPath)
+    , const CString& startLogPath, bool bMerge)
 {
-    query = aQuery;
+	if ((bMerge)&&(query.get()))
+	{
+		CCacheLogQuery * tempQuery = const_cast<CCacheLogQuery *>(query.get());
+		aQuery->UpdateCache(tempQuery);
+	}
+	else
+		query = aQuery;
 
     // construct an object for the path that 'log' was called for
 

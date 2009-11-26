@@ -278,7 +278,7 @@ public:
     /// finalization (call this after receiving all log entries)
 
     void Finalize ( std::auto_ptr<const CCacheLogQuery> query
-                  , const CString& startLogPath);
+                  , const CString& startLogPath, bool bMerge);
 
     /// access to unfilered info
 

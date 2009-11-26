@@ -1137,7 +1137,7 @@ void CLogDlg::LogThread()
         // make sure the m_logEntries is consistent
 
         if (cachedData.get() != NULL)
-            m_logEntries.Finalize (cachedData, m_sRelativeRoot);
+            m_logEntries.Finalize (cachedData, m_sRelativeRoot, !LogCache::CSettings::GetEnabled());
         else
             m_logEntries.ClearAll();
     }
