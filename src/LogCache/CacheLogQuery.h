@@ -410,7 +410,7 @@ public:
 
     /// for tempCaches: write content to "real" cache files
     /// (no-op if this does not use a temp. cache)
-    void UpdateCache (CCacheLogQuery* targetQuery);
+    void UpdateCache (CCacheLogQuery* targetQuery) const;
 
     /// utility function:
 	/// fill the receiver's change list buffer 

@@ -1562,7 +1562,7 @@ bool CCacheLogQuery::GotAnyData() const
 // for tempCaches: write content to "real" cache files
 // (no-op if this is does not use a temp. cache)
 
-void CCacheLogQuery::UpdateCache (CCacheLogQuery* targetQuery)
+void CCacheLogQuery::UpdateCache (CCacheLogQuery* targetQuery) const
 {
 	// resolve URL
 
