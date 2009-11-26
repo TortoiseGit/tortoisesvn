@@ -940,11 +940,11 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& messag
 
     if (m_limit != 0)
 	{
-        m_LogProgress.SetPos ((int)m_logEntries.size());
+        m_LogProgress.SetPos ((int)m_logEntries.size() - m_prevLogEntriesSize);
 		if (m_pTaskbarList)
 		{
 			m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NORMAL);
-			m_pTaskbarList->SetProgressValue(m_hWnd, m_logEntries.size(), m_limit);
+			m_pTaskbarList->SetProgressValue(m_hWnd, m_logEntries.size() - m_prevLogEntriesSize, m_limit);
 		}
 	}
 	else if (m_startrev.IsNumber() && m_endrev.IsNumber())
@@ -1105,6 +1105,7 @@ void CLogDlg::LogThread()
     }
 
     m_LogProgress.SetPos(1);
+	m_prevLogEntriesSize = m_logEntries.size();
 	if (m_pTaskbarList)
 	{
 		m_pTaskbarList->SetProgressState(m_hWnd, TBPF_INDETERMINATE);

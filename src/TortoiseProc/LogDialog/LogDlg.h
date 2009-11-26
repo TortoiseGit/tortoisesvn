@@ -282,6 +282,7 @@ private:
 
 	CStoreSelection*	m_pStoreSelection;
     CLogDataVector		m_logEntries;
+	int					m_prevLogEntriesSize;
 
 	CComPtr<ITaskbarList3>	m_pTaskbarList;
 
