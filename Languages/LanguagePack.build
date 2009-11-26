@@ -38,6 +38,12 @@ NAnt build script for the TortoiseSVN language pack installers
 
 	<target name="createecho2">
 		<script language="C#" prefix="tsvn">
+			
+		 	<references>
+			        <include name="System.dll" />
+			        <include name="System.XML.dll" />
+  			</references>
+
 			<imports>
 				<import namespace="System.Globalization" />
 				<import namespace="System.Xml" />
