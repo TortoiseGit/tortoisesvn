@@ -55,8 +55,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-11-26 23:38-0500\n"
+"POT-Creation-Date: 2009-11-04 09:10 +0000\n"
+"PO-Revision-Date: 2009-11-15 20:14-0500\n"
 "Last-Translator: Garfield Yao <field977@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9769,7 +9769,7 @@ msgstr "不能在版本库之间复制"
 
 #. (para)
 msgid ""
-"Whilst you can copy or move files and folders <emphasis>within</emphasis> a "
+"Whilst you can copy and files and folders <emphasis>within</emphasis> a "
 "repository, you <emphasis>cannot</emphasis> copy or move from one repository "
 "to another while preserving history using TortoiseSVN. Not even if the "
 "repositories live on the same server. All you can do is copy the content in "
@@ -10469,19 +10469,17 @@ msgid ""
 "If you want to undo a deletion or a rename, you need to use Revert on the "
 "parent folder as the deleted item does not exist for you to right-click on."
 msgstr ""
-"如果你想撤销删除或者更名操作，因为被删除的条目已经不存在了，你需要右键点击上一"
-"层文件夹来进行还原操作。"
 
 #. (para)
+#, fuzzy
 msgid ""
 "If you want to undo the addition of an item, this appears in the context menu "
 "as <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Undo add...</"
 "guimenuitem></menuchoice>. This is really a revert as well, but the name has "
 "been changed to make it more obvious."
 msgstr ""
-"如果你想撤销增加条目，在右键菜单中选择 <menuchoice><guimenu>TortoiseSVN</"
-"guimenu><guimenuitem>撤销增加</guimenuitem></menuchoice>。其实这就是还原操作，"
-"只是起了一个更显而易见的名字而已。"
+"如果<action>右击</action>一个版本你可以使用<menuchoice><guimenu>右键菜单</"
+"guimenu><guimenuitem>显示日志</guimenuitem></menuchoice> 来查看它的历史。"
 
 #. (para)
 #. (para)
@@ -10500,9 +10498,6 @@ msgid ""
 "this button another dialog comes up listing all the unversioned items, which "
 "you can then select for deletion."
 msgstr ""
-"还原命令有时被用来清理工作副本，因此这里有一个额外的按钮，通过这个按钮你可以删"
-"除未版本控制的条目。当你点击这个按钮，会出现另一个对话框列出所有的未版本控制的"
-"条目，你可以选择需要删除的内容。"
 
 #. (title)
 msgid "Undoing Changes which have been Committed"
@@ -10523,7 +10518,7 @@ msgstr ""
 
 #. (title)
 msgid "Revert is Slow"
-msgstr "还原较慢"
+msgstr "撤销较慢"
 
 #. (para)
 msgid ""
@@ -10535,11 +10530,6 @@ msgid ""
 "or deactivate the <guilabel>Use recycle bin when reverting</guilabel> box in "
 "TortoiseSVN's settings."
 msgstr ""
-"当你进行还原修改时，你会发现操作所花的时间比你预期的要长。这是因为修改过的文件"
-"被扔到回收站，所以当误还原时你可以找回更改后的文件。不管怎样，如果你的回收站已"
-"经满了，Windows 会花一些时间来找个地方放置文件。解决方案很简单: 或者清空回收"
-"站，或者在 TortoiseSVN 的设置中取消选中<guilabel>在恢复的时候使用垃圾箱</"
-"guilabel>。"
 
 #. (title)
 #. (entry)
@@ -10566,6 +10556,7 @@ msgstr ""
 "menuchoice>命令。在工作副本的根目录使用它是一个好主意。"
 
 #. (para)
+#, fuzzy
 msgid ""
 "Cleanup has another useful side effect. If a file date changes but its "
 "content doesn't, Subversion cannot tell whether it has really changed except "
@@ -10575,11 +10566,11 @@ msgid ""
 "repair these <quote>broken</quote> timestamps and restore status checks to "
 "full speed."
 msgstr ""
-"清理有另外的一个有用的副作用。如果一个文件日期变化了但是它的内容没变，"
-"Subversion 除了逐字节地将该文件和原副本进行对照，不能分清它是否真的变更。 如果"
-"你有很多这种状态下的文件，将会使获得状态非常慢，还会导致许多会话响应变慢。在你"
-"的工作副本上执行一个清理命令将会修正这些<quote>坏掉的</quote>时戳，从而可以全"
-"速检查它们的状态。"
+"清理有另外的一个有用的副作用。如果一个文件日期变化了但是它的内容没变,"
+"Subversion除了采用byte-by-byte将该文件和原副本进行对照，不能分清它是否真的变"
+"更。 如果你有很多这种状态下的文件，将会使获得状态非常慢，还会导致许多会话响应"
+"变慢。在你的工作副本上执行一个清理命令将会修正这些 \" 坏掉的 \" 时戳，从而可以"
+"全速检查它们的状态。"
 
 #. (title)
 msgid "Use Commit Timestamps"
@@ -10623,11 +10614,11 @@ msgid ""
 msgstr ""
 "<placeholder-1/>有时你可能想得到关于一个文件/目录的更多的细节信息而不仅是一个"
 "重载的标志。 你能得到Subversion的属性对话框中浏览到的所有信息。只需选择指定文"
-"件或目录，然后在文件菜单中选择<menuchoice><guimenu>Windows 菜单</"
-"guimenu><guimenuitem>属性</guimenuitem></menuchoice>(注意: 这是资源管理器提供"
-"的标准属性菜单，而不是TortoiseSVN 子菜单的其中之一)。在TortoiseSVN 属性对话框"
-"中已经为在Subversion控制下的文件/目录增加新的属性页。在这里你能看到所有的关于"
-"选择文件/目录的相关信息。"
+"件或目录，然后在文件菜单中选择<menuchoice><guimenu>Windows Menu</"
+"guimenu><guimenuitem>properties</guimenuitem></menuchoice>(注意: 这是浏览器提"
+"供的标准属性菜单，而不是TortoiseSVN 子菜单的其中之一)。在TortoiseSVN 属性对话"
+"框中已经为在Subversion控制下的文件/目录增加新的属性页。在这里你能看到所有的关"
+"于选择文件/目录的相关信息。"
 
 #. (title)
 msgid "Subversion Properties"
@@ -10642,6 +10633,7 @@ msgid "Subversion property page"
 msgstr "Subversion 属性页"
 
 #. (para)
+#, fuzzy
 msgid ""
 "<placeholder-1/> You can read and set the Subversion properties from the "
 "Windows properties dialog, but also from <menuchoice><guimenu>TortoiseSVN</"
@@ -10649,22 +10641,23 @@ msgid ""
 "TortoiseSVN's status lists, from <menuchoice><guimenu>Context menu</"
 "guimenu><guimenuitem>properties</guimenuitem></menuchoice>."
 msgstr ""
-"<placeholder-1/> 你可以通过<menuchoice><guimenu>右键菜单</"
-"guimenu><guimenuitem>属性</guimenuitem></menuchoice>从 Windows 属性对话框来读"
-"写 Subversion 属性，这样也能得到 TortoiseSVN 的状态列表。也可以从"
+"<placeholder-1/> 你可以在 Windows 属性对话框读写 Subversion 属性。也可以从"
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>属性</guimenuitem></"
-"menuchoice>来读写 Subversion 属性。"
+"menuchoice>，或者 <menuchoice><guimenu>上下文菜单</guimenu><guimenuitem>属性</"
+"guimenuitem></menuchoice>，来读写 Subversion 属性。"
 
 #. (para)
+#, fuzzy
 msgid ""
 "You can add your own properties, or some properties with a special meaning in "
 "Subversion. These begin with <literal>svn:</literal>. <literal>svn:externals</"
 "literal> is such a property; see how to handle externals in <xref linkend="
 "\"tsvn-dug-externals\"/>."
 msgstr ""
-"你可以添加你自己定义的属性，或者一些在 Subversion 中有特殊含义的属性。这些属性"
-"以 <literal>svn:</literal> 开头。<literal>svn:externals</literal> 就是这一类型"
-"的属性; 关于如何操纵扩展条目，请参阅<xref linkend=\"tsvn-dug-externals\"/>."
+"从版本库里删除数据的唯一方法就是使用<literal>svnadmin</literal>这个Subversion"
+"命令行工具。具体如何实现请参考<ulink url=\"svnbook.red-bean.com/en/1.2/svn."
+"advanced.props.html\"><citetitle>《使用 Subversion 进行版本管理》</"
+"citetitle></ulink>。"
 
 #. (title)
 msgid "svn:keywords"
@@ -10701,7 +10694,7 @@ msgstr "此文件在版本库中的 URL。"
 
 #. (para)
 msgid "A compressed combination of the previous four keywords."
-msgstr "上述四个关键字的压缩组合。"
+msgstr "前述四个关键字的压缩组合。"
 
 #. (para)
 msgid ""
@@ -10713,6 +10706,7 @@ msgstr ""
 "支持的关键字有：<placeholder-1/>"
 
 #. (para)
+#, fuzzy
 msgid ""
 "To find out how to use these keywords, look at the <ulink url=\"http://"
 "svnbook.red-bean.com/en/1.5/svn.advanced.props.special.keywords.html"
@@ -10721,19 +10715,19 @@ msgid ""
 "use them."
 msgstr ""
 "关键字的用法参见 Subversion 手册的 <ulink url=\"http://svnbook.red-bean.com/"
-"en/1.5/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords "
-"section</citetitle></ulink>，它给出了这些关键字的完整描述、如何启用和使用的方"
-"法。"
+"en/1.2/svn.advanced.props.html#svn.advanced.props.special.keywords"
+"\"><citetitle>svn:keywords section</citetitle></ulink>，它给出了这些关键字的完"
+"整描述和启用方法。"
 
 #. (para)
+#, fuzzy
 msgid ""
 "For more information about properties in Subversion see the <ulink url="
 "\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.html"
 "\"><citetitle>Special Properties</citetitle></ulink>."
 msgstr ""
-"更多的关于 Subversion 中属性的信息可以看<ulink url=\"http://svnbook.red-bean."
-"com/en/1.5/svn.advanced.props.html\"><citetitle>Special Properties</"
-"citetitle></ulink>。"
+"更多的关于svnserve的信息可以看<ulink url=\"http://svnbook.red-bean.com"
+"\"><citetitle>《使用 Subversion 进行版本管理》</citetitle></ulink>。"
 
 #. (title)
 msgid "Adding and Editing Properties"
@@ -10804,17 +10798,19 @@ msgstr ""
 "guibutton>即可。"
 
 #. (para)
+#, fuzzy
 msgid ""
 "The <literal>svn:externals</literal> property can be used to pull in other "
 "projects from the same repository or a completely different repository. For "
 "more information, read <xref linkend=\"tsvn-dug-externals\"/>."
 msgstr ""
 "属性<literal>svn:externals</literal>可以用来下载位于同一版本库或不同版本库的其"
-"它工程。阅读<xref linkend=\"tsvn-dug-externals\"/>以获得更多信息。"
+"它工程。阅读<xref linkend=\"tsvn-dug-import-4\"/>以获得更多信息。"
 
 #. (title)
+#, fuzzy
 msgid "Exporting and Importing Properties"
-msgstr "导出和导入属性"
+msgstr "导出一个Subversion工作副本"
 
 #. (para)
 msgid ""
@@ -10823,9 +10819,6 @@ msgid ""
 "copying properties from one project to another, you can use the Export/Import "
 "feature."
 msgstr ""
-"通常，你会发现你要设置同一组属性很多遍，例如 <literal>bugtraq:logregex</"
-"literal>。要想简单的完成从一个项目复制属性到另一个项目，你可以使用导出/导入特"
-"性。"
 
 #. (para)
 msgid ""
@@ -10835,10 +10828,6 @@ msgid ""
 "on <guibutton>Export...</guibutton>. You will be prompted for a filename "
 "where the property names and values will be saved."
 msgstr ""
-"在已经设置了属性的文件或文件上使用<menuchoice><guimenu>TortoiseSVN</"
-"guimenu><guimenuitem>属性</guimenuitem></menuchoice>，选择你想要导出的属性并单"
-"击<guibutton>导出...</guibutton>。然后会提示你输入文件名，属性名和属性值会保存"
-"在此文件中。"
 
 #. (para)
 msgid ""
@@ -10849,10 +10838,6 @@ msgid ""
 "saved the export file previously and select it. The properties will be added "
 "to the folders non-recursively."
 msgstr ""
-"在你想要应用这些属性的文件夹上使用<menuchoice><guimenu>TortoiseSVN</"
-"guimenu><guimenuitem>属性</guimenuitem></menuchoice>并单击<guibutton>导入...</"
-"guibutton>。然后会提示你选择从哪个文件导入，找到之前你保存导出文件的地方并选中"
-"它。属性会添加到文件夹，不递归。"
 
 #. (para)
 msgid ""
@@ -10861,9 +10846,6 @@ msgid ""
 "<guibutton>Edit...</guibutton>, check the <guilabel>Apply property "
 "recursively</guilabel> box and click on <guibutton>OK</guibutton>."
 msgstr ""
-"如果你想递归的添加属性到目录树，按照上述的步骤，然后在属性对话框依次选中每一个"
-"需要递归的属性，单击<guibutton>编辑...</guibutton>，选中<guilabel>递归应用该属"
-"性</guilabel>并单击<guilabel>确定</guilabel>。"
 
 #. (para)
 msgid ""
@@ -10871,8 +10853,6 @@ msgid ""
 "purpose is to transfer properties using Import and Export, so there is no "
 "need to edit these files."
 msgstr ""
-"导入文件是二进制格式的，并且只被 TortoiseSVN 所使用。它唯一的用途是在导入和导"
-"出命令之间传递属性，所以不要编辑这些文件。"
 
 #. (title)
 msgid "Binary Properties"
@@ -10909,13 +10889,14 @@ msgid "auto-props"
 msgstr "auto-props"
 
 #. (para)
+#, fuzzy
 msgid ""
 "You can configure Subversion and TortoiseSVN to set properties automatically "
 "on files and folders when they are added to the repository. There are two "
 "ways of doing this."
 msgstr ""
-"你可以配置 Subversion 和 TortoiseSVN 在文件和文件夹添加到版本库时自动设置属"
-"性。这里有两种实现方法。"
+"你可以设置当文件和文件夹加入版本库时，自动设置属性。阅读<xref linkend=\"tsvn-"
+"dug-settings\"/>以获得更多信息。"
 
 #. (para)
 msgid ""
@@ -10931,14 +10912,6 @@ msgid ""
 "client individually - there is no way to propagate these settings from the "
 "repository."
 msgstr ""
-"你可以在编辑 subversion 配置文件来在客户端启用这一特性。在 TortoiseSVN 配置对"
-"话框的<guilabel>常规设置</guilabel>页中有一个编辑按钮可以直接打开这个文件。配"
-"置文件是一个普通的文本文件，它控制着 subversion 的某些运作。你需要修改两处: 首"
-"先在 <literal>miscellany</literal> 打头的这一节中取消注释这一行: "
-"<literal>enable-auto-props = yes</literal>。其次，你需要编辑后面的一节，定义你"
-"想为哪些文件添加哪些属性。这个方法是标准的 subversion 特性而且对任何 "
-"subversion 客户端有效。不过它需要在每一个客户端进行定义 - 没有办法从版本库来设"
-"置这些参数。"
 
 #. (para)
 msgid ""
@@ -10947,9 +10920,6 @@ msgid ""
 "for TortoiseSVN clients, but it does get propagated to all working copies on "
 "update."
 msgstr ""
-"另一个办法是在文件夹上设置 <literal>tsvn:autoprops</literal> 属性，将会在下一"
-"节详细描述。这个方法仅对 TortoiseSVN 客户端有效，但是它可以在更新时应用于所有"
-"的工作副本。"
 
 #. (para)
 msgid ""
@@ -10957,8 +10927,6 @@ msgid ""
 "to files at the time they are added to the repository. Auto-props will never "
 "change the properties of files which are already versioned."
 msgstr ""
-"无论你选择哪一种方法，你应该注意: 自动属性设置仅在文件被添加到版本库时生效。自"
-"动属性设置不会改变已经版本控制的文件的属性。"
 
 #. (para)
 msgid ""
@@ -10966,8 +10934,6 @@ msgid ""
 "applied, you should set up a repository pre-commit hook to reject commits "
 "where the required properties are not set."
 msgstr ""
-"如果你想确保所有的新文件设置了正确的属性，你应该设置版本库的 pre-commit 钩子脚"
-"本来拒绝那些没有设置必要属性的提交。"
 
 #. (title)
 msgid "Commit properties"
