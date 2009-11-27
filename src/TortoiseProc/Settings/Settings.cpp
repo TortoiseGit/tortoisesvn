@@ -239,12 +239,15 @@ BOOL CSettings::OnInitDialog()
 	margs.cxRightWidth = 0;
 	margs.cyBottomHeight = BOTTOMMARG;
 
-	m_Dwm.Initialize();
-	m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &margs);
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(ID_APPLY_NOW)->GetSafeHwnd());
+	if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\EnableDWMFrame"), TRUE))
+	{
+		m_Dwm.Initialize();
+		m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &margs);
+		m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+		m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+		m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+		m_aeroControls.SubclassControl(GetDlgItem(ID_APPLY_NOW)->GetSafeHwnd());
+	}
 
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return bResult;
