@@ -1,24 +1,38 @@
 <?php
+define("MODULE_PATH", "../modules/ext/");
+include("../scripts/session.php");
 include("mysql.php");
 
-$iconSize="32x32";
-$icons['ok']="/images/classy/$iconSize/accept.png";
-$icons['error']="/images/classy/$iconSize/delete.png";
-$icons['warning']="/images/classy/$iconSize/warning.png";
-$icons['down']="/images/classy/$iconSize/down.png";
-$icons['go']="/images/classy/$iconSize/next.png";
-$icons['disabled']="/images/classy/$iconSize/remove.png";
 
 // how to extract module path to separate constant ?
 // common modules
-include_once ("../modules/ext/html.php");
-include_once ("../modules/ext/tools.php");
-include_once ("../modules/ext/table.php");
+include_once (MODULE_PATH."html.php");
+include_once (MODULE_PATH."tools.php");
+include_once (MODULE_PATH."table.php");
 
 // local modules
 include_once "../modules/po.php";
 include_once "../modules/rc.php";
 
+$iconSize="32x32";
+$icons=array(
+	'ok' => "/images/classy/$iconSize/accept.png",
+	'error' => "/images/classy/$iconSize/delete.png",
+	'warning' =>"/images/classy/$iconSize/warning.png",
+	'unknown' => "/images/classy/$iconSize/help.png",
+	'doc' => "/images/classy/$iconSize/folder.png",
+	'new' => "/images/classy/$iconSize/favorite.png",
+	'note' => "/images/classy/$iconSize/notebook.png",
+	'down' => "/images/classy/$iconSize/down.png",
+	'go' => "/images/classy/$iconSize/next.png",
+	'disabled' => "/images/classy/$iconSize/remove.png",
+	'language' => "/images/classy/$iconSize/page.png",
+	'flag' => "/images/classy/$iconSize/globe.png",
+	'author' => "/images/classy/$iconSize/image.png",
+	'authors' => "/images/classy/$iconSize/users.png",
+	'info' => "/images/classy/$iconSize/info.png",
+	'gui' => "/images/classy/$iconSize/application.png"
+	);
 // predefine header info
 $title="TortoiseSVN | The coolest Interface to (Sub)Version Control - Translation check";
 $css="tsvn.css";
@@ -39,11 +53,6 @@ HtmlHeader($HtmlType, $HtmlHeader, $HtmlBody);
 $lang=$_GET["l"]; // language
 if ($lang=="") {
 	$lang="";
-}
-
-$msg=$_POST["msg"]; // opinion message
-if ($msg=="") {
-	$msg="";
 }
 
 $stable=$_GET["stable"]; // stable(branch) vs. trunk
@@ -74,6 +83,48 @@ switch ($m) {
 	$m='g';
 }
 
+
+unset($forceCode);
+
+if (isset($_FILES['uploadedfile']['name'])) {
+	$uploadedfile=$_POST["uploadedfile"];
+
+	$target_path="../temp/";
+
+	/* Add the original filename to our target path.
+	Result is ""uploads/filename.extension" */
+	$target_path = $target_path . basename( $_FILES['uploadedfile']['name']) . ".tmp" . session_id();
+
+	if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
+		$uploadresult="<br />The file" . basename( $_FILES['uploadedfile']['name']) . " has been uploaded";
+		$baseName=$_FILES['uploadedfile']['name'];
+		if (preg_match_all("/(^[a-zA-Z]*)_([a-zA-Z_]*)\.(.*)/", $baseName, $matches)) {
+			echo "<pre>";
+//			var_dump($matches);
+			echo "</pre>";
+			$forceCode=$matches[2][0];
+			$lang=$forceCode;
+			$forcePoFileName=$target_path;
+			$forceMode='g';
+			echo "baseName=$baseName";
+			if (strpos($baseName, "TortoiseSVN")!==false) {
+				echo "SVN";
+				$forceMode='s';
+			} else if (strpos($baseName, "TortoiseMerge")!==false) {
+				echo "merge";
+				$forceMode='m';
+			}
+		}
+		echo "<hr />forceCode : $forceCode <hr />";
+	} else {
+		$uploadError="<br />There was an error uploading file, please try again!";
+	}
+}
+
+
+
+
+
 	// get host
 	$ip=$_SERVER["REMOTE_ADDR"];
 	$host=exec("host $ip");
@@ -93,7 +144,7 @@ switch ($m) {
 	echo "</html>";
 	ob_end_clean();
 	$to="otik@printflow.eu";
-	$sub="SVN:$lang".((isset($msg) && $msg!="") ? "+OPINION" : "")." $ip $host";
+	$sub="SVN:$lang $ip $host";
 
 
 	$msg=$msg."\n\n\n".$dumpServer;
@@ -101,7 +152,7 @@ switch ($m) {
 	$ahead.="MIME-Version: 1.0\r\n";
 	$ahead.="Content-type: text/html; charset=UTF-8\r\n";
 
-	if (!preg_match("/192.168.10.2/", $_SERVER["REMOTE_ADDR"]) && !preg_match("/(crawl.*googlebot.com|crawl.yahoo.net|crawler.*ask.com|msnbot.*search.msn.com)/", $host)) {
+	if (!preg_match("/192.168.10.2/", $_SERVER["REMOTE_ADDR"]) && !preg_match("/(crawl|msnbot)/", $host)) {
 		mail($to, $sub, $msg, $ahead);
 	}//*/
 
@@ -120,20 +171,43 @@ php?>
 	</div>
 
 <div>
-	<p>This tools is in development. It should help you to locate problems in translation files.</p>
+<br />
+<br />
+<br />
+<br />
+<h1>TSVN poChekcer</h1>
+	<p>This tool should help you to locate problems in translation files. Even lot of test works now this tools is still in development.</p>
+	<p>This tool start for fills need in finding missing accelerator - Luebbe's translation status page shows count but not string so it was no so easy to find affected string and fix it.
+	After some time this tool suite expand to current state. It is long term task, and is always in devepement. Anyway I hope is halp you to increase translation quality.</p>
 	<p>Oto</p><hr />
-	<form action=<?php echo "\"".htmlspecialchars($_SERVER["REQUEST_URI"])."\""; php?> method="post">
-	Please fill your opinion about this page here.<br />
-	<textarea name="msg" cols="55" rows="3"></textarea><br />
-	<input type="submit" value="Send" />
-	</form>
 	<hr />
+
+<h1>For new translators</h1>
+<p>Please follow this link if you think you may help with translation.<br />
+<a href="http://tortoisesvn.net/translation">-> TortoiseSVN translation</a></p><hr />
+
+<h1>Precommit checker</h1>
+<p>You can upload file for check before you make actual commit, so you can fix errors in one commit.</p>
+<p>Make sure you are going to check translation against proper branch.</p>
+ <form enctype="multipart/form-data" action="index.php" method="post">
+ <input type="hidden" name="MAX_FILE_SIZE" value="2048000" />
+ Choose a file to upload: <input name="uploadedfile" type="file" /><br />
+ <input type="submit" value="Upload File" />
+ </form>
+<?php
+	echo $uploadresult;
+	echo $uploadError;
+php?>
+ <br />
+ <br />
+
+<hr />
 
 <?php
 // find translations
 
 //*/
-$dirBase="/var/www/sites/tsvn.e-posta.sk/data/";
+$dirBase="/srv/www/sites/tsvn.e-posta.sk/data/";
 $transCountriesFile=$dirBase."trunk/contrib/drupal-modules/translation-status/trans_countries.inc";
 if (file_exists($transCountriesFile)) {
 	include_once $transCountriesFile;
@@ -149,30 +223,6 @@ if (file_exists($tortoiseVarsFile)) {
 
 
 
-echo "
-<h1>For new translators</h1>
-If you want to help with new translations:
-<ul>
-<li><i><b>0</b></i> Check if language you want to translate needs other translator - write to <i>translators at tortoisesvn dot net</i>.</li>
-<li><i><b>1</b></i> Install <a href=\"http://poedit.sourceforge.net/\">poEdit</a> on your PC , or other tranlator tool.</li>
-<li><i><b>2</b></i> Check out http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/Languages You'll get languages.
-	<ul>
-	<li><i><b>2.A</b></i> If you continue your language wil be already there</li>
-	<li><i><b>2.B</b></i> Copy Tortoise.pot to Toroise_<i>langcode</i>.po. Where <i>langcode</i> is by ISO... </li>
-	</ul>
-</li>
-<li><i><b>3</b></i> Update from .pot file and translate  :) </li>
-<li><i><b>4</b></i> Send your translated file by either
-	<ul>
-	<li><i><b>4.A</b></i> Send your translated file to the developer list</li>
-	<li><i><b>4.B</b></i> Create an account at tigris.org and send Luebbe (or <i>translators at tortoisesvn dot net</i>) your user name, so that I can give you commit access.</li>
-	</ul>
-</li>
-<li><i><b>5</b></i> Check your translation on this page.</li>
-</ul>
-<i><b>Note:</b></i> Don't try to finish everything in one go. It takes a while and can become frustrating. Translate 5-50 phrases per day and check in these small pieces of work. (my personal recommendation)  :)
-<br /><br /><hr />
-";
 
 
 $dirTarget="trunk";
@@ -190,11 +240,25 @@ $dirDoc=$dir."/doc/po";
 $revFileLines=file($revFileName);
 
 echo "<h1>".$revFileLines[0]."of $dirTarget</h1>";
-echo "Last update: ".date("F d Y H:i", filemtime($revFileName))." CET (GMT+1/GMT+2(DST)) <br />";
+if (false) { // if replaying
+	$rev=substr($revFileLines[0], strpos($revFileLines[0], " "))+0;
+	$sec=(16330-$rev)*8;
+	$min=round($sec*10/60)/10;
+	$hour=round($min*10/60)/10;
+	if ($hour>=1) {
+		$timeToGo=$hour."h";
+	} else if ($min>=1) {
+		$timeToGo=$min."m";
+	} else if ($sec>0) {
+		$timeToGo=$sec."s";
+	}
+	echo "<b>!!! PLEASE return in couple of minutes - trunk replay in progress !!! Appx. $timeToGo to go.</b> - branch is working -<br />";
+}
+echo "<p>Last update: ".date("F d Y H:i", filemtime($revFileName))." CET (GMT+1/GMT+2(DST)) <br />";
 if ($stable) {
-	echo 'Go to <a href="/?l='.$lang.'">TRUNK</a>.<br /><br />';
+	echo 'Go to <a href="/?l='.$lang.'">TRUNK</a>.</p>';
 } else {
-	echo 'Go to <a href="/?stable=1&amp;l='.$lang.'">STABLE</a>.<br /><br />';
+	echo 'Go to <a href="/?stable=1&amp;l='.$lang.'">STABLE</a>.</p>';
 }
 
 
@@ -217,42 +281,108 @@ if ($stable) {
 	$linenum=0;
 	echo "<a name=\"TAB$lang\"></a>";
 	echo '<table border="1"><thead><tr>
-		<td rowspan="2"><acronym title="Native language name in English">Language</acronym></td>
-		<td colspan="8">GUI check</td>
-		<td colspan="2">DOC</td>
-		<td rowspan="2">Author(s)</td>
+		<td rowspan="2"><acronym title="Native language name in English"><img src="'.$icons['language'].'" alt="" />Language</acronym></td>
+		<td colspan="8"><img src="'.$icons['gui'].'" alt="" />GUI check</td>
+		<td colspan="2"><img src="'.$icons['doc'].'" alt="" />DOC</td>
+		<td rowspan="2"><img src='.$icons['authors'].' alt="" />Author(s)</td>
 	</tr><tr>
-		<td>Flag</td>
-		<td><acronym title="Parameter test (Severity: High - may be harmfull)">PAR!!</acronym></td>
-		<td><acronym title="Accelerator test (Severity: Medium - accessibility)">ACC!</acronym></td>
-		<td><acronym title="New line style, count test (Severity: Low - appearance)">NLS</acronym></td>
-		<td><acronym title="Untranslated (Severity: Low - appearance)">UNT</acronym></td>
-		<td><acronym title="Fuzzy mark test (Severity: Low - appearance)">FUZ</acronym></td>
-		<td><acronym title="Escaped chars (Severity: Low - appearance)">ESC</acronym></td>
-		<td>Note</td>
-		<td><img src="images/32/tsvn.jpg" title="TortoiseSVN DOC" /></td>
-		<td><img src="images/32/tmerge.jpg" title="TortoiseMerge DOC" /></td>
-	</tr><tr>
+		<td><img src="'.$icons['flag'].'" />Flag</td>
+		<td><acronym title="Parameter test (Severity: High - may be harmfull)"><img src="'.$icons['error'].'" alt="" />PAR!!</acronym></td>
+		<td><acronym title="Accelerator test (Severity: Medium - accessibility)"><img src="'.$icons['info'].'" alt="" />ACC!</acronym></td>
+		<td><acronym title="New line style, count test (Severity: Low - appearance)"><img src="'.$icons['warning'].'" alt="" />NLS</acronym></td>
+		<td><acronym title="Untranslated (Severity: Low - appearance)"><img src="'.$icons['new'].'" alt="" />UNT</acronym></td>
+		<td><acronym title="Fuzzy mark test (Severity: Low - appearance)"><img src="'.$icons['unknown'].'" alt="" />FUZ</acronym></td>
+		<td><acronym title="Escaped chars (Severity: Low - appearance)"><img src="'.$icons['info'].'" alt="" />ESC</acronym></td>
+		<td><img src="'.$icons['note'].'" alt="" />Note</td>
+		<td><img src="/images/32/tsvn.jpg" title="TortoiseSVN DOC" /></td>
+		<td><img src="/images/32/tmerge.jpg" title="TortoiseMerge DOC" /></td>
 	</tr></thead>
 	<tbody>';
 
-	function PrintErrorCount($po, $name, $code, $stable) {
-		$error=0;
+	function ExtractErrorCount($po, $name) {
 		if (is_array($po)) {
-			$error=$po[$name];
+			return $po[$name];
 		} else if (is_a($po, "po")) {
-			$error=$po->GetErrorCount($name);
+			return $po->GetErrorCount($name);
 		}
-		if ($error===false) {
-			echo "<td>?</td>\n";
-		} else if (!$error) {
-			echo "<td />\n";
-		} else {
-			echo "<td><a href=\"?stable=$stable&amp;l=$code#$name$code\" class=\"linkerror\">".$error."</a></td>\n";
-		}
-		return $error;
+		return false;
 	}
 
+	function GetCheckResulForLanguage($fileName, $lang, $pot, $db, $group) {
+		if (!file_exists($fileName)) {
+			return false;
+		}
+		unset($poTemp);
+		if (isset($db) && isset($group) && $db!=NULL && $group!="") { // this i a hack ! - redesign !
+			$query="SELECT * FROM `state` WHERE `language`='$lang' AND `group`='$group' ORDER BY `revision` DESC LIMIT 1";
+			$res=mysql_query($query, $db);
+			if ($res===false) {
+				echo "<br /><i>$query</i> <b>".mysql_error()."</b>";
+			} else if (mysql_num_rows($res)) {
+				$table=new Table;
+				$table->importMysqlResult($res);
+				for ($i=0; $i<count($table->header); $i++) {
+					$poTemp[$table->header[$i]]=$table->data[0][$i];
+				}
+				return $poTemp;
+			}
+		}
+		$poTemp=new po;
+		$poTemp->Load($fileName, $lang);
+		$poTemp->AddPot($pot);
+		$poTemp->buildReport();
+		return $poTemp;
+	}
+
+	function PrintErrorCount($po, $name, $code, $stable) {
+		$errorCount=ExtractErrorCount($po, $name);
+		if (is_array($errorCount)) {
+			$warningCount=$errorCount('warnings');
+			$errorCount=$errorCount('errors');
+			if (!isset($errorCount)) {
+				$errorCount=0;
+			}
+		}
+		if ($errorCount===false) {
+			echo "<td>?</td>\n";
+			return 0;
+		} else if (!$errorCount && !$warningCount) {
+			echo "<td />\n";
+			return 0;
+		}
+		echo "<td>";
+		if ($errorCount) {
+			echo " <a href=\"?stable=$stable&amp;l=$code#$name$code\" class=\"linkerror\">".$errorCount."</a> ";
+		}
+		if ($warningCount) {
+			echo " <a href=\"?stable=$stable&amp;l=$code#$name$code\" class=\"linkwarning\">".$warningCount."</a> ";
+		}
+		echo "</td>\n";
+		return $errorCount;
+	}
+
+	function GetDocStatus($fileName, $lang, $pot, $db=NULL, $group=NULL) {
+		$po=GetCheckResulForLanguage($fileName, $lang, $pot, $db, $group);
+		if (!isset($po) || $po==NULL) {
+			return "-";
+		}
+		$unt=ExtractErrorCount($po, "unt");
+		$fuz=ExtractErrorCount($po, "fuz");
+		if ($unt+$fuz==0) {
+			return "OK";
+		} else {
+			if ($unt) {
+				if ($fuz) {
+					$statDoc.="<b>$unt</b>/<i>$fuz</i>";
+				} else {
+					$statDoc.="<b>$unt</b>";
+				}
+			} else {
+				$statDoc.="<i>$fuz</i>";
+			}
+		}
+		return $statDoc;
+	}
 	$langtocolor=array(
 			"sk" => "Slovakia",
 			"cs" => "Czech%20Republic",
@@ -310,7 +440,7 @@ if ($stable) {
 	}
 
 	foreach ($linesLoaded as $line) {
-		if (preg_match_all("/((#)?)([a-zA-Z_]*);[ \t]*([0-9]*);[ \t]*([0-9]*);[ \t]*([^;\t]*)[;\t]*([^;\t]*)[;\t]*([^;\t]*)[;\t]*/", $line, $matches)) {
+		if (preg_match_all("/(([#01-]*)?);[ \t]*([a-zA-Z_]*);[ \t]*([0-9]*);[ \t]*([0-9]*);[ \t]*([^;\t]*)[;\t]*([^;\t]*)[;\t]*([^;\t]*)[;\t]*/", $line, $matches)) {
 //			echo "<pre>"; var_dump($matches); echo "</pre>";
 			$code=$matches[3][0];
 			$language=$stable ? $matches[7][0] : ($matches[6][0]);
@@ -322,16 +452,28 @@ if ($stable) {
 			$fileGui=$dirLocation."/Tortoise_$code.po";
 			$fileSvn=$dirDoc."/TortoiseSVN_$code.po";
 			$fileMerge=$dirDoc."/TortoiseMerge_$code.po";
+			if (isset($forceCode)) {
+				if ($forceCode!=$code) {
+					continue;
+				}
+				$m=$forceMode;
+				$fileGui=$forcePoFileName;
+				$lang=$forceCode;
+				echo "lang=$lang";
+				echo "m=$m";
+			}
 			switch ($m) {
 			 default:
 			 case 'g':
 				$file=$fileGui;
 				$pot=$potGui;
 				break;
+
 			 case 's':
 				$file=$fileSvn;
 				$pot=$potSvn;
 				break;
+
 			 case 'm':
 				$file=$fileMerge;
 				$pot=$potMerge;
@@ -355,30 +497,12 @@ if ($stable) {
 				} else {
 					echo "<td><a href=\"?stable=$stable&amp;l=$code#TAB$code\"><img src=\"$imagesrc\" alt=\"$code\" height=\"24\" width=\"36\" /></a></td>\n";
 				}
-				unset($po);
 				if (!$langSelected && !$stable && $m='g') { // this i a hack ! - redesign !
-					$query="SELECT * FROM `state` WHERE `language`='$code' AND `group`='g' ORDER BY `revision` DESC LIMIT 1";
-					$res=mysql_query($query, $db);
-					if ($res===false) {
-						echo "<br /><i>$query</i> <b>".mysql_error()."</b>";
-					} else if (mysql_num_rows($res)) {
-						$table=new Table;
-						$table->importMysqlResult($res);
-						for ($i=0; $i<count($table->header); $i++) {
-							$po[$table->header[$i]]=$table->data[0][$i];
-						}
-					}
+					$dbLink=$db;
+				} else {
+					$dbLink=NULL;
 				}
-				if (!isset($po)) {
-					$po=new po;
-					$po->Load($file, $code);
-					$po->AddPot($pot);
-					$dicts=array();
-//					$dicts[]="/var/www/sites/tsvn.e-posta.sk/data/trunk/doc/Aspell/TortoiseSVN.tmpl.pws";
-					$dicts[]="/var/www/sites/tsvn.e-posta.sk/data/trunk/doc/Aspell/$lang.pws";
-					$po->SetSpellingFiles($dicts);
-					$po->buildReport();
-				}
+				$po=GetCheckResulForLanguage($file, $code, $pot, $dbLink, $m);
 				$errorCount=0;
 				$errorCount+=PrintErrorCount($po, "par", $code, $stable);
 				$errorCount+=PrintErrorCount($po, "acc", $code, $stable);
@@ -389,7 +513,7 @@ if ($stable) {
 //				$errorCount+=PrintErrorCount($po, "spl", $code, $stable);
 
 				// note
-				if ($matches[1][0]=="#") {
+				if ($matches[1][0]=="-1") {
 					echo '<td><img src="'.$icons['disabled'],'" alt="Disabled" title="Disabled"/></td>';
 				} else if(!$errorCount) {
 					echo '<td><img src="'.$icons['ok'],'" alt="o.k." title="OK"/></td>';
@@ -397,108 +521,32 @@ if ($stable) {
 					echo "<td />";
 				}
 
-				// doc stats
-				$statDoc="";
-				if (file_exists($fileSvn)) {
-					unset($poTemp);
-					if (!$langSelected && !$stable) { // this i a hack ! - redesign !
-						$query="SELECT * FROM `state` WHERE `language`='$code' AND `group`='d' ORDER BY `revision` DESC LIMIT 1";
-						$res=mysql_query($query, $db);
-						if ($res===false) {
-							echo "<br /><i>$query</i> <b>".mysql_error()."</b>";
-						} else if (mysql_num_rows($res)) {
-							$table=new Table;
-							$table->importMysqlResult($res);
-							for ($i=0; $i<count($table->header); $i++) {
-								$poTemp[$table->header[$i]]=$table->data[0][$i];
-							}
-						}
-						$unt=$poTemp["unt"];
-						$fuz=$poTemp["fuz"];
-					}
-					if (!isset($poTemp)) {
-						$poTemp=new po;
-						$poTemp->Load($fileSvn, NULL);
-						$poTemp->AddPot($potSvn);
-						$poTemp->buildReport();
-						$unt=$poTemp->GetErrorCount("unt");
-						$fuz=$poTemp->GetErrorCount("fuz");
-					}
-					$statDoc.='<a href="/?stable='.$stable.'&amp;l='.$code.'&amp;m=s">';
-					if ($unt+$fuz==0) {
-						$statDoc.='<img src="'.$icons['ok'].'" alt="o.k." title="OK"/>';
-					} else {
-						if ($unt) {
-							if ($fuz) {
-								$statDoc.="<b>$unt</b>/<i>$fuz</i>";
-							} else {
-								$statDoc.="<b>$unt</b>";
-							}
-						} else {
-							$statDoc.="<i>$fuz</i>";
-						}
-					}
-					$statDoc.='</a>';
-				}
-				if ($statDoc=="") {
-					$statDoc="-";
-				}
-				if ($matches[4][0]=="1") {
-					echo "<td>:$statDoc</td>";
+				if (!$langSelected && !$stable) { // this i a hack ! - redesign !
+					$dbLink=$db;
 				} else {
-					echo "<td>$statDoc</td>\n";
+					$dbLink=NULL;
 				}
-				$statDoc="";
-				if (file_exists($fileMerge)) {
-					unset($poTemp);
-					if (!$langSelected && !$stable) { // this i a hack ! - redesign !
-						$query="SELECT * FROM `state` WHERE `language`='$code' AND `group`='m' ORDER BY `revision` DESC LIMIT 1";
-						$res=mysql_query($query, $db);
-						if ($res===false) {
-							echo "<br /><i>$query</i> <b>".mysql_error()."</b>";
-						} else if (mysql_num_rows($res)) {
-							$table=new Table;
-							$table->importMysqlResult($res);
-							for ($i=0; $i<count($table->header); $i++) {
-								$poTemp[$table->header[$i]]=$table->data[0][$i];
-							}
-						}
-						$unt=$poTemp["unt"];
-						$fuz=$poTemp["fuz"];
-					}
-					if (!isset($poTemp)) {
-						$poTemp=new po;
-						$poTemp->Load($fileMerge, NULL);
-						$poTemp->AddPot($potMerge);
-						$poTemp->buildReport();
-						$unt=$poTemp->GetErrorCount("unt");
-						$fuz=$poTemp->GetErrorCount("fuz");
-					}
-					$statDoc.='<a href="/?stable='.$stable.'&amp;l='.$code.'&amp;m=s">';
-					if ($unt+$fuz==0) {
-						$statDoc.='<img src="'.$icons['ok'].'" alt="o.k." title="OK"/>';
-					} else {
-						if ($unt) {
-							if ($fuz) {
-								$statDoc.="<b>$unt</b>/<i>$fuz</i>";
-							} else {
-								$statDoc.="<b>$unt</b>";
-							}
-						} else {
-							$statDoc.="<i>$fuz</i>";
-						}
-					}
-					$statDoc.='</a>';
-				}
-				unset($poTemp);
-				if ($statDoc=="") {
-					$statDoc="-";
-				}
-				if ($matches[4][0]=="1") {
-				}
-				echo "<td>$statDoc</td>\n";
 
-				echo "\n";
+				$statDocTsvn=GetDocStatus($fileSvn, $code, $potSvn, $dbLink, 'd');
+				if ($statDocTsvn=="-") {
+				} else {
+					if ($statDocTsvn=="OK") {
+						$statDocTsvn='<img src="'.$icons['ok'].'" alt="o.k." title="OK"/>';
+					}
+					$statDocTsvn='<a href="/?stable='.$stable.'&amp;l='.$code.'&amp;m=s">'.$statDocTsvn.'</a>';
+				}
+				echo "<td>$statDocTsvn</td>\n";
+
+				$statDocMerge=GetDocStatus($fileMerge, $code, $potMerge, $dbLink, 'm');
+				if ($statDocMerge=="-") {
+				} else {
+					if ($statDocMerge=="OK") {
+						$statDocMerge='<img src="'.$icons['ok'].'" alt="o.k." title="OK"/>';
+					}
+					$statDocMerge='<a href="/?stable='.$stable.'&amp;l='.$code.'&amp;m=m">'.$statDocMerge.'</a>';
+				}
+				echo "<td>$statDocMerge</td>\n";
+
 				echo "<td>".$author."</td>";
 				echo "</tr>\n";
 				$pos[$code]=$po;
@@ -608,4 +656,4 @@ if ($native) {
 echo '</div>';
 echo '<div><center><hr/>Icons by: <a href="http://dryicons.com" class="link">DryIcons</a></center></div>';
 HtmlFooter($HtmlType);
-//php?>
+php?>

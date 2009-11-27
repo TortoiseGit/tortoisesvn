@@ -2,7 +2,7 @@
 include("../modules/ext/common.php");
 include("../modules/ext/table.php");
 
-$dir="/var/www/sites/tsvn.e-posta.sk/data/";
+$dir="/srv/www/sites/tsvn.e-posta.sk/data/";
 include("mysql.php");
 include("../modules/po.php");
 
@@ -110,9 +110,7 @@ foreach ($info as &$record) {
 	$path=$record["Path"];
 	echo "<br /><b>Path:</b> <i>$path</i>";
 	if (preg_match("/(.*)\/((Tort|doc)[^_]*)?_?(..(_...?)?)?.(po[t]?)/", $path, $matches)) {
-		echo "<pre>"; var_dump($matches); echo"</pre>";
 		$path2=$matches[1];
-		echo "\n$path.<br>\n";
 		$record["Po_Path"]=$path2;
 		$record["Po_Name"]=$matches[2];
 		$record["Po_Lang"]=$matches[4];
@@ -121,27 +119,24 @@ foreach ($info as &$record) {
 			$record["Po_Name"]="";
 		}
 		$record["Po_Updated"]=$record["Last Changed Rev"]==$record["Revision"];
-		// echo "<pre>";var_dump($record);echo"</pre>";
 	} else {
 		continue;
 	}
 
 	$group="?"; // unknown
-	echo "Path:".$path."<br>\n";
-	$re_m="/doc\\/(.*\\/)*(TortoiseMerge(_..)*)\\./";
-	$re_d="/doc\\/(.*\\/)*((..|doc|TortoiseSVN)(_..)*)\\./";
-	if (preg_match("/Languages\\/Tortoise[_\\.]/", $path)) {
+	$re_g="/Languages\\/Tortoise[_\\.]/";
+	$re_m="/doc\\/(.*\\/)*(TortoiseMerge(_...?)*)\\./";
+	$re_d="/doc\\/(.*\\/)*((..|doc|TortoiseSVN)(_...?)*)\\./";
+	if (preg_match($re_g, $path)) {
 		$group="g"; // gui
-//	} else if (preg_match("/doc\\/[^\\/]\\/(doc|TortoiseSVN)[_\\.]/", $path)) {
 	} else if (preg_match($re_m, $path, $matches)) {
-		echo "<pre>";var_dump($matches);echo"</pre>";
 		$group="m"; // merge
 	} else if (preg_match($re_d, $path, $matches)) {
-		echo "<pre>";var_dump($matches);echo"</pre>";
 		$group="d"; // doc
 	}
-	echo "<br /><b>Group:</b> <i>$group</i>";
 	$record["Po_Group"]=$group;
+	echo "<br /><b>Group:</b> <i>".$record["Po_Group"]."</i>";
+	echo "<br /><b>Lang:</b> <i>".$record["Po_Lang"]."</i>";
 }
 
 
@@ -186,7 +181,6 @@ foreach ($info as &$record) {
 	}
 }
 
-
 # check all po files
 echo "<hr><h1>PO</h1>";
 foreach ($info as &$record) {
@@ -219,11 +213,11 @@ foreach ($info as &$record) {
 	if ($record["Po_Updated"] || $potrecord["Po_Updated"]) {
 
 
-	$po=new po;
-	//$po->Load($dir.$record["Path"], "");
-	$po->Load($record["Path"], "");
-	$total=$po->getStringCount();
-	$record["Po_File"]=$po;
+		$po=new po;
+		//$po->Load($dir.$record["Path"], "");
+		$po->Load($record["Path"], "");
+		$total=$po->getStringCount();
+		$record["Po_File"]=$po;
 
 
 		$po->BuildReport($pot);

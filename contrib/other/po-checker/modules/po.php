@@ -1,5 +1,23 @@
 <?php
 
+function IsDebugOn() {
+	return $_SERVER['REMOTE_ADDR']=="217.75.82.130";
+}
+
+function ConvertCstyleNewLineToHtmlstyle($str) {
+	$search=array("\\n");
+	$replace=array("\\n<br />");
+	return str_replace($search, $replace, $str);
+}
+
+function CompareStart($a, $b) {
+	return $a['start']>$b['start'];
+}
+
+
+function CompareEnd($a, $b) {
+	return $a['end']>$b['end'];
+}
 
 function isNonEmptyArray($var) {
 	return (isset($var) && is_array($var) && count($var)>0);
@@ -149,8 +167,6 @@ class po {
 
 
 	function buildPotReport() {
-		$search=array("\\n");
-		$replace=array("\\n<br />");
 
 		$report=array();
 		$report["type"]="pot";
@@ -204,7 +220,7 @@ class po {
 			if ($match>1) {
 				$match=true;
 				foreach ($matches[0] as $key2=>$value) {
-					$match2=preg_match_all($regexp2, $matches[0][$key2][0], $matches2, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE);
+					$match2=preg_match($regexp2, $matches[0][$key2][0]);
 					if ($match2==false) {
 						$match=false;
 					}
@@ -273,28 +289,32 @@ class po {
 			}
 			// native and eng did not match in containing of '&'
 			if (substr_count($orig, "&")!==substr_count($native, "&")) {
-				$engMatch=preg_match_all($regexp, $orig, $matchesOnEng, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE);
+				$oriMatch=preg_match_all($regexp, $orig, $matchesOnOri, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE);
 				$natMatch=preg_match_all($regexp, $native, $matchesOnNat, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE);
-				$lineN=$value["line"];
-				$lineE=isset($potFile) ? $potFile->dictionary[$orig]["line"] : ":";
-				if (isset($value["flag"]["fuzzy"])) {
-					$lineN.="(Fuzzy)";
-				}
-				for ($i=count($matchesOnEng[0])-1; $i>=0; $i--) {
-					$param=$matchesOnEng[0][$i][0];
-					$pos=$matchesOnEng[0][$i][1];
-					$class=$matchesOnEng[0][$i][2] ? "elmark" : "elerror";
-					$orig=substr($orig, 0, $pos)."<font class=\"$class\">".$param."</font>".substr($orig, $pos+strlen($param));
+				$oriMarks=array();
+				$natMarks=array();
+				for ($i=count($matchesOnOri[0])-1; $i>=0; $i--) {
+					$mark['start']=$matchesOnOri[0][$i][1];
+					$mark['length']=strlen($matchesOnOri[0][$i][0]);
+					$mark['type']=$matchesOnOri[0][$i][2] ? MARK_OK : MARK_ERROR;
+					$oriMarks[]=$mark;
 				}
 				for ($i=count($matchesOnNat[0])-1; $i>=0; $i--) {
-					$param=$matchesOnNat[0][$i][0];
-					$pos=$matchesOnNat[0][$i][1];
-					$class=$matchesOnNat[0][$i][2] ? "elmark" : "elwarning";
-					$native=substr($native, 0, $pos)."<font class=\"$class\">".$param."</font>".substr($native, $pos+strlen($param));
+					$mark['start']=$matchesOnNat[0][$i][1];
+					$mark['length']=strlen($matchesOnNat[0][$i][0]);
+					$mark['type']=$matchesOnNat[0][$i][2] ? MARK_OK : MARK_WARNING;
+					$natMarks[]=$mark;
 				}
-				$orig=str_replace($search, $replace, $orig);
-				$native=str_replace($search, $replace, $native);
-				$data[]=array(count($data)+1, $lineE, $orig, $lineN, $native);
+				$orig=po::CreateHtmlFromMarks($oriMarks, $orig);
+				$native=po::CreateHtmlFromMarks($natMarks, $native);
+
+				$natLine=$value["line"];
+				if (isset($value["flag"]["fuzzy"])) {
+					$natLine.="(Fuzzy)";
+				}
+				$oriLine=isset($potFile) ? $potFile->dictionary[$orig]["line"] : ":";
+				$index=count($data)+1;
+				$data[]=array($index, $oriLine, array('html'=>$orig), $natLine, array('html'=>$native));
 			}
 		}
 		$table=new Table;
@@ -316,53 +336,53 @@ class po {
 				if (!isset($native) || $native=="") {
 					continue;
 				}
-				$engMatch=preg_match_all($regexp, $orig, $matchesOnEng, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE);
+				$oriMatch=preg_match_all($regexp, $orig, $matchesOnOri, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE);
 				$natMatch=preg_match_all($regexp, $native, $matchesOnNat, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE);
-				if ($engMatch || $natMatch) {
-//					$match=(count($matchesOnEng[0])==count($matchesOnNat[0]) ? true : false);
+				if ($oriMatch || $natMatch) {
+					$oriMarks=array();
+					$natMarks=array();
 					$match=true;
-					if ($engMatch) {
-						$nls=$matchesOnEng[0][0][0];
+					if ($oriMatch) {
+						$nls=$matchesOnOri[0][0][0];
 					} else {
 						$match=false;
 						$nls=$matchesOnNat[0][0][0];
 					}
-					foreach ($matchesOnEng[0] as $key2=>$value2) {
-						$ok=$matchesOnEng[0][$key2][0]==$nls;
+					foreach ($matchesOnOri[0] as $value2) {
+						$ok=($value2[0]==$nls);
+
+						$mark['start']=$value2[1];
+						$mark['length']=strlen($value2[0]);
+						$mark['type']=$ok ? MARK_OK : MARK_ERROR;
+						$oriMarks[]=$mark;
+
 						if (!$ok) {
 							$match=false;
 						}
-						$matchesOnEng[0][$key2][2]=$ok;
 					}
-					foreach ($matchesOnNat[0] as $key2=>$value2) {
-						$ok=$matchesOnNat[0][$key2][0]==$nls;
+					foreach ($matchesOnNat[0] as $value2) {
+						$ok=($value2[0]==$nls);
+
+						$mark['start']=$value2[1];
+						$mark['length']=strlen($value2[0]);
+						$mark['type']=$ok ? MARK_OK : MARK_ERROR;
+						$natMarks[]=$mark;
+
 						if (!$ok) {
 							$match=false;
 						}
-						$matchesOnNat[0][$key2][2]=$ok;
 					}
 					if (!$match) {
-						for ($i=count($matchesOnEng[0])-1; $i>=0; $i--) {
-							$param=$matchesOnEng[0][$i][0];
-							$pos=$matchesOnEng[0][$i][1];
-							$class=$matchesOnEng[0][$i][2] ? "elmark" : "elerror";
-							$orig=substr($orig, 0, $pos)."<font class=\"$class\">".$param."</font>".substr($orig, $pos+strlen($param));
-						}
-						for ($i=count($matchesOnNat[0])-1; $i>=0; $i--) {
-							$param=$matchesOnNat[0][$i][0];
-							$pos=$matchesOnNat[0][$i][1];
-							$class=$matchesOnNat[0][$i][2] ? "elmark" : "elerror";
-							$native=substr($native, 0, $pos)."<font class=\"$class\">".$param."</font>".substr($native, $pos+strlen($param));
-						}
+						$orig=po::CreateHtmlFromMarks($oriMarks, $orig);
+						$native=po::CreateHtmlFromMarks($natMarks, $native);
 
-						$orig=str_replace($search, $replace, $orig);
-						$native=str_replace($search, $replace, $native);
-						$lineN=$this->dictionary[$key]["line"];
-						$lineE=$potFile->dictionary[$key]["line"];
-						if (isset($this->dictionary[$key]["flag"]["fuzzy"])) {
-							$lineN.="(Fuzzy)";
+						$natLine=$value["line"];
+						if (isset($value["flag"]["fuzzy"])) {
+							$natLine .= "(Fuzzy)";
 						}
-						$data[]=array(count($data)+1, $lineE, $orig, $lineN, $native);
+						$oriLine=isset($potFile) ? $potFile->dictionary[$orig]["line"] : ":";
+						$index=count($data)+1;
+						$data[]=array($index, $oriLine, array('html'=>$orig), $natLine, array('html'=>$native));
 					}
 				}
 			}
@@ -376,7 +396,8 @@ class po {
 		// escaped characters
 		$data=array();
 		$regexp="/(\\\\.)/";
-		$regexp2="/\\\\[\\\\ntr\"]/";
+		$listDefault=array( "\\\"" => 1, "\\r" => 1, "\\n" => 1);
+		$listCorrect=array( "\\\"" => 1, "\\r" => 1, "\\n" => 1, "\\\\" => 1, "\\");
 		if (isset($potFile)) {
 			foreach ($potFile->dictionary as $key=>$value) {
 				$orig=$key;
@@ -388,51 +409,47 @@ class po {
 					continue;
 				}
 
-				$engMatch=preg_match_all($regexp, $orig, $matchesOnEng, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE);
+				$oriMatch=preg_match_all($regexp, $orig, $matchesOnOri, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE);
 				$natMatch=preg_match_all($regexp, $native, $matchesOnNat, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE);
-				if ($engMatch || $natMatch) {
-//					$match=(count($matchesOnEng[0])==count($matchesOnNat[0]) ? true : false);
+				if ($oriMatch || $natMatch) {
+					$oriMarks=array();
+					$natMarks=array();
 					$match=true;
 					// build list of escapes in eng
-					unset($list);
-					foreach ($matchesOnEng[0] as $key2=>$value2) {
-						$list[$matchesOnEng[0][$key2][0]]++;
+					$list=$listDefault;
+					foreach ($matchesOnOri[0] as $value2) {
+						$element=$value2[0];
+						$list[$element]++;
+
+						$mark['start']=$value2[1];
+						$mark['length']=strlen($element);
+						$mark['type']=MARK_OK;
+						$oriMarks[]=$mark;
 					}
 					// mark unknown chars
-					foreach ($matchesOnNat[0] as $key2=>$value2) {
-						$element=$matchesOnNat[0][$key2][0];
-						$match2=preg_match_all($regexp2, $element, $matches2, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE);
-						if (($match2==false) || (!isset($list[$element]))) {
+					foreach ($matchesOnNat[0] as $value2) {
+						$element=$value2[0];
+						$ok=isset($list[$element]);
+						if (!$ok) {
 							$match=false;
-							$matchesOnNat[0][$key2][2]=false;
 						}
+						$mark['start']=$value2[1];
+						$mark['length']=strlen($element);
+						$mark['type']=$ok ? MARK_OK : MARK_ERROR;
+						$natMarks[]=$mark;
 					}
 					// if error found add line to data
 					if (!$match) {
-						for ($i=count($matchesOnEng[0])-1; $i>=0; $i--) {
-							$param=$matchesOnEng[0][$i][0];
-							$pos=$matchesOnEng[0][$i][1];
-							$mark=$matchesOnEng[0][$i][2];
-							$class=(!isset($mark) || $mark==true) ? "elmark" : "elerror";
-							$orig=substr($orig, 0, $pos)."<font class=\"$class\">".$param."</font>".substr($orig, $pos+strlen($param));
-						}
+						$orig=po::CreateHtmlFromMarks($oriMarks, $orig);
+						$native=po::CreateHtmlFromMarks($natMarks, $native);
 
-						for ($i=count($matchesOnNat[0])-1; $i>=0; $i--) {
-							$param=$matchesOnNat[0][$i][0];
-							$pos=$matchesOnNat[0][$i][1];
-							$mark=$matchesOnNat[0][$i][2];
-							$class=(!isset($mark) || $mark==true) ? "elmark" : "elerror";
-							$native=substr($native, 0, $pos)."<font class=\"$class\">".$param."</font>".substr($native, $pos+strlen($param));
+						$natLine=$value["line"];
+						if (isset($value["flag"]["fuzzy"])) {
+							$natLine .= "(Fuzzy)";
 						}
-
-						$orig=str_replace($search, $replace, $orig);
-						$native=str_replace($search, $replace, $native);
-						$lineN=$this->dictionary[$key]["line"];
-						$lineE=$potFile->dictionary[$key]["line"];
-						if (isset($this->dictionary[$key]["flag"]["fuzzy"])) {
-							$lineN.="(Fuzzy)";
-						}
-						$data[]=array(count($data)+1, $lineE, $orig, $lineN, $native);
+						$oriLine=isset($potFile) ? $potFile->dictionary[$orig]["line"] : ":";
+						$index=count($data)+1;
+						$data[]=array($index, $oriLine, array('html'=>$orig), $natLine, array('html'=>$native));
 					}
 				}
 			}
@@ -446,8 +463,8 @@ class po {
 		// wrong parameters
 		$data=array();
 		if (isset($potFile)) {
-			// todo: check only "c-format" strings -> speed up
-			$regexp="/%(%|[1-9]|[0-9*]*[diouxXsS]|[+\\-]*[0-9*]*?l?d|I64d|[+\\-]?[0-9]*\\.?[0-9]*f|[A-Z]*%)/";
+			//todo: check only "c-format" strings -> speed up
+			$regexp="/%([1-9]|[0-9*]*[diouxXsS]|[+\\-]*[0-9*]*?l?d|I64d|[+\\-]?[0-9]*\\.?[0-9]*f)/";
 			foreach ($potFile->dictionary as $key=>$value) {
 				$orig=$key;
 				if (!isset($orig) || $orig=="") {
@@ -651,6 +668,7 @@ class po {
 		} else {
 			return;
 		}
+		$lang=$this->lang;
 
 		//var_dump($this->spellDictFiles);
 		$data=array();
@@ -807,31 +825,19 @@ class po {
 		}
 	}
 
-	function CreateHtmlFromMarks($marks) {
-		// sort marks by
-		// check if properly nested
-		// check for new line blocks, escape chars, etc
-		// break into parts
-		// recode to html
-		// go over parts and copy with parameters
-		
-		// params: start, end 
+	function CreateHtmlFromMarks($marks, $string, $debug=0) {
+		// mark params:
+		//  start, end:
 		//  class: error, warning, mark, none
 		//  suggestion:
-		// 
-		if (!$match) {
-			for ($i=count($matchesOnNat[0])-1; $i>=0; $i--) {
-				if (!isset($matchesOnNat[0][$i][2])) {
-					continue;
-				}
-				$param=$matchesOnNat[0][$i][0];
-				$pos=$matchesOnNat[0][$i][1];
-				if ($param=="n" && $pos && $native[$pos-1]=="\\") {
-					continue;
-				}
-				switch ($matchesOnNat[0][$i][2]) {
+
+		// set class from mark for all makrs
+		foreach ($marks as &$mark) {
+			if (!isset($mark['class'])) {
+				switch ($mark['type']) {
+				 default:
 				 case MARK_OK:
-					$class=  "elmark";
+					$class="elmark";
 					break;
 
 				 case MARK_ERROR:
@@ -842,21 +848,55 @@ class po {
 					$class="elwarning";
 					break;
 				}
-				$replaceStr="<font class=\"$class\">".$param."</font>";
-				if (isset($matchesOnNat[0][$i]['sugestion'])) {
-					$replaceStr="<acronym title=\"".$matchesOnNat[0][$i]['sugestion']."\">$replaceStr</acronym>";
-				}
-				$native=substr($native, 0, $pos).$replaceStr.substr($native, $pos+strlen($param));
+				$mark['class']=$class;
 			}
-			$orig=str_replace($postprocessSearch, $postprocessReplace, $orig);
-			$native=str_replace($postprocessSearch, $postprocessReplace, $native);
-			$lineN=$this->dictionary[$key]["line"];
-			$lineE=$potFile->dictionary[$key]["line"];
-			if (isset($this->dictionary[$key]["flag"]["fuzzy"])) {
-				$lineN.="(Fuzzy)";
+			if (!isset($mark['end'])) {
+				$mark['end']=$mark['start']+$mark['length'];
 			}
-			$data[]=array(count($data)+1, $lineE, $orig, $lineN, $native);
 		}
+		sort($marks);
+
+		// sort marks by start
+
+		$marksStartSorted=$marks;
+		usort($marksStartSorted, CompareStart);
+//		$marksEndSorted=$marks;
+//		usort($marksEndSorted, CompareEnd);
+
+		// check if properly nested
+			// TODO: check nesting
+
+		// create part breaks string
+		$breaks=array();
+		unset($mark);
+		foreach ($marksStartSorted as $mark) {
+			$start=$mark['start'];
+			$end=$mark['end'];
+			$breaks[$start] = $breaks[$start]."<font class=\"".$mark['class']."\">";
+			$breaks[$end] = "</font>".$breaks[$end];
+		}
+
+		// go over parts and create final string
+		$position=0;
+		$result="";
+		foreach ($breaks as $pos=>$break) {
+			$substring=substr($string, $position, $pos-$position);
+			$substring=str_replace($postprocessSearch, $postprocessReplace, $substring);
+			$substring=htmlspecialchars($substring);
+			$result .= $substring . $break;
+			$position=$pos;
+		}
+		$substring=substr($string, $position);
+//		$substring=str_replace($postprocessSearch, $postprocessReplace, $substring);
+		$substring=htmlspecialchars($substring);
+		$result .= $substring;
+		// recode to html
+		
+		if ($debug) {
+			echo ($result);
+		}
+
+		return ConvertCstyleNewLineToHtmlstyle($result);
 	}
 
 	function GetErrorTypes() {
@@ -1065,7 +1105,7 @@ class po {
 		}
 
 		echo "<a name=\"esc$lang\" /><h3>Escaped chars test</h3>\n";
-		echo "<p>This test check if all escaped chars are known and its using match with English. Even you get red here it may be legal for your language.<br/>This test is in developing now.</p>\n";
+		echo "<p>This test check if all escaped chars are known and its using match with English. Even you get red here it may be legal for your language.<br/>This test is in developing now. Ignored are: \\r \\n (wee new line style test) and \\\".</p>\n";
 		$table=$this->report["esc"];
 		if (isset($table)) {
 			if (count($table->data)) { // table exists and has data
@@ -1093,11 +1133,8 @@ class po {
 		} else {
 			echo "<p><i>Internal error or not implemented</i></p>";
 		}
-
 	}
 }
-
-
 
 //php?>
 

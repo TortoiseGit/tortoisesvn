@@ -1,4 +1,5 @@
 #!/bin/sh
+
 SQLDB=tsvn
 SQLUSER=tsvn
 SQLPASS=YjMEMDbSpQXB5Qjj
@@ -35,6 +36,7 @@ if [ -z $REMOTEREV ]; then
 	exit 2
 fi
 
+COUNT=0
 while true; do
 	PROCREV=`echo "select revision from lastrevision where name='processed'" | mysql -u$SQLUSER -p$SQLPASS -D $SQLDB -B --skip-column-names `
 	if [ -z $PROCREV ]; then
@@ -58,6 +60,13 @@ while true; do
 	echo remoterev: $REMOTEREV
 	echo procrev: $PROCREV
 	echo nextrev: $NEXTREV
+	echo COUNT: $COUNT
+	COUNT=$(($COUNT+1))
+
+	if [ $COUNT -gt 15 ]; then
+		echo "MAX UPDATE PER RUN REACHED"
+		exit
+	fi
 
 
 	# update

@@ -2,6 +2,7 @@
 
 include_once("mysql.php");
 include_once("../modules/ext/table.php");
+include_once("history.fncs.php");
 
 $title="TortoiseSVN | The coolest Interface to (Sub)Version Control - Translation history";
 
@@ -54,6 +55,8 @@ $table->importMysqlResult($res);
 $minRev=$table->data[0][0]+0;
 $maxRev=$table->data[0][1]+0;
 
+
+// fix Rev range
 if (!is_int($maxRev)||$maxRev==0) {
 	$maxRev=1;
 	$imWidth=10;
@@ -72,7 +75,7 @@ if (isset($historyTest)) {
 	return $res;
 }
 
-$sql="SELECT * FROM state JOIN revisions ON state.revision=revisions.revision WHERE `state`.`language`='$lang' && `state`.`group`='$group' && `state`.`revision`>$minRev";
+$sql="SELECT * FROM state JOIN revisions ON state.revision=revisions.revision WHERE `state`.`language`='$lang' && `state`.`group`='$group' && `state`.`revision`>=$minRev";
 #$sql="SELECT * FROM state WHERE `language`='$lang' && `group`='$group'";
 $res=mysql_query($sql, $db);
 if ($res===false) {
@@ -84,11 +87,6 @@ $table=new Table;
 $table->importMysqlResult($res);
 //$table->Output();
 
-
-$xzoom=1/4;
-$yzoom=1/7;
-$xzoom=$imWidth/($maxRev*1.03);
-$yzoom=($imHeight-30)/($maxTot*1.03);
 
 $im=imagecreate($imWidth, $imHeight);
 $color_background=imagecolorallocate($im, 250, 200, 230);
@@ -108,18 +106,26 @@ $color_empty=imagecolorallocate($im, 100, 125, 50);
 $color_player=imagecolorallocate($im, 180, 0, 0);
 $color_ally=imagecolorallocate($im, 255, 255, 0);
 
-$font="/var/www/php/tcpdf/fonts/arial.ttf";
+$font="/srv/www/php/tcpdf/fonts/arial.ttf";
 
 
 imagefilledrectangle($im, 0, 0, $imWidth, $imHeight, $color_transparent);
 imagettftext($im, 10, 0, $imWidth/2-480/2, 10, $text_color, $font, $title);
 imagettftext($im, 10, 0, 0, 10, $text_color, $font, $lang);
 
-for ($i=0; $i<150000; $i+=1000) {
-	imageline($im, $i*$xzoom, 25, $i*$xzoom, $imHeight, $color_gray);
-	imagettftext($im, 10, 0, $i*$xzoom, 22, $text_color, $font, "r".($i/1000).($i?"k":""));
-}
 
+//$minRev=$maxRev-5000;
+$xzoom=1/1.03;
+$yzoom=1/7;
+//$xzoom=$imWidth/($maxRev*1.03);
+$yzoom=($imHeight-30)/($maxTot*1.03);
+$xfactor=$imWidth*$xzoom;
+
+for ($i=0; $i<$maxRev+999; $i+=1000) {
+	$x=ConvertRevisionToRange($i, $minRev, $maxRev)*$xfactor;
+	imageline($im, $x, 25, $x, $imHeight, $color_gray);
+	imagettftext($im, 10, 0, $x, 22, $text_color, $font, "r".($i/1000).($i?"k":""));
+}
 for ($i=0; $i<($imHeight-30)/$yzoom; $i+=100) {
 	$y=$imHeight-$i*$yzoom-1;
 	imageline($im, 0, $y, $imWidth, $y, $color_gray);
@@ -153,9 +159,10 @@ foreach ($graphs as $graph) {
 	unset($x, $y);
 	foreach ($table->data as $record) {
 		$revision=$record[10];
+		//$date
 //		echo int($revision);
 		$val=$record[$index];
-		$newX=$revision*$xzoom;
+		$newX=ConvertRevisionToRange($revision, $minRev, $maxRev)*$xfactor;
 		$newY=$imHeight-$val*$yzoom-1;
 		if (!isset($x) || !isset($y)) {
 			$x=$newX;
