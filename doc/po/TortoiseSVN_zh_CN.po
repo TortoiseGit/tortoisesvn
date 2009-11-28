@@ -56,7 +56,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-11-26 23:38-0500\n"
+"PO-Revision-Date: 2009-11-28 18:28-0500\n"
 "Last-Translator: Garfield Yao <field977@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10664,7 +10664,7 @@ msgid ""
 msgstr ""
 "你可以添加你自己定义的属性，或者一些在 Subversion 中有特殊含义的属性。这些属性"
 "以 <literal>svn:</literal> 开头。<literal>svn:externals</literal> 就是这一类型"
-"的属性; 关于如何操纵扩展条目，请参阅<xref linkend=\"tsvn-dug-externals\"/>."
+"的属性; 关于如何引用外部条目，请参阅<xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (title)
 msgid "svn:keywords"
@@ -11058,7 +11058,6 @@ msgstr ""
 "个长度大于模版的长度，不然就会失去其保护作用。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Subversion allows you to set <quote>autoprops</quote> which will be applied "
 "to newly added or imported files, based on the file extension. This depends "
@@ -11069,10 +11068,12 @@ msgid ""
 "<literal>*.sh = svn:eol-style=native;svn:executable</literal> sets two "
 "properties on files with the <literal>.sh</literal> extension."
 msgstr ""
-"Subversion 允许你设置 <quote>autoprops</quote>，它基于文件扩展名，对新增文件或"
-"导入的文件生效。这依赖于每个客户端在 Subversion 配置文件中设置适当的 "
-"autoprops。<literal>tsvn:autoprops</literal> 可以对目录设置，当新增文件或导入"
-"文件时，它会与用户的本地 autoprops 合并。"
+"Subversion 允许你设置 <quote>自动属性(autoprops)</quote>，它基于文件扩展名，对"
+"新增文件或导入的文件生效。这依赖于每个客户端在 Subversion 配置文件中设置适当的"
+"自动属性。<literal>tsvn:autoprops</literal> 可以对文件夹设置，当新增文件或导入"
+"文件时，它会与用户的本地自动属性合并。其格式与 subversion 的自动属性相同，例"
+"如，<literal>*.sh = svn:eol-style=native;svn:executable</literal>为扩展名为 "
+"<literal>.sh</literal> 的文件设置两个属性。"
 
 #. (para)
 msgid ""
@@ -11084,7 +11085,6 @@ msgstr ""
 "为它们是针对此项目的)。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "In the Commit dialog you have the option to paste in the list of changed "
 "files, including the status of each file (added, modified, etc). "
@@ -11092,12 +11092,11 @@ msgid ""
 "inserted in English or in the localized language. If the property is not set, "
 "the default is <literal>true</literal>."
 msgstr ""
-"在提交对话框，你可以复制修改的文件列表，包含每个文件的状态(增加，修改等)。"
-"<literal>tsvn:logfilelistenglish</literal>定义了文件状态用英文插入，还是用本地"
-"消息插入。此属性的默认值是<literal>真</literal>。"
+"在提交对话框，你可以粘贴修改的文件列表，包含每个文件的状态(增加，修改等)。"
+"<literal>tsvn:logfilelistenglish</literal>定义了文件状态用英文插入，还是用本机"
+"语言插入。如果此属性没有设置，默认值是 <literal>true</literal>。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "TortoiseSVN can use spell checker modules which are also used by OpenOffice "
 "and Mozilla. If you have those installed this property will determine which "
@@ -11109,11 +11108,11 @@ msgid ""
 "Language Identifiers</citetitle></ulink>."
 msgstr ""
 "TortoiseSVN可以使用OpenOffice和Mozilla使用的拼写检查模块。如果你安装了这些模"
-"块，那么这个属性将检测使用哪个拼写检查模块。也就是，你的工程的日志信息用的语"
-"言。<literal>tsvn:projectlanguage</literal>设置拼写检查引擎应该使用什么语言模"
-"块来检查日志信息。你可以在这个叶面找到你的语言的取值: <ulink url=\"http://"
-"msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp"
-"\"><citetitle>MSDN: 语言标示符</citetitle></ulink>。"
+"块，那么这个属性将检测使用哪个拼写检查模块。也就是，你的项目的日志信息用的语"
+"言。<literal>tsvn:projectlanguage</literal>设置拼写检查引擎在你输入日志消息的"
+"时候应该使用什么语言模块。你可以在这个页面找到你的语言的取值: <ulink url="
+"\"http://msdn2.microsoft.com/en-us/library/ms776260.aspx\"><citetitle>MSDN: 语"
+"言标示符</citetitle></ulink>。"
 
 #. (para)
 msgid ""
@@ -11131,6 +11130,8 @@ msgid ""
 "of the log message which is then shown in the log dialog as the log message "
 "summary."
 msgstr ""
+"属性 <literal>tsvn:logsummary</literal> 用于摘录日志的一部分，在日志对话框中显"
+"示为日志摘要。"
 
 #. (para)
 msgid ""
@@ -11138,12 +11139,16 @@ msgid ""
 "one line regex string which contains one regex group. Whatever matches that "
 "group is used as the summary."
 msgstr ""
+"属性 <literal>tsvn:logsummary</literal> 的值必须设置为一行包含一个正则组的正则"
+"字符串。匹配于这个正则组的任何内容被当作摘要。"
 
 #. (para)
 msgid ""
 "An example: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> Will catch everything "
 "after <quote>[SUMMARY]</quote> in the log message and use that as the summary."
 msgstr ""
+"例如: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> 将会抓取 <quote>[SUMMARY]</"
+"quote> 后面的所有内容并将其用作摘要。"
 
 #. (para)
 msgid ""
@@ -11154,6 +11159,10 @@ msgid ""
 "or if it's available from the log cache) or open a new log dialog showing "
 "that revision."
 msgstr ""
+"属性 <literal>tsvn:logrevregex</literal> 定义了一个正则表达式，它匹配日志消息"
+"中的对版本号的引文。它的用处是，在日志对话框中，将这样的版本号变成链接，当点击"
+"链接的时候滚动到这一版本(如果此版本已经显示在日志对话框中被显示出来，或者它在"
+"日志缓存中)或者打开一个新的日志对话框显示那个版本。"
 
 #. (para)
 msgid ""
@@ -11161,12 +11170,14 @@ msgid ""
 "number. The revision number is extracted from the matched reference string "
 "automatically."
 msgstr ""
+"正则表达式必须匹配整个引文，而不仅仅是版本号。版本号可以自动的从匹配的引文字符"
+"串中提取出来。"
 
 #. (para)
 msgid ""
 "If this property is not set, a default regular expression is used to link "
 "revision references."
-msgstr ""
+msgstr "如果这个属性没有设置，一个默认的正则表达式被用来链接版本引文。"
 
 #. (para)
 msgid ""
@@ -11196,43 +11207,39 @@ msgstr ""
 
 #. (para)
 #. (para)
-#, fuzzy
 msgid ""
 "Some <literal>tsvn:</literal> properties require a <literal>true/false</"
 "literal> value. TortoiseSVN also understands <literal>yes</literal> as a "
 "synonym for <literal>true</literal> and <literal>no</literal> as a synonym "
 "for <literal>false</literal>."
 msgstr ""
-"一些 <literal>tsvn:</literal> 属性需要 <literal>true/false</literal> 值。它也"
-"理解 <literal>yes</literal> 是 <literal>true</literal> 的同义词，<literal>no</"
-"literal> 是  <literal>false</literal>的同义词。"
+"一些 <literal>tsvn:</literal> 属性需要 <literal>true/false</literal> 值。"
+"TortoiseSVN 也理解 <literal>yes</literal> 是 <literal>true</literal> 的同义"
+"词，<literal>no</literal> 是  <literal>false</literal> 的同义词。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "TortoiseSVN can integrate with some bug tracking tools. This uses project "
 "properties that start with <literal>bugtraq:</literal>. Read <xref linkend="
 "\"tsvn-dug-bugtracker\"/> for further information."
 msgstr ""
-"TortoiseSVN可以与一些问题跟踪工具集成。它使用<literal>bugtraq:</literal>开始的"
-"属性。阅读<xref linkend=\"tsvn-dug-bugtracker\"/>以便获得更多信息。"
+"TortoiseSVN 可以与一些 BUG 跟踪工具集成。它使用 <literal>bugtraq:</literal> 开"
+"始的项目属性。阅读<xref linkend=\"tsvn-dug-bugtracker\"/>以获得更多信息。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "It can also integrate with some web-based repository browsers, using project "
 "properties that start with <literal>webviewer:</literal>. Read <xref linkend="
 "\"tsvn-dug-repoviewer\"/> for further information."
 msgstr ""
-"它也与一些基于WEB的版本库浏览器集成。阅读<xref linkend=\"tsvn-dug-repoviewer"
-"\"/>以获得更多信息。"
+"它也与一些基于 WEB 的版本库浏览器集成，使用 <literal>webviewer:</literal> 开始"
+"的项目属性。阅读<xref linkend=\"tsvn-dug-repoviewer\"/>以获得更多信息。"
 
 #. (title)
 msgid "Set the project properties on folders"
 msgstr "设置文件夹的项目属性"
 
 #. (para)
-#, fuzzy
 msgid ""
 "These special project properties must be set on <emphasis>folders</emphasis> "
 "for the system to work. When you commit a file or folder the properties are "
@@ -11246,26 +11253,27 @@ msgid ""
 "in the project hierarchy overrides settings on higher levels (closer to "
 "<filename>trunk/</filename>)."
 msgstr ""
-"属性<literal>tsvn:</literal>只能在<emphasis>文件夹</emphasis>设置。当你提交文"
-"件或文件夹时，这些属性从文件夹读取。如果没有发现这些属性，TortoiseSVN会向上级"
-"目录搜索，直到未版本控制的文件夹，或到达根目录(例如 <literal>C:\\</"
-"literal>) 。如果你确认每个用户都是从同一个目录检出，例如<filename>trunk/</"
-"filename>，而不是其它子目录，那么只在<filename>trunk/</filename>设置属性就足够"
-"了。如果你不能确定，那么应当递归的设置每个子目录。深层的设置覆盖高层的设置 (靠"
-"近 <filename>trunk/</filename>)。"
+"这些特别的项目属性只能设置在<emphasis>文件夹</emphasis>上才能生效。当你提交文"
+"件或文件夹时，这些属性从文件夹读取。如果没有发现这些属性，TortoiseSVN 会向上级"
+"文件夹搜索，直到未版本控制的文件夹，或到达根目录(例如 <literal>C:\\</"
+"literal>) 。如果你确认每个用户都是从同一个文件夹检出，例如 <filename>trunk/</"
+"filename>，而不是其它子文件夹，那么只在 <filename>trunk/</filename> 设置属性就"
+"足够了。如果你不能确定，那么应当递归的设置每个子文件夹。深层的设置覆盖高层的设"
+"置 (靠近 <filename>trunk/</filename>)。"
 
 #. (para)
 #. (para)
 #. (para)
-#, fuzzy
 msgid ""
 "For project properties <emphasis>only</emphasis>, i.e. <literal>tsvn:</"
 "literal>, <literal>bugtraq:</literal> and <literal>webviewer:</literal> you "
 "can use the <guilabel>Recursive</guilabel> checkbox to set the property to "
 "all sub-folders in the hierarchy, without also setting it on all files."
 msgstr ""
-"对于<literal>tsvn:</literal>属性，你<emphasis>只能</emphasis>对于所有子目录使"
-"用<guilabel>递归</guilabel>检查框设置属性，不能设置文件的属性。"
+"对于<literal>tsvn:</literal>属性，例如 <literal>tsvn:</literal>，"
+"<literal>bugtraq:</literal> 和 <literal>webviewer:</literal>，你<emphasis>只能"
+"</emphasis>对于所有子文件夹使用<guilabel>递归</guilabel>复选框设置属性，不用将"
+"这些属性设置在文件上。"
 
 #. (para)
 msgid ""
@@ -11277,7 +11285,6 @@ msgstr ""
 "录。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Although TortoiseSVN's project properties are extremely useful, they only "
 "work with TortoiseSVN, and some will only work in newer versions of "
@@ -11286,15 +11293,14 @@ msgid ""
 "repository hooks to enforce project policies. project properties can only "
 "help to implement a policy, they cannot enforce it."
 msgstr ""
-"尽管 <literal>tsvn:xxx</literal> 属性很有用，它们只适用于 TortoiseSVN，而且一"
-"些只是对于新版本的 TortoiseSVN 才生效。如果你的项目中的人使用各种 Subversion "
-"客户端，或者使用低版本的 TortoiseSVN，你可能想使用版本库钩子强制执行项目政策。"
-"<literal>tsvn:</literal> 属性只能帮助你实现政策，不能强制执行。"
+"尽管 TortoiseSVN 的项目属性很有用，但它们只适用于 TortoiseSVN，而且一些只是对"
+"于新版本的 TortoiseSVN 才生效。如果你的项目中的人使用各种 Subversion 客户端，"
+"或者使用低版本的 TortoiseSVN，你可能要使用版本库钩子强制执行项目策略。项目属性"
+"只能帮助你实现策略，不能强制执行。"
 
 #. (title)
-#, fuzzy
 msgid "External Items"
-msgstr "外部"
+msgstr "外部条目"
 
 #. (primary)
 msgid "external repositories"
@@ -11306,7 +11312,6 @@ msgid "externals"
 msgstr "外部"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Sometimes it is useful to construct a working copy that is made out of a "
 "number of different checkouts. For example, you may want different files or "
@@ -11315,17 +11320,16 @@ msgid ""
 "same layout, you can define the <literal>svn:externals</literal> properties "
 "to pull in the specified resource at the locations where they are needed."
 msgstr ""
-"有时候，构建一个需要不同检出的工作目录是很有用的。举例来说，你需要不同的子目录"
-"来自版本库的不同位置。，或者可能完全来自不同的版本库。如果你需要每个用户具有相"
-"同的目录结构，你可以定义<literal>svn:externals</literal>属性。"
+"有时候，构建一个需要不同检出的工作目录是很有用的。举例来说，你也许需要来自版本"
+"库的不同位置的别的文件或子目录，或者可能完全来自不同的版本库。如果你需要每个用"
+"户具有相同的目录结构，你可以定义 <literal>svn:externals</literal> 属性来获取特"
+"定的资源到你需要的地方。"
 
 #. (title)
-#, fuzzy
 msgid "External Folders"
-msgstr "外部"
+msgstr "外部文件夹"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Let's say you check out a working copy of <filename>/project1</filename> to "
 "<filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev"
@@ -11350,25 +11354,24 @@ msgid ""
 "<filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 "
 "of the skin-maker project."
 msgstr ""
-"比如说，你检出了<filename>/project1</filename>到 <filename>D:\\dev\\project1</"
-"filename>。选择目录<filename>D:\\dev\\project1</filename>，<action>右击</"
-"action>，选择<menuchoice><guimenu>Windows 菜单</guimenu><guimenuitem>属性</"
-"guimenuitem></menuchoice>。出现属性对话框。在Subversion页，你可以设置属性。点"
-"击<guibutton>增加...</guibutton>。从组合框选择<literal>svn:externals</literal>"
-"属性，在编辑框按照<literal>名称 URL</literal>格式输入版本库URL，或者你需要一个"
-"指定的版本，那么使用<literal>名称 -r版本 URL</literal>。你可以增加多个外部工"
-"程，每行一个。注意，URL必须使用逃逸字符编码，不然可能无法正常工作。举例说明，"
-"你必须将每个空格替换为<literal>%20</literal>。注意使用包含空格的目录名称是不可"
-"能的。假设你为<filename>D:\\dev\\project1</filename>设置了这些属性: <screen>\n"
-"sounds   http://sounds.red-bean.com/repos\n"
-"quick_graphs  http://graphics.red-bean.com/repos/fast%20graphics\n"
-"skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
+"比如说，你检出了 <filename>/project1</filename> 到 <filename>D:\\dev"
+"\\project1</filename>。选择文件夹<filename>D:\\dev\\project1</filename>，"
+"<action>右键单击</action>并选择<menuchoice><guimenu>Windows 菜单</"
+"guimenu><guimenuitem>属性</guimenuitem></menuchoice>。出现属性对话框。在 "
+"Subversion 页，你可以设置属性。点击<guibutton>增加...</guibutton>。从组合框选"
+"择 <literal>svn:externals</literal> 属性，在编辑框按照 <literal>URL 文件夹</"
+"literal> 格式输入版本库URL，或者你需要一个指定的版本，那么使用 <literal>-r版"
+"本 URL 文件夹</literal>。你可以增加多个外部工程，每行一个。假设你为"
+"<filename>D:\\dev\\project1</filename>设置了这些属性: <screen>\n"
+"http://sounds.red-bean.com/repos  sounds\n"
+"http://graphics.red-bean.com/repos/fast%20graphics  \"quick graphs\"\n"
+"-r21 http://svn.red-bean.com/repos/skin-maker  skins/toolkit\n"
 "</screen> 现在点击 <guibutton>设置</guibutton>，提交你的修改。当你(或其他用户)"
-"更新工作副本时， Subversion 将会创建子目录<filename>D:\\dev\\project1"
-"\\sounds</filename>，并且检出sounds工程，另一个子目录<filename>D:\\dev"
-"\\project1\\quick_graphs</filename>包含graphics工程，最后一个嵌套的子目录"
-"<filename>D:\\dev\\project1\\skins\\toolkit</filename>包含的skin-maker工程的版"
-"本21。"
+"更新工作副本时， Subversion 将会创建子文件夹 <filename>D:\\dev\\project1"
+"\\sounds</filename>，并且检出 sounds 工程，另一个子文件夹 <filename>D:\\dev"
+"\\project1\\quick_graphs</filename> 包含 graphics 工程，最后一个嵌套的子文件"
+"夹 <filename>D:\\dev\\project1\\skins\\toolkit</filename> 包含版本为 21 的 "
+"skin-maker 工程。"
 
 #. (para)
 msgid ""
