@@ -24,7 +24,7 @@
 			OutputDirectory="..\..\bin\Debug\bin"
 			IntermediateDirectory="..\..\obj\TortoiseBlame\Debug"
 			ConfigurationType="1"
-			CharacterSet="2"
+			CharacterSet="1"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -102,7 +102,7 @@
 			OutputDirectory="..\..\bin\Debug64\bin"
 			IntermediateDirectory="..\..\obj\TortoiseBlame\Debug64"
 			ConfigurationType="1"
-			CharacterSet="2"
+			CharacterSet="1"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -181,7 +181,7 @@
 			OutputDirectory="..\..\bin\Release\bin"
 			IntermediateDirectory="..\..\obj\TortoiseBlame\Release"
 			ConfigurationType="1"
-			CharacterSet="2"
+			CharacterSet="1"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -259,7 +259,7 @@
 			OutputDirectory="..\..\bin\Release64\bin"
 			IntermediateDirectory="..\..\obj\TortoiseBlame\Release64"
 			ConfigurationType="1"
-			CharacterSet="2"
+			CharacterSet="1"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -398,6 +398,10 @@
 				RelativePath=".\TortoiseBlame.cpp"
 				>
 			</File>
+			<File
+				RelativePath="..\Utils\UnicodeUtils.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -426,6 +430,10 @@
 			</File>
 			<File
 				RelativePath=".\TortoiseBlame.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\UnicodeUtils.h"
 				>
 			</File>
 		</Filter>

@@ -23,6 +23,10 @@
 #include "LangDll.h"
 #include "auto_buffer.h"
 #include "CreateProcessHelper.h"
+#include "UnicodeUtils.h"
+
+#include <algorithm>
+#include <cctype>
 
 #define MAX_LOADSTRING 1000
 
@@ -92,9 +96,9 @@ TortoiseBlame::~TortoiseBlame()
 		DeleteObject(m_italicfont);
 }
 
-std::string TortoiseBlame::GetAppDirectory()
+std::wstring TortoiseBlame::GetAppDirectory()
 {
-	std::string path;
+	std::wstring path;
 	DWORD len = 0;
 	DWORD bufferlen = MAX_PATH;		// MAX_PATH is not the limit here!
 	do 
@@ -102,7 +106,7 @@ std::string TortoiseBlame::GetAppDirectory()
 		bufferlen += MAX_PATH;		// MAX_PATH is not the limit here!
 		auto_buffer<TCHAR> pBuf(bufferlen);
 		len = GetModuleFileName(NULL, pBuf, bufferlen);	
-		path = std::string(pBuf, len);
+		path = std::wstring(pBuf, len);
 	} while(len == bufferlen);
 	path = path.substr(0, path.rfind('\\') + 1);
 
@@ -141,39 +145,29 @@ LRESULT TortoiseBlame::SendEditor(UINT Msg, WPARAM wParam, LPARAM lParam)
 	return ::SendMessage(wEditor, Msg, wParam, lParam);	
 }
 
-void TortoiseBlame::GetRange(int start, int end, char *text) 
-{
-	TEXTRANGE tr;
-	tr.chrg.cpMin = start;
-	tr.chrg.cpMax = end;
-	tr.lpstrText = text;
-	SendMessage(wEditor, EM_GETTEXTRANGE, 0, reinterpret_cast<LPARAM>(&tr));
-}
-
 void TortoiseBlame::SetTitle() 
 {
-	char title[MAX_PATH + 100];
-	strcpy_s(title, MAX_PATH + 100, szTitle);
-	strcat_s(title, MAX_PATH + 100, " - ");
-	strcat_s(title, MAX_PATH + 100, szViewtitle);
+	TCHAR title[MAX_PATH + 100];
+	_tcscpy_s(title, MAX_PATH + 100, szTitle);
+	_tcscat_s(title, MAX_PATH + 100, _T(" - "));
+	_tcscat_s(title, MAX_PATH + 100, szViewtitle);
 	::SetWindowText(wMain, title);
 }
 
-BOOL TortoiseBlame::OpenLogFile(const char *fileName)
+BOOL TortoiseBlame::OpenLogFile(const TCHAR *fileName)
 {
-	char logmsgbuf[10000+1];
 	FILE * File;
-	fopen_s(&File, fileName, "rb");
+	_tfopen_s(&File, fileName, _T("rb"));
 	if (File == 0)
 	{
 		return FALSE;
 	}
 	LONG rev = 0;
-	std::string msg;
+	std::wstring msg;
 	int slength = 0;
 	int reallength = 0;
 	size_t len = 0;
-	wchar_t wbuf[MAX_LOG_LENGTH+6];
+	char * stringbuf;
 	for (;;)
 	{
 		len = fread(&rev, sizeof(LONG), 1, File);
@@ -197,29 +191,20 @@ BOOL TortoiseBlame::OpenLogFile(const char *fileName)
 		}
 		else
 			reallength = 0;
-		len = fread(logmsgbuf, sizeof(char), slength, File);
-		if (len < (size_t)slength)
-		{
-			fclose(File);
-            InitSize();
-			return FALSE;
-		}
-		msg = std::string(logmsgbuf, slength);
+		stringbuf = new char[slength+1];
+		len = fread(stringbuf, sizeof(char), slength, File);
+		stringbuf[slength] = 0;
+		msg = CUnicodeUtils::StdGetUnicode(stringbuf);
 		if (reallength)
 		{
 			fseek(File, reallength-MAX_LOG_LENGTH, SEEK_CUR);
 			msg = msg + _T("\n...");
 		}
-		int len2 = ::MultiByteToWideChar(CP_UTF8, NULL, msg.c_str(), min((int)msg.size(), MAX_LOG_LENGTH+5), wbuf, MAX_LOG_LENGTH+5);
-		wbuf[len2] = 0;
-		len2 = ::WideCharToMultiByte(CP_ACP, NULL, wbuf, len2, logmsgbuf, MAX_LOG_LENGTH+5, NULL, NULL);
-		logmsgbuf[len2] = 0;
-		msg = std::string(logmsgbuf);
 		logmessages[rev] = msg;
 	}
 }
 
-BOOL TortoiseBlame::OpenFile(const char *fileName) 
+BOOL TortoiseBlame::OpenFile(const TCHAR *fileName) 
 {
 	SendEditor(SCI_SETREADONLY, FALSE);
 	SendEditor(SCI_CLEARALL);
@@ -229,77 +214,132 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 	SendEditor(SCI_CANCEL);
 	SendEditor(SCI_SETUNDOCOLLECTION, 0);
 	::ShowWindow(wEditor, SW_HIDE);
-	std::ifstream File;
+
+	FILE * File = NULL;
 	int retrycount = 5;
 	while (retrycount)
 	{
-		File.open(fileName);
-		if (File.good())
+		_tfopen_s(&File, fileName, _T("rb"));
+		if (File == 0)
 		{
-			break;
+			Sleep(500);
+			retrycount--;
 		}
-		File.clear();
-		Sleep(500);
-		retrycount--;
+		else
+			break;
 	}
-	if (!File.good())
+	if (File == NULL)
 		return FALSE;
 
-	char line[100*1024];
-	char * lineptr = NULL;
-	char * trimptr = NULL;
-	//ignore the first two lines, they're of no interest to us
-	File.getline(line, sizeof(line)/sizeof(char));
-	File.getline(line, sizeof(line)/sizeof(char));
 	m_lowestrev = LONG_MAX;
 	m_highestrev = 0;
 	bool bUTF8 = true;
-	do
+	size_t len = 0;
+	LONG linenumber = 0;
+	svn_revnum_t rev = 0;
+	svn_revnum_t merged_rev = 0;
+	int strLen = 0;
+	for (;;)
 	{
-		File.getline(line, sizeof(line)/sizeof(TCHAR));
-		if (File.gcount()>139)
+		// line number
+		len = fread(&linenumber, sizeof(LONG), 1, File);
+		if (len == 0)
+			break;
+		// revision	
+		len = fread(&rev, sizeof(svn_revnum_t), 1, File);
+		if (len == 0)
+			break;
+		revs.push_back(rev);
+		// author
+		len = fread(&strLen, sizeof(int), 1, File);
+		if (len == 0)
+			break;
+		if (strLen)
 		{
-			mergelines.push_back((line[0] != ' '));
-			lineptr = &line[9];
-			long rev = _ttol(lineptr);
-			revs.push_back(rev);
+			auto_buffer<char> stringbuf(strLen+1);
+			len = fread(stringbuf.get(), sizeof(char), strLen, File);
+			if (len == 0)
+				break;
+			stringbuf[strLen] = 0;
+			authors.push_back(CUnicodeUtils::StdGetUnicode(stringbuf.get()));
+		}
+		// date
+		len = fread(&strLen, sizeof(int), 1, File);
+		if (len == 0)
+			break;
+		if (strLen)
+		{
+			auto_buffer<char> stringbuf(strLen+1);
+			len = fread(stringbuf.get(), sizeof(char), strLen, File);
+			if (len == 0)
+				break;
+			stringbuf[strLen] = 0;
+			dates.push_back(CUnicodeUtils::StdGetUnicode(stringbuf.get()));
+		}
+		// merged revision
+		len = fread(&merged_rev, sizeof(svn_revnum_t), 1, File);
+		if (len == 0)
+			break;
+		mergedrevs.push_back(merged_rev);
+		if ((merged_rev > 0)&&(merged_rev < rev))
+		{
+			m_lowestrev = min(m_lowestrev, merged_rev);
+			m_highestrev = max(m_highestrev, merged_rev);
+		}
+		else
+		{
 			m_lowestrev = min(m_lowestrev, rev);
 			m_highestrev = max(m_highestrev, rev);
-			lineptr += 7;
-			rev = _ttol(lineptr);
-			origrevs.push_back(rev);
-			lineptr += 7;
-			dates.push_back(std::string(lineptr, 30));
-			lineptr += 31;
-			// unfortunately, the 'path' entry can be longer than the 60 chars
-			// we made the column. We therefore have to step through the path
-			// string until we find a space
-			trimptr = lineptr;
-			do 
-			{
-				// TODO: how can we deal with the situation where the path has
-				// a space in it, but the space is after the 60 chars reserved
-				// for it?
-				// The only way to deal with that would be to use a custom
-				// binary format for the blame file.
-				trimptr++;
-				trimptr = _tcschr(trimptr, ' ');
-			} while ((trimptr)&&(trimptr+1 < lineptr+61));
-			if (trimptr)
-				*trimptr = 0;
-			else
-				trimptr = lineptr;
-			paths.push_back(std::string(lineptr));
-			if (trimptr+1 < lineptr+61)
-				lineptr +=61;
-			else
-				lineptr = (trimptr+1);
-			trimptr = lineptr+30;
-			while ((*trimptr == ' ')&&(trimptr > lineptr))
-				trimptr--;
-			*(trimptr+1) = 0;
-			authors.push_back(std::string(lineptr));
-			lineptr += 31;
+		}
+		// merged author
+		len = fread(&strLen, sizeof(int), 1, File);
+		if (len == 0)
+			break;
+		if (strLen)
+		{
+			auto_buffer<char> stringbuf(strLen+1);
+			len = fread(stringbuf.get(), sizeof(char), strLen, File);
+			if (len == 0)
+				break;
+			stringbuf[strLen] = 0;
+			mergedauthors.push_back(CUnicodeUtils::StdGetUnicode(stringbuf.get()));
+		}
+		// merged date
+		len = fread(&strLen, sizeof(int), 1, File);
+		if (len == 0)
+			break;
+		if (strLen)
+		{
+			auto_buffer<char> stringbuf(strLen+1);
+			len = fread(stringbuf.get(), sizeof(char), strLen, File);
+			if (len == 0)
+				break;
+			stringbuf[strLen] = 0;
+			mergeddates.push_back(CUnicodeUtils::StdGetUnicode(stringbuf.get()));
+		}
+		// merged path
+		len = fread(&strLen, sizeof(int), 1, File);
+		if (len == 0)
+			break;
+		if (strLen)
+		{
+			auto_buffer<char> stringbuf(strLen+1);
+			len = fread(stringbuf.get(), sizeof(char), strLen, File);
+			if (len == 0)
+				break;
+			stringbuf[strLen] = 0;
+			mergedpaths.push_back(CUnicodeUtils::StdGetUnicode(stringbuf.get()));
+		}
+		// text line
+		len = fread(&strLen, sizeof(int), 1, File);
+		if (strLen)
+		{
+			auto_buffer<char> stringbuf(strLen+1);
+			len = fread(stringbuf.get(), sizeof(char), strLen, File);
+			if (len == 0)
+				break;
+			stringbuf.get()[strLen] = 0;
+			char * lineptr = stringbuf.get();
 			// in case we find an UTF8 BOM at the beginning of the line, we remove it
 			if (((unsigned char)lineptr[0] == 0xEF)&&((unsigned char)lineptr[1] == 0xBB)&&((unsigned char)lineptr[2] == 0xBF))
 			{
@@ -379,10 +419,12 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 
 				utf8CheckBuf++;
 			}
-			SendEditor(SCI_ADDTEXT, _tcslen(lineptr), reinterpret_cast<LPARAM>(static_cast<char *>(lineptr)));
-			SendEditor(SCI_ADDTEXT, 2, (LPARAM)_T("\r\n"));
+			SendEditor(SCI_ADDTEXT, strlen(lineptr), reinterpret_cast<LPARAM>(static_cast<char *>(lineptr)));
 		}
-	} while (File.gcount() > 0);
+		SendEditor(SCI_ADDTEXT, 2, (LPARAM)"\r\n");
+	};
+
+	fclose(File);
 
 	if (bUTF8)
 		SendEditor(SCI_SETCODEPAGE, SC_CP_UTF8);
@@ -422,10 +464,10 @@ void TortoiseBlame::InitialiseEditor()
 	m_directPointer = SendMessage(wEditor, SCI_GETDIRECTPOINTER, 0, 0);
 	// Set up the global default style. These attributes are used wherever no explicit choices are made.
 	SetAStyle(STYLE_DEFAULT, black, white, (DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameFontSize"), 10), 
-		((tstring)(CRegStdString(_T("Software\\TortoiseSVN\\BlameFontName"), _T("Courier New")))).c_str());
+		(CUnicodeUtils::StdGetUTF8((tstring)(CRegStdString(_T("Software\\TortoiseSVN\\BlameFontName"), _T("Courier New"))))).c_str());
 	SendEditor(SCI_SETTABWIDTH, (DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameTabSize"), 4));
 	SendEditor(SCI_SETREADONLY, TRUE);
-	LRESULT pix = SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM)_T("_99999"));
+	LRESULT pix = SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM)"_99999");
 	if (ShowLine)
 		SendEditor(SCI_SETMARGINWIDTHN, 0, pix);
 	else
@@ -453,7 +495,7 @@ void TortoiseBlame::SelectLine(int yPos, bool bAlwaysSelect)
 		if ((bAlwaysSelect)||(app.revs[line] != app.m_selectedrev))
 		{
 			app.m_selectedrev = app.revs[line];
-			app.m_selectedorigrev = app.origrevs[line];
+			app.m_selectedorigrev = app.revs[line];
 			app.m_selectedauthor = app.authors[line];
 			app.m_selecteddate = app.dates[line];
 		}
@@ -491,7 +533,7 @@ void TortoiseBlame::StartSearch()
 	currentDialog = FindText(&fr);
 }
 
-bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
+bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
 {
 	TCHAR szWhat[80];
 	int pos = (int)SendEditor(SCI_GETCURRENTPOS);
@@ -499,16 +541,16 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 	bool bFound = false;
 	bool bCaseSensitive = !!(flags & FR_MATCHCASE);
 
-	strcpy_s(szWhat, sizeof(szWhat), what);
+	_tcscpy_s(szWhat, sizeof(szWhat)/sizeof(TCHAR), what);
 
 	if(!bCaseSensitive)
 	{
-		MakeLower(szWhat, strlen(szWhat));
+		MakeLower(szWhat, _tcslen(szWhat));
 	}
 
-	std::string sWhat = std::string(szWhat);
+	tstring sWhat = tstring(szWhat);
 	
-	char buf[20];
+	TCHAR buf[20];
 	int i=0;
 	for (i=line; (i<(int)authors.size())&&(!bFound); ++i)
 	{
@@ -516,18 +558,19 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 		auto_buffer<char> linebuf(bufsize+1);
 		SecureZeroMemory(linebuf, bufsize+1);
 		SendEditor(SCI_GETLINE, i, (LPARAM)linebuf.get());
+		tstring sLine = CUnicodeUtils::StdGetUnicode(linebuf.get());
 		if (!bCaseSensitive)
 		{
-			MakeLower(linebuf, bufsize);
+			std::transform(sLine.begin(), sLine.end(), sLine.begin(), std::tolower);
 		}
 		_stprintf_s(buf, 20, _T("%ld"), revs[i]);
 		if (authors[i].compare(sWhat)==0)
 			bFound = true;
-		else if ((!bCaseSensitive)&&(_stricmp(authors[i].c_str(), szWhat)==0))
+		else if ((!bCaseSensitive)&&(_tcsicmp(authors[i].c_str(), szWhat)==0))
 			bFound = true;
-		else if (strcmp(buf, szWhat) == 0)
+		else if (_tcscmp(buf, szWhat) == 0)
 			bFound = true;
-		else if (strstr(linebuf, szWhat))
+		else if (_tcsstr(sLine.c_str(), szWhat))
 			bFound = true;
 	}
 	if (!bFound)
@@ -538,18 +581,19 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 			auto_buffer<char> linebuf(bufsize+1);
 			SecureZeroMemory(linebuf, bufsize+1);
 			SendEditor(SCI_GETLINE, i, (LPARAM)linebuf.get());
+			tstring sLine = CUnicodeUtils::StdGetUnicode(linebuf.get());
 			if (!bCaseSensitive)
 			{
-				MakeLower(linebuf, bufsize);
+				std::transform(sLine.begin(), sLine.end(), sLine.begin(), std::tolower);
 			}
 			_stprintf_s(buf, 20, _T("%ld"), revs[i]);
 			if (authors[i].compare(sWhat)==0)
 				bFound = true;
-			else if ((!bCaseSensitive)&&(_stricmp(authors[i].c_str(), szWhat)==0))
+			else if ((!bCaseSensitive)&&(_tcsicmp(authors[i].c_str(), szWhat)==0))
 				bFound = true;
-			else if (strcmp(buf, szWhat) == 0)
+			else if (_tcscmp(buf, szWhat) == 0)
 				bFound = true;
-			else if (strstr(linebuf, szWhat))
+			else if (_tcsstr(sLine.c_str(), szWhat))
 				bFound = true;
 		}
 	}
@@ -564,7 +608,7 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 	}
 	else
 	{
-		::MessageBox(wMain, searchstringnotfound, "TortoiseBlame", MB_ICONINFORMATION);
+		::MessageBox(wMain, searchstringnotfound, _T("TortoiseBlame"), MB_ICONINFORMATION);
 	}
 	return true;
 }
@@ -627,26 +671,26 @@ void TortoiseBlame::CopySelectedLogToClipboard()
 {
 	if (m_selectedrev <= 0)
 		return;
-	std::map<LONG, std::string>::iterator iter;
+	std::map<LONG, tstring>::iterator iter;
 	if ((iter = app.logmessages.find(m_selectedrev)) != app.logmessages.end())
 	{
-		std::string msg;
+		tstring msg;
 		msg += m_selectedauthor;
-		msg += "  ";
+		msg += _T("  ");
 		msg += app.m_selecteddate;
-		msg += '\n';
+		msg += _T("\n");
 		msg += iter->second;
 		msg += _T("\n");
 		if (OpenClipboard(app.wBlame))
 		{
 			EmptyClipboard();
 			HGLOBAL hClipboardData;
-			hClipboardData = GlobalAlloc(GMEM_DDESHARE, msg.size()+1);
-			char * pchData;
-			pchData = (char*)GlobalLock(hClipboardData);
-			strcpy_s(pchData, msg.size()+1, msg.c_str());
+			hClipboardData = GlobalAlloc(GMEM_DDESHARE, msg.size()*sizeof(TCHAR)+1);
+			TCHAR * pchData;
+			pchData = (TCHAR*)GlobalLock(hClipboardData);
+			_tcscpy_s(pchData, msg.size()+1, msg.c_str());
 			GlobalUnlock(hClipboardData);
-			SetClipboardData(CF_TEXT,hClipboardData);
+			SetClipboardData(CF_UNICODETEXT,hClipboardData);
 			CloseClipboard();
 		}
 	}
@@ -681,13 +725,13 @@ void TortoiseBlame::BlamePreviousRevision()
 		}
 	}
 
-	char bufStartRev[20];
+	TCHAR bufStartRev[20];
 	_stprintf_s(bufStartRev, 20, _T("%d"), nSmallestRevision);
 
-	char bufEndRev[20];
+	TCHAR bufEndRev[20];
 	_stprintf_s(bufEndRev, 20, _T("%d"), nRevisionTo);
 
-	char bufLine[20];
+	TCHAR bufLine[20];
 	_stprintf_s(bufLine, 20, _T("%d"), m_SelectedLine+1); //using the current line is a good guess.
 
 	tstring svnCmd = _T(" /command:blame ");
@@ -719,10 +763,10 @@ void TortoiseBlame::DiffPreviousRevision()
 
 	LONG nRevisionFrom = nRevisionTo-1;
 
-	char bufStartRev[20];
+	TCHAR bufStartRev[20];
 	_stprintf_s(bufStartRev, 20, _T("%d"), nRevisionFrom);
 
-	char bufEndRev[20];
+	TCHAR bufEndRev[20];
 	_stprintf_s(bufEndRev, 20, _T("%d"), nRevisionTo);
 
 	tstring svnCmd = _T(" /command:diff ");
@@ -738,7 +782,7 @@ void TortoiseBlame::DiffPreviousRevision()
 
 void TortoiseBlame::ShowLog()
 {
-	char bufRev[20];
+	TCHAR bufRev[20];
 	_stprintf_s(bufRev, 20, _T("%d"), m_selectedorigrev);
 
 	tstring svnCmd = _T(" /command:log ");
@@ -889,7 +933,7 @@ LONG TortoiseBlame::GetBlameWidth()
 	if (ShowAuthor)
 	{
 		SIZE maxwidth = {0};
-		for (std::vector<std::string>::iterator I = authors.begin(); I != authors.end(); ++I)
+		for (std::vector<tstring>::iterator I = authors.begin(); I != authors.end(); ++I)
 		{
 			::GetTextExtentPoint32(hDC, I->c_str(), (int)I->size(), &width);
 			if (width.cx > maxwidth.cx)
@@ -901,7 +945,7 @@ LONG TortoiseBlame::GetBlameWidth()
 	if (ShowPath)
 	{
 		SIZE maxwidth = {0};
-		for (std::vector<std::string>::iterator I = paths.begin(); I != paths.end(); ++I)
+		for (std::vector<tstring>::iterator I = mergedpaths.begin(); I != mergedpaths.end(); ++I)
 		{
 			::GetTextExtentPoint32(hDC, I->c_str(), (int)I->size(), &width);
 			if (width.cx > maxwidth.cx)
@@ -958,52 +1002,55 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 		sel = FALSE;
 		if (i < (int)revs.size())
 		{
-			if (mergelines[i])
+			bool bUseMerged = ((mergedrevs[i] > 0)&&(mergedrevs[i] < revs[i]));
+			if (bUseMerged)
 				oldfont = (HFONT)::SelectObject(hDC, m_italicfont);
 			else
 				oldfont = (HFONT)::SelectObject(hDC, m_font);
 			::SetBkColor(hDC, m_windowcolor);
 			::SetTextColor(hDC, m_textcolor);
-			if (authors[i].size()>0)
+			tstring author = bUseMerged ? mergedauthors[i] : authors[i];
+			if (author.size() > 0)
 			{
-				if (authors[i].compare(m_mouseauthor)==0)
+				if (author.compare(m_mouseauthor)==0)
 					::SetBkColor(hDC, m_mouseauthorcolor);
-				if (authors[i].compare(m_selectedauthor)==0)
+				if (author.compare(m_selectedauthor)==0)
 				{
 					::SetBkColor(hDC, m_selectedauthorcolor);
 					::SetTextColor(hDC, m_texthighlightcolor);
 					sel = TRUE;
 				}
 			}
-			if ((revs[i] == m_mouserev)&&(!sel))
+			svn_revnum_t rev = bUseMerged ? mergedrevs[i] : revs[i];
+			if ((rev == m_mouserev)&&(!sel))
 				::SetBkColor(hDC, m_mouserevcolor);
-			if (revs[i] == m_selectedrev)
+			if (rev == m_selectedrev)
 			{
 				::SetBkColor(hDC, m_selectedrevcolor);
 				::SetTextColor(hDC, m_texthighlightcolor);
 			}
-			_stprintf_s(buf, MAX_PATH, _T("%8ld       "), revs[i]);
+			_stprintf_s(buf, MAX_PATH, _T("%8ld       "), rev);
 			rc.right = rc.left + m_revwidth;
 			::ExtTextOut(hDC, 0, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)_tcslen(buf), 0);
 			int Left = m_revwidth;
 			if (ShowDate)
 			{
 				rc.right = rc.left + Left + m_datewidth;
-				_stprintf_s(buf, MAX_PATH, _T("%30s            "), dates[i].c_str());
+				_stprintf_s(buf, MAX_PATH, _T("%30s            "), bUseMerged ? mergeddates[i].c_str() : dates[i].c_str());
 				::ExtTextOut(hDC, Left, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)_tcslen(buf), 0);
 				Left += m_datewidth;
 			}
 			if (ShowAuthor)
 			{
 				rc.right = rc.left + Left + m_authorwidth;
-				_stprintf_s(buf, MAX_PATH, _T("%-30s            "), authors[i].c_str());
+				_stprintf_s(buf, MAX_PATH, _T("%-30s            "), author.c_str());
 				::ExtTextOut(hDC, Left, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)_tcslen(buf), 0);
 				Left += m_authorwidth;
 			}
 			if (ShowPath)
 			{
 				rc.right = rc.left + Left + m_pathwidth;
-				_stprintf_s(buf, MAX_PATH, _T("%-60s            "), paths[i].c_str());
+				_stprintf_s(buf, MAX_PATH, _T("%-60s            "), mergedpaths[i].c_str());
 				::ExtTextOut(hDC, Left, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)_tcslen(buf), 0);
 				Left += m_authorwidth;
 			}
@@ -1132,7 +1179,7 @@ void TortoiseBlame::StringExpand(LPSTR str)
 		cPos = strchr(cPos, '\n');
 		if (cPos)
 		{
-			memmove(cPos+1, cPos, strlen(cPos)*sizeof(char));
+			memmove(cPos+1, cPos, strlen(cPos));
 			*cPos = '\r';
 			cPos++;
 			cPos++;
@@ -1147,7 +1194,7 @@ void TortoiseBlame::StringExpand(LPWSTR str)
 		cPos = wcschr(cPos, '\n');
 		if (cPos)
 		{
-			memmove(cPos+1, cPos, wcslen(cPos)*sizeof(wchar_t));
+			wmemmove(cPos+1, cPos, wcslen(cPos));
 			*cPos = '\r';
 			cPos++;
 			cPos++;
@@ -1155,12 +1202,12 @@ void TortoiseBlame::StringExpand(LPWSTR str)
 	} while (cPos != NULL);
 }
 
-void TortoiseBlame::MakeLower( char* buffer, size_t len )
+void TortoiseBlame::MakeLower(TCHAR* buffer, size_t len)
 {
-	for (char *p = buffer; p < buffer + len; p++)
+	for (TCHAR *p = buffer; p < buffer + len; p++)
 	{
-		if (isupper(*p)&&__isascii(*p))
-			*p = _tolower(*p);
+		if (_istupper(*p)&&_istascii(*p))
+			*p = _totlower(*p);
 	}
 }
 
@@ -1196,7 +1243,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	MSG msg;
 	HACCEL hAccelTable;
 
-	if (::LoadLibrary("SciLexer.DLL") == NULL)
+	if (::LoadLibrary(_T("SciLexer.DLL")) == NULL)
 		return FALSE;
 
 	CRegStdDWORD loc = CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
@@ -1225,23 +1272,23 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
 	SecureZeroMemory(szViewtitle, MAX_PATH);
 	SecureZeroMemory(szOrigPath, MAX_PATH);
-	char blamefile[MAX_PATH] = {0};
-	char logfile[MAX_PATH] = {0};
+	TCHAR blamefile[MAX_PATH] = {0};
+	TCHAR logfile[MAX_PATH] = {0};
 
 	CCmdLineParser parser(lpCmdLine);
 
 
 	if (__argc > 1)
 	{
-		_tcscpy_s(blamefile, MAX_PATH, __argv[1]);
+		_tcscpy_s(blamefile, MAX_PATH, __wargv[1]);
 	}
 	if (__argc > 2)
 	{
-		_tcscpy_s(logfile, MAX_PATH, __argv[2]);
+		_tcscpy_s(logfile, MAX_PATH, __wargv[2]);
 	}
 	if (__argc > 3)
 	{
-		_tcscpy_s(szViewtitle, MAX_PATH, __argv[3]);
+		_tcscpy_s(szViewtitle, MAX_PATH, __wargv[3]);
 		if (parser.HasVal(_T("revrange")))
 		{
 			_tcscat_s(szViewtitle, MAX_PATH, _T(" : "));
@@ -1542,8 +1589,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_CREATE:
 		app.wEditor = ::CreateWindow(
-			"Scintilla",
-			"Source",
+			_T("Scintilla"),
+			_T("Source"),
 			WS_CHILD | WS_VSCROLL | WS_HSCROLL | WS_CLIPCHILDREN,
 			0, 0,
 			100, 100,
@@ -1671,24 +1718,24 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 					break;
 				if (line < 0)
 					break;
-				LONG rev = app.revs[line];
+				bool bUseMerged = ((app.mergedrevs[line] > 0)&&(app.mergedrevs[line] < app.revs[line]));
+				LONG rev = bUseMerged ? app.mergedrevs[line] : app.revs[line];
 				LONG origrev = -1;
-				if (line < (LONG)app.origrevs.size())
-					origrev = app.origrevs[line];
+				origrev = app.revs[line];
 
 				SecureZeroMemory(app.m_szTip, sizeof(app.m_szTip));
 				SecureZeroMemory(app.m_wszTip, sizeof(app.m_wszTip));
-				std::map<LONG, std::string>::iterator iter;
+				std::map<LONG, tstring>::iterator iter;
 				if ((iter = app.logmessages.find(rev)) != app.logmessages.end())
 				{
-					std::string msg;
+					tstring msg;
 					if (!ShowAuthor)
 					{
 						msg += app.authors[line];
 					}
 					if (!ShowDate)
 					{
-						if (!ShowAuthor) msg += "  ";
+						if (!ShowAuthor) msg += _T("  ");
 						msg += app.dates[line];
 					}
 					if (!ShowAuthor || !ShowDate)
@@ -1697,13 +1744,13 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 					if (rev != origrev)
 					{
 						// add the merged revision
-						std::map<LONG, std::string>::iterator iter2;
+						std::map<LONG, tstring>::iterator iter2;
 						if ((iter2 = app.logmessages.find(origrev)) != app.logmessages.end())
 						{
 							if (!msg.empty())
 								msg += _T("\n------------------\n");
-							char revBuf[100];
-							_stprintf_s(revBuf, 100, "merged in r%ld:\n----\n", origrev);
+							TCHAR revBuf[100];
+							_stprintf_s(revBuf, 100, _T("merged in r%ld:\n----\n"), origrev);
 							msg += revBuf;
 							msg += iter2->second;
 						}
@@ -1717,14 +1764,14 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 
 					if (pNMHDR->code == TTN_NEEDTEXTA)
 					{
-						lstrcpyn(app.m_szTip, msg.c_str(), MAX_LOG_LENGTH*2);
+						lstrcpynA(app.m_szTip, CUnicodeUtils::StdGetUTF8(msg).c_str(), MAX_LOG_LENGTH*2);
 						app.StringExpand(app.m_szTip);
 						pTTTA->lpszText = app.m_szTip;
 					}
 					else
 					{
 						pTTTW->lpszText = app.m_wszTip;
-						::MultiByteToWideChar( CP_ACP , 0, msg.c_str(), min((int)msg.size(), MAX_LOG_LENGTH*2), app.m_wszTip, MAX_LOG_LENGTH*2);
+						lstrcpyn(app.m_wszTip, msg.c_str(), MAX_LOG_LENGTH*2);
 						app.StringExpand(app.m_wszTip);
 					}
 				}

@@ -33,6 +33,7 @@ CBlame::CBlame()
 	m_nCounter = 0;
 	m_nHeadRev = -1;
 	m_bNoLineNo = false;
+	extBlame = FALSE;
 }
 CBlame::~CBlame()
 {
@@ -43,54 +44,91 @@ BOOL CBlame::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString
 						   svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path,
 						   const CStringA& line)
 {
-	CStringA infolineA;
-	CStringA fulllineA;
-	svn_revnum_t origrev = revision;
-
 	if (((m_lowestrev < 0)||(m_lowestrev > revision))&&(revision >= 0))
 		m_lowestrev = revision;
 	if (m_highestrev < revision)
 		m_highestrev = revision;
-
-	CStringA dateA(date);
-	CStringA authorA(author);
-	CStringA pathA(merged_path);
-	TCHAR c = ' ';
 	if ((merged_revision > 0)&&(merged_revision < revision))
-	{
-		dateA = CStringA(merged_date);
-		authorA = CStringA(merged_author);
-		revision = merged_revision;
-		c = 'G';
 		m_bHasMerges = true;
-	}
 
-	if (pathA.Find(' ') >= 60)
+	if (extBlame)
 	{
-		// the merge path has spaces in it:
-		// TortoiseBlame can't deal with such paths if the space is after
-		// the 60 char which is reserved for the path length in the blame file
-		// To avoid these problems, we escape the space
-		// (not the best solution, but it works)
-		pathA.Replace(" ", "%20");
+		CStringA infolineA;
+		CStringA fulllineA;
+		svn_revnum_t origrev = revision;
+
+		CStringA dateA(date);
+		CStringA authorA(author);
+		CStringA pathA(merged_path);
+		TCHAR c = ' ';
+		if ((merged_revision > 0)&&(merged_revision < revision))
+		{
+			dateA = CStringA(merged_date);
+			authorA = CStringA(merged_author);
+			revision = merged_revision;
+			c = 'G';
+		}
+
+		if (authorA.GetLength() > 30 )
+			authorA = authorA.Left(30);
+		if (m_bNoLineNo)
+			infolineA.Format("%c %6ld %6ld %-30s %-60s %-30s ", c, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+		else
+			infolineA.Format("%c %6ld %6ld %6ld %-30s %-60s %-30s ", c, linenumber, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+		fulllineA = line;
+		fulllineA.TrimRight("\r\n");
+		fulllineA += "\n";
+		if (m_saveFile.m_hFile != INVALID_HANDLE_VALUE)
+		{
+			m_saveFile.WriteString(infolineA);
+			m_saveFile.WriteString(fulllineA);
+			return TRUE;
+		}
+		else
+			return FALSE;
 	}
-	if (authorA.GetLength() > 30 )
-		authorA = authorA.Left(30);
-	if (m_bNoLineNo)
-		infolineA.Format("%c %6ld %6ld %-30s %-60s %-30s ", c, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
 	else
-		infolineA.Format("%c %6ld %6ld %6ld %-30s %-60s %-30s ", c, linenumber, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
-	fulllineA = line;
-	fulllineA.TrimRight("\r\n");
-	fulllineA += "\n";
-	if (m_saveFile.m_hFile != INVALID_HANDLE_VALUE)
 	{
-		m_saveFile.WriteString(infolineA);
-		m_saveFile.WriteString(fulllineA);
+		if (m_saveFile.m_hFile != INVALID_HANDLE_VALUE)
+		{
+			m_saveFile.Write(&linenumber, sizeof(LONG));
+			m_saveFile.Write(&revision, sizeof(svn_revnum_t));
+
+			CStringA tempA = CUnicodeUtils::GetUTF8(author);
+			int length = tempA.GetLength();
+			m_saveFile.Write(&length, sizeof(int));
+			m_saveFile.Write((LPCSTR)tempA, length);
+
+			tempA = CUnicodeUtils::GetUTF8(date);
+			length = tempA.GetLength();
+			m_saveFile.Write(&length, sizeof(int));
+			m_saveFile.Write((LPCSTR)tempA, length);
+
+			m_saveFile.Write(&merged_revision, sizeof(svn_revnum_t));
+
+			tempA = CUnicodeUtils::GetUTF8(merged_author);
+			length = tempA.GetLength();
+			m_saveFile.Write(&length, sizeof(int));
+			m_saveFile.Write((LPCSTR)tempA, length);
+
+			tempA = CUnicodeUtils::GetUTF8(merged_date);
+			length = tempA.GetLength();
+			m_saveFile.Write(&length, sizeof(int));
+			m_saveFile.Write((LPCSTR)tempA, length);
+
+			tempA = CUnicodeUtils::GetUTF8(merged_path);
+			length = tempA.GetLength();
+			m_saveFile.Write(&length, sizeof(int));
+			m_saveFile.Write((LPCSTR)tempA, length);
+
+			length = line.GetLength();
+			m_saveFile.Write(&length, sizeof(int));
+			m_saveFile.Write((LPCSTR)line, length);
+			return TRUE;
+		}
+		else
+			return FALSE;
 	}
-	else
-		return FALSE;
-	return TRUE;
 }
 
 BOOL CBlame::Log(svn_revnum_t revision, const CString& /*author*/, const CString& message, apr_time_t /*time*/, BOOL /*children*/)
@@ -121,7 +159,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 	// if the user specified to use another tool to show the blames, there's no
 	// need to fetch the log later: only TortoiseBlame uses those logs to give 
 	// the user additional information for the blame.
-	BOOL extBlame = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
+	extBlame = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
 
 	CString temp;
 	m_sSavePath = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
@@ -130,13 +168,16 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 	temp = path.GetFileExtension();
 	if (!temp.IsEmpty() && !extBlame)
 		m_sSavePath += temp;
-	if (!m_saveFile.Open(m_sSavePath, CFile::typeText | CFile::modeReadWrite | CFile::modeCreate))
+	if (!m_saveFile.Open(m_sSavePath, (extBlame ? CFile::typeText : CFile::typeBinary) | CFile::modeReadWrite | CFile::modeCreate))
 		return _T("");
 	CString headline;
 	m_bNoLineNo = false;
-	headline.Format(_T("%c %-6s %-6s %-6s %-30s %-60s %-30s %-s \n"), ' ', _T("line"), _T("rev"), _T("merged"), _T("date"), _T("path"), _T("author"), _T("content"));
-	m_saveFile.WriteString(headline);
-	m_saveFile.WriteString(_T("\n"));
+	if (extBlame)
+	{
+		headline.Format(_T("%c %-6s %-6s %-6s %-30s %-60s %-30s %-s \n"), ' ', _T("line"), _T("rev"), _T("merged"), _T("date"), _T("path"), _T("author"), _T("content"));
+		m_saveFile.WriteString(headline);
+		m_saveFile.WriteString(_T("\n"));
+	}
 	m_progressDlg.SetTitle(IDS_BLAME_PROGRESSTITLE);
 	m_progressDlg.SetAnimation(IDR_DOWNLOAD);
 	m_progressDlg.SetShowProgressBar(TRUE);
@@ -155,7 +196,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 
 	m_bHasMerges = false;
 	BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, pegrev, options, !!ignoremimetype, !!includemerge);
-	if ( !bBlameSuccesful && !pegrev.IsValid() )
+	if (!bBlameSuccesful && !pegrev.IsValid())
 	{
 		// retry with the end rev as peg rev
 		if (this->Blame(path, startrev, endrev, endrev, options, !!ignoremimetype, !!includemerge))
@@ -170,33 +211,36 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 		DeleteFile(m_sSavePath);
 		m_sSavePath.Empty();
 	}
-	else if (!extBlame)
+	else
 	{
-		m_progressDlg.FormatNonPathLine(2, IDS_BLAME_PROGRESSLOGSTART);
-		m_progressDlg.SetProgress(0, m_highestrev);
-		logfile = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
-		if (!m_saveLog.Open(logfile, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate))
-		{
-			logfile.Empty();
-			return m_sSavePath;
-		}
-		if (   (NULL == ReceiveLog (CTSVNPathList(path), pegrev, m_nHeadRev, m_lowestrev, 0, FALSE, m_bHasMerges, false).get())
-            || (Err != NULL))
-		{
-            // we don't want partial logs
+		m_saveFile.Close();
 
-			m_saveLog.Close();
-			DeleteFile(logfile);
-			logfile.Empty();
-		}
-		else
+		if (!extBlame)
 		{
-			m_saveLog.Close();
+			m_progressDlg.FormatNonPathLine(2, IDS_BLAME_PROGRESSLOGSTART);
+			m_progressDlg.SetProgress(0, m_highestrev);
+			logfile = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
+			if (!m_saveLog.Open(logfile, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate))
+			{
+				logfile.Empty();
+				return m_sSavePath;
+			}
+			if (   (NULL == ReceiveLog (CTSVNPathList(path), pegrev, m_nHeadRev, m_lowestrev, 0, FALSE, m_bHasMerges, false).get())
+				|| (Err != NULL))
+			{
+				// we don't want partial logs
+
+				m_saveLog.Close();
+				DeleteFile(logfile);
+				logfile.Empty();
+			}
+			else
+			{
+				m_saveLog.Close();
+			}
 		}
 	}
 	m_progressDlg.Stop();
-	if (m_saveFile.m_hFile != INVALID_HANDLE_VALUE)
-		m_saveFile.Close();
 
 	return m_sSavePath;
 }
@@ -215,6 +259,7 @@ BOOL CBlame::Notify(const CTSVNPath& /*path*/, svn_wc_notify_action_t /*action*/
 bool CBlame::BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, 
 						 const CTSVNPath& tofile, const CString& options, BOOL ignoremimetype, BOOL includemerge)
 {
+	extBlame = TRUE;
 	CString temp;
 	if (!m_saveFile.Open(tofile.GetWinPathString(), CFile::typeText | CFile::modeReadWrite | CFile::modeCreate))
 		return false;

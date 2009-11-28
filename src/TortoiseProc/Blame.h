@@ -73,4 +73,5 @@ private:
 	CProgressDlg m_progressDlg;			///< The progress dialog shown during operation
 	LONG		m_lowestrev;
 	LONG		m_highestrev;
+	BOOL		extBlame;
 };
