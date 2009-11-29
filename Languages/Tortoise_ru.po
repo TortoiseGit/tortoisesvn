@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2009
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 17466: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 17733: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-19 17:55+0300\n"
+"PO-Revision-Date: 2009-11-30 01:16+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2537,6 +2537,11 @@ msgstr "Фиксации по автору"
 msgid "Commits by date"
 msgstr "Фиксации по дате"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "Commits each %s"
+msgstr "Фиксаций (в %s):"
+
 #. Resource IDs: (1135)
 msgid "Commits each week:"
 msgstr "Фиксаций в неделю:"
@@ -2585,6 +2590,14 @@ msgstr "Сравнить с б&азой"
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
 msgstr "Сравнить с предыдущей ревизией"
+
+#. Resource IDs: (2055)
+msgid ""
+"Compares all whitespaces when diffing\n"
+"Compare whitespaces"
+msgstr ""
+"Сравнивает все непечатаемые знаки при поиске различий\n"
+"Сравнивать непечатаемые знаки"
 
 #. Resource IDs: (12)
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -2681,6 +2694,10 @@ msgstr "Скопировано"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "Скопировано из URL"
+
+#. Resource IDs: (208)
+msgid "Copied from revision"
+msgstr "Скопировано из ревизии"
 
 #. Resource IDs: (275)
 #, c-format
@@ -3922,6 +3939,16 @@ msgstr "Извлечение ревизии %s файла"
 msgid "File"
 msgstr "Файл"
 
+# день
+# нед.
+# месяц
+# квартал
+# год
+#. Resource IDs: (247)
+#, c-format
+msgid "File changes each %s"
+msgstr "Изменений файлов (в %s):"
+
 #. Resource IDs: (1138)
 msgid "File changes each week:"
 msgstr "Изменений файлов в неделю:"
@@ -4518,6 +4545,10 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +K"
+msgstr "ID:32825:V C +K"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
 msgstr "ID:32825:V C +L"
 
@@ -4736,6 +4767,10 @@ msgstr "Игнорировать &все непечатаемые знаки"
 msgid "Ignore &case changes"
 msgstr "Игнорировать изменения &регистра"
 
+#. Resource IDs: (32873)
+msgid "Ignore all whitespace changes"
+msgstr "Игнорировать все изменения непечатаемых знаков"
+
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Игнорировать все непечатаемые знаки"
@@ -4760,6 +4795,22 @@ msgstr "Игнорировать изменения непечатаемых з�
 #. Resource IDs: (226)
 msgid "Ignored items included"
 msgstr "Включая игнорируемые элементы"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores all whitespace changes when diffing\n"
+"Ignore all whitespace changes"
+msgstr ""
+"Игнорирует все изменения непечатаемых знаков при поиске различий\n"
+"Игнорировать все изменения непечатаемых знаков"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores changes in whitespaces when diffing\n"
+"Ignore whitespace changes"
+msgstr ""
+"Игнорирует изменения в непечатаемых знаках при поиске различий\n"
+"Игнорировать изменения непечатаемых знаков"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5874,6 +5925,16 @@ msgstr "Обратите внимание: настройки шрифта ра�
 msgid "Notice"
 msgstr "Уведомление"
 
+# день
+# нед.
+# месяц
+# квартал
+# год
+#. Resource IDs: (247)
+#, c-format
+msgid "Number of %s"
+msgstr "Количество  (%s):"
+
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
 msgstr "Количество авторов в кэше"
@@ -6305,6 +6366,16 @@ msgstr "Ловушка перед-фиксацией"
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
 msgstr "Ловушка перед-обновлением"
+
+# Выбирать элементы:
+#. Resource IDs: (3)
+msgid "Prefer local"
+msgstr "Локальные"
+
+# Выбирать элементы:
+#. Resource IDs: (4)
+msgid "Prefer repository"
+msgstr "Из хранилища"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -8211,6 +8282,14 @@ msgstr "Статус текста:"
 msgid "Text status"
 msgstr "Статус текста"
 
+#. Resource IDs: (84)
+msgid ""
+"The URL to check out refers to a file but this\n"
+"working copy path is an existing directory."
+msgstr ""
+"URL для извлечения относится к файлу, но по этому\n"
+"пути в рабочей копии уже существует папка."
+
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "Размер куска кода на соответствует количеству добавленных/удаленных строк!"
@@ -9347,6 +9426,10 @@ msgstr ""
 "Для разделения нескольких исключений используйте запятые (',').\r\n"
 "Например: *.mylan.com, *.company.com"
 
+#. Resource IDs: (1538)
+msgid "Use Aero dialogs"
+msgstr "Использовать диалоги Aero."
+
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Задать изначально URL &рабочей копии в поле \"Из:\""
@@ -9403,11 +9486,6 @@ msgstr "Использовать оба текстовых блока (этот 
 msgid "Use left file"
 msgstr "Использовать левый файл"
 
-# Использовать изменения:
-#. Resource IDs: (3)
-msgid "Use local"
-msgstr "Локальные"
-
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
 msgstr "Использовать корзину при отмене изменений"
@@ -9416,11 +9494,6 @@ msgstr "Использовать корзину при отмене измене
 #. Resource IDs: (116)
 msgid "Use regular expression"
 msgstr "Регулярное выражение"
-
-# Использовать изменения:
-#. Resource IDs: (4)
-msgid "Use repository"
-msgstr "Из хранилища"
 
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
@@ -10723,9 +10796,10 @@ msgstr ""
 "Строка %REVISION% в этом URL заменяется на номер ревизии."
 
 # статистика: номера недель
+# пришлось сократить, поскольку используется в разных местах и нет возможности согласовать
 #. Resource IDs: (245)
 msgid "week"
-msgstr "неделя"
+msgstr "нед."
 
 # статистика кэша
 #. Resource IDs: (65535)
