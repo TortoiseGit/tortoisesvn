@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-21 08:11-0600\n"
+"PO-Revision-Date: 2009-11-29 16:51-0600\n"
 "Last-Translator: Evan Allrich <eallrich@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2997,6 +2997,12 @@ msgid "Commits by date"
 msgstr "Mengkomit dengan tanggal"
 
 # Control-ID:1135,
+#. Resource IDs: (247)
+#, c-format
+msgid "Commits each %s"
+msgstr "Mengkomit setiap %s"
+
+# Control-ID:1135,
 #. Resource IDs: (1135)
 msgid "Commits each week:"
 msgstr "Mengkomit setiap minggu:"
@@ -3050,6 +3056,14 @@ msgstr "Bandingkan dengan b&ase"
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
 msgstr "Bandingkan dengan revisi sebelumnya"
+
+#. Resource IDs: (2055)
+msgid ""
+"Compares all whitespaces when diffing\n"
+"Compare whitespaces"
+msgstr ""
+"Membandingkan semua spasi putih ketika diffing \n"
+"Bandingkan spasi putih"
 
 # ID:12,
 #. Resource IDs: (12)
@@ -3167,6 +3181,11 @@ msgstr "Dicopy"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "Copy dari URL"
+
+# ID:208,
+#. Resource IDs: (208)
+msgid "Copied from revision"
+msgstr "Disalin dari revisi"
 
 # ID:76,
 #. Resource IDs: (275)
@@ -4662,6 +4681,12 @@ msgid "File"
 msgstr "Berkas"
 
 # Control-ID:1138,
+#. Resource IDs: (247)
+#, c-format
+msgid "File changes each %s"
+msgstr "Perubahan berkas setiap %s"
+
+# Control-ID:1138,
 #. Resource IDs: (1138)
 msgid "File changes each week:"
 msgstr "Perubahan berkas setiap minggu:"
@@ -5325,6 +5350,10 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +K"
+msgstr "ID:32825:V C +K"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
 msgstr "ID:32825:V C +L"
 
@@ -5565,6 +5594,11 @@ msgstr "Abaikan &semua spasi putih"
 msgid "Ignore &case changes"
 msgstr "Abaikan perubahan &huruf"
 
+# Control-ID:1021,
+#. Resource IDs: (32873)
+msgid "Ignore all whitespace changes"
+msgstr "Abaikan semua perubahan spasi putih"
+
 # Control-ID:1020,
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
@@ -5594,6 +5628,22 @@ msgstr "Abaikan perubahan spasi putih"
 #. Resource IDs: (226)
 msgid "Ignored items included"
 msgstr "Item-item terabaikan dimasukkan"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores all whitespace changes when diffing\n"
+"Ignore all whitespace changes"
+msgstr ""
+"Mengabaikan semua perubahan spasi putih ketika diffing\n"
+"Mengabaikan semua perubahan spasi putih"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores changes in whitespaces when diffing\n"
+"Ignore whitespace changes"
+msgstr ""
+"Mengabaikan perubahan spasi putih ketika diffing\n"
+"Mengabaikan perubahan spasi putih"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -6896,6 +6946,12 @@ msgstr "Catatan: pengaturan huruf juga mempengaruhi pelihat TortoiseUDiff"
 msgid "Notice"
 msgstr "Pemberitahuan"
 
+# Control-ID:1160,
+#. Resource IDs: (247)
+#, c-format
+msgid "Number of %s"
+msgstr "Jumlah %s"
+
 # Control-ID:1161,
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
@@ -7395,6 +7451,16 @@ msgstr "Hook Pre-Komit"
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
 msgstr "Hook Pre-Pemutakhiran"
+
+# ID:74,
+#. Resource IDs: (3)
+msgid "Prefer local"
+msgstr "Lebih suka lokal"
+
+# ID:138,
+#. Resource IDs: (4)
+msgid "Prefer repository"
+msgstr "Lebih suka repositori"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -9657,6 +9723,14 @@ msgstr "Status Teks:"
 msgid "Text status"
 msgstr "Status Teks"
 
+#. Resource IDs: (84)
+msgid ""
+"The URL to check out refers to a file but this\n"
+"working copy path is an existing directory."
+msgstr ""
+"URL untuk check out mengacu ke berkas tapi\n"
+"path copy pekerjaan ini adalah direktori yang sudah ada."
+
 # ID:63,
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -10939,6 +11013,10 @@ msgstr ""
 "Untuk memisahkan sekumpulan kekecualian, gunakan koma (',').\r\n"
 "Contoh: *.mylan.com, *.company.com"
 
+#. Resource IDs: (1538)
+msgid "Use Aero dialogs"
+msgstr "Menggunakan dialog Aero"
+
 # Control-ID:1230,
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -11001,11 +11079,6 @@ msgstr "Gunakan kedua blok teks (ini yang terakhir)"
 msgid "Use left file"
 msgstr "Gunakan berkas kiri"
 
-# ID:74,
-#. Resource IDs: (3)
-msgid "Use local"
-msgstr "Gunakan lokal"
-
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
 msgstr "Gunakan tampungan daur ulang saat membalik"
@@ -11013,11 +11086,6 @@ msgstr "Gunakan tampungan daur ulang saat membalik"
 #. Resource IDs: (116)
 msgid "Use regular expression"
 msgstr "Gunakan ekspresi reguler"
-
-# ID:138,
-#. Resource IDs: (4)
-msgid "Use repository"
-msgstr "Gunakan repositori"
 
 # Control-ID:1066,
 #. Resource IDs: (1066)
