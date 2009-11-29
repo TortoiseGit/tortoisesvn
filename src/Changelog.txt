@@ -71,6 +71,8 @@ Version 1.6.7
        at a time. (Stefan)
 - BUG: The column order wasn't saved correctly in the status
        list control. (Stefan)
+- BUG: The message "only numbers are allowed" could be shown even
+       when the bugtraq:number property was set to false. (Stefan)
 
 Version 1.6.6
 - CHG: Reduced disk access in the status cache. (Stefan)

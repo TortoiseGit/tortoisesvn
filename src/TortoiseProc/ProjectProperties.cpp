@@ -683,15 +683,6 @@ CString ProjectProperties::GetBugIDUrl(const CString& sBugID)
 
 BOOL ProjectProperties::CheckBugID(const CString& sID)
 {
-	if (!sCheckRe.IsEmpty()&&(!bNumber)&&!sID.IsEmpty())
-	{
-		CString sBugID = sID;
-		sBugID.Replace(_T(", "), _T(","));
-		sBugID.Replace(_T(" ,"), _T(","));
-		CString sMsg = sMessage;
-		sMsg.Replace(_T("%BUGID%"), sBugID);
-		return HasBugID(sMsg);
-	}
 	if (bNumber)
 	{
 		// check if the revision actually _is_ a number
@@ -701,7 +692,7 @@ BOOL ProjectProperties::CheckBugID(const CString& sID)
 		for (int i=0; i<len; ++i)
 		{
 			c = sID.GetAt(i);
-			if ((c < '0')&&(c != ','))
+			if ((c < '0')&&(c != ',')&&(c != ' '))
 			{
 				return FALSE;
 			}
