@@ -550,6 +550,8 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
 
 	tstring sWhat = tstring(szWhat);
 	
+	int textSelStart = 0;
+	int textSelEnd = 0;
 	TCHAR buf[20];
 	int i=0;
 	for (i=line; (i<(int)authors.size())&&(!bFound); ++i)
@@ -571,7 +573,12 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
 		else if (_tcscmp(buf, szWhat) == 0)
 			bFound = true;
 		else if (_tcsstr(sLine.c_str(), szWhat))
-			bFound = true;
+		{
+			textSelStart = (int)SendEditor(SCI_POSITIONFROMLINE, i) + (_tcsstr(sLine.c_str(), szWhat) - sLine.c_str());
+			textSelEnd = textSelStart + CUnicodeUtils::StdGetUTF8(szWhat).size();
+			if ((line != i)||(textSelEnd != pos))
+				bFound = true;
+		}
 	}
 	if (!bFound)
 	{
@@ -594,16 +601,28 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
 			else if (_tcscmp(buf, szWhat) == 0)
 				bFound = true;
 			else if (_tcsstr(sLine.c_str(), szWhat))
+			{
 				bFound = true;
+				textSelStart = (int)SendEditor(SCI_POSITIONFROMLINE, i) + (_tcsstr(sLine.c_str(), szWhat) - sLine.c_str());
+				textSelEnd = textSelStart + CUnicodeUtils::StdGetUTF8(szWhat).size();
+			}
 		}
 	}
 	if (bFound)
 	{
 		GotoLine(i);
-		int selstart = (int)SendEditor(SCI_GETCURRENTPOS);
-		int selend = (int)SendEditor(SCI_POSITIONFROMLINE, i);
-		SendEditor(SCI_SETSELECTIONSTART, selstart);
-		SendEditor(SCI_SETSELECTIONEND, selend);
+		if (textSelStart == textSelEnd)
+		{
+			int selstart = (int)SendEditor(SCI_GETCURRENTPOS);
+			int selend = (int)SendEditor(SCI_POSITIONFROMLINE, i);
+			SendEditor(SCI_SETSELECTIONSTART, selstart);
+			SendEditor(SCI_SETSELECTIONEND, selend);
+		}
+		else
+		{
+			SendEditor(SCI_SETSELECTIONSTART, textSelStart);
+			SendEditor(SCI_SETSELECTIONEND, textSelEnd);
+		}
 		m_SelectedLine = i-1;
 	}
 	else
