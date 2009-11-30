@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-11-30 01:09+0300\n"
+"PO-Revision-Date: 2009-11-30 18:36+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1390,7 +1390,7 @@ msgstr "Утилита <literal>svnadmin</literal> устанавливаетс�
 
 #. (title)
 msgid "Server side hook scripts"
-msgstr "Cкрипты ловушек, выполняемые на стороне сервера"
+msgstr "Скрипты ловушек, выполняемые на стороне сервера"
 
 #. (primary)
 msgid "hooks"
@@ -7712,7 +7712,7 @@ msgstr "Экспортирование отдельных файлов"
 
 #. (para)
 msgid "The export dialog does not allow exporting single files, even though Subversion can."
-msgstr "Диалог экспорта не позволяет экспортировать отдельные файлы, неcмотря на то, что Subversion это может."
+msgstr "Диалог экспорта не позволяет экспортировать отдельные файлы, несмотря на то, что Subversion это может."
 
 #. (para)
 msgid "To export single files with TortoiseSVN, you have to use the repository browser (<xref linkend=\"tsvn-dug-repobrowser\"/>). Simply drag the file(s) you want to export from the repository browser to where you want them in the explorer, or use the context menu in the repository browser to export the files."
@@ -8517,7 +8517,7 @@ msgstr "Страница 'Цвета' графа ревизий в диалог�
 
 #. (para)
 msgid "<placeholder-1/> This page allows you to configure the colors used. Note that the color specified here is the solid color. Most nodes are colored using a blend of the node type color, the background color and optionally the classification color."
-msgstr "<placeholder-1/> Эта страница позволяет настроить используемые цвета. Учтите, что здесь указывается чистый цвет. Большинство узлов разкрашиваются смесью цвета типа узла, цвета фона и, при выборе, цветом классификации."
+msgstr "<placeholder-1/> Эта страница позволяет настроить используемые цвета. Учтите, что здесь указывается чистый цвет. Большинство узлов раскрашиваются смесью цвета типа узла, цвета фона и, при выборе, цветом классификации."
 
 #. (term)
 msgid "Deleted Node"
@@ -10508,7 +10508,7 @@ msgstr ""
 
 #. (para)
 msgid "<placeholder-1/> The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
-msgstr "<placeholder-1/> Модуль может предоставить здесь строку, которая используется в диалоге фиксации TortoiseSVN для кнопки вызова модуля, например \"Выберите проблему\" или \"Тикеты\" Убедитесь, что строка не очень длинная, иначе она не поместится на кнопку. Если метод возвращает ошибку (например, <literal>E_NOTIMPL</literal>), для кнопки используется текст по умолчанию."
+msgstr "<placeholder-1/> Модуль может предоставить здесь строку, которая используется в диалоге фиксации TortoiseSVN для кнопки вызова модуля, например \"Выберите проблему\" или \"Тикеты\". Убедитесь, что строка не очень длинная, иначе она не поместится на кнопку. Если метод возвращает ошибку (например, <literal>E_NOTIMPL</literal>), для кнопки используется текст по умолчанию."
 
 #. (programlisting)
 #, no-wrap
@@ -10544,12 +10544,12 @@ msgstr ""
 "  [in] SAFEARRAY(BSTR) pathList,\n"
 "\n"
 "  // Текст, уже содержащийся в сообщении фиксации.\n"
-"  // Ваш провайдер должен включить этот текст в новое сообщение,\n"
+"  // Ваш модуль должен включить этот текст в новое сообщение,\n"
 "  // если необходимо.\n"
 "  [in] BSTR originalMessage,\n"
 "\n"
 "  // Новый текст для сообщения фиксации.\n"
-"  // Он заменияет исходное сообщение.\n"
+"  // Заменяет исходное сообщение.\n"
 "  [out, retval] BSTR *newMessage\n"
 ");\n"
 
@@ -10559,11 +10559,11 @@ msgstr "<placeholder-1/> Это главный метод подключаемо
 
 #. (title)
 msgid "The IBugtraqProvider2 interface"
-msgstr ""
+msgstr "Интерфейс IBugtraqProvider2"
 
 #. (para)
 msgid "In TortoiseSVN 1.6 a new interface was added which provides more functionality for plugins. This IBugtraqProvider2 interface inherits from IBugtraqProvider."
-msgstr ""
+msgstr "В TortoiseSVN 1.6 был добавлен новый интерфейс, предоставляющий расширенную функциональность для подключаемых модулей. Это интерфейс IBugtraqProvider2, наследующий от IBugtraqProvider."
 
 #. (programlisting)
 #, no-wrap
@@ -10607,10 +10607,48 @@ msgid ""
 "  [out, retval] BSTR * newMessage\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT GetCommitMessage2 (\n"
+"  // Родительское окно для пользовательского интерфейса модуля\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Параметры для вашего модуля.\n"
+"  [in] BSTR parameters,\n"
+"  // Общий URL фиксации\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // Текст, уже содержащийся в сообщении фиксации.\n"
+"  // Ваш модуль должен включить этот текст в новое сообщение,\n"
+"  // если необходимо.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // Содержимое поля bugID (если показано)\n"
+"  [in] BSTR bugID,\n"
+"\n"
+"  // Изменённое содержимое поля bugID\n"
+"  [out] BSTR * bugIDOut,\n"
+"\n"
+"  // Вы можете назначать собственные свойства ревизии для фиксации\n"
+"  // путём установки следующих двух параметров.\n"
+"  // Внимание: Оба массива должны быть одного размера.\n"
+"  // Для каждого имени свойства должно иметься значение!\n"
+"\n"
+"  // Список имён свойств ревизии.\n"
+"  [out] SAFEARRAY(BSTR) * revPropNames,\n"
+"\n"
+"  // Список значений свойств ревизии.\n"
+"  [out] SAFEARRAY(BSTR) * revPropValues,\n"
+"\n"
+"  // Новый текст для сообщения фиксации.\n"
+"  // Заменяет исходное сообщение.\n"
+"  [out, retval] BSTR * newMessage\n"
+");\n"
 
 #. (para)
 msgid "<placeholder-1/> This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there. The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path. The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>). The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns. The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
-msgstr ""
+msgstr "<placeholder-1/> Этот метод вызывается из диалога фиксации TortoiseSVN, когда пользователь нажимает кнопку вызова подключаемого модуля. Этот метод вызывается вместо <literal>GetCommitMessage()</literal>. Пожалуйста, обращайтесь к документации по <literal>GetCommitMessage</literal> для информации по параметрам, которые используются также и там. Параметр <literal>commonURL</literal> - это родительский URL всех элементов, выбранных при вызове диалога фиксации. Обычно, это URL пути <literal>commonRoot</literal>. В параметре <literal>bugID</literal> передаётся содержимое поля  <guilabel>ID ошибки</guilabel> (если оно отображается, настраивается свойством <literal>bugtraq:message</literal>). Возвращаемый параметр <literal>bugIDOut</literal> используется для заполнения поля <guilabel>ID ошибки</guilabel> при возврате из метода. Возвращаемые параметры <literal>revPropNames</literal> и <literal>revPropValues</literal> могут содержать пары имя/значение для свойств ревизии, которые должны быть установлены при фиксации. Подключаемый модуль при возврате должен убедится, что оба массива имеют одинаковый размер! Каждое имя свойства в <literal>revPropNames</literal> должно также иметь соответствующее значение в <literal>revPropValues</literal>. Если свойства ревизии устанавливать не нужно, модуль должен возвращать пустые массивы."
 
 #. (programlisting)
 #, no-wrap
@@ -10626,10 +10664,20 @@ msgid ""
 "  [out, retval] BSTR * errorMessage\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT CheckCommit (\n"
+"  [in] HWND hParentWnd,\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"  [in] BSTR commitMessage,\n"
+"  [out, retval] BSTR * errorMessage\n"
+");\n"
 
 #. (para)
 msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
-msgstr ""
+msgstr "<placeholder-1/> Этот метод вызывается непосредственно перед закрытием диалога фиксации и началом фиксации. Модуль может использовать этот метод для проверки выбранных для фиксации файлов/папок и/или сообщения фиксации, введённого пользователем. Параметры те же, что и для <literal>GetCommitMessage2()</literal>, но с отличием в том, что <literal>commonURL</literal> теперь общий URL всех <emphasis>отмеченных</emphasis> элементов, и <literal>commonRoot</literal> - корневой путь всех отмеченных элементов. Возвращаемый параметр <literal>errorMessage</literal> должен содержать или сообщение об ошибке, которое TortoiseSVN покажет пользователю, или должен быть пустым для начала фиксации. Если возвращается сообщение об ошибке, TortoiseSVN показывает это сообщение в диалоге и оставляет диалог фиксации открытым, чтобы пользователь мог исправить ошибку. Поэтому модуль должен возвращать сообщение об ошибке, информирующее пользователя, <emphasis>что</emphasis> именно не так и как это исправить."
 
 #. (programlisting)
 #, no-wrap
@@ -10658,10 +10706,34 @@ msgid ""
 "  [out, retval] BSTR * error\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT  OnCommitFinished (\n"
+"  // Родительское окно для любого пользовательского интерфейса,\n"
+"  // который необходимо показать (в основном для ошибок).\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Общий корень всех фиксируемых путей.\n"
+"  [in] BSTR commonRoot,\n"
+"\n"
+"  // Все фиксируемые пути.\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"\n"
+"  // Текст, уже содержащийся в сообщении фиксации.\n"
+"  [in] BSTR logMessage,\n"
+"\n"
+"  // Ревизия фиксации.\n"
+"  [in] ULONG revision,\n"
+"\n"
+"\n"
+"  // Ошибка, которую необходимо показать пользователю,\n"
+"  // если эта функция возвращает что-то, отличное от S_OK\n"
+"  [out, retval] BSTR * error\n"
+");\n"
 
 #. (para)
 msgid "<placeholder-1/> This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
-msgstr ""
+msgstr "<placeholder-1/> Этот метод вызывается после успешной фиксации. Модуль может использовать этот метод например для закрытия выбранной проблемы или для добавления информации о фиксации к проблеме. Параметры те же, что и для <literal>GetCommitMessage2</literal>."
 
 #. (programlisting)
 #, no-wrap
@@ -10672,10 +10744,15 @@ msgid ""
 "  [out, retval] VARIANT_BOOL *ret\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT HasOptions(\n"
+"  // Предоставляет ли модуль возможности по настройке?\n"
+"  [out, retval] VARIANT_BOOL *ret\n"
+");\n"
 
 #. (para)
 msgid "<placeholder-1/> This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
-msgstr ""
+msgstr "<placeholder-1/> Этот метод вызывается из диалога настроек, в котором пользователь может настраивать подключаемые модули. Если модуль предоставляет свой  собственный диалог параметров посредством <literal>ShowOptionsDialog</literal>, он должен вернуть здесь TRUE, иначе он должен возвращать FALSE."
 
 #. (programlisting)
 #, no-wrap
@@ -10692,10 +10769,21 @@ msgid ""
 "  [out, retval] BSTR * newparameters\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT ShowOptionsDialog(\n"
+"  // Родительское окно для диалога настроек\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Параметры для вашего модуля.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // Строка параметров\n"
+"  [out, retval] BSTR * newparameters\n"
+");\n"
 
 #. (para)
 msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
-msgstr ""
+msgstr "<placeholder-1/> Этот метод вызывается из диалога настроек, когда пользователь нажимает на кнопку \"Параметры\", которая показывается, если <literal>HasOptions</literal> возвращает TRUE. Модуль может показать диалог настройки параметров для облегчения пользователю задачи настройки модуля. Строка <literal>parameters</literal> содержит строку уже введённых/установленных параметров модуля. Возвращаемый параметр <literal>newparameters</literal> должен содержать строку параметров, которую модуль составляет на основании информации, собранной в собственном диалоге настройки параметров. Эта строка <literal>paramameters</literal> передаётся всем остальным методам IBugtraqProvider и IBugtraqProvider2."
 
 # ---- App. A
 #. (title)
