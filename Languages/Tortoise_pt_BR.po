@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-11-12 00:08-0300\n"
+"PO-Revision-Date: 2009-11-30 21:49-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4463,6 +4463,10 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +K"
+msgstr "ID:32825:V C +K"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
 msgstr "ID:32825:V C +L"
 
@@ -6264,6 +6268,14 @@ msgstr "Gancho Pré-Submissão"
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
 msgstr "Gancho Pré-Atualização"
+
+#. Resource IDs: (3)
+msgid "Prefer local"
+msgstr "Usar local"
+
+#. Resource IDs: (4)
+msgid "Prefer repository"
+msgstr "Usar repositório"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -9354,10 +9366,6 @@ msgstr "Usar ambos os blocos de texto (este aqui por último)"
 msgid "Use left file"
 msgstr "Usar arquivo da esquerda"
 
-#. Resource IDs: (3)
-msgid "Use local"
-msgstr "Usar local"
-
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
 msgstr "Usar lixeira para fazer reversão"
@@ -9365,10 +9373,6 @@ msgstr "Usar lixeira para fazer reversão"
 #. Resource IDs: (116)
 msgid "Use regular expression"
 msgstr "Usar expressão regular"
-
-#. Resource IDs: (4)
-msgid "Use repository"
-msgstr "Usar repositório"
 
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
