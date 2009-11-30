@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-11-14 14:54+0100\n"
+"PO-Revision-Date: 2009-11-30 10:13+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4446,6 +4446,10 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +K"
+msgstr "ID:32825:V C +K"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
 msgstr "ID:32825:V C +L"
 
@@ -6245,6 +6249,14 @@ msgstr "Pre-Vastleggen hook:"
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
 msgstr "Pre-Ververs Hook"
+
+#. Resource IDs: (3)
+msgid "Prefer local"
+msgstr "Gebruik lokale versie"
+
+#. Resource IDs: (4)
+msgid "Prefer repository"
+msgstr "Gebruik archiefversie"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -9337,10 +9349,6 @@ msgstr "Gebruik beide tekstgedeeltes (deze laatst)"
 msgid "Use left file"
 msgstr "Gebruik het linker bestand"
 
-#. Resource IDs: (3)
-msgid "Use local"
-msgstr "Gebruik lokale versie"
-
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
 msgstr "Gebruik prullenbak bij herstellen"
@@ -9348,10 +9356,6 @@ msgstr "Gebruik prullenbak bij herstellen"
 #. Resource IDs: (116)
 msgid "Use regular expression"
 msgstr "Gebruik reguliere expressie"
-
-#. Resource IDs: (4)
-msgid "Use repository"
-msgstr "Gebruik archiefversie"
 
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
