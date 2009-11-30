@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-11-06 13:12+0900\n"
+"PO-Revision-Date: 2009-11-30 19:45+0900\n"
 "Last-Translator: Taedong Kim <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4445,6 +4445,10 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +K"
+msgstr "ID:32825:V C +K"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
 msgstr "ID:32825:V C +L"
 
@@ -6238,6 +6242,14 @@ msgstr "커밋 전 확인 훅"
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
 msgstr "업데이트 전 확인 훅"
+
+#. Resource IDs: (3)
+msgid "Prefer local"
+msgstr "작업사본을 선호"
+
+#. Resource IDs: (4)
+msgid "Prefer repository"
+msgstr "저장소를 선호"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -9313,10 +9325,6 @@ msgstr "두 블럭 모두 사용 (이것을 비교본으로 사용)"
 msgid "Use left file"
 msgstr "왼쪽 파일을 사용"
 
-#. Resource IDs: (3)
-msgid "Use local"
-msgstr "작업사본을 사용합니다"
-
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
 msgstr "되돌릴 때 휴지통 사용"
@@ -9324,10 +9332,6 @@ msgstr "되돌릴 때 휴지통 사용"
 #. Resource IDs: (116)
 msgid "Use regular expression"
 msgstr "정규표현식을 사용"
-
-#. Resource IDs: (4)
-msgid "Use repository"
-msgstr "저장소를 사용합니다"
 
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
