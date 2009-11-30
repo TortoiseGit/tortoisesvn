@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-11-25 17:04+0100\n"
+"PO-Revision-Date: 2009-11-30 13:11+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3984,39 +3984,39 @@ msgstr "Controleer op Wijzigingen"
 
 #. (para)
 msgid "<placeholder-1/> It's often very useful to know which files you have changed and also which files got changed and committed by others. That's where the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> comes in handy. This dialog will show you every file that has changed in any way in your working copy, as well as any unversioned files you may have."
-msgstr ""
+msgstr "<placeholder-1/>Het is vaak handig om te weten welke bestanden anderen gewijzigd en vastgelegd hebben. Hiervoor is het commando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Kijk of er updates zijn...</guimenuitem></menuchoice> erg handig. Het venster zal elk bestand weergeven dat op welke manier dan ook gewijzigd is in je werkkopie en ook de bestanden zonder versiebeheer."
 
 #. (para)
 msgid "If you click on the <guibutton>Check Repository</guibutton> then you can also look for changes in the repository. That way you can check before an update if there's a possible conflict. You can also update selected files from the repository without updating the whole folder. By default, the <guibutton>Check Repository</guibutton> button only fetches the remote status with the checkout depth of the working copy. If you want to see all files and folders in the repository, even those you have not checked out, then you have to hold down the <keycap>Shift</keycap> key when you click on the <guibutton>Check Repository</guibutton> button."
-msgstr ""
+msgstr "Als je op de <guibutton>Controleer Archief</guibutton> klikt, dan kun je ook de wijzigingen in het archief bekijken. Hiermee kun je, voordat je je wijzigingen vastlegt, nagaan of er conflicten zullen ontstaan. Je kunt ook alleen geselecteerde bestanden verversen, zonder dat de hele map ververst hoeft te worden. De <guibutton>Controleer Archief</guibutton> haalt standaard de status op van de werkkopie met de instelling van mapdiepte van de werkkopie. Als je alle bestanden in het archief wilt zien, ook degene die je niet opgehaald hebt, dan moet je de <keycap>Shift</keycap> ingedrukt houden als je op de knop <guibutton>Controleer Archief</guibutton> drukt."
 
 #. (para)
 msgid "Locally modified items."
-msgstr "Lokaal gewijzigde items."
+msgstr "Lokaal gewijzigde objecten."
 
 #. (para)
 msgid "Added items. Items which have been added with history have a <literal>+</literal> sign in the <guilabel>Text status</guilabel> column, and a tooltip shows where the item was copied from."
-msgstr ""
+msgstr "Toegevoegde objecten. Objecten die toegevoegd zijn met geschiedenisinformatie, hebben een <literal>+</literal> teken in de <guilabel>Tekst status</guilabel> kolom en in tooltip wordt aangegeven waar heb object vandaan gekopieerd is."
 
 #. (para)
 msgid "Deleted or missing items."
-msgstr ""
+msgstr "Verwijderde of missende objecten."
 
 #. (para)
 msgid "Items modified locally and in the repository. The changes will be merged on update. These <emphasis>may</emphasis> produce conflicts on update."
-msgstr ""
+msgstr "Objecten die lokaal en in het archief gewijzigd zijn. De wijzigingen zullen samengevoegd worden bij het verversen, waarbij  conflicten <emphasis>kunnen</emphasis> ontstaan."
 
 #. (para)
 msgid "Items modified locally and deleted in repository, or modified in repository and deleted locally. These <emphasis>will</emphasis> produce conflicts on update."
-msgstr ""
+msgstr "Objecten die lokaal gewijzigd zijn en verwijderd uit het archief, of die gewijzigd zijn in het archief en lokaal verwijderd. Hierdoor <emphasis>zal</emphasis> een conflict onstaan bij het verversen."
 
 #. (para)
 msgid "Unchanged and unversioned items."
-msgstr ""
+msgstr "Ongewijzigde objecten en objecten zonder versiebeheer."
 
 #. (para)
 msgid "The dialog uses colour coding to highlight the status. <placeholder-1/>"
-msgstr ""
+msgstr "In dit venster worden kleurcoderingen toegepast om de status weer te geven. <placeholder-1/>"
 
 #. (para)
 msgid "From the context menu of the dialog you can show a diff of the changes. Check the local changes <emphasis>you</emphasis> made using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare with Base</guimenuitem></menuchoice>. Check the changes in the repository made by others using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Differences as Unified Diff</guimenuitem></menuchoice>."
