@@ -73,6 +73,9 @@ Version 1.6.7
        list control. (Stefan)
 - BUG: The message "only numbers are allowed" could be shown even
        when the bugtraq:number property was set to false. (Stefan)
+- BUG: The "diff with previous revision" in the log dialog could
+       use the wrong revision if there was a path with a copyfrom
+       revision. (Stefan)
 
 Version 1.6.6
 - CHG: Reduced disk access in the status cache. (Stefan)
