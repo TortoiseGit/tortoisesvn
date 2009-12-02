@@ -76,6 +76,8 @@ Version 1.6.7
 - BUG: The "diff with previous revision" in the log dialog could
        use the wrong revision if there was a path with a copyfrom
        revision. (Stefan)
+- BUG: Deadlock in the shell extension when used from a multi-threaded
+       application. (Jonathan Potter, GP Software)
 
 Version 1.6.6
 - CHG: Reduced disk access in the status cache. (Stefan)
