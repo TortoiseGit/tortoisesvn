@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-03 09:40+0100\n"
+"PO-Revision-Date: 2009-12-03 09:55+0100\n"
 "Last-Translator: Miha Nahtigal <miha.nahtigal@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2488,6 +2488,11 @@ msgstr "Objave po avtorjih"
 msgid "Commits by date"
 msgstr "Objave po dnevih"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "Commits each %s"
+msgstr "Število objav na %s"
+
 #. Resource IDs: (1135)
 msgid "Commits each week:"
 msgstr "Število objav na teden:"
@@ -2535,6 +2540,14 @@ msgstr "Primerjaj z &osnovo"
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
 msgstr "Primerjaj s prejšnjo revizijo"
+
+#. Resource IDs: (2055)
+msgid ""
+"Compares all whitespaces when diffing\n"
+"Compare whitespaces"
+msgstr ""
+"Primerjanje presledkov pri prikazu sprememb\n"
+"Primerjaj presledke"
 
 #. Resource IDs: (12)
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -2629,6 +2642,10 @@ msgstr "Kopirano"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "Kopirano z naslova"
+
+#. Resource IDs: (208)
+msgid "Copied from revision"
+msgstr "Kopirano iz revizije"
 
 #. Resource IDs: (275)
 #, c-format
@@ -3858,6 +3875,11 @@ msgstr "Pridobivanje revizije %s datoteke:"
 msgid "File"
 msgstr "Datoteka"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "File changes each %s"
+msgstr "Št. sprememb na %s"
+
 #. Resource IDs: (1138)
 msgid "File changes each week:"
 msgstr "Št. spremenjenih datotek na teden:"
@@ -4439,6 +4461,10 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +K"
+msgstr "ID:32825:V C +K"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
 msgstr "ID:32825:V C +L"
 
@@ -4655,6 +4681,10 @@ msgstr "Prezri &vse presledke"
 msgid "Ignore &case changes"
 msgstr "Prezri spremembe velikih/malih &črk"
 
+#. Resource IDs: (32873)
+msgid "Ignore all whitespace changes"
+msgstr "Prezri razlike v presledkih"
+
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Prezri vse presledke"
@@ -4678,6 +4708,22 @@ msgstr "Prezri razlike presledkov"
 #. Resource IDs: (226)
 msgid "Ignored items included"
 msgstr "Vključeni prezrti elementi"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores all whitespace changes when diffing\n"
+"Ignore all whitespace changes"
+msgstr ""
+"Prezre vse spremembe v presledkih pri prikazu razlik\n"
+"Prezri vse spremembe v presledkih"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores changes in whitespaces when diffing\n"
+"Ignore whitespace changes"
+msgstr ""
+"Prezri spremembe v presledkih pri prikazu sprememb\n"
+"Prezri spremembe v presledkih"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5780,6 +5826,11 @@ msgstr "Opomba: nastavitve pisave vplivajo tudi na pregledovalnik TortoiseUDiff"
 msgid "Notice"
 msgstr "Opomba"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "Number of %s"
+msgstr "Število %s"
+
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
 msgstr "Število avtorjev v predpomnilniku"
@@ -6206,6 +6257,14 @@ msgstr "Pred objavo"
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
 msgstr "Pred posodobitvijo"
+
+#. Resource IDs: (3)
+msgid "Prefer local"
+msgstr "Prednostno uporabi krajevno"
+
+#. Resource IDs: (4)
+msgid "Prefer repository"
+msgstr "Prednostno uporabi skladišče"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -8100,6 +8159,14 @@ msgstr "Stanje besedila:"
 msgid "Text status"
 msgstr "Stanje besedila"
 
+#. Resource IDs: (84)
+msgid ""
+"The URL to check out refers to a file but this\n"
+"working copy path is an existing directory."
+msgstr ""
+"Povezava za prevzem se sklicuje na datoteko,\n"
+"pod delovne verzije pa je obstoječ direktorij."
+
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "Velikost koščka se ne ujema s številom dodanih/odstranjenih vrstic!"
@@ -9222,6 +9289,10 @@ msgstr ""
 "Za ločitev več izjem uporabite vejice (',').\r\n"
 "Primer: *.mojlan.si, *.podjetje.si"
 
+#. Resource IDs: (1538)
+msgid "Use Aero dialogs"
+msgstr "Prikaz Aero dialogov"
+
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Uporabi URL &delovne kopije kot privzeti URL za polje \"Od:\"\""
@@ -9278,10 +9349,6 @@ msgstr "Uporabi oba dela besedila (tega zadnjega)"
 msgid "Use left file"
 msgstr "Uporabi levo datoteko"
 
-#. Resource IDs: (3)
-msgid "Use local"
-msgstr "Uporabi krajevno"
-
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
 msgstr "Uporabi koš pri ukazu Povrni"
@@ -9289,10 +9356,6 @@ msgstr "Uporabi koš pri ukazu Povrni"
 #. Resource IDs: (116)
 msgid "Use regular expression"
 msgstr "Uporabi regularni izraz"
-
-#. Resource IDs: (4)
-msgid "Use repository"
-msgstr "Uporabi skladišče"
 
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
