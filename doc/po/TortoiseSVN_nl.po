@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-12-02 18:54+0100\n"
+"PO-Revision-Date: 2009-12-03 20:37+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3246,7 +3246,7 @@ msgstr "Je kunt objecten selecteren en de-selecteren door op het selectievak lin
 
 #. (para)
 msgid "The columns displayed in the bottom pane are customizable. If you <action>right click</action> on any column header you will see a context menu allowing you to select which columns are displayed. You can also change column width by using the drag handle which appears when you move the mouse over a column boundary. These customizations are preserved, so you will see the same headings next time."
-msgstr "De kolommen in het onderste venster kunnen aangepast worden. Als je met <action>rechts klikt</action> op een kolom koptekst, dan wordt er een context menu weergegeven waarmee je kunt selecteren welke kolommen er getoond moeten worden. Je kunt ook de breedte van de kolommen aanpassen door de overgang tussen twee kolommen in het koptekst van de kolommen te verslepen. De aanpassingen worden opgeslagen, waardoor je de volgende keer dezelfde weergave weer terugkrijgt."
+msgstr "De kolommen in het onderste venster kunnen aangepast worden. Als je met <action>rechts klikt</action> op de koptekst van een kolom, dan wordt er een context menu weergegeven waarmee je kunt selecteren welke kolommen er getoond moeten worden. Je kunt ook de breedte van de kolommen aanpassen door de overgang tussen twee kolommen in het koptekst van de kolommen te verslepen. De aanpassingen worden opgeslagen, waardoor je de volgende keer dezelfde weergave weer terugkrijgt."
 
 #. (para)
 msgid "By default when you commit changes, any locks that you hold on files are released automatically after the commit succeeds. If you want to keep those locks, make sure the <guilabel>Keep locks</guilabel> checkbox is checked. The default state of this checkbox is taken from the <literal>no_unlock</literal> option in the Subversion configuration file. Read <xref linkend=\"tsvn-dug-settings-main\"/> for information on how to edit the Subversion configuration file."
@@ -4024,67 +4024,67 @@ msgstr "Vanuit het context menu van het venster kun je de verschillen van de wij
 
 #. (para)
 msgid "You can also revert changes in individual files. If you have deleted a file accidentally, it will show up as <emphasis>Missing</emphasis> and you can use <emphasis>Revert</emphasis> to recover it."
-msgstr ""
+msgstr "Het is ook mogelijk om wijzigingen in individuele bestanden terug te draaien. Als je per ongeluk een bestand verwijderd hebt, dan zal deze weergegeven worden als <emphasis>Ontbrekend</emphasis>. Je kunt deze dan terughalen met <emphasis>Maak ongedaan</emphasis>."
 
 #. (para)
 msgid "Unversioned and ignored files can be sent to the recycle bin from here using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>. If you want to delete files permanently (bypassing the recycle bin) hold the <keycap>Shift</keycap> key while clicking on <guilabel>Delete</guilabel>."
-msgstr ""
+msgstr "Bestanden zonder versiebeheer of bestanden die op de negeren lijst staan, kunnen verwijderd worden (naar de prullenbak) van de lokale kopier door de optie <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Verwijderen</guimenuitem></menuchoice> te gebruiken. Als je bestanden permanent wilt verwijderen (zonder ze naar de prullenbak te doen), dan moet je <keycap>Shift</keycap> ingedruikt houden als je op <guilabel>Verwijderen</guilabel> klikt."
 
 #. (para)
 msgid "If you want to examine a file in detail, you can drag it from here into another application such as a text editor or IDE."
-msgstr ""
+msgstr "Als je de details van een bestand wilt bekijken, dan kun je het van hieruit naar een andere applicatie verlepen. Bijvoorbeeld naar een tekstverwerker of IDE."
 
 #. (para)
 msgid "The columns are customizable. If you <action>right click</action> on any column header you will see a context menu allowing you to select which columns are displayed. You can also change column width by using the drag handle which appears when you move the mouse over a column boundary. These customizations are preserved, so you will see the same headings next time."
-msgstr ""
+msgstr "Je kunt de kolommen aanpassen. Als je met <action>rechts klikt</action> op de koptekst van een kolom, dan krijg je een context menu te zien waarmee je kunt aangeven welke kolommen je wilt zien. De breedte van de kolommen kun je aanpassen door de kolomovergangen te verslepen. De aanpassingen worden opgeslagen, zodat deze er een volgende keer net zo uit zien."
 
 #. (para)
 msgid "If you are working on several unrelated tasks at once, you can also group files together into changelists. Read <xref linkend=\"tsvn-dug-commit-changelists\"/> for more information."
-msgstr ""
+msgstr "Je kunt groepen bestanden in een wijzigingenlijst opnemen. Dit is handig als je aan meerdere taken, die niets met elkaar de maken hebben, tegelijk werkt. Lees hiervoor <xref linkend=\"tsvn-dug-commit-changelists\"/>."
 
 #. (para)
 msgid "At the bottom of the dialog you can see a summary of the range of repository revisions in use in your working copy. These are the <emphasis>commit</emphasis> revisions, not the <emphasis>update</emphasis> revisions; they represent the range of revisions where these files were last committed, not the revisions to which they have been updated. Note that the revision range shown applies only to the items displayed, not to the entire working copy. If you want to see that information for the whole working copy you must check the <guilabel>Show unmodified files</guilabel> checkbox."
-msgstr ""
+msgstr "Onderaan het scherm kun je zien welke reeks van archiefrevisies er in je werkkopie gebruikt worden. Dit zijn de rivisies van de <emphasis>vastlegging</emphasis>, niet van de laatste <emphasis>verversing</emphasis>; dit geeft de reeks van revisies weer van de laatste vastleggingen, niet van de laatste verversing. Merk op dat de reeks van revisies alleen slaat op de objecten die weergegeven zijn in het venster, niet op je hele werkkopie. Als je deze informatie van je hele werkkopie wilt zien, dan moet je het selectievak <guilabel>Niet gewijzigde bestanden weergeven</guilabel> selecteren."
 
 #. (para)
 msgid "If you want a flat view of your working copy, i.e. showing all files and folders at every level of the folder hierarchy, then the <guilabel>Check for Modifications</guilabel> dialog is the easiest way to achieve that. Just check the <guilabel>Show unmodified files</guilabel> checkbox to show all files in your working copy."
-msgstr ""
+msgstr "Als je een platte weergave wilt hebben van je werkkopie, oftewel alle bestanden van alle niveau's uit je mapstructuur, dan kun je daarvoor het beste de <guilabel>Kijk of er updates zijn...</guilabel> functie gebruiken. Zet de optie <guilabel>Ongewijzigde bestanden weergeven</guilabel> aan om alle bestanden in je werkkopie te zien."
 
 #. (title)
 msgid "Viewing Diffs"
-msgstr ""
+msgstr "Diffs bekijken"
 
 #. (primary)
 msgid "diffing"
-msgstr ""
+msgstr "vergelijken"
 
 #. (para)
 msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file with the pristine copy (<literal>BASE</literal> revision), which was stored after the last checkout or update."
-msgstr ""
+msgstr "Vaak wil je de inhoud van bestanden even bekijken, om te bekijken wat je precies gewijzigd hebt. Dit kun je doen door een gewijzigd bestand te selecteren en <guimenuitem>Vergelijk</guimenuitem> in TortoiseSVN's context menu te selecteren. Hiermee wordt het externe vergelijk-programma gestart, waarmee het huidige bestand vergeleken zal worden met de ongewijzigde kopie (<literal>BASE</literal> revisie) die opgeslagen was na de laatste verversing."
 
 #. (para)
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
-msgstr ""
+msgstr "Zelfs bestanden die niet in je werkkopie zitten of als je verschillende versies verspreid opgeslagen hebt, kun je verschillen bekijken:"
 
 #. (para)
 msgid "Select the two files you want to compare in explorer (e.g. using <keycap>Ctrl</keycap> and the mouse) and choose <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file clicked last (the one with the focus, i.e. the dotted rectangle) will be regarded as the later one."
-msgstr ""
+msgstr "Selecteer in de verkenner de twee bestanden die je wilt vergelijken (bijvoorbeeld met <keycap>Ctrl</keycap> en de muis) en selecteer vanuit TortoiseSVN's context menu <guimenuitem>Verschil</guimenuitem>"
 
 #. (primary)
 msgid "changelist"
-msgstr ""
+msgstr "wijzigingenlijst"
 
 #. (para)
 msgid "In an ideal world, you only ever work on one thing at a time, and your working copy contains only one set of logical changes. OK, back to reality. It often happens that you have to work on several unrelated tasks at once, and when you look in the commit dialog, all the changes are mixed in together. The <firstterm>changelist</firstterm> feature helps you group files together, making it easier to see what you are doing. Of course this can only work if the changes do not overlap. If two different tasks affect the same file, there is no way to separate the changes."
-msgstr ""
+msgstr "In de ideale wereld werk je maar aan één ding tegelijk en zal je werkkopie alleen maar logische wijzigingen bevatten. Ok, dan terug naar de werkelijkheid. Het komt vaak voor dat je aan verschillende taken, die niets met elkaar te maken hebben, tegelijk moet werken. Als je dan naar het vastleggen venster kijkt, staan alle wijzigingen door elkaar. De <firstterm>wijzigingenlijst</firstterm> functie helpt je met het groeperen van bestanden, waardoor je een beter overzicht krijgt waar je mee bezig bent. Dit werkt natuurlijk alleen als de wijzigingen elkaar niet overlappen. Als bij twee verschillende taken hetzelfde bestand gewijzigd wordt, dan is er geen methode om die wijzigingen van elkaar te scheiden."
 
 #. (para)
 msgid "The changelist feature in TortoiseSVN is only available in Windows XP and later, as it depends on a shell capability which is not present in Windows 2000. Sorry, but Win2K is really quite old now, so please don't complain."
-msgstr ""
+msgstr "De wijzigingenlijst functie is alleen in Windows XP en latere versies beschikbaar, omdat hiervoor bepaalde mogelijkheden van de shell nodig zijn die niet in Windows 2000 zitten. Sorry, maar Win2k is nu toch echt wel verouderd, dus ga alsjeblieft niet klagen."
 
 #. (para)
 msgid "You can see changelists in several places, but the most important ones are the commit dialog and the check-for-modifications dialog. Let's start in the check-for-modifications dialog after you have worked on several features and many files. When you first open the dialog, all the changed files are listed together. Suppose you now want to organise things and group those files according to feature."
-msgstr ""
+msgstr "Je kunt wijzigingelijsten vinden op verschillende plaatsen, maar de belangrijkste zijn die in het vastleggen venster en kijk-of-er-updates-zijn venster. Laten we beginnen met het kijk-of-er-updates-zijn venster nadat je aan verschillende functies en meerdere bestanden hebt gewerkt. Als je het venster voor het eerst opent, dan worden alle bestanden in de lijst weergegeven. Stel voor dat je deze lijst nu wilt organiseren en de bestanden wilt groeperen."
 
 #. (para)
 msgid "Select one or more files and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Move to changelist</guimenuitem></menuchoice> to add an item to a changelist. Initially there will be no changelists, so the first time you do this you will create a new changelist. Give it name which describes what you are using it for, and click <guibutton>OK</guibutton>. The dialog will now change to show groups of items."
@@ -4096,7 +4096,7 @@ msgstr ""
 
 #. (title)
 msgid "Commit dialog with Changelists"
-msgstr ""
+msgstr "Vastleggen venster met Wijzigingenlijsten"
 
 #. (para)
 msgid "<placeholder-1/> In the commit dialog you can see those same files, grouped by changelist. Apart from giving an immediate visual indication of groupings, you can also use the group headings to select which files to commit."
