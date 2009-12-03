@@ -45,10 +45,13 @@ void ShellObjects::Erase(CShellExt * obj)
 void ShellObjects::DeleteAll()
 {
 	AutoLocker lock(m_critSec);
-	std::set<CShellExt *>::iterator it = m_exts.begin();
-	while (it != m_exts.end())
+	if (m_exts.size())
 	{
-		delete *it;
-		it = m_exts.begin();
+		std::set<CShellExt *>::iterator it = m_exts.begin();
+		while (it != m_exts.end())
+		{
+			delete *it;
+			it = m_exts.begin();
+		}
 	}
 }
