@@ -2099,8 +2099,11 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
 		{
 			CString temp(MAKEINTRESOURCE(IDS_REPOBROWSE_COPYDROP));
 			popup.AppendMenu(MF_STRING | MF_ENABLED, 1, temp);
-			temp.LoadString(IDS_REPOBROWSE_MOVEDROP);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, 2, temp);
+			if (PathIsURL(pathlist[0]))
+			{
+				temp.LoadString(IDS_REPOBROWSE_MOVEDROP);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, 2, temp);
+			}
 			if ((pathlist.GetCount() == 1)&&(PathIsURL(pathlist[0])))
 			{
 				// these entries are only shown if *one* item was dragged, and if the
