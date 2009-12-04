@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-12-03 20:37+0100\n"
+"PO-Revision-Date: 2009-12-04 16:32+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3283,11 +3283,11 @@ msgstr "Als je een kopie van een bestand hebt gemaakt en vergeten bent om het Su
 #. (title)
 #. (title)
 msgid "Change Lists"
-msgstr "Wijzigingen Lijsten"
+msgstr "Werksets"
 
 #. (para)
 msgid "The commit dialog supports Subversion's changelist feature to help with grouping related files together. Find out about this feature in <xref linkend=\"tsvn-dug-changelists\"/>."
-msgstr "Het vastleggen venster ondersteunt de lijst met wijzigingen functie van Subversion om te helpen bij het groeperen van gerelateerde bestanden. Lees meer over deze functie in <xref linkend=\"tsvn-dug-changelists\"/>."
+msgstr "Het vastleggen venster ondersteunt de werkset functie van Subversion om te helpen bij het groeperen van gerelateerde bestanden. Lees meer over deze functie in <xref linkend=\"tsvn-dug-changelists\"/>."
 
 #. (title)
 msgid "Excluding Items from the Commit List"
@@ -3299,7 +3299,7 @@ msgstr "Soms heb je bestanden met versiebeheer die regelmatig wijzigen, maar die
 
 #. (para)
 msgid "To help out in awkward cases like this, we have reserved a changelist called <literal>ignore-on-commit</literal>. Any file added to this changelist will automatically be unchecked in the commit dialog. You can still commit changes, but you have to select it manually in the commit dialog."
-msgstr "Om je uit dit soort vervelende situaties te helpen, hebben we een wijzigingenlijst gemaakt met de naam <literal>ignore-on-commit</literal> (negeren-bij-vastleggen). Elk bestand dat op deze lijst staat, zal automatisc gedeselecteerd worden in het vastleggen venster. Je kunt wijzigingen nog steeds wel vastleggen, maar je moet de bestanden dan handmatig selecteren in het vastleggen venster."
+msgstr "Om je uit dit soort vervelende situaties te helpen, hebben we een werkset gemaakt met de naam <literal>ignore-on-commit</literal> (negeren-bij-vastleggen). Elk bestand dat op deze lijst staat, zal automatisc gedeselecteerd worden in het vastleggen venster. Je kunt wijzigingen nog steeds wel vastleggen, maar je moet de bestanden dan handmatig selecteren in het vastleggen venster."
 
 #. (title)
 msgid "Commit Log Messages"
@@ -4072,55 +4072,55 @@ msgstr "Selecteer in de verkenner de twee bestanden die je wilt vergelijken (bij
 
 #. (primary)
 msgid "changelist"
-msgstr "wijzigingenlijst"
+msgstr "werkset"
 
 #. (para)
 msgid "In an ideal world, you only ever work on one thing at a time, and your working copy contains only one set of logical changes. OK, back to reality. It often happens that you have to work on several unrelated tasks at once, and when you look in the commit dialog, all the changes are mixed in together. The <firstterm>changelist</firstterm> feature helps you group files together, making it easier to see what you are doing. Of course this can only work if the changes do not overlap. If two different tasks affect the same file, there is no way to separate the changes."
-msgstr "In de ideale wereld werk je maar aan één ding tegelijk en zal je werkkopie alleen maar logische wijzigingen bevatten. Ok, dan terug naar de werkelijkheid. Het komt vaak voor dat je aan verschillende taken, die niets met elkaar te maken hebben, tegelijk moet werken. Als je dan naar het vastleggen venster kijkt, staan alle wijzigingen door elkaar. De <firstterm>wijzigingenlijst</firstterm> functie helpt je met het groeperen van bestanden, waardoor je een beter overzicht krijgt waar je mee bezig bent. Dit werkt natuurlijk alleen als de wijzigingen elkaar niet overlappen. Als bij twee verschillende taken hetzelfde bestand gewijzigd wordt, dan is er geen methode om die wijzigingen van elkaar te scheiden."
+msgstr "In de ideale wereld werk je maar aan één ding tegelijk en zal je werkkopie alleen maar logische wijzigingen bevatten. Ok, dan terug naar de werkelijkheid. Het komt vaak voor dat je aan verschillende taken, die niets met elkaar te maken hebben, tegelijk moet werken. Als je dan naar het vastleggen venster kijkt, staan alle wijzigingen door elkaar. De <firstterm>werkset</firstterm> functie helpt je met het groeperen van bestanden, waardoor je een beter overzicht krijgt waar je mee bezig bent. Dit werkt natuurlijk alleen als de wijzigingen elkaar niet overlappen. Als bij twee verschillende taken hetzelfde bestand gewijzigd wordt, dan is er geen methode om die wijzigingen van elkaar te scheiden."
 
 #. (para)
 msgid "The changelist feature in TortoiseSVN is only available in Windows XP and later, as it depends on a shell capability which is not present in Windows 2000. Sorry, but Win2K is really quite old now, so please don't complain."
-msgstr "De wijzigingenlijst functie is alleen in Windows XP en latere versies beschikbaar, omdat hiervoor bepaalde mogelijkheden van de shell nodig zijn die niet in Windows 2000 zitten. Sorry, maar Win2k is nu toch echt wel verouderd, dus ga alsjeblieft niet klagen."
+msgstr "De werkset functie is alleen in Windows XP en latere versies beschikbaar, omdat hiervoor bepaalde mogelijkheden van de shell nodig zijn die niet in Windows 2000 zitten. Sorry, maar Win2k is nu toch echt wel verouderd, dus ga alsjeblieft niet klagen."
 
 #. (para)
 msgid "You can see changelists in several places, but the most important ones are the commit dialog and the check-for-modifications dialog. Let's start in the check-for-modifications dialog after you have worked on several features and many files. When you first open the dialog, all the changed files are listed together. Suppose you now want to organise things and group those files according to feature."
-msgstr "Je kunt wijzigingelijsten vinden op verschillende plaatsen, maar de belangrijkste zijn die in het vastleggen venster en kijk-of-er-updates-zijn venster. Laten we beginnen met het kijk-of-er-updates-zijn venster nadat je aan verschillende functies en meerdere bestanden hebt gewerkt. Als je het venster voor het eerst opent, dan worden alle bestanden in de lijst weergegeven. Stel voor dat je deze lijst nu wilt organiseren en de bestanden wilt groeperen."
+msgstr "Je kunt werksets vinden op verschillende plaatsen, maar de belangrijkste zijn die in het vastleggen venster en kijk-of-er-updates-zijn venster. Laten we beginnen met het kijk-of-er-updates-zijn venster nadat je aan verschillende functies en meerdere bestanden hebt gewerkt. Als je het venster voor het eerst opent, dan worden alle bestanden in de lijst weergegeven. Stel voor dat je deze lijst nu wilt organiseren en de bestanden wilt groeperen."
 
 #. (para)
 msgid "Select one or more files and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Move to changelist</guimenuitem></menuchoice> to add an item to a changelist. Initially there will be no changelists, so the first time you do this you will create a new changelist. Give it name which describes what you are using it for, and click <guibutton>OK</guibutton>. The dialog will now change to show groups of items."
-msgstr ""
+msgstr "Selecteer één of meer bestanden en gebruik de functie <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Verplaats naar werkset</guimenuitem></menuchoice> om een object aan de werkset toe te voegen. In het begin zullen er geen werksets bestaan, waardoor er bij de eerste keer dat je dit doet een nieuwe werkset aangemaakt zal worden. Geef de werkset een naam die de lading dekt en klik op <guibutton>OK</guibutton>. Vervolgens zul de groepen met objecten weergegeven worden."
 
 #. (para)
 msgid "Once you have created a changelist you can drag and drop items into it, either from another changelist, or from Windows Explorer. Dragging from Explorer can be useful as it allows you to add items to a changelist before the file is modified. You could do that from the check-for-modifications dialog, but only by displaying all unmodified files."
-msgstr ""
+msgstr "Als je eenmaal een werkset hebt aangemaakt, dan kun je er objecten naartoe slepen. Dit kan vanuit een andere werkset of vanuit de Windows Verkenner. Het verslepen vanuit de Verkenner is handig, omdat je objecten al aan de werkset kunt toevoegen nog voordat deze gewijzigd zijn. Dit kun je ook wel doen vanuit het kijk-of-er-updates-zijn venster, maar dan moet je alle bestanden zonder versiebeheer laten weergeven."
 
 #. (title)
 msgid "Commit dialog with Changelists"
-msgstr "Vastleggen venster met Wijzigingenlijsten"
+msgstr "Vastleggen venster met werkset"
 
 #. (para)
 msgid "<placeholder-1/> In the commit dialog you can see those same files, grouped by changelist. Apart from giving an immediate visual indication of groupings, you can also use the group headings to select which files to commit."
-msgstr ""
+msgstr "<placeholder-1/> In het vastleggen venster kun je de bestanden dan zien, maar dan gegroepeerd per werkset. Buiten dat je een directe visuele groepering van de bestanden ziet, kun je ook nog de groepen van een kop voorzien waarmee je de set van bestanden voor het vastleggen kunt selecteren."
 
 #. (para)
 msgid "On XP, there is a context menu when you right click on a group heading which gives you the choice to check or uncheck all group entries. On Vista however the context menu is not necessary. Click on the group header to select all entries, then check one of the selected entries to check all."
-msgstr ""
+msgstr "In XP is er een context menu beschikbaar als je met rechts op de kop van een groep klikt. In dat menu kun je met een optie alle groepsobjecten selecteren of deselecteren. Bij Vista is dat menu niet nodig. Daar kun je op de kop van de groep klikken en vervolgens op één van de objecten, waarna alle objecten dezelfde selectiestatus krijgen."
 
 #. (para)
 msgid "TortoiseSVN reserves one changelist name for its own use, namely <literal>ignore-on-commit</literal>. This is used to mark versioned files which you almost never want to commit even though they have local changes. This feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
-msgstr ""
+msgstr "TortoiseSVN heeft één werkset gereserveerd voor eigen gebruik, dat is de <literal>negeren-bij-vastleggen</literal> set. Deze wordt gebruikt voor het markeren van bestanden met versiebeheer, die je bijna nooit wilt vastleggen ook al zijn er lokale wijzigingen. Deze functie wordt beschreven in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 
 #. (para)
 msgid "When you commit files belonging to a changelist then normally you would expect that the changelist membership is no longer needed. So by default, files are removed from changelists automatically on commit. If you wish to retain the file in its changelist, use the <guilabel>Keep changelists</guilabel> checkbox at the bottom of the commit dialog."
-msgstr ""
+msgstr "Als je bestanden vastlegt die opgenomen zijn in een werkset, dan zou je verwachten dat de koppeling aan de werkset niet langer nodig is. Normaal gesproken worden bestanden automatisch uit een werkset verwijderd als je je wijzigingen vastlegt. Als je het bestand in de werkset wilt behouden, gebruik dan de optie <guilabel>Werksets bewaren</guilabel> onderaan het vastleggen venster."
 
 #. (para)
 msgid "Changelists are purely a local client feature. Creating and removing changelists will not affect the repository, nor anyone else's working copy. They are simply a convenient way for you to organise your files."
-msgstr ""
+msgstr "Werksets is een lokale functie. Het aanmaken en verwijderen van werksets zal het archief niet veranderen, noch de werkkopie van iemand anders. Het is een handig manier voor je om je bestanden te organiseren."
 
 #. (title)
 msgid "Revision Log Dialog"
-msgstr "Revisie Log Dialoog"
+msgstr "Logboekboodschappen Venster"
 
 #. (primary)
 msgid "log"
@@ -4136,91 +4136,91 @@ msgstr "vestleggen berichten"
 
 #. (primary)
 msgid "log messages"
-msgstr "logberichten"
+msgstr "logboekboodschappen"
 
 #. (para)
 msgid "For every change you make and commit, you should provide a log message for that change. That way you can later find out what changes you made and why, and you have a detailed log for your development process."
-msgstr ""
+msgstr "Bij elke wijziging die je doorvoert en vastlegt, moet je een logboekbericht maken. Dat helpt je om later te achterhalen waarom je welke wijzigingen hebt gedaan. Daarbij heb je dan ook meteen een gedetailleerd rapport van je ontwikkelproces."
 
 #. (para)
 msgid "The top pane shows a list of revisions where changes to the file/folder have been committed. This summary includes the date and time, the person who committed the revision and the start of the log message."
-msgstr ""
+msgstr "Het bovenste gedeelte geeft een lijst van revisies weer, waarin wijzigingen aan bestanden en mappen zijn vastgelegd. Deze samenvatting geeft ook de datum, de tijd, degene die de revisie heeft vastgelegd en het begin van het logboekbericht weer."
 
 #. (para)
 msgid "Lines shown in blue indicate that something has been copied to this development line (perhaps from a branch)."
-msgstr ""
+msgstr "Blauwe regels geven aan dat er iets naar deze revisie is gekopieerd, verplaatst of hernoemt is (mogelijk vanuit een vertakking/branch)."
 
 #. (para)
 msgid "The middle pane shows the full log message for the selected revision."
-msgstr ""
+msgstr "Het middelste gedeelte geeft het complete logboekbericht weer van de geselecteerd revisie."
 
 #. (para)
 msgid "The bottom pane shows a list of all files and folders that were changed as part of the selected revision."
-msgstr ""
+msgstr "Het onderste gedeelte geeft de bestanden en mappen weer, die in deze revisie gewijzigd zijn."
 
 #. (para)
 msgid "The Revision Log Dialog retrieves all those log messages and shows them to you. The display is divided into 3 panes. <placeholder-1/> But it does much more than that - it provides context menu commands which you can use to get even more information about the project history."
-msgstr ""
+msgstr "Het Logboek boodschappen venster haalt alle logboekboodschappen op en toont deze. Het venster is verdeeld in 3 gedeeltes. <placeholder-1/> Maar het doet nog veel meer dan dat alleen - er zijn ook functies beschikbaar in het context menu, waarmee je nog veel meer informatie over de geschiedenis van het project kunt opvragen."
 
 #. (title)
 msgid "Invoking the Revision Log Dialog"
-msgstr ""
+msgstr "Het Logboek Boodschappen Venster Opstarten"
 
 #. (title)
 msgid "The Revision Log Dialog"
-msgstr "De Revisie Log Dialoog"
+msgstr "Het Logboek Boodschappen Venster"
 
 #. (para)
 msgid "From the TortoiseSVN context submenu"
-msgstr ""
+msgstr "Vanuit het TortoiseSVN context submenu"
 
 #. (para)
 msgid "From the property page"
-msgstr "Van de eigenschappen pagina"
+msgstr "Vanuit de eigenschappen pagina"
 
 #. (para)
 msgid "From the Progress dialog after an update has finished. Then the Log dialog only shows those revisions which were changed since your last update"
-msgstr ""
+msgstr "Vanuit het voortgangsvenster nadat een verversing is afgerond. Dan zal het Logboek venster alleen de revisies weergeven van wijzigingen die doorgevoerd zijn, nadat je voor het laatst ververst hebt."
 
 #. (para)
 msgid "<placeholder-1/> There are several places from where you can show the Log dialog: <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Er zijn verschillende plaatsen van waaruit je het Logboek boodschappen venster kunt openen: <placeholder-2/>"
 
 #. (para)
 msgid "If the repository is unavailable you will see the <guilabel>Want to go offline?</guilabel> dialog, described in <xref linkend=\"tsvn-dug-showlog-cache\"/>."
-msgstr ""
+msgstr "Als het archief niet beschikbaar is, zal er een venster krijgen met de vraag <guilabel>Wilt u offline werken?</guilabel>. Dit wordt verder beschreven in <xref linkend=\"tsvn-dug-showlog-cache\"/>."
 
 #. (title)
 msgid "Revision Log Actions"
-msgstr "Revisie Log Acties"
+msgstr "Revisie Logboek Acties"
 
 #. (para)
 msgid "The top pane has an <guilabel>Actions</guilabel> column containing icons that summarize what has been done in that revision. There are four different icons, each shown in its own column."
-msgstr ""
+msgstr "Het bovenste gedeelte van het venster heeft een <guilabel>Acties</guilabel> kolom, waarin met pictogrammen wordt aangegeven wat er in die revisie gedaan is. Er zijn vier verschillende pictogrammen, die elke in een aparte kolom worden weergegeven."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ActionModifiedIcon.png\"/> If a revision modified a file or directory, the <emphasis>modified</emphasis> icon is shown in the first column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionModifiedIcon.png\"/> Als in een revisie bestanden of mappen gewijzigd zijn, dan wordt het <emphasis>gewijzigd</emphasis> pictogram weergegeven in de eerste kolom."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ActionAddedIcon.png\"/> If a revision added a file or directory, the <emphasis>added</emphasis> icon is shown in the second column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionAddedIcon.png\"/> Als in een revisie een bestand of map is toegevoegd, dan wordt het <emphasis>toegevoegd</emphasis> pictrogram weergegeven in de tweede kolom."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ActionDeletedIcon.png\"/> If a revision deleted a file or directory, the <emphasis>deleted</emphasis> icon is shown in the third column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionDeletedIcon.png\"/> Als in een revisie bestanden of mappen verwijderd zijn, dan wordt het <emphasis>verwijderd</emphasis> pictogram weergegeven in de derde kolom."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ActionReplacedIcon.png\"/> If a revision replaced a file or directory, the <emphasis>replaced</emphasis> icon is shown in the fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionReplacedIcon.png\"/> Als in een revisie bestanden of mappen vervangen zijn, dan wordt het <emphasis>vervangen</emphasis> pictogram weergegeven in de vierde kolom."
 
 #. (title)
 msgid "Getting Additional Information"
-msgstr ""
+msgstr "Extra Informatie Opvragen"
 
 #. (title)
 msgid "The Revision Log Dialog Top Pane with Context Menu"
-msgstr ""
+msgstr "Het Context Menu Van Het Bovenste Gedeelte In Het Logboek Boodschappen Venster"
 
 #. (term)
 msgid "Compare with working copy"
@@ -4228,27 +4228,27 @@ msgstr "Vergelijk met werkkopie"
 
 #. (para)
 msgid "Compare the selected revision with your working copy. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN. If the log dialog is for a folder, this will show you a list of changed files, and allow you to review the changes made to each file individually."
-msgstr ""
+msgstr "Vergelijk de geselecteerde revisie met je werkkopie. Het standaard Diff-programma is TortoiseMerge, welke meegeleverd wordt met TortoiseSVN. Als het logboek venster wordt weergegeven voor een map, dan zal in de lijst de gewijzigde bestanden weergegeven worden en heb je de mogelijkheid om de wijzigingen van individuele bestanden te bekijken."
 
 #. (term)
 msgid "Compare and blame with working BASE"
-msgstr ""
+msgstr "Vergelijk en verklaar met werkkopie (BASE)"
 
 #. (para)
 msgid "Blame the selected revision, and the file in your working BASE and compare the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail. (files only)."
-msgstr ""
+msgstr "Voor de geselecteerde revisie: de geselecteerde revisie en de BASE versie vergelijken met het Diff-programma bekijken. Lees voor meer informatie <xref linkend=\"tsvn-dug-blame-diffs\"/>. Deze functie is alleen voor bestanden beschikbaar."
 
 #. (term)
 msgid "Show changes as unified diff"
-msgstr ""
+msgstr "Toon wijzigingen als unified diff"
 
 #. (para)
 msgid "View the changes made in the selected revision as a Unified-Diff file (GNU patch format). This shows only the differences with a few lines of context. It is harder to read than a visual file compare, but will show all file changes together in a compact format."
-msgstr ""
+msgstr "Bekijk de wijzigingen van de geselecteerd revisie als Unified-Diff bestand (GNU patch formaat). Hiermee worden alleen de verschillen getoond met enkele regels voor de context. Het is lastiger om dit te lezen dan een visuele vergelijking, maar geeft wel alle wijzigingen compact weer."
 
 #. (term)
 msgid "Compare with previous revision"
-msgstr "Vergelijk met voorgaande revisie"
+msgstr "Vergelijk met vorige revisie"
 
 #. (para)
 msgid "Compare the selected revision with the previous revision. This works in a similar manner to comparing with your working copy. For folders this option will first show the changed files dialog allowing you to select files to compare."
@@ -4265,7 +4265,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Save revision to..."
-msgstr "Sla revisie op naar..."
+msgstr "Bewaar revisie in..."
 
 #. (para)
 msgid "Save the selected revision to a file so you have an older version of that file. (files only)."
@@ -4291,7 +4291,7 @@ msgstr ""
 
 #. (term)
 msgid "Browse repository"
-msgstr "Blader door repository"
+msgstr "Archief bekijken"
 
 #. (para)
 msgid "Open the repository browser to examine the selected file or folder in the repository as it was at the selected revision."
@@ -4299,7 +4299,7 @@ msgstr ""
 
 #. (term)
 msgid "Create branch/tag from revision"
-msgstr "Maak branch/tag van revisie"
+msgstr "Maak tak/label van revisie"
 
 #. (para)
 msgid "Create a branch or tag from a selected revision. This is useful e.g. if you forgot to create a tag and already committed some changes which weren't supposed to get into that release."
@@ -4307,7 +4307,7 @@ msgstr ""
 
 #. (term)
 msgid "Update item to revision"
-msgstr "Ververs item van revisie"
+msgstr "Ververs onderdeel naar revisie"
 
 #. (para)
 msgid "Update your working copy to the selected revision. Useful if you want to have your working copy reflect a time in the past, or if there have been further commits to the repository and you want to update your working copy one step at a time. It is best to update a whole directory in your working copy, not just one file, otherwise your working copy could be inconsistent."
@@ -4319,7 +4319,7 @@ msgstr ""
 
 #. (term)
 msgid "Revert to this revision"
-msgstr "Terugdraaien naar revisie"
+msgstr "Ongedaan maken tot deze revisie"
 
 #. (para)
 msgid "Revert to an earlier revision. If you have made several changes, and then decide that you really want to go back to how things were in revision N, this is the command you need. The changes are undone in your working copy so this operation does <emphasis>not</emphasis> affect the repository until you commit the changes. Note that this will undo <emphasis>all</emphasis> changes made after the selected revision, replacing the file/folder with the earlier version."
@@ -4377,7 +4377,7 @@ msgstr ""
 
 #. (term)
 msgid "Export..."
-msgstr "Exporteren als..."
+msgstr "Exporteren..."
 
 #. (para)
 msgid "Export the selected file/folder at the selected revision. This brings up a dialog for you to confirm the URL and revision, and select a location for the export."
@@ -4385,7 +4385,7 @@ msgstr ""
 
 #. (term)
 msgid "Edit author / log message"
-msgstr "Bewerk auteur/ logmelding"
+msgstr "Auteur wijzigen / Logboek boodschap wijzigen"
 
 #. (para)
 msgid "Edit the log message or author attached to a previous commit. Read <xref linkend=\"tsvn-dug-showlog-4\"/> to find out how this works."
@@ -4393,7 +4393,7 @@ msgstr ""
 
 #. (term)
 msgid "Show revision properties"
-msgstr "Toon revisie eigenschappen"
+msgstr "Toon revisie-eigenschappen"
 
 #. (para)
 msgid "View and edit any revision property, not just log message and author. Refer to <xref linkend=\"tsvn-dug-showlog-4\"/>."
@@ -4402,7 +4402,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Copy to clipboard"
-msgstr "Kopieer naar klembord"
+msgstr "Naar klembord kopiëren"
 
 #. (para)
 msgid "Copy the log details of the selected revisions to the clipboard. This will copy the revision number, author, date, log message and the list of changed items for each revision."
@@ -4411,7 +4411,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Search log messages..."
-msgstr "Doorzoek logmeldingen..."
+msgstr "Doorzoek logboekberichten..."
 
 #. (para)
 msgid "Search log messages for the text you enter. This searches the log messages that you entered and also the action summaries created by Subversion (shown in the bottom pane). The search is not case sensitive."
@@ -4427,7 +4427,7 @@ msgstr ""
 
 #. (term)
 msgid "Compare revisions"
-msgstr "Vergelijk revisies"
+msgstr "Verklaar revisies"
 
 #. (para)
 msgid "Compare the two selected revisions using a visual difference tool. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN."
@@ -4483,7 +4483,7 @@ msgstr ""
 
 #. (term)
 msgid "Show changes"
-msgstr "Weergeef wijzigingen"
+msgstr "Toon wijzigingen"
 
 #. (para)
 msgid "Show changes made in the selected revision for the selected file. This context menu is only available for files shown as <emphasis>modified</emphasis>."
@@ -4528,7 +4528,7 @@ msgstr ""
 
 #. (term)
 msgid "Show log"
-msgstr "Weergeef log"
+msgstr "Toon logboek"
 
 #. (para)
 msgid "Show the revision log for the selected single file."
@@ -4536,7 +4536,7 @@ msgstr ""
 
 #. (term)
 msgid "Get merge logs"
-msgstr "Haal samenvoeglogs op"
+msgstr "Haal samenvoegboodschappen"
 
 #. (para)
 msgid "Show the revision log for the selected single file, including merged changes. Find out more in <xref linkend=\"tsvn-dug-showlog-mergetrack\"/>."
@@ -4572,7 +4572,7 @@ msgstr ""
 
 #. (title)
 msgid "Getting more log messages"
-msgstr "Haal uitgebreide logmeldingen"
+msgstr "Haal uitgebreide logboek boodschappen"
 
 #. (para)
 msgid "For a large repository there may be hundreds or even thousands of changes and fetching them all could take a long time. Normally you are only interested in the more recent changes. By default, the number of log messages fetched is limited to 100, but you can change this value in <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings-dialogs\"/>),"
@@ -4796,7 +4796,7 @@ msgstr ""
 
 #. (title)
 msgid "Offline Mode"
-msgstr "Offline Mode"
+msgstr "Offline Modus"
 
 #. (title)
 msgid "Go Offline Dialog"
