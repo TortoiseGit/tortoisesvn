@@ -172,6 +172,8 @@ protected:
 	void FillList(deque<CItem> * pItems);
     /// Open / enter folder for entry number \ref item 
     void OpenFromList (int item);
+	/// Open the file in the default application
+	void OpenFile(const CTSVNPath& url, const CTSVNPath& urlEscaped, bool bOpenWith);
 	/// Sets the sort arrow in the list view header according to the currently used sorting.
 	void SetSortArrow();
 	/// called when a drag-n-drop operation starts

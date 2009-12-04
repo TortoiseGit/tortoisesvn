@@ -1712,6 +1712,52 @@ void CRepositoryBrowser::OpenFromList (int item)
         RefreshNode (hItem);
 	    m_blockEvents = false;
 	}
+	else if ((pItem) && (pItem->kind == svn_node_file))
+	{
+		CRepositoryBrowserSelection selection;
+		selection.Add (pItem);
+		OpenFile(selection.GetURL (0,0), selection.GetURLEscaped (0,0), false);
+	}
+}
+
+void CRepositoryBrowser::OpenFile(const CTSVNPath& url, const CTSVNPath& urlEscaped, bool bOpenWith)
+{
+	const SVNRev& revision = GetRevision();
+	CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, url, revision);
+	CWaitCursorEx wait_cursor;
+	CProgressDlg progDlg;
+	progDlg.SetTitle(IDS_APPNAME);
+	progDlg.SetAnimation(IDR_DOWNLOAD);
+	CString sInfoLine;
+	sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url.GetFileOrDirectoryName(), (LPCTSTR)revision.ToString());
+	progDlg.SetLine(1, sInfoLine, true);
+	SetAndClearProgressInfo(&progDlg);
+	progDlg.ShowModeless(m_hWnd);
+	if (!Cat(urlEscaped, revision, revision, tempfile))
+	{
+		progDlg.Stop();
+		SetAndClearProgressInfo((HWND)NULL);
+		wait_cursor.Hide();
+		CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		return;
+	}
+	progDlg.Stop();
+	SetAndClearProgressInfo((HWND)NULL);
+	// set the file as read-only to tell the app which opens the file that it's only
+	// a temporary file and must not be edited.
+	SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+	if (!bOpenWith)
+	{
+		int ret = (int)ShellExecute(NULL, _T("open"), tempfile.GetWinPathString(), NULL, NULL, SW_SHOWNORMAL);
+		if (ret <= HINSTANCE_ERROR)
+			bOpenWith = true;
+	}
+	else
+	{
+		CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+		c += tempfile.GetWinPathString() + _T(" ");
+		CAppUtils::LaunchApplication(c, NULL, false);
+	}
 }
 
 void CRepositoryBrowser::OnHdnItemclickRepolist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -2845,57 +2891,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			bOpenWith = true;
 		case ID_OPEN:
 			{
-                const CTSVNPath& url = selection.GetURL (0,0);
-                const CTSVNPath& urlEscaped = selection.GetURLEscaped (0,0);
-                const SVNRev& revision = selection.GetRepository (0).revision;
-				// if we're on HEAD and the repository is available via http or https,
-				// we just open the browser with that url.
-				if (revision.IsHead() && (bOpenWith==false))
-				{
-					if (url.GetSVNPathString().Left(4).CompareNoCase(_T("http")) == 0)
-					{
-						CString sBrowserUrl = urlEscaped.GetSVNPathString();
-
-						ShellExecute(NULL, _T("open"), sBrowserUrl, NULL, NULL, SW_SHOWNORMAL);
-						break;
-					}
-				}
-				// in all other cases, we have to 'cat' the file and open it.
-				CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, url, revision);
-				CWaitCursorEx wait_cursor;
-				CProgressDlg progDlg;
-				progDlg.SetTitle(IDS_APPNAME);
-				progDlg.SetAnimation(IDR_DOWNLOAD);
-				CString sInfoLine;
-				sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url.GetFileOrDirectoryName(), (LPCTSTR)revision.ToString());
-				progDlg.SetLine(1, sInfoLine, true);
-				SetAndClearProgressInfo(&progDlg);
-				progDlg.ShowModeless(m_hWnd);
-				if (!Cat(urlEscaped, revision, revision, tempfile))
-				{
-					progDlg.Stop();
-					SetAndClearProgressInfo((HWND)NULL);
-					wait_cursor.Hide();
-					CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-					break;;
-				}
-				progDlg.Stop();
-				SetAndClearProgressInfo((HWND)NULL);
-				// set the file as read-only to tell the app which opens the file that it's only
-				// a temporary file and must not be edited.
-				SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-				if (!bOpenWith)
-				{
-					int ret = (int)ShellExecute(NULL, _T("open"), tempfile.GetWinPathString(), NULL, NULL, SW_SHOWNORMAL);
-					if (ret <= HINSTANCE_ERROR)
-						bOpenWith = true;
-				}
-				else
-				{
-					CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-					c += tempfile.GetWinPathString() + _T(" ");
-					CAppUtils::LaunchApplication(c, NULL, false);
-				}
+				OpenFile(selection.GetURL (0,0), selection.GetURLEscaped (0,0), bOpenWith);
 			}
 			break;
 		case ID_DELETE:
