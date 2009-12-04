@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-10-21 12:50+0200\n"
+"PO-Revision-Date: 2009-12-04 20:36+0200\n"
 "Last-Translator: Vural Goze <vuralgoze@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2230,7 +2230,7 @@ msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr ""
-"Import etmeden önce silmek istediginiz\n"
+"İçe aktarmadan önce silmek istediğiniz\n"
 "dosyaları seçiniz."
 
 #. Resource IDs: (612)
@@ -2514,6 +2514,11 @@ msgstr "Yaratıcıya göre teslim eder"
 msgid "Commits by date"
 msgstr "Tarihe göre teslim eder"
 
+#. Resource IDs: (247)
+#, c-format
+msgid "Commits each %s"
+msgstr "Her %s başına düşen teslim sayısı"
+
 #. Resource IDs: (1135)
 msgid "Commits each week:"
 msgstr "Haftalık teslim sayısı"
@@ -2561,6 +2566,14 @@ msgstr "&Taban ile karşılaştır"
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
 msgstr "Bir önceki revizyon ile karşılaştır"
+
+#. Resource IDs: (2055)
+msgid ""
+"Compares all whitespaces when diffing\n"
+"Compare whitespaces"
+msgstr ""
+"Fark alırken boşluk karakterlerini karşılaştırır\n"
+"Boşluk karakterlerini karşılaştır"
 
 #. Resource IDs: (12)
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -2655,6 +2668,10 @@ msgstr "Kopyalandı"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "URL'den kopyalandı"
+
+#. Resource IDs: (208)
+msgid "Copied from revision"
+msgstr "Revizyondan kopyalandı"
 
 #. Resource IDs: (275)
 #, c-format
@@ -3722,19 +3739,19 @@ msgstr "İncele"
 
 #. Resource IDs: (229, 238)
 msgid "Export"
-msgstr "Export"
+msgstr "Dışa aktar"
 
 #. Resource IDs: (1074)
 msgid "Export &directory:"
-msgstr "Export &klasörü:"
+msgstr "Dışa aktarma &klasörü:"
 
 #. Resource IDs: (78)
 msgid "Export - TortoiseSVN"
-msgstr "Export - TortoiseSVN"
+msgstr "Dışa aktar - TortoiseSVN"
 
 #. Resource IDs: (94)
 msgid "Export directory:"
-msgstr "Dışa Aktarma klasörü:"
+msgstr "Dışa aktarma klasörü:"
 
 #. Resource IDs: (345)
 msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -3755,7 +3772,7 @@ msgstr "Dışa aktarılıyor..."
 
 #. Resource IDs: (10)
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
-msgstr "SVN yönetici klasörlerinin haricindeki depo dosyalarını temiz bir çalişan kopyaya export eder."
+msgstr "SVN yönetici klasörlerinin haricindeki depo dosyalarını temiz bir çalişan kopyaya dışa aktarır."
 
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
@@ -3879,6 +3896,11 @@ msgstr "Dosyanın %s revizyonuna ulaşılıyor:"
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr "Dosya"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "File changes each %s"
+msgstr "Her %s başına düşen dosya değişikliği"
 
 #. Resource IDs: (1138)
 msgid "File changes each week:"
@@ -4474,6 +4496,10 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +K"
+msgstr "ID:32825:V C +K"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
 msgstr "ID:32825:V C +L"
 
@@ -4577,7 +4603,7 @@ msgid ""
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
 "İşaretlendiğinde depoda yeni bir klasör yaratılır.\n"
-"İşaretlenmediğinde import direkt belirtilen URL'ye yazılır."
+"İşaretlenmediğinde içe aktarma doğrudan belirtilen URL'ye yazılır."
 
 #. Resource IDs: (79)
 msgid ""
@@ -4692,6 +4718,10 @@ msgstr "&Tüm boşluklara aldırma"
 msgid "Ignore &case changes"
 msgstr "&Dizi değişikliklerine aldırma"
 
+#. Resource IDs: (32873)
+msgid "Ignore all whitespace changes"
+msgstr "Boşluk karakteri değişikliklerinin tümüne aldırma"
+
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Tüm boşluk karakterlerine aldırma"
@@ -4716,6 +4746,22 @@ msgstr "Boşluk karakteri değişikliklerine aldırma"
 msgid "Ignored items included"
 msgstr "Aldırılmayan elemanlar dahil"
 
+#. Resource IDs: (2055)
+msgid ""
+"Ignores all whitespace changes when diffing\n"
+"Ignore all whitespace changes"
+msgstr ""
+"Fark alırken boşluk karakterlerindeki değişiklerinin tümüne aldırmaz\n"
+"Boşluk karakteri değişikliklerinin tümüne aldırma"
+
+#. Resource IDs: (2055)
+msgid ""
+"Ignores changes in whitespaces when diffing\n"
+"Ignore whitespace changes"
+msgstr ""
+"Fark alırken boşluk karakterlerindeki değişiklere aldırmaz\n"
+"Boşluk karakteri değişikliklerine aldırma"
+
 #. Resource IDs: (16916)
 msgid "Image &and Text"
 msgstr "Görüntü ve Y&azı"
@@ -4734,7 +4780,7 @@ msgstr "Mevcut alt elemanlar, klasörler dahil"
 
 #. Resource IDs: (139)
 msgid "Import"
-msgstr "Import"
+msgstr "İçe aktar"
 
 #. Resource IDs: (127)
 #, c-format
@@ -4748,7 +4794,7 @@ msgstr "%s ı %s%s a aktar"
 
 #. Resource IDs: (1056)
 msgid "Import &message"
-msgstr "Import &mesajı"
+msgstr "İçe aktarma &mesajı"
 
 #. Resource IDs: (77)
 msgid "Import - TortoiseSVN"
@@ -4793,11 +4839,11 @@ msgstr "%1 a içe aktar"
 #. Resource IDs: (120)
 #, c-format
 msgid "Importing file %s"
-msgstr "%s dosyası Import ediliyor"
+msgstr "%s dosyası içe aktarılıyor"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
-msgstr "Klasörü depoya Import eder."
+msgstr "Klasörü depoya içe aktarır."
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -5460,7 +5506,7 @@ msgstr "Mesaj"
 
 #. Resource IDs: (1241)
 msgid "Message:"
-msgstr "Masaj:"
+msgstr "Mesaj:"
 
 #. Resource IDs: (116)
 msgid "Messages"
@@ -5817,6 +5863,11 @@ msgstr "Not: yazı tipi ayarları TortoiseUDiff görüntüleyicisinide etkiler"
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Duyuru"
+
+#. Resource IDs: (247)
+#, c-format
+msgid "Number of %s"
+msgstr "%s adedi"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
@@ -6241,6 +6292,14 @@ msgstr "Teslim-öncesi yakalayıcısı"
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
 msgstr "Güncelleme-öncesi yakalayıcısı"
+
+#. Resource IDs: (3)
+msgid "Prefer local"
+msgstr "Yerel olanı tercih et"
+
+#. Resource IDs: (4)
+msgid "Prefer repository"
+msgstr "Depoyu tercih et"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -7324,8 +7383,8 @@ msgid ""
 "Select folder to export to.\n"
 "You might need to create a new folder before performing this export."
 msgstr ""
-"Export edilecek klasörü seç.\n"
-"Bu exportu yapmadan önce yeni klasör oluşturmanız gerekebilir."
+"Dışa aktarılacak klasörü seç.\n"
+"Bu dışa aktarmayı yapmadan önce yeni klasör oluşturmanız gerekebilir."
 
 #. Resource IDs: (197)
 msgid "Select folder to run script for"
@@ -8135,6 +8194,14 @@ msgstr "Metin Durumu:"
 msgid "Text status"
 msgstr "Metin durumu"
 
+#. Resource IDs: (84)
+msgid ""
+"The URL to check out refers to a file but this\n"
+"working copy path is an existing directory."
+msgstr ""
+"Depo indirme adresi bir dosyaya karşılık geliyor\n"
+"ancak bu çalışan kopya yolu zaten varolan bir dizin."
+
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "Yığın boyutu eklenen/silinen satır sayısı ile uyuşmuyor!"
@@ -8707,7 +8774,7 @@ msgstr "Bu ürün OpenSSL Project (http://www.openssl.org/) tarafından  OpenSSL
 #. Resource IDs: (3857)
 #, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
-msgstr "Bu program  %s dosyasındaki, var olmayan %s export dosyası ile bağlantılı. Bu makinede %s 'in uyumsuz bir versiyonu olabilir. "
+msgstr "Bu program var olmayan dışa aktarma %s'ya (%s dosyasında) yönlendirilmiş. Bu makinede %s 'in uyumsuz bir versiyonu olabilir. "
 
 #. Resource IDs: (3857)
 #, c-format
@@ -9252,6 +9319,10 @@ msgstr ""
 "Çoklu istisnalarda virgül kullanın (',').\r\n"
 "Örneğin:*.mylan.com, *.company.com"
 
+#. Resource IDs: (1538)
+msgid "Use Aero dialogs"
+msgstr "Aero diyaloglarını kullan"
+
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "&Çalışan kopya dosyasından gelen URL'yi \"From:\" URL'si olarak kullan"
@@ -9308,10 +9379,6 @@ msgstr "Metin bloklarının ikisini de kullan (son olarak bunu)"
 msgid "Use left file"
 msgstr "Soldaki dosyayı kullan"
 
-#. Resource IDs: (3)
-msgid "Use local"
-msgstr "Yerel olanı kullan"
-
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
 msgstr "Geri döndürürken geri dönüşüm kutusunu kullan"
@@ -9319,10 +9386,6 @@ msgstr "Geri döndürürken geri dönüşüm kutusunu kullan"
 #. Resource IDs: (116)
 msgid "Use regular expression"
 msgstr "Kurallı ifade kullan"
-
-#. Resource IDs: (4)
-msgid "Use repository"
-msgstr "Depoyu kullan"
 
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
