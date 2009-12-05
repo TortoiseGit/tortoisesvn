@@ -4204,7 +4204,6 @@ CTSVNPath CSVNStatusListCtrl::GetCommonDirectory(bool bStrict)
 
 CTSVNPath CSVNStatusListCtrl::GetCommonURL(bool bStrict)
 {
-	CTSVNPath commonBaseURL;
 	if (!bStrict)
 	{
 		// not strict means that the selected folder has priority
@@ -4212,6 +4211,7 @@ CTSVNPath CSVNStatusListCtrl::GetCommonURL(bool bStrict)
 			return m_StatusUrlList.GetCommonDirectory();
 	}
 
+	CTSVNPathList list;
 	int nListItems = GetItemCount();
 	for (int i=0; i<nListItems; ++i)
 	{
@@ -4221,25 +4221,9 @@ CTSVNPath CSVNStatusListCtrl::GetCommonURL(bool bStrict)
 		const CTSVNPath& baseURL = CTSVNPath(entry->GetURL());
 		if (baseURL.IsEmpty())
 			continue;			// item has no url
-		if(commonBaseURL.IsEmpty())
-		{
-			commonBaseURL = baseURL;
-		}
-		else
-		{
-			if ((commonBaseURL.GetSVNPathString().GetLength() > baseURL.GetSVNPathString().GetLength()) &&
-				(baseURL.GetContainingDirectory().IsAncestorOf(commonBaseURL)))
-			{
-				commonBaseURL = baseURL.GetContainingDirectory();
-			}
-			else if (commonBaseURL.GetSVNPathString().GetLength() > baseURL.GetContainingDirectory().GetSVNPathString().GetLength())
-			{
-				if (baseURL.GetContainingDirectory().IsAncestorOf(commonBaseURL))
-					commonBaseURL = baseURL.GetContainingDirectory();
-			}
-		}
+		list.AddPath(baseURL);
 	}
-	return commonBaseURL;
+	return list.GetCommonRoot();
 }
 
 void CSVNStatusListCtrl::SelectAll(bool bSelect, bool bIncludeNoCommits)

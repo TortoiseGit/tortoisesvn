@@ -78,6 +78,8 @@ Version 1.6.7
        revision. (Stefan)
 - BUG: Deadlock in the shell extension when used from a multi-threaded
        application. (Jonathan Potter, GP Software)
+- BUG: The "commonURL" parameter in the CheckCommit() method of the
+       IBugtraqProvider2 interface was sometimes wrong. (Stefan)
 
 Version 1.6.6
 - CHG: Reduced disk access in the status cache. (Stefan)
