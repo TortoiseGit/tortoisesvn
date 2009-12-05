@@ -56,7 +56,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-12-02 22:14-0500\n"
+"PO-Revision-Date: 2009-12-04 23:09-0500\n"
 "Last-Translator: Garfield Yao <field977@hotmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -11715,10 +11715,10 @@ msgid ""
 "and bugs. As soon as the new feature is stable enough then the development "
 "branch is <firstterm>merged</firstterm> back into the main branch (trunk)."
 msgstr ""
-"版本控制系统的一个特性是能够把各种修改分离出来放在开发品的一个分割线上。这条线"
-"被称为<firstterm>分支</firstterm>。分支经常被用来试验新的特性，而不会对开发有"
-"编译错误的干扰。当新的特性足够稳定之后，开发品的分支就可以<firstterm>混合</"
-"firstterm>回主分支里(主干线)."
+"版本控制系统的一个特性是能够把各种修改分离出来放在一个单独的开发线上。这条线被"
+"称为<firstterm>分支</firstterm>。分支经常被用来试验新的特性，而不会干扰正在修"
+"改编译器错误和 bug 的主开发线。当新的特性足够稳定之后，开发分支就可以"
+"<firstterm>合并</firstterm>回主分支里(主干)."
 
 #. (para)
 msgid ""
@@ -11726,12 +11726,11 @@ msgid ""
 "revisions (e.g. a release version), so you can at any time recreate a certain "
 "build or environment. This process is known as <firstterm>tagging</firstterm>."
 msgstr ""
-"版本控制系统的另一个特性是能够标记特殊的版本(例如某个发布版本)，所以你可以在任"
-"何时候重新建立一个特定的构件和环境。这个过程被称作<firstterm>标记</"
+"版本控制系统的另一个特性是能够标记特殊的版本(例如一个发布版本)，所以你可以在任"
+"何时候重新建立一个特定的构建或环境。这个过程被称作<firstterm>标记</"
 "firstterm>。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Subversion does not have special commands for branching or tagging, but uses "
 "so-called <quote>cheap copies</quote> instead. Cheap copies are similar to "
@@ -11741,9 +11740,9 @@ msgid ""
 "almost no extra space in the repository."
 msgstr ""
 "Subversion 没有用于建立分支和标记的特殊命令，但是使用所谓的<literal>便宜复制</"
-"literal>来代替。便宜复制类似于Unix里的硬连接，它意思是代替一个版本库里的完整的"
-"复制，创建一个内部的连接，指向一个具体的版本树。结果分支和标记就迅速被创建，并"
-"且没有在版本库里占据任何额外的空间。"
+"literal>来代替。便宜复制类似于 Unix 里的硬连接，它意思是代替一个版本库里的完整"
+"的复制，创建一个内部的链接，指向一个具体的版本树。结果分支和标记迅速被创建，并"
+"且几乎没有在版本库里占据任何额外的空间。"
 
 #. (title)
 msgid "Creating a Branch or Tag"
@@ -11762,9 +11761,9 @@ msgid ""
 "guimenu><guimenuitem>Branch/Tag...</guimenuitem></menuchoice>."
 msgstr ""
 "如果你用推荐的目录结构导入了一个工程，那么创建分支或标记就非常简单: "
-"<placeholder-1/>在你当前的工作副本中给你你想要复制的分支或标记选择一个目录，然"
-"后选择命令<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>分支/标记..."
-"</guimenuitem></menuchoice>。"
+"<placeholder-1/>在你当前的工作副本中选择你想要复制的分支或标记的目录，然后选择"
+"命令<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>分支/标记...</"
+"guimenuitem></menuchoice>。"
 
 #. (para)
 msgid ""
@@ -11778,10 +11777,16 @@ msgid ""
 "click the button on the right to open the repository browser so you can view "
 "the existing repository structure."
 msgstr ""
+"默认的新分支的目标 URL 将会是你工作副本对应的源 URL。你需要修改这个 URL 为你的"
+"分支/标记的新路径。那么替代<screen>\n"
+"    http://svn.collab.net/repos/ProjectName/trunk\n"
+"</screen>你也会使用类似这样的路径<screen>\n"
+"    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
+"</screen>如果你不记得你上一次使用的命名规则，单击右边的按钮来打开版本库浏览"
+"器，这样你就可以查看现有的版本库结构。"
 
 #. (term)
 #. (listitem)
-#, fuzzy
 msgid "HEAD revision in the repository"
 msgstr "版本库中的最新版本"
 
@@ -11791,11 +11796,12 @@ msgid ""
 "No data needs to be transferred from your working copy, and the branch is "
 "created very quickly."
 msgstr ""
+"新的分支从最新版本复制到版本库中。没有数据需要从你的工作副本传递到版本库，而且"
+"分支非常迅速的被创建。"
 
 #. (term)
-#, fuzzy
 msgid "Specific revision in the repository"
-msgstr "指定版本库中的版本"
+msgstr "版本库中指定的版本"
 
 #. (para)
 msgid ""
@@ -11806,6 +11812,9 @@ msgid ""
 "from there. Again no data is transferred from your working copy, and the "
 "branch is created very quickly."
 msgstr ""
+"新的分支从你选选择的旧版本复制到版本库中。当你忘记为上一周发布的项目创建标记"
+"时，这就很有用了。如果你不记得版本号，点击右边的按钮来显示版本日志，然后从中选"
+"择版本号。也没有数据需要从你的工作副本传递到版本库，而且分支非常迅速的被创建。"
 
 #. (para)
 msgid ""
@@ -11815,13 +11824,15 @@ msgid ""
 "complex tag may involve transferring data from your WC back to the repository "
 "if it does not exist there already."
 msgstr ""
+"新的分支是与你本地工作副本一模一样的副本。如果你将工作副本中某些文件更新到某个"
+"早先的版本，或者你进行了本地修改，这些正是要进入副本的。当然，这些繁多的标记会"
+"作为传输数据从你的工作副本送回版本库，如果它们不存在于版本库中。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Now you have to select the source of the copy. Here you have three options: "
 "<placeholder-1/>"
-msgstr "在<placeholder-1/>创建一个版本库。"
+msgstr "现在你需要选择从哪里复制。这里你有三个选择: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -11831,6 +11842,9 @@ msgid ""
 "copy does not contain modifications. If it does, those changes will be merged "
 "into the branch WC when you switch."
 msgstr ""
+"如果想要将工作副本自动切换到新创建分支，选中<guilabel>切换工作副本至新分支/标"
+"记</guilabel>复选框。但是如果你要这样做，首先确认你的工作副本中不包含修改。如"
+"果有，这些修改将会在你切换时合并到分支的工作副本中。"
 
 #. (para)
 msgid ""
@@ -11842,7 +11856,6 @@ msgstr ""
 "需要注意的是这个副本是在<emphasis>版本库内部</emphasis>创建的。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Note that unless you opted to switch your working copy to the newly created "
 "branch, creating a Branch or Tag does <emphasis>not</emphasis> affect your "
@@ -11850,13 +11863,13 @@ msgid ""
 "committed to the new branch, not to the trunk, so your WC may still be marked "
 "as modified with respect to the trunk."
 msgstr ""
-"需要注意建立一个分支或标记<emphasis>不会</emphasis>影响你的工作副本。即使你复"
-"制了你的工作副本，这些修改也会提交到新分支里，而不是到主干里，所以你的工作副本"
-"可能仍然标记为已修改状态。"
+"需要注意除非你决定切换工作副本到新创建分支，建立一个分支或标记<emphasis>不会</"
+"emphasis>影响你的工作副本。即使你从工作副本创建分支，这些修改也会提交到新分支"
+"里，而不是到主干里，所以你的工作副本可能仍然标记为已修改状态来避免影响主干。"
 
 #. (title)
 msgid "Other ways to create a branch or tag"
-msgstr ""
+msgstr "创建分支或标记的其他方法"
 
 #. (para)
 msgid ""
@@ -11865,6 +11878,9 @@ msgid ""
 "location. You have to hold down the <keycap>Ctrl</keycap> key while you drag "
 "to create a copy, otherwise the folder gets moved, not copied."
 msgstr ""
+"你可以在没有工作副本的情况下创建分支或标记。要这样做，打开版本库浏览器。你可以"
+"拖拽文件夹到新的位置。要创建副本，你必须在拖拽过程中按下 <keycap>Ctrl</"
+"keycap> 键，否则文件夹是被移动，不是被复制。"
 
 #. (para)
 msgid ""
@@ -11873,6 +11889,8 @@ msgid ""
 "to be moved or copied. Of course to create a branch or tag you must copy the "
 "folder, not move it."
 msgstr ""
+"你可以使用鼠标右键拖拽文件夹。一旦你松开鼠标右键，你可以从右键菜单中选择移动或"
+"复制文件夹。当然，要创建分支或标记你必须复制文件夹，而不是移动它。"
 
 #. (para)
 msgid ""
@@ -11881,6 +11899,9 @@ msgid ""
 "earlier revision), right-click and choose <menuchoice><guimenuitem>create "
 "branch/tag from revision...</guimenuitem></menuchoice>"
 msgstr ""
+"还有一个方法就是从日志对话框。你可以显示某个文件夹，例如 trunk，的日志对话框，"
+"选择一个版本(可以是位于顶端的最新版本，也可以是先前的版本)，右键单击并选择"
+"<menuchoice><guimenuitem>从版本创建分支/标记</guimenuitem></menuchoice>。"
 
 #. (title)
 msgid "To Checkout or to Switch..."
@@ -11891,7 +11912,6 @@ msgid "switch"
 msgstr "切换"
 
 #. (para)
-#, fuzzy
 msgid ""
 "...that is (not really) the question. While a checkout downloads everything "
 "from the desired branch in the repository to your working directory, "
@@ -11899,10 +11919,10 @@ msgid ""
 "guimenuitem></menuchoice> only transfers the changed data to your working "
 "copy. Good for the network load, good for your patience. :-)"
 msgstr ""
-"...这是个小问题。当你想从预期的分支检出所有数据到你的工作副本目录时"
+"...这是个小问题。当从版本库中预期的分支检出所有数据到你的工作副本目录时，"
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>切换...</guimenuitem></"
-"menuchoice> 仅仅传输已经被修改的数据到你的工作副本中。这样能减轻你的网络负担，"
-"也能减少你的耐心。"
+"menuchoice> 仅仅传输已经被修改的数据到你的工作副本中。有利于减轻网络负担，也有"
+"利于你的耐心。 :-)"
 
 #. (para)
 msgid ""
@@ -11912,8 +11932,8 @@ msgid ""
 "working copies from your repository as you like."
 msgstr ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>检出</guimenuitem></"
-"menuchoice>一个最新的项目在一个空目录下。你可以在你的本地磁盘上的任意位置进行"
-"检出操作，同时你可以从版本库中按照你的意愿建立出任意数量的副本。"
+"menuchoice>一个最新的工作副本在一个空目录下。你可以在你的本地磁盘上的任意位置"
+"进行检出操作，同时你可以从版本库中按照你的意愿建立出任意数量的工作副本。"
 
 #. (para)
 msgid ""
@@ -11922,9 +11942,9 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</"
 "guimenuitem></menuchoice> from the context menu."
 msgstr ""
-"在版本库中从你当前的工作副本切换到最新建立的副本。再一次选择你的项目所处的顶级"
-"文件夹然后在菜单中使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>"
-"切换...</guimenuitem></menuchoice>。"
+"将你当前的工作副本切换到在版本库中新建立的副本。再一次选择你的项目所处的顶级文"
+"件夹然后在右键菜单中使用<menuchoice><guimenu>TortoiseSVN</"
+"guimenu><guimenuitem>切换...</guimenuitem></menuchoice>。"
 
 #. (para)
 msgid ""
@@ -11932,9 +11952,9 @@ msgid ""
 "<guilabel>Head Revision</guilabel> radio button and click on <guibutton>OK</"
 "guibutton>. Your working copy is switched to the new branch/tag."
 msgstr ""
-"在接下来的对话框中蠕蠕你刚才建立的分支的URL。选择<guilabel>最新版本</guilabel>"
-"单选按钮然后<guibutton>确认</guibutton>。你的工作副本就切换到了最新的分支/标"
-"记。"
+"在接下来的对话框中输入你刚才建立的分支的 URL。选择<guilabel>最新版本</"
+"guilabel>单选按钮然后<guibutton>确认</guibutton>。你的工作副本就切换到了最新的"
+"分支/标记。"
 
 #. (para)
 msgid ""
@@ -11944,13 +11964,12 @@ msgid ""
 "happen then you must either commit the changes before switching, or revert "
 "your working copy to an already-committed revision (typically HEAD)."
 msgstr ""
-"切换操作起来就象更新，因为它没有丢弃你在本地做的修改。在工作副本里当你进行切换"
-"的时候任何没有提交过的修改都会被混合。如果你不想看到这样的结果，那么你可以有两"
-"种选择，要么在切换前提交修改，要么把工作副本恢复到一个已经提交过的版本(比如最"
-"新版本)。"
+"切换操作起来就象更新，因为它没有丢弃你在本地做的修改。当你进行切换的时候，工作"
+"副本里任何没有提交过的修改都会被合并。如果你不想看到这样的结果，那么你可以有两"
+"种选择，要么在切换前提交修改，要么把工作副本恢复到一个已经提交过的版本(通常是"
+"最新版本)。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "If you want to work on trunk and branch, but don't want the expense of a "
 "fresh checkout, you can use Windows Explorer to make a copy of your trunk "
@@ -11958,25 +11977,24 @@ msgid ""
 "guimenu><guimenuitem>Switch...</guimenuitem></menuchoice> that copy to your "
 "new branch."
 msgstr ""
-"在版本库中从你当前的工作副本切换到最新建立的副本。再一次选择你的项目所处的顶级"
-"文件夹然后在菜单中使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>"
-"切换...</guimenuitem></menuchoice>。"
+"如果你需要在主干和分支上工作，但是又不想耗费资源来进行一个全新的检出操作，你可"
+"以使用 Windows 资源管理器来将你的主干工作副本复制到另一个文件夹，然后使用"
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>切换...</guimenuitem></"
+"menuchoice>这样就会复制新的分支。"
 
 #. (title)
 msgid "The Switch Dialog"
 msgstr "切换对话框"
 
 #. (para)
-#, fuzzy
 msgid ""
 "To be able to work with your freshly generated branch or tag you have several "
 "ways to handle it. You can: <placeholder-1/><placeholder-2/>"
 msgstr ""
-"为了能够使用你最新产生的副本你有采用下面几种方法。你可以: <placeholder-1/"
-"><placeholder-2/>"
+"为了能够使用你最新产生的副本或标记，你可以采用下面几种方法。你可以: "
+"<placeholder-1/><placeholder-2/>"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Tags are typically used to create a static snapshot of the project at a "
 "particular stage. As such they are not normally used for development - that's "
@@ -11988,11 +12006,12 @@ msgid ""
 "repository which contains <filename>/tags/</filename>, TortoiseSVN will warn "
 "you."
 msgstr ""
-"在某个特殊的阶段标记被用来建立一个项目的静态映像。同样地标记和分支应该被独特地"
-"应用于开发品。这就是我们首选推荐 <filename>/trunk /branches /tags</filename>这"
-"样的版本库结构的原因。使用标记的版本并不是一个<emphasis>好想法</emphasis>，因"
-"为你的本地文件没有写保护，你这样做容易犯错误。不管怎样如果你试着提交(修改)到一"
-"个包含<filename>/标记/</filename>的版本库路径下，TortoiseSVN 会给你警告。"
+"标记被用来建立一个项目在某个特殊的阶段的静态映像。通常情况下他们本不是用来进行"
+"开发的 - 分支是用来进行开发的，这就是我们推荐 <filename>/trunk /branches /"
+"tags</filename> 这样的版本库结构的原因。在标记上工作并不是一个<emphasis>好想法"
+"</emphasis>，因为你的本地文件没有写保护，没有什么办法防止你误操作。然而，如果"
+"你试着提交一个包含 <filename>/tags/</filename> 的路径到版本库，TortoiseSVN 会"
+"警告你。"
 
 #. (para)
 msgid ""
@@ -12002,7 +12021,7 @@ msgid ""
 "create a new tag from this new branch, e.g. <filename>Version_1.0.1</"
 "filename>."
 msgstr ""
-"如果你想要在一个已经标记的发布版上做更多的修改。正确的操作方法是先从标记处建立"
+"如果你需要在一个已经标记的发布版上做更多的修改。正确的操作方法是先从标记处建立"
 "一个新分支然后提交这个分支。在这个分支的基础上进行修改后再从这个新分支上建立一"
 "个新标记，例如 <filename>Version_1.0.1</filename>。"
 
@@ -12021,8 +12040,8 @@ msgid ""
 "Although Subversion itself makes no distinction between tags and branches, "
 "the way they are typically used differs a bit. <placeholder-1/>"
 msgstr ""
-"尽管Subversion本身不区分标记和分支，它们的使用方法还是有些不同。<placeholder-"
-"1/>"
+"尽管 Subversion 本身不区分标记和分支，但它们通常被应用的场合还是有些不同。"
+"<placeholder-1/>"
 
 #. (title)
 msgid "Merging"
