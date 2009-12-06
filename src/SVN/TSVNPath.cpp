@@ -640,7 +640,7 @@ bool CTSVNPath::IsAncestorOf(const CTSVNPath& possibleDescendant) const
 
 // Get a string representing the file path, optionally with a base 
 // section stripped off the front.
-CString CTSVNPath::GetDisplayString(const CTSVNPath* pOptionalBasePath /* = NULL*/) const
+LPCTSTR CTSVNPath::GetDisplayString(const CTSVNPath* pOptionalBasePath /* = NULL*/) const
 {
 	EnsureFwdslashPathSet();
 	if(pOptionalBasePath != NULL)
@@ -649,7 +649,12 @@ CString CTSVNPath::GetDisplayString(const CTSVNPath* pOptionalBasePath /* = NULL
 		int baseLength = max(pOptionalBasePath->m_sBackslashPath.GetLength(), pOptionalBasePath->m_sFwdslashPath.GetLength());
 
 		// Now, chop that baseLength of the front of the path
-		return m_sFwdslashPath.Mid(baseLength).TrimLeft('/');
+		LPCTSTR result = m_sFwdslashPath;
+		result += baseLength;
+		while (*result == '/')
+			++result;
+
+		return result;
 	}
 	return m_sFwdslashPath;
 }

@@ -141,7 +141,7 @@ public:
 	 * section stripped off the front
 	 * Returns a string with fwdslash paths 
 	 */
-	CString GetDisplayString(const CTSVNPath* pOptionalBasePath = NULL) const;
+	LPCTSTR GetDisplayString(const CTSVNPath* pOptionalBasePath = NULL) const;
 	/**
 	 * Compares two paths. Slash format is irrelevant.
 	 */

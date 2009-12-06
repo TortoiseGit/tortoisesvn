@@ -712,7 +712,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 		entry->last_commit_author = CUnicodeUtils::GetUnicode(pSVNStatus->entry->cmt_author);
 
 	if (pSVNStatus->entry)
-		entry->isConflicted = (pSVNStatus->entry->conflict_wrk && PathFileExists(CUnicodeUtils::GetUnicode(pSVNStatus->entry->conflict_wrk))) ? true : false;
+		entry->isConflicted = (pSVNStatus->entry->conflict_wrk && PathFileExistsA(pSVNStatus->entry->conflict_wrk)) ? true : false;
 
 	if ((entry->status == svn_wc_status_conflicted)||(entry->isConflicted))
 	{
@@ -1256,11 +1256,13 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
 
 void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 {
-	static CString ponly(MAKEINTRESOURCE(IDS_STATUSLIST_PROPONLY));
-	static CString treeconflict(MAKEINTRESOURCE(IDS_STATUSLIST_TREECONFLICT));
+	static const CString ponly(MAKEINTRESOURCE(IDS_STATUSLIST_PROPONLY));
+	static const CString treeconflict(MAKEINTRESOURCE(IDS_STATUSLIST_TREECONFLICT));
+	static const CString sNested(MAKEINTRESOURCE(IDS_STATUSLIST_NESTED));
+	static const CString sLockBroken(MAKEINTRESOURCE(IDS_STATUSLIST_LOCKBROKEN));
 	static HINSTANCE hResourceHandle(AfxGetResourceHandle());
 
-	CString path = entry->GetPath().GetSVNPathString();
+	const CString& path = entry->GetPath().GetSVNPathString();
 	if ( m_mapFilenameToChecked.size()!=0 && m_mapFilenameToChecked.find(path) != m_mapFilenameToChecked.end() )
 	{
 		// The user manually de-/selected an item. We now restore this status
@@ -1272,7 +1274,6 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	TCHAR buf[100];
 	int index = listIndex;
 	int nCol = 1;
-	CString entryname = entry->GetDisplayName();
 	int icon_idx = 0;
 	if (entry->isfolder)
 	{
@@ -1320,7 +1321,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	}
 
 	// relative path
-	InsertItem(index, entryname, icon_idx);
+	InsertItem(index, entry->GetDisplayName(), icon_idx);
 	if (entry->IsNested())
 		SetItemState(index, INDEXTOOVERLAYMASK(OVL_NESTED), LVIS_OVERLAYMASK);
 	else if (entry->IsInExternal()||entry->file_external)
@@ -1339,8 +1340,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	// SVNSLC_COLSTATUS
 	if (entry->isNested)
 	{
-		CString sTemp(MAKEINTRESOURCE(IDS_STATUSLIST_NESTED));
-		SetItemText(index, nCol++, sTemp);
+		SetItemText(index, nCol++, sNested);
 	}
 	else
 	{
@@ -1364,8 +1364,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	// SVNSLC_COLREMOTESTATUS
 	if (entry->isNested)
 	{
-		CString sTemp(MAKEINTRESOURCE(IDS_STATUSLIST_NESTED));
-		SetItemText(index, nCol++, sTemp);
+		SetItemText(index, nCol++, sNested);
 	}
 	else
 	{
@@ -1385,8 +1384,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	// SVNSLC_COLTEXTSTATUS
 	if (entry->isNested)
 	{
-		CString sTemp(MAKEINTRESOURCE(IDS_STATUSLIST_NESTED));
-		SetItemText(index, nCol++, sTemp);
+		SetItemText(index, nCol++, sNested);
 	}
 	else
 	{
@@ -1462,8 +1460,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 		else if (entry->lock_remotetoken.IsEmpty())
 		{
 			// broken lock
-			CString temp(MAKEINTRESOURCE(IDS_STATUSLIST_LOCKBROKEN));
-			SetItemText(index, nCol++, temp);
+			SetItemText(index, nCol++, sLockBroken);
 		}
 		else
 		{
@@ -1480,31 +1477,38 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	// SVNSLC_COLLOCKDATE
 	TCHAR datebuf[SVN_DATE_BUFFER];
 	apr_time_t date = entry->lock_date;
-	SVN::formatDate(datebuf, date, true);
 	if (date)
+	{
+		SVN::formatDate(datebuf, date, true);
 		SetItemText(index, nCol++, datebuf);
+	}
 	else
 		SetItemText(index, nCol++, _T(""));
 	// SVNSLC_COLAUTHOR
 	SetItemText(index, nCol++, entry->last_commit_author);
 	// SVNSLC_COLREVISION
-	CString temp;
-	temp.Format(_T("%ld"), entry->last_commit_rev);
 	if (entry->last_commit_rev > 0)
-		SetItemText(index, nCol++, temp);
+	{
+		_itot_s (entry->last_commit_rev, buf, 10);
+		SetItemText(index, nCol++, buf);
+	}
 	else
 		SetItemText(index, nCol++, _T(""));
 	// SVNSLC_COLREMOTEREVISION
-	temp.Format(_T("%ld"), entry->remoterev);
 	if (entry->remoterev > 0)
-		SetItemText(index, nCol++, temp);
+	{
+		_itot_s (entry->remoterev, buf, 10);
+		SetItemText(index, nCol++, buf);
+	}
 	else
 		SetItemText(index, nCol++, _T(""));
 	// SVNSLC_COLDATE
 	date = entry->last_commit_date;
-	SVN::formatDate(datebuf, date, true);
 	if (date)
+	{
+		SVN::formatDate(datebuf, date, true);
 		SetItemText(index, nCol++, datebuf);
+	}
 	else
 		SetItemText(index, nCol++, _T(""));
 	// SVNSLC_COLSVNNEEDSLOCK
@@ -1513,14 +1517,16 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	SetItemText(index, nCol++, strSVNNeedsLock);
 	// SVNSLC_COLCOPYFROM
 	if (m_sRepositoryRoot.Compare(entry->copyfrom_url.Left(m_sRepositoryRoot.GetLength()))==0)
-		temp = entry->copyfrom_url.Mid(m_sRepositoryRoot.GetLength());
+		SetItemText(index, nCol++, entry->copyfrom_url.Mid(m_sRepositoryRoot.GetLength()));
 	else
-		temp = entry->copyfrom_url;
-	SetItemText(index, nCol++, temp);
+		SetItemText(index, nCol++, entry->copyfrom_url);
+
 	// SVNSLC_COLCOPYFROMREV
-	temp.Format(_T("%ld"), entry->copyfrom_rev);
 	if (entry->copyfrom_rev > 0)
-		SetItemText(index, nCol++, temp);
+	{
+		_itot_s (entry->copyfrom_rev, buf, 10);
+		SetItemText(index, nCol++, buf);
+	}
 	else
 		SetItemText(index, nCol++, _T(""));
 	// SVNSLC_COLMODIFICATIONDATE
@@ -1554,7 +1560,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
         assert (i == nCol++);
         assert (m_ColumnManager.IsUserProp (i));
 
-        CString name = m_ColumnManager.GetName(i);
+        const CString& name = m_ColumnManager.GetName(i);
         if (entry->present_props.HasProperty (name))
 		{
 			const CString& propVal = entry->present_props [name];

@@ -343,17 +343,18 @@ public:
 		{
 			return differentrepo;
 		}
-		CString GetDisplayName() const
+		LPCTSTR GetDisplayName() const
 		{
-			CString const& chopped = path.GetDisplayString(&basepath);
-			if (!chopped.IsEmpty())
+			LPCTSTR chopped = path.GetDisplayString(&basepath);
+			if (*chopped != 0)
 			{
 				return chopped;
 			}
 			else
 			{
 				// "Display name" must not be empty.
-				return path.GetFileOrDirectoryName();
+				const CString& winPath = path.GetWinPathString();
+				return (LPCTSTR)winPath + winPath.ReverseFind ('\\')+1;
 			}
 		}
 		CString GetChangeList() const
@@ -452,7 +453,7 @@ public:
 		int GetInvisibleCount() const;
         bool IsRelevant (int column) const;
         bool IsUserProp (int column) const;
-        CString GetName (int column) const;
+        const CString& GetName (int column) const;
         int GetWidth (int column, bool useDefaults = false) const;
         int GetVisibleWidth (int column, bool useDefaults) const;
 

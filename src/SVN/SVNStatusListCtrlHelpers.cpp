@@ -255,7 +255,7 @@ bool CSVNStatusListCtrl::ColumnManager::IsUserProp (int column) const
     return columns[index].index >= SVNSLC_USERPROPCOLOFFSET;
 }
 
-CString CSVNStatusListCtrl::ColumnManager::GetName (int column) const
+const CString& CSVNStatusListCtrl::ColumnManager::GetName (int column) const
 {
     static const UINT standardColumnNames[SVNSLC_NUMCOLUMNS] 
         = { IDS_STATUSLIST_COLFILE
@@ -288,13 +288,17 @@ CString CSVNStatusListCtrl::ColumnManager::GetName (int column) const
           , IDS_STATUSLIST_COLMODIFICATIONDATE
 		  , IDS_STATUSLIST_COLSIZE};
 
-    // standard columns
+    static CString standardColumnNameStrings[SVNSLC_NUMCOLUMNS];
+
+	// standard columns
 
     size_t index = static_cast<size_t>(column);
     if (index < SVNSLC_NUMCOLUMNS)
     {
-        CString result;
-        result.LoadString (standardColumnNames[index]);
+        CString& result = standardColumnNameStrings[index];
+		if (result.IsEmpty())
+			result.LoadString (standardColumnNames[index]);
+
         return result;
     }
 
@@ -305,7 +309,8 @@ CString CSVNStatusListCtrl::ColumnManager::GetName (int column) const
 
     // default: empty
 
-    return CString();
+	static const CString empty;
+    return empty;
 }
 
 int CSVNStatusListCtrl::ColumnManager::GetWidth (int column, bool useDefaults) const
