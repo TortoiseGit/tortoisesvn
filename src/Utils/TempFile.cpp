@@ -17,8 +17,9 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "StdAfx.h"
-#include "Registry.h"
 #include "TempFile.h"
+#include "auto_buffer.h"
+#include "SVNError.h"
 
 CTempFiles::CTempFiles(void)
 {
@@ -26,7 +27,7 @@ CTempFiles::CTempFiles(void)
 
 CTempFiles::~CTempFiles(void)
 {
-	m_TempFileList.DeleteAllFiles(false);
+	m_TempFileList.DeleteAllPaths(false, false);
 }
 
 CTempFiles& CTempFiles::Instance()
@@ -35,7 +36,43 @@ CTempFiles& CTempFiles::Instance()
 	return instance;
 }
 
-CTSVNPath CTempFiles::GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path /* = CTSVNPath() */, const SVNRev revision /* = SVNRev() */)
+void CTempFiles::ThrowLastError (DWORD lastError)
+{
+	// get formatted system error message
+
+	LPVOID lpMsgBuf;
+
+	FormatMessage(
+		FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+		FORMAT_MESSAGE_FROM_SYSTEM |
+		FORMAT_MESSAGE_IGNORE_INSERTS,
+		NULL,
+		lastError,
+		MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+		(LPTSTR) &lpMsgBuf,
+		0, NULL );
+
+	CStringA errorText ((LPCTSTR)lpMsgBuf);
+	LocalFree (lpMsgBuf);
+
+	// throw it
+
+	throw SVNError (SVN_ERR_BASE, errorText);
+}
+
+void CTempFiles::CheckLastError()
+{
+	DWORD lastError = GetLastError();
+
+	if (lastError != ERROR_ALREADY_EXISTS)
+	{
+		// no simple name collision -> bail out
+
+		ThrowLastError (lastError);
+	}
+}
+
+CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev revision)
 {
 	DWORD len = ::GetTempPath(0, NULL);
 	auto_buffer<TCHAR> temppath (len+1);
@@ -74,12 +111,70 @@ CTSVNPath CTempFiles::GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path /
 			i++;
 		} while (PathFileExists(tempfile.GetWinPath()));
 	}
-	//now create the temp file, so that subsequent calls to GetTempFile() return
-	//different filenames.
-	HANDLE hFile = CreateFile(tempfile.GetWinPath(), GENERIC_READ, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
-	CloseHandle(hFile);
-	if (bRemoveAtEnd)
-		m_TempFileList.AddPath(tempfile);
+
+	// caller has to actually grab the file path
+
 	return tempfile;
 }
 
+CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, const SVNRev revision, bool directory)
+{
+	bool succeeded = false;
+	for (int retryCount = 0; retryCount < MAX_RETRIES; ++retryCount)
+	{
+		CTSVNPath tempfile = ConstructTempPath (path, revision);
+
+		// now create the temp file / directory, so that subsequent calls to GetTempFile() return
+		// different filenames. 
+		// Handle races, i.e. name collisions.
+
+		if (directory)
+		{
+			if (CreateDirectory (tempfile.GetWinPath(), NULL) != FALSE)
+				CheckLastError();
+			else
+				succeeded = true;
+		}
+		else
+		{
+			HANDLE hFile = CreateFile(tempfile.GetWinPath(), GENERIC_READ, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
+			if (hFile== INVALID_HANDLE_VALUE)
+			{
+				CheckLastError();
+			}
+			else
+			{
+				CloseHandle(hFile);
+				succeeded = true;			
+			}
+		}
+
+		// done?
+
+		if (succeeded)
+		{
+			if (bRemoveAtEnd)
+				m_TempFileList.AddPath(tempfile);
+
+			return tempfile;
+		}
+	}
+
+	// give up
+
+	ThrowLastError();
+
+	// make compiler happy
+
+	return CTSVNPath();
+}
+
+CTSVNPath CTempFiles::GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path /* = CTSVNPath() */, const SVNRev revision /* = SVNRev() */)
+{
+	return CreateTempPath (bRemoveAtEnd, path, revision, false);
+}
+
+CTSVNPath CTempFiles::GetTempDirPath(bool bRemoveAtEnd, const CTSVNPath& path /* = CTSVNPath() */, const SVNRev revision /* = SVNRev() */)
+{
+	return CreateTempPath (bRemoveAtEnd, path, revision, true);
+}

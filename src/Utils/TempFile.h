@@ -28,9 +28,6 @@
 */
 class CTempFiles
 {
-private:
-	CTempFiles(void);
-	~CTempFiles(void);
 public:
 	static CTempFiles& Instance();
 	
@@ -40,11 +37,42 @@ public:
 	 *                     goes out of scope.
 	 * \param path         if set, the temp file will have the same file extension
 	 *                     as this path.
+	 * \param revision     if set, the temp file name will include the revision number
 	 */
 	CTSVNPath		GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path = CTSVNPath(), const SVNRev revision = SVNRev());
 
-private:
+	/**
+	 * Returns a path to a temporary directory.
+	 * \param bRemoveAtEnd if true, the temp directory is removed when this object
+	 *                     goes out of scope.
+	 * \param path         if set, the temp directory will have the same file extension
+	 *                     as this path.
+	 * \param revision     if set, the temp directory name will include the revision number
+	 */
+	CTSVNPath		GetTempDirPath(bool bRemoveAtEnd, const CTSVNPath& path = CTSVNPath(), const SVNRev revision = SVNRev());
 
 private:
+
+	// try to allocate an unused temp file / dir at most MAX_RETRIES times
+
+	enum {MAX_RETRIES = 100};
+
+	// list of paths to delete when terminating the app
+
 	CTSVNPathList m_TempFileList;
+
+	// error handling
+
+	void ThrowLastError (DWORD lastError = GetLastError());
+	void CheckLastError();
+
+	// actual implementation
+
+	CTSVNPath ConstructTempPath(const CTSVNPath& path, const SVNRev revision);
+	CTSVNPath CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, const SVNRev revision, bool directory);
+
+	// construction / destruction
+
+	CTempFiles(void);
+	~CTempFiles(void);
 };
