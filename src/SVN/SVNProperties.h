@@ -46,12 +46,17 @@ private:
 	SVNProperties(const SVNProperties&){}
 	SVNProperties& operator=(SVNProperties&){};
 
+	/// construction utility
+
+	void Construct();
+
 public:
 
 #ifdef _MFC_VER
+	SVNProperties(SVNRev rev, bool bRevProps);
 	SVNProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps);
-	void SaveAuthentication(BOOL save);
 #else
+	SVNProperties(bool bRevProps);
 	/**
 	 * Constructor. Creates a Subversion properties object for
 	 * the specified file/directory.
@@ -61,7 +66,12 @@ public:
 #endif
 	~SVNProperties(void);
 
-public:
+	/**
+	 * Run SVN query again on different path.
+	 * (session init takes a long time -> reuse it)
+	 */
+
+	void SetFilePath (const CTSVNPath& filepath);
 
 	/**
 	 * Returns the number of properties the file/directory has.

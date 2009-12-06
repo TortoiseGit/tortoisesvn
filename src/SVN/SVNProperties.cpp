@@ -69,7 +69,17 @@ svn_error_t*	SVNProperties::Refresh()
 	svn_error_clear(m_error);
 	m_error = NULL;
 
-	m_propCount = 0;
+	if (m_propCount > 0)
+	{
+		m_propCount = 0;
+		m_props.clear();
+
+		// free the allocated memory
+
+		svn_pool_destroy (m_pool);					
+		m_pool = svn_pool_create (NULL);					
+	}
+
 #ifdef _MFC_VER
 	rev.kind = ((const svn_opt_revision_t *)m_rev)->kind;
 	rev.value = ((const svn_opt_revision_t *)m_rev)->value;
@@ -122,24 +132,16 @@ svn_error_t*	SVNProperties::Refresh()
 	return NULL;
 }
 
-#ifdef _MFC_VER
-
-SVNProperties::SVNProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps)
-	: m_rev(SVNRev::REV_WC)
-	, m_bRevProps(bRevProps)
+void SVNProperties::Construct()
 {
-	m_rev = rev;
-#else
+	m_propCount = 0;
 
-SVNProperties::SVNProperties(const CTSVNPath& filepath, bool bRevProps)
-	: m_bRevProps(bRevProps)
-{
-#endif
 	m_pool = svn_pool_create (NULL);				// create the memory pool
 	m_error = NULL;
 	svn_error_clear(svn_client_create_context(&m_pctx, m_pool));
 
 #ifdef _MFC_VER
+
 	svn_error_clear(svn_config_ensure(NULL, m_pool));
 	// set up the configuration
 	m_error = svn_config_get_config (&m_pctx->config, g_pConfigDir, m_pool);
@@ -150,15 +152,10 @@ SVNProperties::SVNProperties(const CTSVNPath& filepath, bool bRevProps)
 		svn_pool_destroy (m_pool);					// free the allocated memory
 		return;
 	}
-#endif
-	
-	m_path = filepath;
-#ifdef _MFC_VER
+
 	m_prompt.Init(m_pool, m_pctx);
 
 	m_pctx->log_msg_func3 = svn_get_log_message;
-
-	m_path = filepath;
 
 	// set up the SVN_SSH param
 	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
@@ -173,7 +170,31 @@ SVNProperties::SVNProperties(const CTSVNPath& filepath, bool bRevProps)
 	}
 
 #endif
+}
 
+#ifdef _MFC_VER
+SVNProperties::SVNProperties(SVNRev rev, bool bRevProps)
+	: m_rev(rev)
+	, m_bRevProps (bRevProps)
+#else
+SVNProperties::SVNProperties(bool bRevProps)
+	: m_bRevProps (bRevProps)
+#endif
+{
+	Construct();
+}
+
+#ifdef _MFC_VER
+SVNProperties::SVNProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps)
+	: m_path (filepath)
+	, m_rev(rev)
+#else
+SVNProperties::SVNProperties(const CTSVNPath& filepath, bool bRevProps)
+	: m_path (filepath)
+#endif
+	, m_bRevProps (bRevProps)
+{
+	Construct();
 	SVNProperties::Refresh();
 }
 
@@ -181,6 +202,12 @@ SVNProperties::~SVNProperties(void)
 {
 	svn_error_clear(m_error);
 	svn_pool_destroy (m_pool);					// free the allocated memory
+}
+
+void SVNProperties::SetFilePath (const CTSVNPath& filePath)
+{
+	m_path = filePath;
+	Refresh();
 }
 
 int SVNProperties::GetCount() const

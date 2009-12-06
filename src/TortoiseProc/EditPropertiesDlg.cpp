@@ -175,9 +175,10 @@ UINT CEditPropertiesDlg::PropsThread()
 {
 	// get all properties
 	m_properties.clear();
+	SVNProperties props (m_revision, m_bRevProps);
 	for (int i=0; i<m_pathlist.GetCount(); ++i)
 	{
-		SVNProperties props(m_pathlist[i], m_revision, m_bRevProps);
+		props.SetFilePath(m_pathlist[i]);
 		for (int p=0; p<props.GetCount(); ++p)
 		{
 			std::string prop_str = props.GetItemName(p);
