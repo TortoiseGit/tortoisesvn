@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-10-09 18:46 +0000\n"
-"PO-Revision-Date: 2009-10-24 06:58-0600\n"
+"PO-Revision-Date: 2009-12-05 21:28-0600\n"
 "Last-Translator: Evan Allrich <eallrich@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1077,9 +1077,8 @@ msgstr "gabungan"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1025
 #. (entry)
-#, fuzzy
 msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the file path where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
-msgstr "Menetapkan hasil file <placeholder-1/> yang digunakan dalam tiga cara diffs. Ini adalah filepath di mana hasil dari merge/penyelesaian konfil disimpan. Jika ini tidak diset, maka TortoiseMerge akan menanyakan di mana untuk menyimpan hasilnya."
+msgstr "Menetapkan hasil file <placeholder-1/> yang digunakan dalam tiga cara diffs. Ini adalah path file di mana hasil dari merge/penyelesaian konflik disimpan. Jika ini tidak diset, maka TortoiseMerge akan menanyakan di mana untuk menyimpan hasilnya."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1035
 #. (entry)
@@ -1211,9 +1210,8 @@ msgstr "Branch (Cabang)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1139
 #. (para)
-#, fuzzy
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bug fixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
-msgstr "Batasan yang sering digunakan dalam sistem kontrol revisi untuk menjelaskan apa yang terjadi ketika garpu pengembangan pada titik tertentu dan mengikuti 2 path terpisah. Anda bisa membuat cabang di luar barisan pengembangan utama untuk mengembangkan fitur baru tanpa membuat barisan utama menjadi tidak stabil. Atau Anda bisa mencabangkan rilis stabil ke mana Anda hanya membuat pembetulan bug, sementara pengembangan baru menempati batang tidak stabil. Dalam Subversion cabang diimplementasikan sebagai <quote>copy murah</quote>."
+msgstr "Suatu istilah yang sering digunakan dalam sistem kontrol revisi untuk menjelaskan apa yang terjadi ketika garpu pengembangan pada titik tertentu dan mengikuti 2 path terpisah. Anda dapat membuat cabang dari baris pengembangan utama sehingga untuk mengembangkan fitur baru tanpa membuat jalur utama tidak stabil. Atau Anda dapat cabang rilis stabil ke mana Anda hanya membuat perbaikan bug, sementara pengembangan baru dilakukan pada batang tidak stabil. Dalam Subversion cabang diimplementasikan sebagai <quote>salinan murah</ quote>."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1152
 #. (glossterm)
@@ -1232,9 +1230,8 @@ msgstr "Cleanup (Bersihkan)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1163
 #. (para)
-#, fuzzy
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <emphasis>working copy locked</emphasis> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <emphasis>lock</emphasis> refers to local filesystem locking, not repository locking."
-msgstr "Mengutip dari buku Subversion: <quote> Secara rekursif membersihkan copy pekerjaan, menghapus kuncian dan melanjutkan operasi yang belum selesai. Jika Anda pernah mendapatkan kesalahan <literal>copy pekerjaan dikunci</literal>, jalankan perintah ini untuk menghapus kuncian basi dan mendapatkan copy pekerjaan Anda kedalam kondisi yang berguna lagi. </quote> Catatan bahwa konteks <quote>kunci</quote> merujuk ke penguncian sistem file lokal, bukan penguncian repositori."
+msgstr "Mengutip dari buku Subversion: <quote> Secara rekursif membersihkan copy pekerjaan, menghapus kuncian dan melanjutkan operasi yang belum selesai. Jika Anda pernah mendapatkan kesalahan <emphasis>salinan pekerjaan dikunci</emphasis>, jalankan perintah ini untuk menghapus kuncian basi dan mendapatkan salinan pekerjaan Anda kedalam kondisi yang berguna lagi. </quote> Catatan bahwa konteks <quote>kunci</quote> merujuk ke penguncian sistem file lokal, bukan penguncian repositori."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1178
 #. (glossterm)
