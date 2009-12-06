@@ -30,6 +30,8 @@
 #include "InputLogDlg.h"
 #include "XPTheme.h"
 #include "auto_buffer.h"
+#include "JobScheduler.h"
+#include "AsyncCall.h"
 
 IMPLEMENT_DYNAMIC(CEditPropertiesDlg, CResizableStandAloneDialog)
 
@@ -171,18 +173,19 @@ UINT CEditPropertiesDlg::PropsThreadEntry(LPVOID pVoid)
 	return ((CEditPropertiesDlg*)pVoid)->PropsThread();
 }
 
-UINT CEditPropertiesDlg::PropsThread()
+void CEditPropertiesDlg::ReadProperties (int first, int last)
 {
-	// get all properties
-	m_properties.clear();
 	SVNProperties props (m_revision, m_bRevProps);
-	for (int i=0; i<m_pathlist.GetCount(); ++i)
+	for (int i=first; i < last; ++i)
 	{
 		props.SetFilePath(m_pathlist[i]);
 		for (int p=0; p<props.GetCount(); ++p)
 		{
 			std::string prop_str = props.GetItemName(p);
 			std::string prop_value = props.GetItemValue(p);
+
+			async::CCriticalSectionLock lock (m_mutex);
+
 			IT it = m_properties.find(prop_str);
 			if (it != m_properties.end())
 			{
@@ -206,6 +209,24 @@ UINT CEditPropertiesDlg::PropsThread()
 			}
 		}
 	}
+}
+
+UINT CEditPropertiesDlg::PropsThread()
+{
+	enum {CHUNK_SIZE = 100};
+
+	// get all properties in multiple threads
+	async::CJobScheduler jobs (0, async::CJobScheduler::GetHWThreadCount()); 
+
+	m_properties.clear();
+	for (int i=0; i < m_pathlist.GetCount(); i += CHUNK_SIZE)
+		new async::CAsyncCall ( this
+							  , &CEditPropertiesDlg::ReadProperties
+							  , i
+							  , min (m_pathlist.GetCount(), i + CHUNK_SIZE)
+							  , &jobs);
+
+	jobs.WaitForEmptyQueue();
 	
 	// fill the property list control with the gathered information
 	int index=0;

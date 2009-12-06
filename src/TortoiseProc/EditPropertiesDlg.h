@@ -24,6 +24,7 @@
 #include "tstring.h"
 #include "PathEdit.h"
 #include "AeroControls.h"
+#include "CriticalSection.h"
 
 /**
  * \ingroup TortoiseProc
@@ -70,6 +71,8 @@ protected:
 	DECLARE_MESSAGE_MAP()
 private:
 	static UINT PropsThreadEntry(LPVOID pVoid);
+
+	void ReadProperties (int first, int last);
 	UINT PropsThread();
 	void EditProps(bool bAdd = false);
 	void RemoveProps();
@@ -87,6 +90,7 @@ protected:
 		bool		isbinary;
 	};
 
+	async::CCriticalSection m_mutex;
 	CTSVNPathList	m_pathlist;
 	CListCtrl		m_propList;
 	BOOL			m_bRecursive;
