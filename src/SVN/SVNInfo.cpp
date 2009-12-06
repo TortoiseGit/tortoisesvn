@@ -225,3 +225,15 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_in
 	pThis->Receiver(&data);
 	return NULL;
 }
+
+// convenience methods
+
+bool SVNInfo::IsFile (const CTSVNPath& path, const SVNRev& revision)
+{
+	SVNInfo info;
+	const SVNInfoData* infoData 
+		= info.GetFirstFileInfo (path, revision, revision);
+
+	return (infoData != NULL) && (infoData->kind == svn_node_file);
+}
+

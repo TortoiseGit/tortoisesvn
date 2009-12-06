@@ -167,11 +167,7 @@ BOOL CCheckoutDlg::OnInitDialog()
 
 bool CCheckoutDlg::IsFile()
 {
-	SVNInfo info;
-	const SVNInfoData* infoData 
-		= info.GetFirstFileInfo (CTSVNPath(m_URL), Revision, Revision);
-
-	return (infoData != NULL) && (infoData->kind == svn_node_file);
+	return SVNInfo::IsFile (CTSVNPath(m_URL), Revision);
 }
 
 void CCheckoutDlg::OnOK()

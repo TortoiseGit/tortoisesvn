@@ -84,6 +84,7 @@ public:
 	// convenience methods:
 
 	bool IsValid() {return rev.IsValid() != FALSE;}
+
 };
 
 
@@ -116,7 +117,7 @@ public:
 	 */
 	const SVNInfoData * GetNextFileInfo();
 
-friend class SVN;	// So that SVN can get to our m_err
+	friend class SVN;	// So that SVN can get to our m_err
 	/**
 	 * Returns the last error message as a CString object.
 	 */
@@ -125,6 +126,10 @@ friend class SVN;	// So that SVN can get to our m_err
 
 	virtual BOOL Cancel();
 	virtual void Receiver(SVNInfoData * data);
+
+	/// convenience methods
+
+	static bool IsFile (const CTSVNPath& path, const SVNRev& revision);
 
 protected:
 	apr_pool_t *				m_pool;			///< the memory pool
