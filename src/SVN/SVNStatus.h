@@ -100,7 +100,7 @@ public:
 	 * Returns the string representation of a depth.
 	 */
 #ifdef _MFC_VER
-	static CString GetDepthString(svn_depth_t depth);
+	static const CString& GetDepthString(svn_depth_t depth);
 #endif
 	static void GetDepthString(HINSTANCE hInst, svn_depth_t depth, TCHAR * string, int size, WORD lang);
 

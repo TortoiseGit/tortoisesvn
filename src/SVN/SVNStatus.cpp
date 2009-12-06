@@ -517,79 +517,116 @@ void SVNStatus::GetStatusString(svn_wc_status_kind status, size_t buflen, TCHAR 
 
 void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHAR * string, int size, WORD lang)
 {
+	enum {MAX_STATUS_LENGTH = 240};
+
+	struct SCacheEntry
+	{
+		TCHAR buffer[MAX_STATUS_LENGTH];
+
+		HINSTANCE hInst;
+		svn_wc_status_kind status;
+		WORD lang;
+	};
+
+	static std::vector<SCacheEntry> cache;
+	for (size_t count = cache.size(), i = 0; i < count; ++i)
+	{
+		const SCacheEntry& entry = cache[i];
+		if (   (entry.status == status) 
+			&& (entry.hInst == hInst) 
+			&& (entry.lang == lang))
+		{
+			wcsncpy_s ( string
+					  , size
+					  , entry.buffer
+					  , min (size, MAX_STATUS_LENGTH)-1);
+			return;
+		}
+	}
+
+	cache.push_back (SCacheEntry());
+	SCacheEntry& entry = cache.back();
+	entry.status = status;
+	entry.hInst = hInst;
+	entry.lang = lang;
+
 	switch (status)
 	{
 		case svn_wc_status_none:
-			LoadStringEx(hInst, IDS_STATUSNONE, string, size, lang);
+			LoadStringEx(hInst, IDS_STATUSNONE, entry.buffer, MAX_STATUS_LENGTH, lang);
 			break;
 		case svn_wc_status_unversioned:
-			LoadStringEx(hInst, IDS_STATUSUNVERSIONED, string, size, lang);
+			LoadStringEx(hInst, IDS_STATUSUNVERSIONED, entry.buffer, MAX_STATUS_LENGTH, lang);
 			break;
 		case svn_wc_status_normal:
-			LoadStringEx(hInst, IDS_STATUSNORMAL, string, size, lang);
+			LoadStringEx(hInst, IDS_STATUSNORMAL, entry.buffer, MAX_STATUS_LENGTH, lang);
 			break;
 		case svn_wc_status_added:
-			LoadStringEx(hInst, IDS_STATUSADDED, string, size, lang);
+			LoadStringEx(hInst, IDS_STATUSADDED, entry.buffer, MAX_STATUS_LENGTH, lang);
 			break;
 		case svn_wc_status_missing:
-			LoadStringEx(hInst, IDS_STATUSABSENT, string, size, lang);
+			LoadStringEx(hInst, IDS_STATUSABSENT, entry.buffer, MAX_STATUS_LENGTH, lang);
 			break;
 		case svn_wc_status_deleted:
-			LoadStringEx(hInst, IDS_STATUSDELETED, string, size, lang);
+			LoadStringEx(hInst, IDS_STATUSDELETED, entry.buffer, MAX_STATUS_LENGTH, lang);
 			break;
 		case svn_wc_status_replaced:
-			LoadStringEx(hInst, IDS_STATUSREPLACED, string, size, lang);
+			LoadStringEx(hInst, IDS_STATUSREPLACED, entry.buffer, MAX_STATUS_LENGTH, lang);
 			break;
 		case svn_wc_status_modified:
-			LoadStringEx(hInst, IDS_STATUSMODIFIED, string, size, lang);
+			LoadStringEx(hInst, IDS_STATUSMODIFIED, entry.buffer, MAX_STATUS_LENGTH, lang);
 			break;
 		case svn_wc_status_merged:
-			LoadStringEx(hInst, IDS_STATUSMERGED, string, size, lang);
+			LoadStringEx(hInst, IDS_STATUSMERGED, entry.buffer, MAX_STATUS_LENGTH, lang);
 			break;
 		case svn_wc_status_conflicted:
-			LoadStringEx(hInst, IDS_STATUSCONFLICTED, string, size, lang);
+			LoadStringEx(hInst, IDS_STATUSCONFLICTED, entry.buffer, MAX_STATUS_LENGTH, lang);
 			break;
 		case svn_wc_status_ignored:
-			LoadStringEx(hInst, IDS_STATUSIGNORED, string, size, lang);
+			LoadStringEx(hInst, IDS_STATUSIGNORED, entry.buffer, MAX_STATUS_LENGTH, lang);
 			break;
 		case svn_wc_status_obstructed:
-			LoadStringEx(hInst, IDS_STATUSOBSTRUCTED, string, size, lang);
+			LoadStringEx(hInst, IDS_STATUSOBSTRUCTED, entry.buffer, MAX_STATUS_LENGTH, lang);
 			break;
 		case svn_wc_status_external:
-			LoadStringEx(hInst, IDS_STATUSEXTERNAL, string, size, lang);
+			LoadStringEx(hInst, IDS_STATUSEXTERNAL, entry.buffer, MAX_STATUS_LENGTH, lang);
 			break;
 		case svn_wc_status_incomplete:
-			LoadStringEx(hInst, IDS_STATUSINCOMPLETE, string, size, lang);
+			LoadStringEx(hInst, IDS_STATUSINCOMPLETE, entry.buffer, MAX_STATUS_LENGTH, lang);
 			break;
 		default:
-			LoadStringEx(hInst, IDS_STATUSNONE, string, size, lang);
+			LoadStringEx(hInst, IDS_STATUSNONE, entry.buffer, MAX_STATUS_LENGTH, lang);
 			break;
 	}
+
+	wcsncpy_s (string, size, entry.buffer, min (size, MAX_STATUS_LENGTH)-1);
 }
 
 #ifdef _MFC_VER
-CString SVNStatus::GetDepthString(svn_depth_t depth)
+const CString& SVNStatus::GetDepthString (svn_depth_t depth)
 {
-	CString sDepth;
+	static const CString sUnknown (MAKEINTRESOURCE(IDS_SVN_DEPTH_UNKNOWN));
+	static const CString sEmpty (MAKEINTRESOURCE(IDS_SVN_DEPTH_EMPTY));
+	static const CString sFiles (MAKEINTRESOURCE(IDS_SVN_DEPTH_FILES));
+	static const CString sImmediate (MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE));
+	static const CString sInfinite (MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE));
+	static const CString sDefault;
+
 	switch (depth)
 	{
 	case svn_depth_unknown:
-		sDepth.LoadString(IDS_SVN_DEPTH_UNKNOWN);
-		break;
+		return sUnknown;
 	case svn_depth_empty:
-		sDepth.LoadString(IDS_SVN_DEPTH_EMPTY);
-		break;
+		return sEmpty;
 	case svn_depth_files:
-		sDepth.LoadString(IDS_SVN_DEPTH_FILES);
-		break;
+		return sFiles;
 	case svn_depth_immediates:
-		sDepth.LoadString(IDS_SVN_DEPTH_IMMEDIATE);
-		break;
+		return sImmediate;
 	case svn_depth_infinity:
-		sDepth.LoadString(IDS_SVN_DEPTH_INFINITE);
-		break;
+		return sInfinite;
 	}
-	return sDepth;
+
+	return sDefault;
 }
 #endif
 
