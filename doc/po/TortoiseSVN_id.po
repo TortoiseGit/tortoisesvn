@@ -16,9 +16,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-07-07 13:23 +0000\n"
-"PO-Revision-Date: 2009-12-04 01:40-0800\n"
-"Last-Translator: Edwin Elisia <edwinelisia@gmail.com>\n"
+"POT-Creation-Date: 2009-11-16 07:38 +0000\n"
+"PO-Revision-Date: 2009-12-05 21:54-0600\n"
+"Last-Translator: Evan Allrich <eallrich@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1662,6 +1662,14 @@ msgstr ""
 "exit 1\n"
 "</screen> Catatan bahwa setiap pengiriman ke stdout diabaikan. Jika Anda menginginkan pesan muncul dalam dialog Tolak Komit Anda harus mengirimkannya ke stderr. Dalam file batch ini dilakukan menggunakan <filename>&gt;&amp;2</filename>"
 
+#. (title)
+msgid "Overriding Hooks"
+msgstr ""
+
+#. (para)
+msgid "If a hook script rejects your commit then its decision is final. But you can build an override mechanism into the script itself using the <emphasis>Magic Word</emphasis> technique. If the script wants to reject the operation it first scans the log message for a special pass phrase, either a fixed phrase or perhaps the filename with a prefix. If it finds the magic word then it allows the commit to proceed. If the phrase is not found then it can block the commit with a message like <quote>You didn't say the magic word</quote> :-)"
+msgstr ""
+
 # Indonesian#: source/TortoiseSVN_en.xml:3088(title)
 #. (title)
 msgid "Checkout Links"
@@ -1680,12 +1688,11 @@ msgstr "TortoiseSVN"
 
 #. (primary)
 msgid "link"
-msgstr ""
+msgstr "link"
 
 #. (primary)
-#, fuzzy
 msgid "website"
-msgstr "webview"
+msgstr "website"
 
 # Indonesian#: source/TortoiseSVN_en.xml:3092(para)
 #. (para)
@@ -1706,6 +1713,9 @@ msgid ""
 "&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
 "&lt;/a&gt;\n"
 msgstr ""
+"\n"
+"&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
+"&lt;/a&gt;\n"
 
 # Indonesian#: source/TortoiseSVN_en.xml:3104(para)
 #. (para)
@@ -1719,6 +1729,9 @@ msgid ""
 "&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
 "&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
 msgstr ""
+"\n"
+"&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
+"&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
 
 # Indonesian#: source/TortoiseSVN_en.xml:3111(para)
 #. (para)
@@ -1733,16 +1746,18 @@ msgid ""
 "&lt;a href=\"tsvn:http://project.domain.org/svn/trunk?100\"&gt;\n"
 "&lt;/a&gt;\n"
 msgstr ""
+"\n"
+"&lt;a href=\"tsvn:http://project.domain.org/svn/trunk?100\"&gt;\n"
+"&lt;/a&gt;\n"
 
 #. (para)
 msgid "You can also make the link point to a specific revision, for example <placeholder-1/>"
-msgstr ""
+msgstr "Anda juga dapat membuat link menunjuk ke revisi tertentu, misalnya <placeholder-1/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:2955(title)
 #. (title)
-#, fuzzy
 msgid "Accessing the Repository"
-msgstr "Akses Lokal ke Repositori"
+msgstr "Akses ke Repositori"
 
 # Indonesian#: source/TortoiseSVN_en.xml:1454(para)
 #. (para)
@@ -1752,7 +1767,7 @@ msgstr "Untuk menggunakan TortoiseSVN (atau klien Subversion lain), Anda memerlu
 
 #. (para)
 msgid "If you are using a public hosting service such as <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> or your server has already been setup by someone else then there is nothing else you need to do. Move along to <xref linkend=\"tsvn-dug\"/>."
-msgstr ""
+msgstr "Jika Anda menggunakan layanan hosting publik seperti <ulink url=\"http://code.google.com/hosting/\"> <citetitle> Google Code </ citetitle> </ ulink> atau server Anda telah setup oleh orang lain maka tak ada lagi yang perlu Anda lakukan. Bergerak kepada <xref linkend=\"tsvn-dug\"/>."
 
 # Indonesian#: source/TortoiseSVN_en.xml:1464(para)
 #. (para)
@@ -1762,7 +1777,7 @@ msgstr "Jika Anda tidak mempunyai server dan/atau jika Anda hanya bekerja sendir
 
 #. (para)
 msgid "If you were thinking about setting up a multi-user repository on a network share, think again. Read <xref linkend=\"tsvn-repository-local-share\"/> to find out why we think this is a bad idea. Setting up a server is not as hard as it sounds, and will give you better reliability and probably speed too."
-msgstr ""
+msgstr "Jika Anda berpikir tentang pengaturan multi-user repositori pada jaringan berbagi, pikirkan lagi. Baca <xref linkend=\"tsvn-repository-local-share\"/> untuk mencari tahu mengapa kami pikir ini adalah ide yang buruk. Menyiapkan server tidak sesulit kedengarannya, dan akan memberikan keandalan yang lebih baik dan mungkin juga kecepatan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:9937(para)
 #. (para)
@@ -1777,7 +1792,7 @@ msgstr "Server Berbasis Svnserve"
 
 #. (para)
 msgid "Subversion includes Svnserve - a lightweight stand-alone server which uses a custom protocol over an ordinary TCP/IP connection. It is ideal for smaller installations, or where a full blown Apache server cannot be used."
-msgstr ""
+msgstr "Subversion termasuk Svnserve - server ringan berdiri sendiri dan yang menggunakan protokol kustom melalui koneksi TCP/IP biasa. Ini sangat ideal untuk instalasi lebih kecil, atau di mana server Apache lengkap tidak dapat digunakan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2525(para)
 #. (para)
@@ -1792,7 +1807,7 @@ msgstr "Menginstalasi svnserve"
 
 #. (para)
 msgid "Get the latest version of Subversion from <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>. Alternatively get a pre-packaged installer from CollabNet at <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. This installer will setup svnserve as a Windows service, and also includes some of the tools you need if you are going to use SASL for security."
-msgstr ""
+msgstr "Dapatkan versi terbaru Subversion dari <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ ulink>. Atau mendapatkan pra-paket installer dari CollabNet di <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</ citetitle></ ulink>. Installer ini akan setup svnserve sebagai layanan Windows, dan juga mencakup beberapa alat yang Anda butuhkan jika Anda akan menggunakan SASL untuk keamanan."
 
 # Indonesian#: source/TortoiseSVN_en.xml:2543(para)
 #. (para)
@@ -1945,9 +1960,8 @@ msgstr ""
 
 # Indonesian#: source/TortoiseSVN_en.xml:2718(title)
 #. (title)
-#, fuzzy
 msgid "Basic Authentication with svnserve"
-msgstr "Otentikasi dengan svnserve"
+msgstr "Otentikasi Dasar dengan svnserve"
 
 # Indonesian#: source/TortoiseSVN_en.xml:2719(para)
 #. (para)
@@ -2075,7 +2089,7 @@ msgstr ""
 
 #. (title)
 msgid "SASL Encryption"
-msgstr ""
+msgstr "Enkripsi SASL"
 
 #. (para)
 msgid ""
@@ -2210,7 +2224,7 @@ msgstr "Download versi terbaru dari server web Apache dari <ulink url=\"http://h
 
 #. (para)
 msgid "The msi installer for Apache can be found by clicking on <literal>other files</literal>, then browse to <filename>binaries/win32</filename>. You may want to choose the msi file <filename>apache-2.2.x-win32-x86-openssl-0.9.x.msi</filename> (the one that includes OpenSSL)."
-msgstr ""
+msgstr "Installer msi untuk Apache dapat ditemukan dengan mengklik pada <literal>other files</literal>, kemudian browse ke <filename>binaries/win32</ filename>. Anda mungkin ingin memilih berkas msi <filename>apache-2.2.x-win32-x86-openssl-0.9.x.msi</filename> (salah satu yang termasuk OpenSSL)."
 
 # Indonesian#: source/TortoiseSVN_en.xml:1560(para)
 #. (para)
@@ -2921,7 +2935,7 @@ msgid ""
 "bin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n"
 "-config conf\\openssl.cnf\n"
 "</screen> and then (on one line) <screen>\n"
-"bin\\openssl x509 -in conf\\server.csr -out conf\\server.crt\n"
+"bin\\openssl x509 -in conf\\server.csr -out conf\\server.cert\n"
 "                 -req -signkey conf\\server.key -days 4000\n"
 "</screen> This will create a certificate which will expire in 4000 days. And finally enter (on one line): <screen>\n"
 "bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
@@ -3279,6 +3293,12 @@ msgstr "Beberapa operasi umum mempunyai jalan pintas Windows yang dikenal-baik, 
 msgid "authentication"
 msgstr "otentikasi"
 
+# Indonesian#: source/TortoiseSVN_en.xml:3314(primary)
+#. (primary)
+#, fuzzy
+msgid "authentication cache"
+msgstr "otentikasi"
+
 # Indonesian#: source/TortoiseSVN_en.xml:3320(title)
 #. (title)
 msgid "Authentication Dialog"
@@ -3286,7 +3306,8 @@ msgstr "Dialog Otentikasi"
 
 # Indonesian#: source/TortoiseSVN_en.xml:3328(para)
 #. (para)
-msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password)."
+#, fuzzy
+msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password). Note that passwords are stored using the WinCrypt API, not in plain text form."
 msgstr "<filename>svn.simple</filename> berisi mandat untuk otentikasi dasar (nama pengguna/kata sandi)."
 
 # Indonesian#: source/TortoiseSVN_en.xml:3334(para)
@@ -3310,6 +3331,10 @@ msgstr "Jika repositori yang sedang Anda coba akses dilindungi kata sandi, Dialo
 #, fuzzy
 msgid "If you want to clear the authentication cache for all servers, you can do so from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings dialog. That button will clear all cached authentication data from the Subversion <filename>auth</filename> directories, as well as any authentication data stored in the registry by earlier versions of TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
 msgstr "Jika Anda ingin membersihkan tembolok otentikasi untuk <emphasis>semua</emphasis> server, Anda bisa melakukannya dari halaman <guilabel>Umum</guilabel> dari dialog seting TortoiseSVN. Tombol itu akan membersihkan semua data otentikasi yang disimpan dalam tembolok dari direktori auth Subversion, dan juga setiap data auth yang disimpan dalam registri oleh versi TortoiseSVN sebelumnya. Lihat <xref linkend=\"tsvn-dug-settings-main\"/>."
+
+#. (para)
+msgid "If you want to clear authentication for one realm only then you will have to dig into those directories, find the file which contains the information you want to clear and delete the file."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -3366,7 +3391,7 @@ msgid "temporary files"
 msgstr "file temporal"
 
 #. (para)
-msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If are importing data into a new repository then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
+msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If you are importing data into a new repository, then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
 msgstr ""
 
 #. (para)
@@ -3806,6 +3831,18 @@ msgstr " "
 #. (para)
 #. (para)
 msgid "Sometimes files get renamed outside of Subversion, and they show up in the file list as a missing file and an unversioned file. To avoid losing the history you need to notify Subversion about the connection. Simply select both the old name (missing) and the new name (unversioned) and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Move</guimenuitem></menuchoice> to pair the two files as a rename."
+msgstr "Terkadang file-file diubah namanya di luar Subversion, dan mereka muncul di daftar file sebagai file yang hilang dan file yang tidak terversi. Untuk menghindari kehilangan sejarah tersebut, Anda perlu untuk memberitahu Subversion tentang koneksi tersebut. Cukup pilih nama lama (hilang) dan nama baru (tidak terversi) dan gunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Perbaiki Pemindahan</guimenuitem></menuchoice> untuk memasangkan kedua file tersebut sebagai suatu perubahan nama."
+
+#. (title)
+#. (title)
+#, fuzzy
+msgid "Repairing External Copies"
+msgstr " "
+
+#. (para)
+#. (para)
+#, fuzzy
+msgid "If you made a copy of a file but forgot to use the Subversion command to do so, you can repair that copy so the new file doesn't lose its history. Simply select both the old name (normal or modified) and the new name (unversioned) and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Copy</guimenuitem></menuchoice> to pair the two files as a copy."
 msgstr "Terkadang file-file diubah namanya di luar Subversion, dan mereka muncul di daftar file sebagai file yang hilang dan file yang tidak terversi. Untuk menghindari kehilangan sejarah tersebut, Anda perlu untuk memberitahu Subversion tentang koneksi tersebut. Cukup pilih nama lama (hilang) dan nama baru (tidak terversi) dan gunakan <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Perbaiki Pemindahan</guimenuitem></menuchoice> untuk memasangkan kedua file tersebut sebagai suatu perubahan nama."
 
 #. (title)
@@ -5548,6 +5585,10 @@ msgid "Click on the search icon to select which information you want to search i
 msgstr ""
 
 #. (para)
+msgid "If you don't use regex mode, you can enter several strings to search for, and only those log entries which match all of your filter words will be shown."
+msgstr ""
+
+#. (para)
 msgid "To make the filter show all log entries that do <emphasis>not</emphasis> match the filter string, start the string with an exclamation mark ('!'). For example, a filter string <literal>!username</literal> will only show those entries which were not committed by <literal>username</literal>."
 msgstr ""
 
@@ -6250,7 +6291,7 @@ msgid "Cannot copy between repositories"
 msgstr "repositori eksternal"
 
 #. (para)
-msgid "Whilst you can copy and files and folders <emphasis>within</emphasis> a repository, you <emphasis>cannot</emphasis> copy or move from one repository to another while preserving history using TortoiseSVN. Not even if the repositories live on the same server. All you can do is copy the content in its current state and add it as new content to the second repository."
+msgid "Whilst you can copy or move files and folders <emphasis>within</emphasis> a repository, you <emphasis>cannot</emphasis> copy or move from one repository to another while preserving history using TortoiseSVN. Not even if the repositories live on the same server. All you can do is copy the content in its current state and add it as new content to the second repository."
 msgstr ""
 
 #. (para)
@@ -6664,6 +6705,12 @@ msgstr "pulihkan"
 msgid "undo"
 msgstr "undo"
 
+# Indonesian#: source/TortoiseSVN_en.xml:6137(primary)
+#. (primary)
+#, fuzzy
+msgid "clean"
+msgstr "membersihkan"
+
 # Indonesian#: source/TortoiseSVN_en.xml:6111(title)
 #. (title)
 msgid "Revert dialog"
@@ -6689,6 +6736,10 @@ msgstr "Jika Anda belum mengkomit penambahan, maka yang harus Anda lakukan adala
 #. (para)
 msgid "The columns in this dialog can be customized in the same way as the columns in the <guilabel>Check for modifications</guilabel> dialog. Read <xref linkend=\"tsvn-dug-wcstatus-2\"/> for further details."
 msgstr "Kolom dalam dialog ini bisa dikustomisasi dalam cara yang sama seperti kolom dalam dialog <guilabel>Periksa modifikasi</guilabel>. Baca <xref linkend=\"tsvn-dug-wcstatus-2\"/> untuk detil selanjutnya."
+
+#. (para)
+msgid "Since revert is sometimes used to clean up a working copy, there is an extra button which allows you to delete unversioned items as well. When you click this button another dialog comes up listing all the unversioned items, which you can then select for deletion."
+msgstr ""
 
 # Indonesian#: source/TortoiseSVN_en.xml:6121(title)
 #. (title)
@@ -7114,8 +7165,10 @@ msgstr "Properti <literal>tsvn:</literal> ini harus di set pada <emphasis>folder
 
 # Indonesian#: source/TortoiseSVN_en.xml:6428(para)
 #. (para)
+#. (para)
+#. (para)
 #, fuzzy
-msgid "For project properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
+msgid "For project properties <emphasis>only</emphasis>, i.e. <literal>tsvn:</literal>, <literal>bugtraq:</literal> and <literal>webviewer:</literal> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
 msgstr "Untuk properti <literal>tsvn:</literal> Anda <emphasis>hanya</emphasis> bisa menggunakan kotak centang <guilabel>Rekursif</guilabel> untuk mengeset properti ke semua subfolder dalam hirarki, tanpa menyetingnya pada semua file."
 
 #. (para)
@@ -7432,6 +7485,24 @@ msgstr "Tekan <guibutton>OK</guibutton> untuk mengkomit copy baru ke repositori.
 msgid "Note that unless you opted to switch your working copy to the newly created branch, creating a Branch or Tag does <emphasis>not</emphasis> affect your working copy. Even if you create the branch from your WC, those changes are committed to the new branch, not to the trunk, so your WC may still be marked as modified with respect to the trunk."
 msgstr "Catatan bahwa pembuatan Cabang atau Tag <emphasis>tidak</emphasis> mempengaruhi copy pekerjaan Anda. Bahkanjika Anda mengcopy ke WC, perubahan itu dikomit ke cabang baru, bukan ke trunk, dengan demikian WC Anda mungkin masih ditandai dmodifikasi."
 
+# Indonesian#: source/TortoiseSVN_en.xml:6480(title)
+#. (title)
+#, fuzzy
+msgid "Other ways to create a branch or tag"
+msgstr "Membuat Cabang atau Tag"
+
+#. (para)
+msgid "You can also create a branch or tag without having a working copy. To do that, open the repository browser. You can there drag folders to a new location. You have to hold down the <keycap>Ctrl</keycap> key while you drag to create a copy, otherwise the folder gets moved, not copied."
+msgstr ""
+
+#. (para)
+msgid "You can also drag a folder with the right mouse button. Once you release the mouse button you can choose from the context menu whether you want the folder to be moved or copied. Of course to create a branch or tag you must copy the folder, not move it."
+msgstr ""
+
+#. (para)
+msgid "Yet another way is from the log dialog. You can show the log dialog for e.g. trunk, select a revision (either the HEAD revision at the very top or an earlier revision), right-click and choose <menuchoice><guimenuitem>create branch/tag from revision...</guimenuitem></menuchoice>"
+msgstr ""
+
 # Indonesian#: source/TortoiseSVN_en.xml:6580(title)
 #. (title)
 msgid "To Checkout or to Switch..."
@@ -7487,7 +7558,8 @@ msgstr "Agar bisa bekerja dengan copy yang baru Anda mempunyai beberapa cara unt
 
 # Indonesian#: source/TortoiseSVN_en.xml:6653(para)
 #. (para)
-msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
+#, fuzzy
+msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they are not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
 msgstr "Tag biasanya digunakan untuk membuat snapshot statik dari proyek pada tahap tertentu. Karena statik, mereka biasanya tidak digunakan untuk pengembangan - itulah kegunaan cabang, yang menjadi alasan kami merekomendasikan struktur repositori <filename>/trunk /branches /tags</filename> dalam tempat pertama. Bekerja pada revisi tag <emphasis>bukanlah ide yang baik</emphasis>, tapi karena file lokal Anda bisa ditulis, tidak ada yang menghentikan Anda melakukan ini karena kesalahan. Akan tetapi, jika Anda mencoba mengkomit ke path dalam repositori yang berisi <filename>/tags/</filename>, TortoiseSVN akan memperingatkan Anda."
 
 # Indonesian#: source/TortoiseSVN_en.xml:6669(para)
@@ -7756,6 +7828,10 @@ msgstr "Biasanya Anda ingin gabungan menjadi perhatian histori file, maka peruba
 
 #. (para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes to be merged."
+msgstr ""
+
+#. (para)
+msgid "The checkbox marked <guilabel>Force the merge</guilabel> is used to avoid a tree conflict where an incoming delete affects a file that is either modified locally or not versioned at all. If the file is deleted then there is no way to recover it, which is why that option is not checked by default."
 msgstr ""
 
 #. (para)
@@ -8190,7 +8266,7 @@ msgstr "Untuk menerapkan file patch ke copy pekerjaan Anda, Anda perlu mempunyai
 # Indonesian#: source/TortoiseSVN_en.xml:7369(para)
 #. (para)
 #, fuzzy
-msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog."
+msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog. Note that this option only appears if you saved the patch to the clipboard using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice>. Copying a patch to the clipboard from another app will not make the button appear."
 msgstr "Dari menu konteks untuk folder itu, klik pada <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Terapkan Patch...</guimenuitem></menuchoice> Ini akan membawa dialog buka file yang membolehkan Anda untuk memilih file patch untuk diterapkan. Standarnya hanya file <filename>.patch</filename> atau <filename>.diff</filename> yang ditampilkan, tapi Anda bisa memilih \"Semua file\". Jika Anda sebelumnya menyimpan suatu patch ke clipboard, Anda dapat menggunakan <guibutton>Buka dari clipboard</guibutton> dalam dialog buka file."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7380(para)
@@ -8469,7 +8545,7 @@ msgid "Delete or rename the folder."
 msgstr ""
 
 #. (para)
-msgid "Make a copy of the folder, either to a different part of the repository, or to a working copy rooted in the same repository."
+msgid "Make a copy of the folder, either to a different part of the repository, or to a working copy rooted in the same repository. This can also be used to create a branch/tag without the need to have a working copy checked out."
 msgstr ""
 
 # Indonesian#: source/TortoiseSVN_en.xml:4061(title)
@@ -9292,19 +9368,12 @@ msgstr "Set Properti pada Folder"
 msgid "These properties must be set on folders for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it's enough if you set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
 msgstr "Properti ini harus di-set pada folder agar sistem bekerja. Ketika Anda komit file atau folder, properti dibaca dari folder itu. Jika properti tidak ditemukan disana, TortoiseSVN akan mencari diatasnya melalui susunan folder untuk menemukannya sampai ke folder tidak berversi, atau akar susunan (contoh. <literal>C:\\</literal>) ditemukan. Jika Anda memastikan bahwa pengguna memeriksa hanya dari contoh <filename>trunk/</filename> dan bukan beberapa subfolder, maka itu cukup jika Anda mengeset properti pada <filename>trunk/</filename>. Jika Anda tidak yakin, Anda harus mengeset properti secara rekursif pada setiap subfolder. Seting properti lebih dalam dalam hirarki proyek menimpa seting pada tingkat lebih tinggi (lebih dekat ke <filename>trunk/</filename>)."
 
-# Indonesian#: source/TortoiseSVN_en.xml:6428(para)
-#. (para)
-#. (para)
-#, fuzzy
-msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr "Untuk properti <literal>tsvn:</literal> Anda <emphasis>hanya</emphasis> bisa menggunakan kotak centang <guilabel>Rekursif</guilabel> untuk mengeset properti ke semua subfolder dalam hirarki, tanpa menyetingnya pada semua file."
-
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
 msgstr ""
 
 #. (para)
-msgid "Because the issue tracker integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
+msgid "Because the issue tracker integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the URL of the repository you won't see this feature."
 msgstr ""
 
 # Indonesian#: source/TortoiseSVN_en.xml:8180(para)
@@ -9388,7 +9457,7 @@ msgid "No Repo Viewer Links from Repository Browser"
 msgstr "Browser Repositori"
 
 #. (para)
-msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
+msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the URL of the repository you won't see this feature."
 msgstr ""
 
 # Indonesian#: source/TortoiseSVN_en.xml:8189(title)
@@ -10417,6 +10486,8 @@ msgid ""
 "</screen> or with Araxis: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
 "    %base %mine\n"
+"</screen> or with UltraCompare: <screen>\n"
+"C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
 "</screen>"
 msgstr ""
 "Sebagai contoh, dengan ExamDiff Pro: <screen>\n"
@@ -11965,6 +12036,266 @@ msgstr ""
 msgid "The following example shows how the interface might be used. <placeholder-1/>"
 msgstr ""
 
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"using LibSubWCRev;\n"
+"SubWCRev sub = new SubWCRev();\n"
+"sub.GetWCInfo(\"C:\\\\PathToMyFile\\\\MyFile.cc\", true, true);\n"
+"if (sub.IsSvnItem == true)\n"
+"{\n"
+"    MessageBox.Show(\"versioned\");\n"
+"}\n"
+"else\n"
+"{\n"
+"    MessageBox.Show(\"not versioned\");\n"
+"}\n"
+msgstr ""
+
+#. (para)
+msgid "The following listing is an example on how to use the SubWCRev COM object from C#: <placeholder-1/>"
+msgstr ""
+
+#. (title)
+msgid "IBugtraqProvider interface"
+msgstr ""
+
+#. (primary)
+msgid "plugin"
+msgstr ""
+
+#. (primary)
+msgid "IBugtraqProvider"
+msgstr ""
+
+#. (para)
+msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
+msgstr ""
+
+#. (para)
+msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgstr ""
+
+#. (title)
+msgid "The IBugtraqProvider interface"
+msgstr ""
+
+#. (para)
+msgid "TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT ValidateParameters (\n"
+"  // Parent window for any UI that needs to be\n"
+"  // displayed during validation.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // The parameter string that needs to be validated.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // Is the string valid?\n"
+"  [out, retval] VARIANT_BOOL *valid\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT GetLinkText (\n"
+"  // Parent window for any (error) UI that needs to be displayed.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // The parameter string, just in case you need to talk to your\n"
+"  // web service (e.g.) to find out what the correct text is.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // What text do you want to display?\n"
+"  // Use the current thread locale.\n"
+"  [out, retval] BSTR *linkText\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT GetCommitMessage (\n"
+"  // Parent window for your provider's UI.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parameters for your provider.\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // The text already present in the commit message.\n"
+"  // Your provider should include this text in the new message,\n"
+"  // where appropriate.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // The new text for the commit message.\n"
+"  // This replaces the original message.\n"
+"  [out, retval] BSTR *newMessage\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
+msgstr ""
+
+#. (title)
+msgid "The IBugtraqProvider2 interface"
+msgstr ""
+
+#. (para)
+msgid "In TortoiseSVN 1.6 a new interface was added which provides more functionality for plugins. This IBugtraqProvider2 interface inherits from IBugtraqProvider."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT GetCommitMessage2 (\n"
+"  // Parent window for your provider's UI.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parameters for your provider.\n"
+"  [in] BSTR parameters,\n"
+"  // The common URL of the commit\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // The text already present in the commit message.\n"
+"  // Your provider should include this text in the new message,\n"
+"  // where appropriate.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // You can assign custom revision properties to a commit\n"
+"  // by setting the next two params.\n"
+"  // note: Both safearrays must be of the same length.\n"
+"  //       For every property name there must be a property value!\n"
+"\n"
+"  // The content of the bugID field (if shown)\n"
+"  [in] BSTR bugID,\n"
+"\n"
+"  // Modified content of the bugID field\n"
+"  [out] BSTR * bugIDOut,\n"
+"\n"
+"  // The list of revision property names.\n"
+"  [out] SAFEARRAY(BSTR) * revPropNames,\n"
+"\n"
+"  // The list of revision property values.\n"
+"  [out] SAFEARRAY(BSTR) * revPropValues,\n"
+"\n"
+"  // The new text for the commit message.\n"
+"  // This replaces the original message\n"
+"  [out, retval] BSTR * newMessage\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there. The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path. The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>). The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns. The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT CheckCommit (\n"
+"  [in] HWND hParentWnd,\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"  [in] BSTR commitMessage,\n"
+"  [out, retval] BSTR * errorMessage\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT  OnCommitFinished (\n"
+"  // Parent window for any (error) UI that needs to be displayed.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // The common root of all paths that got committed.\n"
+"  [in] BSTR commonRoot,\n"
+"\n"
+"  // All the paths that got committed.\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"\n"
+"  // The text already present in the commit message.\n"
+"  [in] BSTR logMessage,\n"
+"\n"
+"  // The revision of the commit.\n"
+"  [in] ULONG revision,\n"
+"\n"
+"\n"
+"  // An error to show to the user if this function\n"
+"  // returns something else than S_OK\n"
+"  [out, retval] BSTR * error\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT HasOptions(\n"
+"  // Whether the provider provides options\n"
+"  [out, retval] VARIANT_BOOL *ret\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"HRESULT ShowOptionsDialog(\n"
+"  // Parent window for the options dialog\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parameters for your provider.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // The parameters string\n"
+"  [out, retval] BSTR * newparameters\n"
+");\n"
+msgstr ""
+
+#. (para)
+msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
+msgstr ""
+
 # Indonesian#: source/TortoiseSVN_en.xml:9638(title)
 #. (title)
 msgid "Frequently Asked Questions (FAQ)"
@@ -12909,6 +13240,10 @@ msgstr "Karena beberapa perintah bisa mengambil daftar path sasaran (contoh, men
 msgid "TortoiseSVN uses temporary files to pass multiple arguments between the shell extension and the main program. From TortoiseSVN 1.5.0 on and later, <option>/notempfile</option> parameter is obsolete and there is no need to add it anymore."
 msgstr "TortoiseSVN menggunakan file temporal untuk mengoper argumen multipel antara ekstensi shell dan program utama. Dari TortoiseSVN 1.5.0 dan selanjutnya, parameter <option>/notempfile</option> sudah tidak berlaku lagi dan tidak perlu ditambahkan lagi."
 
+#. (para)
+msgid "You can also specify a file which contains a list of paths, separated by newlines. The file must be in UTF-16 format. If you pass such a file, use <option>/pathfile</option> instead of <option>/path</option>. To have TortoiseProc delete that file after the command is finished, you can pass the parameter <option>/deletepathfile</option>."
+msgstr ""
+
 # Indonesian#: source/TortoiseSVN_en.xml:10395(para)
 #. (para)
 #, fuzzy
@@ -13032,6 +13367,10 @@ msgid "/findtext"
 msgstr ""
 
 #. (option)
+msgid "/findregex"
+msgstr ""
+
+#. (option)
 msgid "/findtype:X"
 msgstr ""
 
@@ -13062,7 +13401,7 @@ msgstr ""
 # Indonesian#: source/TortoiseSVN_en.xml:10473(entry)
 #. (entry)
 #, fuzzy
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (enables the 'stop-on-copy' checkbox), <placeholder-5/> fills in the filter text, <placeholder-6/> (forces the filter to use text, not regex) and <placeholder-7/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-8/>"
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> fills in the filter text, <placeholder-6/> forces the filter to use text, not regex, or <placeholder-7/> forces the filter to use regex, not simple text search, and <placeholder-8/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-9/>"
 msgstr "Membuka dialog log. Path menentukan file atau folder dimana log harus ditampilkan. Tiga opsi tambahan yang bisa di-set: <placeholder-1/>, <placeholder-2/> dan <placeholder-3/>"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10486(option)
@@ -13144,10 +13483,15 @@ msgstr "Menambah file dalam <placeholder-1/> ke kontrol versi."
 msgid "Reverts local modifications of a working copy. The <placeholder-1/> tells which items to revert."
 msgstr "Mengembalikan perubahan lokal dari copy pekerjaan. <placeholder-1/> memberitahu item mana yang dikembalikan."
 
-# Indonesian#: source/TortoiseSVN_en.xml:10538(entry)
+# Indonesian#: source/TortoiseSVN_en.xml:10548(option) source/TortoiseSVN_en.xml:10607(option) source/TortoiseSVN_en.xml:10723(option)
+#. (option)
+#, fuzzy
+msgid "/noui"
+msgstr "/noquestion"
+
 #. (entry)
-msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>."
-msgstr "Membersihkan operasi yang diinterupsi atau dibatalkan dan membuka kuncian copy pekerjaan dalam <placeholder-1/>."
+msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from popping up (either telling about the cleanup being finished or showing an error message)."
+msgstr ""
 
 # Indonesian#: source/TortoiseSVN_en.xml:10548(option) source/TortoiseSVN_en.xml:10607(option) source/TortoiseSVN_en.xml:10723(option)
 #. (option)
@@ -13247,10 +13591,16 @@ msgstr "/path2"
 msgid "/blame"
 msgstr "/blame"
 
+# Indonesian#: source/TortoiseSVN_en.xml:10658(option) source/TortoiseSVN_en.xml:10660(option)
+#. (option)
+#, fuzzy
+msgid "/line:xxx"
+msgstr "/rev:xxx"
+
 # Indonesian#: source/TortoiseSVN_en.xml:10612(entry)
 #. (entry)
 #, fuzzy
-msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, then the diff is done by first blaming the files with the given revisions."
+msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, then the diff is done by first blaming the files with the given revisions. The parameter <placeholder-9/> specifies the line to jump to when the diff is shown."
 msgstr "Memulai program eksternal diff yang ditetapkan dalam seting TortoiseSVN. <placeholder-1/> menetapkan file pertama. Jika opasi <placeholder-2/> di-set, maka program diff dimulai dengan dua file itu. Jika <placeholder-3/> diabaikan, maka diff dikerjakan antara file dalam <placeholder-4/> dan BASE-nya."
 
 #. (para)
@@ -14489,245 +14839,6 @@ msgstr ""
 msgid "If you use this last method, be sure you do not have a default username set in PuTTY. We have had reports of a bug in PuTTY causing connections to close in this case. To remove the default user, simply clear <filename>HKEY_CURRENT_USER\\Software\\SimonTatham\\Putty\\Sessions\\Default%20Settings\\HostName</filename>"
 msgstr ""
 
-#. (title)
-msgid "IBugtraqProvider interface"
-msgstr ""
-
-#. (primary)
-msgid "plugin"
-msgstr ""
-
-#. (primary)
-msgid "IBugtraqProvider"
-msgstr ""
-
-#. (para)
-msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
-msgstr ""
-
-#. (para)
-msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr ""
-
-#. (title)
-msgid "The IBugtraqProvider interface"
-msgstr ""
-
-#. (para)
-msgid "TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT ValidateParameters (\n"
-"  // Parent window for any UI that needs to be\n"
-"  // displayed during validation.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // The parameter string that needs to be validated.\n"
-"  [in] BSTR parameters,\n"
-"\n"
-"  // Is the string valid?\n"
-"  [out, retval] VARIANT_BOOL *valid\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT GetLinkText (\n"
-"  // Parent window for any (error) UI that needs to be displayed.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // The parameter string, just in case you need to talk to your\n"
-"  // web service (e.g.) to find out what the correct text is.\n"
-"  [in] BSTR parameters,\n"
-"\n"
-"  // What text do you want to display?\n"
-"  // Use the current thread locale.\n"
-"  [out, retval] BSTR *linkText\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT GetCommitMessage (\n"
-"  // Parent window for your provider's UI.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // Parameters for your provider.\n"
-"  [in] BSTR parameters,\n"
-"  [in] BSTR commonRoot,\n"
-"  [in] SAFEARRAY(BSTR) pathList,\n"
-"\n"
-"  // The text already present in the commit message.\n"
-"  // Your provider should include this text in the new message,\n"
-"  // where appropriate.\n"
-"  [in] BSTR originalMessage,\n"
-"\n"
-"  // The new text for the commit message.\n"
-"  // This replaces the original message.\n"
-"  [out, retval] BSTR *newMessage\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
-msgstr ""
-
-#. (title)
-msgid "The IBugtraqProvider2 interface"
-msgstr ""
-
-#. (para)
-msgid "In TortoiseSVN 1.6 a new interface was added which provides more functionality for plugins. This IBugtraqProvider2 interface inherits from IBugtraqProvider."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT GetCommitMessage2 (\n"
-"  // Parent window for your provider's UI.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // Parameters for your provider.\n"
-"  [in] BSTR parameters,\n"
-"  // The common URL of the commit\n"
-"  [in] BSTR commonURL,\n"
-"  [in] BSTR commonRoot,\n"
-"  [in] SAFEARRAY(BSTR) pathList,\n"
-"\n"
-"  // The text already present in the commit message.\n"
-"  // Your provider should include this text in the new message,\n"
-"  // where appropriate.\n"
-"  [in] BSTR originalMessage,\n"
-"\n"
-"  // You can assign custom revision properties to a commit\n"
-"  // by setting the next two params.\n"
-"  // note: Both safearrays must be of the same length.\n"
-"  //       For every property name there must be a property value!\n"
-"\n"
-"  // The content of the bugID field (if shown)\n"
-"  [in] BSTR bugID,\n"
-"\n"
-"  // Modified content of the bugID field\n"
-"  [out] BSTR * bugIDOut,\n"
-"\n"
-"  // The list of revision property names.\n"
-"  [out] SAFEARRAY(BSTR) * revPropNames,\n"
-"\n"
-"  // The list of revision property values.\n"
-"  [out] SAFEARRAY(BSTR) * revPropValues,\n"
-"\n"
-"  // The new text for the commit message.\n"
-"  // This replaces the original message\n"
-"  [out, retval] BSTR * newMessage\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there. The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path. The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>). The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns. The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT CheckCommit (\n"
-"  [in] HWND hParentWnd,\n"
-"  [in] BSTR parameters,\n"
-"  [in] BSTR commonURL,\n"
-"  [in] BSTR commonRoot,\n"
-"  [in] SAFEARRAY(BSTR) pathList,\n"
-"  [in] BSTR commitMessage,\n"
-"  [out, retval] BSTR * errorMessage\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT  OnCommitFinished (\n"
-"  // Parent window for any (error) UI that needs to be displayed.\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // The common root of all paths that got committed.\n"
-"  [in] BSTR commonRoot,\n"
-"\n"
-"  // All the paths that got committed.\n"
-"  [in] SAFEARRAY(BSTR) pathList,\n"
-"\n"
-"\n"
-"  // The text already present in the commit message.\n"
-"  [in] BSTR logMessage,\n"
-"\n"
-"  // The revision of the commit.\n"
-"  [in] ULONG revision,\n"
-"\n"
-"\n"
-"  // An error to show to the user if this function\n"
-"  // returns something else than S_OK\n"
-"  [out, retval] BSTR * error\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT HasOptions(\n"
-"  // Whether the provider provides options\n"
-"  [out, retval] VARIANT_BOOL *ret\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
-msgstr ""
-
-#. (programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"HRESULT ShowOptionsDialog(\n"
-"  // Parent window for the options dialog\n"
-"  [in] HWND hParentWnd,\n"
-"\n"
-"  // Parameters for your provider.\n"
-"  [in] BSTR parameters,\n"
-"\n"
-"  // The parameters string\n"
-"  [out, retval] BSTR * newparameters\n"
-");\n"
-msgstr ""
-
-#. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
-msgstr ""
-
 # Indonesian#: source/TortoiseSVN_en.xml:11250(title)
 #. (title)
 msgid "Glossary"
@@ -15016,6 +15127,25 @@ msgstr ""
 msgid "translator-translation"
 msgstr "Terjemahan oleh"
 
+# Indonesian#: source/TortoiseSVN_en.xml:6428(para)
+#, fuzzy
+#~ msgid ""
+#~ "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can "
+#~ "use the <guilabel>Recursive</guilabel> checkbox to set the property to "
+#~ "all sub-folders in the hierarchy, without also setting it on all files."
+#~ msgstr ""
+#~ "Untuk properti <literal>tsvn:</literal> Anda <emphasis>hanya</emphasis> "
+#~ "bisa menggunakan kotak centang <guilabel>Rekursif</guilabel> untuk "
+#~ "mengeset properti ke semua subfolder dalam hirarki, tanpa menyetingnya "
+#~ "pada semua file."
+
+# Indonesian#: source/TortoiseSVN_en.xml:10538(entry)
+#~ msgid ""
+#~ "Cleans up interrupted or aborted operations and unlocks the working copy "
+#~ "in <placeholder-1/>."
+#~ msgstr ""
+#~ "Membersihkan operasi yang diinterupsi atau dibatalkan dan membuka kuncian "
+#~ "copy pekerjaan dalam <placeholder-1/>."
 # Indonesian#: source/TortoiseSVN_en.xml:106(para)
 #~ msgid ""
 #~ "Even most Subversion users will never have to set up a server themselves. "
