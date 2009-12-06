@@ -657,7 +657,7 @@ int CTSVNPath::Compare(const CTSVNPath& left, const CTSVNPath& right)
 {
 	left.EnsureBackslashPathSet();
 	right.EnsureBackslashPathSet();
-	return left.m_sBackslashPath.CompareNoCase(right.m_sBackslashPath);
+	return CStringUtils::FastCompareNoCase (left.m_sBackslashPath, right.m_sBackslashPath);
 }
 
 bool operator<(const CTSVNPath& left, const CTSVNPath& right)

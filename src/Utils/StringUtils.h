@@ -93,6 +93,11 @@ public:
 	 * \ref lhs and \ref rhs. (max n: lhs.Left(n) == rhs.Left(n))
 	 */
 	static int GetMatchingLength (const CString& lhs, const CString& rhs);
+
+	/**
+	 * Optimizing wrapper around CompareNoCase.
+	 */
+	static int FastCompareNoCase (const CStringW& lhs, const CStringW& rhs);
 #endif
 
 	/**

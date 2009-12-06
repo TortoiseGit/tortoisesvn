@@ -433,6 +433,52 @@ int CStringUtils::GetMatchingLength (const CString& lhs, const CString& rhs)
 	return maxResult;
 }
 
+int CStringUtils::FastCompareNoCase (const CStringW& lhs, const CStringW& rhs)
+{
+	// attempt latin-only comparison
+
+	INT_PTR count = min (lhs.GetLength(), rhs.GetLength()+1);
+	const wchar_t* left = lhs;
+	const wchar_t* right = rhs;
+	for (const wchar_t* last = left + count+1; left < last; ++left, ++right)
+	{
+		int leftChar = *left;
+		int rightChar = *right;
+
+		int diff = leftChar - rightChar;
+		if (diff != 0)
+		{
+			// case-sensitive comparison found a difference
+
+			if ((leftChar | rightChar) >= 0x80)
+			{
+				// non-latin char -> fall back to CRT code
+				// (full comparison required as we might have
+				// skipped special chars / UTF plane selectors)
+
+				return _wcsicmp (lhs, rhs);
+			}
+
+			// normalize to lower case
+
+			if ((leftChar >= 'A') && (leftChar <= 'Z'))
+				leftChar += 'a' - 'A';
+			if ((rightChar >= 'A') && (rightChar <= 'Z'))
+				rightChar += 'a' - 'A';
+
+			// compare again
+
+			diff = leftChar - rightChar;
+			if (diff != 0)
+				return diff;
+		}
+	}
+
+	// must be equal (both ended with a 0)
+
+	return 0;
+}
+
 #endif // #ifdef _MFC_VER
 
 bool CStringUtils::WriteStringToTextFile(const std::wstring& path, const std::wstring& text, bool bUTF8 /* = true */)
