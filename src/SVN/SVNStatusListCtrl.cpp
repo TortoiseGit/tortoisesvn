@@ -54,6 +54,7 @@
 #include "auto_buffer.h"
 #include "svntrace.h"
 #include "FormatMessageWrapper.h"
+#include "AsyncCall.h"
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
 					= ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
@@ -461,73 +462,80 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
 //
 // Fetch all local properties for all elements in the status array
 //
-void CSVNStatusListCtrl::FetchUserProperties()
+
+void CSVNStatusListCtrl::FetchUserProperties (FileEntry* entry)
 {
-	SVNPool globalPool;
+    SVNTRACE_BLOCK
 
-    for (size_t i = 0, count = m_arStatusArray.size(); i < count; ++i)
+    // local / temp pool to hold parameters and props for a single item
+
+	SVNPool pool;
+
+    // open working copy for this path
+
+    const char* path = entry->path.GetSVNApiPath (pool);
+     
+    svn_wc_adm_access_t *adm_access = NULL;          
+    svn_error_t * error = svn_wc_adm_probe_open3 ( &adm_access
+                                                 , NULL
+                                                 , path
+                                                 , FALSE	// no write lock
+												 , 0		// lock just the directory/file itself
+                                                 , NULL
+												 , NULL
+                                                 , pool);
+    if (error == NULL)
     {
-        SVNTRACE_BLOCK
+        // get the props and add them to the status info
 
-        // local / temp pool to hold parameters and props for a single item
-
-    	SVNPool localPool ((apr_pool_t*)globalPool);
-
-        // open working copy for this path
-
-        const char* path = m_arStatusArray[i]->path.GetSVNApiPath (localPool);
-         
-	    svn_wc_adm_access_t *adm_access = NULL;          
-        svn_error_t * error = svn_wc_adm_probe_open3 ( &adm_access
-                                                     , NULL
-                                                     , path
-                                                     , FALSE	// no write lock
-													 , 0		// lock just the directory/file itself
-                                                     , NULL
-													 , NULL
-                                                     , localPool);
+        apr_hash_t* props = NULL;
+        error = svn_wc_prop_list ( &props
+                                   , path
+                                   , adm_access
+                                   , pool);
         if (error == NULL)
         {
-            // get the props and add them to the status info
-
-            apr_hash_t* props = NULL;
-            error = svn_wc_prop_list ( &props
-                                       , path
-                                       , adm_access
-                                       , localPool);
-            if (error == NULL)
+            for ( apr_hash_index_t *index = apr_hash_first (pool, props)
+                ; index != NULL
+                ; index = apr_hash_next (index))
             {
-                for ( apr_hash_index_t *index 
-                        = apr_hash_first (localPool, props)
-                    ; index != NULL
-                    ; index = apr_hash_next (index))
-                {
-                    // extract next entry from hash
+                // extract next entry from hash
 
-                    const char* key = NULL;
-                    ptrdiff_t keyLen;
-                    const char** val = NULL;
+                const char* key = NULL;
+                ptrdiff_t keyLen;
+                const char** val = NULL;
 
-                    apr_hash_this ( index
-                                  , reinterpret_cast<const void**>(&key)
-                                  , &keyLen
-                                  , reinterpret_cast<void**>(&val));
+                apr_hash_this ( index
+                              , reinterpret_cast<const void**>(&key)
+                              , &keyLen
+                              , reinterpret_cast<void**>(&val));
 
-                    // decode / dispatch it
+                // decode / dispatch it
 
-        	        CString name = CUnicodeUtils::GetUnicode (key);
-	                CString value = CUnicodeUtils::GetUnicode (*val);
+    	        CString name = CUnicodeUtils::GetUnicode (key);
+                CString value = CUnicodeUtils::GetUnicode (*val);
 
-                    // store in property container (truncate it after ~100 chars)
+                // store in property container (truncate it after ~100 chars)
 
-                    m_arStatusArray[i]->present_props[name] 
-                        = value.Left (SVNSLC_MAXUSERPROPLENGTH);
-                }
+                entry->present_props[name] 
+                    = value.Left (SVNSLC_MAXUSERPROPLENGTH);
             }
-            error = svn_wc_adm_close2 (adm_access, localPool);
         }
-        svn_error_clear (error);
+        error = svn_wc_adm_close2 (adm_access, pool);
     }
+
+	svn_error_clear (error);
+}
+
+
+void CSVNStatusListCtrl::FetchUserProperties()
+{
+	async::CJobScheduler queries (0, async::CJobScheduler::GetHWThreadCount());
+
+    for (size_t i = 0, count = m_arStatusArray.size(); i < count; ++i)
+		new async::CAsyncCall ( &CSVNStatusListCtrl::FetchUserProperties
+							  , m_arStatusArray[i]
+							  , &queries);
 }
 
 

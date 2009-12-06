@@ -849,6 +849,7 @@ private:
 	void StartDiff(int fileindex);	///< start the external diff program
 
     /// fetch all user properties for all items
+	static void FetchUserProperties (FileEntry* entry);
     void FetchUserProperties();
 
 	/// Process one line of the command file supplied to GetStatus
