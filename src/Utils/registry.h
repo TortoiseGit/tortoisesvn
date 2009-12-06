@@ -93,7 +93,10 @@ public:	//methods
 			(LPTSTR) &lpMsgBuf,
 			0, NULL );
 
-		return (LPCTSTR)lpMsgBuf;
+		S result ((LPCTSTR)lpMsgBuf);
+		LocalFree (lpMsgBuf);
+
+		return result;
 	};
 
     /// get failure info for last operation
