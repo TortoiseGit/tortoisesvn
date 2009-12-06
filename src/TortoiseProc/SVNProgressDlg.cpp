@@ -2513,7 +2513,7 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
 						SVNProperties props(targetPath, SVNRev::REV_WC, false);
 						for (int i=0; i<props.GetCount(); i++)
 						{
-							if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)
+							if (props.GetItemName(i).compare(SVN_PROP_MIME_TYPE)==0)
 							{
 								CString mimetype = CUnicodeUtils::GetUnicode((char *)props.GetItemValue(i).c_str());
 								if ((!mimetype.IsEmpty())&&(mimetype.Left(4).CompareNoCase(_T("text"))))

@@ -93,7 +93,7 @@ bool CSVNStatusListCtrl::PropertyList::HasProperty (const CString& name) const
 
 bool CSVNStatusListCtrl::PropertyList::IsNeedsLockSet() const
 {
-	static const CString svnNeedsLock = _T("svn:needs-lock");
+	static const CString svnNeedsLock (SVN_PROP_NEEDS_LOCK);
 	return HasProperty (svnNeedsLock);
 }
 
@@ -410,13 +410,15 @@ void CSVNStatusListCtrl::ColumnManager::ColumnResized (int column)
 void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList 
     (const std::vector<FileEntry*>& files)
 {
-    // collect all user-defined props
+	const static CString svnPropNeedsLock (SVN_PROP_NEEDS_LOCK);
+
+	// collect all user-defined props
 
     std::set<CString> aggregatedProps;
     for (size_t i = 0, count = files.size(); i < count; ++i)
         files[i]->present_props.GetPropertyNames (aggregatedProps);
 
-    aggregatedProps.erase (_T("svn:needs-lock"));
+    aggregatedProps.erase (svnPropNeedsLock);
     itemProps = aggregatedProps;
 
     // add new ones to the internal list
@@ -514,13 +516,15 @@ void CSVNStatusListCtrl::ColumnManager::UpdateRelevance
     ( const std::vector<FileEntry*>& files
     , const std::vector<size_t>& visibleFiles)
 {
-    // collect all user-defined props that belong to shown files
+	const static CString svnPropNeedsLock (SVN_PROP_NEEDS_LOCK);
+
+	// collect all user-defined props that belong to shown files
 
     std::set<CString> aggregatedProps;
     for (size_t i = 0, count = visibleFiles.size(); i < count; ++i)
         files[visibleFiles[i]]->present_props.GetPropertyNames (aggregatedProps);
 
-    aggregatedProps.erase (_T("svn:needs-lock"));
+    aggregatedProps.erase (svnPropNeedsLock);
     itemProps = aggregatedProps;
 
     // invisible columns for unused props are not relevant

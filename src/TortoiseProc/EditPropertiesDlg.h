@@ -86,13 +86,17 @@ protected:
 		bool		allthesamevalue;
 		bool		isbinary;
 	};
+
 	CTSVNPathList	m_pathlist;
 	CListCtrl		m_propList;
 	BOOL			m_bRecursive;
 	bool			m_bChanged;
 	bool			m_bRevProps;
 	volatile LONG	m_bThreadRunning;
-	std::map<tstring, PropValue>	m_properties;
+
+	typedef std::map<std::string, PropValue> TProperties;
+	typedef TProperties::iterator IT;
+	TProperties		m_properties;
 	SVNRev			m_revision;
 	CToolTips		m_tooltips;
 	CPathEdit		m_PropPath;

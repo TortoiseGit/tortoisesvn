@@ -180,9 +180,9 @@ UINT CEditPropertiesDlg::PropsThread()
 		SVNProperties props(m_pathlist[i], m_revision, m_bRevProps);
 		for (int p=0; p<props.GetCount(); ++p)
 		{
-			std::wstring prop_str = props.GetItemName(p);
+			std::string prop_str = props.GetItemName(p);
 			std::string prop_value = props.GetItemValue(p);
-			std::map<tstring,PropValue>::iterator it = m_properties.find(prop_str);
+			IT it = m_properties.find(prop_str);
 			if (it != m_properties.end())
 			{
 				it->second.count++;
@@ -209,9 +209,9 @@ UINT CEditPropertiesDlg::PropsThread()
 	// fill the property list control with the gathered information
 	int index=0;
 	m_propList.SetRedraw(FALSE);
-	for (std::map<tstring,PropValue>::iterator it = m_properties.begin(); it != m_properties.end(); ++it)
+	for (IT it = m_properties.begin(); it != m_properties.end(); ++it)
 	{
-		m_propList.InsertItem(index, it->first.c_str());
+		m_propList.InsertItem(index, UTF8ToString (it->first).c_str());
 		if (it->second.isbinary)
 		{
 			m_propList.SetItemText(index, 1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_BINVALUE)));
@@ -338,12 +338,12 @@ void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 	int selIndex = m_propList.GetSelectionMark();
 
 	CEditPropertyValueDlg dlg;
-	CString sName;
+	std::string sName;
 
 	if ((!bAdd)&&(selIndex >= 0)&&(m_propList.GetSelectedCount()))
 	{
-		sName = m_propList.GetItemText(selIndex, 0);
-		PropValue& prop = m_properties[tstring(sName)];
+		sName = StringToUTF8((LPCTSTR)m_propList.GetItemText(selIndex, 0));
+		PropValue& prop = m_properties[sName];
 		dlg.SetPropertyName(sName);
 		if (prop.allthesamevalue)
 			dlg.SetPropertyValue(prop.value);
@@ -367,7 +367,7 @@ void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 	if ( dlg.DoModal()==IDOK )
 	{
 		sName = dlg.GetPropertyName();
-		if (!sName.IsEmpty())
+		if (!sName.empty())
 		{
 			CString sMsg;
 			bool bDoIt = true;
@@ -377,7 +377,7 @@ void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 				input.SetUUID(m_sUUID);
 				input.SetProjectProperties(m_pProjectProperties);
 				CString sHint;
-				sHint.Format(IDS_INPUT_EDITPROP, (LPCTSTR)sName, (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
+				sHint.Format(IDS_INPUT_EDITPROP, sName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
 				input.SetActionText(sHint);
 				if (input.DoModal() == IDOK)
 				{
@@ -430,21 +430,21 @@ void CEditPropertiesDlg::RemoveProps()
 		int selIndex = m_propList.GetNextSelectedItem(pos);
 
 		bool bRecurse = false;
-		CString sName = m_propList.GetItemText(selIndex, 0);
+		std::string sName = StringToUTF8((LPCTSTR)m_propList.GetItemText(selIndex, 0));
 		if (m_pathlist[0].IsUrl())
 		{
 			CInputLogDlg input(this);
 			input.SetUUID(m_sUUID);
 			input.SetProjectProperties(m_pProjectProperties);
 			CString sHint;
-			sHint.Format(IDS_INPUT_REMOVEPROP, (LPCTSTR)sName, (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
+			sHint.Format(IDS_INPUT_REMOVEPROP, sName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
 			input.SetActionText(sHint);
 			if (input.DoModal() != IDOK)
 				return;
 			sLogMsg = input.GetLogMessage();
 		}
 		CString sQuestion;
-		sQuestion.Format(IDS_EDITPROPS_RECURSIVEREMOVEQUESTION, (LPCTSTR)sName);
+		sQuestion.Format(IDS_EDITPROPS_RECURSIVEREMOVEQUESTION, sName.c_str());
 		CString sRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVE));
 		CString sNotRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_NOTRECURSIVE));
 		CString sCancel(MAKEINTRESOURCE(IDS_EDITPROPS_CANCEL));
@@ -551,12 +551,12 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
 	m_tooltips.Pop();	// hide the tooltips
 	int selIndex = m_propList.GetSelectionMark();
 
-	CString sName;
-	CString sValue;
+	std::string sName;
+	std::string sValue;
 	if ((selIndex >= 0)&&(m_propList.GetSelectedCount()))
 	{
-		sName = m_propList.GetItemText(selIndex, 0);
-		PropValue& prop = m_properties[tstring(sName)];
+		sName = StringToUTF8 ((LPCTSTR)m_propList.GetItemText(selIndex, 0));
+		PropValue& prop = m_properties[sName];
 		sValue = prop.value.c_str();
 		if (prop.allthesamevalue)
 		{
@@ -613,7 +613,7 @@ void CEditPropertiesDlg::OnBnClickedExport()
 		{
 			int index = m_propList.GetNextSelectedItem(pos);
 			sName = m_propList.GetItemText(index, 0);
-			PropValue& prop = m_properties[tstring(sName)];
+			PropValue& prop = m_properties[StringToUTF8((LPCTSTR)sName)];
 			sValue = prop.value.c_str();
 			len = sName.GetLength()*sizeof(TCHAR);
 			fwrite(&len, sizeof(int), 1, stream);									// length of property name in bytes
@@ -675,7 +675,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
 				auto_buffer<TCHAR> pNameBuf(nNameBytes/sizeof(TCHAR));
 				if (fread(pNameBuf, 1, nNameBytes, stream) == (size_t)nNameBytes)
 				{
-					CString sName = CString(pNameBuf, nNameBytes/sizeof(TCHAR));
+					std::string sName = StringToUTF8 (tstring (pNameBuf, nNameBytes/sizeof(TCHAR)));
 					int nValueBytes = 0;
 					if (fread(&nValueBytes, sizeof(int), 1, stream) == 1)
 					{
@@ -691,7 +691,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
 								input.SetUUID(m_sUUID);
 								input.SetProjectProperties(m_pProjectProperties);
 								CString sHint;
-								sHint.Format(IDS_INPUT_SETPROP, (LPCTSTR)sName, (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
+								sHint.Format(IDS_INPUT_SETPROP, sName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
 								input.SetActionText(sHint);
 								if (input.DoModal() == IDOK)
 								{

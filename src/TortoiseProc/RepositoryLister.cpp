@@ -231,7 +231,7 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 {
     // fetch externals definition for the given path
 
-    static const tstring svnExternals (_T("svn:externals"));
+    static const std::string svnExternals (SVN_PROP_EXTERNALS);
 
     SVNProperties properties (path, revision, false);
 

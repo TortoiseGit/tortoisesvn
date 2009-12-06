@@ -231,7 +231,7 @@ void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& r
 
 		response.m_kind = m_kind;
 
-		if (m_sPresentProps.Find("svn:needs-lock")>=0)
+		if (m_sPresentProps.Find(SVN_PROP_NEEDS_LOCK)>=0)
 		{
 			response.m_needslock = true;
 		}

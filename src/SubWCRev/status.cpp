@@ -23,6 +23,7 @@
 #include "svn_wc.h"
 #include "svn_dirent_uri.h"
 #include "svn_utf.h"
+#include "svn_props.h"
 #pragma warning(pop)
 #include "SubWCRev.h"
 
@@ -200,7 +201,7 @@ svn_error_t * getallstatus(void * baton, const char * path, svn_wc_status2_t * s
 	{
 		if(status->entry->present_props)
 		{
-			if (strstr(status->entry->present_props, "svn:needs-lock"))
+			if (strstr(status->entry->present_props, SVN_PROP_NEEDS_LOCK))
 			{
 				sb->SubStat->LockData.NeedsLocks = true;
 				

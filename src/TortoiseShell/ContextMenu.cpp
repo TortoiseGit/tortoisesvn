@@ -295,7 +295,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							}
 							if ((stat.status->entry)&&(stat.status->entry->present_props))
 							{
-								if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+								if (strstr(stat.status->entry->present_props, SVN_PROP_NEEDS_LOCK))
 									itemStates |= ITEMIS_NEEDSLOCK;
 							}
 							if ((stat.status->entry)&&(stat.status->entry->uuid))
@@ -397,7 +397,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 									itemStates |= ITEMIS_CONFLICTED;
 								if ((stat.status->entry)&&(stat.status->entry->present_props))
 								{
-									if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+									if (strstr(stat.status->entry->present_props, SVN_PROP_NEEDS_LOCK))
 										itemStates |= ITEMIS_NEEDSLOCK;
 								}
 								if ((stat.status->entry)&&(stat.status->entry->uuid))
@@ -442,7 +442,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						ignoredprops.empty();
 						for (int p=0; p<props.GetCount(); ++p)
 						{
-							if (props.GetItemName(p).compare(tstring(_T("svn:ignore")))==0)
+							if (props.GetItemName(p).compare(SVN_PROP_IGNORE)==0)
 							{
 								std::string st = props.GetItemValue(p);
 								ignoredprops = UTF8ToWide(st.c_str());
@@ -512,7 +512,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							itemStatesFolder |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
 						if ((stat.status->entry)&&(stat.status->entry->present_props))
 						{
-							if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+							if (strstr(stat.status->entry->present_props, SVN_PROP_NEEDS_LOCK))
 								itemStatesFolder |= ITEMIS_NEEDSLOCK;
 						}
 						if ((stat.status->entry)&&(stat.status->entry->uuid))
@@ -599,7 +599,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 								itemStates |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
 							if ((stat.status->entry)&&(stat.status->entry->present_props))
 							{
-								if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+								if (strstr(stat.status->entry->present_props, SVN_PROP_NEEDS_LOCK))
 									itemStates |= ITEMIS_NEEDSLOCK;
 							}
 							if ((stat.status->entry)&&(stat.status->entry->uuid))

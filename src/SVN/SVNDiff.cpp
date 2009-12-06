@@ -665,12 +665,12 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
 	// check for properties that got removed
 	for (int baseindex = 0; baseindex < propsbase.GetCount(); ++baseindex)
 	{
-		tstring basename = propsbase.GetItemName(baseindex);
+		std::string basename = propsbase.GetItemName(baseindex);
 		tstring basevalue = (LPCTSTR)CUnicodeUtils::GetUnicode(propsbase.GetItemValue(baseindex).c_str());
 		bool bFound = false;
 		for (int wcindex = 0; wcindex < propswc.GetCount(); ++wcindex)
 		{
-			if (basename.compare(propswc.GetItemName(wcindex))==0)
+			if (basename.compare (propswc.GetItemName(wcindex))==0)
 			{
 				bFound = true;
 				break;
@@ -753,7 +753,7 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
 
 	for (int wcindex = 0; wcindex < propswc.GetCount(); ++wcindex)
 	{
-		tstring wcname = propswc.GetItemName(wcindex);
+		std::string wcname = propswc.GetItemName(wcindex);
 		tstring wcvalue = (LPCTSTR)CUnicodeUtils::GetUnicode(propswc.GetItemValue(wcindex).c_str());
 		tstring basevalue;
 		bool bDiffRequired = true;

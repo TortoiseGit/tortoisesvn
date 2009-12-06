@@ -57,6 +57,7 @@
 #include "svn_utf.h"
 #include "svn_config.h"
 #include "svn_subst.h"
+#include "svn_props.h"
 #pragma warning(pop)
 
 #include "SysInfo.h"

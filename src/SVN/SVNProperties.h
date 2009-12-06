@@ -72,7 +72,7 @@ public:
 	 * \param index a zero based index
 	 * \return the name of the property
 	 */
-	tstring GetItemName(int index) const;
+	std::string GetItemName(int index) const;
 	/**
 	 * Returns the value of the property.
 	 * \param index a zero based index
@@ -99,7 +99,7 @@ public:
 	 * \param recurse TRUE if the property should be added to subdirectories/files as well
 	 * \return TRUE if the property is added successfully
 	 */
-	BOOL Add(const TCHAR * Name, std::string Value, svn_depth_t depth = svn_depth_empty, const TCHAR * message = NULL);
+	BOOL Add(const std::string& Name, const std::string& Value, svn_depth_t depth = svn_depth_empty, const TCHAR * message = NULL);
 	/**
 	 * Removes an existing property from the file/directory specified in the constructor.
 	 * \remark After using this method the indexes of the properties may change!
@@ -107,7 +107,7 @@ public:
 	 * \param recurse TRUE if the property should be deleted from subdirectories/files as well
 	 * \return TRUE if the property is removed successfully
 	 */
-	BOOL Remove(const TCHAR * Name, svn_depth_t depth = svn_depth_empty, const TCHAR * message = NULL);
+	BOOL Remove(const std::string& Name, svn_depth_t depth = svn_depth_empty, const TCHAR * message = NULL);
 
 	/**
 	 * Checks if the property value is binary or text.

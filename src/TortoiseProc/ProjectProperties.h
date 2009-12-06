@@ -26,30 +26,30 @@ using namespace std;
 // when adding new properties, don't forget to change the
 // method AddAutoProps() so the new properties are automatically
 // added to new folders
-#define BUGTRAQPROPNAME_LABEL             _T("bugtraq:label")
-#define BUGTRAQPROPNAME_MESSAGE           _T("bugtraq:message")
-#define BUGTRAQPROPNAME_NUMBER            _T("bugtraq:number")
-#define BUGTRAQPROPNAME_LOGREGEX		  _T("bugtraq:logregex")
-#define BUGTRAQPROPNAME_URL               _T("bugtraq:url")
-#define BUGTRAQPROPNAME_WARNIFNOISSUE     _T("bugtraq:warnifnoissue")
-#define BUGTRAQPROPNAME_APPEND		      _T("bugtraq:append")
-#define BUGTRAQPROPNAME_PROVIDERUUID      _T("bugtraq:provideruuid")
-#define BUGTRAQPROPNAME_PROVIDERPARAMS    _T("bugtraq:providerparams")
+#define BUGTRAQPROPNAME_LABEL             "bugtraq:label"
+#define BUGTRAQPROPNAME_MESSAGE           "bugtraq:message"
+#define BUGTRAQPROPNAME_NUMBER            "bugtraq:number"
+#define BUGTRAQPROPNAME_LOGREGEX		  "bugtraq:logregex"
+#define BUGTRAQPROPNAME_URL               "bugtraq:url"
+#define BUGTRAQPROPNAME_WARNIFNOISSUE     "bugtraq:warnifnoissue"
+#define BUGTRAQPROPNAME_APPEND		      "bugtraq:append"
+#define BUGTRAQPROPNAME_PROVIDERUUID      "bugtraq:provideruuid"
+#define BUGTRAQPROPNAME_PROVIDERPARAMS    "bugtraq:providerparams"
 
-#define PROJECTPROPNAME_LOGTEMPLATE		  _T("tsvn:logtemplate")
-#define PROJECTPROPNAME_LOGWIDTHLINE	  _T("tsvn:logwidthmarker")
-#define PROJECTPROPNAME_LOGMINSIZE		  _T("tsvn:logminsize")
-#define PROJECTPROPNAME_LOCKMSGMINSIZE	  _T("tsvn:lockmsgminsize")
-#define PROJECTPROPNAME_LOGFILELISTLANG	  _T("tsvn:logfilelistenglish")
-#define PROJECTPROPNAME_LOGSUMMARY		  _T("tsvn:logsummary")
-#define PROJECTPROPNAME_PROJECTLANGUAGE   _T("tsvn:projectlanguage")
-#define PROJECTPROPNAME_USERFILEPROPERTY  _T("tsvn:userfileproperties")
-#define PROJECTPROPNAME_USERDIRPROPERTY   _T("tsvn:userdirproperties")
-#define PROJECTPROPNAME_AUTOPROPS		  _T("tsvn:autoprops")
-#define PROJECTPROPNAME_LOGREVREGEX		  _T("tsvn:logrevregex")
+#define PROJECTPROPNAME_LOGTEMPLATE		  "tsvn:logtemplate"
+#define PROJECTPROPNAME_LOGWIDTHLINE	  "tsvn:logwidthmarker"
+#define PROJECTPROPNAME_LOGMINSIZE		  "tsvn:logminsize"
+#define PROJECTPROPNAME_LOCKMSGMINSIZE	  "tsvn:lockmsgminsize"
+#define PROJECTPROPNAME_LOGFILELISTLANG	  "tsvn:logfilelistenglish"
+#define PROJECTPROPNAME_LOGSUMMARY		  "tsvn:logsummary"
+#define PROJECTPROPNAME_PROJECTLANGUAGE   "tsvn:projectlanguage"
+#define PROJECTPROPNAME_USERFILEPROPERTY  "tsvn:userfileproperties"
+#define PROJECTPROPNAME_USERDIRPROPERTY   "tsvn:userdirproperties"
+#define PROJECTPROPNAME_AUTOPROPS		  "tsvn:autoprops"
+#define PROJECTPROPNAME_LOGREVREGEX		  "tsvn:logrevregex"
 
-#define PROJECTPROPNAME_WEBVIEWER_REV     _T("webviewer:revision")
-#define PROJECTPROPNAME_WEBVIEWER_PATHREV _T("webviewer:pathrevision")
+#define PROJECTPROPNAME_WEBVIEWER_REV     "webviewer:revision"
+#define PROJECTPROPNAME_WEBVIEWER_PATHREV "webviewer:pathrevision"
 
 class CTSVNPathList;
 struct svn_config_t;

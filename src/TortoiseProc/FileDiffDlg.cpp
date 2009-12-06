@@ -341,10 +341,10 @@ void CFileDiffDlg::DiffProps(int selIndex)
 	SVNProperties propsurl2(url2, m_rev2, false);
 	
 	// collect the properties of both revisions in a set
-	std::set<tstring> properties;
+	std::set<std::string> properties;
 	for (int wcindex = 0; wcindex < propsurl1.GetCount(); ++wcindex)
 	{
-		tstring urlname = propsurl1.GetItemName(wcindex);
+		std::string urlname = propsurl1.GetItemName(wcindex);
 		if ( properties.find(urlname) == properties.end() )
 		{
 			properties.insert(urlname);
@@ -352,7 +352,7 @@ void CFileDiffDlg::DiffProps(int selIndex)
 	}
 	for (int wcindex = 0; wcindex < propsurl2.GetCount(); ++wcindex)
 	{
-		tstring urlname = propsurl2.GetItemName(wcindex);
+		std::string urlname = propsurl2.GetItemName(wcindex);
 		if ( properties.find(urlname) == properties.end() )
 		{
 			properties.insert(urlname);
@@ -360,9 +360,9 @@ void CFileDiffDlg::DiffProps(int selIndex)
 	}
 
 	// iterate over all properties and diff the properties
-	for (std::set<tstring>::iterator iter = properties.begin(), end = properties.end(); iter != end; ++iter)
+	for (std::set<std::string>::iterator iter = properties.begin(), end = properties.end(); iter != end; ++iter)
 	{
-		tstring url1name = *iter;
+		const std::string& url1name = *iter;
 		
 		tstring url1value = _T(""); // CUnicodeUtils::StdGetUnicode((char *)propsurl1.GetItemValue(wcindex).c_str());
 		for (int url1index = 0; url1index < propsurl1.GetCount(); ++url1index)
@@ -420,7 +420,7 @@ void CFileDiffDlg::DiffProps(int selIndex)
 				}
 				else
 				{
-					CString sTemp = url1name.c_str();
+					CString sTemp (UTF8ToString (url1name).c_str());
 					sTemp += _T(" : ");
 					n1 = sTemp + m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString();
 				}
@@ -437,7 +437,7 @@ void CFileDiffDlg::DiffProps(int selIndex)
 				}
 				else
 				{
-					CString sTemp = url1name.c_str();
+					CString sTemp (UTF8ToString (url1name).c_str());
 					sTemp += _T(" : ");
 					n2 = sTemp + m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString();
 				}

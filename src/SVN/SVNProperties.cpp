@@ -271,9 +271,9 @@ bool SVNProperties::IsBinary(const std::string& value)
 	return false;
 }
 
-tstring SVNProperties::GetItemName(int index) const
+std::string SVNProperties::GetItemName(int index) const
 {
-	return UTF8ToString(SVNProperties::GetItem(index, true));
+	return SVNProperties::GetItem(index, true);
 }
 
 std::string SVNProperties::GetItemValue(int index) const
@@ -281,10 +281,9 @@ std::string SVNProperties::GetItemValue(int index) const
 	return SVNProperties::GetItem(index, false);
 }
 
-BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth, const TCHAR * message)
+BOOL SVNProperties::Add(const std::string& name, const std::string& Value, svn_depth_t depth, const TCHAR * message)
 {
 	svn_string_t*	pval;
-	std::string		pname_utf8;
 	m_error = NULL;
 
 	SVNPool subpool(m_pool);
@@ -292,9 +291,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 
 	pval = svn_string_ncreate (Value.c_str(), Value.size(), subpool);
 
-	pname_utf8 = StringToUTF8(Name);
-
-	if ((!m_bRevProps)&&((!m_path.IsDirectory() && !m_path.IsUrl())&&(((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0)||(strncmp(pname_utf8.c_str(), "webviewer:", 10)==0)))))
+	if ((!m_bRevProps)&&((!m_path.IsDirectory() && !m_path.IsUrl())&&(((strncmp(name.c_str(), "bugtraq:", 8)==0)||(strncmp(name.c_str(), "tsvn:", 5)==0)||(strncmp(name.c_str(), "webviewer:", 10)==0)))))
 	{
 		// bugtraq:, tsvn: and webviewer: properties are not allowed on files.
 #ifdef _MFC_VER
@@ -310,7 +307,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 #endif
 		return FALSE;
 	}
-	if (strncmp(pname_utf8.c_str(), "bugtraq:message", 15)==0)
+	if (strncmp(name.c_str(), "bugtraq:message", 15)==0)
 	{
 		// make sure that the bugtraq:message property only contains one single line!
 		for (apr_size_t i=0; i<pval->len; ++i)
@@ -333,7 +330,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 		}
 	}
 
-	if ((!m_bRevProps)&&((depth != svn_depth_empty)&&((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0)||(strncmp(pname_utf8.c_str(), "webviewer:", 10)==0))))
+	if ((!m_bRevProps)&&((depth != svn_depth_empty)&&((strncmp(name.c_str(), "bugtraq:", 8)==0)||(strncmp(name.c_str(), "tsvn:", 5)==0)||(strncmp(name.c_str(), "webviewer:", 10)==0))))
 	{
 		// The bugtraq and tsvn properties must only be set on folders.
 		CTSVNPath path;
@@ -350,7 +347,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 					svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
                     const char* svnPath = path.GetSVNApiPath(subpool);
                     SVNTRACE (
-					    m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), pval, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, m_pctx, subpool),
+					    m_error = svn_client_propset3 (&commit_info, name.c_str(), pval, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, m_pctx, subpool),
                         svnPath
                     )
 				}
@@ -378,14 +375,14 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 		{
 			svn_revnum_t rev_set;
             SVNTRACE (
-			    m_error = svn_client_revprop_set2(pname_utf8.c_str(), pval, NULL, svnPath, m_rev, &rev_set, false, m_pctx, subpool),
+			    m_error = svn_client_revprop_set2(name.c_str(), pval, NULL, svnPath, m_rev, &rev_set, false, m_pctx, subpool),
                 svnPath
             )
 		}
 		else
 		{
             SVNTRACE (
-    			m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), pval, svnPath, depth, false, m_rev, NULL, NULL, m_pctx, subpool),
+    			m_error = svn_client_propset3 (&commit_info, name.c_str(), pval, svnPath, depth, false, m_rev, NULL, NULL, m_pctx, subpool),
                 svnPath
             )
 		}
@@ -404,15 +401,12 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 	return TRUE;
 }
 
-BOOL SVNProperties::Remove(const TCHAR * Name, svn_depth_t depth, const TCHAR * message)
+BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCHAR * message)
 {
-	std::string		pname_utf8;
 	m_error = NULL;
 
 	SVNPool subpool(m_pool);
 	svn_error_clear(m_error);
-
-	pname_utf8 = StringToUTF8(Name);
 
 	svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
 	if (m_path.IsUrl())
@@ -433,14 +427,14 @@ BOOL SVNProperties::Remove(const TCHAR * Name, svn_depth_t depth, const TCHAR * 
 	{
 		svn_revnum_t rev_set;
         SVNTRACE (
-		    m_error = svn_client_revprop_set2(pname_utf8.c_str(), NULL, NULL, svnPath, m_rev, &rev_set, false, m_pctx, subpool),
+		    m_error = svn_client_revprop_set2(name.c_str(), NULL, NULL, svnPath, m_rev, &rev_set, false, m_pctx, subpool),
             svnPath
         )
 	}
 	else
 	{
         SVNTRACE (
-    		m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), NULL, svnPath, depth, false, m_rev, NULL, NULL, m_pctx, subpool),
+    		m_error = svn_client_propset3 (&commit_info, name.c_str(), NULL, svnPath, depth, false, m_rev, NULL, NULL, m_pctx, subpool),
             svnPath
         )
 	}

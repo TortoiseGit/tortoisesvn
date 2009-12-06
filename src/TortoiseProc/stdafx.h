@@ -63,6 +63,7 @@
 #include "svn_subst.h"
 #include "svn_repos.h"
 #include "svn_time.h"
+#include "svn_props.h"
 #pragma warning(pop)
 
 #pragma warning(push)

@@ -40,6 +40,7 @@ using namespace ATL;
 #include "svn_path.h"
 #include "svn_pools.h"
 #include "svn_utf.h"
+#include "svn_props.h"
 #pragma warning(pop)
 
 #include "DebugOutput.h"

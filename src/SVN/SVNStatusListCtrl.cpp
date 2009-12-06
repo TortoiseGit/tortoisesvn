@@ -796,7 +796,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 			m_changelists[entry->changelist] = -1;
 			m_bHasChangeLists = true;
 		}
-		entry->needslock = (pSVNStatus->entry->present_props && (strstr(pSVNStatus->entry->present_props, "svn:needs-lock")!=NULL) );
+		entry->needslock = (pSVNStatus->entry->present_props && (strstr(pSVNStatus->entry->present_props, SVN_PROP_NEEDS_LOCK)!=NULL) );
 	}
 	else
 	{
@@ -2174,6 +2174,8 @@ void CSVNStatusListCtrl::OnContextMenuGroup(CWnd * /*pWnd*/, CPoint point)
 
 void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 {
+	const static CString svnPropIgnore (SVN_PROP_IGNORE);
+
 	WORD langID = (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 
 	bool bShift = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
@@ -3093,7 +3095,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						for (int i=0; i<props.GetCount(); i++)
 						{
 							CString propname(props.GetItemName(i).c_str());
-							if (propname.CompareNoCase(_T("svn:ignore"))==0)
+							if (propname.CompareNoCase(svnPropIgnore)==0)
 							{
 								tstring stemp;
 								// treat values as normal text even if they're not
@@ -3109,7 +3111,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							value += name;
 							value.Remove('\r');
 						}
-						if (!props.Add(_T("svn:ignore"), (LPCSTR)CUnicodeUtils::GetUTF8(value)))
+						if (!props.Add(SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
 						{
 							CString temp;
 							temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);
@@ -3243,7 +3245,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						for (int i=0; i<props.GetCount(); i++)
 						{
 							CString propname(props.GetItemName(i).c_str());
-							if (propname.CompareNoCase(_T("svn:ignore"))==0)
+							if (propname.CompareNoCase(svnPropIgnore)==0)
 							{
 								tstring stemp;
 								// treat values as normal text even if they're not
@@ -3259,7 +3261,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							value += name;
 							value.Remove('\r');
 						}
-						if (!props.Add(_T("svn:ignore"), (LPCSTR)CUnicodeUtils::GetUTF8(value)))
+						if (!props.Add(SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
 						{
 							CString temp;
 							temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);

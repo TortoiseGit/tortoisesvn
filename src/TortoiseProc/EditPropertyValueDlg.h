@@ -39,10 +39,10 @@ public:
 
 	enum { IDD = IDD_EDITPROPERTYVALUE };
 
-	void			SetPropertyName(const CString& sName) {m_sPropName = sName;}
+	void			SetPropertyName(const std::string& sName);
 	void			SetPropertyValue(const std::string& sValue);
 	std::string		GetPropertyValue() {return m_PropValue;}
-	CString			GetPropertyName() {return m_sPropName;}
+	std::string		GetPropertyName() {return m_PropName;}
 	bool			GetRecursive() {return !!m_bRecursive;}
 	bool			IsBinary() {return m_bIsBinary;}
 
@@ -70,6 +70,7 @@ protected:
 	CComboBox	m_PropNames;
 	CFont		m_valueFont;
 	std::string m_PropValue;
+	std::string m_PropName;
 	CString		m_sPropValue;
 	CString		m_sPropName;
 	CString		m_sTitle;

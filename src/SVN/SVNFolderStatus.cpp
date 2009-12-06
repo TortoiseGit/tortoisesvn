@@ -388,7 +388,7 @@ svn_error_t* SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn
 		s.rev = status->entry->cmt_rev;
 		s.owner = Stat->owners.GetString(status->entry->lock_owner);
 		if (status->entry->present_props)
-			s.needslock = strstr(status->entry->present_props, "svn:needs-lock") ? true : false;
+			s.needslock = strstr(status->entry->present_props, SVN_PROP_NEEDS_LOCK) ? true : false;
 	}
 	else
 	{

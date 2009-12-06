@@ -94,19 +94,19 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 		SVNProperties props(path, SVNRev::REV_WC, false);
 		for (int i=0; i<props.GetCount(); ++i)
 		{
-			CString sPropName = props.GetItemName(i).c_str();
+			std::string sPropName = props.GetItemName(i);
 			CString sPropVal = CUnicodeUtils::GetUnicode(((char *)props.GetItemValue(i).c_str()));
-			if ((!bFoundBugtraqLabel)&&(sPropName.Compare(BUGTRAQPROPNAME_LABEL)==0))
+			if ((!bFoundBugtraqLabel)&&(sPropName.compare (BUGTRAQPROPNAME_LABEL)==0))
 			{
 				sLabel = sPropVal;
 				bFoundBugtraqLabel = TRUE;
 			}
-			if ((!bFoundBugtraqMessage)&&(sPropName.Compare(BUGTRAQPROPNAME_MESSAGE)==0))
+			if ((!bFoundBugtraqMessage)&&(sPropName.compare(BUGTRAQPROPNAME_MESSAGE)==0))
 			{
 				sMessage = sPropVal;
 				bFoundBugtraqMessage = TRUE;
 			}
-			if ((!bFoundBugtraqNumber)&&(sPropName.Compare(BUGTRAQPROPNAME_NUMBER)==0))
+			if ((!bFoundBugtraqNumber)&&(sPropName.compare(BUGTRAQPROPNAME_NUMBER)==0))
 			{
 				CString val;
 				val = sPropVal;
@@ -117,7 +117,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 					bNumber = TRUE;
 				bFoundBugtraqNumber = TRUE;
 			}
-			if ((!bFoundBugtraqLogRe)&&(sPropName.Compare(BUGTRAQPROPNAME_LOGREGEX)==0))
+			if ((!bFoundBugtraqLogRe)&&(sPropName.compare(BUGTRAQPROPNAME_LOGREGEX)==0))
 			{
 				sCheckRe = sPropVal;
 				if (sCheckRe.Find('\n')>=0)
@@ -131,12 +131,12 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				}
 				bFoundBugtraqLogRe = TRUE;
 			}
-			if ((!bFoundBugtraqURL)&&(sPropName.Compare(BUGTRAQPROPNAME_URL)==0))
+			if ((!bFoundBugtraqURL)&&(sPropName.compare(BUGTRAQPROPNAME_URL)==0))
 			{
 				sUrl = sPropVal;
 				bFoundBugtraqURL = TRUE;
 			}
-			if ((!bFoundBugtraqWarnIssue)&&(sPropName.Compare(BUGTRAQPROPNAME_WARNIFNOISSUE)==0))
+			if ((!bFoundBugtraqWarnIssue)&&(sPropName.compare(BUGTRAQPROPNAME_WARNIFNOISSUE)==0))
 			{
 				CString val;
 				val = sPropVal;
@@ -147,7 +147,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 					bWarnIfNoIssue = FALSE;
 				bFoundBugtraqWarnIssue = TRUE;
 			}
-			if ((!bFoundBugtraqAppend)&&(sPropName.Compare(BUGTRAQPROPNAME_APPEND)==0))
+			if ((!bFoundBugtraqAppend)&&(sPropName.compare(BUGTRAQPROPNAME_APPEND)==0))
 			{
 				CString val;
 				val = sPropVal;
@@ -158,17 +158,17 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 					bAppend = FALSE;
 				bFoundBugtraqAppend = TRUE;
 			}
-			if ((!bFoundBugtraqProviderUuid)&&(sPropName.Compare(BUGTRAQPROPNAME_PROVIDERUUID)==0))
+			if ((!bFoundBugtraqProviderUuid)&&(sPropName.compare(BUGTRAQPROPNAME_PROVIDERUUID)==0))
 			{
 				sProviderUuid = sPropVal;
 				bFoundBugtraqProviderUuid = TRUE;
 			}
-			if ((!bFoundBugtraqProviderParams)&&(sPropName.Compare(BUGTRAQPROPNAME_PROVIDERPARAMS)==0))
+			if ((!bFoundBugtraqProviderParams)&&(sPropName.compare(BUGTRAQPROPNAME_PROVIDERPARAMS)==0))
 			{
 				sProviderParams = sPropVal;
 				bFoundBugtraqProviderParams = TRUE;
 			}
-			if ((!bFoundLogWidth)&&(sPropName.Compare(PROJECTPROPNAME_LOGWIDTHLINE)==0))
+			if ((!bFoundLogWidth)&&(sPropName.compare(PROJECTPROPNAME_LOGWIDTHLINE)==0))
 			{
 				CString val;
 				val = sPropVal;
@@ -178,14 +178,14 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				}
 				bFoundLogWidth = TRUE;
 			}
-			if ((!bFoundLogTemplate)&&(sPropName.Compare(PROJECTPROPNAME_LOGTEMPLATE)==0))
+			if ((!bFoundLogTemplate)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATE)==0))
 			{
 				sLogTemplate = sPropVal;
 				sLogTemplate.Replace(_T("\r"), _T(""));
 				sLogTemplate.Replace(_T("\n"), _T("\r\n"));
 				bFoundLogTemplate = TRUE;
 			}
-			if ((!bFoundMinLogSize)&&(sPropName.Compare(PROJECTPROPNAME_LOGMINSIZE)==0))
+			if ((!bFoundMinLogSize)&&(sPropName.compare(PROJECTPROPNAME_LOGMINSIZE)==0))
 			{
 				CString val;
 				val = sPropVal;
@@ -195,7 +195,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				}
 				bFoundMinLogSize = TRUE;
 			}
-			if ((!bFoundMinLockMsgSize)&&(sPropName.Compare(PROJECTPROPNAME_LOCKMSGMINSIZE)==0))
+			if ((!bFoundMinLockMsgSize)&&(sPropName.compare(PROJECTPROPNAME_LOCKMSGMINSIZE)==0))
 			{
 				CString val;
 				val = sPropVal;
@@ -205,7 +205,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				}
 				bFoundMinLockMsgSize = TRUE;
 			}
-			if ((!bFoundFileListEnglish)&&(sPropName.Compare(PROJECTPROPNAME_LOGFILELISTLANG)==0))
+			if ((!bFoundFileListEnglish)&&(sPropName.compare(PROJECTPROPNAME_LOGFILELISTLANG)==0))
 			{
 				CString val;
 				val = sPropVal;
@@ -216,7 +216,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 					bFileListInEnglish = FALSE;
 				bFoundFileListEnglish = TRUE;
 			}
-			if ((!bFoundProjectLanguage)&&(sPropName.Compare(PROJECTPROPNAME_PROJECTLANGUAGE)==0))
+			if ((!bFoundProjectLanguage)&&(sPropName.compare(PROJECTPROPNAME_PROJECTLANGUAGE)==0))
 			{
 				CString val;
 				val = sPropVal;
@@ -227,40 +227,40 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				}
 				bFoundProjectLanguage = TRUE;
 			}
-			if ((!bFoundUserFileProps)&&(sPropName.Compare(PROJECTPROPNAME_USERFILEPROPERTY)==0))
+			if ((!bFoundUserFileProps)&&(sPropName.compare(PROJECTPROPNAME_USERFILEPROPERTY)==0))
 			{
 				sFPPath = sPropVal;
 				sFPPath.Replace(_T("\r\n"), _T("\n"));
 				bFoundUserFileProps = TRUE;
 			}
-			if ((!bFoundUserDirProps)&&(sPropName.Compare(PROJECTPROPNAME_USERDIRPROPERTY)==0))
+			if ((!bFoundUserDirProps)&&(sPropName.compare(PROJECTPROPNAME_USERDIRPROPERTY)==0))
 			{
 				sDPPath = sPropVal;
 				sDPPath.Replace(_T("\r\n"), _T("\n"));
 				bFoundUserDirProps = TRUE;
 			}
-			if ((!bFoundAutoProps)&&(sPropName.Compare(PROJECTPROPNAME_AUTOPROPS)==0))
+			if ((!bFoundAutoProps)&&(sPropName.compare(PROJECTPROPNAME_AUTOPROPS)==0))
 			{
 				sAutoProps = sPropVal;
 				sAutoProps.Replace(_T("\r\n"), _T("\n"));
 				bFoundAutoProps = TRUE;
 			}
-			if ((!bFoundWebViewRev)&&(sPropName.Compare(PROJECTPROPNAME_WEBVIEWER_REV)==0))
+			if ((!bFoundWebViewRev)&&(sPropName.compare(PROJECTPROPNAME_WEBVIEWER_REV)==0))
 			{
 				sWebViewerRev = sPropVal;
 				bFoundWebViewRev = TRUE;
 			}
-			if ((!bFoundWebViewPathRev)&&(sPropName.Compare(PROJECTPROPNAME_WEBVIEWER_PATHREV)==0))
+			if ((!bFoundWebViewPathRev)&&(sPropName.compare(PROJECTPROPNAME_WEBVIEWER_PATHREV)==0))
 			{
 				sWebViewerPathRev = sPropVal;
 				bFoundWebViewPathRev = TRUE;
 			}
-			if ((!bFoundLogSummary)&&(sPropName.Compare(PROJECTPROPNAME_LOGSUMMARY)==0))
+			if ((!bFoundLogSummary)&&(sPropName.compare(PROJECTPROPNAME_LOGSUMMARY)==0))
 			{
 				sLogSummaryRe = sPropVal;
 				bFoundLogSummary = TRUE;
 			}
-			if ((!bFoundLogRevRegex)&&(sPropName.Compare(PROJECTPROPNAME_LOGREVREGEX)==0))
+			if ((!bFoundLogRevRegex)&&(sPropName.compare(PROJECTPROPNAME_LOGREVREGEX)==0))
 			{
 				sLogRevRegex = sPropVal;
 				bFoundLogRevRegex = TRUE;
