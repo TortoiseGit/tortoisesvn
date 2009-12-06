@@ -2669,7 +2669,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 								delList.AddPath(entry2->GetPath());
 						}
 						if (DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE)))
-							delList.DeleteAllFiles(true);
+							delList.DeleteAllPaths(true, true);
 
 						if (!svn.Revert(targetList, CStringArray(), false))
 						{

@@ -2576,7 +2576,7 @@ bool CSVNProgressDlg::CmdRevert(CString& sWindowTitle, bool& localoperation)
 
 	CTSVNPathList delList = m_selectedPaths;
 	if (DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE)))
-		delList.DeleteAllFiles(true);
+		delList.DeleteAllPaths(true, true);
 
 	ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_REVERT)));
 	if (!Revert(m_targetPathList, CStringArray(), (m_options & ProgOptRecursive)!=0))

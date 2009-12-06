@@ -801,7 +801,7 @@ bool SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, bool r
 				conflictpath.AppendPathString(CUnicodeUtils::GetUnicode(s->entry->conflict_wrk));
 				conflictedEntries.AddPath(conflictpath);
 			}
-			conflictedEntries.DeleteAllFiles(true);
+			conflictedEntries.DeleteAllPaths(true, false);
 		}
 	}
 

@@ -28,6 +28,7 @@
 #if defined(_MFC_VER)
 #include "MessageBox.h"
 #include "AppUtils.h"
+#include "StringUtils.h"
 #endif
 
 using namespace std;
@@ -1107,18 +1108,21 @@ void CTSVNPathList::SortByPathname(bool bReverse /*= false*/)
 		std::reverse(m_paths.begin(), m_paths.end());
 }
 
-void CTSVNPathList::DeleteAllFiles(bool bTrash)
+void CTSVNPathList::DeleteAllPaths(bool bTrash, bool bFilesOnly)
 {
 	PathVector::const_iterator it;
+	SortByPathname (true); // nested ones first
+
 	if (bTrash)
 	{
-		SortByPathname();
 		CString sPaths;
 		for (it = m_paths.begin(); it != m_paths.end(); ++it)
 		{
-			if ((it->Exists())&&(!it->IsDirectory()))
+			if ((it->Exists())&&(it->IsDirectory() != bFilesOnly))
 			{
-				::SetFileAttributes(it->GetWinPath(), FILE_ATTRIBUTE_NORMAL);
+				if (!it->IsDirectory())
+					::SetFileAttributes(it->GetWinPath(), FILE_ATTRIBUTE_NORMAL);
+
 				sPaths += it->GetWinPath();
 				sPaths += '\0';
 			}
@@ -1139,6 +1143,10 @@ void CTSVNPathList::DeleteAllFiles(bool bTrash)
 			{
 				::SetFileAttributes(it->GetWinPath(), FILE_ATTRIBUTE_NORMAL);
 				::DeleteFile(it->GetWinPath());
+			}
+			else if (!bFilesOnly)
+			{
+				RemoveDirectory (it->GetWinPath());
 			}
 		}
 	}

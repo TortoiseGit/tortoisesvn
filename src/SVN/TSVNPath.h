@@ -330,10 +330,11 @@ public:
 	CTSVNPath GetCommonRoot() const;
 	void SortByPathname(bool bReverse = false);
 	/** 
-	 * Delete all the files in the list, then clear the list.
+	 * Delete all the files and opt. directories in the list, then clear the list.
 	 * \param bTrash if true, the items are deleted using the Windows trash bin
+	 * \param bFilesOnly if true, delete file paths only
 	 */
-	void DeleteAllFiles(bool bTrash);
+	void DeleteAllPaths(bool bTrash, bool bFilesOnly);
 	/** Remove duplicate entries from the list (sorts the list as a side-effect */
 	void RemoveDuplicates();
 	/** Removes all paths which are on or in a Subversion admin directory */
