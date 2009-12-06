@@ -2545,36 +2545,71 @@ void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short
 
 void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_fmt)
 {
-	date_native[0] = '\0';
+	enum {CACHE_SIZE = 16};
+	static FILETIME lastTime[CACHE_SIZE] = { {0, 0}, {0, 0}, {0, 0}, {0, 0} 
+										   , {0, 0}, {0, 0}, {0, 0}, {0, 0}
+										   , {0, 0}, {0, 0}, {0, 0}, {0, 0}
+										   , {0, 0}, {0, 0}, {0, 0}, {0, 0} };
+	static TCHAR lastResult[CACHE_SIZE][SVN_DATE_BUFFER];
+	static size_t victim = 0;
 
-	// Convert UTC to local time
-	SYSTEMTIME systemtime;
-	VERIFY ( FileTimeToSystemTime(&filetime,&systemtime) );
-	
-    static TIME_ZONE_INFORMATION timeZone = {-1};
-    if (timeZone.Bias == -1)
-	    GetTimeZoneInformation (&timeZone);
+	// cache lookup
 
-	SYSTEMTIME localsystime;
-	VERIFY ( SystemTimeToTzSpecificLocalTime(&timeZone, &systemtime,&localsystime));
+	TCHAR* result = NULL;
+	for (size_t i = 0; i < CACHE_SIZE; ++i)
+		if (   (lastTime[i].dwHighDateTime == filetime.dwHighDateTime)
+		    && (lastTime[i].dwLowDateTime == filetime.dwLowDateTime))
+		{
+			result = lastResult[i];
+			break;
+		}
 
-	TCHAR timebuf[SVN_DATE_BUFFER] = {0};
-	TCHAR datebuf[SVN_DATE_BUFFER] = {0};
+	// set cache to new data, if old is no hit
 
-	LCID locale = s_useSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : s_locale;
+	if (result == NULL)
+	{
+		// evict an entry from the cache
 
-    /// reusing this instance is vital for \ref formatDate performance
+		lastTime[victim] = filetime;
+		result = lastResult[victim];
+		if (++victim == CACHE_SIZE)
+			victim = 0;
 
-    static CRegDWORD logDateFormat (500, _T("Software\\TortoiseSVN\\LogDateFormat"));
-    DWORD flags = force_short_fmt || (logDateFormat == 1)
-                ? DATE_SHORTDATE
-                : DATE_LONGDATE;
+		result[0] = '\0';
 
-	GetDateFormat(locale, flags, &localsystime, NULL, datebuf, SVN_DATE_BUFFER);
-	GetTimeFormat(locale, 0, &localsystime, NULL, timebuf, SVN_DATE_BUFFER);
-	_tcsncat_s(date_native, SVN_DATE_BUFFER, datebuf, SVN_DATE_BUFFER);
-	_tcsncat_s(date_native, SVN_DATE_BUFFER, _T(" "), SVN_DATE_BUFFER);
-	_tcsncat_s(date_native, SVN_DATE_BUFFER, timebuf, SVN_DATE_BUFFER);
+		// Convert UTC to local time
+		SYSTEMTIME systemtime;
+		VERIFY ( FileTimeToSystemTime(&filetime,&systemtime) );
+		
+		static TIME_ZONE_INFORMATION timeZone = {-1};
+		if (timeZone.Bias == -1)
+			GetTimeZoneInformation (&timeZone);
+
+		SYSTEMTIME localsystime;
+		VERIFY ( SystemTimeToTzSpecificLocalTime(&timeZone, &systemtime,&localsystime));
+
+		TCHAR timebuf[SVN_DATE_BUFFER] = {0};
+		TCHAR datebuf[SVN_DATE_BUFFER] = {0};
+
+		LCID locale = s_useSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : s_locale;
+
+		/// reusing this instance is vital for \ref formatDate performance
+
+		static CRegDWORD logDateFormat (500, _T("Software\\TortoiseSVN\\LogDateFormat"));
+		DWORD flags = force_short_fmt || (logDateFormat == 1)
+					? DATE_SHORTDATE
+					: DATE_LONGDATE;
+
+		GetDateFormat(locale, flags, &localsystime, NULL, datebuf, SVN_DATE_BUFFER);
+		GetTimeFormat(locale, 0, &localsystime, NULL, timebuf, SVN_DATE_BUFFER);
+		_tcsncat_s(result, SVN_DATE_BUFFER, datebuf, SVN_DATE_BUFFER);
+		_tcsncat_s(result, SVN_DATE_BUFFER, _T(" "), SVN_DATE_BUFFER);
+		_tcsncat_s(result, SVN_DATE_BUFFER, timebuf, SVN_DATE_BUFFER);
+	}
+
+	// copy formatted string to result
+
+	_tcsncpy_s (date_native, SVN_DATE_BUFFER, result, SVN_DATE_BUFFER);
 }
 
 CString SVN::formatDate(apr_time_t& date_svn)
