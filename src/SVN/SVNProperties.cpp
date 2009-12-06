@@ -551,6 +551,27 @@ tstring SVNProperties::GetLastErrorMsg() const
 	return msg;
 }
 
+int SVNProperties::IndexOf (const std::string& name) const
+{
+	// lookup
+
+	typedef std::map<std::string, apr_hash_t*>::const_iterator IT;
+	IT found = m_props.find (name);
+
+	// not found?
+
+	if (found == m_props.end())
+		return -1;
+
+	// return first index
+
+	unsigned index = 0;
+	for (IT iter = m_props.begin(); iter != found; ++iter)
+		index += apr_hash_count (iter->second);
+
+	return static_cast<int>(index);
+}
+
 svn_error_t * SVNProperties::proplist_receiver(void *baton, const char *path, apr_hash_t *prop_hash, apr_pool_t *pool)
 {
 	SVNProperties * pThis = (SVNProperties*)baton;

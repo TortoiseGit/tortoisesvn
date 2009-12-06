@@ -131,6 +131,13 @@ public:
 	 */
 	tstring GetLastErrorMsg() const;
 
+	/**
+	 * Returns the index of the property.
+	 * \param name name of the property to find
+	 * \return index of the property. -1, if not found
+	 */
+	int IndexOf (const std::string& name) const;
+
 private:		//methods
 	/**
 	 * Builds the properties (again) and fills the apr_array_header_t structure.
