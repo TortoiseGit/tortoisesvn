@@ -115,6 +115,10 @@ public:
 		columnrevformat.NegativeOrder = _ttoi(szBuffer);
 		sAdminDirCacheKey.reserve(MAX_PATH);		// MAX_PATH as buffer reservation ok.
 		nocontextpaths = CRegStdString(_T("Software\\TortoiseSVN\\NoContextPaths"), _T(""));
+		// note: we only fetch the system paths once on startup. This won't be a problem for
+		// most users. Only if a user moves such a folder around, then the folder at the new
+		// location won't be excluded until they restart.
+		FillListOfExcludedSystemPaths();
 		m_critSec.Init();
 	}
 	void ForceRefresh()
@@ -327,44 +331,6 @@ public:
 	}
 	BOOL IsPathAllowed(LPCTSTR path)
 	{
-		// to avoid a deadlock, check if the exclude list is going to be rebuilt when ExcludeListValid is called
-		// if so, build a list of the shell paths here, BEFORE m_critSec is entered
-		std::vector<tstring> def_exvector, * pdef_exvector = 0;
-		if ((GetTickCount() - excludelistticker2)>DRIVETYPETIMEOUT)
-		{
-			int i=0;
-			TCHAR buf[MAX_PATH+2];	//MAX_PATH ok, since SHGetSpecialFolderPath doesn't return the required buffer length!
-			LPITEMIDLIST pidl = NULL;
-			int csidlarray[] = 
-			{
-				CSIDL_BITBUCKET,
-				CSIDL_CDBURN_AREA,
-				CSIDL_STARTMENU,
-				0
-			};
-			while (csidlarray[i])
-			{
-				++i;
-				pidl = NULL;
-				if (SHGetFolderLocation(NULL, csidlarray[i-1], NULL, 0, &pidl)!=S_OK)
-					continue;
-				if (!SHGetPathFromIDList(pidl, buf))
-				{
-					// not a file system path
-					CoTaskMemFree(pidl);
-					continue;
-				}
-				CoTaskMemFree(pidl);
-				if (_tcslen(buf)==0)
-					continue;
-				_tcscat_s(buf, MAX_PATH+2, _T("\\*"));
-				def_exvector.push_back(tstring(buf));
-			}
-
-			pdef_exvector = &def_exvector;
-		}
-
-
 		Locker lock(m_critSec);
 		IncludeListValid();
 		for (std::vector<tstring>::iterator I = invector.begin(); I != invector.end(); ++I)
@@ -386,7 +352,7 @@ public:
 				return TRUE;
 
 		}
-		ExcludeListValid(pdef_exvector); // optionally pass a pointer to the already built vector
+		ExcludeListValid();
 		for (std::vector<tstring>::iterator I = exvector.begin(); I != exvector.end(); ++I)
 		{
 			if (I->empty())
@@ -561,7 +527,7 @@ private:
 			excludecontextstr = (tstring)nocontextpaths;
 		}
 	}
-	void ExcludeListValid(std::vector<tstring>* pdef_exvector)
+	void ExcludeListValid()
 	{
 		if ((GetTickCount() - excludelistticker)>EXCLUDELISTTIMEOUT)
 		{
@@ -590,13 +556,13 @@ private:
 			}
 			excludeliststr = (tstring)excludelist;
 		}
-		if (pdef_exvector != 0)
+		if (def_exvector.size())
 		{
 			Locker lock(m_critSec);
 			excludelistticker2 = GetTickCount();
 
 			// copy from def_exvector which should already have been built for us
-			for (std::vector<tstring>::iterator I = pdef_exvector->begin(); I != pdef_exvector->end(); ++I)
+			for (std::vector<tstring>::iterator I = def_exvector.begin(); I != def_exvector.end(); ++I)
 			{
 				exvector.push_back(*I);
 			}
@@ -627,6 +593,42 @@ private:
 				invector.push_back(includeliststr.substr(pos_ant, includeliststr.size()-1));
 			}
 			includeliststr = (tstring)includelist;
+		}
+	}
+	void FillListOfExcludedSystemPaths()
+	{
+		// Fill the list of excluded system paths only once at startup.
+		// Because using the SH* APIs can lead to a deadlock since those
+		// APIs use an internal critical section to avoid concurrent access.
+		// And since the methods in this class are called from inside the shell
+		// we can get a deadlock due to those shell critsecs and ours.
+		int i=0;
+		TCHAR buf[MAX_PATH+2];	//MAX_PATH ok, since SHGetSpecialFolderPath doesn't return the required buffer length!
+		LPITEMIDLIST pidl = NULL;
+		int csidlarray[] = 
+		{
+			CSIDL_BITBUCKET,
+			CSIDL_CDBURN_AREA,
+			CSIDL_STARTMENU,
+			0
+		};
+		while (csidlarray[i])
+		{
+			++i;
+			pidl = NULL;
+			if (SHGetFolderLocation(NULL, csidlarray[i-1], NULL, 0, &pidl)!=S_OK)
+				continue;
+			if (!SHGetPathFromIDList(pidl, buf))
+			{
+				// not a file system path
+				CoTaskMemFree(pidl);
+				continue;
+			}
+			CoTaskMemFree(pidl);
+			if (_tcslen(buf)==0)
+				continue;
+			_tcscat_s(buf, MAX_PATH+2, _T("\\*"));
+			def_exvector.push_back(tstring(buf));
 		}
 	}
 	CRegStdDWORD cachetype;
@@ -694,5 +696,6 @@ private:
 	std::vector<tstring> excontextvector;
 	DWORD excontextticker;
 	DWORD admindirticker;
+	std::vector<tstring> def_exvector;
 	CComCriticalSection m_critSec;
 };
