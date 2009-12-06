@@ -749,7 +749,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 
 	if (pSVNStatus->url)
 	{
-		entry->url = CUnicodeUtils::GetUnicode(CPathUtils::PathUnescape(pSVNStatus->url));
+		entry->url = CPathUtils::PathUnescape(pSVNStatus->url);
 	}
 
 	if (pSVNStatus->entry)
@@ -760,14 +760,13 @@ CSVNStatusListCtrl::AddNewFileEntry(
 		entry->working_size = pSVNStatus->entry->working_size;
 		entry->depth = pSVNStatus->entry->depth;
 
-
 		if (pSVNStatus->entry->url)
 		{
-			entry->url = CUnicodeUtils::GetUnicode(CPathUtils::PathUnescape(pSVNStatus->entry->url));
+			entry->url = CPathUtils::PathUnescape(pSVNStatus->entry->url);
 		}
 		if (pSVNStatus->entry->copyfrom_url)
 		{
-			entry->copyfrom_url = CUnicodeUtils::GetUnicode(CPathUtils::PathUnescape(pSVNStatus->entry->copyfrom_url));
+			entry->copyfrom_url = CPathUtils::PathUnescape (pSVNStatus->entry->copyfrom_url);
 			entry->copyfrom_rev = pSVNStatus->entry->copyfrom_rev;
 		}
 		else
@@ -3199,7 +3198,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 										{
 											if (s->entry->url)
 											{
-												entry2->url = CUnicodeUtils::GetUnicode(CPathUtils::PathUnescape(s->entry->url));
+												entry2->url = CPathUtils::PathUnescape(s->entry->url);
 											}
 										}
 										if (s->entry && s->entry->present_props)
@@ -3349,7 +3348,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 									{
 										if (s->entry->url)
 										{
-											entry3->url = CUnicodeUtils::GetUnicode(CPathUtils::PathUnescape(s->entry->url));
+											entry3->url = CPathUtils::PathUnescape (s->entry->url);
 										}
 									}
 									if (s->entry && s->entry->present_props)

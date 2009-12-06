@@ -99,6 +99,8 @@ public:
 	static CStringA PathUnescape(const CStringA& path);
 	static CStringW PathUnescape(const CStringW& path);
 
+	static CString PathUnescape (const char* path);
+
 	/**
 	* Escapes regexp-specific chars.
 	*/

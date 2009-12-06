@@ -20,6 +20,7 @@
 #include "PathUtils.h"
 #include "shlobj.h"
 #include "auto_buffer.h"
+#include "UnicodeUtils.h"
 
 BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 {
@@ -414,6 +415,31 @@ CStringW CPathUtils::PathUnescape(const CStringW& path)
 	MultiByteToWideChar(CP_UTF8, 0, patha, -1, bufw, len*4);
 	CStringW ret = CStringW(bufw);
 	return ret;
+}
+
+CString CPathUtils::PathUnescape (const char* path)
+{
+	// try quick path
+
+	size_t i = 0;
+	for (; char c = path[i]; ++i)
+		if ((c >= 0x80) || (c == '%'))
+		{
+			// quick path does not work for non-latin or escaped chars
+
+			std::string utf8Path (path);
+
+			CPathUtils::Unescape (&utf8Path[0]);
+			return CUnicodeUtils::UTF8ToUTF16 (utf8Path);
+		}
+
+	// no escapement necessary, just unicode conversion
+
+	CString result;
+	CUnicodeUtils::UTF8ToUTF16 (path, i, result.GetBufferSetLength (i));
+	result.ReleaseBuffer();
+
+	return result;
 }
 
 CString CPathUtils::GetVersionFromFile(const CString & p_strDateiname)
