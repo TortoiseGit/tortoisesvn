@@ -1084,7 +1084,7 @@ msgstr "Crie um novo diretório e chame de, por exemplo <filename>SVNRepository<
 
 #. (para)
 msgid "<action>Right-click</action> on the newly created folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository here...</guimenuitem></menuchoice>."
-msgstr "<action>Clique-botão-direito</action> no diretório recentemente criado e selecione <menuchoise><guimenu>TortoiseSVN<guimenuitem>Criar Repositório aqui...</guimenuitem></menuchoise>."
+msgstr "<action>Clique-botão-direito</action> no diretório recentemente criado e selecione <menuchoice><guimenu>TortoiseSVN<guimenuitem>Criar Repositório aqui...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "A repository is then created inside the new folder. <emphasis>Don't edit those files yourself!!!</emphasis>. If you get any errors make sure that the folder is empty and not write protected."
@@ -1168,7 +1168,7 @@ msgstr "Antes de você importar seus dados para o repositório você deve primei
 
 #. (para)
 msgid "There are some standard, recommended ways to organize a repository. Most people create a <filename>trunk</filename> directory to hold the <quote>main line</quote> of development, a <filename>branches</filename> directory to contain branch copies, and a <filename>tags</filename> directory to contain tag copies. If a repository holds only one project, then often people create these top-level directories:"
-msgstr "Existem alguns padrões e recomendadas maneiras de organizar um repositório. Muitas pessoas criam um diretório <filename>trunk</filename> para guardar a <quite>linha principal</quote> de desenvolvimento, um diretório <filename>branches</filename> para guardar as ramificações, e um diretório <filename>tags</filename> para guardar as versões concluidas. Se o repositório guarda somente um único projeto, então frequentemente as pessoas criam estes diretórios no nível mais alto:"
+msgstr "Existem alguns padrões e recomendadas maneiras de organizar um repositório. Muitas pessoas criam um diretório <filename>trunk</filename> para guardar a <quote>linha principal</quote> de desenvolvimento, um diretório <filename>branches</filename> para guardar as ramificações, e um diretório <filename>tags</filename> para guardar as versões concluidas. Se o repositório guarda somente um único projeto, então frequentemente as pessoas criam estes diretórios no nível mais alto:"
 
 #. (screen)
 #, no-wrap
@@ -1259,7 +1259,7 @@ msgstr "criar seu diretório da estrutura principal dentro da pasta - não coloq
 
 #. (para)
 msgid "import this structure into the repository via a <action>right click</action> on the folder and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> This will import your temp folder into the repository root to create the basic repository layout."
-msgstr "importe esta estrutura para dentro do repositório através de um <action>clique com o botão direito</action> sobre a pasta e selecionando <menuchoise><guimenu>TortoiseSVN</guimenu><guimenuitem>Importar...</guimenuitem></menuchoise> Isto vai importar seu diretório temporário para dentro da pasta principal do repositório para criar o leiaute básico do repositório."
+msgstr "importe esta estrutura para dentro do repositório através de um <action>clique com o botão direito</action> sobre a pasta e selecionando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Importar...</guimenuitem></menuchoice> Isto vai importar seu diretório temporário para dentro da pasta principal do repositório para criar o leiaute básico do repositório."
 
 #. (para)
 msgid "So if you haven't already created a basic folder structure inside your repository you should do that now. There are two ways to achieve this. If you simply want to create a <filename>/trunk /tags /branches</filename> structure, you can use the repository browser to create the three folders (in three separate commits). If you want to create a deeper hierarchy then it is simpler to create a folder structure on disk first and import it in a single commit, like this: <placeholder-1/>"
@@ -1340,7 +1340,7 @@ msgstr "Uma rotina para evento é um programa iniciado por algum evento do repos
 
 #. (para)
 msgid "These hook scripts are executed by the server that hosts the repository. TortoiseSVN also allows you to configure client side hook scripts that are executed locally upon certain events. See <xref linkend=\"tsvn-dug-settings-hooks\"/> for more information."
-msgstr "Estas rotinas para eventos são executadas pelo servidor que hospeda o repositório. TortoiseSVN também permite que você configura no cliente rotinas para eventos que são executando localmente em consequência de certos acontecimentos. Veja <xref linkend=\"tsvn-dug-setting-hooks\"/> para mais informações."
+msgstr "Estas rotinas para eventos são executadas pelo servidor que hospeda o repositório. TortoiseSVN também permite que você configura no cliente rotinas para eventos que são executando localmente em consequência de certos acontecimentos. Veja <xref linkend=\"tsvn-dug-settings-hooks\"/> para mais informações."
 
 #. (para)
 msgid ""
