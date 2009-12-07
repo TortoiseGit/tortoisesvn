@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-11-23 21:01+0800\n"
+"PO-Revision-Date: 2009-12-07 20:14+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3436,10 +3436,10 @@ msgstr "編輯紀錄訊息"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%s' on\r\n"
+"Edit property '%S' on\r\n"
 "%s"
 msgstr ""
-"編輯性質 '%s' 於\r\n"
+"編輯性質 '%S' 於\r\n"
 "%s"
 
 #. Resource IDs: (1331, 1382)
@@ -4446,6 +4446,10 @@ msgstr "ID:32814:VA  +D"
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
+
+#. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +K"
+msgstr "ID:32825:V C +K"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -6242,6 +6246,14 @@ msgstr "送交前掛勾"
 msgid "Pre-Update Hook"
 msgstr "更新前掛勾"
 
+#. Resource IDs: (3)
+msgid "Prefer local"
+msgstr "優先使用本地版本"
+
+#. Resource IDs: (4)
+msgid "Prefer repository"
+msgstr "優先使用檔案庫版本"
+
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
 msgstr "按下新的快捷鍵(&N):"
@@ -6659,10 +6671,10 @@ msgstr "自變更列表移除"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%s' from\r\n"
+"Remove property '%S' from\r\n"
 "%s"
 msgstr ""
-"刪除性質 '%s' 於\r\n"
+"刪除性質 '%S' 於\r\n"
 "%s"
 
 #. Resource IDs: (610)
@@ -7426,10 +7438,10 @@ msgstr "將檔案日期設定為\"最後一次送交的時間\"(&T)"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%s' on\r\n"
+"Set property '%S' on\r\n"
 "%s"
 msgstr ""
-"設定性質 '%s' 於\r\n"
+"設定性質 '%S' 於\r\n"
 "%s"
 
 #. Resource IDs: (13)
@@ -9325,10 +9337,6 @@ msgstr "使用兩個文字區塊(最後使用本區塊)"
 msgid "Use left file"
 msgstr "使用左方檔案"
 
-#. Resource IDs: (3)
-msgid "Use local"
-msgstr "使用本地版本"
-
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
 msgstr "復原時使用資源回收筒"
@@ -9336,10 +9344,6 @@ msgstr "復原時使用資源回收筒"
 #. Resource IDs: (116)
 msgid "Use regular expression"
 msgstr "使用正規表示式"
-
-#. Resource IDs: (4)
-msgid "Use repository"
-msgstr "使用檔案庫版本"
 
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
