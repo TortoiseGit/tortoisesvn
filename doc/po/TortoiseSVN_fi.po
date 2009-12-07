@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-11-04 09:10 +0000\n"
-"PO-Revision-Date: 2009-11-05 01:27+0200\n"
+"POT-Creation-Date: 2009-11-16 07:38 +0000\n"
+"PO-Revision-Date: 2009-12-08 01:07+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5280,8 +5280,8 @@ msgid "Cannot copy between repositories"
 msgstr "Kopiointi arkistojen välillä ei ole mahdollista"
 
 #. (para)
-msgid "Whilst you can copy and files and folders <emphasis>within</emphasis> a repository, you <emphasis>cannot</emphasis> copy or move from one repository to another while preserving history using TortoiseSVN. Not even if the repositories live on the same server. All you can do is copy the content in its current state and add it as new content to the second repository."
-msgstr "Vaikka voit kopioida (ja siirtää) tiedostoja ja kansioita arkiston <emphasis>sisällä</emphasis>, niin kopiointi arkistojen välillä <emphasis>ei</emphasis> ole mahdollista historiatiedot säilyttäen. Ei vaikka arkistot sijaitsisivat samalla palvelimella. Voit korkeintaan kopioida lähdearkiston sisällön ja lisätä sen uutena sisältönä kohdearkistoon."
+msgid "Whilst you can copy or move files and folders <emphasis>within</emphasis> a repository, you <emphasis>cannot</emphasis> copy or move from one repository to another while preserving history using TortoiseSVN. Not even if the repositories live on the same server. All you can do is copy the content in its current state and add it as new content to the second repository."
+msgstr "Vaikka voit kopioida ja siirtää tiedostoja tai kansioita arkiston <emphasis>sisällä</emphasis>, niin kopiointi arkistojen välillä historiatiedot säilyttäen <emphasis>ei</emphasis> ole mahdollista. Ei, vaikka arkistot sijaitsisivat samalla palvelimella. Voit ainoastaan kopioida lähdesisällön nykytilassaan ja lisätä sen uutena sisältönä toiseen arkistoon."
 
 #. (para)
 msgid "If you are uncertain whether two URLs on the same server refer to the same or different repositories, use the repo browser to open one URL and find out where the repository root is. If you can see both locations in one repo browser window then they are in the same repository."

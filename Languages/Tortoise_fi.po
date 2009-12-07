@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-11-05 01:23+0200\n"
+"PO-Revision-Date: 2009-12-08 01:04+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3499,11 +3499,11 @@ msgstr "Muokkaa lokiviestiä"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%s' on\r\n"
+"Edit property '%S' on\r\n"
 "%s"
 msgstr ""
-"Muokkaa ominaisuutta '%s' polulla\r\n"
-"%s"
+"Muokkaa ominaisuutta '%S'\r\n"
+"polulla %s"
 
 #. Resource IDs: (1331, 1382)
 msgid "Edit..."
@@ -4511,6 +4511,10 @@ msgstr "ID:32814:VA  +D"
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
+
+#. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +K"
+msgstr "ID:32825:V C +K"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -6307,6 +6311,14 @@ msgstr "Ennen toimitusta"
 msgid "Pre-Update Hook"
 msgstr "Ennen päivitystä"
 
+#. Resource IDs: (3)
+msgid "Prefer local"
+msgstr "Suosi paikallista versiota"
+
+#. Resource IDs: (4)
+msgid "Prefer repository"
+msgstr "Suosi arkiston versiota"
+
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
 msgstr "Paina &uutta pikavalintanäppäintä:"
@@ -6726,11 +6738,11 @@ msgstr "Poista muutoslistasta"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%s' from\r\n"
+"Remove property '%S' from\r\n"
 "%s"
 msgstr ""
-"Poista ominaisuus '%s' polulta\r\n"
-"%s"
+"Poista ominaisuus '%S'\r\n"
+"polulta %s"
 
 #. Resource IDs: (610)
 msgid "Remove the directory"
@@ -7493,11 +7505,11 @@ msgstr "Aseta tiedostojen &päiväykset \"viimeisimpään arkistoon toimitusaika
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%s' on\r\n"
+"Set property '%S' on\r\n"
 "%s"
 msgstr ""
-"Aseta ominaisuus '%s' polulla\r\n"
-"%s"
+"Aseta ominaisuus '%S'\r\n"
+"polulla %s"
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
@@ -9392,10 +9404,6 @@ msgstr "Käytä molempia tekstilohkoja (tämä viimeiseksi)"
 msgid "Use left file"
 msgstr "Käytä vasen tiedosto"
 
-#. Resource IDs: (3)
-msgid "Use local"
-msgstr "Käytä paikallista versiota"
-
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
 msgstr "Käytä Roskakoria palautettaessa"
@@ -9403,10 +9411,6 @@ msgstr "Käytä Roskakoria palautettaessa"
 #. Resource IDs: (116)
 msgid "Use regular expression"
 msgstr "Käytä säännöllistä lauseketta"
-
-#. Resource IDs: (4)
-msgid "Use repository"
-msgstr "Käytä arkiston versiota"
 
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
