@@ -21,6 +21,7 @@
 #include "UnicodeUtils.h"
 #include "SVNAdminDir.h"
 #include "PathUtils.h"
+#include "StringUtils.h"
 #include "svn_dirent_uri.h"
 #include <regex>
 #include "auto_buffer.h"

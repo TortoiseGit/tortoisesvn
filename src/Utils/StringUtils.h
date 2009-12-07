@@ -94,12 +94,13 @@ public:
 	 */
 	static int GetMatchingLength (const CString& lhs, const CString& rhs);
 
+#endif
+#if defined(CSTRING_AVAILABLE) || defined(_MFC_VER)
 	/**
 	 * Optimizing wrapper around CompareNoCase.
 	 */
 	static int FastCompareNoCase (const CStringW& lhs, const CStringW& rhs);
 #endif
-
 	/**
 	 * Writes the string \text to the file \path, either in utf16 or utf8 encoding,
 	 * depending on the \c bUTF8 param.

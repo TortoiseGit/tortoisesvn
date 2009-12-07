@@ -433,6 +433,9 @@ int CStringUtils::GetMatchingLength (const CString& lhs, const CString& rhs)
 	return maxResult;
 }
 
+#endif // #ifdef _MFC_VER
+
+#if defined(CSTRING_AVAILABLE) || defined(_MFC_VER)
 int CStringUtils::FastCompareNoCase (const CStringW& lhs, const CStringW& rhs)
 {
 	// attempt latin-only comparison
@@ -478,8 +481,7 @@ int CStringUtils::FastCompareNoCase (const CStringW& lhs, const CStringW& rhs)
 
 	return 0;
 }
-
-#endif // #ifdef _MFC_VER
+#endif // #if defined(CSTRING_AVAILABLE) || defined(_MFC_VER)
 
 bool CStringUtils::WriteStringToTextFile(const std::wstring& path, const std::wstring& text, bool bUTF8 /* = true */)
 {
@@ -524,7 +526,7 @@ void CStringUtils::PipesToNulls(TCHAR* buffer, size_t length )
 #define IsCharNumeric(C) (!IsCharAlpha(C) && IsCharAlphaNumeric(C))
 
 
-#if defined(_DEBUG) && defined(CSTRING_AVAILABLE)
+#if defined(_DEBUG) && defined(_MFC_VER)
 // Some test cases for these classes
 static class StringUtilsTest
 {
