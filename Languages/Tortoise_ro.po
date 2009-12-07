@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-11-09 11:31+0200\n"
+"PO-Revision-Date: 2009-12-07 23:14+0200\n"
 "Last-Translator: Florin Daneliuc <dfev77@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2182,9 +2182,8 @@ msgid "Check for modifications"
 msgstr "Caută modificările"
 
 #. Resource IDs: (9)
-#, fuzzy
 msgid "Check out a working copy from a repository"
-msgstr "Checkout o copie de lucru dintr-un depozit"
+msgstr "Adu o copie de lucru dintr-un depozit"
 
 #. Resource IDs: (95)
 msgid ""
@@ -2228,29 +2227,25 @@ msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Se verifică dacă există o versiune mai nouă a TortoiseSVN..."
 
 #. Resource IDs: (133, 65535)
-#, fuzzy
 msgid "Checkout"
-msgstr "Checkout"
+msgstr "Adu"
 
 #. Resource IDs: (1074)
-#, fuzzy
 msgid "Checkout &directory:"
-msgstr "&Dosarul checkout:"
+msgstr "Adu &dosarul:"
 
 #. Resource IDs: (77)
-#, fuzzy
 msgid "Checkout - TortoiseSVN"
-msgstr "Checkout - TortoiseSVN"
+msgstr "Adu - TortoiseSVN"
 
 #. Resource IDs: (1377)
-#, fuzzy
 msgid "Checkout Depth"
-msgstr "Adâncimea checkout-ului"
+msgstr "Adâncimea de aducere"
 
 #. Resource IDs: (229)
-#, fuzzy, c-format
+#, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
-msgstr "Checkout din %s, revizia %s, %s, %s"
+msgstr "Adu de la %s, revizia %s, %s, %s"
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -2401,9 +2396,8 @@ msgstr ""
 "Colapsează"
 
 #. Resource IDs: (32870)
-#, fuzzy
 msgid "Collapsed"
-msgstr "Copiat"
+msgstr "Pliat"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -3372,9 +3366,9 @@ msgid "Drives A: and B:"
 msgstr "Discurile A: şi B:"
 
 #. Resource IDs: (613)
-#, fuzzy, c-format
+#, c-format
 msgid "Drop not possible on %1"
-msgstr "Drop nu este posibil cu %1"
+msgstr "Adăugarea nu este posibilă pe %1"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -3455,10 +3449,10 @@ msgstr "Editează mesajul din jurnal"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%s' on\r\n"
+"Edit property '%S' on\r\n"
 "%s"
 msgstr ""
-"Editează proprietatea '%s' din\r\n"
+"Editează proprietatea '%S' din\r\n"
 "%s"
 
 #. Resource IDs: (1331, 1382)
@@ -4454,6 +4448,10 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +K"
+msgstr "ID:32825:V C +K"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
 msgstr "ID:32825:V C +L"
 
@@ -4640,7 +4638,6 @@ msgid "If the repository can not be contacted"
 msgstr "Dacă depozitul nu poate fi contactat"
 
 #. Resource IDs: (196)
-#, fuzzy
 msgid ""
 "If you change this value, your existing working copies won't be recognized anymore!\n"
 "You must check out your working copies again.\n"
@@ -4648,8 +4645,8 @@ msgid ""
 "Are you absolutely sure you want to do this?"
 msgstr ""
 "Dacă schimbaţi aceasta valoare, copiile de lucru existente nu vor mai fi recunoscute!\n"
-"Trebuie să faceţi checkout cu copiile de lucru încă  dată.\n"
-"Dacă nu sunteţi sigur(ă), citiţi documentarea.\n"
+"Trebuie să vă aduceți copiile de lucru încă dată.\n"
+"Dacă nu sunteţi sigur(ă), citiţi documentația.\n"
 "Sunteţi absolut sigur(ă) că vreţi să continuaţi?"
 
 #. Resource IDs: (251)
@@ -4674,9 +4671,8 @@ msgid "Ignore &case changes"
 msgstr "Ignoră schimbări de &majuscule"
 
 #. Resource IDs: (32873)
-#, fuzzy
 msgid "Ignore all whitespace changes"
-msgstr "Ignoră schimbări în spaţii goale"
+msgstr "Ignoră schimbările în spaţii goale"
 
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
@@ -4983,9 +4979,8 @@ msgstr ""
 "Sigur doriţi să relocaţi copia de lucru?"
 
 #. Resource IDs: (1480)
-#, fuzzy
 msgid "Items in externals"
-msgstr "Afişează elemente în externals"
+msgstr "Elementele externe"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
@@ -5245,11 +5240,12 @@ msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
 msgstr "Cea mai veche versiune afişată: %ld - Cea mai noua revizie afişată: %ld"
 
 #. Resource IDs: (238)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Lowest shown revision: %ld - Highest shown revision: %ld\n"
 "HEAD revision: %ld"
-msgstr "Cea mai veche versiune afişată: %ld - Cea mai noua versiune afişată: %ld\n"
+msgstr ""
+"Cea mai veche versiune afişată: %ld - Cea mai noua versiune afişată: %ld\n"
 "Revizia HEAD: %ld"
 
 #. Resource IDs: (16973)
@@ -5489,9 +5485,8 @@ msgid "Mine"
 msgstr "Al meu"
 
 #. Resource IDs: (1068)
-#, fuzzy
 msgid "Minimize the Ribbon"
-msgstr "Minimizează ribbon-ul"
+msgstr "Minimizează Ribbon-ul"
 
 #. Resource IDs: (1023, 65535)
 msgid "Misc"
@@ -5944,9 +5939,8 @@ msgid "One or more files are in a conflicted state."
 msgstr "Unu sau mai multe fişiere sunt în stare de conflict."
 
 #. Resource IDs: (99)
-#, fuzzy
 msgid "Only check out the &top folder"
-msgstr "Checkout numai dosarul de &sus"
+msgstr "Adu doar dosarul din &vârf"
 
 #. Resource IDs: (19)
 msgid "Only file children"
@@ -6013,7 +6007,6 @@ msgstr ""
 "Subiecte ajutor"
 
 #. Resource IDs: (13)
-#, fuzzy
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Deschide navigatorul de depozit pentru a edita depozitul conectat"
 
@@ -6260,6 +6253,14 @@ msgstr "Hook pre-transmitere"
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
 msgstr "Hook pre-actualizare"
+
+#. Resource IDs: (3)
+msgid "Prefer local"
+msgstr "Preferă local"
+
+#. Resource IDs: (4)
+msgid "Prefer repository"
+msgstr "Prefera depozitul"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -6678,10 +6679,10 @@ msgstr "Elimină de pe lista de schimbări"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%s' from\r\n"
+"Remove property '%S' from\r\n"
 "%s"
 msgstr ""
-"Elimină proprietatea '%s' din \r\n"
+"Elimină proprietatea '%S' din \r\n"
 "%s"
 
 #. Resource IDs: (610)
@@ -7084,7 +7085,6 @@ msgid "S&how Buttons on Two Rows"
 msgstr "&Afişează butoanele în două rânduri"
 
 #. Resource IDs: (17078)
-#, fuzzy
 msgid "S&how Quick Access Toolbar below the Ribbon"
 msgstr "&Afişează bara de acces rapid sub Ribbon"
 
@@ -7328,9 +7328,8 @@ msgid "Select diff file..."
 msgstr "Selectează fişier de diferenţiere..."
 
 #. Resource IDs: (99)
-#, fuzzy
 msgid "Select directory to check out to"
-msgstr "Selectaţi dosarul în care doriţi să faceţi checkout"
+msgstr "Selectaţi dosarul în care doriţi să aduceți"
 
 #. Resource IDs: (276)
 msgid "Select end revision"
@@ -7447,10 +7446,10 @@ msgstr "Defineşte data de fişier ca \"ora ultimei &transmiteri\""
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%s' on\r\n"
+"Set property '%S' on\r\n"
 "%s"
 msgstr ""
-"Defineşte proprietatea '%s' pentru\r\n"
+"Defineşte proprietatea '%S' pentru\r\n"
 "%s"
 
 #. Resource IDs: (13)
@@ -7542,14 +7541,12 @@ msgid "Show &unversioned files"
 msgstr "Afişează fişierele &neversionate"
 
 #. Resource IDs: (1069)
-#, fuzzy
 msgid "Show Above the Ribbon"
 msgstr "Afişează deasupra ribbon-ului"
 
 #. Resource IDs: (1069)
-#, fuzzy
 msgid "Show Below the Ribbon"
-msgstr "Afişează sub ribbon"
+msgstr "Afişează sub Ribbon"
 
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
@@ -7584,12 +7581,10 @@ msgid "Show Ove&rview"
 msgstr "Afişează &vedere generală"
 
 #. Resource IDs: (1068)
-#, fuzzy
 msgid "Show Quick Access Toolbar Above the Ribbon"
 msgstr "Afişează bara de acces rapid deasupra de Ribbon"
 
 #. Resource IDs: (1068)
-#, fuzzy
 msgid "Show Quick Access Toolbar Below the Ribbon"
 msgstr "Afişează bara de acces rapid sub Ribbon"
 
@@ -7955,7 +7950,7 @@ msgid "Subversion configuration &file:"
 msgstr "&Fişier de configurare Subversion:"
 
 #. Resource IDs: (84)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
@@ -7971,17 +7966,21 @@ msgid ""
 "file %s, line %ld\n"
 "expression = %s"
 msgstr ""
-"A avut loc o eroare serioasă.\n"
-"Puteţi raporta aceasta prin lista de discuţii\n"
-"cu detalii despre ceea ce făceaţi când\n"
-"s-a produs eroarea.\n"
+"Subversion a întâlnit o problema gravă.\n"
+"Vă rugăm să raportați aceasta prin lista de discuţii Subversion\n"
+"(users@subversion.tigris.org)\n"
+"cu cât mai multe detalii despre ceea ce\n"
+"încercați să faceți.\n"
+"Vă rugăm însă să căutați mesajul de eroare în lista de discuții\n"
+"pentru a evita raportarea aceleiași erori de mai multe ori.\n"
+"Puteți găsi lista de discuții la\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
-"Eroarea s-a produs în:\n"
+"Subversion a întâlnit o eroare în:\n"
 "fişierul %s, linia %ld\n"
 "expresia = %s"
 
 #. Resource IDs: (84)
-#, fuzzy
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
@@ -7995,11 +7994,15 @@ msgid ""
 "\n"
 "Subversion reported the following:"
 msgstr ""
-"A avut loc o eroare serioasă.\n"
-"Puteţi raporta aceasta prin lista de email\n"
+"Subversion a întâlnit o problema gravă.\n"
+"Vă rugăm să raportați aceasta prin lista de discuţii Subversion\n"
 "(users@subversion.tigris.org)\n"
-"cu detalii despre ceea ce făceaţi când\n"
-"s-a produs eroarea.\n"
+"cu cât mai multe detalii despre ceea ce\n"
+"încercați să faceți.\n"
+"Vă rugăm însă să căutați mesajul de eroare în lista de discuții\n"
+"pentru a evita raportarea aceleiași erori de mai multe ori.\n"
+"Puteți găsi lista de discuții la\n"
+"http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion a raportat următoarele:"
 
@@ -8152,12 +8155,11 @@ msgid "Text status"
 msgstr "Stare de text"
 
 #. Resource IDs: (84)
-#, fuzzy
 msgid ""
 "The URL to check out refers to a file but this\n"
 "working copy path is an existing directory."
 msgstr ""
-"URL-ul de checkout referă un fişier dar\n"
+"URL-ul de adus referă un fişier dar\n"
 "copia de lucru este un director."
 
 #. Resource IDs: (63)
@@ -8178,14 +8180,12 @@ msgid "The color of creation, copy and rename nodes of the trunk will be shifted
 msgstr "Culoarea nodurilor de creere, copiere sau redenumire din trunchi v-or fi deplasate spre verde."
 
 #. Resource IDs: (197)
-#, fuzzy
 msgid "The default URL to checkout from if nothing else is specified"
-msgstr "URL-ul implicit de la care se va face checkout dacă nimic altceva nu este specificat"
+msgstr "URL-ul implicit de la care se va aduce dacă nimic altceva nu este specificat"
 
 #. Resource IDs: (196)
-#, fuzzy
 msgid "The default path to checkout to if nothing else is specified"
-msgstr "Calea implicită în care se va face checkout dacă nimic altceva nu este specificat"
+msgstr "Calea implicită în care se va aduce dacă nimic altceva nu este specificat"
 
 #. Resource IDs: (68)
 #, c-format
@@ -8576,17 +8576,17 @@ msgstr ""
 "Doriţi să îl suprascrieţi?"
 
 #. Resource IDs: (88)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The target folder \n"
 "%s\n"
 "is not empty!\n"
 "Are you sure you want to checkout/export into that folder?"
 msgstr ""
-"Dosarul destinatar \n"
+"Dosarul destinație \n"
 "%s\n"
 "nu este gol!\n"
-"Sigur doriţi să faceţi checkout/exportare în acel dosar?"
+"Sigur doriţi să aduceți/exportați în acel dosar?"
 
 #. Resource IDs: (195)
 msgid ""
@@ -8966,7 +8966,6 @@ msgid "Total number of user revision properties"
 msgstr "Numărul total de proprietăţi definite de utilizator"
 
 #. Resource IDs: (32821)
-#, fuzzy
 msgid "Tr&ee stripes"
 msgstr "Dungi de arbor&e"
 
@@ -8992,9 +8991,8 @@ msgid "Trunk nodes"
 msgstr "noduri din trunchi"
 
 #. Resource IDs: (251)
-#, fuzzy
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
-msgstr "Incercaţi o 'curăţare'. Dacă aceasta nu funcţionează va trebui să faceţi un checkout nou."
+msgstr "Încercaţi o 'curăţare'. Dacă aceasta nu funcţionează va trebui să faceţi noua aducere."
 
 #. Resource IDs: (73)
 msgid "Try again"
@@ -9346,10 +9344,6 @@ msgstr "Foloseşte amândouă blocurile de text (acesta ultimul)"
 msgid "Use left file"
 msgstr "Foloseşte fişierul de pe stângă"
 
-#. Resource IDs: (3)
-msgid "Use local"
-msgstr "Foloseşte local"
-
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
 msgstr "Foloseşte coşul de gunoi când se revine la altă versiune"
@@ -9357,10 +9351,6 @@ msgstr "Foloseşte coşul de gunoi când se revine la altă versiune"
 #. Resource IDs: (116)
 msgid "Use regular expression"
 msgstr "Foloseşte expresie regulară"
-
-#. Resource IDs: (4)
-msgid "Use repository"
-msgstr "Foloseşte depozitul"
 
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
@@ -9982,13 +9972,12 @@ msgid "another item already exists in its place."
 msgstr "un alt element există deja în locul acestuia."
 
 #. Resource IDs: (340)
-#, fuzzy
 msgid ""
 "ask repository first if 'online' -\n"
 "work entirely from cache if 'offline'"
 msgstr ""
-"solicitaţi mai întăi depozitul când conectat -\n"
-"Foloseşte numai cache când deconectat"
+"verifică mai întăi dacă depozitul este conectat -\n"
+"lucrează doar din cache când este deconectat"
 
 #. Resource IDs: (245)
 msgid "author"
