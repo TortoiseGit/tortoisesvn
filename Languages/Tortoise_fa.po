@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-06 23:18+0330\n"
+"PO-Revision-Date: 2009-12-07 17:06+0330\n"
 "Last-Translator: Mohsen Sajjadi <mohsensajjadi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3458,10 +3458,10 @@ msgstr "ویرایش پیام گزارش"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%s' on\r\n"
+"Edit property '%S' on\r\n"
 "%s"
 msgstr ""
-"ویرایش خصوصیت '%s' روی\r\n"
+"ویرایش خصوصیت '%S' روی\r\n"
 "%s"
 
 #. Resource IDs: (1331, 1382)
@@ -3497,7 +3497,7 @@ msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\r\n"
 "You must restart the system for this setting to take effect."
 msgstr ""
-"Enable this only if you're working with web projects on VS.NET2003!\n"
+"Enable this only if you're working with web projects on VS.NET2003!\r\n"
 "You must restart the system for this setting to take effect."
 
 #. Resource IDs: (195)
@@ -4583,7 +4583,7 @@ msgid ""
 "If checked, the commit dialog will be started again automatically after an error,\r\n"
 "while preserving your last selection and log message."
 msgstr ""
-"در صورت انتخاب، پنجره اعمال به مخزن پس از بروز خطا بطور خودکار باز شده\n"
+"در صورت انتخاب، پنجره اعمال به مخزن پس از بروز خطا بطور خودکار باز شده\r\n"
 "و تمامی انتخابها و پیامهای وارد شده شما نیز حفظ خواهد شد."
 
 #. Resource IDs: (194)
@@ -6684,10 +6684,10 @@ msgstr "حذف از لیست تغییرات"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%s' from\r\n"
+"Remove property '%S' from\r\n"
 "%s"
 msgstr ""
-"حذف خصوصیت '%s' از\r\n"
+"حذف خصوصیت '%S' از\r\n"
 "%s"
 
 #. Resource IDs: (610)
@@ -7451,10 +7451,10 @@ msgstr "تنظیم زمان فایلها به \"زمان آخرین اعمال\"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%s' on\r\n"
+"Set property '%S' on\r\n"
 "%s"
 msgstr ""
-"تنظیم خصوصیت '%s' بر روی\r\n"
+"تنظیم خصوصیت '%S' بر روی\r\n"
 "%s"
 
 #. Resource IDs: (13)
@@ -7619,7 +7619,7 @@ msgstr "نمایش پوشه های مستثنی بصورت عادی"
 
 #. Resource IDs: (1480)
 msgid "Show externals from different repositories"
-msgstr "پاکسازی کَش گزارشات %ld repositories"
+msgstr "نمایش خارجیها از مخزنهای مختلف"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -8177,7 +8177,7 @@ msgstr "The chunk size did not match the number of added/removed lines!"
 #. Resource IDs: (63)
 #, c-format
 msgid "The chunk start '@@' was expected in line %d !"
-msgstr "انتظارداشته شد % d شروع تکه درخط @@ "
+msgstr "وجود حروف '@@' در خط %d مورد انتظار بود!"
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
@@ -10454,10 +10454,10 @@ msgid ""
 "indicating that a user must acquire a lock on the file\r\n"
 "before they can edit it and commit changes."
 msgstr ""
-"svn:needs-lock\n"
-"تنظیم به هر مقداری (مثال: *) برای الزام در قفل کردن برای ویرایش این فایل.\n"
-"فایل مورد نظر هنگام دریافت یا بروزرسانی در حالت فقط-خواندنی قرار میگیرد،\n"
-"که موجب میشود کاربران برای ویرایش و اعمال تغییراتشان بایستی \n"
+"svn:needs-lock\r\n"
+"تنظیم به هر مقداری (مثال: *) برای الزام در قفل کردن برای ویرایش این فایل.\r\n"
+"فایل مورد نظر هنگام دریافت یا بروزرسانی در حالت فقط-خواندنی قرار میگیرد،\r\n"
+"که موجب میشود کاربران برای ویرایش و اعمال تغییراتشان بایستی \r\n"
 "فایل را قفل نمایند."
 
 #. Resource IDs: (208)
