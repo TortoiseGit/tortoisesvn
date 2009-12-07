@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-10-09 18:46 +0000\n"
-"PO-Revision-Date: 2009-12-07 22:49+0700\n"
+"PO-Revision-Date: 2009-12-07 23:22+0700\n"
 "Last-Translator: Evans Jahja <evans.jahja@yahoo.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -317,7 +317,7 @@ msgstr "Menerapkan Patch"
 
 #. (para)
 msgid "A patch file is a Subversion unified diff file, which contains the information required to apply changes to a set of files. The patch may have been supplied by another developer so that you can see changes he has made and possibly commit them to the repository. Or it may have been generated internally by TortoiseSVN when comparing two folders. This happens when you compare a repository revision with your working copy folder, or if you compare two different repository revisions, or if you compare two different repository paths."
-msgstr ""
+msgstr "File patch adalah file diff Subversion, dimana mengandung informasi yang dibutuhkan untuk mengubah file. File patch dapat disediakan oleh developer lain jadi anda dapat melihat perubahan yang telah dibuatnya dan bahkan mengkomitnya ke repositori. Atau mungkin juga dibuat secara internal oleh TortoiseSVN ketika membandingkan dua folder. Ini terjadi ketika anda membandingkan repositori revisi dengan folder kerja anda, atau jika anda membandingkan dua revisi repositori yang berbeda, atau jika anda membandingkan dua path repositori yang berbeda."
 
 #. (para)
 msgid "In either case TortoiseMerge will show a small window listing the files included in the patch. By double clicking on one of these files you fetch the relevant file and apply the changes. The left pane shows the original file content and the right pane shows it after the patch is applied."
@@ -464,11 +464,11 @@ msgstr "<guibutton>Konflik Sebelumnya/Berikutnya</guibutton> melompat secara lan
 
 #. (para)
 msgid "<guibutton>Use Theirs/Use Mine</guibutton> selects whether to use a block from the left or the right pane. Refer to the next section for more information about editing changes and conflicts."
-msgstr ""
+msgstr "<guibutton>Gunakan milik mereka/Gunakan milik saya</guibutton> memilih untuk memblokir dari panel kiri atau dari panel kanan. Lihat section berikut untuk informasi lebih lanjut dan tentang mengubah perubahan dan konflik."
 
 #. (para)
 msgid "<guibutton>Theirs before Mine/Mine before Theirs</guibutton> is used when you want to combine changes in a conflicted file. Refer to the next section for more information about editing changes and conflicts."
-msgstr ""
+msgstr "<guibutton>Punya mereka terlebih dahulu/Punya saya terlebih dahulu</guibutton> digunakan ketika anda ingin menggabung perubahan di file yang sedang konflik. Lihat section berikut untuk informasi lebih lanjut mengenai merubah perubahan dan konflik."
 
 #. (para)
 msgid "<guibutton>Mark as Resolved</guibutton> When you have resolved all the conflicts in a file and saved the changes, you can mark it as resolved from within TortoiseMerge, rather than going back to explorer and marking as resolved from there."
@@ -1142,7 +1142,7 @@ msgstr "/createunifieddiff"
 
 #. (entry)
 msgid "Creates a unified diff file (patch file) of two files specified with <placeholder-1/> and <placeholder-2/>. The target path is set with <placeholder-3/>. If <placeholder-4/> is not set, a file save dialog is shown so the user can choose the location to save the patch file. Note: If <placeholder-5/> is set, all other parameters are ignored."
-msgstr ""
+msgstr "Membuat sebuah file diff (file patch) dari dua file yang ditentukan dengan <placeholder-1/> dan <placeholder-2/>. Path target ditentukan dengan <placeholder-3/>. Apabila <placeholder-4/> tidak ditentukan, dialog save file akan ditampilkan sehingga anda dapat menentukan tempat penyimpanan file patch. Catatan: Jika <placeholder-5/> ditentukan, semua parameter akan diabaikan."
 
 #. (entry)
 msgid "Specifies a line number to jump to after loading the files."
