@@ -58,7 +58,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-11-30 09:12-0500\n"
+"PO-Revision-Date: 2009-12-07 22:19-0500\n"
 "Last-Translator: Garfield Yao <field977@hotmail.com>\n"
 "Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3475,10 +3475,10 @@ msgstr "编辑日志信息"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%s' on\r\n"
+"Edit property '%S' on\r\n"
 "%s"
 msgstr ""
-"编辑属性“%s”于\r\n"
+"编辑属性“%S”于\r\n"
 "%s"
 
 #. Resource IDs: (1331, 1382)
@@ -6699,10 +6699,10 @@ msgstr "从修改列表删除"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%s' from\r\n"
+"Remove property '%S' from\r\n"
 "%s"
 msgstr ""
-"删除属性“%s”于\r\n"
+"删除属性“%S”于\r\n"
 "%s"
 
 #. Resource IDs: (610)
@@ -7466,10 +7466,10 @@ msgstr "将文件日期设置为“最后提交时间”(&T)"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%s' on\r\n"
+"Set property '%S' on\r\n"
 "%s"
 msgstr ""
-"设置属性“%s”于\r\n"
+"设置属性“%S”于\r\n"
 "%s"
 
 #. Resource IDs: (13)
@@ -8165,14 +8165,6 @@ msgstr "文字状态: "
 #. Resource IDs: (207)
 msgid "Text status"
 msgstr "文字状态"
-
-#. Resource IDs: (84)
-msgid ""
-"The URL to check out refers to a file but this\n"
-"working copy path is an existing directory."
-msgstr ""
-"检出的URL是一个文件，\n"
-"但是工作副本是一个已有的目录。"
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -10655,3 +10647,10 @@ msgstr "是"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+#~ msgid ""
+#~ "The URL to check out refers to a file but this\n"
+#~ "working copy path is an existing directory."
+#~ msgstr ""
+#~ "检出的URL是一个文件，\n"
+#~ "但是工作副本是一个已有的目录。"
