@@ -1403,7 +1403,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	// SVNSLC_COLPROPSTATUS
 	if (entry->isNested)
 	{
-		SetItemText(index, nCol++, _T(""));
+		nCol++;
 	}
 	else
 	{
@@ -1417,7 +1417,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	// SVNSLC_COLREMOTETEXT
 	if (entry->isNested)
 	{
-		SetItemText(index, nCol++, _T(""));
+		nCol++;
 	}
 	else
 	{
@@ -1427,7 +1427,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	// SVNSLC_COLREMOTEPROP
 	if (entry->isNested)
 	{
-		SetItemText(index, nCol++, _T(""));
+		_T("");
 	}
 	else
 	{
@@ -1472,6 +1472,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	}
 	else
 		SetItemText(index, nCol++, entry->lock_owner);
+
 	// SVNSLC_COLLOCKCOMMENT
 	SetItemText(index, nCol++, entry->lock_comment);
 	// SVNSLC_COLLOCKDATE
@@ -1483,7 +1484,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 		SetItemText(index, nCol++, datebuf);
 	}
 	else
-		SetItemText(index, nCol++, _T(""));
+		nCol++;
 	// SVNSLC_COLAUTHOR
 	SetItemText(index, nCol++, entry->last_commit_author);
 	// SVNSLC_COLREVISION
@@ -1493,7 +1494,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 		SetItemText(index, nCol++, buf);
 	}
 	else
-		SetItemText(index, nCol++, _T(""));
+		nCol++;
 	// SVNSLC_COLREMOTEREVISION
 	if (entry->remoterev > 0)
 	{
@@ -1501,7 +1502,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 		SetItemText(index, nCol++, buf);
 	}
 	else
-		SetItemText(index, nCol++, _T(""));
+		nCol++;
 	// SVNSLC_COLDATE
 	date = entry->last_commit_date;
 	if (date)
@@ -1510,14 +1511,15 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 		SetItemText(index, nCol++, datebuf);
 	}
 	else
-		SetItemText(index, nCol++, _T(""));
+		nCol++;
+
 	// SVNSLC_COLSVNNEEDSLOCK
-    BOOL bFoundSVNNeedsLock = entry->present_props.IsNeedsLockSet();
-	CString strSVNNeedsLock = (bFoundSVNNeedsLock) ? _T("*") : _T("");
-	SetItemText(index, nCol++, strSVNNeedsLock);
+    bool bFoundSVNNeedsLock = entry->present_props.IsNeedsLockSet();
+	SetItemText(index, nCol++, bFoundSVNNeedsLock ? _T("*") : _T(""));
+
 	// SVNSLC_COLCOPYFROM
-	if (m_sRepositoryRoot.Compare(entry->copyfrom_url.Left(m_sRepositoryRoot.GetLength()))==0)
-		SetItemText(index, nCol++, entry->copyfrom_url.Mid(m_sRepositoryRoot.GetLength()));
+	if (CStringUtils::GetMatchingLength (m_sRepositoryRoot, entry->copyfrom_url) == m_sRepositoryRoot.GetLength())
+		SetItemText(index, nCol++, (LPCTSTR)entry->copyfrom_url + m_sRepositoryRoot.GetLength());
 	else
 		SetItemText(index, nCol++, entry->copyfrom_url);
 
@@ -1528,7 +1530,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 		SetItemText(index, nCol++, buf);
 	}
 	else
-		SetItemText(index, nCol++, _T(""));
+		nCol++;
 	// SVNSLC_COLMODIFICATIONDATE
 	__int64 filetime = entry->GetPath().GetLastWriteTime();
 	if ( (filetime) && (entry->textstatus!=svn_wc_status_deleted) )
@@ -1539,18 +1541,17 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	}
 	else
 	{
-		SetItemText(index, nCol++, _T(""));
+		nCol++;
 	}
 	// SVNSLC_COLSIZE
 	if (entry->IsFolder())
-		SetItemText(index, nCol++, _T(""));
+		nCol++;
 	else
 	{
 		__int64 filesize = entry->working_size != (-1) ? entry->working_size : entry->GetPath().GetFileSize();
 		StrFormatByteSize64(filesize, buf, 100);
 		SetItemText(index, nCol++, buf);
 	}
-
 
     // user-defined properties
     for ( int i = SVNSLC_NUMCOLUMNS, count = m_ColumnManager.GetColumnCount()
@@ -1564,13 +1565,12 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
         if (entry->present_props.HasProperty (name))
 		{
 			const CString& propVal = entry->present_props [name];
+
 			if (propVal.IsEmpty())
 				SetItemText(index, i, m_sNoPropValueText);
 			else
 				SetItemText(index, i, propVal);
 		}
-		else
-            SetItemText(index, i, _T(""));
     }
 
 	SetCheck(index, entry->checked);
