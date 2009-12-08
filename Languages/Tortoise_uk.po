@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-02 17:02+0300\n"
+"PO-Revision-Date: 2009-12-08 16:25+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3431,10 +3431,10 @@ msgstr "Редагувати повідомлення логу"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%s' on\r\n"
+"Edit property '%S' on\r\n"
 "%s"
 msgstr ""
-"Редагувати властивість '%s' на\r\n"
+"Редагувати властивість '%S' для\r\n"
 "%s"
 
 #. Resource IDs: (1331, 1382)
@@ -6671,10 +6671,10 @@ msgstr "Видалити зі списку змін"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%s' from\r\n"
+"Remove property '%S' from\r\n"
 "%s"
 msgstr ""
-"Видалити властивість '%s' з\r\n"
+"Видалити властивість '%S' з\r\n"
 "%s"
 
 #. Resource IDs: (610)
@@ -7438,10 +7438,10 @@ msgstr "Встановити дати файлів на \"&час останнь
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%s' on\r\n"
+"Set property '%S' on\r\n"
 "%s"
 msgstr ""
-"Задати властивість '%s' для\r\n"
+"Встановити властивість '%S' для\r\n"
 "%s"
 
 #. Resource IDs: (13)
@@ -8145,14 +8145,6 @@ msgstr "Статус тексту:"
 #. Resource IDs: (207)
 msgid "Text status"
 msgstr "Статус тексту"
-
-#. Resource IDs: (84)
-msgid ""
-"The URL to check out refers to a file but this\n"
-"working copy path is an existing directory."
-msgstr ""
-"URL для вивірки вказує на файл, тоді як\n"
-"шлях до робочої копії - це існуючий каталог."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -10653,6 +10645,12 @@ msgstr "так"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid ""
+#~ "The URL to check out refers to a file but this\n"
+#~ "working copy path is an existing directory."
+#~ msgstr ""
+#~ "URL для вивірки вказує на файл, тоді як\n"
+#~ "шлях до робочої копії - це існуючий каталог."
 #~ msgid "Show &properties"
 #~ msgstr "Показати в&ластивості"
 #~ msgid "Show i&gnored files"
