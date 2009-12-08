@@ -138,6 +138,13 @@ public:
 	 */
 	int IndexOf (const std::string& name) const;
 
+	/**
+	 * Test, whether a property exists.
+	 * \param name name of the property to find
+	 * \return true, if property has been found
+	 */
+	bool HasProperty (const std::string& name) const;
+
 private:		//methods
 	/**
 	 * Builds the properties (again) and fills the apr_array_header_t structure.

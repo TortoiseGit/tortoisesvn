@@ -553,23 +553,34 @@ tstring SVNProperties::GetLastErrorMsg() const
 
 int SVNProperties::IndexOf (const std::string& name) const
 {
-	// lookup
-
-	typedef std::map<std::string, apr_hash_t*>::const_iterator IT;
-	IT found = m_props.find (name);
-
-	// not found?
-
-	if (found == m_props.end())
+	if (m_propCount == 0)
 		return -1;
 
-	// return first index
+	long index = 0;
+	for (std::map<std::string, apr_hash_t *>::const_iterator it = m_props.begin(); it != m_props.end(); ++it)
+	{
+		apr_hash_index_t *hi;
 
-	unsigned index = 0;
-	for (IT iter = m_props.begin(); iter != found; ++iter)
-		index += apr_hash_count (iter->second);
+		for (hi = apr_hash_first(m_pool, it->second); hi; hi = apr_hash_next(hi))
+		{
+			const void *key = NULL;
+			void *val = NULL;
 
-	return static_cast<int>(index);
+			apr_hash_this(hi, &key, NULL, &val);
+			const char* pname_utf8 = (char *)key;
+			if (strcmp (pname_utf8, name.c_str()) == 0)
+				return index;
+
+			++index;
+		}
+	}
+
+	return -1;
+}
+
+bool SVNProperties::HasProperty (const std::string& name) const
+{
+	return IndexOf (name) != -1;
 }
 
 svn_error_t * SVNProperties::proplist_receiver(void *baton, const char *path, apr_hash_t *prop_hash, apr_pool_t *pool)
