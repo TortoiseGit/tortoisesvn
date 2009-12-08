@@ -115,7 +115,6 @@ BOOL CStringUtils::WildCardMatch(const CString& wildcard, const CString& string)
 CString CStringUtils::LinesWrap(const CString& longstring, int limit /* = 80 */, bool bCompactPaths /* = true */)
 {
 	CString retString;
-	CStringArray arWords;
 	if ((longstring.GetLength() < limit) || (limit == 0))
 		return longstring;	// no wrapping needed.
 	// now start breaking the string into lines
