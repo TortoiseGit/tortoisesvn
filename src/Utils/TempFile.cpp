@@ -20,6 +20,7 @@
 #include "TempFile.h"
 #include "auto_buffer.h"
 #include "SVNError.h"
+#include "PathUtils.h"
 
 CTempFiles::CTempFiles(void)
 {
@@ -88,10 +89,11 @@ CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev revi
 	else
 	{
 		int i=0;
-		// use the UI path, which does unescaping for urls
-		CString filename = path.GetUIFileOrDirectoryName();
 		do
 		{
+			// use the UI path, which does unescaping for urls
+			CString filename = path.GetUIFileOrDirectoryName();
+
 			// the inner loop assures that the resulting path is < MAX_PATH
 			// if that's not possible without reducing the 'filename' to less than 5 chars, use a path
 			// that's longer than MAX_PATH (in that case, we can't really do much to avoid longer paths)
@@ -107,7 +109,8 @@ CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev revi
 				}
 				tempfile.SetFromWin(possibletempfile);
 				filename = filename.Left(filename.GetLength()-1);
-			} while ((filename.GetLength() > 4) && (tempfile.GetWinPathString().GetLength() >= MAX_PATH));
+			} while (   (filename.GetLength() > 4) 
+				     && (revision.IsValid() || tempfile.GetWinPathString().GetLength() >= MAX_PATH));
 			i++;
 		} while (PathFileExists(tempfile.GetWinPath()));
 	}
@@ -130,7 +133,7 @@ CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, 
 
 		if (directory)
 		{
-			if (CreateDirectory (tempfile.GetWinPath(), NULL) != FALSE)
+			if (CreateDirectory (tempfile.GetWinPath(), NULL) == FALSE)
 				CheckLastError();
 			else
 				succeeded = true;
