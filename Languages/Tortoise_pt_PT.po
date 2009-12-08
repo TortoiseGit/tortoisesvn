@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-11-03 12:36+0100\n"
+"PO-Revision-Date: 2009-12-08 11:52+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgstr "! %d"
 
 #. Resource IDs: (1262)
 msgid "# authors shown individually:"
-msgstr "# autores mostrados individualmente:"
+msgstr "# autores indicados individualmente:"
 
 #. Resource IDs: (357)
 #, c-format
@@ -3441,10 +3441,10 @@ msgstr "Editar mensagem de registo"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%s' on\r\n"
+"Edit property '%S' on\r\n"
 "%s"
 msgstr ""
-"Editar a propriedade '%s' em\r\n"
+"Editar a propriedade '%S' em\r\n"
 "%s"
 
 #. Resource IDs: (1331, 1382)
@@ -4452,6 +4452,10 @@ msgstr "ID:32814:VA  +D"
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
 msgstr "ID:32822:V C +F"
+
+#. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +K"
+msgstr "ID:32825:V C +K"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -6256,6 +6260,14 @@ msgstr "Gancho Pré-Submissão"
 msgid "Pre-Update Hook"
 msgstr "Gancho Pré-Actualização"
 
+#. Resource IDs: (3)
+msgid "Prefer local"
+msgstr "Preferir local"
+
+#. Resource IDs: (4)
+msgid "Prefer repository"
+msgstr "Preferir repositório"
+
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
 msgstr "Pressione uma &Nova Tecla de Atalho:"
@@ -6673,10 +6685,10 @@ msgstr "Remover da lista de alterações"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%s' from\r\n"
+"Remove property '%S' from\r\n"
 "%s"
 msgstr ""
-"Remover propriedade '%s' de\r\n"
+"Remover propriedade '%S' de\r\n"
 "%s"
 
 #. Resource IDs: (610)
@@ -7442,10 +7454,10 @@ msgstr "Altera as da&tas dos arquivos para \"hora da última submissão\""
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%s' on\r\n"
+"Set property '%S' on\r\n"
 "%s"
 msgstr ""
-"Atribuir propriedade '%s' a\r\n"
+"Definir a propriedade '%S' de\r\n"
 "%s"
 
 #. Resource IDs: (13)
@@ -8152,14 +8164,6 @@ msgstr "Estado do Texto:"
 #. Resource IDs: (207)
 msgid "Text status"
 msgstr "Estado do texto"
-
-#. Resource IDs: (84)
-msgid ""
-"The URL to check out refers to a file but this\n"
-"working copy path is an existing directory."
-msgstr ""
-"O URL a verificar é uma referência a um ficheiro mas esta\n"
-"o caminho desta cópia de trabalho é um diretório."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -9285,6 +9289,10 @@ msgstr ""
 "Para separar múltiplas excepções, use vírgulas (',').\r\n"
 "Exemplo: *.minhalan.com, *.companhia.com"
 
+#. Resource IDs: (1538)
+msgid "Use Aero dialogs"
+msgstr "Usar diálogos Aero"
+
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Usar o URL da cópia de &trabalho como o URL \"De:\" por omissão"
@@ -9341,10 +9349,6 @@ msgstr "Usar ambos os blocos de texto (mas este em último lugar)"
 msgid "Use left file"
 msgstr "Usar o arquivo da esquerda"
 
-#. Resource IDs: (3)
-msgid "Use local"
-msgstr "Usar local"
-
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
 msgstr "Usar a reciclagem quando revertendo"
@@ -9352,10 +9356,6 @@ msgstr "Usar a reciclagem quando revertendo"
 #. Resource IDs: (116)
 msgid "Use regular expression"
 msgstr "Usar expressão regular"
-
-#. Resource IDs: (4)
-msgid "Use repository"
-msgstr "Usar repositório"
 
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
@@ -10667,6 +10667,12 @@ msgstr "sim"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid ""
+#~ "The URL to check out refers to a file but this\n"
+#~ "working copy path is an existing directory."
+#~ msgstr ""
+#~ "O URL a verificar é uma referência a um ficheiro mas esta\n"
+#~ "o caminho desta cópia de trabalho é um diretório."
 #~ msgid "Show &properties"
 #~ msgstr "Mostrar &propriedades"
 #~ msgid "Show i&gnored files"
