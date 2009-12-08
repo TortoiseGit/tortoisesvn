@@ -14,9 +14,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-10-10 16:07 +0000\n"
-"PO-Revision-Date: 2009-12-01 20:22-0500\n"
-"Last-Translator: Dany McCarthy <dany.mccarthy@gmail.com>\n"
+"POT-Creation-Date: 2009-11-16 07:38 +0000\n"
+"PO-Revision-Date: 2009-12-08 16:46+0100\n"
+"Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1357,7 +1357,7 @@ msgstr ""
 
 #. (title)
 msgid "Overriding Hooks"
-msgstr ""
+msgstr "Surcharger les hooks"
 
 #. (para)
 msgid "If a hook script rejects your commit then its decision is final. But you can build an override mechanism into the script itself using the <emphasis>Magic Word</emphasis> technique. If the script wants to reject the operation it first scans the log message for a special pass phrase, either a fixed phrase or perhaps the filename with a prefix. If it finds the magic word then it allows the commit to proceed. If the phrase is not found then it can block the commit with a message like <quote>You didn't say the magic word</quote> :-)"
@@ -2814,12 +2814,18 @@ msgstr "Quelques opérations communes ont des raccourcis Windows bien connus, ma
 msgid "authentication"
 msgstr "Authentification"
 
+#. (primary)
+#, fuzzy
+msgid "authentication cache"
+msgstr "Authentification"
+
 #. (title)
 msgid "Authentication Dialog"
 msgstr "Boîte de dialogue d'authentification"
 
 #. (para)
-msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password)."
+#, fuzzy
+msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password). Note that passwords are stored using the WinCrypt API, not in plain text form."
 msgstr "<filename>svn.simple</filename> contient les accréditations pour l'authentification de base (nom d'utilisateur/mot de passe)."
 
 #. (para)
@@ -2837,6 +2843,10 @@ msgstr "Si le référentiel auquel vous essayez d'avoir accès est protégé par
 #. (para)
 msgid "If you want to clear the authentication cache for all servers, you can do so from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings dialog. That button will clear all cached authentication data from the Subversion <filename>auth</filename> directories, as well as any authentication data stored in the registry by earlier versions of TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
 msgstr "Si vous voulez effacer le cache d'authentification pour tous les serveurs, vous pouvez le faire à partir de la page <guilabel>Données Sauvegardées</guilabel> de la boîte de dialogue de configuration de TortoiseSVN. Ce bouton effacera toutes les données d'authentification gardées en cache dans les répertoire <filename>auth</filename> de Subversion, aussi bien que les authentifications stockées par des versions précédemment installées de TortoiseSVN. Référez-vous à <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
+
+#. (para)
+msgid "If you want to clear authentication for one realm only then you will have to dig into those directories, find the file which contains the information you want to clear and delete the file."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -2890,7 +2900,8 @@ msgid "temporary files"
 msgstr "fichiers temporaires"
 
 #. (para)
-msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If are importing data into a new repository then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
+#, fuzzy
+msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If you are importing data into a new repository, then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
 msgstr "Si vous importez des éléments dans un référentiel contenant déjà des projets, alors la structure du référentiel aura déjà été décidée. Si vous importez des éléments dans un nouveau référentiel alors il est temps de penser comment vous souhaitez l'organiser. Lisez <xref linkend=\"tsvn-repository-layout\"/> pour avoir des conseils."
 
 #. (para)
@@ -4652,11 +4663,11 @@ msgstr "Révision de la Copie de Travail Courante"
 
 #. (para)
 msgid "Because the log dialog shows you the log from HEAD, not from the current working copy revision, it often happens that there are log messages shown for content which has not yet been updated in your working copy. To help make this clearer, the commit message which corresponds to the revision you have in your working copy is shown in bold."
-msgstr ""
+msgstr "La fenêtre de commentaires affichant les commentaires de la TÊTE et non de la révision de la copie de travail, il arrive souvent que des commentaires de livraisons non encore importées dans votre copie de travail soient affichés. Pour clarifier, le message de livraison correspondant à la révision de votre copie de travail est affiché en gras."
 
 #. (para)
 msgid "When you show the log for a folder the revision highlighted is the highest revision found anywhere within that folder, which requires a crawl of the working copy. The crawl takes place within a separate thread so as not to delay showing the log, but as a result highlighting for folders may not appear immediately."
-msgstr ""
+msgstr "Quand vous affichez les commentaires pour un répertoire,la révision mise en évidence est la plus élevée trouvée dans ce répertoire, ce qui nécessite un parcours de la copie de travail. Ce parcours est effectué dans un autre processus pour ne pas rallentir l'affichage des commentaires, par contre la mise en évidence de la révision peut ne pas apparaitre immédiatement."
 
 #. (title)
 msgid "Merge Tracking Features"
@@ -4739,7 +4750,7 @@ msgstr "Cliquez sur l'icone de recherche pour sélectionner le type d'informatio
 
 #. (para)
 msgid "If you don't use regex mode, you can enter several strings to search for, and only those log entries which match all of your filter words will be shown."
-msgstr ""
+msgstr "Si vous n'utilisez pas les expressions régulières, vous pouvez rechercher plusieurs chaines de caractères, ainsi seuls les commentaires satisfaisant ce filtre seront affiché."
 
 #. (para)
 msgid "To make the filter show all log entries that do <emphasis>not</emphasis> match the filter string, start the string with an exclamation mark ('!'). For example, a filter string <literal>!username</literal> will only show those entries which were not committed by <literal>username</literal>."
@@ -4885,7 +4896,7 @@ msgstr "Refraichissement de l'affichage"
 
 #. (para)
 msgid "If you want to check the server again for newer log messages, you can simply refresh the view using <keycap>F5</keycap>. If you are using the log cache (enabled by default), this will check the repository for newer messages and fetch only the new ones. If the log cache was in offline mode, this will also attempt to go back online."
-msgstr ""
+msgstr "Si vous voulez vérifier si de nouveaux commentaires sont arrivés sur le serveur, vous pouvez simplement rafraichir l'interface en appuyant sur <keycap>F5</keycap>. Si vous utilisez un cache pour les commentaires (ce qui est le comportement par défaut), cette vérification se fera et seuls les nouveaux commentaires seront rappatriés. Si le cache des commentaires était en mode hors ligne, il tentera de se reconnecter."
 
 #. (para)
 msgid "If you are using the log cache and you think the message content or author may have changed, you can use <keycap>Shift-F5</keycap> or <keycap>Ctrl-F5</keycap> to re-fetch the displayed messages from the server and update the log cache. Note that this only affects messages currently shown and does not invalidate the entire cache for that repository."
@@ -5079,7 +5090,7 @@ msgstr "Les boutons flanqués des numéros de révision peuvent être utilisés 
 
 #. (para)
 msgid "If the list of filenames is very long, you can use the search box to reduce the list to filenames containing specific text. Note that a simple text search is used, so if you want to restrict the list to C source files you should enter <filename>.c</filename> rather than <filename>*.c</filename>."
-msgstr ""
+msgstr "Si la liste des noms de fichier est très longue, vous pouvez utiliser le champ de recherche pour réduire sa taille.Remarquez qu'une simple recherche texte est utilisée, donc si vous voulez restreindre la liste aux fichier C vous devrez rechercher <filename>.c</filename> et non <filename>*.c</filename>."
 
 #. (title)
 msgid "Diffing Images Using TortoiseIDiff"
@@ -5118,11 +5129,11 @@ msgstr "Dans l'image, une boîte d'informations affiche les détails concernant 
 
 #. (para)
 msgid "When the images are overlaid, the relative intensity of the images (alpha blend) is controlled by a slider control at the left side. You can click anywhere in the slider to set the blend directly, or you can drag the slider to change the blend interactively. <keycap>Ctrl+Shift</keycap>-<action>Wheel</action> to change the blend."
-msgstr ""
+msgstr "Lorsque les images sont recouvertes, l'intensité relative des images (transparence) est contrôlée grâce à un ascenseur situé sur la gauche. Vous pouvez directement cliquer n'importe où sur l'ascenseur, ou faire glisser le curseur pour modifier interactivement sa valeur. <keycap>Ctrl+Shift</keycap>-<action>Roulette</action> pour modifier la transparence."
 
 #. (para)
 msgid "The button above the slider toggles between 0% and 100% blends, and if you double click the button, the blend toggles automatically every second until you click the button again. This can be useful when looking for multiple small changes."
-msgstr ""
+msgstr "Le bouton au dessus de l'ascenseur permet de passer de 0% à 100% de transparence, et si vous double-cliquez dessus, la transparence change automatiquement chaque seconde jusqu'à ce que vous cliquiez de nouveau. Ce qui peut être utile lorsque vous cherchez beaucoup de petites modifications."
 
 #. (para)
 msgid "Sometimes you want to see a difference rather than a blend. You might have the image files for two revisions of a printed circuit board and want to see which tracks have changed. If you disable alpha blend mode, the difference will be shown as an <emphasis>XOR</emphasis> of the pixel colour values. Unchanged areas will be plain white and changes will be coloured."
@@ -5334,7 +5345,7 @@ msgid "Cannot copy between repositories"
 msgstr "Impossible de copier entre référentiels"
 
 #. (para)
-msgid "Whilst you can copy and files and folders <emphasis>within</emphasis> a repository, you <emphasis>cannot</emphasis> copy or move from one repository to another while preserving history using TortoiseSVN. Not even if the repositories live on the same server. All you can do is copy the content in its current state and add it as new content to the second repository."
+msgid "Whilst you can copy or move files and folders <emphasis>within</emphasis> a repository, you <emphasis>cannot</emphasis> copy or move from one repository to another while preserving history using TortoiseSVN. Not even if the repositories live on the same server. All you can do is copy the content in its current state and add it as new content to the second repository."
 msgstr ""
 
 #. (para)
