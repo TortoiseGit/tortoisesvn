@@ -38,6 +38,7 @@
 #include "DropCopyCommand.h"
 #include "DropExportCommand.h"
 #include "DropMoveCommand.h"
+#include "EditFileCommand.h"
 #include "ExportCommand.h"
 #include "HelpCommand.h"
 #include "IgnoreCommand.h"
@@ -90,6 +91,7 @@ typedef enum
 	cmdDropCopyAdd,
 	cmdDropExport,
 	cmdDropMove,
+	cmdEditFile,
 	cmdExport,
 	cmdHelp,
 	cmdIgnore,
@@ -147,6 +149,7 @@ static const struct CommandInfo
 	{	cmdDropCopyAdd,		_T("dropcopyadd")		},
 	{	cmdDropExport,		_T("dropexport")		},
 	{	cmdDropMove,		_T("dropmove")			},
+	{	cmdEditFile,		_T("editfile")			},
 	{	cmdExport,			_T("export")			},
 	{	cmdHelp,			_T("help")				},
 	{	cmdIgnore,			_T("ignore")			},
@@ -239,6 +242,8 @@ Command * CommandServer::GetCommand(const CString& sCmd)
 		return new DropExportCommand;
 	case cmdDropMove:
 		return new DropMoveCommand;
+	case cmdEditFile:
+		return new EditFileCommand;
 	case cmdExport:
 		return new ExportCommand;
 	case cmdHelp:

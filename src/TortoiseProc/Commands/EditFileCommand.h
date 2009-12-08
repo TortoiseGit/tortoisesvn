@@ -39,9 +39,30 @@ private:
 
 	CTSVNPath path;
 
+	/// if set, we must unlock the file upon cleanup
+
+	bool needsLock; 
+
+	/// status check
+
+	bool IsModified();
+	bool IsLocked();
+
+	/// the individual steps of the sequence 
+
 	bool AutoCheckout();
+	bool AutoLock();
+	bool Edit();
+	bool AutoCheckin();
+	bool AutoUnLock();
 
 public:
+
+	/// construction / destruction
+
+	EditFileCommand();
+	virtual ~EditFileCommand();
+
 	/**
 	 * Executes the command.
 	 */

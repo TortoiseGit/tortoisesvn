@@ -21,8 +21,30 @@
 #include "TempFile.h"
 #include "SVN.h"
 #include "SVNInfo.h"
+#include "SVNStatus.h"
 #include "SVNProgressDlg.h"
 #include "SVNProperties.h"
+#include "CommitCommand.h"
+#include "LockCommand.h"
+
+// status check
+
+bool EditFileCommand::IsModified()
+{
+	return SVNStatus::GetAllStatus(path) != svn_wc_status_normal;
+}
+
+bool EditFileCommand::IsLocked()
+{
+	CTSVNPath dummy;
+	SVNStatus status;
+
+	svn_wc_status2_t *fileStatus
+		= status.GetFirstFileStatus (path, dummy, false, svn_depth_empty);
+	return fileStatus->locked != FALSE;
+}
+
+// the individual steps of the sequence 
 
 bool EditFileCommand::AutoCheckout()
 {
@@ -35,6 +57,9 @@ bool EditFileCommand::AutoCheckout()
 
 	if (cmdLinePath.IsUrl())
 	{
+		if (!revision.IsValid())
+			revision = SVNRev::REV_HEAD;
+
 		bool isFile = SVNInfo::IsFile (cmdLinePath, revision);
 
 		// create a temp. wc for the path to edit
@@ -57,10 +82,10 @@ bool EditFileCommand::AutoCheckout()
 				? CSVNProgressDlg::SVNProgress_SingleFileCheckout
 				: CSVNProgressDlg::SVNProgress_Checkout);
 
-		progDlg.SetAutoClose(TRUE);
-		progDlg.SetAutoCloseLocal(TRUE);
+		progDlg.SetAutoClose(CLOSE_NOERRORS);
+		progDlg.SetAutoCloseLocal(CLOSE_NOERRORS);
 		progDlg.SetOptions(ProgOptIgnoreExternals);
-		progDlg.SetPathList(CTSVNPathList(tempWC));
+		progDlg.SetPathList(CTSVNPathList(path));
 		progDlg.SetUrl(cmdLinePath.GetSVNPathString());
 		progDlg.SetRevision(revision);
 		progDlg.SetDepth(svn_depth_infinity);
@@ -75,21 +100,82 @@ bool EditFileCommand::AutoCheckout()
 	}
 }
 
+bool EditFileCommand::AutoLock()
+{
+	// needs lock?
+
+	SVNProperties properties (path, SVNRev::REV_WC, false);
+	if (!properties.HasProperty (SVN_PROP_NEEDS_LOCK))
+		return true;
+
+	// try to lock
+
+	LockCommand command;
+	command.SetPaths (CTSVNPathList (path), path);
+	needsLock = command.Execute();
+
+	return needsLock;
+}
+
+bool EditFileCommand::Edit()
+{
+	int result = (int)ShellExecute (NULL, _T("open"), path.GetWinPathString(), NULL, NULL, SW_SHOWNORMAL);
+	return result > HINSTANCE_ERROR;
+}
+
+bool EditFileCommand::AutoCheckin()
+{
+	// no-op, if not modified
+
+	if (!IsModified())
+		return true;
+
+	// check-in
+
+	CommitCommand command;
+	command.SetPaths (CTSVNPathList (path), path);
+	return command.Execute();
+}
+
+bool EditFileCommand::AutoUnLock()
+{
+	if (!needsLock || !IsLocked())
+		return true;
+
+	CSVNProgressDlg progDlg;
+	progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Unlock);
+	progDlg.SetOptions(ProgOptNone);
+	progDlg.SetPathList (CTSVNPathList (cmdLinePath));
+	progDlg.SetAutoClose (CLOSE_NOERRORS);
+	progDlg.SetAutoCloseLocal(CLOSE_NOERRORS);
+	progDlg.DoModal();
+
+	return !progDlg.DidErrorsOccur();
+}
+
+/// construction / destruction
+
+EditFileCommand::EditFileCommand()
+	: needsLock (false)
+{
+}
+
+EditFileCommand::~EditFileCommand()
+{
+	AutoUnLock();
+}
+
 bool EditFileCommand::Execute()
 {
-	/// make sure, the data is in a wc
+	// make sure, the data is in a wc
 
 	if (parser.HasKey (_T("revision")))
 		revision = SVNRev(parser.GetLongVal (_T("revision")));
 
-	if (!AutoCheckout())
-		return false;
+	// the sequence
 
-	// automatically lock the file / folder
-
-	SVNProperties properties (path, SVNRev::REV_WC, false);
-
-	// done
-
-	return true;
+	return AutoCheckout()
+		&& AutoLock()
+		&& Edit()
+		&& AutoCheckin();
 }
