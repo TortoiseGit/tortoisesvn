@@ -186,7 +186,7 @@ void CCacheLogQuery::CLogFiller::AutoAddSkipRange (revision_t revision)
 }
 
 ///////////////////////////////////////////////////////////////
-// make sure, we can iterator over the given range for the given path
+// make sure, we can iterate over the given range for the given path
 ///////////////////////////////////////////////////////////////
 
 void CCacheLogQuery::CLogFiller::MakeRangeIterable ( const CDictionaryBasedPath& path
