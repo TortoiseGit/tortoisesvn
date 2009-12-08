@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-12-04 16:32+0100\n"
+"PO-Revision-Date: 2009-12-08 16:26+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4252,15 +4252,15 @@ msgstr "Vergelijk met vorige revisie"
 
 #. (para)
 msgid "Compare the selected revision with the previous revision. This works in a similar manner to comparing with your working copy. For folders this option will first show the changed files dialog allowing you to select files to compare."
-msgstr ""
+msgstr "Vergelijk de geselecteerde revisie met de vorige revisie. Deze functie werkt ongeveer gelijk als het vergelijken met je werkkopie. Als je deze functie gebruikt op mappen, dan zal er eerst een venster weergegeven worden met gewijzigde bestanden. Je kunt dan selecteren welke bestanden je wilt vergelijken."
 
 #. (term)
 msgid "Compare and blame with previous revision"
-msgstr ""
+msgstr "Vergelijk en verklaar met vorige revisie"
 
 #. (para)
 msgid "Show the changed files dialog allowing you to select files. Blame the selected revision, and the previous revision, and compare the results using a visual diff tool. (folders only)."
-msgstr ""
+msgstr "Toont het venster met de gewijzigde bestanden, waarin je de te vergelijken bestanden kunt selecteren. Het geselecteerde bestand en de vorige revisie vergelijken en de verschillen verklaren met een visueel diff programma.  (Alleen voor mappen)."
 
 #. (term)
 #. (term)
@@ -4269,7 +4269,7 @@ msgstr "Bewaar revisie in..."
 
 #. (para)
 msgid "Save the selected revision to a file so you have an older version of that file. (files only)."
-msgstr ""
+msgstr "De geselecteerde revisie opslaan in een bestand, zodat je de oude versie van het bestand hebt. (Alleen voor bestanden)"
 
 #. (term)
 #. (term)
@@ -4278,16 +4278,16 @@ msgstr "Openen / Openen met..."
 
 #. (para)
 msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose. (files only)."
-msgstr ""
+msgstr "Open het geselecteerd bestand met het standaard ingestelde programma voor dat bestandstype, of met een door jou geselecteerd programma. (Allen voor bestanden)"
 
 #. (term)
 #. (term)
 msgid "Blame..."
-msgstr ""
+msgstr "Verklaren..."
 
 #. (para)
 msgid "Blame the file up to the selected revision. (files only)."
-msgstr ""
+msgstr "Het geselecteerde bestand tot aan de geselecteerde revisie verklaren. (Alleen voor bestanden)"
 
 #. (term)
 msgid "Browse repository"
@@ -4295,7 +4295,7 @@ msgstr "Archief bekijken"
 
 #. (para)
 msgid "Open the repository browser to examine the selected file or folder in the repository as it was at the selected revision."
-msgstr ""
+msgstr "Open de archief-verkenner om de geselecteerde bestanden en mappen te onderzoeken zoals deze waren op het moment van de geselecteerde revisie."
 
 #. (term)
 msgid "Create branch/tag from revision"
@@ -4303,7 +4303,7 @@ msgstr "Maak tak/label van revisie"
 
 #. (para)
 msgid "Create a branch or tag from a selected revision. This is useful e.g. if you forgot to create a tag and already committed some changes which weren't supposed to get into that release."
-msgstr ""
+msgstr "Maak een tak of label van de geselecteerde revisie. Deze functie is handig als je bijvoorbeeld vergeten bent een label aan te maken terwijl je wijzigingen al vastgelegd hebt, die eigenlijk niet in die versie zouden moeten zitten."
 
 #. (term)
 msgid "Update item to revision"
@@ -4311,11 +4311,11 @@ msgstr "Ververs onderdeel naar revisie"
 
 #. (para)
 msgid "Update your working copy to the selected revision. Useful if you want to have your working copy reflect a time in the past, or if there have been further commits to the repository and you want to update your working copy one step at a time. It is best to update a whole directory in your working copy, not just one file, otherwise your working copy could be inconsistent."
-msgstr ""
+msgstr "Ververs je werkkopie met de  gegevens van de geselecteerd revisie. Deze functie is handig als je de status van een project wilt bekijken uit het verleden. Ook is deze handig als er verschillende nieuwe revisies zijn aangemaakt en je je eigen werkkopie stapsgewijs wilt bijwerken in plaats van in één keer de hele sprong te nemen. Het is verstandig om een hele map te verversen in plaats van losse bestanden. Hiermee voorkom je dat je werkkopie inconsistenties zal bevatten."
 
 #. (para)
 msgid "If you want to undo an earlier change permanently, use <guilabel>Revert to this revision</guilabel> instead."
-msgstr ""
+msgstr "Als je een eerdere wijziging permanent ongedaan wilt maken, gebruik dan <guilabel>Ongedaan maken tot deze revisie</guilabel>."
 
 #. (term)
 msgid "Revert to this revision"
@@ -4323,41 +4323,41 @@ msgstr "Ongedaan maken tot deze revisie"
 
 #. (para)
 msgid "Revert to an earlier revision. If you have made several changes, and then decide that you really want to go back to how things were in revision N, this is the command you need. The changes are undone in your working copy so this operation does <emphasis>not</emphasis> affect the repository until you commit the changes. Note that this will undo <emphasis>all</emphasis> changes made after the selected revision, replacing the file/folder with the earlier version."
-msgstr ""
+msgstr "Maak de wijzigingen ongedaan en ga terug naar de geselecteerd revisie. Mocht je wijzigingen gemaakt hebben en tot de conclusie komen dat je eigenlijk terug wilt naar de stand van zaken bij revisie N, dan is dit het commando dat je moet gebruiken. Met deze functie maak je de wijzigingen die je doorgevoerd heb in je werkkopie ongedaan. Deze functie veranderd dus <emphasis>niets</emphasis> in het archief, totdat je zelf wijzigingen vastlegt. Merk op dat deze functie <emphasis>alle</emphasis> wijzigingen die gedaan zijn na de geselecteerde revisie ongedaan maakt en dus het bestand of de map vervangt door de oudere versie."
 
 #. (para)
 #. (para)
 msgid "If your working copy is in an unmodified state, after you perform this action your working copy will show as modified. If you already have local changes, this command will merge the <emphasis>undo</emphasis> changes into your working copy."
-msgstr ""
+msgstr "Als je werkkopie voordat je deze actie uitvoert ongewijzigd is, dan zal na deze actie je werkkopie als gewijzigd aangegeven worden. Als je al lokale wijzigingen had aangebracht, dan zal met dit commando de <emphasis>ongedaan-maken<emphasis> wijzigingen worden samengevoegd in je werkkopie."
 
 #. (para)
 msgid "What is happening internally is that Subversion performs a reverse merge of all the changes made after the selected revision, undoing the effect of those previous commits."
-msgstr ""
+msgstr "Op de achtergrond voert Subversion eigenlijk een samenvoeging van aangebrachte wijzigingen tot aan de geselecteerde revisie achterstevoren uit, waardoor de acties van eerdere vastleggingen ongedaan worden gemaakt."
 
 #. (para)
 msgid "If after performing this action you decide that you want to <emphasis>undo the undo</emphasis> and get your working copy back to its previous unmodified state, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> from within Windows Explorer, which will discard the local modifications made by this reverse merge action."
-msgstr ""
+msgstr "Als je na het uitvoeren van deze actie bedenkt dat je eigenlijk de <emphasis>ongedaanmaking ongedaan wilt maken</emphasis>, zodat je je werkkopie terugkrijgt in de ongewijzigde situatie, dan moet je de functie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ongedaan maken</guimenuitem></menuchoice> gebruiken vanuit de Windows Verkenner. Hiermee worden de lokale wijzigingen die door deze achterstevoren-samenvoeging waren gemaakt, teruggedraaid."
 
 #. (para)
 msgid "If you simply want to see what a file or folder looked like at an earlier revision, use <guilabel>Update to revision</guilabel> or <guilabel>Save revision as...</guilabel> instead."
-msgstr ""
+msgstr "Als je alleen maar wilt zien hoe een bestand of map er uit zag bij een eerdere revisie, gebruik dan <guilabel>Verversen naar revisie</guilabel> of <guilabel>Revisie opslaan als...</guilabel>."
 
 #. (term)
 #. (term)
 msgid "Revert changes from this revision"
-msgstr ""
+msgstr "Revisie wijzigingen ongedaan maken"
 
 #. (para)
 msgid "Undo changes from which were made in the selected revision. The changes are undone in your working copy so this operation does <emphasis>not</emphasis> affect the repository at all! Note that this will undo the changes made in that revision only; it does not replace your working copy with the entire file at the earlier revision. This is very useful for undoing an earlier change when other unrelated changes have been made since."
-msgstr ""
+msgstr "Wijzigingen van de geselecteerde revisie ongedaan maken. De wijzigingen worden ongedaan gemaakt in je werkkopie, oftewel in het archief zal er <emphasis>niets</emphasis> veranderd worden. Merk op dat hiermee alleen de wijzigingen van die revisie ongedaan worden gemaakt in je lokale bestand; het bestand in je werkkopie wordt niet compleet vervangen door die van de eerdere revisie. Deze functie is erg handig als je een eerdere wijziging ongedaan wilt maken, terwijl er in de tussentijd andere ongerelateerde wijzigingen zijn doorgevoerd."
 
 #. (para)
 msgid "What is happening internally is that Subversion performs a reverse merge of that one revision, undoing its effect from a previous commit."
-msgstr ""
+msgstr "Op de achtergrond voert Subversion eigenlijk een samenvoeging van die specifieke revisie achterstevoren uit, waardoor het resultaat van een vorige vastlegging ongedaan wordt gemaakt."
 
 #. (para)
 msgid "You can <emphasis>undo the undo</emphasis> as described above in <guilabel>Revert to this revision</guilabel>."
-msgstr ""
+msgstr "Je kunt de <emphasis>ongedaanmaking weer ongedaan maken</emphasis> zoals eerder beschreven is bij <guilabel> Ongedaan maken tot deze revisie</guilabel>."
 
 #. (term)
 msgid "Merge revision to..."
@@ -4365,15 +4365,15 @@ msgstr "Voeg revisie samen met..."
 
 #. (para)
 msgid "Merge the selected revision(s) into a different working copy. A folder selection dialog allows you to choose the working copy to merge into, but after that there is no confirmation dialog, nor any opportunity to try a test merge. It is a good idea to merge into an unmodified working copy so that you can revert the changes if it doesn't work out! This is a useful feature if you want to merge selected revisions from one branch to another."
-msgstr ""
+msgstr "Voeg de geselecteerde revisie(s) samen in een andere werkkopie. In venster kun de map selecteren van de werkkopie waarin je de samenvoeging wilt opslaan. Daarna komt er geen bevestigingsvenster meer en is er ook geen optie om de samenvoeging te testen. Het is daarom verstanding om de samenvoeging uit te voeren in een ongewijzigde werkkopie, zodat je de wijzigingen ongedaan kunt maken als het uiteindelijk niet blijkt te worden wat je had willen hebben. Deze functie komt van pas als je revisies van één tak in een andere wilt samenvoegen."
 
 #. (term)
 msgid "Checkout..."
-msgstr ""
+msgstr "Ophalen..."
 
 #. (para)
 msgid "Make a fresh checkout of the selected folder at the selected revision. This brings up a dialog for you to confirm the URL and revision, and select a location for the checkout."
-msgstr ""
+msgstr "Haal een verse kopie op van de geselecteerde map uit de betreffende revisie. Er wordt dan een venster weergegeven waarin je de URL en de revisie moet bevestigen en de locatie waar de map naartoe opgehaald moet worden. "
 
 #. (term)
 msgid "Export..."
@@ -4381,7 +4381,7 @@ msgstr "Exporteren..."
 
 #. (para)
 msgid "Export the selected file/folder at the selected revision. This brings up a dialog for you to confirm the URL and revision, and select a location for the export."
-msgstr ""
+msgstr "Exporteer het geselecteerde bestand of de map van de geselecteerde revisie. Er wordt dan een venster weergegeven waarin je de URL en de revisie moet bevestigen en de locatie op moet geven waar naartoe de map geëxporteerd moet worden."
 
 #. (term)
 msgid "Edit author / log message"
