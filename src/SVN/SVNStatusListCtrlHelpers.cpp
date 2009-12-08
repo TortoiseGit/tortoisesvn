@@ -66,12 +66,13 @@ void CSVNStatusListCtrl::PropertyList::GetPropertyNames (std::set<CString>& name
 
 // get a property value. 
 
-CString CSVNStatusListCtrl::PropertyList::operator[](const CString& name) const
+const CString& CSVNStatusListCtrl::PropertyList::operator[](const CString& name) const
 {
+	static const CString empty;
 	CIT iter = properties.find (name);
 
 	return iter == properties.end()
-		? CString()
+		? empty
 		: iter->second;
 }
 

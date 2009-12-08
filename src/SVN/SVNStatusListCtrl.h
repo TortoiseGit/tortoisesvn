@@ -238,7 +238,7 @@ public:
         /// get a property value. 
         /// Returns an empty string if there is no such property.
 
-        CString operator[](const CString& name) const;
+        const CString& operator[](const CString& name) const;
 
         /// set a property value.
         /// The function assert()s that the name is a key in the 
