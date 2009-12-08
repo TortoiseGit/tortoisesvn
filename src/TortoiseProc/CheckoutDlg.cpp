@@ -254,12 +254,14 @@ void CCheckoutDlg::OnOK()
 	{
 		CTSVNPath targetPath (m_strCheckoutDirectory);
 
-		// single-file checkouts are not supported directly by SVN.
+		// don't try to overwrite existing folders with a file
 
 		if (PathFileExists(m_strCheckoutDirectory) && targetPath.IsDirectory())
 		{
-			ShowBalloon(IDC_CHECKOUTDIRECTORY, IDS_ERR_ISEXISINGDIR);
-			return;
+			// c/o *into* existing folder
+
+			targetPath.AppendPathString (CTSVNPath(m_URL).GetFilename());
+			m_strCheckoutDirectory = targetPath.GetWinPathString();
 		}
 
 		// the parent must exist
@@ -272,14 +274,24 @@ void CCheckoutDlg::OnOK()
 		CString parentURL 
 			= CTSVNPath(m_URL).GetContainingDirectory().GetSVNPathString();
 
+		// workaround for SVN path check bug:
+		// if path X:/y is not a wc, SVN will test X: and
+		// a debug assertion is triggered by X: not begin canonical
+
 		SVNInfo info;
 		const SVNInfoData* infoData 
-			= info.GetFirstFileInfo (targetPath, SVNRev(), SVNRev());
-		if ((infoData == NULL) || (infoData->url != parentURL))
-		{
-			m_parentExists = false;
+			= targetPath.HasAdminDir()
+			? info.GetFirstFileInfo (targetPath, SVNRev(), SVNRev())
+			: NULL;
 
-			if (!PathIsDirectoryEmpty(targetPath.GetWinPath()))
+		// exists with matching URL?
+
+		m_parentExists = (infoData != NULL) && (infoData->url == parentURL);
+		if (!m_parentExists)
+		{
+			// trying to c/o into an existing, non-empty folder?
+
+			if (!PathIsDirectoryEmpty (targetPath.GetWinPath()))
 			{
 				CString message;
 				message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)), targetPath.GetWinPath());
@@ -289,12 +301,6 @@ void CCheckoutDlg::OnOK()
 					return;		//don't dismiss the dialog
 				}
 			}
-		}
-		else
-		{
-			// we don't need to c/o again
-
-			m_parentExists = true;
 		}
 	}
 	else
