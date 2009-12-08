@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-11-30 22:06-0300\n"
-"Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
+"PO-Revision-Date: 2009-12-07 19:35-0300\n"
+"Last-Translator: Eduardo Marques <eduardo@eduardomarques.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -216,7 +216,7 @@ msgstr "pelos estilos da documentação de onde copiamos"
 
 #. (term)
 msgid "Our Contributors"
-msgstr "Nossos contribuintes"
+msgstr "Nossos contribuidores"
 
 #. (para)
 msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list."
@@ -224,7 +224,7 @@ msgstr "pelas correções, erros reportados e novas idéias, e por ajudar a outr
 
 #. (term)
 msgid "Our Donators"
-msgstr "Nossos colaboradores"
+msgstr "Nossos doadores"
 
 #. (para)
 msgid "for many hours of joy with the music they sent us"
@@ -294,7 +294,7 @@ msgstr "O que é o TortoiseSVN?"
 
 #. (para)
 msgid "TortoiseSVN is a free open-source client for the <firstterm>Subversion</firstterm> version control system. That is, TortoiseSVN manages files and directories over time. Files are stored in a central <firstterm>repository</firstterm>. The repository is much like an ordinary file server, except that it remembers every change ever made to your files and directories. This allows you to recover older versions of your files and examine the history of how and when your data changed, and who changed it. This is why many people think of Subversion and version control systems in general as a sort of <quote>time machine</quote>."
-msgstr "ortoiseSVN é um aplicativo gratuito de código aberto para o sistema de controle de versão <firstterm>Subversion</firstterm>. Isto é, TortoiseSVN controla os arquivos e diretórios ao longo do tempo. Os arquivos são gravados em um <firstterm>repository</firstterm> central. O repositório é muito parecido com um arquivo qualquer do servidor, exceto que ele contém cada alteração feita em seus arquivos e diretórios. Isto lhe permite voltar antigas versões de seus arquivos e analisar o histórico de como e quando seus dados foram modificados, e quem fez a alteração. Esta é a razão de muitas pessoas pensarem que de um modo geral o Subversion e o controle de versão é uma <quote>time machine</quote>."
+msgstr "TortoiseSVN é um aplicativo gratuito de código aberto para o sistema de controle de versão <firstterm>Subversion</firstterm>. Isto é, TortoiseSVN controla os arquivos e diretórios ao longo do tempo. Os arquivos são gravados em um <firstterm>repository</firstterm> central. O repositório é muito parecido com um arquivo qualquer do servidor, exceto que ele contém cada alteração feita em seus arquivos e diretórios. Isto lhe permite voltar antigas versões de seus arquivos e analisar o histórico de como e quando seus dados foram modificados, e quem fez a alteração. Esta é a razão de muitas pessoas pensarem que de um modo geral o Subversion e o controle de versão é uma <quote>time machine</quote>."
 
 #. (para)
 msgid "Some version control systems are also software configuration management (SCM) systems. These systems are specifically tailored to manage trees of source code, and have many features that are specific to software development - such as natively understanding programming languages, or supplying tools for building software. Subversion, however, is not one of these systems; it is a general system that can be used to manage <emphasis>any</emphasis> collection of files, including source code."
@@ -365,7 +365,7 @@ msgstr "Todos os comandos do Subversion estão disponíveis nos menus do explore
 
 #. (para)
 msgid "Since TortoiseSVN is a Subversion client, we would also like to show you some of the features of Subversion itself:"
-msgstr "Uma vez que TortoiseSVN é um aplicativo cliente do Subversion, nós gostariamos também de mostrar a voew algumas das funcionalidades do Subversion:"
+msgstr "Uma vez que TortoiseSVN é um aplicativo cliente do Subversion, também gostaríamos de mostrar a você algumas das funcionalidades do Subversion:"
 
 #. (term)
 msgid "Directory versioning"
@@ -573,7 +573,7 @@ msgstr "Um típico sistema Cliente/Servidor"
 
 #. (para)
 msgid "So why is this interesting? So far, this sounds like the definition of a typical file server. And indeed, the repository <emphasis>is</emphasis> a kind of file server, but it's not your usual breed. What makes the Subversion repository special is that <emphasis>it remembers every change</emphasis> ever written to it: every change to every file, and even changes to the directory tree itself, such as the addition, deletion, and rearrangement of files and directories."
-msgstr "Então porque isto é interessnate? Até agora, isso se parece com a definição de um típico servidor de arquivos. E de verdade, o repositório <emphasis>é</emphasis> um tipo de servidor de arquivos, mas não é sua função normal. O que o repositório do Subversion faz de especial é que <emphasis>ele guarda cada modificação</emphasis> feita: cada modificação para cada arquivos, e mesmo as modificações na prória estrutura de diretórios, como adição, exclusão e reorganização de arquivos e diretórios."
+msgstr "Então porque isto é interessante? Até agora, isso se parece com a definição de um típico servidor de arquivos. E de verdade, o repositório <emphasis>é</emphasis> um tipo de servidor de arquivos, mas não é sua função normal. O que o repositório do Subversion faz de especial é que <emphasis>ele guarda cada modificação</emphasis> feita: cada modificação para cada arquivo e mesmo as modificações na prória estrutura de diretórios, como adição, exclusão e reorganização de arquivos e diretórios."
 
 #. (para)
 msgid "When a client reads data from the repository, it normally sees only the latest version of the filesystem tree. But the client also has the ability to view <emphasis>previous</emphasis> states of the filesystem. For example, a client can ask historical questions like, <quote>what did this directory contain last Wednesday?</quote>, or <quote>who was the last person to change this file, and what changes did they make?</quote> These are the sorts of questions that are at the heart of any <firstterm>version control system</firstterm>: systems that are designed to record and track changes to data over time."
@@ -2658,7 +2658,7 @@ msgstr ""
 
 #. (title)
 msgid "Importing Data Into A Repository"
-msgstr "Importando Dados Para um Repositório"
+msgstr "Importando Dados Para Um Repositório"
 
 #. (primary)
 msgid "import"
@@ -2681,35 +2681,35 @@ msgstr "arquivos temporários"
 
 #. (para)
 msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If you are importing data into a new repository, then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
-msgstr ""
+msgstr "Se você está importando dados para um repositório existente que já contém algum projeto, a estrutura desse repositório já deverá estar definida. Se você está importando dados para um novo repositório, recomenda-se que dispense algum tempo para definir como esse repositório será organizado. Leia <xref linkend=\"tsvn-repository-layout\"/> para recomendações adicionais."
 
 #. (para)
 msgid "There is no way to select files and folders to include, aside from using the global ignore settings."
-msgstr ""
+msgstr "Não há qualquer maneira de selecionar os arquivos e pastas que deverão ser incluídos, em compensação poderá utilizar as configurações globais para ignorar alguns arquivos e pastas."
 
 #. (para)
 msgid "The folder imported does not become a working copy. You have to do a checkout to copy the files back from the server."
-msgstr ""
+msgstr "A pasta importada não se torna uma cópia de trabalho. Você tem que fazer um checkout para copiar os arquivos desde o servidor."
 
 #. (para)
 msgid "It is easy to import to the wrong folder level in the repository."
-msgstr ""
+msgstr "É fácil importar para uma pasta equivocada no repositório."
 
 #. (para)
 msgid "This section describes the Subversion import command, which was designed for importing a directory hierarchy into the repository in one shot. Although it does the job, it has several shortcomings: <placeholder-1/> For these reasons we recommend that you do not use the import command at all but rather follow the two-step method described in <xref linkend=\"tsvn-dug-import-in-place\"/>. But since you are here, this is how the basic import works ..."
-msgstr ""
+msgstr "Esta seção descreve o comando de importação do Subversion, o qual foi projetado para a importação de diretórios hierárquicos para o repositório em apenas um passo. Embora faça o trabalho, o comando de importação possui algumas deficiências: <placeholder-1/> Por essas razões, recomendamos que você não use o comando de importação, mas sim que siga o método de duas etapas descrito em <xref linkend=\"tsvn-dug-import-in-place\"/>. Mas já que você está aqui, de forma básica é assim que funciona a importação ..."
 
 #. (para)
 msgid "Remove all files which are not needed to build the project (temporary files, files which are generated by a compiler e.g. *.obj, compiled binaries, ...)"
-msgstr ""
+msgstr "Remova todos os arquivos que não são necessários para construir o projeto (arquivos temporários, arquivos que são gerados por um compilador como por exemplo *. obj, binários compilados, ...)"
 
 #. (para)
 msgid "Organize the files in folders and sub-folders. Although it is possible to rename/move files later it is highly recommended to get your project's structure straight before importing!"
-msgstr ""
+msgstr "Organize os arquivos em pastas e sub-pastas. Embora posteriormente seja possível renomear/mover arquivos, é altamente recomendado que obtenha a estrutura correta do seu projeto antes de realizar a importação!"
 
 #. (para)
 msgid "Before you import your project into a repository you should: <placeholder-1/>"
-msgstr ""
+msgstr "Antes de importar seu projeto para um repositório, você deveria: <placeholder-1/>"
 
 #. (title)
 msgid "The Import dialog"
@@ -2717,7 +2717,7 @@ msgstr "A Janela de Importação"
 
 #. (para)
 msgid "Now select the top-level folder of your project directory structure in the windows explorer and <action>right click</action> to open the context menu. Select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> which brings up a dialog box: <placeholder-1/>"
-msgstr ""
+msgstr "Agora selecione a pasta de nível superior da sua estrutura de diretório do projeto no Windows Explorer e <action>com o botão direito</action> clique para abrir o menu de contexto. Selecione o comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Importar ...</guimenuitem></ menuchoice>, o qual trará uma janela de diálogo: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -2727,6 +2727,11 @@ msgid ""
 "C:\\Projects\\Widget\\images\n"
 "</screen> and you import <filename>C:\\Projects\\Widget</filename> into <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> then you may be surprised to find that your subdirectories go straight into <literal>trunk</literal> rather than being in a <literal>Widget</literal> subdirectory. You need to specify the subdirectory as part of the URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Note that the import command will automatically create subdirectories within the repository if they do not exist."
 msgstr ""
+"Nesta janela de diálogo, você deve digitar a URL do local do repositório para onde você deseja importar o seu projeto. É muito importante que a pasta local que está importando não apareça no repositório, mas apenas o seu conteúdo. Por exemplo, se você tem uma estrutura: <screen>\n"
+"C:\\Projects\\Widget\\source\n"
+"C:\\Projects\\Widget\\doc\n"
+"C:\\Projects\\Widget\\images\n"
+"</screen> e você está importando <filename>C:\\Projects\\Widget</filename> para <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> você se surpreenderá ao descobrir que seu subdiretórios irão diretamente para <literal>trunk</literal>, ao invés de irem para o subdiretório <literal>Widget</literal>. Você deverá especificar o subdiretório como parte do URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Note que o comando de importação irá criar automaticamente subdiretórios dentro do repositório se eles não existirem."
 
 #. (para)
 msgid "The import message is used as a log message."
@@ -2734,11 +2739,11 @@ msgstr "A mensagem de importação é usada como uma mensagem para o histórico.
 
 #. (para)
 msgid "By default, files and folders which match the global-ignore patterns are <emphasis>not</emphasis> imported. To override this behaviour you can use the <guilabel>Include ignored files</guilabel> checkbox. Refer to <xref linkend=\"tsvn-dug-settings-main\"/> for more information on setting a global ignore pattern."
-msgstr ""
+msgstr "Por padrão, arquivos e pastas que correspondem aos padrões globais de pastas/arquivos ignorados, <emphasis>não</emphasis> são importados. Para contornar esse comportamento você pode utilizar o recurso <guilabel>Incluir arquivos ignorados</guilabel>. Consulte <xref linkend=\"tsvn-dug-settings-main\"/> para obter mais informações sobre como definir um padrão global para ignorar pastas/arquivos."
 
 #. (para)
 msgid "As soon as you press <guibutton>OK</guibutton> TortoiseSVN imports the complete directory tree including all files into the repository. The project is now stored in the repository under version control. Please note that the folder you imported is <emphasis>NOT</emphasis> under version control! To get a version-controlled <firstterm>working copy</firstterm> you need to do a Checkout of the version you just imported. Or read on to find out how to import a folder in place."
-msgstr ""
+msgstr "Assim que clicar em <guibutton>OK</guibutton> TortoiseSVN inicia a importação da \"árvore\" de diretórios, incluindo todos os arquivos. O projeto estará armazenado no repositório sob controle de versão. Por favor note que a pasta que você importou <emphasis>NÃO</emphasis> está sob controle de versão! Para obter uma <firstterm>cópia de trabalho</firstterm> com versão controlada, você deverá fazer um Checkout da versão que você acabou de importar. Ou continue lendo sobre como proceder em \"Importando na Pasta\"."
 
 #. (title)
 msgid "Import in Place"
@@ -2750,23 +2755,23 @@ msgstr "importando na pasta"
 
 #. (para)
 msgid "Use the repository browser to create a new project folder directly in the repository."
-msgstr ""
+msgstr "Use o navegador de repositório para criar uma nova pasta de projeto diretamente no repositório."
 
 #. (para)
 msgid "Checkout the new folder over the top of the folder you want to import. You will get a warning that the local folder is not empty. Now you have a versioned top level folder with unversioned content."
-msgstr ""
+msgstr "Checkout a nova pasta em um nível superior à pasta que você deseja importar. Você receberá um aviso de que a pasta local não está vazia. Agora você tem uma pasta de nível superior com controle de versão, mas com conteúdo sem controle de versão."
 
 #. (para)
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add...</guimenuitem></menuchoice> on this versioned folder to add some or all of the content. You can add and remove files, set <literal>svn:ignore</literal> properties on folders and make any other changes you need to."
-msgstr ""
+msgstr "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Adicionar...</guimenuitem></menuchoice> na pasta sob controle de versão para adicionar algum ou todo conteúdo. Você pode adicionar e remover arquivos, defina as configurações em <literal>svn:ignore</literal> para as pastas e faça outras alterações que você necessita."
 
 #. (para)
 msgid "Commit the top level folder, and you have a new versioned tree, and a local working copy, created from your existing folder."
-msgstr ""
+msgstr "Ao submeter a pasta de nível superior, você terá uma nova \"árvore\" sob controle de versão e uma cópia local de trabalho, criada a partir de sua pasta existente."
 
 #. (para)
 msgid "Assuming you already have a repository, and you want to add a new folder structure to it, just follow these steps: <placeholder-1/>"
-msgstr ""
+msgstr "Assumindo que você já possui um repositório e que deseja adicionar uma nova pasta na estrutura desse repositório, apenas siga estes passos: <placeholder-1/>"
 
 #. (title)
 msgid "Special Files"
@@ -2778,19 +2783,19 @@ msgstr "arquivos especiais"
 
 #. (para)
 msgid "Sometimes you need to have a file under version control which contains user specific data. That means you have a file which every developer/user needs to modify to suit his/her local setup. But versioning such a file is difficult because every user would commit his/her changes every time to the repository."
-msgstr ""
+msgstr "Às vezes, você precisa ter um arquivo sob controle de versão que contém dados específicos de usuário. Isso significa que você terá um arquivo que todo desenvolvedor/usuário precisará modificar para adequá-lo a sua configuração local. Portanto, é difícil manter um arquivo sob controle de versão porque cada usuário poderá submeter alterações no repositório constantemente."
 
 #. (para)
 msgid "In such cases we suggest to use <emphasis>template</emphasis> files. You create a file which contains all the data your developers will need, add that file to version control and let the developers check this file out. Then, each developer has to <emphasis>make a copy</emphasis> of that file and rename that copy. After that, modifying the copy is not a problem anymore."
-msgstr ""
+msgstr "Nesses casos, sugere-se a utilização de um arquivo <emphasis>modelo</emphasis>. Crie um arquivo que contém todos os dados que seus desenvolvedores necessitam, adicione e mantenha esse arquivo sob controle de versão e permita que os desenvolvedores façam o Checkout desse arquivo. Em seguida, cada desenvolvedor deverá fazer <emphasis>uma cópia</ emphasis> desse arquivo e renomear essa cópia. Assim feito, as modificações nesse arquivo deixarão de ser um problema."
 
 #. (para)
 msgid "As an example, you can have a look at TortoiseSVN's build script. It calls a file named <filename>TortoiseVars.bat</filename> which doesn't exist in the repository. Only the file <filename>TortoiseVars.tmpl</filename>. <filename>TortoiseVars.tmpl</filename> is the template file which every developer has to create a copy from and rename that file to <filename>TortoiseVars.bat</filename>. Inside that file, we added comments so that the users will see which lines they have to edit and change according to their local setup to get it working."
-msgstr ""
+msgstr "Por exemplo, veja que script TortoiseSVN chama um arquivo chamado <filename>TortoiseVars.bat</filename> que não existe no repositório. Somente existe o arquivo <filename>TortoiseVars.tmpl</filename>. <filename>TortoiseVars.tmpl</filename> é o arquivo modelo que cada colaborador deve criar uma cópia e renomear a cópia para <filename>TortoiseVars.bat</filename>. Nesse arquivo, adicionamos comentários para que os usuários vejam as linhas que eles devem editar e mudar de acordo com sua instalação local."
 
 #. (para)
 msgid "So as not to disturb the users, we also added the file <filename>TortoiseVars.bat</filename> to the ignore list of its parent folder, i.e. we've set the Subversion property <literal>svn:ignore</literal> to include that filename. That way it won't show up as unversioned on every commit."
-msgstr ""
+msgstr "Portanto, para não perturbar usuários, também adicionamos o arquivo <filename>TortoiseVars.bat</filename> para a lista de \"ignorados\" da pasta que o contém, ou seja, configuramos <literal>svn:ignore</literal> para incluir esse arquivo. Dessa forma, ele não aparecerá como \"não versionado\" em cada submissão."
 
 #. (title)
 msgid "Checking Out A Working Copy"
