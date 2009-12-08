@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-11-26 11:12+0100\n"
+"PO-Revision-Date: 2009-12-08 09:11+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3443,10 +3443,10 @@ msgstr "Logmeldung bearbeiten"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%s' on\r\n"
+"Edit property '%S' on\r\n"
 "%s"
 msgstr ""
-"Ändere Eigenschaft '%s' von\r\n"
+"Ändere Eigenschaft '%S' von\r\n"
 "%s"
 
 #. Resource IDs: (1331, 1382)
@@ -6698,10 +6698,10 @@ msgstr "Lösche aus Änderungsliste"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%s' from\r\n"
+"Remove property '%S' from\r\n"
 "%s"
 msgstr ""
-"Entferne Eigenschaft '%s' von\r\n"
+"Entferne Eigenschaft '%S' von\r\n"
 "%s"
 
 #. Resource IDs: (610)
@@ -7465,10 +7465,10 @@ msgstr "Dateidatum auf '&Datum der letzten Übertragung' setzen"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%s' on\r\n"
+"Set property '%S' on\r\n"
 "%s"
 msgstr ""
-"Setze Eigenschaft '%s' auf\r\n"
+"Setze Eigenschaft '%S' auf\r\n"
 "%s"
 
 #. Resource IDs: (13)
@@ -8174,14 +8174,6 @@ msgstr "Objekt / Inhalt:"
 #. Resource IDs: (207)
 msgid "Text status"
 msgstr "Text Status"
-
-#. Resource IDs: (84)
-msgid ""
-"The URL to check out refers to a file but this\n"
-"working copy path is an existing directory."
-msgstr ""
-"Die Ziel URL verweist auf eine Datei, aber\n"
-"der Pfad der Arbeitskopie ist ein Verzeichnis."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -10697,6 +10689,12 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid ""
+#~ "The URL to check out refers to a file but this\n"
+#~ "working copy path is an existing directory."
+#~ msgstr ""
+#~ "Die Ziel URL verweist auf eine Datei, aber\n"
+#~ "der Pfad der Arbeitskopie ist ein Verzeichnis."
 #~ msgid "Show &properties"
 #~ msgstr "Zeige &Eigenschaften"
 #~ msgid "Show i&gnored files"
