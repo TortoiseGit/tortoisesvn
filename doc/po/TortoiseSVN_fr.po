@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-09 09:22 +0000\n"
-"PO-Revision-Date: 2009-12-09 14:53+0100\n"
-"Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
+"PO-Revision-Date: 2009-12-09 12:39-0600\n"
+"Last-Translator: Matthias GOUPIL <mgoupil@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3671,9 +3671,8 @@ msgid "Developer B now has to choose whether to keep Developer A's changes. In t
 msgstr "Le développeur B doit maintenant choisir s'il veut conserver les modifications du développeur A. Dans le cas d'un renommage de fichier, il peut fusionner les modifications de <filename>Foo.c</filename> dans le fichier renommé <filename>Bar.c</filename>. Pour des suppressions de fichier ou de répertoire il peut choisir de garder l'élément avec les modifications du développeur A et annuler la suppression. Ou, en ne faisant que marquer le conflit comme étant résolu, il annule les modifications du développeur A."
 
 #. (para)
-#, fuzzy
 msgid "The conflict edit dialog offers to merge changes if it can find the original file of the renamed <filename>Bar.c</filename>. Depending on where the update was invoked, it may not be possible to find the source file."
-msgstr "La fenêtre d'édition des conflits offre les deux options si elle ne peut trouver l'original du fichier renommé <filename>Bar.c</filename>."
+msgstr "La fenêtre d'édition de conflits offre la possibilité de fusionner les changements si elle peut trouver le fichier original de celui renommé en <filename>Bar.c</filename>. Dépendant d'où la mise à jour à été invoqué, il n'est pas toujours possible de trouver le fichier source."
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
@@ -3681,7 +3680,7 @@ msgstr "Modification locale, suppression dans la mise à jour"
 
 #. (para)
 msgid "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository."
-msgstr "Le développeur A renomme <filename>Foo.c</filename> en <filename>Bar.c</filanem> et envoie les modifications au dépôt."
+msgstr "Le développeur A renomme <filename>Foo.c</filename> en <filename>Bar.c</filename> et envoie les modifications au dépôt."
 
 #. (para)
 #. (para)
@@ -3697,14 +3696,12 @@ msgid "Developer A moves parent folder <filename>FooFolder</filename> to <filena
 msgstr "Le développeur A déplace le réperetoire parent <filename>FooFolder</filename> vers <filename>BarFolder</filename> et soumet celui-ci au dépôt."
 
 #. (para)
-#, fuzzy
 msgid "<filename>Bar.c</filename> is added to the working copy as a normal file."
 msgstr "<filename>Bar.c</filename> est ajouté dans la copie de travail avec le statut 'normal'."
 
 #. (para)
-#, fuzzy
 msgid "<filename>Foo.c</filename> is marked as added (with history) and has a tree conflict."
-msgstr "<filename>Foo.c</filename> est marqué quand ayant été modifié et comme étant en conflit dans l'arborescence."
+msgstr "<filename>Foo.c</filename> est marqué comme ayant été ajouté (avec historique) et étant en conflit dans l'arborescence."
 
 #. (para)
 #, fuzzy
@@ -3712,14 +3709,12 @@ msgid "An update of developer B's working copy results in a tree conflict. For a
 msgstr "Une mise à jour de la copie de travail du développeur B mène à un conflit dans l'arborescence: <placeholder-1/>"
 
 #. (para)
-#, fuzzy
 msgid "<filename>BarFolder</filename> is added to the working copy as a normal folder."
 msgstr "<filename>Bar.c</filename> est ajouté dans la copie de travail avec le statut 'normal'."
 
 #. (para)
-#, fuzzy
 msgid "<filename>FooFolder</filename> is marked as added (with history) and has a tree conflict."
-msgstr "<filename>Foo.c</filename> est marqué quand ayant été modifié et comme étant en conflit dans l'arborescence."
+msgstr "<filename>Foo.c</filename> est marqué comme ayant été ajouté (avec historique) et étant en conflit dans l'arborescence."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified."
@@ -3763,9 +3758,8 @@ msgid "<filename>Bar.c</filename> is added to the working copy with status 'norm
 msgstr "<filename>Bar.c</filename> est ajouté dans la copie de travail avec le statut 'normal'."
 
 #. (para)
-#, fuzzy
 msgid "<filename>Foo.c</filename> is marked as deleted and has a tree conflict."
-msgstr "<filename>Foo.c</filename> est marqué quand ayant été modifié et comme étant en conflit dans l'arborescence."
+msgstr "<filename>Foo.c</filename> est marqué comme étant supprimé et étant en conflit dans l'arborescence."
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog."
@@ -3774,7 +3768,7 @@ msgstr "Pour résoudre ce conflit, le développeur B doit trouver à quel fichie
 #. (para)
 #. (para)
 msgid "Then developer B has to decide which new filename of <filename>Foo.c</filename> to keep - the one done by developer A or the rename done by himself."
-msgstr "Le développeur B doit alors décider quel nouveau nom de lename>Foo.c</filename>garder - celui du développeur A ou celui issu du renommage qu'il a lui même effectué."
+msgstr "Le développeur B doit alors décider quel nouveau nom de <filename>Foo.c</filename>garder - celui du développeur A ou celui issu du renommage qu'il a lui même effectué."
 
 #. (para)
 #. (para)
@@ -3853,7 +3847,7 @@ msgstr "<filename>Bar.c</filename> est marqué comme étant ajouté."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified with a tree conflict."
-msgstr "<filename>Foo.c</filename> est marqué quand ayant été modifié et comme étant en conflit dans l'arborescence."
+msgstr "<filename>Foo.c</filename> est marqué comme ayant été modifié et étant en conflit dans l'arborescence."
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
