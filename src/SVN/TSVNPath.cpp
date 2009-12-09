@@ -1119,43 +1119,27 @@ void CTSVNPathList::DeleteAllPaths(bool bTrash, bool bFilesOnly)
 	PathVector::const_iterator it;
 	SortByPathname (true); // nested ones first
 
-	if (bTrash)
+	CString sPaths;
+	for (it = m_paths.begin(); it != m_paths.end(); ++it)
 	{
-		CString sPaths;
-		for (it = m_paths.begin(); it != m_paths.end(); ++it)
-		{
-			if ((it->Exists())&&(it->IsDirectory() != bFilesOnly))
-			{
-				if (!it->IsDirectory())
-					::SetFileAttributes(it->GetWinPath(), FILE_ATTRIBUTE_NORMAL);
-
-				sPaths += it->GetWinPath();
-				sPaths += '\0';
-			}
-		}
-		sPaths += '\0';
-		sPaths += '\0';
-		SHFILEOPSTRUCT shop = {0};
-		shop.wFunc = FO_DELETE;
-		shop.pFrom = (LPCTSTR)sPaths;
-		shop.fFlags = FOF_ALLOWUNDO|FOF_NOCONFIRMATION|FOF_NOERRORUI|FOF_SILENT|FOF_NO_CONNECTED_ELEMENTS;
-		SHFileOperation(&shop);
-	}
-	else
-	{
-		for (it = m_paths.begin(); it != m_paths.end(); ++it)
+		if ((it->Exists())&&(it->IsDirectory() != bFilesOnly))
 		{
 			if (!it->IsDirectory())
-			{
 				::SetFileAttributes(it->GetWinPath(), FILE_ATTRIBUTE_NORMAL);
-				::DeleteFile(it->GetWinPath());
-			}
-			else if (!bFilesOnly)
-			{
-				RemoveDirectory (it->GetWinPath());
-			}
+
+			sPaths += it->GetWinPath();
+			sPaths += '\0';
 		}
 	}
+	sPaths += '\0';
+	sPaths += '\0';
+	SHFILEOPSTRUCT shop = {0};
+	shop.wFunc = FO_DELETE;
+	shop.pFrom = (LPCTSTR)sPaths;
+	shop.fFlags = (bTrash ? FOF_ALLOWUNDO : 0)
+				| FOF_NOCONFIRMATION|FOF_NOERRORUI|FOF_SILENT|FOF_NO_CONNECTED_ELEMENTS;
+	SHFileOperation(&shop);
+
 	Clear();
 }
 
