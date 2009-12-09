@@ -558,6 +558,7 @@ bool CAppUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessage
 		}
 		return false;
 	}
+	AllowSetForegroundWindow(process.dwProcessId);
 
 	if (bWaitForStartup)
 	{
