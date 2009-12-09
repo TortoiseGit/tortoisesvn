@@ -75,7 +75,6 @@ bool EditFileCommand::AutoCheckout()
 		// check out
 
 		CSVNProgressDlg progDlg;
-		theApp.m_pMainWnd = &progDlg;
 
 		progDlg.SetCommand 
 			(isFile
@@ -102,16 +101,6 @@ bool EditFileCommand::AutoCheckout()
 
 bool EditFileCommand::AutoLock()
 {
-	// HACK!
-	// remove WM_QUIT from message queue
-	// (Someone or something is posting WM_QUIT
-	// while the commit progress dialog is open)
-
-	MSG msg;
-	while (::PeekMessage(&msg, NULL, NULL, NULL, PM_REMOVE))
-	{
-	};
-
 	// needs lock?
 
 	SVNProperties properties (path, SVNRev::REV_WC, false);
