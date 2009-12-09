@@ -50,6 +50,8 @@ int		CSVNProgressDlg::m_nSortedColumn = -1;
 #define TRANSFERTIMER	100
 #define VISIBLETIMER	101
 
+#define REG_KEY_ALLOW_UNV_OBSTRUCTIONS _T("Software\\TortoiseSVN\\AllowUnversionedObstruction")
+
 enum SVNProgressDlgContextMenuCommands
 {
 	// needs to start with 1, since 0 is the return value if *nothing* is clicked on in the context menu
@@ -1931,12 +1933,11 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
 	SetBackgroundImage(IDI_CHECKOUT_BKG);
 	CTSVNPathList urls;
 	urls.LoadFromAsteriskSeparatedString(m_url.GetSVNPathString());
-	CTSVNPath checkoutdir = m_targetPathList[0];
 	for (int i=0; i<urls.GetCount(); ++i)
 	{
 		sWindowTitle = urls[i].GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 		SetWindowText(sWindowTitle);
-		checkoutdir = m_targetPathList[0];
+		CTSVNPath checkoutdir = m_targetPathList[0];
 		if (urls.GetCount() > 1)
 		{
 			CString fileordir = urls[i].GetFileOrDirectoryName();
@@ -1950,7 +1951,7 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
 			m_options & ProgOptIgnoreExternals ? (LPCTSTR)sExtExcluded : (LPCTSTR)sExtIncluded);
 		ReportCmd(sCmdInfo);
 
-		if (!Checkout(urls[i], checkoutdir, m_Revision, m_Revision, m_depth, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true))))
+		if (!Checkout(urls[i], checkoutdir, m_Revision, m_Revision, m_depth, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(REG_KEY_ALLOW_UNV_OBSTRUCTIONS, true))))
 		{
 			if (m_ProgList.GetItemCount()>1)
 			{
@@ -1961,7 +1962,7 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
 			// try again with HEAD as the peg revision.
 			else
 			{
-				if (!Checkout(urls[i], checkoutdir, SVNRev::REV_HEAD, m_Revision, m_depth, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true))))
+				if (!Checkout(urls[i], checkoutdir, SVNRev::REV_HEAD, m_Revision, m_depth, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(REG_KEY_ALLOW_UNV_OBSTRUCTIONS, true))))
 				{
 					ReportSVNError();
 					return false;
@@ -1974,25 +1975,76 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
 
 bool CSVNProgressDlg::CmdSingleFileCheckout(CString& sWindowTitle, bool& localoperation)
 {
-	CTSVNPath url = m_url;
+	// get urls to c/o
+
+	CTSVNPathList urls;
+	urls.LoadFromAsteriskSeparatedString(m_url.GetSVNPathString());
+	if (urls.GetCount() == 0)
+		return true;
+
+	// preparation
+
+	CTSVNPath parentURL = urls[0].GetContainingDirectory();
 	CTSVNPath checkoutdir = m_targetPathList[0];
 
-	m_url = m_url.GetContainingDirectory();
-	m_targetPathList = CTSVNPathList (checkoutdir.GetContainingDirectory());
-	m_depth = svn_depth_empty;
+	sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
+	SetBackgroundImage(IDI_CHECKOUT_BKG);
 
-	if (CmdCheckout (sWindowTitle, localoperation))
+	sWindowTitle = checkoutdir.GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
+	SetWindowText(sWindowTitle);
+
+	// c/o base folder
+
+	SVNInfo info;
+	const SVNInfoData* infoData 
+		= info.GetFirstFileInfo (checkoutdir, SVNRev(), SVNRev());
+
+	bool allow_obstructions 
+		= !!DWORD (CRegDWORD (REG_KEY_ALLOW_UNV_OBSTRUCTIONS , true));
+
+	bool revisionIsHead = m_Revision.IsHead() || !m_Revision.IsValid();
+	if ((infoData == NULL) || (infoData->url != parentURL.GetSVNPathString()))
 	{
-		m_url = CTSVNPath();
-		CTSVNPath filePath (checkoutdir.GetWinPathString() + url.GetFilename());
-		m_targetPathList = CTSVNPathList (checkoutdir);
-		m_depth = svn_depth_unknown;
-		m_options = ProgOptNone;
+		CPathUtils::MakeSureDirectoryPathExists (checkoutdir.GetWinPath());
 
-		return CmdUpdate (sWindowTitle, localoperation);
+		if (   !Checkout ( parentURL
+			  		     , checkoutdir
+					     , m_Revision
+					     , m_Revision
+					     , svn_depth_empty
+					     , (m_options & ProgOptIgnoreExternals) != 0
+					     , allow_obstructions)
+
+			 // retry with HEAD as pegRev
+			&& (   revisionIsHead
+				|| !Checkout ( parentURL
+			  				 , checkoutdir
+							 , SVNRev::REV_HEAD
+							 , m_Revision
+							 , svn_depth_empty
+							 , (m_options & ProgOptIgnoreExternals) != 0
+							 , allow_obstructions)))
+		{
+			ReportSVNError();
+			return false;
+		}
 	}
 
-	return false;
+	// add the sub-items
+
+	m_url = CTSVNPath();
+	for (int i=0; i<urls.GetCount(); ++i)
+	{
+		CTSVNPath filePath = checkoutdir;
+		filePath.AppendPathString (urls[i].GetFilename());
+		m_targetPathList = CTSVNPathList (filePath);
+		m_options = ProgOptNone;
+
+		if (!CmdUpdate (sWindowTitle, localoperation))
+			return false;
+	}
+
+	return true;
 }
 
 bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)

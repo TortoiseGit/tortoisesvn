@@ -256,18 +256,15 @@ void CCheckoutDlg::OnOK()
 
 		// don't try to overwrite existing folders with a file
 
-		if (PathFileExists(m_strCheckoutDirectory) && targetPath.IsDirectory())
+		if (!PathFileExists(m_strCheckoutDirectory) || !targetPath.IsDirectory())
 		{
-			// c/o *into* existing folder
+			// the parent must exist
 
-			targetPath.AppendPathString (CTSVNPath(m_URL).GetFilename());
+			targetPath = targetPath.GetContainingDirectory();
 			m_strCheckoutDirectory = targetPath.GetWinPathString();
+
+			CPathUtils::MakeSureDirectoryPathExists(targetPath.GetWinPath());
 		}
-
-		// the parent must exist
-
-		targetPath = targetPath.GetContainingDirectory();
-		CPathUtils::MakeSureDirectoryPathExists(targetPath.GetWinPath());
 
 		// is it already a w/c for the directory we want?
 
