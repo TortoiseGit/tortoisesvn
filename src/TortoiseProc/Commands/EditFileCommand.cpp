@@ -41,7 +41,7 @@ bool EditFileCommand::IsLocked()
 
 	svn_wc_status2_t *fileStatus
 		= status.GetFirstFileStatus (path, dummy, false, svn_depth_empty);
-	return fileStatus->locked != FALSE;
+	return (fileStatus->entry != NULL) && (fileStatus->entry->lock_creation_date != 0);
 }
 
 // the individual steps of the sequence 
@@ -85,7 +85,7 @@ bool EditFileCommand::AutoCheckout()
 		progDlg.SetAutoClose(CLOSE_NOERRORS);
 		progDlg.SetAutoCloseLocal(CLOSE_NOERRORS);
 		progDlg.SetOptions(ProgOptIgnoreExternals);
-		progDlg.SetPathList(CTSVNPathList(path));
+		progDlg.SetPathList(CTSVNPathList(tempWC));
 		progDlg.SetUrl(cmdLinePath.GetSVNPathString());
 		progDlg.SetRevision(revision);
 		progDlg.SetDepth(svn_depth_infinity);
@@ -102,6 +102,16 @@ bool EditFileCommand::AutoCheckout()
 
 bool EditFileCommand::AutoLock()
 {
+	// HACK!
+	// remove WM_QUIT from message queue
+	// (Someone or something is posting WM_QUIT
+	// while the commit progress dialog is open)
+
+	MSG msg;
+	while (::PeekMessage(&msg, NULL, NULL, NULL, PM_REMOVE))
+	{
+	};
+
 	// needs lock?
 
 	SVNProperties properties (path, SVNRev::REV_WC, false);
@@ -110,17 +120,46 @@ bool EditFileCommand::AutoLock()
 
 	// try to lock
 
-	LockCommand command;
-	command.SetPaths (CTSVNPathList (path), path);
-	needsLock = command.Execute();
+	if (IsLocked())
+	{
+		needsUnLock = false;
+		return true;
+	}
+	else
+	{
+		LockCommand command;
+		command.SetPaths (CTSVNPathList (path), path);
+		needsUnLock = command.Execute();
 
-	return needsLock;
+		return needsUnLock;
+	}
 }
 
 bool EditFileCommand::Edit()
 {
-	int result = (int)ShellExecute (NULL, _T("open"), path.GetWinPathString(), NULL, NULL, SW_SHOWNORMAL);
-	return result > HINSTANCE_ERROR;
+	PROCESS_INFORMATION processInfo;
+	memset(&processInfo, 0, sizeof(processInfo));
+
+	CString cmdLine = _T("cmd /C \"") + path.GetWinPathString() + _T("\"");
+
+	STARTUPINFO startupInfo;
+	memset(&startupInfo, 0, sizeof(startupInfo));
+	startupInfo.cb = sizeof(startupInfo);
+
+	if (::CreateProcess ( NULL
+						, const_cast<TCHAR*>((LPCTSTR)cmdLine)
+						, NULL
+						, NULL
+						, FALSE
+						, CREATE_NO_WINDOW
+						, 0
+						, NULL
+						, &startupInfo
+						, &processInfo ) == FALSE)
+		return false;
+
+	WaitForSingleObject (processInfo.hProcess, INFINITE);
+	return true;
 }
 
 bool EditFileCommand::AutoCheckin()
@@ -139,7 +178,7 @@ bool EditFileCommand::AutoCheckin()
 
 bool EditFileCommand::AutoUnLock()
 {
-	if (!needsLock || !IsLocked())
+	if (!needsUnLock || !IsLocked())
 		return true;
 
 	CSVNProgressDlg progDlg;
@@ -156,7 +195,7 @@ bool EditFileCommand::AutoUnLock()
 /// construction / destruction
 
 EditFileCommand::EditFileCommand()
-	: needsLock (false)
+	: needsUnLock (false)
 {
 }
 

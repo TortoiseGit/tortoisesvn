@@ -41,7 +41,7 @@ private:
 
 	/// if set, we must unlock the file upon cleanup
 
-	bool needsLock; 
+	bool needsUnLock; 
 
 	/// status check
 
