@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-12-09 14:34+0100\n"
+"POT-Creation-Date: 2009-12-09 09:22 +0000\n"
+"PO-Revision-Date: 2009-12-09 14:53+0100\n"
 "Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3907,7 +3907,7 @@ msgstr "Etat de la copie de travail"
 
 #. (para)
 msgid "While you are working on your working copy you often need to know which files you have changed/added/removed or renamed, or even which files got changed and committed by others."
-msgstr "Pendant que vous travaillez sur votre copie de travail, vous avez souvent besoin de savoir quels fichiers vous avez changé/ajouté/supprimé ou renommé, ou même quels fichiers ont été changés et livrer par les autres."
+msgstr "Pendant que vous travaillez sur votre copie de travail, vous avez souvent besoin de savoir quels fichiers vous avez changé/ajouté/supprimé ou renommé, ou même quels fichiers ont été changé et livré par les autres."
 
 #. (primary)
 #. (primary)
@@ -3920,7 +3920,7 @@ msgstr "icônes"
 
 #. (para)
 msgid "Now that you have checked out a working copy from a Subversion repository you can see your files in the windows explorer with changed icons. This is one of the reasons why TortoiseSVN is so popular. TortoiseSVN adds a so called overlay icon to each file icon which overlaps the original file icon. Depending on the Subversion status of the file the overlay icon is different."
-msgstr "Maintenant que vous avez extrait une copie de travail à partir d'un référentiel Subversion, vous pouvez voir vos fichiers dans l'explorateur Windows avec des icônes changées. C'est une des raisons pour laquelle TortoiseSVN est si populaire. TortoiseSVN ajoute une icône de recouvrement à chaque icône de fichier chevauchant l'icône de fichier originale. Selon le statut Subversion du fichier, l'icône de recouvrement est différente."
+msgstr "Maintenant que vous avez extrait une copie de travail à partir d'un référentiel Subversion, vous pouvez voir que vos fichiers ont d'autres icones dans l'explorateur Windows. C'est une des raisons pour laquelle TortoiseSVN est si populaire. TortoiseSVN ajoute une icône de recouvrement à chaque icône de fichier chevauchant l'icône de fichier original. Selon le statut Subversion du fichier, l'icône de recouvrement est différente."
 
 #. (para)
 msgid "<graphic fileref=\"../images/InSubVersionIcon.png\"/> A fresh checked out working copy has a green checkmark as overlay. That means the Subversion status is <emphasis>normal</emphasis>."
@@ -3928,7 +3928,7 @@ msgstr "<graphic fileref=\"../images/InSubVersionIcon.png\"/> Une copie de trava
 
 #. (para)
 msgid "<graphic fileref=\"../images/ModifiedIcon.png\"/> As soon as you start editing a file, the status changes to <emphasis>modified</emphasis> and the icon overlay then changes to a red exclamation mark. That way you can easily see which files were changed since you last updated your working copy and need to be committed."
-msgstr "<graphic fileref=\"../images/ModifiedIcon.png\"/> Dès que vous commencez à éditer un fichier, le statut change en <literal>modifié</literal> et l'icône de recouvrement devient alors en un point d'exclamation rouge. De cette façon, vous pouvez facilement voir quels fichiers ont été modifiés depuis votre dernière mise à jour de la  copie de travail et ont donc besoin d'être livrés."
+msgstr "<graphic fileref=\"../images/ModifiedIcon.png\"/> Dès que vous commencez à éditer un fichier, le statut change en <literal>modifié</literal> et l'icône de recouvrement devient alors un point d'exclamation rouge. De cette façon, vous pouvez facilement voir quels fichiers ont été modifiés depuis votre dernière mise à jour de la  copie de travail et ont donc besoin d'être livrés."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ConflictIcon.png\"/> If during an update a <emphasis>conflict</emphasis> occurs then the icon changes to a yellow exclamation mark."
@@ -3940,7 +3940,7 @@ msgstr "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> Si vous avez mis la pr
 
 #. (para)
 msgid "<graphic fileref=\"../images/LockedIcon.png\"/> If you hold a lock on a file, and the Subversion status is <emphasis>normal</emphasis>, this icon overlay reminds you that you should release the lock if you are not using it to allow others to commit their changes to the file."
-msgstr "<graphic fileref=\"../images/LockedIcon.png\"/> Si vous avez verrouilé un fichier et que le statut de Subversion est <literal>normal</literal>, cette icône de recouvrement vous rappelle que vous devriez relâcher le verrou si vous ne l'utilisez pas pour permettre aux autres utilisateurs de livrer leurs changements."
+msgstr "<graphic fileref=\"../images/LockedIcon.png\"/> Si vous avez verrouillé un fichier et que le statut de Subversion est <literal>normal</literal>, cette icône de recouvrement vous rappelle que vous devriez relâcher le verrou si vous ne l'utilisez pas pour permettre aux autres utilisateurs de livrer leurs changements."
 
 #. (para)
 msgid "<graphic fileref=\"../images/DeletedIcon.png\"/> This icon shows you that some files or folders inside the current folder have been scheduled to be <emphasis>deleted</emphasis> from version control or a file under version control is missing in a folder."
@@ -3959,17 +3959,16 @@ msgid "<graphic fileref=\"../images/UnversionedIcon.png\"/> This icon shows file
 msgstr "<graphic fileref=\"../images/UnversionedIcon.png\"/> Cette icone est associée aux éléments qui ne sont pas sous contrôle de version, et qui ne sont pas à ignorer. Cette icone de recouvrement est facultative."
 
 #. (para)
-#, fuzzy
 msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is very limited and if you are also using an old version of TortoiseCVS, then there are not enough overlay slots available. TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance too."
-msgstr "En fait, vous pouvez constater que ces icônes ne sont pas toutes utilisées sur votre système. C'est parce que le nombre de recouvrements permis par Windows est très limité et si vous utilisez aussi TortoiseCVS, alors il n'y a pas assez d'emplacements de recouvrement disponibles. TortoiseSVN essaye d'être un <quote>Bon Citoyen (TM)</quote> et limite son utilisation de recouvrements pour donner une chance aux autres applications."
+msgstr "En fait, vous pouvez constater que ces icônes ne sont pas toutes utilisées sur votre système. C'est dû au fait que le nombre de recouvrements permis par Windows est très limité et si vous utilisez aussi TortoiseCVS, alors il n'y a pas assez d'emplacements de recouvrement disponibles. TortoiseSVN essaie d'être un <quote>Bon Citoyen (TM)</quote> et limite son utilisation des recouvrements pour laisser de la place aux autres applications."
 
 #. (para)
 msgid "Now that there are more Tortoise clients around (TortoiseCVS, TortoiseHG, ...) the icon limit becomes a real problem. To work around this, the TortoiseSVN project introduced a common shared icon set, loaded as a DLL, which can be used by all Tortoise clients. Check with your client provider to see if this has been integrated yet :-)"
-msgstr "Depuis que différent clients Tortoise sont disponibles (TortoiseCVS, TortoiseHG, ...) la limite de l'icône devient un réel problème. Pour contourner ce souci, le projet TortoiseSVN met à présent à votre disposition une série d'icones, dans une DLL, qui peuvent être utilisées par tous les clients Tortoise. Vérifiez avec votre fournisseur de client pour savoir si cette fonctionnalité a été intégrée :-)"
+msgstr "Depuis que différent clients Tortoise sont disponibles (TortoiseCVS, TortoiseHG, ...) ces limites deviennent un réel problème. Pour contourner ce souci, le projet TortoiseSVN met à présent à votre disposition une série d'icones dans une DLL, qui peuvent être utilisées par tous les clients Tortoise. Vérifiez avec votre fournisseur pour savoir si cette fonctionnalité a été intégrée :-)"
 
 #. (para)
 msgid "For a description of how icon overlays correspond to Subversion status and other technical details, read <xref linkend=\"tsvn-app-internals-overlays\"/>."
-msgstr "Pour avoir une description des icones de recouvrement correspondant aux statuts de Subversion et d'autres détails techniques, lisez <xref linkend=\"tsvn-app-internals-overlays\"/>."
+msgstr "Pour avoir une description des icônes de recouvrement correspondant aux statuts de Subversion et d'autres détails techniques, lisez <xref linkend=\"tsvn-app-internals-overlays\"/>."
 
 #. (title)
 msgid "TortoiseSVN Columns In Windows Explorer"
@@ -13553,14 +13552,13 @@ msgstr "traduction"
 #~ "n'est vraiment qu'un fichier texte !"
 #~ msgid ""
 #~ "Get the latest version of Subversion from <ulink url=\"http://subversion."
-#~ "tigris.org/getting.html\"><citetitle>http://"
-#~ "subversion.tigris.org/getting.html</"
-#~ "citetitle></ulink>."
+#~ "tigris.org/getting.html\"><citetitle>http://subversion.tigris.org/getting."
+#~ "html</citetitle></ulink>."
 #~ msgstr ""
 #~ "Récupérez la dernière version de Subversion à partir de <ulink url="
-#~ "\"http://subversion.tigris.org/getting.html"
-#~ "\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?"
-#~ "folderID=91</citetitle></ulink>."
+#~ "\"http://subversion.tigris.org/getting.html\"><citetitle>http://"
+#~ "subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</"
+#~ "citetitle></ulink>."
 #~ msgid ""
 #~ "It is beyond the scope of this documentation to detail the installation "
 #~ "and setup of a secure shell, however you can find further information in "
