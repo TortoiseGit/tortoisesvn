@@ -883,7 +883,7 @@ void CLogDlg::OnCancel()
 	CString temp, temp2;
 	GetDlgItemText(IDCANCEL, temp);
 	temp2.LoadString(IDS_MSGBOX_CANCEL);
-    if ((temp.Compare(temp2)==0)&&(threadsStillRunning))
+    if ((temp.Compare(temp2)==0))
     {
         // "Cancel" was hit. We told the SVN ops to stop
 		// end the process the hard way
