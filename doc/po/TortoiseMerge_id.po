@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-10-09 18:46 +0000\n"
-"PO-Revision-Date: 2009-12-07 23:22+0700\n"
+"PO-Revision-Date: 2009-12-09 15:34+0700\n"
 "Last-Translator: Evans Jahja <evans.jahja@yahoo.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -121,7 +121,7 @@ msgstr "Ketika bekerja pada TortoiseSVN kami senang mendengarkan musik. Dan kare
 # Indonesian#: source/TortoiseMerge_en.xml:110
 #. (title)
 msgid "Acknowledgments"
-msgstr "Pengakuan"
+msgstr "Persetujuan"
 
 # Indonesian#: source/TortoiseMerge_en.xml:114
 #. (term)
@@ -576,7 +576,7 @@ msgstr "Terkadang Anda sebenarnya ingin kedua blok teks, dan menu kontekstual ju
 
 #. (para)
 msgid "You can also edit the output file just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr ""
+msgstr "Anda juga dapat mengedit file output sebagaimana dalam text editor. Baris-baris tersebut ditandai dengan ikon pensil. Mohon diingat bahwa jika anda ingin mengubah baris-baris/merubah berdasarkan blok seperti di atas, lebih baik untuk melakukannya tersebut karena jika anda mulai mengedit file tersebut sendiri TortoiseMerge tidak lagi dapat memantau hubungan file tersebut dengan file aslinya."
 
 # Indonesian#: source/TortoiseMerge_en.xml:606
 #. (para)
@@ -584,8 +584,9 @@ msgid "If you're in three pane view (sometimes called <emphasis>merge view</emph
 msgstr "Jika Anda dalam tampilan tiga pane (kadang kala disebut <emphasis>tampilan gabungan</emphasis>) Anda hanya bisa mengedit file dalam tampilan bawah (<literal>Digabung</literal>). Seperti dalam tampilan dua pane, Anda bisa <action>mengklik-kanan</action> pada baris yang konflik dan memilih <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Gunakan blok teks dari <quote>mereka</quote></guimenuitem></menuchoice> atau <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Gunakan blok teks dari <quote>saya</quote></guimenuitem></menuchoice>. Sebagai tambahan, jika Anda menginginkan <emphasis>kedua</emphasis> blok, Anda bisa memilih <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem> Gunakan blok teks dari <quote>saya</quote> sebelum <quote>mereka</quote></guimenuitem></menuchoice> atau <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem> Gunakan blok teks dari <quote>mereka</quote> sebelum <quote>saya</quote></guimenuitem></menuchoice>. Tergantung pada perintah yang telah Anda pilih, perubahan digunakan dalam hasil file <literal>Digabung</literal>."
 
 #. (para)
+#, fuzzy
 msgid "Sometimes a file will be marked as conflicted in Subversion, yet when you view it using TortoiseMerge there are no conflicts shown. This may be due to the whitespace handling you have chosen. If you choose to ignore line-endings or whitespace changes, those lines will be marked using the <emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you still need to pick which version you want to use."
-msgstr ""
+msgstr "Kadang-kadang file akan ditandai sebagai konflik di Subversion, padahal ketika anda melihatnya melalui TortoiseMerge tidak nampak adanya konflik."
 
 # Indonesian#: source/TortoiseMerge_en.xml:643
 #. (para)
