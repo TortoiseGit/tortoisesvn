@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-12-07 19:35-0300\n"
-"Last-Translator: Eduardo Marques <eduardo@eduardomarques.com>\n"
+"PO-Revision-Date: 2009-12-09 18:18-0300\n"
+"Last-Translator: Diego de Souza Silva <diesousil@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2489,7 +2489,7 @@ msgstr "Explorer mostra os ícones sobrepostos"
 
 #. (para)
 msgid "<placeholder-1/> One of the most visible features of TortoiseSVN is the icon overlays which appear on files in your working copy. These show you at a glance which of your files have been modified. Refer to <xref linkend=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays represent."
-msgstr ""
+msgstr "<placeholder-1/> Um dos recursos mais visíveis do TortoiseSVN é o de sobreposição de ícones que aparece em arquivos em sua cópia de trabalho. Eles te mostram em um instante quais de seus arquivos foram modificados. Consulte <xref linkend=\"tsvn-dug-wcstatus-1\"/> para descobrir o que as diferentes sobreposições representam."
 
 #. (title)
 msgid "Context Menus"
@@ -2509,11 +2509,11 @@ msgstr "Menu do contexto para diretórios controlados"
 
 #. (para)
 msgid "<placeholder-1/> All TortoiseSVN commands are invoked from the context menu of the windows explorer. Most are directly visible, when you <action>right click</action> on a file or folder. The commands that are available depend on whether the file or folder or its parent folder is under version control or not. You can also see the TortoiseSVN menu as part of the Explorer file menu."
-msgstr ""
+msgstr "<placeholder-1/> Todos os comandos do TortoiseSVN são acessados através do menu de contexto do Windows Explorer. A maioria são diretamente visíveis quando se <action>clica com o botão direito</action> em um arquivo ou diretório. Os comandos estarão disponíveis se o arquivo ou o diretório que o contém está no controle de versão. Você também pode acessar o menu do TortoiseSVN como parte do menu Arquivo, no Windows Explorer."
 
 #. (para)
 msgid "Some commands which are very rarely used are only available in the extended context menu. To bring up the extended context menu, hold down the <keycap>Shift</keycap> key when you <action>right-click</action>."
-msgstr ""
+msgstr "Alguns comandos que são usados muito raramente, só estão disponíveis no menu de contexto extendido. Para trazê-los ao menu de contexto, segure pressionado o botão <keycap>Shift</keycap> enquanto <action>clica com o botão direito do mouse</action>."
 
 #. (title)
 msgid "Explorer file menu for a shortcut in a versioned folder"
@@ -2521,11 +2521,11 @@ msgstr "Atalho no menu arquivo do Explorer em um diretório controlado"
 
 #. (para)
 msgid "In some cases you may see several TortoiseSVN entries. This is not a bug! <placeholder-1/> This example is for an unversioned shortcut within a versioned folder, and in the Explorer file menu there are <emphasis>three</emphasis> entries for TortoiseSVN. One is for the folder, one for the shortcut itself, and the third for the object the shortcut is pointing to. To help you distinguish between them, the icons have an indicator in the lower right corner to show whether the menu entry is for a file, a folder, a shortcut or for multiple selected items."
-msgstr ""
+msgstr "Em alguns casos você poderá ver várias entradas do TortoiseSVN. Isto não é um bug! <placeholder-1/> Este exemplo é de um atalho não-versionado dentro de um diretório versionado, e no menu Arquivo do Windows Explorer há <emphasis>três</emphasis> entradas para o TortoiseSVN. Uma para o diretório, uma para o atalho, e uma terceira para o objeto para o qual o atalho aponta. Para ajudar a distinguir entre elas, os ícones um indicador no canto inferior direito para mostrar se a entrada se refere a um arquivo, um diretório, um atalho ou para múltiplos ítens selecionados."
 
 #. (para)
 msgid "If you are using Windows 2000 you will find that the context menus are shown as plain text, without the menu icons shown above. We are aware that this was working in previous versions, but Microsoft has changed the way its icon handlers work for Vista, requiring us to use a different display method which unfortunately does not work on Windows 2000."
-msgstr ""
+msgstr "Se você utiliza Windows 2000 descobrirá que os menus de contexto são mostrados com texto liso, sem os ícones de menu por cima.  Estamos conscientes que isto foi trabalhado em versões anteriores, mas a Microsoft mudou a forma como os manipuladores de ícones funcionam para o vista, exigindo que nós usássemos um método diferente de mostrá-los, que infelizmente não funciona em Windows 2000."
 
 #. (title)
 #. (title)
@@ -2548,11 +2548,11 @@ msgstr "arrastar direito"
 #. (title)
 #. (title)
 msgid "Right drag menu for a directory under version control"
-msgstr ""
+msgstr "Menu de quando se clica com o botão direito e se arrasta um diretório que está sob o controle de versão."
 
 #. (para)
 msgid "<placeholder-1/> Other commands are available as drag handlers, when you <action>right drag</action> files or folders to a new location inside working copies or when you <action>right drag</action> a non-versioned file or folder into a directory which is under version control."
-msgstr ""
+msgstr "<placeholder-1/> Outros comandos estão disponíveis ao se clicar e arrastar, quando você <action>clica com o botão direito e arrasta</action> arquivos ou diretórios para um novo endereço dentro da cópia de trabalho ou quando você <action>clica com o botão direito e arrasta</action> um arquivo ou diretório não versionado para um diretório sob o controle de versão."
 
 #. (title)
 msgid "Common Shortcuts"
@@ -2592,7 +2592,7 @@ msgstr "... Copiar o texto selecionado."
 
 #. (para)
 msgid "Some common operations have well-known Windows shortcuts, but do not appear on buttons or in menus. If you can't work out how to do something obvious, like refreshing a view, check here. <placeholder-1/>"
-msgstr ""
+msgstr "Algumas operações comuns do Windows tem atalhos bem conhecidos, mas não aparecem em botões nem em menus. Se você não sabe como fazer algo óbvio como atualizar uma visualização, cheque aqui. <placeholder-1/>"
 
 #. (primary)
 msgid "authentication"
