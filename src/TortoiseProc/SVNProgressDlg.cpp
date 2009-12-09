@@ -1078,17 +1078,20 @@ UINT CSVNProgressDlg::ProgressThread()
 	if (m_bCloseLocalOnEnd != (DWORD)-1)
 		bAutoCloseLocal = m_bCloseLocalOnEnd;
 
+	bool sendClose = false;
 	if ((dwAutoClose == CLOSE_NOERRORS)&&(!m_bErrorsOccurred))
-		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
+		sendClose = true;
 	if ((dwAutoClose == CLOSE_NOCONFLICTS)&&(!m_bErrorsOccurred)&&(m_nConflicts==0))
-		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
+		sendClose = true;
 	if ((dwAutoClose == CLOSE_NOMERGES)&&(!m_bErrorsOccurred)&&(m_nConflicts==0)&&(!m_bMergesAddsDeletesOccurred))
-		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
+		sendClose = true;
 	// kept for compatibility with pre 1.7 clients
 	if ((dwAutoClose == CLOSE_LOCAL)&&(!m_bErrorsOccurred)&&(m_nConflicts==0)&&(localoperation))
-		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
+		sendClose = true;
 
 	if ((bAutoCloseLocal)&&(!m_bErrorsOccurred)&&(m_nConflicts==0)&&(localoperation))
+		sendClose = true;
+	if (sendClose)
 		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
 
 	//Don't do anything here which might cause messages to be sent to the window
