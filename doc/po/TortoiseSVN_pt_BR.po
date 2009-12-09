@@ -2990,7 +2990,7 @@ msgstr "A janela de submissão irá exibir todos os arquivos modificados, inclui
 #. (para)
 #. (para)
 msgid "Items which have been switched to a different repository path are also indicated using an <literal>(s)</literal> marker. You may have switched something while working on a branch and forgotten to switch back to trunk. This is your warning sign!"
-msgstr ""
+msgstr "Items que foram movidos para um caminho de repositório diferente são também indicados usando o marcador <literal>(s)</literal>. Você pode ter movido algo enquanto trabalhava em uma ramificação (branch) e se esqueceu de mover de volta para a versão principal (trunk). Esté é seu sinal de aviso!"
 
 #. (title)
 msgid "Commit files or folders?"
@@ -2998,7 +2998,7 @@ msgstr "Submeter arquivos ou diretórios?"
 
 #. (para)
 msgid "When you commit files, the commit dialog shows only the files you have selected. When you commit a folder the commit dialog will select the changed files automatically. If you forget about a new file you created, committing the folder will find it anyway. Committing a folder does <emphasis>not</emphasis> mean that every file gets marked as changed; It just makes your life easier by doing more work for you."
-msgstr ""
+msgstr "Quando você submete arquivos, a janela de submissão exibe apenas os arquivos que você selecionou. Quando você submete uma pasta, a janela de submissão irá exibir selecionado os arquivos modificados automaticamente. Se você se esqueceu de um novo arquivo que criou, submeter a pasta irá encontra-lo de qualquer forma. Submeter uma pasta <emphasis>não</emphasis> significa que todos os arquivos serão marcados como modificados; Isso apenas fará sua vida mais fácil."
 
 #. (para)
 msgid "If you have modified files which have been included from a different repository using <literal>svn:externals</literal>, those changes cannot be included in the same atomic commit. A warning symbol below the file list tells you if this has happened, and the tooltip explains that those external files have to be committed separately."
@@ -3042,7 +3042,7 @@ msgstr ""
 
 #. (para)
 msgid "You can drag unversioned files which reside within a working copy into the commit dialog, and they will be SVN added automatically."
-msgstr ""
+msgstr "Você pode arrastar arquivos não versionados que residem em uma cópia de trabalho para uma janela de submissão e eles irão ser adicionados ao SVN automaticamente."
 
 #. (title)
 #. (title)
