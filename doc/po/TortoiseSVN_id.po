@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-12-09 21:54-0800\n"
+"PO-Revision-Date: 2009-12-09 22:31-0800\n"
 "Last-Translator: Edwin Elisia <edwinelisia@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4421,11 +4421,11 @@ msgstr ""
 #. (para)
 #. (para)
 msgid "After developer B has manually resolved the conflict, the tree conflict has to be marked as resolved with the button in the conflict editor dialog."
-msgstr ""
+msgstr "Setelah pengembang B menyelesaikan konflik secara manual, pohon konflik harus ditandai dengan selesai dengan tombol yang ada di konflik editor dialog."
 
 #. (title)
 msgid "Local missing, incoming edit upon merge"
-msgstr ""
+msgstr "Hilang lokal, mengubah disaat penggabungan"
 
 #. (para)
 msgid "Developer A working on trunk modifies <filename>Foo.c</filename> and commits it to the repository"
@@ -4437,11 +4437,11 @@ msgstr ""
 
 #. (para)
 msgid "<filename>Bar.c</filename> is already in the working copy with status 'normal'."
-msgstr ""
+msgstr "<filename>Bar.c</filename> sudah ada di dalam duplikasi kerja dengan 'normal' status."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> ditandai sebagain hilang (missing) dengan konflik pohon."
 
 #. (para)
 #. (para)
@@ -4459,12 +4459,12 @@ msgstr ""
 
 #. (title)
 msgid "Local edit, incoming delete upon merge"
-msgstr ""
+msgstr "Pengubahan lokal, menghapus disaat penggabungan"
 
 #. (para)
 #. (para)
 msgid "Developer A working on trunk moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Pengembang A melakukan pemindahan \"trunk\" <filename>Foo.c</filename> ke <filename>Bar.c</filename> dan mengkomit ke dalam repositori"
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> and commits it to the repository."
@@ -4484,11 +4484,11 @@ msgstr ""
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added."
-msgstr ""
+msgstr "<filename>Bar.c</filename> ditandai dengan tambahan (added)."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> ditandai sebagai terubah dengan konflik pohon."
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
@@ -4500,7 +4500,7 @@ msgstr ""
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
-msgstr ""
+msgstr "Pehapusan lokal, menghapus disaat penggabungan"
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bix.c</filename> and commits it to the repository"
@@ -4508,15 +4508,15 @@ msgstr ""
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
-msgstr ""
+msgstr "<filename>Bix.c</filename> ditandai sebagai status normal (tidak diubah, unmodified)."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added with history."
-msgstr ""
+msgstr "<filename>Bar.c</filename> ditandai sebagai tambahan dengan sejarah."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> ditandai dengan hilang dan mempunyai konflik pohon."
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself."
@@ -4616,7 +4616,7 @@ msgstr "<graphic fileref=\"../images/AddedIcon.png\"/> Tanda plus memberitahu An
 
 #. (para)
 msgid "<graphic fileref=\"../images/UnversionedIcon.png\"/> This icon shows files and folders which are not under version control, but have not been ignored. This overlay is optional."
-msgstr ""
+msgstr "<graphic fileref=\"../images/UnversionedIcon.png\"/> Icon ini menunjukan file file dan folder folder yang tidak di dalam versi kontrol, tetapi tidak di abaikan. Overlay ini adalah opsional."
 
 # Indonesian#: source/TortoiseSVN_en.xml:4464(para)
 #. (para)
