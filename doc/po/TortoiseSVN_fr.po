@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-09 09:22 +0000\n"
-"PO-Revision-Date: 2009-12-09 12:39-0600\n"
-"Last-Translator: Matthias GOUPIL <mgoupil@gmail.com>\n"
+"PO-Revision-Date: 2009-12-10 09:56+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12533,7 +12533,7 @@ msgstr "<graphic fileref=\"images/DeletedIcon.png\"/> L'icone de recouvrement <e
 
 #. (para)
 msgid "<graphic fileref=\"images/AddedIcon.png\"/> The <emphasis>Added</emphasis> overlay is simply used to represent the <literal>added</literal> status when an item has been added to version control."
-msgstr "<graphic fileref=\"../images/AddedIcon.png\"/> L'overlay indique juste qu'un fichier ou un dossier a été <literal>ajouté</literal> au contrôle de version."
+msgstr "<graphic fileref=\"images/AddedIcon.png\"/> L'overlay indique juste qu'un fichier ou un dossier a été <literal>ajouté</literal> au contrôle de version."
 
 #. (para)
 msgid "<graphic fileref=\"images/InSubVersionIcon.png\"/> The <emphasis>In Subversion</emphasis> overlay is used to represent an item which is in the <literal>normal</literal> state, or a versioned item whose state is not yet known. Because TortoiseSVN uses a background caching process to gather status, it may take a few seconds before the overlay updates."
@@ -12549,11 +12549,11 @@ msgstr "<graphic fileref=\"images/LockedIcon.png\"/> L'icone de recouvrement <em
 
 #. (para)
 msgid "<graphic fileref=\"images/IgnoredIcon.png\"/> The <emphasis>Ignored</emphasis> overlay is used to represent an item which is in the <literal>ignored</literal> state, either due to a global ignore pattern, or the <literal>svn:ignore</literal> property of the parent folder. This overlay is optional."
-msgstr "<graphic fileref=\"../images/AddedIcon.png\"/> L'icône de recouvrement <emphasis>Ignoré</emphasis> indique qu'un élément est dans un état ignoré, soit car il satisfait une condition globale (global pattern) soit car il satisfait une condition du dossier parent. Cette icone de recouvrement est optionnelle."
+msgstr "<graphic fileref=\"images/IgnoredIcon.png\"/> L'icône de recouvrement <emphasis>Ignoré</emphasis> indique qu'un élément est dans un état ignoré, soit car il satisfait une condition globale (global pattern) soit car il satisfait une condition du dossier parent. Cette icone de recouvrement est optionnelle."
 
 #. (para)
 msgid "<graphic fileref=\"images/UnversionedIcon.png\"/> The <emphasis>Unversioned</emphasis> overlay is used to represent an item which is in the <literal>unversioned</literal> state. This is an item in a versioned folder, but which is not under version control itself. This overlay is optional."
-msgstr "<graphic fileref=\"images/UnversionedIcon.png\"/> L'icône de recouvrement <emphasis>non versionné</emphasis> est utilisé pour représenté un élément étant dans l'état <literal>non versionné</literal>. C'est à dire un élément situé dans un répertoire sous contrôle de version, mais qui n'est pas lui même sous contrôle de version. Cette icone de recouvrement est optionelle.<graphic fileref=\"../images/AddedIcon.png\"/> "
+msgstr "<graphic fileref=\"images/UnversionedIcon.png\"/> L'icône de recouvrement <emphasis>non versionné</emphasis> est utilisé pour représenté un élément étant dans l'état <literal>non versionné</literal>. C'est à dire un élément situé dans un répertoire sous contrôle de version, mais qui n'est pas lui même sous contrôle de version. Cette icone de recouvrement est optionelle."
 
 #. (para)
 msgid "If an item has subversion status <literal>none</literal> (the item is not within a working copy) then no overlay is shown. If you have chosen to disable the <emphasis>Ignored</emphasis> and <emphasis>Unversioned</emphasis> overlays then no overlay will be shown for those files either."
