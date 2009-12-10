@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-12-06 11:56+0700\n"
-"Last-Translator: Evans Jahja <evans.jahja@yahoo.com>\n"
+"PO-Revision-Date: 2009-12-09 21:54-0800\n"
+"Last-Translator: Edwin Elisia <edwinelisia@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4280,32 +4280,32 @@ msgstr ""
 
 #. (para)
 msgid "TortoiseSVN can help find the right place to merge changes, but there may be additional work required to sort out the conflicts. Remember that after an update the working BASE will always contain the revision of each item as it was in the repository at the time of update. If you revert a change after updating it goes back to the repository state, not to the way it was when you started making your own local changes."
-msgstr ""
+msgstr "TortoiseSVN bisa membantu untuk mencari tempat yang benar untuk menggabungkan perubahan perubahan, tetapi pekerjaan tambahan mungkin diperlukan untung menyelesaikan konflik. Ingat, setelah pembaruan (an update), dasar kerjanya akan selalu mengandung revisi untuk setiap hal seperti didalam repositori di saat pembaruan. Jika anda mengembalikan perubahan setelah mempembarukan, itu akan mengembalikan ke keadaan repositori, bukan kembali ke keadaan disaat anda memulai mengubah lokal copy anda."
 
 #. (title)
 msgid "Local delete, incoming edit upon update"
-msgstr ""
+msgstr "Penghapusan lokal, mengubah disaat pembaruan"
 
 #. (para)
 msgid "Developer A modifies <filename>Foo.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Pengembang A mengubah <filename>Foo.c</filename> dan me-komit ke dalam repositori"
 
 #. (para)
 msgid "Developer B has simultaneously moved <filename>Foo.c</filename> to <filename>Bar.c</filename> in his working copy, or simply deleted <filename>Foo.c</filename> or its parent folder."
-msgstr ""
+msgstr "Pengembang B telah memindahkan <filename>Foo.c</filename> ke <filename>Bar.c</filename> secara bersamaan didalam duplikasi kerja dia, atau telah menghapus <filename>Foo.c</filename> atau induk foldernya."
 
 #. (para)
 msgid "<filename>Foo.c</filename> has been deleted from working copy, but is marked with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> telah dihapus dari duplikasi kerja, tetapi ditandai dengan konflik pohon."
 
 #. (para)
 msgid "If the conflict results from a rename rather than a delete then <filename>Bar.c</filename> is marked as added, but does not contain developer A's modifications."
-msgstr ""
+msgstr "Apabila konflik itu terjadi dari mengubah nama daripada menghapus, <filename>Bar.c</filename> ditandai dengan ditambahkan (added), tetapi tidak mengandung perubahan pengembang A."
 
 #. (para)
 #. (para)
 msgid "An update of developer B's working copy results in a tree conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Pembarukan dari pengembang B duplikasi kerja menghasilkan konflik pohon: <placeholder-1/>"
 
 #. (para)
 msgid "Developer B now has to choose whether to keep Developer A's changes. In the case of a file rename, he can merge the changes to <filename>Foo.c</filename> into the renamed file <filename>Bar.c</filename>. For simple file or directory deletions he can choose to keep the item with Developer A's changes and discard the deletion. Or, by marking the conflict as resolved without doing anything he effectively discards Developer A's changes."
@@ -4317,7 +4317,7 @@ msgstr ""
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
-msgstr ""
+msgstr "Pengubahan lokal, mengubah disaat pembaruan"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8353(term)
 #. (para)
@@ -4328,39 +4328,39 @@ msgstr "Gunakan direktori \"_svn\" daripada \".svn\""
 #. (para)
 #. (para)
 msgid "Developer B modifies <filename>Foo.c</filename> in his working copy."
-msgstr ""
+msgstr "Pengembang B mengubah <filename>Foo.c</filename> didalam duplikasi kerja dia."
 
 #. (para)
 msgid "Or in the case of a folder move ..."
-msgstr ""
+msgstr "Atau di dalam kasus memindahkan folder ..."
 
 #. (para)
 msgid "Developer A moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
-msgstr ""
+msgstr "Pengembang A memindahkan induk folder <filename>FooFolder</filename>ke <filename>BarFolder</filename> dan me-komit kedalam repositori"
 
 #. (para)
 msgid "<filename>Bar.c</filename> is added to the working copy as a normal file."
-msgstr ""
+msgstr "<filename>Bar.c</filename> ditambahkan ke dalam duplikat kerja sebagai file biasa."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as added (with history) and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> ditandai sebagai tambahan (dengan sejarah) dan mempunyai konflik pohon."
 
 #. (para)
 msgid "An update of developer B's working copy results in a tree conflict. For a simple file conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Pembaruan dari duplikasi kerja pengembang B menghasilkan konflik. Untuk file konflik yang sederhana: <placeholder-1/>"
 
 #. (para)
 msgid "<filename>BarFolder</filename> is added to the working copy as a normal folder."
-msgstr ""
+msgstr "<filename>BarFolder</filename> ditambahkan ke dalam duplikasi kerja sebagain folder biasa."
 
 #. (para)
 msgid "<filename>FooFolder</filename> is marked as added (with history) and has a tree conflict."
-msgstr ""
+msgstr "filename>FooFolder</filename> ditandai sebagain tambahan (dengan sejarah) dan mempunyari konflik pohon."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified."
-msgstr ""
+msgstr "<filename>Foo.c</filename> ditandai sebagain diubah (modified)."
 
 # Indonesian#: source/TortoiseSVN_en.xml:7895(para)
 #. (para)
@@ -4371,7 +4371,7 @@ msgstr "Ini tidak berlaku jika: <placeholder-1/>"
 #. (para)
 #. (para)
 msgid "Developer B now has to decide whether to go with developer A's reorganisation and merge her changes into the corresponding file in the new structure, or simply revert A's changes and keep the local file."
-msgstr ""
+msgstr "Sekarang Pengembang B memutuskan untuk menyetujui pengembang A reorganisasi dan menggabungkan perubahan dia ke dalam file yang bersangkutan di dalam struktur yang baru, atau hanya mengubah kembali perubahan pengembang A dan menyimpan file lokal."
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
@@ -4383,7 +4383,7 @@ msgstr ""
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
-msgstr ""
+msgstr "Penghapusan lokal, mengubah disaat pembaruan"
 
 # Indonesian#: source/TortoiseSVN_en.xml:8353(term)
 #. (para)
@@ -4399,15 +4399,15 @@ msgstr "Buat folder lain <filename>MyNewRepository</filename> di dalam <filename
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked as added with history."
-msgstr ""
+msgstr "<filename>Bix.c</filename> ditandai sebagai tambahan dengan sejarah."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is added to the working copy with status 'normal'."
-msgstr ""
+msgstr "<filename>Bar.c</filename> ditambahi ke duplikasi kerja dengan 'normal' status."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as deleted and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> ditandai sebagai terhapus dan mempunyai konflik pohon."
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog."
