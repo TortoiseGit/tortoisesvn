@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-08 09:11+0100\n"
+"PO-Revision-Date: 2009-12-10 21:10+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -520,6 +520,10 @@ msgstr "&Vergleich mit URL"
 msgid "&Diff with previous version"
 msgstr "&Vergleiche mit vorheriger Revision"
 
+#. Resource IDs: (1528)
+msgid "&Directories"
+msgstr "&Verzeichnisse"
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Andocken"
@@ -563,6 +567,10 @@ msgstr "&Extern"
 #. Resource IDs: (65535)
 msgid "&File"
 msgstr "&Datei"
+
+#. Resource IDs: (1529)
+msgid "&Files"
+msgstr "&Dateien"
 
 #. Resource IDs: (32809)
 msgid "&Filter"
@@ -1965,8 +1973,8 @@ msgid "Bug-ID"
 msgstr "Bug-ID"
 
 #. Resource IDs: (1119)
-msgid "Bug-ID / Issue-Nr:"
-msgstr "Bug-ID:"
+msgid "Bug-ID / &Issue-Nr:"
+msgstr "&Bug-ID:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2232,8 +2240,8 @@ msgid "Checkout - TortoiseSVN"
 msgstr "Auschecken - TortoiseSVN"
 
 #. Resource IDs: (1377)
-msgid "Checkout Depth"
-msgstr "Rekursionstiefe"
+msgid "Checkout D&epth"
+msgstr "Rekursions&tiefe"
 
 #. Resource IDs: (229)
 #, c-format
@@ -3538,6 +3546,10 @@ msgstr "Logmeldung eingeben"
 msgid "Enter URL"
 msgstr "URL eingeben"
 
+#. Resource IDs: (65535)
+msgid "Enter a &name for the changelist:"
+msgstr "Geben Sie einen &Namen für die Änderungsliste ein:"
+
 #. Resource IDs: (3858)
 msgid "Enter a GUID."
 msgstr "Bitte geben Sie eine GUID ein."
@@ -3557,10 +3569,6 @@ msgstr "Bitte geben Sie ein Datum ein."
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr "Geben Sie eine optionale Sperrmeldung ein:"
-
-#. Resource IDs: (65535)
-msgid "Enter a name for the changelist:"
-msgstr "Geben Sie einen Namen für die Änderungsliste ein:"
 
 #. Resource IDs: (3858)
 #, c-format
@@ -4997,8 +5005,8 @@ msgstr ""
 "Wollen Sie wirklich umplatzieren?"
 
 #. Resource IDs: (1480)
-msgid "Items in externals"
-msgstr "Objekte in Externals"
+msgid "Items in &externals"
+msgstr "Objekte in &Externals"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
@@ -5017,8 +5025,8 @@ msgid "Keep &locks"
 msgstr "Sperren &behalten"
 
 #. Resource IDs: (1126)
-msgid "Keep changelists"
-msgstr "Änderungsliste beibehalten"
+msgid "Keep ch&angelists"
+msgstr "Änderungsliste &beibehalten"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -7632,8 +7640,8 @@ msgid "Show excluded folders as normal"
 msgstr "Ausgeschlossene Ordner 'normal' anzeigen"
 
 #. Resource IDs: (1480)
-msgid "Show externals from different repositories"
-msgstr "Zeige Externals von anderen Projektarchiven"
+msgid "Show externals from &different repositories"
+msgstr "Zeige Externals von &anderen Projektarchiven"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
