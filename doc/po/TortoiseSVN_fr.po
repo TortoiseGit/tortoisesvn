@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-09 09:22 +0000\n"
-"PO-Revision-Date: 2009-12-10 09:56+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2009-12-11 14:40+0100\n"
+"Last-Translator: Yves MITTELMANN <ymittelmann@acxio.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4115,27 +4115,27 @@ msgstr "Sélectionnez un ou plusieurs fichiers et utilisez <menuchoice><guimenu>
 
 #. (para)
 msgid "Once you have created a changelist you can drag and drop items into it, either from another changelist, or from Windows Explorer. Dragging from Explorer can be useful as it allows you to add items to a changelist before the file is modified. You could do that from the check-for-modifications dialog, but only by displaying all unmodified files."
-msgstr "Dès que vous avez créé une liste de modification vous pouvez y glisser/déposer des éléments depuis une autre liste de modifications, ou depuis Windows Explorer. L'avantage de le faire depuis Explorer est de permettre d'ajouter des éléments avant qu'ils le soient modifiés. Vous pourriez faire de même depuis la fenêtre de vérification des modifications, mais seulement en affichant tous les fichiers non modifiés."
+msgstr "Dès que vous avez créé une liste de modifications vous pouvez y glisser/déposer des éléments depuis une autre liste de modifications, ou depuis Windows Explorer. L'avantage de le faire depuis Explorer est de permettre d'ajouter des éléments avant qu'ils ne soient modifiés. Vous pourriez faire de même depuis la fenêtre de vérification des modifications, mais seulement en affichant tous les fichiers non modifiés."
 
 #. (title)
 msgid "Commit dialog with Changelists"
-msgstr "Fenêtre de livraison avec les listes des modifications"
+msgstr "Fenêtre de livraison avec les listes de modifications"
 
 #. (para)
 msgid "<placeholder-1/> In the commit dialog you can see those same files, grouped by changelist. Apart from giving an immediate visual indication of groupings, you can also use the group headings to select which files to commit."
-msgstr "<placeholder-1/> Dans la fenêtre de livraison vous pouvez voir ces même fichiers, regroupées par liste de modification. En dehors de donner directement une indication sur les regroupements, vous pouvez également vous servir des entêtes des groupes pour sélectionner les fichiers à livrer."
+msgstr "<placeholder-1/> Dans la fenêtre de livraison vous pouvez voir ces mêmes fichiers, regroupés par liste de modifications. En dehors de donner directement une indication sur les regroupements, vous pouvez également vous servir des entêtes des groupes pour sélectionner les fichiers à livrer."
 
 #. (para)
 msgid "On XP, there is a context menu when you right click on a group heading which gives you the choice to check or uncheck all group entries. On Vista however the context menu is not necessary. Click on the group header to select all entries, then check one of the selected entries to check all."
-msgstr "Sous XP, menu contextuel apparait lorsque vous faites un clic droit sur l'entête d'un groupe, vous donnant le choix de cocher ou de décocher toutes les entrées.Sous Vista le menu contextuel n'est pas nécessaire. Cliquez sur l'entête du groupe pour tout sélectionner, puis cochez une des entrées sélectionnées pour toutes les cocher."
+msgstr "Sous XP, un menu contextuel apparaît lorsque vous faites un clic droit sur l'entête d'un groupe, vous donnant le choix de cocher ou de décocher toutes les entrées. Sous Vista le menu contextuel n'est pas nécessaire. Cliquez sur l'entête du groupe pour tout sélectionner, puis cochez une des entrées sélectionnées pour toutes les cocher."
 
 #. (para)
 msgid "TortoiseSVN reserves one changelist name for its own use, namely <literal>ignore-on-commit</literal>. This is used to mark versioned files which you almost never want to commit even though they have local changes. This feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
-msgstr "TortoiseSVN se réserve une liste des modifications, appelée <literal>ignore-on-commit</literal>. Elle est utilisée pour marquer les fichiers versionnés que vous souhaitez rarement livrer même si vous les avez modifiés. Cette fonctionnalité estdécrite dans <xref linkend=\"tsvn-dug-commit-ignore\"/>."
+msgstr "TortoiseSVN se réserve une liste de modifications, appelée <literal>ignore-on-commit</literal>. Elle est utilisée pour marquer les fichiers versionnés que vous souhaitez rarement livrer même si vous les avez modifiés. Cette fonctionnalité est décrite dans <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 
 #. (para)
 msgid "When you commit files belonging to a changelist then normally you would expect that the changelist membership is no longer needed. So by default, files are removed from changelists automatically on commit. If you wish to retain the file in its changelist, use the <guilabel>Keep changelists</guilabel> checkbox at the bottom of the commit dialog."
-msgstr "Lorsque vous livrez des fichiers faisant partie d'une liste de modifications alors vous vous attendez naturellement à ce qu'ils ne fassent plus partie de cette liste. Donc par défaut, les fichiers sont retirés automatquement de la liste des modifications après avoir été livrés. Si ce comportement ne vous convient pas, utilisez la case à cocher <guilabel>Garder les listes de modifications</guilabel> en bas de la fenêtre de livraison."
+msgstr "Lorsque vous livrez des fichiers faisant partie d'une liste de modifications alors vous vous attendez naturellement à ce qu'ils n'en fassent plus partie ensuite. Donc par défaut, les fichiers sont retirés automatiquement de la liste des modifications après avoir été livrés. Si ce comportement ne vous convient pas, utilisez la case à cocher <guilabel>Garder les listes de modifications</guilabel> en bas de la fenêtre de livraison."
 
 #. (para)
 msgid "Changelists are purely a local client feature. Creating and removing changelists will not affect the repository, nor anyone else's working copy. They are simply a convenient way for you to organise your files."
