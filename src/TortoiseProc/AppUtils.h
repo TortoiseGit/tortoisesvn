@@ -99,6 +99,30 @@ public:
 			BOOL bWait = FALSE, BOOL bReadOnly = FALSE);
 
 	/**
+	 * Finds the standard application to open / process the given file
+	 * with the given verb (see ShellOpen for verbs).
+	 * \param fileName file path to pass to the application
+	 * \param verb verb to use for the registry lookup. 
+	 *        Falls back to "open", if the lookup failed.
+	 * \param extension if not empty, use this extension instead the
+	 *        of fileName for the registry lookup
+	 * \param applySecurityHeuristics if set, the function will not  
+	 *        return applications that require additional arguments
+	 *        (i.e. if %* or %2 are found in the command line)
+	 * \param askUserOnFailure if set and the registry lookup did
+	 *        not find anything, let the user select an application
+	 *		  via "file open" dialog.
+	 * \return application command line to execute. An empty string, 
+	 *         if lookup failed.
+	 */
+	static CString GetAppForFile 
+		( const CString& fileName
+		, const CString& extension
+		, const CString& verb
+		, bool applySecurityHeuristics
+		, bool askUserOnFailure);
+
+	/**
 	 * Launches the standard text viewer/editor application which is associated
 	 * with txt files.
 	 * \return TRUE if the program could be started.

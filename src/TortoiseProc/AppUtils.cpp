@@ -431,25 +431,82 @@ BOOL CAppUtils::StartUnifiedDiffViewer(const CTSVNPath& patchfile, const CString
 	return TRUE;
 }
 
-BOOL CAppUtils::StartTextViewer(CString file)
+CString CAppUtils::GetAppForFile 
+	( const CString& fileName
+	, const CString& extension
+	, const CString& verb
+	, bool applySecurityHeuristics
+	, bool askUserOnFailure)
 {
-	CString viewer;
-	CRegString txt = CRegString(_T(".txt\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
-	viewer = txt;
-	viewer = viewer + _T("\\Shell\\Open\\Command\\");
-	CRegString txtexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
-	viewer = txtexe;
+	CString application;
 
-	DWORD len = ExpandEnvironmentStrings(viewer, NULL, 0);
+	// normalize file path
+
+	DWORD len = ExpandEnvironmentStrings (fileName, NULL, 0);
 	auto_buffer<TCHAR> buf(len+1);
-	ExpandEnvironmentStrings(viewer, buf, len);
-	viewer = buf;
-	len = ExpandEnvironmentStrings(file, NULL, 0);
+	ExpandEnvironmentStrings (fileName, buf, len);
+	CString normalizedFileName = buf;
+	normalizedFileName = _T("\"")+normalizedFileName+_T("\"");
+
+	// registry lookup
+
+	CString extensionToUse = extension.IsEmpty()
+		? CTSVNPath (buf.get()).GetFileExtension()
+		: extension;
+
+	if (!extensionToUse.IsEmpty())
+	{
+		// lookup by verb
+
+		CString documentClass 
+			= CRegString (extensionToUse + _T("\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
+
+		CString key = documentClass + _T("\\Shell\\") + verb + _T("\\Command\\");
+		application = CRegString (key, _T(""), FALSE, HKEY_CLASSES_ROOT);
+
+		// fallback to "open"
+
+		if (application.IsEmpty())
+		{
+			key = documentClass + _T("\\Shell\\Open\\Command\\");
+			application = CRegString (key, _T(""), FALSE, HKEY_CLASSES_ROOT);
+		}
+	}
+
+	// normalize application path
+
+	len = ExpandEnvironmentStrings (application, NULL, 0);
 	buf.reset(len+1);
-	ExpandEnvironmentStrings(file, buf, len);
-	file = buf;
-	file = _T("\"")+file+_T("\"");
-	if (viewer.IsEmpty())
+	ExpandEnvironmentStrings (application, buf, len);
+	application = buf;
+
+	// security heuristics: 
+	// some scripting languages (e.g. python) will execute the document
+	// instead of open it. Try to identify these cases.
+
+	if (applySecurityHeuristics)
+	{
+		if (   (application.Find (_T("%2")) >= 0) 
+			|| (application.Find (_T("%*")) >= 0))
+		{
+			// consumes extra parameters 
+			// -> probably a script execution
+			// -> retry with "open" verb or ask user
+
+			if (verb.CompareNoCase (_T("open")) == 0)
+				application.Empty();
+			else
+				return GetAppForFile ( fileName
+									 , extension
+									 , _T("open")
+									 , true
+									 , askUserOnFailure);
+		}
+	}
+
+	// if lookup failed, ask user for path
+
+	if (application.IsEmpty() && askUserOnFailure)
 	{
 		OPENFILENAME ofn = {0};				// common dialog box structure
 		TCHAR szFile[MAX_PATH] = {0};		// buffer for file name. Explorer can't handle paths longer than MAX_PATH.
@@ -478,33 +535,33 @@ BOOL CAppUtils::StartTextViewer(CString file)
 		// Display the Open dialog box. 
 
 		if (GetOpenFileName(&ofn)==TRUE)
-		{
-			viewer = CString(ofn.lpstrFile);
-		}
-		else
-		{
-			return FALSE;
-		}
-	}
-	if (viewer.Find(_T("\"%1\"")) >= 0)
-	{
-		viewer.Replace(_T("\"%1\""), file);
-	}
-	else if (viewer.Find(_T("%1")) >= 0)
-	{
-		viewer.Replace(_T("%1"),  file);
-	}
-	else
-	{
-		viewer += _T(" ");
-		viewer += file;
+			application = CString(ofn.lpstrFile);
 	}
 
-	if(!LaunchApplication(viewer, IDS_ERR_TEXTVIEWSTART, false))
-	{
-		return FALSE;
-	}
-	return TRUE;
+	// exit here, if we were not successful
+
+	if (application.IsEmpty())
+		return application;
+
+	// resolve parameters
+
+	if (application.Find (_T("%1")) < 0)
+		application += _T(" %1");
+
+	if (application.Find(_T("\"%1\"")) >= 0)
+		application.Replace(_T("\"%1\""), _T("%1"));
+
+	application.Replace (_T("%1"), normalizedFileName);
+
+	return application;
+}
+
+BOOL CAppUtils::StartTextViewer(CString file)
+{
+	CString viewer = GetAppForFile (file, _T(".txt"), _T("open"), false, true);
+	return LaunchApplication (viewer, IDS_ERR_TEXTVIEWSTART, false)
+		? TRUE
+		: FALSE;
 }
 
 BOOL CAppUtils::CheckForEmptyDiff(const CTSVNPath& sDiffPath)
