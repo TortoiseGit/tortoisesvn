@@ -1076,14 +1076,15 @@ void CCommitDlg::GetAutocompletionList()
 	sRegexFile += _T("autolist.txt");
 	if (!m_bRunThread)
 		return;
-	ParseRegexFile(sRegexFile, mapRegex);
+	if (PathFileExists(sRegexFile))
+		ParseRegexFile(sRegexFile, mapRegex);
+
 	SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, sRegexFile.GetBuffer(MAX_PATH+1));
 	sRegexFile.ReleaseBuffer();
 	sRegexFile += _T("\\TortoiseSVN\\autolist.txt");
 	if (PathFileExists(sRegexFile))
-	{
 		ParseRegexFile(sRegexFile, mapRegex);
-	}
+
 	DWORD starttime = GetTickCount();
 
 	// now we have two arrays of strings, where the first array contains all
