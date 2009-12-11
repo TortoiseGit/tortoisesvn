@@ -36,10 +36,7 @@ bool ResolveCommand::Execute()
 			CSVNProgressDlg progDlg(CWnd::FromHandle(hWndExplorer));
 			theApp.m_pMainWnd = &progDlg;
 			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Resolve);
-			if (parser.HasVal(_T("closeonend")))
-				progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
-			if (parser.HasKey(_T("closeforlocal")))
-				progDlg.SetAutoCloseLocal(TRUE);
+			progDlg.SetAutoClose (parser);
 			progDlg.SetOptions(parser.HasKey(_T("skipcheck")) ? ProgOptSkipConflictCheck : ProgOptNone);
 			progDlg.SetPathList(dlg.m_pathList);
 			progDlg.DoModal();

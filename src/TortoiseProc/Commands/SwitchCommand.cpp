@@ -33,10 +33,7 @@ bool SwitchCommand::Execute()
 		CSVNProgressDlg progDlg;
 		theApp.m_pMainWnd = &progDlg;
 		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Switch);
-		if (parser.HasVal(_T("closeonend")))
-			progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
-		if (parser.HasKey(_T("closeforlocal")))
-			progDlg.SetAutoCloseLocal(TRUE);
+		progDlg.SetAutoClose (parser);
 		progDlg.SetPathList(CTSVNPathList(cmdLinePath));
 		progDlg.SetUrl(dlg.m_URL);
 		progDlg.SetRevision(dlg.Revision);

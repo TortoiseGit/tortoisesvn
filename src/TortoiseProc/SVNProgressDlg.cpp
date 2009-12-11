@@ -43,6 +43,7 @@
 #include "SVNDataObject.h"
 #include "SVNProperties.h"
 #include "COMError.h"
+#include "CmdLineParser.h"
 
 BOOL	CSVNProgressDlg::m_bAscending = FALSE;
 int		CSVNProgressDlg::m_nSortedColumn = -1;
@@ -712,6 +713,16 @@ CString CSVNProgressDlg::BuildInfoString()
 		infotext.AppendFormat(_T(":%d "), resolved);
 	}
 	return infotext;
+}
+
+void CSVNProgressDlg::SetAutoClose(const CCmdLineParser& parser)
+{
+	if (parser.HasVal(_T("closeonend")))
+		SetAutoClose(parser.GetLongVal(_T("closeonend")));
+	if (parser.HasKey(_T("closeforlocal")))
+		SetAutoCloseLocal(TRUE);
+	if (parser.HasKey(_T("hideprogress")))
+		SetHidden (true);
 }
 
 void CSVNProgressDlg::SetSelectedList(const CTSVNPathList& selPaths)

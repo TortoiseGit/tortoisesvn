@@ -96,10 +96,7 @@ bool AddCommand::Execute()
 				CSVNProgressDlg progDlg;
 				theApp.m_pMainWnd = &progDlg;
 				progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Add);
-				if (parser.HasVal(_T("closeonend")))
-					progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
-				if (parser.HasKey(_T("closeforlocal")))
-					progDlg.SetAutoCloseLocal(TRUE);
+				progDlg.SetAutoClose (parser);
 				progDlg.SetPathList(dlg.m_pathList);
 				ProjectProperties props;
 				props.ReadPropsPathList(dlg.m_pathList);

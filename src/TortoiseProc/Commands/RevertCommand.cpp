@@ -34,10 +34,7 @@ bool RevertCommand::Execute()
 		CSVNProgressDlg progDlg;
 		theApp.m_pMainWnd = &progDlg;
 		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Revert);
-		if (parser.HasVal(_T("closeonend")))
-			progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
-		if (parser.HasKey(_T("closeforlocal")))
-			progDlg.SetAutoCloseLocal(TRUE);
+		progDlg.SetAutoClose (parser);
 		progDlg.SetOptions(dlg.m_bRecursive ? ProgOptRecursive : ProgOptNonRecursive);
 		progDlg.SetPathList(dlg.m_pathList);
 		progDlg.SetItemCount(dlg.m_selectedPathList.GetCount());

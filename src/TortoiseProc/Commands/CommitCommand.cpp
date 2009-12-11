@@ -45,10 +45,7 @@ void CommitCommand::InitProgressDialog
     , CSVNProgressDlg& progDlg)
 {
 	progDlg.SetChangeList(commitDlg.m_sChangeList, !!commitDlg.m_bKeepChangeList);
-	if (parser.HasVal(_T("closeonend")))
-		progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
-	if (parser.HasKey(_T("closeforlocal")))
-		progDlg.SetAutoCloseLocal(TRUE);
+	progDlg.SetAutoClose (parser);
 	progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Commit);
 	progDlg.SetOptions(commitDlg.m_bKeepLocks ? ProgOptKeeplocks : ProgOptNone);
 	progDlg.SetPathList(commitDlg.m_pathList);

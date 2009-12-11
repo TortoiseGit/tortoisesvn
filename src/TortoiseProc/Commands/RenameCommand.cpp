@@ -94,10 +94,7 @@ bool RenameCommand::Execute()
 			// operation.
 			CSVNProgressDlg progDlg;
 			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Rename);
-			if (parser.HasVal(_T("closeonend")))
-				progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
-			if (parser.HasKey(_T("closeforlocal")))
-				progDlg.SetAutoCloseLocal(TRUE);
+			progDlg.SetAutoClose (parser);
 			progDlg.SetPathList(pathList);
 			progDlg.SetUrl(destinationPath.GetWinPathString());
 			progDlg.SetCommitMessage(sMsg);

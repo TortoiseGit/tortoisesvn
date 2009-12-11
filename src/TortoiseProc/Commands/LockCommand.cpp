@@ -36,10 +36,7 @@ bool LockCommand::Execute()
 		CSVNProgressDlg progDlg;
 		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Lock);
 		progDlg.SetPathList(pathList);
-		if (parser.HasVal(_T("closeonend")))
-			progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
-		if (parser.HasKey(_T("closeforlocal")))
-			progDlg.SetAutoCloseLocal(TRUE);
+		progDlg.SetAutoClose (parser);
 		progDlg.DoModal();
 		bRet = !progDlg.DidErrorsOccur();
 	}
@@ -52,10 +49,7 @@ bool LockCommand::Execute()
 			progDlg.SetOptions(lockDlg.m_bStealLocks ? ProgOptForce : ProgOptNone);
 			progDlg.SetPathList(lockDlg.m_pathList);
 			progDlg.SetCommitMessage(lockDlg.m_sLockMessage);
-			if (parser.HasVal(_T("closeonend")))
-				progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
-			if (parser.HasKey(_T("closeforlocal")))
-				progDlg.SetAutoCloseLocal(TRUE);
+			progDlg.SetAutoClose (parser);
 			progDlg.DoModal();
 			bRet = !progDlg.DidErrorsOccur();
 		}

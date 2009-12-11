@@ -117,10 +117,7 @@ bool CheckoutCommand::Execute()
 		{
 			CSVNProgressDlg progDlg;
 			theApp.m_pMainWnd = &progDlg;
-			if (parser.HasVal(_T("closeonend")))
-				progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
-			if (parser.HasKey(_T("closeforlocal")))
-				progDlg.SetAutoCloseLocal(TRUE);
+			progDlg.SetAutoClose (parser);
 			progDlg.SetCommand
 				( parser.HasKey(_T("commonwc"))
 				? CSVNProgressDlg::SVNProgress_SingleFileCheckout
@@ -148,10 +145,7 @@ bool CheckoutCommand::Execute()
 					: CSVNProgressDlg::SVNProgress_SingleFileCheckout
 				: CSVNProgressDlg::SVNProgress_Checkout);
 
-		if (parser.HasVal(_T("closeonend")))
-			progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
-		if (parser.HasKey(_T("closeforlocal")))
-			progDlg.SetAutoCloseLocal(TRUE);
+		progDlg.SetAutoClose (parser);
 		progDlg.SetOptions(dlg.m_bNoExternals ? ProgOptIgnoreExternals : ProgOptNone);
 		progDlg.SetPathList(CTSVNPathList(checkoutDirectory));
 		progDlg.SetUrl(dlg.m_URL);

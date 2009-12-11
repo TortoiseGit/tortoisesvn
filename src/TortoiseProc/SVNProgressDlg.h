@@ -27,6 +27,8 @@
 #include "Win7.h"
 #include "AeroControls.h"
 
+class CCmdLineParser;
+
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
 /** 
@@ -106,6 +108,7 @@ public:
 
 
 	void SetCommand(Command cmd) {m_Command = cmd;}
+	void SetAutoClose(const CCmdLineParser& parser);
 	void SetAutoClose(DWORD ac) {m_dwCloseOnEnd = ac;}
 	void SetAutoCloseLocal(BOOL bCloseLocal) {m_bCloseLocalOnEnd = bCloseLocal;}
 	void SetOptions(DWORD opts) {m_options = opts;}
