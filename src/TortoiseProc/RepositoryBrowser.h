@@ -174,6 +174,8 @@ protected:
     void OpenFromList (int item);
 	/// Open the file in the default application
 	void OpenFile(const CTSVNPath& url, const CTSVNPath& urlEscaped, bool bOpenWith);
+	/// C/o & lock the file and open it in the default application for modification
+	void EditFile(const CTSVNPath& url);
 	/// Sets the sort arrow in the list view header according to the currently used sorting.
 	void SetSortArrow();
 	/// called when a drag-n-drop operation starts

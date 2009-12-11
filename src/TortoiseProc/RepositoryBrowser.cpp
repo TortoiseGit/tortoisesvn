@@ -50,7 +50,7 @@
 #include "SysInfo.h"
 #include "Shlwapi.h"
 #include "RepositoryBrowserSelection.h"
-
+#include "Commands\EditFileCommand.h"
 
 #define OVERLAY_EXTERNAL		1
 
@@ -59,6 +59,7 @@ enum RepoBrowserContextMenuCommands
 	// needs to start with 1, since 0 is the return value if *nothing* is clicked on in the context menu
 	ID_OPEN = 1,
 	ID_OPENWITH,
+	ID_EDITFILE,
 	ID_SHOWLOG,
 	ID_REVGRAPH,
 	ID_BLAME,
@@ -1761,6 +1762,22 @@ void CRepositoryBrowser::OpenFile(const CTSVNPath& url, const CTSVNPath& urlEsca
 	}
 }
 
+void CRepositoryBrowser::EditFile(const CTSVNPath& url)
+{
+	CCmdLineParser parameters 
+		(_T("/closeonend:1 /closeforlocal /hideprogress /revision:")
+		  + GetRevision().ToString());
+
+	EditFileCommand command;
+	command.SetPaths (CTSVNPathList (url), url);
+	command.SetParser (parameters);
+	if (command.Execute())
+	{
+		InvalidateData (m_RepoTree.GetSelectedItem());
+		RefreshNode(m_RepoTree.GetSelectedItem(), true);
+	}
+}
+
 void CRepositoryBrowser::OnHdnItemclickRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
@@ -2461,6 +2478,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				// Let "Open" be the very first entry, like in Explorer
 				popup.AppendMenuIcon(ID_OPEN, IDS_REPOBROWSE_OPEN, IDI_OPEN);		// "open"
 				popup.AppendMenuIcon(ID_OPENWITH, IDS_LOG_POPUP_OPENWITH, IDI_OPEN);	// "open with..."
+				popup.AppendMenuIcon(ID_EDITFILE, IDS_REPOBROWSE_EDITFILE);		// "edit"
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 			}
 			popup.AppendMenuIcon(ID_SHOWLOG, IDS_REPOBROWSE_SHOWLOG, IDI_LOG);			// "Show Log..."
@@ -2898,6 +2916,11 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		case ID_OPEN:
 			{
 				OpenFile(selection.GetURL (0,0), selection.GetURLEscaped (0,0), bOpenWith);
+			}
+			break;
+		case ID_EDITFILE:
+			{
+				EditFile(selection.GetURL (0,0));
 			}
 			break;
 		case ID_DELETE:
