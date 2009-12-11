@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-07 22:35+0100\n"
+"PO-Revision-Date: 2009-12-11 21:21+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -572,6 +572,10 @@ msgstr "&Дифф са УРЛ"
 msgid "&Diff with previous version"
 msgstr "&Дифф са претходном верзијом"
 
+#. Resource IDs: (1528)
+msgid "&Directories"
+msgstr "&Именици"
+
 #
 #. Resource IDs: (1066)
 msgid "&Docking"
@@ -626,6 +630,11 @@ msgstr "&Спољашњи"
 #. Resource IDs: (65535)
 msgid "&File"
 msgstr "&Фајл"
+
+#
+#. Resource IDs: (1529)
+msgid "&Files"
+msgstr "&Фајлови"
 
 #
 #. Resource IDs: (32809)
@@ -2169,8 +2178,8 @@ msgid "Bug-ID"
 msgstr "ИД бага"
 
 #. Resource IDs: (1119)
-msgid "Bug-ID / Issue-Nr:"
-msgstr "ИД бага / Бр. спорног питања:"
+msgid "Bug-ID / &Issue-Nr:"
+msgstr "ИД бага / &Бр. спорног питања:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2435,8 +2444,8 @@ msgid "Checkout - TortoiseSVN"
 msgstr "Преузми - ТортоисеСВН"
 
 #. Resource IDs: (1377)
-msgid "Checkout Depth"
-msgstr "Дубина преузимања"
+msgid "Checkout D&epth"
+msgstr "Дубина пр&еузимања"
 
 #. Resource IDs: (229)
 #, c-format
@@ -2649,7 +2658,7 @@ msgstr "Урежи"
 
 #. Resource IDs: (77)
 msgid "Commit - TortoiseSVN"
-msgstr "Урезан - ТортоисеСВН"
+msgstr "Урезивање - ТортоисеСВН"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3741,6 +3750,10 @@ msgstr "Унети дневник порука"
 msgid "Enter URL"
 msgstr "Унетии УРЛ"
 
+#. Resource IDs: (65535)
+msgid "Enter a &name for the changelist:"
+msgstr "У&нети име за попис измена:"
+
 #. Resource IDs: (3858)
 msgid "Enter a GUID."
 msgstr "Унети ГУИД."
@@ -3760,10 +3773,6 @@ msgstr "Унети датум."
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr "Унети поруку закључавања (није обавезно):"
-
-#. Resource IDs: (65535)
-msgid "Enter a name for the changelist:"
-msgstr "Унети име за попис измена:"
 
 #. Resource IDs: (3858)
 #, c-format
@@ -5191,8 +5200,8 @@ msgstr ""
 "Да ли стварно желите преместити радну копију?"
 
 #. Resource IDs: (1480)
-msgid "Items in externals"
-msgstr "Ставке у екстерналима"
+msgid "Items in &externals"
+msgstr "Ставке у &екстерналима"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
@@ -5211,8 +5220,8 @@ msgid "Keep &locks"
 msgstr "Држи &закључан"
 
 #. Resource IDs: (1126)
-msgid "Keep changelists"
-msgstr "Сачувај листу измена"
+msgid "Keep ch&angelists"
+msgstr "С&ачувај листу измена"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -7822,8 +7831,8 @@ msgid "Show excluded folders as normal"
 msgstr "Прикажи искључене именик као нормалан"
 
 #. Resource IDs: (1480)
-msgid "Show externals from different repositories"
-msgstr "Прикакажите екстернале из различитих спремишта"
+msgid "Show externals from &different repositories"
+msgstr "Прикажите екстернале из &различитих спремишта"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -8363,14 +8372,6 @@ msgstr "Статус текста:"
 #. Resource IDs: (207)
 msgid "Text status"
 msgstr "Статус текста"
-
-#. Resource IDs: (84)
-msgid ""
-"The URL to check out refers to a file but this\n"
-"working copy path is an existing directory."
-msgstr ""
-"УРЛ за преузимање означава фајл али овај\n"
-"именик радне копије је постојећи именик."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -10874,4 +10875,11 @@ msgstr "да"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{БагТрек}"
+
+#~ msgid ""
+#~ "The URL to check out refers to a file but this\n"
+#~ "working copy path is an existing directory."
+#~ msgstr ""
+#~ "УРЛ за преузимање означава фајл али овај\n"
+#~ "именик радне копије је постојећи именик."
 
