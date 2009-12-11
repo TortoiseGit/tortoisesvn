@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-07 00:09-0300\n"
+"PO-Revision-Date: 2009-12-10 23:02-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -525,6 +525,10 @@ msgstr "&Diferenças com URL"
 msgid "&Diff with previous version"
 msgstr "&Diferenças à revisão anterior"
 
+#. Resource IDs: (1528)
+msgid "&Directories"
+msgstr "&Diretórios"
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Ancoragem"
@@ -568,6 +572,10 @@ msgstr "&Externo"
 #. Resource IDs: (65535)
 msgid "&File"
 msgstr "&Arquivo"
+
+#. Resource IDs: (1529)
+msgid "&Files"
+msgstr "&Arquivos"
 
 #. Resource IDs: (32809)
 msgid "&Filter"
@@ -1970,8 +1978,8 @@ msgid "Bug-ID"
 msgstr "Bug-ID"
 
 #. Resource IDs: (1119)
-msgid "Bug-ID / Issue-Nr:"
-msgstr "Bug-ID / Issue-Nr:"
+msgid "Bug-ID / &Issue-Nr:"
+msgstr "Bug-ID / &Issue-Nr:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2236,8 +2244,8 @@ msgid "Checkout - TortoiseSVN"
 msgstr "Obter - TortoiseSVN"
 
 #. Resource IDs: (1377)
-msgid "Checkout Depth"
-msgstr "Profundidade da obtenção"
+msgid "Checkout D&epth"
+msgstr "Profundidade da obt&enção"
 
 #. Resource IDs: (229)
 #, c-format
@@ -3542,6 +3550,10 @@ msgstr "Inserir Mensagem de Log"
 msgid "Enter URL"
 msgstr "Inserir URL"
 
+#. Resource IDs: (65535)
+msgid "Enter a &name for the changelist:"
+msgstr "Insira um &nome para a lista de alterações:"
+
 #. Resource IDs: (3858)
 msgid "Enter a GUID."
 msgstr "Insira um GUID."
@@ -3561,10 +3573,6 @@ msgstr "Insira uma data."
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr "Insira uma mensagem de bloqueio (opcional):"
-
-#. Resource IDs: (65535)
-msgid "Enter a name for the changelist:"
-msgstr "Insira um nome para a lista de alterações:"
 
 #. Resource IDs: (3858)
 #, c-format
@@ -4996,8 +5004,8 @@ msgstr ""
 "Você realmente quer realocar?"
 
 #. Resource IDs: (1480)
-msgid "Items in externals"
-msgstr "Itens externos"
+msgid "Items in &externals"
+msgstr "Itens &externos"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
@@ -5016,8 +5024,8 @@ msgid "Keep &locks"
 msgstr "Manter &bloqueios"
 
 #. Resource IDs: (1126)
-msgid "Keep changelists"
-msgstr "Manter listas de alterações"
+msgid "Keep ch&angelists"
+msgstr "Manter listas de &alterações"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -7631,8 +7639,8 @@ msgid "Show excluded folders as normal"
 msgstr "Mostrar pastas excluídas como normais"
 
 #. Resource IDs: (1480)
-msgid "Show externals from different repositories"
-msgstr "Mostrar referências externas de repositórios diferentes"
+msgid "Show externals from &different repositories"
+msgstr "Mostrar referências externas de repositórios &diferentes"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -8174,14 +8182,6 @@ msgstr "Status do Texto:"
 #. Resource IDs: (207)
 msgid "Text status"
 msgstr "Status do texto"
-
-#. Resource IDs: (84)
-msgid ""
-"The URL to check out refers to a file but this\n"
-"working copy path is an existing directory."
-msgstr ""
-"A URL da obteção refere-se a um arquivo mas\n"
-"o caminho da cópia de trabalho é de um diretório existente."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -10684,6 +10684,12 @@ msgstr "sim"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid ""
+#~ "The URL to check out refers to a file but this\n"
+#~ "working copy path is an existing directory."
+#~ msgstr ""
+#~ "A URL da obteção refere-se a um arquivo mas\n"
+#~ "o caminho da cópia de trabalho é de um diretório existente."
 #~ msgid "Show &properties"
 #~ msgstr "Mostrar &propriedades"
 #~ msgid "Show i&gnored files"
