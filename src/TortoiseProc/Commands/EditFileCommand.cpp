@@ -130,7 +130,7 @@ bool EditFileCommand::Edit()
 	CString cmdLine 
 		= CAppUtils::GetAppForFile ( path.GetWinPathString()
 								   , _T("")
-								   , _T("open")
+								   , _T("edit")
 								   , true
 								   , true);
 
