@@ -85,6 +85,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	, m_options(ProgOptNone)
 	, m_dwCloseOnEnd((DWORD)-1)
 	, m_bCloseLocalOnEnd((DWORD)-1)
+	, m_hidden(false)
 	, m_bFinishedItemAdded(false)
 	, m_bLastVisible(false)
 	, m_depth(svn_depth_unknown)
@@ -851,6 +852,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("SVNProgressDlg"));
 	GetDlgItem(IDOK)->SetFocus();
+
 	return FALSE;
 }
 
@@ -925,6 +927,10 @@ UINT CSVNProgressDlg::ProgressThreadEntry(LPVOID pVoid)
 
 UINT CSVNProgressDlg::ProgressThread()
 {
+	if (m_hidden)
+		SetWindowPos(NULL, 0, 0, 0, 0, SWP_HIDEWINDOW|
+			SWP_NOSIZE|SWP_NOMOVE|SWP_NOACTIVATE|SWP_NOZORDER);
+
 	// The SetParams function should have loaded something for us
 
 	CString temp;
@@ -945,6 +951,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	CTime startTime = CTime::GetCurrentTime();
 	if (m_pTaskbarList)
 		m_pTaskbarList->SetProgressState(m_hWnd, TBPF_INDETERMINATE);
+
 	switch (m_Command)
 	{
 	case SVNProgress_Add:
@@ -1104,8 +1111,12 @@ UINT CSVNProgressDlg::ProgressThread()
 
 	if ((bAutoCloseLocal)&&(!m_bErrorsOccurred)&&(m_nConflicts==0)&&(localoperation))
 		sendClose = true;
+
 	if (sendClose)
 		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
+	else if (m_hidden)
+		SetWindowPos(NULL, 0, 0, 0, 0, SWP_SHOWWINDOW|
+			SWP_NOSIZE|SWP_NOMOVE|SWP_NOACTIVATE|SWP_NOZORDER);
 
 	//Don't do anything here which might cause messages to be sent to the window
 	//The window thread is probably now blocked in OnOK if we've done an auto close

@@ -111,6 +111,7 @@ public:
 	void SetAutoClose(const CCmdLineParser& parser);
 	void SetAutoClose(DWORD ac) {m_dwCloseOnEnd = ac;}
 	void SetAutoCloseLocal(BOOL bCloseLocal) {m_bCloseLocalOnEnd = bCloseLocal;}
+	void SetHidden (bool hidden) {m_hidden = hidden;}
 	void SetOptions(DWORD opts) {m_options = opts;}
 	void SetPathList(const CTSVNPathList& pathList) {m_targetPathList = pathList;}
 	void SetUrl(const CString& url) {m_url.SetFromUnknown(url);}
@@ -301,6 +302,7 @@ private:
 
 	DWORD					m_dwCloseOnEnd;
 	DWORD					m_bCloseLocalOnEnd;
+	bool					m_hidden;
 
 	CTSVNPath				m_basePath;
 	StringRevMap			m_UpdateStartRevMap;
