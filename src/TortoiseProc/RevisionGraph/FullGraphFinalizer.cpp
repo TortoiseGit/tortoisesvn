@@ -187,7 +187,9 @@ void CFullGraphFinalizer::MarkHead (CFullGraphNode* node)
     // look for the latest change
     // (there may be several "copy-source-only" nodes trailing HEAD
 
-    while (node->GetClassification().Matches (0, CNodeClassification::IS_OPERATION_MASK))
+	const DWORD forbidden = CNodeClassification::IS_OPERATION_MASK;
+    while (   (node->GetClassification().Matches (0, forbidden))
+		   && (node->GetPrevious() != NULL))
         node = node->GetPrevious();
 
     node->AddClassification (CNodeClassification::IS_LAST);

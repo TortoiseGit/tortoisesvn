@@ -531,12 +531,19 @@ void CFullHistory::BuildForwardCopies()
     copyFromRelation = new SCopyInfo*[copiesContainer.size()];
     copyFromRelationEnd = copyFromRelation + copiesContainer.size();
 
-	size_t bytesToCopy = copiesContainer.size() * sizeof (SCopyInfo*[1]);
-	memcpy (copyToRelation, &copiesContainer.front(), bytesToCopy);
-	memcpy (copyFromRelation, &copiesContainer.front(), bytesToCopy);
+	// in early phases, there will be no copies
+	// -> front() iterator is invalid
 
-	std::sort (copyToRelation, copyToRelationEnd, &AscendingToRevision);
-	std::sort (copyFromRelation, copyFromRelationEnd, &AscendingFromRevision);
+	if (!copiesContainer.empty())
+	{
+		size_t bytesToCopy = copiesContainer.size() * sizeof (SCopyInfo*[1]);
+
+		memcpy (copyToRelation, &copiesContainer.front(), bytesToCopy);
+		memcpy (copyFromRelation, &copiesContainer.front(), bytesToCopy);
+
+		std::sort (copyToRelation, copyToRelationEnd, &AscendingToRevision);
+		std::sort (copyFromRelation, copyFromRelationEnd, &AscendingFromRevision);
+	}
 }
 
 CString CFullHistory::GetLastErrorMessage() const

@@ -80,6 +80,8 @@ Version 1.6.7
        application. (Jonathan Potter, GP Software and Stefan)
 - BUG: The "commonURL" parameter in the CheckCommit() method of the
        IBugtraqProvider2 interface was sometimes wrong. (Stefan)
+- BUG: Revision graph would segfault for small repositories
+       (Stefan Fuhrmann)
 
 Version 1.6.6
 - CHG: Reduced disk access in the status cache. (Stefan)
