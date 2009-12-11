@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-07 19:42+0900\n"
+"PO-Revision-Date: 2009-12-11 14:19+0900\n"
 "Last-Translator: Taedong Kim <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -517,6 +517,10 @@ msgstr "특정 URL과 차이를 구합니다. (&D)"
 msgid "&Diff with previous version"
 msgstr "이전 리비전 비교(&D)"
 
+#. Resource IDs: (1528)
+msgid "&Directories"
+msgstr "디렉토리들(&D)"
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "붙이기(&D)"
@@ -560,6 +564,10 @@ msgstr "외부(&E)"
 #. Resource IDs: (65535)
 msgid "&File"
 msgstr "파일(&F)"
+
+#. Resource IDs: (1529)
+msgid "&Files"
+msgstr "파일들(&F)"
 
 #. Resource IDs: (32809)
 msgid "&Filter"
@@ -1957,8 +1965,8 @@ msgid "Bug-ID"
 msgstr "버그 ID"
 
 #. Resource IDs: (1119)
-msgid "Bug-ID / Issue-Nr:"
-msgstr "Bug-ID / Issue-Nr:"
+msgid "Bug-ID / &Issue-Nr:"
+msgstr "Bug-ID / &Issue-Nr:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2223,8 +2231,8 @@ msgid "Checkout - TortoiseSVN"
 msgstr "체크아웃 - TortoiseSVN"
 
 #. Resource IDs: (1377)
-msgid "Checkout Depth"
-msgstr "체크아웃 깊이"
+msgid "Checkout D&epth"
+msgstr "체크아웃 깊이(&E)"
 
 #. Resource IDs: (229)
 #, c-format
@@ -3528,6 +3536,10 @@ msgstr "로그 메시지를 입력하세요"
 msgid "Enter URL"
 msgstr "URL 입력"
 
+#. Resource IDs: (65535)
+msgid "Enter a &name for the changelist:"
+msgstr "변경 리스트에 대한 이름(&N):"
+
 #. Resource IDs: (3858)
 msgid "Enter a GUID."
 msgstr "GUID를 입력하십시오."
@@ -3547,10 +3559,6 @@ msgstr "날짜를 입력하십시오."
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr "잠금 알림 메시지 (선택사항):"
-
-#. Resource IDs: (65535)
-msgid "Enter a name for the changelist:"
-msgstr "변경 리스트에 대한 이름:"
 
 #. Resource IDs: (3858)
 #, c-format
@@ -3849,7 +3857,7 @@ msgstr "파일"
 #. Resource IDs: (247)
 #, c-format
 msgid "File changes each %s"
-msgstr ""
+msgstr "파일 변경들 각각 %s"
 
 #. Resource IDs: (1138)
 msgid "File changes each week:"
@@ -4974,8 +4982,8 @@ msgstr ""
 "정말 URL을 변경하시겠습니까?"
 
 #. Resource IDs: (1480)
-msgid "Items in externals"
-msgstr "외부 아이템들"
+msgid "Items in &externals"
+msgstr "외부 아이템들(&E)"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
@@ -4994,8 +5002,8 @@ msgid "Keep &locks"
 msgstr "잠금 유지(&L)"
 
 #. Resource IDs: (1126)
-msgid "Keep changelists"
-msgstr "변경 리스트 유지"
+msgid "Keep ch&angelists"
+msgstr "변경 리스트들 유지(&A)"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -7602,8 +7610,8 @@ msgid "Show excluded folders as normal"
 msgstr "제외된 폴더를 일반 파일처럼 보여줌"
 
 #. Resource IDs: (1480)
-msgid "Show externals from different repositories"
-msgstr "다른 저장소들로부터 외부정보를 보여줍니다."
+msgid "Show externals from &different repositories"
+msgstr "다른 저장소들로부터 외부정보를 보여줍니다.(&D)"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -8140,14 +8148,6 @@ msgstr "텍스트 상태:"
 #. Resource IDs: (207)
 msgid "Text status"
 msgstr "텍스트 상태"
-
-#. Resource IDs: (84)
-msgid ""
-"The URL to check out refers to a file but this\n"
-"working copy path is an existing directory."
-msgstr ""
-"체크아웃의 URL이 파일을 참조합니다.\n"
-"하지만 이 작업 사본의 경로는 존재하는 디렉토리입니다."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -10640,6 +10640,12 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid ""
+#~ "The URL to check out refers to a file but this\n"
+#~ "working copy path is an existing directory."
+#~ msgstr ""
+#~ "체크아웃의 URL이 파일을 참조합니다.\n"
+#~ "하지만 이 작업 사본의 경로는 존재하는 디렉토리입니다."
 #~ msgid "Show &properties"
 #~ msgstr "속성들 보기(&P)"
 #~ msgid "Show i&gnored files"
