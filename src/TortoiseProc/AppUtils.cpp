@@ -543,7 +543,11 @@ void CAppUtils::CreateFontForLogs(CFont& fontToCreate)
 	VERIFY(fontToCreate.CreateFontIndirect(&logFont));
 }
 
-bool CAppUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessageFormat, bool bWaitForStartup)
+bool CAppUtils::LaunchApplication
+	( const CString& sCommandLine
+	, UINT idErrMessageFormat
+	, bool bWaitForStartup
+	, bool bWaitForExit)
 {
 	PROCESS_INFORMATION process;
 	CString cleanCommandLine(sCommandLine);
@@ -561,9 +565,10 @@ bool CAppUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessage
 	AllowSetForegroundWindow(process.dwProcessId);
 
 	if (bWaitForStartup)
-	{
 		WaitForInputIdle(process.hProcess, 10000);
-	}
+
+	if (bWaitForExit)
+		WaitForSingleObject (process.hProcess, INFINITE);
 
 	CloseHandle(process.hThread);
 	CloseHandle(process.hProcess);

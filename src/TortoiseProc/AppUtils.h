@@ -119,7 +119,11 @@ public:
 	/**
 	* Launch an external application (usually the diff viewer)
 	*/
-	static bool LaunchApplication(const CString& sCommandLine, UINT idErrMessageFormat, bool bWaitForStartup);
+	static bool LaunchApplication(
+		const CString& sCommandLine, 
+		UINT idErrMessageFormat, 
+		bool bWaitForStartup,
+		bool bWaitForExit = false);
 
 	/**
 	* Launch the external blame viewer
