@@ -26,6 +26,7 @@
 #include "SVNProperties.h"
 #include "CommitCommand.h"
 #include "LockCommand.h"
+#include "AppUtils.h"
 
 // status check
 
@@ -81,8 +82,7 @@ bool EditFileCommand::AutoCheckout()
 				? CSVNProgressDlg::SVNProgress_SingleFileCheckout
 				: CSVNProgressDlg::SVNProgress_Checkout);
 
-		progDlg.SetAutoClose(CLOSE_NOERRORS);
-		progDlg.SetAutoCloseLocal(CLOSE_NOERRORS);
+		progDlg.SetAutoClose(parser);
 		progDlg.SetOptions(ProgOptIgnoreExternals);
 		progDlg.SetPathList(CTSVNPathList(tempWC));
 		progDlg.SetUrl(cmdLinePath.GetSVNPathString());
@@ -117,6 +117,7 @@ bool EditFileCommand::AutoLock()
 	else
 	{
 		LockCommand command;
+		command.SetParser (parser);
 		command.SetPaths (CTSVNPathList (path), path);
 		needsUnLock = command.Execute();
 
@@ -126,29 +127,14 @@ bool EditFileCommand::AutoLock()
 
 bool EditFileCommand::Edit()
 {
-	PROCESS_INFORMATION processInfo;
-	memset(&processInfo, 0, sizeof(processInfo));
+	CString cmdLine 
+		= CAppUtils::GetAppForFile ( path.GetWinPathString()
+								   , _T("")
+								   , _T("open")
+								   , true
+								   , true);
 
-	CString cmdLine = _T("cmd /C \"") + path.GetWinPathString() + _T("\"");
-
-	STARTUPINFO startupInfo;
-	memset(&startupInfo, 0, sizeof(startupInfo));
-	startupInfo.cb = sizeof(startupInfo);
-
-	if (::CreateProcess ( NULL
-						, const_cast<TCHAR*>((LPCTSTR)cmdLine)
-						, NULL
-						, NULL
-						, FALSE
-						, CREATE_NO_WINDOW
-						, 0
-						, NULL
-						, &startupInfo
-						, &processInfo ) == FALSE)
-		return false;
-
-	WaitForSingleObject (processInfo.hProcess, INFINITE);
-	return true;
+	return CAppUtils::LaunchApplication (cmdLine, NULL, false, true);
 }
 
 bool EditFileCommand::AutoCheckin()
@@ -161,6 +147,7 @@ bool EditFileCommand::AutoCheckin()
 	// check-in
 
 	CommitCommand command;
+	command.SetParser (parser);
 	command.SetPaths (CTSVNPathList (path), path);
 	return command.Execute();
 }
@@ -174,8 +161,7 @@ bool EditFileCommand::AutoUnLock()
 	progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Unlock);
 	progDlg.SetOptions(ProgOptNone);
 	progDlg.SetPathList (CTSVNPathList (cmdLinePath));
-	progDlg.SetAutoClose (CLOSE_NOERRORS);
-	progDlg.SetAutoCloseLocal(CLOSE_NOERRORS);
+	progDlg.SetAutoClose (parser);
 	progDlg.DoModal();
 
 	return !progDlg.DidErrorsOccur();
@@ -198,7 +184,7 @@ bool EditFileCommand::Execute()
 	// make sure, the data is in a wc
 
 	if (parser.HasKey (_T("revision")))
-		revision = SVNRev(parser.GetLongVal (_T("revision")));
+		revision = SVNRev(parser.GetVal (_T("revision")));
 
 	// the sequence
 
