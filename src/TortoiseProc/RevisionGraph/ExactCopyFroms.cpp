@@ -41,7 +41,10 @@ void CExactCopyFroms::Apply (CVisibleGraph* graph, CVisibleGraphNode* node)
 {
     // remove node, if it is neither "M", "A", "D" nor "R"
 
-    if (node->GetClassification().Matches (0, CNodeClassification::IS_OPERATION_MASK))
+	const DWORD forbiddenMask = CNodeClassification::IS_OPERATION_MASK
+					          | CNodeClassification::MUST_BE_PRESERVED;
+
+    if (node->GetClassification().Matches (0, forbiddenMask))
     {
         // is this node still necessary?
 

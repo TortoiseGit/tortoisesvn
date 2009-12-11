@@ -304,7 +304,8 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
         = nodeClassification.IsAnyOf ( CNodeClassification::IS_LAST
                                      | CNodeClassification::IS_MODIFIED_WC)
         | nodeClassification.Matches ( CNodeClassification::IS_COPY_SOURCE
-                                     , CNodeClassification::IS_OPERATION_MASK);
+                                     , CNodeClassification::IS_OPERATION_MASK)
+		| (contour.GetValue() == brightColor.GetValue());
 
     Color penColor = textAsBorderColor
                    ? textColor

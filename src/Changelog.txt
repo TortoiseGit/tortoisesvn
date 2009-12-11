@@ -80,6 +80,8 @@ Version 1.6.7
        application. (Jonathan Potter, GP Software and Stefan)
 - BUG: The "commonURL" parameter in the CheckCommit() method of the
        IBugtraqProvider2 interface was sometimes wrong. (Stefan)
+- BUG: Revision graph won't show w/c revision under certain 
+       conditions. (Stefan Fuhrmann)
 - BUG: Revision graph would segfault for small repositories
        (Stefan Fuhrmann)
 

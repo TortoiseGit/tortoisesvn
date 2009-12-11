@@ -46,6 +46,7 @@ void CFullGraphNode::CFactory::Replace ( CFullGraphNode* toReplace
     // remove the old node
 
     CFullGraphNode* previousNode = toReplace->GetPrevious();
+	previousNode->next = toReplace->next;
     Destroy (toReplace);
 
     // extract the new node
@@ -104,6 +105,12 @@ void CFullGraphNode::InsertAt ( CFullGraphNode* source
         }
         else
         {
+			// link the node into existing chain, 
+			// if it isn't already part of a chain
+
+			if ((source->next != NULL) && (next == NULL))
+				next = source->next;
+
             copySource = NULL;
             source->next = this;
             prev = source;
