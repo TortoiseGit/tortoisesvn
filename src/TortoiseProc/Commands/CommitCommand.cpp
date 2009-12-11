@@ -171,7 +171,7 @@ bool CommitCommand::Execute()
 		    CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
 		    err = (DWORD)progDlg.DidErrorsOccur();
 		    bFailed = progDlg.DidErrorsOccur();
-		    bRet = progDlg.DidErrorsOccur();
+		    bRet = !progDlg.DidErrorsOccur();
 		    CRegDWORD bFailRepeat = CRegDWORD(_T("Software\\TortoiseSVN\\CommitReopen"), FALSE);
 		    if (DWORD(bFailRepeat)==0)
 			    bFailed = false;		// do not repeat if the user chose not to in the settings.
