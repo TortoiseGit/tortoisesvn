@@ -4393,10 +4393,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 		bool bEntryAdded = false;
 		if (m_ChangedFileListCtrl.GetSelectedCount() == 1)
 		{
-			const CLogChangedPath& changedlogpath 
-                = pLogEntry->GetChangedPaths()[changedlogpathindices[0]];
-
-			if ((!bOneRev)||(IsDiffPossible (changedlogpath, rev1)))
+			if ((!bOneRev)||(IsDiffPossible (pLogEntry->GetChangedPaths()[changedlogpathindices[0]], rev1)))
 			{
 				popup.AppendMenuIcon(ID_DIFF, IDS_LOG_POPUP_DIFF, IDI_DIFF);
 				popup.AppendMenuIcon(ID_BLAMEDIFF, IDS_LOG_POPUP_BLAMEDIFF, IDI_BLAME);
@@ -4451,9 +4448,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 		{
 		case ID_DIFF:
 			{
-			    const CLogChangedPath& changedlogpath 
-                    = pLogEntry->GetChangedPaths()[changedlogpathindices[0]];
-				if ((!bOneRev)|| IsDiffPossible (changedlogpath, rev1))
+				if ((!bOneRev)|| IsDiffPossible (pLogEntry->GetChangedPaths()[changedlogpathindices[0]], rev1))
 					DoDiffFromLog(selIndex, rev1, rev2, false, false);
 				else
 					DiffSelectedFile();
