@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-11 21:21+0100\n"
+"PO-Revision-Date: 2009-12-12 21:25+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9423,7 +9423,7 @@ msgstr "Ažuriraj"
 
 #. Resource IDs: (77)
 msgid "Update - TortoiseSVN"
-msgstr "Ažuriraj - TortoiseSVN"
+msgstr "Ažuriranje - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"
@@ -10532,6 +10532,10 @@ msgstr "revizija %s-%s, revisizija %s-%s"
 msgid "revision count: "
 msgstr "Broj revizija:"
 
+#. Resource IDs: (626)
+msgid "revision has already been merged"
+msgstr "revizija je već stopljena"
+
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
@@ -10685,6 +10689,10 @@ msgstr "privremeno isključen"
 #. Resource IDs: (65535)
 msgid "text [token count]: "
 msgstr "tekst [broj oznaka]: "
+
+#. Resource IDs: (626)
+msgid "the working copy is at this revision"
+msgstr "radna kopija je od ove revizije"
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
