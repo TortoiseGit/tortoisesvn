@@ -41,8 +41,8 @@ void CExactCopyFroms::Apply (CVisibleGraph* graph, CVisibleGraphNode* node)
 {
     // remove node, if it is neither "M", "A", "D" nor "R"
 
-	const DWORD forbiddenMask = CNodeClassification::IS_OPERATION_MASK
-					          | CNodeClassification::MUST_BE_PRESERVED;
+	const DWORD forbiddenMask = DWORD(CNodeClassification::IS_OPERATION_MASK
+					          | CNodeClassification::MUST_BE_PRESERVED);
 
     if (node->GetClassification().Matches (0, forbiddenMask))
     {
