@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-10 11:35+0330\n"
+"PO-Revision-Date: 2009-12-12 11:00+0330\n"
 "Last-Translator: Mohsen Sajjadi <mohsensajjadi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -540,6 +540,10 @@ msgstr "&مقایسه با آدرس"
 msgid "&Diff with previous version"
 msgstr "&مقایسه به نسخه قبلی"
 
+#. Resource IDs: (1528)
+msgid "&Directories"
+msgstr "&پوشه ها"
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Docking"
@@ -583,6 +587,10 @@ msgstr "&خارجی"
 #. Resource IDs: (65535)
 msgid "&File"
 msgstr "&پرونده"
+
+#. Resource IDs: (1529)
+msgid "&Files"
+msgstr "&پرونده ها"
 
 #. Resource IDs: (32809)
 msgid "&Filter"
@@ -1982,8 +1990,8 @@ msgid "Bug-ID"
 msgstr "کد خطا"
 
 #. Resource IDs: (1119)
-msgid "Bug-ID / Issue-Nr:"
-msgstr "کد خطا/ش. درخواست:"
+msgid "Bug-ID / &Issue-Nr:"
+msgstr "کد خطا/&ش. درخواست:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2248,8 +2256,8 @@ msgid "Checkout - TortoiseSVN"
 msgstr "دریافت - TortoiseSVN"
 
 #. Resource IDs: (1377)
-msgid "Checkout Depth"
-msgstr "عمق دریافت"
+msgid "Checkout D&epth"
+msgstr "&عمق دریافت"
 
 #. Resource IDs: (229)
 #, c-format
@@ -3553,6 +3561,10 @@ msgstr "پیغام وارد نمائید"
 msgid "Enter URL"
 msgstr "وراد نمود آدرس"
 
+#. Resource IDs: (65535)
+msgid "Enter a &name for the changelist:"
+msgstr "یک &نام برای لیست تغییرات وارد نمائید:"
+
 #. Resource IDs: (3858)
 msgid "Enter a GUID."
 msgstr "یک GUID وارد نمائید."
@@ -3572,10 +3584,6 @@ msgstr "لطفا یک تاریخ وارد نمائید."
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr "یک پیام قفل گذاری وارد نمائید (اختیاری):"
-
-#. Resource IDs: (65535)
-msgid "Enter a name for the changelist:"
-msgstr "یک نام برای لیست تغییرات وارد نمائید:"
 
 #. Resource IDs: (3858)
 #, c-format
@@ -4988,8 +4996,8 @@ msgstr ""
 "Do you really want to relocate?"
 
 #. Resource IDs: (1480)
-msgid "Items in externals"
-msgstr "اقلام موجود در خارجی"
+msgid "Items in &externals"
+msgstr "اقلام موجود در &خارجی"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
@@ -5008,8 +5016,8 @@ msgid "Keep &locks"
 msgstr "نگهداری &قفل ها"
 
 #. Resource IDs: (1126)
-msgid "Keep changelists"
-msgstr "نگهداری لیست تغییرات"
+msgid "Keep ch&angelists"
+msgstr "نگهداری لیست &تغییرات"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -7618,8 +7626,8 @@ msgid "Show excluded folders as normal"
 msgstr "نمایش پوشه های مستثنی بصورت عادی"
 
 #. Resource IDs: (1480)
-msgid "Show externals from different repositories"
-msgstr "نمایش خارجیها از مخزنهای مختلف"
+msgid "Show externals from &different repositories"
+msgstr "نمایش خارجیها از &مخزنهای مختلف"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
