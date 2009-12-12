@@ -145,6 +145,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_bRefresh(false)
 	, netScheduler(1, 0, true, true)
 	, diskScheduler(1, 0, true, true)
+	, m_pLogListAccServer(NULL)
+	, m_pChangedListAccServer(NULL)
 {
 	m_bFilterWithRegex = 
         !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), FALSE);
@@ -169,6 +171,10 @@ CLogDlg::~CLogDlg()
 	}
 	if (m_boldFont)
 		DeleteObject(m_boldFont);
+	if (m_pLogListAccServer)
+		m_pLogListAccServer->Release();
+	if (m_pChangedListAccServer)
+		m_pChangedListAccServer->Release();
 }
 
 void CLogDlg::DoDataExchange(CDataExchange* pDX)
@@ -511,6 +517,10 @@ BOOL CLogDlg::OnInitDialog()
 	m_btnShow.SetCurrentEntry((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry")));
 
 	m_mergedRevs.clear();
+
+	// set up the accessibility callback
+	m_pLogListAccServer = ListViewAccServer::CreateProvider(m_LogList.GetSafeHwnd(), this);
+	m_pChangedListAccServer = ListViewAccServer::CreateProvider(m_ChangedFileListCtrl.GetSafeHwnd(), this);
 
 	// first start a thread to obtain the log messages without
 	// blocking the dialog
@@ -5027,3 +5037,37 @@ void CLogDlg::AutoRestoreSelection()
     }
 }
 
+CString CLogDlg::GetListviewHelpString(HWND hControl, int index)
+{
+	CString sHelpText;
+	if (hControl == m_LogList.GetSafeHwnd())
+	{
+		if (m_logEntries.GetVisibleCount() > (size_t)index)
+		{
+			PLOGENTRYDATA data = m_logEntries.GetVisible(index);
+			if (data)
+			{
+				if ((data->GetDepth())||(m_mergedRevs.find(data->GetRevision()) != m_mergedRevs.end()))
+				{
+					// this revision was already merged
+					sHelpText = CString(MAKEINTRESOURCE(IDS_ACC_LOGENTRYALREADYMERGED));
+				}
+				if (data->GetRevision() == m_wcRev)
+				{
+					// the working copy is at this revision
+					if (!sHelpText.IsEmpty())
+						sHelpText += _T(", ");
+					sHelpText += CString(MAKEINTRESOURCE(IDS_ACC_WCISATTHISREVISION));
+				}
+			}
+		}
+	}
+	else if (hControl == m_ChangedFileListCtrl.GetSafeHwnd())
+	{
+		// currently the changed files list control only colors items for faster
+		// indication of the information that's already there. So we don't
+		// provide this info again in the help string.
+	}
+
+	return sHelpText;
+}

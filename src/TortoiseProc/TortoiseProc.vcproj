@@ -394,6 +394,42 @@
 				Name="General"
 				>
 				<File
+					RelativePath="..\Utils\accHelper.cpp"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug|x64"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|x64"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
 					RelativePath=".\AppUtils.cpp"
 					>
 				</File>
@@ -531,6 +567,14 @@
 				</File>
 				<File
 					RelativePath="..\Utils\JumpListHelpers.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\ListViewAccServer.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\ListViewAccServer.h"
 					>
 				</File>
 				<File
@@ -1752,11 +1796,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\link.ico"
+				RelativePath="..\Resources\link.ico"
 				>
 			</File>
 			<File
-				RelativePath="..\Resources\link.ico"
+				RelativePath=".\link.ico"
 				>
 			</File>
 			<File

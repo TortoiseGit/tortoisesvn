@@ -33,6 +33,7 @@
 #include "Tooltip.h"
 #include "HintListCtrl.h"
 #include "JobScheduler.h"
+#include "ListViewAccServer.h"
 #include "AeroControls.h"
 #include "Win7.h"
 
@@ -62,7 +63,7 @@ typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
  * \ingroup TortoiseProc
  * Shows log messages of a single file or folder in a listbox. 
  */
-class CLogDlg : public CResizableStandAloneDialog, public SVN, IFilterEditValidator, IListCtrlTooltipProvider
+class CLogDlg : public CResizableStandAloneDialog, public SVN, IFilterEditValidator, IListCtrlTooltipProvider, ListViewAccProvider
 {
 	DECLARE_DYNAMIC(CLogDlg)
 	
@@ -194,6 +195,9 @@ private:
     void AutoStoreSelection();
     void AutoRestoreSelection();
 
+	// ListViewAccProvider
+	virtual CString GetListviewHelpString(HWND hControl, int index);
+
 public:
 	CWnd *				m_pNotifyWindow;
 	ProjectProperties	m_ProjectProperties;
@@ -291,6 +295,9 @@ private:
 
 	async::CJobScheduler netScheduler;
 	async::CJobScheduler diskScheduler;
+
+	ListViewAccServer * m_pLogListAccServer;
+	ListViewAccServer * m_pChangedListAccServer;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
 static UINT WM_REVLIST = RegisterWindowMessage(_T("TORTOISESVN_REVLIST_MSG"));
