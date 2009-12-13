@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-12-08 01:07+0200\n"
+"POT-Creation-Date: 2009-12-13 09:34 +0000\n"
+"PO-Revision-Date: 2009-12-14 00:43+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5484,6 +5484,10 @@ msgstr "Koska uudelleennimeämiset ja siirrot tehdään komentoparina poista+lis
 #. (para)
 msgid "You <emphasis>must</emphasis> commit a folder rename before changing any of the files inside the folder, otherwise your working copy can get really messed up."
 msgstr "Siniun <emphasis>täytyy</emphasis> toimittaa kansion uudellleennimeäminen arkistoon ennen kuin muutat kansion sisältämiä tiedostoja, muuten työkopiosi voi mennä todella sekaisin."
+
+#. (para)
+msgid "Another way of moving or copying files is to use the Windows copy/cut commands. Select the files you want to copy, right-click and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice> from the explorer context menu. Then browse to the target folder, right-click and choose <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Paste</guimenuitem></menuchoice>. For moving files, choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Cut</guimenuitem></menuchoice> instead of <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice>."
+msgstr "Toinen keino tiedostojen kopiointiin tai siirtämiseen on käyttää Windowsin kopioi/leikkaa -komentoja. Valitse haluamasi tiedostot, napsauta hiiren oikeata painiketta ja valitse kontekstivalikon komento <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Kopioi</guimenuitem></menuchoice>. Siirry sitten kohdehakemistoon, napsauta hiiren oikeata painiketta ja valitse kontekstivalikon komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Liitä</guimenuitem></menuchoice>. Jos haluat siirtää tiedostoja, käytä komentoa <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Leikkaa</guimenuitem></menuchoice> komennon <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Kopioi</guimenuitem></menuchoice> sijaan."
 
 #. (para)
 msgid "You can also use the repository browser to move items around. Read <xref linkend=\"tsvn-dug-repobrowser\"/> to find out more."
