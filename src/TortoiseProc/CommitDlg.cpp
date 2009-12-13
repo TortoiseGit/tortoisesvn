@@ -754,16 +754,6 @@ UINT CCommitDlg::StatusThread()
 			m_ListCtrl.SetEmptyString(m_ListCtrl.GetLastErrorMessage());
 		m_ListCtrl.Show(dwShow, CTSVNPathList(), 0, true, true);
 	}
-	if ((m_ListCtrl.GetItemCount()==0)&&(m_ListCtrl.HasUnversionedItems())&&((dwShow & SVNSLC_SHOWUNVERSIONED) == 0))
-	{
-		if (CMessageBox::Show(m_hWnd, IDS_COMMITDLG_NOTHINGTOCOMMITUNVERSIONED, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
-		{
-			m_bShowUnversioned = TRUE;
-			GetDlgItem(IDC_SHOWUNVERSIONED)->SendMessage(BM_SETCHECK, BST_CHECKED);
-			dwShow |= SVNSLC_SHOWUNVERSIONED;
-			m_ListCtrl.Show(dwShow, CTSVNPathList(), 0, true, true);
-		}
-	}
 
 	CTSVNPath commonDir = m_ListCtrl.GetCommonDirectory(false);
 	SetWindowText(m_sWindowTitle + _T(" - ") + commonDir.GetWinPathString());
