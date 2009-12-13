@@ -521,16 +521,17 @@ void CBaseView::CheckOtherView()
 	m_bOtherDiffChecked = true;
 }
 
-CString CBaseView::GetWhitespaceBlock(CViewData *viewData, int nLineIndex)
+
+void CBaseView::GetWhitespaceBlock(CViewData *viewData, int nLineIndex, int & nStartBlock, int & nEndBlock)
 {
 	enum { MAX_WHITESPACEBLOCK_SIZE	= 8 };
 	ASSERT(viewData);
-	
+
 	DiffStates origstate = viewData->GetState(nLineIndex);
 
 	// Go back and forward at most MAX_WHITESPACEBLOCK_SIZE lines to see where this block ends
-	int nStartBlock = nLineIndex;
-	int nEndBlock = nLineIndex;
+	nStartBlock = nLineIndex;
+	nEndBlock = nLineIndex;
 	while ((nStartBlock > 0) && (nStartBlock > (nLineIndex - MAX_WHITESPACEBLOCK_SIZE)))
 	{
 		DiffStates state = viewData->GetState(nStartBlock - 1);
@@ -551,6 +552,11 @@ CString CBaseView::GetWhitespaceBlock(CViewData *viewData, int nLineIndex)
 		else
 			break;
 	}
+}
+
+CString CBaseView::GetWhitespaceString(CViewData *viewData, int nStartBlock, int nEndBlock)
+{
+	enum { MAX_WHITESPACEBLOCK_SIZE	= 8 };
 	int len = 0;
 	for (int i = nStartBlock; i <= nEndBlock; ++i)
 		len += viewData->GetLine(i).GetLength();
@@ -579,13 +585,19 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 		return false;
 	}
 
-	CString mine = GetWhitespaceBlock(m_pViewData, nLineIndex);
+	int nStartBlock1, nEndBlock1;
+	int nStartBlock2, nEndBlock2;
+	GetWhitespaceBlock(m_pViewData, nLineIndex, nStartBlock1, nEndBlock1);
+	GetWhitespaceBlock(m_pOtherViewData, min(nLineIndex, m_pOtherViewData->GetCount() - 1), nStartBlock2, nEndBlock2);
+	nStartBlock1 = max(nStartBlock1, nStartBlock2);
+	nEndBlock1 = min(nEndBlock1, nEndBlock2);
+	CString mine = GetWhitespaceString(m_pViewData, nStartBlock1, nEndBlock1);
 	CString other;
 	if (mine.IsEmpty())
 		bIdentical = false;
 	else
 	{
-		other = GetWhitespaceBlock(m_pOtherViewData, min(nLineIndex, m_pOtherViewData->GetCount() - 1));
+		other = GetWhitespaceString(m_pOtherViewData, nStartBlock1, nEndBlock1);
 		bIdentical = mine == other;
 		mine.Replace(_T(" "), _T(""));
 		mine.Replace(_T("\t"), _T(""));

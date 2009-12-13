@@ -203,7 +203,8 @@ protected:
 	int				GetMarginWidth();
 	COLORREF		InlineDiffColor(int nLineIndex);
 	void			CheckOtherView();
-	static CString	GetWhitespaceBlock(CViewData *viewData, int nLineIndex);
+	static void		GetWhitespaceBlock(CViewData *viewData, int nLineIndex, int & nStartBlock, int & nEndBlock);
+	static CString	GetWhitespaceString(CViewData *viewData, int nStartBlock, int nEndBlock);
 
 	/// Returns true if selection should be kept
 	virtual	bool	OnContextMenu(CPoint point, int nLine, DiffStates state);
