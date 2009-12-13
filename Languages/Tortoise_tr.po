@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-07 01:40+0200\n"
+"PO-Revision-Date: 2009-12-13 13:23+0200\n"
 "Last-Translator: Vural Goze <vuralgoze@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -569,6 +569,10 @@ msgstr "&URL'ye göre karşılaştırma"
 msgid "&Diff with previous version"
 msgstr "&Bir önceki revizyon ile karşılaştır"
 
+#. Resource IDs: (1528)
+msgid "&Directories"
+msgstr "&Dizinler"
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Ekleme/yerleştirme"
@@ -613,6 +617,10 @@ msgstr "&Harici"
 msgid "&File"
 msgstr "&Dosya"
 
+#. Resource IDs: (1529)
+msgid "&Files"
+msgstr "&Dosyalar"
+
 #. Resource IDs: (32809)
 msgid "&Filter"
 msgstr "&Filtre"
@@ -656,6 +664,10 @@ msgstr "&Çalışma Kopyasından bu URL'de:"
 #. Resource IDs: (65535)
 msgid "&From revision"
 msgstr "&Revizyondan"
+
+#. Resource IDs: (1494)
+msgid "&From: (start URL and revision of the range to merge)"
+msgstr "&Buradan: (başlangıç URLsi ve birleştirilecek aralığın revizyonu)"
 
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
@@ -1114,6 +1126,10 @@ msgstr "&URL ye git:"
 #. Resource IDs: (1305)
 msgid "&To URL: "
 msgstr "&URL ye git:"
+
+#. Resource IDs: (1495)
+msgid "&To: (end URL and revision of the range to merge)"
+msgstr "B&uraya: (bitiş URLsi ve birleştirilecek aralığın revizyonu)"
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
@@ -2012,8 +2028,8 @@ msgid "Bug-ID"
 msgstr "Kusur-ID"
 
 #. Resource IDs: (1119)
-msgid "Bug-ID / Issue-Nr:"
-msgstr "Kusur-ID / Sorun-No:"
+msgid "Bug-ID / &Issue-Nr:"
+msgstr "Kusur-ID / &Sorun-No:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2278,8 +2294,8 @@ msgid "Checkout - TortoiseSVN"
 msgstr "Dosya Çek - TortoiseSVN Hakkında"
 
 #. Resource IDs: (1377)
-msgid "Checkout Depth"
-msgstr "Dosya Çekme Derinliği"
+msgid "Checkout D&epth"
+msgstr "Dosya Çekme D&erinliği"
 
 #. Resource IDs: (229)
 #, c-format
@@ -3579,6 +3595,10 @@ msgstr "Günlük Mesajı Giriniz"
 msgid "Enter URL"
 msgstr "URL giriniz"
 
+#. Resource IDs: (65535)
+msgid "Enter a &name for the changelist:"
+msgstr "Değişim listesi için bir &ad giriniz:"
+
 #. Resource IDs: (3858)
 msgid "Enter a GUID."
 msgstr "Bir GUID girin."
@@ -3598,10 +3618,6 @@ msgstr "Tarih girin."
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr "Kilit mesajı gir (isteğe bağlı):"
-
-#. Resource IDs: (65535)
-msgid "Enter a name for the changelist:"
-msgstr "Değişim listesi için bir ad giriniz:"
 
 #. Resource IDs: (3858)
 #, c-format
@@ -3821,6 +3837,10 @@ msgstr "Haricileri çıkar"
 #. Resource IDs: (226)
 msgid "Externals included"
 msgstr "Haricileri içer"
+
+#. Resource IDs: (1480)
+msgid "F&orce the merge"
+msgstr "Birleşmeye z&orla"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -4118,10 +4138,6 @@ msgstr "Önceki tüm işlemleri görmek için \"Kopyalamada/Tekrar adlandırmada
 msgid "Force"
 msgstr "Zorla"
 
-#. Resource IDs: (1480)
-msgid "Force the merge"
-msgstr "Birleşmeye zorla"
-
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "İleri"
@@ -4130,17 +4146,9 @@ msgstr "İleri"
 msgid "Found auto words:"
 msgstr "Otomatik kelimeler bulundu:"
 
-#. Resource IDs: (65535)
-msgid "From URL:"
-msgstr "URL den:"
-
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "From:"
-
-#. Resource IDs: (65535)
-msgid "From: (start URL and revision of the range to merge)"
-msgstr "From: (Birleştirme aralığının başlangıç URL ve revisyonundan başla)"
 
 #. Resource IDs: (1065)
 msgid "Full Screen"
@@ -4300,6 +4308,10 @@ msgstr "Branşlara göre grupla"
 msgid "Group changelists"
 msgstr "Değişiklik listelerini grupla"
 
+#. Resource IDs: (1032)
+msgid "H&EAD Revision"
+msgstr "&BAŞ Revizyon"
+
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
 msgstr "İlişkisi olmayan değiştirilmiş dizinleri s&akla"
@@ -4405,6 +4417,10 @@ msgstr "Host adı uyuşmadı (%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "Bu çelişmeyi nasıl çözmek istiyorsunuz?"
+
+#. Resource IDs: (1392)
+msgid "I&gnore all whitespaces"
+msgstr "Tüm &boşluk karakterlerine aldırma"
 
 #. Resource IDs: (1264)
 msgid "I&gnored"
@@ -4714,6 +4730,10 @@ msgstr "%d elemana uzantısına göre al&dırma"
 msgid "Ignore &all whitespaces"
 msgstr "&Tüm boşluklara aldırma"
 
+#. Resource IDs: (1267)
+msgid "Ignore &ancestry"
+msgstr "Nesle &aldırma"
+
 #. Resource IDs: (1067)
 msgid "Ignore &case changes"
 msgstr "&Dizi değişikliklerine aldırma"
@@ -4726,9 +4746,9 @@ msgstr "Boşluk karakteri değişikliklerinin tümüne aldırma"
 msgid "Ignore all whitespaces"
 msgstr "Tüm boşluk karakterlerine aldırma"
 
-#. Resource IDs: (1267)
-msgid "Ignore ancestry"
-msgstr "Nesle aldırma"
+#. Resource IDs: (1126)
+msgid "Ignore line &endings"
+msgstr "Satır sonlarına &aldırma"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4737,6 +4757,10 @@ msgstr "Satır &sonlarına aldırma (önerilir)"
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line endings"
 msgstr "Satir sonlarına aldırma"
+
+#. Resource IDs: (1391)
+msgid "Ignore whitespace c&hanges"
+msgstr "Boşluk &karakteri değişikliklerine aldırma"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
@@ -5027,8 +5051,8 @@ msgstr ""
 "Taşımak istediğinizden emin misiniz?"
 
 #. Resource IDs: (1480)
-msgid "Items in externals"
-msgstr "Haricilerdeki elemanlar"
+msgid "Items in &externals"
+msgstr "Haricilerdeki &elemanlar"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
@@ -5047,8 +5071,8 @@ msgid "Keep &locks"
 msgstr "&Kilitleri muhafaza et"
 
 #. Resource IDs: (1126)
-msgid "Keep changelists"
-msgstr "Güncelleme listelerini koru"
+msgid "Keep ch&angelists"
+msgstr "Günc&elleme listelerini koru"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -5389,6 +5413,10 @@ msgstr "Menü &gölgeleri"
 msgid "Merge"
 msgstr "Birleştirme"
 
+#. Resource IDs: (1488)
+msgid "Merge &depth:"
+msgstr "Birleştirme &derinliği"
+
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "Birleştir - TortoiseSVN"
@@ -5398,16 +5426,12 @@ msgid "Merge Reintegrate"
 msgstr "Yeniden Entegre Ederek Birleştir"
 
 #. Resource IDs: (1468)
-msgid "Merge a range of revisions"
-msgstr "Bir araliktaki revizyonları birleştir"
+msgid "Merge a &range of revisions"
+msgstr "Bir aralıktaki &revizyonları birleştir"
 
 #. Resource IDs: (277)
 msgid "Merge all"
 msgstr "Hepsini Birleştir"
-
-#. Resource IDs: (65535)
-msgid "Merge depth:"
-msgstr "Birleştirme derinliği"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -5439,8 +5463,8 @@ msgid "Merge the changes into '%s'"
 msgstr "'%s'e değişiklikleri birleştir"
 
 #. Resource IDs: (1470)
-msgid "Merge two different trees"
-msgstr "İki farklı ağacı birleştir"
+msgid "Merge two different &trees"
+msgstr "İki farklı &ağacı birleştir"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge type"
@@ -5979,6 +6003,10 @@ msgstr ""
 msgid "One or more files are in a conflicted state."
 msgstr "Bir yada daha fazla dosya(lar) çakişır durumunda."
 
+#. Resource IDs: (1424)
+msgid "Onl&y record the merge (block revisions from getting merged)"
+msgstr "Sadece birleştirme&yi kaydet (revizyonların birleşmesini engelle)"
+
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
 msgstr "Sadece &üst dosyayı çıkar (al)"
@@ -5992,10 +6020,6 @@ msgid ""
 "Only numbers (optionally separated by commas)\n"
 "are allowed!"
 msgstr "Sadece numara girebilirsiniz (isterseniz virgül ile ayırabilirsiniz)"
-
-#. Resource IDs: (1424)
-msgid "Only record the merge (block revisions from getting merged)"
-msgstr "Sadece birleştirmeyi kaydet (revizyonların birleşmesini engelle)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -6490,9 +6514,17 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "R&AM sürücüleri"
 
+#. Resource IDs: (1469)
+msgid "R&eintegrate a branch"
+msgstr "Bir dala y&eniden tümleştir"
+
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "R&eset"
+
+#. Resource IDs: (1423)
+msgid "R&everse merge"
+msgstr "T&ers birleştir"
 
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
@@ -6529,6 +6561,10 @@ msgstr "Var&sayılanları yükle"
 #. Resource IDs: (8)
 msgid "Re&vert..."
 msgstr "Geri&dön..."
+
+#. Resource IDs: (1033)
+msgid "Re&vision"
+msgstr "Re&vizyon"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -6615,10 +6651,6 @@ msgstr ""
 "\\W   : herhangi alfasayısal olmayan karakter\r\n"
 "\\d   : 0-9 rakamları\r\n"
 "\\s   : boşluklar"
-
-#. Resource IDs: (1469)
-msgid "Reintegrate a branch"
-msgstr "Bir dala yeniden tümleştir"
 
 #. Resource IDs: (595)
 msgid "Reintegrate merge"
@@ -6942,10 +6974,6 @@ msgstr "Geridönüldü"
 msgid "Retry"
 msgstr "Tekrar"
 
-#. Resource IDs: (1423)
-msgid "Reverse merge"
-msgstr "Ters birleştir"
-
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %ld"
@@ -7027,9 +7055,9 @@ msgstr "Revizyon Aralığı"
 msgid "Revision graph"
 msgstr "Revizyon diyagramı"
 
-#. Resource IDs: (65535)
-msgid "Revision range to merge"
-msgstr "Birleştirme için revizyon aralığı"
+#. Resource IDs: (1492)
+msgid "Revision r&ange to merge"
+msgstr "Birleştirme için revizyon &aralığı"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -7652,8 +7680,8 @@ msgid "Show excluded folders as normal"
 msgstr "Harici klasörleri normal olarak göster."
 
 #. Resource IDs: (1480)
-msgid "Show externals from different repositories"
-msgstr "Farklı depolardaki haricileri göster"
+msgid "Show externals from &different repositories"
+msgstr "Farklı &depolardaki haricileri göster"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7666,6 +7694,10 @@ msgstr "&Günlüğü göster"
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "Satır numaralarasını/larını &s goster"
+
+#. Resource IDs: (1037)
+msgid "Show lo&g"
+msgstr "Günlüğü &göster"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -8193,14 +8225,6 @@ msgstr "Metin Durumu:"
 #. Resource IDs: (207)
 msgid "Text status"
 msgstr "Metin durumu"
-
-#. Resource IDs: (84)
-msgid ""
-"The URL to check out refers to a file but this\n"
-"working copy path is an existing directory."
-msgstr ""
-"Depo indirme adresi bir dosyaya karşılık geliyor\n"
-"ancak bu çalışan kopya yolu zaten varolan bir dizin."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -8831,10 +8855,6 @@ msgstr ""
 msgid "To:"
 msgstr "To:"
 
-#. Resource IDs: (65535)
-msgid "To: (end URL and revision of the range to merge)"
-msgstr "To: (Birleştirme aralığının URL ve revisyonunun sonu)"
-
 #. Resource IDs: (3633)
 msgid ""
 "Toggle One/Two Pages display\n"
@@ -9058,9 +9078,9 @@ msgstr "URL bilinmiyor  (UUID: %s)"
 msgid "URL of Subversion items"
 msgstr "Subversion elemanlarının URL'si"
 
-#. Resource IDs: (65535)
-msgid "URL to merge from"
-msgstr "Birleştirme kaynak URLsi"
+#. Resource IDs: (1491)
+msgid "URL to merge &from"
+msgstr "Birleştirme &kaynak URLsi"
 
 #. Resource IDs: (144, 11023, 65535)
 msgid "URL:"
@@ -10350,6 +10370,10 @@ msgstr "revizyon %s-%s, revizyon %s-%s"
 msgid "revision count: "
 msgstr "Revizyon numarası:"
 
+#. Resource IDs: (626)
+msgid "revision has already been merged"
+msgstr "revizyon zaten daha önce birleştirildi"
+
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
@@ -10503,6 +10527,10 @@ msgstr "Geçici çevrimdışı"
 #. Resource IDs: (65535)
 msgid "text [token count]: "
 msgstr "Metin [Simge sayısı]: "
+
+#. Resource IDs: (626)
+msgid "the working copy is at this revision"
+msgstr "çalışan kopya bu revizyonda"
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
@@ -10694,6 +10722,14 @@ msgstr "evet"
 msgid "{BugTraq}"
 msgstr "{HataTakibi}"
 
+#~ msgid "From URL:"
+#~ msgstr "URL den:"
+#~ msgid ""
+#~ "The URL to check out refers to a file but this\n"
+#~ "working copy path is an existing directory."
+#~ msgstr ""
+#~ "Depo indirme adresi bir dosyaya karşılık geliyor\n"
+#~ "ancak bu çalışan kopya yolu zaten varolan bir dizin."
 #~ msgid "Cleaning up."
 #~ msgstr "Temizleniyor."
 
