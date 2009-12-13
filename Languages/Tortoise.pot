@@ -582,6 +582,10 @@ msgstr ""
 msgid "&From revision"
 msgstr ""
 
+#. Resource IDs: (1494)
+msgid "&From: (start URL and revision of the range to merge)"
+msgstr ""
+
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
 msgstr ""
@@ -1038,6 +1042,10 @@ msgstr ""
 
 #. Resource IDs: (1305)
 msgid "&To URL: "
+msgstr ""
+
+#. Resource IDs: (1495)
+msgid "&To: (end URL and revision of the range to merge)"
 msgstr ""
 
 #. Resource IDs: (59392)
@@ -3462,6 +3470,10 @@ msgstr ""
 msgid "Externals included"
 msgstr ""
 
+#. Resource IDs: (1480)
+msgid "F&orce the merge"
+msgstr ""
+
 #. Resource IDs: (74)
 msgid "Failed revert"
 msgstr ""
@@ -3662,16 +3674,8 @@ msgstr ""
 msgid "Found auto words:"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "From URL:"
-msgstr ""
-
 #. Resource IDs: (1200, 65535)
 msgid "From:"
-msgstr ""
-
-#. Resource IDs: (65535)
-msgid "From: (start URL and revision of the range to merge)"
 msgstr ""
 
 #. Resource IDs: (1065)
@@ -3808,6 +3812,10 @@ msgstr ""
 msgid "Group changelists"
 msgstr ""
 
+#. Resource IDs: (1032)
+msgid "H&EAD Revision"
+msgstr ""
+
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
 msgstr ""
@@ -3908,6 +3916,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
+msgstr ""
+
+#. Resource IDs: (1392)
+msgid "I&gnore all whitespaces"
 msgstr ""
 
 #. Resource IDs: (1264)
@@ -4145,6 +4157,10 @@ msgstr ""
 msgid "Ignore &all whitespaces"
 msgstr ""
 
+#. Resource IDs: (1267)
+msgid "Ignore &ancestry"
+msgstr ""
+
 #. Resource IDs: (1067)
 msgid "Ignore &case changes"
 msgstr ""
@@ -4161,12 +4177,20 @@ msgstr ""
 msgid "Ignore ancestry"
 msgstr ""
 
+#. Resource IDs: (1126)
+msgid "Ignore line &endings"
+msgstr ""
+
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
 msgstr ""
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line endings"
+msgstr ""
+
+#. Resource IDs: (1391)
+msgid "Ignore whitespace c&hanges"
 msgstr ""
 
 #. Resource IDs: (1391)
@@ -4670,6 +4694,10 @@ msgstr ""
 msgid "Merge"
 msgstr ""
 
+#. Resource IDs: (1488)
+msgid "Merge &depth:"
+msgstr ""
+
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr ""
@@ -4679,7 +4707,7 @@ msgid "Merge Reintegrate"
 msgstr ""
 
 #. Resource IDs: (1468)
-msgid "Merge a range of revisions"
+msgid "Merge a &range of revisions"
 msgstr ""
 
 #. Resource IDs: (277)
@@ -4720,7 +4748,7 @@ msgid "Merge the changes into '%s'"
 msgstr ""
 
 #. Resource IDs: (1470)
-msgid "Merge two different trees"
+msgid "Merge two different &trees"
 msgstr ""
 
 #. Resource IDs: (595, 65535)
@@ -5206,6 +5234,10 @@ msgstr ""
 msgid "One or more files are in a conflicted state."
 msgstr ""
 
+#. Resource IDs: (1424)
+msgid "Onl&y record the merge (block revisions from getting merged)"
+msgstr ""
+
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
 msgstr ""
@@ -5216,10 +5248,6 @@ msgstr ""
 
 #. Resource IDs: (169)
 msgid "Only numbers (optionally separated by commas)\nare allowed!"
-msgstr ""
-
-#. Resource IDs: (1424)
-msgid "Only record the merge (block revisions from getting merged)"
 msgstr ""
 
 #. Resource IDs: (19)
@@ -5669,8 +5697,16 @@ msgstr ""
 msgid "R&AM drives"
 msgstr ""
 
+#. Resource IDs: (1469)
+msgid "R&eintegrate a branch"
+msgstr ""
+
 #. Resource IDs: (16623)
 msgid "R&eset"
+msgstr ""
+
+#. Resource IDs: (1423)
+msgid "R&everse merge"
 msgstr ""
 
 #. Resource IDs: (114)
@@ -5707,6 +5743,10 @@ msgstr ""
 
 #. Resource IDs: (8)
 msgid "Re&vert..."
+msgstr ""
+
+#. Resource IDs: (1033)
+msgid "Re&vision"
 msgstr ""
 
 #. Resource IDs: (12)
@@ -5755,10 +5795,6 @@ msgstr ""
 
 #. Resource IDs: (117)
 msgid "Regular expressions filter:\r\n.   : any character\r\nc+   : match character c one or more times\r\nc*   : match character c zero or more times\r\n^   : start of line\r\n$   : end of line\r\n(string){n} : match string n times\r\n(abcd)   : subexpression\r\n[aei0-9]   : match a,e,i and 0..9\r\n[^aei0-9] : anything but a,e,i and 0..9\r\n\r\n\\w   : matches a-z,A-Z,0-9 and _\r\n\\W   : any non-alphanumeric character\r\n\\d   : digits 0-9\r\n\\s   : whitespaces"
-msgstr ""
-
-#. Resource IDs: (1469)
-msgid "Reintegrate a branch"
 msgstr ""
 
 #. Resource IDs: (595)
@@ -6053,10 +6089,6 @@ msgstr ""
 msgid "Retry"
 msgstr ""
 
-#. Resource IDs: (1423)
-msgid "Reverse merge"
-msgstr ""
-
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %ld"
@@ -6138,8 +6170,8 @@ msgstr ""
 msgid "Revision graph"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "Revision range to merge"
+#. Resource IDs: (1492)
+msgid "Revision r&ange to merge"
 msgstr ""
 
 #. Resource IDs: (75)
@@ -6716,6 +6748,10 @@ msgstr ""
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
+msgstr ""
+
+#. Resource IDs: (1037)
+msgid "Show lo&g"
 msgstr ""
 
 #. Resource IDs: (2051)
@@ -7533,10 +7569,6 @@ msgstr ""
 msgid "To:"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "To: (end URL and revision of the range to merge)"
-msgstr ""
-
 #. Resource IDs: (3633)
 msgid "Toggle One/Two Pages display\nToggle One/Two Pages display"
 msgstr ""
@@ -7700,8 +7732,8 @@ msgstr ""
 msgid "URL of Subversion items"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "URL to merge from"
+#. Resource IDs: (1491)
+msgid "URL to merge &from"
 msgstr ""
 
 #. Resource IDs: (144, 11023, 65535)
