@@ -222,6 +222,13 @@ public:
 	 */
 	static bool SetupDiffScripts(bool force, const CString& type);
 
+	/**
+	 * Sets the Accessibility property for the specified window.
+	 * \param hWnd the handle of the control to set the property for
+	 * \param propid the id of the property to set, e.g., PROPID_ACC_DESCRIPTION
+	 * \param text the text for the property
+	 */
+	static bool SetAccProperty(HWND hWnd, MSAAPROPID propid, const CString& text);
 
 private:
 	static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2);

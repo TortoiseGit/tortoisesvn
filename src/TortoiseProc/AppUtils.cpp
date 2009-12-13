@@ -1288,3 +1288,18 @@ bool CAppUtils::SetupDiffScripts(bool force, const CString& type)
 
 	return true;
 }
+
+bool CAppUtils::SetAccProperty(HWND hWnd, MSAAPROPID propid, const CString& text)
+{
+	IAccPropServices * pAccPropSvc = NULL;
+	HRESULT hr = CoCreateInstance(CLSID_AccPropServices, NULL, CLSCTX_SERVER, IID_IAccPropServices, (void **)&pAccPropSvc);
+
+	if (hr == S_OK && pAccPropSvc)
+	{
+		pAccPropSvc->SetHwndPropStr(hWnd, (DWORD)OBJID_CLIENT, CHILDID_SELF, propid, text);
+		pAccPropSvc->Release();
+		return true;
+	}
+	return false;
+}
+
