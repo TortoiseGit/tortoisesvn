@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-12-09 09:22 +0000\n"
-"PO-Revision-Date: 2009-12-11 21:25+0100\n"
+"POT-Creation-Date: 2009-12-13 09:34 +0000\n"
+"PO-Revision-Date: 2009-12-13 20:14+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5486,6 +5486,10 @@ msgstr "Kako su preimenovanje i pomeranje dati kao brisanje praćeno dodavanjem 
 #. (para)
 msgid "You <emphasis>must</emphasis> commit a folder rename before changing any of the files inside the folder, otherwise your working copy can get really messed up."
 msgstr "Vi <emphasis>morate</emphasis> urezati preimenovanje imenika pre izmena bilo kog fajla u imeniku, drugačije vaša radna kopija će stvarni biti zabrljana."
+
+#. (para)
+msgid "Another way of moving or copying files is to use the Windows copy/cut commands. Select the files you want to copy, right-click and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice> from the explorer context menu. Then browse to the target folder, right-click and choose <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Paste</guimenuitem></menuchoice>. For moving files, choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Cut</guimenuitem></menuchoice> instead of <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice>."
+msgstr "Drugi način za pomeranje ili kopiranje fajlova je korišćenje kopiraj/seci Vindouz komande. Izaberite fajlove koje želite da kopirate, desni klik i izaberite <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>Kopiraj</guimenuitem></menuchoice> iz kontekst menija pretraživača. Zatim potražite ciljni imenik,desni klik i izaberite <menuchoice><guimenu>Tortoise SVN</guimenu><guimenuitem>Nalepi</guimenuitem></menuchoice>. Za pomeranje fajlova, izaberite <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>Iseci</guimenuitem></menuchoice> umesto <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>Kopiraj</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "You can also use the repository browser to move items around. Read <xref linkend=\"tsvn-dug-repobrowser\"/> to find out more."

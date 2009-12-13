@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-12 21:25+0100\n"
+"PO-Revision-Date: 2009-12-13 19:59+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -691,6 +691,10 @@ msgstr "&Iz RK u URL:"
 msgid "&From revision"
 msgstr "&Od revizije"
 
+#. Resource IDs: (1494)
+msgid "&From: (start URL and revision of the range to merge)"
+msgstr "&Od: (početni URL i revizija u rasponu spajanja)"
+
 #
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
@@ -1245,6 +1249,10 @@ msgstr "&Do URL:"
 #. Resource IDs: (1305)
 msgid "&To URL: "
 msgstr "&Do URL:"
+
+#. Resource IDs: (1495)
+msgid "&To: (end URL and revision of the range to merge)"
+msgstr "&Do: (krajnji URL i revizija u rasponu spajanja)"
 
 #
 #. Resource IDs: (59392)
@@ -3994,6 +4002,10 @@ msgstr "Spoljašnji isključeni"
 msgid "Externals included"
 msgstr "Spoljašnji uključeni"
 
+#. Resource IDs: (1480)
+msgid "F&orce the merge"
+msgstr "F&orsira stapanje"
+
 #. Resource IDs: (74)
 msgid "Failed revert"
 msgstr "Neuspešno vraćanje na staro"
@@ -4290,10 +4302,6 @@ msgstr "Za cjelokupni dnevnik pomaknite oznaku 'Zaustavi se na kopiraj/preimenuj
 msgid "Force"
 msgstr "Forsira"
 
-#. Resource IDs: (1480)
-msgid "Force the merge"
-msgstr "Forsira stapanje"
-
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "Napred"
@@ -4302,17 +4310,9 @@ msgstr "Napred"
 msgid "Found auto words:"
 msgstr "Nalazi autentične reči:"
 
-#. Resource IDs: (65535)
-msgid "From URL:"
-msgstr "Iz URL-a:"
-
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Od:"
-
-#. Resource IDs: (65535)
-msgid "From: (start URL and revision of the range to merge)"
-msgstr "Od: (početni URL i revizija raspona spajanja)"
 
 #. Resource IDs: (1065)
 msgid "Full Screen"
@@ -4472,6 +4472,11 @@ msgstr "Grupiši po grani"
 msgid "Group changelists"
 msgstr "Grupiši popis izmena"
 
+#
+#. Resource IDs: (1032)
+msgid "H&EAD Revision"
+msgstr "GL&AVNA Revizija"
+
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
 msgstr "S&akrij nepovezane promenjene putanje"
@@ -4577,6 +4582,10 @@ msgstr "Neslaganje imena domaćina (%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "Kako želite da rešite ovaj sukob?"
+
+#. Resource IDs: (1392)
+msgid "I&gnore all whitespaces"
+msgstr "&Zanemari sve razmake"
 
 #. Resource IDs: (1264)
 msgid "I&gnored"
@@ -4887,6 +4896,10 @@ msgstr "Zanemariti %d stavki po &ekstenziji"
 msgid "Ignore &all whitespaces"
 msgstr "Zanemari &sve razmake"
 
+#. Resource IDs: (1267)
+msgid "Ignore &ancestry"
+msgstr "Z&anemari poreklo"
+
 #. Resource IDs: (1067)
 msgid "Ignore &case changes"
 msgstr "Zanemari &promene velikih i malih slova"
@@ -4899,9 +4912,9 @@ msgstr "Zanemaruje sve izmene belih polja"
 msgid "Ignore all whitespaces"
 msgstr "Zanemari sve razmake"
 
-#. Resource IDs: (1267)
-msgid "Ignore ancestry"
-msgstr "Zanemari poreklo"
+#. Resource IDs: (1126)
+msgid "Ignore line &endings"
+msgstr "Zanemari završetk&e linija"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4910,6 +4923,10 @@ msgstr "Zanemari završetke &linija (preporučeno)"
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line endings"
 msgstr "Zanemari završetke linija"
+
+#. Resource IDs: (1391)
+msgid "Ignore whitespace c&hanges"
+msgstr "Zanemari promene u razmaci&ma"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
@@ -5565,6 +5582,10 @@ msgstr "&Senčanje menija"
 msgid "Merge"
 msgstr "Stopi"
 
+#. Resource IDs: (1488)
+msgid "Merge &depth:"
+msgstr "&Dubina stapanja:"
+
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "Stopi - TortoiseSVN"
@@ -5574,16 +5595,12 @@ msgid "Merge Reintegrate"
 msgstr "Stopi Reintegriraj (!?)"
 
 #. Resource IDs: (1468)
-msgid "Merge a range of revisions"
-msgstr "Stopi raspon revizija"
+msgid "Merge a &range of revisions"
+msgstr "Stopi &raspon revizija"
 
 #. Resource IDs: (277)
 msgid "Merge all"
 msgstr "Stopi sve"
-
-#. Resource IDs: (65535)
-msgid "Merge depth:"
-msgstr "Dubina stapanja:"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -5615,8 +5632,8 @@ msgid "Merge the changes into '%s'"
 msgstr "Stopi izmene u  '%s'"
 
 #. Resource IDs: (1470)
-msgid "Merge two different trees"
-msgstr "Stopi dva različita stabla"
+msgid "Merge two different &trees"
+msgstr "Stopi dva različita s&tabla"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge type"
@@ -6157,6 +6174,10 @@ msgstr ""
 msgid "One or more files are in a conflicted state."
 msgstr "Jedna ili više fajl su u stanju sukoba."
 
+#. Resource IDs: (1424)
+msgid "Onl&y record the merge (block revisions from getting merged)"
+msgstr "Snim&i samo stopljeno (blok revizije iz stapanja)"
+
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
 msgstr "Preuzmi samo &vršni  imenik"
@@ -6172,10 +6193,6 @@ msgid ""
 msgstr ""
 "Samo brojevi (mogu biti odvojeni zarezom)\n"
 "su dozvoljeni!"
-
-#. Resource IDs: (1424)
-msgid "Only record the merge (block revisions from getting merged)"
-msgstr "Snimi samo stopljeno (blok revizije iz stapanja)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -6669,9 +6686,17 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "R&AM diskovi"
 
+#. Resource IDs: (1469)
+msgid "R&eintegrate a branch"
+msgstr "R&eintegriši granu"
+
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "&Reset"
+
+#. Resource IDs: (1423)
+msgid "R&everse merge"
+msgstr "Vrati stoplj&eno"
 
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
@@ -6708,6 +6733,10 @@ msgstr "Vra&ti početne postavke"
 #. Resource IDs: (8)
 msgid "Re&vert..."
 msgstr "Vra&ti na staro..."
+
+#. Resource IDs: (1033)
+msgid "Re&vision"
+msgstr "Re&vizija"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -6794,10 +6823,6 @@ msgstr ""
 "\\W : pronalazi bilo koji znak koji nije slovo ili broj (a-z,A-Z,0-9 i _)\r\n"
 "\\d : cifre 0-9\r\n"
 "\\s : razmaci"
-
-#. Resource IDs: (1469)
-msgid "Reintegrate a branch"
-msgstr "Reintegriši granu"
 
 #. Resource IDs: (595)
 msgid "Reintegrate merge"
@@ -7121,10 +7146,6 @@ msgstr "Obnovljeno"
 msgid "Retry"
 msgstr "Pokušaj ponovo"
 
-#. Resource IDs: (1423)
-msgid "Reverse merge"
-msgstr "Vrati stopljeno"
-
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %ld"
@@ -7206,9 +7227,9 @@ msgstr "Raspon revizija"
 msgid "Revision graph"
 msgstr "Revizioni graf"
 
-#. Resource IDs: (65535)
-msgid "Revision range to merge"
-msgstr "Raspon revizija za stapanje"
+#. Resource IDs: (1492)
+msgid "Revision r&ange to merge"
+msgstr "R&aspon revizija za stapanje"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -7845,6 +7866,10 @@ msgstr "Prikaži &Dnevnik"
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "Prikaži brojeve lini&ja"
+
+#. Resource IDs: (1037)
+msgid "Show lo&g"
+msgstr "Prikaži dnevni&k"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -9008,10 +9033,6 @@ msgstr ""
 msgid "To:"
 msgstr "Prema:"
 
-#. Resource IDs: (65535)
-msgid "To: (end URL and revision of the range to merge)"
-msgstr "Do: (krajnji URL i revizija raspona spajanja)"
-
 #. Resource IDs: (3633)
 msgid ""
 "Toggle One/Two Pages display\n"
@@ -9235,9 +9256,9 @@ msgstr "URL nije poznat (UUID: %s)"
 msgid "URL of Subversion items"
 msgstr "URL subverzionog dela"
 
-#. Resource IDs: (65535)
-msgid "URL to merge from"
-msgstr "URL stopiti iz"
+#. Resource IDs: (1491)
+msgid "URL to merge &from"
+msgstr "URL  i&z koga se stapa"
 
 #. Resource IDs: (144, 11023, 65535)
 msgid "URL:"
@@ -10884,6 +10905,8 @@ msgstr "da"
 msgid "{BugTraq}"
 msgstr "{BagTrek}"
 
+#~ msgid "From URL:"
+#~ msgstr "Из УРЛ-а:"
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
