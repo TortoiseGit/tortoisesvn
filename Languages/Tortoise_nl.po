@@ -28,8 +28,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-11 21:14+0100\n"
-"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
+"PO-Revision-Date: 2009-12-14 21:43+0100\n"
+"Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -625,6 +625,10 @@ msgstr "&Van werkkopie in URL:"
 msgid "&From revision"
 msgstr "&Van revisie"
 
+#. Resource IDs: (1494)
+msgid "&From: (start URL and revision of the range to merge)"
+msgstr "Bron &start: (begin URL en revisie van het samen te voegen bereik)"
+
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
 msgstr "&Ga naar regel..."
@@ -1082,6 +1086,10 @@ msgstr "&Naar URL:"
 #. Resource IDs: (1305)
 msgid "&To URL: "
 msgstr "&Naar URL: "
+
+#. Resource IDs: (1495)
+msgid "&To: (end URL and revision of the range to merge)"
+msgstr "Bron &einde: (einde URL en revisie van het samen te voegen bereik)"
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
@@ -2558,6 +2566,10 @@ msgstr "%s vergelijken met %s"
 msgid "Completed"
 msgstr "Gereed"
 
+#. Resource IDs: (219)
+msgid "Completed!"
+msgstr "Gereed!"
+
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
 msgstr "Hook-scripts configureren"
@@ -3793,6 +3805,10 @@ msgstr "Zonder externen"
 msgid "Externals included"
 msgstr "Inclusief externen"
 
+#. Resource IDs: (1480)
+msgid "F&orce the merge"
+msgstr "&Forceer het samenvoegen"
+
 #. Resource IDs: (74)
 msgid "Failed revert"
 msgstr "Terugzetten mislukt"
@@ -4089,10 +4105,6 @@ msgstr "Deactiveer 'Stoppen bij kopie/hernoemd bestand' voor de volledige histor
 msgid "Force"
 msgstr "Forceer"
 
-#. Resource IDs: (1480)
-msgid "Force the merge"
-msgstr "Forceer het samenvoegen"
-
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "Vooruit"
@@ -4101,17 +4113,9 @@ msgstr "Vooruit"
 msgid "Found auto words:"
 msgstr "Gevonden auto-woorden:"
 
-#. Resource IDs: (65535)
-msgid "From URL:"
-msgstr "Van URL:"
-
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Van:"
-
-#. Resource IDs: (65535)
-msgid "From: (start URL and revision of the range to merge)"
-msgstr "Bron start (begin URL en revisie van het samen te voegen bereik):"
 
 #. Resource IDs: (1065)
 msgid "Full Screen"
@@ -4271,6 +4275,10 @@ msgstr "Groeperen per tak"
 msgid "Group changelists"
 msgstr "Werksets groeperen"
 
+#. Resource IDs: (1032)
+msgid "H&EAD Revision"
+msgstr "H&EAD revisie"
+
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
 msgstr "&Verberg ongerelateerde wijzigingspaden"
@@ -4376,6 +4384,10 @@ msgstr "Verschil in hostnamen (%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "Hoe wilt u dt conflict oplossen?"
+
+#. Resource IDs: (1392)
+msgid "I&gnore all whitespaces"
+msgstr "&Alle spaties en witregels negeren"
 
 #. Resource IDs: (1264)
 msgid "I&gnored"
@@ -4672,6 +4684,10 @@ msgstr "Negeer %d zaken op &extensie"
 msgid "Ignore &all whitespaces"
 msgstr "&Alle spaties en witregels negeren"
 
+#. Resource IDs: (1267)
+msgid "Ignore &ancestry"
+msgstr "Negeer &oorsprong"
+
 #. Resource IDs: (1067)
 msgid "Ignore &case changes"
 msgstr "Negeer wijzigingen in &hoofd- en kleine letters"
@@ -4684,9 +4700,9 @@ msgstr "Negeer alle wijzigingen in spaties en witregels"
 msgid "Ignore all whitespaces"
 msgstr "Alle spaties en witregels negeren"
 
-#. Resource IDs: (1267)
-msgid "Ignore ancestry"
-msgstr "Negeer oorsprong"
+#. Resource IDs: (1126)
+msgid "Ignore line &endings"
+msgstr "Negeer &regeleinden"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4695,6 +4711,10 @@ msgstr "Negeer &regeleinden (aanbevolen)"
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line endings"
 msgstr "Negeer regeleinden"
+
+#. Resource IDs: (1391)
+msgid "Ignore whitespace c&hanges"
+msgstr "Negeer &wijzigingen in spaties en witregels"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
@@ -5351,6 +5371,10 @@ msgstr "&Schaduwen van menu's"
 msgid "Merge"
 msgstr "Samenvoegen"
 
+#. Resource IDs: (1488)
+msgid "Merge &depth:"
+msgstr "&Samenvoegdiepte:"
+
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "Samenvoegen - TortoiseSVN"
@@ -5360,16 +5384,12 @@ msgid "Merge Reintegrate"
 msgstr "Reïntegratie samenvoeging"
 
 #. Resource IDs: (1468)
-msgid "Merge a range of revisions"
-msgstr "Voeg een reeks revisies samen"
+msgid "Merge a &range of revisions"
+msgstr "Voeg een &reeks revisies samen"
 
 #. Resource IDs: (277)
 msgid "Merge all"
 msgstr "Alles samenvoegen"
-
-#. Resource IDs: (65535)
-msgid "Merge depth:"
-msgstr "Samenvoegdiepte:"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -5401,8 +5421,8 @@ msgid "Merge the changes into '%s'"
 msgstr "Voeg de wijzigingen toe in '%s'"
 
 #. Resource IDs: (1470)
-msgid "Merge two different trees"
-msgstr "Twee verschillende bomen samenvoegen"
+msgid "Merge two different &trees"
+msgstr "Twee verschillende &bomen samenvoegen"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge type"
@@ -5943,6 +5963,10 @@ msgstr ""
 msgid "One or more files are in a conflicted state."
 msgstr "Een of meerdere bestanden bevinden zich in een conflict status."
 
+#. Resource IDs: (1424)
+msgid "Onl&y record the merge (block revisions from getting merged)"
+msgstr "Samenvoegen alleen &vastleggen (blokkeer revisies voor later samenvoegen)"
+
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
 msgstr "Alleen de &bovenste map ophalen"
@@ -5958,10 +5982,6 @@ msgid ""
 msgstr ""
 "Alleen nummers (optioneel gescheiden door een comma)\n"
 "toegestaan!"
-
-#. Resource IDs: (1424)
-msgid "Only record the merge (block revisions from getting merged)"
-msgstr "Samenvoegen alleen vastleggen (blokkeer revisies voor later samenvoegen)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -6455,9 +6475,17 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "R&AM station"
 
+#. Resource IDs: (1469)
+msgid "R&eintegrate a branch"
+msgstr "Een tak &reïntegreren"
+
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "&Herstel"
+
+#. Resource IDs: (1423)
+msgid "R&everse merge"
+msgstr "&Omgekeerd samenvoegen"
 
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
@@ -6494,6 +6522,10 @@ msgstr "Standaard &herstellen"
 #. Resource IDs: (8)
 msgid "Re&vert..."
 msgstr "&Terugzetten..."
+
+#. Resource IDs: (1033)
+msgid "Re&vision"
+msgstr "&Revisie"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -6580,10 +6612,6 @@ msgstr ""
 "\\W   : alle niet alfanumerieke tekens\r\n"
 "\\d   : cijfers 0-9\r\n"
 "\\s   : spaties en tabs"
-
-#. Resource IDs: (1469)
-msgid "Reintegrate a branch"
-msgstr "Een tak reïntegreren"
 
 #. Resource IDs: (595)
 msgid "Reintegrate merge"
@@ -6907,10 +6935,6 @@ msgstr "Hersteld"
 msgid "Retry"
 msgstr "Opnieuw"
 
-#. Resource IDs: (1423)
-msgid "Reverse merge"
-msgstr "Omgekeerd samenvoegen"
-
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %ld"
@@ -6992,9 +7016,9 @@ msgstr "Revisiebereik"
 msgid "Revision graph"
 msgstr "Revisie schema"
 
-#. Resource IDs: (65535)
-msgid "Revision range to merge"
-msgstr "Revisiebereik om samen te voegen"
+#. Resource IDs: (1492)
+msgid "Revision r&ange to merge"
+msgstr "Revisie&bereik om samen te voegen"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -7631,6 +7655,10 @@ msgstr "Toon &logboek"
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "Toon regel&nummers"
+
+#. Resource IDs: (1037)
+msgid "Show lo&g"
+msgstr "Toon &logboek"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -8797,10 +8825,6 @@ msgstr ""
 msgid "To:"
 msgstr "Tot:"
 
-#. Resource IDs: (65535)
-msgid "To: (end URL and revision of the range to merge)"
-msgstr "Bron einde (einde URL en revisie van het samen te voegen bereik):"
-
 #. Resource IDs: (3633)
 msgid ""
 "Toggle One/Two Pages display\n"
@@ -9025,9 +9049,9 @@ msgstr "URL onbekend (UUID: %s)"
 msgid "URL of Subversion items"
 msgstr "URL van Subversion onderdelen"
 
-#. Resource IDs: (65535)
-msgid "URL to merge from"
-msgstr "URL om vandaan samen te voegen"
+#. Resource IDs: (1491)
+msgid "URL to merge &from"
+msgstr "URL om &vandaan samen te voegen"
 
 #. Resource IDs: (144, 11023, 65535)
 msgid "URL:"
@@ -10320,6 +10344,10 @@ msgstr "revisie %s-%s, revisie %s-%s"
 msgid "revision count: "
 msgstr "aantal revisies: "
 
+#. Resource IDs: (626)
+msgid "revision has already been merged"
+msgstr "revisie is al samengevoegd"
+
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
@@ -10474,6 +10502,10 @@ msgstr "tijdelijk offline"
 #. Resource IDs: (65535)
 msgid "text [token count]: "
 msgstr "tekst [token aantal]: "
+
+#. Resource IDs: (626)
+msgid "the working copy is at this revision"
+msgstr "dit is de revisie van de werkkopie"
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
@@ -10669,6 +10701,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "From URL:"
+#~ msgstr "Van URL:"
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
