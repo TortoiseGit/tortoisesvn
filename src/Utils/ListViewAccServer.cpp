@@ -65,7 +65,7 @@ HRESULT STDMETHODCALLTYPE ListViewAccServer::GetPropValue(
 		return S_OK;
 	}
 
-	HWND Hwnd = (HWND)HandleToLong(dwHcontrol);
+	HWND Hwnd = (HWND)dwHcontrol;
 	// Only supply help string for child elements, not the 
 	// listview itself… 
 	if (idChild == CHILDID_SELF)
