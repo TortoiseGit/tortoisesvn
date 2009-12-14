@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-12 11:00+0330\n"
+"PO-Revision-Date: 2009-12-14 14:21+0330\n"
 "Last-Translator: Mohsen Sajjadi <mohsensajjadi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -636,6 +636,10 @@ msgstr "&از نسخه کاری با آدرس:"
 msgid "&From revision"
 msgstr "&از اصلاحیه"
 
+#. Resource IDs: (1494)
+msgid "&From: (start URL and revision of the range to merge)"
+msgstr "&از: (آدرس و اصلاحیه شروع محدوده ادغام)"
+
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
 msgstr "&مراجعه به خط..."
@@ -1093,6 +1097,10 @@ msgstr "&به آدرس:"
 #. Resource IDs: (1305)
 msgid "&To URL: "
 msgstr "&به آدرس: "
+
+#. Resource IDs: (1495)
+msgid "&To: (end URL and revision of the range to merge)"
+msgstr "&به: (آدرس و اصلاحیه پایانی از محدوده جهت ادغام)"
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
@@ -3804,6 +3812,10 @@ msgstr "عدم در نظر گرفتن خارجیها"
 msgid "Externals included"
 msgstr " با در نظر گرفتن خارجیها"
 
+#. Resource IDs: (1480)
+msgid "F&orce the merge"
+msgstr "ا&دغام اجباری"
+
 #. Resource IDs: (74)
 msgid "Failed revert"
 msgstr "عدم موفقیت در برگشت"
@@ -4100,10 +4112,6 @@ msgstr "برای مشاهده تاریخچه کامل گزینه 'توقف در 
 msgid "Force"
 msgstr "با اجبار"
 
-#. Resource IDs: (1480)
-msgid "Force the merge"
-msgstr "اجبار در ادغام"
-
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "جلو"
@@ -4112,17 +4120,9 @@ msgstr "جلو"
 msgid "Found auto words:"
 msgstr "کلمات خودکار یافت شده:"
 
-#. Resource IDs: (65535)
-msgid "From URL:"
-msgstr "از آدرس:"
-
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "از:"
-
-#. Resource IDs: (65535)
-msgid "From: (start URL and revision of the range to merge)"
-msgstr "از: (آدرس و اصلاحیه شروع محدوده ادغام)"
 
 #. Resource IDs: (1065)
 msgid "Full Screen"
@@ -4282,6 +4282,10 @@ msgstr "گروه بندی بر اساس شاخه"
 msgid "Group changelists"
 msgstr "گروه بندی لیست تغییرات"
 
+#. Resource IDs: (1032)
+msgid "H&EAD Revision"
+msgstr "&اصلاحیه اصلی"
+
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
 msgstr "&پنهان کردن مسیرهای تغییری نامربوط"
@@ -4387,6 +4391,10 @@ msgstr "عدم تطبیق نام هاست (%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "مایلید این برخورد چگونه حل شود؟"
+
+#. Resource IDs: (1392)
+msgid "I&gnore all whitespaces"
+msgstr "&نادیده گرفتن تمام حروف خالی"
 
 #. Resource IDs: (1264)
 msgid "I&gnored"
@@ -4683,6 +4691,10 @@ msgstr "نادیده گرفتن %d قلم با توجه به &پسوند"
 msgid "Ignore &all whitespaces"
 msgstr "نادیده گرفتن &تمام حروف خالی"
 
+#. Resource IDs: (1267)
+msgid "Ignore &ancestry"
+msgstr "نادیده گرفتن &ریشه"
+
 #. Resource IDs: (1067)
 msgid "Ignore &case changes"
 msgstr "&نادیده گرفتن تغییرات case"
@@ -4695,9 +4707,9 @@ msgstr "نادیده گرفتن همه تغییرات فضاهای خالی"
 msgid "Ignore all whitespaces"
 msgstr "نادیده گرفتن تمام حروف خالی"
 
-#. Resource IDs: (1267)
-msgid "Ignore ancestry"
-msgstr "نادیده گرفتن ریشه"
+#. Resource IDs: (1126)
+msgid "Ignore line &endings"
+msgstr "نادیده گرفتن حروف &پایان خط"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4706,6 +4718,10 @@ msgstr "نادیده گرفتن حروف &پایان خط (توصیه شده)"
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line endings"
 msgstr "نادیده گرفتن حروف پایان خط"
+
+#. Resource IDs: (1391)
+msgid "Ignore whitespace c&hanges"
+msgstr "نادیده گرفتن &تغییرات حروف خالی"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
@@ -5360,6 +5376,10 @@ msgstr "&سایه منو"
 msgid "Merge"
 msgstr "ادغام"
 
+#. Resource IDs: (1488)
+msgid "Merge &depth:"
+msgstr "&عمق ادغام:"
+
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "ادغام - TortoiseSVN"
@@ -5369,16 +5389,12 @@ msgid "Merge Reintegrate"
 msgstr "ادغام مجدد"
 
 #. Resource IDs: (1468)
-msgid "Merge a range of revisions"
-msgstr "ادغام محدوده ای از اصلاحیه ها"
+msgid "Merge a &range of revisions"
+msgstr "ادغام &محدوده ای از اصلاحیه ها"
 
 #. Resource IDs: (277)
 msgid "Merge all"
 msgstr "ادغام همه"
-
-#. Resource IDs: (65535)
-msgid "Merge depth:"
-msgstr "عمق ادغام:"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -5410,8 +5426,8 @@ msgid "Merge the changes into '%s'"
 msgstr "Merge the changes into '%s'"
 
 #. Resource IDs: (1470)
-msgid "Merge two different trees"
-msgstr "ادغام دو درخت متفاوت"
+msgid "Merge two different &trees"
+msgstr "ادغام دو &درخت متفاوت"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge type"
@@ -5952,6 +5968,10 @@ msgstr ""
 msgid "One or more files are in a conflicted state."
 msgstr "یک یا چند فایل در حالی متضاد قرار دارند."
 
+#. Resource IDs: (1424)
+msgid "Onl&y record the merge (block revisions from getting merged)"
+msgstr "&فقط ثبت ادغام (جلوگیری از ادغام ویرایشها)"
+
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
 msgstr "فقط دریافت شاخه &اول"
@@ -5967,10 +5987,6 @@ msgid ""
 msgstr ""
 "فقط اعداد (قابل جداشدن با کاما)\n"
 "مجاز میباشند!"
-
-#. Resource IDs: (1424)
-msgid "Only record the merge (block revisions from getting merged)"
-msgstr "فقط ثبت ادغام (جلوگیری از ادغام ویرایشها)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -6464,9 +6480,17 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "درایوهای &رَم"
 
+#. Resource IDs: (1469)
+msgid "R&eintegrate a branch"
+msgstr "&تجمیع مجدد شاخه"
+
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "باز&نشانی"
+
+#. Resource IDs: (1423)
+msgid "R&everse merge"
+msgstr "&ادغام معکوس"
 
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
@@ -6503,6 +6527,10 @@ msgstr "بازگرداندن &پیش فرض ها"
 #. Resource IDs: (8)
 msgid "Re&vert..."
 msgstr "&بازگشت..."
+
+#. Resource IDs: (1033)
+msgid "Re&vision"
+msgstr "&اصلاحیه"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -6589,10 +6617,6 @@ msgstr ""
 "\\W   : any non-alphanumeric character\r\n"
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
-
-#. Resource IDs: (1469)
-msgid "Reintegrate a branch"
-msgstr "تجمیع مجدد شاخه"
 
 #. Resource IDs: (595)
 msgid "Reintegrate merge"
@@ -6916,10 +6940,6 @@ msgstr "بازگردانده شد"
 msgid "Retry"
 msgstr "دوباره سعی کنید"
 
-#. Resource IDs: (1423)
-msgid "Reverse merge"
-msgstr "ادغام معکوس"
-
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %ld"
@@ -7001,9 +7021,9 @@ msgstr "محدوده اصلاحیه ها"
 msgid "Revision graph"
 msgstr "نمودار اصلاحیه"
 
-#. Resource IDs: (65535)
-msgid "Revision range to merge"
-msgstr "محدوده اصلاحیه جهت ادغام"
+#. Resource IDs: (1492)
+msgid "Revision r&ange to merge"
+msgstr "&محدوده اصلاحیه جهت ادغام"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -7640,6 +7660,10 @@ msgstr "نمایش گزار&شات ثبت شده"
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "نمایش شماره خطو&ط"
+
+#. Resource IDs: (1037)
+msgid "Show lo&g"
+msgstr "نمایش گزار&شات ثبت شده"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -8806,10 +8830,6 @@ msgstr ""
 msgid "To:"
 msgstr "به:"
 
-#. Resource IDs: (65535)
-msgid "To: (end URL and revision of the range to merge)"
-msgstr "به: (آدرس و اصلاحیه پایانی از محدوده جهت ادغام)"
-
 #. Resource IDs: (3633)
 msgid ""
 "Toggle One/Two Pages display\n"
@@ -9033,9 +9053,9 @@ msgstr "آدرس ناشناخته (UUID: %s)"
 msgid "URL of Subversion items"
 msgstr "آدرس اقلام سابورژن"
 
-#. Resource IDs: (65535)
-msgid "URL to merge from"
-msgstr "آدرس جهت ادغام"
+#. Resource IDs: (1491)
+msgid "URL to merge &from"
+msgstr "آدرس جهت &ادغام"
 
 #. Resource IDs: (144, 11023, 65535)
 msgid "URL:"
@@ -10327,6 +10347,10 @@ msgstr "اصلاحیه %s-%s, اصلاحیه %s-%s"
 msgid "revision count: "
 msgstr "تعداد اصلاحیه ها:"
 
+#. Resource IDs: (626)
+msgid "revision has already been merged"
+msgstr "اصلاحیه قبلا ادغام شده  است"
+
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
@@ -10480,6 +10504,10 @@ msgstr "موقتا خارج از خط"
 #. Resource IDs: (65535)
 msgid "text [token count]: "
 msgstr "متن [تعداد توکن]:"
+
+#. Resource IDs: (626)
+msgid "the working copy is at this revision"
+msgstr "نسخه کاری در این اصلاحیه قرار دارد"
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
@@ -10671,6 +10699,8 @@ msgstr "بله"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "From URL:"
+#~ msgstr "از آدرس:"
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
