@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-14 17:51+0100\n"
+"PO-Revision-Date: 2009-12-14 18:15+0100\n"
 "Last-Translator: Christian Peper <jcapeper@peper-it.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5291,11 +5291,11 @@ msgstr ""
 
 #. (title)
 msgid "Ignoring Files And Directories"
-msgstr ""
+msgstr "Negeren bestanden en mappen"
 
 #. (primary)
 msgid "ignore"
-msgstr ""
+msgstr "negeer"
 
 #. (primary)
 msgid "unversioned files/folders"
@@ -5303,19 +5303,19 @@ msgstr "Niet geversioneerde bestanden"
 
 #. (para)
 msgid "<placeholder-1/> In most projects you will have files and folders that should not be subject to version control. These might include files created by the compiler, <filename>*.obj, *.lst</filename>, maybe an output folder used to store the executable. Whenever you commit changes, TortoiseSVN shows your unversioned files, which fills up the file list in the commit dialog. Of course you can turn off this display, but then you might forget to add a new source file."
-msgstr ""
+msgstr "<placeholder-1/> In de meeste projecten zijn er ook bestanden of mappen die je niet onder controle van subversion wilt brengen. Denk bijvoorbeeld aan compiler bestanden, <filename>*.obj, *.lst</filename>, of output bestanden en backup versies. Als je wijzigingen commit, laat TortoiseSVN jou de bestanden zien die (nog) niet meegenomen zullen worden. Deze kunnen je dialoog box vullen. Natuurlijk je de weergave ervan uitzetten, maar dan zou je belangrijke bestanden kunnen gaan vergeten."
 
 #. (para)
 msgid "The best way to avoid these problems is to add the derived files to the project's ignore list. That way they will never show up in the commit dialog, but genuine unversioned source files will still be flagged up."
-msgstr ""
+msgstr "De beste manier om deze problemen te vermijden is om een bestanden en/of extensies aan de negeerlijst toe te voegen. Zo kunnen ze nooit per ongeluk gecommit worden of de weergave in de commit dialog box overvol maken zodat je andere belangrijke bestanden voor versie beheer zou vergeten."
 
 #. (para)
 msgid "If you <action>right click</action> on a single unversioned file, and select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to Ignore List</guimenuitem></menuchoice> from the context menu, a submenu appears allowing you to select just that file, or all files with the same extension. If you select multiple files, there is no submenu and you can only add those specific files/folders."
-msgstr ""
+msgstr "Als je met <action>rechts klikt</action> op een nog niet beheerd bestand, en het commando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Voeg toe aan negeer-lijst</guimenuitem></menuchoice>, krijg je een submenu waarmee alleen dat bestand of alle bestanden met diezelfde extensie kunt selecteren. Indien je meerdere bestanden hebt geselecteerd, krijg je het submenu niet te zien en negeer je alleen de geslecteerde bestanden en mappen."
 
 #. (para)
 msgid "If you want to remove one or more items from the ignore list, <action>right click</action> on those items and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remove from Ignore List</guimenuitem></menuchoice> You can also access a folder's <literal>svn:ignore</literal> property directly. That allows you to specify more general patterns using filename globbing, described in the section below. Read <xref linkend=\"tsvn-dug-propertypage\"/> for more information on setting properties directly. Please be aware that each ignore pattern has to be placed on a separate line. Separating them by spaces does not work."
-msgstr ""
+msgstr "Wil je items van je negeer-lijst afhalen, selecteer dan die bestanden of mappen, <action>rechts klik</action> op de selectie en kies <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verwijder van negeer-lijst</guimenuitem></menuchoice>. Voor mappen kun je ook de <literal>svn:ignore</literal> eigenschap direct zetten. Daarmee kun je algemene patronen specificeren van te negeren bestanden, zoals hieronder beschreven zal worden. Lees <xref linkend=\"tsvn-dug-propertypage\"/> voor meer informatie over het zetten van eigenschappen op mappen. Let op: iedere negeer-patroon moet op zijn eigen regel komen te staan. Scheiden met spaties werkt niet."
 
 #. (title)
 msgid "The Global Ignore List"
@@ -5331,19 +5331,19 @@ msgstr "Negeren van geversioneerde items"
 
 #. (para)
 msgid "Versioned files and folders can never be ignored - that's a feature of Subversion. If you versioned a file by mistake, read <xref linkend=\"tsvn-howto-unversion\"/> for instructions on how to <quote>unversion</quote> it."
-msgstr ""
+msgstr "Bestanden en mappen die al onder versiebeheer vallen kunnen nooit genegeerd worden. Dat zou subversion tegenspreken. Mocht je een bestand per ongeluk hebben toegevoegd, lees dan <xref linkend=\"tsvn-howto-unversion\"/> om dit ongedaan te maken."
 
 #. (title)
 msgid "Pattern Matching in Ignore Lists"
-msgstr ""
+msgstr "Patroonherkenning in negeerlijsten"
 
 #. (primary)
 msgid "globbing"
-msgstr ""
+msgstr "globbing"
 
 #. (primary)
 msgid "pattern matching"
-msgstr ""
+msgstr "patroonherkenning"
 
 #. (term)
 msgid "*"
@@ -5351,7 +5351,7 @@ msgstr "*"
 
 #. (para)
 msgid "Matches any string of characters, including the empty string (no characters)."
-msgstr ""
+msgstr "Matcht elke string van karakters, inclusief de lege string."
 
 #. (term)
 msgid "?"
@@ -5359,7 +5359,7 @@ msgstr "?"
 
 #. (para)
 msgid "Matches any single character."
-msgstr ""
+msgstr "Matcht elk enkel letterteken."
 
 #. (term)
 msgid "[...]"
@@ -5375,11 +5375,11 @@ msgstr ""
 
 #. (para)
 msgid "Pattern matching is case sensitive, which can cause problems on Windows. You can force case insensitivity the hard way by pairing characters, eg. to ignore <literal>*.tmp</literal> regardless of case, you could use a pattern like <literal>*.[Tt][Mm][Pp]</literal>."
-msgstr ""
+msgstr "Patroonherkenning is hoofdletter gevoelig, dus let op onder Windows. Je kunt ongevoeligheid voor hoofd- of kleine letters afdwingen door expliciet en uitputtend letterparen te specificeren, bv. om <literal>*.tmp</literal> te negeren gebruik je het patroon <literal>*.[Tt][Mm][Pp]</literal>."
 
 #. (para)
 msgid "If you want an official definition for globbing, you can find it in the IEEE specifications for the shell command language <ulink url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13\"><citetitle>Pattern Matching Notation</citetitle></ulink>."
-msgstr ""
+msgstr "Voor de officiele definitie van globbing, raadpleeg de IEEE specificaties voor de 'shell command language' <ulink url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13\"><citetitle>Pattern Matching Notation</citetitle></ulink>. "
 
 #. (title)
 msgid "No Paths in Global Ignore List"
