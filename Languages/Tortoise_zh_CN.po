@@ -58,7 +58,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-07 22:19-0500\n"
+"PO-Revision-Date: 2009-12-14 09:19-0500\n"
 "Last-Translator: Garfield Yao <field977@hotmail.com>\n"
 "Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -560,6 +560,10 @@ msgstr "以URL比较(&D)"
 msgid "&Diff with previous version"
 msgstr "与前一版本比较(&D)"
 
+#. Resource IDs: (1528)
+msgid "&Directories"
+msgstr "目录(&D)"
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "钉住(&D)"
@@ -602,6 +606,10 @@ msgstr "外部(&E)"
 
 #. Resource IDs: (65535)
 msgid "&File"
+msgstr "文件(&F)"
+
+#. Resource IDs: (1529)
+msgid "&Files"
 msgstr "文件(&F)"
 
 #. Resource IDs: (32809)
@@ -647,6 +655,10 @@ msgstr "从工作副本 URL(&F): "
 #. Resource IDs: (65535)
 msgid "&From revision"
 msgstr "从版本(&F)"
+
+#. Resource IDs: (1494)
+msgid "&From: (start URL and revision of the range to merge)"
+msgstr "起始: （合并范围的起始URL和版本）(&F)"
 
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
@@ -1105,6 +1117,10 @@ msgstr "至URL(&T): "
 #. Resource IDs: (1305)
 msgid "&To URL: "
 msgstr "至URL(&T): "
+
+#. Resource IDs: (1495)
+msgid "&To: (end URL and revision of the range to merge)"
+msgstr "结束:  （合并范围的结束URL和版本）(&T)"
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
@@ -2000,8 +2016,8 @@ msgid "Bug-ID"
 msgstr "Bug-ID"
 
 #. Resource IDs: (1119)
-msgid "Bug-ID / Issue-Nr:"
-msgstr "Bug编号/问题编号: "
+msgid "Bug-ID / &Issue-Nr:"
+msgstr "Bug编号/问题编号(&I): "
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2266,8 +2282,8 @@ msgid "Checkout - TortoiseSVN"
 msgstr "检出 - TortoiseSVN"
 
 #. Resource IDs: (1377)
-msgid "Checkout Depth"
-msgstr "检出深度"
+msgid "Checkout D&epth"
+msgstr "检出深度(&E)"
 
 #. Resource IDs: (229)
 #, c-format
@@ -3570,6 +3586,10 @@ msgstr "输入日志信息"
 msgid "Enter URL"
 msgstr "输入 URL"
 
+#. Resource IDs: (65535)
+msgid "Enter a &name for the changelist:"
+msgstr "输入修改列表名称(&N): "
+
 #. Resource IDs: (3858)
 msgid "Enter a GUID."
 msgstr "请输入 GUID。"
@@ -3589,10 +3609,6 @@ msgstr "请输入日期。"
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr "输入锁定信息(可选): "
-
-#. Resource IDs: (65535)
-msgid "Enter a name for the changelist:"
-msgstr "输入修改列表名称: "
 
 #. Resource IDs: (3858)
 #, c-format
@@ -3812,6 +3828,10 @@ msgstr "排除外部引用"
 #. Resource IDs: (226)
 msgid "Externals included"
 msgstr "包含外部引用"
+
+#. Resource IDs: (1480)
+msgid "F&orce the merge"
+msgstr "强制合并(&O)"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -4107,10 +4127,6 @@ msgstr "取消选择“复制/改名时停止”，以查看完整的历史列�
 msgid "Force"
 msgstr "强制"
 
-#. Resource IDs: (1480)
-msgid "Force the merge"
-msgstr "强制合并"
-
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "前进"
@@ -4119,17 +4135,9 @@ msgstr "前进"
 msgid "Found auto words:"
 msgstr "找到了 auto word:"
 
-#. Resource IDs: (65535)
-msgid "From URL:"
-msgstr "从 URL: "
-
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "起始: "
-
-#. Resource IDs: (65535)
-msgid "From: (start URL and revision of the range to merge)"
-msgstr "起始: （合并范围的起始URL和版本）"
 
 #. Resource IDs: (1065)
 msgid "Full Screen"
@@ -4289,6 +4297,10 @@ msgstr "按照分支分组"
 msgid "Group changelists"
 msgstr "分组修改列表"
 
+#. Resource IDs: (1032)
+msgid "H&EAD Revision"
+msgstr "最新版本(&E)"
+
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
 msgstr "隐藏无关的修改路径(&I)"
@@ -4394,6 +4406,10 @@ msgstr "站点名称不符(%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "你准备如何解决此冲突？"
+
+#. Resource IDs: (1392)
+msgid "I&gnore all whitespaces"
+msgstr "忽略所有空白字符(&G)"
 
 #. Resource IDs: (1264)
 msgid "I&gnored"
@@ -4698,6 +4714,10 @@ msgstr "根据扩展名忽略 %d 项(&E)"
 msgid "Ignore &all whitespaces"
 msgstr "忽略所有空白字符(&A)"
 
+#. Resource IDs: (1267)
+msgid "Ignore &ancestry"
+msgstr "忽略根源(&A)"
+
 #. Resource IDs: (1067)
 msgid "Ignore &case changes"
 msgstr "忽略大/小写(&C)"
@@ -4710,9 +4730,9 @@ msgstr "忽略所有空白字符的变化"
 msgid "Ignore all whitespaces"
 msgstr "忽略所有空白字符"
 
-#. Resource IDs: (1267)
-msgid "Ignore ancestry"
-msgstr "忽略根源"
+#. Resource IDs: (1126)
+msgid "Ignore line &endings"
+msgstr "忽略 CRLF(&E)"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4721,6 +4741,10 @@ msgstr "忽略行尾（建议）(&E)"
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line endings"
 msgstr "忽略 CRLF"
+
+#. Resource IDs: (1391)
+msgid "Ignore whitespace c&hanges"
+msgstr "忽略空白字符的变化(&H)"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
@@ -5011,8 +5035,8 @@ msgstr ""
 "你确定要重定位吗？"
 
 #. Resource IDs: (1480)
-msgid "Items in externals"
-msgstr "外部的条目"
+msgid "Items in &externals"
+msgstr "外部的条目(&E)"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
@@ -5031,8 +5055,8 @@ msgid "Keep &locks"
 msgstr "保持锁定(&L)"
 
 #. Resource IDs: (1126)
-msgid "Keep changelists"
-msgstr "保持修改列表"
+msgid "Keep ch&angelists"
+msgstr "保持修改列表(&A)"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -5373,6 +5397,10 @@ msgstr "阴影菜单(&H)"
 msgid "Merge"
 msgstr "合并"
 
+#. Resource IDs: (1488)
+msgid "Merge &depth:"
+msgstr "合并深度(&D):"
+
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "合并 - TortoiseSVN"
@@ -5382,16 +5410,12 @@ msgid "Merge Reintegrate"
 msgstr "合并复兴分支"
 
 #. Resource IDs: (1468)
-msgid "Merge a range of revisions"
-msgstr "合并一个版本范围"
+msgid "Merge a &range of revisions"
+msgstr "合并一个版本范围(&R)"
 
 #. Resource IDs: (277)
 msgid "Merge all"
 msgstr "合并所有"
-
-#. Resource IDs: (65535)
-msgid "Merge depth:"
-msgstr "合并深度:"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -5423,8 +5447,8 @@ msgid "Merge the changes into '%s'"
 msgstr "合并修改到 “%s”"
 
 #. Resource IDs: (1470)
-msgid "Merge two different trees"
-msgstr "合并两个不同的树！"
+msgid "Merge two different &trees"
+msgstr "合并两个不同的树(&T)"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge type"
@@ -5961,6 +5985,10 @@ msgstr ""
 msgid "One or more files are in a conflicted state."
 msgstr "至少还有一个的文件处于冲突状态。"
 
+#. Resource IDs: (1424)
+msgid "Onl&y record the merge (block revisions from getting merged)"
+msgstr "只记录合并(阻止这些版本将来被合并)(&Y)"
+
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
 msgstr "只检出最上层目录(&T)"
@@ -5974,10 +6002,6 @@ msgid ""
 "Only numbers (optionally separated by commas)\n"
 "are allowed!"
 msgstr "仅可以输入数字（可以用逗号分隔）！"
-
-#. Resource IDs: (1424)
-msgid "Only record the merge (block revisions from getting merged)"
-msgstr "只记录合并(阻止这些版本将来被合并)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -6471,9 +6495,17 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "内存虚拟磁盘(&A)"
 
+#. Resource IDs: (1469)
+msgid "R&eintegrate a branch"
+msgstr "复兴分支(&E)"
+
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "重置(&E)"
+
+#. Resource IDs: (1423)
+msgid "R&everse merge"
+msgstr "反向合并(&E)"
 
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
@@ -6510,6 +6542,10 @@ msgstr "恢复默认值(&S)"
 #. Resource IDs: (8)
 msgid "Re&vert..."
 msgstr "SVN 还原(&V)..."
+
+#. Resource IDs: (1033)
+msgid "Re&vision"
+msgstr "版本(&V)"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -6596,10 +6632,6 @@ msgstr ""
 "\\W   : 任意非字母与数字字符\r\n"
 "\\d   : 数字 0-9\r\n"
 "\\s   : 空白"
-
-#. Resource IDs: (1469)
-msgid "Reintegrate a branch"
-msgstr "复兴分支"
 
 #. Resource IDs: (595)
 msgid "Reintegrate merge"
@@ -6923,10 +6955,6 @@ msgstr "还原"
 msgid "Retry"
 msgstr "重试"
 
-#. Resource IDs: (1423)
-msgid "Reverse merge"
-msgstr "反向合并"
-
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %ld"
@@ -7008,9 +7036,9 @@ msgstr "版本范围: "
 msgid "Revision graph"
 msgstr "版本分支图"
 
-#. Resource IDs: (65535)
-msgid "Revision range to merge"
-msgstr "待合并的版本范围"
+#. Resource IDs: (1492)
+msgid "Revision r&ange to merge"
+msgstr "待合并的版本范围(&A)"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -7633,8 +7661,8 @@ msgid "Show excluded folders as normal"
 msgstr "对排除的目录正常显示"
 
 #. Resource IDs: (1480)
-msgid "Show externals from different repositories"
-msgstr "从不同的版本库显示外部引用"
+msgid "Show externals from &different repositories"
+msgstr "从不同的版本库显示外部引用(&D)"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7647,6 +7675,10 @@ msgstr "显示日志(&O)"
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "显示行号(&S)"
+
+#. Resource IDs: (1037)
+msgid "Show lo&g"
+msgstr "显示日志(&G)"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -8796,10 +8828,6 @@ msgstr ""
 msgid "To:"
 msgstr "结束: "
 
-#. Resource IDs: (65535)
-msgid "To: (end URL and revision of the range to merge)"
-msgstr "结束:  （合并范围的结束URL和版本）"
-
 #. Resource IDs: (3633)
 msgid ""
 "Toggle One/Two Pages display\n"
@@ -9022,9 +9050,9 @@ msgstr "URL 未知(UUID: %s)"
 msgid "URL of Subversion items"
 msgstr "Subversion 项目 URL"
 
-#. Resource IDs: (65535)
-msgid "URL to merge from"
-msgstr "合并的源 URL"
+#. Resource IDs: (1491)
+msgid "URL to merge &from"
+msgstr "合并的源 URL(&F)"
 
 #. Resource IDs: (144, 11023, 65535)
 msgid "URL:"
@@ -10308,6 +10336,10 @@ msgstr "版本 %s-%s，版本 %s-%s"
 msgid "revision count: "
 msgstr "版本计数: "
 
+#. Resource IDs: (626)
+msgid "revision has already been merged"
+msgstr "已合并的版本范围"
+
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
@@ -10457,6 +10489,10 @@ msgstr "暂时离线"
 #. Resource IDs: (65535)
 msgid "text [token count]: "
 msgstr "文本[符号计数]: "
+
+#. Resource IDs: (626)
+msgid "the working copy is at this revision"
+msgstr "工作副本为此版本"
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
@@ -10647,6 +10683,9 @@ msgstr "是"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+#~ msgid "From URL:"
+#~ msgstr "从 URL: "
 
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
