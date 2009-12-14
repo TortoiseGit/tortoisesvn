@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-11-16 08:43+0100\n"
+"POT-Creation-Date: 2009-12-13 09:34 +0000\n"
+"PO-Revision-Date: 2009-12-14 08:27+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5520,6 +5520,10 @@ msgstr "Da Umbenennen beziehungsweise Verschieben intern in zwei Schritten als L
 #. (para)
 msgid "You <emphasis>must</emphasis> commit a folder rename before changing any of the files inside the folder, otherwise your working copy can get really messed up."
 msgstr "Sie <emphasis>müssen</emphasis> einen umbenannten Ordner übertragen, bevor Sie Dateien innerhalb des Ordners bearbeiten. Andernfalls kann Ihre Arbeitskopie sehr durcheinander kommen."
+
+#. (para)
+msgid "Another way of moving or copying files is to use the Windows copy/cut commands. Select the files you want to copy, right-click and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice> from the explorer context menu. Then browse to the target folder, right-click and choose <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Paste</guimenuitem></menuchoice>. For moving files, choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Cut</guimenuitem></menuchoice> instead of <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice>."
+msgstr "Eine weitere Möglichkeit, Dateien zu kopieren oder zu verschieben, besteht darin, die Kopieren/Ausschneiden Befehle von Windows zu verwenden. Markieren sie die gewünschte(n) Datei(en) und rufen sie per <action>Rechtsklick</action> entweder <menuchoice><guimenu>Kontextmenü</guimenu><guimenuitem>Kopieren</guimenuitem></menuchoice> oder <menuchoice><guimenu>Kontextmenü</guimenu><guimenuitem>Ausschneiden</guimenuitem></menuchoice> aus, je nachdem, ob Sie die Objekte kopieren oder verschieben wollen. Dann navigieren Sie zum Zielordner und fügen die Datei(en) per <action>Rechtsklick</action> <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Einfügen</guimenuitem></menuchoice> an der gewünschten Stelle ein."
 
 #. (para)
 msgid "You can also use the repository browser to move items around. Read <xref linkend=\"tsvn-dug-repobrowser\"/> to find out more."
