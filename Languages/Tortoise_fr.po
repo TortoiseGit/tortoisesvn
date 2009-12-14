@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-08 12:39+0100\n"
+"PO-Revision-Date: 2009-12-14 14:46+0100\n"
 "Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -525,6 +525,10 @@ msgstr "&Diff avec l'URL"
 msgid "&Diff with previous version"
 msgstr "Comparer avec la révision précé&dente"
 
+#. Resource IDs: (1528)
+msgid "&Directories"
+msgstr "&Répertoires"
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Ranger"
@@ -569,6 +573,10 @@ msgstr "&Externe"
 msgid "&File"
 msgstr "&Fichier"
 
+#. Resource IDs: (1529)
+msgid "&Files"
+msgstr "&Fichiers"
+
 #. Resource IDs: (32809)
 msgid "&Filter"
 msgstr "&Filtrer"
@@ -612,6 +620,10 @@ msgstr "&Depuis CdT à l'URL :"
 #. Resource IDs: (65535)
 msgid "&From revision"
 msgstr "&Depuis la révision"
+
+#. Resource IDs: (1494)
+msgid "&From: (start URL and revision of the range to merge)"
+msgstr "&De : (URL de début et plage de révisions à fusionner)"
 
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
@@ -1070,6 +1082,10 @@ msgstr "&Vers l'URL :"
 #. Resource IDs: (1305)
 msgid "&To URL: "
 msgstr "&Vers l'URL : "
+
+#. Resource IDs: (1495)
+msgid "&To: (end URL and revision of the range to merge)"
+msgstr "&À : (URL de fin et plage de révisions à fusionner)"
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
@@ -1967,8 +1983,8 @@ msgid "Bug-ID"
 msgstr "Bug-ID"
 
 #. Resource IDs: (1119)
-msgid "Bug-ID / Issue-Nr:"
-msgstr "Bug-ID/ N° d'incident"
+msgid "Bug-ID / &Issue-Nr:"
+msgstr "Bug-ID / N° d'&Incident:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2233,8 +2249,8 @@ msgid "Checkout - TortoiseSVN"
 msgstr "Extraire - TortoiseSVN"
 
 #. Resource IDs: (1377)
-msgid "Checkout Depth"
-msgstr "Profondeur d'extraction"
+msgid "Checkout D&epth"
+msgstr "&Profondeur d'extraction"
 
 #. Resource IDs: (229)
 #, c-format
@@ -3539,6 +3555,10 @@ msgstr "Entrer un commentaire"
 msgid "Enter URL"
 msgstr "Entrer une URL"
 
+#. Resource IDs: (65535)
+msgid "Enter a &name for the changelist:"
+msgstr "Entrer un &nom pour la liste de changements :"
+
 #. Resource IDs: (3858)
 msgid "Enter a GUID."
 msgstr "Entrez un GUID."
@@ -3558,10 +3578,6 @@ msgstr "Entrez une date."
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr "Entrer un commentaire de verrou (optionnel) :"
-
-#. Resource IDs: (65535)
-msgid "Enter a name for the changelist:"
-msgstr "Entrez un nom pour la liste de changements :"
 
 #. Resource IDs: (3858)
 #, c-format
@@ -3781,6 +3797,10 @@ msgstr "Externes exclus"
 #. Resource IDs: (226)
 msgid "Externals included"
 msgstr "Externes inclus"
+
+#. Resource IDs: (1480)
+msgid "F&orce the merge"
+msgstr "F&orcer la fusion"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -4076,10 +4096,6 @@ msgstr "Pour l'historique complet, désélectionnez 'Arrêt à la copie/renommag
 msgid "Force"
 msgstr "Forcer"
 
-#. Resource IDs: (1480)
-msgid "Force the merge"
-msgstr "Forcer la fusion"
-
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "En avant"
@@ -4088,17 +4104,9 @@ msgstr "En avant"
 msgid "Found auto words:"
 msgstr "Mots automatiques trouvés:"
 
-#. Resource IDs: (65535)
-msgid "From URL:"
-msgstr "Depuis l'URL :"
-
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Du :"
-
-#. Resource IDs: (65535)
-msgid "From: (start URL and revision of the range to merge)"
-msgstr "De : (URL de début et révision de la plage à fusionner)"
 
 #. Resource IDs: (1065)
 msgid "Full Screen"
@@ -4258,6 +4266,10 @@ msgstr "Grouper par branche"
 msgid "Group changelists"
 msgstr "Regrouper les listes de changements"
 
+#. Resource IDs: (1032)
+msgid "H&EAD Revision"
+msgstr "Révision &HEAD"
+
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
 msgstr "Cacher les chem&ins changés sans relation"
@@ -4361,6 +4373,10 @@ msgstr "Nom de la machine en désaccords (%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "Comment voulez vous résoudre ce conflit ?"
+
+#. Resource IDs: (1392)
+msgid "I&gnore all whitespaces"
+msgstr "I&gnorer tous les caractères d'espacements"
 
 #. Resource IDs: (1264)
 msgid "I&gnored"
@@ -4671,6 +4687,10 @@ msgstr "Ignorer %d éléments par &extension"
 msgid "Ignore &all whitespaces"
 msgstr "Ignorer tous les esp&acements"
 
+#. Resource IDs: (1267)
+msgid "Ignore &ancestry"
+msgstr "Ignorer l'&ascendance"
+
 #. Resource IDs: (1067)
 msgid "Ignore &case changes"
 msgstr "Ignorer les &changements de casse"
@@ -4683,9 +4703,9 @@ msgstr "Ignorer toutes les modifications d'espaces"
 msgid "Ignore all whitespaces"
 msgstr "Ignorer tous les espacements"
 
-#. Resource IDs: (1267)
-msgid "Ignore ancestry"
-msgstr "Ignorer l'ascendance"
+#. Resource IDs: (1126)
+msgid "Ignore line &endings"
+msgstr "Ignorer les &fins de lignes"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4694,6 +4714,10 @@ msgstr "Ignor&er les fins de lignes (recommandé)"
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line endings"
 msgstr "Ignorer les fins de lignes"
+
+#. Resource IDs: (1391)
+msgid "Ignore whitespace c&hanges"
+msgstr "Ignorer les &changements de caractères d'espacement"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
@@ -4984,8 +5008,8 @@ msgstr ""
 "Voulez-vous vraiment relocaliser ?"
 
 #. Resource IDs: (1480)
-msgid "Items in externals"
-msgstr "Eléments dans les références externes"
+msgid "Items in &externals"
+msgstr "Eléments dans les références &externes"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
@@ -5004,8 +5028,8 @@ msgid "Keep &locks"
 msgstr "Garder &les verrous"
 
 #. Resource IDs: (1126)
-msgid "Keep changelists"
-msgstr "Conserver les listes de changements"
+msgid "Keep ch&angelists"
+msgstr "Conserver les listes de ch&angements"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -5348,6 +5372,10 @@ msgstr "&Ombres des Menus"
 msgid "Merge"
 msgstr "Fusionner"
 
+#. Resource IDs: (1488)
+msgid "Merge &depth:"
+msgstr "&Profondeur de fusion:"
+
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "Fusionner - TortoiseSVN"
@@ -5357,16 +5385,12 @@ msgid "Merge Reintegrate"
 msgstr "Fusionner Réintégrer"
 
 #. Resource IDs: (1468)
-msgid "Merge a range of revisions"
-msgstr "Fusionner une plage de révisions"
+msgid "Merge a &range of revisions"
+msgstr "Fusionner une plage de &révisions"
 
 #. Resource IDs: (277)
 msgid "Merge all"
 msgstr "Tout fusionner"
-
-#. Resource IDs: (65535)
-msgid "Merge depth:"
-msgstr "Profondeur de fusion:"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -5398,8 +5422,8 @@ msgid "Merge the changes into '%s'"
 msgstr "Fusionner les modifications dans le fichier '%s'"
 
 #. Resource IDs: (1470)
-msgid "Merge two different trees"
-msgstr "Fusionner deux arbres différents"
+msgid "Merge two different &trees"
+msgstr "Fusionner deux &arbres différents"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge type"
@@ -5940,6 +5964,10 @@ msgstr ""
 msgid "One or more files are in a conflicted state."
 msgstr "Un ou plusieurs fichiers sont en état de conflit."
 
+#. Resource IDs: (1424)
+msgid "Onl&y record the merge (block revisions from getting merged)"
+msgstr "N'enregistrer que la &fusion (empêche la fusion des révisons)"
+
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
 msgstr "Extraire seulement le répertoire de &tête"
@@ -5955,10 +5983,6 @@ msgid ""
 msgstr ""
 "Seuls les nombres (optionnellement séparés par des virgules)\n"
 "sont acceptés !"
-
-#. Resource IDs: (1424)
-msgid "Only record the merge (block revisions from getting merged)"
-msgstr "N'enregistrer que la fusion (empêche la fusion des révisons)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -6453,9 +6477,17 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "D&isques mémoire"
 
+#. Resource IDs: (1469)
+msgid "R&eintegrate a branch"
+msgstr "Réintégr&er une branche"
+
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "Réinitialis&er"
+
+#. Resource IDs: (1423)
+msgid "R&everse merge"
+msgstr "&Inverser la fusion"
 
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
@@ -6492,6 +6524,10 @@ msgstr "Re&staurer les valeurs par défaut"
 #. Resource IDs: (8)
 msgid "Re&vert..."
 msgstr "Re&venir en arrière..."
+
+#. Resource IDs: (1033)
+msgid "Re&vision"
+msgstr "Ré&vision"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -6579,10 +6615,6 @@ msgstr ""
 "\\W   : n'importe quel caractère non alpha-numérique\r\n"
 "\\d   : chiffre de 0 à 9\r\n"
 "\\s   : espace blanc"
-
-#. Resource IDs: (1469)
-msgid "Reintegrate a branch"
-msgstr "Réintégrer une branche"
 
 #. Resource IDs: (595)
 msgid "Reintegrate merge"
@@ -6906,10 +6938,6 @@ msgstr "Restauré"
 msgid "Retry"
 msgstr "Réessayer"
 
-#. Resource IDs: (1423)
-msgid "Reverse merge"
-msgstr "Inverser la fusion"
-
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %ld"
@@ -6991,9 +7019,9 @@ msgstr "Plage de révision "
 msgid "Revision graph"
 msgstr "Graphique de révision "
 
-#. Resource IDs: (65535)
-msgid "Revision range to merge"
-msgstr "Plage de révision à fusionner"
+#. Resource IDs: (1492)
+msgid "Revision r&ange to merge"
+msgstr "Plage de &révisions à fusionner"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -7616,8 +7644,8 @@ msgid "Show excluded folders as normal"
 msgstr "Afficher les fichiers exclus comme normaux"
 
 #. Resource IDs: (1480)
-msgid "Show externals from different repositories"
-msgstr "Afficher les références externes des autres référentiels"
+msgid "Show externals from &different repositories"
+msgstr "Afficher les références externes &d'autres référentiels"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7630,6 +7658,10 @@ msgstr "Voir le J&ournal"
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "Voir les numéros de ligne&s"
+
+#. Resource IDs: (1037)
+msgid "Show lo&g"
+msgstr "&Voir le journal"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -8793,10 +8825,6 @@ msgstr ""
 msgid "To:"
 msgstr "Au :"
 
-#. Resource IDs: (65535)
-msgid "To: (end URL and revision of the range to merge)"
-msgstr "À : (URL de fin et révision de la plage à fusionner)"
-
 #. Resource IDs: (3633)
 msgid ""
 "Toggle One/Two Pages display\n"
@@ -9020,9 +9048,9 @@ msgstr "URL inconnue (UUID: %s)"
 msgid "URL of Subversion items"
 msgstr "URL des éléments Subversion"
 
-#. Resource IDs: (65535)
-msgid "URL to merge from"
-msgstr "URL depuis laquelle effectuer la fusion"
+#. Resource IDs: (1491)
+msgid "URL to merge &from"
+msgstr "URL depuis laquelle effectuer la &fusion"
 
 #. Resource IDs: (144, 11023, 65535)
 msgid "URL:"
@@ -10314,6 +10342,10 @@ msgstr "révision %s-%s, révision %s-%s"
 msgid "revision count: "
 msgstr "nombre de révisions:"
 
+#. Resource IDs: (626)
+msgid "revision has already been merged"
+msgstr "la révision a déjà été fusionnée"
+
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
@@ -10467,6 +10499,10 @@ msgstr "hors-ligne temporairement"
 #. Resource IDs: (65535)
 msgid "text [token count]: "
 msgstr "texte [nombre de mots]:"
+
+#. Resource IDs: (626)
+msgid "the working copy is at this revision"
+msgstr "La copie de travail est à cette révision"
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
@@ -10658,6 +10694,8 @@ msgstr "oui"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "From URL:"
+#~ msgstr "Depuis l'URL :"
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
