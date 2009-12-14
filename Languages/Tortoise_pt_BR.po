@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-10 23:02-0300\n"
+"PO-Revision-Date: 2009-12-14 00:27-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -621,6 +621,10 @@ msgstr "&Da Cópia de Trabalho na URL:"
 msgid "&From revision"
 msgstr "&Da revisão"
 
+#. Resource IDs: (1494)
+msgid "&From: (start URL and revision of the range to merge)"
+msgstr "&De: (revisão e URL iniciais do intervalo a combinar)"
+
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
 msgstr "&Ir para Linha..."
@@ -1078,6 +1082,10 @@ msgstr "&Para a URL:"
 #. Resource IDs: (1305)
 msgid "&To URL: "
 msgstr "&Para a URL:"
+
+#. Resource IDs: (1495)
+msgid "&To: (end URL and revision of the range to merge)"
+msgstr "&Para: (revisão e URL finais do intervalo para combinar)"
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
@@ -3795,6 +3803,10 @@ msgstr "Projetos externos excluídos"
 msgid "Externals included"
 msgstr "Projetos externos incluídos"
 
+#. Resource IDs: (1480)
+msgid "F&orce the merge"
+msgstr "F&orçar combinação"
+
 #. Resource IDs: (74)
 msgid "Failed revert"
 msgstr "Reversão falhou"
@@ -4091,10 +4103,6 @@ msgstr "Para um histórico completo desmarque 'Parar na cópia/mudança de nome'
 msgid "Force"
 msgstr "Forçar"
 
-#. Resource IDs: (1480)
-msgid "Force the merge"
-msgstr "Forçar combinação"
-
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "Avançar"
@@ -4104,17 +4112,9 @@ msgstr "Avançar"
 msgid "Found auto words:"
 msgstr "Encontrou palavras automáticas:"
 
-#. Resource IDs: (65535)
-msgid "From URL:"
-msgstr "A partir da URL:"
-
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "De:"
-
-#. Resource IDs: (65535)
-msgid "From: (start URL and revision of the range to merge)"
-msgstr "De: (revisão e URL iniciais do intervalo a combinar)"
 
 #. Resource IDs: (1065)
 msgid "Full Screen"
@@ -4275,6 +4275,10 @@ msgstr "Agrupar por ramo"
 msgid "Group changelists"
 msgstr "Agrupar listas de alterações"
 
+#. Resource IDs: (1032)
+msgid "H&EAD Revision"
+msgstr "Última R&evisão"
+
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
 msgstr "Ocultar cam&inhos alterados não relacionados"
@@ -4380,6 +4384,10 @@ msgstr "Nome do servidor não corresponde (%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "Como é que deseja resolver este conflito?"
+
+#. Resource IDs: (1392)
+msgid "I&gnore all whitespaces"
+msgstr "I&gnorar todos os espaços em branco"
 
 #. Resource IDs: (1264)
 msgid "I&gnored"
@@ -4690,6 +4698,10 @@ msgstr "Ignorar %d itens por &extensão"
 msgid "Ignore &all whitespaces"
 msgstr "Ignor&ar todos os espaços em branco"
 
+#. Resource IDs: (1267)
+msgid "Ignore &ancestry"
+msgstr "Ignorar &ascendência"
+
 #. Resource IDs: (1067)
 msgid "Ignore &case changes"
 msgstr "Ignorar alterações de &caixa (maiúsculas/minúsculas)"
@@ -4702,9 +4714,9 @@ msgstr "Ignorar todas as alterações de caracteres especiais"
 msgid "Ignore all whitespaces"
 msgstr "Ignorar todos os espaços em branco"
 
-#. Resource IDs: (1267)
-msgid "Ignore ancestry"
-msgstr "Ignorar ascendência"
+#. Resource IDs: (1126)
+msgid "Ignore line &endings"
+msgstr "Ignorar fins-d&e-linha"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4713,6 +4725,10 @@ msgstr "Ignorar fins-d&e-linha (recomendado)"
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line endings"
 msgstr "Ignorar fins-de-linha"
+
+#. Resource IDs: (1391)
+msgid "Ignore whitespace c&hanges"
+msgstr "&Ignorar alterações em espaços em branco"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
@@ -5368,6 +5384,10 @@ msgstr "S&ombras do menu"
 msgid "Merge"
 msgstr "Combinar"
 
+#. Resource IDs: (1488)
+msgid "Merge &depth:"
+msgstr "Profun&didade de combinação:"
+
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "Combinar - TortoiseSVN"
@@ -5377,16 +5397,12 @@ msgid "Merge Reintegrate"
 msgstr "Reintegrar Combinação"
 
 #. Resource IDs: (1468)
-msgid "Merge a range of revisions"
-msgstr "Combinar um intervalo de revisões"
+msgid "Merge a &range of revisions"
+msgstr "Combinar um intervalo de &revisões"
 
 #. Resource IDs: (277)
 msgid "Merge all"
 msgstr "Combinar tudo"
-
-#. Resource IDs: (65535)
-msgid "Merge depth:"
-msgstr "Profundidade de combinação:"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -5418,7 +5434,8 @@ msgid "Merge the changes into '%s'"
 msgstr "Combinar as  alterações com '%s'"
 
 #. Resource IDs: (1470)
-msgid "Merge two different trees"
+#, fuzzy
+msgid "Merge two different &trees"
 msgstr "Combinar duas árvores diferentes"
 
 #. Resource IDs: (595, 65535)
@@ -5960,6 +5977,11 @@ msgstr ""
 msgid "One or more files are in a conflicted state."
 msgstr "Um ou mais arquivos estão em estado de conflito."
 
+#. Resource IDs: (1424)
+#, fuzzy
+msgid "Onl&y record the merge (block revisions from getting merged)"
+msgstr "Gravar apenas a combinação (bloquear combinação de revisões)"
+
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
 msgstr "Ob&ter apenas a pasta raiz"
@@ -5975,10 +5997,6 @@ msgid ""
 msgstr ""
 "Apenas números (opcionalmente separados por\n"
 "vírgulas) são permitidos!"
-
-#. Resource IDs: (1424)
-msgid "Only record the merge (block revisions from getting merged)"
-msgstr "Gravar apenas a combinação (bloquear combinação de revisões)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -6474,9 +6492,17 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "Unidades R&AM"
 
+#. Resource IDs: (1469)
+msgid "R&eintegrate a branch"
+msgstr "R&eintegrar um ramo"
+
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "Reini&ciar"
+
+#. Resource IDs: (1423)
+msgid "R&everse merge"
+msgstr "R&everter combinação"
 
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
@@ -6513,6 +6539,10 @@ msgstr "Re&staurar valores padrão"
 #. Resource IDs: (8)
 msgid "Re&vert..."
 msgstr "Re&verter..."
+
+#. Resource IDs: (1033)
+msgid "Re&vision"
+msgstr "Re&visão"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -6599,10 +6629,6 @@ msgstr ""
 "\\W   : qualquer caractere não alfanumérico\r\n"
 "\\d   : dígitos 0-9\r\n"
 "\\s   : espaços em branco"
-
-#. Resource IDs: (1469)
-msgid "Reintegrate a branch"
-msgstr "Reintegrar um ramo"
 
 #. Resource IDs: (595)
 msgid "Reintegrate merge"
@@ -6927,10 +6953,6 @@ msgstr "Restaurado"
 msgid "Retry"
 msgstr "Tentar novamente"
 
-#. Resource IDs: (1423)
-msgid "Reverse merge"
-msgstr "Reverter combinação"
-
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %ld"
@@ -7012,9 +7034,9 @@ msgstr "Intervalo de Revisões"
 msgid "Revision graph"
 msgstr "Gráfico de revisões"
 
-#. Resource IDs: (65535)
-msgid "Revision range to merge"
-msgstr "Intervalo de revisões a ser combinado"
+#. Resource IDs: (1492)
+msgid "Revision r&ange to merge"
+msgstr "Interv&alo de revisões a ser combinado"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -7653,6 +7675,11 @@ msgstr "Mostrar l&og"
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "Mostrar número&s de linhas"
+
+#. Resource IDs: (1037)
+#, fuzzy
+msgid "Show lo&g"
+msgstr "Exibir &log"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -8819,10 +8846,6 @@ msgstr ""
 msgid "To:"
 msgstr "Para:"
 
-#. Resource IDs: (65535)
-msgid "To: (end URL and revision of the range to merge)"
-msgstr "Para: (revisão e URL finais do intervalo para combinar)"
-
 #. Resource IDs: (3633)
 msgid ""
 "Toggle One/Two Pages display\n"
@@ -9045,8 +9068,9 @@ msgstr "URL desconhecida (UUID: %s)"
 msgid "URL of Subversion items"
 msgstr "URL de itens do Subversion"
 
-#. Resource IDs: (65535)
-msgid "URL to merge from"
+#. Resource IDs: (1491)
+#, fuzzy
+msgid "URL to merge &from"
 msgstr "URL a partir do qual combinar"
 
 #. Resource IDs: (144, 11023, 65535)
@@ -10338,6 +10362,10 @@ msgstr "revisão %s-%s, revisão %s-%s"
 msgid "revision count: "
 msgstr "número de revisões:"
 
+#. Resource IDs: (626)
+msgid "revision has already been merged"
+msgstr "revisão já está unificada"
+
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
@@ -10493,6 +10521,10 @@ msgstr "temp. desconectado"
 #. Resource IDs: (65535)
 msgid "text [token count]: "
 msgstr "texto [número de tokens]: "
+
+#. Resource IDs: (626)
+msgid "the working copy is at this revision"
+msgstr "a cópia de trabalho está na revisão"
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
@@ -10684,6 +10716,8 @@ msgstr "sim"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "From URL:"
+#~ msgstr "A partir da URL:"
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
