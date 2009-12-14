@@ -584,20 +584,31 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 	{
 		return false;
 	}
+	// first check whether the line itself only has whitespace changes
+	CString mine = m_pViewData->GetLine(nLineIndex);
+	CString other = m_pOtherViewData->GetLine(min(nLineIndex, m_pOtherViewData->GetCount() - 1));
+	mine.Replace(_T(" "), _T(""));
+	mine.Replace(_T("\t"), _T(""));
+	mine.Replace(_T("\r"), _T(""));
+	mine.Replace(_T("\n"), _T(""));
+	other.Replace(_T(" "), _T(""));
+	other.Replace(_T("\t"), _T(""));
+	other.Replace(_T("\r"), _T(""));
+	other.Replace(_T("\n"), _T(""));
+
+	if (mine == other)
+		return true;
 
 	int nStartBlock1, nEndBlock1;
 	int nStartBlock2, nEndBlock2;
 	GetWhitespaceBlock(m_pViewData, nLineIndex, nStartBlock1, nEndBlock1);
 	GetWhitespaceBlock(m_pOtherViewData, min(nLineIndex, m_pOtherViewData->GetCount() - 1), nStartBlock2, nEndBlock2);
-	nStartBlock1 = max(nStartBlock1, nStartBlock2);
-	nEndBlock1 = min(nEndBlock1, nEndBlock2);
-	CString mine = GetWhitespaceString(m_pViewData, nStartBlock1, nEndBlock1);
-	CString other;
+	mine = GetWhitespaceString(m_pViewData, nStartBlock1, nEndBlock1);
 	if (mine.IsEmpty())
 		bIdentical = false;
 	else
 	{
-		other = GetWhitespaceString(m_pOtherViewData, nStartBlock1, nEndBlock1);
+		other = GetWhitespaceString(m_pOtherViewData, nStartBlock2, nEndBlock2);
 		bIdentical = mine == other;
 		mine.Replace(_T(" "), _T(""));
 		mine.Replace(_T("\t"), _T(""));
