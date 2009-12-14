@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-09 09:22 +0000\n"
-"PO-Revision-Date: 2009-12-11 16:31-0600\n"
-"Last-Translator: Matthias GOUPIL <mgoupil@gmail.com>\n"
+"PO-Revision-Date: 2009-12-14 11:10+0100\n"
+"Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3210,7 +3210,7 @@ msgstr "La boîte de dialogue Livrer vous montrera chaque fichier changé, y com
 #. (para)
 #. (para)
 msgid "Items which have been switched to a different repository path are also indicated using an <literal>(s)</literal> marker. You may have switched something while working on a branch and forgotten to switch back to trunk. This is your warning sign!"
-msgstr "Les éléments qui ont été commutés vers un chemin de référentiel différent sont aussi indiqués en utilisant un marqueur <literal>(s)</literal>. Vous pouvez avoir commuté quelque chose en travaillant sur une branche et avoir oublié de rebasculer sur le tronc. C'est votre signe d'alarme!"
+msgstr "Les éléments qui ont été commutés vers un chemin de référentiel différent sont aussi indiqués en utilisant un marqueur <literal>(s)</literal>. Vous pouvez avoir commuté quelque chose en travaillant sur une branche et avoir oublié de rebasculer sur le tronc. C'est votre signal d'alarme !"
 
 #. (title)
 msgid "Commit files or folders?"
@@ -3276,15 +3276,13 @@ msgstr "Parfois, les fichiers sont renommés en dehors de Subversion, et son don
 
 #. (title)
 #. (title)
-#, fuzzy
 msgid "Repairing External Copies"
-msgstr "Réparation des renommages externes"
+msgstr "Réparation des Copies Externes"
 
 #. (para)
 #. (para)
-#, fuzzy
 msgid "If you made a copy of a file but forgot to use the Subversion command to do so, you can repair that copy so the new file doesn't lose its history. Simply select both the old name (normal or modified) and the new name (unversioned) and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Copy</guimenuitem></menuchoice> to pair the two files as a copy."
-msgstr "Parfois, les fichiers sont renommés en dehors de Subversion, et son donc affichés comme fichiers manquants et non versionnés. Pour éviter de perdre l'historique vous devez indiquer à Subversion la connexion. Sélectionnez le nom manquant (nom précédent) et le nouveau et utilisez <menuchoice><guimenu>Menu Contextuel</guimenu><guimenuitem>Réparer le Déplacement</guimenuitem></menuchoice> pour associer les deux fichiers au renommage."
+msgstr "Si vous avez fait une copie de fichier sans utiliser la commande appropriée de Subversion, vous pouvez réparer l'erreur afin que le fichier copié ne perde pas son historique. Sélectionnez juste les deux fichiers (le fichier source et le fichier copié pas encore versionné) et utilisez <menuchoice><guimenu>Menu Contextuel</guimenu><guimenuitem>Réparer la Copie</guimenuitem></menuchoice> pour associer les deux fichiers."
 
 #. (title)
 #. (title)
@@ -3969,15 +3967,15 @@ msgstr "Les mêmes informations, disponibles avec le recouvrement d'icônes, (et
 
 #. (para)
 msgid "Simply right click on one of the headings of a column, choose <guimenuitem>More...</guimenuitem> from the context menu displayed. A dialog will appear where you can specify the columns and their order, which is displayed in the <quote>Detailed View</quote>. Scroll down until the entries starting with SVN come into view. Check the ones you would like to have displayed and close the dialog by pressing <guibutton>OK</guibutton>. The columns will be appended to the right of those currently displayed. You can reorder them by drag and drop, or resize them, so that they fit your needs."
-msgstr "Faites simplement un clic droit sur un des titres d'une colonne, choisissez <guimenuitem>Autres...</guimenuitem> à partir du menu contextuel affiché. Une boîte de dialogue apparaîtra où vous pourrez spécifier les colonnes et leur ordre, qui seront affichées dans la \"Vue détaillée\". Faites défiler la liste jusqu'au moment où les entrées commençant par SVN apparaissent. Cochez celles que vous voudriez afficher et fermer la boîte de dialogue en appuyant sur <guibutton>OK</guibutton>. Les colonnes seront ajoutées à droite de celles actuellement affichées. Vous pouvez les réordonner par glisser-déposer, ou les redimensionner, afin qu'elles correspondent à vos besoins."
+msgstr "Faites simplement un clic droit sur un des titres d'une colonne, choisissez <guimenuitem>Autres...</guimenuitem> dans le menu contextuel. Une boîte de dialogue apparaîtra dans laquelle vous pourrez spécifier les colonnes à afficher dans la <quote>Vue détaillée</quote> ainsi que leur ordre. Faites défiler pour que s'affichent les entrées commençant par SVN. Cochez celles vous voudriez afficher et fermez la boîte de dialogue en appuyant sur <guibutton>OK</guibutton>. Les colonnes seront ajoutées à droite de celles déjà affichées. Vous pouvez les réordonner par glisser-déposer, ou les redimensionner, pour qu'elles correspondent à vos besoins."
 
 #. (para)
 msgid "The additional columns in the Windows Explorer are not available on Vista, since Microsoft decided to not allow such columns for <emphasis>all</emphasis> files anymore but only for specific file types."
-msgstr "Les colonnes supplémentaires dans l'Explorateur Windows ne sont pas disponibles sous Vista, Microsoft n'autorisant plus ce type de colonnes pour <emphasis>tous</emphasis>les fichiers, mais plus que pour certains types de fichiers."
+msgstr "Les colonnes supplémentaires dans l'Explorateur Windows ne sont pas disponibles sous Vista, Microsoft n'autorisant plus ce type de colonnes pour <emphasis>tous</emphasis> les fichiers, mais plus que pour certains types de fichiers."
 
 #. (para)
 msgid "If you want the current layout to be displayed in all your working copies, you may want to make this the default view."
-msgstr "Si vous voulez que la disposition actuelle soit affichée dans toutes vos copies de travail, vous pouvez vouloir en faire la vue par défaut."
+msgstr "Si vous voulez que la disposition actuelle soit affichée dans toutes vos copies de travail, vous pouvez en faire la vue par défaut."
 
 #. (title)
 msgid "Local and Remote Status"
@@ -3994,12 +3992,11 @@ msgstr "Vérifier les modifications"
 
 #. (para)
 msgid "<placeholder-1/> It's often very useful to know which files you have changed and also which files got changed and committed by others. That's where the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> comes in handy. This dialog will show you every file that has changed in any way in your working copy, as well as any unversioned files you may have."
-msgstr "<placeholder-1/> Il est souvent très utile de savoir quels fichiers vous avez changé et aussi quels fichiers ont été changés et livrés par les autres. C'est là où la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vérifier les modifications...</guimenuitem></menuchoice> devient pratique. Cette boîte de dialogue vous montrera chaque fichier changé de n'importe quelle façon dans votre copie de travail, aussi bien que les fichiers non versionnés que vous pouvez avoir."
+msgstr "<placeholder-1/> Il est souvent très utile de savoir quels fichiers vous avez changé et aussi quels fichiers ont été changés et livrés par les autres. C'est là où la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vérifier les modifications...</guimenuitem></menuchoice> devient pratique. Cette boîte de dialogue vous montrera les fichiers ayant été modifié dans votre copie de travail, ainsi que les fichiers non versionnés que vous pouvez avoir."
 
 #. (para)
-#, fuzzy
 msgid "If you click on the <guibutton>Check Repository</guibutton> then you can also look for changes in the repository. That way you can check before an update if there's a possible conflict. You can also update selected files from the repository without updating the whole folder. By default, the <guibutton>Check Repository</guibutton> button only fetches the remote status with the checkout depth of the working copy. If you want to see all files and folders in the repository, even those you have not checked out, then you have to hold down the <keycap>Shift</keycap> key when you click on the <guibutton>Check Repository</guibutton> button."
-msgstr "Si vous cliquez sur <guibutton>Vérifier le référentiel</guibutton> alors vous pouvez aussi chercher les changements du référentiel. De cette manière vous pouvez vérifier avant une mise à jour s'il y a un conflit possible. Vous pouvez aussi mettre à jour des fichiers choisis du référentiel sans mettre à jour le dossier entier."
+msgstr "Si vous cliquez sur <guibutton>Vérifier le référentiel</guibutton> alors vous pouvez aussi chercher les changements dans le référentiel. De cette manière vous pouvez vérifier avant une mise à jour s'il y a un conflit potentiel. Vous pouvez aussi mettre à jour certains fichiers du référentiel sans mettre à jour le dossier entier. Par défaut, le bouton <guibutton>Vérifier le référentiel</guibutton> ne récupère que le statut du référentiel à la profondeur de la copie de travail.Si vous voulez voir tous les fichiers et répertoires du référentiel, même ceux qui n'ont pas été extraits, vous devez cliquez sur le bouton <guibutton>Vérifier le référentiel</guibutton> en appuyant sur la touche <keycap>Shift</keycap>."
 
 #. (para)
 msgid "Locally modified items."
@@ -4039,21 +4036,19 @@ msgstr "Vous pouvez aussi annuler des changements dans des fichiers individuels.
 
 #. (para)
 msgid "Unversioned and ignored files can be sent to the recycle bin from here using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>. If you want to delete files permanently (bypassing the recycle bin) hold the <keycap>Shift</keycap> key while clicking on <guilabel>Delete</guilabel>."
-msgstr "Les fichiers non versionnés et les fichiers ignorés peuvent être envoyé dans la corbeille à partir d'ici en utilsant <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Supprimer</guimenuitem></menuchoice>. Si vous voulez supprimer définitevement les fichiers (sans passer par la corbeille) maintenez la touche <keycap>Maj</keycap> pendant que vous cliquez sur <guilabel>Supprimer</guilabel>."
+msgstr "Les fichiers non versionnés et les fichiers ignorés peuvent être envoyés dans la corbeille à partir d'ici en utilisant <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Supprimer</guimenuitem></menuchoice>. Si vous voulez supprimer définitivement les fichiers (sans passer par la corbeille) maintenez la touche <keycap>Maj</keycap> pendant que vous cliquez sur <guilabel>Supprimer</guilabel>."
 
 #. (para)
 msgid "If you want to examine a file in detail, you can drag it from here into another application such as a text editor or IDE."
-msgstr "Si vous voulez examiner un fichier en détail, vous pouvez le glisser d'ici vers une autre application comme un éditeur de texte ou une IDE."
+msgstr "Si vous voulez examiner un fichier en détail, vous pouvez le glisser d'ici vers une autre application comme un éditeur de texte ou un IDE."
 
 #. (para)
-#, fuzzy
 msgid "The columns are customizable. If you <action>right click</action> on any column header you will see a context menu allowing you to select which columns are displayed. You can also change column width by using the drag handle which appears when you move the mouse over a column boundary. These customizations are preserved, so you will see the same headings next time."
-msgstr "Les colonnes affichées dans le panneau du bas sont personnalisables. Si vous faites un <action>clic droit</action> sur n'importe quel en-tête de colonne vous verrez un menu contextuel vous permettant de choisir quelles sont les colonnes affichées. Vous pouvez aussi changer la largeur de colonne en utilisant la poignée qui apparaît quand vous déplacez la souris sur la frontière d'une colonne. Ces personnalisations sont préservées, donc vous verrez les mêmes en-tête la prochaine fois. Notez qu'en raison d'un détail de mise en oeuvre, vous pouvez voir deux icônes de poignées différentes, selon où vous placez exactement la souris sur la frontière. L'une a une ligne de démarcation verticale solide et l'autre a deux fines lignes verticales. Seulement la poignée solide fonctionne."
+msgstr "Les colonnes affichées sont personnalisables. Si vous faites un <action>clic droit</action> sur n'importe quel en-tête de colonne un menu contextuel vous permettant de choisir les colonnes à afficher apparaitra. Vous pouvez aussi changer la largeur de colonne en faisant glisser le bord des entêtes. Ces personnalisations sont préservées, donc vous verrez les mêmes en-tête la prochaine fois."
 
 #. (para)
-#, fuzzy
 msgid "If you are working on several unrelated tasks at once, you can also group files together into changelists. Read <xref linkend=\"tsvn-dug-commit-changelists\"/> for more information."
-msgstr "Vous pouvez configurer Subversion pour définir automatiquement des propriétés sur les fichiers et sur les dossiers lorsqu'ils sont ajoutés au référentiel. Lisez <xref linkend=\"tsvn-dug-settings\"/> pour plus d'informations."
+msgstr "Si vous travaillez sur plusieurs tâches distinctes en même temps, vous pouvez regrouper les fichiers dans des listes de modification. Lisez <xref linkend=\"tsvn-dug-commit-changelists\"/> pour plus d'informations."
 
 #. (para)
 msgid "At the bottom of the dialog you can see a summary of the range of repository revisions in use in your working copy. These are the <emphasis>commit</emphasis> revisions, not the <emphasis>update</emphasis> revisions; they represent the range of revisions where these files were last committed, not the revisions to which they have been updated. Note that the revision range shown applies only to the items displayed, not to the entire working copy. If you want to see that information for the whole working copy you must check the <guilabel>Show unmodified files</guilabel> checkbox."
@@ -4061,7 +4056,7 @@ msgstr "En bas de la boîte de dialogue vous pouvez apercevoir un sommaire de l'
 
 #. (para)
 msgid "If you want a flat view of your working copy, i.e. showing all files and folders at every level of the folder hierarchy, then the <guilabel>Check for Modifications</guilabel> dialog is the easiest way to achieve that. Just check the <guilabel>Show unmodified files</guilabel> checkbox to show all files in your working copy."
-msgstr "Si vous voulez une vue plate de votre copie de travail, c'est-à-dire qui montre tous les fichiers et des dossiers à chaque niveau de la hiérarchie des dossiers, alors la boîte de dialogue <guilabel>Vérifier les modifications</guilabel> est la façon la plus facile d'y arriver. Cochez seulement la case <guilabel>Afficher les fichiers non modifiés</guilabel> pour afficher tous les fichiers de votre copie de travail."
+msgstr "Si vous voulez une vue plate de votre copie de travail, c'est-à-dire qui montre tous les fichiers et les dossiers à chaque niveau de la hiérarchie des dossiers, alors la boîte de dialogue <guilabel>Vérifier les modifications</guilabel> est la façon la plus facile d'y arriver. Cochez seulement la case <guilabel>Afficher les fichiers non modifiés</guilabel> pour afficher tous les fichiers de votre copie de travail."
 
 #. (title)
 msgid "Viewing Diffs"
@@ -4081,7 +4076,7 @@ msgstr "Même lorsque vous ne vous trouvez pas dans une copie de travail ou quan
 
 #. (para)
 msgid "Select the two files you want to compare in explorer (e.g. using <keycap>Ctrl</keycap> and the mouse) and choose <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file clicked last (the one with the focus, i.e. the dotted rectangle) will be regarded as the later one."
-msgstr "Sélectionnez les deux fichiers vous voulez comparer dans l'explorateur (en utilisant par exemple <keycap>Ctrl</keycap> et la souris) et sélectionnez <guimenuitem>Voir les différences</guimenuitem> à partir du menu de contextuel de TortoiseSVN. Le fichier cliqué en dernier (celui avec le focus, c'est-à-dire le rectangle pointillé) sera considéré comme le plus récent."
+msgstr "Sélectionnez les deux fichiers que vous voulez comparer dans l'explorateur (en utilisant par exemple <keycap>Ctrl</keycap> et la souris) et sélectionnez <guimenuitem>Voir les différences</guimenuitem> à partir du menu de contextuel de TortoiseSVN. Le fichier cliqué en dernier (celui avec le focus, c'est-à-dire le rectangle pointillé) sera considéré comme le plus récent."
 
 #. (primary)
 msgid "changelist"
@@ -4105,11 +4100,11 @@ msgstr "Sélectionnez un ou plusieurs fichiers et utilisez <menuchoice><guimenu>
 
 #. (para)
 msgid "Once you have created a changelist you can drag and drop items into it, either from another changelist, or from Windows Explorer. Dragging from Explorer can be useful as it allows you to add items to a changelist before the file is modified. You could do that from the check-for-modifications dialog, but only by displaying all unmodified files."
-msgstr "Dès que vous avez créé une liste de modifications vous pouvez y glisser/déposer des éléments depuis une autre liste de modifications, ou depuis Windows Explorer. L'avantage de le faire depuis Explorer est de permettre d'ajouter des éléments avant qu'ils ne soient modifiés. Vous pourriez faire de même depuis la fenêtre de vérification des modifications, mais seulement en affichant tous les fichiers non modifiés."
+msgstr "Dès que vous avez créé une liste de modification vous pouvez y glisser/déposer des éléments depuis une autre liste de modifications, ou depuis Windows Explorer. L'avantage de le faire depuis Explorer est de permettre d'ajouter des éléments avant qu'ils ne soient modifiés. Vous pourriez faire de même depuis la fenêtre de vérification des modifications, mais seulement en affichant tous les fichiers non modifiés."
 
 #. (title)
 msgid "Commit dialog with Changelists"
-msgstr "Fenêtre de livraison avec les listes de modifications"
+msgstr "Fenêtre de livraison avec les listes de modification"
 
 #. (para)
 msgid "<placeholder-1/> In the commit dialog you can see those same files, grouped by changelist. Apart from giving an immediate visual indication of groupings, you can also use the group headings to select which files to commit."
@@ -4121,7 +4116,7 @@ msgstr "Sous XP, un menu contextuel apparaît lorsque vous faites un clic droit 
 
 #. (para)
 msgid "TortoiseSVN reserves one changelist name for its own use, namely <literal>ignore-on-commit</literal>. This is used to mark versioned files which you almost never want to commit even though they have local changes. This feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
-msgstr "TortoiseSVN se réserve une liste de modifications, appelée <literal>ignore-on-commit</literal>. Elle est utilisée pour marquer les fichiers versionnés que vous souhaitez rarement livrer même si vous les avez modifiés. Cette fonctionnalité est décrite dans <xref linkend=\"tsvn-dug-commit-ignore\"/>."
+msgstr "TortoiseSVN se réserve une liste de modification, appelée <literal>ignore-on-commit</literal>. Elle est utilisée pour marquer les fichiers versionnés que vous souhaitez rarement livrer même si vous les avez modifiés. Cette fonctionnalité est décrite dans <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 
 #. (para)
 msgid "When you commit files belonging to a changelist then normally you would expect that the changelist membership is no longer needed. So by default, files are removed from changelists automatically on commit. If you wish to retain the file in its changelist, use the <guilabel>Keep changelists</guilabel> checkbox at the bottom of the commit dialog."
