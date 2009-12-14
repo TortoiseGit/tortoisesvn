@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-08 16:25+0300\n"
+"PO-Revision-Date: 2009-12-14 13:10+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -515,6 +515,10 @@ msgstr "Ві&дмінності з URL"
 msgid "&Diff with previous version"
 msgstr "Ві&дмінності з попередньою версією"
 
+#. Resource IDs: (1528)
+msgid "&Directories"
+msgstr "&Каталоги"
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "С&тикування"
@@ -559,6 +563,10 @@ msgstr "&Зовнішня"
 msgid "&File"
 msgstr "&Файл"
 
+#. Resource IDs: (1529)
+msgid "&Files"
+msgstr "&Файли"
+
 #. Resource IDs: (32809)
 msgid "&Filter"
 msgstr "&Фільтр"
@@ -602,6 +610,10 @@ msgstr "&З КВ на URL:"
 #. Resource IDs: (65535)
 msgid "&From revision"
 msgstr "&Від модифікації"
+
+#. Resource IDs: (1494)
+msgid "&From: (start URL and revision of the range to merge)"
+msgstr "&Від: (початковий URL і модифікація діапазону злиття)"
 
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
@@ -1060,6 +1072,10 @@ msgstr "&На URL:"
 #. Resource IDs: (1305)
 msgid "&To URL: "
 msgstr "&На URL:"
+
+#. Resource IDs: (1495)
+msgid "&To: (end URL and revision of the range to merge)"
+msgstr "&До: (кінцевий URL та модифікація діапапзону злиття)"
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
@@ -1957,8 +1973,8 @@ msgid "Bug-ID"
 msgstr "Баг-ID"
 
 #. Resource IDs: (1119)
-msgid "Bug-ID / Issue-Nr:"
-msgstr "Баг-ID / Проблема №:"
+msgid "Bug-ID / &Issue-Nr:"
+msgstr "Баг-ID / Про&блема №:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2223,8 +2239,8 @@ msgid "Checkout - TortoiseSVN"
 msgstr "Вивірити - TortoiseSVN"
 
 #. Resource IDs: (1377)
-msgid "Checkout Depth"
-msgstr "Глибина вивірки"
+msgid "Checkout D&epth"
+msgstr "&Глибина вивірки"
 
 #. Resource IDs: (229)
 #, c-format
@@ -3526,6 +3542,10 @@ msgstr "Введіть повідомлення для логу"
 msgid "Enter URL"
 msgstr "Введіть URL"
 
+#. Resource IDs: (65535)
+msgid "Enter a &name for the changelist:"
+msgstr "Введіть &ім'я для списку змін:"
+
 #. Resource IDs: (3858)
 msgid "Enter a GUID."
 msgstr "Введіть GUID."
@@ -3545,10 +3565,6 @@ msgstr "Введіть дату."
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr "Введіть повідомлення для блокування (необов'язково):"
-
-#. Resource IDs: (65535)
-msgid "Enter a name for the changelist:"
-msgstr "Введіть ім'я для списку змін:"
 
 #. Resource IDs: (3858)
 #, c-format
@@ -3768,6 +3784,10 @@ msgstr "Зовнішні виключено"
 #. Resource IDs: (226)
 msgid "Externals included"
 msgstr "Зовнішні включено"
+
+#. Resource IDs: (1480)
+msgid "F&orce the merge"
+msgstr "З&мусити злиття"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -4065,10 +4085,6 @@ msgstr "Для повної історії зніміть виділення з�
 msgid "Force"
 msgstr "Змусити"
 
-#. Resource IDs: (1480)
-msgid "Force the merge"
-msgstr "Змусити злиття"
-
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "Уперед"
@@ -4077,17 +4093,9 @@ msgstr "Уперед"
 msgid "Found auto words:"
 msgstr "Знайти автослова:"
 
-#. Resource IDs: (65535)
-msgid "From URL:"
-msgstr "З URL:"
-
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Від:"
-
-#. Resource IDs: (65535)
-msgid "From: (start URL and revision of the range to merge)"
-msgstr "Від: (початковий URL і модифікація діапазону злиття)"
 
 #. Resource IDs: (1065)
 msgid "Full Screen"
@@ -4247,6 +4255,10 @@ msgstr "Групувати за гілкою"
 msgid "Group changelists"
 msgstr "Групувати списки змін"
 
+#. Resource IDs: (1032)
+msgid "H&EAD Revision"
+msgstr "H&EAD Модифікація"
+
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
 msgstr "При&ховати непов'язані змінені шляхи"
@@ -4352,6 +4364,10 @@ msgstr "Невідповідність імені хоста (%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "Як бажаєте вирішити цей конфлікт?"
+
+#. Resource IDs: (1392)
+msgid "I&gnore all whitespaces"
+msgstr "&Ігнорувати всі пробіли"
 
 #. Resource IDs: (1264)
 msgid "I&gnored"
@@ -4661,6 +4677,10 @@ msgstr "Ігнорувати %d елементів за роз&ширенням"
 msgid "Ignore &all whitespaces"
 msgstr "Ігнорувати &всі пробіли"
 
+#. Resource IDs: (1267)
+msgid "Ignore &ancestry"
+msgstr "Ігнорувати по&ходження"
+
 #. Resource IDs: (1067)
 msgid "Ignore &case changes"
 msgstr "Ігнорувати зміни &регістра"
@@ -4673,9 +4693,9 @@ msgstr "Ігнорувати всі зміни пробілів"
 msgid "Ignore all whitespaces"
 msgstr "Ігнорувати всі пробіли"
 
-#. Resource IDs: (1267)
-msgid "Ignore ancestry"
-msgstr "Ігнорувати походження"
+#. Resource IDs: (1126)
+msgid "Ignore line &endings"
+msgstr "Ігнорувати &кінцівки рядків"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4684,6 +4704,10 @@ msgstr "Ігнорувати &кінцівки рядків (рекомендо�
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line endings"
 msgstr "Ігнорувати кінцівки рядків"
+
+#. Resource IDs: (1391)
+msgid "Ignore whitespace c&hanges"
+msgstr "Ігнорувати &зміни пробілів"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
@@ -4974,8 +4998,8 @@ msgstr ""
 "Чи все-таки перенести?"
 
 #. Resource IDs: (1480)
-msgid "Items in externals"
-msgstr "Елементи у зовнішніх"
+msgid "Items in &externals"
+msgstr "Елементи у &зовнішніх"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
@@ -4994,8 +5018,8 @@ msgid "Keep &locks"
 msgstr "Зберігати б&локування"
 
 #. Resource IDs: (1126)
-msgid "Keep changelists"
-msgstr "Зберігати списки змін"
+msgid "Keep ch&angelists"
+msgstr "Зберігати &списки змін"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -5338,6 +5362,10 @@ msgstr "&Тіні меню"
 msgid "Merge"
 msgstr "Злити"
 
+#. Resource IDs: (1488)
+msgid "Merge &depth:"
+msgstr "&Глибина злиття:"
+
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "Злити - TortoiseSVN"
@@ -5347,16 +5375,12 @@ msgid "Merge Reintegrate"
 msgstr "Злити переінтегрування"
 
 #. Resource IDs: (1468)
-msgid "Merge a range of revisions"
-msgstr "Злити діапазон модифікацій"
+msgid "Merge a &range of revisions"
+msgstr "Злити &діапазон модифікацій"
 
 #. Resource IDs: (277)
 msgid "Merge all"
 msgstr "Все злити"
-
-#. Resource IDs: (65535)
-msgid "Merge depth:"
-msgstr "Глибина злиття:"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -5388,8 +5412,8 @@ msgid "Merge the changes into '%s'"
 msgstr "Злити зміни у '%s'"
 
 #. Resource IDs: (1470)
-msgid "Merge two different trees"
-msgstr "Злити два різних дерева"
+msgid "Merge two different &trees"
+msgstr "Злити два різних &дерева"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge type"
@@ -5930,6 +5954,10 @@ msgstr ""
 msgid "One or more files are in a conflicted state."
 msgstr "Деяка кількість файлів у конфліктному стані."
 
+#. Resource IDs: (1424)
+msgid "Onl&y record the merge (block revisions from getting merged)"
+msgstr "Ті&льки занотувати злиття (убезпечує модифікації від зливання)"
+
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
 msgstr "Вивірити лише &верхній каталог"
@@ -5945,10 +5973,6 @@ msgid ""
 msgstr ""
 "Дозволяються тільки числа\n"
 "(можливо розділені комами)!"
-
-#. Resource IDs: (1424)
-msgid "Only record the merge (block revisions from getting merged)"
-msgstr "Тільки занотувати злиття (блокує зливання модифікацій)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -6443,9 +6467,17 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "R&AM диски"
 
+#. Resource IDs: (1469)
+msgid "R&eintegrate a branch"
+msgstr "Пер&еінтегрувати гілку"
+
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "Пе&реініціалізувати"
+
+#. Resource IDs: (1423)
+msgid "R&everse merge"
+msgstr "&Зворотнє злиття"
 
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
@@ -6482,6 +6514,10 @@ msgstr "&Відновити типові"
 #. Resource IDs: (8)
 msgid "Re&vert..."
 msgstr "По&вернути..."
+
+#. Resource IDs: (1033)
+msgid "Re&vision"
+msgstr "&Модифікація"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -6568,10 +6604,6 @@ msgstr ""
 "\\W   : будь-який не буквоцифровий символ\r\n"
 "\\d   : цифри 0-9\r\n"
 "\\s   : пробіли"
-
-#. Resource IDs: (1469)
-msgid "Reintegrate a branch"
-msgstr "Переінтегрувати гілку"
 
 #. Resource IDs: (595)
 msgid "Reintegrate merge"
@@ -6895,10 +6927,6 @@ msgstr "Відновлено"
 msgid "Retry"
 msgstr "Спробуй ще раз"
 
-#. Resource IDs: (1423)
-msgid "Reverse merge"
-msgstr "Зворотнє злиття"
-
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %ld"
@@ -6980,9 +7008,9 @@ msgstr "Діапазон модифікацій"
 msgid "Revision graph"
 msgstr "Граф модифікацій"
 
-#. Resource IDs: (65535)
-msgid "Revision range to merge"
-msgstr "Діапазон модифікацій для злиття"
+#. Resource IDs: (1492)
+msgid "Revision r&ange to merge"
+msgstr "Ді&апазон модифікацій для злиття"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -7605,8 +7633,8 @@ msgid "Show excluded folders as normal"
 msgstr "Показати виключені директорії як нормальні"
 
 #. Resource IDs: (1480)
-msgid "Show externals from different repositories"
-msgstr "Показати зовнішні з різних сховищ"
+msgid "Show externals from &different repositories"
+msgstr "Показати зовнішні з &різних сховищ"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7619,6 +7647,10 @@ msgstr "Показати &лог"
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "Показати &номери рядків"
+
+#. Resource IDs: (1037)
+msgid "Show lo&g"
+msgstr "Показати &лог"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -8782,10 +8814,6 @@ msgstr ""
 msgid "To:"
 msgstr "До:"
 
-#. Resource IDs: (65535)
-msgid "To: (end URL and revision of the range to merge)"
-msgstr "До: (кінцевий URL та модифікація діапапзону злиття)"
-
 #. Resource IDs: (3633)
 msgid ""
 "Toggle One/Two Pages display\n"
@@ -9008,9 +9036,9 @@ msgstr "URL невідомий (UUID: %s)"
 msgid "URL of Subversion items"
 msgstr "URL елементів Subversion"
 
-#. Resource IDs: (65535)
-msgid "URL to merge from"
-msgstr "URL з якого зливати"
+#. Resource IDs: (1491)
+msgid "URL to merge &from"
+msgstr "URL &з якого зливати"
 
 #. Resource IDs: (144, 11023, 65535)
 msgid "URL:"
@@ -10301,6 +10329,10 @@ msgstr "модифікація %s-%s, модифікація %s-%s"
 msgid "revision count: "
 msgstr "кількість модифікацій:"
 
+#. Resource IDs: (626)
+msgid "revision has already been merged"
+msgstr "модифікацію вже було злито"
+
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
@@ -10454,6 +10486,10 @@ msgstr "тимчасово не в мережі"
 #. Resource IDs: (65535)
 msgid "text [token count]: "
 msgstr "текст [кількість лексем]:"
+
+#. Resource IDs: (626)
+msgid "the working copy is at this revision"
+msgstr "робоча копія у цій модифікації"
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
@@ -10645,6 +10681,8 @@ msgstr "так"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "From URL:"
+#~ msgstr "З URL:"
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
