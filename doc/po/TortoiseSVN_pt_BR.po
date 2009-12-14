@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-14 00:22-0300\n"
+"PO-Revision-Date: 2009-12-14 21:38-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -216,7 +216,7 @@ msgstr "pelos estilos da documentação de onde copiamos"
 
 #. (term)
 msgid "Our Contributors"
-msgstr "Nossos contribuidores"
+msgstr "Nossos Colaboradores"
 
 #. (para)
 msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list."
@@ -224,7 +224,7 @@ msgstr "pelas correções, erros reportados e novas idéias, e por ajudar a outr
 
 #. (term)
 msgid "Our Donators"
-msgstr "Nossos doadores"
+msgstr "Nossos Contribuidores"
 
 #. (para)
 msgid "for many hours of joy with the music they sent us"
@@ -314,7 +314,7 @@ msgstr "Tim estudou o código fonte do TortoiseCVS e usou isso como base para o 
 
 #. (para)
 msgid "As Subversion became more stable it attracted more and more users who also started using TortoiseSVN as their Subversion client. The user base grew quickly (and is still growing every day). That's when Lübbe Onken offered to help out with some nice icons and a logo for TortoiseSVN. And he takes care of the website and manages the translation."
-msgstr "Com a estabilidade do Subversion atraindo mais e mais usuários esses também começaram a usar o TortoiseSVN como aplicativo cliente do Subversion. Os usuários comuns aumentaram rapidamente (e continua aumentando a cada dia). Foi quando Lübbe Onken ofereceu ajuda com alguns bons ícones e uma logomarca para TortoiseSVN. E ele cuida também do sítio e administra as traduções."
+msgstr "Com a estabilidade do Subversion atraindo mais e mais usuários esses também começaram a usar o TortoiseSVN como aplicativo cliente do Subversion. Os usuários comuns aumentaram rapidamente (e continua aumentando a cada dia). Foi quando Lübbe Onken ofereceu ajuda com alguns bons ícones e uma logomarca para TortoiseSVN. E ele cuida também do Website e administra as traduções."
 
 #. (title)
 msgid "TortoiseSVN's Features"
@@ -397,7 +397,7 @@ msgstr "Escolha das camadas da rede"
 
 #. (para)
 msgid "Subversion has an abstracted notion of repository access, making it easy for people to implement new network mechanisms. Subversion's <quote>advanced</quote> network server is a module for the Apache web server, which speaks a variant of HTTP called WebDAV/DeltaV. This gives Subversion a big advantage in stability and interoperability, and provides various key features for free: authentication, authorization, wire compression, and repository browsing, for example. A smaller, standalone Subversion server process is also available. This server speaks a custom protocol which can be easily tunneled over ssh."
-msgstr "Subversion tem uma noção abstrata de acesso ao repositório, tornando fácil para as pessoas desenvolverem novos mecanismos de rede. O servidor de rede avançado do Subversion é um módulo para o servidor web Apache, do qual expõe uma variante do HTTP chamada WebDAV/DeltaV. Isto dá ao Subversion uma grande vantagem em estabilidade e interopelabilidade, e provê várias funcionalidades chave de graça: autenticação, autorização, compressão, e navegação no repositório, por exemplo. Uma característica menor, um processo servidor autônomo  do Subversion também está disponível. Este servidor exterioriza um protocolo específico que pode ser facilmente encapsulado sobre o protocolo ssh."
+msgstr "Subversion tem uma noção abstrata de acesso ao repositório, tornando fácil para as pessoas desenvolverem novos mecanismos de rede. O servidor de rede avançado do Subversion é um módulo para o servidor web Apache, do qual expõe uma variante do HTTP chamada WebDAV/DeltaV. Isto dá ao Subversion uma grande vantagem em estabilidade e interoperabilidade, e provê várias funcionalidades chave de graça: autenticação, autorização, compressão, e navegação no repositório, por exemplo. Uma característica menor, um processo servidor autônomo do Subversion também está disponível. Este servidor exterioriza um protocolo específico que pode ser facilmente encapsulado sobre o protocolo ssh."
 
 #. (term)
 msgid "Consistent data handling"
@@ -1231,7 +1231,7 @@ msgstr ""
 
 #. (para)
 msgid "Indexing by project makes sense if the projects are not closely related and each one is checked out individually. For related projects where you may want to check out all projects in one go, or where the projects are all tied together in a single distribution package, it is often better to index by branch. This way you have only one trunk to checkout, and the relationships between the sub-projects is more easily visible."
-msgstr "Organizar por projeto faz sentido se os projetos não são fortemente relacionamento e cada um deles é controlado individualmente. Para projetos relacionados onde você pode querer controlartodos os projeto de uma vez, ou onde os projetos são todos amarrados uns aos outros em um único pacote de distribuição, é entõa mais comum organizar por ramificação. Desta maneira você tem somente um trunk para controlar, e os relacionamentos entre os subprojetos são vislumbrados mais facilmente."
+msgstr "Organizar por projeto faz sentido se os projetos não são fortemente relacionados e cada um deles é controlado individualmente. Para projetos relacionados onde você pode querer controlar todos os projeto de uma vez, ou onde os projetos são todos amarrados uns aos outros em um único pacote de distribuição, é então mais comum organizar por ramificação. Desta maneira você tem somente um trunk para controlar, e os relacionamentos entre os subprojetos são vislumbrados mais facilmente."
 
 #. (para)
 msgid "If you adopt a top level <filename>/trunk /tags /branches</filename> approach, there is nothing to say that you have to copy the entire trunk for every branch and tag, and in some ways this structure offers the most flexibility."
@@ -1297,7 +1297,7 @@ msgstr "cópia de segurança"
 
 #. (para)
 msgid "Whichever type of repository you use, it is vitally important that you maintain regular backups, and that you verify the backup. If the server fails, you may be able to access a recent version of your files, but without the repository all your history is lost forever."
-msgstr "Não importante o tipo de repositório que vocÊ usa, é vitalmente importante que você mantenha cópias de segurança regulares, e que você verifique a cópia de segurança. Se o servidor falhar, você terá condições de acessar uma versão recente de seus arquivos, mas sem o repositório todo o histórico estará perdido para sempre."
+msgstr "Não importante o tipo de repositório que você usa, é vitalmente importante que você mantenha cópias de segurança regulares, e que você verifique a cópia de segurança. Se o servidor falhar, você terá condições de acessar uma versão recente de seus arquivos, mas sem o repositório todo o histórico estará perdido para sempre."
 
 #. (para)
 msgid "The simplest (but not recommended) way is just to copy the repository folder onto the backup medium. However, you have to be absolutely sure that no process is accessing the data. In this context, access means <emphasis>any</emphasis> access at all. A BDB repository is written to even when the operation only appears to require reading, such as getting status. If your repository is accessed at all during the copy, (web browser left open, WebSVN, etc.) the backup will be worthless."
@@ -1314,8 +1314,9 @@ msgstr ""
 "</screen> para criar uma cópia de seu repositório em modo seguro. E então guarde esta cópia. A opção <literal>--clean-logs</literal>  não é obrigatório, mas remove qualquer registro de arquivo duplicado quando você copia um repositório BDB, o que pode economizar algum espaço."
 
 #. (para)
+#, fuzzy
 msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from <ulink url=\"http://subversion.tigris.org/getting.html\"><citetitle>http://subversion.tigris.org/getting.html</citetitle></ulink>."
-msgstr "A ferramenta <literal>svnadmin</literal> é instalada automaticamente quando você instala o cliente de linha de comando do Subversion. Se você está instalando as ferramentas de linha de commando em uma computador Windows, a melhor maneira de fazê-lo é usar a versão Windows do instalador. O instalar é mais compacto que a versão <filename>.zip</filename>, então o arquivo fica menor, e ele se encarrega de configurar os caminhos para você. Você pode baixar a versão mais atual do cliente de linha de comando do Subversion de <ulink url=\"http://subversion.tigris.org/getting.html\"><citetitle>http://subversion.tigris.org/getting.html</citetitle></ulink>."
+msgstr "A ferramenta <literal>svnadmin</literal> é instalada automaticamente quando você instala o cliente de linha de comando do Subversion. Se você está instalando as ferramentas de linha de commando em uma computador Windows, a melhor maneira de fazê-lo é usar a versão Windows do instalador. O instalar é mais compacto que a versão <filename>.zip</filename>, então o arquivo fica menor, e ele se encarrega de configurar os caminhos para você. Você pode baixar a versão mais atual do cliente de linha de comando do Subversion de <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
 
 #. (title)
 msgid "Server side hook scripts"
@@ -1384,15 +1385,15 @@ msgstr "vínculo"
 
 #. (primary)
 msgid "website"
-msgstr "sítio"
+msgstr "website"
 
 #. (para)
 msgid "If you want to make your Subversion repository available to others you may want to include a link to it from your website. One way to make this more accessible is to include a <firstterm>checkout link</firstterm> for other TortoiseSVN users."
-msgstr "Se você quer disponibilizar seu repositório Subversion para outras pessoas você pode incluir um vínvulo no seu sitio. Uma forma de tornar isso mais fácil é incluir um <firstterm>vínculo externo</firstterm> para outros usuários do TortoiseSVN."
+msgstr "Se você quer disponibilizar seu repositório Subversion para outras pessoas você pode incluir um vínculo no seu website. Uma forma de tornar isso mais fácil é incluir um <firstterm>vínculo externo</firstterm> para outros usuários do TortoiseSVN."
 
 #. (para)
 msgid "When you install TortoiseSVN, it registers a new <literal>tsvn:</literal> protocol. When a TortoiseSVN user clicks on such a link, the checkout dialog will open automatically with the repository URL already filled in."
-msgstr "Quando vocë instala o TortoiseSVN, ele registra um novo protocolo <literal>tsvn:</literal>. Quando um usuário do TortoiseSVN clica num vínculo como este, a janela de obtenção será aberta automaticamente com a URL do repositório já preenchida."
+msgstr "Quando você instala o TortoiseSVN, ele registra um novo protocolo <literal>tsvn:</literal>. Quando um usuário do TortoiseSVN clica num vínculo como este, a janela de obtenção será aberta automaticamente com a URL do repositório já preenchida."
 
 #. (programlisting)
 #, no-wrap
@@ -1407,7 +1408,7 @@ msgstr ""
 
 #. (para)
 msgid "To include such a link in your own html page, you need to add code which looks something like this: <placeholder-1/>"
-msgstr "Para incluir tal vínculo em sua própria página html, você precisa adicionar um código parecido com este: <placeholder-1/>"
+msgstr "Para incluir tal vínculo em sua própria página HTML, você precisa adicionar um código parecido com este: <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -1445,7 +1446,7 @@ msgstr "Acessando o Repositório"
 
 #. (para)
 msgid "To use TortoiseSVN (or any other Subversion client), you need a place where your repositories are located. You can either store your repositories locally and access them using the <literal>file://</literal> protocol or you can place them on a server and access them with the <literal>http://</literal> or <literal>svn://</literal> protocols. The two server protocols can also be encrypted. You use <literal>https://</literal> or <literal>svn+ssh://</literal>, or you can use <literal>svn://</literal> with SASL."
-msgstr "Para usar o TortoiseSVN (ou qualquer outro cliente do Subversion), você precisa de um lugar para guardar seus repositórios. Você pode também guardar seus repositório e acessar eles usando o protocolo <literal>file://</literal> ou você pode colocá-los em um servidor e acessá-los usando os protocolos <literal>http://</literal> ou <literal>svn://</literal>. Os dois protocolos podem também ser criptografados. Você pode usar <literal>https://</literal> ou <literal>svn+ssh://</literal>, ou você pode usar <literal>svn://</literal> com SASL."
+msgstr "Para usar o TortoiseSVN (ou qualquer outro cliente do Subversion), você precisa de um lugar para guardar seus repositórios. Você pode também guardar seus repositórios e acessá-los usando o protocolo <literal>file://</literal> ou você pode colocá-los em um servidor e acessá-los usando os protocolos <literal>http://</literal> ou <literal>svn://</literal>. Os dois protocolos podem também ser criptografados. Você pode usar <literal>https://</literal> ou <literal>svn+ssh://</literal>, ou você pode usar <literal>svn://</literal> com SASL."
 
 #. (para)
 msgid "If you are using a public hosting service such as <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> or your server has already been setup by someone else then there is nothing else you need to do. Move along to <xref linkend=\"tsvn-dug\"/>."
@@ -1473,19 +1474,20 @@ msgstr "Subversion inclui o Svnserve - um servidor autônomo leve que utiliza um
 
 #. (para)
 msgid "In most cases svnserve is easier to setup and runs faster than the Apache based server, although it doesn't have some of the advanced features. And now that SASL support is included it is easy to secure as well."
-msgstr "Na maior dos casos svnserve é fácil de configurar e executa rapidamente em um servidor baseado no Apache, apesar de não ter algumas características avançadas. E agora que o suporte a SASL está incluído é também fácil garantir a segurança."
+msgstr "Na maioria dos casos svnserve é fácil de configurar e executa rapidamente em um servidor baseado no Apache, apesar de não ter algumas características avançadas. E agora que o suporte a SASL está incluído é também fácil garantir a segurança."
 
 #. (title)
 msgid "Installing svnserve"
 msgstr "Instalando o svnserve"
 
 #. (para)
+#, fuzzy
 msgid "Get the latest version of Subversion from <ulink url=\"http://subversion.tigris.org/getting.html\"><citetitle>http://subversion.tigris.org/getting.html</citetitle></ulink>. Alternatively get a pre-packaged installer from CollabNet at <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. This installer will setup svnserve as a Windows service, and also includes some of the tools you need if you are going to use SASL for security."
-msgstr "Pegue a última versão do Subversion de <ulink url=\"http://subversion.tigris.org/getting.html\"><citetitle>http://subversion.tigris.org/getting.html</citetitle></ulink>. Uma alternativa é usar um pacote de instalação do CollabNet em <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. Este instalador vai configurar o svnserve como um serviço do Windows, e também vai incluir algumas ferramentas necessários caso esteja usando SASL para segurança."
+msgstr "Pegue a última versão do Subversion de <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>. Uma alternativa é usar um pacote de instalação do CollabNet em <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. Este instalador vai configurar o svnserve como um serviço do Windows, e também vai incluir algumas ferramentas necessárias caso esteja usando SASL para segurança."
 
 #. (para)
 msgid "If you already have a version of Subversion installed, and svnserve is running, you will need to stop it before continuing."
-msgstr "Se você já tem uma versão instalada do Subversion, e svnserve está sendo executado, você precisa primeirar parar o serviço antes de continuar."
+msgstr "Se você já tem uma versão instalada do Subversion, e svnserve está sendo executado, você precisa primeiro parar o serviço antes de continuar."
 
 #. (para)
 msgid "Run the Subversion installer. If you run the installer on your server (recommended) you can skip step 4."
@@ -1493,7 +1495,7 @@ msgstr "Execute o instalador do Subversion. Se você executar o instalador em um
 
 #. (para)
 msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files, or just copy all of the <filename>bin</filename> directory, into a directory on your server e.g. <filename>c:\\svnserve</filename>"
-msgstr "Abra o windows explorer, vá no diretório de instalação do Subversion (normalmente <filename>C:\\Arquivos de Programas\\Subversion</filename>) e no diretório <filename>bin</filename>, encontre os arquivos <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> e <filename>ssleay32.dll</filename> - copie esses arquivos, ou simplesmente copia todo o diretório <filename>bin</filename>, para dentro do direitório do seu servidor ex. <filename>c:\\svnserve</filename>"
+msgstr "Abra o windows explorer, vá no diretório de instalação do Subversion (normalmente <filename>C:\\Arquivos de Programas\\Subversion</filename>) e no diretório <filename>bin</filename>, encontre os arquivos <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> e <filename>ssleay32.dll</filename> - copie esses arquivos, ou simplesmente copie todo o diretório <filename>bin</filename>, para dentro do direitório do seu servidor ex. <filename>c:\\svnserve</filename>"
 
 #. (title)
 msgid "Running svnserve"
@@ -2608,9 +2610,8 @@ msgid "Authentication Dialog"
 msgstr "Janela de Autenticação"
 
 #. (para)
-#, fuzzy
 msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password). Note that passwords are stored using the WinCrypt API, not in plain text form."
-msgstr "<filename>svn.simple</filename> contém as credenciais básicas de autenticação (nome do usuário/senha)."
+msgstr "<filename>svn.simple</filename> contém as credenciais básicas de autenticação (nome do usuário/senha). Observe que as senhas são armazenadas e encriptadas com o uso do WinCrypt API, não são armazenadas no formato \"texto\"."
 
 #. (para)
 msgid "<filename>svn.ssl.server</filename> contains SSL server certificates."
@@ -2795,7 +2796,7 @@ msgstr "Por exemplo, veja que script TortoiseSVN chama um arquivo chamado <filen
 
 #. (para)
 msgid "So as not to disturb the users, we also added the file <filename>TortoiseVars.bat</filename> to the ignore list of its parent folder, i.e. we've set the Subversion property <literal>svn:ignore</literal> to include that filename. That way it won't show up as unversioned on every commit."
-msgstr "Portanto, para não perturbar usuários, também adicionamos o arquivo <filename>TortoiseVars.bat</filename> para a lista de \"ignorados\" da pasta que o contém, ou seja, configuramos <literal>svn:ignore</literal> para incluir esse arquivo. Dessa forma, ele não aparecerá como \"não versionado\" em cada submissão."
+msgstr "Portanto, para não aborrecer usuários, também adicionamos o arquivo <filename>TortoiseVars.bat</filename> para a lista de \"ignorados\" da pasta que o contém, ou seja, configuramos <literal>svn:ignore</literal> para incluir esse arquivo. Dessa forma, ele não aparecerá como \"não versionado\" em cada submissão."
 
 #. (title)
 msgid "Checking Out A Working Copy"
@@ -2977,7 +2978,7 @@ msgstr "A Janela de Submissão"
 
 #. (title)
 msgid "The Commit dialog"
-msgstr "A janela de Sumissão"
+msgstr "A janela de Submissão"
 
 #. (para)
 msgid "If your working copy is up to date and there are no conflicts, you are ready to commit your changes. Select any file and/or folders you want to commit, then <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice>. <placeholder-1/>"
@@ -3323,7 +3324,7 @@ msgstr "conflitos de arquivo"
 
 #. (para)
 msgid "A file conflict occurs if two (or more) developers have changed the same few lines of a file."
-msgstr ""
+msgstr "Um conflito de arquivo ocorre se dois (ou mais) desenvolvedores modificam as mesmas linhas de um arquivo."
 
 #. (term)
 msgid "tree conflicts"
@@ -3331,11 +3332,11 @@ msgstr "conflitos de estrutura"
 
 #. (para)
 msgid "A tree conflict occurs when a developer moved/renamed/deleted a file or folder, which another developer either also has moved/renamed/deleted or just modified."
-msgstr ""
+msgstr "Um conflito de estrutura ocorre quando um desenvolvedor move/renomeia/elimina um arquivo ou uma pasta que outro desenvolvedor tenha também movido/renomeado/eliminado ou ainda apenas modificado."
 
 #. (para)
 msgid "Once in a while, you will get a <emphasis>conflict</emphasis> when you update/merge your files from the repository or when you switch your working copy to a different URL. There are two kinds of conflicts: <placeholder-1/>"
-msgstr ""
+msgstr "Em algum momento você poderá se deparar com um <emphasis>conflito</emphasis> quando for atualizar/unificar seus arquivos desde o repositório ou quando você for modificar sua cópia local para uma URL diferente. Existem dois tipos de conflitos: <placeholder-1/>"
 
 #. (title)
 msgid "File Conflicts"
@@ -3347,7 +3348,7 @@ msgstr "filename.ext.mine"
 
 #. (para)
 msgid "This is your file as it existed in your working copy before you updated your working copy - that is, without conflict markers. This file has your latest changes in it and nothing else."
-msgstr ""
+msgstr "Este é seu arquivo tal como existia em sua cópia local antes de tê-la atualizado - ou seja, sem indicações de conflito. Este arquivo contém as modificações mais recentes e nada mais."
 
 #. (term)
 msgid "filename.ext.rOLDREV"
@@ -3355,7 +3356,7 @@ msgstr "filename.ext.rREVANT"
 
 #. (para)
 msgid "This is the file that was the BASE revision before you updated your working copy. That is, it the file that you checked out before you made your latest edits."
-msgstr ""
+msgstr "Este é o arquivo que serviu de revisão BASE antes de atualizar sua cópia local. Ou seja, é o arquivo que você assinalou para controlar antes de efetuar as modificações."
 
 #. (term)
 msgid "filename.ext.rNEWREV"
@@ -3363,7 +3364,7 @@ msgstr "filename.ext.rNOVAREV"
 
 #. (para)
 msgid "This is the file that your Subversion client just received from the server when you updated your working copy. This file corresponds to the HEAD revision of the repository."
-msgstr ""
+msgstr "Este é o arquivo que o cliente Subversion acabou de receber do servidor quando você atualizou sua cópia local. Este arquivo corresponde à revisão HEAD do repositório."
 
 #. (para)
 msgid ""
@@ -3375,22 +3376,29 @@ msgid ""
 "\t&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "\t</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
+"Um conflito de arquivo ocorre quando dois ou mais desenvolvedores tenham modificado as mesmas linhas de um arquivo. Como Subversion não conhece seu projeto, a solução de conflitos fica por conta dos desenvolvedores. Sempre que um conflito é reportado, você deverá abrir o arquivo em questão e procurar por linhas que iniciam com a sequência <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. A área de conflito é assinalada desta forma: <screen>\n"
+"\t&lt;&lt;&lt;&lt;&lt;&lt;&lt; nome do arquivo\n"
+"\t\tsuas modificações\n"
+"\t=======\n"
+"\t\tcódigo incluído desde o repositório\n"
+"\t&gt;&gt;&gt;&gt;&gt;&gt;&gt; revisão\n"
+"\t</screen> Também, para cada arquivo em conflito, Subversion inclui três arquivos adicionais em seu diretório: <placeholder-1/>"
 
 #. (para)
 msgid "You can either launch an external merge tool / conflict editor with <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit Conflicts</guimenuitem></menuchoice> or you can use any other editor to manually resolve the conflict. You should decide what the code should look like, do the necessary changes and save the file."
-msgstr ""
+msgstr "Você pode tanto inicializar a ferramenta de inclusão externa / editor de conflitos com <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Editar Conflitos</guimenuitem></menuchoice> como também pode utilizar qualquer outro editor para solucionar o conflito manualmente. Você deve decidir como o código deve permanecer, efetuar as modificações necessárias e gravar o arquivo."
 
 #. (para)
 msgid "Afterwards execute the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved</guimenuitem></menuchoice> and commit your modifications to the repository. Please note that the Resolve command does not really resolve the conflict. It just removes the <filename>filename.ext.mine</filename> and <filename>filename.ext.r*</filename> files, to allow you to commit your changes."
-msgstr ""
+msgstr "Em seguida execute o comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolvido</guimenuitem></menuchoice> e submeta suas modificações no repositório. Por favor, note que o comando Resolver não resolve o conflito. Ele apenas remove os arquivos <filename>filename.ext.mine</filename> e <filename>filename.ext.r*</filename>, para permitir que você submeta suas modificações."
 
 #. (para)
 msgid "If you have conflicts with binary files, Subversion does not attempt to merge the files itself. The local file remains unchanged (exactly as you last changed it) and you have <filename>filename.ext.r*</filename> files. If you want to discard your changes and keep the repository version, just use the Revert command. If you want to keep your version and overwrite the repository version, use the Resolved command, then commit your version."
-msgstr ""
+msgstr "Se tiver conflitos com arquivos binários, Subversion não irá incluir esses arquivos (propriamente dito). A cópia local permanece inalterada (exatamente como a modificação mais recente) e você terá arquivos <filename>filename.ext.r*</filename>. Se desejar descartar as modificações e manter a versão do repositório, apenas utilize o comando Reverter. Se desejar manter sua versão e sobreescrever o repositório, utilize o comando Resolvido e submeta sua versão."
 
 #. (para)
 msgid "You can use the Resolved command for multiple files if you right click on the parent folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved...</guimenuitem></menuchoice> This will bring up a dialog listing all conflicted files in that folder, and you can select which ones to mark as resolved."
-msgstr ""
+msgstr "Você pode utilizar o comando Resolvido para múltiplos arquivos se clicar com o botão direito do mouse na pasta que contém os arquivos e selecionar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolvido...</guimenuitem></menuchoice> Isto fará aparecer uma caixa de diálogo de todos os arquivos em conflito naquela pasta e então poderá selecionar quais deverão ser assinalados como resolvido."
 
 #. (title)
 msgid "Tree Conflicts"
@@ -4064,7 +4072,7 @@ msgstr "Autoria..."
 
 #. (para)
 msgid "Blame the file up to the selected revision. (files only)."
-msgstr "Autorias do arquivo até a revisão selecionada. (apenas arquivos)."
+msgstr "Autorias do arquivo até a revisão selecionada (apenas arquivos)."
 
 #. (term)
 msgid "Browse repository"
@@ -6995,7 +7003,7 @@ msgstr ""
 
 #. (term)
 msgid "Deleted items"
-msgstr "Itens excluidos"
+msgstr "Itens excluídos"
 
 #. (para)
 msgid "Deleted items eg. a branch which is no longer required, are shown using an octagon (rectangle with corners cut off). The default colour is red."
