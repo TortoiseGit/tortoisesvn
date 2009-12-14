@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-12-12 08:51+0100\n"
+"PO-Revision-Date: 2009-12-14 14:44+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4423,7 +4423,7 @@ msgstr "<placeholder-1/> Het bovenste gedeelte van het Logboek boodschappen vens
 
 #. (title)
 msgid "Top Pane Context Menu for 2 Selected Revisions"
-msgstr ""
+msgstr "Context menu van het bovenste deelvenster voor 2 geselecteerde revisies"
 
 #. (term)
 msgid "Compare revisions"
@@ -4431,11 +4431,11 @@ msgstr "Verklaar revisies"
 
 #. (para)
 msgid "Compare the two selected revisions using a visual difference tool. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN."
-msgstr ""
+msgstr "Vergelijk de twee geselecteerde revisies met een visueel vergelijkingsprogramma. Het standaard Diff-programma is TortoiseMerge, welke meegeleverd wordt met TortoiseSVN."
 
 #. (para)
 msgid "If you select this option for a folder, a further dialog pops up listing the changed files and offering you further diff options. Read more about the Compare Revisions dialog in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr ""
+msgstr "Een nieuw venster wordt er geopend, als je deze optie selecteerd voor een map. Daarin worden de gewijzigde bestanden weergegeven en worden er meer opties voor het vergelijken gegeven. Lees meer over het Vergelijk revisies venster in <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "Blame revisions"
@@ -4443,43 +4443,43 @@ msgstr "Verklaar revisies"
 
 #. (para)
 msgid "Blame the two revisions and compare the blame reports using a visual difference tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr ""
+msgstr "Verklaar de twee revisies en vergelijk de verklaarrapportages in een visueel vergelijk programma. Lees voor meer information <xref linkend=\"tsvn-dug-blame-diffs\"/>."
 
 #. (term)
 msgid "Show differences as unified diff"
-msgstr ""
+msgstr "Toon verschillen als unified diff"
 
 #. (para)
 msgid "View the differences between the two selected revisions as a Unified-Diff file. This works for files and folders."
-msgstr ""
+msgstr "Bekijk de verschillen van twee verschillende revisies opgeslagen in een unified-diff bestand. "
 
 #. (para)
 msgid "Copy log messages to clipboard as described above."
-msgstr ""
+msgstr "Kopieer de logboekboodschappen naar het klembord."
 
 #. (para)
 msgid "Search log messages as described above."
-msgstr ""
+msgstr "Doorzoek de logboekboodschappen."
 
 #. (para)
 msgid "<placeholder-1/> If you select two revisions at once (using the usual <keycap>Ctrl</keycap>-modifier), the context menu changes and gives you fewer options: <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Als je twee revisies selecteert (als je klikt en <keycap>Ctrl</keycap> ingedrukt houdt), dan zullen er in het context menu minder opties worden weergegeven: <placeholder-2/>"
 
 #. (para)
 msgid "If you select two or more revisions (using the usual <keycap>Ctrl</keycap> or <keycap>Shift</keycap> modifiers), the context menu will include an entry to Revert all changes which were made in the selected revisions. This is the easiest way to rollback a group of revisions in one go."
-msgstr ""
+msgstr "Als je twee of meer revisies selecteert (als je klikt en <keycap>Ctrl</keycap> of <keycap>Shift</keycap> ingedrukt houdt), dan zal in het context menu een optie weergegeven worden waarmee alle wijzigingen van die revisies teruggedraaid kunnen worden. Dit is de makkelijkste methode om een verzamelig van wijzigingen ineens ongedaan te maken."
 
 #. (para)
 msgid "You can also choose to merge the selected revisions to another working copy, as described above."
-msgstr ""
+msgstr "Je kunt er ook voor kiezen om de geselecteerde revisies samen te voegen naar een andere werkkopie, zoals eerder beschreven is. "
 
 #. (para)
 msgid "If all selected revisions have the same author, you can edit the author of all those revisions in one go."
-msgstr ""
+msgstr "Als alle revisies van dezelfde auteur zijn, dan kun je in één keer de naam van de auteur wijzigingen voor die revisies."
 
 #. (title)
 msgid "The Log Dialog Bottom Pane with Context Menu"
-msgstr ""
+msgstr "Het context menu van het onderste deelvenster van het Logboekboodschappen venster"
 
 #. (term)
 msgid "Show changes"
@@ -4487,7 +4487,7 @@ msgstr "Toon wijzigingen"
 
 #. (para)
 msgid "Show changes made in the selected revision for the selected file. This context menu is only available for files shown as <emphasis>modified</emphasis>."
-msgstr ""
+msgstr "Toon de wijzigingen van de geselecteerde revisies voor het geselecteerde bestand. Dit context menu is alleen beschikbaar voor bestanden die als <emphasis>gewijzigd</emphasis> gemarkeerd zijn."
 
 #. (term)
 msgid "Blame changes"
@@ -4495,28 +4495,28 @@ msgstr "Verklaar wijzigingen"
 
 #. (para)
 msgid "Blame the selected revision and the previous revision for the selected file, and compare the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr ""
+msgstr "Verklaar de geselecteerde en vorige revisie van het geselecteerde bestand en vergelijk de verklarenrapportages met een visueel diff programma. Lees ook <xref linkend=\"tsvn-dug-blame-diffs\"/>."
 
 #. (term)
 msgid "Show as unified diff"
-msgstr ""
+msgstr "Toon wijzigingen als unified diff"
 
 #. (para)
 msgid "Show file changes in unified diff format. This context menu is only available for files shown as <emphasis>modified</emphasis>."
-msgstr ""
+msgstr "Toon bestandswijzigingen in unified diff indeling. Dit context menu is alleen beschikbaar voor als <emphasis>gewijzigd</emphasis> gemarkeerde bestanden."
 
 #. (para)
 #. (para)
 msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose."
-msgstr ""
+msgstr "Open het geselecteerde bestant met het standaard programma voor dit bestandstype of met een zelf gekozen programma."
 
 #. (para)
 msgid "Opens the Blame dialog, allowing you to blame up to the selected revision."
-msgstr ""
+msgstr "Opent het verklaren venster, waarmee de geselecteerde revisie verklaard kan worden."
 
 #. (para)
 msgid "Revert the changes made to the selected file in that revision."
-msgstr ""
+msgstr "Make de wijzigingen van het geselecteerde bestand in die revisie ongedaan."
 
 #. (term)
 msgid "Show properties"
@@ -4524,7 +4524,7 @@ msgstr "Weergeef eigenschappen"
 
 #. (para)
 msgid "View the Subversion properties for the selected item."
-msgstr ""
+msgstr "Bekijk de Subversion eigenschappen van het geselecteerde object."
 
 #. (term)
 msgid "Show log"
@@ -4532,7 +4532,7 @@ msgstr "Toon logboek"
 
 #. (para)
 msgid "Show the revision log for the selected single file."
-msgstr ""
+msgstr "Toon het revisie logboek voor een enkel geselecteerd bestand."
 
 #. (term)
 msgid "Get merge logs"
@@ -4540,7 +4540,7 @@ msgstr "Haal samenvoegboodschappen"
 
 #. (para)
 msgid "Show the revision log for the selected single file, including merged changes. Find out more in <xref linkend=\"tsvn-dug-showlog-mergetrack\"/>."
-msgstr ""
+msgstr "Toon het revisie logboek voor een enkel geselecteerd bestand met de samengevoegde wijzigingen. Lees meer in <xref linkend=\"tsvn-dug-showlog-mergetrack\"/>."
 
 #. (para)
 msgid "Save the selected revision to a file so you have an older version of that file."
