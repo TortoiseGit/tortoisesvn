@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-15 12:11+0100\n"
-"Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
+"PO-Revision-Date: 2009-12-15 15:01-0600\n"
+"Last-Translator: Matthias GOUPIL <mgoupil@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4892,9 +4892,8 @@ msgid "compare"
 msgstr "comparer"
 
 #. (para)
-#, fuzzy
 msgid "One of the commonest requirements in project development is to see what has changed. You might want to look at the differences between two revisions of the same file, or the differences between two separate files. TortoiseSVN provides a built-in tool named <application>TortoiseMerge</application> for viewing differences of text files. For viewing differences of image files, TortoiseSVN also has a tool named <application>TortoiseIDiff</application>. Of course, you can use your own favourite diff program if you like."
-msgstr "Un des pré-requis les plus communs dans le développement de projet est de voir ce qui a changé. Vous pourriez vouloir regarder les différences entre deux révisions du même fichier, ou les différences entre deux fichiers séparés. TortoiseSVN fournit un outil incorporé appelé <application>TortoiseMerge</application> pour voir les différences dans les fichiers texte. Pour voir les différences dans les fichiers image, TortoiseSVN a aussi un outil appelé <application>TortoiseIDiff</application>. Bien sûr, vous pouvez utiliser votre propre programme de comparaison favori si vous le souhaitez."
+msgstr "Une des exigences les plus courantes dans le développement de projet est de voir ce qui a changé. Vous pourriez vouloir regarder les différences entre deux révisions du même fichier, ou les différences entre deux fichiers séparés. TortoiseSVN fournit un outil intégré appelé <application>TortoiseMerge</application> pour voir les différences dans les fichiers texte. Pour voir les différences dans les fichiers image, TortoiseSVN a aussi un outil appelé <application>TortoiseIDiff</application>. Bien sûr, vous pouvez utiliser votre propre programme de comparaison favori si vous le souhaitez."
 
 #. (title)
 msgid "File Differences"
@@ -4965,9 +4964,8 @@ msgid "Difference between WC file/folder and a URL"
 msgstr "Différence entre fichiers/répertoires de la CdT et une URL"
 
 #. (para)
-#, fuzzy
 msgid "If you want to see the differences between a file in your working copy, and a file in any Subversion repository, you can do that directly in explorer by selecting the file then holding down the <keycap>Shift</keycap> key whilst right clicking to obtain the context menu. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with URL</guimenuitem></menuchoice>. You can do the same thing for a working copy folder. TortoiseMerge shows these differences in the same way as it shows a patch file - a list of changed files which you can view one at a time."
-msgstr "Si vous voulez voir les différences entre un fichier de votre copie de travail, et un fichier dans un référentiel Subversion, vous pouvez le faire directement dans l'explorateur en sélectionnant le fichier puis en maintenant la touche <keycap>Shift</keycap> en faisant un clic droit pour obtenir le menu contextuel. Sélectionnez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff avec l'URL</guimenuitem></menuchoice>. Vous pouvez faire la même chose pour un répertoire de la copie de travail. TortoiseMerge vous montre ces différences de la même manière qu'un patch - une liste des fichiers modifiés que vous pouvez voir un par un."
+msgstr "Si vous voulez voir les différences entre un fichier de votre copie de travail, et un fichier dans n'importe quel référentiel Subversion, vous pouvez le faire directement dans l'explorateur en sélectionnant le fichier puis en maintenant enfoncé la touche <keycap>Shift</keycap> en faisant un clic droit pour obtenir le menu contextuel. Sélectionnez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff avec l'URL</guimenuitem></menuchoice>. Vous pouvez faire la même chose pour un répertoire de la copie de travail. TortoiseMerge vous montre ces différences de la même manière qu'un patch - une liste des fichiers modifiés que vous pouvez voir un par un."
 
 #. (term)
 msgid "Difference with blame information"
@@ -4982,7 +4980,6 @@ msgid "Difference between folders"
 msgstr "Comparaison entre répertoires"
 
 #. (para)
-#, fuzzy
 msgid "The built-in tools supplied with TortoiseSVN do not support viewing differences between directory hierarchies. But if you have an external tool which does support that feature, you can use that instead. In <xref linkend=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have used."
 msgstr "Les outils intégrés fournis avec TortoiseSVN ne supportent pas l'observation de différences entre les hiérarchies de répertoire. Mais si vous avez un outil externe qui supporte vraiment cette fonctionnalité, vous pouvez l'utiliser à la place. Dans <xref linkend=\"tsvn-dug-diff-tools\"/> nous vous parlerons de quelques outils que nous avons utilisés."
 
@@ -5047,14 +5044,12 @@ msgid "You can export a <emphasis>change tree</emphasis>, which is useful if you
 msgstr "Vous pouvez exporter un <emphasis>arbre des modifications</emphasis>, qui est utile si vous avez besoin d'envoyer la structure de l'arbre de votre projet à un tiers, contenant uniquement les fichiers qui ont été modifiés. Cette opération fonctionne sur les fichiers sélectionnés uniquement, ainsi vous devez sélectionner les fichiers qui vous intéressent - ce qui signifie souvent tous les fichiers - puis ensuite sélectionner <menuchoice><guimenu>Menu Contextuel</guimenu><guimenuitem>Exporter la sélection vers...</guimenuitem></menuchoice>. Vous serez invités à chosir un emplacement où sauvegarder l'arbre des modifications. "
 
 #. (para)
-#, fuzzy
 msgid "You can also export the <emphasis>list</emphasis> of changed files to a text file using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Save list of selected files to...</guimenuitem></menuchoice>."
-msgstr "Vous pouvez aussi aller à une ligne particulière en utilisant <menuchoice><guimenu>Editer</guimenu><guimenuitem>Aller à la ligne...</guimenuitem></menuchoice>."
+msgstr "Vous pouvez également exporter la <emphasis>liste</emphasis> des fichiers modifiés dans un fichier texte en utilisant <menuchoice><guimenu>le menu contextuel</guimenu><guimenuitem>Enregistrer la liste de fichiers sélectionnés vers...</guimenuitem></menuchoice>."
 
 #. (para)
-#, fuzzy
 msgid "If you want to export the list of files <emphasis>and</emphasis> the actions (modified, added, deleted) as well, you can do that using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Copy selection to clipboard</guimenuitem></menuchoice>."
-msgstr "Si vous voulez exporter la listes des fichiers <emphasis>et</emphasis> aussi les actions (modifié, ajouté, supprimé), vous pouvez le faire en utilisant les raccourcis clavier <action>Ctrl-A</action> pour sélectionner les entrées et <action>Ctrl-C</action> pour copier la liste détaillée dans le presse-papier."
+msgstr "Si vous voulez exporter la listes des fichiers <emphasis>et</emphasis> aussi les actions (modifié, ajouté, supprimé), vous pouvez le faire en utilisant <menuchoice><guimenu>le menu contextuel</guimenu><guimenuitem>Copier la sélection dans le presse-papier</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "The button at the top allows you to change the direction of comparison. You can show the changes need to get from A to B, or if you prefer, from B to A."
@@ -5062,7 +5057,7 @@ msgstr "Le bouton en haut vous permet de modifier le sens de la comparaison. Vou
 
 #. (para)
 msgid "The buttons with the revision numbers on can be used to change to a different revision range. When you change the range, the list of items which differ between the two revisions will be updated automatically."
-msgstr "Les boutons flanqués des numéros de révision peuvent être utilisés pour passer à un éventail de révisions différent. Lorsque vous changez d'éventail, la liste des éléments qui diffèrent entre les deux révisions sera mise à jour automatiquement."
+msgstr "Les boutons avec les numéros de révision peuvent être utilisés pour passer à un éventail de révisions différent. Lorsque vous changez d'éventail, la liste des éléments qui diffèrent entre les deux révisions sera mise à jour automatiquement."
 
 #. (para)
 msgid "If the list of filenames is very long, you can use the search box to reduce the list to filenames containing specific text. Note that a simple text search is used, so if you want to restrict the list to C source files you should enter <filename>.c</filename> rather than <filename>*.c</filename>."
@@ -5089,19 +5084,16 @@ msgid "The image difference viewer"
 msgstr "Le visualiseur de différences d'images"
 
 #. (para)
-#, fuzzy
 msgid "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> for any of the common image file formats will start TortoiseIDiff to show image differences. By default the images are displayed side-by-side but you can use the View menu or toolbar to switch to a top-bottom view instead, or if you prefer, you can overlay the images and pretend you are using a lightbox."
-msgstr "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Voir les différences</guimenuitem></menuchoice> pour n'importe quel format d'image commun démarrera TortoiseIDiff pour afficher les différences d'image. Par défaut les images sont affichées côte à côte mais vous pouvez utiliser le menu Affichage ou la barre d'outil pour basculer vers une vue haut-bas à la place, ou si vous préférez, vous pouvez superposer les images et prétendre utiliser de la lumière. Un slider en haut contrôle l'intensité relative des images (transparence alpha). Vous pouvez aussi utiliser <action>Ctrl-Maj-Molettel</action> pour changer la transparence."
+msgstr "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Voir les différences</guimenuitem></menuchoice> pour n'importe quel format d'image commun démarrera TortoiseIDiff pour afficher les différences d'image. Par défaut les images sont affichées côte à côte mais vous pouvez utiliser le menu Affichage ou la barre d'outils pour basculer vers une vue haut-bas à la place, ou si vous préférez, vous pouvez superposer les images et prétendre utiliser une visionneuse."
 
 #. (para)
-#, fuzzy
 msgid "Naturally you can also zoom in and out and pan around the image. You can also pan the image simply by left-dragging it. If you select the <guilabel>Link images together</guilabel> option, then the pan controls (scrollbars, mousewheel) on both images are linked."
-msgstr "Naturellement vous pouvez aussi agrandir, réduire et vous déplacer dans l'image. Si vous sélectionnez l'option <guilabel>Lier les images ensemble</guilabel>, alors les contrôles de déplacement (barre de déroulement, molette) des deux images sont réliés."
+msgstr "Naturellement vous pouvez aussi faire un zoom avant, arrière tout en vous déplacant sur l'image. Vous pouvez également effectuer un mouvement de l'image à gauche simplement en le faisant glisser. Si vous sélectionnez l'option <guilabel>Lier les images ensemble</guilabel>, alors les contrôles de déplacement (barre de déroulement, molette) des deux images sont réliés."
 
 #. (para)
-#, fuzzy
 msgid "An image info box shows details about the image file, such as the size in pixels, resolution and colour depth. If this box gets in the way, use <menuchoice><guimenu>View</guimenu><guimenuitem>Image Info</guimenuitem></menuchoice> to hide it. You can get the same information in a tooltip if you hover the mouse over the image title bar."
-msgstr "Dans l'image, une boîte d'informations affiche les détails concernant le fichier image, comme la taille en pixels, la résolution et la profondeur des couleurs. Si cette boîte se trouve dans le chemin, utilisez <menuchoice><guimenu>Affichage</guimenu><guimenuitem>Informations de l'image</guimenuitem></menuchoice> pour la masquer."
+msgstr "Dans l'image, une boîte d'informations affiche les détails concernant le fichier image, comme la taille en pixels, la résolution et la profondeur des couleurs. Si cette boîte se trouve dans le chemin, utilisez <menuchoice><guimenu>Affichage</guimenu><guimenuitem>Informations de l'image</guimenuitem></menuchoice> pour la masquer. Vous pouvez obtenir la même information dans une info-bulle lorsque vous passez la souris sur la barre de titre de l'image."
 
 #. (para)
 msgid "When the images are overlaid, the relative intensity of the images (alpha blend) is controlled by a slider control at the left side. You can click anywhere in the slider to set the blend directly, or you can drag the slider to change the blend interactively. <keycap>Ctrl+Shift</keycap>-<action>Wheel</action> to change the blend."
@@ -5113,7 +5105,7 @@ msgstr "Le bouton au dessus de l'ascenseur permet de passer de 0% à 100% de tra
 
 #. (para)
 msgid "Sometimes you want to see a difference rather than a blend. You might have the image files for two revisions of a printed circuit board and want to see which tracks have changed. If you disable alpha blend mode, the difference will be shown as an <emphasis>XOR</emphasis> of the pixel colour values. Unchanged areas will be plain white and changes will be coloured."
-msgstr ""
+msgstr "Parfois vous voulez voir une différence plutot qu'un mélange. Vous pourriez avoir les fichiers d'images de deux révisions d'un circuit imprimé et dont vous souhaitez voir quelles pistes ont changées. Si vous désactivez le mode alpha blend, la différence sera présenté comme un <emphasis>XOR</emphasis> de la valeur des pixels de couleur. Les zones inchangées seront de couleur blanche et les changements seront colorés."
 
 #. (title)
 msgid "External Diff/Merge Tools"
