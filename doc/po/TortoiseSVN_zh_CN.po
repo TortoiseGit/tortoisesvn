@@ -56,7 +56,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-13 22:53-0500\n"
+"PO-Revision-Date: 2009-12-14 22:11-0500\n"
 "Last-Translator: Garfield Yao <field977@hotmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4952,14 +4952,13 @@ msgid "Authentication Dialog"
 msgstr "认证对话框"
 
 #. (para)
-#, fuzzy
 msgid ""
 "<filename>svn.simple</filename> contains credentials for basic authentication "
 "(username/password). Note that passwords are stored using the WinCrypt API, "
 "not in plain text form."
 msgstr ""
-"<filename>svn.simple</filename> 里包含了基本认证方式所需要的认证信息(用户名/口"
-"令)。"
+"<filename>svn.simple</filename> 里包含了基本认证方式所需要的认证信息(用户名/密"
+"码)。注意，保存的密码是通过 WinCrypt API 加密的，不是文本形式。"
 
 #. (para)
 msgid "<filename>svn.ssl.server</filename> contains SSL server certificates."
@@ -4981,12 +4980,11 @@ msgid ""
 "Subversion's default directory: <filename>%APPDATA%\\Subversion\\auth</"
 "filename> in three subdirectories: <placeholder-2/>"
 msgstr ""
-"如果连接的版本库需要口令，就会显示认证对话框。<placeholder-1/> 输入你的用户名"
-"和口令。复选框能让 TortoiseSVN 在 Subversion 的缺省目录: <filename>%APPDATA%"
+"如果连接的版本库需要密码，就会显示认证对话框。<placeholder-1/> 输入你的用户名"
+"和密码。复选框能让 TortoiseSVN 在 Subversion 的缺省目录: <filename>%APPDATA%"
 "\\Subversion\\auth</filename> 的三个子目录内保存认证信息:<placeholder-2/>"
 
 #. (para)
-#, fuzzy
 msgid ""
 "If you want to clear the authentication cache for all servers, you can do so "
 "from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings "
@@ -4995,10 +4993,10 @@ msgid ""
 "authentication data stored in the registry by earlier versions of "
 "TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
 msgstr ""
-"如果想要清除<emphasis>所有</emphasis>服务器的认证缓存，可以通过 TortoiseSVN 设"
-"置对话框的<guilabel>常规设置</guilabel>页来实现。那个按钮能够清除 Subversion "
-"的 auth 目录中缓存的所有认证数据，以及老版本的 TortoiseSVN 存储在注册表里的认"
-"证数据。请参考 <xref linkend=\"tsvn-dug-settings-main\"/>。"
+"如果想要清除所有服务器的认证缓存，可以通过 TortoiseSVN 设置对话框的<guilabel>"
+"已保存数据</guilabel>页来实现。那个按钮能够清除 Subversion 的 <filename>auth</"
+"filename> 目录中缓存的所有认证数据，以及老版本的 TortoiseSVN 存储在注册表里的"
+"认证数据。请参考 <xref linkend=\"tsvn-dug-settings-saved-data\"/>。"
 
 #. (para)
 msgid ""
@@ -5006,6 +5004,8 @@ msgid ""
 "dig into those directories, find the file which contains the information you "
 "want to clear and delete the file."
 msgstr ""
+"如果你想清除某一个范围的认证信息，那么你需要打开那些目录，找到包含你要清除的信"
+"息的文件并删除文件。"
 
 #. (para)
 msgid ""
@@ -5107,9 +5107,8 @@ msgid ""
 msgstr "导入的文件夹不能变成工作副本。你必须通过签出操作从服务器拿回文件。"
 
 #. (para)
-#, fuzzy
 msgid "It is easy to import to the wrong folder level in the repository."
-msgstr "在版本库创建新目录。"
+msgstr "很容易导入到版本库中错误的文件夹层次。"
 
 #. (para)
 msgid ""
@@ -5212,7 +5211,6 @@ msgstr ""
 "linkend=\"tsvn-dug-settings-main\"/>以获得关于全局忽略模式的更多信息。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "As soon as you press <guibutton>OK</guibutton> TortoiseSVN imports the "
 "complete directory tree including all files into the repository. The project "
@@ -5223,11 +5221,10 @@ msgid ""
 "import a folder in place."
 msgstr ""
 "当你点击<guibutton>确认</guibutton>时，TortoiseSVN 会导入包含所有文件的完整目"
-"录树到版本库。如前所述，你导入的文件夹名称不会在版本库中出现，只有这个文件夹的"
-"内容会在版本库中出现。现在这个工程就存贮在版本库，被版本控制。请注意，你导入的"
-"文件夹<emphasis>没有</emphasis>被版本控制！你需要检出刚才导入的版本，以便获得"
-"受版本控制的<firstterm>工作目录</firstterm>。或者继续阅读，找到如何导入文件夹"
-"到合适的位置。"
+"录树到版本库。现在这个工程就存贮在版本库，被版本控制。请注意，你导入的文件夹"
+"<emphasis>没有</emphasis>被版本控制！你需要检出刚才导入的版本，以便获得受版本"
+"控制的<firstterm>工作副本</firstterm>。或者继续阅读，找到如何导入文件夹到合适"
+"的位置。"
 
 #. (title)
 msgid "Import in Place"
@@ -12277,6 +12274,8 @@ msgid ""
 "with TortoiseSVN compared to the command line client. The easiest way to "
 "visualise it is to think of a fence with posts and fence panels."
 msgstr ""
+"在 TortoiseSVN 中指定版本范围的方法与命令行客户端大相径庭。用最简单的方法来说"
+"明这一点，设想一条栅栏，有支撑柱和栅栏板。"
 
 #. (para)
 msgid ""
@@ -12284,6 +12283,8 @@ msgid ""
 "<quote>fence post</quote> revisions which specify the <emphasis>before</"
 "emphasis> and <emphasis>after</emphasis> points."
 msgstr ""
+"在命令行客户端，你使用两个<quote>支撑柱</quote>版本来指定需要合并的修改，这两"
+"个版本指明了<emphasis>修改前</emphasis>和<emphasis>修改后</emphasis>的点。"
 
 #. (para)
 msgid ""
@@ -12291,6 +12292,9 @@ msgid ""
 "panels</quote>. The reason for this becomes clear when you use the log dialog "
 "to specify revisions to merge, where each revision appears as a changeset."
 msgstr ""
+"在 TortoiseSVN，你使用<quote>栅栏板</quote>来指定要合并的修改集。当你使用日志"
+"对话框来选择需要合并的版本时这样做的原因就很清晰，每个版本看上去就是一个修改"
+"集。"
 
 #. (para)
 msgid ""
@@ -12298,6 +12302,9 @@ msgid ""
 "book will have you merge 100-200 this time and 200-300 next time. With "
 "TortoiseSVN you would merge 100-200 this time and 201-300 next time."
 msgstr ""
+"如果你要合并大量的版本，按照在 subversion 手册中所示的方法，你要在这次合并 "
+"100-200 下次合并 200-300。如果使用 TortoiseSVN，你要在这次合并 100-200 下次合"
+"并 201-300。"
 
 #. (para)
 msgid ""
@@ -12306,9 +12313,10 @@ msgid ""
 "believe that for the majority of GUI users it is easier to understand the "
 "method we have implemented."
 msgstr ""
+"这个区别在邮件列表中引起了热烈的讨论。我们知道它与命令行客户端不同，但是我们相"
+"信，对于大多数的图形界面用户来说，我们制定的方法更容易理解。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "The easiest way to select the range of revisions you need is to click on "
 "<guibutton>Show Log</guibutton>, as this will list recent changes with their "
@@ -12320,9 +12328,8 @@ msgid ""
 msgstr ""
 "选择版本范围最简单的方法是，点击<guibutton>显示日志</guibutton>，列出最近的修"
 "改和日志。如果你要合并单个版本的修改，直接选取那个版本。如果你要合并多个版本，"
-"就选择范围(使用通常的<keycap>Shift</keycap>-键)。点击<guibutton>确认</"
-"guibutton>，就会为你填写合并对话框的<emphasis>全部</emphasis>域，<guilabel>开"
-"始版本</guilabel>和<guilabel>结束版本</guilabel>。"
+"就选择范围(使用通常的<keycap>Shift</keycap>键)。点击<guibutton>确认</"
+"guibutton>，就会为你填写要合并的版本号列表。"
 
 #. (para)
 msgid ""
@@ -12333,7 +12340,6 @@ msgid ""
 msgstr ""
 
 #. (para)
-#, fuzzy
 msgid ""
 "If you have already merged some changes from this branch, hopefully you will "
 "have made a note of the last revision merged in the log message when you "
@@ -12345,9 +12351,10 @@ msgid ""
 "point for this merge should be revision 40."
 msgstr ""
 "如果你已经从这个分支合并了一些修改，希望你在提交日志中注明最后一个合并的版本"
-"号。这时，你可以在工作服本上使用<guibutton>显示日志</guibutton>对话框跟踪日"
-"志。使用最后合并的版本号作为本次合并的开始版本。例如，你已经合并了版本37到39，"
-"那么本次合并你应该从版本39开始。"
+"号。这时，你可以在工作副本上使用<guibutton>显示日志</guibutton>对话框跟踪日"
+"志。记住，我们将版本号视作修改集，你应该使用最后合并的版本之后的版本作为本次合"
+"并的开始版本。例如，上次你已经合并了版本37到39，那么本次合并你应该从版本40开"
+"始。"
 
 #. (para)
 msgid ""
@@ -12357,6 +12364,9 @@ msgid ""
 "not yet been merged will be included. Read <xref linkend=\"tsvn-dug-merge-"
 "tracking\"/> to find out more."
 msgstr ""
+"如果你在使用 Subversion 的合并跟踪特性，你就不需要记住已经合并了那些版本 - "
+"Subversion 将会帮你记录。如果不填写版本范围，所有未合并的版本将被选中。阅读"
+"<xref linkend=\"tsvn-dug-merge-tracking\"/>获得更多信息。"
 
 #. (para)
 msgid ""
