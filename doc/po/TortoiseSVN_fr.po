@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-15 15:01-0600\n"
+"PO-Revision-Date: 2009-12-15 17:46-0600\n"
 "Last-Translator: Matthias GOUPIL <mgoupil@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5443,22 +5443,20 @@ msgid "remove"
 msgstr "enlever"
 
 #. (para)
-#, fuzzy
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> to remove files or folders from subversion."
-msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Supprimer</guimenuitem></menuchoice> le dossier de votre copie de travail."
+msgstr "Utiliser <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Supprimer</guimenuitem></menuchoice> pour effacer des fichiers ou répertoires dans subversion."
 
 #. (para)
-#, fuzzy
 msgid "When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> a file, it is removed from your working copy immediately as well as being marked for deletion in the repository on next commit. The file's parent folder shows a <quote>deleted</quote> icon overlay. Up until you commit the change, you can get the file back using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> on the parent folder."
-msgstr "Si vous supprimez un fichier/répertoire en utilisant TSVN, le fichier est supprimé de votre copie de travail et marqué à supprimer. Le dossier parent du fichier affiche un recouvrement d'icône \"supprimé \". Vous pouvez toujours récupérer le fichier, si vous appelez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revenir en arrière</guimenuitem></menuchoice> sur le dossier parent."
+msgstr "Lorsque vous utilisez la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Supprimer</guimenuitem></menuchoice> sur un fichier,  il est supprimé immédiatement de votre copie de travail tout en étant marqué pour suppression dans le référentiel jusqu'au prochain envoi au dépôt. Il s'affiche sur le dossier parent du fichier un icône <quote>supprimé</quote>. Jusqu'à ce que vous envoyez les modifications au dépot, vous pouvez toujours récupérer le fichier comme à l'origine si vous appelez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revenir en arrière</guimenuitem></menuchoice> sur le dossier parent."
 
 #. (para)
 msgid "When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> a folder, it remains in your working copy, but the overlay changes to indicate that it is marked for deletion. Up until you commit the change, you can get the folder back using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> on the folder itself. This difference in behaviour between files and folders is a part of Subversion, not TortoiseSVN."
-msgstr ""
+msgstr "Lorsque vous utilisez la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Supprimer</guimenuitem></menuchoice> sur un répertoire, il est conservé dans votre copie de travail, mais l'icône change pour indiquer qu'il est marqué pour suppression. Jusqu'à ce que vous envoyez les modifications au référentiel, vous pouvez revenir en arrière et récupérer le dossier en faisant<menuchoice><guimenu>TortoiseSVN</ guimenu><guimenuitem>Revenir en arrière</ guimenuitem></ menuchoice> sur le dossier lui-même. Cette différence de comportement entre les fichiers et dossiers est une caractéristique de Subversion, pas de TortoiseSVN."
 
 #. (para)
 msgid "If you want to delete an item from the repository, but keep it locally as an unversioned file/folder, use <menuchoice><guimenu>Extended Context Menu</guimenu><guimenuitem>Delete (keep local)</guimenuitem></menuchoice>. You have to hold the <keycap>Shift</keycap> key while right clicking on the item in the explorer list pane (right pane) in order to see this in the extended context menu."
-msgstr ""
+msgstr "Si vous voulez supprimer un élément dans le référentiel, mais le conserver localement comme un fichier/répertoire sans version, utilisez <menuchoice><guimenu>Menu Contextuel Avancé</ guimenu><guimenuitem>Supprimer (conserver localement)</ guimenuitem></ menuchoice>. Vous devez tenir la touche <keycap>Maj</ keycap> enfoncée tout eeffectuant un clic droit avec la souris sur l'élément désiré dans le volet de l'explorateur (volet droit) afin de voir dans le menu contextuel avancé."
 
 #. (para)
 msgid "If a <emphasis>file</emphasis> is deleted via the explorer instead of using the TortoiseSVN context menu, the commit dialog shows those files and lets you remove them from version control too before the commit. However, if you update your working copy, Subversion will spot the missing file and replace it with the latest version from the repository. If you need to delete a version-controlled file, always use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> so that Subversion doesn't have to guess what you really want to do."
@@ -5491,9 +5489,8 @@ msgid "move"
 msgstr "déplacer"
 
 #. (para)
-#, fuzzy
 msgid "If you want to do a simple in-place rename of a file or folder, use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Rename...</guimenuitem></menuchoice> Enter the new name for the item and you're done."
-msgstr "Si vous faites un <action>clic droit</action> sur une révision, vous pouvez utiliser <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Voir le journal</guimenuitem></menuchoice> pour voir l'historique."
+msgstr "Si vous voulez faire un simplement renommer un fichier ou un dossier, utilisez <menuchoice><guimenu>Menu contextuel</ guimenu><guimenuitem>Renommer...</ guimenuitem></ menuchoice> Entrez le nouveau nom de l'objet et vous avez terminé."
 
 #. (para)
 msgid "select the files or directories you want to move"
@@ -5504,18 +5501,16 @@ msgid "in the popup menu select <menuchoice><guimenu>Context Menu</guimenu><guim
 msgstr "Dans le menu qui apparaît, sélectionnez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>SVN Déplacer les fichiers dans Subversion ici</guimenuitem></menuchoice>"
 
 #. (para)
-#, fuzzy
 msgid "If you want to move files around inside your working copy, perhaps to a different sub-folder, use the right-mouse drag-and-drop handler: <placeholder-1/>"
-msgstr "Si vous voulez déplacer des fichiers à l'intérieur d'une copie de travail, utilisez une nouvelle fois le glisser-déplacer : <placeholder-1/>"
+msgstr "Si vous voulez déplacer des fichiers à l'intérieur d'une copie de travail, peut-être vers un différent sous-répertoire, utilisez une nouvelle fois le glisser-déplacer : <placeholder-1/>"
 
 #. (title)
 msgid "Commit the parent folder"
 msgstr "Livrez le répertoire parent"
 
 #. (para)
-#, fuzzy
 msgid "Since renames and moves are done as a delete followed by an add you must commit the parent folder of the renamed/moved file so that the deleted part of the rename/move will show up in the commit dialog. If you don't commit the removed part of the rename/move, it will stay behind in the repository and when your co-workers update, the old file will not be removed. i.e. they will have <emphasis>both</emphasis> the old and the new copies."
-msgstr "Puisque les renommages et les déplacements sont gérés comme une suppression suivie d'un ajout vous devez livrer le dossier parent du fichier renommé/déplacé pour que la partie supprimée du renommage/déplacement apparaisse dans la boîte de dialogue Livrer. Si vous ne livrez pas la partie supprimée du renommage/déplacement, il restera dans le référentiel et une mise à jour par vos collègues ne supprimera pas le vieux fichier. C'est-à-dire qu'ils auront <emphasis>tant</emphasis> les vieilles que les nouvelles copies."
+msgstr "Puisque les renommages et les déplacements sont gérés comme une suppression suivie d'un ajout vous devez livrer le dossier parent du fichier renommé/déplacé pour que la partie supprimée du renommage/déplacement apparaisse dans la boîte de dialogue Livrer. Si vous ne livrez pas la partie supprimée du renommage/déplacement, il restera dans le référentiel et une mise à jour par vos collègues ne supprimera pas le vieux fichier. C'est-à-dire qu'ils auront <emphasis>les deux</emphasis>, les vieilles et les nouvelles copies."
 
 #. (para)
 msgid "You <emphasis>must</emphasis> commit a folder rename before changing any of the files inside the folder, otherwise your working copy can get really messed up."
@@ -5523,12 +5518,11 @@ msgstr "Vous <emphasis>devez</emphasis> livrer un renommage de dossier avant de 
 
 #. (para)
 msgid "Another way of moving or copying files is to use the Windows copy/cut commands. Select the files you want to copy, right-click and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice> from the explorer context menu. Then browse to the target folder, right-click and choose <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Paste</guimenuitem></menuchoice>. For moving files, choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Cut</guimenuitem></menuchoice> instead of <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Une autre manière de déplacer ou copier des fichiers est d'utiliser les commandes Windows copier/couper. Sélectionnez les fichiers que vous souhaitez copier, faites un clic droit et choisissez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Copier</guimenuitem></menuchoice> dans le menu contextuel de l'explorateur. Ensuite allez dans le dossier cible, faites un clique droit et choisissez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Coller</guimenuitem></menuchoice>. Pour déplacer des fichiers, choisissez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Couper</guimenuitem></menuchoice> au lieu de <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Copier</guimenuitem></menuchoice>."
 
 #. (para)
-#, fuzzy
 msgid "You can also use the repository browser to move items around. Read <xref linkend=\"tsvn-dug-repobrowser\"/> to find out more."
-msgstr "Il peut aussi s'intégrer à certains explorateurs de référentiel en ligne.  Lisez <xref linkend=\"tsvn-dug-repoviewer\"/> pour plus d'informations."
+msgstr "Vous pouvez aussi utiliser le navigateur du référentiel pour déplacer des éléments. <xref Lire linkend=\"tsvn-dug-repobrowser\"/> pour en savoir plus."
 
 #. (title)
 msgid "Do Not SVN Move Externals"
