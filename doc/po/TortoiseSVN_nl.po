@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-14 18:15+0100\n"
-"Last-Translator: Christian Peper <jcapeper@peper-it.nl>\n"
+"PO-Revision-Date: 2009-12-15 12:13+0100\n"
+"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4544,31 +4544,31 @@ msgstr "Toon het revisie logboek voor een enkel geselecteerd bestand met de same
 
 #. (para)
 msgid "Save the selected revision to a file so you have an older version of that file."
-msgstr ""
+msgstr "Sla de geselecteerde revisie op in een bestand, zodat je een oudere versie van dat bestand hebt."
 
 #. (para)
 msgid "<placeholder-1/> The bottom pane of the Log dialog also has a context menu that allows you to <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/>Het onderste deelvenster van het logboek boodschappenvenster heeft ook een context menu met de volgende opties:<placeholder-2/>"
 
 #. (para)
 msgid "You may notice that sometimes we refer to changes and other times to differences. What's the difference?"
-msgstr ""
+msgstr "Misschien is het je opgevallen dat we soms refereren naar wijzigingen en soms naar verschillen. Wat is het verschil?"
 
 #. (para)
 msgid "Subversion uses revision numbers to mean 2 different things. A revision generally represents the state of the repository at a point in time, but it can also be used to represent the changeset which created that revision, eg. <quote>Done in r1234</quote> means that the changes committed in r1234 implement feature X. To make it clearer which sense is being used, we use two different terms."
-msgstr ""
+msgstr "Subversion gebruikt de revisienummers voor 2 doeleinden. Een revisie geeft in principe de staat van het archief weer op een zeker moment. Een revisie kan ook een set van wijzigingen aanduiden die zijn doorgevoerd op een vorige revisie waardoor de nieuwe revisie is gecreëerd. Bijvoorbeeld <quote>Doorgevoerd in r1234</quote> betekend dat met de wijzigingen die met r1234 zijn vastgelegd functie X gerealiseerd is. Om duidelijk te maken welke betekenis we bedoelen, maken we gebruik van twee termen."
 
 #. (para)
 msgid "If you select two revisions N and M, the context menu will offer to show the <emphasis>difference</emphasis> between those two revisions. In Subversion terms this is <literal>diff -r M:N</literal>."
-msgstr ""
+msgstr "Als je twee revisies N en M selecteert, dan geeft het context menu de mogelijk om de <emphasis>verschillen</emphasis> tussen de twee revisies te laten zien. In Subversion termen wordt dit aangegeven door <literal>diff -r M:N</literal>."
 
 #. (para)
 msgid "If you select a single revision N, the context menu will offer to show the <emphasis>changes</emphasis> made in that revision. In Subversion terms this is <literal>diff -r N-1:N</literal> or <literal>diff -c N</literal>."
-msgstr ""
+msgstr "Als je alleen revisie N selecteert, dan geeft het context menu de mogelijkheid om de <emphasis>wijzigingen</emphasis> van die revisie te laten zien. In Subversion termen wordt dit aangegeven met <literal>diff -r N-1:N</literal> of <literal>diff -c N</literal>."
 
 #. (para)
 msgid "The bottom pane shows the files changed in all selected revisions, so the context menu always offers to show <emphasis>changes</emphasis>."
-msgstr ""
+msgstr "Het onderste deelvenster laat de bestanden zien die gewijzigd zijn in alle geselecteerd revisies, oftewel het context menu zal altijd de mogelijkheid geven om <emphasis>wijzigingen</emphasis> te laten zien."
 
 #. (title)
 msgid "Getting more log messages"
