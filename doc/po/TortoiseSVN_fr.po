@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-14 17:57+0100\n"
+"PO-Revision-Date: 2009-12-15 12:11+0100\n"
 "Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -814,7 +814,7 @@ msgstr "Pour la plupart, les URL de Subversion utilisent la syntaxe standard, au
 
 #. (para)
 msgid "Also, users of the <literal>file://</literal> scheme on Windows platforms will need to use an unofficially <quote>standard</quote> syntax for accessing repositories that are on the same machine, but on a different drive than the client's current working drive. Either of the two following URL path syntaxes will work where <literal>X</literal> is the drive on which the repository resides:"
-msgstr "Also, users of the <literal>file://</literal> scheme on Windows platforms will need to use an unofficially <quote>standard</quote> syntax for accessing repositories that are on the same machine, but on a different drive than the client's current working drive. Either of the two following URL path syntaxes will work where <literal>X</literal> is the drive on which the repository resides:Ainsi, les utilisateurs du système de fichier <literal>file:</literal> sur les plate-formes Windows devront utiliser une syntaxe <quote>standard</quote> non-officielle pour avoir accès aux référentiels qui sont sur la même machine, mais sur un disque différent du disque de travail. Les deux syntaxes de chemin d'URL suivantes marcheront ; <literal>X</literal> est le disque sur lequel est hébergé le référentiel :"
+msgstr "Ainsi, les utilisateurs du système de fichier <literal>file:</literal> sur les plate-formes Windows devront utiliser une syntaxe <quote>standard</quote> non-officielle pour avoir accès aux référentiels qui sont sur la même machine, mais sur un disque différent du disque de travail. Les deux syntaxes de d'URL suivantes marcheront ; <literal>X</literal> est le disque sur lequel est hébergé le référentiel :"
 
 #. (screen)
 #, no-wrap
@@ -1361,7 +1361,7 @@ msgstr "Surcharger les hooks"
 
 #. (para)
 msgid "If a hook script rejects your commit then its decision is final. But you can build an override mechanism into the script itself using the <emphasis>Magic Word</emphasis> technique. If the script wants to reject the operation it first scans the log message for a special pass phrase, either a fixed phrase or perhaps the filename with a prefix. If it finds the magic word then it allows the commit to proceed. If the phrase is not found then it can block the commit with a message like <quote>You didn't say the magic word</quote> :-)"
-msgstr ""
+msgstr "Si un script de hook rejette votre livraison c'est définitif. Ceci dit, vous pouvez ajouter un mécanisme au sein du script grâce à la technique du <emphasis>Mot Magique</emphasis>. Avant d'acter le rejet, le script parcours les commentaires de livraison, et recherche un éventuel message spécial, prédéfini ou le nom de fichier lui même associé d'un préfixe. S'il trouve le mot magique il autorise alors la livraison. Si le message spécial n'est pas trouvé, la livraison est bloquée avec un message comme <quote>Vous n'avez pas dit le mot magique</quote> :-)"
 
 #. (title)
 msgid "Checkout Links"
@@ -1821,7 +1821,7 @@ msgstr "WebDAV"
 
 #. (para)
 msgid "The Apache based Subversion server uses the WebDAV protocol which is supported by many other programs as well. You could e.g. mount such a repository as a <quote>Web folder</quote> in the Windows explorer and then access it like any other folder in the file system."
-msgstr "You could e.g. mount such a repository as a <quote>Web folder</quote> in the Windows explorer and then access it like any other folder in the file system.Le serveur Subversion basé sur Apache utilise le protocole WebDAV qui est aussi supporté par beaucoup d'autres programmes. Vous pourriez par exemple monter un tel référentiel comme un <quote>Répertoire Web</quote> dans l'explorateur Windows et y accéder ensuite comme n'importe quel autre dossier."
+msgstr ".Le serveur Subversion basé sur Apache utilise le protocole WebDAV qui est aussi supporté par beaucoup d'autres programmes. Vous pourriez par exemple monter un tel référentiel comme un « Répertoire Web » dans l'explorateur Windows et y accéder ensuite comme n'importe quel autre dossier."
 
 #. (term)
 msgid "Browsing The Repository"
@@ -1854,7 +1854,7 @@ msgstr "Installer Apache"
 
 #. (para)
 msgid "Please note that Windows XP without the service pack 1 will lead to bogus network data and could therefore corrupt your repository!"
-msgstr "Veuiller noter que Windows XP sans le service pack 1 entrainera des données erronées en réseau et pourrait donc corrompre votre référentiel !"
+msgstr "Veuiller noter que Windows XP sans le service pack 1 entrainera des problèmes de données réseau et pourrait donc corrompre votre référentiel !"
 
 #. (para)
 msgid "Download the latest version of the Apache web server from <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Make sure that you download the version 2.2.x - the version 1.3.xx won't work!"
@@ -2469,7 +2469,6 @@ msgstr ""
 "</screen>"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Next type the commands <screen>\n"
 "bin\\openssl rsa -in conf\\privkey.pem -out conf\\server.key\n"
@@ -2490,9 +2489,9 @@ msgstr ""
 "bin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n"
 "-config conf\\openssl.cnf\n"
 "</screen> puis (sur une seule ligne) <screen>\n"
-"bin\\openssl x509 -in conf\\server.csr -out conf\\server.crt\n"
+"bin\\openssl x509 -in conf\\server.csr -out conf\\server.cert\n"
 "                 -req -signkey conf\\server.key -days 4000\n"
-"</screen>Elles créeront un certificat qui expirera dans 4000 jours. Et enfin écrivez (sur une seule ligne) : <screen>\n"
+"</screen>Cela créera un certificat qui expirera dans 4000 jours. Et enfin écrivez (sur une seule ligne) : <screen>\n"
 "bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
 "                 -outform DER\n"
 "</screen> Ces commandes ont créé quelques fichiers dans le répertoire <filename>conf</filename> de Apache (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>)."
