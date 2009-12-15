@@ -106,13 +106,9 @@ HWND hWndExplorer;
 CString sOrigCWD;
 
 CCrashReport crasher("tortoisesvn@gmail.com", "Crash Report for TortoiseSVN " APP_X64_STRING " : " STRPRODUCTVER, TRUE);// crash
-#include "ProgressDlg.h"
 // CTortoiseProcApp initialization
 BOOL CTortoiseProcApp::InitInstance()
 {
-	CProgressDlg testDlg;
-	testDlg.FormatNonPathLine(2, IDS_PROC_COPYINGPROG, _T("testingpath"));
-	testDlg.FormatNonPathLine(1, IDS_ERR_COPYITSELF, _T("testingpath"), _T("testingpath2"));
 	CAppUtils::SetupDiffScripts(true, CString());
 	EnableCrashHandler();
 	InitializeJumpList();
