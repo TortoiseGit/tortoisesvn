@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-15 12:13+0100\n"
+"PO-Revision-Date: 2009-12-15 15:50+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4572,47 +4572,47 @@ msgstr "Het onderste deelvenster laat de bestanden zien die gewijzigd zijn in al
 
 #. (title)
 msgid "Getting more log messages"
-msgstr "Haal uitgebreide logboek boodschappen"
+msgstr "Ophalen van uitgebreide logboek boodschappen"
 
 #. (para)
 msgid "For a large repository there may be hundreds or even thousands of changes and fetching them all could take a long time. Normally you are only interested in the more recent changes. By default, the number of log messages fetched is limited to 100, but you can change this value in <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings-dialogs\"/>),"
-msgstr ""
+msgstr "Bij een groot archief zijn er waarschijnlijk honderden of misschien wel duizenden wijzigingen. Binnenhalen van al die wijzigingen neemt meestal veel tijd in beslag, terwijl je waarschijnlijk alleen geïnteresseerd bent in de meest recente wijzigingen. Standaard worden er maximaal 100 logboek boodschappen opgehaald, maar je kunt deze waarde wijzigen bij <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Instellingen</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings-dialogs\"/>)."
 
 #. (para)
 msgid "When the <guilabel>Stop on copy/rename</guilabel> box is checked, Show Log will stop at the point that the selected file or folder was copied from somewhere else within the repository. This can be useful when looking at branches (or tags) as it stops at the root of that branch, and gives a quick indication of changes made in that branch only."
-msgstr ""
+msgstr "Als de <guilabel>Stoppen bij kopie/hernoemd bestand</guilabel> optie geselecteerd is, dan zal Toon Logboek stoppen op het punt waarop het geselecteerde bestand of de map vanaf een ander punt uit het archief gekopieerd is. Dit is handig bij het bekijken van takken (of labels), omdat er dan gestopt wordt bij de bron van de tak en er meteen een snel overzicht is van de wijzigingen in de tak."
 
 #. (para)
 msgid "Normally you will want to leave this option unchecked. TortoiseSVN remembers the state of the checkbox, so it will respect your preference."
-msgstr ""
+msgstr "Normaal gesproken zal je deze optie uit laten staan. TortoiseSVN onthoudt deze instelling, zodat jouw voorkeur bewaard blijft."
 
 #. (para)
 msgid "When the Show Log dialog is invoked from within the Merge dialog, the box is always checked by default. This is because merging is most often looking at changes on branches, and going back beyond the root of the branch does not make sense in that instance."
-msgstr ""
+msgstr "Als het Toon Logboek venster wordt aangeroepen vanuit het Samenvoegen venster, dan zal deze optie standaard geselecteerd zijn. Dit komt doordat bij het samenvoegen van takken er meestal gekeken wordt naar de wijzigingen van die specifieke tak. Verder terug kijken dan de bron van de tak heeft dan vaak geen nut."
 
 #. (para)
 msgid "Note that Subversion currently implements renaming as a copy/delete pair, so renaming a file or folder will also cause the log display to stop if this option is checked."
-msgstr ""
+msgstr "Merk op dat Subversion hernoemen uitvoert als een kopieer/verwijder combinatie. Een hernoemde map of bestand zal er ook voor zorgen dat het logboek venster stopt als de Stoppen bij kopie/hernoemd bestand optie geselecteerd is."
 
 #. (para)
 msgid "The Log dialog does not always show all changes ever made for a number of reasons: <placeholder-1/>"
-msgstr ""
+msgstr "Het Logboek boodschappen venster geeft niet altijd alle in het verleden doorgevoerde wijzigingen weer met verschillende redenen:<placeholder-1/>"
 
 #. (para)
 msgid "If you want to see more log messages, click the <guibutton>Next 100</guibutton> to retrieve the next 100 log messages. You can repeat this as many times as needed."
-msgstr ""
+msgstr "Als je meer logboek boodschappen wilt zien, klik dan op de <guibutton>Volgende 100</guibutton> knop om de volgende 100 berichten op te halen. Je kunt dit zo vaak herhalen als je wilt."
 
 #. (para)
 msgid "Next to this button there is a multi-function button which remembers the last option you used it for. Click on the arrow to see the other options offered."
-msgstr ""
+msgstr "Naast deze knop is er een multi-functionele knop. Hierbij wordt de laatst gebruikte optie onthouden, zodat je die weer kunt gebruiken. Klik op het pijltje om de andere opties te zien."
 
 #. (para)
 msgid "Use <guibutton>Show Range ...</guibutton> if you want to view a specific range of revisions. A dialog will then prompt you to enter the start and end revision."
-msgstr ""
+msgstr "Gebruik <guibutton>Toon Bereik ...</guibutton> als je een bepaalde reeks van revisies wilt bekijken. Er zal dan een venster getoond worden, waarin je de start en eind revisie moet ingeven."
 
 #. (para)
 msgid "Use <guibutton>Show All</guibutton> if you want to see <emphasis>all</emphasis> log messages from HEAD right back to revision 1."
-msgstr ""
+msgstr "Gebruik de <guibutton>Toon Alles</guibutton> knop als je <emphasis>alle</emphasis> logboek boodschappen vanaf de HEAD revisie teruglopend tot aan revisie1 wilt zin."
 
 #. (title)
 msgid "Current Working Copy Revision"
@@ -8017,7 +8017,7 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 1"
-msgstr "TortoiseSVN Dialoog Instellingen 1"
+msgstr "TortoiseSVN Instellingen Venster 1"
 
 #. (title)
 msgid "The Settings Dialog, Dialogs 1 Page"
@@ -8117,7 +8117,7 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 2"
-msgstr "TortoiseSVN Dialoog Instellingen 2"
+msgstr "TortoiseSVN Instellingen Venster 2"
 
 #. (title)
 msgid "The Settings Dialog, Dialogs 2 Page"
