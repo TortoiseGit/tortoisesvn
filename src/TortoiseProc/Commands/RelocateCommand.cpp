@@ -122,7 +122,7 @@ bool RelocateCommand::Execute()
 			}
 		}
 		CString sWarning, sWarningTitle, sHelpPath;
-		sWarning.Format(IDS_WARN_RELOCATEREALLY, (LPCTSTR)dlg.m_sFromUrl, (LPCTSTR)dlg.m_sToUrl);
+		sWarning.FormatMessage(IDS_WARN_RELOCATEREALLY, (LPCTSTR)dlg.m_sFromUrl, (LPCTSTR)dlg.m_sToUrl);
 		sWarningTitle.LoadString(IDS_WARN_RELOCATEREALLYTITLE);
 		sHelpPath = theApp.m_pszHelpFilePath;
 		sHelpPath += _T("::/tsvn-dug-relocate.html");

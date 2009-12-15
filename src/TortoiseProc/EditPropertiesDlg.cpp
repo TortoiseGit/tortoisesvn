@@ -399,7 +399,7 @@ void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 				input.SetUUID(m_sUUID);
 				input.SetProjectProperties(m_pProjectProperties);
 				CString sHint;
-				sHint.Format(IDS_INPUT_EDITPROP, sName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
+				sHint.FormatMessage(IDS_INPUT_EDITPROP, sName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
 				input.SetActionText(sHint);
 				if (input.DoModal() == IDOK)
 				{
@@ -459,7 +459,7 @@ void CEditPropertiesDlg::RemoveProps()
 			input.SetUUID(m_sUUID);
 			input.SetProjectProperties(m_pProjectProperties);
 			CString sHint;
-			sHint.Format(IDS_INPUT_REMOVEPROP, sName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
+			sHint.FormatMessage(IDS_INPUT_REMOVEPROP, sName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
 			input.SetActionText(sHint);
 			if (input.DoModal() != IDOK)
 				return;
@@ -713,7 +713,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
 								input.SetUUID(m_sUUID);
 								input.SetProjectProperties(m_pProjectProperties);
 								CString sHint;
-								sHint.Format(IDS_INPUT_SETPROP, sName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
+								sHint.FormatMessage(IDS_INPUT_SETPROP, sName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
 								input.SetActionText(sHint);
 								if (input.DoModal() == IDOK)
 								{

@@ -55,7 +55,7 @@ bool AddCommand::Execute()
 							if (pathList[i].IsEquivalentToWithoutCase(retPath))
 							{
 								CString sMessage;
-								sMessage.Format(IDS_WARN_ADDCASERENAMED, pathList[i].GetWinPath(), retPath.GetWinPath());
+								sMessage.FormatMessage(IDS_WARN_ADDCASERENAMED, pathList[i].GetWinPath(), retPath.GetWinPath());
 								CString sTitle(MAKEINTRESOURCE(IDS_WARN_WARNING));
 								CString sFixRenaming(MAKEINTRESOURCE(IDS_WARN_ADDCASERENAMED_RENAME));
 								CString sAddAnyway(MAKEINTRESOURCE(IDS_WARN_ADDCASERENAMED_ADD));

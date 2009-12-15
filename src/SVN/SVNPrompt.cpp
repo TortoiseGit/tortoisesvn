@@ -212,7 +212,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 	CString temp;
 	if (failures & SVN_AUTH_SSL_UNKNOWNCA)
 	{
-		temp.Format(IDS_ERR_SSL_UNKNOWNCA, (LPCTSTR)CUnicodeUtils::GetUnicode(cert_info->fingerprint), (LPCTSTR)CUnicodeUtils::GetUnicode(cert_info->issuer_dname));
+		temp.FormatMessage(IDS_ERR_SSL_UNKNOWNCA, (LPCTSTR)CUnicodeUtils::GetUnicode(cert_info->fingerprint), (LPCTSTR)CUnicodeUtils::GetUnicode(cert_info->issuer_dname));
 		msg += temp;
 		prev = TRUE;
 	}

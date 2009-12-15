@@ -1730,7 +1730,7 @@ void CRepositoryBrowser::OpenFile(const CTSVNPath& url, const CTSVNPath& urlEsca
 	progDlg.SetTitle(IDS_APPNAME);
 	progDlg.SetAnimation(IDR_DOWNLOAD);
 	CString sInfoLine;
-	sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url.GetFileOrDirectoryName(), (LPCTSTR)revision.ToString());
+	sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url.GetFileOrDirectoryName(), (LPCTSTR)revision.ToString());
 	progDlg.SetLine(1, sInfoLine, true);
 	SetAndClearProgressInfo(&progDlg);
 	progDlg.ShowModeless(m_hWnd);
@@ -1940,7 +1940,7 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
 			return;
 	}
 	CString sHint;
-	sHint.Format(IDS_INPUT_RENAME, (LPCTSTR)(pItem->absolutepath), (LPCTSTR)targetUrl.GetSVNPathString());
+	sHint.FormatMessage(IDS_INPUT_RENAME, (LPCTSTR)(pItem->absolutepath), (LPCTSTR)targetUrl.GetSVNPathString());
 	input.SetActionText(sHint);
     input.SetForceFocus (true);
 	if (input.DoModal() == IDOK)
@@ -1998,7 +1998,7 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
 			return;
 	}
 	CString sHint;
-	sHint.Format(IDS_INPUT_RENAME, (LPCTSTR)(pItem->url), (LPCTSTR)targetUrl.GetSVNPathString());
+	sHint.FormatMessage(IDS_INPUT_RENAME, (LPCTSTR)(pItem->url), (LPCTSTR)targetUrl.GetSVNPathString());
 	input.SetActionText(sHint);
     input.SetForceFocus (true);
 	if (input.DoModal() == IDOK)
@@ -2222,16 +2222,16 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
 		if (pathlist.GetCount() == 1)
 		{
 			if (dwEffect == DROPEFFECT_COPY)
-				sHint.Format(IDS_INPUT_COPY, (LPCTSTR)pathlist[0].GetSVNPathString(), (LPCTSTR)(target.GetSVNPathString()+_T("/")+targetName));
+				sHint.FormatMessage(IDS_INPUT_COPY, (LPCTSTR)pathlist[0].GetSVNPathString(), (LPCTSTR)(target.GetSVNPathString()+_T("/")+targetName));
 			else
-				sHint.Format(IDS_INPUT_MOVE, (LPCTSTR)pathlist[0].GetSVNPathString(), (LPCTSTR)(target.GetSVNPathString()+_T("/")+targetName));
+				sHint.FormatMessage(IDS_INPUT_MOVE, (LPCTSTR)pathlist[0].GetSVNPathString(), (LPCTSTR)(target.GetSVNPathString()+_T("/")+targetName));
 		}
 		else
 		{
 			if (dwEffect == DROPEFFECT_COPY)
-				sHint.Format(IDS_INPUT_COPYMORE, pathlist.GetCount(), (LPCTSTR)target.GetSVNPathString());
+				sHint.FormatMessage(IDS_INPUT_COPYMORE, pathlist.GetCount(), (LPCTSTR)target.GetSVNPathString());
 			else
-				sHint.Format(IDS_INPUT_MOVEMORE, pathlist.GetCount(), (LPCTSTR)target.GetSVNPathString());
+				sHint.FormatMessage(IDS_INPUT_MOVEMORE, pathlist.GetCount(), (LPCTSTR)target.GetSVNPathString());
 		}
 		input.SetActionText(sHint);
 		if (input.DoModal() == IDOK)
@@ -2330,7 +2330,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
         input.SetUUID(m_repository.root);
 		CString sHint;
 		if (pathlist.GetCount() == 1)
-			sHint.Format(IDS_INPUT_IMPORTFILEFULL, pathlist[0].GetWinPath(), (LPCTSTR)(target.GetSVNPathString() + _T("/") + pathlist[0].GetFileOrDirectoryName()));
+			sHint.FormatMessage(IDS_INPUT_IMPORTFILEFULL, pathlist[0].GetWinPath(), (LPCTSTR)(target.GetSVNPathString() + _T("/") + pathlist[0].GetFileOrDirectoryName()));
 		else
 			sHint.Format(IDS_INPUT_IMPORTFILES, pathlist.GetCount());
 		input.SetActionText(sHint);
@@ -2740,7 +2740,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 						if (tempfile.IsDirectory())
 							savepath.AppendPathString(selection.GetURL (0, i).GetFileOrDirectoryName());
 						CString sInfoLine;
-						sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)saveurl, (LPCTSTR)revision.ToString());
+						sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)saveurl, (LPCTSTR)revision.ToString());
 						progDlg.SetLine(1, sInfoLine, true);
 						if (!Cat(CTSVNPath(saveurl), revision, revision, savepath)||(progDlg.HasUserCancelled()))
 						{
@@ -2984,7 +2984,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 
                     const CTSVNPath& url = selection.GetURL (0, 0);
 					CString sHint;
-					sHint.Format(IDS_INPUT_IMPORTFOLDER, (LPCTSTR)svnPath.GetSVNPathString(), (LPCTSTR)(url.GetSVNPathString()+_T("/")+filename));
+					sHint.FormatMessage(IDS_INPUT_IMPORTFOLDER, (LPCTSTR)svnPath.GetSVNPathString(), (LPCTSTR)(url.GetSVNPathString()+_T("/")+filename));
 					input.SetActionText(sHint);
 					if (input.DoModal() == IDOK)
 					{
@@ -3032,7 +3032,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 
                     const CTSVNPath& url = selection.GetURL (0, 0);
                     CString sHint;
-					sHint.Format(IDS_INPUT_IMPORTFILEFULL, path.GetWinPath(), (LPCTSTR)(url.GetSVNPathString()+_T("/")+filename));
+					sHint.FormatMessage(IDS_INPUT_IMPORTFILEFULL, path.GetWinPath(), (LPCTSTR)(url.GetSVNPathString()+_T("/")+filename));
 					input.SetActionText(sHint);
 					if (input.DoModal() == IDOK)
 					{
@@ -3108,7 +3108,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     input.SetUUID(selection.GetRepository(0).uuid);
 					input.SetProjectProperties(&m_ProjectProperties);
 					CString sHint;
-					sHint.Format(IDS_INPUT_COPY, (LPCTSTR)path.GetSVNPathString(), (LPCTSTR)dlg.m_name);
+					sHint.FormatMessage(IDS_INPUT_COPY, (LPCTSTR)path.GetSVNPathString(), (LPCTSTR)dlg.m_name);
 					input.SetActionText(sHint);
 					if (!CTSVNPath(dlg.m_name).IsValidOnWindows())
 					{

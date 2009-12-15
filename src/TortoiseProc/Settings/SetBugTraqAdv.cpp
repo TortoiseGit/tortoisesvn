@@ -246,7 +246,7 @@ void CSetBugTraqAdv::OnBnClickedOptions()
 		{
 			COMError ce(hr);
 			CString sErr;
-			sErr.Format(IDS_ERR_FAILEDISSUETRACKERCOM, ce.GetSource().c_str(), ce.GetMessageAndDescription().c_str());
+			sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, ce.GetSource().c_str(), ce.GetMessageAndDescription().c_str());
 			CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
 		}
 		SysFreeString(temp);

@@ -2944,7 +2944,7 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
 				sTotal.Format(IDS_SVN_PROGRESS_TOTALTRANSFERRED, pSVN->m_SVNProgressMSG.overall_total / 1024);
 			else
 				sTotal.Format(IDS_SVN_PROGRESS_TOTALMBTRANSFERRED, (double)((double)pSVN->m_SVNProgressMSG.overall_total / 1024000.0));
-			temp.Format(IDS_SVN_PROGRESS_TOTALANDSPEED, (LPCTSTR)sTotal, (LPCTSTR)pSVN->m_SVNProgressMSG.SpeedString);
+			temp.FormatMessage(IDS_SVN_PROGRESS_TOTALANDSPEED, (LPCTSTR)sTotal, (LPCTSTR)pSVN->m_SVNProgressMSG.SpeedString);
 
 			pSVN->m_pProgressDlg->SetLine(2, temp);
 		}
@@ -2974,7 +2974,7 @@ svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
 	}
 
 	CString sFormatErr;
-	sFormatErr.Format(IDS_ERR_SVNFORMATEXCEPTION, CUnicodeUtils::GetUnicode(file), line, CUnicodeUtils::GetUnicode(expr));
+	sFormatErr.FormatMessage(IDS_ERR_SVNFORMATEXCEPTION, CUnicodeUtils::GetUnicode(file), line, CUnicodeUtils::GetUnicode(expr));
 	::MessageBox(NULL, sFormatErr, _T("Subversion Exception!"), MB_ICONERROR);
 	if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==FALSE)
 		abort();	// ugly, ugly! But at least we showed a messagebox first

@@ -125,7 +125,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
 	CString n1, n2, n3;
 	n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
 	if (baseRev)
-		n2.Format(IDS_DIFF_BASENAMEREV, (LPCTSTR)name, baseRev);
+		n2.FormatMessage(IDS_DIFF_BASENAMEREV, (LPCTSTR)name, baseRev);
 	else
 		n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
 	n3.Format(IDS_DIFF_REMOTENAME, (LPCTSTR)name);
@@ -217,7 +217,7 @@ bool SVNDiff::DiffFileAgainstBase(
 		CString n1, n2;
 		n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
 		if (baseRev)
-			n2.Format(IDS_DIFF_BASENAMEREV, (LPCTSTR)name, baseRev);
+			n2.FormatMessage(IDS_DIFF_BASENAMEREV, (LPCTSTR)name, baseRev);
 		else
 			n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
 		retvalue = CAppUtils::StartExtDiff(
@@ -288,13 +288,13 @@ bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1,
 		list.AddPath(url1);
 		list.AddPath(url2);
 		if (url1.IsEquivalentTo(url2))
-			title.Format(IDS_SVNDIFF_ONEURL, (LPCTSTR)rev1.ToString(), (LPCTSTR)rev2.ToString(), (LPCTSTR)url1.GetUIFileOrDirectoryName());
+			title.FormatMessage(IDS_SVNDIFF_ONEURL, (LPCTSTR)rev1.ToString(), (LPCTSTR)rev2.ToString(), (LPCTSTR)url1.GetUIFileOrDirectoryName());
 		else
 		{
 			CTSVNPath root = list.GetCommonRoot();
 			CString u1 = url1.GetUIPathString().Mid(root.GetUIPathString().GetLength());
 			CString u2 = url2.GetUIPathString().Mid(root.GetUIPathString().GetLength());
-			title.Format(IDS_SVNDIFF_TWOURLS, (LPCTSTR)rev1.ToString(), (LPCTSTR)u1, (LPCTSTR)rev2.ToString(), (LPCTSTR)u2);
+			title.FormatMessage(IDS_SVNDIFF_TWOURLS, (LPCTSTR)rev1.ToString(), (LPCTSTR)u1, (LPCTSTR)rev2.ToString(), (LPCTSTR)u2);
 		}
 		return !!CAppUtils::StartUnifiedDiffViewer(tempfile, title);
 	}
@@ -707,7 +707,7 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
 			if (rev1.IsBase())
 			{
 				if (baseRev)
-					n1.Format(IDS_DIFF_PROP_BASENAMEREV, basename.c_str(), baseRev);
+					n1.FormatMessage(IDS_DIFF_PROP_BASENAMEREV, basename.c_str(), baseRev);
 				else
 					n1.Format(IDS_DIFF_PROP_BASENAME, basename.c_str());
 			}
@@ -726,7 +726,7 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
 			if (rev2.IsBase())
 			{
 				if (baseRev)
-					n2.Format(IDS_DIFF_PROP_BASENAMEREV, basename.c_str(), baseRev);
+					n2.FormatMessage(IDS_DIFF_PROP_BASENAMEREV, basename.c_str(), baseRev);
 				else
 					n2.Format(IDS_DIFF_PROP_BASENAME, basename.c_str());
 			}
@@ -805,7 +805,7 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
 				n1.Format(IDS_DIFF_REMOTENAME, wcname.c_str());
 			if (n1.IsEmpty())
 			{
-				n1.Format(IDS_DIFF_PROP_REVISIONNAME, wcname.c_str(), (LPCTSTR)rev1.ToString());
+				n1.FormatMessage(IDS_DIFF_PROP_REVISIONNAME, wcname.c_str(), (LPCTSTR)rev1.ToString());
 				bSwitch = true;
 			}
 			if (rev2.IsWorking())
@@ -816,7 +816,7 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
 				n2.Format(IDS_DIFF_REMOTENAME, wcname.c_str());
 			if (n2.IsEmpty())
 			{
-				n2.Format(IDS_DIFF_PROP_REVISIONNAME, wcname.c_str(), (LPCTSTR)rev2.ToString());
+				n2.FormatMessage(IDS_DIFF_PROP_REVISIONNAME, wcname.c_str(), (LPCTSTR)rev2.ToString());
 				bSwitch = true;
 			}
 			if (bSwitch)

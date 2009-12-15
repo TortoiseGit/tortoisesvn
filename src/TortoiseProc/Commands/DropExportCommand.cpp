@@ -87,11 +87,11 @@ bool DropExportCommand::Execute()
 					return false;
 				if (ret==2)
 				{
-					dropper.Format(IDS_PROC_EXPORTFOLDERNAME, (LPCTSTR)droppath, (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
+					dropper.FormatMessage(IDS_PROC_EXPORTFOLDERNAME, (LPCTSTR)droppath, (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
 					int exportcount = 1;
 					while (PathFileExists(dropper))
 					{
-						dropper.Format(IDS_PROC_EXPORTFOLDERNAME2, (LPCTSTR)droppath, exportcount++, (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
+						dropper.FormatMessage(IDS_PROC_EXPORTFOLDERNAME2, (LPCTSTR)droppath, exportcount++, (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
 					}
 				}
 			}

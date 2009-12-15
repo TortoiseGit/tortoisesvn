@@ -81,7 +81,7 @@ BOOL CConflictResolveDlg::OnInitDialog()
 	{
 	case svn_wc_conflict_action_edit:
 		if (m_pConflictDescription->property_name)
-			sActionText.Format(IDS_EDITCONFLICT_PROP_ACTIONINFO_MODIFY, 
+			sActionText.FormatMessage(IDS_EDITCONFLICT_PROP_ACTIONINFO_MODIFY, 
 				(LPCTSTR)CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name), 
 				(LPCTSTR)filename);
 		else
@@ -89,7 +89,7 @@ BOOL CConflictResolveDlg::OnInitDialog()
 		break;
 	case svn_wc_conflict_action_add:
 		if (m_pConflictDescription->property_name)
-			sActionText.Format(IDS_EDITCONFLICT_PROP_ACTIONINFO_ADD, 
+			sActionText.FormatMessage(IDS_EDITCONFLICT_PROP_ACTIONINFO_ADD, 
 				(LPCTSTR)CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name), 
 				(LPCTSTR)filename);
 		else
@@ -97,7 +97,7 @@ BOOL CConflictResolveDlg::OnInitDialog()
 		break;
 	case svn_wc_conflict_action_delete:
 		if (m_pConflictDescription->property_name)
-			sActionText.Format(IDS_EDITCONFLICT_PROP_ACTIONINFO_DELETE,
+			sActionText.FormatMessage(IDS_EDITCONFLICT_PROP_ACTIONINFO_DELETE,
 				(LPCTSTR)CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name),
 				(LPCTSTR)filename);
 		else

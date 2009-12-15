@@ -76,7 +76,7 @@ bool RenameCommand::Execute()
 			svn.GetRepositoryRootAndUUID(cmdLinePath, sUUID);
 			input.SetUUID(sUUID);
 			CString sHint;
-			sHint.Format(IDS_INPUT_MOVE, (LPCTSTR)cmdLinePath.GetSVNPathString(), (LPCTSTR)destinationPath.GetSVNPathString());
+			sHint.FormatMessage(IDS_INPUT_MOVE, (LPCTSTR)cmdLinePath.GetSVNPathString(), (LPCTSTR)destinationPath.GetSVNPathString());
 			input.SetActionText(sHint);
 			if (input.DoModal() == IDOK)
 			{

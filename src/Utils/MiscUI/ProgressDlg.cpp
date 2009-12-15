@@ -145,10 +145,17 @@ void CProgressDlg::FormatPathLine ( DWORD dwLine, UINT idFormatText, ...)
 	va_start(args, idFormatText);
 
 	CString sText;
-	sText.FormatV(CString(MAKEINTRESOURCE(idFormatText)), args);
+	sText.FormatMessageV(CString(MAKEINTRESOURCE(idFormatText)), &args);
 	SetLine(dwLine, sText, true);
 
 	va_end(args);
+}
+
+void CProgressDlg::FormatPathLine ( DWORD dwLine, UINT idFormatText, void * p)
+{
+	CString sText;
+	sText.Format(CString(MAKEINTRESOURCE(idFormatText)), p);
+	SetLine(dwLine, sText, true);
 }
 
 void CProgressDlg::FormatNonPathLine(DWORD dwLine, UINT idFormatText, ...)
@@ -157,10 +164,17 @@ void CProgressDlg::FormatNonPathLine(DWORD dwLine, UINT idFormatText, ...)
 	va_start(args, idFormatText);
 
 	CString sText;
-	sText.FormatV(CString(MAKEINTRESOURCE(idFormatText)), args);
+	sText.FormatMessageV(CString(MAKEINTRESOURCE(idFormatText)), &args);
 	SetLine(dwLine, sText, false);
 
 	va_end(args);
+}
+
+void CProgressDlg::FormatNonPathLine(DWORD dwLine, UINT idFormatText, void * p)
+{
+	CString sText;
+	sText.Format(CString(MAKEINTRESOURCE(idFormatText)), p);
+	SetLine(dwLine, sText, false);
 }
 
 #endif

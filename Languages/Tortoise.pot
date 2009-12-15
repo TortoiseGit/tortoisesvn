@@ -81,6 +81,56 @@ msgstr ""
 msgid "%1 was not found."
 msgstr ""
 
+#. Resource IDs: (169)
+#, c-format
+msgid "%1!d! files selected, %2!d! files total"
+msgstr ""
+
+#. Resource IDs: (246)
+#, c-format
+msgid "%1!d! most active author(s) with at least %2!d! commits each (%3!d! %%)"
+msgstr ""
+
+#. Resource IDs: (226)
+#, c-format
+msgid "%1!ld! minute(s) and %2!ld! second(s)"
+msgstr ""
+
+#. Resource IDs: (115)
+#, c-format
+msgid "%1!s! (offline) - %2!s!"
+msgstr ""
+
+#. Resource IDs: (226)
+#, c-format
+msgid "%1!s! - at revision: %2!d!"
+msgstr ""
+
+#. Resource IDs: (151)
+#, c-format
+msgid "%1!s! : Working Base, Revision %2!ld!"
+msgstr ""
+
+#. Resource IDs: (226)
+#, c-format
+msgid "%1!s! in %2!s!"
+msgstr ""
+
+#. Resource IDs: (357)
+#, c-format
+msgid "%1!s!, at %2!s!"
+msgstr ""
+
+#. Resource IDs: (145)
+#, c-format
+msgid "%1!s!\\%2!s! - Export"
+msgstr ""
+
+#. Resource IDs: (145)
+#, c-format
+msgid "%1!s!\\%2!s! - Export (%3!d!)"
+msgstr ""
+
 #. Resource IDs: (3860)
 #, c-format
 msgid "%1: %2\nContinue running script?"
@@ -106,21 +156,6 @@ msgstr ""
 msgid "%I64d kBytes transferred"
 msgstr ""
 
-#. Resource IDs: (169)
-#, c-format
-msgid "%d files selected, %d files total"
-msgstr ""
-
-#. Resource IDs: (246)
-#, c-format
-msgid "%d most active author(s) with at least %d commits each (%d %%)"
-msgstr ""
-
-#. Resource IDs: (226)
-#, c-format
-msgid "%ld minute(s) and %ld second(s)"
-msgstr ""
-
 #. Resource IDs: (7)
 #, c-format
 msgid "%ld of %ld"
@@ -141,16 +176,6 @@ msgstr ""
 msgid "%s (offline)"
 msgstr ""
 
-#. Resource IDs: (115)
-#, c-format
-msgid "%s (offline) - %s"
-msgstr ""
-
-#. Resource IDs: (226)
-#, c-format
-msgid "%s - at revision: %d"
-msgstr ""
-
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
@@ -163,22 +188,7 @@ msgstr ""
 
 #. Resource IDs: (151)
 #, c-format
-msgid "%s : Working Base, Revision %ld"
-msgstr ""
-
-#. Resource IDs: (151)
-#, c-format
 msgid "%s : Working Copy"
-msgstr ""
-
-#. Resource IDs: (226)
-#, c-format
-msgid "%s in %s"
-msgstr ""
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%s, at %s"
 msgstr ""
 
 #. Resource IDs: (609)
@@ -209,16 +219,6 @@ msgstr ""
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
-msgstr ""
-
-#. Resource IDs: (145)
-#, c-format
-msgid "%s\\%s - Export"
-msgstr ""
-
-#. Resource IDs: (145)
-#, c-format
-msgid "%s\\%s - Export (%d)"
 msgstr ""
 
 #. Resource IDs: (3850)
@@ -1150,7 +1150,7 @@ msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
-msgid "(%s) %s"
+msgid "(%1!s!) %2!s!"
 msgstr ""
 
 #. Resource IDs: (119)
@@ -1921,7 +1921,7 @@ msgstr ""
 
 #. Resource IDs: (82)
 #, c-format
-msgid "Can't copy \n%s\nto\n%s"
+msgid "Can't copy \n%1!s!\nto\n%2!s!"
 msgstr ""
 
 #. Resource IDs: (1001)
@@ -2004,7 +2004,7 @@ msgstr ""
 
 #. Resource IDs: (324)
 #, c-format
-msgid "Changed files between %s, %s and %s, %s"
+msgid "Changed files between %1!s!, %2!s! and %3!s!, %4!s!"
 msgstr ""
 
 #. Resource IDs: (163)
@@ -2159,17 +2159,17 @@ msgstr ""
 
 #. Resource IDs: (196)
 #, c-format
-msgid "Clears %ld URLs stored for %ld working copies"
+msgid "Clears %1!ld! URLs stored for %2!ld! working copies"
 msgstr ""
 
 #. Resource IDs: (196)
 #, c-format
-msgid "Clears %ld log messages stored for %ld working copies"
+msgid "Clears %1!ld! log messages stored for %2!ld! working copies"
 msgstr ""
 
 #. Resource IDs: (196)
 #, c-format
-msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+msgid "Clears %1!ld! username/password pairs, %2!ld! ssl certificates and %3!ld! usernames"
 msgstr ""
 
 #. Resource IDs: (197)
@@ -2469,9 +2469,9 @@ msgstr ""
 msgid "Copied from revision"
 msgstr ""
 
-#. Resource IDs: (275)
+#. Resource IDs: (276)
 #, c-format
-msgid "Copied from: %s@%ld\r\n"
+msgid "Copied from: %1!s!@%2!ld!\r\n"
 msgstr ""
 
 #. Resource IDs: (126)
@@ -2484,7 +2484,12 @@ msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
-msgid "Copy %ld items to\r\n%s"
+msgid "Copy %1!ld! items to\r\n%2!s!"
+msgstr ""
+
+#. Resource IDs: (126)
+#, c-format
+msgid "Copy %1!s!\r\nto %2!s!"
 msgstr ""
 
 #. Resource IDs: (103)
@@ -2495,11 +2500,6 @@ msgstr ""
 #. Resource IDs: (229)
 #, c-format
 msgid "Copy %s to %s, Revision %s"
-msgstr ""
-
-#. Resource IDs: (126)
-#, c-format
-msgid "Copy %s\r\nto %s"
 msgstr ""
 
 #. Resource IDs: (142)
@@ -2601,7 +2601,7 @@ msgstr ""
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property '%s' on '%s' because"
+msgid "Could not add property '%1!s!' on '%2!s!' because"
 msgstr ""
 
 #. Resource IDs: (201)
@@ -2625,7 +2625,7 @@ msgstr ""
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property '%s' on '%s' because"
+msgid "Could not delete property '%1!s!' on '%2!s!' because"
 msgstr ""
 
 #. Resource IDs: (83)
@@ -2643,7 +2643,7 @@ msgstr ""
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property '%s' on '%s' because"
+msgid "Could not merge property '%1!s!' on '%2!s!' because"
 msgstr ""
 
 #. Resource IDs: (3867)
@@ -2673,7 +2673,7 @@ msgstr ""
 
 #. Resource IDs: (66)
 #, c-format
-msgid "Could not retrieve revision %s of the file %s.\nPatching is not possible!"
+msgid "Could not retrieve revision %1!s! of the file %2!s!.\nPatching is not possible!"
 msgstr ""
 
 #. Resource IDs: (64)
@@ -3163,7 +3163,7 @@ msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
-msgid "Edit property '%S' on\r\n%s"
+msgid "Edit property '%1!S!' on\r\n%2!s!"
 msgstr ""
 
 #. Resource IDs: (1331, 1382)
@@ -3341,7 +3341,7 @@ msgstr ""
 
 #. Resource IDs: (70)
 #, c-format
-msgid "Error while reading/writing the registry key %s\n%s"
+msgid "Error while reading/writing the registry key %1!s!\n%2!s!"
 msgstr ""
 
 #. Resource IDs: (1413)
@@ -3525,7 +3525,7 @@ msgstr ""
 
 #. Resource IDs: (83)
 #, c-format
-msgid "Failed to start the issue tracker COM provider '%s'.\n%s"
+msgid "Failed to start the issue tracker COM provider '%1!s!'.\n%2!s!"
 msgstr ""
 
 #. Resource IDs: (220)
@@ -3734,14 +3734,14 @@ msgstr ""
 msgid "Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\nTo enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\nEach file will have the file-system read-only flag set, and getting a lock will make the file writable.\nNote that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
 
+#. Resource IDs: (120)
+#, c-format
+msgid "Getting file %1!s!, revision %2!s!"
+msgstr ""
+
 #. Resource IDs: (119)
 #, c-format
 msgid "Getting file %s"
-msgstr ""
-
-#. Resource IDs: (120)
-#, c-format
-msgid "Getting file %s, revision %s"
 msgstr ""
 
 #. Resource IDs: (132)
@@ -4249,7 +4249,7 @@ msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
-msgid "Import file %s\r\nto %s"
+msgid "Import file %1!s!\r\nto %2!s!"
 msgstr ""
 
 #. Resource IDs: (126)
@@ -4259,7 +4259,7 @@ msgstr ""
 
 #. Resource IDs: (126)
 #, c-format
-msgid "Import folder %s\r\nto %s"
+msgid "Import folder %1!s!\r\nto %2!s!"
 msgstr ""
 
 #. Resource IDs: (613)
@@ -4350,7 +4350,7 @@ msgstr ""
 
 #. Resource IDs: (88)
 #, c-format
-msgid "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n\nFrom:\t%s\nTo:\t\t%s\n\nA relocate is only needed if the path <b>to</b> a repository has changed.\nChanging to a different path <b>inside</b> a repository is done by a switch operation.\n\nImproper use of relocate <b>will corrupt your working copy!</b>\nIf you are not sure what to do, please refer to our docs on <i>relocate</i>.\nDo you really want to relocate?"
+msgid "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n\nFrom:\t%1!s!\nTo:\t\t%2!s!\n\nA relocate is only needed if the path <b>to</b> a repository has changed.\nChanging to a different path <b>inside</b> a repository is done by a switch operation.\n\nImproper use of relocate <b>will corrupt your working copy!</b>\nIf you are not sure what to do, please refer to our docs on <i>relocate</i>.\nDo you really want to relocate?"
 msgstr ""
 
 #. Resource IDs: (1480)
@@ -4594,12 +4594,12 @@ msgstr ""
 
 #. Resource IDs: (238)
 #, c-format
-msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
+msgid "Lowest shown revision: %1!ld! - Highest shown revision: %2!ld!"
 msgstr ""
 
 #. Resource IDs: (238)
 #, c-format
-msgid "Lowest shown revision: %ld - Highest shown revision: %ld\nHEAD revision: %ld"
+msgid "Lowest shown revision: %1!ld! - Highest shown revision: %2!ld!\nHEAD revision: %3!ld!"
 msgstr ""
 
 #. Resource IDs: (16973)
@@ -4784,12 +4784,12 @@ msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Merging r%ld"
+msgid "Merging r%1!ld! through r%2!ld!"
 msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Merging r%ld through r%ld"
+msgid "Merging r%ld"
 msgstr ""
 
 #. Resource IDs: (83)
@@ -4883,12 +4883,12 @@ msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
-msgid "Move %ld items to\r\n%s"
+msgid "Move %1!ld! items to\r\n%2!s!"
 msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
-msgid "Move %s\r\nto %s"
+msgid "Move %1!s!\r\nto %2!s!"
 msgstr ""
 
 #. Resource IDs: (17026)
@@ -5083,6 +5083,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Node colors"
+msgstr ""
+
+#. Resource IDs: (1507)
+msgid "Non-versioned"
 msgstr ""
 
 #. Resource IDs: (1271)
@@ -5603,12 +5607,12 @@ msgstr ""
 
 #. Resource IDs: (151)
 #, c-format
-msgid "Property %s : Revision %s"
+msgid "Property %1!s! : Revision %2!s!"
 msgstr ""
 
 #. Resource IDs: (151)
 #, c-format
-msgid "Property %s : Working Base, Revision %ld"
+msgid "Property %1!s! : Working Base, Revision %2!ld!"
 msgstr ""
 
 #. Resource IDs: (151)
@@ -5882,7 +5886,7 @@ msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
-msgid "Remove property '%S' from\r\n%s"
+msgid "Remove property '%1!S!' from\r\n%2!s!"
 msgstr ""
 
 #. Resource IDs: (610)
@@ -5945,7 +5949,7 @@ msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
-msgid "Rename item from %s\r\nto %s"
+msgid "Rename item from %1!s!\r\nto %2!s!"
 msgstr ""
 
 #. Resource IDs: (221)
@@ -6083,12 +6087,12 @@ msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Reverse merging %ld"
+msgid "Reverse merging %1!ld! through %2!ld!"
 msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Reverse merging %ld through %ld"
+msgid "Reverse merging %ld"
 msgstr ""
 
 #. Resource IDs: (175, 229)
@@ -6172,12 +6176,12 @@ msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
-msgid "Revision: %ld %s\r\nURL: %s\r\n%sAuthor: %s\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
+msgid "Revision: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!Author: %5!s!\r\nDate: %6!s!\r\n\r\nLogmessage:\r\n%7!s!"
 msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
-msgid "Revision: %ld %s\r\nURL: %s\r\n%sAuthor: %s\r\nDate: %s\r\n\r\nTags (%d):%s\r\n\r\nLogmessage:\r\n%s"
+msgid "Revision: %1!ld! %2!s!\r\nURL: %3!s!\r\n%4!s!Author: %5!s!\r\nDate: %6!s!\r\n\r\nTags (%7!d!):%8!s!\r\n\r\nLogmessage:\r\n%9!s!"
 msgstr ""
 
 #. Resource IDs: (116, 65535)
@@ -6567,7 +6571,7 @@ msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
-msgid "Set property '%S' on\r\n%s"
+msgid "Set property '%1!S!' on\r\n%2!s!"
 msgstr ""
 
 #. Resource IDs: (13)
@@ -6802,14 +6806,14 @@ msgstr ""
 msgid "Show/Hide"
 msgstr ""
 
+#. Resource IDs: (115)
+#, c-format
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
+msgstr ""
+
 #. Resource IDs: (272)
 #, c-format
 msgid "Showing %ld nodes"
-msgstr ""
-
-#. Resource IDs: (115)
-#, c-format
-msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
 msgstr ""
 
 #. Resource IDs: (272)
@@ -7015,7 +7019,7 @@ msgstr ""
 
 #. Resource IDs: (84)
 #, c-format
-msgid "Subversion encountered a serious problem.\nPlease take the time to report this on the Subversion mailing list\n(users@subversion.tigris.org)\nwith as much information as possible about what\nyou were trying to do.\nBut please first search the mailing list archives for the error message\nto avoid reporting the same problem repeatedly.\nYou can find the mailing list archives at\nhttp://subversion.tigris.org/mailing-lists.html\n\nSubversion encountered the problem in:\nfile %s, line %ld\nexpression = %s"
+msgid "Subversion encountered a serious problem.\nPlease take the time to report this on the Subversion mailing list\n(users@subversion.tigris.org)\nwith as much information as possible about what\nyou were trying to do.\nBut please first search the mailing list archives for the error message\nto avoid reporting the same problem repeatedly.\nYou can find the mailing list archives at\nhttp://subversion.tigris.org/mailing-lists.html\n\nSubversion encountered the problem in:\nfile %1!s!, line %2!ld!\nexpression = %3!s!"
 msgstr ""
 
 #. Resource IDs: (84)
@@ -7376,7 +7380,7 @@ msgstr ""
 
 #. Resource IDs: (64)
 #, c-format
-msgid "The patch seems outdated! The file line\n%s\nand the patchline\n%s\ndo not match!"
+msgid "The patch seems outdated! The file line\n%1!s!\nand the patchline\n%2!s!\ndo not match!"
 msgstr ""
 
 #. Resource IDs: (88)
@@ -7385,17 +7389,17 @@ msgstr ""
 
 #. Resource IDs: (314)
 #, c-format
-msgid "The path\n<i>%s</i>\nin the patchfile does not exist.\nTortoiseMerge found the relative path\n<i>%s</i>\nwhich seems to match the directory you're applying the patch.\n\nDo you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgid "The path\n<i>%1!s!</i>\nin the patchfile does not exist.\nTortoiseMerge found the relative path\n<i>%2!s!</i>\nwhich seems to match the directory you're applying the patch.\n\nDo you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgstr ""
+
+#. Resource IDs: (314)
+#, c-format
+msgid "The path\n<i>%1!s!</i>\nseems not to match the paths in the patchfile.\nBut TortoiseMerge found the path\n<i>%2!s!</i>\nmatches it better. Do you want to use the suggested path instead?"
 msgstr ""
 
 #. Resource IDs: (314)
 #, c-format
 msgid "The path\n<i>%s</i>\nin the patchfile does not exist.\nTortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
-msgstr ""
-
-#. Resource IDs: (314)
-#, c-format
-msgid "The path\n<i>%s</i>\nseems not to match the paths in the patchfile.\nBut TortoiseMerge found the path\n<i>%s</i>\nmatches it better. Do you want to use the suggested path instead?"
 msgstr ""
 
 #. Resource IDs: (80)
@@ -7818,7 +7822,7 @@ msgstr ""
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Unknown certificate issuer.\n  Fingerprint: %s\n  Distinguished name: %s"
+msgid "Unknown certificate issuer.\n  Fingerprint: %1!s!\n  Distinguished name: %2!s!"
 msgstr ""
 
 #. Resource IDs: (20)
@@ -7855,10 +7859,6 @@ msgstr ""
 
 #. Resource IDs: (146)
 msgid "Unversion"
-msgstr ""
-
-#. Resource IDs: (1507)
-msgid "Unversioned"
 msgstr ""
 
 #. Resource IDs: (1313)
@@ -8294,7 +8294,7 @@ msgstr ""
 
 #. Resource IDs: (89)
 #, c-format
-msgid "You're trying to add the item\n'%s',\nbut the item\n'%s'\nalready exists.\n\nIt seems the item got renamed outside Subversion but only with case changes.\nDo you really want to add it?"
+msgid "You're trying to add the item\n'%1!s!',\nbut the item\n'%2!s!'\nalready exists.\n\nIt seems the item got renamed outside Subversion but only with case changes.\nDo you really want to add it?"
 msgstr ""
 
 #. Resource IDs: (195)
@@ -8319,9 +8319,9 @@ msgstr ""
 msgid "Your working copy appears to be on a tag path!\nYou should first switch to a branch or the main trunk before committing.\n\nDo you want to commit anyway?"
 msgstr ""
 
-#. Resource IDs: (275)
+#. Resource IDs: (276)
 #, c-format
-msgid "Your working copy contains modifications.\nLowest revision in working copy: %ld\nPath: %s"
+msgid "Your working copy contains modifications.\nLowest revision in working copy: %1!ld!\nPath: %2!s!"
 msgstr ""
 
 #. Resource IDs: (88)
@@ -8419,7 +8419,7 @@ msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
-msgid "alias (%s): %s"
+msgid "alias (%1!s!): %2!s!"
 msgstr ""
 
 #. Resource IDs: (272)
@@ -8507,7 +8507,7 @@ msgstr ""
 
 #. Resource IDs: (208)
 #, c-format
-msgid "copied from\r\n%s - revision %ld"
+msgid "copied from\r\n%1!s! - revision %2!ld!"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -8719,7 +8719,7 @@ msgstr ""
 
 #. Resource IDs: (326)
 #, c-format
-msgid "revision %s-%s, revision %s-%s"
+msgid "revision %1!s!-%2!s!, revision %3!s!-%4!s!"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -8732,7 +8732,7 @@ msgstr ""
 
 #. Resource IDs: (326)
 #, c-format
-msgid "revisions %s-%s, %s"
+msgid "revisions %1!s!-%2!s!, %3!s!"
 msgstr ""
 
 #. Resource IDs: (65535)

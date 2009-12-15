@@ -372,12 +372,12 @@ void CChangedDlg::UpdateStatistics()
 	m_FileListCtrl.GetMinMaxRevisions(lMin, lMax, true, false);
 	if (LONG(m_FileListCtrl.m_HeadRev) >= 0)
 	{
-		temp.Format(IDS_REPOSTATUS_HEADREV, lMin, lMax, LONG(m_FileListCtrl.m_HeadRev));
+		temp.FormatMessage(IDS_REPOSTATUS_HEADREV, lMin, lMax, LONG(m_FileListCtrl.m_HeadRev));
 		SetDlgItemText(IDC_SUMMARYTEXT, temp);
 	}
 	else
 	{
-		temp.Format(IDS_REPOSTATUS_WCINFO, lMin, lMax);
+		temp.FormatMessage(IDS_REPOSTATUS_WCINFO, lMin, lMax);
 		SetDlgItemText(IDC_SUMMARYTEXT, temp);
 	}
 	GetDlgItem(IDC_SUMMARYTEXT)->Invalidate();
