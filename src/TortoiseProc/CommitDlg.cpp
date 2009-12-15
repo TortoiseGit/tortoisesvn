@@ -1452,9 +1452,9 @@ LRESULT CCommitDlg::OnCheck(WPARAM wnd, LPARAM)
 	else if (hwnd == GetDlgItem(IDC_CHECKADDED)->GetSafeHwnd())
 		m_ListCtrl.Check(SVNSLC_SHOWADDED|SVNSLC_SHOWADDEDHISTORY, false);
 	else if (hwnd == GetDlgItem(IDC_CHECKDELETED)->GetSafeHwnd())
-		m_ListCtrl.Check(SVNSLC_SHOWREMOVED, false);
+		m_ListCtrl.Check(SVNSLC_SHOWREMOVED|SVNSLC_SHOWMISSING, false);
 	else if (hwnd == GetDlgItem(IDC_CHECKMODIFIED)->GetSafeHwnd())
-		m_ListCtrl.Check(SVNSLC_SHOWMODIFIED, false);
+		m_ListCtrl.Check(SVNSLC_SHOWMODIFIED|SVNSLC_SHOWREPLACED, false);
 	else if (hwnd == GetDlgItem(IDC_CHECKFILES)->GetSafeHwnd())
 		m_ListCtrl.Check(SVNSLC_SHOWFILES, false);
 	else if (hwnd == GetDlgItem(IDC_CHECKDIRECTORIES)->GetSafeHwnd())
