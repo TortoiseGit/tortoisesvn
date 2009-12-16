@@ -4973,7 +4973,7 @@ void CLogDlg::OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 
 CString CLogDlg::GetToolTipText(int nItem, int nSubItem)
 {
-	if ((nSubItem == 1) && (nItem <= (int)m_logEntries.GetVisibleCount()))
+	if ((nSubItem == 1) && (m_logEntries.GetVisibleCount() > (size_t)nItem))
 	{
 		PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (nItem);
 
