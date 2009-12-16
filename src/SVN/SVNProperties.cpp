@@ -73,11 +73,8 @@ svn_error_t*	SVNProperties::Refresh()
 	{
 		m_propCount = 0;
 		m_props.clear();
-
-		// free the allocated memory
-
-		svn_pool_destroy (m_pool);					
-		m_pool = svn_pool_create (NULL);					
+		// don't clear or even destroy the m_pool here, since
+		// there are still subpools of that pool alive!
 	}
 
 #ifdef _MFC_VER
