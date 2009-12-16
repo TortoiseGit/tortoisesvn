@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-07 09:52+0100\n"
+"PO-Revision-Date: 2009-12-16 14:37+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -75,6 +75,57 @@ msgstr "Felaktigt format: %1."
 msgid "%1 was not found."
 msgstr "%1 kunde inte hittas."
 
+#. Resource IDs: (169)
+#, c-format
+msgid "%1!d! files selected, %2!d! files total"
+msgstr "%1!d! filer markerade, %2!d! filer totalt"
+
+#. Resource IDs: (246)
+#, c-format
+msgid "%1!d! most active author(s) with at least %2!d! commits each (%3!d! %%)"
+msgstr "%1!d! mest aktiva användarna med minst %2!d! arkiveringar var (%3!d! %%)"
+
+#. Resource IDs: (226)
+#, c-format
+msgid "%1!ld! minute(s) and %2!ld! second(s)"
+msgstr "%1!ld! minut(er) och %2!ld! sekund(er)"
+
+#. Resource IDs: (115)
+#, c-format
+msgid "%1!s! (offline) - %2!s!"
+msgstr "%1!s! (frånkopplad) - %2!s!"
+
+#. Resource IDs: (226)
+#, c-format
+msgid "%1!s! - at revision: %2!d!"
+msgstr "%1!s! - i revision: %2!d!"
+
+# Osäker på var denna visas
+#. Resource IDs: (151)
+#, c-format
+msgid "%1!s! : Working Base, Revision %2!ld!"
+msgstr "%1!s! : Arbetsbas, Revision %2!ld!"
+
+#. Resource IDs: (226)
+#, c-format
+msgid "%1!s! in %2!s!"
+msgstr "%1!s! i %2!s!"
+
+#. Resource IDs: (357)
+#, c-format
+msgid "%1!s!, at %2!s!"
+msgstr "%1!s!, i %2!s!"
+
+#. Resource IDs: (145)
+#, c-format
+msgid "%1!s!\\%2!s! - Export"
+msgstr "%1!s!\\%2!s! - Export"
+
+#. Resource IDs: (145)
+#, c-format
+msgid "%1!s!\\%2!s! - Export (%3!d!)"
+msgstr "%1!s!\\%2!s! - Export (%3!d!)"
+
 #. Resource IDs: (3860)
 #, c-format
 msgid ""
@@ -110,21 +161,6 @@ msgstr "%I64d Bytes/s"
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBytes överförda"
 
-#. Resource IDs: (169)
-#, c-format
-msgid "%d files selected, %d files total"
-msgstr "%d filer markerade, %d filer totalt"
-
-#. Resource IDs: (246)
-#, c-format
-msgid "%d most active author(s) with at least %d commits each (%d %%)"
-msgstr "%d mest aktiva användarna med minst %d arkiveringar var (%d %%)"
-
-#. Resource IDs: (226)
-#, c-format
-msgid "%ld minute(s) and %ld second(s)"
-msgstr "%ld minut(er) och %ld sekund(er)"
-
 #. Resource IDs: (7)
 #, c-format
 msgid "%ld of %ld"
@@ -145,16 +181,6 @@ msgstr "%s"
 msgid "%s (offline)"
 msgstr "%s (Frånkopplad)"
 
-#. Resource IDs: (115)
-#, c-format
-msgid "%s (offline) - %s"
-msgstr "%s (frånkopplad) - %s"
-
-#. Resource IDs: (226)
-#, c-format
-msgid "%s - at revision: %d"
-msgstr "%s - i revision: %d"
-
 # Var används denna?
 #. Resource IDs: (151)
 #, c-format
@@ -170,24 +196,8 @@ msgstr "%s : Arbetsbas"
 # Osäker på var denna visas
 #. Resource IDs: (151)
 #, c-format
-msgid "%s : Working Base, Revision %ld"
-msgstr "%s : Arbetsbas, Revision %ld"
-
-# Osäker på var denna visas
-#. Resource IDs: (151)
-#, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Arbetskopia"
-
-#. Resource IDs: (226)
-#, c-format
-msgid "%s in %s"
-msgstr "%s i %s"
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%s, at %s"
-msgstr "%s, i %s"
 
 #. Resource IDs: (609)
 #, c-format
@@ -218,16 +228,6 @@ msgstr "%s, men det var borttagen, flyttad eller omdöpt lokalt."
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
 msgstr "%s, men den var blockerad i arbetskopian."
-
-#. Resource IDs: (145)
-#, c-format
-msgid "%s\\%s - Export"
-msgstr "%s\\%s - Export"
-
-#. Resource IDs: (145)
-#, c-format
-msgid "%s\\%s - Export (%d)"
-msgstr "%s\\%s - Export (%d)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -527,6 +527,10 @@ msgstr "&Jämför med URL"
 msgid "&Diff with previous version"
 msgstr "&Jämför med föregående revision"
 
+#. Resource IDs: (1528)
+msgid "&Directories"
+msgstr "&Kataloger"
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Dockning"
@@ -571,6 +575,10 @@ msgstr "&Egen"
 msgid "&File"
 msgstr "&Fil"
 
+#. Resource IDs: (1529)
+msgid "&Files"
+msgstr "&Filer"
+
 #. Resource IDs: (32809)
 msgid "&Filter"
 msgstr "&Filter"
@@ -614,6 +622,10 @@ msgstr "&Från arbetskopia på URL:"
 #. Resource IDs: (65535)
 msgid "&From revision"
 msgstr "&Från revision"
+
+#. Resource IDs: (1494)
+msgid "&From: (start URL and revision of the range to merge)"
+msgstr "&Från: (URL och revision att börja förena från)"
 
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
@@ -1078,6 +1090,10 @@ msgstr "&Till URL:"
 msgid "&To URL: "
 msgstr "&Till URL: "
 
+#. Resource IDs: (1495)
+msgid "&To: (end URL and revision of the range to merge)"
+msgstr "&Till: (URL och revision att förena till)"
+
 #. Resource IDs: (59392)
 msgid "&Toolbar"
 msgstr "&Verktygsrad"
@@ -1182,8 +1198,8 @@ msgstr "\"överhoppade interval\" används för att markera revisionsinterval so
 
 #. Resource IDs: (272)
 #, c-format
-msgid "(%s) %s"
-msgstr "(%s) %s"
+msgid "(%1!s!) %2!s!"
+msgstr "(%1!s!) %2!s!"
 
 #. Resource IDs: (119)
 msgid "(Double-click to clear error message)"
@@ -1985,8 +2001,8 @@ msgid "Bug-ID"
 msgstr "Bugg-ID"
 
 #. Resource IDs: (1119)
-msgid "Bug-ID / Issue-Nr:"
-msgstr "BuggID / Ärendenr:"
+msgid "Bug-ID / &Issue-Nr:"
+msgstr "Bugg&ID / Ärendenr:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2056,14 +2072,14 @@ msgstr "Det gick inte att aktivera ett statiskt ActiveX objekt."
 #, c-format
 msgid ""
 "Can't copy \n"
-"%s\n"
+"%1!s!\n"
 "to\n"
-"%s"
+"%2!s!"
 msgstr ""
 "Kan inte kopiera \n"
-"%s\n"
+"%1!s!\n"
 "till\n"
-"%s"
+"%2!s!"
 
 #. Resource IDs: (1001)
 msgid "Can't copy bitmap image into the clipboard!"
@@ -2145,8 +2161,8 @@ msgstr "Ändrade filer"
 
 #. Resource IDs: (324)
 #, c-format
-msgid "Changed files between %s, %s and %s, %s"
-msgstr "Ändrade filer mellan %s, %s och %s, %s"
+msgid "Changed files between %1!s!, %2!s! and %3!s!, %4!s!"
+msgstr "Ändrade filer mellan %1!s!, %2!s! och %3!s!, %4!s!"
 
 #. Resource IDs: (163)
 #, c-format
@@ -2249,8 +2265,8 @@ msgid "Checkout - TortoiseSVN"
 msgstr "Hämta - TortoiseSVN"
 
 #. Resource IDs: (1377)
-msgid "Checkout Depth"
-msgstr "Djup"
+msgid "Checkout D&epth"
+msgstr "&Djup"
 
 #. Resource IDs: (229)
 #, c-format
@@ -2314,18 +2330,18 @@ msgstr ""
 
 #. Resource IDs: (196)
 #, c-format
-msgid "Clears %ld URLs stored for %ld working copies"
-msgstr "Rensar %ld sparade URLer för %ld arbetskopior"
+msgid "Clears %1!ld! URLs stored for %2!ld! working copies"
+msgstr "Rensar %1!ld! sparade URLer för %2!ld! arbetskopior"
 
 #. Resource IDs: (196)
 #, c-format
-msgid "Clears %ld log messages stored for %ld working copies"
-msgstr "Rensar %ld sparade loggmeddelanden för %ld arbetskopior"
+msgid "Clears %1!ld! log messages stored for %2!ld! working copies"
+msgstr "Rensar %1!ld! sparade loggmeddelanden för %2!ld! arbetskopior"
 
 #. Resource IDs: (196)
 #, c-format
-msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
-msgstr "Rensar %ld användarnamn/lösenords par, %ld ssl certifikat och %ld användarnamn"
+msgid "Clears %1!ld! username/password pairs, %2!ld! ssl certificates and %3!ld! usernames"
+msgstr "Rensar %1!ld! användarnamn/lösenords par, %2!ld! ssl certifikat och %3!ld! användarnamn"
 
 #. Resource IDs: (197)
 #, c-format
@@ -2566,6 +2582,10 @@ msgstr "Jämför %s med %s"
 msgid "Completed"
 msgstr "Klar"
 
+#. Resource IDs: (219)
+msgid "Completed!"
+msgstr "Klar!"
+
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
 msgstr "Konfigurera krokskript"
@@ -2648,10 +2668,10 @@ msgstr "Kopierad från URL"
 msgid "Copied from revision"
 msgstr "Kopierat från revision"
 
-#. Resource IDs: (275)
+#. Resource IDs: (276)
 #, c-format
-msgid "Copied from: %s@%ld\r\n"
-msgstr "Kopierad från: %s@%ld\r\n"
+msgid "Copied from: %1!s!@%2!ld!\r\n"
+msgstr "Kopierad från: %1!s!@%2!ld!\r\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
@@ -2664,11 +2684,20 @@ msgstr "Kopiera"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Copy %ld items to\r\n"
-"%s"
+"Copy %1!ld! items to\r\n"
+"%2!s!"
 msgstr ""
-"Kopierade %ld objekt till\r\n"
-"%s"
+"Kopierade %1!ld! objekt till\r\n"
+"%2!s!"
+
+#. Resource IDs: (126)
+#, c-format
+msgid ""
+"Copy %1!s!\r\n"
+"to %2!s!"
+msgstr ""
+"Kopiera %1!s!\r\n"
+"till %2!s!"
 
 #. Resource IDs: (103)
 #, c-format
@@ -2679,15 +2708,6 @@ msgstr "Kopiera %s"
 #, c-format
 msgid "Copy %s to %s, Revision %s"
 msgstr "Kopiera %s till %s, Revision %s"
-
-#. Resource IDs: (126)
-#, c-format
-msgid ""
-"Copy %s\r\n"
-"to %s"
-msgstr ""
-"Kopiera %s\r\n"
-"till %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -2798,8 +2818,8 @@ msgstr "Kunde inte lägga till \"%s\" på grund av"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property '%s' on '%s' because"
-msgstr "Det gick inte att lägga till egenskapen \"%s\" på \"%s\" på grund av"
+msgid "Could not add property '%1!s!' on '%2!s!' because"
+msgstr "Det gick inte att lägga till egenskapen \"%1!s!\" på \"%2!s!\" på grund av"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -2828,8 +2848,8 @@ msgstr "Kunde inte ta bort \"%s\" på grund av"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property '%s' on '%s' because"
-msgstr "Kunde inte ta bort egenskapen \"%s\" på \"%s\" på grund av"
+msgid "Could not delete property '%1!s!' on '%2!s!' because"
+msgstr "Kunde inte ta bort egenskapen \"%1!s!\" på \"%2!s!\" på grund av"
 
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
@@ -2846,8 +2866,8 @@ msgstr "Kunde inte förena \"%s\" på grund av"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property '%s' on '%s' because"
-msgstr "Kunde inte förena egenskapen \"%s\" på \"%s\" på grund av"
+msgid "Could not merge property '%1!s!' on '%2!s!' because"
+msgstr "Kunde inte förena egenskapen \"%1!s!\" på \"%2!s!\" på grund av"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2883,10 +2903,10 @@ msgstr ""
 #. Resource IDs: (66)
 #, c-format
 msgid ""
-"Could not retrieve revision %s of the file %s.\n"
+"Could not retrieve revision %1!s! of the file %2!s!.\n"
 "Patching is not possible!"
 msgstr ""
-"Kunde inte hämta revision %s av filen %s.\n"
+"Kunde inte hämta revision %1!s! av filen %2!s!.\n"
 "Patchning kan inte genomföras!"
 
 #. Resource IDs: (64)
@@ -3471,11 +3491,11 @@ msgstr "Skriv loggmeddelande"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%S' on\r\n"
-"%s"
+"Edit property '%1!S!' on\r\n"
+"%2!s!"
 msgstr ""
-"Ändra egenskapen '%S' på\r\n"
-"%s"
+"Ändra egenskapen \"%1!S!\" på\r\n"
+"%2!s!"
 
 #. Resource IDs: (1331, 1382)
 msgid "Edit..."
@@ -3566,6 +3586,10 @@ msgstr "Skriv loggmeddelande"
 msgid "Enter URL"
 msgstr "Skriv in URL"
 
+#. Resource IDs: (65535)
+msgid "Enter a &name for the changelist:"
+msgstr "Ange &namn för ändringslistan:"
+
 #. Resource IDs: (3858)
 msgid "Enter a GUID."
 msgstr "Ange en GUID."
@@ -3585,10 +3609,6 @@ msgstr "Ange ett datum."
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr "Ange ett låsmeddelande (valfritt):"
-
-#. Resource IDs: (65535)
-msgid "Enter a name for the changelist:"
-msgstr "Ange namn för ändringslistan:"
 
 #. Resource IDs: (3858)
 #, c-format
@@ -3673,11 +3693,11 @@ msgstr "Fel vid validering av servercertifikat för %s:"
 #. Resource IDs: (70)
 #, c-format
 msgid ""
-"Error while reading/writing the registry key %s\n"
-"%s"
+"Error while reading/writing the registry key %1!s!\n"
+"%2!s!"
 msgstr ""
-"Fel vid läsning/skrivning av register nyckeln %s\n"
-"%s"
+"Fel vid läsning/skrivning av register nyckeln %1!s!\n"
+"%2!s!"
 
 #. Resource IDs: (1413)
 msgid "Exceptions:"
@@ -3810,6 +3830,10 @@ msgstr "Exkluderat externa"
 msgid "Externals included"
 msgstr "Inkluderat externa"
 
+#. Resource IDs: (1480)
+msgid "F&orce the merge"
+msgstr "&Tvinga förening"
+
 #. Resource IDs: (74)
 msgid "Failed revert"
 msgstr "Återställning misslyckades"
@@ -3862,11 +3886,11 @@ msgstr "Misslyckades med att ändra/ta bort ändringslistan \"%s\""
 #. Resource IDs: (83)
 #, c-format
 msgid ""
-"Failed to start the issue tracker COM provider '%s'.\n"
-"%s"
+"Failed to start the issue tracker COM provider '%1!s!'.\n"
+"%2!s!"
 msgstr ""
-"Misslyckades med att starta ärendespårning COM provider \"%s\".\n"
-"%s"
+"Misslyckades med att starta ärendespårning COM provider \"%1!s!\".\n"
+"%2!s!"
 
 #. Resource IDs: (220)
 msgid "Failed!"
@@ -4107,10 +4131,6 @@ msgstr "Avmarkera \"Följ inte kopieringshistorik\" för att se all historik"
 msgid "Force"
 msgstr "Tvinga"
 
-#. Resource IDs: (1480)
-msgid "Force the merge"
-msgstr "Tvinga förening"
-
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "Framåt"
@@ -4119,17 +4139,9 @@ msgstr "Framåt"
 msgid "Found auto words:"
 msgstr "Hittade auto ord"
 
-#. Resource IDs: (65535)
-msgid "From URL:"
-msgstr "Från URL:"
-
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Från:"
-
-#. Resource IDs: (65535)
-msgid "From: (start URL and revision of the range to merge)"
-msgstr "Från: (URL och revision att börja förena från)"
 
 #. Resource IDs: (1065)
 msgid "Full Screen"
@@ -4197,15 +4209,15 @@ msgstr ""
 "Filer med 'svn:needs-lock' egenskapen markeras som skrivskyddade i filsystemet, och man hämtar låset för att göra dem skrivbara.\n"
 "Användare måste uppdatera sina arbetskopior för att filerna ska bli skrivskyddade. "
 
+#. Resource IDs: (120)
+#, c-format
+msgid "Getting file %1!s!, revision %2!s!"
+msgstr "Hämtar fil %1!s!, revision %2!s!"
+
 #. Resource IDs: (119)
 #, c-format
 msgid "Getting file %s"
 msgstr "Hämtar fil %s"
-
-#. Resource IDs: (120)
-#, c-format
-msgid "Getting file %s, revision %s"
-msgstr "Hämtar fil %s, revision %s"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
@@ -4294,6 +4306,10 @@ msgstr "Gruppera efter gren"
 #. Resource IDs: (214)
 msgid "Group changelists"
 msgstr "Gruppera ändringslistor"
+
+#. Resource IDs: (1032)
+msgid "H&EAD Revision"
+msgstr "H&EAD revision"
 
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
@@ -4401,6 +4417,10 @@ msgstr "Felaktigt hostnamn (%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "Hur vill du lösa följande konflikt?"
+
+#. Resource IDs: (1392)
+msgid "I&gnore all whitespaces"
+msgstr "I&gnorera alla tomrum"
 
 #. Resource IDs: (1264)
 msgid "I&gnored"
@@ -4708,6 +4728,10 @@ msgstr "Ignorera %d objekt efter &extension"
 msgid "Ignore &all whitespaces"
 msgstr "Ignorera &alla tomrum"
 
+#. Resource IDs: (1267)
+msgid "Ignore &ancestry"
+msgstr "Ignorer&a ursprung"
+
 #. Resource IDs: (1067)
 msgid "Ignore &case changes"
 msgstr "&Ignorera ändringar mellan gemener/versaler"
@@ -4720,9 +4744,9 @@ msgstr "Ignorera ändringar av tomrum"
 msgid "Ignore all whitespaces"
 msgstr "Ignorera alla tomrum"
 
-#. Resource IDs: (1267)
-msgid "Ignore ancestry"
-msgstr "Ignorera ursprung"
+#. Resource IDs: (1126)
+msgid "Ignore line &endings"
+msgstr "Ignor&era radslut"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4731,6 +4755,10 @@ msgstr "Ignorera &radslut (rekommenderas)"
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line endings"
 msgstr "Ignorera radslut"
+
+#. Resource IDs: (1391)
+msgid "Ignore whitespace c&hanges"
+msgstr "&Ignorera ändringar av tomrum"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
@@ -4801,11 +4829,11 @@ msgstr "Importera sparade egenskaper från en fil"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Import file %s\r\n"
-"to %s"
+"Import file %1!s!\r\n"
+"to %2!s!"
 msgstr ""
-"Importera filen %s\r\n"
-"till %s"
+"Importera filen %1!s!\r\n"
+"till %2!s!"
 
 #. Resource IDs: (126)
 #, c-format
@@ -4819,11 +4847,11 @@ msgstr ""
 #. Resource IDs: (126)
 #, c-format
 msgid ""
-"Import folder %s\r\n"
-"to %s"
+"Import folder %1!s!\r\n"
+"to %2!s!"
 msgstr ""
-"Importera mappen %s\r\n"
-"till %s"
+"Importera mappen %1!s!\r\n"
+"till %2!s!"
 
 #. Resource IDs: (613)
 #, c-format
@@ -4999,8 +5027,8 @@ msgstr ""
 msgid ""
 "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
 "\n"
-"From:\t%s\n"
-"To:\t\t%s\n"
+"From:\t%1!s!\n"
+"To:\t\t%2!s!\n"
 "\n"
 "A relocate is only needed if the path <b>to</b> a repository has changed.\n"
 "Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
@@ -5011,8 +5039,8 @@ msgid ""
 msgstr ""
 "Det verkar som att du försöker <b>omlokalisera</b> din arbetskopia till en annan sökväg i samma arkiv.\n"
 "\n"
-"Från: %s\n"
-"Till: %s\n"
+"Från:\t%1!s!\n"
+"Till:\t\t%2!s!\n"
 "\n"
 "Omlokalisering behövs endast om sökvägen <b>till</b> ett arkiv har ändrats.\n"
 "För att byta sökväg <b>inom</b> samma arkiv så används växla alternativet.\n"
@@ -5022,8 +5050,8 @@ msgstr ""
 "Vill du verkligen omlokalisera?"
 
 #. Resource IDs: (1480)
-msgid "Items in externals"
-msgstr "Objekt i externa anslutningar"
+msgid "Items in &externals"
+msgstr "Objekt i &externa anslutningar"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
@@ -5042,8 +5070,8 @@ msgid "Keep &locks"
 msgstr "Behåll &lås"
 
 #. Resource IDs: (1126)
-msgid "Keep changelists"
-msgstr "Behåll ändringslistor"
+msgid "Keep ch&angelists"
+msgstr "&Behåll ändringslistor"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -5280,17 +5308,17 @@ msgstr "Loggmeddelanden (Visa loggmeddelande dialogen)"
 
 #. Resource IDs: (238)
 #, c-format
-msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
-msgstr "Lägsta visade revision: %ld - Högsta visade revision: %ld"
+msgid "Lowest shown revision: %1!ld! - Highest shown revision: %2!ld!"
+msgstr "Lägsta visade revision: %1!ld! - Högsta visade revision: %2!ld!"
 
 #. Resource IDs: (238)
 #, c-format
 msgid ""
-"Lowest shown revision: %ld - Highest shown revision: %ld\n"
-"HEAD revision: %ld"
+"Lowest shown revision: %1!ld! - Highest shown revision: %2!ld!\n"
+"HEAD revision: %3!ld!"
 msgstr ""
-"Lägsta visade revision: %ld - Högsta visade revision: %ld\n"
-"HEAD revision: %ld"
+"Lägsta visade revision: %1!ld! - Högsta visade revision: %2!ld!\n"
+"HEAD revision: %3!ld!"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -5388,6 +5416,10 @@ msgstr "Meny s&kuggor"
 msgid "Merge"
 msgstr "Förena"
 
+#. Resource IDs: (1488)
+msgid "Merge &depth:"
+msgstr "Förenings&djup:"
+
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "Förena - TortoiseSVN"
@@ -5397,16 +5429,12 @@ msgid "Merge Reintegrate"
 msgstr "Återintegrera"
 
 #. Resource IDs: (1468)
-msgid "Merge a range of revisions"
-msgstr "Förena ett revisionsinterval"
+msgid "Merge a &range of revisions"
+msgstr "Förena ett &revisionsinterval"
 
 #. Resource IDs: (277)
 msgid "Merge all"
 msgstr "Förena alla"
-
-#. Resource IDs: (65535)
-msgid "Merge depth:"
-msgstr "Föreningsdjup:"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -5438,8 +5466,8 @@ msgid "Merge the changes into '%s'"
 msgstr "Förena ändringar med '%s'"
 
 #. Resource IDs: (1470)
-msgid "Merge two different trees"
-msgstr "Förena två olika träd"
+msgid "Merge two different &trees"
+msgstr "Förena två olika &träd"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge type"
@@ -5482,13 +5510,13 @@ msgstr "Förenar från %s, revision %s till %s, revision %s till %s, %s%s%s"
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Merging r%ld"
-msgstr "Förenar r%ld"
+msgid "Merging r%1!ld! through r%2!ld!"
+msgstr "Förenar r%1!ld! till r%2!ld!"
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Merging r%ld through r%ld"
-msgstr "Förenar r%ld till r%ld"
+msgid "Merging r%ld"
+msgstr "Förenar r%ld"
 
 #. Resource IDs: (83)
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
@@ -5582,20 +5610,20 @@ msgstr "Mus"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Move %ld items to\r\n"
-"%s"
+"Move %1!ld! items to\r\n"
+"%2!s!"
 msgstr ""
-"Flytta %ld objekt till\r\n"
-"%s"
+"Flytta %1!ld! objekt till\r\n"
+"%2!s!"
 
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Move %s\r\n"
-"to %s"
+"Move %1!s!\r\n"
+"to %2!s!"
 msgstr ""
-"Flytta %s\r\n"
-"till %s"
+"Flytta %1!s!\r\n"
+"till %2!s!"
 
 #. Resource IDs: (17026)
 msgid "Move &Down"
@@ -5820,6 +5848,10 @@ msgstr "Inga förslag"
 msgid "Node colors"
 msgstr "Nod färger"
 
+#. Resource IDs: (1507)
+msgid "Non-versioned"
+msgstr "Ej i arkivet"
+
 #. Resource IDs: (1271)
 msgid "None"
 msgstr "Inga"
@@ -5979,6 +6011,10 @@ msgstr ""
 msgid "One or more files are in a conflicted state."
 msgstr "En eller flera filer innehåller konflikter."
 
+#. Resource IDs: (1424)
+msgid "Onl&y record the merge (block revisions from getting merged)"
+msgstr "&Registrera endast föreningen (blockera revisioner från att bli förenade)"
+
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
 msgstr "Häm&ta endast översta mappen"
@@ -5994,10 +6030,6 @@ msgid ""
 msgstr ""
 "Endast siffror (med möjlig kommaseparering)\n"
 "är tillåtna!"
-
-#. Resource IDs: (1424)
-msgid "Only record the merge (block revisions from getting merged)"
-msgstr "Registrera endast föreningen (blockera revisioner från att bli förenade)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -6403,13 +6435,13 @@ msgstr "Egenskap"
 
 #. Resource IDs: (151)
 #, c-format
-msgid "Property %s : Revision %s"
-msgstr "Egenskap %s : Revision %s"
+msgid "Property %1!s! : Revision %2!s!"
+msgstr "Egenskap %1!s! : Revision %2!s!"
 
 #. Resource IDs: (151)
 #, c-format
-msgid "Property %s : Working Base, Revision %ld"
-msgstr "Egenskap %s : Arbetsbas, Revision %ld"
+msgid "Property %1!s! : Working Base, Revision %2!ld!"
+msgstr "Egenskap %1!s! : Arbetsbas, Revision %2!ld!"
 
 #. Resource IDs: (151)
 #, c-format
@@ -6495,9 +6527,17 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "R&AM enheter"
 
+#. Resource IDs: (1469)
+msgid "R&eintegrate a branch"
+msgstr "Åt&erintegrera en gren"
+
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "N&ollställ"
+
+#. Resource IDs: (1423)
+msgid "R&everse merge"
+msgstr "Omvänd för&ening"
 
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
@@ -6534,6 +6574,10 @@ msgstr "Åter&ställ standard"
 #. Resource IDs: (8)
 msgid "Re&vert..."
 msgstr "Åt&erställ..."
+
+#. Resource IDs: (1033)
+msgid "Re&vision"
+msgstr "Re&vision"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -6620,10 +6664,6 @@ msgstr ""
 "\\W : alla tecken som inte är alfanumeriska\r\n"
 "\\d : siffrorna 0-9\r\n"
 "\\s : tomrum"
-
-#. Resource IDs: (1469)
-msgid "Reintegrate a branch"
-msgstr "Återintegrera en gren"
 
 #. Resource IDs: (595)
 msgid "Reintegrate merge"
@@ -6723,11 +6763,11 @@ msgstr "Ta bort från ändringslista"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%S' from\r\n"
-"%s"
+"Remove property '%1!S!' from\r\n"
+"%2!s!"
 msgstr ""
-"Ta bort egenskapen '%S' från\r\n"
-"%s"
+"Ta bort egenskapen \"%1!S!\" från\r\n"
+"%2!s!"
 
 #. Resource IDs: (610)
 msgid "Remove the directory"
@@ -6797,11 +6837,11 @@ msgstr "Döp om %s"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Rename item from %s\r\n"
-"to %s"
+"Rename item from %1!s!\r\n"
+"to %2!s!"
 msgstr ""
-"Byt namn på objektet från %s\r\n"
-"till %s"
+"Byt namn på objektet från %1!s!\r\n"
+"till %2!s!"
 
 #. Resource IDs: (221)
 msgid "Rename/move - TortoiseSVN"
@@ -6948,19 +6988,15 @@ msgstr "Återställd"
 msgid "Retry"
 msgstr "Försök igen"
 
-#. Resource IDs: (1423)
-msgid "Reverse merge"
-msgstr "Omvänd förening"
+#. Resource IDs: (264)
+#, c-format
+msgid "Reverse merging %1!ld! through %2!ld!"
+msgstr "Omvänd förening %1!ld! till %2!ld!"
 
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %ld"
 msgstr "Omvänd förening %ld"
-
-#. Resource IDs: (264)
-#, c-format
-msgid "Reverse merging %ld through %ld"
-msgstr "Omvänd förening %ld till %ld"
 
 #. Resource IDs: (175, 229)
 msgid "Revert"
@@ -7033,9 +7069,9 @@ msgstr "Revisionsintervall"
 msgid "Revision graph"
 msgstr "Revisionsgraf"
 
-#. Resource IDs: (65535)
-msgid "Revision range to merge"
-msgstr "Revisionsintervall att förena"
+#. Resource IDs: (1492)
+msgid "Revision r&ange to merge"
+msgstr "Revisionsinterv&all att förena"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -7044,44 +7080,44 @@ msgstr "Revision:"
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld %s\r\n"
-"URL: %s\r\n"
-"%sAuthor: %s\r\n"
-"Date: %s\r\n"
+"Revision: %1!ld! %2!s!\r\n"
+"URL: %3!s!\r\n"
+"%4!s!Author: %5!s!\r\n"
+"Date: %6!s!\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%s"
+"%7!s!"
 msgstr ""
-"Revision: %ld %s\r\n"
-"URL: %s\r\n"
-"%sAnvändarnamn: %s\r\n"
-"Datum: %s\r\n"
+"Revision: %1!ld! %2!s!\r\n"
+"URL: %3!s!\r\n"
+"%4!s!Användarnamn: %5!s!\r\n"
+"Datum: %6!s!\r\n"
 "\r\n"
 "Loggmeddelande:\r\n"
-"%s"
+"%7!s!"
 
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld %s\r\n"
-"URL: %s\r\n"
-"%sAuthor: %s\r\n"
-"Date: %s\r\n"
+"Revision: %1!ld! %2!s!\r\n"
+"URL: %3!s!\r\n"
+"%4!s!Author: %5!s!\r\n"
+"Date: %6!s!\r\n"
 "\r\n"
-"Tags (%d):%s\r\n"
+"Tags (%7!d!):%8!s!\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%s"
+"%9!s!"
 msgstr ""
-"Revision: %ld %s\r\n"
-"URL: %s\r\n"
-"%sAnvändarnamn: %s\r\n"
-"Datum: %s\r\n"
+"Revision: %1!ld! %2!s!\r\n"
+"URL: %3!s!\r\n"
+"%4!s!Användarnamn: %5!s!\r\n"
+"Datum: %6!s!\r\n"
 "\r\n"
-"Märken (%d):%s\r\n"
+"Märken (%7!d!):%8!s!\r\n"
 "\r\n"
 "Loggmeddelande:\r\n"
-"%s"
+"%9!s!"
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -7498,11 +7534,11 @@ msgstr "Sätt fildatum till \"senaste &arkivering\""
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%S' on\r\n"
-"%s"
+"Set property '%1!S!' on\r\n"
+"%2!s!"
 msgstr ""
-"Sätt egenskapen '%S' på\r\n"
-"%s"
+"Sätt egenskapen \"%1!S!\" på\r\n"
+"%2!s!"
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
@@ -7667,8 +7703,8 @@ msgid "Show excluded folders as normal"
 msgstr "Visa exkluderade mappar som normala"
 
 #. Resource IDs: (1480)
-msgid "Show externals from different repositories"
-msgstr "Visa externa objekt från andra arkiv"
+msgid "Show externals from &different repositories"
+msgstr "&Visa externa objekt från andra arkiv"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7681,6 +7717,10 @@ msgstr "Visa l&ogg"
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "Visa radnumme&r"
+
+#. Resource IDs: (1037)
+msgid "Show lo&g"
+msgstr "Visa lo&gg"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -7758,15 +7798,15 @@ msgstr "Visa märkena på källan av kopieringar, inte som separata noder"
 msgid "Show/Hide"
 msgstr "Visa/dölj"
 
+#. Resource IDs: (115)
+#, c-format
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
+msgstr "Visar %1!ld! revision(er), från revision %2!ld! till revision %3!ld! - %4!ld! revision(er) valda. "
+
 #. Resource IDs: (272)
 #, c-format
 msgid "Showing %ld nodes"
 msgstr "Visar %ld noder"
-
-#. Resource IDs: (115)
-#, c-format
-msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
-msgstr "Visar %ld revisioner, från revision %ld till revision %ld - %ld revisioner valda. "
 
 #. Resource IDs: (272)
 #, c-format
@@ -8017,8 +8057,8 @@ msgid ""
 "http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion encountered the problem in:\n"
-"file %s, line %ld\n"
-"expression = %s"
+"file %1!s!, line %2!ld!\n"
+"expression = %3!s!"
 msgstr ""
 "Subversion har stött på ett allvarligt problem.\n"
 "Ta dig tid att rapportera detta på vår e-postlista\n"
@@ -8031,8 +8071,8 @@ msgstr ""
 "http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion har stött på problem i:\n"
-"fil %s, rad %ld\n"
-"uttryck = %s"
+"fil %1!s!, rad %2!ld!\n"
+"uttryck = %3!s!"
 
 #. Resource IDs: (84)
 msgid ""
@@ -8208,14 +8248,6 @@ msgstr "Textstatus:"
 #. Resource IDs: (207)
 msgid "Text status"
 msgstr "Textstatus"
-
-#. Resource IDs: (84)
-msgid ""
-"The URL to check out refers to a file but this\n"
-"working copy path is an existing directory."
-msgstr ""
-"Sökvägen för hämtning refererar till en fil men\n"
-"denna arbetskopia är en existerande katalog."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -8515,15 +8547,15 @@ msgstr ""
 #, c-format
 msgid ""
 "The patch seems outdated! The file line\n"
-"%s\n"
+"%1!s!\n"
 "and the patchline\n"
-"%s\n"
+"%2!s!\n"
 "do not match!"
 msgstr ""
 "Patchen verkar gammal! Filraden\n"
-"%s\n"
+"%1!s!\n"
 "och patchraden\n"
-"%s\n"
+"%2!s!\n"
 " matchar inte!"
 
 #. Resource IDs: (88)
@@ -8548,22 +8580,39 @@ msgstr ""
 #, c-format
 msgid ""
 "The path\n"
-"<i>%s</i>\n"
+"<i>%1!s!</i>\n"
 "in the patchfile does not exist.\n"
 "TortoiseMerge found the relative path\n"
-"<i>%s</i>\n"
+"<i>%2!s!</i>\n"
 "which seems to match the directory you're applying the patch.\n"
 "\n"
 "Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
 msgstr ""
 "Sökvägen\n"
-"<i>%s</i>\n"
+"<i>%1!s!</i>\n"
 "i patchfilen finns inte.\n"
 "TortoiseMerge hittade den relativa sökvägen\n"
-"<i>%s</i>\n"
+"<i>%2!s!</i>\n"
 "som verkar stämma med mappen du applicerar patchen på.\n"
 "\n"
 "Vill du använda den föreslagna sökvägen istället? Om du svarar 'nej' så avslutas TortoiseMerge."
+
+#. Resource IDs: (314)
+#, c-format
+msgid ""
+"The path\n"
+"<i>%1!s!</i>\n"
+"seems not to match the paths in the patchfile.\n"
+"But TortoiseMerge found the path\n"
+"<i>%2!s!</i>\n"
+"matches it better. Do you want to use the suggested path instead?"
+msgstr ""
+"Sökvägen\n"
+"<i>%1!s!</i>\n"
+"verkar inte stämma överens med sökvägen i patchfilen.\n"
+"TortoiseMerge hittade sökvägen\n"
+"<i>%2!s!</i>\n"
+"som stämmer bättre. Vill du använda den föreslagna sökvägen istället?"
 
 #. Resource IDs: (314)
 #, c-format
@@ -8577,23 +8626,6 @@ msgstr ""
 "<i>%s</i>\n"
 "som finns i patchfilen existerar inte.\n"
 "TortoiseMerge försökte även hitta sökvägar genom att jämföra med kända prefix borttagna. "
-
-#. Resource IDs: (314)
-#, c-format
-msgid ""
-"The path\n"
-"<i>%s</i>\n"
-"seems not to match the paths in the patchfile.\n"
-"But TortoiseMerge found the path\n"
-"<i>%s</i>\n"
-"matches it better. Do you want to use the suggested path instead?"
-msgstr ""
-"Sökvägen\n"
-"<i>%s</i>\n"
-"verkar inte stämma överens med sökvägen i patchfilen.\n"
-"TortoiseMerge hittade sökvägen\n"
-"<i>%s</i>\n"
-"som stämmer bättre. Vill du använda den föreslagna sökvägen istället?"
 
 #. Resource IDs: (80)
 msgid "The repository was successfully created."
@@ -8853,10 +8885,6 @@ msgstr ""
 msgid "To:"
 msgstr "Till:"
 
-#. Resource IDs: (65535)
-msgid "To: (end URL and revision of the range to merge)"
-msgstr "Till: (URL och revision att förena till)"
-
 #. Resource IDs: (3633)
 msgid ""
 "Toggle One/Two Pages display\n"
@@ -9080,9 +9108,9 @@ msgstr "URL okänd (UUID: %s)"
 msgid "URL of Subversion items"
 msgstr "Sökväg i arkivet"
 
-#. Resource IDs: (65535)
-msgid "URL to merge from"
-msgstr "URL att förena från"
+#. Resource IDs: (1491)
+msgid "URL to merge &from"
+msgstr "URL att förena &från"
 
 #. Resource IDs: (144, 11023, 65535)
 msgid "URL:"
@@ -9198,12 +9226,12 @@ msgstr "\"Unified &Diff\" av HEAD revisioner"
 #, c-format
 msgid ""
 "Unknown certificate issuer.\n"
-"  Fingerprint: %s\n"
-"  Distinguished name: %s"
+"  Fingerprint: %1!s!\n"
+"  Distinguished name: %2!s!"
 msgstr ""
 "Okänd utgivare av certifikat.\n"
-"  Avtryck: %s\n"
-"  Namn: %s"
+"  Avtryck: %1!s!\n"
+"  Namn: %2!s!"
 
 #. Resource IDs: (20)
 msgid "Unknown depth"
@@ -9244,10 +9272,6 @@ msgstr ""
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Koppla loss"
-
-#. Resource IDs: (1507)
-msgid "Unversioned"
-msgstr "Icke versionshanterad"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
@@ -9816,18 +9840,18 @@ msgstr "Du bör välja en bild!"
 #, c-format
 msgid ""
 "You're trying to add the item\n"
-"'%s',\n"
+"'%1!s!',\n"
 "but the item\n"
-"'%s'\n"
+"'%2!s!'\n"
 "already exists.\n"
 "\n"
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr ""
 "Du försöker lägga till objektet\n"
-"'%s',\n"
+"'%1!s!',\n"
 "men objektet\n"
-"'%s'\n"
+"'%2!s!'\n"
 "finns redan.\n"
 "\n"
 "Det verkar som om objektet har blivit omdöpt utanför Subversion men endast med versala skillnader.\n"
@@ -9871,16 +9895,16 @@ msgstr ""
 "\n"
 "Vill du arkivera ändå?"
 
-#. Resource IDs: (275)
+#. Resource IDs: (276)
 #, c-format
 msgid ""
 "Your working copy contains modifications.\n"
-"Lowest revision in working copy: %ld\n"
-"Path: %s"
+"Lowest revision in working copy: %1!ld!\n"
+"Path: %2!s!"
 msgstr ""
 "Din arbetskopia innehåller modifieringar.\n"
-"Lägsta revision i arbetskopian: %ld\n"
-"Sökväg: %s"
+"Lägsta revision i arbetskopian: %1!ld!\n"
+"Sökväg: %2!s!"
 
 #. Resource IDs: (88)
 msgid ""
@@ -10009,8 +10033,8 @@ msgstr "Tilllagda filer"
 
 #. Resource IDs: (272)
 #, c-format
-msgid "alias (%s): %s"
-msgstr "alias (%s): %s"
+msgid "alias (%1!s!): %2!s!"
+msgstr "alias (%1!s!): %2!s!"
 
 #. Resource IDs: (272)
 #, c-format
@@ -10147,10 +10171,10 @@ msgstr "anslutning:"
 #, c-format
 msgid ""
 "copied from\r\n"
-"%s - revision %ld"
+"%1!s! - revision %2!ld!"
 msgstr ""
 "kopierad från\r\n"
-"%s - revision %ld"
+"%1!s! - revision %2!ld!"
 
 #. Resource IDs: (65535)
 msgid "copied:"
@@ -10370,17 +10394,21 @@ msgstr "Tar hänsyn till ursprung"
 
 #. Resource IDs: (326)
 #, c-format
-msgid "revision %s-%s, revision %s-%s"
-msgstr "revision %s-%s, revision %s-%s"
+msgid "revision %1!s!-%2!s!, revision %3!s!-%4!s!"
+msgstr "revision %1!s!-%2!s!, revision %3!s!-%4!s!"
 
 #. Resource IDs: (65535)
 msgid "revision count: "
 msgstr "antal revisioner:"
 
+#. Resource IDs: (626)
+msgid "revision has already been merged"
+msgstr "Revisionen har redan blivit förenad"
+
 #. Resource IDs: (326)
 #, c-format
-msgid "revisions %s-%s, %s"
-msgstr "revisionerna %s-%s, %s"
+msgid "revisions %1!s!-%2!s!, %3!s!"
+msgstr "revisionerna %1!s!-%2!s!, %3!s!"
 
 #. Resource IDs: (65535)
 msgid "revisions: "
@@ -10529,6 +10557,10 @@ msgstr "temporärt frånkopplad"
 #. Resource IDs: (65535)
 msgid "text [token count]: "
 msgstr "text [symboler]:"
+
+#. Resource IDs: (626)
+msgid "the working copy is at this revision"
+msgstr "Arbetskopian är vid denna revision"
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
@@ -10720,6 +10752,16 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "From URL:"
+#~ msgstr "Från URL:"
+#~ msgid ""
+#~ "The URL to check out refers to a file but this\n"
+#~ "working copy path is an existing directory."
+#~ msgstr ""
+#~ "Sökvägen för hämtning refererar till en fil men\n"
+#~ "denna arbetskopia är en existerande katalog."
+#~ msgid "Unversioned"
+#~ msgstr "Icke versionshanterad"
 #~ msgid "Show &properties"
 #~ msgstr "Visa &egenskaper"
 #~ msgid "Show i&gnored files"
