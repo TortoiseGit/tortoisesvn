@@ -108,7 +108,7 @@ public:
 							 , STREAM_INDEX index);
 	virtual ~CHierachicalInStreamBase(void);
 
-	// implement IHierarchicalOutStream
+	// implement IHierarchicalInStream
 
     virtual void AutoOpen();
     virtual void AutoClose();

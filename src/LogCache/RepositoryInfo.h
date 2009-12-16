@@ -72,7 +72,7 @@ private:
 
         CString root;
 
-        /// repository URL
+        /// Universal Unique Identifier for a cached repository
 
         CString uuid;
 
