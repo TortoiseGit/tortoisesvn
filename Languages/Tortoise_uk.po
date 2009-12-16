@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-14 13:10+0300\n"
+"PO-Revision-Date: 2009-12-16 17:36+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -70,6 +70,56 @@ msgstr "У %1 поганий формат."
 msgid "%1 was not found."
 msgstr "%1 не знайдено."
 
+#. Resource IDs: (169)
+#, c-format
+msgid "%1!d! files selected, %2!d! files total"
+msgstr "Вибрано %1!d! файлів, усього %2!d! файлів"
+
+#. Resource IDs: (246)
+#, c-format
+msgid "%1!d! most active author(s) with at least %2!d! commits each (%3!d! %%)"
+msgstr "%1!d! найактивніших авторів, кожен принаймі з %2!d! фіксуваннями (%3!d! %%)"
+
+#. Resource IDs: (226)
+#, c-format
+msgid "%1!ld! minute(s) and %2!ld! second(s)"
+msgstr "%1!ld! хвилин(и) і %2!ld! секунд(и)"
+
+#. Resource IDs: (115)
+#, c-format
+msgid "%1!s! (offline) - %2!s!"
+msgstr "%1!s! (не в мережі) - %2!s!"
+
+#. Resource IDs: (226)
+#, c-format
+msgid "%1!s! - at revision: %2!d!"
+msgstr "%1!s! - у модифікації: %2!d!"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "%1!s! : Working Base, Revision %2!ld!"
+msgstr "%1!s! : Робоча база, Модифікація %2!ld!"
+
+#. Resource IDs: (226)
+#, c-format
+msgid "%1!s! in %2!s!"
+msgstr "%1!s! у %2!s!"
+
+#. Resource IDs: (357)
+#, c-format
+msgid "%1!s!, at %2!s!"
+msgstr "%1!s!, зі швидкістю %2!s!"
+
+#. Resource IDs: (145)
+#, c-format
+msgid "%1!s!\\%2!s! - Export"
+msgstr "%1!s!\\%2!s! - Експорт"
+
+#. Resource IDs: (145)
+#, c-format
+msgid "%1!s!\\%2!s! - Export (%3!d!)"
+msgstr "%1!s!\\%2!s! - Експорт (%3!d!)"
+
 #. Resource IDs: (3860)
 #, c-format
 msgid ""
@@ -105,21 +155,6 @@ msgstr "%I64d Байт/с"
 msgid "%I64d kBytes transferred"
 msgstr "%I64d кБайт передано"
 
-#. Resource IDs: (169)
-#, c-format
-msgid "%d files selected, %d files total"
-msgstr "Вибрано %d файлів, усього %d файлів"
-
-#. Resource IDs: (246)
-#, c-format
-msgid "%d most active author(s) with at least %d commits each (%d %%)"
-msgstr "%d найактивніших авторів, кожен принаймі з %d фіксуваннями (%d %%)"
-
-#. Resource IDs: (226)
-#, c-format
-msgid "%ld minute(s) and %ld second(s)"
-msgstr "%ld хвилин(и) і %ld секунд(и)"
-
 #. Resource IDs: (7)
 #, c-format
 msgid "%ld of %ld"
@@ -140,16 +175,6 @@ msgstr "%s"
 msgid "%s (offline)"
 msgstr "%s (не в мережі)"
 
-#. Resource IDs: (115)
-#, c-format
-msgid "%s (offline) - %s"
-msgstr "%s (не в мережі) - %s"
-
-#. Resource IDs: (226)
-#, c-format
-msgid "%s - at revision: %d"
-msgstr "%s - у модифікації: %d"
-
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
@@ -162,23 +187,8 @@ msgstr "%s : Робоча база"
 
 #. Resource IDs: (151)
 #, c-format
-msgid "%s : Working Base, Revision %ld"
-msgstr "%s : Робоча база, Модифікація %ld"
-
-#. Resource IDs: (151)
-#, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Робоча копія"
-
-#. Resource IDs: (226)
-#, c-format
-msgid "%s in %s"
-msgstr "%s у %s"
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%s, at %s"
-msgstr "%s, зі швидкістю %s"
 
 #. Resource IDs: (609)
 #, c-format
@@ -209,16 +219,6 @@ msgstr "%s, але його було локально знищено, перем
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
 msgstr "%s, але це заважало у робочій копії."
-
-#. Resource IDs: (145)
-#, c-format
-msgid "%s\\%s - Export"
-msgstr "%s\\%s - Експорт"
-
-#. Resource IDs: (145)
-#, c-format
-msgid "%s\\%s - Export (%d)"
-msgstr "%s\\%s - Експорт (%d)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -1179,8 +1179,8 @@ msgstr "'пропустити діапазони' застосовуєтсья �
 
 #. Resource IDs: (272)
 #, c-format
-msgid "(%s) %s"
-msgstr "(%s) %s"
+msgid "(%1!s!) %2!s!"
+msgstr "(%1!s!) %2!s!"
 
 #. Resource IDs: (119)
 msgid "(Double-click to clear error message)"
@@ -2044,14 +2044,14 @@ msgstr "Не вдається активувати статичний об'єк�
 #, c-format
 msgid ""
 "Can't copy \n"
-"%s\n"
+"%1!s!\n"
 "to\n"
-"%s"
+"%2!s!"
 msgstr ""
 "Не вдається скопіювати \n"
-"%s\n"
+"%1!s!\n"
 "до\n"
-"%s"
+"%2!s!"
 
 #. Resource IDs: (1001)
 msgid "Can't copy bitmap image into the clipboard!"
@@ -2133,8 +2133,8 @@ msgstr "Змінені файли"
 
 #. Resource IDs: (324)
 #, c-format
-msgid "Changed files between %s, %s and %s, %s"
-msgstr "Файли, змінені від %s, %s до %s, %s"
+msgid "Changed files between %1!s!, %2!s! and %3!s!, %4!s!"
+msgstr "Файли, змінені від %1!s!, %2!s! до %3!s!, %4!s!"
 
 #. Resource IDs: (163)
 #, c-format
@@ -2304,18 +2304,18 @@ msgstr ""
 
 #. Resource IDs: (196)
 #, c-format
-msgid "Clears %ld URLs stored for %ld working copies"
-msgstr "Очищує %ld URL-ів для %ld робочих копій"
+msgid "Clears %1!ld! URLs stored for %2!ld! working copies"
+msgstr "Очищує %1!ld! URL-ів для %2!ld! робочих копій"
 
 #. Resource IDs: (196)
 #, c-format
-msgid "Clears %ld log messages stored for %ld working copies"
-msgstr "Очищує %ld логових повідомлень збережених для %ld робочих копій"
+msgid "Clears %1!ld! log messages stored for %2!ld! working copies"
+msgstr "Очищує %1!ld! логових повідомлень збережених для %2!ld! робочих копій"
 
 #. Resource IDs: (196)
 #, c-format
-msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
-msgstr "Очищує %ld пар ім'я/пароль, %ld сертифікатів ssl і %ld імен користувачів"
+msgid "Clears %1!ld! username/password pairs, %2!ld! ssl certificates and %3!ld! usernames"
+msgstr "Очищує %1!ld! пар ім'я/пароль, %2!ld! сертифікатів ssl і %3!ld! імен користувачів"
 
 #. Resource IDs: (197)
 #, c-format
@@ -2553,6 +2553,10 @@ msgstr "Порівнюються %s з %s"
 msgid "Completed"
 msgstr "Готово"
 
+#. Resource IDs: (219)
+msgid "Completed!"
+msgstr "Готово!"
+
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
 msgstr "Конфігурувати скрипти зачіпки"
@@ -2634,10 +2638,10 @@ msgstr "Скопійовано з URL"
 msgid "Copied from revision"
 msgstr "Скопійовано з модифікації"
 
-#. Resource IDs: (275)
+#. Resource IDs: (276)
 #, c-format
-msgid "Copied from: %s@%ld\r\n"
-msgstr "Скопійовано з: %s@%ld\r\n"
+msgid "Copied from: %1!s!@%2!ld!\r\n"
+msgstr "Скопійовано з: %1!s!@%2!ld!\r\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
@@ -2650,11 +2654,20 @@ msgstr "Копіювати"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Copy %ld items to\r\n"
-"%s"
+"Copy %1!ld! items to\r\n"
+"%2!s!"
 msgstr ""
-"Копіювати %ld елементів до\r\n"
-"%s"
+"Копіювати %1!ld! елементів до\r\n"
+"%2!s!"
+
+#. Resource IDs: (126)
+#, c-format
+msgid ""
+"Copy %1!s!\r\n"
+"to %2!s!"
+msgstr ""
+"Копіювати %1!s!\r\n"
+"до %2!s!"
 
 #. Resource IDs: (103)
 #, c-format
@@ -2665,15 +2678,6 @@ msgstr "Копіювати %s"
 #, c-format
 msgid "Copy %s to %s, Revision %s"
 msgstr "Копіювати %s до %s, Модифікація %s"
-
-#. Resource IDs: (126)
-#, c-format
-msgid ""
-"Copy %s\r\n"
-"to %s"
-msgstr ""
-"Копіювати %s\r\n"
-"до %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -2780,8 +2784,8 @@ msgstr "Не вдалося додати '%s', оскільки"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property '%s' on '%s' because"
-msgstr "Не вдалося додати властивість '%s' на '%s', оскільки"
+msgid "Could not add property '%1!s!' on '%2!s!' because"
+msgstr "Не вдалося додати властивість '%1!s!' на '%2!s!', оскільки"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -2810,8 +2814,8 @@ msgstr "Не вдалося знищити '%s', оскільки"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property '%s' on '%s' because"
-msgstr "Не вдалося знищити властивість '%s' у '%s', оскільки"
+msgid "Could not delete property '%1!s!' on '%2!s!' because"
+msgstr "Не вдалося знищити властивість '%1!s!' у '%2!s!', оскільки"
 
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
@@ -2828,8 +2832,8 @@ msgstr "Не вдалося злити '%s', оскільки"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property '%s' on '%s' because"
-msgstr "На вдалося злити властивість '%s' на '%s' , оскільки"
+msgid "Could not merge property '%1!s!' on '%2!s!' because"
+msgstr "На вдалося злити властивість '%1!s!' на '%2!s!' , оскільки"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2867,10 +2871,10 @@ msgstr ""
 #. Resource IDs: (66)
 #, c-format
 msgid ""
-"Could not retrieve revision %s of the file %s.\n"
+"Could not retrieve revision %1!s! of the file %2!s!.\n"
 "Patching is not possible!"
 msgstr ""
-"Не вдалося віднайти модифікацію %s файла %s.\n"
+"Не вдалося віднайти модифікацію %1!s! файла %2!s!.\n"
 "Латання неможливе!"
 
 #. Resource IDs: (64)
@@ -3447,11 +3451,11 @@ msgstr "Редагувати повідомлення логу"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%S' on\r\n"
-"%s"
+"Edit property '%1!S!' on\r\n"
+"%2!s!"
 msgstr ""
-"Редагувати властивість '%S' для\r\n"
-"%s"
+"Редагувати властивість '%1!S!' для\r\n"
+"%2!s!"
 
 #. Resource IDs: (1331, 1382)
 msgid "Edit..."
@@ -3649,11 +3653,11 @@ msgstr "Помилка підтвердження серверного серт�
 #. Resource IDs: (70)
 #, c-format
 msgid ""
-"Error while reading/writing the registry key %s\n"
-"%s"
+"Error while reading/writing the registry key %1!s!\n"
+"%2!s!"
 msgstr ""
-"Помилка під час читання/запису ключа реєстру %s\n"
-"%s"
+"Помилка під час читання/запису ключа реєстру %1!s!\n"
+"%2!s!"
 
 #. Resource IDs: (1413)
 msgid "Exceptions:"
@@ -3841,11 +3845,11 @@ msgstr "Не вдалося встановити/видалити список �
 #. Resource IDs: (83)
 #, c-format
 msgid ""
-"Failed to start the issue tracker COM provider '%s'.\n"
-"%s"
+"Failed to start the issue tracker COM provider '%1!s!'.\n"
+"%2!s!"
 msgstr ""
-"Не вдалося запустити COM-постачальника проблемобліку '%s'.\n"
-"%s"
+"Не вдалося запустити COM-постачальника проблемобліку '%1!s!'.\n"
+"%2!s!"
 
 #. Resource IDs: (220)
 msgid "Failed!"
@@ -4161,15 +4165,15 @@ msgstr ""
 "Кожен файл матиме встановлену ознаку файлової системи тільки-для-читання, і отримання блокування дозволятиме запис у файл.\n"
 "Зауважте, що інші користувачі побачать ці файли як тільки-для-читання лише після оновлення їхніх робочих копій."
 
+#. Resource IDs: (120)
+#, c-format
+msgid "Getting file %1!s!, revision %2!s!"
+msgstr "Отримується файл %1!s!, модифікація %2!s!"
+
 #. Resource IDs: (119)
 #, c-format
 msgid "Getting file %s"
 msgstr "Отримується файл %s"
-
-#. Resource IDs: (120)
-#, c-format
-msgid "Getting file %s, revision %s"
-msgstr "Отримується файл %s, модифікація %s"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
@@ -4778,11 +4782,11 @@ msgstr "Імпортувати попередньо збережений наб�
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Import file %s\r\n"
-"to %s"
+"Import file %1!s!\r\n"
+"to %2!s!"
 msgstr ""
-"Імпортувати файл %s\r\n"
-"до %s"
+"Імпортувати файл %1!s!\r\n"
+"до %2!s!"
 
 #. Resource IDs: (126)
 #, c-format
@@ -4796,11 +4800,11 @@ msgstr ""
 #. Resource IDs: (126)
 #, c-format
 msgid ""
-"Import folder %s\r\n"
-"to %s"
+"Import folder %1!s!\r\n"
+"to %2!s!"
 msgstr ""
-"Імпортувати каталог %s\r\n"
-"до %s"
+"Імпортувати каталог %1!s!\r\n"
+"до %2!s!"
 
 #. Resource IDs: (613)
 #, c-format
@@ -4975,8 +4979,8 @@ msgstr ""
 msgid ""
 "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
 "\n"
-"From:\t%s\n"
-"To:\t\t%s\n"
+"From:\t%1!s!\n"
+"To:\t\t%2!s!\n"
 "\n"
 "A relocate is only needed if the path <b>to</b> a repository has changed.\n"
 "Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
@@ -4987,8 +4991,8 @@ msgid ""
 msgstr ""
 "Здається ви намагеєтеся <b>перенести</b> свою робочу копію на інший шлях у тому ж сховищі.\n"
 "\n"
-"З:\t%s\n"
-"До:\t\t%s\n"
+"З:\t%1!s!\n"
+"До:\t\t%2!s!\n"
 "\n"
 "Перенесення потрібно тільки якщо шлях <b>до</b> сховища змінився.\n"
 "Зміна шляху  <b>всередині</b> сховища здійснюється операцією переключення.\n"
@@ -5254,17 +5258,17 @@ msgstr "Логові повідомлення (діалог показу лог�
 
 #. Resource IDs: (238)
 #, c-format
-msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
-msgstr "Найменша показана модифікація: %ld - Найбільша показана модифікація: %ld"
+msgid "Lowest shown revision: %1!ld! - Highest shown revision: %2!ld!"
+msgstr "Найменша показана модифікація: %1!ld! - Найбільша показана модифікація: %2!ld!"
 
 #. Resource IDs: (238)
 #, c-format
 msgid ""
-"Lowest shown revision: %ld - Highest shown revision: %ld\n"
-"HEAD revision: %ld"
+"Lowest shown revision: %1!ld! - Highest shown revision: %2!ld!\n"
+"HEAD revision: %3!ld!"
 msgstr ""
-"Найстарша показана модифікація: %ld - Найновіша показана модифікація: %ld \n"
-"HEAD-модифікація: %ld"
+"Найстарша показана модифікація: %1!ld! - Найновіша показана модифікація: %2!ld! \n"
+"HEAD-модифікація: %3!ld!"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -5456,13 +5460,13 @@ msgstr "Зливаються з %s, модифікації від %s до %s, м
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Merging r%ld"
-msgstr "Зливається r%ld"
+msgid "Merging r%1!ld! through r%2!ld!"
+msgstr "Зливаються від r%1!ld! до r%2!ld!"
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Merging r%ld through r%ld"
-msgstr "Зливаються від r%ld до r%ld"
+msgid "Merging r%ld"
+msgstr "Зливається r%ld"
 
 #. Resource IDs: (83)
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
@@ -5556,20 +5560,20 @@ msgstr "Миша"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Move %ld items to\r\n"
-"%s"
+"Move %1!ld! items to\r\n"
+"%2!s!"
 msgstr ""
-"Перемістити %ld елементів до\r\n"
-"%s"
+"Перемістити %1!ld! елементів до\r\n"
+"%2!s!"
 
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Move %s\r\n"
-"to %s"
+"Move %1!s!\r\n"
+"to %2!s!"
 msgstr ""
-"Перемістити %s\r\n"
-"до %s"
+"Перемістити %1!s!\r\n"
+"до %2!s!"
 
 #. Resource IDs: (17026)
 msgid "Move &Down"
@@ -5794,6 +5798,10 @@ msgstr "Тезаурус припущень не має"
 #. Resource IDs: (65535)
 msgid "Node colors"
 msgstr "Кольори вузлів"
+
+#. Resource IDs: (1507)
+msgid "Non-versioned"
+msgstr "Неверсійне"
 
 #. Resource IDs: (1271)
 msgid "None"
@@ -6377,13 +6385,13 @@ msgstr "Властивість"
 
 #. Resource IDs: (151)
 #, c-format
-msgid "Property %s : Revision %s"
-msgstr "Властивість %s: Модифікація %s"
+msgid "Property %1!s! : Revision %2!s!"
+msgstr "Властивість %1!s!: Модифікація %2!s!"
 
 #. Resource IDs: (151)
 #, c-format
-msgid "Property %s : Working Base, Revision %ld"
-msgstr "Властивість %s: Робоча копія, Модифікація %ld"
+msgid "Property %1!s! : Working Base, Revision %2!ld!"
+msgstr "Властивість %1!s!: Робоча копія, Модифікація %2!s!"
 
 #. Resource IDs: (151)
 #, c-format
@@ -6703,11 +6711,11 @@ msgstr "Видалити зі списку змін"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%S' from\r\n"
-"%s"
+"Remove property '%1!S!' from\r\n"
+"%2!s!"
 msgstr ""
-"Видалити властивість '%S' з\r\n"
-"%s"
+"Видалити властивість '%1!S!' з\r\n"
+"%2!s!"
 
 #. Resource IDs: (610)
 msgid "Remove the directory"
@@ -6776,11 +6784,11 @@ msgstr "Перейменувати %s"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Rename item from %s\r\n"
-"to %s"
+"Rename item from %1!s!\r\n"
+"to %2!s!"
 msgstr ""
-"Перейменувати елемент з %s\r\n"
-"на %s"
+"Перейменувати елемент з %1!s!\r\n"
+"на %2!s!"
 
 #. Resource IDs: (221)
 msgid "Rename/move - TortoiseSVN"
@@ -6929,13 +6937,13 @@ msgstr "Спробуй ще раз"
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Reverse merging %ld"
-msgstr "Зворотньо зливається  %ld"
+msgid "Reverse merging %1!ld! through %2!ld!"
+msgstr "Зворотньо зливаються від %1!ld! до %2!ld!"
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Reverse merging %ld through %ld"
-msgstr "Зворотньо зливаються від %ld до %ld"
+msgid "Reverse merging %ld"
+msgstr "Зворотньо зливається  %ld"
 
 #. Resource IDs: (175, 229)
 msgid "Revert"
@@ -7019,44 +7027,44 @@ msgstr "Модифікація:"
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld %s\r\n"
-"URL: %s\r\n"
-"%sAuthor: %s\r\n"
-"Date: %s\r\n"
+"Revision: %1!ld! %2!s!\r\n"
+"URL: %3!s!\r\n"
+"%4!s!Author: %5!s!\r\n"
+"Date: %6!s!\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%s"
+"%7!s!"
 msgstr ""
-"Модифікація: %ld %s\r\n"
-"URL: %s\r\n"
-"%sАвтор: %s\r\n"
-"Дата: %s\r\n"
+"Модифікація: %1!ld! %2!s!\r\n"
+"URL: %3!s!\r\n"
+"%4!s!Автор: %5!s!\r\n"
+"Дата: %6!s!\r\n"
 "\r\n"
 "Логове повідомлення:\r\n"
-"%s"
+"%7!s!"
 
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld %s\r\n"
-"URL: %s\r\n"
-"%sAuthor: %s\r\n"
-"Date: %s\r\n"
+"Revision: %1!ld! %2!s!\r\n"
+"URL: %3!s!\r\n"
+"%4!s!Author: %5!s!\r\n"
+"Date: %6!s!\r\n"
 "\r\n"
-"Tags (%d):%s\r\n"
+"Tags (%7!d!):%8!s!\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%s"
+"%9!s!"
 msgstr ""
-"Модифікація: %ld %s\r\n"
-"URL: %s\r\n"
-"%sАвтор: %s\r\n"
-"Дата: %s\r\n"
+"Модифікація:  %1!ld! %2!s!\r\n"
+"URL: %3!s!\r\n"
+"%4!s!Автор: %5!s!\r\n"
+"Дата: %6!s!\r\n"
 "\r\n"
-"Зрізи (%d):%s\r\n"
+"Зрізи (%7!d!):%8!s!\r\n"
 "\r\n"
 "Логове повідомлення:\r\n"
-"%s"
+"%9!s!"
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -7466,11 +7474,11 @@ msgstr "Встановити дати файлів на \"&час останнь
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%S' on\r\n"
-"%s"
+"Set property '%1!S!' on\r\n"
+"%2!s!"
 msgstr ""
-"Встановити властивість '%S' для\r\n"
-"%s"
+"Встановити властивість '%1!S!' для\r\n"
+"%2!s!"
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
@@ -7728,15 +7736,15 @@ msgstr "Показувати зрізи на джерелі копії, а не 
 msgid "Show/Hide"
 msgstr "Показати/Приховати"
 
+#. Resource IDs: (115)
+#, c-format
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
+msgstr "Показуються %1!ld! модифікацій, від %2!ld! до %3!ld! - виділено %4!ld! модифікацій."
+
 #. Resource IDs: (272)
 #, c-format
 msgid "Showing %ld nodes"
 msgstr "Показуються %ld вузлів"
-
-#. Resource IDs: (115)
-#, c-format
-msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
-msgstr "Показуються %ld модифікацій, від %ld до %ld - виділено %ld модифікацій."
 
 #. Resource IDs: (272)
 #, c-format
@@ -7987,11 +7995,12 @@ msgid ""
 "http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion encountered the problem in:\n"
-"file %s, line %ld\n"
-"expression = %s"
+"file %1!s!, line %2!ld!\n"
+"expression = %3!s!"
 msgstr ""
 "Subversion зіштовхнулося з серйозною проблемою.\n"
-"Будьласка, повідомте про це в наш список розсилки,\n"
+"Будьласка, повідомте про це в наш список розсилки\n"
+"(users@subversion.tigris.org)\n"
 "та надайте якомога більше інформації про те,\n"
 "що ви намагалися зробити.\n"
 "Але спершу пошукайте це повідомлення про помилку\n"
@@ -8000,8 +8009,8 @@ msgstr ""
 "http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion зіштовхнулося з проблемою у:\n"
-"file %s, рядок %ld\n"
-"вираз = %s"
+"file %1!s!, рядок %2!ld!\n"
+"вираз = %3!s!"
 
 #. Resource IDs: (84)
 msgid ""
@@ -8475,15 +8484,15 @@ msgstr ""
 #, c-format
 msgid ""
 "The patch seems outdated! The file line\n"
-"%s\n"
+"%1!s!\n"
 "and the patchline\n"
-"%s\n"
+"%2!s!\n"
 "do not match!"
 msgstr ""
 "Латка виглядає застарілою! Рядок файлу\n"
-"%s\n"
+"%1!s!\n"
 "і рядок латки\n"
-"%s\n"
+"%2!s!\n"
 "не співпадають!"
 
 #. Resource IDs: (88)
@@ -8508,22 +8517,39 @@ msgstr ""
 #, c-format
 msgid ""
 "The path\n"
-"<i>%s</i>\n"
+"<i>%1!s!</i>\n"
 "in the patchfile does not exist.\n"
 "TortoiseMerge found the relative path\n"
-"<i>%s</i>\n"
+"<i>%2!s!</i>\n"
 "which seems to match the directory you're applying the patch.\n"
 "\n"
 "Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
 msgstr ""
 "Шлях\n"
-"<i>%s</i>\n"
+"<i>%1!s!</i>\n"
 "з файлу-латки не існує.\n"
 "TortoiseMerge знайшло відносний шлях\n"
-"<i>%s</i>\n"
+"<i>%2!s!</i>\n"
 "який ніби співпадає з каталогом, що латається.\n"
 "\n"
-"Використати запропонований шлях? Відповідь 'ні' призведедо виходу з TortoiseMerge."
+"Використати запропонований шлях? Відповідь 'ні' призведе до виходу з TortoiseMerge."
+
+#. Resource IDs: (314)
+#, c-format
+msgid ""
+"The path\n"
+"<i>%1!s!</i>\n"
+"seems not to match the paths in the patchfile.\n"
+"But TortoiseMerge found the path\n"
+"<i>%2!s!</i>\n"
+"matches it better. Do you want to use the suggested path instead?"
+msgstr ""
+"Шлях\n"
+"<i>%1!s!</i>\n"
+"ніби не співпадає зі шляхами з файлу-латки.\n"
+"Але TortoiseMerge снайшло шлях\n"
+"<i>%2!s!</i>\n"
+"який краще співпадає. Хочете натомість використати запропонований шлях?"
 
 #. Resource IDs: (314)
 #, c-format
@@ -8537,23 +8563,6 @@ msgstr ""
 "<i>%s</i>\n"
 "з файлу-латки не існує.\n"
 "TortoiseMerge намагався латати обрізаючи префікси, але не знайшов підходящого шляху."
-
-#. Resource IDs: (314)
-#, c-format
-msgid ""
-"The path\n"
-"<i>%s</i>\n"
-"seems not to match the paths in the patchfile.\n"
-"But TortoiseMerge found the path\n"
-"<i>%s</i>\n"
-"matches it better. Do you want to use the suggested path instead?"
-msgstr ""
-"Шлях\n"
-"<i>%s</i>\n"
-"ніби не співпадає зі шляхами з файлу-латки.\n"
-"Але TortoiseMerge снайшло шлях\n"
-"<i>%s</i>\n"
-"який співпадає краще. Хочете натомість використати запропонований шлях?"
 
 #. Resource IDs: (80)
 msgid "The repository was successfully created."
@@ -9154,12 +9163,12 @@ msgstr "Об'єднані ві&дмінності HEAD-модифікацій"
 #, c-format
 msgid ""
 "Unknown certificate issuer.\n"
-"  Fingerprint: %s\n"
-"  Distinguished name: %s"
+"  Fingerprint: %1!s!\n"
+"  Distinguished name: %2!s!"
 msgstr ""
 "Невідомий видавець сертифіката.\n"
-" Відбиток: %s\n"
-" Розпізнане ім'я: %s"
+" Відбиток: %1!s!\n"
+" Розпізнане ім'я: %2!s!"
 
 #. Resource IDs: (20)
 msgid "Unknown depth"
@@ -9200,10 +9209,6 @@ msgstr ""
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Розверсіювати"
-
-#. Resource IDs: (1507)
-msgid "Unversioned"
-msgstr "Неверсійні"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
@@ -9770,18 +9775,18 @@ msgstr "Слід вибрати зображення!"
 #, c-format
 msgid ""
 "You're trying to add the item\n"
-"'%s',\n"
+"'%1!s!',\n"
 "but the item\n"
-"'%s'\n"
+"'%2!s!'\n"
 "already exists.\n"
 "\n"
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr ""
 "Ви намагаєтеся додати елемент\n"
-"'%s',\n"
+"'%1!s!',\n"
 "але елемент\n"
-"'%s'\n"
+"'%2!s!'\n"
 "уже існує.\n"
 "\n"
 "Схоже що елемент було перейменовано поза Subversion, але змінився лише регістр.\n"
@@ -9825,16 +9830,16 @@ msgstr ""
 "\n"
 "Чи все-одно зафіксувати?"
 
-#. Resource IDs: (275)
+#. Resource IDs: (276)
 #, c-format
 msgid ""
 "Your working copy contains modifications.\n"
-"Lowest revision in working copy: %ld\n"
-"Path: %s"
+"Lowest revision in working copy: %1!ld!\n"
+"Path: %2!s!"
 msgstr ""
 "Робоча копія містить зміни.\n"
-"Найнижча модифікація у робочій копії: %ld\n"
-"Шлях: %s"
+"Найнижча модифікація у робочій копії: %1!ld!\n"
+"Шлях: %2!s!"
 
 #. Resource IDs: (88)
 msgid ""
@@ -9963,8 +9968,8 @@ msgstr "додані файли"
 
 #. Resource IDs: (272)
 #, c-format
-msgid "alias (%s): %s"
-msgstr "псевдонім (%s): %s"
+msgid "alias (%1!s!): %2!s!"
+msgstr "псевдонім (%1!s!): %2!s!"
 
 #. Resource IDs: (272)
 #, c-format
@@ -10101,10 +10106,10 @@ msgstr "з'єднання:"
 #, c-format
 msgid ""
 "copied from\r\n"
-"%s - revision %ld"
+"%1!s! - revision %2!ld!"
 msgstr ""
 "скопійовано з\r\n"
-"%s - модифікація %ld"
+"%1!s! - модифікація %2!ld!"
 
 #. Resource IDs: (65535)
 msgid "copied:"
@@ -10322,8 +10327,8 @@ msgstr "поважаючи походження"
 
 #. Resource IDs: (326)
 #, c-format
-msgid "revision %s-%s, revision %s-%s"
-msgstr "модифікація %s-%s, модифікація %s-%s"
+msgid "revision %1!s!-%2!s!, revision %3!s!-%4!s!"
+msgstr "модифікація %1!s!-%2!s!, модифікація %3!s!-%4!s!"
 
 #. Resource IDs: (65535)
 msgid "revision count: "
@@ -10335,8 +10340,8 @@ msgstr "модифікацію вже було злито"
 
 #. Resource IDs: (326)
 #, c-format
-msgid "revisions %s-%s, %s"
-msgstr "модифікації %s-%s, %s"
+msgid "revisions %1!s!-%2!s!, %3!s!"
+msgstr "модифікації %1!s!-%2!s!, %3!s!"
 
 #. Resource IDs: (65535)
 msgid "revisions: "
@@ -10681,6 +10686,8 @@ msgstr "так"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Unversioned"
+#~ msgstr "Неверсійні"
 #~ msgid "From URL:"
 #~ msgstr "З URL:"
 #~ msgid ""
