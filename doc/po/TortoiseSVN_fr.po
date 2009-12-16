@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-15 17:46-0600\n"
-"Last-Translator: Matthias GOUPIL <mgoupil@gmail.com>\n"
+"PO-Revision-Date: 2009-12-16 10:58+0100\n"
+"Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4529,7 +4529,7 @@ msgstr "Ouvrir le fichier sélectionné, avec le visualisateur par défaut pour 
 
 #. (para)
 msgid "Opens the Blame dialog, allowing you to blame up to the selected revision."
-msgstr "Ouvre la fenêtre de bannissement, vous permettant de bannir la révision sélectionnée."
+msgstr "Ouvre la fenêtre d'annotations, vous permettant d'annoter la révision sélectionnée."
 
 #. (para)
 msgid "Revert the changes made to the selected file in that revision."
@@ -4917,11 +4917,11 @@ msgstr "Si vous voulez voir ce qui a changé sur le tronc (si vous travaillez su
 
 #. (para)
 msgid "You can also use the repository browser and select two trees to diff, perhaps two tags, or a branch/tag and trunk. The context menu there allows you to compare them using <guimenuitem>Compare revisions</guimenuitem>. Read more in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr "Vous pouvez aussi utiliser l'explorateur de référentiel et sélectionner deux arbres à comparer, deux étiquettes peut-être, ou une branche/étiquette et le tronc. Le menu contextuel vous permet là  de les comparer en utilisant <guimenuitem>Comparer les révisions</guimenuitem>. Lisez en plus dans <xref linkend=\"tsvn-dug-compare-revs\"/>."
+msgstr "Vous pouvez aussi utiliser l'explorateur de référentiel et sélectionner deux arborescences à comparer, deux étiquettes peut-être, ou une branche/étiquette et le tronc. Le menu contextuel vous permet là de les comparer en utilisant <guimenuitem>Comparer les révisions</guimenuitem>. Plus d'informations dans <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "Difference from a previous revision"
-msgstr "Comparaison avec une précédente révision "
+msgstr "Comparaison avec une révision précédente"
 
 #. (para)
 msgid "If you want to see the difference between a particular revision and your working copy, use the Revision Log dialog, select the revision of interest, then select <guimenuitem>Compare with working copy</guimenuitem> from the context menu."
@@ -4929,7 +4929,7 @@ msgstr "Si vous voulez voir les différences entre une révision particulière e
 
 #. (para)
 msgid "If you want to see the difference between the last committed revision and your working copy, assuming that the working copy hasn't been modified, just right click on the file. Then select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with previous version</guimenuitem></menuchoice>. This will perform a diff between the revision before the last-commit-date (as recorded in your working copy) and the working BASE. This shows you the last change made to that file to bring it to the state you now see in your working copy. It will not show changes newer than your working copy."
-msgstr "Si vous voulez voir la différence entre la dernière révision et votre copie active, en supposant que la copie active n'ait pas été modifiée, faites simplement un clic droit sur le fichier. Ensuite sélectionnez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Différences avec la version précédente</guimenuitem></menuchoice>. Ceci calculera les différences entre la révision avant la date de dernière Livraison (comme sauvegardé dans votre copie active) et la BASE active. Ceci vous montre la denière modification effectuée sur ce fichier et qui l'a amené à l\"état dans lequel vous le voyez maintenant dans votre copie active. Ceci ne va pas montrer les modifications ultérieures à votre copie active."
+msgstr "Si vous voulez voir la différence entre la dernière révision et votre copie active, en supposant que la copie active n'ait pas été modifiée, faites simplement un clic droit sur le fichier. Ensuite sélectionnez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Différences avec la version précédente</guimenuitem></menuchoice>. Ceci calculera les différences entre la révision avant la date de dernière Livraison (comme sauvegardé dans votre copie active) et la BASE active. Ceci vous montre la denière modification effectuée sur ce fichier et qui l'a amené à l'état dans lequel vous le voyez maintenant dans votre copie active. Ceci ne va pas montrer les modifications ultérieures à votre copie active."
 
 #. (term)
 msgid "Difference between two previous revisions"
@@ -4937,11 +4937,11 @@ msgstr "Comparaison entre deux révisions précédentes"
 
 #. (para)
 msgid "If you want to see the difference between two revisions which are already committed, use the Revision Log dialog and select the two revisions you want to compare (using the usual <keycap>Ctrl</keycap>-modifier). Then select <guimenuitem>Compare revisions</guimenuitem> from the context menu."
-msgstr "Si vous voulez voir les différence entre deux révisions déjà livrées, utilisez la boîte de dialogue de Journal de révision et sélectionnez les deux révisions que vous voulez comparer (en utilisant le modificateur habituel <keycap>Ctrl</keycap>). Puis choisissez <guimenuitem>Comparer les révisions</guimenuitem> à partir du menu contextuel."
+msgstr "Si vous voulez voir les différences entre deux révisions déjà livrées, utilisez la boîte de dialogue de Journal de révision et sélectionnez les deux révisions que vous voulez comparer (en utilisant le modificateur habituel <keycap>Ctrl</keycap>). Puis choisissez <guimenuitem>Comparer les révisions</guimenuitem> à partir du menu contextuel."
 
 #. (para)
 msgid "If you did this from the revision log for a folder, a Compare Revisions dialog appears, showing a list of changed files in that folder. Read more in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr "Si vous avez fait ceci depuis le journal sur un répertoire, une boîte de dialogue Comparer les révisions apparaît, affichant la liste des fichiers dans ce dossier. Lisez-en plus dans <xref linkend=\"tsvn-dug-compare-revs\"/>."
+msgstr "Si vous avez fait ceci depuis le journal sur un répertoire, une boîte de dialogue Comparer les révisions apparaît, affichant la liste des fichiers dans ce dossier. Plus d'informations dans <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "All changes made in a commit"
@@ -4949,7 +4949,7 @@ msgstr "Tous les changements faits dans une livraison"
 
 #. (para)
 msgid "If you want to see the changes made to all files in a particular revision in one view, you can use Unified-Diff output (GNU patch format). This shows only the differences with a few lines of context. It is harder to read than a visual file compare, but will show all the changes together. From the Revision Log dialog select the revision of interest, then select <guimenuitem>Show Differences as Unified-Diff</guimenuitem> from the context menu."
-msgstr "Si vous voulez voir les changements faits à tous les fichiers dans une révision particulière en une vue, vous pouvez utiliser la sortie en mode Diff-Unifié (format de patch GNU). Cela montre seulement les différences avec quelques lignes de contexte. Il est plus difficile à lire qu'une comparaison de fichier visuelle, mais montrera tous les changements ensemble. À partir de la boîte de dialogue du Journal de Révision sélectionnez la révision qui vous intéresse, puis choisissez <guimenuitem>Voir les différences en mode diff unifié</guimenuitem> à partir du menu contextuel."
+msgstr "Si vous voulez voir les changements faits à tous les fichiers dans une révision particulière en une vue, vous pouvez utiliser la sortie en mode Diff-Unifié (format de patch GNU). Cela montre seulement les différences replacées dans leur contexte. Il est plus difficile à lire qu'une comparaison de fichier visuelle, mais montrera tous les changements ensemble. À partir de la boîte de dialogue du Journal de Révision sélectionnez la révision qui vous intéresse, puis choisissez <guimenuitem>Voir les différences en mode diff unifié</guimenuitem> à partir du menu contextuel."
 
 #. (term)
 msgid "Difference between files"
@@ -4969,11 +4969,11 @@ msgstr "Si vous voulez voir les différences entre un fichier de votre copie de 
 
 #. (term)
 msgid "Difference with blame information"
-msgstr "Comparaison avec informations de condamnation"
+msgstr "Comparaison avec les informations d'annotation"
 
 #. (para)
 msgid "If you want to see not only the differences but also the author, revision and date that changes were made, you can combine the diff and blame reports from within the revision log dialog. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr "Si vous voulez ne pas voir que les différences mais aussi l'auteur, la révision et la date des modifications effectuées, vous pouvez combiner les rapports de différenciation et de condamnation au sein de la boîte de dialogue du journal de révision. Lisez <xref linkend=\"tsvn-dug-blame-diffs\"/> pour plus de détails."
+msgstr "Si vous voulez ne pas voir que les différences mais aussi l'auteur, la révision et la date des modifications effectuées, vous pouvez combiner les rapports de différenciation et d'annotation au sein de la boîte de dialogue du journal de révision. Lisez <xref linkend=\"tsvn-dug-blame-diffs\"/> pour plus de détails."
 
 #. (term)
 msgid "Difference between folders"
@@ -5061,7 +5061,7 @@ msgstr "Les boutons avec les numéros de révision peuvent être utilisés pour 
 
 #. (para)
 msgid "If the list of filenames is very long, you can use the search box to reduce the list to filenames containing specific text. Note that a simple text search is used, so if you want to restrict the list to C source files you should enter <filename>.c</filename> rather than <filename>*.c</filename>."
-msgstr "Si la liste des noms de fichier est très longue, vous pouvez utiliser le champ de recherche pour réduire sa taille.Remarquez qu'une simple recherche texte est utilisée, donc si vous voulez restreindre la liste aux fichier C vous devrez rechercher <filename>.c</filename> et non <filename>*.c</filename>."
+msgstr "Si la liste des noms de fichier est très longue, vous pouvez utiliser le champ de recherche pour réduire sa taille. Remarquez qu'une simple recherche texte est utilisée, donc si vous voulez restreindre la liste aux fichiers C vous devrez rechercher <filename>.c</filename> et non <filename>*.c</filename>."
 
 #. (title)
 msgid "Diffing Images Using TortoiseIDiff"
@@ -5077,7 +5077,7 @@ msgstr "TortoiseIDiff"
 
 #. (para)
 msgid "There are many tools available for diffing text files, including our own TortoiseMerge, but we often find ourselves wanting to see how an image file has changed too. That's why we created TortoiseIDiff."
-msgstr "Il y a beaucoup d'outils disponibles pour comparer des fichiers texte,  incluant notre propre TortoireMerge, mais souvent, nous nous retrouvions à vouloir voir comment un fichier image a été modifié aussi. C'est pourquoi nous avons créé TortoiseIDiff."
+msgstr "Il y a beaucoup d'outils disponibles pour comparer des fichiers texte, incluant notre propre TortoireMerge, mais souvent, nous voulons également voir les modifications effectuées sur un fichier image. C'est pourquoi nous avons créé TortoiseIDiff."
 
 #. (title)
 msgid "The image difference viewer"
@@ -5085,11 +5085,11 @@ msgstr "Le visualiseur de différences d'images"
 
 #. (para)
 msgid "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> for any of the common image file formats will start TortoiseIDiff to show image differences. By default the images are displayed side-by-side but you can use the View menu or toolbar to switch to a top-bottom view instead, or if you prefer, you can overlay the images and pretend you are using a lightbox."
-msgstr "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Voir les différences</guimenuitem></menuchoice> pour n'importe quel format d'image commun démarrera TortoiseIDiff pour afficher les différences d'image. Par défaut les images sont affichées côte à côte mais vous pouvez utiliser le menu Affichage ou la barre d'outils pour basculer vers une vue haut-bas à la place, ou si vous préférez, vous pouvez superposer les images et prétendre utiliser une visionneuse."
+msgstr "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Voir les différences</guimenuitem></menuchoice> pour n'importe quel format d'image commun démarrera TortoiseIDiff pour afficher les différences d'image. Par défaut les images sont affichées côte à côte mais vous pouvez utiliser le menu Affichage ou la barre d'outils pour basculer vers une vue haut-bas à la place, ou si vous préférez, vous pouvez superposer les images et utiliser une visionneuse."
 
 #. (para)
 msgid "Naturally you can also zoom in and out and pan around the image. You can also pan the image simply by left-dragging it. If you select the <guilabel>Link images together</guilabel> option, then the pan controls (scrollbars, mousewheel) on both images are linked."
-msgstr "Naturellement vous pouvez aussi faire un zoom avant, arrière tout en vous déplacant sur l'image. Vous pouvez également effectuer un mouvement de l'image à gauche simplement en le faisant glisser. Si vous sélectionnez l'option <guilabel>Lier les images ensemble</guilabel>, alors les contrôles de déplacement (barre de déroulement, molette) des deux images sont réliés."
+msgstr "Naturellement vous pouvez aussi faire un zoom avant, arrière tout en vous déplacant sur l'image. Vous pouvez également effectuer un mouvement de l'image à gauche simplement en la faisant glisser. Si vous sélectionnez l'option <guilabel>Lier les images ensemble</guilabel>, alors les contrôles de déplacement (barre de défilement, molette) des deux images sont reliés."
 
 #. (para)
 msgid "An image info box shows details about the image file, such as the size in pixels, resolution and colour depth. If this box gets in the way, use <menuchoice><guimenu>View</guimenu><guimenuitem>Image Info</guimenuitem></menuchoice> to hide it. You can get the same information in a tooltip if you hover the mouse over the image title bar."
@@ -5105,7 +5105,7 @@ msgstr "Le bouton au dessus de l'ascenseur permet de passer de 0% à 100% de tra
 
 #. (para)
 msgid "Sometimes you want to see a difference rather than a blend. You might have the image files for two revisions of a printed circuit board and want to see which tracks have changed. If you disable alpha blend mode, the difference will be shown as an <emphasis>XOR</emphasis> of the pixel colour values. Unchanged areas will be plain white and changes will be coloured."
-msgstr "Parfois vous voulez voir une différence plutot qu'un mélange. Vous pourriez avoir les fichiers d'images de deux révisions d'un circuit imprimé et dont vous souhaitez voir quelles pistes ont changées. Si vous désactivez le mode alpha blend, la différence sera présenté comme un <emphasis>XOR</emphasis> de la valeur des pixels de couleur. Les zones inchangées seront de couleur blanche et les changements seront colorés."
+msgstr "Parfois vous voulez voir une différence plutot qu'un mélange. Vous pourriez avoir les fichiers d'images de deux révisions d'un circuit imprimé et dont vous souhaitez voir quelles pistes ont changées. Si vous désactivez le mode alpha blend, la différence sera présentée comme un <emphasis>XOR</emphasis> de la valeur des pixels de couleur. Les zones inchangées seront de couleur blanche et les changements seront colorés."
 
 #. (title)
 msgid "External Diff/Merge Tools"
@@ -5121,7 +5121,7 @@ msgstr "outils de fusion"
 
 #. (para)
 msgid "If the tools we provide don't do what you need, try one of the many open-source or commercial programs available. Everyone has their own favourites, and this list is by no means complete, but here are a few that you might consider:"
-msgstr "Si les outils que nous fournissons ne font pas ce dont vous avez besoin, essayez un des nombreux programmes open-source ou commerciaux disponibles. Chacun a son propre favori et cette liste n'est en aucun cas exhaustive, mais en voici quelques-uns à considérer :"
+msgstr "Si les outils que nous fournissons ne font pas ce dont vous avez besoin, essayez un des nombreux programmes open-source ou commerciaux disponibles. Chacun a ses préférences et cette liste n'est en aucun cas exhaustive, mais en voici quelques-uns intéressants :"
 
 #. (term)
 msgid "WinMerge"
@@ -6705,8 +6705,9 @@ msgid "Subversion 1.5 introduced facilities for merge tracking. When you merge c
 msgstr ""
 
 #. (para)
+#, fuzzy
 msgid "Merge tracking information is stored in the <literal>svn:mergeinfo</literal> property by the client when it performs a merge. When the merge is committed the server stores that information in a database, and when you request merge, log or blame information, the server can respond appropriately. For the system to work properly you must ensure that the server, the repository and all clients are upgraded. Earlier clients will not store the <literal>svn:mergeinfo</literal> property and earlier servers will not provide the information requested by new clients."
-msgstr ""
+msgstr "Blame = Annoter"
 
 #. (para)
 msgid "Find out more about merge tracking from Subversion's <ulink url=\"http://subversion.tigris.org/merge-tracking/index.html\"><citetitle>Merge tracking documentation</citetitle></ulink>."
@@ -7036,11 +7037,11 @@ msgstr "La boîte de dialogue Annoter"
 
 #. (para)
 msgid "<placeholder-1/> If you're not interested in changes from earlier revisions you can set the revision from which the blame should start. Set this to <literal>1</literal>, if you want the blame for <emphasis>every</emphasis> revision."
-msgstr "<placeholder-1/> Si vous n'êtes pas intéressés par les changements des révisions précédentes, vous pouvez définir la révision d'où la condamnation devrait commencer. Mettez cela à <literal>1</literal>, si vous voulez la condamnation pour <emphasis>toutes</emphasis> les révisions."
+msgstr "<placeholder-1/> Si vous n'êtes pas intéressés par les changements des révisions précédentes, vous pouvez définir la révision d'où l'annotation devrait commencer. Mettez cela à <literal>1</literal>, si vous voulez l'annotation pour <emphasis>toutes</emphasis> les révisions."
 
 #. (para)
 msgid "By default the blame file is viewed using <firstterm>TortoiseBlame</firstterm>, which highlights the different revisions to make it easier to read. If you wish to print or edit the blame file, select <guilabel>Use Text viewer to view blames</guilabel>"
-msgstr "Par défaut le fichier de condamnation est visualisé en utilisant <firstterm>TortoiseBlame</firstterm>, qui met en évidence les différentes révisions pour le rendre plus facile à lire. Si vous voulez imprimer ou éditer le fichier de condamnation, sélectionnez <guilabel>Utiliser le visualisateur texte pour voir les condamnations</guilabel>"
+msgstr "Par défaut le fichier d'annotations est visualisé en utilisant <firstterm>TortoiseBlame</firstterm>, qui met en évidence les différentes révisions pour le rendre plus facile à lire. Si vous voulez imprimer ou éditer le fichier d'annotations, sélectionnez <guilabel>Utiliser le visualisateur texte pour voir les annotations</guilabel>"
 
 #. (para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes, but if you want to ignore an indentation change and find the original author, you can choose an appropriate option here."
@@ -7048,7 +7049,7 @@ msgstr ""
 
 #. (para)
 msgid "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the data to create the blame file. Please note: This can take several minutes to finish, depending on how much the file has changed and of course your network connection to the repository. Once the blame process has finished the result is written into a temporary file and you can view the results."
-msgstr "Une fois que vous cliquez sur <guibutton>OK</guibutton> TortoiseSVN commence à récupérer les données pour créer le fichier de condamnation. Veuillez noter : Cela peut prendre plusieurs minutes, selon le nombre de fois que le fichier a été modifié et bien sûr, selon votre connexion réseau au référentiel. Une fois que le processus de condamnation a terminé, le résultat est écrit dans un fichier temporaire et vous pouvez voir les résultats."
+msgstr "Une fois que vous cliquez sur <guibutton>OK</guibutton> TortoiseSVN commence à récupérer les données pour créer le fichier d'annotation. Veuillez noter : Cela peut prendre plusieurs minutes, selon le nombre de fois que le fichier a été modifié et bien sûr, selon votre connexion réseau au référentiel. Une fois que le processus d'annotation est terminé, le résultat est écrit dans un fichier temporaire et vous pouvez voir les résultats."
 
 #. (title)
 msgid "TortoiseBlame"
@@ -7056,7 +7057,7 @@ msgstr "TortoiseBlame"
 
 #. (para)
 msgid "<placeholder-1/> TortoiseBlame, which is included with TortoiseSVN, makes the blame file easier to read. When you hover the mouse over a line in the blame info column, all lines with the same revision are shown with a darker background. Lines from other revisions which were changed by the same author are shown with a light background. The colouring may not work as clearly if you have your display set to 256 colour mode."
-msgstr "<placeholder-1/> TortoiseBlame, qui est inclus avec TortoiseSVN, rend le fichier de condamnation plus facile à lire. Quand vous survolez avec la souris une ligne dans la colonne de renseignements de la condamnation, toutes les lignes avec la même révision sont affichées avec un fond plus sombre. Les lignes d'autres révisions qui ont été changées par le même auteur sont affichées avec un fond clair. La coloration peut ne pas fonctionner aussi clairement si vous avez votre affichage en mode 256 couleurs."
+msgstr "<placeholder-1/> TortoiseBlame, qui est inclus avec TortoiseSVN, rend le fichier d'annotation plus facile à lire. Quand vous survolez avec la souris une ligne dans la colonne de renseignements de l'annotation, toutes les lignes avec la même révision sont affichées avec un fond plus sombre. Les lignes d'autres révisions qui ont été changées par le même auteur sont affichées avec un fond clair. La coloration peut ne pas fonctionner aussi clairement si vous avez votre affichage en mode 256 couleurs."
 
 #. (para)
 msgid "If you <action>left click</action> on a line, all lines with the same revision are highlighted, and lines from other revisions by the same author are highlighted in a lighter colour. This highlighting is sticky, allowing you to move the mouse without losing the highlights. Click on that revision again to turn off highlighting."
@@ -7064,27 +7065,30 @@ msgstr "Si vous faites un <action>clic gauche</action> sur une ligne, toutes les
 
 #. (para)
 msgid "The revision comments (log message) are shown in a hint box whenever the mouse hovers over the blame info column. If you want to copy the log message for that revision, use the context menu which appears when you right click on the blame info column."
-msgstr "Les commentaires de révision (commentaire du journal) sont affichés dans une info-bulle à chaque fois que la souris survole la colonne d'information de la condamnation. Si vous voulez copier le commentaire de cette révision, utilisez le menu contextuel qui apparaît quand vous faites un clic droit sur la colonne d'information de la condamnation."
+msgstr "Les commentaires de révision (commentaire du journal) sont affichés dans une info-bulle à chaque fois que la souris survole la colonne d'information de l'annotation. Si vous voulez copier le commentaire de cette révision, utilisez le menu contextuel qui apparaît quand vous faites un clic droit sur la colonne d'information de l'annotation."
 
 #. (para)
 msgid "You can search within the Blame report using <menuchoice><guimenu>Edit</guimenu><guimenuitem>Find...</guimenuitem></menuchoice>. This allows you to search for revision numbers, authors and the content of the file itself. Log messages are not included in the search - you should use the Log Dialog to search those."
-msgstr "Vous pouvez faire des recherches dans le rapport de condamnation en utilisant <menuchoice><guimenu>Éditer</guimenu><guimenuitem>Rechercher...</guimenuitem></menuchoice>. Cela vous permet de chercher des numéros de révision, des auteurs et le contenu du fichier lui-même. Les commentaires ne sont pas inclus dans la recherche - vous devriez utiliser la boîte de dialogue de Journal pour rechercher dedans."
+msgstr "Vous pouvez faire des recherches dans le rapport d'annotation en utilisant <menuchoice><guimenu>Éditer</guimenu><guimenuitem>Rechercher...</guimenuitem></menuchoice>. Cela vous permet de chercher des numéros de révision, des auteurs et le contenu du fichier lui-même. Les commentaires ne sont pas inclus dans la recherche - vous devriez utiliser la boîte de dialogue de Journal pour la recherche."
 
 #. (para)
 msgid "You can also jump to a specific line number using <menuchoice><guimenu>Edit</guimenu><guimenuitem>Go To Line...</guimenuitem></menuchoice>."
 msgstr "Vous pouvez aussi aller à une ligne particulière en utilisant <menuchoice><guimenu>Editer</guimenu><guimenuitem>Aller à la ligne...</guimenuitem></menuchoice>."
 
 #. (para)
+#, fuzzy
 msgid "When the mouse is over the blame info columns, a context menu is available which helps with comparing revisions and examining history, using the revision number of the line under the mouse as a reference. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame previous revision</guimenuitem></menuchoice> generates a blame report for the same file, but using the previous revision as the upper limit. This gives you the blame report for the state of the file just before the line you are looking at was last changed. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Show changes</guimenuitem></menuchoice> starts your diff viewer, showing you what changed in the referenced revision. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Show log</guimenuitem></menuchoice> displays the revision log dialog starting with the referenced revision."
-msgstr ""
+msgstr "Blame = Annoter"
 
 #. (para)
+#, fuzzy
 msgid "If you need a better visual indicator of where the oldest and newest changes are, select <menuchoice><guimenu>View</guimenu><guimenuitem>Color age of lines</guimenuitem></menuchoice>. This will use a colour gradient to show newer lines in red and older lines in blue. The default colouring is quite light, but you can change it using the TortoiseBlame settings."
-msgstr ""
+msgstr "Blame = Annoter"
 
 #. (para)
+#, fuzzy
 msgid "If you are using Merge Tracking, where lines have changed as a result of merging from another path, TortoiseBlame will show the revision and author of the last change in the original file rather than the revision where the merge took place. These lines are indicated by showing the revision and author in italics. If you do not want merged lines shown in this way, uncheck the <guilabel>Include merge info</guilabel> checkbox."
-msgstr ""
+msgstr "Blame = Annoter"
 
 #. (para)
 msgid "If you want to see the paths involved in the merge, select <menuchoice><guimenu>View</guimenu><guimenuitem>Merge paths</guimenuitem></menuchoice>."
@@ -7100,7 +7104,7 @@ msgstr "Annoter les différences"
 
 #. (para)
 msgid "One of the limitations of the Blame report is that it only shows the file as it was in a particular revision, and shows the last person to change each line. Sometimes you want to know what change was made, as well as who made it. What you need here is a combination of the diff and blame reports."
-msgstr "L'une des limitations du rapport de condamnation est qu'il ne montre que le fichier tel qu'il était à une révision particulière et montre la dernière personne à avoir changé chaque ligne. Parfois vous voulez connaître quel changement a été fait, et aussi qui l'a fait. Ce dont vous avez ici besoin est une combinaison des rapports de condamnation et de comparaison."
+msgstr "L'une des limitations du rapport d'annotation est qu'il ne montre que le fichier tel qu'il était à une révision particulière et montre la dernière personne à avoir changé chaque ligne. Parfois vous voulez connaître quel changement a été fait, et aussi qui l'a fait. Ce dont vous avez ici besoin est une combinaison des rapports d'annotation et de comparaison."
 
 #. (term)
 msgid "Blame Revisions"
@@ -7108,16 +7112,15 @@ msgstr "Annoter les révisions"
 
 #. (para)
 msgid "In the top pane, select 2 revisions, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame revisions</guimenuitem></menuchoice>. This will fetch the blame data for the 2 revisions, then use the diff viewer to compare the two blame files."
-msgstr "Dans le panneau supérieur, sélectionnez 2 révisions, puis sélectionnez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Annoter les révisions</guimenuitem></menuchoice>. Cela parcoura les données de condamnation pour les 2 révisions puis utilisera le visualisateur de différences pour comparer les deux fichiers de condamnation."
+msgstr "Dans le panneau supérieur, sélectionnez 2 révisions, puis sélectionnez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Annoter les révisions</guimenuitem></menuchoice>. Cela parcoura les annotations pour les 2 révisions puis utilisera le visualisateur de différences pour comparer les deux fichiers d'annotation."
 
 #. (term)
 msgid "Blame Changes"
 msgstr "Bannir les modifications"
 
 #. (para)
-#, fuzzy
 msgid "Select one revision in the top pane, then pick one file in the bottom pane and select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame changes</guimenuitem></menuchoice>. This will fetch the blame data for the selected revision and the previous revision, then use the diff viewer to compare the two blame files."
-msgstr "Sélectionnez une révision dans le panneau supérieur, puis choisissez un fichier dans le panneau inférieur et sélectionnez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Annoter les différences</guimenuitem></menuchoice>. Cela ira chercher les données de condamnation pour la révision sélectionnée et la révision précédente, puis utilisera le visualisateur de différences pour comparer les deux fichiers de condamnation."
+msgstr "Sélectionnez une révision dans le panneau supérieur, puis choisissez un fichier dans le panneau inférieur et sélectionnez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Annoter les différences</guimenuitem></menuchoice>. Cela ira chercher les annotations pour la révision sélectionnée et la révision précédente, puis utilisera le visualisateur de différences pour comparer les deux fichiers d'annotations."
 
 #. (term)
 msgid "Compare and Blame with Working BASE"
@@ -7125,7 +7128,7 @@ msgstr "Comparez et annoter avec la BASE de travail"
 
 #. (para)
 msgid "Show the log for a single file, and in the top pane, select a single revision, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare and Blame with Working BASE</guimenuitem></menuchoice>. This will fetch the blame data for the selected revision, and for the file in the working BASE, then use the diff viewer to compare the two blame files."
-msgstr "Affichez le journal pour un seul fichier et, dans le panneau supérieur, choisissez une seule révision, puis sélectionnez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Comparer et annoter avec la BASE de travail</guimenuitem></menuchoice>. Cela ira chercher les données de condamnation pour la révision choisie et pour le fichier dans la BASE de travail, puis utilisera ensuite le visualisateur de différences pour comparer les deux fichiers de condamnation."
+msgstr "Affichez le journal pour un seul fichier et, dans le panneau supérieur, choisissez une seule révision, puis sélectionnez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Comparer et annoter avec la BASE de travail</guimenuitem></menuchoice>. Cela ira chercher les annotations pour la révision choisie et pour le fichier dans la BASE de travail, puis utilisera ensuite le visualisateur de différences pour comparer les deux fichiers d'annotations."
 
 #. (para)
 msgid "The revision log dialog includes several options which allow you to do this. <placeholder-1/>"
@@ -9455,16 +9458,18 @@ msgid "The Settings Dialog, TortoiseBlame Page"
 msgstr "La boîte de dialogue ce configuration, page de bannissement."
 
 #. (para)
+#, fuzzy
 msgid "<placeholder-1/> The settings used by TortoiseBlame are controlled from the main context menu, not directly with TortoiseBlame itself."
-msgstr ""
+msgstr "Blame = Annoter"
 
 #. (term)
 msgid "Colors"
 msgstr "Couleurs"
 
 #. (para)
+#, fuzzy
 msgid "TortoiseBlame can use the background colour to indicate the age of lines in a file. You set the endpoints by specifying the colours for the newest and oldest revisions, and TortoiseBlame uses a linear interpolation between these colours according to the repository revision indicated for each line."
-msgstr ""
+msgstr "Blame = Annoter"
 
 #. (term)
 msgid "Font"
@@ -9568,8 +9573,9 @@ msgid "Always blame changes with TortoiseMerge"
 msgstr "Toujours bannir les modifications faites avec TortoiseMerge"
 
 #. (para)
+#, fuzzy
 msgid "TortoiseSVN allows you to assign external diff viewer. Most such viewers, however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To do so, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge</literal>."
-msgstr ""
+msgstr "Blame = Annoter"
 
 #. (term)
 msgid "Current revision highlighting for folders in log dialog"
