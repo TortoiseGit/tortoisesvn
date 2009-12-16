@@ -457,19 +457,22 @@ CString CAppUtils::GetAppForFile
 	if (!extensionToUse.IsEmpty())
 	{
 		// lookup by verb
-
-		CString documentClass 
-			= CRegString (extensionToUse + _T("\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
-
-		CString key = documentClass + _T("\\Shell\\") + verb + _T("\\Command\\");
-		application = CRegString (key, _T(""), FALSE, HKEY_CLASSES_ROOT);
+		DWORD buflen = 0;
+		AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, verb, NULL, &buflen);
+		TCHAR * cmdbuf = new TCHAR[buflen + 1];
+		AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, verb, cmdbuf, &buflen);
+		application = cmdbuf;
+		delete [] cmdbuf;
 
 		// fallback to "open"
 
 		if (application.IsEmpty())
 		{
-			key = documentClass + _T("\\Shell\\Open\\Command\\");
-			application = CRegString (key, _T(""), FALSE, HKEY_CLASSES_ROOT);
+			AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), NULL, &buflen);
+			cmdbuf = new TCHAR[buflen + 1];
+			AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), cmdbuf, &buflen);
+			application = cmdbuf;
+			delete [] cmdbuf;
 		}
 	}
 
