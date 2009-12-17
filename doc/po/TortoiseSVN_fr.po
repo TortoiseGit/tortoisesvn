@@ -14,9 +14,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-16 18:22-0600\n"
-"Last-Translator: Matthias GOUPIL <mgoupil@gmail.com>\n"
+"POT-Creation-Date: 2009-12-09 09:22 +0000\n"
+"PO-Revision-Date: 2009-12-17 00:10+0100\n"
+"Last-Translator: Yves MITTELMANN <ymittelmann@acxio.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4127,7 +4127,7 @@ msgstr "Les listes de modifications sont une fonctionnalité du client local.  C
 
 #. (title)
 msgid "Revision Log Dialog"
-msgstr "La boîte de dialogue de Journal de révision"
+msgstr "La boîte de dialogue du Journal de révision"
 
 #. (primary)
 msgid "log"
@@ -4147,11 +4147,11 @@ msgstr "Messages de log"
 
 #. (para)
 msgid "For every change you make and commit, you should provide a log message for that change. That way you can later find out what changes you made and why, and you have a detailed log for your development process."
-msgstr "Pour chaque changement que vous faites et que vous livrez, vous devriez fournir un commentaire pour ce changement. De cette façon, vous pouvez plus tard découvrir quels changements vous avez fait et pourquoi et vous avez un journal détaillé pour votre processus de développement."
+msgstr "A chaque modification que vous faites et que vous livrez, vous devriez fournir un commentaire décrivant cette modification. De cette façon, vous pouvez par la suite comprendre quelles modifications vous avez faites et pourquoi, et vous disposez d'un journal détaillé pour votre processus de développement."
 
 #. (para)
 msgid "The top pane shows a list of revisions where changes to the file/folder have been committed. This summary includes the date and time, the person who committed the revision and the start of the log message."
-msgstr "Le panneau supérieur montre une liste de révisions où des changements au fichier/dossier ont été livrés. Ce résumé inclut la date et l'heure, la personne qui a livré la révision et le début du commentaire."
+msgstr "Le panneau supérieur présente une liste de révisions où des modifications au fichier/dossier ont été livrées. Ce résumé inclut la date et l'heure, la personne qui a livré la révision et le début du commentaire."
 
 #. (para)
 msgid "Lines shown in blue indicate that something has been copied to this development line (perhaps from a branch)."
@@ -4163,11 +4163,11 @@ msgstr "Le panneau du milieu montre le commentaire en entier pour la révision c
 
 #. (para)
 msgid "The bottom pane shows a list of all files and folders that were changed as part of the selected revision."
-msgstr "Le panneau du bas montre une liste de tous les fichiers et de tous les dossiers qui ont été changés lors de la révision sélectionnée."
+msgstr "Le panneau du bas montre une liste de tous les fichiers et de tous les dossiers qui ont été modifiés lors de la révision sélectionnée."
 
 #. (para)
 msgid "The Revision Log Dialog retrieves all those log messages and shows them to you. The display is divided into 3 panes. <placeholder-1/> But it does much more than that - it provides context menu commands which you can use to get even more information about the project history."
-msgstr "La boîte de dialogue du Journal de révision récupère tous ces commentaires et vous les montre. L'affichage est divisé en 3 panneaux. <placeholder-1/> Mais elle fait beaucoup plus que cela - elle fournit des commandes de menu contextuel que vous pouvez utiliser pour obtenir encore plus d'informations sur l'historique du projet."
+msgstr "La boîte de dialogue du Journal de révision récupère tous ces commentaires de révision et vous les présente. L'affichage est divisé en 3 panneaux. <placeholder-1/> Mais elle fait beaucoup plus que cela : elle fournit des commandes de menu contextuel que vous pouvez utiliser pour obtenir encore plus d'informations sur l'historique du projet."
 
 #. (title)
 msgid "Invoking the Revision Log Dialog"
@@ -4175,7 +4175,7 @@ msgstr "Appeler la boîte de dialogue du Journal de révision"
 
 #. (title)
 msgid "The Revision Log Dialog"
-msgstr "La boîte de dialogue de Journal de révision"
+msgstr "La boîte de dialogue du Journal de révision"
 
 #. (para)
 msgid "From the TortoiseSVN context submenu"
@@ -4187,7 +4187,7 @@ msgstr "À partir de la page de propriété"
 
 #. (para)
 msgid "From the Progress dialog after an update has finished. Then the Log dialog only shows those revisions which were changed since your last update"
-msgstr "À partir de la boîte de dialogue de progression après qu'une mise à jour a fini. Alors la boîte de dialogue de Journal ne montre que les révisions qui ont été changées depuis votre dernière mise à jour"
+msgstr "À partir de la boîte de dialogue de progression après qu'une mise à jour a fini. Alors la boîte de dialogue de Journal ne montre que les révisions qui ont été modifiées depuis votre dernière mise à jour"
 
 #. (para)
 msgid "<placeholder-1/> There are several places from where you can show the Log dialog: <placeholder-2/>"
@@ -4215,7 +4215,7 @@ msgstr "<graphic fileref=\"../images/ActionAddedIcon.png\"/> Si un élément a �
 
 #. (para)
 msgid "<graphic fileref=\"../images/ActionDeletedIcon.png\"/> If a revision deleted a file or directory, the <emphasis>deleted</emphasis> icon is shown in the third column."
-msgstr "<graphic fileref=\"../images/ActionDeletedIcon.png\"/> Si un élémente a été supprimé dans une révision, l'icône <emphasis>deleted</emphasis> s'affiche dans la troisième colonne."
+msgstr "<graphic fileref=\"../images/ActionDeletedIcon.png\"/> Si un élément a été supprimé dans une révision, l'icône <emphasis>deleted</emphasis> s'affiche dans la troisième colonne."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ActionReplacedIcon.png\"/> If a revision replaced a file or directory, the <emphasis>replaced</emphasis> icon is shown in the fourth column."
@@ -4227,7 +4227,7 @@ msgstr "Obtenir des informations supplémentaires"
 
 #. (title)
 msgid "The Revision Log Dialog Top Pane with Context Menu"
-msgstr "Le parreau supérieur de la boîte de dialogue du Journal de révision avec le menu contextuel"
+msgstr "Le panneau supérieur de la boîte de dialogue du Journal de révision avec le menu contextuel"
 
 #. (term)
 msgid "Compare with working copy"
@@ -4235,15 +4235,15 @@ msgstr "Comparer avec la copie de travail"
 
 #. (para)
 msgid "Compare the selected revision with your working copy. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN. If the log dialog is for a folder, this will show you a list of changed files, and allow you to review the changes made to each file individually."
-msgstr "Comparer la révision sélectionnée avec votre copie de travail. L'outil de différenciation par défaut est TortoiseMerge qui est fourni avec TortoiseSVN. Si la boîte de dialogue de journal concerne un dossier, cela vous montrera une liste de fichiers changés et vous permettra de passer en revue les changements faits à chaque fichier individuellement."
+msgstr "Comparer la révision sélectionnée avec votre copie de travail. L'outil de différenciation par défaut est TortoiseMerge qui est fourni avec TortoiseSVN. Si la boîte de dialogue de journal concerne un dossier, cela vous montrera une liste de fichiers modifiés et vous permettra de passer en revue les modifications apportées à chaque fichier individuellement."
 
 #. (term)
 msgid "Compare and blame with working BASE"
-msgstr "Comparez et annoter avec la BASE de travail"
+msgstr "Comparer et annoter avec la BASE de travail"
 
 #. (para)
 msgid "Blame the selected revision, and the file in your working BASE and compare the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail. (files only)."
-msgstr "Annote la révision sélectionnée et le fichier dans votre base de travail et compare les résultats en utilisant un outil de différenciation. Lisez <xref linkend=\"tsvn-dug-blame-diffs\"/> pour plus de détails (uniquement pour les fichiers)."
+msgstr "Annoter la révision sélectionnée et le fichier dans votre base de travail et comparer les résultats en utilisant un outil de différenciation. Lire <xref linkend=\"tsvn-dug-blame-diffs\"/> pour plus de détails (uniquement pour les fichiers)."
 
 #. (term)
 msgid "Show changes as unified diff"
@@ -4251,11 +4251,11 @@ msgstr "Voir les modifications comme des différences unifiées"
 
 #. (para)
 msgid "View the changes made in the selected revision as a Unified-Diff file (GNU patch format). This shows only the differences with a few lines of context. It is harder to read than a visual file compare, but will show all file changes together in a compact format."
-msgstr "Voir les changements faits dans la révision sélectionnée en tant que fichier de différences unifié (format de patch GNU). Cela montre seulement les différences avec quelques lignes de contexte. Cela est plus difficile de lire qu'une comparaison de fichiers visuelle, mais cela vous montrera tous les changements ensemble dans un format compact."
+msgstr "Voir les modifications faites dans la révision sélectionnée en tant que fichier de différences unifiées (format de patch GNU). Cela montre seulement les différences avec quelques lignes de contexte. Cela est plus difficile à lire qu'une comparaison visuelle de fichiers, mais cela vous présentera tous les changements dans un format compact."
 
 #. (term)
 msgid "Compare with previous revision"
-msgstr "Compare avec la révision précédente"
+msgstr "Comparer avec la révision précédente"
 
 #. (para)
 #, fuzzy
@@ -4264,7 +4264,7 @@ msgstr "Compare la révision sélectionnée avec la révision précédente. Cett
 
 #. (term)
 msgid "Compare and blame with previous revision"
-msgstr "Comparer avec la version précédente et annoter"
+msgstr "Comparer avec la révision précédente et annoter"
 
 #. (para)
 #, fuzzy
@@ -4278,7 +4278,7 @@ msgstr "Sauvegarder la révision dans..."
 
 #. (para)
 msgid "Save the selected revision to a file so you have an older version of that file. (files only)."
-msgstr "Sauvegarder la révision sélectionnée dans un fichier pour que vous ayez une version précédente de ce fichier. (juste valable pour les fichiers)."
+msgstr "Sauvegarder la révision sélectionnée dans un fichier pour avoir une version antérieure de ce fichier (valable uniquement pour les fichiers)."
 
 #. (term)
 #. (term)
@@ -4287,7 +4287,7 @@ msgstr "Ouvrir / Ouvrir avec..."
 
 #. (para)
 msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose. (files only)."
-msgstr "Ouvrir le fichier sélectionné, avec l'application par défaut pour ce type de fichier, ou avec le programme de votre choix. (valable uniquement pour les fichiers)."
+msgstr "Ouvrir le fichier sélectionné, avec l'application par défaut pour ce type de fichier, ou avec le programme de votre choix (valable uniquement pour les fichiers)."
 
 #. (term)
 #. (term)
@@ -4304,25 +4304,23 @@ msgstr "Parcourir le référentiel"
 
 #. (para)
 msgid "Open the repository browser to examine the selected file or folder in the repository as it was at the selected revision."
-msgstr "Ouvrir l'explorateur de référentiel pour examiner le fichier ou dossier sélectionné dans le référentiel tel qu'il était à la révision sélectionnée."
+msgstr "Ouvrir l'explorateur de référentiel pour examiner le fichier ou le dossier sélectionné dans le référentiel tel qu'il était à la révision sélectionnée."
 
 #. (term)
 msgid "Create branch/tag from revision"
 msgstr "Créer une branche/une étiquette depuis la révision"
 
 #. (para)
-#, fuzzy
 msgid "Create a branch or tag from a selected revision. This is useful e.g. if you forgot to create a tag and already committed some changes which weren't supposed to get into that release."
-msgstr "Créer une branche/étiquette à partir d'une révision choisie. C'est utile par exemple si vous avez oublié de créer une étiquette et avez déjà livré des changements qui n'étaient pas supposés être introduits dans cette sortie."
+msgstr "Créer une branche ou une étiquette à partir d'une révision choisie. C'est utile par exemple si vous avez oublié de créer une étiquette et avez déjà livré des modifications qui n'étaient pas supposées être intégrées à cette révision."
 
 #. (term)
 msgid "Update item to revision"
 msgstr "Mettre à jour l'élément à la révision"
 
 #. (para)
-#, fuzzy
 msgid "Update your working copy to the selected revision. Useful if you want to have your working copy reflect a time in the past, or if there have been further commits to the repository and you want to update your working copy one step at a time. It is best to update a whole directory in your working copy, not just one file, otherwise your working copy could be inconsistent."
-msgstr "Mettre à jour votre copie de travail à la révision sélectionnée. Utile si vous voulez que votre copie de travail reflète un temps passé. Il est préférable de mettre à jour un répertoire entier dans votre copie de travail, pas seulement un fichier, autrement votre copie de travail sera incohérente et vous serez incapables de livrer des modifications."
+msgstr "Mettre à jour votre copie de travail à la révision sélectionnée. Utile si vous voulez que votre copie de travail soit le reflet d'un état précis du passé ou s'il y a eu depuis d'autres livraisons dans le référentiel et que vous voulez mettre à jour votre copie de travail par étapes successives. Il est préférable de mettre à jour un répertoire entier de votre copie de travail, et pas seulement un fichier, autrement votre copie de travail pourrait être incohérente."
 
 #. (para)
 msgid "If you want to undo an earlier change permanently, use <guilabel>Revert to this revision</guilabel> instead."
@@ -4330,12 +4328,11 @@ msgstr "Si vous voulez annuler définitivement une modification, utilisez <guila
 
 #. (term)
 msgid "Revert to this revision"
-msgstr "Mettre à jour à cette révision"
+msgstr "Revenir à cette révision"
 
 #. (para)
-#, fuzzy
 msgid "Revert to an earlier revision. If you have made several changes, and then decide that you really want to go back to how things were in revision N, this is the command you need. The changes are undone in your working copy so this operation does <emphasis>not</emphasis> affect the repository until you commit the changes. Note that this will undo <emphasis>all</emphasis> changes made after the selected revision, replacing the file/folder with the earlier version."
-msgstr "Revenir à une révision précédente. Si vous avez fait plusieurs changements et décidez ensuite que vous voulez vraiment remettre les choses telles qu'elles étaient à la révision N, c'est la commande dont vous avez besoin. De nouveau, les changements sont annulés dans votre copie de travail donc cette opération n'affecte <emphasis>pas</emphasis> le référentiel jusqu'à ce que vous livriez les changements. Notez que cela défera <emphasis>tous</emphasis> les changements faits après la révision sélectionnée, remplaçant le fichier/dossier avec la version précédente."
+msgstr "Revenir à une révision antérieure. Si vous avez fait plusieurs modifications et décidez ensuite que vous voulez vraiment remettre les choses telles qu'elles étaient à la révision N, c'est la commande dont vous avez besoin. Les modifications sont annulées dans votre copie de travail : cette opération n'affecte donc <emphasis>pas</emphasis> le référentiel tant que vous n'avez pas livré ces changements. Notez que cela annulera <emphasis>toutes</emphasis> les modifications faites après la révision sélectionnée, remplaçant le fichier/dossier avec cette révision antérieure."
 
 #. (para)
 #. (para)
@@ -4352,7 +4349,7 @@ msgstr "Après avoir effectué cette action, si vous voulez <emphasis>annuler l'
 
 #. (para)
 msgid "If you simply want to see what a file or folder looked like at an earlier revision, use <guilabel>Update to revision</guilabel> or <guilabel>Save revision as...</guilabel> instead."
-msgstr "Si vous voulez juste avoir un aperçu d'un fichier ou d'un répertoire dans une révision antérieure, utilisez <guilabel>Mettre à jour à la révision</guilabel> ou <guilabel>Sauvegarder la révision sous...</guilabel>."
+msgstr "Si vous voulez juste avoir un aperçu d'un fichier ou d'un répertoire dans une révision antérieure, utilisez <guilabel>Revenir à cette révision</guilabel> ou <guilabel>Sauvegarder la révision sous...</guilabel>."
 
 #. (term)
 #. (term)
@@ -4360,13 +4357,12 @@ msgid "Revert changes from this revision"
 msgstr "Annuler les modification pour revenir à cette révision"
 
 #. (para)
-#, fuzzy
 msgid "Undo changes from which were made in the selected revision. The changes are undone in your working copy so this operation does <emphasis>not</emphasis> affect the repository at all! Note that this will undo the changes made in that revision only; it does not replace your working copy with the entire file at the earlier revision. This is very useful for undoing an earlier change when other unrelated changes have been made since."
-msgstr "Annuler des changements effectués à la révision sélectionnée. Les changements sont annulés dans votre copie de travail donc cette opération n'affecte <emphasis>pas</emphasis> le référentiel du tout ! Notez que cela défera les changements de cette révision seulement. Il ne remplace pas votre copie de travail avec le fichier en entier de la révision précédente. C'est très utile pour défaire un changement précédent quand d'autres changements sans rapport ont été faits depuis."
+msgstr "Annuler les modifications effectuées à la révision sélectionnée. Les modifications sont annulées dans votre copie de travail donc cette opération n'affecte <emphasis>pas</emphasis> du tout le référentiel ! Notez que cela annulera les modifications de cette révision seulement. Cela ne remplace pas votre copie de travail par le fichier complet de la révision précédente. C'est très utile pour annuler une modification antérieure quand d'autres modifications sans rapport ont été faites depuis."
 
 #. (para)
 msgid "What is happening internally is that Subversion performs a reverse merge of that one revision, undoing its effect from a previous commit."
-msgstr "En interne, Subversion annule la fusion de cette révision en question, annulant l'effet d'une Livraison antérieure."
+msgstr "En interne, Subversion annule la fusion de cette révision particulière, annulant l'effet d'une Livraison antérieure."
 
 #. (para)
 msgid "You can <emphasis>undo the undo</emphasis> as described above in <guilabel>Revert to this revision</guilabel>."
@@ -4378,7 +4374,7 @@ msgstr "Fusionner la révision avec..."
 
 #. (para)
 msgid "Merge the selected revision(s) into a different working copy. A folder selection dialog allows you to choose the working copy to merge into, but after that there is no confirmation dialog, nor any opportunity to try a test merge. It is a good idea to merge into an unmodified working copy so that you can revert the changes if it doesn't work out! This is a useful feature if you want to merge selected revisions from one branch to another."
-msgstr "Fusionnez les révisions sélectionnées en une copie active séparée. Une boîte de dialogue de sélection de dossiers vous permet de choisir la copie active qui sera la cible de la fusion, mais attention : il n'y aura pas ensuite de possibilité de faire une fusion de test. Il est judicieux de faire la fusion dans une copie active intacte afin de pouvoir annuler les modifications si cela ne fonctionne pas! C'est un élément utile si vous désirez fusionner des révisions choisies d'une branche à une autre."
+msgstr "Fusionner la (les) révision(s) sélectionnée(s) en une copie active séparée. Une boîte de dialogue de sélection de dossiers vous permet de choisir la copie active qui sera la cible de la fusion, mais attention : il n'y a par la suite aucune demande de confirmation ni aucune possibilité de faire une fusion de test. Il est judicieux de faire la fusion dans une copie active intacte afin de pouvoir annuler les modifications si cela ne fonctionne pas! Cette fonctionnalité se révèle très utile si vous désirez fusionner des révisions choisies d'une branche à une autre."
 
 #. (term)
 msgid "Checkout..."
@@ -4398,11 +4394,11 @@ msgstr "Exporter le fichier/répertoire sélectionné à la révision sélection
 
 #. (term)
 msgid "Edit author / log message"
-msgstr "Modifier l'auteur/le message informatif"
+msgstr "Modifier l'auteur/le commentaire de révision"
 
 #. (para)
 msgid "Edit the log message or author attached to a previous commit. Read <xref linkend=\"tsvn-dug-showlog-4\"/> to find out how this works."
-msgstr "Éditer le commentaire ou l'auteur attaché à une précédente livraison. Lisez <xref linkend=\"tsvn-dug-showlog-4\"/> pour découvrir comment cela fonctionne."
+msgstr "Éditer le commentaire de révision ou l'auteur attaché à une précédente livraison. Lisez <xref linkend=\"tsvn-dug-showlog-4\"/> pour découvrir comment cela fonctionne."
 
 #. (term)
 msgid "Show revision properties"
@@ -4410,29 +4406,29 @@ msgstr "Montrer les propriétés de la révision"
 
 #. (para)
 msgid "View and edit any revision property, not just log message and author. Refer to <xref linkend=\"tsvn-dug-showlog-4\"/>."
-msgstr "Voir ou éditer les propriétés d'une révision, outre le message d'information et l'auteur. Voir <xref linkend=\"tsvn-dug-showlog-4\"/>."
+msgstr "Voir ou éditer les propriétés d'une révision, outre le commentaire de révision et l'auteur. Voir <xref linkend=\"tsvn-dug-showlog-4\"/>."
 
 #. (term)
 #. (term)
 msgid "Copy to clipboard"
-msgstr "Ajouter au presse papier"
+msgstr "Ajouter au presse-papier"
 
 #. (para)
 msgid "Copy the log details of the selected revisions to the clipboard. This will copy the revision number, author, date, log message and the list of changed items for each revision."
-msgstr "Copier les commentaires des révisions sélectionnées dans le presse papier. Pour chaque révision, la révision, l'auteur, la date, le commentaire et la liste des éléments modifiés seront alors copiés."
+msgstr "Copier les commentaires de révisions sélectionnées dans le presse-papier. Pour chaque révision, la révision, l'auteur, la date, le commentaire et la liste des éléments modifiés seront alors copiés."
 
 #. (term)
 #. (term)
 msgid "Search log messages..."
-msgstr "Rechercher les messages de informatifs..."
+msgstr "Rechercher les commentaires de révision..."
 
 #. (para)
 msgid "Search log messages for the text you enter. This searches the log messages that you entered and also the action summaries created by Subversion (shown in the bottom pane). The search is not case sensitive."
-msgstr "Chercher les commentaires correspondants au texte que vous entrez. Cela recherche dans les commentaires que vous avez saisis et aussi les résumés d'action créés par Subversion (montré dans le panneau du bas). La recherche n'est pas sensible à la casse."
+msgstr "Chercher les commentaires de révision correspondant au texte que vous saisissez. La recherche s'effectue dans les commentaires de révision que vous avez saisis ainsi que dans les résumés d'action créés par Subversion (présenté dans le panneau du bas). La recherche n'est pas sensible à la casse."
 
 #. (para)
 msgid "<placeholder-1/> The top pane of the Log dialog has a context menu that allows you to access much more information. Some of these menu entries appear only when the log is shown for a file, and some only when the log is shown for a folder. <placeholder-2/>"
-msgstr "<placeholder-1/> De plus amples informations sont disponibles via un menu contextuel dans la partie du haut de la fenêtre de log. Des éléments de ce menu sont spécifiques aux fichiers ou aux dossiers. <placeholder-2/>"
+msgstr "<placeholder-1/> De plus amples informations sont disponibles via un menu contextuel dans la panneau supérieur de la boîte de dialogue du Journal de révision. Certains éléments de ce menu sont spécifiques aux fichiers, d'autres aux dossiers. <placeholder-2/>"
 
 #. (title)
 msgid "Top Pane Context Menu for 2 Selected Revisions"
@@ -4448,7 +4444,7 @@ msgstr "Comparer les deux révisions choisies en utilisant un outil de différen
 
 #. (para)
 msgid "If you select this option for a folder, a further dialog pops up listing the changed files and offering you further diff options. Read more about the Compare Revisions dialog in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr " Si vous choisissez cette option pour un dossier, une nouvelle boîte de dialogue surgit en listant les fichiers changés et vous offre des options de comparaison avancées. Lisez plus sur la comparaison de révision dans <xref linkend=\"tsvn-dug-compare-revs\"/>."
+msgstr "Si vous choisissez cette option pour un dossier, une nouvelle boîte de dialogue apparaît, qui liste les fichiers modifiés et vous offre des options de comparaison avancées. Pour en savoir plus sur la comparaison de révisions, reportez-vous <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "Blame revisions"
@@ -4456,7 +4452,7 @@ msgstr "Annoter les révisions"
 
 #. (para)
 msgid "Blame the two revisions and compare the blame reports using a visual difference tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr "Annote les deux révisions et compare les résultats en utilisant un outil de différenciation. Lisez <xref linkend=\"tsvn-dug-blame-diffs\"/> pour plus de détails."
+msgstr "Annoter les deux révisions et comparer les résultats en utilisant un outil de différenciation visuel. Lisez <xref linkend=\"tsvn-dug-blame-diffs\"/> pour plus de détails."
 
 #. (term)
 msgid "Show differences as unified diff"
@@ -4464,24 +4460,23 @@ msgstr "Voir les différences comme un diff unifié"
 
 #. (para)
 msgid "View the differences between the two selected revisions as a Unified-Diff file. This works for files and folders."
-msgstr "Voir les différences entre les deux révisions sélectionnées en tant que fichier de différences unifié. Cela fonctionne pour les fichiers et les dossiers."
+msgstr "Voir les différences entre les deux révisions sélectionnées en tant que fichier de différences unifiées. Cela fonctionne pour les fichiers et les dossiers."
 
 #. (para)
 msgid "Copy log messages to clipboard as described above."
-msgstr "Copier les commentaires dans le presse-papiers comme décrit ci-dessus."
+msgstr "Copier les commentaires de révision dans le presse-papiers comme décrit ci-dessus."
 
 #. (para)
 msgid "Search log messages as described above."
-msgstr "Chercher les commentaires comme décrit ci-dessus."
+msgstr "Chercher les commentaires de révision comme décrit ci-dessus."
 
 #. (para)
 msgid "<placeholder-1/> If you select two revisions at once (using the usual <keycap>Ctrl</keycap>-modifier), the context menu changes and gives you fewer options: <placeholder-2/>"
 msgstr "<placeholder-1/> Si vous sélectionnez deux révisions en même temps (en utilisant le modificateur habituel <keycap>Ctrl</keycap>), le menu contextuel change et vous propose moins d'options : <placeholder-2/>"
 
 #. (para)
-#, fuzzy
 msgid "If you select two or more revisions (using the usual <keycap>Ctrl</keycap> or <keycap>Shift</keycap> modifiers), the context menu will include an entry to Revert all changes which were made in the selected revisions. This is the easiest way to rollback a group of revisions in one go."
-msgstr "Si vous sélectionnez des révisions consécutives (en utilisant les modificateurs habituels <keycap>Ctrl</keycap> ou <keycap>Shift</keycap>), le menu contextuel inclurera une entrée pour annuler tous les changements qui ont été faits dans cette plage de révisions. C'est la façon la plus facile d'annuler une groupe de révisions en une fois."
+msgstr "Si vous sélectionnez deux ou plusieurs révisions (en utilisant les modificateurs habituels <keycap>Ctrl</keycap> ou <keycap>Shift</keycap>), le menu contextuel inclurera une entrée pour Annuler toutes les modifications qui ont été faites dans ces révisions. C'est la façon la plus facile d'annuler un groupe de révisions en une fois."
 
 #. (para)
 msgid "You can also choose to merge the selected revisions to another working copy, as described above."
@@ -4489,7 +4484,7 @@ msgstr "Vous pouvez également choisir de fusionner les révisions sélectionné
 
 #. (para)
 msgid "If all selected revisions have the same author, you can edit the author of all those revisions in one go."
-msgstr "Si toutes les révisions sélectionnées ont le même auteurs, vous pouvez éditer leur champ auteur en une seule opération."
+msgstr "Si toutes les révisions sélectionnées ont le même auteur, vous pouvez éditer le champ auteur en une seule opération."
 
 #. (title)
 msgid "The Log Dialog Bottom Pane with Context Menu"
@@ -4509,27 +4504,25 @@ msgid "Blame changes"
 msgstr "Annoter les modifications"
 
 #. (para)
-#, fuzzy
 msgid "Blame the selected revision and the previous revision for the selected file, and compare the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
 msgstr "Annoter la révision sélectionnée et la révision précédente pour le fichier choisi et afficher les différences en utilisant un outil de différenciation visuel. Lisez <xref linkend=\"tsvn-dug-blame-diffs\"/> pour plus de détails."
 
 #. (term)
 msgid "Show as unified diff"
-msgstr "Voir comme des différences unifiées"
+msgstr "Voir comme un diff unifié"
 
 #. (para)
-#, fuzzy
 msgid "Show file changes in unified diff format. This context menu is only available for files shown as <emphasis>modified</emphasis>."
-msgstr "Montrer les différences faites dans la révision sélectionnée pour le fichier choisi. Ce menu contextuel est seulement disponible pour les fichiers montrés comme <literal>Modifiés</literal>."
+msgstr "Montrer les modifications en tant que fichier de différences unifiées. Ce menu contextuel est seulement disponible pour les fichiers affichés comme <literal>Modifiés</literal>."
 
 #. (para)
 #. (para)
 msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose."
-msgstr "Ouvrir le fichier sélectionné, avec le visualisateur par défaut pour ce type de fichier, ou avec le programme de votre choix."
+msgstr "Ouvrir le fichier sélectionné, avec le visualisateur par défaut pour ce type de fichier ou avec le programme de votre choix."
 
 #. (para)
 msgid "Opens the Blame dialog, allowing you to blame up to the selected revision."
-msgstr "Ouvre la fenêtre d'annotations, vous permettant d'annoter la révision sélectionnée."
+msgstr "Ouvrir la fenêtre d'annotation, vous permettant d'annoter la révision sélectionnée."
 
 #. (para)
 msgid "Revert the changes made to the selected file in that revision."
@@ -4553,27 +4546,27 @@ msgstr "Afficher le journal de révision pour le seul fichier choisi."
 
 #. (term)
 msgid "Get merge logs"
-msgstr "Récupérer les messages de fusion"
+msgstr "Récupérer les commentaires de fusion"
 
 #. (para)
 msgid "Show the revision log for the selected single file, including merged changes. Find out more in <xref linkend=\"tsvn-dug-showlog-mergetrack\"/>."
-msgstr "Montre les messages d'information pour le seul fichier sélectionné, y compris les modifications fusionnées. Plus de détail dans <xref linkend=\"tsvn-dug-showlog-mergetrack\"/>."
+msgstr "Montrer les commentaires de révision pour le seul fichier sélectionné, y compris les modifications fusionnées. Plus de détail dans <xref linkend=\"tsvn-dug-showlog-mergetrack\"/>."
 
 #. (para)
 msgid "Save the selected revision to a file so you have an older version of that file."
-msgstr "Sauvegarder la révision sélectionnée dans un fichier pour que vous ayez une version précédente de ce fichier."
+msgstr "Sauvegarder la révision sélectionnée dans un fichier pour que vous ayez une version antérieure de ce fichier."
 
 #. (para)
 msgid "<placeholder-1/> The bottom pane of the Log dialog also has a context menu that allows you to <placeholder-2/>"
-msgstr "<placeholder-1/> Le panneau du bas de la boîte de dialogue Journal a aussi un menu contextuel qui vous permet de <placeholder-2/>"
+msgstr "<placeholder-1/> Le panneau du bas de la boîte de dialogue Journal a aussi un menu contextuel qui vous permet de :<placeholder-2/>"
 
 #. (para)
 msgid "You may notice that sometimes we refer to changes and other times to differences. What's the difference?"
-msgstr "Vous avez peut être remarqué que nous faisons parfois référence à des modifications et parfois à des différences. Quelles sont les différences ?"
+msgstr "Vous avez peut être remarqué que nous faisons parfois référence à des modifications et parfois à des différences. Quelle différence y a-t-il ?"
 
 #. (para)
 msgid "Subversion uses revision numbers to mean 2 different things. A revision generally represents the state of the repository at a point in time, but it can also be used to represent the changeset which created that revision, eg. <quote>Done in r1234</quote> means that the changes committed in r1234 implement feature X. To make it clearer which sense is being used, we use two different terms."
-msgstr "Subversion utilise des numéros de révision pour deux raisons. Une révision représente l'état d'un référentiel à un moment donné, elle peut aussi matérialiser la liste des modifications ayant mené à cette révision, i.e. <quote>Fait dans r1234</quote> veux dire que l'implémentation de la fonctionalité X a été faite via les modifications livrées dans la r1234. Pour connaitre le sens d'une révision, nous utilisons deux termes différents."
+msgstr "Subversion utilise des numéros de révision pour deux raisons. Une révision représente l'état d'un référentiel à un moment donné, mais elle peut aussi matérialiser la liste des modifications ayant mené à cette révision, i.e. <quote>Fait dans r1234</quote> veux dire que l'implémentation de la fonctionalité X a été faite via les modifications livrées dans la r1234. Pour préciser quel sens est utilisé, nous utilisons deux termes différents."
 
 #. (para)
 msgid "If you select two revisions N and M, the context menu will offer to show the <emphasis>difference</emphasis> between those two revisions. In Subversion terms this is <literal>diff -r M:N</literal>."
@@ -4584,22 +4577,20 @@ msgid "If you select a single revision N, the context menu will offer to show th
 msgstr "Si vous sélectionnez une seule révision N, le menu contextuel vous proposera d'afficher les <emphasis>modifications</emphasis> faites dans cette révision. Dans le jargon de Subversion cela se traduit par <literal>diff -r N-1:N</literal> ou <literal>diff -c N</literal>."
 
 #. (para)
-#, fuzzy
 msgid "The bottom pane shows the files changed in all selected revisions, so the context menu always offers to show <emphasis>changes</emphasis>."
-msgstr "Montrer les différences faites dans la révision sélectionnée pour le fichier choisi. Ce menu contextuel est seulement disponible pour les fichiers montrés comme <literal>Modifiés</literal>."
+msgstr "Le panneau du bas de la boîte de dialogue du Journal de révision présente les fichiers modifiés dans toutes les révisions sélectionnées. Le menu contextuel propose donc toujours d'afficher les <literal>modifications</literal>."
 
 #. (title)
 msgid "Getting more log messages"
 msgstr "Obtenir plus de commentaires"
 
 #. (para)
-#, fuzzy
 msgid "For a large repository there may be hundreds or even thousands of changes and fetching them all could take a long time. Normally you are only interested in the more recent changes. By default, the number of log messages fetched is limited to 100, but you can change this value in <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings-dialogs\"/>),"
-msgstr "Pour un grand référentiel, il peut y avoir des centaines ou même des milliers de changements et les parcourir tous pourrait prendre longtemps. Normalement vous n'êtes intéressé que par les changements les plus récents. Par défaut, le nombre de commentaires parcourus est limité à 100, mais vous pouvez changer cette valeur dans <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Configuration</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings\"/>),"
+msgstr "Pour un grand référentiel, il peut y avoir des centaines ou même des milliers de modifications et les parcourir toutes pourrait prendre longtemps. Normalement vous n'êtes intéressé que par les modifications les plus récentes. Par défaut, le nombre de commentaires parcourus est limité à 100, mais vous pouvez changer cette valeur dans <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Configuration</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings\"/>),"
 
 #. (para)
 msgid "When the <guilabel>Stop on copy/rename</guilabel> box is checked, Show Log will stop at the point that the selected file or folder was copied from somewhere else within the repository. This can be useful when looking at branches (or tags) as it stops at the root of that branch, and gives a quick indication of changes made in that branch only."
-msgstr "Quand la case <guilabel>Arrêt à la copie/renommage</guilabel> est cochée, Voir le journal s'arrêtera au moment où le fichier ou le dossier sélectionné ont été copiés d'ailleurs du référentiel. Cela peut être utile en regardant les branches (ou les étiquettes) puisque cela s'arrête à la racine de cette branche et donne une indication rapide des changements faits dans cette branche seulement."
+msgstr "Quand la case <guilabel>Arrêt à la copie/renommage</guilabel> est cochée, Voir le journal s'arrêtera au moment où le fichier ou le dossier sélectionné ont été copiés d'ailleurs dans le référentiel. Cela peut être utile en regardant les branches (ou les étiquettes) puisque cela s'arrête à la racine de cette branche et donne une indication rapide des modifications faites dans cette branche seulement."
 
 #. (para)
 msgid "Normally you will want to leave this option unchecked. TortoiseSVN remembers the state of the checkbox, so it will respect your preference."
@@ -4607,19 +4598,19 @@ msgstr "Normalement vous voudrez laisser cette option décochée.TortoiseSVN se 
 
 #. (para)
 msgid "When the Show Log dialog is invoked from within the Merge dialog, the box is always checked by default. This is because merging is most often looking at changes on branches, and going back beyond the root of the branch does not make sense in that instance."
-msgstr "Quand la boîte de dialogue Voir le journal est appelée depuis la boîte de dialogue Fusionner, la case est toujours cochée par défaut. C'est parce que la fusion concerne le plus souvent des changements sur des branches et revenir au-delà de la racine de la branche n'a aucun sens dans ce cas."
+msgstr "Quand la boîte de dialogue Voir le journal est appelée depuis la boîte de dialogue Fusionner, la case est toujours cochée par défaut. La raison en est que la fusion concerne le plus souvent des modifications sur des branches et que revenir au-delà de la racine de la branche n'a alors aucun sens."
 
 #. (para)
 msgid "Note that Subversion currently implements renaming as a copy/delete pair, so renaming a file or folder will also cause the log display to stop if this option is checked."
-msgstr "Notez que Subversion met actuellement en oeuvre le renommage comme une paire copie/suppression, donc renommer un fichier ou un dossier causera aussi l'arrêt de l'affichage du journal si cette option est cochée."
+msgstr "Notez que Subversion implémente actuellement le renommage comme une paire copie/suppression, donc renommer un fichier ou un dossier causera aussi l'arrêt de l'affichage du journal si cette option est cochée."
 
 #. (para)
 msgid "The Log dialog does not always show all changes ever made for a number of reasons: <placeholder-1/>"
-msgstr "Le boîte de dialogue du Journal ne montre pas toujours tous les changements faits pour certaines raisons : <placeholder-1/>"
+msgstr "Le boîte de dialogue du Journal ne montre pas toujours toutes les modifications faites pour plusieurs raisons : <placeholder-1/>"
 
 #. (para)
 msgid "If you want to see more log messages, click the <guibutton>Next 100</guibutton> to retrieve the next 100 log messages. You can repeat this as many times as needed."
-msgstr "Si vous voulez voir plus de commentaires, cliquez sur le bouton <guibutton>100 suivants</guibutton> pour récupérer les 100 commentaires suivants. Vous pouvez répéter cela autant de fois que nécessaire."
+msgstr "Si vous voulez voir plus de commentaires de révision, cliquez sur le bouton <guibutton>100 suivants</guibutton> pour récupérer les 100 commentaires suivants. Vous pouvez répéter cela autant de fois que nécessaire."
 
 #. (para)
 msgid "Next to this button there is a multi-function button which remembers the last option you used it for. Click on the arrow to see the other options offered."
@@ -4627,7 +4618,7 @@ msgstr "À côté de ce bouton il y a un bouton multi-fonctions qui se souvient 
 
 #. (para)
 msgid "Use <guibutton>Show Range ...</guibutton> if you want to view a specific range of revisions. A dialog will then prompt you to enter the start and end revision."
-msgstr "Utilisez <guibutton>Afficher la plage ...</guibutton> si vous voulez voir une plage spécifique de révisions. Une boîte de dialogue vous demandera alors d'entrer les révisions de début et de fin."
+msgstr "Utilisez <guibutton>Afficher la plage ...</guibutton> si vous voulez consulter une plage spécifique de révisions. Une boîte de dialogue vous demandera alors d'entrer les révisions de début et de fin."
 
 #. (para)
 msgid "Use <guibutton>Show All</guibutton> if you want to see <emphasis>all</emphasis> log messages from HEAD right back to revision 1."
@@ -4639,11 +4630,11 @@ msgstr "Révision de la Copie de Travail Courante"
 
 #. (para)
 msgid "Because the log dialog shows you the log from HEAD, not from the current working copy revision, it often happens that there are log messages shown for content which has not yet been updated in your working copy. To help make this clearer, the commit message which corresponds to the revision you have in your working copy is shown in bold."
-msgstr "La fenêtre de commentaires affichant les commentaires de la TÊTE et non de la révision de la copie de travail, il arrive souvent que des commentaires de livraisons non encore importées dans votre copie de travail soient affichés. Pour clarifier, le message de livraison correspondant à la révision de votre copie de travail est affiché en gras."
+msgstr "La fenêtre de commentaires affichant les commentaires depuis HEAD et non de la révision de la copie de travail, il arrive souvent que des commentaires de révisions non encore importées dans votre copie de travail soient affichés. Pour clarifier, le message de livraison correspondant à la révision de votre copie de travail est affiché en gras."
 
 #. (para)
 msgid "When you show the log for a folder the revision highlighted is the highest revision found anywhere within that folder, which requires a crawl of the working copy. The crawl takes place within a separate thread so as not to delay showing the log, but as a result highlighting for folders may not appear immediately."
-msgstr "Quand vous affichez les commentaires pour un répertoire,la révision mise en évidence est la plus élevée trouvée dans ce répertoire, ce qui nécessite un parcours de la copie de travail. Ce parcours est effectué dans un autre processus pour ne pas rallentir l'affichage des commentaires, par contre la mise en évidence de la révision peut ne pas apparaitre immédiatement."
+msgstr "Quand vous affichez les commentaires pour un répertoire, la révision mise en évidence est la plus élevée trouvée dans ce répertoire, ce qui nécessite un parcours de la copie de travail. Ce parcours est effectué dans un autre processus pour ne pas rallentir l'affichage des commentaires, en conséquence la mise en évidence de la révision pour les répertoires peut ne pas apparaitre immédiatement."
 
 #. (title)
 msgid "Merge Tracking Features"
@@ -4658,17 +4649,16 @@ msgid "Subversion 1.5 and later keeps a record of merges using properties. This 
 msgstr "Le logiciel Subversion 1.5 et ultérieur "
 
 #. (title)
-#, fuzzy
 msgid "The Log Dialog Showing Merge Tracking Revisions"
-msgstr "La Fenêtre de Log Montrant les Révisions Fusions"
+msgstr "La Fenêtre du Journal de révision Montrant les Révisions Fusionnées"
 
 #. (para)
 msgid "If you want to see the detail of which revisions were merged as part of that commit, use the <guilabel>Include merged revisions</guilabel> checkbox. This will fetch the log messages again, but will also interleave the log messages from revisions which were merged. Merged revisions are shown in grey because they represent changes made on a different part of the tree."
-msgstr "Si vous voulez voir quelles révisions ont été fusionnées dans un commit donné, utilisez la case à cocher <guilabel>Inclure les révisions fuisionnées</guilabel>. Les messages de log seront affichés de nouveau, mais ils inclueront à présent les messages des révisions fusionnées. Les révisions fusionnées sont affichées en gris car elles représentent des modifications  effectuées dans un autre branche de l'arborescence."
+msgstr "Si vous voulez voir quelles révisions ont été fusionnées dans un commit donné, utilisez la case à cocher <guilabel>Inclure les révisions fusionnées</guilabel>. Les commentaires de révision seront à nouveau affichés, mais ils inclueront également les commentaires des révisions fusionnées. Les révisions fusionnées sont affichées en gris car elles représentent des modifications effectuées dans une autre branche de l'arborescence."
 
 #. (para)
 msgid "Of course, merging is never simple! During feature development on the branch there will probably be occasional merges back from trunk to keep the branch in sync with the main line code. So the merge history of the branch will also include another layer of merge history. These different layers are shown in the log dialog using indentation levels."
-msgstr "Bien sûr, fusionner n'est jamais une mince affaire ! Pendant le développement des fonctionnalités dans une branche il y aura sûrement des fusions à faire avec la tête pour que la branche reste synchronisée avec la version de tête. Donc l'historique des fusions de la branche incluera une autre couche d'historique des fusions. Ces différentes couches sont affichées dans la fenêtre de log avec une indentation différente."
+msgstr "Bien sûr, fusionner n'est jamais une mince affaire ! Pendant le développement des fonctionnalités dans une branche il y aura sûrement des fusions à faire avec la tête pour que la branche reste synchronisée avec la version de tête. Donc l'historique des fusions de la branche incluera une autre couche d'historique des fusions. Ces différentes couches sont affichées dans la fenêtre du journal avec une indentation différente."
 
 #. (title)
 msgid "Changing the Log Message and Author"
@@ -4688,21 +4678,19 @@ msgstr "revprops"
 
 #. (para)
 msgid "Revision properties are completely different from the Subversion properties of each item. Revprops are descriptive items which are associated with one specific revision number in the repository, such as log message, commit date and committer name (author)."
-msgstr "Les propriétés des révisions sont complètement différentes des propriétés de Subversion de chaque élément. Les Revprops sont des éléments descriptifs qui sont associés à un numéro de révision spécifique dans le référentiel, comme les messages d'information, date de livraison et nom de la personne ayant livrés (auteur)."
+msgstr "Les propriétés des révisions sont complètement différentes des propriétés de Subversion de chaque élément. Les Revprops sont des éléments descriptifs qui sont associés à un numéro de révision spécifique dans le référentiel, comme les commentaires de révision, date de livraison et nom de la personne ayant livré (auteur)."
 
 #. (para)
 msgid "Sometimes you might want to change a log message you once entered, maybe because there's a spelling error in it or you want to improve the message or change it for other reasons. Or you want to change the author of the commit because you forgot to set up authentication or..."
 msgstr "Parfois vous pourriez vouloir changer un commentaire que vous avez saisi, peut-être parce qu'il y a une faute d'orthographe dedans ou parce que vous voulez améliorer le message ou le changer pour d'autres raisons. Ou vous voulez changer l'auteur de la livraison parce que vous avez oublié de mettre en place l'authentification ou..."
 
 #. (para)
-#, fuzzy
 msgid "Subversion lets you change revision properties any time you want. But since such changes can't be undone (those changes are not versioned) this feature is disabled by default. To make this work, you must set up a pre-revprop-change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for details about how to do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some further notes on implementing hooks on a Windows machine."
-msgstr "Subversion vous laisse changer tant le commentaire que l'auteur des révisions quand vous le souhaitez. Mais puisque de tels changements ne peuvent pas être annulés (ces changements ne sont pas versionnés) cette fonctionnalité est désactivée par défaut. Pour faire que cela fonctionne, vous devez mettre en place un hook pre-revprop-change. Veuillez vous référer au chapitre sur <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> dans le manuel de Subversion pour plus de détails sur la façon de le faire. Lisez <xref linkend=\"tsvn-repository-hooks\"/> pour trouver plus de notes sur l'implémentation de hooks sur une machine Windows."
+msgstr "Subversion vous laisse changer les propriétés d'une révision aussi souvent que vous le souhaitez. Mais puisque de tels changements ne peuvent pas être annulés (ces changements ne sont pas versionnés) cette fonctionnalité est désactivée par défaut. Pour faire que cela fonctionne, vous devez mettre en place un hook pre-revprop-change. Veuillez vous référer au chapitre sur <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> dans le manuel de Subversion pour plus de détails sur la façon de le faire. Lisez <xref linkend=\"tsvn-repository-hooks\"/> pour plus de détails sur l'implémentation de hooks sur une machine Windows."
 
 #. (para)
-#, fuzzy
 msgid "Once you've set up your server with the required hooks, you can change the author and log message (or any other revprop) of any revision, using the context menu from the top pane of the Log dialog. You can also edit a log message using the context menu for the middle pane."
-msgstr "Une fois que vous avez mis en place votre serveur avec les hooks requis, vous pouvez changer et l'auteur et le commentaire de n'importe quelle révision, en utilisant le menu contextuel du panneau supérieur de la boîte de dialogue du Journal."
+msgstr "Une fois que vous avez mis en place votre serveur avec les hooks requis, vous pouvez changer l'auteur et le commentaire (ou toute autre revprop) de n'importe quelle révision, en utilisant le menu contextuel du panneau supérieur de la boîte de dialogue du Journal. Vous pouvez également éditer un commentaire de révision par l'intermédiaire du menu contextuel du panneau du milieu."
 
 #. (para)
 msgid "Because Subversion's revision properties are not versioned, making modifications to such a property (for example, the <literal>svn:log</literal> commit message property) will overwrite the previous value of that property <emphasis>forever</emphasis>."
@@ -4718,41 +4706,39 @@ msgstr "filtrer"
 
 #. (para)
 msgid "If you want to restrict the log messages to show only those you are interested in rather than scrolling through a list of hundreds, you can use the filter controls at the top of the Log Dialog. The start and end date controls allow you to restrict the output to a known date range. The search box allows you to show only messages which contain a particular phrase."
-msgstr "Si vous voulez limiter les commentaires pour afficher seulement ceux qui vous intéressent, plutôt que de défiler une liste de centaines de commentaires, vous pouvez utiliser les commandes de filtre en haut de la boîte de dialogue de Journal. Les dates de début et de fin vous permettent de limiter les résultats à une plage de dates connue. La boîte de recherche vous permet de montrer seulement les messages qui contiennent une expression particulière."
+msgstr "Si vous voulez limiter les commentaires pour afficher seulement ceux qui vous intéressent, plutôt que de faire défiler une liste de centaines de commentaires, vous pouvez utiliser les commandes de filtre en haut de la boîte de dialogue du Journal. Les dates de début et de fin vous permettent de limiter les résultats à une plage de dates connue. La boîte de recherche vous permet de n'afficher que les messages qui contiennent une expression particulière."
 
 #. (para)
 msgid "Click on the search icon to select which information you want to search in, and to choose <emphasis>regex</emphasis> mode. Normally you will only need a simple text search, but if you need to more flexible search terms, you can use regular expressions. If you hover the mouse over the box, a tooltip will give hints on how to use the regex functions. You can also find online documentation and a tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>. The filter works by checking whether your filter string matches the log entries, and then only those entries which <emphasis>match</emphasis> the filter string are shown."
-msgstr "Cliquez sur l'icone de recherche pour sélectionner le type d'information que vous souhaitez rechercher, et choisir le mode <emphasis>regex</emphasis>. Vous ne devriez avoir besoin que d'une simple recherche de texte, mais si vous souhaitez plus de flexibilité, vous pouvez alors utiliser les expressions regulières. Si vous passez la souris au dessus de la boite, une tooltip vous donnera des informations sur comment utiliser les fonctions d'expressions regulières. Vous pouvez également trouver l'aide en ligne et un tutoriel à cette adresse <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>. Seuls les messages de log passant le filtre (i.e. qui <emphasis>matchent</emphasis> le filtre) sont affichés."
+msgstr "Cliquez sur l'icone de recherche pour sélectionner le type d'information que vous souhaitez rechercher, et pour choisir le mode <emphasis>regex</emphasis>. Vous ne devriez avoir besoin que d'une simple recherche de texte, mais si vous souhaitez plus de flexibilité, vous pouvez alors utiliser les expressions regulières. Si vous passez la souris au dessus de la boite, une tooltip vous donnera des informations sur comment utiliser les fonctions d'expressions regulières. Vous pouvez également trouver l'aide en ligne et un tutoriel à cette adresse <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>. Seuls les commentaires de révision passant le filtre (i.e. qui <emphasis>matchent</emphasis> le filtre) sont affichés."
 
 #. (para)
 msgid "If you don't use regex mode, you can enter several strings to search for, and only those log entries which match all of your filter words will be shown."
-msgstr "Si vous n'utilisez pas les expressions régulières, vous pouvez rechercher plusieurs chaines de caractères, ainsi seuls les commentaires satisfaisant ce filtre seront affiché."
+msgstr "Si vous n'utilisez pas les expressions régulières, vous pouvez saisir plusieurs chaînes de caractères, et seuls les commentaires satisfaisant ce filtre seront affichés."
 
 #. (para)
 msgid "To make the filter show all log entries that do <emphasis>not</emphasis> match the filter string, start the string with an exclamation mark ('!'). For example, a filter string <literal>!username</literal> will only show those entries which were not committed by <literal>username</literal>."
-msgstr "Pour faire en sorte que tous les messages <emphasis>ne vérifiant pas</emphasis> le filtre s'affichent, commencez l'expression régulière par un point d'exclamation ('!'). Par exemple, la chaine <literal>!username</literal> ne montrera que les entrées n'ayant pas été livrés par <literal>username</literal>."
+msgstr "Pour faire en sorte que tous les commentaires <emphasis>ne vérifiant pas</emphasis> le filtre s'affichent, commencez l'expression régulière par un point d'exclamation ('!'). Par exemple, la chaine <literal>!username</literal> ne montrera que les entrées n'ayant pas été livrées par <literal>username</literal>."
 
 #. (para)
 msgid "Note that these filters act on the messages already retrieved. They do not control downloading of messages from the repository."
-msgstr "Notez que ces filtres agissent sur les messages déjà récupérés. Ils ne provoquent pas de téléchargement de messages du référentiel."
+msgstr "Notez que ces filtres agissent sur les commentaires déjà récupérés. Ils ne provoquent pas de téléchargement de commentaires du référentiel."
 
 #. (para)
-#, fuzzy
 msgid "You can also filter the path names in the bottom pane using the <guilabel>Hide unrelated changed paths</guilabel> checkbox. Related paths are those which contain the path used to display the log. If you fetch the log for a folder, that means anything in that folder or below it. For a file it means just that one file. The checkbox is tristate: you can show all paths, grey out the unrelated ones, or hide the unrelated paths completely."
-msgstr "Vous pouvez aussi filtrer les noms de chemin dans le panneau du bas en utilisant la case à cocher <guilabel>Cacher les chemins changés sans relation</guilabel>. Les chemins liés sont ceux qui contiennent le chemin utilisé pour montrer le journal. Si vous parcourez le journal pour un dossier, cela signifie tout dans ce dossier ou en dessous. Pour un fichier cela signifie juste ce fichier. La case à cocher a trois états : vous pouvez montrer tous les chemins, griser ceux sans rapports, ou cacher complètement les chemins sans rapport."
+msgstr "Vous pouvez aussi filtrer les noms de chemin dans le panneau du bas en utilisant la case à cocher <guilabel>Cacher les chemins changés sans relation</guilabel>. Les chemins liés sont ceux qui contiennent le chemin utilisé pour montrer le journal. Si vous parcourez le journal pour un dossier, cela signifie tout dans ce dossier ou en dessous. Pour un fichier cela signifie juste ce fichier. La case à cocher a trois états : vous pouvez montrer tous les chemins, griser ceux sans relation, ou cacher complètement les chemins sans relation."
 
 #. (para)
 msgid "Sometimes your working practices will require log messages to follow a particular format, which means that the text describing the changes is not visible in the abbreviated summary shown in the top pane. The property <literal>tsvn:logsummary</literal> can be used to extract a portion of the log message to be shown in the top pane. Read <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> to find out how to use this property."
-msgstr "Parfois, vos habitudes de travail nécessiteront que les messages de log aient un format particulier, ce qui signifie que le texte résumant les modifications ne sera pas visible dans le panneau supérieur. La propriété<literal>tsvn:logsummary</literal> peut être utilisée pour afficher dans le panneau supérieur une partie du message de log. Lisez <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> pour savoir comment utiliser cette propriété."
+msgstr "Parfois, vos habitudes de travail nécessiteront que les commentaires de révision aient un format particulier, ce qui signifie que le texte résumant les modifications ne sera pas visible dans le panneau supérieur. La propriété<literal>tsvn:logsummary</literal> peut être utilisée pour afficher dans le panneau supérieur une partie du commentaire de révision. Lisez <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> pour savoir comment utiliser cette propriété."
 
 #. (title)
 msgid "No Log Formatting from Repository Browser"
 msgstr "Pas de Formattage des Commentaires depuis l'Explorateur de Référentiel"
 
 #. (para)
-#, fuzzy
 msgid "Because the formatting depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
-msgstr "Le formattage dépend des propriétés d'accès de subversion, vous ne verrez que le résultat lorsque vous utiliserez une copie de travail exportée. Afficher les propriétés à distance étant une opération lente, vous ne pourrez pas l'effectuer depuis l'explorateur de référentiel."
+msgstr "Le formattage dépendant des propriétés d'accès de subversion, vous ne verrez le résultat que si vous utilisez une copie de travail exportée. Afficher les propriétés à distance étant une opération lente, vous ne pourrez pas l'effectuer depuis l'explorateur de référentiel."
 
 #. (title)
 msgid "Statistical Information"
@@ -4791,7 +4777,6 @@ msgid "<placeholder-1/> This graph shows you which authors have been active on t
 msgstr "<placeholder-1/> Ce graphique vous montre quels auteurs ont été actifs sur le projet par un simple histogramme, un histogramme empilé ou un camembert. <placeholder-2/>"
 
 #. (para)
-#, fuzzy
 msgid "Where there are a few major authors and many minor contributors, the number of tiny segments can make the graph more difficult to read. The slider at the bottom allows you to set a threshold (as a percentage of total commits) below which any activity is grouped into an <emphasis>Others</emphasis> category."
 msgstr "Quand il y a quelques auteurs majeurs et beaucoup de contributeurs mineurs, le nombre de segments minuscules peut rendre le graphique plus difficile à lire. Le slider en bas vous permet de définir un seuil (en pourcentage du total des livraisons) en dessous duquel l'activité est groupée dans une catégorie <emphasis>Autres</emphasis>."
 
@@ -4805,20 +4790,19 @@ msgstr "Graphique de livraisons par date"
 
 #. (para)
 msgid "<placeholder-1/> This page gives you a graphical representation of project activity in terms of number of commits <emphasis>and</emphasis> author. This gives some idea of when a project is being worked on, and who was working at which time."
-msgstr "<placeholder-1/> Cette page vous donne une représentation graphique de l'activité du projet en termes de nombre de livraisons <emphasis>et</emphasis> d'auteurs. Cela donne une certaine idée quand un projet est travaillé et qui travaillait à quel moment."
+msgstr "<placeholder-1/> Cette page vous donne une représentation graphique de l'activité du projet en termes de nombre de livraisons <emphasis>et</emphasis> d'auteurs. Cela donne une certaine idée de quand un projet est actif et de qui travaillait à quel moment."
 
 #. (para)
 msgid "When there are several authors, you will get many lines on the graph. There are two views available here: <emphasis>normal</emphasis>, where each author's activity is relative to the base line, and <emphasis>stacked</emphasis>, where each author's activity is relative to the line underneath. The latter option avoids the lines crossing over, which can make the graph easier to read, but less easy to see one author's output."
-msgstr "Quand il y a plusieurs auteurs, vous obtiendrez beaucoup de lignes sur le graphique. Il y a deux vues disponibles ici : <emphasis>normale</emphasis>, où l'activité de chaque auteur est relative à la ligne de base et <emphasis>empilée</emphasis>, où l'activité de chaque auteur est relative à la ligne d'en dessous. La dernière option évite les lignes qui se traversent, ce qui peut rendre le graphique plus facile à lire, mais moins facile pour voir la production d'un auteur."
+msgstr "Quand il y a plusieurs auteurs, vous obtiendrez beaucoup de lignes sur le graphique. Il y a deux vues disponibles ici : <emphasis>normale</emphasis>, où l'activité de chaque auteur est relative à la ligne de base et <emphasis>empilée</emphasis>, où l'activité de chaque auteur est relative à la ligne d'en dessous. La dernière option évite les lignes qui se traversent, ce qui peut rendre le graphique plus facile à lire, mais la production d'un auteur moins facile à voir."
 
 #. (para)
-#, fuzzy
 msgid "By default the analysis is case-sensitive, so users <literal>PeterEgan</literal> and <literal>PeteRegan</literal> are treated as different authors. However, in many cases user names are not case-sensitive, and are sometimes entered inconsistently, so you may want <literal>DavidMorgan</literal> and <literal>davidmorgan</literal> to be treated as the same person. Use the <guilabel>Authors case insensitive</guilabel> checkbox to control how this is handled."
-msgstr "Par défaut l'analyse est sensible à la casse donc les utilisateurs <literal>PeterEgan</literal> et <literal> PeteRegan</literal> sont considérés comme des auteurs différents. Cependant, dans des nombreux cas les noms utilisateur ne sont pas sensibles à la casse et sont parfois entrés sans conséquence, donc vous pouvez vouloir que <literal>DavidMorgan</literal> et <literal>davidmorgan</literal> soient considérés comme la même personne. Utilisez la case à cocher <guilabel>Auteurs non sensibles à la casse</guilabel> pour contrôler la manière dont cela est traité."
+msgstr "Par défaut l'analyse est sensible à la casse donc les utilisateurs <literal>PeterEgan</literal> et <literal> PeteRegan</literal> sont considérés comme des auteurs différents. Cependant, dans de nombreux cas les noms des utilisateurs ne sont pas sensibles à la casse et sont parfois saisis de façon variable, donc vous pourriez vouloir que <literal>DavidMorgan</literal> et <literal>davidmorgan</literal> soient considérés comme la même personne. Utilisez la case à cocher <guilabel>Auteurs non sensibles à la casse</guilabel> pour contrôler la manière dont cela est traité."
 
 #. (para)
 msgid "Note that the statistics cover the same period as the Log dialog. If that is only displaying one revision then the statistics will not tell you very much."
-msgstr "Notez que les statistiques couvre la même période que la boîte de dialogue de Journal. Si elle ne montre qu'une révision alors les statistiques ne vous diront pas grand chose."
+msgstr "Notez que les statistiques couvre la même période que la boîte de dialogue du Journal. Si elle ne montre qu'une révision alors les statistiques ne vous diront pas grand chose."
 
 #. (title)
 msgid "Offline Mode"
@@ -4829,9 +4813,8 @@ msgid "Go Offline Dialog"
 msgstr "Fenêtre de mode hors ligne"
 
 #. (para)
-#, fuzzy
 msgid "<placeholder-1/> If the server is not reachable, and you have log caching enabled you can use the log dialog and revision graph in offline mode. This uses data from the cache, which allows you to continue working although the information may not be up-to-date or even complete."
-msgstr "Si le serveur est inaccessible, et que vous avez activé la mise en cache des log, vous pouvez utiliser la fenêtre de log et le graphique des révisions en mode hors ligne. Ces outils utiliseront alors les données mises en cache, ce qui vous permet de continuer à travailler même si les informations sont incomplète ou ne sont pas à jour."
+msgstr "Si le serveur est inaccessible, et que vous avez activé la mise en cache des commentaires de révision, vous pouvez utiliser la boîte de dialogue du Journal et le graphique des révisions en mode hors ligne. Ces outils utiliseront alors les données mises en cache, ce qui vous permet de continuer à travailler même si les informations sont incomplètes ou ne sont pas à jour."
 
 #. (term)
 msgid "Offline for now"
@@ -4839,7 +4822,7 @@ msgstr "Mode hors ligne"
 
 #. (para)
 msgid "Complete the current operation in offline mode, but retry the repository next time log data is requested."
-msgstr "Finissez l'opération courante en mode hors ligne, mais réessaie avec le référentiel à la prochaine demande d'informations."
+msgstr "Fini l'opération courante en mode hors ligne, mais réessaie avec le référentiel à la prochaine demande d'informations."
 
 #. (term)
 msgid "Permanently offline"
@@ -4863,20 +4846,20 @@ msgstr "Vous avez ici trois choix : <placeholder-1/>"
 
 #. (para)
 msgid "The <guilabel>Make this the default</guilabel> checkbox prevents this dialog from re-appearing and always picks the option you choose next. You can still change (or remove) the default after doing this from <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>."
-msgstr "La case à cocher <guilabel>Définir par défaut</guilabel> empêche cette fenêtre de réapparaitre et choisit toujours l'option suivant. Vous pouvez toujours modifier (ou supprimer) cette valeur par défaut plus tard dans le menu <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Paramètres</guimenuitem></menuchoice>."
+msgstr "La case à cocher <guilabel>Définir par défaut</guilabel> empêche cette fenêtre de réapparaitre et retient toujours l'option suivante choisie. Vous pouvez toujours modifier (ou supprimer) cette valeur par défaut plus tard dans le menu <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Paramètres</guimenuitem></menuchoice>."
 
 #. (title)
 #. (title)
 msgid "Refreshing the View"
-msgstr "Refraichissement de l'affichage"
+msgstr "Refraîchissement de l'affichage"
 
 #. (para)
 msgid "If you want to check the server again for newer log messages, you can simply refresh the view using <keycap>F5</keycap>. If you are using the log cache (enabled by default), this will check the repository for newer messages and fetch only the new ones. If the log cache was in offline mode, this will also attempt to go back online."
-msgstr "Si vous voulez vérifier si de nouveaux commentaires sont arrivés sur le serveur, vous pouvez simplement rafraichir l'interface en appuyant sur <keycap>F5</keycap>. Si vous utilisez un cache pour les commentaires (ce qui est le comportement par défaut), cette vérification se fera et seuls les nouveaux commentaires seront rappatriés. Si le cache des commentaires était en mode hors ligne, il tentera de se reconnecter."
+msgstr "Si vous voulez vérifier si de nouveaux commentaires sont arrivés sur le serveur, vous pouvez simplement rafraîchir l'interface en appuyant sur <keycap>F5</keycap>. Si vous utilisez un cache pour les commentaires (ce qui est le comportement par défaut), cette vérification se fera et seuls les nouveaux commentaires seront rappatriés. Si le cache des commentaires était en mode hors ligne, il tentera de se reconnecter."
 
 #. (para)
 msgid "If you are using the log cache and you think the message content or author may have changed, you can use <keycap>Shift-F5</keycap> or <keycap>Ctrl-F5</keycap> to re-fetch the displayed messages from the server and update the log cache. Note that this only affects messages currently shown and does not invalidate the entire cache for that repository."
-msgstr "Si vous utilisez le cache du journal et vous pensezque le contenu du message ou son auteur ont pu changer, vous pouvez utiliser <keycap>Shift+F5</keycap> ou <keycap>Ctrl-F5</keycap> pour re-récupérer les messages affichés à partir du serveur et mettre à jour le cache journal. Notez que ceci affecte uniquement les messages affichés à cet instant et que ceci ne valide pas le cache complet pour ce dépôt."
+msgstr "Si vous utilisez le cache du journal et si vous pensez que le contenu du message ou son auteur ont pu changer, vous pouvez utiliser <keycap>Shift+F5</keycap> ou <keycap>Ctrl-F5</keycap> pour récupérer à nouveau les messages affichés à partir du serveur et mettre à jour le cache journal. Notez que ceci affecte uniquement les messages affichés à cet instant et que ceci n'invalide pas le cache complet pour ce référentiel."
 
 #. (title)
 msgid "Viewing Differences"
