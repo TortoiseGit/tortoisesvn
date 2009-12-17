@@ -72,9 +72,19 @@ BOOL CBlame::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString
 		if (authorA.GetLength() > 30 )
 			authorA = authorA.Left(30);
 		if (m_bNoLineNo)
-			infolineA.Format("%c %6ld %6ld %-30s %-60s %-30s ", c, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+		{
+			if (pathA.IsEmpty())
+				infolineA.Format("%c %6ld %6ld %-30s %-30s ", c, revision, origrev, (LPCSTR)dateA, (LPCSTR)authorA);
+			else
+				infolineA.Format("%c %6ld %6ld %-30s %-60s %-30s ", c, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+		}
 		else
-			infolineA.Format("%c %6ld %6ld %6ld %-30s %-60s %-30s ", c, linenumber, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+		{
+			if (pathA.IsEmpty())
+				infolineA.Format("%c %6ld %6ld %6ld %-30s %-30s ", c, linenumber, revision, origrev, (LPCSTR)dateA, (LPCSTR)authorA);
+			else
+				infolineA.Format("%c %6ld %6ld %6ld %-30s %-60s %-30s ", c, linenumber, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+		}
 		fulllineA = line;
 		fulllineA.TrimRight("\r\n");
 		fulllineA += "\n";
@@ -174,10 +184,14 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 	m_bNoLineNo = false;
 	if (extBlame)
 	{
-		headline.Format(_T("%c %-6s %-6s %-6s %-30s %-60s %-30s %-s \n"), ' ', _T("line"), _T("rev"), _T("merged"), _T("date"), _T("path"), _T("author"), _T("content"));
+		if(includemerge)
+			headline.Format(_T("%c %-6s %-6s %-6s %-30s %-60s %-30s %-s \n"), ' ', _T("line"), _T("rev"), _T("merged"), _T("date"), _T("path"), _T("author"), _T("content"));
+		else
+			headline.Format(_T("%c %-6s %-6s %-6s %-30s %-30s %-s \n"), ' ', _T("line"), _T("rev"), _T("merged"), _T("date"),_T("author"), _T("content"));
 		m_saveFile.WriteString(headline);
 		m_saveFile.WriteString(_T("\n"));
 	}
+
 	m_progressDlg.SetTitle(IDS_BLAME_PROGRESSTITLE);
 	m_progressDlg.SetAnimation(IDR_DOWNLOAD);
 	m_progressDlg.SetShowProgressBar(TRUE);
