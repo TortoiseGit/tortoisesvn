@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-16 10:30+0100\n"
+"PO-Revision-Date: 2009-12-17 08:45+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -531,6 +531,10 @@ msgstr "&Andocken"
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "&Bearbeiten"
+
+#. Resource IDs: (1399)
+msgid "&Edit conflict"
+msgstr "Konflikt b&earbeiten"
 
 #. Resource IDs: (12)
 msgid "&Edit conflicts"
@@ -3444,10 +3448,6 @@ msgstr "Autor bearbeiten"
 msgid "Edit author name"
 msgstr "Autor bearbeiten"
 
-#. Resource IDs: (1399)
-msgid "Edit conflict"
-msgstr "Konflikt bearbeiten"
-
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
 msgstr "Vergleichsprogramm für bestimmte Dateitypen einrichten"
@@ -6306,12 +6306,12 @@ msgid "Pre-Update Hook"
 msgstr "Vor Aktualisierung"
 
 #. Resource IDs: (3)
-msgid "Prefer local"
-msgstr "Lokal bevorzugen"
+msgid "Prefer &local"
+msgstr "&Lokal bevorzugen"
 
 #. Resource IDs: (4)
-msgid "Prefer repository"
-msgstr "Projektarchiv bevorzugen"
+msgid "Prefer &repository"
+msgstr "&Projektarchiv bevorzugen"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -6541,6 +6541,10 @@ msgstr "Rück&setzen"
 #. Resource IDs: (16647)
 msgid "Re&set All"
 msgstr "Alle Rück&setzen"
+
+#. Resource IDs: (1400)
+msgid "Re&solved"
+msgstr "Konflikt auf&gelöst"
 
 #. Resource IDs: (1382)
 msgid "Re&store defaults"
@@ -6910,8 +6914,8 @@ msgid "Resolve Conflict"
 msgstr "Konflikt auflösen"
 
 #. Resource IDs: (1382)
-msgid "Resolve all later"
-msgstr "Alle später auflösen"
+msgid "Resolve all la&ter"
+msgstr "&Alle später auflösen"
 
 #. Resource IDs: (282)
 msgid "Resolve conflict using 'mine'"
@@ -6926,8 +6930,8 @@ msgid "Resolve conflict:"
 msgstr "Konflikt auflösen:"
 
 #. Resource IDs: (2)
-msgid "Resolve later"
-msgstr "Später auflösen"
+msgid "Resolve l&ater"
+msgstr "&Später auflösen"
 
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
@@ -10729,6 +10733,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Edit conflict"
+#~ msgstr "Konflikt bearbeiten"
 #~ msgid "Unversioned"
 #~ msgstr "Unversioniert"
 #~ msgid "From URL:"
