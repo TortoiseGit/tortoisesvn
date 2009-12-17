@@ -436,7 +436,7 @@ CString CPathUtils::PathUnescape (const char* path)
 	// no escapement necessary, just unicode conversion
 
 	CString result;
-	CUnicodeUtils::UTF8ToUTF16 (path, i, result.GetBufferSetLength (i));
+	CUnicodeUtils::UTF8ToUTF16 (path, i+1, result.GetBufferSetLength (i+1));
 	result.ReleaseBuffer();
 
 	return result;
@@ -535,10 +535,15 @@ private:
 		CString test(_T("file:///d:/REpos1/uCOS-100/Trunk/name%20with%20spaces/NewTest%20%25%20NewTest"));
 		CString test2 = CPathUtils::PathUnescape(test);
 		ATLASSERT(test2.Compare(_T("file:///d:/REpos1/uCOS-100/Trunk/name with spaces/NewTest % NewTest")) == 0);
+		test2 = CPathUtils::PathUnescape("file:///d:/REpos1/uCOS-100/Trunk/name with spaces/NewTest % NewTest");
+		ATLASSERT(test2.Compare(_T("file:///d:/REpos1/uCOS-100/Trunk/name with spaces/NewTest % NewTest")) == 0);
+		test2 = CPathUtils::PathUnescape("http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk");
+		ATLASSERT(test2.Compare(_T("http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk")) == 0);
 		CStringA test3 = CPathUtils::PathEscape("file:///d:/REpos1/uCOS-100/Trunk/name with spaces/NewTest % NewTest");
 		ATLASSERT(test3.Compare("file:///d:/REpos1/uCOS-100/Trunk/name%20with%20spaces/NewTest%20%25%20NewTest") == 0);
 		CStringA test4 = CPathUtils::PathEscape("file:///d:/REpos1/uCOS 1.0/Trunk/name with spaces/NewTest % NewTest");
 		ATLASSERT(test4.Compare("file:///d:/REpos1/uCOS%201.0/Trunk/name%20with%20spaces/NewTest%20%25%20NewTest") == 0);
+
 	}
 	void ExtTest()
 	{
