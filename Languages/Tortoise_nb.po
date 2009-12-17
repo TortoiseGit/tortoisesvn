@@ -5,7 +5,7 @@
 #
 # Last commit by:
 # $Author$
-# $Date$
+`# $Date$
 # $Rev$
 #
 # Authors:
@@ -33,6 +33,7 @@ msgstr ""
 # cache - mellomlager
 # change - endring
 # changelist - endringsliste
+# check - huke av
 # checkout - hente ut, uthenting
 # child - underelement/-fil/-mappe
 # cleanup - rydde opp
@@ -1454,7 +1455,7 @@ msgid ""
 "A viewer program for GNU diff files (patch files).\r\n"
 "If you don't have one use NotePad."
 msgstr ""
-"Et visningsprogram for diff(korreksjons)-filer i GNU-format.\r\n"
+"Et visningsprogram for GNU diff-filer (korreksjonsfiler).\r\n"
 "Bruk Notisblokk hvis du ikke har et."
 
 #. Resource IDs: (101)
@@ -2222,7 +2223,7 @@ msgstr "&Hent ut..."
 
 #. Resource IDs: (3887)
 msgid "Check"
-msgstr "Kryss"
+msgstr "Huk av"
 
 #. Resource IDs: (174)
 msgid "Check For Updates"
@@ -2253,7 +2254,7 @@ msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr ""
-"Kryss av for filene som du vil \n"
+"Huk av for filene som du vil \n"
 "slette før importering"
 
 #. Resource IDs: (612)
@@ -2270,11 +2271,11 @@ msgstr "Sjekk stien og/eller URLen du anga"
 
 #. Resource IDs: (194)
 msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
-msgstr "Kryss av for de menyvalgene du se i hovedmenyen i stedet for i undermenyen 'TortoiseSVN'"
+msgstr "Huk av for de menyvalgene du se i hovedmenyen i stedet for i undermenyen 'TortoiseSVN'"
 
 #. Resource IDs: (80)
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "Kryss av for å bruke kortere dato- og tids-formater i loggmeldinger."
+msgstr "Huk av for å bruke kortere dato- og tids-formater i loggmeldinger."
 
 #. Resource IDs: (2052)
 msgid "Check working copy for modifications"
@@ -2282,7 +2283,7 @@ msgstr "Se etter endringer i arbeidskopi"
 
 #. Resource IDs: (1504)
 msgid "Check:"
-msgstr "Kryss av:"
+msgstr "Huk av:"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -3049,7 +3050,7 @@ msgid ""
 "Create patch file"
 msgstr ""
 "Lager en patch-fil av forskjellene mellom de to filene\n"
-"Lag patch-fil"
+"Lag korreksjonsfil"
 
 #. Resource IDs: (10)
 msgid "Creates a repository database at the current location"
@@ -4410,7 +4411,7 @@ msgstr "Påhakings-skript"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Påhakings-skript: Integrasjon med Saks-Sporingssystem"
+msgstr "Påhakings-skript: Integrasjon med Saksporingssystem"
 
 #. Resource IDs: (198)
 msgid "Hook Type"
@@ -4616,16 +4617,16 @@ msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
-"Hvis avkrysset: En ny mappe opprettes inne i depotet.\n"
-"Importen går direkte til den angitte nettadressen hvis ingen avkryssing."
+"Hvis huket av, opprettes en ny mappe i depotet.\n"
+"Hvis ikke huket av, går importen direkte til den angitte nettadressen."
 
 #. Resource IDs: (79)
 msgid ""
 "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
 "with the keywords expanded and the line endings adjusted."
 msgstr ""
-"Hvis avkrysset, lager TortoiseSVN en temporær fil av diffens BASE med\n"
-" nøkkelord utvidet og linjeslutt justert"
+"Hvis huket av, lager TortoiseSVN en midlertidig fil av BASE for å sammenligne med\n"
+"nøkkelord utvidet og linjeslutt justert"
 
 #. Resource IDs: (197)
 msgid "If checked, double-clicking on a revision in the log list compares it with the previous revision"
@@ -4641,7 +4642,7 @@ msgstr ""
 
 #. Resource IDs: (194)
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "Hvis denne er krysset, sjekker TortoiseSVN en gang i uken etter ny versjon"
+msgstr "Hvis denne er huket av, sjekker TortoiseSVN en gang i uken etter ny versjon"
 
 #. Resource IDs: (195)
 msgid ""
@@ -6351,7 +6352,7 @@ msgstr "Forhåndsvisning"
 
 #. Resource IDs: (376)
 msgid "Preview patched file"
-msgstr "Forhåndsvis oppdatert fil"
+msgstr "Forhåndsvis korrigert fil"
 
 #. Resource IDs: (65535)
 msgid "Preview: "
@@ -6803,7 +6804,7 @@ msgid ""
 "%s\n"
 "from the ignore list."
 msgstr ""
-"Fjernet filmøsteret/mønstrene\n"
+"Fjernet filmønsteret/mønstrene\n"
 "%s\n"
 "fra ignorerings-listen."
 
@@ -8021,7 +8022,7 @@ msgstr ""
 "mittnavn  2008    : mine innsendinger i 2008\r\n"
 ".h  -.cpp              : innsendinger som endret headere men ikke implementasjon\r\n"
 "\" \"                        : innsendinger med mellomrom (f.eks. når bare stier søkes)\r\n"
-"-\"\"vis altl\"\"        : innsendinger som ikke inneholder strengen'\"vis alt\"'\r\n"
+"-\"\"vis alt\"\"        : innsendinger som ikke inneholder strengen'\"vis alt\"'\r\n"
 "!mittnavn  .cpp    : alt unntatt mine innsendinger av .cpp-filer"
 
 #. Resource IDs: (65535)
@@ -8055,7 +8056,7 @@ msgstr ""
 "med så mye informasjon som mulig om\n"
 "hva du prøvde å gjøre.\n"
 "Men først, søk i arkivene til epost-listen etter feilmeldingen\n"
-"så ikke det samme problemt rapporteres flere ganger.\n"
+"så ikke det samme problemet rapporteres flere ganger.\n"
 "Du kan finne listearkivet på\n"
 "http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
@@ -8613,7 +8614,7 @@ msgstr ""
 "Stien\n"
 "<i>%s</i>\n"
 "i korreksjonsfilen finnes ikke.\n"
-"TortoiseMerge prøvde å bruke patchen ved å ta vekk innledende deler av stien, men fant ingen passende sti."
+"TortoiseMerge prøvde å anvende korreksjonen ved å ta vekk innledende deler av stien, men fant ingen passende sti."
 
 #. Resource IDs: (80)
 msgid "The repository was successfully created."
@@ -8855,8 +8856,8 @@ msgid ""
 "which does not allow directory deletion."
 msgstr ""
 "For å sende inn rekursivt og omgå denne feilen,\n"
-"forsikre deg om at alle underelementer i en avhaket mappe\n"
-"også er av haket av i innsendingsdialogen.\n"
+"forsikre deg om at alle underelementer i en avhuket mappe\n"
+"også er huket av i innsendingsdialogen.\n"
 "Ellers må TortoiseSVN gjøre en ikke-rekursiv innsending\n"
 "som ikke tillater å slette mapper."
 
@@ -9171,7 +9172,7 @@ msgstr "Uendret node"
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
-msgstr "Avkryss"
+msgstr "Fjern avhuking"
 
 #. Resource IDs: (1069)
 #, c-format
@@ -9761,7 +9762,7 @@ msgid ""
 msgstr ""
 "Du kan ikke sette denne egenskapen på mapper, bare på filer!\n"
 "Hvis du vil sette den på alle filer i mappen, må du\n"
-"krysse av for 'rekursivt'."
+"huke av for 'rekursivt'."
 
 #. Resource IDs: (105)
 msgid ""
@@ -10003,7 +10004,7 @@ msgstr ""
 "Mønstre må gis med små bokstaver men matcher også store.\n"
 "Mellomrom blir en del av mønsteret.\n"
 "Tillatte jokertegn er '?' og '*'.\n"
-"Skill møstre med ';'"
+"Skill mønstre med ';'"
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
@@ -10134,7 +10135,7 @@ msgid ""
 "gets replaced with the issue number."
 msgstr ""
 "bugtraq:url\r\n"
-"URL til 'Issue Tacker'. Den må inneholde '%BUGID%' som\r\n"
+"URL til 'Issue Tracker'. Den må inneholde '%BUGID%' som\r\n"
 "blir erstattet av saksnummer."
 
 #. Resource IDs: (65535)
