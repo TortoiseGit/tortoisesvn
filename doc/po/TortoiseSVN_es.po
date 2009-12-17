@@ -2902,7 +2902,6 @@ msgid "temporary files"
 msgstr "ficheros temporales"
 
 #. (para)
-#, fuzzy
 msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If you are importing data into a new repository, then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
 msgstr "Si está importando en un repositorio que ya tiene algunos proyectos, entonces la estructura del repositorio ya estará decidida. Si está importando datos a un nuevo repositorio entonces merece la pena tomar el tiempo para pensar en cómo debería organizarse. Lea <xref linkend=\"tsvn-repository-layout\"/> para más información."
 
@@ -4197,7 +4196,7 @@ msgstr "<placeholder-1/> Hay varios lugares desde los que puede mostrar el diál
 
 #. (para)
 msgid "If the repository is unavailable you will see the <guilabel>Want to go offline?</guilabel> dialog, described in <xref linkend=\"tsvn-dug-showlog-cache\"/>."
-msgstr ""
+msgstr "Si el repositorio no está disponible verá el diálogo <guilabel>¿Desea trabajar sin conexión?</guilabel>, descrito en <xref linkend=\"tsvn-dug-showlog-cache\"/>."
 
 #. (title)
 msgid "Revision Log Actions"
@@ -4824,23 +4823,23 @@ msgstr "Modo sin conexión"
 
 #. (para)
 msgid "Complete the current operation in offline mode, but retry the repository next time log data is requested."
-msgstr ""
+msgstr "Completar la operación actual en modo sin conexión, pero reintentar el repositorio la próxima vez que se pida la información de registro."
 
 #. (term)
 msgid "Permanently offline"
-msgstr ""
+msgstr "Permanentemente sin conexión"
 
 #. (para)
 msgid "Remain in offline mode until a repository check is specifically requested. See <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
-msgstr ""
+msgstr "Permanece en el modo sin conexión hasta que se pida específicamente una comprobación de repositorio. Vea <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
 
 #. (term)
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. (para)
 msgid "If you don't want to continue the operation with possibly stale data, just cancel."
-msgstr ""
+msgstr "Si no desea continuar la operación con datos posiblemente antiguos, simplemente cancele."
 
 #. (para)
 #, fuzzy
@@ -5996,8 +5995,6 @@ msgid "These special project properties must be set on <emphasis>folders</emphas
 msgstr "Estas propiedades especiales del proyecto deben estar establecidas en <emphasis>carpetas</emphasis> para que el sistema funcione. Cuando confirma un fichero o una carpeta, se leen las propiedades de esa carpeta. Si no se encuentran allí las propiedades, TortoiseSVN las buscará hacia arriba en el árbol de carpetas para encontrarlas, hasta que llega a una carpeta sin versionar, o se encuentra la raíz del árbol (por ejemplo, <literal>C:\\</literal>). Si puede estar seguro de que cada usuario obtiene sólo desde por ejemplo <filename>trunk/</filename> y no desde alguna subcarpeta, entonces es suficiente establecer las propiedades en <filename>trunk/</filename>. Si no puede estar seguro, debería establecer las propiedades recursivamente en cada subcarpeta. Una propiedad establecida en una carpeta más profunda dentro de la jerarquía del proyecto tiene preferencia sobre las propiedades establecidas en niveles más altos (más cerca de <filename>trunk/</filename>)."
 
 #. (para)
-#. (para)
-#. (para)
 msgid "For project properties <emphasis>only</emphasis>, i.e. <literal>tsvn:</literal>, <literal>bugtraq:</literal> and <literal>webviewer:</literal> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
 msgstr "<emphasis>Excusivamente para las propiedades de proyecto </emphasis>, por ejemplo: <literal>tsvn:</literal>, <literal>bugtraq:</literal> and <literal>webviewer:</literal>, puede utilizar la casilla <guilabel>Recursivo</guilabel> para establecer la propiedad en todas las subcarpetas de la jerarquía, sin establecerla en todos los ficheros."
 
@@ -6341,7 +6338,6 @@ msgid "To be able to work with your freshly generated branch or tag you have sev
 msgstr "Para poder trabajar con su rama o etiqueta recién generada tiene varias opciones. Puede: <placeholder-1/><placeholder-2/>"
 
 #. (para)
-#, fuzzy
 msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they are not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
 msgstr "Las etiquetas se usan típicamente para crear una copia estática de un proyecto en una etapa concreta. Como tales normalmente no se utilizan para el desarrollo - eso es para lo que se utilizan las ramas, y por esa razón recomendamos la estructura del repositorio <filename>/trunk /branches /tags</filename> en primer lugar. Trabajando en una revisión etiquetada <emphasis>no es una buena idea</emphasis>, pero dado que sus ficheros locales no están protegidos, no hay nada que le impida hacer esto por error. Sin embargo, si intenta confirmar a una ruta en el repositorio que contenga <filename>/tags/</filename> (en inglés), TortoiseSVN le avisará."
 
@@ -7276,7 +7272,7 @@ msgstr "Revisión punta de la rama"
 
 #. (para)
 msgid "The graph is normally restricted to showing branch points, but it is often useful to be able to see the respective HEAD revision for each branch too. If you select <guilabel>Show HEAD revisions</guilabel>, each HEAD revision nodes will be shown as an ellipse. Note that HEAD here refers to the last revision committed on that path, not to the HEAD revision of the repository."
-msgstr ""
+msgstr "El gráfico normalmente se restringe para mostrar los puntos de ramas, pero a menudo es útil poder ver las revisiones HEAD respectivas de cada rama. Si selecciona <guilabel>Mostrar revisiones HEAD</guilabel>, cada nodo de revisión HEAD se mostrará como una elipse. Tenga en cuenta que HEAD aquí hace referencia a la última revisión confirmada en esa ruta, no a la revisión HEAD del repositorio."
 
 #. (term)
 #, fuzzy
@@ -7285,7 +7281,7 @@ msgstr "Revisión actual de la copia de trabajo"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, which marks the BASE node with a bold outline."
-msgstr ""
+msgstr "Si ha invocado el gráfico de revisiones desde una copia de trabajo, puede optar por mostrar la revisión BASE del gráfico utilizando <guilabel>Mostrar revisión copia de trabajo</guilabel>, que marca el nodo BASE con un borde remarcado."
 
 #. (term)
 #, fuzzy
@@ -7294,7 +7290,7 @@ msgstr "copia de trabajo"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show an additional node representing your modified working copy using <guilabel>Show WC modifications</guilabel>. This is an elliptical node with a bold outline in red by default."
-msgstr ""
+msgstr "Si ha invocado el gráfico de revisiones desde una copia de trabajo, puede optar por mostrar un nodo adicional representando su copia de trabajo modificada utilizando <guilabel>Mostrar &modificaciones en la copia de trabajo</guilabel>. Éste por defecto es un nodo elíptico con un borde remarcado en rojo."
 
 #. (term)
 msgid "Normal item"
@@ -7314,7 +7310,7 @@ msgstr "Tenga en cuenta que por defecto el gráfico sólo muestra los puntos en 
 
 #. (para)
 msgid "The default view (grouping off) places the nodes such that their vertical position is in strict revision order, so you have a visual cue for the order in which things were done. Where two nodes are in the same column the order is very obvious. When two nodes are in adjacent columns the offset is much smaller because there is no need to prevent the nodes from overlapping, and as a result the order is a little less obvious. Such optimisations are necessary to keep complex graphs to a reasonable size. Please note that this ordering uses the <emphasis>edge</emphasis> of the node on the <emphasis>older</emphasis> side as a reference, i.e. the bottom edge of the node when the graph is shown with oldest node at the bottom. The reference edge is significant because the node shapes are not all the same height."
-msgstr ""
+msgstr "La vista por defecto (sin agrupación) pone los nodos con su posición vertical en estricto orden de revisión, para que tenga una pista visual del órden en el que se hicieron las cosas. Cuando dos nodos están en la misma columna, el órden es muy obvio. Cuando dos nodos están en columnas contiguas la separación es mucho menor porque no hay necesidad de evitar que los nodos se sobrepongan, y como resultado el órden es un poco menos obvio. Estas optimizaciones son necesarias para mantener gráficos complejos en un tamaño razonable. Por favor tenga en cuenta que esta ordenación utiliza el <emphasis>borde</emphasis> del nodo en el lado <emphasis>más antiguo</emphasis> como referencia, es decir, el borde inferior del nodo cuando el gráfico se muestra con el nodo más antiguo en la parte inferior. El borde de referencia es importante porque no todas las formas de los nodos tienen la misma altura."
 
 #. (title)
 msgid "Changing the View"
@@ -8464,9 +8460,8 @@ msgid "Tag Nodes"
 msgstr "Nodos etiqueta"
 
 #. (para)
-#, fuzzy
 msgid "Nodes classified as tags may be blended with this color."
-msgstr "Los nodos clasificados como tronco pueden fundirse con este color."
+msgstr "Los nodos clasificados como etiquetas pueden fundirse con este color."
 
 #. (term)
 msgid "Trunk Nodes"
@@ -11255,7 +11250,6 @@ msgstr "Comandos de TortoiseSVN"
 
 #. (primary)
 #. (primary)
-#. (primary)
 msgid "automation"
 msgstr "automatización"
 
@@ -11485,9 +11479,8 @@ msgid "Reverts local modifications of a working copy. The <placeholder-1/> tells
 msgstr "Revierte las modificaciones locales de una copia de trabajo. La <placeholder-1/> dice qué items deben revertirse."
 
 #. (option)
-#, fuzzy
 msgid "/noui"
-msgstr "/noquestion"
+msgstr "/noui"
 
 #. (entry)
 msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from popping up (either telling about the cleanup being finished or showing an error message)."
@@ -11571,9 +11564,8 @@ msgid "/blame"
 msgstr "/blame"
 
 #. (option)
-#, fuzzy
 msgid "/line:xxx"
-msgstr "/rev:xxx"
+msgstr "/line:xxx"
 
 #. (entry)
 #, fuzzy
