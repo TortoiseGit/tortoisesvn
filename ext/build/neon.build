@@ -60,7 +60,7 @@
 			<arg value="/errorReport:prompt" />
 			<sources>
 				<include name="src\ne_207.c" />
-				<include name="src\ne_acl.c" />
+				<include name="src\ne_acl3744.c" />
 				<include name="src\ne_alloc.c" />
 				<include name="src\ne_auth.c" />
 				<include name="src\ne_basic.c" />
@@ -70,6 +70,8 @@
 				<include name="src\ne_i18n.c" />
 				<include name="src\ne_locks.c" />
 				<include name="src\ne_md5.c" />
+				<include name="src\ne_ntlm.c" />
+				<include name="src\ne_oldacl.c" />
 				<include name="src\ne_openssl.c" />
 				<include name="src\ne_pkcs11.c" />
 				<include name="src\ne_props.c" />
@@ -77,8 +79,8 @@
 				<include name="src\ne_request.c" />
 				<include name="src\ne_session.c" />
 				<include name="src\ne_socket.c" />
+				<include name="src\ne_socks.c" />
 				<include name="src\ne_sspi.c" />
-				<include name="src\ne_socket.c" />
 				<include name="src\ne_string.c" />
 				<!-- <include name="src\ne_stubssl.c" /> -->
 				<include name="src\ne_uri.c" />
