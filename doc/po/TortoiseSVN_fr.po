@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-16 18:18-0600\n"
+"PO-Revision-Date: 2009-12-16 18:22-0600\n"
 "Last-Translator: Matthias GOUPIL <mgoupil@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5708,7 +5708,6 @@ msgid "If a Subversion command cannot complete successfully, perhaps due to serv
 msgstr "Si une commande Subversion ne peut pas s'achever avec succès, peut-être en raison de problèmes serveur, votre copie de travail peut être laissée dans un état incohérent. Dans ce cas, vous devez utiliser <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Nettoyer</guimenuitem></menuchoice> sur le dossier. C'est une bonne idée de le faire au niveau supérieur de la copie de travail."
 
 #. (para)
-#, fuzzy
 msgid "Cleanup has another useful side effect. If a file date changes but its content doesn't, Subversion cannot tell whether it has really changed except by doing a byte-by-byte comparison with the pristine copy. If you have a lot of files in this state it makes acquiring status very slow, which will make many dialogs slow to respond. Executing a Cleanup on your working copy will repair these <quote>broken</quote> timestamps and restore status checks to full speed."
 msgstr "Le nettoyage a un autre effet secondaire utile. Si une date de fichier change mais pas son contenu, Subversion ne peut dire s'il a vraiment changé qu'en faisant une comparaison octet-par-octet avec la copie primitive. Si vous avez beaucoup de fichiers dans cet état, cela rend la récupération du statut très lente, ce qui fera que beaucoup de boîtes de dialogue seront lentes à répondre. Exécuter un nettoyage sur votre copie de travail réparera ces horodatages <quote>cassés</quote> et rendra aux contrôles de statut leur pleine vitesse."
 
