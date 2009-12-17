@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-16 17:49-0600\n"
+"PO-Revision-Date: 2009-12-16 18:18-0600\n"
 "Last-Translator: Matthias GOUPIL <mgoupil@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5661,12 +5661,11 @@ msgstr "Si vous voulez défaire tous les changements que vous avez fait dans un 
 
 #. (para)
 msgid "If you want to undo a deletion or a rename, you need to use Revert on the parent folder as the deleted item does not exist for you to right-click on."
-msgstr ""
+msgstr "Si vous souhaitez annuler une suppression ou un renommage, vous devez utiliser \"Revenir en arrière\" sur le dossier parent car l'élément supprimé n'existe pas pour vous permettre de faire un clic droit dessus."
 
 #. (para)
-#, fuzzy
 msgid "If you want to undo the addition of an item, this appears in the context menu as <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Undo add...</guimenuitem></menuchoice>. This is really a revert as well, but the name has been changed to make it more obvious."
-msgstr "Si vous faites un <action>clic droit</action> sur une révision, vous pouvez utiliser <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Voir le journal</guimenuitem></menuchoice> pour voir l'historique."
+msgstr "Si vous souhaitez annuler l'ajout d'un élément, cela apparaît dans le menu contextuel comme <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Annuler l'ajout...</guimenuitem></menuchoice>. C'est vraiment un retour arrière, mais le nom a été changé pour le rendre plus évident."
 
 #. (para)
 #. (para)
@@ -5675,7 +5674,7 @@ msgstr "Les colonnes dans cette boîte de dialogue peuvent être personnalisées
 
 #. (para)
 msgid "Since revert is sometimes used to clean up a working copy, there is an extra button which allows you to delete unversioned items as well. When you click this button another dialog comes up listing all the unversioned items, which you can then select for deletion."
-msgstr ""
+msgstr "Depuis le retour en arrière est parfois utilisé pour nettoyer une copie de travail, il ya un bouton supplémentaire qui vous permet de supprimer des éléments non versionnés. Lorsque vous cliquez sur ce bouton, une autre boite de dialogue apparait en listant tous les éléments sans version, que vous pouvez ensuite sélectionner pour suppression."
 
 #. (title)
 msgid "Undoing Changes which have been Committed"
@@ -5691,7 +5690,7 @@ msgstr "Le retour en arrière est Lent"
 
 #. (para)
 msgid "When you revert changes you may find that the operation takes a lot longer than you expect. This is because the modified version of the file is sent to the recycle bin, so you can retrieve your changes if you reverted by mistake. However, if your recycle bin is full, Windows takes a long time to find a place to put the file. The solution is simple: either empty the recycle bin or deactivate the <guilabel>Use recycle bin when reverting</guilabel> box in TortoiseSVN's settings."
-msgstr ""
+msgstr "Lorsque vous faites un retour arrière sur les modifications et que vous trouverez mais que l'opération prend beaucoup plus longtemps que prévu. C'est parce que la version modifiée du fichier est envoyé à la corbeille, vous pouvez donc récupérer vos modifications si vous faite un retour arrière par erreur. Toutefois, si votre corbeille est pleine, Windows prend beaucoup de temps pour trouver un endroit pour mettre le fichier. La solution est simple : soit vider la corbeille ou désactiver l'option <guilabel>Utiliser la corbeille lors d'un retour en arrière</guilabel> dans les paramètres de configuration de TortoiseSVN."
 
 #. (title)
 #. (entry)
