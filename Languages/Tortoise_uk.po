@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-16 17:36+0300\n"
+"PO-Revision-Date: 2009-12-17 16:33+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -526,6 +526,10 @@ msgstr "С&тикування"
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "&Редагувати"
+
+#. Resource IDs: (1399)
+msgid "&Edit conflict"
+msgstr "&Редагувати конфлікт"
 
 #. Resource IDs: (12)
 msgid "&Edit conflicts"
@@ -3432,10 +3436,6 @@ msgstr "Редагувати автора"
 msgid "Edit author name"
 msgstr "Редагувати ім'я автора"
 
-#. Resource IDs: (1399)
-msgid "Edit conflict"
-msgstr "Редагувати конфлікт"
-
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
 msgstr "Редагувати характерну для розширення програму відмінностей"
@@ -6279,12 +6279,12 @@ msgid "Pre-Update Hook"
 msgstr "Зачіпка перед оновленням"
 
 #. Resource IDs: (3)
-msgid "Prefer local"
-msgstr "Надати перевагу локальному"
+msgid "Prefer &local"
+msgstr "Надати перевагу &локальному"
 
 #. Resource IDs: (4)
-msgid "Prefer repository"
-msgstr "Надати перевагу сховищу"
+msgid "Prefer &repository"
+msgstr "Надати перевагу с&ховищу"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -6514,6 +6514,10 @@ msgstr "Пе&реініціалізувати"
 #. Resource IDs: (16647)
 msgid "Re&set All"
 msgstr "Пе&реініціалізувати все "
+
+#. Resource IDs: (1400)
+msgid "Re&solved"
+msgstr "В&ладнано"
 
 #. Resource IDs: (1382)
 msgid "Re&store defaults"
@@ -6883,8 +6887,8 @@ msgid "Resolve Conflict"
 msgstr "Владнати конфлікт"
 
 #. Resource IDs: (1382)
-msgid "Resolve all later"
-msgstr "Владнати все потім"
+msgid "Resolve all la&ter"
+msgstr "Владнати все по&тім"
 
 #. Resource IDs: (282)
 msgid "Resolve conflict using 'mine'"
@@ -6899,8 +6903,8 @@ msgid "Resolve conflict:"
 msgstr "Владнати конфлікт:"
 
 #. Resource IDs: (2)
-msgid "Resolve later"
-msgstr "Владнати потім"
+msgid "Resolve l&ater"
+msgstr "Владнати &потім"
 
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
@@ -10686,6 +10690,8 @@ msgstr "так"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Edit conflict"
+#~ msgstr "Редагувати конфлікт"
 #~ msgid "Unversioned"
 #~ msgstr "Неверсійні"
 #~ msgid "From URL:"
