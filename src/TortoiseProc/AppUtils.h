@@ -229,6 +229,7 @@ public:
 	 * \param text the text for the property
 	 */
 	static bool SetAccProperty(HWND hWnd, MSAAPROPID propid, const CString& text);
+	static bool SetAccProperty(HWND hWnd, MSAAPROPID propid, long value);
 
 private:
 	static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2);

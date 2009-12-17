@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "InputDlg.h"
 #include "Registry.h"
+#include "AppUtils.h"
 
 
 IMPLEMENT_DYNAMIC(CInputDlg, CResizableStandAloneDialog)
@@ -101,6 +102,9 @@ BOOL CInputDlg::OnInitDialog()
 	{
 		GetDlgItem(IDC_CHECKBOX)->ShowWindow(SW_HIDE);
 	}
+
+	CAppUtils::SetAccProperty(m_cInput.GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_TEXT);
+	CAppUtils::SetAccProperty(m_cInput.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
 
 	AddAnchor(IDC_HINTTEXT, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_INPUTTEXT, TOP_LEFT, BOTTOM_RIGHT);

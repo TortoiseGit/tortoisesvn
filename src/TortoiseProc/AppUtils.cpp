@@ -1306,3 +1306,20 @@ bool CAppUtils::SetAccProperty(HWND hWnd, MSAAPROPID propid, const CString& text
 	return false;
 }
 
+bool CAppUtils::SetAccProperty(HWND hWnd, MSAAPROPID propid, long value)
+{
+	IAccPropServices * pAccPropSvc = NULL;
+	HRESULT hr = CoCreateInstance(CLSID_AccPropServices, NULL, CLSCTX_SERVER, IID_IAccPropServices, (void **)&pAccPropSvc);
+
+	if (hr == S_OK && pAccPropSvc)
+	{
+		VARIANT var;
+		var.vt = VT_I4;
+		var.intVal = value;
+		pAccPropSvc->SetHwndProp(hWnd, (DWORD)OBJID_CLIENT, CHILDID_SELF, propid, var);
+		pAccPropSvc->Release();
+		return true;
+	}
+	return false;
+}
+

@@ -154,6 +154,9 @@ BOOL CCopyDlg::OnInitDialog()
 	if (!m_sLogMessage.IsEmpty())
 		m_cLogMessage.SetText(m_sLogMessage);
 
+	CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_TEXT);
+	CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
+
 	AddAnchor(IDC_REPOGROUP, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_COPYSTARTLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_FROMURL, TOP_LEFT, TOP_RIGHT);

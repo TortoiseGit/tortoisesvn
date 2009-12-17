@@ -87,6 +87,9 @@ BOOL CImportDlg::OnInitDialog()
 	if (!m_sMessage.IsEmpty())
 		m_cMessage.SetText(m_sMessage);
 
+	CAppUtils::SetAccProperty(m_cMessage.GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_TEXT);
+	CAppUtils::SetAccProperty(m_cMessage.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
+
 	AdjustControlSize(IDC_IMPORTIGNORED);
 
 	AddAnchor(IDC_STATIC1, TOP_LEFT, TOP_RIGHT);

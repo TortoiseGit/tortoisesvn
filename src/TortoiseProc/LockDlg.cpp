@@ -24,6 +24,7 @@
 #include "SVNProperties.h"
 #include "SVN.h"
 #include "HistoryDlg.h"
+#include "AppUtils.h"
 
 #define REFRESHTIMER   100
 
@@ -95,6 +96,9 @@ BOOL CLockDlg::OnInitDialog()
 	if (!m_sLockMessage.IsEmpty())
 		m_cEdit.SetText(m_sLockMessage);
 		
+	CAppUtils::SetAccProperty(m_cEdit.GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_TEXT);
+	CAppUtils::SetAccProperty(m_cEdit.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
+
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_LOCKWARNING, IDS_WARN_SVNNEEDSLOCK);
 
