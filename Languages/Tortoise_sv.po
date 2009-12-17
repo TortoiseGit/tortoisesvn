@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-16 14:37+0100\n"
+"PO-Revision-Date: 2009-12-17 09:15+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -538,6 +538,10 @@ msgstr "&Dockning"
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "&Redigera"
+
+#. Resource IDs: (1399)
+msgid "&Edit conflict"
+msgstr "&Editera konflikt"
 
 #. Resource IDs: (12)
 msgid "&Edit conflicts"
@@ -3471,10 +3475,6 @@ msgstr "Ändra användarnamn..."
 msgid "Edit author name"
 msgstr "Ändra användarnamn"
 
-#. Resource IDs: (1399)
-msgid "Edit conflict"
-msgstr "Editera konflikt"
-
 # Hur översätta "diff"
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
@@ -6329,12 +6329,12 @@ msgid "Pre-Update Hook"
 msgstr "\"Innan uppdatering\" krok"
 
 #. Resource IDs: (3)
-msgid "Prefer local"
-msgstr "Föredra lokal"
+msgid "Prefer &local"
+msgstr "Föredra &lokal"
 
 #. Resource IDs: (4)
-msgid "Prefer repository"
-msgstr "Föredra arkivet"
+msgid "Prefer &repository"
+msgstr "Föred&ra arkivet"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -6566,6 +6566,10 @@ msgstr "Noll&ställ"
 #. Resource IDs: (16647)
 msgid "Re&set All"
 msgstr "Noll&ställ alla"
+
+#. Resource IDs: (1400)
+msgid "Re&solved"
+msgstr "Markera konflikt &som löst"
 
 #. Resource IDs: (1382)
 msgid "Re&store defaults"
@@ -6936,8 +6940,8 @@ msgid "Resolve Conflict"
 msgstr "Lös konflikt"
 
 #. Resource IDs: (1382)
-msgid "Resolve all later"
-msgstr "Lös alla konflikter senare"
+msgid "Resolve all la&ter"
+msgstr "Lös alla konflik&ter senare"
 
 #. Resource IDs: (282)
 msgid "Resolve conflict using 'mine'"
@@ -6952,8 +6956,8 @@ msgid "Resolve conflict:"
 msgstr "Lös konflikt: "
 
 #. Resource IDs: (2)
-msgid "Resolve later"
-msgstr "Lös senare"
+msgid "Resolve l&ater"
+msgstr "Lös sen&are"
 
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
@@ -10752,6 +10756,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Edit conflict"
+#~ msgstr "Editera konflikt"
 #~ msgid "From URL:"
 #~ msgstr "Från URL:"
 #~ msgid ""
