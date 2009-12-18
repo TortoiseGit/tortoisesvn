@@ -409,14 +409,14 @@ void CFileDiffDlg::DiffProps(int selIndex)
 			SetFileAttributes(url2propfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 			CString n1, n2;
 			if (m_rev1.IsWorking())
-				n1.Format(IDS_DIFF_WCNAME, url1name.c_str());
+				n1.Format(IDS_DIFF_WCNAME, CUnicodeUtils::StdGetUnicode(url1name).c_str());
 			if (m_rev1.IsBase())
-				n1.Format(IDS_DIFF_BASENAME, url1name.c_str());
+				n1.Format(IDS_DIFF_BASENAME, CUnicodeUtils::StdGetUnicode(url1name).c_str());
 			if (m_rev1.IsHead() || m_rev1.IsNumber())
 			{
 				if (m_bDoPegDiff)
 				{
-					n1.Format(_T("%s : %s Revision %ld"), url1name.c_str(), (LPCTSTR)fd.path.GetSVNPathString(), (LONG)m_rev1);
+					n1.Format(_T("%s : %s Revision %ld"), CUnicodeUtils::StdGetUnicode(url1name).c_str(), (LPCTSTR)fd.path.GetSVNPathString(), (LONG)m_rev1);
 				}
 				else
 				{
@@ -426,14 +426,14 @@ void CFileDiffDlg::DiffProps(int selIndex)
 				}
 			}
 			if (m_rev2.IsWorking())
-				n2.Format(IDS_DIFF_WCNAME, url1name.c_str());
+				n2.Format(IDS_DIFF_WCNAME, CUnicodeUtils::StdGetUnicode(url1name).c_str());
 			if (m_rev2.IsBase())
-				n2.Format(IDS_DIFF_BASENAME, url1name.c_str());
+				n2.Format(IDS_DIFF_BASENAME, CUnicodeUtils::StdGetUnicode(url1name).c_str());
 			if (m_rev2.IsHead() || m_rev2.IsNumber())
 			{
 				if (m_bDoPegDiff)
 				{
-					n2.Format(_T("%s : %s Revision %ld"), url1name.c_str(),  (LPCTSTR)fd.path.GetSVNPathString(), (LONG)m_rev2);
+					n2.Format(_T("%s : %s Revision %ld"), CUnicodeUtils::StdGetUnicode(url1name).c_str(),  (LPCTSTR)fd.path.GetSVNPathString(), (LONG)m_rev2);
 				}
 				else
 				{
