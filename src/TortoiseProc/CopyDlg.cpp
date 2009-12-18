@@ -114,8 +114,11 @@ BOOL CCopyDlg::OnInitDialog()
 	CString sUUID = svn.GetUUIDFromPath(path);
 	if (m_wcURL.IsEmpty())
 	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);
-		TRACE(_T("could not retrieve the URL of the file!\n"));
+		CString Wrong_URL=path.GetSVNPathString();
+		CString temp;
+		temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)Wrong_URL);
+		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
+		TRACE(_T("could not retrieve the URL of the file!"));
 		this->EndDialog(IDCANCEL);		//exit
 	}
 	m_URLCombo.SetURLHistory(TRUE);
