@@ -164,6 +164,7 @@ CLogDlg::~CLogDlg()
 	DestroyIcon(m_hReplacedIcon);
 	DestroyIcon(m_hAddedIcon);
 	DestroyIcon(m_hDeletedIcon);
+	DestroyIcon(m_hMergedIcon);
 	if ( m_pStoreSelection )
 	{
 		delete m_pStoreSelection;
@@ -332,7 +333,7 @@ BOOL CLogDlg::OnInitDialog()
 	m_hReplacedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONREPLACED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
 	m_hAddedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONADDED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
 	m_hDeletedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONDELETED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
-	
+	m_hMergedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONMERGED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
 	// if there is a working copy, load the project properties
 	// to get information about the bugtraq: integration
 	if (m_hasWC)
@@ -2603,6 +2604,10 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hReplacedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
 				nIcons++;
 
+				if ((pLogEntry->GetDepth())||(m_mergedRevs.find(pLogEntry->GetRevision()) != m_mergedRevs.end()))
+					::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hMergedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
+				nIcons++;
+
 				*pResult = CDRF_SKIPDEFAULT;
 				return;
 			}
@@ -3415,7 +3420,7 @@ bool CLogDlg::m_bAscendingPathList = false;
 
 void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
 {
-	const int nMinimumWidth = ICONITEMBORDER+16*4;
+	const int nMinimumWidth = ICONITEMBORDER+16*5;
 	int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
 	int nItemCount = m_LogList.GetItemCount();
 	TCHAR textbuf[MAX_PATH];
