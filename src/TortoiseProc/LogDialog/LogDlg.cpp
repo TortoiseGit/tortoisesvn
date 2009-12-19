@@ -5012,6 +5012,14 @@ CString CLogDlg::GetToolTipText(int nItem, int nSubItem)
 				sToolTipText += _T("\r\n");
 			sToolTipText += CLogChangedPath::GetActionString (LOGACTIONS_REPLACED);
 		}
+
+		if ((pLogEntry->GetDepth())||(m_mergedRevs.find(pLogEntry->GetRevision()) != m_mergedRevs.end()))
+		{
+			if (!sToolTipText.IsEmpty())
+				sToolTipText += _T("\r\n");
+			sToolTipText += CString(MAKEINTRESOURCE(IDS_LOG_ALREADYMERGED));
+		}
+
 		if (!sToolTipText.IsEmpty())
 		{
 			CString sTitle(MAKEINTRESOURCE(IDS_LOG_ACTIONS));
