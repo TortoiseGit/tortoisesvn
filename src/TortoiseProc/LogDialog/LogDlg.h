@@ -262,7 +262,7 @@ private:
 	static bool			m_bAscendingPathList;
 	CRegDWORD			m_regLastStrict;
 	CRegDWORD			m_regMaxBugIDColWidth;
-	CButton				m_cHidePaths;
+	CButton				m_cShowPaths;
 	bool				m_bShowedAll;
 	CString				m_sTitle;
 	bool				m_bSelect;

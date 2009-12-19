@@ -190,7 +190,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_SEARCHEDIT, m_sFilterText);
 	DDX_Control(pDX, IDC_DATEFROM, m_DateFrom);
 	DDX_Control(pDX, IDC_DATETO, m_DateTo);
-	DDX_Control(pDX, IDC_HIDEPATHS, m_cHidePaths);
+	DDX_Control(pDX, IDC_SHOWPATHS, m_cShowPaths);
 	DDX_Control(pDX, IDC_GETALL, m_btnShow);
 	DDX_Text(pDX, IDC_LOGINFO, m_sLogInfo);
 	DDX_Check(pDX, IDC_INCLUDEMERGE, m_bIncludeMerges);
@@ -221,7 +221,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(LVN_GETDISPINFO, IDC_LOGMSG, OnLvnGetdispinfoChangedFileList)
 	ON_NOTIFY(LVN_COLUMNCLICK, IDC_LOGLIST, OnLvnColumnclick)
 	ON_NOTIFY(LVN_COLUMNCLICK, IDC_LOGMSG, OnLvnColumnclickChangedFileList)
-	ON_BN_CLICKED(IDC_HIDEPATHS, OnBnClickedHidepaths)
+	ON_BN_CLICKED(IDC_SHOWPATHS, OnBnClickedHidepaths)
 	ON_NOTIFY(LVN_ODFINDITEM, IDC_LOGLIST, OnLvnOdfinditemLoglist)
 	ON_BN_CLICKED(IDC_CHECK_STOPONCOPY, &CLogDlg::OnBnClickedCheckStoponcopy)
 	ON_NOTIFY(DTN_DROPDOWN, IDC_DATEFROM, &CLogDlg::OnDtnDropdownDatefrom)
@@ -266,7 +266,7 @@ BOOL CLogDlg::OnInitDialog()
 
 	ExtendFrameIntoClientArea(IDC_LOGMSG, 0, IDC_LOGMSG, IDC_LOGMSG);
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_LOGINFO)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_HIDEPATHS)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWPATHS)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_STATBUTTON)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_CHECK_STOPONCOPY)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_INCLUDEMERGE)->GetSafeHwnd());
@@ -325,8 +325,8 @@ BOOL CLogDlg::OnInitDialog()
 		dwStyle |= LVS_EX_CHECKBOXES | 0x08000000 /*LVS_EX_AUTOCHECKSELECT*/;
 	m_LogList.SetExtendedStyle(dwStyle);
 
-	int checkState = (int)DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\LogHidePaths"), BST_INDETERMINATE));
-	m_cHidePaths.SetCheck(checkState);
+	int checkState = (int)DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\LogShowPaths"), BST_UNCHECKED));
+	m_cShowPaths.SetCheck(checkState);
 
 	// load the icons for the action columns
 	m_hModifiedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONMODIFIED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
@@ -414,7 +414,7 @@ BOOL CLogDlg::OnInitDialog()
 	m_cFilter.SetValidator(this);
 	m_cFilter.SetWindowText(m_sFilterText);
 
-	AdjustControlSize(IDC_HIDEPATHS);
+	AdjustControlSize(IDC_SHOWPATHS);
 	AdjustControlSize(IDC_CHECK_STOPONCOPY);
 	AdjustControlSize(IDC_INCLUDEMERGE);
 
@@ -442,7 +442,7 @@ BOOL CLogDlg::OnInitDialog()
 	AddAnchor(IDC_LOGMSG, BOTTOM_LEFT, BOTTOM_RIGHT);
 
 	AddAnchor(IDC_LOGINFO, BOTTOM_LEFT, BOTTOM_RIGHT);	
-	AddAnchor(IDC_HIDEPATHS, BOTTOM_LEFT);	
+	AddAnchor(IDC_SHOWPATHS, BOTTOM_LEFT);	
 	AddAnchor(IDC_CHECK_STOPONCOPY, BOTTOM_LEFT);
 	AddAnchor(IDC_INCLUDEMERGE, BOTTOM_LEFT);
 	AddAnchor(IDC_GETALL, BOTTOM_LEFT);
@@ -647,7 +647,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
         m_currentChangedArray = pLogEntry->GetChangedPaths();
 
         // fill in the changed files list control
-		if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
+		if ((m_cShowPaths.GetState() & 0x0003)==BST_CHECKED)
             m_currentChangedArray.RemoveIrrelevantPaths();
 	}
 	else
@@ -917,8 +917,8 @@ void CLogDlg::OnCancel()
 	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
 	reg = (DWORD)m_btnShow.GetCurrentEntry();
 
-	CRegDWORD reg2 = CRegDWORD(_T("Software\\TortoiseSVN\\LogHidePaths"));
-	reg2 = (DWORD)m_cHidePaths.GetCheck();
+	CRegDWORD reg2 = CRegDWORD(_T("Software\\TortoiseSVN\\LogShowPaths"));
+	reg2 = (DWORD)m_cShowPaths.GetCheck();
 	SaveSplitterPos();
 
     // can we close the app cleanly?
@@ -1334,7 +1334,7 @@ void CLogDlg::CopyChangedSelectionToClipBoard()
 			int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos2);
             const CLogChangedPathArray& paths = pLogEntry->GetChangedPaths();
 
-			if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
+			if ((m_cShowPaths.GetState() & 0x0003)==BST_CHECKED)
 			{
 				// some items are hidden! So find out which item the user really selected
 				int selRealIndex = -1;
@@ -1482,7 +1482,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 		tr1::wregex pat;
 		bool bRegex = ValidateRegexp(findText, pat, bMatchCase);
 
-        bool scanRelevantPathsOnly = (m_cHidePaths.GetState() & 0x0003)==BST_CHECKED;
+        bool scanRelevantPathsOnly = (m_cShowPaths.GetState() & 0x0003)==BST_CHECKED;
         CLogDlgFilter filter ( findText
                              , bRegex
                              , LOGFILTER_ALL
@@ -1606,7 +1606,7 @@ void CLogDlg::OnOK()
 	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
 	reg = (DWORD)m_btnShow.GetCurrentEntry();
 	CRegDWORD reg2 = CRegDWORD(_T("Software\\TortoiseSVN\\LogHidePaths"));
-	reg2 = (DWORD)m_cHidePaths.GetCheck();
+	reg2 = (DWORD)m_cShowPaths.GetCheck();
 	SaveSplitterPos();
 
 	CString buttontext;
@@ -1662,7 +1662,7 @@ void CLogDlg::DiffSelectedFile()
 		rev2 = rev1-1;
 		// nothing or only one revision selected in the log list
 
-        if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
+        if ((m_cShowPaths.GetState() & 0x0003)==BST_CHECKED)
 		{
 			// some items are hidden! So find out which item the user really clicked on
 			INT_PTR selRealIndex = -1;
@@ -2643,7 +2643,7 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 
 		COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
 		bool bGrayed = false;
-		if ((m_cHidePaths.GetState() & 0x0003)==BST_INDETERMINATE)
+		if ((m_cShowPaths.GetState() & 0x0003)==BST_UNCHECKED)
 		{
 			if (m_currentChangedArray.GetCount() > pLVCD->nmcd.dwItemSpec)
 			{
@@ -3164,7 +3164,7 @@ void CLogDlg::RecalculateShownList(svn_revnum_t revToKeep)
 {
     // actually filter the data
 
-    bool scanRelevantPathsOnly = (m_cHidePaths.GetState() & 0x0003)==BST_CHECKED;
+    bool scanRelevantPathsOnly = (m_cShowPaths.GetState() & 0x0003)==BST_CHECKED;
     CLogDlgFilter filter ( m_sFilterText
                          , m_bFilterWithRegex
                          , m_nSelectedFilter
@@ -3313,7 +3313,7 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths 
 					path.SetFromSVN(m_sRepositoryRoot);
 				path.AppendPathString(cpath.GetPath());
 				if (   !bUseFilter
-					|| ((m_cHidePaths.GetState() & 0x0003)!=BST_CHECKED)
+					|| ((m_cShowPaths.GetState() & 0x0003)!=BST_CHECKED)
                     || cpath.IsRelevantForStartPath())
 					pathList.AddPath(path);
 				
@@ -4358,7 +4358,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
             const CLogChangedPathArray& paths = pLogEntry->GetChangedPaths();
 
             int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos2);
-			if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
+			if ((m_cShowPaths.GetState() & 0x0003)==BST_CHECKED)
 			{
 				// some items are hidden! So find out which item the user really clicked on
 				INT_PTR selRealIndex = -1;
