@@ -144,6 +144,16 @@ BOOL CCommitDlg::OnInitDialog()
 	CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_TEXT);
 	CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
 
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKALL)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKNONE)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKUNVERSIONED)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKVERSIONED)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKADDED)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKDELETED)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKMODIFIED)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKFILES)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKDIRECTORIES)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
+
 	OnEnChangeLogmessage();
 
 	m_tooltips.Create(this);
@@ -656,6 +666,7 @@ UINT CCommitDlg::StatusThread()
 	InterlockedExchange(&m_bThreadRunning, TRUE);// so the main thread knows that this thread is still running
 	InterlockedExchange(&m_bRunThread, TRUE);	// if this is set to FALSE, the thread should stop
 	m_bCancelled = false;
+	CoInitialize(NULL);
 
 	DialogEnableWindow(IDOK, false);
 	DialogEnableWindow(IDC_SHOWUNVERSIONED, false);
@@ -671,6 +682,15 @@ UINT CCommitDlg::StatusThread()
 	DialogEnableWindow(IDC_CHECKMODIFIED, false);
 	DialogEnableWindow(IDC_CHECKFILES, false);
 	DialogEnableWindow(IDC_CHECKDIRECTORIES, false);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKALL)->GetSafeHwnd(), PROPID_ACC_STATE, STATE_SYSTEM_READONLY|STATE_SYSTEM_UNAVAILABLE);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKNONE)->GetSafeHwnd(), PROPID_ACC_STATE, STATE_SYSTEM_READONLY|STATE_SYSTEM_UNAVAILABLE);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKUNVERSIONED)->GetSafeHwnd(), PROPID_ACC_STATE, STATE_SYSTEM_READONLY|STATE_SYSTEM_UNAVAILABLE);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKVERSIONED)->GetSafeHwnd(), PROPID_ACC_STATE, STATE_SYSTEM_READONLY|STATE_SYSTEM_UNAVAILABLE);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKADDED)->GetSafeHwnd(), PROPID_ACC_STATE, STATE_SYSTEM_READONLY|STATE_SYSTEM_UNAVAILABLE);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKDELETED)->GetSafeHwnd(), PROPID_ACC_STATE, STATE_SYSTEM_READONLY|STATE_SYSTEM_UNAVAILABLE);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKMODIFIED)->GetSafeHwnd(), PROPID_ACC_STATE, STATE_SYSTEM_READONLY|STATE_SYSTEM_UNAVAILABLE);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKFILES)->GetSafeHwnd(), PROPID_ACC_STATE, STATE_SYSTEM_READONLY|STATE_SYSTEM_UNAVAILABLE);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKDIRECTORIES)->GetSafeHwnd(), PROPID_ACC_STATE, STATE_SYSTEM_READONLY|STATE_SYSTEM_UNAVAILABLE);
 
     // read the list of recent log entries before querying the WC for status
     // -> the user may select one and modify / update it while we are crawling the WC
@@ -783,7 +803,6 @@ UINT CCommitDlg::StatusThread()
 			DialogEnableWindow(IDC_KEEPLOCK, true);
 
 		UpdateCheckLinks();
-
 		// we have the list, now signal the main thread about it
 		SendMessage(WM_AUTOLISTREADY);	// only send the message if the thread wasn't told to quit!
 	}
@@ -791,6 +810,7 @@ UINT CCommitDlg::StatusThread()
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	// force the cursor to normal
 	RefreshCursor();
+	CoUninitialize();
 	return 0;
 }
 
@@ -1604,4 +1624,15 @@ void CCommitDlg::UpdateCheckLinks()
 	DialogEnableWindow(IDC_CHECKMODIFIED, m_ListCtrl.GetModifiedCount() > 0);
 	DialogEnableWindow(IDC_CHECKFILES, m_ListCtrl.GetFileCount() > 0);
 	DialogEnableWindow(IDC_CHECKDIRECTORIES, m_ListCtrl.GetFolderCount() > 0);
+	long disabledstate = STATE_SYSTEM_READONLY|STATE_SYSTEM_UNAVAILABLE;
+
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKALL)->GetSafeHwnd(), PROPID_ACC_STATE, STATE_SYSTEM_READONLY);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKNONE)->GetSafeHwnd(), PROPID_ACC_STATE, STATE_SYSTEM_READONLY);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKUNVERSIONED)->GetSafeHwnd(), PROPID_ACC_STATE, m_ListCtrl.GetUnversionedCount() > 0 ? STATE_SYSTEM_READONLY : disabledstate);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKVERSIONED)->GetSafeHwnd(), PROPID_ACC_STATE, m_ListCtrl.GetItemCount() > m_ListCtrl.GetUnversionedCount() ? STATE_SYSTEM_READONLY : disabledstate);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKADDED)->GetSafeHwnd(), PROPID_ACC_STATE, m_ListCtrl.GetAddedCount() > 0 ? STATE_SYSTEM_READONLY : disabledstate);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKDELETED)->GetSafeHwnd(), PROPID_ACC_STATE, m_ListCtrl.GetDeletedCount() > 0 ? STATE_SYSTEM_READONLY : disabledstate);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKMODIFIED)->GetSafeHwnd(), PROPID_ACC_STATE, m_ListCtrl.GetModifiedCount() > 0 ? STATE_SYSTEM_READONLY : disabledstate);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKFILES)->GetSafeHwnd(), PROPID_ACC_STATE, m_ListCtrl.GetFileCount() > 0 ? STATE_SYSTEM_READONLY : disabledstate);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKDIRECTORIES)->GetSafeHwnd(), PROPID_ACC_STATE, m_ListCtrl.GetFolderCount() > 0 ? STATE_SYSTEM_READONLY : disabledstate);
 }
