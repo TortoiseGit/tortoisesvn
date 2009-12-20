@@ -5,7 +5,7 @@
 #include "Guids.h"
 #include "ShellExtClassFactory.h"
 
-UINT				g_cRefThisDll = 0;				///< reference count of this DLL.
+volatile LONG		g_cRefThisDll = 0;				///< reference count of this DLL.
 HINSTANCE			g_hmodThisDll = NULL;			///< handle to this DLL itself.
 
 

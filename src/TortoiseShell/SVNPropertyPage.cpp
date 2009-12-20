@@ -64,7 +64,7 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
     psp.pfnDlgProc = (DLGPROC) PageProc;
     psp.lParam = (LPARAM) sheetpage;
     psp.pfnCallback = PropPageCallbackProc;
-    psp.pcRefParent = &g_cRefThisDll;
+    psp.pcRefParent = (UINT*)&g_cRefThisDll;
 
     hPage = CreatePropertySheetPage (&psp);
 

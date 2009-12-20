@@ -39,9 +39,12 @@ CShellExt::CShellExt(FileState state)
     m_State = state;
 
     m_cRef = 0L;
-    g_cRefThisDll++;
+	InterlockedIncrement(&g_cRefThisDll);
 
-	g_shellObjects.Insert(this);
+	{
+		AutoLocker lock(g_csGlobalCOMGuard);
+		g_shellObjects.Insert(this);
+	}
 	
     INITCOMMONCONTROLSEX used = {
         sizeof(INITCOMMONCONTROLSEX),
@@ -53,7 +56,8 @@ CShellExt::CShellExt(FileState state)
 
 CShellExt::~CShellExt()
 {
-	g_cRefThisDll--;
+	AutoLocker lock(g_csGlobalCOMGuard);
+	InterlockedDecrement(&g_cRefThisDll);
 	g_shellObjects.Erase(this);
 }
 

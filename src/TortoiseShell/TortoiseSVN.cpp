@@ -23,7 +23,7 @@
 #include "ShellObjects.h"
 #include "svn_dso.h"
 
-UINT				g_cRefThisDll = 0;				///< reference count of this DLL.
+volatile LONG		g_cRefThisDll = 0;				///< reference count of this DLL.
 HINSTANCE			g_hmodThisDll = NULL;			///< handle to this DLL itself.
 int					g_cAprInit = 0;
 ShellCache			g_ShellCache;					///< caching of registry entries, ...
@@ -106,7 +106,10 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 		// in that case, we do it ourselves
 		if (g_cRefThisDll > 0)
 		{
-			g_shellObjects.DeleteAll();
+			{
+				AutoLocker lock(g_csGlobalCOMGuard);
+				g_shellObjects.DeleteAll();
+			}
 			while (g_cAprInit--)
 			{
 				g_SVNAdminDir.Close();

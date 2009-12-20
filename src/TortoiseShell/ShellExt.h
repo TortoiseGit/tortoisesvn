@@ -26,7 +26,7 @@
 #include "SVNFolderStatus.h"
 #include "IconBitmapUtils.h"
 
-extern	UINT				g_cRefThisDll;			// Reference count of this DLL.
+extern	volatile LONG		g_cRefThisDll;			// Reference count of this DLL.
 extern	HINSTANCE			g_hmodThisDll;			// Instance handle for this DLL
 extern	ShellCache			g_ShellCache;			// caching of registry entries, ...
 extern	DWORD				g_langid;

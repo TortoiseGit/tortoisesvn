@@ -17,13 +17,12 @@ CShellExt::CShellExt(FileState state)
     m_State = state;
 
     m_cRef = 0L;
-    g_cRefThisDll++;
-	
+	InterlockedIncrement(g_cRefThisDll);	
 }
 
 CShellExt::~CShellExt()
 {
-	g_cRefThisDll--;
+	InterlockedDecrement(g_cRefThisDll);
 }
 
 
