@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-16 20:40+0200\n"
+"PO-Revision-Date: 2009-12-20 22:07+0200\n"
 "Last-Translator: Florin Daneliuc <dfev77@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -539,6 +539,10 @@ msgstr "&Ataşare"
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "&Editează"
+
+#. Resource IDs: (1399)
+msgid "&Edit conflict"
+msgstr "&Editează conflictul"
 
 #. Resource IDs: (12)
 msgid "&Edit conflicts"
@@ -1657,6 +1661,10 @@ msgstr "Permite depozite diferite să folosească acelaşi URL, ex. http://local
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Permite depozite diferite să folosească acelaşi UUID, ex. depozite copiate"
+
+#. Resource IDs: (119)
+msgid "Already merged"
+msgstr "Îmbinare deja efectuată"
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -3450,10 +3458,6 @@ msgstr "Editează autor"
 msgid "Edit author name"
 msgstr "Editează numele autorului"
 
-#. Resource IDs: (1399)
-msgid "Edit conflict"
-msgstr "Editează conflictul"
-
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
 msgstr "Editează program de diferenţiere specific unei extensii"
@@ -4280,10 +4284,6 @@ msgstr "Grupează liste de schimbări"
 #. Resource IDs: (1032)
 msgid "H&EAD Revision"
 msgstr "Revizia H&EAD"
-
-#. Resource IDs: (1229)
-msgid "H&ide unrelated changed paths"
-msgstr "&Ascunde căile fără legatură schimbate"
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
@@ -6287,12 +6287,12 @@ msgid "Pre-Update Hook"
 msgstr "Hook pre-actualizare"
 
 #. Resource IDs: (3)
-msgid "Prefer local"
-msgstr "Preferă local"
+msgid "Prefer &local"
+msgstr "Preferă &local"
 
 #. Resource IDs: (4)
-msgid "Prefer repository"
-msgstr "Prefera depozitul"
+msgid "Prefer &repository"
+msgstr "Preferă &depozitul"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -6522,6 +6522,10 @@ msgstr "Re&stabileşte"
 #. Resource IDs: (16647)
 msgid "Re&set All"
 msgstr "Re&stabileşte tot"
+
+#. Resource IDs: (1400)
+msgid "Re&solved"
+msgstr "Re&zolvat"
 
 #. Resource IDs: (1382)
 msgid "Re&store defaults"
@@ -6891,8 +6895,8 @@ msgid "Resolve Conflict"
 msgstr "Resolvă Conflictul"
 
 #. Resource IDs: (1382)
-msgid "Resolve all later"
-msgstr "Rezolvă totul mai târziu"
+msgid "Resolve all la&ter"
+msgstr "Rezolvă totul &mai târziu"
 
 #. Resource IDs: (282)
 msgid "Resolve conflict using 'mine'"
@@ -6907,8 +6911,8 @@ msgid "Resolve conflict:"
 msgstr "Rezolvă conflictul:"
 
 #. Resource IDs: (2)
-msgid "Resolve later"
-msgstr "Rezolvă mai târziu"
+msgid "Resolve l&ater"
+msgstr "Rezolvă mai &târziu"
 
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
@@ -7671,6 +7675,10 @@ msgstr "Afişează &jurnalul"
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
 msgstr "Afişează nodul cel mai vechi pe vârf"
+
+#. Resource IDs: (1229)
+msgid "Show only a&ffected paths"
+msgstr "Afișează doar căile a&fectate"
 
 #. Resource IDs: (2052)
 msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
@@ -10690,6 +10698,10 @@ msgstr "da"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Edit conflict"
+#~ msgstr "Editează conflictul"
+#~ msgid "H&ide unrelated changed paths"
+#~ msgstr "&Ascunde căile fără legatură schimbate"
 #~ msgid "From URL:"
 #~ msgstr "Din URL:"
 #~ msgid ""
