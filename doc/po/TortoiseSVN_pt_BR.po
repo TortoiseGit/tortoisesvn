@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-19 07:18-0300\n"
-"Last-Translator: Rafael Fernandes Maia Mores <rafael.mores@gmail.com>\n"
+"PO-Revision-Date: 2009-12-20 11:00-0300\n"
+"Last-Translator: Diego de Souza Silva <diesousil@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2575,7 +2575,7 @@ msgstr "F5"
 
 #. (para)
 msgid "Refresh the current view. This is perhaps the single most useful one-key command. For example ... In Explorer this will refresh the icon overlays on your working copy. In the commit dialog it will re-scan the working copy to see what may need to be committed. In the Revision Log dialog it will contact the repository again to check for more recent changes."
-msgstr ""
+msgstr "Atualiza a visualização atual. Este talvez seja o mais útil comando de uma única tecla. Por exemplo... No Explorer ele irá atualizar os ícones sobrepostos na sua cópia de trabalho. Na janela de Commit  irá reexplorar a Cópia de Trabalho para ver o que precisa ser enviado. Na janela Revision Log irá verificar o repositório novamente a procura de novas modificações recentes."
 
 #. (term)
 msgid "Ctrl-A"
@@ -2583,7 +2583,7 @@ msgstr "Ctrl-A"
 
 #. (para)
 msgid "Select all. This can be used if you get an error message and want to copy and paste into an email. Use Ctrl-A to select the error message and then ..."
-msgstr ""
+msgstr "Seleciona tudo. Pode ser usado se você tiver uma mensagem de erro e precisar copiar e colar em um email. Use Ctrl-A para selecionar a mensagem e então..."
 
 #. (term)
 msgid "Ctrl-C"
@@ -2591,11 +2591,11 @@ msgstr "Ctrl-C"
 
 #. (para)
 msgid "... Copy the selected text."
-msgstr "... Copiar o texto selecionado."
+msgstr "... Copia o texto selecionado."
 
 #. (para)
 msgid "Some common operations have well-known Windows shortcuts, but do not appear on buttons or in menus. If you can't work out how to do something obvious, like refreshing a view, check here. <placeholder-1/>"
-msgstr "Algumas operações comuns do Windows tem atalhos bem conhecidos, mas não aparecem em botões nem em menus. Se você não sabe como fazer algo óbvio como atualizar uma visualização, cheque aqui. <placeholder-1/>"
+msgstr "Algumas operações comuns do Windows tem atalhos bem conhecidos, mas não aparecem em botões e menus. Se você não sabe como fazer algo óbvio como atualizar uma visualização, cheque aqui. <placeholder-1/>"
 
 #. (primary)
 msgid "authentication"
@@ -2616,15 +2616,15 @@ msgstr "<filename>svn.simple</filename> contém as credenciais básicas de auten
 
 #. (para)
 msgid "<filename>svn.ssl.server</filename> contains SSL server certificates."
-msgstr "<filename>svn.ssl.server</filename> contém os certificcados do servidor para SSL."
+msgstr "<filename>svn.ssl.server</filename> contém os certificados do servidor para SSL."
 
 #. (para)
 msgid "<filename>svn.username</filename> contains credentials for username-only authentication (no password needed)."
-msgstr ""
+msgstr "<filename>svn.username</filename> contém credenciais para autenticações que necessitem apenas do nome de usuário (não é necessário senha)."
 
 #. (para)
 msgid "If the repository that you are trying to access is password protected, an authentication Dialog will show up. <placeholder-1/> Enter your username and password. The checkbox will make TortoiseSVN store the credentials in Subversion's default directory: <filename>%APPDATA%\\Subversion\\auth</filename> in three subdirectories: <placeholder-2/>"
-msgstr ""
+msgstr "Se o repositório que você está tentando acessar é protegido por senha, uma janela de autenticação aparecerá. <placeholder-1/> Entre seu nome de usuário e senha. A caixa de seleção (checkbox) fará com que o TortoiseSVN guarde  suas credenciais no diretório padrão do Subversion. <filename>%APPDATA%\\Subversion\\auth</filename> na árvore de subdiretórios: <placeholder-2/>"
 
 #. (para)
 msgid "If you want to clear the authentication cache for all servers, you can do so from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings dialog. That button will clear all cached authentication data from the Subversion <filename>auth</filename> directories, as well as any authentication data stored in the registry by earlier versions of TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
