@@ -276,8 +276,8 @@ void CHyperLink::SetDefaultCursor()
             HCURSOR hHandCursor2 = (HCURSOR)::LoadImage(hModule, MAKEINTRESOURCE(106), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
             if (hHandCursor2)
                 m_hLinkCursor = CopyCursor(hHandCursor2);
+	        FreeLibrary(hModule);
         }
-        FreeLibrary(hModule);
     }
 }
 
