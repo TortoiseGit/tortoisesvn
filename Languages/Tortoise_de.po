@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-17 08:45+0100\n"
+"PO-Revision-Date: 2009-12-21 09:39+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1652,6 +1652,10 @@ msgstr "Erlaubt es, unterschiedlichen Projektarchive dieselbe URL zu verwenden, 
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Erlaubt es, verschiedenen Projektarchiven dieselbe UUID zu verwenden, z.B. kopierten Projektarchiven"
+
+#. Resource IDs: (119)
+msgid "Already merged"
+msgstr "Bereits zusammengeführt"
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -4274,10 +4278,6 @@ msgstr "Änderungslisten gruppieren"
 #. Resource IDs: (1032)
 msgid "H&EAD Revision"
 msgstr "&HEAD Revision"
-
-#. Resource IDs: (1229)
-msgid "H&ide unrelated changed paths"
-msgstr "&Geänderte Pfade ohne Bezug ausblenden"
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
@@ -7695,6 +7695,10 @@ msgstr "Zeige &Log"
 msgid "Show oldest node at top"
 msgstr "Den ältesten Knoten oben anzeigen"
 
+#. Resource IDs: (1229)
+msgid "Show only a&ffected paths"
+msgstr "Zeige nur &betroffene Pfade"
+
 #. Resource IDs: (2052)
 msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
 msgstr "Zeige nur die geänderten Teile des Pfadnamens. Identische Elemente werden durch Punkte ersetzt."
@@ -10733,6 +10737,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "H&ide unrelated changed paths"
+#~ msgstr "&Geänderte Pfade ohne Bezug ausblenden"
 #~ msgid "Edit conflict"
 #~ msgstr "Konflikt bearbeiten"
 #~ msgid "Unversioned"
