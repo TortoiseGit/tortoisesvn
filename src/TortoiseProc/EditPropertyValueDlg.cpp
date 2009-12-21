@@ -35,6 +35,7 @@ CEditPropertyValueDlg::CEditPropertyValueDlg(CWnd* pParent /*=NULL*/)
 	, m_bMultiple(false)
 	, m_bIsBinary(false)
 	, m_bRevProps(false)
+	, m_bChanged(false)
 {
 }
 
@@ -409,6 +410,7 @@ void CEditPropertyValueDlg::OnEnChangePropvalue()
 	UpdateData();
 	CString sTemp;
 	sTemp.LoadString(IDS_EDITPROPS_BINVALUE);
+	m_bChanged=true;
 	if ((m_bIsBinary)&&(m_sPropValue.CompareNoCase(sTemp)!=0))
 	{
 		m_sPropValue.Empty();

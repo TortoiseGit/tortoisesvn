@@ -388,56 +388,59 @@ void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 	dlg.RevProps(m_bRevProps);
 	if ( dlg.DoModal()==IDOK )
 	{
-		sName = dlg.GetPropertyName();
-		if (!sName.empty())
+		if(dlg.IsChanged())
 		{
-			CString sMsg;
-			bool bDoIt = true;
-			if (!m_bRevProps&&(m_pathlist.GetCount())&&(m_pathlist[0].IsUrl()))
+			sName = dlg.GetPropertyName();
+			if (!sName.empty())
 			{
-				CInputLogDlg input(this);
-				input.SetUUID(m_sUUID);
-				input.SetProjectProperties(m_pProjectProperties);
-				CString sHint;
-				sHint.FormatMessage(IDS_INPUT_EDITPROP, sName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
-				input.SetActionText(sHint);
-				if (input.DoModal() == IDOK)
+				CString sMsg;
+				bool bDoIt = true;
+				if (!m_bRevProps&&(m_pathlist.GetCount())&&(m_pathlist[0].IsUrl()))
 				{
-					sMsg = input.GetLogMessage();
-				}
-				else
-					bDoIt = false;
-			}
-			if (bDoIt)
-			{
-				CProgressDlg prog;
-				CString sTemp;
-				sTemp.LoadString(IDS_SETPROPTITLE);
-				prog.SetTitle(sTemp);
-				sTemp.LoadString(IDS_PROPWAITCANCEL);
-				prog.SetCancelMsg(sTemp);
-				prog.SetTime(TRUE);
-				prog.SetShowProgressBar(TRUE);
-				prog.ShowModeless(m_hWnd);
-				for (int i=0; i<m_pathlist.GetCount(); ++i)
-				{
-					prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
-					SVNProperties props(m_pathlist[i], m_revision, m_bRevProps);
-					if (!props.Add(sName, dlg.IsBinary() ? dlg.GetPropertyValue() : dlg.GetPropertyValue().c_str(), 
-						dlg.GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg))
+					CInputLogDlg input(this);
+					input.SetUUID(m_sUUID);
+					input.SetProjectProperties(m_pProjectProperties);
+					CString sHint;
+					sHint.FormatMessage(IDS_INPUT_EDITPROP, sName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
+					input.SetActionText(sHint);
+					if (input.DoModal() == IDOK)
 					{
-						CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+						sMsg = input.GetLogMessage();
 					}
 					else
-					{
-						m_bChanged = true;
-						// bump the revision number since we just did a commit
-						if (!m_bRevProps && m_revision.IsNumber())
-							m_revision = LONG(m_revision)+1;
-					}
+						bDoIt = false;
 				}
-				prog.Stop();
-				Refresh();
+				if (bDoIt)
+				{
+					CProgressDlg prog;
+					CString sTemp;
+					sTemp.LoadString(IDS_SETPROPTITLE);
+					prog.SetTitle(sTemp);
+					sTemp.LoadString(IDS_PROPWAITCANCEL);
+					prog.SetCancelMsg(sTemp);
+					prog.SetTime(TRUE);
+					prog.SetShowProgressBar(TRUE);
+					prog.ShowModeless(m_hWnd);
+					for (int i=0; i<m_pathlist.GetCount(); ++i)
+					{
+						prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
+						SVNProperties props(m_pathlist[i], m_revision, m_bRevProps);
+						if (!props.Add(sName, dlg.IsBinary() ? dlg.GetPropertyValue() : dlg.GetPropertyValue().c_str(), 
+							dlg.GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg))
+						{
+							CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+						}
+						else
+						{
+							m_bChanged = true;
+							// bump the revision number since we just did a commit
+							if (!m_bRevProps && m_revision.IsNumber())
+								m_revision = LONG(m_revision)+1;
+						}
+					}
+					prog.Stop();
+					Refresh();
+				}
 			}
 		}
 	}
