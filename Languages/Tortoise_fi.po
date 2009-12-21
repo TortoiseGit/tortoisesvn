@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-16 22:43+0200\n"
+"PO-Revision-Date: 2009-12-22 01:34+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -594,6 +594,10 @@ msgstr "&Ankkurointi"
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "&Muokkaa"
+
+#. Resource IDs: (1399)
+msgid "&Edit conflict"
+msgstr "M&uokkaa ristiriitaa"
 
 #. Resource IDs: (12)
 msgid "&Edit conflicts"
@@ -1712,6 +1716,10 @@ msgstr "Salli eri arkistojen käyttää samaa paikanninta, esim. http://localhos
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Salli eri arkistojen käyttää samaa UUID:ta, esim. kopioidut arkistot."
+
+#. Resource IDs: (119)
+msgid "Already merged"
+msgstr "Yhdistetty aiemmin"
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -3500,10 +3508,6 @@ msgstr "Muokkaa tekijää"
 msgid "Edit author name"
 msgstr "Muokkaa tekijän nimeä"
 
-#. Resource IDs: (1399)
-msgid "Edit conflict"
-msgstr "Muokkaa ristiriitaa"
-
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
 msgstr "Muokkaa päätekohtaista vertailuohjelmaa"
@@ -4332,10 +4336,6 @@ msgstr "Ryhmittele muutoslistat"
 #. Resource IDs: (1032)
 msgid "H&EAD Revision"
 msgstr "Uusin versio (&HEAD)"
-
-#. Resource IDs: (1229)
-msgid "H&ide unrelated changed paths"
-msgstr "P&iilota riippumattomat muuttuneet polut"
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
@@ -6344,12 +6344,12 @@ msgid "Pre-Update Hook"
 msgstr "Ennen päivitystä"
 
 #. Resource IDs: (3)
-msgid "Prefer local"
-msgstr "Suosi paikallista versiota"
+msgid "Prefer &local"
+msgstr "Suosi &paikallista versiota"
 
 #. Resource IDs: (4)
-msgid "Prefer repository"
-msgstr "Suosi arkiston versiota"
+msgid "Prefer &repository"
+msgstr "Suosi &arkiston versiota"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -6579,6 +6579,10 @@ msgstr "Pa&lauta"
 #. Resource IDs: (16647)
 msgid "Re&set All"
 msgstr "Palauta &kaikki"
+
+#. Resource IDs: (1400)
+msgid "Re&solved"
+msgstr "Merkitse &ratkaistuksi"
 
 #. Resource IDs: (1382)
 msgid "Re&store defaults"
@@ -6950,8 +6954,8 @@ msgid "Resolve Conflict"
 msgstr "Ratkaise ristiriita"
 
 #. Resource IDs: (1382)
-msgid "Resolve all later"
-msgstr "Ratkaise kaikki myöhemmin"
+msgid "Resolve all la&ter"
+msgstr "Ratkaise &kaikki myöhemmin"
 
 #. Resource IDs: (282)
 msgid "Resolve conflict using 'mine'"
@@ -6966,8 +6970,8 @@ msgid "Resolve conflict:"
 msgstr "Ratkaise ristiriita:"
 
 #. Resource IDs: (2)
-msgid "Resolve later"
-msgstr "Ratkaise myöhemmin"
+msgid "Resolve l&ater"
+msgstr "Ratkaise &myöhemmin"
 
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
@@ -7730,6 +7734,10 @@ msgstr "Näytä &loki"
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
 msgstr "Aloita vanhimmasta solmusta"
+
+#. Resource IDs: (1229)
+msgid "Show only a&ffected paths"
+msgstr "Näytä vain kohteeseen &liittyvät polut"
 
 #. Resource IDs: (2052)
 msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
@@ -10744,6 +10752,10 @@ msgstr "kyllä"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "H&ide unrelated changed paths"
+#~ msgstr "P&iilota riippumattomat muuttuneet polut"
+#~ msgid "Edit conflict"
+#~ msgstr "Muokkaa ristiriitaa"
 #~ msgid "Unversioned"
 #~ msgstr "Versioimaton"
 #~ msgid "From URL:"
