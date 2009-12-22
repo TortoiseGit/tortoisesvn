@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-15 15:50+0100\n"
+"PO-Revision-Date: 2009-12-22 08:40+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4616,15 +4616,15 @@ msgstr "Gebruik de <guibutton>Toon Alles</guibutton> knop als je <emphasis>alle<
 
 #. (title)
 msgid "Current Working Copy Revision"
-msgstr ""
+msgstr "Huidige Werkkopie Revisie"
 
 #. (para)
 msgid "Because the log dialog shows you the log from HEAD, not from the current working copy revision, it often happens that there are log messages shown for content which has not yet been updated in your working copy. To help make this clearer, the commit message which corresponds to the revision you have in your working copy is shown in bold."
-msgstr ""
+msgstr "Het logboek boodschappen venster toont de berichten van de HEAD revisie, niet van de huidige werkkopie revisie. Hierdoor komt het voor dat er berichten getoond worden voor bestanden en mappen die nog niet bijgewerkt zijn in je werkkopie. Om hier een duidelijker onderscheid in te maken, wordt het bericht van de vastlegging van jouw werkkopie revisie vetgedrukt weergegeven."
 
 #. (para)
 msgid "When you show the log for a folder the revision highlighted is the highest revision found anywhere within that folder, which requires a crawl of the working copy. The crawl takes place within a separate thread so as not to delay showing the log, but as a result highlighting for folders may not appear immediately."
-msgstr ""
+msgstr "Als het logboek voor een map wordt weergegeven, dan is de gemarkeerde revisie de hoogste revisie die gevonden is in die map. Hiervoor wordt de hele werkkopie doorzocht. Dit gebeurt parallel in een aparte thread, zodat het weergeven van het revisie logboek geen vertraging oploopt. Als gevolg hiervan verschijnen de markering van de mappen niet direct."
 
 #. (title)
 msgid "Merge Tracking Features"
