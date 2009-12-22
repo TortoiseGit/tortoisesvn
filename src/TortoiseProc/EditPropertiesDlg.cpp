@@ -456,20 +456,21 @@ void CEditPropertiesDlg::RemoveProps()
 
 		bool bRecurse = false;
 		std::string sName = StringToUTF8((LPCTSTR)m_propList.GetItemText(selIndex, 0));
+		tstring sUName = CUnicodeUtils::StdGetUnicode(sName);
 		if (m_pathlist[0].IsUrl())
 		{
 			CInputLogDlg input(this);
 			input.SetUUID(m_sUUID);
 			input.SetProjectProperties(m_pProjectProperties);
 			CString sHint;
-			sHint.FormatMessage(IDS_INPUT_REMOVEPROP, sName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
+			sHint.FormatMessage(IDS_INPUT_REMOVEPROP, sUName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
 			input.SetActionText(sHint);
 			if (input.DoModal() != IDOK)
 				return;
 			sLogMsg = input.GetLogMessage();
 		}
 		CString sQuestion;
-		sQuestion.Format(IDS_EDITPROPS_RECURSIVEREMOVEQUESTION, sName.c_str());
+		sQuestion.Format(IDS_EDITPROPS_RECURSIVEREMOVEQUESTION, sUName.c_str());
 		CString sRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVE));
 		CString sNotRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_NOTRECURSIVE));
 		CString sCancel(MAKEINTRESOURCE(IDS_EDITPROPS_CANCEL));
@@ -701,6 +702,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
 				if (fread(pNameBuf, 1, nNameBytes, stream) == (size_t)nNameBytes)
 				{
 					std::string sName = StringToUTF8 (tstring (pNameBuf, nNameBytes/sizeof(TCHAR)));
+					tstring sUName = CUnicodeUtils::StdGetUnicode(sName);
 					int nValueBytes = 0;
 					if (fread(&nValueBytes, sizeof(int), 1, stream) == 1)
 					{
@@ -716,7 +718,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
 								input.SetUUID(m_sUUID);
 								input.SetProjectProperties(m_pProjectProperties);
 								CString sHint;
-								sHint.FormatMessage(IDS_INPUT_SETPROP, sName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
+								sHint.FormatMessage(IDS_INPUT_SETPROP, sUName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
 								input.SetActionText(sHint);
 								if (input.DoModal() == IDOK)
 								{
