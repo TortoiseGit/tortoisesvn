@@ -35,8 +35,7 @@ CUrlDiffDlg::CUrlDiffDlg(CWnd* pParent /*=NULL*/)
 
 CUrlDiffDlg::~CUrlDiffDlg()
 {
-	if (m_pLogDlg)
-		delete m_pLogDlg;
+	delete m_pLogDlg;
 }
 
 void CUrlDiffDlg::DoDataExchange(CDataExchange* pDX)

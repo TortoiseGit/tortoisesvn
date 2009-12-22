@@ -117,8 +117,7 @@ UINT CALLBACK PropPageCallbackProc ( HWND /*hwnd*/, UINT uMsg, LPPROPSHEETPAGE p
     if (PSPCB_RELEASE == uMsg)
     {
         CSVNPropertyPage* sheetpage = (CSVNPropertyPage*) ppsp->lParam;
-        if (sheetpage != NULL)
-            delete sheetpage;
+		delete sheetpage;
     }
     return 1;
 }

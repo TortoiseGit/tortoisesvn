@@ -133,8 +133,7 @@ CRevisionGraphWnd::~CRevisionGraphWnd()
 		}
 		m_apFonts[i] = NULL;
 	}
-	if (m_pDlgTip)
-		delete m_pDlgTip;
+	delete m_pDlgTip;
 }
 
 void CRevisionGraphWnd::DoDataExchange(CDataExchange* pDX)

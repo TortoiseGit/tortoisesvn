@@ -41,10 +41,7 @@ CLockDlg::CLockDlg(CWnd* pParent /*=NULL*/)
 
 CLockDlg::~CLockDlg()
 {
-	if(m_pThread != NULL)
-	{
-		delete m_pThread;
-	}
+	delete m_pThread;
 }
 
 void CLockDlg::DoDataExchange(CDataExchange* pDX)

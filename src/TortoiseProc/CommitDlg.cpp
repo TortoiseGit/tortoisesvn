@@ -61,10 +61,7 @@ CCommitDlg::CCommitDlg(CWnd* pParent /*=NULL*/)
 
 CCommitDlg::~CCommitDlg()
 {
-	if(m_pThread != NULL)
-	{
-		delete m_pThread;
-	}
+	delete m_pThread;
 }
 
 void CCommitDlg::DoDataExchange(CDataExchange* pDX)
@@ -175,9 +172,10 @@ BOOL CCommitDlg::OnInitDialog()
 		{
 			m_BugTraqProvider = pProvider;
 			BSTR temp = NULL;
-			if (SUCCEEDED(hr = pProvider->GetLinkText(GetSafeHwnd(), m_bugtraq_association.GetParameters().AllocSysString(), &temp)))
+			hr = pProvider->GetLinkText(GetSafeHwnd(), m_bugtraq_association.GetParameters().AllocSysString(), &temp)
+			if (SUCCEEDED(hr))
 			{
-				SetDlgItemText(IDC_BUGTRAQBUTTON, temp);
+				SetDlgItemText(IDC_BUGTRAQBUTTON, temp == 0 ? _T("") : temp);
 				GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(TRUE);
 				GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_SHOW);
 			}
@@ -611,8 +609,9 @@ void CCommitDlg::OnOK()
 
 			for (LONG index = 0; index < m_selectedPathList.GetCount(); ++index)
 				SafeArrayPutElement(pathList, &index, m_selectedPathList[index].GetSVNPathString().AllocSysString());
-
-			if (FAILED(hr = pProvider2->CheckCommit(GetSafeHwnd(), parameters, repositoryRoot, commonRoot, pathList, commitMessage, &temp)))
+			
+			hr = pProvider2->CheckCommit(GetSafeHwnd(), parameters, repositoryRoot, commonRoot, pathList, commitMessage, &temp);
+			if (FAILED(hr))
 			{
 				COMError ce(hr);
 				CString sErr;
@@ -621,7 +620,7 @@ void CCommitDlg::OnOK()
 			}
 			else
 			{
-				CString sError = temp;
+				CString sError = temp == 0 ? _T("") : temp;
 				if (!sError.IsEmpty())
 				{
 					CMessageBox::Show(m_hWnd, sError, _T("TortoiseSVN"), MB_ICONERROR);

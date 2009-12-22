@@ -221,11 +221,8 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 					//a binary file. So start over...
 					state = 0;
 					nIndex--;
-					if (chunks)
-					{
-						delete chunks;
-						chunks = NULL;
-					}
+					delete chunks;
+					chunks = NULL;
 					break;
 				}
 				sLine = sLine.Mid(3);	//remove the "---"
@@ -420,8 +417,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 		m_arFileDiffs.Add(chunks);
 	return TRUE;
 errorcleanup:
-	if (chunk)
-		delete chunk;
+	delete chunk;
 	if (chunks)
 	{
 		for (int i=0; i<chunks->chunks.GetCount(); i++)

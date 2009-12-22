@@ -46,8 +46,7 @@ CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
 
 CCopyDlg::~CCopyDlg()
 {
-	if (m_pLogDlg)
-		delete m_pLogDlg;
+	delete m_pLogDlg;
 }
 
 void CCopyDlg::DoDataExchange(CDataExchange* pDX)

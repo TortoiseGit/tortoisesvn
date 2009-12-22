@@ -29,8 +29,7 @@
   {\
 	nLen += 2;\
 	_ms_lvi.cchTextMax = nLen;\
-    if (__buf)\
-		delete[] __buf;\
+	delete[] __buf;\
 	__buf = new TCHAR[nLen];\
 	_ms_lvi.pszText = __buf;\
     nRes  = (int)::SendMessage((hwndLV), LVM_GETITEMTEXT, (WPARAM)(i), (LPARAM)(LV_ITEM *)&_ms_lvi);\
@@ -43,8 +42,7 @@
 	do\
 	{\
 		nLen *= 2;\
-		if (__buf)\
-			delete [] __buf;\
+		delete [] __buf;\
 		__buf = new TCHAR[nLen];\
 		nRes = GetDlgItemText(hwndDlg, _id, __buf, nLen);\
 	} while (nRes == nLen-1);\

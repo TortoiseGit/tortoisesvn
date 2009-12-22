@@ -41,8 +41,7 @@ CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
 
 CCheckoutDlg::~CCheckoutDlg()
 {
-	if (m_pLogDlg)
-		delete m_pLogDlg;
+	delete m_pLogDlg;
 }
 
 void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)

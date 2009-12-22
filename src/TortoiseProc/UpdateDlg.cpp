@@ -33,8 +33,7 @@ CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
 
 CUpdateDlg::~CUpdateDlg()
 {
-	if (m_pLogDlg)
-		delete m_pLogDlg;
+	delete m_pLogDlg;
 }
 
 void CUpdateDlg::DoDataExchange(CDataExchange* pDX)

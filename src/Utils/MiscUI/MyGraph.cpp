@@ -114,10 +114,8 @@ void MyGraphSeries::SetTipRegion(int nGroup, CRgn* prgn)
 		ASSERT_NULL_OR_POINTER(prgnOld, CRgn);
 	}
 
-	if (prgnOld) {
-		delete prgnOld;
-		prgnOld = NULL;
-	}
+	delete prgnOld;
+	prgnOld = NULL;
 
 	// Add the new region.
 	m_oaRegions.SetAtGrow(nGroup, prgn);

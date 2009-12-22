@@ -1001,12 +1001,9 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	}
 
     // flush changes to screen
-
-    if (graphics)
-        delete graphics;
-
-	if (memDC)
-		delete memDC;
+	
+	delete graphics;
+	delete memDC;
 }
 
 void CRevisionGraphWnd::DrawRubberBand()

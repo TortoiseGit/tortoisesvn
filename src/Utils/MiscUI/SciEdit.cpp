@@ -80,10 +80,8 @@ CSciEdit::~CSciEdit(void)
 	m_personalDict.Save();
 	if (m_hModule)
 		::FreeLibrary(m_hModule);
-	if (pChecker)
-		delete pChecker;
-	if (pThesaur)
-		delete pThesaur;
+	delete pChecker;
+	delete pThesaur;
 }
 
 void CSciEdit::Init(LONG lLanguage)

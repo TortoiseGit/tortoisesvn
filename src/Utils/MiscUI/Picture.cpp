@@ -49,8 +49,7 @@ CPicture::CPicture()
 CPicture::~CPicture()
 {
 	FreePictureData(); // Important - Avoid Leaks...
-	if (pBitmap)
-		delete (pBitmap);
+	delete pBitmap;
 	if (bHaveGDIPlus)
 		GdiplusShutdown(gdiplusToken);
 }
@@ -80,8 +79,7 @@ void CPicture::FreePictureData()
 		delete [] hIcons;
 		hIcons = NULL;
 	}
-	if (lpIcons)
-		delete [] lpIcons;
+	delete [] lpIcons;
 }
 
 // Util function to ease loading of FreeImage library
@@ -330,11 +328,8 @@ bool CPicture::Load(tstring sFilePathName)
 							}
 							else	// Bitmap allocation failed
 							{
-								if (pBitmap)
-								{
-									delete pBitmap;
-									pBitmap = NULL;
-								}
+								delete pBitmap;
+								pBitmap = NULL;
 							}
 
 							FreeImage_Unload(dib);
@@ -433,17 +428,12 @@ bool CPicture::LoadPictureData(BYTE *pBuffer, int nSize)
 
 	if ((CreateStreamOnHGlobal(hGlobal, true, &pStream) == S_OK)&&(pStream))
 	{
-		HRESULT hr;
-		if((hr = OleLoadPicture(pStream, nSize, false, IID_IPicture, (LPVOID *)&m_IPicture)) == S_OK)
-		{
-			pStream->Release();
-			pStream = NULL;
-			bResult = true;
-		}
-		else
-		{
+		HRESULT hr = OleLoadPicture(pStream, nSize, false, IID_IPicture, (LPVOID *)&m_IPicture);
+		if(hr != S_OK)
 			return false;
-		}
+		pStream->Release();
+		pStream = NULL;
+		bResult = true;
 	}
 
 	FreeResource(hGlobal); // 16Bit Windows Needs This (32Bit - Automatic Release)

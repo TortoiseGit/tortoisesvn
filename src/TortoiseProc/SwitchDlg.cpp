@@ -35,8 +35,7 @@ CSwitchDlg::CSwitchDlg(CWnd* pParent /*=NULL*/)
 
 CSwitchDlg::~CSwitchDlg()
 {
-	if (m_pLogDlg)
-		delete m_pLogDlg;
+	delete m_pLogDlg;
 }
 
 void CSwitchDlg::DoDataExchange(CDataExchange* pDX)

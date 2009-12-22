@@ -39,8 +39,7 @@ CExportDlg::CExportDlg(CWnd* pParent /*=NULL*/)
 
 CExportDlg::~CExportDlg()
 {
-	if (m_pLogDlg)
-		delete m_pLogDlg;
+	delete m_pLogDlg;
 }
 
 void CExportDlg::DoDataExchange(CDataExchange* pDX)

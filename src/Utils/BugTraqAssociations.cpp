@@ -38,8 +38,7 @@ CBugTraqAssociations::~CBugTraqAssociations()
 {
 	for (inner_t::iterator it = m_inner.begin(); it != m_inner.end(); ++it)
 		delete *it;
-	if (pProjectProvider)
-		delete pProjectProvider;
+	delete pProjectProvider;
 }
 
 void CBugTraqAssociations::Load(LPCTSTR uuid /* = NULL */, LPCTSTR params /* = NULL */)

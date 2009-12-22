@@ -200,7 +200,8 @@ void CSetBugTraqAdv::CheckHasOptions()
 	if (SUCCEEDED(hr))
 	{
 		VARIANT_BOOL hasOptions = VARIANT_FALSE;
-		if (SUCCEEDED(hr = pProvider->HasOptions(&hasOptions)))
+		hr = pProvider->HasOptions(&hasOptions);
+		if (SUCCEEDED(hr))
 		{
 			if (hasOptions == VARIANT_TRUE)
 			{
@@ -238,7 +239,8 @@ void CSetBugTraqAdv::OnBnClickedOptions()
 		CString p;
 		GetDlgItemText(IDC_BUGTRAQPARAMETERS, p);
 		BSTR params = p.AllocSysString();
-		if (SUCCEEDED(hr = pProvider->ShowOptionsDialog(GetSafeHwnd(), params, &temp)))
+		hr = pProvider->ShowOptionsDialog(GetSafeHwnd(), params, &temp);
+		if (SUCCEEDED(hr))
 		{
 			SetDlgItemText(IDC_BUGTRAQPARAMETERS, temp);
 		}
