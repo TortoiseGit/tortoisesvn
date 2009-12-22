@@ -84,6 +84,8 @@ Version 1.6.7
        conditions. (Stefan Fuhrmann)
 - BUG: Revision graph would segfault for small repositories
        (Stefan Fuhrmann)
+- BUG: Errors returned in a post-commit hook script were ignored
+       in a branch/tag/copy operation. (Stefan)
 
 Version 1.6.6
 - CHG: Reduced disk access in the status cache. (Stefan)

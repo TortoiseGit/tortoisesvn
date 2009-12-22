@@ -2243,6 +2243,10 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 		ReportSVNError();
 		return false;
 	}
+	if (!PostCommitErr.IsEmpty())
+	{
+		ReportError(PostCommitErr);
+	}
 	if (m_options & ProgOptSwitchAfterCopy)
 	{
 		sCmdInfo.Format(IDS_PROGRS_CMD_SWITCH, 
