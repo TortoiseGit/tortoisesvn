@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-20 11:00-0300\n"
+"PO-Revision-Date: 2009-12-22 18:00-0300\n"
 "Last-Translator: Diego de Souza Silva <diesousil@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2628,7 +2628,7 @@ msgstr "Se o repositório que você está tentando acessar é protegido por senh
 
 #. (para)
 msgid "If you want to clear the authentication cache for all servers, you can do so from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings dialog. That button will clear all cached authentication data from the Subversion <filename>auth</filename> directories, as well as any authentication data stored in the registry by earlier versions of TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
-msgstr ""
+msgstr "Se você quiser limpar o cache de autenticação para todos os servidores, você poderá fazê-lo através da página <guilabel>Saved Data</guilabel> da página de configurões do TortoiseSVN. O botão limpa todos os dados de autenticação em cache dos diretórios <filename>auth</filename> do Subversion, assim como qualquer dados de autenticação armazenados no registro por versões anteriores do TortoiseSVN. Veja <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
 
 #. (para)
 msgid "If you want to clear authentication for one realm only then you will have to dig into those directories, find the file which contains the information you want to clear and delete the file."
@@ -2641,10 +2641,14 @@ msgid ""
 "rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
 "</screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>windows-help-central.com</citetitle></ulink>."
 msgstr ""
+"Algumas pessoas preferem que os dados de autenticação sejam excluídos quando fazem logoff do Windows ou desligam o computador. O meio de se fazer isto é executar um script ao desligar o computador que exclui o diretório <filename>%APPDATA%\\Subversion\\auth</filename>, e.g.  <screen>\n"
+"@echo off\n"
+"rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
+"</screen> Você poderá encontrar uma descrição de como instalar este tipo de script em <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>windows-help-central.com</citetitle></ulink>."
 
 #. (para)
 msgid "For more information on how to set up your server for authentication and access control, refer to <xref linkend=\"tsvn-serversetup\"/>"
-msgstr ""
+msgstr "Para mais informações sobre como instalar seu servidor para autenticação e controle de acesso, veja <xref linkend=\"tsvn-serversetup\"/>"
 
 #. (title)
 msgid "Maximizing Windows"
@@ -2656,7 +2660,7 @@ msgstr "maximizar"
 
 #. (para)
 msgid "Many of TortoiseSVN's dialogs have a lot of information to display, but it is often useful to maximize only the height, or only the width, rather than maximizing to fill the screen. As a convenience, there are shortcuts for this on the <guilabel>Maximize</guilabel> button. Use the <action>middle mouse</action> button to maximize vertically, and <action>right mouse</action> to maximize horizontally."
-msgstr ""
+msgstr "Muitas das janelas do TortoiseSVN contém muita informação para mostrar, mas é frequentemente útil maximizar apenas a altura ou apenas a largura da janela, ao invés de maximizar na tela toda. Por conveniência, há atalhos para isto no botão <guilabel>Maximizar</guilabel>. Use o <action> botão do meio do mouse</action> para maximizar verticalmente, e o <action>botão direito do mouse</action> para maximizar horizontalmente."
 
 #. (title)
 msgid "Importing Data Into A Repository"
