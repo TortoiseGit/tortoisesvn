@@ -191,6 +191,7 @@ LPARAM CMergeWizardRevRange::OnRevSelected(WPARAM wParam, LPARAM lParam)
 		bool bReverse = !!dlg->bReverseMerge;
 		m_sRevRange = dlg->revRangeArray.ToListString(bReverse);
 		UpdateData(FALSE);
+		SetFocus();
 	}
 	return 0;
 }
@@ -208,6 +209,7 @@ LPARAM CMergeWizardRevRange::OnRevSelectedOneRange(WPARAM /*wParam*/, LPARAM lPa
 		bool bReverse = !!dlg->bReverseMerge;
 		m_sRevRange = dlg->revRangeArray.ToListString(bReverse);
 		UpdateData(FALSE);
+		SetFocus();
 	}
 	return 0;
 }
