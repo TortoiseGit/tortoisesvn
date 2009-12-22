@@ -172,7 +172,7 @@ BOOL CCommitDlg::OnInitDialog()
 		{
 			m_BugTraqProvider = pProvider;
 			BSTR temp = NULL;
-			hr = pProvider->GetLinkText(GetSafeHwnd(), m_bugtraq_association.GetParameters().AllocSysString(), &temp)
+			hr = pProvider->GetLinkText(GetSafeHwnd(), m_bugtraq_association.GetParameters().AllocSysString(), &temp);
 			if (SUCCEEDED(hr))
 			{
 				SetDlgItemText(IDC_BUGTRAQBUTTON, temp == 0 ? _T("") : temp);
