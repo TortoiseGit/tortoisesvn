@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-17 16:33+0300\n"
+"PO-Revision-Date: 2009-12-23 15:37+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1647,6 +1647,10 @@ msgstr "Дозволити різним репозиторіям викорис�
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Дозволити різним репозиторіям використовувати однаковий UUID, наприклад копійованим репозиторіям"
+
+#. Resource IDs: (119)
+msgid "Already merged"
+msgstr "Вже злито"
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -4262,10 +4266,6 @@ msgstr "Групувати списки змін"
 #. Resource IDs: (1032)
 msgid "H&EAD Revision"
 msgstr "H&EAD Модифікація"
-
-#. Resource IDs: (1229)
-msgid "H&ide unrelated changed paths"
-msgstr "При&ховати непов'язані змінені шляхи"
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
@@ -7668,6 +7668,10 @@ msgstr "Показати &лог"
 msgid "Show oldest node at top"
 msgstr "Показувати найстарший вузол угорі"
 
+#. Resource IDs: (1229)
+msgid "Show only a&ffected paths"
+msgstr "Показати лише в&плинуті шляхи"
+
 #. Resource IDs: (2052)
 msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
 msgstr "Показувати лише змінені частини шляху. Заіняти незмінені елементи кратками."
@@ -10690,6 +10694,8 @@ msgstr "так"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "H&ide unrelated changed paths"
+#~ msgstr "При&ховати непов'язані змінені шляхи"
 #~ msgid "Edit conflict"
 #~ msgstr "Редагувати конфлікт"
 #~ msgid "Unversioned"
