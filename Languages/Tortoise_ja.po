@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-13 14:40+0900\n"
+"PO-Revision-Date: 2009-12-23 18:31+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -80,6 +80,56 @@ msgstr "%1 は不完全なフォーマットです。"
 msgid "%1 was not found."
 msgstr "%1 は見つかりませんでした。"
 
+#. Resource IDs: (169)
+#, c-format
+msgid "%1!d! files selected, %2!d! files total"
+msgstr "選択ファイル数 %1!d! 、全体ファイル数 %2!d!"
+
+#. Resource IDs: (246)
+#, c-format
+msgid "%1!d! most active author(s) with at least %2!d! commits each (%3!d! %%)"
+msgstr "%1!d! 人のアクティブな作者がいます（少なくとも %2!d! コミット，全体の %3!d! %%）"
+
+#. Resource IDs: (226)
+#, c-format
+msgid "%1!ld! minute(s) and %2!ld! second(s)"
+msgstr "%1!ld! 分 %2!ld! 秒"
+
+#. Resource IDs: (115)
+#, c-format
+msgid "%1!s! (offline) - %2!s!"
+msgstr "%1!s! (オフライン) - %2!s!"
+
+#. Resource IDs: (226)
+#, c-format
+msgid "%1!s! - at revision: %2!d!"
+msgstr "%1!s! - リビジョン: %2!d!"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "%1!s! : Working Base, Revision %2!ld!"
+msgstr "%1!s! : 作業ベース、リビジョン %2!ld!"
+
+#. Resource IDs: (226)
+#, c-format
+msgid "%1!s! in %2!s!"
+msgstr "%1!s! / %2!s!"
+
+#. Resource IDs: (357)
+#, c-format
+msgid "%1!s!, at %2!s!"
+msgstr "%1!s!、%2!s!"
+
+#. Resource IDs: (145)
+#, c-format
+msgid "%1!s!\\%2!s! - Export"
+msgstr "%1!s!\\%2!s! - エクスポート"
+
+#. Resource IDs: (145)
+#, c-format
+msgid "%1!s!\\%2!s! - Export (%3!d!)"
+msgstr "%1!s!\\%2!s! - エクスポート (%3!d!)"
+
 #. Resource IDs: (3860)
 #, c-format
 msgid ""
@@ -115,21 +165,6 @@ msgstr "%I64d Bytes/s"
 msgid "%I64d kBytes transferred"
 msgstr "%I64d Kバイトを転送しました"
 
-#. Resource IDs: (169)
-#, c-format
-msgid "%d files selected, %d files total"
-msgstr "選択ファイル数 %d 、全体ファイル数 %d"
-
-#. Resource IDs: (246)
-#, c-format
-msgid "%d most active author(s) with at least %d commits each (%d %%)"
-msgstr "%d 人のアクティブな作者がいます（少なくとも %d コミット，全体の %d %%）"
-
-#. Resource IDs: (226)
-#, c-format
-msgid "%ld minute(s) and %ld second(s)"
-msgstr "%ld 分 %ld 秒"
-
 #. Resource IDs: (7)
 #, c-format
 msgid "%ld of %ld"
@@ -150,16 +185,6 @@ msgstr "%s"
 msgid "%s (offline)"
 msgstr "%s (オフライン)"
 
-#. Resource IDs: (115)
-#, c-format
-msgid "%s (offline) - %s"
-msgstr "%s (オフライン) - %s"
-
-#. Resource IDs: (226)
-#, c-format
-msgid "%s - at revision: %d"
-msgstr "%s - リビジョン: %d"
-
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
@@ -172,23 +197,8 @@ msgstr "%s : 作業ベース"
 
 #. Resource IDs: (151)
 #, c-format
-msgid "%s : Working Base, Revision %ld"
-msgstr "%s : 作業ベース、リビジョン %ld"
-
-#. Resource IDs: (151)
-#, c-format
 msgid "%s : Working Copy"
 msgstr "%s : 作業コピー"
-
-#. Resource IDs: (226)
-#, c-format
-msgid "%s in %s"
-msgstr "%s / %s"
-
-#. Resource IDs: (357)
-#, c-format
-msgid "%s, at %s"
-msgstr "%s、%s"
 
 #. Resource IDs: (609)
 #, c-format
@@ -219,16 +229,6 @@ msgstr "%s、しかしながらローカルで削除、移動、名前の変更�
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
 msgstr "%s、しかしながら、作業コピーで妨害されました。"
-
-#. Resource IDs: (145)
-#, c-format
-msgid "%s\\%s - Export"
-msgstr "%s\\%s - エクスポート"
-
-#. Resource IDs: (145)
-#, c-format
-msgid "%s\\%s - Export (%d)"
-msgstr "%s\\%s - エクスポート (%d)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -537,6 +537,10 @@ msgstr "ドッキング(&D)"
 msgid "&Edit"
 msgstr "編集(&E)"
 
+#. Resource IDs: (1399)
+msgid "&Edit conflict"
+msgstr "競合の編集(&E)"
+
 #. Resource IDs: (12)
 msgid "&Edit conflicts"
 msgstr "競合の編集(&E)"
@@ -620,6 +624,10 @@ msgstr "作業コピーのURL(&F):"
 #. Resource IDs: (65535)
 msgid "&From revision"
 msgstr "元リビジョン(&F)"
+
+#. Resource IDs: (1494)
+msgid "&From: (start URL and revision of the range to merge)"
+msgstr "元(&F): （マージする範囲の始点を指すURLとリビジョン）"
 
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
@@ -1079,6 +1087,10 @@ msgstr "先 URL(&T):"
 msgid "&To URL: "
 msgstr "先 URL(&T):"
 
+#. Resource IDs: (1495)
+msgid "&To: (end URL and revision of the range to merge)"
+msgstr "先(&T): （マージする範囲の終点を指すURLとリビジョン）"
+
 #. Resource IDs: (59392)
 msgid "&Toolbar"
 msgstr "ツールバー(&T)"
@@ -1181,8 +1193,8 @@ msgstr "'スキップ範囲' はキャッシュされていないリビジョン
 
 #. Resource IDs: (272)
 #, c-format
-msgid "(%s) %s"
-msgstr "(%s) %s"
+msgid "(%1!s!) %2!s!"
+msgstr "(%1!s!) %2!s!"
 
 #. Resource IDs: (119)
 msgid "(Double-click to clear error message)"
@@ -1646,6 +1658,10 @@ msgstr "異なるリポジトリで同じURLを用いることを許す、例: h
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "異なるリポジトリで同じUUIDを用いることを許す、例: コピーしたリポジトリ"
 
+#. Resource IDs: (119)
+msgid "Already merged"
+msgstr "マージ済み"
+
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
 msgstr "ローカル操作に対してはダイアログを常に閉じる"
@@ -2046,14 +2062,13 @@ msgstr "静的な ActiveX オブジェクトをアクティブにできません
 #, c-format
 msgid ""
 "Can't copy \n"
-"%s\n"
+"%1!s!\n"
 "to\n"
-"%s"
+"%2!s!"
 msgstr ""
-"%s\n"
+"%1!s!\n"
 "を\n"
-"%s\n"
-"にコピーできませんでした。"
+"%2!s!にコピーできませんでした。"
 
 #. Resource IDs: (1001)
 msgid "Can't copy bitmap image into the clipboard!"
@@ -2135,8 +2150,8 @@ msgstr "変更されたファイル"
 
 #. Resource IDs: (324)
 #, c-format
-msgid "Changed files between %s, %s and %s, %s"
-msgstr "%s, %s と %s, %s の間に変更されたファイル"
+msgid "Changed files between %1!s!, %2!s! and %3!s!, %4!s!"
+msgstr "%1!s!, %2!s!  と %3!s!, %4!s! の間に変更されたファイル"
 
 #. Resource IDs: (163)
 #, c-format
@@ -2304,18 +2319,18 @@ msgstr ""
 
 #. Resource IDs: (196)
 #, c-format
-msgid "Clears %ld URLs stored for %ld working copies"
-msgstr "%ld 個の URL をクリアする（%ld 個の作業コピー）"
+msgid "Clears %1!ld! URLs stored for %2!ld! working copies"
+msgstr "%1!ld! 個の URL をクリアする（%2!ld! 個の作業コピー）"
 
 #. Resource IDs: (196)
 #, c-format
-msgid "Clears %ld log messages stored for %ld working copies"
-msgstr "%ld 個のログメッセージをクリアする（%ld 個の作業コピー）"
+msgid "Clears %1!ld! log messages stored for %2!ld! working copies"
+msgstr "%1!ld! 個のログメッセージをクリアする（%2!ld! 個の作業コピー）"
 
 #. Resource IDs: (196)
 #, c-format
-msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
-msgstr "%ld 個のユーザー名／パスワードの組、%ld 個の SSL 証明書と %ld 個のユーザー名をクリアする"
+msgid "Clears %1!ld! username/password pairs, %2!ld! ssl certificates and %3!ld! usernames"
+msgstr "%1!ld! 個のユーザー名／パスワードの組、%2!ld! 個の SSL 証明書と %3!ld! 個のユーザー名をクリアする"
 
 #. Resource IDs: (197)
 #, c-format
@@ -2553,6 +2568,10 @@ msgstr "%s を %s と比較中"
 msgid "Completed"
 msgstr "完了"
 
+#. Resource IDs: (219)
+msgid "Completed!"
+msgstr "完了！"
+
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
 msgstr "フックスクリプトの設定"
@@ -2634,10 +2653,10 @@ msgstr "URLからコピー"
 msgid "Copied from revision"
 msgstr "リビジョンからのコピー"
 
-#. Resource IDs: (275)
+#. Resource IDs: (276)
 #, c-format
-msgid "Copied from: %s@%ld\r\n"
-msgstr "コピー: %s@%ld\r\n"
+msgid "Copied from: %1!s!@%2!ld!\r\n"
+msgstr "コピー: %1!s!@%2!ld!\r\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
@@ -2650,11 +2669,20 @@ msgstr "コピー"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Copy %ld items to\r\n"
-"%s"
+"Copy %1!ld! items to\r\n"
+"%2!s!"
 msgstr ""
-"%ld 個の項目をコピー\r\n"
-"%s"
+"%1!ld! 個の項目をコピー\r\n"
+"%2!s!"
+
+#. Resource IDs: (126)
+#, c-format
+msgid ""
+"Copy %1!s!\r\n"
+"to %2!s!"
+msgstr ""
+"%1!s! を\r\n"
+"%2!s! へコピー"
 
 #. Resource IDs: (103)
 #, c-format
@@ -2665,15 +2693,6 @@ msgstr "%s をコピー"
 #, c-format
 msgid "Copy %s to %s, Revision %s"
 msgstr "%s から %s へのコピー、リビジョン %s"
-
-#. Resource IDs: (126)
-#, c-format
-msgid ""
-"Copy %s\r\n"
-"to %s"
-msgstr ""
-"%s をコピー\r\n"
-"コピー先: %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -2782,8 +2801,8 @@ msgstr "'%s' を追加できませんでした。"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property '%s' on '%s' because"
-msgstr "属性 '%s' を '%s' に追加できませんでした。"
+msgid "Could not add property '%1!s!' on '%2!s!' because"
+msgstr "属性 '%1!s!' を '%2!s!' に追加できませんでした。"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -2812,8 +2831,8 @@ msgstr "'%s' を削除できませんでした。"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property '%s' on '%s' because"
-msgstr "属性 '%s' を '%s' から削除できませんでした。"
+msgid "Could not delete property '%1!s!' on '%2!s!' because"
+msgstr "属性 '%1!s!' を '%2!s!' から削除できませんでした。"
 
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
@@ -2830,8 +2849,8 @@ msgstr "'%s' をマージできませんでした。"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property '%s' on '%s' because"
-msgstr "属性 '%s' を '%s' にマージできませんでした。"
+msgid "Could not merge property '%1!s!' on '%2!s!' because"
+msgstr "属性 '%1!s!' を '%2!s!' にマージできませんでした。"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2869,10 +2888,10 @@ msgstr ""
 #. Resource IDs: (66)
 #, c-format
 msgid ""
-"Could not retrieve revision %s of the file %s.\n"
+"Could not retrieve revision %1!s! of the file %2!s!.\n"
 "Patching is not possible!"
 msgstr ""
-"リビジョン %s をファイル %s から取得することができませんでした。\n"
+"リビジョン %1!s! をファイル %2!s! から取得することができませんでした。\n"
 "パッチの適用はできません！"
 
 #. Resource IDs: (64)
@@ -3433,10 +3452,6 @@ msgstr "作者を編集"
 msgid "Edit author name"
 msgstr "作者名を編集"
 
-#. Resource IDs: (1399)
-msgid "Edit conflict"
-msgstr "競合を編集"
-
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
 msgstr "拡張子に対応した差分プログラムを編集"
@@ -3452,11 +3467,11 @@ msgstr "ログメッセージを編集"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property '%S' on\r\n"
-"%s"
+"Edit property '%1!S!' on\r\n"
+"%2!s!"
 msgstr ""
-"属性 '%S' を\r\n"
-"%s\r\n"
+"属性 '%1!S!' を\r\n"
+"%2!s!\r\n"
 "で編集する"
 
 #. Resource IDs: (1331, 1382)
@@ -3655,11 +3670,11 @@ msgstr "サーバー証明書 %s の確認エラー:"
 #. Resource IDs: (70)
 #, c-format
 msgid ""
-"Error while reading/writing the registry key %s\n"
-"%s"
+"Error while reading/writing the registry key %1!s!\n"
+"%2!s!"
 msgstr ""
-"レジストリのキー %s の読み込み／書き込み中にエラーが発生しました\n"
-"%s"
+"レジストリのキー %1!s! の読み込み／書き込み中にエラーが発生しました\n"
+"%2!s!"
 
 #. Resource IDs: (1413)
 msgid "Exceptions:"
@@ -3791,6 +3806,10 @@ msgstr "外部を除外"
 msgid "Externals included"
 msgstr "外部を含む"
 
+#. Resource IDs: (1480)
+msgid "F&orce the merge"
+msgstr "マージを強制実行する(&O)"
+
 #. Resource IDs: (74)
 msgid "Failed revert"
 msgstr "元に戻せませんでした"
@@ -3843,11 +3862,11 @@ msgstr "変更リスト '%s' の設定／削除に失敗しました"
 #. Resource IDs: (83)
 #, c-format
 msgid ""
-"Failed to start the issue tracker COM provider '%s'.\n"
-"%s"
+"Failed to start the issue tracker COM provider '%1!s!'.\n"
+"%2!s!"
 msgstr ""
-"課題追跡システムのCOMプロバイダ '%s' の開始に失敗しました。\n"
-"%s"
+"課題追跡システムのCOMプロバイダ '%1!s!' の開始に失敗しました。\n"
+"%2!s!"
 
 #. Resource IDs: (220)
 msgid "Failed!"
@@ -4087,10 +4106,6 @@ msgstr "すべての履歴を表示するためには 'コピー／名前の変�
 msgid "Force"
 msgstr "強制実行"
 
-#. Resource IDs: (1480)
-msgid "Force the merge"
-msgstr "マージを強制的に実行する"
-
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "前へ"
@@ -4099,17 +4114,9 @@ msgstr "前へ"
 msgid "Found auto words:"
 msgstr "見つかった単語:"
 
-#. Resource IDs: (65535)
-msgid "From URL:"
-msgstr "元 URL:"
-
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "元:"
-
-#. Resource IDs: (65535)
-msgid "From: (start URL and revision of the range to merge)"
-msgstr "元: （マージする範囲の始点を指すURLとリビジョン）"
 
 #. Resource IDs: (1065)
 msgid "Full Screen"
@@ -4175,15 +4182,15 @@ msgstr ""
 "それぞれのファイルは、ファイルシステム上で読み取り専用のフラグが設定され、ロックすることでファイルが書き込み可能になります。\n"
 "他のユーザーは、ファイルを読み取り専用として開く前に、作業コピーの更新が必要なことに注意してください。"
 
+#. Resource IDs: (120)
+#, c-format
+msgid "Getting file %1!s!, revision %2!s!"
+msgstr "取得ファイル %1!s!，リビジョン %2!s!"
+
 #. Resource IDs: (119)
 #, c-format
 msgid "Getting file %s"
 msgstr "取得ファイル %s"
-
-#. Resource IDs: (120)
-#, c-format
-msgid "Getting file %s, revision %s"
-msgstr "取得ファイル %s，リビジョン %s"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
@@ -4269,9 +4276,9 @@ msgstr "ブランチでグループ化する"
 msgid "Group changelists"
 msgstr "変更リストのグループ化"
 
-#. Resource IDs: (1229)
-msgid "H&ide unrelated changed paths"
-msgstr "変更されたパスで無関係なものは表示しない(&I)"
+#. Resource IDs: (1032)
+msgid "H&EAD Revision"
+msgstr "最新のリビジョン(&E)"
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
@@ -4374,6 +4381,10 @@ msgstr "ホスト名が合致しません (%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "どのような方法で競合を解消しますか？"
+
+#. Resource IDs: (1392)
+msgid "I&gnore all whitespaces"
+msgstr "すべての空白を無視する(&G)"
 
 #. Resource IDs: (1264)
 msgid "I&gnored"
@@ -4683,6 +4694,10 @@ msgstr "拡張子によって %d 個の項目を無視する(&E)"
 msgid "Ignore &all whitespaces"
 msgstr "すべての空白を無視する(&A)"
 
+#. Resource IDs: (1267)
+msgid "Ignore &ancestry"
+msgstr "系統情報を無視する(&A)"
+
 #. Resource IDs: (1067)
 msgid "Ignore &case changes"
 msgstr "大文字／小文字の変更は無視する(&C)"
@@ -4695,9 +4710,9 @@ msgstr "すべての空白の変更を無視する"
 msgid "Ignore all whitespaces"
 msgstr "すべての空白を無視する"
 
-#. Resource IDs: (1267)
-msgid "Ignore ancestry"
-msgstr "系統情報を無視する"
+#. Resource IDs: (1126)
+msgid "Ignore line &endings"
+msgstr "改行コードを無視する(&E)"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4706,6 +4721,10 @@ msgstr "改行コード(&E)を無視する（推奨）"
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line endings"
 msgstr "改行コードを無視する"
+
+#. Resource IDs: (1391)
+msgid "Ignore whitespace c&hanges"
+msgstr "空白の変更を無視する(&H)"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
@@ -4776,11 +4795,11 @@ msgstr "ファイルに保存されている属性をインポートする"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Import file %s\r\n"
-"to %s"
+"Import file %1!s!\r\n"
+"to %2!s!"
 msgstr ""
-"ファイル %s をインポート\r\n"
-"インポート先: %s"
+"ファイル %1!s! を\r\n"
+"%2!s! にインポート"
 
 #. Resource IDs: (126)
 #, c-format
@@ -4794,11 +4813,11 @@ msgstr ""
 #. Resource IDs: (126)
 #, c-format
 msgid ""
-"Import folder %s\r\n"
-"to %s"
+"Import folder %1!s!\r\n"
+"to %2!s!"
 msgstr ""
-"フォルダ %s をインポート\r\n"
-"インポート先: %s"
+"フォルダ %1!s! を\r\n"
+"%2!s! にインポート"
 
 #. Resource IDs: (613)
 #, c-format
@@ -4973,8 +4992,8 @@ msgstr ""
 msgid ""
 "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
 "\n"
-"From:\t%s\n"
-"To:\t\t%s\n"
+"From:\t%1!s!\n"
+"To:\t\t%2!s!\n"
 "\n"
 "A relocate is only needed if the path <b>to</b> a repository has changed.\n"
 "Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
@@ -4985,8 +5004,8 @@ msgid ""
 msgstr ""
 "同じリポジトリ内の異なるパスに作業コピーを <b>再配置</b> しようとしています。\n"
 "\n"
-"元: %s\n"
-"先: %s\n"
+"元: %1!s!\n"
+"先: %2!s!\n"
 "\n"
 "再配置は、<b>リポジトリのパス</b>が変更された時にのみ必要となります。\n"
 "<b>リポジトリ内</b>の異なるパスへの変更は、切り替え操作で行うことができます。\n"
@@ -5250,17 +5269,17 @@ msgstr "ログメッセージ (ログダイアログ)"
 
 #. Resource IDs: (238)
 #, c-format
-msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
-msgstr "表示リビジョンの範囲: %ld - %ld"
+msgid "Lowest shown revision: %1!ld! - Highest shown revision: %2!ld!"
+msgstr "表示する最も古いリビジョン: %1!ld! - 最も新しいリビジョン: %2!ld!"
 
 #. Resource IDs: (238)
 #, c-format
 msgid ""
-"Lowest shown revision: %ld - Highest shown revision: %ld\n"
-"HEAD revision: %ld"
+"Lowest shown revision: %1!ld! - Highest shown revision: %2!ld!\n"
+"HEAD revision: %3!ld!"
 msgstr ""
-"表示する最も古いリビジョン: %ld - 最も新しいリビジョン: %ld\n"
-"最新リビジョン: %ld"
+"表示する最も古いリビジョン: %1!ld! - 最も新しいリビジョン: %2!ld!\n"
+"最新リビジョン: %3!ld!"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -5358,6 +5377,10 @@ msgstr "メニューの影(&H)"
 msgid "Merge"
 msgstr "マージ"
 
+#. Resource IDs: (1488)
+msgid "Merge &depth:"
+msgstr "マージする深さ(&D):"
+
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "マージ - TortoiseSVN"
@@ -5367,16 +5390,12 @@ msgid "Merge Reintegrate"
 msgstr "マージの再統合"
 
 #. Resource IDs: (1468)
-msgid "Merge a range of revisions"
-msgstr "リビジョンの範囲をマージ"
+msgid "Merge a &range of revisions"
+msgstr "リビジョンの範囲をマージ(&R)"
 
 #. Resource IDs: (277)
 msgid "Merge all"
 msgstr "すべてマージ"
-
-#. Resource IDs: (65535)
-msgid "Merge depth:"
-msgstr "マージする深さ:"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -5408,8 +5427,8 @@ msgid "Merge the changes into '%s'"
 msgstr "変更を '%s' にマージする"
 
 #. Resource IDs: (1470)
-msgid "Merge two different trees"
-msgstr "異なる2つのツリーをマージ"
+msgid "Merge two different &trees"
+msgstr "異なる2つのツリーをマージ(&T)"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge type"
@@ -5452,13 +5471,13 @@ msgstr "%s のリビジョン %s から %s のリビジョン %s を %s へマ�
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Merging r%ld"
-msgstr "r%ld をマージ"
+msgid "Merging r%1!ld! through r%2!ld!"
+msgstr "r%1!ld! ～ r%2!ld! をマージ"
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Merging r%ld through r%ld"
-msgstr "r%ld ～ r%ld をマージ"
+msgid "Merging r%ld"
+msgstr "r%ld をマージ"
 
 #. Resource IDs: (83)
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
@@ -5552,20 +5571,20 @@ msgstr "マウス"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Move %ld items to\r\n"
-"%s"
+"Move %1!ld! items to\r\n"
+"%2!s!"
 msgstr ""
-"%ld 個の項目を移動\r\n"
-"%s"
+"%1!ld! 個の項目を移動\r\n"
+"%2!s!"
 
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Move %s\r\n"
-"to %s"
+"Move %1!s!\r\n"
+"to %2!s!"
 msgstr ""
-"%s を移動\r\n"
-"移動先: %s"
+"%1!s! を\r\n"
+"%2!s! に移動する"
 
 #. Resource IDs: (17026)
 msgid "Move &Down"
@@ -5789,6 +5808,10 @@ msgstr "シソーラスからの提案はありません"
 msgid "Node colors"
 msgstr "ノードの色"
 
+#. Resource IDs: (1507)
+msgid "Non-versioned"
+msgstr "バージョン管理外"
+
 #. Resource IDs: (1271)
 msgid "None"
 msgstr "無し"
@@ -5948,6 +5971,10 @@ msgstr ""
 msgid "One or more files are in a conflicted state."
 msgstr "１つ以上のファイルが競合状態にあります。"
 
+#. Resource IDs: (1424)
+msgid "Onl&y record the merge (block revisions from getting merged)"
+msgstr "マージのみ記録する（マージされるもののリビジョンのブロック） (&Y)"
+
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
 msgstr "トップフォルダのみチェックアウトする(&T)"
@@ -5961,10 +5988,6 @@ msgid ""
 "Only numbers (optionally separated by commas)\n"
 "are allowed!"
 msgstr "数値のみ（コンマで分割可能）が入力可能です！"
-
-#. Resource IDs: (1424)
-msgid "Only record the merge (block revisions from getting merged)"
-msgstr "マージのみ記録する（マージされるもののリビジョンのブロック）"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -6263,12 +6286,12 @@ msgid "Pre-Update Hook"
 msgstr "Pre-Update フック"
 
 #. Resource IDs: (3)
-msgid "Prefer local"
-msgstr "ローカルを優先する"
+msgid "Prefer &local"
+msgstr "ローカルを優先する(&L)"
 
 #. Resource IDs: (4)
-msgid "Prefer repository"
-msgstr "リポジトリを優先する"
+msgid "Prefer &repository"
+msgstr "リポジトリを優先する(&R)"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -6369,13 +6392,13 @@ msgstr "属性"
 
 #. Resource IDs: (151)
 #, c-format
-msgid "Property %s : Revision %s"
-msgstr "属性 %s : リビジョン %s"
+msgid "Property %1!s! : Revision %2!s!"
+msgstr "属性 %1!s! : リビジョン %2!s!"
 
 #. Resource IDs: (151)
 #, c-format
-msgid "Property %s : Working Base, Revision %ld"
-msgstr "属性 %s : 作業ベース、リビジョン %ld"
+msgid "Property %1!s! : Working Base, Revision %2!ld!"
+msgstr "属性 %1!s! : 作業ベース、リビジョン %2!ld!"
 
 #. Resource IDs: (151)
 #, c-format
@@ -6459,9 +6482,17 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "R&AM ドライブ"
 
+#. Resource IDs: (1469)
+msgid "R&eintegrate a branch"
+msgstr "ブランチを再統合する(&E)"
+
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "リセット(&E)"
+
+#. Resource IDs: (1423)
+msgid "R&everse merge"
+msgstr "逆マージ(&E)"
 
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
@@ -6491,6 +6522,10 @@ msgstr "リセット(&S)"
 msgid "Re&set All"
 msgstr "すべてリセット(&S)"
 
+#. Resource IDs: (1400)
+msgid "Re&solved"
+msgstr "解消済にする(&S)"
+
 #. Resource IDs: (1382)
 msgid "Re&store defaults"
 msgstr "デフォルトに戻す(&S)"
@@ -6498,6 +6533,10 @@ msgstr "デフォルトに戻す(&S)"
 #. Resource IDs: (8)
 msgid "Re&vert..."
 msgstr "元に戻す(&V) ..."
+
+#. Resource IDs: (1033)
+msgid "Re&vision"
+msgstr "リビジョン(&V)"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -6584,10 +6623,6 @@ msgstr ""
 "\\W   : アルファベットと数字以外への一致\r\n"
 "\\d   : 10 進数字 0-9 と一致\r\n"
 "\\s   : 空白"
-
-#. Resource IDs: (1469)
-msgid "Reintegrate a branch"
-msgstr "ブランチを再統合する"
 
 #. Resource IDs: (595)
 msgid "Reintegrate merge"
@@ -6687,12 +6722,11 @@ msgstr "変更リストから削除"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property '%S' from\r\n"
-"%s"
+"Remove property '%1!S!' from\r\n"
+"%2!s!"
 msgstr ""
-"属性 '%S' を\r\n"
-"%s\r\n"
-"から削除する"
+"属性 '%1!S!' を\r\n"
+"%2!s! から削除する"
 
 #. Resource IDs: (610)
 msgid "Remove the directory"
@@ -6761,11 +6795,11 @@ msgstr "%s の名前を変更"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Rename item from %s\r\n"
-"to %s"
+"Rename item from %1!s!\r\n"
+"to %2!s!"
 msgstr ""
-"%s から\r\n"
-"%s に名前を変更する"
+"%1!s! から\r\n"
+"%2!s! に名前を変更する"
 
 #. Resource IDs: (221)
 msgid "Rename/move - TortoiseSVN"
@@ -6860,8 +6894,8 @@ msgid "Resolve Conflict"
 msgstr "競合の解消"
 
 #. Resource IDs: (1382)
-msgid "Resolve all later"
-msgstr "すべて後で解消する"
+msgid "Resolve all la&ter"
+msgstr "すべて後で解消する(&T)"
 
 #. Resource IDs: (282)
 msgid "Resolve conflict using 'mine'"
@@ -6876,8 +6910,8 @@ msgid "Resolve conflict:"
 msgstr "競合の解消:"
 
 #. Resource IDs: (2)
-msgid "Resolve later"
-msgstr "後で解消する"
+msgid "Resolve l&ater"
+msgstr "後で解消する(&A)"
 
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
@@ -6912,19 +6946,15 @@ msgstr "復元"
 msgid "Retry"
 msgstr "再試行"
 
-#. Resource IDs: (1423)
-msgid "Reverse merge"
-msgstr "逆マージ"
+#. Resource IDs: (264)
+#, c-format
+msgid "Reverse merging %1!ld! through %2!ld!"
+msgstr "%1!ld! ～ %2!ld! を逆マージ"
 
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %ld"
 msgstr "%ld を逆マージ"
-
-#. Resource IDs: (264)
-#, c-format
-msgid "Reverse merging %ld through %ld"
-msgstr "%ld ～ %ld を逆マージ"
 
 #. Resource IDs: (175, 229)
 msgid "Revert"
@@ -6997,9 +7027,9 @@ msgstr "リビジョンの範囲"
 msgid "Revision graph"
 msgstr "リビジョングラフ"
 
-#. Resource IDs: (65535)
-msgid "Revision range to merge"
-msgstr "マージするリビジョンの範囲"
+#. Resource IDs: (1492)
+msgid "Revision r&ange to merge"
+msgstr "マージするリビジョンの範囲(&A)"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -7008,44 +7038,44 @@ msgstr "リビジョン:"
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld %s\r\n"
-"URL: %s\r\n"
-"%sAuthor: %s\r\n"
-"Date: %s\r\n"
+"Revision: %1!ld! %2!s!\r\n"
+"URL: %3!s!\r\n"
+"%4!s!Author: %5!s!\r\n"
+"Date: %6!s!\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%s"
+"%7!s!"
 msgstr ""
-"リビジョン: %ld %s\r\n"
-"URL: %s\r\n"
-"%s作者: %s\r\n"
-"日付: %s\r\n"
+"リビジョン: %1!ld! %2!s!\r\n"
+"URL: %3!s!\r\n"
+"%4!s!作者: %5!s!\r\n"
+"日付: %6!s!\r\n"
 "\r\n"
 "ログメッセージ:\r\n"
-"%s"
+"%7!s!"
 
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld %s\r\n"
-"URL: %s\r\n"
-"%sAuthor: %s\r\n"
-"Date: %s\r\n"
+"Revision: %1!ld! %2!s!\r\n"
+"URL: %3!s!\r\n"
+"%4!s!Author: %5!s!\r\n"
+"Date: %6!s!\r\n"
 "\r\n"
-"Tags (%d):%s\r\n"
+"Tags (%7!d!):%8!s!\r\n"
 "\r\n"
 "Logmessage:\r\n"
-"%s"
+"%9!s!"
 msgstr ""
-"リビジョン: %ld %s\r\n"
-"URL: %s\r\n"
-"%s作者: %s\r\n"
-"日付: %s\r\n"
+"リビジョン: %1!ld! %2!s!\r\n"
+"URL: %3!s!\r\n"
+"%4!s!作者: %5!s!\r\n"
+"日付: %6!s!\r\n"
 "\r\n"
-"タグ (%d):%s\r\n"
+"タグ (%7!d!):%8!s!\r\n"
 "\r\n"
 "ログメッセージ:\r\n"
-"%s"
+"%9!s!"
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -7455,12 +7485,11 @@ msgstr "ファイルの日付を \"最後にコミットした日付\" に設定
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property '%S' on\r\n"
-"%s"
+"Set property '%1!S!' on\r\n"
+"%2!s!"
 msgstr ""
-"属性 '%S' を\r\n"
-"%s\r\n"
-"に設定する"
+"属性 '%1!S!' を\r\n"
+"%2!s! に設定する"
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
@@ -7638,9 +7667,17 @@ msgstr "ログを表示(&O)"
 msgid "Show linenumber&s"
 msgstr "行番号を表示する(&S)"
 
+#. Resource IDs: (1037)
+msgid "Show lo&g"
+msgstr "ログを表示(&G)"
+
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
 msgstr "最も古いノードを先頭に表示する"
+
+#. Resource IDs: (1229)
+msgid "Show only a&ffected paths"
+msgstr "影響を受けるパスのみ表示(&F)"
 
 #. Resource IDs: (2052)
 msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
@@ -7714,15 +7751,15 @@ msgstr "ノードとして分割せずにコピー元にタグを表示する"
 msgid "Show/Hide"
 msgstr "表示／非表示"
 
+#. Resource IDs: (115)
+#, c-format
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
+msgstr "%1!ld! 個のリビジョンを表示（%2!ld! から %3!ld! まで）、%4!ld! 個のリビジョンを選択"
+
 #. Resource IDs: (272)
 #, c-format
 msgid "Showing %ld nodes"
 msgstr "%ld 個のノードを表示"
-
-#. Resource IDs: (115)
-#, c-format
-msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
-msgstr "%ld 個のリビジョンを表示（%ld から %ld まで）、%ld 個のリビジョンを選択"
 
 #. Resource IDs: (272)
 #, c-format
@@ -7973,8 +8010,8 @@ msgid ""
 "http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion encountered the problem in:\n"
-"file %s, line %ld\n"
-"expression = %s"
+"file %1!s!, line %2!ld!\n"
+"expression = %3!s!"
 msgstr ""
 "Subversion は深刻な問題に遭遇しました。\n"
 "あなたが何をしようとしたのかについて、可能な限り\n"
@@ -7987,8 +8024,8 @@ msgstr ""
 "http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion が遭遇した問題:\n"
-"ファイル %s、行番号 %ld\n"
-"式 = %s"
+"ファイル %1!s!、行番号 %2!ld!\n"
+"式 = %3!s!"
 
 #. Resource IDs: (84)
 msgid ""
@@ -8462,15 +8499,15 @@ msgstr ""
 #, c-format
 msgid ""
 "The patch seems outdated! The file line\n"
-"%s\n"
+"%1!s!\n"
 "and the patchline\n"
-"%s\n"
+"%2!s!\n"
 "do not match!"
 msgstr ""
 "パッチは古いと思われます！ファイル内の行\n"
-"%s\n"
+"%1!s!\n"
 "とパッチ内の行\n"
-"%s\n"
+"%2!s!\n"
 "は一致しません！"
 
 #. Resource IDs: (88)
@@ -8495,22 +8532,39 @@ msgstr ""
 #, c-format
 msgid ""
 "The path\n"
-"<i>%s</i>\n"
+"<i>%1!s!</i>\n"
 "in the patchfile does not exist.\n"
 "TortoiseMerge found the relative path\n"
-"<i>%s</i>\n"
+"<i>%2!s!</i>\n"
 "which seems to match the directory you're applying the patch.\n"
 "\n"
 "Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
 msgstr ""
 "パッチファイル内のパス\n"
-"<i>%s</i>\n"
+"<i>%1!s!</i>\n"
 "は存在しません。\n"
 "TortoiseMerge はパッチを適用する相対パスとして\n"
-"<i>%s</i>\n"
+"<i>%2!s!</i>\n"
 "がより適合している判断しました。\n"
 "\n"
 "このパスを代わりに使用しますか？「いいえ」を選択した場合は TortoiseMerge は終了します。"
+
+#. Resource IDs: (314)
+#, c-format
+msgid ""
+"The path\n"
+"<i>%1!s!</i>\n"
+"seems not to match the paths in the patchfile.\n"
+"But TortoiseMerge found the path\n"
+"<i>%2!s!</i>\n"
+"matches it better. Do you want to use the suggested path instead?"
+msgstr ""
+"パス\n"
+"<i>%1!s!</i>\n"
+"はパスファイル内のものと一致していないようです。\n"
+"しかし、TortoiseMerge は\n"
+"<i>%2!s!</i>\n"
+"のパスがより適合している判断しました。こちらのパスを代わりに利用しますか？"
 
 #. Resource IDs: (314)
 #, c-format
@@ -8524,23 +8578,6 @@ msgstr ""
 "<i>%s</i>\n"
 "は存在しません。\n"
 "TortoiseMerge はパスの先頭部分を取り除いてパッチを適用しようとしましたが、一致するパスは見つけられませんでした。"
-
-#. Resource IDs: (314)
-#, c-format
-msgid ""
-"The path\n"
-"<i>%s</i>\n"
-"seems not to match the paths in the patchfile.\n"
-"But TortoiseMerge found the path\n"
-"<i>%s</i>\n"
-"matches it better. Do you want to use the suggested path instead?"
-msgstr ""
-"パス\n"
-"<i>%s</i>\n"
-"はパスファイル内のものと一致していないようです。\n"
-"しかし、TortoiseMerge は\n"
-"<i>%s</i>\n"
-"のパスがより適合している判断しました。こちらのパスを代わりに利用しますか？"
 
 #. Resource IDs: (80)
 msgid "The repository was successfully created."
@@ -8801,10 +8838,6 @@ msgstr ""
 msgid "To:"
 msgstr "先:"
 
-#. Resource IDs: (65535)
-msgid "To: (end URL and revision of the range to merge)"
-msgstr "先: （マージする範囲の終点を指すURLとリビジョン）"
-
 #. Resource IDs: (3633)
 msgid ""
 "Toggle One/Two Pages display\n"
@@ -9028,9 +9061,9 @@ msgstr "不明な URL (UUID: %s)"
 msgid "URL of Subversion items"
 msgstr "Subversion 項目のURL"
 
-#. Resource IDs: (65535)
-msgid "URL to merge from"
-msgstr "マージ元のURL"
+#. Resource IDs: (1491)
+msgid "URL to merge &from"
+msgstr "マージ元のURL(&F)"
 
 #. Resource IDs: (144, 11023, 65535)
 msgid "URL:"
@@ -9146,12 +9179,12 @@ msgstr "最新のリビジョンに対する Unified 形式での差分(&D)"
 #, c-format
 msgid ""
 "Unknown certificate issuer.\n"
-"  Fingerprint: %s\n"
-"  Distinguished name: %s"
+"  Fingerprint: %1!s!\n"
+"  Distinguished name: %2!s!"
 msgstr ""
 "不明な証明書です。\n"
-"  Fingerprint: %s\n"
-"  Distinguished name: %s"
+"  Fingerprint: %1!s!\n"
+"  Distinguished name: %2!s!"
 
 #. Resource IDs: (20)
 msgid "Unknown depth"
@@ -9192,10 +9225,6 @@ msgstr ""
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "バージョン管理を解除"
-
-#. Resource IDs: (1507)
-msgid "Unversioned"
-msgstr "バージョン管理外"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
@@ -9759,18 +9788,18 @@ msgstr "画像を選択してください！"
 #, c-format
 msgid ""
 "You're trying to add the item\n"
-"'%s',\n"
+"'%1!s!',\n"
 "but the item\n"
-"'%s'\n"
+"'%2!s!'\n"
 "already exists.\n"
 "\n"
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr ""
 "次の項目\n"
-"'%s'、\n"
+"'%1!s!'、\n"
 "を追加しようとしていますが、\n"
-"'%s'\n"
+"'%2!s!'\n"
 "はすでに存在しています。\n"
 "\n"
 "項目は Subversion の外側で大文字／小文字のみが変更されているようです。\n"
@@ -9814,16 +9843,16 @@ msgstr ""
 "\n"
 "本当にコミットしてもよろしいですか？"
 
-#. Resource IDs: (275)
+#. Resource IDs: (276)
 #, c-format
 msgid ""
 "Your working copy contains modifications.\n"
-"Lowest revision in working copy: %ld\n"
-"Path: %s"
+"Lowest revision in working copy: %1!ld!\n"
+"Path: %2!s!"
 msgstr ""
 "あなたの作業コピーは変更を含んでいます。\n"
-"作業コピー内で最も若いリビジョン: %ld\n"
-"パス: %s"
+"作業コピー内で最も若いリビジョン: %1!ld!\n"
+"パス: %2!s!"
 
 #. Resource IDs: (88)
 msgid ""
@@ -9952,8 +9981,8 @@ msgstr "追加ファイル"
 
 #. Resource IDs: (272)
 #, c-format
-msgid "alias (%s): %s"
-msgstr "エイリアス (%s): %s"
+msgid "alias (%1!s!): %2!s!"
+msgstr "エイリアス (%1!s!): %2!s!"
 
 #. Resource IDs: (272)
 #, c-format
@@ -10089,10 +10118,10 @@ msgstr "接続状態: "
 #, c-format
 msgid ""
 "copied from\r\n"
-"%s - revision %ld"
+"%1!s! - revision %2!ld!"
 msgstr ""
 "コピー元\r\n"
-"%s - リビジョン %ld"
+"%1!s! - リビジョン %2!ld!"
 
 #. Resource IDs: (65535)
 msgid "copied:"
@@ -10311,8 +10340,8 @@ msgstr "系統情報を無視"
 
 #. Resource IDs: (326)
 #, c-format
-msgid "revision %s-%s, revision %s-%s"
-msgstr "リビジョン %s-%s，リビジョン %s-%s"
+msgid "revision %1!s!-%2!s!, revision %3!s!-%4!s!"
+msgstr "リビジョン %1!s!-%2!s!、リビジョン %3!s!-%4!s!"
 
 #. Resource IDs: (65535)
 msgid "revision count: "
@@ -10324,8 +10353,8 @@ msgstr "リビジョンはすでにマージされています"
 
 #. Resource IDs: (326)
 #, c-format
-msgid "revisions %s-%s, %s"
-msgstr "リビジョン %s-%s, %s"
+msgid "revisions %1!s!-%2!s!, %3!s!"
+msgstr "リビジョン %1!s!-%2!s!, %3!s!"
 
 #. Resource IDs: (65535)
 msgid "revisions: "
@@ -10669,6 +10698,14 @@ msgstr "はい"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Edit conflict"
+#~ msgstr "競合を編集"
+#~ msgid "From URL:"
+#~ msgstr "元 URL:"
+#~ msgid "H&ide unrelated changed paths"
+#~ msgstr "変更されたパスで無関係なものは表示しない(&I)"
+#~ msgid "Unversioned"
+#~ msgstr "バージョン管理外"
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
