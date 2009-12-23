@@ -337,7 +337,7 @@ void CStatGraphDlg::ShowLabels(BOOL bShow)
 void CStatGraphDlg::UpdateWeekCount()
 {
 	// Sanity check
-	if ((!m_parDates)&&(m_parDates->GetCount()))
+	if ((!m_parDates)||(m_parDates->GetCount()==0))
 	{
 		return;
 	}
