@@ -192,15 +192,34 @@ LRESULT CALLBACK CLinkControl::_HyperlinkProc(HWND hwnd, UINT message,
 			InvalidateRect(hwnd, NULL, FALSE);
 		}
 		break;
-	case WM_KEYUP:
+	case WM_KEYDOWN:
 		{
-			if (wParam != VK_SPACE)
+			if ((wParam != VK_SPACE)&&(wParam != VK_RETURN))
 				break;
+			PostMessage(::GetParent(hwnd), LK_LINKITEMCLICKED, (WPARAM)hwnd, (LPARAM)0);
+			return 0;
 		}
-		// Fall through
+		break;
 	case WM_LBUTTONUP:
 		{
 			PostMessage(::GetParent(hwnd), LK_LINKITEMCLICKED, (WPARAM)hwnd, (LPARAM)0);
+		}
+		break;
+	case WM_GETDLGCODE:
+		{
+			LRESULT lres = CallWindowProc(pHyperLink->m_pfnOrigCtlProc, hwnd, message, wParam, lParam);
+			// we want all keys to get the return key
+			lres |= DLGC_WANTALLKEYS;
+			// but we don't want the tab key since that should be used in dialogs
+			// to switch the focus
+			lres &= ~DLGC_WANTTAB;
+			if (lParam &&
+				((MSG *)lParam)->message == WM_KEYDOWN &&
+				((MSG *)lParam)->wParam == VK_TAB) 
+			{
+				lres &= ~DLGC_WANTMESSAGE;
+			}
+			return lres;
 		}
 		break;
 	case WM_SETFOCUS:	
