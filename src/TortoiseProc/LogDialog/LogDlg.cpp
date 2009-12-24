@@ -1990,9 +1990,8 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
 	if (SVN::PathIsURL(m_path))
 		url = m_path.GetSVNPathString();
 	else
-	{
 		url = GetURLFromPath(m_path);
-	}
+	
 	name = SVN_PROP_REVISION_AUTHOR;
 
 	CString value = RevPropertyGet(name, CTSVNPath(url), logs[0]->GetRevision());
@@ -2006,6 +2005,8 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
 	dlg.m_bUseLogWidth = false;
 	if (dlg.DoModal() == IDOK)
 	{
+		if(sOldValue.CompareNoCase(dlg.m_sInputText))	
+		{
 		dlg.m_sInputText.Replace(_T("\r"), _T(""));
 
 		LogCache::CCachedLogInfo* toUpdate 
@@ -2051,6 +2052,7 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
 			progDlg.SetProgress64(i, logs.size());
 		}
 		progDlg.Stop();
+		}
 	}
 	theApp.DoWaitCursor(-1);
 	EnableOKButton();
@@ -2066,9 +2068,8 @@ void CLogDlg::EditLogMessage(int index)
 	if (SVN::PathIsURL(m_path))
 		url = m_path.GetSVNPathString();
 	else
-	{
 		url = GetURLFromPath(m_path);
-	}
+
 	name = SVN_PROP_REVISION_LOG;
 
 	PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(index);
@@ -2084,6 +2085,8 @@ void CLogDlg::EditLogMessage(int index)
 	dlg.m_bUseLogWidth = true;
 	if (dlg.DoModal() == IDOK)
 	{
+		if(sOldValue.CompareNoCase(dlg.m_sInputText))	
+		{
 		dlg.m_sInputText.Replace(_T("\r"), _T(""));
 		if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), pLogEntry->GetRevision()))
 		{
@@ -2118,6 +2121,7 @@ void CLogDlg::EditLogMessage(int index)
                 toUpdate->Save();
             }
         }
+		}
 	}
 	theApp.DoWaitCursor(-1);
 	EnableOKButton();
