@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-17 21:08+0100\n"
+"PO-Revision-Date: 2009-12-24 22:31+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1861,6 +1861,10 @@ msgstr "Дозволи да различита спремишта употреб
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Дозволи да различита спремишта употребљавају исти УУИД, нпр. копирана спремишта"
+
+#. Resource IDs: (119)
+msgid "Already merged"
+msgstr "Већ стопљено"
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -4481,10 +4485,6 @@ msgstr "Групиши попис измена"
 #. Resource IDs: (1032)
 msgid "H&EAD Revision"
 msgstr "ГЛ&АВНА Ревизија"
-
-#. Resource IDs: (1229)
-msgid "H&ide unrelated changed paths"
-msgstr "С&акриј неповезане промењене путање"
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
@@ -7888,6 +7888,10 @@ msgstr "Прикажи дневни&к"
 msgid "Show oldest node at top"
 msgstr "Прикажи почевши од најстаријег чвора"
 
+#. Resource IDs: (1229)
+msgid "Show only a&ffected paths"
+msgstr "Прикажи само путање од утицај&а"
+
 #. Resource IDs: (2052)
 msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
 msgstr "Приказује само измењене делове имена путања. Замењује неизмењене елементе тачкама."
@@ -10913,17 +10917,3 @@ msgstr "да"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{БагТрек}"
-
-#~ msgid "Edit conflict"
-#~ msgstr "Уреди спорне разлике"
-#~ msgid "Unversioned"
-#~ msgstr "Одверзионисан"
-#~ msgid "From URL:"
-#~ msgstr "Из УРЛ-а:"
-#~ msgid ""
-#~ "The URL to check out refers to a file but this\n"
-#~ "working copy path is an existing directory."
-#~ msgstr ""
-#~ "УРЛ за преузимање означава фајл али овај\n"
-#~ "именик радне копије је постојећи именик."
-
