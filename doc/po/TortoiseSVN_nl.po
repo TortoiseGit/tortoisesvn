@@ -13,9 +13,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-22 16:23+0100\n"
-"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
+"POT-Creation-Date: 2009-11-16 07:38 +0000\n"
+"PO-Revision-Date: 2009-12-24 08:50+0100\n"
+"Last-Translator: Guus Raaphorst <GuusRaaphorst@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1390,7 +1390,7 @@ msgstr "Als je je Subversion archief beschikbaar wilt stellen aan anderen, dan w
 
 #. (para)
 msgid "When you install TortoiseSVN, it registers a new <literal>tsvn:</literal> protocol. When a TortoiseSVN user clicks on such a link, the checkout dialog will open automatically with the repository URL already filled in."
-msgstr "Bij de installatie van TortoiseSVN, registreert deze a nieuw protocol, <literal>tsvn:</literal>. Als een TortoiseSVN op zo'n link klikt, zal automatisch het Ophalen dialoogvenster geopend worden met de URL ingevuld."
+msgstr "Bij de installatie van TortoiseSVN, registreert deze een nieuw protocol, <literal>tsvn:</literal>. Als een TortoiseSVN gebruiker op zo'n link klikt, zal automatisch het Ophalen dialoogvenster geopend worden met de URL ingevuld."
 
 #. (programlisting)
 #, no-wrap
@@ -4427,7 +4427,7 @@ msgstr "Context menu van het bovenste deelvenster voor 2 geselecteerde revisies"
 
 #. (term)
 msgid "Compare revisions"
-msgstr "Verklaar revisies"
+msgstr "Vergelijk revisies"
 
 #. (para)
 msgid "Compare the two selected revisions using a visual difference tool. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN."
@@ -4866,7 +4866,7 @@ msgstr ""
 
 #. (para)
 msgid "One of the commonest requirements in project development is to see what has changed. You might want to look at the differences between two revisions of the same file, or the differences between two separate files. TortoiseSVN provides a built-in tool named <application>TortoiseMerge</application> for viewing differences of text files. For viewing differences of image files, TortoiseSVN also has a tool named <application>TortoiseIDiff</application>. Of course, you can use your own favourite diff program if you like."
-msgstr ""
+msgstr "Een van de meest voorkomende eisen in de ontwikkeling van projecten is om te kunnen zien wat er is veranderd. Je zou bijvoorbeeld de verschillen tussen twee herzieningen van hetzelfde bestand, of de verschillen tussen twee aparte bestanden willen bekijken. TortoiseSVN biedt een ingebouwd gereedschap genaamd <application>TortoiseMerge</application> om de verschillen tussen tekstbestanden te kunnen bekijken. Voor het vergelijken van afbeeldingen heeft TortoiseSVN ook een gereedschap genaamd <application>TortoiseIDiff</application>. Natuurlijk kun je hier ook je eigen favoriete programma voor gebruiken als je wilt."
 
 #. (title)
 msgid "File Differences"
@@ -4878,51 +4878,51 @@ msgstr "Lokale wijzigingen"
 
 #. (para)
 msgid "If you want to see what changes <emphasis>you</emphasis> have made in your working copy, just use the explorer context menu and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Als je wilt bekijken welke veranderingen <emphasis>jij</emphasis> gedaan hebt in je werkkopie, gebruik je simpelweg het context menu van de verkenner en selecteert <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verschil</guimenuitem></menuchoice>."
 
 #. (term)
 msgid "Difference to another branch/tag"
-msgstr ""
+msgstr "Verschil met een andere tak/label"
 
 #. (para)
 msgid "If you want to see what has changed on trunk (if you are working on a branch) or on a specific branch (if you are working on trunk), you can use the explorer context menu. Just hold down the <keycap>Shift</keycap> key while you right click on the file. Then select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with URL</guimenuitem></menuchoice>. In the following dialog, specify the URL in the repository with which you want to compare your local file to."
-msgstr ""
+msgstr "Als je wilt zien wat er veranderd is in de trunk (als je aan een tak werkt) of in een specifieke tak (als je werkt op de trunk), kun je gebruik maken van het context menu van de verkenner. Je houdt gewoon de <keycap>Shift</keycap>-toets ingedrukt terwijl je met de rechtermuisknop op het bestand klikt. Vervolgens selecteer je <menuchoice><guimenu> TortoiseSVN</guimenu><guimenuitem>Verschil met URL</guimenuitem></menuchoice>. In het dialoogvenster dat volgt, geef je de URL in het archief aan waarmee je het lokale bestand wilt vergelijken."
 
 #. (para)
 msgid "You can also use the repository browser and select two trees to diff, perhaps two tags, or a branch/tag and trunk. The context menu there allows you to compare them using <guimenuitem>Compare revisions</guimenuitem>. Read more in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr ""
+msgstr "Je kunt ook gebruik maken van de archief-verkenner. Selecteer hier twee bomen, twee labels, of een tak/label en de trunk om te vergelijken. Via het daar aanwezige contextmenu kun je ze vergelijken met <guimenuitem>Vergelijk revisies</guimenuitem>. Lees meer in <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "Difference from a previous revision"
-msgstr ""
+msgstr "Verschil met een vorige revisie"
 
 #. (para)
 msgid "If you want to see the difference between a particular revision and your working copy, use the Revision Log dialog, select the revision of interest, then select <guimenuitem>Compare with working copy</guimenuitem> from the context menu."
-msgstr ""
+msgstr "Als je het verschil wilt zien tussen een bepaalde revisie en je werkkopie, gebruik je het Logboek dialoogvenster, selecteer je de gewenste revisie, en kies je vervolgens <guimenuitem>Vergelijk met werkkopie</guimenuitem> uit het contextmenu."
 
 #. (para)
 msgid "If you want to see the difference between the last committed revision and your working copy, assuming that the working copy hasn't been modified, just right click on the file. Then select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with previous version</guimenuitem></menuchoice>. This will perform a diff between the revision before the last-commit-date (as recorded in your working copy) and the working BASE. This shows you the last change made to that file to bring it to the state you now see in your working copy. It will not show changes newer than your working copy."
-msgstr ""
+msgstr "Als je het verschil wilt zien tussen de laatst vastgelegde revisie en je werkkopie, ervan uitgaande dat de werkkopie niet is gewijzigd, klik je met de rechtermuisknop op het bestand. Vervolgens selecteer je <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vergelijk met vorige revisie</guimenuitem></menuchoice>. Dit zal een vergelijking uitvoeren tussen de revisie voor de laatste-vastleg-datum (zoals vastgelegd in je werkkopie) en de werkbasis. Deze toont je de laatste wijziging uitgevoerd op het bestand welke nodig is om deze in de staat te brengen welke je in je werkkopie ziet. Het zal geen wijzigingen tonen die nieuwer zijn dan je werkkopie."
 
 #. (term)
 msgid "Difference between two previous revisions"
-msgstr ""
+msgstr "Verschil tussen twee eerdere revisies"
 
 #. (para)
 msgid "If you want to see the difference between two revisions which are already committed, use the Revision Log dialog and select the two revisions you want to compare (using the usual <keycap>Ctrl</keycap>-modifier). Then select <guimenuitem>Compare revisions</guimenuitem> from the context menu."
-msgstr ""
+msgstr "Als je het verschil wil zien tussen twee revisies die al vastgelegd zijn, gebruik dan het Revisie Log dialoog en selecteer de twee revisies die je wil vergelijken (met behulp van de gebruikelijke <keycap>Ctrl</keycap>-wijziger). Selecteer daarna <guimenuitem>Vergelijk revisies</guimenuitem> uit het contextmenu."
 
 #. (para)
 msgid "If you did this from the revision log for a folder, a Compare Revisions dialog appears, showing a list of changed files in that folder. Read more in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr ""
+msgstr "Als je dit gedaan hebt vanuit het revisie log van een map, verschijnt er een Vergelijk Revisies dialoog welke een lijst toont met gewijzigde bestanden uit deze map. Lees meer in  <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "All changes made in a commit"
-msgstr ""
+msgstr "Alle wijzigingen die zijn gemaakt in een vastlegging"
 
 #. (para)
 msgid "If you want to see the changes made to all files in a particular revision in one view, you can use Unified-Diff output (GNU patch format). This shows only the differences with a few lines of context. It is harder to read than a visual file compare, but will show all the changes together. From the Revision Log dialog select the revision of interest, then select <guimenuitem>Show Differences as Unified-Diff</guimenuitem> from the context menu."
-msgstr ""
+msgstr "Wanneer je de wijzigingen van alle bestanden in een bepaalde revisie in één weergave wil zien, kun je hier de Unified-Diff uitvoer (GNU patch formaat) voor gebruiken. Deze toont alleen de wijzigingen met een aantal regels voor de context. Het is moeilijker te lezen als een visuele vergelijking, maar het toont alle wijzigingen bij elkaar. Selecteer vanuit het revisie log dialoog de gewenste revisie en selecteer dan <guimenuitem>Toon verschillen als unified diff</guimenuitem> uit the contextmenu."
 
 #. (term)
 msgid "Difference between files"
@@ -4930,23 +4930,23 @@ msgstr "Verschillen tussen bestanden"
 
 #. (para)
 msgid "If you want to see the differences between two different files, you can do that directly in explorer by selecting both files (using the usual <keycap>Ctrl</keycap>-modifier). Then from the explorer context menu select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Als je de verschillen tussen twee verschillende bestanden wil bekijken, dan kun je dat rechtstreeks via de verkenner doen door beide bestanden te selecteren (gebruik makend van de standaard <keycap>Ctrl</keycap>-wijziger). Selecteer daarna uit het verkenner contextmenu <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verschil</guimenuitem></menuchoice>."
 
 #. (term)
 msgid "Difference between WC file/folder and a URL"
-msgstr ""
+msgstr "Verschil tussen een werkkopie bestand/map en een URL"
 
 #. (para)
 msgid "If you want to see the differences between a file in your working copy, and a file in any Subversion repository, you can do that directly in explorer by selecting the file then holding down the <keycap>Shift</keycap> key whilst right clicking to obtain the context menu. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with URL</guimenuitem></menuchoice>. You can do the same thing for a working copy folder. TortoiseMerge shows these differences in the same way as it shows a patch file - a list of changed files which you can view one at a time."
-msgstr ""
+msgstr "Als je de verschillen wil zien tussen een bestand in je werkkopie en een bestand in een willekeurig Subversion archief, kun je dat rechtstreeks vanuit de verkenner doen door het bestand te selecteren en terwijl je de <keycap>Shift</keycap> ingedrukt houdt met de rechter muisknop erop klikt zodat het contextmenu verschijnt. Selecteer dan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verschil met URL</guimenuitem></menuchoice>. Je kan hetzelfde doen met een folder uit je werkkopie.TortoiseMerge toont deze verschillen op dezelfde manier als patch bestanden worden getoond - een lijst met gewijzigde bestanden die je in één keer kan zien."
 
 #. (term)
 msgid "Difference with blame information"
-msgstr ""
+msgstr "Verschil met verklaringen"
 
 #. (para)
 msgid "If you want to see not only the differences but also the author, revision and date that changes were made, you can combine the diff and blame reports from within the revision log dialog. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr ""
+msgstr "Als je niet alleen de verschillen, maar ook de auteur, de revisie en de wijzigingen die gemaakt zijn wil zien, kun je de verschil en verklaar rapporten vanuit het revisie log dialoog combineren. Ga voor meer informatie naar <xref linkend=\"tsvn-dug-blame-diffs\"/>."
 
 #. (term)
 msgid "Difference between folders"
@@ -4954,43 +4954,43 @@ msgstr "Verschillen tussen mappen"
 
 #. (para)
 msgid "The built-in tools supplied with TortoiseSVN do not support viewing differences between directory hierarchies. But if you have an external tool which does support that feature, you can use that instead. In <xref linkend=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have used."
-msgstr ""
+msgstr "Met de ingebouwde gereedschappen die met TortoiseSVN worden meegeleverd is het niet mogelijk om verschillen tussen map hiërarchieën te bekijken, maar als je een extern gereedschap hebt welke dat ondersteund, kun je deze hier ook voor gebruiken. In <xref linkend=\"tsvn-dug-diff-tools\"/> worden een aantal gereedschappen beschreven die wij hebben gebruikt."
 
 #. (para)
 msgid "If you have configured a third party diff tool, you can use <keycap>Shift</keycap> when selecting the Diff command to use the alternate tool. Read <xref linkend=\"tsvn-dug-settings-progs\"/> to find out about configuring other diff tools."
-msgstr ""
+msgstr "Als je een verschil gereedschap van een externe partij hebt geconfigureerd, kun je <keycap>Shift</keycap> gebruiken bij het selecteren van het Verschil commando om het alternatieve gereedschap te gebruiken. Lees <xref linkend=\"tsvn-dug-settings-progs\"/> voor meer informatie over het configureren van alternatieve verschil gereedschappen."
 
 #. (title)
 msgid "Line-end and Whitespace Options"
-msgstr ""
+msgstr "Opties voor regeleinden, spaties en witregels "
 
 #. (para)
 msgid "Sometimes in the life of a project you might change the line endings from <literal>CRLF</literal> to <literal>LF</literal>, or you may change the indentation of a section. Unfortunately this will mark a large number of lines as changed, even though there is no change to the meaning of the code. The options here will help to manage these changes when it comes to comparing and applying differences. You will see these settings in the <guilabel>Merge</guilabel> and <guilabel>Blame</guilabel> dialogs, as well as in the settings for TortoiseMerge."
-msgstr ""
+msgstr "Gedurende de loop van een project, zou je kunnen beslissen om de regeleinden te veranderen van <literal>CRLF</literal> naar <literal>LF</literal>, of je zou het inspringen van een sectie kunnen aanpassen. Dit zal jammer genoeg een groot aantal bestanden markeren als gewijzigd, ook al is er geen verandering in de betekenis van de code. De opties hieronder helpen je om deze wijzigingen te hanteren tijdens het vergelijken en toepassen van verschillen. Je komt deze instellingen tegen in de <guilabel>Samenvoeg</guilabel> en <guilabel>Verklaar</guilabel> dialogen, maar ook bij de instellingen van TortoiseMerge."
 
 #. (para)
 msgid "<guilabel>Ignore line endings</guilabel> excludes changes which are due solely to difference in line-end style."
-msgstr ""
+msgstr "<guilabel>Negeer regeleinden</guilabel> negeert wijzigingen die uitsluitend veroorzaakt worden door een verschil in stijl van regeleinden."
 
 #. (para)
 msgid "<guilabel>Compare whitespaces</guilabel> includes all changes in indentation and inline whitespace as added/removed lines."
-msgstr ""
+msgstr "<guilabel>Vergelijk witregels</guilabel> toont alle wijzigingen in inspringen en witregels als toegevoegde/verwijderde regels."
 
 #. (para)
 msgid "<guilabel>Ignore whitespace changes</guilabel> excludes changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
+msgstr "<guilabel>Negeer wijzigingen in spaties en lege regels</guilabel> sluit de wijzigingen uit die louter door een verandering van het aantal of het type spatie/lege regel worden veroorzaakt, zoals bijvoorbeeld een verandering van de inspringing, of het veranderen van tabs naar spaties. Toevoegen van een spatie of lege regel waar er geen was, of volledig verwijderen van een spatie of lege regel wordt nog steeds getoond als een wijziging."
 
 #. (para)
 msgid "<guilabel>Ignore all whitespaces</guilabel> excludes all whitespace-only changes."
-msgstr ""
+msgstr "<guilabel>Alle spaties en witregels negeren</guilabel> sluit alles uit waar alleen wijzigingen aan spaties en/of witregels zijn gemaakt."
 
 #. (para)
 msgid "Naturally, any line with changed content is always included in the diff."
-msgstr ""
+msgstr "Natuurlijk wordt elke regel met gewijzigde inhoud altijd aan het verschil toegevoegd."
 
 #. (title)
 msgid "Comparing Folders"
-msgstr ""
+msgstr "Vergelijken van mappen"
 
 #. (primary)
 msgid "compare revisions"
@@ -5006,39 +5006,39 @@ msgstr "De Vergelijk Revisies Dialoog"
 
 #. (para)
 msgid "<placeholder-1/> When you select two trees within the repository browser, or when you select two revisions of a folder in the log dialog, you can <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare revisions</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "<placeholder-1/>Als je twee bomen selecteert in de archief verkenner, of wanneer je twee revisies van een map selecteert in het log dialoog, kun je <menuchoice><guimenu>Contextmenu</guimenu><guimenuitem>Vergelijk revisies</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "This dialog shows a list of all files which have changed and allows you to compare or blame them individually using context menu."
-msgstr ""
+msgstr "Deze dialoog toont een lijst met alle bestanden die zijn veranderd en staat je toen om deze individueel te vergelijken of te verklaren via het context menu."
 
 #. (para)
 msgid "You can export a <emphasis>change tree</emphasis>, which is useful if you need to send someone else your project tree structure, but containing only the files which have changed. This operation works on the selected files only, so you need to select the files of interest - usually that means all of them - and then <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Export selection to...</guimenuitem></menuchoice>. You will be prompted for a location to save the change tree."
-msgstr ""
+msgstr "Je kan een <emphasis>wijzigings boom</emphasis> exporteren, welke handig kan zijn als je iemand anders de boomstructuur van je project wil sturen, maar daar alleen de gewijzigde bestanden in wilt hebben. Deze operatie werkt alleen op de geselecteerde bestanden, dus dien je de gewenste bestanden - meestal betekent dit alle bestanden - te selecteren en daarna <menuchoice><guimenu>Contextmenu</guimenu><guimenuitem>Exporteer selectie naar...</guimenuitem></menuchoice>. Je krijgt de vraag op welke locatie je deze wijzigingsboom wilt opslaan."
 
 #. (para)
 msgid "You can also export the <emphasis>list</emphasis> of changed files to a text file using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Save list of selected files to...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Je kan de <emphasis>lijst</emphasis> met gewijzigde bestanden ook exporteren naar een tekstbestand via <menuchoice><guimenu>Contextmenu</guimenu><guimenuitem> Sla lijst van geselecteerde bestanden op in...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "If you want to export the list of files <emphasis>and</emphasis> the actions (modified, added, deleted) as well, you can do that using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Copy selection to clipboard</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Als je de lijst met bestanden <emphasis>en</emphasis> de bijbehorende acties (gewijzigd, toegevoegd, verwijderd) wil exporteren, kun je dat doen via <menuchoice><guimenu>Contextmenu</guimenu><guimenuitem>Naar klembord kopiëren</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "The button at the top allows you to change the direction of comparison. You can show the changes need to get from A to B, or if you prefer, from B to A."
-msgstr ""
+msgstr "Met de knop bovenaan kun je de richting waarin vergeleken wordt aanpassen. Je kan de wijzigingen zien die nodig zijn om van A naar B te komen, maar als je dat liever hebt, van B naar A."
 
 #. (para)
 msgid "The buttons with the revision numbers on can be used to change to a different revision range. When you change the range, the list of items which differ between the two revisions will be updated automatically."
-msgstr ""
+msgstr "De knoppen met de revisie nummers erop kunnen gebruikt worden om het revisie bereik te veranderen. Als je dit bereik verandert, zal de lijst met items die verschillen tussen deze twee revisies automatisch ververst worden."
 
 #. (para)
 msgid "If the list of filenames is very long, you can use the search box to reduce the list to filenames containing specific text. Note that a simple text search is used, so if you want to restrict the list to C source files you should enter <filename>.c</filename> rather than <filename>*.c</filename>."
-msgstr ""
+msgstr "Als de lijst met bestandsnamen erg lang is, kun je het zoekvak  gebruiken om de lijst te reduceren tot bestandsnamen die een specifieke tekst bevatten. Bedenk hierbij dat een simpele manier van zoeken op tekst wordt gebruikt, dus als je de lijst wil beperken tot C bron bestanden, zul je moeten zoeken op <filename>.c</filename> in plaats van <filename>*.c</filename>.\""
 
 #. (title)
 msgid "Diffing Images Using TortoiseIDiff"
-msgstr ""
+msgstr "Vergelijk afbeeldingen met TortoiseIDiff "
 
 #. (primary)
 msgid "image diff"
@@ -5046,11 +5046,11 @@ msgstr "verschil tussen beelden"
 
 #. (primary)
 msgid "TortoiseIDiff"
-msgstr ""
+msgstr "TortoiseIDiff"
 
 #. (para)
 msgid "There are many tools available for diffing text files, including our own TortoiseMerge, but we often find ourselves wanting to see how an image file has changed too. That's why we created TortoiseIDiff."
-msgstr ""
+msgstr "Er zijn veel gereedschappen beschikbaar waarmee verschillen tussen tekst bestanden bekeken kunnen worden, inclusief onze eigen TortoiseMerge, maar vaak willen we ook kunnen zien hoe een afbeelding veranderd is. Daarom hebben we TortoiseIDiff gemaakt."
 
 #. (title)
 msgid "The image difference viewer"
@@ -5058,35 +5058,35 @@ msgstr "De beeld-verschil viewer"
 
 #. (para)
 msgid "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> for any of the common image file formats will start TortoiseIDiff to show image differences. By default the images are displayed side-by-side but you can use the View menu or toolbar to switch to a top-bottom view instead, or if you prefer, you can overlay the images and pretend you are using a lightbox."
-msgstr ""
+msgstr "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verschil</guimenuitem></menuchoice> uitvoeren op één van de meest voorkomende formaten voor afbeeldingen zal TortoiseIDiff starten om de verschillen tussen afbeeldingen te tonen. Standaard zullen de afbeeldingen naast elkaar worden getoond, maar je kan via het View menu of de werkbalk instellen dat ze boven elkaar getoond worden. Als je dat wilt, kun je ze zelfs over elkaar leggen en doen of je een lightbox gebruikt."
 
 #. (para)
 msgid "Naturally you can also zoom in and out and pan around the image. You can also pan the image simply by left-dragging it. If you select the <guilabel>Link images together</guilabel> option, then the pan controls (scrollbars, mousewheel) on both images are linked."
-msgstr ""
+msgstr "Natuurlijk kan je ook in en uit zoomen en de afbeelding verplaatsen. De afbeelding kan ook eenvoudig verplaatst worden door te slepen met de linker muisknop. Als je de optie <guilabel>Koppel afbeeldingsposities</guilabel> selecteert, dan worden de verplaats regelaars (schuifbalken, muiswiel) voor beide afbeeldingen gekoppeld."
 
 #. (para)
 msgid "An image info box shows details about the image file, such as the size in pixels, resolution and colour depth. If this box gets in the way, use <menuchoice><guimenu>View</guimenu><guimenuitem>Image Info</guimenuitem></menuchoice> to hide it. You can get the same information in a tooltip if you hover the mouse over the image title bar."
-msgstr ""
+msgstr "Een afbeeldingsinformatie scherm toont details over de afbeelding, zoals de grootte in pixels, resolutie en kleurdiepte. Als dit scherm in de weg zit, gebruik dan <menuchoice><guimenu>Beeld</guimenu><guimenuitem>Afbeelding Info</guimenuitem></menuchoice> om het te verbergen. Je krijgt dezelfde informatie in een tooltip wanneer je de muis over de titel van de afbeelding laat zweven."
 
 #. (para)
 msgid "When the images are overlaid, the relative intensity of the images (alpha blend) is controlled by a slider control at the left side. You can click anywhere in the slider to set the blend directly, or you can drag the slider to change the blend interactively. <keycap>Ctrl+Shift</keycap>-<action>Wheel</action> to change the blend."
-msgstr ""
+msgstr "Als de afbeeldingen over elkaar zijn gelegd, wordt de intensiteit van de afbeeldingen (alpha mix) bestuurd met de schuifbalk aan de linkerkant. Je kan op een willekeurige plek op de schuifbalk klikken om de mix direct te veranderen. Ook kan je de balk verschuiven om de mix interactief te veranderen."
 
 #. (para)
 msgid "The button above the slider toggles between 0% and 100% blends, and if you double click the button, the blend toggles automatically every second until you click the button again. This can be useful when looking for multiple small changes."
-msgstr ""
+msgstr "De knop boven de schuifbalk schakelt tussen 0% mix en 100% mix. Als je dubbel klikt op de knop, zal de mix elke seconde automatisch schakelen totdat je nog een keer op de knop klikt. Dit kan handig zijn als je verschillende kleine wijzigingen zoekt."
 
 #. (para)
 msgid "Sometimes you want to see a difference rather than a blend. You might have the image files for two revisions of a printed circuit board and want to see which tracks have changed. If you disable alpha blend mode, the difference will be shown as an <emphasis>XOR</emphasis> of the pixel colour values. Unchanged areas will be plain white and changes will be coloured."
-msgstr ""
+msgstr "Soms wil je een verschil zien in plaats van een mix. Je zou bijvoorbeeld van twee herzieningen van een afbeelding voor een printplaat willen zien welke paden zijn gewijzigd. Als je de alpha-mix modus uitzet, zal het verschil getoond worden als een <emphasis>XOR</ emphasis> van de kleur van de pixel waarden. Ongewijzigde gebieden zullen getoond worden als wit en veranderingen zullen worden gekleurd."
 
 #. (title)
 msgid "External Diff/Merge Tools"
-msgstr ""
+msgstr "Externe Verschil/Samenvoeg gereedschappen"
 
 #. (primary)
 msgid "diff tools"
-msgstr ""
+msgstr "verschil gereedschappen"
 
 #. (primary)
 msgid "merge tools"
@@ -5094,7 +5094,7 @@ msgstr ""
 
 #. (para)
 msgid "If the tools we provide don't do what you need, try one of the many open-source or commercial programs available. Everyone has their own favourites, and this list is by no means complete, but here are a few that you might consider:"
-msgstr ""
+msgstr "Als de gereedschappen die wij aanbieden niet doen wat je nodig hebt, kun je één van de vele beschikbare open-source of commerciële programma’s gebruiken. Iedereen heeft zo zijn eigen favoriet, en deze lijst is verre van compleet, maar hier zijn er een aantal die je zou kunnen overwegen: "
 
 #. (term)
 msgid "WinMerge"
@@ -5102,7 +5102,7 @@ msgstr "WinMerge"
 
 #. (para)
 msgid "<ulink url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink> is a great open-source diff tool which can also handle directories."
-msgstr ""
+msgstr "<ulink url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink> is een handig open-source verschil gereedschap welke ook mappen kan vergelijken."
 
 #. (term)
 msgid "Perforce Merge"
@@ -5110,7 +5110,7 @@ msgstr "Perforce Merge"
 
 #. (para)
 msgid "Perforce is a commercial RCS, but you can download the diff/merge tool for free. Get more information from <ulink url=\"http://www.perforce.com/perforce/products/merge.html\"><citetitle>Perforce</citetitle></ulink>."
-msgstr ""
+msgstr "Perforce is een commercieel RCS, maar je kan het verschil/samenvoeg gereedschap gratis gebruiken. Ga voor meer informatie naar <ulink url=\"http://www.perforce.com/perforce/products/merge.html\"><citetitle>Perforce</citetitle></ulink>."
 
 #. (term)
 msgid "KDiff3"
@@ -5118,7 +5118,7 @@ msgstr "KDiff3"
 
 #. (para)
 msgid "KDiff3 is a free diff tool which can also handle directories. You can download it from <ulink url=\"http://kdiff3.sf.net/\"><citetitle>here</citetitle></ulink>."
-msgstr ""
+msgstr "KDiff3 is een gratis verschil gereedschap welke ook mappen kan vergelijken. Je kan het <ulink url=\"http://kdiff3.sf.net/\"><citetitle>hier</citetitle></ulink> downloaden."
 
 #. (term)
 msgid "ExamDiff"
@@ -5126,7 +5126,7 @@ msgstr "ExamDiff"
 
 #. (para)
 msgid "ExamDiff Standard is freeware. It can handle files but not directories. ExamDiff Pro is shareware and adds a number of goodies including directory diff and editing capability. In both flavours, version 3.2 and above can handle unicode. You can download them from <ulink url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink>."
-msgstr ""
+msgstr "ExamDiff Standard is freeware. Het kan omgaan met bestanden, maar niet met mappen. ExamDiff Pro is shareware en voegt een aantal ‘goodies’ toe waaronder het vergelijken van mappen en een bewerken functionaliteit. Beide smaken, versie 3.2 en hoger, kunnen omgaan met unicode. Je kan ze downloaden van <ulink url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink>."
 
 #. (term)
 msgid "Beyond Compare"
@@ -5134,7 +5134,7 @@ msgstr "Beyond Compare"
 
 #. (para)
 msgid "Similar to ExamDiff Pro, this is an excellent shareware diff tool which can handle directory diffs and unicode. Download it from <ulink url=\"http://www.scootersoftware.com/\"><citetitle>Scooter Software</citetitle></ulink>."
-msgstr ""
+msgstr "Dit is een uitstekend shareware diff gereedschap, vergelijkbaar met ExamDiff Pro, dat kan omgaan met verschillen in mappen en unicode. Download het van <ulink url=\"http://www.scootersoftware.com/\"><citetitle>Scooter Software</citetitle></ulink>."
 
 #. (term)
 msgid "Araxis Merge"
@@ -5142,7 +5142,7 @@ msgstr "Araxis Merge"
 
 #. (para)
 msgid "Araxis Merge is a useful commercial tool for diff and merging both files and folders. It does three-way comparison in merges and has synchronization links to use if you've changed the order of functions. Download it from <ulink url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
-msgstr ""
+msgstr "Araxis Merge is een handig commercieel gereedschap voor het vergelijken en samenvoegen van zowel bestanden als mappen. Het voert een drie-weg vergelijking uit bij het samenvoegen en heeft synchronisatie links die gebruikt kunnen worden als je de volgorde van functies hebt veranderd. Download het van <ulink url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
 
 #. (term)
 msgid "SciTE"
@@ -5150,7 +5150,7 @@ msgstr "SciTE"
 
 #. (para)
 msgid "This text editor includes syntax colouring for unified diffs, making them much easier to read. Download it from <ulink url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>Scintilla</citetitle></ulink>."
-msgstr ""
+msgstr "Deze tekstverwerker bevat syntax inkleuring voor unified diffs, waardoor ze veel makkelijker te lezen zijn. Download het programma via <ulink url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>Scintilla</citetitle></ulink>."
 
 #. (term)
 msgid "Notepad2"
@@ -5158,11 +5158,11 @@ msgstr "Notepad2"
 
 #. (para)
 msgid "Notepad2 is designed as a replacement for the standard Windows Notepad program, and is based on the Scintilla open-source edit control. As well as being good for viewing unified diffs, it is much better than the Windows notepad for most jobs. Download it for free <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>here</citetitle></ulink>."
-msgstr ""
+msgstr "Notepad2 is ontworpen als alternatief voor het standaard Windows programma Kladblok en is gebaseerd op het Scintilla open-source edit component. Het programma is niet alleen goed te gebruiken voor het uitvoeren van unified diffs, maar is in veel gevallen ook veel beter dan het Windows Kladblok. Download <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>hier</citetitle></ulink> het gratis programma."
 
 #. (para)
 msgid "Read <xref linkend=\"tsvn-dug-settings-progs\"/> for information on how to set up TortoiseSVN to use these tools."
-msgstr ""
+msgstr "Lees <xref linkend=\"tsvn-dug-settings-progs\"/> voor informatie over het gebruiken van deze gereedschappen binnen TortoiseSVN.\""
 
 #. (title)
 msgid "Adding New Files And Directories"
