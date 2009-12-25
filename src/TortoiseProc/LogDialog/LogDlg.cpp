@@ -3892,6 +3892,22 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				}
 				if (bGotSavePath)
 				{
+					svn_revnum_t	minrev;
+					svn_revnum_t	maxrev;
+					bool			bswitched;
+					bool			bmodified;
+					bool			bSparse;
+
+					if (GetWCRevisionStatus(CTSVNPath(path), true, minrev, maxrev, bswitched, bmodified, bSparse))
+					{
+						if (bmodified)
+						{
+							if (CMessageBox::Show(this->m_hWnd, IDS_MERGE_WCDIRTYASK, IDS_APPNAME, MB_YESNO | MB_ICONWARNING) != IDYES)
+							{
+								break;
+							}
+						}
+					}
 					CSVNProgressDlg dlg;
 					dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
 					dlg.SetPathList(CTSVNPathList(CTSVNPath(path)));

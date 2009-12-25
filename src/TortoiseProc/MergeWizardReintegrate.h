@@ -52,6 +52,7 @@ protected:
 	afx_msg void		OnBnClickedBrowse();
 	afx_msg void		OnBnClickedShowlogwc();
 	afx_msg void		OnCbnEditchangeUrlcombo();
+	afx_msg LRESULT		OnWCStatus(WPARAM wParam, LPARAM lParam);
 
 	DECLARE_MESSAGE_MAP()
 

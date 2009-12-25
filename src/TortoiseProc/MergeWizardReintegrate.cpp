@@ -62,6 +62,7 @@ void CMergeWizardReintegrate::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CMergeWizardReintegrate, CMergeWizardBasePage)
+	ON_MESSAGE(WM_TSVN_MAXREVFOUND, &CMergeWizardReintegrate::OnWCStatus)
 	ON_BN_CLICKED(IDC_SHOWMERGELOG, &CMergeWizardReintegrate::OnBnClickedShowmergelog)
 	ON_BN_CLICKED(IDC_BROWSE, &CMergeWizardReintegrate::OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_SHOWLOGWC, &CMergeWizardReintegrate::OnBnClickedShowlogwc)
@@ -95,6 +96,8 @@ BOOL CMergeWizardReintegrate::OnInitDialog()
 	AddAnchor(IDC_WCEDIT, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_SHOWLOGWC, TOP_RIGHT);
 
+	StartWCCheckThread(((CMergeWizard*)GetParent())->wcPath);
+
 	return TRUE;
 }
 
@@ -117,6 +120,8 @@ BOOL CMergeWizardReintegrate::CheckData(bool bShowErrors /* = true */)
 
 LRESULT CMergeWizardReintegrate::OnWizardNext()
 {
+	StopWCCheckThread();
+
 	if (!CheckData(true))
 		return -1;
 
@@ -194,4 +199,19 @@ void CMergeWizardReintegrate::OnBnClickedShowlogwc()
 void CMergeWizardReintegrate::OnCbnEditchangeUrlcombo()
 {
 	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
+}
+
+LPARAM CMergeWizardReintegrate::OnWCStatus(WPARAM wParam, LPARAM /*lParam*/)
+{
+	if (wParam)
+	{
+		CString text(MAKEINTRESOURCE(IDS_MERGE_WCDIRTY));
+		EDITBALLOONTIP bt;
+		bt.cbStruct = sizeof(bt);
+		bt.pszText  = text;
+		bt.pszTitle = NULL;
+		bt.ttiIcon = TTI_WARNING;
+		SendDlgItemMessage(IDC_WCEDIT, EM_SHOWBALLOONTIP, 0, (LPARAM)&bt);
+	}
+	return 0;
 }

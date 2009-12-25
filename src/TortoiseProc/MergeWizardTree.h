@@ -56,6 +56,7 @@ protected:
 	afx_msg LRESULT		OnRevSelected(WPARAM wParam, LPARAM lParam);
 	afx_msg void		OnCbnEditchangeUrlcombo();
 	afx_msg void		OnCbnEditchangeUrlcombo2();
+	afx_msg LRESULT		OnWCStatus(WPARAM wParam, LPARAM lParam);
 
 	BOOL				CheckData(bool bShowErrors = true);
 	void				SetStartRevision(const SVNRev& rev);

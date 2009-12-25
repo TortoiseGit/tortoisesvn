@@ -62,6 +62,7 @@ void CMergeWizardRevRange::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CMergeWizardRevRange, CMergeWizardBasePage)
+	ON_MESSAGE(WM_TSVN_MAXREVFOUND, &CMergeWizardRevRange::OnWCStatus)
 	ON_REGISTERED_MESSAGE(WM_REVLIST, OnRevSelected)
 	ON_REGISTERED_MESSAGE(WM_REVLISTONERANGE, OnRevSelectedOneRange)
 	ON_BN_CLICKED(IDC_SELLOG, &CMergeWizardRevRange::OnBnClickedShowlog)
@@ -77,6 +78,8 @@ LRESULT CMergeWizardRevRange::OnWizardBack()
 
 LRESULT CMergeWizardRevRange::OnWizardNext()
 {
+	StopWCCheckThread();
+
 	UpdateData();
 	m_URLCombo.SaveHistory();
 	((CMergeWizard*)GetParent())->URL1 = m_URLCombo.GetString();
@@ -145,6 +148,8 @@ BOOL CMergeWizardRevRange::OnInitDialog()
 	AddAnchor(IDC_MERGEREVRANGEWCGROUP, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_WCEDIT, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_SHOWLOGWC, TOP_RIGHT);
+
+	StartWCCheckThread(((CMergeWizard*)GetParent())->wcPath);
 
 	return TRUE;
 }
@@ -247,4 +252,19 @@ void CMergeWizardRevRange::OnBnClickedShowlogwc()
 	m_pLogDlg2->SetMergePath(wcPath);
 	m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
 	m_pLogDlg2->ShowWindow(SW_SHOW);
+}
+
+LPARAM CMergeWizardRevRange::OnWCStatus(WPARAM wParam, LPARAM /*lParam*/)
+{
+	if (wParam)
+	{
+		CString text(MAKEINTRESOURCE(IDS_MERGE_WCDIRTY));
+		EDITBALLOONTIP bt;
+		bt.cbStruct = sizeof(bt);
+		bt.pszText  = text;
+		bt.pszTitle = NULL;
+		bt.ttiIcon = TTI_WARNING;
+		SendDlgItemMessage(IDC_WCEDIT, EM_SHOWBALLOONTIP, 0, (LPARAM)&bt);
+	}
+	return 0;
 }
