@@ -934,7 +934,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	if (g_SVNAdminDir.IsAdminDirPath(folder_.c_str()))
 		return S_OK;
 
-	if (uFlags & CMF_EXTENDEDVERBS)
+	if ((uFlags & CMF_EXTENDEDVERBS)||(g_ShellCache.AlwaysExtended()))
 		itemStates |= ITEMIS_EXTENDED;
 
 	const BOOL bShortcut = !!(uFlags & CMF_VERBSONLY);

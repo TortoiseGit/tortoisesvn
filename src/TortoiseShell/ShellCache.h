@@ -66,6 +66,7 @@ public:
 		showignoredoverlay = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShowIgnoredOverlay"), TRUE);
 		getlocktop = CRegStdDWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
 		excludedasnormal = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShowExcludedAsNormal"), TRUE);
+		alwaysextended = CRegStdDWORD(_T("Software\\TortoiseSVN\\AlwaysExtendedMenu"), FALSE);
 		cachetypeticker = GetTickCount();
 		recursiveticker = cachetypeticker;
 		folderoverlayticker = cachetypeticker;
@@ -85,6 +86,7 @@ public:
 		columnseverywhereticker = cachetypeticker;
 		getlocktopticker = cachetypeticker;
 		excludedasnormalticker = cachetypeticker;
+		alwaysextendedticker = cachetypeticker;
 		excontextticker = 0;
 		menulayoutlow = CRegStdDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 		menulayouthigh = CRegStdDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntrieshigh"), 0);
@@ -137,6 +139,7 @@ public:
 		showunversionedoverlay.read();
 		showignoredoverlay.read();
 		excludedasnormal.read();
+		alwaysextended.read();
 		menulayoutlow.read();
 		menulayouthigh.read();
 		langid.read();
@@ -275,6 +278,15 @@ public:
 			excludedasnormal.read();
 		}
 		return (excludedasnormal);
+	}
+	BOOL AlwaysExtended()
+	{
+		if ((GetTickCount() - alwaysextendedticker)>REGISTRYTIMEOUT)
+		{
+			alwaysextendedticker = GetTickCount();
+			alwaysextended.read();
+		}
+		return (alwaysextended);
 	}
 	BOOL IsRemote()
 	{
@@ -605,6 +617,7 @@ private:
 	CRegStdDWORD showunversionedoverlay;
 	CRegStdDWORD showignoredoverlay;
 	CRegStdDWORD excludedasnormal;
+	CRegStdDWORD alwaysextended;
 	CRegStdString excludelist;
 	CRegStdDWORD columnseverywhere;
 	tstring excludeliststr;
@@ -632,6 +645,7 @@ private:
 	DWORD showunversionedoverlayticker;
 	DWORD showignoredoverlayticker;
 	DWORD excludedasnormalticker;
+	DWORD alwaysextendedticker;
 	DWORD columnseverywhereticker;
 	UINT  drivetypecache[27];
 	TCHAR drivetypepathcache[MAX_PATH];		// MAX_PATH ok.
