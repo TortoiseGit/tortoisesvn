@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-21 09:39+0100\n"
+"PO-Revision-Date: 2009-12-26 17:30+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1181,6 +1181,10 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Arbeitskopie"
+
+#. Resource IDs: (1540)
+msgid "&file list control"
+msgstr "&Dateiliste"
 
 #. Resource IDs: (338)
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
@@ -8097,7 +8101,7 @@ msgid "Subversion server file:"
 msgstr "Subversion Serverdatei:"
 
 #. Resource IDs: (1232)
-msgid "Sw&itch working copy to new branch/tag"
+msgid "Swit&ch working copy to new branch/tag"
 msgstr "Die Arbeitskopie zum neuen Zweig/Marke &wechseln"
 
 #. Resource IDs: (229)
@@ -8650,6 +8654,18 @@ msgstr ""
 "%s\n"
 "ist nicht leer!\n"
 "Sind Sie sicher, dass Sie in diesen Ordner auschecken/exportieren wollen?"
+
+#. Resource IDs: (279)
+msgid "The target working copy has local modifications!"
+msgstr "Die Ziel Arbeitskopie enthält lokale Änderungen!"
+
+#. Resource IDs: (279)
+msgid ""
+"The target working copy has local modifications.\n"
+"Do you want to merge anyway?"
+msgstr ""
+"Die Ziel Arbeitskopie enthält lokale Änderungen\n"
+"Wollen Sie trotzdem zusammenführen?"
 
 #. Resource IDs: (195)
 msgid ""
@@ -10252,6 +10268,10 @@ msgstr "Gesperrt"
 #. Resource IDs: (65535)
 msgid "locked:"
 msgstr "gesperrt:"
+
+#. Resource IDs: (1539)
+msgid "log text &editor"
+msgstr "Log &Editor"
 
 #. Resource IDs: (65535)
 msgid "max revision: "
