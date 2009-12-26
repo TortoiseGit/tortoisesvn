@@ -39,6 +39,7 @@
 #include "SettingsRevisionGraph.h"
 #include "SettingsRevGraphColors.h"
 #include "TreePropSheet/TreePropSheet.h"
+#include "SettingsAdvanced.h"
 
 #include "AeroGlass.h"
 #include "AeroControls.h"
@@ -87,6 +88,7 @@ private:
 	CSetHooks *				m_pHooksPage;
 	CSetBugTraq *			m_pBugTraqPage;
 	CSettingsTBlame *		m_pTBlamePage;
+	CSettingsAdvanced *		m_pAdvanced;
 
 	HICON					m_hIcon;
 	CDwmApiImpl				m_Dwm;
