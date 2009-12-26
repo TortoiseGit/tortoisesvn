@@ -231,6 +231,11 @@ public:
 	static bool SetAccProperty(HWND hWnd, MSAAPROPID propid, const CString& text);
 	static bool SetAccProperty(HWND hWnd, MSAAPROPID propid, long value);
 
+	/**
+	 * finds the accelerator char from a dialog control
+	 */
+	static TCHAR FindAcceleratorKey(CWnd * pWnd, UINT id);
+
 private:
 	static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2);
 	static bool GetMimeType(const CTSVNPath& file, CString& mimetype);

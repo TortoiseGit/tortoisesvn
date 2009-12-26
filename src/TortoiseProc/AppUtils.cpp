@@ -1327,3 +1327,14 @@ bool CAppUtils::SetAccProperty(HWND hWnd, MSAAPROPID propid, long value)
 	return false;
 }
 
+TCHAR CAppUtils::FindAcceleratorKey(CWnd * pWnd, UINT id)
+{
+	CString controlText;
+	pWnd->GetDlgItem(id)->GetWindowText(controlText);
+	int ampersandPos = controlText.Find('&');
+	if (ampersandPos > 0)
+	{
+		return controlText[ampersandPos+1];
+	}
+	return 0;
+}
