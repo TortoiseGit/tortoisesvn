@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-22 01:34+0200\n"
+"PO-Revision-Date: 2009-12-26 22:57+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1245,6 +1245,10 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Työkopiosta"
+
+#. Resource IDs: (1540)
+msgid "&file list control"
+msgstr "&tiedostoluettelokontrolli"
 
 #. Resource IDs: (338)
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
@@ -8137,7 +8141,7 @@ msgid "Subversion server file:"
 msgstr "Subversion palvelintiedosto:"
 
 #. Resource IDs: (1232)
-msgid "Sw&itch working copy to new branch/tag"
+msgid "Swit&ch working copy to new branch/tag"
 msgstr "Vaihda työkopio osoittamaan &uuteen haaraan / merkittyyn versioon"
 
 #. Resource IDs: (229)
@@ -8687,6 +8691,18 @@ msgstr ""
 "%s\n"
 "ei ole tyhjä!\n"
 "Oletko varma, että haluat hakea/viedä tähän kansioon?"
+
+#. Resource IDs: (279)
+msgid "The target working copy has local modifications!"
+msgstr "Kohdetyökopiossa on paikallisia muutoksia!"
+
+#. Resource IDs: (279)
+msgid ""
+"The target working copy has local modifications.\n"
+"Do you want to merge anyway?"
+msgstr ""
+"Kohdetyökopiossa on paikallisia muutoksia.\n"
+"Haluatko jatkaa yhdistämistä?"
 
 #. Resource IDs: (195)
 msgid ""
@@ -10273,6 +10289,10 @@ msgstr "lukittu"
 #. Resource IDs: (65535)
 msgid "locked:"
 msgstr "lukittu:"
+
+#. Resource IDs: (1539)
+msgid "log text &editor"
+msgstr "lokiviestien &editori"
 
 #. Resource IDs: (65535)
 msgid "max revision: "
