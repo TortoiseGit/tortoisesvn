@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-24 22:31+0100\n"
+"PO-Revision-Date: 2009-12-27 20:12+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1376,6 +1376,10 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Радна копија"
+
+#. Resource IDs: (1540)
+msgid "&file list control"
+msgstr "&фајл листа контрола"
 
 #
 #. Resource IDs: (338)
@@ -8290,8 +8294,8 @@ msgid "Subversion server file:"
 msgstr "Субверзијин сервер фајл:"
 
 #. Resource IDs: (1232)
-msgid "Sw&itch working copy to new branch/tag"
-msgstr "Пре&баци радну копију на другу грану/ознаку"
+msgid "Swit&ch working copy to new branch/tag"
+msgstr "Преба&ци радну копију на нову грану/знак"
 
 #. Resource IDs: (229)
 #, c-format
@@ -8839,6 +8843,18 @@ msgstr ""
 "%s\n"
 "није празан!\n"
 "Јесте ли сигурни да желите преузимање/извоз баш у тај именик?"
+
+#. Resource IDs: (279)
+msgid "The target working copy has local modifications!"
+msgstr "Циљна радна копија има локалне измене!"
+
+#. Resource IDs: (279)
+msgid ""
+"The target working copy has local modifications.\n"
+"Do you want to merge anyway?"
+msgstr ""
+"Циљна радна копија има локалне измене!\n"
+"Желите ли да је ипак стопите?"
 
 #. Resource IDs: (195)
 msgid ""
@@ -10439,6 +10455,10 @@ msgstr "закључано"
 msgid "locked:"
 msgstr "закључано:"
 
+#. Resource IDs: (1539)
+msgid "log text &editor"
+msgstr "ур&еђивач текста дневника"
+
 #. Resource IDs: (65535)
 msgid "max revision: "
 msgstr "макс. ревизија:"
@@ -10917,3 +10937,4 @@ msgstr "да"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{БагТрек}"
+
