@@ -2583,7 +2583,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			}
 		}
 
-        if (   (selection.GetPathCount (0) == 1)
+        if (   (selection.GetPathCount (0) == 2)
             && (selection.GetFolderCount (0) != 1))
 		{
 			popup.AppendMenu(MF_SEPARATOR, NULL);
