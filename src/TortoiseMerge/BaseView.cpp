@@ -3146,6 +3146,35 @@ void CBaseView::PasteText()
 
 	sClipboardText.Replace(_T("\r\n"), _T("\r"));
 	sClipboardText.Replace('\n', '\r');
+
+	int pasteLines = 0;
+	int iStart = 0;
+	while ((iStart = sClipboardText.Find('\r', iStart))>=0)
+	{
+		pasteLines++;
+		iStart++;
+	}
+	CViewData leftState;
+	CViewData rightState;
+	int selStartPos = m_ptSelectionStartPos.y;
+	for (int i = selStartPos; i < (selStartPos + pasteLines); ++i)
+	{
+		if (m_pwndLeft)
+		{
+			if (!m_pwndLeft->HasCaret())
+			{
+				leftState.AddData(m_pwndLeft->m_pViewData->GetData(i));
+			}
+		}
+		if (m_pwndRight)
+		{
+			if (!m_pwndRight->HasCaret())
+			{
+				rightState.AddData(m_pwndRight->m_pViewData->GetData(i));
+			}
+		}
+	}
+
 	// We want to undo the insertion in a single step.
 	CUndo::GetInstance().BeginGrouping();
 	// use the easy way to insert text:
@@ -3154,6 +3183,35 @@ void CBaseView::PasteText()
 	{
 		OnChar(sClipboardText[i], 0, 0);
 	}
+
+	// restore the lines in the non-editing views
+	for (int i = selStartPos; i < (selStartPos + pasteLines); ++i)
+	{
+		if (m_pwndLeft)
+		{
+			if (!m_pwndLeft->HasCaret())
+			{
+				m_pwndLeft->m_pViewData->SetLine(i, leftState.GetLine(i-selStartPos));
+				m_pwndLeft->m_pViewData->SetLineEnding(i, leftState.GetLineEnding(i-selStartPos));
+				m_pwndLeft->m_pViewData->SetLineNumber(i, leftState.GetLineNumber(i-selStartPos));
+				m_pwndLeft->m_pViewData->SetState(i, leftState.GetState(i-selStartPos));
+				m_pwndLeft->m_pViewData->SetLineHideState(i, leftState.GetHideState(i-selStartPos));
+			}
+		}
+		if (m_pwndRight)
+		{
+			if (!m_pwndRight->HasCaret())
+			{
+				m_pwndRight->m_pViewData->SetLine(i, rightState.GetLine(i-m_ptSelectionStartPos.y));
+				m_pwndRight->m_pViewData->SetLineEnding(i, rightState.GetLineEnding(i-m_ptSelectionStartPos.y));
+				m_pwndRight->m_pViewData->SetLineNumber(i, rightState.GetLineNumber(i-m_ptSelectionStartPos.y));
+				m_pwndRight->m_pViewData->SetState(i, rightState.GetState(i-m_ptSelectionStartPos.y));
+				m_pwndRight->m_pViewData->SetLineHideState(i, rightState.GetHideState(i-m_ptSelectionStartPos.y));
+			}
+		}
+	}
+
+
 	CUndo::GetInstance().EndGrouping();
 }
 
