@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-12-13 09:34 +0000\n"
+"POT-Creation-Date: 2009-12-28 12:44 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -982,10 +982,6 @@ msgstr ""
 #.(primary)
 #.(primary)
 msgid "Create"
-msgstr ""
-
-#.(secondary)
-msgid "Command Line Client"
 msgstr ""
 
 #.(para)
@@ -5365,7 +5361,7 @@ msgstr ""
 
 #.(para)
 #.(para)
-msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
+msgid "If the external project is in the same repository, any changes you make there will be included in the commit list when you commit your main project."
 msgstr ""
 
 #.(para)
@@ -5924,7 +5920,7 @@ msgid "Merging does not always go smoothly. Sometimes there is a conflict, and i
 msgstr ""
 
 #.(para)
-msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. Either way, no attempt is made to merge the changes - you choose one or the other."
+msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. This only relates to conflicting changes. Changes that can be merged are still merged. Only for the conflicting part your choice is used."
 msgstr ""
 
 #.(para)

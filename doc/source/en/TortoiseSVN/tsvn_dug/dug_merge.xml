@@ -537,8 +537,9 @@
 						important, so you want to discard the version from the
 						repository and keep your local version. Or you might
 						discard your local changes in favour of the repository
-						version. Either way, no attempt is made to merge the
-						changes - you choose one or the other.
+						version. This only relates to conflicting changes. Changes
+						that can be merged are still merged. Only for the conflicting
+						part your choice is used.
 					</para>
 				</listitem>
 				<listitem>
