@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-23 15:37+0300\n"
+"PO-Revision-Date: 2009-12-28 14:22+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1176,6 +1176,10 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Робоча копія"
+
+#. Resource IDs: (1540)
+msgid "&file list control"
+msgstr "контроль списку &файлів"
 
 #. Resource IDs: (338)
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
@@ -8070,7 +8074,7 @@ msgid "Subversion server file:"
 msgstr "Серверний файл Subversion:"
 
 #. Resource IDs: (1232)
-msgid "Sw&itch working copy to new branch/tag"
+msgid "Swit&ch working copy to new branch/tag"
 msgstr "Переклю&чити робочу копію на нову гілку/зріз"
 
 #. Resource IDs: (229)
@@ -8620,6 +8624,18 @@ msgstr ""
 "%s\n"
 "не порожній!\n"
 "Дійсно вивірити/експортувати до цього каталога?"
+
+#. Resource IDs: (279)
+msgid "The target working copy has local modifications!"
+msgstr "Цільова робоча копія містить локальні зміни!"
+
+#. Resource IDs: (279)
+msgid ""
+"The target working copy has local modifications.\n"
+"Do you want to merge anyway?"
+msgstr ""
+"Цільова робоча копія містить локальні зміни.\n"
+"Хочете злити полюбому?"
 
 #. Resource IDs: (195)
 msgid ""
@@ -10214,6 +10230,10 @@ msgstr "заблоковано"
 #. Resource IDs: (65535)
 msgid "locked:"
 msgstr "заблоковано:"
+
+#. Resource IDs: (1539)
+msgid "log text &editor"
+msgstr "&редактор тексту логів"
 
 #. Resource IDs: (65535)
 msgid "max revision: "
