@@ -15,9 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-14 08:27+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"POT-Creation-Date: 2009-12-28 12:44 +0000\n"
+"PO-Revision-Date: 2009-12-28 14:30+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1046,10 +1046,6 @@ msgstr "Ein Projektarchiv mit dem Kommandozeilen-Client erstellen"
 #. (primary)
 msgid "Create"
 msgstr "Erstellen"
-
-#. (secondary)
-msgid "Command Line Client"
-msgstr "Kommandozeilen-Client"
 
 #. (para)
 msgid "Create an empty folder with the name SVN (e.g. <filename>D:\\SVN\\</filename>), which is used as root for all your repositories."
@@ -6096,7 +6092,7 @@ msgstr "Das hier angezeigte Format wurde in Subversion 1.5 eingeführt. Sie kön
 
 #. (para)
 #. (para)
-msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
+msgid "If the external project is in the same repository, any changes you make there will be included in the commit list when you commit your main project."
 msgstr "Wenn das externe Projekt im selben Projektarchiv ist, werden alle Änderungen in diesem externen Projekt im Übertragen-Dialog aufgelistet und gemeinsam mit dem Hauptprojekt übertragen."
 
 #. (para)
@@ -6695,8 +6691,8 @@ msgid "Merging does not always go smoothly. Sometimes there is a conflict, and i
 msgstr "Zusammenführen geht nicht immer glatt. Manchmal gibt es einen Konflikt, und wenn Sie mehrere Bereiche zusammenführen, möchten Sie normalerweise die Konflikte auflösen, bevor Sie den nächsten Bereich angehen. TortoiseSVN hilft Ihnen durch diesen Prozess, indem es den <emphasis>Der Rückfrage-Dialog für Konflikte</emphasis> anzeigt. <placeholder-1/>"
 
 #. (para)
-msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. Either way, no attempt is made to merge the changes - you choose one or the other."
-msgstr "Sie können entscheiden, dass Ihre lokalen Änderungen wichtiger sind und die Version aus dem Projektarchiv verwerfen, um die lokale Version zu behalten. Oder sie verwerfen Ihre lokalen Änderungen zugunsten der Serverversion. Welche Option Sie auch immer wählen, es werden nie Daten zusammengeführt - Sie erhalten eine der beiden Dateien."
+msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. This only relates to conflicting changes. Changes that can be merged are still merged. Only for the conflicting part your choice is used."
+msgstr "Sie können entscheiden, dass Ihre lokalen Änderungen wichtiger sind und die Version aus dem Projektarchiv verwerfen, um die lokale Version zu behalten. Oder sie verwerfen Ihre lokalen Änderungen zugunsten der Serverversion. Das betrifft nur widersprüchliche Änderungen. Falls Änderungen zusammengeführt werden können, wird dies auch getan. Ihre Auswahl wird nur für die Konflikte verwendet."
 
 #. (para)
 msgid "Normally you will want to look at the conflicts and resolve them. In that case, choose the <guibutton>Edit Conflict</guibutton> which will start up your merge tool. When you are satisfied with the result, click <guibutton>Resolved</guibutton>."
@@ -13091,6 +13087,8 @@ msgstr ""
 msgid "translator-translation"
 msgstr "Übersetzung"
 
+#~ msgid "Command Line Client"
+#~ msgstr "Kommandozeilen-Client"
 #~ msgid ""
 #~ "Cleans up interrupted or aborted operations and unlocks the working copy "
 #~ "in <placeholder-1/>."
