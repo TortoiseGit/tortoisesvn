@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-22 12:20+0100\n"
+"PO-Revision-Date: 2009-12-28 15:14+0100\n"
 "Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1186,6 +1186,11 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "Copie de travai&l"
+
+#. Resource IDs: (1540)
+#, fuzzy
+msgid "&file list control"
+msgstr "contrôle de la liste de &fichiers"
 
 #. Resource IDs: (338)
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
@@ -8082,8 +8087,8 @@ msgid "Subversion server file:"
 msgstr "Fichier du serveur Subversion :"
 
 #. Resource IDs: (1232)
-msgid "Sw&itch working copy to new branch/tag"
-msgstr "Déplacer la cop&ie de travail vers une nouvelle branche/étiquette"
+msgid "Swit&ch working copy to new branch/tag"
+msgstr "Déplacer la &copie de travail vers une nouvelle branche/étiquette"
 
 #. Resource IDs: (229)
 #, c-format
@@ -8630,6 +8635,18 @@ msgstr ""
 "%s\n"
 "n'est pas vide !\n"
 "Êtes vous sûr de vouloir extraire/exporter dans ce répertoire ?"
+
+#. Resource IDs: (279)
+msgid "The target working copy has local modifications!"
+msgstr "La copie de travail destination a été modifiée !"
+
+#. Resource IDs: (279)
+msgid ""
+"The target working copy has local modifications.\n"
+"Do you want to merge anyway?"
+msgstr ""
+"La copie de travail destination a été modifiée.\n"
+"Voulez-vous quand même fusionner ?"
 
 #. Resource IDs: (195)
 msgid ""
@@ -10226,6 +10243,10 @@ msgstr "verrouillé"
 #. Resource IDs: (65535)
 msgid "locked:"
 msgstr "verrouillé : "
+
+#. Resource IDs: (1539)
+msgid "log text &editor"
+msgstr "&editeur de texte des commentaires"
 
 #. Resource IDs: (65535)
 msgid "max revision: "
