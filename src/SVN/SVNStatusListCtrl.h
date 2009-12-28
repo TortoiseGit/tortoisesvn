@@ -343,6 +343,10 @@ public:
 		{
 			return differentrepo;
 		}
+		const bool IsVersioned() const
+		{
+			return ((status != svn_wc_status_none)&&(status != svn_wc_status_unversioned));
+		}
 		LPCTSTR GetDisplayName() const
 		{
 			LPCTSTR chopped = path.GetDisplayString(&basepath);
