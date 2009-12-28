@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-23 18:31+0900\n"
+"PO-Revision-Date: 2009-12-28 17:02+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1186,6 +1186,10 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "作業コピー(&W)"
+
+#. Resource IDs: (1540)
+msgid "&file list control"
+msgstr "ファイルリストコントロール(&F)"
 
 #. Resource IDs: (338)
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
@@ -8077,8 +8081,8 @@ msgid "Subversion server file:"
 msgstr "Subversion サーバファイル:"
 
 #. Resource IDs: (1232)
-msgid "Sw&itch working copy to new branch/tag"
-msgstr "作業コピーを新しいブランチ／タグへ切り替える(&I)"
+msgid "Swit&ch working copy to new branch/tag"
+msgstr "作業コピーを新しいブランチ／タグへ切り替える(&C)"
 
 #. Resource IDs: (229)
 #, c-format
@@ -8627,6 +8631,18 @@ msgstr ""
 "%s\n"
 "は空ではありません！\n"
 "本当にそのフォルダにチェックアウト／エクスポートしてもよろしいですか？"
+
+#. Resource IDs: (279)
+msgid "The target working copy has local modifications!"
+msgstr "ターゲットの作業コピーにはローカルでの変更が存在します！"
+
+#. Resource IDs: (279)
+msgid ""
+"The target working copy has local modifications.\n"
+"Do you want to merge anyway?"
+msgstr ""
+"ターゲットの作業コピーにはローカルでの変更が存在します！\n"
+"本当にマージしてもよろしいですか？"
 
 #. Resource IDs: (195)
 msgid ""
@@ -10219,6 +10235,10 @@ msgstr "ロック"
 #. Resource IDs: (65535)
 msgid "locked:"
 msgstr "ロック:"
+
+#. Resource IDs: (1539)
+msgid "log text &editor"
+msgstr "ログ編集用エディタ(&E)"
 
 #. Resource IDs: (65535)
 msgid "max revision: "
