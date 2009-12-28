@@ -489,7 +489,8 @@ void CCommitDlg::OnOK()
 					if ((!entry->IsFromDifferentRepository()) &&
 						(!entry->IsInExternal()) &&
 						(!entry->IsNested()) && 
-						(!entry->IsChecked()))
+						(!entry->IsChecked()) &&
+						(entry->IsVersioned()))
 					{
 						m_bRecursive = false;
 						break;
