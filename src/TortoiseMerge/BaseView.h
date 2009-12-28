@@ -244,6 +244,7 @@ protected:
 	bool			IsWordSeparator(wchar_t ch) const;
 	bool			IsCaretAtWordBoundary() const;
 	void			UpdateViewsCaretPosition();
+	void			restoreLines(CBaseView* view, CViewData& viewState, int targetIndex, int sourceIndex) const;
 
 	void			BuildMarkedWordArray();
 protected:

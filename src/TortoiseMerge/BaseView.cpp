@@ -3187,30 +3187,9 @@ void CBaseView::PasteText()
 	// restore the lines in the non-editing views
 	for (int i = selStartPos; i < (selStartPos + pasteLines); ++i)
 	{
-		if (m_pwndLeft)
-		{
-			if (!m_pwndLeft->HasCaret())
-			{
-				m_pwndLeft->m_pViewData->SetLine(i, leftState.GetLine(i-selStartPos));
-				m_pwndLeft->m_pViewData->SetLineEnding(i, leftState.GetLineEnding(i-selStartPos));
-				m_pwndLeft->m_pViewData->SetLineNumber(i, leftState.GetLineNumber(i-selStartPos));
-				m_pwndLeft->m_pViewData->SetState(i, leftState.GetState(i-selStartPos));
-				m_pwndLeft->m_pViewData->SetLineHideState(i, leftState.GetHideState(i-selStartPos));
-			}
-		}
-		if (m_pwndRight)
-		{
-			if (!m_pwndRight->HasCaret())
-			{
-				m_pwndRight->m_pViewData->SetLine(i, rightState.GetLine(i-m_ptSelectionStartPos.y));
-				m_pwndRight->m_pViewData->SetLineEnding(i, rightState.GetLineEnding(i-m_ptSelectionStartPos.y));
-				m_pwndRight->m_pViewData->SetLineNumber(i, rightState.GetLineNumber(i-m_ptSelectionStartPos.y));
-				m_pwndRight->m_pViewData->SetState(i, rightState.GetState(i-m_ptSelectionStartPos.y));
-				m_pwndRight->m_pViewData->SetLineHideState(i, rightState.GetHideState(i-m_ptSelectionStartPos.y));
-			}
-		}
+		restoreLines(m_pwndLeft, leftState, i, i-selStartPos);
+		restoreLines(m_pwndRight, rightState, i, i-m_ptSelectionStartPos.y);
 	}
-
 
 	CUndo::GetInstance().EndGrouping();
 }
@@ -3500,4 +3479,20 @@ void CBaseView::BuildMarkedWordArray()
 		else
 			m_arMarkedWordLines.push_back(0);
 	}
+}
+
+void CBaseView::restoreLines(CBaseView* view, CViewData& viewState, int targetIndex, int sourceIndex) const
+{
+	if (view == 0)
+		return;
+	if (view->HasCaret())
+		return;
+
+	CViewData* targetState = view->m_pViewData;
+
+	targetState->SetLine(targetIndex, viewState.GetLine(sourceIndex));
+	targetState->SetLineEnding(targetIndex, viewState.GetLineEnding(sourceIndex));
+	targetState->SetLineNumber(targetIndex, viewState.GetLineNumber(sourceIndex));
+	targetState->SetState(targetIndex, viewState.GetState(sourceIndex));
+	targetState->SetLineHideState(targetIndex, viewState.GetHideState(sourceIndex));
 }
