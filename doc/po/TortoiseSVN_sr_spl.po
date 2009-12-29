@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-13 20:14+0100\n"
+"POT-Creation-Date: 2009-12-28 12:44 +0000\n"
+"PO-Revision-Date: 2009-12-29 20:00+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1033,10 +1033,6 @@ msgstr "Kreiranje spremišta klijentom komandne linije"
 #. (primary)
 msgid "Create"
 msgstr "Kreiranje"
-
-#. (secondary)
-msgid "Command Line Client"
-msgstr "Klijent komandne linije"
 
 #. (para)
 msgid "Create an empty folder with the name SVN (e.g. <filename>D:\\SVN\\</filename>), which is used as root for all your repositories."
@@ -6061,8 +6057,8 @@ msgstr "Format prikazan ovde uveden je u Subverziji 1.5. Možete takođe videti 
 
 #. (para)
 #. (para)
-msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
-msgstr "Ako je spoljašnji projekat u istom spremištu, bilo koja izmena koju napravite tamo biće uključena u listu za urezivanje kada urezujete glavni projekat."
+msgid "If the external project is in the same repository, any changes you make there will be included in the commit list when you commit your main project."
+msgstr "Ako je spoljašnji projekat u istom spremištu, bilo koja izmena koju tamo napravite biće uključena u listu za urezivanje kada urezujete glavni projekat."
 
 #. (para)
 #. (para)
@@ -6660,8 +6656,8 @@ msgid "Merging does not always go smoothly. Sometimes there is a conflict, and i
 msgstr "Stapanje uvek ne ide ravno. Ponekad ima konflikta, i ako stapate više opsega vi generalno želite da rešite konflikt pre početka stapanja sledećeg opsega. TortoiseSVN vam pomaže kroz ovaj proces prikazivanjem  <emphasis>povratni konflikt stapanja </emphasis>dijalog. <placeholder-1/>"
 
 #. (para)
-msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. Either way, no attempt is made to merge the changes - you choose one or the other."
-msgstr "Možete odlučiti da su vaše lokalne izmene mnogo važne, tako vi želite da izbacite verziju iz spremišta i sačuvate lokalnu verziju. Ili želite da odbacite lokalne izmene kao uslugu verziji spremišta. U svakom slučaju nema pokušaja  da se uradi stapanje izmena . izaberite jedno ili drugo."
+msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. This only relates to conflicting changes. Changes that can be merged are still merged. Only for the conflicting part your choice is used."
+msgstr "Možete odlučiti da su vaše lokalne izmene mnogo važne, tako vi želite da izbacite verziju iz spremišta i sačuvate lokalnu verziju. Ili želite da odbacite lokalne izmene kao uslugu verziji spremišta. Ovo se odnosi samo na konfliktne izmene. Izmene koje se tada mogu stopitisu već stopljene. Samo za konfliktni deo treba koristiti vaš izbor."
 
 #. (para)
 msgid "Normally you will want to look at the conflicts and resolve them. In that case, choose the <guibutton>Edit Conflict</guibutton> which will start up your merge tool. When you are satisfied with the result, click <guibutton>Resolved</guibutton>."
@@ -13040,4 +13036,3 @@ msgstr "Milorad Popović <MiloradSPopovic@gmail.com>"
 #. (None)
 msgid "translator-translation"
 msgstr "Prevod"
-
