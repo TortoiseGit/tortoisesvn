@@ -358,7 +358,7 @@ bool CMainWindow::SaveFile(LPCTSTR filename)
 
 	LRESULT len = SendEditor(SCI_GETTEXT, 0, 0);
 	auto_buffer<char> data (len+1);
-	SendEditor(SCI_GETTEXT, len, (LPARAM)data);
+	SendEditor(SCI_GETTEXT, len, reinterpret_cast<LPARAM>(static_cast<char *>(data)));
 	fwrite(data, sizeof(char), len-1, fp);
 	fclose(fp);
 
