@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-08 16:59-0600\n"
+"PO-Revision-Date: 2009-12-14 18:41-0600\n"
 "Last-Translator: Evan Allrich <eallrich@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -628,6 +628,11 @@ msgstr "&Diff dengan URL"
 msgid "&Diff with previous version"
 msgstr "&Diff dengan versi sebelumnya"
 
+# Control-ID:65535,
+#. Resource IDs: (1528)
+msgid "&Directories"
+msgstr "&Direktori"
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Pengaitan"
@@ -684,6 +689,11 @@ msgid "&File"
 msgstr "Ber&kas"
 
 # MenuEntry#:
+#. Resource IDs: (1529)
+msgid "&Files"
+msgstr "Ber&kas"
+
+# MenuEntry#:
 #. Resource IDs: (32809)
 msgid "&Filter"
 msgstr "&Saring"
@@ -735,6 +745,11 @@ msgstr "&Dari WC di URL:"
 #. Resource IDs: (65535)
 msgid "&From revision"
 msgstr "&Dari revisi"
+
+# Control-ID:65535,
+#. Resource IDs: (1494)
+msgid "&From: (start URL and revision of the range to merge)"
+msgstr "&Dari: (mulai URL dan revisi dari deretan untuk digabung)"
 
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
@@ -1288,6 +1303,11 @@ msgstr "&Ke URL:"
 #. Resource IDs: (1305)
 msgid "&To URL: "
 msgstr "&Ke URL:"
+
+# Control-ID:65535,
+#. Resource IDs: (1495)
+msgid "&To: (end URL and revision of the range to merge)"
+msgstr "&Ke: (akhir URL dan revisi dari jangkauan yang digabung)"
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
@@ -2391,8 +2411,8 @@ msgstr "Bug-ID"
 
 # Control-ID:1119,
 #. Resource IDs: (1119)
-msgid "Bug-ID / Issue-Nr:"
-msgstr "Bug-ID / Issue-Nr:"
+msgid "Bug-ID / &Issue-Nr:"
+msgstr "Bug-ID / &Issue-Nr:"
 
 # ID:116,
 #. Resource IDs: (117)
@@ -2715,8 +2735,8 @@ msgstr "Checkout - TortoiseSVN"
 
 # Dlg-ID:133,
 #. Resource IDs: (1377)
-msgid "Checkout Depth"
-msgstr "Kedalaman Checkout"
+msgid "Checkout D&epth"
+msgstr "&Kedalaman Checkout"
 
 # ID:120,
 #. Resource IDs: (229)
@@ -3085,6 +3105,11 @@ msgstr "Membandingkan %s dengan %s"
 #. Resource IDs: (74)
 msgid "Completed"
 msgstr "Selesai"
+
+# ID:74,
+#. Resource IDs: (219)
+msgid "Completed!"
+msgstr "&Selesai"
 
 # Dlg-ID:236,
 #. Resource IDs: (236)
@@ -4272,6 +4297,11 @@ msgstr "Masukkan Pesan Log"
 msgid "Enter URL"
 msgstr "Masukkan URL"
 
+# Control-ID:65535,
+#. Resource IDs: (65535)
+msgid "Enter a &name for the changelist:"
+msgstr "Masukkan &nama untuk daftar perubahan:"
+
 # ID:3858,#:
 # ID:3858,
 #. Resource IDs: (3858)
@@ -4300,11 +4330,6 @@ msgstr "Masukkan tanggal."
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr "Masukan pesan kunci (opsional):"
-
-# Control-ID:65535,
-#. Resource IDs: (65535)
-msgid "Enter a name for the changelist:"
-msgstr "Masukkan nama untuk daftar perubahan:"
 
 # ID:3858,#:
 # ID:3858,
@@ -4574,6 +4599,12 @@ msgstr "Eksternal dikecualikan"
 #. Resource IDs: (226)
 msgid "Externals included"
 msgstr "Eksternal dimasukkan"
+
+# ID:11,#:
+# Control-ID:65535,
+#. Resource IDs: (1480)
+msgid "F&orce the merge"
+msgstr "&Memaksa menggabung"
 
 # ID:74,
 #. Resource IDs: (74)
@@ -4928,12 +4959,6 @@ msgstr "Untuk sejarah lengkap jangan pilih 'Berhenti pada salin/ganti nama'"
 msgid "Force"
 msgstr "Memaksa"
 
-# ID:11,#:
-# Control-ID:65535,
-#. Resource IDs: (1480)
-msgid "Force the merge"
-msgstr "Memaksa menggabung"
-
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "Teruskan"
@@ -4942,21 +4967,10 @@ msgstr "Teruskan"
 msgid "Found auto words:"
 msgstr "Menemukan kata-kata otomatis:"
 
-# ID:501,#:
-# Control-ID:65535,
-#. Resource IDs: (65535)
-msgid "From URL:"
-msgstr "Dari URL:"
-
 # Control-ID:1200,
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Dari:"
-
-# Control-ID:65535,
-#. Resource IDs: (65535)
-msgid "From: (start URL and revision of the range to merge)"
-msgstr "Dari: (mulai URL dan revisi dari deretan untuk digabung)"
 
 # ID:563,
 #. Resource IDs: (1065)
@@ -5149,6 +5163,12 @@ msgstr "Kelompokkan berdasarkan cabang"
 msgid "Group changelists"
 msgstr "Kelompok daftar perubahan"
 
+# Control-ID:1115,#:
+# Control-ID:1032,
+#. Resource IDs: (1032)
+msgid "H&EAD Revision"
+msgstr "Revisi &HEAD"
+
 # Control-ID:1229,
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
@@ -5270,6 +5290,11 @@ msgstr "Nama host idak sama (%s)"
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
 msgstr "Bagaimana Anda ingin menyelesaikan konflik ini?"
+
+# Control-ID:1020,
+#. Resource IDs: (1392)
+msgid "I&gnore all whitespaces"
+msgstr "&Abaikan semua spasi putih"
 
 # ID:73,
 #. Resource IDs: (1264)
@@ -5589,6 +5614,11 @@ msgstr "Abaikan %d item berdasarkan &ekstensi"
 msgid "Ignore &all whitespaces"
 msgstr "Abaikan &semua spasi putih"
 
+# Control-ID:1267,
+#. Resource IDs: (1267)
+msgid "Ignore &ancestry"
+msgstr "Abaikan &asal"
+
 # Control-ID:1067,
 #. Resource IDs: (1067)
 msgid "Ignore &case changes"
@@ -5604,10 +5634,10 @@ msgstr "Abaikan semua perubahan spasi putih"
 msgid "Ignore all whitespaces"
 msgstr "Abaikan semua spasi putih"
 
-# Control-ID:1267,
-#. Resource IDs: (1267)
-msgid "Ignore ancestry"
-msgstr "Abaikan asal"
+# Control-ID:1018,
+#. Resource IDs: (1126)
+msgid "Ignore line &endings"
+msgstr "Abaikan akhir &baris"
 
 # Control-ID:1018,
 #. Resource IDs: (1018)
@@ -5618,6 +5648,11 @@ msgstr "Abaikan a&khir baris (direkomendasikan)"
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line endings"
 msgstr "Abaikan akhir baris"
+
+# Control-ID:1021,
+#. Resource IDs: (1391)
+msgid "Ignore whitespace c&hanges"
+msgstr "Abaikan perubahan &spasi putih"
 
 # Control-ID:1021,
 #. Resource IDs: (1391)
@@ -5944,8 +5979,8 @@ msgstr ""
 
 # ID:145,
 #. Resource IDs: (1480)
-msgid "Items in externals"
-msgstr "Item dalam eksternal"
+msgid "Items in &externals"
+msgstr "Item dalam &eksternal"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
@@ -5966,8 +6001,8 @@ msgstr "Biarkan &kunci"
 
 # ID:209,
 #. Resource IDs: (1126)
-msgid "Keep changelists"
-msgstr "Simpan daftar perubahan"
+msgid "Keep ch&angelists"
+msgstr "Simpan daftar &perubahan"
 
 # ID:10,
 #. Resource IDs: (610)
@@ -6369,6 +6404,12 @@ msgstr "Ba&yangan menu"
 msgid "Merge"
 msgstr "Gabung"
 
+# ID:263,#:
+# ID:263,
+#. Resource IDs: (1488)
+msgid "Merge &depth:"
+msgstr "Kedalaman &gabung:"
+
 # ID:80,#:
 # Control-ID:65535,
 #. Resource IDs: (78)
@@ -6381,20 +6422,14 @@ msgstr "Gabung Reintegrasi"
 
 # ID:77,
 #. Resource IDs: (1468)
-msgid "Merge a range of revisions"
-msgstr "Gabungkan sebuah rentang revisi"
+msgid "Merge a &range of revisions"
+msgstr "&Gabungkan sebuah rentang revisi"
 
 # Dlg-ID:141,#:
 # Control-ID:65535,
 #. Resource IDs: (277)
 msgid "Merge all"
 msgstr "Gabung semua"
-
-# ID:263,#:
-# ID:263,
-#. Resource IDs: (65535)
-msgid "Merge depth:"
-msgstr "Kedalaman gabung:"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -6432,8 +6467,8 @@ msgid "Merge the changes into '%s'"
 msgstr "Menggabung perubahan-perubahan ke '%s'"
 
 #. Resource IDs: (1470)
-msgid "Merge two different trees"
-msgstr "Gabung dua pohon berbeda"
+msgid "Merge two different &trees"
+msgstr "Gabung dua &pohon berbeda"
 
 # ID:78,
 #. Resource IDs: (595, 65535)
@@ -7077,6 +7112,10 @@ msgstr ""
 msgid "One or more files are in a conflicted state."
 msgstr "Satu atau lebih berkas dalam keadaan konflik."
 
+#. Resource IDs: (1424)
+msgid "Onl&y record the merge (block revisions from getting merged)"
+msgstr "&Hanya catat penggabungan (blok revisi supaya tidak digabung)"
+
 # ID:99,#:
 # Control-ID:1073,
 #. Resource IDs: (99)
@@ -7096,10 +7135,6 @@ msgid ""
 msgstr ""
 "Hanya angka (secara opsional dipisahkan oleh koma)\n"
 "yang diijinkan!"
-
-#. Resource IDs: (1424)
-msgid "Only record the merge (block revisions from getting merged)"
-msgstr "Hanya catat penggabungan (blok revisi supaya tidak digabung)"
 
 # ID:266,
 #. Resource IDs: (19)
@@ -7686,10 +7721,18 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "Pemacu R&AM"
 
+#. Resource IDs: (1469)
+msgid "R&eintegrate a branch"
+msgstr "R&eintegrasi sebuah cabang"
+
 # ID:82,
 #. Resource IDs: (16623)
 msgid "R&eset"
 msgstr "S&et ulang"
+
+#. Resource IDs: (1423)
+msgid "R&everse merge"
+msgstr "Gabung &terbalik"
 
 # ID:114,
 #. Resource IDs: (114)
@@ -7734,6 +7777,15 @@ msgstr "&Kembalikan bawaan"
 #. Resource IDs: (8)
 msgid "Re&vert..."
 msgstr "Pu&lihkan..."
+
+# ID:76,#:
+# ID:208,#:
+# Control-ID:65535,#:
+# Control-ID:1306,#:
+# ID:19,
+#. Resource IDs: (1033)
+msgid "Re&vision"
+msgstr "Re&visi"
 
 # ID:12,
 #. Resource IDs: (12)
@@ -7829,10 +7881,6 @@ msgstr ""
 "\\W   : semua karakter non-alfanumerik\r\n"
 "\\d   : angka 0-9\r\n"
 "\\s   : spasi putih"
-
-#. Resource IDs: (1469)
-msgid "Reintegrate a branch"
-msgstr "Reintegrasi sebuah cabang"
 
 #. Resource IDs: (595)
 msgid "Reintegrate merge"
@@ -8232,10 +8280,6 @@ msgstr "Dikembalikan"
 msgid "Retry"
 msgstr "Coba lagi"
 
-#. Resource IDs: (1423)
-msgid "Reverse merge"
-msgstr "Gabung terbalik"
-
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %ld"
@@ -8342,9 +8386,9 @@ msgid "Revision graph"
 msgstr "Grafik Revisi"
 
 # Dlg-ID:228,
-#. Resource IDs: (65535)
-msgid "Revision range to merge"
-msgstr "Rentang revisi untuk digabung"
+#. Resource IDs: (1492)
+msgid "Revision r&ange to merge"
+msgstr "&Rentang revisi untuk digabung"
 
 # ID:75,
 #. Resource IDs: (75)
@@ -9094,8 +9138,8 @@ msgid "Show excluded folders as normal"
 msgstr "Tampilkan sebagai normal folder yang dikecualikan"
 
 #. Resource IDs: (1480)
-msgid "Show externals from different repositories"
-msgstr "Tampilkan eksternal dari repositori berbeda"
+msgid "Show externals from &different repositories"
+msgstr "Tampilkan eksternal dari repositori &berbeda"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -9116,6 +9160,17 @@ msgstr "Tampilkan l&og"
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "Tampilkan nomor bari&s"
+
+# ID:12,#:
+# ID:101,#:
+# Control-ID:1016,#:
+# Control-ID:1228,#:
+# Control-ID:1031,#:
+# Control-ID:1034,#:
+# Control-ID:1132,
+#. Resource IDs: (1037)
+msgid "Show lo&g"
+msgstr "Tampilkan &log"
 
 # ID:272,
 #. Resource IDs: (2051)
@@ -10424,11 +10479,6 @@ msgstr ""
 msgid "To:"
 msgstr "Ke:"
 
-# Control-ID:65535,
-#. Resource IDs: (65535)
-msgid "To: (end URL and revision of the range to merge)"
-msgstr "Ke: (akhir URL dan revisi dari jangkauan yang digabung)"
-
 #. Resource IDs: (3633)
 msgid ""
 "Toggle One/Two Pages display\n"
@@ -10684,9 +10734,9 @@ msgstr "URL tidak diketahui (UUID: %s)"
 msgid "URL of Subversion items"
 msgstr "URL dari item Subversion"
 
-#. Resource IDs: (65535)
-msgid "URL to merge from"
-msgstr "URL asal untuk digabung"
+#. Resource IDs: (1491)
+msgid "URL to merge &from"
+msgstr "URL &asal untuk digabung"
 
 # ID:144,#:
 # Control-ID:65535,
@@ -12176,6 +12226,11 @@ msgstr "revisi %s-%s, revisi %s-%s"
 msgid "revision count: "
 msgstr "jumlah revisi:"
 
+# Dlg-ID:228,
+#. Resource IDs: (626)
+msgid "revision has already been merged"
+msgstr "revisi telah digabungkan"
+
 # ID:120,
 #. Resource IDs: (326)
 #, c-format
@@ -12340,6 +12395,11 @@ msgstr "luring sementara"
 #. Resource IDs: (65535)
 msgid "text [token count]: "
 msgstr "teks [jumlah tanda]:"
+
+# ID:11,
+#. Resource IDs: (626)
+msgid "the working copy is at this revision"
+msgstr "salinan pekerjaan di revisi ini "
 
 # Control-ID:65535,
 #. Resource IDs: (583)
@@ -12555,11 +12615,4 @@ msgstr "ya"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-#~ msgid ""
-#~ "The URL to check out refers to a file but this\n"
-#~ "working copy path is an existing directory."
-#~ msgstr ""
-#~ "URL untuk check out mengacu ke berkas tapi\n"
-#~ "path copy pekerjaan ini adalah direktori yang sudah ada."
 
