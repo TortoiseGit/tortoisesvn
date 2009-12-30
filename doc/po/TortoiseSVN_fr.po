@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-09 09:22 +0000\n"
-"PO-Revision-Date: 2009-12-28 17:52+0100\n"
+"PO-Revision-Date: 2009-12-30 10:44+0100\n"
 "Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6233,12 +6233,11 @@ msgstr "La capacité d'isoler des changements sur une ligne de développement s�
 
 #. (para)
 msgid "Another feature of version control systems is the ability to mark particular revisions (e.g. a release version), so you can at any time recreate a certain build or environment. This process is known as <firstterm>tagging</firstterm>."
-msgstr "Une autre fonctionnalité des systèmes de contrôle de version est la capacité de marquer des révisions particulières (par exemple une version de sortie), donc vous pouvez à tout moment recréer une certaine construction ou un environnement. Ce processus est connu comme l'<firstterm>étiquetage</firstterm>."
+msgstr "Une autre fonctionnalité des systèmes de contrôle de version est la capacité de marquer des révisions particulières (par exemple une version déployée), donc vous pouvez à tout moment recréer une certaine version de votre application ou un environnement. Ce processus est connu comme l'<firstterm>étiquetage</firstterm>."
 
 #. (para)
-#, fuzzy
 msgid "Subversion does not have special commands for branching or tagging, but uses so-called <quote>cheap copies</quote> instead. Cheap copies are similar to hard links in Unix, which means that instead of making a complete copy in the repository, an internal link is created, pointing to a specific tree/revision. As a result branches and tags are very quick to create, and take up almost no extra space in the repository."
-msgstr "Subversion n'a pas de commandes spéciales pour l'embranchement ou l'étiquetage, mais utilise de prétendues <literal>copies bon marché</literal> au lieu de cela. Les copies bon marché sont semblables aux liens durs pour Unix, ce qui signifie qu'au lieu de faire une copie complète dans le référentiel, un lien interne est créé, pointant vers un arbre/révision spécifique. Par conséquence, les branches et les étiquettes sont très rapides à créer et ne prennent presque aucun espace supplémentaire dans le référentiel."
+msgstr "Subversion n'a pas de commandes spéciales pour créer des branches ou des étiquettes, mais utilise de prétendues <literal>copies bon marché</literal> à la place. Les copies bon marché sont semblables aux hard links d'Unix, ce qui signifie qu'au lieu de faire une copie complète dans le référentiel, un lien interne est créé, pointant vers un arbre/révision spécifique. En conséquence, branches et étiquettes sont très rapides à créer et ne prennent presque aucun espace supplémentaire dans le référentiel."
 
 #. (title)
 msgid "Creating a Branch or Tag"
@@ -6250,7 +6249,7 @@ msgstr "La boîte de dialogue Branche/Etiquette"
 
 #. (para)
 msgid "If you have imported your project with the recommended directory structure, creating a branch or tag version is very simple: <placeholder-1/> Select the folder in your working copy which you want to copy to a branch or tag, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branch/Tag...</guimenuitem></menuchoice>."
-msgstr "Si vous avez importé votre projet avec la structure de répertoire recommandée, créer une version de branche ou d'étiquette est très simple : <placeholder-1/> Sélectionnez le dossier de votre copie de travail que vous voulez copier dans une branche ou une étiquette, choisissez ensuite la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branche/Étiquette...</guimenuitem></menuchoice>."
+msgstr "Si vous avez importé votre projet avec la structure de répertoire recommandée, créer une branche ou une étiquette est très simple : <placeholder-1/> Sélectionnez le dossier de votre copie de travail que vous voulez copier dans une branche ou une étiquette, choisissez ensuite la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branche/Étiquette...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -6260,7 +6259,7 @@ msgid ""
 "    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
 "</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
 msgstr ""
-"L'URL de destination par défaut de la nouvelle branche sera l'URL source sur laquelle votre copie de travail est basée. Vous devrez éditer cette URL vers le nouveau chemin pour votre branche/étiquette. Ainsi au lieu de <screen>\n"
+"L'URL de destination par défaut de la nouvelle branche sera l'URL source sur laquelle votre copie de travail est basée. Vous devrez éditer cette URL vers le nouveau chemin de votre branche/étiquette. Ainsi au lieu de <screen>\n"
 "    http://svn.collab.net/repos/ProjectName/trunk\n"
 "</screen> vous pourriez maintenant utiliser quelque chose comme <screen>\n"
 "    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
@@ -6285,7 +6284,7 @@ msgstr "La nouvelle branche est copiée directement dans le référentiel mais v
 
 #. (para)
 msgid "The new branch is an identical copy of your local working copy. If you have updated some files to an older revision in your WC, or if you have made local changes, that is exactly what goes into the copy. Naturally this sort of complex tag may involve transferring data from your WC back to the repository if it does not exist there already."
-msgstr "La nouvelle branche est une copie identique à votre copie de travail locale. Si vous avez mis à jour quelques fichiers à une révision plus ancienne dans votre CdT, ou si vous avez fait des changements locaux, c'est exactement ceux-ci qui vont dans la copie. Naturellement cette sorte d'étiquette complexe peut impliquer des transferts de données de votre CdT vers le référentiel si elles n'existent pas déjà là-bas."
+msgstr "La nouvelle branche est une copie identique à votre copie de travail locale. Si vous avez mis à jour quelques fichiers à une révision plus ancienne dans votre CdT, ou si vous avez fait des changements locaux, c'est exactement ceux-ci qui vont dans la copie. Naturellement cette sorte d'étiquette complexe peut impliquer des transferts de données de votre CdT vers le référentiel si elles n'y existent pas déjà."
 
 #. (para)
 msgid "Now you have to select the source of the copy. Here you have three options: <placeholder-1/>"
@@ -6293,33 +6292,31 @@ msgstr "Maintenant vous devez choisir la source de la copie. Ici vous avez trois
 
 #. (para)
 msgid "If you want your working copy to be switched to the newly created branch automatically, use the <guilabel>Switch working copy to new branch/tag</guilabel> checkbox. But if you do that, first make sure that your working copy does not contain modifications. If it does, those changes will be merged into the branch WC when you switch."
-msgstr "Si vous voulez que votre copie de travail soit basculée automatiquement sur la branche nouvellement créée, utilisez la case à cocher <guilabel>Déplacer la copie de traval vers une nouvelle branche/étiquette</guilabel>. Mais si vous le faites, assurez-vous d'abord que votre copie de travail ne contient pas de modifications. Si c'est le cas, ces changements seront fusionnés dans la CdT de branche quand vous commutez."
+msgstr "Si vous voulez que votre copie de travail soit basculée automatiquement sur la branche nouvellement créée, utilisez la case à cocher <guilabel>Déplacer la copie de travail vers une nouvelle branche/étiquette</guilabel>. Mais si vous le faites, assurez-vous d'abord que votre copie de travail ne contient pas de modifications. Si c'est le cas, ces changements seront fusionnés dans la CdT de branche quand vous basculerez."
 
 #. (para)
 msgid "Press <guibutton>OK</guibutton> to commit the new copy to the repository. Don't forget to supply a log message. Note that the copy is created <emphasis>inside the repository</emphasis>."
-msgstr "Appuyez sur <guibutton>OK</guibutton> pour livrer la nouvelle copie dans le référentiel. N'oubliez pas de fournir un commentaire. Notez que la copie est créée <emphasis>dans le référentiel</emphasis>."
+msgstr "Appuyez sur <guibutton>OK</guibutton> pour livrer la nouvelle copie dans le référentiel. N'oubliez pas de mettre un commentaire. Notez que la copie est créée <emphasis>dans le référentiel</emphasis>."
 
 #. (para)
-#, fuzzy
 msgid "Note that unless you opted to switch your working copy to the newly created branch, creating a Branch or Tag does <emphasis>not</emphasis> affect your working copy. Even if you create the branch from your WC, those changes are committed to the new branch, not to the trunk, so your WC may still be marked as modified with respect to the trunk."
-msgstr "Notez que la création d'une Branche ou d'une Étiquette n'affecte <emphasis>pas</emphasis> votre copie de travail. Même si vous copiez votre CdT, ces changements sont livrés à la nouvelle branche, pas au tronc, donc votre CdT peut toujours être marquée comme modifiée."
+msgstr "Notez qu'à moins que vous choisissiez de basculer votre copie de travail vers la branche juste créée, créer une branche ou une étiquette <emphasis>ne modifie pas</emphasis> votre copie de travail. Même si vous créez la branche depuis votre CdT, ces changements sont livrés dans la nouvelle branche, pas dans le tronc, donc votre CdT peut toujours être marquée comme modifiée sans altérer le tronc."
 
 #. (title)
-#, fuzzy
 msgid "Other ways to create a branch or tag"
-msgstr "Créer une branche ou une étiquette"
+msgstr "Autres manières de créer une branche ou une étiquette"
 
 #. (para)
 msgid "You can also create a branch or tag without having a working copy. To do that, open the repository browser. You can there drag folders to a new location. You have to hold down the <keycap>Ctrl</keycap> key while you drag to create a copy, otherwise the folder gets moved, not copied."
-msgstr ""
+msgstr "Vous pouvez aussi créer une branche ou une étiquette sans avoir de copie de travail. Pour ce faire, ouvrez l'explorateur de référentiel. Vous pouvez glisser/déplacer des répertoires à un nouvel endroit. Vous devez appuyer sur <keycap>Ctrl</keycap> lorsque vous faites glisser la répertoire pour créer une copie, sinon celui ci est déplacé, pas copié."
 
 #. (para)
 msgid "You can also drag a folder with the right mouse button. Once you release the mouse button you can choose from the context menu whether you want the folder to be moved or copied. Of course to create a branch or tag you must copy the folder, not move it."
-msgstr ""
+msgstr "Vous pouvez également faire glisser un répertoire avec le bouton droit de la souris. Dès que vous relâchez le bouton, un menu contextuel s'affiche vous permettant de choisir entre la copie ou le déplacement. Bien sûr, pour créer une branche ou une étiquette vous devez le copier, pas le déplacer."
 
 #. (para)
 msgid "Yet another way is from the log dialog. You can show the log dialog for e.g. trunk, select a revision (either the HEAD revision at the very top or an earlier revision), right-click and choose <menuchoice><guimenuitem>create branch/tag from revision...</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Il y a encore une autre méthode en passant par la fenêtre des commentaires. Vous pouvez afficher le tronc par exemple, sélectionner une révision (la tête ou une plus ancienne), faire un click droit et choisir <menuchoice><guimenuitem>Créer une branche/étiquette depuis la révision...</guimenuitem></menuchoice>"
 
 #. (title)
 msgid "To Checkout or to Switch..."
@@ -6330,9 +6327,8 @@ msgid "switch"
 msgstr "aller sur"
 
 #. (para)
-#, fuzzy
 msgid "...that is (not really) the question. While a checkout downloads everything from the desired branch in the repository to your working directory, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice> only transfers the changed data to your working copy. Good for the network load, good for your patience. :-)"
-msgstr "... telle est la question (ou pas). Tandis qu'une extraction extraie tout de la branche désirée dans votre répertoire de travail, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aller sur...</guimenuitem></menuchoice> transfère seulement les données changées dans votre copie de travail. Bon pour la charge réseau, bon pour votre patience. :-)"
+msgstr " you want to work on trunk and branch, but don't want ... telle (n')est (pas) la question. Tandis qu'une extraction extraie tout de la branche désirée dans votre répertoire de travail, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aller sur...</guimenuitem></menuchoice> transfère seulement les données changées dans votre copie de travail. Bon pour la charge réseau, bon pour votre patience. :-)"
 
 #. (para)
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> to make a fresh checkout in an empty folder. You can check out to any location on your local disk and you can create as many working copies from your repository as you like."
@@ -6351,9 +6347,8 @@ msgid "Switch works just like Update in that it never discards your local change
 msgstr "Aller sur... fonctionne comme Mettre à jour dans le sens où il ne se débarrasse jamais de vos changements locaux. Les changements que vous avez faits à votre copie de travail qui n'ont pas encore été livrés seront fusionnés quand vous faites Aller sur. Si vous ne voulez pas que cela arrive alors vous devez ou livrer les changements avant la bascule, ou faire revenir votre copie de travail à une révision déjà livrée (typiquement HEAD)."
 
 #. (para)
-#, fuzzy
 msgid "If you want to work on trunk and branch, but don't want the expense of a fresh checkout, you can use Windows Explorer to make a copy of your trunk checkout in another folder, then <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice> that copy to your new branch."
-msgstr "Basculez votre copie de travail courante vers la copie nouvellement créée dans le référentiel. Choisissez de nouveau le dossier de niveau supérieur de votre projet et utilisez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aller sur...</guimenuitem></menuchoice> du menu contextuel."
+msgstr "Si vous voulez travailler sur le tronc et une branche, mais sans faire une extraction, vous pouvez utiliser Windows Explorer pour copier votre extraction du tronc dans un autre répertoire, puis utilisez la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aller sur...</guimenuitem></menuchoice> sur cette copie pour en faire la branche."
 
 #. (title)
 msgid "The Switch Dialog"
@@ -6364,17 +6359,16 @@ msgid "To be able to work with your freshly generated branch or tag you have sev
 msgstr "Pour pouvoir travailler avec votre branche ou votre tag récemments générés, vous avez plusieurs méthodes. Vous pouvez : <placeholder-1/><placeholder-2/>"
 
 #. (para)
-#, fuzzy
 msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they are not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
-msgstr "Les étiquettes sont typiquement utilisées pour créer un instantané statique du projet à une étape particulière. Comme tels, ils ne sont normalement pas utilisés pour le développement - c'est à cela que servent les branches, c'est la raison pour laquelle nous avons recommandé la structure de référentiel <filename>/trunk /branches /tags</filename> en premier lieu. Travailler sur une révision d'étiquette n'est <emphasis>pas une bonne idée</emphasis>, mais parce que vos fichiers locaux ne sont pas protégés en écriture, il n'y a rien pour vous empêcher de faire cela par erreur. Cependant, si vous essayez de livrer vers un chemin dans le référentiel qui contient <filename>/tags/</filename>, TortoiseSVN vous avertira."
+msgstr "Les étiquettes sont typiquement utilisées pour garder un état figé du projet à une étape particulière. Ils ne sont normalement pas utilisés comme tel pour le développement - contrairement aux branches, c'est la raison pour laquelle nous avons recommandé la structure de référentiel <filename>/trunk /branches /tags</filename> en premier lieu. Travailler sur une révision d'étiquette <emphasis>n'est pas une bonne idée</emphasis>, mais dans la mesure où vos fichiers locaux ne sont pas protégés en écriture, il n'y a rien pour vous en empêcher. Cependant, si vous essayez de livrer vers un chemin dans le référentiel qui contient <filename>/tags/</filename>, TortoiseSVN vous avertira."
 
 #. (para)
 msgid "It may be that you need to make further changes to a release which you have already tagged. The correct way to handle this is to create a new branch from the tag first and commit the branch. Do your Changes on this branch and then create a new tag from this new branch, e.g. <filename>Version_1.0.1</filename>."
-msgstr "Il peut arriver que vous devez faire de nouveaux changements à une sortie que vous avez déjà étiquetée. La façon correcte de le gérer est de créer d'abord une nouvelle branche à partir de l'étiquette et livrer cette branche. Faites vos changements sur cette branche et créez ensuite une nouvelle étiquette depuis cette nouvelle branche, par exemple <filename>Version_1.0.1</filename>."
+msgstr "Il peut arriver que vous deviez faire de nouveaux changements à une version déployée que vous avez déjà étiquetée. La façon correcte de le gérer est de créer d'abord une nouvelle branche à partir de l'étiquette et de livrer cette branche. Faites vos changements sur cette branche et créez ensuite une nouvelle étiquette depuis cette nouvelle branche, par exemple <filename>Version_1.0.1</filename>."
 
 #. (para)
 msgid "If you modify a working copy created from a branch and commit, then all changes go to the new branch and <emphasis>not</emphasis> the trunk. Only the modifications are stored. The rest remains a cheap copy."
-msgstr "Si vous modifiez une copie de travail créée à partir d'une branche et livrez, alors tous les changements vont sur la nouvelle branche et <emphasis>pas</emphasis> sur le tronc. Seules les modifications sont stockées. Le reste reste une copie peu coûteuse."
+msgstr "Si vous modifiez une copie de travail créée à partir d'une branche et livrez, alors tous les changements seront luvrés sur la nouvelle branche et <emphasis>pas</emphasis> sur le tronc. Seules les modifications sont stockées. Le reste reste une copie peu coûteuse."
 
 #. (para)
 msgid "Although Subversion itself makes no distinction between tags and branches, the way they are typically used differs a bit. <placeholder-1/>"
