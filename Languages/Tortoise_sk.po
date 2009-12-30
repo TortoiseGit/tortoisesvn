@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-30 17:49+0100\n"
+"PO-Revision-Date: 2009-12-30 23:27+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -103,7 +103,7 @@ msgstr "%1!d! najaktívnejších autorov s aspoň %2!d! odovzdaní každých %3!
 #. Resource IDs: (226)
 #, c-format
 msgid "%1!ld! minute(s) and %2!ld! second(s)"
-msgstr "%1!ld! min %2!ld s"
+msgstr "%1!ld! min %2!ld! s"
 
 #. Resource IDs: (115)
 #, c-format
@@ -2371,7 +2371,7 @@ msgstr "Vymaže uložené správy denníka (%1!ld!) pre pracovné kópie (%2!ld!
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears %1!ld! username/password pairs, %2!ld! ssl certificates and %3!ld! usernames"
-msgstr "Vymaže užívateľské mená a heslá(%1!ld), SSL certifikáty (%2!ld!) a užívateľské mená (%3!ld!)"
+msgstr "Vymaže užívateľské mená a heslá(%1!ld!), SSL certifikáty (%2!ld!) a užívateľské mená (%3!ld!)"
 
 #. Resource IDs: (197)
 #, c-format
@@ -2728,7 +2728,7 @@ msgid ""
 "to %2!s!"
 msgstr ""
 "Kopírovať %1!s!\r\n"
-"do %2!s"
+"do %2!s!"
 
 #. Resource IDs: (103)
 #, c-format
@@ -3516,7 +3516,7 @@ msgid ""
 "Edit property '%1!S!' on\r\n"
 "%2!s!"
 msgstr ""
-"Upraviť vlastnosť '%1!S' na\r\n"
+"Upraviť vlastnosť '%1!S!' na\r\n"
 "%2!s!"
 
 #. Resource IDs: (1331, 1382)
@@ -8116,8 +8116,8 @@ msgstr ""
 "http://subversion.tigris.org/mailing-lists.html\n"
 "\n"
 "Subversion zaznamenal problém v:\n"
-"súbor %1!ld!, riadok %2!ld!\n"
-"výraz = %3!ld!"
+"súbor %1!s!, riadok %2!ld!\n"
+"výraz = %3!s!"
 
 #. Resource IDs: (84)
 msgid ""
