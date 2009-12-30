@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-30 11:01+0100\n"
+"PO-Revision-Date: 2009-12-30 17:49+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3668,7 +3668,6 @@ msgid "Enter an integer."
 msgstr "Zadajte celé číslo."
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Enter file content to test for below:"
 msgstr "Nižšie zadajte obsah súboru na testovanie:"
 
@@ -3686,7 +3685,6 @@ msgid "Enter no more than %1 characters."
 msgstr "Zadajte nie viac ako %1 znakov."
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Enter the regex string below:"
 msgstr "Nižšie zadajte regulárny výraz:"
 
@@ -4879,7 +4877,7 @@ msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
 msgstr ""
-"Importovať adresár %s\r\n"
+"Importovať adresár %1!s!\r\n"
 "do %2!s!"
 
 #. Resource IDs: (613)
@@ -8054,7 +8052,6 @@ msgid "Stripes"
 msgstr "Prúžky"
 
 #. Resource IDs: (117)
-#, fuzzy
 msgid ""
 "Sub-string filter:\r\n"
 "* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
@@ -8070,17 +8067,18 @@ msgid ""
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
 "Sub-string filter:\r\n"
-"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
-"* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
-"* Enclose strings that contain spaces etc. with \".\r\n"
-"* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
+"* Zadajte jeden, alebo viac reťazcov, oddelených medzerami.\r\n"
+"* Všetky podreťazce sa musia zhodovať. Dajte - pred podretazec\r\n"
+"* na vylúčenie revízií čo obsahujú daný podreťazec.\r\n"
+"* Reťazce, ktoré obsahujú medzery uzavrite do \".\r\n"
+"* Dajte ! pred riadok na zmenu celej podmienky.\r\n"
 "\r\n"
 "Príklady:\r\n"
 "mojemeno  2008    : moje odovzdania z 2008\r\n"
 ".h  -.cpp              : odovzdania, ktoré zmenili hlavičky, ale nie implementáciu\r\n"
 "\" \"                        : odovzdania s medzerami (ex. when searching in paths only)\r\n"
-"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
-"!myname  .cpp    : everything but my commits to .cpp files"
+"-\"\"show all\"\"        : odovzdania neobsahujúce reťazec '\"show all\"'\r\n"
+"!mojemeno  .cpp    : všetky odovzdania .cpp okrem mojich"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -8172,7 +8170,7 @@ msgstr "Súbor Subversion servera:"
 
 #. Resource IDs: (1232)
 msgid "Swit&ch working copy to new branch/tag"
-msgstr "&Prepnúť pracovnú kópiu na novú ve&tvu/značku"
+msgstr "&Prepnúť pracovnú kópiu na novú vetvu/značku"
 
 #. Resource IDs: (229)
 #, c-format
@@ -10359,7 +10357,6 @@ msgid "locked:"
 msgstr "zamknuté:"
 
 #. Resource IDs: (1539)
-#, fuzzy
 msgid "log text &editor"
 msgstr "&editor denníka"
 
