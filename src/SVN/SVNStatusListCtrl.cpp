@@ -4119,13 +4119,12 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 			svn.SetAndClearProgressInfo((HWND)NULL);
 			SetFileAttributes(filePath.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 		}
-		int ret = (int)ShellExecute(this->m_hWnd, NULL, filePath.GetWinPath(), NULL, NULL, SW_SHOW);
-		if (ret <= HINSTANCE_ERROR)
-		{
-			CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-			cmd += filePath.GetWinPathString();
-			CAppUtils::LaunchApplication(cmd, NULL, false);
-		}
+		// open the diff tool
+		CString name = filePath.GetUIFileOrDirectoryName();
+		CString n1, n2;
+		n1.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
+		n2.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
+		CAppUtils::StartExtDiff(filePath, filePath, n1, n2, CAppUtils::DiffFlags().AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000)), 0);
 		return;
 	}
 
