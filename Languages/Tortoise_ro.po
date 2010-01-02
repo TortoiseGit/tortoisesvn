@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-22 23:24+0200\n"
+"PO-Revision-Date: 2010-01-02 11:19+0200\n"
 "Last-Translator: Florin Daneliuc <dfev77@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1189,6 +1189,10 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Copia de lucru"
+
+#. Resource IDs: (1540)
+msgid "&file list control"
+msgstr "control pentru lista de &fișiere"
 
 #. Resource IDs: (338)
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
@@ -8077,8 +8081,8 @@ msgid "Subversion server file:"
 msgstr "Fişier de server Subversion:"
 
 #. Resource IDs: (1232)
-msgid "Sw&itch working copy to new branch/tag"
-msgstr "&Comută copia de lucru cu o ramură nouă sau tag nou"
+msgid "Swit&ch working copy to new branch/tag"
+msgstr "&Comută copia de lucru la o ramură nouă sau etichetă nou"
 
 #. Resource IDs: (229)
 #, c-format
@@ -8627,6 +8631,18 @@ msgstr ""
 "%s\n"
 "nu este gol!\n"
 "Sigur doriţi să aduceți/exportați în acel dosar?"
+
+#. Resource IDs: (279)
+msgid "The target working copy has local modifications!"
+msgstr "Copia de lucru conține modificări locale!"
+
+#. Resource IDs: (279)
+msgid ""
+"The target working copy has local modifications.\n"
+"Do you want to merge anyway?"
+msgstr ""
+"Copia locală conține modificări locale nesalvate!\n"
+"Doriţi să unificați modificările?"
 
 #. Resource IDs: (195)
 msgid ""
@@ -10219,6 +10235,10 @@ msgstr "blocat"
 #. Resource IDs: (65535)
 msgid "locked:"
 msgstr "blocat:"
+
+#. Resource IDs: (1539)
+msgid "log text &editor"
+msgstr "&editor mesaje jurnal"
 
 #. Resource IDs: (65535)
 msgid "max revision: "
