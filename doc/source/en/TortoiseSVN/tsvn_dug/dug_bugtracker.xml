@@ -321,6 +321,11 @@
 				setting it on all files.
 			</para>
 		</important>
+		<para>
+			When you add new sub-folders using TortoiseSVN, any
+			project properties present in the parent folder
+			will automatically be added to the new child folder too.
+		</para>
 		<tip>
 			<title>No Issue Tracker Information from Repository Browser</title>
 			<para>
