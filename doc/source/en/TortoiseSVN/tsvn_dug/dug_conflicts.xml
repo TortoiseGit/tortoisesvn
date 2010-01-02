@@ -563,6 +563,20 @@
 				tree conflict has to be marked as resolved with the button
 				in the conflict editor dialog.
 			</para>
-		</sect3>		
+		</sect3>
+		<sect3 id="tsvn-dug-conflicts-tree-7">
+			<title>Other tree conflicts</title>
+			<para>
+				There are other cases which are labelled as tree conflicts simply
+				because the conflict involves a folder rather than a file. For
+				example if you add a folder with the same name to both trunk and
+				branch and then try to merge you will get a tree conflict.
+				If you want to keep the folder from the merge target, just mark
+				the conflict as resolved. If you want to use the one in the merge
+				source then you need to SVN delete the one in the target first
+				and run the merge again. If you need anything more complicated
+				then you have to resolve manually.
+			</para>
+		</sect3>
 	</sect2>
 </sect1>
