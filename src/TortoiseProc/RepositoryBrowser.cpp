@@ -823,7 +823,8 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
 
         // if the repository root has changed, initialize all data from scratch
 		// and clear the project properties we might have loaded previously
-		m_ProjectProperties = ProjectProperties();
+		if (urlHasDifferentRoot)
+			m_ProjectProperties = ProjectProperties();
 		m_InitialUrl = url;
         m_repository.revision = rev;
 		InitRepo();
