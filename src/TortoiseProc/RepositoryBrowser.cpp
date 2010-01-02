@@ -2832,19 +2832,24 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_VIEWREV:
 			{
-				CString url = m_ProjectProperties.sWebViewerRev;
-				url.Replace(_T("%REVISION%"), selection.GetRepository(0).revision.ToString());
-				if (!url.IsEmpty())
-					ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);					
+				const SRepositoryInfo& repository = selection.GetRepository(0);
+				CString weburl = m_ProjectProperties.sWebViewerRev;
+				weburl = CAppUtils::GetAbsoluteUrlFromRelativeUrl(repository.root, weburl);
+				SVNRev headrev = selection.GetRepository(0).revision.IsHead() ? m_barRepository.GetHeadRevision() : selection.GetRepository(0).revision;
+				weburl.Replace(_T("%REVISION%"), headrev.ToString());
+				if (!weburl.IsEmpty())
+					ShellExecute(this->m_hWnd, _T("open"), weburl, NULL, NULL, SW_SHOWDEFAULT);					
 			}
 			break;
 		case ID_VIEWPATHREV:
 			{
-                const SRepositoryInfo& repository = selection.GetRepository(0);
+				const SRepositoryInfo& repository = selection.GetRepository(0);
                 CString relurl = selection.GetURLEscaped (0, 0).GetSVNPathString();
                 relurl = relurl.Mid (repository.root.GetLength());
 				CString weburl = m_ProjectProperties.sWebViewerPathRev;
-                weburl.Replace(_T("%REVISION%"), repository.revision.ToString());
+				weburl = CAppUtils::GetAbsoluteUrlFromRelativeUrl(repository.root, weburl);
+				SVNRev headrev = selection.GetRepository(0).revision.IsHead() ? m_barRepository.GetHeadRevision() : selection.GetRepository(0).revision;
+				weburl.Replace(_T("%REVISION%"), headrev.ToString());
 				weburl.Replace(_T("%PATH%"), relurl);
 				if (!weburl.IsEmpty())
 					ShellExecute(this->m_hWnd, _T("open"), weburl, NULL, NULL, SW_SHOWDEFAULT);					

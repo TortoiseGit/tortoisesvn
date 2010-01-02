@@ -236,6 +236,8 @@ public:
 	 */
 	static TCHAR FindAcceleratorKey(CWnd * pWnd, UINT id);
 
+	static CString GetAbsoluteUrlFromRelativeUrl(const CString& root, const CString& url);
+
 private:
 	static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2);
 	static bool GetMimeType(const CTSVNPath& file, CString& mimetype);

@@ -1338,3 +1338,36 @@ TCHAR CAppUtils::FindAcceleratorKey(CWnd * pWnd, UINT id)
 	}
 	return 0;
 }
+
+CString CAppUtils::GetAbsoluteUrlFromRelativeUrl(const CString& root, const CString& url)
+{
+	// is the URL a relative one?
+	if (url.Left(2).Compare(_T("^/")) == 0)
+	{
+		// URL is relative to the repository root
+		CString url1 = root + url.Mid(1);
+		TCHAR buf[INTERNET_MAX_URL_LENGTH];
+		DWORD len = url.GetLength();
+		if (UrlCanonicalize((LPCTSTR)url1, buf, &len, 0) == S_OK)
+			return CString(buf, len);
+		return url1;
+	}
+	else if (url[0] == '/')
+	{
+		// URL is relative to the server's hostname
+		CString sHost;
+		// find the server's hostname
+		int schemepos = root.Find(_T("//"));
+		if (schemepos >= 0)
+		{
+			sHost = root.Left(root.Find('/', schemepos+3));
+			CString url1 = sHost + url;
+			TCHAR buf[INTERNET_MAX_URL_LENGTH];
+			DWORD len = url.GetLength();
+			if (UrlCanonicalize((LPCTSTR)url, buf, &len, 0) == S_OK)
+				return CString(buf, len);
+			return url1;
+		}
+	}
+	return url;
+}

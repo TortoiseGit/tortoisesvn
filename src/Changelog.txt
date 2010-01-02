@@ -61,6 +61,8 @@
 - NEW: The merge dialog warns now if the target working copy
        has local modifications. (Stefan)
 - BUG: Merged revisions must be counted only once in stats (Stefan Fuhrmann)
+- BUG: Relative Webviewer urls didn't work from the 
+       repository browser. (Stefan)
 
 Version 1.6.7
 - BUG: The status cache could segfault in some situations. (Stefan)
