@@ -1034,6 +1034,16 @@ which were previously working, stop working with TortoiseSVN 1.5. This seems to 
 to plink, and occurs if you have a default hostname set in PuTTY.</p>
 <p>If this is the case you can fix it by using regedit or regedt32 to clear
 HKEY_CURRENT_USER/Software/SimonTatham/Putty/Sessions/Default%20Settings/HostName.</p>
+<p>Another user has reported the following server-side fix:
+<ul>
+<li>ssh into your account</li>
+<li>cd ~</li>
+<li>cp /etc/bashrc .bashrc</li>
+<li>nano .bashrc</li>
+<li>put a # before the line "mesg y" (which comments it out)</li>
+<li>Ctrl+X to exit, press Y when prompted to save.</li>
+</ul>
+</p>
 </div>
 
 </div>
