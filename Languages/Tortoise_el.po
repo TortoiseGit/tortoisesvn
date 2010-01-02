@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-02 03:44+0200\n"
+"PO-Revision-Date: 2010-01-02 04:34+0200\n"
 "Last-Translator: Stavros <slab_x@hotmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1276,9 +1276,8 @@ msgstr "&Επιτρεπόμενος χρόνος, σε δευτερόλεπτα,
 
 # Control-ID:1222,
 #. Resource IDs: (1222)
-#, fuzzy
 msgid "&Timeout in seconds to stop the auto-completion parsing"
-msgstr "&Επιτρεπόμενος χρόνος, σε δευτερόλεπτα, μέχρη την στάση της γραμματικής ανάλησης της αυτόματης συμπλήρωσης"
+msgstr "&Χρόνος λήξης σε δευτερόλεπτα, μέχρι να σταματήση η ανάλυση της αυτόματης συμπλήρωσης"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -2407,9 +2406,8 @@ msgstr "Δ&ιμιουργία καταλόγου..."
 
 # Control-ID:1113,
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "C&urrent Keys:"
-msgstr "Η τρέχουσα έκδοση είναι: "
+msgstr "Τ&ρέχοντα Κλειδιά:"
 
 # ID:376,
 #. Resource IDs: (501)
@@ -2585,9 +2583,8 @@ msgstr "Λίστα αλλαγών:"
 
 # Control-ID:1242,
 #. Resource IDs: (1242)
-#, fuzzy
 msgid "Changes made (double-click on file for diff):"
-msgstr "Έγιναν οι ακόλουθες αλλαγές ( διπλό-κλικ πάνω στο αρχείο για λεπτομέρειες):"
+msgstr "Έγιναν αλλαγές ( διπλό-κλικ στο αρχείο για διαφορές):"
 
 # ID:8,
 #. Resource IDs: (8)
@@ -3201,21 +3198,19 @@ msgstr "Αντιγραφή %s"
 
 # ID:226,
 #. Resource IDs: (229)
-#, fuzzy, c-format
+#, c-format
 msgid "Copy %s to %s, Revision %s"
-msgstr "%s - στον αριθμό αναθεώρημένης έκδοσης: %d"
+msgstr "Αντιγραφή %s από %s, Αναθεώρηση %s"
 
 # ID:82,
 #. Resource IDs: (126)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copy %s\r\n"
 "to %s"
 msgstr ""
-"Δεν γίνεται να αντιγραφεί το \n"
-"%s\n"
-"προς το\n"
-"%s"
+"Αντιγραφή %s\r\n"
+"στο %s"
 
 # Dlg-ID:142,
 #. Resource IDs: (142)
@@ -3342,9 +3337,9 @@ msgstr "Δεν ήταν δυνατό να προστεθεί το %s στον κ
 
 # ID:81,
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not add '%s' because"
-msgstr "Δεν ήταν δυνατό να προστεθεί το %s στον κατάλογο με τα παραβλεπόμενα αρχεία!"
+msgstr "Δεν μπορεί να προστεθεί '%s' γιατί"
 
 # ID:81,
 #. Resource IDs: (582)
@@ -3373,9 +3368,9 @@ msgstr ""
 # ID:3867,#:
 # ID:3867,
 #. Resource IDs: (3867)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not create %1 because the directory is full."
-msgstr "%1: Δεν μπορούσε να δημιουργήθεί γιατί ο κατάλογος είναι γεμάτος"
+msgstr "Δεν μπορεί να δημιουργηθεί %1 γιατί ο φάκελος είναι γεμάτος."
 
 # ID:81,
 #. Resource IDs: (582)
@@ -3396,9 +3391,8 @@ msgstr "Δεν ήταν δυνατή η διαγραφή ιδιοκτησίας 
 
 # ID:81,
 #. Resource IDs: (83)
-#, fuzzy
 msgid "Could not determine the last committed revision!"
-msgstr "Δεν γινετα να ληφ8εί η κατάσταση!"
+msgstr "Δεν μπορεί να προσδιοριστεί η τελευταία καταχωρημένη έκδοση!"
 
 # ID:81,
 #. Resource IDs: (81)
@@ -3407,9 +3401,9 @@ msgstr "Δεν γινετα να ληφ8εί η κατάσταση!"
 
 # ID:81,
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not merge '%s' because"
-msgstr "Δεν γινετα να ληφ8εί η κατάσταση!"
+msgstr "Δεν μπορεί να συγχωνευτεί '%s' γιατί"
 
 # ID:81,
 #. Resource IDs: (582)
@@ -3574,9 +3568,8 @@ msgstr "Δημιουργεία συντόμευσης"
 
 # ID:119,
 #. Resource IDs: (32828)
-#, fuzzy
 msgid "Create unified diff file"
-msgstr "Λήψη ενιαίων διαφορών"
+msgstr "Δημιουργία ενοποιημένου αρχείου διαφορών"
 
 # ID:126,
 #. Resource IDs: (126)
@@ -4186,9 +4179,9 @@ msgstr "Υπήρξε μια παραβίαση "
 # ID:3867,#:
 # ID:3867,
 #. Resource IDs: (3867)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered a sharing violation while accessing %1."
-msgstr "Συνέβηκε μια παραβίαση κοινής χρήσης καθώς γινόταν προσπέλαση του %1."
+msgstr "Αντιμετωπίστηκε σφάλμα παραβίασης κοινής χρήσης ενώ γινόταν προσπέλαση του %1."
 
 #. Resource IDs: (3843)
 msgid "Encountered an improper argument."
@@ -4197,16 +4190,16 @@ msgstr "Αντιμετώπισε καταχρηστική επιχείρημα."
 # ID:3859,#:
 # ID:3859,
 #. Resource IDs: (3859)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered an unexpected error while reading %1."
-msgstr "Υπηρξε ένα ξαφνικό σφάλμα καθώς διαβάζονταν το %1."
+msgstr "Αντιμετωπίστηκε απροσδόκητο σφάλμα ενώ διαβάζονταν το %1."
 
 # ID:3859,#:
 # ID:3859,
 #. Resource IDs: (3859)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered an unexpected error while writing %1."
-msgstr "Υπηρξε ένα ξαφνικό σφάλμα καθώς γραφώταν το %1."
+msgstr "Αντιμετωπίστηκε απροσδόκητο σφάλμα ενώ γραφόταν %1."
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -4834,9 +4827,8 @@ msgstr "Αναγκάσμος"
 # ID:11,#:
 # Control-ID:65535,
 #. Resource IDs: (1480)
-#, fuzzy
 msgid "Force the merge"
-msgstr "Συγχώνευση δέντρου"
+msgstr "Εξαναγκασμός της συγχώνευσης"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5012,23 +5004,21 @@ msgstr ""
 
 # ID:3606,
 #. Resource IDs: (2051)
-#, fuzzy
 msgid ""
 "Go to the previous conflict\n"
 "Previous conflict"
 msgstr ""
-"Μεταστροφή πίσω στο προηγούμενο πλαίσιο\n"
-"Προηγούμενο πλαίσιο"
+"Μεταφορά στην προηγούμενη διένεξη \n"
+"Προηγούμενη διένεξη"
 
 # ID:3606,
 #. Resource IDs: (2049)
-#, fuzzy
 msgid ""
 "Go to the previous difference\n"
 "Previous difference"
 msgstr ""
-"Μεταστροφή πίσω στο προηγούμενο πλαίσιο\n"
-"Προηγούμενο πλαίσιο"
+"Μεταφορά στην προηγούμενη διαφορά \n"
+"Προηγούμενη διαφορά"
 
 # Control-ID:1134,
 #. Resource IDs: (1134)
@@ -5041,9 +5031,8 @@ msgstr "Γκρι"
 
 # ID:214,
 #. Resource IDs: (2050)
-#, fuzzy
 msgid "Group by branch"
-msgstr "&Ομαδοποιηση πινάκων αλλαγών"
+msgstr "&Ομαδοποίηση ανά διακλάδωση"
 
 # ID:214,
 #. Resource IDs: (214)
@@ -5051,9 +5040,8 @@ msgid "Group changelists"
 msgstr "Ομαδοποιηση πινάκων αλλαγών"
 
 #. Resource IDs: (2050)
-#, fuzzy
 msgid "Groups branches together"
-msgstr "Ομαδοποιηση διακλάδωσεις"
+msgstr "Ομαδοποίηση διακλαδώσεων"
 
 # Control-ID:1229,
 #. Resource IDs: (1229)
@@ -5178,9 +5166,8 @@ msgstr "Πως θέλετε να επιλυθεί αυτή η διένεξη;"
 
 # ID:73,
 #. Resource IDs: (1264)
-#, fuzzy
 msgid "I&gnored"
-msgstr "Παράβλεψη"
+msgstr "Έχουν παραβλεφθεί"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -5889,15 +5876,13 @@ msgstr "Διατήρηση πινάκων αλλαγών"
 
 # ID:10,
 #. Resource IDs: (610)
-#, fuzzy
 msgid "Keep the directory from the repository"
-msgstr "Εισάγει το φάκελο σε μία Αποθήκη"
+msgstr "Παραμονή του φακέλου από την αποθήκη"
 
 # ID:10,
 #. Resource IDs: (610)
-#, fuzzy
 msgid "Keep the file from the repository"
-msgstr "Εισάγει το φάκελο σε μία Αποθήκη"
+msgstr "Παραμονή του αρχείου από την αποθήκη"
 
 #. Resource IDs: (610)
 msgid "Keep the local directory"
@@ -5990,9 +5975,8 @@ msgstr ""
 
 # ID:114,
 #. Resource IDs: (32853)
-#, fuzzy
 msgid "Line diff bar"
-msgstr "Διαφορές γραμμής"
+msgstr "Γραμμή μπάρας διαφορών"
 
 # ID:114,
 #. Resource IDs: (65535)
@@ -6398,9 +6382,9 @@ msgstr "Γίνεται συνένωση"
 
 # ID:120,
 #. Resource IDs: (229)
-#, fuzzy, c-format
+#, c-format
 msgid "Merging %s into %s, %s%s"
-msgstr "Συγχώνευση %s στο %s, %s"
+msgstr "Συγχώνευση %s σε %s, %s%s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6868,9 +6852,8 @@ msgstr "Μη αναδρόμενο"
 
 # ID:12,
 #. Resource IDs: (1481)
-#, fuzzy
 msgid "Note: the folder contains unversioned items"
-msgstr "URL των αντικειμένων του Subversion"
+msgstr "Σημείωση: ο φάκελος περιέχει στοιχεία χωρίς έκδοση"
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
@@ -6889,9 +6872,8 @@ msgstr "Αριθμός %s"
 
 # Control-ID:1161,
 #. Resource IDs: (338)
-#, fuzzy
 msgid "Number of authors in the cache"
-msgstr "Αριθμός Συγγραφέων:"
+msgstr "Αριθμός συγγραφέων στην cache:"
 
 # Control-ID:1161,
 #. Resource IDs: (1161)
@@ -7300,10 +7282,11 @@ msgstr ""
 
 # ID:3858,#:
 # ID:3858,
+# word "hook" has no valid translation in greek
 #. Resource IDs: (83)
 #, fuzzy
 msgid "Please select a hook type"
-msgstr "Παρακαλω εισάγετε μια χρονική στιγμή."
+msgstr "Παρακαλώ επιλέξτε τύπο hook"
 
 # ID:76,
 #. Resource IDs: (76)
@@ -7487,33 +7470,33 @@ msgstr "Ιδιότητα"
 
 # ID:226,
 #. Resource IDs: (151)
-#, fuzzy, c-format
+#, c-format
 msgid "Property %s : Revision %s"
-msgstr "%s - στον αριθμό αναθεώρημένης έκδοσης: %d"
+msgstr "Ιδιότητα %s : Έκδοση %s"
 
 # ID:226,
 #. Resource IDs: (151)
-#, fuzzy, c-format
+#, c-format
 msgid "Property %s : Working Base, Revision %ld"
-msgstr "%s - στον αριθμό αναθεώρημένης έκδοσης: %d"
+msgstr "Ιδιότητα %s : Τρέχουσα έκδοση βάσης, Αναθεώρηση %ld "
 
 # ID:207,
 #. Resource IDs: (151)
-#, fuzzy, c-format
+#, c-format
 msgid "Property %s : remote"
-msgstr "Καθεστός Ιδιωτήτων"
+msgstr "Ιδιότητα %s : απομακρυσμένο"
 
 # ID:151,
 #. Resource IDs: (151)
-#, fuzzy, c-format
+#, c-format
 msgid "Property %s : working base"
-msgstr ": βασική έκδοση πάνω στην οποία εργάζεστε"
+msgstr "Ιδιότητα %s : Τρέχουσα έκδοση βάσης "
 
 # ID:103,
 #. Resource IDs: (151)
-#, fuzzy, c-format
+#, c-format
 msgid "Property %s : working copy"
-msgstr "Αντιγραφή στο εργαζόμενο αντίγραφο"
+msgstr "Ιδιότητα %s : Τρέχων αντίγραφο"
 
 # ID:207,
 #. Resource IDs: (262)
@@ -7798,9 +7781,8 @@ msgstr ""
 # ID:114,#:
 # ID:322,
 #. Resource IDs: (208)
-#, fuzzy
 msgid "Remote revision"
-msgstr "&Απόδοση υπαιτιότητας της έκδοσης"
+msgstr "Απομακρυσμένη έκδοση"
 
 # ID:63,#:
 # ID:207,
@@ -7821,9 +7803,9 @@ msgstr "&Αφαίρεση"
 
 # ID:15,
 #. Resource IDs: (126)
-#, fuzzy, c-format
+#, c-format
 msgid "Remove %ld items"
-msgstr "&Παράβλεψη %d αντικειμένων"
+msgstr "Αφαίρεση %ld στοιχείων"
 
 # ID:97,
 #. Resource IDs: (126)
@@ -8120,9 +8102,9 @@ msgstr ""
 
 # Control-ID:65535,
 #. Resource IDs: (264)
-#, fuzzy, c-format
+#, c-format
 msgid "Reverse merging %ld"
-msgstr "Συγχώνευση r%ld"
+msgstr "Αντιστροφή συγχώνευσης %ld"
 
 #. Resource IDs: (264)
 #, c-format
@@ -8137,9 +8119,8 @@ msgstr "Επαναφορά"
 # ID:80,#:
 # Control-ID:65535,
 #. Resource IDs: (77)
-#, fuzzy
 msgid "Revert - TortoiseSVN"
-msgstr "TortoiseSVN"
+msgstr "Επαναφορά - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -8157,9 +8138,8 @@ msgstr ""
 
 # ID:9,
 #. Resource IDs: (14)
-#, fuzzy
 msgid "Reverts an addition to version control"
-msgstr "Προστέθηκαν αρχεία στον έλεγχο του Subversion"
+msgstr "Επαναφέρει μια προσθήκη στον έλεγχο εκδόσεων"
 
 # ID:76,#:
 # ID:208,#:
@@ -8236,9 +8216,8 @@ msgstr ""
 # ID:270,#:
 # ID:272,
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Revision range to merge"
-msgstr "Έκδοση %ld"
+msgstr "Εύρος εκδόσεων για συγχώνευση"
 
 # ID:75,
 #. Resource IDs: (75)
@@ -8312,15 +8291,15 @@ msgstr "Δεξιά εικόνα: "
 
 # ID:7,
 #. Resource IDs: (1070)
-#, fuzzy, c-format
+#, c-format
 msgid "Row %d of %d"
-msgstr "%ld από %ld"
+msgstr "Σειρά %d από %d"
 
 # ID:7,
 #. Resource IDs: (1070)
-#, fuzzy, c-format
+#, c-format
 msgid "Row %d-%d of %d"
-msgstr "%ld από %ld"
+msgstr "Σειρά %d-%d από %d"
 
 # ID:101,
 #. Resource IDs: (17045)
@@ -8714,9 +8693,8 @@ msgstr ""
 
 # ID:276,
 #. Resource IDs: (595)
-#, fuzzy
 msgid "Select the URLs for the tree merge"
-msgstr "Διαλέκτε τελική έκδοση"
+msgstr "Επιλογή των URL για τη συγχώνευση του δένδρου"
 
 # ID:79,
 #. Resource IDs: (79)
@@ -8781,11 +8759,13 @@ msgstr ""
 # ID:564,#:
 # Dlg-ID:227,
 #. Resource IDs: (127)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Set property '%s' on\r\n"
 "%s"
-msgstr "Επεξεργασία Ιδιοτήτων"
+msgstr ""
+"Καθορισμός ιδιότητας '%s' στο\r\n"
+"%s"
 
 # ID:13,
 #. Resource IDs: (13)
@@ -9046,9 +9026,8 @@ msgstr ""
 
 # ID:12,
 #. Resource IDs: (1462)
-#, fuzzy
 msgid "Show overlay for unversioned items"
-msgstr "URL των αντικειμένων του Subversion"
+msgstr "Εμφάνιση επικάλυψης για τα στοιχεία χωρίς έκδοση"
 
 # ID:101,
 #. Resource IDs: (102)
@@ -9206,9 +9185,8 @@ msgstr ""
 
 # ID:376,
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Split following &tree"
-msgstr "Διαχωρισμός γραμμών"
+msgstr "Διαχωρισμός ακόλουθου &δένδρου"
 
 # ID:376,
 #. Resource IDs: (376)
@@ -9217,9 +9195,8 @@ msgstr "Διαχωρισμός γραμμών"
 
 # ID:376,
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Split sub-trees"
-msgstr "Διαχωρισμός γραμμών"
+msgstr "Διαχωρισμός υπο-δένδρων"
 
 # ID:3604,
 #. Resource IDs: (3604)
@@ -10031,11 +10008,12 @@ msgstr ""
 
 # ID:313,
 #. Resource IDs: (313)
-#, fuzzy
 msgid ""
 "There are unsaved modifications!\n"
 "Do you want to save your changes?"
-msgstr "Θέλετε να αποθηκεύσετε τις αλλαγές σας;"
+msgstr ""
+"Υπάρχουν μη αποθηκευμένες μεταβολές!\n"
+"Θέλετε να τις αποθηκεύσετε;"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -10331,9 +10309,8 @@ msgstr "Συνολικός αριθμός συνενωμένων αναθεωρ�
 
 # ID:101,
 #. Resource IDs: (339)
-#, fuzzy
 msgid "Total number of user revision properties"
-msgstr "Προβολή ιδιοτήτων"
+msgstr "Σύνολο ιδιοτήτων αναθεωρήσεων χρήστη"
 
 # again, inflection, depends on context
 # ID:11,#:
@@ -10679,15 +10656,13 @@ msgstr ""
 
 # ID:226,
 #. Resource IDs: (199)
-#, fuzzy
 msgid "Updating log cache"
-msgstr "Γίνεται ενημέρωση %s"
+msgstr "Ενημέρωση cache αρχείου καταγραφών"
 
 # ID:151,
 #. Resource IDs: (15)
-#, fuzzy
 msgid "Upgrade working copy"
-msgstr ": αντίγραφο πάνω στο οποίο εργάζεστε"
+msgstr "Αναβάθμιση αντιγράφου εργασίας"
 
 # Control-ID:1269,#:
 # Control-ID:1096,
@@ -10732,9 +10707,8 @@ msgstr ""
 
 # Control-ID:1132,
 #. Resource IDs: (1064)
-#, fuzzy
 msgid "Use Unified Diff from &clipboard"
-msgstr "Άνοιγμα από το Πρόχειρο"
+msgstr "Χρήση ενοποιημένων διαφορών από το &Πρόχειρο"
 
 # Control-ID:1296,
 #. Resource IDs: (1296)
@@ -10939,9 +10913,9 @@ msgstr "Έκδοση"
 
 # ID:201,
 #. Resource IDs: (7)
-#, fuzzy, c-format
+#, c-format
 msgid "Version %d.%d.%d.%d"
-msgstr "Η εκδοσή σας είναι: %d.%d.%d.%d"
+msgstr "Έκδοση %d.%d.%d.%d"
 
 # ID:120,
 #. Resource IDs: (1075)
@@ -11486,9 +11460,8 @@ msgstr "συνολικές αλλαγές: "
 # ID:244,#:
 # ID:245,
 #. Resource IDs: (244, 245)
-#, fuzzy
 msgid "commits"
-msgstr "δεσμεύεται"
+msgstr "καταγραφές"
 
 # ID:11,
 #. Resource IDs: (11)
@@ -11560,9 +11533,8 @@ msgstr "εξωτερικό"
 # again, inflection
 # ID:13,
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "file external:"
-msgstr "εξωτερικό"
+msgstr "εξωτερικό αρχείο:"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -11629,9 +11601,8 @@ msgstr "κλειδωμένο: "
 
 # ID:77,
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "max revision: "
-msgstr "Τρέχων αριθμός έκδοσης:  %d"
+msgstr "μέγιστος αριθμός έκδοσης:"
 
 # again, inflection, depends on context
 # ID:11,#:
