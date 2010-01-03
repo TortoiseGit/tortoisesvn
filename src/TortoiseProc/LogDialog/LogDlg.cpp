@@ -997,6 +997,7 @@ void CLogDlg::LogThread()
 	//log messages.
 	DialogEnableWindow(IDC_GETALL, FALSE);
 	DialogEnableWindow(IDC_NEXTHUNDRED, FALSE);
+	DialogEnableWindow(IDC_SHOWPATHS, FALSE);
 	DialogEnableWindow(IDC_CHECK_STOPONCOPY, FALSE);
 	DialogEnableWindow(IDC_INCLUDEMERGE, FALSE);
 	DialogEnableWindow(IDC_STATBUTTON, FALSE);
@@ -1196,6 +1197,7 @@ void CLogDlg::LogThread()
 	
 	if (!m_bShowedAll)
 		DialogEnableWindow(IDC_NEXTHUNDRED, TRUE);
+	DialogEnableWindow(IDC_SHOWPATHS, TRUE);
 	DialogEnableWindow(IDC_CHECK_STOPONCOPY, TRUE);
 	DialogEnableWindow(IDC_INCLUDEMERGE, TRUE);
 	DialogEnableWindow(IDC_STATBUTTON, TRUE);
