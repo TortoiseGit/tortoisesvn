@@ -18,7 +18,7 @@ if (num != 4)
     WScript.Quit(1);
 }
 
-var re = /^\/\/ Copyright.+(2009)(.*)/;
+var re = /^\/\/ Copyright.+(2010)(.*)/;
 var basere = /^\/\/ Copyright(.*)/;
 var filere = /(\.cpp$)|(\.h$)/;
 var found = true;
