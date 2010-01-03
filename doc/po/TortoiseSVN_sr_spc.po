@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-12-28 12:44 +0000\n"
-"PO-Revision-Date: 2009-12-29 20:00+0100\n"
+"POT-Creation-Date: 2010-01-03 00:35 +0000\n"
+"PO-Revision-Date: 2010-01-03 21:56+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3860,6 +3860,14 @@ msgid "To resolve this conflict, Developer B has to find out to what filename th
 msgstr "Да се реши конфликт, Програмер Б има да нађе у које име фајла конфликтног фајла <filename>Foo.c</filename> је преименовано/померено у спремишту. Ово може бити урађено користећи дијалог дневника за стопљен извор. Уредник конфликта само приказује дневник за радну копију како незна која путања је коришћена при стапању тако да то нађете сами."
 
 #. (title)
+msgid "Other tree conflicts"
+msgstr "Други конфликти стабла"
+
+#. (para)
+msgid "There are other cases which are labelled as tree conflicts simply because the conflict involves a folder rather than a file. For example if you add a folder with the same name to both trunk and branch and then try to merge you will get a tree conflict. If you want to keep the folder from the merge target, just mark the conflict as resolved. If you want to use the one in the merge source then you need to SVN delete the one in the target first and run the merge again. If you need anything more complicated then you have to resolve manually."
+msgstr "Постоје други случајеви који су једноставно означени као конфликт стабла зато што конфликт радије обухвата именик него фајл. На пример, ако додате именик истог имена и у дебло и у грану ионда покушате да стопите добићете конфликт стабла. Ако желите да задржите именик из циља стапања, само означите конфликт решеним. Ако желите да користите један од извора стапања потребно вам је да СВН обрише један од циљева пре него уради поновно стапање. Ако желите нешто компликованије треба то решити ручно."
+
+#. (title)
 msgid "Getting Status Information"
 msgstr "Добијање статус информација"
 
@@ -5989,6 +5997,8 @@ msgid "For project properties <emphasis>only</emphasis>, i.e. <literal>tsvn:</li
 msgstr "За особине пројекта <emphasis>само</emphasis>, тј <literal>tsvn:</literal>, <literal>bugtraq:</literal> и <literal>webviewer:</literal> можете користити <guilabel>Рекурзив</guilabel> чекбокс да подесите особине свих суб-именика у хијерархији, такође без подешавања на све фајлове."
 
 #. (para)
+#. (para)
+#. (para)
 msgid "When you add new sub-folders using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
 msgstr "Када додате нови суб-именик користећи ТортоисеСВН, особине било ког пројекта присутне у предачком именику ће аутоматски бити додате новом потомачком именики такође."
 
@@ -6564,8 +6574,8 @@ msgid "If you are using merge tracking and you want to mark a revision as having
 msgstr "Ако користите стапања праћење и желите да означите ревизију да је стопљена, без стварног стапања овде, чекирајте <guilabel>Само обележите стапање</guilabel> чекбокс. Постоје два могућа разлога која можете желети да ово урадите. Може бити да је стапање јако компликовано за алгоритам стапања, онда ћете урадити измене ручно, затим маркирате измене као стопљене да би стапања праћење алгоритам био упознат са тим. Или можете желети да предупредите посебне ревизије да буду стопљене. Означавајучи их већ стопљеним предупређујете појаву стапања помоћу стопи-трагач-упознат клијентима."
 
 #. (para)
-msgid "Now everything is set up, all you have to do is click on the <guibutton>Merge</guibutton> button. If you want to preview the results <guibutton>Test Merge</guibutton> performs the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes those areas where conflicts will occur."
-msgstr "Сада је све подешено, све што имате да урадите је да кликнете на <guibutton>Стопи</guibutton> дугме. Ако желите да прегледате резултат <guibuttone>Тестирај Стапање</guibutton> омогућава операцију стапања, али <emphasis>не</emphasis> модификује радну копију уопште. То приказује листу фајлова који ће бити измењени стварним стапањем, и нотира те површине где се конфликти јављаку."
+msgid "Now everything is set up, all you have to do is click on the <guibutton>Merge</guibutton> button. If you want to preview the results <guibutton>Test Merge</guibutton> simulates the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes files where conflicts <emphasis>may</emphasis> occur. Because merge tracking makes the merge process a lot more complicated, there is no guaranteed way to find out in advance whether the merge will complete without conflicts, so files marked as conflicted in a test merge may in fact merge without any problem."
+msgstr "Сада је све подешено, све што имате да урадите је да кликнете на <guibutton>Стопи</guibutton> дугме. Ако желите да прегледате резултат <guibuttone>Тестирај Стапање</guibutton> омогућава операцију стапања, али <emphasis>не</emphasis> модификује радну копију уопште. То приказује листу фајлова који ће бити измењени стварним стапањем, и нотира те површине где се конфликти <emphasis>могу</emphasis> јавити. Пошто праћење стапања чини процес стапања нешто компликованијим, нема гарантованог начина да се унапред нађе да ли ће се стапање завршити без конфликта, тако ће фајлови означени у тест стапању могу се у ставари стопити без проблема."
 
 #. (para)
 msgid "The merge progress dialog shows each stage of the merge, with the revision ranges involved. This may indicate one more revision than you were expecting. For example if you asked to merge revision 123 the progress dialog will report <quote>Merging revisions 122 through 123</quote>. To understand this you need to remember that Merge is closely related to Diff. The merge process works by generating a list of differences between two points in the repository, and applying those differences to your working copy. The progress dialog is simply showing the start and end points for the diff."
@@ -13036,3 +13046,4 @@ msgstr "Милорад Поповић <MiloradSPopovic@gmail.com>"
 #. (None)
 msgid "translator-translation"
 msgstr "Превод"
+
