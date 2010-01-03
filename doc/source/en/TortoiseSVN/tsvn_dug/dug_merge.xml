@@ -374,10 +374,14 @@
 		<para>
 			Now everything is set up, all you have to do is click on the
 			<guibutton>Merge</guibutton> button. If you want to preview the results
-			<guibutton>Test Merge</guibutton> performs the merge operation, but does
+			<guibutton>Test Merge</guibutton> simulates the merge operation, but does
 			<emphasis>not</emphasis> modify the working copy at all.
-			It shows you a list of the files that will be changed
-			by a real merge, and notes those areas where conflicts will occur.
+			It shows you a list of the files that will be changed by a real merge,
+			and notes files where conflicts <emphasis>may</emphasis> occur.
+			Because merge tracking makes the merge process a lot more complicated,
+			there is no guaranteed way to find out in advance whether the merge
+			will complete without conflicts, so files marked as conflicted in a
+			test merge may in fact merge without any problem.
 		</para>
 		<para>
 			The merge progress dialog shows each stage of the merge, with the
