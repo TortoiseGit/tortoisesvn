@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -661,12 +661,12 @@ CSize CBalloon::GetTooltipSize(const CString& str)
 
 CSize CBalloon::GetSizeIcon(HICON hIcon) const
 {
-	ICONINFO ii;
 	CSize sz (0, 0);
 
 	if (hIcon != NULL)
 	{
 		//get icon dimensions
+		ICONINFO ii;
 		::SecureZeroMemory(&ii, sizeof(ICONINFO));
 		if (::GetIconInfo(hIcon, &ii))
 		{

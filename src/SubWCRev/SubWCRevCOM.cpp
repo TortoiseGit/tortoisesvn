@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -75,14 +75,12 @@ void AutomationMain()
 	// initialize the COM library
 	::CoInitialize(NULL);
 
-	apr_pool_t * pool;
-	svn_client_ctx_t ctx;
-
 	apr_initialize();
 	svn_dso_initialize2();
-	apr_pool_create_ex (&pool, NULL, NULL, NULL);
-	memset (&ctx, 0, sizeof (ctx));
 
+	apr_pool_t * pool;
+	apr_pool_create_ex (&pool, NULL, NULL, NULL);
+	
 	size_t ret = 0;
 	getenv_s(&ret, NULL, 0, "SVN_ASP_DOT_NET_HACK");
 	if (ret)
@@ -92,8 +90,6 @@ void AutomationMain()
 
 	// register ourself as a class object against the internal COM table
 	DWORD nToken = CoEXEInitialize();
-
-
 
 	//
 	// (loop ends if WM_QUIT message is received)
@@ -186,17 +182,12 @@ HRESULT __stdcall SubWCRev::GetWCInfo(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL
 	if (wcPath==NULL)
 		return ERROR_INVALID_PARAMETER;
 
-	HRESULT hr = S_OK;
-	apr_pool_t * pool;
-	svn_error_t * svnerr = NULL;
-	svn_client_ctx_t ctx;
-	const char * internalpath;
 	memset (&SubStat, 0, sizeof (SubStat));
 	SubStat.bFolders = folders;
 	SubStat.bExternals = externals;
 
+	apr_pool_t * pool;
 	apr_pool_create_ex (&pool, NULL, NULL, NULL);
-	memset (&ctx, 0, sizeof (ctx));
 
 	size_t ret = 0;
 	getenv_s(&ret, NULL, 0, "SVN_ASP_DOT_NET_HACK");
@@ -205,16 +196,19 @@ HRESULT __stdcall SubWCRev::GetWCInfo(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL
 		svn_wc_set_adm_dir("_svn", pool);
 	}
 
-	char *wc_utf8;
-	wc_utf8 = Utf16ToUtf8((WCHAR*)wcPath, pool);
-	internalpath = svn_path_internal_style (wc_utf8, pool);
+	char *wc_utf8 = Utf16ToUtf8((WCHAR*)wcPath, pool);
+	const char * internalpath = svn_path_internal_style (wc_utf8, pool);
 
-	svnerr = svn_status(	internalpath,	//path
-							&SubStat,		//status_baton
-							TRUE,			//noignore
-							&ctx,
-							pool);
+	svn_client_ctx_t ctx;
+	memset (&ctx, 0, sizeof (ctx));
 
+	svn_error_t * svnerr = svn_status(	internalpath,	//path
+										&SubStat,		//status_baton
+										TRUE,			//noignore
+										&ctx,
+										pool);
+
+	HRESULT hr = S_OK;
 	if (svnerr)
 	{
 		hr = S_FALSE;
@@ -345,7 +339,6 @@ HRESULT __stdcall SubWCRev::get_LockCreationDate(/*[out, retval]*/VARIANT* date)
 	date->bstrVal = SysAllocStringLen(destbuf, (UINT)_tcslen(destbuf));
 	return result;
 }
-
 	
 HRESULT __stdcall SubWCRev::get_LockOwner(/*[out, retval]*/VARIANT* owner)
 {
@@ -355,7 +348,6 @@ HRESULT __stdcall SubWCRev::get_LockOwner(/*[out, retval]*/VARIANT* owner)
 	owner->vt = VT_BSTR;
 
 	HRESULT result;
-	WCHAR * buf;
 	size_t len;
 
 	if(FALSE == IsLockDataAvailable())
@@ -369,7 +361,7 @@ HRESULT __stdcall SubWCRev::get_LockOwner(/*[out, retval]*/VARIANT* owner)
 		result = S_OK;
 	}
 
-	buf = new WCHAR[len*4 + 1];
+	auto_buffer<WCHAR> buf (len*4 + 1);
 	SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
 	
 	if(TRUE == SubStat.LockData.NeedsLocks)
@@ -378,11 +370,8 @@ HRESULT __stdcall SubWCRev::get_LockOwner(/*[out, retval]*/VARIANT* owner)
 	}
 
 	owner->bstrVal = SysAllocString(buf);
-	delete [] buf;
-
 	return result;
 }
-
 
 HRESULT __stdcall SubWCRev::get_LockComment(/*[out, retval]*/VARIANT* comment)
 {	
@@ -405,7 +394,7 @@ HRESULT __stdcall SubWCRev::get_LockComment(/*[out, retval]*/VARIANT* comment)
 		result = S_OK;
 	}
 
-	WCHAR* buf = new WCHAR[len*4 + 1];
+	auto_buffer<WCHAR> buf (len*4 + 1);
 	SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
 	
 	if(TRUE == SubStat.LockData.NeedsLocks)
@@ -414,8 +403,6 @@ HRESULT __stdcall SubWCRev::get_LockComment(/*[out, retval]*/VARIANT* comment)
 	}
 
 	comment->bstrVal = SysAllocString(buf);
-	delete [] buf;
-
 	return result;
 }
 
@@ -457,7 +444,6 @@ HRESULT SubWCRev::LoadTypeInfo(ITypeInfo ** pptinfo, const CLSID &libid, const C
 {
 	if(pptinfo == 0)
 		return E_POINTER;
-
 	
 	LPTYPELIB ptlib = NULL;
 	LPTYPEINFO ptinfo = NULL;
@@ -567,6 +553,9 @@ HRESULT __stdcall CFactory::CreateInstance(IUnknown* pUnknownOuter,
 										   const IID& iid,
 										   void** ppv) 
 {
+	if (ppv == 0)
+		return E_POINTER;
+
 	// Cannot aggregate.
 	if (pUnknownOuter != NULL)
 	{
@@ -617,10 +606,7 @@ STDAPI DllCanUnloadNow()
 	{
 		return S_OK ;
 	}
-	else
-	{
-		return S_FALSE ;
-	}
+	return S_FALSE;
 }
 
 //
@@ -630,6 +616,9 @@ STDAPI DllGetClassObject(const CLSID& clsid,
 						 const IID& iid,
 						 void** ppv)
 {
+	if (ppv == 0)
+		return E_POINTER;
+
 	// Can we create this component?
 	if (clsid != CLSID_SubWCRev)
 	{
