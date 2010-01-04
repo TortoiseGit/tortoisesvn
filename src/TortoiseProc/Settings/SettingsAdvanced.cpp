@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -66,6 +66,7 @@ void CSettingsAdvanced::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CSettingsAdvanced, ISettingsPropPage)
 	ON_NOTIFY(LVN_BEGINLABELEDIT, IDC_CONFIG, &CSettingsAdvanced::OnLvnBeginlabeledit)
 	ON_NOTIFY(LVN_ENDLABELEDIT, IDC_CONFIG, &CSettingsAdvanced::OnLvnEndlabeledit)
+	ON_NOTIFY(NM_DBLCLK, IDC_CONFIG, &CSettingsAdvanced::OnNMDblclkConfig)
 END_MESSAGE_MAP()
 
 
@@ -244,4 +245,11 @@ BOOL CSettingsAdvanced::PreTranslateMessage(MSG* pMsg)
 		}
 	}
 	return ISettingsPropPage::PreTranslateMessage(pMsg);
+}
+
+void CSettingsAdvanced::OnNMDblclkConfig(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
+	m_ListCtrl.EditLabel(pNMItemActivate->iItem);
+	*pResult = 0;
 }
