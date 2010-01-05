@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -147,6 +147,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, diskScheduler(1, 0, true, true)
 	, m_pLogListAccServer(NULL)
 	, m_pChangedListAccServer(NULL)
+	, m_head(-1)
 {
 	m_bFilterWithRegex = 
         !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), FALSE);
@@ -720,9 +721,7 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 			dlg.SetStartRevision(m_startrev);
 			dlg.SetEndRevision( (m_endrev>=0) ? m_endrev : 0);
 			if (dlg.DoModal()!=IDOK)
-			{
 				return;
-			}
 			m_endrev = dlg.GetEndRevision();
 			m_startrev = dlg.GetStartRevision();
 			if (((m_endrev.IsNumber())&&(m_startrev.IsNumber()))||
@@ -751,6 +750,13 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
     m_LogList.SetItemCountEx(0);
 	m_LogList.Invalidate();
 	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
+	if ((m_startrev > m_head)&&(m_head > 0))
+	{
+		CString sTemp;
+		sTemp.FormatMessage(IDS_ERR_NOSUCHREVISION, m_startrev.ToString());
+		m_LogList.ShowText(sTemp, true);
+	    return;
+	}
 	pMsgView->SetWindowText(_T(""));
 
 	SetSortArrow(&m_LogList, -1, true);
@@ -1036,15 +1042,18 @@ void CLogDlg::LogThread()
         // start and end revs.
         // -> we don't need to look for the head revision in these cases
 
-        if ((m_startrev == SVNRev::REV_HEAD) || (m_endrev == SVNRev::REV_HEAD))
+        if ((m_startrev == SVNRev::REV_HEAD) || (m_endrev == SVNRev::REV_HEAD) || (m_head < 0))
         {
             // expensive repository lookup 
             // (if maxHeadAge has expired, which is the default setting)
 
     	    svn_revnum_t head = -1;
             succeeded = GetRootAndHead(m_path, rootpath, head);
+			m_head = head;
             if (m_startrev == SVNRev::REV_HEAD) 
+			{
 	            m_startrev = head;
+			}
             if (m_endrev == SVNRev::REV_HEAD)
 	            m_endrev = head;
         }
