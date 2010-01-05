@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-22 13:42+0100\n"
+"PO-Revision-Date: 2010-01-05 09:10+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1195,6 +1195,10 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Arbetskopia"
+
+#. Resource IDs: (1540)
+msgid "&file list control"
+msgstr "&fil list kontroll"
 
 #. Resource IDs: (338)
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
@@ -8132,7 +8136,7 @@ msgid "Subversion server file:"
 msgstr "Serverkonfigurationsfil för Subversion:"
 
 #. Resource IDs: (1232)
-msgid "Sw&itch working copy to new branch/tag"
+msgid "Swit&ch working copy to new branch/tag"
 msgstr "Vä&xlar arbetskopian till en ny gren/märke"
 
 #. Resource IDs: (229)
@@ -8683,6 +8687,18 @@ msgstr ""
 "%s\n"
 "är inte tom!\n"
 "Är du säker på att du vill hämta ut/exportera till den mappen?"
+
+#. Resource IDs: (279)
+msgid "The target working copy has local modifications!"
+msgstr "Arbetskopian har lokala ändringar!"
+
+#. Resource IDs: (279)
+msgid ""
+"The target working copy has local modifications.\n"
+"Do you want to merge anyway?"
+msgstr ""
+"Arbetskopian har lokala ändringar!\n"
+"Vill du fortsätta föreningen?"
 
 #. Resource IDs: (195)
 msgid ""
@@ -10281,6 +10297,10 @@ msgstr "låst"
 #. Resource IDs: (65535)
 msgid "locked:"
 msgstr "låst:"
+
+#. Resource IDs: (1539)
+msgid "log text &editor"
+msgstr "logg text &editor"
 
 #. Resource IDs: (65535)
 msgid "max revision: "
