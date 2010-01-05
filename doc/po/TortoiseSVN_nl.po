@@ -13,9 +13,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-12-24 08:50+0100\n"
-"Last-Translator: Guus Raaphorst <GuusRaaphorst@gmail.com>\n"
+"POT-Creation-Date: 2010-01-03 00:35 +0000\n"
+"PO-Revision-Date: 2010-01-05 13:03+0100\n"
+"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1033,10 +1033,6 @@ msgstr "Een archief aanmaken via de opdrachtregel applicatie."
 #. (primary)
 msgid "Create"
 msgstr "Aanmaken"
-
-#. (secondary)
-msgid "Command Line Client"
-msgstr "Command Line Client"
 
 #. (para)
 msgid "Create an empty folder with the name SVN (e.g. <filename>D:\\SVN\\</filename>), which is used as root for all your repositories."
@@ -3864,6 +3860,14 @@ msgid "To resolve this conflict, Developer B has to find out to what filename th
 msgstr "Om dit conflict op te lossen, moet ontwikkelaar B uitzoeken welke bestandsnaam de conflicterend <filename>Foo.c</filename> heeft gekregen in het archief. Het log venster van het samen te voegen bronbestand kan hiervoor gebruikt worden. Het conflict verwerker toont alleen het log van de werkkopie, omdat niet bekend is welk pad gebruikt is bij het samenvoegen. Je moet dat pad zelf handmatig opzoeken."
 
 #. (title)
+msgid "Other tree conflicts"
+msgstr "Andere mapstructuur conflicten"
+
+#. (para)
+msgid "There are other cases which are labelled as tree conflicts simply because the conflict involves a folder rather than a file. For example if you add a folder with the same name to both trunk and branch and then try to merge you will get a tree conflict. If you want to keep the folder from the merge target, just mark the conflict as resolved. If you want to use the one in the merge source then you need to SVN delete the one in the target first and run the merge again. If you need anything more complicated then you have to resolve manually."
+msgstr "Er zijn nog enkele andere situaties welke worden aangeduid als mapstructuur conflicten, dit komt doordat bij de conflicten mappen in plaats van bestanden betrokken zijn. Als je bijvoorbeeld een map met dezelfde naam in de trunk en tak toevoegd en deze vervolgens probeert samen te voegen, dan zal er een mapstructuur conflict ontstaan. Als je de map van het samenvoeg doel wilt gebruiken, markeer het conflict dan als opgelost. Als je de map uit de samenvoeg bron wilt gebruiken, dan moet je de map in de doel structuur er met SVN Verwijderen en vervolgens de samenvoeging opnieuw starten. Als je een ingewikkeldere oplossing wilt hebben, dan zul je dat handmatig moeten doen."
+
+#. (title)
 msgid "Getting Status Information"
 msgstr "Statusinformatie ophalen"
 
@@ -4644,15 +4648,15 @@ msgstr "Het logboekboodschappen venster toont de revisies van samenvoegingen"
 
 #. (para)
 msgid "If you want to see the detail of which revisions were merged as part of that commit, use the <guilabel>Include merged revisions</guilabel> checkbox. This will fetch the log messages again, but will also interleave the log messages from revisions which were merged. Merged revisions are shown in grey because they represent changes made on a different part of the tree."
-msgstr ""
+msgstr "Als je de details wilt zien welke revisies samengevoegd zijn bij die vastlegging, selecteer dan het <guilabel>Samengevoegde revisies meenemen</guilabel> selectievak. Hiermee zullen de logboekboodschappen opnieuw opgehaald worden en zullen de logboekboodschappen van de samengevoegde revisies tussen de andere logboekboodschappen ingevoegd worden. De samengevoegde revisies worden in grijs weergegeven, omdat deze wijzigingen aangegeven van een andere boomstructuur."
 
 #. (para)
 msgid "Of course, merging is never simple! During feature development on the branch there will probably be occasional merges back from trunk to keep the branch in sync with the main line code. So the merge history of the branch will also include another layer of merge history. These different layers are shown in the log dialog using indentation levels."
-msgstr ""
+msgstr "Samenvoegen is natuurlijk nooit eenvoudig. Gedurende de ontwikkelingen aan een tak zullen er soms samenvoegingen vanuit de trunk gedaan moeten worden om ervoor te zorgen dat de tak bij blijft met de hoofdbroncode. Dat houdt in dat de samenvoeggeschiedenis van een tak ook een extra laag van samenvoeggeschiedenis zal hebben. Deze verschillende lagen worden met verschillende inspringingen weergegeven."
 
 #. (title)
 msgid "Changing the Log Message and Author"
-msgstr ""
+msgstr "Logboekboodschap en Auteur Wijzigen"
 
 #. (primary)
 msgid "edit log/author"
@@ -5993,6 +5997,8 @@ msgid "For project properties <emphasis>only</emphasis>, i.e. <literal>tsvn:</li
 msgstr ""
 
 #. (para)
+#. (para)
+#. (para)
 msgid "When you add new sub-folders using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
 msgstr ""
 
@@ -6056,7 +6062,7 @@ msgstr ""
 
 #. (para)
 #. (para)
-msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
+msgid "If the external project is in the same repository, any changes you make there will be included in the commit list when you commit your main project."
 msgstr ""
 
 #. (para)
@@ -6543,7 +6549,7 @@ msgid "If you are using merge tracking and you want to mark a revision as having
 msgstr ""
 
 #. (para)
-msgid "Now everything is set up, all you have to do is click on the <guibutton>Merge</guibutton> button. If you want to preview the results <guibutton>Test Merge</guibutton> performs the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes those areas where conflicts will occur."
+msgid "Now everything is set up, all you have to do is click on the <guibutton>Merge</guibutton> button. If you want to preview the results <guibutton>Test Merge</guibutton> simulates the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes files where conflicts <emphasis>may</emphasis> occur. Because merge tracking makes the merge process a lot more complicated, there is no guaranteed way to find out in advance whether the merge will complete without conflicts, so files marked as conflicted in a test merge may in fact merge without any problem."
 msgstr ""
 
 #. (para)
@@ -6635,7 +6641,7 @@ msgid "Merging does not always go smoothly. Sometimes there is a conflict, and i
 msgstr ""
 
 #. (para)
-msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. Either way, no attempt is made to merge the changes - you choose one or the other."
+msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. This only relates to conflicting changes. Changes that can be merged are still merged. Only for the conflicting part your choice is used."
 msgstr ""
 
 #. (para)
@@ -12525,4 +12531,7 @@ msgstr "Jeroen van Amstel"
 #. (None)
 msgid "translator-translation"
 msgstr "Vertaler"
+
+#~ msgid "Command Line Client"
+#~ msgstr "Command Line Client"
 
