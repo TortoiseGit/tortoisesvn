@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-26 22:57+0200\n"
+"PO-Revision-Date: 2010-01-06 23:26+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1655,6 +1655,10 @@ msgstr ""
 "Muokkaa asetuksia\n"
 "Asetukset"
 
+#. Resource IDs: (307)
+msgid "Advanced"
+msgstr "Lisäasetukset"
+
 #. Resource IDs: (170)
 msgid "Advanced Diff/Merge Settings"
 msgstr "Edistyneet vertaa/yhdistä -asetukset"
@@ -2344,8 +2348,8 @@ msgstr "Siivoamassa"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%s\""
-msgstr "Siivotaan hakemistoa \"%s\""
+msgid "Cleaning up directory \"%1!s!\""
+msgstr "Siivotaan hakemistoa \"%1!s!\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2625,8 +2629,8 @@ msgstr "Vertaa valittua tiedostoa arkistossa olevaan tiedostoon"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Comparing %s to %s"
-msgstr "Verrataan: %s ja %s"
+msgid "Comparing %!1!s to %2!s!"
+msgstr "Verrataan: %!1!s ja %2!s!"
 
 #. Resource IDs: (74)
 msgid "Completed"
@@ -4243,15 +4247,15 @@ msgstr ""
 "Tällaisia tiedostoja voi vain lukea, ja vasta lukitseminen tekee niistä kirjoitettavia.\n"
 "Huomaa, että muiden käyttäjien pitää päivittää työkopionsa ennen kuin he näkevät muutokset."
 
+#. Resource IDs: (119)
+#, c-format
+msgid "Getting file %1!s!"
+msgstr "Haetaan tiedostoa %1!s!"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Getting file %1!s!, revision %2!s!"
 msgstr "Haetaan tiedostoa %1!s!, versio %2!s!"
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Getting file %s"
-msgstr "Haetaan tiedostoa %s"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
@@ -4883,8 +4887,8 @@ msgstr "Tuo kohteeseen %1"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Importing file %s"
-msgstr "Tuodaan tiedostoa %s"
+msgid "Importing file %1!s!"
+msgstr "Tuodaan tiedostoa %1!s!"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
@@ -5860,6 +5864,11 @@ msgstr "Ei tavutuskorjausta"
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
 msgstr "Ei tilamuistia.  Vain versioiduilla kansioilla on päällys, tiedostoilla ei ole päällystä"
 
+#. Resource IDs: (84)
+#, c-format
+msgid "No such revision '%1!s!'"
+msgstr "Versiota '%1!s!' ei ole olemassa"
+
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
 msgstr "Ei asiasanastoehdotuksia"
@@ -6106,6 +6115,10 @@ msgstr "Avaa arkistoselaimen arkiston suoraan käsittelyyn (ilman työkopiota)"
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
 msgstr "Käytä tällä kertaa aiemmin talletettuja lokitietoja"
+
+#. Resource IDs: (348)
+msgid "Option"
+msgstr "Asetus"
 
 #. Resource IDs: (16137)
 msgid "Options"
@@ -6417,8 +6430,8 @@ msgstr "Tulostamassa"
 
 #. Resource IDs: (132)
 #, c-format
-msgid "Processing revision %d of %d..."
-msgstr "Käsitellään versiota %d/%d..."
+msgid "Processing revision %1!d! of %2!d!..."
+msgstr "Käsitellään versiota %1!d!/%2!d!..."
 
 #. Resource IDs: (74)
 msgid "Program"
@@ -7050,18 +7063,18 @@ msgstr "Versio"
 
 #. Resource IDs: (119)
 #, c-format
-msgid "Revision %d"
-msgstr "Versio %d"
+msgid "Revision %1!d!"
+msgstr "Versio %1!d!"
+
+#. Resource IDs: (120)
+#, c-format
+msgid "Revision %1!s!"
+msgstr "Versio %1!s!"
 
 #. Resource IDs: (269)
 #, c-format
 msgid "Revision %ld"
 msgstr "Versio %ld"
-
-#. Resource IDs: (120)
-#, c-format
-msgid "Revision %s"
-msgstr "Versio %s"
 
 #. Resource IDs: (15)
 msgid "Revision &graph"
@@ -9636,6 +9649,16 @@ msgstr "Käy verkkosivuillamme"
 #. Resource IDs: (32848)
 msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
+
+#. Resource IDs: (65535)
+msgid ""
+"WARNING:\r\n"
+"Only change these settings if you are abolutely sure what you are doing!\r\n"
+"To set the values to their default, delete the value text."
+msgstr ""
+"VAROITUS:\r\n"
+"Muuta näitä asetuksia vain, mikäli olet tiedät varmasti, mitä olet tekemässä!\r\n"
+"Tyhjennä asetuksen sisältö saattaaksesi sen oletusarvoonsa."
 
 #. Resource IDs: (65535)
 msgid "WC node"

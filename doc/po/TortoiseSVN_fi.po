@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-12-13 09:34 +0000\n"
-"PO-Revision-Date: 2009-12-14 00:43+0200\n"
+"POT-Creation-Date: 2010-01-03 00:35 +0000\n"
+"PO-Revision-Date: 2010-01-06 23:35+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1033,10 +1033,6 @@ msgstr "Arkiston luonti komentoriviltä"
 #. (primary)
 msgid "Create"
 msgstr "Luo"
-
-#. (secondary)
-msgid "Command Line Client"
-msgstr "Komentorivi"
 
 #. (para)
 msgid "Create an empty folder with the name SVN (e.g. <filename>D:\\SVN\\</filename>), which is used as root for all your repositories."
@@ -3862,6 +3858,14 @@ msgid "To resolve this conflict, Developer B has to find out to what filename th
 msgstr "Ratkaistakseen tämän ristiriidan kehittäjän B on selvitettävä, mikä on tiedoston <filename>Foo.c</filename> uusi nimi arkistossa. Tämä onnistuu yhdistämislähteen loki-ikkunan avulla. Ristiriitaeditori näyttää lokin vain työkopiolle, koska se ei tiedä yhdistettäessä käytettyä polkua, joten joudut etsimään sen itse."
 
 #. (title)
+msgid "Other tree conflicts"
+msgstr "Muut puuristiriidat"
+
+#. (para)
+msgid "There are other cases which are labelled as tree conflicts simply because the conflict involves a folder rather than a file. For example if you add a folder with the same name to both trunk and branch and then try to merge you will get a tree conflict. If you want to keep the folder from the merge target, just mark the conflict as resolved. If you want to use the one in the merge source then you need to SVN delete the one in the target first and run the merge again. If you need anything more complicated then you have to resolve manually."
+msgstr "On muita tapauksia, jotka luokitellaan puuristiriidoiksi, koska ristiriitaan liittyy kansio tiedoston sijaan.  Jos esimerkiksi lisäät kansion samalla nimellä kahteen eri haaraan ja koetat yhdistää ne, syntyy puuristiriita. Mikäli haluat säilyttää yhdistämiskohteen kansion, riittää kun merkitset ristiriidan ratkaistuksi. Jos haluat käyttää yhdistämislähteen versiota, sinun on poistettava yhdistämiskohteen versio ja suoritettava yhdistäminen uudelleen. Mikäli tarvitaan monimutkaisempia toimenpiteitä, on ne ratkottava erikseen käsin."
+
+#. (title)
 msgid "Getting Status Information"
 msgstr "Työkopion tilan selvittäminen"
 
@@ -5991,6 +5995,8 @@ msgid "For project properties <emphasis>only</emphasis>, i.e. <literal>tsvn:</li
 msgstr "<emphasis>Projektiominaisuuksien</emphasis> yhteydessä (ts.  i.e. <literal>tsvn:</literal>, <literal>bugtraq:</literal> ja <literal>webviewer:</literal>) valinta <guilabel>Sovella palautuvasti</guilabel> asettaa ominaisuuden kaikille kansiopuun alikansioille (muttei tiedostoille)."
 
 #. (para)
+#. (para)
+#. (para)
 msgid "When you add new sub-folders using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
 msgstr "Kun lisäät uusia alikansioita TortoiseSVN:n avulla, mahdolliset projektiominaisuudet yläkansiossa lisätään niihin automaattisesti."
 
@@ -6059,8 +6065,8 @@ msgstr "Tässä näytetty rakenne toteutettiin Subversion-versioon 1.5. Saatat m
 
 #. (para)
 #. (para)
-msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
-msgstr "Jos ulkoinen projekti on samassa arkistossa, kaikki sinne tekemäsi muutokset sisältyvät toimituslistaan, kun toimitat muutokset pääprojektistasi arkistoon."
+msgid "If the external project is in the same repository, any changes you make there will be included in the commit list when you commit your main project."
+msgstr "Jos ulkoinen projekti on samassa arkistossa, kaikki siihen tehdyt muutokset sisältyvät toimituslistaan toimittaessasi pääprojektin muutoksia arkistoon."
 
 #. (para)
 #. (para)
@@ -6566,8 +6572,8 @@ msgid "If you are using merge tracking and you want to mark a revision as having
 msgstr "Jos yhdistämisjäljitys on käytössä ja haluat merkitä version yhdistetyksi ilman, että oikeasti teet sen, ruksaa valinta <guilabel>Pelkkä yhdistämistietojen päivitys</guilabel>. Saatat haluta tätä ainakin kahdesta eri syystä: yhdistäminen voi olla liian mutkikas, joten päätät yhdistää muutokset käsin ja tehdä yhdistämisjäljityksen tietoiseksi tästä. Toisaalta voit haluta estää tietyn version yhdistämisen - sen merkitseminen yhdistetyksi estää version ottamisen mukaan yhdistämiseen yhdistämisjäljitystä tukevissa asiakasohjelmissa."
 
 #. (para)
-msgid "Now everything is set up, all you have to do is click on the <guibutton>Merge</guibutton> button. If you want to preview the results <guibutton>Test Merge</guibutton> performs the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes those areas where conflicts will occur."
-msgstr "Nyt kaikki on valmista ja voit napsauttaa <guibutton>Yhdistä</guibutton>-painiketta aloittaaksesi. Jos haluat esikatsella yhdistämisen tekemiä muutoksia, painike <guibutton>Testaa</guibutton> suorittaa yhdistämisen, mutta <emphasis>ei</emphasis> muuta työkopiotasi. Se näyttää luettelon tiedostoista, jotka muuttuvat, kun varsinainen yhdistäminen tehdään, ilmoittaen myös mahdollisista ristiriidoista."
+msgid "Now everything is set up, all you have to do is click on the <guibutton>Merge</guibutton> button. If you want to preview the results <guibutton>Test Merge</guibutton> simulates the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes files where conflicts <emphasis>may</emphasis> occur. Because merge tracking makes the merge process a lot more complicated, there is no guaranteed way to find out in advance whether the merge will complete without conflicts, so files marked as conflicted in a test merge may in fact merge without any problem."
+msgstr "Nyt kaikki on valmista ja voit napsauttaa <guibutton>Yhdistä</guibutton>-painiketta aloittaaksesi. Jos haluat esikatsella yhdistämisen tekemiä muutoksia, painike <guibutton>Testaa</guibutton> suorittaa yhdistämisen, mutta <emphasis>ei</emphasis> muuta työkopiotasi. Se näyttää luettelon tiedostoista, jotka muuttuvat, kun varsinainen yhdistäminen tehdään, ilmoittaen myös mahdollisista ristiriidoista, joita <emphasis>saattaa</emphasis> syntyä. Koska yhdistämisten jäljitys monimutkaistaa asioita, ei ole täysin varmaa tapaa tietää ennalta, voidaanko yhdistäminen viedä päätökseen ilman ristiriitoja. Tästä syystä testiyhdistämisen ristiriitaisiksi ilmoittamat tiedostot saattavat itse asiassa yhdistyä ongelmitta."
 
 #. (para)
 msgid "The merge progress dialog shows each stage of the merge, with the revision ranges involved. This may indicate one more revision than you were expecting. For example if you asked to merge revision 123 the progress dialog will report <quote>Merging revisions 122 through 123</quote>. To understand this you need to remember that Merge is closely related to Diff. The merge process works by generating a list of differences between two points in the repository, and applying those differences to your working copy. The progress dialog is simply showing the start and end points for the diff."
@@ -6658,8 +6664,8 @@ msgid "Merging does not always go smoothly. Sometimes there is a conflict, and i
 msgstr "Yhdistäminen ei aina sujut kitkattomasti. Joskus syntyy ristiriita, ja jos yhdistät useita versiovälejä, haluat yleensä ratkaista sen ennen seuraavan versiovälin aloittamista. TortoiseSVN auttaa näyttämällä <emphasis>yhdistämisristiriitojen ratkontaikkunan</emphasis>. <placeholder-1/>"
 
 #. (para)
-msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. Either way, no attempt is made to merge the changes - you choose one or the other."
-msgstr "Saatat päättää, että paikalliset muutoksesi ovat tärkeämpiä kuin arkistossa olevat, joten haluat korvata arkistoversion omallasi. Toisaalta saatat haluat hylätä paikalliset muutoksesi ja korvata arkistossa olevilla. TortoiseSVN ei yritä yhdistää muutoksia itse - sinun on valittava jompi kumpi tapa."
+msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. This only relates to conflicting changes. Changes that can be merged are still merged. Only for the conflicting part your choice is used."
+msgstr "Saatat päättää, että paikalliset muutoksesi ovat tärkeämpiä kuin arkistossa olevat, joten haluat korvata arkistoversion omallasi ja säilyttää paikallisen version. Saatat myös haluta hylätä paikalliset muutoksesi ja korvata ne arkistossa olevilla. Tämä koskee vain ristiriitaisia mutoksia; yhdistettävissä olevat muutokset tehdään suoraan. Valintaasi käytetään siis vain ristiriitaisiin osiin."
 
 #. (para)
 msgid "Normally you will want to look at the conflicts and resolve them. In that case, choose the <guibutton>Edit Conflict</guibutton> which will start up your merge tool. When you are satisfied with the result, click <guibutton>Resolved</guibutton>."
@@ -13026,6 +13032,8 @@ msgstr "Kari Granö <kari.grano@gmail.com>"
 msgid "translator-translation"
 msgstr "Käännös"
 
+#~ msgid "Command Line Client"
+#~ msgstr "Komentorivi"
 #~ msgid ""
 #~ "Cleans up interrupted or aborted operations and unlocks the working copy "
 #~ "in <placeholder-1/>."
