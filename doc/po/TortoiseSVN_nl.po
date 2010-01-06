@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-01-03 00:35 +0000\n"
-"PO-Revision-Date: 2010-01-05 13:03+0100\n"
+"PO-Revision-Date: 2010-01-06 16:40+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4672,23 +4672,23 @@ msgstr "revprops"
 
 #. (para)
 msgid "Revision properties are completely different from the Subversion properties of each item. Revprops are descriptive items which are associated with one specific revision number in the repository, such as log message, commit date and committer name (author)."
-msgstr ""
+msgstr "Revisie eigenschappen zijn compleet anders dan de eigenschappen van Subversion objecten. Revprops zijn beschrijvende objecten die gerelateerd zijn aan een specifiek revisienummer in het archief, zoals logboekboodschap, vastleggingsdatum en naam van de vastlegger (auteur)."
 
 #. (para)
 msgid "Sometimes you might want to change a log message you once entered, maybe because there's a spelling error in it or you want to improve the message or change it for other reasons. Or you want to change the author of the commit because you forgot to set up authentication or..."
-msgstr ""
+msgstr "Soms wil je een logboekboodschap wijzigen, omdat er bijvoorbeeld een tikfout in staat, de beschrijving wilt verbeteren of een ander soort wijziging wilt doorvoeren. Misschien wil je wel de auteur van de vastlegging wijzigen of omdat je authenticatie bent vergeten in te stellen or..."
 
 #. (para)
 msgid "Subversion lets you change revision properties any time you want. But since such changes can't be undone (those changes are not versioned) this feature is disabled by default. To make this work, you must set up a pre-revprop-change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for details about how to do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some further notes on implementing hooks on a Windows machine."
-msgstr ""
+msgstr "Subversion staat wijzigingen aan revisie eigenschappen in principe altijd toe. De mogelijkheid hiervoor is standaard uitgeschakeld, omdat wijzigingen niet ongedaan gemaakt kunnen worden (die wijzigingen worden niet met versies beheerd). Om deze wijzigingen mogelijk te maken, moet je een pre-revprop-change hook instellen. Lees het hoofdstuk over <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> in het Subversion book voor meer informatie hierover. Lees ook <xref linkend=\"tsvn-repository-hooks\"/> voor meer informatie over het implementeren van hooks op een Windows machine."
 
 #. (para)
 msgid "Once you've set up your server with the required hooks, you can change the author and log message (or any other revprop) of any revision, using the context menu from the top pane of the Log dialog. You can also edit a log message using the context menu for the middle pane."
-msgstr ""
+msgstr "Als je eenmaal je server het met de benodigde hooks geconfigureerd hebt, dan kun je met het context menu uit het bovenste deelvenster van het Log venster de auteur en logboekboodschap (of elke andere revprop) van een revisie wijzigen. De logboekboodschap kun je ook wijzigen via het context menu van het middelste deelvenster."
 
 #. (para)
 msgid "Because Subversion's revision properties are not versioned, making modifications to such a property (for example, the <literal>svn:log</literal> commit message property) will overwrite the previous value of that property <emphasis>forever</emphasis>."
-msgstr ""
+msgstr "Omdat Subversion revisie eigenschappen niet van versiebeheer zijn voorzien, worden de oude waardes van een eigenschap (bijvoorbeeld de <literal>svn:log</literal> eigenschap) bij een wijzigingen voor <emphasis>altijd</emphasis> overschreven."
 
 #. (title)
 msgid "Filtering Log Messages"
