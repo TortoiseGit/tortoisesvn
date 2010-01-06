@@ -1513,6 +1513,10 @@ msgstr ""
 msgid "Adjust the settings\nSettings"
 msgstr ""
 
+#. Resource IDs: (307)
+msgid "Advanced"
+msgstr ""
+
 #. Resource IDs: (170)
 msgid "Advanced Diff/Merge Settings"
 msgstr ""
@@ -2144,7 +2148,7 @@ msgstr ""
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%s\""
+msgid "Cleaning up directory \"%1!s!\""
 msgstr ""
 
 #. Resource IDs: (83)
@@ -2389,7 +2393,7 @@ msgstr ""
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Comparing %s to %s"
+msgid "Comparing %!1!s to %2!s!"
 msgstr ""
 
 #. Resource IDs: (74)
@@ -3742,14 +3746,14 @@ msgstr ""
 msgid "Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\nTo enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\nEach file will have the file-system read-only flag set, and getting a lock will make the file writable.\nNote that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
 
+#. Resource IDs: (119)
+#, c-format
+msgid "Getting file %1!s!"
+msgstr ""
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Getting file %1!s!, revision %2!s!"
-msgstr ""
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Getting file %s"
 msgstr ""
 
 #. Resource IDs: (132)
@@ -4273,7 +4277,7 @@ msgstr ""
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Importing file %s"
+msgid "Importing file %1!s!"
 msgstr ""
 
 #. Resource IDs: (10)
@@ -5081,6 +5085,11 @@ msgstr ""
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
 msgstr ""
 
+#. Resource IDs: (84)
+#, c-format
+msgid "No such revision '%1!s!'"
+msgstr ""
+
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
 msgstr ""
@@ -5300,6 +5309,10 @@ msgstr ""
 
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
+msgstr ""
+
+#. Resource IDs: (348)
+msgid "Option"
 msgstr ""
 
 #. Resource IDs: (16137)
@@ -5574,7 +5587,7 @@ msgstr ""
 
 #. Resource IDs: (132)
 #, c-format
-msgid "Processing revision %d of %d..."
+msgid "Processing revision %1!d! of %2!d!..."
 msgstr ""
 
 #. Resource IDs: (74)
@@ -6133,17 +6146,17 @@ msgstr ""
 
 #. Resource IDs: (119)
 #, c-format
-msgid "Revision %d"
+msgid "Revision %1!d!"
+msgstr ""
+
+#. Resource IDs: (120)
+#, c-format
+msgid "Revision %1!s!"
 msgstr ""
 
 #. Resource IDs: (269)
 #, c-format
 msgid "Revision %ld"
-msgstr ""
-
-#. Resource IDs: (120)
-#, c-format
-msgid "Revision %s"
 msgstr ""
 
 #. Resource IDs: (15)
@@ -8154,6 +8167,10 @@ msgstr ""
 
 #. Resource IDs: (32848)
 msgid "Visual Studio.NET 200&5"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "WARNING:\r\nOnly change these settings if you are abolutely sure what you are doing!\r\nTo set the values to their default, delete the value text."
 msgstr ""
 
 #. Resource IDs: (65535)
