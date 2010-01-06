@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -190,6 +190,12 @@ HBITMAP IconBitmapUtils::IconToBitmapPARGB32(HINSTANCE hInst, UINT uIcon)
 
 HRESULT IconBitmapUtils::Create32BitHBITMAP(HDC hdc, const SIZE *psize, __deref_opt_out void **ppvBits, __out HBITMAP* phBmp)
 {
+	if (psize == 0)
+		return E_INVALIDARG;
+
+	if (phBmp == 0)
+		return E_POINTER;
+
 	*phBmp = NULL;
 
 	BITMAPINFO bmi;
@@ -272,41 +278,38 @@ HRESULT IconBitmapUtils::ConvertToPARGB32(HDC hdc, __inout Gdiplus::ARGB *pargb,
 	bmi.bmiHeader.biHeight = sizImage.cy;
 	bmi.bmiHeader.biBitCount = 32;
 
-	HRESULT hr = E_OUTOFMEMORY;
 	HANDLE hHeap = GetProcessHeap();
 	void *pvBits = HeapAlloc(hHeap, 0, bmi.bmiHeader.biWidth * 4 * bmi.bmiHeader.biHeight);
-	if (pvBits)
+	if (pvBits == 0)
+		return E_OUTOFMEMORY;
+
+	HRESULT hr = E_UNEXPECTED;
+	if (GetDIBits(hdc, hbmp, 0, bmi.bmiHeader.biHeight, pvBits, &bmi, DIB_RGB_COLORS) == bmi.bmiHeader.biHeight)
 	{
-		hr = E_UNEXPECTED;
-		if (GetDIBits(hdc, hbmp, 0, bmi.bmiHeader.biHeight, pvBits, &bmi, DIB_RGB_COLORS) == bmi.bmiHeader.biHeight)
+		ULONG cxDelta = cxRow - bmi.bmiHeader.biWidth;
+		Gdiplus::ARGB *pargbMask = static_cast<Gdiplus::ARGB *>(pvBits);
+
+		for (ULONG y = bmi.bmiHeader.biHeight; y; --y)
 		{
-			ULONG cxDelta = cxRow - bmi.bmiHeader.biWidth;
-            Gdiplus::ARGB *pargbMask = static_cast<Gdiplus::ARGB *>(pvBits);
-
-			for (ULONG y = bmi.bmiHeader.biHeight; y; --y)
+			for (ULONG x = bmi.bmiHeader.biWidth; x; --x)
 			{
-				for (ULONG x = bmi.bmiHeader.biWidth; x; --x)
+				if (*pargbMask++)
 				{
-					if (*pargbMask++)
-					{
-						// transparent pixel
-						*pargb++ = 0;
-					}
-					else
-					{
-						// opaque pixel
-						*pargb++ |= 0xFF000000;
-					}
+					// transparent pixel
+					*pargb++ = 0;
 				}
-
-				pargb += cxDelta;
+				else
+				{
+					// opaque pixel
+					*pargb++ |= 0xFF000000;
+				}
 			}
-
-			hr = S_OK;
+			pargb += cxDelta;
 		}
 
-		HeapFree(hHeap, 0, pvBits);
+		hr = S_OK;
 	}
+	HeapFree(hHeap, 0, pvBits);
 
 	return hr;
 }

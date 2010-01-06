@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -66,13 +66,7 @@ BOOL CPropDlg::OnInitDialog()
 	temp.LoadString(IDS_PROPVALUE);
 	m_proplist.InsertColumn(1, temp);
 	m_proplist.SetRedraw(false);
-	int mincol = 0;
-	int maxcol = ((CHeaderCtrl*)(m_proplist.GetDlgItem(0)))->GetItemCount()-1;
-	int col;
-	for (col = mincol; col <= maxcol; col++)
-	{
-		m_proplist.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-	}
+	setProplistColumnWidth();
 	m_proplist.SetRedraw(false);
 
 	DialogEnableWindow(IDOK, FALSE);
@@ -130,13 +124,7 @@ UINT CPropDlg::PropThread()
 			name.Empty();
 		} while (!val.IsEmpty()&&(nFound>=0));
 	}
-	int mincol = 0;
-	int maxcol = ((CHeaderCtrl*)(m_proplist.GetDlgItem(0)))->GetItemCount()-1;
-	int col;
-	for (col = mincol; col <= maxcol; col++)
-	{
-		m_proplist.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-	}
+	setProplistColumnWidth();
 
 	m_proplist.SetRedraw(true);
 	DialogEnableWindow(IDOK, TRUE);
@@ -154,4 +142,13 @@ BOOL CPropDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
 	SetCursor(hCur);
 	return TRUE;
+}
+
+void CPropDlg::setProplistColumnWidth()
+{
+	const int maxcol = ((CHeaderCtrl*)(m_proplist.GetDlgItem(0)))->GetItemCount()-1;
+	for (int col = 0; col <= maxcol; col++)
+	{
+		m_proplist.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+	}
 }

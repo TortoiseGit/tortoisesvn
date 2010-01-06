@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -459,20 +459,18 @@ CString CAppUtils::GetAppForFile
 		// lookup by verb
 		DWORD buflen = 0;
 		AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, verb, NULL, &buflen);
-		TCHAR * cmdbuf = new TCHAR[buflen + 1];
+		auto_buffer<TCHAR> cmdbuf(buflen + 1);
 		AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, verb, cmdbuf, &buflen);
 		application = cmdbuf;
-		delete [] cmdbuf;
 
 		// fallback to "open"
 
 		if (application.IsEmpty())
 		{
 			AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), NULL, &buflen);
-			cmdbuf = new TCHAR[buflen + 1];
+			cmdbuf.reset(buflen + 1);
 			AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), cmdbuf, &buflen);
 			application = cmdbuf;
-			delete [] cmdbuf;
 		}
 	}
 
@@ -719,12 +717,7 @@ bool CAppUtils::FormatTextInRichEditControl(CWnd * pWnd)
 		{
 			CHARRANGE range = {(LONG)start+offset, (LONG)end+offset};
 			pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-			CHARFORMAT2 format;
-			SecureZeroMemory(&format, sizeof(CHARFORMAT2));
-			format.cbSize = sizeof(CHARFORMAT2);
-			format.dwMask = CFM_BOLD;
-			format.dwEffects = CFE_BOLD;
-			pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+			SetCharFormat(pWnd, CFM_BOLD, CFE_BOLD);
 			bStyled = true;
 			start = end;
 		}
@@ -734,12 +727,7 @@ bool CAppUtils::FormatTextInRichEditControl(CWnd * pWnd)
 		{
 			CHARRANGE range = {(LONG)start+offset, (LONG)end+offset};
 			pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-			CHARFORMAT2 format;
-			SecureZeroMemory(&format, sizeof(CHARFORMAT2));
-			format.cbSize = sizeof(CHARFORMAT2);
-			format.dwMask = CFM_ITALIC;
-			format.dwEffects = CFE_ITALIC;
-			pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+			SetCharFormat(pWnd, CFM_ITALIC, CFE_ITALIC);
 			bStyled = true;
 			start = end;
 		}
@@ -749,12 +737,7 @@ bool CAppUtils::FormatTextInRichEditControl(CWnd * pWnd)
 		{
 			CHARRANGE range = {(LONG)start+offset, (LONG)end+offset};
 			pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-			CHARFORMAT2 format;
-			SecureZeroMemory(&format, sizeof(CHARFORMAT2));
-			format.cbSize = sizeof(CHARFORMAT2);
-			format.dwMask = CFM_UNDERLINE;
-			format.dwEffects = CFE_UNDERLINE;
-			pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+			SetCharFormat(pWnd, CFM_UNDERLINE, CFE_UNDERLINE);
 			bStyled = true;
 			start = end;
 		}
@@ -791,12 +774,7 @@ bool CAppUtils::UnderlineRegexMatches(CWnd * pWnd, const CString& matchstring, c
 				ptrdiff_t matchposID = it2->position(0);
 				CHARRANGE range = {(LONG)(matchpos+matchposID), (LONG)(matchpos+matchposID+(*it2)[0].str().size())};
 				pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-				CHARFORMAT2 format;
-				SecureZeroMemory(&format, sizeof(CHARFORMAT2));
-				format.cbSize = sizeof(CHARFORMAT2);
-				format.dwMask = CFM_LINK;
-				format.dwEffects = CFE_LINK;
-				pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+				SetCharFormat(pWnd, CFM_LINK, CFE_LINK);
 				bFound = true;
 			}
 		}
@@ -1370,4 +1348,14 @@ CString CAppUtils::GetAbsoluteUrlFromRelativeUrl(const CString& root, const CStr
 		}
 	}
 	return url;
+}
+
+void CAppUtils::SetCharFormat(CWnd* window, DWORD mask, DWORD effects )
+{
+	CHARFORMAT2 format;
+	SecureZeroMemory(&format, sizeof(CHARFORMAT2));
+	format.cbSize = sizeof(CHARFORMAT2);
+	format.dwMask = mask;
+	format.dwEffects = effects;
+	window->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
 }

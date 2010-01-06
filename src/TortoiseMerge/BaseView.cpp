@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -948,6 +948,18 @@ void CBaseView::ScrollSide(int delta)
 	UpdateCaret();
 }
 
+void CBaseView::ScrollVertical(short zDelta)
+{
+	const int nLineCount = GetLineCount();
+	int nTopLine = m_nTopLine;
+	nTopLine -= (zDelta/30);
+	if (nTopLine < 0)
+		nTopLine = 0;
+	if (nTopLine >= nLineCount)
+		nTopLine = nLineCount - 1;
+	ScrollToLine(nTopLine, TRUE);
+}
+
 void CBaseView::ScrollToLine(int nNewTopLine, BOOL bTrackScrollBar /*= TRUE*/)
 {
 	if ((m_nTopLine != nNewTopLine)||((m_pViewData)&&(m_pMainFrame->m_bCollapsed)))
@@ -1789,14 +1801,7 @@ void CBaseView::OnDoMouseWheel(UINT /*nFlags*/, short zDelta, CPoint /*pt*/)
 	}
 	else
 	{
-		int nLineCount = GetLineCount();
-		int nTopLine = m_nTopLine;
-		nTopLine -= (zDelta/30);
-		if (nTopLine < 0)
-			nTopLine = 0;
-		if (nTopLine >= nLineCount)
-			nTopLine = nLineCount - 1;
-		ScrollToLine(nTopLine, TRUE);
+		ScrollVertical(zDelta);
 	}
 }
 
@@ -1804,14 +1809,7 @@ void CBaseView::OnDoMouseHWheel(UINT /*nFlags*/, short zDelta, CPoint /*pt*/)
 {
 	if ((GetKeyState(VK_CONTROL)&0x8000)||(GetKeyState(VK_SHIFT)&0x8000))
 	{
-		int nLineCount = GetLineCount();
-		int nTopLine = m_nTopLine;
-		nTopLine -= (zDelta/30);
-		if (nTopLine < 0)
-			nTopLine = 0;
-		if (nTopLine >= nLineCount)
-			nTopLine = nLineCount - 1;
-		ScrollToLine(nTopLine, TRUE);
+		ScrollVertical(zDelta);
 	}
 	else
 	{
@@ -1973,24 +1971,19 @@ void CBaseView::HiglightLines(int start, int end /* = -1 */)
 
 void CBaseView::SetupSelection(int start, int end)
 {
-	if (IsBottomViewGood())
-	{
-		m_pwndBottom->m_nSelBlockStart = start;
-		m_pwndBottom->m_nSelBlockEnd = end;
-		m_pwndBottom->Invalidate();
-	}
-	if (IsLeftViewGood())
-	{
-		m_pwndLeft->m_nSelBlockStart = start;
-		m_pwndLeft->m_nSelBlockEnd = end;
-		m_pwndLeft->Invalidate();
-	}
-	if (IsRightViewGood())
-	{
-		m_pwndRight->m_nSelBlockStart = start;
-		m_pwndRight->m_nSelBlockEnd = end;
-		m_pwndRight->Invalidate();
-	}
+	SetupSelection(m_pwndBottom, start, end);
+	SetupSelection(m_pwndLeft, start, end);
+	SetupSelection(m_pwndRight, start, end);
+}
+
+void CBaseView::SetupSelection(CBaseView* view, int start, int end)
+{
+	if (!IsViewGood(view))
+		return;
+
+	view->m_nSelBlockStart = start;
+	view->m_nSelBlockEnd = end;
+	view->Invalidate();
 }
 
 void CBaseView::OnMergePreviousconflict()
@@ -2032,7 +2025,6 @@ bool CBaseView::HasPrevDiff()
 {
 	return SelectNextBlock(-1, false, true, true);
 }
-
 
 bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfCurrentBlock /* = true */, bool dryrun /* = false */)
 {
@@ -2163,7 +2155,6 @@ BOOL CBaseView::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
 
 	return TRUE;    // message was handled
 }
-
 
 INT_PTR CBaseView::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {

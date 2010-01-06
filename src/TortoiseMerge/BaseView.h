@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -60,6 +60,7 @@ public:
 	void			ScrollToLine(int nNewTopLine, BOOL bTrackScrollBar = TRUE);
 	void			ScrollAllToLine(int nNewTopLine, BOOL bTrackScrollBar = TRUE);
 	void			ScrollSide(int delta);
+	void			ScrollVertical(short delta);
 	void			GoToLine(int nNewLine, BOOL bAll = TRUE);
 	void			ScrollToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);
 	void			UseCaret(bool bUse = true) {m_bCaretHidden = !bUse;}
@@ -179,6 +180,7 @@ protected:
 	void			OnDoVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar, CBaseView * master);
 
 	void			SetupSelection(int start, int end);
+	void			SetupSelection(CBaseView* view, int start, int end);
 	void			ShowDiffLines(int nLine);
 	
 	int				GetTabSize() const {return m_nTabSize;}
@@ -218,9 +220,10 @@ protected:
 	void			UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate);
 	void			UseBothRightFirst(viewstate &rightstate, viewstate &leftstate);
 
-	bool			IsLeftViewGood() const {return ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()));}
-	bool			IsRightViewGood() const {return ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()));}
-	bool			IsBottomViewGood() const {return ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()));}
+	bool			IsViewGood(const CBaseView* view ) const { return (view != 0) && view->IsWindowVisible(); }
+	bool			IsLeftViewGood() const {return IsViewGood(m_pwndLeft);}
+	bool			IsRightViewGood() const {return IsViewGood(m_pwndRight);}
+	bool			IsBottomViewGood() const {return IsViewGood(m_pwndBottom);}
 
 	int				CalculateActualOffset(int nLineIndex, int nCharIndex) const;
 	int				CalculateCharIndex(int nLineIndex, int nActualOffset) const;
@@ -245,7 +248,6 @@ protected:
 	bool			IsCaretAtWordBoundary() const;
 	void			UpdateViewsCaretPosition();
 	void			restoreLines(CBaseView* view, CViewData& viewState, int targetIndex, int sourceIndex) const;
-
 	void			BuildMarkedWordArray();
 protected:
 	COLORREF		m_InlineRemovedBk;

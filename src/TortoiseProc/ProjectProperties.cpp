@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -413,12 +413,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 						ptrdiff_t matchposID = it2->position(0);
 						CHARRANGE range = {(LONG)(matchpos+matchposID), (LONG)(matchpos+matchposID+(*it2)[0].str().size())};
 						pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-						CHARFORMAT2 format;
-						SecureZeroMemory(&format, sizeof(CHARFORMAT2));
-						format.cbSize = sizeof(CHARFORMAT2);
-						format.dwMask = CFM_LINK;
-						format.dwEffects = CFE_LINK;
-						pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+						SetLinkCharFormat(pWnd);
 						bFound = true;
 					}
 				}
@@ -442,12 +437,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 						ATLTRACE(_T("matched id : %s\n"), wstring(match[1]).c_str());
 						CHARRANGE range = {(LONG)(match[1].first-s.begin()), (LONG)(match[1].second-s.begin())};
 						pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-						CHARFORMAT2 format;
-						SecureZeroMemory(&format, sizeof(CHARFORMAT2));
-						format.cbSize = sizeof(CHARFORMAT2);
-						format.dwMask = CFM_LINK;
-						format.dwEffects = CFE_LINK;
-						pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+						SetLinkCharFormat(pWnd);
 						bFound = true;
 					}
 				}
@@ -509,24 +499,14 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 			offset2 = offset1 + sBugIDPart.Find(',');
 			CHARRANGE range = {(LONG)offset1, (LONG)offset2};
 			pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-			CHARFORMAT2 format;
-			SecureZeroMemory(&format, sizeof(CHARFORMAT2));
-			format.cbSize = sizeof(CHARFORMAT2);
-			format.dwMask = CFM_LINK;
-			format.dwEffects = CFE_LINK;
-			pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+			SetLinkCharFormat(pWnd);
 			sBugIDPart = sBugIDPart.Mid(sBugIDPart.Find(',')+1);
 			offset1 = offset2 + 1;
 		}
 		offset2 = offset1 + sBugIDPart.GetLength();
 		CHARRANGE range = {(LONG)offset1, (LONG)offset2};
 		pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-		CHARFORMAT2 format;
-		SecureZeroMemory(&format, sizeof(CHARFORMAT2));
-		format.cbSize = sizeof(CHARFORMAT2);
-		format.dwMask = CFM_LINK;
-		format.dwEffects = CFE_LINK;
-		pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+		SetLinkCharFormat(pWnd);
 		return TRUE;
 	}
 	return FALSE;
@@ -874,6 +854,16 @@ CString ProjectProperties::MakeShortMessage(const CString& message)
 	return sShortMessage;
 }
 
+void ProjectProperties::SetLinkCharFormat(CWnd* window)
+{
+	CHARFORMAT2 format;
+	SecureZeroMemory(&format, sizeof(CHARFORMAT2));
+	format.cbSize = sizeof(CHARFORMAT2);
+	format.dwMask = CFM_LINK;
+	format.dwEffects = CFE_LINK;
+	window->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+}
+
 #ifdef DEBUG
 static class PropTest
 {
@@ -922,6 +912,4 @@ public:
 	}
 } PropTest;
 #endif
-
-
 
