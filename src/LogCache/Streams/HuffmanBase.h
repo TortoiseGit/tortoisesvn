@@ -26,9 +26,9 @@
 //
 ///////////////////////////////////////////////////////////////
 
-//#if (defined (_WIN64) || (__WORDSIZE == 64)) && !defined(_64BITS)
+#if (defined (_WIN64) || (__WORDSIZE == 64)) && !defined(_64BITS)
 #define _64BITS
-//#endif
+#endif
 
 class CHuffmanBase
 {
