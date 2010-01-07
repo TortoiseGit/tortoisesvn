@@ -113,6 +113,7 @@ public:
 	static CMainFrame * m_pMainFrame;	///< Pointer to the mainframe
 
 	void			GoToFirstDifference();
+	void			GoToFirstConflict();
 	void			AddEmptyLine(int nLineIndex);
 protected:
 	virtual BOOL	PreCreateWindow(CREATESTRUCT& cs);

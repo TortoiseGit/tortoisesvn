@@ -1956,6 +1956,12 @@ void CBaseView::GoToFirstDifference()
 	SelectNextBlock(1, false, false);
 }
 
+void CBaseView::GoToFirstConflict()
+{
+	m_ptCaretPos.y = 0;
+	SelectNextBlock(1, true, false);
+}
+
 void CBaseView::HiglightLines(int start, int end /* = -1 */)
 {
 	ClearSelection();
