@@ -174,6 +174,35 @@ void TestUpdate()
 	printf (s);
 }
 
+void TestHuffman()
+{
+	enum {RUN_COUNT = 0x1000};
+
+	for (int i = 0; i < RUN_COUNT; ++i)
+	{
+		size_t dataSize = rand();
+		auto_buffer<BYTE> origBuffer (dataSize);
+
+		int maxValue = rand() % 256;
+		for (size_t k = 0; k < dataSize; ++k)
+			origBuffer.get()[k] = (BYTE)(rand() % (maxValue+1));
+
+		std::pair<BYTE*, DWORD> encodedBuffer
+			= CHuffmanEncoder().Encode (origBuffer, dataSize);
+
+		auto_buffer<BYTE> decodedBuffer (dataSize);
+		memset (decodedBuffer.get(), (BYTE)(maxValue+1), dataSize);
+
+		const BYTE* source = encodedBuffer.first;
+		BYTE* dest = decodedBuffer;
+		CHuffmanDecoder().Decode (source, dest);
+
+		assert (memcmp (origBuffer.get(), decodedBuffer.get(), dataSize) == 0);
+
+		delete encodedBuffer.first;
+	}
+}
+
 void BenchmarkHuffman()
 {
 	enum {DATA_SIZE = 0x8000, RUN_COUNT = 0x8000, _1MB = 0x100000};
@@ -231,6 +260,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	TestIteration();
 	TestUpdate();
 */
+	TestHuffman();
 	BenchmarkHuffman();
 
 	return 0;
