@@ -55,6 +55,8 @@
 //		* an compressed value is stored as value+1
 //		* initial lastValue is 0
 //
+//		Note, that 0xffffffff CANNOT be stored!
+//
 ///////////////////////////////////////////////////////////////
 
 class CPackedDWORDOutStreamBase : public CBinaryOutStreamBase

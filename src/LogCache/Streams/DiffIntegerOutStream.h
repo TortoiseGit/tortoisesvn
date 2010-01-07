@@ -26,13 +26,17 @@
 
 ///////////////////////////////////////////////////////////////
 //
-// CDiffIntegerOutStreamBase
+// CDiffOutStreamBase
 //
 //		enhances CPackedIntegerOutStreamBase as well as
 //		CPackedDWORDOutStreamBase to store the values 
 //		differentially, i.e. the difference to the previous 
 //		value is stored (in packed format). The base value 
 //		for the first element is 0.
+//
+//		Make sure that the differences between any two values
+//		don't exceed the limits defined by the respective
+//		base classes.
 //
 ///////////////////////////////////////////////////////////////
 
