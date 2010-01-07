@@ -255,7 +255,7 @@ CJobScheduler::TJob CJobScheduler::AssignJob (SThreadInfo* info)
 
                     --threads.fromShared;
                 }
-                else if (aggressiveThreadTermination)
+                else if (aggressiveThreading)
                 {
                     // don't keep private idle threads
 
@@ -365,11 +365,9 @@ bool CJobScheduler::ThreadFunc (void* arg)
 CJobScheduler::CJobScheduler 
     ( size_t threadCount
     , size_t sharedThreads
-    , bool aggressiveThreadStart
-    , bool aggressiveThreadTermination)
+    , bool aggressiveThreading)
     : waitingThreads (0)
-    , aggressiveThreadStart (aggressiveThreadStart)
-    , aggressiveThreadTermination (aggressiveThreadTermination)
+    , aggressiveThreading (aggressiveThreading)
 {
     threads.runningCount = 0;
     threads.suspendedCount = 0;
@@ -427,7 +425,7 @@ void CJobScheduler::Schedule (IJob* job, bool transferOwnership)
 
     queue.push (toAdd);
 
-    bool addThread = aggressiveThreadStart
+    bool addThread = aggressiveThreading
                  || (   (queue.size() > 2 * threads.runningCount)
                      && (threads.unusedCount > 0));
 

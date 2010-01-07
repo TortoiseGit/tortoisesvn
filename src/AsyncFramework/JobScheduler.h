@@ -376,14 +376,11 @@ private:
 
     /// if this is set, worker threads will be resumed 
     /// unconditionally whenever a new job gets added.
-
-    bool aggressiveThreadStart;
-
-    /// if this is set, worker threads will be destroyed 
+    /// Also, worker threads will be destroyed 
     /// as soon as the job queue runs low (i.e. threads
     /// won't be kept around in suspended state).
 
-    bool aggressiveThreadTermination;
+    bool aggressiveThreading;
 
     /// worker thread function
 
@@ -417,8 +414,7 @@ public:
 
     CJobScheduler ( size_t threadCount
                   , size_t sharedThreads
-                  , bool aggressiveThreadStart = false
-                  , bool aggressiveThreadTermination = false);
+                  , bool aggressiveThreading = false);
 
     /// End threads. Job queue must have run empty before calling this.
 
