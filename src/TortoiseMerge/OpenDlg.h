@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2009 - TortoiseSVN
+// Copyright (C) 2006, 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,7 +39,6 @@ protected:
 	BOOL BrowseForFile(CString& filepath, CString title, UINT nFileFilter = IDS_COMMONFILEFILTER);
 	void GroupRadio(UINT nID);
 	bool CheckAndEnableClipboardChecker();
-	BOOL DialogEnableWindow(UINT nID, BOOL bEnable);
 	DECLARE_MESSAGE_MAP()
 public:
 	CString m_sBaseFile;

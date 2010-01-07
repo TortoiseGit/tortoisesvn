@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2009 - TortoiseSVN
+// Copyright (C) 2006-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -374,20 +374,6 @@ void COpenDlg::OnDestroy()
 {
 	ChangeClipboardChain(m_nextViewer);
 	CStandAloneDialog::OnDestroy();
-}
-
-BOOL COpenDlg::DialogEnableWindow(UINT nID, BOOL bEnable)
-{
-	CWnd * pwndDlgItem = GetDlgItem(nID);
-	if (pwndDlgItem == NULL)
-		return FALSE;
-	if (bEnable)
-		return pwndDlgItem->EnableWindow(bEnable);
-	if (GetFocus() == pwndDlgItem)
-	{
-		SendMessage(WM_NEXTDLGCTL, 0, FALSE);
-	}
-	return pwndDlgItem->EnableWindow(bEnable);
 }
 
 void COpenDlg::OnBnClickedPatchfromclipboard()
