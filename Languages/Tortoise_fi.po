@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-06 23:26+0200\n"
+"PO-Revision-Date: 2010-01-08 01:29+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2629,8 +2629,8 @@ msgstr "Vertaa valittua tiedostoa arkistossa olevaan tiedostoon"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Comparing %!1!s to %2!s!"
-msgstr "Verrataan: %!1!s ja %2!s!"
+msgid "Comparing %1!s! to %2!s!"
+msgstr "Verrataan: %1!s! ja %2!s!"
 
 #. Resource IDs: (74)
 msgid "Completed"
@@ -4759,10 +4759,6 @@ msgstr "Ohita &kaikki tyhjämerkit"
 msgid "Ignore &ancestry"
 msgstr "Älä välitä &edeltäjistä"
 
-#. Resource IDs: (1067)
-msgid "Ignore &case changes"
-msgstr "Älä välitä &kirjainkoosta"
-
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
 msgstr "Ohita kaikki muutokset tyhjämerkeissä"
@@ -4770,6 +4766,10 @@ msgstr "Ohita kaikki muutokset tyhjämerkeissä"
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Ohita kaikki tyhjämerkit"
+
+#. Resource IDs: (1067)
+msgid "Ignore case cha&nges"
+msgstr "Älä välitä &kirjainkoosta"
 
 #. Resource IDs: (1126)
 msgid "Ignore line &endings"
@@ -5083,6 +5083,10 @@ msgstr "&Ulkoiset viittaukset"
 #. Resource IDs: (1527)
 msgid "Items to show"
 msgstr "Näytä"
+
+#. Resource IDs: (1074)
+msgid "J&ump to first conflict when loading"
+msgstr "&Siirry automaattisesti ensimmäiseen ristiriitaan"
 
 #. Resource IDs: (275)
 msgid "Join with following &tree"
