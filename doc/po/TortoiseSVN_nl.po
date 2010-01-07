@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-01-03 00:35 +0000\n"
-"PO-Revision-Date: 2010-01-06 16:40+0100\n"
-"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
+"PO-Revision-Date: 2010-01-07 11:59+0100\n"
+"Last-Translator: Christophe De Wagter <c.dewagter@tudelft.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -860,7 +860,7 @@ msgstr "Een <command>SVN Vastleggen</command> actie worden wijzigingen aan meerd
 # Geen idee hoe je dit nu goed in het nederlands vertaald. Het is een beetje hazig.
 #. (para)
 msgid "In the repository, each commit is treated as an atomic transaction: either all the commits changes take place, or none of them take place. Subversion retains this atomicity in the face of program crashes, system crashes, network problems, and other users' actions."
-msgstr "In het archief wordt ieder vastlegging behandeld als behandeld als een complete transactie in zijn geheel: dat houdt in dat of alle wijzigingen wordt vastgelegd of geen enkele wijziging wordt vastgelegd. Subversion houdt vast aan deze werkwijze met het oog op programma crashes, netwerk problemen en andere gebruikersacties."
+msgstr "In het archief wordt ieder vastlegging behandeld als behandeld als een complete transactie in zijn geheel: dat houdt in dat of alle wijzigingen worden vastgelegd of geen enkele wijziging wordt vastgelegd. Subversion houdt vast aan deze werkwijze met het oog op programma crashes, netwerk problemen en andere gebruikersacties."
 
 #. (para)
 msgid "Each time the repository accepts a commit, this creates a new state of the filesystem tree, called a <firstterm>revision</firstterm>. Each revision is assigned a unique natural number, one greater than the number of the previous revision. The initial revision of a freshly created repository is numbered zero, and consists of nothing but an empty root directory."
@@ -4756,11 +4756,11 @@ msgstr ""
 
 #. (title)
 msgid "Commits by Author Page"
-msgstr ""
+msgstr "Vastleggingen per Auteur"
 
 #. (title)
 msgid "Commits-by-Author Histogram"
-msgstr ""
+msgstr "Vastleggingen per Auteur Histogram"
 
 #. (title)
 msgid "Commits-by-Author Pie Chart"
@@ -6337,76 +6337,79 @@ msgstr "Samenvoegen"
 #. (primary)
 #. (primary)
 msgid "merge"
-msgstr ""
+msgstr "samenvoegen"
 
 #. (para)
 msgid "Where branches are used to maintain separate lines of development, at some stage you will want to merge the changes made on one branch back into the trunk, or vice versa."
-msgstr ""
+msgstr "Nadat takken zijn gebruikt om meerdere ontwikkelrichtingen uit te gaan kan het op gegeven moment nodig zijn om de parallel ontwikkelde wijzigingen uit een tak weer terug samen te voegen in de basislijn of omgekeerd."
 
+# Er is nog geen Nederlandstalige vertaling van dat boek online gevonden. De link is nog naar de English variant.
 #. (para)
 msgid "It is important to understand how branching and merging works in Subversion before you start using it, as it can become quite complex. It is highly recommended that you read the chapter <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.branchmerge.html\"><citetitle>Branching and Merging</citetitle></ulink> in the Subversion book, which gives a full description and many examples of how it is used."
-msgstr ""
+msgstr "Aangezien het erg complex kan worden is het erg belangrijk om goed te begrijpen hoe het vertakken en samenvoegen in Subversion werkt voordat van start wordt gegaan. Het is sterk aan te bevelen om het hoofdstuk <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.branchmerge.html\"><citetitle>Branching and Merging</citetitle></ulink> uit het Subversion book te lezen dat een volledige beschrijving inclusief voorbeelden geeft."
 
 #. (para)
 msgid "The next point to note is that merging <emphasis>always</emphasis> takes place within a working copy. If you want to merge changes <emphasis>into</emphasis> a branch, you have to have a working copy for that branch checked out, and invoke the merge wizard from that working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Een volgend belangrijk punt is dat samenvoegen <emphasis>altijd</emphasis> vanuit een werkkopie begint. Indien wijzigingen uit een tak <emphasis>naar</emphasis> een andere tak samengevoegd moeten worden, moet deze laatste op uw computer zijn afgehaald en moet van hier uit het samenvoegen worden geïnitieerd met het menu <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Samenvoegen...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "In general it is a good idea to perform a merge into an unmodified working copy. If you have made other changes in your WC, commit those first. If the merge does not go as you expect, you may want to revert the changes, and the <guilabel>Revert</guilabel> command will discard <emphasis>all</emphasis> changes including any you made before the merge."
-msgstr ""
+msgstr "Er wordt over het algemeen aangeraden om samen te voegen naar een werkkopie waar alle wijzigingen zijn vastgelegd. Indien het samenvoegen niet naar verwachting zou gebeuren zullen <emphasis>alle</emphasis> niet vastgelegde wijzigingen anders mee ongedaan worden gemaakt bij gebruik van het <guilabel>Ongedaan Maken</guilabel> commando, en dus ook de wijzigingen van voor het samenvoegen."
 
 #. (para)
 msgid "There are three common use cases for merging which are handled in slightly different ways, as described below. The first page of the merge wizard asks you to select the method you need."
-msgstr ""
+msgstr "Er zijn drie situaties waar samenvoegen telkens op een verschillende manier werkt, zoals hieronder beschreven. De eerste vraag die wordt gesteld bij het Samenvoegen is welke methode gewenst is."
 
 #. (term)
 msgid "Merge a range of revisions"
-msgstr ""
+msgstr "Een revisiebereik samenvoegen"
 
 #. (para)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
-msgstr ""
+msgstr "Deze methode wordt gebruikt als u één of meer wijzigingen in een tak (of de basislijn) heeft aangebracht en deze ook wilt toepassen op een andere tak."
 
 #. (para)
 msgid "What you are asking Subversion to do is this: <quote>Calculate the changes necessary to get [FROM] revision 1 of branch A [TO] revision 7 of branch A, and apply those changes to my working copy (of trunk or branch B).</quote>"
-msgstr ""
+msgstr "Wat hier aan Subversion wordt gevraagd is het volgende: <quote>Bereken de benodigde wijzigingen om vanuit [FROM] revisie 1 van tak A [TO] revisie 7 van tak A te gaan, en pas deze wijzigingen toe op mijn werkkopie (uit basislijn of tak B).</quote>"
 
 #. (term)
 #. (title)
 msgid "Reintegrate a branch"
-msgstr ""
+msgstr "Een tak reïntegreren"
 
+# 'feature branch' is nog niet vertaald, vanwege de verwijzing naar het SubVersion boek.
 #. (para)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes."
-msgstr ""
+msgstr "Deze methode wordt gebruikt als u een 'feature branch' heeft zoals besproken in het Subversion boek. Wekelijks zijn alle wijzigingen uit de basislijn ook in de 'feature branch' samengevoegd. Nu de nieuwe ontwikkeling in de 'feature branch' is afgewerkt mag deze naar de basislijn worden samengevoegd. Aangezien de 'feature branch' gedurende zijn ontwikkeling steeds is gesynchroniseerd met de basislijn, is de basislijn ook zijn werkbasis gebleven."
 
 #. (para)
 msgid "This is a special case of the tree merge described below, and it requires only the URL to merge from (normally) your development branch. It uses the merge-tracking features of Subversion to calculate the correct revision ranges to use, and perform additional checks which ensure that the branch has been fully updated with trunk changes. This ensures that you don't accidentally undo work that others have committed to trunk since you last synchronized changes."
-msgstr ""
+msgstr "Dit is een bijzonder geval van het boom samenvoegen dat in het volgende punt wordt besproken. Vanuit de basislijn is enkel de URL naar de desbetreffende 'feature' tak nodig. Subversion kan dankzij zijn wijziging-controle-routines zowel zelf terugvinden welk revisiebereik nodig is evenals indien alle wijzigingen van de basislijn correct zijn samengevoegd naar de tak. Dit voorkomt dat eventueel werk van anderen in de basislijn na de laatste synchronisatie niet per ongeluk ongedaan wordt gemaakt."
 
 #. (para)
 msgid "After the merge, all branch development has been completely merged back into the main development line. The branch is now redundant and can be deleted."
-msgstr ""
+msgstr "Na het samenvoegen zijn alle wijzigingen die in de tak zijn gebeurd meegenomen in de basislijn. De tak is nu overtollig geworden en kan worden verwijderd."
 
 #. (para)
 msgid "Once you have performed a reintegrate merge you should not continue to use it for development. The reason for this is that if you try to resynchronize your existing branch from trunk later on, merge tracking will see your reintegration as a trunk change that has not yet been merged into the branch, and will try to merge the branch-to-trunk merge back into the branch! The solution to this is simply to create a new branch from trunk to continue the next phase of your development."
-msgstr ""
+msgstr "Eenmaal de tak terug in de basislijn is samengevoegd mag deze niet meer opnieuw worden gebruikt voor een volgende ontwikkeling. De reden is dat wanneer later opnieuw zou worden samengevoegd naar de basislijn, de wijziging-controle-routines van Subversion zullen merken dat de wijzigingen aan de basislijn van de vorige reïntegratie zelf nog niet zijn toegepast op de tak, en zal het de tak-naar-basislijn wijzigingen opnieuw in de tak proberen toepassen! De enige correcte oplossing is eenvoudigweg een nieuwe tak te maken om vervolgontwikkelingen in te doen."
 
 #. (term)
 msgid "Merge two different trees"
-msgstr ""
+msgstr "Twee verschillende takken samenvoegen"
 
 #. (para)
 msgid "This is a more general case of the reintegrate method. What you are asking Subversion to do is: <quote>Calculate the changes necessary to get [FROM] the head revision of the trunk [TO] the head revision of the branch, and apply those changes to my working copy (of the trunk).</quote> The net result is that trunk now looks exactly like the branch."
-msgstr ""
+msgstr "Dit is een meer algemene variant van vorige tak reïntegratie methode. Hierbij wordt aan Subversion hetvolgende gevraagd: <quote>Bereken wijzigingen die nodig zijn om [VAN] de HEAD revisie van de basislijn [NAAR] de HEAD revisie van de tak te gaan, en pas deze wijzigingen toe op mijn werkkopie (uit de basislijn).</quote> Het resultaat is dat de basislijn precies hetzelfde bevat als de tak."
 
+# 'vendor branch' kan niet vertaald worden zolang het Subversion boek nog niet vertaald is. Ook de URL moet aangepast worden.
 #. (para)
 msgid "If your server/repository does not support merge-tracking then this is the only way to merge a branch back to trunk. Another use case occurs when you are using vendor branches and you need to merge the changes following a new vendor drop into your trunk code. For more information read the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.vendorbr.html\"><citetitle>vendor branches</citetitle></ulink> in the Subversion Book."
-msgstr ""
+msgstr "Indien uw Subversion server geen wijziging-controle-routines (‘merge-tracking’) ondersteunt is dit de enige manier om een tak opnieuw in de basislijn samen te voegen. Een andere situatie waar deze vorm van samenvoegen wordt gebruikt is wanneer een project zogenaamde verkopers-takken (‘vendor branches’) heeft en een nieuwe versie van de verkopers-tak in de basislijn moet worden gevoegd. Meer informatie is te vinden in het Subversion boek hoofdstuk <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.vendorbr.html\"><citetitle>vendor branches</citetitle></ulink>."
 
 #. (title)
 msgid "Merging a Range of Revisions"
-msgstr ""
+msgstr "Een Revisie-Bereik Samenvoegen"
 
 #. (secondary)
 msgid "revision range"
