@@ -8,14 +8,19 @@
        from a working copy. (Stefan)
 - CHG: In the revert dialog, only added files are checked by default.
        Renamed/moved files are not checked by default anymore. (Stefan)
-- CHG: The font used in the edit properties dialog is now fixed width. (Stefan)
+- CHG: The font used in the edit properties dialog 
+       is now fixed width. (Stefan)
 - CHG: Faster revision graph startup. (Stefan Fuhrmann)
-- CHG: Repository browser speedup by pre-loading contents. (Stefan Fuhrmann)
-- CHG: Log cache size and load performance improvements. (Stefan Fuhrmann)
-- CHG: Log CSV export formats timestamps as UTC strings. (Stefan Fuhrmann)
-- CHG: 'Hide unrelated changed paths' now works across path copies as well.
-       (Stefan Fuhrmann)
-- CHG: Log dialog much faster when showing many revisions (Stefan Fuhrmann)
+- CHG: Repository browser speedup by pre-loading 
+       contents. (Stefan Fuhrmann)
+- CHG: Log cache size and load performance 
+       improvements. (Stefan Fuhrmann)
+- CHG: Log CSV export formats timestamps as 
+       UTC strings. (Stefan Fuhrmann)
+- CHG: 'Hide unrelated changed paths' now works across path 
+       copies as well. (Stefan Fuhrmann)
+- CHG: Log dialog much faster when showing 
+       many revisions (Stefan Fuhrmann)
 - NEW: new command line params for the log dialog
        to set the filter. (Stefan)
 - NEW: new autoclose setting for local operations only. (Stefan)
@@ -30,12 +35,15 @@
 - NEW: In the log dialog, an error message can be cleared with
        a doubleclick to view the received log messages 
        up to the error. (Stefan)
-- NEW: url handler for TSVN commands. See issue #440 for details. (Stefan)
-- NEW: column showing the file sizes in the status list control. (Stefan)
+- NEW: url handler for TSVN commands. 
+       See issue #440 for details. (Stefan)
+- NEW: column showing the file sizes in the 
+       status list control. (Stefan)
 - NEW: Command to repair copies. (Stefan)
 - NEW: The diff command is available in the explorer context menu
        for folders with property modifications. (Stefan)
-- NEW: Repository browser shows svn:externals as sub-trees. (Stefan Fuhrmann)
+- NEW: Repository browser shows svn:externals 
+       as sub-trees. (Stefan Fuhrmann)
 - NEW: Improved filter in the log dialog. (Stefan, Stefan Fuhrmann)
 - NEW: The state of the "hide unrelated changed paths" in the log
        dialog is remembered over sessions. (Stefan)
@@ -52,7 +60,8 @@
        occurrences of that word in all views. (Stefan)
 - NEW: Offer automatic update and retry if a commit failed due
        to an outdated working copy (Stefan Fuhrmann)
-- NEW: Directly support single file c/o from c/o dialog (Stefan Fuhrmann)
+- NEW: Directly support single file c/o 
+       from c/o dialog (Stefan Fuhrmann)
 - NEW: Toolbar buttons to change the whitespace diff options in
        TortoiseMerge. (Stefan)
 - NEW: new areo look of the dialogs. (Stefan)
@@ -60,7 +69,9 @@
        status list control. (Stefan)
 - NEW: The merge dialog warns now if the target working copy
        has local modifications. (Stefan)
-- BUG: Merged revisions must be counted only once in stats (Stefan Fuhrmann)
+- NEW: Option to jump to the first conflict in TortoiseMerge. (Stefan)
+- BUG: Merged revisions must be counted only 
+       once in stats (Stefan Fuhrmann)
 - BUG: Relative Webviewer urls didn't work from the 
        repository browser. (Stefan)
 

@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2009 - TortoiseSVN
+// Copyright (C) 2004-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -798,7 +798,16 @@ bool CMainFrame::LoadViews(int line)
 	else
 	{
 		bool bGoFirstDiff = (0 != (DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"), TRUE));
-		if (bGoFirstDiff) {
+		bool bGoFirstConflict = (0 != (DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\FirstConflictOnLoad"), TRUE));
+		if (bGoFirstConflict && (CheckResolved()>=0))
+		{
+			pwndActiveView->GoToFirstConflict();
+			// Ignore the first few Mouse Move messages, so that the line diff stays on
+			// the first diff line until the user actually moves the mouse
+			m_nMoveMovesToIgnore = MOVESTOIGNORE; 
+		}
+		else if (bGoFirstDiff) 
+		{
 			pwndActiveView->GoToFirstDifference();
 			// Ignore the first few Mouse Move messages, so that the line diff stays on
 			// the first diff line until the user actually moves the mouse
@@ -2147,4 +2156,3 @@ void CMainFrame::OnUpdateViewIgnoreallwhitespacechanges(CCmdUI *pCmdUI)
 	DWORD dwIgnoreWS = regIgnoreWS;
 	pCmdUI->SetCheck(dwIgnoreWS == 1);
 }
-

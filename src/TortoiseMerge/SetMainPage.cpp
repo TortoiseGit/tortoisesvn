@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2009 - TortoiseSVN
+// Copyright (C) 2006-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,6 +33,7 @@ CSetMainPage::CSetMainPage()
 	: CPropertyPage(CSetMainPage::IDD)
 	, m_bBackup(FALSE)
 	, m_bFirstDiffOnLoad(FALSE)
+	, m_bFirstConflictOnLoad(FALSE)
 	, m_nTabSize(0)
 	, m_bIgnoreEOL(FALSE)
 	, m_bOnePane(FALSE)
@@ -46,6 +47,7 @@ CSetMainPage::CSetMainPage()
 {
 	m_regBackup = CRegDWORD(_T("Software\\TortoiseMerge\\Backup"));
 	m_regFirstDiffOnLoad = CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"), TRUE);
+	m_regFirstConflictOnLoad = CRegDWORD(_T("Software\\TortoiseMerge\\FirstConflictOnLoad"), TRUE);
 	m_regTabSize = CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
 	m_regIgnoreEOL = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreEOL"), TRUE);	
 	m_regOnePane = CRegDWORD(_T("Software\\TortoiseMerge\\OnePane"));
@@ -61,6 +63,7 @@ CSetMainPage::CSetMainPage()
 
 	m_bBackup = m_regBackup;
 	m_bFirstDiffOnLoad = m_regFirstDiffOnLoad;
+	m_bFirstConflictOnLoad = m_regFirstConflictOnLoad;
 	m_nTabSize = m_regTabSize;
 	m_bIgnoreEOL = m_regIgnoreEOL;
 	m_bOnePane = m_regOnePane;
@@ -82,6 +85,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	CPropertyPage::DoDataExchange(pDX);
 	DDX_Check(pDX, IDC_BACKUP, m_bBackup);
 	DDX_Check(pDX, IDC_FIRSTDIFFONLOAD, m_bFirstDiffOnLoad);
+	DDX_Check(pDX, IDC_FIRSTCONFLICTONLOAD, m_bFirstConflictOnLoad);
 	DDX_Text(pDX, IDC_TABSIZE, m_nTabSize);
 	DDV_MinMaxInt(pDX, m_nTabSize, 1, 1000);
 	DDX_Check(pDX, IDC_IGNORELF, m_bIgnoreEOL);
@@ -107,6 +111,7 @@ void CSetMainPage::SaveData()
 {
 	m_regBackup = m_bBackup;
 	m_regFirstDiffOnLoad = m_bFirstDiffOnLoad;
+	m_regFirstConflictOnLoad = m_bFirstConflictOnLoad;
 	m_regTabSize = m_nTabSize;
 	m_regIgnoreEOL = m_bIgnoreEOL;
 	m_regOnePane = m_bOnePane;
@@ -141,6 +146,7 @@ BOOL CSetMainPage::OnInitDialog()
 
 	m_bBackup = m_regBackup;
 	m_bFirstDiffOnLoad = m_regFirstDiffOnLoad;
+	m_bFirstConflictOnLoad = m_regFirstConflictOnLoad;
 	m_nTabSize = m_regTabSize;
 	m_bIgnoreEOL = m_regIgnoreEOL;
 	m_bOnePane = m_regOnePane;
@@ -153,6 +159,8 @@ BOOL CSetMainPage::OnInitDialog()
 	m_bCaseInsensitive = m_regCaseInsensitive;
 	m_bUTF8Default = m_regUTF8Default;
 	m_bAutoAdd = m_regAutoAdd;
+
+	DialogEnableWindow(IDC_FIRSTCONFLICTONLOAD, m_bFirstDiffOnLoad);
 
 	UINT uRadio = IDC_WSCOMPARE;
 	switch (m_nIgnoreWS)
@@ -207,6 +215,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_IGNORELF, &CSetMainPage::OnModifiedWithReload)
 	ON_BN_CLICKED(IDC_ONEPANE, &CSetMainPage::OnModified)
 	ON_BN_CLICKED(IDC_FIRSTDIFFONLOAD, &CSetMainPage::OnModified)
+	ON_BN_CLICKED(IDC_FIRSTCONFLICTONLOAD, &CSetMainPage::OnModified)
 	ON_BN_CLICKED(IDC_WSCOMPARE, &CSetMainPage::OnBnClickedWhitespace)
 	ON_BN_CLICKED(IDC_WSIGNORECHANGED, &CSetMainPage::OnBnClickedWhitespace)
 	ON_BN_CLICKED(IDC_WSIGNOREALL, &CSetMainPage::OnBnClickedWhitespace)
@@ -226,7 +235,9 @@ END_MESSAGE_MAP()
 
 void CSetMainPage::OnModified()
 {
+	UpdateData();
 	SetModified();
+	DialogEnableWindow(IDC_FIRSTCONFLICTONLOAD, m_bFirstDiffOnLoad);
 }
 
 void CSetMainPage::OnModifiedWithReload()
@@ -254,5 +265,19 @@ void CSetMainPage::OnBnClickedWhitespace()
 	default:
 		break;	
 	}
+}
+
+BOOL CSetMainPage::DialogEnableWindow(UINT nID, BOOL bEnable)
+{
+	CWnd * pwndDlgItem = GetDlgItem(nID);
+	if (pwndDlgItem == NULL)
+		return FALSE;
+	if (bEnable)
+		return pwndDlgItem->EnableWindow(bEnable);
+	if (GetFocus() == pwndDlgItem)
+	{
+		SendMessage(WM_NEXTDLGCTL, 0, FALSE);
+	}
+	return pwndDlgItem->EnableWindow(bEnable);
 }
 

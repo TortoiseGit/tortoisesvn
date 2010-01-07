@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2009 - TortoiseSVN
+// Copyright (C) 2006-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -49,12 +49,20 @@ protected:
 	virtual BOOL OnApply();
 	virtual BOOL OnInitDialog();
 
+	afx_msg void OnModified();
+	afx_msg void OnModifiedWithReload();
+	afx_msg void OnBnClickedWhitespace();
+
 	DECLARE_MESSAGE_MAP()
+
+	BOOL DialogEnableWindow(UINT nID, BOOL bEnable);
 
 	BOOL			m_bBackup;
 	CRegDWORD		m_regBackup;
 	BOOL			m_bFirstDiffOnLoad;
 	CRegDWORD		m_regFirstDiffOnLoad;
+	BOOL			m_bFirstConflictOnLoad;
+	CRegDWORD		m_regFirstConflictOnLoad;
 	int				m_nTabSize;
 	CRegDWORD		m_regTabSize;
 	BOOL			m_bIgnoreEOL;
@@ -83,8 +91,4 @@ protected:
 
 	CMFCFontComboBox m_cFontNames;
 	CComboBox		m_cFontSizes;
-protected:
-	afx_msg void OnModified();
-	afx_msg void OnModifiedWithReload();
-	afx_msg void OnBnClickedWhitespace();
 };
