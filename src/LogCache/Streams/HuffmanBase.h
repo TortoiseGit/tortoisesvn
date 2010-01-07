@@ -26,9 +26,9 @@
 //
 ///////////////////////////////////////////////////////////////
 
-#if (defined (_WIN64) || (__WORDSIZE == 64)) && !defined(_64BITS)
+//#if (defined (_WIN64) || (__WORDSIZE == 64)) && !defined(_64BITS)
 #define _64BITS
-#endif
+//#endif
 
 class CHuffmanBase
 {
@@ -39,16 +39,19 @@ public:
 	typedef unsigned long long QWORD;
 	typedef unsigned char BYTE;
 
+	// encoded char type
 	// encoded data chunk type
 	// value counting chunk type
 	// plain text data chunk type
 
 #ifdef _64BITS
-	typedef QWORD key_type;
+	typedef WORD key_type;
+	typedef QWORD key_block_type;
 	typedef QWORD count_block_type;
 	typedef DWORD encode_block_type;
 #else
-	typedef DWORD key_type;
+	typedef WORD key_type;
+	typedef DWORD key_block_type;
 	typedef DWORD count_block_type;
 	typedef WORD encode_block_type;
 #endif
@@ -66,7 +69,7 @@ public:
 		// i.e. capacity of a "register" that can be used w/o 
 		// writing to the target buffer or be read at once
 
-		KEY_BITS = sizeof (key_type) * 8,
+		KEY_BLOCK_BITS = sizeof (key_block_type) * 8,
 
 		// max *actual* key length.
 		// we limit it to 12 to minimize decoding effort and

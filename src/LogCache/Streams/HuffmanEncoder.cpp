@@ -28,78 +28,92 @@
 void CHuffmanEncoder::CountValues ( const unsigned char* source
 								  , const unsigned char* end)
 {
-	// keep intermediate results
+	SecureZeroMemory (&count, sizeof (count));
 
-	DWORD localCount[sizeof (count_block_type)][BUCKET_COUNT];
-	SecureZeroMemory (localCount, sizeof (localCount));
+	// cleaning memory speed is about 2 buckets / clock tick
+	// optimized counting saves about 2 clock ticks / char
+	// -> don't use temp buckets for short sequences
 
-	// main loop
-
-	const count_block_type* blockSource 
-		= reinterpret_cast<const count_block_type*>(source);
-	const count_block_type* blockEnd 
-		= blockSource + (end - source) / sizeof (count_block_type);
-
-	for (; blockSource != blockEnd; ++blockSource)
+	if (2 * (end - source) > (sizeof (count_block_type) * BUCKET_COUNT) / 2)
 	{
-		count_block_type block = *blockSource;
+		// keep intermediate results
 
-		++localCount[0][block & 0xff];
-		++localCount[1][(block >> 8) & 0xff];
-		++localCount[2][(block >> 16) & 0xff];
-		++localCount[3][(block >> 24) & 0xff];
+		DWORD localCount[sizeof (count_block_type)][BUCKET_COUNT];
+		SecureZeroMemory (localCount, sizeof (localCount));
 
-#ifdef _64BITS
+		// main loop
 
-		++localCount[4][(block >> 32) & 0xff];
-		++localCount[5][(block >> 40) & 0xff];
-		++localCount[6][(block >> 48) & 0xff];
-		++localCount[7][(block >> 56) & 0xff];
+		const count_block_type* blockSource 
+			= reinterpret_cast<const count_block_type*>(source);
+		const count_block_type* blockEnd 
+			= blockSource + (end - source) / sizeof (count_block_type);
 
-#endif
+		for (; blockSource != blockEnd; ++blockSource)
+		{
+			count_block_type block = *blockSource;
+
+			// make compiler generate faster add instead of inc
+
+			localCount[0][block & 0xff] += 2;
+			localCount[1][(block >> 8) & 0xff] += 2;
+			localCount[2][(block >> 16) & 0xff] += 2;
+			localCount[3][(block >> 24) & 0xff] += 2;
+
+	#ifdef _64BITS
+
+			localCount[4][(block >> 32) & 0xff] += 2;
+			localCount[5][(block >> 40) & 0xff] += 2;
+			localCount[6][(block >> 48) & 0xff] += 2;
+			localCount[7][(block >> 56) & 0xff] += 2;
+
+	#endif
+		}
+
+		source = reinterpret_cast<const BYTE*>(blockEnd);
+
+		// fold temp. results
+
+		for (size_t i = 0; i < sizeof (count_block_type); ++i)
+			for (size_t k = 0; k < BUCKET_COUNT; ++k)
+				count[k] += localCount[i][k] / 2;
 	}
 
 	// count odd chars
 
-	source = reinterpret_cast<const BYTE*>(blockEnd);
 	for (; source != end; ++source)
-		++count[*source];
-
-	// fold temp. results
-
-	for (size_t i = 0; i < sizeof (count_block_type); ++i)
-		for (size_t k = 0; k < BUCKET_COUNT; ++k)
-			count[k] += localCount[i][k];
+		count[*source] += 1;
 }
 
 // (2) prepare for key assignment: sort by frequency
 
 void CHuffmanEncoder::SortByFrequency()
 {
-	// sort all tokens to encode and sort them by frequency
+	// sort all tokens to encode by frequency
 
-	typedef std::multimap<DWORD, BYTE> TFrequencyOrder;
+	std::pair<DWORD, BYTE> frequencyOrder[BUCKET_COUNT];
+	std::pair<DWORD, BYTE>* firstPair = frequencyOrder;
+	std::pair<DWORD, BYTE>* lastPair = firstPair;
 
-	TFrequencyOrder frequencyOrder;
 	for (size_t i = 0; i < BUCKET_COUNT; ++i)
 		if (count[i] > 0)
-			frequencyOrder.insert (std::make_pair ( count[i]
-												  , static_cast<BYTE>(i)));
+		{
+			lastPair->first = count[i];
+			lastPair->second = static_cast<BYTE>(i);
+			++lastPair;
+		}
+
+	std::sort (firstPair, lastPair);
+	sortedCount = lastPair - firstPair;
 
 	// convert to an array for easier iteration
 
 	BYTE* first = sorted;
 	BYTE* last = first;
-	for ( TFrequencyOrder::const_reverse_iterator iter = frequencyOrder.rbegin()
-		, end = frequencyOrder.rend()
-		; iter != end
-		; ++iter)
+	for ( ; firstPair != lastPair; ++ firstPair)
 	{
-		*last = iter->second;
+		*last = firstPair->second;
 		++last;
 	}
-
-	sortedCount = frequencyOrder.size();
 
 	// recursively construct Huffman keys
 
@@ -119,7 +133,7 @@ void CHuffmanEncoder::AssignEncoding ( BYTE* first
 	{
 		// we constructed a unique encoding
 
-		key[*first] = ReverseBits (encoding, bitCount) << (KEY_BITS - bitCount);
+		key[*first] = ReverseBits (encoding, bitCount);
 		keyLength[*first] = bitCount;
 	}
 	else
@@ -137,7 +151,7 @@ void CHuffmanEncoder::AssignEncoding ( BYTE* first
 		}
 		else
 		{
-			// find the position that is closed to a 50:50 frequency split
+			// find the position that is close to a 50:50 frequency split
 
 			// 50% of what?
 
@@ -233,7 +247,7 @@ void CHuffmanEncoder::WriteHuffmanEncoded ( const BYTE* source
 									      , const BYTE* end
 										  , BYTE* dest)
 {
-	key_type cachedCode = 0;
+	key_block_type cachedCode = 0;
 	BYTE cachedBits = 0;
 
 #ifdef _64BITS
@@ -251,42 +265,45 @@ void CHuffmanEncoder::WriteHuffmanEncoded ( const BYTE* source
 
 		encode_block_type data = *blockSource;
 
-		// build chain [key1][key2][key3][key4],
-		// start with key4
+		// encode byte 0
 
-		BYTE bits4 = keyLength [(data >> 24) & 0xff];
-		key_type mask4 = key [(data >> 24) & 0xff];
-		BYTE totalShift = bits4;
-		key_type totalMask = mask4;
+		encode_block_type data0 = data & 0xff;
+		data >>= 8;
 
-		BYTE bits3 = keyLength [(data >> 16) & 0xff];
-		key_type mask3 = key [(data >> 16) & 0xff];
-		mask3 >>= totalShift;
-		totalShift += bits3;
-		totalMask += mask3;
+		BYTE len0 = keyLength [data0];
+		cachedCode += static_cast<key_block_type>(key [data0]) << cachedBits;
+		cachedBits += len0;
 
-		BYTE bits2 = keyLength [(data >> 8) & 0xff];
-		key_type mask2 = key [(data >> 8) & 0xff];
-		mask2 >>= totalShift;
-		totalShift += bits2;
-		totalMask += mask2;
+		// encode byte 1
 
-		BYTE bits1 = keyLength [data & 0xff];
-		key_type mask1 = key [data & 0xff];
-		mask1 >>= totalShift;
-		totalShift += bits1;
-		totalMask += mask1;
+		encode_block_type data1 = data & 0xff;
+		data >>= 8;
 
-		// add to existing bit cache
+		BYTE len1 = keyLength [data1];
+		cachedCode += static_cast<key_block_type>(key [data1]) << cachedBits;
+		cachedBits += len1;
 
-		cachedCode >>= totalShift;
-		cachedCode += totalMask;
-		cachedBits += totalShift;
+		// encode byte 2
+
+		encode_block_type data2 = data & 0xff;
+		data >>= 8;
+
+		BYTE len2 = keyLength [data2];
+		cachedCode += static_cast<key_block_type>(key [data2]) << cachedBits;
+		cachedBits += len2;
+
+		// encode byte 3
+
+		encode_block_type data3 = data & 0xff;
+
+		BYTE len3 = keyLength [data3];
+		cachedCode += static_cast<key_block_type>(key [data3]) << cachedBits;
+		cachedBits += len3;
 
 		// write full bytes only
 
-		*reinterpret_cast<key_type*>(dest) 
-			= cachedCode >> (KEY_BITS - cachedBits);
+		*reinterpret_cast<key_block_type*>(dest) = cachedCode;
+		cachedCode >>= (cachedBits & ~7);
 		dest += cachedBits / 8;
 
 		// update cache
@@ -294,28 +311,47 @@ void CHuffmanEncoder::WriteHuffmanEncoded ( const BYTE* source
 		cachedBits &= 7;
 	}
 
-	// encode odd chars
-
 	source = reinterpret_cast<const BYTE*>(blockEnd);
-	for ( ; source != end; ++source)
-	{
-		// encode just one byte
-
-		DWORD data = *source;
-
-		BYTE length = keyLength [data];
-		key_type mask = key [data];
-
-		// add to existing bit cache
-
-		cachedCode >>= length;
-		cachedCode += mask;
-		cachedBits += length;
-	}
 
 #else
 
-	// main loop (11.3 clock ticks per char on K8)
+	// main loop (9.5 clock ticks per 2 chars on Core2) 
+
+	const BYTE* blockEnd = source + (end - source) / sizeof (encode_block_type) * sizeof (encode_block_type);
+	for ( ; source != blockEnd; source += sizeof (encode_block_type))
+	{
+		// encode byte 0
+
+		DWORD data0 = source[0];
+
+		BYTE len0 = keyLength [data0];
+		cachedCode += static_cast<key_block_type>(key [data0]) << cachedBits;
+		cachedBits += len0;
+
+		// encode byte 1
+
+		DWORD data1 = source[1];
+
+		BYTE len1 = keyLength [data1];
+		cachedCode += static_cast<key_block_type>(key [data1]) << cachedBits;
+		cachedBits += len1;
+
+		// write full bytes only
+
+		*reinterpret_cast<key_block_type*>(dest) = cachedCode;
+		cachedCode >>= (cachedBits & ~7);
+		dest += cachedBits / 8;
+
+		// update cache
+
+		cachedBits &= 7;
+	}
+
+	source = blockEnd;
+
+#endif
+
+	// encode odd chars
 
 	for ( ; source != end; ++source)
 	{
@@ -324,18 +360,17 @@ void CHuffmanEncoder::WriteHuffmanEncoded ( const BYTE* source
 		DWORD data = *source;
 
 		BYTE length = keyLength [data];
-		key_type mask = key [data];
+		key_block_type mask = key [data];
 
 		// add to existing bit cache
 
-		cachedCode >>= length;
-		cachedCode += mask;
+		cachedCode += mask << cachedBits;
 		cachedBits += length;
 
 		// write full bytes only
 
-		*reinterpret_cast<key_type*>(dest) 
-			= cachedCode >> (KEY_BITS - cachedBits);
+		*reinterpret_cast<key_block_type*>(dest) = cachedCode;
+		cachedCode >>= (cachedBits & ~7);
 		dest += cachedBits / 8;
 
 		// update cache
@@ -343,12 +378,9 @@ void CHuffmanEncoder::WriteHuffmanEncoded ( const BYTE* source
 		cachedBits &= 7;
 	}
 
-#endif
-
 	// write the remaining cached data
 
-	*reinterpret_cast<key_type*>(dest) 
-		= cachedCode >> (KEY_BITS - cachedBits);
+	*reinterpret_cast<key_block_type*>(dest) = cachedCode;
 }
 
 // construction: nothing special to do
@@ -356,10 +388,6 @@ void CHuffmanEncoder::WriteHuffmanEncoded ( const BYTE* source
 CHuffmanEncoder::CHuffmanEncoder()
 	: sortedCount (0)
 {
-	SecureZeroMemory (&key, sizeof (key));
-	SecureZeroMemory (&keyLength, sizeof (keyLength));
-	SecureZeroMemory (&count, sizeof (count));
-	SecureZeroMemory (&sorted, sizeof (sorted));
 }
 
 // write local stream data and close the stream
@@ -367,8 +395,6 @@ CHuffmanEncoder::CHuffmanEncoder()
 std::pair<CHuffmanEncoder::BYTE*, DWORD>
 CHuffmanEncoder::Encode (const BYTE* source, size_t byteCount)
 {
-	assert (sorted[0] == 0);
-
 	// this may fail under x64
 
 	if (byteCount > (DWORD)(-1))

@@ -87,10 +87,8 @@ void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
 										 , BYTE* dest
 										 , DWORD decodedSize)
 {
-	key_type cachedCode = 0;
+	key_block_type cachedCode = 0;
 	BYTE cachedBits = 0;
-
-#ifdef _64BITS
 
 	// main loop
 
@@ -99,49 +97,51 @@ void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
 	encode_block_type* blockEnd 
 		= blockDest + decodedSize / sizeof (encode_block_type);
 
-    key_type nextCodes = *reinterpret_cast<const key_type*>(first);
+    key_block_type nextCodes = *reinterpret_cast<const key_block_type*>(first);
 	for (; blockDest != blockEnd; ++blockDest)
 	{
 		// fetch encoded data into cache
 
-		BYTE bitsToFetch = (KEY_BITS - cachedBits) & -8;
-        BYTE bytesToFetch = (KEY_BITS - cachedBits) / 8;
-
+        first += (KEY_BLOCK_BITS-1 - cachedBits) / 8;
 		cachedCode |= nextCodes << cachedBits;
-        first += bytesToFetch;
-		cachedBits += bitsToFetch;
 
-        nextCodes = *reinterpret_cast<const key_type*>(first);
+		cachedBits |= KEY_BLOCK_BITS - 8;		// KEY_BLOCK_BITS must be 2^n
 
-		// decode 4 bytes
+        nextCodes = *reinterpret_cast<const key_block_type*>(first);
+
+		// decode 2 (32 bit) to 4 (64 bit) bytes
 
 		BYTE length1 = length[cachedCode & MAX_KEY_VALUE];
-		BYTE value1 = value[cachedCode & MAX_KEY_VALUE];
+		encode_block_type value1 = value[cachedCode & MAX_KEY_VALUE];
 		cachedCode >>= length1;
 		cachedBits -= length1;
 
 		encode_block_type data = value1;
 
 		BYTE length2 = length[cachedCode & MAX_KEY_VALUE];
-		BYTE value2 = value[cachedCode & MAX_KEY_VALUE];
+		encode_block_type value2 = value[cachedCode & MAX_KEY_VALUE];
 		cachedCode >>= length2;
 		cachedBits -= length2;
 
 		data += value2 << 8;
 
+#ifdef _64BITS
+
 		BYTE length3 = length[cachedCode & MAX_KEY_VALUE];
-		BYTE value3 = value[cachedCode & MAX_KEY_VALUE];
+		encode_block_type value3 = value[cachedCode & MAX_KEY_VALUE];
 		cachedCode >>= length3;
 		cachedBits -= length3;
 
 		data += value3 << 16;
 
 		BYTE length4 = length[cachedCode & MAX_KEY_VALUE];
-		BYTE value4 = value[cachedCode & MAX_KEY_VALUE];
+		encode_block_type value4 = value[cachedCode & MAX_KEY_VALUE];
 		cachedCode >>= length4;
 		cachedBits -= length4;
 
 		data += value4 << 24;
+
+#endif
 
 		// write result
 
@@ -150,7 +150,7 @@ void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
 
 	// fetch encoded data into cache and decode odd bytes
 
-	cachedCode |= *reinterpret_cast<const key_type*>(first) << cachedBits;
+	cachedCode |= *reinterpret_cast<const key_block_type*>(first) << cachedBits;
 
 	for ( BYTE* byteDest = reinterpret_cast<BYTE*>(blockDest)
 		, *end = dest + decodedSize
@@ -165,37 +165,6 @@ void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
 
 		*byteDest = data;
 	}
-
-#else
-
-	// main loop
-
-	for ( BYTE* end = dest + decodedSize
-		; dest != end
-		; ++dest)
-	{
-		// fetch encoded data into cache
-
-		size_t bytesToFetch = (KEY_BITS - cachedBits) / 8;
-
-		cachedCode |= *reinterpret_cast<const key_type*>(first) << cachedBits;
-
-		first += bytesToFetch;
-		cachedBits += static_cast<BYTE>(bytesToFetch * 8);
-
-		// decode 1 byte
-
-		BYTE keyLength = length[cachedCode & MAX_KEY_VALUE];
-		BYTE data = value[cachedCode & MAX_KEY_VALUE];
-		cachedCode >>= keyLength;
-		cachedBits -= keyLength;
-
-		// write result
-
-		*dest = data;
-	}
-
-#endif
 }
 
 // decompress the source data and return the target buffer.
