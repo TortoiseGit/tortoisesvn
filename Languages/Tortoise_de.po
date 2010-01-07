@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-07 09:01+0100\n"
+"PO-Revision-Date: 2010-01-07 20:15+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2571,7 +2571,7 @@ msgstr "Vergleicht die gewählte Datei mit einer Datei im Projektarchiv"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Comparing %!1!s to %2!s!"
+msgid "Comparing %1!s! to %2!s!"
 msgstr "Vergleiche %1!s! mit %2!s!"
 
 #. Resource IDs: (74)
@@ -4715,10 +4715,6 @@ msgstr "Ignoriere &alle Leerzeichen"
 msgid "Ignore &ancestry"
 msgstr "Ignoriere &Vorfahren"
 
-#. Resource IDs: (1067)
-msgid "Ignore &case changes"
-msgstr "Ignoriere &Groß-/Kleinschreibung"
-
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
 msgstr "Ignoriere alle Änderungen an Leerzeichen"
@@ -4726,6 +4722,10 @@ msgstr "Ignoriere alle Änderungen an Leerzeichen"
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Ignoriere alle Leerzeichen"
+
+#. Resource IDs: (1067)
+msgid "Ignore case cha&nges"
+msgstr "Ignoriere &Groß-/Kleinschreibung"
 
 #. Resource IDs: (1126)
 msgid "Ignore line &endings"
@@ -5039,6 +5039,10 @@ msgstr "Objekte in &Externals"
 #. Resource IDs: (1527)
 msgid "Items to show"
 msgstr "Anzuzeigende Objekte"
+
+#. Resource IDs: (1074)
+msgid "J&ump to first conflict when loading"
+msgstr "&Springe zum ersten Unterschied beim Laden"
 
 #. Resource IDs: (275)
 msgid "Join with following &tree"
