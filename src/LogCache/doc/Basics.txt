@@ -1,0 +1,245 @@
+Basic Principles of the LogCache implementation
+===============================================
+
+0. Table of Contents
+--------------------
+
+1. Overview
+2. Components
+3. Streams storage layer
+4. Log data model
+5. Log cache management
+
+
+1. Overview
+-----------
+
+The log cache allows the storage of SVN log information
+on the client side. Basic features:
+
+- extensible, compact storage format
+- generic, high-throughput storage layer
+- all data is in-memory; r/w granularity is a whole cache file
+
+- data model covers SVN log -v output
+- cache file management handles concurrent access and corruptions
+
+Interface details can be derived from the documentation
+in the respective header files.
+
+
+2. Components
+-------------
+
+Currently, the functionality is split over 4 libs that
+roughly represent different layers of abstraction.
+But they are NOT a strict hierarchy of layers. In particular,
+not every layer is used at any given time.
+
+LogCacheLib
+	
+	- manages the log cache files
+	- uniform interface (ILogQuery) to log cache and 
+          direct SVN log calls
+	- manipulates the log cache data model
+
+LogCacheAccessLib
+
+	- iterator objects that follow the history of a given path
+	- import / export in SVN log --xml format
+	- export in CSV format
+
+LogCacheContainersLib
+
+	- the actual log cache data model (passive)
+	- serialization / deserialization code
+
+LogCacheStreamsLib
+
+	- generic external data format: 
+	  hierarchy of compressed streams
+	- collection of different stream classes
+
+
+3. Streams Storage Layer
+------------------------
+
+3.1 Basic Concepts
+
+Data structures like a log cache have a well-defined root object
+and form a hierarchy of container objects. The storage layer
+allows for a natural mapping of these data structures onto a
+hierarchy of compressed data streams.
+
+Currently, there is no way to modify an existing file.
+Instead, the client will read it in its entirety and overwrite
+it completely with new data, if necessary.
+
+A stream contains
+
+	- a chunk of arbitrary binary data (= content)
+	- a possibly empty list of sub-streams
+
+it also stores
+
+	- a STREAM_TYPE_ID to identify the stream type
+	  (i.e. how to interpret the binary content)
+	- length of the binary content (in bytes)
+	- number of and references to the sub-streams
+
+The code paths for read and write are entierely separate. 
+IHierarchicalInStream and IHierarchicalOutStream, respectively,
+define the basic interface that every stream must implement.
+
+Sub-streams are identified by user-defined number of type
+SUB_STREAM_ID. They must be unique with their parent stream.
+
+See CHierachical[In|Out]StreamBase for further details of the 
+sub-stream table encoding. This knowledge is not necessary
+for extending the stream hierarchy or even adding new types.
+
+
+3.2 Stream Content
+
+How the content is actually to be interpreted is handled by
+specific stream classes. Most of the classes provided store
+std::vector<primitive_type> data. This is because the data
+is either integer IDs, flags, offsets etc. or large string
+buffers.
+
+Depending on the data type at hand, typical value ranges
+(check the Out class headers for info!) and possible correlation
+between neighboring values, there are many specific stream 
+classes. They all try to reduce the data as much as possible.
+I.e. diff integer streams will work great for sequences
+of ascending or descending values, i.e. if abs (v[i] - v[i-1]) << abs(v[i])
+
+A huffman encoding pass over any kind of stream will remove
+any redudancy left or introduced by the stream encoding scheme.
+
+
+3.3 Writing Data
+
+There can be only one open stream at a time and existing
+streams cannot be extended. That implies you have to write
+the entire content of a stream before sub-streams can be
+added. Closing streams and writing their data to disk is
+handled transparently.
+
+Objects will usually define a operator>>(IHierarchicalOutStream*)
+method that contains the serialization code. For every
+sub-structure, create a sub-stream and serialize the
+respective data to it. The stream type / class is specified 
+by its STREAM_TYPE_ID.
+
+Arrays / lists of structs will require multiple sub-stream: 
+one per struct member. Rationale: the value correlation
+along a table column is much higher than within a row.
+
+PackedDWORDOutStream.h contains some utility function
+templates that handle the serialization of std::vector<>.
+
+If you need other serialization schemes, you can call
+AddValue() (or your specifc stream method) directly.
+Since it is your responsibility to interpret the stream
+content correctly, you should put size information first
+as you often cannot derive it from the binary stream size.
+
+See the operator>> implementations in LogCacheContainersLib
+for examples for how to serialize various types of data.
+
+
+3.4 Reading Data
+
+Reading data is much more flexible than the write path.
+You may read any data at any time. Since the type info
+is stored persistently in the external file, OpenSubStream()
+will automatically return an instance of the respective
+stream class.
+
+Implement your operator<< symmetrically to your operator>>.
+
+Please note that only the DEBUG builds contain stream
+overflow checks. Correct (de-)serialization is your resposibility.
+
+Very large streams may use the Prefetch(), AutoOpen()
+and AutoClose() methods to exploit paralellism and to
+reduce temporary memory usage. This is useful for stream
+sizes >> 100MB.
+
+
+3.5 Format Versioning
+
+The whole file is tagged with two version info IDs to handle
+backward compatibility with older clients. Clients that are
+too old will usually delete or ignore and overwrite the cache.
+
+OUR_LOG_CACHE_FILE_VERSION
+
+	- format version used by the last client that wrote
+	  this file
+	- bump if you add new sub-streams
+	- convention: use the current date 0xYYYYMMDD
+
+MIN_LOG_CACHE_FILE_VERSION
+
+	- format version that must be supported by the client
+	  to be able to interpret its content correctly
+	- try to be backward compatible
+	- must be bumped if new stream types are being used
+	  (even if they would not be accessed by old clients)
+
+OLDEST_LOG_CACHE_FILE_VERSION 
+
+	- oldest format this client can read
+	  (must be >= OUR_LOG_CACHE_FILE_VERSION
+	
+NEWEST_LOG_CACHE_FILE_VERSION
+
+	- newest format this client can read
+	  (client too old, if < writer's OUR_LOG_CACHE_FILE_VERSION)
+
+Constraints
+
+	- newer version numbers must have a greater numerical value
+
+	- OUR_LOG_CACHE_FILE_VERSION >= MIN_LOG_CACHE_FILE_VERSION
+	- OUR_LOG_CACHE_FILE_VERSION >= OLDEST_LOG_CACHE_FILE_VERSION 
+	- NEWEST_LOG_CACHE_FILE_VERSION >= OLDEST_LOG_CACHE_FILE_VERSION 
+
+
+3.6 Extending the Format
+
+3.6.1 New Sub-Streams
+
+New sub-streams can be introduced anywhere in the hierarchy
+without breaking backward compatibility.
+
+Since clients will only access specific sub-streams via GetSubStream(),
+old clients will not see new sub-streams. However, that implies
+they will also not write them, i.e. their content gets lost
+once an old client writes the file.
+
+This problem can be addressed by the upgrade code that the
+client needs to handle older cache files, because the file
+*is* in old format once it got overwritten. A client should
+use HasSubStream() to test for the presense of its additional
+streams.
+
+
+3.6.2 New Sub-Stream Types
+
+If none of the provided stream types fits you requirements,
+choose the one closest to it and derive your implementation 
+from it. You need to provide
+
+- a new STREAM_TYPE_ID definition
+- an input stream class
+- an output stream class
+- make sure to derive from C[In|Out]StreamImplBase<>
+  that handle the whole factory stuff
+
+See CBinary[In|Out]Stream, CComposite[In|Out]Stream and
+CPackedInteger[In|Out]Stream for typical examples.
+
+Don't forget to bump the file version numbers.
