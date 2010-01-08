@@ -380,15 +380,15 @@ void CCachedLogInfo::Save (const TFileName& newFileName)
 	    CRootOutStream stream (newFileName);
 
 	    IHierarchicalOutStream* revisionsStream
-		    = stream.OpenSubStream (REVISIONS_STREAM_ID, COMPOSITE_STREAM_TYPE_ID);
+			= stream.OpenSubStream<CCompositeOutStream> (REVISIONS_STREAM_ID);
 	    *revisionsStream << revisions;
 
 	    IHierarchicalOutStream* logInfoStream
-		    = stream.OpenSubStream (LOG_INFO_STREAM_ID, COMPOSITE_STREAM_TYPE_ID);
+		    = stream.OpenSubStream<CCompositeOutStream> (LOG_INFO_STREAM_ID);
 	    *logInfoStream << logInfo;
 
 	    IHierarchicalOutStream* skipRevisionsStream
-		    = stream.OpenSubStream (SKIP_REVISIONS_STREAM_ID, COMPOSITE_STREAM_TYPE_ID);
+		    = stream.OpenSubStream<CCompositeOutStream> (SKIP_REVISIONS_STREAM_ID);
 	    *skipRevisionsStream << skippedRevisions;
     }
 

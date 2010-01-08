@@ -334,8 +334,8 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
     // read the string data
 
     CBLOBInStream* packedBlobsStream
-        = dynamic_cast<CBLOBInStream*>
-            (stream.GetSubStream (CBlobDictionary::PACKED_BLOBS_STREAM_ID));
+        = stream.GetSubStream<CBLOBInStream> 
+			(CBlobDictionary::PACKED_BLOBS_STREAM_ID);
 
     if (packedBlobsStream->GetSize() >= NO_INDEX)
         throw CContainerException ("data stream to large");
@@ -349,8 +349,7 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
     // build the hash and string offsets
 
     CDiffDWORDInStream* offsetsStream
-        = dynamic_cast<CDiffDWORDInStream*>
-            (stream.GetSubStream (CBlobDictionary::OFFSETS_STREAM_ID));
+        = stream.GetSubStream<CDiffDWORDInStream> (CBlobDictionary::OFFSETS_STREAM_ID);
 
     *offsetsStream >> dictionary.offsets;
 
@@ -372,18 +371,16 @@ IHierarchicalOutStream& operator<< (IHierarchicalOutStream& stream
     // write string data
 
     CBLOBOutStream* packedBlobsStream
-        = dynamic_cast<CBLOBOutStream*>
-            (stream.OpenSubStream ( CBlobDictionary::PACKED_BLOBS_STREAM_ID
-                                  , BLOB_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CBLOBOutStream>
+            (CBlobDictionary::PACKED_BLOBS_STREAM_ID);
     packedBlobsStream->Add ( (const unsigned char*) &dictionary.packedBlobs.front()
                            , dictionary.packedBlobs.size());
 
     // write offsets
 
     CDiffDWORDOutStream* offsetsStream
-        = dynamic_cast<CDiffDWORDOutStream*>
-            (stream.OpenSubStream ( CBlobDictionary::OFFSETS_STREAM_ID
-                                  , DIFF_DWORD_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CDiffDWORDOutStream>
+            (CBlobDictionary::OFFSETS_STREAM_ID);
     *offsetsStream << dictionary.offsets;
 
     // ready

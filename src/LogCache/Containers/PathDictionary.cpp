@@ -182,15 +182,15 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 	// write path elements
 
 	IHierarchicalOutStream* elementsStream 
-		= stream.OpenSubStream ( CPathDictionary::ELEMENTS_STREAM_ID
-							   , COMPOSITE_STREAM_TYPE_ID);
+		= stream.OpenSubStream<CCompositeOutStream>
+			(CPathDictionary::ELEMENTS_STREAM_ID);
 	*elementsStream << dictionary.pathElements;
 
 	// write paths
 
 	IHierarchicalOutStream* pathsStream
-		= stream.OpenSubStream ( CPathDictionary::PATHS_STREAM_ID
-							   , COMPOSITE_STREAM_TYPE_ID);
+		= stream.OpenSubStream<CCompositeOutStream>
+			(CPathDictionary::PATHS_STREAM_ID);
 	*pathsStream << dictionary.paths;
 
 	// ready

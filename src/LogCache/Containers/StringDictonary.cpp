@@ -358,8 +358,8 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
     // read the string data
 
     CBLOBInStream* packedStringStream
-        = dynamic_cast<CBLOBInStream*>
-            (stream.GetSubStream (CStringDictionary::PACKED_STRING_STREAM_ID));
+        = stream.GetSubStream<CBLOBInStream>
+			(CStringDictionary::PACKED_STRING_STREAM_ID);
 
     if (packedStringStream->GetSize() >= NO_INDEX)
         throw CContainerException ("data stream to large");
@@ -373,8 +373,8 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
     // build the hash and string offsets
 
     CDiffDWORDInStream* offsetsStream
-        = dynamic_cast<CDiffDWORDInStream*>
-            (stream.GetSubStream (CStringDictionary::OFFSETS_STREAM_ID));
+        = stream.GetSubStream<CDiffDWORDInStream> 
+			(CStringDictionary::OFFSETS_STREAM_ID);
 
     size_t offsetCount = offsetsStream->GetSizeValue();
     dictionary.offsets.resize (offsetCount);

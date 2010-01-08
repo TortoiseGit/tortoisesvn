@@ -1055,15 +1055,15 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 	// read the strings
 
 	CPackedIntegerInStream* stringsStream 
-		= dynamic_cast<CPackedIntegerInStream*>
-			(stream.GetSubStream (CTokenizedStringContainer::STRINGS_STREAM_ID));
+		= stream.GetSubStream<CPackedIntegerInStream> 
+			(CTokenizedStringContainer::STRINGS_STREAM_ID);
 	*stringsStream >> container.stringData;
 
 	// read the string offsets
 
 	CDiffDWORDInStream* offsetsStream 
-		= dynamic_cast<CDiffDWORDInStream*>
-			(stream.GetSubStream (CTokenizedStringContainer::OFFSETS_STREAM_ID));
+		= stream.GetSubStream<CDiffDWORDInStream> 
+			(CTokenizedStringContainer::OFFSETS_STREAM_ID);
 	*offsetsStream >> container.offsets;
 
 	// ready
@@ -1077,33 +1077,30 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 	// write the words
 
 	CCompositeOutStream* wordsStream 
-		= dynamic_cast<CCompositeOutStream*>
-			(stream.OpenSubStream ( CTokenizedStringContainer::WORDS_STREAM_ID
-								  , COMPOSITE_STREAM_TYPE_ID));
+		= stream.OpenSubStream<CCompositeOutStream> 
+			(CTokenizedStringContainer::WORDS_STREAM_ID);
 	const_cast<CTokenizedStringContainer*>(&container)->AutoCompress();
 	*wordsStream << container.words;
 
 	// write the pairs
 
 	IHierarchicalOutStream* pairsStream
-		= stream.OpenSubStream ( CTokenizedStringContainer::PAIRS_STREAM_ID
-							   , COMPOSITE_STREAM_TYPE_ID);
+		= stream.OpenSubStream<CCompositeOutStream> 
+			(CTokenizedStringContainer::PAIRS_STREAM_ID);
 	*pairsStream << container.pairs;
 
 	// the strings
 
 	CPackedIntegerOutStream* stringsStream 
-		= dynamic_cast<CPackedIntegerOutStream*>
-			(stream.OpenSubStream ( CTokenizedStringContainer::STRINGS_STREAM_ID
-								  , PACKED_INTEGER_STREAM_TYPE_ID));
+		= stream.OpenSubStream<CPackedIntegerOutStream> 
+			(CTokenizedStringContainer::STRINGS_STREAM_ID);
 	*stringsStream << container.stringData;
 
 	// the string positions
 
 	CDiffDWORDOutStream* offsetsStream 
-		= dynamic_cast<CDiffDWORDOutStream*>
-			(stream.OpenSubStream ( CTokenizedStringContainer::OFFSETS_STREAM_ID
-								  , DIFF_DWORD_STREAM_TYPE_ID));
+		= stream.OpenSubStream<CDiffDWORDOutStream> 
+			(CTokenizedStringContainer::OFFSETS_STREAM_ID);
 	*offsetsStream << container.offsets;
 
 	// ready

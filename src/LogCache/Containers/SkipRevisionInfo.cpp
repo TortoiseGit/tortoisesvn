@@ -437,20 +437,20 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 	// open sub-streams
 
 	CPackedDWORDInStream* pathIDsStream 
-		= dynamic_cast<CPackedDWORDInStream*>
-			(stream.GetSubStream (CSkipRevisionInfo::PATHIDS_STREAM_ID));
+		= stream.GetSubStream<CPackedDWORDInStream> 
+			(CSkipRevisionInfo::PATHIDS_STREAM_ID);
 
 	CPackedDWORDInStream* entryCountStream 
-		= dynamic_cast<CPackedDWORDInStream*>
-			(stream.GetSubStream (CSkipRevisionInfo::ENTRY_COUNT_STREAM_ID));
+		= stream.GetSubStream<CPackedDWORDInStream> 
+			(CSkipRevisionInfo::ENTRY_COUNT_STREAM_ID);
 
 	CDiffDWORDInStream* revisionsStream 
-		= dynamic_cast<CDiffDWORDInStream*>
-			(stream.GetSubStream (CSkipRevisionInfo::REVISIONS_STREAM_ID));
+		= stream.GetSubStream<CDiffDWORDInStream> 
+			(CSkipRevisionInfo::REVISIONS_STREAM_ID);
 
 	CDiffIntegerInStream* sizesStream 
-		= dynamic_cast<CDiffIntegerInStream*>
-			(stream.GetSubStream (CSkipRevisionInfo::SIZES_STREAM_ID));
+		= stream.GetSubStream<CDiffIntegerInStream> 
+			(CSkipRevisionInfo::SIZES_STREAM_ID);
 
 	// read all data
 
@@ -499,9 +499,8 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 	// write path IDs
 
 	CPackedDWORDOutStream* pathIDsStream 
-		= dynamic_cast<CPackedDWORDOutStream*>
-			(stream.OpenSubStream ( CSkipRevisionInfo::PATHIDS_STREAM_ID
-								  , PACKED_DWORD_STREAM_TYPE_ID));
+		= stream.OpenSubStream<CPackedDWORDOutStream> 
+			(CSkipRevisionInfo::PATHIDS_STREAM_ID);
 	pathIDsStream->Add ((DWORD)container.data.size());
 
 	for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
@@ -510,9 +509,8 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 	// write number of ranges per path
 
 	CPackedDWORDOutStream* entryCountStream 
-		= dynamic_cast<CPackedDWORDOutStream*>
-			(stream.OpenSubStream ( CSkipRevisionInfo::ENTRY_COUNT_STREAM_ID
-								  , PACKED_DWORD_STREAM_TYPE_ID));
+		= stream.OpenSubStream<CPackedDWORDOutStream> 
+			(CSkipRevisionInfo::ENTRY_COUNT_STREAM_ID);
 
 	for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
 		entryCountStream->Add ((DWORD)(*dataIter)->ranges.size());
@@ -520,9 +518,8 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 	// write ranges start revisions
 
 	CDiffDWORDOutStream* revisionsStream 
-		= dynamic_cast<CDiffDWORDOutStream*>
-			(stream.OpenSubStream ( CSkipRevisionInfo::REVISIONS_STREAM_ID
-								  , DIFF_DWORD_STREAM_TYPE_ID));
+		= stream.OpenSubStream<CDiffDWORDOutStream> 
+			(CSkipRevisionInfo::REVISIONS_STREAM_ID);
 
 	for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
 		for ( CSkipRevisionInfo::IT iter = (*dataIter)->ranges.begin()
@@ -536,9 +533,8 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 	// write ranges lengths
 
 	CDiffIntegerOutStream* sizesStream 
-		= dynamic_cast<CDiffIntegerOutStream*>
-			(stream.OpenSubStream ( CSkipRevisionInfo::SIZES_STREAM_ID
-								  , DIFF_INTEGER_STREAM_TYPE_ID));
+		= stream.OpenSubStream<CDiffIntegerOutStream> 
+			(CSkipRevisionInfo::SIZES_STREAM_ID);
 
 	for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
 		for ( CSkipRevisionInfo::IT iter = (*dataIter)->ranges.begin()

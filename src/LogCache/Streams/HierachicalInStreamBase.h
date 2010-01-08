@@ -51,10 +51,33 @@ public:
 	virtual IHierarchicalInStream* GetSubStream ( SUB_STREAM_ID subStreamID
                                                 , bool autoOpen = true) = 0;
 
+	// for simplified access
+	// The last parameter is only present for technical reasons
+	// (different type overloads must have different signatures) 
+	// and neither needs to be specified nor will it not be used.
+
+	template<class S> 
+	S* GetSubStream ( SUB_STREAM_ID subStreamID
+                    , bool autoOpen = true
+					, S* = NULL);
+
 	// required for proper destruction of sub-class instances
 
 	virtual ~IHierarchicalInStream() {};
 };
+
+template<class S> 
+S* IHierarchicalInStream::GetSubStream 
+	( SUB_STREAM_ID subStreamID
+    , bool autoOpen
+	, S*)
+{
+    S* result = dynamic_cast<S*>(GetSubStream (subStreamID, autoOpen));
+	if (result == NULL)
+		throw CStreamException ("stream type mismatch");
+
+	return result;
+}
 
 ///////////////////////////////////////////////////////////////
 //
@@ -117,7 +140,20 @@ public:
     virtual bool HasSubStream (SUB_STREAM_ID subStreamID) const;
 	virtual IHierarchicalInStream* GetSubStream ( SUB_STREAM_ID subStreamID
                                                 , bool autoOpen = true);
+	template<class S> 
+	S* GetSubStream ( SUB_STREAM_ID subStreamID
+                    , bool autoOpen = true
+					, S* = NULL);
 };
+
+template<class S> 
+inline S* CHierachicalInStreamBase::GetSubStream 
+	( SUB_STREAM_ID subStreamID
+	, bool autoOpen 
+	, S*)
+{
+	return IHierarchicalInStream::GetSubStream<S>(subStreamID, autoOpen);
+}
 
 ///////////////////////////////////////////////////////////////
 //

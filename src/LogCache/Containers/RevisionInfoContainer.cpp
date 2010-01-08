@@ -1079,84 +1079,84 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
     // read the revision info
 
     CDiffIntegerInStream* authorsStream
-        = dynamic_cast<CDiffIntegerInStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::AUTHORS_STREAM_ID));
+        = stream.GetSubStream<CDiffIntegerInStream> 
+			(CRevisionInfoContainer::AUTHORS_STREAM_ID);
     *authorsStream >> container.authors;
 
     CPackedTime64InStream* timeStampsStream
-        = dynamic_cast<CPackedTime64InStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::TIMESTAMPS_STREAM_ID));
+        = stream.GetSubStream<CPackedTime64InStream> 
+			(CRevisionInfoContainer::TIMESTAMPS_STREAM_ID);
     *timeStampsStream >> container.timeStamps;
 
     CDiffIntegerInStream* rootPathsStream
-        = dynamic_cast<CDiffIntegerInStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::ROOTPATHS_STREAM_ID));
+        = stream.GetSubStream<CDiffIntegerInStream> 
+			(CRevisionInfoContainer::ROOTPATHS_STREAM_ID);
     *rootPathsStream >> container.rootPaths;
 
     CDiffDWORDInStream* changesOffsetsStream
-        = dynamic_cast<CDiffDWORDInStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::CHANGES_OFFSETS_STREAM_ID));
+        = stream.GetSubStream<CDiffDWORDInStream> 
+			(CRevisionInfoContainer::CHANGES_OFFSETS_STREAM_ID);
     *changesOffsetsStream >> container.changesOffsets;
 
     CDiffDWORDInStream* copyFromOffsetsStream
-        = dynamic_cast<CDiffDWORDInStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::COPYFROM_OFFSETS_STREAM_ID));
+        = stream.GetSubStream<CDiffDWORDInStream> 
+			(CRevisionInfoContainer::COPYFROM_OFFSETS_STREAM_ID);
     *copyFromOffsetsStream >> container.copyFromOffsets;
 
     CDiffDWORDInStream* mergedRevisionsOffsetsStream
-        = dynamic_cast<CDiffDWORDInStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::MERGEDREVISION_OFFSETS_STREAM_ID));
+        = stream.GetSubStream<CDiffDWORDInStream>
+			(CRevisionInfoContainer::MERGEDREVISION_OFFSETS_STREAM_ID);
     *mergedRevisionsOffsetsStream >> container.mergedRevisionsOffsets;
 
     // read the changes info
 
     CPackedDWORDInStream* changesStream
-        = dynamic_cast<CPackedDWORDInStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::CHANGES_STREAM_ID));
+        = stream.GetSubStream<CPackedDWORDInStream> 
+			(CRevisionInfoContainer::CHANGES_STREAM_ID);
     *changesStream >> container.changes;
 
     CDiffIntegerInStream* changedPathsStream
-        = dynamic_cast<CDiffIntegerInStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::CHANGED_PATHS_STREAM_ID));
+        = stream.GetSubStream<CDiffIntegerInStream> 
+			(CRevisionInfoContainer::CHANGED_PATHS_STREAM_ID);
     *changedPathsStream >> container.changedPaths;
 
     CDiffIntegerInStream* copyFromPathsStream
-        = dynamic_cast<CDiffIntegerInStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::COPYFROM_PATHS_STREAM_ID));
+        = stream.GetSubStream<CDiffIntegerInStream> 
+			(CRevisionInfoContainer::COPYFROM_PATHS_STREAM_ID);
     *copyFromPathsStream >> container.copyFromPaths;
 
     CDiffIntegerInStream* copyFromRevisionsStream
-        = dynamic_cast<CDiffIntegerInStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::COPYFROM_REVISIONS_STREAM_ID));
+        = stream.GetSubStream<CDiffIntegerInStream> 
+			(CRevisionInfoContainer::COPYFROM_REVISIONS_STREAM_ID);
     *copyFromRevisionsStream >> container.copyFromRevisions;
 
     // merged revisions
 
     CDiffIntegerInStream* mergedFromPathsStream
-        = dynamic_cast<CDiffIntegerInStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::MERGED_FROM_PATHS_STREAM_ID));
+        = stream.GetSubStream<CDiffIntegerInStream> 
+			(CRevisionInfoContainer::MERGED_FROM_PATHS_STREAM_ID);
     *mergedFromPathsStream >> container.mergedFromPaths;
 
     CDiffIntegerInStream* mergedToPathsStream
-        = dynamic_cast<CDiffIntegerInStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::MERGED_TO_PATHS_STREAM_ID));
+        = stream.GetSubStream<CDiffIntegerInStream> 
+			(CRevisionInfoContainer::MERGED_TO_PATHS_STREAM_ID);
     *mergedToPathsStream >> container.mergedToPaths;
 
     CDiffIntegerInStream* mergedRangeStartsStream
-        = dynamic_cast<CDiffIntegerInStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::MERGED_RANGE_STARTS_STREAM_ID));
+        = stream.GetSubStream<CDiffIntegerInStream>
+			(CRevisionInfoContainer::MERGED_RANGE_STARTS_STREAM_ID);
     *mergedRangeStartsStream >> container.mergedRangeStarts;
 
     CDiffIntegerInStream* mergedRangeDeltasStream
-        = dynamic_cast<CDiffIntegerInStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::MERGED_RANGE_DELTAS_STREAM_ID));
+        = stream.GetSubStream<CDiffIntegerInStream> 
+			(CRevisionInfoContainer::MERGED_RANGE_DELTAS_STREAM_ID);
     *mergedRangeDeltasStream >> container.mergedRangeDeltas;
 
     // user-defined revision properties
 
     CDiffIntegerInStream* userRevPropsOffsetsStream
-        = dynamic_cast<CDiffIntegerInStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::USER_REVPROPS_OFFSETS_STREAM_ID));
+        = stream.GetSubStream<CDiffIntegerInStream> 
+			(CRevisionInfoContainer::USER_REVPROPS_OFFSETS_STREAM_ID);
     *userRevPropsOffsetsStream >> container.userRevPropOffsets;
 
     IHierarchicalInStream* userRevPropsPoolStream
@@ -1164,8 +1164,8 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
     *userRevPropsPoolStream >> container.userRevPropsPool;
 
     CPackedDWORDInStream* userRevPropsNameStream
-        = dynamic_cast<CPackedDWORDInStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::USER_REVPROPS_NAME_STREAM_ID));
+        = stream.GetSubStream<CPackedDWORDInStream>
+			(CRevisionInfoContainer::USER_REVPROPS_NAME_STREAM_ID);
     *userRevPropsNameStream >> container.userRevPropNames;
 
     IHierarchicalInStream* userRevPropsValuesStream
@@ -1175,8 +1175,8 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
     // data presence flags
 
     CPackedDWORDInStream* dataPresenceStream
-        = dynamic_cast<CPackedDWORDInStream*>
-            (stream.GetSubStream (CRevisionInfoContainer::DATA_PRESENCE_STREAM_ID));
+        = stream.GetSubStream<CPackedDWORDInStream> 
+			(CRevisionInfoContainer::DATA_PRESENCE_STREAM_ID);
     *dataPresenceStream >> container.presenceFlags;
 
     // latest additions:
@@ -1185,8 +1185,8 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
     if (stream.HasSubStream (CRevisionInfoContainer::CHANGED_PATHS_TYPES_STREAM_ID))
     {
         CDiffIntegerInStream* changedPathTypesStream
-            = dynamic_cast<CDiffIntegerInStream*>
-                (stream.GetSubStream (CRevisionInfoContainer::CHANGED_PATHS_TYPES_STREAM_ID));
+            = stream.GetSubStream<CDiffIntegerInStream> 
+				(CRevisionInfoContainer::CHANGED_PATHS_TYPES_STREAM_ID);
         *changedPathTypesStream >> container.changedPathTypes;
     }
     else
@@ -1218,146 +1218,128 @@ IHierarchicalOutStream& operator<< (IHierarchicalOutStream& stream
     // write the pools
 
     IHierarchicalOutStream* authorPoolStream
-        = stream.OpenSubStream ( CRevisionInfoContainer::AUTHOR_POOL_STREAM_ID
-                               , COMPOSITE_STREAM_TYPE_ID);
+        = stream.OpenSubStream<CCompositeOutStream>
+			(CRevisionInfoContainer::AUTHOR_POOL_STREAM_ID);
     *authorPoolStream << container.authorPool;
 
     IHierarchicalOutStream* commentsStream
-        = stream.OpenSubStream ( CRevisionInfoContainer::COMMENTS_STREAM_ID
-                               , COMPOSITE_STREAM_TYPE_ID);
+        = stream.OpenSubStream<CCompositeOutStream> 
+			(CRevisionInfoContainer::COMMENTS_STREAM_ID);
     *commentsStream << container.comments;
 
     IHierarchicalOutStream* pathsStream
-        = stream.OpenSubStream ( CRevisionInfoContainer::PATHS_STREAM_ID
-                               , COMPOSITE_STREAM_TYPE_ID);
+        = stream.OpenSubStream<CCompositeOutStream> 
+			(CRevisionInfoContainer::PATHS_STREAM_ID);
     *pathsStream << container.paths;
 
     // write the revision info
 
     CDiffIntegerOutStream* authorsStream
-        = dynamic_cast<CDiffIntegerOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::AUTHORS_STREAM_ID
-                                  , DIFF_INTEGER_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CDiffIntegerOutStream> 
+			(CRevisionInfoContainer::AUTHORS_STREAM_ID);
     *authorsStream << container.authors;
 
     CPackedTime64OutStream* timeStampsStream
-        = dynamic_cast<CPackedTime64OutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::TIMESTAMPS_STREAM_ID
-                                  , PACKED_TIME64_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CPackedTime64OutStream> 
+			(CRevisionInfoContainer::TIMESTAMPS_STREAM_ID);
     *timeStampsStream << container.timeStamps;
 
     CDiffIntegerOutStream* rootPathsStream
-        = dynamic_cast<CDiffIntegerOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::ROOTPATHS_STREAM_ID
-                                  , DIFF_INTEGER_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CDiffIntegerOutStream> 
+			(CRevisionInfoContainer::ROOTPATHS_STREAM_ID);
     *rootPathsStream << container.rootPaths;
 
     CDiffDWORDOutStream* changesOffsetsStream
-        = dynamic_cast<CDiffDWORDOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::CHANGES_OFFSETS_STREAM_ID
-                                  , DIFF_DWORD_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CDiffDWORDOutStream> 
+			(CRevisionInfoContainer::CHANGES_OFFSETS_STREAM_ID);
     *changesOffsetsStream << container.changesOffsets;
 
     CDiffDWORDOutStream* copyFromOffsetsStream
-        = dynamic_cast<CDiffDWORDOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::COPYFROM_OFFSETS_STREAM_ID
-                                  , DIFF_DWORD_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CDiffDWORDOutStream> 
+			(CRevisionInfoContainer::COPYFROM_OFFSETS_STREAM_ID);
     *copyFromOffsetsStream << container.copyFromOffsets;
 
     CDiffDWORDOutStream* mergedRevisionsOffsetsStream
-        = dynamic_cast<CDiffDWORDOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::MERGEDREVISION_OFFSETS_STREAM_ID
-                                  , DIFF_DWORD_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CDiffDWORDOutStream> 
+			(CRevisionInfoContainer::MERGEDREVISION_OFFSETS_STREAM_ID);
     *mergedRevisionsOffsetsStream << container.mergedRevisionsOffsets;
 
     // write the changes info
 
     CPackedDWORDOutStream* changesStream
-        = dynamic_cast<CPackedDWORDOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::CHANGES_STREAM_ID
-                                  , PACKED_DWORD_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CPackedDWORDOutStream> 
+			(CRevisionInfoContainer::CHANGES_STREAM_ID);
     *changesStream << container.changes;
 
     CDiffIntegerOutStream* changedPathsStream
-        = dynamic_cast<CDiffIntegerOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::CHANGED_PATHS_STREAM_ID
-                                  , DIFF_INTEGER_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CDiffIntegerOutStream> 
+			(CRevisionInfoContainer::CHANGED_PATHS_STREAM_ID);
     *changedPathsStream << container.changedPaths;
 
     CDiffIntegerOutStream* changedPathTypesStream
-        = dynamic_cast<CDiffIntegerOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::CHANGED_PATHS_TYPES_STREAM_ID
-                                  , DIFF_INTEGER_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CDiffIntegerOutStream> 
+			(CRevisionInfoContainer::CHANGED_PATHS_TYPES_STREAM_ID);
     *changedPathTypesStream << container.changedPathTypes;
 
     CDiffIntegerOutStream* copyFromPathsStream
-        = dynamic_cast<CDiffIntegerOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::COPYFROM_PATHS_STREAM_ID
-                                  , DIFF_INTEGER_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CDiffIntegerOutStream> 
+			(CRevisionInfoContainer::COPYFROM_PATHS_STREAM_ID);
     *copyFromPathsStream << container.copyFromPaths;
 
     CDiffIntegerOutStream* copyFromRevisionsStream
-        = dynamic_cast<CDiffIntegerOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::COPYFROM_REVISIONS_STREAM_ID
-                                  , DIFF_INTEGER_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CDiffIntegerOutStream> 
+			(CRevisionInfoContainer::COPYFROM_REVISIONS_STREAM_ID);
     *copyFromRevisionsStream << container.copyFromRevisions;
 
     // merged revisions
 
     CDiffIntegerOutStream* mergedFromPathsStream
-        = dynamic_cast<CDiffIntegerOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::MERGED_FROM_PATHS_STREAM_ID
-                                  , DIFF_INTEGER_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CDiffIntegerOutStream> 
+			(CRevisionInfoContainer::MERGED_FROM_PATHS_STREAM_ID);
     *mergedFromPathsStream << container.mergedFromPaths;
 
     CDiffIntegerOutStream* mergedToPathsStream
-         = dynamic_cast<CDiffIntegerOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::MERGED_TO_PATHS_STREAM_ID
-                                  , DIFF_INTEGER_STREAM_TYPE_ID));
+         = stream.OpenSubStream<CDiffIntegerOutStream> 
+			(CRevisionInfoContainer::MERGED_TO_PATHS_STREAM_ID);
     *mergedToPathsStream << container.mergedToPaths;
 
     CDiffIntegerOutStream* mergedRangeStartsStream
-        = dynamic_cast<CDiffIntegerOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::MERGED_RANGE_STARTS_STREAM_ID
-                                  , DIFF_INTEGER_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CDiffIntegerOutStream> 
+			(CRevisionInfoContainer::MERGED_RANGE_STARTS_STREAM_ID);
     *mergedRangeStartsStream << container.mergedRangeStarts;
 
     CDiffIntegerOutStream* mergedRangeDeltasStream
-        = dynamic_cast<CDiffIntegerOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::MERGED_RANGE_DELTAS_STREAM_ID
-                                  , DIFF_INTEGER_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CDiffIntegerOutStream> 
+			(CRevisionInfoContainer::MERGED_RANGE_DELTAS_STREAM_ID);
     *mergedRangeDeltasStream << container.mergedRangeDeltas;
 
     // user-defined revision properties
 
     CDiffIntegerOutStream* userRevPropsOffsetsStream
-        = dynamic_cast<CDiffIntegerOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::USER_REVPROPS_OFFSETS_STREAM_ID
-                                  , DIFF_INTEGER_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CDiffIntegerOutStream> 
+			(CRevisionInfoContainer::USER_REVPROPS_OFFSETS_STREAM_ID);
     *userRevPropsOffsetsStream << container.userRevPropOffsets;
 
     IHierarchicalOutStream* userRevPropsPoolStream
-        = stream.OpenSubStream ( CRevisionInfoContainer::USER_REVPROPS_POOL_STREAM_ID
-                               , COMPOSITE_STREAM_TYPE_ID);
+        = stream.OpenSubStream<CCompositeOutStream>
+			(CRevisionInfoContainer::USER_REVPROPS_POOL_STREAM_ID);
     *userRevPropsPoolStream << container.userRevPropsPool;
 
     CPackedDWORDOutStream* userRevPropsNameStream
-        = dynamic_cast<CPackedDWORDOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::USER_REVPROPS_NAME_STREAM_ID
-                                  , PACKED_DWORD_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CPackedDWORDOutStream> 
+			(CRevisionInfoContainer::USER_REVPROPS_NAME_STREAM_ID);
     *userRevPropsNameStream << container.userRevPropNames;
 
     IHierarchicalOutStream* userRevPropsValuesStream
-        = stream.OpenSubStream ( CRevisionInfoContainer::USER_REVPROPS_VALUE_STREAM_ID
-                               , COMPOSITE_STREAM_TYPE_ID);
+        = stream.OpenSubStream<CCompositeOutStream>
+			(CRevisionInfoContainer::USER_REVPROPS_VALUE_STREAM_ID);
     *userRevPropsValuesStream << container.userRevPropValues;
 
     // data presence flags
 
     CPackedDWORDOutStream* dataPresenceStream
-        = dynamic_cast<CPackedDWORDOutStream*>
-            (stream.OpenSubStream ( CRevisionInfoContainer::DATA_PRESENCE_STREAM_ID
-                                  , PACKED_DWORD_STREAM_TYPE_ID));
+        = stream.OpenSubStream<CPackedDWORDOutStream> 
+			(CRevisionInfoContainer::DATA_PRESENCE_STREAM_ID);
     *dataPresenceStream << container.presenceFlags;
 
     // update size info

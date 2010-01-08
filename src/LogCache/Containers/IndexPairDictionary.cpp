@@ -122,8 +122,8 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
     // read the first elements of all pairs
 
 	CDiffIntegerInStream* firstStream 
-		= dynamic_cast<CDiffIntegerInStream*>
-			(stream.GetSubStream (CIndexPairDictionary::FIRST_STREAM_ID));
+		= stream.GetSubStream<CDiffIntegerInStream> 
+			(CIndexPairDictionary::FIRST_STREAM_ID);
 
 	index_t count = firstStream->GetValue();
 	dictionary.data.resize (count);
@@ -137,8 +137,8 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 	// read the second elements
 
 	CDiffIntegerInStream* secondStream 
-		= dynamic_cast<CDiffIntegerInStream*>
-			(stream.GetSubStream (CIndexPairDictionary::SECOND_STREAM_ID));
+		= stream.GetSubStream<CDiffIntegerInStream> 
+			(CIndexPairDictionary::SECOND_STREAM_ID);
 
 	for (index_t i = 0; i < count; ++i)
 		(dataBegin + i)->second = secondStream->GetValue();
@@ -164,9 +164,8 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 	// write string data
 
 	CDiffIntegerOutStream* firstStream 
-		= dynamic_cast<CDiffIntegerOutStream*>
-			(stream.OpenSubStream ( CIndexPairDictionary::FIRST_STREAM_ID
-								  , DIFF_INTEGER_STREAM_TYPE_ID));
+		= stream.OpenSubStream<CDiffIntegerOutStream>
+			(CIndexPairDictionary::FIRST_STREAM_ID);
 
 	const std::pair<index_t, index_t>* dataBegin 
 		= size > 0 ? &dictionary.data.front() : NULL;
@@ -178,9 +177,8 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 	// write offsets
 
 	CDiffIntegerOutStream* secondStream 
-		= dynamic_cast<CDiffIntegerOutStream*>
-			(stream.OpenSubStream ( CIndexPairDictionary::SECOND_STREAM_ID
-								  , DIFF_INTEGER_STREAM_TYPE_ID));
+		= stream.OpenSubStream<CDiffIntegerOutStream>
+			(CIndexPairDictionary::SECOND_STREAM_ID);
 
 	for (size_t i = 0; i != size; ++i)
 		secondStream->Add ((dataBegin + i)->second);
