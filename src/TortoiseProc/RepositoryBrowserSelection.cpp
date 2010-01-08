@@ -147,7 +147,7 @@ CRepositoryBrowserSelection::FindURL (const CTSVNPath& url) const
 			if (GetURL (i, k).IsEquivalentTo (url))
 				return std::make_pair (i, k);
 
-	return std::pair<size_t, size_t>(-1, -1);
+	return std::pair<size_t, size_t>((size_t)-1, (size_t)-1);
 }
 
 bool CRepositoryBrowserSelection::Contains (const CTSVNPath& url) const
