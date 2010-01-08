@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -186,16 +186,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				if (cachetype == ShellCache::none)
 					return S_FALSE;
 				if (g_ShellCache.IsPathAllowed(path))
-				{
-					SVNProperties props(CTSVNPath(path), false);
-					for (int i=0; i<props.GetCount(); i++)
-					{
-						if (props.GetItemName(i).compare(SVN_PROP_MIME_TYPE)==0)
-						{
-							szInfo = UTF8ToWide((char *)props.GetItemValue(i).c_str());
-						}
-					}
-				}
+					ExtractProperty(path, SVN_PROP_MIME_TYPE, szInfo);
 				break;
 			case 6:	// SVN Lock Owner
 				GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
@@ -205,16 +196,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				if (cachetype == ShellCache::none)
 					return S_FALSE;
 				if (g_ShellCache.IsPathAllowed(path))
-				{
-					SVNProperties props(CTSVNPath(path), false);
-					for (int i=0; i<props.GetCount(); i++)
-					{
-						if (props.GetItemName(i).compare(SVN_PROP_EOL_STYLE)==0)
-						{
-							szInfo = UTF8ToWide((char *)props.GetItemValue(i).c_str());
-						}
-					}
-				}
+					ExtractProperty(path, SVN_PROP_EOL_STYLE, szInfo);
 				break;
 			default:
 				return S_FALSE;
@@ -409,5 +391,17 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 		strcpy_s(url, INTERNET_MAX_URL_LENGTH, itemStatus.m_url);
 		CPathUtils::Unescape(url);
 		itemurl = UTF8ToWide(url);
+	}
+}
+
+void CShellExt::ExtractProperty(const TCHAR* path, const char* propertyName, tstring& to)
+{
+	SVNProperties props(CTSVNPath(path), false);
+	for (int i=0; i<props.GetCount(); i++)
+	{
+		if (props.GetItemName(i).compare(propertyName)==0)
+		{
+			to = UTF8ToWide((char *)props.GetItemValue(i).c_str());
+		}
 	}
 }
