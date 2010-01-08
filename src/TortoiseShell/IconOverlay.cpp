@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -57,6 +57,9 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR /*pwszIconFile*/, int /*cchMax*/, 
 
 STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 {
+	if (pPriority == 0)
+		return E_POINTER;
+
 	switch (m_State)
 	{
 		case FileStateConflict:
