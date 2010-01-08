@@ -1449,13 +1449,11 @@ void CBalloon::GetMonitorWorkArea(const CPoint& sourcePoint, CRect& monitorRect)
 	// not obscured by the system task bar or by application 
 	// desktop tool bars) of that monitor
 	
-	MONITORINFO mi;
-
-	//
 	// get the work area
 	//
-	mi.cbSize = sizeof(mi);
 	HMONITOR hMonitor = MonitorFromPoint (sourcePoint, MONITOR_DEFAULTTONEAREST);
+
+	MONITORINFO mi;
 	mi.cbSize = sizeof (mi);
 	GetMonitorInfo (hMonitor, &mi);
 	monitorRect = mi.rcWork;
