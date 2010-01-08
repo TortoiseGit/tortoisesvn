@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -135,6 +135,24 @@ size_t CRepositoryBrowserSelection::GetRepositoryCount() const
 bool CRepositoryBrowserSelection::IsEmpty() const
 {
     return repositories.empty();
+}
+
+// lookup
+
+std::pair<size_t, size_t> 
+CRepositoryBrowserSelection::FindURL (const CTSVNPath& url) const
+{
+	for (size_t i = 0, repoCount = GetRepositoryCount(); i < repoCount; ++i)
+		for (size_t k = 0, pathCount = GetPathCount (i); k < pathCount; ++k)
+			if (GetURL (i, k).IsEquivalentTo (url))
+				return std::make_pair (i, k);
+
+	return std::pair<size_t, size_t>(-1, -1);
+}
+
+bool CRepositoryBrowserSelection::Contains (const CTSVNPath& url) const
+{
+	return FindURL (url).first != (size_t)(-1);
 }
 
 // access repository bucket properties

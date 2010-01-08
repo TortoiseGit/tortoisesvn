@@ -826,13 +826,17 @@ bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start
 	return bFoundMarker;
 }
 
-bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev)
+bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev, bool multiSelection)
 {
-	CString strUrl;
-	combo.GetWindowText(strUrl);
-	strUrl.Replace('\\', '/');
-	strUrl.Replace(_T("%"), _T("%25"));
-	strUrl = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(strUrl)));
+	CString strURLs;
+	combo.GetWindowText(strURLs);
+	strURLs.Replace('\\', '/');
+	strURLs.Replace(_T("%"), _T("%25"));
+
+	CTSVNPathList paths;
+	paths.LoadFromAsteriskSeparatedString (strURLs);
+
+	CString strUrl = paths.GetCommonRoot().GetSVNPathString();
 	if (strUrl.Left(7) == _T("file://"))
 	{
 		CString strFile(strUrl);
@@ -847,7 +851,7 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
 			if (browser.DoModal() == IDOK)
 			{
 				combo.SetCurSel(-1);
-				combo.SetWindowText(browser.GetPath());
+				combo.SetWindowText(multiSelection ? browser.GetSelectedURLs() : browser.GetPath());
 				combo.SetFocus();
 				rev = browser.GetRevision();
 				return true;
@@ -881,7 +885,7 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
 		if (browser.DoModal() == IDOK)
 		{
 			combo.SetCurSel(-1);
-			combo.SetWindowText(browser.GetPath());
+			combo.SetWindowText(multiSelection ? browser.GetSelectedURLs() : browser.GetPath());
 			combo.SetFocus();
 			rev = browser.GetRevision();
 			return true;

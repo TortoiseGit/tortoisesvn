@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -83,6 +83,8 @@ public:
 	SVNRev GetRevision() const;
 	/// Returns the currently displayed URL's path only (for convenience)
 	CString GetPath() const;
+	/// Returns the paths currenty selected in the tree view / list view (for convenience)
+	const CString& GetSelectedURLs() const;
 
 	/// switches to the \c url at \c rev. If the url is valid and exists,
 	/// the repository browser will show the content of that url.
@@ -219,6 +221,9 @@ protected:
 	void BeginDrag(const CWnd& window, CRepositoryBrowserSelection& selection,
 		POINT& point, bool setAsyncMode);
 
+	/// extract info from controls before they get destroyed
+	void StoreSelectedURLs();
+
 protected:
 	bool				m_bInitDone;
 	CRepositoryBar		m_barRepository;
@@ -234,6 +239,7 @@ protected:
 private:
 	bool				m_bStandAlone;
 	CString				m_InitialUrl;
+	CString				m_selectedURLs;	///< only valid after <OK>
 	bool				m_bThreadRunning;
 	static const UINT	m_AfterInitMessage;
 

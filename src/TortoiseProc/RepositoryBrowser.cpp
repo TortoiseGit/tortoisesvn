@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -516,6 +516,7 @@ void CRepositoryBrowser::OnOK()
 	if (m_blockEvents)
 		return;
 
+	StoreSelectedURLs();
 	if (GetFocus() == &m_RepoList)
 	{
 		// list control has focus: 'enter' the folder
@@ -3516,4 +3517,39 @@ void CRepositoryBrowser::BeginDrag(const CWnd& window,
 	::DoDragDrop(pdobj, pdsrc, DROPEFFECT_MOVE|DROPEFFECT_COPY, &dwEffect);
 	pdsrc->Release();
 	pdobj->Release();
+}
+
+void CRepositoryBrowser::StoreSelectedURLs()
+{
+	CRepositoryBrowserSelection selection;
+
+	// selections on the RHS list take precedence
+
+	POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
+	int index = -1;
+	while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
+        selection.Add ((CItem *)m_RepoList.GetItemData (index));
+
+	// followed by the LHS tree view
+
+    if (selection.IsEmpty())
+	{
+		HTREEITEM hSelectedTreeItem = m_RepoTree.GetSelectedItem();
+		if (hSelectedTreeItem)
+            selection.Add ((CTreeItem *)m_RepoTree.GetItemData (hSelectedTreeItem));
+	}
+
+	// in line with the URL selected in the edit box?
+	// path edit box has highest prio
+
+	CString editPath = GetPath();
+
+	m_selectedURLs = selection.Contains (CTSVNPath (editPath))
+		? selection.GetURLs (0).CreateAsteriskSeparatedString()
+		: editPath;
+}
+
+const CString& CRepositoryBrowser::GetSelectedURLs() const
+{
+	return m_selectedURLs;
 }
