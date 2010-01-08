@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-27 01:29-0300\n"
+"PO-Revision-Date: 2010-01-07 23:53-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1596,6 +1596,10 @@ msgstr ""
 "Ajustar preferências\n"
 "Preferências"
 
+#. Resource IDs: (307)
+msgid "Advanced"
+msgstr "Avançado"
+
 #. Resource IDs: (170)
 msgid "Advanced Diff/Merge Settings"
 msgstr "Opções Avançadas de Comparação/Combinação"
@@ -2290,8 +2294,8 @@ msgstr "Limpando"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%s\""
-msgstr "Limpando diretório \"%s\""
+msgid "Cleaning up directory \"%1!s!\""
+msgstr "Limpando diretório \"%1!s!\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2572,8 +2576,8 @@ msgstr "Compara o arquivo selecionado com um arquivo no repositório"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Comparing %s to %s"
-msgstr "Comparando %s com %s"
+msgid "Comparing %1!s! to %2!s!"
+msgstr "Comparando %1!s! com %2!s!"
 
 #. Resource IDs: (74)
 msgid "Completed"
@@ -4193,15 +4197,15 @@ msgstr ""
 "a leitura, e só após o seu bloqueio será permitido alterá-lo. Note que os outros usuários terão de\n"
 "atualizar as suas cópias de trabalho para que os arquivos sejam marcados como permitindo apenas a leitura."
 
+#. Resource IDs: (119)
+#, c-format
+msgid "Getting file %1!s!"
+msgstr "Obtendo o arquivo %1!s!"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Getting file %1!s!, revision %2!s!"
 msgstr "Obtendo o arquivo %1!s!, revisão %2!s!"
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Getting file %s"
-msgstr "Obtendo o arquivo %s"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
@@ -4710,10 +4714,6 @@ msgstr "Ignor&ar todos os espaços em branco"
 msgid "Ignore &ancestry"
 msgstr "Ignorar &ascendência"
 
-#. Resource IDs: (1067)
-msgid "Ignore &case changes"
-msgstr "Ignorar alterações de &caixa (maiúsculas/minúsculas)"
-
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
 msgstr "Ignorar todas as alterações de caracteres especiais"
@@ -4721,6 +4721,10 @@ msgstr "Ignorar todas as alterações de caracteres especiais"
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Ignorar todos os espaços em branco"
+
+#. Resource IDs: (1067)
+msgid "Ignore case cha&nges"
+msgstr "Ig&norar alterações de caixa (maiúsculas/minúsculas)"
 
 #. Resource IDs: (1126)
 msgid "Ignore line &endings"
@@ -4838,8 +4842,8 @@ msgstr "Importar para %1"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Importing file %s"
-msgstr "Importando arquivo %s"
+msgid "Importing file %1!s!"
+msgstr "Importando arquivo %1!s!"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
@@ -5034,6 +5038,10 @@ msgstr "Itens &externos"
 #. Resource IDs: (1527)
 msgid "Items to show"
 msgstr "Itens para mostrar"
+
+#. Resource IDs: (1074)
+msgid "J&ump to first conflict when loading"
+msgstr "&Ir para o primeiro conflito ao carregar"
 
 #. Resource IDs: (275)
 msgid "Join with following &tree"
@@ -5817,6 +5825,11 @@ msgstr "Não há correções de ortografia"
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
 msgstr "Sem status de cache. Apenas as pastas com controle de versão são sobrepostas, os arquivos não são"
 
+#. Resource IDs: (84)
+#, c-format
+msgid "No such revision '%1!s!'"
+msgstr "Sem a revisão '%1!s!'"
+
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
 msgstr "Não há sugestões de sinônimos"
@@ -6063,6 +6076,10 @@ msgstr "Abre o navegador de repositório para manipular o repositório online"
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
 msgstr "Operar a partir do cache do log apenas agora"
+
+#. Resource IDs: (348)
+msgid "Option"
+msgstr "Opção"
 
 #. Resource IDs: (16137)
 msgid "Options"
@@ -6375,8 +6392,8 @@ msgstr "Imprimindo"
 
 #. Resource IDs: (132)
 #, c-format
-msgid "Processing revision %d of %d..."
-msgstr "Processando revisão %d de %d..."
+msgid "Processing revision %1!d! of %2!d!..."
+msgstr "Processando revisão %1!d! de %2!d!..."
 
 #. Resource IDs: (74)
 msgid "Program"
@@ -7007,18 +7024,18 @@ msgstr "Revisão"
 
 #. Resource IDs: (119)
 #, c-format
-msgid "Revision %d"
-msgstr "Revisão %d"
+msgid "Revision %1!d!"
+msgstr "Revisão %1!d!"
+
+#. Resource IDs: (120)
+#, c-format
+msgid "Revision %1!s!"
+msgstr "Revisão %1!s!"
 
 #. Resource IDs: (269)
 #, c-format
 msgid "Revision %ld"
 msgstr "Revisão %ld"
-
-#. Resource IDs: (120)
-#, c-format
-msgid "Revision %s"
-msgstr "Revisão %s"
 
 #. Resource IDs: (15)
 msgid "Revision &graph"
@@ -9598,6 +9615,16 @@ msgstr "Visite nosso website"
 #. Resource IDs: (32848)
 msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
+
+#. Resource IDs: (65535)
+msgid ""
+"WARNING:\r\n"
+"Only change these settings if you are abolutely sure what you are doing!\r\n"
+"To set the values to their default, delete the value text."
+msgstr ""
+"CUIDADO:\r\n"
+"Somente mude essas configurações se você tem absoluta certeza do que está fazendo!\r\n"
+"Para definir com os valores padrões, apague o conteúdo."
 
 #. Resource IDs: (65535)
 msgid "WC node"
