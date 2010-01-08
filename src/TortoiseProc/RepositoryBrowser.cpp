@@ -2103,7 +2103,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
 	if (pathlist.GetCount() == 0)
 		return false;
 
-    if (!CTSVNPath(root).IsAncestorOf (pathlist[0]))
+    if (!CTSVNPath(root).IsAncestorOf (pathlist[0]) && pathlist[0].IsUrl())
         return false;
 
 	CString targetName = pathlist[0].GetFileOrDirectoryName();
