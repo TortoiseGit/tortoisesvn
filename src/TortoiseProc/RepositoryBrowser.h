@@ -202,6 +202,7 @@ protected:
 	bool StringToWidthArray(const CString& WidthString, int WidthArray[]);
 	/// converts an array of column widths to a string
 	CString WidthArrayToString(int WidthArray[]);
+	void SetRightDrag(bool bRightDrag) {m_bRightDrag = bRightDrag;}
 
     /// remove items for the associated URL sub-tree
     /// from the \ref m_lister cache.

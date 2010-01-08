@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - Stefan Kueng
+// Copyright (C) 2003-2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,7 +31,7 @@ class CRepositoryBrowser;
 class CBaseDropTarget : public CIDropTarget
 {
 public:
-	CBaseDropTarget(CRepositoryBrowser * pRepoBrowser);
+	CBaseDropTarget(CRepositoryBrowser * pRepoBrowser, HWND hTargetWnd);
 
 	void HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEffect, POINTL pt, const CString& targetUrl, const CString& root);
 

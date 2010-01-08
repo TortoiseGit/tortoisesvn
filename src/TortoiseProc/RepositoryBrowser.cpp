@@ -2039,14 +2039,12 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
 
 void CRepositoryBrowser::OnLvnBeginrdragRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	m_bRightDrag = true;
 	*pResult = 0;
 	OnBeginDrag(pNMHDR);
 }
 
 void CRepositoryBrowser::OnLvnBegindragRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	m_bRightDrag = false;
 	*pResult = 0;
 	OnBeginDrag(pNMHDR);
 }
@@ -2071,14 +2069,12 @@ void CRepositoryBrowser::OnBeginDrag(NMHDR *pNMHDR)
 
 void CRepositoryBrowser::OnTvnBegindragRepotree(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	m_bRightDrag = false;
 	*pResult = 0;
 	OnBeginDragTree(pNMHDR);
 }
 
 void CRepositoryBrowser::OnTvnBeginrdragRepotree(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	m_bRightDrag = true;
 	*pResult = 0;
 	OnBeginDragTree(pNMHDR);
 }

@@ -22,7 +22,7 @@
 #include "SVNDataObject.h"
 
 
-CTreeDropTarget::CTreeDropTarget(CRepositoryBrowser * pRepoBrowser) : CBaseDropTarget(pRepoBrowser)
+CTreeDropTarget::CTreeDropTarget(CRepositoryBrowser * pRepoBrowser) : CBaseDropTarget(pRepoBrowser, pRepoBrowser->m_RepoTree.GetSafeHwnd())
 {
 }
 
@@ -126,6 +126,7 @@ HRESULT CTreeDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
 	{
 		SetDropDescription(DROPIMAGE_MOVE, sMoveDrop, targetName);
 	}
+	m_pRepoBrowser->SetRightDrag((grfKeyState & MK_RBUTTON)!=0);
 	CRect rect;
 	m_pRepoBrowser->m_RepoTree.GetWindowRect(&rect);
 	if (rect.PtInRect((POINT&)pt))
@@ -153,7 +154,7 @@ HRESULT CTreeDropTarget::DragLeave(void)
 	return CIDropTarget::DragLeave();
 }
 
-CListDropTarget::CListDropTarget(CRepositoryBrowser * pRepoBrowser) : CBaseDropTarget(pRepoBrowser)
+CListDropTarget::CListDropTarget(CRepositoryBrowser * pRepoBrowser) : CBaseDropTarget(pRepoBrowser, pRepoBrowser->m_RepoList.GetSafeHwnd())
 {
 }	
 
@@ -252,13 +253,37 @@ HRESULT CListDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
 			}
 		}
 		else
-			SetDropDescription(DROPIMAGE_MOVE, sMoveDrop, targetName);
+		{
+			if (m_bFiles)
+			{
+				*pdwEffect = DROPEFFECT_COPY;
+				SetDropDescription(DROPIMAGE_COPY, sImportDrop, targetName);
+			}
+			else if (grfKeyState & MK_CONTROL)
+			{
+				*pdwEffect = DROPEFFECT_COPY;
+				SetDropDescription(DROPIMAGE_COPY, sCopyDrop, targetName);
+			}
+			else
+			{
+				*pdwEffect = DROPEFFECT_MOVE;
+				SetDropDescription(DROPIMAGE_MOVE, sMoveDrop, targetName);
+			}
+		}
 	}
 	else
 	{
 		ListView_SetItemState(m_hTargetWnd, -1, 0, LVIS_DROPHILITED);
-		SetDropDescription(DROPIMAGE_MOVE, sMoveDrop, targetName);
+		if (grfKeyState & MK_CONTROL)
+		{
+			*pdwEffect = DROPEFFECT_COPY;
+			SetDropDescription(DROPIMAGE_COPY, sCopyDrop, targetName);
+		}
+		else
+			SetDropDescription(DROPIMAGE_MOVE, sMoveDrop, targetName);
 	}
+
+	m_pRepoBrowser->SetRightDrag((grfKeyState & MK_RBUTTON)!=0);
 
 	CRect rect;
 	m_pRepoBrowser->m_RepoList.GetWindowRect(&rect);
@@ -285,8 +310,8 @@ HRESULT CListDropTarget::DragLeave(void)
 }
 
 
-CBaseDropTarget::CBaseDropTarget(CRepositoryBrowser * pRepoBrowser) 
-	: CIDropTarget(pRepoBrowser->m_RepoTree.GetSafeHwnd())
+CBaseDropTarget::CBaseDropTarget(CRepositoryBrowser * pRepoBrowser, HWND hTargetWnd) 
+	: CIDropTarget(hTargetWnd)
 	, m_pRepoBrowser(pRepoBrowser)
 	, m_bFiles(false)
 {
