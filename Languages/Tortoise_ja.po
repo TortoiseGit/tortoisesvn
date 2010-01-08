@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-28 17:02+0900\n"
+"PO-Revision-Date: 2010-01-08 23:06+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1596,6 +1596,10 @@ msgstr ""
 "設定を調整する\n"
 "設定"
 
+#. Resource IDs: (307)
+msgid "Advanced"
+msgstr "高度な設定"
+
 #. Resource IDs: (170)
 msgid "Advanced Diff/Merge Settings"
 msgstr "差分／マージ の高度な設定"
@@ -2284,8 +2288,8 @@ msgstr "クリーンアップ"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%s\""
-msgstr "ディレクトリ \"%s\" をクリーンナップ"
+msgid "Cleaning up directory \"%1!s!\""
+msgstr "ディレクトリ \"%1!s!\" をクリーンナップ"
 
 #. Resource IDs: (83)
 #, c-format
@@ -2565,8 +2569,8 @@ msgstr "リポジトリ内のファイルと選択されたファイルを比較
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Comparing %s to %s"
-msgstr "%s を %s と比較中"
+msgid "Comparing %1!s! to %2!s!"
+msgstr "%1!s! を %2!s! と比較中"
 
 #. Resource IDs: (74)
 msgid "Completed"
@@ -4186,15 +4190,15 @@ msgstr ""
 "それぞれのファイルは、ファイルシステム上で読み取り専用のフラグが設定され、ロックすることでファイルが書き込み可能になります。\n"
 "他のユーザーは、ファイルを読み取り専用として開く前に、作業コピーの更新が必要なことに注意してください。"
 
+#. Resource IDs: (119)
+#, c-format
+msgid "Getting file %1!s!"
+msgstr "取得ファイル %1!s!"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Getting file %1!s!, revision %2!s!"
 msgstr "取得ファイル %1!s!，リビジョン %2!s!"
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Getting file %s"
-msgstr "取得ファイル %s"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
@@ -4529,6 +4533,10 @@ msgstr "ID:57643:V C +Z"
 msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+msgid "ID:57665:V C +W"
+msgstr "ID:57665:V C +W"
+
 #. Resource IDs: (106)
 msgid "Icon Overlays"
 msgstr "アイコンオーバーレイ"
@@ -4702,10 +4710,6 @@ msgstr "すべての空白を無視する(&A)"
 msgid "Ignore &ancestry"
 msgstr "系統情報を無視する(&A)"
 
-#. Resource IDs: (1067)
-msgid "Ignore &case changes"
-msgstr "大文字／小文字の変更は無視する(&C)"
-
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
 msgstr "すべての空白の変更を無視する"
@@ -4713,6 +4717,10 @@ msgstr "すべての空白の変更を無視する"
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "すべての空白を無視する"
+
+#. Resource IDs: (1067)
+msgid "Ignore case cha&nges"
+msgstr "大文字／小文字の変更は無視する(&N)"
 
 #. Resource IDs: (1126)
 msgid "Ignore line &endings"
@@ -4830,8 +4838,8 @@ msgstr "%1 にインポート"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Importing file %s"
-msgstr "インポートファイル %s"
+msgid "Importing file %1!s!"
+msgstr "インポートファイル %1!s!"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
@@ -5025,6 +5033,10 @@ msgstr "外部参照の項目(&E)"
 #. Resource IDs: (1527)
 msgid "Items to show"
 msgstr "表示する項目"
+
+#. Resource IDs: (1074)
+msgid "J&ump to first conflict when loading"
+msgstr "ロード時に最初の相違点へ移動する(&U)"
 
 #. Resource IDs: (275)
 msgid "Join with following &tree"
@@ -5804,6 +5816,11 @@ msgstr "スペルの訂正はありません"
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
 msgstr "状態をキャッシュしません。バージョン管理されたフォルダのみオーバーレイされ、ファイルはオーバーレイ表示されません。"
 
+#. Resource IDs: (84)
+#, c-format
+msgid "No such revision '%1!s!'"
+msgstr "リビジョン '%1!s!' は存在しません"
+
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
 msgstr "シソーラスからの提案はありません"
@@ -6048,6 +6065,10 @@ msgstr "オンラインのリポジトリを調整するためにリポジトリ
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
 msgstr "今回のみログキャッシュから操作する"
+
+#. Resource IDs: (348)
+msgid "Option"
+msgstr "オプション"
 
 #. Resource IDs: (16137)
 msgid "Options"
@@ -6359,8 +6380,8 @@ msgstr "印刷中"
 
 #. Resource IDs: (132)
 #, c-format
-msgid "Processing revision %d of %d..."
-msgstr "処理中のリビジョン %d / %d ..."
+msgid "Processing revision %1!d! of %2!d!..."
+msgstr "処理中のリビジョン %1!d! of %2!d!..."
 
 #. Resource IDs: (74)
 msgid "Program"
@@ -6990,18 +7011,18 @@ msgstr "リビジョン"
 
 #. Resource IDs: (119)
 #, c-format
-msgid "Revision %d"
-msgstr "リビジョン %d"
+msgid "Revision %1!d!"
+msgstr "リビジョン %1!d!"
+
+#. Resource IDs: (120)
+#, c-format
+msgid "Revision %1!s!"
+msgstr "リビジョン %1!s!"
 
 #. Resource IDs: (269)
 #, c-format
 msgid "Revision %ld"
 msgstr "リビジョン %ld"
-
-#. Resource IDs: (120)
-#, c-format
-msgid "Revision %s"
-msgstr "リビジョン %s"
 
 #. Resource IDs: (15)
 msgid "Revision &graph"
@@ -9578,6 +9599,16 @@ msgstr "私たちのウェブサイトへお越しください"
 #. Resource IDs: (32848)
 msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
+
+#. Resource IDs: (65535)
+msgid ""
+"WARNING:\r\n"
+"Only change these settings if you are abolutely sure what you are doing!\r\n"
+"To set the values to their default, delete the value text."
+msgstr ""
+"警告:\r\n"
+"何を行うかを把握している場合のみこれらの設定を変更してください！\r\n"
+"デフォルト値に設定するには、値を削除してください。"
 
 #. Resource IDs: (65535)
 msgid "WC node"
