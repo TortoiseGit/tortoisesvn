@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,6 +23,7 @@
 #include "FileDropEdit.h"
 #include "Tooltip.h"
 #include "AeroControls.h"
+#include "TSVNPath.h"
 
 /// forward declarations
 
@@ -62,7 +63,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 
-	bool IsFile();
+	bool IsStandardCheckout();
 	void SetRevision(const SVNRev& rev);
 
 protected:
@@ -74,7 +75,7 @@ protected:
 	AeroControlBase m_aeroControls;
 public:
 	CHistoryCombo	m_URLCombo;
-	CString			m_URL;
+	CTSVNPathList	m_URLs;
 	SVNRev			Revision;
 	BOOL			m_bNoExternals;
 	CButton			m_butBrowse;
@@ -84,6 +85,6 @@ public:
 	CLogDlg	*		m_pLogDlg;
 	svn_depth_t		m_depth;
 
-	bool			m_isFile;	///< true only if we are sure it is
-	bool			m_parentExists;	///< W/C for parent folder already exists. Only valid if \ref m_isFile is true.
+	bool			m_standardCheckout;	///< true if only one path got selected and that URL path is a folder
+	bool			m_parentExists;	///< W/C for parent folder already exists. Only valid if \ref m_standardCheckout is false.
 };

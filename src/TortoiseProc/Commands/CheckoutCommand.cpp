@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -61,7 +61,8 @@ bool CheckoutCommand::Execute()
 
 	CCheckoutDlg dlg;
 	dlg.m_strCheckoutDirectory = checkoutDirectory.GetWinPathString();
-	dlg.m_URL = parser.GetVal(_T("url"));
+	dlg.m_URLs.LoadFromAsteriskSeparatedString (parser.GetVal(_T("url")));
+
 	// if there is no url specified on the command line, check if there's one
 	// specified in the settings dialog to use as the default and use that
 	CRegString regDefCheckoutUrl(_T("Software\\TortoiseSVN\\DefaultCheckoutUrl"));
@@ -75,7 +76,7 @@ bool CheckoutCommand::Execute()
 		// checkout path specified      : c:\work\project
 		// -->
 		// checkout path adjusted       : c:\work\project\folder
-		CTSVNPath clurl = CTSVNPath(dlg.m_URL);
+		CTSVNPath clurl = dlg.m_URLs.GetCommonDirectory();
 		CTSVNPath defurl = CTSVNPath(CString(regDefCheckoutUrl));
 		if (defurl.IsAncestorOf(clurl))
 		{
@@ -86,52 +87,38 @@ bool CheckoutCommand::Execute()
 				dlg.m_strCheckoutDirectory.Replace(_T("\\\\"), _T("\\"));
 			}
 		}
-		if (dlg.m_URL.IsEmpty())
-			dlg.m_URL = regDefCheckoutUrl;
+		if (dlg.m_URLs.GetCount() == 0)
+			dlg.m_URLs.AddPath (defurl);
 	}
-	if (dlg.m_URL.Left(5).Compare(_T("tsvn:"))==0)
+
+	for (int i = 0; i < dlg.m_URLs.GetCount(); ++i)
 	{
-		dlg.m_URL = dlg.m_URL.Mid(5);
-		if (dlg.m_URL.Find('?') >= 0)
+		CString pathString = dlg.m_URLs[i].GetWinPathString();
+		if (pathString.Left(5).Compare(_T("tsvn:"))==0)
 		{
-			dlg.Revision = SVNRev(dlg.m_URL.Mid(dlg.m_URL.Find('?')+1));
-			dlg.m_URL = dlg.m_URL.Left(dlg.m_URL.Find('?'));
+			pathString = pathString.Mid(5);
+			if (pathString.Find('?') >= 0)
+			{
+				dlg.Revision = SVNRev(pathString.Mid(pathString.Find('?')+1));
+				pathString = pathString.Left(pathString.Find('?'));
+			}
 		}
+
+		dlg.m_URLs[i].SetFromWin (pathString);
 	}
 	if (parser.HasKey(_T("revision")))
 	{
 		SVNRev Rev = SVNRev(parser.GetVal(_T("revision")));
 		dlg.Revision = Rev;
 	}
-	if (dlg.m_URL.Find('*')>=0)
-	{
-		// multiple URL's specified
-		// ask where to check them out to
-		CBrowseFolder foldbrowse;
-		foldbrowse.SetInfo(CString(MAKEINTRESOURCE(IDS_PROC_CHECKOUTTO)));
-		foldbrowse.SetCheckBoxText(CString(MAKEINTRESOURCE(IDS_PROC_CHECKOUTTOPONLY)));
-		foldbrowse.SetCheckBoxText2(CString(MAKEINTRESOURCE(IDS_PROC_CHECKOUTNOEXTERNALS)));
-		foldbrowse.m_style = BIF_NEWDIALOGSTYLE | BIF_RETURNONLYFSDIRS | BIF_USENEWUI | BIF_VALIDATE | BIF_EDITBOX;
-		TCHAR checkoutpath[MAX_PATH];
-		if (foldbrowse.Show(hwndExplorer, checkoutpath, MAX_PATH, CString(regDefCheckoutPath))==CBrowseFolder::OK)
-		{
-			CSVNProgressDlg progDlg;
-			theApp.m_pMainWnd = &progDlg;
-			progDlg.SetAutoClose (parser);
+
+	/*
 			progDlg.SetCommand
 				( parser.HasKey(_T("commonwc"))
 				? CSVNProgressDlg::SVNProgress_SingleFileCheckout
 				: CSVNProgressDlg::SVNProgress_Checkout);
-			progDlg.SetOptions(foldbrowse.m_bCheck2 ? ProgOptIgnoreExternals : ProgOptNone);
-			progDlg.SetPathList(CTSVNPathList(CTSVNPath(CString(checkoutpath))));
-			progDlg.SetUrl(dlg.m_URL);
-			progDlg.SetRevision(dlg.Revision);
-			progDlg.SetDepth(foldbrowse.m_bCheck ? svn_depth_empty : svn_depth_infinity);
-			progDlg.DoModal();
-			bRet = !progDlg.DidErrorsOccur();
-		}
-	}
-	else if (dlg.DoModal() == IDOK)
+	}*/
+	if (dlg.DoModal() == IDOK)
 	{
 		checkoutDirectory.SetFromWin(dlg.m_strCheckoutDirectory, true);
 
@@ -139,16 +126,16 @@ bool CheckoutCommand::Execute()
 		theApp.m_pMainWnd = &progDlg;
 
 		progDlg.SetCommand 
-			(dlg.m_isFile
-				? dlg.m_parentExists 
+			(dlg.m_standardCheckout && !parser.HasKey(_T("commonwc"))
+				? CSVNProgressDlg::SVNProgress_Checkout
+				: dlg.m_parentExists 
 					? CSVNProgressDlg::SVNProgress_Update
-					: CSVNProgressDlg::SVNProgress_SingleFileCheckout
-				: CSVNProgressDlg::SVNProgress_Checkout);
+					: CSVNProgressDlg::SVNProgress_SingleFileCheckout);
 
 		progDlg.SetAutoClose (parser);
 		progDlg.SetOptions(dlg.m_bNoExternals ? ProgOptIgnoreExternals : ProgOptNone);
 		progDlg.SetPathList(CTSVNPathList(checkoutDirectory));
-		progDlg.SetUrl(dlg.m_URL);
+		progDlg.SetUrl(dlg.m_URLs.CreateAsteriskSeparatedString());
 		progDlg.SetRevision(dlg.Revision);
 		progDlg.SetDepth(dlg.m_depth);
 		progDlg.DoModal();

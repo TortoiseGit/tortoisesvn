@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,7 +34,7 @@ CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
 	, m_sCheckoutDirOrig(_T(""))
 	, m_bNoExternals(FALSE)
 	, m_pLogDlg(NULL)
-	, m_isFile(false)
+	, m_standardCheckout(true)
 	, m_parentExists(false)
 {
 }
@@ -85,7 +85,7 @@ BOOL CCheckoutDlg::OnInitDialog()
 
 	m_sCheckoutDirOrig = m_strCheckoutDirectory;
 
-	CString sUrlSave = m_URL;
+	CString sUrlSave = m_URLs.CreateAsteriskSeparatedString();
 	m_URLCombo.SetURLHistory(TRUE);
 	m_bAutoCreateTargetName = FALSE;
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
@@ -164,9 +164,10 @@ BOOL CCheckoutDlg::OnInitDialog()
 	return TRUE;
 }
 
-bool CCheckoutDlg::IsFile()
+bool CCheckoutDlg::IsStandardCheckout()
 {
-	return SVNInfo::IsFile (CTSVNPath(m_URL), Revision);
+	return (m_URLs.GetCount() == 1) 
+		&& !SVNInfo::IsFile (m_URLs[0], Revision);
 }
 
 void CCheckoutDlg::OnOK()
@@ -215,14 +216,16 @@ void CCheckoutDlg::OnOK()
 	bool bAutoCreateTargetName = m_bAutoCreateTargetName;
 	m_bAutoCreateTargetName = false;
 	m_URLCombo.SaveHistory();
-	m_URL = m_URLCombo.GetString();
 
-	if (!SVN::PathIsURL(CTSVNPath(m_URL)))
-	{
-		ShowBalloon(IDC_URLCOMBO, IDS_ERR_MUSTBEURL, IDI_ERROR);
-		m_bAutoCreateTargetName = bAutoCreateTargetName;
-		return;
-	}
+	m_URLs.LoadFromAsteriskSeparatedString (m_URLCombo.GetString());
+
+	for (INT_PTR i = 0; i < m_URLs.GetCount(); ++i)
+		if (!m_URLs[i].IsUrl())
+		{
+			ShowBalloon(IDC_URLCOMBO, IDS_ERR_MUSTBEURL, IDI_ERROR);
+			m_bAutoCreateTargetName = bAutoCreateTargetName;
+			return;
+		}
 
 	// decode depth info
 
@@ -248,8 +251,8 @@ void CCheckoutDlg::OnOK()
 	// require the target path to be actually valid
 	// - depending on whether it is a file
 
-	m_isFile = IsFile();
-	if (m_isFile)
+	m_standardCheckout = IsStandardCheckout();
+	if (!m_standardCheckout)
 	{
 		CTSVNPath targetPath (m_strCheckoutDirectory);
 
@@ -267,8 +270,7 @@ void CCheckoutDlg::OnOK()
 
 		// is it already a w/c for the directory we want?
 
-		CString parentURL 
-			= CTSVNPath(m_URL).GetContainingDirectory().GetSVNPathString();
+		CString parentURL = m_URLs.GetCommonRoot().GetSVNPathString();
 
 		// workaround for SVN path check bug:
 		// if path X:/y is not a wc, SVN will test X: and
@@ -342,7 +344,7 @@ void CCheckoutDlg::OnBnClickedBrowse()
 
 	if (!rev.IsValid())
 		rev = SVNRev::REV_HEAD;
-	if (CAppUtils::BrowseRepository(m_URLCombo, this, rev))
+	if (CAppUtils::BrowseRepository(m_URLCombo, this, rev, true))
 	{
 		SetRevision(rev);
 
@@ -350,15 +352,17 @@ void CCheckoutDlg::OnBnClickedBrowse()
 		CRegString regDefCheckoutPath(_T("Software\\TortoiseSVN\\DefaultCheckoutPath"));
 		if (!CString(regDefCheckoutUrl).IsEmpty())
 		{
-			m_URL = m_URLCombo.GetString();
+			m_URLs.LoadFromAsteriskSeparatedString (m_URLCombo.GetString());
 		}
 		else
 		{
-			m_URLCombo.GetWindowText(m_URL);
-			if (m_URL.IsEmpty())
+			CString text;
+			m_URLCombo.GetWindowText(text);
+			m_URLs.LoadFromAsteriskSeparatedString(text);
+			if (m_URLs.GetCount() == 0)
 				return;
 		}
-		CString name = CAppUtils::GetProjectNameFromURL(m_URL);
+		CString name = CAppUtils::GetProjectNameFromURL(m_URLs.GetCommonRoot().GetSVNPathString());
 		if (CPathUtils::GetFileNameFromPath(m_strCheckoutDirectory).CompareNoCase(name))
 			m_strCheckoutDirectory = m_sCheckoutDirOrig.TrimRight('\\')+_T('\\')+name;
 		if (m_strCheckoutDirectory.IsEmpty())
@@ -417,16 +421,16 @@ void CCheckoutDlg::OnBnClickedShowlog()
 {
 	m_tooltips.Pop();	// hide the tooltips
 	UpdateData(TRUE);
-	m_URL = m_URLCombo.GetString();
+	m_URLs.LoadFromAsteriskSeparatedString (m_URLCombo.GetString());
 	if ((m_pLogDlg)&&(m_pLogDlg->IsWindowVisible()))
 		return;
 	AfxGetApp()->DoWaitCursor(1);
 	//now show the log dialog for working copy
-	if (!m_URL.IsEmpty())
+	if (m_URLs.GetCount() > 0)
 	{
 		delete m_pLogDlg;
 		m_pLogDlg = new CLogDlg();
-		m_pLogDlg->SetParams(CTSVNPath(m_URL), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100));
+		m_pLogDlg->SetParams(m_URLs.GetCommonRoot(), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100));
 		m_pLogDlg->m_wParam = 1;
 		m_pLogDlg->SetSelect(true);
 		m_pLogDlg->m_pNotifyWindow = this;
@@ -471,20 +475,27 @@ void CCheckoutDlg::OnCbnEditchangeUrlcombo()
 {
 	// find out what to use as the checkout directory name
 	UpdateData();
-	m_URLCombo.GetWindowText(m_URL);
-	if (m_URL.IsEmpty())
+	CString text;
+	m_URLCombo.GetWindowText(text);
+	m_URLs.Clear();
+
+	if (text.IsEmpty())
 	{
 		GetDlgItem(IDC_BROWSE)->EnableWindow(FALSE);
 		return;
 	}
+	else
+	{
+		m_URLs.LoadFromAsteriskSeparatedString (text);
+	}
+
 	GetDlgItem(IDC_BROWSE)->EnableWindow(TRUE);
 	if (!m_bAutoCreateTargetName)
 		return;
 	if (m_sCheckoutDirOrig.IsEmpty())
 		return;
 
-	CString tempURL = m_URL;
-	CString name = CAppUtils::GetProjectNameFromURL(m_URL);
+	CString name = CAppUtils::GetProjectNameFromURL(m_URLs.GetCommonRoot().GetSVNPathString());
 	if (CPathUtils::GetFileNameFromPath(m_strCheckoutDirectory).CompareNoCase(name))
 		m_strCheckoutDirectory = m_sCheckoutDirOrig.TrimRight('\\')+_T('\\')+name;
 	if (m_strCheckoutDirectory.IsEmpty())
