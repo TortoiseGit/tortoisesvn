@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -219,7 +219,9 @@ HRESULT CListDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
 	if (iItem >= 0)
 	{
 		ListView_GetItemText(m_hTargetWnd, iItem, 0, targetName, MAX_PATH);
-		CItem * pItem = (CItem*)m_pRepoBrowser->m_RepoList.GetItemData(iItem);
+		CItem * pItem = NULL;
+		if (m_pRepoBrowser->m_RepoList.GetItemCount())
+			pItem = (CItem*)m_pRepoBrowser->m_RepoList.GetItemData(iItem);
 		if (pItem)
 		{
 			if (pItem->kind != svn_node_dir)
