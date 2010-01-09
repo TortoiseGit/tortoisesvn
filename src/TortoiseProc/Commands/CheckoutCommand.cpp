@@ -112,12 +112,6 @@ bool CheckoutCommand::Execute()
 		dlg.Revision = Rev;
 	}
 
-	/*
-			progDlg.SetCommand
-				( parser.HasKey(_T("commonwc"))
-				? CSVNProgressDlg::SVNProgress_SingleFileCheckout
-				: CSVNProgressDlg::SVNProgress_Checkout);
-	}*/
 	if (dlg.DoModal() == IDOK)
 	{
 		checkoutDirectory.SetFromWin(dlg.m_strCheckoutDirectory, true);
@@ -125,10 +119,14 @@ bool CheckoutCommand::Execute()
 		CSVNProgressDlg progDlg;
 		theApp.m_pMainWnd = &progDlg;
 
+		bool useStandardCheckout 
+			=	 dlg.m_standardCheckout 
+			  || ((dlg.m_URLs.GetCount() > 1) && dlg.m_bIndependentWCs);
+
 		progDlg.SetCommand 
-			(dlg.m_standardCheckout && !parser.HasKey(_T("commonwc"))
+			(useStandardCheckout
 				? CSVNProgressDlg::SVNProgress_Checkout
-				: dlg.m_parentExists 
+				: dlg.m_parentExists && (dlg.m_URLs.GetCount() == 1)
 					? CSVNProgressDlg::SVNProgress_Update
 					: CSVNProgressDlg::SVNProgress_SingleFileCheckout);
 

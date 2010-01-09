@@ -35,6 +35,7 @@ CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
 	, m_bNoExternals(FALSE)
 	, m_pLogDlg(NULL)
 	, m_standardCheckout(true)
+	, m_bIndependentWCs(FALSE)
 	, m_parentExists(false)
 {
 }
@@ -53,6 +54,7 @@ void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_REVISION_NUM, m_sRevision);
 	DDX_Text(pDX, IDC_CHECKOUTDIRECTORY, m_strCheckoutDirectory);
 	DDX_Check(pDX, IDC_NOEXTERNALS, m_bNoExternals);
+	DDX_Check(pDX, IDC_INDEPENDENTWCS, m_bIndependentWCs);
 	DDX_Control(pDX, IDC_CHECKOUTDIRECTORY, m_cCheckoutEdit);
 	DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
 }
@@ -69,6 +71,67 @@ BEGIN_MESSAGE_MAP(CCheckoutDlg, CResizableStandAloneDialog)
 	ON_CBN_EDITCHANGE(IDC_URLCOMBO, &CCheckoutDlg::OnCbnEditchangeUrlcombo)
 	ON_CBN_SELCHANGE(IDC_DEPTH, &CCheckoutDlg::OnCbnSelchangeDepth)
 END_MESSAGE_MAP()
+
+void CCheckoutDlg::UpdateURLsFromCombo()
+{
+	// read URLs from combo
+
+	CString text;
+	m_URLCombo.GetWindowText(text);
+	m_URLs.LoadFromAsteriskSeparatedString (text);
+
+	// update "independent w/cs" option
+
+	bool multiSelect = m_URLs.GetCount() > 1;
+	DialogEnableWindow(IDC_INDEPENDENTWCS, multiSelect);
+	if (!multiSelect)
+		m_bIndependentWCs = FALSE;
+
+	// find out what to use as the checkout directory name
+
+	if (!m_sCheckoutDirOrig.IsEmpty())
+	{
+		CString name = CAppUtils::GetProjectNameFromURL(m_URLs.GetCommonRoot().GetSVNPathString());
+		if (   !name.IsEmpty()
+			&& CPathUtils::GetFileNameFromPath(m_strCheckoutDirectory).CompareNoCase(name))
+		{
+			m_strCheckoutDirectory = m_sCheckoutDirOrig.TrimRight('\\')+_T('\\')+name;
+		}
+	}
+
+	if (m_strCheckoutDirectory.IsEmpty())
+	{
+		CRegString lastCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\History\\lastCheckoutPath"));
+		m_strCheckoutDirectory = lastCheckoutPath;
+		if (m_strCheckoutDirectory.GetLength() <= 2)
+			m_strCheckoutDirectory += _T("\\");
+	}
+	m_strCheckoutDirectory.Replace(_T(":\\\\"), _T(":\\"));
+
+	// update UI
+
+	UpdateData(FALSE);
+	DialogEnableWindow(IDOK, !m_strCheckoutDirectory.IsEmpty());
+}
+
+bool CCheckoutDlg::IsStandardCheckout()
+{
+	return (m_URLs.GetCount() == 1) 
+		&& !SVNInfo::IsFile (m_URLs[0], Revision);
+}
+
+void CCheckoutDlg::SetRevision(const SVNRev& rev)
+{
+	if (rev.IsHead() || !rev.IsValid())
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+	else
+	{
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+		CString sRev;
+		sRev.Format(_T("%ld"), (LONG)rev);
+		SetDlgItemText(IDC_REVISION_NUM, sRev);
+	}
+}
 
 BOOL CCheckoutDlg::OnInitDialog()
 {
@@ -91,7 +154,6 @@ BOOL CCheckoutDlg::OnInitDialog()
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
 	m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sCheckoutDirOrig);
 	m_URLCombo.SetCurSel(0);
-	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE)));
@@ -121,15 +183,8 @@ BOOL CCheckoutDlg::OnInitDialog()
 		m_editRevision.SetWindowText(temp);
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 	}
-	if (m_strCheckoutDirectory.IsEmpty())
-	{
-		CRegString lastCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\History\\lastCheckoutPath"));
-		m_strCheckoutDirectory = lastCheckoutPath;
-		if (m_strCheckoutDirectory.GetLength() <= 2)
-			m_strCheckoutDirectory += _T("\\");
-	}
-	UpdateData(FALSE);
-	DialogEnableWindow(IDOK, !m_strCheckoutDirectory.IsEmpty());
+
+	UpdateURLsFromCombo();
 
 	AddAnchor(IDC_GROUPTOP, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_URLOFREPO, TOP_LEFT, TOP_RIGHT);
@@ -138,6 +193,7 @@ BOOL CCheckoutDlg::OnInitDialog()
 	AddAnchor(IDC_EXPORT_CHECKOUTDIR, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_CHECKOUTDIRECTORY, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_CHECKOUTDIRECTORY_BROWSE, TOP_RIGHT);
+	AddAnchor(IDC_INDEPENDENTWCS, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_GROUPMIDDLE, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_DEPTH, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_NOEXTERNALS, TOP_LEFT);
@@ -162,12 +218,6 @@ BOOL CCheckoutDlg::OnInitDialog()
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("CheckoutDlg"));
 	return TRUE;
-}
-
-bool CCheckoutDlg::IsStandardCheckout()
-{
-	return (m_URLs.GetCount() == 1) 
-		&& !SVNInfo::IsFile (m_URLs[0], Revision);
 }
 
 void CCheckoutDlg::OnOK()
@@ -344,36 +394,11 @@ void CCheckoutDlg::OnBnClickedBrowse()
 
 	if (!rev.IsValid())
 		rev = SVNRev::REV_HEAD;
+
 	if (CAppUtils::BrowseRepository(m_URLCombo, this, rev, true))
 	{
 		SetRevision(rev);
-
-		CRegString regDefCheckoutUrl(_T("Software\\TortoiseSVN\\DefaultCheckoutUrl"));
-		CRegString regDefCheckoutPath(_T("Software\\TortoiseSVN\\DefaultCheckoutPath"));
-		if (!CString(regDefCheckoutUrl).IsEmpty())
-		{
-			m_URLs.LoadFromAsteriskSeparatedString (m_URLCombo.GetString());
-		}
-		else
-		{
-			CString text;
-			m_URLCombo.GetWindowText(text);
-			m_URLs.LoadFromAsteriskSeparatedString(text);
-			if (m_URLs.GetCount() == 0)
-				return;
-		}
-		CString name = CAppUtils::GetProjectNameFromURL(m_URLs.GetCommonRoot().GetSVNPathString());
-		if (CPathUtils::GetFileNameFromPath(m_strCheckoutDirectory).CompareNoCase(name))
-			m_strCheckoutDirectory = m_sCheckoutDirOrig.TrimRight('\\')+_T('\\')+name;
-		if (m_strCheckoutDirectory.IsEmpty())
-		{
-			CRegString lastCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\History\\lastCheckoutPath"));
-			m_strCheckoutDirectory = lastCheckoutPath;
-			if (m_strCheckoutDirectory.GetLength() <= 2)
-				m_strCheckoutDirectory += _T("\\");
-		}
-		UpdateData(FALSE);
-		DialogEnableWindow(IDOK, !m_strCheckoutDirectory.IsEmpty());
+		UpdateURLsFromCombo();
 	}
 }
 
@@ -458,56 +483,11 @@ void CCheckoutDlg::OnEnChangeRevisionNum()
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 }
 
-void CCheckoutDlg::SetRevision(const SVNRev& rev)
-{
-	if (rev.IsHead() || !rev.IsValid())
-		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
-	else
-	{
-		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
-		CString sRev;
-		sRev.Format(_T("%ld"), (LONG)rev);
-		SetDlgItemText(IDC_REVISION_NUM, sRev);
-	}
-}
-
 void CCheckoutDlg::OnCbnEditchangeUrlcombo()
 {
 	// find out what to use as the checkout directory name
 	UpdateData();
-	CString text;
-	m_URLCombo.GetWindowText(text);
-	m_URLs.Clear();
-
-	if (text.IsEmpty())
-	{
-		GetDlgItem(IDC_BROWSE)->EnableWindow(FALSE);
-		return;
-	}
-	else
-	{
-		m_URLs.LoadFromAsteriskSeparatedString (text);
-	}
-
-	GetDlgItem(IDC_BROWSE)->EnableWindow(TRUE);
-	if (!m_bAutoCreateTargetName)
-		return;
-	if (m_sCheckoutDirOrig.IsEmpty())
-		return;
-
-	CString name = CAppUtils::GetProjectNameFromURL(m_URLs.GetCommonRoot().GetSVNPathString());
-	if (CPathUtils::GetFileNameFromPath(m_strCheckoutDirectory).CompareNoCase(name))
-		m_strCheckoutDirectory = m_sCheckoutDirOrig.TrimRight('\\')+_T('\\')+name;
-	if (m_strCheckoutDirectory.IsEmpty())
-	{
-		CRegString lastCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\History\\lastCheckoutPath"));
-		m_strCheckoutDirectory = lastCheckoutPath;
-		if (m_strCheckoutDirectory.GetLength() <= 2)
-			m_strCheckoutDirectory += _T("\\");
-	}
-	m_strCheckoutDirectory.Replace(_T(":\\\\"), _T(":\\"));
-	UpdateData(FALSE);
-	DialogEnableWindow(IDOK, !m_strCheckoutDirectory.IsEmpty());
+	UpdateURLsFromCombo();
 }
 
 

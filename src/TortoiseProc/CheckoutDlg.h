@@ -63,6 +63,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 
+	void UpdateURLsFromCombo();
 	bool IsStandardCheckout();
 	void SetRevision(const SVNRev& rev);
 
@@ -78,6 +79,7 @@ public:
 	CTSVNPathList	m_URLs;
 	SVNRev			Revision;
 	BOOL			m_bNoExternals;
+	BOOL			m_bIndependentWCs;
 	CButton			m_butBrowse;
 	CEdit			m_editRevision;
 	CString			m_strCheckoutDirectory;

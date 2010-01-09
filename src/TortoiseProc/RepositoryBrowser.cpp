@@ -2862,13 +2862,10 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				}
 				itemsToCheckout.TrimRight('*');
 				CString sCmd;
-				sCmd.Format ( _T("\"%s\" /command:checkout /url:\"%s\" /revision:%s %s")
+				sCmd.Format ( _T("\"%s\" /command:checkout /url:\"%s\" /revision:%s")
                             , (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"))
                             , (LPCTSTR)itemsToCheckout
-                            , (LPCTSTR)selection.GetRepository(0).revision.ToString()
-							, (selection.GetFolderCount (0) == selection.GetPathCount (0))
-								? _T("")
-								: _T("/commonwc"));
+                            , (LPCTSTR)selection.GetRepository(0).revision.ToString());
 
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
