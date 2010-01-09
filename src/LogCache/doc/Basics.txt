@@ -296,7 +296,7 @@ CIndexPairDictionary
 CStringDictionary
 
 	- maps index_t <-> 0-terminated sequences of chars
-	  (strings must be unique)
+	  (strings must be unique, match is case-sensitive)
 	- useful to store plain strings
 	  (outside these containers, all strings are represented
 	  by their respective index_t value)
@@ -323,7 +323,7 @@ slightly more complex data.
 CPathDictionary
 
 	- maps index_t <-> path (elements separated by '/')
-	  (strings must be unique)
+	  (strings must be unique, match is case-sensitive)
 	- pathA is parent of pathB -> index (pathA) < index(pathB)
 	- index ("/") = 0
 
@@ -522,7 +522,7 @@ associated to the right revision index.
 
 5.1 Granularity
 
-There is on log cache (file) per repository. All updates
+There is one log cache (file) per repository. All updates
 and access control works on that granularity.
 
 The registry settings SupportAmbiguousURL and SupportAmbiguousUUID
