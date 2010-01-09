@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -416,6 +416,9 @@ bool CStringUtils::ReadStringFromTextFile(const CString& path, CString& text)
 	return true;
 }
 
+#endif // #ifdef _MFC_VER
+
+#if defined(CSTRING_AVAILABLE) || defined(_MFC_VER)
 int CStringUtils::GetMatchingLength (const CString& lhs, const CString& rhs)
 {
 	int lhsLength = lhs.GetLength();
@@ -432,9 +435,6 @@ int CStringUtils::GetMatchingLength (const CString& lhs, const CString& rhs)
 	return maxResult;
 }
 
-#endif // #ifdef _MFC_VER
-
-#if defined(CSTRING_AVAILABLE) || defined(_MFC_VER)
 int CStringUtils::FastCompareNoCase (const CStringW& lhs, const CStringW& rhs)
 {
 	// attempt latin-only comparison
