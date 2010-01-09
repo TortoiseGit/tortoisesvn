@@ -116,6 +116,29 @@
 			</listitem>
 			<listitem>
 				<para>
+					<guilabel>Compare whitespaces</guilabel>
+					shows all changes in indentation and inline whitespace as
+					added/removed lines (which is how Subversion treats such changes).
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<guilabel>Ignore whitespace changes</guilabel>
+					hides changes which are due solely to a change in the
+					amount or type of whitespace, eg. changing the indentation
+					or changing tabs to spaces. Adding whitespace where there
+					was none before, or removing a whitespace completely is still
+					shown as a change.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<guilabel>Ignore all whitespaces</guilabel>
+					hides all whitespace-only changes.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
 					<guibutton>Switch Left and Right View</guibutton>
 					In 2-pane view, swaps the left and right windows.
 					When you are comparing a file in 2 different trees, 
@@ -135,8 +158,23 @@
 			</listitem>
 			<listitem>
 				<para>
+					<guilabel>Collapse</guilabel>
+					collapses unchanged regions to a single line, leaving only
+					the changed areas and minimal context. You can expand the
+					collapsed areas by double clicking on the collapse line,
+					but you cannot then re-collapse them unless you reload the file.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
 					<guibutton>Settings</guibutton>
 					takes you to TortoiseMerge's settings dialog.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<guibutton>Help</guibutton>
+					opens the TortoiseMerge help file, of course.
 				</para>
 			</listitem>
 		</itemizedlist>
