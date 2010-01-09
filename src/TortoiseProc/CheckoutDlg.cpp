@@ -174,8 +174,10 @@ BOOL CCheckoutDlg::OnInitDialog()
 		SetDlgItemText(IDC_CHECKOUTDIRECTORY, m_sCheckoutDirOrig);
 		m_URLCombo.SetWindowText(sUrlSave);
 	}
+
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_CHECKOUTDIRECTORY, IDS_CHECKOUT_TT_DIR);
+	m_tooltips.AddTool(IDC_INDEPENDENTWCS, IDS_CHECKOUT_TT_MULTIWC);
 
 	SHAutoComplete(GetDlgItem(IDC_CHECKOUTDIRECTORY)->m_hWnd, SHACF_FILESYSTEM);
 
