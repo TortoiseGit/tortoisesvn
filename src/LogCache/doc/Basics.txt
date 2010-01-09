@@ -177,7 +177,7 @@ too old will usually delete or ignore and overwrite the cache.
 OUR_LOG_CACHE_FILE_VERSION
 
 	- format version used by the last client that wrote
-	  this file
+	  this file (i.e. "our" client version)
 	- bump if you add new sub-streams
 	- convention: use the current date 0xYYYYMMDD
 
@@ -192,16 +192,16 @@ MIN_LOG_CACHE_FILE_VERSION
 OLDEST_LOG_CACHE_FILE_VERSION 
 
 	- oldest format this client can read
-	  (must be >= OUR_LOG_CACHE_FILE_VERSION
+	  (must be <= OUR_LOG_CACHE_FILE_VERSION
 	
 NEWEST_LOG_CACHE_FILE_VERSION
 
 	- newest format this client can read
-	  (client too old, if < writer's OUR_LOG_CACHE_FILE_VERSION)
+	  (client too old, if < writer's MIN_LOG_CACHE_FILE_VERSION)
 
 Constraints
 
-	- newer version numbers must have a greater numerical value
+	- newer version numbers must have greater numerical values
 
 	- OUR_LOG_CACHE_FILE_VERSION >= MIN_LOG_CACHE_FILE_VERSION
 	- OUR_LOG_CACHE_FILE_VERSION >= OLDEST_LOG_CACHE_FILE_VERSION 
@@ -239,7 +239,305 @@ from it. You need to provide
 - make sure to derive from C[In|Out]StreamImplBase<>
   that handle the whole factory stuff
 
-See CBinary[In|Out]Stream, CComposite[In|Out]Stream and
+See CBLOB[In|Out]Stream, CComposite[In|Out]Stream and
 CPackedInteger[In|Out]Stream for typical examples.
 
 Don't forget to bump the file version numbers.
+
+
+4. Log Data Model
+-----------------
+
+4.1 Basics
+
+The log cache is organized as a set of tables. All references
+are expressed through IDs that are nothing more than the
+(fixed) position within the respective table. 
+
+New records are appended to the tables because reordering
+requires all references to be updated. That is only done by
+special, expensive optimization methods (e.g. Optimize() ).
+Selective data removal is likewise unsupported.
+
+
+4.2 Standard Containers
+
+A small number of container types cover standard data structures,
+string dictionaries in particular. They are (re-)used in several
+places as part of the specific log cache containers. 
+
+Also, most of these standard containers store unique values,
+i.e. no two entries may have the same value. That has
+the following advantages:
+
+	(1) entry content can be *identified* by index_t
+	    (e.g. two strings are equal exactly if they
+	    have the same index value)
+	(2) reduces data model size
+	(3) -1 always represents an unknown / invalid object
+
+The standard containers are:
+
+
+CIndexPairDictionary
+
+	- maps index_t <-> pair<index_t, index_t>
+	  (pairs must be unique)
+	- useful to store associations between two tables
+	  (pair.first  = index in table A,
+	   pair.second = index in table B)
+
+	- encapsulates a vector<pair<index_t, index_t> >
+	- preserves element order (= insertion order)
+	- allows for efficient lookup of <index_t, index_t> pairs
+	  (forward and backward)
+
+
+CStringDictionary
+
+	- maps index_t <-> 0-terminated sequences of chars
+	  (strings must be unique)
+	- useful to store plain strings
+	  (outside these containers, all strings are represented
+	  by their respective index_t value)
+
+	- encapsulates a single vector<char> buffer and a vector<offset>
+	- preserves element order (= insertion order)
+	- allows for efficient lookup of strings
+	  (forward and backward)
+
+
+CBlobDictionary
+
+	- similar to CStringDictionary but stores
+	  non-0-terminated byte sequences
+	- not used by log cache
+
+
+4.3 Composite Containers
+
+These build upon the standard containers to handle
+slightly more complex data.
+
+
+CPathDictionary
+
+	- maps index_t <-> path (elements separated by '/')
+	  (strings must be unique)
+	- pathA is parent of pathB -> index (pathA) < index(pathB)
+	- index ("/") = 0
+
+	- stores path elements in a CStringDictionary
+	- represents paths as <index of parent, index of element>
+	  pairs in a CIndexPairDictionary
+	- allows for efficient traversal of path hierarchies
+
+	- CDictionaryBasedPath and CDictionaryBasedTempPath
+	  encapsulate an index_t, dictionary pair and provide
+	  typical path operations based on it (see their header comments)
+
+
+CTokenizedStringContainer
+
+	- maps index_t -> std::string 
+	  (one way, i.e. duplicate strings are possible)
+	- used to store large, text-like strings, e.g. comments
+
+	- complex internal structure (see header for details)
+	  extracting common sub-strings to conserve memory
+
+
+4.4 Log Data
+
+The primary key to access log information is the revision.
+Log info is retrieved in unknown order (accumulates over many 
+requests) and the containers can only append efficiently
+(even if the methods are called Insert() ). Therefore,
+we must map the revision number onto our internal record
+numbers:
+
+
+CRevisionIndex
+
+	- maps revision_t -> index_t, called revision index
+	  (index is unique but reverse mapping is not supported)
+
+	- uses a vector<index_t> plus a single offset value
+	  to reduce memory consumption in case only the
+	  top revisions of a large repo are stored
+
+
+With the index value read from this container, we can directly
+address the data for that revision in the actual log data
+container. That container has a more complex structure:
+
+
+CRevisionInfoContainer
+
+	- dictionaries (see 4.2 and 4.3) for mapping
+	  names and paths onto IDs
+
+		* paths (index is called pathID)
+		* authorPool (index is called autorID)
+		* userRevPropsPool (index is called propID)
+
+	- all table info is actually stored in per-column
+	  vectors. See header file for the precise names.
+
+	- revision header info 
+
+		* index_t(rev) -> ( validityFlags
+				  , comment // in CTokenizedStringContainer
+		                  , authorID -> authorPool
+		                  , timeStamp )
+
+	- changed paths involves sub-tables
+
+		* index_t(rev) -> ( firstChangeOffset -> changes sub-table
+		                  , firstCopyFromOffset -> copy-from sub-table
+				  , pathID (common root of all changes) -> paths
+		                  , combined action flags over all changes)
+
+		* changeOffset -> ( change action // ADD, MOD etc. + copy-from presense
+		                  , pathID -> paths
+		                  , path / node type )
+
+		  valid range for changeOffset is
+		  [firstChangeOffset (index (rev)), firstChangeOffset (index (rev)+1))
+
+		* copyFromOffset -> ( pathID -> paths
+		                    , revision_t )
+
+		  valid range for copyFromOffset is
+		  firstCopyFromOffset(index (rev)), firstCopyFromOffset (index (rev)+1))
+
+	  In other words, changes are stored in a common list 
+	  for all revisions and the relevant section for a
+	  given revision index is from its start offset value
+	  up to but not including the start offset value of 
+	  the next entry. The last entry gets always terminated
+	  by an internal dummy entry.
+
+	  Copy-from info is NOT stored with the changes.
+	  Instead, a flag in the change action field indicates
+	  that there is an entry in the copy-from table.
+	  Therefore, copy-from info can only be read by
+	  forward-iteration over both tables. Random access
+	  within a revision is not supported.
+
+	  CChangesIterator encapsulates the necessary iteration
+	  logic. GetChangesBegin() and GetChangesEnd() return
+	  the range of changes for a given revision index.
+
+	- user revprops
+
+		* index_t(rev) -> ( firstPropOffset -> revProps sub-table )
+
+		* propOffset -> ( propID -> userRevPropsPool 
+		                , value // in CTokenizedStringContainer )
+
+		  valid range for propOffset is
+		  [firstPropOffset (index (rev)), firstPropOffset (index (rev)+1))
+
+	  All revision properties except for the 3 standard
+	  properties are considered user-defined. The
+	  container interface does not provide random
+	  access within a revision. Use CUserRevPropsIterator
+	  for iteration, instead.
+
+	- merge info 
+
+	  Not used ATM as it cannot be retrieved from SVN 
+	  in the required format. The table structure is
+	  similar to the path changes and user revprops.
+
+Also, log info containers can be merged. That becomes necessary,
+if the original log request did not provide all information
+(e.g. no path changes). Since insertion is not possible,
+a new container instance receives the data from the repository
+and is afterwards merged with original container in a single
+Update() method call.
+
+
+4.5 Skip Ranges
+
+A svn log will usually not return a consecutive sequence
+of revisions. Instead, there will be "gaps" for those
+revisions that did not change the respective path.
+
+For a request to be served from the cache efficiently,
+the cache must know that certain revisions did not
+modify a given path, even if the revisions are not
+present in the cache.
+
+
+CSkipRevisionInfo
+
+	- stores (index (path), startRev, numOfRevs) tripels
+	  marking the respective revision range as irrelevant
+	  for the given path
+
+Add() will trim known revisions from the range (try to store 
+skip ranges only for unknown revs).
+
+Compress() gets called upon serialization and will try to trim 
+ranges as well (maybe, we received more revision data in the 
+meanwhile).
+
+GetPreviousRevision() will return the next revision that
+might be relevant for the given path. It returns -1, if 
+no suitable skip range has been found.
+
+
+4.6 (De-)Serialization
+
+Every container has an input and an output stream operator
+(operator>> and operator<<) that expect a hierarchical stream
+as source / destination.
+
+Sub-containers (e.g. paths in CRevisionInfoContainer) are
+serialized into sub-streams of the current one. Since every
+container "owns" its stream, it can freely decide upon 
+serialization order and sub-stream IDs.
+
+
+4.7 Extensions
+
+Additional information will probably be on a pre-revision
+basis. This info should then be stored in CRevisionInfoContainer.
+
+Due to the simple internal per-column data model, new columns 
+and sub-tables can be added easily. Just follow the model of
+the exisiting data. That means, you should extend existing
+iterators for extra columns or introduce new ones for new
+sub-tables.
+
+Moreover, make sure to extend the Update() and Optimize()
+methods accordingly. Otherwise, your data may no longer be
+associated to the right revision index.
+
+
+5. Log Cache Management
+-----------------------
+
+5.1 Granularity
+
+There is on log cache (file) per repository. All updates
+and access control works on that granularity.
+
+The registry settings SupportAmbiguousURL and SupportAmbiguousUUID
+control when two possibly different repositories are considered
+the same.
+
+
+5.2 Cache Pool
+
+
+5.3 Coordinating Concurrent Access
+
+
+5.4 Offline Access
+
+
+5.5 Temporary Caches
+
