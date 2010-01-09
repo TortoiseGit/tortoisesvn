@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -79,7 +79,7 @@ BOOL CExportDlg::OnInitDialog()
 	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
 
 	m_sExportDirOrig = m_strExportDirectory;
-	m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sExportDirOrig);
+	m_bAutoCreateTargetName = !(PathIsDirectoryEmpty(m_sExportDirOrig) || !PathFileExists(m_sExportDirOrig));
 
 	AdjustControlSize(IDC_NOEXTERNALS);
 	AdjustControlSize(IDC_REVISION_HEAD);
@@ -299,7 +299,7 @@ void CExportDlg::OnBnClickedCheckoutdirectoryBrowse()
 		UpdateData(TRUE);
 		m_strExportDirectory = strCheckoutDirectory;
 		m_sExportDirOrig = m_strExportDirectory;
-		m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sExportDirOrig);
+		m_bAutoCreateTargetName = !(PathIsDirectoryEmpty(m_sExportDirOrig) || !PathFileExists(m_sExportDirOrig));
 		UpdateData(FALSE);
 		DialogEnableWindow(IDOK, !m_strExportDirectory.IsEmpty());
 	}

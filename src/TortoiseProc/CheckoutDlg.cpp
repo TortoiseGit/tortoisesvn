@@ -87,6 +87,9 @@ void CCheckoutDlg::UpdateURLsFromCombo()
 	if (!multiSelect)
 		m_bIndependentWCs = FALSE;
 
+	if (!m_bAutoCreateTargetName)
+		return;
+
 	// find out what to use as the checkout directory name
 
 	if (!m_sCheckoutDirOrig.IsEmpty())
@@ -152,7 +155,7 @@ BOOL CCheckoutDlg::OnInitDialog()
 	m_URLCombo.SetURLHistory(TRUE);
 	m_bAutoCreateTargetName = FALSE;
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
-	m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sCheckoutDirOrig);
+	m_bAutoCreateTargetName = !(PathIsDirectoryEmpty(m_sCheckoutDirOrig) || !PathFileExists(m_sCheckoutDirOrig));
 	m_URLCombo.SetCurSel(0);
 
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
@@ -419,7 +422,7 @@ void CCheckoutDlg::OnBnClickedCheckoutdirectoryBrowse()
 		UpdateData(TRUE);
 		m_strCheckoutDirectory = strCheckoutDirectory;
 		m_sCheckoutDirOrig = m_strCheckoutDirectory;
-		m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sCheckoutDirOrig);
+		m_bAutoCreateTargetName = !(PathIsDirectoryEmpty(m_sCheckoutDirOrig) || !PathFileExists(m_sCheckoutDirOrig));
 		UpdateData(FALSE);
 		DialogEnableWindow(IDOK, !m_strCheckoutDirectory.IsEmpty());
 	}
