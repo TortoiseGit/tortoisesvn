@@ -3479,9 +3479,8 @@ void CRepositoryBrowser::InvalidateDataParents
 void CRepositoryBrowser::BeginDrag(const CWnd& window,
 	CRepositoryBrowserSelection& selection, POINT& point, bool setAsyncMode)
 {
-	// must be exactly one path	
-	if ( (selection.GetRepositoryCount() != 1)
-        || (selection.GetPathCount(0) != 1))
+	// must be exactly one repository	
+	if (selection.GetRepositoryCount() != 1)
 	{
 		return;
 	}
