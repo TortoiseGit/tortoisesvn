@@ -967,6 +967,9 @@ bool CTSVNPathList::WriteToFile(const CString& sFilename, bool bANSI /* = false 
 
 void CTSVNPathList::LoadFromAsteriskSeparatedString(const CString& sPathString)
 {
+	if (GetCount() > 0)
+		Clear();
+
 	int pos = 0;
 	CString temp;
 	for(;;)
@@ -1412,7 +1415,6 @@ private:
 		ATLASSERT(testList[2].GetWinPathString() == _T("\\funnypath"));
 		
 		ATLASSERT(testList.GetCommonRoot().GetWinPathString() == _T(""));
-		testList.Clear();
 		sPathList = _T("c:\\path2 with spaces and stuff*c:\\funnypath\\*");
 		testList.LoadFromAsteriskSeparatedString(sPathList);
 		ATLASSERT(testList.GetCommonRoot().GetWinPathString() == _T("c:\\"));
@@ -1490,27 +1492,22 @@ private:
 		list.AddPath(pathC);
 		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("C:\\Development"))==0);
 #ifdef _MFC_VER
-		list.Clear();
 		CString sPathList = _T("D:\\Development\\StExBar\\StExBar\\src\\setup\\Setup64.wxs*D:\\Development\\StExBar\\StExBar\\src\\setup\\Setup.wxs*D:\\Development\\StExBar\\SKTimeStamp\\src\\setup\\Setup.wxs*D:\\Development\\StExBar\\SKTimeStamp\\src\\setup\\Setup64.wxs");
 		list.LoadFromAsteriskSeparatedString(sPathList);
 		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("D:\\Development\\StExBar"))==0);
 
-		list.Clear();
 		sPathList = _T("c:\\windows\\explorer.exe*c:\\windows");
 		list.LoadFromAsteriskSeparatedString(sPathList);
 		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("c:\\windows"))==0);
 
-		list.Clear();
 		sPathList = _T("c:\\windows\\*c:\\windows");
 		list.LoadFromAsteriskSeparatedString(sPathList);
 		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("c:\\windows"))==0);
 
-		list.Clear();
 		sPathList = _T("c:\\windows\\system32*c:\\windows\\system");
 		list.LoadFromAsteriskSeparatedString(sPathList);
 		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("c:\\windows"))==0);
 
-		list.Clear();
 		sPathList = _T("c:\\windowsdummy*c:\\windows");
 		list.LoadFromAsteriskSeparatedString(sPathList);
 		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("c:\\"))==0);
