@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -204,7 +204,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 
 		FILEGROUPDESCRIPTOR* files = (FILEGROUPDESCRIPTOR*)GlobalLock(data);
 		files->cItems = static_cast<UINT>(m_allPaths.size());
-		int i = 0;
+		int index = 0;
 		for (vector<SVNDataObject::SVNObjectInfoData>::const_iterator it = m_allPaths.begin(); it != m_allPaths.end(); ++it)
 		{
 			CString temp;
@@ -219,21 +219,26 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 			{
 				temp = it->rootpath.GetUIFileOrDirectoryName();
 			}
-			_tcscpy_s(files->fgd[i].cFileName, MAX_PATH, (LPCTSTR)temp);
-			files->fgd[i].dwFlags = FD_ATTRIBUTES | FD_PROGRESSUI | FD_FILESIZE | FD_LINKUI;
+			_tcscpy_s(files->fgd[index].cFileName, MAX_PATH, (LPCTSTR)temp);
+			files->fgd[index].dwFlags = FD_ATTRIBUTES | FD_PROGRESSUI | FD_FILESIZE | FD_LINKUI;
 			if (it->rootpath.IsUrl())
 			{
-				files->fgd[i].dwFileAttributes = (it->infodata.kind == svn_node_dir) ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
-				files->fgd[i].nFileSizeLow = static_cast<DWORD>(it->infodata.size64);
-				files->fgd[i].nFileSizeHigh = static_cast<DWORD>(static_cast<ULONGLONG>(it->infodata.size64) >> 32);
+				files->fgd[index].dwFileAttributes = (it->infodata.kind == svn_node_dir) ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
 			}
 			else
 			{
-				files->fgd[i].dwFileAttributes = it->rootpath.IsDirectory() ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
-				files->fgd[i].nFileSizeLow = 0;
-				files->fgd[i].nFileSizeHigh = 0;
+				files->fgd[index].dwFileAttributes = it->rootpath.IsDirectory() ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
 			}
-			++i;
+			// Always set the file size to 0 even if we 'know' the file size (infodata.size64).
+			// Because for text files, the file size is too low due to the EOLs getting converted
+			// to CRLF (from LF as stored in the repository). And a too low file size set here
+			// prevents the shell from reading the full file later - it only reads the stream up
+			// to the number of bytes specified here. Which means we would end up with a truncated
+			// text file (binary files are still ok though).
+			files->fgd[index].nFileSizeLow = 0;
+			files->fgd[index].nFileSizeHigh = 0;
+
+			++index;
 		}
 
 		GlobalUnlock(data);
