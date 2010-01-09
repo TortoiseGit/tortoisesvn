@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -123,7 +123,7 @@ struct SBlob
 
 /**
  * efficiently stores a pool of unique blobs.
- * Each string is assigned an unique, immutable index.
+ * Each BLOB is assigned an unique, immutable index.
  *
  * Under most circumstances, O(1) lookup is provided.
  */
@@ -224,9 +224,9 @@ public:
 
     void swap (CBlobDictionary& rhs);
 
-	index_t Find (const SBlob& string) const;
-	index_t Insert (const SBlob& string);
-	index_t AutoInsert (const SBlob& string);
+	index_t Find (const SBlob& blob) const;
+	index_t Insert (const SBlob& blob);
+	index_t AutoInsert (const SBlob& blob);
 
 	/// reset content
 
