@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,6 +33,7 @@
 #include "Hooks.h"
 #include "auto_buffer.h"
 #include "COMError.h"
+#include "..\version.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -76,6 +77,7 @@ void CCommitDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_SPLITTER, m_wndSplitter);
 	DDX_Check(pDX, IDC_KEEPLISTS, m_bKeepChangeList);
 	DDX_Control(pDX, IDC_COMMIT_TO, m_CommitTo);
+	DDX_Control(pDX, IDC_NEWVERSIONLINK, m_cUpdateLink);
 }
 
 BEGIN_MESSAGE_MAP(CCommitDlg, CResizableStandAloneDialog)
@@ -206,6 +208,8 @@ BOOL CCommitDlg::OnInitDialog()
 		GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
 	}
 
+	VersionCheck();
+
 	if (!m_sLogMessage.IsEmpty())
 		m_cLogMessage.SetText(m_sLogMessage);
 		
@@ -248,6 +252,7 @@ BOOL CCommitDlg::OnInitDialog()
 	AddAnchor(IDC_COMMIT_TO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_MESSAGEGROUP, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_HISTORY, TOP_LEFT);
+	AddAnchor(IDC_NEWVERSIONLINK, TOP_LEFT, TOP_RIGHT);
 
 	AddAnchor(IDC_SELECTLABEL, TOP_LEFT);
 	AddAnchor(IDC_CHECKALL, TOP_LEFT);
@@ -1638,4 +1643,44 @@ void CCommitDlg::UpdateCheckLinks()
 	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKMODIFIED)->GetSafeHwnd(), PROPID_ACC_STATE, m_ListCtrl.GetModifiedCount() > 0 ? STATE_SYSTEM_READONLY : disabledstate);
 	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKFILES)->GetSafeHwnd(), PROPID_ACC_STATE, m_ListCtrl.GetFileCount() > 0 ? STATE_SYSTEM_READONLY : disabledstate);
 	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKDIRECTORIES)->GetSafeHwnd(), PROPID_ACC_STATE, m_ListCtrl.GetFolderCount() > 0 ? STATE_SYSTEM_READONLY : disabledstate);
+}
+
+void CCommitDlg::VersionCheck()
+{
+	CRegString regVer(_T("Software\\TortoiseSVN\\NewVersion"));
+	CString vertemp = regVer;
+	int major = _ttoi(vertemp);
+	vertemp = vertemp.Mid(vertemp.Find('.')+1);
+	int minor = _ttoi(vertemp);
+	vertemp = vertemp.Mid(vertemp.Find('.')+1);
+	int micro = _ttoi(vertemp);
+	vertemp = vertemp.Mid(vertemp.Find('.')+1);
+	int build = _ttoi(vertemp);
+	BOOL bNewer = FALSE;
+	if (major > TSVN_VERMAJOR)
+		bNewer = TRUE;
+	else if ((minor > TSVN_VERMINOR)&&(major == TSVN_VERMAJOR))
+		bNewer = TRUE;
+	else if ((micro > TSVN_VERMICRO)&&(minor == TSVN_VERMINOR)&&(major == TSVN_VERMAJOR))
+		bNewer = TRUE;
+	else if ((build > TSVN_VERBUILD)&&(micro == TSVN_VERMICRO)&&(minor == TSVN_VERMINOR)&&(major == TSVN_VERMAJOR))
+		bNewer = TRUE;
+
+	if (bNewer)
+	{
+		CRegString regDownText(_T("Software\\TortoiseSVN\\NewVersionText"));
+		CRegString regDownLink(_T("Software\\TortoiseSVN\\NewVersionLink"), _T("http://tortoisesvn.net"));
+
+		if (CString(regDownText).IsEmpty())
+		{
+			CString temp;
+			temp.LoadString(IDS_CHECKNEWER_NEWERVERSIONAVAILABLE);
+			regDownText = temp;
+		}
+		m_cUpdateLink.SetURL(CString(regDownLink));
+		m_cUpdateLink.SetWindowText(CString(regDownText));
+		m_cUpdateLink.SetColors(RGB(255,0,0), RGB(150,0,0));
+
+		m_cUpdateLink.ShowWindow(SW_SHOW);
+	}
 }

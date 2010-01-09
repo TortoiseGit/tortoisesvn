@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -159,18 +159,27 @@ UINT CCheckForUpdatesDlg::CheckThread()
 					if(file.ReadString(temp) && !temp.IsEmpty())
 					{	// Read the next line, it could contain a message for the user
 						CString tempLink;
+						CRegString regDownLink(_T("Software\\TortoiseSVN\\NewVersionLink"));
+						regDownLink = tempLink;
 						if(file.ReadString(tempLink) && !tempLink.IsEmpty())
 						{	// Read another line to find out the download link-URL, if any
 							m_sUpdateDownloadLink = tempLink;
+							regDownLink = m_sUpdateDownloadLink;
 						}
-
 					}
 					else
 					{
 						temp.LoadString(IDS_CHECKNEWER_NEWERVERSIONAVAILABLE);
 					}
+					CRegString regDownText(_T("Software\\TortoiseSVN\\NewVersionText"));
+					regDownText = temp;
 					SetDlgItemText(IDC_CHECKRESULT, temp);
-					m_bShowInfo = TRUE;
+					// only show the dialog for newer versions if the 'old style' update check
+					// is requested. The current update check shows the info in the commit dialog.
+					if (DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\OldVersionCheck"))))
+						m_bShowInfo = TRUE;
+					CRegString regVer(_T("Software\\TortoiseSVN\\NewVersion"));
+					regVer = ver;
 				}
 				else
 				{

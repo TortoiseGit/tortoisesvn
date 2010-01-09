@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,7 +34,6 @@ IMPLEMENT_DYNAMIC(CSetMainPage, ISettingsPropPage)
 CSetMainPage::CSetMainPage()
 	: ISettingsPropPage(CSetMainPage::IDD)
 	, m_sTempExtensions(_T(""))
-	, m_bCheckNewer(TRUE)
 	, m_bLastCommitTime(FALSE)
 	, m_bUseDotNetHack(FALSE)
 	, m_bUseAero(TRUE)
@@ -42,7 +41,6 @@ CSetMainPage::CSetMainPage()
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	CString temp(SVN_CONFIG_DEFAULT_GLOBAL_IGNORES);
 	m_regExtensions = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores"), temp);
-	m_regCheckNewer = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE);
 	m_regLastCommitTime = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\use-commit-times"), _T(""));
 	if ((GetEnvironmentVariable(_T("SVN_ASP_DOT_NET_HACK"), NULL, 0)==0)&&(GetLastError()==ERROR_ENVVAR_NOT_FOUND))
 		m_bUseDotNetHack = false;
@@ -61,7 +59,6 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LANGUAGECOMBO, m_LanguageCombo);
 	m_dwLanguage = (DWORD)m_LanguageCombo.GetItemData(m_LanguageCombo.GetCurSel());
 	DDX_Text(pDX, IDC_TEMPEXTENSIONS, m_sTempExtensions);
-	DDX_Check(pDX, IDC_CHECKNEWERVERSION, m_bCheckNewer);
 	DDX_Check(pDX, IDC_COMMITFILETIMES, m_bLastCommitTime);
 	DDX_Check(pDX, IDC_ASPDOTNETHACK, m_bUseDotNetHack);
 	DDX_Check(pDX, IDC_AERODWM, m_bUseAero);
@@ -88,7 +85,6 @@ BOOL CSetMainPage::OnInitDialog()
 
 	m_sTempExtensions = m_regExtensions;
 	m_dwLanguage = m_regLanguage;
-	m_bCheckNewer = m_regCheckNewer;
 	m_bUseAero = m_regUseAero;
 
 	CString temp;
@@ -98,7 +94,6 @@ BOOL CSetMainPage::OnInitDialog()
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_TEMPEXTENSIONSLABEL, IDS_SETTINGS_TEMPEXTENSIONS_TT);
 	m_tooltips.AddTool(IDC_TEMPEXTENSIONS, IDS_SETTINGS_TEMPEXTENSIONS_TT);
-	m_tooltips.AddTool(IDC_CHECKNEWERVERSION, IDS_SETTINGS_CHECKNEWER_TT);
 	m_tooltips.AddTool(IDC_COMMITFILETIMES, IDS_SETTINGS_COMMITFILETIMES_TT);
 	m_tooltips.AddTool(IDC_ASPDOTNETHACK, IDS_SETTINGS_DOTNETHACK_TT);
 
@@ -174,7 +169,6 @@ BOOL CSetMainPage::OnApply()
 		Store (m_sTempExtensions, m_regExtensions);
 		m_restart = Restart_Cache;
 	}
-	Store (m_bCheckNewer, m_regCheckNewer);
 	Store ((m_bLastCommitTime ? _T("yes") : _T("no")), m_regLastCommitTime);
 	Store (m_bUseAero, m_regUseAero);
 

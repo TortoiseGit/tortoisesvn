@@ -38,6 +38,8 @@ CSettingsAdvanced::AdvancedSetting CSettingsAdvanced::settings[] =
 	{ _T("UpdateCheckURL"), CSettingsAdvanced::SettingTypeString, _T("") },
 	{ _T("ColumnsEveryWhere"), CSettingsAdvanced::SettingTypeBoolean, false },
 	{ _T("AllowUnversionedObstruction"), CSettingsAdvanced::SettingTypeBoolean, true },
+	{ _T("OldVersionCheck"), CSettingsAdvanced::SettingTypeBoolean, false },
+	{ _T("VersionCheck"), CSettingsAdvanced::SettingTypeBoolean, true },
 
 	{ _T(""), CSettingsAdvanced::SettingTypeNone, false }
 };
