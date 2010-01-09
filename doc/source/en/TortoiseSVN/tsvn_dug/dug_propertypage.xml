@@ -507,10 +507,47 @@
 			</para>
 		</important>
 		<para>
-			When you add new sub-folders using TortoiseSVN, any
+			When you add new sub-folders to a working copy using TortoiseSVN, any
 			project properties present in the parent folder
 			will automatically be added to the new child folder too.
 		</para>
+		<tip>
+			<title>Limitations Using the Repository Browser</title>
+			<para>
+				Fetching properties remotely is a slow operation, so some
+				of the features described above will not work in the
+				repository browser as they do in a working copy.
+			</para>
+			<itemizedlist>
+				<listitem>
+					<para>
+						When you add a property using the repo browser, only
+						the standard <literal>svn:</literal> properties are offered
+						in the pre-defined list. Any other property name must be
+						entered manually.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Properties cannot be set or deleted recursively
+						using the repo browser.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Project properties will <emphasis>not</emphasis> be
+						propagated automatically when a child folder is added
+						using the repo browser.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<literal>tsvn:autoprops</literal> will <emphasis>not</emphasis>
+						set properties on files which are added using the repo browser.
+					</para>
+				</listitem>
+			</itemizedlist>
+		</tip>
 		<caution>
 			<para>
 				Although TortoiseSVN's project properties are extremely useful,

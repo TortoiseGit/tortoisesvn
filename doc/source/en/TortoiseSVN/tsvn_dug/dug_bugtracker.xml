@@ -322,7 +322,7 @@
 			</para>
 		</important>
 		<para>
-			When you add new sub-folders using TortoiseSVN, any
+			When you add new sub-folders to a working copy using TortoiseSVN, any
 			project properties present in the parent folder
 			will automatically be added to the new child folder too.
 		</para>
@@ -336,6 +336,10 @@
 				unless you started the repo browser from your working copy. If you
 				started the repo browser by entering the URL of the repository
 				you won't see this feature.
+			</para>
+			<para>
+				For the same reason, project properties will not be propagated
+				automatically when a child folder is added using the repo browser.
 			</para>
 		</tip>
 		<para>
