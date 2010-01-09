@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1056,62 +1056,41 @@ CTSVNPath CTSVNPathList::GetCommonDirectory() const
 
 CTSVNPath CTSVNPathList::GetCommonRoot() const
 {
-	PathVector::const_iterator it;
-	CString sRoot, sTempRoot;
-	bool bEqual = true;
-
 	if (GetCount() == 0)
 		return CTSVNPath();
 	if (GetCount() == 1)
 		return m_paths[0];
 
-	int backSlashPos = 0;
-	int searchStartPos = 0;
-	while (bEqual)
+	// first entry is common root for itself
+	// (add trailing '\\' to detect partial matches of the last path element)
+
+	CString root = m_paths[0].GetWinPathString() + _T('\\');
+	int rootLength = root.GetLength();
+
+	// determine common path string prefix
+
+	for ( PathVector::const_iterator it = m_paths.begin()+1
+		; it != m_paths.end()
+		; ++it)
 	{
-		for (it = m_paths.begin(); it != m_paths.end(); ++it)
+		CString path = it->GetWinPathString() + _T('\\');
+
+		int newLength = CStringUtils::GetMatchingLength (root, path);
+		if (newLength != rootLength)
 		{
-			if (backSlashPos == 0)
-			{
-				backSlashPos = it->GetWinPathString().Find('\\', searchStartPos+1);
-				if ((backSlashPos < 0)&&(searchStartPos != it->GetWinPathString().GetLength()))
-					backSlashPos = it->GetWinPathString().GetLength();
-			}
-			else if (it->GetWinPathString().Find('\\', searchStartPos+1) != backSlashPos)
-			{
-				if (it->GetWinPathString().Find('\\', searchStartPos+1) < 0)
-				{
-					if (it->GetWinPathString().GetLength() != backSlashPos)
-					{
-						bEqual = false;
-						break;
-					}
-				}
-				else
-				{
-					bEqual = false;
-					break;
-				}
-			}
-			if (backSlashPos < 0)
-			{
-				bEqual = false;
-				break;
-			}
+			root.Delete (newLength, rootLength);
+			rootLength = newLength;
 		}
-		if (bEqual == false)
-		{
-			if (searchStartPos)
-				sRoot = m_paths[0].GetWinPathString().Left(searchStartPos+1);
-		}
-		else
-		{
-			searchStartPos = backSlashPos;
-		}
-		backSlashPos = 0;
 	}
 
-	return CTSVNPath(sRoot.TrimRight('\\'));
+	// remove the last (partial) path element
+
+	if (rootLength > 0)
+		root.Delete (root.ReverseFind (_T('\\')), rootLength);
+
+	// done
+
+	return CTSVNPath (root);
 }
 
 void CTSVNPathList::SortByPathname(bool bReverse /*= false*/)
