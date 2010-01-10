@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009 - TortoiseSVN
+// Copyright (C) 2007, 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,7 +27,7 @@ bool RevisionGraphCommand::Execute()
 	SVNRev pegrev = val.IsEmpty() ? SVNRev() : SVNRev(val);
 
 	CRevisionGraphDlg dlg;
-	dlg.SetPath(cmdLinePath.GetWinPathString());
+	dlg.SetPath(cmdLinePath.GetUIPathString());
 	dlg.SetPegRevision(pegrev);
 	dlg.DoModal();
 

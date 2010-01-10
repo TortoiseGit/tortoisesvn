@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -304,7 +304,7 @@ void CRevisionGraphWnd::GetSelected
 
     if (node->GetClassification().Is (CNodeClassification::IS_MODIFIED_WC))
     {
-        path.SetFromWin (m_sPath);
+        path.SetFromUnknown (m_sPath);
         rev = SVNRev::REV_WC;
 
         // don't set peg, if we aren't the first node 
