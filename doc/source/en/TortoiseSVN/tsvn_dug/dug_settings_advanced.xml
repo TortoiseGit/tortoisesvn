@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect2 SYSTEM "../../../dtd/dblite.dtd">
+<sect2 id="tsvn-dug-settings-registry">
+	<title>Advanced Settings</title>
+	<indexterm>
+		<primary>registry</primary>
+	</indexterm>
+	<para>
+		A few infrequently used settings are available only in the advanced
+		page of the settings dialog. These settings modify the registry directly
+		and you have to know what each of these settings is used for and what
+		it does. Do not modify those settings if you're not sure you need to
+		change those.
+	</para>
+	<variablelist>
+		<varlistentry>
+			<term>ConfigDir</term>
+			<listitem>
+				<para>
+					You can specify a different location for the Subversion
+					configuration file here.
+					This will affect all TortoiseSVN operations.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Debug</term>
+			<listitem>
+				<para>
+					Set this to <literal>true</literal> if you want a dialog to
+					pop up for every command showing the command line of the command.
+				</para>
+			</listitem>
+		</varlistentry>
+
+		<varlistentry>
+			<term>CacheTrayIcon</term>
+			<listitem>
+				<para>
+					To add a cache tray icon for the TSVNCache program, set
+					this value to <literal>true</literal>.
+					This is really only useful for developers as it allows
+					you to terminate the program gracefully.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ShowContextMenuIcons</term>
+			<listitem>
+				<para>
+					This can be useful if you use something other than the windows explorer
+					or if you get problems with the context menu displaying correctly.
+					Set this value to <literal>false</literal>
+					if you don't want TortoiseSVN to not show icons for the
+					shell context menu items. Set this value to <literal>true</literal> to show
+					the icons again.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ShowAppContextMenuIcons</term>
+			<listitem>
+				<para>
+					If you don't want TortoiseSVN to show icons for the context
+					menus in its dialogs, set this value to <literal>false</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>LogStatusCheck</term>
+			<listitem>
+				<para>
+					The log dialog shows the revision the working copy path
+					is at in bold. But this requires that the log dialog fetches
+					the status of that path. Since for very big working copies
+					this can take a while, you can set this value to <literal>false</literal>
+					to deactivate this feature.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>FullRowSelect</term>
+			<listitem>
+				<para>
+					The status list control which is used in various dialogs
+					(e.g., commit, check-for-modifications, add, revert, ...)
+					uses full row selection (i.e., if you select an entry, the
+					full row is selected, not just the first column).
+					This is fine, but the selected row then also covers the
+					background image on the bottom right, which can look ugly.
+					To disable full row select, set this value to 
+					<literal>false</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>StyleCommitMessages</term>
+			<listitem>
+				<para>
+					The commit and log dialog style commit messages (see
+					<xref linkend="tsvn-dug-commit-log"/> for details). If you
+					don't want to do this, set this value to 
+					<literal>false</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ShellMenuAccelerators</term>
+			<listitem>
+				<para>
+					TortoiseSVN uses accelerators for its explorer context menu
+					entries. Since this can lead to doubled accelerators (e.g.
+					the <literal>SVN Commit</literal> has the <keycap>Alt-C</keycap>
+					accelerator, but so does the <literal>Copy</literal> entry
+					of explorer).
+					If you don't want or need the accelerators of the TortoiseSVN
+					entries, set this value to <literal>false</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>AlwaysExtendedMenu</term>
+			<listitem>
+				<para>
+					As the explorer, TortoiseSVN also shows additional commands
+					if the <keycap>Shift<keycap> key is pressed while the
+					context menu is opened.
+					To force TortoiseSVN to always show those extended commands,
+					set this value to <literal>true</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>BlockStatus</term>
+			<listitem>
+				<para>
+					If you don't want the explorer to update the status overlays 
+					while another TortoiseSVN command is running 
+					(e.g. Update, Commit, ...) then set this value to
+					<literal>true</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>UpdateCheckURL</term>
+			<listitem>
+				<para>
+					This value contains the URL from which TortoiseSVN tries 
+					to download a text file to find out if there are updates 
+					available. 
+					This might be useful for company admins who don't want 
+					their users to update TortoiseSVN until they approve it.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ColumnsEveryWhere</term>
+			<listitem>
+				<para>
+					The extra columns the TortoiseSVN adds to the details view
+					in Windows Explorer (Only XP, Vista and later don't support
+					that feature anymore) are normally only active in a working
+					copy. If you want those to be accessible everywhere, not
+					just in working copies, set this value to 
+					<literal>true</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>AllowUnversionedObstruction</term>
+			<listitem>
+				<para>
+					TortoiseSVN by default allows an update that adds a file
+					but which already exists unversioned in the local working 
+					copy (i.e., an update adds a file that already exists but
+					is not under version control). And differences between the
+					newly versioned file and the existing unversioned file
+					are then properly handled, i.e. the file appears as 
+					modified.
+					If you rather want TortoiseSVN to create a conflict in
+					such situations, set this value to <literal>false</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>OldVersionCheck</term>
+			<listitem>
+				<para>
+					TortoiseSVN checks whether there's a new version available
+					about once a week. If an updated version is found, the
+					commit dialog shows a link control with that info.
+					If you rather want the old behavior back where a dialog
+					pops up notifying you about the update, set this value to
+					<literal>true</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>VersionCheck</term>
+			<listitem>
+				<para>
+					TortoiseSVN checks whether there's a new version available
+					about once a week. If you don't want TortoiseSVN to do this
+					check, set this value to <literal>false</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>AutocompleteRemovesExtensions</term>
+			<listitem>
+				<para>
+					The auto-completion list shown in the commit message editor
+					displays the names of files listed for commit.
+					To also include these names with extensions removed,
+					set this value to <literal>true</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Merge log separator</term>
+			<listitem>
+				<para>
+					When you merge revisions from another branch, and merge tracking
+					information is available, the log messages from the revisions
+					you merge will be collected to make up a commit log message.
+					A pre-defined string is used to separate the individual log
+					messages of the merged revisions. If you prefer, you can set
+					this to a value containing a separator string of your choice.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>DiffBlamesWithTortoiseMerge</term>
+			<listitem>
+				<para>
+					TortoiseSVN allows you to assign external diff viewer.
+					Most such viewers, however, are not suited for change blaming
+					(<xref linkend="tsvn-dug-blame-diffs"/>),
+					so you might wish to fall back to TortoiseMerge in this case.
+					To do so, set this value to <literal>true</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect2>

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-01-07 09:08 +0000\n"
+"POT-Creation-Date: 2010-01-10 08:44 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1639,7 +1639,6 @@ msgid "Uncomment (remove the '<literal>#</literal>' mark) the following lines: <
 msgstr ""
 
 #.(title)
-#.(term)
 msgid "Configuration"
 msgstr ""
 
@@ -5313,7 +5312,32 @@ msgstr ""
 #.(para)
 #.(para)
 #.(para)
-msgid "When you add new sub-folders using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
+msgid "When you add new sub-folders to a working copy using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
+msgstr ""
+
+#.(title)
+#.(title)
+msgid "Limitations Using the Repository Browser"
+msgstr ""
+
+#.(para)
+msgid "Fetching properties remotely is a slow operation, so some of the features described above will not work in the repository browser as they do in a working copy."
+msgstr ""
+
+#.(para)
+msgid "When you add a property using the repo browser, only the standard <literal>svn:</literal> properties are offered in the pre-defined list. Any other property name must be entered manually."
+msgstr ""
+
+#.(para)
+msgid "Properties cannot be set or deleted recursively using the repo browser."
+msgstr ""
+
+#.(para)
+msgid "Project properties will <emphasis>not</emphasis> be propagated automatically when a child folder is added using the repo browser."
+msgstr ""
+
+#.(para)
+msgid "<literal>tsvn:autoprops</literal> will <emphasis>not</emphasis> set properties on files which are added using the repo browser."
 msgstr ""
 
 #.(para)
@@ -7095,6 +7119,11 @@ msgid "Because the issue tracker integration depends upon accessing subversion p
 msgstr ""
 
 #.(para)
+#.(para)
+msgid "For the same reason, project properties will not be propagated automatically when a child folder is added using the repo browser."
+msgstr ""
+
+#.(para)
 msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
 msgstr ""
 
@@ -7156,10 +7185,6 @@ msgstr ""
 
 #.(para)
 msgid "You can also use relative URLs instead of absolute ones. This is useful in case your web viewer is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>webviewer:revision</literal> and <literal>webviewer:pathrevision</literal> property. The format is the same as for the <literal>bugtraq:url</literal> property. See <xref linkend=\"tsvn-dug-bugtracker\"/>."
-msgstr ""
-
-#.(title)
-msgid "No Repo Viewer Links from Repository Browser"
 msgstr ""
 
 #.(para)
@@ -8568,110 +8593,6 @@ msgstr ""
 
 #.(para)
 msgid "Defines how many spaces to use for expansion when a tab character is found in the file content."
-msgstr ""
-
-#.(title)
-msgid "Registry Settings"
-msgstr ""
-
-#.(primary)
-msgid "registry"
-msgstr ""
-
-#.(para)
-msgid "A few infrequently used settings are available only by editing the registry directly. It goes without saying that you should only edit registry values if you know what you are doing."
-msgstr ""
-
-#.(para)
-msgid "You can specify a different location for the Subversion configuration file using registry location <literal>HKCU\\Software\\TortoiseSVN\\ConfigDir</literal>. This will affect all TortoiseSVN operations."
-msgstr ""
-
-#.(term)
-msgid "Cache tray icon"
-msgstr ""
-
-#.(para)
-msgid "To add a cache tray icon for the TSVNCache program, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\CacheTrayIcon</literal>. This is really only useful for developers as it allows you to terminate the program gracefully."
-msgstr ""
-
-#.(term)
-msgid "Debug"
-msgstr ""
-
-#.(para)
-msgid "To show the command line parameters passed from the shell extension to TortoiseProc.exe create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\Debug</literal>."
-msgstr ""
-
-#.(term)
-msgid "Context Menu Icons"
-msgstr ""
-
-#.(para)
-msgid "This can be useful if you use something other than the windows explorer or if you get problems with the context menu displaying correctly. create a <literal>DWORD</literal> key with a value of 0 at <literal>HKCU\\Software\\TortoiseSVN\\ShowContextMenuIcons</literal> if you don't want TortoiseSVN to not show icons for the shell context menu items. Set this value to 1 to show the icons again."
-msgstr ""
-
-#.(term)
-msgid "Block Overlay Status"
-msgstr ""
-
-#.(para)
-msgid "If you don't want the explorer to update the status overlays while another TortoiseSVN command is running (e.g. Update, Commit, ...) then create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\BlockStatus</literal>."
-msgstr ""
-
-#.(term)
-msgid "Update Check URL"
-msgstr ""
-
-#.(para)
-msgid "<literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> contains the URL from which TortoiseSVN tries to download a text file to find out if there are updates available. You can also set this under <literal>HKLM</literal> instead of <literal>HKCU</literal> if you want, but <literal>HKCU</literal> overwrites the setting in <literal>HKLM</literal>. This might be useful for company admins who don't want their users to update TortoiseSVN until they approve it."
-msgstr ""
-
-#.(term)
-msgid "Filenames without extensions in auto-completion list"
-msgstr ""
-
-#.(para)
-msgid "The auto-completion list shown in the commit message editor displays the names of files listed for commit. To also include these names with extensions removed, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\AutocompleteRemovesExtensions</literal>."
-msgstr ""
-
-#.(term)
-msgid "Explorer columns everywhere"
-msgstr ""
-
-#.(para)
-msgid "The extra columns the TortoiseSVN adds to the details view in Windows Explorer are normally only active in a working copy. If you want those to be accessible everywhere, not just in working copies, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\ColumnsEveryWhere</literal>."
-msgstr ""
-
-#.(term)
-msgid "Merge log separator"
-msgstr ""
-
-#.(para)
-msgid "When you merge revisions from another branch, and merge tracking information is available, the log messages from the revisions you merge will be collected to make up a commit log message. A pre-defined string is used to separate the individual log messages of the merged revisions. If you prefer, you can create a <literal>SZ</literal> key at <literal>HKCU\\Software\\TortoiseSVN\\MergeLogSeparator</literal> containing a separator string of your choice."
-msgstr ""
-
-#.(term)
-msgid "Always blame changes with TortoiseMerge"
-msgstr ""
-
-#.(para)
-msgid "TortoiseSVN allows you to assign external diff viewer. Most such viewers, however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To do so, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge</literal>."
-msgstr ""
-
-#.(term)
-msgid "Current revision highlighting for folders in log dialog"
-msgstr ""
-
-#.(para)
-msgid "The log dialog highlights the current working copy revision when the log is shown for a file. To do the same thing for a folder requires a working copy crawl, which can be a slow operation for large working copies. However the crawling is done in a separate thread so it doesn't hold up the display of log messages. For <emphasis>really</emphasis> large working copies the disk chatter might be annoying, so if you really want to disable this you must create a <literal>DWORD</literal> registry key at <literal>HKCU\\Software\\TortoiseSVN\\LogStatusCheck</literal>. A value of 0 disables the feature (no highlighting for folders)."
-msgstr ""
-
-#.(term)
-msgid "Make checkout fail if an item of the same name exists"
-msgstr ""
-
-#.(para)
-msgid "By default, if you checkout a working copy over an existing unversioned folder structure, as you might do after import, then any existing which differ from the repository content will be left unchanged and marked as modified. When you come to commit, it is your local copy which will then be sent back to the repository. Some people would prefer the checkout to fail if the existing content differs, so that if two people add the same file the second person's version does not overwrite the original version by mistake. If you want to force checkouts to fail in this instance you must create a <literal>DWORD</literal> registry key with value 0 at <literal>HKCU\\Software\\TortoiseSVN\\AllowUnversionedObstruction</literal>."
 msgstr ""
 
 #.(title)
