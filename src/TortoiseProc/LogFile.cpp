@@ -129,7 +129,7 @@ void CLogFile::AdjustSize(std::deque<CString>& lines)
 {
 	DWORD maxlines = m_maxlines;
 
-	while ((lines.size() + m_newLines.size()) > maxlines)
+	while (((lines.size() + m_newLines.size()) > maxlines) && !lines.empty())
 	{
 		lines.pop_front();
 	}
