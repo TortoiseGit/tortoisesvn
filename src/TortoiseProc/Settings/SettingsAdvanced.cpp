@@ -26,11 +26,13 @@
 
 CSettingsAdvanced::AdvancedSetting CSettingsAdvanced::settings[] = 
 {
+	{ _T("ConfigDir"), CSettingsAdvanced::SettingTypeString, _T("") },
 	{ _T("Debug"), CSettingsAdvanced::SettingTypeBoolean, false },
 	{ _T("CacheTrayIcon"), CSettingsAdvanced::SettingTypeBoolean, false },
 	{ _T("ShowContextMenuIcons"), CSettingsAdvanced::SettingTypeBoolean, true },
 	{ _T("ShowAppContextMenuIcons"), CSettingsAdvanced::SettingTypeBoolean, true },
-	{ _T("LogStatusCheck"), CSettingsAdvanced::SettingTypeBoolean, true },
+	{ _T("LogStatusCheck"), CSettingsAdvanced::SettingTypeBoolean, true },	
+	{ _T("FullRowSelect"), CSettingsAdvanced::SettingTypeBoolean, true },
 	{ _T("StyleCommitMessages"), CSettingsAdvanced::SettingTypeBoolean, true },
 	{ _T("ShellMenuAccelerators"), CSettingsAdvanced::SettingTypeBoolean, true },
 	{ _T("AlwaysExtendedMenu"), CSettingsAdvanced::SettingTypeBoolean, false },
@@ -40,6 +42,9 @@ CSettingsAdvanced::AdvancedSetting CSettingsAdvanced::settings[] =
 	{ _T("AllowUnversionedObstruction"), CSettingsAdvanced::SettingTypeBoolean, true },
 	{ _T("OldVersionCheck"), CSettingsAdvanced::SettingTypeBoolean, false },
 	{ _T("VersionCheck"), CSettingsAdvanced::SettingTypeBoolean, true },
+	{ _T("AutocompleteRemovesExtensions"), CSettingsAdvanced::SettingTypeBoolean, false },
+	{ _T("MergeLogSeparator"), CSettingsAdvanced::SettingTypeString, _T("........") },
+	{ _T("DiffBlamesWithTortoiseMerge"), CSettingsAdvanced::SettingTypeBoolean, false },
 
 	{ _T(""), CSettingsAdvanced::SettingTypeNone, false }
 };
