@@ -14,9 +14,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge Documentation\n"
-"POT-Creation-Date: 2009-10-09 18:46 +0000\n"
-"PO-Revision-Date: 2009-10-11 16:58+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"POT-Creation-Date: 2010-01-10 08:44 +0000\n"
+"PO-Revision-Date: 2010-01-10 16:06+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -445,6 +445,21 @@ msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane 
 msgstr "<guibutton>Wechsle Ansicht</guibutton> wechselt zwischen Ein- und Zweifenstersicht. Diese Funktion ist im Dreiwegevergleich deaktiviert."
 
 #. (para)
+#. (para)
+msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
+msgstr "<guilabel>Vergleiche Leerzeichen</guilabel> hebt alle Änderungen in Leerzeichen und Einrückung als gelöschte / hinzugefügte Zeilen hervor (Subversion behandelt Änderungen in Leerzeichen so)."
+
+#. (para)
+#. (para)
+msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+msgstr "<guilabel>Ignoriere Änderungen in Leerzeichen</guilabel> verbirgt Änderungen in der Anzahl oder dem Typ von Leerzeichen, z.B. Änderung der Einrückung oder Wechsel von Tab zu Leerzeichen. Komplett neue oder vollständig gelöschte Leerzeichen werden weiterhin als Änderung angezeigt."
+
+#. (para)
+#. (para)
+msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
+msgstr "<guilabel>Ignoriere alle Leerzeichen</guilabel> verbirgt sämtliche Änderungen, die nur aus Leerzeichen bestehen."
+
+#. (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
 msgstr "<guibutton>Tausche Links - Rechts</guibutton>. In der Zweifenstersicht wird der Inhalt des rechten mit dem des linken Bereichs vertauscht. Wenn Sie zwei Dateien in verschiedenen Bäumen vergleichen, weiß TortoiseSVN im Gegensatz zu zwei verschiedenen Revisionen derselben Datei nicht, welche Version als <quote>Original/Basis</quote> Version im linken Bereich angezeigt werden soll. Falls TortoiseSVN falsch rät können Sie somit einfach die Anzeige tauschen."
 
@@ -453,8 +468,16 @@ msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patc
 msgstr "<guibutton>Verberge/Zeige die Patchliste</guibutton> Wenn TortoiseMerge über eine Patchliste verfügt, erlaubt Ihnen diese Schaltfläche, die Liste an- oder auszuschalten, damit die Fenster nicht verdeckt werden."
 
 #. (para)
+msgid "<guilabel>Collapse</guilabel> collapses unchanged regions to a single line, leaving only the changed areas and minimal context. You can expand the collapsed areas by double clicking on the collapse line, but you cannot then re-collapse them unless you reload the file."
+msgstr "<guilabel>Zusammenklappen</guilabel> reduziert die unveränderten Bereiche auf eine einzelne Zeile, so dass nur die geänderten Bereiche mit minimalem Kontext sichtbar sind. Sie können den Bereich wieder aufklappen, indem Sie auf die zusammengeklappte Zeile doppelklicken, aber Sie können den Bereich nicht wieder zusammenklappen ohne die Datei neu zu laden."
+
+#. (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
 msgstr "<guibutton>Einstellungen</guibutton> öffnet den Einstellungsdialog von TortoiseMerge."
+
+#. (para)
+msgid "<guibutton>Help</guibutton> opens the TortoiseMerge help file, of course."
+msgstr "<guibutton>Hilfe</guibutton> öffnet die TortoiseMerge Hilfe."
 
 #. (para)
 msgid "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
@@ -603,18 +626,6 @@ msgstr "<guilabel>Ignoriere Groß- / Kleinschreibung</guilabel> verbirgt Groß- 
 #. (para)
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
 msgstr "<guilabel>Änderungen in Zeile farbig hervorheben</guilabel> verwendet das gleiche Farbschema wie die Differenzzeile, um Änderungen innerhalb der Zeilen auch im Hauptfenster farbig hervorzuheben. Zeilen mit vielen Änderungen werden als ersetzt (alte Zeile gelöscht, neue Zeile hinzugefügt) dargestellt, da die Anzeige sonst zu bunt und damit verwirrend würde."
-
-#. (para)
-msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
-msgstr "<guilabel>Vergleiche Leerzeichen</guilabel> hebt alle Änderungen in Leerzeichen und Einrückung als gelöschte / hinzugefügte Zeilen hervor (Subversion behandelt Änderungen in Leerzeichen so)."
-
-#. (para)
-msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Ignoriere Änderungen in Leerzeichen</guilabel> verbirgt Änderungen in der Anzahl oder dem Typ von Leerzeichen, z.B. Änderung der Einrückung oder Wechsel von Tab zu Leerzeichen. Komplett neue oder vollständig gelöschte Leerzeichen werden weiterhin als Änderung angezeigt."
-
-#. (para)
-msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
-msgstr "<guilabel>Ignoriere alle Leerzeichen</guilabel> verbirgt sämtliche Änderungen, die nur aus Leerzeichen bestehen."
 
 #. (title)
 msgid "Colour Settings Page"
