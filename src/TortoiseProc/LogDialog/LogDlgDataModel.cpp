@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007,2009 - TortoiseSVN
+// Copyright (C) 2003-2007,2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -360,13 +360,18 @@ void CLogEntryData::Finalize
     ( const CCachedLogInfo* cache
     , CDictionaryBasedTempPath& logPath)
 {
-    index_t index = cache->GetRevisions()[revision];
-    const CRevisionInfoContainer& info = cache->GetLogInfo();
+	// don't finalize twice
 
-    CRevisionInfoContainer::CChangesIterator first = info.GetChangesBegin (index);
-    CRevisionInfoContainer::CChangesIterator last = info.GetChangesEnd (index);
+	if (changedPaths.GetCount() == 0)
+	{
+		index_t index = cache->GetRevisions()[revision];
+		const CRevisionInfoContainer& info = cache->GetLogInfo();
 
-    changedPaths.Add (first, last, logPath);
+		CRevisionInfoContainer::CChangesIterator first = info.GetChangesBegin (index);
+		CRevisionInfoContainer::CChangesIterator last = info.GetChangesEnd (index);
+
+		changedPaths.Add (first, last, logPath);
+	}
 }
 
 // r/o access to the data
