@@ -587,6 +587,8 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 	// first check whether the line itself only has whitespace changes
 	CString mine = m_pViewData->GetLine(nLineIndex);
 	CString other = m_pOtherViewData->GetLine(min(nLineIndex, m_pOtherViewData->GetCount() - 1));
+	if (mine.IsEmpty() && other.IsEmpty())
+		return false;
 	mine.Replace(_T(" "), _T(""));
 	mine.Replace(_T("\t"), _T(""));
 	mine.Replace(_T("\r"), _T(""));
