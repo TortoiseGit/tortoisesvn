@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,7 @@
 #pragma once
 #include "registry.h"
 #include "TSVNPath.h"
-#include <list>
+#include <deque>
 
 /**
  * \ingroup TortoiseProc
@@ -55,11 +55,12 @@ public:
 	 * Inserts a line with the current time and date to the log file.
 	 */
 	bool	AddTimeLine();
+
 protected:
-	void	AdjustSize();
+	void	AdjustSize(std::deque<CString>& lines);
 
 private:
 	CRegStdDWORD			m_maxlines;
 	CTSVNPath				m_logfile;
-	std::list<CString>		m_lines;
+	std::deque<CString>		m_newLines;
 };
