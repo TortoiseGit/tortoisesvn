@@ -148,6 +148,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_pLogListAccServer(NULL)
 	, m_pChangedListAccServer(NULL)
 	, m_head(-1)
+	, m_nSortColumnPathList(0)
+	, m_bAscendingPathList(false)
 {
 	m_bFilterWithRegex = 
         !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), FALSE);
@@ -3416,22 +3418,25 @@ void CLogDlg::OnLvnColumnclickChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	if ((m_bLogThreadRunning)||(m_LogList.HasText()))
 		return;		//no sorting while the arrays are filled
-    if (m_currentChangedArray.GetCount() == 0)
-		return;
+
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	const int nColumn = pNMLV->iSubItem;
+
+	// multi-rev selection shows paths only -> can only sort by column
+	if ((m_currentChangedPathList.GetCount() > 0) && (nColumn > 0))
+		return;
+
 	m_bAscendingPathList = nColumn == m_nSortColumnPathList ? !m_bAscendingPathList : TRUE;
 	m_nSortColumnPathList = nColumn;
-
-    m_currentChangedArray.Sort (m_nSortColumnPathList, m_bAscendingPathList);
+	if (m_currentChangedArray.GetCount() > 0)
+		m_currentChangedArray.Sort (m_nSortColumnPathList, m_bAscendingPathList);
+	else
+		m_currentChangedPathList.SortByPathname (!m_bAscendingPathList);
 
 	SetSortArrow(&m_ChangedFileListCtrl, m_nSortColumnPathList, m_bAscendingPathList);
 	m_ChangedFileListCtrl.Invalidate();
 	*pResult = 0;
 }
-
-int CLogDlg::m_nSortColumnPathList = 0;
-bool CLogDlg::m_bAscendingPathList = false;
 
 void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
 {

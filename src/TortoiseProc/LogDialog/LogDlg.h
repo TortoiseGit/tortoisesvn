@@ -258,8 +258,8 @@ private:
 	int					m_limit;
 	int                 m_nSortColumn;
 	bool                m_bAscending;
-	static int			m_nSortColumnPathList;
-	static bool			m_bAscendingPathList;
+	int					m_nSortColumnPathList;
+	bool				m_bAscendingPathList;
 	CRegDWORD			m_regLastStrict;
 	CRegDWORD			m_regMaxBugIDColWidth;
 	CButton				m_cShowPaths;
