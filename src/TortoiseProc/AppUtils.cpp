@@ -460,44 +460,33 @@ CString CAppUtils::GetAppForFile
 		// lookup by verb
 
 		CString documentClass;
-		if (SysInfo::Instance().IsXP())
+		DWORD buflen = 0;
+		AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, verb, NULL, &buflen);
+		auto_buffer<TCHAR> cmdbuf(buflen + 1);
+		if (FAILED(AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, verb, cmdbuf, &buflen)))
 		{
-			// AssocQueryString is broken under XP
-
-			documentClass 
-				= CRegString (extensionToUse + _T("\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
+			documentClass = CRegString (extensionToUse + _T("\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
 
 			CString key = documentClass + _T("\\Shell\\") + verb + _T("\\Command\\");
 			application = CRegString (key, _T(""), FALSE, HKEY_CLASSES_ROOT);
 		}
 		else
-		{
-			DWORD buflen = 0;
-			AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, verb, NULL, &buflen);
-			auto_buffer<TCHAR> cmdbuf(buflen + 1);
-			AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, verb, cmdbuf, &buflen);
 			application = cmdbuf;
-		}
 
 		// fallback to "open"
 
 		if (application.IsEmpty())
 		{
-			if (SysInfo::Instance().IsXP())
+			DWORD buflen = 0;
+			AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), NULL, &buflen);
+			auto_buffer<TCHAR> cmdbuf (buflen + 1);
+			if (FAILED(AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), cmdbuf, &buflen)))
 			{
-				// AssocQueryString is broken under XP
-
 				CString key = documentClass + _T("\\Shell\\Open\\Command\\");
 				application = CRegString (key, _T(""), FALSE, HKEY_CLASSES_ROOT);
 			}
 			else
-			{
-				DWORD buflen = 0;
-				AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), NULL, &buflen);
-				auto_buffer<TCHAR> cmdbuf (buflen + 1);
-				AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), cmdbuf, &buflen);
 				application = cmdbuf;
-			}
 		}
 	}
 
