@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-31 19:58+0800\n"
+"PO-Revision-Date: 2010-01-11 20:55+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1363,8 +1363,12 @@ msgid "A list of user defined properties for folders to show in the combo box"
 msgstr "在 combo box 中顯示的資料夾使用者自訂性質列表"
 
 #. Resource IDs: (201)
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
-msgstr "發現更新的版本. 請至 http://tortoisesvn.tigris.org 下載! 點擊 _here_ 直接連至我們的網站."
+msgid ""
+"A newer version is available.\r\n"
+"Please go to http://tortoisesvn.tigris.org and download the current version."
+msgstr ""
+"發現更新的版本. \r\n"
+"請至 http://tortoisesvn.tigris.org 下載最新的版本! "
 
 #. Resource IDs: (195)
 msgid ""
@@ -1588,6 +1592,10 @@ msgid ""
 msgstr ""
 "調校設定值\n"
 "設定"
+
+#. Resource IDs: (307)
+msgid "Advanced"
+msgstr "進階"
 
 #. Resource IDs: (170)
 msgid "Advanced Diff/Merge Settings"
@@ -1882,10 +1890,6 @@ msgstr ""
 #. Resource IDs: (438)
 msgid "Automatic"
 msgstr "自動"
-
-#. Resource IDs: (1073)
-msgid "Automatically check for &newer versions every week"
-msgstr "每週自動檢查新版(&N)"
 
 #. Resource IDs: (306)
 msgid "Autotext Tester"
@@ -2197,6 +2201,10 @@ msgstr "檢查異動(&F)"
 msgid "Check for modifications"
 msgstr "檢查異動"
 
+#. Resource IDs: (65535)
+msgid "Check for updates"
+msgstr "檢查更新"
+
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "從檔案庫中取出工作複本"
@@ -2280,8 +2288,8 @@ msgstr "正在清除."
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%s\""
-msgstr "清理目錄:\"%s\""
+msgid "Cleaning up directory \"%1!s!\""
+msgstr "清理目錄:\"%1!s!\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2561,8 +2569,8 @@ msgstr "以選擇的檔案與檔案庫中的檔案比對"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Comparing %s to %s"
-msgstr "正在比對 %s 與 %s"
+msgid "Comparing %1!s! to %2!s!"
+msgstr "正在比對 %1!s! 與 %2!s!"
 
 #. Resource IDs: (74)
 msgid "Completed"
@@ -3363,6 +3371,18 @@ msgid ""
 msgstr ""
 "文件: Simon Large\n"
 "程式: Tobias Schäfer, Stefan Fuhrmann"
+
+#. Resource IDs: (94)
+msgid ""
+"Don't make the checkout directory a sparse working copy.\n"
+"Instead, all URLs get checked out into a separate\n"
+"working copies next to each other.\n"
+"This works for directory URLs only."
+msgstr ""
+"不將取出用的目錄做成稀疏的\n"
+"工作複本. 而是將所有 URL 取出\n"
+"至分別排列的工作複本. 這項設\n"
+"定僅對目錄URL 有作用."
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4178,15 +4198,15 @@ msgstr ""
 "如此一來, 這些檔案就會以檔案系統上的唯讀方式設定, 並在取得鎖定時變更為可寫入.\n"
 "請注意, 其它使用者必須先更新自己的工作複本才能看到檔案變成唯讀."
 
+#. Resource IDs: (119)
+#, c-format
+msgid "Getting file %1!s!"
+msgstr "正在取得檔案 %1!s!"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Getting file %1!s!, revision %2!s!"
 msgstr "正在取得檔案 %1!s!, 版本 %2!s!"
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Getting file %s"
-msgstr "正在取得檔案 %s"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
@@ -4521,6 +4541,10 @@ msgstr "ID:57643:V C +Z"
 msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+msgid "ID:57665:V C +W"
+msgstr "ID:57665:V C +W"
+
 #. Resource IDs: (106)
 msgid "Icon Overlays"
 msgstr "圖示覆蓋"
@@ -4596,10 +4620,6 @@ msgid ""
 msgstr ""
 "勾選此選項時, 在送交中發生錯誤後, 會自動重新顯示送交視窗,\r\n"
 "並保留先前的選項與送交訊息."
-
-#. Resource IDs: (194)
-msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "啟用時, TortoiseSVN 每週會檢查一次最新版本"
 
 #. Resource IDs: (195)
 msgid ""
@@ -4690,10 +4710,6 @@ msgstr "忽略所有空白字元(&A)"
 msgid "Ignore &ancestry"
 msgstr "無視之前版本(&A)"
 
-#. Resource IDs: (1067)
-msgid "Ignore &case changes"
-msgstr "無視大小寫變更(&C)"
-
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
 msgstr "無視所有空白字元變更"
@@ -4701,6 +4717,10 @@ msgstr "無視所有空白字元變更"
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "忽略所有空白字元"
+
+#. Resource IDs: (1067)
+msgid "Ignore case cha&nges"
+msgstr "無視大小寫變更(&N)"
 
 #. Resource IDs: (1126)
 msgid "Ignore line &endings"
@@ -4818,8 +4838,8 @@ msgstr "匯入至 %1"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Importing file %s"
-msgstr "正在匯入檔案 %s"
+msgid "Importing file %1!s!"
+msgstr "正在匯入檔案 %1!s!"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
@@ -5014,6 +5034,10 @@ msgstr "外部項目(&E)"
 msgid "Items to show"
 msgstr "顯示的項目"
 
+#. Resource IDs: (1074)
+msgid "J&ump to first conflict when loading"
+msgstr "載入時跳至第一個衝突(&u)"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "合併下列目錄樹(&T)"
@@ -5158,7 +5182,7 @@ msgstr "本地狀態"
 #. Resource IDs: (94)
 msgid ""
 "Location where the contents of the\n"
-"repository URL will be saved to."
+"repository URL(s) will be saved to."
 msgstr ""
 "儲存檔案庫 URL 內容\n"
 "的位置."
@@ -5643,6 +5667,10 @@ msgstr "正在移動 %s"
 msgid "Moving..."
 msgstr "正在移動..."
 
+#. Resource IDs: (1204)
+msgid "Multiple, &independent working copies"
+msgstr "多重, 獨立的工作複本(&I)"
+
 #. Resource IDs: (65535)
 msgid "My file:"
 msgstr "我的檔案:"
@@ -5795,6 +5823,11 @@ msgstr "沒有拼字修正"
 #. Resource IDs: (196)
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
 msgstr "無狀態快取, 僅目錄有圖示, 檔案沒有."
+
+#. Resource IDs: (84)
+#, c-format
+msgid "No such revision '%1!s!'"
+msgstr "沒有這個版本 '%1!%s!'"
 
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
@@ -6042,6 +6075,10 @@ msgstr "開啟檔案庫瀏覽器, 進行線上調校檔案庫"
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
 msgstr "目前暫時從紀錄訊息快取中作業"
+
+#. Resource IDs: (348)
+msgid "Option"
+msgstr "選項"
 
 #. Resource IDs: (16137)
 msgid "Options"
@@ -6352,8 +6389,8 @@ msgstr "列印中"
 
 #. Resource IDs: (132)
 #, c-format
-msgid "Processing revision %d of %d..."
-msgstr "正在處理版本 %d 於 %d..."
+msgid "Processing revision %1!d! of %2!d!..."
+msgstr "正在處理版本 %1!d! 於 %2!d!..."
 
 #. Resource IDs: (74)
 msgid "Program"
@@ -6983,18 +7020,18 @@ msgstr "版本"
 
 #. Resource IDs: (119)
 #, c-format
-msgid "Revision %d"
-msgstr "版本 %d"
+msgid "Revision %1!d!"
+msgstr "版本 %1!d!"
+
+#. Resource IDs: (120)
+#, c-format
+msgid "Revision %1!s!"
+msgstr "版本 %1!s!"
 
 #. Resource IDs: (269)
 #, c-format
 msgid "Revision %ld"
 msgstr "版本 %ld"
-
-#. Resource IDs: (120)
-#, c-format
-msgid "Revision %s"
-msgstr "版本 %s"
 
 #. Resource IDs: (15)
 msgid "Revision &graph"
@@ -9571,6 +9608,16 @@ msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
 #. Resource IDs: (65535)
+msgid ""
+"WARNING:\r\n"
+"Only change these settings if you are absolutely sure what you are doing!\r\n"
+"To set the values to their default, delete the value text."
+msgstr ""
+"警告:\r\n"
+"請在完全確定在做什麼的時候才修改這些設定!\r\n"
+"要設定這些為預設值時, 請刪除設定內容."
+
+#. Resource IDs: (65535)
 msgid "WC node"
 msgstr "工作複本節點"
 
@@ -10709,6 +10756,11 @@ msgstr "是"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Automatically check for &newer versions every week"
+#~ msgstr "每週自動檢查新版(&N)"
+#~ msgid ""
+#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr "啟用時, TortoiseSVN 每週會檢查一次最新版本"
 #~ msgid "Edit conflict"
 #~ msgstr "編修衝突"
 #~ msgid "From URL:"
