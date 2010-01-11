@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2009 - TortoiseSVN
+// Copyright (C) 2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -235,14 +235,15 @@ void CSetBugTraqAdv::OnBnClickedOptions()
 
 	if (SUCCEEDED(hr))
 	{
-		BSTR temp = NULL;
+		ATL::CComBSTR temp;
 		CString p;
 		GetDlgItemText(IDC_BUGTRAQPARAMETERS, p);
-		BSTR params = p.AllocSysString();
+		ATL::CComBSTR params;
+		params.Attach(p.AllocSysString());
 		hr = pProvider->ShowOptionsDialog(GetSafeHwnd(), params, &temp);
 		if (SUCCEEDED(hr))
 		{
-			SetDlgItemText(IDC_BUGTRAQPARAMETERS, temp);
+			SetDlgItemText(IDC_BUGTRAQPARAMETERS, temp == 0 ? "" : temp);
 		}
 		else
 		{
@@ -251,6 +252,5 @@ void CSetBugTraqAdv::OnBnClickedOptions()
 			sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, ce.GetSource().c_str(), ce.GetMessageAndDescription().c_str());
 			CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
 		}
-		SysFreeString(temp);
 	}
 }

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2181,15 +2181,20 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 			HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider);
 			if (SUCCEEDED(hr))
 			{
-				BSTR commonRoot = SysAllocString(m_selectedPaths.GetCommonRoot().GetDirectory().GetWinPath());
+				ATL::CComBSTR commonRoot(m_selectedPaths.GetCommonRoot().GetDirectory().GetWinPath());
 				SAFEARRAY *pathList = SafeArrayCreateVector(VT_BSTR, 0, m_selectedPaths.GetCount());
 
 				for (LONG index = 0; index < m_selectedPaths.GetCount(); ++index)
-					SafeArrayPutElement(pathList, &index, m_selectedPaths[index].GetSVNPathString().AllocSysString());
+				{
+					ATL::CComBSTR path;
+					path.Attach(m_selectedPaths[index].GetSVNPathString().AllocSysString());
+					SafeArrayPutElement(pathList, &index, path);
+				}
 
-				BSTR logMessage = m_sMessage.AllocSysString();
+				ATL::CComBSTR logMessage;
+				logMessage.Attach(m_sMessage.AllocSysString());
 
-				BSTR temp = NULL;
+				ATL::CComBSTR temp;
 				if (FAILED(hr = pProvider->OnCommitFinished(GetSafeHwnd(), 
 					commonRoot,
 					pathList,
@@ -2207,8 +2212,6 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 						ReportError(sErr);
 					}
 				}
-
-				SysFreeString(temp);
 			}
 		}
 	}

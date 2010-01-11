@@ -174,16 +174,16 @@ BOOL CCommitDlg::OnInitDialog()
 		if (SUCCEEDED(hr))
 		{
 			m_BugTraqProvider = pProvider;
-			BSTR temp = NULL;
-			hr = pProvider->GetLinkText(GetSafeHwnd(), m_bugtraq_association.GetParameters().AllocSysString(), &temp);
+			ATL::CComBSTR temp;
+			ATL::CComBSTR parameters;
+			parameters.Attach(m_bugtraq_association.GetParameters().AllocSysString());
+			hr = pProvider->GetLinkText(GetSafeHwnd(), parameters, &temp);
 			if (SUCCEEDED(hr))
 			{
 				SetDlgItemText(IDC_BUGTRAQBUTTON, temp == 0 ? _T("") : temp);
 				GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(TRUE);
 				GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_SHOW);
 			}
-
-			SysFreeString(temp);
 		}
 
 		GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
@@ -606,16 +606,23 @@ void CCommitDlg::OnOK()
 		HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider2);
 		if (SUCCEEDED(hr))
 		{
-			BSTR temp = NULL;
+			ATL::CComBSTR temp;
 			CString common = m_ListCtrl.GetCommonURL(true).GetSVNPathString();
-			BSTR repositoryRoot = common.AllocSysString();
-			BSTR parameters = m_bugtraq_association.GetParameters().AllocSysString();
-			BSTR commonRoot = SysAllocString(m_pathList.GetCommonRoot().GetDirectory().GetWinPath());
-			BSTR commitMessage = m_sLogMessage.AllocSysString();
+			ATL::CComBSTR repositoryRoot;
+			repositoryRoot.Attach(common.AllocSysString());
+			ATL::CComBSTR parameters;
+			parameters.Attach(m_bugtraq_association.GetParameters().AllocSysString());
+			ATL::CComBSTR commonRoot(m_pathList.GetCommonRoot().GetDirectory().GetWinPath());
+			ATL::CComBSTR commitMessage;
+			commitMessage.Attach(m_sLogMessage.AllocSysString());
 			SAFEARRAY *pathList = SafeArrayCreateVector(VT_BSTR, 0, m_selectedPathList.GetCount());
 
 			for (LONG index = 0; index < m_selectedPathList.GetCount(); ++index)
-				SafeArrayPutElement(pathList, &index, m_selectedPathList[index].GetSVNPathString().AllocSysString());
+			{
+				ATL::CComBSTR path;
+				path.Attach(m_selectedPathList[index].GetSVNPathString().AllocSysString());
+				SafeArrayPutElement(pathList, &index, path);
+			}
 			
 			hr = pProvider2->CheckCommit(GetSafeHwnd(), parameters, repositoryRoot, commonRoot, pathList, commitMessage, &temp);
 			if (FAILED(hr))
@@ -633,7 +640,6 @@ void CCommitDlg::OnOK()
 					CMessageBox::Show(m_hWnd, sError, _T("TortoiseSVN"), MB_ICONERROR);
 					return;
 				}
-				SysFreeString(temp);
 			}
 		}
 	}
@@ -1347,15 +1353,21 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 	if (m_BugTraqProvider == NULL)
 		return;
 
-	BSTR parameters = m_bugtraq_association.GetParameters().AllocSysString();
-	BSTR commonRoot = SysAllocString(m_pathList.GetCommonRoot().GetDirectory().GetWinPath());
+	ATL::CComBSTR parameters;
+	parameters.Attach(m_bugtraq_association.GetParameters().AllocSysString());
+	ATL::CComBSTR commonRoot(m_pathList.GetCommonRoot().GetDirectory().GetWinPath());
 	SAFEARRAY *pathList = SafeArrayCreateVector(VT_BSTR, 0, m_pathList.GetCount());
 
 	for (LONG index = 0; index < m_pathList.GetCount(); ++index)
-		SafeArrayPutElement(pathList, &index, m_pathList[index].GetSVNPathString().AllocSysString());
+	{
+		ATL::CComBSTR path;
+		path.Attach(m_pathList[index].GetSVNPathString().AllocSysString());
+		SafeArrayPutElement(pathList, &index, path);
+	}
 
-	BSTR originalMessage = sMsg.AllocSysString();
-	BSTR temp = NULL;
+	ATL::CComBSTR originalMessage;
+	originalMessage.Attach(sMsg.AllocSysString());
+	ATL::CComBSTR temp;
 	m_revProps.clear();
 
 	// first try the IBugTraqProvider2 interface
@@ -1364,10 +1376,12 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 	if (SUCCEEDED(hr))
 	{
 		CString common = m_ListCtrl.GetCommonURL(false).GetSVNPathString();
-		BSTR repositoryRoot = common.AllocSysString();
-		BSTR bugIDOut = NULL;
+		ATL::CComBSTR repositoryRoot;
+		repositoryRoot.Attach(common.AllocSysString());
+		ATL::CComBSTR bugIDOut;
 		GetDlgItemText(IDC_BUGID, m_sBugID);
-		BSTR bugID = m_sBugID.AllocSysString();
+		ATL::CComBSTR bugID;
+		bugID.Attach(m_sBugID.AllocSysString());
 		SAFEARRAY * revPropNames = NULL;
 		SAFEARRAY * revPropValues = NULL;
 		if (FAILED(hr = pProvider2->GetCommitMessage2(GetSafeHwnd(), parameters, repositoryRoot, commonRoot, pathList, originalMessage, bugID, &bugIDOut, &revPropNames, &revPropValues, &temp)))
@@ -1382,12 +1396,9 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 			if (bugIDOut)
 			{
 				m_sBugID = bugIDOut;
-				SysFreeString(bugIDOut);
 				SetDlgItemText(IDC_BUGID, m_sBugID);
 			}
-			SysFreeString(bugID);
-			SysFreeString(repositoryRoot);
-			m_cLogMessage.SetText(temp);
+			m_cLogMessage.SetText((LPCTSTR)temp);
 			BSTR HUGEP *pbRevNames;
 			BSTR HUGEP *pbRevValues;
 
@@ -1436,7 +1447,7 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 			CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
 		}
 		else
-			m_cLogMessage.SetText(temp);
+			m_cLogMessage.SetText((LPCTSTR)temp);
 	}
 	m_sLogMessage = m_cLogMessage.GetText();
 	if (!m_ProjectProperties.sMessage.IsEmpty())
@@ -1450,11 +1461,7 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 
 	m_cLogMessage.SetFocus();
 
-	SysFreeString(parameters);
-	SysFreeString(commonRoot);
 	SafeArrayDestroy(pathList);
-	SysFreeString(originalMessage);
-	SysFreeString(temp);
 }
 
 LRESULT CCommitDlg::OnSVNStatusListCtrlCheckChanged(WPARAM, LPARAM)
