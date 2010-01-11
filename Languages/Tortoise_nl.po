@@ -1,6 +1,6 @@
 #
 # Dutch translation for TortoiseSVN
-# Copyright (C) 2004-2009 the TortoiseSVN team
+# Copyright (C) 2004-2010 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Last commit by:
@@ -20,16 +20,18 @@
 # Update                                Verversen
 #
 # Authors:
+# Jeroen van Amstel <jeroen@amstelonline.demon.nl>
 # Bob Hulst <bob.hulst@hiq.fi>
 # Jean-Marc van Leerdam <jeanmarc@gmail.com>
 # Yves Reynhout <yvesr@ultragenda.com>
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-07 09:04+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2010-01-11 12:26+0100\n"
+"Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1374,8 +1376,10 @@ msgid "A list of user defined properties for folders to show in the combo box"
 msgstr "Een lijst met gebruikers-eigenschappen voor mappen die getoond moeten worden"
 
 #. Resource IDs: (201)
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
-msgstr "Een nieuwere versie is beschikbaar. Ga naar http://tortoisesvn.tigris.org om de nieuwste versie te downloaden! Klik _hier_ im direct naar onze website te gaan."
+msgid ""
+"A newer version is available.\r\n"
+"Please go to http://tortoisesvn.tigris.org and download the current version."
+msgstr "Een nieuwere versie is beschikbaar. Ga naar http://tortoisesvn.tigris.org om de nieuwste versie te downloaden."
 
 #. Resource IDs: (195)
 msgid ""
@@ -1599,6 +1603,10 @@ msgid ""
 msgstr ""
 "Pas instellingen aan\n"
 "Instellingen"
+
+#. Resource IDs: (307)
+msgid "Advanced"
+msgstr "Geavanceerd"
 
 #. Resource IDs: (170)
 msgid "Advanced Diff/Merge Settings"
@@ -1892,10 +1900,6 @@ msgstr ""
 #. Resource IDs: (438)
 msgid "Automatic"
 msgstr "Automatisch"
-
-#. Resource IDs: (1073)
-msgid "Automatically check for &newer versions every week"
-msgstr "Elke week controleren of een &nieuwe versie beschikbaar is"
 
 #. Resource IDs: (306)
 msgid "Autotext Tester"
@@ -2206,6 +2210,10 @@ msgstr "Kijk of er &updates zijn"
 msgid "Check for modifications"
 msgstr "Kijk of er updates zijn"
 
+#. Resource IDs: (65535)
+msgid "Check for updates"
+msgstr "Kijk of er updates zijn"
+
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Haal een werkkopie op uit een archief"
@@ -2289,8 +2297,8 @@ msgstr "Schonen bezig"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%s\""
-msgstr "Map \"%s\" wordt geschoond"
+msgid "Cleaning up directory \"%1!s!\""
+msgstr "Map \"%1!s!\" wordt geschoond"
 
 #. Resource IDs: (83)
 #, c-format
@@ -2571,8 +2579,8 @@ msgstr "Vergelijkt het geselecteerde bestand met een bestand uit het archief"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Comparing %s to %s"
-msgstr "%s vergelijken met %s"
+msgid "Comparing %1!s! to %2!s!"
+msgstr "%1!s! vergelijken met %2!s!"
 
 #. Resource IDs: (74)
 msgid "Completed"
@@ -3374,6 +3382,17 @@ msgstr ""
 "Documentatie: Simon Large\n"
 "Code: Tobias Schäfer, Stefan Fuhrmann\n"
 "Nederlandse vertaling: Jean-Marc van Leerdam, Bob Hulst, Jeroen van Amstel"
+
+#. Resource IDs: (94)
+msgid ""
+"Don't make the checkout directory a sparse working copy.\n"
+"Instead, all URLs get checked out into a separate\n"
+"working copies next to each other.\n"
+"This works for directory URLs only."
+msgstr ""
+"Creëer geen gedeeltelijke ('sparse') werkkopie in deze map.\n"
+"Alle URLs worden als losse werkkopieën naast elkaar opgehaald.\n"
+"Dit werkt alleen met URLs die naar mappen verwijzen."
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4189,15 +4208,15 @@ msgstr ""
 "op deze bestanden plaatsen en dat vastleggen.Dergelijke bestanden worden gemarkeerd als 'alleen lezen' en het plaatsen van een blokkade maakt ze beschrijfbaar.\n"
 "Andere gebruikers moeten hun werkkopie verversen voordat de bestanden bij hen 'alleen lezen' worden."
 
+#. Resource IDs: (119)
+#, c-format
+msgid "Getting file %1!s!"
+msgstr "Bestand %1!s! ophalen"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Getting file %1!s!, revision %2!s!"
 msgstr "Bestand %1!s!, revisie %2!s! ophalen"
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Getting file %s"
-msgstr "Bestand %s ophalen"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
@@ -4519,6 +4538,10 @@ msgstr "ID:57643:V C +Z"
 msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+msgid "ID:57665:V C +W"
+msgstr "ID:57665:V C +W"
+
 #. Resource IDs: (106)
 msgid "Icon Overlays"
 msgstr "Overlay iconen"
@@ -4598,10 +4621,6 @@ msgid ""
 msgstr ""
 "Activeer deze optie om de vastleg-dialoog opnieuw te openen na een fout.\r\n"
 "Daarbij wordt de meest recente selectie en logboek-boodschap bewaard."
-
-#. Resource IDs: (194)
-msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "Activeer deze optie om TortoiseSVN wekelijks te laten controleren of er nieuwere versies beschikbaar zijn"
 
 #. Resource IDs: (195)
 msgid ""
@@ -4692,10 +4711,6 @@ msgstr "&Alle spaties en witregels negeren"
 msgid "Ignore &ancestry"
 msgstr "Negeer &oorsprong"
 
-#. Resource IDs: (1067)
-msgid "Ignore &case changes"
-msgstr "Negeer wijzigingen in &hoofd- en kleine letters"
-
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
 msgstr "Negeer alle wijzigingen in spaties en witregels"
@@ -4703,6 +4718,10 @@ msgstr "Negeer alle wijzigingen in spaties en witregels"
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Alle spaties en witregels negeren"
+
+#. Resource IDs: (1067)
+msgid "Ignore case cha&nges"
+msgstr "Negeer wijzigingen in &hoofd- en kleine letters"
 
 #. Resource IDs: (1126)
 msgid "Ignore line &endings"
@@ -4822,8 +4841,8 @@ msgstr "Importeer in %1"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Importing file %s"
-msgstr "Bestand %s importeren"
+msgid "Importing file %1!s!"
+msgstr "Bestand %1!s! importeren"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
@@ -5018,6 +5037,10 @@ msgstr "Objecten in &externen"
 msgid "Items to show"
 msgstr "Te tonen onderdelen"
 
+#. Resource IDs: (1074)
+msgid "J&ump to first conflict when loading"
+msgstr "&Spring naar eerste verschil bij het laden"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "Samennemen met volgende &boom"
@@ -5162,10 +5185,10 @@ msgstr "Locale status"
 #. Resource IDs: (94)
 msgid ""
 "Location where the contents of the\n"
-"repository URL will be saved to."
+"repository URL(s) will be saved to."
 msgstr ""
 "Plaats waar de inhoud van de\n"
-"archief-URL opgeslagen zal worden."
+"archief-URL(s) opgeslagen zal worden."
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
@@ -5647,6 +5670,10 @@ msgstr "%s wordt verplaatst"
 msgid "Moving..."
 msgstr "Verplaatsen..."
 
+#. Resource IDs: (1204)
+msgid "Multiple, &independent working copies"
+msgstr "Meerdere, &onafhankelijke werkkopieën"
+
 #. Resource IDs: (65535)
 msgid "My file:"
 msgstr "Mijn bestand:"
@@ -5799,6 +5826,11 @@ msgstr "Geen spellingscorrecties"
 #. Resource IDs: (196)
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
 msgstr "Geen status cache. Alleen mappen onder versiebeheer krijgen een overlay; bestanden niet"
+
+#. Resource IDs: (84)
+#, c-format
+msgid "No such revision '%1!s!'"
+msgstr "Onbekende revisie '%1!s!'"
 
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
@@ -6046,6 +6078,10 @@ msgstr "Opent de archief-verkenner om het archief online te tweaken"
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
 msgstr "Gebruik alleen de log cache voor nu"
+
+#. Resource IDs: (348)
+msgid "Option"
+msgstr "Optie"
 
 #. Resource IDs: (16137)
 msgid "Options"
@@ -6356,8 +6392,8 @@ msgstr "Afdrukken bezig"
 
 #. Resource IDs: (132)
 #, c-format
-msgid "Processing revision %d of %d..."
-msgstr "Revisie %d van %d verwerken..."
+msgid "Processing revision %1!d! of %2!d!..."
+msgstr "Revisie %1!d! van %2!d! verwerken..."
 
 #. Resource IDs: (74)
 msgid "Program"
@@ -6987,18 +7023,18 @@ msgstr "Revisie"
 
 #. Resource IDs: (119)
 #, c-format
-msgid "Revision %d"
-msgstr "Revisie %d"
+msgid "Revision %1!d!"
+msgstr "Revisie %1!d!"
+
+#. Resource IDs: (120)
+#, c-format
+msgid "Revision %1!s!"
+msgstr "Revisie %1!s!"
 
 #. Resource IDs: (269)
 #, c-format
 msgid "Revision %ld"
 msgstr "Revisie %ld"
-
-#. Resource IDs: (120)
-#, c-format
-msgid "Revision %s"
-msgstr "Revisie %s"
 
 #. Resource IDs: (15)
 msgid "Revision &graph"
@@ -9582,6 +9618,16 @@ msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
 #. Resource IDs: (65535)
+msgid ""
+"WARNING:\r\n"
+"Only change these settings if you are absolutely sure what you are doing!\r\n"
+"To set the values to their default, delete the value text."
+msgstr ""
+"WAARSCHUWING:\r\n"
+"Wijzig deze instellingen alleen als u weet wat u doet!\r\n"
+"Om de standaardwaardes te gebruiken maakt u de tekst leeg."
+
+#. Resource IDs: (65535)
 msgid "WC node"
 msgstr "Werkkopie knoop"
 
@@ -10729,6 +10775,13 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Automatically check for &newer versions every week"
+#~ msgstr "Elke week controleren of een &nieuwe versie beschikbaar is"
+#~ msgid ""
+#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr ""
+#~ "Activeer deze optie om TortoiseSVN wekelijks te laten controleren of er "
+#~ "nieuwere versies beschikbaar zijn"
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "&Verberg ongerelateerde wijzigingspaden"
 #~ msgid "Edit conflict"
