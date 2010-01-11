@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-08 23:06+0900\n"
+"PO-Revision-Date: 2010-01-11 16:30+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1370,8 +1370,12 @@ msgid "A list of user defined properties for folders to show in the combo box"
 msgstr "コンボボックスに表示するフォルダに対するユーザー定義の属性のリスト"
 
 #. Resource IDs: (201)
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
-msgstr "新しいバージョンが利用可能です。TortoiseSVNのサイト http://tortoisesvn.tigris.org から最新のバージョンをダウンロードしてください！直接ウェブサイトへ行く場合は、_ここ_ をクリックしてください。"
+msgid ""
+"A newer version is available.\r\n"
+"Please go to http://tortoisesvn.tigris.org and download the current version."
+msgstr ""
+"新しいバージョンが利用可能です。\r\n"
+"http://tortoisesvn.tigris.org から最新のバージョンをダウンロードしてください。"
 
 #. Resource IDs: (195)
 msgid ""
@@ -1894,10 +1898,6 @@ msgstr ""
 msgid "Automatic"
 msgstr "自動"
 
-#. Resource IDs: (1073)
-msgid "Automatically check for &newer versions every week"
-msgstr "毎週、最新バージョンのチェックを自動的に行う(&N)"
-
 #. Resource IDs: (306)
 msgid "Autotext Tester"
 msgstr "自動文字列テスター"
@@ -2206,6 +2206,10 @@ msgstr "変更をチェック(&F)"
 #. Resource IDs: (65535)
 msgid "Check for modifications"
 msgstr "変更をチェック"
+
+#. Resource IDs: (65535)
+msgid "Check for updates"
+msgstr "更新をチェック"
 
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
@@ -3374,6 +3378,17 @@ msgid ""
 msgstr ""
 "ドキュメント : Simon Large\n"
 "コード : Tobias Schäfer, Stefan Fuhrmann"
+
+#. Resource IDs: (94)
+msgid ""
+"Don't make the checkout directory a sparse working copy.\n"
+"Instead, all URLs get checked out into a separate\n"
+"working copies next to each other.\n"
+"This works for directory URLs only."
+msgstr ""
+"チェックアウトディレクトリをまばらな作業コピーにしないでください。\n"
+"代わりに、すべてのURLを互いに隣り合う別々の作業コピーにチェックアウトされます。\n"
+"これは、ディレクトリURLに対してのみ動作します。"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4617,10 +4632,6 @@ msgstr ""
 "チェックすると、コミットダイアログはエラーが発生した後に、最後に選択した結果と\r\n"
 "ログメッセージを保存した状態で自動的に再表示されます。"
 
-#. Resource IDs: (194)
-msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "チェックすると、TortoiseSVN は最新のバージョンが利用可能かどうかを1週間に1回チェックします。"
-
 #. Resource IDs: (195)
 msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
@@ -5182,8 +5193,8 @@ msgstr "ローカルの状態"
 #. Resource IDs: (94)
 msgid ""
 "Location where the contents of the\n"
-"repository URL will be saved to."
-msgstr "リポジトリURLの内容を保存する先。"
+"repository URL(s) will be saved to."
+msgstr "リポジトリURLの内容を保存する位置。"
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
@@ -5664,6 +5675,10 @@ msgstr "%s を移動中"
 #. Resource IDs: (80)
 msgid "Moving..."
 msgstr "移動中 ..."
+
+#. Resource IDs: (1204)
+msgid "Multiple, &independent working copies"
+msgstr "複数、独立した作業コピー(&I)"
 
 #. Resource IDs: (65535)
 msgid "My file:"
@@ -9603,7 +9618,7 @@ msgstr "Visual Studio.NET 200&5"
 #. Resource IDs: (65535)
 msgid ""
 "WARNING:\r\n"
-"Only change these settings if you are abolutely sure what you are doing!\r\n"
+"Only change these settings if you are absolutely sure what you are doing!\r\n"
 "To set the values to their default, delete the value text."
 msgstr ""
 "警告:\r\n"
@@ -10749,6 +10764,13 @@ msgstr "はい"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Automatically check for &newer versions every week"
+#~ msgstr "毎週、最新バージョンのチェックを自動的に行う(&N)"
+#~ msgid ""
+#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr ""
+#~ "チェックすると、TortoiseSVN は最新のバージョンが利用可能かどうかを1週間に1"
+#~ "回チェックします。"
 #~ msgid "Edit conflict"
 #~ msgstr "競合を編集"
 #~ msgid "From URL:"
