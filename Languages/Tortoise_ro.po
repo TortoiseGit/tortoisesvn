@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-02 11:19+0200\n"
+"PO-Revision-Date: 2010-01-11 21:14+0200\n"
 "Last-Translator: Florin Daneliuc <dfev77@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1374,8 +1374,12 @@ msgid "A list of user defined properties for folders to show in the combo box"
 msgstr "O listă de proprietăţi definite de utilizator pentru dosare afişate în lista de selecţie"
 
 #. Resource IDs: (201)
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
-msgstr "O versiune nouă este disponibilă. Vizitaţi http://tortoisesvn.tigris.org şi descărcaţi versiunea curentă! Apăsaţi _aici_ pentru a naviga direct la website."
+msgid ""
+"A newer version is available.\r\n"
+"Please go to http://tortoisesvn.tigris.org and download the current version."
+msgstr ""
+"O versiune nouă este disponibilă.\r\n"
+"Vizitaţi http://tortoisesvn.tigris.org şi descărcaţi versiunea curentă."
 
 #. Resource IDs: (195)
 msgid ""
@@ -1599,6 +1603,10 @@ msgid ""
 msgstr ""
 "Ajustează preferinţele\n"
 "Preferinţe"
+
+#. Resource IDs: (307)
+msgid "Advanced"
+msgstr "Avansat"
 
 #. Resource IDs: (170)
 msgid "Advanced Diff/Merge Settings"
@@ -1893,10 +1901,6 @@ msgstr ""
 #. Resource IDs: (438)
 msgid "Automatic"
 msgstr "Automat"
-
-#. Resource IDs: (1073)
-msgid "Automatically check for &newer versions every week"
-msgstr "Caută automat versiuni &noi în fiecare săptămână"
 
 #. Resource IDs: (306)
 msgid "Autotext Tester"
@@ -2209,6 +2213,10 @@ msgstr "Caută &modificările"
 msgid "Check for modifications"
 msgstr "Caută modificările"
 
+#. Resource IDs: (65535)
+msgid "Check for updates"
+msgstr "Caută actualizări"
+
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Adu o copie de lucru dintr-un depozit"
@@ -2293,8 +2301,8 @@ msgstr "Se curăţă"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%s\""
-msgstr "Se curăţă dosarul \"%s\""
+msgid "Cleaning up directory \"%1!s!\""
+msgstr "Se curăţă dosarul \"%1!s!\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2574,8 +2582,8 @@ msgstr "Compară fişierul selectat cu un fişier din depozit"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Comparing %s to %s"
-msgstr "Se compară %s cu %s"
+msgid "Comparing %1!s! to %2!s!"
+msgstr "Se compară %1!s! cu %2!s!"
 
 #. Resource IDs: (74)
 msgid "Completed"
@@ -3376,6 +3384,17 @@ msgid ""
 msgstr ""
 "Documentare : Simon Large\n"
 "Dezvoltare : Tobias Schäfer, Stefan Fuhrmann"
+
+#. Resource IDs: (94)
+msgid ""
+"Don't make the checkout directory a sparse working copy.\n"
+"Instead, all URLs get checked out into a separate\n"
+"working copies next to each other.\n"
+"This works for directory URLs only."
+msgstr ""
+"Nu creea dosare de aducere ca o copie de lucru împraștiat.\n"
+"Toate URL-urile v-or fi aduse in copii de lucru separate.\n"
+"Acesata funcționeaza doar pentru dosarul acestor URL-uri."
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4191,15 +4210,15 @@ msgstr ""
 "Fiecare fişier va avea indicatorul sistemului 'strict citire' şi obţinerea blocării îl va face editabil.\n"
 "Alţi utilizatori vor trebui să-şi actualizeze copiile de lucru înainte de a vedea fişierele ca fiind în starea 'strict citire'."
 
+#. Resource IDs: (119)
+#, c-format
+msgid "Getting file %1!s!"
+msgstr "Se obţine fişierul %1!s!"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Getting file %1!s!, revision %2!s!"
 msgstr "Se obţine fişierul %1!s!, revizia %2!s!"
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Getting file %s"
-msgstr "Se obţine fişierul %s"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
@@ -4521,6 +4540,10 @@ msgstr "ID:57643:V C +Z"
 msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+msgid "ID:57665:V C +W"
+msgstr "ID:57665:V C +W"
+
 #. Resource IDs: (106)
 msgid "Icon Overlays"
 msgstr "Suprapuneri de iconiţe"
@@ -4600,10 +4623,6 @@ msgid ""
 msgstr ""
 "Dacă este bifat, dialogul de transmitere va porni din nou automat după o eroare,\r\n"
 "păstrând ultima selecţie şi mesajul de jurnal."
-
-#. Resource IDs: (194)
-msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "Dacă este activat, TortoiseSVN va verifica în fiecare săptămână dacă o versiune nouă este disponibilă"
 
 #. Resource IDs: (195)
 msgid ""
@@ -4694,10 +4713,6 @@ msgstr "Ignoră &toate spaţiile goale"
 msgid "Ignore &ancestry"
 msgstr "Ignoră &ascendenţă"
 
-#. Resource IDs: (1067)
-msgid "Ignore &case changes"
-msgstr "Ignoră schimbări de &majuscule"
-
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
 msgstr "Ignoră schimbările în spaţii goale"
@@ -4705,6 +4720,10 @@ msgstr "Ignoră schimbările în spaţii goale"
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Ignoră toate spaţiile goale"
+
+#. Resource IDs: (1067)
+msgid "Ignore case cha&nges"
+msgstr "Ignoră schimbările de &majuscule"
 
 #. Resource IDs: (1126)
 msgid "Ignore line &endings"
@@ -4822,8 +4841,8 @@ msgstr "Importă la %1"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Importing file %s"
-msgstr "Se importă fişierul %s"
+msgid "Importing file %1!s!"
+msgstr "Se importă fişierul %1!s!"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
@@ -5018,6 +5037,10 @@ msgstr "Elementele &externe"
 msgid "Items to show"
 msgstr "Elementele care să se afişeze"
 
+#. Resource IDs: (1074)
+msgid "J&ump to first conflict when loading"
+msgstr "La încărcare &sari la primul conflict"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "&Uneşte cu arborele următor"
@@ -5162,7 +5185,7 @@ msgstr "Stare locală"
 #. Resource IDs: (94)
 msgid ""
 "Location where the contents of the\n"
-"repository URL will be saved to."
+"repository URL(s) will be saved to."
 msgstr ""
 "Locul în care va fi salvat\n"
 "conţinutul URL-ului de depozit."
@@ -5649,6 +5672,10 @@ msgstr "Se mută %s"
 msgid "Moving..."
 msgstr "Se mută"
 
+#. Resource IDs: (1204)
+msgid "Multiple, &independent working copies"
+msgstr "Copii de lucru multiple, independente"
+
 #. Resource IDs: (65535)
 msgid "My file:"
 msgstr "Fişierul meu:"
@@ -5801,6 +5828,11 @@ msgstr "Nici o corectare ortografică"
 #. Resource IDs: (196)
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
 msgstr "Fără status prestocat. Doar dosarele versionate pot avea imagini suprapuse, fişierele nu posedă imagini suprapuse"
+
+#. Resource IDs: (84)
+#, c-format
+msgid "No such revision '%1!s!'"
+msgstr "Revizie inezistentă '%1!s!'"
 
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
@@ -6049,6 +6081,10 @@ msgstr "Deschide navigatorul de depozit pentru a edita depozitul conectat"
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
 msgstr "Operează numai temporar din cache-ul jurnalului"
+
+#. Resource IDs: (348)
+msgid "Option"
+msgstr "Opţiune"
 
 #. Resource IDs: (16137)
 msgid "Options"
@@ -6360,8 +6396,8 @@ msgstr "Tipărire"
 
 #. Resource IDs: (132)
 #, c-format
-msgid "Processing revision %d of %d..."
-msgstr "Se procesează revizia %d din %d..."
+msgid "Processing revision %1!d! of %2!d!..."
+msgstr "Se procesează revizia %1!d! din %2!d!..."
 
 #. Resource IDs: (74)
 msgid "Program"
@@ -6991,18 +7027,18 @@ msgstr "Revizie"
 
 #. Resource IDs: (119)
 #, c-format
-msgid "Revision %d"
-msgstr "Revizia %d"
+msgid "Revision %1!d!"
+msgstr "Revizia %1!d!"
+
+#. Resource IDs: (120)
+#, c-format
+msgid "Revision %1!s!"
+msgstr "Revizia %1!s!"
 
 #. Resource IDs: (269)
 #, c-format
 msgid "Revision %ld"
 msgstr "Revizia %ld"
-
-#. Resource IDs: (120)
-#, c-format
-msgid "Revision %s"
-msgstr "Revizia %s"
 
 #. Resource IDs: (15)
 msgid "Revision &graph"
@@ -9578,6 +9614,16 @@ msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
 #. Resource IDs: (65535)
+msgid ""
+"WARNING:\r\n"
+"Only change these settings if you are absolutely sure what you are doing!\r\n"
+"To set the values to their default, delete the value text."
+msgstr ""
+"ATENTIE:\r\n"
+"Modificați aceste configurațiile doar dacș sunteți sigur că știți ce faceți!\r\n"
+"Pentru a revenii la valorile implicite ștergeți textul valorii."
+
+#. Resource IDs: (65535)
 msgid "WC node"
 msgstr "Nod al copiei de lucru"
 
@@ -10718,6 +10764,13 @@ msgstr "da"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Automatically check for &newer versions every week"
+#~ msgstr "Caută automat versiuni &noi în fiecare săptămână"
+#~ msgid ""
+#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr ""
+#~ "Dacă este activat, TortoiseSVN va verifica în fiecare săptămână dacă o "
+#~ "versiune nouă este disponibilă"
 #~ msgid "Edit conflict"
 #~ msgstr "Editează conflictul"
 #~ msgid "H&ide unrelated changed paths"
