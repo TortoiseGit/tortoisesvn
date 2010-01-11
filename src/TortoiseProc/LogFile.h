@@ -57,7 +57,8 @@ public:
 	bool	AddTimeLine();
 
 protected:
-	void	AdjustSize(std::deque<CString>& lines);
+
+	void	TrimFile (DWORD maxLines);
 
 private:
 	CRegStdDWORD			m_maxlines;

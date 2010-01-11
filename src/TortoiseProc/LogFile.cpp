@@ -20,6 +20,9 @@
 #include "LogFile.h"
 #include "PathUtils.h"
 
+#include "Streams/MappedInFile.h"
+#include "Streams/StreamException.h"
+
 CLogFile::CLogFile(void)
 {
 	m_maxlines = CRegStdDWORD(_T("Software\\TortoiseSVN\\MaxLinesInLogfile"), 4000);
@@ -58,6 +61,14 @@ bool CLogFile::Close()
 	std::deque<CString> lines;
 	try
 	{
+		// limit log file growth
+
+		size_t maxLines = (DWORD)m_maxlines;
+		size_t newLines = m_newLines.size();
+		TrimFile (max (maxLines, newLines) - newLines);
+
+		// append new info
+
 		CString strLine;
 		CStdioFile file;
 
@@ -72,27 +83,7 @@ bool CLogFile::Close()
 		if (retrycounter == 0)
 			return false;
 
-		// this while() loop uses up the most time of this method.
-		// Optimizing it isn't feasible, since even reading the file in
-		// one block, convert the content to utf-16 and then parse the lines
-		// is not faster.
-		// the only way to optimize this (haven't tried) would be to
-		// not parse the lines at all and just add the new lines to the end
-		// of the log file. But then we can't limit the file to a number of
-		// lines anymore but only to a certain size.
-		while (file.ReadString(strLine))
-		{
-			lines.push_back(strLine);
-		}
-		file.SetLength(0);
-
-		AdjustSize(lines);
-
-		for (std::deque<CString>::const_iterator it = lines.begin(); it != lines.end(); ++it)
-		{
-			file.WriteString(*it);
-			file.WriteString(_T("\n"));
-		}
+		file.SeekToEnd();
 		for (std::deque<CString>::const_iterator it = m_newLines.begin(); it != m_newLines.end(); ++it)
 		{
 			file.WriteString(*it);
@@ -125,12 +116,46 @@ bool CLogFile::AddTimeLine()
 	return true;
 }
 
-void CLogFile::AdjustSize(std::deque<CString>& lines)
+void CLogFile::TrimFile (DWORD maxLines)
 {
-	DWORD maxlines = m_maxlines;
+	if (!PathFileExists (m_logfile.GetWinPath()))
+		return;
 
-	while (((lines.size() + m_newLines.size()) > maxlines) && !lines.empty())
+	// find the start of the maxLines-th last line
+	// (\n is always a new line - regardless of the encoding)
+
+	try
 	{
-		lines.pop_front();
+		CMappedInFile file (m_logfile.GetWinPath(), true);
+
+		unsigned char* begin = file.GetWritableBuffer();
+		unsigned char* end = begin + file.GetSize();
+
+		unsigned char* trimPos = begin;
+		for (unsigned char* s = end; s != begin; --s)
+			if (*(s-1) == '\n')
+				if (maxLines == 0)
+				{
+					trimPos = s;
+					break;
+				}
+				else
+					--maxLines;
+
+		// need to remove lines from the beginning of the file?
+
+		if (trimPos == begin)
+			return;
+
+		// remove data
+
+		size_t newSize = end - trimPos;
+		memmove (begin, trimPos, newSize);
+		file.Close (newSize);
+	}
+	catch (CStreamException&)
+	{
+		// can't trim the file right now
 	}
 }
+
