@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-28 15:14+0100\n"
+"PO-Revision-Date: 2010-01-11 11:26+0100\n"
 "Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1188,9 +1188,8 @@ msgid "&Working copy"
 msgstr "Copie de travai&l"
 
 #. Resource IDs: (1540)
-#, fuzzy
 msgid "&file list control"
-msgstr "contrôle de la liste de &fichiers"
+msgstr "contrôleur de liste de &fichiers"
 
 #. Resource IDs: (338)
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
@@ -1371,8 +1370,12 @@ msgid "A list of user defined properties for folders to show in the combo box"
 msgstr "Une liste de propriétés utilisateur pour dossiers à afficher dans la liste déroulante."
 
 #. Resource IDs: (201)
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
-msgstr "Une nouvelle version est disponible. Veuillez aller sur http://tortoisesvn.tigris.org et téléchargez la version courante ! Cliquez _ici_ pour aller directement sur notre site internet."
+msgid ""
+"A newer version is available.\r\n"
+"Please go to http://tortoisesvn.tigris.org and download the current version."
+msgstr ""
+"Une nouvelle version est disponible.\r\n"
+"Veuillez aller sur http://tortoisesvn.tigris.org et téléchargez la version courante."
 
 #. Resource IDs: (195)
 msgid ""
@@ -1596,6 +1599,10 @@ msgid ""
 msgstr ""
 "Ajuster la configuration\n"
 "Configuration"
+
+#. Resource IDs: (307)
+msgid "Advanced"
+msgstr "Avancé"
 
 #. Resource IDs: (170)
 msgid "Advanced Diff/Merge Settings"
@@ -1890,10 +1897,6 @@ msgstr ""
 #. Resource IDs: (438)
 msgid "Automatic"
 msgstr "Automatique"
-
-#. Resource IDs: (1073)
-msgid "Automatically check for &newer versions every week"
-msgstr "Vérifier automatiquement les &nouvelles versions chaque semaine"
 
 #. Resource IDs: (306)
 msgid "Autotext Tester"
@@ -2205,6 +2208,10 @@ msgstr "Vérifier les modi&fications"
 msgid "Check for modifications"
 msgstr "Vérifier les modifications"
 
+#. Resource IDs: (65535)
+msgid "Check for updates"
+msgstr "Vérifier les mises à jours"
+
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Extraire une copie de travail depuis le référentiel"
@@ -2288,8 +2295,8 @@ msgstr "Nettoyer"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%s\""
-msgstr "Nettoyer le répertoire \"%s\""
+msgid "Cleaning up directory \"%1!s!\""
+msgstr "Nettoyer le répertoire  \"%1!s!\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2569,8 +2576,8 @@ msgstr "Compare le fichier sélectionné avec un fichier dans le référentiel"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Comparing %s to %s"
-msgstr "Comparaison de %s à %s"
+msgid "Comparing %1!s! to %2!s!"
+msgstr "Comparaison %1!s! avec %2!s!"
 
 #. Resource IDs: (74)
 msgid "Completed"
@@ -3372,6 +3379,18 @@ msgid ""
 msgstr ""
 "Documentation : Simon Large\n"
 "Code : Tobias Schäfer, Stefan Fuhrmann"
+
+#. Resource IDs: (94)
+msgid ""
+"Don't make the checkout directory a sparse working copy.\n"
+"Instead, all URLs get checked out into a separate\n"
+"working copies next to each other.\n"
+"This works for directory URLs only."
+msgstr ""
+"Ne disséminez pas vos répertoires d'extractions.\n"
+"Au lieu de cela, extrayez toutes les URL dans des répertoires\n"
+"séparés proches les uns des autres.\n"
+"Cette méthode n'est valable que pour les répertoires."
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4185,15 +4204,15 @@ msgstr ""
 "Chaque fichier aura l'attribut lecture seule sur le système de fichiers et l'obtention du verrou autorisera l'écriture.\n"
 "Notez que les autres utilisateurs devront mettre à jour leurs copies de travail avant de voir les fichiers en lecture seule."
 
+#. Resource IDs: (119)
+#, c-format
+msgid "Getting file %1!s!"
+msgstr "Obtention du fichier %1!s!"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Getting file %1!s!, revision %2!s!"
 msgstr "Obtention du fichier %1!s!, révision %2!s!"
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Getting file %s"
-msgstr "Obtention du fichier %s"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
@@ -4526,6 +4545,10 @@ msgstr "ID:57643:V C +Z"
 msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+msgid "ID:57665:V C +W"
+msgstr "ID:57665:V C +W"
+
 #. Resource IDs: (106)
 msgid "Icon Overlays"
 msgstr "Recouvrements d'icône"
@@ -4605,10 +4628,6 @@ msgid ""
 msgstr ""
 "Si sélectionné, la boîte de dialogue Livrer redémarrera automatiquement après une erreur,\r\n"
 "tout en conservant votre sélection et vos commentaires précédents."
-
-#. Resource IDs: (194)
-msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "Si activé, TortoiseSVN contrôle une fois par semaine si une nouvelle version est disponible"
 
 #. Resource IDs: (195)
 msgid ""
@@ -4700,10 +4719,6 @@ msgstr "Ignorer tous les esp&acements"
 msgid "Ignore &ancestry"
 msgstr "Ignorer l'&ascendance"
 
-#. Resource IDs: (1067)
-msgid "Ignore &case changes"
-msgstr "Ignorer les &changements de casse"
-
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
 msgstr "Ignorer toutes les modifications d'espaces"
@@ -4711,6 +4726,10 @@ msgstr "Ignorer toutes les modifications d'espaces"
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Ignorer tous les espacements"
+
+#. Resource IDs: (1067)
+msgid "Ignore case cha&nges"
+msgstr "Ignorer les &changements de casse"
 
 #. Resource IDs: (1126)
 msgid "Ignore line &endings"
@@ -4828,8 +4847,8 @@ msgstr "Importer dans %1"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Importing file %s"
-msgstr "Import du fichier %s"
+msgid "Importing file %1!s!"
+msgstr "Import du fichier %1!s!"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
@@ -5024,6 +5043,10 @@ msgstr "Eléments dans les références &externes"
 msgid "Items to show"
 msgstr "Eléments à afficher"
 
+#. Resource IDs: (1074)
+msgid "J&ump to first conflict when loading"
+msgstr "Aller directement a&u premier conflit au chargement"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "Joindre avec l'&arborescence suivante"
@@ -5168,10 +5191,10 @@ msgstr "Statut local"
 #. Resource IDs: (94)
 msgid ""
 "Location where the contents of the\n"
-"repository URL will be saved to."
+"repository URL(s) will be saved to."
 msgstr ""
-"Lieu où le contenu de l'URL du\n"
-"référentiel va être sauvegardé."
+"Endroit où le contenu de(s) l'URL(s)\n"
+"du référentiel va être sauvegardé."
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
@@ -5653,6 +5676,10 @@ msgstr "Déplacement de %s"
 msgid "Moving..."
 msgstr "Déplacement..."
 
+#. Resource IDs: (1204)
+msgid "Multiple, &independent working copies"
+msgstr "Copie de travail multiples et &indépendantes"
+
 #. Resource IDs: (65535)
 msgid "My file:"
 msgstr "Mon fichier :"
@@ -5805,6 +5832,11 @@ msgstr "Pas de corrections orthographiques"
 #. Resource IDs: (196)
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
 msgstr "Pas de cache du statut. Seuls les répertoires versionnés sont recouverts, les fichiers ne sont pas recouverts "
+
+#. Resource IDs: (84)
+#, c-format
+msgid "No such revision '%1!s!'"
+msgstr "Il n'y a pas de révision '%1!s!'"
 
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
@@ -6052,6 +6084,10 @@ msgstr "Ouvre le navigateur de référentiel pour optimiser le référentiel en 
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
 msgstr "Travailler uniquement à partir du cache du journal dès maintenant"
+
+#. Resource IDs: (348)
+msgid "Option"
+msgstr "Option"
 
 #. Resource IDs: (16137)
 msgid "Options"
@@ -6363,8 +6399,8 @@ msgstr "Impression"
 
 #. Resource IDs: (132)
 #, c-format
-msgid "Processing revision %d of %d..."
-msgstr "Traitement révision %d de %d..."
+msgid "Processing revision %1!d! of %2!d!..."
+msgstr "Traitement révision %1!d! de %2!d!..."
 
 #. Resource IDs: (74)
 msgid "Program"
@@ -6995,18 +7031,18 @@ msgstr "Révision"
 
 #. Resource IDs: (119)
 #, c-format
-msgid "Revision %d"
-msgstr "Révision %d"
+msgid "Revision %1!d!"
+msgstr "Révision %1!d!"
+
+#. Resource IDs: (120)
+#, c-format
+msgid "Revision %1!s!"
+msgstr "Révision %1!s!"
 
 #. Resource IDs: (269)
 #, c-format
 msgid "Revision %ld"
 msgstr "Révision %ld"
-
-#. Resource IDs: (120)
-#, c-format
-msgid "Revision %s"
-msgstr "Révision %s"
 
 #. Resource IDs: (15)
 msgid "Revision &graph"
@@ -9584,6 +9620,15 @@ msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
 #. Resource IDs: (65535)
+msgid ""
+"WARNING:\r\n"
+"Only change these settings if you are absolutely sure what you are doing!\r\n"
+"To set the values to their default, delete the value text."
+msgstr ""
+"ATTENTION :\r\n"
+"Ne changez ces paramètres qui si vous êtes absolument sûrs de ce que vous faites !Pour remettre les valeurs par défaut, supprimez le texte."
+
+#. Resource IDs: (65535)
 msgid "WC node"
 msgstr "Noeud WC"
 
@@ -10727,6 +10772,13 @@ msgstr "oui"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Automatically check for &newer versions every week"
+#~ msgstr "Vérifier automatiquement les &nouvelles versions chaque semaine"
+#~ msgid ""
+#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr ""
+#~ "Si activé, TortoiseSVN contrôle une fois par semaine si une nouvelle "
+#~ "version est disponible"
 #~ msgid "Edit conflict"
 #~ msgstr "Editer les conflits"
 #~ msgid "H&ide unrelated changed paths"
