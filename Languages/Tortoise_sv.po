@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-05 09:10+0100\n"
+"PO-Revision-Date: 2010-01-11 11:55+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1382,8 +1382,12 @@ msgid "A list of user defined properties for folders to show in the combo box"
 msgstr "En lista av användardefinerade egenskaper för mappar som visas i komboboxen"
 
 #. Resource IDs: (201)
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
-msgstr "En nyare version finns tillgänglig. Surfa till http://tortoisesvn.tigris.org och ladda hem den nya versionen! Klicka _här_ för att öppna vår hemsida. "
+msgid ""
+"A newer version is available.\r\n"
+"Please go to http://tortoisesvn.tigris.org and download the current version."
+msgstr ""
+"En nyare version finns tillgänglig.\r\n"
+"Surfa till http://tortoisesvn.tigris.org och ladda hem den nya versionen."
 
 #. Resource IDs: (195)
 msgid ""
@@ -1610,6 +1614,10 @@ msgid ""
 msgstr ""
 "Ändra inställningar\n"
 "Inställningar"
+
+#. Resource IDs: (307)
+msgid "Advanced"
+msgstr "Avancerat"
 
 # Hur översätta "diff/merge"
 #. Resource IDs: (170)
@@ -1906,10 +1914,6 @@ msgstr ""
 #. Resource IDs: (438)
 msgid "Automatic"
 msgstr "Automatisk"
-
-#. Resource IDs: (1073)
-msgid "Automatically check for &newer versions every week"
-msgstr "Leta automatiskt efter &nyare versioner varje vecka"
 
 #. Resource IDs: (306)
 msgid "Autotext Tester"
@@ -2222,6 +2226,10 @@ msgstr "Le&ta efter ändringar"
 msgid "Check for modifications"
 msgstr "Leta efter ändringar"
 
+#. Resource IDs: (65535)
+msgid "Check for updates"
+msgstr "Leta efter uppdateringar"
+
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Hämtar en arbetskopia från ett arkiv"
@@ -2303,8 +2311,8 @@ msgstr "Rensar"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%s\""
-msgstr "Rensar katalog \"%s\""
+msgid "Cleaning up directory \"%1!s!\""
+msgstr "Rensar katalog \"%1!s!\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2587,8 +2595,8 @@ msgstr "Jämför den valda filen med en fil i arkivet"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Comparing %s to %s"
-msgstr "Jämför %s med %s"
+msgid "Comparing %1!s! to %2!s!"
+msgstr "Jämför %1!s! med %2!s!"
 
 #. Resource IDs: (74)
 msgid "Completed"
@@ -3396,6 +3404,18 @@ msgid ""
 msgstr ""
 "Dokumentation : Simon Large\n"
 "Kod : Tobias Schäfer, Stefan Fuhrmann"
+
+#. Resource IDs: (94)
+msgid ""
+"Don't make the checkout directory a sparse working copy.\n"
+"Instead, all URLs get checked out into a separate\n"
+"working copies next to each other.\n"
+"This works for directory URLs only."
+msgstr ""
+"Gör inte målkatalogen för hämtning till en gles arbetskopia.\n"
+"Istället, alla URLer hämtas till separata\n"
+"arbetskopior bredvid varandra.\n"
+"Detta fungerar endast för katalog URLer."
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4217,15 +4237,15 @@ msgstr ""
 "Filer med 'svn:needs-lock' egenskapen markeras som skrivskyddade i filsystemet, och man hämtar låset för att göra dem skrivbara.\n"
 "Användare måste uppdatera sina arbetskopior för att filerna ska bli skrivskyddade. "
 
+#. Resource IDs: (119)
+#, c-format
+msgid "Getting file %1!s!"
+msgstr "Hämtar fil %1!s!"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Getting file %1!s!, revision %2!s!"
 msgstr "Hämtar fil %1!s!, revision %2!s!"
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Getting file %s"
-msgstr "Hämtar fil %s"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
@@ -4565,6 +4585,10 @@ msgstr "ID:57643:V C +Z"
 msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+msgid "ID:57665:V C +W"
+msgstr "ID:57665:V C +W"
+
 # Hantering?
 #. Resource IDs: (106)
 msgid "Icon Overlays"
@@ -4644,10 +4668,6 @@ msgid ""
 "If checked, the commit dialog will be started again automatically after an error,\r\n"
 "while preserving your last selection and log message."
 msgstr "Öppna arkiveringsdialogen igen automatiskt efter fel med samma markeringar och loggmeddelande. "
-
-#. Resource IDs: (194)
-msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "Låt TortoiseSVN kontrollera en gång i veckan om det finns en nyare version tillgänglig"
 
 #. Resource IDs: (195)
 msgid ""
@@ -4736,10 +4756,6 @@ msgstr "Ignorera &alla tomrum"
 msgid "Ignore &ancestry"
 msgstr "Ignorer&a ursprung"
 
-#. Resource IDs: (1067)
-msgid "Ignore &case changes"
-msgstr "&Ignorera ändringar mellan gemener/versaler"
-
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
 msgstr "Ignorera ändringar av tomrum"
@@ -4747,6 +4763,10 @@ msgstr "Ignorera ändringar av tomrum"
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Ignorera alla tomrum"
+
+#. Resource IDs: (1067)
+msgid "Ignore case cha&nges"
+msgstr "Ig&norera ändringar mellan gemener/versaler"
 
 #. Resource IDs: (1126)
 msgid "Ignore line &endings"
@@ -4864,8 +4884,8 @@ msgstr "Importera till %1"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Importing file %s"
-msgstr "Importerar fil %s"
+msgid "Importing file %1!s!"
+msgstr "Importerar fil %1!s!"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
@@ -5061,6 +5081,11 @@ msgstr "Objekt i &externa anslutningar"
 msgid "Items to show"
 msgstr "Objekt att visa"
 
+# Hur översätta "diff"
+#. Resource IDs: (1074)
+msgid "J&ump to first conflict when loading"
+msgstr "&Gå till första konflikten när programmet startas"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "Förena med följande &träd"
@@ -5207,7 +5232,7 @@ msgstr "Lokal status"
 #. Resource IDs: (94)
 msgid ""
 "Location where the contents of the\n"
-"repository URL will be saved to."
+"repository URL(s) will be saved to."
 msgstr ""
 "Plats där innehållet på URL:en\n"
 "i arkivet ska sparas."
@@ -5692,6 +5717,10 @@ msgstr "Flyttar %s"
 msgid "Moving..."
 msgstr "Flyttar..."
 
+#. Resource IDs: (1204)
+msgid "Multiple, &independent working copies"
+msgstr "Mult&ipla, oberoende arbetskopior"
+
 #. Resource IDs: (65535)
 msgid "My file:"
 msgstr "Min fil:"
@@ -5843,6 +5872,11 @@ msgstr "Inga stavningskorrigeringar"
 #. Resource IDs: (196)
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
 msgstr "Ingen status cache. Endast versionshanterade mappar har statusikoner, inga filer"
+
+#. Resource IDs: (84)
+#, c-format
+msgid "No such revision '%1!s!'"
+msgstr "Revision finns inte \"%1!s!\""
 
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
@@ -6090,6 +6124,10 @@ msgstr "Visar utforskaren för arkivet"
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
 msgstr "Använd endast loggcachen tills vidare"
+
+#. Resource IDs: (348)
+msgid "Option"
+msgstr "Inställning"
 
 #. Resource IDs: (16137)
 msgid "Options"
@@ -6402,8 +6440,8 @@ msgstr "Skriver ut"
 
 #. Resource IDs: (132)
 #, c-format
-msgid "Processing revision %d of %d..."
-msgstr "Bearbetar revision %d av %d..."
+msgid "Processing revision %1!d! of %2!d!..."
+msgstr "Bearbetar revision %1!d! av %2!d!..."
 
 #. Resource IDs: (74)
 msgid "Program"
@@ -7036,18 +7074,18 @@ msgstr "Revision"
 
 #. Resource IDs: (119)
 #, c-format
-msgid "Revision %d"
-msgstr "Revision %d"
+msgid "Revision %1!d!"
+msgstr "Revision %1!d!"
+
+#. Resource IDs: (120)
+#, c-format
+msgid "Revision %1!s!"
+msgstr "Revision %1!s!"
 
 #. Resource IDs: (269)
 #, c-format
 msgid "Revision %ld"
 msgstr "Revision %ld"
-
-#. Resource IDs: (120)
-#, c-format
-msgid "Revision %s"
-msgstr "Revision %s"
 
 #. Resource IDs: (15)
 msgid "Revision &graph"
@@ -9636,6 +9674,16 @@ msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
 #. Resource IDs: (65535)
+msgid ""
+"WARNING:\r\n"
+"Only change these settings if you are absolutely sure what you are doing!\r\n"
+"To set the values to their default, delete the value text."
+msgstr ""
+"VARNING:\r\n"
+"Ändra endast dessa inställningar om du är absolut säkert på vad du gör!\r\n"
+"Radera värdestexten för att återställa till standardvärden."
+
+#. Resource IDs: (65535)
 msgid "WC node"
 msgstr "Arbetskopia nod"
 
@@ -10780,6 +10828,13 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Automatically check for &newer versions every week"
+#~ msgstr "Leta automatiskt efter &nyare versioner varje vecka"
+#~ msgid ""
+#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr ""
+#~ "Låt TortoiseSVN kontrollera en gång i veckan om det finns en nyare "
+#~ "version tillgänglig"
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "&Göm orelaterade ändrade sökvägar"
 #~ msgid "Edit conflict"
