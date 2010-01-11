@@ -87,7 +87,7 @@ it also stores
 	- length of the binary content (in bytes)
 	- number of and references to the sub-streams
 
-The code paths for read and write are entierely separate. 
+The code paths for read and write are entirely separate. 
 IHierarchicalInStream and IHierarchicalOutStream, respectively,
 define the basic interface that every stream must implement.
 
@@ -115,7 +115,7 @@ I.e. diff integer streams will work great for sequences
 of ascending or descending values, i.e. if abs (v[i] - v[i-1]) << abs(v[i])
 
 A huffman encoding pass over any kind of stream will remove
-any redudancy left or introduced by the stream encoding scheme.
+any redundancy left or introduced by the stream encoding scheme.
 
 
 3.3 Writing Data
@@ -140,7 +140,7 @@ PackedDWORDOutStream.h contains some utility function
 templates that handle the serialization of std::vector<>.
 
 If you need other serialization schemes, you can call
-AddValue() (or your specifc stream method) directly.
+AddValue() (or your specific stream method) directly.
 Since it is your responsibility to interpret the stream
 content correctly, you should put size information first
 as you often cannot derive it from the binary stream size.
@@ -160,10 +160,10 @@ stream class.
 Implement your operator<< symmetrically to your operator>>.
 
 Please note that only the DEBUG builds contain stream
-overflow checks. Correct (de-)serialization is your resposibility.
+overflow checks. Correct (de-)serialization is your responsibility.
 
 Very large streams may use the Prefetch(), AutoOpen()
-and AutoClose() methods to exploit paralellism and to
+and AutoClose() methods to exploit parallelism and to
 reduce temporary memory usage. This is useful for stream
 sizes >> 100MB.
 
@@ -223,7 +223,7 @@ once an old client writes the file.
 This problem can be addressed by the upgrade code that the
 client needs to handle older cache files, because the file
 *is* in old format once it got overwritten. A client should
-use HasSubStream() to test for the presense of its additional
+use HasSubStream() to test for the presence of its additional
 streams.
 
 
@@ -398,7 +398,7 @@ CRevisionInfoContainer
 				  , pathID (common root of all changes) -> paths
 		                  , combined action flags over all changes)
 
-		* changeOffset -> ( change action // ADD, MOD etc. + copy-from presense
+		* changeOffset -> ( change action // ADD, MOD etc. + copy-from presence
 		                  , pathID -> paths
 		                  , path / node type )
 
@@ -508,7 +508,7 @@ basis. This info should then be stored in CRevisionInfoContainer.
 
 Due to the simple internal per-column data model, new columns 
 and sub-tables can be added easily. Just follow the model of
-the exisiting data. That means, you should extend existing
+the existing data. That means, you should extend existing
 iterators for extra columns or introduce new ones for new
 sub-tables.
 
