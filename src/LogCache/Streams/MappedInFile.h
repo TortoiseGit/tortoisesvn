@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -50,25 +50,34 @@ private:
 
 	size_t size;
 
+	// if true, buffer content may be modfied
+
+	bool writable;
+
 	// construction utilities
 
 	void MapToMemory (const TFileName& fileName);
 
 	// destruction / exception utility: close all handles
 
-	void UnMap();
+	void UnMap (size_t newSize = (size_t)-1);
 
 public:
 
 	// construction / destruction: auto- open/close
 
-	CMappedInFile (const TFileName& fileName);
+	CMappedInFile (const TFileName& fileName, bool writable = false);
 	virtual ~CMappedInFile();
 
 	// access streams
 
 	const unsigned char* GetBuffer() const;
+	unsigned char* GetWritableBuffer() const;
 	size_t GetSize() const;
+
+	// close and optionally truncate file
+
+	void Close (size_t newSize = (size_t)(-1));
 };
 
 ///////////////////////////////////////////////////////////////
