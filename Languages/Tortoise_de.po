@@ -1,6 +1,6 @@
 #
 # German translation for TortoiseSVN
-# Copyright (C) 2004-2009 the TortoiseSVN team
+# Copyright (C) 2004-2010 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Last commit by:
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-07 20:15+0100\n"
+"PO-Revision-Date: 2010-01-11 09:49+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1366,8 +1366,12 @@ msgid "A list of user defined properties for folders to show in the combo box"
 msgstr "Eine Liste von benutzerdefinierten Eigenschaften für Ordner, die in der Kombinationsliste angezeigt werden"
 
 #. Resource IDs: (201)
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
-msgstr "Eine neue Version steht zur Verfügung. Bitte gehen Sie zu http://tortoisesvn.tigris.org, um sich die aktuelle Version herunterzuladen! Klicken sie _hier_, um direkt zur Webseite zu gelangen."
+msgid ""
+"A newer version is available.\r\n"
+"Please go to http://tortoisesvn.tigris.org and download the current version."
+msgstr ""
+"Eine neue Version steht zur Verfügung.\r\n"
+"Bitte gehen Sie zu http://tortoisesvn.tigris.org, um sich die aktuelle Version herunterzuladen."
 
 #. Resource IDs: (195)
 msgid ""
@@ -1892,10 +1896,6 @@ msgstr ""
 msgid "Automatic"
 msgstr "Automatisch"
 
-#. Resource IDs: (1073)
-msgid "Automatically check for &newer versions every week"
-msgstr "&Wöchentlich auf neue Version prüfen"
-
 #. Resource IDs: (306)
 msgid "Autotext Tester"
 msgstr "Autotext Tester"
@@ -2206,6 +2206,10 @@ msgstr "&Prüfe auf Änderungen"
 #. Resource IDs: (65535)
 msgid "Check for modifications"
 msgstr "Auf Änderungen überprüfen"
+
+#. Resource IDs: (65535)
+msgid "Check for updates"
+msgstr "Check for updates"
 
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
@@ -3375,6 +3379,18 @@ msgstr ""
 "Dokumentation : Simon Large\n"
 "Code : Tobias Schäfer, Stefan Fuhrmann"
 
+#. Resource IDs: (94)
+msgid ""
+"Don't make the checkout directory a sparse working copy.\n"
+"Instead, all URLs get checked out into a separate\n"
+"working copies next to each other.\n"
+"This works for directory URLs only."
+msgstr ""
+"Mache aus dem Zielverzeichnis keine dünn besetzte Arbeitskopie.\n"
+"Stattdessen werden alle URLs in separate, nebeneinander stehende\n"
+"Arbeitskopien ausgecheckt.\n"
+"Funktioniert nur bei Verzeichnis-URLs."
+
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
 msgstr "Diese Meldung nicht wieder anzeigen"
@@ -4532,6 +4548,10 @@ msgstr "ID:57643:V C +Z"
 msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+msgid "ID:57665:V C +W"
+msgstr "ID:57665:V C +W"
+
 #. Resource IDs: (106)
 msgid "Icon Overlays"
 msgstr "Überlagerte Symbole"
@@ -4615,12 +4635,6 @@ msgstr ""
 "Aktivieren Sie diese Option, damit der Übertragen-Dialog nach einem Fehler\r\n"
 "automatisch wieder geöffnet wird. Ihre letzte Auswahl sowie die Logmeldung\r\n"
 "werden beibehalten."
-
-#. Resource IDs: (194)
-msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr ""
-"Aktivieren Sie diese Option, damit TortoiseSVN einmal wöchentlich\n"
-"überprüft, ob eine neue Version der Software zur Verfügung steht."
 
 #. Resource IDs: (195)
 msgid ""
@@ -5188,10 +5202,10 @@ msgstr "Lokaler Status"
 #. Resource IDs: (94)
 msgid ""
 "Location where the contents of the\n"
-"repository URL will be saved to."
+"repository URL(s) will be saved to."
 msgstr ""
-"Zielordner, in dem die Dateien aus dem gewählten\n"
-"Projektarchiv gespeichert werden."
+"Zielordner, in dem der Inhalt aus den gewählten\n"
+"Projektarchiv URL(s) gespeichert wird."
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
@@ -5672,6 +5686,10 @@ msgstr "Verschiebe %s"
 #. Resource IDs: (80)
 msgid "Moving..."
 msgstr "Verschieben..."
+
+#. Resource IDs: (1204)
+msgid "Multiple, &independent working copies"
+msgstr "Mehrere &unabhängige Arbeitskopien"
 
 #. Resource IDs: (65535)
 msgid "My file:"
@@ -9628,7 +9646,7 @@ msgstr "Visual Studio.NET 200&5"
 #. Resource IDs: (65535)
 msgid ""
 "WARNING:\r\n"
-"Only change these settings if you are abolutely sure what you are doing!\r\n"
+"Only change these settings if you are absolutely sure what you are doing!\r\n"
 "To set the values to their default, delete the value text."
 msgstr ""
 "ACHTUNG:\r\n"
@@ -10784,6 +10802,13 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Automatically check for &newer versions every week"
+#~ msgstr "&Wöchentlich auf neue Version prüfen"
+#~ msgid ""
+#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr ""
+#~ "Aktivieren Sie diese Option, damit TortoiseSVN einmal wöchentlich\n"
+#~ "überprüft, ob eine neue Version der Software zur Verfügung steht."
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "&Geänderte Pfade ohne Bezug ausblenden"
 #~ msgid "Edit conflict"
