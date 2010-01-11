@@ -35,6 +35,7 @@
 #include "CreateProcessHelper.h"
 #include "FormatMessageWrapper.h"
 #include "DirFileEnum.h"
+#include "SysInfo.h"
 
 CAppUtils::CAppUtils(void)
 {
@@ -457,20 +458,46 @@ CString CAppUtils::GetAppForFile
 	if (!extensionToUse.IsEmpty())
 	{
 		// lookup by verb
-		DWORD buflen = 0;
-		AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, verb, NULL, &buflen);
-		auto_buffer<TCHAR> cmdbuf(buflen + 1);
-		AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, verb, cmdbuf, &buflen);
-		application = cmdbuf;
+
+		CString documentClass;
+		if (SysInfo::Instance().IsXP())
+		{
+			// AssocQueryString is broken under XP
+
+			documentClass 
+				= CRegString (extensionToUse + _T("\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
+
+			CString key = documentClass + _T("\\Shell\\") + verb + _T("\\Command\\");
+			application = CRegString (key, _T(""), FALSE, HKEY_CLASSES_ROOT);
+		}
+		else
+		{
+			DWORD buflen = 0;
+			AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, verb, NULL, &buflen);
+			auto_buffer<TCHAR> cmdbuf(buflen + 1);
+			AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, verb, cmdbuf, &buflen);
+			application = cmdbuf;
+		}
 
 		// fallback to "open"
 
 		if (application.IsEmpty())
 		{
-			AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), NULL, &buflen);
-			cmdbuf.reset(buflen + 1);
-			AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), cmdbuf, &buflen);
-			application = cmdbuf;
+			if (SysInfo::Instance().IsXP())
+			{
+				// AssocQueryString is broken under XP
+
+				CString key = documentClass + _T("\\Shell\\Open\\Command\\");
+				application = CRegString (key, _T(""), FALSE, HKEY_CLASSES_ROOT);
+			}
+			else
+			{
+				DWORD buflen = 0;
+				AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), NULL, &buflen);
+				auto_buffer<TCHAR> cmdbuf (buflen + 1);
+				AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), cmdbuf, &buflen);
+				application = cmdbuf;
+			}
 		}
 	}
 
