@@ -1,5 +1,5 @@
 #
-# Serbian latine translation for TortoiseSVN
+# Serbian latin translation for TortoiseSVN
 # Copyright (C) 2008-2009 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-08 16:58+0100\n"
+"PO-Revision-Date: 2010-01-11 20:43+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1574,8 +1574,12 @@ msgid "A list of user defined properties for folders to show in the combo box"
 msgstr "Lista osobina  koje je definisao korisnik za imenike za prikazivanje u kombo boksu"
 
 #. Resource IDs: (201)
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
-msgstr "Nova verzija je dostupna.Molim idite na   http://tortoisesvn.tigris.org i prenesite tekuću verziju! Kliknite ovde da biste otišli direktno na vebsajt."
+msgid ""
+"A newer version is available.\r\n"
+"Please go to http://tortoisesvn.tigris.org and download the current version."
+msgstr ""
+"Nova verzija je dostupna.\r\n"
+"Molim idite na   http://tortoisesvn.tigris.org i prenesite tekuću verziju."
 
 #. Resource IDs: (195)
 msgid ""
@@ -2098,10 +2102,6 @@ msgstr ""
 msgid "Automatic"
 msgstr "Automatski"
 
-#. Resource IDs: (1073)
-msgid "Automatically check for &newer versions every week"
-msgstr "Automatski proveri &novije verzije jednom nedeljno"
-
 #. Resource IDs: (306)
 msgid "Autotext Tester"
 msgstr "Autotekst tester"
@@ -2411,6 +2411,10 @@ msgstr "Proveri iz&mene"
 #. Resource IDs: (65535)
 msgid "Check for modifications"
 msgstr "Provera izmena"
+
+#. Resource IDs: (65535)
+msgid "Check for updates"
+msgstr "Provera za ažuriranja"
 
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
@@ -3578,6 +3582,18 @@ msgid ""
 msgstr ""
 "Dokumentacija: Simon Large\n"
 "Kod: Tobias Schäfer, Stefan Fuhrmann"
+
+#. Resource IDs: (94)
+msgid ""
+"Don't make the checkout directory a sparse working copy.\n"
+"Instead, all URLs get checked out into a separate\n"
+"working copies next to each other.\n"
+"This works for directory URLs only."
+msgstr ""
+"Ne pravite imenik preuzimanja kao praznu radnu kopiju.\n"
+"Umesto toga, svi URLovi su preuzeti u izdvojene\n"
+"radne kopije jedan za drugim.\n"
+"Ovo radi samo za URL imenike."
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4823,10 +4839,6 @@ msgstr ""
 "Ako je označeno, dijalog urezivanja će biti ponovo pokazan nakon greške,\r\n"
 "i to sa podacima koje ste prethodno upisali/odabrali."
 
-#. Resource IDs: (194)
-msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "Ukoliko je uključeno TortoiseSVN proverava jednom nedeljno da li postoji novija verzija"
-
 #. Resource IDs: (195)
 msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
@@ -5391,10 +5403,10 @@ msgstr "Lokalni status"
 #. Resource IDs: (94)
 msgid ""
 "Location where the contents of the\n"
-"repository URL will be saved to."
+"repository URL(s) will be saved to."
 msgstr ""
-"Mesto gde će sadržaj spremišta\n"
-"određenog URL-om biti sačuvan."
+"Mesto gde će sadržaj\n"
+"spremišta  URL(ova) biti sačuvan."
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
@@ -5875,6 +5887,10 @@ msgstr "Premeštam %s"
 #. Resource IDs: (80)
 msgid "Moving..."
 msgstr "Premeštam..."
+
+#. Resource IDs: (1204)
+msgid "Multiple, &independent working copies"
+msgstr "Višestruke, nezav&isne radne kopije"
 
 #. Resource IDs: (65535)
 msgid "My file:"
@@ -9818,12 +9834,12 @@ msgstr "Visual Studio.NET 200&5"
 #. Resource IDs: (65535)
 msgid ""
 "WARNING:\r\n"
-"Only change these settings if you are abolutely sure what you are doing!\r\n"
+"Only change these settings if you are absolutely sure what you are doing!\r\n"
 "To set the values to their default, delete the value text."
 msgstr ""
 "PAŽNJA:\r\n"
 "Menjajte ova podešavanja samo ako ste apsolutno sigurni šta radite!\r\n"
-"Da postavite vrednosti na njihove uobičajene vrednosti, obrišite vrednosni tekst."
+"Da postavite vrednosti na njihove uobičajene vrednosti, obrišite tekst vrednosti."
 
 #. Resource IDs: (65535)
 msgid "WC node"
@@ -10969,4 +10985,12 @@ msgstr "da"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BagTrek}"
+
+#~ msgid "Automatically check for &newer versions every week"
+#~ msgstr "Аутоматски провери &новије верзије једном недељно"
+#~ msgid ""
+#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr ""
+#~ "Уколико је укључено ТортоисеСВН проверава једном недељно да ли постоји "
+#~ "новија верзија"
 

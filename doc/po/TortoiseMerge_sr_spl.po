@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge Documentation\n"
-"POT-Creation-Date: 2009-10-09 18:46 +0000\n"
-"PO-Revision-Date: 2009-10-12 20:24+0100\n"
+"POT-Creation-Date: 2010-01-10 08:44 +0000\n"
+"PO-Revision-Date: 2010-01-11 21:02+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -440,6 +440,21 @@ msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane 
 msgstr "<guibutton>Prebaci pregled</guibutton> bira između jedan-panel i dva-panela pregleda. Onemogućen u 3-panela pregledu."
 
 #. (para)
+#. (para)
+msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
+msgstr "<guilabel>Poređenje belihpolja</guilabel> prikazuje sve izmene u uvlačenju linija i unutarlinijski razmaci kao dodate/uklonjene linije (kako Subverzija tretira takve izmene)."
+
+#. (para)
+#. (para)
+msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+msgstr "<guilabel>Zanemarivanje izmena razmaka</guilabel> sakriva izmene  koje su samo zbog izmena u iznosu ili tipu razmaka, npr. izmenom uvlačenja linije ili izmenom tabova u razmake. Dodavanjem razmaka gde nisu bila ranije, ili potpunim uklanjanjem razmaka još uvek je prikazano kao promena."
+
+#. (para)
+#. (para)
+msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
+msgstr "<guilabel>Zanemarivanje svih razmaka</guilabel> sakriva sve izmene samo-razmaka."
+
+#. (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
 msgstr "<guibutton>Prebaci levi i desni pregled</guibutton> U 2-panela pregledu izmenjuje levi i desni prozor. Kada poredite fajlove u 2 različita stabla, nasuprot od 2 revizije istog fajla, TortoiseSVN ne zna koji treba da ide u levi panel kao <quote>originalna/osnovna</quote> verzija. Ako uzme pogrešnu vi je možete zameniti da napraviti lakši pregled."
 
@@ -448,8 +463,16 @@ msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patc
 msgstr "<guibutton>Prikaži/Sakri listu zakrpa</guibutton> Kada TortoiseSVN ima listu zakrpa, ovo dugme vam omogućava da je sakrijete (tako da možete videti oba prozora), ili je prikazati (tako da možete pregledati listu fajlova)."
 
 #. (para)
+msgid "<guilabel>Collapse</guilabel> collapses unchanged regions to a single line, leaving only the changed areas and minimal context. You can expand the collapsed areas by double clicking on the collapse line, but you cannot then re-collapse them unless you reload the file."
+msgstr "<guilabel>Sažimanje</guilabel> sažima  neizmenjene oblasti u jedinstvenu liniju ostavljajući samo izmenjene oblasti i minimalni kontekst. Možete proširiti sažete površine dvostrukim klikom na sažetu liniju, ali je ne možete proširiti bez učitavanja fajla."
+
+#. (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
 msgstr "<guibutton>Podešavanje</guibutton> vam donosi TortoiseMerge dijaog podešavanja."
+
+#. (para)
+msgid "<guibutton>Help</guibutton> opens the TortoiseMerge help file, of course."
+msgstr "<guibutton>Pomoć</guibutton> otvara TortoiseMerge fajl pomoćo, svakako."
 
 #. (para)
 msgid "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
@@ -598,18 +621,6 @@ msgstr "<guilabel>Zanemari izmene veličine slova</guilabel> sakriva izmene samo
 #. (para)
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
 msgstr "<guilabel>Kolor kod u-liniji izmene</guilabel> koristi istu šemu kao i linijski diff pult da prikaže detaljne u-liniji promene u okviru panela glavnog displeja. Linije koje su teško izmenjene neće biti prikazane korišćenjem ove metode što je  rezultat jednostavne konfuzije.U ovom slučaju linije će biti prikazane kao zamenjene (stara linija izbrisana, nova linija dodata)."
-
-#. (para)
-msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
-msgstr "<guilabel>Poređenje belihpolja</guilabel> prikazuje sve izmene u uvlačenju linija i unutarlinijski razmaci kao dodate/uklonjene linije (kako Subverzija tretira takve izmene)."
-
-#. (para)
-msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Zanemarivanje izmena razmaka</guilabel> sakriva izmene  koje su samo zbog izmena u iznosu ili tipu razmaka, npr. izmenom uvlačenja linije ili izmenom tabova u razmake. Dodavanjem razmaka gde nisu bila ranije, ili potpunim uklanjanjem razmaka još uvek je prikazano kao promena."
-
-#. (para)
-msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
-msgstr "<guilabel>Zanemarivanje svih razmaka</guilabel> sakriva sve izmene samo-razmaka."
 
 #. (title)
 msgid "Colour Settings Page"

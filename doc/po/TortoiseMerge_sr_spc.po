@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge Documentation\n"
-"POT-Creation-Date: 2009-10-09 18:46 +0000\n"
-"PO-Revision-Date: 2009-10-12 20:24+0100\n"
+"POT-Creation-Date: 2010-01-10 08:44 +0000\n"
+"PO-Revision-Date: 2010-01-11 21:02+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -440,6 +440,21 @@ msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane 
 msgstr "<guibutton>Пребаци преглед</guibutton> бира између један-панел и два-панела прегледа. Онемогућен у 3-панела прегледу."
 
 #. (para)
+#. (para)
+msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
+msgstr "<guilabel>Поређење белихпоља</guilabel> приказује све измене у увлачењу линија и унутарлинијски размаци као додате/уклоњене линије (како Субверзија третира такве измене)."
+
+#. (para)
+#. (para)
+msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+msgstr "<guilabel>Занемаривање измена размака</guilabel> сакрива измене  које су само због измена у износу или типу размака, нпр. изменом увлачења линије или изменом табова у размаке. Додавањем размака где нису била раније, или потпуним уклањањем размака још увек је приказано као промена."
+
+#. (para)
+#. (para)
+msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
+msgstr "<guilabel>Занемаривање свих размака</guilabel> сакрива све измене само-размака."
+
+#. (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
 msgstr "<guibutton>Пребаци леви и десни преглед</guibutton> У 2-панела прегледу измењује леви и десни прозор. Када поредите фајлове у 2 различита стабла, насупрот од 2 ревизије истог фајла, ТортоисеСВН не зна који треба да иде у леви панел као <quote>оригинална/основна</quote> верзија. Ако узме погрешну ви је можете заменити да направити лакши преглед."
 
@@ -448,8 +463,16 @@ msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patc
 msgstr "<guibutton>Прикажи/Сакри листу закрпа</guibutton> Када ТортоисеСВН има листу закрпа, ово дугме вам омогућава да је сакријете (тако да можете видети оба прозора), или је приказати (тако да можете прегледати листу фајлова)."
 
 #. (para)
+msgid "<guilabel>Collapse</guilabel> collapses unchanged regions to a single line, leaving only the changed areas and minimal context. You can expand the collapsed areas by double clicking on the collapse line, but you cannot then re-collapse them unless you reload the file."
+msgstr "<guilabel>Сажимање</guilabel> сажима  неизмењене области у јединствену линију остављајући само измењене области и минимални контекст. Можете проширити сажете површине двоструким кликом на сажету линију, али је не можете проширити без учитавања фајла."
+
+#. (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
 msgstr "<guibutton>Подешавање</guibutton> вам доноси ТортоисеМерге дијаог подешавања."
+
+#. (para)
+msgid "<guibutton>Help</guibutton> opens the TortoiseMerge help file, of course."
+msgstr "<guibutton>Помоћ</guibutton> отвара ТортоисеМерге фајл помоћо, свакако."
 
 #. (para)
 msgid "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
@@ -598,18 +621,6 @@ msgstr "<guilabel>Занемари измене величине слова</gui
 #. (para)
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
 msgstr "<guilabel>Колор код у-линији измене</guilabel> користи исту шему као и линијски дифф пулт да прикаже детаљне у-линији промене у оквиру панела главног дисплеја. Линије које су тешко измењене неће бити приказане коришћењем ове методе што је  резултат једноставне конфузије.У овом случају линије ће бити приказане као замењене (стара линија избрисана, нова линија додата)."
-
-#. (para)
-msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
-msgstr "<guilabel>Поређење белихпоља</guilabel> приказује све измене у увлачењу линија и унутарлинијски размаци као додате/уклоњене линије (како Субверзија третира такве измене)."
-
-#. (para)
-msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Занемаривање измена размака</guilabel> сакрива измене  које су само због измена у износу или типу размака, нпр. изменом увлачења линије или изменом табова у размаке. Додавањем размака где нису била раније, или потпуним уклањањем размака још увек је приказано као промена."
-
-#. (para)
-msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
-msgstr "<guilabel>Занемаривање свих размака</guilabel> сакрива све измене само-размака."
 
 #. (title)
 msgid "Colour Settings Page"
