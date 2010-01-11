@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-10 01:42+0900\n"
+"PO-Revision-Date: 2010-01-11 10:10+0900\n"
 "Last-Translator: Taedong Kim <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1362,8 +1362,12 @@ msgid "A list of user defined properties for folders to show in the combo box"
 msgstr "콤보 박스에 보이기 위한, 폴더에 대해 사용자가 정의한 속성들의 리스트"
 
 #. Resource IDs: (201)
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
-msgstr "새 버전이 나왔습니다. http://tortoisesvn.tigris.org/ 에서 다운로드 할 수 있습니다. _here_를 클릭하면 이동합니다."
+msgid ""
+"A newer version is available.\r\n"
+"Please go to http://tortoisesvn.tigris.org and download the current version."
+msgstr ""
+"새로운 버전이 나왔습니다.\r\n"
+"http://tortoisesvn.tigris.org 방문해서 현재 버전을 다운로드하십시오."
 
 #. Resource IDs: (195)
 msgid ""
@@ -1884,10 +1888,6 @@ msgstr ""
 msgid "Automatic"
 msgstr "자동으로"
 
-#. Resource IDs: (1073)
-msgid "Automatically check for &newer versions every week"
-msgstr "매주 새 버전을 확인합니다.(&N)"
-
 #. Resource IDs: (306)
 msgid "Autotext Tester"
 msgstr "Autotext 테스터"
@@ -2196,6 +2196,10 @@ msgstr "수정 사항 확인(&F)"
 #. Resource IDs: (65535)
 msgid "Check for modifications"
 msgstr "수정 사항 확인"
+
+#. Resource IDs: (65535)
+msgid "Check for updates"
+msgstr "업데이트 확인"
 
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
@@ -3363,6 +3367,17 @@ msgid ""
 msgstr ""
 "문서 : Simon Large\n"
 "코드 : Tobias Schäfer, Stefan Fuhrmann"
+
+#. Resource IDs: (94)
+msgid ""
+"Don't make the checkout directory a sparse working copy.\n"
+"Instead, all URLs get checked out into a separate\n"
+"working copies next to each other.\n"
+"This works for directory URLs only."
+msgstr ""
+"체크 아웃 디렉토리를 sparse 작업 사본으로 만들지 마십시오.\n"
+"대신에 모든 URL들을 서로 인접하는 분리된 작업 사본에 체크 아웃 받으십시오.\n"
+"이것은 디렉토리 URL에서만 동작합니다."
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4604,10 +4619,6 @@ msgid ""
 msgstr ""
 "커밋 오류가 발생할 경우 선택한 내용과 로그 메시지를 유지하여,\r\n"
 "다시 이 대화상자를 보여 줍니다."
-
-#. Resource IDs: (194)
-msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "TortoiseSVN 새 버전을 매주 한 번씩 확인합니다."
 
 #. Resource IDs: (195)
 msgid ""
@@ -10731,6 +10742,11 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid "Automatically check for &newer versions every week"
+#~ msgstr "매주 새 버전을 확인합니다.(&N)"
+#~ msgid ""
+#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr "TortoiseSVN 새 버전을 매주 한 번씩 확인합니다."
 #~ msgid "Edit conflict"
 #~ msgstr "충돌 상황 편집"
 #~ msgid "From URL:"
