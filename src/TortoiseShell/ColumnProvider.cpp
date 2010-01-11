@@ -157,7 +157,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		// reserve for the path + trailing \0
 
 		TCHAR buf[MAX_STATUS_STRING_LENGTH+1];
-		SecureZeroMemory(buf, MAX_STATUS_STRING_LENGTH);
+		SecureZeroMemory(buf, sizeof(buf));
 		switch (pscid->pid) 
 		{
 			case 0:	// SVN Status
