@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-01-07 09:08 +0000\n"
-"PO-Revision-Date: 2010-01-08 01:34+0200\n"
+"POT-Creation-Date: 2010-01-10 08:44 +0000\n"
+"PO-Revision-Date: 2010-01-12 00:58+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1937,7 +1937,6 @@ msgstr ""
 "</screen>"
 
 #. (title)
-#. (term)
 msgid "Configuration"
 msgstr "Määrittely"
 
@@ -5997,8 +5996,33 @@ msgstr "<emphasis>Projektiominaisuuksien</emphasis> yhteydessä (ts.  i.e. <lite
 #. (para)
 #. (para)
 #. (para)
-msgid "When you add new sub-folders using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
-msgstr "Kun lisäät uusia alikansioita TortoiseSVN:n avulla, mahdolliset projektiominaisuudet yläkansiossa lisätään niihin automaattisesti."
+msgid "When you add new sub-folders to a working copy using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
+msgstr "Kun lisäät työkopioon uusia alikansioita, TortoiseSVN lisää yläkansion projektiominaisuudet niihin automaattisesti."
+
+#. (title)
+#. (title)
+msgid "Limitations Using the Repository Browser"
+msgstr "Rajoitukset arkistoselainta käytettäessä"
+
+#. (para)
+msgid "Fetching properties remotely is a slow operation, so some of the features described above will not work in the repository browser as they do in a working copy."
+msgstr "Ominaisuuksien noutaminen etänä on hidasta, joten jotkin yllä kuvatut ominaisuudet eivät toimi arkistoselaimessa samaan tapaan kuin työkopiossa."
+
+#. (para)
+msgid "When you add a property using the repo browser, only the standard <literal>svn:</literal> properties are offered in the pre-defined list. Any other property name must be entered manually."
+msgstr "Kun lisäät ominaisuuden arkistoselaimessa, esiasetuslista sisältää vain <literal>svn:</literal> -ominaisuudet. Muut ominaisuudet on lisättävä käsin."
+
+#. (para)
+msgid "Properties cannot be set or deleted recursively using the repo browser."
+msgstr "Ominausuuksia ei voi asettaa tai poistaa palautuvasti arkistoselaimessa."
+
+#. (para)
+msgid "Project properties will <emphasis>not</emphasis> be propagated automatically when a child folder is added using the repo browser."
+msgstr "Projektiominaisuudet <emphasis>eivät</emphasis> leviä automaattisesti, kun alikansio lisätään arkistoselaimen avulla."
+
+#. (para)
+msgid "<literal>tsvn:autoprops</literal> will <emphasis>not</emphasis> set properties on files which are added using the repo browser."
+msgstr "<literal>tsvn:autoprops</literal> <emphasis>ei</emphasis> aseta ominaisuuksia tiedostoille, jotka on lisätty arkistoselaimen kautta."
 
 #. (para)
 msgid "Although TortoiseSVN's project properties are extremely useful, they only work with TortoiseSVN, and some will only work in newer versions of TortoiseSVN. If people working on your project use a variety of Subversion clients, or possibly have old versions of TortoiseSVN, you may want to use repository hooks to enforce project policies. project properties can only help to implement a policy, they cannot enforce it."
@@ -7829,6 +7853,11 @@ msgid "Because the issue tracker integration depends upon accessing subversion p
 msgstr "Koska kytkentä web-selaimiin vaatii Subversion-ominaisuuksien käyttöä, näet tulokset vain työkopion kautta. Ominaisuuksien haku palvelimelta on hidasta, joten tämä toiminto ei ole käytettävissä arkistoselaimessa, ellet käynnistä arkistoselainta työkopiostasi. Jos siis käynnistät arkistoselaimen antamalla arkiston paikantimen, tämä ominaisuus ei ole käytettävissä."
 
 #. (para)
+#. (para)
+msgid "For the same reason, project properties will not be propagated automatically when a child folder is added using the repo browser."
+msgstr "Samasta syystä projektiominaisuudet eivät leviä automaattisesti, kun alikansio lisätään arkistoselaimen kautta."
+
+#. (para)
 msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
 msgstr "Virheenjäljitysintegraatio ei ole TortoiseSVN-riippuvaista; sitä voi käyttää minkä tahansa Subversion-asiakkaan kanssa. Katso kaikki yksityiskohdat dokumentista <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink>. (Kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten TortoiseSVN-arkistoon kytkeydytään)."
 
@@ -7891,10 +7920,6 @@ msgstr "Aseta tämä ominaisuus arkistoselaimesi paikantimeen nähdäksesi muuto
 #. (para)
 msgid "You can also use relative URLs instead of absolute ones. This is useful in case your web viewer is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>webviewer:revision</literal> and <literal>webviewer:pathrevision</literal> property. The format is the same as for the <literal>bugtraq:url</literal> property. See <xref linkend=\"tsvn-dug-bugtracker\"/>."
 msgstr "Voit myös käyttää suhteellisia paikantimia absoluuttisten sijaan. Tästä on hyötyä, mikäli selaimesi on samassa nimialueessa / palvelimella kuin arkistosi. Jos nimialue joskus muuttuu, et joudu muuttamaan <literal>webviewer:revision</literal> ja <literal>webviewer:pathrevision</literal> -ominausuuksia. Muoto on sama kuin ominaisuudella <literal>bugtraq:url</literal>, ks. luku <xref linkend=\"tsvn-dug-bugtracker\"/>."
-
-#. (title)
-msgid "No Repo Viewer Links from Repository Browser"
-msgstr "Linkit web-selaimiin eivät ole käytettävissä arkistoselaimessa"
 
 #. (para)
 msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the URL of the repository you won't see this feature."
@@ -9375,110 +9400,6 @@ msgstr "Tabulaattorit"
 #. (para)
 msgid "Defines how many spaces to use for expansion when a tab character is found in the file content."
 msgstr "Määrittää, kuinka monella välilyönnillä tabulaattorimerkki korvataan, kun sellainen löytyy tiedostosta."
-
-#. (title)
-msgid "Registry Settings"
-msgstr "Rekisteriasetukset"
-
-#. (primary)
-msgid "registry"
-msgstr "rekisteri"
-
-#. (para)
-msgid "A few infrequently used settings are available only by editing the registry directly. It goes without saying that you should only edit registry values if you know what you are doing."
-msgstr "Muutamat harvoin käytetyt asetukset ovat saatavilla vain muokkaamalla suoraan Windows-rekisteriä. On itsestään selvää, että rekisteriä kannattaa muuttaa vain, jos tietää, mitä on tekemässä."
-
-#. (para)
-msgid "You can specify a different location for the Subversion configuration file using registry location <literal>HKCU\\Software\\TortoiseSVN\\ConfigDir</literal>. This will affect all TortoiseSVN operations."
-msgstr "Voit määrittää uuden paikan Subversion-määritystiedostolle muuttamalla rekisteriavainta <literal>HKCU\\Software\\TortoiseSVN\\ConfigDir</literal>. Tämä vaikuttaa kaikkiin TortoiseSVN-toimintoihin."
-
-#. (term)
-msgid "Cache tray icon"
-msgstr "Tilatietojen ilmoitusaluekuvake"
-
-#. (para)
-msgid "To add a cache tray icon for the TSVNCache program, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\CacheTrayIcon</literal>. This is really only useful for developers as it allows you to terminate the program gracefully."
-msgstr "Lisätäksesi ilmoitusalueelle kuvakkeen, joka kertoo TSVNCache-ohjelman tilatiedot, luo <literal>DWORD</literal>-avain <literal>HKCU\\Software\\TortoiseSVN\\CacheTrayIcon</literal> ja aseta sen arvoksi 1. Tästä on varsinaisesti hyötyä vain virhetilanteiden selvittämisessä."
-
-#. (term)
-msgid "Debug"
-msgstr "Virheenjäljitys"
-
-#. (para)
-msgid "To show the command line parameters passed from the shell extension to TortoiseProc.exe create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\Debug</literal>."
-msgstr "Näyttääksesi Resurssienhallintalaajennoksen TortoiseProc.exe -komennolle välittämät komentoriviparametrit, luo <literal>DWORD</literal>-avain <literal>HKCU\\Software\\TortoiseSVN\\Debug</literal> ja aseta sen arvoksi 1."
-
-#. (term)
-msgid "Context Menu Icons"
-msgstr "Kontekstivalikon kuvakkeet"
-
-#. (para)
-msgid "This can be useful if you use something other than the windows explorer or if you get problems with the context menu displaying correctly. create a <literal>DWORD</literal> key with a value of 0 at <literal>HKCU\\Software\\TortoiseSVN\\ShowContextMenuIcons</literal> if you don't want TortoiseSVN to not show icons for the shell context menu items. Set this value to 1 to show the icons again."
-msgstr "Tästä voi olla hyötyä, jos käytät jotain muuta ohjelmaa kuin Windows-resurssienhallinta, tai jos kontekstivalikko ei näy oikein. Luo <literal>DWORD</literal>-avain <literal>HKCU\\Software\\TortoiseSVN\\ShowContextMenuIcons</literal> ja aseta sen arvoksi 0, jos et halua, että TortoiseSVN näyttää kuvakkeita kontekstivalikossa. Aseta arvoksi 1 näyttääksesi kuvakkeet uudelleen."
-
-#. (term)
-msgid "Block Overlay Status"
-msgstr "Päivitä kuvakepäällykset kerralla"
-
-#. (para)
-msgid "If you don't want the explorer to update the status overlays while another TortoiseSVN command is running (e.g. Update, Commit, ...) then create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\BlockStatus</literal>."
-msgstr "Jos et halua Resurssienhallinnan päivittävän kuvakepäällyksiä TortoiseSVN-komentojen aikana (esim. Päivitä, Toimita, ...), voit luoda <literal>DWORD</literal>-avaimen <literal>HKCU\\Software\\TortoiseSVN\\BlockStatus</literal> ja asettaa sen arvoksi 1."
-
-#. (term)
-msgid "Update Check URL"
-msgstr "Päivitystarkistuksen paikannin"
-
-#. (para)
-msgid "<literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> contains the URL from which TortoiseSVN tries to download a text file to find out if there are updates available. You can also set this under <literal>HKLM</literal> instead of <literal>HKCU</literal> if you want, but <literal>HKCU</literal> overwrites the setting in <literal>HKLM</literal>. This might be useful for company admins who don't want their users to update TortoiseSVN until they approve it."
-msgstr "<literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> sisältää paikantimen, josta TortoiseSVN koettaa noutaa tekstitiedoston, josta selviää, onko päivityksiä saatavilla. Voit halutessasi asettaa tämän myös <literal>HKLM</literal>-puuhun <literal>HKCU</literal>-puun sijaan, mutta <literal>HKCU</literal>-asetus on näistä kahdesta määräävämpi. Tästä voi olla hyötyä yrityksissä, missä käyttäjien halutaan päivittävän TortoiseSVN-ohjelmansa hallitusti."
-
-#. (term)
-msgid "Filenames without extensions in auto-completion list"
-msgstr "Päätteettömät tiedostonimet automaattisessa täydennyslistassa"
-
-#. (para)
-msgid "The auto-completion list shown in the commit message editor displays the names of files listed for commit. To also include these names with extensions removed, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\AutocompleteRemovesExtensions</literal>."
-msgstr "Toimitusikkunan automaattinen täydennys näyttää arkistoon toimitettavien tiedostojen nimiä. Sisällyttääksesi mukaan myös nimet ilman päätteitä, luo <literal>DWORD</literal> -avain <literal>HKCU\\Software\\TortoiseSVN\\AutocompleteRemovesExtensions</literal> ja aseta sen arvoksi 1."
-
-#. (term)
-msgid "Explorer columns everywhere"
-msgstr "Resurssienhallinnan sarakkeet kaikkialla"
-
-#. (para)
-msgid "The extra columns the TortoiseSVN adds to the details view in Windows Explorer are normally only active in a working copy. If you want those to be accessible everywhere, not just in working copies, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\ColumnsEveryWhere</literal>."
-msgstr "TortoiseSVN:n Resurssienhallintaan lisäämät ylimääräiset sarakkeet ovat normaalisti käytettävissä vain työkopioissa. Jos haluat ne saataville kaikkialla, luo <literal>DWORD</literal> -avain <literal>HKCU\\Software\\TortoiseSVN\\ColumnsEveryWhere</literal> ja aseta sen arvoksi 1."
-
-#. (term)
-msgid "Merge log separator"
-msgstr "Yhdistämislokierotin"
-
-#. (para)
-msgid "When you merge revisions from another branch, and merge tracking information is available, the log messages from the revisions you merge will be collected to make up a commit log message. A pre-defined string is used to separate the individual log messages of the merged revisions. If you prefer, you can create a <literal>SZ</literal> key at <literal>HKCU\\Software\\TortoiseSVN\\MergeLogSeparator</literal> containing a separator string of your choice."
-msgstr "Kun yhdistät versioita toisesta haarasta ja yhdistämisjäljitystiedot ovat saatavilla, yhdistettävien versioiden lokiviestit kerätään yhteen muodostamaan lokiviesti itse yhdistämiselle. Ennalta määriteltyä merkkijonoa käytetään erottamaan yhdistettyjen versioiden yksittäiset lokiviestit. Jos haluat, voit luoda <literal>SZ</literal>-avaimen <literal>HKCU\\Software\\TortoiseSVN\\MergeLogSeparator</literal>, jonka arvona on haluamasi erotinmerkkijono."
-
-#. (term)
-msgid "Always blame changes with TortoiseMerge"
-msgstr "Selvitä aina muutosten tekijät TortoiseMerge-ohjelmalla"
-
-#. (para)
-msgid "TortoiseSVN allows you to assign external diff viewer. Most such viewers, however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To do so, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge</literal>."
-msgstr "TortoiseSVN sallii ulkoisen vertailutyökalun käytön. Useimmat tällaiset työkalut eivät kuitenkaan sovellu tekijätietojen selvittämiseen (<xref linkend=\"tsvn-dug-blame-diffs\"/>), joten saatat haluta palata käyttämään TortoiseMerge tässä tapauksessa. Tehdäksesi niin, luo <literal>DWORD</literal> avain <literal>HKCU\\Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge</literal> ja aseta sen arvoksi 1."
-
-#. (term)
-msgid "Current revision highlighting for folders in log dialog"
-msgstr "Nykyisen version korostus loki-ikkunan kansioille"
-
-#. (para)
-msgid "The log dialog highlights the current working copy revision when the log is shown for a file. To do the same thing for a folder requires a working copy crawl, which can be a slow operation for large working copies. However the crawling is done in a separate thread so it doesn't hold up the display of log messages. For <emphasis>really</emphasis> large working copies the disk chatter might be annoying, so if you really want to disable this you must create a <literal>DWORD</literal> registry key at <literal>HKCU\\Software\\TortoiseSVN\\LogStatusCheck</literal>. A value of 0 disables the feature (no highlighting for folders)."
-msgstr "Loki-ikkuna korostaa nykyisen työkopion version, kun lokia näytetään tiedostolle. Kansioille tämä vaatii työkopion läpikäymistä, mikä voi olla hidasta suurille työkopioille. Läpikäynti tapahtuu kuitenkin erillisessä säikeessä, joten se ei viivästytä lokiviestien näyttöä. Korostus voidaan estää luomalla <literal>DWORD</literal>-rekisteriavain <literal>HKCU\\Software\\TortoiseSVN\\LogStatusCheck</literal> ja asettamalla sen arvoksi 0. Arvo 0 poistaa toiminnon (ei korostusta kansioille). Tästä voi olla hyötyä <emphasis>todella</emphasis> suurille työkopioille."
-
-#. (term)
-msgid "Make checkout fail if an item of the same name exists"
-msgstr "Pakota työkopion haku epäonnistumaan, jos saman niminen kohde on jo olemassa"
-
-#. (para)
-msgid "By default, if you checkout a working copy over an existing unversioned folder structure, as you might do after import, then any existing which differ from the repository content will be left unchanged and marked as modified. When you come to commit, it is your local copy which will then be sent back to the repository. Some people would prefer the checkout to fail if the existing content differs, so that if two people add the same file the second person's version does not overwrite the original version by mistake. If you want to force checkouts to fail in this instance you must create a <literal>DWORD</literal> registry key with value 0 at <literal>HKCU\\Software\\TortoiseSVN\\AllowUnversionedObstruction</literal>."
-msgstr "Oletusarvoisesti, kun haet työkopion olemassa olevaan, versioimattomaan kansiorakenteeseen  (esim. tuonnin jälkeen),  kaikki olemassa olevat kohteet, jotka poikkeavat arkiston sisällöstä, jätetään muuttumattomina paikoilleen ja merkitään muutetuiksi. Kun myöhemmin toimitat muutokset, paikallinen kopiosi siirtyy arkistoon. Jotkut käyttäjät haluavat mieluummin työkopion haun epäonnistuvan, jos olemassa oleva sisältö eroaa arkiston sisällöstä, jotta vältytään vahingossa tapahtuvilta toimituksilta. Jos haluat pakottaa työkopion haun epäonnistumaan tässä tilanteessa, luo <literal>DWORD</literal>-avain <literal>HKCU\\Software\\TortoiseSVN\\AllowUnversionedObstruction</literal> ja aseta sen arvoksi 0."
 
 #. (title)
 msgid "Subversion Working Folders"
@@ -13044,6 +12965,206 @@ msgstr "Kari Granö <kari.grano@gmail.com>"
 msgid "translator-translation"
 msgstr "Käännös"
 
+#~ msgid "No Repo Viewer Links from Repository Browser"
+#~ msgstr "Linkit web-selaimiin eivät ole käytettävissä arkistoselaimessa"
+#~ msgid "Registry Settings"
+#~ msgstr "Rekisteriasetukset"
+#~ msgid "registry"
+#~ msgstr "rekisteri"
+#~ msgid ""
+#~ "A few infrequently used settings are available only by editing the "
+#~ "registry directly. It goes without saying that you should only edit "
+#~ "registry values if you know what you are doing."
+#~ msgstr ""
+#~ "Muutamat harvoin käytetyt asetukset ovat saatavilla vain muokkaamalla "
+#~ "suoraan Windows-rekisteriä. On itsestään selvää, että rekisteriä "
+#~ "kannattaa muuttaa vain, jos tietää, mitä on tekemässä."
+#~ msgid ""
+#~ "You can specify a different location for the Subversion configuration "
+#~ "file using registry location <literal>HKCU\\Software\\TortoiseSVN"
+#~ "\\ConfigDir</literal>. This will affect all TortoiseSVN operations."
+#~ msgstr ""
+#~ "Voit määrittää uuden paikan Subversion-määritystiedostolle muuttamalla "
+#~ "rekisteriavainta <literal>HKCU\\Software\\TortoiseSVN\\ConfigDir</"
+#~ "literal>. Tämä vaikuttaa kaikkiin TortoiseSVN-toimintoihin."
+#~ msgid "Cache tray icon"
+#~ msgstr "Tilatietojen ilmoitusaluekuvake"
+#~ msgid ""
+#~ "To add a cache tray icon for the TSVNCache program, create a "
+#~ "<literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software"
+#~ "\\TortoiseSVN\\CacheTrayIcon</literal>. This is really only useful for "
+#~ "developers as it allows you to terminate the program gracefully."
+#~ msgstr ""
+#~ "Lisätäksesi ilmoitusalueelle kuvakkeen, joka kertoo TSVNCache-ohjelman "
+#~ "tilatiedot, luo <literal>DWORD</literal>-avain <literal>HKCU\\Software"
+#~ "\\TortoiseSVN\\CacheTrayIcon</literal> ja aseta sen arvoksi 1. Tästä on "
+#~ "varsinaisesti hyötyä vain virhetilanteiden selvittämisessä."
+#~ msgid "Debug"
+#~ msgstr "Virheenjäljitys"
+#~ msgid ""
+#~ "To show the command line parameters passed from the shell extension to "
+#~ "TortoiseProc.exe create a <literal>DWORD</literal> key with a value of 1 "
+#~ "at <literal>HKCU\\Software\\TortoiseSVN\\Debug</literal>."
+#~ msgstr ""
+#~ "Näyttääksesi Resurssienhallintalaajennoksen TortoiseProc.exe -komennolle "
+#~ "välittämät komentoriviparametrit, luo <literal>DWORD</literal>-avain "
+#~ "<literal>HKCU\\Software\\TortoiseSVN\\Debug</literal> ja aseta sen "
+#~ "arvoksi 1."
+#~ msgid "Context Menu Icons"
+#~ msgstr "Kontekstivalikon kuvakkeet"
+#~ msgid ""
+#~ "This can be useful if you use something other than the windows explorer "
+#~ "or if you get problems with the context menu displaying correctly. create "
+#~ "a <literal>DWORD</literal> key with a value of 0 at <literal>HKCU"
+#~ "\\Software\\TortoiseSVN\\ShowContextMenuIcons</literal> if you don't want "
+#~ "TortoiseSVN to not show icons for the shell context menu items. Set this "
+#~ "value to 1 to show the icons again."
+#~ msgstr ""
+#~ "Tästä voi olla hyötyä, jos käytät jotain muuta ohjelmaa kuin Windows-"
+#~ "resurssienhallinta, tai jos kontekstivalikko ei näy oikein. Luo "
+#~ "<literal>DWORD</literal>-avain <literal>HKCU\\Software\\TortoiseSVN"
+#~ "\\ShowContextMenuIcons</literal> ja aseta sen arvoksi 0, jos et halua, "
+#~ "että TortoiseSVN näyttää kuvakkeita kontekstivalikossa. Aseta arvoksi 1 "
+#~ "näyttääksesi kuvakkeet uudelleen."
+#~ msgid "Block Overlay Status"
+#~ msgstr "Päivitä kuvakepäällykset kerralla"
+#~ msgid ""
+#~ "If you don't want the explorer to update the status overlays while "
+#~ "another TortoiseSVN command is running (e.g. Update, Commit, ...) then "
+#~ "create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU"
+#~ "\\Software\\TortoiseSVN\\BlockStatus</literal>."
+#~ msgstr ""
+#~ "Jos et halua Resurssienhallinnan päivittävän kuvakepäällyksiä TortoiseSVN-"
+#~ "komentojen aikana (esim. Päivitä, Toimita, ...), voit luoda "
+#~ "<literal>DWORD</literal>-avaimen <literal>HKCU\\Software\\TortoiseSVN"
+#~ "\\BlockStatus</literal> ja asettaa sen arvoksi 1."
+#~ msgid "Update Check URL"
+#~ msgstr "Päivitystarkistuksen paikannin"
+#~ msgid ""
+#~ "<literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> contains "
+#~ "the URL from which TortoiseSVN tries to download a text file to find out "
+#~ "if there are updates available. You can also set this under "
+#~ "<literal>HKLM</literal> instead of <literal>HKCU</literal> if you want, "
+#~ "but <literal>HKCU</literal> overwrites the setting in <literal>HKLM</"
+#~ "literal>. This might be useful for company admins who don't want their "
+#~ "users to update TortoiseSVN until they approve it."
+#~ msgstr ""
+#~ "<literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> sisältää "
+#~ "paikantimen, josta TortoiseSVN koettaa noutaa tekstitiedoston, josta "
+#~ "selviää, onko päivityksiä saatavilla. Voit halutessasi asettaa tämän myös "
+#~ "<literal>HKLM</literal>-puuhun <literal>HKCU</literal>-puun sijaan, mutta "
+#~ "<literal>HKCU</literal>-asetus on näistä kahdesta määräävämpi. Tästä voi "
+#~ "olla hyötyä yrityksissä, missä käyttäjien halutaan päivittävän "
+#~ "TortoiseSVN-ohjelmansa hallitusti."
+#~ msgid "Filenames without extensions in auto-completion list"
+#~ msgstr "Päätteettömät tiedostonimet automaattisessa täydennyslistassa"
+#~ msgid ""
+#~ "The auto-completion list shown in the commit message editor displays the "
+#~ "names of files listed for commit. To also include these names with "
+#~ "extensions removed, create a <literal>DWORD</literal> key with a value of "
+#~ "1 at <literal>HKCU\\Software\\TortoiseSVN\\AutocompleteRemovesExtensions</"
+#~ "literal>."
+#~ msgstr ""
+#~ "Toimitusikkunan automaattinen täydennys näyttää arkistoon toimitettavien "
+#~ "tiedostojen nimiä. Sisällyttääksesi mukaan myös nimet ilman päätteitä, "
+#~ "luo <literal>DWORD</literal> -avain <literal>HKCU\\Software\\TortoiseSVN"
+#~ "\\AutocompleteRemovesExtensions</literal> ja aseta sen arvoksi 1."
+#~ msgid "Explorer columns everywhere"
+#~ msgstr "Resurssienhallinnan sarakkeet kaikkialla"
+#~ msgid ""
+#~ "The extra columns the TortoiseSVN adds to the details view in Windows "
+#~ "Explorer are normally only active in a working copy. If you want those to "
+#~ "be accessible everywhere, not just in working copies, create a "
+#~ "<literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software"
+#~ "\\TortoiseSVN\\ColumnsEveryWhere</literal>."
+#~ msgstr ""
+#~ "TortoiseSVN:n Resurssienhallintaan lisäämät ylimääräiset sarakkeet ovat "
+#~ "normaalisti käytettävissä vain työkopioissa. Jos haluat ne saataville "
+#~ "kaikkialla, luo <literal>DWORD</literal> -avain <literal>HKCU\\Software"
+#~ "\\TortoiseSVN\\ColumnsEveryWhere</literal> ja aseta sen arvoksi 1."
+#~ msgid "Merge log separator"
+#~ msgstr "Yhdistämislokierotin"
+#~ msgid ""
+#~ "When you merge revisions from another branch, and merge tracking "
+#~ "information is available, the log messages from the revisions you merge "
+#~ "will be collected to make up a commit log message. A pre-defined string "
+#~ "is used to separate the individual log messages of the merged revisions. "
+#~ "If you prefer, you can create a <literal>SZ</literal> key at <literal>HKCU"
+#~ "\\Software\\TortoiseSVN\\MergeLogSeparator</literal> containing a "
+#~ "separator string of your choice."
+#~ msgstr ""
+#~ "Kun yhdistät versioita toisesta haarasta ja yhdistämisjäljitystiedot ovat "
+#~ "saatavilla, yhdistettävien versioiden lokiviestit kerätään yhteen "
+#~ "muodostamaan lokiviesti itse yhdistämiselle. Ennalta määriteltyä "
+#~ "merkkijonoa käytetään erottamaan yhdistettyjen versioiden yksittäiset "
+#~ "lokiviestit. Jos haluat, voit luoda <literal>SZ</literal>-avaimen "
+#~ "<literal>HKCU\\Software\\TortoiseSVN\\MergeLogSeparator</literal>, jonka "
+#~ "arvona on haluamasi erotinmerkkijono."
+#~ msgid "Always blame changes with TortoiseMerge"
+#~ msgstr "Selvitä aina muutosten tekijät TortoiseMerge-ohjelmalla"
+#~ msgid ""
+#~ "TortoiseSVN allows you to assign external diff viewer. Most such viewers, "
+#~ "however, are not suited for change blaming (<xref linkend=\"tsvn-dug-"
+#~ "blame-diffs\"/>), so you might wish to fall back to TortoiseMerge in this "
+#~ "case. To do so, create a <literal>DWORD</literal> key with a value of 1 "
+#~ "at <literal>HKCU\\Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge</"
+#~ "literal>."
+#~ msgstr ""
+#~ "TortoiseSVN sallii ulkoisen vertailutyökalun käytön. Useimmat tällaiset "
+#~ "työkalut eivät kuitenkaan sovellu tekijätietojen selvittämiseen (<xref "
+#~ "linkend=\"tsvn-dug-blame-diffs\"/>), joten saatat haluta palata "
+#~ "käyttämään TortoiseMerge tässä tapauksessa. Tehdäksesi niin, luo "
+#~ "<literal>DWORD</literal> avain <literal>HKCU\\Software\\TortoiseSVN"
+#~ "\\DiffBlamesWithTortoiseMerge</literal> ja aseta sen arvoksi 1."
+#~ msgid "Current revision highlighting for folders in log dialog"
+#~ msgstr "Nykyisen version korostus loki-ikkunan kansioille"
+#~ msgid ""
+#~ "The log dialog highlights the current working copy revision when the log "
+#~ "is shown for a file. To do the same thing for a folder requires a working "
+#~ "copy crawl, which can be a slow operation for large working copies. "
+#~ "However the crawling is done in a separate thread so it doesn't hold up "
+#~ "the display of log messages. For <emphasis>really</emphasis> large "
+#~ "working copies the disk chatter might be annoying, so if you really want "
+#~ "to disable this you must create a <literal>DWORD</literal> registry key "
+#~ "at <literal>HKCU\\Software\\TortoiseSVN\\LogStatusCheck</literal>. A "
+#~ "value of 0 disables the feature (no highlighting for folders)."
+#~ msgstr ""
+#~ "Loki-ikkuna korostaa nykyisen työkopion version, kun lokia näytetään "
+#~ "tiedostolle. Kansioille tämä vaatii työkopion läpikäymistä, mikä voi olla "
+#~ "hidasta suurille työkopioille. Läpikäynti tapahtuu kuitenkin erillisessä "
+#~ "säikeessä, joten se ei viivästytä lokiviestien näyttöä. Korostus voidaan "
+#~ "estää luomalla <literal>DWORD</literal>-rekisteriavain <literal>HKCU"
+#~ "\\Software\\TortoiseSVN\\LogStatusCheck</literal> ja asettamalla sen "
+#~ "arvoksi 0. Arvo 0 poistaa toiminnon (ei korostusta kansioille). Tästä voi "
+#~ "olla hyötyä <emphasis>todella</emphasis> suurille työkopioille."
+#~ msgid "Make checkout fail if an item of the same name exists"
+#~ msgstr ""
+#~ "Pakota työkopion haku epäonnistumaan, jos saman niminen kohde on jo "
+#~ "olemassa"
+#~ msgid ""
+#~ "By default, if you checkout a working copy over an existing unversioned "
+#~ "folder structure, as you might do after import, then any existing which "
+#~ "differ from the repository content will be left unchanged and marked as "
+#~ "modified. When you come to commit, it is your local copy which will then "
+#~ "be sent back to the repository. Some people would prefer the checkout to "
+#~ "fail if the existing content differs, so that if two people add the same "
+#~ "file the second person's version does not overwrite the original version "
+#~ "by mistake. If you want to force checkouts to fail in this instance you "
+#~ "must create a <literal>DWORD</literal> registry key with value 0 at "
+#~ "<literal>HKCU\\Software\\TortoiseSVN\\AllowUnversionedObstruction</"
+#~ "literal>."
+#~ msgstr ""
+#~ "Oletusarvoisesti, kun haet työkopion olemassa olevaan, versioimattomaan "
+#~ "kansiorakenteeseen  (esim. tuonnin jälkeen),  kaikki olemassa olevat "
+#~ "kohteet, jotka poikkeavat arkiston sisällöstä, jätetään muuttumattomina "
+#~ "paikoilleen ja merkitään muutetuiksi. Kun myöhemmin toimitat muutokset, "
+#~ "paikallinen kopiosi siirtyy arkistoon. Jotkut käyttäjät haluavat "
+#~ "mieluummin työkopion haun epäonnistuvan, jos olemassa oleva sisältö eroaa "
+#~ "arkiston sisällöstä, jotta vältytään vahingossa tapahtuvilta "
+#~ "toimituksilta. Jos haluat pakottaa työkopion haun epäonnistumaan tässä "
+#~ "tilanteessa, luo <literal>DWORD</literal>-avain <literal>HKCU\\Software"
+#~ "\\TortoiseSVN\\AllowUnversionedObstruction</literal> ja aseta sen arvoksi "
+#~ "0."
 #~ msgid ""
 #~ "If you have a question which is not answered anywhere else, the best "
 #~ "place to ask it is on one of the mailing lists. <email>users@tortoisesvn."
