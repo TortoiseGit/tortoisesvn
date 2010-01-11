@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-10-09 18:46 +0000\n"
-"PO-Revision-Date: 2009-12-28 15:07+0100\n"
+"POT-Creation-Date: 2010-01-10 08:44 +0000\n"
+"PO-Revision-Date: 2010-01-11 12:32+0100\n"
 "Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -437,6 +437,21 @@ msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane 
 msgstr "<guibutton>Commuter vue</guibutton> choisit entre la vue panneau unique et la vue panneau double. Désactivé en vue panneau triple."
 
 #. (para)
+#. (para)
+msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
+msgstr "<guilabel>Comparer les espacements</guilabel> affiche tous les changements d'indentation et d'espacements en ligne en tant que lignes ajoutées/supprimées (c'est de cette façon que Subversion considère de tels changements)."
+
+#. (para)
+#. (para)
+msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+msgstr "<guilabel>Ignorer les changements d'espacements</guilabel> masque les changements uniquement dûs à la quantité ou au type d'espace, par exemple changer l'indentation ou changer les tabulations en espaces. Ajouter des espaces où il n'y en avait pas avant ou supprimer complètement un espace est toujours affiché comme un changement."
+
+#. (para)
+#. (para)
+msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
+msgstr "<guilabel>Ignorer tous les espacements</guilabel> ne masque que les changements d'espacements."
+
+#. (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
 msgstr "<guibutton>Échanger vue gauche et droite</guibutton> En vue panneau double, échange les fenêtres gauche et droite. Quand vous comparez un fichier dans 2 arborescences différentes, au lieu de 2 révisions du même fichier, TortoiseSVN ne sait pas lequel devrait aller dans le panneau de gauche comme version<quote>de base/originale</quote>. S'il se trompe, vous pouvez modifier les panneaux pour une vision plus facile."
 
@@ -445,8 +460,16 @@ msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patc
 msgstr "<guibutton>Afficher/Masquer la liste des fichiers du patch</guibutton> Lorsque TortoiseMerge a une liste des fichiers de patch, ce bouton vous permet de la masquer (pour que vous puissiez voir les deux fenêtres), ou de l'afficher (pour que vous puissiez examiner la liste des fichiers)."
 
 #. (para)
+msgid "<guilabel>Collapse</guilabel> collapses unchanged regions to a single line, leaving only the changed areas and minimal context. You can expand the collapsed areas by double clicking on the collapse line, but you cannot then re-collapse them unless you reload the file."
+msgstr "<guilabel>Collapse</guilabel> replie les régions non modifiées sur une seule ligne, laissant ainsi les régions modifiées. Vous pouvez déplier ces régions en double cliquant sur les lignes repliées, mais vous ne pourrez pas les replier à moins de recharger le fichier."
+
+#. (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
 msgstr "<guibutton>Configuration</guibutton> affiche la boîte de dialogue de configuration de TortoiseMerge."
+
+#. (para)
+msgid "<guibutton>Help</guibutton> opens the TortoiseMerge help file, of course."
+msgstr "<guibutton>Aide</guibutton> ouvre le fichier d'aide TortoiseMerge, bien sûr."
 
 #. (para)
 msgid "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
@@ -595,18 +618,6 @@ msgstr "<guilabel>Ignorer les changements de casse</guilabel> masque les changem
 #. (para)
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
 msgstr "<guilabel>Colorer les changements de code en ligne</guilabel> utilise le même thème que la barre de lignes de comparaison pour afficher les changements en ligne dans les panneaux d'affichages principaux. Les lignes qui ont été lourdement modifiées ne seront pas affichées de cette manière, les résultats étant nébuleux. Dans ce cas, la ligne sera affichée comme remplacée (l'ancienne ligne supprimée, la nouvelle ajoutée)."
-
-#. (para)
-msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
-msgstr "<guilabel>Comparer les espacements</guilabel> affiche tous les changements d'indentation et d'espacements en ligne en tant que lignes ajoutées/supprimées (c'est de cette façon que Subversion considère de tels changements)."
-
-#. (para)
-msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Ignorer les changements d'espacements</guilabel> masque les changements uniquement dûs à la quantité ou au type d'espace, par exemple changer l'indentation ou changer les tabulations en espaces. Ajouter des espaces où il n'y en avait pas avant ou supprimer complètement un espace est toujours affiché comme un changement."
-
-#. (para)
-msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
-msgstr "<guilabel>Ignorer tous les espacements</guilabel> ne masque que les changements d'espacements."
 
 #. (title)
 msgid "Colour Settings Page"
