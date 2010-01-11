@@ -16,9 +16,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-10-09 18:46 +0000\n"
-"PO-Revision-Date: 2009-12-09 15:34+0700\n"
-"Last-Translator: Evans Jahja <evans.jahja@yahoo.com>\n"
+"POT-Creation-Date: 2010-01-10 08:44 +0000\n"
+"PO-Revision-Date: 2010-01-11 13:54-0600\n"
+"Last-Translator: Evan Allrich <eallrich@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -480,15 +480,33 @@ msgstr "<guibutton>Tampilkan Spasi Putih</guibutton> menghidup/matikan opsi untu
 
 #. (para)
 msgid "<guibutton>Inline Diff Word-wise</guibutton> toggles the method used to display inline diffs. In word-wise mode, when a character is changed, the whole word is highlighted. In char-wise mode, each individual changed character is highlighted."
-msgstr ""
+msgstr "<guibutton>Inline Diff Word-wise</guibutton> matikan metode yang digunakan untuk menampilkan diff sebaris. Dalam modus kata, ketika karakter berubah, seluruh kata akan disorot. Dalam modus karakter, masing-masing berubah karakter disorot."
 
 #. (para)
 msgid "Word-wise is the default and in most cases it works better. For example if you change a variable name, the whole name is highlighted in word-wise mode, whereas in char-wise mode you tend to get a mess of added and deleted characters which doesn't make much sense. However, some content does not resolve neatly into words, for example a hex file, and in that case, char-wise display works better."
-msgstr ""
+msgstr "Modus kata adalah default dan dalam kebanyakan kasus ini bekerja lebih baik. Sebagai contoh jika Anda mengubah nama variabel, nama seluruh disorot dalam modus kata, sedangkan pada modus karakter Anda cenderung mendapatkan berantakan menambahkan dan menghapus karakter yang tidak masuk akal. Namun, beberapa konten tidak memecahkan rapi dengan kata-kata, misalnya file hex, dan dalam hal ini, modus karakter menampilkan karya-karya lebih baik."
 
 #. (para)
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
 msgstr "<guibutton>Tukar Tampilan</guibutton> memilih antara tampilan satu-pane dan dua-pane. Dimatikan dalam tampilan 3-pane."
+
+# Indonesian#: source/TortoiseMerge_en.xml:705
+#. (para)
+#. (para)
+msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
+msgstr "<guilabel>Bandingkan spasi putih</guilabel> memperlihatkan semua perubahan dalam indentasi dan spasi putih sebaris karena baris ditambah/dihapus (inilah bagaimana Subversion memperlakukan perubahan demikian)."
+
+# Indonesian#: source/TortoiseMerge_en.xml:711
+#. (para)
+#. (para)
+msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+msgstr "<guilabel>Abaikan perubahan spasi putih</guilabel> menyembunyikan perubahan karena perubahan dalam sejumlah atau tipe spasi putih, contoh perubahan indentasi atau perubahan tab ke spasi. Menambah spasi putih di mana tidak ada sebelumnya, atau menghapus spasi putih sepenuhnya masih ditampilkan sebagai perubahan."
+
+# Indonesian#: source/TortoiseMerge_en.xml:718
+#. (para)
+#. (para)
+msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
+msgstr "<guilabel>Abaikan semua spasi putih</guilabel> menyembunyikan semua perubahan hanya-spasi putih."
 
 #. (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
@@ -498,10 +516,19 @@ msgstr "<guibutton>Tukar Tampilan Kiri dan Kanan</guibutton> Dalam tampilan 2-pa
 msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patch list, this button allows you to hide it (so you can see both windows), or show it (so you can review the file list)."
 msgstr "<guibutton>Tampilkan/Sembunyikan Daftar Patch</guibutton> Ketika TortoiseMerge mempunyai daftar patch, tombol ini membolehkan Anda untuk menyembunyikannya (agar Anda bisa melihat kedua jendela), atau menampilkannya (agar Anda bisa meninjau daftar file)."
 
+#. (para)
+msgid "<guilabel>Collapse</guilabel> collapses unchanged regions to a single line, leaving only the changed areas and minimal context. You can expand the collapsed areas by double clicking on the collapse line, but you cannot then re-collapse them unless you reload the file."
+msgstr "<guilabel>Runtuh</guilabel> runtuhkan daerah tidak berubah kepada satu baris, hanya menyisakan berubah wilayah dan konteks sedikit. Anda dapat memperluas wilayah runtuh dengan mengklik ganda pada baris keruntuhan, tetapi Anda tidak dapat kemudian kembali keruntuhan mereka, kecuali jika Anda memuat berkas lagi."
+
 # Indonesian#: source/TortoiseMerge_en.xml:560
 #. (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
 msgstr "<guibutton>Seting</guibutton> membawa Anda ke dialog seting TortoiseMerge."
+
+# Indonesian#: source/TortoiseMerge_en.xml:560
+#. (para)
+msgid "<guibutton>Help</guibutton> opens the TortoiseMerge help file, of course."
+msgstr "<guibutton>Bantuan</guibutton> membuka berkas membantu untuk TortoiseMerge."
 
 # Indonesian#: source/TortoiseMerge_en.xml:461
 #. (para)
@@ -584,9 +611,8 @@ msgid "If you're in three pane view (sometimes called <emphasis>merge view</emph
 msgstr "Jika Anda dalam tampilan tiga pane (kadang kala disebut <emphasis>tampilan gabungan</emphasis>) Anda hanya bisa mengedit file dalam tampilan bawah (<literal>Digabung</literal>). Seperti dalam tampilan dua pane, Anda bisa <action>mengklik-kanan</action> pada baris yang konflik dan memilih <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Gunakan blok teks dari <quote>mereka</quote></guimenuitem></menuchoice> atau <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem>Gunakan blok teks dari <quote>saya</quote></guimenuitem></menuchoice>. Sebagai tambahan, jika Anda menginginkan <emphasis>kedua</emphasis> blok, Anda bisa memilih <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem> Gunakan blok teks dari <quote>saya</quote> sebelum <quote>mereka</quote></guimenuitem></menuchoice> atau <menuchoice><guimenu>Menu Konteks</guimenu><guimenuitem> Gunakan blok teks dari <quote>mereka</quote> sebelum <quote>saya</quote></guimenuitem></menuchoice>. Tergantung pada perintah yang telah Anda pilih, perubahan digunakan dalam hasil file <literal>Digabung</literal>."
 
 #. (para)
-#, fuzzy
 msgid "Sometimes a file will be marked as conflicted in Subversion, yet when you view it using TortoiseMerge there are no conflicts shown. This may be due to the whitespace handling you have chosen. If you choose to ignore line-endings or whitespace changes, those lines will be marked using the <emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you still need to pick which version you want to use."
-msgstr "Kadang-kadang file akan ditandai sebagai konflik di Subversion, padahal ketika anda melihatnya melalui TortoiseMerge tidak nampak adanya konflik."
+msgstr "Kadang-kadang berkas tersebut akan ditandai sebagai berkonflik dalam Subversion, namun ketika Anda membacanya menggunakan TortoiseMerge tidak ada konflik yang ditampilkan. Hal ini mungkin disebabkan oleh spasi-putih penanganan yang telah Anda pilih. Jika Anda memilih untuk mengabaikan baris-akhiran atau perubahan spasi-putih, baris tersebut akan ditandai dengan menggunakan ikon <emphasis>Konflik-Diabaikan</emphasis>. Untuk mengatasi konflik Anda masih perlu untuk memilih versi yang Anda ingin gunakan."
 
 # Indonesian#: source/TortoiseMerge_en.xml:643
 #. (para)
@@ -676,21 +702,6 @@ msgstr "<guilabel>Abaikan perubahan huruf</guilabel> menyembunyikan perubahan ka
 #. (para)
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
 msgstr "<guilabel>Kode warna perubahan-perubahan sebaris</guilabel> menggunakan skema sama dengan baris bar diff untuk menampilkan detil perubahan sebaris di dalam tampilan pane utama. Baris-baris yang telah banyak diubah tidak akan ditampilkan dengan metode ini karena hasilnya akan membingungkan. Dalam kasus ini, baris tersebut akan ditampilkan sebagai diganti (baris yang lama dihapus, baris yang baru ditambahkan)."
-
-# Indonesian#: source/TortoiseMerge_en.xml:705
-#. (para)
-msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
-msgstr "<guilabel>Bandingkan spasi putih</guilabel> memperlihatkan semua perubahan dalam indentasi dan spasi putih sebaris karena baris ditambah/dihapus (inilah bagaimana Subversion memperlakukan perubahan demikian)."
-
-# Indonesian#: source/TortoiseMerge_en.xml:711
-#. (para)
-msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Abaikan perubahan spasi putih</guilabel> menyembunyikan perubahan karena perubahan dalam sejumlah atau tipe spasi putih, contoh perubahan indentasi atau perubahan tab ke spasi. Menambah spasi putih di mana tidak ada sebelumnya, atau menghapus spasi putih sepenuhnya masih ditampilkan sebagai perubahan."
-
-# Indonesian#: source/TortoiseMerge_en.xml:718
-#. (para)
-msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
-msgstr "<guilabel>Abaikan semua spasi putih</guilabel> menyembunyikan semua perubahan hanya-spasi putih."
 
 # Indonesian#: source/TortoiseMerge_en.xml:724
 #. (title)
