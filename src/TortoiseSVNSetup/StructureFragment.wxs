@@ -473,7 +473,24 @@
 									</Component>
 
 								</Directory>
-							</Directory>
+
+                <Directory Id="D__iconsfunction" Name="Function" >
+
+                  <Component Id="C__iconsfunction" Guid="$(var.GuidIconsFunction)" Win64="$(var.Win64YesNo)">
+                    <File Id="F__FunctionConflictIcon" Name="ConflictIcon.ico" DiskId="1" Source="..\Resources\Icons\Function\ConflictIcon.ico" KeyPath="yes" />
+                    <File Id="F__FunctionInSubversionIcon" Name="NormalIcon.ico" DiskId="1" Source="..\Resources\Icons\Function\NormalIcon.ico" />
+                    <File Id="F__FunctionModifiedIcon" Name="ModifiedIcon.ico" DiskId="1" Source="..\Resources\Icons\Function\ModifiedIcon.ico" />
+                    <File Id="F__FunctionReadOnlyIcon" Name="ReadOnlyIcon.ico" DiskId="1" Source="..\Resources\Icons\Function\ReadOnlyIcon.ico" />
+                    <File Id="F__FunctionDeletedIcon" Name="DeletedIcon.ico" DiskId="1" Source="..\Resources\Icons\Function\DeletedIcon.ico" />
+                    <File Id="F__FunctionLockedIcon" Name="LockedIcon.ico" DiskId="1" Source="..\Resources\Icons\Function\LockedIcon.ico" />
+                    <File Id="F__FunctionAddedIcon" Name="AddedIcon.ico" DiskId="1" Source="..\Resources\Icons\Function\AddedIcon.ico" />
+                    <File Id="F__FunctionIgnoredIcon" Name="IgnoredIcon.ico" DiskId="1" Source="..\Resources\Icons\Function\IgnoredIcon.ico" />
+                    <File Id="F__FunctionUnversionedIcon" Name="UnversionedIcon.ico" DiskId="1" Source="..\Resources\Icons\Function\UnversionedIcon.ico" />
+                  </Component>
+
+                </Directory>
+
+              </Directory>
 						</Directory>
 					</Directory>
 
