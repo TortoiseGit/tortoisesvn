@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge\n"
-"POT-Creation-Date: 2009-10-09 18:46 +0000\n"
-"PO-Revision-Date: 2009-10-12 12:39+0100\n"
+"POT-Creation-Date: 2010-01-10 08:44 +0000\n"
+"PO-Revision-Date: 2010-01-12 10:34+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -441,6 +441,21 @@ msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane 
 msgstr "<guibutton>Wissel weergave</guibutton> schakelt tussen een- en twee-venster weergave. Is uitgeschakeld in de weergave met drie-vensters."
 
 #. (para)
+#. (para)
+msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
+msgstr "<guilabel>Vergelijk spaties en witregels</guilabel> geeft alle wijzigingen qua inspringen, in-line spaties en witregels als toegevoegde/verwijderde regels (dat is zoals Subversion deze wijzigingen behandeld)."
+
+#. (para)
+#. (para)
+msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+msgstr "<guilabel>Negeer wijzigingen in spaties en lege regels</guilabel> verbergt wijzigingen die alleen veroorzaakt worden door het aantal spaties, lege regels en inspringen, bijv. wijzigen van inspringen of tabs naar spaties. Spaties en lege regels toevoegen op een plaats waar die niet aanwezig waren, of het weghalen van dergelijke tekens worden nog steeds als wijziging aangegeven."
+
+#. (para)
+#. (para)
+msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
+msgstr "<guilabel>Alle spaties en witregels negeren</guilabel> verbergt alle spatie- en witregelwijzigingen."
+
+#. (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
 msgstr "<guibutton>Wissel linker en rechter venster</guibutton> wisselt het linker en rechter venster in de weergave met twee vensters. Bij het vergelijken van een bestand in 2 verschillende bomen, in tegenstelling tot 2 revisies van het zelfde bestand, weet TortoiseSVN niet welk bestand het origineel is voor het linker scherm.  Als dit verkeerd gaat, kan dit dus gecorrigeerd worden om het bekijken te vereenvoudigen."
 
@@ -449,8 +464,16 @@ msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patc
 msgstr "<guibutton>Toon of verbergt lijst met patch-bestanden</guibutton> Als TortoiseMerge Patch lijst heeft, dan kan deze met deze knop verborgen (beide schermen zijn dan zichtbaar), of getoond worden (de bestandenlijst is dan zichtbaar)."
 
 #. (para)
+msgid "<guilabel>Collapse</guilabel> collapses unchanged regions to a single line, leaving only the changed areas and minimal context. You can expand the collapsed areas by double clicking on the collapse line, but you cannot then re-collapse them unless you reload the file."
+msgstr "<guilabel>Inklappen</guilabel> klapt ongewijzigd stukken in op een enkele regel, waardoor alleen de gewijzigde stukken en minimale context overblijft. Je kunt de inklapte gebieden weer uitklappen door op de ingeklapte regel te dubbelklikken. Het is dan niet meer mogelijk om deze weer in te klappen tenzij je het bestand opnieuw laadt."
+
+#. (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
 msgstr "<guibutton>Instellingen</guibutton> opent de TortoiseMerge's instelling dialoogvenster."
+
+#. (para)
+msgid "<guibutton>Help</guibutton> opens the TortoiseMerge help file, of course."
+msgstr "<guibutton>Help</guibutton> opent het TortoiseMerge helpbestand, natuurlijk."
 
 #. (para)
 msgid "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
@@ -599,18 +622,6 @@ msgstr "<guilabel>Negeer wijzigingen in hoofd- en kleine letters</guilabel> verb
 #. (para)
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
 msgstr "<guilabel>Kleurcoderen van in-line wijzigingen</guilabel> gebruikt het zelfde kleurenschema als de regelverschil-balk om gedetailleerde in-line wijzigingen in de hoofdvensters weer te geven. De regels met veel wijzigingen worden niet met deze methode weergegeven. In dat geval wordt de regel weergegeven als vervangen (oude regel verwijderd, nieuwe regel toegevoegd)."
-
-#. (para)
-msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
-msgstr "<guilabel>Vergelijk spaties en witregels</guilabel> geeft alle wijzigingen qua inspringen, in-line spaties en witregels als toegevoegde/verwijderde regels (dat is zoals Subversion deze wijzigingen behandeld)."
-
-#. (para)
-msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Negeer wijzigingen in spaties en lege regels</guilabel> verbergt wijzigingen die alleen veroorzaakt worden door het aantal spaties, lege regels en inspringen, bijv. wijzigen van inspringen of tabs naar spaties. Spaties en lege regels toevoegen op een plaats waar die niet aanwezig waren, of het weghalen van dergelijke tekens worden nog steeds als wijziging aangegeven."
-
-#. (para)
-msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
-msgstr "<guilabel>Alle spaties en witregels negeren</guilabel> verbergt alle spatie- en witregelwijzigingen."
 
 #. (title)
 msgid "Colour Settings Page"
