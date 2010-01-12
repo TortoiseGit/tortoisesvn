@@ -34,6 +34,7 @@
 #include "auto_buffer.h"
 #include "COMError.h"
 #include "..\version.h"
+#include "BstrSafeVector.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -615,22 +616,15 @@ void CCommitDlg::OnOK()
 			ATL::CComBSTR commonRoot(m_pathList.GetCommonRoot().GetDirectory().GetWinPath());
 			ATL::CComBSTR commitMessage;
 			commitMessage.Attach(m_sLogMessage.AllocSysString());
-			SAFEARRAY *pathList = SafeArrayCreateVector(VT_BSTR, 0, m_selectedPathList.GetCount());
+			CBstrSafeVector pathList(m_selectedPathList.GetCount());
 
 			for (LONG index = 0; index < m_selectedPathList.GetCount(); ++index)
-			{
-				ATL::CComBSTR path;
-				path.Attach(m_selectedPathList[index].GetSVNPathString().AllocSysString());
-				SafeArrayPutElement(pathList, &index, path);
-			}
+				pathList.PutElement(index, m_selectedPathList[index].GetSVNPathString());
 			
 			hr = pProvider2->CheckCommit(GetSafeHwnd(), parameters, repositoryRoot, commonRoot, pathList, commitMessage, &temp);
 			if (FAILED(hr))
 			{
-				COMError ce(hr);
-				CString sErr;
-				sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), ce.GetMessageAndDescription().c_str());
-				CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
+				OnComError(hr);
 			}
 			else
 			{
@@ -1356,14 +1350,10 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 	ATL::CComBSTR parameters;
 	parameters.Attach(m_bugtraq_association.GetParameters().AllocSysString());
 	ATL::CComBSTR commonRoot(m_pathList.GetCommonRoot().GetDirectory().GetWinPath());
-	SAFEARRAY *pathList = SafeArrayCreateVector(VT_BSTR, 0, m_pathList.GetCount());
+	CBstrSafeVector pathList(m_pathList.GetCount());
 
 	for (LONG index = 0; index < m_pathList.GetCount(); ++index)
-	{
-		ATL::CComBSTR path;
-		path.Attach(m_pathList[index].GetSVNPathString().AllocSysString());
-		SafeArrayPutElement(pathList, &index, path);
-	}
+		pathList.PutElement(index, m_pathList[index].GetSVNPathString());
 
 	ATL::CComBSTR originalMessage;
 	originalMessage.Attach(sMsg.AllocSysString());
@@ -1382,14 +1372,11 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 		GetDlgItemText(IDC_BUGID, m_sBugID);
 		ATL::CComBSTR bugID;
 		bugID.Attach(m_sBugID.AllocSysString());
-		SAFEARRAY * revPropNames = NULL;
-		SAFEARRAY * revPropValues = NULL;
+		CBstrSafeVector revPropNames;
+		CBstrSafeVector revPropValues;
 		if (FAILED(hr = pProvider2->GetCommitMessage2(GetSafeHwnd(), parameters, repositoryRoot, commonRoot, pathList, originalMessage, bugID, &bugIDOut, &revPropNames, &revPropValues, &temp)))
 		{
-			COMError ce(hr);
-			CString sErr;
-			sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), ce.GetMessageAndDescription().c_str());
-			CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
+			OnComError(hr);
 		}
 		else
 		{
@@ -1419,10 +1406,6 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 				}
 				SafeArrayUnaccessData(revPropNames);
 			}
-			if (revPropNames)
-				SafeArrayDestroy(revPropNames);
-			if (revPropValues)
-				SafeArrayDestroy(revPropValues);
 		}
 	}
 	else
@@ -1432,19 +1415,13 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 		hr = m_BugTraqProvider.QueryInterface(&pProvider);
 		if (FAILED(hr))
 		{
-			COMError ce(hr);
-			CString sErr;
-			sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), ce.GetMessageAndDescription().c_str());
-			CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
+			OnComError(hr);
 			return;
 		}
 
 		if (FAILED(hr = pProvider->GetCommitMessage(GetSafeHwnd(), parameters, commonRoot, pathList, originalMessage, &temp)))
 		{
-			COMError ce(hr);
-			CString sErr;
-			sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), ce.GetMessageAndDescription().c_str());
-			CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
+			OnComError(hr);
 		}
 		else
 			m_cLogMessage.SetText((LPCTSTR)temp);
@@ -1460,8 +1437,6 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 	}
 
 	m_cLogMessage.SetFocus();
-
-	SafeArrayDestroy(pathList);
 }
 
 LRESULT CCommitDlg::OnSVNStatusListCtrlCheckChanged(WPARAM, LPARAM)
@@ -1512,6 +1487,13 @@ void CCommitDlg::UpdateOKButton()
 	DialogEnableWindow(IDOK, bValidLogSize && nSelectedItems>0);
 }
 
+void CCommitDlg::OnComError( HRESULT hr )
+{
+	COMError ce(hr);
+	CString sErr;
+	sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), ce.GetMessageAndDescription().c_str());
+	CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
+}
 
 LRESULT CCommitDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -1609,7 +1591,6 @@ void CCommitDlg::OnSize(UINT nType, int cx, int cy)
     //set range
     SetSplitterRange();
 }
-
 
 void CCommitDlg::OnBnClickedShowexternals()
 {

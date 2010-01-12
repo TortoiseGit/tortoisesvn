@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -385,7 +385,6 @@ CString CPathUtils::GetAppDataDirectory()
 	return CString (path) + _T('\\');
 }
 
-
 CStringA CPathUtils::PathUnescape(const CStringA& path)
 {
 	auto_buffer<char> urlabuf (path.GetLength()+1);
@@ -398,12 +397,11 @@ CStringA CPathUtils::PathUnescape(const CStringA& path)
 
 CStringW CPathUtils::PathUnescape(const CStringW& path)
 {
-	char * buf;
-	CStringA patha;
 	int len = path.GetLength();
 	if (len==0)
 		return CStringW();
-	buf = patha.GetBuffer(len*4 + 1);
+	CStringA patha;
+	char * buf = patha.GetBuffer(len*4 + 1);
 	int lengthIncTerminator = WideCharToMultiByte(CP_UTF8, 0, path, -1, buf, len*4, NULL, NULL);
 	patha.ReleaseBuffer(lengthIncTerminator-1);
 
@@ -420,13 +418,11 @@ CStringW CPathUtils::PathUnescape(const CStringW& path)
 CString CPathUtils::PathUnescape (const char* path)
 {
 	// try quick path
-
 	size_t i = 0;
 	for (; char c = path[i]; ++i)
 		if ((c >= 0x80) || (c == '%'))
 		{
 			// quick path does not work for non-latin or escaped chars
-
 			std::string utf8Path (path);
 
 			CPathUtils::Unescape (&utf8Path[0]);
@@ -434,7 +430,6 @@ CString CPathUtils::PathUnescape (const char* path)
 		}
 
 	// no escapement necessary, just unicode conversion
-
 	CString result;
 	CUnicodeUtils::UTF8ToUTF16 (path, i+1, result.GetBufferSetLength (i+1));
 	result.ReleaseBuffer();

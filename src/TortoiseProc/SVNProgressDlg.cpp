@@ -44,6 +44,7 @@
 #include "SVNProperties.h"
 #include "COMError.h"
 #include "CmdLineParser.h"
+#include "BstrSafeVector.h"
 
 BOOL	CSVNProgressDlg::m_bAscending = FALSE;
 int		CSVNProgressDlg::m_nSortedColumn = -1;
@@ -2182,14 +2183,10 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 			if (SUCCEEDED(hr))
 			{
 				ATL::CComBSTR commonRoot(m_selectedPaths.GetCommonRoot().GetDirectory().GetWinPath());
-				SAFEARRAY *pathList = SafeArrayCreateVector(VT_BSTR, 0, m_selectedPaths.GetCount());
+				CBstrSafeVector pathList(m_selectedPaths.GetCount());
 
 				for (LONG index = 0; index < m_selectedPaths.GetCount(); ++index)
-				{
-					ATL::CComBSTR path;
-					path.Attach(m_selectedPaths[index].GetSVNPathString().AllocSysString());
-					SafeArrayPutElement(pathList, &index, path);
-				}
+					pathList.PutElement(index, m_selectedPaths[index].GetSVNPathString());
 
 				ATL::CComBSTR logMessage;
 				logMessage.Attach(m_sMessage.AllocSysString());
