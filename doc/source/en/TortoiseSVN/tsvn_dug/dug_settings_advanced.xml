@@ -9,8 +9,8 @@
 		A few infrequently used settings are available only in the advanced
 		page of the settings dialog. These settings modify the registry directly
 		and you have to know what each of these settings is used for and what
-		it does. Do not modify those settings if you're not sure you need to
-		change those.
+		it does. Do not modify these settings unless you are sure you need to
+		change them.
 	</para>
 	<variablelist>
 		<varlistentry>
@@ -28,11 +28,11 @@
 			<listitem>
 				<para>
 					Set this to <literal>true</literal> if you want a dialog to
-					pop up for every command showing the command line of the command.
+					pop up for every command showing the command line used to
+					start TortoiseProc.exe
 				</para>
 			</listitem>
 		</varlistentry>
-
 		<varlistentry>
 			<term>CacheTrayIcon</term>
 			<listitem>
@@ -49,11 +49,11 @@
 			<listitem>
 				<para>
 					This can be useful if you use something other than the windows explorer
-					or if you get problems with the context menu displaying correctly.
+					or if you get problems with the context menu displaying incorrectly.
 					Set this value to <literal>false</literal>
-					if you don't want TortoiseSVN to not show icons for the
-					shell context menu items. Set this value to <literal>true</literal> to show
-					the icons again.
+					if you don't want TortoiseSVN to show icons for the 
+					shell context menu items.
+					Set this value to <literal>true</literal> to show the icons again.
 				</para>
 			</listitem>
 		</varlistentry>
@@ -61,8 +61,8 @@
 			<term>ShowAppContextMenuIcons</term>
 			<listitem>
 				<para>
-					If you don't want TortoiseSVN to show icons for the context
-					menus in its dialogs, set this value to <literal>false</literal>.
+					If you don't want TortoiseSVN to show icons for the context menus
+					in its own dialogs, set this value to <literal>false</literal>.
 				</para>
 			</listitem>
 		</varlistentry>
@@ -97,9 +97,10 @@
 			<term>StyleCommitMessages</term>
 			<listitem>
 				<para>
-					The commit and log dialog style commit messages (see
-					<xref linkend="tsvn-dug-commit-log"/> for details). If you
-					don't want to do this, set this value to 
+					The commit and log dialog use styling (e.g. bold, italic)
+					in commit messages
+					(see <xref linkend="tsvn-dug-commit-log"/> for details).
+					If you don't want to do this, set the value to 
 					<literal>false</literal>.
 				</para>
 			</listitem>
@@ -122,8 +123,8 @@
 			<term>AlwaysExtendedMenu</term>
 			<listitem>
 				<para>
-					As the explorer, TortoiseSVN also shows additional commands
-					if the <keycap>Shift<keycap> key is pressed while the
+					As with the explorer, TortoiseSVN shows additional commands
+					if the <keycap>Shift</keycap> key is pressed while the
 					context menu is opened.
 					To force TortoiseSVN to always show those extended commands,
 					set this value to <literal>true</literal>.
@@ -158,11 +159,12 @@
 			<listitem>
 				<para>
 					The extra columns the TortoiseSVN adds to the details view
-					in Windows Explorer (Only XP, Vista and later don't support
-					that feature anymore) are normally only active in a working
+					in Windows Explorer are normally only active in a working
 					copy. If you want those to be accessible everywhere, not
 					just in working copies, set this value to 
 					<literal>true</literal>.
+					Note that the extra columns are only available in XP.
+					Vista and later doesn't support that feature any more.
 				</para>
 			</listitem>
 		</varlistentry>
@@ -170,14 +172,12 @@
 			<term>AllowUnversionedObstruction</term>
 			<listitem>
 				<para>
-					TortoiseSVN by default allows an update that adds a file
-					but which already exists unversioned in the local working 
-					copy (i.e., an update adds a file that already exists but
-					is not under version control). And differences between the
-					newly versioned file and the existing unversioned file
-					are then properly handled, i.e. the file appears as 
-					modified.
-					If you rather want TortoiseSVN to create a conflict in
+					If an update adds a new file from the repository which
+					already exists in the local working copy as an unversioned
+					file, the default action is to keep the local file, showing
+					it as a (possibly) modified version of the new file from the
+					repository.
+					If you would prefer TortoiseSVN to create a conflict in
 					such situations, set this value to <literal>false</literal>.
 				</para>
 			</listitem>
@@ -189,7 +189,7 @@
 					TortoiseSVN checks whether there's a new version available
 					about once a week. If an updated version is found, the
 					commit dialog shows a link control with that info.
-					If you rather want the old behavior back where a dialog
+					If you prefer the old behavior back where a dialog
 					pops up notifying you about the update, set this value to
 					<literal>true</literal>.
 				</para>
@@ -233,7 +233,7 @@
 			<term>DiffBlamesWithTortoiseMerge</term>
 			<listitem>
 				<para>
-					TortoiseSVN allows you to assign external diff viewer.
+					TortoiseSVN allows you to assign an external diff viewer.
 					Most such viewers, however, are not suited for change blaming
 					(<xref linkend="tsvn-dug-blame-diffs"/>),
 					so you might wish to fall back to TortoiseMerge in this case.
