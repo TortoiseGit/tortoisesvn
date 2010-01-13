@@ -1776,6 +1776,7 @@ void CRepositoryBrowser::EditFile(const CTSVNPath& url)
 	if (command.Execute())
 	{
 		InvalidateData (m_RepoTree.GetSelectedItem());
+		m_barRepository.SetHeadRevision(GetCommitRevision());
 		RefreshNode(m_RepoTree.GetSelectedItem(), true);
 	}
 }
@@ -2946,6 +2947,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						return;
 					}
+					m_barRepository.SetHeadRevision(GetCommitRevision());
 					if (hChosenTreeItem)
 					{
 						HTREEITEM hParent = m_RepoTree.GetParentItem(hChosenTreeItem);
@@ -3010,6 +3012,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							return;
 						}
+						m_barRepository.SetHeadRevision(GetCommitRevision());
 						progDlg.Stop();
 						SetAndClearProgressInfo((HWND)NULL);
 						RefreshNode(m_RepoTree.GetSelectedItem(), true);
@@ -3058,6 +3061,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							return;
 						}
+						m_barRepository.SetHeadRevision(GetCommitRevision());
 						progDlg.Stop();
 						SetAndClearProgressInfo((HWND)NULL);
 						RefreshNode(m_RepoTree.GetSelectedItem(), true);
@@ -3127,6 +3131,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 						if (revision.IsHead())
 						{
+							m_barRepository.SetHeadRevision(GetCommitRevision());
 							RefreshNode(m_RepoTree.GetSelectedItem(), true);
 						}
 					}
@@ -3160,6 +3165,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						return;
 					}
+					m_barRepository.SetHeadRevision(GetCommitRevision());
 					progDlg.Stop();
 					SetAndClearProgressInfo((HWND)NULL);
 				}
@@ -3192,6 +3198,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							return;
 						}
+						m_barRepository.SetHeadRevision(GetCommitRevision());
 						RefreshNode(m_RepoTree.GetSelectedItem(), true);
 					}
 				}
