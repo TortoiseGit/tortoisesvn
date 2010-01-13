@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-23 20:52 +0000\n"
-"PO-Revision-Date: 2009-12-17 15:53+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2010-01-12 16:58-0000\n"
+"Last-Translator: Petra <petra.schwarczova@live.co.uk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -569,7 +569,7 @@ msgstr "	Ak budete inštalovať viac slovníkov, TortoiseSVN použitie týchto p
 
 #. (title)
 msgid "Basic Version-Control Concepts"
-msgstr ""
+msgstr "Základná verzia-ovládacie prevedenie"
 
 #. (primary)
 msgid "Subversion book"
@@ -577,15 +577,16 @@ msgstr "Kniha Subversion"
 
 #. (para)
 msgid "This chapter is a slightly modified version of the same chapter in the Subversion book. An online version of the Subversion book is available here: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
-msgstr ""
+msgstr "Táto kapitola je nepatrne zmenenou verziou kapitoly z Subversion knihy. Online verzia Subversion knihy je prístupná tu:<ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
 
 #. (para)
 msgid "This chapter is a short, casual introduction to Subversion. If you're new to version control, this chapter is definitely for you. We begin with a discussion of general version control concepts, work our way into the specific ideas behind Subversion, and show some simple examples of Subversion in use."
-msgstr ""
+msgstr "Táto kapitola je krátky, približný úvod do Subversion. Ak je pre vás ovládanie verzie novinkou, táto kapitola je definitívne pre vás. Začneme s diskusiou všeobecných ovládacích prevedení verzie, prepracujeme sa k špecifickým predstavám Subversion a ukážeme si jednoduché príklady Subversion v praxi."
 
 #. (para)
+#, fuzzy
 msgid "Even though the examples in this chapter show people sharing collections of program source code, keep in mind that Subversion can manage any sort of file collection - it's not limited to helping computer programmers."
-msgstr ""
+msgstr "Hoci príklady v tejto kapitole ukazujú ľudí zdieľajúcich súbory programového zdrojového  kódu, nezabudnite, že Subversion je schopná spravovať hocijaké súbory - neobmedzene pomáha počítačovým programátorom."
 
 #. (title)
 #. (title)
@@ -600,19 +601,19 @@ msgstr "úložisko"
 
 #. (para)
 msgid "Subversion is a centralized system for sharing information. At its core is a <firstterm>repository</firstterm>, which is a central store of data. The repository stores information in the form of a <firstterm>filesystem tree</firstterm> - a typical hierarchy of files and directories. Any number of <firstterm>clients</firstterm> connect to the repository, and then read or write to these files. By writing data, a client makes the information available to others; by reading data, the client receives information from others."
-msgstr ""
+msgstr "Subversion je centralizovaný systém na zdieľanie informácií. V jeho jadre je <firstterm>úložisko</firstterm>, čo je centrálny zdroj dát. Úložisko skladuje informácie vo forme <firstterm>stromu súborového systému</firstterm> - typická hierarchia súborov a adresárov. Akékoľvek množstvo <firstterm>klientov</firstterm> sa napojí na úložisko a potom číta a píše do týchto súborov. Písaním dát klient vyrába informáciu dostupnú pre ostatných; čítaním dát získava klient informácie od ostatných."
 
 #. (title)
 msgid "A Typical Client/Server System"
-msgstr ""
+msgstr "Typický Klient/Server Systém"
 
 #. (para)
 msgid "So why is this interesting? So far, this sounds like the definition of a typical file server. And indeed, the repository <emphasis>is</emphasis> a kind of file server, but it's not your usual breed. What makes the Subversion repository special is that <emphasis>it remembers every change</emphasis> ever written to it: every change to every file, and even changes to the directory tree itself, such as the addition, deletion, and rearrangement of files and directories."
-msgstr ""
+msgstr "Prečo je teda tento systém zaujímavý? Doposiaľ všetko vyzerá ako definícia typického súborového servera. A samozrejme, úložisko <emphasis>je</emphasis>  typ súborového servera, ale nie je to obyčajný druh. Čo robí Subversion úložisko výnimočným je, že <emphasis>si pamätá každú zmenu</emphasis> "
 
 #. (para)
 msgid "When a client reads data from the repository, it normally sees only the latest version of the filesystem tree. But the client also has the ability to view <emphasis>previous</emphasis> states of the filesystem. For example, a client can ask historical questions like, <quote>what did this directory contain last Wednesday?</quote>, or <quote>who was the last person to change this file, and what changes did they make?</quote> These are the sorts of questions that are at the heart of any <firstterm>version control system</firstterm>: systems that are designed to record and track changes to data over time."
-msgstr ""
+msgstr "Keď klient číta dáta v úložisku, normálne vidí len poslednú verziu zo stromu súborového systému. Ale klient má tiež možnosť vidieť <emphasis>predošlé</emphasis> stavy súborového systému. Napríklad, klient sa môže opýtať na niečo z minulosti ako, <quote>čo obsahoval tento súbor minulú stredu</quote>, alebo <quote>kto menil tento súbor ako posledný a aké zmeny urobil?</quote> Toto sú typy otázok, ktoré sú podstatou akéhokoľvek <firstterm>systému správy verzií</firstterm>: systémov, ktoré sú navrhnuté na nahrávanie a sledovanie dát po celý čas."
 
 #. (title)
 msgid "Versioning Models"
@@ -658,7 +659,7 @@ msgstr "<emphasis>Zamykanie môže spôsobiť nežiadanú serializáciu.</emphas
 
 #. (para)
 msgid "<emphasis>Locking may create a false sense of security.</emphasis> Pretend that Harry locks and edits file A, while Sally simultaneously locks and edits file B. But suppose that A and B depend on one another, and the changes made to each are semantically incompatible. Suddenly A and B don't work together anymore. The locking system was powerless to prevent the problem - yet it somehow provided a sense of false security. It's easy for Harry and Sally to imagine that by locking files, each is beginning a safe, insulated task, and thus inhibits them from discussing their incompatible changes early on."
-msgstr ""
+msgstr "<emphasis>Zamykanie môže vyvolať falošný dojem zabezpečenia.</emphasis> Predstierajme, že Harry zamyká a upravuje súbor A, zatiaľ čo Sally simultánne zamyká a upravuje súbor B. Ale predstavme si, že A a B závisia jeden na druhom a zmeny urobené v každom z nich sú významne nekompatibilné. Náhle A a B spolu nespolupracujú. Zamykací systém bol bezmocný predísť tomuto problému - hoci nejak poskytoval dojem falošného zabezpečenia. Pre Harryho a Sally je jednoduché predstaviť si, že pokiaľ uzamknú súbory, obidva začnú bezpečnú, izolovanú úlohu a teda im to včas zabráni v diskutovaní ich nekompatibilných zmien."
 
 #. (title)
 #. (title)
@@ -667,15 +668,16 @@ msgstr "Riešenie typu Kopírovať-Upraviť-Zlúčiť"
 
 #. (para)
 msgid "Subversion, CVS, and other version control systems use a <firstterm>copy-modify-merge</firstterm> model as an alternative to locking. In this model, each user's client reads the repository and creates a personal <firstterm>working copy</firstterm> of the file or project. Users then work in parallel, modifying their private copies. Finally, the private copies are merged together into a new, final version. The version control system often assists with the merging, but ultimately a human being is responsible for making it happen correctly."
-msgstr ""
+msgstr "Subversion, CVS a ostatné systémy správy verzií používajú model <firstterm>kopírovať-meniť-zlúčiť</firstterm> ako alternatívu k zamykaniu. V tomto modeli, každý užívateľov klient načíta úložisko a vytvorí osobnú <firstterm>pracovnú kópiu</firstterm> súboru alebo projektu. Užívatelia preto môžu pracovať paralelne, upravovať ich súkromné kópie. Nakoniec sú súkromné kópie zlúčené dokopy do novej, finálnej verzie. Systém správy verzií často pomáha so zlučovaním, ale koniec koncov človek je zodpovedný, aby všetko prebehlo bezchybne."
 
 #. (para)
 msgid "Here's an example. Say that Harry and Sally each create working copies of the same project, copied from the repository. They work concurrently, and make changes to the same file <filename>A</filename> within their copies. Sally saves her changes to the repository first. When Harry attempts to save his changes later, the repository informs him that his file A is <firstterm>out-of-date</firstterm>. In other words, that file A in the repository has somehow changed since he last copied it. So Harry asks his client to <firstterm>merge</firstterm> any new changes from the repository into his working copy of file A. Chances are that Sally's changes don't overlap with his own; so once he has both sets of changes integrated, he saves his working copy back to the repository."
-msgstr ""
+msgstr "Tu máme príklad. Povedzme že Harry a Sally vytvorili každý pracovné kópie toho istého projektu, zkopírovaného z úložiska. Pracujú súbežne a urobili zmeny do toho istéhu súboru <filename>A</filename> vo svojich kópiách. Sally uložila svoje zmeny do úložiska ako prvá. Keď Harry skúša uložiť jeho zmeny neskôr, úložisko ho informuje, že jeho súbor A je <firstterm>neplatný</firstterm>. Inými slovami oznamuje, že súbor A v úložisku bol nejakým spôsobom zmenený odkedy ho naposledy kopíroval. Preto Harry požiada svojho klienta <firstterm>zlúčiť</firstterm> všetky nové zmeny z úložiska do jeho pracovnej kópie súboru A. Je pravdepodobné, že sa zmeny, ktoré urobila Sally nebudú prekrývať s jeho vlastnými; takže keď už Harry integroval obidve zmeny, uloží svoju pracovnú kópiu naspäť do úložiska."
 
 #. (title)
+#, fuzzy
 msgid "...Copy-Modify-Merge Continued"
-msgstr ""
+msgstr "...Kopírovať-Upraviť-Zlúčiť Pokračované"
 
 #. (primary)
 #. (primary)
@@ -683,32 +685,33 @@ msgid "conflict"
 msgstr "konflikt"
 
 #. (para)
+#, fuzzy
 msgid "But what if Sally's changes <emphasis>do</emphasis> overlap with Harry's changes? What then? This situation is called a <firstterm>conflict</firstterm>, and it's usually not much of a problem. When Harry asks his client to merge the latest repository changes into his working copy, his copy of file A is somehow flagged as being in a state of conflict: he'll be able to see both sets of conflicting changes, and manually choose between them. Note that software can't automatically resolve conflicts; only humans are capable of understanding and making the necessary intelligent choices. Once Harry has manually resolved the overlapping changes (perhaps by discussing the conflict with Sally!), he can safely save the merged file back to the repository."
-msgstr ""
+msgstr "Ale čo ak sa Sallyine zmeny <emphasis>prekryjú</emphasis> s Harryho zmenami? Čo v takomto prípade? Táto situácia sa nazýva <firstterm>konflikt</firstterm> a zvyčajne nebýva problémom. Keď Harry požiada svojho klienta zlúčiť aktuálne zmeny v úložisko do jeho pracovnej kópie, kópia súboru A je somehow flagged akoby bola v stave konfliktu: Harry bude schopný vidieť obidve série konfliktných zmien a manuálne si vyberie jednu z nich. Zaznamenajte si, že softvér nemôže automatickyvyriešiť konflikty; len človek je schopný porozumieť a urobiť nevyhnutné inteligentné voľby. Potom ako Harry manuálne vyriešil prekrývajúce sa zmeny (možno prediskutovaním konfliktu so Sally!), môže bezpečne uložiť zlúčený súbor späť do úložiska."
 
 #. (para)
 msgid "The copy-modify-merge model may sound a bit chaotic, but in practice, it runs extremely smoothly. Users can work in parallel, never waiting for one another. When they work on the same files, it turns out that most of their concurrent changes don't overlap at all; conflicts are infrequent. And the amount of time it takes to resolve conflicts is far less than the time lost by a locking system."
-msgstr ""
+msgstr "Kopírovať-upraviť-zlúčiť model môže vyzerať trochu chaotický, ale v praxi, pracuje extrémne hladko. Užívatelia môžu pracovať paralelne, nemusia čakať jeden na druhého. Keď pracujú na tých istých súboroch, ukáže sa že sa väčšina ich súbežných zmien vôbec neprekrýva; konflikty sú zriedkavé. A množstvo času, ktoré zaberie na vyriešenie konfliktov je zďaleka menšie než čas stratený zamykacím systémom."
 
 #. (para)
 msgid "In the end, it all comes down to one critical factor: user communication. When users communicate poorly, both syntactic and semantic conflicts increase. No system can force users to communicate perfectly, and no system can detect semantic conflicts. So there's no point in being lulled into a false promise that a locking system will somehow prevent conflicts; in practice, locking seems to inhibit productivity more than anything else."
-msgstr ""
+msgstr "Na koniec, všetko sa zredukuje na jediný kritický faktor: komunikácia užívateľov. Ak užívatelia zle komunikujú, oba,  syntaktické a významové konflikty narastajú. Žiadny systém prinútí užívateľov perfektne komunikovať a taktiež môže odhaliť významové konflikty. Takže nemá význam si falošne nahovoriť, že systém zamykania predíde nejako konfliktom; v praxi, zamykanie zabraňuje produktivite viac než čokoľvek iné."
 
 #. (para)
 msgid "There is one common situation where the lock-modify-unlock model comes out better, and that is where you have unmergeable files. For example if your repository contains some graphic images, and two people change the image at the same time, there is no way for those changes to be merged together. Either Harry or Sally will lose their changes."
-msgstr ""
+msgstr "Avšak je jedna spoločná situácia kde zamknúť-upraviť-odomknúť model vychádza lepšie a to tam, kde sú nezlúčiteľné súbory. Napríklad ak vaše úložisko obsahuje nejaké grafické obrazy a dvaja ľudia zmenia obraz v tom istom čase, je nemožné aby boli tieto zmeny spolu zlúčené. Obaja, Harry alebo Sally stratia svoje zmeny."
 
 #. (title)
 msgid "What does Subversion Do?"
-msgstr ""
+msgstr "Čo robí Subversion?"
 
 #. (para)
 msgid "Subversion uses the copy-modify-merge solution by default, and in many cases this is all you will ever need. However, as of Version 1.2, Subversion also supports file locking, so if you have unmergeable files, or if you are simply forced into a locking policy by management, Subversion will still provide the features you need."
-msgstr ""
+msgstr "Subversion používa kopírovať-upraviť-zlúčiť riešenie ako predvolené a v mnohých prípadoch je toto jediné, čo budete potrebovať. Avšak, od Verzie 1.2, Subversion tiež podpporuje zamykanie súboru, takže ak máte nezlúčiteľné súbory alebo ak ste jednoducho nútený manažmentom zamykať, Subversion bude stále poskytovať funkcie, ktoré potrebujete."
 
 #. (title)
 msgid "Subversion in Action"
-msgstr ""
+msgstr "Subversion v Akcii"
 
 #. (title)
 msgid "Working Copies"
@@ -720,27 +723,28 @@ msgstr "pracovná kópia"
 
 #. (para)
 msgid "You've already read about working copies; now we'll demonstrate how the Subversion client creates and uses them."
-msgstr ""
+msgstr "Už ste čítali o pracovných kópiách; teraz predvedieme ako Subversion klient vytvára a používa."
 
 #. (para)
 msgid "A Subversion working copy is an ordinary directory tree on your local system, containing a collection of files. You can edit these files however you wish, and if they're source code files, you can compile your program from them in the usual way. Your working copy is your own private work area: Subversion will never incorporate other people's changes, nor make your own changes available to others, until you explicitly tell it to do so."
-msgstr ""
+msgstr "Pracovná kópia Subversion je obyčajný strom adresárov vo vašom lokálnom systéme, pozostávajúci zo zbierky súborov. Môžte tieto súbory upravovať akokoľvek si želáte a ak sú to súbory zdrojových kódov, môžte z nich zostaviť program bežnou cestou. Vaša pracovná kópia je váš vlastný súkromný pracovný priestor: Subversion nikdy nebude pripájať zmeny iných ľudí, ani sprístupňovať vaše zmeny druhým, pokiaľ mu vy výlučne neprikážete, aby tak urobil."
 
 #. (para)
 msgid "After you've made some changes to the files in your working copy and verified that they work properly, Subversion provides you with commands to <emphasis>publish</emphasis> your changes to the other people working with you on your project (by writing to the repository). If other people publish their own changes, Subversion provides you with commands to merge those changes into your working directory (by reading from the repository)."
-msgstr ""
+msgstr "Potom ako ste urobili zmeny súborov vo vašej pracovnej kópii a overili, že všetky správne pracujú, Subversion vám poskytne príkaz na <emphasis>zverejnenie</emphasis> vaších zmien ostatným ľuďom pracujúcich s vami na vašom projekte (zapísaním do úložiska).  Ak ostatní ľudia publikujú ich vlastné zmeny, Subversion vám poskytne príkaz na zlúčenie týchto zmien vo vašom pracovnom adresári (načítaním z úložiska)."
 
 #. (para)
 msgid "A working copy also contains some extra files, created and maintained by Subversion, to help it carry out these commands. In particular, each directory in your working copy contains a subdirectory named <filename>.svn</filename>, also known as the working copy <firstterm>administrative directory</firstterm>. The files in each administrative directory help Subversion recognize which files contain unpublished changes, and which files are out-of-date with respect to others' work."
-msgstr ""
+msgstr "Pracovná kópia taktiež obsahuje nejaké prídavné súbory, vytvorené a udržiavané Subverziou, aby pomohli realizovať tieto príkazy. Predovšetkým, každý adresár vo vašej pracovnej kópii obsahuje podadresár pomenovaný <filename>.svn</filename>, taktiež známy ako pracovná kópia <firstterm>administratívny adresár</firstterm>. Súbory v každom administratívnom adresári pomáhaju Subverzii rozoznať, ktoré súbory obsahujú nezverejnené zmeny a ktoré súbory sú neplatné s ohľadom na prácu iných."
 
 #. (para)
+#, fuzzy
 msgid "A typical Subversion repository often holds the files (or source code) for several projects; usually, each project is a subdirectory in the repository's filesystem tree. In this arrangement, a user's working copy will usually correspond to a particular subtree of the repository."
-msgstr ""
+msgstr "Typické Subversion úložisko často drží súbory (alebo zdrojový kód) pre niekoľko projektov; obyčajne, každý projekt je podadresár v úložiskovom strome súborového systému. V tejto zostave, pracovná kópia užívateľa sa bude obvykle zhodovať s príslušným pod-stromom úložiska."
 
 #. (para)
 msgid "For example, suppose you have a repository that contains two software projects."
-msgstr ""
+msgstr "Napríklad, predpokladajme, že máte úložisko, ktoré obsahuje dva softvérové projekty."
 
 #. (title)
 msgid "The Repository's Filesystem"
@@ -748,15 +752,15 @@ msgstr "Súborový systém úložiska"
 
 #. (para)
 msgid "In other words, the repository's root directory has two subdirectories: <filename>paint</filename> and <filename>calc</filename>."
-msgstr ""
+msgstr "Inými slovami, koreňový adresár úložiska má dva podadresáre: <filename>maľovať</filename> a <filename>kalkulovať</filename>."
 
 #. (para)
 msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you)."
-msgstr ""
+msgstr "Aby ste získali pracovnú kópiu, musíte najprv <firstterm>získať</firstterm> niektorý pod-strom z úložiska. (Výraz <emphasis>získať</emphasis> môže vyznieť ako niečo, čo má dočinenia so zamykaním alebo uschovávaním zdrojov, ale nie je to tak ); jednoducho len vytvorí súkromnú kópiu projektu pre vás)."
 
 #. (para)
 msgid "Suppose you make changes to <filename>button.c</filename>. Since the <filename>.svn</filename> directory remembers the file's modification date and original contents, Subversion can tell that you've changed the file. However, Subversion does not make your changes public until you explicitly tell it to. The act of publishing your changes is more commonly known as <firstterm>committing</firstterm> (or <firstterm>checking in</firstterm>) changes to the repository."
-msgstr ""
+msgstr "Predpokladajme, že urobíte zmeny v <filename>button.c</filename>. Keďže si <filename>.svn</filename> adresár pamätá dátum zmeny súboru a pôvodný obsah, Subversion vie povedať, že ste zmenili súbor. Avšak, Subversion nezverejní žiadne zmeny pokiaľ ste mu/jej tak vyslovene neprikázali. Úkon zverejnenia vašich zmien je všeobecne viac známy ako <firstterm>odovzdanie</firstterm> ( alebo <firstterm>overovanie</firstterm>) zmien do úložiska."
 
 #. (para)
 msgid "To publish your changes to others, you can use Subversion's <command>commit</command> command."
@@ -764,19 +768,19 @@ msgstr "Aby ste zverejnili vaše zmeny ostatným môžete použiť príkaz <comm
 
 #. (para)
 msgid "Now your changes to <filename>button.c</filename> have been committed to the repository; if another user checks out a working copy of <filename>/calc</filename>, they will see your changes in the latest version of the file."
-msgstr ""
+msgstr "Teraz boli vaše zmeny do <filename>button.c</filename> odovzdané do úložiska; ak iný užívateľ získa pracovnú kópiu <filename>/kalkulovať</filename>, uvidí vaše zmeny v najnovšej verzii vášho súboru."
 
 #. (para)
 msgid "Suppose you have a collaborator, Sally, who checked out a working copy of <filename>/calc</filename> at the same time you did. When you commit your change to <filename>button.c</filename>, Sally's working copy is left unchanged; Subversion only modifies working copies at the user's request."
-msgstr ""
+msgstr "Predpokladajmem, že máte spolupracovníka, Sally, ktorá získala pracovnú kópiu  <filename>/kalkulovať</filename> v tom istom čase ako vy. Keď odovzdáte vašu zmenu do <filename>button.c</filename>, Sallyina pracovná kópia ostane nezmenená; Subversion zmení len pracovné kópie na úživateľovu požiadavku."
 
 #. (para)
 msgid "To bring her project up to date, Sally can ask Subversion to <firstterm>update</firstterm> her working copy, by using the Subversion <command>update</command> command. This will incorporate your changes into her working copy, as well as any others that have been committed since she checked it out."
-msgstr ""
+msgstr "Doviesť jej projekt do aktuálneho stavu, Sallz môže požiadať Subversion o <firstterm>aktualizovanie</firstterm> jej pracovnej kópie, využitím príkazu <command>aktualizovať</command> Subverzie.Tento príkaz včlení vaše zmeny do jej pracovnej kópie, takisto ako všetky ostatné, ktoré boli odovzdané odkedy ich Sally získala."
 
 #. (para)
 msgid "Note that Sally didn't need to specify which files to update; Subversion uses the information in the <filename>.svn</filename> directory, and further information in the repository, to decide which files need to be brought up to date."
-msgstr ""
+msgstr "Všimnite si, že Sally nepotrebovala špecifikovať, ktoré súbory chce aktualizovať; Subversion používa informácie v <filename>.svn</filename> adresári a ďalšie informácie v úložisku na rozhodnutie, ktoré súbory by mali byť aktualizované."
 
 #. (title)
 msgid "Repository URLs"
@@ -784,7 +788,7 @@ msgstr "URL úložiska"
 
 #. (para)
 msgid "Subversion repositories can be accessed through many different methods - on local disk, or through various network protocols. A repository location, however, is always a URL. The URL schema indicates the access method:"
-msgstr ""
+msgstr "Úložiská Subversion môžu byť prístupné mnohými rozlišnými metódami - na lokálnom disku alebo cez rôzne sieťové protokoly. Hoci pozícia úložiska je vždy URL. Schéma URL udáva prístupovú metódu:"
 
 #. (title)
 msgid "Repository Access URLs"
@@ -848,11 +852,12 @@ msgstr "autentifikovaný, šifrovaný TCP/IP prístup pomocou vlastného protoko
 
 #. (para)
 msgid "For the most part, Subversion's URLs use the standard syntax, allowing for server names and port numbers to be specified as part of the URL. The <literal>file://</literal> access method is normally used for local access, although it can be used with UNC paths to a networked host. The URL therefore takes the form <systemitem class=\"url\">file://hostname/path/to/repos</systemitem>. For the local machine, the <literal>hostname</literal> portion of the URL is required to be either absent or <literal>localhost</literal>. For this reason, local paths normally appear with three slashes, <systemitem class=\"url\">file:///path/to/repos</systemitem>."
-msgstr ""
+msgstr "Pre väčšiu časť, URL Subverzie používa štandardnú skladbu, dovoľujúc menám serverov a číslam portov byť špecifikovaných ako časť URL. <literal>súbor://</literal> prístupová metóda je obyčajne používaná pre lokálny prístup, hoci môže byť použitá s cestami UNC do sieťového hostiteľa. URL preto zoberie podobu <systemitem class=\"url\">file://hostname/path/to/repos</systemitem>. Pre lokálny prístroj, je od <literal>hostname</literal> URL časti požadované, aby bola neprítomná alebo <literal>localhost</literal>. Kvôli tomu, sa lokálne cesty objavujú s tromi lomítkami,  <systemitem class=\"url\">file:///path/to/repos</systemitem>."
 
 #. (para)
+#, fuzzy
 msgid "Also, users of the <literal>file://</literal> scheme on Windows platforms will need to use an unofficially <quote>standard</quote> syntax for accessing repositories that are on the same machine, but on a different drive than the client's current working drive. Either of the two following URL path syntaxes will work where <literal>X</literal> is the drive on which the repository resides:"
-msgstr ""
+msgstr "Taktiež, užívatelia  <literal>file://</literal> schémy v platforme Windowsu budú musieť používať neoficiálne <quote>štandardnú</quote> skladbu pre prístup do úložísk, ktoré sú na tom istom prístroji, ale na inej mechanike než je klientova súčasná pracujúca mechanika. Obidva s dvoch nasledujúcich URL cestných skladieb bude pracovať kde <literal>X</literal> je mechanika na ktorej  úložisko spočíva:"
 
 #. (screen)
 #, no-wrap
@@ -871,7 +876,7 @@ msgstr ""
 
 #. (para)
 msgid "Note that a URL uses ordinary slashes even though the native (non-URL) form of a path on Windows uses backslashes."
-msgstr ""
+msgstr "Zapamätajte si, že URL používa obyčajné lomítka hoci prirodzená  (nie-URL) forma cesty vo Windowse používa spätné lomítko."
 
 #. (para)
 msgid "You can safely access a FSFS repository via a network share, but you <emphasis>cannot</emphasis> access a BDB repository in this way."
@@ -879,8 +884,9 @@ msgstr "Prístup k úložisku FSFS je bezpečný aj pomocou zdielaného disku, a
 
 #. (para)
 #. (para)
+#, fuzzy
 msgid "Do not create or access a Berkeley DB repository on a network share. It <emphasis>cannot</emphasis> exist on a remote filesystem. Not even if you have the network drive mapped to a drive letter. If you attempt to use Berkeley DB on a network share, the results are unpredictable - you may see mysterious errors right away, or it may be months before you discover that your repository database is subtly corrupted."
-msgstr ""
+msgstr "Nevytvárajte ani neotvárajte Berkeley DB úložisko na sieťovom zdieľači. Berkeley DB úložisko <emphasis>nemôže</emphasis> existovať na vzdialenom súborovom systéme. Dokonca ani keď máte sieťovú mechaniku zmenenú na drive letter. Ak sa pokúsite použiť Berkeley DB na sieťové zdieľanie, výsledky sú nepredvídateľné - môžte hneď vidieť záhadné errors, alebo môžu prejsť mesiace než objavíte, že vaša databáza úložiska je nepatrne poškodená."
 
 #. (title)
 msgid "Revisions"
@@ -3300,7 +3306,7 @@ msgstr ""
 
 #. (term)
 msgid "tree conflicts"
-msgstr "konflikty stroov"
+msgstr "konflikty stromov"
 
 #. (para)
 msgid "A tree conflict occurs when a developer moved/renamed/deleted a file or folder, which another developer either also has moved/renamed/deleted or just modified."
@@ -3312,7 +3318,7 @@ msgstr ""
 
 #. (title)
 msgid "File Conflicts"
-msgstr "Konflikty súbrov"
+msgstr "Konflikty súborov"
 
 #. (term)
 msgid "filename.ext.mine"
