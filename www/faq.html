@@ -104,6 +104,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <h4>Error messages</h4>
 <ul>
 <li><a href="#cantmove">Can't copy / move 'XXX.svn-base' to 'XXX.tmp': The system cannot find the file specified.</a></li>
+<li><a href="#cantmove2">Can't move '.svn/tmp/entries' to '.svn/entries': The file or directory is corrupted and unreadable.</a></li>
 <li><a href="#inuse">Can't open file 'XXX\nnn-n.txn\changes': The process cannot access the file because it is being used by another process</a></li>
 <li><a href="#alreadyexists">Failed to add 'XXX': object of the same name already exists</a></li>
 <li><a href="#four01">OPTIONS of '&lt;path&gt;': 401 Authorization Required &lt;url&gt;</a></li>
@@ -856,6 +857,11 @@ in them are also not possible on Windows (NTFS and FAT).</li>
 error message comes from the Subversion library, which we can't change on our own.</p>
 <p>There are several ways to solve the problem and to prevent it from happening 
 again. Take a look at these <a href="#casechange">instructions</a>.</p>
+</div>
+
+<div class="h3" id="cantmove2" title="cantmove2">
+<h3>Can't move '.svn/tmp/entries' to '.svn/entries': The file or directory is corrupted and unreadable.</h3>
+<p>This error message typically occurs when you try to update or commit your working copy, and seems to be common on Windows 7 systems. It is due to another process holding a handle on a file that Subversion needs to move or modify. This might be a virus scanner, but on Windows 7 it is likely to be the Windows Indexing Service. Turn off the indexing service on your working copies and repositories, and exclude them from virus scans.</p>
 </div>
 
 <div class="h3" id="inuse" title="inuse">
