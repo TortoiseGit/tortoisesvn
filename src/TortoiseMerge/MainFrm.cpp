@@ -1088,21 +1088,9 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 	{
 		bDoesNotExist = (GetLastError() == ERROR_FILE_NOT_FOUND);
 	}
-	if (bCheckResolved)
-	{
-		int nConflictLine = CheckResolved();
-		if (nConflictLine >= 0)
-		{
-			CString sTemp;
-			sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, m_pwndBottomView->m_pViewData->GetLineNumber(nConflictLine)+1);
-			if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)!=IDYES)
-			{
-				if (m_pwndBottomView)
-					m_pwndBottomView->GoToLine(nConflictLine);
-				return false;
-			}
-		}
-	}
+	if (bCheckResolved && HasConflictsWontKeep())
+		return false;
+
 	if (((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Backup"))) != 0)
 	{
 		MoveFileEx(m_Data.m_mergedFile.GetFilename(), m_Data.m_mergedFile.GetFilename() + _T(".bak"), MOVEFILE_COPY_ALLOWED | MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH);
@@ -1140,48 +1128,15 @@ void CMainFrame::OnFileSaveAs()
 
 bool CMainFrame::FileSaveAs(bool bCheckResolved /*=true*/)
 {
-	if (bCheckResolved)
-	{
-		int nConflictLine = CheckResolved();
-		if (nConflictLine >= 0)
-		{
-			CString sTemp;
-			sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, m_pwndBottomView->m_pViewData->GetLineNumber(nConflictLine)+1);
-			if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)!=IDYES)
-			{
-				if (m_pwndBottomView)
-					m_pwndBottomView->GoToLine(nConflictLine);
-				return false;
-			}
-		}
-	}
-	OPENFILENAME ofn = {0};			// common dialog box structure
-	TCHAR szFile[MAX_PATH] = {0};	// buffer for file name
-	ofn.lStructSize = sizeof(OPENFILENAME);
-	ofn.hwndOwner = m_hWnd;
-	ofn.lpstrFile = szFile;
-	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-	CString temp;
-	temp.LoadString(IDS_SAVEASTITLE);
-	if (!temp.IsEmpty())
-		ofn.lpstrTitle = temp;
-	ofn.Flags = OFN_OVERWRITEPROMPT;
-	CString sFilter;
-	sFilter.LoadString(IDS_COMMONFILEFILTER);
-	auto_buffer<TCHAR> pszFilters(sFilter.GetLength()+4);
-	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-	CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
-	ofn.lpstrFilter = pszFilters;
-	ofn.nFilterIndex = 1;
+	if (bCheckResolved && HasConflictsWontKeep())
+		return false;
 
-	// Display the Open dialog box. 
-	if (GetSaveFileName(&ofn)==TRUE)
-	{
-		CString sFile = CString(ofn.lpstrFile);
-		SaveFile(sFile);
-		return true;
-	}
-	return false;
+	CString fileName;
+	if(!TryGetFileName(fileName))
+		return false;
+
+	SaveFile(fileName);
+	return true;
 }
 
 void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
@@ -1764,18 +1719,9 @@ void CMainFrame::OnUpdateMergeMarkasresolved(CCmdUI *pCmdUI)
 
 void CMainFrame::OnMergeMarkasresolved()
 {
-	int nConflictLine = CheckResolved();
-	if (nConflictLine >= 0)
-	{
-		CString sTemp;
-		sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, m_pwndBottomView->m_pViewData->GetLineNumber(nConflictLine)+1);
-		if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)!=IDYES)
-		{
-			if (m_pwndBottomView)
-				m_pwndBottomView->GoToLine(nConflictLine);
-			return;
-		}
-	}
+	if(HasConflictsWontKeep())
+		return;
+
 	// now check if the file has already been saved and if not, save it.
 	if (m_Data.m_mergedFile.InUse())
 	{
@@ -2037,31 +1983,11 @@ void CMainFrame::OnEditCreateunifieddifffile()
 	if (origFile.IsEmpty() || modifiedFile.IsEmpty())
 		return;
 
-	// ask for the path to save the unified diff file to
-	OPENFILENAME ofn = {0};			// common dialog box structure
-	TCHAR szFile[MAX_PATH] = {0};	// buffer for file name
-	ofn.lStructSize = sizeof(OPENFILENAME);
-	ofn.lpstrFile = szFile;
-	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-	CString temp;
-	temp.LoadString(IDS_SAVEASTITLE);
-	if (!temp.IsEmpty())
-		ofn.lpstrTitle = temp;
-	ofn.Flags = OFN_OVERWRITEPROMPT;
-	CString sFilter;
-	sFilter.LoadString(IDS_COMMONFILEFILTER);
-	auto_buffer<TCHAR> pszFilters(sFilter.GetLength()+4);
-	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-	CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
-	ofn.lpstrFilter = pszFilters;
-	ofn.nFilterIndex = 1;
+	CString outputFile;
+	if(!TryGetFileName(outputFile))
+		return;
 
-	// Display the Save dialog box. 
-	if (GetSaveFileName(&ofn)==TRUE)
-	{
-		CString outputFile = CString(ofn.lpstrFile);
-		CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outputFile, true);
-	}
+	CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outputFile, true);
 }
 
 void CMainFrame::OnUpdateViewLinediffbar(CCmdUI *pCmdUI)
@@ -2155,4 +2081,49 @@ void CMainFrame::OnUpdateViewIgnoreallwhitespacechanges(CCmdUI *pCmdUI)
 	CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
 	DWORD dwIgnoreWS = regIgnoreWS;
 	pCmdUI->SetCheck(dwIgnoreWS == 1);
+}
+
+bool CMainFrame::HasConflictsWontKeep()
+{
+	const int nConflictLine = CheckResolved();
+	if (nConflictLine < 0)
+		return false;
+
+	CString sTemp;
+	sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, m_pwndBottomView->m_pViewData->GetLineNumber(nConflictLine)+1);
+	if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)==IDYES)
+		return false;
+
+	if (m_pwndBottomView)
+		m_pwndBottomView->GoToLine(nConflictLine);
+	return true;
+}
+
+bool CMainFrame::TryGetFileName(CString& result)
+{
+	OPENFILENAME ofn = {0};			// common dialog box structure
+	TCHAR szFile[MAX_PATH] = {0};	// buffer for file name
+	ofn.lStructSize = sizeof(OPENFILENAME);
+	ofn.hwndOwner = m_hWnd;
+	ofn.lpstrFile = szFile;
+	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+	CString temp;
+	temp.LoadString(IDS_SAVEASTITLE);
+	if (!temp.IsEmpty())
+		ofn.lpstrTitle = temp;
+	ofn.Flags = OFN_OVERWRITEPROMPT;
+	CString sFilter;
+	sFilter.LoadString(IDS_COMMONFILEFILTER);
+	auto_buffer<TCHAR> pszFilters(sFilter.GetLength()+4);
+	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
+	CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
+	ofn.lpstrFilter = pszFilters;
+	ofn.nFilterIndex = 1;
+
+	// Display the Open dialog box. 
+	if (GetSaveFileName(&ofn) == 0)
+		return false;
+
+	result = CString(ofn.lpstrFile);
+	return true;
 }

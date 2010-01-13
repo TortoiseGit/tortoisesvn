@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007,2009 - TortoiseSVN
+// Copyright (C) 2007,2009-2010 - TortoiseSVN
 #include "stdafx.h"
 #include "ShellExt.h"
 #include "Guids.h"
@@ -97,7 +97,6 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
     else
         return S_FALSE;
 
-
     *pIndex = 0;
     *pdwFlags = ISIOI_ICONFILE;
     return S_OK;
@@ -105,6 +104,8 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 
 STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 {
+	if(pPriority == 0)
+		return E_POINTER;
 	switch (m_State)
 	{
 		case FileStateConflict:
@@ -143,6 +144,8 @@ STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 
 STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib)
 {
+	if(pwszPath == 0)
+		return E_INVALIDARG;
 	for (vector<DLLPointers>::iterator it = m_dllpointers.begin(); it != m_dllpointers.end(); ++it)
 	{
 		if (it->pShellIconOverlayIdentifier)
@@ -284,6 +287,3 @@ void CShellExt::LoadRealLibrary(LPCTSTR ModuleName, LPCTSTR clsid, LPWSTR pwszIc
 
 	m_dllpointers.push_back(pointers);
 }
-
-
-
