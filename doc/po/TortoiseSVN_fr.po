@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-09 09:22 +0000\n"
-"PO-Revision-Date: 2010-01-08 15:01+0100\n"
-"Last-Translator: Yves MITTELMANN <ymittelmann@acxio.fr>\n"
+"PO-Revision-Date: 2010-01-13 17:25+0100\n"
+"Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,6 +30,17 @@ msgstr ""
 msgid "@@image: 'images/svn_move.png'; md5=THIS FILE DOESN'T EXIST"
 msgstr "@@image: 'images/svn_move.png'; md5=CE FICHIER N'EXISTE PAS"
 
+# Lexique des termes utilisés
+# ------
+# trunk          - Racine
+# branch(es)     - Branche
+# tag(s)         - Tag
+# WC             - CdT (Copie de Travail)
+# blame          - Annoter
+# commit         - livrer
+# checkout       - extraire
+# repository     - référentiel / dépôt
+# peg revision   - révision d'ancrage
 #. (title)
 #. (secondary)
 msgid "TortoiseSVN"
@@ -6387,22 +6398,20 @@ msgid "Where branches are used to maintain separate lines of development, at som
 msgstr "Quand les branches sont utilisées pour maintenir des lignes séparées de développement, à une certaine étape vous voudrez fusionner les changements faits sur une branche vers le tronc, ou vice versa."
 
 #. (para)
-#, fuzzy
 msgid "It is important to understand how branching and merging works in Subversion before you start using it, as it can become quite complex. It is highly recommended that you read the chapter <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.branchmerge.html\"><citetitle>Branching and Merging</citetitle></ulink> in the Subversion book, which gives a full description and many examples of how it is used."
-msgstr "Il est important de comprendre comment l'embranchement et la fusion fonctionnent dans Subversion avant de commencer à l'utiliser, puisque cela peut devenir assez complexe. Il est fortement recommandé de lire le chapitre <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04.html\"><citetitle>Branching and Merging</citetitle></ulink> dans le <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Manuel de Subversion</citetitle></ulink> qui donne une description complète et beaucoup d'exemples sur la façon dont c'est utilisé."
+msgstr "Il est important de comprendre comment les branches et la fusion fonctionnent dans Subversion avant de les utiliser, car cela peut devenir assez complexe. Il est fortement recommandé de lire le chapitre <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.branchmerge.html\"><citetitle>Branching and Merging</citetitle></ulink> dans le manuel de Subversion, lequel donne une description complète et beaucoup d'exemples d'utilisation."
 
 #. (para)
 msgid "The next point to note is that merging <emphasis>always</emphasis> takes place within a working copy. If you want to merge changes <emphasis>into</emphasis> a branch, you have to have a working copy for that branch checked out, and invoke the merge wizard from that working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Il faut aussi noter que fusionner arrive <emphasis>toujours</emphasis> à l'intérieur d'une copie de travail. Si vous voulez fusionner les modifications <emphasis>dans</emphasis> une branche, vous devez avoir une copie de travail pour la branche extraite, et appeler l'assistant de fusion depuis cette copie de travail en utilisant <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Fusionner...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "In general it is a good idea to perform a merge into an unmodified working copy. If you have made other changes in your WC, commit those first. If the merge does not go as you expect, you may want to revert the changes, and the <guilabel>Revert</guilabel> command will discard <emphasis>all</emphasis> changes including any you made before the merge."
-msgstr "En général, c'est une bonne idée d'exécuter une fusion dans une copie de travail inchangée. Si vous avez fait d'autres changements à votre CdT, livrez les d'abord. Si la fusion ne se déroule pas comme prévu, vous pouvez vouloir annuler les changements et la commande <guilabel>Revenir en arrière</guilabel> supprimera <emphasis>tous</emphasis> les changements en incluant ceux effectués avant la fusion."
+msgstr "En général, c'est une bonne idée d'exécuter une fusion dans une copie de travail inchangée. Si vous avez fait d'autres changements dans votre CdT, livrez les d'abord. Si la fusion ne se déroule pas comme prévu, vous pouvez vouloir annuler les changements et la commande <guilabel>Revenir en arrière</guilabel> supprimera <emphasis>tous</emphasis> les changements en incluant ceux effectués avant la fusion."
 
 #. (para)
-#, fuzzy
 msgid "There are three common use cases for merging which are handled in slightly different ways, as described below. The first page of the merge wizard asks you to select the method you need."
-msgstr "Il y a deux cas d'utilisation communs pour fusionner qui sont traités de façons légèrement différentes, comme décrits ci-dessous."
+msgstr "Il y a trois cas d'utilisation de la fusion qui sont gérés de façons légèrement différentes, comme décrit ci-dessous. La première page de l'assistant de fusion vous demande de quelle méthode vous avez besoin."
 
 #. (term)
 msgid "Merge a range of revisions"
@@ -6422,13 +6431,12 @@ msgid "Reintegrate a branch"
 msgstr "Réintégrer une branche"
 
 #. (para)
-#, fuzzy
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes."
-msgstr "Cette méthode gère le cas où vous avez fait une branche de fonction comme dans le manuel de Subversion. Tous les changements du tronc ont été reportés à la branche de fonction, semaine après semaine, et maintenant que la fonction est terminée, vous voulez la fusionner dans le tronc. Parce que vous avez gardé la branche de fonction synchronisée avec le tronc, les dernières versions de la branche et du tronc seront absolument identiques à part vos modifications de la branche. Ainsi dans ce cas particulier, vous fusionneriez en comparant la branche avec le tronc."
+msgstr "Cette méthode gère le cas où vous avez développé une nouvelle fonctionnalité dans une branche comme conseillé dans le manuel de Subversion. Semaine après semaine, tous les changements du tronc ont été reportés dans cette branche, et maintenant que la fonctionnalité est terminée, vous voulez l'intégrer dans le tronc. Vu que vous avez gardé la branche synchronisée avec le tronc, les dernières versions de la branche et du tronc seront absolument identiques à part vos modifications de la branche."
 
 #. (para)
 msgid "This is a special case of the tree merge described below, and it requires only the URL to merge from (normally) your development branch. It uses the merge-tracking features of Subversion to calculate the correct revision ranges to use, and perform additional checks which ensure that the branch has been fully updated with trunk changes. This ensures that you don't accidentally undo work that others have committed to trunk since you last synchronized changes."
-msgstr ""
+msgstr "C'est un cas particulier de fusion de l'arborescence comme décrite plus haut, et (normalement) seule l'URL des sources à fusionner avec votre branche de développement est nécessaire.Cette fusion utilise la fonctionnalité deIt uses the merge-tracking features of Subversion to calculate the correct revision ranges to use, and perform additional checks which ensure that the branch has been fully updated with trunk changes.Cette technique empêche de défaire du that you don't accidentally undo work that others have committed to trunk since you last synchronized changes."
 
 #. (para)
 msgid "After the merge, all branch development has been completely merged back into the main development line. The branch is now redundant and can be deleted."
