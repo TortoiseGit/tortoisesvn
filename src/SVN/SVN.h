@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -691,6 +691,11 @@ public:
 	svn_revnum_t GetHEADRevision(const CTSVNPath& path);
 
 	/**
+	 * Returns the revision the last commit/add/mkdir/... command created
+	 */
+	svn_revnum_t GetCommitRevision() const { return m_commitRev; }
+
+	/**
 	 * Returns the repository root and the HEAD revision of the repository.
 	 */
 	bool GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& rev);
@@ -881,12 +886,14 @@ protected:
 	svn_opt_revision_t			rev;			///< subversion revision. used by getRevision()
 	SVNPrompt					m_prompt;
 	CString						PostCommitErr;	///< error string from post commit hook script
+	svn_revnum_t				m_commitRev;	///< revision of the last commit/add/mkdir
 
 	static LCID					s_locale;
 	static bool					s_useSystemLocale;
 
 	svn_opt_revision_t *	getRevision (svn_revnum_t revNumber);
 	void * logMessage (CString message, char * baseDirectory = NULL);
+	void				HandleCommitInfo(svn_commit_info_t * commit_info, const CTSVNPathList& pathlist);
 
 	/// Convert a TSVNPathList into an array of SVN copy paths
 	apr_array_header_t * MakeCopyArray(const CTSVNPathList& pathList, const SVNRev& rev, const SVNRev& pegrev);
