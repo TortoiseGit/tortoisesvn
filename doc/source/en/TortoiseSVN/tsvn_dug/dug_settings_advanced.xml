@@ -14,7 +14,7 @@
 	</para>
 	<variablelist>
 		<varlistentry>
-			<term>ConfigDir</term>
+			<term condition="pot">ConfigDir</term>
 			<listitem>
 				<para>
 					You can specify a different location for the Subversion
@@ -24,7 +24,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>Debug</term>
+			<term condition="pot">Debug</term>
 			<listitem>
 				<para>
 					Set this to <literal>true</literal> if you want a dialog to
@@ -34,7 +34,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>CacheTrayIcon</term>
+			<term condition="pot">CacheTrayIcon</term>
 			<listitem>
 				<para>
 					To add a cache tray icon for the TSVNCache program, set
@@ -45,7 +45,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>ShowContextMenuIcons</term>
+			<term condition="pot">ShowContextMenuIcons</term>
 			<listitem>
 				<para>
 					This can be useful if you use something other than the windows explorer
@@ -58,7 +58,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>ShowAppContextMenuIcons</term>
+			<term condition="pot">ShowAppContextMenuIcons</term>
 			<listitem>
 				<para>
 					If you don't want TortoiseSVN to show icons for the context menus
@@ -67,7 +67,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>LogStatusCheck</term>
+			<term condition="pot">LogStatusCheck</term>
 			<listitem>
 				<para>
 					The log dialog shows the revision the working copy path
@@ -79,7 +79,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>FullRowSelect</term>
+			<term condition="pot">FullRowSelect</term>
 			<listitem>
 				<para>
 					The status list control which is used in various dialogs
@@ -94,7 +94,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>StyleCommitMessages</term>
+			<term condition="pot">StyleCommitMessages</term>
 			<listitem>
 				<para>
 					The commit and log dialog use styling (e.g. bold, italic)
@@ -106,7 +106,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>ShellMenuAccelerators</term>
+			<term condition="pot">ShellMenuAccelerators</term>
 			<listitem>
 				<para>
 					TortoiseSVN uses accelerators for its explorer context menu
@@ -120,7 +120,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>AlwaysExtendedMenu</term>
+			<term condition="pot">AlwaysExtendedMenu</term>
 			<listitem>
 				<para>
 					As with the explorer, TortoiseSVN shows additional commands
@@ -132,7 +132,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>BlockStatus</term>
+			<term condition="pot">BlockStatus</term>
 			<listitem>
 				<para>
 					If you don't want the explorer to update the status overlays 
@@ -143,7 +143,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>UpdateCheckURL</term>
+			<term condition="pot">UpdateCheckURL</term>
 			<listitem>
 				<para>
 					This value contains the URL from which TortoiseSVN tries 
@@ -155,7 +155,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>ColumnsEveryWhere</term>
+			<term condition="pot">ColumnsEveryWhere</term>
 			<listitem>
 				<para>
 					The extra columns the TortoiseSVN adds to the details view
@@ -169,7 +169,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>AllowUnversionedObstruction</term>
+			<term condition="pot">AllowUnversionedObstruction</term>
 			<listitem>
 				<para>
 					If an update adds a new file from the repository which
@@ -183,7 +183,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>OldVersionCheck</term>
+			<term condition="pot">OldVersionCheck</term>
 			<listitem>
 				<para>
 					TortoiseSVN checks whether there's a new version available
@@ -196,7 +196,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>VersionCheck</term>
+			<term condition="pot">VersionCheck</term>
 			<listitem>
 				<para>
 					TortoiseSVN checks whether there's a new version available
@@ -206,7 +206,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>AutocompleteRemovesExtensions</term>
+			<term condition="pot">AutocompleteRemovesExtensions</term>
 			<listitem>
 				<para>
 					The auto-completion list shown in the commit message editor
@@ -217,7 +217,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>Merge log separator</term>
+			<term condition="pot">Merge log separator</term>
 			<listitem>
 				<para>
 					When you merge revisions from another branch, and merge tracking
@@ -230,7 +230,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>DiffBlamesWithTortoiseMerge</term>
+			<term condition="pot">DiffBlamesWithTortoiseMerge</term>
 			<listitem>
 				<para>
 					TortoiseSVN allows you to assign an external diff viewer.
