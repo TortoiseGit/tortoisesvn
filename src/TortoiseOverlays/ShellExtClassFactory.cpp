@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007, 2010 - TortoiseSVN
 #include "stdafx.h"
 #include "ShellExt.h"
 #include "ShellExtClassFactory.h"
@@ -10,12 +10,12 @@ CShellExtClassFactory::CShellExtClassFactory(FileState state)
 
     m_cRef = 0L;
 	
-	InterlockedIncrement(g_cRefThisDll);
+	InterlockedIncrement(&g_cRefThisDll);
 }
 
 CShellExtClassFactory::~CShellExtClassFactory()          
 {
-	InterlockedDecrement(g_cRefThisDll);
+	InterlockedDecrement(&g_cRefThisDll);
 }
 
 STDMETHODIMP CShellExtClassFactory::QueryInterface(REFIID riid,

@@ -1,12 +1,12 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007, 2010 - TortoiseSVN
 
 #pragma once
 #include <vector>
 
 #include "resource.h"
 
-extern	UINT				g_cRefThisDll;			// Reference count of this DLL.
+extern	volatile LONG		g_cRefThisDll;			// Reference count of this DLL.
 extern	HINSTANCE			g_hmodThisDll;			// Instance handle for this DLL
 
 using namespace std;

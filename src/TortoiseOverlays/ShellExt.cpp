@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007, 2010 - TortoiseSVN
 #include "stdafx.h"
 
 #pragma warning (disable : 4786)
@@ -17,12 +17,12 @@ CShellExt::CShellExt(FileState state)
     m_State = state;
 
     m_cRef = 0L;
-	InterlockedIncrement(g_cRefThisDll);	
+	InterlockedIncrement(&g_cRefThisDll);	
 }
 
 CShellExt::~CShellExt()
 {
-	InterlockedDecrement(g_cRefThisDll);
+	InterlockedDecrement(&g_cRefThisDll);
 }
 
 
