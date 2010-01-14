@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-30 23:24+0100\n"
-"Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
+"PO-Revision-Date: 2010-01-14 07:44+0100\n"
+"Last-Translator: Miha Nahtigal <miha.nahtigal@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1206,6 +1206,10 @@ msgstr "&Windows XP"
 msgid "&Working copy"
 msgstr "&Delovna kopija"
 
+#. Resource IDs: (1540)
+msgid "&file list control"
+msgstr "nadzor nad prikazom seznama datotek"
+
 #. Resource IDs: (338)
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
 msgstr "'luknje' označujejo območja revizij, ki še niso v predpomnilniku"
@@ -1385,8 +1389,12 @@ msgid "A list of user defined properties for folders to show in the combo box"
 msgstr "Seznam uporabniško določenih lastnosti map, ki se prikažejo v spustnem polju"
 
 #. Resource IDs: (201)
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
-msgstr "Na voljo je novejša različica. Pojdite na http://tortoisesvn.tigris.org in prenesite trenutno različico! Kliknite _tukaj_ za dostop do naše spletne strani."
+msgid ""
+"A newer version is available.\r\n"
+"Please go to http://tortoisesvn.tigris.org and download the current version."
+msgstr ""
+"Na voljo je novejša različica.\r\n"
+"Pojdite na http://tortoisesvn.tigris.org in prenesite željeno različico."
 
 #. Resource IDs: (195)
 msgid ""
@@ -1610,6 +1618,10 @@ msgid ""
 msgstr ""
 "Prilagajanje nastavitev\n"
 "Nastavitve"
+
+#. Resource IDs: (307)
+msgid "Advanced"
+msgstr "Napredno"
 
 #. Resource IDs: (170)
 msgid "Advanced Diff/Merge Settings"
@@ -1904,10 +1916,6 @@ msgstr ""
 #. Resource IDs: (438)
 msgid "Automatic"
 msgstr "Samodejno"
-
-#. Resource IDs: (1073)
-msgid "Automatically check for &newer versions every week"
-msgstr "Vsak teden preveri, če je na voljo &novejša različica"
 
 #. Resource IDs: (306)
 msgid "Autotext Tester"
@@ -2219,6 +2227,10 @@ msgstr "Preveri &spremembe"
 msgid "Check for modifications"
 msgstr "Preveri spremembe"
 
+#. Resource IDs: (65535)
+msgid "Check for updates"
+msgstr "Preveri posodobitve"
+
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Prevzemi delovno kopijo iz skladišča"
@@ -2302,8 +2314,8 @@ msgstr "Čiščenje"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%s\""
-msgstr "Čiščenje mape \"%s\""
+msgid "Cleaning up directory \"%1!s!\""
+msgstr "Čiščenje mape \"%1!s!\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2583,8 +2595,8 @@ msgstr "Primerja izbrano datoteko z datoteko v skladišču"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Comparing %s to %s"
-msgstr "Primerjanje %s z %s"
+msgid "Comparing %1!s! to %2!s!"
+msgstr "Primerjanje %1!s! z %2!s!"
 
 #. Resource IDs: (74)
 msgid "Completed"
@@ -3385,6 +3397,18 @@ msgid ""
 msgstr ""
 "Dokumentacija : Simon Large\n"
 "Koda : Tobias Schäfer, Stefan Fuhrmann"
+
+#. Resource IDs: (94)
+msgid ""
+"Don't make the checkout directory a sparse working copy.\n"
+"Instead, all URLs get checked out into a separate\n"
+"working copies next to each other.\n"
+"This works for directory URLs only."
+msgstr ""
+"Direktorija v katerega ste prevzeli podatke, \n"
+"ne uporabljajte kot pomožno delovno kopijo. Namesto tega\n"
+"vse delovne kopije prevzemite v sosednje imenike.\n"
+"Tak način deluje samo za URL direktorije."
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4200,15 +4224,15 @@ msgstr ""
 "Vsaka datoteka bo imela nastavljeno zastavico datotečnega sistema samo-za-branje in pridobitev zaklepa bo naredilo datoteko zapisljivo.\n"
 "Upoštevajte, da bodo morali drugi uporabniki posodobiti svoje delovne kopije, preden bodo njihove datoteke označene samo-za-branje."
 
+#. Resource IDs: (119)
+#, c-format
+msgid "Getting file %1!s!"
+msgstr "Pridobivanje datoteke %1!s!"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Getting file %1!s!, revision %2!s!"
 msgstr "Pridobivanje datoteke %1!s! različice %2!s!"
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Getting file %s"
-msgstr "Pridobivanje datoteke %s"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
@@ -4530,6 +4554,10 @@ msgstr "ID:57643:V C +Z"
 msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+msgid "ID:57665:V C +W"
+msgstr "ID:57665:V C +W"
+
 #. Resource IDs: (106)
 msgid "Icon Overlays"
 msgstr "Prekrivanje ikon"
@@ -4607,10 +4635,6 @@ msgid ""
 msgstr ""
 "Če je možnost izbrana, se bo pogovorno okno objave v primeru napake samodejno prikazalo,\r\n"
 "ob tem pa se ohrani izbor datotek in dnevniški zapis."
-
-#. Resource IDs: (194)
-msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "Če je možnost izbrana, TortoiseSVN enkrat tedensko preveri, če je na voljo nova različica"
 
 #. Resource IDs: (195)
 msgid ""
@@ -4701,10 +4725,6 @@ msgstr "Prezri &vse presledke"
 msgid "Ignore &ancestry"
 msgstr "Prezri dedovanje"
 
-#. Resource IDs: (1067)
-msgid "Ignore &case changes"
-msgstr "Prezri spremembe velikih/malih &črk"
-
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
 msgstr "Prezri razlike v presledkih"
@@ -4712,6 +4732,10 @@ msgstr "Prezri razlike v presledkih"
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Prezri vse presledke"
+
+#. Resource IDs: (1067)
+msgid "Ignore case cha&nges"
+msgstr "Prezri spremembe velikih/malih črk"
 
 #. Resource IDs: (1126)
 msgid "Ignore line &endings"
@@ -4829,8 +4853,8 @@ msgstr "Uvozi v %1"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Importing file %s"
-msgstr "Uvažanje datoteke %s"
+msgid "Importing file %1!s!"
+msgstr "Uvažanje datoteke %1!s!"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
@@ -5025,6 +5049,10 @@ msgstr "Elementi med zunanjimi"
 msgid "Items to show"
 msgstr "Elementi za prikaz"
 
+#. Resource IDs: (1074)
+msgid "J&ump to first conflict when loading"
+msgstr "Pri nalaganj&u skoči na prvo razliko"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "&Spoji z izbranim drevesom"
@@ -5169,7 +5197,7 @@ msgstr "Lokalno stanje"
 #. Resource IDs: (94)
 msgid ""
 "Location where the contents of the\n"
-"repository URL will be saved to."
+"repository URL(s) will be saved to."
 msgstr "Mesto, kamor bo shranjena vsebina skladišča."
 
 #. Resource IDs: (32854)
@@ -5652,6 +5680,10 @@ msgstr "Premikanje %s"
 msgid "Moving..."
 msgstr "Premikanje..."
 
+#. Resource IDs: (1204)
+msgid "Multiple, &independent working copies"
+msgstr "Večkratne, neodv&isne delovne kopije"
+
 #. Resource IDs: (65535)
 msgid "My file:"
 msgstr "Moja datoteka:"
@@ -5803,6 +5835,11 @@ msgstr "Ni popravkov črkovanja"
 #. Resource IDs: (196)
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
 msgstr "Brez predpomnilnika stanja. Le mape pod nadzorom dobijo prekrivne ikone, datoteke pa ne"
+
+#. Resource IDs: (84)
+#, c-format
+msgid "No such revision '%1!s!'"
+msgstr "Revizija '%1!s!' ne obstaja"
 
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
@@ -6050,6 +6087,10 @@ msgstr "Odpre skladiščni brskalnik za neposredno nastavljanje skladišča"
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
 msgstr "Začasno uporabljaj predpomnilnik dnevnika"
+
+#. Resource IDs: (348)
+msgid "Option"
+msgstr "Možnost"
 
 #. Resource IDs: (16137)
 msgid "Options"
@@ -6360,8 +6401,8 @@ msgstr "Tiskanje"
 
 #. Resource IDs: (132)
 #, c-format
-msgid "Processing revision %d of %d..."
-msgstr "Procesiranje revizije %d od %d..."
+msgid "Processing revision %1!d! of %2!d!..."
+msgstr "Procesiranje revizije %1!d! od %2!d!..."
 
 #. Resource IDs: (74)
 msgid "Program"
@@ -6991,18 +7032,18 @@ msgstr "Revizija"
 
 #. Resource IDs: (119)
 #, c-format
-msgid "Revision %d"
-msgstr "Revizija %d"
+msgid "Revision %1!d!"
+msgstr "Revizija %1!d!"
+
+#. Resource IDs: (120)
+#, c-format
+msgid "Revision %1!s!"
+msgstr "Revizija %1!s!"
 
 #. Resource IDs: (269)
 #, c-format
 msgid "Revision %ld"
 msgstr "Revizija %ld"
-
-#. Resource IDs: (120)
-#, c-format
-msgid "Revision %s"
-msgstr "Revizija %s"
 
 #. Resource IDs: (15)
 msgid "Revision &graph"
@@ -8082,8 +8123,8 @@ msgid "Subversion server file:"
 msgstr "Datoteka strežnika Subversion:"
 
 #. Resource IDs: (1232)
-msgid "Sw&itch working copy to new branch/tag"
-msgstr "Preklop&i delovno kopijo na drugo vejo/oznako"
+msgid "Swit&ch working copy to new branch/tag"
+msgstr "Preklopi de&lovno kopijo na drugo vejo/oznako"
 
 #. Resource IDs: (229)
 #, c-format
@@ -8631,6 +8672,18 @@ msgstr ""
 "%s\n"
 "ni prazna!\n"
 "Ali ste prepričani, da želite prevzeti/izvoziti datoteke v to mapo?"
+
+#. Resource IDs: (279)
+msgid "The target working copy has local modifications!"
+msgstr "Ciljna delovna kopija vsebuje lokalne spremembe!"
+
+#. Resource IDs: (279)
+msgid ""
+"The target working copy has local modifications.\n"
+"Do you want to merge anyway?"
+msgstr ""
+"Ciljna delovna kopija vsebuje lokalne spremembe!\n"
+"Ali jih vseeno želite združiti?"
 
 #. Resource IDs: (195)
 msgid ""
@@ -9567,6 +9620,16 @@ msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
 #. Resource IDs: (65535)
+msgid ""
+"WARNING:\r\n"
+"Only change these settings if you are absolutely sure what you are doing!\r\n"
+"To set the values to their default, delete the value text."
+msgstr ""
+"OPOZORILO:\r\n"
+"Nastavitve spremenite samo, če  ste prepričani, da poznate posledica!\r\n"
+"Za  ppovrnitev privzete nastavitve, izbrišite vrednost polja."
+
+#. Resource IDs: (65535)
 msgid "WC node"
 msgstr "WC vozlišče"
 
@@ -10225,6 +10288,10 @@ msgstr "zaklenjeno"
 msgid "locked:"
 msgstr "zaklenjeno:"
 
+#. Resource IDs: (1539)
+msgid "log text &editor"
+msgstr "urejevalnik dn&evnika"
+
 #. Resource IDs: (65535)
 msgid "max revision: "
 msgstr "najvišja revizija:"
@@ -10704,6 +10771,13 @@ msgstr "da"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Automatically check for &newer versions every week"
+#~ msgstr "Vsak teden preveri, če je na voljo &novejša različica"
+#~ msgid ""
+#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr ""
+#~ "Če je možnost izbrana, TortoiseSVN enkrat tedensko preveri, če je na "
+#~ "voljo nova različica"
 #~ msgid "Edit conflict"
 #~ msgstr "Uredi spor"
 #~ msgid "From URL:"
