@@ -85,6 +85,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <li><a href="#incompleteupdate">When I update a working copy, new files are not added!</a></li>
 <li><a href="#releases">I was told that issue/bug X was fixed in rXXX, but the latest release still doesn't has this implemented/fixed?</a></li>
 <li><a href="#svnbinaries">Will you add the standard subversion client to the installer?</a></li>
+<li><a href="#eclipse">TortoiseSVN does not work well with Eclipse</a></li>
 </ul>
 
 <h4>How can I...</h4>
@@ -700,6 +701,14 @@ so any bug reports sent to the subversion list would simply get bounced back to 
 of the installer by several MB, and it is already quite large.</p>
 </div>
 
+<div class="h3" id="eclipse" title="eclipse">
+<h3>TortoiseSVN does not work well with Eclipse</h3>
+<p>Eclipse copies directories as part of its normal operation, and in a subversion working copy it will copy the .svn directory as well. This causes TortoiseSVN to think that there are versioned files in the bin directory.</p>
+<p>If you want to keep using TortoiseSVN and just prevent this from happening, you need to add '**/.svn/' to Eclipse's source exclude list.</p>
+<p>But Eclipse has its very own subversion plugin called Subclipse, which makes Eclipse SVN-aware and fixes the problem at source. You can find it at
+<a href="http://subclipse.tigris.org/">http://subclipse.tigris.org/</a>.
+After you install Subclipse you need to make a fresh checkout. It will not fix checkouts that were made before it was installed.</p>
+</div>
 
 
 </div>
