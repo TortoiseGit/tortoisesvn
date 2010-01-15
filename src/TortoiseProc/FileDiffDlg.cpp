@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1007,6 +1007,7 @@ void CFileDiffDlg::OnBnClickedRev1btn()
 	// show a dialog where the user can enter a revision
 	CRevisionDlg dlg(this);
 	dlg.AllowWCRevs(false);
+	dlg.SetLogPath(m_path1, m_rev1);
 	*((SVNRev*)&dlg) = m_rev1;
 
 	if (dlg.DoModal() == IDOK)
@@ -1032,6 +1033,7 @@ void CFileDiffDlg::OnBnClickedRev2btn()
 	// show a dialog where the user can enter a revision
 	CRevisionDlg dlg(this);
 	dlg.AllowWCRevs(false);
+	dlg.SetLogPath(m_path2, m_rev2);
 	*((SVNRev*)&dlg) = m_rev2;
 
 	if (dlg.DoModal() == IDOK)

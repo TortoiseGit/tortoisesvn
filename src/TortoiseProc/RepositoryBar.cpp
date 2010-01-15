@@ -311,6 +311,7 @@ void CRepositoryBar::OnBnClicked()
 
 	CRevisionDlg dlg(this);
 	dlg.AllowWCRevs(false);
+	dlg.SetLogPath(CTSVNPath(GetCurrentUrl()), GetCurrentRev());
 	*((SVNRev*)&dlg) = SVNRev(revision);
 
 	if (dlg.DoModal() == IDOK)

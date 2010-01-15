@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,8 @@
 #include "TortoiseProc.h"
 #include "RevisionDlg.h"
 #include "Balloon.h"
-
+#include "PathUtils.h"
+#include "AppUtils.h"
 
 IMPLEMENT_DYNAMIC(CRevisionDlg, CStandAloneDialog)
 CRevisionDlg::CRevisionDlg(CWnd* pParent /*=NULL*/)
@@ -43,6 +44,7 @@ void CRevisionDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CRevisionDlg, CStandAloneDialog)
 	ON_EN_CHANGE(IDC_REVNUM, OnEnChangeRevnum)
+	ON_BN_CLICKED(IDC_LOG, &CRevisionDlg::OnBnClickedLog)
 END_MESSAGE_MAP()
 
 BOOL CRevisionDlg::OnInitDialog()
@@ -67,6 +69,9 @@ BOOL CRevisionDlg::OnInitDialog()
 			sRev.Format(_T("%ld"), (LONG)(*this));
 		SetDlgItemText(IDC_REVNUM, sRev);
 	}
+	if (!m_logPath.IsEmpty())
+		GetDlgItem(IDC_LOG)->ShowWindow(SW_SHOW);
+
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	GetDlgItem(IDC_REVNUM)->SetFocus();
@@ -110,4 +115,26 @@ void CRevisionDlg::OnEnChangeRevnum()
 	{
 		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
 	}
+}
+
+void CRevisionDlg::SetLogPath(const CTSVNPath& path, const SVNRev& rev /* = SVNRev::REV_HEAD */)
+{
+	m_logPath = path;
+	m_logRev = rev;
+}
+
+void CRevisionDlg::OnBnClickedLog()
+{
+	CString sCmd;
+	sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%s"), 
+		(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)m_logPath.GetSVNPathString(), (LPCTSTR)m_logRev.ToString());
+
+	if (!m_logPath.IsUrl())
+	{
+		sCmd += _T(" /propspath:\"");
+		sCmd += m_logPath.GetWinPathString();
+		sCmd += _T("\"");
+	}	
+
+	CAppUtils::LaunchApplication(sCmd, NULL, false);
 }
