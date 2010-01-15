@@ -205,7 +205,6 @@ void CStringUtils::RemoveAccelerators(CString& text)
 	}
 }
 
-
 bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID lcid, HWND hOwningWnd)
 {
 	if (OpenClipboard(hOwningWnd))
@@ -510,17 +509,31 @@ bool CStringUtils::WriteStringToTextFile(const std::wstring& path, const std::ws
 	return true;
 }
 
-void CStringUtils::PipesToNulls(TCHAR* buffer, size_t length )
+inline static void PipeToNull(TCHAR* ptr)
+{
+	if (*ptr == '|')
+		*ptr = '\0';
+}
+
+void CStringUtils::PipesToNulls(TCHAR* buffer, size_t length)
 {
 	TCHAR* ptr = buffer + length;
 	while (ptr != buffer)
 	{
-		if (*ptr == '|')
-			*ptr = '\0';
+		PipeToNull(ptr);
 		ptr--;
 	}
 }
 
+void CStringUtils::PipesToNulls(TCHAR* buffer)
+{
+	TCHAR* ptr = buffer;
+	while (*ptr != 0)
+	{
+		PipeToNull(ptr);
+		ptr++;
+	}
+}
 
 #define IsCharNumeric(C) (!IsCharAlpha(C) && IsCharAlphaNumeric(C))
 

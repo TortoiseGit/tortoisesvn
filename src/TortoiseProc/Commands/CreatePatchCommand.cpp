@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,7 +26,7 @@
 #include "SVN.h"
 #include "TempFile.h"
 #include "ProgressDlg.h"
-#include "auto_buffer.h"
+#include "SelectFileFilter.h"
 
 #define PATCH_TO_CLIPBOARD_PSEUDO_FILENAME		_T(".TSVNPatchToClipboard")
 
@@ -67,13 +67,12 @@ UINT_PTR CALLBACK CreatePatchCommand::CreatePatchFileOpenHook(HWND hDlg, UINT ui
 
 bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList& paths, const CTSVNPath& cmdLineSavePath)
 {
-	OPENFILENAME ofn = {0};				// common dialog box structure
-	CString temp;
 	CTSVNPath savePath;
 
 	if (cmdLineSavePath.IsEmpty())
 	{
-		TCHAR szFile[MAX_PATH] = {0};  // buffer for file name
+		TCHAR szFile[MAX_PATH] = {0};	// buffer for file name
+		OPENFILENAME ofn = {0};			// common dialog box structure
 		// Initialize OPENFILENAME
 		ofn.lStructSize = sizeof(OPENFILENAME);
 		ofn.hwndOwner = hwndExplorer;
@@ -81,6 +80,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 		ofn.lpstrInitialDir = root.GetWinPath();
 
+		CString temp;
 		temp.LoadString(IDS_REPOBROWSE_SAVEAS);
 		CStringUtils::RemoveAccelerators(temp);
 		if (temp.IsEmpty())
@@ -93,12 +93,8 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 		ofn.lpTemplateName = MAKEINTRESOURCE(IDD_PATCH_FILE_OPEN_CUSTOM);
 		ofn.lpfnHook = CreatePatchFileOpenHook;
 
-		CString sFilter;
-		sFilter.LoadString(IDS_PATCHFILEFILTER);
-		auto_buffer<TCHAR> pszFilters(sFilter.GetLength()+4);
-		_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-		CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
-		ofn.lpstrFilter = pszFilters;
+		CSelectFileFilter fileFilter(IDS_PATCHFILEFILTER);
+		ofn.lpstrFilter = fileFilter;
 		ofn.nFilterIndex = 1;
 		// Display the Open dialog box. 
 		if (GetSaveFileName(&ofn)==FALSE)

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -468,7 +468,7 @@ void CMainWindow::loadOrSaveFile(bool doLoad)
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 	TCHAR filter[1024];
 	LoadString(hResource, IDS_PATCHFILEFILTER, filter, sizeof(filter)/sizeof(TCHAR));
-	CStringUtils::PipesToNulls(filter, _tcslen(filter));
+	CStringUtils::PipesToNulls(filter);
 	ofn.lpstrFilter = filter;
 	ofn.nFilterIndex = 1;
 	ofn.lpstrFileTitle = NULL;

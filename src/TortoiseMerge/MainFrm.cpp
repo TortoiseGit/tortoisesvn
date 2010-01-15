@@ -31,8 +31,7 @@
 #include "BottomView.h"
 #include "DiffColors.h"
 #include ".\mainfrm.h"
-#include "auto_buffer.h"
-#include "StringUtils.h"
+#include "SelectFileFilter.h"
 #include "CreateProcessHelper.h"
 #include "FormatMessageWrapper.h"
 
@@ -2112,12 +2111,8 @@ bool CMainFrame::TryGetFileName(CString& result)
 	if (!temp.IsEmpty())
 		ofn.lpstrTitle = temp;
 	ofn.Flags = OFN_OVERWRITEPROMPT;
-	CString sFilter;
-	sFilter.LoadString(IDS_COMMONFILEFILTER);
-	auto_buffer<TCHAR> pszFilters(sFilter.GetLength()+4);
-	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-	CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
-	ofn.lpstrFilter = pszFilters;
+	CSelectFileFilter fileFilter(IDS_COMMONFILEFILTER);
+	ofn.lpstrFilter = fileFilter;
 	ofn.nFilterIndex = 1;
 
 	// Display the Open dialog box. 

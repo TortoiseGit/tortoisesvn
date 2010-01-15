@@ -58,9 +58,6 @@ public:
 		MergeFlags& AlternativeTool(bool b = true) { bAlternativeTool = b; return *this; }
 	};
 
-	CAppUtils(void);
-	~CAppUtils(void);
-
 	/**
 	 * Launches the external merge program if there is one.
 	 * \return TRUE if the program could be started
@@ -242,4 +239,6 @@ private:
 	static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2);
 	static bool GetMimeType(const CTSVNPath& file, CString& mimetype);
 	static void SetCharFormat(CWnd* window, DWORD mask, DWORD effects );
+	CAppUtils(void);
+	~CAppUtils(void);
 };

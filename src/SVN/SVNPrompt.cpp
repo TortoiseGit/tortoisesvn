@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,7 +28,7 @@
 #include "AppUtils.h"
 #include "StringUtils.h"
 #include "TSVNAuth.h"
-#include "auto_buffer.h"
+#include "SelectFileFilter.h"
 #include "FormatMessageWrapper.h"
 
 SVNPrompt::SVNPrompt()
@@ -297,12 +297,8 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 	ofn.hwndOwner = svn->m_hParentWnd;
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-	CString sFilter;
-	sFilter.LoadString(IDS_CERTIFICATESFILEFILTER);
-	auto_buffer<TCHAR> pszFilters(sFilter.GetLength()+4);
-	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-	CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
-	ofn.lpstrFilter = pszFilters;
+	CSelectFileFilter fileFilter(IDS_CERTIFICATESFILEFILTER);
+	ofn.lpstrFilter = fileFilter;
 	ofn.nFilterIndex = 1;
 	ofn.lpstrFileTitle = NULL;
 	ofn.nMaxFileTitle = 0;

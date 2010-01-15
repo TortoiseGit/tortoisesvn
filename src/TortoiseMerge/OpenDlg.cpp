@@ -21,7 +21,7 @@
 #include "BrowseFolder.h"
 #include ".\opendlg.h"
 #include "auto_buffer.h"
-#include "StringUtils.h"
+#include "SelectFileFilter.h"
 #include "registry.h"
 
 // COpenDlg dialog
@@ -165,12 +165,8 @@ BOOL COpenDlg::BrowseForFile(CString& filepath, CString title, UINT nFileFilter)
 	ofn.hwndOwner = this->m_hWnd;
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-	CString sFilter;
-	sFilter.LoadString(nFileFilter);
-	auto_buffer<TCHAR> pszFilters(sFilter.GetLength()+4);
-	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-	CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
-	ofn.lpstrFilter = pszFilters;
+	CSelectFileFilter fileFilter(nFileFilter);
+	ofn.lpstrFilter = fileFilter;
 	ofn.nFilterIndex = 1;
 	ofn.lpstrFileTitle = NULL;
 	ofn.nMaxFileTitle = 0;

@@ -36,14 +36,7 @@
 #include "FormatMessageWrapper.h"
 #include "DirFileEnum.h"
 #include "SysInfo.h"
-
-CAppUtils::CAppUtils(void)
-{
-}
-
-CAppUtils::~CAppUtils(void)
-{
-}
+#include "SelectFileFilter.h"
 
 bool CAppUtils::GetMimeType(const CTSVNPath& file, CString& mimetype)
 {
@@ -532,13 +525,8 @@ CString CAppUtils::GetAppForFile
 		ofn.hwndOwner = NULL;
 		ofn.lpstrFile = szFile;
 		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-		CString sFilter;
-		sFilter.LoadString(IDS_PROGRAMSFILEFILTER);
-		const int filterLength = sFilter.GetLength()+4;
-		auto_buffer<TCHAR> pszFilters(filterLength);
-		_tcscpy_s (pszFilters, filterLength, sFilter);
-		CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
-		ofn.lpstrFilter = pszFilters;
+		CSelectFileFilter fileFilter(IDS_PROGRAMSFILEFILTER);
+		ofn.lpstrFilter = fileFilter;
 		ofn.nFilterIndex = 1;
 		ofn.lpstrFileTitle = NULL;
 		ofn.nMaxFileTitle = 0;
@@ -911,7 +899,7 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
 	return false;
 }
 
-bool CAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title, UINT filter, bool bOpen, HWND hwndOwner)
+bool CAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title, UINT filterId, bool bOpen, HWND hwndOwner)
 {
 	OPENFILENAME ofn = {0};				// common dialog box structure
 	TCHAR szFile[MAX_PATH] = {0};		// buffer for file name. Explorer can't handle paths longer than MAX_PATH.
@@ -920,16 +908,11 @@ bool CAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title, UINT 
 	_tcscpy_s(szFile, MAX_PATH, (LPCTSTR)path);
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-	CString sFilter;
-	auto_buffer<TCHAR> pszFilters;
-	if (filter)
+	CSelectFileFilter fileFilter;
+	if (filterId)
 	{
-		sFilter.LoadString(filter);
-		const int filtersLength = sFilter.GetLength()+4;
-		pszFilters.reset(filtersLength);
-		_tcscpy_s (pszFilters, filtersLength, sFilter);
-		CStringUtils::PipesToNulls(pszFilters, _tcslen(pszFilters));
-		ofn.lpstrFilter = pszFilters;
+		fileFilter.Load(filterId);
+		ofn.lpstrFilter = fileFilter;
 	}
 	ofn.nFilterIndex = 1;
 	ofn.lpstrFileTitle = NULL;

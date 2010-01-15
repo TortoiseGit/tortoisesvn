@@ -111,6 +111,7 @@ public:
 	 * Replace all pipe (|) character in the string with a NULL character. Used
 	 * for passing into Win32 functions that require such representation
 	 */
-	static void PipesToNulls(TCHAR* buffer, size_t length );
+	static void PipesToNulls(TCHAR* buffer, size_t length);
+	static void PipesToNulls(TCHAR* buffer);
 };
 
