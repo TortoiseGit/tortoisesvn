@@ -10,6 +10,7 @@
 #include <shlobj.h>
 #include <atlbase.h>
 #include "DragDropImpl.h"
+#include <new>
 
 //////////////////////////////////////////////////////////////////////
 // CIDataObject Class
