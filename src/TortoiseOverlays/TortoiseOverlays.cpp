@@ -66,7 +66,10 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
 	
     if (state != FileStateInvalid)
     {
-		CShellExtClassFactory *pcf = new CShellExtClassFactory(state);
+		CShellExtClassFactory *pcf = new (std::nothrow) CShellExtClassFactory(state);
+		if (pcf == NULL)
+			return E_OUTOFMEMORY;
+
 		// refcount set to 0 at this moment
 		const HRESULT hr = pcf->QueryInterface(riid, ppvOut);
 		if (FAILED(hr))

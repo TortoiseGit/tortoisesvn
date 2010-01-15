@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -53,7 +53,9 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
     PROPSHEETPAGE psp;
 	SecureZeroMemory(&psp, sizeof(PROPSHEETPAGE));
 	HPROPSHEETPAGE hPage;
-	CSVNPropertyPage *sheetpage = new CSVNPropertyPage(files_);
+	CSVNPropertyPage *sheetpage = new (std::nothrow) CSVNPropertyPage(files_);
+	if (sheetpage == NULL)
+		return E_OUTOFMEMORY;
 
     psp.dwSize = sizeof (psp);
     psp.dwFlags = PSP_USEREFPARENT | PSP_USETITLE | PSP_USEICONID | PSP_USECALLBACK;	

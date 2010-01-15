@@ -137,8 +137,8 @@ STDMETHODIMP CIDataObject::SetData(
       return E_INVALIDARG;
 
 	ATLASSERT(pformatetc->tymed == pmedium->tymed);
-	FORMATETC* fetc = new FORMATETC;
-	STGMEDIUM* pStgMed = new STGMEDIUM;
+	FORMATETC* fetc = new (std::nothrow) FORMATETC;
+	STGMEDIUM* pStgMed = new (std::nothrow) STGMEDIUM;
 
 	if(fetc == NULL || pStgMed == NULL)
 	{
@@ -234,7 +234,7 @@ STDMETHODIMP CIDataObject::EnumFormatEtc(
 	switch (dwDirection)
     {
 		case DATADIR_GET:
-			*ppenumFormatEtc = new CEnumFormatEtc(m_ArrFormatEtc);
+			*ppenumFormatEtc = new (std::nothrow) CEnumFormatEtc(m_ArrFormatEtc);
 			if(*ppenumFormatEtc == NULL)
 				return E_OUTOFMEMORY;
 			(*ppenumFormatEtc)->AddRef(); 
@@ -479,7 +479,7 @@ STDMETHODIMP CEnumFormatEtc::Clone(IEnumFORMATETC FAR * FAR*ppCloneEnumFormatEtc
   if(ppCloneEnumFormatEtc == NULL)
       return E_POINTER;
       
-  CEnumFormatEtc *newEnum = new CEnumFormatEtc(m_pFmtEtc);
+  CEnumFormatEtc *newEnum = new (std::nothrow) CEnumFormatEtc(m_pFmtEtc);
   if(newEnum ==NULL)
 		return E_OUTOFMEMORY;  	
   newEnum->AddRef();

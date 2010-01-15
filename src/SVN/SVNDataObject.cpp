@@ -473,8 +473,8 @@ STDMETHODIMP SVNDataObject::SetData(FORMATETC* pformatetc, STGMEDIUM* pmedium, B
 	if ((pformatetc == NULL) || (pmedium == NULL))
 		return E_INVALIDARG;
 
-	FORMATETC* fetc = new FORMATETC;
-	STGMEDIUM* pStgMed = new STGMEDIUM;
+	FORMATETC* fetc = new (std::nothrow) FORMATETC;
+	STGMEDIUM* pStgMed = new (std::nothrow) STGMEDIUM;
 
 	if ((fetc == NULL) || (pStgMed == NULL))
 	{
@@ -527,7 +527,7 @@ STDMETHODIMP SVNDataObject::EnumFormatEtc(DWORD dwDirection, IEnumFORMATETC** pp
 	switch (dwDirection)
 	{
 	case DATADIR_GET:
-		*ppenumFormatEtc= new CSVNEnumFormatEtc(m_vecFormatEtc, !!m_revision.IsWorking());
+		*ppenumFormatEtc= new (std::nothrow) CSVNEnumFormatEtc(m_vecFormatEtc, !!m_revision.IsWorking());
 		if (*ppenumFormatEtc == NULL)
 			return E_OUTOFMEMORY;
 		(*ppenumFormatEtc)->AddRef(); 
@@ -829,7 +829,7 @@ STDMETHODIMP CSVNEnumFormatEtc::Clone(IEnumFORMATETC** ppCloneEnumFormatEtc)
 	if (ppCloneEnumFormatEtc == NULL)
 		return E_POINTER;
 
-	CSVNEnumFormatEtc *newEnum = new CSVNEnumFormatEtc(m_vecFormatEtc, m_localonly);
+	CSVNEnumFormatEtc *newEnum = new (std::nothrow) CSVNEnumFormatEtc(m_vecFormatEtc, m_localonly);
 	if (newEnum == NULL)
 		return E_OUTOFMEMORY;
 

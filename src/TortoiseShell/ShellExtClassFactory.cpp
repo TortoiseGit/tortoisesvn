@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -90,7 +90,7 @@ STDMETHODIMP CShellExtClassFactory::CreateInstance(LPUNKNOWN pUnkOuter,
     // QueryInterface with IID_IShellExtInit--this is how shell extensions are
     // initialized.
 	
-    CShellExt* pShellExt = new CShellExt(m_StateToMake);  //Create the CShellExt object
+    CShellExt* pShellExt = new (std::nothrow) CShellExt(m_StateToMake);  //Create the CShellExt object
 		
     if (NULL == pShellExt)
         return E_OUTOFMEMORY;

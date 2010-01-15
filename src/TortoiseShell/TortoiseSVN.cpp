@@ -161,7 +161,9 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
 		g_SVNAdminDir.Init();
 		g_cAprInit++;
 		
-		CShellExtClassFactory *pcf = new CShellExtClassFactory(state);
+		CShellExtClassFactory *pcf = new (std::nothrow) CShellExtClassFactory(state);
+		if (pcf == NULL)
+			return E_OUTOFMEMORY;
 		// refcount currently set to 0
 		const HRESULT hr = pcf->QueryInterface(riid, ppvOut);
 		if(FAILED(hr))
