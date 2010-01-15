@@ -406,7 +406,7 @@ bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, cons
 	}
 
 	PostCommitErr.Empty();
-	HandleCommitInfo(commit_info, pathlist);
+	HandleCommitInfo(commit_info, pathlist, subPool);
 
 	for(int nPath = 0; nPath < pathlist.GetCount(); nPath++)
 	{
@@ -581,7 +581,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
 
 	svn_revnum_t finrev = -1;
 	PostCommitErr.Empty();
-	HandleCommitInfo(commit_info, pathlist);
+	HandleCommitInfo(commit_info, pathlist, localpool);
 
 	return finrev;
 }
@@ -617,7 +617,7 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 	}
 
 	PostCommitErr.Empty();
-	HandleCommitInfo(commit_info, srcPathList);
+	HandleCommitInfo(commit_info, srcPathList, subpool);
 
 	return true;
 }
@@ -653,7 +653,7 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 	}
 
 	PostCommitErr.Empty();
-	HandleCommitInfo(commit_info, srcPathList);
+	HandleCommitInfo(commit_info, srcPathList, subpool);
 
 	return true;
 }
@@ -680,7 +680,7 @@ bool SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool ma
 	}
 
 	PostCommitErr.Empty();
-	HandleCommitInfo(commit_info, pathlist);
+	HandleCommitInfo(commit_info, pathlist, pool);
 
 	return true;
 }
@@ -986,7 +986,7 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
 	}
 
 	PostCommitErr.Empty();
-	HandleCommitInfo(commit_info, CTSVNPathList(path));
+	HandleCommitInfo(commit_info, CTSVNPathList(path), subpool);
 
 	return true;
 }
@@ -2753,18 +2753,17 @@ apr_hash_t * SVN::MakeRevPropHash(const RevPropHash revProps, apr_pool_t * pool)
 	return revprop_table;
 }
 
-void SVN::HandleCommitInfo(svn_commit_info_t * commit_info, const CTSVNPathList& pathlist)
+void SVN::HandleCommitInfo(svn_commit_info_t * commit_info, const CTSVNPathList& pathlist, apr_pool_t * localpool)
 {
 	if (commit_info)
 	{
 		m_commitRev = commit_info->revision;
 		if (SVN_IS_VALID_REVNUM(commit_info->revision))
 		{
-			for (int i=0; i<pathlist.GetCount(); ++i)
-				Notify(pathlist[i], CTSVNPath(), svn_wc_notify_update_completed, svn_node_none, _T(""), 
-				svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, 
-				commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, 
-				_T(""), _T(""), NULL, NULL, pool);
+			Notify(CTSVNPath(), CTSVNPath(), svn_wc_notify_update_completed, svn_node_none, _T(""), 
+					svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, 
+					commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, 
+					_T(""), _T(""), NULL, NULL, localpool);
 		}
 		if (commit_info->post_commit_err)
 		{

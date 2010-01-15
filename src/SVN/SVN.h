@@ -893,7 +893,7 @@ protected:
 
 	svn_opt_revision_t *	getRevision (svn_revnum_t revNumber);
 	void * logMessage (CString message, char * baseDirectory = NULL);
-	void				HandleCommitInfo(svn_commit_info_t * commit_info, const CTSVNPathList& pathlist);
+	void				HandleCommitInfo(svn_commit_info_t * commit_info, const CTSVNPathList& pathlist, apr_pool_t * localpool);
 
 	/// Convert a TSVNPathList into an array of SVN copy paths
 	apr_array_header_t * MakeCopyArray(const CTSVNPathList& pathList, const SVNRev& rev, const SVNRev& pegrev);
