@@ -148,13 +148,15 @@ void CSetBugTraqAdv::OnOK()
 	}
 
 	VARIANT_BOOL valid;
-	if (FAILED(hr = pProvider->ValidateParameters(GetSafeHwnd(), m_sParameters.AllocSysString(), &valid)))
+	ATL::CComBSTR parameters;
+	parameters.Attach(m_sParameters.AllocSysString());
+	if (FAILED(hr = pProvider->ValidateParameters(GetSafeHwnd(), parameters, &valid)))
 	{
 		ShowBalloon(IDC_BUGTRAQPARAMETERS, IDS_ERR_PROVIDER_VALIDATE_FAILED);
 		return;
 	}
 
-	if (valid != VARIANT_TRUE)
+	if (valid == VARIANT_FALSE)
 		return;	// It's assumed that the provider will have done this.
 
 	CResizableStandAloneDialog::OnOK();
@@ -203,7 +205,7 @@ void CSetBugTraqAdv::CheckHasOptions()
 		hr = pProvider->HasOptions(&hasOptions);
 		if (SUCCEEDED(hr))
 		{
-			if (hasOptions == VARIANT_TRUE)
+			if (hasOptions != VARIANT_FALSE)
 			{
 				GetDlgItem(IDC_OPTIONS)->EnableWindow(TRUE);
 				return;

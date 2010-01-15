@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007, 2010 - TortoiseSVN
 #include "stdafx.h"
 #include "ShellExt.h"
 #include "Guids.h"
@@ -67,11 +67,12 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
     if (state != FileStateInvalid)
     {
 		CShellExtClassFactory *pcf = new CShellExtClassFactory(state);
-		return pcf->QueryInterface(riid, ppvOut);
+		// refcount set to 0 at this moment
+		const HRESULT hr = pcf->QueryInterface(riid, ppvOut);
+		if (FAILED(hr))
+			delete pcf;
+		return hr;
     }
 	
     return CLASS_E_CLASSNOTAVAILABLE;
-
 }
-
-
