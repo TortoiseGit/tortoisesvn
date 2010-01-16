@@ -86,14 +86,16 @@ BOOL CMergeWizard::OnInitDialog()
 	{
 		m_Dwm.Initialize();
 		if (m_Dwm.IsDwmCompositionEnabled())
+		{
 			m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &margs);
+			ShowGrip(false);
+		}
 		m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
 		m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
 		m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
 		m_aeroControls.SubclassControl(GetDlgItem(ID_WIZFINISH)->GetSafeHwnd());
 		m_aeroControls.SubclassControl(GetDlgItem(ID_WIZBACK)->GetSafeHwnd());
 		m_aeroControls.SubclassControl(GetDlgItem(ID_WIZNEXT)->GetSafeHwnd());
-		ShowGrip(false);
 	}
 
 	return bResult;
