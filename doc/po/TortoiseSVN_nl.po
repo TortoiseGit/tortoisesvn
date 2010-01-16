@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-01-03 00:35 +0000\n"
-"PO-Revision-Date: 2010-01-16 20:07+0100\n"
+"PO-Revision-Date: 2010-01-16 20:32+0100\n"
 "Last-Translator: Johannes Zwart <johannes.zwart@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5631,20 +5631,20 @@ msgstr "Herstel dialoog"
 
 #. (para)
 msgid "If you want to undo all changes you made in a file since the last update you need to select the file, <action>right click</action> to pop up the context menu and then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> A dialog will pop up showing you the files that you've changed and can revert. Select those you want to revert and click on <guibutton>OK</guibutton>. <placeholder-1/>"
-msgstr ""
+msgstr "Als je de wijzigingen die je sinds de laatste update in een bestand hebt gemaakt, ga je als volgt te werk. Selecteer het bestand, klik er met de <action>rechter muisknop</action> op zodat het contextmenu openspringt, en klik vervolgens op het commando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ongedaan maken</guimenuitem><menuchoice>. Nu zal een dialoog verschijnen met de gewijzigde bestanden. Selecteer de bestanden waarvan je de wijzigingen ongedaan wilt maken, en klik op <guibutton>OK</guibutton>. <placeholder-1/>"
 
 #. (para)
 msgid "If you want to undo a deletion or a rename, you need to use Revert on the parent folder as the deleted item does not exist for you to right-click on."
-msgstr ""
+msgstr "Omdat een verwijderd bestand of een verwijderde map niet meer in je werkkopie bestaat, dien je, als je het verwijderen of hernoemen van een bestand of map ongedaan wilt maken, de actie 'Terugzetten' uit te voeren op de folder waarin deze items zich bevonden."
 
 #. (para)
 msgid "If you want to undo the addition of an item, this appears in the context menu as <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Undo add...</guimenuitem></menuchoice>. This is really a revert as well, but the name has been changed to make it more obvious."
-msgstr ""
+msgstr "Als je het toevoegen van een bestand of map ongedaan wilt maken, dien je de volgende actie in het contextmenu uit te voeren: <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Toevoegen opheffen...</guimenuitem></menuchoice>. Deze actie verschilt niet van de andere acties waarmee je handelingen ongedaan kunt maken, maar heeft een andere naam gekregen om het doel ervan te verhelderen."
 
 #. (para)
 #. (para)
 msgid "The columns in this dialog can be customized in the same way as the columns in the <guilabel>Check for modifications</guilabel> dialog. Read <xref linkend=\"tsvn-dug-wcstatus-2\"/> for further details."
-msgstr ""
+msgstr "Je kunt de kolommen in dit dialoogscherm configureren op dezelfde manier als die van het dialoogscherm <guilabel>Kijk of er updates zijn</guilabel>. Ga naar <xref linkend=\"tsvn-dug-wcstatus-2\"/> voor meer informatie."
 
 #. (para)
 msgid "Since revert is sometimes used to clean up a working copy, there is an extra button which allows you to delete unversioned items as well. When you click this button another dialog comes up listing all the unversioned items, which you can then select for deletion."
@@ -5652,19 +5652,19 @@ msgstr ""
 
 #. (title)
 msgid "Undoing Changes which have been Committed"
-msgstr ""
+msgstr "Reeds vastgelegde wijzigingen ongedaan maken"
 
 #. (para)
 msgid "<menuchoice><guimenuitem>Revert</guimenuitem></menuchoice> will only undo your local changes. It does <emphasis>not</emphasis> undo any changes which have already been committed. If you want to undo all the changes which were committed in a particular revision, read <xref linkend=\"tsvn-dug-showlog\"/> for further information."
-msgstr ""
+msgstr "<menuchoice><guimenuitem>Ongedaan maken</guimenuitem></menuchoice> maakt alleen lokale wijzigingen ongedaan. Wijzigingen die al zijn vastgelegd, worden <emphasis>niet</emphasis> ongedaan gemaakt. Als je wijzigingen die in een bepaalde revisie zijn vastgelegd, ongedaan wilt maken, lees dan <xref linkend=\"tsvn-dug-showlog\"/>."
 
 #. (title)
 msgid "Revert is Slow"
-msgstr "Herstellen is Langzaam"
+msgstr "Herstellen is langzaam"
 
 #. (para)
 msgid "When you revert changes you may find that the operation takes a lot longer than you expect. This is because the modified version of the file is sent to the recycle bin, so you can retrieve your changes if you reverted by mistake. However, if your recycle bin is full, Windows takes a long time to find a place to put the file. The solution is simple: either empty the recycle bin or deactivate the <guilabel>Use recycle bin when reverting</guilabel> box in TortoiseSVN's settings."
-msgstr ""
+msgstr "Als je wijzigingen ongedaan maakt, kan het gebeuren dat dit veel langer duurt dan verwacht. De reden hiervoor is dat de gewijzigde versie van het bestand wordt weggegooid en in de prullenbak terechtkomt, zodat je je wijzigingen weer terug kunt halen als je TortoiseSVN per ongeluk instrueerde om die ongedaan te maken. Het kan echter voorkomen dat de prullenbak vol zit; in dat geval heeft Windows veel tijd nodig om een plaats voor het weggegooide bestand te vinden. Je kunt de lange wachttijd dus terugbrengen door de prullenbak te legen, of door de eigenschap <guilabel>Gebruik prullenbak bij herstellen</guilabel> in de instellingen van TortoiseSVN te deactiveren."
 
 #. (title)
 #. (entry)
