@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-26 13:40+0200\n"
+"PO-Revision-Date: 2010-01-16 13:17+0200\n"
 "Last-Translator: Vural Goze <vuralgoze@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1415,8 +1415,12 @@ msgid "A list of user defined properties for folders to show in the combo box"
 msgstr "Bileşim kutusunda gösterilecek dizinler için kullanıcı tanımlı özellikler listesi"
 
 #. Resource IDs: (201)
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
-msgstr "Daha güncel bir versiyon mevcut. Lütfen http://tortoisesvn.tigris.org adresine gidin ve yeni güncel versiyonu indirin! Web sitemize direk gitmek için _here_ tıklayın."
+msgid ""
+"A newer version is available.\r\n"
+"Please go to http://tortoisesvn.tigris.org and download the current version."
+msgstr ""
+"Daha güncel bir versiyon mevcut.\r\n"
+"Lütfen http://tortoisesvn.tigris.org adresine gidin ve güncel versiyonu indirin."
 
 #. Resource IDs: (195)
 msgid ""
@@ -1640,6 +1644,10 @@ msgid ""
 msgstr ""
 "Ayarları ayarla\n"
 "Ayarlar"
+
+#. Resource IDs: (307)
+msgid "Advanced"
+msgstr "Gelişmiş"
 
 #. Resource IDs: (170)
 msgid "Advanced Diff/Merge Settings"
@@ -1934,10 +1942,6 @@ msgstr ""
 #. Resource IDs: (438)
 msgid "Automatic"
 msgstr "Otomatik"
-
-#. Resource IDs: (1073)
-msgid "Automatically check for &newer versions every week"
-msgstr "Otomatik olarak haftada bir yeni& güncelleme kontrolü yap"
 
 #. Resource IDs: (306)
 msgid "Autotext Tester"
@@ -2248,6 +2252,10 @@ msgstr "Mod&ifikasyon varmı diye kontrol et"
 msgid "Check for modifications"
 msgstr "Modifikasyon ara"
 
+#. Resource IDs: (65535)
+msgid "Check for updates"
+msgstr "Güncellemeleri kontrol et"
+
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Depodan çalışan kopya dosyasını al"
@@ -2331,8 +2339,8 @@ msgstr "Temizleniyor"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%s\""
-msgstr " \"%s\" dizini temizleniyor"
+msgid "Cleaning up directory \"%1!s!\""
+msgstr "%2!s! dizini temizleniyor"
 
 #. Resource IDs: (83)
 #, c-format
@@ -2612,8 +2620,8 @@ msgstr "Seçili dosyayı depodaki bir dosya ile karşılaştırır"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Comparing %s to %s"
-msgstr "%s ile %s karşılaştırılıyor"
+msgid "Comparing %1!s! to %2!s!"
+msgstr "%1!s! ile %2!s! karşılaştırılıyor"
 
 #. Resource IDs: (74)
 msgid "Completed"
@@ -3410,6 +3418,18 @@ msgid ""
 msgstr ""
 "Belgeleme : Simon Large\n"
 "Kod : Tobias Schäfer, Stefan Fuhrmann"
+
+#. Resource IDs: (94)
+msgid ""
+"Don't make the checkout directory a sparse working copy.\n"
+"Instead, all URLs get checked out into a separate\n"
+"working copies next to each other.\n"
+"This works for directory URLs only."
+msgstr ""
+"İndirme dizinini seyrek bir çalışan kopya yapma.\n"
+"Yerine, tüm URL'ler yanyana duran ayrı çalışan\n"
+"kopyalara indirilsin.\n"
+"Bu sadece dizin URL'lerine uygulanabilir."
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4225,15 +4245,15 @@ msgstr ""
 "Böylece bu dosyalarda salt-okunur dosya-sistemi özelliği işaretlenir, ve sadece kilidin elde edilmesi ile yazilabilir hale gelirler.\n"
 "Not: bu dosyaları salt-okunur görebilmeleri için diger kullanıcıların kendi çalışan kopyalarını güncellemeleri gerekecektir. "
 
+#. Resource IDs: (119)
+#, c-format
+msgid "Getting file %1!s!"
+msgstr "%1!s! dosyası getiriliyor"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Getting file %1!s!, revision %2!s!"
 msgstr "%1!s! dosyasının, %2!s! revizyonu alınıyor"
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Getting file %s"
-msgstr "%s dosyası getiriliyor"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
@@ -4568,6 +4588,10 @@ msgstr "ID:57643:V C +Z"
 msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+msgid "ID:57665:V C +W"
+msgstr "ID:57665:V C +W"
+
 #. Resource IDs: (106)
 msgid "Icon Overlays"
 msgstr "Simge Ayarları"
@@ -4647,10 +4671,6 @@ msgid ""
 msgstr ""
 "İşaretlendiğinde, hata oluştuğu zaman son seçimleriniz ve Günlük mesajınız \r\n"
 "kaybedilmeden teslim diyalogu tekrar başlatılır."
-
-#. Resource IDs: (194)
-msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "İşaretlendiğinde, TortoiseSVN haftada bir kere yeni bir güncellemenin olup olmadığını kontrol eder."
 
 #. Resource IDs: (195)
 msgid ""
@@ -4741,10 +4761,6 @@ msgstr "&Tüm boşluklara aldırma"
 msgid "Ignore &ancestry"
 msgstr "Nesle &aldırma"
 
-#. Resource IDs: (1067)
-msgid "Ignore &case changes"
-msgstr "&Dizi değişikliklerine aldırma"
-
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
 msgstr "Boşluk karakteri değişikliklerinin tümüne aldırma"
@@ -4752,6 +4768,10 @@ msgstr "Boşluk karakteri değişikliklerinin tümüne aldırma"
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Tüm boşluk karakterlerine aldırma"
+
+#. Resource IDs: (1067)
+msgid "Ignore case cha&nges"
+msgstr "Büyük/küçük harf değişiklikleri&ne aldırma"
 
 #. Resource IDs: (1126)
 msgid "Ignore line &endings"
@@ -4869,8 +4889,8 @@ msgstr "%1 a içe aktar"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Importing file %s"
-msgstr "%s dosyası içe aktarılıyor"
+msgid "Importing file %1!s!"
+msgstr "%1!s! dosyası içe aktarılıyor"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
@@ -5065,6 +5085,10 @@ msgstr "Haricilerdeki &elemanlar"
 msgid "Items to show"
 msgstr "Gösterilecek elemanlar"
 
+#. Resource IDs: (1074)
+msgid "J&ump to first conflict when loading"
+msgstr "&Yüklerken ilk çakışmaya atla"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "Aşağıdaki ağaca ka&t"
@@ -5209,8 +5233,10 @@ msgstr "Kilidin durumu"
 #. Resource IDs: (94)
 msgid ""
 "Location where the contents of the\n"
-"repository URL will be saved to."
-msgstr "Depo URL'inin içeriğinin kayit edileceği yer. "
+"repository URL(s) will be saved to."
+msgstr ""
+"Depo URL'sinin içeriğinin\n"
+"kayit edileceği yer. "
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
@@ -5692,6 +5718,10 @@ msgstr "%s Taşınıyor"
 msgid "Moving..."
 msgstr "Taşınıyor..."
 
+#. Resource IDs: (1204)
+msgid "Multiple, &independent working copies"
+msgstr "Birden fazla, bağımsız çalışan kopyalar"
+
 #. Resource IDs: (65535)
 msgid "My file:"
 msgstr "Benim dosyam:"
@@ -5844,6 +5874,11 @@ msgstr "Yazım düzeltmeleri yok"
 #. Resource IDs: (196)
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
 msgstr "Durum önbelleği mevcut değil. Sadece versiyonlu klasörler işaretlenir, dosyalar işaretlenmez"
+
+#. Resource IDs: (84)
+#, c-format
+msgid "No such revision '%1!s!'"
+msgstr "'%1!s!' adlı bir revizyon yok"
 
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
@@ -6087,6 +6122,10 @@ msgstr "Depoda online değişiklik yapmak için depo tarayıcısını başlatır
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
 msgstr "Şimdilik günlük önbelleğinden çalış"
+
+#. Resource IDs: (348)
+msgid "Option"
+msgstr "Seçenek"
 
 #. Resource IDs: (16137)
 msgid "Options"
@@ -6398,8 +6437,8 @@ msgstr "Yazdırılıyor"
 
 #. Resource IDs: (132)
 #, c-format
-msgid "Processing revision %d of %d..."
-msgstr "%d 'ün %d revizyonu işlemden geçiriliyor..."
+msgid "Processing revision %1!d! of %2!d!..."
+msgstr "%2!d!'ün %1!d! revizyonu işlemden geçiriliyor..."
 
 #. Resource IDs: (74)
 msgid "Program"
@@ -7029,18 +7068,18 @@ msgstr "Revizyon"
 
 #. Resource IDs: (119)
 #, c-format
-msgid "Revision %d"
-msgstr "Revizyon %d"
+msgid "Revision %1!d!"
+msgstr "Revizyon %1!d!"
+
+#. Resource IDs: (120)
+#, c-format
+msgid "Revision %1!s!"
+msgstr "Revizyon %1!s!"
 
 #. Resource IDs: (269)
 #, c-format
 msgid "Revision %ld"
 msgstr "Revizyon %ld"
-
-#. Resource IDs: (120)
-#, c-format
-msgid "Revision %s"
-msgstr "Revizyon %s"
 
 #. Resource IDs: (15)
 msgid "Revision &graph"
@@ -9612,6 +9651,16 @@ msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
 #. Resource IDs: (65535)
+msgid ""
+"WARNING:\r\n"
+"Only change these settings if you are absolutely sure what you are doing!\r\n"
+"To set the values to their default, delete the value text."
+msgstr ""
+"UYARI:\r\n"
+"Bu ayarları sadece ne yaptığınızdan kesinlikle eminseniz değiştirin!\r\n"
+"Değerleri varsayılanlara döndürmek için değer metnini silin."
+
+#. Resource IDs: (65535)
 msgid "WC node"
 msgstr "WC düğümü"
 
@@ -10753,6 +10802,13 @@ msgstr "evet"
 msgid "{BugTraq}"
 msgstr "{HataTakibi}"
 
+#~ msgid "Automatically check for &newer versions every week"
+#~ msgstr "Otomatik olarak haftada bir yeni& güncelleme kontrolü yap"
+#~ msgid ""
+#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr ""
+#~ "İşaretlendiğinde, TortoiseSVN haftada bir kere yeni bir güncellemenin "
+#~ "olup olmadığını kontrol eder."
 #~ msgid "Edit conflict"
 #~ msgstr "Çakışmaları düzenle"
 #~ msgid "H&ide unrelated changed paths"
