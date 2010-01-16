@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -77,19 +77,23 @@ void CResizableStandAloneDialog::OnNcMButtonUp(UINT nHitTest, CPoint point)
 	WINDOWPLACEMENT windowPlacement;
 	if ((nHitTest == HTMAXBUTTON) && GetWindowPlacement(&windowPlacement) && windowPlacement.showCmd == SW_SHOWNORMAL)
 	{
-		CRect rcWorkArea, rcWindowRect;
+		CRect rcWindowRect;
 		GetWindowRect(&rcWindowRect);
+
+		MONITORINFO mi = {0};
+		mi.cbSize = sizeof(MONITORINFO);
+
 		if (m_bVertical)
 		{
 			rcWindowRect.top = m_rcOrgWindowRect.top;
 			rcWindowRect.bottom = m_rcOrgWindowRect.bottom;
 		}
-		else if (SystemParametersInfo(SPI_GETWORKAREA, 0U, &rcWorkArea, 0U))
+		else if (GetMonitorInfo(MonitorFromWindow(m_hWnd, MONITOR_DEFAULTTONEAREST), &mi))
 		{
 			m_rcOrgWindowRect.top = rcWindowRect.top;
 			m_rcOrgWindowRect.bottom = rcWindowRect.bottom;
-			rcWindowRect.top = rcWorkArea.top;
-			rcWindowRect.bottom = rcWorkArea.bottom;
+			rcWindowRect.top = mi.rcWork.top;
+			rcWindowRect.bottom = mi.rcWork.bottom;
 		}
 		m_bVertical = !m_bVertical;
 		m_bHorizontal = m_bHorizontal;
@@ -103,19 +107,23 @@ void CResizableStandAloneDialog::OnNcRButtonUp(UINT nHitTest, CPoint point)
 	WINDOWPLACEMENT windowPlacement;
 	if ((nHitTest == HTMAXBUTTON) && GetWindowPlacement(&windowPlacement) && windowPlacement.showCmd == SW_SHOWNORMAL)
 	{
-		CRect rcWorkArea, rcWindowRect;
+		CRect rcWindowRect;
 		GetWindowRect(&rcWindowRect);
+
+		MONITORINFO mi = {0};
+		mi.cbSize = sizeof(MONITORINFO);
+
 		if (m_bHorizontal)
 		{
 			rcWindowRect.left = m_rcOrgWindowRect.left;
 			rcWindowRect.right = m_rcOrgWindowRect.right;
 		}
-		else if (SystemParametersInfo(SPI_GETWORKAREA, 0U, &rcWorkArea, 0U))
+		else if (GetMonitorInfo(MonitorFromWindow(m_hWnd, MONITOR_DEFAULTTONEAREST), &mi))
 		{
 			m_rcOrgWindowRect.left = rcWindowRect.left;
 			m_rcOrgWindowRect.right = rcWindowRect.right;
-			rcWindowRect.left = rcWorkArea.left;
-			rcWindowRect.right = rcWorkArea.right;
+			rcWindowRect.left = mi.rcWork.left;
+			rcWindowRect.right = mi.rcWork.right;
 		}
 		m_bVertical = m_bVertical;
 		m_bHorizontal = !m_bHorizontal;
