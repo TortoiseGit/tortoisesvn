@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-01-03 00:35 +0000\n"
-"PO-Revision-Date: 2010-01-07 11:59+0100\n"
-"Last-Translator: Christophe De Wagter <c.dewagter@tudelft.nl>\n"
+"PO-Revision-Date: 2010-01-16 20:07+0100\n"
+"Last-Translator: Johannes Zwart <johannes.zwart@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5187,49 +5187,49 @@ msgstr ""
 
 #. (para)
 msgid "<placeholder-1/> If you created new files and/or directories during your development process then you need to add them to source control too. Select the file(s) and/or directory and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "<placeholder-1/> Als je tijdens het ontwikkelproces nieuwe bestanden en/of mappen hebt gemaakt, moeten die ook onder broncodebeheer worden gebracht. Selecteer de bestanden en/of de mappen, en ga naar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Toevoegen</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "After you added the files/directories to source control the file appears with a <literal>added</literal> icon overlay which means you first have to commit your working copy to make those files/directories available to other developers. Adding a file/directory does <emphasis>not</emphasis> affect the repository!"
-msgstr ""
+msgstr "Nadat je de bestanden of mappen onder broncodebeheer hebt gebracht, verschijnt er een icoontje in de vorm van een plusje over het normale icoontje in Windows Verkenner. Dit betekent dat je de werkkopie van het bestand moet vastleggen voordat de bestanden/mappen beschikbaar zijn voor andere ontwikkelaars. Een bestand of map toevoegen heeft <emphasis>geen</emphasis> effect op het archief!"
 
 #. (title)
 msgid "Many Adds"
-msgstr "Vele Toevoegingen"
+msgstr "Vele toevoegingen"
 
 #. (para)
 msgid "You can also use the Add command on already versioned folders. In that case, the add dialog will show you all unversioned files inside that versioned folder. This helps if you have many new files and need to add them all at once."
-msgstr ""
+msgstr "Je kunt het commando 'Toevoegen' ook gebruiken op reeds geversioneerde mappen. In dat geval zal het toevoegen-dialoogscherm alle niet-geversioneerde bestanden in die geversioneerde mappen weergeven. Dit is handig als je veel nieuwe bestanden hebt en die allemaal in één keer wilt toevoegen."
 
 #. (para)
 msgid "select the files you want to add"
-msgstr ""
+msgstr "selecteer de bestanden die je wilt toevoegen"
 
 #. (para)
 #. (para)
 msgid "<action>right-drag</action> them to the new location inside the working copy"
-msgstr ""
+msgstr "<action>sleep</action> ze met de <action>rechter</action> muisknop naar de nieuwe locatie in je huidige werkkopie"
 
 #. (para)
 #. (para)
 msgid "release the right mouse button"
-msgstr ""
+msgstr "laat de rechter muisknop los"
 
 #. (para)
 msgid "select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Add files to this WC</guimenuitem></menuchoice>. The files will then be copied to the working copy and added to version control."
-msgstr ""
+msgstr "ga naar <menuchoice><guimenu>Contextmenu</guimenu><guimenuitem>SVN Kopiëren en toevoegen aan deze werkkopie</guimenuitem></menuchoice>. De bestanden worden dan naar de werkkopie gekopieerd en onder versiebeheer gebracht."
 
 #. (para)
 msgid "To add files from outside your working copy you can use the drag-and-drop handler: <placeholder-1/>"
-msgstr ""
+msgstr "Bestanden van buiten je werkkopie kun je daaraan toevoegen door middel van de volgende drag-and-drop-handeling: <placeholder-1/>"
 
 #. (para)
 msgid "You can also add files within a working copy simply by left-dragging and dropping them onto the commit dialog."
-msgstr ""
+msgstr "Ook binnen een werkkopie kun je bestanden toevoegen. Dit doe je door de bestanden (of mappen) met de linkermuisknop op te pakken, naar het vastleggen-dialoogscherm te slepen en ze vervolgens los te laten."
 
 #. (para)
 msgid "If you add a file or folder by mistake, you can undo the addition before you commit using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Undo add...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Het toevoegen van bestanden en mappen kun je, als je bijvoorbeeld per ongeluk een verkeerd bestand hebt toegevoegd, ongedaan maken voordat je je wijzigingen vastlegt. Dit doe je door het volgende uit te voeren: <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Toevoeging opheffen...</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "Copying/Moving/Renaming Files and Folders"
