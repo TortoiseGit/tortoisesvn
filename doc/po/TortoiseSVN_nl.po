@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-01-03 00:35 +0000\n"
-"PO-Revision-Date: 2010-01-16 20:32+0100\n"
+"PO-Revision-Date: 2010-01-16 20:45+0100\n"
 "Last-Translator: Johannes Zwart <johannes.zwart@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5671,7 +5671,7 @@ msgstr "Als je wijzigingen ongedaan maakt, kan het gebeuren dat dit veel langer 
 #. (title)
 #. (glossterm)
 msgid "Cleanup"
-msgstr ""
+msgstr "Schonen"
 
 #. (primary)
 msgid "cleanup"
@@ -5679,19 +5679,19 @@ msgstr ""
 
 #. (para)
 msgid "If a Subversion command cannot complete successfully, perhaps due to server problems, your working copy can be left in an inconsistent state. In that case you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice> on the folder. It is a good idea to do this at the top level of the working copy."
-msgstr ""
+msgstr "Als een commando in Subversion niet succesvol kan worden afgerond, wat mogelijk met serverproblemen te maken heeft, kan je werkkopie in een foutieve staat geraken. In dat geval dien je de contextmenu-actie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Schonen</guimenuitem></menuchoice> op de map waarin zich je werkkopie bevindt, uit te voeren. Het is aan te raden om dit op zo hoog mogelijk niveau te doen."
 
 #. (para)
 msgid "Cleanup has another useful side effect. If a file date changes but its content doesn't, Subversion cannot tell whether it has really changed except by doing a byte-by-byte comparison with the pristine copy. If you have a lot of files in this state it makes acquiring status very slow, which will make many dialogs slow to respond. Executing a Cleanup on your working copy will repair these <quote>broken</quote> timestamps and restore status checks to full speed."
-msgstr ""
+msgstr "Schonen heeft een bruikbaar neveneffect. Als de datum van een bestand verandert zonder dat de inhoud dat doet, kan Subversion niet meer bepalen of het bestand werkelijk gewijzigd is, tenzij het dit bestand byte voor byte vergelijkt met een ongewijzigde versie ervan. Als je veel bestanden hebt die onder dit euvel lijden, kan dat het opvragen van statussen erg vertragen, waardoor veel dialoogschermen veel langzamer worden. Het commando 'Schonen' op je werkkopie uitvoeren repareert deze <quote>kapotte</quote> datum-/tijdsaanduidingen, waardoor een statuscontrole weer op volle snelheid kan plaatshebben."
 
 #. (title)
 msgid "Use Commit Timestamps"
-msgstr "Gebruik Vastleg Tijdstippen"
+msgstr "Gebruik Vastleg-tijdstippen"
 
 #. (para)
 msgid "Some earlier releases of Subversion were affected by a bug which caused timestamp mismatch when you check out with the <guilabel>Use commit timestamps</guilabel> option checked. Use the Cleanup command to speed up these working copies."
-msgstr ""
+msgstr "In enkele oudere versies van Subversion zat een bug die ervoor zorgde dat de datum-/tijdsaanduiding van een bestand niet meer klopte wanneer je een werkkopie uit een archief ophaalde en daarbij de optie <guilabel>Gebruik vastleg-tijdstippen</guilabel> had aangevinkt. Gebruik het commando 'Schonen' om de werkkopiën die hieronder lijden, weer op snelheid te brengen. "
 
 #. (title)
 msgid "Project Settings"
