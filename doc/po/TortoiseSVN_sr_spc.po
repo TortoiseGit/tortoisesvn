@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-01-10 08:44 +0000\n"
-"PO-Revision-Date: 2010-01-11 20:55+0100\n"
+"POT-Creation-Date: 2010-01-13 23:22 +0000\n"
+"PO-Revision-Date: 2010-01-17 21:43+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7857,7 +7857,7 @@ msgstr "Зато што проблем трагач интеграција за�
 #. (para)
 #. (para)
 msgid "For the same reason, project properties will not be propagated automatically when a child folder is added using the repo browser."
-msgstr ""
+msgstr "Из неких разлога особине пројекта неће се преносити аутоматски када се потомачки именик дода коришћењем репо претраживача."
 
 #. (para)
 msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
@@ -9430,6 +9430,94 @@ msgstr "Од  Верзије 1.3.0 Субверзије и ТортоисеСВ�
 #. (para)
 msgid "For more information, and other ways to avoid this problem in the first place, check out the article about this in our <ulink url=\"http://tortoisesvn.net/aspdotnethack\"><citetitle>FAQ</citetitle></ulink>."
 msgstr "За више информација, и друге начине да се избегне овај проблем на прво мест, преузмите наш чланак  <ulink url=\"http://tortoisesvn.net/aspdotnethack\"><citetitle>FAQ</citetitle></ulink>."
+
+#. (title)
+msgid "Advanced Settings"
+msgstr "Напредна подешавања"
+
+#. (primary)
+msgid "registry"
+msgstr "регистри"
+
+#. (para)
+msgid "A few infrequently used settings are available only in the advanced page of the settings dialog. These settings modify the registry directly and you have to know what each of these settings is used for and what it does. Do not modify these settings unless you are sure you need to change them."
+msgstr "Неколико подешавања која се не користе често доступна су само на напредним странама дијалога подешавања. Ова подешавања директно мењају регистре и трба да знате како се свако од тих подешавања користи и шта значи. Не мењајте ова подешавања осим ако нисте сигурни да треба да их мењате."
+
+#. (para)
+msgid "You can specify a different location for the Subversion configuration file here. This will affect all TortoiseSVN operations."
+msgstr "Можете специфицирати различиту локацију за Субверзиони конфигурациони фајл. Ово ће утицати на све ТортоисеСВН операције."
+
+#. (para)
+msgid "Set this to <literal>true</literal> if you want a dialog to pop up for every command showing the command line used to start TortoiseProc.exe"
+msgstr "Подесите на <literal>истина</literal> ако желите да дијалог искочи за сваку командну линију која се користи да се покрене ТортоисеПроц.еxе"
+
+#. (para)
+msgid "To add a cache tray icon for the TSVNCache program, set this value to <literal>true</literal>. This is really only useful for developers as it allows you to terminate the program gracefully."
+msgstr "Да би додали кеш икону за ТСВНЦасхе програм, поставите ову вредност на <literal>истина</literal>. Ово је стварно корисно само за програмере када вам љубазно дозвољавају да завршите програм. "
+
+#. (para)
+msgid "This can be useful if you use something other than the windows explorer or if you get problems with the context menu displaying incorrectly. Set this value to <literal>false</literal> if you don't want TortoiseSVN to show icons for the shell context menu items. Set this value to <literal>true</literal> to show the icons again."
+msgstr "Ово је корисно ако користите нешто друго осим виндоуз експлорера или ако наиђете на проблеме са некоректним приказом контекстног менија. Подесите ову вредност на <literal>лаж</literal> ако не желите да ТортоисеСВН приказује иконе ставке контекст менија шкољке. Подесите ову вредност на <literal>истина</literal> да опет приказује иконе."
+
+#. (para)
+msgid "If you don't want TortoiseSVN to show icons for the context menus in its own dialogs, set this value to <literal>false</literal>."
+msgstr "Ако не желите да ТортоисеСВН приказује иконе за контекст мени у свом дијалогу подесите вредност на <literal>лаж</literal>."
+
+#. (para)
+msgid "The log dialog shows the revision the working copy path is at in bold. But this requires that the log dialog fetches the status of that path. Since for very big working copies this can take a while, you can set this value to <literal>false</literal> to deactivate this feature."
+msgstr "Дневник дијалог приказује путању ревизије радне копије зацрњено. Ало ово захтева да дијалог дневника нађе статус те путање. Осим за веома велике радне копије ово се брзу заврши, можете подесити вредност на <literal>лаж</literal> да деактивирате ову особину."
+
+#. (para)
+msgid "The status list control which is used in various dialogs (e.g., commit, check-for-modifications, add, revert, ...) uses full row selection (i.e., if you select an entry, the full row is selected, not just the first column). This is fine, but the selected row then also covers the background image on the bottom right, which can look ugly. To disable full row select, set this value to <literal>false</literal>."
+msgstr "Статус лист контрола која се користи у разним дијалозима (нпр. урезивање, провера-за-изменама, додавање, враћање, ...) користе избор пуног реда (тј. ако изаберете неки улаз, пун ред се изабере, не само прва колона). Ово је у реду, али изабрани ред покрива слику подлоге десно доле, што изгледа ружно. Да би се онемогућио избор пуног реда поставите вредност на <literal>лаж</literal>."
+
+#. (para)
+msgid "The commit and log dialog use styling (e.g. bold, italic) in commit messages (see <xref linkend=\"tsvn-dug-commit-log\"/> for details). If you don't want to do this, set the value to <literal>false</literal>."
+msgstr "Урезивање и дневник дијалог користе стил (нпр. болд, италик) у поруци урезивања (види <xref linkend=\"tsvn-dug-commit-log\"/> за детаље). Ако не желите да то урадите подесите вредност на <literal>лаж</literal>."
+
+#. (para)
+msgid "TortoiseSVN uses accelerators for its explorer context menu entries. Since this can lead to doubled accelerators (e.g. the <literal>SVN Commit</literal> has the <keycap>Alt-C</keycap> accelerator, but so does the <literal>Copy</literal> entry of explorer). If you don't want or need the accelerators of the TortoiseSVN entries, set this value to <literal>false</literal>."
+msgstr "ТортоисеСВН користи акцелераторе за своје улазе контекст мени претраживача. Како ово може довести до дублирање скцелератора (нпр. <literal>СВН Урежи</literal> има <keycap>Алт-Ц</keycap> акцелератор, али исто је и са <literal>Копирање</literal> улаз претраживача). Ако не желите или вам треба алцелератор ТортоисеСВН улаза, подесите вредност на <literal>лаж</literal>."
+
+#. (para)
+msgid "As with the explorer, TortoiseSVN shows additional commands if the <keycap>Shift</keycap> key is pressed while the context menu is opened. To force TortoiseSVN to always show those extended commands, set this value to <literal>true</literal>."
+msgstr "Као и код претраживача, ТортоисеСВН приказује додатне команде ако је <keycap>Схифт</keycap> тастер притиснут док је контекст мени отворен. Да се форсира ТортоисеСВН да омогући приказивање ове проширене команде подесите ову вредност на <literal>истина</literal>."
+
+#. (para)
+msgid "If you don't want the explorer to update the status overlays while another TortoiseSVN command is running (e.g. Update, Commit, ...) then set this value to <literal>true</literal>."
+msgstr "Ако не желите да експлорер ажурира статус прекривача док се друга ТортоисеСВН команда извршава ( нпр. Ажурирај, Урежи, ...) подесите ову вредност на <literal>истина</literal>."
+
+#. (para)
+msgid "This value contains the URL from which TortoiseSVN tries to download a text file to find out if there are updates available. This might be useful for company admins who don't want their users to update TortoiseSVN until they approve it."
+msgstr "Ова вредност садржи УРЛ из кога ТортоисеСВН покушава да скине текст фајл да би нашла да ли је ажурирање могуће. Ово може бити корисно за администрације компанија који не желе да њихови корисници ажурирају ТортоисеСВН док они не одобре."
+
+#. (para)
+msgid "The extra columns the TortoiseSVN adds to the details view in Windows Explorer are normally only active in a working copy. If you want those to be accessible everywhere, not just in working copies, set this value to <literal>true</literal>. Note that the extra columns are only available in XP. Vista and later doesn't support that feature any more."
+msgstr "Додатне колоне ТортоисеСВН које додаје детаљном прегледу у Виндоуз Експлореру активне су само у радној копији. Ако желите да буду доступне  било где, не само у радној копији, одесите ову вредност на <literal>истина</literal>. Приметимо да су екстра колоне доступне само на ХП. Виста и каснији не подржавају ову особину."
+
+#. (para)
+msgid "If an update adds a new file from the repository which already exists in the local working copy as an unversioned file, the default action is to keep the local file, showing it as a (possibly) modified version of the new file from the repository. If you would prefer TortoiseSVN to create a conflict in such situations, set this value to <literal>false</literal>."
+msgstr "Ако ажурирање дода нови фајл из спремишта који већ постоји у локалној радној копији као неверзионисани фајл, уобичајена акција је да се чува локални фајл, приказујући га као (могуће) модификованом верзијом новог фајла из спремишта. Ако вам је драже да ТортоисеСВН креира конфликт у таквој ситуацији подесите ову вредност на <literal>лаж</literal>."
+
+#. (para)
+msgid "TortoiseSVN checks whether there's a new version available about once a week. If an updated version is found, the commit dialog shows a link control with that info. If you prefer the old behavior back where a dialog pops up notifying you about the update, set this value to <literal>true</literal>."
+msgstr "ТортоисеСВН проверава да ли је доступна нова верзија отприлике једном недељно. Ако је нађена ажурирана верзија, дијалог урезивања приказује линк контролу са информацијом. Ако волите да задржите старо понашање где дијалог искаче нотирајући о ажурирању подесите ову вредност на <literal>истина</literal>. "
+
+#. (para)
+msgid "TortoiseSVN checks whether there's a new version available about once a week. If you don't want TortoiseSVN to do this check, set this value to <literal>false</literal>."
+msgstr "ТортоисеСВН проверава да ли постоји доступна нова верзија једанпут недељно.Ако не желите да ТортоисеСВН врши ову проверу подесите ову вредност на <literal>лаж</literal>."
+
+#. (para)
+msgid "The auto-completion list shown in the commit message editor displays the names of files listed for commit. To also include these names with extensions removed, set this value to <literal>true</literal>."
+msgstr "Ауто-комплетирајућа листа приказана у едитору порука урезивања приказује имена фајлова излистаних за урезивање. Такође обухвата  ова имена са уклоњеном екстензијом, подесите ову вредност на <literal>истина</literal>."
+
+#. (para)
+msgid "When you merge revisions from another branch, and merge tracking information is available, the log messages from the revisions you merge will be collected to make up a commit log message. A pre-defined string is used to separate the individual log messages of the merged revisions. If you prefer, you can set this to a value containing a separator string of your choice."
+msgstr "Када стапате ревизије из друге гране, и информације праћења стапања су доступне, дневник поруке из ревизија које стапате се сакупљају да направе дневник поруку урезивања. Предефинисани стринг се користи да одвоји појединачне дневник поруке стопљених ревизија. Ако више волите, можете  подесити ову вредност да  садржи сепаратор стринг по вашем избору."
+
+#. (para)
+msgid "TortoiseSVN allows you to assign an external diff viewer. Most such viewers, however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To do so, set this value to <literal>true</literal>."
+msgstr "ТортоисеСВН допушта да означите спољашњи дифф прегледач. Већина таквих прегледача, међутим, не одговара за измену окривљавања  (<xref linkend=\"tsvn-dug-blame-diffs\"/>), тако да можете желети да се вратите ТортоисеМерге у том случају. Да бисте то урадили  креирајте  подесите ову вредност на <literal>истина</literal>."
 
 #. (title)
 msgid "Final Step"
@@ -12984,8 +13072,6 @@ msgstr "Превод"
 #~ msgstr "Нема Репо Прегледач Веза из Претраживача Спремишта"
 #~ msgid "Registry Settings"
 #~ msgstr "Подешавање регистра"
-#~ msgid "registry"
-#~ msgstr "регистри"
 #~ msgid ""
 #~ "A few infrequently used settings are available only by editing the "
 #~ "registry directly. It goes without saying that you should only edit "
@@ -12994,26 +13080,8 @@ msgstr "Превод"
 #~ "Сасвим ретко коришћена подешавања су омогућена само уређивањем регистра "
 #~ "директно. Остаје на вама да само уредите вредности регистра ако знате шта "
 #~ "радите."
-#~ msgid ""
-#~ "You can specify a different location for the Subversion configuration "
-#~ "file using registry location <literal>HKCU\\Software\\TortoiseSVN"
-#~ "\\ConfigDir</literal>. This will affect all TortoiseSVN operations."
-#~ msgstr ""
-#~ "Можете специфицирати различиту локацију за Субверзиони конфигурациони "
-#~ "фајл користећи регистри локацију <literal>HKCU\\Software\\TortoiseSVN"
-#~ "\\ConfigDir</literal>. Ово ће утицати на све ТортоисеСВН операције."
 #~ msgid "Cache tray icon"
 #~ msgstr "Икона кеш кутије"
-#~ msgid ""
-#~ "To add a cache tray icon for the TSVNCache program, create a "
-#~ "<literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software"
-#~ "\\TortoiseSVN\\CacheTrayIcon</literal>. This is really only useful for "
-#~ "developers as it allows you to terminate the program gracefully."
-#~ msgstr ""
-#~ "Да би додали кеш икону за ТСВНЦасхе програм, креирајте <literal>DWORD</"
-#~ "literal> тастер са вредношћу 1 на <literal>HKCU\\Software\\TortoiseSVN"
-#~ "\\CacheTrayIcon</literal>. Ово је стварно корисно само за програмере када "
-#~ "вам љубазно дозвољавају да завршите програм. "
 #~ msgid "Debug"
 #~ msgstr "Дебаг"
 #~ msgid ""
@@ -13026,112 +13094,18 @@ msgstr "Превод"
 #~ "<literal>HKCU\\Software\\TortoiseSVN\\Debug</literal>."
 #~ msgid "Context Menu Icons"
 #~ msgstr "Контекст Мени Иконе"
-#~ msgid ""
-#~ "This can be useful if you use something other than the windows explorer "
-#~ "or if you get problems with the context menu displaying correctly. create "
-#~ "a <literal>DWORD</literal> key with a value of 0 at <literal>HKCU"
-#~ "\\Software\\TortoiseSVN\\ShowContextMenuIcons</literal> if you don't want "
-#~ "TortoiseSVN to not show icons for the shell context menu items. Set this "
-#~ "value to 1 to show the icons again."
-#~ msgstr ""
-#~ "Ово је корисно ако користите нешто друго осим виндоуз експлорера или ако "
-#~ "наиђете на проблем са коректним приказом контекстног менија. Креирајте "
-#~ "<literal>DWORD</literal> кључ са вредношћу 0 на <literal>HKCU\\Software"
-#~ "\\TortoiseSVN\\OwnerdrawnMenus</literal> ако не желите ТортоисеСВН да не "
-#~ "прикаже иконе ставке шкољке контекст менија. Поставите вредност на 1 да "
-#~ "поново прикажете иконе."
 #~ msgid "Block Overlay Status"
 #~ msgstr "Блокирајте Статус Прекривања"
-#~ msgid ""
-#~ "If you don't want the explorer to update the status overlays while "
-#~ "another TortoiseSVN command is running (e.g. Update, Commit, ...) then "
-#~ "create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU"
-#~ "\\Software\\TortoiseSVN\\BlockStatus</literal>."
-#~ msgstr ""
-#~ "Ако не желите да експлорер ажурира статус прекривача док се друга "
-#~ "ТортоисеСВН команда извршава ( нпр. Ажурирај, Урежи, ...) креирајте "
-#~ "<literal>DWORD</literal> кључ са вредношћу 1 у <literal>HKCU\\Software"
-#~ "\\TortoiseSVN\\BlockStatus</literal>."
 #~ msgid "Update Check URL"
 #~ msgstr "Ажурирајте Чекирање УРЛ"
-#~ msgid ""
-#~ "<literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> contains "
-#~ "the URL from which TortoiseSVN tries to download a text file to find out "
-#~ "if there are updates available. You can also set this under "
-#~ "<literal>HKLM</literal> instead of <literal>HKCU</literal> if you want, "
-#~ "but <literal>HKCU</literal> overwrites the setting in <literal>HKLM</"
-#~ "literal>. This might be useful for company admins who don't want their "
-#~ "users to update TortoiseSVN until they approve it."
-#~ msgstr ""
-#~ "<literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> садржи УРЛ "
-#~ "из кога ТортоисеСВН покушава да скине текст фајл да би нашла да ли је "
-#~ "ажурирање могуће. Можете такође подесити ово под <literal>HKLM</literal> "
-#~ "уместо <literal>HKCU</literal> ако желите, али <literal>HKCU</literal> "
-#~ "прекрива подешавање у <literal>HKLM</literal>. Ово може бити корисно за "
-#~ "компанијску администрацију која не жели да њени корисници ажурирају "
-#~ "ТортоисеСВН док им они не одобре."
 #~ msgid "Filenames without extensions in auto-completion list"
 #~ msgstr "Фајлиме без екстензије у ауто-комплетирајућој листи."
-#~ msgid ""
-#~ "The auto-completion list shown in the commit message editor displays the "
-#~ "names of files listed for commit. To also include these names with "
-#~ "extensions removed, create a <literal>DWORD</literal> key with a value of "
-#~ "1 at <literal>HKCU\\Software\\TortoiseSVN\\AutocompleteRemovesExtensions</"
-#~ "literal>."
-#~ msgstr ""
-#~ "Ауто-комплетирајућа листа приказана у едитору порука урезивања приказује "
-#~ "имена фајлова излистаних за урезивање. Такође обухвата  ова имена са "
-#~ "уклоњеном екстензијом, креирајте  <literal>DWORD</literal> татер са "
-#~ "вредношћу 1 на  <literal>HKCU\\Software\\TortoiseSVN"
-#~ "\\AutocompleteRemovesExtensions</literal>."
 #~ msgid "Explorer columns everywhere"
 #~ msgstr "Експлорер колумне било где"
-#~ msgid ""
-#~ "The extra columns the TortoiseSVN adds to the details view in Windows "
-#~ "Explorer are normally only active in a working copy. If you want those to "
-#~ "be accessible everywhere, not just in working copies, create a "
-#~ "<literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software"
-#~ "\\TortoiseSVN\\ColumnsEveryWhere</literal>."
-#~ msgstr ""
-#~ "Додатне колоне ТортоисеСВН које додаје детаљном прегледу у Виндоуз "
-#~ "Експлореру активне су само у радној копији. Ако желите да буду доступне  "
-#~ "било где, не само у радној копији, креирајте  <literal>DWORD</literal> "
-#~ "тастер са вредношћу 1 у <literal>HKCU\\Software\\TortoiseSVN"
-#~ "\\ColumnsEveryWhere</literal>."
 #~ msgid "Merge log separator"
 #~ msgstr "Стопи сепаратор дневника"
-#~ msgid ""
-#~ "When you merge revisions from another branch, and merge tracking "
-#~ "information is available, the log messages from the revisions you merge "
-#~ "will be collected to make up a commit log message. A pre-defined string "
-#~ "is used to separate the individual log messages of the merged revisions. "
-#~ "If you prefer, you can create a <literal>SZ</literal> key at <literal>HKCU"
-#~ "\\Software\\TortoiseSVN\\MergeLogSeparator</literal> containing a "
-#~ "separator string of your choice."
-#~ msgstr ""
-#~ "Када стапате ревизије из друге гране, и информације праћења стапања су "
-#~ "доступне, дневник поруке из ревизија које стапате се сакупљају да направе "
-#~ "дневник поруку урезивања. Предефинисани стринг се користи да одвоји "
-#~ "појединачне дневник поруке стопљених ревизија. Ако више волите, можете "
-#~ "креирати <literal>SZ</literal> тастер у <literal>HKCU\\Software"
-#~ "\\TortoiseSVN\\MergeLogSeparator</literal>који садржи сепаратор стринг по "
-#~ "вашем избору."
 #~ msgid "Always blame changes with TortoiseMerge"
 #~ msgstr "Увек окриви измене са ТортоисеМерге"
-#~ msgid ""
-#~ "TortoiseSVN allows you to assign external diff viewer. Most such viewers, "
-#~ "however, are not suited for change blaming (<xref linkend=\"tsvn-dug-"
-#~ "blame-diffs\"/>), so you might wish to fall back to TortoiseMerge in this "
-#~ "case. To do so, create a <literal>DWORD</literal> key with a value of 1 "
-#~ "at <literal>HKCU\\Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge</"
-#~ "literal>."
-#~ msgstr ""
-#~ "ТортоисеСВН допушта да означите спољашњи дифф прегледач. Већина таквих "
-#~ "прегледача, међутим, не одговара за измену окривљавања  (<xref linkend="
-#~ "\"tsvn-dug-blame-diffs\"/>), тако да можете желети да се вратите "
-#~ "ТортоисеМерге у том случају. Да бисте то урадили  креирајте  "
-#~ "<literal>DWORD</literal>  тастер са вредношћу 1 у <literal>HKCU\\Software"
-#~ "\\TortoiseSVN\\DiffBlamesWithTortoiseMerge</literal>."
 #~ msgid "Current revision highlighting for folders in log dialog"
 #~ msgstr "Текуће ревизијско осветљавање за именике у дневник дијалогу"
 #~ msgid ""
