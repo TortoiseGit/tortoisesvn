@@ -563,7 +563,7 @@ HRESULT __stdcall CFactory::CreateInstance(IUnknown* pUnknownOuter,
 	}
 
 	// Create component.
-	SubWCRev* pA = new SubWCRev();
+	SubWCRev* pA = new (std::nothrow) SubWCRev();
 	if (pA == NULL)
 	{
 		return E_OUTOFMEMORY ;
@@ -626,7 +626,7 @@ STDAPI DllGetClassObject(const CLSID& clsid,
 	}
 
 	// Create class factory.
-	CFactory* pFactory = new CFactory ;  // Reference count set to 1
+	CFactory* pFactory = new (std::nothrow) CFactory ;  // Reference count set to 1
 	// in constructor
 	if (pFactory == NULL)
 	{
