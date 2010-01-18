@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-08 18:23+0100\n"
+"PO-Revision-Date: 2010-01-18 11:49+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1365,8 +1365,12 @@ msgid "A list of user defined properties for folders to show in the combo box"
 msgstr "Uma lista de propriedades de pastas definidas pelo utilizador a mostrar na caixa de combinação"
 
 #. Resource IDs: (201)
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
-msgstr "Está disponível uma nova versão. Por favor vá a http://tortoisesvn.tigris.org/ e descarregue a versão mais recente! Carregue _aqui_ para ir directamente para o nosso sítio Web."
+msgid ""
+"A newer version is available.\r\n"
+"Please go to http://tortoisesvn.tigris.org and download the current version."
+msgstr ""
+"Uma nova versão está disponível.\r\n"
+"Por favor vá a http://tortoisesvn.tigris.org/ e descarregue a versão mais recente!"
 
 #. Resource IDs: (195)
 msgid ""
@@ -1891,10 +1895,6 @@ msgstr ""
 msgid "Automatic"
 msgstr "Automático"
 
-#. Resource IDs: (1073)
-msgid "Automatically check for &newer versions every week"
-msgstr "Verificar automaticamente, todas as semanas, se existem &novas versões"
-
 #. Resource IDs: (306)
 msgid "Autotext Tester"
 msgstr "Testador de Autotexto"
@@ -2204,6 +2204,10 @@ msgstr "Veri&ficar alterações"
 #. Resource IDs: (65535)
 msgid "Check for modifications"
 msgstr "Verificar alterações"
+
+#. Resource IDs: (65535)
+msgid "Check for updates"
+msgstr "Procurar actualizações"
 
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
@@ -3372,6 +3376,17 @@ msgid ""
 msgstr ""
 "Documentação: Simon Large\n"
 "Código: Tobias Schäfer, Stefan Fuhrmann"
+
+#. Resource IDs: (94)
+msgid ""
+"Don't make the checkout directory a sparse working copy.\n"
+"Instead, all URLs get checked out into a separate\n"
+"working copies next to each other.\n"
+"This works for directory URLs only."
+msgstr ""
+"Não faças do diretório de exportação uma cópia de trabalho escaço.\n"
+"Exporta todas os URLs para cópias de trabalho\n"
+"ao lado umas das outras.Isto só funciona para URLs de diretórios."
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4615,10 +4630,6 @@ msgstr ""
 "Se seleccionado, a caixa de diálogo de submissão será reiniciada automaticamente após um erro,\r\n"
 "preservando a sua última selecção e a sua mensagem de registo."
 
-#. Resource IDs: (194)
-msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "Se activo, o TortoiseSVN verifica semanalmente se existe uma nova versão disponível"
-
 #. Resource IDs: (195)
 msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
@@ -5182,9 +5193,9 @@ msgstr "Estado local"
 #. Resource IDs: (94)
 msgid ""
 "Location where the contents of the\n"
-"repository URL will be saved to."
+"repository URL(s) will be saved to."
 msgstr ""
-"Local onde o conteúdo do URL\n"
+"Local onde o conteúdo dos URL(s)\n"
 "do repositório será guardado."
 
 #. Resource IDs: (32854)
@@ -5666,6 +5677,10 @@ msgstr "Movendo %s"
 #. Resource IDs: (80)
 msgid "Moving..."
 msgstr "Movendo..."
+
+#. Resource IDs: (1204)
+msgid "Multiple, &independent working copies"
+msgstr "Múltiplas cópias de trabalho &independentes"
 
 #. Resource IDs: (65535)
 msgid "My file:"
@@ -9614,10 +9629,10 @@ msgstr "Visual Studio.NET 200&5"
 #. Resource IDs: (65535)
 msgid ""
 "WARNING:\r\n"
-"Only change these settings if you are abolutely sure what you are doing!\r\n"
+"Only change these settings if you are absolutely sure what you are doing!\r\n"
 "To set the values to their default, delete the value text."
 msgstr ""
-"AVISO: \r\n"
+"AVISO:\r\n"
 "Só modifiques estas definições se tiveres a certeza absoluta de que sabes o que estás a fazer!\r\n"
 "Para reverter as definições para os valores originais, apaga o texto do valor."
 
@@ -10766,6 +10781,14 @@ msgstr "sim"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Automatically check for &newer versions every week"
+#~ msgstr ""
+#~ "Verificar automaticamente, todas as semanas, se existem &novas versões"
+#~ msgid ""
+#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr ""
+#~ "Se activo, o TortoiseSVN verifica semanalmente se existe uma nova versão "
+#~ "disponível"
 #~ msgid "Edit conflict"
 #~ msgstr "Editar conflito"
 #~ msgid "From URL:"
