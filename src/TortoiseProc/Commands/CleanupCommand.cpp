@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,7 +35,7 @@ bool CleanupCommand::Execute()
 	progress.SetTitle(IDS_PROC_CLEANUP);
 	progress.SetAnimation(IDR_CLEANUPANI);
 	progress.SetShowProgressBar(false);
-	tmp.Format(IDS_PROC_CLEANUP_INFO1, _T(""));
+	tmp.FormatMessage(IDS_PROC_CLEANUP_INFO1, _T(""));
 	progress.SetLine(1, tmp);
 	progress.SetLine(2, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
 	progress.ShowModeless(hwndExplorer);
@@ -44,7 +44,7 @@ bool CleanupCommand::Execute()
 	for (int i=0; i<pathList.GetCount(); ++i)
 	{
 		SVN svn;
-		tmp.Format(IDS_PROC_CLEANUP_INFO1, (LPCTSTR)pathList[i].GetFileOrDirectoryName(), true);
+		tmp.FormatMessage(IDS_PROC_CLEANUP_INFO1, (LPCTSTR)pathList[i].GetFileOrDirectoryName(), true);
 		progress.SetLine(1, tmp);
 		if (!svn.CleanUp(pathList[i]))
 		{
