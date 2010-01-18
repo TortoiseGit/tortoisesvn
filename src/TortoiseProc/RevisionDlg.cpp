@@ -45,6 +45,7 @@ void CRevisionDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CRevisionDlg, CStandAloneDialog)
 	ON_EN_CHANGE(IDC_REVNUM, OnEnChangeRevnum)
 	ON_BN_CLICKED(IDC_LOG, &CRevisionDlg::OnBnClickedLog)
+	ON_BN_CLICKED(IDC_REVISION_N, &CRevisionDlg::OnBnClickedRevisionN)
 END_MESSAGE_MAP()
 
 BOOL CRevisionDlg::OnInitDialog()
@@ -137,4 +138,9 @@ void CRevisionDlg::OnBnClickedLog()
 	}	
 
 	CAppUtils::LaunchApplication(sCmd, NULL, false);
+}
+
+void CRevisionDlg::OnBnClickedRevisionN()
+{
+	GetDlgItem(IDC_REVNUM)->SetFocus();
 }

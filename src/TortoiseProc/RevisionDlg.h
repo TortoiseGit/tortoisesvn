@@ -48,6 +48,7 @@ protected:
 	virtual void OnOK();
 	afx_msg void OnEnChangeRevnum();
 	afx_msg void OnBnClickedLog();
+	afx_msg void OnBnClickedRevisionN();
 
 	DECLARE_MESSAGE_MAP()
 
