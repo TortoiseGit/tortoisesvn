@@ -406,7 +406,7 @@ bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, cons
 	}
 
 	PostCommitErr.Empty();
-	HandleCommitInfo(commit_info, pathlist, subPool);
+	HandleCommitInfo(commit_info, subPool);
 
 	for(int nPath = 0; nPath < pathlist.GetCount(); nPath++)
 	{
@@ -581,7 +581,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
 
 	svn_revnum_t finrev = -1;
 	PostCommitErr.Empty();
-	HandleCommitInfo(commit_info, pathlist, localpool);
+	HandleCommitInfo(commit_info, localpool);
 
 	return finrev;
 }
@@ -617,7 +617,7 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 	}
 
 	PostCommitErr.Empty();
-	HandleCommitInfo(commit_info, srcPathList, subpool);
+	HandleCommitInfo(commit_info, subpool);
 
 	return true;
 }
@@ -653,7 +653,7 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 	}
 
 	PostCommitErr.Empty();
-	HandleCommitInfo(commit_info, srcPathList, subpool);
+	HandleCommitInfo(commit_info, subpool);
 
 	return true;
 }
@@ -680,7 +680,7 @@ bool SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool ma
 	}
 
 	PostCommitErr.Empty();
-	HandleCommitInfo(commit_info, pathlist, pool);
+	HandleCommitInfo(commit_info, pool);
 
 	return true;
 }
@@ -986,7 +986,7 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
 	}
 
 	PostCommitErr.Empty();
-	HandleCommitInfo(commit_info, CTSVNPathList(path), subpool);
+	HandleCommitInfo(commit_info, subpool);
 
 	return true;
 }
@@ -2753,7 +2753,7 @@ apr_hash_t * SVN::MakeRevPropHash(const RevPropHash revProps, apr_pool_t * pool)
 	return revprop_table;
 }
 
-void SVN::HandleCommitInfo(svn_commit_info_t * commit_info, const CTSVNPathList& pathlist, apr_pool_t * localpool)
+void SVN::HandleCommitInfo(svn_commit_info_t * commit_info, apr_pool_t * localpool)
 {
 	if (commit_info)
 	{
