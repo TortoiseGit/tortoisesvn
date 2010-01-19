@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,15 +52,15 @@ CFullHistory::CFullHistory(void)
     , headRevision ((revision_t)NO_REVISION)
     , pegRevision ((revision_t)NO_REVISION)
     , firstRevision ((revision_t)NO_REVISION)
-    , wcRevision ((revision_t)NO_REVISION)
-    , wcModified (false)
     , copyInfoPool (sizeof (SCopyInfo), 1024)
     , copyToRelation (NULL)
     , copyToRelationEnd (NULL)
     , copyFromRelation (NULL)
     , copyFromRelationEnd (NULL)
     , cache (NULL)
-    , diskIOScheduler (1, 0, true)  // one thread for crawling the disk
+    , diskIOScheduler (2, 0, true)  // two threads for crawling the disk
+									// (they will both query info from the same place,
+									// i.e. read different portions of the same WC status)
     , cpuLoadScheduler (1, INT_MAX, true) // at least one thread for CPU intense ops
                                     // plus as much as we got left from the shared pool
 {
@@ -312,12 +312,21 @@ bool CFullHistory::FetchRevisionData ( CString path
 	    // later in the graph (handle option changes properly!).
         // For performance reasons, we only don't do it if we want to display it.
 
-        wcRevision = pegRev;
-        new CAsyncCall ( this
-                       , &CFullHistory::QueryWCRevision
-                       , showWCRev || showWCModification
-                       , path
-                       , &diskIOScheduler);
+		wcInfo = SWCInfo (pegRev);
+		if (showWCRev || showWCModification)
+		{
+			new CAsyncCall ( this
+						   , &CFullHistory::QueryWCRevision
+						   , true
+						   , path
+						   , &diskIOScheduler);
+
+			new CAsyncCall ( this
+						   , &CFullHistory::QueryWCRevision
+						   , false
+						   , path
+						   , &diskIOScheduler);
+		}
 
         // actually fetch the data
 
@@ -391,37 +400,43 @@ bool CFullHistory::FetchRevisionData ( CString path
 	return true;
 }
 
-void CFullHistory::QueryWCRevision (bool doQuery, CString path)
+void CFullHistory::QueryWCRevision (bool commitRevs, CString path)
 {
     // Find the revision the working copy is on, we mark that revision
     // later in the graph (handle option changes properly!).
-    // For performance reasons, we only don't do it if we want to display it.
 
-    if (doQuery)
+	svn_revnum_t maxrev = pegRevision;
+    svn_revnum_t minrev = 0;
+
+    bool switched, modified, sparse;
+    CTSVNPath tpath = CTSVNPath (path);
+    if (!tpath.IsUrl())
     {
-        svn_revnum_t maxrev = wcRevision;
-        svn_revnum_t minrev = 0;
-        bool switched, modified, sparse;
-	    CTSVNPath tpath = CTSVNPath (path);
-	    if (!tpath.IsUrl())
+	    if (SVN().GetWCRevisionStatus ( CTSVNPath (path)
+								      , commitRevs    // get the "commit" revision
+								      , minrev
+								      , maxrev
+								      , switched
+								      , modified
+								      , sparse))
 	    {
-		    if (svn.GetWCRevisionStatus ( CTSVNPath (path)
-									    , true    // get the "commit" revision
-									    , minrev
-									    , maxrev
-									    , switched
-									    , modified
-									    , sparse))
-		    {
-			    // we want to report the oldest revision as WC revision:
-			    // If you commit at $WC/path/ and after that ask for the 
-			    // rev graph at $WC/, we want to display the revision of
-			    // the base path ($WC/ is now "older") instead of the
-			    // newest one.
+		    // we want to report the oldest revision as WC revision:
+		    // If you commit at $WC/path/ and after that ask for the 
+		    // rev graph at $WC/, we want to display the revision of
+		    // the base path ($WC/ is now "older") instead of the
+		    // newest one.
 
-			    wcRevision = maxrev;
-			    wcModified = modified;
-		    }
+			if (commitRevs)
+			{
+				wcInfo.minCommit = minrev;
+				wcInfo.maxCommit = maxrev;
+				wcInfo.modified = modified;
+			}
+			else
+			{
+				wcInfo.minAtRev = minrev;
+				wcInfo.maxAtRev = maxrev;
+			}
 	    }
     }
 }

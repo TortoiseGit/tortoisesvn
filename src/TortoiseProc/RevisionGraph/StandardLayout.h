@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008,2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 #pragma once
 
 #include "IRevisionGraphLayout.h"
+#include "FullHistory.h"
 
 class CVisibleGraphNode;
 class CVisibleGraph;
@@ -132,6 +133,10 @@ private:
 
     const CCachedLogInfo* cache;
 
+    /// source of working copy info
+
+    CFullHistory::SWCInfo wcInfo;
+
     /// logical tree structure
 
     const CVisibleGraph* graph;
@@ -175,7 +180,9 @@ public:
 
     /// construction / destruction
 
-    CStandardLayout (const CCachedLogInfo* cache, const CVisibleGraph* graph);
+    CStandardLayout ( const CCachedLogInfo* cache
+					, const CVisibleGraph* graph
+					, const CFullHistory::SWCInfo& wcInfo);
     virtual ~CStandardLayout(void);
 
     /// call this after executing the format options

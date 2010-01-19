@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2009 - TortoiseSVN
+// Copyright (C) 2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -82,9 +82,34 @@ public:
  * out if they are related to the path we're looking at. If they are, we mark
  * them as \b in-use.
  */
+
 class CFullHistory : private ILogReceiver
 {
 public:
+
+	/**
+	 * \ingroup TortoiseProc
+	 * Contains all WC status relevant for the revision graph.
+	 */
+
+	struct SWCInfo
+	{
+		revision_t minAtRev;
+		revision_t maxAtRev;
+		revision_t minCommit;
+		revision_t maxCommit;
+
+		bool modified;
+
+		SWCInfo (revision_t rev = -1)
+			: minAtRev (rev)
+			, maxAtRev (rev)
+			, minCommit (rev)
+			, maxCommit (rev)
+			, modified (false)
+		{
+		}
+	};
 
     /// construction / destruction
 
@@ -115,8 +140,7 @@ public:
     revision_t                  GetStartRevision() const {return startRevision;}
 
     const CDictionaryBasedTempPath* GetWCPath() const {return wcPath.get();}
-    revision_t                  GetWCRevision() const {return wcRevision;}
-    bool                        GetWCModified() const {return wcModified;}
+    const SWCInfo&				GetWCInfo() const {return wcInfo;}
 
     SCopyInfo**                 GetFirstCopyFrom() const {return copyFromRelation;}
     SCopyInfo**                 GetFirstCopyTo() const {return copyToRelation;}
@@ -159,8 +183,7 @@ private:
     revision_t                  startRevision;
 
 	std::auto_ptr<CDictionaryBasedTempPath> wcPath;
-    revision_t                  wcRevision;
-    bool                        wcModified;
+    SWCInfo						wcInfo;
 
     boost::pool<>               copyInfoPool;
 	std::vector<SCopyInfo*>		copiesContainer;

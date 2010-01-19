@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -390,8 +390,10 @@ void CStandardLayout::CalculateBoundingRect()
 // construction / destruction
 
 CStandardLayout::CStandardLayout ( const CCachedLogInfo* cache
-                                 , const CVisibleGraph* graph)
+								 , const CVisibleGraph* graph
+								 , const CFullHistory::SWCInfo& wcInfo)
     : cache (cache)
+	, wcInfo (wcInfo)
     , graph (graph)
 {
     InitializeNodes();
@@ -427,7 +429,7 @@ const ILayoutRectList* CStandardLayout::GetTrees() const
 
 const ILayoutNodeList* CStandardLayout::GetNodes() const
 {
-    return new CStandardLayoutNodeList (nodes, cache);
+    return new CStandardLayoutNodeList (nodes, cache, wcInfo);
 }
 
 const ILayoutConnectionList* CStandardLayout::GetConnections() const

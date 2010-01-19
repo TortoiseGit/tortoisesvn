@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -312,6 +312,25 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
                    : contour;
 
     Pen pen (penColor, isWorkingCopy ? 3.0f : 1.0f);
+	if (isWorkingCopy)
+	{
+	    CSyncPointer<const CFullHistory> history (m_state.GetFullHistory());
+		const CFullHistory::SWCInfo& wcInfo = history->GetWCInfo();
+		revision_t revision = node->GetRevision();
+
+		bool isCommitRev =    (wcInfo.minCommit == revision)
+						   || (wcInfo.maxCommit == revision);
+		bool isMinAtRev =    (wcInfo.minAtRev == revision)
+						  && (wcInfo.minAtRev != wcInfo.maxAtRev);
+
+		DashStyle style = isCommitRev ? isMinAtRev ? DashStyleDashDot
+												   : DashStyleDot
+									  : isMinAtRev ? DashStyleDot
+												   : DashStyleSolid;
+
+		pen.SetDashStyle (style);
+	}
+
     SolidBrush brush (brightColor);
     DrawShape (graphics, &pen, &brush, rect, shape);
 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -996,17 +996,16 @@ void CRevisionGraphWnd::AddSVNOps (CMenu& popup)
             else
         		AppendMenu (popup, IDS_LOG_POPUP_MERGEREV, ID_MERGETO);
 
-        if (!m_SelectedEntry1->GetClassification().Is (CNodeClassification::IS_WORKINGCOPY))
-            if (!CTSVNPath (m_sPath).IsUrl())
-                if (GetWCURL() == GetSelectedURL())
-                {
-        		    AppendMenu (popup, IDS_REVGRAPH_POPUP_UPDATE, ID_UPDATE);
-                }
-                else
-                {
-                    AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCHTOHEAD, ID_SWITCHTOHEAD);
-                    AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCH, ID_SWITCH);
-                }
+        if (!CTSVNPath (m_sPath).IsUrl())
+            if (GetWCURL() == GetSelectedURL())
+            {
+    		    AppendMenu (popup, IDS_REVGRAPH_POPUP_UPDATE, ID_UPDATE);
+            }
+            else
+            {
+                AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCHTOHEAD, ID_SWITCHTOHEAD);
+                AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCH, ID_SWITCH);
+            }
 
 	}
 

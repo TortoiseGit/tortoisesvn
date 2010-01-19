@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -55,9 +55,11 @@ DWORD CStandardLayoutNodeList::GetStyleFlags
 
 CStandardLayoutNodeList::CStandardLayoutNodeList 
     ( const std::vector<CStandardLayoutNodeInfo>& nodes
-    , const CCachedLogInfo* cache)
+    , const CCachedLogInfo* cache
+	, const CFullHistory::SWCInfo& wcInfo)
     : cache (cache)
     , nodes (nodes)
+	, wcInfo (wcInfo)
 {
 }
 
@@ -66,6 +68,18 @@ CStandardLayoutNodeList::CStandardLayoutNodeList
 index_t CStandardLayoutNodeList::GetCount() const
 {
     return static_cast<index_t>(nodes.size());
+}
+
+namespace
+{
+	void AddString (CString& target, int id)
+	{
+		CString toAdd;
+		toAdd.Format (id);
+		target = target.IsEmpty()
+			   ? toAdd
+			   : target + _T(", ") + toAdd;
+	}
 }
 
 CString CStandardLayoutNodeList::GetToolTip (index_t index) const
@@ -140,8 +154,48 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
         revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_HEAD);
     else if (classification.Is (CNodeClassification::IS_MODIFIED))
         revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_MODIFIED);
-	else
+	else if (classification.Is (CNodeClassification::IS_COPY_SOURCE))
         revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_COPYSOURCE);
+	else
+        revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_WORKINGCOPY);
+
+	// working copy info
+
+	CString workingCopyLine;
+	if (classification.Is (CNodeClassification::IS_WORKINGCOPY))
+	{
+		CString status;
+
+		// "w/c at rev"
+
+		if (node->GetRevision() == wcInfo.maxAtRev)
+		{
+			AddString (status, node->GetRevision() == wcInfo.minAtRev
+							 ? IDS_REVGRAPH_NODEWC_AT
+							 : IDS_REVGRAPH_NODEWC_MAX_AT);
+		}
+		else if (node->GetRevision() == wcInfo.minAtRev)
+		{
+			AddString (status, IDS_REVGRAPH_NODEWC_MIN_AT);
+		}
+
+		// "last commit rev"
+
+		if (node->GetRevision() == wcInfo.maxCommit)
+		{
+			AddString (status, node->GetRevision() == wcInfo.minCommit
+							 ? IDS_REVGRAPH_NODEWC_COMMITTED
+							 : IDS_REVGRAPH_NODEWC_MAX_COMMITTED);
+		}
+		else if (node->GetRevision() == wcInfo.minCommit)
+		{
+			AddString (status, IDS_REVGRAPH_NODEWC_MIN_COMMITTED);
+		}
+
+		// complete line
+
+		workingCopyLine.Format (IDS_REVGRAPH_NODEWC_LINE, (LPCTSTR)status);
+	}
 
     // copy-from info, if available
 
@@ -161,11 +215,12 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
 
     // construct the tooltip
 
+	CString additionalInfo = workingCopyLine + copyFromLine;
     if (node->GetFirstTag() == NULL)
     {
 	    strTipText.FormatMessage ( IDS_REVGRAPH_BOXTOOLTIP
 								  , revision, (LPCTSTR)revisionDescription
-								  , (LPCTSTR)path, (LPCTSTR)copyFromLine
+								  , (LPCTSTR)path, (LPCTSTR)additionalInfo
 								  , (LPCTSTR)author, date, (LPCTSTR)comment);
     }
     else
@@ -218,7 +273,7 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
 
 	    strTipText.FormatMessage ( IDS_REVGRAPH_BOXTOOLTIP_TAGGED
 								  , revision, (LPCTSTR)revisionDescription
-								  , (LPCTSTR)path, (LPCTSTR)copyFromLine
+								  , (LPCTSTR)path, (LPCTSTR)additionalInfo
 								  , (LPCTSTR)author, date, tagCount, (LPCTSTR)tags
 								  , (LPCTSTR)comment);
     }

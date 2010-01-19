@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,6 +23,7 @@
 #include "CachedLogInfo.h"
 #include "Registry.h"
 #include "UnicodeUtils.h"
+#include "./Access/CopyFollowingLogIterator.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -61,6 +62,10 @@ void CFullGraphFinalizer::Run()
     if (graph.GetRoot() == NULL)
         return;
 
+	// init internal structures
+
+	InitWCRevs();
+
 	// say "renamed" for "Deleted"/"Added" entries
 
     FindRenames (graph.GetRoot());
@@ -73,6 +78,70 @@ void CFullGraphFinalizer::Run()
     // propagate classifation back along copy history
 
     BackwardClassification (graph.GetRoot());
+}
+
+void CFullGraphFinalizer::InitWCRevs()
+{
+	// collect revisions to show
+
+	std::vector<revision_t> revisions;
+
+	revisions.push_back (history.GetWCInfo().minCommit);
+	revisions.push_back (history.GetWCInfo().maxCommit);
+	revisions.push_back (history.GetWCInfo().minAtRev);
+	revisions.push_back (history.GetWCInfo().maxAtRev);
+
+	std::sort (revisions.begin(), revisions.end());
+	revisions.erase ( std::unique_copy ( revisions.begin()
+									   , revisions.end()
+									   , revisions.begin())
+				    , revisions.end());
+
+	// assign paths
+
+	CDictionaryBasedTempPath path = *history.GetWCPath();
+	revision_t pathRevision = history.GetPegRevision();
+
+	while (!revisions.empty() && (revisions.back() >= pathRevision))
+	{
+		wcRevs.insert ( wcRevs.begin()
+					  , std::make_pair (revisions.back(), path.GetBasePath()));
+		revisions.pop_back();
+	}
+
+	while (!revisions.empty())
+	{
+		revision_t revision = revisions.back();
+		revisions.pop_back();
+
+		// efficiently follow path changes only
+
+		const CCachedLogInfo* cache = history.GetCache();
+		const CRevisionIndex& revisionIndices = cache->GetRevisions();
+		const CRevisionInfoContainer& info = cache->GetLogInfo();
+
+		while (revision < pathRevision)
+		{
+			index_t index = revisionIndices[pathRevision];
+			if (   (index != NO_INDEX)
+				&& (info.GetSumChanges (index) & CRevisionInfoContainer::HAS_COPY_FROM)
+				&& (info.GetRootPath (index).IsSameOrParentOf (path.GetBasePath())))
+			{
+			    CCopyFollowingLogIterator iterator (cache, pathRevision, path);
+				iterator.Advance();
+
+				pathRevision = iterator.GetRevision();
+				path = iterator.GetPath();
+			}
+			else
+			{
+				--pathRevision;
+			}
+		}
+
+		wcRevs.insert ( wcRevs.begin()
+					  , std::make_pair (revision, path.GetBasePath()));
+	}
 }
 
 void CFullGraphFinalizer::FindRenames (CFullGraphNode* node)
@@ -162,36 +231,50 @@ void CFullGraphFinalizer::MarkCopySource (CFullGraphNode* node)
         node->AddClassification (CNodeClassification::IS_COPY_SOURCE);
 }
 
-void CFullGraphFinalizer::MarkWCRevision (CFullGraphNode* node)
+void CFullGraphFinalizer::MarkWCRevisions (CFullGraphNode* node)
 {
+	if (wcRevs.empty())
+		return;
+
     // if this the same revision and path as the WC?
 
-    if (   (node->GetRevision() == history.GetWCRevision())
-        && (node->GetPath().GetBasePath().Intersects 
-                (history.GetWCPath()->GetBasePath())))
+	if (   (node->GetRevision() == wcRevs.front().first)
+        && (node->GetPath().GetBasePath().Intersects (wcRevs.front().second)))
     {
         node->AddClassification (CNodeClassification::IS_WORKINGCOPY);
+		wcRevs.erase (wcRevs.begin());
     }
-	else
+
+	// maybe, we need to insert more nodes
+
+	while (!wcRevs.empty())
 	{
+		revision_t wcRev = wcRevs.front().first;
+		const CDictionaryBasedPath& path = wcRevs.front().second;
+
 		// maybe, we have to insert the WC node first?
 		// (the sub-tree may not have been modified in that revision)
 
 		if (// between this ...
-			   (node->GetRevision() < history.GetWCRevision())
+			   (node->GetRevision() < wcRev)
 			// ... and the next node, if there is one
 			&& (   (node->GetNext() == NULL) 
-				|| (node->GetNext()->GetRevision() > history.GetWCRevision()))
+				|| (node->GetNext()->GetRevision() > wcRev))
 			// on the right path
-			&& (node->GetPath().GetBasePath().Intersects 
-					(history.GetWCPath()->GetBasePath())))
+			&& (node->GetPath().GetBasePath().Intersects (path)))
 		{
 			// WC rev lies behind this node and before the next one 
 
             graph.Add ( node->GetPath()
-					  , history.GetWCRevision()
+					  , wcRev
 					  , CNodeClassification::IS_WORKINGCOPY
 					  , node);
+
+			wcRevs.erase (wcRevs.begin());
+		}
+		else
+		{
+			return;
 		}
 	}
 }
@@ -219,13 +302,16 @@ void CFullGraphFinalizer::MarkHead (CFullGraphNode* node)
 
 void CFullGraphFinalizer::AddWCModification (CFullGraphNode* node)
 {
+    if (!history.GetWCInfo().modified)
+		return;
+
     // is this the BASE node for our WC?
 
     if (node->GetClassification().Matches 
             ( CNodeClassification::IS_WORKINGCOPY
             , CNodeClassification::IS_MODIFIED_WC))
     {
-        if (history.GetWCModified())
+		if (node->GetRevision() == history.GetWCInfo().maxAtRev)
         {
             // add the modification node
 
@@ -250,7 +336,7 @@ void CFullGraphFinalizer::ForwardClassification (CFullGraphNode* node)
 
         MarkRoot (node);
         MarkCopySource (node);
-        MarkWCRevision (node);
+        MarkWCRevisions (node);
         MarkHead (node);
         AddWCModification (node);
 

@@ -257,7 +257,8 @@ bool CRevisionGraphWnd::AnalyzeRevisionData()
 
         std::auto_ptr<CStandardLayout> newLayout 
             ( new CStandardLayout ( m_state.GetFullHistory()->GetCache()
-                                  , visibleGraph.get()));
+                                  , visibleGraph.get()
+								  , m_state.GetFullHistory()->GetWCInfo()));
         options->GetLayoutOptions().Apply (newLayout.get());
         newLayout->Finalize();
 
