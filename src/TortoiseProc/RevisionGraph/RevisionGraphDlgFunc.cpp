@@ -158,17 +158,15 @@ CRect CRevisionGraphWnd::GetViewRect()
 
 int CRevisionGraphWnd::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
 {
-	UINT  num = 0;          // number of image encoders
-	UINT  size = 0;         // size of the image encoder array in bytes
-
-	ImageCodecInfo* pImageCodecInfo = NULL;
+	UINT num = 0;          // number of image encoders
+	UINT size = 0;         // size of the image encoder array in bytes
 
 	if (GetImageEncodersSize(&num, &size)!=Ok)
 		return -1;
 	if(size == 0)
 		return -1;  // Failure
 
-	pImageCodecInfo = (ImageCodecInfo*)(malloc(size));
+	ImageCodecInfo* pImageCodecInfo = (ImageCodecInfo*)(malloc(size));
 	if(pImageCodecInfo == NULL)
 		return -1;  // Failure
 
@@ -420,4 +418,3 @@ void CRevisionGraphWnd::DoZoom (float fZoomFactor, bool updateScrollbars)
 
     Invalidate (FALSE);
 }
-

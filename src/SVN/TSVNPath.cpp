@@ -320,13 +320,7 @@ bool CTSVNPath::Delete(bool bTrash) const
 			_tcscpy_s(buf, m_sBackslashPath.GetLength()+2, m_sBackslashPath);
 			buf[m_sBackslashPath.GetLength()] = 0;
 			buf[m_sBackslashPath.GetLength()+1] = 0;
-			SHFILEOPSTRUCT shop = {0};
-			shop.wFunc = FO_DELETE;
-			shop.pFrom = buf;
-			shop.fFlags = FOF_NOCONFIRMATION|FOF_NOERRORUI|FOF_SILENT|FOF_NO_CONNECTED_ELEMENTS;
-			if (bTrash)
-				shop.fFlags |= FOF_ALLOWUNDO;
-			bRet = (SHFileOperation(&shop) == 0);
+			bRet = CTSVNPathList::DeleteViaShell(buf, bTrash);
 		}
 		else
 		{
@@ -1122,13 +1116,7 @@ void CTSVNPathList::DeleteAllPaths(bool bTrash, bool bFilesOnly)
 	}
 	sPaths += '\0';
 	sPaths += '\0';
-	SHFILEOPSTRUCT shop = {0};
-	shop.wFunc = FO_DELETE;
-	shop.pFrom = (LPCTSTR)sPaths;
-	shop.fFlags = (bTrash ? FOF_ALLOWUNDO : 0)
-				| FOF_NOCONFIRMATION|FOF_NOERRORUI|FOF_SILENT|FOF_NO_CONNECTED_ELEMENTS;
-	SHFileOperation(&shop);
-
+	DeleteViaShell((LPCTSTR)sPaths, bTrash); 
 	Clear();
 }
 
@@ -1199,6 +1187,18 @@ apr_array_header_t * CTSVNPathList::MakePathArray (apr_pool_t *pool) const
 	}
 
 	return targets;
+}
+
+bool CTSVNPathList::DeleteViaShell(LPCTSTR path, bool bTrash)
+{
+	SHFILEOPSTRUCT shop = {0};
+	shop.wFunc = FO_DELETE;
+	shop.pFrom = path;
+	shop.fFlags = FOF_NOCONFIRMATION|FOF_NOERRORUI|FOF_SILENT|FOF_NO_CONNECTED_ELEMENTS;
+	if (bTrash)
+		shop.fFlags |= FOF_ALLOWUNDO;
+	const bool bRet = (SHFileOperation(&shop) == 0);
+	return bRet;
 }
 
 //////////////////////////////////////////////////////////////////////////

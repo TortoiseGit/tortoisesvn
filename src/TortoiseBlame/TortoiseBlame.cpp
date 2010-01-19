@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1232,13 +1232,8 @@ void TortoiseBlame::MakeLower(TCHAR* buffer, size_t len)
 
 void TortoiseBlame::RunCommand(const tstring& command)
 {
-	PROCESS_INFORMATION process;
 	tstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
-	if(!CCreateProcessHelper::CreateProcess(tortoiseProcPath.c_str(), const_cast<TCHAR*>(command.c_str()), &process))
-		return;
-
-	CloseHandle(process.hThread);
-	CloseHandle(process.hProcess);
+	CCreateProcessHelper::CreateProcessDetached(tortoiseProcPath.c_str(), const_cast<TCHAR*>(command.c_str()));
 }
 
 // Forward declarations of functions included in this code module:

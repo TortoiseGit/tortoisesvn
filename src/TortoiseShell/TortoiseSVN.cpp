@@ -128,7 +128,9 @@ STDAPI DllCanUnloadNow(void)
 
 STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
 {
-    *ppvOut = NULL;
+	if (ppvOut == 0 )
+		return E_POINTER;
+	*ppvOut = NULL;
 	
     FileState state = FileStateInvalid;
     if (IsEqualIID(rclsid, CLSID_TortoiseSVN_UPTODATE))
@@ -161,18 +163,11 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
 		g_SVNAdminDir.Init();
 		g_cAprInit++;
 		
-		CShellExtClassFactory *pcf = new (std::nothrow) CShellExtClassFactory(state);
+		ATL::CComPtr<CShellExtClassFactory> pcf = new (std::nothrow) CShellExtClassFactory(state);
 		if (pcf == NULL)
 			return E_OUTOFMEMORY;
-		// refcount currently set to 0
-		const HRESULT hr = pcf->QueryInterface(riid, ppvOut);
-		if(FAILED(hr))
-			delete pcf;
-		return hr;
+		return pcf->QueryInterface(riid, ppvOut);
     }
 	
     return CLASS_E_CLASSNOTAVAILABLE;
-
 }
-
-

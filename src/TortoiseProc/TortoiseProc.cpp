@@ -446,8 +446,6 @@ BOOL CTortoiseProcApp::InitInstance()
 	return FALSE;
 }
 
-
-
 void CTortoiseProcApp::CheckUpgrade()
 {
 	CRegString regVersion = CRegString(_T("Software\\TortoiseSVN\\CurrentVersion"));
@@ -548,61 +546,59 @@ void CTortoiseProcApp::InitializeJumpList()
 {
 	// for Win7 : use a custom jump list
 	CoInitialize(NULL);
-
 	SetAppID(APPID);
 	DeleteJumpList(APPID);
-	ICustomDestinationList *pcdl;
-	HRESULT hr = CoCreateInstance(CLSID_DestinationList, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&pcdl));
+	DoInitializeJumpList();	
+	CoUninitialize();
+}
+
+void CTortoiseProcApp::DoInitializeJumpList()
+{
+	ATL::CComPtr<ICustomDestinationList> pcdl;
+	HRESULT hr = pcdl.CoCreateInstance(CLSID_DestinationList, NULL, CLSCTX_INPROC_SERVER);
+	if (FAILED(hr))
+		return;
+
+	hr = pcdl->SetAppID(APPID);
+	if (FAILED(hr))
+		return;
+
+	UINT uMaxSlots;
+	ATL::CComPtr<IObjectArray> poaRemoved;
+	hr = pcdl->BeginList(&uMaxSlots, IID_PPV_ARGS(&poaRemoved));
+	if (FAILED(hr))
+		return;
+
+	ATL::CComPtr<IObjectCollection> poc;
+	hr = poc.CoCreateInstance(CLSID_EnumerableObjectCollection, NULL, CLSCTX_INPROC_SERVER);
+	if (FAILED(hr))
+		return;
+
+	CString sTemp = CString(MAKEINTRESOURCE(IDS_MENUSETTINGS));
+	CStringUtils::RemoveAccelerators(sTemp);
+
+	ATL::CComPtr<IShellLink> psl;
+	hr = CreateShellLink(_T("/command:settings"), (LPCTSTR)sTemp, 19, &psl);
 	if (SUCCEEDED(hr))
 	{
-		hr = pcdl->SetAppID(APPID);
-		if (SUCCEEDED(hr))
-		{
-			UINT uMaxSlots;
-			IObjectArray *poaRemoved;
-			hr = pcdl->BeginList(&uMaxSlots, IID_PPV_ARGS(&poaRemoved));
-			if (SUCCEEDED(hr))
-			{
-				IObjectCollection *poc;
-				hr = CoCreateInstance(CLSID_EnumerableObjectCollection, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&poc));
-				if (SUCCEEDED(hr))
-				{
-					IShellLink *psl;
-					CString sTemp = CString(MAKEINTRESOURCE(IDS_MENUSETTINGS));
-					CStringUtils::RemoveAccelerators(sTemp);
-					hr = CreateShellLink(_T("/command:settings"), (LPCTSTR)sTemp, 19, &psl);
-					if (SUCCEEDED(hr))
-					{
-						poc->AddObject(psl);
-						psl->Release();
-					}
-					sTemp = CString(MAKEINTRESOURCE(IDS_MENUHELP));
-					CStringUtils::RemoveAccelerators(sTemp);
-					hr = CreateShellLink(_T("/command:help"), (LPCTSTR)sTemp, 18, &psl);
-					if (SUCCEEDED(hr))
-					{
-						poc->AddObject(psl);
-						psl->Release();
-					}
-
-					IObjectArray *poa;
-					hr = poc->QueryInterface(IID_PPV_ARGS(&poa));
-					if (SUCCEEDED(hr))
-					{
-						pcdl->AppendCategory((LPCTSTR)CString(MAKEINTRESOURCE(IDS_PROC_TASKS)), poa);
-						poa->Release();
-					}
-					poc->Release();
-				}				
-				if (SUCCEEDED(hr))
-				{
-					pcdl->CommitList();
-				}
-				poaRemoved->Release();
-			}
-		}
+		poc->AddObject(psl);
 	}
-	CoUninitialize();
+	sTemp = CString(MAKEINTRESOURCE(IDS_MENUHELP));
+	CStringUtils::RemoveAccelerators(sTemp);
+	psl.Release(); // Need to release the object before calling operator&()
+	hr = CreateShellLink(_T("/command:help"), (LPCTSTR)sTemp, 18, &psl);
+	if (SUCCEEDED(hr))
+	{
+		poc->AddObject(psl);
+	}
+
+	ATL::CComPtr<IObjectArray> poa;
+	hr = poc.QueryInterface(&poa);
+	if (SUCCEEDED(hr))
+	{
+		pcdl->AppendCategory((LPCTSTR)CString(MAKEINTRESOURCE(IDS_PROC_TASKS)), poa);
+		pcdl->CommitList();
+	}
 }
 
 int CTortoiseProcApp::ExitInstance()

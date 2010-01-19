@@ -37,6 +37,7 @@
 #include "Register.h"
 #include "UnicodeUtils.h"
 #include "auto_buffer.h"
+#include <atlbase.h>
 
 STDAPI DllRegisterServer();
 STDAPI DllUnregisterServer();
@@ -563,19 +564,14 @@ HRESULT __stdcall CFactory::CreateInstance(IUnknown* pUnknownOuter,
 	}
 
 	// Create component.
-	SubWCRev* pA = new (std::nothrow) SubWCRev();
+	ATL::CComPtr<SubWCRev> pA;
+	pA.Attach(new (std::nothrow) SubWCRev());// refcount set to 1 in constructor
 	if (pA == NULL)
 	{
 		return E_OUTOFMEMORY ;
 	}
 
-	// Get the requested interface.
-	HRESULT hr = pA->QueryInterface(iid, ppv) ;
-
-	// Release the IUnknown pointer.
-	// (If QueryInterface failed, component will delete itself.)
-	pA->Release() ;
-	return hr ;
+	return pA->QueryInterface(iid, ppv);
 }
 
 // LockServer
@@ -626,18 +622,14 @@ STDAPI DllGetClassObject(const CLSID& clsid,
 	}
 
 	// Create class factory.
-	CFactory* pFactory = new (std::nothrow) CFactory ;  // Reference count set to 1
+	ATL::CComPtr<CFactory> pFactory;
+	pFactory.Attach(new (std::nothrow) CFactory);  // Reference count set to 1
 	// in constructor
 	if (pFactory == NULL)
 	{
 		return E_OUTOFMEMORY ;
 	}
-
-	// Get requested interface.
-	HRESULT hr = pFactory->QueryInterface(iid, ppv) ;
-	pFactory->Release() ;
-
-	return hr ;
+	return pFactory->QueryInterface(iid, ppv) ;
 }
 
 CFactory gClassFactory;

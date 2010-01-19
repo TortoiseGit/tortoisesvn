@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -90,11 +90,11 @@ HRESULT STDMETHODCALLTYPE ListViewAccServer::GetPropValue(
 
 ListViewAccServer * ListViewAccServer::CreateProvider(HWND hControl, ListViewAccProvider * provider)
 {
-	IAccPropServices * pAccPropSvc = NULL;
-	HRESULT hr = CoCreateInstance(CLSID_AccPropServices, NULL, CLSCTX_SERVER, IID_IAccPropServices, (void **)&pAccPropSvc);
+	ATL::CComPtr<IAccPropServices> pAccPropSvc;
+	HRESULT hr = pAccPropSvc.CoCreateInstance(CLSID_AccPropServices, NULL, CLSCTX_SERVER);
 	if (hr == S_OK && pAccPropSvc)
 	{
-		ListViewAccServer * pLVServer = new ListViewAccServer(pAccPropSvc);
+		ListViewAccServer * pLVServer = new (std::nothrow) ListViewAccServer(pAccPropSvc);
 		if (pLVServer)
 		{
 			pLVServer->m_pAccProvider = provider;
@@ -103,8 +103,6 @@ ListViewAccServer * ListViewAccServer::CreateProvider(HWND hControl, ListViewAcc
 			pAccPropSvc->SetHwndPropServer(hControl, (DWORD)OBJID_CLIENT, CHILDID_SELF, &propid, 1, pLVServer, ANNO_CONTAINER);
 			pLVServer->Release();
 		}
-		pAccPropSvc->Release();
-
 		return pLVServer;
 	}
 	return NULL;

@@ -2185,12 +2185,10 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
 void CShellExt::RunCommand(const tstring& path, const tstring& command,
 	const tstring& folder, LPCTSTR errorMessage)
 {
-	PROCESS_INFORMATION process;
-	if (CCreateProcessHelper::CreateProcess(path.c_str(), const_cast<TCHAR*>(command.c_str()), folder.c_str(), &process))
+	if (CCreateProcessHelper::CreateProcessDetached(path.c_str(),
+		const_cast<TCHAR*>(command.c_str()), folder.c_str()))
 	{
-		// process started - close handles and exit
-		CloseHandle(process.hThread);
-		CloseHandle(process.hProcess);
+		// process started - exit
 		return;
 	}
 

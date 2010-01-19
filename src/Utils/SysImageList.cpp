@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2009 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "SysImageList.h"
 #include "TSVNPath.h"
-
 
 // Singleton constructor and destructor (private)
 
@@ -44,7 +43,6 @@ CSysImageList::~CSysImageList()
 	Detach();
 }
 
-
 // Singleton specific operations
 
 CSysImageList& CSysImageList::GetInstance()
@@ -60,7 +58,6 @@ void CSysImageList::Cleanup()
 	instance = 0;
 }
 
-
 // Operations
 
 int CSysImageList::AddIcon(const HICON hIcon)
@@ -70,58 +67,22 @@ int CSysImageList::AddIcon(const HICON hIcon)
 
 int CSysImageList::GetDirIconIndex() const
 {
-	SHFILEINFO sfi;
-	SecureZeroMemory(&sfi, sizeof sfi);
-
-	SHGetFileInfo(
-		_T("Doesn't matter"),
-		FILE_ATTRIBUTE_DIRECTORY,
-		&sfi, sizeof sfi,
-		SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
-
-	return sfi.iIcon;
+	return GetFileIcon(_T("Doesn't matter"), FILE_ATTRIBUTE_DIRECTORY, 0);
 }
 
 int CSysImageList::GetDirOpenIconIndex() const
 {
-	SHFILEINFO sfi;
-	SecureZeroMemory(&sfi, sizeof sfi);
-
-	SHGetFileInfo(
-		_T("Doesn't matter"),
-		FILE_ATTRIBUTE_DIRECTORY,
-		&sfi, sizeof sfi,
-		SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES | SHGFI_OPENICON);
-
-	return sfi.iIcon;
+	return GetFileIcon(_T("Doesn't matter"), FILE_ATTRIBUTE_DIRECTORY, SHGFI_OPENICON);
 }
 
 int CSysImageList::GetDefaultIconIndex() const
 {
-	SHFILEINFO sfi;
-	SecureZeroMemory(&sfi, sizeof sfi);
-
-	SHGetFileInfo(
-		_T(""),
-		FILE_ATTRIBUTE_NORMAL,
-		&sfi, sizeof sfi,
-		SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
-
-	return sfi.iIcon;
+	return GetFileIcon(_T(""), FILE_ATTRIBUTE_NORMAL, 0);
 }
 
 int CSysImageList::GetFileIconIndex(const CString& file) const
 {
-	SHFILEINFO sfi;
-	SecureZeroMemory(&sfi, sizeof sfi);
-
-	SHGetFileInfo(
-		file,
-		FILE_ATTRIBUTE_NORMAL,
-		&sfi, sizeof sfi,
-		SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
-
-	return sfi.iIcon;
+	return GetFileIcon(file, FILE_ATTRIBUTE_NORMAL, 0);
 }
 
 int CSysImageList::GetPathIconIndex(const CTSVNPath& filePath) const
@@ -137,4 +98,18 @@ int CSysImageList::GetPathIconIndex(const CTSVNPath& filePath) const
 	}
 	// We must have found it
 	return it->second;
+}
+
+int CSysImageList::GetFileIcon( LPCTSTR file, DWORD attributes, UINT extraFlags ) const
+{
+	SHFILEINFO sfi;
+	SecureZeroMemory(&sfi, sizeof sfi);
+
+	SHGetFileInfo(
+		file,
+		attributes,
+		&sfi, sizeof sfi,
+		SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES | extraFlags);
+
+	return sfi.iIcon;
 }

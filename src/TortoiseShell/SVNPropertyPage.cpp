@@ -425,11 +425,6 @@ void CSVNPropertyPage::InitWorkfileView()
 
 void CSVNPropertyPage::RunCommand(const tstring& command)
 {
-	PROCESS_INFORMATION process;
 	tstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
-	if (!CCreateProcessHelper::CreateProcess(tortoiseProcPath.c_str(), const_cast<TCHAR*>(command.c_str()), &process))
-		return;
-
-	CloseHandle(process.hThread);
-	CloseHandle(process.hProcess);
+	CCreateProcessHelper::CreateProcessDetached(tortoiseProcPath.c_str(), const_cast<TCHAR*>(command.c_str()));
 }

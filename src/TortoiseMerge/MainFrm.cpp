@@ -2021,13 +2021,8 @@ void CMainFrame::OnViewLocatorbar()
 
 bool CMainFrame::RunCommand(TCHAR* command)
 {
-	PROCESS_INFORMATION process;
-	if(CCreateProcessHelper::CreateProcess (NULL, command, &process))
-	{
-		CloseHandle(process.hThread);
-		CloseHandle(process.hProcess);
+	if(CCreateProcessHelper::CreateProcessDetached (NULL, command))
 		return true;
-	}
 
 	CFormatMessageWrapper errorDetails;
     MessageBox(errorDetails, _T("TortoiseMerge"), MB_OK | MB_ICONINFORMATION);

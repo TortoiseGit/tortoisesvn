@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -239,14 +239,7 @@ void CSetSavedDataPage::OnBnClickedAuthhistclear()
 	{
 		_tcscat_s(pathbuf, MAX_PATH, _T("\\Subversion\\auth"));
 		pathbuf[_tcslen(pathbuf)+1] = 0;
-		SHFILEOPSTRUCT fileop;
-		fileop.hwnd = this->m_hWnd;
-		fileop.wFunc = FO_DELETE;
-		fileop.pFrom = pathbuf;
-		fileop.pTo = NULL;
-		fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | FOF_NOCONFIRMATION;// | FOF_NOERRORUI | FOF_SILENT;
-		fileop.lpszProgressTitle = _T("deleting file");
-		SHFileOperation(&fileop);
+		DeleteViaShell(pathbuf, _T("deleting file"));
 	}
 	DialogEnableWindow(&m_btnAuthHistClear, false);
 	m_tooltips.DelTool(GetDlgItem(IDC_AUTHHISTCLEAR));
@@ -260,14 +253,7 @@ void CSetSavedDataPage::OnBnClickedRepologclear()
 	_tcscpy_s(pathbuf, MAX_PATH, (LPCTSTR)path);
 	pathbuf[_tcslen(pathbuf)+1] = 0;
 
-	SHFILEOPSTRUCT fileop = {0};
-	fileop.hwnd = this->m_hWnd;
-	fileop.wFunc = FO_DELETE;
-	fileop.pFrom = pathbuf;
-	fileop.pTo = NULL;
-	fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | FOF_NOCONFIRMATION;
-	fileop.lpszProgressTitle = _T("deleting cached data");
-	SHFileOperation(&fileop);
+	DeleteViaShell(pathbuf, _T("deleting cached data"));
 
 	DialogEnableWindow(&m_btnRepoLogClear, false);
 	m_tooltips.DelTool(GetDlgItem(IDC_REPOLOG));
@@ -299,3 +285,14 @@ BOOL CSetSavedDataPage::OnApply()
     return ISettingsPropPage::OnApply();
 }
 
+void CSetSavedDataPage::DeleteViaShell(LPCTSTR path, LPCTSTR progressText)
+{
+	SHFILEOPSTRUCT fileop;
+	fileop.hwnd = m_hWnd;
+	fileop.wFunc = FO_DELETE;
+	fileop.pFrom = path;
+	fileop.pTo = NULL;
+	fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | FOF_NOCONFIRMATION;
+	fileop.lpszProgressTitle = progressText;
+	SHFileOperation(&fileop);
+}

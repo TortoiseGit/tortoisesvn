@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,109 +40,102 @@ HRESULT SetAppID(LPCTSTR appID)
 
 HRESULT CreateShellLink(PCWSTR pszArguments, PCWSTR pszTitle, int iconIndex, IShellLink **ppsl)
 {
-    IShellLink *psl;
-    HRESULT hr = CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&psl));
-    if (SUCCEEDED(hr))
-    {
-        WCHAR szAppPath[MAX_PATH];
-        if (GetModuleFileName(NULL, szAppPath, ARRAYSIZE(szAppPath)))
-        {
-            hr = psl->SetPath(szAppPath);
-            if (SUCCEEDED(hr))
-            {
-                hr = psl->SetArguments(pszArguments);
-                if (SUCCEEDED(hr))
-                {
-					hr = psl->SetIconLocation(szAppPath, iconIndex);
-					if (SUCCEEDED(hr))
-					{
-						IPropertyStore *pps;
-						hr = psl->QueryInterface(IID_PPV_ARGS(&pps));
-						if (SUCCEEDED(hr))
-						{
-							PROPVARIANT propvar;
-							hr = InitPropVariantFromString(pszTitle, &propvar);
-							if (SUCCEEDED(hr))
-							{
-								hr = pps->SetValue(PKEY_Title, propvar);
-								if (SUCCEEDED(hr))
-								{
-									hr = pps->Commit();
-									if (SUCCEEDED(hr))
-									{
-										hr = psl->QueryInterface(IID_PPV_ARGS(ppsl));
-									}
-								}
-								PropVariantClear(&propvar);
-							}
-							pps->Release();
-						}
-					}
-                }
-            }
-        }
-		else
+	ATL::CComPtr<IShellLink> psl;
+	HRESULT hr = psl.CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER);
+    if (FAILED(hr))
+		return hr;
+
+	WCHAR szAppPath[MAX_PATH];
+	if (GetModuleFileName(NULL, szAppPath, ARRAYSIZE(szAppPath)) == 0)
+	{
+		hr = HRESULT_FROM_WIN32(GetLastError());
+		return hr;
+	}
+	hr = psl->SetPath(szAppPath);
+	if (FAILED(hr))
+		return hr;
+
+	hr = psl->SetArguments(pszArguments);
+	if (FAILED(hr))
+		return hr;
+
+	hr = psl->SetIconLocation(szAppPath, iconIndex);
+	if (FAILED(hr))
+		return hr;
+
+	ATL::CComPtr<IPropertyStore> pps;
+	hr = psl.QueryInterface(&pps);
+	if (FAILED(hr))
+		return hr;
+
+	PROPVARIANT propvar;
+	hr = InitPropVariantFromString(pszTitle, &propvar);
+	if (SUCCEEDED(hr))
+	{
+		hr = pps->SetValue(PKEY_Title, propvar);
+		if (SUCCEEDED(hr))
 		{
-			hr = HRESULT_FROM_WIN32(GetLastError());
+			hr = pps->Commit();
+			if (SUCCEEDED(hr))
+			{
+				hr = psl.QueryInterface(ppsl);
+			}
 		}
-        psl->Release();
-    }    
+		PropVariantClear(&propvar);
+	}
     return hr;
 }
 
 HRESULT CreateSeparatorLink(IShellLink **ppsl)
 {
-    IPropertyStore *pps;
-    HRESULT hr = CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&pps));
-    if (SUCCEEDED(hr))
-    {
-        PROPVARIANT propvar;
-        hr = InitPropVariantFromBoolean(TRUE, &propvar);
-        if (SUCCEEDED(hr))
-        {
-			hr = pps->SetValue(PKEY_AppUserModel_IsDestListSeparator, propvar);
-            if (SUCCEEDED(hr))
-            {
-                hr = pps->Commit();
-                if (SUCCEEDED(hr))
-                {
-                    hr = pps->QueryInterface(IID_PPV_ARGS(ppsl));
-                }
-            }
-            PropVariantClear(&propvar);
-        }
-        pps->Release();
+	ATL::CComPtr<IPropertyStore> pps;
+    HRESULT hr = pps.CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER);
+    if (FAILED(hr))
+		return hr;
+
+	PROPVARIANT propvar;
+	hr = InitPropVariantFromBoolean(TRUE, &propvar);
+	if (FAILED(hr))
+		return hr;
+
+	hr = pps->SetValue(PKEY_AppUserModel_IsDestListSeparator, propvar);
+	if (SUCCEEDED(hr))
+	{
+		hr = pps->Commit();
+		if (SUCCEEDED(hr))
+		{
+			hr = pps.QueryInterface(ppsl);
+		}
 	}
+	PropVariantClear(&propvar);
 	return hr;
 }
 
 bool IsItemInArray(IShellItem *psi, IObjectArray *poaRemoved)
 {
-	bool fRet = false;
+	
 	UINT cItems;
-	if (SUCCEEDED(poaRemoved->GetCount(&cItems)))
+	if (FAILED(poaRemoved->GetCount(&cItems)))
+		return false;
+
+	bool fRet = false;
+	for (UINT i = 0; !fRet && i < cItems; i++)
 	{
-		IShellItem *psiCompare;
-		for (UINT i = 0; !fRet && i < cItems; i++)
-		{
-			if (SUCCEEDED(poaRemoved->GetAt(i, IID_PPV_ARGS(&psiCompare))))
-			{
-				int iOrder;
-				fRet = SUCCEEDED(psiCompare->Compare(psi, SICHINT_CANONICAL, &iOrder)) && (0 == iOrder);
-				psiCompare->Release();
-			}
-		}
+		ATL::CComPtr<IShellItem> psiCompare;
+		if (FAILED(poaRemoved->GetAt(i, IID_PPV_ARGS(&psiCompare))))
+			continue;
+		int iOrder;
+		fRet = SUCCEEDED(psiCompare->Compare(psi, SICHINT_CANONICAL, &iOrder)) && (0 == iOrder);
 	}
 	return fRet;
 }
 
 void DeleteJumpList(LPCTSTR appID)
 {
-	ICustomDestinationList *pcdl;
-	HRESULT hr = CoCreateInstance(CLSID_DestinationList, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&pcdl));
+	ATL::CComPtr<ICustomDestinationList> pcdl;
+	HRESULT hr = pcdl.CoCreateInstance(CLSID_DestinationList, NULL, CLSCTX_INPROC_SERVER);
 	if (SUCCEEDED(hr))
 	{
 		hr = pcdl->DeleteList(appID);
-		pcdl->Release();
 	}
 }

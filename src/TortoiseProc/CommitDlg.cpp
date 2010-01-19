@@ -532,26 +532,23 @@ void CCommitDlg::OnOK()
 	INT_PTR nDeleted = arDeleted.GetCount();
 	for (INT_PTR i=0; i<arDeleted.GetCount(); i++)
 	{
-		if (m_ListCtrl.GetCheck(arDeleted.GetAt(i)))
+		if (!m_ListCtrl.GetCheck(arDeleted.GetAt(i)))
+			continue;
+		const CTSVNPath& path = m_ListCtrl.GetListEntry(arDeleted.GetAt(i))->GetPath();
+		if (!path.IsDirectory())
+			continue;
+		//now find all children of this directory
+		for (int j=0; j<arDeleted.GetCount(); j++)
 		{
-			const CTSVNPath& path = m_ListCtrl.GetListEntry(arDeleted.GetAt(i))->GetPath();
-			if (path.IsDirectory())
+			if (i==j)
+				continue;
+			CSVNStatusListCtrl::FileEntry* childEntry = m_ListCtrl.GetListEntry(arDeleted.GetAt(j));
+			if (childEntry->IsChecked())
 			{
-				//now find all children of this directory
-				for (int j=0; j<arDeleted.GetCount(); j++)
+				if (path.IsAncestorOf(childEntry->GetPath()))
 				{
-					if (i!=j)
-					{
-						CSVNStatusListCtrl::FileEntry* childEntry = m_ListCtrl.GetListEntry(arDeleted.GetAt(j));
-						if (childEntry->IsChecked())
-						{
-							if (path.IsAncestorOf(childEntry->GetPath()))
-							{
-								m_ListCtrl.SetEntryCheck(childEntry, arDeleted.GetAt(j), false);
-								nDeleted--;
-							}
-						}
-					}
+					m_ListCtrl.SetEntryCheck(childEntry, arDeleted.GetAt(j), false);
+					nDeleted--;
 				}
 			}
 		}
@@ -637,8 +634,6 @@ void CCommitDlg::OnOK()
 			}
 		}
 	}
-
-
 
 	m_History.AddEntry(m_sLogMessage);
 	m_History.Save();

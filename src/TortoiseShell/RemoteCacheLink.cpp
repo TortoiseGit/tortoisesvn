@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -183,17 +183,14 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 		if (GetProcessIntegrityLevel() < SECURITY_MANDATORY_MEDIUM_RID)
 			return false;
 
-		PROCESS_INFORMATION process;
 		CString sCachePath = CPathUtils::GetAppDirectory(g_hmodThisDll) + _T("TSVNCache.exe");
-		if (!CCreateProcessHelper::CreateProcess(sCachePath.GetBuffer(sCachePath.GetLength()+1), NULL, &process))
+		if (!CCreateProcessHelper::CreateProcessDetached( sCachePath.GetBuffer(sCachePath.GetLength()+1), NULL))
 		{
 			// It's not appropriate to do a message box here, because there may be hundreds of calls
 			sCachePath.ReleaseBuffer();
 			ATLTRACE("Failed to start cache\n");
 			return false;
 		}
-		CloseHandle(process.hThread);
-		CloseHandle(process.hProcess);
 		sCachePath.ReleaseBuffer();
 
 		// Wait for the cache to open

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -54,6 +54,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual BOOL OnApply();
+	void DeleteViaShell(LPCTSTR path, LPCTSTR progressText);
 private:
 	CToolTips		m_tooltips;
 	CButton			m_btnUrlHistClear;

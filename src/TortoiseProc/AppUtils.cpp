@@ -1173,7 +1173,7 @@ HRESULT CAppUtils::CreateShortCut(LPCTSTR pszTargetfile, LPCTSTR pszTargetargs,
 	{
 		hRes = pPersistFile->Save(pszLinkfile, TRUE);
 	}
-	return (hRes);
+	return hRes;
 }
 
 HRESULT CAppUtils::CreateShortcutToURL(LPCTSTR pszURL, LPCTSTR pszLinkFile)
@@ -1293,13 +1293,12 @@ bool CAppUtils::SetupDiffScripts(bool force, const CString& type)
 
 bool CAppUtils::SetAccProperty(HWND hWnd, MSAAPROPID propid, const CString& text)
 {
-	IAccPropServices * pAccPropSvc = NULL;
-	HRESULT hr = CoCreateInstance(CLSID_AccPropServices, NULL, CLSCTX_SERVER, IID_IAccPropServices, (void **)&pAccPropSvc);
+	ATL::CComPtr<IAccPropServices> pAccPropSvc;
+	HRESULT hr = pAccPropSvc.CoCreateInstance(CLSID_AccPropServices, NULL, CLSCTX_SERVER);
 
 	if (hr == S_OK && pAccPropSvc)
 	{
 		pAccPropSvc->SetHwndPropStr(hWnd, (DWORD)OBJID_CLIENT, CHILDID_SELF, propid, text);
-		pAccPropSvc->Release();
 		return true;
 	}
 	return false;
@@ -1307,8 +1306,8 @@ bool CAppUtils::SetAccProperty(HWND hWnd, MSAAPROPID propid, const CString& text
 
 bool CAppUtils::SetAccProperty(HWND hWnd, MSAAPROPID propid, long value)
 {
-	IAccPropServices * pAccPropSvc = NULL;
-	HRESULT hr = CoCreateInstance(CLSID_AccPropServices, NULL, CLSCTX_SERVER, IID_IAccPropServices, (void **)&pAccPropSvc);
+	ATL::CComPtr<IAccPropServices> pAccPropSvc;
+	HRESULT hr = pAccPropSvc.CoCreateInstance(CLSID_AccPropServices, NULL, CLSCTX_SERVER);
 
 	if (hr == S_OK && pAccPropSvc)
 	{
@@ -1316,7 +1315,6 @@ bool CAppUtils::SetAccProperty(HWND hWnd, MSAAPROPID propid, long value)
 		var.vt = VT_I4;
 		var.intVal = value;
 		pAccPropSvc->SetHwndProp(hWnd, (DWORD)OBJID_CLIENT, CHILDID_SELF, propid, var);
-		pAccPropSvc->Release();
 		return true;
 	}
 	return false;

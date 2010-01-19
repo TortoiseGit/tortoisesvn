@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -354,6 +354,8 @@ public:
 	/** Convert into the SVN API parameter format */
 	apr_array_header_t * MakePathArray (apr_pool_t *pool) const;
 
+	static bool DeleteViaShell(LPCTSTR path, bool useTrashbin);
+
 private:
 	typedef std::vector<CTSVNPath> PathVector;
 	PathVector m_paths;
@@ -361,5 +363,3 @@ private:
 	// this contains the directory name
 	mutable CTSVNPath m_commonBaseDirectory;
 };
-
-

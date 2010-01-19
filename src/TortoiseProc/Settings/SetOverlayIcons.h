@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -48,6 +48,7 @@ protected:
 
 	void					ShowIconSet(bool bSmallIcons);
 	void					AddFileTypeGroup(CString sFileType, bool bSmallIcons);
+	HICON					GetFileIcon(LPCTSTR fileType, bool smallIcons, DWORD attributes);
 	DECLARE_MESSAGE_MAP()
 protected:
 	int				m_selIndex;

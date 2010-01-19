@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,6 +33,12 @@ public:
 	static bool CreateProcess(LPCTSTR lpApplicationName,
 					LPTSTR lpCommandLine,
 					LPPROCESS_INFORMATION lpProcessInformation);
+
+	static bool CreateProcessDetached(LPCTSTR lpApplicationName,
+					LPTSTR lpCommandLine,
+					LPCTSTR lpCurrentDirectory);
+	static bool CreateProcessDetached(LPCTSTR lpApplicationName,
+					LPTSTR lpCommandLine);
 };
 
 inline bool CCreateProcessHelper::CreateProcess(LPCTSTR applicationName,
@@ -54,4 +60,22 @@ inline bool CCreateProcessHelper::CreateProcess(LPCTSTR applicationName,
 	LPTSTR commandLine, LPPROCESS_INFORMATION processInformation)
 {
 	return CreateProcess( applicationName, commandLine, 0, processInformation );
+}
+
+inline bool CCreateProcessHelper::CreateProcessDetached(LPCTSTR lpApplicationName,
+	LPTSTR lpCommandLine, LPCTSTR lpCurrentDirectory)
+{
+	PROCESS_INFORMATION process;
+	if (!CreateProcess(lpApplicationName, lpCommandLine, lpCurrentDirectory, &process))
+		return false;
+
+	CloseHandle(process.hThread);
+	CloseHandle(process.hProcess);
+	return true;
+}
+
+inline bool CCreateProcessHelper::CreateProcessDetached(LPCTSTR lpApplicationName,
+	LPTSTR lpCommandLine)
+{
+	return CreateProcessDetached(lpApplicationName, lpCommandLine, 0);
 }
