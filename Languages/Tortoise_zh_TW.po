@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-11 20:55+0800\n"
+"PO-Revision-Date: 2010-01-19 21:23+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -992,6 +992,10 @@ msgstr "設定(&S)"
 msgid "&Show HEAD revisions"
 msgstr "顯示最新版本(&S)"
 
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "顯示紀錄訊息(&S)"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "顯示選單於(&S):"
@@ -1244,6 +1248,10 @@ msgstr "(無行號)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(無修改但是複本自此建立)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(無修改但是與工作複本相關)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -9716,6 +9724,11 @@ msgstr ""
 "工作複本重定位至\n"
 "%s"
 
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "工作複本: %s\n"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "是"
@@ -10066,6 +10079,10 @@ msgstr ""
 "'連線' 狀態下先詢問檔案庫 -\n"
 "'離線' 狀態下完全從快取工作"
 
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "於此版本"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "作者"
@@ -10158,6 +10175,10 @@ msgstr "變更總數:"
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "送交紀錄"
+
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "已送交版本"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10281,6 +10302,14 @@ msgstr "紀錄文字編輯器(&E)"
 msgid "max revision: "
 msgstr "最大版本:"
 
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "此版本中最大"
+
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "最大已送交版本"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "合併"
@@ -10288,6 +10317,14 @@ msgstr "合併"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "合併總數:"
+
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "此版本中最小"
+
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "最小已送交版本"
 
 #. Resource IDs: (10)
 msgid "missing"
