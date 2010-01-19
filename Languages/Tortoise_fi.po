@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-12 00:28+0200\n"
+"PO-Revision-Date: 2010-01-20 00:17+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1057,6 +1057,10 @@ msgstr "&Asetukset"
 msgid "&Show HEAD revisions"
 msgstr "&Näytä uusimmat versiot (HEAD)"
 
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "Näytä &loki"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "&Näytä valikot:"
@@ -1310,6 +1314,10 @@ msgstr "(ei rivinumeroa)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(ei muutoksia, mutta kopio luotu tästä)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(ei muutoksia, mutta oleellinen työkopiolle)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -3846,10 +3854,6 @@ msgid "Extension"
 msgstr "Pääte"
 
 #. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "Pääte tai mime-tyyppi:"
-
-#. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
 msgstr "Päätteeseen/MIME-tyyppiin liittyvät ohjelmat"
 
@@ -4096,6 +4100,14 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "Tiedostonimi"
+
+#. Resource IDs: (65535)
+msgid "Filename, extension or mime-type:"
+msgstr "Tiedostonimi, pääte tai mime-tyyppi:"
+
+#. Resource IDs: (74)
+msgid "Filename/Extension"
+msgstr "TIedostonimi/pääte"
 
 #. Resource IDs: (1512)
 msgid "Files"
@@ -9779,6 +9791,11 @@ msgstr ""
 "Työkopio sijoitettu osoitteeseen\n"
 "%s"
 
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "Työkopio: %s\n"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Kyllä"
@@ -10131,6 +10148,10 @@ msgstr ""
 "Kysy ensin arkistosta mikäli 'yhteydellinen';\n"
 "toimi täysin välimuistin varassa mikäli 'yhteydetön'"
 
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "tässä versiossa"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "tekijä"
@@ -10222,6 +10243,10 @@ msgstr "muutoksia:"
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "toimitukset arkistoon"
+
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "toimitettu versio"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10345,6 +10370,14 @@ msgstr "lokiviestien &editori"
 msgid "max revision: "
 msgstr "suurin versio:"
 
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "maksimi tässä versiossa"
+
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "suurin toimitettu versio"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "Yhdistetty"
@@ -10352,6 +10385,14 @@ msgstr "Yhdistetty"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "yhdistämisiä:"
+
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "minimi tässä versiossa"
+
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "pienin toimitettu versio"
 
 #. Resource IDs: (10)
 msgid "missing"
