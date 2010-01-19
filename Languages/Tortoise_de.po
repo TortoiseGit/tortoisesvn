@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-11 09:49+0100\n"
+"PO-Revision-Date: 2010-01-19 12:36+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -994,6 +994,10 @@ msgstr "&Einstellungen"
 msgid "&Show HEAD revisions"
 msgstr "HEAD Revisionen &zeigen"
 
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "Zeige &Log"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "&Zeige Menüs für"
@@ -1246,6 +1250,10 @@ msgstr "(keine Zeilennummer)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(Keine Änderung aber eine Kopie wurde erstellt)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(Keine Änderung aber relevant für die Arbeitskopie)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -9752,6 +9760,11 @@ msgstr ""
 "Arbeitskopie umplatziert zu\n"
 "%s"
 
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "Arbeitskopie: %s\n"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Ja"
@@ -10106,6 +10119,10 @@ msgstr ""
 "Zuerst das Projektarchiv auf 'online' prüfen -\n"
 "Auf den Puffer zugreifen, falls 'offline'"
 
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "in dieser Revision"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "Autor"
@@ -10200,6 +10217,10 @@ msgstr "Gesamt Änderungen:"
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "Übertragungen"
+
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "übertragene Revision"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10322,6 +10343,14 @@ msgstr "Log &Editor"
 msgid "max revision: "
 msgstr "Max Revision: "
 
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "max. in dieser Revision"
+
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "max. übertragene Revision"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "Zusammengeführt"
@@ -10329,6 +10358,14 @@ msgstr "Zusammengeführt"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "Gesamt Zusammenf: "
+
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "min. in dieser Revision"
+
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "min. übertragene Revision"
 
 #. Resource IDs: (10)
 msgid "missing"
