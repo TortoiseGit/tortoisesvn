@@ -184,14 +184,12 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 			return false;
 
 		CString sCachePath = CPathUtils::GetAppDirectory(g_hmodThisDll) + _T("TSVNCache.exe");
-		if (!CCreateProcessHelper::CreateProcessDetached( sCachePath.GetBuffer(sCachePath.GetLength()+1), NULL))
+		if (!CCreateProcessHelper::CreateProcessDetached( sCachePath, NULL))
 		{
 			// It's not appropriate to do a message box here, because there may be hundreds of calls
-			sCachePath.ReleaseBuffer();
 			ATLTRACE("Failed to start cache\n");
 			return false;
 		}
-		sCachePath.ReleaseBuffer();
 
 		// Wait for the cache to open
 		long endTime = (long)GetTickCount()+1000;
