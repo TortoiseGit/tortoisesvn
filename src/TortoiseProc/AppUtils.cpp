@@ -63,6 +63,7 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
 	bool bInternal = false;
 
 	CString mimetype;
+
 	if (ext != "")
 	{
 		// is there an extension specific merge tool?
@@ -80,6 +81,12 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
 		{
 			com = mergetool;
 		}
+	}
+	// is there a filename specific merge tool?
+	CRegString mergetool(_T("Software\\TortoiseSVN\\MergeTools\\.") + mergedfile.GetFilename().MakeLower());
+	if (CString(mergetool) != "")
+	{
+		com = mergetool;
 	}
 	
 	if ((flags.bAlternativeTool)&&(!com.IsEmpty()))
@@ -233,6 +240,13 @@ BOOL CAppUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, 
 
 CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2)
 {
+	CString difftool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\.") + file2.GetFilename().MakeLower());
+	if (!difftool.IsEmpty())
+		return difftool;
+	difftool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\.") + file1.GetFilename().MakeLower());
+	if (!difftool.IsEmpty())
+		return difftool;
+
 	// Is there a mime type specific diff tool?
 	CString mimetype;
 	if (GetMimeType(file1, mimetype) ||  GetMimeType(file2, mimetype))
@@ -246,7 +260,7 @@ CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2)
 	CString ext = file2.GetFileExtension().MakeLower();
 	if (!ext.IsEmpty())
 	{
-		CString difftool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\") + ext);
+		difftool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\") + ext);
 		if (!difftool.IsEmpty())
 			return difftool;
 		// Maybe we should use TortoiseIDiff?
@@ -263,7 +277,7 @@ CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2)
 	}
 	
 	// Finally, pick a generic external diff tool
-	CString difftool = CRegString(_T("Software\\TortoiseSVN\\Diff"));
+	difftool = CRegString(_T("Software\\TortoiseSVN\\Diff"));
 	return difftool;
 }
 
