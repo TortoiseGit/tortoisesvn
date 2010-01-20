@@ -206,7 +206,7 @@ BOOL CCheckoutDlg::OnInitDialog()
 	AddAnchor(IDC_REVISION_HEAD, TOP_LEFT);
 	AddAnchor(IDC_REVISION_N, TOP_LEFT);
 	AddAnchor(IDC_REVISION_NUM, TOP_LEFT);
-	AddAnchor(IDC_SHOW_LOG, TOP_LEFT);
+	AddAnchor(IDC_SHOW_LOG, TOP_RIGHT);
 	AddAnchor(IDOK, TOP_RIGHT);
 	AddAnchor(IDCANCEL, TOP_RIGHT);
 	AddAnchor(IDHELP, TOP_RIGHT);
