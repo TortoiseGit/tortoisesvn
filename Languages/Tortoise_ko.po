@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-18 10:49+0900\n"
+"PO-Revision-Date: 2010-01-20 14:14+0900\n"
 "Last-Translator: Taedong Kim <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -991,6 +991,10 @@ msgstr "설정(&S)"
 msgid "&Show HEAD revisions"
 msgstr "HEAD 리비전 보기(&S)"
 
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "로그 보기(&S)"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "다음을 위해 메뉴 보기기(&S):"
@@ -1243,6 +1247,10 @@ msgstr "(줄 번호 없음)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(수정사항 없음. 그러나 여기로부터 생성된 복사본입니다.)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(수정 사항이 없습니다. 하지만 작업 사본과 관련이 있습니다.)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -3159,6 +3167,14 @@ msgstr "명령 로그 파일을 삭제"
 msgid "Deleting"
 msgstr "삭제"
 
+#. Resource IDs: (348)
+msgid "Deleting cached data"
+msgstr "캐시된 데이타 삭제"
+
+#. Resource IDs: (348)
+msgid "Deleting file"
+msgstr "파일 삭제"
+
 #. Resource IDs: (207)
 msgid "Depth"
 msgstr "깊이"
@@ -3778,10 +3794,6 @@ msgid "Extension"
 msgstr "확장자"
 
 #. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "확장자 혹은 mime-type:"
-
-#. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
 msgstr "확장자/mime-type 별 프로그램 정의"
 
@@ -4028,6 +4040,14 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "파일이름"
+
+#. Resource IDs: (65535)
+msgid "Filename, extension or mime-type:"
+msgstr "파일이름, 확장자 혹은 MIME 타입:"
+
+#. Resource IDs: (74)
+msgid "Filename/Extension"
+msgstr "파일이름/확장자"
 
 #. Resource IDs: (1512)
 msgid "Files"
@@ -9699,6 +9719,11 @@ msgstr ""
 "작업 사본 저장소 URL 변경\n"
 "%s"
 
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "작업 사본: %s\n"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "예"
@@ -10051,6 +10076,10 @@ msgstr ""
 "'온라인'이면 먼저 저장소에 요청합니다. -\n"
 "'오프라인'이면 완전히 캐시로 동작합니다."
 
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "이 리비전에서"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "작성자"
@@ -10144,6 +10173,10 @@ msgstr "변경 합계:"
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "커밋"
+
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "커밋된 리비전"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10267,6 +10300,14 @@ msgstr "로그 편집기(&E)"
 msgid "max revision: "
 msgstr "최대 리비전:"
 
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "최대. 이 리비전에서"
+
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "최대. 커밋된 리비전"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "병합됨"
@@ -10274,6 +10315,14 @@ msgstr "병합됨"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "병합 합계: "
+
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "최소. 이 리비전에서"
+
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "최소. 커밋된 리비전"
 
 #. Resource IDs: (10)
 msgid "missing"
