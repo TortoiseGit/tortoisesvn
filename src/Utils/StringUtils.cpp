@@ -19,6 +19,7 @@
 #include "StdAfx.h"
 #include "UnicodeUtils.h"
 #include "stringutils.h"
+#include "ClipboardHelper.h"
 
 int strwildcmp(const char *wild, const char *string)
 {
@@ -207,7 +208,8 @@ void CStringUtils::RemoveAccelerators(CString& text)
 
 bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID lcid, HWND hOwningWnd)
 {
-	if (OpenClipboard(hOwningWnd))
+	CClipboardHelper clipboardHelper;
+	if (clipboardHelper.Open(hOwningWnd))
 	{
 		EmptyClipboard();
 		HGLOBAL hClipboardData;
@@ -221,7 +223,7 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID l
 				strcpy_s(pchData, sClipdata.GetLength()+1, (LPCSTR)sClipdata);
 				if (GlobalUnlock(hClipboardData))
 				{
-					if (SetClipboardData(CF_TEXT, hClipboardData)==NULL)
+					if (SetClipboardData(CF_TEXT, hClipboardData))
 					{
 						HANDLE hlocmem = GlobalAlloc(GMEM_MOVEABLE|GMEM_DDESHARE, sizeof(LCID));
 						if (hlocmem)
@@ -234,28 +236,23 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID l
 							}
 							GlobalUnlock(hlocmem);
 						}
-						CloseClipboard();
 						return true;
 					}
 				}
 				else
 				{
-					CloseClipboard();
 					return false;
 				}
 			}
 			else
 			{
-				CloseClipboard();
 				return false;
 			}
 		}
 		else
 		{
-			CloseClipboard();
 			return false;
 		}
-		CloseClipboard();
 		return false;
 	}
 	return false;
@@ -263,7 +260,8 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID l
 
 bool CStringUtils::WriteAsciiStringToClipboard(const CStringW& sClipdata, HWND hOwningWnd)
 {
-	if (OpenClipboard(hOwningWnd))
+	CClipboardHelper clipboardHelper;
+	if (clipboardHelper.Open(hOwningWnd))
 	{
 		EmptyClipboard();
 		HGLOBAL hClipboardData;
@@ -277,61 +275,27 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringW& sClipdata, HWND h
 				_tcscpy_s(pchData, sClipdata.GetLength()+1, (LPCWSTR)sClipdata);
 				if (GlobalUnlock(hClipboardData))
 				{
-					if (SetClipboardData(CF_UNICODETEXT, hClipboardData) != NULL)
+					if (SetClipboardData(CF_UNICODETEXT, hClipboardData) == NULL)
 					{
-						CStringA sClipdataA = CStringA(sClipdata);
-						HGLOBAL hClipboardDataA;
-						hClipboardDataA = GlobalAlloc(GMEM_DDESHARE, sClipdataA.GetLength()+1);
-						if (hClipboardDataA)
-						{
-							char * pchDataA;
-							pchDataA = (char*)GlobalLock(hClipboardDataA);
-							if (pchDataA)
-							{
-								strcpy_s(pchDataA, sClipdataA.GetLength()+1, (LPCSTR)sClipdataA);
-								if (GlobalUnlock(hClipboardDataA))
-								{
-									if (SetClipboardData(CF_TEXT, hClipboardDataA) != NULL)
-									{
-										CloseClipboard();
-										return true;
-									}
-								}
-								else
-								{
-									CloseClipboard();
-									return false;
-								}
-							}
-							else
-							{
-								CloseClipboard();
-								return false;
-							}
-						}
-
-						CloseClipboard();
+						// no need to also set CF_TEXT : the OS does this
+						// automatically.
 						return false;
 					}
 				}
 				else
 				{
-					CloseClipboard();
 					return false;
 				}
 			}
 			else
 			{
-				CloseClipboard();
 				return false;
 			}
 		}
 		else
 		{
-			CloseClipboard();
 			return false;
 		}
-		CloseClipboard();
 		return false;
 	}
 	return false;
@@ -342,7 +306,8 @@ bool CStringUtils::WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningW
 	UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
 	if (cFormat == 0)
 		return false;
-	if (OpenClipboard(hOwningWnd))
+	CClipboardHelper clipboardHelper;
+	if (clipboardHelper.Open(hOwningWnd))
 	{
 		EmptyClipboard();
 		HGLOBAL hClipboardData;
@@ -358,33 +323,27 @@ bool CStringUtils::WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningW
 				{
 					if (SetClipboardData(cFormat,hClipboardData)==NULL)
 					{
-						CloseClipboard();
 						return false;
 					}
 					if (SetClipboardData(CF_TEXT,hClipboardData)==NULL)
 					{
-						CloseClipboard();
 						return false;
 					}
 				}
 				else
 				{
-					CloseClipboard();
 					return false;
 				}
 			}
 			else
 			{
-				CloseClipboard();
 				return false;
 			}
 		}
 		else
 		{
-			CloseClipboard();
 			return false;
 		}
-		CloseClipboard();
 		return true;
 	}
 	return false;
