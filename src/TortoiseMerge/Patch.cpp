@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2009 - TortoiseSVN
+// Copyright (C) 2004-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -687,13 +687,13 @@ CString	CPatch::CheckPatchPath(const CString& path)
 	CDirFileEnum filefinder(path);
 	while (filefinder.NextFile(subpath, &isDir))
 	{
-		if (!isDir)
-			continue;
-		progress.SetLine(2, subpath, true);
 		if (progress.HasUserCancelled())
 			return path;
+		if (!isDir)
+			continue;
 		if (g_SVNAdminDir.IsAdminDirPath(subpath))
 			continue;
+		progress.SetLine(2, subpath, true);
 		if (CountMatches(subpath) > (GetNumberOfFiles()/3))
 			return subpath;
 	}
