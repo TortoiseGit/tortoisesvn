@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-01-13 23:22 +0000\n"
-"PO-Revision-Date: 2010-01-16 01:19-0300\n"
-"Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
+"PO-Revision-Date: 2010-01-20 21:37-0300\n"
+"Last-Translator: Eduardo Marques <eduardo@eduardomarques.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3406,114 +3406,117 @@ msgstr "Conflitos de Estrutura"
 
 #. (para)
 msgid "A tree conflict occurs when a developer moved/renamed/deleted a file or folder, which another developer either also has moved/renamed/deleted or just modified. There are many different situations that can result in a tree conflict, and all of them require different steps to resolve the conflict."
-msgstr ""
+msgstr "Um conflito de estrutura ocorre quando um desenvolvedor move/renomeia/elimina um arquivo ou uma pasta que outro desenvolvedor tenha também movido/renomeado/eliminado ou ainda apenas modificado. Existem diversas situações que podem resultar num conflito de estrutura e cada situação exigirá uma ação diferente para a solução do conflito."
 
 #. (para)
 msgid "When a file is deleted locally in Subversion, the file is also deleted from the local file system, so even if it is part of a tree conflict it cannot show a conflicted overlay and you cannot right click on it to resolve the conflict. Use the <guilabel>Check for Modifications</guilabel> dialog instead to access the <guilabel>Edit conflicts</guilabel> option."
-msgstr ""
+msgstr "Quando um arquivo é eliminado localmente na Subversão, o arquivo também é eliminado do sistema local de arquivos ou seja, mesmo que seja parte do conflito de estrutura isso não comprova ser uma sobreposição de conflito e você não poderá clicar nele com o botão direito do mouse, para resolver o conflito. Utilize a caixa de diálogo <guilabel>Verificar por Modificações</guilabel> ao invés de acessar a opção <guilabel>Editar conflitos</guilabel>."
 
 #. (para)
 msgid "TortoiseSVN can help find the right place to merge changes, but there may be additional work required to sort out the conflicts. Remember that after an update the working BASE will always contain the revision of each item as it was in the repository at the time of update. If you revert a change after updating it goes back to the repository state, not to the way it was when you started making your own local changes."
-msgstr ""
+msgstr "TortoiseSVN pode auxiliar para encontrar o lugar correto para aplicar modificações mas poderão existir tarefas adicionais e requeridas para a solução de conflitos. Lembre-se que após uma atualização, a BASE de trabalho sempre conterá a revisão de cada item tal como era no repositório no momento da atualização. Se você reverter uma modificação após uma atualização, o repositório não retornará ao estado original, tal como era antes das modificações que você iniciou localmente."
 
 #. (title)
 msgid "Local delete, incoming edit upon update"
-msgstr ""
+msgstr "Exclusão local, alteração na atualização"
 
 #. (para)
 msgid "Developer A modifies <filename>Foo.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Desenvolvedor A modifica <filename>Foo.c</filename> e o submete para o repositório"
 
 #. (para)
 msgid "Developer B has simultaneously moved <filename>Foo.c</filename> to <filename>Bar.c</filename> in his working copy, or simply deleted <filename>Foo.c</filename> or its parent folder."
-msgstr ""
+msgstr "Desenvolvedor B simultaneamente moveu <filename>Foo.c</filename> para <filename>Bar.c</filename> em sua cópia local ou simplesmente eliminou <filename>Foo.c</filename> ou a pasta que o continha."
 
 #. (para)
 msgid "<filename>Foo.c</filename> has been deleted from working copy, but is marked with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> foi eliminado da cópia de trabalho mas está marcado com um conflito de estrutura."
 
 #. (para)
 msgid "If the conflict results from a rename rather than a delete then <filename>Bar.c</filename> is marked as added, but does not contain developer A's modifications."
-msgstr ""
+msgstr "Se o conflito resulta por ter renomeado ao invés de ter eliminado então <filename>Bar.c</filename> estará marcado como adicionado mas não irá conter as modificações do desenvolvedor A."
 
 #. (para)
 #. (para)
 msgid "An update of developer B's working copy results in a tree conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Uma atualização da cópia de trabalho do desenvolvedor B resulta num conflito de estrutura: <placeholder-1/>"
 
 #. (para)
 msgid "Developer B now has to choose whether to keep Developer A's changes. In the case of a file rename, he can merge the changes to <filename>Foo.c</filename> into the renamed file <filename>Bar.c</filename>. For simple file or directory deletions he can choose to keep the item with Developer A's changes and discard the deletion. Or, by marking the conflict as resolved without doing anything he effectively discards Developer A's changes."
-msgstr ""
+msgstr "Desenvolvedor B agora deverá escolher se mantém ou não as modificações do desenvolvedor A. No caso de um arquivo ter sido renomeado, ele poderá submeter as modificações de <filename>Foo.c</filename> para o arquivo renomeado <filename>Bar.c</filename>. No caso de simples arquivo ou pasta deletada, ele poderá escolher entre manter o item com as modificações do desenvolvedor A e descartar o arquivo eliminado. Ou então, poderá marcar o conflito como resolvido sem tomar qualquer atitude e efeticamente irá descartar as modificações do desenvolvedor A."
 
 #. (para)
 msgid "The conflict edit dialog offers to merge changes if it can find the original file of the renamed <filename>Bar.c</filename>. Depending on where the update was invoked, it may not be possible to find the source file."
-msgstr ""
+msgstr "A caixa de diálogo Editar Conflito possibilita submeter modificações se for possível encontrar o arquivo original do renomeado <filename>Bar.c</filename>. Dependendo de onde a atualização ocorreu, poderá não ser possível encontrar o arquivo fonte."
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
-msgstr ""
+msgstr "Alteração local, exclusão na atualização"
 
 #. (para)
 msgid "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository."
-msgstr ""
+msgstr "Desenvolvedor A move <filename>Foo.c</filename> para <filename>Bar.c</filename> e submete para o repositório."
 
 #. (para)
 #. (para)
 msgid "Developer B modifies <filename>Foo.c</filename> in his working copy."
-msgstr ""
+msgstr "Desenvolvedor B modifica <filename>Foo.c</filename> na sua cópia de trabalho."
 
 #. (para)
 msgid "Or in the case of a folder move ..."
-msgstr "Ou neste caso de um diretório movido ..."
+msgstr "Ou no caso de um diretório movido ..."
 
 #. (para)
 msgid "Developer A moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
-msgstr ""
+msgstr "Desenvolvedor A move a pasta que o continha de <filename>FooFolder</filename> para <filename>BarFolder</filename> e submete para o repositório."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is added to the working copy as a normal file."
-msgstr ""
+msgstr "<filename>Bar.c</filename> é adicionado na cópia de trabalho como um arquivo normal."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as added (with history) and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> é assinalado como adicionado (com histórico) e indica um conflito de estrutura."
 
 #. (para)
 msgid "An update of developer B's working copy results in a tree conflict. For a simple file conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Uma atualização na cópia de trabalho do desenvolvedor B resulta num conflito de estrutura. Para um simples conflito de arquivo:<placeholder-1/>"
 
 #. (para)
 msgid "<filename>BarFolder</filename> is added to the working copy as a normal folder."
-msgstr ""
+msgstr "<filename>BarFolder</filename> é adicionada para a cópia de trabalho como uma pasta normal."
 
 #. (para)
 msgid "<filename>FooFolder</filename> is marked as added (with history) and has a tree conflict."
-msgstr ""
+msgstr "<filename>FooFolder</filename> é assinalada como adicionada (com histórico) e indica um conflito de estrutura."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified."
-msgstr ""
+msgstr "<filename>Foo.c</filename> é assinalado como modificado."
 
 #. (para)
 msgid "For a folder conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Para um conflito de pasta:<placeholder-1/>"
 
 #. (para)
 #. (para)
 msgid "Developer B now has to decide whether to go with developer A's reorganisation and merge her changes into the corresponding file in the new structure, or simply revert A's changes and keep the local file."
-msgstr ""
+msgstr "Desenvolvedor B agora terá que decidir o que fazer com a reorganização do desenvolvedor A e submeter suas modificações para o arquivo correspondente na nova estrutura ou simplesmente reverter as modificações do desenvolvedor A e manter o arquivo local."
 
+# RESHUFFLE???
+# PORTED ACROSS???
 #. (para)
+#, fuzzy
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr ""
+msgstr "Para submeter suas modificações locais com o RESHUFFLE, o desenvolvedor B primeiro precisará saber para qual nome o arquivo em conflito <filename>Foo.c</filename> foi renomeado ou movido no repositório. Isto pode ser feito fazendo uso da caixa de diálogo do Log. As modificações poderão então serem submetidas manualmente - uma vez que não há maneira de automatizar ou simplificar esse processo. Uma vez que as modificações tenham sido PORTED ACROSS, o PATH em conflito será redundante e poderá ser eliminado. Neste caso utilize o botão <guilabel>Remover</guilabel> na caixa de diálogo do Editor de Conflito para limpar e assinalar o conflito como resolvido."
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog helps to track down what was moved."
-msgstr ""
+msgstr "Se o desenvolvedor B decide que as modificações do desenvolvedor A estão erradas então ele deverá escolher o botão <guilabel>Manter</guilabel> na caixa de diálogo do Editor de Conflito. Desta forma, o conflito no arquivo ou pasta será assinalado como resolvido mas as modificações do desenvolvedor A precisarão ser removidas manualmente. Mais uma vez, a caixa de diálogo do Log auxilia para identificar o que foi movido."
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
-msgstr ""
+msgstr "Exclusão local, exclusão na atualização"
 
 #. (para)
 msgid "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
@@ -3551,7 +3554,7 @@ msgstr ""
 
 #. (title)
 msgid "Local missing, incoming edit upon merge"
-msgstr ""
+msgstr "Inexistência local, alteração na atualização"
 
 #. (para)
 msgid "Developer A working on trunk modifies <filename>Foo.c</filename> and commits it to the repository"
@@ -3585,7 +3588,7 @@ msgstr ""
 
 #. (title)
 msgid "Local edit, incoming delete upon merge"
-msgstr ""
+msgstr "Alteração local, exclusão na unificação"
 
 #. (para)
 #. (para)
@@ -3626,7 +3629,7 @@ msgstr ""
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
-msgstr ""
+msgstr "Exclusão local, exclusão na unificação"
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bix.c</filename> and commits it to the repository"
@@ -3831,9 +3834,8 @@ msgstr "Se você deseja examinar o arquivo em detalhes, você pode arrastá-lo d
 
 # headings não está claro para mim
 #. (para)
-#, fuzzy
 msgid "The columns are customizable. If you <action>right click</action> on any column header you will see a context menu allowing you to select which columns are displayed. You can also change column width by using the drag handle which appears when you move the mouse over a column boundary. These customizations are preserved, so you will see the same headings next time."
-msgstr "As colunas são personalizáveis. Se você <action>clicar com o botão direito</action> em qualquer cabeçalho de coluna você verá um menu de contexto permitindo-o selecionar quais colunas serão exibidas. Você pode também alterar a largura das colunas usando o ícone de arrastar que aparece quando você passa o mouse em cima de uma borda de coluna. Essas personalizações  são preservadas, então você verá os mesmos títulos da próxima vez."
+msgstr "As colunas são personalizáveis. Se você <action>clicar com o botão direito</action> em qualquer cabeçalho de coluna você verá um menu de contexto permitindo-o selecionar quais colunas serão exibidas. Você pode também alterar a largura das colunas usando o ícone de arrastar que aparece quando você passa o mouse em cima de uma borda de coluna. Essas personalizações são preservadas, então você verá os mesmos cabeçalhos da próxima vez."
 
 #. (para)
 msgid "If you are working on several unrelated tasks at once, you can also group files together into changelists. Read <xref linkend=\"tsvn-dug-commit-changelists\"/> for more information."
@@ -3903,9 +3905,8 @@ msgstr "<placeholder-1/> Na janela de submissão você pode ver os mesmos arquiv
 
 # heading?
 #. (para)
-#, fuzzy
 msgid "On XP, there is a context menu when you right click on a group heading which gives you the choice to check or uncheck all group entries. On Vista however the context menu is not necessary. Click on the group header to select all entries, then check one of the selected entries to check all."
-msgstr "No XP, existe um menu de contexto quando você clica com o botão direito em um nome de grupo que lhe fornece uma escolha para marcar ou desmarcar todas as entradas de grupo. Entratanto no Vista o menu de contexto não é necessário. Clique no cabeçalho do grupo para selecionar todas as entradas, então marque uma das entradas selecionadas para marcar todas."
+msgstr "No XP, existe um menu de contexto quando você clica com o botão direito em um grupo de títulos que lhe fornece uma escolha para marcar ou desmarcar todas as entradas desse grupo. Entratanto no Vista o menu de contexto não é necessário. Clique no grupo de títulos para selecionar todas as entradas, então marque uma das entradas selecionadas para marcar todas."
 
 #. (para)
 msgid "TortoiseSVN reserves one changelist name for its own use, namely <literal>ignore-on-commit</literal>. This is used to mark versioned files which you almost never want to commit even though they have local changes. This feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
@@ -11342,7 +11343,7 @@ msgstr ""
 
 #. (primary)
 msgid "command line client"
-msgstr ""
+msgstr "linha de comando do cliente"
 
 #. (primary)
 msgid "CLI"
