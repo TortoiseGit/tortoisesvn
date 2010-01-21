@@ -1,4 +1,5 @@
 #pragma once
+#include <atltime.h>
 
 // Client crash callback
 typedef BOOL (CALLBACK *LPGETLOGFILE) (LPVOID lpvState);
@@ -71,22 +72,50 @@ public:
 	 */
 	CCrashReport(LPCSTR lpTo = NULL, LPCSTR lpSubject = NULL, BOOL bUseUI = TRUE)
 	{
-		InstallEx pfnInstallEx;
-		TCHAR szFileName[_MAX_PATH];
-		GetModuleFileName(NULL, szFileName, _MAX_FNAME);
+		// the crash handler is enabled by default, but we disable it
+		// after 3 months after a release
 
-		// C:\Programme\TortoiseSVN\bin\TortoiseProc.exe -> C:\Programme\TortoiseSVN\bin\CrashRpt.dll
-		CString strFilename = szFileName;
-		strFilename = strFilename.Left(strFilename.ReverseFind(_T('\\')) + 1);
-		strFilename += _T("CrashRpt.dll");
+#define YEAR ((((__DATE__ [7] - '0') * 10 + (__DATE__ [8] - '0')) * 10  \
+	+ (__DATE__ [9] - '0')) * 10 + (__DATE__ [10] - '0'))
 
-		m_hDll = LoadLibrary(strFilename);
-		if (m_hDll)
+#define MONTH (__DATE__ [2] == 'n' ? (__DATE__ [1] == 'a' ? 1 : 6)      \
+	: __DATE__ [2] == 'b' ? 2                               \
+	: __DATE__ [2] == 'r' ? (__DATE__ [0] == 'M' ? 3 : 4)   \
+	: __DATE__ [2] == 'y' ? 5								\
+	: __DATE__ [2] == 'l' ? 7                               \
+	: __DATE__ [2] == 'g' ? 8                               \
+	: __DATE__ [2] == 'p' ? 9                               \
+	: __DATE__ [2] == 't' ? 10                               \
+	: __DATE__ [2] == 'v' ? 11 : 12)
+
+#define DAY ((__DATE__ [4] == ' ' ? 0 : __DATE__ [4] - '0') * 10       \
+	+ (__DATE__ [5] - '0'))
+
+#define DATE_AS_INT (((YEAR - 2000) * 12 + MONTH) * 31 + DAY)
+
+		CTime compiletime(YEAR, MONTH, DAY, 0, 0, 0);
+		CTime now = CTime::GetCurrentTime();
+
+		CTimeSpan timediff = now-compiletime;
+		if (timediff.GetDays() < 3*31)
 		{
-			pfnInstallEx = (InstallEx)GetProcAddress(m_hDll, "InstallEx");
-			if ( pfnInstallEx )
+			InstallEx pfnInstallEx;
+			TCHAR szFileName[_MAX_PATH];
+			GetModuleFileName(NULL, szFileName, _MAX_FNAME);
+
+			// C:\Programme\TortoiseSVN\bin\TortoiseProc.exe -> C:\Programme\TortoiseSVN\bin\CrashRpt.dll
+			CString strFilename = szFileName;
+			strFilename = strFilename.Left(strFilename.ReverseFind(_T('\\')) + 1);
+			strFilename += _T("CrashRpt.dll");
+
+			m_hDll = LoadLibrary(strFilename);
+			if (m_hDll)
 			{
-				m_lpvState = pfnInstallEx(NULL, lpTo, lpSubject, bUseUI);
+				pfnInstallEx = (InstallEx)GetProcAddress(m_hDll, "InstallEx");
+				if ( pfnInstallEx )
+				{
+					m_lpvState = pfnInstallEx(NULL, lpTo, lpSubject, bUseUI);
+				}
 			}
 		}
 	}

@@ -56,7 +56,6 @@ public:
 	virtual int ExitInstance();
 
 	void CheckUpgrade();
-	void EnableCrashHandler();
 	void InitializeJumpList();
 	void DoInitializeJumpList();
 
