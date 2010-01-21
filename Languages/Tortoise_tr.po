@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-16 13:17+0200\n"
+"PO-Revision-Date: 2010-01-21 15:26+0200\n"
 "Last-Translator: Vural Goze <vuralgoze@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1043,6 +1043,10 @@ msgstr "&Ayarlar"
 msgid "&Show HEAD revisions"
 msgstr "&Ilk revizyonu göster"
 
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "&Günlüğü Göster"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "&Menüleri .... için göster:"
@@ -1295,6 +1299,10 @@ msgstr "(satır numarası yok)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(değiştirilmedi ancak buradan kopya oluşturuldu)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(değişiklik yok ancak çalışan kopya ile ilgili)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -3212,6 +3220,14 @@ msgstr "İşlem günlük dosyasını siler"
 msgid "Deleting"
 msgstr "Siliniyor"
 
+#. Resource IDs: (348)
+msgid "Deleting cached data"
+msgstr "Önbelleğe alınmış veri siliniyor"
+
+#. Resource IDs: (348)
+msgid "Deleting file"
+msgstr "Dosya siliniyor"
+
 #. Resource IDs: (207)
 msgid "Depth"
 msgstr "Derinlik"
@@ -3830,10 +3846,6 @@ msgid "Extension"
 msgstr "Uzantı"
 
 #. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "Uzantı yada mime-tipi:"
-
-#. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
 msgstr "Belirli uzantı/mime-tipi için olan programlar"
 
@@ -4080,6 +4092,14 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "Dosya Adı"
+
+#. Resource IDs: (65535)
+msgid "Filename, extension or mime-type:"
+msgstr "Dosya adı, uzantı veya mime-tipi:"
+
+#. Resource IDs: (74)
+msgid "Filename/Extension"
+msgstr "Dosya adı/Uzantı"
 
 #. Resource IDs: (1512)
 msgid "Files"
@@ -9759,6 +9779,11 @@ msgstr ""
 "Çalışan kopyanın taşınıldığı yer\n"
 "%s"
 
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "Çalışan kopya: %s\n"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Evet"
@@ -10111,6 +10136,10 @@ msgstr ""
 "work entirely from cache if 'offline''çevrimiçi' ise önce revizyona sor -\n"
 "'çevrimdışı' ise tamamen önbellekten çalış"
 
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "bu revizyonda"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "yaratan"
@@ -10204,6 +10233,10 @@ msgstr "toplam değişiklik adedi:"
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "teslim edilenler"
+
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "teslim edilen revizyon"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10327,6 +10360,14 @@ msgstr "günlük m&etin düzenleyicisi"
 msgid "max revision: "
 msgstr "max revizyon:"
 
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "bu revizyonda azami"
+
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "azami teslim edilen revizyon"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "birleştirilmiş"
@@ -10334,6 +10375,14 @@ msgstr "birleştirilmiş"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "toplam birleşme:"
+
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "bu revizyonda asgari "
+
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "asgari teslim edilen revizyon"
 
 #. Resource IDs: (10)
 msgid "missing"
