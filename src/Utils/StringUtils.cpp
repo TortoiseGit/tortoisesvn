@@ -239,21 +239,8 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID l
 						return true;
 					}
 				}
-				else
-				{
-					return false;
-				}
-			}
-			else
-			{
-				return false;
 			}
 		}
-		else
-		{
-			return false;
-		}
-		return false;
 	}
 	return false;
 }
@@ -275,28 +262,15 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringW& sClipdata, HWND h
 				_tcscpy_s(pchData, sClipdata.GetLength()+1, (LPCWSTR)sClipdata);
 				if (GlobalUnlock(hClipboardData))
 				{
-					if (SetClipboardData(CF_UNICODETEXT, hClipboardData) == NULL)
+					if (SetClipboardData(CF_UNICODETEXT, hClipboardData))
 					{
 						// no need to also set CF_TEXT : the OS does this
 						// automatically.
-						return false;
+						return true;
 					}
 				}
-				else
-				{
-					return false;
-				}
-			}
-			else
-			{
-				return false;
 			}
 		}
-		else
-		{
-			return false;
-		}
-		return false;
 	}
 	return false;
 }
@@ -325,26 +299,13 @@ bool CStringUtils::WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningW
 					{
 						return false;
 					}
-					if (SetClipboardData(CF_TEXT,hClipboardData)==NULL)
+					if (SetClipboardData(CF_TEXT,hClipboardData))
 					{
-						return false;
+						return true;
 					}
 				}
-				else
-				{
-					return false;
-				}
-			}
-			else
-			{
-				return false;
 			}
 		}
-		else
-		{
-			return false;
-		}
-		return true;
 	}
 	return false;
 }
