@@ -323,10 +323,11 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
 		bool isMinAtRev =    (wcInfo.minAtRev == revision)
 						  && (wcInfo.minAtRev != wcInfo.maxAtRev);
 
-		DashStyle style = isCommitRev ? isMinAtRev ? DashStyleDashDot
-												   : DashStyleDot
-									  : isMinAtRev ? DashStyleDot
-												   : DashStyleSolid;
+		DashStyle style = wcInfo.maxAtRev == revision
+						? DashStyleSolid
+						: isCommitRev ? isMinAtRev ? DashStyleDashDot									 
+										           : DashStyleDot
+									  : DashStyleDash;
 
 		pen.SetDashStyle (style);
 	}
