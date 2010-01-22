@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-11 16:30+0900\n"
+"PO-Revision-Date: 2010-01-22 21:58+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -999,6 +999,10 @@ msgstr "設定(&S)"
 msgid "&Show HEAD revisions"
 msgstr "最新のリビジョンを表示する(&S)"
 
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "ログを表示(&S)"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "メニューを表示(&S):"
@@ -1251,6 +1255,10 @@ msgstr "(行番号なし)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(コピーはここから作成されたが変更されていない)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(変更されているが作業コピーと関連あり)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -3167,6 +3175,14 @@ msgstr "アクションログファイルを削除する"
 msgid "Deleting"
 msgstr "削除中"
 
+#. Resource IDs: (348)
+msgid "Deleting cached data"
+msgstr "キャッシュ済みのデータを削除中"
+
+#. Resource IDs: (348)
+msgid "Deleting file"
+msgstr "ファイルを削除中"
+
 #. Resource IDs: (207)
 msgid "Depth"
 msgstr "深さ"
@@ -3790,10 +3806,6 @@ msgid "Extension"
 msgstr "拡張子"
 
 #. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "拡張子もしくは Mime タイプ:"
-
-#. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
 msgstr "拡張子／Mime タイプに対応するプログラム"
 
@@ -4040,6 +4052,14 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "ファイル名"
+
+#. Resource IDs: (65535)
+msgid "Filename, extension or mime-type:"
+msgstr "ファイル名、拡張子、もしくは Mime タイプ:"
+
+#. Resource IDs: (74)
+msgid "Filename/Extension"
+msgstr "ファイル名／拡張子"
 
 #. Resource IDs: (1512)
 msgid "Files"
@@ -9724,6 +9744,11 @@ msgstr ""
 "作業コピーは再配置されました。\n"
 "%s"
 
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "作業コピー: %s\n"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "はい"
@@ -10075,6 +10100,10 @@ msgstr ""
 "'オンライン' の場合はリポジトリへ最初に問い合わせる\n"
 "'オフライン' の場合はキャッシュのみで完全に動作する"
 
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "このリビジョン"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "作者"
@@ -10167,6 +10196,10 @@ msgstr "総変更数: "
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "コミット"
+
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "コミットされたリビジョン"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10290,6 +10323,14 @@ msgstr "ログ編集用エディタ(&E)"
 msgid "max revision: "
 msgstr "最大リビジョン: "
 
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "このリビジョンの最大値"
+
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "コミットされたリビジョンの最大値"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "結合"
@@ -10297,6 +10338,14 @@ msgstr "結合"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "総マージ数: "
+
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "このリビジョンの最小値"
+
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "コミットされたリビジョンの最小値"
 
 #. Resource IDs: (10)
 msgid "missing"
