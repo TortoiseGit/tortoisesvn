@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-14 07:44+0100\n"
+"PO-Revision-Date: 2010-01-22 13:13+0100\n"
 "Last-Translator: Miha Nahtigal <miha.nahtigal@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1018,6 +1018,10 @@ msgstr "&Nastavitve"
 msgid "&Show HEAD revisions"
 msgstr "&Pokaži revizije HEAD"
 
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "Prikaz &dnevnika"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "&Prikaži menije za:"
@@ -1270,6 +1274,10 @@ msgstr "(brez številke vrstice)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(brez sprememb, kopija iz trenutne lokacije)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(brez sprememb, trenutna delovna kopija)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -3189,6 +3197,14 @@ msgstr "Pobriše dnevnik dejanj"
 msgid "Deleting"
 msgstr "Brisanje"
 
+#. Resource IDs: (348)
+msgid "Deleting cached data"
+msgstr "Brisanje predpomnjenih podatkov"
+
+#. Resource IDs: (348)
+msgid "Deleting file"
+msgstr "Brisanje datoteke"
+
 #. Resource IDs: (207)
 msgid "Depth"
 msgstr "Globina"
@@ -3809,10 +3825,6 @@ msgid "Extension"
 msgstr "Končnica"
 
 #. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "Končnica ali tip MIME:"
-
-#. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
 msgstr "Programi glede na končnico/tip MIME"
 
@@ -4059,6 +4071,14 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "Ime datoteke"
+
+#. Resource IDs: (65535)
+msgid "Filename, extension or mime-type:"
+msgstr "Ime datoteke, končnica ali tip MIME:"
+
+#. Resource IDs: (74)
+msgid "Filename/Extension"
+msgstr "Ime datoteke/Končnica"
 
 #. Resource IDs: (1512)
 msgid "Files"
@@ -9726,6 +9746,11 @@ msgstr ""
 "Delovna kopija prestavljena na\n"
 "%s"
 
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "Delovna kopija: %s\n"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Da"
@@ -10080,6 +10105,10 @@ msgstr ""
 "če je skladišče dostopno, ga uporabi,\n"
 "v nasprotnem primeru uporabi predpomnilnik"
 
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "na reviziji"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "avtor"
@@ -10173,6 +10202,10 @@ msgstr "skupno število sprememb:"
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "objave"
+
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "objavljena revizija"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10296,6 +10329,14 @@ msgstr "urejevalnik dn&evnika"
 msgid "max revision: "
 msgstr "najvišja revizija:"
 
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "maks. trenutne revizije"
+
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "maks. objavljene revizije"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "spojeno"
@@ -10303,6 +10344,14 @@ msgstr "spojeno"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "število spajanj:"
+
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "min. trenutne revizije"
+
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "min. objavljene revizije"
 
 #. Resource IDs: (10)
 msgid "missing"
