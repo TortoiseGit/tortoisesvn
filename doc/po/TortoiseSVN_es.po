@@ -1311,8 +1311,8 @@ msgstr ""
 "</screen> para crear una copia del repositorio de forma segura. Entonces hacer una copia de seguridad de la copia. La opción <literal>--clean-logs</literal> no es necesaria, pero quita cualquier fichero de log redundante cuando hace una copia de seguridad de un repositorio BDB; lo que puede ahorrar algo de espacio."
 
 #. (para)
-msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from <ulink url=\"http://subversion.tigris.org/getting.html\"><citetitle>http://subversion.tigris.org/getting.html</citetitle></ulink>."
-msgstr "La herramienta <literal>svnadmin</literal> se instala automáticamente cuando instala el cliente de línea de comandos de Subversion. Si está instalando las herramientas de línea de comandos en un PC con Windows, la mejor forma de hacerlo es descargar la versión con Windows installer. Está comprimido de forma más eficiente que la versión <filename>.zip</filename>, por lo que la descarga es menor, y se encarga de establecer las rutas por usted. Puede descargar la última versión del cliente de línea de comandos desde <ulink url=\"http://subversion.tigris.org/getting.html\"><citetitle>http://subversion.tigris.org/getting.html</citetitle></ulink>."
+msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
+msgstr "La herramienta <literal>svnadmin</literal> se instala automáticamente cuando instala el cliente de línea de comandos de Subversion. Si está instalando las herramientas de línea de comandos en un PC con Windows, la mejor forma de hacerlo es descargar la versión con Windows installer. Está comprimido de forma más eficiente que la versión <filename>.zip</filename>, por lo que la descarga es menor, y se encarga de establecer las rutas por usted. Puede descargar la última versión del cliente de línea de comandos desde <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
 
 #. (title)
 msgid "Server side hook scripts"
@@ -1477,8 +1477,8 @@ msgid "Installing svnserve"
 msgstr "Instalando svnserve"
 
 #. (para)
-msgid "Get the latest version of Subversion from <ulink url=\"http://subversion.tigris.org/getting.html\"><citetitle>http://subversion.tigris.org/getting.html</citetitle></ulink>. Alternatively get a pre-packaged installer from CollabNet at <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. This installer will setup svnserve as a Windows service, and also includes some of the tools you need if you are going to use SASL for security."
-msgstr "Obtenga la última versión de Subversion desde <ulink url=\"http://subversion.tigris.org/getting.html\"><citetitle>http://subversion.tigris.org/getting.html</citetitle></ulink>. Alternativamente obtenga un instalador pre-empaquetado desde CollabNet en <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. Este instalador pondrá svnserve como un servicio de Windows, y también incluye algunas de las herramientas que necesitará si va a utilizar SASL para la seguridad."
+msgid "Get the latest version of Subversion from <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>. Alternatively get a pre-packaged installer from CollabNet at <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. This installer will setup svnserve as a Windows service, and also includes some of the tools you need if you are going to use SASL for security."
+msgstr "Obtenga la última versión de Subversion desde <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>. Alternativamente obtenga un instalador pre-empaquetado desde CollabNet en <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. Este instalador pondrá svnserve como un servicio de Windows, y también incluye algunas de las herramientas que necesitará si va a utilizar SASL para la seguridad."
 
 #. (para)
 msgid "If you already have a version of Subversion installed, and svnserve is running, you will need to stop it before continuing."
@@ -13277,12 +13277,12 @@ msgstr "Traducción"
 #~ "registro de fusiones, la obtención de la información será muy lenta."
 #~ msgid ""
 #~ "Get the latest version of Subversion from <ulink url=\"http://subversion."
-#~ "tigris.org/getting.html\"><citetitle>http://"
-#~ "subversion.tigris.org/getting.html</"
+#~ "apache.org/getting.html\"><citetitle>http://"
+#~ "subversion.apache.org/getting.html</"
 #~ "citetitle></ulink>."
 #~ msgstr ""
 #~ "Obtenga la última versión de Subversion desde <ulink url=\"http://"
-#~ "subversion.tigris.org/getting.html"
+#~ "subversion.apache.org/getting.html"
 #~ "\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?"
 #~ "folderID=91</citetitle></ulink>."
 

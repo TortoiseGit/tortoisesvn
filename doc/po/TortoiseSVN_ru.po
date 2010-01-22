@@ -1385,8 +1385,8 @@ msgstr ""
 "</screen> для создания копии вашего хранилища безопасным способом. Затем эту копию можно резервировать. Опция <literal>--clean-logs</literal> не обязательна, но удаляет любые излишние файлы журналов, когда вы резервируете хранилище BDB, и тем самым сохраняет немного места."
 
 #. (para)
-msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from <ulink url=\"http://subversion.tigris.org/getting.html\"><citetitle>http://subversion.tigris.org/getting.html</citetitle></ulink>."
-msgstr "Утилита <literal>svnadmin</literal> устанавливается автоматически при установке клиента командной строки Subversion. Если вы устанавливаете инструменты командной строки на ПК с Windows, то из доступных вариантов лучше загрузить установщик для Windows. Он сжат более эффективно, чем <filename>.zip</filename>-версия, так что объем закачки меньше, и он для вас установит необходимые пути. Вы можете загрузить последнюю версию клиента командной строки с <ulink url=\"http://Subversion.tigris.org/getting.html\"><citetitle>http://Subversion.tigris.org/getting.html</citetitle></ulink>."
+msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
+msgstr "Утилита <literal>svnadmin</literal> устанавливается автоматически при установке клиента командной строки Subversion. Если вы устанавливаете инструменты командной строки на ПК с Windows, то из доступных вариантов лучше загрузить установщик для Windows. Он сжат более эффективно, чем <filename>.zip</filename>-версия, так что объем закачки меньше, и он для вас установит необходимые пути. Вы можете загрузить последнюю версию клиента командной строки с <ulink url=\"http://Subversion.apache.org/getting.html\"><citetitle>http://Subversion.apache.org/getting.html</citetitle></ulink>."
 
 #. (title)
 msgid "Server side hook scripts"
@@ -1555,8 +1555,8 @@ msgid "Installing svnserve"
 msgstr "Установка svnserve"
 
 #. (para)
-msgid "Get the latest version of Subversion from <ulink url=\"http://subversion.tigris.org/getting.html\"><citetitle>http://subversion.tigris.org/getting.html</citetitle></ulink>. Alternatively get a pre-packaged installer from CollabNet at <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. This installer will setup svnserve as a Windows service, and also includes some of the tools you need if you are going to use SASL for security."
-msgstr "Загрузите последнюю версию Subversion по адресу <ulink url=\"http://subversion.tigris.org/getting.html\"><citetitle>http://subversion.tigris.org/getting.html</citetitle></ulink>. Или загрузите заранее настроенный установщик с сайта CollabNet по адресу <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. Этот установщик настроит запуск svnserve в качестве службы Windows, а также в него включено несколько инструментов, которые вам понадобятся, если вы собираетесь использовать для безопасности SASL."
+msgid "Get the latest version of Subversion from <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>. Alternatively get a pre-packaged installer from CollabNet at <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. This installer will setup svnserve as a Windows service, and also includes some of the tools you need if you are going to use SASL for security."
+msgstr "Загрузите последнюю версию Subversion по адресу <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>. Или загрузите заранее настроенный установщик с сайта CollabNet по адресу <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. Этот установщик настроит запуск svnserve в качестве службы Windows, а также в него включено несколько инструментов, которые вам понадобятся, если вы собираетесь использовать для безопасности SASL."
 
 #. (para)
 msgid "If you already have a version of Subversion installed, and svnserve is running, you will need to stop it before continuing."
@@ -1982,7 +1982,7 @@ msgstr "Первое, что вам необходимо перед устано
 msgid "Installing Subversion"
 msgstr "Установка Subversion"
 
-# Если у вас всё ещё используется более старый Apache 2.0.x, то пройдите по ссылке <ulink url=\"http://subversion.tigris.org/getting.html\"><citetitle>http://subversion.tigris.org/getting.html</citetitle></ulink>.
+# Если у вас всё ещё используется более старый Apache 2.0.x, то пройдите по ссылке <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>.
 #. (para)
 msgid "Download the latest version of the Subversion Win32 binaries for Apache. Be sure to get the right version to integrate with your version of Apache, otherwise you will get an obscure error message when you try to restart. If you have Apache 2.2.x go to <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100</citetitle></ulink>."
 msgstr "Загрузите последнюю версию исполняемых файлов Subversion под Win32 для Apache. Убедитесь, что вы получили правильную версию для интеграции с вашей версией Apache, иначе вы получите невразумительное сообщение об ошибке при перезапуске. Если у вас Apache версии 2.2.x, то пройдите по ссылке <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100</citetitle></ulink>."
@@ -13673,12 +13673,12 @@ msgstr "Перевод"
 #~ "сбор информации будет очень медленным."
 #~ msgid ""
 #~ "Get the latest version of Subversion from <ulink url=\"http://subversion."
-#~ "tigris.org/getting.html\"><citetitle>http://"
-#~ "subversion.tigris.org/getting.html</"
+#~ "apache.org/getting.html\"><citetitle>http://"
+#~ "subversion.apache.org/getting.html</"
 #~ "citetitle></ulink>."
 #~ msgstr ""
 #~ "Загрузите последнюю версию Subversion по адресу <ulink url=\"http://"
-#~ "subversion.tigris.org/getting.html"
+#~ "subversion.apache.org/getting.html"
 #~ "\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?"
 #~ "folderID=91</citetitle></ulink>."
 #~ msgid ""
