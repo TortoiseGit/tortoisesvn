@@ -2,7 +2,7 @@
 //
 // TortoiseSVN variables for the Drupal status pages
 //
-// Copyright (C) 2004-2009 the TortoiseSVN team
+// Copyright (C) 2004-2010 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // $Author$
@@ -10,7 +10,7 @@
 // $Rev$
 //
 // Author: Lübbe Onken 2004-2008
-//         Stefan Küng 2004-2009
+//         Stefan Küng 2004-2010
 //
 
 // 'Constants' that do not change upon a release
@@ -21,9 +21,9 @@ $tsvn_var['repos_base']="http://tortoisesvn.tigris.org/svn/tortoisesvn/";
 $tsvn_var['flagpath']="/flags/world.small/";
 
 // Variables that change upon each release
-$tsvn_var['release']="1.6.6";
-$tsvn_var['build']="17493";
-$tsvn_var['svnver']="1.6.6";
+$tsvn_var['release']="1.6.7";
+$tsvn_var['build']="18415";
+$tsvn_var['svnver']="1.6.9";
 
 $tsvn_var['repos_trunk']=$tsvn_var['repos_base'].'trunk/';
 $tsvn_var['repos_branch']=$tsvn_var['repos_base'].'branches/1.6.x/';
