@@ -1,3 +1,33 @@
+Version 1.6.7
+- BUG: The status cache could segfault in some situations. (Stefan)
+- BUG: Memory leak in SubWCRevCOM. (Stefan)
+- BUG: The copy-from url in the Check-for-modifications Dialog
+       was wrong for single files. (Stefan)
+- BUG: SubWCRevCOM could only be used by one single application
+       at a time. (Stefan)
+- BUG: The column order wasn't saved correctly in the status
+       list control. (Stefan)
+- BUG: The message "only numbers are allowed" could be shown even
+       when the bugtraq:number property was set to false. (Stefan)
+- BUG: The "diff with previous revision" in the log dialog could
+       use the wrong revision if there was a path with a copyfrom
+       revision. (Stefan)
+- BUG: Deadlock in the shell extension when used from a multi-threaded
+       application. (Jonathan Potter, GP Software and Stefan)
+- BUG: The "commonURL" parameter in the CheckCommit() method of the
+       IBugtraqProvider2 interface was sometimes wrong. (Stefan)
+- BUG: Revision graph won't show w/c revision under certain 
+       conditions. (Stefan Fuhrmann)
+- BUG: Revision graph would segfault for small repositories
+       (Stefan Fuhrmann)
+- BUG: Errors returned in a post-commit hook script were ignored
+       in a branch/tag/copy operation. (Stefan)
+- BUG: Text files dragged from the repository browser to the explorer
+       got truncated if they had the svn:eol-style property set. (Stefan)
+- BUG: Resizing the dialogs with right/middle click didn't respect
+       the current monitor but always moved the dialogs to the 
+       primary monitor. (Stefan)
+
 Version 1.6.6
 - CHG: Reduced disk access in the status cache. (Stefan)
 - BUG: The /url parameter was ignored for import commands. (Stefan)
