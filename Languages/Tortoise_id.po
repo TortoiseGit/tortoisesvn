@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-11 14:00-0600\n"
+"PO-Revision-Date: 2010-01-23 14:34-0600\n"
 "Last-Translator: Evan Allrich <eallrich@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1209,6 +1209,17 @@ msgstr "&Seting"
 msgid "&Show HEAD revisions"
 msgstr "Tampilkan revi&si HEAD"
 
+# ID:12,#:
+# ID:101,#:
+# Control-ID:1016,#:
+# Control-ID:1228,#:
+# Control-ID:1031,#:
+# Control-ID:1034,#:
+# Control-ID:1132,
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "Tampilkan &Log"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "&Tampilkan Menu untuk:"
@@ -1503,6 +1514,10 @@ msgstr "(tanpa nomor baris)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(tidak ada perubahan tetapi salinan dibuat dari sini)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(tidak ada modifikasi namun relevan untuk salinan bekerja)"
 
 # ID:17,#:
 # ID:564,
@@ -3837,6 +3852,15 @@ msgstr "Hapus berkas log tindakan"
 msgid "Deleting"
 msgstr "Menghapus"
 
+#. Resource IDs: (348)
+msgid "Deleting cached data"
+msgstr "Menghapus data yang di tembolok"
+
+# ID:263,
+#. Resource IDs: (348)
+msgid "Deleting file"
+msgstr "Menghapus berkas"
+
 # Control-ID:1269,#:
 # Control-ID:1096,
 #. Resource IDs: (207)
@@ -4584,11 +4608,6 @@ msgstr "Ekstensi"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "Ekstensi atau tipe-mime:"
-
-# Control-ID:65535,
-#. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
 msgstr "Program spesifik Ekstensi/tipe-mime"
 
@@ -4886,6 +4905,17 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "Nama berkas"
+
+# Control-ID:65535,
+#. Resource IDs: (65535)
+msgid "Filename, extension or mime-type:"
+msgstr "Nama berkas, ekstensi atau tipe-mime:"
+
+# ID:74,#:
+# ID:207,
+#. Resource IDs: (74)
+msgid "Filename/Extension"
+msgstr "Nama Berkas/Ekstensi"
 
 # ID:63,#:
 # ID:74,#:
@@ -11519,6 +11549,12 @@ msgstr ""
 "Copy pekerjaan direlokasi ke\n"
 "%s"
 
+# Control-ID:1183,
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "Salinan bekerja: %s\n"
+
 # ID:73,
 #. Resource IDs: (73)
 msgid "Yes"
@@ -11909,6 +11945,11 @@ msgstr ""
 "tanyakan repositori terlebih dahulu jika 'daring' -\n"
 "bekerja seluruhnya dari tembolok jika 'luring'"
 
+# ID:114,
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "revisi ini"
+
 # ID:245,
 #. Resource IDs: (245)
 msgid "author"
@@ -12014,6 +12055,11 @@ msgstr "jumlah perubahan:"
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "komit"
+
+# Control-ID:65535,
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "revisi yang sudah di komit"
 
 # ID:11,
 #. Resource IDs: (11)
@@ -12160,6 +12206,16 @@ msgstr "&Editor log teks"
 msgid "max revision: "
 msgstr "revisi maks:"
 
+# ID:114,
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "max. revisi ini"
+
+# Control-ID:65535,
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "max. revisi yang sudah di komit"
+
 # ID:11,#:
 # Control-ID:65535,
 #. Resource IDs: (11, 65535)
@@ -12169,6 +12225,16 @@ msgstr "digabung"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "total penggabungan: "
+
+# ID:114,
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "min. revisi ini"
+
+# Control-ID:65535,
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "min. revisi yang sudah di komit"
 
 # ID:10,
 #. Resource IDs: (10)
