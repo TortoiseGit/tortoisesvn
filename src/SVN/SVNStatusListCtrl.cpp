@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2250,7 +2250,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 		CMenu ignoreSubMenu;
 		if (popup.CreatePopupMenu())
 		{
-			if ((wcStatus >= svn_wc_status_normal)&&(wcStatus != svn_wc_status_ignored))
+			if ((wcStatus >= svn_wc_status_normal)&&(wcStatus != svn_wc_status_ignored)&&(wcStatus != svn_wc_status_external))
 			{
 				if (m_dwContextMenus & SVNSLC_POPCOMPAREWITHBASE)
 				{
@@ -5577,4 +5577,3 @@ HRESULT STDMETHODCALLTYPE CSVNStatusListCtrlDropTarget::DragOver(DWORD grfKeySta
 
 	return S_OK;
 }
-
