@@ -606,6 +606,11 @@ bool CMainFrame::LoadViews(int line)
 	int nOldLineNumber =
 		m_pwndLeftView && m_pwndLeftView->m_pViewData ?
 		m_pwndLeftView->m_pViewData->GetLineNumber(m_pwndLeftView->m_nTopLine) : -1;
+	int nOldCaretPos = -1;
+	if (m_pwndRightView && m_pwndRightView->HasCaret())
+		nOldCaretPos = m_pwndRightView->GetCaretPosition().y;
+	if (m_pwndBottomView && m_pwndBottomView->HasCaret())
+		nOldCaretPos = m_pwndBottomView->GetCaretPosition().y;
 	if (!m_Data.Load())
 	{
 		::MessageBox(m_hWnd, m_Data.GetError(), _T("TortoiseMerge"), MB_ICONERROR);
@@ -790,6 +795,8 @@ bool CMainFrame::LoadViews(int line)
 		POINT p;
 		p.x = 0;
 		p.y = n;
+		if (nOldCaretPos >= 0)
+			p.y = nOldCaretPos;
 		m_pwndLeftView->SetCaretPosition(p);
 		m_pwndRightView->SetCaretPosition(p);
 		m_pwndBottomView->SetCaretPosition(p);

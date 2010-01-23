@@ -66,6 +66,7 @@ public:
 	void			UseCaret(bool bUse = true) {m_bCaretHidden = !bUse;}
 	bool			HasCaret() const {return !m_bCaretHidden;}
 	void			SetCaretPosition(const POINT& pt) {m_ptCaretPos = pt; m_nCaretGoalPos = pt.x; UpdateCaret();}
+	POINT			GetCaretPosition() { return m_ptCaretPos; }
 	void			UpdateCaretPosition(const POINT& pt) {m_ptCaretPos = pt; UpdateCaret();}
 	void			EnsureCaretVisible();
 	void			UpdateCaret();
