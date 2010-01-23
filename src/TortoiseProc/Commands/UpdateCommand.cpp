@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,8 +26,9 @@
 
 bool UpdateCommand::Execute()
 {
+	CRegDWORD updateExternals(_T("Software\\TortoiseSVN\\IncludeExternals"), true);
 	SVNRev rev = SVNRev(_T("HEAD"));
-	int options = 0;
+	int options = DWORD(updateExternals) ? 0 : ProgOptIgnoreExternals;
 	svn_depth_t depth = svn_depth_unknown;
 	DWORD exitcode = 0;
 	CString error;
@@ -52,7 +53,10 @@ bool UpdateCommand::Execute()
 		{
 			rev = dlg.Revision;
 			depth = dlg.m_depth;
-			options |= dlg.m_bNoExternals ? ProgOptIgnoreExternals : 0;
+			if (dlg.m_bNoExternals)
+				options |= ProgOptIgnoreExternals;
+			else
+				options &= ~ProgOptIgnoreExternals;
 		}
 		else 
 			return FALSE;
@@ -65,6 +69,8 @@ bool UpdateCommand::Execute()
 			depth = svn_depth_empty;
 		if (parser.HasKey(_T("ignoreexternals")))
 			options |= ProgOptIgnoreExternals;
+		if (parser.HasKey(_T("updateexternals")))
+			options &= ~ProgOptIgnoreExternals;
 	}
 
 	CSVNProgressDlg progDlg;

@@ -205,8 +205,9 @@ Don't touch these lines:
 								then a dialog is shown to ask the user to which
 								revision the update should go. To avoid the dialog
 								specify a revision number <option>/rev:1234</option>.
-								Other options are <option>/nonrecursive</option> and
-								<option>/ignoreexternals</option>.
+								Other options are <option>/nonrecursive</option>,
+								<option>/ignoreexternals</option> and 
+								<option>/includeexternals</option>.
 							</entry>
 						</row>
 						<row>

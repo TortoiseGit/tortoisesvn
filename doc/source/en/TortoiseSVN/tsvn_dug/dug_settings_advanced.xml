@@ -241,5 +241,20 @@
 				</para>
 			</listitem>
 		</varlistentry>
+		<varlistentry>
+			<term condition="pot">IncludeExternals</term>
+			<listitem>
+				<para>
+					By default, TortoiseSVN always runs an update with externals
+					included. This avoids problems with inconsistent working copies.
+					If you have however a lot of externals set, an update can
+					take quite a while. Set this value to <literal>false</literal>
+					to run the default update with externals excluded. To
+					update with externals included, either run the
+					<literal>Update to revision...</literal> dialog or set this
+					value to <literal>true</literal> again.
+				</para>
+			</listitem>
+		</varlistentry>
 	</variablelist>
 </sect2>

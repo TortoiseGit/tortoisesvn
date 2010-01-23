@@ -45,6 +45,7 @@ CSettingsAdvanced::AdvancedSetting CSettingsAdvanced::settings[] =
 	{ _T("AutocompleteRemovesExtensions"), CSettingsAdvanced::SettingTypeBoolean, false },
 	{ _T("MergeLogSeparator"), CSettingsAdvanced::SettingTypeString, _T("........") },
 	{ _T("DiffBlamesWithTortoiseMerge"), CSettingsAdvanced::SettingTypeBoolean, false },
+	{ _T("IncludeExternals"), CSettingsAdvanced::SettingTypeBoolean, true },
 
 	{ _T(""), CSettingsAdvanced::SettingTypeNone, false }
 };
