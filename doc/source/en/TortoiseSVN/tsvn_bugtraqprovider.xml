@@ -33,6 +33,13 @@
       need to build your plugin.
       (<xref linkend="tsvn-preface-source"/> explains how to access the repository).
     </para>
+	<important>
+		<para>
+			You should provide both a 32-bit and 64-bit version of your
+			plugin. Because the x64-Version of TortoiseSVN can not use a 32-bit
+			plugin and vice-versa.
+		</para>
+	</important>
   </simplesect>
   <!-- ================================================================= -->
   <!-- ======================== SECTION 1 ============================== -->
@@ -40,7 +47,7 @@
   <sect1 id="tsvn-ibugtraqprovider-1">
     <title>The IBugtraqProvider interface</title>
     <para>
-      TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider
+      TortoiseSVN 1.5 and later can use plugins which implement the IBugtraqProvider
       interface. The interface provides a few methods which plugins can
       use to interact with the issue tracker.
     </para>
