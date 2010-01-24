@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-01-13 23:22 +0000\n"
-"PO-Revision-Date: 2010-01-17 21:43+0100\n"
+"POT-Creation-Date: 2010-01-24 07:47 +0000\n"
+"PO-Revision-Date: 2010-01-24 21:36+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1475,7 +1475,7 @@ msgstr "Istaliranje svnserva"
 
 #. (para)
 msgid "Get the latest version of Subversion from <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>. Alternatively get a pre-packaged installer from CollabNet at <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. This installer will setup svnserve as a Windows service, and also includes some of the tools you need if you are going to use SASL for security."
-msgstr "Uzmite zadnju verziju Subverije sa <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>.. Alternativno uzmite upakovanu instalaciju od KolabNeta sa <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>.  Ova instalacija će podesiti svnserv kao Vindouz servis, takđe uključuje neke alate koji su vam potrebni ako nameravate da koristite SASL za sigurnost."
+msgstr "Uzmite zadnju verziju Subverije sa <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>. Alternativno uzmite upakovanu instalaciju od KolabNeta sa <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>.  Ova instalacija će podesiti svnserv kao Vindouz servis, takđe uključuje neke alate koji su vam potrebni ako nameravate da koristite SASL za sigurnost."
 
 #. (para)
 msgid "If you already have a version of Subversion installed, and svnserve is running, you will need to stop it before continuing."
@@ -9519,6 +9519,10 @@ msgstr "Kada stapate revizije iz druge grane, i informacije praćenja stapanja s
 msgid "TortoiseSVN allows you to assign an external diff viewer. Most such viewers, however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To do so, set this value to <literal>true</literal>."
 msgstr "TortoiseSVN dopušta da označite spoljašnji diff pregledač. Većina takvih pregledača, međutim, ne odgovara za izmenu okrivljavanja  (<xref linkend=\"tsvn-dug-blame-diffs\"/>), tako da možete želeti da se vratite TortoiseMerge u tom slučaju. Da biste to uradili  kreirajte  podesite ovu vrednost na <literal>istina</literal>."
 
+#. (para)
+msgid "By default, TortoiseSVN always runs an update with externals included. This avoids problems with inconsistent working copies. If you have however a lot of externals set, an update can take quite a while. Set this value to <literal>false</literal> to run the default update with externals excluded. To update with externals included, either run the <literal>Update to revision...</literal> dialog or set this value to <literal>true</literal> again."
+msgstr "Uobičajeno, TortoiseSVN uvek radi ažuriranje sa uključenim eksternalima. Ovo isključuje probleme sa nekonzistentnim radnim kopijama. Ako međutim imate setovan deo eksternala ažuriranje može da uzme neko vreme. Podesite ovu vrednost na <literal>laž</literal> da uradite uobičajeno ažuriranje sa isljučenim eksternalima. Da ažurirate sa uključenim eksternalima, ili izvršite <literal>Ažuriraj prema reviziji...</literal>  dijalog ili podesite ovu vrednost na <literal>istina</literal> ponovo."
+
 #. (title)
 msgid "Final Step"
 msgstr "Finalni korak"
@@ -10286,13 +10290,17 @@ msgstr "Da bi dobili čvršću integraciju sa problem tragačem jednostavnim kor
 msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
 msgstr "Ne možemo obezbediti informaciju i tutorijale o tome kako da primenite COM objekte u vašim izabranim programskim jezicima, ali imamo primere plagina u C++/ATL i C# u vašem spremištu u <filename>contrib/issue-tracker-plugins</filename>  imenik. U imeniku možete takođe naći željene fajlove za uključivanje koji su vam potrebni da napravite plagin. (<xref linkend=\"tsvn-preface-source\"/>  objašnjava kako pristupiti spremištu)."
 
+#. (para)
+msgid "You should provide both a 32-bit and 64-bit version of your plugin. Because the x64-Version of TortoiseSVN can not use a 32-bit plugin and vice-versa."
+msgstr ""
+
 #. (title)
 msgid "The IBugtraqProvider interface"
 msgstr "IBagtragačSnabdevač interfejs"
 
 #. (para)
-msgid "TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
-msgstr "TortoiseSVN 1.5 može koristiti plagine koji implementiraju IBagtagačSnabdevač interfejs. Interfejs obezbeđuje nekoliko metoda čiji plagini se mogu koristiti da interaguju sa problem tragačem."
+msgid "TortoiseSVN 1.5 and later can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
+msgstr "TortoiseSVN 1.5 i kasnije mogu koristiti plagine koji implementiraju IBagtagačSnabdevač interfejs. Interfejs obezbeđuje nekoliko metoda čiji plagini se mogu koristiti da interaguju sa problem tragačem."
 
 #. (programlisting)
 #, no-wrap
@@ -11578,9 +11586,13 @@ msgstr "/nonrecursive"
 msgid "/ignoreexternals"
 msgstr "/ignoreexternals"
 
+#. (option)
+msgid "/includeexternals"
+msgstr "/uključieksternale"
+
 #. (entry)
-msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/> and <placeholder-5/>."
-msgstr "Ažurira radnu kopiju u <placeholder-1/> ka GLAVNOJ. Ako je opcija <placeholder-2/> data tada je prikazani dijalog da pita korisnika ka kojoj reviziji ažuriranje treba da ide. Da bi se izbegao dijalog specificirajte broj revizije <placeholder-3/>. Druge opcije su <placeholder-4/> i <placeholder-5/>."
+msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and <placeholder-6/>."
+msgstr "Ažurira radnu kopiju u <placeholder-1/> ka GLAVNOJ. Ako je opcija <placeholder-2/> data tada je prikazani dijalog da pita korisnika ka kojoj reviziji ažuriranje treba da ide. Da bi se izbegao dijalog specificirajte broj revizije <placeholder-3/>. Druge opcije su <placeholder-4/> , <placeholder-5/> i <placeholder-6/>."
 
 #. (option)
 #. (option)

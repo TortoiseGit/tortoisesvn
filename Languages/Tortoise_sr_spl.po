@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-11 20:43+0100\n"
+"PO-Revision-Date: 2010-01-24 21:19+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1148,6 +1148,10 @@ msgstr "&Podešavanje"
 msgid "&Show HEAD revisions"
 msgstr "&Prikaži GLAVNE revizije"
 
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "&Prikaži Dnevnik"
+
 #
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
@@ -1446,6 +1450,10 @@ msgstr "(nema brojeva linija)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(nema izmena ali je kopija kreirana odavde)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(nema izmena ali je relevantna za radnu kopiju)"
 
 #
 #. Resource IDs: (214)
@@ -3374,6 +3382,14 @@ msgstr "Briše fajl dnevnika akcija"
 msgid "Deleting"
 msgstr "Brisanje"
 
+#. Resource IDs: (348)
+msgid "Deleting cached data"
+msgstr "Brisanje nađenih podataka"
+
+#. Resource IDs: (348)
+msgid "Deleting file"
+msgstr "Brisanje fajla"
+
 #. Resource IDs: (207)
 msgid "Depth"
 msgstr "Dubina"
@@ -3996,10 +4012,6 @@ msgid "Extension"
 msgstr "Nastavak"
 
 #. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "Nastavak ili mime-tip:"
-
-#. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
 msgstr "Programi koji ovise o nastavku (vrsti fajlovi)"
 
@@ -4246,6 +4258,14 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "Fajlime"
+
+#. Resource IDs: (65535)
+msgid "Filename, extension or mime-type:"
+msgstr "Fajlime, nastavak ili mime-tip:"
+
+#. Resource IDs: (74)
+msgid "Filename/Extension"
+msgstr "Fajlime/Nastavak"
 
 #. Resource IDs: (1512)
 msgid "Files"
@@ -8269,7 +8289,7 @@ msgid ""
 "expression = %3!s!"
 msgstr ""
 "Subverzija je naišla na ozbiljan problem.\n"
-"Molimo vas da nađete vremena da nas izvestite na našu mejling listu\n"
+"Molimo vas da nađete vremena da nas izvestite na Subverzionu mejling listu\n"
 "(users@subversion.apache.org)\n"
 "sa što više  moguće informacija o tome šta \n"
 "ste pokušali da uradite.\n"
@@ -9941,6 +9961,11 @@ msgstr ""
 "Radna kopija premeštena na \n"
 "%s"
 
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "Radna kopija: %s\n"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Da"
@@ -10295,6 +10320,10 @@ msgstr ""
 "prvo proveri spremište (ako veza postoji)  -\n"
 "radi potpuno iz keša (ako nema veze)"
 
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "u ovoj reviziji"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "autor"
@@ -10388,6 +10417,10 @@ msgstr "ukupno izmena:"
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "urezivanja"
+
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "urezana revizija"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10511,6 +10544,14 @@ msgstr "ur&eđivač teksta dnevnika"
 msgid "max revision: "
 msgstr "maks. revizija:"
 
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "maks. u  ovoj reviziji"
+
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "maks. urezana revizija"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "stopljeno"
@@ -10518,6 +10559,14 @@ msgstr "stopljeno"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "stapanje ukupno:"
+
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "min. u ovoj reviziji"
+
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "min. urezana revizija"
 
 #. Resource IDs: (10)
 msgid "missing"
