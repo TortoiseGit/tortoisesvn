@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -214,6 +214,7 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARA
 				return 0;
 
 			//Gets the dimensions of the windows
+			const int controlHeight = ::GetSystemMetrics(SM_CYMENUCHECK) + 4;
 			GetWindowRect(hwnd,&Dialog);
 			GetWindowRect(ListView,&ListViewRect);
 			POINT pt;
@@ -229,22 +230,22 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARA
 			ListViewRect.right = pt.x;
 			//Sets the list view controls dimensions
 			SetWindowPos(ListView,0,ListViewRect.left,
-				bSecondCheckbox ? ListViewRect.top+40 : ListViewRect.top+20,
+				bSecondCheckbox ? ListViewRect.top+(2*controlHeight) : ListViewRect.top+controlHeight,
 				(ListViewRect.right-ListViewRect.left),
-				bSecondCheckbox ? (ListViewRect.bottom - ListViewRect.top)-40 : (ListViewRect.bottom - ListViewRect.top)-20,
+				bSecondCheckbox ? (ListViewRect.bottom - ListViewRect.top)-(2*controlHeight) : (ListViewRect.bottom - ListViewRect.top)-controlHeight,
 				SWP_NOZORDER);
 			//Sets the window positions of checkbox and dialog controls
 			SetWindowPos(checkbox,HWND_BOTTOM,ListViewRect.left,
 				ListViewRect.top,
 				(ListViewRect.right-ListViewRect.left),
-				14,
+				controlHeight,
 				SWP_NOZORDER);
 			if (bSecondCheckbox)
 			{
 				SetWindowPos(checkbox2,HWND_BOTTOM,ListViewRect.left,
-					ListViewRect.top+20,
+					ListViewRect.top+controlHeight,
 					(ListViewRect.right-ListViewRect.left),
-					14,
+					controlHeight,
 					SWP_NOZORDER);
 			}
 			HWND label = FindWindowEx(hwnd, NULL, _T("STATIC"), NULL);
