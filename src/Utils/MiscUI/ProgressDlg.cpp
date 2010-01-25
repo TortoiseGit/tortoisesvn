@@ -219,7 +219,7 @@ HRESULT CProgressDlg::ShowModeless(HWND hWndParent, BOOL immediately)
 		hr2 = pOleWindow->GetWindow(&m_hWndProgDlg);
 		if(SUCCEEDED(hr2))
 		{
-			ShowWindow(m_hWndProgDlg, SW_NORMAL);
+			ShowWindow(m_hWndProgDlg, SW_SHOW);
 		}
 	}
 	return hr;
