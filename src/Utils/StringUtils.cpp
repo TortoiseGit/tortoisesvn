@@ -212,12 +212,10 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID l
 	if (clipboardHelper.Open(hOwningWnd))
 	{
 		EmptyClipboard();
-		HGLOBAL hClipboardData;
-		hClipboardData = GlobalAlloc(GMEM_DDESHARE, sClipdata.GetLength()+1);
+		HGLOBAL hClipboardData = GlobalAlloc(GMEM_DDESHARE, sClipdata.GetLength()+1);
 		if (hClipboardData)
 		{
-			char * pchData;
-			pchData = (char*)GlobalLock(hClipboardData);
+			char* pchData = (char*)GlobalLock(hClipboardData);
 			if (pchData)
 			{
 				strcpy_s(pchData, sClipdata.GetLength()+1, (LPCSTR)sClipdata);
@@ -251,12 +249,10 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringW& sClipdata, HWND h
 	if (clipboardHelper.Open(hOwningWnd))
 	{
 		EmptyClipboard();
-		HGLOBAL hClipboardData;
-		hClipboardData = GlobalAlloc(GMEM_DDESHARE, (sClipdata.GetLength()+1)*sizeof(WCHAR));
+		HGLOBAL hClipboardData = GlobalAlloc(GMEM_DDESHARE, (sClipdata.GetLength()+1)*sizeof(WCHAR));
 		if (hClipboardData)
 		{
-			WCHAR * pchData;
-			pchData = (WCHAR*)GlobalLock(hClipboardData);
+			WCHAR* pchData = (WCHAR*)GlobalLock(hClipboardData);
 			if (pchData)
 			{
 				_tcscpy_s(pchData, sClipdata.GetLength()+1, (LPCWSTR)sClipdata);
@@ -284,12 +280,10 @@ bool CStringUtils::WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningW
 	if (clipboardHelper.Open(hOwningWnd))
 	{
 		EmptyClipboard();
-		HGLOBAL hClipboardData;
-		hClipboardData = GlobalAlloc(GMEM_DDESHARE, sClipdata.GetLength()+1);
+		HGLOBAL hClipboardData = GlobalAlloc(GMEM_DDESHARE, sClipdata.GetLength()+1);
 		if (hClipboardData)
 		{
-			char * pchData;
-			pchData = (char*)GlobalLock(hClipboardData);
+			char* pchData = (char*)GlobalLock(hClipboardData);
 			if (pchData)
 			{
 				strcpy_s(pchData, sClipdata.GetLength()+1, (LPCSTR)sClipdata);

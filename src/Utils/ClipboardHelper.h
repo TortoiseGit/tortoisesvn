@@ -24,13 +24,19 @@ class CClipboardHelper
 public:
 	CClipboardHelper() : bClipBoardOpen(false) {}
 	~CClipboardHelper();
-	bool Open(HWND hOwningWnd) { return ((bClipBoardOpen = !!OpenClipboard(hOwningWnd)) == true); }
+	bool Open(HWND hOwningWnd);
 private:
 	bool bClipBoardOpen;
 };
 
-CClipboardHelper::~CClipboardHelper()
+inline CClipboardHelper::~CClipboardHelper()
 {
 	if (bClipBoardOpen)
 		CloseClipboard();
+}
+
+inline bool CClipboardHelper::Open(HWND hOwningWnd)
+{
+	bClipBoardOpen = (OpenClipboard(hOwningWnd) != 0);
+	return bClipBoardOpen;
 }
