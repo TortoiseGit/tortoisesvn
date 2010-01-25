@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-11 11:55+0100\n"
+"PO-Revision-Date: 2010-01-25 11:34+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1006,6 +1006,10 @@ msgstr "&Inställningar"
 msgid "&Show HEAD revisions"
 msgstr "&Visa HEAD revisioner"
 
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "Vi&sa Logg"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "&Visa menyer för:"
@@ -1260,6 +1264,10 @@ msgstr "(inget radnummer)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(ingen modifikation men en kopia skapad härifrån)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(ingen modifikation men relevant för arbetskopian)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -3193,6 +3201,14 @@ msgstr "Tar bort åtgärdsloggfilen"
 msgid "Deleting"
 msgstr "Tar bort"
 
+#. Resource IDs: (348)
+msgid "Deleting cached data"
+msgstr "Raderar cashad data"
+
+#. Resource IDs: (348)
+msgid "Deleting file"
+msgstr "Raderar fil"
+
 #. Resource IDs: (207)
 msgid "Depth"
 msgstr "Djup"
@@ -3818,10 +3834,6 @@ msgid "Extension"
 msgstr "Filändelse"
 
 #. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "Filändelse eller mime-typ:"
-
-#. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
 msgstr "Filändelse- och mime-typ specifika program"
 
@@ -4069,6 +4081,14 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "Filnamn"
+
+#. Resource IDs: (65535)
+msgid "Filename, extension or mime-type:"
+msgstr "Filnamn, filändelse eller mime-typ:"
+
+#. Resource IDs: (74)
+msgid "Filename/Extension"
+msgstr "Filnamn/Filändelse"
 
 #. Resource IDs: (1512)
 msgid "Files"
@@ -9785,6 +9805,12 @@ msgstr ""
 "Arbetskopian omlokaliserad till\n"
 "%s"
 
+# Osäker på var denna visas
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "Arbetskopia: %s\n"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Ja"
@@ -10137,6 +10163,10 @@ msgstr ""
 "fråga arkivet först om 'uppkopplad' -\n"
 "arbeta helt från cachen om 'frånkopplad'"
 
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "vid denna revision"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "användarnamn"
@@ -10230,6 +10260,10 @@ msgstr "antal ändringar:"
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "arkiveringar"
+
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "arkiverade revision"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10354,6 +10388,14 @@ msgstr "logg text &editor"
 msgid "max revision: "
 msgstr "högsta revisionen:"
 
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "max. vid denna revision"
+
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "max. arkiverade revision"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "Förenad"
@@ -10361,6 +10403,14 @@ msgstr "Förenad"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "antal föreningar:"
+
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "min. vid denna revision"
+
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "min. arkiverade revision"
 
 #. Resource IDs: (10)
 msgid "missing"
