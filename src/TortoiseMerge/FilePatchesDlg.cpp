@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2008 - Stefan Kueng
+// Copyright (C) 2006, 2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -85,14 +85,9 @@ BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, 
 	}
 	else
 	{
-		CString title;
-		title.LoadString(IDS_PATCH_TITLE);
-		title += _T("  ") + m_sPath;
 		CRect rect;
 		GetClientRect(&rect);
-		PathCompactPath(GetDC()->m_hDC, title.GetBuffer(), rect.Width());
-		title.ReleaseBuffer();
-		SetWindowText(title);
+		SetTitleWithPath(rect.Width());
 		if (m_sPath.Right(1).Compare(_T("\\"))==0)
 			m_sPath = m_sPath.Left(m_sPath.GetLength()-1);
 
@@ -191,12 +186,7 @@ void CFilePatchesDlg::OnSize(UINT nType, int cx, int cy)
 		GetDlgItem(IDC_FILELIST)->MoveWindow(rect.left, rect.top, cx, cy);
 		m_cFileList.SetColumnWidth(0, cx);
 	}
-	CString title;
-	title.LoadString(IDS_PATCH_TITLE);
-	title += _T("  ") + m_sPath;
-	PathCompactPath(GetDC()->m_hDC, title.GetBuffer(), cx);
-	title.ReleaseBuffer();
-	SetWindowText(title);
+	SetTitleWithPath(cx);
 }
 
 void CFilePatchesDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -411,4 +401,14 @@ void CFilePatchesDlg::OnMoving(UINT fwSide, LPRECT pRect)
 void CFilePatchesDlg::OnOK()
 {
 	return;
+}
+
+void CFilePatchesDlg::SetTitleWithPath(int width)
+{
+	CString title;
+	title.LoadString(IDS_PATCH_TITLE);
+	title += _T("  ") + m_sPath;
+	PathCompactPath(GetDC()->m_hDC, title.GetBuffer(), width);
+	title.ReleaseBuffer();
+	SetWindowText(title);
 }

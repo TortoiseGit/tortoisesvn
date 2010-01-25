@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,7 +21,6 @@
 #include "PathEdit.h"
 #include "StringUtils.h"
 
-
 // CPathEdit
 
 IMPLEMENT_DYNAMIC(CPathEdit, CEdit)
@@ -34,11 +33,8 @@ CPathEdit::~CPathEdit()
 {
 }
 
-
 BEGIN_MESSAGE_MAP(CPathEdit, CEdit)
 END_MESSAGE_MAP()
-
-
 
 // CPathEdit message handlers
 
@@ -51,21 +47,8 @@ LRESULT CPathEdit::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_SIZE:
 		{
-			CRect rect;
-			GetClientRect(&rect);
-			rect.right -= 5;	// assume a border size of 5 pixels
 			CString path = m_sRealText;
-
-			CDC * pDC = GetDC();
-			if (pDC)
-			{
-				CFont * pFont = pDC->SelectObject(GetFont());
-				PathCompactPath(pDC->m_hDC, path.GetBuffer(), rect.Width());
-				pDC->SelectObject(pFont);
-				ReleaseDC(pDC);
-			}
-			path.ReleaseBuffer();
-			path.Replace('\\', '/');
+			FitPathToWidth(path);
 			m_bInternalCall = true;
 			CEdit::SendMessage(WM_SETTEXT, 0, (LPARAM)(LPCTSTR)path);
 			m_bInternalCall = false;
@@ -75,22 +58,8 @@ LRESULT CPathEdit::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_SETTEXT:
 		{
 			m_sRealText = (LPCTSTR)lParam;
-
-			CRect rect;
-			GetClientRect(&rect);
-			rect.right -= 5;	// assume a border size of 5 pixels
 			CString path = m_sRealText;
-
-			CDC * pDC = GetDC();
-			if (pDC)
-			{
-				CFont * pFont = pDC->SelectObject(GetFont());
-				PathCompactPath(pDC->m_hDC, path.GetBuffer(), rect.Width());
-				pDC->SelectObject(pFont);
-				ReleaseDC(pDC);
-			}
-			path.ReleaseBuffer();
-			path.Replace('\\', '/');
+			FitPathToWidth(path);
 			lParam = (LPARAM)(LPCTSTR)path;
 			LRESULT ret = CEdit::DefWindowProc(message, wParam, lParam);
 			return ret;
@@ -117,4 +86,22 @@ LRESULT CPathEdit::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 	}
 
 	return CEdit::DefWindowProc(message, wParam, lParam);
+}
+
+void CPathEdit::FitPathToWidth(CString& path)
+{
+	CRect rect;
+	GetClientRect(&rect);
+	rect.right -= 5;	// assume a border size of 5 pixels
+	
+	CDC * pDC = GetDC();
+	if (pDC)
+	{
+		CFont* previousFont = pDC->SelectObject(GetFont());
+		PathCompactPath(pDC->m_hDC, path.GetBuffer(), rect.Width());
+		path.ReleaseBuffer();
+		pDC->SelectObject(previousFont);
+		ReleaseDC(pDC);
+	}
+	path.Replace('\\', '/');
 }

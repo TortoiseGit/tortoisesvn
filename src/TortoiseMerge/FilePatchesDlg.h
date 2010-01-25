@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2008 - Stefan Kueng
+// Copyright (C) 2006, 2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -107,4 +107,5 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 	CString GetFullPath(int nIndex);
+	void SetTitleWithPath(int width);
 };

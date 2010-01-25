@@ -375,7 +375,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 		for (int i=0;i<m_svnPaths.GetCount();i++)
 		{
 			CString str = m_svnPaths[i].GetWinPathString();
-			wcscpy_s(pCurrentFilename, str.GetLength()+1, str.GetBuffer());
+			wcscpy_s(pCurrentFilename, str.GetLength()+1, (LPCWSTR)str);
 			pCurrentFilename += str.GetLength();
 			*pCurrentFilename = '\0'; // separator between file names
 			pCurrentFilename++;
