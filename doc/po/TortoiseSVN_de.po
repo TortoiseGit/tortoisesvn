@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-01-13 23:22 +0000\n"
-"PO-Revision-Date: 2010-01-22 14:47+0100\n"
+"POT-Creation-Date: 2010-01-24 07:47 +0000\n"
+"PO-Revision-Date: 2010-01-25 13:17+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9554,6 +9554,10 @@ msgstr "Wenn Sie Revisionen von einem anderen Zweig zusammenführen und die Funk
 msgid "TortoiseSVN allows you to assign an external diff viewer. Most such viewers, however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To do so, set this value to <literal>true</literal>."
 msgstr "TortoiseSVN ermöglicht es ihnen, externe Vergleichsprogramme zu verwenden. Die meisten dieser Programme sind allerdings nicht dazu in de Lage, Änderungen zu annotieren (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so dass Sie dafür wieder TortoiseMerge verwenden möchten. Zu diesem Zweck setzen Sie den Wert auf <literal>true</literal>."
 
+#. (para)
+msgid "By default, TortoiseSVN always runs an update with externals included. This avoids problems with inconsistent working copies. If you have however a lot of externals set, an update can take quite a while. Set this value to <literal>false</literal> to run the default update with externals excluded. To update with externals included, either run the <literal>Update to revision...</literal> dialog or set this value to <literal>true</literal> again."
+msgstr "Standardmäßig aktualisiert TortoiseSVN seine Arbeitskopien inklusive der externen Verweise. Das vermeidet Probleme mit inkonsistenten Arbeitskopien. Wenn Sie viele externe Verweise definiert haben, kann die Aktualisierunge eine gewisse Zeit in Anspruch nehmen. Setzen Sie diesen Wert auf <literal>false</literal>, damit TortoiseSVN die externen Verweise standardmäßig nicht aktualisiert. Um diese zu aktualisieren, rufen Sie entweder die Funktion <literal>Aktualisiere zu Revision ...</literal> auf oder setzen Sie den Wert wieder auf <literal>true</literal>."
+
 #. (title)
 msgid "Final Step"
 msgstr "Letzter Schritt"
@@ -10320,13 +10324,17 @@ msgstr "Um Fehlerverfolgungssysteme besser als durch die <literal>bugtraq:</lite
 msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
 msgstr "Wir können Ihnen keine Anleitung liefern, wie Sie ein COM Objekt in Ihrer bevorzugten Programmiersprache erstellen, aber wir haben einige Beispielmodule in C++/ATL und C# in dem Ordner <filename>contrib/issue-tracker-plugins</filename> unseres Projektarchivs. In diesem Ordner finden sich auch die nötigen Includedateien, die Sie zum Erstellen Ihres Moduls benötigen. (<xref linkend=\"tsvn-preface-source\"/> erklärt, wie Sie auf das Projektarchiv zugreifen."
 
+#. (para)
+msgid "You should provide both a 32-bit and 64-bit version of your plugin. Because the x64-Version of TortoiseSVN can not use a 32-bit plugin and vice-versa."
+msgstr "Sie sollten sowohl eine 32-Bit als auch eine 64-Bit Version Ihres Moduls zur Verfügung stellen, weil die x64-Version von TortoiseSVN keine 32-Bit Module verwenden kann und umgekehrt."
+
 #. (title)
 msgid "The IBugtraqProvider interface"
 msgstr "Die IBugtraqProvider Schnittstelle"
 
 #. (para)
-msgid "TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
-msgstr "TortoiseSVN 1.5 unterstützt Module, die die IBugtraqProvider Schnittstelle implementieren. Diese Schnittstelle stellt die folgenden Methoden für die Kommunikation mit dem Fehlerverfolgungssystem zur Verfügung:"
+msgid "TortoiseSVN 1.5 and later can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
+msgstr "TortoiseSVN 1.5 und neuer unterstützen Module, die die IBugtraqProvider Schnittstelle implementieren. Diese Schnittstelle stellt die folgenden Methoden für die Kommunikation mit dem Fehlerverfolgungssystem zur Verfügung:"
 
 #. (programlisting)
 #, no-wrap
@@ -11613,9 +11621,13 @@ msgstr "/nonrecursive"
 msgid "/ignoreexternals"
 msgstr "/ignoreexternals"
 
+#. (option)
+msgid "/includeexternals"
+msgstr "/includeexternals"
+
 #. (entry)
-msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/> and <placeholder-5/>."
-msgstr "Aktualisiert die Arbeitskopie in <placeholder-1/> zur HEAD Revision. Bei Angabe von <placeholder-2/> wird ein Dialog angezeigt, in dem der Anwender angeben kann, zu welcher Revision aktualisiert werden soll. Um die Anzeige des Dialogs zu vermeiden, geben Sie eine Revisionsnummer an <placeholder-3/>. Weitere Optionen sind <placeholder-4/> und <placeholder-5/>."
+msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and <placeholder-6/>."
+msgstr "Aktualisiert die Arbeitskopie in <placeholder-1/> zur HEAD Revision. Bei Angabe von <placeholder-2/> wird ein Dialog angezeigt, in dem der Anwender angeben kann, zu welcher Revision aktualisiert werden soll. Um die Anzeige des Dialogs zu vermeiden, geben Sie eine Revisionsnummer an <placeholder-3/>. Weitere Optionen sind <placeholder-4/>, <placeholder-5/> und <placeholder-6/>."
 
 #. (option)
 #. (option)
