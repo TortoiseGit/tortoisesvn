@@ -21,9 +21,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-09 18:46 +0000\n"
-"PO-Revision-Date: 2009-11-25 10:52+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"POT-Creation-Date: 2010-01-10 08:44 +0000\n"
+"PO-Revision-Date: 2010-01-19 09:41+0100\n"
+"Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -460,6 +460,21 @@ msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane 
 msgstr "<guibutton>Prepnúť pohľad</guibutton> prepína medzi jedno- a dvoj-panelovým zobrazením. Zakázané pri troj-panelovom zobrazení."
 
 #. (para)
+#. (para)
+msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
+msgstr "<guilabel>Porovnávať biele znaky</guilabel> zobrazí všetky zmeny v odsadení a zmeny bielych znakov vrámci riadkov, ako pridané/vymazané (, čo je spôsob, ako Subversion spracováva takéto zmeny)."
+
+#. (para)
+#. (para)
+msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+msgstr "<guilabel>Ignorovať zmeny bielych znakov</guilabel> skryje zmeny, ktoré sú zmenami len v počte a type bielych znakov, ako je zmena odsadenia, alebo zmena tabulátorov za medzery. Pridanie bieleho znaku kde predtým nebol, alebo úplné odstránenie bieleho znaku je stále označené ako zmena."
+
+#. (para)
+#. (para)
+msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
+msgstr "<guilabel>Ignorovať biele znaky</guilabel> skryje zmeny, kde boli zmenené len biele (netlačené) znaky."
+
+#. (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
 msgstr "<guibutton>Prepnúť Ľavý a Pravý pohľad</guibutton> V dvoj-panelovom zobrazení, vymení ľavé a pravé okno. Keď pozeráte súbor z dvoch rôznych ciest, na rozdiel od dvoch verzií toho istého súboru, TortoiseSVN nevie, ktorý súbor má byť na ľavom panely označenom <quote>original/základ</quote> verzia. Ak je to zlé, môžete ich vymeniť a zjednodušiť si prezeranie."
 
@@ -468,8 +483,16 @@ msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patc
 msgstr "<guibutton>Zobraziť/Skryť zoznam záplat</guibutton> Keď TortoiseMerge má zoznam záplat, toto tlačítko vám umožní ho skryť (takže môžete vidieť obe okná), alebo zobraziť (takže ho môžete prezerať)."
 
 #. (para)
+msgid "<guilabel>Collapse</guilabel> collapses unchanged regions to a single line, leaving only the changed areas and minimal context. You can expand the collapsed areas by double clicking on the collapse line, but you cannot then re-collapse them unless you reload the file."
+msgstr ""
+
+#. (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
 msgstr "<guibutton>Nastavenia</guibutton> zobrazí dialógové okno nastavenia pre TortoiseMerge."
+
+#. (para)
+msgid "<guibutton>Help</guibutton> opens the TortoiseMerge help file, of course."
+msgstr "<guibutton>Pomoc</guibutton> prirodzene otvorí nápovedu pre TortoiseMerge."
 
 #. (para)
 msgid "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
@@ -630,18 +653,6 @@ msgstr "<guilabel>Ignorovať zmeny vo veľkosti písma</guilabel> skryje zmeny, 
 #. (para)
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
 msgstr "<guilabel>Farebné zobrazenie zmien v riadku</guilabel> používa rovnakú farebnú schému ako panel porovnania riadkov na zobrazenie zmien riadkov hlavných paneloch. Riadky s veľa zmenami nie sú zobrazené touto metódou, pretože výsledok by bol mätúci. V takomto prípade je riadok zobrazení ako zamenený (starý riadok vymazaný, nový riadok pridaný)."
-
-#. (para)
-msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
-msgstr "<guilabel>Porovnávať biele znaky</guilabel> zobrazí všetky zmeny v odsadení a zmeny bielych znakov vrámci riadkov, ako pridané/vymazané (, čo je spôsob, ako Subversion spracováva takéto zmeny)."
-
-#. (para)
-msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Ignorovať zmeny bielych znakov</guilabel> skryje zmeny, ktoré sú zmenami len v počte a type bielych znakov, ako je zmena odsadenia, alebo zmena tabulátorov za medzery. Pridanie bieleho znaku kde predtým nebol, alebo úplné odstránenie bieleho znaku je stále označené ako zmena."
-
-#. (para)
-msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
-msgstr "<guilabel>Ignorovať biele znaky</guilabel> skryje zmeny, kde boli zmenené len biele (netlačené) znaky."
 
 #. (title)
 msgid "Colour Settings Page"
