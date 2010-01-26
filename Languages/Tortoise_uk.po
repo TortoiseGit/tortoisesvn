@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-12-30 23:36+0100\n"
-"Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
+"PO-Revision-Date: 2010-01-26 15:20+0300\n"
+"Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -989,6 +989,10 @@ msgstr "&Налаштування"
 msgid "&Show HEAD revisions"
 msgstr "По&казувати HEAD-модифікації"
 
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "Показати &Лог"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "По&казати меню для:"
@@ -1240,7 +1244,11 @@ msgstr "(немає номера рядка)"
 
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
-msgstr "(немає змін окрім копії створеної свідси)"
+msgstr "(немає змін окрім копії створеної звідси)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(немає змін окрім відповідних робочій копії)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -1360,8 +1368,12 @@ msgid "A list of user defined properties for folders to show in the combo box"
 msgstr "Список визначених користувачем властивостей каталогів для відображення у комбінованому списку"
 
 #. Resource IDs: (201)
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
-msgstr "Є в наявності нова версія. Відвідайте http://tortoisesvn.tigris.org і скачайте поточну версію! Клацніть _тут_ щоб вирушити просто на наш вебсайт."
+msgid ""
+"A newer version is available.\r\n"
+"Please go to http://tortoisesvn.tigris.org and download the current version."
+msgstr ""
+"Є в наявності нова версія.\r\n"
+"Відвідайте http://tortoisesvn.tigris.org і скачайте її."
 
 #. Resource IDs: (195)
 msgid ""
@@ -1585,6 +1597,10 @@ msgid ""
 msgstr ""
 "Коригувати налаштування\n"
 "Налаштування"
+
+#. Resource IDs: (307)
+msgid "Advanced"
+msgstr "Хитріше"
 
 #. Resource IDs: (170)
 msgid "Advanced Diff/Merge Settings"
@@ -1879,10 +1895,6 @@ msgstr ""
 #. Resource IDs: (438)
 msgid "Automatic"
 msgstr "Автоматичне"
-
-#. Resource IDs: (1073)
-msgid "Automatically check for &newer versions every week"
-msgstr "Автоматично перевіряти щотижня наявність &нових версій"
 
 #. Resource IDs: (306)
 msgid "Autotext Tester"
@@ -2194,6 +2206,10 @@ msgstr "Перевірити на моди&фікування"
 msgid "Check for modifications"
 msgstr "Перевірити на модифікування"
 
+#. Resource IDs: (65535)
+msgid "Check for updates"
+msgstr "Перевірити наявність оновлень"
+
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Вивірити робочу копію зі сховища"
@@ -2277,8 +2293,8 @@ msgstr "Очищується"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%s\""
-msgstr "Очищується каталог \"%s\""
+msgid "Cleaning up directory \"%1!s!\""
+msgstr "Очищується каталог \"%1!s!\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2558,8 +2574,8 @@ msgstr "Порівнює вибраний файл із файлом у схов
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Comparing %s to %s"
-msgstr "Порівнюються %s з %s"
+msgid "Comparing %1!s! to %2!s!"
+msgstr "Порівнюються %1!s! з %2!s!"
 
 #. Resource IDs: (74)
 msgid "Completed"
@@ -3150,6 +3166,14 @@ msgstr "Знищує файл з логом дій"
 msgid "Deleting"
 msgstr "Знищується"
 
+#. Resource IDs: (348)
+msgid "Deleting cached data"
+msgstr "Знищуються кешовані дані"
+
+#. Resource IDs: (348)
+msgid "Deleting file"
+msgstr "Знищується файл"
+
 #. Resource IDs: (207)
 msgid "Depth"
 msgstr " Глибина"
@@ -3358,6 +3382,14 @@ msgid ""
 msgstr ""
 "Документація : Simon Large (Семен Великий)\n"
 "Код : Tobias Schäfer (Тобіас Шофер), Stefan Fuhrmann (Степан Фірман)"
+
+#. Resource IDs: (94)
+msgid ""
+"Don't make the checkout directory a sparse working copy.\n"
+"Instead, all URLs get checked out into a separate\n"
+"working copies next to each other.\n"
+"This works for directory URLs only."
+msgstr ""
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -3758,10 +3790,6 @@ msgid "Extension"
 msgstr "Розширення"
 
 #. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "Розширення або тип mime:"
-
-#. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
 msgstr "Програми, специфічні для розширення/типу mime"
 
@@ -4009,6 +4037,14 @@ msgstr ""
 msgid "Filename"
 msgstr "Ім'я файла"
 
+#. Resource IDs: (65535)
+msgid "Filename, extension or mime-type:"
+msgstr "Ім'я файлу, розширення або тип mime:"
+
+#. Resource IDs: (74)
+msgid "Filename/Extension"
+msgstr "Ім'я файлу/Розширення"
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "Файли"
@@ -4173,15 +4209,15 @@ msgstr ""
 "Кожен файл матиме встановлену ознаку файлової системи тільки-для-читання, і отримання блокування дозволятиме запис у файл.\n"
 "Зауважте, що інші користувачі побачать ці файли як тільки-для-читання лише після оновлення їхніх робочих копій."
 
+#. Resource IDs: (119)
+#, c-format
+msgid "Getting file %1!s!"
+msgstr "Отримується файл %1!s!"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Getting file %1!s!, revision %2!s!"
 msgstr "Отримується файл %1!s!, модифікація %2!s!"
-
-#. Resource IDs: (119)
-#, c-format
-msgid "Getting file %s"
-msgstr "Отримується файл %s"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
@@ -4516,6 +4552,10 @@ msgstr "ID:57643:V C +Z"
 msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+msgid "ID:57665:V C +W"
+msgstr "ID:57665:V C +W"
+
 #. Resource IDs: (106)
 msgid "Icon Overlays"
 msgstr "Перекривання піктограм"
@@ -4595,10 +4635,6 @@ msgid ""
 msgstr ""
 "Якщо позначено, діалог фіксації знову автоматично запуститься після помилки,\r\n"
 "зберігши останнє виділення та логове повідомлення."
-
-#. Resource IDs: (194)
-msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "Якщо дозволено, TortoiseSVN щотижня перевіряє наявність новішої версії"
 
 #. Resource IDs: (195)
 msgid ""
@@ -4689,10 +4725,6 @@ msgstr "Ігнорувати &всі пробіли"
 msgid "Ignore &ancestry"
 msgstr "Ігнорувати по&ходження"
 
-#. Resource IDs: (1067)
-msgid "Ignore &case changes"
-msgstr "Ігнорувати зміни &регістра"
-
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
 msgstr "Ігнорувати всі зміни пробілів"
@@ -4700,6 +4732,10 @@ msgstr "Ігнорувати всі зміни пробілів"
 #. Resource IDs: (1392)
 msgid "Ignore all whitespaces"
 msgstr "Ігнорувати всі пробіли"
+
+#. Resource IDs: (1067)
+msgid "Ignore case cha&nges"
+msgstr "Ігнорувати зміни &регістра"
 
 #. Resource IDs: (1126)
 msgid "Ignore line &endings"
@@ -4817,8 +4853,8 @@ msgstr "Імпортувати до %1"
 
 #. Resource IDs: (120)
 #, c-format
-msgid "Importing file %s"
-msgstr "Імпортуєься файл %s"
+msgid "Importing file %1!s!"
+msgstr "Імпортується файл %1!s!"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
@@ -5013,6 +5049,10 @@ msgstr "Елементи у &зовнішніх"
 msgid "Items to show"
 msgstr "Елементи для показу"
 
+#. Resource IDs: (1074)
+msgid "J&ump to first conflict when loading"
+msgstr "Пере&йти до першого конфлікту під час завантаження"
+
 #. Resource IDs: (275)
 msgid "Join with following &tree"
 msgstr "Сполучити з вказаним &деревом"
@@ -5157,10 +5197,10 @@ msgstr "Локальний стан"
 #. Resource IDs: (94)
 msgid ""
 "Location where the contents of the\n"
-"repository URL will be saved to."
+"repository URL(s) will be saved to."
 msgstr ""
 "Місцеперебування, у якому буде \n"
-"збережено вміст URL сховища."
+"збережено вміст URL(-ів) сховища."
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
@@ -5642,6 +5682,10 @@ msgstr "Переміщується %s"
 msgid "Moving..."
 msgstr "Переміщення..."
 
+#. Resource IDs: (1204)
+msgid "Multiple, &independent working copies"
+msgstr "Багато не&залежних робочих копій"
+
 #. Resource IDs: (65535)
 msgid "My file:"
 msgstr "Мій файл:"
@@ -5794,6 +5838,11 @@ msgstr "Немає виправлень правопису"
 #. Resource IDs: (196)
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
 msgstr "Немає кеша стану. Тільки версійні каталоги отримують перекриття, а файли не отримують."
+
+#. Resource IDs: (84)
+#, c-format
+msgid "No such revision '%1!s!'"
+msgstr "Нема такої модифікації: '%1!s!'"
 
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
@@ -6041,6 +6090,10 @@ msgstr "Відкриває оглядач сховища щоб підлашту
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
 msgstr "Діяти на основі логового кешу тільки тепер"
+
+#. Resource IDs: (348)
+msgid "Option"
+msgstr "Параметр"
 
 #. Resource IDs: (16137)
 msgid "Options"
@@ -6352,8 +6405,8 @@ msgstr "Друкується"
 
 #. Resource IDs: (132)
 #, c-format
-msgid "Processing revision %d of %d..."
-msgstr "Обробляється модифікація %d з %d..."
+msgid "Processing revision %1!d! of %2!d!..."
+msgstr "Обробляється модифікація %1!d! з %2!d!..."
 
 #. Resource IDs: (74)
 msgid "Program"
@@ -6983,18 +7036,18 @@ msgstr "Модифікація"
 
 #. Resource IDs: (119)
 #, c-format
-msgid "Revision %d"
-msgstr "Модифікація %d"
+msgid "Revision %1!d!"
+msgstr "Модифікація %1!d!"
+
+#. Resource IDs: (120)
+#, c-format
+msgid "Revision %1!s!"
+msgstr "Модифікація %1!s!"
 
 #. Resource IDs: (269)
 #, c-format
 msgid "Revision %ld"
 msgstr "Модифікація %ld"
-
-#. Resource IDs: (120)
-#, c-format
-msgid "Revision %s"
-msgstr "Модифікація %s"
 
 #. Resource IDs: (15)
 msgid "Revision &graph"
@@ -9572,6 +9625,16 @@ msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
 #. Resource IDs: (65535)
+msgid ""
+"WARNING:\r\n"
+"Only change these settings if you are absolutely sure what you are doing!\r\n"
+"To set the values to their default, delete the value text."
+msgstr ""
+"УВАГА:\r\n"
+"Змінюйте ці налаштування тільки якщо ви розумієте, що робите!\r\n"
+"Щоб повернути значення до типових, витріть їх."
+
+#. Resource IDs: (65535)
 msgid "WC node"
 msgstr "Вузол КВ"
 
@@ -9669,6 +9732,11 @@ msgid ""
 msgstr ""
 "Робочу копію перенесено до\n"
 "%s"
+
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "Робоча копія: %s\n"
 
 #. Resource IDs: (73)
 msgid "Yes"
@@ -10024,6 +10092,10 @@ msgstr ""
 "спочатку перевірити, чи сховище 'у мережі' -\n"
 "якщо 'поза мережею', працювати лише з кешем"
 
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "у цій модифікації"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "автор"
@@ -10117,6 +10189,10 @@ msgstr "усього змін:"
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "фіксувань"
+
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "зафіксована модифікація"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10239,6 +10315,14 @@ msgstr "&редактор тексту логів"
 msgid "max revision: "
 msgstr "максимальна модифікація:"
 
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "макс. у цій модифікації"
+
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "макс. зафіксована модифікація"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "злито"
@@ -10246,6 +10330,14 @@ msgstr "злито"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "всього злиттів:"
+
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "мін. у цій модифікації"
+
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "мін. зафіксована модифікація"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -10714,6 +10806,12 @@ msgstr "так"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Automatically check for &newer versions every week"
+#~ msgstr "Автоматично перевіряти щотижня наявність &нових версій"
+#~ msgid ""
+#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr ""
+#~ "Якщо дозволено, TortoiseSVN щотижня перевіряє наявність новішої версії"
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "При&ховати непов'язані змінені шляхи"
 #~ msgid "Edit conflict"
