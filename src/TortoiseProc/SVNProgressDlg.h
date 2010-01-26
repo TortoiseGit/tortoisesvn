@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -235,6 +235,7 @@ private:
 	virtual void OnOK();
 	void		ReportSVNError();
 	void		ReportError(const CString& sError);
+	void		ReportHookFailed(const CString& error);
 	void		ReportWarning(const CString& sWarning);
 	void		ReportNotification(const CString& sNotification);
 	void		ReportCmd(const CString& sCmd);
@@ -242,6 +243,7 @@ private:
 	void		AddItemToList();
 	CString		BuildInfoString();
 	CString		GetPathFromColumnText(const CString& sColumnText);
+	bool		IsCommittingToTag();
 
 	/**
 	 * Resizes the columns of the progress list so that the headings are visible.

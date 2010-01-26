@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,6 +24,7 @@
 #include <string>
 #include "registry.h"
 #include ".\sciedit.h"
+#include "auto_buffer.h"
 
 using namespace std;
 
@@ -338,16 +339,14 @@ CString CSciEdit::GetWordUnderCursor(bool bSelectWord)
 		return CString();
 	textrange.chrg.cpMax = (LONG)Call(SCI_WORDENDPOSITION, textrange.chrg.cpMin, TRUE);
 	
-	char * textbuffer = new char[textrange.chrg.cpMax - textrange.chrg.cpMin + 1];
-
+	auto_buffer<char> textbuffer(textrange.chrg.cpMax - textrange.chrg.cpMin + 1);
 	textrange.lpstrText = textbuffer;	
 	Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
 	if (bSelectWord)
 	{
 		Call(SCI_SETSEL, textrange.chrg.cpMin, textrange.chrg.cpMax);
 	}
-	CString sRet = StringFromControl(textbuffer);
-	delete [] textbuffer;
+	CString sRet = StringFromControl((char*)textbuffer);
 	return sRet;
 }
 
@@ -475,7 +474,7 @@ void CSciEdit::CheckSpelling()
 			continue;
 		}
 		ATLASSERT(textrange.chrg.cpMax >= textrange.chrg.cpMin);
-		char * textbuffer = new char[textrange.chrg.cpMax - textrange.chrg.cpMin + 2];
+		auto_buffer<char> textbuffer(textrange.chrg.cpMax - textrange.chrg.cpMin + 2);
 		SecureZeroMemory(textbuffer, textrange.chrg.cpMax - textrange.chrg.cpMin + 2);
 		textrange.lpstrText = textbuffer;
 		textrange.chrg.cpMax++;
@@ -497,18 +496,17 @@ void CSciEdit::CheckSpelling()
 			TEXTRANGEA twoWords;
 			twoWords.chrg.cpMin = textrange.chrg.cpMin;
 			twoWords.chrg.cpMax = (LONG)Call(SCI_WORDENDPOSITION, textrange.chrg.cpMax + 1, TRUE);
-			twoWords.lpstrText = new char[twoWords.chrg.cpMax - twoWords.chrg.cpMin + 1];
+			auto_buffer<char> twoWordsBuffer(twoWords.chrg.cpMax - twoWords.chrg.cpMin + 1);
+			twoWords.lpstrText = twoWordsBuffer;
 			SecureZeroMemory(twoWords.lpstrText, twoWords.chrg.cpMax - twoWords.chrg.cpMin + 1);
 			Call(SCI_GETTEXTRANGE, 0, (LPARAM)&twoWords);
 			CString sWord = StringFromControl(twoWords.lpstrText);
-			delete [] twoWords.lpstrText;
 			if (m_autolist.find(sWord) != m_autolist.end())
 			{
 				//mark word as correct (remove the squiggle line)
 				Call(SCI_STARTSTYLING, twoWords.chrg.cpMin, INDICS_MASK);
 				Call(SCI_SETSTYLING, twoWords.chrg.cpMax - twoWords.chrg.cpMin, 0);
 				textrange.chrg.cpMax = twoWords.chrg.cpMax;
-				delete [] textbuffer;
 				continue;
 			}
 		}
@@ -531,7 +529,6 @@ void CSciEdit::CheckSpelling()
 				Call(SCI_SETSTYLING, textrange.chrg.cpMax - textrange.chrg.cpMin, 0);
 			}
 		}
-		delete [] textbuffer;
 	}
 }
 
@@ -669,16 +666,16 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 				while (GetStyleAt(textrange.chrg.cpMax + 1) == style)
 					++textrange.chrg.cpMax;
 				++textrange.chrg.cpMax;
-				char * textbuffer = new char[textrange.chrg.cpMax - textrange.chrg.cpMin + 1];
+				auto_buffer<char> textbuffer(textrange.chrg.cpMax - textrange.chrg.cpMin + 1);
 				textrange.lpstrText = textbuffer;	
 				Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
 				CString url;
 				if (style == STYLE_URL)
-					url = StringFromControl(textbuffer);
+					url = StringFromControl((char*)textbuffer);
 				else
 				{
 					url = m_sUrl;
-					url.Replace(_T("%BUGID%"), StringFromControl(textbuffer));
+					url.Replace(_T("%BUGID%"), StringFromControl((char*)textbuffer));
 
 					// is the URL a relative one?
 					if (url.Left(2).Compare(_T("^/")) == 0)
@@ -711,7 +708,6 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 						}
 					}
 				}
-				delete [] textbuffer;
 				if (!url.IsEmpty())
 					ShellExecute(GetParent()->GetSafeHwnd(), _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
 			}
@@ -1044,7 +1040,7 @@ bool CSciEdit::StyleEnteredText(int startstylepos, int endstylepos)
 	{
 		int offset = (int)Call(SCI_POSITIONFROMLINE, line_number);
 		int line_len = (int)Call(SCI_LINELENGTH, line_number);
-		char * linebuffer = new char[line_len+1];
+		auto_buffer<char> linebuffer(line_len+1);
 		Call(SCI_GETLINE, line_number, (LPARAM)linebuffer);
 		linebuffer[line_len] = 0;
 		int start = 0;
@@ -1074,7 +1070,6 @@ bool CSciEdit::StyleEnteredText(int startstylepos, int endstylepos)
 			bStyled = true;
 			start = end;
 		}
-		delete [] linebuffer;
 	}
 	return bStyled;
 }
@@ -1185,7 +1180,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 		end_pos = switchtemp;
 	}
 
-	char * textbuffer = new char[end_pos - start_pos + 2];
+	auto_buffer<char> textbuffer(end_pos - start_pos + 2);
 	TEXTRANGEA textrange;
 	textrange.lpstrText = textbuffer;
 	textrange.chrg.cpMin = start_pos;
@@ -1195,11 +1190,11 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 
 	Call(SCI_STARTSTYLING, start_pos, STYLE_MASK);
 
-	if (!m_sBugID.IsEmpty())
+	try
 	{
-		// match with two regex strings (without grouping!)
-		try
+		if (!m_sBugID.IsEmpty())
 		{
+			// match with two regex strings (without grouping!)
 			const tr1::regex regCheck(m_sCommand);
 			const tr1::regex regBugID(m_sBugID);
 			const tr1::sregex_iterator end;
@@ -1243,11 +1238,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 			if (s.size()-pos)
 				Call(SCI_SETSTYLING, s.size()-pos, STYLE_DEFAULT);
 		}
-		catch (exception) {}
-	}
-	else
-	{
-		try
+		else
 		{
 			const tr1::regex regCheck(m_sCommand);
 			const tr1::sregex_iterator end;
@@ -1271,9 +1262,8 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 				}
 			}
 		}
-		catch (exception) {}
 	}
-	delete [] textbuffer;
+	catch (exception) {}
 
 	return FALSE;
 }
@@ -1291,7 +1281,7 @@ void CSciEdit::StyleURLs(int startstylepos, int endstylepos)
 	startstylepos = (int)Call(SCI_POSITIONFROMLINE, (WPARAM)line_number);
 
 	int len = endstylepos - startstylepos + 1;
-	char* textbuffer = new char[len + 1];
+	auto_buffer<char> textbuffer(len + 1);
 	TEXTRANGEA textrange;
 	textrange.lpstrText = textbuffer;
 	textrange.chrg.cpMin = startstylepos;
@@ -1301,7 +1291,6 @@ void CSciEdit::StyleURLs(int startstylepos, int endstylepos)
 	// not necessarily one byte/wchar_t
 	// that's why we use CStringA to still get a correct char index
     CStringA msg = textbuffer;
-	delete [] textbuffer;
 
 	int starturl = -1;
 	for(int i = 0; i <= msg.GetLength(); )

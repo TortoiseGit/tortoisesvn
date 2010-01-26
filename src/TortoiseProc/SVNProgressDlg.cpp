@@ -871,6 +871,13 @@ void CSVNProgressDlg::ReportError(const CString& sError)
 	m_bErrorsOccurred = true;
 }
 
+void CSVNProgressDlg::ReportHookFailed(const CString& error)
+{
+	CString temp;
+	temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
+	ReportError(temp);
+}
+
 void CSVNProgressDlg::ReportWarning(const CString& sWarning)
 {
 	CSoundUtils::PlayTSVNWarning();
@@ -2087,53 +2094,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 		sWindowTitle = m_targetPathList[0].GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 		SetWindowText(sWindowTitle);
 	}
-	BOOL isTag = FALSE;
-	BOOL bURLFetched = FALSE;
-	CString url;
-	for (int i=0; i<m_targetPathList.GetCount(); ++i)
-	{
-		if (bURLFetched == FALSE)
-		{
-			url = GetURLFromPath(m_targetPathList[i]);
-			if (!url.IsEmpty())
-				bURLFetched = TRUE;
-			CString urllower = url;
-			urllower.MakeLower();
-			// test if the commit goes to a tag.
-			// now since Subversion doesn't force users to
-			// create tags in the recommended /tags/ folder
-			// only a warning is shown. This won't work if the tags
-			// are stored in a non-recommended place, but the check
-			// still helps those who do.
-			CRegString regTagsPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\TagsPattern"), _T("tags"));
-			CString sTags = regTagsPattern;
-			int pos = 0;
-			CString temp;
-			while (!isTag)
-			{
-				temp = sTags.Tokenize(_T(";"), pos);
-				if (temp.IsEmpty())
-					break;
-
-				int urlpos = 0;
-				CString temp2;
-				for(;;)
-				{
-					temp2 = urllower.Tokenize(_T("/"), urlpos);
-					if (temp2.IsEmpty())
-						break;
-
-					if (CStringUtils::WildCardMatch(temp, temp2))
-					{
-						isTag = TRUE;
-						break;
-					}
-				}
-			} 
-			break;
-		}
-	}
-	if (isTag)
+	if (IsCommittingToTag())
 	{
 		if (CMessageBox::Show(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_YESNO | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDNO)
 			return false;
@@ -2144,9 +2105,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 	{
 		if (exitcode)
 		{
-			CString temp;
-			temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
-			ReportError(temp);
+			ReportHookFailed(error);
 			return false;
 		}
 	}
@@ -2178,7 +2137,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 	{
 		if (m_BugTraqProvider)
 		{
-			CComPtr<IBugTraqProvider2> pProvider = NULL;
+			CComPtr<IBugTraqProvider2> pProvider;
 			HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider);
 			if (SUCCEEDED(hr))
 			{
@@ -2216,9 +2175,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 	{
 		if (exitcode)
 		{
-			CString temp;
-			temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
-			ReportError(temp);
+			ReportHookFailed(error);
 			return false;
 		}
 	}
@@ -2785,9 +2742,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 	{
 		if (exitcode)
 		{
-			CString temp;
-			temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
-			ReportError(temp);
+			ReportHookFailed(error);
 			return false;
 		}
 	}
@@ -2859,9 +2814,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 	{
 		if (exitcode)
 		{
-			CString temp;
-			temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
-			ReportError(temp);
+			ReportHookFailed(error);
 			return false;
 		}
 	}
@@ -2904,4 +2857,55 @@ LRESULT CSVNProgressDlg::OnTaskbarBtnCreated(WPARAM /*wParam*/, LPARAM /*lParam*
 	m_pTaskbarList.Release();
 	m_pTaskbarList.CoCreateInstance(CLSID_TaskbarList);
 	return 0;
+}
+
+bool CSVNProgressDlg::IsCommittingToTag()
+{
+	bool isTag = false;
+	bool bURLFetched = false;
+	CString url;
+	for (int i=0; i<m_targetPathList.GetCount(); ++i)
+	{
+		if (bURLFetched)
+			continue;
+
+		url = GetURLFromPath(m_targetPathList[i]);
+		if (!url.IsEmpty())
+			bURLFetched = true;
+		CString urllower = url;
+		urllower.MakeLower();
+		// test if the commit goes to a tag.
+		// now since Subversion doesn't force users to
+		// create tags in the recommended /tags/ folder
+		// only a warning is shown. This won't work if the tags
+		// are stored in a non-recommended place, but the check
+		// still helps those who do.
+		CRegString regTagsPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\TagsPattern"), _T("tags"));
+		CString sTags = regTagsPattern;
+		int pos = 0;
+		CString temp;
+		while (!isTag)
+		{
+			temp = sTags.Tokenize(_T(";"), pos);
+			if (temp.IsEmpty())
+				break;
+
+			int urlpos = 0;
+			CString temp2;
+			for(;;)
+			{
+				temp2 = urllower.Tokenize(_T("/"), urlpos);
+				if (temp2.IsEmpty())
+					break;
+
+				if (CStringUtils::WildCardMatch(temp, temp2))
+				{
+					isTag = true;
+					break;
+				}
+			}
+		} 
+		break;
+	}
+	return isTag;
 }

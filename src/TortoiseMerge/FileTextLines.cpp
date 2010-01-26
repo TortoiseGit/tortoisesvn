@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -229,6 +229,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 	DWORD dwReadBytes = 0;
 	if (!ReadFile(hFile, pFileBuf, fsize.LowPart, &dwReadBytes, NULL))
 	{
+		delete [] pFileBuf;
 		SetErrorString();
 		CloseHandle(hFile);
 		return FALSE;
@@ -261,7 +262,8 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 			delete [] pFileBuf;
 			pFileBuf = pWideBuf;
 			dwReadBytes = ret2;
-		}
+		} else
+			delete [] pWideBuf;
 	}
 	else if (m_UnicodeType == ASCII)
 	{
@@ -274,6 +276,8 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 			pFileBuf = pWideBuf;
 			dwReadBytes = ret2;
 		}
+		else
+			delete [] pWideBuf;
 	}
 	// fill in the lines into the array
 	wchar_t * pTextBuf = (wchar_t *)pFileBuf;
@@ -334,7 +338,6 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 		m_bReturnAtEnd = true;
 
 	delete [] pFileBuf;
-
 
 	return TRUE;
 }
