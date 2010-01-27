@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-16 01:33-0300\n"
+"PO-Revision-Date: 2010-01-26 23:07-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -999,6 +999,10 @@ msgstr "&Preferências"
 msgid "&Show HEAD revisions"
 msgstr "&Mostrar últimas revisões"
 
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "&Exibir Log"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "Mo&strar Menus para:"
@@ -1251,6 +1255,10 @@ msgstr "(sem número de linha)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(sem alteração, mas cópia criada a partir daqui)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(sem alteração, mas relevante para a cópia de trabalho)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -3174,6 +3182,14 @@ msgstr "Deleta o arquivo de log de ação"
 msgid "Deleting"
 msgstr "Excluindo"
 
+#. Resource IDs: (348)
+msgid "Deleting cached data"
+msgstr "Apagando dados do cache"
+
+#. Resource IDs: (348)
+msgid "Deleting file"
+msgstr "Excluindo arquivos"
+
 #. Resource IDs: (207)
 msgid "Depth"
 msgstr "Profundidade"
@@ -3796,10 +3812,6 @@ msgid "Extension"
 msgstr "Extensão"
 
 #. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "Extensão ou tipo-mime:"
-
-#. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
 msgstr "Programa para extensão/tipo-mime específico"
 
@@ -4046,6 +4058,14 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "Nome do arquivo"
+
+#. Resource IDs: (65535)
+msgid "Filename, extension or mime-type:"
+msgstr "Nome do arquivo, extensão ou tipo-mime:"
+
+#. Resource IDs: (74)
+msgid "Filename/Extension"
+msgstr "Nome do Arquivo/Extensão"
 
 #. Resource IDs: (1512)
 msgid "Files"
@@ -9745,6 +9765,11 @@ msgstr ""
 "Cópia de trabalho transferida para\n"
 "%s"
 
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "Cópia de trabalho: %s\n"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Sim"
@@ -10099,6 +10124,10 @@ msgstr ""
 "consultar o repositório primeiro se 'online' -\n"
 "trabalhar somente com cache se 'offline'"
 
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "para esta revisão"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "autor"
@@ -10192,6 +10221,10 @@ msgstr "total de mudanças:"
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "submissões"
+
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "Revisão submetida"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10314,6 +10347,14 @@ msgstr "&editor do texto de log"
 msgid "max revision: "
 msgstr "revisão máxima: "
 
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "max. para esta revisão"
+
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "max. revisão submetida"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "combinado"
@@ -10321,6 +10362,14 @@ msgstr "combinado"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "total de combinações: "
+
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "min. para esta revisão"
+
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "min. revisão submetida"
 
 #. Resource IDs: (10)
 msgid "missing"
