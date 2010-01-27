@@ -3621,6 +3621,7 @@ void CLogDlg::UpdateLogInfoLabel()
 	svn_revnum_t rev1 = 0;
 	svn_revnum_t rev2 = 0;
 	long selectedrevs = 0;
+	long changedPaths = 0;
 	if (m_logEntries.GetVisibleCount())
 	{
 		PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(0);
@@ -3628,9 +3629,18 @@ void CLogDlg::UpdateLogInfoLabel()
 		pLogEntry = m_logEntries.GetVisible (m_logEntries.GetVisibleCount()-1);
 		rev2 = pLogEntry->GetRevision();
 		selectedrevs = m_LogList.GetSelectedCount();
+
+		if (m_bSingleRevision)
+		{
+			changedPaths = m_currentChangedArray.GetCount();
+		}
+		else if (m_currentChangedPathList.GetCount())
+		{
+			changedPaths = m_currentChangedPathList.GetCount();
+		}
 	}
 	CString sTemp;
-	sTemp.FormatMessage(IDS_LOG_LOGINFOSTRING, m_logEntries.GetVisibleCount(), rev2, rev1, selectedrevs);
+	sTemp.FormatMessage(IDS_LOG_LOGINFOSTRING, m_logEntries.GetVisibleCount(), rev2, rev1, selectedrevs, changedPaths);
 	m_sLogInfo = sTemp;
 	UpdateData(FALSE);
 	GetDlgItem(IDC_LOGINFO)->Invalidate();
