@@ -1041,7 +1041,7 @@ bool CSciEdit::StyleEnteredText(int startstylepos, int endstylepos)
 		int offset = (int)Call(SCI_POSITIONFROMLINE, line_number);
 		int line_len = (int)Call(SCI_LINELENGTH, line_number);
 		auto_buffer<char> linebuffer(line_len+1);
-		Call(SCI_GETLINE, line_number, (LPARAM)linebuffer);
+		Call(SCI_GETLINE, line_number, (LPARAM)(linebuffer.get()));
 		linebuffer[line_len] = 0;
 		int start = 0;
 		int end = 0;
