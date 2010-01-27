@@ -15,9 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-01-13 23:22 +0000\n"
-"PO-Revision-Date: 2010-01-22 13:53-0300\n"
-"Last-Translator: Eduardo Marques <eduardo@eduardomarques.com>\n"
+"POT-Creation-Date: 2010-01-24 07:47 +0000\n"
+"PO-Revision-Date: 2010-01-26 23:02-0300\n"
+"Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -326,17 +326,14 @@ msgid "What makes TortoiseSVN such a good Subversion client? Here's a short list
 msgstr "O que faz do TortoiseSVN um bom aplicativo cliente para Subversion? Aqui está uma pequena lista de recursos."
 
 #. (term)
-#, fuzzy
 msgid "Shell integration"
 msgstr "Interface integrada"
 
 #. (primary)
-#, fuzzy
 msgid "Windows shell"
 msgstr "Interface do Windows"
 
 #. (primary)
-#, fuzzy
 msgid "explorer"
 msgstr "explorer"
 
@@ -3650,9 +3647,8 @@ msgid "To resolve this conflict, Developer B has to find out to what filename th
 msgstr ""
 
 #. (title)
-#, fuzzy
 msgid "Other tree conflicts"
-msgstr "conflitos de estrutura"
+msgstr "Outros conflitos de estrutura"
 
 #. (para)
 msgid "There are other cases which are labelled as tree conflicts simply because the conflict involves a folder rather than a file. For example if you add a folder with the same name to both trunk and branch and then try to merge you will get a tree conflict. If you want to keep the folder from the merge target, just mark the conflict as resolved. If you want to use the one in the merge source then you need to SVN delete the one in the target first and run the merge again. If you need anything more complicated then you have to resolve manually."
@@ -3745,7 +3741,6 @@ msgid "TortoiseSVN Columns In Windows Explorer"
 msgstr "Colunas do TortoiseSVN no Windows Explorer"
 
 #. (primary)
-#, fuzzy
 msgid "Explorer Columns"
 msgstr "Colunas do Explorer"
 
@@ -5418,7 +5413,6 @@ msgid "undo"
 msgstr "desfazer"
 
 #. (primary)
-#, fuzzy
 msgid "clean"
 msgstr "limpar"
 
@@ -5801,9 +5795,8 @@ msgstr ""
 
 #. (title)
 #. (title)
-#, fuzzy
 msgid "Limitations Using the Repository Browser"
-msgstr "Acessando o Repositório"
+msgstr "Limitações Usando o Navegador de Repositório"
 
 #. (para)
 msgid "Fetching properties remotely is a slow operation, so some of the features described above will not work in the repository browser as they do in a working copy."
@@ -9257,6 +9250,10 @@ msgstr ""
 msgid "TortoiseSVN allows you to assign an external diff viewer. Most such viewers, however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To do so, set this value to <literal>true</literal>."
 msgstr ""
 
+#. (para)
+msgid "By default, TortoiseSVN always runs an update with externals included. This avoids problems with inconsistent working copies. If you have however a lot of externals set, an update can take quite a while. Set this value to <literal>false</literal> to run the default update with externals excluded. To update with externals included, either run the <literal>Update to revision...</literal> dialog or set this value to <literal>true</literal> again."
+msgstr ""
+
 #. (title)
 msgid "Final Step"
 msgstr ""
@@ -9638,7 +9635,6 @@ msgid "True if there are local modifications"
 msgstr ""
 
 #. (literal)
-#, fuzzy
 msgid "GetWCInfo"
 msgstr "GetWCInfo"
 
@@ -9854,12 +9850,16 @@ msgstr ""
 msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
 msgstr ""
 
+#. (para)
+msgid "You should provide both a 32-bit and 64-bit version of your plugin. Because the x64-Version of TortoiseSVN can not use a 32-bit plugin and vice-versa."
+msgstr ""
+
 #. (title)
 msgid "The IBugtraqProvider interface"
 msgstr ""
 
 #. (para)
-msgid "TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
+msgid "TortoiseSVN 1.5 and later can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
 msgstr ""
 
 #. (programlisting)
@@ -10986,8 +10986,12 @@ msgstr "/nonrecursive"
 msgid "/ignoreexternals"
 msgstr "/ignoreexternals"
 
+#. (option)
+msgid "/includeexternals"
+msgstr "/includeexternals"
+
 #. (entry)
-msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/> and <placeholder-5/>."
+msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and <placeholder-6/>."
 msgstr ""
 
 #. (option)
@@ -11107,9 +11111,8 @@ msgid "/blame"
 msgstr "/blame"
 
 #. (option)
-#, fuzzy
 msgid "/line:xxx"
-msgstr "/rev:xxx"
+msgstr "/line:xxx"
 
 #. (entry)
 msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, then the diff is done by first blaming the files with the given revisions. The parameter <placeholder-9/> specifies the line to jump to when the diff is shown."
@@ -11140,9 +11143,8 @@ msgid "/remote"
 msgstr "/remote"
 
 #. (guilabel)
-#, fuzzy
 msgid "Check repository"
-msgstr "O Repositório"
+msgstr "Verificar o repositório"
 
 #. (entry)
 msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory. If <placeholder-2/> is specified, the dialog contacts the repository immediately on startup, as if the user clicked on the <placeholder-3/> button."
