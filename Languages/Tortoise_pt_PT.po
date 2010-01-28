@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-19 16:24+0100\n"
+"PO-Revision-Date: 2010-01-28 11:36+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -486,7 +486,7 @@ msgstr "&Personalizado"
 
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
-msgstr "&Dias de inactividade até que pequenas caches sejam removidas"
+msgstr "&Dias de inactividade até as caches pequenas serem removidas"
 
 #. Resource IDs: (1269)
 msgid "&Default"
@@ -988,11 +988,15 @@ msgstr "&Guardar..."
 
 #. Resource IDs: (9)
 msgid "&Settings"
-msgstr "&Definições"
+msgstr "&Preferências"
 
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
 msgstr "&Mostrar revisões HEAD (mais recentes)"
+
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "&Mostrar registo"
 
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
@@ -1246,6 +1250,10 @@ msgstr "(sem número de linha)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(sem modificação, mas cópia criado a partir de aqui)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(não modificado mas relevante para a cópia de trabalho)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -1592,8 +1600,8 @@ msgid ""
 "Adjust the settings\n"
 "Settings"
 msgstr ""
-"Ajustar as definições\n"
-"Definições"
+"Ajustar as preferências\n"
+"Preferências"
 
 #. Resource IDs: (307)
 msgid "Advanced"
@@ -1601,15 +1609,15 @@ msgstr "Avançado"
 
 #. Resource IDs: (170)
 msgid "Advanced Diff/Merge Settings"
-msgstr "Definições de Comparação/Integração Avançadas"
+msgstr "Preferências de Comparação/Integração Avançadas"
 
 #. Resource IDs: (110)
 msgid "Advanced diff settings"
-msgstr "Definições de comparação avançadas"
+msgstr "Preferências de comparação avançadas"
 
 #. Resource IDs: (110)
 msgid "Advanced merge settings"
-msgstr "Definições de integração avançadas"
+msgstr "Preferências de integração avançadas"
 
 #. Resource IDs: (65535)
 msgid "Age"
@@ -1675,7 +1683,7 @@ msgstr "Fechar sempre os diálogos para operações locais"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
-msgstr "Usar sempre as definições regionais do sistema para mostrar horas e datas"
+msgstr "Usa sempre as preferências regionais do sistema para mostrar horas e datas"
 
 #. Resource IDs: (339)
 msgid "Amount of memory required to load the cache"
@@ -1765,8 +1773,8 @@ msgid ""
 "Apply 'Power User' defaults. Those will provide a smoother experience.\n"
 "You should know the meaning of all the settings above."
 msgstr ""
-"Aplicar definições por omissão de 'Power User'. Estas proporcionarão uma experiência mais agradável.\n"
-" Deve conhecer o significados de todas as definições acima."
+"Aplicar preferências por omissão de 'Power User'. Estas proporcionarão uma experiência mais agradável.\n"
+"É importante que conheças o significados de todas as preferências acima."
 
 #. Resource IDs: (1294)
 msgid "Apply property recursively"
@@ -3168,6 +3176,14 @@ msgstr "Remove o arquivo de registro de acções"
 msgid "Deleting"
 msgstr "Removendo"
 
+#. Resource IDs: (348)
+msgid "Deleting cached data"
+msgstr "A apagar dados em cache"
+
+#. Resource IDs: (348)
+msgid "Deleting file"
+msgstr "A apagar o ficheiro"
+
 #. Resource IDs: (207)
 msgid "Depth"
 msgstr "Profundidade"
@@ -3353,8 +3369,8 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr ""
-"Deseja recarregar os documentos para que reflictam as alterações nas definições?\n"
-"Nota: perderá todas as alterações feitas!"
+"Queres recarregar os documentos para que reflitam as alterações das preferências?\n"
+"Nota: perdes todas as alterações feitas!"
 
 #. Resource IDs: (563)
 #, c-format
@@ -3735,7 +3751,7 @@ msgstr "Expandir janela ancorada"
 
 #. Resource IDs: (65535)
 msgid "Expert settings"
-msgstr "Definições avançadas"
+msgstr "Preferências avançadas"
 
 #. Resource IDs: (209)
 msgid "Explore to"
@@ -3785,10 +3801,6 @@ msgstr "Exporta um conjunto de propriedades para um arquivo"
 #. Resource IDs: (74, 207)
 msgid "Extension"
 msgstr "Extensão"
-
-#. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "Extensão ou tipo-MIME:"
 
 #. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
@@ -4038,6 +4050,14 @@ msgstr ""
 msgid "Filename"
 msgstr "Nome do arquivo"
 
+#. Resource IDs: (65535)
+msgid "Filename, extension or mime-type:"
+msgstr "Nome de ficheiro, extensão ou tipo-MIME:"
+
+#. Resource IDs: (74)
+msgid "Filename/Extension"
+msgstr "Nome de ficheiro/Extensão"
+
 #. Resource IDs: (1512)
 msgid "Files"
 msgstr "Ficheiros"
@@ -4243,7 +4263,7 @@ msgstr "&Padrão global para ignorar arquivos:"
 
 #. Resource IDs: (65535)
 msgid "Global settings"
-msgstr "Definições globais"
+msgstr "Preferências globais"
 
 #. Resource IDs: (130)
 msgid "Go to line"
@@ -5788,9 +5808,9 @@ msgid ""
 "Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
 "To see remote changes, click on 'Check Repository'"
 msgstr ""
-"Não há arquivos a mostrar com as definições correntes.\n"
-"Seleccione uma ou mais das definições abaixo para ver arquivos sem controlo de versões, ignorados e/ou não alterados.\n"
-"Para ver alterações remotas, carregue em 'Verificar Repositório'"
+"Não há arquivos a mostrar com a preferência corrente.\n"
+"Selecciona uma ou mais das definições abaixo para veres os arquivos sem controlo de versão, ignorados e/ou ficheiros não alterados.\n"
+"Para veres as alterações remotas, clica em 'Verificar Repositório'"
 
 #. Resource IDs: (77)
 msgid ""
@@ -5888,7 +5908,7 @@ msgstr "Nota: a pasta contém itens sem controlo de versões"
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
-msgstr "Nota: as definições de tipo de letra também afectam o visualizador TortoiseUDiff"
+msgstr "Nota: as preferências de tipo de letra também afectam o visualizador TortoiseUDiff"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -6506,7 +6526,7 @@ msgstr "&Prazo para o proxy em segundos:"
 
 #. Resource IDs: (1080)
 msgid "Proxy Settings"
-msgstr "Definições do Proxy"
+msgstr "Preferências do Proxy"
 
 #. Resource IDs: (1338)
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
@@ -7014,7 +7034,7 @@ msgstr "Reverter - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
-msgstr "Reverter para as definições por omissão. Recomendado para utilizadores inexperientes."
+msgstr "Reverter para as preferências por omissão. Recomendado para utilizadores inexperientes."
 
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -7802,8 +7822,8 @@ msgstr "Mostrar/Ocultar"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
-msgstr "A mostrar %1!ld! revisão(ões), da revisão %2!ld! à revisão %3!ld! - %4!ld! revisão(ões) seleccionada(s)."
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected, showing %5!ld! changed paths"
+msgstr "A mostrar %1!ld! revisão(ões), da revisão %2!ld! à revisão %3!ld! - %4!ld! revisão(ões) seleccionada(s), a mostrar %5!ld! caminhos modificados."
 
 #. Resource IDs: (272)
 #, c-format
@@ -9735,6 +9755,11 @@ msgstr ""
 "Cópia de trabalho transferida para\n"
 "%s"
 
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "Cópia de trabalho: %s\n"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Sim"
@@ -10090,6 +10115,10 @@ msgstr ""
 "consultar primeiro o repositório, se 'em linha' -\n"
 "trabalhar apenas a partir da cache se 'fora de linha'"
 
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "nesta revisão"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "autor"
@@ -10183,6 +10212,10 @@ msgstr "total de mudanças:"
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "submissões"
+
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "revisão submetida:"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10305,6 +10338,14 @@ msgstr "&editor de texto do registo"
 msgid "max revision: "
 msgstr "revisão máxima: "
 
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "max. nesta revisão"
+
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "max. revisão submetida:"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "integrado"
@@ -10312,6 +10353,14 @@ msgstr "integrado"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "total de integrações:"
+
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "min. nesta revisão"
+
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "min. revisão submetida:"
 
 #. Resource IDs: (10)
 msgid "missing"
