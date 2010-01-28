@@ -120,7 +120,15 @@ BOOL CSetMainPage::OnInitDialog()
 				continue;
 			DWORD loc = _tstoi(filename.Mid(12));
 			GetLocaleInfo(loc, LOCALE_SNATIVELANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
-			m_LanguageCombo.AddString(buf);
+			CString sLang = buf;
+			GetLocaleInfo(loc, LOCALE_SNATIVECTRYNAME, buf, sizeof(buf)/sizeof(TCHAR));
+			if (buf[0])
+			{
+				sLang += _T(" (");
+				sLang += buf;
+				sLang += _T(")");
+			}
+			m_LanguageCombo.AddString(sLang);
 			m_LanguageCombo.SetItemData(langcount++, loc);
 		}
 	}
