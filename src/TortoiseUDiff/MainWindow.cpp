@@ -297,15 +297,27 @@ bool CMainWindow::Initialize()
 	return true;
 }
 
+bool CMainWindow::LoadFile(HANDLE hFile)
+{
+	InitEditor();
+	char data[4096];
+	DWORD dwRead = 0;
+
+	BOOL bRet = ReadFile(hFile, data, sizeof(data), &dwRead, NULL);
+	bool bUTF8 = IsUTF8(data, dwRead);
+	while ((dwRead > 0) && (bRet))
+	{
+		SendEditor(SCI_ADDTEXT, dwRead,
+			reinterpret_cast<LPARAM>(static_cast<char *>(data)));
+		bRet = ReadFile(hFile, data, sizeof(data), &dwRead, NULL);
+	}
+	SetupWindow(bUTF8);
+	return true;
+}
+
 bool CMainWindow::LoadFile(LPCTSTR filename)
 {
-	SendEditor(SCI_SETREADONLY, FALSE);
-	SendEditor(SCI_CLEARALL);
-	SendEditor(EM_EMPTYUNDOBUFFER);
-	SendEditor(SCI_SETSAVEPOINT);
-	SendEditor(SCI_CANCEL);
-	SendEditor(SCI_SETUNDOCOLLECTION, 0);
-
+	InitEditor();
 	FILE *fp = NULL;
 	_tfopen_s(&fp, filename, _T("rb"));
 	if (!fp)
@@ -322,6 +334,22 @@ bool CMainWindow::LoadFile(LPCTSTR filename)
 		lenFile = fread(data, 1, sizeof(data), fp);
 	}
 	fclose(fp);
+	SetupWindow(bUTF8);
+	return true;
+}
+
+void CMainWindow::InitEditor()
+{
+	SendEditor(SCI_SETREADONLY, FALSE);
+	SendEditor(SCI_CLEARALL);
+	SendEditor(EM_EMPTYUNDOBUFFER);
+	SendEditor(SCI_SETSAVEPOINT);
+	SendEditor(SCI_CANCEL);
+	SendEditor(SCI_SETUNDOCOLLECTION, 0);
+}
+
+void CMainWindow::SetupWindow(bool bUTF8)
+{
 	SendEditor(SCI_SETCODEPAGE, bUTF8 ? SC_CP_UTF8 : GetACP());
 
 	SendEditor(SCI_SETUNDOCOLLECTION, 1);
@@ -346,7 +374,6 @@ bool CMainWindow::LoadFile(LPCTSTR filename)
 	SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)"revision");
 	SendEditor(SCI_COLOURISE, 0, -1);
 	::ShowWindow(m_hWndEdit, SW_SHOW);
-	return true;
 }
 
 bool CMainWindow::SaveFile(LPCTSTR filename)
