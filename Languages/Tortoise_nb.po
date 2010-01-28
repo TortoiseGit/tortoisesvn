@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-11 14:31+0100\n"
+"PO-Revision-Date: 2010-01-28 11:24+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1048,6 +1048,10 @@ msgstr "&Innstillinger"
 msgid "&Show HEAD revisions"
 msgstr "&Vis hode-revisjoner"
 
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "Vis &Logg"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "&Vis Menyer for:"
@@ -1300,6 +1304,10 @@ msgstr "(intet linjenummer)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(ingen endring men kopiert herfra)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(ingen endring men relevant for arbeidskopi)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -3219,6 +3227,14 @@ msgstr "Sletter handlingsloggfilen"
 msgid "Deleting"
 msgstr "Sletter"
 
+#. Resource IDs: (348)
+msgid "Deleting cached data"
+msgstr "Sletter mellomlagrede data"
+
+#. Resource IDs: (348)
+msgid "Deleting file"
+msgstr "Sletter fil"
+
 #. Resource IDs: (207)
 msgid "Depth"
 msgstr "Dybde"
@@ -3839,10 +3855,6 @@ msgid "Extension"
 msgstr "Filendelse"
 
 #. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "Filendelse eller mime-type:"
-
-#. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
 msgstr "Programmer som er spesifikke for fil-endelser/mime-typer"
 
@@ -4089,6 +4101,14 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "Filnavn"
+
+#. Resource IDs: (65535)
+msgid "Filename, extension or mime-type:"
+msgstr "Filnavn, endelse eller mime-type:"
+
+#. Resource IDs: (74)
+msgid "Filename/Extension"
+msgstr "Filnavn/Endelse"
 
 #. Resource IDs: (1512)
 msgid "Files"
@@ -7835,8 +7855,8 @@ msgstr "Vis/Skjul"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
-msgstr "Viser %1!ld! revisjon(er), fra revisjon %2!ld! til revisjon %3!ld! - %4!ld! revisjon(er) valgt."
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected, showing %5!ld! changed paths"
+msgstr "Viser %1!ld! revisjon(er), fra revisjon %2!ld! til revisjon %3!ld! - %4!ld! revisjon(er) valgt, viser %5!ld! endrede stier"
 
 #. Resource IDs: (272)
 #, c-format
@@ -9765,6 +9785,11 @@ msgstr ""
 "Arbeidskopien er omplassert til\n"
 "%s"
 
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "Arbeidskopi: %s\n"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Ja"
@@ -10119,6 +10144,10 @@ msgstr ""
 "spør depotet først hvis 'tilkoblet' -\n"
 "arbeid kun fra mellomlager hvis 'frakoblet'"
 
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "ved denne revisjonen"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "Forfatter"
@@ -10212,6 +10241,10 @@ msgstr "endringer totalt: "
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "Innsendinger"
+
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "innsendte revisjon"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10335,6 +10368,14 @@ msgstr "&loggmeldingseditor"
 msgid "max revision: "
 msgstr "maks revisjon: "
 
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "max. ved denne revisjonen"
+
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "max. innsendte revisjon"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "flettet"
@@ -10342,6 +10383,14 @@ msgstr "flettet"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "flettinger totalt:"
+
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "min. ved denne revisjonen"
+
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "min. innsendte revisjon"
 
 #. Resource IDs: (10)
 msgid "missing"
