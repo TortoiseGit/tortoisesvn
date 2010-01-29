@@ -24,6 +24,7 @@
 #include "auto_buffer.h"
 #include "CreateProcessHelper.h"
 #include "UnicodeUtils.h"
+#include <ClipboardHelper.h>
 
 #include <algorithm>
 #include <cctype>
@@ -700,18 +701,16 @@ void TortoiseBlame::CopySelectedLogToClipboard()
 		msg += _T("\n");
 		msg += iter->second;
 		msg += _T("\n");
-		if (OpenClipboard(app.wBlame))
-		{
-			EmptyClipboard();
-			HGLOBAL hClipboardData;
-			hClipboardData = GlobalAlloc(GMEM_DDESHARE, msg.size()*sizeof(TCHAR)+1);
-			TCHAR * pchData;
-			pchData = (TCHAR*)GlobalLock(hClipboardData);
-			_tcscpy_s(pchData, msg.size()+1, msg.c_str());
-			GlobalUnlock(hClipboardData);
-			SetClipboardData(CF_UNICODETEXT,hClipboardData);
-			CloseClipboard();
-		}
+		CClipboardHelper clipboardHelper;
+		if (!clipboardHelper.Open(app.wBlame))
+			return;
+
+		EmptyClipboard();
+		HGLOBAL hClipboardData = CClipboardHelper::GlobalAlloc((msg.size() + 1)*sizeof(TCHAR));
+		TCHAR* pchData = (TCHAR*)GlobalLock(hClipboardData);
+		_tcscpy_s(pchData, msg.size()+1, msg.c_str());
+		GlobalUnlock(hClipboardData);
+		SetClipboardData(CF_UNICODETEXT,hClipboardData);
 	}
 }
 

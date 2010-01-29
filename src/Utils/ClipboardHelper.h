@@ -25,6 +25,7 @@ public:
 	CClipboardHelper() : bClipBoardOpen(false) {}
 	~CClipboardHelper();
 	bool Open(HWND hOwningWnd);
+	static HGLOBAL GlobalAlloc(SIZE_T dwBytes);
 private:
 	bool bClipBoardOpen;
 };
@@ -39,4 +40,9 @@ inline bool CClipboardHelper::Open(HWND hOwningWnd)
 {
 	bClipBoardOpen = (OpenClipboard(hOwningWnd) != 0);
 	return bClipBoardOpen;
+}
+
+inline HGLOBAL CClipboardHelper::GlobalAlloc(SIZE_T dwBytes)
+{
+	return ::GlobalAlloc(GMEM_MOVEABLE|GMEM_DDESHARE, dwBytes);
 }

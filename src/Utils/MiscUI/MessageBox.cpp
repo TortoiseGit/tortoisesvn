@@ -20,7 +20,7 @@
 #include "resource.h"			//if you defined some IDS_MSGBOX_xxxx this include is needed!
 #include "messagebox.h"
 #include "SysInfo.h"
-
+#include "ClipboardHelper.h"
 
 CMessageBox::CMessageBox(void)
 {
@@ -869,19 +869,17 @@ BOOL CMessageBox::PreTranslateMessage(MSG* pMsg)
 			{
 				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
 				{
-					CStringA sClipboard = CStringA(m_sMessage);
-					if (OpenClipboard())
+					CClipboardHelper clipboardHelper;
+					if(clipboardHelper.Open(GetSafeHwnd()))
 					{
 						EmptyClipboard();
-						HGLOBAL hClipboardData;
-						hClipboardData = GlobalAlloc(GMEM_DDESHARE, sClipboard.GetLength()+1);
-						char * pchData;
-						pchData = (char*)GlobalLock(hClipboardData);
+						CStringA sClipboard = CStringA(m_sMessage);
+						HGLOBAL hClipboardData = CClipboardHelper::GlobalAlloc(sClipboard.GetLength()+1);
+						char * pchData = (char*)GlobalLock(hClipboardData);
 						if (pchData)
 							strcpy_s(pchData, sClipboard.GetLength()+1, (LPCSTR)sClipboard);
 						GlobalUnlock(hClipboardData);
 						SetClipboardData(CF_TEXT,hClipboardData);
-						CloseClipboard();
 					}
 					return TRUE;
 				}
@@ -917,7 +915,6 @@ BOOL CMessageBox::PreTranslateMessage(MSG* pMsg)
 
 	return __super::PreTranslateMessage(pMsg);
 }
-
 
 
 
