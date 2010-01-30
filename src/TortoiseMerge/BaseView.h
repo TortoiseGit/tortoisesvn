@@ -23,6 +23,13 @@
 #include "Undo.h"
 #include "LocatorBar.h"
 
+typedef struct inlineDiffPos
+{
+	apr_off_t		start;
+	apr_off_t		end;
+} inlineDiffPos;
+
+
 /**
  * \ingroup TortoiseMerge
  *
@@ -63,6 +70,7 @@ public:
 	void			ScrollVertical(short delta);
 	void			GoToLine(int nNewLine, BOOL bAll = TRUE);
 	void			ScrollToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);
+	void			ScrollAllToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);
 	void			UseCaret(bool bUse = true) {m_bCaretHidden = !bUse;}
 	bool			HasCaret() const {return !m_bCaretHidden;}
 	void			SetCaretPosition(const POINT& pt) {m_ptCaretPos = pt; m_nCaretGoalPos = pt.x; UpdateCaret();}
@@ -93,6 +101,8 @@ public:
 	bool			HasPrevConflict();
 	bool			HasNextDiff();
 	bool			HasPrevDiff();
+	bool			HasNextInlineDiff();
+	bool			HasPrevInlineDiff();
 
 	CViewData *		m_pViewData;
 	CViewData *		m_pOtherViewData;
@@ -137,6 +147,8 @@ protected:
 	afx_msg void	OnMergePreviousdifference();
 	afx_msg void	OnMergePreviousconflict();
 	afx_msg void	OnMergeNextconflict();
+	afx_msg void	OnNavigateNextinlinediff();
+	afx_msg void	OnNavigatePrevinlinediff();
 	afx_msg void	OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void	OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void	OnLButtonDblClk(UINT nFlags, CPoint point);
@@ -206,6 +218,7 @@ protected:
 	int				GetLineFromPoint(CPoint point);
 	int				GetMarginWidth();
 	COLORREF		InlineDiffColor(int nLineIndex);
+	bool			GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>& positions);
 	void			CheckOtherView();
 	static void		GetWhitespaceBlock(CViewData *viewData, int nLineIndex, int & nStartBlock, int & nEndBlock);
 	static CString	GetWhitespaceString(CViewData *viewData, int nStartBlock, int nEndBlock);

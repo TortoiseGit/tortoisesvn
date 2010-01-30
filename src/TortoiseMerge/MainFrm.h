@@ -129,6 +129,8 @@ protected:
 	afx_msg void	OnUpdateViewIgnorewhitespacechanges(CCmdUI *pCmdUI);
 	afx_msg void	OnViewIgnoreallwhitespacechanges();
 	afx_msg void	OnUpdateViewIgnoreallwhitespacechanges(CCmdUI *pCmdUI);
+	afx_msg void	OnUpdateNavigateNextinlinediff(CCmdUI *pCmdUI);
+	afx_msg void	OnUpdateNavigatePrevinlinediff(CCmdUI *pCmdUI);
 
 	DECLARE_MESSAGE_MAP()
 protected:

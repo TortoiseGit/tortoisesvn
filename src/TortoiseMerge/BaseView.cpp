@@ -166,6 +166,8 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
 	ON_WM_MOUSELEAVE()
 	ON_WM_TIMER()
 	ON_WM_LBUTTONDBLCLK()
+	ON_COMMAND(ID_NAVIGATE_NEXTINLINEDIFF, &CBaseView::OnNavigateNextinlinediff)
+	ON_COMMAND(ID_NAVIGATE_PREVINLINEDIFF, &CBaseView::OnNavigatePrevinlinediff)
 END_MESSAGE_MAP()
 
 
@@ -933,6 +935,16 @@ void CBaseView::ScrollToChar(int nNewOffsetChar, BOOL bTrackScrollBar /*= TRUE*/
 			RecalcHorzScrollBar(TRUE);
 		UpdateCaret();
 	}
+}
+
+void CBaseView::ScrollAllToChar(int nNewOffsetChar, BOOL bTrackScrollBar /* = TRUE */)
+{
+	if (m_pwndLeft)
+		m_pwndLeft->ScrollToChar(nNewOffsetChar, bTrackScrollBar);
+	if (m_pwndRight)
+		m_pwndRight->ScrollToChar(nNewOffsetChar, bTrackScrollBar);
+	if (m_pwndBottom)
+		m_pwndBottom->ScrollToChar(nNewOffsetChar, bTrackScrollBar);
 }
 
 void CBaseView::ScrollSide(int delta)
@@ -1956,6 +1968,7 @@ void CBaseView::GoToFirstDifference()
 {
 	m_ptCaretPos.y = 0;
 	SelectNextBlock(1, false, false);
+	OnNavigateNextinlinediff();
 }
 
 void CBaseView::GoToFirstConflict()
@@ -3494,4 +3507,148 @@ void CBaseView::restoreLines(CBaseView* view, CViewData& viewState, int targetIn
 	targetState->SetLineNumber(targetIndex, viewState.GetLineNumber(sourceIndex));
 	targetState->SetState(targetIndex, viewState.GetState(sourceIndex));
 	targetState->SetLineHideState(targetIndex, viewState.GetHideState(sourceIndex));
+}
+
+bool CBaseView::GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>& positions)
+{
+	if (!m_bShowInlineDiff)
+		return false;
+	if ((m_pwndBottom != NULL) && !(m_pwndBottom->IsHidden()))
+		return false;
+
+	LPCTSTR line = GetLineChars(lineIndex);
+	if (line == NULL)
+		return false;
+	if (line[0] == 0)
+		return false;
+
+	LPCTSTR pszDiffChars = NULL;
+	int nDiffLength = 0;
+	if (m_pOtherViewData)
+	{
+		int index = min(lineIndex, m_pOtherViewData->GetCount() - 1);
+		pszDiffChars = m_pOtherViewData->GetLine(index);
+		nDiffLength = m_pOtherViewData->GetLine(index).GetLength();
+	}
+
+	if (!pszDiffChars || !*pszDiffChars)
+		return false;
+
+	CString diffline;
+	ExpandChars(pszDiffChars, 0, nDiffLength, diffline);
+	svn_diff_t * diff = NULL;
+	m_svnlinediff.Diff(&diff, line, _tcslen(line), diffline, diffline.GetLength(), m_bInlineWordDiff);
+	if (!diff || !SVNLineDiff::ShowInlineDiff(diff))
+		return false;
+
+	int lineoffset = 0;
+	int position = 0;
+	std::deque<int> removedPositions;
+	while (diff)
+	{
+		apr_off_t len = diff->original_length;
+
+		for (int i = 0; i < len; ++i)
+		{
+			position += m_svnlinediff.m_line1tokens[lineoffset].size();
+			lineoffset++;
+		}
+
+		if (diff->type == svn_diff__type_diff_modified)
+		{
+			inlineDiffPos p;
+			if (lineoffset > 0)
+				p.start = position - m_svnlinediff.m_line1tokens[lineoffset-1].size();
+			else
+				p.start = 0;
+			p.end = position;
+			positions.push_back(p);
+		}
+
+		diff = diff->next;
+	}
+
+	return (positions.size() > 0);
+}
+
+void CBaseView::OnNavigateNextinlinediff()
+{
+	std::vector<inlineDiffPos> positions;
+	if (GetInlineDiffPositions(m_ptCaretPos.y, positions))
+	{
+		for (std::vector<inlineDiffPos>::iterator it = positions.begin(); it != positions.end(); ++it)
+		{
+			if (it->end > m_ptCaretPos.x)
+			{
+				m_ptCaretPos.x = (LONG)it->end;
+				UpdateGoalPos();
+				int nCaretOffset = CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x);
+				if (nCaretOffset < m_nOffsetChar)
+					ScrollAllToChar(nCaretOffset);
+				if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
+					ScrollAllToChar(nCaretOffset-GetScreenChars()+1);
+				UpdateCaret();
+				return;
+			}
+		}
+		m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+		UpdateGoalPos();
+		int nCaretOffset = CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x);
+		if (nCaretOffset < m_nOffsetChar)
+			ScrollAllToChar(nCaretOffset);
+		if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
+			ScrollAllToChar(nCaretOffset-GetScreenChars()+1);
+	}
+	UpdateCaret();
+}
+
+void CBaseView::OnNavigatePrevinlinediff()
+{
+	std::vector<inlineDiffPos> positions;
+	if (GetInlineDiffPositions(m_ptCaretPos.y, positions))
+	{
+		for (std::vector<inlineDiffPos>::iterator it = positions.begin(); it != positions.end(); ++it)
+		{
+			if (it->start < m_ptCaretPos.x)
+			{
+				m_ptCaretPos.x = (LONG)it->start;
+				UpdateGoalPos();
+				int nCaretOffset = CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x);
+				if (nCaretOffset < m_nOffsetChar)
+					ScrollAllToChar(nCaretOffset);
+				if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
+					ScrollAllToChar(nCaretOffset-GetScreenChars()+1);
+				UpdateCaret();
+				return;
+			}
+		}
+		m_ptCaretPos.x = 0;
+		UpdateGoalPos();
+		int nCaretOffset = CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x);
+		if (nCaretOffset < m_nOffsetChar)
+			ScrollAllToChar(nCaretOffset);
+		if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
+			ScrollAllToChar(nCaretOffset-GetScreenChars()+1);
+	}
+	UpdateCaret();
+}
+
+bool CBaseView::HasNextInlineDiff()
+{
+	std::vector<inlineDiffPos> positions;
+	if (GetInlineDiffPositions(m_ptCaretPos.y, positions))
+	{
+		return true;
+	}
+	return false;
+}
+
+bool CBaseView::HasPrevInlineDiff()
+{
+	std::vector<inlineDiffPos> positions;
+	if (GetInlineDiffPositions(m_ptCaretPos.y, positions))
+	{
+		return true;
+	}
+	return false;
 }

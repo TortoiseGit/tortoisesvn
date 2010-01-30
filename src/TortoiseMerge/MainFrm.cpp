@@ -121,6 +121,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_IGNOREWHITESPACECHANGES, &CMainFrame::OnUpdateViewIgnorewhitespacechanges)
 	ON_COMMAND(ID_VIEW_IGNOREALLWHITESPACECHANGES, &CMainFrame::OnViewIgnoreallwhitespacechanges)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_IGNOREALLWHITESPACECHANGES, &CMainFrame::OnUpdateViewIgnoreallwhitespacechanges)
+	ON_UPDATE_COMMAND_UI(ID_NAVIGATE_NEXTINLINEDIFF, &CMainFrame::OnUpdateNavigateNextinlinediff)
+	ON_UPDATE_COMMAND_UI(ID_NAVIGATE_PREVINLINEDIFF, &CMainFrame::OnUpdateNavigatePrevinlinediff)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -800,6 +802,9 @@ bool CMainFrame::LoadViews(int line)
 		m_pwndLeftView->SetCaretPosition(p);
 		m_pwndRightView->SetCaretPosition(p);
 		m_pwndBottomView->SetCaretPosition(p);
+		m_pwndBottomView->ScrollToChar(0);
+		m_pwndLeftView->ScrollToChar(0);
+		m_pwndRightView->ScrollToChar(0);
 	}
 	else
 	{
@@ -819,12 +824,14 @@ bool CMainFrame::LoadViews(int line)
 			// the first diff line until the user actually moves the mouse
 			m_nMoveMovesToIgnore = MOVESTOIGNORE; 
 		}
-
+		else
+		{
+			// Avoid incorrect rendering of active pane.
+			m_pwndBottomView->ScrollToChar(0);
+			m_pwndLeftView->ScrollToChar(0);
+			m_pwndRightView->ScrollToChar(0);
+		}
 	}
-	// Avoid incorrect rendering of active pane.
-	m_pwndBottomView->ScrollToChar(0);
-	m_pwndLeftView->ScrollToChar(0);
-	m_pwndRightView->ScrollToChar(0);
 	CheckResolved();
 	CUndo::GetInstance().Clear();
 	return true;
@@ -1810,6 +1817,29 @@ void CMainFrame::OnUpdateNavigatePreviousdifference(CCmdUI *pCmdUI)
 	pCmdUI->Enable(bShow);
 }
 
+void CMainFrame::OnUpdateNavigateNextinlinediff(CCmdUI *pCmdUI)
+{
+	BOOL bShow = FALSE;
+	if ((m_pwndBottomView)&&(m_pwndBottomView->HasCaret())&&(m_pwndBottomView->HasNextInlineDiff()))
+		bShow = TRUE;
+	if ((m_pwndRightView)&&(m_pwndRightView->HasCaret())&&(m_pwndRightView->HasNextInlineDiff()))
+		bShow = TRUE;
+	if ((m_pwndLeftView)&&(m_pwndLeftView->HasCaret())&&(m_pwndLeftView->HasNextInlineDiff()))
+		bShow = TRUE;
+	pCmdUI->Enable(bShow);
+}
+
+void CMainFrame::OnUpdateNavigatePrevinlinediff(CCmdUI *pCmdUI)
+{
+	BOOL bShow = FALSE;
+	if ((m_pwndBottomView)&&(m_pwndBottomView->HasCaret())&&(m_pwndBottomView->HasPrevInlineDiff()))
+		bShow = TRUE;
+	if ((m_pwndRightView)&&(m_pwndRightView->HasCaret())&&(m_pwndRightView->HasPrevInlineDiff()))
+		bShow = TRUE;
+	if ((m_pwndLeftView)&&(m_pwndLeftView->HasCaret())&&(m_pwndLeftView->HasPrevInlineDiff()))
+		bShow = TRUE;
+	pCmdUI->Enable(bShow);
+}
 
 void CMainFrame::OnMoving(UINT fwSide, LPRECT pRect)
 {
