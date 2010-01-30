@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-24 21:19+0100\n"
+"PO-Revision-Date: 2010-01-30 22:10+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2059,8 +2059,8 @@ msgid "Author"
 msgstr "Аутор"
 
 #. Resource IDs: (65535)
-msgid "Author:                                    Stefan Kueng"
-msgstr "Аутор:                                    Стефан Куенг"
+msgid "Author:\t\t\t\tStefan Kueng"
+msgstr "Аутор:\t\t\t\tСтефан Куенг"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -4792,8 +4792,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "Прекривне иконе::Скуп икона"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:                 Luebbe Onken"
-msgstr "Иконе/Дизајн/Код:     Луеббе Онкен"
+msgid "Icons/Design/Code:\t\tLuebbe Onken"
+msgstr "Иконе/Дизајн/Код:\t\tЛуеббе Онкен"
 
 #. Resource IDs: (346)
 msgid ""
@@ -5969,6 +5969,10 @@ msgstr "Ново име за %s"
 msgid "New name:"
 msgstr "Ново име:"
 
+#. Resource IDs: (32875)
+msgid "Next &Inline Difference"
+msgstr "Следеће Разлике унутар л&инији"
+
 #. Resource IDs: (3633)
 msgid ""
 "Next Page\n"
@@ -6591,6 +6595,11 @@ msgstr "Преглед фајлова закрпа"
 #. Resource IDs: (65535)
 msgid "Preview: "
 msgstr "Преглед:"
+
+#
+#. Resource IDs: (32876)
+msgid "Previous In&line Difference"
+msgstr "Претходне разлике унутар &линије"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -8028,8 +8037,8 @@ msgstr "Покажи/Сакри"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
-msgstr "Приказивање %1!ld! ревизија, од ревизија %2!ld!  до %3!ld! - %4!ld! ревизија(е) одабрано."
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected, showing %5!ld! changed paths"
+msgstr "Приказивање %1!ld! ревизија, од ревизија %2!ld!  до %3!ld! - %4!ld! одабраних ревизија(е), које приказују %5!ld! измењених путања."
 
 #. Resource IDs: (272)
 #, c-format
@@ -11035,6 +11044,8 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{БагТрек}"
 
+#~ msgid "Author:                                    Stefan Kueng"
+#~ msgstr "Аутор:                                    Стефан Куенг"
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Аутоматски провери &новије верзије једном недељно"
 #~ msgid ""
