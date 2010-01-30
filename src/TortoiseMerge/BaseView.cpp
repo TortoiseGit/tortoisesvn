@@ -2260,6 +2260,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				m_ptCaretPos.x = 0;
 				m_nCaretGoalPos = 0;
 				OnCaretMove(bShift);
+				ScrollAllToChar(0);
 			}
 		}
 		break;
