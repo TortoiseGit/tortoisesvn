@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-01-24 07:47 +0000\n"
-"PO-Revision-Date: 2010-01-31 00:32-0000\n"
+"PO-Revision-Date: 2010-01-31 01:17-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1699,7 +1699,7 @@ msgstr ""
 #. (term)
 #. (title)
 msgid "Authentication"
-msgstr ""
+msgstr "Autenticação"
 
 #. (para)
 msgid "You can use any authentication mechanism Apache supports, including SSPI and LDAP."
@@ -2496,27 +2496,27 @@ msgstr ""
 
 #. (title)
 msgid "Authentication Dialog"
-msgstr ""
+msgstr "Caixa de diálogo de autenticação"
 
 #. (para)
 msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password). Note that passwords are stored using the WinCrypt API, not in plain text form."
-msgstr ""
+msgstr "<filename>svn.simple</filename> contém as credenciais para a autenticação básica (nome de utilizador/palavra-passe). De notar que, as palavras-passe são guardadas usando a API WinCrypt  e não em texto simples"
 
 #. (para)
 msgid "<filename>svn.ssl.server</filename> contains SSL server certificates."
-msgstr ""
+msgstr "<filename>svn.ssl.server</filename> contém os certificados SSL de servidor."
 
 #. (para)
 msgid "<filename>svn.username</filename> contains credentials for username-only authentication (no password needed)."
-msgstr ""
+msgstr "<filename>svn.username</filename> contém as credenciais para autenticação apenas por utilizador (sem necessidade de palavra-passe)."
 
 #. (para)
 msgid "If the repository that you are trying to access is password protected, an authentication Dialog will show up. <placeholder-1/> Enter your username and password. The checkbox will make TortoiseSVN store the credentials in Subversion's default directory: <filename>%APPDATA%\\Subversion\\auth</filename> in three subdirectories: <placeholder-2/>"
-msgstr ""
+msgstr "Se o repositório a que tentas aceder está protegido por palavra-passe, uma caixa de diálogo de autenticação irá surgir. <placeholder-1/> Introduzir o teu nome de utilizador e palavra-passe. A caixa de verificação irá fazer com que o TortoiseSVN guarde as credenciais na  pasta por defeito do Subversion: <filename>%APPDATA%\\Subversion\\auth</filename> em três subpastas: <placeholder-2/>"
 
 #. (para)
 msgid "If you want to clear the authentication cache for all servers, you can do so from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings dialog. That button will clear all cached authentication data from the Subversion <filename>auth</filename> directories, as well as any authentication data stored in the registry by earlier versions of TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
-msgstr ""
+msgstr "Se quiseres limpar a cache de autenticação para todos os servidores, poderás faze-lo a partir da página <guilabel>Saved Data</guilabel> da caixa de diálogo de definições do TortoiseSVN. Esse botão irá limpar todos os dados de autenticação guardados nas pastas <filename>auth</filename> do Subversion, tal como quaisquer dados de autenticação guardados no registo por versões anteriores do TortoiseSVN. Ver <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
 
 #. (para)
 msgid "If you want to clear authentication for one realm only then you will have to dig into those directories, find the file which contains the information you want to clear and delete the file."
@@ -2529,14 +2529,18 @@ msgid ""
 "rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
 "</screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>windows-help-central.com</citetitle></ulink>."
 msgstr ""
+"Algumas pessoas gostam que os dados de autenticação sejam apagados quando terminam a sessão no Windows, ou quando desligam o computador. A maneira de obter isso é através do uso de um script que apague a pasta <filename>%APPDATA%\\Subversion\\auth</filename>, ou seja <screen>\n"
+"@echo off\n"
+"rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
+"</screen> Poderás obter uma descrição de como instalar tal script em <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>windows-help-central.com</citetitle></ulink>."
 
 #. (para)
 msgid "For more information on how to set up your server for authentication and access control, refer to <xref linkend=\"tsvn-serversetup\"/>"
-msgstr ""
+msgstr "Para mais informações em como configurar o teu servidor em autenticação e controlo de acessos, consulta <xref linkend=\"tsvn-serversetup\"/>"
 
 #. (title)
 msgid "Maximizing Windows"
-msgstr ""
+msgstr "Maxiizando Janelas"
 
 #. (primary)
 msgid "maximize"
@@ -2544,7 +2548,7 @@ msgstr ""
 
 #. (para)
 msgid "Many of TortoiseSVN's dialogs have a lot of information to display, but it is often useful to maximize only the height, or only the width, rather than maximizing to fill the screen. As a convenience, there are shortcuts for this on the <guilabel>Maximize</guilabel> button. Use the <action>middle mouse</action> button to maximize vertically, and <action>right mouse</action> to maximize horizontally."
-msgstr ""
+msgstr "Muitas das caixas de diálogos do TortoiseSVN têm muita informação para visualizar, pelo que é normalmente útil maximizar só a altura ou largura, em vez de maximizar para preencher o ecran. Como conveniência existem atalhos para este caso no botão <guilabel>Maximizar</guilabel>. Utilizar o botão <action>do meio do rato</action> para maximizar verticalmente e <action>o do direito do rato</action> para maximizar horizontalmente"
 
 #. (title)
 msgid "Importing Data Into A Repository"
