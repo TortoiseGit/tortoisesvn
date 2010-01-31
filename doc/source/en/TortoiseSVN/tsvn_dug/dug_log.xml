@@ -836,12 +836,13 @@
 		</para>
 		<para>
 			You can also filter the path names in the bottom pane using the
-			<guilabel>Hide unrelated changed paths</guilabel> checkbox.
-			Related paths are those which contain the path used to display
+			<guilabel>Show only affected paths</guilabel> checkbox.
+			Affected paths are those which contain the path used to display
 			the log. If you fetch the log for a folder, that means anything
 			in that folder or below it. For a file it means just that one file.
-			The checkbox is tristate: you can show all paths, grey out the
-			unrelated ones, or hide the unrelated paths completely.
+			Normally the path list shows any other paths which are affected by
+			the same commit, but in grey. If the box is checked, those paths
+			are hidden.
 		</para>
 		<para>
 			Sometimes your working practices will require log messages to follow
