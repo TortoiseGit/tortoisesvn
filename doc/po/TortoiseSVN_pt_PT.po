@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-01-24 07:47 +0000\n"
-"PO-Revision-Date: 2010-01-30 23:27-0000\n"
+"PO-Revision-Date: 2010-01-31 00:02-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2386,7 +2386,7 @@ msgstr "<placeholder-1/> Uma das funcionalidades mais visíveis do TortoiseSVN s
 
 #. (title)
 msgid "Context Menus"
-msgstr ""
+msgstr "Menus de Contexto"
 
 #. (primary)
 msgid "context menu"
@@ -2398,15 +2398,15 @@ msgstr ""
 
 #. (title)
 msgid "Context menu for a directory under version control"
-msgstr ""
+msgstr "Menu de Contexto de uma pasta sob controlo de versões."
 
 #. (para)
 msgid "<placeholder-1/> All TortoiseSVN commands are invoked from the context menu of the windows explorer. Most are directly visible, when you <action>right click</action> on a file or folder. The commands that are available depend on whether the file or folder or its parent folder is under version control or not. You can also see the TortoiseSVN menu as part of the Explorer file menu."
-msgstr ""
+msgstr "<placeholder-1/> Todos os comandos do TortoiseSVN são invocados a partir do menu de contexto no explorador do Windows. A maioria estão directamente visíveis quando <action>clicas com o botão direito</action> numa pasta ou ficheiro. A lista de comandos disponíveis dependem do caso de se tratar de uma pasta ou um ficheiro, ou se o ficheiro pai se encontra sob controlo de versões, ou não. Podes também ver o menu do TortoiseSVN como uma parte do menu ficheiro do Explorador."
 
 #. (para)
 msgid "Some commands which are very rarely used are only available in the extended context menu. To bring up the extended context menu, hold down the <keycap>Shift</keycap> key when you <action>right-click</action>."
-msgstr ""
+msgstr "Alguns comandos que são utilizados muito raramente, estão disponiveis apenas no menu de contexto extendido. Para mostrar o menu de contexto extendido, manter premida a tecla <keycap>Shift</keycap> enquanto <action>clicas com o botão direito do rato</action>."
 
 #. (title)
 msgid "Explorer file menu for a shortcut in a versioned folder"
@@ -2414,11 +2414,11 @@ msgstr ""
 
 #. (para)
 msgid "In some cases you may see several TortoiseSVN entries. This is not a bug! <placeholder-1/> This example is for an unversioned shortcut within a versioned folder, and in the Explorer file menu there are <emphasis>three</emphasis> entries for TortoiseSVN. One is for the folder, one for the shortcut itself, and the third for the object the shortcut is pointing to. To help you distinguish between them, the icons have an indicator in the lower right corner to show whether the menu entry is for a file, a folder, a shortcut or for multiple selected items."
-msgstr ""
+msgstr "Em alguns casos verás várias entradas TortoiseSVN, o que não representa um bug! <placeholder-1/> Neste exemplo está um atalho não versionado dentro de uma pasta versionada, e no menu ficheiro do Explorador estão <emphasis>três</emphasis> entradas para o TortoiseSVN. Uma é para a pasta, outra para o atalho em si e a terceira é para o objecto para o qual o atalho aponta. Para ajudar a distinguir entre eles, os ícones têm um indicador no canto inferior direito, para distinguir se a entrada de menu é para um ficheiro, pasta ou atalho para múltiplos itens seleccionados."
 
 #. (para)
 msgid "If you are using Windows 2000 you will find that the context menus are shown as plain text, without the menu icons shown above. We are aware that this was working in previous versions, but Microsoft has changed the way its icon handlers work for Vista, requiring us to use a different display method which unfortunately does not work on Windows 2000."
-msgstr ""
+msgstr "Se usas o Windows 2000 verás que os menus de contexto serão mostrados como texto simples, sem os menus de  ícones mostrados acima. Estamos conscientes de que em versões anteriores isto estava a funcionar, mas a Microsoft alterou a forma como os seus handlers de ícones funcionam no Vista, forçando-nos a utilizar um método diferente de visualização que infelizmente já não funcionam para o Windows 2000."
 
 #. (title)
 #. (title)
