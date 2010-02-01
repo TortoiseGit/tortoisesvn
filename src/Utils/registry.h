@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include "shlwapi.h"
 #include "tstring.h"
 #include "auto_buffer.h"
+#include "FormatMessageWrapper.h"
 
 #ifndef ASSERT
 #define ASSERT(x)
@@ -81,23 +82,10 @@ public:	//methods
 	 */
 	virtual S getErrorString()
 	{
-		LPVOID lpMsgBuf;
-
-		FormatMessage(
-			FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-			FORMAT_MESSAGE_FROM_SYSTEM |
-			FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL,
-			LastError,
-			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-			(LPTSTR) &lpMsgBuf,
-			0, NULL );
-
-		S result ((LPCTSTR)lpMsgBuf);
-		LocalFree (lpMsgBuf);
-
+		CFormatMessageWrapper errorMessage(LastError);
+		S result ((LPCTSTR)errorMessage);
 		return result;
-	};
+	}
 
     /// get failure info for last operation
 
@@ -1089,4 +1077,3 @@ typedef CKeyList<CRegStdDWORD> CRegStdDWORDList;
 CKeyList<CRegStdString>;
 typedef CKeyList<CRegStdString> CRegStdStringList;
 #endif
-

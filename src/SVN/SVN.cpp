@@ -867,11 +867,9 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
 					}
 					if (lastError)
 					{
-						CFormatMessageWrapper errorDetails;
-						if(!errorDetails.ObtainMessage(lastError))
-						{
+						CFormatMessageWrapper errorDetails(lastError);
+						if(!errorDetails)
 							return false;
-						}
 						Err = svn_error_create(NULL, NULL, CUnicodeUtils::GetUTF8(CString(errorDetails)));
 						return false;
 					}
@@ -2919,4 +2917,3 @@ svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
 		abort();	// ugly, ugly! But at least we showed a messagebox first
 	return NULL;	// never reached, only to silence compiler warning
 }
-

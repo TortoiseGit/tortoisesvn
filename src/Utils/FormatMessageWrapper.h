@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,23 +23,25 @@
  * the lifetime of the allocated error message buffer.
  */
 
-class CFormatMessageWrapper {
+class CFormatMessageWrapper 
+{
 private:
 	LPTSTR buffer;
     DWORD result;
 	void release();
+	void obtainMessage() { obtainMessage(::GetLastError()); }
+	void obtainMessage(DWORD errorCode);
 
 public:
-	CFormatMessageWrapper() : buffer(0), result(0) {ObtainMessage();}
+	CFormatMessageWrapper() : buffer(0), result(0) {obtainMessage();}
+	CFormatMessageWrapper(DWORD lastError) : buffer(0), result(0) {obtainMessage(lastError);}
 	~CFormatMessageWrapper() { release(); }
-	bool ObtainMessage() { return ObtainMessage(::GetLastError()); }
-	bool ObtainMessage(DWORD errorCode);
 	operator LPCTSTR() { return buffer; }
     operator bool() { return result != 0; }
     bool operator!() { return result == 0; }
 };
 
-inline bool CFormatMessageWrapper::ObtainMessage(DWORD errorCode)
+inline void CFormatMessageWrapper::obtainMessage(DWORD errorCode)
 {
 	// First of all release the buffer to make it possible to call this
 	// method more than once on the same object.
@@ -54,12 +56,12 @@ inline bool CFormatMessageWrapper::ObtainMessage(DWORD errorCode)
 							0,
 							NULL
 							);
-	return result != 0;
 }
 
 inline void CFormatMessageWrapper::release()
 {
-	if(buffer != 0) {
+	if(buffer != 0) 
+	{
 		LocalFree(buffer);
 		buffer = 0;
 	}

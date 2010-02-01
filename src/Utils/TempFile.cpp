@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,7 @@
 #include "auto_buffer.h"
 #include "SVNError.h"
 #include "PathUtils.h"
+#include "FormatMessageWrapper.h"
 
 CTempFiles::CTempFiles(void)
 {
@@ -40,24 +41,8 @@ CTempFiles& CTempFiles::Instance()
 void CTempFiles::ThrowLastError (DWORD lastError)
 {
 	// get formatted system error message
-
-	LPVOID lpMsgBuf;
-
-	FormatMessage(
-		FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-		FORMAT_MESSAGE_FROM_SYSTEM |
-		FORMAT_MESSAGE_IGNORE_INSERTS,
-		NULL,
-		lastError,
-		MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-		(LPTSTR) &lpMsgBuf,
-		0, NULL );
-
-	CStringA errorText ((LPCTSTR)lpMsgBuf);
-	LocalFree (lpMsgBuf);
-
-	// throw it
-
+	CFormatMessageWrapper errorMessage(lastError);
+	CStringA errorText ((LPCTSTR)errorMessage);
 	throw SVNError (SVN_ERR_BASE, errorText);
 }
 
