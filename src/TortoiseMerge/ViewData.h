@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -59,14 +59,14 @@ public:
 	void			RemoveData(int index) {m_data.erase(m_data.begin() + index);}
 
 	const viewdata&	GetData(int index) {return m_data[index];}
-	const CString&	GetLine(int index) {return m_data[index].sLine;}
-	DiffStates		GetState(int index) {return m_data[index].state;}
+	const CString&	GetLine(int index) const {return m_data[index].sLine;}
+	DiffStates		GetState(int index) const {return m_data[index].state;}
 	HIDESTATE		GetHideState(int index) {return m_data[index].hidestate;}
 	int				GetLineNumber(int index) {return m_data.size() ? m_data[index].linenumber : 0;}
 	int				FindLineNumber(int number);
-	EOL				GetLineEnding(int index) {return m_data[index].ending;}
+	EOL				GetLineEnding(int index) const {return m_data[index].ending;}
 
-	int				GetCount() {return (int)m_data.size();}
+	int				GetCount() const {return (int)m_data.size();}
 
 	void			SetState(int index, DiffStates state) {m_data[index].state = state;}
 	void			SetLine(int index, const CString& sLine) {m_data[index].sLine = sLine;}

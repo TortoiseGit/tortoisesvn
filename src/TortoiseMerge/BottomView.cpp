@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2009 - TortoiseSVN
+// Copyright (C) 2006-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -98,12 +98,12 @@ bool CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 
 void CBottomView::UseTheirTextBlock()
 {
-	viewstate leftstate;
-	viewstate rightstate;
-	viewstate bottomstate;
 	if ((m_nSelBlockStart < 0)||(m_nSelBlockEnd < 0))
 		return;
 
+	viewstate leftstate;
+	viewstate rightstate;
+	viewstate bottomstate;
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		bottomstate.difflines[i] = m_pViewData->GetLine(i);
@@ -126,12 +126,12 @@ void CBottomView::UseTheirTextBlock()
 
 void CBottomView::UseMyTextBlock()
 {
-	viewstate leftstate;
-	viewstate rightstate;
-	viewstate bottomstate;
 	if ((m_nSelBlockStart < 0)||(m_nSelBlockEnd < 0))
 		return;
 
+	viewstate leftstate;
+	viewstate rightstate;
+	viewstate bottomstate;
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		bottomstate.difflines[i] = m_pViewData->GetLine(i);
@@ -139,13 +139,10 @@ void CBottomView::UseMyTextBlock()
 		bottomstate.linestates[i] = m_pViewData->GetState(i);
 		m_pViewData->SetState(i, m_pwndRight->m_pViewData->GetState(i));
 		m_pViewData->SetLineEnding(i, EOL_AUTOLINE);
-		m_pViewData->SetLineEnding(i, EOL_AUTOLINE);
-		{
-			if (m_pwndRight->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
-				m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
-			else
-				m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
-		}
+		if (m_pwndRight->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
+			m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+		else
+			m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
 	}
 	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
 	SetModified();

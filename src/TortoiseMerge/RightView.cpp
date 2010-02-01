@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2009 - TortoiseSVN
+// Copyright (C) 2006-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -199,12 +199,12 @@ void CRightView::UseFile(bool refreshViews /* = true */)
 
 void CRightView::UseBlock(bool refreshViews /* = true */)
 {
+	if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
+		return;
+	
 	viewstate rightstate;
 	viewstate bottomstate;
 	viewstate leftstate;
-
-	if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
-		return;
 	if (m_pwndBottom->IsWindowVisible())
 	{
 		for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)

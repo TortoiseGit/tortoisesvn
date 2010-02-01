@@ -1230,44 +1230,36 @@ void CBaseView::OnDraw(CDC * pDC)
 
 BOOL CBaseView::IsLineRemoved(int nLineIndex)
 {
-	DiffStates state = DIFFSTATE_UNKNOWN;
-	if (m_pViewData)
-		state = m_pViewData->GetState(nLineIndex);
-	BOOL ret = FALSE;
+	if (m_pViewData == 0)
+		return FALSE;
+	const DiffStates state = m_pViewData->GetState(nLineIndex);
 	switch (state)
 	{
 	case DIFFSTATE_REMOVED:
 	case DIFFSTATE_THEIRSREMOVED:
 	case DIFFSTATE_YOURSREMOVED:
 	case DIFFSTATE_IDENTICALREMOVED:
-		ret = TRUE;
-		break;
+		return TRUE;
 	default:
-		ret = FALSE;
-		break;
+		return FALSE;
 	}
-	return ret;
 }
 
 bool CBaseView::IsLineConflicted(int nLineIndex)
 {
-	DiffStates state = DIFFSTATE_UNKNOWN;
-	if (m_pViewData)
-		state = m_pViewData->GetState(nLineIndex);
-	bool ret = false;
+	if (m_pViewData == 0)
+		return false;
+	const DiffStates state = m_pViewData->GetState(nLineIndex);
 	switch (state)
 	{
 	case DIFFSTATE_CONFLICTED:
 	case DIFFSTATE_CONFLICTED_IGNORED:
 	case DIFFSTATE_CONFLICTEMPTY:
 	case DIFFSTATE_CONFLICTADDED:
-		ret = true;
-		break;
+		return true;
 	default:
-		ret = false;
-		break;
+		return false;
 	}
-	return ret;
 }
 
 COLORREF CBaseView::InlineDiffColor(int nLineIndex)
