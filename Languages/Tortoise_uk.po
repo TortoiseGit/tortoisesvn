@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-26 15:20+0300\n"
+"PO-Revision-Date: 2010-02-01 12:13+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1845,8 +1845,8 @@ msgid "Author"
 msgstr "Автор"
 
 #. Resource IDs: (65535)
-msgid "Author:                                    Stefan Kueng"
-msgstr "Автор:                                    Степан Куенг"
+msgid "Author:\t\t\t\tStefan Kueng"
+msgstr "Автор:\t\t\t\tStefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -4569,8 +4569,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "Перекривання піктограм::Набір піктограм"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:                 Luebbe Onken"
-msgstr "Піктограми/Дизайн/Код:      Луеббе Онкен (Luebbe Onken)"
+msgid "Icons/Design/Code:\t\tLuebbe Onken"
+msgstr "Піктограми/Дизайн/Код:\t\tLuebbe Onken"
 
 #. Resource IDs: (346)
 msgid ""
@@ -5743,6 +5743,10 @@ msgstr "Нове ім'я для %s"
 msgid "New name:"
 msgstr "Нове ім'я:"
 
+#. Resource IDs: (32875)
+msgid "Next &Inline Difference"
+msgstr "&Наступна відмінність в рядку."
+
 #. Resource IDs: (3633)
 msgid ""
 "Next Page\n"
@@ -6366,6 +6370,10 @@ msgstr "Попередній перегляд залатаного фалйа"
 #. Resource IDs: (65535)
 msgid "Preview: "
 msgstr "Попередній перегляд:"
+
+#. Resource IDs: (32876)
+msgid "Previous In&line Difference"
+msgstr "&Попередня відмінність в рядку"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -7803,8 +7811,8 @@ msgstr "Показати/Приховати"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
-msgstr "Показуються %1!ld! модифікацій, від %2!ld! до %3!ld! - виділено %4!ld! модифікацій."
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected, showing %5!ld! changed paths"
+msgstr "Показуються %1!ld! модифікацій, від %2!ld! до %3!ld! - виділено %4!ld! модифікацій, відображаються %5!ld! змінених шляхів."
 
 #. Resource IDs: (272)
 #, c-format
@@ -10806,6 +10814,8 @@ msgstr "так"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Author:                                    Stefan Kueng"
+#~ msgstr "Автор:                                    Степан Куенг"
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Автоматично перевіряти щотижня наявність &нових версій"
 #~ msgid ""
