@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2009 - TortoiseSVN
+// Copyright (C) 2006-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -61,6 +61,7 @@ BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSaveP
 	{
 		CFormatMessageWrapper errorDetails;
 		MessageBox(NULL, errorDetails, _T("TortoiseMerge"), MB_OK | MB_ICONERROR);
+		return FALSE;
 	}
 	DWORD ret = 0;
 	do
