@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2009 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -175,19 +175,15 @@ void CUnicodeUtils::UTF8ToUTF16 (const std::string& source, std::wstring& target
 
 CStringA CUnicodeUtils::ConvertWCHARStringToUTF8(const CString& string)
 {
-	CStringA sRet;
 	auto_buffer<char> buf (string.GetLength()+1);
-	if (buf)
-	{
-		int i=0;
-		for ( ; i<string.GetLength(); ++i)
-		{
-			buf[i] = (char)string.GetAt(i);
-		}
-		buf[i] = 0;
-		sRet = buf.get();
-	}
 
+	int i=0;
+	for ( ; i<string.GetLength(); ++i)
+	{
+		buf[i] = (char)string.GetAt(i);
+	}
+	buf[i] = 0;
+	CStringA sRet = buf.get();
 	return sRet;
 }
 
@@ -338,4 +334,3 @@ int LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax,
 #endif
 	return ret;
 }
-
