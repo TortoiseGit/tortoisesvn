@@ -9,14 +9,14 @@
 # $Rev$
 #
 # Authors:
-# Stefan Küng steveking@tigris.org, 2004-2009
-# Lübbe Onken luebbe@tigris.org>, 2004-2009
+# Stefan Küng <steveking@tigris.org>, 2004-2010
+# Lübbe Onken <luebbe@tigris.org>, 2004-2010
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-01-24 07:47 +0000\n"
-"PO-Revision-Date: 2010-01-25 13:17+0100\n"
+"POT-Creation-Date: 2010-02-01 00:19 +0000\n"
+"PO-Revision-Date: 2010-02-01 21:12+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2125,7 +2125,7 @@ msgstr ""
 "aus und kopieren die Dateien <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> und <filename>menucheckout.ico</filename> in das Document Root Verzeichnis des Apache Servers (normalerweise <filename>C:/Programme/Apache Group/Apache2/htdocs</filename>). Dieses Verzeichnis wird mit der <literal>DocumentRoot</literal> Anweisung in der Apache Konfigurationsdatei eingestellt."
 
 #. (para)
-msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
+msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
 msgstr "Sie können diese drei Dateien direkt aus unserem Projektarchiv <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink> herunterladen. (<xref linkend=\"tsvn-preface-source\"/> erklärt, wie man auf das TortoiseSVN Projektarchiv zugreift)."
 
 #. (para)
@@ -3338,6 +3338,10 @@ msgid "The log message window also includes a filename and function auto-complet
 msgstr "Das Eingabefeld verfügt außerdem über eine automatisch Vervollständigen Funktion für Datei- und Funktionsnamen. Diese verwendet reguläre Ausdrücke, um Klassen- und Funktionsnamen aus den zu übertragenden Dateien sowie den Dateinamen selbst zu extrahieren. Sobald Sie die ersten drei Zeichen eines Wortes (oder <keycap>Strg+Leer</keycap>) eingeben haben, wird, falls es Übereinstimmungen gibt, eine Liste angezeigt, aus der Sie das vollständige Wort auswählen können. Die zusammen mit TortoiseSVN installierten regulären Ausdrücke finden sich im <filename>bin</filename> Ordner. Sie können obendrein Ihre eigenen regulären Ausdrücke definieren und in der Datei <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename> abspeichern. Diese private Liste wird beim Aktualisieren von TortoiseSVN nicht überschrieben. Wenn Sie sich mit regulären Ausdrücken nicht auskennen, finden Sie ausführliche Informationen unter <ulink url=\"http://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck/\"> <citetitle>http://de.wikipedia.org/wiki/Regulärer_Ausdruck</citetitle></ulink> sowie eine Online-Dokumentation und -Anleitung unter <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>.\""
 
 #. (para)
+msgid "Getting the regex just right can be tricky, so to help you sort out a suitable expression there is a test dialog which allows you to enter an expression and then type in filenames to test it against. Start it from the command prompt using the command <literal>TortoiseProc.exe /command:autotexttest</literal>"
+msgstr "Den regulären Ausdruck korrekt hinzubekommen kann trickreich sein. Um Ihnen dabei etwas zur Hand zu gehen, gibt es einen Testdialog in dem Sie einen regulären Ausdruck gegen eine Liste von Datein testen können. Diesen Dialog können Sie per Kommandozeile mittels <literal>TortoiseProc.exe /command:autotexttest</literal> starten."
+
+#. (para)
 msgid "You can re-use previously entered log messages. Just click on <guibutton>Recent messages</guibutton> to view a list of the last few messages you entered for this working copy. The number of stored messages can be customized in the TortoiseSVN settings dialog."
 msgstr "Sie können die zuletzt verwendeten Logmeldungen wiederverwenden. Dazu klicken Sie auf <guibutton>Letzte Meldungen</guibutton> und wählen einen Eintrag aus der Liste der Meldungen für dieses Projektarchiv aus. Die Anzahl der zu speichernden Logmeldungen kann in den Einstellungen festgelegt werden."
 
@@ -4523,8 +4527,8 @@ msgid "Show changes"
 msgstr "Änderungen anzeigen"
 
 #. (para)
-msgid "Show changes made in the selected revision for the selected file. This context menu is only available for files shown as <emphasis>modified</emphasis>."
-msgstr "Die Änderungen der markierten Datei in der gewählten Revision anzeigen. Nur für Dateien verfügbar, die als <emphasis>Verändert</emphasis> gekennzeichnet sind."
+msgid "Show changes made in the selected revision for the selected file."
+msgstr "Die Änderungen der markierten Datei in der gewählten Revision anzeigen."
 
 #. (term)
 msgid "Blame changes"
@@ -4736,24 +4740,37 @@ msgid "If you want to restrict the log messages to show only those you are inter
 msgstr "Mit Hilfe der Filter am oberen Rand des Log-Dialogs können Sie die Logmeldungen auf diejenigen einschränken, die Sie interessieren. Die <guilabel>Von</guilabel> und <guilabel>Bis</guilabel> ermöglichen es, die Ausgabe auf einen bestimmten Zeitraum zu reduzieren. Die Suchmaske filtert die Meldungen heraus, die die angegebene Zeichenfolge beinhalten"
 
 #. (para)
-msgid "Click on the search icon to select which information you want to search in, and to choose <emphasis>regex</emphasis> mode. Normally you will only need a simple text search, but if you need to more flexible search terms, you can use regular expressions. If you hover the mouse over the box, a tooltip will give hints on how to use the regex functions. You can also find online documentation and a tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>. The filter works by checking whether your filter string matches the log entries, and then only those entries which <emphasis>match</emphasis> the filter string are shown."
-msgstr "Klicken Sie auf das Suchsymbol, um auszuwählen welche Werte Sie durchsuchen möchten und um die Suche mit regulären Ausdrücken zu aktivieren. Normalerweise benötigen Sie nur eine einfache Textsuche, aber falls Sie komplexere Suchbegriffe formulieren wollen, können Sie reguläre Ausdrücke verwenden. Wenn Sie mit dem Mauszeiger über das Eingabefeld fahren, erscheint ein Hinweistext zu den regulären Ausdrücken. Unter <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink> stehen eine Dokumentation und Übungen zur Verfügung. Der Filter vergleicht Ihren Suchtext mit den Logmeldungen und zeigt nur die Einträge an, die mit dem Suchtext <emphasis>übereinstimmen</emphasis>."
+msgid "Click on the search icon to select which information you want to search in, and to choose <emphasis>regex</emphasis> mode. Normally you will only need a simple sub-string search, but if you need to more flexible search terms, you can use regular expressions. If you hover the mouse over the box, a tooltip will give hints on how to use the regex functions, or the sub-string functions. The filter works by checking whether your filter string matches the log entries, and then only those entries which <emphasis>match</emphasis> the filter string are shown."
+msgstr "Klicken Sie auf das Suchsymbol, um auszuwählen welche Werte Sie durchsuchen möchten und um die Suche mit regulären Ausdrücken zu aktivieren. Normalerweise benötigen Sie nur eine einfache Textsuche, aber falls Sie komplexere Suchbegriffe formulieren wollen, können Sie reguläre Ausdrücke verwenden. Wenn Sie mit dem Mauszeiger über das Eingabefeld fahren, erscheint ein Hinweistext zur Textsuche und den regulären Ausdrücken. Der Filter vergleicht Ihren Suchtext mit den Logmeldungen und zeigt nur die Einträge an, die mit dem Suchtext <emphasis>übereinstimmen</emphasis>."
 
 #. (para)
-msgid "If you don't use regex mode, you can enter several strings to search for, and only those log entries which match all of your filter words will be shown."
-msgstr "Falls Sie keine regulären Ausdrücke verwenden, können Sie mehrere Zeichenketten zur Suche angeben und es werden nur die Log-Einträge angezeigt, die alle Wörter enthalten."
+msgid ""
+"Simple sub-string search works in a manner similar to a search engine. Strings to search for are separated by spaces, and all strings must match. You can use a leading <literal>-</literal> to specify that a particular sub-string is not found (invert matching for that term), and you can use <literal>!</literal> at the start of the expression to invert matching for the entire expression. You can use quote marks to surround a string which must contain spaces, and if you want to search for a literal quotation mark you can use two quotation marks together as a self-escaping sequence. Note that the backslash character is <emphasis>not</emphasis> used as an escape character and has no special significance in simple sub-string searches. Examples will make this easier: <screen>\n"
+"Alice Bob -Eve\n"
+"</screen> searches for strings containing both Alice and Bob but not Eve <screen>\n"
+"!Alice Bob\n"
+"</screen> searches for strings which do not contain both Alice and Bob <screen>\n"
+"!-Alice -Bob\n"
+"</screen> do you remember De Morgan's theorem? NOT(NOT Alice AND NOT Bob) reduces to (Alice OR Bob). <screen>\n"
+"\"Alice and Bob\"\n"
+"</screen> searches for the literal expression <quote>Alice and Bob</quote><screen>\n"
+"\"\"\n"
+"</screen> searches for a double-quote anywhere in the text <screen>\n"
+"\"Alice says \"\"hi\"\" to Bob\"\n"
+"</screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>"
+msgstr ""
 
 #. (para)
-msgid "To make the filter show all log entries that do <emphasis>not</emphasis> match the filter string, start the string with an exclamation mark ('!'). For example, a filter string <literal>!username</literal> will only show those entries which were not committed by <literal>username</literal>."
-msgstr "Damit der Filter alle Einträge anzeigt, die <emphasis>nicht</emphasis> mit dem Suchtext übereinstimmen, beginnen Sie den Suchtext mit einem Ausrufezeichen ('!'). Zum Beispiel würde der Suchtext <literal>!Harry</literal> nur die Einträge anzeigen, die nicht durch <literal>Harry</literal> übertragen wurden."
+msgid "Describing the use of regular expression searches is beyond the scope of this manual, but you can find online documentation and a tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
+msgstr "Reguläre Ausdrücke zu erklären würde den Rahmen dieses Handbuchs sprengen, aber Sie finden eine Dokumentation und Anleitung auf <ulink url=\"http://www.regular-expressions.info/\"> <citetitle>http://www.regular-expressions.info/</citetitle> </ulink>."
 
 #. (para)
 msgid "Note that these filters act on the messages already retrieved. They do not control downloading of messages from the repository."
 msgstr "Beachten Sie dass diese Filter nur auf die bereits heruntergeladenen Meldungen wirken. Sie haben keinen Einfluss darauf, welche Meldungen aus dem Projektarchiv heruntergeladen werden."
 
 #. (para)
-msgid "You can also filter the path names in the bottom pane using the <guilabel>Hide unrelated changed paths</guilabel> checkbox. Related paths are those which contain the path used to display the log. If you fetch the log for a folder, that means anything in that folder or below it. For a file it means just that one file. The checkbox is tristate: you can show all paths, grey out the unrelated ones, or hide the unrelated paths completely."
-msgstr "Sie können auch die Pfade in der unteren Liste filtern indem sie die <guilabel>Geänderte Pfade ohne Bezug ausblenden</guilabel> Option nutzen. Pfade mit Bezug sind Pfade welche den Pfad für welchen sie den Log anzeigen drin haben. Wenn sie den Log für einen Ordner anzeigen heißt dies dass alle Pfade unterhalb dieses Ordners einen Bezug haben, alle anderen Pfade nicht. Bei Dateien hat nur die Datei selbst einen Bezug mit sich selbst. Das Optionsfeld hat drei Zustände: sie können entweder alle Pfade anzeigen, Pfade ohne Bezug grau anzeigen oder ganz ausblenden."
+msgid "You can also filter the path names in the bottom pane using the <guilabel>Show only affected paths</guilabel> checkbox. Affected paths are those which contain the path used to display the log. If you fetch the log for a folder, that means anything in that folder or below it. For a file it means just that one file. Normally the path list shows any other paths which are affected by the same commit, but in grey. If the box is checked, those paths are hidden."
+msgstr "Sie können auch die Pfade in der unteren Liste filtern indem sie die <guilabel>Zeige nur betroffene Pfade</guilabel> Option nutzen. Betroffene Pfade enthalten den Pfad für welchen das Log angezeigt wurde. Wenn sie das Log für einen Ordner anzeigen, heißt dies alle Pfade innerhalb dieses Ordners oder darunter. Bei Dateien betrifft das nur die Datei selbst. Normalerweise zeigt der Log-Dialog alle in der Übertragung enthaltenen Pfade, allerdings in grau. Wenn die Option aktiviert ist, werden die übrigen Pfade ausgeblendet."
 
 #. (para)
 msgid "Sometimes your working practices will require log messages to follow a particular format, which means that the text describing the changes is not visible in the abbreviated summary shown in the top pane. The property <literal>tsvn:logsummary</literal> can be used to extract a portion of the log message to be shown in the top pane. Read <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> to find out how to use this property."
@@ -13130,6 +13147,33 @@ msgstr ""
 msgid "translator-translation"
 msgstr "Übersetzung"
 
+#~ msgid ""
+#~ "Show changes made in the selected revision for the selected file. This "
+#~ "context menu is only available for files shown as <emphasis>modified</"
+#~ "emphasis>."
+#~ msgstr ""
+#~ "Die Änderungen der markierten Datei in der gewählten Revision anzeigen. "
+#~ "Nur für Dateien verfügbar, die als <emphasis>Verändert</emphasis> "
+#~ "gekennzeichnet sind."
+#~ msgid ""
+#~ "If you don't use regex mode, you can enter several strings to search for, "
+#~ "and only those log entries which match all of your filter words will be "
+#~ "shown."
+#~ msgstr ""
+#~ "Falls Sie keine regulären Ausdrücke verwenden, können Sie mehrere "
+#~ "Zeichenketten zur Suche angeben und es werden nur die Log-Einträge "
+#~ "angezeigt, die alle Wörter enthalten."
+#~ msgid ""
+#~ "To make the filter show all log entries that do <emphasis>not</emphasis> "
+#~ "match the filter string, start the string with an exclamation mark ('!'). "
+#~ "For example, a filter string <literal>!username</literal> will only show "
+#~ "those entries which were not committed by <literal>username</literal>."
+#~ msgstr ""
+#~ "Damit der Filter alle Einträge anzeigt, die <emphasis>nicht</emphasis> "
+#~ "mit dem Suchtext übereinstimmen, beginnen Sie den Suchtext mit einem "
+#~ "Ausrufezeichen ('!'). Zum Beispiel würde der Suchtext <literal>!Harry</"
+#~ "literal> nur die Einträge anzeigen, die nicht durch <literal>Harry</"
+#~ "literal> übertragen wurden."
 #~ msgid "No Repo Viewer Links from Repository Browser"
 #~ msgstr "Keine Projektarchiv-Verweise im Projektarchivbetrachter"
 #~ msgid "Registry Settings"
