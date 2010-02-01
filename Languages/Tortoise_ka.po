@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-17 13:19+0300\n"
+"PO-Revision-Date: 2010-02-02 01:32+0300\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -993,6 +993,10 @@ msgstr "&პარამეტრები"
 msgid "&Show HEAD revisions"
 msgstr "HEAD ვერსიების &ჩვენება"
 
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "დავთრის &ჩვენება"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "მენიუების &ჩვენება:"
@@ -1245,6 +1249,10 @@ msgstr "(სტრიქონის ნომრის გარეშე)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(ცვლილებების გარეშე შეიქმნა ასლი აქედან)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(ცვლილებების გარეშე, თუმცა სამუშაო ასლის შესაბამისი)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -1841,8 +1849,8 @@ msgid "Author"
 msgstr "ავტორი"
 
 #. Resource IDs: (65535)
-msgid "Author:                                    Stefan Kueng"
-msgstr "ავტორი:                                 სტეფან კიუნგი"
+msgid "Author:\t\t\t\tStefan Kueng"
+msgstr "ავტორი:\t\t\t\tსტივენ ქუენგი"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -3165,6 +3173,14 @@ msgstr "ქმედებათა დავთრის წაშლა"
 msgid "Deleting"
 msgstr "წაშლა"
 
+#. Resource IDs: (348)
+msgid "Deleting cached data"
+msgstr "ბუფერის მონაცემთა წაშლა"
+
+#. Resource IDs: (348)
+msgid "Deleting file"
+msgstr "ფაილის წაშლა"
+
 #. Resource IDs: (207)
 msgid "Depth"
 msgstr "სიღრმე"
@@ -3785,10 +3801,6 @@ msgid "Extension"
 msgstr "გაფართოება"
 
 #. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "გაფართოება ან mime ტიპი:"
-
-#. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
 msgstr "პაკეტი/mime ტიპის სპეციფიური პროგრამები"
 
@@ -4035,6 +4047,14 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "ფაილის სახელი"
+
+#. Resource IDs: (65535)
+msgid "Filename, extension or mime-type:"
+msgstr "ფაილის სახელი, ტიპი ან mime ტიპი:"
+
+#. Resource IDs: (74)
+msgid "Filename/Extension"
+msgstr "ფაილის სახელი/ტიპი"
 
 #. Resource IDs: (1512)
 msgid "Files"
@@ -4586,8 +4606,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "პიქტოგრამათა თარგები::პიქტოგრამათა ნაკრებები"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:                 Luebbe Onken"
-msgstr "პიქტოგრამები/დიზაინი/კოდი:     ლუებე ონკენი"
+msgid "Icons/Design/Code:\t\tLuebbe Onken"
+msgstr "პიქტოგრამები/დიზაინი/კოდი:\t\tLuebbe Onken"
 
 #. Resource IDs: (346)
 msgid ""
@@ -5760,6 +5780,10 @@ msgstr "ახალი სახელი %s-თვის"
 msgid "New name:"
 msgstr "ახალი სახელი:"
 
+#. Resource IDs: (32875)
+msgid "Next &Inline Difference"
+msgstr "&შემდეგი განსხვავება"
+
 #. Resource IDs: (3633)
 msgid ""
 "Next Page\n"
@@ -6384,6 +6408,10 @@ msgstr "ბებკი ფაილის ესკიზი"
 #. Resource IDs: (65535)
 msgid "Preview: "
 msgstr "ესკიზი:"
+
+#. Resource IDs: (32876)
+msgid "Previous In&line Difference"
+msgstr "&წინა განსხვავება"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -7821,8 +7849,8 @@ msgstr "ჩვენება/დამალვა"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
-msgstr "%1!ld! ვერსიის ჩვენება, ვერსიდან %2!ld! ვერსიამდე %3!ld! - შერჩეულია %4!ld! ვერსია."
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected, showing %5!ld! changed paths"
+msgstr "%1!ld! ვერსიის ჩვენება, ვერსიდან %2!ld! ვერსიამდე %3!ld! - შერჩეულია %4!ld! ვერსია,  ასახულია %5!ld! შეცვლილი გეზი"
 
 #. Resource IDs: (272)
 #, c-format
@@ -9750,6 +9778,11 @@ msgstr ""
 "სამუშაო ასლი გადატანილია აქ:\n"
 "%s"
 
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "სამუშაო ასლი: %s\n"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "დიახ"
@@ -10104,6 +10137,10 @@ msgstr ""
 "შემოწმება არის თუ არა საცავი 'ხაზზე' -\n"
 "მუშაობა ბუფერიდან 'ავტონომიურია'"
 
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "ამ ვერსიაზე"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "ავტორი"
@@ -10197,6 +10234,10 @@ msgstr "სულ ცვლილებები:"
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "ფიქსაცია..."
+
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "ფიქსირებული ვერსია"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10320,6 +10361,14 @@ msgstr "დავთრის &რედაქტორი"
 msgid "max revision: "
 msgstr "მაქს. ვერსია:"
 
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "მაქს. ამ ვერსიაზე"
+
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "მაქს. ფიქსირებული ვერსია"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "შერწყმული"
@@ -10327,6 +10376,14 @@ msgstr "შერწყმული"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "სულ შერწყმა:"
+
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "მინ. ამ ვერსიაზე"
+
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "მინ. ფიქსირებული ვერსია"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -10796,6 +10853,8 @@ msgstr "დიახ"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Author:                                    Stefan Kueng"
+#~ msgstr "ავტორი:                                 სტეფან კიუნგი"
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "&ახალი ვერსიის ავტომატური შემოწმება კვირაში ერთხელ"
 #~ msgid "Edit conflict"
