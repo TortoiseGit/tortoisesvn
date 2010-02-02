@@ -219,23 +219,21 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID l
 			if (pchData)
 			{
 				strcpy_s(pchData, sClipdata.GetLength()+1, (LPCSTR)sClipdata);
-				if (GlobalUnlock(hClipboardData))
+				GlobalUnlock(hClipboardData);
+				if (SetClipboardData(CF_TEXT, hClipboardData))
 				{
-					if (SetClipboardData(CF_TEXT, hClipboardData))
+					HANDLE hlocmem = CClipboardHelper::GlobalAlloc(sizeof(LCID));
+					if (hlocmem)
 					{
-						HANDLE hlocmem = CClipboardHelper::GlobalAlloc(sizeof(LCID));
-						if (hlocmem)
+						PLCID plcid = (PLCID)GlobalLock(hlocmem);
+						if (plcid)
 						{
-							PLCID plcid = (PLCID)GlobalLock(hlocmem);
-							if (plcid)
-							{
-								*plcid = lcid;
-								SetClipboardData(CF_LOCALE, static_cast<HANDLE>(plcid));	
-							}
-							GlobalUnlock(hlocmem);
+							*plcid = lcid;
+							SetClipboardData(CF_LOCALE, static_cast<HANDLE>(plcid));	
 						}
-						return true;
+						GlobalUnlock(hlocmem);
 					}
+					return true;
 				}
 			}
 		}
@@ -256,14 +254,12 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringW& sClipdata, HWND h
 			if (pchData)
 			{
 				_tcscpy_s(pchData, sClipdata.GetLength()+1, (LPCWSTR)sClipdata);
-				if (GlobalUnlock(hClipboardData))
+				GlobalUnlock(hClipboardData);
+				if (SetClipboardData(CF_UNICODETEXT, hClipboardData))
 				{
-					if (SetClipboardData(CF_UNICODETEXT, hClipboardData))
-					{
-						// no need to also set CF_TEXT : the OS does this
-						// automatically.
-						return true;
-					}
+					// no need to also set CF_TEXT : the OS does this
+					// automatically.
+					return true;
 				}
 			}
 		}
@@ -287,16 +283,14 @@ bool CStringUtils::WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningW
 			if (pchData)
 			{
 				strcpy_s(pchData, sClipdata.GetLength()+1, (LPCSTR)sClipdata);
-				if (GlobalUnlock(hClipboardData))
+				GlobalUnlock(hClipboardData);
+				if (SetClipboardData(cFormat,hClipboardData)==NULL)
 				{
-					if (SetClipboardData(cFormat,hClipboardData)==NULL)
-					{
-						return false;
-					}
-					if (SetClipboardData(CF_TEXT,hClipboardData))
-					{
-						return true;
-					}
+					return false;
+				}
+				if (SetClipboardData(CF_TEXT,hClipboardData))
+				{
+					return true;
 				}
 			}
 		}
