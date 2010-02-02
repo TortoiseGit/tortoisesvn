@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-02 00:11-0000\n"
+"PO-Revision-Date: 2010-02-02 00:45-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2669,7 +2669,7 @@ msgstr "Assumindo que já tens um repositório e queres adicionar uma pasta á s
 
 #. (title)
 msgid "Special Files"
-msgstr ""
+msgstr "Ficheiros Especiais"
 
 #. (primary)
 msgid "special files"
@@ -2677,19 +2677,19 @@ msgstr ""
 
 #. (para)
 msgid "Sometimes you need to have a file under version control which contains user specific data. That means you have a file which every developer/user needs to modify to suit his/her local setup. But versioning such a file is difficult because every user would commit his/her changes every time to the repository."
-msgstr ""
+msgstr "Às vezes é necessário ter um ficheiro sob o controlo de versões que contém dados específicos, isto é, tens um ficheiro que cada desenvolvedor/utilizador necessita modificar para satisfazer o seu/sua configuração. Mas o versionamento de tal ficheiro é difícil porque, cada utilizador iria, a todo o momento, submeter as suas alterações ao repositório."
 
 #. (para)
 msgid "In such cases we suggest to use <emphasis>template</emphasis> files. You create a file which contains all the data your developers will need, add that file to version control and let the developers check this file out. Then, each developer has to <emphasis>make a copy</emphasis> of that file and rename that copy. After that, modifying the copy is not a problem anymore."
-msgstr ""
+msgstr "Em alguns casos sugerimos o uso de ficheiros <emphasis>template</emphasis>. Cria um ficheiro que contém os dados que os teus desenvolvedores precisam, adiciona este ficheiro ao controlo de versões e deixa os desenvolvedores exportar este ficheiro. Então, cada desenvolvedor tem que <emphasis>fazer uma cópia</emphasis> desse ficheiro e renomear essa cópia. Após isto, modificar a cópia já não é um problema. "
 
 #. (para)
 msgid "As an example, you can have a look at TortoiseSVN's build script. It calls a file named <filename>TortoiseVars.bat</filename> which doesn't exist in the repository. Only the file <filename>TortoiseVars.tmpl</filename>. <filename>TortoiseVars.tmpl</filename> is the template file which every developer has to create a copy from and rename that file to <filename>TortoiseVars.bat</filename>. Inside that file, we added comments so that the users will see which lines they have to edit and change according to their local setup to get it working."
-msgstr ""
+msgstr "Como um exemplo, podes olhar para o script de construção do TortoiseSVN. Ele chama um ficheiro chamado <filename>TortoiseVars.bat</filename> que não existe no repositório, só o ficheiro  <filename>TortoiseVars.tmpl</filename>. O <filename>TortoiseVars.tmpl</filename> é um ficheiro template que cada desenvolvedor tem de criar uma cópia de, e renomeá-lo para  <filename>TortoiseVars.bat</filename>. No interior desse ficheiro, adicionámos comentários para que os utilizadores vejam quais as linhas que têm de editar e mudar de acordo com a sua configuração, de forma a faze-la funcionar."
 
 #. (para)
 msgid "So as not to disturb the users, we also added the file <filename>TortoiseVars.bat</filename> to the ignore list of its parent folder, i.e. we've set the Subversion property <literal>svn:ignore</literal> to include that filename. That way it won't show up as unversioned on every commit."
-msgstr ""
+msgstr "Então, para não perturbar os utilizadores, nós adicionámos também o ficheiro <filename>TortoiseVars.bat</filename> á lista de arquivos a ignorar do sua pasta mãe, i.e colocámos esse ficheiro na propriedade <literal>svn:ignore</literal>. Deste modo não aparecerá como ficheiro não versionado a cada submissão."
 
 #. (title)
 msgid "Checking Out A Working Copy"
