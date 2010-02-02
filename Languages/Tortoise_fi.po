@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-20 23:22+0200\n"
+"PO-Revision-Date: 2010-02-02 00:17+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1914,8 +1914,8 @@ msgid "Author"
 msgstr "Tekijä"
 
 #. Resource IDs: (65535)
-msgid "Author:                                    Stefan Kueng"
-msgstr "Tekijä:                                    Stefan Küng"
+msgid "Author:\t\t\t\tStefan Kueng"
+msgstr "Tekijä:\t\t\t\tStefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -4643,8 +4643,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "Kuvakepäällykset::Kuvakejoukko"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:                 Luebbe Onken"
-msgstr "Kuvakkeet/Suunnittelu/Koodi:       Lübbe Onken"
+msgid "Icons/Design/Code:\t\tLuebbe Onken"
+msgstr "Kuvakkeet/Suunnittelu/Koodi:\t\tLuebbe Onken"
 
 #. Resource IDs: (346)
 msgid ""
@@ -5814,6 +5814,10 @@ msgstr "Uudelleennimeä %s"
 msgid "New name:"
 msgstr "Uusi nimi:"
 
+#. Resource IDs: (32875)
+msgid "Next &Inline Difference"
+msgstr "Seuraava rivin &sisäinen ero"
+
 #. Resource IDs: (3633)
 msgid ""
 "Next Page\n"
@@ -6435,6 +6439,10 @@ msgstr "Esikatsele paikattu tiedosto"
 #. Resource IDs: (65535)
 msgid "Preview: "
 msgstr "Esikatselu:"
+
+#. Resource IDs: (32876)
+msgid "Previous In&line Difference"
+msgstr "Edellinen rivin s&isäinen ero"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -7872,8 +7880,8 @@ msgstr "Näytä/Piilota"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
-msgstr "Listassa %1!ld! versiota (versioväli %2!ld! - %3!ld!); valittuna %4!ld! versio(ta)."
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected, showing %5!ld! changed paths"
+msgstr "Listassa %1!ld! versiota (versioväli %2!ld! - %3!ld!); valittuna %4!ld! versio(ta), joissa %5!ld! muutettua polkua"
 
 #. Resource IDs: (272)
 #, c-format
@@ -10868,6 +10876,8 @@ msgstr "kyllä"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Author:                                    Stefan Kueng"
+#~ msgstr "Tekijä:                                    Stefan Küng"
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Tarkista &uuden version saatavuus automaattisesti joka viikko"
 #~ msgid ""
