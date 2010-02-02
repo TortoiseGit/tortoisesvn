@@ -44,5 +44,5 @@ inline bool CClipboardHelper::Open(HWND hOwningWnd)
 
 inline HGLOBAL CClipboardHelper::GlobalAlloc(SIZE_T dwBytes)
 {
-	return ::GlobalAlloc(GMEM_MOVEABLE|GMEM_DDESHARE, dwBytes);
+	return ::GlobalAlloc(GMEM_MOVEABLE, dwBytes);
 }
