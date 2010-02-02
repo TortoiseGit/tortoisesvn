@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-02 14:01+0100\n"
+"PO-Revision-Date: 2010-02-02 16:46+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4773,7 +4773,7 @@ msgstr "statistieken"
 
 #. (para)
 msgid "The <guibutton>Statistics</guibutton> button brings up a box showing some interesting information about the revisions shown in the Log dialog. This shows how many authors have been at work, how many commits they have made, progress by week, and much more. Now you can see at a glance who has been working hardest and who is slacking ;-)"
-msgstr ""
+msgstr "Met de <guibutton>Statistics</guibutton> knop kun je een scherm oproepen met interessante informatie over revisies die weergegeven worden in het logboekboodschappenvenster. In dit scherm wordt weergegeven hoeveel auteurs er aan het werk geweest zijn, hoeveel vastleggingen zijn hebben gedaan, de voortgang per week en nog veel meer. Nu kun je in één oogopslag zien wie het hardst heeft gewerkt en wie er loopt te treuzelen. ;-)"
 
 #. (title)
 msgid "Statistics Page"
@@ -4781,7 +4781,7 @@ msgstr "Statistiekenpagina"
 
 #. (para)
 msgid "This page gives you all the numbers you can think of, in particular the period and number of revisions covered, and some min/max/average values."
-msgstr ""
+msgstr "Op deze pagina vind je alle getallen die je maar kunt bedenken, maar in het bijzonder die van een bepaalde periode en aantal revisies die geselecteerd zijn en bijbehorende min/max/gemiddelde waardes."
 
 #. (title)
 msgid "Commits by Author Page"
@@ -4793,39 +4793,39 @@ msgstr "Vastleggingen per Auteur Histogram"
 
 #. (title)
 msgid "Commits-by-Author Pie Chart"
-msgstr ""
+msgstr "Vastleggingen-per-Auteur taartdiagram"
 
 #. (para)
 msgid "<placeholder-1/> This graph shows you which authors have been active on the project as a simple histogram, stacked histogram or pie chart. <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Dit figuur laat zien welke auteurs actief zijn geweest aan het project in de vorm van een eenvoudige histogram, gestapelde histogram, of taartdiagram. <placeholder-2/>"
 
 #. (para)
 msgid "Where there are a few major authors and many minor contributors, the number of tiny segments can make the graph more difficult to read. The slider at the bottom allows you to set a threshold (as a percentage of total commits) below which any activity is grouped into an <emphasis>Others</emphasis> category."
-msgstr ""
+msgstr "Als er enkele zeer actieve auteurs zijn en vele minder actieve, dan wordt door het aantal kleine segmenten de grafiek snel onleesbaar. Met de schuifbalk onderaan het venster kun je de drempel bepalen (als percentage van het totaal aantal vastleggingen) waaronder activiteiten gegroepeerd moeten worden in een categorie met <emphasis>Anderen</emphasis>."
 
 #. (title)
 msgid "Commits by date Page"
-msgstr ""
+msgstr "Vastleggingen per datum"
 
 #. (title)
 msgid "Commits-by-date Graph"
-msgstr ""
+msgstr "Vastleggingen-per-datum Grafiek"
 
 #. (para)
 msgid "<placeholder-1/> This page gives you a graphical representation of project activity in terms of number of commits <emphasis>and</emphasis> author. This gives some idea of when a project is being worked on, and who was working at which time."
-msgstr ""
+msgstr "<placeholder-1/> Deze grafiek is een grafische weergave van de project activiteiten in de zin van aantal vastleggingen <emphasis>en</emphasis> auteur. Hiermee kun je een idee krijgen wanneer er aan een project gewerkt wordt en wie er op welk moment aan werkt."
 
 #. (para)
 msgid "When there are several authors, you will get many lines on the graph. There are two views available here: <emphasis>normal</emphasis>, where each author's activity is relative to the base line, and <emphasis>stacked</emphasis>, where each author's activity is relative to the line underneath. The latter option avoids the lines crossing over, which can make the graph easier to read, but less easy to see one author's output."
-msgstr ""
+msgstr "Er zullen veel lijnen in de grafiek weergegeven worden als er meerdere auteurs zijn. Er zijn hier twee weergavemodi beschikbaar: <emphasis>normaal</emphasis>, waarbij de activiteit van elke auteur ten opzichte van de nullijn wordt weergegeven, en <emphasis>gestapeld</emphasis>, waarbij de activiteit ten opzichte van de lijn eronder wordt weergegeven. Met de laatste modus voorkom je dat lijnen elkaar kruisen. Hiermee wordt de grafiek overzichtelijker, maar ook meteen lastiger om de individuele bijdrage te bekijken."
 
 #. (para)
 msgid "By default the analysis is case-sensitive, so users <literal>PeterEgan</literal> and <literal>PeteRegan</literal> are treated as different authors. However, in many cases user names are not case-sensitive, and are sometimes entered inconsistently, so you may want <literal>DavidMorgan</literal> and <literal>davidmorgan</literal> to be treated as the same person. Use the <guilabel>Authors case insensitive</guilabel> checkbox to control how this is handled."
-msgstr ""
+msgstr "De analyse in standaard ingesteld als hoofdlettergevoelig, dus de gebruikers <literal>PeterEgan</literal> en <literal>PeteRegan</literal> worden als aparte auteurs behandeld. Echter zijn in veel gevallen de gebruikersnamen niet hoofdlettergevoelig en dus worden ze vaak inconsequent ingevoerd. In die gevallen wil je dat <literal>DavidMorgan</literal> en <literal>davidmorgan</literal> als dezelfde persoon behandeld worden. Gebruik het <guilabel>Exacte auteursnamen</guilabel> selectievak om dit in te stellen."
 
 #. (para)
 msgid "Note that the statistics cover the same period as the Log dialog. If that is only displaying one revision then the statistics will not tell you very much."
-msgstr ""
+msgstr "Merk op dat statistieken over dezelfde periode weergegeven worden zoals deze is ingesteld in het Logboek boodschappen venster. Als hierin maar één revisie wordt weergegeven, dan zullen de statistieken niet veel vertellen."
 
 #. (title)
 msgid "Offline Mode"
@@ -4837,7 +4837,7 @@ msgstr "Schakel naar Offline werken dialoog"
 
 #. (para)
 msgid "<placeholder-1/> If the server is not reachable, and you have log caching enabled you can use the log dialog and revision graph in offline mode. This uses data from the cache, which allows you to continue working although the information may not be up-to-date or even complete."
-msgstr ""
+msgstr "<placeholder-1/>Als de server niet bereikbaar is en je hebt log caching aangezet, dan kun je het logboek boodschappen venster en de revisie grafieken in offline modus gebruiken. Hiervoor worden de gegevens uit de cache gebruikt, waardoor het mogelijk is om door te werken ook al is de information niet bijgewerkt of misschien zelfs incompleet."
 
 #. (term)
 msgid "Offline for now"
@@ -4845,15 +4845,15 @@ msgstr "Tijdelijk offline"
 
 #. (para)
 msgid "Complete the current operation in offline mode, but retry the repository next time log data is requested."
-msgstr ""
+msgstr "Maak de huidige actie af in offline modus, maar probeer het archief opnieuw te bereiken als er weer informatie opgevraagd wordt."
 
 #. (term)
 msgid "Permanently offline"
-msgstr ""
+msgstr "Permanent offline"
 
 #. (para)
 msgid "Remain in offline mode until a repository check is specifically requested. See <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
-msgstr ""
+msgstr "Blijf in offline modus werken, totdat er een specifieke actie op het archief gevraagd wordt. Lees ook <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
 
 #. (term)
 msgid "Cancel"
@@ -4861,15 +4861,15 @@ msgstr "Annuleren"
 
 #. (para)
 msgid "If you don't want to continue the operation with possibly stale data, just cancel."
-msgstr ""
+msgstr "Als je niet verder wilt gaan met de actie met mogelijk achterhaalde informatie, selecteer dan annuleren."
 
 #. (para)
 msgid "Here you have three options: <placeholder-1/>"
-msgstr ""
+msgstr "Je hebt hier drie mogelijkheden: <placeholder-1/>"
 
 #. (para)
 msgid "The <guilabel>Make this the default</guilabel> checkbox prevents this dialog from re-appearing and always picks the option you choose next. You can still change (or remove) the default after doing this from <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Met het <guilabel>Maak dit de standaard</guilabel> selectievak voorkom je dat dit venster telkens weer terug komt en selecteert altijd de optie die je eerder hebt gekozen. Je kunt je keuze later altijd nog wijzigen via <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Instellingen</guimenuitem></menuchoice>."
 
 #. (title)
 #. (title)
