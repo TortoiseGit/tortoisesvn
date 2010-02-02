@@ -57,6 +57,32 @@ void CommitCommand::InitProgressDialog
 	progDlg.SetRevisionProperties(commitDlg.m_revProps);
 }
 
+bool CommitCommand::IsOutOfDate(const svn_error_t* pErr) const
+{
+	while (pErr)
+	{
+		const apr_status_t errorStatus = pErr->apr_err;
+		if ((errorStatus == SVN_ERR_FS_TXN_OUT_OF_DATE)||
+			(errorStatus == SVN_ERR_RA_OUT_OF_DATE)||
+			(errorStatus == SVN_ERR_FS_CONFLICT))
+		{
+			return true;
+		}
+		pErr = pErr->child;
+	}
+	return false;
+}
+
+bool CommitCommand::AskToUpdate(CSVNProgressDlg& progDlg) const
+{
+	CString title;
+	title.LoadString (IDS_MSG_NEEDSUPDATE_TITLE);
+	CString question;
+	question.Format (IDS_MSG_NEEDSUPDATE_QUESTION, (LPCTSTR)progDlg.GetLastErrorMessage());
+	const UINT result = CMessageBox::Show (NULL, question, title, MB_YESNO | MB_ICONQUESTION);
+	return result == IDYES;
+}
+
 bool CommitCommand::Execute()
 {
 	bool bRet = false;
@@ -113,36 +139,13 @@ bool CommitCommand::Execute()
             InitProgressDialog (dlg, progDlg);
 			progDlg.DoModal();
 
-			bool isOutOfDate = false;
-			svn_error_t * pErr = progDlg.Err;
-			while (pErr)
-			{
-				if ((pErr->apr_err == SVN_ERR_FS_TXN_OUT_OF_DATE)||
-					(pErr->apr_err == SVN_ERR_RA_OUT_OF_DATE)||
-					(pErr->apr_err == SVN_ERR_FS_CONFLICT))
-				{
-					isOutOfDate = true;
-					break;
-				}
-				pErr = pErr->child;
-			}
-            if (isOutOfDate)
+			if (IsOutOfDate(progDlg.Err))
             {
                 // the commit failed at least one of the items was outdated.
                 // -> suggest to update them
-
-                CString title;
-                title.LoadString (IDS_MSG_NEEDSUPDATE_TITLE);
-                CString question;
-                question.Format ( IDS_MSG_NEEDSUPDATE_QUESTION
-                                , (LPCTSTR)progDlg.GetLastErrorMessage());
-                if (CMessageBox::Show ( NULL
-                                      , question
-                                      , title
-                                      , MB_YESNO | MB_ICONQUESTION) == IDYES)
+				if(AskToUpdate(progDlg))
                 {
                     // auto-update
-
 			        CSVNProgressDlg updateProgDlg;
                     InitProgressDialog (dlg, updateProgDlg);
                     updateProgDlg.SetCommand (CSVNProgressDlg::SVNProgress_Update);
