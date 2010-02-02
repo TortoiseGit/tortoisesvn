@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-21 15:26+0200\n"
+"PO-Revision-Date: 2010-02-02 12:54+0200\n"
 "Last-Translator: Vural Goze <vuralgoze@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1900,8 +1900,8 @@ msgid "Author"
 msgstr "Yazar"
 
 #. Resource IDs: (65535)
-msgid "Author:                                    Stefan Kueng"
-msgstr "Yazar:                                    Stefan Kueng"
+msgid "Author:\t\t\t\tStefan Kueng"
+msgstr "Yazar:\t\t\t\tStefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -4625,8 +4625,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "Simge Ayarları::Simge Seti"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:                 Luebbe Onken"
-msgstr "Simgeler/Dizayn/Kod:              Luebbe Onken"
+msgid "Icons/Design/Code:\t\tLuebbe Onken"
+msgstr "Simgeler/Tasarım/Kodlama:\t\tLuebbe Onken"
 
 #. Resource IDs: (346)
 msgid ""
@@ -5799,6 +5799,10 @@ msgstr "%s için yeni ad."
 msgid "New name:"
 msgstr "Yeni ad:"
 
+#. Resource IDs: (32875)
+msgid "Next &Inline Difference"
+msgstr "Sonraki &Satıriçi farklılık"
+
 #. Resource IDs: (3633)
 msgid ""
 "Next Page\n"
@@ -6418,6 +6422,10 @@ msgstr "Yamalanmış dosyayı önizle"
 #. Resource IDs: (65535)
 msgid "Preview: "
 msgstr "Önizleme:"
+
+#. Resource IDs: (32876)
+msgid "Previous In&line Difference"
+msgstr "&Önceki Satıriçi Farklılık"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -7855,8 +7863,8 @@ msgstr "Göster/Gizle"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
-msgstr "%1!ld! revizyon gösteriliyor, %2!ld! revizyonundan %3!ld! revizyonuna - %4!ld! revizyon seçili."
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected, showing %5!ld! changed paths"
+msgstr "%1!ld! revizyon gösteriliyor, %2!ld! revizyonundan %3!ld! revizyonuna - %4!ld! revizyon seçili, %5!ld! değişmiş dizin gösteriliyor"
 
 #. Resource IDs: (272)
 #, c-format
@@ -10851,6 +10859,8 @@ msgstr "evet"
 msgid "{BugTraq}"
 msgstr "{HataTakibi}"
 
+#~ msgid "Author:                                    Stefan Kueng"
+#~ msgstr "Yazar:                                    Stefan Kueng"
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Otomatik olarak haftada bir yeni& güncelleme kontrolü yap"
 #~ msgid ""
