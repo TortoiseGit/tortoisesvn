@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-01 13:10+0100\n"
+"PO-Revision-Date: 2010-02-02 14:01+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -102,7 +102,7 @@ msgstr "Publiek"
 
 #. (para)
 msgid "This book is written for computer literate folk who want to use Subversion to manage their data, but are uncomfortable using the command line client to do so. Since TortoiseSVN is a windows shell extension it's assumed that the user is familiar with the windows explorer and knows how to use it."
-msgstr "Dit boek is geschreven voor computer intellectuelen, die Subversion willen gebruiken om hun data te beheren, maar niet graag commando regels gebruiken. Aangezien TortoiseSVN een windows shell-extensie is, wordt verondersteld dat de gebruiker bekend is met de windows verkenner en weet hoe deze te gebruiken."
+msgstr "Dit boek is geschreven voor computer intellectuelen, die Subversion willen gebruiken om hun data te beheren, maar niet graag opdrachtprompts gebruiken. Aangezien TortoiseSVN een windows shell-extensie is, wordt verondersteld dat de gebruiker bekend is met de windows verkenner en weet hoe deze te gebruiken."
 
 #. (title)
 msgid "Reading Guide"
@@ -110,11 +110,11 @@ msgstr "Leesgids"
 
 #. (para)
 msgid "This <xref linkend=\"tsvn-preface\"/> explains a little about the TortoiseSVN project, the community of people who work on it, and the licensing conditions for using it and distributing it."
-msgstr "Deze <xref linkend=\"tsvn-preface\"/> geeft een beknopte toelichting over het TortoiseSVN project, de gemeenschap die hieraan werkt, alsmede de licentievoorwaarden voor gebruik en verspreiding."
+msgstr "Dit <xref linkend=\"tsvn-preface\"/> geeft een beknopte toelichting over het TortoiseSVN project, de gemeenschap die hieraan werkt, alsmede de licentievoorwaarden voor gebruik en verspreiding."
 
 #. (para)
 msgid "The <xref linkend=\"tsvn-introduction\"/> explains what TortoiseSVN is, what it does, where it comes from and the basics for installing it on your PC."
-msgstr "De <xref linkend=\"tsvn-introduction\"/> legt uit wat TortoiseSVN is, wat het doet, waar het vandaan komt en wat de basisinstructies zijn om het op je PC te installeren."
+msgstr "<xref linkend=\"tsvn-introduction\"/> legt uit wat TortoiseSVN is, wat het doet, waar het vandaan komt en wat de basisinstructies zijn om het op je PC te installeren."
 
 #. (para)
 msgid "In <xref linkend=\"tsvn-basics\"/> we give a short introduction to the <emphasis>Subversion</emphasis> revision control system which underlies TortoiseSVN. This is borrowed from the documentation for the Subversion project and explains the different approaches to version control, and how Subversion works."
@@ -122,11 +122,11 @@ msgstr "In <xref linkend=\"tsvn-basics\"/> geven we een korte introductie van he
 
 #. (para)
 msgid "The chapter on <xref linkend=\"tsvn-repository\"/> explains how to set up a local repository, which is useful for testing Subversion and TortoiseSVN using a single PC. It also explains a bit about repository administration which is also relevant to repositories located on a server. There is also a section here on how to setup a server if you need one."
-msgstr "Het hoofdstuk over <xref linkend=\"tsvn-repository\"/> legt uit hoe een lokaal archief op te zetten, wat bruikbaar kan zijn om Subversion en TortoiseSVN te testen op een enkele PC. Het gaat ook over het beheer van een archief, wat eveneens relevant is voor archieven op een server. Er is ook in een stuk beschreven hoe een server opgezet moet worden als je er een nodig hebt."
+msgstr "<xref linkend=\"tsvn-repository\"/> legt uit hoe een lokaal archief op te zetten, wat bruikbaar kan zijn om Subversion en TortoiseSVN te testen op een enkele PC. Het gaat ook over het beheer van een archief, wat eveneens relevant is voor archieven op een server. Er is ook in een stuk beschreven hoe een server opgezet moet worden als je er een nodig hebt."
 
 #. (para)
 msgid "The <xref linkend=\"tsvn-dug\"/> is the most important section as it explains all the main features of TortoiseSVN and how to use them. It takes the form of a tutorial, starting with checking out a working copy, modifying it, committing your changes, etc. It then progresses to more advanced topics."
-msgstr "De <xref linkend=\"tsvn-dug\"/> is de belangrijkste sectie, omdat hierin de voornaamste functies van TortoiseSVN alsmede hoe ze te gebruiken, worden uitgelegd. Het is in de vorm van een handleiding, die begint met het ophalen van een werkkopie, het wijzigen ervan, het vastleggen van je wijzigingen, enz. Het vervolgt dan met meer geavanceerde thema's."
+msgstr "<xref linkend=\"tsvn-dug\"/> is de belangrijkste sectie, omdat hierin de voornaamste functies van TortoiseSVN alsmede hoe ze te gebruiken, worden uitgelegd. Het is in de vorm van een handleiding, die begint met het ophalen van een werkkopie, het wijzigen ervan, het vastleggen van je wijzigingen, enz. Het vervolgt dan met meer geavanceerde thema's."
 
 #. (para)
 msgid "<xref linkend=\"tsvn-subwcrev\"/> is a separate program included with TortoiseSVN which can extract the information from your working copy and write it into a file. This is useful for including build information in your projects."
@@ -138,7 +138,7 @@ msgstr "De <xref linkend=\"tsvn-howto\"/> sectie beantwoordt algemene vragen ove
 
 #. (para)
 msgid "The section on <xref linkend=\"tsvn-automation\"/> shows how the TortoiseSVN GUI dialogs can be called from the command line. This is useful for scripting where you still need user interaction."
-msgstr "De sectie over <xref linkend=\"tsvn-automation\"/> toont hoe de TortoiseSVN GUI dialogen vanaf de commando regels kunnen worden aangeroepen. Dit is bruikbaar bij scripten waarbij wel gebruikersinteractie nodig is."
+msgstr "De <xref linkend=\"tsvn-automation\"/> toont hoe de TortoiseSVN GUI dialogen vanaf de opdrachtprompt kunnen worden aangeroepen. Dit is bruikbaar bij scripten waarbij wel gebruikersinteractie nodig is."
 
 #. (para)
 msgid "The <xref linkend=\"tsvn-cli\"/> give a correlation between TortoiseSVN commands and their equivalents in the Subversion command line client <literal>svn.exe</literal>."
@@ -476,11 +476,11 @@ msgstr "Elk talenpakket is als een <literal>.exe</literal> installatieprogramma 
 
 #. (title)
 msgid "Spellchecker"
-msgstr "Spellingscontroleur"
+msgstr "Spellingscontrole"
 
 #. (primary)
 msgid "spellchecker"
-msgstr "spellingscontroleur"
+msgstr "spellingscontrole"
 
 #. (primary)
 msgid "dictionary"
@@ -488,7 +488,7 @@ msgstr "woordenboek"
 
 #. (para)
 msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
-msgstr "TortoiseSVN bevat een spellingscontroleur, waarmee je je vastleg logmeldingen kunt controleren. Dit is vooral nuttig als de projecttaal niet jouw moedertaal is. De spellingcontroleur gebruikt dezelfde worodenboeken als <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> en <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+msgstr "TortoiseSVN bevat een spellingscontrole, waarmee je je vastleg logmeldingen kunt controleren. Dit is vooral nuttig als de projecttaal niet jouw moedertaal is. De spellingcontrole gebruikt dezelfde woordenboeken als <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> en <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
 
 #. (para)
 msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
@@ -4703,11 +4703,11 @@ msgstr "filteren"
 
 #. (para)
 msgid "If you want to restrict the log messages to show only those you are interested in rather than scrolling through a list of hundreds, you can use the filter controls at the top of the Log Dialog. The start and end date controls allow you to restrict the output to a known date range. The search box allows you to show only messages which contain a particular phrase."
-msgstr ""
+msgstr "Als je de getoonde logboek berichten wilt beperken tot degene waarin jij geïnteresseerd bent, dan kun je hiervoor de instellingen boven aan het Logboekboodschappen venster gebruiken. Met de start- en einddatum instellingen kun je het datumbereik instellen. Met het zoekveld kun je de berichten laten zien die alleen een bepaalde term bevatten."
 
 #. (para)
 msgid "Click on the search icon to select which information you want to search in, and to choose <emphasis>regex</emphasis> mode. Normally you will only need a simple sub-string search, but if you need to more flexible search terms, you can use regular expressions. If you hover the mouse over the box, a tooltip will give hints on how to use the regex functions, or the sub-string functions. The filter works by checking whether your filter string matches the log entries, and then only those entries which <emphasis>match</emphasis> the filter string are shown."
-msgstr ""
+msgstr "Klik op het zoeken pictogram om te selecteren welke informatie je wilt zoeken en om de <emphasis>regex</emphasis> mode te kunnen kiezen. Normaal gesproken heb je alleen een deel-regel zoekopdracht nodig, maar als je een flexibelere zoekmethode wilt gebruiken, dan kun je ook vaak gebruikte expressies gebruiken. Als je de muis boven een vak houdt, dan worden er in een tooltip tips gegeven voor het gebruik van regex of deel-regel functies. Het filter vergelijkt de zoekopdracht met logboek berichten en toont dan de berichten die <emphasis>overeenkomen</emphasis> met de zoekopdracht."
 
 #. (para)
 msgid ""
@@ -4725,22 +4725,35 @@ msgid ""
 "\"Alice says \"\"hi\"\" to Bob\"\n"
 "</screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>"
 msgstr ""
+"De eenvoudig deel-regel zoekopdracht werkt ongeveer zoals een zoekmachine. Tekstonderdelen waarnaar gezocht moet worden, wordt gescheiden door spaties en alle tekstonderdelen moeten overeen komen met de zoekopdracht. Je kunt een <literal>-</literal> voor het tekstonderdeel zetten om aan te geven dat dat gedeelte niet aanwezig mag zijn. Je kunt een <literal>!</literal> gebruiken aan het begin van de regel om aan te geven dat de hele tekst niet gevonden mag worden. Je kunt spaties gebruiken voor tekstonderdelen waar spaties in moeten zitten. Als je een uitroepteken wilt vinden, dan moet je deze tussen twee quotes zetten. Merk op dat de schuine streep naar links (backslash) <emphasis>niet</emphasis> als eindkarakter wordt gebruikt. Dit karakter heeft geen speciale betekenis in de deel-regel zoekopdracht. Voorbeelden maken het makkelijk: <screen>\n"
+"Alice Bob -Eve\n"
+"</screen> zoekt naar regels met zowel Alice als Bob maar zonder Eve <screen>\n"
+"!Alice Bob\n"
+"</screen> zoekt naar regels waarin Alice en Bob niet in voor komen <screen>\n"
+"!-Alice -Bob\n"
+"</screen> herinner je je het De Morgan's theorema? NOT(NOT Alice AND NOT Bob) wordt gereduceerd tot (Alice OR Bob). <screen>\n"
+"\"Alice and Bob\"\n"
+"</screen> zoekt naar de letterlijke tekst <quote>Alice and Bob</quote><screen>\n"
+"\"\"\n"
+"</screen> zoekt naar aanhalingstekens op elke plaats in een tekst <screen>\n"
+"\"Alice says \"\"hi\"\" to Bob\"\n"
+"</screen> zoekt naar de letterlijke zin <quote>Alice says \"hi\" to Bob</quote>"
 
 #. (para)
 msgid "Describing the use of regular expression searches is beyond the scope of this manual, but you can find online documentation and a tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "Het beschrijven van vaak gebruikte expressie zoekopdrachten gaat buiten het beoogde bereik van deze handleiding. Op het internet kun je veel meer informatie hierover vinden en een zelfstudie is te vinden op <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
 #. (para)
 msgid "Note that these filters act on the messages already retrieved. They do not control downloading of messages from the repository."
-msgstr ""
+msgstr "Merk op dat de filters alleen toegepast worden op de berichten die al zijn opgehaald. Hiermee wordt niet het ophalen van berichten uit het archief gefilterd. "
 
 #. (para)
 msgid "You can also filter the path names in the bottom pane using the <guilabel>Show only affected paths</guilabel> checkbox. Affected paths are those which contain the path used to display the log. If you fetch the log for a folder, that means anything in that folder or below it. For a file it means just that one file. Normally the path list shows any other paths which are affected by the same commit, but in grey. If the box is checked, those paths are hidden."
-msgstr ""
+msgstr "Je kunt ook filteren op pad-namen in het onderste deelvenster door gebruik te maken van het <guilabel>Toon alleen veranderde paden</guilabel> selectievak. Veranderde paden zijn de paden die gebruikt zijn om het logboek weer te geven. Als je het logboek voor een map ophaalt, dan houdt dat alles in die map en onderliggende mappen in. Bij een bestand gaat het dan alleen om het bestand. Normaliter wordt in de paden-lijst elk ander pad getoond die veranderd zijn bij een vastlegging, maar dan in het grijs. Als dit selectievak geselecteerd is, worden die paden verborgen."
 
 #. (para)
 msgid "Sometimes your working practices will require log messages to follow a particular format, which means that the text describing the changes is not visible in the abbreviated summary shown in the top pane. The property <literal>tsvn:logsummary</literal> can be used to extract a portion of the log message to be shown in the top pane. Read <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> to find out how to use this property."
-msgstr ""
+msgstr "In sommige gevallen vereist je werkmethode een bepaalde indeling van de logboekboodschappen. Dit kan tot gevolg hebben dat de beschrijvende tekst van de wijziging niet zichtbaar is in de samenvatting, die weergegeven wordt in het bovenste deelvenster. De eigenschap <literal>tsvn:logsummary</literal> kan gebruikt worden om een deel van de logboekboodschap te extraheren en in het bovenste deelvenster te laten tonen. Lees <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> om te weten te komen hoe je deze eigenschap moet gebruiken."
 
 #. (title)
 msgid "No Log Formatting from Repository Browser"
@@ -4748,15 +4761,15 @@ msgstr "Geen Logopmaak van de archiefverkenner"
 
 #. (para)
 msgid "Because the formatting depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
-msgstr ""
+msgstr "Aangezien de indeling afhankelijk is van het kunnen bereiken van subversion eigenschappen, zul je alleen de resultaten zien als je een opgehaalde werkkopie gebruikt. Eigenschappen op afstand ophalen is een trage actie, daarom zul je deze functie niet in actie zien vanuit de archiefverkenner."
 
 #. (title)
 msgid "Statistical Information"
-msgstr ""
+msgstr "Statistische informatie"
 
 #. (primary)
 msgid "statistics"
-msgstr ""
+msgstr "statistieken"
 
 #. (para)
 msgid "The <guibutton>Statistics</guibutton> button brings up a box showing some interesting information about the revisions shown in the Log dialog. This shows how many authors have been at work, how many commits they have made, progress by week, and much more. Now you can see at a glance who has been working hardest and who is slacking ;-)"
