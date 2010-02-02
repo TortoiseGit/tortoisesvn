@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-01 23:41-0000\n"
+"PO-Revision-Date: 2010-02-02 00:11-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2637,11 +2637,11 @@ msgstr "Por defeito, ficheiros e pastas que correspondem aos padrões globais pa
 
 #. (para)
 msgid "As soon as you press <guibutton>OK</guibutton> TortoiseSVN imports the complete directory tree including all files into the repository. The project is now stored in the repository under version control. Please note that the folder you imported is <emphasis>NOT</emphasis> under version control! To get a version-controlled <firstterm>working copy</firstterm> you need to do a Checkout of the version you just imported. Or read on to find out how to import a folder in place."
-msgstr "Assim que premires <guibutton>OK</guibutton> TortoiseSVN importa a arvore de pastas completa, íncluindo todos ficheiros, para o repositório. O projecto está agora armazenado, sob controlo de versões, no repositório. Note-se que a pasta que importaste <emphasis>NÃO</emphasis> está sob controlo de versões. Para obter uma <firstterm>cópia de trabalho</firstterm>com controle de  versões, necessitarás de efectuar um SVN Exportar da versão que acabaste de importar. Ou lê, para descobrir como importar uma pasta para uma localização."
+msgstr "Assim que premires <guibutton>OK</guibutton> TortoiseSVN importa a arvore de pastas completa, íncluindo todos ficheiros, para o repositório. O projecto está agora armazenado, sob controlo de versões, no repositório. Note-se que a pasta que importaste <emphasis>NÃO</emphasis> está sob controlo de versões. Para obter uma <firstterm>cópia de trabalho</firstterm>com controle de  versões, necessitarás de efectuar um SVN Exportar da versão que acabaste de importar. Ou lê, para descobrir como importar uma pasta no local."
 
 #. (title)
 msgid "Import in Place"
-msgstr ""
+msgstr "Importar no local"
 
 #. (primary)
 msgid "import in place"
@@ -2649,23 +2649,23 @@ msgstr ""
 
 #. (para)
 msgid "Use the repository browser to create a new project folder directly in the repository."
-msgstr ""
+msgstr "Usa o navegador de repositório para criar uma nova pasta de projecto, directamente no repositório."
 
 #. (para)
 msgid "Checkout the new folder over the top of the folder you want to import. You will get a warning that the local folder is not empty. Now you have a versioned top level folder with unversioned content."
-msgstr ""
+msgstr "SVN exporta a nova pasta acima da pasta que queres importar. Irás receber um aviso que a pasta local não está vazia. Agora tens uma pasta de topo versionada com conteúdo não versionado."
 
 #. (para)
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add...</guimenuitem></menuchoice> on this versioned folder to add some or all of the content. You can add and remove files, set <literal>svn:ignore</literal> properties on folders and make any other changes you need to."
-msgstr ""
+msgstr "Usa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Adicionarmenuitem></menuchoice> nesta pasta versionada para adicionar algum ou todo o seu conteúdo. Poderás adicionar ou remover ficheiros, colocar propriedades <literal>svn:ignore</literal> em pastas e fazer qualquer outra alteração que necessitares."
 
 #. (para)
 msgid "Commit the top level folder, and you have a new versioned tree, and a local working copy, created from your existing folder."
-msgstr ""
+msgstr "Submete a pasta de topo,e terás uma nova ávore versionada, e uma cópia de trabalho local criada a partir da tua pasta existente."
 
 #. (para)
 msgid "Assuming you already have a repository, and you want to add a new folder structure to it, just follow these steps: <placeholder-1/>"
-msgstr ""
+msgstr "Assumindo que já tens um repositório e queres adicionar uma pasta á sua estrutura, segue estes passos: <placeholder-1/>"
 
 #. (title)
 msgid "Special Files"
