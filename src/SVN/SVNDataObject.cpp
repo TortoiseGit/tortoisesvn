@@ -210,7 +210,8 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 			CString temp;
 			if (it->rootpath.IsUrl())
 			{
-				temp = it->infodata.url.Mid(it->rootpath.GetContainingDirectory().GetSVNPathString().GetLength()+1);
+				temp = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(it->rootpath.GetContainingDirectory().GetSVNPathString())));
+				temp = it->infodata.url.Mid(temp.GetLength()+1);
 				// we have to unescape the urls since the local file system doesn't need them
 				// escaped and it would only look really ugly (and be wrong).
 				temp = CPathUtils::PathUnescape(temp);

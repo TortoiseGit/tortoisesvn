@@ -83,6 +83,11 @@
 - BUG: Relative Webviewer urls didn't work from the 
        repository browser. (Stefan)
 
+Version 1.6.8
+- BUG: Exporting via DnD from the repository browser could 
+       create garbled paths if the urls of the files 
+       required escaping. (Stefan)
+
 Version 1.6.7
 - BUG: The status cache could segfault in some situations. (Stefan)
 - BUG: Memory leak in SubWCRevCOM. (Stefan)
