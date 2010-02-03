@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-26 23:07-0300\n"
+"PO-Revision-Date: 2010-02-03 20:24-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1858,8 +1858,8 @@ msgid "Author"
 msgstr "Autor"
 
 #. Resource IDs: (65535)
-msgid "Author:                                    Stefan Kueng"
-msgstr "Autor:                                     Stefan Kueng"
+msgid "Author:\t\t\t\tStefan Kueng"
+msgstr "Autor:\t\t\t\tStefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -4594,8 +4594,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "Sobreposição de Ícones::Conjunto de Ícones"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:                 Luebbe Onken"
-msgstr "Ícones/Projeto/Código:            Luebbe Onken"
+msgid "Icons/Design/Code:\t\tLuebbe Onken"
+msgstr "Ícones/Interface/Código:\t\tLuebbe Onken"
 
 #. Resource IDs: (346)
 msgid ""
@@ -5770,6 +5770,10 @@ msgstr "Novo nome para %s"
 msgid "New name:"
 msgstr "Novo nome:"
 
+#. Resource IDs: (32875)
+msgid "Next &Inline Difference"
+msgstr "Próx&ima diferença dentro da linha"
+
 #. Resource IDs: (3633)
 msgid ""
 "Next Page\n"
@@ -6394,6 +6398,10 @@ msgstr "Visualizar arquivo corrigido"
 #. Resource IDs: (65535)
 msgid "Preview: "
 msgstr "Visualização:"
+
+#. Resource IDs: (32876)
+msgid "Previous In&line Difference"
+msgstr "Diferença anterior dentro da &linha"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -7834,8 +7842,8 @@ msgstr "Mostrar/Ocultar"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
-msgstr "Mostrando %1!ld! revisão(ões), da revisão %2!ld! à revisão %3!ld! - %4!ld! revisão(ões) selecionada(s)."
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected, showing %5!ld! changed paths"
+msgstr "Mostrando %1!ld! revisão(ões), da revisão %2!ld! à revisão %3!ld! - %4!ld! revisão(ões) selecionadas, mostrando %5!ld! caminhos alterados"
 
 #. Resource IDs: (272)
 #, c-format
@@ -10841,6 +10849,8 @@ msgstr "sim"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Author:                                    Stefan Kueng"
+#~ msgstr "Autor:                                     Stefan Kueng"
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Verificar, semanalmente, se existem &novas versões"
 #~ msgid ""
