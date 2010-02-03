@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-03 23:17-0000\n"
+"PO-Revision-Date: 2010-02-03 23:49-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2717,53 +2717,53 @@ msgstr "Seleccionar uma pasta no explorador do windows onde queres colocar a tua
 
 #. (title)
 msgid "Checkout Depth"
-msgstr ""
+msgstr "Profundidade do SVN Exportar"
 
 #. (term)
 msgid "Fully recursive"
-msgstr ""
+msgstr "Totalmente recursiva"
 
 #. (para)
 msgid "Checkout the entire tree, including all child folders and sub-folders."
-msgstr ""
+msgstr "SVN Exportar a árvore inteira, incluindo todas as pastas filho e subpastas."
 
 #. (term)
 msgid "Immediate children, including folders"
-msgstr ""
+msgstr "filhos directos, incluindo pastas"
 
 #. (para)
 msgid "Checkout the specified directory, including all files and child folders, but do not populate the child folders."
-msgstr ""
+msgstr "SVN Exportar a pasta específicada, incluindo todos os ficheiros e pastas filho, mãs não povoar as pastas filho."
 
 #. (term)
 msgid "Only file children"
-msgstr ""
+msgstr "Só ficheiros filho"
 
 #. (para)
 msgid "Checkout the specified directory, including all files but do not checkout any child folders."
-msgstr ""
+msgstr "SVN Exportar a pasta específicada, incluindo todos os ficheiros mas não SVN Exporta qualquer pasta filho."
 
 #. (term)
 msgid "Only this item"
-msgstr ""
+msgstr "Só este item"
 
 #. (para)
 msgid "Checkout the directory only. Do not populate it with files or child folders."
-msgstr ""
+msgstr "SVN Exportar só a pasta. Não povoa-la com ficheiros ou pastas filho."
 
 #. (term)
 #. (term)
 #. (listitem)
 msgid "Working copy"
-msgstr ""
+msgstr "Cópia de trabalho"
 
 #. (para)
 msgid "Retain the depth specified in the working copy. This option is not used in the checkout dialog, but it is the default in all other dialogs which have a depth setting."
-msgstr ""
+msgstr "Reter a profundidade especificada na cópia de trabalho. Esta opção não é usada na caixa de diálogo do SVN exportar, mas é a opção por defeito para todas as outras caixas de diálogo que têm a configuração de profundidade."
 
 #. (term)
 msgid "Exclude"
-msgstr ""
+msgstr "Excluir"
 
 #. (para)
 msgid "Used to reduce working copy depth after a folder has already been populated. This option is only available in the <guilabel>Update to revision</guilabel> dialog."
@@ -2771,7 +2771,7 @@ msgstr ""
 
 #. (para)
 msgid "You can choose the <firstterm>depth</firstterm> you want to checkout, which allows you to specify the depth of recursion into child folders. If you want just a few sections of a large tree, You can checkout the top level folder only, then update selected folders recursively. <placeholder-1/>"
-msgstr ""
+msgstr "Podes escolher a <firstterm>profundidade</firstterm> que queres SVN Exportar, o que te permite especificar a profundidaded da recursividade nas pastas filho. Se quiseres apenas algumas secções de uma grande árvore, podes fazer SVN Exportar apenas da pasta de topo e depois actualizar recursivamente pastas seleccionadas.  <placeholder-1/>"
 
 #. (para)
 msgid "If you check out a sparse working copy (i.e., by choosing something other than <literal>fully recursive</literal> for the checkout depth), you can fetch additional sub-folders by using the repository browser (<xref linkend=\"tsvn-dug-repobrowser\"/>) or the check for modifications dialog (<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
