@@ -87,6 +87,8 @@ Version 1.6.8
 - BUG: Exporting via DnD from the repository browser could 
        create garbled paths if the urls of the files 
        required escaping. (Stefan)
+- BUG: Properties loaded from a file were not changed or
+       added without a manual edit of the loaded content. (Stefan)
 
 Version 1.6.7
 - BUG: The status cache could segfault in some situations. (Stefan)
