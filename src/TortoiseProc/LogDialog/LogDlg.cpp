@@ -1691,7 +1691,8 @@ void CLogDlg::DiffSelectedFile()
 			}
 		}
 
-		const CLogChangedPath& changedpath = paths[selIndex];
+		const CLogChangedPath& changedpath = m_currentChangedArray[selIndex];
+
 		if (IsDiffPossible(changedpath, rev1))
 		{
 			// diffs with renamed files are possible
@@ -1874,9 +1875,7 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
 	CString firstfile, secondfile;
 	if (m_LogList.GetSelectedCount()==1)
 	{
-		int s = m_LogList.GetSelectionMark();
-		PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(s);
-		const CLogChangedPath& changedpath = pLogEntry->GetChangedPaths()[selIndex];
+		const CLogChangedPath& changedpath = m_currentChangedArray[selIndex];
 		nodekind = changedpath.GetNodeKind();
 		firstfile = changedpath.GetPath();
 		secondfile = firstfile;
