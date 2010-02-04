@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2009 - TortoiseSVN
+// Copyright (C) 2006-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -131,6 +131,7 @@ BOOL CDiffData::Load()
 		if (!m_arBaseFile.Load(m_baseFile.GetFilename()))
 		{
 			m_sError = m_arBaseFile.GetErrorString();
+			apr_pool_destroy (pool);					// free the allocated memory
 			return FALSE;
 		}
 		if ((bIgnoreCase)||(m_arBaseFile.GetUnicodeType() == CFileTextLines::UNICODE_LE))
@@ -148,6 +149,7 @@ BOOL CDiffData::Load()
 		if (!m_arTheirFile.Load(m_theirFile.GetFilename(),m_arBaseFile.GetCount()))
 		{
 			m_sError = m_arTheirFile.GetErrorString();
+			apr_pool_destroy (pool);					// free the allocated memory
 			return FALSE;
 		}
 		if ((bIgnoreCase)||(m_arTheirFile.GetUnicodeType() == CFileTextLines::UNICODE_LE))
@@ -165,6 +167,7 @@ BOOL CDiffData::Load()
 		if (!m_arYourFile.Load(m_yourFile.GetFilename(),m_arBaseFile.GetCount()))
 		{
 			m_sError = m_arYourFile.GetErrorString();
+			apr_pool_destroy (pool);					// free the allocated memory
 			return FALSE;
 		}
 		if ((bIgnoreCase)||(m_arYourFile.GetUnicodeType() == CFileTextLines::UNICODE_LE))
