@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-03 20:18-0300\n"
-"Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
+"PO-Revision-Date: 2010-02-04 18:43-0300\n"
+"Last-Translator: Eduardo Marques <eduardo@eduardomarques.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3519,37 +3519,37 @@ msgstr "Exclusão local, exclusão na atualização"
 
 #. (para)
 msgid "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Desenvolvedor A move o arquivo <filename>Foo.c</filename> para <filename>Bar.c</filename> e submete para o repositório."
 
 #. (para)
 msgid "Developer B moves <filename>Foo.c</filename> to <filename>Bix.c</filename>"
-msgstr ""
+msgstr "Desenvolvedor B move o arquivo <filename>Foo.c</filename> para <filename>Bix.c</filename>"
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked as added with history."
-msgstr ""
+msgstr "<filename>Bix.c</filename> é marcado como adicionado com histórico."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is added to the working copy with status 'normal'."
-msgstr ""
+msgstr "<filename>Bar.c</filename> é adicionado na cópia local com status \"normal\"."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as deleted and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> é marcado como eliminado e possui um conflito de estrutura."
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog."
-msgstr ""
+msgstr "Para resolver este conflito, Desenvolvedor B terá que descobrir para qual nome o arquivo em conflito <filename>Foo.c</filename> foi renomeado/movido no repositório. Isto pode ser feito usando a caixa de diálogo do log."
 
 #. (para)
 #. (para)
 msgid "Then developer B has to decide which new filename of <filename>Foo.c</filename> to keep - the one done by developer A or the rename done by himself."
-msgstr ""
+msgstr "Em seguida, o Desenvolvedor B terá que decidir se o novo nome do arquivo <filename>Foo.c</filename> será mantido - aquele dado pelo Desenvolvedor A ou se aquele renomeado por ele mesmo."
 
 #. (para)
 #. (para)
 msgid "After developer B has manually resolved the conflict, the tree conflict has to be marked as resolved with the button in the conflict editor dialog."
-msgstr ""
+msgstr "Depois que o Desenvolvedor B tenha manualmente solucionado o conflito, o conflito de estrutura deve ser marcado como \"resolvido\", usando o botão apropriado na caixa de diálogo do Editor de Conflitos."
 
 #. (title)
 msgid "Local missing, incoming edit upon merge"
@@ -3640,7 +3640,7 @@ msgstr ""
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added with history."
-msgstr ""
+msgstr "<filename>Bar.c</filename> é marcado como adicionado com histórico."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing and has a tree conflict."
