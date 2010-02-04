@@ -12,14 +12,13 @@
 # Lübbe Onken <luebbe@tigris.org>
 # Christophe SAUVEUR <christophe@xhaleera.com>
 # Frédéric Bodin <grokwik@gmail.com>
-
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-11 11:26+0100\n"
-"Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
+"PO-Revision-Date: 2010-02-04 12:10+0100\n"
+"Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -995,6 +994,10 @@ msgstr "Confi&guration"
 msgid "&Show HEAD revisions"
 msgstr "Voir les révisions &HEAD"
 
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "Voir le Journa&l"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "&Afficher les Menus pour:"
@@ -1247,6 +1250,10 @@ msgstr "(pas de numéro de ligne)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(aucune modification mais la copie a été créée depuis cet emplacement)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(aucune modification mais copie de travail valide)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -1843,8 +1850,8 @@ msgid "Author"
 msgstr "Auteur"
 
 #. Resource IDs: (65535)
-msgid "Author:                                    Stefan Kueng"
-msgstr "Auteur :                                    Stefan Kueng"
+msgid "Author:\t\t\t\tStefan Kueng"
+msgstr "Auteur:\t\t\t\tStefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -3167,6 +3174,14 @@ msgstr "Supprime le journal des actions"
 msgid "Deleting"
 msgstr "Supprime"
 
+#. Resource IDs: (348)
+msgid "Deleting cached data"
+msgstr "Efface les données mises en cache"
+
+#. Resource IDs: (348)
+msgid "Deleting file"
+msgstr "Supprime un fichier"
+
 #. Resource IDs: (207)
 msgid "Depth"
 msgstr "Profondeur"
@@ -3787,10 +3802,6 @@ msgid "Extension"
 msgstr "Extension"
 
 #. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "Extension ou type mime:"
-
-#. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
 msgstr "Programme spécifique par extension / type mime"
 
@@ -4037,6 +4048,14 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "Nom de fichier"
+
+#. Resource IDs: (65535)
+msgid "Filename, extension or mime-type:"
+msgstr "Nom de fichier, extension ou type mime :"
+
+#. Resource IDs: (74)
+msgid "Filename/Extension"
+msgstr "Nom de fichier/Extension"
 
 #. Resource IDs: (1512)
 msgid "Files"
@@ -4558,8 +4577,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "Recouvrements d'icône::Jeu d'icônes"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:                 Luebbe Onken"
-msgstr "Icônes/Design/Code :                 Luebbe Onken"
+msgid "Icons/Design/Code:\t\tLuebbe Onken"
+msgstr "Icônes/Design/Code :\t\tLuebbe Onken"
 
 #. Resource IDs: (346)
 msgid ""
@@ -5733,6 +5752,10 @@ msgstr "Nouveau nom pour %s"
 msgid "New name:"
 msgstr "Nouveau nom :"
 
+#. Resource IDs: (32875)
+msgid "Next &Inline Difference"
+msgstr "Différence en ligne Suivante"
+
 #. Resource IDs: (3633)
 msgid ""
 "Next Page\n"
@@ -6356,6 +6379,10 @@ msgstr "Prévisualiser le fichier patché"
 #. Resource IDs: (65535)
 msgid "Preview: "
 msgstr "Prévisualisation :"
+
+#. Resource IDs: (32876)
+msgid "Previous In&line Difference"
+msgstr "Différence en Ligne &Précédente"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -7794,8 +7821,8 @@ msgstr "Afficher/Masquer"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
-msgstr "Affiche %1!ld! révision(s), de la révision %2!ld! à la révision %3!ld! - %4!ld! révision(s) sélectionnée(s)."
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected, showing %5!ld! changed paths"
+msgstr "Affiche %1!ld! révision(s), de la révision %2!ld! à la révision %3!ld! - %4!ld! révision(s) sélectionnées, affiche %5!ld! chemins modifiés"
 
 #. Resource IDs: (272)
 #, c-format
@@ -9724,6 +9751,11 @@ msgstr ""
 "La copie de travail a été déplacée dans\n"
 "%s"
 
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "Copie de travail : %s\n"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Oui"
@@ -10078,6 +10110,10 @@ msgstr ""
 "contacter le référentiel en premier si 'en ligne' -\n"
 "travailler entièrement d'après le cache si 'hors ligne'"
 
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "à cette révision"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "auteur"
@@ -10170,6 +10206,10 @@ msgstr "total des changements:"
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "livraisons"
+
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "Révision livrée :"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10293,6 +10333,14 @@ msgstr "&editeur de texte des commentaires"
 msgid "max revision: "
 msgstr "révision maximum:"
 
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "max. à cette révision"
+
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "Révision livrée max."
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "fusionné"
@@ -10300,6 +10348,14 @@ msgstr "fusionné"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "total des fusions:"
+
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "min. à cette révision"
+
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "révision livrée min. :"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -10768,6 +10824,8 @@ msgstr "oui"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Author:                                    Stefan Kueng"
+#~ msgstr "Auteur :                                    Stefan Kueng"
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Vérifier automatiquement les &nouvelles versions chaque semaine"
 #~ msgid ""
