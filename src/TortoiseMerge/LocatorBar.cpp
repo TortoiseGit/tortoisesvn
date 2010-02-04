@@ -89,6 +89,7 @@ void CLocatorBar::DocumentUpdated()
 		m_arLeftState.Add(state);
 	}
 
+	state = DIFFSTATE_UNKNOWN;
 	if (m_pMainFrm->m_pwndRightView->m_pViewData)
 	{
 		if (m_pMainFrm->m_pwndRightView->m_pViewData->GetCount())
@@ -112,6 +113,7 @@ void CLocatorBar::DocumentUpdated()
 		m_arRightState.Add(state);
 	}
 
+	state = DIFFSTATE_UNKNOWN;
 	if (m_pMainFrm->m_pwndBottomView->m_pViewData)
 	{
 		if (m_pMainFrm->m_pwndBottomView->m_pViewData->GetCount())
