@@ -78,6 +78,7 @@
 - NEW: TortoiseUDiff accepts input from a pipe. It can be used now
        like this:
        $ svn diff | TortoiseUDiff.exe -p
+- NEW: TortoiseMerge can jump to the next/prev inline diff. (Stefan)
 - BUG: Merged revisions must be counted only 
        once in stats (Stefan Fuhrmann)
 - BUG: Relative Webviewer urls didn't work from the 
