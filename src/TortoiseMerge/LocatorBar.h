@@ -58,6 +58,7 @@ protected:
 	void			PaintView(CDC& cacheDC, CBaseView* view, CDWordArray& indents, CDWordArray& states,
 						const CRect& rect, int stripeIndex);
 	void			DrawFishEye(CDC& dc, const CRect& rect );
+	void			DocumentUpdated(CBaseView* view, CDWordArray& indents, CDWordArray& states);
 
 	CBitmap *		m_pCacheBitmap;
 

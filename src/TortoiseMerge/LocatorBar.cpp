@@ -58,85 +58,13 @@ END_MESSAGE_MAP()
 void CLocatorBar::DocumentUpdated()
 {
 	m_pMainFrm = (CMainFrame *)this->GetParentFrame();
-	m_arLeftIdent.RemoveAll();
-	m_arLeftState.RemoveAll();
-	m_arRightIdent.RemoveAll();
-	m_arRightState.RemoveAll();
-	m_arBottomIdent.RemoveAll();
-	m_arBottomState.RemoveAll();
-	DiffStates state = DIFFSTATE_UNKNOWN;
-	long identcount = 1;
 	m_nLines = 0;
-	if (m_pMainFrm->m_pwndLeftView->m_pViewData)
-	{
-		if (m_pMainFrm->m_pwndLeftView->m_pViewData->GetCount())
-			state = m_pMainFrm->m_pwndLeftView->m_pViewData->GetState(0);
-		for (int i=0; i<m_pMainFrm->m_pwndLeftView->m_pViewData->GetCount(); i++)
-		{
-			if (state == m_pMainFrm->m_pwndLeftView->m_pViewData->GetState(i))
-			{
-				identcount++;
-			}
-			else
-			{
-				m_arLeftIdent.Add(identcount);
-				m_arLeftState.Add(state);
-				state = m_pMainFrm->m_pwndLeftView->m_pViewData->GetState(i);
-				identcount = 1;
-			} 
-		}
-		m_arLeftIdent.Add(identcount);
-		m_arLeftState.Add(state);
-	}
+	DocumentUpdated(m_pMainFrm->m_pwndLeftView, m_arLeftIdent, m_arLeftState);
+	DocumentUpdated(m_pMainFrm->m_pwndRightView, m_arRightIdent, m_arRightState);
+	DocumentUpdated(m_pMainFrm->m_pwndBottomView, m_arBottomIdent, m_arBottomState);
 
-	state = DIFFSTATE_UNKNOWN;
-	if (m_pMainFrm->m_pwndRightView->m_pViewData)
-	{
-		if (m_pMainFrm->m_pwndRightView->m_pViewData->GetCount())
-			state = m_pMainFrm->m_pwndRightView->m_pViewData->GetState(0);
-		identcount = 1;
-		for (int i=0; i<m_pMainFrm->m_pwndRightView->m_pViewData->GetCount(); i++)
-		{
-			if (state == m_pMainFrm->m_pwndRightView->m_pViewData->GetState(i))
-			{
-				identcount++;
-			}
-			else
-			{
-				m_arRightIdent.Add(identcount);
-				m_arRightState.Add(state);
-				state = m_pMainFrm->m_pwndRightView->m_pViewData->GetState(i);
-				identcount = 1;
-			}
-		}
-		m_arRightIdent.Add(identcount);
-		m_arRightState.Add(state);
-	}
-
-	state = DIFFSTATE_UNKNOWN;
-	if (m_pMainFrm->m_pwndBottomView->m_pViewData)
-	{
-		if (m_pMainFrm->m_pwndBottomView->m_pViewData->GetCount())
-			state = m_pMainFrm->m_pwndBottomView->m_pViewData->GetState(0);
-		identcount = 1;
-		for (int i=0; i<m_pMainFrm->m_pwndBottomView->m_pViewData->GetCount(); i++)
-		{
-			if (state == m_pMainFrm->m_pwndBottomView->m_pViewData->GetState(i))
-			{
-				identcount++;
-			}
-			else
-			{
-				m_arBottomIdent.Add(identcount);
-				m_arBottomState.Add(state);
-				state = m_pMainFrm->m_pwndBottomView->m_pViewData->GetState(i);
-				identcount = 1;
-			}
-		}
-		m_arBottomIdent.Add(identcount);
-		m_arBottomState.Add(state);
+	if ((m_pMainFrm->m_pwndBottomView->m_pViewData) && (m_pMainFrm->m_pwndRightView->m_pViewData))
 		m_nLines = (int)max(m_pMainFrm->m_pwndBottomView->m_pViewData->GetCount(), m_pMainFrm->m_pwndRightView->m_pViewData->GetCount());
-	}
 	else if (m_pMainFrm->m_pwndRightView->m_pViewData)
 		m_nLines = (int)max(0, m_pMainFrm->m_pwndRightView->m_pViewData->GetCount());
 
@@ -146,6 +74,38 @@ void CLocatorBar::DocumentUpdated()
 		m_nLines = 0;
 	m_nLines++;
 	Invalidate();
+}
+
+void CLocatorBar::DocumentUpdated(CBaseView* view, CDWordArray& indents, CDWordArray& states)
+{
+	indents.RemoveAll();
+	states.RemoveAll();
+	CViewData* viewData = view->m_pViewData;
+	if(viewData == 0)
+		return;
+
+	long identcount = 1;
+	const int linesInView = viewData->GetCount();
+	DiffStates state = DIFFSTATE_UNKNOWN;
+	if (linesInView)
+		state = viewData->GetState(0);
+	for (int i=0; i<linesInView; i++)
+	{
+		const DiffStates lineState = viewData->GetState(i);
+		if (state == lineState)
+		{
+			identcount++;
+		}
+		else
+		{
+			indents.Add(identcount);
+			states.Add(state);
+			state = lineState;
+			identcount = 1;
+		} 
+	}
+	indents.Add(identcount);
+	states.Add(state);
 }
 
 void CLocatorBar::OnPaint()
