@@ -1962,6 +1962,10 @@ bool SVN::Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath
 	svn_error_clear(Err);
 	Err = NULL;
 	SVNPool subpool(pool);
+	CString uuid;
+	
+	const CString root = GetRepositoryRootAndUUID(path, uuid);
+
     const char* svnPath = path.GetSVNApiPath(subpool);
     SVNTRACE (
 	    Err = svn_client_relocate(
@@ -1971,6 +1975,11 @@ bool SVN::Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath
 				    recurse, m_pctx, subpool),
         svnPath
     );
+
+	if (Err == NULL)
+	{
+		GetLogCachePool()->DropCache(uuid, root);
+	}
 
 	return (Err == NULL);
 }
