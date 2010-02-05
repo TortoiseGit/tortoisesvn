@@ -88,9 +88,6 @@ LPCTSTR CDiffData::GetLineChars(int index)
 BOOL CDiffData::Load()
 {
 	CString sConvertedBaseFilename, sConvertedTheirFilename, sConvertedYourFilename;
-	apr_pool_t * pool;
-
-	apr_pool_create_ex (&pool, NULL, abort_on_pool_failure, NULL);
 
 	m_arBaseFile.RemoveAll();
 	m_arYourFile.RemoveAll();
@@ -131,7 +128,6 @@ BOOL CDiffData::Load()
 		if (!m_arBaseFile.Load(m_baseFile.GetFilename()))
 		{
 			m_sError = m_arBaseFile.GetErrorString();
-			apr_pool_destroy (pool);					// free the allocated memory
 			return FALSE;
 		}
 		if ((bIgnoreCase)||(m_arBaseFile.GetUnicodeType() == CFileTextLines::UNICODE_LE))
@@ -149,7 +145,6 @@ BOOL CDiffData::Load()
 		if (!m_arTheirFile.Load(m_theirFile.GetFilename(),m_arBaseFile.GetCount()))
 		{
 			m_sError = m_arTheirFile.GetErrorString();
-			apr_pool_destroy (pool);					// free the allocated memory
 			return FALSE;
 		}
 		if ((bIgnoreCase)||(m_arTheirFile.GetUnicodeType() == CFileTextLines::UNICODE_LE))
@@ -167,7 +162,6 @@ BOOL CDiffData::Load()
 		if (!m_arYourFile.Load(m_yourFile.GetFilename(),m_arBaseFile.GetCount()))
 		{
 			m_sError = m_arYourFile.GetErrorString();
-			apr_pool_destroy (pool);					// free the allocated memory
 			return FALSE;
 		}
 		if ((bIgnoreCase)||(m_arYourFile.GetUnicodeType() == CFileTextLines::UNICODE_LE))
@@ -204,6 +198,9 @@ BOOL CDiffData::Load()
 		return FALSE;
 	}
 
+	apr_pool_t * pool = NULL;
+	apr_pool_create_ex (&pool, NULL, abort_on_pool_failure, NULL);
+
 	// Is this a two-way diff?
 	if (IsBaseFileInUse() && IsYourFileInUse() && !IsTheirFileInUse())
 	{
@@ -233,7 +230,6 @@ BOOL CDiffData::Load()
 	apr_pool_destroy (pool);					// free the allocated memory
 	return TRUE;
 }
-
 
 bool
 CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, apr_pool_t * pool)
