@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -257,7 +257,8 @@ void CLogCachePool::DropCache (const CString& uuid, const CString& root)
 
     CRepositoryInfo::SPerRepositoryInfo* info 
         = repositoryInfo->data.Lookup (uuid, root);
-    assert (info != NULL);
+    if (info == NULL)
+		return;
 
     TCaches::iterator iter = caches.find (info->fileName);
 	if (iter != caches.end())
@@ -337,4 +338,3 @@ bool CLogCachePool::IsEnabled() const
 // end namespace LogCache
 
 }
-
