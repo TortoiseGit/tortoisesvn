@@ -300,6 +300,8 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
 
     bool isWorkingCopy 
         = nodeClassification.Is (CNodeClassification::IS_WORKINGCOPY);
+    bool isModifiedWC
+        = nodeClassification.Is (CNodeClassification::IS_MODIFIED_WC);
     bool textAsBorderColor 
         = nodeClassification.IsAnyOf ( CNodeClassification::IS_LAST
                                      | CNodeClassification::IS_MODIFIED_WC)
@@ -312,7 +314,7 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
                    : contour;
 
     Pen pen (penColor, isWorkingCopy ? 3.0f : 1.0f);
-	if (isWorkingCopy)
+	if (isWorkingCopy && !isModifiedWC)
 	{
 	    CSyncPointer<const CFullHistory> history (m_state.GetFullHistory());
 		const CFullHistory::SWCInfo& wcInfo = history->GetWCInfo();
