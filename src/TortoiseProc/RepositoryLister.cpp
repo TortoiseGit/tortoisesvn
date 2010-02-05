@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -381,7 +381,7 @@ CTSVNPath CRepositoryLister::EscapeUrl (const CString& url)
 // simple construction
 
 CRepositoryLister::CRepositoryLister()
-    : scheduler (32, 0, true)
+    : scheduler (32, 0, true, false)
     , fetchingExternalsEnabled (_T("Software\\TortoiseSVN\\ShowExternalsInBrowser"), TRUE)
 {
 }

@@ -286,10 +286,7 @@ CJobScheduler::TJob CJobScheduler::AssignJob (SThreadInfo* info)
 
     // extract one job
 
-    TJob result = queue.front();
-    queue.pop();
-
-    return result;
+	return queue.pop();
 }
 
 // try to get a thread from the shared pool.
@@ -365,7 +362,8 @@ bool CJobScheduler::ThreadFunc (void* arg)
 CJobScheduler::CJobScheduler 
     ( size_t threadCount
     , size_t sharedThreads
-    , bool aggressiveThreading)
+    , bool aggressiveThreading
+	, bool fifo)
     : waitingThreads (0)
     , aggressiveThreading (aggressiveThreading)
 {
@@ -379,6 +377,8 @@ CJobScheduler::CJobScheduler
     threads.yetToCreate = threadCount;
 
     threads.starved = false;
+
+	queue.set_fifo (fifo);
 
     // auto-initialize shared threads
 

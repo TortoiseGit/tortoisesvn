@@ -132,6 +132,11 @@ private:
 
         TJob* end;
 
+		/// if set, \ref pop removes entries at the front (\ref first).
+		/// Otherwise, it will remove them from the back (\ref last).
+
+		bool fifo;
+
         /// size management
 
         void Grow (size_t newSize);
@@ -146,6 +151,7 @@ private:
             , first (NULL)
             , last (NULL)
             , end (NULL)
+			, fifo (true)
         {
             Grow (1024);
         }
@@ -162,14 +168,21 @@ private:
             if (++last == end)
                 AutoGrow();
         }
-        const TJob& front() const
+        const TJob& pop()
         {
-            return *first;
+			return fifo ? *(first++) : *--last;
         }
-        void pop()
-        {
-            ++first;
-        }
+
+		/// I/O order
+
+		bool get_fifo() const
+		{
+			return fifo;
+		}
+		void set_fifo (bool newValue)
+		{
+			fifo = newValue;
+		}
 
         /// size info
 
@@ -414,7 +427,8 @@ public:
 
     CJobScheduler ( size_t threadCount
                   , size_t sharedThreads
-                  , bool aggressiveThreading = false);
+                  , bool aggressiveThreading = false
+				  , bool fifo = true);
 
     /// End threads. Job queue must have run empty before calling this.
 
