@@ -68,7 +68,7 @@ void CJobBase::Execute()
 IJob::Status CJobBase::GetStatus() const
 {
     if (waiting == TRUE)
-        IJob::waiting;
+        return IJob::waiting;
 
     return finished.Test() ? IJob::done : IJob::running;
 }
