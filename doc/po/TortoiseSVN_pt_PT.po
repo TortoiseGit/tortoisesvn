@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-05 00:56-0000\n"
+"PO-Revision-Date: 2010-02-06 01:06-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2767,7 +2767,7 @@ msgstr "Excluir"
 
 #. (para)
 msgid "Used to reduce working copy depth after a folder has already been populated. This option is only available in the <guilabel>Update to revision</guilabel> dialog."
-msgstr "Usado para reduzir a cópia de trabalho, depois de a pasta já ter sido povoada. Esta opção só está disponível na caixa de dialogo <guilabel>Actualizar para a revisão</guilabel>."
+msgstr "Usado para reduzir a cópia de trabalho, depois de a pasta já ter sido povoada. Esta opção só está disponível na caixa de diálogo <guilabel>Actualizar para a revisão</guilabel>."
 
 #. (para)
 msgid "You can choose the <firstterm>depth</firstterm> you want to checkout, which allows you to specify the depth of recursion into child folders. If you want just a few sections of a large tree, You can checkout the top level folder only, then update selected folders recursively. <placeholder-1/>"
@@ -2783,7 +2783,7 @@ msgstr "No navegador de repositório, <action>clicar com o botão direito</actio
 
 #. (para)
 msgid "In the check for modifications dialog, first click on the button <guibutton>Check repository</guibutton>. The dialog will show all the files and folders which are in the repository but which you have not checked out as <literal>remotely added</literal>. <action>Right click</action> on the folder(s) you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
-msgstr "Na caixa de dialogo verificar alterações, clicar primeiro no botão <guibutton>Verificar repositório</guibutton>. A caixa de dialogo mostrará todos os ficheiros e pastas que estão no repositório, mas não foram exportadas como, <literal>adicionada remotamente</literal>. <action>Clicar com o botão direito</action> na pasta(s) que gostarias de adicionar á tua cópia de trabalho e, usa <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Actualizar</guimenuitem></menuchoice>."
+msgstr "Na caixa de diálogo verificar alterações, clicar primeiro no botão <guibutton>Verificar repositório</guibutton>. A caixa de diálogo mostrará todos os ficheiros e pastas que estão no repositório, mas não foram exportadas como, <literal>adicionada remotamente</literal>. <action>Clicar com o botão direito</action> na pasta(s) que gostarias de adicionar á tua cópia de trabalho e, usa <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Actualizar</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "This feature is very useful when you only want to checkout parts of a large tree, but you want the convenience of updating a single working copy. Suppose you have a large tree which has sub-folders <literal>Project01</literal> to <literal>Project99</literal>, and you only want to checkout <literal>Project03</literal>, <literal>Project25</literal> and <literal>Project76/SubProj</literal>. Use these steps:"
@@ -2847,7 +2847,7 @@ msgstr "Por vezes quererás criar uma cópia local sem nenhumas das pastas <file
 
 #. (title)
 msgid "Committing Your Changes To The Repository"
-msgstr ""
+msgstr "Submetendo as tuas alterações para o Repositório"
 
 #. (primary)
 msgid "commit"
@@ -2863,68 +2863,68 @@ msgstr ""
 
 #. (para)
 msgid "Sending the changes you made to your working copy is known as <firstterm>committing</firstterm> the changes. But before you commit you have to make sure that your working copy is up to date. You can either use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> directly. Or you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice> first, to see which files have changed locally or on the server."
-msgstr ""
+msgstr "Enviar as alterações que fizeste, na tua cópia de trabalho, é conhecida como <firstterm>submeter</firstterm> as alterações. Mas antes de as submeteres, tens de ter a certeza que a tua cópia de trabalho se encontra actualizada. Poderás usar directamente <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar</guimenuitem></menuchoice> ou usar primeiro <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verificar alterações</guimenuitem></menuchoice>,  para ver que ficheiros foram alterados localmente ou no servidor."
 
 #. (title)
 msgid "The Commit Dialog"
-msgstr ""
+msgstr "A Caixa de Diálogo Submeter"
 
 #. (title)
 msgid "The Commit dialog"
-msgstr ""
+msgstr "A Caixa de Diálogo Submeter"
 
 #. (para)
 msgid "If your working copy is up to date and there are no conflicts, you are ready to commit your changes. Select any file and/or folders you want to commit, then <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice>. <placeholder-1/>"
-msgstr ""
+msgstr "Se a tua cópia de trabalho se encontra actualizada e não existem conflitos, então estás em condições para submeter as tuas alterações. Seleccionar os ficheiros e/ou pastas que queres submeter e, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Submeter...</guimenuitem></menuchoice>. <placeholder-1/>"
 
 #. (para)
 msgid "The commit dialog will show you every changed file, including added, deleted and unversioned files. If you don't want a changed file to be committed, just uncheck that file. If you want to include an unversioned file, just check that file to add it to the commit."
-msgstr ""
+msgstr "A caixa de diálogo submeter mostra-te cada ficheiro alterado, incluindo os adicionados, apagados e não versionados. Se não queres que um ficheiro alterado seja submetido, limpa a caixa de verificação desse ficheiro. Se quiseres adicionar um ficheiro não versionado, então verifica esse ficheiro, para o adicionar á submissão."
 
 #. (para)
 #. (para)
 msgid "Items which have been switched to a different repository path are also indicated using an <literal>(s)</literal> marker. You may have switched something while working on a branch and forgotten to switch back to trunk. This is your warning sign!"
-msgstr ""
+msgstr "Itens que foram comutados para um repositório diferente são também indicados com o uso do marcador <literal>(s)</literal>. Poderás ter comutado algo enquanto trabalhavas num ramo, e esquecido de comutar de novo para o trunk. Isto é um sinal de aviso!"
 
 #. (title)
 msgid "Commit files or folders?"
-msgstr ""
+msgstr "Submeter ficheiros ou pastas?"
 
 #. (para)
 msgid "When you commit files, the commit dialog shows only the files you have selected. When you commit a folder the commit dialog will select the changed files automatically. If you forget about a new file you created, committing the folder will find it anyway. Committing a folder does <emphasis>not</emphasis> mean that every file gets marked as changed; It just makes your life easier by doing more work for you."
-msgstr ""
+msgstr "Quando submetes ficheiros, a caixa de diálogo de submeter mostrará só os ficheiros seleccionados. Quando submetes uma pasta, a caixa de diálogo submeter irá seleccionar os ficheiros alterados automaticamente. Se te esqueceres de um novo ficheiro criado ao submeter a pasta, ele será encontrado. Submetendo a pasta <emphasis>não</emphasis> significa que todos os ficheiros serão marcados como alterados; Apenas significa que será feito mais trabalho por ti, facilitando-te a vida."
 
 #. (para)
 msgid "If you have modified files which have been included from a different repository using <literal>svn:externals</literal>, those changes cannot be included in the same atomic commit. A warning symbol below the file list tells you if this has happened, and the tooltip explains that those external files have to be committed separately."
-msgstr ""
+msgstr "Se alteraste ficheiros que foram incluídos a partir de um repositório diferente, usando <literal>svn:externals</literal>, essas alterações não poderão ser incluídas na mesma submissão atómica. Um símbolo de aviso, por baixo do ficheiro, dir-te-á se isto aconteceu. Uma etiqueta de dica explicará que esses ficheiros externos têm de ser submetidos separadamente."
 
 #. (title)
 msgid "Many unversioned files in the commit dialog"
-msgstr ""
+msgstr "Muitos ficheiro não versionados na caixa de submissão"
 
 #. (para)
 msgid "add the file (or a wildcard extension) to the list of files to exclude on the settings page. This will affect every working copy you have."
-msgstr ""
+msgstr "Adicionar o ficheiro (ou uma extensão de carácter de substituição) à lista de ficheiros a excluir, na página de configurações. Isto irá afectar todas as cópias de trabalho que tens."
 
 #. (para)
 msgid "add the file to the <literal>svn:ignore</literal> list using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to ignore list</guimenuitem></menuchoice> This will only affect the directory on which you set the <literal>svn:ignore</literal> property. Using the SVN Property Dialog, you can alter the <literal>svn:ignore</literal> property for a directory."
-msgstr ""
+msgstr "Adicionar o ficheiro à lista  <literal>svn:ignore</literal> usando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apaga e adiciona à lista de ignorados</guimenuitem></menuchoice>. Isto só afectará a pasta onde foi alterada a propriedade <literal>svn:ignore</literal>. Usando a Caixa de Diálogo de Propriedades SVN, poderás alterar a propriedade <literal>svn:ignore</literal> para a pasta."
 
 #. (para)
 msgid "If you think that the commit dialog shows you too many unversioned (e.g. compiler generated or editor backup) files, there are several ways to handle this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> for more information."
-msgstr ""
+msgstr "Se sentires que a caixa de diálogo de submissão mostra muitos ficheiros não versionados (e.g. gerados pelo compilador ou backups do editor), existem várias maneiras para lidar com esta situação. Poderás: <placeholder-1/> Ler <xref linkend=\"tsvn-dug-ignore\"/> para mais informação."
 
 #. (para)
 msgid "<action>Double clicking</action> on any modified file in the commit dialog will launch the external diff tool to show your changes. The context menu will give you more options, as shown in the screenshot. You can also drag files from here into another application such as a text editor or an IDE."
-msgstr ""
+msgstr "O <action>Duplo clique</action> na caixa de diálogo submeter, em qualquer ficheiro alterado, irá lançar a ferramenta externa diff para mostrar as tuas alterações. O menu de contexto irá dar-te mais opções, como pode ser visto no screenshot. Poderás também arrastar ficheiros daqui para outra aplicação, como um editor de texto ou um IDE."
 
 #. (para)
 msgid "You can select or deselect items by clicking on the checkbox to the left of the item. For directories you can use <keycap>Shift</keycap>-<action>select</action> to make the action recursive."
-msgstr ""
+msgstr "Poderás seleccionar ou desseleccionar ítems clicando na caixa de verificação à esquerda do item. Para pastas poderás usar <keycap>Shift</keycap>-<action>Seleccionar</action> para tornar a acção recursiva."
 
 #. (para)
 msgid "The columns displayed in the bottom pane are customizable. If you <action>right click</action> on any column header you will see a context menu allowing you to select which columns are displayed. You can also change column width by using the drag handle which appears when you move the mouse over a column boundary. These customizations are preserved, so you will see the same headings next time."
-msgstr ""
+msgstr "As colunas mostradas no painel de fundo são costumizáveis. Se <action>clicares com o botão direito</action> em qualquer cabeçalho de coluna verás um menu de contexto, que te permitirá seleccionar quais as colunas que serão mostradas. Poderás também alterar a largura da coluna utilizando um indicador de arrasto, que aparecerá quando moveres o rato sobre os limites da coluna. Estas customizações são conservadas para que as vejas os mesmos cabeçalhos da próxima vez."
 
 #. (para)
 msgid "By default when you commit changes, any locks that you hold on files are released automatically after the commit succeeds. If you want to keep those locks, make sure the <guilabel>Keep locks</guilabel> checkbox is checked. The default state of this checkbox is taken from the <literal>no_unlock</literal> option in the Subversion configuration file. Read <xref linkend=\"tsvn-dug-settings-main\"/> for information on how to edit the Subversion configuration file."
