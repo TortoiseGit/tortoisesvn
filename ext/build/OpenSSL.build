@@ -13,19 +13,15 @@
 	</target>
 	<target name="OpenSSL" depends="clean">
 		<delete file="..\..\..\common\openssl\del.bat" if="${file::exists('..\..\..\common\openssl\del.bat')}" />
-		<!-- OpenSSL links against bufferoverflowu.lib for x64 builds, but with VS2008, that library is no
-		     longer required: the functions are built in the c-runtime. To prevent a linker error (not finding
-		     the library) we patch the openssl configure script to omit that library if we're using VS2008 -->
-		<copy file="VC-32.pl" tofile="..\..\..\common\openssl\util\pl\VC-32.pl" overwrite="true" />
-    <copy file="e_os.h" tofile="..\..\..\common\openssl\e_os.h" overwrite="true" />
     <if test="${platform == 'win32'}">
 			<exec program="perl" workingdir="..\..\..\common\openssl">
 				<arg value="Configure" />
 				<arg value="VC-WIN32" />
+				<arg value="no-asm" />
 			</exec>
 			<exec program="cmd" workingdir="..\..\..\common\openssl">
 				<arg value="/c" />
-				<arg value="ms\do_masm" />
+				<arg value="ms\do_ms" />
 			</exec>
 			<exec program="nmake" workingdir="..\..\..\common\openssl">
 				<arg value="-f" />
@@ -36,6 +32,7 @@
 			<exec program="perl" workingdir="..\..\..\common\openssl">
 				<arg value="Configure" />
 				<arg value="VC-WIN64A" />
+				<arg value="no-asm" />
 			</exec>
 			<exec program="cmd" workingdir="..\..\..\common\openssl">
 				<arg value="/c" />
