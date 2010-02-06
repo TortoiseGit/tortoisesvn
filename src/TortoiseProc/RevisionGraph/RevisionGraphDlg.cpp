@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,7 +47,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CRevisionGraphDlg::IDD, pParent)
 	, m_hAccel(NULL)
 	, m_bFetchLogs(true)
-	, m_fZoomFactor(0.5)
+	, m_fZoomFactor(DEFAULT_ZOOM)
 {
     // GDI+ initialization
 
@@ -247,7 +247,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	m_Graph.Init(this, &graphrect);
 	m_Graph.SetOwner(this);
 	m_Graph.UpdateWindow();
-    DoZoom (0.75);
+    DoZoom (DEFAULT_ZOOM);
 
 	EnableSaveRestore(_T("RevisionGraphDlg"));
 	if (hWndExplorer)
@@ -390,17 +390,17 @@ void CRevisionGraphDlg::DoZoom (float zoom)
 
 void CRevisionGraphDlg::OnViewZoomin()
 {
-    DoZoom (min (2.0f, m_fZoomFactor / .9f));
+    DoZoom (min (MAX_ZOOM, m_fZoomFactor / ZOOM_STEP));
 }
 
 void CRevisionGraphDlg::OnViewZoomout()
 {
-    DoZoom (max (0.01f, m_fZoomFactor * .9f));
+    DoZoom (max (MIN_ZOOM, m_fZoomFactor * ZOOM_STEP));
 }
 
 void CRevisionGraphDlg::OnViewZoom100()
 {
-	DoZoom (1.0);
+	DoZoom (DEFAULT_ZOOM);
 }
 
 void CRevisionGraphDlg::OnViewZoomHeight()
@@ -410,10 +410,10 @@ void CRevisionGraphDlg::OnViewZoomHeight()
 
 	float horzfact = (windowRect.Width() - 4.0f)/(4.0f + graphRect.Width());
 	float vertfact = (windowRect.Height() - 4.0f)/(4.0f + graphRect.Height());
-    if ((horzfact < vertfact) && (horzfact < 2.0f))
+    if ((horzfact < vertfact) && (horzfact < MAX_ZOOM))
     	vertfact = (windowRect.Height() - 20.0f)/(4.0f + graphRect.Height());
 
-    DoZoom (min (2.0f, vertfact));
+    DoZoom (min (MAX_ZOOM, vertfact));
 }
 
 void CRevisionGraphDlg::OnViewZoomWidth()
@@ -424,10 +424,10 @@ void CRevisionGraphDlg::OnViewZoomWidth()
 
 	float horzfact = (windowRect.Width() - 4.0f)/(4.0f + graphRect.Width());
 	float vertfact = (windowRect.Height() - 4.0f)/(4.0f + graphRect.Height());
-    if ((vertfact < horzfact) && (vertfact < 2.0f))
+    if ((vertfact < horzfact) && (vertfact < MAX_ZOOM))
     	horzfact = (windowRect.Width() - 20.0f)/(4.0f + graphRect.Width());
 
-    DoZoom (min (2.0f, horzfact));
+    DoZoom (min (MAX_ZOOM, horzfact));
 }
 
 void CRevisionGraphDlg::OnViewZoomAll()
@@ -439,7 +439,7 @@ void CRevisionGraphDlg::OnViewZoomAll()
 	float horzfact = (windowRect.Width() - 4.0f)/(4.0f + graphRect.Width());
 	float vertfact = (windowRect.Height() - 4.0f)/(4.0f + graphRect.Height());
 
-    DoZoom (min (2.0f, min(horzfact, vertfact)));
+    DoZoom (min (MAX_ZOOM, min(horzfact, vertfact)));
 }
 
 void CRevisionGraphDlg::OnMenuexit()

@@ -138,7 +138,7 @@ void CRevisionGraphWnd::DrawRoundedRect (Graphics& graphics, const Pen* pen, con
 {
     enum {POINT_COUNT = 8};
 
-    float radius = 16 * m_fZoomFactor;
+    float radius = CORNER_SIZE * m_fZoomFactor;
 	PointF points[POINT_COUNT];
     CutawayPoints (rect, radius, points);
 
@@ -163,7 +163,7 @@ void CRevisionGraphWnd::DrawOctangle (Graphics& graphics, const Pen* pen, const 
 
     // show left & right edges of low boxes as "<===>"
 
-    float minCutAway = min (16 * m_fZoomFactor, rect.Height / 2);
+    float minCutAway = min (CORNER_SIZE * m_fZoomFactor, rect.Height / 2);
 
     // larger boxes: remove 25% of the shorter side
 
@@ -365,7 +365,7 @@ RectF CRevisionGraphWnd::GetNodeRect (const ILayoutNodeList::SNode& node, const 
     // show two separate lines for touching nodes, 
     // unless the scale is too small
 
-    if (noderect.Height > 4.0f)
+    if (noderect.Height > 15.0f)
         noderect.Height -= 1.0f;
 
     // done
@@ -459,10 +459,13 @@ void CRevisionGraphWnd::DrawSquare
     PointF leftBottom (leftTop.X, leftTop.Y + squareSize);
     RectF square (leftTop, SizeF (squareSize, squareSize));
 
-    Pen pen (penColor, max (1, 1.5f * m_fZoomFactor));
     LinearGradientBrush lgBrush (leftTop, leftBottom, lightColor, darkColor);
     graphics.FillRectangle (&lgBrush, square);
-    graphics.DrawRectangle (&pen, square);
+	if (squareSize > 4.0f)
+	{
+	    Pen pen (penColor);
+		graphics.DrawRectangle (&pen, square);
+	}
 }
 
 void CRevisionGraphWnd::DrawGlyph 
@@ -971,7 +974,7 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
     if (options->GetOption<CShowTreeStripes>()->IsActive())
         DrawStripes (*graphics, offset);
 
-    if (m_fZoomFactor > 0.2f)
+    if (m_fZoomFactor > SHADOW_ZOOM_THRESHOLD)
         DrawShadows (*graphics, logRect, offset);
 
     Bitmap glyphs (AfxGetInstanceHandle(), MAKEINTRESOURCE(IDR_REVGRAPHGLYPHS));

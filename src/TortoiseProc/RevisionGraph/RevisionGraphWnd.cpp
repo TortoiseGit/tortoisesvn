@@ -86,7 +86,7 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 	, m_nFontSize(12)
     , m_bTweakTrunkColors(true)
     , m_bTweakTagsColors(true)
-	, m_fZoomFactor(1.0)
+	, m_fZoomFactor(DEFAULT_ZOOM)
 	, m_ptRubberEnd(0,0)
 	, m_ptRubberStart(0,0)
 	, m_bShowOverview(false)
@@ -547,7 +547,7 @@ void CRevisionGraphWnd::OnLButtonUp(UINT nFlags, CPoint point)
 	y = min(m_ptRubberStart.y, point.y) + GetScrollPos(SB_VERT);
 
 	float fZoomfactor = m_fZoomFactor*fact;
-	if (fZoomfactor > 20.0)
+	if (fZoomfactor > 10 * MAX_ZOOM)
 	{
 		// with such a big zoomfactor, the user
 		// most likely zoomed by accident
@@ -555,9 +555,9 @@ void CRevisionGraphWnd::OnLButtonUp(UINT nFlags, CPoint point)
 		__super::OnLButtonUp(nFlags, point);
 		return;
 	}
-	if (fZoomfactor > 2.0)
+	if (fZoomfactor > MAX_ZOOM)
 	{
-		fZoomfactor = 2.0;
+		fZoomfactor = MAX_ZOOM;
 		fact = fZoomfactor/m_fZoomFactor;
 	}
 
@@ -784,7 +784,7 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 		CMetaFileDC wmfDC;
 		wmfDC.CreateEnhanced(NULL, sSavePath, NULL, _T("TortoiseSVN\0Revision Graph\0\0"));
 		float fZoom = m_fZoomFactor;
-		m_fZoomFactor = 1.0;
+		m_fZoomFactor = DEFAULT_ZOOM;
 		DoZoom(m_fZoomFactor);
 		CRect rect;
 		rect = GetViewRect();
@@ -900,7 +900,8 @@ BOOL CRevisionGraphWnd::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 
 	if (GetKeyState(VK_CONTROL)&0x8000)
 	{
-		DoZoom (max(0.1f, min (2.0f, m_fZoomFactor * (zDelta < 0 ? 0.9f : 1.1f))));
+		float newZoom = m_fZoomFactor * (zDelta < 0 ? ZOOM_STEP : 1.0f/ZOOM_STEP);
+		DoZoom (max (MIN_ZOOM, min (MAX_ZOOM, newZoom)));
 	}
 	else
 	{

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -90,7 +90,7 @@ CStandardLayoutTextList::GetText (index_t index) const
     CRect rect = nodeInfo.rect;
     if (textInfo.subPathIndex > 0)
     {
-        rect.top = rect.top + 25 + 21 * (textInfo.subPathIndex-1);
+        rect.top = rect.top + 21 + 16 * (textInfo.subPathIndex-1);
 
         size_t localindex = textInfo.subPathIndex-1 + nodeInfo.skipStartPathElements;
         const CDictionaryBasedTempPath& path = nodeInfo.node->GetPath();

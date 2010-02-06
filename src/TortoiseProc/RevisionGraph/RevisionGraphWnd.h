@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,38 +26,56 @@
 
 using namespace Gdiplus;
 
-#define REVGRAPH_PREVIEW_WIDTH 100
-#define REVGRAPH_PREVIEW_HEIGHT 200
+enum 
+{
+	REVGRAPH_PREVIEW_WIDTH = 100,
+	REVGRAPH_PREVIEW_HEIGHT = 200,
 
-// don't draw pre-views with more than that number of nodes
+	// don't draw pre-views with more than that number of nodes
 
-#define REVGRAPH_PREVIEW_MAX_NODES 10000
+	REVGRAPH_PREVIEW_MAX_NODES = 10000
+};
 
 // don't try to draw nodes smaller than that:
 
 #define REVGRAPH_MIN_NODE_HIGHT (0.5f)
 
-// size of the node marker
-
 enum
 {
-    MARKER_SIZE = 14
-};
+	// size of the node marker
 
-// size of the expand / collapse / split / join square gylphs
+    MARKER_SIZE = 11,
 
-enum
-{
-    GLYPH_SIZE = 16
-};
+	// radius of the rounded / slanted box corners  of the expand / collapse / split / join square gylphs
 
-// glyph display delay definitions
+    CORNER_SIZE = 12,
 
-enum
-{
+	// font sizes
+
+	DEFAULT_ZOOM_FONT = 9,		// default font size
+	SMALL_ZOOM_FONT = 11,		// rel. larger font size for small zoom factors
+	SMALL_ZOOM_FONT_THRESHOLD = 6,	// max. "small zoom" font size after scaling
+
+	// size of the expand / collapse / split / join square gylphs
+
+    GLYPH_SIZE = 12,
+
+	// glyph display delay definitions
+
     GLYPH_HOVER_EVENT = 10,     // timer ID for the glyph display delay
-    GLYPH_HOVER_DELAY = 250     // delay until the glyphs are shown [ms]
+    GLYPH_HOVER_DELAY = 250,    // delay until the glyphs are shown [ms]
 };
+
+// zoom control
+
+const float MIN_ZOOM = 0.01f;
+const float MAX_ZOOM = 2.0f;
+const float DEFAULT_ZOOM = 1.0f;
+const float ZOOM_STEP = 0.9f;
+
+// don't draw shadows below this zoom level
+
+const float SHADOW_ZOOM_THRESHOLD = 0.2f;
 
 /**
  * \ingroup TortoiseProc

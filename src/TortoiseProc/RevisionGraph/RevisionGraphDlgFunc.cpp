@@ -73,7 +73,7 @@ void CRevisionGraphWnd::BuildPreview()
     CRect graphRect = GetGraphRect();
 	float horzfact = float(graphRect.Width())/float(preViewSize.cx);
 	float vertfact = float(graphRect.Height())/float(preViewSize.cy);
-	m_previewZoom = min (1.0f, 1.0f/(max(horzfact, vertfact)));
+	m_previewZoom = min (DEFAULT_ZOOM, 1.0f/(max(horzfact, vertfact)));
 
     // make sure the preview window has a minimal size
 
@@ -387,9 +387,9 @@ void CRevisionGraphWnd::DoZoom (float fZoomFactor, bool updateScrollbars)
 	float oldzoom = m_fZoomFactor;
 	m_fZoomFactor = fZoomFactor;
 
-    m_nFontSize = max(1, int(12.0f * fZoomFactor));
-    if (m_nFontSize < 7)
-        m_nFontSize = min (7, int(15.0f * fZoomFactor));
+    m_nFontSize = max(1, int(DEFAULT_ZOOM_FONT * fZoomFactor));
+    if (m_nFontSize < SMALL_ZOOM_FONT_THRESHOLD)
+        m_nFontSize = min (SMALL_ZOOM_FONT_THRESHOLD, int(SMALL_ZOOM_FONT * fZoomFactor));
 
 	for (int i=0; i<MAXFONTS; i++)
 	{
