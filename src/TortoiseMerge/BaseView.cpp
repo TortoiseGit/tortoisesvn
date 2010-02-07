@@ -2631,6 +2631,8 @@ void CBaseView::ShowDiffLines(int nLine)
 	if ((nLine < m_nTopLine)||(nLine >= GetLineCount()))
 	{
 		m_pwndLineDiffBar->ShowLines(nLine);
+		nLine = -1;
+		m_nMouseLine = nLine;
 		return;
 	}
 
@@ -2647,9 +2649,9 @@ void CBaseView::ShowDiffLines(int nLine)
 
 	if (nLine != m_nMouseLine)
 	{
-		m_nMouseLine = nLine;
 		if (nLine >= GetLineCount())
 			nLine = -1;
+		m_nMouseLine = nLine;
 		m_pwndLineDiffBar->ShowLines(nLine);
 	}
 	m_pMainFrame->m_nMoveMovesToIgnore = MOVESTOIGNORE;
