@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "SVNError.h"
+#include "FormatMessageWrapper.h"
 
 ///////////////////////////////////////////////////////////////
 // construction
@@ -23,4 +24,17 @@ SVNError::SVNError (svn_error_t* error)
     , message (error ? (error->message != NULL ? error->message : error->file) : 0)
 {
     svn_error_clear (error);
+}
+
+///////////////////////////////////////////////////////////////
+// frequently used
+///////////////////////////////////////////////////////////////
+
+void SVNError::ThrowLastError (DWORD lastError)
+{
+	// get formatted system error message
+
+	CFormatMessageWrapper errorMessage(lastError);
+	CStringA errorText ((LPCTSTR)errorMessage);
+	throw SVNError (SVN_ERR_BASE, errorText);
 }

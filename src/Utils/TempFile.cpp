@@ -21,7 +21,6 @@
 #include "auto_buffer.h"
 #include "SVNError.h"
 #include "PathUtils.h"
-#include "FormatMessageWrapper.h"
 
 CTempFiles::CTempFiles(void)
 {
@@ -38,14 +37,6 @@ CTempFiles& CTempFiles::Instance()
 	return instance;
 }
 
-void CTempFiles::ThrowLastError (DWORD lastError)
-{
-	// get formatted system error message
-	CFormatMessageWrapper errorMessage(lastError);
-	CStringA errorText ((LPCTSTR)errorMessage);
-	throw SVNError (SVN_ERR_BASE, errorText);
-}
-
 void CTempFiles::CheckLastError()
 {
 	DWORD lastError = GetLastError();
@@ -54,7 +45,7 @@ void CTempFiles::CheckLastError()
 	{
 		// no simple name collision -> bail out
 
-		ThrowLastError (lastError);
+		SVNError::ThrowLastError (lastError);
 	}
 }
 
@@ -150,7 +141,7 @@ CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, 
 
 	// give up
 
-	ThrowLastError();
+	SVNError::ThrowLastError();
 
 	// make compiler happy
 
