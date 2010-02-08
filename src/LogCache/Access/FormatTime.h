@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007,2010 - TortoiseSVN
+// Copyright (C) 2007-2008,2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -16,4 +16,13 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "stdafx.h"
+#pragma once
+
+const char* Time64ToZuluString (char* buffer, size_t size, __time64_t timeStamp);
+
+template <size_t SIZE>
+const char* Time64ToZuluString (char (&buffer) [SIZE], __time64_t timeStamp)
+{
+    return Time64ToZuluString (buffer, SIZE, timeStamp);
+}
+
