@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-09 09:22 +0000\n"
-"PO-Revision-Date: 2010-01-13 17:25+0100\n"
-"Last-Translator: Frederic Bodin <grokwik@free.fr>\n"
+"PO-Revision-Date: 2010-02-08 17:03+0100\n"
+"Last-Translator: Matthias GOUPIL <mgoupil@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5643,7 +5643,6 @@ msgid "undo"
 msgstr "annuler"
 
 #. (primary)
-#, fuzzy
 msgid "clean"
 msgstr "nettoyer"
 
@@ -5744,14 +5743,12 @@ msgid "Subversion property page"
 msgstr "Page de propriété de subversion"
 
 #. (para)
-#, fuzzy
 msgid "<placeholder-1/> You can read and set the Subversion properties from the Windows properties dialog, but also from <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice> and within TortoiseSVN's status lists, from <menuchoice><guimenu>Context menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>."
-msgstr "<placeholder-1/> Vous pouvez lire et définir les propriétés Subversion à partir de la boîte de dialogue de propriétés de Windows, mais aussi depuis <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Propriétés</guimenuitem></menuchoice> et au sein de les listes de statut de TSVN, de <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Propriétés</guimenuitem></menuchoice>."
+msgstr "<placeholder-1/> Vous pouvez lire et définir les propriétés Subversion à partir de la boîte de dialogue de propriétés de Windows, mais aussi depuis <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Propriétés</guimenuitem></menuchoice> et au sein des listes de statut de TortoiseSVN, depuis <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Propriétés</guimenuitem></menuchoice>."
 
 #. (para)
-#, fuzzy
 msgid "You can add your own properties, or some properties with a special meaning in Subversion. These begin with <literal>svn:</literal>. <literal>svn:externals</literal> is such a property; see how to handle externals in <xref linkend=\"tsvn-dug-externals\"/>."
-msgstr "Vous pouvez ajouter vos  propres propriétés, ou des propriétés avec une signification spéciale pour Subversion. Celles-ci commencent par <literal>svn:</literal>. <literal>svn:externals</literal> en est une ; regardez comment manipuler les externes dans <xref linkend=\"tsvn-dug-import-4\"/>. Pour plus d'informations sur les propriétés dans Subversion, regardez le <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3\"><citetitle>Manuel de Subversion</citetitle></ulink>."
+msgstr "Vous pouvez ajouter vos propres propriétés, ou des propriétés avec une signification spéciale pour Subversion. Celles-ci commencent par <literal>svn:</literal>. <literal>svn:externals</literal> est une des propriétés; regardez comment manipuler les propriétés externes dans <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (title)
 msgid "svn:keywords"
@@ -5787,17 +5784,15 @@ msgstr "Une combinaison raccourcie des quatres mot clés précédents."
 
 #. (para)
 msgid "Subversion supports CVS-like keyword expansion which can be used to embed filename and revision information within the file itself. Keywords currently supported are: <placeholder-1/>"
-msgstr ""
+msgstr "Subversion supporte le mécanisme de mots-clés comme pour CVS qui peuvent être utilisés pour intégrer le nom de fichier et la révision des informations dans le fichier lui-même. Les mots-clés actuellement supportés sont: <placeholder-1/>"
 
 #. (para)
-#, fuzzy
 msgid "To find out how to use these keywords, look at the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords section</citetitle></ulink> in the Subversion book, which gives a full description of these keywords and how to enable and use them."
-msgstr "Il est important de comprendre comment l'embranchement et la fusion fonctionnent dans Subversion avant de commencer à l'utiliser, puisque cela peut devenir assez complexe. Il est fortement recommandé de lire le chapitre <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04.html\"><citetitle>Branching and Merging</citetitle></ulink> dans le <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Manuel de Subversion</citetitle></ulink> qui donne une description complète et beaucoup d'exemples sur la façon dont c'est utilisé."
+msgstr "Pour savoir comment utiliser ces mots-clés, regarder le <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords section</citetitle></ulink> dans le livre Subversion (en Anglais), qui donne une description complète de ces mots clés et la façon de les activer et de les utiliser."
 
 #. (para)
-#, fuzzy
 msgid "For more information about properties in Subversion see the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.html\"><citetitle>Special Properties</citetitle></ulink>."
-msgstr "Plus d'informations sur svnserve dans <ulink url=\"http://svnbook.red-bean.com\"><citetitle>Version Control with Subversion</citetitle></ulink>."
+msgstr "Pour plus d'informations sur les propriétés dans Subversion, regarder les <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.html\"><citetitle>Propriétés Avancées</citetitle></ulink>."
 
 #. (title)
 msgid "Adding and Editing Properties"
@@ -5832,9 +5827,8 @@ msgid "If you wish to remove an existing property, select that property from the
 msgstr "Si vous voulez supprimer une propriété existante, sélectionnez cette propriété dans la liste des propriétés existantes, puis cliquez sur <guibutton>Effacer</guibutton>."
 
 #. (para)
-#, fuzzy
 msgid "The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository. For more information, read <xref linkend=\"tsvn-dug-externals\"/>."
-msgstr "La propriété <literal>svn:externals</literal> peut être utilisée pour intégrer d'autres projets du même référentiel ou d'un référentiel complètement différent. Pour plus d'informations, lisez <xref linkend=\"tsvn-dug-import-4\"/>."
+msgstr "La propriété <literal>svn:externals</literal> peut être utilisée pour intégrer d'autres projets du même référentiel ou d'un référentiel complètement différent. Pour plus d'informations, lisez <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (title)
 msgid "Exporting and Importing Properties"
@@ -5842,11 +5836,11 @@ msgstr "Exporter et Importer les Propriétés"
 
 #. (para)
 msgid "Often you will find yourself applying the same set of properties many times, for example <literal>bugtraq:logregex</literal>. To simplify the process of copying properties from one project to another, you can use the Export/Import feature."
-msgstr ""
+msgstr "Souvent, vous vous trouverez appliquant le même ensemble de propriétés de nombreuses fois, par exemple <literal>bugtraq:logregex</literal>. Pour simplifier le processus de copie des propriétés d'un projet à l'autre, vous pouvez utiliser la fonctionnalité d'Export/Import."
 
 #. (para)
 msgid "From the file or folder where the properties are already set, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice>, select the properties you wish to export and click on <guibutton>Export...</guibutton>. You will be prompted for a filename where the property names and values will be saved."
-msgstr ""
+msgstr "A partir du fichier ou du dossier où les propriétés sont déjà définies, utilisez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>propriétés</guimenuitem></menuchoice>, sélectionnez les propriétés que vous souhaitez exporter et cliquez sur <guibutton>Export...</guibutton>. Vous serez invité à entrer un nom de fichier où les noms des propriétés et valeurs seront sauvegardés."
 
 #. (para)
 msgid "From the folder(s) where you wish to apply these properties, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice> and click on <guibutton>Import...</guibutton>. You will be prompted for a filename to import from, so navigate to the place you saved the export file previously and select it. The properties will be added to the folders non-recursively."
