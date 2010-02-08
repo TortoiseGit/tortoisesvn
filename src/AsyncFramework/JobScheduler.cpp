@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2009 by Stefan Fuhrmann                                 *
+ *   Copyright (C) 2009-2010 by Stefan Fuhrmann                            *
  *   stefanfuhrmann@alice-dsl.de                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
