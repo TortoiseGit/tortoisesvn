@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-02 16:46+0100\n"
+"PO-Revision-Date: 2010-02-08 15:01+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4874,15 +4874,15 @@ msgstr "Met het <guilabel>Maak dit de standaard</guilabel> selectievak voorkom j
 #. (title)
 #. (title)
 msgid "Refreshing the View"
-msgstr "Vernieuwen van de weergave"
+msgstr "De weergave verversen"
 
 #. (para)
 msgid "If you want to check the server again for newer log messages, you can simply refresh the view using <keycap>F5</keycap>. If you are using the log cache (enabled by default), this will check the repository for newer messages and fetch only the new ones. If the log cache was in offline mode, this will also attempt to go back online."
-msgstr ""
+msgstr "Als je wilt kijken of er nieuwe logboek boodschappen zijn op de server, dan kun je het beeld eenvoudig verversen door op <keycap>F5</keycap> te drukken. Als je gebruikt maakt van de log cache (standaard ingeschakeld), dan zal het archief op nieuwe berichten worden gecontroleerd en worden alleen de nieuwe berichten opgehaald. Als de log cache offline was, dan wordt er ook meteen geprobeerd om weer online te gaan. "
 
 #. (para)
 msgid "If you are using the log cache and you think the message content or author may have changed, you can use <keycap>Shift-F5</keycap> or <keycap>Ctrl-F5</keycap> to re-fetch the displayed messages from the server and update the log cache. Note that this only affects messages currently shown and does not invalidate the entire cache for that repository."
-msgstr ""
+msgstr "Als je de log cache gebruikt en je vermoed dat de inhoud van een bericht of de auteur gewijzigd is, dan kun je <keycap>Shift-F5</keycap> of <keycap>Ctrl-F5</keycap> gebruiken om de weergegeven berichten opnieuw van de server op te halen en de log cache bij te werken. Merk op dat hiermee alleen de getoonde berichten worden ververst, de rest van de cache van het archief wordt hierdoor niet gewijzigd of gecontroleerd."
 
 #. (title)
 msgid "Viewing Differences"
@@ -4891,11 +4891,11 @@ msgstr "Tonen van Verschillen"
 #. (primary)
 #. (primary)
 msgid "diff"
-msgstr ""
+msgstr "diff"
 
 #. (primary)
 msgid "compare"
-msgstr ""
+msgstr "vergelijken"
 
 #. (para)
 msgid "One of the commonest requirements in project development is to see what has changed. You might want to look at the differences between two revisions of the same file, or the differences between two separate files. TortoiseSVN provides a built-in tool named <application>TortoiseMerge</application> for viewing differences of text files. For viewing differences of image files, TortoiseSVN also has a tool named <application>TortoiseIDiff</application>. Of course, you can use your own favourite diff program if you like."
@@ -5027,7 +5027,7 @@ msgstr "Vergelijken van mappen"
 
 #. (primary)
 msgid "compare revisions"
-msgstr ""
+msgstr "vergelijken van revisies"
 
 #. (primary)
 msgid "export changes"
@@ -5123,7 +5123,7 @@ msgstr "verschil gereedschappen"
 
 #. (primary)
 msgid "merge tools"
-msgstr ""
+msgstr "merge tools"
 
 #. (para)
 msgid "If the tools we provide don't do what you need, try one of the many open-source or commercial programs available. Everyone has their own favourites, and this list is by no means complete, but here are a few that you might consider:"
@@ -5199,7 +5199,7 @@ msgstr "Lees <xref linkend=\"tsvn-dug-settings-progs\"/> voor informatie over he
 
 #. (title)
 msgid "Adding New Files And Directories"
-msgstr ""
+msgstr "Nieuwe Bestanden En Mappen Toevoegen"
 
 #. (primary)
 msgid "add"
@@ -5212,7 +5212,7 @@ msgstr "versioneer nieuwe bestanden"
 #. (title)
 #. (title)
 msgid "Explorer context menu for unversioned files"
-msgstr ""
+msgstr "Verkenner context menu voor bestanden zonder versiebeheer"
 
 #. (para)
 msgid "<placeholder-1/> If you created new files and/or directories during your development process then you need to add them to source control too. Select the file(s) and/or directory and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>."
@@ -5220,7 +5220,7 @@ msgstr "<placeholder-1/> Als je tijdens het ontwikkelproces nieuwe bestanden en/
 
 #. (para)
 msgid "After you added the files/directories to source control the file appears with a <literal>added</literal> icon overlay which means you first have to commit your working copy to make those files/directories available to other developers. Adding a file/directory does <emphasis>not</emphasis> affect the repository!"
-msgstr "Nadat je de bestanden of mappen onder broncodebeheer hebt gebracht, verschijnt er een icoontje in de vorm van een plusje over het normale icoontje in Windows Verkenner. Dit betekent dat je de werkkopie van het bestand moet vastleggen voordat de bestanden/mappen beschikbaar zijn voor andere ontwikkelaars. Een bestand of map toevoegen heeft <emphasis>geen</emphasis> effect op het archief!"
+msgstr "Nadat je de bestanden of mappen onder versiebeheer hebt gebracht, verschijnt er een icoontje in de vorm van een plusje over het normale icoontje in Windows Verkenner. Dit betekent dat je de werkkopie van het bestand moet vastleggen voordat de bestanden/mappen beschikbaar zijn voor andere ontwikkelaars. Een bestand of map toevoegen heeft <emphasis>geen</emphasis> effect op het archief!"
 
 #. (title)
 msgid "Many Adds"
@@ -5262,7 +5262,7 @@ msgstr "Het toevoegen van bestanden en mappen kun je, als je bijvoorbeeld per on
 
 #. (title)
 msgid "Copying/Moving/Renaming Files and Folders"
-msgstr ""
+msgstr "Kopiëren/Verplaatsen/Hernoemen Bestanden en Mappen"
 
 #. (primary)
 msgid "copy files"
@@ -6071,15 +6071,15 @@ msgstr "Externe archieven"
 #. (primary)
 #. (primary)
 msgid "externals"
-msgstr ""
+msgstr "externen"
 
 #. (para)
 msgid "Sometimes it is useful to construct a working copy that is made out of a number of different checkouts. For example, you may want different files or subdirectories to come from different locations in a repository, or perhaps from different repositories altogether. If you want every user to have the same layout, you can define the <literal>svn:externals</literal> properties to pull in the specified resource at the locations where they are needed."
-msgstr ""
+msgstr "Soms is het handig om een werkkopie te hebben, die bestaat uit bestanden die in verschillende aparte archieven zijn opgeslagen. Bijvoorbeeld, je wilt dat bestanden en submappen van verschillende locaties uit het archief worden gehaald, of misschien zelfs vanuit verschillende archieven. Als je wilt dat elke gebruiker dezelfde indeling gebruikt, dan kun je gebruik maken van <literal>svn:externals</literal> eigenschappen om de benodigde bronnen naar de locaties te halen waar ze nodig zijn."
 
 #. (title)
 msgid "External Folders"
-msgstr "Externe Folders"
+msgstr "Externe Mappen"
 
 #. (para)
 msgid ""
@@ -6089,14 +6089,19 @@ msgid ""
 "-r21 http://svn.red-bean.com/repos/skin-maker  skins/toolkit\n"
 "</screen> Now click <guibutton>Set</guibutton> and commit your changes. When you (or any other user) update your working copy, Subversion will create a sub-folder <filename>D:\\dev\\project1\\sounds</filename> and checkout the sounds project, another sub-folder <filename>D:\\dev\\project1\\quick_graphs</filename> containing the graphics project, and finally a nested sub-folder <filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 of the skin-maker project."
 msgstr ""
+"Stel je haalt je werkkopie van <filename>/project1</filename> op naar <filename>D:\\dev\\project1</filename>. Selecteer de map <filename>D:\\dev\\project1</filename>, <action>klik rechts</action> en kies <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Eigenschappen</guimenuitem></menuchoice> in het context menu. Het venster met de eigenschappen komt naar voren. Ga dan naar de Subversion tab, waarin je eigenschappen kunt wijzigen. Klik <guibutton>Add...</guibutton>. Selecteer de <literal>svn:externals</literal> eigenschap in de combobox en voer in het tekstveld de URL van het het archief in volgend de indeling <literal>url map</literal> of als je een specifieke revisie wilt gebruiken <literal>-rREV url folder</literal>. Je kunt meerdere externe projecten toevoegen, op elke regel één. Stel je hebt deze eigenschappen ingesteld op <filename>D:\\dev\\project1</filename>: <screen>\n"
+"http://sounds.red-bean.com/repos  sounds\n"
+"http://graphics.red-bean.com/repos/fast%20graphics  \"quick graphs\"\n"
+"-r21 http://svn.red-bean.com/repos/skin-maker  skins/toolkit\n"
+"</screen> Klik nu op <guibutton>Set</guibutton> en leg je wijzigingen vast in het archief. Als jij nu (of een andere gebruiker) de werkkopie ververst, zal Subversion de sub-map <filename>D:\\dev\\project1\\sounds</filename> aanmaken en het sounds project, een extra sub-map <filename>D:\\dev\\project1\\quick_graphs</filename> met het grafische deel van het project en als laatste een geneste sub-map <filename>D:\\dev\\project1\\skins\\toolkit</filename> met revisie 21 van het skin-maker project aanmaken."
 
 #. (para)
 msgid "URLs must be properly escaped or they will not work, e.g. you must replace each space with <literal>%20</literal> as shown in the second example above."
-msgstr ""
+msgstr "URL's moeten netjes afgesloten worden, anders werken ze niet. Je moet bijvoorbeeld ook elke spatie vervangen door <literal>%20</literal>, zoals in het tweede voorbeeld weergegeven."
 
 #. (para)
 msgid "If you want the local path to include spaces or other special characters, you can enclose it in double quotes, or you can use the <literal>\\</literal> (backslash) character as a Unix shell style escape character preceding any special character. Of course this also means that you must use <literal>/</literal> (forward slash) as a path delimiter. Note that this behaviour is new in Subversion 1.6 and will not work with older clients."
-msgstr ""
+msgstr "Als je in lokale paden spaties en andere speciale tekens wilt gebruiken, dan moet je deze tussen aanhalingstekens plaatsen, of je kunt de <literal>\\</literal> (schuine streep naar links, ook wel backslash genoemd) gebruiken, zoals deze gebruikt worden Unix voor speciale karakters. Dit houdt ook in dat je de <literal>/</literal> (schuine streep naar rechts, ook wel forward slash genoemd) moet gebruiken als scheidingsteken voor paden. Merk op dat dit gedrag nieuw is voor Subversion 1.6 en dat dit niet werkt bij oudere versies."
 
 #. (title)
 msgid "Use explicit revision numbers"
@@ -7100,11 +7105,11 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "The Repository Browser"
-msgstr "De Archief Browser"
+msgstr "De Archiefverkenner"
 
 #. (primary)
 msgid "repo-browser"
-msgstr "repository browser"
+msgstr "archief verkenner"
 
 #. (primary)
 msgid "server-side actions"
@@ -7320,7 +7325,7 @@ msgstr ""
 
 #. (term)
 msgid "Normal item"
-msgstr "Normaal item"
+msgstr "Normaal object"
 
 #. (para)
 msgid "All other items are shown using a plain rectangle."
@@ -7364,7 +7369,7 @@ msgstr ""
 
 #. (term)
 msgid "Align trees on top"
-msgstr "boom uitlijnen naar top"
+msgstr "Boom uitlijnen naar top"
 
 #. (para)
 msgid "When a graph is broken into several smaller trees, the trees may appear either in natural revision order, or aligned at the bottom of the window, depending on whether you are using the <guilabel>Group Branches</guilabel> option. Use this option to grow all trees down from the top instead."
@@ -10946,7 +10951,7 @@ msgstr "Negeer"
 
 #. (entry)
 msgid "Repository Browser"
-msgstr "Archief browser"
+msgstr "Archiefverkenner"
 
 #. (entry)
 #. (title)
