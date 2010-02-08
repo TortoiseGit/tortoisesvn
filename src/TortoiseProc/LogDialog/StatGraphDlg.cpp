@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1421,6 +1421,7 @@ void CStatGraphDlg::SaveGraph(CString sFilename)
 		{
 			TCHAR szErrorMsg[2048];
 			pE->GetErrorMessage(szErrorMsg, 2048);
+			pE->Delete();
 			CMessageBox::Show(m_hWnd, szErrorMsg, _T("TortoiseSVN"), MB_ICONERROR);
 		}
 	}

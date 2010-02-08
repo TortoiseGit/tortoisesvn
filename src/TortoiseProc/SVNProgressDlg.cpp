@@ -2576,9 +2576,10 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
 				}
 			}
 		} 
-		catch (CFileException * /* pE */)
+		catch (CFileException* pE)
 		{
 			TRACE(_T("CFileException in Resolve!\n"));
+			pE->Delete();
 		}
 	}
 

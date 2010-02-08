@@ -888,6 +888,7 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 		{
 			TCHAR szErrorMsg[2048];
 			pE->GetErrorMessage(szErrorMsg, 2048);
+			pE->Delete();
 			CMessageBox::Show(m_hWnd, szErrorMsg, _T("TortoiseSVN"), MB_ICONERROR);
 		}
 	}
@@ -1503,4 +1504,3 @@ void CRevisionGraphWnd::SetDlgTitle (bool offline)
 
 	GetParent()->SetWindowText (newTitle);
 }
-

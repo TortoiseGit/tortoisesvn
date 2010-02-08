@@ -1252,7 +1252,7 @@ bool CAppUtils::SetupDiffScripts(bool force, const CString& type)
 		}
 		catch (CFileException* e)
 		{
-			UNREFERENCED_PARAMETER(e);
+			e->Delete();
 		}
 
 		for (std::set<CString>::const_iterator it = extensions.begin(); it != extensions.end(); ++it)
