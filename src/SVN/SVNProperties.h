@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -144,6 +144,20 @@ public:
 	 * \return true, if property has been found
 	 */
 	bool HasProperty (const std::string& name) const;
+
+	/**
+	 * Create a string containing all properties in 
+	 * K / V notation suitable to be written in a file.
+	 * \return serialized text
+	 */
+	std::string GetSerializedForm() const;
+
+	/**
+	 * Clear current content and read properties from
+	 * K / V notation as created by \ref GetSerializedForm.
+	 * \param text serialized property list
+	 */
+	void SetFromSerializedForm (const std::string& text);
 
 private:		//methods
 	/**

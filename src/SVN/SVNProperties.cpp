@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -578,6 +578,142 @@ int SVNProperties::IndexOf (const std::string& name) const
 bool SVNProperties::HasProperty (const std::string& name) const
 {
 	return IndexOf (name) != -1;
+}
+
+namespace
+{
+
+	void AddKeyValue 
+		( const char* key
+		, size_t keyLength
+		, const char* value
+		, size_t valueLength
+		, std::string& target)
+	{
+		CStringA keyHeader;
+		keyHeader.Format ("K %d\n", static_cast<int>(keyLength));
+		target.append ((const char*)keyHeader, keyHeader.GetLength());
+
+		target.append (key, keyLength);
+		target.append ('\n', 1);
+
+		CStringA valueHeader;
+		valueHeader.Format ("V %d\n", static_cast<int>(valueLength));
+		target.append ((const char*)valueHeader, valueHeader.GetLength());
+
+		target.append (value, valueLength);
+		target.append ('\n', 1);
+	}
+
+	void AddKeyValue 
+		( const std::string& key
+		, const std::string& value
+		, std::string& target)
+	{
+		AddKeyValue ( key.c_str()
+					, key.length()
+					, value.c_str()
+					, value.length()
+					, target);
+	}
+
+	std::pair<std::string, std::string> GetKeyValue 
+		( const std::string& source
+		, size_t& offset)
+	{
+		// read "K %d\n" line
+
+		int keyLength = atoi (source.c_str() + offset + 2);
+		for (offset += 4; source[offset-1] != '\n'; ++offset)
+		{
+		}
+
+		std::string key (source.c_str() + offset, static_cast<size_t>(keyLength));
+		offset += keyLength+1;
+
+		// read "V %d\n" line
+
+		int valueLength = atoi (source.c_str() + offset + 2);
+		for (offset += 4; source[offset-1] != '\n'; ++offset)
+		{
+		}
+
+		std::string value (source.c_str() + offset, static_cast<size_t>(valueLength));
+		offset += valueLength+1;
+
+		// terminating \n
+
+		return std::pair<std::string, std::string>(key, value);
+	}
+
+}
+
+std::string SVNProperties::GetSerializedForm() const
+{
+	std::string result;
+	result.reserve (m_propCount * 100);
+
+	std::string properties;
+	result.reserve (m_propCount * 100);
+
+	for (std::map<std::string, apr_hash_t *>::const_iterator it = m_props.begin(); it != m_props.end(); ++it)
+	{
+		properties.clear();
+		for (apr_hash_index_t *hi = apr_hash_first(m_pool, it->second); hi; hi = apr_hash_next(hi))
+		{
+			const void *key = NULL;
+			void *val = NULL;
+			apr_ssize_t keyLength = 0;
+
+			apr_hash_this(hi, &key, &keyLength, &val);
+
+			const char* pname_utf8 = static_cast<const char *>(key);
+			svn_string_t* propval = static_cast<svn_string_t *>(val);
+
+			AddKeyValue (pname_utf8, keyLength, propval->data, propval->len, properties);
+		}
+
+		AddKeyValue ("name", it->first, result);
+		AddKeyValue ("properties", properties, result);
+
+	}
+
+	return result;
+}
+
+void SVNProperties::SetFromSerializedForm (const std::string& text)
+{
+	// clear properties list
+
+	for (std::map<std::string, apr_hash_t *>::iterator it = m_props.begin(); it != m_props.end(); ++it)
+		apr_hash_clear (it->second);
+
+	m_props.clear();
+
+	// read all file contents
+
+	for (size_t offset = 0; offset < text.length(); ) 
+	{
+		// create hash for this file
+
+		std::pair<std::string, std::string> props = GetKeyValue (text, offset);
+
+		apr_hash_t*& hash = m_props[props.first];
+		hash = apr_hash_make (m_pool);
+
+		// read all prop entries into hash
+
+		for (size_t propOffset = 0; propOffset < props.second.length(); ) 
+		{
+			std::pair<std::string, std::string> prop 
+				= GetKeyValue (props.second, propOffset);
+
+			svn_string_t* value = svn_string_ncreate ( prop.second.c_str()
+													 , prop.second.length()
+													 , m_pool);
+			apr_hash_set (hash, prop.first.c_str(), prop.first.length(), value);
+		}
+	}
 }
 
 svn_error_t * SVNProperties::proplist_receiver(void *baton, const char *path, apr_hash_t *prop_hash, apr_pool_t *pool)
