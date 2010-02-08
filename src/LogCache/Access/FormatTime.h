@@ -26,3 +26,4 @@ const char* Time64ToZuluString (char (&buffer) [SIZE], __time64_t timeStamp)
     return Time64ToZuluString (buffer, SIZE, timeStamp);
 }
 
+__time64_t ZuluStringToTime64 (const char* buffer);

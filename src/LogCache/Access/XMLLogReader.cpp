@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,6 +18,7 @@
 //
 #include "stdafx.h"
 #include "./XMLLogReader.h"
+#include "./FormatTime.h"
 #include "../Streams/MappedInFile.h"
 
 ///////////////////////////////////////////////////////////////
@@ -298,32 +299,7 @@ void CXMLLogReader::ParseXMLLog (const char* current
         if (revision % 10000 == 0)
             printf (".");
 
-        __time64_t timeStamp = 0;
-        if (!date.empty())
-        {
-            tm time = {0,0,0, 0,0,0, 0,0,0};
-            int musecs = 0;
-            sscanf_s ( date.c_str()
-                     , "%04d-%02d-%02dT%02d:%02d:%02d.%06d"
-                     , &time.tm_year
-                     , &time.tm_mon
-                     , &time.tm_mday
-                     , &time.tm_hour
-                     , &time.tm_min
-                     , &time.tm_sec
-                     , &musecs);
-            time.tm_isdst = 0;
-            time.tm_year -= 1900;
-            time.tm_mon -= 1;
-
-        #ifdef WIN32
-            timeStamp = _mkgmtime64 (&time) *1000000 + musecs;
-        #else
-            timeStamp = mktime (&time);
-            timeStamp = timeStamp * 1000000 + musecs;
-        #endif
-        }
-
+        __time64_t timeStamp = ZuluStringToTime64 (date.c_str());
         target.Insert (revision, author, comment, timeStamp);
 
         const char* pathsEnd = NULL;

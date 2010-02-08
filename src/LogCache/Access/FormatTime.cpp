@@ -65,3 +65,34 @@ const char* Time64ToZuluString (char* buffer, size_t size, __time64_t timeStamp)
 
     return buffer;
 }
+
+__time64_t ZuluStringToTime64 (const char* buffer)
+{
+    __time64_t timeStamp = 0;
+    if ((buffer != NULL) && (buffer[0] != 0))
+    {
+        tm time = {0,0,0, 0,0,0, 0,0,0};
+        int musecs = 0;
+        sscanf_s ( buffer
+                 , "%04d-%02d-%02dT%02d:%02d:%02d.%06d"
+                 , &time.tm_year
+                 , &time.tm_mon
+                 , &time.tm_mday
+                 , &time.tm_hour
+                 , &time.tm_min
+                 , &time.tm_sec
+                 , &musecs);
+        time.tm_isdst = 0;
+        time.tm_year -= 1900;
+        time.tm_mon -= 1;
+
+    #ifdef WIN32
+        timeStamp = _mkgmtime64 (&time) *1000000 + musecs;
+    #else
+        timeStamp = mktime (&time);
+        timeStamp = timeStamp * 1000000 + musecs;
+    #endif
+	}
+
+	return timeStamp;
+}
