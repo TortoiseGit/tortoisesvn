@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-04 18:43-0300\n"
+"PO-Revision-Date: 2010-02-09 16:37-0300\n"
 "Last-Translator: Eduardo Marques <eduardo@eduardomarques.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3557,33 +3557,33 @@ msgstr "Inexistência local, alteração na atualização"
 
 #. (para)
 msgid "Developer A working on trunk modifies <filename>Foo.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Desenvolvedor A trabalhando no trunk, modifica o arquivo <filename>Foo.c</filename> e submete o arquivo para o repositório"
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Desenvolvedor B trabalhando com o branch, move e renomeia o arquivo <filename>Foo.c</filename> para <filename>Bar.c</filename> e submete a alteração para o repositório"
 
 #. (para)
 msgid "<filename>Bar.c</filename> is already in the working copy with status 'normal'."
-msgstr ""
+msgstr "<filename>Bar.c</filename> já está na cópia de trabalho com status \"norma\"'."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> está assinalado como \"desaparecido\" e com um conflito de estrutura."
 
 #. (para)
 #. (para)
 #. (para)
 msgid "A merge of developer A's trunk changes to developer B's branch working copy results in a tree conflict: <placeholder-1/>"
-msgstr ""
+msgstr "A atualização do Desenvolvedor A no trunk e a do Desenvolvedor B no branch, resulta num conflito de estrutura:<placeholder-1/>"
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to mark the file as resolved in the conflict editor dialog, which will remove it from the conflict list. She then has to decide whether to copy the missing file <filename>Foo.c</filename> from the repository to the working copy, whether to merge Developer A's changes to <filename>Foo.c</filename> into the renamed <filename>Bar.c</filename> or whether to ignore the changes by marking the conflict as resolved and doing nothing else."
-msgstr ""
+msgstr "Para solucionar este conflito, o Desenvolvedor B terá que marcar esse arquivo como \"resolvido\" na caixa de diálogo do Editor de Conflitos - o qual irá removê-lo da lista de conflitos. O Desenvolvedor B terá então que decidir se deve copiar o arquivo <filename>Foo.c</filename> \"desaparecido\" do repositório para a cópia de trabalho ou então se deve atualizar as modificações do Desenvolvedor A no arquivo <filename>Foo.c</filename> para o arquivo renomeado como <filename>Bar.c</filename> ou então se deve ignorar as modificações marcando o conflito como resolvido e fazer nada mais."
 
 #. (para)
 msgid "Note that if you copy the missing file from the repository and then mark as resolved, your copy will be removed again. You have to resolve the conflict first."
-msgstr ""
+msgstr "Note que se você copiar o arquivo \"desaparecido\" do repositório e então marcá-lo como resolvido, esse arquivo copiado será removido novamente. Você deve primeiro, resolver o conflito."
 
 #. (title)
 msgid "Local edit, incoming delete upon merge"
@@ -3632,7 +3632,7 @@ msgstr "Exclusão local, exclusão na unificação"
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bix.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Desenvolvedor B trabalhando com o branch, move e renomeia o arquivo <filename>Foo.c</filename> para <filename>Bix.c</filename> e submete a alteração para o repositório"
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
