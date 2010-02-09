@@ -10,7 +10,7 @@
 #
 # Authors:
 # Seby Rusu <sebyrusu@yahoo.com>, 2006.
-# Ben Felt <benwfelt@gmail.com>, 2008-2009.
+# Ben Felt <benwfelt@gmail.com>, 2008-2010.
 # Florin Daneliuc <dfev77@google.com>, 2009.
 #
 msgid ""
@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-11 21:14+0200\n"
-"Last-Translator: Florin Daneliuc <dfev77@gmail.com>\n"
+"PO-Revision-Date: 2010-02-09 23:30-0000\n"
+"Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1002,6 +1002,10 @@ msgstr "&Preferinţe"
 msgid "&Show HEAD revisions"
 msgstr "&Afişează reviziile HEAD"
 
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "&Afişează jurnalul"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "&Afişează meniuri pentru:"
@@ -1255,6 +1259,10 @@ msgstr "(fără număr de linie)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(nici-o modificare dar s-a creat o copie de aici)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(nici-o modificare dar relevant pentru copia de lucru)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -1851,8 +1859,8 @@ msgid "Author"
 msgstr "Autor"
 
 #. Resource IDs: (65535)
-msgid "Author:                                    Stefan Kueng"
-msgstr "Autor:                                    Stefan Kueng"
+msgid "Author:\t\t\t\tStefan Kueng"
+msgstr "Autor:\t\t\t\tStefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -3176,6 +3184,14 @@ msgstr "Şterge junalul de acţiuni"
 msgid "Deleting"
 msgstr "Se şterge"
 
+#. Resource IDs: (348)
+msgid "Deleting cached data"
+msgstr "Se șterg datele salvate în cache"
+
+#. Resource IDs: (348)
+msgid "Deleting file"
+msgstr "Se şterge fișierul"
+
 #. Resource IDs: (207)
 msgid "Depth"
 msgstr "Adâncime"
@@ -3795,10 +3811,6 @@ msgid "Extension"
 msgstr "Extensie"
 
 #. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "Extensie sau tip mime:"
-
-#. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
 msgstr "Programe specifice unei extensii sau unui tip mime"
 
@@ -4045,6 +4057,14 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "Nume de fişier"
+
+#. Resource IDs: (65535)
+msgid "Filename, extension or mime-type:"
+msgstr "Nume de fișier, Extensie sau tip mime:"
+
+#. Resource IDs: (74)
+msgid "Filename/Extension"
+msgstr "Nume de fișier/Extensie"
 
 #. Resource IDs: (1512)
 msgid "Files"
@@ -4557,8 +4577,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "Suprapuneri de iconiţe::Set de iconiţe"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:                 Luebbe Onken"
-msgstr "Iconiţe/Design/Cod:                 Luebbe Onken"
+msgid "Icons/Design/Code:\t\tLuebbe Onken"
+msgstr "Iconiţe/Design/Cod:\t\tLuebbe Onken"
 
 #. Resource IDs: (346)
 msgid ""
@@ -5733,6 +5753,10 @@ msgstr "Nume nou pentru %s"
 msgid "New name:"
 msgstr "Nume nou:"
 
+#. Resource IDs: (32875)
+msgid "Next &Inline Difference"
+msgstr "Diferenţa &următoare între linii"
+
 #. Resource IDs: (3633)
 msgid ""
 "Next Page\n"
@@ -6357,6 +6381,10 @@ msgstr "Previzualizează fişierul peticit"
 #. Resource IDs: (65535)
 msgid "Preview: "
 msgstr "Previzualizare:"
+
+#. Resource IDs: (32876)
+msgid "Previous In&line Difference"
+msgstr "Diferenţa &precedenă între linii"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -7794,8 +7822,8 @@ msgstr "Afişează/Ascunde"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
-msgstr "Se afişează %1!ld! revizii, de la revizia %2!ld! la revizia %3!ld! - %4!ld! revizii selectate."
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected, showing %5!ld! changed paths"
+msgstr "Se afişează %1!ld! revizii, de la revizia %2!ld! la revizia %3!ld! - %4!ld! revizii selectate, se afișează %5!ld! căi schimbate"
 
 #. Resource IDs: (272)
 #, c-format
@@ -9720,6 +9748,11 @@ msgstr ""
 "Copia de lucru mutată în\n"
 "%s"
 
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "Copia de lucru: %s\n"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Da"
@@ -10073,6 +10106,10 @@ msgstr ""
 "verifică mai întăi dacă depozitul este conectat -\n"
 "lucrează doar din cache când este deconectat"
 
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "la aceasta revizie"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "autor"
@@ -10166,6 +10203,10 @@ msgstr "număr total de scimbări:"
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "transmiteri"
+
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "revizie transmisă"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10290,6 +10331,14 @@ msgstr "&editor mesaje jurnal"
 msgid "max revision: "
 msgstr "revizia maximă:"
 
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "maxim. la aceasta revizie"
+
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "maxim. revizie transmisă"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "îmbinat"
@@ -10297,6 +10346,14 @@ msgstr "îmbinat"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "Numărul total de îmbinări:"
+
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "minim. la aceasta revizie"
+
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "minim. revizie transmisă"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -10764,6 +10821,8 @@ msgstr "da"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Author:                                    Stefan Kueng"
+#~ msgstr "Autor:                                    Stefan Kueng"
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Caută automat versiuni &noi în fiecare săptămână"
 #~ msgid ""
