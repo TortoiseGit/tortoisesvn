@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-08 15:01+0100\n"
+"PO-Revision-Date: 2010-02-09 16:09+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2479,13 +2479,13 @@ msgid ""
 msgstr ""
 "Voer vervolgens de volgende commando’s in <screen>\n"
 "bin\\openssl rsa -in conf\\privkey.pem -out conf\\server.key\n"
-"</screen> en (op ééb regel) <screen>\n"
+"</screen> en (op één regel) <screen>\n"
 "bin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n"
 "-config conf\\openssl.cnf\n"
 "</screen> en dan (op één regel) <screen>\n"
 "bin\\openssl x509 -in conf\\server.csr -out conf\\server.cert\n"
 "                 -req -signkey conf\\server.key -days 4000\n"
-"</screen> Hiermee wordt een certificaat aangemaakt die over 4000 dagen verloopt. Als geef als laatste commando (op één regel): <screen>\n"
+"</screen> Hiermee wordt een certificaat aangemaakt die over 4000 dagen verloopt. Geef als laatste commando (op één regel): <screen>\n"
 "bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
 "                 -outform DER\n"
 "</screen> Deze commando’s genereren enkele bestanden in de Apache <filename>conf</filename> map (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>)."
@@ -6109,7 +6109,7 @@ msgstr "Gebruik Explicite Revisie Nummers"
 
 #. (para)
 msgid "You should strongly consider using explicit revision numbers in all of your externals definitions, as described above. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex code base."
-msgstr ""
+msgstr "Het is verstandig om serieus te overwegen expliciete revisienummers te gebruiken in alle externe definities, zoals hierboven beschreven. Dit houdt in dat je moet beslissen wanneer je een andere momentopname van externe informatie op wilt halen en dan dus ook welke momentopname precies. Afgezien van het feit dat je dan niet verrast wordt door wijzigingen in archieven van derde partijen, waar je geen controle over hebt, biedt het gebruik van expliciete revisienummers ook het voordeel dat als je je werkkopie terugzet naar een oudere versie ook de betrokken externen naar de respectievelijke oudere versie worden teruggezet. Bij software projecten kan dit het verschil betekenen tussen een succesvolle of fout gelopen bouwproces van een oude versie van een complex project."
 
 #. (title)
 msgid "Older svn:externals definitions"
@@ -6117,29 +6117,29 @@ msgstr "Oudere svn:externals definities"
 
 #. (para)
 msgid "The format shown here was introduced in Subversion 1.5. You may also see the older format which has the same information in a different order. The new format is preferred as it supports several useful features described below, but it will not work on older clients. The differences are shown in the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html\"><citetitle>Subversion Book</citetitle></ulink>."
-msgstr ""
+msgstr "De indeling die hier weergegeven is, is in Subversion 1.5 geïntroduceerd. Je kunt ook de oudere indeling tegenkomen waarbij de informatie in een andere volgorde is weergegeven. De nieuwe indeling heeft de voorkeur, omdat daarbij enkele nuttige functies, zoals hieronder beschreven, worden ondersteund die niet in oudere versies ondersteund worden. De verschillen zijn weergegeven in het <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html\"><citetitle>Subversion Boek</citetitle></ulink>."
 
 #. (para)
 #. (para)
 msgid "If the external project is in the same repository, any changes you make there will be included in the commit list when you commit your main project."
-msgstr ""
+msgstr "Als het externe project zich in hetzelfde archief bevindt, dan zullen wijzigingen die je daarin aanbrengt meegenomen worden in de vastleg lijst als je het het hoofd project vastlegt."
 
 #. (para)
 #. (para)
 msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
-msgstr ""
+msgstr "Als het externe project zich in een ander archief bevindt, dan zul je alleen een notificatie krijgen van de wijzigingen die je aan het externe project hebt doorgevoerd op het moment dat je het hoofd project vastlegt. Je moet de wijzigingen aan het externe project apart vastleggen."
 
 #. (para)
 msgid "If you use absolute URLs in <literal>svn:externals</literal> definitions and you have to relocate your working copy (i.e., if the URL of your repository changes), then your externals won't change and might not work anymore."
-msgstr ""
+msgstr "Als je absolute URL's gebruikt in de <literal>svn:externals</literal> definities en je moet een keer je werkkopie verplaatsen (oftewel als de URL van je archief verandert), dan zullen de externe verwijzingen niet mee veranderen en dus zullen deze niet meer werken."
 
 #. (para)
 msgid "To avoid such problems, Subversion clients version 1.5 and higher support relative external URLs. Four different methods of specifying a relative URL are supported. In the following examples, assume we have two repositories: one at <systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> and another at <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. We have a checkout of <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem> into <filename>C:\\Working</filename> and the <literal>svn:externals</literal> property is set on trunk."
-msgstr ""
+msgstr "Om zulke problemen te voorkomen, ondersteunen de Subversion clients vanaf versie 1.5 relatieve externe URL's. Er zijn vier verschillende methodes voor het definiëren van relatieve URL's. Bij de volgende voorbeelden gaan we er van uit dat we twee archieven hebben: één op  <systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> en de ander op <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. We hebben een werkkopie opgehaald van <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem>  naar de locatie <filename>C:\\Working</filename> en de <literal>svn:externals</literal> eigenschap is ingesteld op de trunk."
 
 #. (term)
 msgid "Relative to parent directory"
-msgstr "Relatief aan map"
+msgstr "Relatief ten opzichte van bovenliggende map"
 
 #. (para)
 msgid ""
@@ -6147,14 +6147,17 @@ msgid ""
 "../../widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
 msgstr ""
+"Deze URL's beginnen altijd met <literal>../</literal>, bijvoorbeeld: <screen>\n"
+"../../widgets/foo  common/foo-widget\n"
+"</screen> Hiermee wordt <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> geëxtraheerd naar <filename>C:\\Working\\common\\foo-widget</filename>."
 
 #. (para)
 msgid "Note that the URL is relative to the URL of the directory with the <literal>svn:externals</literal> property, not to the directory where the external is written to disk."
-msgstr ""
+msgstr "Merk op dat de URL relatief is ten opzicht van de URL van de map met de <literal>svn:externals</literal> eigenschap, niet ten opzichte van de map waar de externe opgeslagen is op de schijf."
 
 #. (term)
 msgid "Relative to repository root"
-msgstr ""
+msgstr "Relatief ten opzichte van de archief hoofdmap"
 
 #. (para)
 msgid ""
@@ -6162,6 +6165,9 @@ msgid ""
 "^/widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
 msgstr ""
+"Deze URL's beginnen altijd met <literal>^/</literal>, bijvoorbeeld: <screen>\n"
+"^/widgets/foo  common/foo-widget\n"
+"</screen> Hiermee wordt <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> naar <filename>C:\\Working\\common\\foo-widget</filename> geëxtraheerd."
 
 #. (para)
 msgid ""
@@ -6169,10 +6175,13 @@ msgid ""
 "^/../repos-2/hammers/claw  common/claw-hammer\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
 msgstr ""
+"Je kunt eenvoudig naar andere archieven met dezelfde <literal>SVNParentPath</literal> (een gemeenschappelijke map met meerdere archieven) referenen. Bijvoorbeeld: <screen>\n"
+"^/../repos-2/hammers/claw  common/claw-hammer\n"
+"</screen> Hiermee wordt <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> naar <filename>C:\\Working\\common\\claw-hammer</filename> geëxtraheerd."
 
 #. (term)
 msgid "Relative to scheme"
-msgstr "Relatief aan schema"
+msgstr "Relatief ten opzichte van de indeling"
 
 #. (para)
 msgid ""
@@ -6180,10 +6189,13 @@ msgid ""
 "//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
 msgstr ""
+"URL's die beginnen met <literal>//</literal> kopiëren van de URL alleen het gedeelte met de indeling. Dit is nuttig als dezelfde hostnaam gebruikt wordt voor het benaderen van verschillende indelingen afhankelijk van de netwerk locatie. Bijvoorbeeld programma's op het intranet gebruiken <systemitem class=\"url\">http://</systemitem> terwijl externe programma's <systemitem class=\"url\">svn+ssh://</systemitem> gebruiken. Een voorbeeld: <screen>\n"
+"//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen> Hiermee wordt <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> of <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> geëxtraheerd afhankelijk van de methode die gebruikt is voor het ophalen van <filename>C:\\Working</filename>."
 
 #. (term)
 msgid "Relative to the server's hostname"
-msgstr "Relatief aan de servers hostnaam"
+msgstr "Relatief ten opzichte van de server hostnaam"
 
 #. (para)
 msgid ""
@@ -6191,18 +6203,21 @@ msgid ""
 "/svn/repos-1/widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
 msgstr ""
+"URL's die beginnen met <literal>/</literal> kopiëren de gedeeltes met de indeling en de hostnaam van de URL, bijvoorbeeld: <screen>\n"
+"/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen> Hiermee wordt <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> naar <filename>C:\\Working\\common\\foo-widget</filename> geëxtraheerd. Als je echter je werkkopie ophaalt van een andere server vanaf <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem>, dan zal de externe referentie <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem> extraheren."
 
 #. (para)
 msgid "You can also specify a peg revision after the URL if required, e.g. <systemitem class=\"url\">http://sounds.red-bean.com/repos@19</systemitem>."
-msgstr ""
+msgstr "Je kunt ook een vastgepinde revisie opgeven achteraan de URL indien nodig, bijvoorbeeld <systemitem class=\"url\">http://sounds.red-bean.com/repos@19</systemitem>."
 
 #. (para)
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-dug-propertypage\"/>."
-msgstr ""
+msgstr "Als je meer informatie wilt hebben over hoe TortoiseSVN omgaat met Eigenschappen, lees dan <xref linkend=\"tsvn-dug-propertypage\"/>."
 
 #. (para)
 msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
-msgstr ""
+msgstr "Lees voor meer informatie over de verschillende methodes voor het benaderen van gemeenschappelijke sub-projecten <xref linkend=\"tsvn-howto-common-projects\"/>."
 
 #. (title)
 msgid "External Files"
@@ -6210,27 +6225,27 @@ msgstr "Externe Bestanden"
 
 #. (para)
 msgid "As of Subversion 1.6 you can add single file externals to your working copy using the same syntax as for folders. However, there are some restrictions."
-msgstr ""
+msgstr "Vanaf Subversion 1.6 kun je enkele externe bestanden aan je werkkopie toevoegen, door gebruik te maken van dezelfde syntax als voor mappen. Er zijn wel enkele beperkingen."
 
 #. (para)
 msgid "The path to the file external must place the file in an existing versioned folder. In general it makes most sense to place the file directly in the folder that has <literal>svn:externals</literal> set, but it can be in a versioned sub-folder if necessary. By contrast, directory externals will automatically create any intermediate unversioned folders as required."
-msgstr ""
+msgstr "Het pad naar het externe bestand moet het bestand in een bestaande map met versiebeheer plaatsen. Over het algemeen is het het handigst om het bestand te plaatsen in de map waarin de <literal>svn:externals</literal> is ingesteld, maar dit kan ook in een sub-map met versiebeheer indien nodig. Dit in tegenstelling tot externe mappen, waarbij automatisch tussentijdse mappen zonder versiebeheer worden aangemaakt als deze nodig zijn."
 
 #. (para)
 msgid "The URL for a file external must be in the same repository as the URL that the file external will be inserted into; inter-repository file externals are not supported."
-msgstr ""
+msgstr "De URL van een extern bestand moet in hetzelfde archief zijn als de URL van het archief waarin het externe bestand wordt opgehaald, externe bestanden tussen verschillende archieven worden niet ondersteund."
 
 #. (para)
 msgid "A file external behaves just like any other versioned file in many respects, but they cannot be moved or deleted using the normal commands; the <literal>svn:externals</literal> property must be modified instead."
-msgstr ""
+msgstr "Een extern bestand gedraagt zich net zoals elk ander bestand met versiebeheer, maar deze kunnen niet verplaatst of verwijderd worden met normale commando's; de <literal>svn:externals</literal> eigenschap moet in de plaats daarvan gewijzgd worden."
 
 #. (title)
 msgid "File externals support incomplete in Subversion 1.6"
-msgstr ""
+msgstr "Incomplete ondersteuning van externe bestanden in Subversion 1.6"
 
 #. (para)
 msgid "In subversion 1.6 it is not possible to remove a file external from your working copy once you have added it, even if you delete the <literal>svn:externals</literal> property altogether. You have to checkout a fresh working copy to remove the file."
-msgstr ""
+msgstr "Het is in subversion 1.6 niet mogelijk om een extern bestand van je werkkopie te verwijderen als je deze toegevoegd hebt, zelfs als je ook de <literal>svn:externals</literal> eigenschap verwijderd. Je moet een verse werkkopie ophalen als je het bestand wilt verwijderen."
 
 #. (title)
 msgid "Branching / Tagging"
