@@ -1,0 +1,137 @@
+Feature Proposal
+================
+
+Name
+----
+
+Bisect
+
+It shall offer a similar functionality as 
+git bisect.
+
+
+Purpose
+-------
+
+Provide the user with support for finding an
+offending revision (usually the revision
+that broke a specific functionality) within 
+a specified range.
+
+Since testing a single revion may be expensive,
+TSVN needs to bisect by actual revision occurance
+instead of revision intervals:
+
+r1000
+r1002 <- to find
+r1010
+r1034
+r1500
+
+by occurance:
+
+r1000 -> ok
+r1500 -> fail
+r1010 -> fail
+r1002 -> fail, first failing revision
+
+by revision intervals
+
+r1000 -> ok
+r1500 -> fail
+r1250 -> fail
+r1125 -> fail
+r1062 -> fail
+r1031 -> fail
+r1015 -> fail
+r1007 -> fail
+r1003 -> fail
+r1001 -> ok
+r1002 -> fail, first failing revision
+
+The evaluation of a given revision may be fully
+automatic by user-provided scripts or must b
+done by the user.
+
+
+Functional Details
+------------------
+
+The user specifies the following in a separate dialog:
+
+* upper and lower bound of revision range
+  (i.e. show context menu entry in log dialog
+   when exactly two revision have been selected)
+* URL to check out (default to log path)
+  -> should be a history combo
+* evaluation option:
+	- manual (user must select "o.k." / "failed")
+	- script 
+		. returns 0 for "o.k."
+		. everything else is considered "failed"
+		. %URL%, %WC%, %REV% parameters supported
+		. should return "ok" for lower bound
+		. should return "failed" for upper bound
+		. command line should use a history combo
+* cleanup option:
+	- none
+	- pre-update (i.e. keep status after failure)
+	- post-run
+  (default: pre-update)
+* option to re-use working copy
+  (default: enabled)
+* option to skip test for upper and lower bound
+  (default: check upper and lower bounds)
+
+Using bipartitioning, a series of revisions will
+be checked until the first "failing" one is found.
+For every revision, the following sequence is
+executed:
+
+	* re-use w/c disabled?
+		yes -> delete temp w/c, if exists
+
+	* does temp. w/c already exist?
+		yes -> . full cleanup (cleanup, revert, 
+		         delete all ignored & unknown), 
+		         if "pre-update" is selected
+		       . update to revision
+		no  -> c/o revision to temp folder
+
+	* manual evaluation?
+		yes -> display "o.k. / failed / cancel"
+		       dialog and wait for user decission
+		no  -> run script and check return value
+
+	* run full cleanup, if "post-run" cleanup is enabled
+
+	* lowest "failed" revision detected?
+		yes -> stop
+
+The progress should be shown through the progress dialog
+and the cancel button should allow the user to exit at
+any stage. If the script is running while "cancel" gets
+pressed, TSVN shall wait for the end / user-triggered 
+termination of the script.
+
+Optionally, there may be a TSVN command line spec for 
+this function.
+
+
+TSVN Integration
+----------------
+
+The feature will be available in the log dialog context
+menu for the revision list control.
+
+
+Target Version
+--------------
+
+1.7
+
+
+Proposed Status at First Release
+--------------------------------
+
+Fully supported feature.
