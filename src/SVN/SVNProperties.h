@@ -148,6 +148,9 @@ public:
 	/**
 	 * Create a string containing all properties in 
 	 * K / V notation suitable to be written in a file.
+	 * Formatting follows RFC 822 - the ususal key /
+	 * value notation used throughout subversion:
+	 * https://svn.apache.org/repos/asf/subversion/trunk/notes/dump-load-format.txt
 	 * \return serialized text
 	 */
 	std::string GetSerializedForm() const;
