@@ -10,6 +10,11 @@
 //  that file. The Shell then adds the icon overlay to the system image list."
 STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags)
 {
+	OSVERSIONINFOEX inf;
+	SecureZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
+	GetVersionEx((OSVERSIONINFO *)&inf);
+
 	int nInstalledOverlays = GetInstalledOverlays();
 	
 	// only 12 overlay slots can be used (12 determined by testing,
@@ -30,14 +35,30 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 	// 13 registered: drop the unversioned, ignored and locked overlay
 	// 14 and more registered: drop the unversioned, ignored, locked and added overlay
 	
-	if ((m_State == FileStateAdded)&&(nInstalledOverlays > 13))
-		return S_FALSE;		// don't use the 'added' overlay
-	if ((m_State == FileStateLocked)&&(nInstalledOverlays > 12))
-		return S_FALSE;		// don't show the 'locked' overlay
-	if ((m_State == FileStateIgnored)&&(nInstalledOverlays > 11))
-		return S_FALSE;		// don't use the 'ignored' overlay
-	if ((m_State == FileStateUnversioned)&&(nInstalledOverlays > 10))
-		return S_FALSE;		// don't show the 'unversioned' overlay
+	if (MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion) < 0x0600)
+	{
+		// XP doesn't have the UAC overlay
+		if ((m_State == FileStateAdded)&&(nInstalledOverlays > 14))
+			return S_FALSE;		// don't use the 'added' overlay
+		if ((m_State == FileStateLocked)&&(nInstalledOverlays > 13))
+			return S_FALSE;		// don't show the 'locked' overlay
+		if ((m_State == FileStateIgnored)&&(nInstalledOverlays > 12))
+			return S_FALSE;		// don't use the 'ignored' overlay
+		if ((m_State == FileStateUnversioned)&&(nInstalledOverlays > 11))
+			return S_FALSE;		// don't show the 'unversioned' overlay
+	}
+	else
+	{
+		// Vista and later
+		if ((m_State == FileStateAdded)&&(nInstalledOverlays > 13))
+			return S_FALSE;		// don't use the 'added' overlay
+		if ((m_State == FileStateLocked)&&(nInstalledOverlays > 12))
+			return S_FALSE;		// don't show the 'locked' overlay
+		if ((m_State == FileStateIgnored)&&(nInstalledOverlays > 11))
+			return S_FALSE;		// don't use the 'ignored' overlay
+		if ((m_State == FileStateUnversioned)&&(nInstalledOverlays > 10))
+			return S_FALSE;		// don't show the 'unversioned' overlay
+	}
 
     // Get folder icons from registry
 	// Default icons are stored in LOCAL MACHINE
