@@ -17,7 +17,18 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 
 	int nInstalledOverlays = GetInstalledOverlays();
 	
-	// only 12 overlay slots can be used (12 determined by testing,
+	int nOverlayLimit;
+	if (MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion) < 0x0600)
+	{
+		// XP doesn't have the UAC overlay, use at most 14 overlays
+		nOverlayLimit = 11;
+	} else 
+	{
+		// Vista and later have an UAC overlay, use at most 13 overlays
+		nOverlayLimit = 10;
+	}
+	
+	// only a limited number of overlay slots can be used (determined by testing,
 	// since not all overlay handlers are registered in the registry, e.g., the
 	// shortcut (arrow) overlay isn't listed there).
 	// Known system overlays:
@@ -26,39 +37,23 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 	// * UAC (shield) (not listed)
 	// * Offline (not listed)
 	//
-	// If there are more than 12 handlers registered, then
+	// If there are more than the maximum number of handlers registered, then
 	// we have to drop some of our handlers to make sure that
 	// the 'important' handlers are loaded properly:
 	//
-	// 11 registered: drop the unversioned overlay
-	// 12 registered: drop the unversioned and the ignored overlay
-	// 13 registered: drop the unversioned, ignored and locked overlay
-	// 14 and more registered: drop the unversioned, ignored, locked and added overlay
+	// max     registered: drop the unversioned overlay
+	// max + 1 registered: drop the unversioned and the ignored overlay
+	// max + 2 registered: drop the unversioned, ignored and locked overlay
+	// max + 3 or more registered: drop the unversioned, ignored, locked and added overlay
 	
-	if (MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion) < 0x0600)
-	{
-		// XP doesn't have the UAC overlay
-		if ((m_State == FileStateAdded)&&(nInstalledOverlays > 14))
-			return S_FALSE;		// don't use the 'added' overlay
-		if ((m_State == FileStateLocked)&&(nInstalledOverlays > 13))
-			return S_FALSE;		// don't show the 'locked' overlay
-		if ((m_State == FileStateIgnored)&&(nInstalledOverlays > 12))
-			return S_FALSE;		// don't use the 'ignored' overlay
-		if ((m_State == FileStateUnversioned)&&(nInstalledOverlays > 11))
-			return S_FALSE;		// don't show the 'unversioned' overlay
-	}
-	else
-	{
-		// Vista and later
-		if ((m_State == FileStateAdded)&&(nInstalledOverlays > 13))
-			return S_FALSE;		// don't use the 'added' overlay
-		if ((m_State == FileStateLocked)&&(nInstalledOverlays > 12))
-			return S_FALSE;		// don't show the 'locked' overlay
-		if ((m_State == FileStateIgnored)&&(nInstalledOverlays > 11))
-			return S_FALSE;		// don't use the 'ignored' overlay
-		if ((m_State == FileStateUnversioned)&&(nInstalledOverlays > 10))
-			return S_FALSE;		// don't show the 'unversioned' overlay
-	}
+	if ((m_State == FileStateAdded)&&(nInstalledOverlays > nOverlayLimit + 3))
+		return S_FALSE;		// don't use the 'added' overlay
+	if ((m_State == FileStateLocked)&&(nInstalledOverlays > nOverlayLimit + 2))
+		return S_FALSE;		// don't show the 'locked' overlay
+	if ((m_State == FileStateIgnored)&&(nInstalledOverlays > nOverlayLimit + 1))
+		return S_FALSE;		// don't use the 'ignored' overlay
+	if ((m_State == FileStateUnversioned)&&(nInstalledOverlays > nOverlayLimit))
+		return S_FALSE;		// don't show the 'unversioned' overlay
 
     // Get folder icons from registry
 	// Default icons are stored in LOCAL MACHINE
