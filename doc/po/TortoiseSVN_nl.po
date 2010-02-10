@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-09 16:34+0100\n"
+"PO-Revision-Date: 2010-02-10 15:39+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6803,27 +6803,27 @@ msgstr "Hoe Het Blokkeren Werkt In Subversion"
 
 #. (para)
 msgid "By default, nothing is locked and anyone who has commit access can commit changes to any file at any time. Others will update their working copies periodically and changes in the repository will be merged with local changes."
-msgstr ""
+msgstr "Standaard wordt er niets geblokkeerd en kan iedereen die de rechten heeft wijzigingen op elk moment vastleggen in het archief. Anderen zullen hun werkkopieën regelmatig moeten verversen en de wijzigingen in het archief worden dan samengevoegd met de lokale wijzigingen."
 
 #. (para)
 msgid "If you <firstterm>Get a Lock</firstterm> on a file, then only you can commit that file. Commits by all other users will be blocked until you release the lock. A locked file cannot be modified in any way in the repository, so it cannot be deleted or renamed either, except by the lock owner."
-msgstr ""
+msgstr "Als je een bestand <firstterm>blokkeert</firstterm>, dan heb jij alleenrecht op het vastleggen van dat bestand. Vastleggingen van andere gebruikers zullen geblokkeerd worden totdat jij de blokkade opheft. Een geblokkeerd bestand kan op geen enkele manier in het archief gewijzigd worden, dat houdt ook in dat niemand anders dan de eigenaar van de blokkade het bestand kan verwijderen of hernoemen."
 
 #. (para)
 msgid "However, other users will not necessarily know that you have taken out a lock. Unless they check the lock status regularly, the first they will know about it is when their commit fails, which in most cases is not very useful. To make it easier to manage locks, there is a new Subversion property <literal>svn:needs-lock</literal>. When this property is set (to any value) on a file, whenever the file is checked out or updated, the local copy is made read-only <emphasis>unless</emphasis> that working copy holds a lock for the file. This acts as a warning that you should not edit that file unless you have first acquired a lock. Files which are versioned and read-only are marked with a special overlay in TortoiseSVN to indicate that you need to acquire a lock before editing."
-msgstr ""
+msgstr "Andere gebruikers zullen echter niet direct weten dat jij een bestand geblokkeerd hebt, tenzij ze regelmatig de blokkade status opvragen. Het eerste moment waarop ze er meestal pas achter komen is als ze wijzigingen proberen vast te leggen, wat niet altijd handig is. Om het werken met blokkades te vereenvoudigen is er een nieuwe Subversion eigenschap geïntroduceerd, <literal>svn:needs-lock</literal>. Als deze eigenschap (met een willekeurige waarde) aan een bestand is gekoppeld, dan wordt het lokale bestand altijd als alleen-lezen gemarkeerd als deze opgehaald wordt uit het archief, <emphasis>tenzij/totdat</emphasis> die werkkopie het bestand blokkeert. Op deze manier wordt je gewaarschuwd dat je dit bestand niet moet wijzigen voordat je het geblokkeerd hebt. Bestanden, die voorzien zijn van versiebeheer en als alleen-lezen zijn gemarkeerd, hebben in TortoiseSVN een apart overlappend pictogram waarmee aangegeven wordt dat je eerst het bestand moet blokkeren."
 
 #. (para)
 msgid "Locks are recorded by working copy location as well as by owner. If you have several working copies (at home, at work) then you can only hold a lock in <emphasis>one</emphasis> of those working copies."
-msgstr ""
+msgstr "Blokkades worden geadministreerd met de werkkopie locatie en de eigenaar. Als je meerdere werkkopieën hebt (thuis, op het werk), dan kun je in maar <emphasis>één</emphasis> werkkopie zo'n blokkade initiëren."
 
 #. (para)
 msgid "If one of your co-workers acquires a lock and then goes on holiday without releasing it, what do you do? Subversion provides a means to force locks. Releasing a lock held by someone else is referred to as <firstterm>Breaking</firstterm> the lock, and forcibly acquiring a lock which someone else already holds is referred to as <firstterm>Stealing</firstterm> the lock. Naturally these are not things you should do lightly if you want to remain friends with your co-workers."
-msgstr ""
+msgstr "Stel dat één van je medewerkers zo'n blokkade instelt en vervolgens op vakantie gaat, wat doe je dan? Subversion heeft de mogelijkheid om blokkades te forceren. Het vrijgeven van een blokkade die door iemand anders is ingesteld wordt aangeduid als het <firstterm>Verbreken</firstterm> van een blokkade. Het geforceerd toe-eigenen van een blokkade die door iemand anders is ingesteld, wordt het <firstterm>Stelen</firstterm> van een blokkade genoemd. Hier moet je natuurlijk voorzichtig mee omgaan als je vrienden wilt blijven met je collega's."
 
 #. (para)
 msgid "Locks are recorded in the repository, and a lock token is created in your local working copy. If there is a discrepancy, for example if someone else has broken the lock, the local lock token becomes invalid. The repository is always the definitive reference."
-msgstr ""
+msgstr "Blokkades worden geadministreerd in het archief en er wordt ook een merkteken (een zogenaamde token) in je lokale werkkopie geplaatst. Als er een discrepantie is opgetreden, bijvoorbeeld als iemand anders de blokkade geforceerd heeft, dan zal het lokale blokkade merkteken ongeldig worden. De status in het archief is altijd leidend."
 
 #. (title)
 msgid "Getting a Lock"
@@ -6831,27 +6831,27 @@ msgstr "Blokkade verkrijgen"
 
 #. (title)
 msgid "The Locking Dialog"
-msgstr "De blokkeringsscherm"
+msgstr "Het blokkeringsscherm"
 
 #. (para)
 msgid "Select the file(s) in your working copy for which you want to acquire a lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice>. <placeholder-1/> A dialog appears, allowing you to enter a comment, so others can see why you have locked the file. The comment is optional and currently only used with Svnserve based repositories. If (and <emphasis>only</emphasis> if) you need to steal the lock from someone else, check the <guilabel>Steal lock</guilabel> box, then click on <guibutton>OK</guibutton>."
-msgstr ""
+msgstr "Selecteer de bestanden in je werkkopie die je wilt blokkeren. Vervolgens selecteer je het commando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Plaats blokkade...</guimenuitem></menuchoice>. <placeholder-1/> Een apart venster verschijnt, waarin je aan anderen kunt aangeven waarom je de bestanden geblokkeerd hebt. Het invullen is optioneel en wordt op dit moment alleen gebruikt in archieven die op basis van Svnserve opgezet zijn. Alleen als je <emphasis>echt</emphasis> een blokkade moet stelen van iemand anders, moet je de <guilabel>Steel de blokkades</guilabel> selectie aanvinken om de blokkade te stelen. Klik vervolgens op <guibutton>OK</guibutton> om de actie in gang te zetten."
 
 #. (para)
 msgid "If you select a folder and then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice> the lock dialog will open with <emphasis>every</emphasis> file in <emphasis>every</emphasis> sub-folder selected for locking. If you really want to lock an entire hierarchy, that is the way to do it, but you could become very unpopular with your co-workers if you lock them out of the whole project. Use with care ..."
-msgstr ""
+msgstr "Als je een map selecteert en vervolgens het commando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Plaats blokkade...</guimenuitem></menuchoice> kiest, zal het blokkeringsscherm geopend worden voor <emphasis>elk</emphasis> bestand in de map <emphasis>en alle</emphasis> bestanden in de sub-mappen. Als je echt de hele hiërarchie wilt blokkeren, dan is dat de methode. Je collega's zullen er mogelijk niet blij van worden als je hun helemaal buiten het project sluit. Gebruik dit dus met verstand..."
 
 #. (title)
 msgid "Releasing a Lock"
-msgstr "Een Blokkade vrijgeven"
+msgstr "Een Blokkade Vrijgeven"
 
 #. (para)
 msgid "To make sure you don't forget to release a lock you don't need any more, locked files are shown in the commit dialog and selected by default. If you continue with the commit, locks you hold on the selected files are removed, even if the files haven't been modified. If you don't want to release a lock on certain files, you can uncheck them (if they're not modified). If you want to keep a lock on a file you've modified, you have to enable the <guilabel>Keep locks</guilabel> checkbox before you commit your changes."
-msgstr ""
+msgstr "Om te voorkomen dat je vergeet een blokkade vrij te geven, worden geblokkeerde bestanden weergegeven in het vastleggen venster en standaard geselecteerd. Als je dan doorgaat met het vastleggen, zullen blokkades van de geselecteerde bestanden verwijderd worden, zelfs als er niets gewijzigd is. Als je de blokkade op bepaalde bestanden niet wilt vrijgeven, dan kun je deze de-selecteren (als ze niet gewijzigd zijn). Als je de blokkade op gewijzigde bestanden wilt behouden, dan moet je het <guilabel>Blokkades handhaven</guilabel> selectievak aanvinken voordat je je wijzigingen vastlegt."
 
 #. (para)
 msgid "To release a lock manually, select the file(s) in your working copy for which you want to release the lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Release Lock</guimenuitem></menuchoice> There is nothing further to enter so TortoiseSVN will contact the repository and release the locks. You can also use this command on a folder to release all locks recursively."
-msgstr ""
+msgstr "Als je een blokkade handmatig wilt opheffen, moet je de bestanden in je werkkopie selecteren waarvoor je de blokkade wilt opheffen. Vervolgens kies je het commando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Blokkade opheffen<guimenuitem></menuchoice>. Er hoeft verder geen informatie ingevoerd te worden, dus TortoiseSVN zal het archief benaderen en de blokkades opheffen. Je kunt dit commando ook op mappen toepassen om alle blokkades recursief op te heffen."
 
 #. (title)
 msgid "Checking Lock Status"
@@ -6859,55 +6859,55 @@ msgstr "Blokkadestatus Controleren"
 
 #. (title)
 msgid "The Check for Modifications Dialog"
-msgstr ""
+msgstr "Het Kijk of er updates zijn scherm"
 
 #. (para)
 msgid "<placeholder-1/> To see what locks you and others hold, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications...</guimenuitem></menuchoice>. Locally held lock tokens show up immediately. To check for locks held by others (and to see if any of your locks are broken or stolen) you need to click on <guibutton>Check Repository</guibutton>."
-msgstr ""
+msgstr "<placeholder-1/> Om na te gaan welke blokkades er door jou of anderen geplaatst zijn, kun je gebruik maken van <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Kijk of er updates zijn...</guimenuitem></menuchoice>. Lokale blokkade merktekens worden meteen getoond. Om de blokkades van anderen te zien (en om na te gaan of jouw blokkades verbroken of gestolen zijn) moet je op <guibutton>Controleer archief</guibutton> klikken."
 
 #. (para)
 msgid "From the context menu here, you can also get and release locks, as well as breaking and stealing locks held by others."
-msgstr ""
+msgstr "Via het context menu, kun je hier ook blokkades plaatsen en opheffen, maar ook blokkades van anderen verbreken en stelen."
 
 #. (title)
 msgid "Avoid Breaking and Stealing Locks"
-msgstr ""
+msgstr "Voorkom het verbreken en stelen van blokkades"
 
 #. (para)
 msgid "If you break or steal someone else's lock without telling them, you could potentially cause loss of work. If you are working with unmergeable file types and you steal someone else's lock, once you release the lock they are free to check in their changes and overwrite yours. Subversion doesn't lose data, but you have lost the team-working protection that locking gave you."
-msgstr ""
+msgstr "Het verbreken of stelen van iemand anders blokkade zonder dat die persoon daarvan op de hoogte is, kan verlies van gegevens tot gevolg hebben. Als je iemand zijn blokkade steelt en werkt met niet samenvoegbare bestandsformaten, dan kan iemand anders jouw wijzigingen overschrijven op het moment dat jij jouw blokkade opheft en zij hun wijzigingen vastleggen in het archief. Subversion raakt geen informatie kwijt, maar je verliest wel de beveiliging de blokkade functionaliteit je biedt bij het werken in teamverband."
 
 #. (title)
 msgid "Making Non-locked Files Read-Only"
-msgstr ""
+msgstr "Niet-geblokkeerde bestanden als Alleen-lezen instellen"
 
 #. (para)
 msgid "As mentioned above, the most effective way to use locking is to set the <literal>svn:needs-lock</literal> property on files. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set properties. Files with this property set will always be checked out and updated with the read-only flag set unless your working copy holds a lock. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a special overlay to indicate this."
-msgstr ""
+msgstr "Zoals eerder beschreven, kun je blokkades het effectiefst gebruiken door gebruik te maken van de <literal>svn:needs-lock</literal> eigenschap. Lees <xref linkend=\"tsvn-dug-propertypage\"/> voor meer informatie over het instellen van eigenschappen. Bestanden die deze eigenschap hebben, krijgen meteen de alleen-lezen eigenschap mee als ze worden opgehaald uit het archief, tenzij jouw werkkopie het bestand geblokkeerd heeft. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> Ter herinnering, TortoiseSVN gebruikt een apart overlappend pictogram om deze situatie aan te geven. "
 
 #. (para)
 msgid "If you operate a policy where every file has to be locked then you may find it easier to use Subversion's auto-props feature to set the property automatically every time you add new files. Read <xref linkend=\"tsvn-dug-propertypage-auto-props\"/> for further information."
-msgstr ""
+msgstr "Als je een beleid hanteert waardoor elk bestand geblokkeerd moet worden, dan is het waarschijnlijk makkelijker om automatische-eigenschappen functie van Subversion te gebruiken. Hiermee wordt automatisch dezelfde eigenschap ingesteld als je een nieuwe bestand toevoegt. Lees ook <xref linkend=\"tsvn-dug-propertypage-auto-props\"/> voor meer informatie."
 
 #. (title)
 msgid "The Locking Hook Scripts"
-msgstr ""
+msgstr "Hook Scripts Voor Blokkeringen"
 
 #. (para)
 msgid "When you create a new repository with Subversion 1.2 or higher, four hook templates are created in the repository <filename>hooks</filename> directory. These are called before and after getting a lock, and before and after releasing a lock."
-msgstr ""
+msgstr "Als je een nieuw archief aanmaakt met Subversion 1.2 of hoger, worden er vier hook sjablonen aangemaakt in de map <filename>hooks</filename> van het archief. Deze worden aangeroepen voor en na het plaatsen van een blokkade, en voor en na het opheffen van een blokkade."
 
 #. (para)
 msgid "It is a good idea to install a <literal>post-lock</literal> and <literal>post-unlock</literal> hook script on the server which sends out an email indicating the file which has been locked. With such a script in place, all your users can be notified if someone locks/unlocks a file. You can find an example hook script <filename>hooks/post-lock.tmpl</filename> in your repository folder."
-msgstr ""
+msgstr "Het is verstandig om op de server een <literal>na-het-blokkeren</literal> en <literal>na-het-deblokkeren</literal> hook script te installeren, waardoor een email verstuurd wordt waarin aangegeven wordt welk bestand ge(de)blokkeerd is. Met zo'n script kunnen alle gebruikers geïnformeerd worden over het feit dat er een blokkade geplaatst of opgeheven wordt. Je kunt een voorbeeld <filename>hooks/post-lock.tmpl</filename> vinden in je archief."
 
 #. (para)
 msgid "You might also use hooks to disallow breaking or stealing of locks, or perhaps limit it to a named administrator. Or maybe you want to email the owner when one of their locks is broken or stolen."
-msgstr ""
+msgstr "Je kunt ook hook scripts gebruiken om het verbreken of stelen van blokkades te voorkomen, of dat alleen een beheerder dit mag doen. Je kunt ook een email laten sturen naar de eigenaar van een blokkade als zijn blokkade verbroken of gestolen wordt."
 
 #. (para)
 msgid "Read <xref linkend=\"tsvn-repository-hooks\"/> to find out more."
-msgstr ""
+msgstr "Lees <xref linkend=\"tsvn-repository-hooks\"/> voor meer informatie hierover."
 
 #. (title)
 msgid "Creating and Applying Patches"
@@ -10991,7 +10991,7 @@ msgstr "Revisiegrafiek"
 #. (entry)
 #. (glossterm)
 msgid "Lock"
-msgstr "Vergrendeling"
+msgstr "Blokkade"
 
 #. (entry)
 msgid "Remove Lock"
