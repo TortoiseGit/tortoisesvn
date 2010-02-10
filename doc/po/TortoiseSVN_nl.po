@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-09 16:09+0100\n"
+"PO-Revision-Date: 2010-02-09 16:34+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5440,11 +5440,11 @@ msgstr ""
 
 #. (primary)
 msgid "delete"
-msgstr "verwijder"
+msgstr "verwijderen"
 
 #. (primary)
 msgid "remove"
-msgstr "haal weg"
+msgstr "weghalen"
 
 #. (para)
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> to remove files or folders from subversion."
@@ -6771,11 +6771,11 @@ msgstr ""
 
 #. (title)
 msgid "Locking"
-msgstr ""
+msgstr "Blokkeren"
 
 #. (primary)
 msgid "locking"
-msgstr ""
+msgstr "blokkeren"
 
 #. (primary)
 msgid "readonly"
@@ -6783,23 +6783,23 @@ msgstr "alleen-lezen"
 
 #. (para)
 msgid "You are using <quote>unmergeable</quote> files, for example, graphics files. If two people change the same file, merging is not possible, so one of you will lose their changes."
-msgstr ""
+msgstr "Je maakt gebruik van <quote>niet samen te voegen</quote> bestanden, bijvoorbeeld grafische bestanden. Als twee mensen hetzelfde bestand wijzigen, dan is samenvoegen niet mogelijk. Oftewel, één van de twee zal de wijzigingen kwijtraken."
 
 #. (para)
 msgid "Your company has always used a locking revision control system in the past and there has been a management decision that <quote>locking is best</quote>."
-msgstr ""
+msgstr "Jouw bedrijf heeft in het verleden altijd gebruik gemaakt van een versiebeheersysteem met blokkeringsmethode en er is een management besluit genomen dat <quote>blokkeren het beste is</quote>."
 
 #. (para)
 msgid "Subversion generally works best without locking, using the <quote>Copy-Modify-Merge</quote> methods described earlier in <xref linkend=\"tsvn-basics-versioning-copymodifymerge\"/>. However there are a few instances when you may need to implement some form of locking policy. <placeholder-1/>"
-msgstr ""
+msgstr "Subversion werkt het beste als er geen gebruik wordt gemaakt van blokkeren, als je gebruik maakt van de <quote>Kopieer-Wijzig-Samenvoeg</quote> methode die eerder beschreven is in <xref linkend=\"tsvn-basics-versioning-copymodifymerge\"/>. Er zijn echter enkele gevallen waarbij je een zekere vorm van blokkeerbeleid moet gebruiken. <placeholder-1/>"
 
 #. (para)
 msgid "Firstly you need to ensure that your Subversion server is upgraded to at least version 1.2. Earlier versions do not support locking at all. If you are using <literal>file://</literal> access, then of course only your client needs to be updated."
-msgstr ""
+msgstr "Allereerst moet je er zeker van zijn dat je Subversion server is bijgewerkt tot minimaal versie 1.2. Eerdere versies ondersteunen blokkeren helemaal niet. Als je gebruik maakt van <literal>file://</literal>, hoef natuurlijk alleen maar je eigen programma bij te werken."
 
 #. (title)
 msgid "How Locking Works in Subversion"
-msgstr ""
+msgstr "Hoe Het Blokkeren Werkt In Subversion"
 
 #. (para)
 msgid "By default, nothing is locked and anyone who has commit access can commit changes to any file at any time. Others will update their working copies periodically and changes in the repository will be merged with local changes."
@@ -6827,11 +6827,11 @@ msgstr ""
 
 #. (title)
 msgid "Getting a Lock"
-msgstr "Vergrendeling verkrijgen"
+msgstr "Blokkade verkrijgen"
 
 #. (title)
 msgid "The Locking Dialog"
-msgstr "De vergrendelingsdialoog"
+msgstr "De blokkeringsscherm"
 
 #. (para)
 msgid "Select the file(s) in your working copy for which you want to acquire a lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice>. <placeholder-1/> A dialog appears, allowing you to enter a comment, so others can see why you have locked the file. The comment is optional and currently only used with Svnserve based repositories. If (and <emphasis>only</emphasis> if) you need to steal the lock from someone else, check the <guilabel>Steal lock</guilabel> box, then click on <guibutton>OK</guibutton>."
@@ -6843,7 +6843,7 @@ msgstr ""
 
 #. (title)
 msgid "Releasing a Lock"
-msgstr "Een Lock vrijgeven"
+msgstr "Een Blokkade vrijgeven"
 
 #. (para)
 msgid "To make sure you don't forget to release a lock you don't need any more, locked files are shown in the commit dialog and selected by default. If you continue with the commit, locks you hold on the selected files are removed, even if the files haven't been modified. If you don't want to release a lock on certain files, you can uncheck them (if they're not modified). If you want to keep a lock on a file you've modified, you have to enable the <guilabel>Keep locks</guilabel> checkbox before you commit your changes."
@@ -6855,7 +6855,7 @@ msgstr ""
 
 #. (title)
 msgid "Checking Lock Status"
-msgstr "Controleren van Blokstatus"
+msgstr "Blokkadestatus Controleren"
 
 #. (title)
 msgid "The Check for Modifications Dialog"
