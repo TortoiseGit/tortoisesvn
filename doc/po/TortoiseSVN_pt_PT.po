@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-06 01:06-0000\n"
+"PO-Revision-Date: 2010-02-10 01:00-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2920,33 +2920,33 @@ msgstr "O <action>Duplo clique</action> na caixa de diálogo submeter, em qualqu
 
 #. (para)
 msgid "You can select or deselect items by clicking on the checkbox to the left of the item. For directories you can use <keycap>Shift</keycap>-<action>select</action> to make the action recursive."
-msgstr "Poderás seleccionar ou desseleccionar ítems clicando na caixa de verificação à esquerda do item. Para pastas poderás usar <keycap>Shift</keycap>-<action>Seleccionar</action> para tornar a acção recursiva."
+msgstr "Poderás seleccionar ou desseleccionar items clicando na caixa de verificação à esquerda do item. Para pastas poderás usar <keycap>Shift</keycap>-<action>Seleccionar</action> para tornar essa acção recursiva."
 
 #. (para)
 msgid "The columns displayed in the bottom pane are customizable. If you <action>right click</action> on any column header you will see a context menu allowing you to select which columns are displayed. You can also change column width by using the drag handle which appears when you move the mouse over a column boundary. These customizations are preserved, so you will see the same headings next time."
-msgstr "As colunas mostradas no painel de fundo são costumizáveis. Se <action>clicares com o botão direito</action> em qualquer cabeçalho de coluna verás um menu de contexto, que te permitirá seleccionar quais as colunas que serão mostradas. Poderás também alterar a largura da coluna utilizando um indicador de arrasto, que aparecerá quando moveres o rato sobre os limites da coluna. Estas customizações são conservadas para que as vejas os mesmos cabeçalhos da próxima vez."
+msgstr "As colunas mostradas no painel de fundo são customizáveis. Se <action>clicares com o botão direito</action> em qualquer cabeçalho de coluna verás um menu de contexto, que te permitirá seleccionar quais as colunas que serão mostradas. Poderás também alterar a largura da coluna utilizando um indicador de arrasto, que aparecerá quando moveres o rato sobre os limites da coluna. Estas customizações são conservadas para que as vejas os mesmos cabeçalhos da próxima vez."
 
 #. (para)
 msgid "By default when you commit changes, any locks that you hold on files are released automatically after the commit succeeds. If you want to keep those locks, make sure the <guilabel>Keep locks</guilabel> checkbox is checked. The default state of this checkbox is taken from the <literal>no_unlock</literal> option in the Subversion configuration file. Read <xref linkend=\"tsvn-dug-settings-main\"/> for information on how to edit the Subversion configuration file."
-msgstr ""
+msgstr "Por defeito ao submeteres as tuas alterações, são libertados automaticamente quaisquer bloqueios que tiveres sobre ficheiros após o sucesso da submissão. Se desejares mater esses bloqueios tem a certeza que a caixa de verificação <guilabel>Manter bloqueios</guilabel>. Por defeito o estado dessa caixa de verificação é retirada a partir da opção <literal>no_unlock</literal>, no ficheiro de configuração do Subversion. Ler <xref linkend=\"tsvn-dug-settings-main\"/> para mais informações em como editar o ficheiro de configuração do Subversion."
 
 #. (para)
 msgid "You can drag files into the commit dialog from elsewhere, so long as the working copies are checked out from the same repository. For example, you may have a huge working copy with several explorer windows open to look at distant folders of the hierarchy. If you want to avoid committing from the top level folder (with a lengthy folder crawl to check for changes) you can open the commit dialog for one folder and drag in items from the other windows to include within the same atomic commit."
-msgstr ""
+msgstr "Podes arrastar ficheiros de qualquer proveniência para a caixa de diálogo Submeter desde que, as cópias de trabalho estejam exportadas a partir do mesmo repositório. Por exemplo, tu podes ter uma gigantesca cópia de trabalho, com várias janelas de explorador abertas para visualizar distantes pastas na hierarquia. Se desejas evitar submeter a partir da pasta de topo (com uma pesquisa lenta da pasta em procura por alterações), podes abrir a caixa de diálogo de submeter para uma pasta e arrastar itens de outras janelas, para os assim incluir na mesma submissão atómica."
 
 #. (para)
 msgid "You can drag unversioned files which reside within a working copy into the commit dialog, and they will be SVN added automatically."
-msgstr ""
+msgstr "Podes arrastar, para a caixa de diálogo de submeter, ficheiros não versionados que residem na cópia de trabalho e eles serão adicionados automaticamente ao SVN."
 
 #. (title)
 #. (title)
 msgid "Repairing External Renames"
-msgstr ""
+msgstr "Reparando Alterações de nome Externas"
 
 #. (para)
 #. (para)
 msgid "Sometimes files get renamed outside of Subversion, and they show up in the file list as a missing file and an unversioned file. To avoid losing the history you need to notify Subversion about the connection. Simply select both the old name (missing) and the new name (unversioned) and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Move</guimenuitem></menuchoice> to pair the two files as a rename."
-msgstr ""
+msgstr "Por vezes, é alterado o nome de alguns ficheiros fora do Subversion e, eles são mostrados na lista de ficheiros como um em falta e outro ficheiro não versionado. Para evitar perder o histórico necessitas de notificar o Subversion a cerca da ligação. Simplesmente selecciona o de nome antigo(em falta) e o de novo nome (não versionado) e para emparelhar os dois ficheiros como uma alteração de nome usa <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Reparar Movimento</guimenuitem></menuchoice>"
 
 #. (title)
 #. (title)
@@ -2962,11 +2962,11 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Change Lists"
-msgstr ""
+msgstr "Listas de Alterações"
 
 #. (para)
 msgid "The commit dialog supports Subversion's changelist feature to help with grouping related files together. Find out about this feature in <xref linkend=\"tsvn-dug-changelists\"/>."
-msgstr ""
+msgstr "A caixa de diálogo de submissão suporta a funcionalidade listas de alterações, para ajudar a agrupar ficheiros. Sabes mais acerca desta funcionalidade em <xref linkend=\"tsvn-dug-changelists\"/>."
 
 #. (title)
 msgid "Excluding Items from the Commit List"
