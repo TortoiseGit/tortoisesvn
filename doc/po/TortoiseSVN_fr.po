@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-09 09:22 +0000\n"
-"PO-Revision-Date: 2010-02-08 17:03+0100\n"
-"Last-Translator: Matthias GOUPIL <mgoupil@gmail.com>\n"
+"PO-Revision-Date: 2010-02-11 00:09+0100\n"
+"Last-Translator: Yves MITTELMANN <ymittelmann@acxio.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6182,7 +6182,7 @@ msgstr ""
 
 #. (para)
 msgid "You can also specify a peg revision after the URL if required, e.g. <systemitem class=\"url\">http://sounds.red-bean.com/repos@19</systemitem>."
-msgstr "Vous pouvez également précisé une révision \"peg\" après l'URL, si nécessaire, par exemple: <systemitem class=\"url\">http://sounds.red-bean.com/repos@19</systemitem>."
+msgstr "Vous pouvez également précisé une révision d'ancrage (\"peg\") après l'URL, si nécessaire, par exemple: <systemitem class=\"url\">http://sounds.red-bean.com/repos@19</systemitem>."
 
 #. (para)
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-dug-propertypage\"/>."
@@ -6769,19 +6769,19 @@ msgstr "lecture seule"
 
 #. (para)
 msgid "You are using <quote>unmergeable</quote> files, for example, graphics files. If two people change the same file, merging is not possible, so one of you will lose their changes."
-msgstr "Vous utilisez des fichiers <quote>non fusionnables</quote>, par exemple, des fichiers graphiques. Si deux personnes changent le même fichier, la fusion n'est pas possible, donc l'un d'entre elles perdra ses changements."
+msgstr "Vous utilisez des fichiers <quote>non fusionnables</quote>, par exemple, des fichiers graphiques. Si deux personnes changent le même fichier, la fusion n'est pas possible, donc l'une d'entre elles perdra ses modifications."
 
 #. (para)
 msgid "Your company has always used a locking revision control system in the past and there has been a management decision that <quote>locking is best</quote>."
-msgstr "Votre société a toujours utilisé un VCS verrouillant par le passé et il y a eu une décision de la part des gestionnaires que <quote>le verrouillage est la meilleure solution</quote>."
+msgstr "Votre société a toujours utilisé un VCS verrouillant par le passé et il y a eu une décision du management stipulant que <quote>le verrouillage est la meilleure solution</quote>."
 
 #. (para)
 msgid "Subversion generally works best without locking, using the <quote>Copy-Modify-Merge</quote> methods described earlier in <xref linkend=\"tsvn-basics-versioning-copymodifymerge\"/>. However there are a few instances when you may need to implement some form of locking policy. <placeholder-1/>"
-msgstr "Subversion fonctionne généralement mieux sans verrouillage, en utilisant les méthodes <quote>Copier-Modifier-Fusionner</quote> décrites plus tôt dans <xref linkend=\"tsvn-basics-versioning-copymodifymerge\"/>. Cependant il y a quelques cas où vous pouvez devoir mettre en oeuvre une certaine forme de politique de verrouillage. <placeholder-1/>"
+msgstr "Subversion fonctionne généralement mieux sans verrouillage, en utilisant les méthodes <quote>Copier-Modifier-Fusionner</quote> décrites précédemment dans <xref linkend=\"tsvn-basics-versioning-copymodifymerge\"/>. Cependant il y a quelques cas où vous pouvez devoir appliquer une certaine forme de politique de verrouillage. <placeholder-1/>"
 
 #. (para)
 msgid "Firstly you need to ensure that your Subversion server is upgraded to at least version 1.2. Earlier versions do not support locking at all. If you are using <literal>file://</literal> access, then of course only your client needs to be updated."
-msgstr "Premièrement, vous devez vous assurer que votre serveur Subversion est mis à jour au moins à la version 1.2. Les versions précédentes ne supportent pas le verrouillage. Si vous utilisez un accès de type <filename>file://</filename>, alors il est sûr que votre client doit être mis à jour."
+msgstr "Premièrement, vous devez vous assurer que votre serveur Subversion est mis à jour au moins à la version 1.2. Les versions antérieures ne supportent pas du tout le verrouillage. Si vous utilisez un accès de type <filename>file://</filename>, alors bien sûr seul votre client doit être mis à jour."
 
 #. (title)
 msgid "How Locking Works in Subversion"
@@ -6789,27 +6789,27 @@ msgstr "Comment le verrouillage fonctionne dans Subversion"
 
 #. (para)
 msgid "By default, nothing is locked and anyone who has commit access can commit changes to any file at any time. Others will update their working copies periodically and changes in the repository will be merged with local changes."
-msgstr "Par défaut, rien n'est verrouillé et quiconque a un accès en livraison peut livrer des changements à n'importe quel fichier à tout moment. Les autres mettront à jour leurs copies de travail périodiquement et les changements du référentiel seront fusionnés avec les changements locaux."
+msgstr "Par défaut, rien n'est verrouillé et quiconque a un accès en livraison peut livrer des modifications de n'importe quel fichier à tout moment. Les autres mettront à jour leurs copies de travail périodiquement et les modifications du référentiel seront fusionnées avec les modifications locales."
 
 #. (para)
 msgid "If you <firstterm>Get a Lock</firstterm> on a file, then only you can commit that file. Commits by all other users will be blocked until you release the lock. A locked file cannot be modified in any way in the repository, so it cannot be deleted or renamed either, except by the lock owner."
-msgstr "Si vous <firstterm>obtenez un verrou</firstterm> sur un fichier, alors vous seul pouvez livrer ce fichier. Les livraisons des autres utilisateurs seront bloquées jusqu'à ce que vous relâchiez le verrou. Un fichier verrouillé ne peut être modifié d'aucune façon dans le référentiel, il ne peut donc pas être supprimé ou renommé non plus, sauf par le propriétaire du verrou."
+msgstr "Si vous <firstterm>obtenez un verrou</firstterm> sur un fichier, alors vous seul pouvez livrer ce fichier. Les livraisons des autres utilisateurs seront bloquées jusqu'à ce que vous retiriez le verrou. Un fichier verrouillé ne peut être modifié d'aucune façon dans le référentiel, il ne peut donc pas non plus être supprimé ou renommé, sauf par le propriétaire du verrou."
 
 #. (para)
 msgid "However, other users will not necessarily know that you have taken out a lock. Unless they check the lock status regularly, the first they will know about it is when their commit fails, which in most cases is not very useful. To make it easier to manage locks, there is a new Subversion property <literal>svn:needs-lock</literal>. When this property is set (to any value) on a file, whenever the file is checked out or updated, the local copy is made read-only <emphasis>unless</emphasis> that working copy holds a lock for the file. This acts as a warning that you should not edit that file unless you have first acquired a lock. Files which are versioned and read-only are marked with a special overlay in TortoiseSVN to indicate that you need to acquire a lock before editing."
-msgstr "Toutefois, les autres utilisateurs ne sauront pas nécessairement que vous avez pris un verrou. À moins qu'ils ne vérifient le statut du verrou régulièrement, ils le sauront la première fois lorsque leur livraison échouera, ce qui n'est pas très utile dans la plupart des cas. Pour rendre la gestion des verrous plus facile, il existe une nouvelle propriété Subversion <literal>svn:needs-lock</literal>. Quand cette propriété est définie (avec n'importe quelle valeur) sur un fichier, chaque fois que le fichier est extrait ou mis à jour, la copie locale est mise en lecture seule <emphasis>à moins que</emphasis> la copie de travail ne détienne un verrou pour le fichier. Cela agit comme un avertissement pour ne pas éditer ce fichier à moins que vous n'ayez d'abord acquis un verrou. Les fichiers qui sont versionnés et en lecture seule sont marqués avec un recouvrement spécial dans TortoiseSVN pour indiquer que vous devez acquérir un verrou avant l'édition."
+msgstr "Toutefois, les autres utilisateurs ne sauront pas nécessairement que vous avez posé un verrou. À moins qu'ils ne vérifient le verrouillage régulièrement, ils ne le découvriront que lorsque leur livraison échouera, ce qui n'est pas très utile dans la plupart des cas. Pour rendre la gestion des verrous plus facile, il existe une nouvelle propriété Subversion <literal>svn:needs-lock</literal>. Quand cette propriété est définie (avec n'importe quelle valeur) sur un fichier, chaque fois que le fichier est extrait ou mis à jour, la copie locale est mise en lecture seule <emphasis>à moins que</emphasis> cette copie de travail ne détienne un verrou pour le fichier. Cela agit comme un avertissement de ne pas éditer ce fichier à moins que vous n'ayez d'abord posé un verrou. Les fichiers qui sont versionnés et en lecture seule sont identifiés par une coloration spéciale dans TortoiseSVN, pour indiquer que vous devez poser un verrou avant l'édition."
 
 #. (para)
 msgid "Locks are recorded by working copy location as well as by owner. If you have several working copies (at home, at work) then you can only hold a lock in <emphasis>one</emphasis> of those working copies."
-msgstr "Les verrous sont enregistrées par emplacement de copie de travail et par propriétaire. Si vous avez plusieurs copies de travail (à la maison, au travail) alors vous pouvez seulement détenir un verrou dans <emphasis>une</emphasis> de ces copies de travail."
+msgstr "Les verrous sont enregistrés par emplacement de copie de travail et par propriétaire. Si vous avez plusieurs copies de travail (à la maison, au travail) alors vous ne pouvez détenir un verrou que dans <emphasis>une</emphasis> de ces copies de travail."
 
 #. (para)
 msgid "If one of your co-workers acquires a lock and then goes on holiday without releasing it, what do you do? Subversion provides a means to force locks. Releasing a lock held by someone else is referred to as <firstterm>Breaking</firstterm> the lock, and forcibly acquiring a lock which someone else already holds is referred to as <firstterm>Stealing</firstterm> the lock. Naturally these are not things you should do lightly if you want to remain friends with your co-workers."
-msgstr "Si l'un de vos collaborateurs acquiert un verrou et part ensuite en vacances sans le relâcher, que faites-vous ? Subversion fournit un moyen de forcer les verrous. Relâcher un verrou détenu par quelqu'un d'autre est connu comme <firstterm>Casser</firstterm> le verrou et l'acquisition de force d'un verrou déjà détenu par quelqu'un d'autre s'appelle <firstterm>Voler</firstterm> le verrou. Naturellement, ce ne sont pas des choses que vous devriez faire à la légère si vous voulez rester ami avec vos collaborateurs."
+msgstr "Si l'un de vos collègues pose un verrou et part ensuite en vacances sans le retirer, que faites-vous ? Subversion fournit un moyen de forcer les verrous. Retirer un verrou détenu par quelqu'un d'autre est décrit comme <firstterm>Casser</firstterm> le verrou et prendre de force un verrou déjà détenu par quelqu'un d'autre s'appelle <firstterm>Voler</firstterm> le verrou. Naturellement, ce ne sont pas des choses que vous devriez faire à la légère, si vous voulez rester en bons termes avec vos collègues."
 
 #. (para)
 msgid "Locks are recorded in the repository, and a lock token is created in your local working copy. If there is a discrepancy, for example if someone else has broken the lock, the local lock token becomes invalid. The repository is always the definitive reference."
-msgstr "Les verrous sont enregistrés dans le référentiel et un jeton de verrouillage est créé dans votre copie de travail locale. S'il y a une incohérence, par exemple si quelqu'un d'autre a cassé le verrou, le jeton de verrouillage local devient invalide. Le référentiel est toujours la référence définitive."
+msgstr "Les verrous sont enregistrés dans le référentiel et un jeton de verrouillage est créé dans votre copie de travail locale. S'il y a une incohérence, par exemple si quelqu'un d'autre a cassé le verrou, le jeton de verrouillage local devient invalide. Le référentiel est toujours la référence absolue."
 
 #. (title)
 msgid "Getting a Lock"
@@ -6821,23 +6821,23 @@ msgstr "La boîte de dialogue Verrouiller"
 
 #. (para)
 msgid "Select the file(s) in your working copy for which you want to acquire a lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice>. <placeholder-1/> A dialog appears, allowing you to enter a comment, so others can see why you have locked the file. The comment is optional and currently only used with Svnserve based repositories. If (and <emphasis>only</emphasis> if) you need to steal the lock from someone else, check the <guilabel>Steal lock</guilabel> box, then click on <guibutton>OK</guibutton>."
-msgstr "Sélectionnez les fichiers dans votre copie de travail pour lesquels vous voulez acquérir un verrou, puis sélectionnez la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Obtenir un verrou...</guimenuitem></menuchoice>. <placeholder-1/> Une boîte de dialogue apparaît, vous permettant de saisir un commentaire, pour que les autres puissent voir pourquoi vous avez verrouiller le fichier. Le commentaire est facultatif et seulement utilisé avec des référentiels basés sur Svnserve actuellement. Si (et <emphasis>seulement</emphasis> si ) vous deviez voler le verrou de quelqu'un d'autre, cochez la case <guilabel>Voler les verrous</guilabel>, cliquez ensuite sur <guibutton>OK</guibutton>."
+msgstr "Sélectionnez les fichiers de votre copie de travail pour lesquels vous voulez un verrou, puis sélectionnez la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Obtenir un verrou...</guimenuitem></menuchoice>. <placeholder-1/> Une boîte de dialogue apparaît, vous permettant de saisir un commentaire, pour que les autres puissent voir pourquoi vous avez verrouillé le fichier. Le commentaire est facultatif et actuellement utilisé avec les seuls référentiels basés sur Svnserve. Si (et <emphasis>seulement</emphasis> si ) vous deviez voler le verrou de quelqu'un d'autre, cochez la case <guilabel>Voler les verrous</guilabel>, cliquez ensuite sur <guibutton>OK</guibutton>."
 
 #. (para)
 msgid "If you select a folder and then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice> the lock dialog will open with <emphasis>every</emphasis> file in <emphasis>every</emphasis> sub-folder selected for locking. If you really want to lock an entire hierarchy, that is the way to do it, but you could become very unpopular with your co-workers if you lock them out of the whole project. Use with care ..."
-msgstr "Si vous sélectionnez un dossier et utilisez ensuite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Obtenir un verrou...</guimenuitem></menuchoice> la boîte de dialogue Verrouiller s'ouvrira avec <emphasis>tous</emphasis> les fichiers de <emphasis>tous</emphasis> les sous-dossiers choisis pour les verrouiller. C'est la bonne manière de faire si vous voulez vraiment verrouiller une arborescence complète, cependant vous pourriez devenir très impopulaire avec vos collaborateurs si vous les empêchez d'accéder au projet. À utiliser avec parcimonie..."
+msgstr "Si vous sélectionnez un dossier et utilisez ensuite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Obtenir un verrou...</guimenuitem></menuchoice> la boîte de dialogue Verrouiller s'ouvrira avec <emphasis>tous</emphasis> les fichiers de <emphasis>tous</emphasis> les sous-dossiers choisis pour les verrouiller. C'est la bonne manière de faire si vous voulez vraiment verrouiller une arborescence complète, cependant vous pourriez devenir très impopulaire auprès de vos collègues si vous les empêchez d'accéder au projet. À utiliser avec parcimonie..."
 
 #. (title)
 msgid "Releasing a Lock"
-msgstr "Relâcher un verrou"
+msgstr "Retirer un verrou"
 
 #. (para)
 msgid "To make sure you don't forget to release a lock you don't need any more, locked files are shown in the commit dialog and selected by default. If you continue with the commit, locks you hold on the selected files are removed, even if the files haven't been modified. If you don't want to release a lock on certain files, you can uncheck them (if they're not modified). If you want to keep a lock on a file you've modified, you have to enable the <guilabel>Keep locks</guilabel> checkbox before you commit your changes."
-msgstr "Pour vous assurer de ne pas oubliez de relâcher un verrou dont vous n'avez plus besoin, les fichiers verrouillés sont affichés dans la boîte de dialogue de livraison et sélectionnés par défaut. Si vous continuez la livraison, les verrous que vous détenez sur les fichiers sélectionnés sont supprimés, même si les fichiers n'ont pas été modifiés. Si vous ne voulez pas relâcher les verrous de certains fichiers, vous pouvez les décocher (s'ils ne sont pas modifiés). Si vous voulez garder un verrou sur un fichier que vous avez modifié, vous devez activer la case à cocher <guilabel>Garder les verrous</guilabel> avant livrer vos changements."
+msgstr "Pour vous assurer de ne pas oubliez de retirer un verrou dont vous n'avez plus besoin, les fichiers verrouillés sont affichés dans la boîte de dialogue de livraison et sélectionnés par défaut. Si vous continuez la livraison, les verrous que vous détenez sur les fichiers sélectionnés sont supprimés, même si les fichiers n'ont pas été modifiés. Si vous ne voulez pas retirer les verrous de certains fichiers, vous pouvez les décocher (s'ils ne sont pas modifiés). Si vous voulez garder un verrou sur un fichier que vous avez modifié, vous devez activer la case à cocher <guilabel>Garder les verrous</guilabel> avant de livrer vos changements."
 
 #. (para)
 msgid "To release a lock manually, select the file(s) in your working copy for which you want to release the lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Release Lock</guimenuitem></menuchoice> There is nothing further to enter so TortoiseSVN will contact the repository and release the locks. You can also use this command on a folder to release all locks recursively."
-msgstr "Pour relâcher un verrou manuellement, sélectionnez les fichiers dans votre copie de travail pour lesquels vous voulez relâcher les verrous, choisissez ensuite la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relâcher un verrou</guimenuitem></menuchoice> Il n'y a rien d'autre à faire donc TortoiseSVN va contacter le référentiel et relâcher les verrous. Vous pouvez aussi utiliser cette commande sur un dossier pour relâcher tous les verrous récursivement."
+msgstr "Pour retirer un verrou manuellement, sélectionnez les fichiers de votre copie de travail dont vous voulez retirer les verrous, choisissez ensuite la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Retirer un verrou</guimenuitem></menuchoice> Il n'y a rien d'autre préciser, et TortoiseSVN va communiquer avec le référentiel et retirer les verrous. Vous pouvez aussi utiliser cette commande sur un dossier pour retirer tous les verrous récursivement."
 
 #. (title)
 msgid "Checking Lock Status"
@@ -6849,11 +6849,11 @@ msgstr "La boîte de dialogue Vérifier les modifications"
 
 #. (para)
 msgid "<placeholder-1/> To see what locks you and others hold, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications...</guimenuitem></menuchoice>. Locally held lock tokens show up immediately. To check for locks held by others (and to see if any of your locks are broken or stolen) you need to click on <guibutton>Check Repository</guibutton>."
-msgstr "<placeholder-1/> Pour voir quels verrous les autres et vous détenez, vous pouvez utiliser <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vérifier les modifications...</guimenuitem></menuchoice>. Les jetons des verrous détenus localement s'afficheront immédiatement. Pour vérifier les verrous détenus par les autres (et voir si l'un de vos verrous est cassé ou volé) vous devez cliquer sur <guibutton>Vérifier le référentiel</guibutton>."
+msgstr "<placeholder-1/> Pour voir quels verrous les autres et vous détenez, vous pouvez utiliser <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vérifier les modifications...</guimenuitem></menuchoice>. Les jetons de verrouillage  détenus localement s'afficheront immédiatement. Pour vérifier les verrous détenus par les autres (et voir si l'un de vos verrous est cassé ou volé) vous devez cliquer sur <guibutton>Vérifier le référentiel</guibutton>."
 
 #. (para)
 msgid "From the context menu here, you can also get and release locks, as well as breaking and stealing locks held by others."
-msgstr "À partir du menu contextuel ici, vous pouvez aussi bien obtenir et relâcher des verrous, que casser et voler des verrous détenus par d'autres."
+msgstr "À partir du menu contextuel accessible ici, vous pouvez aussi bien obtenir et retirer des verrous, que casser et voler des verrous détenus par d'autres."
 
 #. (title)
 msgid "Avoid Breaking and Stealing Locks"
@@ -6861,7 +6861,7 @@ msgstr "Évitez de casser et de voler les verrous"
 
 #. (para)
 msgid "If you break or steal someone else's lock without telling them, you could potentially cause loss of work. If you are working with unmergeable file types and you steal someone else's lock, once you release the lock they are free to check in their changes and overwrite yours. Subversion doesn't lose data, but you have lost the team-working protection that locking gave you."
-msgstr "Si vous cassez ou volez le verrou de quelqu'un d'autre sans le lui dire, vous pourriez potentiellement causer une perte du travail. Si vous travaillez avec des types de fichier non fusionnables et que  vous volez le verrou de quelqu'un d'autre, une fois que vous relâchez le verrou, ils sont libres de livrer leurs changements et d'écraser les vôtres. Subversion ne perd pas de données, mais vous avez perdu la protection du travail en équipe que le verrouillage vous a donnée."
+msgstr "Si vous cassez ou volez le verrou de quelqu'un d'autre sans le lui dire, vous pourriez potentiellement causer une perte de travail. Si vous travaillez avec des types de fichier non fusionnables et que vous volez le verrou de quelqu'un d'autre, une fois que vous retirez le verrou, il est libre de livrer ses modifications et d'écraser les vôtres. Subversion ne perd pas de données, mais vous avez perdu la protection de travail d'équipe que le verrouillage vous avait donnée."
 
 #. (title)
 msgid "Making Non-locked Files Read-Only"
@@ -6869,11 +6869,11 @@ msgstr "Mettre les fichiers non verrouillés en Lecture seule"
 
 #. (para)
 msgid "As mentioned above, the most effective way to use locking is to set the <literal>svn:needs-lock</literal> property on files. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set properties. Files with this property set will always be checked out and updated with the read-only flag set unless your working copy holds a lock. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a special overlay to indicate this."
-msgstr "Comme mentionné ci-dessus, la façon la plus efficace d'utiliser le verrouillage est de mettre la propriété <literal>svn:needs-lock</literal> sur les fichiers. Référez-vous à <xref linkend=\"tsvn-dug-propertypage\"/> pour les instructions sur la façon de définir les propriétés. Les fichiers avec cette propriété définie seront toujours extraits et mis à jour avec l'attribut Lecture seule défini à moins que votre copie de travaill ne détienne un verrou. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> Pour vous le rappeler, TortoiseSVN utilise un recouvrement spécial pour l'indiquer."
+msgstr "Comme mentionné ci-dessus, la façon la plus efficace d'utiliser le verrouillage est de mettre la propriété <literal>svn:needs-lock</literal> sur les fichiers. Référez-vous à <xref linkend=\"tsvn-dug-propertypage\"/> pour les instructions sur le mode d'activation des propriétés. Les fichiers avec cette propriété activée seront toujours extraits et mis à jour avec l'attribut Lecture seule activé à moins que votre copie de travaill ne détienne un verrou. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> Pour vous le rappeler, TortoiseSVN utilise une coloration spéciale pour l'indiquer."
 
 #. (para)
 msgid "If you operate a policy where every file has to be locked then you may find it easier to use Subversion's auto-props feature to set the property automatically every time you add new files. Read <xref linkend=\"tsvn-dug-propertypage-auto-props\"/> for further information."
-msgstr "Si vous pratiquez une politique où chaque fichier doit être verrouillé, vous pouvez trouver alors plus facile d'utiliser la fonctionnalité auto-props de Subversion pour définir la propriété automatiquement à chaque fois vous ajoutez de nouveaux fichiers. Lisez <xref linkend=\"tsvn-dug-settings\"/> pour plus d'informations."
+msgstr "Si vous appliquez une politique où tout fichier doit être verrouillé, vous pouvez trouver alors plus facile d'utiliser la fonctionnalité auto-props de Subversion pour activer la propriété automatiquement à chaque fois vous ajoutez de nouveaux fichiers. Lisez <xref linkend=\"tsvn-dug-settings\"/> pour plus d'informations."
 
 #. (title)
 msgid "The Locking Hook Scripts"
@@ -6881,15 +6881,15 @@ msgstr "Les scripts hook de verrouillage"
 
 #. (para)
 msgid "When you create a new repository with Subversion 1.2 or higher, four hook templates are created in the repository <filename>hooks</filename> directory. These are called before and after getting a lock, and before and after releasing a lock."
-msgstr "Quand vous créez un nouveau référentiel avec Subversion 1.2 ou supérieur, quatre modèles de hooks sont créés dans le répertoire <filename>hooks</filename> du référentiel. Ceux-ci sont appelés avant et après l'obtention d'un verrou et avant et après la libération d'un verrou."
+msgstr "Quand vous créez un nouveau référentiel avec Subversion 1.2 ou supérieur, quatre modèles de hooks sont créés dans le répertoire <filename>hooks</filename> du référentiel. Ceux-ci sont appelés avant et après l'obtention d'un verrou et avant et après le retrait d'un verrou."
 
 #. (para)
 msgid "It is a good idea to install a <literal>post-lock</literal> and <literal>post-unlock</literal> hook script on the server which sends out an email indicating the file which has been locked. With such a script in place, all your users can be notified if someone locks/unlocks a file. You can find an example hook script <filename>hooks/post-lock.tmpl</filename> in your repository folder."
-msgstr "C'est une bonne idée d'installer un script hook <literal>post-lock</literal> et <literal>post-unlock</literal> sur le serveur qui envoie un e-mail indiquant que le fichier a été verrouillé. Avec une tel script en place, tous vos utilisateurs peuvent être informés si quelqu'un verrouille/déverrouille un fichier. Vous pouvez trouver un script hook  exemple <filename>hooks/post-lock.tmpl</filename> dans le dossier de votre référentiel."
+msgstr "C'est une bonne idée d'installer un script hook <literal>post-lock</literal> et <literal>post-unlock</literal> sur le serveur qui envoie un e-mail indiquant que le fichier a été verrouillé. Avec une tel script d'installé, tous vos utilisateurs peuvent être informés si quelqu'un verrouille/déverrouille un fichier. Vous pouvez trouver un script hook d'exemple <filename>hooks/post-lock.tmpl</filename> dans le dossier de votre référentiel."
 
 #. (para)
 msgid "You might also use hooks to disallow breaking or stealing of locks, or perhaps limit it to a named administrator. Or maybe you want to email the owner when one of their locks is broken or stolen."
-msgstr "Vous pourriez aussi utiliser des hooks pour rejeter la casse ou le vol de verrous, ou les limiter peut-être à un administrateur nommé. Ou peut-être vous voulez envoyer un email au propriétaire quand un de ses verrous est cassé ou volé."
+msgstr "Vous pourriez aussi utiliser des hooks pour ne pas permettre la casse ou le vol de verrous, ou peut-être les limiter à un administrateur nommé. Ou peut-être vous voulez envoyer un email au propriétaire quand l'un de ses verrous est cassé ou volé."
 
 #. (para)
 msgid "Read <xref linkend=\"tsvn-repository-hooks\"/> to find out more."
