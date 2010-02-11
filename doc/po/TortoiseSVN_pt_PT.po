@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-10 01:08-0000\n"
+"PO-Revision-Date: 2010-02-11 23:44-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2970,15 +2970,15 @@ msgstr "A caixa de diálogo de submissão suporta a funcionalidade listas de alt
 
 #. (title)
 msgid "Excluding Items from the Commit List"
-msgstr ""
+msgstr "Excluir itens da lista a Submeter"
 
 #. (para)
 msgid "Sometimes you have versioned files that change frequently but that you really don't want to commit. Sometimes this indicates a flaw in your build process - why are those files versioned? should you be using template files? But occasionally it is inevitable. A classic reason is that your IDE changes a timestamp in the project file every time you build. The project file has to be versioned as it includes all the build settings, but it doesn't need to be committed just because the timestamp changed."
-msgstr ""
+msgstr "Por vezes, tens ficheiros versionados que são alterados frequentemente mas que não desejas submeter. Por vezes isso indica uma falha no processo de construção - porque são estes ficheiros versionados? devias ter usado ficheiros template? Mas por vezes é inevitável. A razão clássica é a mudança, pelo IDE, da marca temporal do ficheiro de projecto, de cada vez que o constróis. O ficheiro de projecto tem de ser versionado pois inclui todas as configurações de construção, mas no entanto não precisa de ser submetido só porque a sua marca temporal foi alterada. "
 
 #. (para)
 msgid "To help out in awkward cases like this, we have reserved a changelist called <literal>ignore-on-commit</literal>. Any file added to this changelist will automatically be unchecked in the commit dialog. You can still commit changes, but you have to select it manually in the commit dialog."
-msgstr ""
+msgstr "Para ajudar em casos estranhos como este, temos reservada uma lista de alterações chamada <literal>ignore-on-commit</literal>. Qualquer ficheiro adicionado a esta lista de alterações será automaticamente não seleccionada na caixa de diálogo de submissão. Poderás ainda submeter as alterações mas, terás de as seleccionar manualmente na caixa de diálogo de submissão."
 
 #. (title)
 msgid "Commit Log Messages"
