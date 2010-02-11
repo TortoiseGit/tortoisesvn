@@ -65,7 +65,6 @@ The user specifies the following in a separate dialog:
 * URL to check out (default to log path)
   -> should be a history combo
 * evaluation option:
-	- manual (user must select "o.k." / "failed")
 	- script 
 		. returns 0 for "o.k."
 		. everything else is considered "failed"
@@ -73,6 +72,9 @@ The user specifies the following in a separate dialog:
 		. should return "ok" for lower bound
 		. should return "failed" for upper bound
 		. command line should use a history combo
+	- manual (user must select "o.k." / "failed")
+		. checkbox, i.e. also available when
+		  a command line is specified
 * cleanup option:
 	- none
 	- pre-update (i.e. keep status after failure)
@@ -98,10 +100,15 @@ executed:
 		       . update to revision
 		no  -> c/o revision to temp folder
 
+	* command line specified?
+		yes -> run command and remember return value
+		no  -> automatically activate "manual 
+		       evaluation"
+
 	* manual evaluation?
 		yes -> display "o.k. / failed / cancel"
 		       dialog and wait for user decission
-		no  -> run script and check return value
+		no  -> use previous return value
 
 	* run full cleanup, if "post-run" cleanup is enabled
 
