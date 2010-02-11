@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,7 @@
 #include "Balloon.h"
 #include "registry.h"
 #include "AeroGlass.h"
-
+#include "CreateProcessHelper.h"
 #pragma comment(lib, "htmlhelp.lib")
 
 /**
@@ -357,6 +357,7 @@ private:
 
 	virtual void HtmlHelp(DWORD_PTR dwData, UINT nCmd = 0x000F)
 	{
+		UNREFERENCED_PARAMETER(nCmd);
 		CWinApp* pApp = AfxGetApp();
 		ASSERT_VALID(pApp);
 		ASSERT(pApp->m_pszHelpFilePath != NULL);
@@ -366,12 +367,15 @@ private:
 
 		CWaitCursor wait;
 
-		PrepareForHelp();
-		// run the HTML Help engine
-		if (!::HtmlHelp(m_hWnd, pApp->m_pszHelpFilePath, nCmd, dwData))
+		CString cmd;
+		cmd.Format(_T("HH.exe -mapid %ld \"%s\""), dwData, pApp->m_pszHelpFilePath);
+		if (!CCreateProcessHelper::CreateProcessDetached(NULL,
+			cmd.GetBuffer()))
 		{
+			cmd.ReleaseBuffer();
 			AfxMessageBox(AFX_IDP_FAILED_TO_LAUNCH_HELP);
 		}
+		cmd.ReleaseBuffer();
 	}
 
 	void OnCompositionChanged()
