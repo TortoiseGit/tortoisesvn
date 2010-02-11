@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-10 15:39+0100\n"
+"PO-Revision-Date: 2010-02-11 17:04+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6911,7 +6911,7 @@ msgstr "Lees <xref linkend=\"tsvn-repository-hooks\"/> voor meer informatie hier
 
 #. (title)
 msgid "Creating and Applying Patches"
-msgstr ""
+msgstr "Een Patch Maken en Toepassen"
 
 #. (primary)
 msgid "patch"
@@ -6919,15 +6919,15 @@ msgstr "patch"
 
 #. (primary)
 msgid "unified diff"
-msgstr ""
+msgstr "unified diff"
 
 #. (para)
 msgid "For open source projects (like this one) everyone has read access to the repository, and anyone can make a contribution to the project. So how are those contributions controlled? If just anyone could commit changes, the project would be permanently unstable and probably permanently broken. In this situation the change is managed by submitting a <firstterm>patch</firstterm> file to the development team, who do have write access. They can review the patch first, and then either submit it to the repository or reject it back to the author."
-msgstr ""
+msgstr "Bij Open bron projecten (zoals deze) heeft iedereen leesrechten voor het archief en kan iedereen een bijdrage leveren aan het project. Hoe worden die bijdrages behandeld? Als iedereen wijzigingen kan vastleggen, dan zal het project bijna altijd onstabiel zijn en zelfs in de meeste gevallen niet werken. Om dit te voorkomen wordt er gebruik gemaakt van <firstterm>patch</firstterm> bestanden die naar het ontwikkelteam gestuurd kunnen worden, die natuurlijk wel schrijfrechten heeft. Zij kunnen de patch dan controleren en in het archief inbrengen of de auteur laten weten dat deze afgewezen is."
 
 #. (para)
 msgid "Patch files are simply Unified-Diff files showing the differences between your working copy and the base revision."
-msgstr ""
+msgstr "Patch bestanden zijn Unified-Diff bestanden waarin de verschillen tussen jouw werkkopie en de basis revisie zijn opgenomen."
 
 #. (title)
 msgid "Creating a Patch File"
@@ -6935,83 +6935,83 @@ msgstr "Maken van een Patchbestand"
 
 #. (para)
 msgid "First you need to make <emphasis>and test</emphasis> your changes. Then instead of using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice> on the parent folder, you select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Eerst moet je natuurlijk je wijzigingen maken <emphasis>en testen</emphasis>. Vervolgens moet je op de bovenliggende map <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Maak Patch...</guimenuitem></menuchoice> selecteren in plaats van <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vastleggen...</guimenuitem></menuchoice>"
 
 #. (title)
 msgid "The Create Patch dialog"
-msgstr "De Maak Patch Dialoog"
+msgstr "Het Maak Patch Venster"
 
 #. (para)
 msgid "you can now select the files you want included in the patch, just as you would with a full commit. This will produce a single file containing a summary of all the changes you have made to the selected files since the last update from the repository."
-msgstr ""
+msgstr "Nu kun je de bestanden selecteren die je in je patch wilt opnemen, net zoals je zou doen bij een normale vastlegging. Hiermee wordt dan een enkel bestand gemaakt met daarin een samenvatting van alle wijzigingen die je aan de geselecteerde bestanden hebt aangebracht sinds de laatste verversing van het archief."
 
 #. (para)
 msgid "You can produce separate patches containing changes to different sets of files. Of course, if you create a patch file, make some more changes to the <emphasis>same</emphasis> files and then create another patch, the second patch file will include <emphasis>both</emphasis> sets of changes."
-msgstr ""
+msgstr "Je kunt verschillende patches aanmaken met wijzigingen aan verschillende bestandsgroepen. Als je een patch bestand aanmaakt, dan nog enkele wijzigingen aan <emphasis>dezelfde</emphasis> bestanden doorvoert en vervolgens weer een patch bestand aanmaakt, dan zal in het tweede patch bestand <emphasis>beide</emphasis> sets met wijzigingen te zien zijn."
 
 #. (para)
 msgid "Just save the file using a filename of your choice. Patch files can have any extension you like, but by convention they should use the <filename>.patch</filename> or <filename>.diff</filename> extension. You are now ready to submit your patch file."
-msgstr ""
+msgstr "Sla het bestand op met een naam naar keuze. Patch bestanden kunnen elke extensie hebben die je leuk vindt, maar standaard wordt de extensie <filename>.patch</filename> of <filename>.diff</filname> gebruikt. Nu ben je klaar om je patch bestand op te sturen."
 
 #. (para)
 msgid "You can also save the patch to the clipboard instead of to a file. You might want to do this so that you can paste it into an email for review by others. Or if you have two working copies on one machine and you want to transfer changes from one to the other, a patch on the clipboard is a convenient way of doing this."
-msgstr ""
+msgstr "Je kunt je patch ook op het klembord opslaan in plaats van in een bestand. Dit is handig als je de patch bijvoorbeeld in een mail wilt plakken zodat iemand anders hem kan controleren. Je kunt deze methode ook gebruiken als je twee PC's gebruikt en je de wijzigingen van de ene naar de andere PC wilt verplaatsen. "
 
 #. (title)
 msgid "Applying a Patch File"
-msgstr "Aanbrengen van een Patchbestand"
+msgstr "Een Patchbestand Toepassen"
 
 #. (para)
 msgid "Patch files are applied to your working copy. This should be done from the same folder level as was used to create the patch. If you are not sure what this is, just look at the first line of the patch file. For example, if the first file being worked on was <filename>doc/source/english/chapter1.xml</filename> and the first line in the patch file is <filename>Index: english/chapter1.xml</filename> then you need to apply the patch to the <filename>doc/source/</filename> folder. However, provided you are in the correct working copy, if you pick the wrong folder level, TortoiseSVN will notice and suggest the correct level."
-msgstr ""
+msgstr "Patch bestanden worden toegepast op je werkkopie. Dit moet gedaan worden vanaf hetzelfde map-niveau als waarop de patch gemaakt is. Als je niet zeker weet op welk niveau dat was, kijk dan naar de eerste regel van het patch bestand. Als bijvoorbeeld het eerste bestand waaraan gewerkt is <filename>doc/source/english/chapter1.xml</filename> is en de eerste regel in het patch bestand is <filename>Index: english/chapter1.xml</filename>, dan moet je de patch toepassen op de map <filename>doc/source/</filename>. Als je per ongeluk het verkeerde map-niveau kiest, dan zal TortoiseSVN je hiervan op de hoogte stellen en het juiste niveau voorstellen. Dit werkt alleen als je in de juiste werkkopie aan het werken bent."
 
 #. (para)
 msgid "In order to apply a patch file to your working copy, you need to have at least read access to the repository. The reason for this is that the merge program must reference the changes back to the revision against which they were made by the remote developer."
-msgstr ""
+msgstr "Als je een patch bestand wilt toepassen op je werkkopie, dan heb je op zijn minst lees-rechten nodig bij het archief. De reden hiervoor is dat het samenvoegprogramma de revisie moet kunnen traceren waarop de wijzigingen door de ontwikkelaar zijn gemaakt."
 
 #. (para)
 msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog. Note that this option only appears if you saved the patch to the clipboard using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice>. Copying a patch to the clipboard from another app will not make the button appear."
-msgstr ""
+msgstr "Klik in het context menu van die folder op <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Pas Patch toe...</guimenuitem></menuchoice>. Er wordt dan een nieuw scherm geopend waarin je het patch bestand, die je wilt toepassen, kunt selecteren. Standaard zullen alleen <filename>.patch</filename> of <filename>.diff</filename> bestanden weergegeven worden, maar je kunt ook <quote>Alle bestanden</quote> laten zien. Als je een patch op het klembord hebt staan, dan kun je de knop <guibutton>Openen vanaf klembord...</guibutton> klikken. Merk op dat deze optie alleen weergegeven wordt als je de patch op het klembord hebt gezet met <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Maak Patch...</guimenuitem></menuchoice>. De knop zal niet getoond worden als je een patch vanuit een ander programma naar het klembord hebt gekopieerd."
 
 #. (para)
 msgid "Alternatively, if the patch file has a <filename>.patch</filename> or <filename>.diff</filename> extension, you can right click on it directly and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice>. In this case you will be prompted to enter a working copy location."
-msgstr ""
+msgstr "Als jouw patch bestand de extensie <filename>.patch</filename> of <filename>.diff</filename> heeft, kun je deze ook direct toepassen als je met rechts op het bestand klikt en <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Pas Patch toe...</guimenuitem></menuchoice> selecteert."
 
 #. (para)
 msgid "These two methods just offer different ways of doing the same thing. With the first method you select the WC and browse to the patch file. With the second you select the patch file and browse to the WC."
-msgstr ""
+msgstr "Dit zijn twee verschillende manieren waarmee je hetzelfde bereikt. Met de eerste methode selecteer je de werkkopie en blader je naar het patch bestand. Met de tweede selecteer je het patch bestand en blader je naar de werkkopie."
 
 #. (para)
 msgid "Once you have selected the patch file and working copy location, TortoiseMerge runs to merge the changes from the patch file with your working copy. A small window lists the files which have been changed. Double click on each one in turn, review the changes and save the merged files."
-msgstr ""
+msgstr "Als je eenmaal het patch bestand en de locatie van de werkkopie hebt geselecteerd, zal TortoiseMerge de wijzigingen van het patch bestand met je werkkopie samenvoegen. In een klein scherm zullen de gewijzigde bestanden weergegeven worden. Dubbelklik op elk bestand om de wijzigingen van de samenvoeging te bekijken en deze op te slaan."
 
 #. (para)
 msgid "The remote developer's patch has now been applied to your working copy, so you need to commit to allow everyone else to access the changes from the repository."
-msgstr ""
+msgstr "De patch van de andere ontwikkelaar is nu toegepast op jouw werkkopie. Je moet nu de wijzigingen vastleggen in het archief, zodat iedereen de wijzigingen kan ophalen."
 
 #. (title)
 msgid "Who Changed Which Line?"
-msgstr ""
+msgstr "Wie Heeft Welke Regel Gewijzigd?"
 
 #. (primary)
 msgid "blame"
-msgstr ""
+msgstr "verklaren"
 
 #. (primary)
 msgid "annotate"
-msgstr ""
+msgstr "annoteren"
 
 #. (primary)
 msgid "praise"
-msgstr ""
+msgstr "prijzen"
 
 #. (para)
 msgid "Sometimes you need to know not only what lines have changed, but also who exactly changed specific lines in a file. That's when the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Blame...</guimenuitem></menuchoice> command, sometimes also referred to as <firstterm>annotate</firstterm> command comes in handy."
-msgstr ""
+msgstr "Soms wil je niet alleen welke regels er gewijzigd zijn, maar ook wie er precies welke regel gewijzigd heeft. Hierbij komt het commando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verklaren...</guimenuitem></menuchoice>, soms ook aangeduid als <firstterm>annoteren</firstterm>, goed van pas."
 
 #. (para)
 msgid "This command lists, for every line in a file, the author and the revision the line was changed."
-msgstr ""
+msgstr "Dit commando laat voor elke regel in een bestand zien wie, en in welke revisie, een regel heeft gewijzigd."
 
 #. (title)
 msgid "Blame for Files"
@@ -7019,67 +7019,67 @@ msgstr "Verklaar Bestanden"
 
 #. (title)
 msgid "The Annotate / Blame Dialog"
-msgstr "De Annoteer / Verklaar Dialoog"
+msgstr "Het Verklar/Annoteren Scherm"
 
 #. (para)
 msgid "<placeholder-1/> If you're not interested in changes from earlier revisions you can set the revision from which the blame should start. Set this to <literal>1</literal>, if you want the blame for <emphasis>every</emphasis> revision."
-msgstr ""
+msgstr "<placeholder-1/> Als je niet geïnteresseerd bent in de wijzigingen van eerdere revisies, kun je aangegeven vanaf welke revisie het verklaren moet beginnen. Stel deze waarde in op <literal>1</literal> als je de wijzigingen voor <emphasis>elke</emphasis> revisie wilt zien."
 
 #. (para)
 msgid "By default the blame file is viewed using <firstterm>TortoiseBlame</firstterm>, which highlights the different revisions to make it easier to read. If you wish to print or edit the blame file, select <guilabel>Use Text viewer to view blames</guilabel>"
-msgstr ""
+msgstr "Standaard wordt het verklaren-bestand getoond in <firstterm>TortoiseBlame</firstterm>, waarin de verschillende revisies gemarkeerd worden voor een beter overzicht. Als je het verklaren-bestand wilt afdrukken of bewerken, selecteer dan <guilabel>Gebruik &tekst editor om verklaringen te bekijken</guilabel>."
 
 #. (para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes, but if you want to ignore an indentation change and find the original author, you can choose an appropriate option here."
-msgstr ""
+msgstr "Je kunt instellen hoe regeleinden en spaties behandeld moeten worden. Deze opties staan beschreven in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. Standaard worden alle verschillen in spaties en regeleinden als echte wijzigingen behandeld. Als je een inspring wijziging wilt negeren en de originele auteur wilt vinden, dan kun je de benodigde instellingen hier kiezen."
 
 #. (para)
 msgid "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the data to create the blame file. Please note: This can take several minutes to finish, depending on how much the file has changed and of course your network connection to the repository. Once the blame process has finished the result is written into a temporary file and you can view the results."
-msgstr ""
+msgstr "Als je eenmaal op <guibutton>OK</guibutton> hebt geklikt, start TortoiseSVN met het ophalen van de gegevens om het verklaren-bestand aan te maken. Merk op: Het kan enkele minuten duren voordat dit proces klaar is. Dit hangt natuurlijk af van het aantal wijzigingen in een bestand en de netwerkverbinding naar je archief. Als het proces klaar is, worden de resultaten naar een tijdelijk bestand geschreven, waarna je de resultaten kunt bekijken."
 
 #. (title)
 msgid "TortoiseBlame"
-msgstr ""
+msgstr "TortoiseBlame"
 
 #. (para)
 msgid "<placeholder-1/> TortoiseBlame, which is included with TortoiseSVN, makes the blame file easier to read. When you hover the mouse over a line in the blame info column, all lines with the same revision are shown with a darker background. Lines from other revisions which were changed by the same author are shown with a light background. The colouring may not work as clearly if you have your display set to 256 colour mode."
-msgstr ""
+msgstr "<placeholder-1/> TortoiseBlame, die met TortoiseSVN wordt meegeleverd, maakt het lezen van verklaren-bestanden makkelijker. Als je je muis boven een regel in de verklaren kolom houdt, dan worden alle regels van dezelfde revisie weergegeven met een donkere achtergrond. Regels van andere revisies die door dezelfde auteur gewijzigd zijn, worden weergegeven met een lichte achtergrond. De kleuren worden niet optimaal weergegeven als je je scherm hebt ingesteld op 256 kleuren mode."
 
 #. (para)
 msgid "If you <action>left click</action> on a line, all lines with the same revision are highlighted, and lines from other revisions by the same author are highlighted in a lighter colour. This highlighting is sticky, allowing you to move the mouse without losing the highlights. Click on that revision again to turn off highlighting."
-msgstr ""
+msgstr "Als je met <action>links</action> op een regel klikt, worden alle regels van dezelfde revisie gemarkeerd en regels van andere revisies van dezelfde auteur worden met een lichtere kleur gemarkeerd. De markeringen blijven actief, waardoor je je muis kunt bewegen zonder dat de markeringen verloren gaan. Als je weer op de revisie klikt, worden de markeringen weer uitgezet."
 
 #. (para)
 msgid "The revision comments (log message) are shown in a hint box whenever the mouse hovers over the blame info column. If you want to copy the log message for that revision, use the context menu which appears when you right click on the blame info column."
-msgstr ""
+msgstr "De revisie opmerkingen (logboek boodschappen) worden in een klein hint scherm weergegeven als je je muis boven de verklaring informatie kolom houdt. Als je de logboek boodschap van die revisie wilt kopieren, gebruik je het context menu door met rechts te klikken op de verklaring informatie kolom."
 
 #. (para)
 msgid "You can search within the Blame report using <menuchoice><guimenu>Edit</guimenu><guimenuitem>Find...</guimenuitem></menuchoice>. This allows you to search for revision numbers, authors and the content of the file itself. Log messages are not included in the search - you should use the Log Dialog to search those."
-msgstr ""
+msgstr "Je kunt in het verklaren rapport zoeken met <menuchoice><guimenu>Wijzigen</guimenu><guimenuitem>Zoeken...</guimenuitem></menuchoice>. Hiermee kun je zoeken op revisienummers, auteurs en de inhoud van het bestand zelf. Logboek boodschappen worden niet meegenomen in de zoekopdracht - hiervoor moet je het Logboek venster gebruiken."
 
 #. (para)
 msgid "You can also jump to a specific line number using <menuchoice><guimenu>Edit</guimenu><guimenuitem>Go To Line...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Je kunt ook naar een specifiek regelnummer springen met <menuchoice><guimenu>Wijzigen</guimenu><guimenuitem>Ga naar regel...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "When the mouse is over the blame info columns, a context menu is available which helps with comparing revisions and examining history, using the revision number of the line under the mouse as a reference. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame previous revision</guimenuitem></menuchoice> generates a blame report for the same file, but using the previous revision as the upper limit. This gives you the blame report for the state of the file just before the line you are looking at was last changed. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Show changes</guimenuitem></menuchoice> starts your diff viewer, showing you what changed in the referenced revision. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Show log</guimenuitem></menuchoice> displays the revision log dialog starting with the referenced revision."
-msgstr ""
+msgstr "In de verklaring informatie kolom is een context menu beschikbaar, waarmee je makkelijk revisies kunt vergelijken en de geschiedenis kunt onderzoeken met het revisienummer van de regel waar de muis boven gehouden wordt als referentie. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Verklaar vorige revisie</guimenuitem></menuchoice> genereerd een verklaar rapport voor hetzelfde bestand, maar dan met de vorige revisie als bovenste limiet. Hiermee krijg je een verklaar rapport voor de staat van het bestand vlak voordat de regel die je bekijkt gewijzigd werd. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Toon wijzigingen</guimenuitem></menuchoice> start jou vergelijk programma, waarmee dan de wijzigingen van de gerefereerde revisie worden weergegeven. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Toon logboek</guimenuitem></menuchoice> toont het revisie log venster vanaf de geregereerde revisie."
 
 #. (para)
 msgid "If you need a better visual indicator of where the oldest and newest changes are, select <menuchoice><guimenu>View</guimenu><guimenuitem>Color age of lines</guimenuitem></menuchoice>. This will use a colour gradient to show newer lines in red and older lines in blue. The default colouring is quite light, but you can change it using the TortoiseBlame settings."
-msgstr ""
+msgstr "Als je een betere visuele indicatie wilt hebben van waar de oudste en nieuwe wijzigingen staan, selecteer dan <menuchoice><guimenu>Bekijk</guimenu><guimenuitem>Kleur regels naar leeftijd</guimenuitem></menuchoice>. Hiermee wordt een kleur verloop gebruikt om nieuwe regels met een rode kleur weer te geven en oudere met een blauwe kleur. De standaard kleurinstelling is vrij licht, maar dat kun je wijzigen bij de TortoiseBlame instellingen."
 
 #. (para)
 msgid "If you are using Merge Tracking, where lines have changed as a result of merging from another path, TortoiseBlame will show the revision and author of the last change in the original file rather than the revision where the merge took place. These lines are indicated by showing the revision and author in italics. If you do not want merged lines shown in this way, uncheck the <guilabel>Include merge info</guilabel> checkbox."
-msgstr ""
+msgstr "Als je Samenvoeg historie gebruikt, zal TortoiseBlame, als regels gewijzigd zijn als gevolg van het samenvoegen vanaf een ander pad, de revisie en auteur van de laatste wijziging weergeven in het originele bestand in plaats van de revisie waarin de samenvoeging plaatsvond. Bij deze regels worden het revisienummer en de auteur schuin gedrukt weergegeven. Als je niet wilt dat samengevoegde regels zo worden weergegeven, haal dan het vinkje weg bij <guilabel>Samenvoeg-informatie meenemen</guilabel>."
 
 #. (para)
 msgid "If you want to see the paths involved in the merge, select <menuchoice><guimenu>View</guimenu><guimenuitem>Merge paths</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Als je de betrokken paden van het samenvoegen wilt zien, kies dan <menuchoice><guimenu>Bekijk</guimenu><guimenuitem>Voeg paden samen</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "The settings for TortoiseBlame can be accessed using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings...</guimenuitem></menuchoice> on the TortoiseBlame tab. Refer to <xref linkend=\"tsvn-dug-settings-tortoiseblame\"/>."
-msgstr ""
+msgstr "De instellingen van TortoiseBlame kunnen bekeken worden bij <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Instellingen...</guimenuitem></menuchoice>  onder de TortoiseBlame tab. Lees ook <xref linkend=\"tsvn-dug-settings-tortoiseblame\"/>."
 
 #. (title)
 msgid "Blame Differences"
@@ -7087,15 +7087,15 @@ msgstr "Verklaar Verschillen"
 
 #. (para)
 msgid "One of the limitations of the Blame report is that it only shows the file as it was in a particular revision, and shows the last person to change each line. Sometimes you want to know what change was made, as well as who made it. What you need here is a combination of the diff and blame reports."
-msgstr ""
+msgstr "Een van de beperkingen van het verklaren-rapport is dat het alleen het bestand weergeeft zoals het op het moment van een bepaalde revisie was en de laatste persoon die een regel gewijzigd heeft. Soms wil je weten welke wijziging is doorgevoerd en wie dat gedaan heeft. Hiervoor heb je een combinatie van verschil- en verklaar-rapporten nodig."
 
 #. (term)
 msgid "Blame Revisions"
-msgstr ""
+msgstr "Verklaar Revisies"
 
 #. (para)
 msgid "In the top pane, select 2 revisions, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame revisions</guimenuitem></menuchoice>. This will fetch the blame data for the 2 revisions, then use the diff viewer to compare the two blame files."
-msgstr ""
+msgstr "Selecteer in het bovenste deelvenster 2 revisies en kies dan <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Verklaar revisies</guimenuitem></menuchoice>. Hiermee worden de verklaar-gegevens voor die 2 revisies opgehaald. Gebruik daarna dan de diff viewer om de twee verklaarde revisies te vergelijken."
 
 #. (term)
 msgid "Blame Changes"
@@ -7103,19 +7103,19 @@ msgstr "Verklaar Wijzigingen"
 
 #. (para)
 msgid "Select one revision in the top pane, then pick one file in the bottom pane and select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame changes</guimenuitem></menuchoice>. This will fetch the blame data for the selected revision and the previous revision, then use the diff viewer to compare the two blame files."
-msgstr ""
+msgstr "Selecteer één revisie in het bovenste deelvenster, kies vervolgens één bestand uit het onderste deelvenster en selecteer <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Verklaar wijzigingen</guimenuitem></menuchoice>. Hiermee worden de verklaar-gegevens voor de geselecteerde revisie en de revisie daarvoor opgehaald. Gebruik daarna je diff programma om de twee verklaar-bestanden te vergelijken."
 
 #. (term)
 msgid "Compare and Blame with Working BASE"
-msgstr ""
+msgstr "Vergelijk en Verklaar met Werkbasis"
 
 #. (para)
 msgid "Show the log for a single file, and in the top pane, select a single revision, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare and Blame with Working BASE</guimenuitem></menuchoice>. This will fetch the blame data for the selected revision, and for the file in the working BASE, then use the diff viewer to compare the two blame files."
-msgstr ""
+msgstr "Toon het logboek voor een enkel bestand en selecteer in het bovenste deelvenster een enkele revisie. Kies vervolgens <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Vergelijk en verklaar met werkkopie (BASE)</guimenuitem></menuchoice>. De verklaar-gegevens worden dan voor de geselecteerde revisie en het bestand in de werkbasis opgehaald. Gebruik dan het diff programma om de twee verklaar-bestanden te vergelijken."
 
 #. (para)
 msgid "The revision log dialog includes several options which allow you to do this. <placeholder-1/>"
-msgstr ""
+msgstr "Het revisie log venster heeft enkele opties waarmee je dit kunt doen. <placeholder-1/>"
 
 #. (title)
 #. (title)
@@ -7132,7 +7132,7 @@ msgstr "server-side acties"
 
 #. (primary)
 msgid "server viewer"
-msgstr ""
+msgstr "archiefverkenner"
 
 #. (para)
 msgid "Sometimes you need to work directly on the repository, without having a working copy. That's what the <firstterm>Repository Browser</firstterm> is for. Just as the explorer and the icon overlays allow you to view your working copy, so the Repository Browser allows you to view the structure and status of the repository. <placeholder-1/> With the Repository Browser you can execute commands like copy, move, rename, ... directly on the repository."
