@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-11 17:04+0100\n"
+"PO-Revision-Date: 2010-02-12 14:51+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4515,7 +4515,7 @@ msgstr "Toon bestandswijzigingen in unified diff indeling. Dit context menu is a
 #. (para)
 #. (para)
 msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose."
-msgstr "Open het geselecteerde bestant met het standaard programma voor dit bestandstype of met een zelf gekozen programma."
+msgstr "Open het geselecteerde bestand met het standaard programma voor dit bestandstype of met een zelf gekozen programma."
 
 #. (para)
 msgid "Opens the Blame dialog, allowing you to blame up to the selected revision."
@@ -7136,27 +7136,27 @@ msgstr "archiefverkenner"
 
 #. (para)
 msgid "Sometimes you need to work directly on the repository, without having a working copy. That's what the <firstterm>Repository Browser</firstterm> is for. Just as the explorer and the icon overlays allow you to view your working copy, so the Repository Browser allows you to view the structure and status of the repository. <placeholder-1/> With the Repository Browser you can execute commands like copy, move, rename, ... directly on the repository."
-msgstr ""
+msgstr "Soms wil je direct dingen in het archief wijzigen, zonder dat je een werkkopie hebt. Daarvoor kun je de <firstterm>Archiefverkenner</firstterm> gebruiken. Met de archiefverkenner kun je de structuur en status van het archief bekijken, net zoals je met je verkenner en overlappende picotogrammen de status van je werkkopie kunt bekijken. <placeholder-1/> Met de archiefverkenner kun je acties zoals kopiëren, verplaatsen, hernoemen, ... direct op het archief uitvoeren."
 
 #. (para)
 msgid "The repository browser looks very similar to the Windows explorer, except that it is showing the content of the repository at a particular revision rather than files on your computer. In the left pane you can see a directory tree, and in the right pane are the contents of the selected directory. At the top of the Repository Browser Window you can enter the URL of the repository and the revision you want to browse."
-msgstr ""
+msgstr "De archiefverkenner ziet er ongeveer hetzelfde uit als de windows verkenner, behalve dan dat het de inhoud van het archief van een bepaalde revisie laat zien, in plaats van bestanden op je computer. In het linker deelvenster wordt de mapstructuur weergegeven en in het rechter de inhoud van de geselecteerd map. Aan de bovenzijde van de archiefverkenner kun je de URL en de revisie van een archief invoeren, welke je wilt bekijken."
 
 #. (para)
 msgid "Just like Windows explorer, you can click on the column headings in the right pane if you want to set the sort order. And as in explorer there are context menus available in both panes."
-msgstr ""
+msgstr "Net zoals bij de windows verkenner, kun je op de koptekst van een kolom klikken om de sorteervolgorde te wijzigen. Net zoals in de verkenner zijn er context menu's beschikbaar in beide deelvensters."
 
 #. (para)
 msgid "Save an unversioned copy of the file to your hard drive."
-msgstr ""
+msgstr "Een kopie zonder versiebeheer van een bestand opslaan op je harde schijf."
 
 #. (para)
 msgid "Show the revision log for that file, or show a graph of all revisions so you can see where the file came from."
-msgstr ""
+msgstr "Het revisie logboek laten tonen van een bestand of een figuur laten tonen met alle revisies, zodat je kunt zien waar het bestand vandaan is gekomen."
 
 #. (para)
 msgid "Blame the file, to see who changed which line and when."
-msgstr ""
+msgstr "Een bestand laten verklaren om te zien wie welke regel wanneer in een bestand gewijzigd heeft."
 
 #. (para)
 msgid "Delete or rename the file."
@@ -7164,7 +7164,7 @@ msgstr "Verwijderen of hernoemen van het bestand."
 
 #. (para)
 msgid "Make a copy of the file, either to a different part of the repository, or to a working copy rooted in the same repository."
-msgstr ""
+msgstr "Een kopie laten maken van een bestand naar een ander deel van het archief of naar een werkkopie gesitueerd in hetzelfde archief."
 
 #. (para)
 msgid "View/Edit the file's properties."
@@ -7172,87 +7172,87 @@ msgstr "Bekijken/Wijzigen van de kenmerken van het bestand."
 
 #. (para)
 msgid "The context menu for a file allows you to: <placeholder-1/>"
-msgstr ""
+msgstr "Vanuit het context menu kun je verschillende dingen doen met bestanden: <placeholder-1/>"
 
 #. (para)
 msgid "Show the revision log for that folder, or show a graph of all revisions so you can see where the folder came from."
-msgstr ""
+msgstr "Het revisie logboek laten tonen van een map of een figuur laten tonen met alle revisies, zodat je kunt zien waar de map vandaan is gekomen."
 
 #. (para)
 msgid "Export the folder to a local unversioned copy on your hard drive."
-msgstr ""
+msgstr "De map laten exporteren naar een locatie op je harde schijf zonder versiebeheer."
 
 #. (para)
 msgid "Checkout the folder to produce a local working copy on your hard drive."
-msgstr ""
+msgstr "Een map laten ophalen, zodat er een lokale werkkopie wordt gemaakt op je harde schijf."
 
 #. (para)
 msgid "Create a new folder in the repository."
-msgstr ""
+msgstr "Een nieuwe map aanmaken in het archief."
 
 #. (para)
 msgid "Add files or folders directly to the repository."
-msgstr ""
+msgstr "Bestanden of mappen direct in het archief zetten."
 
 #. (para)
 msgid "Delete or rename the folder."
-msgstr ""
+msgstr "Een map verwijderen of hernoemen."
 
 #. (para)
 msgid "Make a copy of the folder, either to a different part of the repository, or to a working copy rooted in the same repository. This can also be used to create a branch/tag without the need to have a working copy checked out."
-msgstr ""
+msgstr "Een kopie laten maken van een map naar een ander deel van het archief of naar een werkkopie gesitueerd in hetzelfde archief. Hiermee kan ook een vertakking/label gemaakt worden, zonder dat daarvoor een werkkopie nodig is."
 
 #. (para)
 msgid "View/Edit the folder's properties."
-msgstr ""
+msgstr "Eigenschappen van een map bekijken of wijzigen."
 
 #. (para)
 msgid "Mark the folder for comparison. A marked folder is shown in bold."
-msgstr ""
+msgstr "Een map markeren voor vergelijken. Een gemarkeerd map wordt vetgedrukt weergegeven."
 
 #. (para)
 msgid "Compare the folder with a previously marked folder, either as a unified diff, or as a list of changed files which can then be visually diffed using the default diff tool. This can be particularly useful for comparing two tags, or trunk and branch to see what changed."
-msgstr ""
+msgstr "De map vergelijken met een eerder gemarkeerde map, als unified diff of als een lijst met gewijzigde bestanden, die dan met het standaard vergelijkingsprogramma vergeleken kan worden. Dit kan in het bijzonder handig zijn als je twee labels wilt vergelijken, of een hoofdstroom (trunk) met een vertakking."
 
 #. (para)
 msgid "The context menu for a folder allows you to: <placeholder-1/>"
-msgstr ""
+msgstr "Met het context menu van een map kun je dingen doen zoals: <placeholder-1/>"
 
 #. (para)
 msgid "If you select two folders in the right pane, you can view the differences either as a unified-diff, or as a list of files which can be visually diffed using the default diff tool."
-msgstr ""
+msgstr "Als je twee mappen in het rechter deelvenster selecteert, dan kun je de verschillen als unified-diff bekijken of als lijst van bestanden, welke dan weer met een vergelijkingsprogramma bekeken kan worden."
 
 #. (para)
 msgid "If you select multiple folders in the right pane, you can checkout all of them at once into a common parent folder."
-msgstr ""
+msgstr "Als je meerdere mappen in het rechter deelvenster selecteert, dan kun je deze allemaal tegelijk ophalen naar een zelfde hoofdmap."
 
 #. (para)
 msgid "If you select 2 tags which are copied from the same root (typically <literal>/trunk/</literal>), you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log...</guimenuitem></menuchoice> to view the list of revisions between the two tag points."
-msgstr ""
+msgstr "Als je 2 labels selecteert die van dezelfde hoofdmap gekopieerd zijn (normaal gesproken de hoofdstroom <literal>/trunk/</literal>), dan kun je met <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Toon Logboek...</guimenuitem></menuchoice> de lijst met revisies zien tussen die twee labels."
 
 #. (para)
 msgid "You can use <keycap>F5</keycap> to refresh the view as usual. This will refresh everything which is currently displayed. If you want to pre-fetch or refresh the information for nodes which have not been opened yet, use <keycap>Ctrl-F5</keycap>. After that, expanding any node will happen instantly without a network delay while the information is fetched."
-msgstr ""
+msgstr "Je kunt zoals gebruikelijk met <keycap>F5</keycap> het beeld verversen. Hiermee wordt alles ververst wat weergegeven worden. Als je de informatie van andere delen, die je nog niet geopend hebt, wilt verversen of alvast wilt ophalen, gebruik dan <keycap>Ctrl-F5</keycap>. Daarna kun je elk ander deel direct openen, zonder dat daarvoor vertraging ontstaat voor het ophalen van informatie via het netwerk."
 
 #. (para)
 msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo-browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
-msgstr ""
+msgstr "Je kunt de archiefverkenner ook gebruiken voor drag-and-drop acties. Als je een map vanuit de verkenner naar de archiefverkenner sleept, dan zal deze map in het archief geïmporteerd worden. Merk op dat als je meerdere objecten sleept, deze mappen als aparte vastleggingen worden behandeld."
 
 #. (para)
 msgid "If you want to move an item within the repository, just <action>left drag</action> it to the new location. If you want to create a copy rather than moving the item, <keycap>Ctrl</keycap>-<action>left drag</action> instead. When copying, the cursor has a <quote>plus</quote> symbol on it, just as it does in Explorer."
-msgstr ""
+msgstr "Als je een object binnen het archief wilt verplaatsen, dan kun je deze gewoon met <action>links verslepen</action> naar de nieuwe locatie. Als je een kopie van het object wilt hebben in plaats van het alleen te verplaatsen, houdt dan ook <keycap>Ctrl</keycap> ingedrukt tijdens het verslepen. Als je een object gaat kopiëren, dan heeft de cursor een <quote>plus</quote> teken net zoals in de windows verkenner."
 
 #. (para)
 msgid "If you want to copy/move a file or folder to another location and also give it a new name at the same time, you can <action>right drag</action> or <keycap>Ctrl</keycap>-<action>right drag</action> the item instead of using <action>left drag</action>. In that case, a rename dialog is shown where you can enter a new name for the file or folder."
-msgstr ""
+msgstr "Als je een bestand of map wilt verplaatsen/kopieren naar een andere locatie en ook tegelijkertijd de naam wilt wijzigen, dan moet je het object met <action>rechts slepen</action> of <keycap>Ctrl</keycap>-<action>rechts slepen</action> in plaats van <action>links slepen</action>. Er wordt dan een scherm getoond waarin je de nieuwe naar van de map of het bestand moet invoeren."
 
 #. (para)
 msgid "Whenever you make changes in the repository using one of these methods, you will be presented with a log message entry dialog. If you dragged something by mistake, this is also your chance to cancel the action."
-msgstr ""
+msgstr "Telkens als je op deze manier wijzigingen in het archief doorvoert, zal er een logboek boodschappen venster getoond worden. Als je per ongeluk objecten hebt versleept, dan is dit je kans om die actie te stoppen."
 
 #. (para)
 msgid "Sometimes when you try to open a path you will get an error message in place of the item details. This might happen if you specified an invalid URL, or if you don't have access permission, or if there is some other server problem. If you need to copy this message to include it in an email, just right click on it and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy error message to clipboard</guimenuitem></menuchoice>, or simply use <keycap>Ctrl+C</keycap>."
-msgstr ""
+msgstr "Soms als je een pad wilt openen, krijg je een foutmelding in plaats van de objectdetails. Dit kan komen doordat je een verkeerde URL hebt ingevoerd of doordat je geen toegangsrechten hebt of omdat er een ander probleem met de server is. Als jet de melding moet kopiëren naar bijvoorbeeld een email, klik dan met rechts en selecteer <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Kopieer foutmelding naar klembord</guimenuitem></menuchoice> of gebruikt <keycap>Ctrl+C</keycap>."
 
 #. (title)
 msgid "Revision Graphs"
