@@ -143,31 +143,26 @@ Committing recorded patches:
 TSVN Integration
 ----------------
 
-The feature will be implemented on the TSVN main
-development line as part of the TortoiseProc project.
-Otherwise, numerous files needed to be duplicated,
-copied, merged, sync'ed etc.
+The feature will be implemented on a branch of the 
+TSVN main development line as part of the TortoiseProc 
+project. Otherwise, numerous files needed to be 
+duplicated and were hard to sync etc.
 
 Impact on existing TSVN functionality is kept low
 by extending only a few selected dialogs. Furthermore,
 these extensions are of the form:
 
-	if (patchRecorderActivated)
-		AddExtraButtons();
+	AddExtraButtons();
 
 or
 
-	if (patchRecorderActivated)
-		CallNewFunctionality();
-	else
-	{
-		// existing code
-	}
+	CallNewFunctionality();
 
-The activation of the patch recorder will require
-a registry key to be set. Without it, all dialogs
-and functionality will look and work as described
-in the docs.
+The deliverable will be an experimental build of the
+otherwise unchanged 1.7 code. During installation,
+the user will be asked to accept the conditions of
+the "experimental" build. Standard and experimental
+build cannot be used side-by-side with the same bitness.
 
 
 Target Version
@@ -182,10 +177,8 @@ Proposed Status at First Release
 Experimental.
 
 * N/A by default. Requires separate installation
-  (depending on implementation details, that 
-  installation might simply set a registration key)
 * No commitment to support. Feedback welcome, though.
-* No translations / NLS.
+* No translations / NLS for the extensions.
 * Limited documentation only (probably a README file).
 * Feature will be removed in future versions 
   as soon as SVN core grows a similar feature.
