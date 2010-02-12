@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-12 14:51+0100\n"
+"PO-Revision-Date: 2010-02-12 15:08+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7272,27 +7272,27 @@ msgstr "Een Revisie Grafiek"
 
 #. (para)
 msgid "<placeholder-1/> Sometimes you need to know where branches and tags were taken from the trunk, and the ideal way to view this sort of information is as a graph or tree structure. That's when you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph...</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "<placeholder-1/> Soms moet je weten op welk punt vertakkingen en labels gemaakt zijn van de hoofdstroom (trunk). De ideale manier om dit te bekijken is door de informatie te sorteren in een grafiek of bookstructuur. Hiervoor kun je gebruik maken van <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revisie schema...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "This command analyses the revision history and attempts to create a tree showing the points at which copies were taken, and when branches/tags were deleted."
-msgstr ""
+msgstr "Dit commando analyseert de revisiegeschiedenis en probeert daarvan een boomstructuur te maken, waarin de punten aangegeven worden waarop kopieën gemaakt en vertakkingen/labels verwijderd zijn."
 
 #. (para)
 msgid "In order to generate the graph, TortoiseSVN must fetch all log messages from the repository root. Needless to say this can take several minutes even with a repository of a few thousand revisions, depending on server speed, network bandwidth, etc. If you try this with something like the <emphasis>Apache</emphasis> project which currently has over 500,000 revisions you could be waiting for some time."
-msgstr ""
+msgstr "Om de figuur te maken, moet TortoiseSVN alle logboek boodschappen ophalen vanuit de hoofdmap van het archief. Overbodig is het om te zeggen dat dit enkele minuten kan duren, zelfs bij een archief met maar enkele duizenden revisie. Dit hangt natuurlijk sterk af van de snelheid van de server en de bandbreedte van het netwerk. Als je dit probeert te doen op bijvoorbeeld het <emphasis>Apache</emphasis> project met op dit moment meer dan 500.000 revisies, dan moet je wel een tijd wachten."
 
 #. (para)
 msgid "The good news is that if you are using log caching, you only have to suffer this delay once. After that, log data is held locally. Log caching is enabled in TortoiseSVN's settings."
-msgstr ""
+msgstr "Het goede nieuws is dat als je log caching gebruikt, je maar een keer op deze vertraging hoeft te wachten. Daarna worden de logboek boodschappen lokaal opgeslagen. Log caching kun je inschakelen bij de instellingen van TortoiseSVN."
 
 #. (title)
 msgid "Revision Graph Nodes"
-msgstr ""
+msgstr "Revisie Schema Knooppunten"
 
 #. (term)
 msgid "Added or copied items"
-msgstr ""
+msgstr "Toegevoegde of gekopieerde objecten"
 
 #. (para)
 msgid "Items which have been added, or created by copying another file/folder are shown using a rounded rectangle. The default colour is green. Tags and trunks are treated as a special case and use a different shade, depending on the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>"
@@ -7300,7 +7300,7 @@ msgstr ""
 
 #. (term)
 msgid "Deleted items"
-msgstr "Verwijderde items"
+msgstr "Verwijderde objecten"
 
 #. (para)
 msgid "Deleted items eg. a branch which is no longer required, are shown using an octagon (rectangle with corners cut off). The default colour is red."
@@ -7308,7 +7308,7 @@ msgstr ""
 
 #. (term)
 msgid "Renamed items"
-msgstr "Hernoemde items"
+msgstr "Hernoemde objecten"
 
 #. (para)
 msgid "Renamed items are also shown using an octagon, but the default colour is blue."
@@ -7324,7 +7324,7 @@ msgstr ""
 
 #. (term)
 msgid "Working copy revision"
-msgstr "Werk kopie revisie"
+msgstr "Werkkopie revisie"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, which marks the BASE node with a bold outline."
@@ -7332,7 +7332,7 @@ msgstr ""
 
 #. (term)
 msgid "Modified working copy"
-msgstr "Gewijzigde werk kopie"
+msgstr "Gewijzigde werkkopie"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show an additional node representing your modified working copy using <guilabel>Show WC modifications</guilabel>. This is an elliptical node with a bold outline in red by default."
