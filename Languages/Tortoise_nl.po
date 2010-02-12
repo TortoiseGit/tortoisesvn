@@ -11,19 +11,56 @@
 # Note: Lines starting with #: are required, they are the link to the resource IDs
 #       Lines starting with # provide comments to the translators
 #
+# Note: There are some notes on translating keyboard shortcuts below
+#
 # 20050318 JML: Added a list of frequently used translations
 #
 # English                               Dutch
 # ----------------------------------    --------------------------------
+# Base                                  Basis
+# Blame                                 Verklaren
+# Branche                               Tak
+# Cache                                 Cache
+# Change list                           Werkset
+# Clean Up                              Schonen
 # Commit                                Vastleggen
+# Edit                                  Wijzigen
+# Find                                  Zoeken
+# Folder                                Map
+# HEAD                                  HEAD
+# Icon                                  Pictogram
+# Lock                                  Blokkeren
+# Merge                                 Samenvoegen
+# Obstructed                            Versperd
+# Repository                            Archief
 # Revision                              Revisie
+# Tag                                   Label
+# Transfer                              Versturen
+# Trunk                                 Basislijn
+# Unversioned                           Zonder versiebeheer
 # Update                                Verversen
+# Version Control                       Versiebeheer
+# Working Copy                          Werkkopie
 #
 # Authors:
 # Jeroen van Amstel <jeroen@amstelonline.demon.nl>
 # Bob Hulst <bob.hulst@hiq.fi>
 # Jean-Marc van Leerdam <jeanmarc@gmail.com>
 # Yves Reynhout <yvesr@ultragenda.com>
+#
+# msgid/msgstr fields for Accelerator keys
+# Format is: "ID:xxxxxx:VACS+X" where:
+#    ID:xxxxx = the menu ID corresponding to the accelerator
+#    V = Virtual key (or blank if not used) - nearly always set!
+#    A = Alt key     (or blank if not used)
+#    C = Ctrl key    (or blank if not used)
+#    S = Shift key   (or blank if not used)
+#    X = upper case character
+# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
+# ONLY Accelerator Keys with corresponding alphanumeric characters can be
+# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
+# ONLY change the msgstr field. Do NOT change any other.
+# If you do not want to change an Accelerator Key, copy msgid to msgstr
 #
 msgid ""
 msgstr ""
@@ -104,7 +141,7 @@ msgstr "%1!ld! minuten en %2!ld! seconden"
 #. Resource IDs: (115)
 #, c-format
 msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (offline) - %2!s!"
+msgstr "%1!s! (niet verbonden) - %2!s!"
 
 #. Resource IDs: (226)
 #, c-format
@@ -174,7 +211,7 @@ msgstr "%I64d kBytes verstuurd"
 #. Resource IDs: (7)
 #, c-format
 msgid "%ld of %ld"
-msgstr "%ld of %ld"
+msgstr "%ld van %ld"
 
 #. Resource IDs: (563)
 #, c-format
@@ -189,12 +226,12 @@ msgstr "%s"
 #. Resource IDs: (93)
 #, c-format
 msgid "%s (offline)"
-msgstr "%s (offline)"
+msgstr "%s (niet verbonden)"
 
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
-msgstr "%s : Remote bestand"
+msgstr "%s : Bestand in archief"
 
 #. Resource IDs: (151)
 #, c-format
@@ -625,7 +662,7 @@ msgstr "&Van URL:"
 
 #. Resource IDs: (1259)
 msgid "&From WC at URL:"
-msgstr "&Van werkkopie in URL:"
+msgstr "&Van werkkopie op URL:"
 
 #. Resource IDs: (65535)
 msgid "&From revision"
@@ -839,7 +876,7 @@ msgstr "&OK"
 
 #. Resource IDs: (1)
 msgid "&Offline for now"
-msgstr "&Voorlopig offline"
+msgstr "&Voorlopig niet verbonden"
 
 #. Resource IDs: (3845)
 msgid "&One Page"
@@ -867,7 +904,7 @@ msgstr "&Plakken"
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
-msgstr "&Permanent offline"
+msgstr "&Permanent niet verbonden"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -875,7 +912,7 @@ msgstr "&Poort:"
 
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
-msgstr "&Power user instellingen"
+msgstr "&Power user standaarden"
 
 #. Resource IDs: (32780)
 msgid "&Previous Difference"
@@ -1224,7 +1261,7 @@ msgstr "(kopie)"
 
 #. Resource IDs: (277)
 msgid "(create branch)"
-msgstr "(creëer tak)"
+msgstr "(maak tak)"
 
 #. Resource IDs: (276)
 msgid "(created)"
@@ -1492,7 +1529,7 @@ msgid ""
 "ActiveX objects cannot be saved while exiting Windows!\n"
 "Discard all changes to %1?"
 msgstr ""
-"ActiveX objecten kunnen niet opgeslagen worden als Windows wordt afgesloten!\n"
+"ActiveX objecten kunnen niet opgeslagen worden tijdens het afsluiten van Windows!\n"
 "Alle wijzigingen in %1 weggooien?"
 
 #. Resource IDs: (155, 209, 229)
@@ -1887,22 +1924,22 @@ msgstr "Automatisch hernoemen"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
-msgstr "Behalve na conflicten"
+msgstr "Automatisch sluiten, behalve na conflicten"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no errors"
-msgstr "Behalve na fouten"
+msgstr "Automatisch sluiten, behalve na fouten"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no merges, adds or deletes"
-msgstr "Behalve na samenvoegen, verwijderen of toevoegen"
+msgstr "Automatisch sluiten, behalve na samenvoegen, verwijderen of toevoegen"
 
 #. Resource IDs: (195)
 msgid ""
 "Auto-complete suggests words (usually class or member names)\r\n"
 "from the files that you have changed as you type a log message."
 msgstr ""
-"Autoaanvullen stelt woorden voor (meestal class of member namen)\r\n"
+"Automatisch aanvullen stelt woorden voor (meestal class of member namen)\r\n"
 "uit de gewijzigde bestanden bij het invoeren van een logboekboodschap."
 
 #. Resource IDs: (438)
@@ -2111,7 +2148,7 @@ msgstr "Annuleren"
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
-msgstr "Afbreken van TortoiseSVN Verklaren..."
+msgstr "TortoiseSVN Verklaren wordt afgebroken..."
 
 #. Resource IDs: (270)
 msgid "Cancelling operation..."
@@ -6097,7 +6134,7 @@ msgstr ""
 
 #. Resource IDs: (13)
 msgid "Opens the repository browser to tweak the repository online"
-msgstr "Opent de archief-verkenner om het archief online te tweaken"
+msgstr "Opent de archief-verkenner om het archief direct te tweaken"
 
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
@@ -6468,7 +6505,7 @@ msgstr "Eigenschap %1!s! : Werkbasis, Revisie %2!ld!"
 #. Resource IDs: (151)
 #, c-format
 msgid "Property %s : remote"
-msgstr "Eigenschap %s : remote"
+msgstr "Eigenschap %s : archief"
 
 #. Resource IDs: (151)
 #, c-format
@@ -6744,7 +6781,7 @@ msgstr "Verhuizen bezig..."
 
 #. Resource IDs: (207)
 msgid "Remote property status"
-msgstr "Remote status eigenschappen"
+msgstr "Status van eigenschappen in archief"
 
 #. Resource IDs: (208)
 msgid "Remote revision"
@@ -6752,11 +6789,11 @@ msgstr "Revisie in archief"
 
 #. Resource IDs: (63, 207)
 msgid "Remote status"
-msgstr "Remote status"
+msgstr "Status in archief"
 
 #. Resource IDs: (207)
 msgid "Remote text status"
-msgstr "Remote tekst status"
+msgstr "Tekst status in archief"
 
 #. Resource IDs: (1332, 1470)
 msgid "Remove"
@@ -9673,7 +9710,7 @@ msgstr "Wacht op het beëindigen van het script"
 
 #. Resource IDs: (280)
 msgid "Want to go offline?"
-msgstr "Wilt u offline werken?"
+msgstr "Wilt u werken zonder verbinding?"
 
 #. Resource IDs: (88)
 msgid "Warning"
@@ -10110,8 +10147,8 @@ msgid ""
 "ask repository first if 'online' -\n"
 "work entirely from cache if 'offline'"
 msgstr ""
-"eerst archief vragen indien 'online' -\n"
-"alleen cache gebruiken indien 'offline'"
+"eerst archief vragen indien 'verbonden' -\n"
+"alleen cache gebruiken indien 'niet verbonden'"
 
 #. Resource IDs: (278)
 msgid "at this revision"
@@ -10411,7 +10448,7 @@ msgstr "versperd"
 
 #. Resource IDs: (601)
 msgid "offline"
-msgstr "offline"
+msgstr "niet verbonden"
 
 #. Resource IDs: (3845)
 #, c-format
@@ -10420,7 +10457,7 @@ msgstr "op %1"
 
 #. Resource IDs: (601)
 msgid "online"
-msgstr "online"
+msgstr "verbonden"
 
 #. Resource IDs: (1406, 1407)
 msgid "or"
@@ -10628,7 +10665,7 @@ msgstr "gewisseld:"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
-msgstr "tijdelijk offline"
+msgstr "tijdelijk niet verbonden"
 
 #. Resource IDs: (65535)
 msgid "text [token count]: "
