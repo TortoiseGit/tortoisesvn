@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-13 23:30-0000\n"
+"PO-Revision-Date: 2010-02-13 23:55-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3103,7 +3103,7 @@ msgstr "Este é o esquema de cores por defeito, mas podes alterar essas cores us
 
 #. (title)
 msgid "Update Your Working Copy With Changes From Others"
-msgstr ""
+msgstr "Actualizar a Tua Cópia de Trabalho Com Alterações de Outros"
 
 #. (primary)
 #. (primary)
@@ -3116,45 +3116,45 @@ msgstr ""
 
 #. (title)
 msgid "Progress dialog showing finished update"
-msgstr ""
+msgstr "Caixa de diálogo de progresso mostrando uma actualização finalizada."
 
 #. (para)
 msgid "<placeholder-1/> Periodically, you should ensure that changes done by others get incorporated in your local working copy. The process of getting changes from the server to your local copy is known as <emphasis>updating</emphasis>. Updating may be done on single files, a set of selected files, or recursively on entire directory hierarchies. To update, select the files and/or directories you want, <action>right click</action> and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> in the explorer context menu. A window will pop up displaying the progress of the update as it runs. Changes done by others will be merged into your files, keeping any changes you may have done to the same files. The repository is <emphasis>not</emphasis> affected by an update."
-msgstr ""
+msgstr "<placeholder-1/> Periodicamente, deverás garantir que as alterações feitas por outros são incorporadas na tua cópia de trabalho local. O processo de obter as alterações do servidor para a cópia local é conhecido como <emphasis>actualizando</emphasis>. Actualização pode ser feita em ficheiros isolados, um conjunto de ficheiros seleccionados, recursivamente numa estrutura de hierarquia de pastas. Para actualizar selecciona os ficheiros e/ou pastas que desejas, <action>clica com o botão direito</action> e selecciona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar</guimenuitem></menuchoice> no menu de contexto do explorador. Uma janela aparecerá mostrando o progresso da actualização, enquanto ela decorre. As alterações feitas por outros serão fundidas com os teus ficheiros, mantendo quaisquer alterações que tenhas feito nos mesmos. O repositório <emphasis>não</emphasis> é afectado pela actualização."
 
 #. (para)
 msgid "New item added to your WC."
-msgstr ""
+msgstr "Novo item adicionado à tua CT."
 
 #. (para)
 msgid "Redundant item deleted from your WC, or missing item replaced in your WC."
-msgstr ""
+msgstr "Item redundante apagado da tua CT, ou um item em falta substituído na tua CT."
 
 #. (term)
 #. (term)
 msgid "Green"
-msgstr ""
+msgstr "Verde"
 
 #. (para)
 msgid "Changes from repository successfully merged with your local changes."
-msgstr ""
+msgstr "Alterações do repositório fundidas com sucesso, com tuas alterações locais."
 
 #. (term)
 #. (term)
 msgid "Bright red"
-msgstr ""
+msgstr "Vermelho brilhante"
 
 #. (para)
 msgid "Changes from repository merged with local changes, resulting in conflicts which you need to resolve."
-msgstr ""
+msgstr "Alterações do repositório fundidas com as alterações locais, resultando em conflitos que é necessário resolver."
 
 #. (para)
 msgid "Unchanged item in your WC updated with newer version from the repository."
-msgstr ""
+msgstr "Item não alterado, na tua CT, actualizado com uma nova versão do repositório."
 
 #. (para)
 msgid "The progress dialog uses colour coding to highlight different update actions <placeholder-1/>"
-msgstr ""
+msgstr "A caixa de diálogo de progresso usa um código de cores para evidênciar diferentes acções de actualização <placeholder-1/>"
 
 #. (para)
 msgid "If you get any <emphasis>conflicts</emphasis> during an update (this can happen if others changed the same lines in the same file as you did and those changes don't match) then the dialog shows those conflicts in red. You can <action>double click</action> on these lines to start the external merge tool to resolve the conflicts."
