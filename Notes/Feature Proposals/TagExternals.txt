@@ -36,6 +36,8 @@ There are two possible work flows:
 
 (1) Modify the external properties in the working copy,
     then create the branch/tag from the working copy.
+	After the branch/tag is successfully created, the
+	external property changes are reverted.
 (2) branch/tag from a revision or HEAD in the repository,
     then change the svn:external properties in the
     repository, causing a new revision for each changed
