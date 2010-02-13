@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-12 00:32-0000\n"
+"PO-Revision-Date: 2010-02-13 23:11-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3002,7 +3002,7 @@ msgstr "<placeholder-1/> O TortoiseSVN inclui um verificador de sintaxe que te a
 
 #. (para)
 msgid "The log message window also includes a filename and function auto-completion facility. This uses regular expressions to extract class and function names from the (text) files you are committing, as well as the filenames themselves. If a word you are typing matches anything in the list (after you have typed at least 3 characters, or pressed <keycap>Ctrl+Space</keycap>), a drop-down appears allowing you to select the full name. The regular expressions supplied with TortoiseSVN are held in the TortoiseSVN installation <filename>bin</filename> folder. You can also define your own regexes and store them in <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Of course your private autolist will not be overwritten when you update your installation of TortoiseSVN. If you are unfamiliar with regular expressions, take a look at the introduction at <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, and the online documentation and tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "A janela de mensagem de registo também inclui a funcionalidade de auto conclusão de nomes de ficheiros e funções. Esta funcionalidade usa expressões regulares para extrair os nomes de funções e classes, a partir dos ficheiros (de texto) que estás a submeter tal como os nomes dos ficheiros em si. Se a palavra que estás a escrever condiz com qualquer entrada na lista (depois de escreveres pelo menos 3 caracteres, ou premido <keycap>Ctrl+Space</keycap>), uma lista de termos aparecerá para te permitir seleccionar o nome completo. As expressões regulares fornecidas com o TortoiseSVN estão armazenadas na pasta <filename>bin</filename> da instalação do TortoiseSVN. Podes também definir as tuas próprias regexes e armazena-las em <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Está claro que a tua auto lista privada não será reescrita quando actualizas a tua instalação do TortoiseSVN. Se não estás familiarizado com expressões regulares, dá uma vista de olhos na introdução em <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://pt.wikipedia.org/wiki/Expressão_regular</citetitle></ulink>, e o tutorial e documentação online em <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
 #. (para)
 msgid "Getting the regex just right can be tricky, so to help you sort out a suitable expression there is a test dialog which allows you to enter an expression and then type in filenames to test it against. Start it from the command prompt using the command <literal>TortoiseProc.exe /command:autotexttest</literal>"
@@ -3030,7 +3030,7 @@ msgstr "Propriedades de Pastas Especiais"
 
 #. (para)
 msgid "There are several special folder properties which can be used to help give more control over the formatting of commit log messages and the language used by the spellchecker module. Read <xref linkend=\"tsvn-dug-propertypage\"/> for further information."
-msgstr ""
+msgstr "Existem várias propriedades de pastas especiais que podem ser usadas para dar mais controlo sobre a formatação das mensagens de registo de formatação, e a língua usada para o módulo de verificação ortográfico. Ler <xref linkend=\"tsvn-dug-propertypage\"/> para mais informação."
 
 #. (title)
 msgid "Integration with Bug Tracking Tools"
