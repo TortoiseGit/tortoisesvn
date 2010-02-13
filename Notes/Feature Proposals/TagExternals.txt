@@ -57,7 +57,15 @@ Possible Development Stages
     to detect whether an external points to HEAD
 	or is already fixed. And allow modifying
 	the property to set a fixed revision.
-(2) Find the HEAD revisions of all found externals
+	The parser class also has to store the original
+	property value to undo the changes after using them.
+	This is needed since we can't use revert: a revert would
+	also revert other property changes of the folder, not
+	just the svn:externals property.
+(2) Find the HEAD revisions of all found externals. This 
+    can be done by crawling the working copy and the
+	externals within and finding the highest 
+	'last committed revision'.
 (3) Extend the branch/tag dialog with the new controls
     and a new dialog to select which external to tag.
 (4) Extend the SVNProgressDlg to commit the external
