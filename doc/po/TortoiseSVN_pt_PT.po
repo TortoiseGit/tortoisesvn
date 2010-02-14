@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-13 23:55-0000\n"
+"PO-Revision-Date: 2010-02-14 23:20-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3158,51 +3158,51 @@ msgstr "A caixa de diálogo de progresso usa um código de cores para evidência
 
 #. (para)
 msgid "If you get any <emphasis>conflicts</emphasis> during an update (this can happen if others changed the same lines in the same file as you did and those changes don't match) then the dialog shows those conflicts in red. You can <action>double click</action> on these lines to start the external merge tool to resolve the conflicts."
-msgstr ""
+msgstr "Se tiveres alguns  <emphasis>conflitos</emphasis> durante uma actualização (o que pode acontecer se outros alterarem as mesmas linhas nos mesmos ficheiros que tu alteraste, e essas alterações não condizerem), então a caixa de diálogo mostra esses conflitos a vermelho. Podes efectuar <action>clicar duplo clique</action> nessas linhas para iniciar a ferramenta externa de fusão, para resolver esses conflitos."
 
 #. (para)
 msgid "When the update is complete, the progress dialog shows a summary of the number of items updated, added, removed, conflicted, etc. below the file list. This summary information can be copied to the clipboard using <keycap>Ctrl+C</keycap>."
-msgstr ""
+msgstr "Quando a actualização está concluída a caixa de diálogo de progresso mostra, debaixo da lista de ficheiros, o resumo do números de itens actualizados, adicionados, apagados, em conflito, etc. Esta informação de sumário pode ser copiada para o clipboard usando  <keycap>Ctrl+C</keycap>."
 
 #. (para)
 msgid "The standard Update command has no options and just updates your working copy to the HEAD revision of the repository, which is the most common use case. If you want more control over the update process, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead. This allows you to update your working copy to a specific revision, not only to the most recent one. Suppose your working copy is at revision 100, but you want it to reflect the state which it had in revision 50 - then simply update to revision 50. In the same dialog you can also choose the <firstterm>depth</firstterm> at which to update the current folder. The terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which preserves the existing depth setting. You can also choose whether to ignore any external projects in the update (i.e. projects referenced using <literal>svn:externals</literal>)."
-msgstr ""
+msgstr "O comando de Actualização padrão não tem opções e apenas actualiza a tua cópia de trabalho para a revisão HEAD do repositório, que é o caso de utilização mais comum. Se quiseres mais controlo sobre o processo de actualização deverás usar em alternativa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Atualizar para revisão...</guimenuitem></menuchoice>. Este te permite actualizar a tua cópia de trabalho para uma revisão específica, e não só para a mais recente. Supõem que a tua cópia de trabalho está na revisão 100, mas tu queres que reflicta o estado que tinha na revisão 50 - então simplesmente actualiza para a revisão 50. Na mesma caixa de diálogo também podes escolher a <firstterm>profundidade</firstterm> a que deve ser actualizada a pasta corrente. Os termos usados estão descritos em <xref linkend=\"tsvn-dug-checkout-depth\"/>. A profundidade por defeito é <guilabel>Cópia de trabalho</guilabel>, que preserva a configuração de profundidade existente. Podes também escolher se deves ignorar qualquer projecto externo, na actualização (i.e. projectos referenciados usando <literal>svn:externals</literal>)."
 
 #. (para)
 msgid "If you update a file or folder to a specific revision, you should not make changes to those files. You will get <quote>out of date</quote> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you can rollback to a previous revision from the revision log dialog. Take a look at <xref linkend=\"tsvn-howto-rollback\"/> for further instructions, and alternative methods."
-msgstr ""
+msgstr "Se actualizas um ficheiro ou uma pasta para uma revisão específica não deverás efectuar alterações nos mesmos. Obterás mensagens de erro <quote>desactualizado</quote> quando tentares submete-las! Se quiseres desfazer as alterações efectuadas num ficheiro ou começar de novo a partir de uma revisão anterior, podes rebobinar para uma revisão anterior a partir da caixa de diálogo de registo de revisões. Dá uma vista de olhos em <xref linkend=\"tsvn-howto-rollback\"/> para mais instruções e métodos alternativos."
 
 #. (para)
 msgid "<menuchoice><guimenuitem>Update to Revision</guimenuitem></menuchoice> can occasionally be useful to see what your project looked like at some earlier point in its history. But in general, updating individual files to an earlier revision is not a good idea as it leaves your working copy in an inconsistent state. If the file you are updating has changed name, you may even find that the file just disappears from your working copy because no file of that name existed in the earlier revision. You should also note that the item will show a normal green overlay, so it is indistinguishable from files which are up-to-date."
-msgstr ""
+msgstr "<menuchoice><guimenuitem>Atualizar para revisão</guimenuitem></menuchoice> pode ocasionalmente ser útil para ver qual o aspecto que tinha o teu projecto num ponto anterior da sua história. Mas na generalidade, actualizar ficheiros individuais para uma versão anterior não é uma boa ideia, pelo que deixa a tua cópia de trabalho num estado inconsistente. Se o ficheiro que estás a actualizar mudou de nome, poderás constatar que o mesmo desaparece da tua cópia de trabalho porque, nenhum ficheiro com esse nome existia na revisão anterior. Deves também constatar que o item mostrará uma sobreposição verde normal, pelo que será indistinguível dos ficheiros que estão actualizados."
 
 #. (para)
 msgid "If you simply want a local copy of an old version of a file it is better to use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save revision to...</guimenuitem></menuchoice> command from the log dialog for that file."
-msgstr ""
+msgstr "Se queres simplesmente uma cópia local de uma versão antiga de um ficheiro é melhor utilizar, a partir da caixa de diálogo do registo, o comando <guimenu>Menu Contexto</guimenu><guimenuitem>Guardar revisão em...</guimenuitem></menuchoice> para esse ficheiro."
 
 #. (title)
 msgid "Multiple Files/Folders"
-msgstr ""
+msgstr "Múltiplos Ficheiros/Pastas"
 
 #. (para)
 msgid "If you select multiple files and folders in the explorer and then select <menuchoice><guimenuitem>Update</guimenuitem></menuchoice>, all of those files/folders are updated one by one. TortoiseSVN makes sure that all files/folders which are from the same repository are updated to the exact same revision! Even if between those updates another commit occurred."
-msgstr ""
+msgstr "Se seleccionares múltiplos ficheiro e pastas no explorador e então seleccionares <menuchoice><guimenuitem>Actualizar</guimenuitem></menuchoice>, todos esses ficheiros/pastas são actualizados um por um. O TortoiseSVN garante que todos os ficheiros/pastas que são do mesmo repositório são actualizados exactamente para a mesma revisão! Mesmo que entre essas actualizações outra submissão ocorra."
 
 #. (title)
 msgid "Local File Already Exists"
-msgstr ""
+msgstr "Ficheiro Local Já Existe"
 
 #. (para)
 msgid "Sometimes when you try to update, the update fails with a message to say that there is already a local file of the same name. This typically happens when Subversion tries to checkout a newly versioned file, and finds that an unversioned file of the same name already exists in your working folder. Subversion will never overwrite an unversioned file - it might contain something you are working on, which coincidentally has the same filename as another developer has used for his newly committed file."
-msgstr ""
+msgstr "Por vezes quando tentas actualizar, a actualização falha com a mensagem que diz que já existe um ficheiro local com o mesmo nome. Isto tipicamente ocorre quando o Subversion tenta SVN exportar um ficheiro versionado recentemente e, descobre que um ficheiro, não versionado, com o mesmo nome já existe na pasta de trabalho. O Subversion nunca reescreve um ficheiro não versionado - pode conter algo importante em que estás a trabalhar e que por coincidência, tem o mesmo nome que outro programador utilizou para o seu ficheiro submetido recentemente."
 
 #. (para)
 msgid "If you get this error message, the solution is simply to rename the local unversioned file. After completing the update, you can check whether the renamed file is still needed."
-msgstr ""
+msgstr "Se obtiveres esta mensagem de erro, a solução é simplesmente renomear o ficheiro local não versionado. Após a conclusão da actualização podes verificar se o ficheiro renomeado é ainda necessário."
 
 #. (para)
 msgid "If you keep getting error messages, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice> instead to list all the problem files. That way you can deal with them all at once."
-msgstr ""
+msgstr "Se continuares a obter mensagens de erro, usa então <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verificar alterações</guimenuitem></menuchoice> para listares todos os ficheiros com problemas. Desta maneira poderás tratá-los todos de uma vez só."
 
 #. (title)
 msgid "Resolving Conflicts"
