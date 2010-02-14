@@ -13,6 +13,7 @@
 	</target>
 	<target name="OpenSSL" depends="clean">
 		<delete file="..\..\..\common\openssl\del.bat" if="${file::exists('..\..\..\common\openssl\del.bat')}" />
+		<copy file="e_os.h" tofile="..\..\..\common\openssl\e_os.h" overwrite="true" />
     <if test="${platform == 'win32'}">
 			<exec program="perl" workingdir="..\..\..\common\openssl">
 				<arg value="Configure" />
