@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-30 22:10+0100\n"
+"PO-Revision-Date: 2010-02-14 21:55+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2392,6 +2392,10 @@ msgstr "Попис измена:"
 msgid "Changes made (double-click on file for diff):"
 msgstr "Измењено (двоструки клик на фајл за разл):"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "Измена екстернала према фиксној ревизији"
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "Преузи&мање..."
@@ -2407,6 +2411,10 @@ msgstr "Провера за ажурирање"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Провера за ажурирање..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr "Провера екстернала према знаку"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2920,10 +2928,6 @@ msgstr "Копирај %s"
 #, c-format
 msgid "Copy %s to %s, Revision %s"
 msgstr "Копирај %s на %s, Ревизија %s"
-
-#. Resource IDs: (142)
-msgid "Copy (Branch / Tag)"
-msgstr "Копирај (грана / знак)"
 
 #. Resource IDs: (78)
 msgid "Copy - TortoiseSVN"
@@ -6012,6 +6016,10 @@ msgstr "Није доступна ниједна порука о грешци."
 msgid "No error occurred."
 msgstr "Грешка се није појавила."
 
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "Разлике нису нађене"
+
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
 msgstr "Ни један фајл или именик  није измењен. ТортоисеСВН нема ништа да врати!"
@@ -6523,6 +6531,10 @@ msgstr "Молим причекајте док одустајем..."
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
 msgstr "Молим причекајте док се добију разлике..."
+
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "Молим причекајте док се покупе разлике..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -9269,6 +9281,10 @@ msgstr ""
 "%s\r\n"
 "злиб %s"
 
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "ТортоисеСВН аутоматско урезивање: измењени екстернали према фиксној ревизији."
+
 #. Resource IDs: (98)
 #, c-format
 msgid ""
@@ -11032,6 +11048,10 @@ msgstr "речи ознаке:"
 msgid "words [uncompressed]: "
 msgstr "речи [без сажимања]"
 
+#. Resource IDs: (142)
+msgid "y"
+msgstr "у"
+
 #. Resource IDs: (245)
 msgid "year"
 msgstr "година"
@@ -11044,6 +11064,8 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{БагТрек}"
 
+#~ msgid "Copy (Branch / Tag)"
+#~ msgstr "Копирај (грана / знак)"
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Аутор:                                    Стефан Куенг"
 #~ msgid "Automatically check for &newer versions every week"
