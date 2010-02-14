@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1f57ea4b-9e3c-4a34-b243-95ed3e468b6d}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{76ae7737-7f06-4d70-8f73-cc12b07119cc}</UniqueIdentifier>
+      <UniqueIdentifier>{d1bf42f4-7160-4696-84ca-6f1511b821c9}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl</Extensions>
     </Filter>
     <Filter Include="Resource Files">
-      <UniqueIdentifier>{43e66915-db90-4d29-b1b3-bfa37ee80429}</UniqueIdentifier>
+      <UniqueIdentifier>{6b9a0ecc-33ab-4440-8235-4509faaaf952}</UniqueIdentifier>
       <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
     </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{ebad961b-e302-474d-8a3e-d1b581ca4c72}</UniqueIdentifier>
-      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
-    </Filter>
     <Filter Include="zlib">
-      <UniqueIdentifier>{9863e1b7-1468-428f-a5d6-360bd76bf034}</UniqueIdentifier>
+      <UniqueIdentifier>{abf3f6a9-e8da-4e34-94b9-fc279f3f854d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -192,12 +192,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="chglog.txt" />
     <None Include="res\CrashRpt.ico">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="zlib\readme.txt">
       <Filter>zlib</Filter>
     </None>
+    <None Include="chglog.txt" />
   </ItemGroup>
 </Project>

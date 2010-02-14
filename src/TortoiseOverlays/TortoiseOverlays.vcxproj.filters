@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{990a77c4-73c7-4b0a-9506-1b1bae60d66a}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{cb1b466b-57db-41ff-9d85-c6c0cb006e1e}</UniqueIdentifier>
+      <UniqueIdentifier>{173b79ac-d357-46ca-a5b7-6bd4890e7c88}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc</Extensions>
     </Filter>
     <Filter Include="Resource Files">
-      <UniqueIdentifier>{130c90a2-eee0-41fa-8977-ea9088431fc3}</UniqueIdentifier>
+      <UniqueIdentifier>{a0195d36-13b7-4bac-a0c6-5aee9ecef1b1}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest</Extensions>
     </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{6e9da294-a727-481b-bade-219d218f301c}</UniqueIdentifier>
-      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
-    </Filter>
     <Filter Include="WiX">
-      <UniqueIdentifier>{e3f92b99-8228-4436-bfec-033e52e6f157}</UniqueIdentifier>
+      <UniqueIdentifier>{f814462b-388f-49c6-92bb-4bcb22a8f7cd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -35,14 +35,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Includes.wxi">
-      <Filter>WiX</Filter>
+    <None Include="ShellExt.def">
+      <Filter>Source Files</Filter>
     </None>
     <None Include="resource.rc2">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="ShellExt.def">
-      <Filter>Source Files</Filter>
+    <None Include="Includes.wxi">
+      <Filter>WiX</Filter>
     </None>
     <None Include="TortoiseOverlaysDir.wxi">
       <Filter>WiX</Filter>

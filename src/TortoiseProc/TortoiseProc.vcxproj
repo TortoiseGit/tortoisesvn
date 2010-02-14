@@ -63,23 +63,23 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Template|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <_ProjectFileVersion>10.0.21006.1</_ProjectFileVersion>
+    <_ProjectFileVersion>10.0.30128.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\bin\Debug\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\obj\TortoiseProc\Debug\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
@@ -92,24 +92,6 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\bin\Release64\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\obj\TortoiseProc\Release64\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
-    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
-    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
-    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
-    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" />
-    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" />
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Template|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Template|x64'" />
-    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Template|x64'" />
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
@@ -118,7 +100,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext\boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\crashrpt;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-SASL\include;..\..\..\common\openssl\inc32;.\RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../ext/apr-util/include;../../ext/apr-util/xml/expat/lib;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;../../ext/boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\crashrpt;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;../../ext/cyrus-sasl/include;../../../common/openssl/inc32;.\RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;SVN_DEBUG;ENABLE_NLS;THESAURUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <ExceptionHandling>Async</ExceptionHandling>
@@ -155,7 +137,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext\boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\crashrpt;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-SASL\include;..\..\..\common\openssl\inc32;.\RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../ext/apr-util/include;../../ext/apr-util/xml/expat/lib;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;../../ext/boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\crashrpt;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;../../ext/cyrus-sasl/include;../../../common/openssl/inc32;.\RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN64;_WINDOWS;_DEBUG;SVN_DEBUG;ENABLE_NLS;THESAURUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <ExceptionHandling>Async</ExceptionHandling>
@@ -173,7 +155,7 @@
       <AdditionalIncludeDirectories>$(IntDir);..\TortoiseShell;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;shell32.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;../../ext/Subversion\debug_x64\libsvn_repos.lib;../../ext/Subversion\debug_x64\libsvn_diff.lib;../../ext/Subversion\debug_x64\libsvn_fs.lib;../../ext/Subversion\debug_x64\libsvn_fs_fs.lib;../../ext/Subversion\debug_x64\libsvn_fs_util.lib;../../ext/Subversion\debug_x64\libsvn_ra_neon.lib;../../ext/Subversion\debug_x64\libsvn_ra_serf.lib;../../ext/Subversion\debug_x64\libsvn_ra_local.lib;../../ext/Subversion\debug_x64\libsvn_ra.lib;../../ext/Subversion\debug_x64\libsvn_ra_svn.lib;../../ext/neon\debug_x64\libneon.lib;../../ext/serf\debug_x64\libserf.lib;../../ext/Subversion\debug_x64\libsvn_wc.lib;../../ext/Subversion\debug_x64\libsvn_subr.lib;../../ext/Subversion\debug_x64\libsvn_client.lib;../../ext/Subversion\debug_x64\libsvn_delta.lib;../../ext/apr\debug_x64\libapr_tsvn.lib;../../ext/apr-util\debug_x64\libaprutil_tsvn.lib;../../ext/apr-util\xml\expat\lib\debug_x64\xml.lib;../../ext/libintl/debug_x64/lib/intl3_tsvn.lib;../../ext/cyrus-SASL\debug_x64\libsasl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;shell32.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;../../ext/Subversion\debug_x64\libsvn_repos.lib;../../ext/Subversion\debug_x64\libsvn_diff.lib;../../ext/Subversion\debug_x64\libsvn_fs.lib;../../ext/Subversion\debug_x64\libsvn_fs_fs.lib;../../ext/Subversion\debug_x64\libsvn_fs_util.lib;../../ext/Subversion\debug_x64\libsvn_ra_neon.lib;../../ext/Subversion\debug_x64\libsvn_ra_serf.lib;../../ext/Subversion\debug_x64\libsvn_ra_local.lib;../../ext/Subversion\debug_x64\libsvn_ra.lib;../../ext/Subversion\debug_x64\libsvn_ra_svn.lib;../../ext/neon\debug_x64\libneon.lib;../../ext/serf\debug_x64\libserf.lib;../../ext/Subversion\debug_x64\libsvn_wc.lib;../../ext/Subversion\debug_x64\libsvn_subr.lib;../../ext/Subversion\debug_x64\libsvn_client.lib;../../ext/Subversion\debug_x64\libsvn_delta.lib;../../ext/apr\debug_x64\libapr_tsvn.lib;../../ext/apr-util\debug_x64\libaprutil_tsvn.lib;../../ext/apr-util\xml\expat\lib\debug_x64\xml.lib;../../ext/libintl/release_x64/lib/intl3_tsvn.lib;../../ext/cyrus-SASL\debug_x64\libsasl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>shell32;msvcrt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <DelayLoadDLLs>%(DelayLoadDLLs)</DelayLoadDLLs>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -193,7 +175,7 @@
       <Optimization>MinSpace</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
-      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext\boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\crashrpt;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-SASL\include;..\..\..\common\openssl\inc32;.\RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../ext/apr-util/include;../../ext/apr-util/xml/expat/lib;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;../../ext/boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\crashrpt;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;../../ext/cyrus-sasl/include;../../../common/openssl/inc32;.\RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;THESAURUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MinimalRebuild>false</MinimalRebuild>
@@ -237,7 +219,7 @@
       <Optimization>MinSpace</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
-      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext\boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\crashrpt;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-SASL\include;..\..\..\common\openssl\inc32;.\RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../ext/apr-util/include;../../ext/apr-util/xml/expat/lib;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;../../ext/boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\crashrpt;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;../../ext/cyrus-sasl/include;../../../common/openssl/inc32;.\RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN64;_WINDOWS;NDEBUG;THESAURUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MinimalRebuild>false</MinimalRebuild>
@@ -271,6 +253,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Utils\accHelper.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="AppUtils.cpp" />
     <ClCompile Include="..\Utils\BugTraqAssociations.cpp" />
     <ClCompile Include="..\TSVNCache\CacheInterface.cpp" />
@@ -292,6 +284,7 @@
     </ClCompile>
     <ClCompile Include="..\Utils\Hooks.cpp" />
     <ClCompile Include="..\Utils\JumpListHelpers.cpp" />
+    <ClCompile Include="..\Utils\ListViewAccServer.cpp" />
     <ClCompile Include="LogFile.cpp" />
     <ClCompile Include="..\Utils\PathUtils.cpp" />
     <ClCompile Include="..\Utils\PathWatcher.cpp" />
@@ -311,6 +304,8 @@
     <ClCompile Include="..\Svn\TSVNPath.cpp" />
     <ClCompile Include="..\Utils\UnicodeUtils.cpp" />
     <ClCompile Include="..\Utils\Win7.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\AeroControls.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\AeroGlass.cpp" />
     <ClCompile Include="..\Utils\MiscUI\Balloon.cpp" />
     <ClCompile Include="..\Utils\MiscUI\BrowseFolder.cpp" />
     <ClCompile Include="..\Utils\MiscUI\BufferDC.cpp" />
@@ -510,6 +505,7 @@
     <ClCompile Include="..\SVN\SVNDataObject.cpp" />
     <ClCompile Include="..\Svn\SVNDiff.cpp" />
     <ClCompile Include="..\SVN\SVNError.cpp" />
+    <ClCompile Include="..\SVN\SVNExternals.cpp" />
     <ClCompile Include="..\SVN\SVNGlobal.cpp" />
     <ClCompile Include="..\Svn\SVNHelpers.cpp" />
     <ClCompile Include="..\Svn\SVNInfo.cpp" />
@@ -558,6 +554,7 @@
     <ClCompile Include="MergeAllDlg.cpp" />
     <ClCompile Include="Commands\MergeCommand.cpp" />
     <ClCompile Include="MergeWizard.cpp" />
+    <ClCompile Include="MergeWizardBasePage.cpp" />
     <ClCompile Include="MergeWizardOptions.cpp" />
     <ClCompile Include="MergeWizardReintegrate.cpp" />
     <ClCompile Include="MergeWizardRevRange.cpp" />
@@ -579,6 +576,7 @@
     <ClCompile Include="Settings\SetProxyPage.cpp" />
     <ClCompile Include="Settings\SetSavedDataPage.cpp" />
     <ClCompile Include="Settings\Settings.cpp" />
+    <ClCompile Include="Settings\SettingsAdvanced.cpp" />
     <ClCompile Include="Settings\SettingsColors.cpp" />
     <ClCompile Include="Settings\SettingsLogCaches.cpp" />
     <ClCompile Include="Settings\SettingsProgsDiff.cpp" />
@@ -682,6 +680,7 @@
     <ClCompile Include="Commands\ConflictEditorCommand.cpp" />
     <ClCompile Include="EditPropConflictDlg.cpp" />
     <ClCompile Include="TreeConflictEditorDlg.cpp" />
+    <ClCompile Include="Commands\EditFileCommand.cpp" />
     <ClCompile Include="ConflictResolveDlg.cpp" />
     <ClCompile Include="CreateChangelistDlg.cpp" />
     <ClCompile Include="FileDiffDlg.cpp" />
@@ -709,6 +708,7 @@
     <ClInclude Include="AppUtils.h" />
     <ClInclude Include="..\Utils\auto_buffer.h" />
     <ClInclude Include="..\Utils\BugTraqAssociations.h" />
+    <ClInclude Include="..\Utils\ClipboardHelper.h" />
     <ClInclude Include="..\Utils\CmdLineParser.h" />
     <ClInclude Include="..\Utils\CmdUrlParser.h" />
     <ClInclude Include="Colors.h" />
@@ -721,6 +721,7 @@
     <ClInclude Include="..\Utils\HighResClock.h" />
     <ClInclude Include="..\Utils\Hooks.h" />
     <ClInclude Include="..\Utils\JumpListHelpers.h" />
+    <ClInclude Include="..\Utils\ListViewAccServer.h" />
     <ClInclude Include="LogFile.h" />
     <ClInclude Include="..\Utils\PathUtils.h" />
     <ClInclude Include="..\Utils\PathWatcher.h" />
@@ -732,6 +733,7 @@
     <ClInclude Include="..\Utils\QuickHashSet.h" />
     <ClInclude Include="..\Utils\RegHistory.h" />
     <ClInclude Include="..\Utils\registry.h" />
+    <ClInclude Include="..\Utils\SelectFileFilter.h" />
     <ClInclude Include="..\Utils\ShellUpdater.h" />
     <ClInclude Include="..\Utils\SoundUtils.h" />
     <ClInclude Include="..\Utils\stdex_vector.h" />
@@ -744,6 +746,8 @@
     <ClInclude Include="..\Svn\TSVNPath.h" />
     <ClInclude Include="..\Utils\UnicodeUtils.h" />
     <ClInclude Include="..\Utils\Win7.h" />
+    <ClInclude Include="..\Utils\MiscUI\AeroControls.h" />
+    <ClInclude Include="..\Utils\MiscUI\AeroGlass.h" />
     <ClInclude Include="..\Utils\MiscUI\Balloon.h" />
     <ClInclude Include="..\Utils\MiscUI\BrowseFolder.h" />
     <ClInclude Include="..\Utils\MiscUI\BufferDC.h" />
@@ -797,6 +801,7 @@
     <ClInclude Include="..\SVN\SVNDataObject.h" />
     <ClInclude Include="..\Svn\SVNDiff.h" />
     <ClInclude Include="..\SVN\SVNError.h" />
+    <ClInclude Include="..\SVN\SVNExternals.h" />
     <ClInclude Include="..\SVN\SVNGlobal.h" />
     <ClInclude Include="..\Svn\SVNHelpers.h" />
     <ClInclude Include="..\Svn\SVNInfo.h" />
@@ -814,6 +819,7 @@
     <ClInclude Include="AboutDlg.h" />
     <ClInclude Include="Commands\AutoTextTestCommand.h" />
     <ClInclude Include="AutoTextTestDlg.h" />
+    <ClInclude Include="BstrSafeVector.h" />
     <ClInclude Include="Commands\CatCommand.h" />
     <ClInclude Include="Commands\CrashCommand.h" />
     <ClInclude Include="Commands\CreateRepositoryCommand.h" />
@@ -871,6 +877,7 @@
     <ClInclude Include="Settings\SetProxyPage.h" />
     <ClInclude Include="Settings\SetSavedDataPage.h" />
     <ClInclude Include="Settings\Settings.h" />
+    <ClInclude Include="Settings\SettingsAdvanced.h" />
     <ClInclude Include="Settings\SettingsColors.h" />
     <ClInclude Include="Settings\SettingsLogCaches.h" />
     <ClInclude Include="Settings\SettingsProgsDiff.h" />
@@ -976,6 +983,7 @@
     <ClInclude Include="Commands\ConflictEditorCommand.h" />
     <ClInclude Include="EditPropConflictDlg.h" />
     <ClInclude Include="TreeConflictEditorDlg.h" />
+    <ClInclude Include="Commands\EditFileCommand.h" />
     <ClInclude Include="ConflictResolveDlg.h" />
     <ClInclude Include="CreateChangelistDlg.h" />
     <ClInclude Include="FileDiffDlg.h" />
@@ -998,6 +1006,7 @@
   <ItemGroup>
     <None Include="..\Resources\actionadded.ico" />
     <None Include="..\Resources\actiondeleted.ico" />
+    <None Include="..\Resources\actionmerged.ico" />
     <None Include="..\Resources\actionmodified.ico" />
     <None Include="..\Resources\actionreplaced.ico" />
     <None Include="..\Resources\AddBackground.ico" />
@@ -1038,8 +1047,8 @@
     <None Include="..\Resources\lineadded.ico" />
     <None Include="..\Resources\lineconflicted.ico" />
     <None Include="..\Resources\lineremoved.ico" />
-    <None Include="..\Resources\link.ico" />
     <None Include="link.ico" />
+    <None Include="..\Resources\link.ico" />
     <None Include="..\Resources\LockBackground.ico" />
     <None Include="..\Resources\logfilter.ico" />
     <None Include="..\Resources\lookandfeel.ico" />
@@ -1127,31 +1136,24 @@
   <ItemGroup>
     <ProjectReference Include="..\..\ext\ResizableLib\ResizableLib.vcxproj">
       <Project>{4be529fb-c2f2-49f7-a897-054b955564cf}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\AsyncFramework\AsyncFramework.vcxproj">
       <Project>{4fea9603-17c9-4254-82e2-761d99a3a519}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\IBugTraqProvider\IBugTraqProvider.vcxproj">
       <Project>{2c879469-db8f-4bf0-b016-ae864d2a7bbc}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\LogCache\Access\LogCacheAccessLib.vcxproj">
       <Project>{dd9856a3-e398-4367-c817-e4771ae1deca}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\LogCache\Containers\LogCacheContainers.vcxproj">
       <Project>{4034f594-df25-4b3e-92f8-2795c263b483}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\LogCache\LogCacheLib.vcxproj">
       <Project>{bd0854a3-e300-4e57-8c17-e4771ae1ca01}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\LogCache\Streams\LogCacheStreamsLib.vcxproj">
       <Project>{f0d5506c-bb6b-43a7-a4ef-d4826f398185}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

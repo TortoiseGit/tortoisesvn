@@ -1,263 +1,194 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Commands">
-      <UniqueIdentifier>{2dd8eb1b-2b01-40dd-9c2c-c9c8b890931d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\%28Un%29Ignore">
-      <UniqueIdentifier>{ed473293-c7f7-40bc-a27a-84998bc1d18d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\%28Un%29Lock">
-      <UniqueIdentifier>{c3d35c40-4788-4a63-b3f8-c48511c2402a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\About">
-      <UniqueIdentifier>{d898cbe6-ffd6-42e6-807a-4e935089d4a2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Add">
-      <UniqueIdentifier>{71682b69-4935-4968-a946-580f62cf2f6b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Blame">
-      <UniqueIdentifier>{ff7473df-c924-46eb-bd17-b96a8b7cd6ca}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Checkout">
-      <UniqueIdentifier>{6a61568a-70f1-4329-859c-7ab37f5a7666}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Cleanup">
-      <UniqueIdentifier>{8757da51-1788-455c-bc88-9fdc4ec1439b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Commit">
-      <UniqueIdentifier>{1e2a8002-82c4-42de-9071-39998e29fe39}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\ConflictEditor">
-      <UniqueIdentifier>{21219e9b-436f-4547-ad84-7a251f3c8a33}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Copy">
-      <UniqueIdentifier>{e5c6762e-d1ce-41c5-8b10-0426a6b90781}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\CreatePatch">
-      <UniqueIdentifier>{281e9f8d-2cca-4ead-a6a7-13850e08b35d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\DelUnversioned">
-      <UniqueIdentifier>{41781d39-e5a0-4c00-a021-e30c8ee795c2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Diff">
-      <UniqueIdentifier>{49249fcb-20d4-4502-8498-2c9b61ed08df}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Drop">
-      <UniqueIdentifier>{c0e1a258-3db2-4a7f-aebf-7b42cef23b49}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Export">
-      <UniqueIdentifier>{facb297a-4eb9-43aa-aa1a-886fcc65a035}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Import">
-      <UniqueIdentifier>{5dd49332-8233-4574-aa18-9266eb381e9c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Log">
-      <UniqueIdentifier>{1ac321d8-5205-458b-b8fe-1d2043b7b972}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Merge">
-      <UniqueIdentifier>{b12c8068-7368-4254-ae54-30190d748de2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Misc">
-      <UniqueIdentifier>{248ca2aa-a385-49bd-9367-9fe49a146689}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Paste">
-      <UniqueIdentifier>{a72eaaf3-9696-49e1-871f-2b7e3e5ae2ea}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Properties">
-      <UniqueIdentifier>{a81e8dab-d9a7-4109-b6a2-770c5e3906dd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Relocate">
-      <UniqueIdentifier>{8c32d3ae-7c05-43b7-881f-cc8740b6286d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Remove">
-      <UniqueIdentifier>{b5bfd4ca-2e2b-4b6d-88a4-b2925928513a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Rename">
-      <UniqueIdentifier>{6a1359f0-cb0d-47b1-8c1f-baea30e85601}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\RepoBrowser">
-      <UniqueIdentifier>{17a2d191-cdf2-43e0-ba23-0bedfcd73fee}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\RepoBrowser\Repository Browser">
-      <UniqueIdentifier>{c4392fc7-2d3d-4ac0-9336-21f5f1f940c0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\RepoStatus">
-      <UniqueIdentifier>{3ed51560-4e8a-4ca0-9b9f-1f662d7264fc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Resolve">
-      <UniqueIdentifier>{90627375-9479-4198-ad91-724e5b44e113}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Revert">
-      <UniqueIdentifier>{66f6a9cd-f0a1-48f9-bd71-70dfeedd91e0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\RevisionGraph">
-      <UniqueIdentifier>{5e5950ce-bb91-456c-a805-39f21ea73675}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\RevisionGraph\FullGraph">
-      <UniqueIdentifier>{3888d809-e808-4e29-b6bc-8df3b8a6b574}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\RevisionGraph\Layout">
-      <UniqueIdentifier>{b7575c71-21b3-45c1-a4cd-21a8500985cd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\RevisionGraph\Options">
-      <UniqueIdentifier>{c942fac1-2fd5-435c-9c6f-3806c1f96825}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\RevisionGraph\Options\Copy">
-      <UniqueIdentifier>{eb2f675d-02b0-4ca4-9442-333ad520d7e2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\RevisionGraph\Options\Layout">
-      <UniqueIdentifier>{5e390937-aa3a-4af2-8e22-28769faf34bf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\RevisionGraph\Options\Modification">
-      <UniqueIdentifier>{1c7e06bf-b78f-43bd-a4c2-5975e135d68b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\RevisionGraph\Options\Other">
-      <UniqueIdentifier>{8e3f31d7-9961-4390-95ba-e8d8d79a6eec}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\RevisionGraph\UI">
-      <UniqueIdentifier>{44c151bb-fff3-4801-b56c-e1fb6c139e80}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\RevisionGraph\VisibleGraph">
-      <UniqueIdentifier>{f8eb27a3-0d11-4f06-8c75-55f1b42b22c8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Settings">
-      <UniqueIdentifier>{52457d84-3cdb-4bc3-8244-f8c17c8364ef}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Settings\Settings Dialog">
-      <UniqueIdentifier>{33287cfc-6b47-411b-8a63-ebc5b9afed33}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Switch">
-      <UniqueIdentifier>{4a4f69e7-a3e1-4b9f-b770-18e279fba71f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\Update">
-      <UniqueIdentifier>{8be056b3-4220-4eca-b21b-a5aa6c873b0e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Commands\UpdateCheck">
-      <UniqueIdentifier>{c1ea4e93-ec6e-4c9a-9a84-b26bf1420c1b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{b928ece6-9e4c-414f-b969-39d506ed4a9a}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest</Extensions>
-    </Filter>
-    <Filter Include="Subversion">
-      <UniqueIdentifier>{238f998c-eb41-4854-afe6-d1707b81d965}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utility Dialogs">
-      <UniqueIdentifier>{e941c59b-c7e6-4a8e-8190-4958e191de19}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Utils">
-      <UniqueIdentifier>{33fbbcc8-80ec-4286-ba74-e9caab0f876e}</UniqueIdentifier>
+      <UniqueIdentifier>{b43d1226-6040-4e76-809e-f347f912e5e6}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc</Extensions>
     </Filter>
-    <Filter Include="Utils\3rd Party">
-      <UniqueIdentifier>{84cb715a-c4f3-4a0d-812f-c00dbcb17452}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utils\3rd Party\hunspell">
-      <UniqueIdentifier>{93b10de9-c320-43b7-9848-851e39e3c5e4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utils\3rd Party\TreePropSheet">
-      <UniqueIdentifier>{e6fa7677-e393-4cad-a18b-f346f3cf014e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Utils\General">
-      <UniqueIdentifier>{b1d4718a-ee85-4c9d-a323-ff63eb48630d}</UniqueIdentifier>
+      <UniqueIdentifier>{258c5a47-8dea-488e-94bb-81c5fb1ddffb}</UniqueIdentifier>
     </Filter>
     <Filter Include="Utils\UI">
-      <UniqueIdentifier>{9786957a-2ae5-4b08-bb38-4eaba8a4eeca}</UniqueIdentifier>
+      <UniqueIdentifier>{5a339170-8f29-4df5-8faf-511bd46bc33a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\3rd Party">
+      <UniqueIdentifier>{66d0cf64-f3b7-447b-bde0-2db6edbd3f89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\3rd Party\hunspell">
+      <UniqueIdentifier>{d5e5e600-98a1-4683-bafb-8f319142cf73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\3rd Party\TreePropSheet">
+      <UniqueIdentifier>{bdc9f63d-0b4d-424e-afb3-de546cfa3ad6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Subversion">
+      <UniqueIdentifier>{37f2c83f-3536-43d7-a0b5-7b293d3dcdf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{df0e270d-7498-4fbd-9027-493f90f9f5ad}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest</Extensions>
+    </Filter>
+    <Filter Include="Commands">
+      <UniqueIdentifier>{86ccea12-11fe-4fca-8e96-53604aa35271}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Commit">
+      <UniqueIdentifier>{62a1c666-1e78-4719-bdd9-8fb1cf27013b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\About">
+      <UniqueIdentifier>{543be2e3-b5be-4fe4-84ed-48c9c75574c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Misc">
+      <UniqueIdentifier>{7f1aa5be-56f9-4060-9783-d8475d41bb42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Log">
+      <UniqueIdentifier>{3797f9ad-9035-4287-ad83-63d3cd8d8858}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Checkout">
+      <UniqueIdentifier>{c6d1ca9d-4e1c-4f99-910d-646f6408e197}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Export">
+      <UniqueIdentifier>{78770a56-dfff-4c2a-b407-80aaed764f5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Copy">
+      <UniqueIdentifier>{41787584-b782-4763-a9fc-1752d5c869dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Import">
+      <UniqueIdentifier>{73c96904-bddf-4580-913f-c4865cdebc77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Update">
+      <UniqueIdentifier>{c212a207-7b3c-44e3-8b45-f821adaeb93f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Add">
+      <UniqueIdentifier>{9448d8df-c589-465c-bcc5-dce9aa20f701}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Revert">
+      <UniqueIdentifier>{d2248aa9-4128-43cd-a15a-fad88066bc29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Cleanup">
+      <UniqueIdentifier>{c8a73ef1-ba2a-46db-adbd-acb7d12bbd1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Resolve">
+      <UniqueIdentifier>{ddcab75f-160a-4549-b63e-3b6467853743}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Switch">
+      <UniqueIdentifier>{3a0635d4-121f-49e5-9477-1dae187d9c7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Merge">
+      <UniqueIdentifier>{261d559b-bbde-4712-a4b4-f87753ffe889}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Settings">
+      <UniqueIdentifier>{530dabc0-0f00-4073-90f0-d9de1111ebcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Settings\Settings Dialog">
+      <UniqueIdentifier>{a88c554c-c952-436d-a915-2db60b8d81f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Remove">
+      <UniqueIdentifier>{b4e187cb-38fc-46c7-ac86-4c2d4f69272f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Rename">
+      <UniqueIdentifier>{4572bd59-8a94-4a04-a135-7634abe0ed4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Diff">
+      <UniqueIdentifier>{dc8c2119-0b03-40be-b05e-c06f340e338f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Drop">
+      <UniqueIdentifier>{b228841a-092a-49b6-95f3-6ff7c291dc17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Relocate">
+      <UniqueIdentifier>{e21f8bdc-3670-4b74-8e24-fb9f91bb5e0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\RepoStatus">
+      <UniqueIdentifier>{316c405a-a41e-4017-b102-3d156f18b1f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\RepoBrowser">
+      <UniqueIdentifier>{3c9cc585-84a1-47dd-a4e7-3d348ebacf3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\RepoBrowser\Repository Browser">
+      <UniqueIdentifier>{6151b010-75d0-46c9-8332-d35e42facf34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\%28Un%29Ignore">
+      <UniqueIdentifier>{c9afc6e1-b28c-488c-ae15-afb99f684824}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Blame">
+      <UniqueIdentifier>{4d6a3adc-2320-4875-bb81-ce2217843411}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\CreatePatch">
+      <UniqueIdentifier>{7f48d875-22c8-4aec-b75e-a099e5183057}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\UpdateCheck">
+      <UniqueIdentifier>{a7f0462d-9c6d-45d5-8dde-cee2b442fd1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\RevisionGraph">
+      <UniqueIdentifier>{af2c005b-ffdf-480e-9034-971704c4e319}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\RevisionGraph\Layout">
+      <UniqueIdentifier>{8417e698-4620-4f54-9c57-bf40567401ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\RevisionGraph\FullGraph">
+      <UniqueIdentifier>{60ff4d51-a64c-4c33-8691-b802f4d6a8db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\RevisionGraph\VisibleGraph">
+      <UniqueIdentifier>{b8d288f4-0271-43c8-bdf4-4c4e6c251e8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\RevisionGraph\UI">
+      <UniqueIdentifier>{455cee59-6339-4950-9105-f5a3d3c64d03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\RevisionGraph\Options">
+      <UniqueIdentifier>{3f928579-4cb2-461c-a43a-35696637920c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\RevisionGraph\Options\Layout">
+      <UniqueIdentifier>{5e7cf117-4829-46b5-ab0f-3c64dd1fe1e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\RevisionGraph\Options\Copy">
+      <UniqueIdentifier>{f689567f-7d60-473a-a812-1e7597ae4671}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\RevisionGraph\Options\Modification">
+      <UniqueIdentifier>{e29ca010-3149-4bfd-aa4f-96234ad894d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\RevisionGraph\Options\Other">
+      <UniqueIdentifier>{a9cc2492-ab24-4aa0-abe1-984f0cf4639c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\%28Un%29Lock">
+      <UniqueIdentifier>{8a3fe1bf-5595-43f7-8b1b-4f5e00580198}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Properties">
+      <UniqueIdentifier>{6d3c3206-0d8f-4e3c-89b4-73cf62945407}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\DelUnversioned">
+      <UniqueIdentifier>{354cc845-b10c-4cd1-baaa-ab4c86910caa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Paste">
+      <UniqueIdentifier>{ee60a736-65fc-4f0a-ae89-37f59acc11f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\ConflictEditor">
+      <UniqueIdentifier>{89a90473-eda0-47cb-8f18-402a97146aa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\EditFile">
+      <UniqueIdentifier>{4076806d-97c0-40bb-8913-78a50754d994}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility Dialogs">
+      <UniqueIdentifier>{823260d2-5e90-463c-9302-64f796709e69}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\ext\hunspell\affentry.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\affixmgr.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\csutil.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\dictmgr.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\hashmgr.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\hunspell.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\mythes.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\suggestmgr.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ext\hunspell\utf_info.cxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SVN\SVN.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Svn\SVNAdminDir.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Svn\SVNConfig.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SVN\SVNDataObject.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Svn\SVNDiff.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SVN\SVNError.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SVN\SVNGlobal.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Svn\SVNHelpers.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Svn\SVNInfo.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SVN\SVNLogHelper.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Svn\SVNPrompt.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Svn\SVNProperties.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Svn\SVNRev.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SVN\SVNStatus.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Svn\SVNStatusListCtrl.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SVN\SVNStatusListCtrlHelpers.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SVN\TSVNAuth.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Svn\TSVNPath.cpp">
+    <ClCompile Include="..\Utils\accHelper.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
-    <ClCompile Include="..\TSVNCache\CacheInterface.cpp">
+    <ClCompile Include="AppUtils.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
     <ClCompile Include="..\Utils\BugTraqAssociations.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TSVNCache\CacheInterface.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
     <ClCompile Include="..\Utils\CmdLineParser.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
     <ClCompile Include="..\Utils\CmdUrlParser.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Colors.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
     <ClCompile Include="..\Utils\COMError.cpp">
@@ -277,6 +208,72 @@
     </ClCompile>
     <ClCompile Include="..\Utils\JumpListHelpers.cpp">
       <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\ListViewAccServer.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="LogFile.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\PathUtils.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\PathWatcher.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\PersonalDictionary.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\ProfilingInfo.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectProperties.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\RegHistory.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\Registry.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\ShellUpdater.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\SoundUtils.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\StdioFileT.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\StringUtils.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\SVNTrace.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\SysImageList.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\SysInfo.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\TempFile.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Svn\TSVNPath.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\UnicodeUtils.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\Win7.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\AeroControls.cpp">
+      <Filter>Utils\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\AeroGlass.cpp">
+      <Filter>Utils\UI</Filter>
     </ClCompile>
     <ClCompile Include="..\Utils\MiscUI\Balloon.cpp">
       <Filter>Utils\UI</Filter>
@@ -362,47 +359,32 @@
     <ClCompile Include="..\Utils\MiscUI\XPTheme.cpp">
       <Filter>Utils\UI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\PathUtils.cpp">
-      <Filter>Utils\General</Filter>
+    <ClCompile Include="..\..\ext\hunspell\affentry.cxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\PathWatcher.cpp">
-      <Filter>Utils\General</Filter>
+    <ClCompile Include="..\..\ext\hunspell\affixmgr.cxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\PersonalDictionary.cpp">
-      <Filter>Utils\General</Filter>
+    <ClCompile Include="..\..\ext\hunspell\csutil.cxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\ProfilingInfo.cpp">
-      <Filter>Utils\General</Filter>
+    <ClCompile Include="..\..\ext\hunspell\dictmgr.cxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\RegHistory.cpp">
-      <Filter>Utils\General</Filter>
+    <ClCompile Include="..\..\ext\hunspell\hashmgr.cxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\Registry.cpp">
-      <Filter>Utils\General</Filter>
+    <ClCompile Include="..\..\ext\hunspell\hunspell.cxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\ShellUpdater.cpp">
-      <Filter>Utils\General</Filter>
+    <ClCompile Include="..\..\ext\hunspell\mythes.cxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\SoundUtils.cpp">
-      <Filter>Utils\General</Filter>
+    <ClCompile Include="..\..\ext\hunspell\suggestmgr.cxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\StdioFileT.cpp">
-      <Filter>Utils\General</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\StringUtils.cpp">
-      <Filter>Utils\General</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\SVNTrace.cpp">
-      <Filter>Utils\General</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\SysImageList.cpp">
-      <Filter>Utils\General</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\SysInfo.cpp">
-      <Filter>Utils\General</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\TempFile.cpp">
-      <Filter>Utils\General</Filter>
+    <ClCompile Include="..\..\ext\hunspell\utf_info.cxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClCompile>
     <ClCompile Include="..\Utils\TreePropSheet\PropPageFrame.cpp">
       <Filter>Utils\3rd Party\TreePropSheet</Filter>
@@ -413,59 +395,59 @@
     <ClCompile Include="..\Utils\TreePropSheet\TreePropSheet.cpp">
       <Filter>Utils\3rd Party\TreePropSheet</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\UnicodeUtils.cpp">
-      <Filter>Utils\General</Filter>
+    <ClCompile Include="..\SVN\SVN.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\Win7.cpp">
-      <Filter>Utils\General</Filter>
+    <ClCompile Include="..\Svn\SVNAdminDir.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="AboutDlg.cpp">
-      <Filter>Commands\About</Filter>
+    <ClCompile Include="..\Svn\SVNConfig.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="AddDlg.cpp">
-      <Filter>Commands\Add</Filter>
+    <ClCompile Include="..\SVN\SVNDataObject.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="AppUtils.cpp">
-      <Filter>Utils\General</Filter>
+    <ClCompile Include="..\Svn\SVNDiff.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="AutoTextTestDlg.cpp">
-      <Filter>Commands\Misc</Filter>
+    <ClCompile Include="..\SVN\SVNError.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="Blame.cpp">
-      <Filter>Commands\Blame</Filter>
+    <ClCompile Include="..\SVN\SVNExternals.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="BlameDlg.cpp">
-      <Filter>Commands\Blame</Filter>
+    <ClCompile Include="..\SVN\SVNGlobal.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="ChangedDlg.cpp">
-      <Filter>Commands\RepoStatus</Filter>
+    <ClCompile Include="..\Svn\SVNHelpers.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="CheckForUpdatesDlg.cpp">
-      <Filter>Commands\UpdateCheck</Filter>
+    <ClCompile Include="..\Svn\SVNInfo.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="CheckoutDlg.cpp">
-      <Filter>Commands\Checkout</Filter>
+    <ClCompile Include="..\SVN\SVNLogHelper.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="Colors.cpp">
-      <Filter>Utils\General</Filter>
+    <ClCompile Include="..\Svn\SVNPrompt.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\AboutCommand.cpp">
-      <Filter>Commands\About</Filter>
+    <ClCompile Include="..\Svn\SVNProperties.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\AddCommand.cpp">
-      <Filter>Commands\Add</Filter>
+    <ClCompile Include="..\Svn\SVNRev.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\BlameCommand.cpp">
-      <Filter>Commands\Blame</Filter>
+    <ClCompile Include="..\SVN\SVNStatus.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\CatCommand.cpp">
-      <Filter>Commands\Misc</Filter>
+    <ClCompile Include="..\Svn\SVNStatusListCtrl.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\CheckoutCommand.cpp">
-      <Filter>Commands\Checkout</Filter>
+    <ClCompile Include="..\SVN\SVNStatusListCtrlHelpers.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\CleanupCommand.cpp">
-      <Filter>Commands\Cleanup</Filter>
+    <ClCompile Include="..\SVN\TSVNAuth.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
     <ClCompile Include="Commands\Command.cpp">
       <Filter>Commands</Filter>
@@ -473,170 +455,26 @@
     <ClCompile Include="Commands\CommitCommand.cpp">
       <Filter>Commands\Commit</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\ConflictEditorCommand.cpp">
-      <Filter>Commands\ConflictEditor</Filter>
+    <ClCompile Include="CommitDlg.cpp">
+      <Filter>Commands\Commit</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\CopyCommand.cpp">
-      <Filter>Commands\Copy</Filter>
+    <ClCompile Include="Commands\AboutCommand.cpp">
+      <Filter>Commands\About</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\CreatePatchCommand.cpp">
-      <Filter>Commands\CreatePatch</Filter>
+    <ClCompile Include="AboutDlg.cpp">
+      <Filter>Commands\About</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\DelUnversionedCommand.cpp">
-      <Filter>Commands\DelUnversioned</Filter>
+    <ClCompile Include="AutoTextTestDlg.cpp">
+      <Filter>Commands\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\DiffCommand.cpp">
-      <Filter>Commands\Diff</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\DropCopyAddCommand.cpp">
-      <Filter>Commands\Drop</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\DropCopyCommand.cpp">
-      <Filter>Commands\Drop</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\DropExportCommand.cpp">
-      <Filter>Commands\Drop</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\DropMoveCommand.cpp">
-      <Filter>Commands\Drop</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\ExportCommand.cpp">
-      <Filter>Commands\Export</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\IgnoreCommand.cpp">
-      <Filter>Commands\%28Un%29Ignore</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\ImportCommand.cpp">
-      <Filter>Commands\Import</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\LockCommand.cpp">
-      <Filter>Commands\%28Un%29Lock</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\LogCommand.cpp">
-      <Filter>Commands\Log</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\MergeAllCommand.cpp">
-      <Filter>Commands\Merge</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\MergeCommand.cpp">
-      <Filter>Commands\Merge</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\PasteCopyCommand.cpp">
-      <Filter>Commands\Paste</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\PasteMoveCommand.cpp">
-      <Filter>Commands\Paste</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\PrevDiffCommand.cpp">
-      <Filter>Commands\Diff</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\PropertiesCommand.cpp">
-      <Filter>Commands\Properties</Filter>
+    <ClCompile Include="Commands\CatCommand.cpp">
+      <Filter>Commands\Misc</Filter>
     </ClCompile>
     <ClCompile Include="Commands\RebuildIconCacheCommand.cpp">
       <Filter>Commands\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\RelocateCommand.cpp">
-      <Filter>Commands\Relocate</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\RemoveCommand.cpp">
-      <Filter>Commands\Remove</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\RenameCommand.cpp">
-      <Filter>Commands\Rename</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\RepositoryBrowserCommand.cpp">
-      <Filter>Commands\RepoBrowser</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\RepoStatusCommand.cpp">
-      <Filter>Commands\RepoStatus</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\ResolveCommand.cpp">
-      <Filter>Commands\Resolve</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\RevertCommand.cpp">
-      <Filter>Commands\Revert</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\RevisionGraphCommand.cpp">
-      <Filter>Commands\RevisionGraph</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\SettingsCommand.cpp">
-      <Filter>Commands\Settings</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\ShowCompareCommand.cpp">
-      <Filter>Commands\Diff</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\SwitchCommand.cpp">
-      <Filter>Commands\Switch</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\UnIgnoreCommand.cpp">
-      <Filter>Commands\%28Un%29Ignore</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\UnLockCommand.cpp">
-      <Filter>Commands\%28Un%29Lock</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\UpdateCheckCommand.cpp">
-      <Filter>Commands\UpdateCheck</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\UpdateCommand.cpp">
-      <Filter>Commands\Update</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\UrlDiffCommand.cpp">
-      <Filter>Commands\Diff</Filter>
-    </ClCompile>
-    <ClCompile Include="CommitDlg.cpp">
-      <Filter>Commands\Commit</Filter>
-    </ClCompile>
-    <ClCompile Include="ConflictResolveDlg.cpp">
-      <Filter>Utility Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="CopyDlg.cpp">
-      <Filter>Commands\Copy</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateChangelistDlg.cpp">
-      <Filter>Utility Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="CreatePatchDlg.cpp">
-      <Filter>Commands\CreatePatch</Filter>
-    </ClCompile>
-    <ClCompile Include="DeleteUnversionedDlg.cpp">
-      <Filter>Commands\DelUnversioned</Filter>
-    </ClCompile>
-    <ClCompile Include="EditPropConflictDlg.cpp">
-      <Filter>Commands\ConflictEditor</Filter>
-    </ClCompile>
-    <ClCompile Include="EditPropertiesDlg.cpp">
-      <Filter>Commands\Properties</Filter>
-    </ClCompile>
-    <ClCompile Include="EditPropertyValueDlg.cpp">
-      <Filter>Commands\Properties</Filter>
-    </ClCompile>
-    <ClCompile Include="ExportDlg.cpp">
-      <Filter>Commands\Export</Filter>
-    </ClCompile>
-    <ClCompile Include="FileDiffDlg.cpp">
-      <Filter>Utility Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="GoOffline.cpp">
-      <Filter>Utility Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="HistoryDlg.cpp">
-      <Filter>Utility Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="ImportDlg.cpp">
-      <Filter>Commands\Import</Filter>
-    </ClCompile>
-    <ClCompile Include="InputDlg.cpp">
-      <Filter>Utility Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="InputLogDlg.cpp">
-      <Filter>Utility Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="LockDlg.cpp">
-      <Filter>Commands\%28Un%29Lock</Filter>
-    </ClCompile>
-    <ClCompile Include="LogCacheStatisticsDlg.cpp">
-      <Filter>Utility Dialogs</Filter>
+    <ClCompile Include="Commands\LogCommand.cpp">
+      <Filter>Commands\Log</Filter>
     </ClCompile>
     <ClCompile Include="LogDialog\LogDlg.cpp">
       <Filter>Commands\Log</Filter>
@@ -653,13 +491,76 @@
     <ClCompile Include="LogDialog\StatGraphDlg.cpp">
       <Filter>Commands\Log</Filter>
     </ClCompile>
-    <ClCompile Include="LogFile.cpp">
-      <Filter>Utils\General</Filter>
+    <ClCompile Include="Commands\CheckoutCommand.cpp">
+      <Filter>Commands\Checkout</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckoutDlg.cpp">
+      <Filter>Commands\Checkout</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ExportCommand.cpp">
+      <Filter>Commands\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="ExportDlg.cpp">
+      <Filter>Commands\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\CopyCommand.cpp">
+      <Filter>Commands\Copy</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyDlg.cpp">
+      <Filter>Commands\Copy</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ImportCommand.cpp">
+      <Filter>Commands\Import</Filter>
+    </ClCompile>
+    <ClCompile Include="ImportDlg.cpp">
+      <Filter>Commands\Import</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\UpdateCommand.cpp">
+      <Filter>Commands\Update</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateDlg.cpp">
+      <Filter>Commands\Update</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddCommand.cpp">
+      <Filter>Commands\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="AddDlg.cpp">
+      <Filter>Commands\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RevertCommand.cpp">
+      <Filter>Commands\Revert</Filter>
+    </ClCompile>
+    <ClCompile Include="RevertDlg.cpp">
+      <Filter>Commands\Revert</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\CleanupCommand.cpp">
+      <Filter>Commands\Cleanup</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ResolveCommand.cpp">
+      <Filter>Commands\Resolve</Filter>
+    </ClCompile>
+    <ClCompile Include="ResolveDlg.cpp">
+      <Filter>Commands\Resolve</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\SwitchCommand.cpp">
+      <Filter>Commands\Switch</Filter>
+    </ClCompile>
+    <ClCompile Include="SwitchDlg.cpp">
+      <Filter>Commands\Switch</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\MergeAllCommand.cpp">
+      <Filter>Commands\Merge</Filter>
     </ClCompile>
     <ClCompile Include="MergeAllDlg.cpp">
       <Filter>Commands\Merge</Filter>
     </ClCompile>
+    <ClCompile Include="Commands\MergeCommand.cpp">
+      <Filter>Commands\Merge</Filter>
+    </ClCompile>
     <ClCompile Include="MergeWizard.cpp">
+      <Filter>Commands\Merge</Filter>
+    </ClCompile>
+    <ClCompile Include="MergeWizardBasePage.cpp">
       <Filter>Commands\Merge</Filter>
     </ClCompile>
     <ClCompile Include="MergeWizardOptions.cpp">
@@ -677,188 +578,8 @@
     <ClCompile Include="MergeWizardTree.cpp">
       <Filter>Commands\Merge</Filter>
     </ClCompile>
-    <ClCompile Include="ProjectProperties.cpp">
-      <Filter>Utils\General</Filter>
-    </ClCompile>
-    <ClCompile Include="PromptDlg.cpp">
-      <Filter>Utility Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="PropDlg.cpp">
-      <Filter>Utility Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="RelocateDlg.cpp">
-      <Filter>Commands\Relocate</Filter>
-    </ClCompile>
-    <ClCompile Include="RenameDlg.cpp">
-      <Filter>Commands\Rename</Filter>
-    </ClCompile>
-    <ClCompile Include="RepoDrags.cpp">
-      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
-    </ClCompile>
-    <ClCompile Include="RepositoryBar.cpp">
-      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
-    </ClCompile>
-    <ClCompile Include="RepositoryBrowser.cpp">
-      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
-    </ClCompile>
-    <ClCompile Include="RepositoryBrowserSelection.cpp">
-      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
-    </ClCompile>
-    <ClCompile Include="RepositoryLister.cpp">
-      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
-    </ClCompile>
-    <ClCompile Include="ResolveDlg.cpp">
-      <Filter>Commands\Resolve</Filter>
-    </ClCompile>
-    <ClCompile Include="RevertDlg.cpp">
-      <Filter>Commands\Revert</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionDlg.cpp">
-      <Filter>Utility Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\AllGraphOptions.cpp">
-      <Filter>Commands\RevisionGraph\Options</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\CollapseTreeDownward.cpp">
-      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\CollapseTreeUpward.cpp">
-      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\CopyFilterOptions.cpp">
-      <Filter>Commands\RevisionGraph\Options</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\CutTrees.cpp">
-      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\ExactCopyFroms.cpp">
-      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\FoldTags.cpp">
-      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\FullGraph.cpp">
-      <Filter>Commands\RevisionGraph\FullGraph</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\FullGraphBuilder.cpp">
-      <Filter>Commands\RevisionGraph\FullGraph</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\FullGraphFinalizer.cpp">
-      <Filter>Commands\RevisionGraph\FullGraph</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\FullGraphNode.cpp">
-      <Filter>Commands\RevisionGraph\FullGraph</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\FullHistory.cpp">
-      <Filter>Commands\RevisionGraph\FullGraph</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\GraphNodeState.cpp">
-      <Filter>Commands\RevisionGraph\VisibleGraph</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\LayoutOptions.cpp">
-      <Filter>Commands\RevisionGraph\Options</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\ModificationOptions.cpp">
-      <Filter>Commands\RevisionGraph\Options</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\PathClassificator.cpp">
-      <Filter>Commands\RevisionGraph\FullGraph</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\RemoveDeletedBranches.cpp">
-      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\RemovePathsBySubString.cpp">
-      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\RemoveSimpleChanges.cpp">
-      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\RemoveUnchangedBranches.cpp">
-      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\RevGraphFilterDlg.cpp">
-      <Filter>Commands\RevisionGraph\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\RevisionGraphDlg.cpp">
-      <Filter>Commands\RevisionGraph\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\RevisionGraphDlgDraw.cpp">
-      <Filter>Commands\RevisionGraph\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\RevisionGraphDlgFunc.cpp">
-      <Filter>Commands\RevisionGraph\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\RevisionGraphOptions.cpp">
-      <Filter>Commands\RevisionGraph\Options</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\RevisionGraphState.cpp">
-      <Filter>Commands\RevisionGraph\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\RevisionGraphWnd.cpp">
-      <Filter>Commands\RevisionGraph\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\RevisionInRange.cpp">
-      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\SearchPathTree.cpp">
-      <Filter>Commands\RevisionGraph\FullGraph</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\ShowHeads.cpp">
-      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\ShowPathsAsDiff.cpp">
-      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\ShowTreeStripes.cpp">
-      <Filter>Commands\RevisionGraph\Options\Other</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\ShowWC.cpp">
-      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\ShowWCModification.cpp">
-      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\StandardLayout.cpp">
-      <Filter>Commands\RevisionGraph\Layout</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\StandardLayoutConnectionList.cpp">
-      <Filter>Commands\RevisionGraph\Layout</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\StandardLayoutNodeList.cpp">
-      <Filter>Commands\RevisionGraph\Layout</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\StandardLayoutRectList.cpp">
-      <Filter>Commands\RevisionGraph\Layout</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\StandardLayoutTextList.cpp">
-      <Filter>Commands\RevisionGraph\Layout</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\StandardNodePositioning.cpp">
-      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\StandardNodeSizeAssignment.cpp">
-      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\StrictOrderNodePositioning.cpp">
-      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\TopAlignTrees.cpp">
-      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\UpsideDownLayout.cpp">
-      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\VisibleGraph.cpp">
-      <Filter>Commands\RevisionGraph\VisibleGraph</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\VisibleGraphBuilder.cpp">
-      <Filter>Commands\RevisionGraph\VisibleGraph</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionGraph\VisibleGraphNode.cpp">
-      <Filter>Commands\RevisionGraph\VisibleGraph</Filter>
-    </ClCompile>
-    <ClCompile Include="RevisionRangeDlg.cpp">
-      <Filter>Utility Dialogs</Filter>
+    <ClCompile Include="Commands\SettingsCommand.cpp">
+      <Filter>Commands\Settings</Filter>
     </ClCompile>
     <ClCompile Include="Settings\SetBugTraq.cpp">
       <Filter>Commands\Settings\Settings Dialog</Filter>
@@ -905,6 +626,9 @@
     <ClCompile Include="Settings\Settings.cpp">
       <Filter>Commands\Settings\Settings Dialog</Filter>
     </ClCompile>
+    <ClCompile Include="Settings\SettingsAdvanced.cpp">
+      <Filter>Commands\Settings\Settings Dialog</Filter>
+    </ClCompile>
     <ClCompile Include="Settings\SettingsColors.cpp">
       <Filter>Commands\Settings\Settings Dialog</Filter>
     </ClCompile>
@@ -935,122 +659,342 @@
     <ClCompile Include="Settings\ToolAssocDlg.cpp">
       <Filter>Commands\Settings\Settings Dialog</Filter>
     </ClCompile>
-    <ClCompile Include="SimplePrompt.cpp">
-      <Filter>Utility Dialogs</Filter>
+    <ClCompile Include="Commands\RemoveCommand.cpp">
+      <Filter>Commands\Remove</Filter>
     </ClCompile>
-    <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="SVNProgressDlg.cpp">
-      <Filter>Utility Dialogs</Filter>
+    <ClCompile Include="Commands\RenameCommand.cpp">
+      <Filter>Commands\Rename</Filter>
     </ClCompile>
-    <ClCompile Include="SwitchDlg.cpp">
-      <Filter>Commands\Switch</Filter>
+    <ClCompile Include="RenameDlg.cpp">
+      <Filter>Commands\Rename</Filter>
     </ClCompile>
-    <ClCompile Include="TortoiseProc.cpp" />
-    <ClCompile Include="TreeConflictEditorDlg.cpp">
-      <Filter>Commands\ConflictEditor</Filter>
+    <ClCompile Include="Commands\DiffCommand.cpp">
+      <Filter>Commands\Diff</Filter>
     </ClCompile>
-    <ClCompile Include="UnlockDlg.cpp">
-      <Filter>Commands\%28Un%29Lock</Filter>
+    <ClCompile Include="Commands\PrevDiffCommand.cpp">
+      <Filter>Commands\Diff</Filter>
     </ClCompile>
-    <ClCompile Include="UpdateDlg.cpp">
-      <Filter>Commands\Update</Filter>
+    <ClCompile Include="Commands\ShowCompareCommand.cpp">
+      <Filter>Commands\Diff</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\UrlDiffCommand.cpp">
+      <Filter>Commands\Diff</Filter>
     </ClCompile>
     <ClCompile Include="UrlDiffDlg.cpp">
       <Filter>Commands\Diff</Filter>
     </ClCompile>
+    <ClCompile Include="Commands\DropCopyAddCommand.cpp">
+      <Filter>Commands\Drop</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\DropCopyCommand.cpp">
+      <Filter>Commands\Drop</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\DropExportCommand.cpp">
+      <Filter>Commands\Drop</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\DropMoveCommand.cpp">
+      <Filter>Commands\Drop</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RelocateCommand.cpp">
+      <Filter>Commands\Relocate</Filter>
+    </ClCompile>
+    <ClCompile Include="RelocateDlg.cpp">
+      <Filter>Commands\Relocate</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangedDlg.cpp">
+      <Filter>Commands\RepoStatus</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RepoStatusCommand.cpp">
+      <Filter>Commands\RepoStatus</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RepositoryBrowserCommand.cpp">
+      <Filter>Commands\RepoBrowser</Filter>
+    </ClCompile>
+    <ClCompile Include="RepoDrags.cpp">
+      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
+    </ClCompile>
+    <ClCompile Include="RepositoryBar.cpp">
+      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
+    </ClCompile>
+    <ClCompile Include="RepositoryBrowser.cpp">
+      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
+    </ClCompile>
+    <ClCompile Include="RepositoryBrowserSelection.cpp">
+      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
+    </ClCompile>
+    <ClCompile Include="RepositoryLister.cpp">
+      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\IgnoreCommand.cpp">
+      <Filter>Commands\%28Un%29Ignore</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\UnIgnoreCommand.cpp">
+      <Filter>Commands\%28Un%29Ignore</Filter>
+    </ClCompile>
+    <ClCompile Include="Blame.cpp">
+      <Filter>Commands\Blame</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\BlameCommand.cpp">
+      <Filter>Commands\Blame</Filter>
+    </ClCompile>
+    <ClCompile Include="BlameDlg.cpp">
+      <Filter>Commands\Blame</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\CreatePatchCommand.cpp">
+      <Filter>Commands\CreatePatch</Filter>
+    </ClCompile>
+    <ClCompile Include="CreatePatchDlg.cpp">
+      <Filter>Commands\CreatePatch</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckForUpdatesDlg.cpp">
+      <Filter>Commands\UpdateCheck</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\UpdateCheckCommand.cpp">
+      <Filter>Commands\UpdateCheck</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RevisionGraphCommand.cpp">
+      <Filter>Commands\RevisionGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\StandardLayout.cpp">
+      <Filter>Commands\RevisionGraph\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\StandardLayoutConnectionList.cpp">
+      <Filter>Commands\RevisionGraph\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\StandardLayoutNodeList.cpp">
+      <Filter>Commands\RevisionGraph\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\StandardLayoutRectList.cpp">
+      <Filter>Commands\RevisionGraph\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\StandardLayoutTextList.cpp">
+      <Filter>Commands\RevisionGraph\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\FullGraph.cpp">
+      <Filter>Commands\RevisionGraph\FullGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\FullGraphBuilder.cpp">
+      <Filter>Commands\RevisionGraph\FullGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\FullGraphFinalizer.cpp">
+      <Filter>Commands\RevisionGraph\FullGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\FullGraphNode.cpp">
+      <Filter>Commands\RevisionGraph\FullGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\FullHistory.cpp">
+      <Filter>Commands\RevisionGraph\FullGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\PathClassificator.cpp">
+      <Filter>Commands\RevisionGraph\FullGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\SearchPathTree.cpp">
+      <Filter>Commands\RevisionGraph\FullGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\GraphNodeState.cpp">
+      <Filter>Commands\RevisionGraph\VisibleGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\VisibleGraph.cpp">
+      <Filter>Commands\RevisionGraph\VisibleGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\VisibleGraphBuilder.cpp">
+      <Filter>Commands\RevisionGraph\VisibleGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\VisibleGraphNode.cpp">
+      <Filter>Commands\RevisionGraph\VisibleGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\RevGraphFilterDlg.cpp">
+      <Filter>Commands\RevisionGraph\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\RevisionGraphDlg.cpp">
+      <Filter>Commands\RevisionGraph\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\RevisionGraphDlgDraw.cpp">
+      <Filter>Commands\RevisionGraph\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\RevisionGraphDlgFunc.cpp">
+      <Filter>Commands\RevisionGraph\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\RevisionGraphState.cpp">
+      <Filter>Commands\RevisionGraph\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\RevisionGraphWnd.cpp">
+      <Filter>Commands\RevisionGraph\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\AllGraphOptions.cpp">
+      <Filter>Commands\RevisionGraph\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\CopyFilterOptions.cpp">
+      <Filter>Commands\RevisionGraph\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\LayoutOptions.cpp">
+      <Filter>Commands\RevisionGraph\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\ModificationOptions.cpp">
+      <Filter>Commands\RevisionGraph\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\RevisionGraphOptions.cpp">
+      <Filter>Commands\RevisionGraph\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\ShowPathsAsDiff.cpp">
+      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\StandardNodePositioning.cpp">
+      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\StandardNodeSizeAssignment.cpp">
+      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\StrictOrderNodePositioning.cpp">
+      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\TopAlignTrees.cpp">
+      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\UpsideDownLayout.cpp">
+      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\RemoveDeletedBranches.cpp">
+      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\RemovePathsBySubString.cpp">
+      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\RemoveSimpleChanges.cpp">
+      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\RevisionInRange.cpp">
+      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\ShowHeads.cpp">
+      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\ShowWC.cpp">
+      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\ShowWCModification.cpp">
+      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\CollapseTreeDownward.cpp">
+      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\CollapseTreeUpward.cpp">
+      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\CutTrees.cpp">
+      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\ExactCopyFroms.cpp">
+      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\FoldTags.cpp">
+      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\RemoveUnchangedBranches.cpp">
+      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionGraph\ShowTreeStripes.cpp">
+      <Filter>Commands\RevisionGraph\Options\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\LockCommand.cpp">
+      <Filter>Commands\%28Un%29Lock</Filter>
+    </ClCompile>
+    <ClCompile Include="LockDlg.cpp">
+      <Filter>Commands\%28Un%29Lock</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\UnLockCommand.cpp">
+      <Filter>Commands\%28Un%29Lock</Filter>
+    </ClCompile>
+    <ClCompile Include="UnlockDlg.cpp">
+      <Filter>Commands\%28Un%29Lock</Filter>
+    </ClCompile>
+    <ClCompile Include="EditPropertiesDlg.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="EditPropertyValueDlg.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\PropertiesCommand.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteUnversionedDlg.cpp">
+      <Filter>Commands\DelUnversioned</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\DelUnversionedCommand.cpp">
+      <Filter>Commands\DelUnversioned</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\PasteCopyCommand.cpp">
+      <Filter>Commands\Paste</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\PasteMoveCommand.cpp">
+      <Filter>Commands\Paste</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ConflictEditorCommand.cpp">
+      <Filter>Commands\ConflictEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="EditPropConflictDlg.cpp">
+      <Filter>Commands\ConflictEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeConflictEditorDlg.cpp">
+      <Filter>Commands\ConflictEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\EditFileCommand.cpp">
+      <Filter>Commands\EditFile</Filter>
+    </ClCompile>
+    <ClCompile Include="ConflictResolveDlg.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateChangelistDlg.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="FileDiffDlg.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="GoOffline.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="HistoryDlg.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="InputDlg.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="InputLogDlg.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="LogCacheStatisticsDlg.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="PromptDlg.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="PropDlg.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionDlg.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="RevisionRangeDlg.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="SimplePrompt.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="SVNProgressDlg.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
     <ClCompile Include="URLDlg.cpp">
       <Filter>Utility Dialogs</Filter>
     </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="TortoiseProc.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\ext\hunspell\affentry.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\affixmgr.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\atypes.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\baseaffix.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\csutil.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\dictmgr.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\hashmgr.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\htypes.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\hunspell.h">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\hunspell.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\langnum.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\mythes.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\hunspell\suggestmgr.hxx">
-      <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SVN\SVN.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Svn\SVNAdminDir.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Svn\SVNConfig.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SVN\SVNDataObject.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Svn\SVNDiff.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SVN\SVNError.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SVN\SVNGlobal.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Svn\SVNHelpers.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Svn\SVNInfo.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SVN\SVNLogHelper.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Svn\SVNPrompt.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Svn\SVNProperties.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Svn\SVNRev.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SVN\SVNStatus.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Svn\SVNStatusListCtrl.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SVN\TSVNAuth.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Svn\TSVNPath.h">
+    <ClInclude Include="AppUtils.h">
       <Filter>Utils\General</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\auto_buffer.h">
@@ -1059,10 +1003,16 @@
     <ClInclude Include="..\Utils\BugTraqAssociations.h">
       <Filter>Utils\General</Filter>
     </ClInclude>
+    <ClInclude Include="..\Utils\ClipboardHelper.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
     <ClInclude Include="..\Utils\CmdLineParser.h">
       <Filter>Utils\General</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\CmdUrlParser.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Colors.h">
       <Filter>Utils\General</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\COMError.h">
@@ -1092,6 +1042,87 @@
     <ClInclude Include="..\Utils\JumpListHelpers.h">
       <Filter>Utils\General</Filter>
     </ClInclude>
+    <ClInclude Include="..\Utils\ListViewAccServer.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="LogFile.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\PathUtils.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\PathWatcher.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\PersonalDictionary.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\ProfilingInfo.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectProperties.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\QuickHash.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\QuickHashMap.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\QuickHashSet.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\RegHistory.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\registry.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\SelectFileFilter.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\ShellUpdater.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\SoundUtils.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\stdex_vector.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\StdioFileT.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\StringUtils.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\SVNTrace.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\SysImageList.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\SysInfo.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\TempFile.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Svn\TSVNPath.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\UnicodeUtils.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\Win7.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\AeroControls.h">
+      <Filter>Utils\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\AeroGlass.h">
+      <Filter>Utils\UI</Filter>
+    </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\Balloon.h">
       <Filter>Utils\UI</Filter>
     </ClInclude>
@@ -1118,9 +1149,6 @@
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\Gradient.h">
       <Filter>Utils\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\HighColorTab.hpp">
-      <Filter>Utils\3rd Party\TreePropSheet</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\HintListCtrl.h">
       <Filter>Utils\UI</Filter>
@@ -1185,59 +1213,47 @@
     <ClInclude Include="..\Utils\MiscUI\XPTheme.h">
       <Filter>Utils\UI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\PathUtils.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\..\ext\hunspell\affentry.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\PathWatcher.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\..\ext\hunspell\affixmgr.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\PersonalDictionary.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\..\ext\hunspell\atypes.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\ProfilingInfo.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\..\ext\hunspell\baseaffix.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\QuickHash.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\..\ext\hunspell\csutil.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\QuickHashMap.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\..\ext\hunspell\dictmgr.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\QuickHashSet.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\..\ext\hunspell\hashmgr.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\RegHistory.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\..\ext\hunspell\htypes.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\registry.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\..\ext\hunspell\hunspell.h">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\ShellUpdater.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\..\ext\hunspell\hunspell.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\SoundUtils.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\..\ext\hunspell\langnum.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\stdex_vector.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\..\ext\hunspell\mythes.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\StdioFileT.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\..\ext\hunspell\suggestmgr.hxx">
+      <Filter>Utils\3rd Party\hunspell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\StringUtils.h">
-      <Filter>Utils\General</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\SVNTrace.h">
-      <Filter>Utils\General</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\SysImageList.h">
-      <Filter>Utils\General</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\SysInfo.h">
-      <Filter>Utils\General</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\TempFile.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\Utils\MiscUI\HighColorTab.hpp">
+      <Filter>Utils\3rd Party\TreePropSheet</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\TreePropSheet\PropPageFrame.h">
       <Filter>Utils\3rd Party\TreePropSheet</Filter>
@@ -1248,62 +1264,56 @@
     <ClInclude Include="..\Utils\TreePropSheet\TreePropSheet.h">
       <Filter>Utils\3rd Party\TreePropSheet</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\UnicodeUtils.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\SVN\SVN.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\Win7.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\Svn\SVNAdminDir.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="AboutDlg.h">
-      <Filter>Commands\About</Filter>
+    <ClInclude Include="..\Svn\SVNConfig.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="AddDlg.h">
-      <Filter>Commands\Add</Filter>
+    <ClInclude Include="..\SVN\SVNDataObject.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="AppUtils.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\Svn\SVNDiff.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="AutoTextTestDlg.h">
-      <Filter>Commands\Misc</Filter>
+    <ClInclude Include="..\SVN\SVNError.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="Blame.h">
-      <Filter>Commands\Blame</Filter>
+    <ClInclude Include="..\SVN\SVNExternals.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="BlameDlg.h">
-      <Filter>Commands\Blame</Filter>
+    <ClInclude Include="..\SVN\SVNGlobal.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="ChangedDlg.h">
-      <Filter>Commands\RepoStatus</Filter>
+    <ClInclude Include="..\Svn\SVNHelpers.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="CheckForUpdatesDlg.h">
-      <Filter>Commands\UpdateCheck</Filter>
+    <ClInclude Include="..\Svn\SVNInfo.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="CheckoutDlg.h">
-      <Filter>Commands\Checkout</Filter>
+    <ClInclude Include="..\SVN\SVNLogHelper.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="Colors.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="..\Svn\SVNPrompt.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="Commands\AboutCommand.h">
-      <Filter>Commands\About</Filter>
+    <ClInclude Include="..\Svn\SVNProperties.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="Commands\AddCommand.h">
-      <Filter>Commands\Add</Filter>
+    <ClInclude Include="..\Svn\SVNRev.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="Commands\AutoTextTestCommand.h">
-      <Filter>Commands\Misc</Filter>
+    <ClInclude Include="..\SVN\SVNStatus.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="Commands\BlameCommand.h">
-      <Filter>Commands\Blame</Filter>
+    <ClInclude Include="..\Svn\SVNStatusListCtrl.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="Commands\CatCommand.h">
-      <Filter>Commands\Misc</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\CheckoutCommand.h">
-      <Filter>Commands\Checkout</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\CleanupCommand.h">
-      <Filter>Commands\Cleanup</Filter>
+    <ClInclude Include="..\SVN\TSVNAuth.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
     <ClInclude Include="Commands\Command.h">
       <Filter>Commands</Filter>
@@ -1311,182 +1321,44 @@
     <ClInclude Include="Commands\CommitCommand.h">
       <Filter>Commands\Commit</Filter>
     </ClInclude>
-    <ClInclude Include="Commands\ConflictEditorCommand.h">
-      <Filter>Commands\ConflictEditor</Filter>
+    <ClInclude Include="CommitDlg.h">
+      <Filter>Commands\Commit</Filter>
     </ClInclude>
-    <ClInclude Include="Commands\CopyCommand.h">
-      <Filter>Commands\Copy</Filter>
+    <ClInclude Include="Commands\AboutCommand.h">
+      <Filter>Commands\About</Filter>
+    </ClInclude>
+    <ClInclude Include="AboutDlg.h">
+      <Filter>Commands\About</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\AutoTextTestCommand.h">
+      <Filter>Commands\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoTextTestDlg.h">
+      <Filter>Commands\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="BstrSafeVector.h">
+      <Filter>Commands\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\CatCommand.h">
+      <Filter>Commands\Misc</Filter>
     </ClInclude>
     <ClInclude Include="Commands\CrashCommand.h">
       <Filter>Commands\Misc</Filter>
     </ClInclude>
-    <ClInclude Include="Commands\CreatePatchCommand.h">
-      <Filter>Commands\CreatePatch</Filter>
-    </ClInclude>
     <ClInclude Include="Commands\CreateRepositoryCommand.h">
       <Filter>Commands\Misc</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\DelUnversionedCommand.h">
-      <Filter>Commands\DelUnversioned</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\DiffCommand.h">
-      <Filter>Commands\Diff</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\DropCopyAddCommand.h">
-      <Filter>Commands\Drop</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\DropCopyCommand.h">
-      <Filter>Commands\Drop</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\DropExportCommand.h">
-      <Filter>Commands\Drop</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\DropMoveCommand.h">
-      <Filter>Commands\Drop</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\ExportCommand.h">
-      <Filter>Commands\Export</Filter>
     </ClInclude>
     <ClInclude Include="Commands\HelpCommand.h">
       <Filter>Commands\Misc</Filter>
     </ClInclude>
-    <ClInclude Include="Commands\IgnoreCommand.h">
-      <Filter>Commands\%28Un%29Ignore</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\ImportCommand.h">
-      <Filter>Commands\Import</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\LockCommand.h">
-      <Filter>Commands\%28Un%29Lock</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\LogCommand.h">
-      <Filter>Commands\Log</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\MergeAllCommand.h">
-      <Filter>Commands\Merge</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\MergeCommand.h">
-      <Filter>Commands\Merge</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\PasteCopyCommand.h">
-      <Filter>Commands\Paste</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\PasteMoveCommand.h">
-      <Filter>Commands\Paste</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\PrevDiffCommand.h">
-      <Filter>Commands\Diff</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\PropertiesCommand.h">
-      <Filter>Commands\Properties</Filter>
-    </ClInclude>
     <ClInclude Include="Commands\RebuildIconCacheCommand.h">
       <Filter>Commands\Misc</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\RelocateCommand.h">
-      <Filter>Commands\Relocate</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\RemoveCommand.h">
-      <Filter>Commands\Remove</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\RenameCommand.h">
-      <Filter>Commands\Rename</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\RepositoryBrowserCommand.h">
-      <Filter>Commands\RepoBrowser</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\RepoStatusCommand.h">
-      <Filter>Commands\RepoStatus</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\ResolveCommand.h">
-      <Filter>Commands\Resolve</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\RevertCommand.h">
-      <Filter>Commands\Revert</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\RevisionGraphCommand.h">
-      <Filter>Commands\RevisionGraph</Filter>
     </ClInclude>
     <ClInclude Include="Commands\RTFMCommand.h">
       <Filter>Commands\Misc</Filter>
     </ClInclude>
-    <ClInclude Include="Commands\SettingsCommand.h">
-      <Filter>Commands\Settings</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\ShowCompareCommand.h">
-      <Filter>Commands\Diff</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\SwitchCommand.h">
-      <Filter>Commands\Switch</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\UnIgnoreCommand.h">
-      <Filter>Commands\%28Un%29Ignore</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\UnLockCommand.h">
-      <Filter>Commands\%28Un%29Lock</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\UpdateCheckCommand.h">
-      <Filter>Commands\UpdateCheck</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\UpdateCommand.h">
-      <Filter>Commands\Update</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\UrlDiffCommand.h">
-      <Filter>Commands\Diff</Filter>
-    </ClInclude>
-    <ClInclude Include="CommitDlg.h">
-      <Filter>Commands\Commit</Filter>
-    </ClInclude>
-    <ClInclude Include="ConflictResolveDlg.h">
-      <Filter>Utility Dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="CopyDlg.h">
-      <Filter>Commands\Copy</Filter>
-    </ClInclude>
-    <ClInclude Include="CreateChangelistDlg.h">
-      <Filter>Utility Dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="CreatePatchDlg.h">
-      <Filter>Commands\CreatePatch</Filter>
-    </ClInclude>
-    <ClInclude Include="DeleteUnversionedDlg.h">
-      <Filter>Commands\DelUnversioned</Filter>
-    </ClInclude>
-    <ClInclude Include="EditPropConflictDlg.h">
-      <Filter>Commands\ConflictEditor</Filter>
-    </ClInclude>
-    <ClInclude Include="EditPropertiesDlg.h">
-      <Filter>Commands\Properties</Filter>
-    </ClInclude>
-    <ClInclude Include="EditPropertyValueDlg.h">
-      <Filter>Commands\Properties</Filter>
-    </ClInclude>
-    <ClInclude Include="ExportDlg.h">
-      <Filter>Commands\Export</Filter>
-    </ClInclude>
-    <ClInclude Include="FileDiffDlg.h">
-      <Filter>Utility Dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="GoOffline.h">
-      <Filter>Utility Dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="HistoryDlg.h">
-      <Filter>Utility Dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="ImportDlg.h">
-      <Filter>Commands\Import</Filter>
-    </ClInclude>
-    <ClInclude Include="InputDlg.h">
-      <Filter>Utility Dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="InputLogDlg.h">
-      <Filter>Utility Dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="LockDlg.h">
-      <Filter>Commands\%28Un%29Lock</Filter>
-    </ClInclude>
-    <ClInclude Include="LogCacheStatisticsDlg.h">
-      <Filter>Utility Dialogs</Filter>
+    <ClInclude Include="Commands\LogCommand.h">
+      <Filter>Commands\Log</Filter>
     </ClInclude>
     <ClInclude Include="LogDialog\LogDlg.h">
       <Filter>Commands\Log</Filter>
@@ -1503,10 +1375,70 @@
     <ClInclude Include="LogDialog\StatGraphDlg.h">
       <Filter>Commands\Log</Filter>
     </ClInclude>
-    <ClInclude Include="LogFile.h">
-      <Filter>Utils\General</Filter>
+    <ClInclude Include="Commands\CheckoutCommand.h">
+      <Filter>Commands\Checkout</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckoutDlg.h">
+      <Filter>Commands\Checkout</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\ExportCommand.h">
+      <Filter>Commands\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportDlg.h">
+      <Filter>Commands\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\CopyCommand.h">
+      <Filter>Commands\Copy</Filter>
+    </ClInclude>
+    <ClInclude Include="CopyDlg.h">
+      <Filter>Commands\Copy</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\ImportCommand.h">
+      <Filter>Commands\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="ImportDlg.h">
+      <Filter>Commands\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\UpdateCommand.h">
+      <Filter>Commands\Update</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateDlg.h">
+      <Filter>Commands\Update</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\AddCommand.h">
+      <Filter>Commands\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="AddDlg.h">
+      <Filter>Commands\Add</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RevertCommand.h">
+      <Filter>Commands\Revert</Filter>
+    </ClInclude>
+    <ClInclude Include="RevertDlg.h">
+      <Filter>Commands\Revert</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\CleanupCommand.h">
+      <Filter>Commands\Cleanup</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\ResolveCommand.h">
+      <Filter>Commands\Resolve</Filter>
+    </ClInclude>
+    <ClInclude Include="ResolveDlg.h">
+      <Filter>Commands\Resolve</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\SwitchCommand.h">
+      <Filter>Commands\Switch</Filter>
+    </ClInclude>
+    <ClInclude Include="SwitchDlg.h">
+      <Filter>Commands\Switch</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\MergeAllCommand.h">
+      <Filter>Commands\Merge</Filter>
     </ClInclude>
     <ClInclude Include="MergeAllDlg.h">
+      <Filter>Commands\Merge</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\MergeCommand.h">
       <Filter>Commands\Merge</Filter>
     </ClInclude>
     <ClInclude Include="MergeWizard.h">
@@ -1530,195 +1462,8 @@
     <ClInclude Include="MergeWizardTree.h">
       <Filter>Commands\Merge</Filter>
     </ClInclude>
-    <ClInclude Include="ProjectProperties.h">
-      <Filter>Utils\General</Filter>
-    </ClInclude>
-    <ClInclude Include="PromptDlg.h">
-      <Filter>Utility Dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="PropDlg.h">
-      <Filter>Utility Dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="RelocateDlg.h">
-      <Filter>Commands\Relocate</Filter>
-    </ClInclude>
-    <ClInclude Include="RenameDlg.h">
-      <Filter>Commands\Rename</Filter>
-    </ClInclude>
-    <ClInclude Include="RepoDrags.h">
-      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
-    </ClInclude>
-    <ClInclude Include="RepositoryBar.h">
-      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
-    </ClInclude>
-    <ClInclude Include="RepositoryBrowser.h">
-      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
-    </ClInclude>
-    <ClInclude Include="RepositoryBrowserSelection.h">
-      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
-    </ClInclude>
-    <ClInclude Include="RepositoryLister.h">
-      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
-    </ClInclude>
-    <ClInclude Include="ResolveDlg.h">
-      <Filter>Commands\Resolve</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="RevertDlg.h">
-      <Filter>Commands\Revert</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionDlg.h">
-      <Filter>Utility Dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\AllGraphOptions.h">
-      <Filter>Commands\RevisionGraph\Options</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\CollapseTreeDownward.h">
-      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\CollapseTreeUpward.h">
-      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\CopyFilterOptions.h">
-      <Filter>Commands\RevisionGraph\Options</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\CutTrees.h">
-      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\ExactCopyFroms.h">
-      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\FoldTags.h">
-      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\FullGraph.h">
-      <Filter>Commands\RevisionGraph\FullGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\FullGraphBuilder.h">
-      <Filter>Commands\RevisionGraph\FullGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\FullGraphFinalizer.h">
-      <Filter>Commands\RevisionGraph\FullGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\FullGraphNode.h">
-      <Filter>Commands\RevisionGraph\FullGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\FullHistory.h">
-      <Filter>Commands\RevisionGraph\FullGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\GraphNodeState.h">
-      <Filter>Commands\RevisionGraph\VisibleGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\IRevisionGraphLayout.h">
-      <Filter>Commands\RevisionGraph\Layout</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\LayoutOptions.h">
-      <Filter>Commands\RevisionGraph\Options</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\ModificationOptions.h">
-      <Filter>Commands\RevisionGraph\Options</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\NodeClassification.h">
-      <Filter>Commands\RevisionGraph\FullGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\PathClassificator.h">
-      <Filter>Commands\RevisionGraph\FullGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\RemoveDeletedBranches.h">
-      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\RemovePathsBySubString.h">
-      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\RemoveSimpleChanges.h">
-      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\RemoveUnchangedBranches.h">
-      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\RevGraphFilterDlg.h">
-      <Filter>Commands\RevisionGraph\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\RevisionGraphDlg.h">
-      <Filter>Commands\RevisionGraph\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\RevisionGraphOptions.h">
-      <Filter>Commands\RevisionGraph\Options</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\RevisionGraphOptionsImpl.h">
-      <Filter>Commands\RevisionGraph\Options</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\RevisionGraphState.h">
-      <Filter>Commands\RevisionGraph\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\RevisionGraphWnd.h">
-      <Filter>Commands\RevisionGraph\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\RevisionInRange.h">
-      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\SearchPathTree.h">
-      <Filter>Commands\RevisionGraph\FullGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\ShowHeads.h">
-      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\ShowPathsAsDiff.h">
-      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\ShowTreeStripes.h">
-      <Filter>Commands\RevisionGraph\Options\Other</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\ShowWC.h">
-      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\ShowWCModification.h">
-      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\SimpleList.h">
-      <Filter>Commands\RevisionGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\StandardLayout.h">
-      <Filter>Commands\RevisionGraph\Layout</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\StandardLayoutConnectionList.h">
-      <Filter>Commands\RevisionGraph\Layout</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\StandardLayoutNodeList.h">
-      <Filter>Commands\RevisionGraph\Layout</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\StandardLayoutRectList.h">
-      <Filter>Commands\RevisionGraph\Layout</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\StandardLayoutTextList.h">
-      <Filter>Commands\RevisionGraph\Layout</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\StandardNodePositioning.h">
-      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\StandardNodeSizeAssignment.h">
-      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\StrictOrderNodePositioning.h">
-      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\TopAlignTrees.h">
-      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\UpsideDownLayout.h">
-      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\VisibleGraph.h">
-      <Filter>Commands\RevisionGraph\VisibleGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\VisibleGraphBuilder.h">
-      <Filter>Commands\RevisionGraph\VisibleGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionGraph\VisibleGraphNode.h">
-      <Filter>Commands\RevisionGraph\VisibleGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="RevisionRangeDlg.h">
-      <Filter>Utility Dialogs</Filter>
+    <ClInclude Include="Commands\SettingsCommand.h">
+      <Filter>Commands\Settings</Filter>
     </ClInclude>
     <ClInclude Include="Settings\SetBugTraq.h">
       <Filter>Commands\Settings\Settings Dialog</Filter>
@@ -1765,6 +1510,9 @@
     <ClInclude Include="Settings\Settings.h">
       <Filter>Commands\Settings\Settings Dialog</Filter>
     </ClInclude>
+    <ClInclude Include="Settings\SettingsAdvanced.h">
+      <Filter>Commands\Settings\Settings Dialog</Filter>
+    </ClInclude>
     <ClInclude Include="Settings\SettingsColors.h">
       <Filter>Commands\Settings\Settings Dialog</Filter>
     </ClInclude>
@@ -1795,31 +1543,347 @@
     <ClInclude Include="Settings\ToolAssocDlg.h">
       <Filter>Commands\Settings\Settings Dialog</Filter>
     </ClInclude>
-    <ClInclude Include="SimplePrompt.h">
-      <Filter>Utility Dialogs</Filter>
+    <ClInclude Include="Commands\RemoveCommand.h">
+      <Filter>Commands\Remove</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="SVNProgressDlg.h">
-      <Filter>Utility Dialogs</Filter>
+    <ClInclude Include="Commands\RenameCommand.h">
+      <Filter>Commands\Rename</Filter>
     </ClInclude>
-    <ClInclude Include="SwitchDlg.h">
-      <Filter>Commands\Switch</Filter>
+    <ClInclude Include="RenameDlg.h">
+      <Filter>Commands\Rename</Filter>
     </ClInclude>
-    <ClInclude Include="TortoiseProc.h" />
-    <ClInclude Include="TreeConflictEditorDlg.h">
-      <Filter>Commands\ConflictEditor</Filter>
+    <ClInclude Include="Commands\DiffCommand.h">
+      <Filter>Commands\Diff</Filter>
     </ClInclude>
-    <ClInclude Include="UnlockDlg.h">
-      <Filter>Commands\%28Un%29Lock</Filter>
+    <ClInclude Include="Commands\PrevDiffCommand.h">
+      <Filter>Commands\Diff</Filter>
     </ClInclude>
-    <ClInclude Include="UpdateDlg.h">
-      <Filter>Commands\Update</Filter>
+    <ClInclude Include="Commands\ShowCompareCommand.h">
+      <Filter>Commands\Diff</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\UrlDiffCommand.h">
+      <Filter>Commands\Diff</Filter>
     </ClInclude>
     <ClInclude Include="UrlDiffDlg.h">
       <Filter>Commands\Diff</Filter>
     </ClInclude>
+    <ClInclude Include="Commands\DropCopyAddCommand.h">
+      <Filter>Commands\Drop</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\DropCopyCommand.h">
+      <Filter>Commands\Drop</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\DropExportCommand.h">
+      <Filter>Commands\Drop</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\DropMoveCommand.h">
+      <Filter>Commands\Drop</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RelocateCommand.h">
+      <Filter>Commands\Relocate</Filter>
+    </ClInclude>
+    <ClInclude Include="RelocateDlg.h">
+      <Filter>Commands\Relocate</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangedDlg.h">
+      <Filter>Commands\RepoStatus</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RepoStatusCommand.h">
+      <Filter>Commands\RepoStatus</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RepositoryBrowserCommand.h">
+      <Filter>Commands\RepoBrowser</Filter>
+    </ClInclude>
+    <ClInclude Include="RepoDrags.h">
+      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
+    </ClInclude>
+    <ClInclude Include="RepositoryBar.h">
+      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
+    </ClInclude>
+    <ClInclude Include="RepositoryBrowser.h">
+      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
+    </ClInclude>
+    <ClInclude Include="RepositoryBrowserSelection.h">
+      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
+    </ClInclude>
+    <ClInclude Include="RepositoryLister.h">
+      <Filter>Commands\RepoBrowser\Repository Browser</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\IgnoreCommand.h">
+      <Filter>Commands\%28Un%29Ignore</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\UnIgnoreCommand.h">
+      <Filter>Commands\%28Un%29Ignore</Filter>
+    </ClInclude>
+    <ClInclude Include="Blame.h">
+      <Filter>Commands\Blame</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\BlameCommand.h">
+      <Filter>Commands\Blame</Filter>
+    </ClInclude>
+    <ClInclude Include="BlameDlg.h">
+      <Filter>Commands\Blame</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\CreatePatchCommand.h">
+      <Filter>Commands\CreatePatch</Filter>
+    </ClInclude>
+    <ClInclude Include="CreatePatchDlg.h">
+      <Filter>Commands\CreatePatch</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckForUpdatesDlg.h">
+      <Filter>Commands\UpdateCheck</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\UpdateCheckCommand.h">
+      <Filter>Commands\UpdateCheck</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RevisionGraphCommand.h">
+      <Filter>Commands\RevisionGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\SimpleList.h">
+      <Filter>Commands\RevisionGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\IRevisionGraphLayout.h">
+      <Filter>Commands\RevisionGraph\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\StandardLayout.h">
+      <Filter>Commands\RevisionGraph\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\StandardLayoutConnectionList.h">
+      <Filter>Commands\RevisionGraph\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\StandardLayoutNodeList.h">
+      <Filter>Commands\RevisionGraph\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\StandardLayoutRectList.h">
+      <Filter>Commands\RevisionGraph\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\StandardLayoutTextList.h">
+      <Filter>Commands\RevisionGraph\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\FullGraph.h">
+      <Filter>Commands\RevisionGraph\FullGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\FullGraphBuilder.h">
+      <Filter>Commands\RevisionGraph\FullGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\FullGraphFinalizer.h">
+      <Filter>Commands\RevisionGraph\FullGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\FullGraphNode.h">
+      <Filter>Commands\RevisionGraph\FullGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\FullHistory.h">
+      <Filter>Commands\RevisionGraph\FullGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\NodeClassification.h">
+      <Filter>Commands\RevisionGraph\FullGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\PathClassificator.h">
+      <Filter>Commands\RevisionGraph\FullGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\SearchPathTree.h">
+      <Filter>Commands\RevisionGraph\FullGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\GraphNodeState.h">
+      <Filter>Commands\RevisionGraph\VisibleGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\VisibleGraph.h">
+      <Filter>Commands\RevisionGraph\VisibleGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\VisibleGraphBuilder.h">
+      <Filter>Commands\RevisionGraph\VisibleGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\VisibleGraphNode.h">
+      <Filter>Commands\RevisionGraph\VisibleGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\RevGraphFilterDlg.h">
+      <Filter>Commands\RevisionGraph\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\RevisionGraphDlg.h">
+      <Filter>Commands\RevisionGraph\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\RevisionGraphState.h">
+      <Filter>Commands\RevisionGraph\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\RevisionGraphWnd.h">
+      <Filter>Commands\RevisionGraph\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\AllGraphOptions.h">
+      <Filter>Commands\RevisionGraph\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\CopyFilterOptions.h">
+      <Filter>Commands\RevisionGraph\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\LayoutOptions.h">
+      <Filter>Commands\RevisionGraph\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\ModificationOptions.h">
+      <Filter>Commands\RevisionGraph\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\RevisionGraphOptions.h">
+      <Filter>Commands\RevisionGraph\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\RevisionGraphOptionsImpl.h">
+      <Filter>Commands\RevisionGraph\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\ShowPathsAsDiff.h">
+      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\StandardNodePositioning.h">
+      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\StandardNodeSizeAssignment.h">
+      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\StrictOrderNodePositioning.h">
+      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\TopAlignTrees.h">
+      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\UpsideDownLayout.h">
+      <Filter>Commands\RevisionGraph\Options\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\RemoveDeletedBranches.h">
+      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\RemovePathsBySubString.h">
+      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\RemoveSimpleChanges.h">
+      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\RevisionInRange.h">
+      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\ShowHeads.h">
+      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\ShowWC.h">
+      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\ShowWCModification.h">
+      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\CollapseTreeDownward.h">
+      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\CollapseTreeUpward.h">
+      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\CutTrees.h">
+      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\ExactCopyFroms.h">
+      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\FoldTags.h">
+      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\RemoveUnchangedBranches.h">
+      <Filter>Commands\RevisionGraph\Options\Modification</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\ShowTreeStripes.h">
+      <Filter>Commands\RevisionGraph\Options\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\LockCommand.h">
+      <Filter>Commands\%28Un%29Lock</Filter>
+    </ClInclude>
+    <ClInclude Include="LockDlg.h">
+      <Filter>Commands\%28Un%29Lock</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\UnLockCommand.h">
+      <Filter>Commands\%28Un%29Lock</Filter>
+    </ClInclude>
+    <ClInclude Include="UnlockDlg.h">
+      <Filter>Commands\%28Un%29Lock</Filter>
+    </ClInclude>
+    <ClInclude Include="EditPropertiesDlg.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="EditPropertyValueDlg.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\PropertiesCommand.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteUnversionedDlg.h">
+      <Filter>Commands\DelUnversioned</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\DelUnversionedCommand.h">
+      <Filter>Commands\DelUnversioned</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\PasteCopyCommand.h">
+      <Filter>Commands\Paste</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\PasteMoveCommand.h">
+      <Filter>Commands\Paste</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\ConflictEditorCommand.h">
+      <Filter>Commands\ConflictEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="EditPropConflictDlg.h">
+      <Filter>Commands\ConflictEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeConflictEditorDlg.h">
+      <Filter>Commands\ConflictEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\EditFileCommand.h">
+      <Filter>Commands\EditFile</Filter>
+    </ClInclude>
+    <ClInclude Include="ConflictResolveDlg.h">
+      <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateChangelistDlg.h">
+      <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="FileDiffDlg.h">
+      <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="GoOffline.h">
+      <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="HistoryDlg.h">
+      <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="InputDlg.h">
+      <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="InputLogDlg.h">
+      <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="LogCacheStatisticsDlg.h">
+      <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="PromptDlg.h">
+      <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="PropDlg.h">
+      <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionDlg.h">
+      <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionRangeDlg.h">
+      <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="SimplePrompt.h">
+      <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="SVNProgressDlg.h">
+      <Filter>Utility Dialogs</Filter>
+    </ClInclude>
     <ClInclude Include="URLDlg.h">
       <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="TortoiseProc.h">
+      <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1827,6 +1891,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\actiondeleted.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\actionmerged.ico">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\actionmodified.ico">
@@ -1947,6 +2014,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\lineremoved.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="link.ico">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\link.ico">
@@ -2105,12 +2175,6 @@
     <None Include="..\Resources\RevertBackground.ico">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Resources\revgraphbar.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Resources\revgraphglyphs.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="..\Resources\revgraph_added.ico">
       <Filter>Resource Files</Filter>
     </None>
@@ -2130,6 +2194,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\revgraph_tag.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\revgraphbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\revgraphglyphs.bmp">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\RevisionGraph.ico">
@@ -2162,6 +2232,9 @@
     <None Include="..\Resources\Tortoise.ico">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="..\TortoiseBlame\TortoiseBlame.ico">
+      <Filter>Resource Files</Filter>
+    </None>
     <None Include="..\Resources\TortoiseMerge.ico">
       <Filter>Resource Files</Filter>
     </None>
@@ -2187,12 +2260,6 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\warning-general.ico">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\TortoiseBlame\TortoiseBlame.ico">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="link.ico">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
@@ -9,86 +13,19 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
     </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Utils">
-      <UniqueIdentifier>{f62ceb86-75d0-47ed-840d-8b637d43006a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utils\Header Files">
-      <UniqueIdentifier>{861b125e-a97e-48be-9951-6b6c86630e52}</UniqueIdentifier>
+      <UniqueIdentifier>{86122444-e84e-4ca5-b744-20a0ac7af3ff}</UniqueIdentifier>
     </Filter>
     <Filter Include="Utils\Source Files">
-      <UniqueIdentifier>{77eafe00-4051-494d-a424-4b92033d9c84}</UniqueIdentifier>
+      <UniqueIdentifier>{95715cf7-fa75-4aab-8490-867d7af74a83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Header Files">
+      <UniqueIdentifier>{6cd59bb0-ec91-4069-85a4-a8602fc39f64}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Svn\SVNAdminDir.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SVN\SVNLineDiff.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\CmdLineParser.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\DirFileEnum.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\DragDropImpl.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\BrowseFolder.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\DIB.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\FileDropEdit.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\HistoryCombo.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\HTMLFormatter.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\HyperLink.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\MessageBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\ProgressDlg.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\ScrollTool.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\WaterEffect.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\PathUtils.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\Registry.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\StringUtils.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\SysInfo.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\UnicodeUtils.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AboutDlg.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AppUtils.cpp">
-      <Filter>Utils\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BaseView.cpp">
       <Filter>Source Files</Filter>
@@ -123,10 +60,16 @@
     <ClCompile Include="MainFrm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\MessageBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="OpenDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Patch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\ProgressDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RightView.cpp">
@@ -144,8 +87,11 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TempFiles.cpp">
-      <Filter>Utils\Source Files</Filter>
+    <ClCompile Include="..\Svn\SVNAdminDir.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SVN\SVNLineDiff.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TortoiseMerge.cpp">
       <Filter>Source Files</Filter>
@@ -159,76 +105,76 @@
     <ClCompile Include="WorkingFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\AeroBaseDlg.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\AeroControls.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\AeroGlass.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AppUtils.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\BrowseFolder.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\CmdLineParser.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\DIB.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\DirFileEnum.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\DragDropImpl.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\FileDropEdit.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\HistoryCombo.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\HTMLFormatter.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\HyperLink.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\PathUtils.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\Registry.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\ScrollTool.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\StringUtils.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\SysInfo.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TempFiles.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\UnicodeUtils.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\WaterEffect.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="XSplitter.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Svn\SVNAdminDir.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SVN\SVNLineDiff.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\CmdLineParser.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\DirFileEnum.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\DragDropImpl.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\BrowseFolder.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\DIB.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\FileDropEdit.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\HistoryCombo.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\HTMLFormatter.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\HyperLink.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\MessageBox.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\ProgressDlg.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\ScrollTool.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\WaterEffect.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\PathUtils.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\registry.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\StringUtils.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\SysInfo.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\UnicodeUtils.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AboutDlg.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AppUtils.h">
-      <Filter>Utils\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BaseView.h">
       <Filter>Header Files</Filter>
@@ -275,6 +221,9 @@
     <ClInclude Include="Patch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\ProgressDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -293,8 +242,11 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TempFiles.h">
-      <Filter>Utils\Header Files</Filter>
+    <ClInclude Include="..\Svn\SVNAdminDir.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN\SVNLineDiff.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TortoiseMerge.h">
       <Filter>Header Files</Filter>
@@ -307,6 +259,72 @@
     </ClInclude>
     <ClInclude Include="WorkingFile.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\AeroBaseDlg.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\AeroControls.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\AeroGlass.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AppUtils.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\BrowseFolder.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\CmdLineParser.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\DIB.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\DirFileEnum.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\DragDropImpl.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\FileDropEdit.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\HistoryCombo.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\HTMLFormatter.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\HyperLink.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\MessageBox.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\PathUtils.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\registry.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\ScrollTool.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\StringUtils.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\SysInfo.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TempFiles.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\UnicodeUtils.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\WaterEffect.h">
+      <Filter>Utils\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

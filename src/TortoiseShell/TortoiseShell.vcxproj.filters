@@ -1,66 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{063bc248-fe4a-46aa-8d02-723e2f0bde54}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{920c88b5-0845-43d7-8efa-1014cf2cf634}</UniqueIdentifier>
+      <UniqueIdentifier>{e189845c-b9c7-4d43-b5a7-fbec5f640465}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc</Extensions>
     </Filter>
     <Filter Include="Resource Files">
-      <UniqueIdentifier>{8f0fc40a-ae31-4e7a-a100-798ec67be337}</UniqueIdentifier>
+      <UniqueIdentifier>{d8c672c3-38ae-497b-8b2d-76bd75ad6951}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest</Extensions>
-    </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{93526c6d-ff72-4203-b206-6afa5e4df6a5}</UniqueIdentifier>
-      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Svn\SVNAdminDir.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SVN\SVNFolderStatus.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SVN\SVNGlobal.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Svn\SVNHelpers.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SVN\SVNProperties.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SVN\SVNRev.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SVN\SVNStatus.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Svn\TSVNPath.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\TSVNCache\CacheInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\DebugOutput.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\IconBitmapUtils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\PathUtils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\Registry.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\SVNTrace.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\SysInfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\UnicodeUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ColumnProvider.cpp">
@@ -69,16 +24,28 @@
     <ClCompile Include="ContextMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\DebugOutput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\IconBitmapUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="IconOverlay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ItemIDList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\PathUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="PIDL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PreserveChdir.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\Registry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RemoteCacheLink.cpp">
@@ -96,14 +63,53 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\StringUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Svn\SVNAdminDir.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SVN\SVNFolderStatus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SVN\SVNGlobal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Svn\SVNHelpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SVN\SVNProperties.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="SVNPropertyPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SVN\SVNRev.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SVN\SVNStatus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\SVNTrace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\SysInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TortoiseSVN.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Svn\TSVNPath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\UnicodeUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ShellExt.def">
+      <Filter>Source Files</Filter>
+    </None>
     <None Include="..\Resources\clippaste.ico">
       <Filter>Resource Files</Filter>
     </None>
@@ -206,6 +212,9 @@
     <None Include="..\Resources\menuupdate.ico">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="resource.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
     <None Include="..\Resources\Tortoise.ico">
       <Filter>Resource Files</Filter>
     </None>
@@ -224,60 +233,9 @@
     <None Include="..\Resources\tsvnmenumultiple.ico">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="resource.rc2">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="ShellExt.def">
-      <Filter>Source Files</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Svn\SVNAdminDir.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SVN\SVNFolderStatus.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SVN\SVNGlobal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Svn\SVNHelpers.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SVN\SVNProperties.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SVN\SVNRev.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SVN\SVNStatus.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Svn\TSVNPath.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\Utils\DebugOutput.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\IconBitmapUtils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\ProgressDlg.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\PathUtils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\registry.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\SVNTrace.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\SysInfo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\UnicodeUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Globals.h">
@@ -286,13 +244,25 @@
     <ClInclude Include="Guids.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\IconBitmapUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="ItemIDList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\PathUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PIDL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PreserveChdir.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\ProgressDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\registry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RemoteCacheLink.h">
@@ -316,7 +286,40 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\Svn\SVNAdminDir.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN\SVNFolderStatus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN\SVNGlobal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Svn\SVNHelpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN\SVNProperties.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="SVNPropertyPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN\SVNRev.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN\SVNStatus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\SVNTrace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\SysInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Svn\TSVNPath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\UnicodeUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
