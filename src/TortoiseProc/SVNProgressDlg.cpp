@@ -2189,6 +2189,13 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 	SetWindowText(sWindowTitle);
 	SetBackgroundImage(IDI_COPY_BKG);
 
+	if (m_Revision.IsWorking())
+	{
+		// adjust the svn:externals property before we do
+		// the actual copy
+		m_externals.TagExternals(false);
+	}
+
 	CString sCmdInfo;
 	sCmdInfo.Format(IDS_PROGRS_CMD_COPY, 
 		m_targetPathList[0].IsUrl() ? (LPCTSTR)m_targetPathList[0].GetSVNPathString() : m_targetPathList[0].GetWinPath(),
@@ -2204,6 +2211,18 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 	{
 		ReportError(PostCommitErr);
 	}
+	if (m_Revision.IsWorking())
+	{
+		// restore the svn:externals property
+		m_externals.RestoreExternals();
+	}
+	else if (m_Revision.IsNumber() || m_Revision.IsDate() || m_Revision.IsHead())
+	{
+		sCmdInfo.LoadString(IDS_PROGRS_CMD_TAGEXTERNALS);
+		ReportCmd(sCmdInfo);
+		m_externals.TagExternals(true, CString(MAKEINTRESOURCE(IDS_COPY_COMMITMSG)), GetCommitRevision(), m_targetPathList[0], CTSVNPath(m_url));
+	}
+
 	if (m_options & ProgOptSwitchAfterCopy)
 	{
 		sCmdInfo.Format(IDS_PROGRS_CMD_SWITCH, 

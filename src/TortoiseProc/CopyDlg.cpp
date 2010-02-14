@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,6 +27,8 @@
 #include "TSVNPath.h"
 #include "AppUtils.h"
 #include "HistoryDlg.h"
+#include "SVNStatus.h"
+#include "SVNProperties.h"
 
 IMPLEMENT_DYNAMIC(CCopyDlg, CResizableStandAloneDialog)
 CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
@@ -58,6 +60,7 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LOGMESSAGE, m_cLogMessage);
 	DDX_Check(pDX, IDC_DOSWITCH, m_bDoSwitch);
 	DDX_Control(pDX, IDC_FROMURL, m_FromUrl);
+	DDX_Control(pDX, IDC_EXTERNALSLIST, m_ExtList);
 }
 
 
@@ -73,6 +76,9 @@ BEGIN_MESSAGE_MAP(CCopyDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_HISTORY, OnBnClickedHistory)
 	ON_EN_CHANGE(IDC_LOGMESSAGE, OnEnChangeLogmessage)
 	ON_CBN_EDITCHANGE(IDC_URLCOMBO, &CCopyDlg::OnCbnEditchangeUrlcombo)
+	ON_NOTIFY(LVN_GETDISPINFO, IDC_EXTERNALSLIST, &CCopyDlg::OnLvnGetdispinfoExternalslist)
+	ON_NOTIFY(LVN_KEYDOWN, IDC_EXTERNALSLIST, &CCopyDlg::OnLvnKeydownExternalslist)
+	ON_NOTIFY(NM_CLICK, IDC_EXTERNALSLIST, &CCopyDlg::OnNMClickExternalslist)
 END_MESSAGE_MAP()
 
 
@@ -85,6 +91,12 @@ BOOL CCopyDlg::OnInitDialog()
 	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+
+	DWORD exStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_CHECKBOXES;
+	m_ExtList.SetExtendedStyle(exStyle);
+	CXPTheme theme;
+	theme.SetWindowTheme(m_ExtList.GetSafeHwnd(), L"Explorer", NULL);
+	m_ExtList.ShowText(CString(MAKEINTRESOURCE(IDS_COPY_WAITFOREXTERNALS)));
 
 	AdjustControlSize(IDC_COPYHEAD);
 	AdjustControlSize(IDC_COPYREV);
@@ -172,6 +184,8 @@ BOOL CCopyDlg::OnInitDialog()
 	AddAnchor(IDC_COPYREVTEXT, TOP_LEFT);
 	AddAnchor(IDC_BROWSEFROM, TOP_LEFT);
 	AddAnchor(IDC_COPYWC, TOP_LEFT);
+	AddAnchor(IDC_EXTGROUP, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_EXTERNALSLIST, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_MSGGROUP, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_HISTORY, TOP_LEFT);
 	AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
@@ -206,8 +220,44 @@ UINT CCopyDlg::FindRevThreadEntry(LPVOID pVoid)
 UINT CCopyDlg::FindRevThread()
 {
 	InterlockedExchange(&m_bThreadRunning, TRUE);
-	if (GetWCRevisionStatus(m_path, true, m_minrev, m_maxrev, m_bswitched, m_bmodified, m_bSparse))
+	m_bmodified = false;
+	if (!m_bCancelled)
 	{
+		// find the external properties
+		SVNStatus stats(&m_bCancelled);
+		CTSVNPath retPath;
+		svn_wc_status2_t * s = NULL;
+		s = stats.GetFirstFileStatus(m_path, retPath, false, svn_depth_unknown, true, false);
+		while ((s) && (!m_bCancelled))
+		{
+			if (s->entry)
+			{
+				if (s->entry->kind == svn_node_dir)
+				{
+					// read the props of this dir and find out if it has svn:external props
+					SVNProperties props(retPath, SVNRev::REV_WC, false);
+					for (int i = 0; i < props.GetCount(); ++i)
+					{
+						if (props.GetItemName(i).compare(SVN_PROP_EXTERNALS) == 0)
+						{
+							m_externals.Add(retPath, props.GetItemValue(i), true);
+						}
+					}
+				}
+				if (s->entry->has_prop_mods)
+					m_bmodified = true;
+				if (s->entry->cmt_rev < m_maxrev)
+					m_maxrev = s->entry->cmt_rev;
+			}
+			if ( (s->text_status != svn_wc_status_none) &&
+				(s->text_status != svn_wc_status_normal) &&
+				(s->text_status != svn_wc_status_external) &&
+				(s->text_status != svn_wc_status_unversioned) &&
+				(s->text_status != svn_wc_status_ignored))
+				m_bmodified = true;
+
+			s = stats.GetNextFileStatus(retPath);
+		}
 		if (!m_bCancelled)
 			SendMessage(WM_TSVN_MAXREVFOUND);
 	}
@@ -266,7 +316,7 @@ void CCopyDlg::OnOK()
 	if ((m_wcURL.CompareNoCase(combourl)==0)&&(m_CopyRev.IsHead()))
 	{
 		CString temp;
-		temp.Format(IDS_ERR_COPYITSELF, (LPCTSTR)m_wcURL, (LPCTSTR)m_URLCombo.GetString());
+		temp.FormatMessage(IDS_ERR_COPYITSELF, (LPCTSTR)m_wcURL, (LPCTSTR)m_URLCombo.GetString());
 		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 		return;
 	}
@@ -467,6 +517,38 @@ LPARAM CCopyDlg::OnRevFound(WPARAM /*wParam*/, LPARAM /*lParam*/)
 			}
 		}
 	}
+
+
+	if (m_externals.size())
+		m_ExtList.ClearText();
+	else
+		m_ExtList.ShowText(CString(MAKEINTRESOURCE(IDS_COPY_NOEXTERNALSFOUND)));
+
+	m_ExtList.SetRedraw(false);
+	m_ExtList.DeleteAllItems();
+
+	int c = ((CHeaderCtrl*)(m_ExtList.GetDlgItem(0)))->GetItemCount()-1;
+	while (c>=0)
+		m_ExtList.DeleteColumn(c--);
+	CString temp;
+	temp.LoadString(IDS_STATUSLIST_COLFILE);
+	m_ExtList.InsertColumn(0, temp);
+	temp.LoadString(IDS_STATUSLIST_COLURL);
+	m_ExtList.InsertColumn(1, temp);
+	temp.LoadString(IDS_STATUSLIST_COLREVISION);
+	m_ExtList.InsertColumn(2, temp);
+	m_ExtList.SetItemCountEx(m_externals.size());
+
+	CRect rect;
+	m_ExtList.GetClientRect(&rect);
+	int cx = (rect.Width()-100)/2;
+	m_ExtList.SetColumnWidth(0, cx);
+	m_ExtList.SetColumnWidth(1, cx);
+	m_ExtList.SetColumnWidth(2, 80);
+
+	m_ExtList.SetRedraw(true);
+	DialogEnableWindow(IDC_EXTERNALSLIST, true);
+
 	return 0;
 }
 
@@ -496,4 +578,136 @@ void CCopyDlg::OnCbnEditchangeUrlcombo()
 {
 	m_bSettingChanged = true;
 	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
+}
+
+void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
+	*pResult = 0;
+
+	if (m_ExtList.HasText())
+		return;
+
+	if (pDispInfo)
+	{
+		if (pDispInfo->item.iItem < (int)m_externals.size())
+		{
+			SVNExternal ext = m_externals[pDispInfo->item.iItem];
+			if (pDispInfo->item.mask & LVIF_INDENT)
+			{
+				pDispInfo->item.iIndent = 0;
+			}
+			if (pDispInfo->item.mask & LVIF_IMAGE)
+			{
+				pDispInfo->item.mask |= LVIF_STATE;
+				pDispInfo->item.stateMask = LVIS_STATEIMAGEMASK;
+
+				if (ext.adjust)
+				{
+					//Turn check box on
+					pDispInfo->item.state = INDEXTOSTATEIMAGEMASK(2);
+				}
+				else
+				{
+					//Turn check box off
+					pDispInfo->item.state = INDEXTOSTATEIMAGEMASK(1);
+				}
+			}
+			if (pDispInfo->item.mask & LVIF_TEXT)
+			{
+				switch (pDispInfo->item.iSubItem)
+				{
+				case 0:	// folder
+					{
+						CTSVNPath p = ext.path;
+						p.AppendPathString(ext.targetDir);
+						lstrcpyn(m_columnbuf, p.GetWinPath(), pDispInfo->item.cchTextMax);
+						int cWidth = m_ExtList.GetColumnWidth(0);
+						cWidth = max(28, cWidth-28);
+						CDC * pDC = m_ExtList.GetDC();
+						if (pDC != NULL)
+						{
+							CFont * pFont = pDC->SelectObject(m_ExtList.GetFont());
+							PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
+							pDC->SelectObject(pFont);
+							ReleaseDC(pDC);
+						}
+					}
+					break;
+				case 1:	// url
+					{
+						lstrcpyn(m_columnbuf, ext.url, pDispInfo->item.cchTextMax);
+						int cWidth = m_ExtList.GetColumnWidth(0);
+						cWidth = max(28, cWidth-28);
+						CDC * pDC = m_ExtList.GetDC();
+						if (pDC != NULL)
+						{
+							CFont * pFont = pDC->SelectObject(m_ExtList.GetFont());
+							PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
+							pDC->SelectObject(pFont);
+							ReleaseDC(pDC);
+						}
+					}
+					break;
+				case 2: // revision
+					if ((ext.revision.kind == svn_opt_revision_number) && (ext.revision.value.number >= 0))
+						_stprintf_s(m_columnbuf, MAX_PATH, _T("%ld"), ext.revision.value.number);
+					else
+						m_columnbuf[0] = 0;
+					break;
+
+				default:
+					m_columnbuf[0] = 0;
+				}
+				pDispInfo->item.pszText = m_columnbuf;
+			}
+		}
+	}
+}
+
+void CCopyDlg::OnLvnKeydownExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLVKEYDOWN pLVKeyDow = reinterpret_cast<LPNMLVKEYDOWN>(pNMHDR);
+	*pResult = 0;
+
+	if (m_ExtList.HasText())
+		return;
+
+	if (pLVKeyDow->wVKey == VK_SPACE)
+	{
+		int nFocusedItem = m_ExtList.GetNextItem(-1, LVNI_FOCUSED);
+		if (nFocusedItem >= 0)
+			ToggleCheckbox(nFocusedItem);
+	}
+}
+
+void CCopyDlg::OnNMClickExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
+	*pResult = 0;
+
+	if (m_ExtList.HasText())
+		return;
+
+	UINT flags = 0;
+	CPoint point(pNMItemActivate->ptAction);
+	// Make the hit test...
+	int item = m_ExtList.HitTest(point, &flags); 
+
+	if (item != -1)
+	{
+		// We hit one item... did we hit state image (check box)?
+		if( (flags & LVHT_ONITEMSTATEICON) != 0)
+		{
+			ToggleCheckbox(item);
+		}
+	}
+}
+
+void CCopyDlg::ToggleCheckbox(int index)
+{
+	SVNExternal ext = m_externals[index];
+	ext.adjust = !ext.adjust;
+	m_externals[index] = ext;
+	m_ExtList.RedrawItems(index, index);
 }

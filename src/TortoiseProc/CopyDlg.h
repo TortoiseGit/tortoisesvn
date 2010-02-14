@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,6 +28,8 @@
 #include "Tooltip.h"
 #include "PathEdit.h"
 #include "AeroControls.h"
+#include "SVNExternals.h"
+#include "HintListCtrl.h"
 
 #define WM_TSVN_MAXREVFOUND			(WM_APP + 1)
 
@@ -48,6 +50,9 @@ class CCopyDlg : public CResizableStandAloneDialog, public SVN
 public:
 	CCopyDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CCopyDlg();
+
+
+	SVNExternals GetExternalsToTag() { return m_externals; }
 
 // Dialog Data
 	enum { IDD = IDD_COPY };
@@ -70,10 +75,15 @@ protected:
 	afx_msg void OnBnClickedHistory();
 	afx_msg void OnEnChangeLogmessage();
 	afx_msg void OnCbnEditchangeUrlcombo();
+	afx_msg void OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLvnKeydownExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNMClickExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
 	DECLARE_MESSAGE_MAP()
 
-	virtual BOOL Cancel() {return m_bCancelled;}
-	void		SetRevision(const SVNRev& rev);
+	virtual BOOL	Cancel() {return m_bCancelled;}
+	void			SetRevision(const SVNRev& rev);
+	void			ToggleCheckbox(int index);
+
 public:
 	CString			m_URL;
 	CTSVNPath		m_path;
@@ -94,17 +104,17 @@ private:
 	CRegHistory		m_History;
 	CToolTips		m_tooltips;
 	CPathEdit		m_FromUrl;
+	CHintListCtrl	m_ExtList;
+	TCHAR			m_columnbuf[MAX_PATH];
 	AeroControlBase m_aeroControls;
 
-	svn_revnum_t	m_minrev;
 	svn_revnum_t	m_maxrev;
-	bool			m_bswitched;
 	bool			m_bmodified;
-	bool			m_bSparse;
 	bool			m_bSettingChanged;
 	static UINT		FindRevThreadEntry(LPVOID pVoid);
 	UINT			FindRevThread();
 	CWinThread *	m_pThread;
 	bool			m_bCancelled;
 	volatile LONG	m_bThreadRunning;
+	SVNExternals	m_externals;
 };

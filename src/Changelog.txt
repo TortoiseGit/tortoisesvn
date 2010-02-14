@@ -81,6 +81,8 @@
        like this:
        $ svn diff | TortoiseUDiff.exe -p
 - NEW: TortoiseMerge can jump to the next/prev inline diff. (Stefan)
+- NEW: Adjusting externals to a fixed revision when 
+       branching/tagging. (Stefan)
 - BUG: Merged revisions must be counted only 
        once in stats (Stefan Fuhrmann)
 - BUG: Relative Webviewer urls didn't work from the 

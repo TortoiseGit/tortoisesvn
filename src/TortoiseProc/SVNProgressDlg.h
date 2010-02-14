@@ -23,6 +23,7 @@
 #include "ProjectProperties.h"
 #include "SVN.h"
 #include "Colors.h"
+#include "SVNExternals.h"
 #include "..\IBugTraqProvider\IBugTraqProvider_h.h"
 #include "Win7.h"
 #include "AeroControls.h"
@@ -117,6 +118,7 @@ public:
 	void SetUrl(const CString& url) {m_url.SetFromUnknown(url);}
 	void SetSecondUrl(const CString& url) {m_url2.SetFromUnknown(url);}
 	void SetCommitMessage(const CString& msg) {m_sMessage = msg;}
+	void SetExternals(const SVNExternals& ext) { m_externals = ext; }
 	
 	void SetRevision(const SVNRev& rev) {m_Revision = rev;}
 	void SetRevisionEnd(const SVNRev& rev) {m_RevisionEnd = rev;}
@@ -301,6 +303,7 @@ private:
 	CString					m_changelist;
 	bool					m_keepchangelist;
 	RevPropHash				m_revProps;
+	SVNExternals			m_externals;
 
 	DWORD					m_dwCloseOnEnd;
 	DWORD					m_bCloseLocalOnEnd;
