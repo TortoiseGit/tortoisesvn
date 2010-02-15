@@ -194,7 +194,7 @@ intl3_tsvn.lib : $(OBJECTS)
 
 # intl.dll and intl.lib are created together.
 intl3_tsvn.lib : $(OBJECTS) $(RESOURCES)
-	$(CC) $(MFLAGS) $(DEBUGFLAGS) -LD $(OBJECTS) $(RESOURCES) -Feintl3_tsvn.dll
+	$(CC) $(MFLAGS) $(DEBUGFLAGS) -LD $(OBJECTS) $(RESOURCES) -Feintl3_tsvn.dll /link /INCREMENTAL:NO /NOLOGO /MANIFEST 
 
 intl.res : $(srcdir)\..\windows\intl.rc
 	rc -Fo intl.res $(srcdir)\libintl3-dll.rc
