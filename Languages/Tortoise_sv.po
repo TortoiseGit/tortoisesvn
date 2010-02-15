@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-25 11:34+0100\n"
+"PO-Revision-Date: 2010-02-15 11:32+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1872,8 +1872,8 @@ msgid "Author"
 msgstr "Användarnamn"
 
 #. Resource IDs: (65535)
-msgid "Author:                                    Stefan Kueng"
-msgstr "Upphovsman: Stefan Kueng"
+msgid "Author:\t\t\t\tStefan Kueng"
+msgstr "Upphovsman:\t\t\t\tStefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -2206,6 +2206,10 @@ msgstr "Ändringslista:"
 msgid "Changes made (double-click on file for diff):"
 msgstr "Ändringar (dubbelklicka på fil för jämförelse):"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "Ändrar externa till fast revision"
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "&Hämta..."
@@ -2221,6 +2225,10 @@ msgstr "Leta efter uppdateringar"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Leta efter uppdateringar..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr "Kontrollera externa mot märken"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2736,10 +2744,6 @@ msgstr "Kopiera %s"
 #, c-format
 msgid "Copy %s to %s, Revision %s"
 msgstr "Kopiera %s till %s, Revision %s"
-
-#. Resource IDs: (142)
-msgid "Copy (Branch / Tag)"
-msgstr "Kopiera (gren / märke)"
 
 #. Resource IDs: (78)
 msgid "Copy - TortoiseSVN"
@@ -4624,8 +4628,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "Statusikoner::Statusikonuppsättning"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:                 Luebbe Onken"
-msgstr "Ikoner/Design/Kodning: Luebbe Onken"
+msgid "Icons/Design/Code:\t\tLuebbe Onken"
+msgstr "Ikoner/Design/Kodning: \t\tLuebbe Onken"
 
 #. Resource IDs: (346)
 msgid ""
@@ -5798,6 +5802,11 @@ msgstr "Nytt namn för %s"
 msgid "New name:"
 msgstr "Nytt namn:"
 
+# Hur översätta "difference"
+#. Resource IDs: (32875)
+msgid "Next &Inline Difference"
+msgstr "Nästa skillnad &inom rad"
+
 #. Resource IDs: (3633)
 msgid ""
 "Next Page\n"
@@ -5836,6 +5845,10 @@ msgstr "Felmeddelande saknas."
 #. Resource IDs: (3867, 3868)
 msgid "No error occurred."
 msgstr "Inga fel inträffade."
+
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "Inga externa funna"
 
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
@@ -6350,6 +6363,10 @@ msgstr "Vänta medan operationen avbryts..."
 msgid "Please wait while differences are obtained..."
 msgstr "Vänta medan skillnader hämtas..."
 
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "Vänta medan externa hämtas..."
+
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Var god vänta medans arkivutforskaren initieras..."
@@ -6421,6 +6438,11 @@ msgstr "Förhandsgranska den patchade filen"
 #. Resource IDs: (65535)
 msgid "Preview: "
 msgstr "Förhandsgranskning:"
+
+# Hur översätta "difference"
+#. Resource IDs: (32876)
+msgid "Previous In&line Difference"
+msgstr "Föregående ski&llnad innom rad"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -7870,8 +7892,8 @@ msgstr "Visa/dölj"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
-msgstr "Visar %1!ld! revision(er), från revision %2!ld! till revision %3!ld! - %4!ld! revision(er) valda. "
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected, showing %5!ld! changed paths"
+msgstr "Visar %1!ld! revision(er), från revision %2!ld! till revision %3!ld! - %4!ld! revision(er) valda, visar %5!ld! ändrade sökvägar. "
 
 #. Resource IDs: (272)
 #, c-format
@@ -9102,6 +9124,10 @@ msgstr ""
 "neon %s\r\n"
 "%s\r\n"
 "zlib %s"
+
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "TortoiseSVN automatisk arkivering: Ändrat externa till fast revision."
 
 #. Resource IDs: (98)
 #, c-format
@@ -10866,6 +10892,10 @@ msgstr "ord element:"
 msgid "words [uncompressed]: "
 msgstr "ord [okomprimerat]:"
 
+#. Resource IDs: (142)
+msgid "y"
+msgstr "y"
+
 #. Resource IDs: (245)
 msgid "year"
 msgstr "år"
@@ -10878,6 +10908,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Author:                                    Stefan Kueng"
+#~ msgstr "Upphovsman: Stefan Kueng"
+#~ msgid "Copy (Branch / Tag)"
+#~ msgstr "Kopiera (gren / märke)"
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Leta automatiskt efter &nyare versioner varje vecka"
 #~ msgid ""
