@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,9 +26,10 @@
 IMPLEMENT_DYNAMIC(CDeleteUnversionedDlg, CResizableStandAloneDialog)
 CDeleteUnversionedDlg::CDeleteUnversionedDlg(CWnd* pParent /*=NULL*/)
 : CResizableStandAloneDialog(CDeleteUnversionedDlg::IDD, pParent)
-, m_bSelectAll(TRUE)
-, m_bThreadRunning(FALSE)
-, m_bCancelled(false)
+	, m_bSelectAll(TRUE)
+	, m_bUseRecycleBin(TRUE)
+	, m_bThreadRunning(FALSE)
+	, m_bCancelled(false)
 {
 }
 
@@ -42,6 +43,7 @@ void CDeleteUnversionedDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_ITEMLIST, m_StatusList);
 	DDX_Check(pDX, IDC_SELECTALL, m_bSelectAll);
 	DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
+	DDX_Check(pDX, IDC_USERECYCLEBIN, m_bUseRecycleBin);
 }
 
 
@@ -58,6 +60,7 @@ BOOL CDeleteUnversionedDlg::OnInitDialog()
 
 	ExtendFrameIntoClientArea(IDC_ITEMLIST, IDC_ITEMLIST, IDC_ITEMLIST, IDC_ITEMLIST);
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_SELECTALL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_USERECYCLEBIN)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
 
@@ -76,6 +79,7 @@ BOOL CDeleteUnversionedDlg::OnInitDialog()
 
 	AddAnchor(IDC_ITEMLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT);
+	AddAnchor(IDC_USERECYCLEBIN, BOTTOM_LEFT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	if (hWndExplorer)

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -49,8 +49,9 @@ bool DelUnversionedCommand::Execute()
 		fileop.wFunc = FO_DELETE;
 		fileop.pFrom = buf;
 		fileop.pTo = NULL;
-		fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | FOF_ALLOWUNDO;
-		fileop.lpszProgressTitle = _T("deleting file");
+		fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS;
+		fileop.fFlags |= dlg.m_bUseRecycleBin ? FOF_ALLOWUNDO : 0;
+		fileop.lpszProgressTitle = (LPCTSTR)CString(MAKEINTRESOURCE(IDS_DELUNVERSIONED));
 		bRet = (SHFileOperation(&fileop) == 0);
 	}
 	return true;
