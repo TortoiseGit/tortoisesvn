@@ -94,6 +94,7 @@ Version 1.6.8
        required escaping. (Stefan)
 - BUG: Properties loaded from a file were not changed or
        added without a manual edit of the loaded content. (Stefan)
+- BUG: The /logmsg param wasn't used in the copy command. (Stefan)
 - CHG: Various adjustments for Windows 7. (Stefan)
 
 Version 1.6.7
