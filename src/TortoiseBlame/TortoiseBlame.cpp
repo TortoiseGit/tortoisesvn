@@ -446,6 +446,13 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
 	RECT rc;
 	GetWindowRect(wMain, &rc);
 	SetWindowPos(wMain, 0, rc.left, rc.top, rc.right-rc.left-1, rc.bottom - rc.top, 0);
+
+	if (mergedpaths.size() == 0)
+	{
+		HMENU hMenu = GetMenu(wMain);
+		EnableMenuItem(hMenu, ID_VIEW_MERGEPATH, MF_DISABLED | MF_GRAYED | MF_BYCOMMAND);
+	}
+
 	return TRUE;
 }
 
@@ -874,7 +881,8 @@ void TortoiseBlame::Command(int id)
 		break;
 	case ID_VIEW_MERGEPATH:
 		{
-			ShowPath = !ShowPath;
+			bool bUseMerged = (mergedpaths.size() != 0);
+			ShowPath = bUseMerged && !ShowPath;
 			HMENU hMenu = GetMenu(wMain);
 			UINT uCheck = MF_BYCOMMAND;
 			uCheck |= ShowPath ? MF_CHECKED : MF_UNCHECKED;
@@ -1065,7 +1073,7 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 				::ExtTextOut(hDC, Left, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)_tcslen(buf), 0);
 				Left += m_authorwidth;
 			}
-			if (ShowPath)
+			if ((ShowPath)&&(mergedpaths.size()))
 			{
 				rc.right = rc.left + Left + m_pathwidth;
 				_stprintf_s(buf, MAX_PATH, _T("%-60s            "), mergedpaths[i].c_str());
