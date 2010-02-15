@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-12 15:08+0100\n"
+"PO-Revision-Date: 2010-02-15 13:02+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -154,7 +154,7 @@ msgstr "TortoiseSVN is gratis. Je hoeft niet te betalen om het te gebruiken en j
 
 #. (para)
 msgid "TortoiseSVN is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. You will be prompted to enter username and password. The username is <literal>guest</literal>, and the password must be left blank. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseSVN is een <quote>Open Source</quote> project. Dit betekent dat je volledige leestoegang hebt tot de bronbestanden van dit programma. Je kunt de bronbestanden via de URL <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink> bekijken. Hierbij word je naar een gebruikersnaam en wachtwoord gevraagd. De gebruikersnaam is <literal>guest</literal> en het wachtwoord moet je leeg laten. De meest recente versie (waaraan we op dit moment werken) is te vinden op <filename>/trunk/</filename> en de opgeleverde versies zijn te vinden onder <filename>/tags/</filename>."
+msgstr "TortoiseSVN is een <quote>Open Source</quote> project. Dit betekent dat je volledige leestoegang hebt tot de bronbestanden van dit programma. Je kunt de bronbestanden via de URL <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink> bekijken. Hierbij word je naar een gebruikersnaam en wachtwoord gevraagd. De gebruikersnaam is <literal>guest</literal> en het wachtwoord moet je leeg laten. De meest recente versie (waaraan we op dit moment werken) is te vinden in de <filename>/trunk/</filename> en de opgeleverde versies zijn te vinden onder <filename>/tags/</filename>."
 
 #. (title)
 msgid "Community"
@@ -1162,7 +1162,7 @@ msgstr "Voordat je je data in het archief opneemt, moet je nadenken hoe je de in
 
 #. (para)
 msgid "There are some standard, recommended ways to organize a repository. Most people create a <filename>trunk</filename> directory to hold the <quote>main line</quote> of development, a <filename>branches</filename> directory to contain branch copies, and a <filename>tags</filename> directory to contain tag copies. If a repository holds only one project, then often people create these top-level directories:"
-msgstr "Er zijn een paar standaard aanbevolen indelingen voor een archief. Vaak wordt er een <filename>trunk</filename> map aangemaakt voor de <quote>hoofd lijn</quote> van de ontwikkeling, een <filename>branches</filename> map voor vertakkingen en een <filename>tags</filename> map voor vrijgaves. Als een archief maar één project bevat, worden van deze mappen op hoofdniveau gemaakt:"
+msgstr "Er zijn een paar standaard aanbevolen indelingen voor een archief. Vaak wordt er een <filename>trunk</filename> map aangemaakt voor de <quote>basislijn</quote> van de ontwikkeling, een <filename>branches</filename> map voor vertakkingen en een <filename>tags</filename> map voor labels (vrijgaves). Als een archief maar één project bevat, worden van deze mappen op hoofdniveau gemaakt:"
 
 #. (screen)
 #, no-wrap
@@ -1225,7 +1225,7 @@ msgstr ""
 
 #. (para)
 msgid "Indexing by project makes sense if the projects are not closely related and each one is checked out individually. For related projects where you may want to check out all projects in one go, or where the projects are all tied together in a single distribution package, it is often better to index by branch. This way you have only one trunk to checkout, and the relationships between the sub-projects is more easily visible."
-msgstr "Indexeren per project heeft zin als de projecten niet veel met elkaar te maken hebben en elk project afzonderlijk opgehaald wordt uit het archief. Voor projecten die je in één keer wilt ophalen of die met elkaar verbonden zijn in een enkele distributie is het vaak om te indexeren per vertakking. Hiermee hoef je alleen de hoofdstroom (trunk) op te halen en de relaties tussen de projecten zijn eenvoudiger te zien."
+msgstr "Indexeren per project heeft zin als de projecten niet veel met elkaar te maken hebben en elk project afzonderlijk opgehaald wordt uit het archief. Voor projecten die je in één keer wilt ophalen of die met elkaar verbonden zijn in een enkele distributie is het vaak om te indexeren per vertakking. Hiermee hoef je alleen de basislijn (trunk) op te halen en de relaties tussen de projecten zijn eenvoudiger te zien."
 
 #. (para)
 msgid "If you adopt a top level <filename>/trunk /tags /branches</filename> approach, there is nothing to say that you have to copy the entire trunk for every branch and tag, and in some ways this structure offers the most flexibility."
@@ -1535,7 +1535,7 @@ msgstr ""
 "svnserve.exe --daemon --root drive:\\path\\to\\repository\\root\n"
 "</screen> Met de vorige test kan svnserve  opstarten als: <screen>\n"
 "svnserve.exe --daemon --root c:\\repos\n"
-"</screen> En in TortoiseSVN is de archiefverkenner URL verkort tot: : <screen>\n"
+"</screen> En in TortoiseSVN is de archief-verkenner URL verkort tot: : <screen>\n"
 "svn://localhost/TestRepo\n"
 "</screen> Merk op dat de --root optie ook nodig als het archief op een andere partitie of schijf dan svnserve is opgeslagen."
 
@@ -3152,7 +3152,7 @@ msgstr "Als <guilabel>Externen uitslaten</guilabel> aangevinkt is of je wilt de 
 
 #. (para)
 msgid "It is recommended that you check out only the <literal>trunk</literal> part of the directory tree, or lower. If you specify the parent path of the directory tree in the URL then you might end up with a full hard disk since you will get a copy of the entire repository tree including every branch and tag of your project!"
-msgstr "Het is aanbevolen om alleen de <literal>trunk</literal> of dieper gelegen mappen van je mapstructuur op te halen. Als je de hoofdmap van het hele archief in je URL opneemt, dan zal je harddisk waarschijnlijk vollopen. Je krijgt dan namelijk een complete kopie van het hele archief, inclusief alle takken en labels van je project."
+msgstr "Het is aanbevolen om alleen de <literal>basislijn</literal> (trunk) of dieper gelegen mappen van je mapstructuur op te halen. Als je de hoofdmap van het hele archief in je URL opneemt, dan zal je harddisk waarschijnlijk vollopen. Je krijgt dan namelijk een complete kopie van het hele archief, inclusief alle takken en labels van je project."
 
 #. (title)
 msgid "Exporting"
@@ -3201,7 +3201,7 @@ msgstr "De vastleggen dialoog geeft elk gewijzigd bestand weer, inclusief toegev
 #. (para)
 #. (para)
 msgid "Items which have been switched to a different repository path are also indicated using an <literal>(s)</literal> marker. You may have switched something while working on a branch and forgotten to switch back to trunk. This is your warning sign!"
-msgstr "Objecten die verplaatst zijn naar een andere archieflocatie worden aangeduid met een <literal>(s)</literal> teken. Het kan zijn dat je omgeschakeld bent terwijl je werkte aan een tak en vergeten was om terug te schakelen naar de trunk. Dit is je waarschuwing!"
+msgstr "Objecten die verplaatst zijn naar een andere archieflocatie worden aangeduid met een <literal>(s)</literal> teken. Het kan zijn dat je omgeschakeld bent terwijl je werkte aan een tak en vergeten was om terug te schakelen naar de basislijn. Dit is je waarschuwing!"
 
 #. (title)
 msgid "Commit files or folders?"
@@ -3769,7 +3769,7 @@ msgstr "Lokaal missend, binnenkomende wijziging bij het samenvoegen"
 
 #. (para)
 msgid "Developer A working on trunk modifies <filename>Foo.c</filename> and commits it to the repository"
-msgstr "Ontwikkelaar A werkt in de trunk en wijzigt <filename>Foo.c</filename> en legt de wijzigingen vast in het archief."
+msgstr "Ontwikkelaar A werkt in de basislijn en wijzigt <filename>Foo.c</filename> en legt de wijzigingen vast in het archief."
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
@@ -3787,7 +3787,7 @@ msgstr "<filename>Foo.c</filename> wordt gemarkeerd als missend met een mapstruc
 #. (para)
 #. (para)
 msgid "A merge of developer A's trunk changes to developer B's branch working copy results in a tree conflict: <placeholder-1/>"
-msgstr "Het samenvoegen van de wijzigingen van A op de trunk naar de branch werkkopie van ontwikkelaar B leidt tot een mapstructuur conflict: <placeholder-1/>"
+msgstr "Het samenvoegen van de wijzigingen van A op de basislijn naar de tak-werkkopie van ontwikkelaar B leidt tot een mapstructuur conflict: <placeholder-1/>"
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to mark the file as resolved in the conflict editor dialog, which will remove it from the conflict list. She then has to decide whether to copy the missing file <filename>Foo.c</filename> from the repository to the working copy, whether to merge Developer A's changes to <filename>Foo.c</filename> into the renamed <filename>Bar.c</filename> or whether to ignore the changes by marking the conflict as resolved and doing nothing else."
@@ -3804,7 +3804,7 @@ msgstr "Lokale wijziging, inkomende verwijdering bij samenvoegen"
 #. (para)
 #. (para)
 msgid "Developer A working on trunk moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr "Ontwikkelaar A werkt aan de trunk en hernoemt <filename>Foo.c</filename> in <filename>Bar.c</filename> en legt de wijziging vast in het archief."
+msgstr "Ontwikkelaar A werkt aan de basislijn en hernoemt <filename>Foo.c</filename> in <filename>Bar.c</filename> en legt de wijziging vast in het archief."
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> and commits it to the repository."
@@ -3816,7 +3816,7 @@ msgstr "Er is een vergelijkbare situatie voor verplaatste mappen, maar dit wordt
 
 #. (para)
 msgid "Developer A working on trunk moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
-msgstr "Ontwikkelaar A werkt aan de trunk en hernoemt de bovenliggende map <filename>FooFolder</filename> in <filename>BarFolder</filename> en legt de wijziging vast in het archief."
+msgstr "Ontwikkelaar A werkt aan de basislijn en hernoemt de bovenliggende map <filename>FooFolder</filename> in <filename>BarFolder</filename> en legt de wijziging vast in het archief."
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> in her working copy."
@@ -3868,7 +3868,7 @@ msgstr "Andere mapstructuur conflicten"
 
 #. (para)
 msgid "There are other cases which are labelled as tree conflicts simply because the conflict involves a folder rather than a file. For example if you add a folder with the same name to both trunk and branch and then try to merge you will get a tree conflict. If you want to keep the folder from the merge target, just mark the conflict as resolved. If you want to use the one in the merge source then you need to SVN delete the one in the target first and run the merge again. If you need anything more complicated then you have to resolve manually."
-msgstr "Er zijn nog enkele andere situaties welke worden aangeduid als mapstructuur conflicten, dit komt doordat bij de conflicten mappen in plaats van bestanden betrokken zijn. Als je bijvoorbeeld een map met dezelfde naam in de trunk en tak toevoegd en deze vervolgens probeert samen te voegen, dan zal er een mapstructuur conflict ontstaan. Als je de map van het samenvoeg doel wilt gebruiken, markeer het conflict dan als opgelost. Als je de map uit de samenvoeg bron wilt gebruiken, dan moet je de map in de doel structuur er met SVN Verwijderen en vervolgens de samenvoeging opnieuw starten. Als je een ingewikkeldere oplossing wilt hebben, dan zul je dat handmatig moeten doen."
+msgstr "Er zijn nog enkele andere situaties welke worden aangeduid als mapstructuur conflicten, dit komt doordat bij de conflicten mappen in plaats van bestanden betrokken zijn. Als je bijvoorbeeld een map met dezelfde naam in de basislijn en tak toevoegd en deze vervolgens probeert samen te voegen, dan zal er een mapstructuur conflict ontstaan. Als je de map van het samenvoeg doel wilt gebruiken, markeer het conflict dan als opgelost. Als je de map uit de samenvoeg bron wilt gebruiken, dan moet je de map in de doel structuur er met SVN Verwijderen en vervolgens de samenvoeging opnieuw starten. Als je een ingewikkeldere oplossing wilt hebben, dan zul je dat handmatig moeten doen."
 
 #. (title)
 msgid "Getting Status Information"
@@ -4643,7 +4643,7 @@ msgstr "Voeg trackinglog samen"
 
 #. (para)
 msgid "Subversion 1.5 and later keeps a record of merges using properties. This allows us to get a more detailed history of merged changes. For example, if you develop a new feature on a branch and then merge that branch back to trunk, the feature development will show up on the trunk log as a single commit for the merge, even though there may have been 1000 commits during branch development."
-msgstr "Subversion 1.5 en later slaat met behulp van eigenschappen de geschiedenis van Samenvoeg acties op. Hierdoor kun je een gedetailleerd overzicht krijgen van samengevoegde wijzigingen. Bijvoorbeeld, je ontwikkelt een nieuwe functie in een tak en voegt die later samen in de trunk. In het logboek van de trunk is de ontwikkeling van deze functie te zien als een enkele vastlegging, terwijl er misschien 1000 vastleggingen in de tak aan vooraf zijn gegaan."
+msgstr "Subversion 1.5 en later slaat met behulp van eigenschappen de geschiedenis van Samenvoeg acties op. Hierdoor kun je een gedetailleerd overzicht krijgen van samengevoegde wijzigingen. Bijvoorbeeld, je ontwikkelt een nieuwe functie in een tak en voegt die later samen in de basislijn. In het logboek van de basislijn is de ontwikkeling van deze functie te zien als een enkele vastlegging, terwijl er misschien 1000 vastleggingen in de tak aan vooraf zijn gegaan."
 
 #. (title)
 msgid "The Log Dialog Showing Merge Tracking Revisions"
@@ -4655,7 +4655,7 @@ msgstr "Als je de details wilt zien welke revisies samengevoegd zijn bij die vas
 
 #. (para)
 msgid "Of course, merging is never simple! During feature development on the branch there will probably be occasional merges back from trunk to keep the branch in sync with the main line code. So the merge history of the branch will also include another layer of merge history. These different layers are shown in the log dialog using indentation levels."
-msgstr "Samenvoegen is natuurlijk nooit eenvoudig. Gedurende de ontwikkelingen aan een tak zullen er soms samenvoegingen vanuit de trunk gedaan moeten worden om ervoor te zorgen dat de tak bij blijft met de hoofdbroncode. Dat houdt in dat de samenvoeggeschiedenis van een tak ook een extra laag van samenvoeggeschiedenis zal hebben. Deze verschillende lagen worden met verschillende inspringingen weergegeven."
+msgstr "Samenvoegen is natuurlijk nooit eenvoudig. Gedurende de ontwikkelingen aan een tak zullen er soms samenvoegingen vanuit de basislijn gedaan moeten worden om ervoor te zorgen dat de tak bij blijft met de hoofdbroncode. Dat houdt in dat de samenvoeggeschiedenis van een tak ook een extra laag van samenvoeggeschiedenis zal hebben. Deze verschillende lagen worden met verschillende inspringingen weergegeven."
 
 #. (title)
 msgid "Changing the Log Message and Author"
@@ -4757,11 +4757,11 @@ msgstr "In sommige gevallen vereist je werkmethode een bepaalde indeling van de 
 
 #. (title)
 msgid "No Log Formatting from Repository Browser"
-msgstr "Geen Logopmaak van de archiefverkenner"
+msgstr "Geen Logopmaak van de archief-verkenner"
 
 #. (para)
 msgid "Because the formatting depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
-msgstr "Aangezien de indeling afhankelijk is van het kunnen bereiken van subversion eigenschappen, zul je alleen de resultaten zien als je een opgehaalde werkkopie gebruikt. Eigenschappen op afstand ophalen is een trage actie, daarom zul je deze functie niet in actie zien vanuit de archiefverkenner."
+msgstr "Aangezien de indeling afhankelijk is van het kunnen bereiken van subversion eigenschappen, zul je alleen de resultaten zien als je een opgehaalde werkkopie gebruikt. Eigenschappen op afstand ophalen is een trage actie, daarom zul je deze functie niet in actie zien vanuit de archief-verkenner."
 
 #. (title)
 msgid "Statistical Information"
@@ -4919,11 +4919,11 @@ msgstr "Verschil met een andere tak/label"
 
 #. (para)
 msgid "If you want to see what has changed on trunk (if you are working on a branch) or on a specific branch (if you are working on trunk), you can use the explorer context menu. Just hold down the <keycap>Shift</keycap> key while you right click on the file. Then select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with URL</guimenuitem></menuchoice>. In the following dialog, specify the URL in the repository with which you want to compare your local file to."
-msgstr "Als je wilt zien wat er veranderd is in de trunk (als je aan een tak werkt) of in een specifieke tak (als je werkt op de trunk), kun je gebruik maken van het context menu van de verkenner. Je houdt gewoon de <keycap>Shift</keycap>-toets ingedrukt terwijl je met de rechtermuisknop op het bestand klikt. Vervolgens selecteer je <menuchoice><guimenu> TortoiseSVN</guimenu><guimenuitem>Verschil met URL</guimenuitem></menuchoice>. In het dialoogvenster dat volgt, geef je de URL in het archief aan waarmee je het lokale bestand wilt vergelijken."
+msgstr "Als je wilt zien wat er veranderd is in de basislijn (als je aan een tak werkt) of in een specifieke tak (als je werkt op de basislijn), kun je gebruik maken van het context menu van de verkenner. Je houdt gewoon de <keycap>Shift</keycap>-toets ingedrukt terwijl je met de rechtermuisknop op het bestand klikt. Vervolgens selecteer je <menuchoice><guimenu> TortoiseSVN</guimenu><guimenuitem>Verschil met URL</guimenuitem></menuchoice>. In het dialoogvenster dat volgt, geef je de URL in het archief aan waarmee je het lokale bestand wilt vergelijken."
 
 #. (para)
 msgid "You can also use the repository browser and select two trees to diff, perhaps two tags, or a branch/tag and trunk. The context menu there allows you to compare them using <guimenuitem>Compare revisions</guimenuitem>. Read more in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr "Je kunt ook gebruik maken van de archief-verkenner. Selecteer hier twee bomen, twee labels, of een tak/label en de trunk om te vergelijken. Via het daar aanwezige contextmenu kun je ze vergelijken met <guimenuitem>Vergelijk revisies</guimenuitem>. Lees meer in <xref linkend=\"tsvn-dug-compare-revs\"/>."
+msgstr "Je kunt ook gebruik maken van de archief-verkenner. Selecteer hier twee bomen, twee labels, of een tak/label en de basislijn om te vergelijken. Via het daar aanwezige contextmenu kun je ze vergelijken met <guimenuitem>Vergelijk revisies</guimenuitem>. Lees meer in <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "Difference from a previous revision"
@@ -6034,7 +6034,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Limitations Using the Repository Browser"
-msgstr "Beperkingen Van De Archiefverkenner"
+msgstr "Beperkingen Van De Archief-verkenner"
 
 #. (para)
 msgid "Fetching properties remotely is a slow operation, so some of the features described above will not work in the repository browser as they do in a working copy."
@@ -6135,7 +6135,7 @@ msgstr "Als je absolute URL's gebruikt in de <literal>svn:externals</literal> de
 
 #. (para)
 msgid "To avoid such problems, Subversion clients version 1.5 and higher support relative external URLs. Four different methods of specifying a relative URL are supported. In the following examples, assume we have two repositories: one at <systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> and another at <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. We have a checkout of <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem> into <filename>C:\\Working</filename> and the <literal>svn:externals</literal> property is set on trunk."
-msgstr "Om zulke problemen te voorkomen, ondersteunen de Subversion clients vanaf versie 1.5 relatieve externe URL's. Er zijn vier verschillende methodes voor het definiëren van relatieve URL's. Bij de volgende voorbeelden gaan we er van uit dat we twee archieven hebben: één op  <systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> en de ander op <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. We hebben een werkkopie opgehaald van <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem>  naar de locatie <filename>C:\\Working</filename> en de <literal>svn:externals</literal> eigenschap is ingesteld op de trunk."
+msgstr "Om zulke problemen te voorkomen, ondersteunen de Subversion clients vanaf versie 1.5 relatieve externe URL's. Er zijn vier verschillende methodes voor het definiëren van relatieve URL's. Bij de volgende voorbeelden gaan we er van uit dat we twee archieven hebben: één op  <systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> en de ander op <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. We hebben een werkkopie opgehaald van <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem>  naar de locatie <filename>C:\\Working</filename> en de <literal>svn:externals</literal> eigenschap is ingesteld op de basislijn."
 
 #. (term)
 msgid "Relative to parent directory"
@@ -7120,7 +7120,7 @@ msgstr "Het revisie log venster heeft enkele opties waarmee je dit kunt doen. <p
 #. (title)
 #. (title)
 msgid "The Repository Browser"
-msgstr "De Archiefverkenner"
+msgstr "De Archief-verkenner"
 
 #. (primary)
 msgid "repo-browser"
@@ -7132,15 +7132,15 @@ msgstr "server-side acties"
 
 #. (primary)
 msgid "server viewer"
-msgstr "archiefverkenner"
+msgstr "archief-verkenner"
 
 #. (para)
 msgid "Sometimes you need to work directly on the repository, without having a working copy. That's what the <firstterm>Repository Browser</firstterm> is for. Just as the explorer and the icon overlays allow you to view your working copy, so the Repository Browser allows you to view the structure and status of the repository. <placeholder-1/> With the Repository Browser you can execute commands like copy, move, rename, ... directly on the repository."
-msgstr "Soms wil je direct dingen in het archief wijzigen, zonder dat je een werkkopie hebt. Daarvoor kun je de <firstterm>Archiefverkenner</firstterm> gebruiken. Met de archiefverkenner kun je de structuur en status van het archief bekijken, net zoals je met je verkenner en overlappende picotogrammen de status van je werkkopie kunt bekijken. <placeholder-1/> Met de archiefverkenner kun je acties zoals kopiëren, verplaatsen, hernoemen, ... direct op het archief uitvoeren."
+msgstr "Soms wil je direct dingen in het archief wijzigen, zonder dat je een werkkopie hebt. Daarvoor kun je de <firstterm>Archief-verkenner</firstterm> gebruiken. Met de archief-verkenner kun je de structuur en status van het archief bekijken, net zoals je met je verkenner en overlappende picotogrammen de status van je werkkopie kunt bekijken. <placeholder-1/> Met de archiefverkenner kun je acties zoals kopiëren, verplaatsen, hernoemen, ... direct op het archief uitvoeren."
 
 #. (para)
 msgid "The repository browser looks very similar to the Windows explorer, except that it is showing the content of the repository at a particular revision rather than files on your computer. In the left pane you can see a directory tree, and in the right pane are the contents of the selected directory. At the top of the Repository Browser Window you can enter the URL of the repository and the revision you want to browse."
-msgstr "De archiefverkenner ziet er ongeveer hetzelfde uit als de windows verkenner, behalve dan dat het de inhoud van het archief van een bepaalde revisie laat zien, in plaats van bestanden op je computer. In het linker deelvenster wordt de mapstructuur weergegeven en in het rechter de inhoud van de geselecteerd map. Aan de bovenzijde van de archiefverkenner kun je de URL en de revisie van een archief invoeren, welke je wilt bekijken."
+msgstr "De archief-verkenner ziet er ongeveer hetzelfde uit als de windows verkenner, behalve dan dat het de inhoud van het archief van een bepaalde revisie laat zien, in plaats van bestanden op je computer. In het linker deelvenster wordt de mapstructuur weergegeven en in het rechter de inhoud van de geselecteerd map. Aan de bovenzijde van de archief-verkenner kun je de URL en de revisie van een archief invoeren, welke je wilt bekijken."
 
 #. (para)
 msgid "Just like Windows explorer, you can click on the column headings in the right pane if you want to set the sort order. And as in explorer there are context menus available in both panes."
@@ -7212,7 +7212,7 @@ msgstr "Een map markeren voor vergelijken. Een gemarkeerd map wordt vetgedrukt w
 
 #. (para)
 msgid "Compare the folder with a previously marked folder, either as a unified diff, or as a list of changed files which can then be visually diffed using the default diff tool. This can be particularly useful for comparing two tags, or trunk and branch to see what changed."
-msgstr "De map vergelijken met een eerder gemarkeerde map, als unified diff of als een lijst met gewijzigde bestanden, die dan met het standaard vergelijkingsprogramma vergeleken kan worden. Dit kan in het bijzonder handig zijn als je twee labels wilt vergelijken, of een hoofdstroom (trunk) met een vertakking."
+msgstr "De map vergelijken met een eerder gemarkeerde map, als unified diff of als een lijst met gewijzigde bestanden, die dan met het standaard vergelijkingsprogramma vergeleken kan worden. Dit kan in het bijzonder handig zijn als je twee labels wilt vergelijken, of een basislijn (trunk) met een vertakking."
 
 #. (para)
 msgid "The context menu for a folder allows you to: <placeholder-1/>"
@@ -7228,7 +7228,7 @@ msgstr "Als je meerdere mappen in het rechter deelvenster selecteert, dan kun je
 
 #. (para)
 msgid "If you select 2 tags which are copied from the same root (typically <literal>/trunk/</literal>), you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log...</guimenuitem></menuchoice> to view the list of revisions between the two tag points."
-msgstr "Als je 2 labels selecteert die van dezelfde hoofdmap gekopieerd zijn (normaal gesproken de hoofdstroom <literal>/trunk/</literal>), dan kun je met <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Toon Logboek...</guimenuitem></menuchoice> de lijst met revisies zien tussen die twee labels."
+msgstr "Als je 2 labels selecteert die van dezelfde hoofdmap gekopieerd zijn (normaal gesproken de basislijn <literal>/trunk/</literal>), dan kun je met <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Toon Logboek...</guimenuitem></menuchoice> de lijst met revisies zien tussen die twee labels."
 
 #. (para)
 msgid "You can use <keycap>F5</keycap> to refresh the view as usual. This will refresh everything which is currently displayed. If you want to pre-fetch or refresh the information for nodes which have not been opened yet, use <keycap>Ctrl-F5</keycap>. After that, expanding any node will happen instantly without a network delay while the information is fetched."
@@ -7236,7 +7236,7 @@ msgstr "Je kunt zoals gebruikelijk met <keycap>F5</keycap> het beeld verversen. 
 
 #. (para)
 msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo-browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
-msgstr "Je kunt de archiefverkenner ook gebruiken voor drag-and-drop acties. Als je een map vanuit de verkenner naar de archiefverkenner sleept, dan zal deze map in het archief geïmporteerd worden. Merk op dat als je meerdere objecten sleept, deze mappen als aparte vastleggingen worden behandeld."
+msgstr "Je kunt de archief-verkenner ook gebruiken voor drag-and-drop acties. Als je een map vanuit de verkenner naar de archief-verkenner sleept, dan zal deze map in het archief geïmporteerd worden. Merk op dat als je meerdere objecten sleept, deze mappen als aparte vastleggingen worden behandeld."
 
 #. (para)
 msgid "If you want to move an item within the repository, just <action>left drag</action> it to the new location. If you want to create a copy rather than moving the item, <keycap>Ctrl</keycap>-<action>left drag</action> instead. When copying, the cursor has a <quote>plus</quote> symbol on it, just as it does in Explorer."
@@ -7272,7 +7272,7 @@ msgstr "Een Revisie Grafiek"
 
 #. (para)
 msgid "<placeholder-1/> Sometimes you need to know where branches and tags were taken from the trunk, and the ideal way to view this sort of information is as a graph or tree structure. That's when you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph...</guimenuitem></menuchoice>"
-msgstr "<placeholder-1/> Soms moet je weten op welk punt vertakkingen en labels gemaakt zijn van de hoofdstroom (trunk). De ideale manier om dit te bekijken is door de informatie te sorteren in een grafiek of bookstructuur. Hiervoor kun je gebruik maken van <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revisie schema...</guimenuitem></menuchoice>."
+msgstr "<placeholder-1/> Soms moet je weten op welk punt vertakkingen en labels gemaakt zijn van de basislijn (trunk). De ideale manier om dit te bekijken is door de informatie te sorteren in een grafiek of boomstructuur. Hiervoor kun je gebruik maken van <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revisie schema...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "This command analyses the revision history and attempts to create a tree showing the points at which copies were taken, and when branches/tags were deleted."
@@ -7304,7 +7304,7 @@ msgstr "Verwijderde objecten"
 
 #. (para)
 msgid "Deleted items eg. a branch which is no longer required, are shown using an octagon (rectangle with corners cut off). The default colour is red."
-msgstr ""
+msgstr "Verwijderde objecten, bijvoorbeeld een tak die niet lange nodig is, worden weergegeven als een achthoek. De standaard kleur is rood."
 
 #. (term)
 msgid "Renamed items"
@@ -7312,15 +7312,15 @@ msgstr "Hernoemde objecten"
 
 #. (para)
 msgid "Renamed items are also shown using an octagon, but the default colour is blue."
-msgstr ""
+msgstr "Hernoemde objecten worden ook als een achthoek weergegeven, maar de standaard kleur daarvoor is blauw."
 
 #. (term)
 msgid "Branch tip revision"
-msgstr ""
+msgstr "Revisie van het uiteinde van een tak"
 
 #. (para)
 msgid "The graph is normally restricted to showing branch points, but it is often useful to be able to see the respective HEAD revision for each branch too. If you select <guilabel>Show HEAD revisions</guilabel>, each HEAD revision nodes will be shown as an ellipse. Note that HEAD here refers to the last revision committed on that path, not to the HEAD revision of the repository."
-msgstr ""
+msgstr "De grafiek laat normaal gesproken alleen de vertak-punten zien, maar soms is het ook handig om de HEAR revisie van een tak ook te zien. Als je optie <guilabel>Toon HEAD revisies</guilabel> selecteert, dan wordt elke HEAD revisie knoop getoond als ellips. Merk op dat hier met de HEAD revisie de laatste vastgelegde revisie van dat pad bedoeld wordt, niet de actuele HEAD revisie van het hele archief."
 
 #. (term)
 msgid "Working copy revision"
@@ -7328,7 +7328,7 @@ msgstr "Werkkopie revisie"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, which marks the BASE node with a bold outline."
-msgstr ""
+msgstr "Als je de revisie grafiek van een werkkopie hebt opgevraagd, dan kun je de BASE (basis) revisie met <guilabel>Toon revisie van werkkopie</guilabel> laten weergeven. Hierdoor wordt de BASE knoop dikkere omtrek getoond."
 
 #. (term)
 msgid "Modified working copy"
@@ -7336,7 +7336,7 @@ msgstr "Gewijzigde werkkopie"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show an additional node representing your modified working copy using <guilabel>Show WC modifications</guilabel>. This is an elliptical node with a bold outline in red by default."
-msgstr ""
+msgstr "Als je de revisie grafiek van een werkkopie hebt opgevraagd, dan kun je additionele knopen, die jouw gewijzigde werkkopie representeren, laten zien met <guilabel>Toon wijzigingen in werkkopie</guilabel>. Dit wordt weergegeven als een ellipsvormige knoop met een dikkere omtrek en standaard een rode kleur."
 
 #. (term)
 msgid "Normal item"
@@ -7344,19 +7344,19 @@ msgstr "Normaal object"
 
 #. (para)
 msgid "All other items are shown using a plain rectangle."
-msgstr ""
+msgstr "Alle andere objecten worden als een normale rechthoek weergegeven."
 
 #. (para)
 msgid "Each revision graph node represents a revision in the repository where something changed in the tree you are looking at. Different types of node can be distinguished by shape and colour. The shapes are fixed, but colours can be set using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice><placeholder-1/>"
-msgstr ""
+msgstr "Elke knoop in de revisie grafiek geeft een revisie in het archief weer, waarbij er iets gewijzigd is in de mapstructuur waar je naar kijkt. De verschillende soorten knopen zijn te onderscheiden door hun vorm en kleur. De vormen staan vast, maar de kleuren kunnen aangepast worden met <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Instellingen</guimenuitem></menuchoice><placeholder-1/>"
 
 #. (para)
 msgid "Note that by default the graph only shows the points at which items were added, copied or deleted. Showing every revision of a project will generate a very large graph for non-trivial cases. If you really want to see <emphasis>all</emphasis> revisions where changes were made, there is an option to do this in the <guilabel>View</guilabel> menu and on the toolbar."
-msgstr ""
+msgstr "Merk op dat standaard de grafiek alleen de punten laat zien waarop er objecten zijn toegevoegd, gekopieerd of verwijderd. Een grafiek laten maken van elke revisie van het project, levert een enorm grote grafiek op met niet triviale gegevens. Als je echt <emphasis>alle</emphasis> wilt zien waarin wijzigingen zijn doorgevoerd, dan kun je dat doen instellen in het <guilabel>Beeld</guilabel> menu of via de knoppenbalk."
 
 #. (para)
 msgid "The default view (grouping off) places the nodes such that their vertical position is in strict revision order, so you have a visual cue for the order in which things were done. Where two nodes are in the same column the order is very obvious. When two nodes are in adjacent columns the offset is much smaller because there is no need to prevent the nodes from overlapping, and as a result the order is a little less obvious. Such optimisations are necessary to keep complex graphs to a reasonable size. Please note that this ordering uses the <emphasis>edge</emphasis> of the node on the <emphasis>older</emphasis> side as a reference, i.e. the bottom edge of the node when the graph is shown with oldest node at the bottom. The reference edge is significant because the node shapes are not all the same height."
-msgstr ""
+msgstr "De standaard weergave (groeperen uitgeschakeld) positioneert de knopen zo dat deze verticaal op volgorde gerangschikt zijn, waardoor je direct een overzicht hebt van de volgorde waarop de dingen gedaan zijn. Als er twee knopen in dezelfde kolom staan, dan spreekt de volgorde voor zich. Als er twee knopen zijn in aangrenzende kolommen, dan is de afstand veel kleiner. Er is dan geen noodzaak om te voorkomen dat de knopen elkaar overlappen. Het gevolg hiervan is dat de volgorde iets minder overzichtelijk kan zijn. Deze optimalisaties zijn helaas nodig om complexe grafieken een acceptabel formaat te laten houden. Merk op dat bij het rangschikken de <emphasis>rand</emphasis> van de knoop aan de <emphasis>oude</emphasis> kant van de knoop gebruikt wordt als referentiepunt. Dat is de onderkant van de knoop als de oudste knoop onderaan de grafiek wordt weergegeven. Dit referentiepunt is belangrijk, omdat niet alle figuren van knopen dezelfde hoogte hebben."
 
 #. (title)
 msgid "Changing the View"
@@ -7364,27 +7364,27 @@ msgstr "Wijzigen van de Weergave"
 
 #. (term)
 msgid "Group branches"
-msgstr ""
+msgstr "Takken groeperen"
 
 #. (para)
 msgid "The default behavior (grouping off) has all rows sorted strictly by revision. As a result, long-living branches with sparse commits occupy a whole column for only a few changes and the graph becomes very broad."
-msgstr ""
+msgstr "Standaard staat het groeperen uitgeschakeld, waardoor alle rijen worden gesorteerd op revisienummer. Als gevolg hiervan nemen takken met maar enkele vastleggingen, die lang in leven worden gehouden, een hele kolom in beslag met maar enkele vastleggingen. De grafiek wordt daardoor erg breed."
 
 #. (para)
 msgid "This mode groups changes by branch, so that there is no global revision ordering: Consecutive revisions on a branch will be shown in (often) consecutive lines. Sub-branches, however, are arranged in such a way that later branches will be shown in the same column above older branches to keep the graph slim. As a result, a given row may contain changes from different revisions."
-msgstr ""
+msgstr "In deze modus worden wijzigingen per tak gegroepeerd, waardoor er geen globale revisie sortering is. Opeenvolgende revisies van een tak worden (meestal) weergegeven op aansluitende regels. Sub-takken worden echter zo weergegeven dat latere takken in dezelfde kolom boven oudere takken staan. Het gevolg hiervan is dat op één regel meerdere wijzigingen van verschillende revisies staan."
 
 #. (term)
 msgid "Oldest on top"
-msgstr "Oudste bovenaan"
+msgstr "Oudste boven"
 
 #. (para)
 msgid "Normally the graph shows the oldest revision at the bottom, and the tree grows upwards. Use this option to grow down from the top instead."
-msgstr ""
+msgstr "Normaal gesproken wordt de oudste revisie onderaan de grafiek weergegeven. Met deze optie wordt de grafiek omgedraaid en staat de oudste revisie bovenaan."
 
 #. (term)
 msgid "Align trees on top"
-msgstr "Boom uitlijnen naar top"
+msgstr "Boom boven uitlijnen"
 
 #. (para)
 msgid "When a graph is broken into several smaller trees, the trees may appear either in natural revision order, or aligned at the bottom of the window, depending on whether you are using the <guilabel>Group Branches</guilabel> option. Use this option to grow all trees down from the top instead."
@@ -7392,7 +7392,7 @@ msgstr ""
 
 #. (term)
 msgid "Reduce cross lines"
-msgstr ""
+msgstr "Verminder kruisingen"
 
 #. (para)
 msgid "If the layout of the graph has produced a lot of crossing lines, use this option to clean it up. This may make the layout columns appear in less logical places, for example in a diagonal line rather than a column, and the graph may require a larger area to draw."
@@ -7400,7 +7400,7 @@ msgstr ""
 
 #. (term)
 msgid "Differential path names"
-msgstr "Onderscheidende mapnamen"
+msgstr "Verschil-modus voor paden"
 
 #. (para)
 msgid "Long path names can take a lot of space and make the node boxes very large. Use this option to show only the changed part of a path, replacing the common part with dots. E.g. if you create a branch <literal>/branches/1.2.x/doc/html</literal> from <literal>/trunk/doc/html</literal> the branch could be shown in compact form as <literal>/branches/1.2.x/..</literal> because the last two levels, <literal>doc</literal> and <literal>html</literal>, did not change."
@@ -7424,7 +7424,7 @@ msgstr ""
 
 #. (term)
 msgid "Exact copy sources"
-msgstr "Exacte kopie bestanden"
+msgstr "Exacte kopie bronnen"
 
 #. (para)
 msgid "When a branch/tag is made, the default behaviour is to show the branch as taken from the last node where a change was made. Strictly speaking this is inaccurate since the branches are often made from the current HEAD rather than a specific revision. So it is possible to show the more correct (but less useful) revision that was used to create the copy. Note that this revision may be younger than the HEAD revision of the source branch."
@@ -7432,7 +7432,7 @@ msgstr ""
 
 #. (term)
 msgid "Fold tags"
-msgstr ""
+msgstr "Labels samenvoegen"
 
 #. (para)
 msgid "When a project has many tags, showing every tag as a separate node on the graph takes a lot of space and obscures the more interesting development branch structure. At the same time you may need to be able to access the tag content easily so that you can compare revisions. This option hides the nodes for tags and shows them instead in the tooltip for the node that they were copied from. A tag icon on the right side of the source node indicates that tags were made."
@@ -7480,7 +7480,7 @@ msgstr ""
 
 #. (term)
 msgid "Tree stripes"
-msgstr ""
+msgstr "Boom strepen"
 
 #. (para)
 msgid "Where the graph contains several trees, it is sometimes useful to use alternating colours on the background to help distinguish between trees."
@@ -8353,7 +8353,7 @@ msgstr ""
 
 #. (term)
 msgid "Deleted node"
-msgstr "Verwijderde node"
+msgstr "Verwijderde knoop"
 
 #. (para)
 msgid "An item which has been deleted from the repository."
@@ -8361,7 +8361,7 @@ msgstr ""
 
 #. (term)
 msgid "Added node"
-msgstr "Toegevoegde node"
+msgstr "Toegevoegde knoop"
 
 #. (para)
 msgid "An item which has been added to the repository, by an add, copy or move operation."
@@ -8369,7 +8369,7 @@ msgstr ""
 
 #. (term)
 msgid "Renamed node"
-msgstr "Hernoemde node"
+msgstr "Hernoemde knoop"
 
 #. (para)
 msgid "An item which has been renamed within the repository."
@@ -8377,7 +8377,7 @@ msgstr ""
 
 #. (term)
 msgid "Replaced node"
-msgstr "Vervangen node"
+msgstr "Vervangen knoop"
 
 #. (para)
 msgid "The original item has been deleted and a new item with the same name replaces it."
@@ -8425,7 +8425,7 @@ msgstr ""
 
 #. (term)
 msgid "Deleted Node"
-msgstr "Verwijderde Node"
+msgstr "Verwijderde Knoop"
 
 #. (para)
 msgid "Items which have been deleted and not copied anywhere else in the same revision."
@@ -8433,7 +8433,7 @@ msgstr ""
 
 #. (term)
 msgid "Added Node"
-msgstr "Toegevoegde Node"
+msgstr "Toegevoegde Knoop"
 
 #. (para)
 msgid "Items newly added, or copied (add with history)."
@@ -8441,7 +8441,7 @@ msgstr ""
 
 #. (term)
 msgid "Renamed Node"
-msgstr "Hernoemde Node"
+msgstr "Hernoemde Knoop"
 
 #. (para)
 msgid "Items deleted from one location and added in another in the same revision."
@@ -8449,7 +8449,7 @@ msgstr ""
 
 #. (term)
 msgid "Modified Node"
-msgstr "Aangepaste node"
+msgstr "Aangepaste knoop"
 
 #. (para)
 msgid "Simple modifications without any add or delete."
@@ -8457,7 +8457,7 @@ msgstr ""
 
 #. (term)
 msgid "Unchanged Node"
-msgstr "Ongewijzigde Node"
+msgstr "Ongewijzigde Knoop"
 
 #. (para)
 msgid "May be used to show the revision used as the source of a copy, even when no change (to the item being graphed) took place in that revision."
@@ -8465,7 +8465,7 @@ msgstr ""
 
 #. (term)
 msgid "HEAD node"
-msgstr "HEAD node"
+msgstr "HEAD knoop"
 
 #. (para)
 msgid "Current HEAD revision in the repository."
@@ -8473,7 +8473,7 @@ msgstr ""
 
 #. (term)
 msgid "WC Node"
-msgstr "WC Node"
+msgstr "Werkkopie knoop"
 
 #. (para)
 msgid "If you opt to show an extra node for your modified working copy, attached to its last-commit revision on the graph, use this color."
@@ -8489,7 +8489,7 @@ msgstr ""
 
 #. (term)
 msgid "Tag Nodes"
-msgstr "Tag Nodes"
+msgstr "Label knopen"
 
 #. (para)
 msgid "Nodes classified as tags may be blended with this color."
@@ -8497,7 +8497,7 @@ msgstr ""
 
 #. (term)
 msgid "Trunk Nodes"
-msgstr "Trunk Nodes"
+msgstr "Basislijn knopen"
 
 #. (para)
 msgid "Nodes classified as trunk may be blended with this color."
@@ -10966,7 +10966,7 @@ msgstr "Negeer"
 
 #. (entry)
 msgid "Repository Browser"
-msgstr "Archiefverkenner"
+msgstr "Archief-verkenner"
 
 #. (entry)
 #. (title)
