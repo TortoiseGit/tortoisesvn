@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-09 23:36-0000\n"
+"PO-Revision-Date: 2010-02-15 22:47-0000\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -920,7 +920,7 @@ msgstr "&Redenumeşte"
 
 #. Resource IDs: (1316)
 msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "&Redeschide dialogul de transmitere şi de ramură/tag după o transmitere eşuată"
+msgstr "&Redeschide dialogul de transmitere şi de ramură/etichetă după o transmitere eşuată"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
@@ -1980,7 +1980,7 @@ msgstr "Răsf&oieşte..."
 
 #. Resource IDs: (115)
 msgid "Branch / tag created successfully!"
-msgstr "Ramura / tag s-a creat!"
+msgstr "Ramura / etichetă s-a creat!"
 
 #. Resource IDs: (2052)
 msgid "Branch at copy-from-rev even if there was no change in that revision"
@@ -1988,7 +1988,7 @@ msgstr "Faceţi o ramură când se face copie-din-revizie chiar dacă nu a fost 
 
 #. Resource IDs: (9)
 msgid "Branch/&tag..."
-msgstr "Ramura/&tag..."
+msgstr "Ramura/e&tichetă..."
 
 #. Resource IDs: (16)
 msgid "Break loc&k"
@@ -2040,7 +2040,7 @@ msgstr "&Comenzi:"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
-msgstr "C&rează ramură/tag din revizie"
+msgstr "C&rează ramură/etichetă din revizie"
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
@@ -2192,6 +2192,10 @@ msgstr "Lista de schimbări:"
 msgid "Changes made (double-click on file for diff):"
 msgstr "Schimbări efectuate (dati dublu-clic pe fişier pentru a vedea diferenţele):"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "Se modifică programele externe la revizia fixă"
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "Chec&kout..."
@@ -2208,6 +2212,10 @@ msgstr "Caută actualizările"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Caută actualizările..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr ""
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2722,10 +2730,6 @@ msgstr "Copiază %s"
 #, c-format
 msgid "Copy %s to %s, Revision %s"
 msgstr "Copiază %s la %s, Revizia %s"
-
-#. Resource IDs: (142)
-msgid "Copy (Branch / Tag)"
-msgstr "Copiază (Ramură / Tag)"
 
 #. Resource IDs: (78)
 msgid "Copy - TortoiseSVN"
@@ -4367,7 +4371,7 @@ msgstr "Ascunde toate ramurile care nu au modificat elementul"
 
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
-msgstr "Ascunde ramurile şi tagurile şterse"
+msgstr "Ascunde ramurile şi etichetele şterse"
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
@@ -4594,7 +4598,7 @@ msgid ""
 "of these patterns, it is considered a 'tag'."
 msgstr ""
 "Dacă un element (partea între două '/') al unei căi se potriveşte cu unu\n"
-"dintre aceste modele, este considerat un 'tag'."
+"dintre aceste modele, este considerat o 'etichetă'."
 
 #. Resource IDs: (346)
 msgid ""
@@ -5796,6 +5800,10 @@ msgstr "Nici un mesaj de eroare nu este disponibil."
 msgid "No error occurred."
 msgstr "Nu s-a produs nici o eroare."
 
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "Nu s-au găsit programe externe"
+
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
 msgstr "Nici un fişier sau dosar nu a fost modificat. TortoiseSVN nu are ce să inverseze!"
@@ -6022,7 +6030,7 @@ msgid ""
 "Are you sure you want to move the selected paths?"
 msgstr ""
 "Una din căile pe care încercaţi să le mutaţi este o cale specială\n"
-"(una din 'ramuri', 'taguri' sau 'trunchi').\n"
+"(una din 'ramuri', 'etichete' sau 'trunchi').\n"
 "\n"
 "Sigur doriţi sa mutaţi căile selectate?"
 
@@ -6309,6 +6317,10 @@ msgstr "Aştepataţi în timp ce se anulează..."
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
 msgstr "Aşteptaţi în timp ce se obţin diferenţele..."
+
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "Aşteptaţi în timp ce se obţin programele externe..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -7141,7 +7153,7 @@ msgstr ""
 "%4!s!Autor: %5!s!\r\n"
 "Data: %6!s!\r\n"
 "\r\n"
-"Tags (%7!d!):%8!s!\r\n"
+"Etichete (%7!d!):%8!s!\r\n"
 "\r\n"
 "Mesaj jurnal:\r\n"
 "%9!s!"
@@ -7837,7 +7849,7 @@ msgstr "Se afişează graficul pentru %s"
 
 #. Resource IDs: (15)
 msgid "Shows a graphical representation of copies/tags/branches"
-msgstr "Afişează o reprezentare grafică a copiilor/tagurilor/ramurilor"
+msgstr "Afişează o reprezentare grafică a copiilor/etichetelor/ramurilor"
 
 #. Resource IDs: (13)
 msgid "Shows all files which were changed since the last update, locally and in the repository"
@@ -8163,7 +8175,7 @@ msgstr "Comută stângă<->dreaptă"
 
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
-msgstr "Comută cu ramură / tag"
+msgstr "Comută cu ramură / etichetă"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -8207,7 +8219,7 @@ msgstr "Comută la fereastră precedentă"
 
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
-msgstr "Comută copia de lucru la o altă ramură / tag"
+msgstr "Comută copia de lucru la o altă ramură / etichetă"
 
 #. Resource IDs: (1479)
 msgid "Switch:"
@@ -8243,12 +8255,12 @@ msgstr "Dimensiune tab:"
 
 #. Resource IDs: (65535)
 msgid "Tag nodes"
-msgstr "Noduri tag"
+msgstr "Noduri etichete"
 
 #. Resource IDs: (79)
 #, c-format
 msgid "Tagged the working copy to %s"
-msgstr "S-a pus tag pe copia de lucru %s"
+msgstr "S-a pus etichetă pe copia de lucru %s"
 
 #. Resource IDs: (80)
 msgid "Tasks"
@@ -8281,7 +8293,7 @@ msgstr "Începutul de chunk '@@' s-a aşteptat în linia %d !"
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
-msgstr "Culoarea nodurilor de creere, copiere sau redenumire din trunchi v-or fi deplasate spre galben."
+msgstr "Culoarea nodurilor de creere, copiere sau redenumire din etichete v-or fi deplasate spre galben."
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
@@ -9051,6 +9063,10 @@ msgstr ""
 "neon %s\r\n"
 "%s\r\n"
 "zlib %s"
+
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "Transmitere automată TortoiseSVN: programele externe s-au schimbat la revizia fixă."
 
 #. Resource IDs: (98)
 #, c-format
@@ -10809,6 +10825,10 @@ msgstr "tokeni de cuvinte:"
 msgid "words [uncompressed]: "
 msgstr "cuvinte [necompresate]: "
 
+#. Resource IDs: (142)
+msgid "y"
+msgstr "y"
+
 #. Resource IDs: (245)
 msgid "year"
 msgstr "an"
@@ -10821,6 +10841,8 @@ msgstr "da"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Copy (Branch / Tag)"
+#~ msgstr "Copiază (Ramură / Tag)"
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Autor:                                    Stefan Kueng"
 #~ msgid "Automatically check for &newer versions every week"
