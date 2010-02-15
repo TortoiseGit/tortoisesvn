@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-01 20:50+0100\n"
+"PO-Revision-Date: 2010-02-15 09:52+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2187,6 +2187,10 @@ msgstr "Änderungsliste:"
 msgid "Changes made (double-click on file for diff):"
 msgstr "Änderungen (Doppelklick auf die Datei für Unterschiede):"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "Externals auf fixe Revision setzen"
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "Aus&checken..."
@@ -2202,6 +2206,10 @@ msgstr "Auf Aktualisierungen prüfen"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Auf Aktualisierungen prüfen..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr "Wählen Sie die zu markierenden Externals"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2715,10 +2723,6 @@ msgstr "Kopiere %s"
 #, c-format
 msgid "Copy %s to %s, Revision %s"
 msgstr "Kopiere %s nach %s, Revision %s"
-
-#. Resource IDs: (142)
-msgid "Copy (Branch / Tag)"
-msgstr "Kopieren (Verzweigen / Markieren)"
 
 #. Resource IDs: (78)
 msgid "Copy - TortoiseSVN"
@@ -5811,6 +5815,10 @@ msgstr "Keine Fehlermeldung vorhanden."
 msgid "No error occurred."
 msgstr "Kein Fehler aufgetreten."
 
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "Keine Externals gefunden"
+
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
 msgstr ""
@@ -6327,6 +6335,10 @@ msgstr "Bitte warten Sie auf den Abbruch..."
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
 msgstr "Bitte warten Sie während die Unterschiede ermittelt werden..."
+
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "Bitte warten Sie während die Externals ermittelt werden..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -9081,6 +9093,10 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "TortoiseSVN autom. übertragen: Externals auf fixe Revision gesetzt."
+
 #. Resource IDs: (98)
 #, c-format
 msgid ""
@@ -10847,6 +10863,10 @@ msgstr "Wortkürzel:"
 msgid "words [uncompressed]: "
 msgstr "Wörter [unkomprimiert]: "
 
+#. Resource IDs: (142)
+msgid "y"
+msgstr "j"
+
 #. Resource IDs: (245)
 msgid "year"
 msgstr "Jahr"
@@ -10859,6 +10879,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Copy (Branch / Tag)"
+#~ msgstr "Kopieren (Verzweigen / Markieren)"
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Autor:                         Stefan Küng"
 #~ msgid "Automatically check for &newer versions every week"
