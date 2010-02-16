@@ -5288,27 +5288,27 @@ msgstr "label"
 
 #. (para)
 msgid "It often happens that you already have the files you need in another project in your repository, and you simply want to copy them across. You could simply copy the files and add them as described above, but that would not give you any history. And if you subsequently fix a bug in the original files, you can only merge the fix automatically if the new copy is related to the original in Subversion."
-msgstr ""
+msgstr "Het komt vaak voor dat u de benodigde bestanden al heeft in een ander project in het archief, en u ze eenvoudigweg daarvandaan wilt kopieëren. U zou de bestanden eenvoudig kunnen kopieëren en kunnen toevoegen zoals hierboven beschreven, maar dat biedt u geen geschiedenis. En als u vervolgens een fout oplost in de originele bestanden, kunt u de oplossing alleen nog automatisch samenvoegen indien de nieuwe kopie is gerelateerd aan het origineel in Subversion."
 
 #. (para)
 msgid "The easiest way to copy files and folders from within a working copy is to use the right-drag menu. When you <action>right-drag</action> a file or folder from one working copy to another, or even within the same folder, a context menu appears when you release the mouse. <placeholder-1/> Now you can copy existing versioned content to a new location, possibly renaming it at the same time."
-msgstr ""
+msgstr "De eenvoudigste wijze om bestanden en folders te kopieëren vanuit een werkkopie is door gebruik te maken van het rechts-sleep menu. Indien u een bestand of folder met <action>rechts-sleept</action> van de ene werkkopie naar de andere, of zelfs binnen dezelfde folder, verschijnt er een contextmenu wanneer u de muis loslaat. <placeholder-1/> Nu kunt u de bestaande geversioneerde inhoud  naar een nieuwe locatie kopieëren, en deze waarschijnlijk tegelijk hernoemen."
 
 #. (para)
 msgid "You can also copy or move versioned files within a working copy, or between two working copies, using the familiar cut-and-paste method. Use the standard Windows <action>Copy</action> or <action>Cut</action> to copy one or more versioned items to the clipboard. If the clipboard contains such versioned items, you can then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Paste</guimenuitem></menuchoice> (note: not the standard Windows <action>Paste</action>) to copy or move those items to the new working copy location."
-msgstr ""
+msgstr "U kunt ook bestanden met versiebeheer binnen een werkkopie kopieëren of verplaatsen, of tussen twee werkkopieën, met behulp van de gebuikelijken knip-en-plak methode. Gebruik de standaard Windows <action>Kopieëren</action> of <action>Knippen</action> om een of meerdere geversioneerde items naar het klipbord te kopieëren. Als het klipbord zulke geversioneerde items bevat, kunt u vervolgens <menuchoise><guimenu>TortoiseSVN</guimenu><guimenuitem>Plakken</guimenuitem></menuchoise> gebruiken (noot: niet de standaard Windows <action>Plakken</action>) om de items naar de nieuwe werkkopie locatie te kopieëren of verplaatsen."
 
 #. (para)
 msgid "You can copy files and folders from your working copy to another location in the repository using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branch/Tag</guimenuitem></menuchoice>. Refer to <xref linkend=\"tsvn-dug-branch-1\"/> to find out more."
-msgstr ""
+msgstr "U kunt bestanden en mappen van uw werkkopie naar een andere locatie in het archief kopieëren door middel van <menuchoise><guimenu>TortoiseSVN</guimenu><guimenuitem>Tak/Label</guimenuitem></menuchoise>. Raadpleeg <xref linkend=\"tsvn-dug-branch-1\"/> voor meer informatie."
 
 #. (para)
 msgid "You can locate an older version of a file or folder in the log dialog and copy it to a new location in the repository directly from the log dialog using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Create branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref linkend=\"tsvn-dug-showlog-2\"/> to find out more."
-msgstr ""
+msgstr "U kunt een oudere versie van een bestand of map vinden in het log dialoog en deze direct vanuit het log dialoog kopieëren naar een nieuwe locatie in het archief met behulp van <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Maak tak/label van revisie</guimenuitem></menuchoice>. Raadpleeg <xref linkend=\"tsvn-dug-showlog-2\"/> voor meer informatie."
 
 #. (para)
 msgid "You can also use the repository browser to locate content you want, and copy it into your working copy directly from the repository, or copy between two locations within the repository. Refer to <xref linkend=\"tsvn-dug-repobrowser\"/> to find out more."
-msgstr ""
+msgstr "U kunt ook de archief-verkenner gebruiken om de gewenste inhoud te vinden, en deze direct vanuit het archief naar uw werkkopie kopieëren, of tussen twee locaties binnen het archief te kopieëren. Raadpleeg <xref linkend=\"tsvn-dug-repobrowser\"/> voor meer informatie."
 
 #. (title)
 msgid "Cannot copy between repositories"
@@ -5320,7 +5320,7 @@ msgstr ""
 
 #. (para)
 msgid "If you are uncertain whether two URLs on the same server refer to the same or different repositories, use the repo browser to open one URL and find out where the repository root is. If you can see both locations in one repo browser window then they are in the same repository."
-msgstr ""
+msgstr "Als u er niet zeker van bent of twee URL's op dezelfde server naar dezelfde of verschillende archieven verwijzen, gebruik dan de archiefverkenner om één URL te openen en bepaal hiermee waar de bron van het archief is. Als u beide locaties kunt herkennen in de één archiefverkennervenster, dan bevinden ze zich in hetzelfde archief."
 
 #. (title)
 msgid "Ignoring Files And Directories"
@@ -5400,7 +5400,7 @@ msgstr "[...]"
 
 #. (para)
 msgid "Matches any one of the characters enclosed in the square brackets. Within the brackets, a pair of characters separated by <quote>-</quote> matches any character lexically between the two. For example <literal>[AGm-p]</literal> matches any one of <literal>A</literal>, <literal>G</literal>, <literal>m</literal>, <literal>n</literal>, <literal>o</literal> or <literal>p</literal>."
-msgstr ""
+msgstr "Zoekt overeenkomsten met elk van de karakters welke zijn omsloten door blokhaken. Binnen de blokhaken, een karakterpaar gescheiden door <quote>-</quote> komen overeen met ieder karakter dat lexicaal tussen beide karaters in ligt. Bijvoorbeeld <literal>[AGm-p]</literal> komt overeen met elk van de karakters <literal>A</literal>, <literal>G</literal>, <literal>m</literal>, <literal>n</literal>, <literal>o</literal> of <literal>p</literal>."
 
 #. (para)
 msgid "Subversion's ignore patterns make use of filename globbing, a technique originally used in Unix to specify files using meta-characters as wildcards. The following characters have special meaning: <placeholder-1/>"
@@ -5424,19 +5424,19 @@ msgstr ""
 
 #. (title)
 msgid "Deleting, Moving and Renaming"
-msgstr ""
+msgstr "Verwijderen, Verplaatsen en Hernoemen"
 
 #. (title)
 msgid "Explorer context menu for versioned files"
-msgstr ""
+msgstr "Verkenner context menu voor bestanden met versiebeheer"
 
 #. (para)
 msgid "Unlike CVS, Subversion allows renaming and moving of files and folders. So there are menu entries for delete and rename in the TortoiseSVN submenu. <placeholder-1/>"
-msgstr ""
+msgstr "In tegenstelling tot CVS, staat Subversion hernoemen en verplaatsten van bestanden en folders toe. Hiervoor zijn er menu-opties voor verwijderen en hernoemen in het TortoiseSVN sub-menu. <placeholder-1/>"
 
 #. (title)
 msgid "Deleting files and folders"
-msgstr ""
+msgstr "Verwijderen van bestanden en folders"
 
 #. (primary)
 msgid "delete"
@@ -5448,7 +5448,7 @@ msgstr "weghalen"
 
 #. (para)
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> to remove files or folders from subversion."
-msgstr ""
+msgstr "Gebruik <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verwijderen</guimenuitem></menuchoice> om bestanden en folder van subversion te verwijderen."
 
 #. (para)
 msgid "When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> a file, it is removed from your working copy immediately as well as being marked for deletion in the repository on next commit. The file's parent folder shows a <quote>deleted</quote> icon overlay. Up until you commit the change, you can get the file back using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> on the parent folder."
@@ -5472,7 +5472,7 @@ msgstr ""
 
 #. (title)
 msgid "Getting a deleted file or folder back"
-msgstr ""
+msgstr "Een verwijderd bestand of map terughalen"
 
 #. (para)
 msgid "If you have deleted a file or a folder and already committed that delete operation to the repository, then a normal <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> can't bring it back anymore. But the file or folder is not lost at all. If you know the revision the file or folder got deleted (if you don't, use the log dialog to find out) open the repository browser and switch to that revision. Then select the file or folder you deleted, right-click and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy to...</guimenuitem></menuchoice> as the target for that copy operation select the path to your working copy."
@@ -5480,17 +5480,17 @@ msgstr ""
 
 #. (title)
 msgid "Moving files and folders"
-msgstr ""
+msgstr "Verplaatsen bestanden en mappen"
 
 #. (primary)
 #. (primary)
 #. (primary)
 msgid "rename"
-msgstr ""
+msgstr "hernoemen"
 
 #. (primary)
 msgid "move"
-msgstr "verplaats"
+msgstr "verplaatsen"
 
 #. (para)
 msgid "If you want to do a simple in-place rename of a file or folder, use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Rename...</guimenuitem></menuchoice> Enter the new name for the item and you're done."
@@ -5498,7 +5498,7 @@ msgstr ""
 
 #. (para)
 msgid "select the files or directories you want to move"
-msgstr ""
+msgstr "selecteer de bestanden of mappen welke u wilt verplaatsen"
 
 #. (para)
 msgid "in the popup menu select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Move versioned files here</guimenuitem></menuchoice>"
@@ -5538,7 +5538,7 @@ msgstr ""
 
 #. (title)
 msgid "Changing case in a filename"
-msgstr ""
+msgstr "Wijzig hoofdlettergebruik in een bestandsnaam"
 
 #. (primary)
 msgid "case change"
@@ -5554,7 +5554,7 @@ msgstr ""
 
 #. (para)
 msgid "Commit the changes in your working copy."
-msgstr ""
+msgstr "Vastleggen van de wijzigingen in uw werkkopie."
 
 #. (para)
 msgid "Rename the file from UPPERcase to upperCASE directly in the repository using the repository browser."
@@ -5562,11 +5562,11 @@ msgstr ""
 
 #. (para)
 msgid "Update your working copy."
-msgstr ""
+msgstr "Werk uw werkkopie bij."
 
 #. (para)
 msgid "Solution A) (recommended) <placeholder-1/>"
-msgstr ""
+msgstr "Oplossing A) (aanbevolen) <placeholder-1/>"
 
 #. (para)
 msgid "Rename from UPPERcase to UPPERcase_ with the rename command in the TortoiseSVN submenu."
@@ -5583,11 +5583,11 @@ msgstr "Hernoemen van HOOFDletter_ naar hoofdLETTER."
 
 #. (para)
 msgid "Solution B) <placeholder-1/>"
-msgstr ""
+msgstr "Oplossing B) <placeholder-1/>"
 
 #. (title)
 msgid "Dealing with filename case conflicts"
-msgstr ""
+msgstr "Omgaan met conflicten in hoofdlettergebruik in bestandsnamen"
 
 #. (para)
 msgid "If the repository already contains two files with the same name but differing only in case (e.g. <filename>TEST.TXT</filename> and <filename>test.txt</filename>), you will not be able to update or checkout the parent directory on a Windows client. Whilst Subversion supports case-sensitive filenames, Windows does not."
@@ -5603,7 +5603,7 @@ msgstr ""
 
 #. (title)
 msgid "Preventing two files with the same name"
-msgstr ""
+msgstr "Het voorkomen van twee bestanden met dezelfde naam"
 
 #. (para)
 msgid "There is a server hook script available at: <ulink url=\"http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/\"><citetitle>http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/</citetitle></ulink> that will prevent checkins which result in case conflicts."
@@ -5635,7 +5635,7 @@ msgstr ""
 
 #. (para)
 msgid "When such items are deleted, the recycle bin is used, so if you make a mistake here and delete a file that should have been versioned, you can still recover it."
-msgstr ""
+msgstr "Als zulke items worden verwijderd wordt de prullenbak gebruikt, zodat als u hier een vergissing maakt en een bestand verwijdert dat zou moeten zijn geversioneerd, kunt u het nog terugzetten."
 
 #. (title)
 msgid "Undo Changes"
@@ -5644,7 +5644,7 @@ msgstr "Wijzigingen ongedaan maken"
 #. (primary)
 #. (primary)
 msgid "revert"
-msgstr ""
+msgstr "terugzetten"
 
 #. (primary)
 msgid "undo"
@@ -5652,7 +5652,7 @@ msgstr "ongedaan maken"
 
 #. (primary)
 msgid "clean"
-msgstr ""
+msgstr "opschonen"
 
 #. (title)
 msgid "Revert dialog"
@@ -5677,7 +5677,7 @@ msgstr "Je kunt de kolommen in dit dialoogscherm configureren op dezelfde manier
 
 #. (para)
 msgid "Since revert is sometimes used to clean up a working copy, there is an extra button which allows you to delete unversioned items as well. When you click this button another dialog comes up listing all the unversioned items, which you can then select for deletion."
-msgstr ""
+msgstr "Omdat terugzetten soms wordt gebruikt om een werkkopie op te schonen is er een extra knop welke de mogelijkheid biedt om ook niet-geversioneerde items te verwijderen. Als u op deze knop klikt wordt er een andere dialoog getoond welke alle niet-geversioneerde items in een lijst toont, welke u dan voor verwijdering kunt selecteren."
 
 #. (title)
 msgid "Undoing Changes which have been Committed"
@@ -5704,7 +5704,7 @@ msgstr "Schonen"
 
 #. (primary)
 msgid "cleanup"
-msgstr ""
+msgstr "opschonen"
 
 #. (para)
 msgid "If a Subversion command cannot complete successfully, perhaps due to server problems, your working copy can be left in an inconsistent state. In that case you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice> on the folder. It is a good idea to do this at the top level of the working copy."
@@ -5728,15 +5728,15 @@ msgstr "Project Instellingen"
 
 #. (primary)
 msgid "properties"
-msgstr ""
+msgstr "eigenschappen"
 
 #. (title)
 msgid "Explorer property page, Subversion tab"
-msgstr ""
+msgstr "Verkenner eigenschappen pagina, Subversion tab"
 
 #. (para)
 msgid "<placeholder-1/> Sometimes you want to have more detailed information about a file/directory than just the icon overlay. You can get all the information Subversion provides in the explorer properties dialog. Just select the file or directory and select <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice> in the context menu (note: this is the normal properties menu entry the explorer provides, not the one in the TortoiseSVN submenu!). In the properties dialog box TortoiseSVN has added a new property page for files/folders under Subversion control, where you can see all relevant information about the selected file/directory."
-msgstr ""
+msgstr "<placeholder-1/> In sommige gevallen wilt u meer gedetaileerde informatie over een bestand/map dan het overlappende pictogram. U kunt alle informatie welke Subversion levert verkrijgen in het eigenschappen dialoog van de verkenner. Selecteer het bestand of directorie en selecteer <menuchoise><guimenu>Windows Menu</guimenu><guimenuitem>eigenschappen</guimenuitem></menuchoise> in het contextmenu (noot: dit is het normale eigenschappen menu-optie welke de verkenner levert, niet degene in het TortoiseSVN submenu!). In het eigenschappen dialoogvenster heeft TortoiseSVN een nieuwe eigenschappen pagina toegevoegd, voor bestanden/folders welke onder Subversion controle vallen, waar u alle relevante informatie over het geselecteerde bestand/directorie kunt vinden."
 
 #. (title)
 msgid "Subversion Properties"
@@ -5904,7 +5904,7 @@ msgstr ""
 
 #. (title)
 msgid "Commit properties"
-msgstr ""
+msgstr "Vastleggen eigenschappen"
 
 #. (para)
 msgid "Subversion properties are versioned. After you change or add a property you have to commit your changes."
@@ -5928,7 +5928,7 @@ msgstr "project eigenschappen"
 
 #. (primary)
 msgid "TortoiseSVN properties"
-msgstr ""
+msgstr "TortoiseSVN eigenschappen"
 
 #. (para)
 msgid "<literal>tsvn:logminsize</literal> sets the minimum length of a log message for a commit. If you enter a shorter message than specified here, the commit is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every commit. If this property is not set, or the value is zero, empty log messages are allowed."
@@ -5976,7 +5976,7 @@ msgstr ""
 
 #. (para)
 msgid "An example: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> Will catch everything after <quote>[SUMMARY]</quote> in the log message and use that as the summary."
-msgstr ""
+msgstr "Een voorbeeld: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> Zal alles pakken na <quote>[SUMMARY]</quote> in het logbericht en zal dat gebruiken als de samenvatting."
 
 #. (para)
 msgid "The property <literal>tsvn:logrevregex</literal> defines a regular expression which matches references to revisions in a log message. This is used in the log dialog to turn such references into links which when clicked will either scroll to that revision (if the revision is already shown in the log dialog, or if it's available from the log cache) or open a new log dialog showing that revision."
@@ -5996,24 +5996,24 @@ msgstr ""
 
 #. (para)
 msgid "TortoiseSVN has a few special properties of its own, and these begin with <literal>tsvn:</literal>. <placeholder-1/>"
-msgstr ""
+msgstr "TortoiseSVN heeft een paar speciale eigenschappen van zichzelf, en deze beginnen met <literal>tsvn:</literal>. <placeholder-1/>"
 
 #. (para)
 #. (para)
 msgid "Some <literal>tsvn:</literal> properties require a <literal>true/false</literal> value. TortoiseSVN also understands <literal>yes</literal> as a synonym for <literal>true</literal> and <literal>no</literal> as a synonym for <literal>false</literal>."
-msgstr ""
+msgstr "Sommige <literal>tsvn:</literal> eigenschappen vereisen een <literal>true/false</literal> waarde. TortoiseSVN begrijpt ook <literal>yes</literal> als een synoniem voor <literal>true</literal> en <literal>no</literal> als een synoniem voor <literal>false</literal>."
 
 #. (para)
 msgid "TortoiseSVN can integrate with some bug tracking tools. This uses project properties that start with <literal>bugtraq:</literal>. Read <xref linkend=\"tsvn-dug-bugtracker\"/> for further information."
-msgstr ""
+msgstr "TortoiseSVN kan worden geïntegreerd met enkele fout zoek tools. Hiervoor worden de project-eigenschappen gebruikt welke beginnen met <literal>bugtraq:</literal>. Lees <xref linkend=\"tsvn-dug-bugtracker\"/> voor meer informatie."
 
 #. (para)
 msgid "It can also integrate with some web-based repository browsers, using project properties that start with <literal>webviewer:</literal>. Read <xref linkend=\"tsvn-dug-repoviewer\"/> for further information."
-msgstr ""
+msgstr "Het kan ook worden geïntegreerd met enkele web-gebaseerde archief verkenners door gebruik te maken van de project-eigenschappen welke beginnen met <literal>webviewer:</literal>. Lees <xref linkend=\"tsvn-dug-repoviewer\"/> voor meer informatie."
 
 #. (title)
 msgid "Set the project properties on folders"
-msgstr ""
+msgstr "Stel de project eigenschappen in voor folders"
 
 #. (para)
 msgid "These special project properties must be set on <emphasis>folders</emphasis> for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
@@ -6249,12 +6249,12 @@ msgstr "Het is in subversion 1.6 niet mogelijk om een extern bestand van je werk
 
 #. (title)
 msgid "Branching / Tagging"
-msgstr ""
+msgstr "Vertakken / labelen"
 
 #. (primary)
 #. (primary)
 msgid "copy"
-msgstr ""
+msgstr "kopiëren"
 
 #. (primary)
 msgid "mark release"
@@ -6274,7 +6274,7 @@ msgstr ""
 
 #. (title)
 msgid "Creating a Branch or Tag"
-msgstr ""
+msgstr "Aanmaken van Tak of Label"
 
 #. (title)
 msgid "The Branch/Tag Dialog"
@@ -6296,7 +6296,7 @@ msgstr ""
 #. (term)
 #. (listitem)
 msgid "HEAD revision in the repository"
-msgstr ""
+msgstr "HEAD revisie in het archief"
 
 #. (para)
 msgid "The new branch is copied directly in the repository from the HEAD revision. No data needs to be transferred from your working copy, and the branch is created very quickly."
@@ -6304,7 +6304,7 @@ msgstr ""
 
 #. (term)
 msgid "Specific revision in the repository"
-msgstr ""
+msgstr "Specifieke revisie in het archief"
 
 #. (para)
 msgid "The new branch is copied directly in the repository but you can choose an older revision. This is useful if you forgot to make a tag when you released your project last week. If you can't remember the revision number, click the button on the right to show the revision log, and select the revision number from there. Again no data is transferred from your working copy, and the branch is created very quickly."
@@ -6332,7 +6332,7 @@ msgstr ""
 
 #. (title)
 msgid "Other ways to create a branch or tag"
-msgstr ""
+msgstr "Andere maniere om een tak of label aan te maken"
 
 #. (para)
 msgid "You can also create a branch or tag without having a working copy. To do that, open the repository browser. You can there drag folders to a new location. You have to hold down the <keycap>Ctrl</keycap> key while you drag to create a copy, otherwise the folder gets moved, not copied."
@@ -6547,7 +6547,7 @@ msgstr ""
 
 #. (secondary)
 msgid "reintegrate"
-msgstr ""
+msgstr "herintegreren"
 
 #. (title)
 msgid "The Merge Wizard - Reintegrate Merge"
@@ -6703,11 +6703,11 @@ msgstr ""
 
 #. (title)
 msgid "Handling Conflicts during Merge"
-msgstr ""
+msgstr "Conflicten Oplossen tijdens Samenvoegen"
 
 #. (primary)
 msgid "merge conflicts"
-msgstr ""
+msgstr "samenvoeg conflicten"
 
 #. (title)
 msgid "The Merge Conflict Callback Dialog"
@@ -6739,11 +6739,11 @@ msgstr ""
 
 #. (title)
 msgid "Merge a Completed Branch"
-msgstr ""
+msgstr "Samenvoegen van een Afgehandelde Tak"
 
 #. (primary)
 msgid "merge reintegrate"
-msgstr ""
+msgstr "samenvoegen herintegratie"
 
 #. (title)
 msgid "The Merge reintegrate Dialog"
@@ -7304,7 +7304,7 @@ msgstr "Verwijderde objecten"
 
 #. (para)
 msgid "Deleted items eg. a branch which is no longer required, are shown using an octagon (rectangle with corners cut off). The default colour is red."
-msgstr "Verwijderde objecten, bijvoorbeeld een tak die niet lange nodig is, worden weergegeven als een achthoek. De standaard kleur is rood."
+msgstr "Verwijderde objecten, bijvoorbeeld een tak die niet langer nodig is, worden weergegeven als een achthoek. De standaard kleur is rood."
 
 #. (term)
 msgid "Renamed items"
@@ -7556,27 +7556,27 @@ msgstr ""
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphCollapse.png\"/> Click on the minus button to collapse the attached sub-tree."
-msgstr ""
+msgstr "<graphic fileref=\"../images/RevGraphCollapse.png\"/> Klik op de min-knop om de bijbehorende onderverdeling in te klappen."
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphExpand.png\"/> Click on the plus button to expand a collapsed tree. When a tree has been collapsed, this button remains visible to indicate the hidden sub-tree."
-msgstr ""
+msgstr "<graphic fileref=\"../images/RevGraphExpand.png\"/> Klik op de plus-knop om de ingeklapte boom uit te klappen. Als een boom is ingeklapt blijft deze knop zichtbaar om de verborgen onderverdeling aan te geven ."
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphSplit.png\"/> Click on the cross button to split the attached sub-tree and show it as a separate tree on the graph."
-msgstr ""
+msgstr "<graphic fileref=\"../images/RevGraphSplit.png\"/> Klik op de kruis-knop om de gekoppelde onderverdeling te splitsen en deze als een afzondelijke boom op de grafiek te tonen."
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphJoin.png\"/> Click on the circle button to reattach a split tree. When a tree has been split away, this button remains visible to indicate that there is a separate sub-tree."
-msgstr ""
+msgstr "<graphic fileref=\"../images/RevGraphJoin.png\"/> Klik op de cirkel-knop om een afgesplitste boom weer aan te koppelen. Wanneer een boom is afgesplitst blijft deze knop zichtbaar om aan te geven dat er een aparte onderverdeling aanwezig is."
 
 #. (para)
 msgid "Click on the graph background for the main context menu, which offers options to <guilabel>Expand all</guilabel> and <guilabel>Join all</guilabel>. If no branch has been collapsed or split, the context menu will not be shown."
-msgstr ""
+msgstr "Klik op de achtergrond van de grafiek voor het hoofd contextmenu, wat opties biedt naar <guilabel>Alles uitklappen</guilabel> en <guilabel>Alle samenvoegen</guilabel>. Als er geen tak is ingeklapt of afgesplitst zal het contextmenu niet worden getoond."
 
 #. (title)
 msgid "Exporting a Subversion Working Copy"
-msgstr ""
+msgstr "Exporteren van een Subversion Werkkopie"
 
 #. (primary)
 msgid "export"
@@ -7669,11 +7669,11 @@ msgstr "archief URL gewijzigd"
 
 #. (primary)
 msgid "server moved"
-msgstr ""
+msgstr "verplaatste server"
 
 #. (primary)
 msgid "moved server"
-msgstr ""
+msgstr "server verplaatst"
 
 #. (title)
 msgid "The Relocate Dialog"
@@ -7689,11 +7689,11 @@ msgstr ""
 
 #. (para)
 msgid "The IP address of the server has changed."
-msgstr ""
+msgstr "Het IP-adres van de server is gewijzigd."
 
 #. (para)
 msgid "The protocol has changed (e.g. http:// to https://)."
-msgstr ""
+msgstr "Het protocol is gewijzigd (vb: http:// naar https://)."
 
 #. (para)
 msgid "The repository root path in the server setup has changed."
@@ -7713,7 +7713,7 @@ msgstr ""
 
 #. (para)
 msgid "It does not apply if: <placeholder-1/>"
-msgstr ""
+msgstr "Het is niet van toepassing als: <placeholder-1/>"
 
 #. (para)
 msgid "If you use relocate in either of the cases above, it <emphasis>will corrupt your working copy</emphasis> and you will get many unexplainable error messages while updating, committing, etc. Once that has happened, the only fix is a fresh checkout."
@@ -8025,11 +8025,11 @@ msgstr "Globaal negeer patroon"
 
 #. (primary)
 msgid "exclude pattern"
-msgstr ""
+msgstr "uitsluiten patroon"
 
 #. (primary)
 msgid "global ignore"
-msgstr ""
+msgstr "globaal negeren"
 
 #. (para)
 msgid "Global ignore patterns are used to prevent unversioned files from showing up e.g. in the commit dialog. Files matching the patterns are also ignored by an import. Ignore files or directories by typing in the names or extensions. Patterns are separated by spaces e.g. <literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal>. These patterns should not include any path separators. Note also that there is no way to differentiate between files and directories. Read <xref linkend=\"tsvn-dug-ignore-glob\"/> for more information on the pattern-matching syntax."
