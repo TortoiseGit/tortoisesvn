@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-15 13:02+0100\n"
+"PO-Revision-Date: 2010-02-16 14:18+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5752,11 +5752,11 @@ msgstr "Subversion kenmerken pagina"
 
 #. (para)
 msgid "<placeholder-1/> You can read and set the Subversion properties from the Windows properties dialog, but also from <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice> and within TortoiseSVN's status lists, from <menuchoice><guimenu>Context menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "<placeholder-1/> U kunt de Subversion eigenschappen lezen en zetten vanuit het Windows eigenschappen dialoog, maar ook vanuit <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>eigenschappen</guimenuitem></menuchoice> en binnen TortoiseSVN's status lijsten, vanuit <menuchoice><guimenu>Context menu</guimenu><guimenuitem>eigenschappen</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "You can add your own properties, or some properties with a special meaning in Subversion. These begin with <literal>svn:</literal>. <literal>svn:externals</literal> is such a property; see how to handle externals in <xref linkend=\"tsvn-dug-externals\"/>."
-msgstr ""
+msgstr "U kunt uw eigen eigenschappen toevoegen, of enige eigenschappen met een speciale betekenis in Subversion. Deze beginnen met <literal>svn:</literal>. <literal>svn:externals</literal> is zo'n eigenschap; raadpleeg hoe externen af te handelen in <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (title)
 msgid "svn:keywords"
@@ -5772,39 +5772,39 @@ msgstr "uitbreiden van sleutelwoorden"
 
 #. (para)
 msgid "Date of last known commit. This is based on information obtained when you update your working copy. It does <emphasis>not</emphasis> check the repository to find more recent changes."
-msgstr ""
+msgstr "Datum van laatste vastlegging. Dit is gebaseerd op informatie verkregen tijdens het bijwerken van uw werkkopie. Het controleert het archief <emphasis>niet</emphasis> op meer recente wijzigingen."
 
 #. (para)
 msgid "Revision of last known commit."
-msgstr ""
+msgstr "Revisie van laatst bekende vastlegging."
 
 #. (para)
 msgid "Author who made the last known commit."
-msgstr ""
+msgstr "Auteur welke de laatst bekende vastlegging heeft gemaakt."
 
 #. (para)
 msgid "The full URL of this file in the repository."
-msgstr ""
+msgstr "De volledige URL van dit bestand in het archief."
 
 #. (para)
 msgid "A compressed combination of the previous four keywords."
-msgstr ""
+msgstr "Een gekomprimeerde combinatie van de vorige vier sleutelwoorden."
 
 #. (para)
 msgid "Subversion supports CVS-like keyword expansion which can be used to embed filename and revision information within the file itself. Keywords currently supported are: <placeholder-1/>"
-msgstr ""
+msgstr "Subversion ondersteunt CVS-achtige sleutelwoord uitbreidingen welke kunnen worden gebruikt om bestandsnaam en revisie informatie in het bestand zelf in te bedden. Sleutelwoorden welke momenteel worden ondersteund zijn: <placeholder-1/>"
 
 #. (para)
 msgid "To find out how to use these keywords, look at the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords section</citetitle></ulink> in the Subversion book, which gives a full description of these keywords and how to enable and use them."
-msgstr ""
+msgstr "Om meer te weten te komen over hoe deze sleutelwoorden te gebruiken, bekijk <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords section</citetitle></ulink> in het Subversion boek, wat een volledige beschrijving van deze sleutelwoorden geeft en hoe ze te kunnen gebruiken."
 
 #. (para)
 msgid "For more information about properties in Subversion see the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.html\"><citetitle>Special Properties</citetitle></ulink>."
-msgstr ""
+msgstr "Voor meer informatie over eigenschappen in Subversion bekijk <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.html\"><citetitle>Speciale Eigenschappen</citetitle></ulink>."
 
 #. (title)
 msgid "Adding and Editing Properties"
-msgstr ""
+msgstr "Toevoegen en Aanpassen van Eigenschappen"
 
 #. (title)
 msgid "Adding properties"
@@ -5836,11 +5836,11 @@ msgstr ""
 
 #. (para)
 msgid "The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository. For more information, read <xref linkend=\"tsvn-dug-externals\"/>."
-msgstr ""
+msgstr "De <literal>svn:externals</literal> eigenschap kan worden gebruikt om andere projecten uit hetzelfde archief of uit een compleet ander archief binnen te halen. Voor meer informatie, lees <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (title)
 msgid "Exporting and Importing Properties"
-msgstr ""
+msgstr "Exporteren en Importeren van Eigenschappen"
 
 #. (para)
 msgid "Often you will find yourself applying the same set of properties many times, for example <literal>bugtraq:logregex</literal>. To simplify the process of copying properties from one project to another, you can use the Export/Import feature."
@@ -6491,35 +6491,35 @@ msgstr "revisiebereik"
 
 #. (title)
 msgid "The Merge Wizard - Select Revision Range"
-msgstr ""
+msgstr "Het Samenvoeg Hulpprogramma - Selecteer Revisie Bereik"
 
 #. (para)
 msgid "<placeholder-1/> In the <guilabel>From:</guilabel> field enter the full folder URL of the branch or tag containing the changes you want to port into your working copy. You may also click <guibutton>...</guibutton> to browse the repository and find the desired branch. If you have merged from this branch before, then just use the drop down list which shows a history of previously used URLs."
-msgstr ""
+msgstr "<placeholder-1/> Geef in het <guilabel>Van:</guilabel> veld de complete folder URL van de tak of label, welke de wijzigingen bevat die u naar uw werkkopie wilt doorvoeren. U kunt ook klikken op <guibutton>...</guibutton> om door het archief te bladeren naar de gewenste tak. Als u eerder van deze tak heeft samengevoegd, kunt u de uitklaplijst gebruiken welke een geschiedenis van eerder gebruikte URL's toont."
 
 #. (para)
 msgid "In the <guilabel>Revision range to merge</guilabel> field enter the list of revisions you want to merge. This can be a single revision, a list of specific revisions separated by commas, or a range of revisions separated by a dash, or any combination of these."
-msgstr ""
+msgstr "Geef in het <guilabel>Revisiebereik om samen te voegen</guilabel> veld de lijst aan van revisies welke u wilt samenvoegen. Dit kan een enkele revisie zijn, een lijst van specifieke revisies gescheiden door komma's, een bereik van revisies gescheiden door een min-teken, of een combinatie van deze manieren."
 
 #. (para)
 msgid "There is an important difference in the way a revision range is specified with TortoiseSVN compared to the command line client. The easiest way to visualise it is to think of a fence with posts and fence panels."
-msgstr ""
+msgstr "Er is een belangrijk verschil in de manier waarop een revisiebereik wordt gespecificeerd in TortoiseSVN of in de commandoregel client. De gemakkelijkste manier om dit te visualiseren is om een omheining voor ogen te nemen compleet met toegangspoorten en hekwerk."
 
 #. (para)
 msgid "With the command line client you specify the changes to merge using two <quote>fence post</quote> revisions which specify the <emphasis>before</emphasis> and <emphasis>after</emphasis> points."
-msgstr ""
+msgstr "Met de commandoregel client geeft u de vast te legen wijzigingen aan door gebruik te maken van twee <quote>toegangspoort</quote> revisies welke de <emphasis>voor</emphasis> en <emphasis>na</emphasis> punten aangeven."
 
 #. (para)
 msgid "With TortoiseSVN you specify the changeset to merge using <quote>fence panels</quote>. The reason for this becomes clear when you use the log dialog to specify revisions to merge, where each revision appears as a changeset."
-msgstr ""
+msgstr "Met TortoiseSVN geeft u de vast te leggen wijzigingsset aan door gebruik te maken van <quote>hekwerken</quote>. De reden hiervoor wordt duidelijk wanneer u het log-dialoog gebruikt om revisies aan te geven om samen te voegen, waarbij elke revisie zichtbaar is als een wijzigingsset."
 
 #. (para)
 msgid "If you are merging revisions in chunks, the method shown in the subversion book will have you merge 100-200 this time and 200-300 next time. With TortoiseSVN you would merge 100-200 this time and 201-300 next time."
-msgstr ""
+msgstr "Als u samenvoegt in blokken, laat de methode welke in het subversion boek wordt getoond u 100-200 nu samenvoegen en 200-300 de volgende keer. Met TortoiseSVN zou u 100-200 nu samenvoegen en 201-300 de volgende keer."
 
 #. (para)
 msgid "This difference has generated a lot of heat on the mailing lists. We acknowledge that there is a difference from the command line client, but we believe that for the majority of GUI users it is easier to understand the method we have implemented."
-msgstr ""
+msgstr "Dit verschil heeft een hoop tam-tam in de mailing lijsten opgeleverd. We geven toe dat er een verschil is met de commandoregel client, maar we geloven dat  het voor de meerderheid van de GUI-gebruikers de methode welke wij hebben toegepast gemakkelijker is om te begrijpen."
 
 #. (para)
 msgid "The easiest way to select the range of revisions you need is to click on <guibutton>Show Log</guibutton>, as this will list recent changes with their log comments. If you want to merge the changes from a single revision, just select that revision. If you want to merge changes from several revisions, then select that range (using the usual <keycap>Shift</keycap>-modifier). Click on <guibutton>OK</guibutton> and the list of revision numbers to merge will be filled in for you."
@@ -6551,7 +6551,7 @@ msgstr "herintegreren"
 
 #. (title)
 msgid "The Merge Wizard - Reintegrate Merge"
-msgstr ""
+msgstr "Het Samenvoeg Hulpprogramma - Herintegreer Samenvoegen"
 
 #. (para)
 msgid "<placeholder-1/> To merge a feature branch back into the trunk you must start the merge wizard from within a working copy of the trunk."
@@ -7027,7 +7027,7 @@ msgstr "<placeholder-1/> Als je niet geïnteresseerd bent in de wijzigingen van 
 
 #. (para)
 msgid "By default the blame file is viewed using <firstterm>TortoiseBlame</firstterm>, which highlights the different revisions to make it easier to read. If you wish to print or edit the blame file, select <guilabel>Use Text viewer to view blames</guilabel>"
-msgstr "Standaard wordt het verklaren-bestand getoond in <firstterm>TortoiseBlame</firstterm>, waarin de verschillende revisies gemarkeerd worden voor een beter overzicht. Als je het verklaren-bestand wilt afdrukken of bewerken, selecteer dan <guilabel>Gebruik &tekst editor om verklaringen te bekijken</guilabel>."
+msgstr "Standaard wordt het verklaren-bestand getoond in <firstterm>TortoiseBlame</firstterm>, waarin de verschillende revisies gemarkeerd worden voor een beter overzicht. Als je het verklaren-bestand wilt afdrukken of bewerken, selecteer dan <guilabel>Gebruik tekst editor om verklaringen te bekijken</guilabel>."
 
 #. (para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes, but if you want to ignore an indentation change and find the original author, you can choose an appropriate option here."
