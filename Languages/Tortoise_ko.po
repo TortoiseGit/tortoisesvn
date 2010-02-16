@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-16 09:10+0900\n"
+"PO-Revision-Date: 2010-02-17 08:09+0900\n"
 "Last-Translator: TaeDong Kim <fly1004@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1145,6 +1145,10 @@ msgstr "특정 리비전으로 업데이트(&U)..."
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "파일 경로와 키워드의 자동 완성기능을 이용합니다.(&U)"
+
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "휴지통 사용(&U)"
 
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
@@ -2705,6 +2709,10 @@ msgstr "복사 %s"
 msgid "Copy %s to %s, Revision %s"
 msgstr "%s을(를) %s(으)로 복사, 리비전: %s"
 
+#. Resource IDs: (142)
+msgid "Copy (Branch / Tag)"
+msgstr "복사하기 (브랜치/태그 만들기)"
+
 #. Resource IDs: (78)
 msgid "Copy - TortoiseSVN"
 msgstr "복사 - TortoiseSVN"
@@ -2785,8 +2793,8 @@ msgstr "복사: %s의 새 이름"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "복사 중 %s"
+msgid "Copying %1!s!"
+msgstr "%1!s! 복사중"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -3129,6 +3137,10 @@ msgstr "삭제하고 무시 리스트에 추가하기(&I)"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "확장자에 따라 %d 개 아이템을 삭제하고 무시하기(&E)"
+
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "버전관리 대상이 아닌 아이템 삭제"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3769,8 +3781,8 @@ msgstr "버전관리 대상이 아닌 파일도 익스포트"
 
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "%s 익스포트 중"
+msgid "Exporting %1!s!"
+msgstr "%1!s! 익스포트중"
 
 #. Resource IDs: (79)
 msgid "Exporting..."
@@ -5669,8 +5681,8 @@ msgstr "되돌리기 전에 먼저 수정된 파일들을 휴지통으로 이동
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "이동중 %s"
+msgid "Moving %1!s!"
+msgstr "%1!s! 이동중"
 
 #. Resource IDs: (80)
 msgid "Moving..."
@@ -9294,8 +9306,8 @@ msgstr "버전 관리 대상이 아닌 파일들이 있으면 상위 폴더를 �
 
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "버전관리에서 제외 %s"
+msgid "Unversioning %1!s!"
+msgstr "%1!s! 버전관리에서 제외중"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -10625,6 +10637,11 @@ msgstr "충돌하는 수정사항이 존재합니다"
 msgid "to %1"
 msgstr "%1"
 
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr ""
+
 #. Resource IDs: (80, 103, 284)
 #, c-format
 msgid "to %s"
@@ -10794,10 +10811,6 @@ msgstr "단어 토큰:"
 msgid "words [uncompressed]: "
 msgstr "단어수 [압축되지 않은]:"
 
-#. Resource IDs: (142)
-msgid "y"
-msgstr "y"
-
 #. Resource IDs: (245)
 msgid "year"
 msgstr "년"
@@ -10810,8 +10823,8 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
-#~ msgid "Copy (Branch / Tag)"
-#~ msgstr "복사하기 (브랜치/태그 만들기)"
+#~ msgid "y"
+#~ msgstr "y"
 
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "작성자:                                    Stefan Kueng"
