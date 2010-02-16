@@ -1,28 +1,19 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# Korean translation for TortoiseSVN
-# Copyright (C) 2004-2010 the TortoiseSVN team
-# This file is distributed under the same license as TortoiseSVN
-#
-# Last commit by:
-# $Author$
-# $Date$
-# $Rev$
-#
-# Authors:
-# Hojin Choi <pynoos@users.kldp.net>
-# Lee Jae-Hong <http://www.pyrasis.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: TortoiseSVN\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-02 10:04+0900\n"
-"Last-Translator: Taedong Kim <fly1004@gmail.com>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2010-02-16 09:10+0900\n"
+"Last-Translator: TaeDong Kim <fly1004@gmail.com>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Korean\n"
 
 #. Resource IDs: (10, 126)
 msgid " "
@@ -1222,7 +1213,7 @@ msgstr "(삭제)"
 
 #. Resource IDs: (214)
 msgid "(externals)"
-msgstr "(외부)"
+msgstr "(외부경로)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -2177,6 +2168,10 @@ msgstr "변경 리스트:"
 msgid "Changes made (double-click on file for diff):"
 msgstr "변경된 파일 (변경 내용확인은 더블 클릭):"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "외부경로를 고정된 리비전으로 변경"
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "체크아웃(&K)..."
@@ -2192,6 +2187,10 @@ msgstr "업데이트 확인"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "업데이트 확인..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr "외부경로를 태그로 체크"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2705,10 +2704,6 @@ msgstr "복사 %s"
 #, c-format
 msgid "Copy %s to %s, Revision %s"
 msgstr "%s을(를) %s(으)로 복사, 리비전: %s"
-
-#. Resource IDs: (142)
-msgid "Copy (Branch / Tag)"
-msgstr "복사하기 (브랜치/태그 만들기)"
 
 #. Resource IDs: (78)
 msgid "Copy - TortoiseSVN"
@@ -3823,11 +3818,11 @@ msgstr "외부경로 실패"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
-msgstr "외부경로는 제외됨"
+msgstr "제외된 외부경로"
 
 #. Resource IDs: (226)
 msgid "Externals included"
-msgstr "외부경로를 포함함"
+msgstr "포함된 외부경로"
 
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
@@ -5044,7 +5039,7 @@ msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
-msgstr "외부 아이템들(&E)"
+msgstr "외부경로의 아이템들(&E)"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
@@ -5785,6 +5780,10 @@ msgstr "에러 메시지가 유효하지 않습니다."
 msgid "No error occurred."
 msgstr "오류 발생하지 않음."
 
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "외부경로가 발견되지 않음"
+
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
 msgstr "마지막 커밋 이후로 추가되거나 변경된 것이 없으므로, 아무것도 되돌리지 않습니다."
@@ -5999,7 +5998,7 @@ msgstr "외부 경로는 누락시킴(&X)"
 
 #. Resource IDs: (145)
 msgid "Omit externals"
-msgstr "외부 경로는 누락시킴"
+msgstr "외부경로는 누락시킴"
 
 #. Resource IDs: (63)
 msgid ""
@@ -6296,6 +6295,10 @@ msgstr "취소중입니다. 잠시 기다려주십시오..."
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
 msgstr "차이를 구하는 동안 잠시 기다려주십시오..."
+
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "외부경로를 가져오는 동안 기다려주십시오..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -7707,7 +7710,7 @@ msgstr "제외된 폴더를 일반 파일처럼 보여줌"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
-msgstr "다른 저장소들로부터 외부정보를 보여줍니다.(&D)"
+msgstr "다른 저장소들로부터 외부경로를 보여줍니다.(&D)"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -9028,6 +9031,10 @@ msgstr ""
 "neon %s\r\n"
 "%s\r\n"
 "zlib %s"
+
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "TortoiseSVN 자동 커밋: 외부경로를 고정된 리비전으로 변경함."
 
 #. Resource IDs: (98)
 #, c-format
@@ -10787,6 +10794,10 @@ msgstr "단어 토큰:"
 msgid "words [uncompressed]: "
 msgstr "단어수 [압축되지 않은]:"
 
+#. Resource IDs: (142)
+msgid "y"
+msgstr "y"
+
 #. Resource IDs: (245)
 msgid "year"
 msgstr "년"
@@ -10799,49 +10810,71 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid "Copy (Branch / Tag)"
+#~ msgstr "복사하기 (브랜치/태그 만들기)"
+
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "작성자:                                    Stefan Kueng"
+
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "매주 새 버전을 확인합니다.(&N)"
+
 #~ msgid ""
 #~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
 #~ msgstr "TortoiseSVN 새 버전을 매주 한 번씩 확인합니다."
+
 #~ msgid "Edit conflict"
 #~ msgstr "충돌 상황 편집"
+
 #~ msgid "From URL:"
 #~ msgstr "시작 URL:"
+
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "관련없는 변경된 경로를 숨기기(&I)"
+
 #~ msgid "Unversioned"
 #~ msgstr "버전관리아님"
+
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
 #~ msgstr ""
 #~ "체크아웃의 URL이 파일을 참조합니다.\n"
 #~ "하지만 이 작업 사본의 경로는 존재하는 디렉토리입니다."
+
 #~ msgid "Show &properties"
 #~ msgstr "속성들 보기(&P)"
+
 #~ msgid "Show i&gnored files"
 #~ msgstr "무시되는 파일 보기(&G)"
+
 #~ msgid "Show un&modified files"
 #~ msgstr "수정되지 않은 파일 보기(&M)"
+
 #~ msgid "Show un&versioned files"
 #~ msgstr "버전관리 대상이 아닌 파일 보기(&V)"
+
 #~ msgid "Cleaning up."
 #~ msgstr "정리"
+
 #~ msgid "General::Revision Graph"
 #~ msgstr "일반::리비전 그래프"
+
 #~ msgid "General::Revision Graph Colors"
 #~ msgstr "일반::리비전 그래프 색깔"
+
 #~ msgid "%s, but the local file was already edited."
 #~ msgstr "%s, 그러나 지역 파일이 벌써 편집되었습니다."
+
 #~ msgid "Go offline?"
 #~ msgstr "오프라인으로 진행할까요?"
+
 #~ msgid "Replaced node"
 #~ msgstr "바뀐 노드"
+
 #~ msgid "copy source only"
 #~ msgstr "원본만 복사"
+
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
@@ -10856,10 +10889,11 @@ msgstr "{버그트랙}"
 #~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
 #~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
 #~ "be590feaa05a&DisplayLang=en</a></u>"
+
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "플로피 드라이브 (A: B:)"
+
 #~ msgid ""
 #~ "On copy and rename nodes, show only the changed parts of the path name"
 #~ msgstr ""
 #~ "복사 및 이름이 변경된 노드들에서, 경로이름에서 변경된 부분만 보여주기"
-
