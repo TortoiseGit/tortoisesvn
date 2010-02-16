@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-14 23:39-0000\n"
+"PO-Revision-Date: 2010-02-16 23:45-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3238,7 +3238,7 @@ msgstr "De vez quando irás obter um <emphasis>conflito</emphasis> quando actual
 
 #. (title)
 msgid "File Conflicts"
-msgstr ""
+msgstr "Conflitos de Ficheiro"
 
 #. (term)
 msgid "filename.ext.mine"
@@ -3246,7 +3246,7 @@ msgstr ""
 
 #. (para)
 msgid "This is your file as it existed in your working copy before you updated your working copy - that is, without conflict markers. This file has your latest changes in it and nothing else."
-msgstr ""
+msgstr "This is the file that was theEste é o teu ficheiro como existia na cópia de trabalho antes de a teres actualizado - Isto é, sem marcadores de conflito. Este ficheiro tem as tuas últimas alterações a mais nada."
 
 #. (term)
 msgid "filename.ext.rOLDREV"
@@ -3254,7 +3254,7 @@ msgstr ""
 
 #. (para)
 msgid "This is the file that was the BASE revision before you updated your working copy. That is, it the file that you checked out before you made your latest edits."
-msgstr ""
+msgstr "Este é o ficheiro que foi a revisão BASE antes de actualizares a cópia de trabalho. Isto é, é o ficheiro que tu SVN exportaste antes de efectuares as tuas últimas alterações."
 
 #. (term)
 msgid "filename.ext.rNEWREV"
@@ -3262,7 +3262,7 @@ msgstr ""
 
 #. (para)
 msgid "This is the file that your Subversion client just received from the server when you updated your working copy. This file corresponds to the HEAD revision of the repository."
-msgstr ""
+msgstr "Este é o ficheiro que o teu cliente Subversion acabou de receber do servidor, quando actualizaste a tua cópia de trabalho. Este ficheiro corresponde à revisão HEAD do repositório."
 
 #. (para)
 msgid ""
@@ -3274,22 +3274,29 @@ msgid ""
 "\t&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "\t</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
+"Um conflito de ficheiro ocorre quando dois ou mais programadores alteraram o mesmo conjunto de linhas dum ficheiro. Como o Subversion não tem nenhum conhecimento do teu projecto, ele deixa a tarefa de resolver os conflitos aos programadores. De cada vez que um conflito é relatado deverás abrir o ficheiro em questão, e procurar por linhas que comecem por esta string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. A área em conflito está marcada do seguinte modo:  <screen>\n"
+"\t&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
+"\t\tyour changes\n"
+"\t=======\n"
+"\t\tcode merged from repository\n"
+"\t&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
+"\t</screen> Em simultâneo para cada ficheiro em conflito, o Subversion coloca três ficheiros adicionais na tua pasta: <placeholder-1/>"
 
 #. (para)
 msgid "You can either launch an external merge tool / conflict editor with <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit Conflicts</guimenuitem></menuchoice> or you can use any other editor to manually resolve the conflict. You should decide what the code should look like, do the necessary changes and save the file."
-msgstr ""
+msgstr "Podes então lançar uma ferramenta externa de fusão/editor de conflitos com <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Editar Conflitos</guimenuitem></menuchoice> ou podes usar qualquer outro editor para resolver o conflito manualmente. Deves decidir a aparência do código, efectuar as alterações necessárias e guardar o ficheiro."
 
 #. (para)
 msgid "Afterwards execute the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved</guimenuitem></menuchoice> and commit your modifications to the repository. Please note that the Resolve command does not really resolve the conflict. It just removes the <filename>filename.ext.mine</filename> and <filename>filename.ext.r*</filename> files, to allow you to commit your changes."
-msgstr ""
+msgstr "Posteriormente executa o comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolvido</guimenuitem></menuchoice> e submete as tuas modificações para o repositório. Toma nota que o comando Resolvido, na realidade, não resolve o conflito. Apenas remove os ficheiros <filename>filename.ext.mine</filename> and <filename>filename.ext.r*</filename>, para te permitir submeter as tuas alterações."
 
 #. (para)
 msgid "If you have conflicts with binary files, Subversion does not attempt to merge the files itself. The local file remains unchanged (exactly as you last changed it) and you have <filename>filename.ext.r*</filename> files. If you want to discard your changes and keep the repository version, just use the Revert command. If you want to keep your version and overwrite the repository version, use the Resolved command, then commit your version."
-msgstr ""
+msgstr "Se tens conflitos com os teus ficheiros binários, o Subversion não tenta fundir os ficheiros. O ficheiro local permanece intocável (exactamente como o alteraste) e obtens os ficheiros <filename>filename.ext.r*</filename>. Se queres descartar as tuas alterações e manter a versão do repositório, usa o comando Reverter. Se queres manter a tua versão e reescrever a versão do repositório, usa o comando Resolvido e submete a tua versão."
 
 #. (para)
 msgid "You can use the Resolved command for multiple files if you right click on the parent folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved...</guimenuitem></menuchoice> This will bring up a dialog listing all conflicted files in that folder, and you can select which ones to mark as resolved."
-msgstr ""
+msgstr "Podes usar o comando Resolvido para ficheiros múltiplos, se clicares na pasta pai e seleccionares  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolvido...</guimenuitem></menuchoice> Isto irá mostrar a caixa de diálogo listando todos os ficheiros em conflito nessa pasta, e podes seleccionar quais é queres marcar como resolvidos."
 
 #. (title)
 msgid "Tree Conflicts"
