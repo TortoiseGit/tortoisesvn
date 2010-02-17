@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-16 14:18+0100\n"
+"PO-Revision-Date: 2010-02-17 16:46+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6262,15 +6262,15 @@ msgstr ""
 
 #. (para)
 msgid "One of the features of version control systems is the ability to isolate changes onto a separate line of development. This line is known as a <firstterm>branch</firstterm>. Branches are often used to try out new features without disturbing the main line of development with compiler errors and bugs. As soon as the new feature is stable enough then the development branch is <firstterm>merged</firstterm> back into the main branch (trunk)."
-msgstr ""
+msgstr "Eén van de mogelijkheden van versiebeheersystemen is het isoleren van wijzigingen in een aparte ontwikkellijn. Zo'n lijn wordt <firstterm>tak</firstterm> (in het Engels branch) genoemd. Takken worden vaak gebruikt om nieuwe functies uit te proberen, zonder dat daarbij de hoofdontwikkeling verstoord wordt met compiler fouten en bugs. Zodra de nieuwe functie stabiel genoeg is, wordt deze ontwikkel tak <firstterm>samengevoegd</firstterm> met de basislijn (in het Engels de trunk genoemd)."
 
 #. (para)
 msgid "Another feature of version control systems is the ability to mark particular revisions (e.g. a release version), so you can at any time recreate a certain build or environment. This process is known as <firstterm>tagging</firstterm>."
-msgstr ""
+msgstr "Een andere mogelijkheid van versiebeheersystemen is het markeren van bepaalde revisies (bijv. een vrijgegeven versie), zodat op elk gewenst moment een bepaald pakket of een omgeving opnieuw (op) kunt bouwen. Dit proces wordt <firstterm>labelen</firstterm> genoemd (in het Engels tagging)."
 
 #. (para)
 msgid "Subversion does not have special commands for branching or tagging, but uses so-called <quote>cheap copies</quote> instead. Cheap copies are similar to hard links in Unix, which means that instead of making a complete copy in the repository, an internal link is created, pointing to a specific tree/revision. As a result branches and tags are very quick to create, and take up almost no extra space in the repository."
-msgstr ""
+msgstr "Subversion heeft geen speciale commando's voor vertakken of labelen, maar gebruikt hiervoor zogenaamde <quote>goedkope kopieën</quote>. Goedkope kopieën zijn vergelijkbaar met de harde links in Unix, wat inhoud dat er in plaats van een gehele kopie te maken van het archief, er een interne link wordt aangement. Deze link verwijst naar een specifieke boom of revisie. Hierdoor kunnen takken en labels heel snel gemaakt worden en hebben ze bijna geen extra ruimte nodig in het archief."
 
 #. (title)
 msgid "Creating a Branch or Tag"
@@ -6282,7 +6282,7 @@ msgstr "De Branch/Tag Dialoog"
 
 #. (para)
 msgid "If you have imported your project with the recommended directory structure, creating a branch or tag version is very simple: <placeholder-1/> Select the folder in your working copy which you want to copy to a branch or tag, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branch/Tag...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Als je je project met de aanbevolen mapstructuur hebt geïmporteerd, dan is het aanmaken van een tak of label erg eenvoudig: <placeholder-1/> Selecteer de map in je werkkopie, waarvan je een tak of label wilt maken. Selecteer vervolgens het commando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Maak Tak/label...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -6292,6 +6292,11 @@ msgid ""
 "    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
 "</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
 msgstr ""
+"De standaard doel URL voor de nieuwe tak is de URL van de bron van je werkkopie. Je moet deze URL aanpassen naar het nieuwe pad voor je tak/label. Dus in plaats van <screen>\n"
+"    http://svn.collab.net/repos/ProjectName/trunk\n"
+"</screen> zul je mogelijk nu <screen>\n"
+"    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
+"</screen> gebruiken. Als je je niet meer kunt herinneren welke structuur je de vorige keer hebt gebruikt, klik dan op de knop aan de rechterkant om de archief-verkenner te openen. Je kunt dan de structuur van het archief bekijken."
 
 #. (term)
 #. (listitem)
@@ -6300,7 +6305,7 @@ msgstr "HEAD revisie in het archief"
 
 #. (para)
 msgid "The new branch is copied directly in the repository from the HEAD revision. No data needs to be transferred from your working copy, and the branch is created very quickly."
-msgstr ""
+msgstr "De nieuwe tak wordt direct binnen het archief gekopieerd van de HEAD revisie in het archief. Er hoeven geen gegevens verstuurd te worden vanuit je werkkopie. De tak is dan erg snel gemaakt."
 
 #. (term)
 msgid "Specific revision in the repository"
@@ -6308,27 +6313,27 @@ msgstr "Specifieke revisie in het archief"
 
 #. (para)
 msgid "The new branch is copied directly in the repository but you can choose an older revision. This is useful if you forgot to make a tag when you released your project last week. If you can't remember the revision number, click the button on the right to show the revision log, and select the revision number from there. Again no data is transferred from your working copy, and the branch is created very quickly."
-msgstr ""
+msgstr "De nieuwe tak wordt direct binnen het archief gekopieerd, maar je kunt een oudere revisie selecteren. Dit is handig als je vergeten bent een label te maken toen je een nieuwe versie vrijgaf vorige week. Als je het revisienummer niet meer weet, klik dan op de knop aan de rechterkant om het revisie logboek te bekijken en te selecteren. Er worden ook hierbij geen gegevens vanuit je werkkopie gehaald en dus is de tak of label erg snel gemaakt."
 
 #. (para)
 msgid "The new branch is an identical copy of your local working copy. If you have updated some files to an older revision in your WC, or if you have made local changes, that is exactly what goes into the copy. Naturally this sort of complex tag may involve transferring data from your WC back to the repository if it does not exist there already."
-msgstr ""
+msgstr "De nieuwe tak moet een identieke kopie zijn van je lokale werkkopie. Als je bijvoorbeeld van enkele bestanden een oudere versie naar je werkkopie hebt gehaald, of als je lokale wijzigingen hebt aangebracht, dan worden exact die bestanden die je in je werkkopie hebt in de tak of label meegenomen. Uiteraard heeft een label van deze complexiteit mogelijk het gevolg dat er informatie vanuit je werkkopie naar het archief gestuurd moet worden, mocht de informatie daar nog niet bekend zijn."
 
 #. (para)
 msgid "Now you have to select the source of the copy. Here you have three options: <placeholder-1/>"
-msgstr ""
+msgstr "Nu moet je de bron van de kopie selecteren. Er zijn daarvoor drie mogelijkheden: <placeholder-1/>"
 
 #. (para)
 msgid "If you want your working copy to be switched to the newly created branch automatically, use the <guilabel>Switch working copy to new branch/tag</guilabel> checkbox. But if you do that, first make sure that your working copy does not contain modifications. If it does, those changes will be merged into the branch WC when you switch."
-msgstr ""
+msgstr "Als je wilt dat je werkkopie automatisch overschakelt naar de nieuw aangemaakte tak, gebruik schakel dan de optie <guilabel>Schakel werkkopie naar de nieuwe tak/label</guilabel> in. Voordat je dat doet, moet je er zeker van zijn dat er geen wijzigingen meer in je werkkopie zitten. Als er wijzigingen in zitten, dan worden deze ook meteen samengevoegd in de werkkopie van de tak als je omschakelt."
 
 #. (para)
 msgid "Press <guibutton>OK</guibutton> to commit the new copy to the repository. Don't forget to supply a log message. Note that the copy is created <emphasis>inside the repository</emphasis>."
-msgstr ""
+msgstr "Klik op <guibutton>OK</guibutton> om de nieuwe kopie vast te leggen in het archief. Vergeet niet een logboek boodschap achter te laten. Merk op dat de kopie gemaakt wordt <emphasis>in het archief</emphasis>."
 
 #. (para)
 msgid "Note that unless you opted to switch your working copy to the newly created branch, creating a Branch or Tag does <emphasis>not</emphasis> affect your working copy. Even if you create the branch from your WC, those changes are committed to the new branch, not to the trunk, so your WC may still be marked as modified with respect to the trunk."
-msgstr ""
+msgstr "Merk op dat, tenzij je ervoor gekozen hebt je werkkopie om te laten schakelen naar de nieuw aangemaakte tak, het aanmaken van een Tak of Label je werkkopie <emphasis>niet</emphasis> verandert. Ook als je een tak aanmaakt van je werkkopie, dan worden de wijzigingen in de tak vastgelegd, niet in de basislijn. Het is dus mogelijk dat je werkkopie nog steeds als gewijzigd wordt aangemerkt ten opzicht van de basislijn."
 
 #. (title)
 msgid "Other ways to create a branch or tag"
@@ -6336,47 +6341,47 @@ msgstr "Andere maniere om een tak of label aan te maken"
 
 #. (para)
 msgid "You can also create a branch or tag without having a working copy. To do that, open the repository browser. You can there drag folders to a new location. You have to hold down the <keycap>Ctrl</keycap> key while you drag to create a copy, otherwise the folder gets moved, not copied."
-msgstr ""
+msgstr "Je kunt ook een tak of label maken zonder dat je een werkkopie hebt. Open hiervoor de archief-verkenner. Daar kun je mappen slepen naar een nieuwe locatie. Je moet de <keycap>Ctrl</keycap> ingedrukt houden tijdens het slepen om een kopie te maken, anders wordt de map verplaats in plaats van gekopieerd. "
 
 #. (para)
 msgid "You can also drag a folder with the right mouse button. Once you release the mouse button you can choose from the context menu whether you want the folder to be moved or copied. Of course to create a branch or tag you must copy the folder, not move it."
-msgstr ""
+msgstr "Je kunt ook een map verslepen met de rechter muisknop. Zodra je de muisknop loslaat, kun je kiezen of je de map kopiëren of verplaatsen wilt. Uiteraard moet je een map kopiëren als je een tak of label wilt aanmaken, niet verplaatsen. "
 
 #. (para)
 msgid "Yet another way is from the log dialog. You can show the log dialog for e.g. trunk, select a revision (either the HEAD revision at the very top or an earlier revision), right-click and choose <menuchoice><guimenuitem>create branch/tag from revision...</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Nog een andere manier om dit te doen is via het logboek boodschappen venster. Je kunt het logboek venster laten zien voor bijvoorbeeld de basislijn, selecteer een revisie (of de HEAD revisie bovenaan of een oudere revisie), klik rechts en kies <menuchoice><guimenuitem>Maak tak/label van revisie...</guimenuitem></menuchoice>"
 
 #. (title)
 msgid "To Checkout or to Switch..."
-msgstr ""
+msgstr "Ophalen of Schakelen..."
 
 #. (primary)
 msgid "switch"
-msgstr ""
+msgstr "wisselen"
 
 #. (para)
 msgid "...that is (not really) the question. While a checkout downloads everything from the desired branch in the repository to your working directory, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice> only transfers the changed data to your working copy. Good for the network load, good for your patience. :-)"
-msgstr ""
+msgstr ".. dat is (niet echt) de vraag. Terwijl bij het ophalen alles van de gewenste tak uit het archief naar je werkkopie wordt gehaald, haalt <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Wissel...</guimenuitem></menuchoice>  alleen de gewijzigde gegevens op naar je werkkopie. Dat is gunstig voor de belasting van het netwerk en goed voor je geduld. :-)"
 
 #. (para)
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> to make a fresh checkout in an empty folder. You can check out to any location on your local disk and you can create as many working copies from your repository as you like."
-msgstr ""
+msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ophalen</guimenuitem></menuchoice>  gebruiken om een versie kopie te maken in een lege map. Je kunt naar elke gewenste locatie op je harde schijf je gegevens ophalen en je kunt zoveel werkkopieën maken als je wilt."
 
 #. (para)
 msgid "Switch your current working copy to the newly created copy in the repository. Again select the top level folder of your project and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice> from the context menu."
-msgstr ""
+msgstr "Je huidige werkkopie wisselen/schakelen naar de nieuw in het archief aangemaakt kopie. Selecteer weer de hoogste map van je project en kies <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Wissel...</guimenuitem></menuchoice>  vanuit het context menu."
 
 #. (para)
 msgid "In the next dialog enter the URL of the branch you just created. Select the <guilabel>Head Revision</guilabel> radio button and click on <guibutton>OK</guibutton>. Your working copy is switched to the new branch/tag."
-msgstr ""
+msgstr "Voer in het volgende venster de URL in van de tak die je net aangemaakt hebt. Selecteer het <guilabel>HEAD Revisie</guilabel> keuzerondje en klik op <guibutton>OK</guibutton>. Je werkkopie wordt dan gewisseld naar de nieuwe tak/label."
 
 #. (para)
 msgid "Switch works just like Update in that it never discards your local changes. Any changes you have made to your working copy which have not yet been committed will be merged when you do the Switch. If you do not want this to happen then you must either commit the changes before switching, or revert your working copy to an already-committed revision (typically HEAD)."
-msgstr ""
+msgstr "Wisselen werkt net zoals Verversen in zoverre dat het nooit de lokale wijzigingen negeert. Elke wijziging die je in je werkkopie hebt aangebracht en nog niet het vastgelegd in het archief, zal worden samengevoegd zodra je wisselt. Als je wilt voorkomen dat dit gebeurt, moet je of je wijzigingen vastleggen voordat je wisselt, of je werkkopie terugzetten naar een eerder vastgelegde revisie (meestal de HEAD revisie)."
 
 #. (para)
 msgid "If you want to work on trunk and branch, but don't want the expense of a fresh checkout, you can use Windows Explorer to make a copy of your trunk checkout in another folder, then <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice> that copy to your new branch."
-msgstr ""
+msgstr "Werken aan een basislijn en een tak, zonder dat je een verse werkkopie op moet halen. Je kunt dan met de Windows Verkenner een kopie maken van je basislijn naar een andere map en vervolgens met <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Wissel...</guimenuitem></menuchoice>  de werkkopie omschakelen naar de nieuwe tak."
 
 #. (title)
 msgid "The Switch Dialog"
@@ -6384,23 +6389,23 @@ msgstr "De Wissel Dialoog"
 
 #. (para)
 msgid "To be able to work with your freshly generated branch or tag you have several ways to handle it. You can: <placeholder-1/><placeholder-2/>"
-msgstr ""
+msgstr "Er zijn verschillende mogelijkheden om met je nieuw aangemaakte tak of label te gaan werken. Je kunt: <placeholder-1/><placeholder-2/>"
 
 #. (para)
 msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they are not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
-msgstr ""
+msgstr "Labels worden in principe gemaakt om een momentopname te maken van een project op een bepaald moment. Als gevolg hiervan, worden deze normaal gesproken niet gebruikt voor ontwikkeling. Hiervoor worden takken gebruikt. Daarom adviseren we gebruik te maken van de mapstructuur met de mappen <filename>/trunk /branches /tags</filename>. Het werken aan een label <emphasis>is geen goed idee</emphasis>, maar omdat er op je lokale bestanden geen schrijf beveiliging zit, zal niets je tegenhouden. Als je echter probeert wijzigingen vast te leggen naar een pad waarin <filename>/tags/</filename> voor komt, dan zal TortoiseSVN je wel waarschuwen."
 
 #. (para)
 msgid "It may be that you need to make further changes to a release which you have already tagged. The correct way to handle this is to create a new branch from the tag first and commit the branch. Do your Changes on this branch and then create a new tag from this new branch, e.g. <filename>Version_1.0.1</filename>."
-msgstr ""
+msgstr "Het is soms nodig om extra wijzigingen aan te brengen in vrijgaves die je al gelabeld hebt. De juiste manier is om eerst een nieuwe tak te maken van de label en vervolgens de tak vast te leggen. Voor je wijzigingen door op deze tak en maak dan opnieuw een label aan van deze tak, bijv. <filename>Versie_1.0.1</filename>."
 
 #. (para)
 msgid "If you modify a working copy created from a branch and commit, then all changes go to the new branch and <emphasis>not</emphasis> the trunk. Only the modifications are stored. The rest remains a cheap copy."
-msgstr ""
+msgstr "Als je een werkkopie van een tak wijzigt en vastlegt, dan zullen de wijzigingen in de tak worden vastgelegd en <emphasis>niet</emphasis> in de basislijn. Alleen de wijzigingen worden opgeslagen. De rest blijft een goedkope kopie."
 
 #. (para)
 msgid "Although Subversion itself makes no distinction between tags and branches, the way they are typically used differs a bit. <placeholder-1/>"
-msgstr ""
+msgstr "Ondanks dat Subversion geen verschil maakt tussen labels en takken, verschilt de manier waarop ze gebruikt worden iets. <placeholder-1/>"
 
 #. (title)
 msgid "Merging"
@@ -7388,7 +7393,7 @@ msgstr "Boom boven uitlijnen"
 
 #. (para)
 msgid "When a graph is broken into several smaller trees, the trees may appear either in natural revision order, or aligned at the bottom of the window, depending on whether you are using the <guilabel>Group Branches</guilabel> option. Use this option to grow all trees down from the top instead."
-msgstr ""
+msgstr "Als de grafiek opgebroken is in verschillende kleinere boomstructuren, dan kunnen de bomen weergegeven worden op revisie volgorde of uitgelijnd op de onderkant van het scherm, afhankelijk van de instelling van <guilabel>Groepeer pet Tak</guilabel> optie. Gebruik deze optie om de boomstructuur vanaf de bovenkant te laten opbouwen."
 
 #. (term)
 msgid "Reduce cross lines"
@@ -7396,7 +7401,7 @@ msgstr "Verminder kruisingen"
 
 #. (para)
 msgid "If the layout of the graph has produced a lot of crossing lines, use this option to clean it up. This may make the layout columns appear in less logical places, for example in a diagonal line rather than a column, and the graph may require a larger area to draw."
-msgstr ""
+msgstr "Als de indeling van de grafiek veel kruisingen heeft opgeleverd, dan kun je deze optie gebruikt om deze kruisingen op te ruimen. Hierdoor kunnen de kolommen op minder logische plaatsen te voorschijn komen. Bijvoorbeeld diagonaal in plaats van in een kolom en mogelijk is er dan ook meer ruimte nodig voor de grafiek."
 
 #. (term)
 msgid "Differential path names"
@@ -7404,7 +7409,7 @@ msgstr "Verschil-modus voor paden"
 
 #. (para)
 msgid "Long path names can take a lot of space and make the node boxes very large. Use this option to show only the changed part of a path, replacing the common part with dots. E.g. if you create a branch <literal>/branches/1.2.x/doc/html</literal> from <literal>/trunk/doc/html</literal> the branch could be shown in compact form as <literal>/branches/1.2.x/..</literal> because the last two levels, <literal>doc</literal> and <literal>html</literal>, did not change."
-msgstr ""
+msgstr "Lange padnamen kunnen veel ruimte innemen en de knopen erg groot maken. Gebruik deze optie om alleen het gewijzigde deel van het pad te laten zien. Het ongewijzigde gedeelte wordt met punten weergegeven. Bijv. als je een tak aanmaakt <literal>/branches/1.2.x/doc/html</literal> van <literal>/trunk/doc/html</literal>. De tak kan dan in compacte vorm weergegeven worden als <literal>/branches/1.2.x/..</literal>, omdat de laatste twee niveaus <literal>doc</literal> en <literal>html</literal> ongewijzigd zijn."
 
 #. (term)
 msgid "Show all revisions"
@@ -7412,7 +7417,7 @@ msgstr "Toon alle revisies"
 
 #. (para)
 msgid "This does just what you expect and shows every revision where something (in the tree that you are graphing) has changed. For long histories this can produce a truly huge graph."
-msgstr ""
+msgstr "Dit doet precies wat je zou verwachten en toont elke revisie waarin iets (in de boom die getoond wordt) is gewijzigd. Als er een lange historie is, dan kan dit echt een hele grote grafiek opleveren."
 
 #. (term)
 msgid "Show HEAD revisions"
@@ -7420,7 +7425,7 @@ msgstr "Toon HEAD revisies"
 
 #. (para)
 msgid "This ensures that the latest revision on every branch is always shown on the graph."
-msgstr ""
+msgstr "Deze optie zorgt ervoor dat altijd de laatste revisie van elke tak in de grafiek weergegeven wordt. "
 
 #. (term)
 msgid "Exact copy sources"
@@ -7428,7 +7433,7 @@ msgstr "Exacte kopie bronnen"
 
 #. (para)
 msgid "When a branch/tag is made, the default behaviour is to show the branch as taken from the last node where a change was made. Strictly speaking this is inaccurate since the branches are often made from the current HEAD rather than a specific revision. So it is possible to show the more correct (but less useful) revision that was used to create the copy. Note that this revision may be younger than the HEAD revision of the source branch."
-msgstr ""
+msgstr "Als een tak/label gemaakt wordt, dan wordt standaard de tak zo weergegeven alsof deze gemaakt is vanaf de laatste knoop waarop een wijziging is doorgevoerd. Strikt genomen klopt dit niet, omdat een tak meestal gemaakt wordt van de huidige HEAD revisie, in plaats van een specifieke revisie. Het is mogelijk om de correcte (maar minder zinvolle) revisie weer te geven waarvan de kopie gemaakt is. Merk op dat deze revisie recenter kan zijn dan de HEAD revisie die de bron is van de tak."
 
 #. (term)
 msgid "Fold tags"
@@ -10372,7 +10377,7 @@ msgstr "Hoe kan ik..."
 
 #. (para)
 msgid "This appendix contains solutions to problems/questions you might have when using TortoiseSVN."
-msgstr ""
+msgstr "Deze appendix bevat oplossingen voor problemen/vragen die je mogelijk hebt bij het gebruiken van TortoiseSVN."
 
 #. (title)
 msgid "Move/copy a lot of files at once"
@@ -10388,11 +10393,11 @@ msgstr "herorganiseren"
 
 #. (para)
 msgid "Moving/Copying single files can be done by using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Rename...</guimenuitem></menuchoice>. But if you want to move/copy a lot of files, this way is just too slow and too much work."
-msgstr ""
+msgstr "Verplaatsen/Kopiëren van enkele bestanden kan gedaan worden met <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Hernoem...</guimenuitem></menuchoice>. Als je echter veel bestanden wilt verplaatsen/kopiëren, dan is deze methode veel te langzaam en kost het te veel werk."
 
 #. (para)
 msgid "The recommended way is by <action>right-dragging</action> the files to the new location. Simply <action>right-click</action> on the files you want to move/copy without releasing the mouse button. Then drag the files to the new location and release the mouse button. A context menu will appear where you can either choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Copy versioned files here</guimenuitem></menuchoice>. or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Move versioned files here</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "De aanbevolen methode is door de bestanden met <action>rechts te slepen</action> naar de nieuwe locatie. <action>Klik met rechts</action> op de bestanden die je wilt verplaatsen/kopiëren zonder de muisknop los te laten. Versleep de bestanden naar de nieuwe locatie en laat de muisknop los. Een context menu zal getoond worden waarin je kunt kiezen voor <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Kopiëer objecten onder versiebeheer hierheen</guimenuitem></menuchoice>. or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Verplaats object(en) onder versiebeheer hierheen</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "Force users to enter a log message"
