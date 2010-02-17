@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-17 16:46+0100\n"
-"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
+"PO-Revision-Date: 2010-02-17 16:37+0100\n"
+"Last-Translator: Ewout Muller <eppie1@xs4all.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7747,174 +7747,174 @@ msgstr "bugtracker"
 
 #. (para)
 msgid "It is very common in Software Development for changes to be related to a specific bug or issue ID. Users of bug tracking systems (issue trackers) would like to associate the changes they make in Subversion with a specific ID in their issue tracker. Most issue trackers therefore provide a pre-commit hook script which parses the log message to find the bug ID with which the commit is associated. This is somewhat error prone since it relies on the user to write the log message properly so that the pre-commit hook script can parse it correctly."
-msgstr ""
+msgstr "Het is gemeengoed in Software Ontwikkeling om wijzigingen te relateren aan een specifieke bug of issue ID. Gebruikers van bug tracking systemen (issue trackers) zullen de wijzigingen welke zij maken in Subversion willen associëren aan een specifiek ID in hun issue tracker. Het merendeel van de issue trackers levert hiervoor een pre-commit hook script welke het logbericht analyseert om het bug ID te vinden waarmee de vastlegging wordt geassociëerd. Dit is enigzins foutgevoelig omdat dit afhankelijk is van de correctheid van het door de gebruiker geschreven logbericht zodat het pre-commit hook script het correct kan analyseren."
 
 #. (para)
 msgid "When the user enters a log message, a well defined line including the issue number associated with the commit can be added automatically. This reduces the risk that the user enters the issue number in a way the bug tracking tools can't parse correctly."
-msgstr ""
+msgstr "Wanneer de gebruiker een logbericht ingeeft kan automatisch een vooraf gedefiniëerde regel, met daarin het met de vastlegging geassociëerde issue-nummer, worden toegevoegd. Dit verkleint het risico dat de gebruiker het issue-nummer op een dusdanige wijze ingeeft dat dit niet correct door de bug tracking tools kan worden geanalyseerd."
 
 #. (para)
 msgid "Or TortoiseSVN can highlight the part of the entered log message which is recognized by the issue tracker. That way the user knows that the log message can be parsed correctly."
-msgstr ""
+msgstr "Of ToirtoiseSVN kan het gedeelte van het ingegeven logbericht, wat wordt herkend door de issue tracker, accentueren. Op die manier is het voor de gebruiker duidelijk of het logbericht correct kan worden geanalyseerd."
 
 #. (para)
 msgid "When the user browses the log messages, TortoiseSVN creates a link out of each bug ID in the log message which fires up the browser to the issue mentioned."
-msgstr ""
+msgstr "Wanneer de gebruiker door de logberichten bladert, maakt TortoiseSVN van elke bug ID in het logbericht een verwijzing waarmee de genoemde issue in een browser kan worden geopend."
 
 #. (para)
 msgid "TortoiseSVN can help the user in two ways: <placeholder-1/>"
-msgstr ""
+msgstr "TortoiseSVN kan de gebruiker op twee manieren helpen: <placeholder-1/>"
 
 #. (title)
 msgid "Adding Issue Numbers to Log Messages"
-msgstr ""
+msgstr "Issue-nummers aan Logberichten toevoegen"
 
 #. (para)
 msgid "You can integrate a bug tracking tool of your choice in TortoiseSVN. To do this, you have to define some properties, which start with <literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
-msgstr ""
+msgstr "U kunt een bug tracking tool naar keuze in TortoiseSVN integreren. Hiervoor dient een aantal eigenschappen te worden gedefiniëerd, welke starten met <literal>bugtraq:</literal>. Ze dienen te worden ingesteld op Mappen: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (para)
 msgid "Set this property to the URL of your bug tracking tool. It must be properly URI encoded and it has to contain <literal>%BUGID%</literal>. <literal>%BUGID%</literal> is replaced with the Issue number you entered. This allows TortoiseSVN to display a link in the log dialog, so when you are looking at the revision log you can jump directly to your bug tracking tool. You do not have to provide this property, but then TortoiseSVN shows only the issue number and not the link to it. e.g the TortoiseSVN project is using <systemitem class=\"url\">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
-msgstr ""
+msgstr "Stel deze eigenschap in op de URL naar uw bug tracking tool. Deze dient correct te zijn gecodeerd als URI en moet <literal>%BUGID%</literal>. <literal>%BUGID%</literal> wordt vervangen door het door u ingegeven issue-nummer. Dit biedt TortoiseSVN de mogelijkheid om een verwijzing in het log venster te tonen, waarmee direct naar uw bug tracking tool kan worden gesprongen als u de revisielog bekijkt. U hoeft deze eigenschap niet aan te leveren, maar dan toont TortoiseSVN alleen het issue-nummer en niet de verwijzing er naar toe. Bijv. het TortoiseSVN project gebruikt <systemitem class=\"url\">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
 
 #. (para)
 msgid "You can also use relative URLs instead of absolute ones. This is useful when your issue tracker is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>bugtraq:url</literal> property. There are two ways to specify a relative URL:"
-msgstr ""
+msgstr "U kunt ook gebruik maken van relatieve URL's in plaats van absolute. Dit kan handig zijn in het geval dat uw issue tracker zich op hetzelfde domein/server bevindt als uw bron archief. In het geval dat de domeinnaam ooit wijzigt hoeft u de <literal>bugtraq:url</literal> niet aan te passen. Er zijn twee manieren om een relatieve URL aan te geven:"
 
 #. (para)
 msgid "If it begins with the string <literal>^/</literal> it is assumed to be relative to the repository root. For example, <literal>^/../?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> if your repository is located on <systemitem class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem>."
-msgstr ""
+msgstr "Wanneer deze begint met de tekenreeks <literal>^/</literal> wordt aangenomen dat deze relatief is tot de archief root. <literal>^/../?do=details&amp;id=%BUGID%</literal> zal bijvoorbeeld resulteren in <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> indien uw archief zich op <systemitem class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem> bevindt."
 
 #. (para)
 msgid "A URL beginning with the string <literal>/</literal> is assumed to be relative to the server's hostname. For example <literal>/?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> if your repository is located anywhere on <systemitem class=\"url\">http://tortoisesvn.net</systemitem>."
-msgstr ""
+msgstr "Van een URL welke met de tekenreeks <literal>/</literal> begint wordt aangenomen dat deze relatief is tot de hostnaam van de server. <literal>/?do=details&amp;id=%BUGID%</literal> zal bijvoorbeeld resulteren in <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> indien uw archief zich ergens op <systemitem class=\"url\">http://tortoisesvn.net</systemitem> bevindt."
 
 #. (para)
 msgid "Set this to <literal>true</literal>, if you want TortoiseSVN to warn you because of an empty issue-number text field. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>false</literal> is assumed. </emphasis>"
-msgstr ""
+msgstr "Stel dit in op <literal>true</literal> indien u wilt dat TortoiseSVN u waarschuwt in het geval van een leeg issue-nummer tekst veld. Geldige waarden zijn <literal>true/false</literal>. <emphasis> Indien niet gedefiniëerd, wordt aangenomen dat de waarde <literal>false</literal> is. </emphasis>"
 
 #. (para)
 msgid "There are two ways to integrate TortoiseSVN with issue trackers. One is based on simple strings, the other is based on <emphasis>regular expressions</emphasis>. The properties used by both approaches are: <placeholder-1/>"
-msgstr ""
+msgstr "Er zijn twee manieren om TortoiseSVN te integreren met issue trackers. De een is gebaseerd op eenvoudige tekenreeksen, de ander is gebaseerd op <emphasis>reguliere expressies</emphasis>. De eigenschappen welke door beide benaderingen worden gebruikt zijn: <placeholder-1/>"
 
 #. (title)
 msgid "Issue Number in Text Box"
-msgstr ""
+msgstr "Issue-nummer in Tekst Veld"
 
 #. (para)
 msgid "This property activates the bug tracking system in <emphasis>Input field</emphasis> mode. If this property is set, then TortoiseSVN will prompt you to enter an issue number when you commit your changes. It's used to add a line at the end of the log message. It must contain <literal>%BUGID%</literal>, which is replaced with the issue number on commit. This ensures that your commit log contains a reference to the issue number which is always in a consistent format and can be parsed by your bug tracking tool to associate the issue number with a particular commit. As an example you might use <literal>Issue : %BUGID%</literal>, but this depends on your Tool."
-msgstr ""
+msgstr "Deze eigenschap activeert het bug tracking systeem in <emphasis>Invoerveld</emphasis> modus. Als deze eigenschap is ingesteld zal TortoiseSVN u vragen om een issue-nummer in te geven wanneer u uw wijzigingen vastlegt. Dit wordt gebruikt om een regel aan het einde van het logbericht toe te voegen. Het moet <literal>%BUGID%</literal> bevatten, wat wordt vervangen door het issue-nummer bij vastleggen. Dit biedt de zekerheid dat uw vastleggingslog een referentie naar het issue-nummer bevat, welke altijd in een consistent formaat is en kan worden geanalyseerd door uw bug tracking tool, om het issue-nummer met een bepaalde vastlegging te associëren. Als voorbeeld zou u <literal>Issue : %BUGID%</literal> kunnen gebruiken, maar dat hangt van uw tool af."
 
 #. (para)
 msgid "This property defines if the bug-ID is appended (true) to the end of the log message or inserted (false) at the start of the log message. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>true</literal> is assumed, so that existing projects don't break. </emphasis>"
-msgstr ""
+msgstr "Deze eigenschap definiëert of het bug-ID wordt toegevoegd (true) aan het einde van het logbericht of ingevoegd (false) aan het begin van het logbericht. Geldige waarden zijn <literal>true/false</literal>. <emphasis> Indien niet gedefiniëerd wordt aangenomen dat de waarde <literal>true</literal> is, zodat bestaande projecten niet mislukken. </emphasis>"
 
 #. (para)
 msgid "This text is shown by TortoiseSVN on the commit dialog to label the edit box where you enter the issue number. If it's not set, <literal>Bug-ID / Issue-Nr:</literal> will be displayed. Keep in mind though that the window will not be resized to fit this label, so keep the size of the label below 20-25 characters."
-msgstr ""
+msgstr "Deze tekst wordt door TortoiseSVN getoond op het vastleggings venster om het invoerveld aan te geven waar u het issue-nummer ingeeft. Wanneer het niet is ingesteld zal <literal>Bug-ID / Issue-Nr:</literal> worden getoond. Houdt in gedachten dat het venster niet in grootte wordt aangepast om het label te laten passen, dus houdt de grootte van het label onder de 20-25 tekens."
 
 #. (para)
 msgid "If set to <literal>true</literal> only numbers are allowed in the issue-number text field. An exception is the comma, so you can comma separate several numbers. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>true</literal> is assumed. </emphasis>"
-msgstr ""
+msgstr "Indien ingesteld op <literal>true</literal> zijn alleen nummers in het issue-nummer tekstveld toegestaan. Een uitzondering is de komma, zodat meerdere nummers door een komma kunnen worden gescheiden. Geldige waarden zijn <literal>true/false</literal>. <emphasis> Indien niet gedefiniëerd wordt aangenomen dat de waarde <literal>true</literal> is. </emphasis>"
 
 #. (para)
 msgid "In the simple approach, TortoiseSVN shows the user a separate input field where a bug ID can be entered. Then a separate line is appended/prepended to the log message the user entered. <placeholder-1/>"
-msgstr ""
+msgstr "In de eenvoudige benadering toont TortoiseSVN een apart invoerveld aan de gebruiker, waar een bug ID kan worden ingegeven. Daarna wordt een aparte regel toegevoegd/vooringevoegd aan het door de gebruiker ingegeven logbericht. <placeholder-1/>"
 
 #. (title)
 msgid "Issue Numbers Using Regular Expressions"
-msgstr ""
+msgstr "Issue-nummers bij gebruik van Reguliere Expressies"
 
 #. (para)
 msgid "This property activates the bug tracking system in <emphasis>Regex</emphasis> mode. It contains either a single regular expressions, or two regular expressions separated by a newline."
-msgstr ""
+msgstr "Deze eigenschap activeert het bug tracking systeem in <emphasis>Regex</emphasis> modus. Het bevat of een enkele reguliere expressie, of twee door een nieuwe regel gescheiden reguliere expressies."
 
 #. (para)
 msgid "If two expressions are set, then the first expression is used as a pre-filter to find expressions which contain bug IDs. The second expression then extracts the bare bug IDs from the result of the first regex. This allows you to use a list of bug IDs and natural language expressions if you wish. e.g. you might fix several bugs and include a string something like this: <quote>This change resolves issues #23, #24 and #25</quote>"
-msgstr ""
+msgstr "Als er twee expressies zijn ingesteld, dan wordt de eerste gebruikt als voor-filter om expressies te vinden welke bug ID's bevatten. De tweede expressie haalt de kale bug ID's uit het resultaat van de eerste reguliere expressie. Dit biedt de mogelijkheid om gebruik te maken van een lijst van bug ID's of desgewenst natuurlijke taal expressies. bijv. U zou enkele bugs kunnen oplossen en een tekenreeks kunnen toevoegen zoals: <quote>Deze wijziging is de oplossing voor issues #23, #24 en #25</quote>"
 
 #. (para)
 msgid "If you want to catch bug IDs as used in the expression above inside a log message, you could use the following regex strings, which are the ones used by the TortoiseSVN project: <literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> and <literal>(\\d+)</literal>"
-msgstr ""
+msgstr "Als u bug ID's wilt afvangen, zoals gebruikt in bovenstaande expressie binnen een logbericht, kunt u gebruik maken van de volgende regex tekenreeksen, welke door het TortoiseSVN project worden gebruikt: <literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> en <literal>(\\d+)</literal>"
 
 #. (para)
 msgid "The first expression picks out <quote>issues #23, #24 and #25</quote> from the surrounding log message. The second regex extracts plain decimal numbers from the output of the first regex, so it will return <quote>23</quote>, <quote>24</quote> and <quote>25</quote> to use as bug IDs."
-msgstr ""
+msgstr "De eerste expressie haalt <quote>issues #23, #24 and #25</quote> uit het omringende logbericht. De tweede regex extraheert zuivere decimale nummers uit de uitvoer van de eerste regex, zodat het <quote>23</quote>, <quote>24</quote> en <quote>25</quote> teruggeeft om te gebruiken als bug ID's."
 
 #. (para)
 msgid "Breaking the first regex down a little, it must start with the word <quote>issue</quote>, possibly capitalised. This is optionally followed by an <quote>s</quote> (more than one issue) and optionally a colon. This is followed by one or more groups each having zero or more leading whitespace, an optional comma or <quote>and</quote> and more optional space. Finally there is a mandatory <quote>#</quote> and a mandatory decimal number."
-msgstr ""
+msgstr "Wanneer we de eerste regex in stukken opbreken, dan moet deze beginnen met het woord <quote>issue</quote>, mogelijk in hoofdletters. Dit wordt eventueel gevolgd door een <quote>s</quote> (meerdere issues) en eventueel een dubbele punt. Dit wordt gevolgd door een of meerdere groepen welke elk worden voorafgegaan door 0 of meer witruimte tekens, een komma of <quote>en</quote> en meer optionele spaties. Als laatste is er een verplichte <quote>#</quote> en een verplicht decimaal nummer."
 
 #. (para)
 msgid "If only one expression is set, then the bare bug IDs must be matched in the groups of the regex string. Example: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal> This method is required by a few issue trackers, e.g. trac, but it is harder to construct the regex. We recommend that you only use this method if your issue tracker documentation tells you to."
-msgstr ""
+msgstr "Indien slechts één expressie is ingesteld, moeten de kale bug ID's worden vergeleken met de groepen van de regex tekenreeks. Voorbeeld: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal> Deze methode is vereist door een aantal issue trackers, bijv. trac, maar het is moeilijker om de regex samen te stellen. We adviseren deze methode alleen te gebruiken wanneer de documentatie van de issue tracker dit voorschrijft."
 
 #. (para)
 msgid "If you are unfamiliar with regular expressions, take a look at the introduction at <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, and the online documentation and tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "Als u niet bekend bent met reguliere expressies kunt u de introductie bekijken op <ulink url=\"http://nl.wikipedia.org/wiki/Reguliere_expressie\"><citetitle>http://nl.wikipedia.org/wiki/Reguliere_expressie</citetitle></ulink>, en de online documentatie en handleiding op <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
 #. (para)
 msgid "In the approach with <emphasis>regular expressions</emphasis>, TortoiseSVN doesn't show a separate input field but marks the part of the log message the user enters which is recognized by the issue tracker. This is done while the user writes the log message. This also means that the bug ID can be anywhere inside a log message! This method is much more flexible, and is the one used by the TortoiseSVN project itself. <placeholder-1/>"
-msgstr ""
+msgstr "In de benadering met <emphasis>reguliere expressies</emphasis> toont TortoiseSVN geen apart invoerveld, maar wordt het gedeelte van de door de gebruiker ingegeven logbericht aangemerkt wat door de issue tracker wordt herkend. Dit wordt gedaan terwijl de gebruiker het logbericht ingeeft. Dit betekent ook dat het bug ID zich overal in het logbericht mag bevinden! Deze methode is veel flexibeler en is de methode welke door het TortoiseSVN project zelf wordt gebruikt. <placeholder-1/>"
 
 #. (para)
 msgid "If both the <literal>bugtraq:message</literal> and <literal>bugtraq:logregex</literal> properties are set, <literal>logregex</literal> takes precedence."
-msgstr ""
+msgstr "Als beide eigenschappen <literal>bugtraq:message</literal> en <literal>bugtraq:logregex</literal> zijn ingesteld, krijgt <literal>logregex</literal> voorrang."
 
 #. (para)
 msgid "Even if you don't have an issue tracker with a pre-commit hook parsing your log messages, you still can use this to turn the issues mentioned in your log messages into links!"
-msgstr ""
+msgstr "Zelfs als u geen issue tracker heeft welke uw logberichten analyseert met een pre-commit hook, kunt u dit gebruiken om de in uw logbericht genoemde issues om te zetten naar verwijzingen!"
 
 #. (para)
 msgid "And even if you don't need the links, the issue numbers show up as a separate column in the log dialog, making it easier to find the changes which relate to a particular issue."
-msgstr ""
+msgstr "En zelfs als u de verwijzingen niet nodig heeft, worden de issue-nummers getoond als een aparte kolom in het log venster wat het gemakkelijker maakt om de wijzigingen te vinden welke aan een bepaalde issue zijn gerelateerd."
 
 #. (title)
 #. (title)
 msgid "Set the Properties on Folders"
-msgstr ""
+msgstr "Stel de Eigenschappen in op Mappen"
 
 #. (para)
 #. (para)
 msgid "These properties must be set on folders for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it's enough if you set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
-msgstr ""
+msgstr "Om het systeem te laten werken dienen deze eigenschappen op mappen te worden ingesteld. Wanneer u een bestand of map vastlegt worden de eigenschappen vanuit die map gelezen. Als de eigenschappen daar niet kunnen worden gevonden, zal TortoiseSVN opwaards door de mapstructuur lopen om ze te vinden totdat het een map zonder versiebeheer tegenkomt, of de mapstructuur basis (bijv. <literal>C:\\</literal>) bereikt. Als u er zeker van bent dat alle gebruikers alleen van bijv. <filename>trunk/</filename> ophalen en niet van een losse sub-map, dan volstaat het om de eigenschappen op <filename>trunk/</filename> in te stellen. Als u er niet zeker van bent, dan moet u de eigenschappen recursief op elke sub-map instellen. Het instellen van een eigenschap dieper in de hiërarchie van het project overschrijft de instellingen van de hogere niveau's (dichter bij <filename>trunk/</filename>)."
 
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
-msgstr ""
+msgstr "Geen Issue Tracker Informatie vanuit de Archief Verkenner"
 
 #. (para)
 msgid "Because the issue tracker integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the URL of the repository you won't see this feature."
-msgstr ""
+msgstr "Omdat de issue tracker integratie afhankelijk is van de toegang tot subversion eigenschappen kunt u de resultaten alleen zien wanneer u een opgehaalde werkkopie gebruikt. Het vanaf afstand ophalen van de eigenschappen is een langdurige operatie, daarom zal u deze mogelijkheid niet in actie zien vanuit de archief-verkenner, tenzij u de archief-verkenner vanuit uw werkkopie hebt opgestart. Als u de archief verkenner heeft opgestart met ingave van de URL naar het archief zal u deze mogelijkheid niet zien."
 
 #. (para)
 #. (para)
 msgid "For the same reason, project properties will not be propagated automatically when a child folder is added using the repo browser."
-msgstr ""
+msgstr "Om de zelfde reden zullen de project eigenschappen niet automatisch worden gepropageerd wanneer een sub-map wordt toegevoegd vanuit de archief-verkenner."
 
 #. (para)
 msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr ""
+msgstr "Deze issue tracker integratie is niet exclusief voor TortoiseSVN; het kan worden gebruikt met elke Subversion client. Voor meer informatie, lees de volledige <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integratie Specificatie</citetitle></ulink> in het TortoiseSVN bron archief. (<xref linkend=\"tsvn-preface-source\"/> geeft een uitleg over hoe het archief te benaderen)."
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
-msgstr ""
+msgstr "Informatie Verkrijgen vanuit de Issue Tracker"
 
 #. (para)
 msgid "The previous section deals with adding issue information to the log messages. But what if you need to get information from the issue tracker? The commit dialog has a COM interface which allows integration an external program that can talk to your tracker. Typically you might want to query the tracker to get a list of open issues assigned to you, so that you can pick the issues that are being addressed in this commit."
-msgstr ""
+msgstr "De vorige sectie betrof het toevoegen van issue informatie aan de logberichten. Maar wat als u de informatie wilt verkrijgen uit de issue tracker? Het vastleg scherm bezit een COM interface welke de mogelijkheid biedt een extern programma, wat met uw tracker kan praten, te integreren. Gewoonlijk wilt u de tracker een lijst vragen met openstaande issues op uw naam, zodat u die issues eruit kunt pikken welke betrekking hebben op deze vastlegging."
 
 #. (para)
 msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
-msgstr ""
+msgstr "Zo'n interface is natuurlijk specifiek voor uw issue tracker systeem, zodat we dit niet kunnen leveren. De beschrijving van hoe zo'n programma te schrijven valt buiten de scope van deze handleiding. De interface definitie en voorbeeld plugins in C# en C++/ATL zijn beschikbaar in de <literal>contrib</literal> map in het <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN archief</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> geeft uitleg over hoe het archief te benaderen). Ook is een samenvatting van de API beschikbaar op <xref linkend=\"tsvn-ibugtraqprovider\"/> Een andere (werkende) voorbeeld plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> welke gebruik maakt van de vereiste COM interface om met de <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker samen te werken."
 
 #. (title)
 msgid "Example issue tracker query dialog"
-msgstr ""
+msgstr "Voorbeeld issue tracker zoek scherm"
 
 #. (para)
 msgid "For illustration purposes, let's suppose that your system administrator has provided you with an issue tracker plugin which you have installed, and that you have set up some of your working copies to use the plugin in TortoiseSVN's settings dialog. When you open the commit dialog from a working copy to which the plugin has been assigned, you will see a new button at the top of the dialog. <placeholder-1/> In this example you can select one or more open issues. The plugin can then generate specially formatted text which it adds to your log message."
-msgstr ""
+msgstr "Als voorbeeld: Aangenomen dat uw systeemadministrator u een issue tracker plugin heeft aangeleverd welke u heeft geïnstalleerd, en dat u enkele van uw werkkopieën zo heeft ingesteld, met behulp van het TortoiseSVN instellingen scherm, dat ze gebruik maken van de plugin. Wanneer u het vastleggen scherm opent vanuit de werkkopie waaraan de plugin is toegekend, zult u een nieuwe knop zien aan de bovenkant van het venster. <placeholder-1/> In dit voorbeeld kunt u één of meerdere issues selecteren. De plugin kan vervolgens een speciaal opgemaakte tekst genereren welke deze toevoegt aan uw logbericht."
 
 #. (title)
 msgid "Integration with Web-based Repository Viewers"
