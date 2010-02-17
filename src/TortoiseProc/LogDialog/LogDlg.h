@@ -177,6 +177,8 @@ private:
 	void DiffSelectedRevWithPrevious();
 	void SetDlgTitle(bool bOffline);
 	void ToggleCheckbox(size_t item);
+	void AddMainAnchors();
+	void RemoveMainAnchors();
 
 	inline int ShownCountWithStopped() const { return (int)m_logEntries.GetVisibleCount() + (m_bStrictStopped ? 1 : 0); }
 
