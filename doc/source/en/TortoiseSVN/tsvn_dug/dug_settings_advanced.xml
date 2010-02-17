@@ -257,5 +257,15 @@
 				</para>
 			</listitem>
 		</varlistentry>
+		<varlistentry>
+			<term condition="pot">CtrlReturn</term>
+			<listitem>
+				<para>
+					In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap>
+					to dismiss the dialog as if you clicked on the OK button.
+					If you don't want this, set this value to <literal>false</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
 	</variablelist>
 </sect2>

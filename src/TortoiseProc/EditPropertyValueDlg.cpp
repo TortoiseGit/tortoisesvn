@@ -363,7 +363,8 @@ BOOL CEditPropertyValueDlg::PreTranslateMessage(MSG* pMsg)
 				{
 					if ( GetDlgItem(IDOK)->IsWindowEnabled() )
 					{
-						PostMessage(WM_COMMAND, IDOK);
+						if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlReturn"), TRUE)))
+							PostMessage(WM_COMMAND, IDOK);
 					}
 				}
 			}

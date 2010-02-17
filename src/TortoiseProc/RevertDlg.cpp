@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -227,7 +227,8 @@ BOOL CRevertDlg::PreTranslateMessage(MSG* pMsg)
 				{
 					if ( GetDlgItem(IDOK)->IsWindowEnabled() )
 					{
-						PostMessage(WM_COMMAND, IDOK);
+						if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlReturn"), TRUE)))
+							PostMessage(WM_COMMAND, IDOK);
 					}
 					return TRUE;
 				}

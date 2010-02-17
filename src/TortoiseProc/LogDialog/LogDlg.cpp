@@ -2143,15 +2143,18 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 	{
 		if (GetAsyncKeyState(VK_CONTROL)&0x8000)
 		{
-			if ( GetDlgItem(IDOK)->IsWindowVisible() )
+			if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlReturn"), TRUE)))
 			{
-				GetDlgItem(IDOK)->SetFocus();
-				PostMessage(WM_COMMAND, IDOK);
-			}
-			else
-			{
-				GetDlgItem(IDCANCEL)->SetFocus();
-				PostMessage(WM_COMMAND, IDOK);
+				if ( GetDlgItem(IDOK)->IsWindowVisible() )
+				{
+					GetDlgItem(IDOK)->SetFocus();
+					PostMessage(WM_COMMAND, IDOK);
+				}
+				else
+				{
+					GetDlgItem(IDCANCEL)->SetFocus();
+					PostMessage(WM_COMMAND, IDOK);
+				}
 			}
 			return TRUE;
 		}
