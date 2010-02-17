@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-03 09:41+0100\n"
+"PO-Revision-Date: 2010-02-17 09:36+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -248,6 +248,11 @@ msgstr "%s : Arbeidskopiens Basis"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Arbeidskopi"
+
+#. Resource IDs: (3887)
+#, c-format
+msgid "%s [Recovered]"
+msgstr "%s [Gjenvunnet]"
 
 #. Resource IDs: (609)
 #, c-format
@@ -792,8 +797,8 @@ msgid "&Load..."
 msgstr "&Last..."
 
 #. Resource IDs: (65535)
-msgid "&Lum:"
-msgstr "&Lys:"
+msgid "&Luminence:"
+msgstr "&Luminans:"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -1017,8 +1022,8 @@ msgid "&SVN"
 msgstr "&SVN"
 
 #. Resource IDs: (65535)
-msgid "&Sat:"
-msgstr "&Metn:"
+msgid "&Saturation:"
+msgstr "&Metning:"
 
 #. Resource IDs: (16921, 57603)
 msgid "&Save"
@@ -1211,6 +1216,10 @@ msgstr "&Oppdater til revisjon..."
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "Bruk &automatisk fullføring av fil-stier og nøkkelord"
+
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "&Bruk søppelspannet"
 
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
@@ -2145,7 +2154,7 @@ msgid "Can't create a new image!"
 msgstr "Kan ikke lage et nytt bilde!"
 
 #. Resource IDs: (1001)
-msgid "Can't customize menues!"
+msgid "Can't customize menus!"
 msgstr "Kan ikke tilpasse menyer!"
 
 #. Resource IDs: (1001)
@@ -2169,8 +2178,8 @@ msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Kan ikke vise forskjeller pga. forskjellige typer linjeskift i filen."
 
 #. Resource IDs: (16926)
-msgid "Cascade"
-msgstr "Kaskade"
+msgid "Casca&de"
+msgstr "Kaska&de"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
@@ -2237,6 +2246,10 @@ msgstr "Endringsliste:"
 msgid "Changes made (double-click on file for diff):"
 msgstr "Endringer (dobbelt-klikk på en fil for å se diff):"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "Endrer eksterne til fiksert revisjon"
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "&Hent ut..."
@@ -2252,6 +2265,10 @@ msgstr "Se etter oppdateringer"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Se etter oppdateringer..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr "Sjekk eksterne for merking"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2850,8 +2867,8 @@ msgstr "Kopiér: Nytt navn for %s"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "Kopierer %s"
+msgid "Copying %1!s!"
+msgstr "Kopierer %1!s!"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -3195,6 +3212,10 @@ msgstr "Slett og legg til i &ignoreringslisten"
 msgid "Delete and ignore %d items by &extension"
 msgstr "Slett og ignorer %d elementer etter &filendelse"
 
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "Slett ikke-versjonerte elementer"
+
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "Slett ikke-versjonerte elementer..."
@@ -3415,6 +3436,10 @@ msgstr ""
 msgid "Do you want to proceed?"
 msgstr "Vil du fortsette?"
 
+#. Resource IDs: (3887)
+msgid "Do you want to recover these auto-saved documents?"
+msgstr "Vil du gjenvinne disse autolagrede dokumentene?"
+
 #. Resource IDs: (313)
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
@@ -3455,6 +3480,14 @@ msgstr ""
 "I stedet blir alle URLene sjekket ut til adskilte\n"
 "arbeidskopier ved siden av hverandre.\n"
 "Dette virker kun for katalog-URLer."
+
+#. Resource IDs: (3887)
+msgid ""
+"Don't recover the auto-saved documents\n"
+"Use the last explicitly saved versions of the documents"
+msgstr ""
+"Ikke gjenvinn de autolagrede dokumentene\n"
+"Bruk siste eksplisitt lagrede versjon av dokumentene"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -3835,8 +3868,8 @@ msgstr "Eksporter ikke-versjonerte filer også"
 
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "Eksporterer %s"
+msgid "Exporting %1!s!"
+msgstr "Eksporterer %1!s!"
 
 #. Resource IDs: (79)
 msgid "Exporting..."
@@ -3893,6 +3926,10 @@ msgstr "Eksterne inkludert"
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
 msgstr "&Tving flettingen"
+
+#. Resource IDs: (1070)
+msgid "Fade"
+msgstr "Ton ned"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -5727,8 +5764,8 @@ msgstr "Flytter de endrede filene til søppelspannet før tilbakestilling"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "Flytter %s"
+msgid "Moving %1!s!"
+msgstr "Flytter %1!s!"
 
 #. Resource IDs: (80)
 msgid "Moving..."
@@ -5838,6 +5875,10 @@ msgstr "Det finnes ingen tilgjengelig feilmelding."
 msgid "No error occurred."
 msgstr "Det oppsto ingen feil."
 
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "Inger eksterne funnet"
+
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
 msgstr "Ingen filer eller mapper er endret. Det er ingen ting å tilbakestille for TortoiseSVN!"
@@ -5941,6 +5982,10 @@ msgstr ""
 #. Resource IDs: (563)
 msgid "Not recursive"
 msgstr "Ikke rekursivt"
+
+#. Resource IDs: (3887)
+msgid "Note that if you choose to recover the auto-saved documents, you must explicitly save them to overwrite the original documents.  If you choose to not recover the auto-saved versions, they will be deleted."
+msgstr "Merk at hvis du velger å gjenvinne de autolagrede dokumentene, må du eksplisitt lagre dem for å overskrive originalene. Hvis du velger ikke å gjenvinne de autolagrede versjonene, vil de bli slettet."
 
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
@@ -6066,6 +6111,10 @@ msgstr ""
 "(en av 'branches', 'tags', eller 'trunk').\n"
 "\n"
 "Er du sikker på at du vil flytte de valgte stiene?"
+
+#. Resource IDs: (3887)
+msgid "One or more auto-saved documents were found."
+msgstr "Ett eller flere autolagrede dokumenter ble funnet."
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
@@ -6350,6 +6399,10 @@ msgstr "Vent mens det avbrytes..."
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
 msgstr "Vennligst vent mens forskjellene finnes..."
+
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "Vennligst vent mens eksterne finnes..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -6663,6 +6716,14 @@ msgstr "Nylig endrede linjer"
 #. Resource IDs: (276)
 msgid "Record Only"
 msgstr "Kun Ta Opp"
+
+#. Resource IDs: (3887)
+msgid ""
+"Recover the auto-saved documents\n"
+"Open the auto-saved versions instead of the explicitly saved versions"
+msgstr ""
+"Gjenvinn de autolagrede dokumentene\n"
+"Åpne de autolagrede versjonene i stedet for de eksplisitt lagrede versjonene"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -7216,6 +7277,14 @@ msgstr "Rad %d av %d"
 #, c-format
 msgid "Row %d-%d of %d"
 msgstr "Rad %d-%d av %d"
+
+#. Resource IDs: (1070)
+msgid "Row Down"
+msgstr "Rad Ned"
+
+#. Resource IDs: (1070)
+msgid "Row Up"
+msgstr "Rad Opp"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -7939,6 +8008,10 @@ msgstr "Hoppet over"
 #. Resource IDs: (263)
 msgid "Skipped missing target"
 msgstr "Hoppet over manglende mål"
+
+#. Resource IDs: (1070)
+msgid "Slide"
+msgstr "Skli"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -8860,6 +8933,10 @@ msgstr "Det er ingen sperre å fjerne. Ingen fil har en sperre i denne arbeidsko
 msgid "Thesaurus"
 msgstr "Synonymordbok"
 
+#. Resource IDs: (3887)
+msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
+msgstr "Disse er lagret senere enn dokumentene som nå er åpne og inneholder endringer som ble gjort før programmet ble lukket."
+
 #. Resource IDs: (83)
 msgid ""
 "This is not a valid URL.\n"
@@ -8920,13 +8997,13 @@ msgstr "Denne egenskapen kan ikke ha flere linjer. Kun én er tillatt."
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
 msgstr "Dette vil slette historien over kommandoer du har brukt i denne applikasjonen og gjenopprette standardsettet av synlige kommandoer i menyer og verktøylinjer. Det vil ikke endre noen eksplisitte tilpasninger. Er du sikker på at du vil gjøre dette?"
 
-#. Resource IDs: (16924)
-msgid "Tile &Horizontally"
-msgstr "Ordne &Horisontalt"
-
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
 msgstr "Ordne &Vertikalt"
+
+#. Resource IDs: (16924)
+msgid "Tile Hori&zontally"
+msgstr "Ordne &Horisontalt"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -9094,6 +9171,10 @@ msgstr ""
 "neon %s\r\n"
 "%s\r\n"
 "zlib %s"
+
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "TortoiseSVN auto innsending: endret eksterne til fiksert revisjon"
 
 #. Resource IDs: (98)
 #, c-format
@@ -9284,6 +9365,10 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "Uventet filformat."
 
+#. Resource IDs: (1070)
+msgid "Unfold"
+msgstr "Brett ut"
+
 #. Resource IDs: (3850)
 msgid ""
 "Unformatted Text\n"
@@ -9353,8 +9438,8 @@ msgstr "Ikke-versjonerte filer markerer mappen over som endret"
 
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "Av-versjonerer %s"
+msgid "Unversioning %1!s!"
+msgstr "Av-versjonerer %1!s!"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -10086,6 +10171,10 @@ msgstr "Zoom så høyden passer"
 msgid "Zoom to fit in width"
 msgstr "Zoom så bredden passer"
 
+#. Resource IDs: (1070)
+msgid "[Default]"
+msgstr "[Standard]"
+
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[Ikke tilordnet]"
@@ -10686,6 +10775,11 @@ msgstr "der er endringer i konflikt."
 msgid "to %1"
 msgstr "til %1"
 
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr "til %1!s!"
+
 #. Resource IDs: (80, 103, 284)
 #, c-format
 msgid "to %s"
@@ -10867,6 +10961,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&Sat:"
+#~ msgstr "&Metn:"
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Forfatter:                                 Stefan Kueng"
 #~ msgid "Automatically check for &newer versions every week"
