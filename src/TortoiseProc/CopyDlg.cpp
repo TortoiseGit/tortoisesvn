@@ -206,7 +206,7 @@ BOOL CCopyDlg::OnInitDialog()
 	// without blocking the dialog
 	if ((m_pThread = AfxBeginThread(FindRevThreadEntry, this))==NULL)
 	{
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 
 	return TRUE;

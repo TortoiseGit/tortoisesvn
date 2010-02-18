@@ -72,7 +72,7 @@ BOOL CPropDlg::OnInitDialog()
 	DialogEnableWindow(IDOK, FALSE);
 	if (AfxBeginThread(PropThreadEntry, this)==NULL)
 	{
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 
 	AddAnchor(IDC_PROPERTYLIST, TOP_LEFT, BOTTOM_RIGHT);

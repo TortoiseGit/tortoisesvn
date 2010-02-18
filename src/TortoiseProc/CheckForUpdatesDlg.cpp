@@ -73,7 +73,7 @@ BOOL CCheckForUpdatesDlg::OnInitDialog()
 
 	if (AfxBeginThread(CheckThreadEntry, this)==NULL)
 	{
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 
 	SetTimer(100, 1000, NULL);

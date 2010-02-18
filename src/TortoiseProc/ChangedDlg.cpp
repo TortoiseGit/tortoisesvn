@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -143,10 +143,7 @@ BOOL CChangedDlg::OnInitDialog()
 	m_bRemote = m_bContactRepository ? true : m_bRemote;
 	// first start a thread to obtain the status without
 	// blocking the dialog
-	if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
-	{
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	}
+	OnBnClickedRefresh();
 
 	return TRUE;
 }
@@ -232,10 +229,7 @@ void CChangedDlg::OnBnClickedCheckrepo()
 {
 	m_bRemote = TRUE;
 	m_bDepthInfinity = (GetKeyState(VK_SHIFT)&0x8000) != 0;
-	if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
-	{
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	}
+	OnBnClickedRefresh();
 }
 
 DWORD CChangedDlg::UpdateShowFlags()
@@ -280,10 +274,7 @@ void CChangedDlg::OnBnClickedShowUnmodified()
 void CChangedDlg::OnBnClickedShowignored()
 {
 	UpdateData();
-	if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
-	{
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	}
+	OnBnClickedRefresh();
 }
 
 void CChangedDlg::OnBnClickedShowexternals()
@@ -296,10 +287,7 @@ void CChangedDlg::OnBnClickedShowexternals()
 void CChangedDlg::OnBnClickedShowUserProps()
 {
 	UpdateData();
-	if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
-	{
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	}
+	OnBnClickedRefresh();
 }
 
 void CChangedDlg::OnBnClickedShowfolders()
@@ -318,10 +306,7 @@ void CChangedDlg::OnBnClickedShowfiles()
 
 LRESULT CChangedDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 {
-	if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
-	{
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	}
+	OnBnClickedRefresh();
 	return 0;
 }
 
@@ -342,10 +327,7 @@ BOOL CChangedDlg::PreTranslateMessage(MSG* pMsg)
 			{
 				if (m_bBlock)
 					return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
-				if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
-				{
-					CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-				}
+				OnBnClickedRefresh();
 			}
 			break;
 		}
@@ -360,7 +342,7 @@ void CChangedDlg::OnBnClickedRefresh()
 	{
 		if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
 		{
-			CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+			CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 		}
 	}
 }
@@ -387,5 +369,4 @@ void CChangedDlg::UpdateStatistics()
 	SetDlgItemText(IDC_INFOLABEL, temp);
 	GetDlgItem(IDC_INFOLABEL)->Invalidate();
 }
-
 
