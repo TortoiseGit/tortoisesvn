@@ -139,7 +139,7 @@ BOOL CInputDlg::PreTranslateMessage(MSG* pMsg)
 				{
 					if ( GetDlgItem(IDOK)->IsWindowEnabled() )
 					{
-						if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlReturn"), TRUE)))
+						if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlEnter"), TRUE)))
 							PostMessage(WM_COMMAND, IDOK);
 					}
 				}

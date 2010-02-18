@@ -2143,7 +2143,7 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 	{
 		if (GetAsyncKeyState(VK_CONTROL)&0x8000)
 		{
-			if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlReturn"), TRUE)))
+			if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlEnter"), TRUE)))
 			{
 				if ( GetDlgItem(IDOK)->IsWindowVisible() )
 				{

@@ -46,7 +46,7 @@ CSettingsAdvanced::AdvancedSetting CSettingsAdvanced::settings[] =
 	{ _T("MergeLogSeparator"), CSettingsAdvanced::SettingTypeString, _T("........") },
 	{ _T("DiffBlamesWithTortoiseMerge"), CSettingsAdvanced::SettingTypeBoolean, false },
 	{ _T("IncludeExternals"), CSettingsAdvanced::SettingTypeBoolean, true },
-	{ _T("CtrlReturn"), CSettingsAdvanced::SettingTypeBoolean, true },
+	{ _T("CtrlEnter"), CSettingsAdvanced::SettingTypeBoolean, true },
 
 	{ _T(""), CSettingsAdvanced::SettingTypeNone, false }
 };
