@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-15 09:52+0100\n"
+"PO-Revision-Date: 2010-02-18 09:16+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1157,6 +1157,10 @@ msgstr "&Aktualisiere zu Revision..."
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "Dateinamen und Schlüsselwörter automatisch &vervollständigen"
+
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "&Verwende Papierkorb"
 
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
@@ -2724,6 +2728,10 @@ msgstr "Kopiere %s"
 msgid "Copy %s to %s, Revision %s"
 msgstr "Kopiere %s nach %s, Revision %s"
 
+#. Resource IDs: (142)
+msgid "Copy (Branch / Tag)"
+msgstr "Kopieren (Verzweigen / Markieren)"
+
 #. Resource IDs: (78)
 msgid "Copy - TortoiseSVN"
 msgstr "Kopieren - TortoiseSVN"
@@ -2804,8 +2812,8 @@ msgstr "Kopieren: Neuer Name für %s"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "Kopiere %s"
+msgid "Copying %1!s!"
+msgstr "Kopiere %1!s!"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -3149,6 +3157,10 @@ msgstr "Löschen und &ignorieren"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Lösche und ignoriere %d Objekte nach &Erweiterung"
+
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "Nicht versionierte Objekte löschen"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3790,8 +3802,8 @@ msgstr "Exportiere alle Dateien"
 
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "Exportiere %s"
+msgid "Exporting %1!s!"
+msgstr "Exportiere %1!s!"
 
 #. Resource IDs: (79)
 msgid "Exporting..."
@@ -5704,8 +5716,8 @@ msgstr "Verschiebt die veränderten Dateien vor dem Rückgängigmachen in den Pa
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "Verschiebe %s"
+msgid "Moving %1!s!"
+msgstr "Verschiebe %1!s!"
 
 #. Resource IDs: (80)
 msgid "Moving..."
@@ -9356,8 +9368,8 @@ msgstr "Nicht versionierte Dateien markieren Elternordner als modifiziert"
 
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "Hebe Versionierung von %s auf"
+msgid "Unversioning %1!s!"
+msgstr "Hebe Versionierung von %1!s! auf"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -10692,6 +10704,11 @@ msgstr "es widersprüchliche Änderungen gibt."
 msgid "to %1"
 msgstr "nach %1"
 
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr "nach %1!s!"
+
 #. Resource IDs: (80, 103, 284)
 #, c-format
 msgid "to %s"
@@ -10863,10 +10880,6 @@ msgstr "Wortkürzel:"
 msgid "words [uncompressed]: "
 msgstr "Wörter [unkomprimiert]: "
 
-#. Resource IDs: (142)
-msgid "y"
-msgstr "j"
-
 #. Resource IDs: (245)
 msgid "year"
 msgstr "Jahr"
@@ -10879,8 +10892,23 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
-#~ msgid "Copy (Branch / Tag)"
-#~ msgstr "Kopieren (Verzweigen / Markieren)"
+#~ msgid "%s [Recovered]"
+#~ msgstr "%s [wieder hergestellt]"
+#~ msgid "&Luminence:"
+#~ msgstr "&Helligkeit:"
+#~ msgid "&Saturation:"
+#~ msgstr "&Sättigung:"
+#~ msgid "Do you want to recover these auto-saved documents?"
+#~ msgstr ""
+#~ "Wollen Sie die autmatisch gespeicherten Dokumente wieder herstellen?"
+#~ msgid "Row Down"
+#~ msgstr "Zeile runter"
+#~ msgid "Row Up"
+#~ msgstr "Zeile hoch"
+#~ msgid "[Default]"
+#~ msgstr "[Standard]"
+#~ msgid "y"
+#~ msgstr "j"
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Autor:                         Stefan Küng"
 #~ msgid "Automatically check for &newer versions every week"
