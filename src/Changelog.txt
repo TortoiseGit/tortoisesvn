@@ -97,6 +97,8 @@ Version 1.6.8
        added without a manual edit of the loaded content. (Stefan)
 - BUG: The /logmsg param wasn't used in the copy command. (Stefan)
 - CHG: Various adjustments for Windows 7. (Stefan)
+- CHG: The "show excluded folders as normal" setting is
+       changed to false by default. (Stefan)
 
 Version 1.6.7
 - BUG: The status cache could segfault in some situations. (Stefan)
