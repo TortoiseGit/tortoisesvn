@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-18 18:03 +0000\n"
-"PO-Revision-Date: 2010-02-18 22:41-0000\n"
+"PO-Revision-Date: 2010-02-18 23:32-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3304,15 +3304,15 @@ msgstr "Conflitos de Árvore"
 
 #. (para)
 msgid "A tree conflict occurs when a developer moved/renamed/deleted a file or folder, which another developer either also has moved/renamed/deleted or just modified. There are many different situations that can result in a tree conflict, and all of them require different steps to resolve the conflict."
-msgstr ""
+msgstr "Um conflito de árvore ocorre quando, um programador moveu/renomeou/apagou um ficheiro ou pasta que outro programador também moveu/renomeou/apagou ou apenas modificou. Existem muitas e variadas situações que podem gerar um conflito de árvore, e todas elas requerem diferentes passos para a sua resolução."
 
 #. (para)
 msgid "When a file is deleted locally in Subversion, the file is also deleted from the local file system, so even if it is part of a tree conflict it cannot show a conflicted overlay and you cannot right click on it to resolve the conflict. Use the <guilabel>Check for Modifications</guilabel> dialog instead to access the <guilabel>Edit conflicts</guilabel> option."
-msgstr ""
+msgstr "Quando no Subversion,  um ficheiro é apagado localmente esse ficheiro também é apagado no sistema de ficheiros local e, mesmo que este seja parte de um conflito de árvore não poderá mostrar um ícone de conflito sobreposto, e tu não poderás clicar nele com o botão direito do rato para resolver o conflito.  Usa então a caixa de diálogo <guilabel>Verificar alterações</guilabel> para aceder à opção <guilabel>Editar conflito</guilabel>."
 
 #. (para)
 msgid "TortoiseSVN can help find the right place to merge changes, but there may be additional work required to sort out the conflicts. Remember that after an update the working BASE will always contain the revision of each item as it was in the repository at the time of update. If you revert a change after updating it goes back to the repository state, not to the way it was when you started making your own local changes."
-msgstr ""
+msgstr "O TortoiseSVN pode ajudar a encontrar o sítio correcto para fundir as alterações mas, poderá ser necessário trabalho adicional para resolver os conflitos. Lembra-te que após a actualização a revisão BASE de trabalho irá conter sempre a revisão de cada item como estava no repositório, na altura da actualização. Se reverteres uma alteração após a actualização esta voltará ao estado do repositório e não, à versão que estava quando começaste a efectuar as tuas alterações locais."
 
 #. (title)
 msgid "Local delete, incoming edit upon update"
