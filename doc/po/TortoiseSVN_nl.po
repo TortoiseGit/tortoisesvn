@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-18 09:41+0100\n"
+"PO-Revision-Date: 2010-02-18 17:34+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5316,7 +5316,7 @@ msgstr "Kan niet tussen archieven kopieren"
 
 #. (para)
 msgid "Whilst you can copy or move files and folders <emphasis>within</emphasis> a repository, you <emphasis>cannot</emphasis> copy or move from one repository to another while preserving history using TortoiseSVN. Not even if the repositories live on the same server. All you can do is copy the content in its current state and add it as new content to the second repository."
-msgstr ""
+msgstr "Hoewel je bestanden en mappen kunt kopiëren of verplaatsen <emphasis>binnen</emphasis> in een archief, kun je bestanden en mappen <emphasis>niet</emphasis> kopiëren tussen twee archieven zonder dat de geschiedenis verloren gaat. Zelfs niet als de archieven op dezelfde server staan. Het enige wat je kunt doen is de inhoud in de huidige staat kopiëren en als nieuwe inhoud aan het tweede archief toevoegen."
 
 #. (para)
 msgid "If you are uncertain whether two URLs on the same server refer to the same or different repositories, use the repo browser to open one URL and find out where the repository root is. If you can see both locations in one repo browser window then they are in the same repository."
@@ -7301,7 +7301,7 @@ msgstr "Toegevoegde of gekopieerde objecten"
 
 #. (para)
 msgid "Items which have been added, or created by copying another file/folder are shown using a rounded rectangle. The default colour is green. Tags and trunks are treated as a special case and use a different shade, depending on the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Objecten die toegevoegd of door het kopiëren van een ander bestand/map aangemaakt zijn, worden weergegeven met een rechthoek met ronde hoeken. De standaard kleur is groen. Labels en basislijnen worden behandeld als speciale gevallen en hebben een andere schaduw, afhankelijk van de <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Instellingen</guimenuitem></menuchoice>."
 
 #. (term)
 msgid "Deleted items"
@@ -7517,19 +7517,19 @@ msgstr "De revisie datum, auteur en het commentaar worden weergegeven in een hin
 
 #. (para)
 msgid "If you select two revisions (Use <keycap>Ctrl</keycap>-<action>left click</action>), you can use the context menu to show the differences between these revisions. You can choose to show differences as at the branch creation points, but usually you will want to show the differences at the branch end points, i.e. at the HEAD revision."
-msgstr ""
+msgstr "Als je twee revisies selecteert (gebruikt <keycap>Ctrl</keycap>-<action>klik met links</action>), dan kun je via het context menu de verschillen tussen deze revisies opvragen. Je kunt verschillen laten zien van het moment dat er vertakkingen zijn aangemaakt, maar meestal zul je de verschillen willen zien bij het eindpunt van een vertakking, bij de HEAD revisie."
 
 #. (para)
 msgid "You can view the differences as a Unified-Diff file, which shows all differences in a single file with minimal context. If you opt to <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice> you will be presented with a list of changed files. <action>Double click</action> on a file name to fetch both revisions of the file and compare them using the visual difference tool."
-msgstr ""
+msgstr "Je kunt de verschillen in een Unified-Diff bestand bekijken, welke de exacte verschillen laat zien met minimale context. Als je voor <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Vergelijk Revisies</guimenuitem></menuchoice> kiest, zul je een lijst met wijzigingen krijgen. <action>Dubbelklik</action> op een bestandsnaam om beide revisies van dat bestand op te halen en te vergelijken met een visueel vergelijkingsprogramma."
 
 #. (para)
 msgid "If you <action>right click</action> on a revision you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to view the history."
-msgstr ""
+msgstr "If you <action>right click</action> on a revision you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to view the history."
 
 #. (para)
 msgid "You can also merge changes in the selected revision(s) into a different working copy. A folder selection dialog allows you to choose the working copy to merge into, but after that there is no confirmation dialog, nor any opportunity to try a test merge. It is a good idea to merge into an unmodified working copy so that you can revert the changes if it doesn't work out! This is a useful feature if you want to merge selected revisions from one branch to another."
-msgstr ""
+msgstr "Je kunt ook de wijzigingen van de geselecteerde revisie(s) samenvoegen in een aparte werkkopie. Een scherm waarin je een map kunt selecteren, geeft de mogelijkheid om de werkkopie te selecteren waarin de selectie samengevoegd moet worden. Daarna is er geen bevestigingsscherm meer en geen kans meer om de samenvoeging te testen. Het is verstandig om de wijzigingen naar een niet gemodificeerde werkkopie samen te laten voegen, zodat je de wijzigingen ongedaan kunt maken als de samenvoeging niet oplevert wat je ervan had verwacht. Dit is handig als je functies van de geselecteerde revisie van de ene naar de andere tak wilt samenvoegen."
 
 #. (title)
 msgid "Learn to Read the Revision Graph"
@@ -7537,27 +7537,27 @@ msgstr "Hoe moet je de Revisie Grafiek lezen"
 
 #. (para)
 msgid "First-time users may be surprised by the fact that the revision graph shows something that does not match the user's mental model. If a revision changes multiple copies or branches of a file or folder, for instance, then there will be multiple nodes for that single revision. It is a good practice to start with the leftmost options in the toolbar and customize the graph step-by-step until it comes close to your mental model."
-msgstr ""
+msgstr "Mensen die de grafiek voor het eerst gebruiken, kunnen verrast worden doordat grafisch weergave heel anders kan zijn dan het model wat de mensen zelf voor ogen hebben. Als een revisie bijvoorbeeld meerdere kopieën, takken, een bestand of map veranderd, dan zullen er verschillen knopen zijn voor die revisie. Het is verstandig om dan te beginnen met de meest linkse opties in de werkbalk en de grafiek zo stap voor stap aan te passen, totdat het het dichtst bij het model komt dat je voor ogen had."
 
 #. (para)
 msgid "All filter options try lose as little information as possible. That may cause some nodes to change their color, for instance. Whenever the result is unexpected, undo the last filter operation and try to understand what is special about that particular revision or branch. In most cases, the initially expected outcome of the filter operation would either be inaccurate or misleading."
-msgstr ""
+msgstr "Alle filteropties proberen zo min mogelijk informatie verloren te laten gaan. Hierdoor kunnen de kleuren van sommige knopen bijvoorbeeld veranderen. Als een resultaat onverwacht is, maak dan de laatste filteractie ongedaan en probeer te achterhalen wat er speciaal is aan die revisie of tak. In de meeste gevallen is het initiële resultaat van de filteractie onnauwkeurig of misleidend."
 
 #. (para)
 msgid "If you want to check the server again for newer information, you can simply refresh the view using <keycap>F5</keycap>. If you are using the log cache (enabled by default), this will check the repository for newer commits and fetch only the new ones. If the log cache was in offline mode, this will also attempt to go back online."
-msgstr ""
+msgstr "Als je wilt nagaan of er nieuwe informatie beschikbaar is op de server, dan kun je het beeld eenvoudig verversen met <keycap>F5</keycap>. Als je de log cache gebruikt (standaard ingeschakeld), dan zal het archief op nieuwe vastleggingen gecontroleerd worden en worden ook alleen de nieuwe vastleggingen opgehaald. Als de log cache in offline mode werkte, dan zal deze ook proberen weer naar online mode om te schakelen."
 
 #. (para)
 msgid "If you are using the log cache and you think the message content or author may have changed, you should use the log dialog to refresh the messages you need. Since the revision graph works from the repository root, we would have to invalidate the entire log cache, and refilling it could take a <emphasis>very</emphasis> long time."
-msgstr ""
+msgstr "Als je de log cache gebruikt en je vermoed dat de inhoud van een bericht of auteur gewijzigd is, gebruik dan het logboek venster om de berichten die je nodig hebt te verversen. Omdat de revisie grafiek werkt vanaf de basis van het archief, moeten we de hele log cache ongeldig verklaren. Het opnieuw vullen hiervan kan <emphasis>erg</emphasis> lang duren."
 
 #. (title)
 msgid "Pruning Trees"
-msgstr ""
+msgstr "Boomstructuren inkorten"
 
 #. (para)
 msgid "A large tree can be difficult to navigate and sometimes you will want to hide parts of it, or break it down into a forest of smaller trees. If you hover the mouse over the point where a node link enters or leaves the node you will see one or more popup buttons which allow you to do this."
-msgstr ""
+msgstr "Het navigeren door een grote boomstructuur kan lastig zijn. Soms wil je onderdelen verbergen of de structuur opdelen in een bos met kleinere bomen. Als je je muis boven het punt houdt waar een verbinding een knoop binnenkomt of verlaat, zul je een popup te zien krijgen met knoppen waarmee je dit kunt doen."
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphCollapse.png\"/> Click on the minus button to collapse the attached sub-tree."
@@ -7593,31 +7593,31 @@ msgstr "'werkkopie' zonder versiebeheer"
 
 #. (para)
 msgid "Sometimes you may want a copy of your working tree without any of those <filename>.svn</filename> directories, e.g. to create a zipped tarball of your source, or to export to a web server. Instead of making a copy and then deleting all those <filename>.svn</filename> directories manually, TortoiseSVN offers the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>. Exporting from a URL and exporting from a working copy are treated slightly differently."
-msgstr ""
+msgstr "Soms wil je een kopie van je werk omgeving zonder al die <filename>.svn</filename> mappen, bijvoorbeeld om een gezipt tarball van je bron te maken of om deze te exporteren naar een web server. In plaats van het maken van een kopie en alle <filename>.svn</filename> mappen handmatig te verwijderen, heeft TortoiseSVN het commando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Exporteren...</guimenuitem></menuchoice>. Het exporteren vanaf een URL en vanaf een werkkopie wordt iets anders behandeld."
 
 #. (title)
 msgid "The Export-from-URL Dialog"
-msgstr ""
+msgstr "Het Exporteren-vanaf-een-URL scherm"
 
 #. (para)
 msgid "<placeholder-1/> If you execute this command on an unversioned folder, TortoiseSVN will assume that the selected folder is the target, and open a dialog for you to enter the URL and revision to export from. This dialog has options to export only the top level folder, to omit external references, and to override the line end style for files which have the <literal>svn:eol-style</literal> property set."
-msgstr ""
+msgstr "<placeholder-1/> Als je dit commando op een map zonder versiebeheer toepast, dan zal TortoiseSVN deze map als de doel map zien en een scherm openen waarin je de URL en revisie in kunt voeren van waar er geëxporteerd moet worden. Er zijn opties beschikbaar waarmee kunt selecteren dat je alleen de hoofdmap wilt hebben, externen wilt uitsluiten en de stijl voor regeleinden voor bestanden, die de eigenschap <literal>svn:eol-style</literal> hebben, kunt negeren."
 
 #. (para)
 msgid "Of course you can export directly from the repository too. Use the Repository Browser to navigate to the relevant subtree in your repository, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Export</guimenuitem></menuchoice>. You will get the <guilabel>Export from URL</guilabel> dialog described above."
-msgstr ""
+msgstr "Natuurlijk kun je ook direct vanuit het archief exporteren. Gebruik de archief-verkenner om naar de relevante submappen te gaan in je archief en gebruik dan <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Exporteren</guimenuitem></menuchoice>. Je krijgt dan het <guilabel>Exporteren van URL</guilabel> venster zoals eerder beschreven."
 
 #. (para)
 msgid "If you execute this command on your working copy you'll be asked for a place to save the <emphasis>clean</emphasis> working copy without the <filename>.svn</filename> folders. By default, only the versioned files are exported, but you can use the <guilabel>Export unversioned files too</guilabel> checkbox to include any other unversioned files which exist in your WC and not in the repository. External references using <literal>svn:externals</literal> can be omitted if required."
-msgstr ""
+msgstr "Als je dit commando uit laat voeren op je werkkopie, dan zal je gevraagd worden waar de <emphasis>schone</emphasis> werkkopie zonder <filename>.svn.</filename> mappen opgeslagen moet worden. Standaard worden alleen de bestanden met versiebeheer geëxporteerd, maar je kunt met het <guilabel>Exporteer ook bestanden zonder versiebeheer</guilabel> selectievak elk bestand zonder versiebeheer in je werkkopie (die dus niet in het archief zitten) mee laten exporteren."
 
 #. (para)
 msgid "Another way to export from a working copy is to <action>right drag</action> the working copy folder to another location and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Export here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Export all here</guimenuitem></menuchoice>. The second option includes the unversioned files as well."
-msgstr ""
+msgstr "Nog een andere manier om vanuit je werkkopie te exporteren is door de werkkopie met <action>rechts te slepen</action> naar een andere locatie en <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Exporteer objecten onder versiebeheer hierheen</guimenuitem></menuchoice> of <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Exporteer alle objecten hierheen</guimenuitem></menuchoice> te kiezen. Met de tweede optie worden ook bestanden zonder versiebeheer meegenomen."
 
 #. (para)
 msgid "When exporting from a working copy, if the target folder already contains a folder of the same name as the one you are exporting, you will be given the option to overwrite the existing content, or to create a new folder with an automatically generated name, eg. <literal>Target (1)</literal>."
-msgstr ""
+msgstr "Als je een werkkopie exporteert, krijg je, als de doel map al een map heeft met dezelfde naam, de vraag of je de bestaande inhoud wilt overschrijven of dat er automatisch een nieuwe naam aangemaakt moet worden, bijv. <literal>Doel (1)</literal>."
 
 #. (title)
 msgid "Exporting single files"
@@ -7625,11 +7625,11 @@ msgstr "Exporteren van enkele bestanden"
 
 #. (para)
 msgid "The export dialog does not allow exporting single files, even though Subversion can."
-msgstr ""
+msgstr "Het export scherm staat het exporteren van een enkel bestand niet toe, ondanks dat Subversion dat wel ondersteunt."
 
 #. (para)
 msgid "To export single files with TortoiseSVN, you have to use the repository browser (<xref linkend=\"tsvn-dug-repobrowser\"/>). Simply drag the file(s) you want to export from the repository browser to where you want them in the explorer, or use the context menu in the repository browser to export the files."
-msgstr ""
+msgstr "Voor het exporteren van enkele bestanden met TortoiseSVN, moet je de archief-verkenner gebruiken (<xref linkend=\"tsvn-dug-repobrowser\"/>). Sleep het bestand (of de bestanden) die je wilt exporteren, van de archief-verkenner naar de plaats in de verkenner waar je deze wilt hebben. Je kunt ook bestanden exporteren vanuit het context menu in de archief-verkenner."
 
 #. (title)
 msgid "Exporting a Change Tree"
@@ -7637,24 +7637,24 @@ msgstr "Exporteren van een gewijzigde boom"
 
 #. (para)
 msgid "If you want to export a copy of your project tree structure but containing only the files which have changed in a particular revision, or between any two revisions, use the compare revisions feature described in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr ""
+msgstr "Als je een kopie van je project boomstructuur wilt exporteren met alleen de in een specifieke revisie (of tussen 2 revisies) gewijzigde bestanden, gebruik dan de revisies vergelijken functionaliteit best <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (title)
 msgid "Removing a working copy from version control"
-msgstr ""
+msgstr "Versiebeheer van een werkkopie verwijderen"
 
 #. (primary)
 #. (primary)
 msgid "unversion"
-msgstr ""
+msgstr "versiebeheer verwijderen"
 
 #. (para)
 msgid "Sometimes you have a working copy which you want to convert back to a normal folder without the <literal>.svn</literal> directories. What you really need is an export-in-place command, that just removes the control directories rather than generating a new clean directory tree."
-msgstr ""
+msgstr "Soms heb je een werkkopie die je terug wilt zetten naar een normale map zonder de <literal>.svn</literal> mappen. Wat je eigenlijk nodig hebt is een exporteer-op-deze-plaats commando, waarmee gewoon de versiebeheer mappen worden verwijderd (in plaats van een nieuwe mapstructuur aan te maken)."
 
 #. (para)
 msgid "The answer is surprisingly simple - export the folder to itself! TortoiseSVN detects this special case and asks if you want to make the working copy unversioned. If you answer <emphasis>yes</emphasis> the control directories will be removed and you will have a plain, unversioned directory tree."
-msgstr ""
+msgstr "Het antwoord is misschien onverwacht eenvoudig - exporteer de map naar zichzelf. TortoiseSVN detecteert deze speciale situatie en vraagt of je het versiebeheer van je werkkopie wilt verwijderen. Als je <emphasis>Ja</emphasis> antwoordt, worden de versiebeheer mappen verwijderd en heb je weer een normale mapstructuur zonder versiebeheer."
 
 #. (title)
 msgid "Relocating a working copy"
@@ -7662,7 +7662,7 @@ msgstr "Verhuizen van een werkkopie"
 
 #. (primary)
 msgid "relocate"
-msgstr ""
+msgstr "verhuizen"
 
 #. (primary)
 msgid "URL changed"
@@ -7686,11 +7686,11 @@ msgstr "De Verhuis Dialoog"
 
 #. (para)
 msgid "<placeholder-1/> If your repository has for some reason changed it's location (IP/URL). Maybe you're even stuck and can't commit and you don't want to checkout your working copy again from the new location and to move all your changed data back into the new working copy, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocate</guimenuitem></menuchoice> is the command you are looking for. It basically does very little: it scans all <filename>entries</filename> files in the <filename>.svn</filename> folder and changes the URL of the entries to the new value."
-msgstr ""
+msgstr "<placeholder-1/> Het kan zijn dat de locatie van je archief om één of andere reden veranderd is (IP/URL). Hierdoor kun je in de problemen komen, omdat je je wijzigingen niet meer vast kunt leggen. Je wilt eigenlijk ook niet een compleet nieuwe werkkopie ophalen vanaf de nieuwe locatie, om vervolgens jouw gewijzigde data naar die nieuwe werkkopie te verplaatsen. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verhuizen</guimenuitem></menuchoice> is dan het commando die je nodig hebt. Dit commando doet eigenlijk heel weinig. Het doorzoekt alle <filename>entries</filename> bestanden in de <filename>.svn</filename> mappen en wijzigt de URL's naar de nieuwe waarde."
 
 #. (para)
 msgid "You may be surprised to find that TortoiseSVN contacts the repository as part of this operation. All it is doing is performing some simple checks to make sure that the new URL really does refer to the same repository as the existing working copy."
-msgstr ""
+msgstr "Misschien wordt je verrast als TortoiseSVN het archief benaderd gedurende deze actie. Het enige wat het doet, is controleren of de nieuwe URL daadwerkelijk naar het archief wijst van de bestaande werkkopie."
 
 #. (para)
 msgid "The IP address of the server has changed."
@@ -7702,19 +7702,19 @@ msgstr "Het protocol is gewijzigd (vb: http:// naar https://)."
 
 #. (para)
 msgid "The repository root path in the server setup has changed."
-msgstr ""
+msgstr "Het pad van de hoofdmap van het archief is veranderd in de server instellingen."
 
 #. (para)
 msgid "<emphasis>This is a very infrequently used operation</emphasis>. The relocate command is <emphasis>only</emphasis> used if the URL of the repository root has changed. Possible reasons are: <placeholder-1/> Put another way, you need to relocate when your working copy is referring to the same location in the same repository, but the repository itself has moved."
-msgstr ""
+msgstr "<emphasis>Dit is een zelden gebruikte methode</emphasis>. Het verhuizen commando wordt <empahsis>alleen</emphasis> gebruikt als de URL van de basis van het archief is gewijzigd. Mogelijke redenen hiervan zijn: <placeholder-1/> Anders gezegd, je moet verhuizen als je werkkopie refereert naar dezelfde locatie in hetzelfde archief, maar het archief zelf is verhuisd."
 
 #. (para)
 msgid "You want to move to a different Subversion repository. In that case you should perform a clean checkout from the new repository location."
-msgstr ""
+msgstr "Je wilt verhuizen naar een ander Subversion archief. In zo'n geval moet je een verse werkkopie ophalen vanaf de nieuwe archief locatie."
 
 #. (para)
 msgid "You want to switch to a different branch or directory within the same repository. To do that you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice>. Read <xref linkend=\"tsvn-dug-switch-1\"/> for more information."
-msgstr ""
+msgstr "Je wilt schakelen naar een andere tak of map binnen hetzelfde archief. Om dat te doen moet je gebruik maken van <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Wisselen...</guimenuitem></menuchoice>. Lees <xref linkend=\"tsvn-dug-switch-1\"/> voor meer informatie."
 
 #. (para)
 msgid "It does not apply if: <placeholder-1/>"
@@ -7722,11 +7722,11 @@ msgstr "Het is niet van toepassing als: <placeholder-1/>"
 
 #. (para)
 msgid "If you use relocate in either of the cases above, it <emphasis>will corrupt your working copy</emphasis> and you will get many unexplainable error messages while updating, committing, etc. Once that has happened, the only fix is a fresh checkout."
-msgstr ""
+msgstr "Als je verhuizen gebruikt bij één van de twee hierboven genoemde situaties, dan <emphasis>zal je werkkopie beschadigd worden</emphasis> en krijg je mogelijk onverklaarbare foutmeldingen bij het verversen, vastleggen, etc. Als dat gebeurt is, kun je dat alleen oplossen met een vers opgehaalde werkkopie."
 
 #. (title)
 msgid "Integration with Bug Tracking Systems / Issue Trackers"
-msgstr ""
+msgstr "Integratie met Bug Tracking Systemen / Issue Trackers"
 
 #. (primary)
 msgid "bug tracking"
