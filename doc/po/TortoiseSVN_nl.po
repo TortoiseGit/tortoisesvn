@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-17 16:37+0100\n"
-"Last-Translator: Ewout Muller <eppie1@xs4all.nl>\n"
+"PO-Revision-Date: 2010-02-18 09:41+0100\n"
+"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7441,7 +7441,7 @@ msgstr "Labels samenvoegen"
 
 #. (para)
 msgid "When a project has many tags, showing every tag as a separate node on the graph takes a lot of space and obscures the more interesting development branch structure. At the same time you may need to be able to access the tag content easily so that you can compare revisions. This option hides the nodes for tags and shows them instead in the tooltip for the node that they were copied from. A tag icon on the right side of the source node indicates that tags were made."
-msgstr ""
+msgstr "Als een project veel labels heeft, dan neemt het weergeven van al deze knopen veel ruimte in in de grafiek en worden de interessantere vertakte ontwikkelingen gemaskeerd. Het is dan ook handig als je makkelijk bij de inhoud van een label kunt, zodat je deze met andere revisies kunt vergelijken. Met deze optie worden de knopen van labels verborgen en worden deze als tooltip getoond bij de knoop waarvan de label is gemaakt. Een label pictogram aan de rechterkant van de knoop die als bron is gebruikt, geeft aan dat er een label is gemaakt."
 
 #. (term)
 msgid "Hide deleted paths"
@@ -7449,7 +7449,7 @@ msgstr "Verberg verwijderde paden"
 
 #. (para)
 msgid "Hides paths which are no longer present at the HEAD revision of the repository, e.g. deleted branches."
-msgstr ""
+msgstr "Verbergt paden die niet meer aanwezig zijn in de HEAR revisie van het archief, bijv. verwijderde takken."
 
 #. (term)
 msgid "Hide unchanged branches"
@@ -7457,7 +7457,7 @@ msgstr "Verberg onveranderde vertakkingen"
 
 #. (para)
 msgid "Hides branches where no changes were committed to the respective file or sub-folder. This does not necessarily indicate that the branch was not used, just that no changes were made to <emphasis>this</emphasis> part of it."
-msgstr ""
+msgstr "Verbergt takken waar geen wijzigingen zijn vastgelegd in het respectievelijke bestand of de sub-map. Dit betekend niet automatisch dat de tak niet gebruikt wordt. Er zijn gewoon geen wijzigingen doorgevoerd in <emphasis>dit</emphasis> gedeelte van de tak."
 
 #. (term)
 msgid "Show WC revision"
@@ -7465,7 +7465,7 @@ msgstr "Toon werkkopie revisie"
 
 #. (para)
 msgid "Marks the revision on the graph which corresponds to the update revision of the item you fetched the graph for. If you have just updated, this will be HEAD, but if others have committed changes since your last update your WC may be a few revisions lower down. The node is marked by giving it a bold outline."
-msgstr ""
+msgstr "Markeert de revisie in de grafiek welke overeen komt de bijgewerkte revisie van het object waarvoor je de grafiek gemaakt hebt. Als je net ververst hebt, zal dit de HEAD revisie zijn. Het kan natuurlijk zo zijn dat er andere zijn die wijzigingen vast hebben gelegd nadat jij voor het laatst je werkkopie hebt bijgewerkt, waardoor je werkkopie enkele revisies achter loopt. Deze knoop wordt weergegeven met een dikkere omtrek."
 
 #. (term)
 msgid "Show WC modifications"
@@ -7473,7 +7473,7 @@ msgstr "Toon werkkopie wijzigingen"
 
 #. (para)
 msgid "If your WC contains local changes, this option draws it as a separate elliptical node, linked back to the node that your WC was last updated to. The default outline colour is red. You may need to refresh the graph using <keycap>F5</keycap> to capture recent changes."
-msgstr ""
+msgstr "Als je werkkopie lokale wijzigingen bevat, dan tekent deze optie een aparte ellipsvormige knoop, welke gekoppeld is aan de knoop waarmee je werkkopie voor het laatst is ververst. De standaard kleur van de omtrek is rood. Je moet misschien de grafiek verversen met <keycap>F5</keycap> om de laatste wijzigingen op te halen."
 
 #. (term)
 msgid "Filter"
@@ -7481,7 +7481,7 @@ msgstr "Filter"
 
 #. (para)
 msgid "Sometimes the revision graph contains more revisions than you want to see. This option opens a dialog which allows you to restrict the range of revisions displayed, and to hide particular paths by name."
-msgstr ""
+msgstr "Soms bevat de grafiek meer revisies dan je wilt zien. Deze optie opent een scherm waarmee de reeks van revisies kunt beperken en paden met een bepaalde naam kunt verbergen."
 
 #. (term)
 msgid "Tree stripes"
@@ -7489,7 +7489,7 @@ msgstr "Boom strepen"
 
 #. (para)
 msgid "Where the graph contains several trees, it is sometimes useful to use alternating colours on the background to help distinguish between trees."
-msgstr ""
+msgstr "Als de grafiek meerdere boomstructuren bevat, is het soms handig om verschillende achtergrondkleuren te gebruiken om de bomen te makkelijker te kunnen onderscheiden."
 
 #. (term)
 msgid "Show overview"
@@ -7497,11 +7497,11 @@ msgstr "Geef overzicht weer"
 
 #. (para)
 msgid "Shows a small picture of the entire graph, with the current view window as a rectangle which you can drag. This allows you to navigate the graph more easily. Note that for very large graphs the overview may become useless due to the extreme zoom factor and will therefore not be shown in such cases."
-msgstr ""
+msgstr "Geeft een klein plaatje weer van de hele grafiek, waarbij het huidig weergegeven deel met een klein rechthoek wordt aangegeven. Deze rechthoek kun je verslepen, waardoor je makkelijker over de grafiek kunt navigeren. Merk op dat bij hele grote grafieken het overzicht onbruikbaar wordt vanwege de extreme uitzoomfactor. In zulke gevallen wordt dit overzicht niet getoond."
 
 #. (para)
 msgid "Because a revision graph is often quite complex, there are a number of features which can be used to tailor the view the way you want it. These are available in the <guilabel>View</guilabel> menu and from the toolbar. <placeholder-1/>"
-msgstr ""
+msgstr "Een revisie grafiek is vaak erg complex. Er zijn daarom verschillende functies beschikbaar, waarmee je de weergave kunt aanpassen naar jouw wensen. Deze zijn beschikbaar in het <guilabel>Beeld</guilabel> menu en via de werkbalk."
 
 #. (title)
 msgid "Using the Graph"
@@ -7509,11 +7509,11 @@ msgstr "Gebruik van de grafiek"
 
 #. (para)
 msgid "To make it easier to navigate a large graph, use the overview window. This shows the entire graph in a small window, with the currently displayed portion highlighted. You can drag the highlighted area to change the displayed region."
-msgstr ""
+msgstr "Om het navigeren door een grote grafiek makkelijker te maken, kun je het overzicht scherm gebruiken. Hiermee wordt een klein scherm getoond, waarin de huidige weergave gemarkeerd is. Je kunt het gemarkeerde gebied verslepen om de actuele weergave te veranderen."
 
 #. (para)
 msgid "The revision date, author and comments are shown in a hint box whenever the mouse hovers over a revision box."
-msgstr ""
+msgstr "De revisie datum, auteur en het commentaar worden weergegeven in een hint box als je de muis boven een revisie houdt."
 
 #. (para)
 msgid "If you select two revisions (Use <keycap>Ctrl</keycap>-<action>left click</action>), you can use the context menu to show the differences between these revisions. You can choose to show differences as at the branch creation points, but usually you will want to show the differences at the branch end points, i.e. at the HEAD revision."
@@ -12616,7 +12616,7 @@ msgstr ""
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr "Jeroen van Amstel"
+msgstr "Jeroen van AmstelEddo HarkemaEwout MullerChristan PeperGuus RaaphorstChristophe de WagterJohannes Zwart"
 
 #. Place the translation of 'translation' here.
 #. (None)
