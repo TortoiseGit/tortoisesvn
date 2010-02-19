@@ -5452,7 +5452,7 @@ msgstr "Gebruik <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verwijder
 
 #. (para)
 msgid "When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> a file, it is removed from your working copy immediately as well as being marked for deletion in the repository on next commit. The file's parent folder shows a <quote>deleted</quote> icon overlay. Up until you commit the change, you can get the file back using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> on the parent folder."
-msgstr "Wanneer je <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verwijderen</guimenuitem></menuchoice> kiest op een bestand, wordt het direct uit je werkkopie verwijderd en tegelijkertijd ook gemarkeerd om bij een volgende vastlegging te worden verwijderd uit de repository. De map waar het bestand in stond toont nu een <quote>verwijderd</quote> overlay icoon. Tot op het moment dat je de wijziging vastlegt, kun je het bestand terugzetten via het uitvoeren van <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ongedaan maken</guimenuitem></menuchoice> op deze map"
+msgstr "Wanneer je <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verwijderen</guimenuitem></menuchoice> kiest op een bestand, wordt het direct uit je werkkopie verwijderd en tegelijkertijd ook gemarkeerd om bij een volgende vastlegging te worden verwijderd uit het archief. De map waar het bestand in stond toont nu een <quote>verwijderd</quote> overlay icoon. Tot op het moment dat je de wijziging vastlegt, kun je het bestand terugzetten via het uitvoeren van <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ongedaan maken</guimenuitem></menuchoice> op deze map"
 
 #. (para)
 msgid "When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> a folder, it remains in your working copy, but the overlay changes to indicate that it is marked for deletion. Up until you commit the change, you can get the folder back using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> on the folder itself. This difference in behaviour between files and folders is a part of Subversion, not TortoiseSVN."
@@ -5502,7 +5502,7 @@ msgstr "selecteer de bestanden of mappen die je wil verplaatsen"
 
 #. (para)
 msgid "in the popup menu select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Move versioned files here</guimenuitem></menuchoice>"
-msgstr "selecteer vanuit het popup menu <menuchoice><guimenu>Contextmenu</guimenu><guimenuitem>SVN Verplaats zaken onder versiebeheer hierheen</guimenuitem></menuchoice>"
+msgstr "selecteer vanuit het popup menu <menuchoice><guimenu>Contextmenu</guimenu><guimenuitem>SVN Verplaats objecten onder versiebeheer hierheen</guimenuitem></menuchoice>"
 
 #. (para)
 msgid "If you want to move files around inside your working copy, perhaps to a different sub-folder, use the right-mouse drag-and-drop handler: <placeholder-1/>"
@@ -5514,7 +5514,7 @@ msgstr "Vastleggen van de bovenliggende map"
 
 #. (para)
 msgid "Since renames and moves are done as a delete followed by an add you must commit the parent folder of the renamed/moved file so that the deleted part of the rename/move will show up in the commit dialog. If you don't commit the removed part of the rename/move, it will stay behind in the repository and when your co-workers update, the old file will not be removed. i.e. they will have <emphasis>both</emphasis> the old and the new copies."
-msgstr "Omdat het hernoemen en verplaatsen uitgevoerd worden als een verwijdering gevolgd door een toevoeging, moet je de bovenliggende map vastleggen zodat het verwijderde gedeelte van de hernoeming/verplaatsing in het vastleggen dialoog verschijnt. Als je het verwijderde gedeelte niet vastlegt, zal het in het archief achterblijven en wanneer je collega's verversen, zal het oude bestand niet verwijderd worden. Zij zullen dus <emphasis>beide</emphasis> bestanden krijgen."
+msgstr "Omdat het hernoemen en verplaatsen uitgevoerd wordt als een verwijdering gevolgd door een toevoeging, moet je de bovenliggende map vastleggen zodat het verwijderde gedeelte van de hernoeming/verplaatsing in het vastleggen dialoog verschijnt. Als je het verwijderde gedeelte niet vastlegt, zal het in het archief achterblijven en wanneer je collega's verversen, zal het oude bestand niet verwijderd zijn/worden. Zij zullen dus <emphasis>beide</emphasis> bestanden krijgen."
 
 #. (para)
 msgid "You <emphasis>must</emphasis> commit a folder rename before changing any of the files inside the folder, otherwise your working copy can get really messed up."
@@ -5522,11 +5522,11 @@ msgstr "Je <emphasis>moet</emphasis> een naamswijziging in een map eerst vastleg
 
 #. (para)
 msgid "Another way of moving or copying files is to use the Windows copy/cut commands. Select the files you want to copy, right-click and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice> from the explorer context menu. Then browse to the target folder, right-click and choose <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Paste</guimenuitem></menuchoice>. For moving files, choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Cut</guimenuitem></menuchoice> instead of <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice>."
-msgstr "Een andere manier om bestanden te verplaatsen of te kopiëren, is via de kopiër/knip commando's van Windows. Selecteer de bestanden die je wilt kopiëren, rechtsklik en kies <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Kopiëren</guimenuitem></menuchoice> vanuit het context menu van de verkenner. Blader dan naar de doelmap, rechtsklik en kies <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Plakken</guimenuitem></menuchoice>. Voor het verplaatsen van bestanden, kies <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Knippen</guimenuitem></menuchoice> in plaats van <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Kopiëren</guimenuitem></menuchoice>."
+msgstr "Een andere manier om bestanden te verplaatsen of te kopiëren, is via de kopiëer/knip commando's van Windows. Selecteer de bestanden die je wilt kopiëren, rechtsklik en kies <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Kopiëren</guimenuitem></menuchoice> vanuit het context menu van de verkenner. Blader dan naar de doelmap, rechtsklik en kies <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Plakken</guimenuitem></menuchoice>. Voor het verplaatsen van bestanden, kies <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Knippen</guimenuitem></menuchoice> in plaats van <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Kopiëren</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "You can also use the repository browser to move items around. Read <xref linkend=\"tsvn-dug-repobrowser\"/> to find out more."
-msgstr "Je kan ook de archief verkenner gebruiken om objecten te verplaatsen. Lees <xref linkend=\"tsvn-dug-repobrowser\"/> voor meer informatie."
+msgstr "Je kan ook de archief-verkenner gebruiken om objecten te verplaatsen. Lees <xref linkend=\"tsvn-dug-repobrowser\"/> voor meer informatie."
 
 #. (title)
 msgid "Do Not SVN Move Externals"
@@ -5599,7 +5599,7 @@ msgstr "Dit kan soms gebeuren wanneer twee mensen bestanden vastleggen, vanuit v
 
 #. (para)
 msgid "In that case, you have to decide which one of them you want to keep and delete (or rename) the other one from the repository."
-msgstr "In dat geval zul je moeten beslissen welk van deze bestanden je wilt behouden en de andere zul je moeten verwijderen (of hernoemen) uit het archief."
+msgstr "In dat geval zul je moeten beslissen welk van deze bestanden je wilt behouden en de andere zul je moeten verwijderen uit het archief (of hernoemen)."
 
 #. (title)
 msgid "Preventing two files with the same name"
@@ -5623,7 +5623,7 @@ msgstr "Een beter manier is om Subversion te vertellen dat deze wijzing feitelij
 
 #. (title)
 msgid "Deleting Unversioned Files"
-msgstr "Verwijderen van Niet-geversioneerde Bestanden"
+msgstr "Verwijderen van Bestanden Zonder Versiebeheer"
 
 #. (para)
 msgid "Usually you set your ignore list such that all generated files are ignored in Subversion. But what if you want to clear all those ignored items to produce a clean build? Usually you would set that in your makefile, but if you are debugging the makefile, or changing the build system it is useful to have a way of clearing the decks."
@@ -5631,7 +5631,7 @@ msgstr "Normaal gesproken zul je je negeerlijst zo opzetten dat alle gegenereerd
 
 #. (para)
 msgid "TortoiseSVN provides just such an option using <menuchoice><guimenu>Extended Context Menu</guimenu><guimenuitem>Delete unversioned items...</guimenuitem></menuchoice>. You have to hold the <keycap>Shift</keycap> while right clicking on a folder in the explorer list pane (right pane) in order to see this in the extended context menu. This will produce a dialog which lists all unversioned files anywhere in your working copy. You can then select or deselect items to be removed."
-msgstr "TortoiseSVN voorziet in zo'n optie via <menuchoice><guimenu>Uitgebreide  Context Menu</guimenu><guimenuitem>Verwijder objecten zonder versiebeheer...</guimenuitem></menuchoice>. Je moet de <keycap>Shift</keycap> toets ingedrukt houden als je rechts klikt op een map in het lijstvenster (rechter venster) van de verkenner om deze optie te kunnen zien in het uitgebreide context menu. Er wordt een scherm getoond welke alle bestanden zonder versiebeheer vanuit overal in je werkkopie in een lijst laat zien. Je kan hieruit de bestanden die verwijderd moeten worden selecteren of deselecteren."
+msgstr "TortoiseSVN voorziet in zo'n optie via <menuchoice><guimenu>Uitgebreide Context Menu</guimenu><guimenuitem>Verwijder objecten zonder versiebeheer...</guimenuitem></menuchoice>. Je moet de <keycap>Shift</keycap> toets ingedrukt houden als je rechts klikt op een map in het lijstvenster (rechter venster) van de verkenner om deze optie te kunnen zien in het uitgebreide context menu. Er wordt een scherm getoond waarin alle bestanden zonder versiebeheer in je gehele werkkopie in een lijst weergegeven worden. Je kan hieruit de bestanden die verwijderd moeten worden selecteren of deselecteren."
 
 #. (para)
 msgid "When such items are deleted, the recycle bin is used, so if you make a mistake here and delete a file that should have been versioned, you can still recover it."
