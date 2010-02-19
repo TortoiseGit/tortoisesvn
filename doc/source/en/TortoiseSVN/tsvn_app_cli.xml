@@ -61,11 +61,11 @@
 		<sect2 id="tsvn-cli-checkout">
 			<title>Checkout</title>
 <screen>
-svn checkout [-N] [--ignore-externals] [-r rev] URL PATH
+svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH
 </screen>
 			<para>
-				If <guilabel>Only checkout the top folder</guilabel> is checked,
-				use the <literal>-N</literal> switch.
+				The depth combo box items relate to the <literal>-depth</literal>
+				argument.
 			</para>
 			<para>
 				If <guilabel>Omit externals</guilabel> is checked,
@@ -104,11 +104,11 @@ svn update [-r rev] PATH
 			<title>Update to Revision</title>
 <screen>
 svn info URL_of_WC
-svn update [-r rev] [-N] [--ignore-externals] PATH
+svn update [-r rev] [-depth ARG] [--ignore-externals] PATH
 </screen>
 			<para>
-				If <guilabel>Only update the top folder</guilabel> is checked,
-				use the <literal>-N</literal> switch.
+				The depth combo box items relate to the <literal>-depth</literal>
+				argument.
 			</para>
 			<para>
 				If <guilabel>Omit externals</guilabel> is checked,
@@ -151,7 +151,7 @@ svn add PATH...
 				specified individually on the commit command line.
 			</para>
 <screen>
-svn commit -m "LogMessage" [-N] [--no-unlock] PATH...
+svn commit -m "LogMessage" [-depth ARG] [--no-unlock] PATH...
 </screen>
 			<para>
 				<literal>LogMessage</literal> here represents the contents of the
