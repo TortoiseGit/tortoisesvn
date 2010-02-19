@@ -13,9 +13,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2010-02-18 21:16+0100\n"
-"Last-Translator: Guus Raaphorst <GuusRaaphorst@Gmail.com>\n"
+"POT-Creation-Date: 2010-02-01 00:19 +0000\n"
+"PO-Revision-Date: 2010-02-18 23:41+0100\n"
+"Last-Translator: Ewout Muller <eppie1@xs4all.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7918,7 +7918,7 @@ msgstr "Als voorbeeld: Aangenomen dat uw systeemadministrator u een issue tracke
 
 #. (title)
 msgid "Integration with Web-based Repository Viewers"
-msgstr ""
+msgstr "Integratie met Web-gebaseerde Archief Viewers"
 
 #. (primary)
 msgid "web view"
@@ -7930,7 +7930,7 @@ msgstr "archief venster"
 
 #. (primary)
 msgid "ViewVC"
-msgstr ""
+msgstr "ViewVC"
 
 #. (primary)
 msgid "WebSVN"
@@ -7938,27 +7938,28 @@ msgstr "WebSVN"
 
 #. (para)
 msgid "There are several web-based repository viewers available for use with Subversion such as <ulink url=\"http://www.viewvc.org/\"><citetitle>ViewVC</citetitle></ulink> and <ulink url=\"http://websvn.tigris.org/\"><citetitle>WebSVN</citetitle></ulink>. TortoiseSVN provides a means to link with these viewers."
-msgstr ""
+msgstr "Er zijn meerdere web-gebaseerde archief viewers beschikbaar welke kunnen worden gebruikt met Subversion zoals <ulink url=\"http://www.viewvc.org/\"><citetitle>ViewVC</citetitle></ulink> en <ulink url=\"http://websvn.tigris.org/\"><citetitle>WebSVN</citetitle></ulink>. TortoiseSVN biedt de mogelijkheid om deze viewers te koppelen."
 
 #. (para)
 msgid "You can integrate a repo viewer of your choice in TortoiseSVN. To do this, you have to define some properties which define the linkage. They must be set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
-msgstr ""
+msgstr "U kunt een archief viewer naar keuze integreren in TortoiseSVN. Hiervoor dient u een aantal eigenschappen te definiëren welke de koppeling definiëren. Deze dienen op Mappen te worden ingesteld: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (para)
 msgid "Set this property to the URL of your repo viewer to view all changes in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal>. <literal>%REVISION%</literal> is replaced with the revision number in question. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision in webviewer</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Stel deze eigenshap in op de URL van uw archief viewer om alle wijzigingen in een specifieke revisie te zien. Deze dient correct te zijn gecodeerd als URI en dient <literal>%REVISION%</literal> te bevatten. <literal>%REVISION%</literal> wordt vervangen door het betreffende revisienummer. Hierdoor kan TortoiseSVN een contextmenu optie tonen in het log venster <menuchoice><guimenu>Contextmenu</guimenu><guimenuitem>Toon revisie in webviewer</guimenuitem></menuchoice>"
 
+# In de GUI kon ik alleen Resource IDs: (114) vinden met de tekst "View revision for path in &webviewer" in plaats van de hier vermelde "View revision and path in webviewer".
 #. (para)
 msgid "Set this property to the URL of your repo viewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision and path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the URL will be replaced with <literal>/trunk/src/file</literal>."
-msgstr ""
+msgstr "Stel deze eigenshap in op de URL van uw archief viewer om de wijzigingen aan een specifiek bestand in een specifieke revisie te zien. Deze dient correct te zijn gecodeerd als URI en dient <literal>%REVISION%</literal> en <literal>%PATH%</literal> te bevatten. <literal>%PATH%</literal> wordt vervangen door het pad relatief aan de hoofdmap. Hierdoor kan TortoiseSVN een contextmenu optie tonen in het log venster <menuchoice><guimenu>Contextmenu</guimenu><guimenuitem>Bekijk revisie voor dit pad in webviewer</guimenuitem></menuchoice> Voorbeeld: als u in het onderste gedeelte van het log scherm met de rechter muisknop klikt op een bestand <literal>/trunk/src/file</literal> wordt de <literal>%PATH%</literal> in de URL vervangen door <literal>/trunk/src/file</literal>."
 
 #. (para)
 msgid "You can also use relative URLs instead of absolute ones. This is useful in case your web viewer is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>webviewer:revision</literal> and <literal>webviewer:pathrevision</literal> property. The format is the same as for the <literal>bugtraq:url</literal> property. See <xref linkend=\"tsvn-dug-bugtracker\"/>."
-msgstr ""
+msgstr "U kunt ook gebruik maken van relatieve URL's in plaats van absolute. Dit komt van pas in het geval dat uw webviewer zich op het zelfde domein/server bevindt as uw bronarchief. In het geval dat de domeinnaam ooit wijzigt hoeft u de <literal>webviewer:revision</literal> en <literal>webviewer:pathrevision</literal> eigenschappen niet aan te passen. De schrijfwijze is dezelfde als van de <literal>bugtraq:url</literal> eigenschap. Zie ook <xref linkend=\"tsvn-dug-bugtracker\"/>."
 
 #. (para)
 msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the URL of the repository you won't see this feature."
-msgstr ""
+msgstr "Omdat de archief viewer integratie afhankelijk is van de toegang tot subversion eigenschappen kunt u de resultaten alleen zien wanneer u een opgehaalde werkkopie gebruikt. Het vanaf afstand ophalen van de eigenschappen is een langdurige operatie, daarom zal u deze mogelijkheid niet in actie zien vanuit de archief-verkenner, tenzij u de archief-verkenner vanuit uw werkkopie hebt opgestart. Als u de archief-verkenner heeft opgestart met ingave van de URL naar het archief zal u deze mogelijkheid niet zien."
 
 #. (title)
 msgid "TortoiseSVN's Settings"
@@ -9518,6 +9519,10 @@ msgstr ""
 
 #. (para)
 msgid "By default, TortoiseSVN always runs an update with externals included. This avoids problems with inconsistent working copies. If you have however a lot of externals set, an update can take quite a while. Set this value to <literal>false</literal> to run the default update with externals excluded. To update with externals included, either run the <literal>Update to revision...</literal> dialog or set this value to <literal>true</literal> again."
+msgstr ""
+
+#. (para)
+msgid "In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to dismiss the dialog as if you clicked on the OK button. If you don't want this, set this value to <literal>false</literal>."
 msgstr ""
 
 #. (title)
@@ -12616,7 +12621,7 @@ msgstr ""
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr "Jeroen van AmstelEddo HarkemaEwout MullerChristan PeperGuus RaaphorstChristophe de WagterJohannes Zwart"
+msgstr "Jeroen van Amstel\nEddo Harkema\nEwout Muller\nChristan Peper\nGuus Raaphorst\nChristophe de Wagter\nJohannes Zwart"
 
 #. Place the translation of 'translation' here.
 #. (None)
