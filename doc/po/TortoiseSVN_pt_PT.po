@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-18 18:03 +0000\n"
-"PO-Revision-Date: 2010-02-18 23:32-0000\n"
+"PO-Revision-Date: 2010-02-19 00:08-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3316,36 +3316,36 @@ msgstr "O TortoiseSVN pode ajudar a encontrar o sítio correcto para fundir as a
 
 #. (title)
 msgid "Local delete, incoming edit upon update"
-msgstr ""
+msgstr "Apagar localmente, edição após a actualização"
 
 #. (para)
 msgid "Developer A modifies <filename>Foo.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "O programador A modifica <filename>Foo.c</filename> e submete-o para o repositório "
 
 #. (para)
 msgid "Developer B has simultaneously moved <filename>Foo.c</filename> to <filename>Bar.c</filename> in his working copy, or simply deleted <filename>Foo.c</filename> or its parent folder."
-msgstr ""
+msgstr "O programador B simultaneamente move na sua cópia de trabalho <filename>Foo.c</filename> para <filename>Bar.c</filename>, ou simplesmente apagou <filename>Foo.c</filename>, ou a sua pasta pai."
 
 #. (para)
 msgid "<filename>Foo.c</filename> has been deleted from working copy, but is marked with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> foi apagado da cópia de trabalho, mas foi marcado como um conflito de árvore."
 
 #. (para)
 msgid "If the conflict results from a rename rather than a delete then <filename>Bar.c</filename> is marked as added, but does not contain developer A's modifications."
-msgstr ""
+msgstr "Se o conflito resultou de, uma mudança de nome em vez de um apagar então, o <filename>Bar.c</filename> é marcado como adicionado mas não contém as modificações do programador A."
 
 #. (para)
 #. (para)
 msgid "An update of developer B's working copy results in a tree conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Uma actualização na cópia de trabalho do programador B resulta num conflito de árvore: <placeholder-1/>"
 
 #. (para)
 msgid "Developer B now has to choose whether to keep Developer A's changes. In the case of a file rename, he can merge the changes to <filename>Foo.c</filename> into the renamed file <filename>Bar.c</filename>. For simple file or directory deletions he can choose to keep the item with Developer A's changes and discard the deletion. Or, by marking the conflict as resolved without doing anything he effectively discards Developer A's changes."
-msgstr ""
+msgstr "O programador B tem de escolher se vai manter as alterações do Programador A. No caso de uma mudança no nome do ficheiro, ele pode fundir as alterações com o <filename>Foo.c</filename> no ficheiro renomeado <filename>Bar.c</filename>. Para simples apagamentos de ficheiros e pastas, ele pode escolher manter o item com as alterações do Programador A e descartar o item apagado. Ou, ao colocar o conflito como resolvido, sem efectuar mais nenhuma acção, descarta efectivamente as alterações do Programador A."
 
 #. (para)
 msgid "The conflict edit dialog offers to merge changes if it can find the original file of the renamed <filename>Bar.c</filename>. Depending on where the update was invoked, it may not be possible to find the source file."
-msgstr ""
+msgstr "A caixa de diálogo de edição de conflitos oferece-se para fundir as alterações, se conseguir encontrar o ficheiro original do renomeado <filename>Bar.c</filename>. Dependendo onde a actualização foi invocada, poderá não ser possível encontrar o ficheiro fonte."
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
