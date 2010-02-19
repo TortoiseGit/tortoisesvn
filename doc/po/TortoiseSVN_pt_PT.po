@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-02-18 18:03 +0000\n"
-"PO-Revision-Date: 2010-02-19 00:08-0000\n"
+"POT-Creation-Date: 2010-02-19 21:36 +0000\n"
+"PO-Revision-Date: 2010-02-19 22:36-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3349,7 +3349,7 @@ msgstr "A caixa de diálogo de edição de conflitos oferece-se para fundir as a
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
-msgstr ""
+msgstr "Edição local, apagamento após actualização"
 
 #. (para)
 msgid "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository."
@@ -7593,7 +7593,7 @@ msgid "Set this property to the URL of your repo viewer to view all changes in a
 msgstr ""
 
 #. (para)
-msgid "Set this property to the URL of your repo viewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision and path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the URL will be replaced with <literal>/trunk/src/file</literal>."
+msgid "Set this property to the URL of your repo viewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision for path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the URL will be replaced with <literal>/trunk/src/file</literal>."
 msgstr ""
 
 #. (para)
@@ -11297,11 +11297,12 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\n"
-"svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
+"svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 msgstr ""
 
 #. (para)
-msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
+#. (para)
+msgid "The depth combo box items relate to the <literal>-depth</literal> argument."
 msgstr ""
 
 #. (para)
@@ -11342,11 +11343,7 @@ msgstr ""
 msgid ""
 "\n"
 "svn info URL_of_WC\n"
-"svn update [-r rev] [-N] [--ignore-externals] PATH\n"
-msgstr ""
-
-#. (para)
-msgid "If <guilabel>Only update the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
+"svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 msgstr ""
 
 #. (para)
@@ -11387,7 +11384,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\n"
-"svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
+"svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 msgstr ""
 
 #. (para)
