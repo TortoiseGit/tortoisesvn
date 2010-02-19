@@ -610,7 +610,7 @@ void CCommitDlg::OnOK()
 			repositoryRoot.Attach(common.AllocSysString());
 			ATL::CComBSTR parameters;
 			parameters.Attach(m_bugtraq_association.GetParameters().AllocSysString());
-			ATL::CComBSTR commonRoot(m_pathList.GetCommonRoot().GetDirectory().GetWinPath());
+			ATL::CComBSTR commonRoot(m_selectedPathList.GetCommonRoot().GetDirectory().GetWinPath());
 			ATL::CComBSTR commitMessage;
 			commitMessage.Attach(m_sLogMessage.AllocSysString());
 			CBstrSafeVector pathList(m_selectedPathList.GetCount());

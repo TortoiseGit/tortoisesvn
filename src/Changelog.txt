@@ -96,6 +96,9 @@ Version 1.6.8
 - BUG: Properties loaded from a file were not changed or
        added without a manual edit of the loaded content. (Stefan)
 - BUG: The /logmsg param wasn't used in the copy command. (Stefan)
+- BUG: The commonUrl and commonRoot parameters in the
+       CheckCommit method of the IBugtraqProvider2 interface
+       could return wrong paths/urls. (Stefan)
 - CHG: Various adjustments for Windows 7. (Stefan)
 - CHG: The "show excluded folders as normal" setting is
        changed to false by default. (Stefan)
