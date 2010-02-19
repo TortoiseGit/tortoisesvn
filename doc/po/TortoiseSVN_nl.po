@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-19 15:42+0100\n"
+"PO-Revision-Date: 2010-02-19 19:33+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5356,7 +5356,7 @@ msgstr "De Globale Negeerlijst"
 
 #. (para)
 msgid "Another way to ignore files is to add them to the <firstterm>global ignore list</firstterm>. The big difference here is that the global ignore list is a client property. It applies to <emphasis>all</emphasis> Subversion projects, but on the client PC only. In general it is better to use the <filename>svn:ignore</filename> property where possible, because it can be applied to specific project areas, and it works for everyone who checks out the project. Read <xref linkend=\"tsvn-dug-settings-main\"/> for more information."
-msgstr ""
+msgstr "Een andere methode om bestanden te negeren is door ze toe te voegen aan de <firstterm>globale negeer lijst</firstterm>. Het grote verschil is dat de globale negeer lijst een eigenschap van de gebruiker is. Deze lijst wordt toegepast op <emphasis>alle</emphasis> Subversion projecten, maar dan alleen die op de PC van de gebruiker. Over het algemeen is het beter om de <filename>svn:ignore</filename> eigenschap te gebruiken waar mogelijk, omdat het toegepast kan worden op specifieke project gebieden en het wordt gebruikt bij iedereen die het project ophaalt. Lees <xref linkend=\"tsvn-dug-settings-main\"/> voor meer informatie."
 
 #. (title)
 msgid "Ignoring Versioned Items"
@@ -5404,7 +5404,7 @@ msgstr "Zoekt overeenkomsten met elk van de karakters welke zijn omsloten door b
 
 #. (para)
 msgid "Subversion's ignore patterns make use of filename globbing, a technique originally used in Unix to specify files using meta-characters as wildcards. The following characters have special meaning: <placeholder-1/>"
-msgstr ""
+msgstr "Subversion's negeer patronen maken gebruik van globbing bij bestandsnamen, een techniek die van origine gebruikt is in Unix om bestanden aan te wijzen met meta-karakters als wildcards. De volgende karakters hebben een speciale betekenis: <placeholder-1/>"
 
 #. (para)
 msgid "Pattern matching is case sensitive, which can cause problems on Windows. You can force case insensitivity the hard way by pairing characters, eg. to ignore <literal>*.tmp</literal> regardless of case, you could use a pattern like <literal>*.[Tt][Mm][Pp]</literal>."
@@ -5420,7 +5420,7 @@ msgstr "Geen Paden in de Globale Negeerlijst"
 
 #. (para)
 msgid "You should not include path information in your pattern. The pattern matching is intended to be used against plain file names and folder names. If you want to ignore all <literal>CVS</literal> folders, just add <literal>CVS</literal> to the ignore list. There is no need to specify <literal>CVS */CVS</literal> as you did in earlier versions. If you want to ignore all <literal>tmp</literal> folders when they exist within a <literal>prog</literal> folder but not within a <literal>doc</literal> folder you should use the <literal>svn:ignore</literal> property instead. There is no reliable way to achieve this using global ignore patterns."
-msgstr ""
+msgstr "Je moet eigenlijk geen paden in je patronen opnemen. Het patroonherkenningsproces is bedoeld om te filteren op platte bestands- en mapnamen. Als je alle <literal>CVS</literal> mappen wilt negeren, voeg dan allen <literal>CVS</literal> toe aan de negeer lijst. Het is niet nodig om <literal>CVS */CVS</literal> te specificeren, zoals je gewend was van eerder versies. Als je alle <literal>tmp</literal> mappen wilt negeren als ze in een <literal>prog</literal> map aanwezig zijn, maar niet in een <literal>doc</literal> map, dan zou je de <literal>svn:ignore</literal> eigenschap moeten gebruiken. Er is geen betrouwbare manier om dit gedrag te bereiken met globale negeer patronen."
 
 #. (title)
 msgid "Deleting, Moving and Renaming"
@@ -5740,11 +5740,11 @@ msgstr "<placeholder-1/> In sommige gevallen wilt u meer gedetaileerde informati
 
 #. (title)
 msgid "Subversion Properties"
-msgstr ""
+msgstr "Subversion Eigenschappen"
 
 #. (primary)
 msgid "Subversion properties"
-msgstr ""
+msgstr "Subversion eigenschappen"
 
 #. (title)
 msgid "Subversion property page"
