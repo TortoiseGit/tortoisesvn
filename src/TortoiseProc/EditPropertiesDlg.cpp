@@ -555,6 +555,7 @@ BOOL CEditPropertiesDlg::PreTranslateMessage(MSG* pMsg)
 						if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlEnter"), TRUE)))
 							PostMessage(WM_COMMAND, IDOK);
 					}
+					return TRUE;
 				}
 			}
 			break;
