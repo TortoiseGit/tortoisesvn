@@ -13,9 +13,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-19 19:33+0100\n"
-"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
+"POT-Creation-Date: 2009-11-16 07:38 +0000\n"
+"PO-Revision-Date: 2010-02-19 20:45+0100\n"
+"Last-Translator: Guus Raaphorst <GuusRaaphorst@Gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10747,11 +10747,11 @@ msgstr "Handige tips voor beheerders"
 
 #. (para)
 msgid "This appendix contains solutions to problems/questions you might have when you are responsible for deploying TortoiseSVN to multiple client computers."
-msgstr ""
+msgstr "Deze bijlage bevat oplossingen voor problemen/vragen die je zou kunnen hebben wanneer je verantwoordelijk bent voor het verspreiden van TortoiseSVN over meerdere client computers."
 
 #. (title)
 msgid "Deploy TortoiseSVN via group policies"
-msgstr ""
+msgstr "Verspreid TotoiseSVN via groepsbeleid"
 
 #. (primary)
 #. (primary)
@@ -10773,23 +10773,23 @@ msgstr "domeincontroller"
 
 #. (primary)
 msgid "deploy"
-msgstr ""
+msgstr "verspreiden"
 
 #. (para)
 msgid "The TortoiseSVN installer comes as an MSI file, which means you should have no problems adding that MSI file to the group policies of your domain controller."
-msgstr ""
+msgstr "De TortoiseSVN installatie wordt geleverd als een MSI-bestand, wat inhoudt dat je geen problemen zou moeten ondervinden bij het toevoegen van dat MSI-bestand aan het groepsbeleid van je domeincontroller."
 
 #. (para)
 msgid "A good walk-through on how to do that can be found in the knowledge base article 314934 from Microsoft: <ulink url=\"http://support.microsoft.com/?kbid=314934\"><citetitle>http://support.microsoft.com/?kbid=314934</citetitle></ulink>."
-msgstr ""
+msgstr "Een goede handleiding over hoe dat te doen kan gevonden worden in kennisbank artikel 314934 van Microsoft: <ulink url=\"http://support.microsoft.com/?kbid=314934\"><citetitle>http://support.microsoft.com/?kbid=314934</citetitle></ulink>."
 
 #. (para)
 msgid "Versions 1.3.0 and later of TortoiseSVN must be installed under <emphasis>Computer Configuration</emphasis> and not under <emphasis>User Configuration</emphasis>. This is because those versions need the new CRT and MFC DLLs, which can only be deployed <emphasis>per computer</emphasis> and not <emphasis>per user</emphasis>. If you really must install TortoiseSVN on a per user basis, then you must first install the MFC and CRT package version 8 from Microsoft on each computer you want to install TortoiseSVN as per user."
-msgstr ""
+msgstr "Versies 1.3.0 en hoger van TortoiseSVN moeten geïnstalleerd worden onder <emphasis>Computerconfiguratie</emphasis> en niet onder <emphasis>Gebruikersconfiguratie</emphasis>. Dit komt omdat die versies de nieuwe CRT en MFC DLL's nodig hebben, welke alleen kunnen worden verspreid <emphasis>per computer</emphasis> en niet <emphasis>per gebruiker</emphasis>. Als je TortoiseSVN echt moet installeren per gebruiker, dan zul je eerst versie 8 van de MFC- en CRT-packages van Microsoft moeten installeren op elke computer waar je TortoiseSVN per gebruiker wilt installeren"
 
 #. (title)
 msgid "Redirect the upgrade check"
-msgstr ""
+msgstr "De update controle omleiden"
 
 #. (primary)
 msgid "upgrade check"
@@ -10805,7 +10805,7 @@ msgstr "versie"
 
 #. (para)
 msgid "TortoiseSVN checks if there's a new version available every few days. If there is a newer version available, a dialog shows up informing the user about that."
-msgstr ""
+msgstr "TortoiseSVN controleert om de paar dagen of er een nieuwe versie beschikbaar is. Is er een nieuwe versie beschikbaar, dan wordt een dialoog getoond welke de gebruiker hierover informeert."
 
 #. (title)
 msgid "The upgrade dialog"
@@ -10813,7 +10813,7 @@ msgstr "De upgrade-dialoog"
 
 #. (para)
 msgid "If you're responsible for a lot of users in your domain, you might want your users to use only versions you have approved and not have them install always the latest version. You probably don't want that upgrade dialog to show up so your users don't go and upgrade immediately."
-msgstr ""
+msgstr "Wanneer je verantwoordelijk bent voor een grote hoeveelheid gebruikers in je domein, kan het zijn dat je wilt dat je gebruikers alleen door jou goedgekeurde versies gebruiken en dat ze niet altijd de nieuwste versies installeren. Je wil dan waarschijnlijk niet dat het update dialoogvenster getoond wordt, zodat je gebruikers gelijk de update gebruiken."
 
 #. (para)
 msgid ""
@@ -10823,14 +10823,19 @@ msgid ""
 "http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
 "</screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the upgrade dialog. You can write there whatever you want. Just note that the space in the upgrade dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the upgrade dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
 msgstr ""
+"Versies 1.4.0 en hoger van TortoiseSVN staan toe dat je de update controle omleid naar je intranet server. Je kan de register sleutel <filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> (tekst waarde) laten wijzen naar een URL welke verwijst naar een tekstbestand op je intranet. Dat tekstbestand moet het volgende formaat hebben: <screen>\n"
+"1.4.1.6000\n"
+"Een nieuwere versie van TortoiseSVN is beschikbaar voor je om te downloaden!\n"
+"http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
+"</screen> De eerste regel in dat bestand is de versie tekst. Je moet ervoor zorgen dat deze exact overeenkomt met de versie tekst van het TortoiseSVN installatie pakket. De tweede regel is een eigen tekst welke getoond wordt in het upgrade dialoogvenster. Je kan hierin zetten wat je wilt, maar let er op dat de ruimte in het upgrade dialoog venster beperkt is. Te lange berichten worden afgekapt! De derde regel is de URL waar het nieuwe installatie pakket te vinden is. Deze URL wordt geopend wanneer de gebruiker klikt op het label met de eigen tekst in het upgrade dialoog venster. Je kan de gebruiker ook eenvoudig naar een web pagina sturen in plaats van direct naar het MSI bestand. De URL wordt geopend in de standaard web browser, dus als je een web pagina specificeert, wordt deze geopend en getoond aan de gebruiker. Als je het MSI bestand specificeert, zal de browser de gebruiker vragen om het MSI bestand lokaal op te slaan."
 
 #. (title)
 msgid "Setting the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable"
-msgstr ""
+msgstr "Zetten van de <literal>SVN_ASP_DOT_NET_HACK</literal> omgevingsvariable"
 
 #. (primary)
 msgid "SVN_ASP_DOT_NET_HACK"
-msgstr ""
+msgstr "SVN_ASP_DOT_NET_HACK"
 
 #. (primary)
 msgid "VS2003"
@@ -10842,7 +10847,7 @@ msgstr "ASP projecten"
 
 #. (para)
 msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable anymore, since that caused many problems and confusions with users which always install <emphasis>everything</emphasis> no matter if they know what it is for."
-msgstr ""
+msgstr "Vanaf versie 1.4.0 en hoger, verschaft de TortoiseSVN installatie niet meer de optie  aan de gebruiker om de <literal>SVN_ASP_DOT_NET_HACK</literal> omgevingsvariabele te zetten, omdat deze vele problemen opleverde en verwarring zaaide bij gebruikers die altijd <emphasis>alles</emphasis> installeren ongeacht of ze weten waar het voor is. "
 
 #. (para)
 msgid ""
@@ -10850,10 +10855,13 @@ msgid ""
 "msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
 "</screen>"
 msgstr ""
+"Maar die optie is alleen verborgen voor de gebruiker. Je kan de TortoiseSVN installatie nog steeds forceren de omgevingsvariabele te zetten door de eigenschap <literal>ASPDOTNETHACK</literal> op TRUE te zetten. Je kan de installatie bijvoorbeeld starten op de volgende manier: <screen>\n"
+"msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
+"</screen>"
 
 #. (title)
 msgid "Disable context menu entries"
-msgstr ""
+msgstr "Opties in het contextmenu uitschakelen"
 
 #. (primary)
 msgid "context menu entries"
@@ -10865,15 +10873,15 @@ msgstr "functies uitschakelen"
 
 #. (para)
 msgid "As of version 1.5.0 and later, TortoiseSVN allows you to disable (actually, hide) context menu entries. Since this is a feature which should not be used lightly but only if there is a compelling reason, there is no GUI for this and it has to be done directly in the registry. This can be used to disable certain commands for users who should not use them. But please note that only the context menu entries in the <emphasis>explorer</emphasis> are hidden, and the commands are still available through other means, e.g. the command line or even other dialogs in TortoiseSVN itself!"
-msgstr ""
+msgstr "Vanaf versie 1.5.0 en hoger, staat TortoiseSvn je toe om opties van het  context menu uit te schakelen (eigenlijk verbergen). Aangezien dit een eigenschap is dat niet lichtvaardig zou moeten worden gebruikt, maar alleen als er een dwingende reden voor is, is er geen GUI voor aanwezig en moet dit rechtstreeks in het register worden gedaan. Dit kan gebruikt worden om bepaalde commando's uit te schakelen voor gebruikers die deze niet zouden moeten gebruiken. Maar let er wel op dat alleen de context menu opties in de <emphasis>Verkenner</emphasis> zijn verborgen. De commando's zijn nog steeds beschikbaar via andere middelen, zoals bijvoorbeeld de opdrachtregel of zelfs andere dialogen in TortoiseSVN zelf!"
 
 #. (para)
 msgid "The registry keys which hold the information on which context menus to show are <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename> and <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
-msgstr ""
+msgstr "De registersleutels die de informatie bevatten over welke contextmenus getoond moeten worden zijn <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename> en <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
 
 #. (para)
 msgid "Each of these registry entries is a <literal>DWORD</literal> value, with each bit corresponding to a specific menu entry. A set bit means the corresponding menu entry is deactivated."
-msgstr ""
+msgstr "Elk van deze registersleutels is een <literal>DWORD</literal> waarde, waarvan elke bit correspondeert met een specifieke menuoptie. Een bit dat gezet is, betekent dat de bijbehorende menuoptie is uitgeschakeld."
 
 #. (title)
 msgid "Menu entries and their values"
@@ -11054,10 +11062,16 @@ msgid ""
 "= 0x2000000080080000\n"
 "</screen> The lower <literal>DWORD</literal> value (<literal>0x80080000</literal>) must then be stored in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, the higher <literal>DWORD</literal> value (<literal>0x20000000</literal>) in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
 msgstr ""
+"Voorbeeld: om de <quote>Verhuizen</quote>, de <quote>Verwijder objecten zonder versiebeheer</quote> en de <quote>Instellingen</quote> menuopties uit te schakelen, voeg de waardes behorende bij deze opties op de volgende manier toe: <screen>\n"
+"  0x0000000000080000\n"
+"+ 0x0000000080000000\n"
+"+ 0x2000000000000000\n"
+"= 0x2000000080080000\n"
+"</screen> De lagere <literal>DWORD</literal> waarde (<literal>0x80080000</literal>) moet dan opgeslagen worden in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, de hogere <literal>DWORD</literal> waarde (<literal>0x20000000</literal>) in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
 
 #. (para)
 msgid "To enable the menu entries again, simply delete the two registry keys."
-msgstr ""
+msgstr "Voor het opnieuw inschakelen van de menuopties, kun je eenvoudig deze twee registersleutels verwijderen."
 
 #. (title)
 msgid "Automating TortoiseSVN"
