@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-18 23:41+0100\n"
-"Last-Translator: Ewout Muller <eppie1@xs4all.nl>\n"
+"PO-Revision-Date: 2010-02-19 15:42+0100\n"
+"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -352,7 +352,7 @@ msgstr "Overlappende pictogrammen"
 
 #. (para)
 msgid "The status of every versioned file and folder is indicated by small overlay icons. That way you can see right away what the status of your working copy is."
-msgstr "De status van elk bestand en folder onder versiebeheer wordt weergegeven met een klein overlappend pictogram. Op die manier kun je direct zien wat de status is van je werk kopie."
+msgstr "De status van elk bestand en folder onder versiebeheer wordt weergegeven met een klein overlappend pictogram. Op die manier kun je direct zien wat de status is van je werkkopie."
 
 #. (term)
 msgid "Easy access to Subversion commands"
@@ -674,7 +674,7 @@ msgstr "Subversion in Actie"
 
 #. (title)
 msgid "Working Copies"
-msgstr "Werk Kopieën"
+msgstr "Werkkopieën"
 
 #. (primary)
 msgid "working copy"
@@ -682,23 +682,23 @@ msgstr "werkkopie"
 
 #. (para)
 msgid "You've already read about working copies; now we'll demonstrate how the Subversion client creates and uses them."
-msgstr "Eerder heb je al wat gelezen over werk kopieën; nu zullen we demonstreren hoe de Subversion client deze creëert en gebruikt."
+msgstr "Eerder heb je al wat gelezen over werkkopieën; nu zullen we demonstreren hoe de Subversion client deze creëert en gebruikt."
 
 #. (para)
 msgid "A Subversion working copy is an ordinary directory tree on your local system, containing a collection of files. You can edit these files however you wish, and if they're source code files, you can compile your program from them in the usual way. Your working copy is your own private work area: Subversion will never incorporate other people's changes, nor make your own changes available to others, until you explicitly tell it to do so."
-msgstr "Een Subversion werk kopie is eenvoudigweg een mapstructuur met een verzameling van bestanden op je lokale systeem. Je kunt de bestanden bewerken zoals je wilt en als het broncode bestanden zijn, is het mogelijk om ze vanaf die locatie te compileren op de gebruikelijke manier. Je werk kopie is je eigen privé werkomgeving: Subversion zal zelf geen wijzigingen van anderen in je lokale kopie verwerken, of jouw werk aan anderen beschikbaar stellen, zonder dat je daar zelf opdracht voor hebt gegeven."
+msgstr "Een Subversion werkkopie is eenvoudigweg een mapstructuur met een verzameling van bestanden op je lokale systeem. Je kunt de bestanden bewerken zoals je wilt en als het broncode bestanden zijn, is het mogelijk om ze vanaf die locatie te compileren op de gebruikelijke manier. Je werkkopie is je eigen privé werkomgeving: Subversion zal zelf geen wijzigingen van anderen in je lokale kopie verwerken, of jouw werk aan anderen beschikbaar stellen, zonder dat je daar zelf opdracht voor hebt gegeven."
 
 #. (para)
 msgid "After you've made some changes to the files in your working copy and verified that they work properly, Subversion provides you with commands to <emphasis>publish</emphasis> your changes to the other people working with you on your project (by writing to the repository). If other people publish their own changes, Subversion provides you with commands to merge those changes into your working directory (by reading from the repository)."
-msgstr "Nadat je wijzigingen in je bestanden hebt aangebracht en hebt geverifieerd of deze goed werken, biedt Subversion commando’s om je wijzigingen te <emphasis>publiceren</emphasis> voor andere mensen die met jou aan het project werken (door middel van het opslaan in het archief). Als andere mensen hun eigen werk publiceren, biedt Subversion je opdrachten om die wijzigingen samen te voegen in je werk kopie (door te lezen vanuit het archief)."
+msgstr "Nadat je wijzigingen in je bestanden hebt aangebracht en hebt geverifieerd of deze goed werken, biedt Subversion commando’s om je wijzigingen te <emphasis>publiceren</emphasis> voor andere mensen die met jou aan het project werken (door middel van het opslaan in het archief). Als andere mensen hun eigen werk publiceren, biedt Subversion je opdrachten om die wijzigingen samen te voegen in je werkkopie (door te lezen vanuit het archief)."
 
 #. (para)
 msgid "A working copy also contains some extra files, created and maintained by Subversion, to help it carry out these commands. In particular, each directory in your working copy contains a subdirectory named <filename>.svn</filename>, also known as the working copy <firstterm>administrative directory</firstterm>. The files in each administrative directory help Subversion recognize which files contain unpublished changes, and which files are out-of-date with respect to others' work."
-msgstr "In een werk kopie zitten ook bestanden, die door Subversion gemaakt en bijgehouden worden, die ondersteuning bieden bij het uitvoeren van deze opdrachten.  Elke map in je werk kopie heeft een submap met de naam <filename>.svn</filename>, beter bekend als de <firstterm>administratie map</firstterm> van de werk kopie. De bestanden in de administratie map helpt Subversion om bestanden te detecteren die nog ongepubliceerde wijzigingen hebben en welke bestanden achterhaald zijn ten opzicht van het werk van anderen."
+msgstr "In een werkkopie zitten ook bestanden, die door Subversion gemaakt en bijgehouden worden, die ondersteuning bieden bij het uitvoeren van deze opdrachten.  Elke map in je werkkopie heeft een submap met de naam <filename>.svn</filename>, beter bekend als de <firstterm>administratie map</firstterm> van de werk kopie. De bestanden in de administratie map helpt Subversion om bestanden te detecteren die nog ongepubliceerde wijzigingen hebben en welke bestanden achterhaald zijn ten opzicht van het werk van anderen."
 
 #. (para)
 msgid "A typical Subversion repository often holds the files (or source code) for several projects; usually, each project is a subdirectory in the repository's filesystem tree. In this arrangement, a user's working copy will usually correspond to a particular subtree of the repository."
-msgstr "A standaard Subversion archief bevat vaak de (bron) bestanden voor meerdere projecten; vaak is er voor elk project een submap in de boomstructuur van het archief bestandssysteem. Bij deze indeling correspondeert de werk kopie van een gebruiker meestal met een bepaalde submap van het archief."
+msgstr "A standaard Subversion archief bevat vaak de (bron) bestanden voor meerdere projecten; vaak is er voor elk project een submap in de boomstructuur van het archief bestandssysteem. Bij deze indeling correspondeert de werkkopie van een gebruiker meestal met een bepaalde submap van het archief."
 
 #. (para)
 msgid "For example, suppose you have a repository that contains two software projects."
@@ -714,7 +714,7 @@ msgstr "Met andere woorden, de hoofdmap van het archief heeft twee submappen: <f
 
 #. (para)
 msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you)."
-msgstr "Om een werk kopie te maken, moet je een submapstructuur uit het archief <firstterm>ophalen</firstterm>.  (De term ophalen ook uitgelegd worden als een manier van vergrendelen, maar in feite wordt er voor jou eenvoudigweg een eigen kopie gemaakt van het project)."
+msgstr "Om een werkkopie te maken, moet je een submapstructuur uit het archief <firstterm>ophalen</firstterm>.  (De term ophalen ook uitgelegd worden als een manier van vergrendelen, maar in feite wordt er voor jou eenvoudigweg een eigen kopie gemaakt van het project)."
 
 #. (para)
 msgid "Suppose you make changes to <filename>button.c</filename>. Since the <filename>.svn</filename> directory remembers the file's modification date and original contents, Subversion can tell that you've changed the file. However, Subversion does not make your changes public until you explicitly tell it to. The act of publishing your changes is more commonly known as <firstterm>committing</firstterm> (or <firstterm>checking in</firstterm>) changes to the repository."
@@ -726,15 +726,15 @@ msgstr "Om je wijzigingen te publiceren naar anderen, gebruik je het Subversion 
 
 #. (para)
 msgid "Now your changes to <filename>button.c</filename> have been committed to the repository; if another user checks out a working copy of <filename>/calc</filename>, they will see your changes in the latest version of the file."
-msgstr "Met dit commando worden je wijzigingen in <filename>button.c</filename> vastgelegd in het archief; als andere gebruikers een werk kopie ophaalt van <filename>/calc</filename>, dan zullen zij you wijzigingen in de laatste versie zien."
+msgstr "Met dit commando worden je wijzigingen in <filename>button.c</filename> vastgelegd in het archief; als andere gebruikers een werkkopie ophaalt van <filename>/calc</filename>, dan zullen zij you wijzigingen in de laatste versie zien."
 
 #. (para)
 msgid "Suppose you have a collaborator, Sally, who checked out a working copy of <filename>/calc</filename> at the same time you did. When you commit your change to <filename>button.c</filename>, Sally's working copy is left unchanged; Subversion only modifies working copies at the user's request."
-msgstr "Stel je hebt een medewerker, Sally, die op hetzelfde moment als jij een werk kopie ophaalt van <filename>/calc</filename>. Als jij je wijzigingen aan <filename>button.c</filename> vastlegt, blijft Sally’s werk ongewijzigd; Subversion wijzigt alleen werk kopieën op aanvraag van de gebruiker."
+msgstr "Stel je hebt een medewerker, Sally, die op hetzelfde moment als jij een werkkopie ophaalt van <filename>/calc</filename>. Als jij je wijzigingen aan <filename>button.c</filename> vastlegt, blijft Sally’s werk ongewijzigd; Subversion wijzigt alleen werkkopieën op aanvraag van de gebruiker."
 
 #. (para)
 msgid "To bring her project up to date, Sally can ask Subversion to <firstterm>update</firstterm> her working copy, by using the Subversion <command>update</command> command. This will incorporate your changes into her working copy, as well as any others that have been committed since she checked it out."
-msgstr "Om haar project bij te werken, kan Sally Subversion vragen om haar werk kopie <firstterm>bij te werken</firstterm>, door het Subversion commando <command>Verversen</command> te gebruiken. Hiermee worden jouw wijzigingen in haar kopie verwerkt, net zoals andere wijzigingen die vastgelegd zijn sinds zij haar werk kopie ophaalde."
+msgstr "Om haar project bij te werken, kan Sally Subversion vragen om haar werkkopie <firstterm>bij te werken</firstterm>, door het Subversion commando <command>Verversen</command> te gebruiken. Hiermee worden jouw wijzigingen in haar kopie verwerkt, net zoals andere wijzigingen die vastgelegd zijn sinds zij haar werkkopie ophaalde."
 
 #. (para)
 msgid "Note that Sally didn't need to specify which files to update; Subversion uses the information in the <filename>.svn</filename> directory, and further information in the repository, to decide which files need to be brought up to date."
@@ -855,7 +855,7 @@ msgstr "revisie"
 
 #. (para)
 msgid "A <command>svn commit</command> operation can publish changes to any number of files and directories as a single atomic transaction. In your working copy, you can change files' contents, create, delete, rename and copy files and directories, and then commit the complete set of changes as a unit."
-msgstr "Een <command>SVN Vastleggen</command> actie worden wijzigingen aan meerdere bestanden en mappen als één enkele actie vastgelegd in het archief. In je werk kopie kun je mappen, bestanden en de inhoud daarvan wijzigen, creëren, verwijderen, hernoemen en kopiëren en vervolgens de hele set van wijzigingen in één keer vastleggen."
+msgstr "Een <command>SVN Vastleggen</command> actie worden wijzigingen aan meerdere bestanden en mappen als één enkele actie vastgelegd in het archief. In je werkkopie kun je mappen, bestanden en de inhoud daarvan wijzigen, creëren, verwijderen, hernoemen en kopiëren en vervolgens de hele set van wijzigingen in één keer vastleggen."
 
 # Geen idee hoe je dit nu goed in het nederlands vertaald. Het is een beetje hazig.
 #. (para)
@@ -880,7 +880,7 @@ msgstr "In tegenstelling tot veel andere versie beheersystemen, past Subversion 
 
 #. (para)
 msgid "It's important to note that working copies do not always correspond to any single revision in the repository; they may contain files from several different revisions. For example, suppose you check out a working copy from a repository whose most recent revision is 4:"
-msgstr "Het is belangrijk om op te merken dat werk kopieën niet altijd overeen komen met één enkele revisie in het archief; er kunnen bestanden in zitten die uit verschillende revisies komen.  Bijvoorbeeld, je haalt een werk kopie op uit een archief, waarvan de meest recente revisie nummer 4 is:"
+msgstr "Het is belangrijk om op te merken dat werkkopieën niet altijd overeen komen met één enkele revisie in het archief; er kunnen bestanden in zitten die uit verschillende revisies komen.  Bijvoorbeeld, je haalt een werkkopie op uit een archief, waarvan de meest recente revisie nummer 4 is:"
 
 #. (screen)
 #, no-wrap
@@ -897,7 +897,7 @@ msgstr ""
 
 #. (para)
 msgid "At the moment, this working directory corresponds exactly to revision 4 in the repository. However, suppose you make a change to <filename>button.c</filename>, and commit that change. Assuming no other commits have taken place, your commit will create revision 5 of the repository, and your working copy will now look like this:"
-msgstr "Op dit moment komt de werk map precies overeen met revisie 4 in het archief. Echter, stel je wijzigt nu <filename>button.c</filename> en legt de wijziging vast. Er van uitgaande dat niemand anders wijzigingen heeft vastgelegd, zal jouw toepassing revisie 5 van het archief creëren, en zal je werk kopie er als volgt uit zien."
+msgstr "Op dit moment komt de werk map precies overeen met revisie 4 in het archief. Echter, stel je wijzigt nu <filename>button.c</filename> en legt de wijziging vast. Er van uitgaande dat niemand anders wijzigingen heeft vastgelegd, zal jouw toepassing revisie 5 van het archief creëren, en zal je werkkopie er als volgt uit zien."
 
 #. (screen)
 #, no-wrap
@@ -914,7 +914,7 @@ msgstr ""
 
 #. (para)
 msgid "Suppose that, at this point, Sally commits a change to <filename>integer.c</filename>, creating revision 6. If you use <command>svn update</command> to bring your working copy up to date, then it will look like this:"
-msgstr "Stel dat op dit moment Sally een wijziging in <filename>integer.c</filename> vastlegt, dan wordt revisie 6 aangemaakt. Als jij zelf dan <command>svn verversen</command> uitvoert om je werk kopie bij te werken, dan zal deze er zo uitzien:"
+msgstr "Stel dat op dit moment Sally een wijziging in <filename>integer.c</filename> vastlegt, dan wordt revisie 6 aangemaakt. Als jij zelf dan <command>svn verversen</command> uitvoert om je werkkopie bij te werken, dan zal deze er zo uitzien:"
 
 #. (screen)
 #, no-wrap
@@ -931,11 +931,11 @@ msgstr ""
 
 #. (para)
 msgid "Sally's changes to <filename>integer.c</filename> will appear in your working copy, and your change will still be present in <filename>button.c</filename>. In this example, the text of <filename>Makefile</filename> is identical in revisions 4, 5, and 6, but Subversion will mark your working copy of <filename>Makefile</filename> with revision 6 to indicate that it is still current. So, after you do a clean update at the top of your working copy, it will generally correspond to exactly one revision in the repository."
-msgstr "Sally’s wijziging aan <filename>integer.c</filename> zal in je werk kopie zichtbaar worden en je eigen wijziging zal nog steeds in <filename>button.c</filename> zitten. In dit voorbeeld zal de tekst van <filename>Makefile</filename> gelijk zijn voor revisie 4, 5 en 6, maar zal Subversion je werk kopie van <filename>Makefile</filename> markeren met revisie 6. Dit om aan te geven dat dit nog de actuele versie is. Kortweg, als je een schone versie ophaalt van je werk kopie, dan komt die kopie overeen met één enkele revisie in het archief."
+msgstr "Sally’s wijziging aan <filename>integer.c</filename> zal in je werkkopie zichtbaar worden en je eigen wijziging zal nog steeds in <filename>button.c</filename> zitten. In dit voorbeeld zal de tekst van <filename>Makefile</filename> gelijk zijn voor revisie 4, 5 en 6, maar zal Subversion je werkkopie van <filename>Makefile</filename> markeren met revisie 6. Dit om aan te geven dat dit nog de actuele versie is. Kortweg, als je een schone versie ophaalt van je werkkopie, dan komt die kopie overeen met één enkele revisie in het archief."
 
 #. (title)
 msgid "How Working Copies Track the Repository"
-msgstr "Hoe Werk Kopieën Het Archief Bijhouden"
+msgstr "Hoe Werkkopieën Het Archief Bijhouden"
 
 #. (para)
 msgid "For each file in a working directory, Subversion records two essential pieces of information in the <filename>.svn/</filename> administrative area:"
@@ -943,7 +943,7 @@ msgstr "Voor elk bestand in een werk map houdt Subversion twee essentiële stukj
 
 #. (para)
 msgid "what revision your working file is based on (this is called the file's <firstterm>working revision</firstterm>), and"
-msgstr "op welke revisie je werk kopie gebaseerd is (bekend als de <firstterm>werk revisie</firstterm> van een bestand) en"
+msgstr "op welke revisie je werkkopie gebaseerd is (bekend als de <firstterm>werk revisie</firstterm> van een bestand) en"
 
 #. (para)
 msgid "a timestamp recording when the local copy was last updated by the repository."
@@ -975,7 +975,7 @@ msgstr "Ongewijzigd en achterhaald"
 
 #. (para)
 msgid "The file has not been changed in the working directory, but it has been changed in the repository. The file should eventually be updated, to make it current with the public revision. A <command>commit</command> of the file will do nothing, and an <command>update</command> of the file will fold the latest changes into your working copy."
-msgstr "Dit bestand is niet gewijzigd in de werk map, maar er is wel een wijziging in het archief. Dit bestand moet uiteindelijk bijgewerkt worden om overeen te komen met de gepubliceerde revisie. Het <command>commit</command> commando zal niets doen, het <command>verversen</command> zal de laatste wijzigingen in je werk kopie beschikbaar stellen."
+msgstr "Dit bestand is niet gewijzigd in de werk map, maar er is wel een wijziging in het archief. Dit bestand moet uiteindelijk bijgewerkt worden om overeen te komen met de gepubliceerde revisie. Het <command>commit</command> commando zal niets doen, het <command>verversen</command> zal de laatste wijzigingen in je werkkopie beschikbaar stellen."
 
 #. (term)
 msgid "Locally changed, and out-of-date"
@@ -995,7 +995,7 @@ msgstr "In dit hoofdstuk is een aantal fundamentele Subversion concepten behande
 
 #. (para)
 msgid "We've introduced the notions of the central repository, the client working copy, and the array of repository revision trees."
-msgstr "De begrippen van het centrale archief, de werk kopie van de gebruiker en de verzameling van archief revisie bomen zijn geïntroduceerd."
+msgstr "De begrippen van het centrale archief, de werkkopie van de gebruiker en de verzameling van archief revisie bomen zijn geïntroduceerd."
 
 #. (para)
 msgid "We've seen some simple examples of how two collaborators can use Subversion to publish and receive changes from one another, using the 'copy-modify-merge' model."
@@ -1003,7 +1003,7 @@ msgstr "Enkele eenvoudige voorbeelden zijn gegeven over hoe twee medewerkers Sub
 
 #. (para)
 msgid "We've talked a bit about the way Subversion tracks and manages information in a working copy."
-msgstr "Er is kort gesproken over hoe Subversion informatie en wijzigingen bijhoudt in een werk kopie."
+msgstr "Er is kort gesproken over hoe Subversion informatie en wijzigingen bijhoudt in een werkkopie."
 
 #. (para)
 msgid "No matter which protocol you use to access your repositories, you always need to create at least one repository. This can either be done with the Subversion command line client or with TortoiseSVN."
@@ -2761,7 +2761,7 @@ msgstr "Rechts-slepen-menu voor een map met versiebeheer"
 
 #. (para)
 msgid "<placeholder-1/> Other commands are available as drag handlers, when you <action>right drag</action> files or folders to a new location inside working copies or when you <action>right drag</action> a non-versioned file or folder into a directory which is under version control."
-msgstr "Er zijn andere commando’s beschikbaar bij <action>Slepen en plaatsen</action>. Als je bestanden of mappen met<action>rechts sleept</action> naar een nieuwe locatie binnen je werk kopie of als je een bestand of map zonder versiebeheer naar een map met versiebeheer sleept."
+msgstr "Er zijn andere commando’s beschikbaar bij <action>Slepen en plaatsen</action>. Als je bestanden of mappen met<action>rechts sleept</action> naar een nieuwe locatie binnen je werkkopie of als je een bestand of map zonder versiebeheer naar een map met versiebeheer sleept."
 
 #. (title)
 msgid "Common Shortcuts"
@@ -3132,7 +3132,7 @@ msgstr "Veranderen van de werkkopie mapdiepte"
 
 #. (para)
 msgid "Once you have checked out a working copy to a particular depth you can change that depth later to get more or less content using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice>."
-msgstr "Als je een werk kopie met een bepaalde mapdiepte hebt opgehaald, dan kun je de mapdiepte later veranderen met behulp van  <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Verversen naar revisie...</guimenuitem></menuchoice>."
+msgstr "Als je een werkkopie met een bepaalde mapdiepte hebt opgehaald, dan kun je de mapdiepte later veranderen met behulp van  <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Verversen naar revisie...</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "Using an older server"
@@ -6122,7 +6122,7 @@ msgstr "De indeling die hier weergegeven is, is in Subversion 1.5 geïntroduceer
 #. (para)
 #. (para)
 msgid "If the external project is in the same repository, any changes you make there will be included in the commit list when you commit your main project."
-msgstr "Als het externe project zich in hetzelfde archief bevindt, dan zullen wijzigingen die je daarin aanbrengt meegenomen worden in de vastleg lijst als je het het hoofd project vastlegt."
+msgstr "Als het externe project zich in hetzelfde archief bevindt, dan worden de wijzigingen die je daarin aanbrengt meegenomen in de vastleglijst als je het hoofdproject vastlegt."
 
 #. (para)
 #. (para)
@@ -6278,7 +6278,7 @@ msgstr "Aanmaken van Tak of Label"
 
 #. (title)
 msgid "The Branch/Tag Dialog"
-msgstr "De Branch/Tag Dialoog"
+msgstr "De Tak/Label Dialoog"
 
 #. (para)
 msgid "If you have imported your project with the recommended directory structure, creating a branch or tag version is very simple: <placeholder-1/> Select the folder in your working copy which you want to copy to a branch or tag, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branch/Tag...</guimenuitem></menuchoice>."
@@ -6353,7 +6353,7 @@ msgstr "Nog een andere manier om dit te doen is via het logboek boodschappen ven
 
 #. (title)
 msgid "To Checkout or to Switch..."
-msgstr "Ophalen of Schakelen..."
+msgstr "Ophalen of Wisselen..."
 
 #. (primary)
 msgid "switch"
@@ -7261,7 +7261,7 @@ msgstr "Soms als je een pad wilt openen, krijg je een foutmelding in plaats van 
 
 #. (title)
 msgid "Revision Graphs"
-msgstr "Revisiegrafieken"
+msgstr "Revisie schema's"
 
 #. (primary)
 msgid "graph"
@@ -7269,11 +7269,11 @@ msgstr "grafiek"
 
 #. (primary)
 msgid "revision graph"
-msgstr "revisiegrafiek"
+msgstr "revisie schema"
 
 #. (title)
 msgid "A Revision Graph"
-msgstr "Een Revisie Grafiek"
+msgstr "Een Revisie Schema"
 
 #. (para)
 msgid "<placeholder-1/> Sometimes you need to know where branches and tags were taken from the trunk, and the ideal way to view this sort of information is as a graph or tree structure. That's when you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph...</guimenuitem></menuchoice>"
@@ -9599,7 +9599,7 @@ msgstr ""
 #. (title)
 #. (glossterm)
 msgid "Switch"
-msgstr "Switch"
+msgstr "Wisselen"
 
 #. (entry)
 #. (entry)
@@ -10382,7 +10382,7 @@ msgstr "Hoe kan ik..."
 
 #. (para)
 msgid "This appendix contains solutions to problems/questions you might have when using TortoiseSVN."
-msgstr "Deze appendix bevat oplossingen voor problemen/vragen die je mogelijk hebt bij het gebruiken van TortoiseSVN."
+msgstr "Deze appendix bevat oplossingen voor problemen/vragen die je mogelijk hebt bij het gebruik van TortoiseSVN."
 
 #. (title)
 msgid "Move/copy a lot of files at once"
@@ -10422,7 +10422,7 @@ msgstr "leeg bericht"
 
 #. (para)
 msgid "There are two ways to prevent users from committing with an empty log message. One is specific to TortoiseSVN, the other works for all Subversion clients, but requires access to the server directly."
-msgstr ""
+msgstr "Er zijn twee methodes om te voorkomen dat gebruikers wijzigingen vastleggen zonder logboek boodschap. Eentje is specifiek voor TortoiseSVN, de andere werkt op alle Subversion programma's, maar deze heeft dan weer directe toegang tot de server nodig."
 
 #. (title)
 msgid "Hook-script on the server"
@@ -10430,15 +10430,15 @@ msgstr "Hook-script op de server"
 
 #. (para)
 msgid "If you have direct access to the repository server, you can install a pre-commit hook script which rejects all commits with an empty or too short log message."
-msgstr ""
+msgstr "Als je direct toegang tot de server hebt, kun je een vastleg hook script installeren, welke een vastlegging weigert als er een leeg of te kort logboek boodschap wordt gebruikt."
 
 #. (para)
 msgid "In the repository folder on the server, there's a sub-folder <filename>hooks</filename> which contains some example hook scripts you can use. The file <filename>pre-commit.tmpl</filename> contains a sample script which will reject commits if no log message is supplied, or the message is too short. The file also contains comments on how to install/use this script. Just follow the instructions in that file."
-msgstr ""
+msgstr "In de archief map op de server is een sub-map <filename>hooks</filename> aanwezig. Hierin staan enkele hook script voorbeelden, die je kunt gebruiken. Het bestand <filename>pre-commit.tmpl</filename> bevat een voorbeeld script waarmee een vastlegging geweigerd wordt als er geen logboek boodschap ingevuld is of als het bericht te kort is. In dit bestaat staat ook omschreven hoe je het script moet installeren of gebruiken. Volg de instructies die in dat bestand staan."
 
 #. (para)
 msgid "This method is the recommended way if your users also use other Subversion clients than TortoiseSVN. The drawback is that the commit is rejected by the server and therefore users will get an error message. The client can't know before the commit that it will be rejected. If you want to make TortoiseSVN have the <guibutton>OK</guibutton> button disabled until the log message is long enough then please use the method described below."
-msgstr ""
+msgstr "Deze methode is de aanbevolen methode als je gebruikers ook andere Subversion programma's gebruiken dan TortoiseSVN. Het nadeel van deze methode is dat vastlegging geweigerd wordt door de server en de gebruikers dus een foutmelding krijgen. Het programma weet niet dat de vastlegging geweigerd wordt, voordat er contact is gemaakt met de server. Als je wilt dat TortoiseSVN de <guibutton>OK</guibutton> inactief maakt, totdat er een logboek boodschap is ingevuld die lang genoeg is, gebruik dan de methode die hieronder beschreven wordt."
 
 #. (title)
 msgid "Project properties"
@@ -10446,31 +10446,31 @@ msgstr "Project eigenschappen"
 
 #. (para)
 msgid "TortoiseSVN uses properties to control some of its features. One of those properties is the <literal>tsvn:logminsize</literal> property."
-msgstr ""
+msgstr "TortoiseSVN maakt voor enkele functies gebruik van eigenschappen. Eén van die eigenschappen is de <literal>tsvn:logminsize</literal> eigenschap."
 
 #. (para)
 msgid "If you set that property on a folder, then TortoiseSVN will disable the <guibutton>OK</guibutton> button in all commit dialogs until the user has entered a log message with at least the length specified in the property."
-msgstr ""
+msgstr "Als je deze eigenschap aan een map toekent, dan zal TortoiseSVN de <guibutton>OK</guibutton> inactief maken bij alle vastleg vensters, totdat de gebruiker een logboek boodschap heeft ingevoerd met de minimale lengte zoals aangegeven in de eigenschap."
 
 #. (para)
 msgid "For detailed information on those project properties, please refer to <xref linkend=\"tsvn-dug-propertypage\"/>"
-msgstr ""
+msgstr "Lees voor meer informatie over zulke project eigenschappen <xref linkend=\"tsvn-dug-propertypage\"/>."
 
 #. (title)
 msgid "Update selected files from the repository"
-msgstr "Update geselecteerde bestanden in de repository"
+msgstr "Update Geselecteerde Bestanden in het Archief"
 
 #. (para)
 msgid "Normally you update your working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. But if you only want to pick up some new files that a colleague has added without merging in any changes to other files at the same time, you need a different approach."
-msgstr ""
+msgstr "Normaliter ververs je je werkkopie met <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verversen</guimenuitem></menuchoice>. Je hebt een iets andere aanpak nodig, als je maar enkele nieuwe bestanden, die een collega heeft toegevoegd, wilt ophalen zonder meteen wijzigingen aan andere bestanden samen te laten voeren."
 
 #. (para)
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice>. and click on <guibutton>Check repository</guibutton> to see what has changed in the repository. Select the files you want to update locally, then use the context menu to update just those files."
-msgstr ""
+msgstr "Gebruik <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Kijk of er updates zijn</guimenuitem></menuchoice> en klik op <guibutton>Controleer archief</guibutton> om te zien wat er gewijzigd is in het archief. Selecteer de bestanden die je lokaal wilt verversen en gebruik dan het context menu om deze bestanden te verversen."
 
 #. (title)
 msgid "Roll back (Undo) revisions in the repository"
-msgstr "Draai revisies terug in de repository (ongedaan maken)"
+msgstr "Draai Revisies Terug in het Archief (ongedaan maken)"
 
 #. (primary)
 msgid "rollback"
@@ -10486,64 +10486,64 @@ msgstr "wijziging ongedaan maken"
 
 #. (title)
 msgid "Use the revision log dialog"
-msgstr "Gebruik de revisie log-dialoog"
+msgstr "Gebruik het logboek boodschappen scherm"
 
 #. (para)
 msgid "The easiest way to revert the changes from a single revision, or from a range of revisions, is to use the revision log dialog. This is also the method to use of you want to discard recent changes and make an earlier revision the new HEAD."
-msgstr ""
+msgstr "De snelste methode om wijzigingen van één of een reeks van revisies ongedaan te maken, is door gebruik te maken van het logboek venster. Deze methode moet je ook gebruiken als je recentelijke wijzigingen wilt negeren en oudere revisie de nieuwe HEAD revisie wilt laten worden."
 
 #. (para)
 msgid "Select the file or folder in which you need to revert the changes. If you want to revert all changes, this should be the top level folder."
-msgstr ""
+msgstr "Selecteer het bestand of de map waarvoor je de wijzigingen ongedaan wilt maken. Als je alle wijzigingen ongedaan wilt maken, moet je de hoogste/basis map selecteren."
 
 #. (para)
 msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to display a list of revisions. You may need to use <guibutton>Show All</guibutton> or <guibutton>Next 100</guibutton> to show the revision(s) you are interested in."
-msgstr ""
+msgstr "Selecteer <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Toon logboek</guimenuitem></menuchoice> om de lijst met revisies weer te geven. Je moet misschien de <guibutton>Toon Alles</guibutton> of <guibutton>Volgende 100</guibutton> knoppen gebruiken om de revisie(s) te zien, waarin je geïnteresseerd bent."
 
 #. (para)
 msgid "Select the revision you wish to revert. If you want to undo a range of revisions, select the first one and hold the <keycap>Shift</keycap> key while selecting the last one. Note that for multiple revisions, the range must be unbroken with no gaps. <action>Right click</action> on the selected revision(s), then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Selecteer de revisie die je ongedaan wilt maken. Als je een reeks van revisies ongedaan wilt maken, selecteer de eerste en houdt de <keycap>Shift</keycap> knop ingedrukt terwijl je de laatste selecteert. Merk op dat voor meerdere revisies de reeks niet onderbroken mag zijn met gaten. <action>Klik met rechts</action> op de geselecteerde revisie(s) en kies <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revisie wijzigingen ongedaan maken</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "Or if you want to make an earlier revision the new HEAD revision, <action>right click</action> on the selected revision, then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert to this revision</guimenuitem></menuchoice>. This will discard <emphasis>all</emphasis> changes after the selected revision."
-msgstr ""
+msgstr "Of als je een eerdere revisie de nieuwe HEAD revisie wilt maken, <action>klik met rechts</action> op de geselecteerde revisie en selecteer vervolgens <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Ongedaan maken tot deze revisie</guimenuitem></menuchoice>. Hiermee worden <emphasis>alle</emphasis> wijzigingen na de geselecteerde revisie ongedaan gemaakt."
 
 #. (para)
 #. (para)
 msgid "You have reverted the changes within your working copy. Check the results, then commit the changes."
-msgstr ""
+msgstr "Je hebt nu de wijzigingen in je werkkopie ongedaan gemaakt. Controleer het resultaat en leg de wijzigingen vast."
 
 #. (title)
 msgid "Use the merge dialog"
-msgstr "Gebruik de merge-dialoog"
+msgstr "Gebruik het samenvoeg scherm"
 
 #. (para)
 msgid "To undo a larger range of revisions, you can use the Merge dialog. The previous method uses merging behind the scenes; this method uses it explicitly."
-msgstr ""
+msgstr "Voor ongedaan maken van wijzigingen in een groter bereik van revisies gebruik je het samenvoeg scherm. De vorige methode voegt achter de schermen dingen samen. Met deze methode wordt het expliciet gedaan."
 
 #. (para)
 msgid "In your working copy select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Selecteer in je werkkopie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Samenvoegen</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "In the <guilabel>From:</guilabel> field enter the full folder URL of the branch or tag containing the changes you want to revert in your working copy. This should come up as the default URL."
-msgstr ""
+msgstr "Vul in het <guilabel>Van:</guilabel> veld de volledige URL van de map van de tak of label in, waarvoor je de wijzigingen ongedaan wilt maken in jouw werkkopie. Deze zal als standaard URL getoond moeten worden."
 
 #. (para)
 msgid "In the <guilabel>From Revision</guilabel> field enter the revision number that you are currently at. If you are sure there is no-one else making changes, you can use the HEAD revision."
-msgstr ""
+msgstr "Vul in het <guilabel>Van revisie</guilabel> veld het huidige revisienummer van je werkkopie in. Als je er zeker van bent dat niemand anders wijzigingen aan het doorvoeren is, dan kun je de HEAD revisie gebruiken."
 
 #. (para)
 msgid "make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is checked."
-msgstr ""
+msgstr "Zorg er voor dat het <guilabel>Gebruik \"Van:\" URL</guilabel> selectievak aangevinkt is."
 
 #. (para)
 msgid "In the <guilabel>To Revision</guilabel> field enter the revision number that you want to revert to, namely the one <emphasis>before</emphasis> the first revision to be reverted."
-msgstr ""
+msgstr "Vul in het <guilabel>Naar Revisie</guilabel> veld het revisienummer in tot waar je de wijzigingen ongedaan wilt maken, degene <emphasis>voor</emphasis> de eerste revisie die ongedaan gemaakt moet worden."
 
 #. (para)
 msgid "Click <guibutton>OK</guibutton> to complete the merge."
-msgstr ""
+msgstr "Klik op <guibutton>OK</guibutton> om de samenvoeging af te ronden."
 
 #. (title)
 msgid "Use <literal>svndumpfilter</literal>"
@@ -10551,23 +10551,23 @@ msgstr "Gebruik <literal>svndumpfilter</literal>"
 
 #. (para)
 msgid "Since TortoiseSVN never loses data, your <quote>rolled back</quote> revisions still exist as intermediate revisions in the repository. Only the HEAD revision was changed to a previous state. If you want to make revisions disappear completely from your repository, erasing all trace that they ever existed, you have to use more extreme measures. Unless there is a really good reason to do this, it is <emphasis>not recommended</emphasis>. One possible reason would be that someone committed a confidential document to a public repository."
-msgstr ""
+msgstr "Omdat TortoiseSVN nooit gegevens zal verliezen, bestaan je <quote>ongedaan gemaakt</quote> revisies nog steeds als tussentijdse revisies in het archief. De HEAD revisie is alleen veranderd naar een eerdere status. Als je wilt dat de revisies volledig uit het archief verdwijnen, inclusief alle informatie over het bestaan ervan, dan moet je extreme maatregelen nemen. Tenzij er hiervoor echt een hele goede reden is, wordt dit <emphasis>met klem afgeraden</emphasis>. Een mogelijke reden is bijvoorbeeld dat iemand een vertrouwelijk document in een publiek archief heeft vastgelegd."
 
 #. (para)
 msgid "The only way to remove data from the repository is to use the Subversion command line tool <literal>svnadmin</literal>. You can find a description of how this works in the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.maint.html\"><citetitle>Repository Maintenance</citetitle></ulink>."
-msgstr ""
+msgstr "De enige manier waarop gegevens echt uit het archief verwijderd kunnen worden, is door het Subversion opdrachtprompt programma <literal>svnadmin</literal> te gebruiken. Je kunt een beschrijving van de werking vinden op <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.maint.html\"><citetitle>Repository Maintenance</citetitle></ulink>."
 
 #. (title)
 msgid "Compare two revisions of a file or folder"
-msgstr "Vergelijk twee revisies van een bestand of map"
+msgstr "Vergelijk Twee Revisies van een Bestand of Map"
 
 #. (primary)
 msgid "compare files"
-msgstr "vergelijk bestanden"
+msgstr "bestanden vergelijken"
 
 #. (primary)
 msgid "compare folders"
-msgstr "vergelijk mappen"
+msgstr "mappen vergelijken"
 
 #. (primary)
 msgid "changes"
@@ -10575,19 +10575,19 @@ msgstr "veranderingen"
 
 #. (para)
 msgid "If you want to compare two revisions in an item's history, for example revisions 100 and 200 of the same file, just use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to list the revision history for that file. Pick the two revisions you want to compare then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Als je de geschiedenis van twee revisies van een object wilt vergelijken, bijvoorbeeld voor revisie 100 en 200 van hetzelfde bestand, gebruik je <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Toon logboek</guimenuitem></menuchoice> om de geschiedenis van dat bestand te bekijken. Selecteer de twee revisies die je wilt vergelijken en gebruik dan <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Vergelijk Revisies</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "If you want to compare the same item in two different trees, for example the trunk and a branch, you can use the repository browser to open up both trees, select the file in both places, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Als je hetzelfde object in twee verschillende mapstructuren wilt bekijken, bijvoorbeeld in de basislijn en een tak, gebruik dan de archief-verkenner om beide boomstructuren te openen. Selecteer de bestanden in beide locaties en gebruik <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Vergelijk Revisies</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "If you want to compare two trees to see what has changed, for example the trunk and a tagged release, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph</guimenuitem></menuchoice> Select the two nodes to compare, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare HEAD Revisions</guimenuitem></menuchoice>. This will show a list of changed files, and you can then select individual files to view the changes in detail. You can also export a tree structure containing all the changed files, or simply a list of all changed files. Read <xref linkend=\"tsvn-dug-compare-revs\"/> for more information. Alternatively use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Unified Diff of HEAD Revisions</guimenuitem></menuchoice> to see a summary of all differences, with minimal context."
-msgstr ""
+msgstr "Als je twee boomstructuren wilt vergelijken om na te gaan wat er gewijzigd is, bijvoorbeeld de basislijn en een gelabelde vrijgave, gebruik dan het <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revisie schema</guimenuitem></menuchoice>. Selecteer de twee te vergelijken knopen en kies <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Vergelijk HEAD Revisies</guimenuitem></menuchoice>. Er wordt dan een lijst met gewijzigde bestanden getoond waarin je individuele bestanden kunt selecteren, waarvoor je de wijzigingen in detail wilt zien. Je kunt ook de mapstructuur met alle gewijzigde bestanden exporteren, of simpelweg een lijst me gewijzigde bestanden. Lees <xref linkend=\"tsvn-dug-compare-revs\"/> voor meer informatie. Als alternatief kun je ook <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>GNU diff van HEAD revisies</guimenuitem></menuchoice> om een samenvatting met minimale context van de wijzigingen te bekijken."
 
 #. (title)
 msgid "Include a common sub-project"
-msgstr "Include een veelgebruikt subproject"
+msgstr "Een veelgebruikt subproject gebruiken"
 
 #. (primary)
 msgid "common projects"
@@ -10595,43 +10595,43 @@ msgstr "veelvoorkomende projecten"
 
 #. (primary)
 msgid "vendor projects"
-msgstr ""
+msgstr "vendor projecten"
 
 #. (para)
 msgid "Sometimes you will want to include another project within your working copy, perhaps some library code. You don't want to make a duplicate of this code in your repository because then you would lose connection with the original (and maintained) code. Or maybe you have several projects which share core code. There are at least 3 ways of dealing with this."
-msgstr ""
+msgstr "Soms wil je een ander project in je werkkopie opnemen, bijvoorbeeld een bepaalde bibliotheek. Je wilt geen duplicaat maken van deze broncode in je archief, omdat je dan de verbinding met de originele (en onderhouden) broncode verliest. Of je misschien heb je verschillende projecten die van dezelfde stukken broncode gebruik maken. Er zijn tenminste 3 methodes om hiermee om te gaan."
 
 #. (title)
 msgid "Use svn:externals"
-msgstr "Gebruik svn:externals"
+msgstr "svn:externals Gebruiken"
 
 #. (para)
 msgid "Set the <literal>svn:externals</literal> property for a folder in your project. This property consists of one or more lines; each line has the name of a sub-folder which you want to use as the checkout folder for common code, and the repository URL that you want to be checked out there. For full details refer to <xref linkend=\"tsvn-dug-externals\"/>."
-msgstr ""
+msgstr "Stel de <literal>svn:externals</literal> eigenschap in op een map in je project. Deze eigenschap kan één of meer regels hebben; elke regel bevat de naam van een sub-map welke je wilt gebruiken als de doelmap voor gemeenschappelijke broncode en de URL van het archief waar vandaan je de gegevens op wilt halen. Lees voor meer details <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (para)
 msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. The sub-folders will be created automatically if required. Each time you update your main working copy, you will also receive the latest version of all external projects."
-msgstr ""
+msgstr "Leg de nieuwe map vast in het archief. Zodra je nu ververst, zal Subversion een kopie van dat project maken vanuit het archief naar jouw werkkopie. Sub-mappen worden automatisch aangemaakt als dat nodig is. Elke keer dat je je werkkopie ververst, wordt ook de laatste wijzigingen van het externe project opgehaald."
 
 #. (para)
 msgid "Of the three methods described, this is the only one which needs no setup on the client side. Once externals are specified in the folder properties, all clients will get populated folders when they update."
-msgstr ""
+msgstr "Van de drie beschreven methodes, is dit de enige methode die geen instellingen vereist aan de kant van de gebruikers. Als de externen eenmaal toegekend zijn aan de map-eigenschappen, zullen alle gebruikers automatisch de betreffende externe gegevens krijgt als zij hun werkkopie verversen."
 
 #. (title)
 msgid "Use a nested working copy"
-msgstr ""
+msgstr "Een geneste werkkopie gebruiken "
 
 #. (para)
 msgid "Create a new folder within your project to contain the common code, but do not add it to Subversion"
-msgstr ""
+msgstr "Maak een nieuwe map aan binnen je project, waarin de gemeenschappelijke broncode opgeslagen kan worden. Voeg deze map echter niet toe aan Subversion."
 
 #. (para)
 msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> for the new folder and checkout a copy of the common code into it. You now have a separate working copy nested within your main working copy."
-msgstr ""
+msgstr "Selecteer <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ophalen</guimenuitem></menuchoice>  voor de nieuwe map en haal een kopie van de gemeenschappelijke broncode op. Je hebt nu een aparte werkkopie genest in jouw hoofd werkkopie."
 
 #. (para)
 msgid "The two working copies are independent. When you commit changes to the parent, changes to the nested WC are ignored. Likewise when you update the parent, the nested WC is not updated."
-msgstr ""
+msgstr "De twee werkkopieën zijn onafhankelijk. Als je wijzigingen vastlegt van de bovenliggende map, dan worden wijzigingen in de geneste werkkopie genegeerd. Ook als je de bovenliggende map ververst, wordt de geneste werkkopie niet ververst. "
 
 #. (title)
 msgid "Use a relative location"
@@ -10646,6 +10646,12 @@ msgid ""
 "C:\\Projects\\Common\n"
 "</screen> and refer to the common code using a relative path, eg. <filename>..\\..\\Common\\DSPcore</filename>."
 msgstr ""
+"Als je dezelfde gemeenschappelijke broncode voor verschillende projecten gebruikt en je niet meerdere werkkopieën wilt hebben voor elk project dat van die code gebruik maakt, dan kun je die broncode ook ophalen naar een aparte locatie die bekend is bij alle projecten die er gebruik van maken. Bijvoorbeeld: <screen>\n"
+"C:\\Projects\\Proj1\n"
+"C:\\Projects\\Proj2\n"
+"C:\\Projects\\Proj3\n"
+"C:\\Projects\\Common\n"
+"</screen> en verwijs dan naar de gemeenschappelijke broncode door een relatief pad te gebruiken, bijv. <filename>..\\..\\Common\\DSPcore</filename>."
 
 #. (para)
 msgid ""
@@ -10655,14 +10661,19 @@ msgid ""
 "#include \"X:\\superio\\superio.h\"\n"
 "</screen>"
 msgstr ""
+"Als je projecten over verschillende niet gerelateerde locaties verspreid zijn, dan kun je de volgende variant gebruiken. Je kunt je gemeenschappelijke broncode op een bepaalde locatie opslaan en door gebruik te maken van schijfletter vervanging de locatie een hard pad geven, welke je direct kunt opnemen in de code van je projecten. Haal bijvoorbeeld de gemeenschappelijke broncode op naar <filename>D:\\Documents\\Framework</filename> of <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> en gebruik dan <screen>\n"
+"SUBST X: \"D:\\Documents\\framework\"\n"
+"</screen> om de toegewezen schijfletter te kunnen gebruiken in je broncode. Je kunt dan dus absolute locaties gebruiken in je code. <screen>\n"
+"#include \"X:\\superio\\superio.h\"\n"
+"</screen>"
 
 #. (para)
 msgid "This method will only work in an all-PC environment, and you will need to document the required drive mappings so your team know where these mysterious files are. This method is strictly for use in closed development environments, and not recommended for general use."
-msgstr ""
+msgstr "Deze methode zal alleen een PC-omgeving en je moet nauwkeurig aangeven welke schijfletters er toegewezen moeten worden, zodat je team weer waar ze de mysterieuze bestanden kunnen vinden. Deze methode moet je alleen gebruiken in een gesloten ontwikkelomgeving en is niet aanbevolen voor generiek gebruik."
 
 #. (title)
 msgid "Create a shortcut to a repository"
-msgstr "Maak een snelkoppeling naar het archief"
+msgstr "Maak een snelkoppeling naar een archief"
 
 #. (primary)
 msgid "shortcut"
@@ -10674,6 +10685,9 @@ msgid ""
 "TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\"\n"
 "</screen> Of course you need to include the real repository URL."
 msgstr ""
+"Als je de archief-verkenner regelmatig op dezelfde locatie wilt openen, dan kun je een bureaublad snelkoppeling maken en de parameters direct doorgeven aan het TortoiseProc programma. Maak eenvoudigweg een nieuwe snelkoppeling aan en stel het doel in op: <screen>\n"
+"TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\"\n"
+"</screen> Natuurlijk moet je wel de echter URL naar het archief gebruiken."
 
 #. (title)
 msgid "Ignore files which are already versioned"
@@ -10681,7 +10695,7 @@ msgstr "Negeer bestanden die al opgenomen zijn in het versiebeheer"
 
 #. (primary)
 msgid "remove versioning"
-msgstr "verwijder versionering"
+msgstr "versiebeheer verwijder"
 
 #. (primary)
 msgid "detach from repository"
@@ -10689,43 +10703,43 @@ msgstr "scheiden van archief"
 
 #. (para)
 msgid "If you accidentally added some files which should have been ignored, how do you get them out of version control without losing them? Maybe you have your own IDE configuration file which is not part of the project, but which took you a long time to set up just the way you like it."
-msgstr ""
+msgstr "Stel, je hebt per ongeluk enkele bestanden toegevoegd aan het archief, terwijl die eigenlijk genegeerd zouden moeten worden. Hoe krijg je die bestanden dan weer uit het versiebeheer systeem? Je hebt bijvoorbeeld je eigen IDE configuratie bestand die geen onderdeel is van het project, maar wat je wel veel tijd heeft gekost om alles naar jouw wens in te stellen."
 
 #. (para)
 msgid "If you have not yet committed the add, then all you have to do is use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert...</guimenuitem></menuchoice> to undo the add. You should then add the file(s) to the ignore list so they don't get added again later by mistake."
-msgstr ""
+msgstr "Als je de toevoeging nog niet vastgelegd hebt, dan hoef je alleen maar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ongedaan maken</guimenuitem></menuchoice> te gebruiken om de toevoeging ongedaan te maken. Je moet dan het bestand (of de bestanden) aan de negeerlijst toevoegen, zodat deze later niet alsnog per ongeluk worden toegevoegd aan het archief."
 
 #. (para)
 msgid "Hold the <keycap>Shift</keycap> key to get the extended context menu and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete (keep local)</guimenuitem></menuchoice> to mark the file/folder for deletion from the repository without losing the local copy."
-msgstr ""
+msgstr "Houdt de <keycap>Shift</keycap> ingedrukt om in het uitgebreide context menu te komen. Gebruik dan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verwijderen (lokaal behouden)</guimenuitem></menuchoice> om het bestand of de map te markeren als te verwijderen uit het archief zonder de lokale kopie te verliezen."
 
 #. (para)
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder."
-msgstr ""
+msgstr "De bovenliggende map <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vastleggen</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "Add the file/folder to the ignore list so you don't get into the same trouble again."
-msgstr ""
+msgstr "Het bestand of de map aan de negeerlijst toevoegen, zodat je niet nogmaals in de problemen belandt."
 
 #. (para)
 msgid "If the files are already in the repository, you have to do a little more work. <placeholder-1/>"
-msgstr ""
+msgstr "Als de bestanden toch al in het archief terecht zijn gekomen, moet je iets meer werk verrichten. <placeholder-1/>"
 
 #. (title)
 msgid "Unversion a working copy"
-msgstr "Verwijderen van versionering van werkkopie"
+msgstr "Versiebeheer van een werkkopie verwijderen"
 
 #. (para)
 msgid "If you have a working copy which you want to convert back to a plain folder tree without the <literal>.svn</literal> directories, you can simply export it to itself. Read <xref linkend=\"tsvn-dug-export-unversion\"/> to find out how."
-msgstr ""
+msgstr "Als je een werkkopie hebt en die wilt herstellen naar een normale mapstructuur zonder de <literal>.svn</literal> mappen, dan kun je deze werkkopie eenvoudig naar dezelfde locatie exporteren. Lees <xref linkend=\"tsvn-dug-export-unversion\"/> voor meer informatie hierover."
 
 #. (title)
 msgid "Remove a working copy"
-msgstr "Verwijdern een werkkopie"
+msgstr "Een werkkopie verwijderen"
 
 #. (para)
 msgid "If you have a working copy which you no longer need, how do you get rid of it cleanly? Easy - just delete it in Windows Explorer! Working copies are private local entities, and they are self-contained."
-msgstr ""
+msgstr "Hoe kom je op een nette manier van een werkkopie, waar je niets meer mee wilt doen, af? Simpel - gewoon verwijderen met je Windows Verkenner! Werkkopieën zijn eigen afzonderlijke lokale entiteiten."
 
 #. (title)
 msgid "Useful Tips For Administrators"
@@ -10877,19 +10891,19 @@ msgstr "Menuoptie"
 #. (title)
 #. (glossterm)
 msgid "Checkout"
-msgstr "Checkout"
+msgstr "Ophalen"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Update"
-msgstr "Bijwerken"
+msgstr "Verversen"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Commit"
-msgstr "Commit"
+msgstr "Vastleggen"
 
 #. (entry)
 #. (title)
@@ -10901,7 +10915,7 @@ msgstr "Toevoegen"
 #. (title)
 #. (glossterm)
 msgid "Revert"
-msgstr "Terugdraaien"
+msgstr "Ongedaan maken"
 
 #. (entry)
 #. (glossterm)
@@ -10912,16 +10926,16 @@ msgstr "Oplossen"
 #. (title)
 #. (glossterm)
 msgid "Export"
-msgstr "Exporteer"
+msgstr "Exporteren"
 
 #. (entry)
 msgid "Create Repository here"
-msgstr "Maak hier Repository aan"
+msgstr "Maak hier archief aan"
 
 #. (entry)
 #. (title)
 msgid "Branch/Tag"
-msgstr "Branch/Tag"
+msgstr "Tak/Label"
 
 #. (entry)
 #. (title)
@@ -10953,7 +10967,7 @@ msgstr "Verschil"
 #. (entry)
 #. (title)
 msgid "Show Log"
-msgstr "Weergeef log"
+msgstr "Toon logboek"
 
 #. (entry)
 #. (title)
@@ -10982,7 +10996,7 @@ msgstr "Archief-verkenner"
 #. (title)
 #. (glossterm)
 msgid "Blame"
-msgstr "Schuld geven"
+msgstr "Verklaren"
 
 #. (entry)
 #. (title)
@@ -10996,7 +11010,7 @@ msgstr "Patch toepassen"
 
 #. (entry)
 msgid "Revision graph"
-msgstr "Revisiegrafiek"
+msgstr "Revisie schema"
 
 #. (entry)
 #. (glossterm)
@@ -11005,7 +11019,7 @@ msgstr "Blokkade"
 
 #. (entry)
 msgid "Remove Lock"
-msgstr "Verwijder blokkering"
+msgstr "Blokkade opheffen"
 
 #. (entry)
 msgid "Properties"
@@ -11610,7 +11624,7 @@ msgstr ""
 
 #. (title)
 msgid "Command Line Interface Cross Reference"
-msgstr ""
+msgstr "Opdrachtprompt Interface Cross Reference"
 
 #. (primary)
 msgid "command line client"
@@ -11622,31 +11636,31 @@ msgstr "CLI"
 
 #. (para)
 msgid "Sometimes this manual refers you to the main Subversion documentation, which describes Subversion in terms of the Command Line Interface (CLI). To help you understand what TortoiseSVN is doing behind the scenes, we have compiled a list showing the equivalent CLI commands for each of TortoiseSVN's GUI operations."
-msgstr ""
+msgstr "Deze handleiding verwijst soms naar de Subversion documentatie, die de Subversion opdrachtprompt interface (Command Line Interface, CLI) beschrijft. Om een indruk te geven van wat TortoiseSVN op de achtergrond doet, hebben we een lijst gemaakt van de equivalente CLI commando's voor elke TortoiseSVN GUI actie."
 
 #. (para)
 msgid "Even though there are CLI equivalents to what TortoiseSVN does, remember that TortoiseSVN does <emphasis>not</emphasis> call the CLI but uses the Subversion library directly."
-msgstr ""
+msgstr "Onthoudt dat, ondanks dat er CLI equivalenten zijn voor wat TortoiseSVN doet, TortoiseSVN de bibliotheken direct benadert en <emphasis>niet</emphasis> de CLI commando's gebruikt."
 
 #. (para)
 msgid "If you think you have found a bug in TortoiseSVN, we may ask you to try to reproduce it using the CLI, so that we can distinguish TortoiseSVN issues from Subversion issues. This reference tells you which command to try."
-msgstr ""
+msgstr "Als je denkt dat je een bug in TortoiseSVN hebt gevonden, kan het zijn dat we je vragen om het probleem te reproduceren met CLI commando's. We kunnen dan makkelijk een onderscheid maken tussen TortoiseSVN en Subversion problemen. Dit overzicht verteld je welke commando's je moet gebruiken."
 
 #. (title)
 msgid "Conventions and Basic Rules"
-msgstr ""
+msgstr "Conventies en Basis Regels"
 
 #. (para)
 msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <systemitem class=\"url\">http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</systemitem>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
-msgstr ""
+msgstr "In de volgende beschrijvingen wordt de URL van een archief eenvoudig weergegeven als <literal>URL</literal>, met als voorbeeld <systemitem class=\"url\">http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</systemitem>. Het pad van de werkkopie wordt aangegeven als <literal>PATH</literal>, met als voorbeeld <filename>C:\\TortoiseSVN\\trunk</filename>."
 
 #. (para)
 msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
-msgstr ""
+msgstr "Omdat TortoiseSVN een Windows Shell uitbreiding is, heeft het geen idee van de huidige werkkopie map. Alle paden van werkkopieën moeten als absolute paden opgegeven worden, niet als relatieve paden."
 
 #. (para)
 msgid "Certain items are optional, and these are often controlled by checkboxes or radio buttons in TortoiseSVN. These options are shown in [square brackets] in the command line definitions."
-msgstr ""
+msgstr "Bepaalde onderdelen zijn optioneel. Deze zijn dan ook meestal als selectievak en radiobutton in TortoiseSVN beschikbaar. Deze opties worden weergegeven tussen [blokhaken] in de definitie van de opdrachtregel."
 
 #. (screen)
 #, no-wrap
@@ -11654,19 +11668,21 @@ msgid ""
 "\n"
 "svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
 msgstr ""
+"\n"
+"svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
 
 #. (para)
 msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
-msgstr ""
+msgstr "Als <guilabel>Alleen de bovenste map ophalen</guilabel>  is aangevinkt, gebruik dan den <literal>-N</literal> optie."
 
 #. (para)
 #. (para)
 msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
-msgstr ""
+msgstr "Als <guilabel>Externen uitsluiten</guilabel> aangevinkt is, gebruik dan de <literal>--ignore-externals</literal> optie."
 
 #. (para)
 msgid "If you are checking out a specific revision, specify that after the URL using <literal>-r</literal> switch."
-msgstr ""
+msgstr "Als je een specifieke revisie ophaalt, specificeer deze dan na de URL met de <literal>-r</literal> optie."
 
 #. (screen)
 #, no-wrap
@@ -11675,18 +11691,21 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] PATH\n"
 msgstr ""
+"\n"
+"svn info URL_of_WC\n"
+"svn update [-r rev] PATH\n"
 
 #. (para)
 msgid "Updating multiple items is currently not an atomic operation in Subversion. So TortoiseSVN first finds the HEAD revision of the repository, and then updates all items to that particular revision number to avoid creating a mixed revision working copy."
-msgstr ""
+msgstr "Het verversen van meerdere objecten is op dit moment niet een enkele actie in Subversion. TortoiseSVN zoekt eerst de HEAD revisie van het archief en ververst dan alle objecten naar die specifieke revisie om te voorkomen dat er een werkkopie ontstaat met verschillende revisies."
 
 #. (para)
 msgid "If only one item is selected for updating or the selected items are not all from the same repository, TortoiseSVN just updates to HEAD."
-msgstr ""
+msgstr "Als maar één object geselecteerd is voor het verversen of de geselecteerde objecten zijn niet allemaal uit hetzelfde archief, dan zal TortoiseSVN gewoon naar de HEAD revisie verversen."
 
 #. (para)
 msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but offers more options."
-msgstr ""
+msgstr "Er worden geen opdrachtregel opties gebruikt hierbij. <guilabel>Verversen naar revisie</guilabel> gebruikt ook het verversen commando, maar biedt meer opties."
 
 #. (title)
 msgid "Update to Revision"
@@ -11699,14 +11718,17 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] [-N] [--ignore-externals] PATH\n"
 msgstr ""
+"\n"
+"svn info URL_of_WC\n"
+"svn update [-r rev] [-N] [--ignore-externals] PATH\n"
 
 #. (para)
 msgid "If <guilabel>Only update the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
-msgstr ""
+msgstr "Als <guilabel>Alleen de bovenste map verversen</guilabel> is aangevinkt, gebruik dan de <literal>-N</literal> optie."
 
 #. (para)
 msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
-msgstr ""
+msgstr "Het vastleg venster van TortoiseSVN gebruikt meerdere Subversion commando's. In de eerste fase wordt een status controle uitgevoerd om te bepalen welke objecten in je werkkopie mogelijk vastgelegd moeten worden. Je kunt de lijst bekijken, bestanden vergelijken ten opzichte van de BASE en de objecten selecteren die je mee wilt nemen bij het vastleggen."
 
 #. (screen)
 #. (screen)
@@ -11722,11 +11744,11 @@ msgstr ""
 #. (para)
 #. (para)
 msgid "If <guilabel>Show unversioned files</guilabel> is checked, TortoiseSVN will also show all unversioned files and folders in the working copy hierarchy, taking account of the ignore rules. This particular feature has no direct equivalent in Subversion, as the <literal>svn status</literal> command does not descend into unversioned folders."
-msgstr ""
+msgstr "Als <guilabel>Toon bestanden zonder versiebeheer</guilabel> aangevinkt is, zal TortoiseSVN alle bestanden en mappen zonder versiebeheer in je werkkopie laten zien, rekening houdend met de negeer regels. Deze functie heeft geen directe equivalent in Subversion, omdat het <literal>svn status</literal> commando niet afdaalt in mappen zonder versiebeheer."
 
 #. (para)
 msgid "If you check any unversioned files and folders, those items will first be added to your working copy."
-msgstr ""
+msgstr "Als je bestanden en mappen zonder versiebeheer controleert, dan zullen die objecten eerst aan je werkkopie worden toegevoegd."
 
 #. (screen)
 #. (screen)
@@ -11740,7 +11762,7 @@ msgstr ""
 
 #. (para)
 msgid "When you click on OK, the Subversion commit takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive commit of the working copy. If you deselect some files, then a non-recursive commit (<literal>-N</literal>) must be used, and every path must be specified individually on the commit command line."
-msgstr ""
+msgstr "Als je op OK klikt, zal de Subversion vastlegging plaatsvinden. Als je alle bestandsselectievakken in de standaard stand hebt laten staan, zal TortoiseSVN een enkele recursieve vastlegging van je werkkopie uitvoeren. Als je enkele bestande de-selecteert, dan moet een niet-recursieve vastlegging (<literal>-N</literal>) gebruikt worden en moet elke pad apart gespecificeerd worden in de vastlegging opdrachtregel."
 
 #. (screen)
 #, no-wrap
@@ -11748,16 +11770,18 @@ msgid ""
 "\n"
 "svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
 msgstr ""
+"\n"
+"svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
 
 #. (para)
 #. (para)
 #. (para)
 msgid "<literal>LogMessage</literal> here represents the contents of the log message edit box. This can be empty."
-msgstr ""
+msgstr "<literal>LogMessage</literal> vertegenwoordigt hier de inhoud van het logboek boodschap invoerveld. Deze kan leeg gelaten worden."
 
 #. (para)
 msgid "If <guilabel>Keep locks</guilabel> is checked, use the <literal>--no-unlock</literal> switch."
-msgstr ""
+msgstr "Als <guilabel>Blokkade handhaven</guilabel> aangevinkt is, gebruik dan de <literal>--no-unlock</literal> optie."
 
 #. (screen)
 #, no-wrap
@@ -11770,11 +11794,11 @@ msgstr ""
 
 #. (para)
 msgid "If you use Diff from the main context menu, you are diffing a modified file against its BASE revision. The output from the CLI command above also does this and produces output in unified-diff format. However, this is not what TortoiseSVN is using. TortoiseSVN uses TortoiseMerge (or a diff program of your choosing) to display differences visually between full-text files, so there is no direct CLI equivalent."
-msgstr ""
+msgstr "Als je Verschil gebruikt vanaf het hoofd context menu, dan ben je een gewijzigd bestand aan het vergelijken met de BASE revisie. De uitkomst van bovenstaande CLI commando voert ook deze actie uit en levert het resultaat op in een unified-diff formaat. Dit is echter niet wat TortoiseSVN gebruikt. TortoiseSVN gebruikt TortoiseMerge (of een ander vergelijk programma waarvoor jij gekozen hebt) voor het visueel weergeven van verschillen tussen volledig op tekst gebaseerde bestanden. Er is hier dus geen CLI equivalent voor."
 
 #. (para)
 msgid "You can also diff any 2 files using TortoiseSVN, whether or not they are version controlled. TortoiseSVN just feeds the two files into the chosen diff program and lets it work out where the differences lie."
-msgstr ""
+msgstr "Je kunt ook 2 willekeurige bestanden vergelijken met TortoiseSVN, onafhankelijk of deze versiebeheer hebben. TortoiseSVN geeft de twee bestanden door aan het gekozen vergelijkingsprogramma en laat dat programma de verschillen uitzoeken."
 
 #. (screen)
 #, no-wrap
@@ -11784,14 +11808,18 @@ msgid ""
 "  or\n"
 "svn log -v -r M:N [--stop-on-copy] PATH\n"
 msgstr ""
+"\n"
+"svn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n"
+"  or\n"
+"svn log -v -r M:N [--stop-on-copy] PATH\n"
 
 #. (para)
 msgid "By default, TortoiseSVN tries to fetch 100 log messages using the --limit method. If the settings instruct it to use old APIs, then the second form is used to fetch the log messages for 100 repository revisions."
-msgstr ""
+msgstr "Standaard beperkt TortoiseSVN het aantal logboek boodschappen tot 100 met de --limit methode. Als de instellingen aangeven om oude API's te gebruiken, dan wordt de tweede indeling gebruikt voor het ophalen van de logboek boodschappen voor 100 archief revisies."
 
 #. (para)
 msgid "If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal>--stop-on-copy</literal> switch."
-msgstr ""
+msgstr "Als <guilabel>Stoppen bij kopie/hernoemd bestand</guilabel>  is aangevinkt, gebruik dan de <literal>--stop-on-copy</literal> optie."
 
 #. (screen)
 #, no-wrap
@@ -11801,18 +11829,22 @@ msgid ""
 "  or\n"
 "svn status -u -v PATH\n"
 msgstr ""
+"\n"
+"svn status -v PATH\n"
+"  or\n"
+"svn status -u -v PATH\n"
 
 #. (para)
 msgid "The initial status check looks only at your working copy. If you click on <guibutton>Check repository</guibutton> then the repository is also checked to see which files would be changed by an update, which requires the <literal>-u</literal> switch."
-msgstr ""
+msgstr "De initiële controle van de statussen kijkt alleen naar je werkkopie. Als je op <guibutton>Controleer archief</guibutton> klikt, dan wordt er ook in het archief gekeken welke bestanden er veranderen zullen bij het verversen. Hiervoor wordt de <literal>-u</literal> optie gebruikt."
 
 #. (title)
 msgid "Revision Graph"
-msgstr "Revisiegrafiek"
+msgstr "Revisie schema"
 
 #. (para)
 msgid "The revision graph is a feature of TortoiseSVN only. There's no equivalent in the command line client."
-msgstr ""
+msgstr "Het revisie schema is een functie van TortoiseSVN. Er is een CLI equivalent."
 
 #. (para)
 msgid ""
@@ -11821,6 +11853,10 @@ msgid ""
 "svn log -v URL\n"
 "</screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
 msgstr ""
+"TortoiseSVN voert hierbij <screen>\n"
+"svn info URL_of_WC\n"
+"svn log -v URL\n"
+"</screen> uit en analyseert het resultaat. Hierbij is de URL de <emphasis>basis map</emphasis> van het archief."
 
 #. (title)
 msgid "Repo Browser"
@@ -11833,18 +11869,21 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn list [-r rev] -v URL\n"
 msgstr ""
+"\n"
+"svn info URL_of_WC\n"
+"svn list [-r rev] -v URL\n"
 
 #. (para)
 msgid "You can use <literal>svn info</literal> to determine the repository root, which is the top level shown in the repository browser. You cannot navigate <literal>Up</literal> above this level. Also, this command returns all the locking information shown in the repository browser."
-msgstr ""
+msgstr "Je kunt <literal>svn info</literal> gebruiken om de basis map van het archief te vinden, dit is de bovenste map die in de archief-verkenner wordt weergegeven. Je kunt niet <literal>Hoger</literal> dan deze map komen in de mapstructuur. Dit commando geeft ook alle blokkade informatie weer die in de archief-verkenner wordt weergegeven."
 
 #. (para)
 msgid "The <literal>svn list</literal> call will list the contents of a directory, given a URL and revision."
-msgstr ""
+msgstr "De <literal>svn list</literal> opdracht zal een lijst met de inhoud van een map opleveren, van de ingegeven URL en revisie."
 
 #. (para)
 msgid "This command has no CLI equivalent. It invokes TortoiseMerge or an external 3-way diff/merge tool to look at the files involved in the conflict and sort out which lines to use."
-msgstr ""
+msgstr "Dit commando heeft geen CLI equivalent. Het roept TortoiseMerge of een ander extern 3-weg vergelijkingsprogramma om de naar de betrokken bestanden te kunnen kijken en te bepalen welke regels er gebruikt moeten worden."
 
 #. (title)
 msgid "Resolved"
@@ -11865,6 +11904,8 @@ msgid ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
 msgstr ""
+"\n"
+"svn rename CURR_PATH NEW_PATH\n"
 
 #. (screen)
 #, no-wrap
@@ -11877,11 +11918,11 @@ msgstr ""
 
 #. (para)
 msgid "The first stage is a status check which determines the items in your working copy which can potentially be reverted. You can review the list, diff files against BASE and select the items you want to be included in the revert."
-msgstr ""
+msgstr "De eerste fase is een status controle, welke de objecten zoekt die mogelijk ongedaan gemaakt kunnen worden. Je kunt de lijst bekijken, bestanden vergelijken ten opzichte van de BASE en de objecten selecteren die je ongedaan wilt maken."
 
 #. (para)
 msgid "When you click on OK, the Subversion revert takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive (<literal>-R</literal>) revert of the working copy. If you deselect some files, then every path must be specified individually on the revert command line."
-msgstr ""
+msgstr "Als je op OK klikt, zal Subversion de actie uitvoeren. Als je alle bestandsselectievakken in de standaard stand hebt laten staan, zal TortoiseSVN een enkele recursieve (<literal>-R</literal>) ongedaanmaking van je werkkopie uitvoeren. Als je enkele bestande de-selecteert, dan moet elk pad apart gespecificeerd worden in de opdrachtregel."
 
 #. (screen)
 #, no-wrap
@@ -11907,7 +11948,7 @@ msgstr "Plaats Blokkade"
 
 #. (para)
 msgid "The first stage is a status check which determines the files in your working copy which can potentially be locked. You can select the items you want to be locked."
-msgstr ""
+msgstr "De eerste fase is een status controle, welke de objecten zoekt in je werkkopie die mogelijk geblokkeerd kunnen worden. Je kunt de objecten die je wilt blokkeren selecteren."
 
 #. (screen)
 #, no-wrap
@@ -11915,14 +11956,16 @@ msgid ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
 msgstr ""
+"\n"
+"svn lock -m \"LockMessage\" [--force] PATH...\n"
 
 #. (para)
 msgid "<literal>LockMessage</literal> here represents the contents of the lock message edit box. This can be empty."
-msgstr ""
+msgstr "Hierbij is <literal>LockMessage</literal> het bericht in het invoerveld. Dit kan leeg gelaten worden."
 
 #. (para)
 msgid "If <guilabel>Steal the locks</guilabel> is checked, use the <literal>--force</literal> switch."
-msgstr ""
+msgstr "Als <guilabel>Steel de blokkades</guilabel> is aangevinkt, gebruik dan de <literal>--force</literal> optie."
 
 #. (title)
 msgid "Release Lock"
@@ -11947,14 +11990,20 @@ msgid ""
 "  or\n"
 "svn copy -m \"LogMessage\" PATH URL\n"
 msgstr ""
+"\n"
+"svn copy -m \"LogMessage\" URL URL\n"
+"  or\n"
+"svn copy -m \"LogMessage\" URL@rev URL@rev\n"
+"  or\n"
+"svn copy -m \"LogMessage\" PATH URL\n"
 
 #. (listitem)
 msgid "Specific revision in repository"
-msgstr ""
+msgstr "Specifieke revisie in het archief"
 
 #. (para)
 msgid "The Branch/Tag dialog performs a copy to the repository. There are 3 radio button options: <placeholder-1/> which correspond to the 3 command line variants above."
-msgstr ""
+msgstr "Het Tak/Label scherm voert een kopieer actie uit op het archief. Er zijn drie radioknop opties: <placeholder-1/> welke overeenkomen met de 3 eerder genoemde commando varianten."
 
 #. (screen)
 #, no-wrap
@@ -11963,6 +12012,9 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn switch [-r rev] URL PATH\n"
 msgstr ""
+"\n"
+"svn info URL_of_WC\n"
+"svn switch [-r rev] URL PATH\n"
 
 #. (screen)
 #, no-wrap
@@ -11970,10 +12022,12 @@ msgid ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 msgstr ""
+"\n"
+"svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 
 #. (para)
 msgid "The <guibutton>Test Merge</guibutton> performs the same merge with the <literal>--dry-run</literal> switch."
-msgstr ""
+msgstr "De <guibutton>Test samenvoegen</guibutton> knop voert dezelfde samenvoeging uit, maar dan met de <literal>--dry-run</literal> optie."
 
 #. (screen)
 #, no-wrap
@@ -11981,10 +12035,12 @@ msgid ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
 msgstr ""
+"\n"
+"svn diff From_URL@revN To_URL@revM\n"
 
 #. (para)
 msgid "The <guibutton>Unified diff</guibutton> shows the diff operation which will be used to do the merge."
-msgstr ""
+msgstr "De <guibutton>Voer Unified Diff</guibutton> knop toont de verschil actie, welke gebruikt wordt om de samenvoeging uit te voeren."
 
 #. (screen)
 #, no-wrap
@@ -11992,22 +12048,24 @@ msgid ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
 msgstr ""
+"\n"
+"svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
 
 #. (para)
 msgid "This form is used when accessed from an unversioned folder, and the folder is used as the destination."
-msgstr ""
+msgstr "Deze formattering wordt gebruikt als de actie op een map zonder versiebeheer wordt opgestart en de map dus als doel map gebruikt wordt."
 
 #. (para)
 msgid "Exporting a working copy to a different location is done without using the Subversion library, so there's no matching command line equivalent."
-msgstr ""
+msgstr "Het exporteren van een werkkopie naar een andere locatie wordt zonder de Subversion bibliotheek te gebruiken uitgevoerd. Er is dus geen CLI equivalent."
 
 #. (para)
 msgid "What TortoiseSVN does is to copy all files to the new location while showing you the progress of the operation. Unversioned files/folders can optionally be exported too."
-msgstr ""
+msgstr "TortoiseSVN kopieert alle bestanden naar de nieuwe locatie terwijl de voortgang wordt weergegeven. Bestanden/mappen zonder versiebeheer kunnen optioneel ook geëxporteerd worden."
 
 #. (para)
 msgid "In both cases, if <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
-msgstr ""
+msgstr "Als in één van beide gevallen de <guilabel>Externen uitsluiten</guilabel> aangevinkt is, gebruik dan de <literal>--ignore-externals</literal>  optie."
 
 #. (screen)
 #, no-wrap
@@ -12015,6 +12073,8 @@ msgid ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
 msgstr ""
+"\n"
+"svn switch --relocate From_URL To_URL\n"
 
 #. (title)
 msgid "Create Repository Here"
@@ -12026,10 +12086,12 @@ msgid ""
 "\n"
 "svnadmin create --fs-type fsfs PATH\n"
 msgstr ""
+"\n"
+"svnadmin create --fs-type fsfs PATH\n"
 
 #. (para)
 msgid "If you selected a folder, TortoiseSVN first scans it recursively for items which can be added."
-msgstr ""
+msgstr "Als je een map geselecteerd hebt, zal TortoiseSVN deze eerst recursief controleren op objecten die toegevoegd kunnen worden."
 
 #. (screen)
 #, no-wrap
@@ -12037,6 +12099,8 @@ msgid ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
 msgstr ""
+"\n"
+"svn import -m LogMessage PATH URL\n"
 
 #. (screen)
 #, no-wrap
@@ -12045,10 +12109,13 @@ msgid ""
 "svn blame -r N:M -v PATH\n"
 "svn log -r N:M PATH\n"
 msgstr ""
+"\n"
+"svn blame -r N:M -v PATH\n"
+"svn log -r N:M PATH\n"
 
 #. (para)
 msgid "If you use TortoiseBlame to view the blame info, the file log is also required to show log messages in a tooltip. If you view blame as a text file, this information is not required."
-msgstr ""
+msgstr "Als je TortoiseBlame gebruikt om de Verklaren informatie te bekijken, dan is het bestand logboek ook nodig om de logboek boodschappen in een tooltip te laten zien. Als je de Verklaren informatie als een tekstbestand bekijkt, dan is deze informatie niet nodig."
 
 #. (title)
 msgid "Add to Ignore List"
@@ -12062,10 +12129,14 @@ msgid ""
 "{edit new ignore item into tempfile}\n"
 "svn propset svn:ignore -F tempfile PATH\n"
 msgstr ""
+"\n"
+"svn propget svn:ignore PATH &gt; tempfile\n"
+"{edit new ignore item into tempfile}\n"
+"svn propset svn:ignore -F tempfile PATH\n"
 
 #. (para)
 msgid "Because the <literal>svn:ignore</literal> property is often a multi-line value, it is shown here as being changed via a text file rather than directly on the command line."
-msgstr ""
+msgstr "Omdat de <literal>svn:ignore</literal> eigenschap vaak meerdere regels heeft, wordt het hier weergegeven alsof dit gewijzigd is met een tekstbestand in plaats van direct mee te geven in de opdrachtregel."
 
 #. (screen)
 #, no-wrap
@@ -12073,14 +12144,16 @@ msgid ""
 "\n"
 "svn diff PATH &gt; patch-file\n"
 msgstr ""
+"\n"
+"svn diff PATH &gt; patch-file\n"
 
 #. (para)
 msgid "TortoiseSVN creates a patch file in unified diff format by comparing the working copy with its BASE version."
-msgstr ""
+msgstr "TortoiseSVN maakt een patch bestand aan in unified diff indeling door de werkkopie met de BASE revisie te vergelijken."
 
 #. (para)
 msgid "Applying patches is a tricky business unless the patch and working copy are at the same revision. Luckily for you, you can use TortoiseMerge, which has no direct equivalent in Subversion."
-msgstr ""
+msgstr "Het toepassen van patches is een riskante activiteit, tenzij de patch en de werkkopie van dezelfde revisie zijn. Gelukkig kun je TortoiseMerge gebruiken, waarvoor geen direct equivalent beschikbaar is in Subversion."
 
 #. (title)
 msgid "Implementation Details"
@@ -12432,7 +12505,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Branch"
-msgstr "Branch"
+msgstr "Tak"
 
 #. (para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bug fixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
@@ -12612,7 +12685,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Working Copy"
-msgstr "Werk Kopie"
+msgstr "Werkkopie"
 
 #. (para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
@@ -12621,7 +12694,14 @@ msgstr ""
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr "Jeroen van Amstel\nEddo Harkema\nEwout Muller\nChristan Peper\nGuus Raaphorst\nChristophe de Wagter\nJohannes Zwart"
+msgstr ""
+"Jeroen van Amstel\n"
+"Eddo Harkema\n"
+"Ewout Muller\n"
+"Christan Peper\n"
+"Guus Raaphorst\n"
+"Christophe de Wagter\n"
+"Johannes Zwart"
 
 #. Place the translation of 'translation' here.
 #. (None)
