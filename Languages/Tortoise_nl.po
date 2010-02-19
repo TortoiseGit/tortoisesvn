@@ -67,7 +67,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-17 16:03+0100\n"
+"PO-Revision-Date: 2010-02-19 08:07+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -242,11 +242,6 @@ msgstr "%s : Werkbasis"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Werkkopie"
-
-#. Resource IDs: (3887)
-#, c-format
-msgid "%s [Recovered]"
-msgstr "%s [Herstelt]"
 
 #. Resource IDs: (609)
 #, c-format
@@ -791,8 +786,8 @@ msgid "&Load..."
 msgstr "&Laden..."
 
 #. Resource IDs: (65535)
-msgid "&Luminence:"
-msgstr "&Verlichting:"
+msgid "&Lum:"
+msgstr "&Lum:"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -1016,8 +1011,8 @@ msgid "&SVN"
 msgstr "&SVN"
 
 #. Resource IDs: (65535)
-msgid "&Saturation:"
-msgstr "&Verzadiging:"
+msgid "&Sat:"
+msgstr "&Sat:"
 
 #. Resource IDs: (16921, 57603)
 msgid "&Save"
@@ -2144,7 +2139,7 @@ msgid "Can't create a new image!"
 msgstr "Kan geen nieuwe afbeelding maken!"
 
 #. Resource IDs: (1001)
-msgid "Can't customize menus!"
+msgid "Can't customize menues!"
 msgstr "Kan menu's niet aanpassen!"
 
 #. Resource IDs: (1001)
@@ -2168,8 +2163,8 @@ msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Verschil kan niet getoond worden omdat er verschillende soorten regeleinden in het bestand zitten."
 
 #. Resource IDs: (16926)
-msgid "Casca&de"
-msgstr "&Stapelen"
+msgid "Cascade"
+msgstr "Stapelen"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
@@ -3425,10 +3420,6 @@ msgstr ""
 msgid "Do you want to proceed?"
 msgstr "Wilt u verdergaan?"
 
-#. Resource IDs: (3887)
-msgid "Do you want to recover these auto-saved documents?"
-msgstr "Wilt u deze automatisch opgeslagen documenten herstellen?"
-
 #. Resource IDs: (313)
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
@@ -3469,14 +3460,6 @@ msgstr ""
 "Creëer geen gedeeltelijke ('sparse') werkkopie in deze map.\n"
 "Alle URLs worden als losse werkkopieën naast elkaar opgehaald.\n"
 "Dit werkt alleen met URLs die naar mappen verwijzen."
-
-#. Resource IDs: (3887)
-msgid ""
-"Don't recover the auto-saved documents\n"
-"Use the last explicitly saved versions of the documents"
-msgstr ""
-"De automatisch opgeslagen documenten niet herstellen\n"
-"Gebruik dat laatst expliciet opgeslagen versies van de documenten"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -3915,10 +3898,6 @@ msgstr "Inclusief externen"
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
 msgstr "&Forceer het samenvoegen"
-
-#. Resource IDs: (1070)
-msgid "Fade"
-msgstr "Vervagen"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -5974,10 +5953,6 @@ msgstr ""
 msgid "Not recursive"
 msgstr "Niet recursief"
 
-#. Resource IDs: (3887)
-msgid "Note that if you choose to recover the auto-saved documents, you must explicitly save them to overwrite the original documents.  If you choose to not recover the auto-saved versions, they will be deleted."
-msgstr "Merk op dat als je voor het herstellen van de automatisch opgeslagen documenten kiest, je deze expliciet op moet slaan om de originele documenten te overschrijven. Als je er voor kiest om de automatisch opgeslagen versies niet te overschrijven, dan zullen deze verwijderd worden."
-
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
 msgstr "Let op: de map bevat bestanden zonder versiebeheer"
@@ -6102,10 +6077,6 @@ msgstr ""
 "(een van 'branches', 'tags' of 'trunk').\n"
 "\n"
 "Weet u zeker dat u de geselecteerde paden wilt verplaatsen?"
-
-#. Resource IDs: (3887)
-msgid "One or more auto-saved documents were found."
-msgstr "Eén of meer automatisch opgeslagen documenten zijn gevonden."
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
@@ -6707,14 +6678,6 @@ msgstr "Recent gewijzigde regels"
 msgid "Record Only"
 msgstr "Alleen opnemen"
 
-#. Resource IDs: (3887)
-msgid ""
-"Recover the auto-saved documents\n"
-"Open the auto-saved versions instead of the explicitly saved versions"
-msgstr ""
-"Herstel de automatisch opgeslagen documenten\n"
-"Open de automatisch opgeslagen versies in plaats van de expliciet opgeslagen versies"
-
 #. Resource IDs: (1057)
 msgid ""
 "Rectangle Tool\n"
@@ -7267,14 +7230,6 @@ msgstr "Regel %d van %d"
 #, c-format
 msgid "Row %d-%d of %d"
 msgstr "Regel %d-%d van %d"
-
-#. Resource IDs: (1070)
-msgid "Row Down"
-msgstr "Rij naar beneden"
-
-#. Resource IDs: (1070)
-msgid "Row Up"
-msgstr "Rij naar boven"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -7998,10 +7953,6 @@ msgstr "Overgeslagen"
 #. Resource IDs: (263)
 msgid "Skipped missing target"
 msgstr "Ontbrekend doel overgeslagen"
-
-#. Resource IDs: (1070)
-msgid "Slide"
-msgstr "Verschuiven"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -8926,10 +8877,6 @@ msgstr "Er zijn geen blokkades op te heffen. Geen enkel bestand in deze werkkopi
 msgid "Thesaurus"
 msgstr "Thesaurus"
 
-#. Resource IDs: (3887)
-msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
-msgstr "Deze zijn recentelijker opgeslagen dan de huidig geopende documenten en bevatten wijzigingen die aangebracht zijn voordat het programma werd afgesloten."
-
 #. Resource IDs: (83)
 msgid ""
 "This is not a valid URL.\n"
@@ -8990,13 +8937,13 @@ msgstr "Deze eigenschap mag geen meerdere regels bevatten. Slechts één regel t
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
 msgstr "Hiermee verwijdert u de informatie over gebruikte commando's en herstelt u de standaard set van zichtbare commando's in de menu's en werkbalken. Uw eigen aanpassingen blijven intact. Weet u zeker dat u dit wilt uitvoeren?"
 
+#. Resource IDs: (16924)
+msgid "Tile &Horizontally"
+msgstr "&Horizontaal verdelen"
+
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
 msgstr "&Vertikaal rangschikken"
-
-#. Resource IDs: (16924)
-msgid "Tile Hori&zontally"
-msgstr "&Horizontaal  verdelen"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -9358,10 +9305,6 @@ msgstr ""
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
 msgstr "Onverwacht bestandsformaat."
-
-#. Resource IDs: (1070)
-msgid "Unfold"
-msgstr "Uitklappen"
 
 #. Resource IDs: (3850)
 msgid ""
@@ -10167,10 +10110,6 @@ msgstr "Passend in hoogte weergeven"
 msgid "Zoom to fit in width"
 msgstr "Passend in breedte weergeven"
 
-#. Resource IDs: (1070)
-msgid "[Default]"
-msgstr "[Standaard]"
-
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[niet toegewezen]"
@@ -10961,8 +10900,58 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
-#~ msgid "&Sat:"
-#~ msgstr "&Sat:"
+#~ msgid "%s [Recovered]"
+#~ msgstr "%s [Herstelt]"
+#~ msgid "&Luminence:"
+#~ msgstr "&Verlichting:"
+#~ msgid "&Saturation:"
+#~ msgstr "&Verzadiging:"
+#~ msgid "Do you want to recover these auto-saved documents?"
+#~ msgstr "Wilt u deze automatisch opgeslagen documenten herstellen?"
+#~ msgid ""
+#~ "Don't recover the auto-saved documents\n"
+#~ "Use the last explicitly saved versions of the documents"
+#~ msgstr ""
+#~ "De automatisch opgeslagen documenten niet herstellen\n"
+#~ "Gebruik dat laatst expliciet opgeslagen versies van de documenten"
+#~ msgid "Fade"
+#~ msgstr "Vervagen"
+#~ msgid ""
+#~ "Note that if you choose to recover the auto-saved documents, you must "
+#~ "explicitly save them to overwrite the original documents.  If you choose "
+#~ "to not recover the auto-saved versions, they will be deleted."
+#~ msgstr ""
+#~ "Merk op dat als je voor het herstellen van de automatisch opgeslagen "
+#~ "documenten kiest, je deze expliciet op moet slaan om de originele "
+#~ "documenten te overschrijven. Als je er voor kiest om de automatisch "
+#~ "opgeslagen versies niet te overschrijven, dan zullen deze verwijderd "
+#~ "worden."
+#~ msgid "One or more auto-saved documents were found."
+#~ msgstr "Eén of meer automatisch opgeslagen documenten zijn gevonden."
+#~ msgid ""
+#~ "Recover the auto-saved documents\n"
+#~ "Open the auto-saved versions instead of the explicitly saved versions"
+#~ msgstr ""
+#~ "Herstel de automatisch opgeslagen documenten\n"
+#~ "Open de automatisch opgeslagen versies in plaats van de expliciet "
+#~ "opgeslagen versies"
+#~ msgid "Row Down"
+#~ msgstr "Rij naar beneden"
+#~ msgid "Row Up"
+#~ msgstr "Rij naar boven"
+#~ msgid "Slide"
+#~ msgstr "Verschuiven"
+#~ msgid ""
+#~ "These are more recently saved than the currently open documents and "
+#~ "contain changes that were made before the application closed."
+#~ msgstr ""
+#~ "Deze zijn recentelijker opgeslagen dan de huidig geopende documenten en "
+#~ "bevatten wijzigingen die aangebracht zijn voordat het programma werd "
+#~ "afgesloten."
+#~ msgid "Unfold"
+#~ msgstr "Uitklappen"
+#~ msgid "[Default]"
+#~ msgstr "[Standaard]"
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Auteur:                                    Stefan Kueng"
 #~ msgid "Automatically check for &newer versions every week"
