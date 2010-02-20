@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-17 10:40-0000\n"
+"PO-Revision-Date: 2010-02-20 23:38-0000\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -202,11 +202,6 @@ msgstr "%s : Baza de lucru"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Copia de lucru"
-
-#. Resource IDs: (3887)
-#, c-format
-msgid "%s [Recovered]"
-msgstr "%s [Recuperat]"
 
 #. Resource IDs: (609)
 #, c-format
@@ -751,8 +746,8 @@ msgid "&Load..."
 msgstr "Î&ncarcă..."
 
 #. Resource IDs: (65535)
-msgid "&Luminence:"
-msgstr "&Luminozitate:"
+msgid "&Lum:"
+msgstr "&Lum:"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -976,8 +971,8 @@ msgid "&SVN"
 msgstr "&SVN"
 
 #. Resource IDs: (65535)
-msgid "&Saturation:"
-msgstr "&Saturație:"
+msgid "&Sat:"
+msgstr "&Sat:"
 
 #. Resource IDs: (16921, 57603)
 msgid "&Save"
@@ -2109,7 +2104,7 @@ msgid "Can't create a new image!"
 msgstr "Imaginea nouă nu a putut fi creată!"
 
 #. Resource IDs: (1001)
-msgid "Can't customize menus!"
+msgid "Can't customize menues!"
 msgstr "Meniuri nu pot fi personalizate!"
 
 #. Resource IDs: (1001)
@@ -2133,8 +2128,8 @@ msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Nu se poate afişa diferenţierea deoarece caracterele de linie nouă sunt neconsecvente."
 
 #. Resource IDs: (16926)
-msgid "Casca&de"
-msgstr "Aranjează în casca&dă"
+msgid "Cascade"
+msgstr "Aranjează în cascadă"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
@@ -2222,9 +2217,11 @@ msgstr "Caută actualizările"
 msgid "Check For Updates..."
 msgstr "Caută actualizările..."
 
+# English makes very little sense. Check = verifica, marca, bifa?
 #. Resource IDs: (1544)
+#, fuzzy
 msgid "Check externals to tag"
-msgstr ""
+msgstr "Verifică programele externe ale etichetei"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -3393,10 +3390,6 @@ msgstr ""
 msgid "Do you want to proceed?"
 msgstr "Doriţi să continuaţi?"
 
-#. Resource IDs: (3887)
-msgid "Do you want to recover these auto-saved documents?"
-msgstr "Doriţi să recuperați aceste documente auto-salvate?"
-
 #. Resource IDs: (313)
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
@@ -3436,14 +3429,6 @@ msgstr ""
 "Nu creea dosare de aducere ca o copie de lucru împraștiat.\n"
 "Toate URL-urile v-or fi aduse in copii de lucru separate.\n"
 "Acesata funcționeaza doar pentru dosarul acestor URL-uri."
-
-#. Resource IDs: (3887)
-msgid ""
-"Don't recover the auto-saved documents\n"
-"Use the last explicitly saved versions of the documents"
-msgstr ""
-"Nu recuperează documentele auto-salvate\n"
-"Folosește ultimele versiuni explicit salvate ale documentelor"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -3882,10 +3867,6 @@ msgstr "Externals incluse"
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
 msgstr "&Forţează îmbinarea"
-
-#. Resource IDs: (1070)
-msgid "Fade"
-msgstr "Estompare"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -5942,10 +5923,6 @@ msgstr ""
 msgid "Not recursive"
 msgstr "Nerecursiv"
 
-#. Resource IDs: (3887)
-msgid "Note that if you choose to recover the auto-saved documents, you must explicitly save them to overwrite the original documents.  If you choose to not recover the auto-saved versions, they will be deleted."
-msgstr "Dacă decideți să recuperați documentele auto-salvate, va trebui să le salvați explicit pentru a suprascrie documentele originale. Dacă decideți să nu le recuperați, vor fi șterse."
-
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
 msgstr "Nota: dosarul conţine elemente neversionate"
@@ -6070,10 +6047,6 @@ msgstr ""
 "(una din 'ramuri', 'etichete' sau 'trunchi').\n"
 "\n"
 "Sigur doriţi sa mutaţi căile selectate?"
-
-#. Resource IDs: (3887)
-msgid "One or more auto-saved documents were found."
-msgstr "S-au găsit unu sau mai multe documente auto-salvate."
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
@@ -6676,14 +6649,6 @@ msgstr "Liniile recent modificate"
 msgid "Record Only"
 msgstr "Numai înregistrare"
 
-#. Resource IDs: (3887)
-msgid ""
-"Recover the auto-saved documents\n"
-"Open the auto-saved versions instead of the explicitly saved versions"
-msgstr ""
-"Recuperează documentele auto-salvate\n"
-"Deschide versiunile auto-salvate în loc de cele salvate explicit"
-
 #. Resource IDs: (1057)
 msgid ""
 "Rectangle Tool\n"
@@ -7236,14 +7201,6 @@ msgstr "Rândul %d din %d"
 #, c-format
 msgid "Row %d-%d of %d"
 msgstr "Rândurile %d-%d din %d"
-
-#. Resource IDs: (1070)
-msgid "Row Down"
-msgstr "Mută în jos"
-
-#. Resource IDs: (1070)
-msgid "Row Up"
-msgstr "Mută în sus"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -7967,10 +7924,6 @@ msgstr "Sărit peste"
 #. Resource IDs: (263)
 msgid "Skipped missing target"
 msgstr "S-a sărit peste destinaţia care lipseşte"
-
-#. Resource IDs: (1070)
-msgid "Slide"
-msgstr "Glisor"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -8892,10 +8845,6 @@ msgstr "Nu este nimic de deblocat. Nici un fişier nu blocează aceasta copie de
 msgid "Thesaurus"
 msgstr "Lexicon"
 
-#. Resource IDs: (3887)
-msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
-msgstr ""
-
 #. Resource IDs: (83)
 msgid ""
 "This is not a valid URL.\n"
@@ -8956,13 +8905,13 @@ msgstr "Această proprietate nu trebuie să aibă mai multe linii. Numai o linie
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
 msgstr "Aceasta va şterge lista de comenzipe care le-aţi utilizat in această aplicaţie şi va restabili lista implicită de comenzi vizibile in meniuri si bare de unelte. Nu va elimina nici o personalizare explicită. Sunte-ţi sigur(ă) că doriţi asta?"
 
+#. Resource IDs: (16924)
+msgid "Tile &Horizontally"
+msgstr "Aranjează &orizontal"
+
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
 msgstr "Aranjează &vertical"
-
-#. Resource IDs: (16924)
-msgid "Tile Hori&zontally"
-msgstr "Aranjează ori&zontal"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -9321,10 +9270,6 @@ msgstr ""
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
 msgstr "Format de fişier neaşteptat."
-
-#. Resource IDs: (1070)
-msgid "Unfold"
-msgstr "Depliază"
 
 #. Resource IDs: (3850)
 msgid ""
@@ -10125,10 +10070,6 @@ msgstr "Potriveşte mărimea ca să încapă înălţimea"
 msgid "Zoom to fit in width"
 msgstr "Potriveşte mărimea ca să încapă lăţimea"
 
-#. Resource IDs: (1070)
-msgid "[Default]"
-msgstr "[Implicit]"
-
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[Nedelegat]"
@@ -10915,8 +10856,48 @@ msgstr "da"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
-#~ msgid "&Sat:"
-#~ msgstr "&Sat:"
+#~ msgid "%s [Recovered]"
+#~ msgstr "%s [Recuperat]"
+#~ msgid "&Luminence:"
+#~ msgstr "&Luminozitate:"
+#~ msgid "&Saturation:"
+#~ msgstr "&Saturație:"
+#~ msgid "Do you want to recover these auto-saved documents?"
+#~ msgstr "Doriţi să recuperați aceste documente auto-salvate?"
+#~ msgid ""
+#~ "Don't recover the auto-saved documents\n"
+#~ "Use the last explicitly saved versions of the documents"
+#~ msgstr ""
+#~ "Nu recuperează documentele auto-salvate\n"
+#~ "Folosește ultimele versiuni explicit salvate ale documentelor"
+#~ msgid "Fade"
+#~ msgstr "Estompare"
+#~ msgid ""
+#~ "Note that if you choose to recover the auto-saved documents, you must "
+#~ "explicitly save them to overwrite the original documents.  If you choose "
+#~ "to not recover the auto-saved versions, they will be deleted."
+#~ msgstr ""
+#~ "Dacă decideți să recuperați documentele auto-salvate, va trebui să le "
+#~ "salvați explicit pentru a suprascrie documentele originale. Dacă decideți "
+#~ "să nu le recuperați, vor fi șterse."
+#~ msgid "One or more auto-saved documents were found."
+#~ msgstr "S-au găsit unu sau mai multe documente auto-salvate."
+#~ msgid ""
+#~ "Recover the auto-saved documents\n"
+#~ "Open the auto-saved versions instead of the explicitly saved versions"
+#~ msgstr ""
+#~ "Recuperează documentele auto-salvate\n"
+#~ "Deschide versiunile auto-salvate în loc de cele salvate explicit"
+#~ msgid "Row Down"
+#~ msgstr "Mută în jos"
+#~ msgid "Row Up"
+#~ msgstr "Mută în sus"
+#~ msgid "Slide"
+#~ msgstr "Glisor"
+#~ msgid "Unfold"
+#~ msgstr "Depliază"
+#~ msgid "[Default]"
+#~ msgstr "[Implicit]"
 #~ msgid "y"
 #~ msgstr "y"
 #~ msgid "Author:                                    Stefan Kueng"
