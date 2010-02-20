@@ -227,6 +227,7 @@ UINT CCopyDlg::FindRevThread()
 		SVNStatus stats(&m_bCancelled);
 		CTSVNPath retPath;
 		svn_wc_status2_t * s = NULL;
+		m_maxrev = 0;
 		s = stats.GetFirstFileStatus(m_path, retPath, false, svn_depth_unknown, true, false);
 		while ((s) && (!m_bCancelled))
 		{
@@ -246,7 +247,7 @@ UINT CCopyDlg::FindRevThread()
 				}
 				if (s->entry->has_prop_mods)
 					m_bmodified = true;
-				if (s->entry->cmt_rev < m_maxrev)
+				if (s->entry->cmt_rev > m_maxrev)
 					m_maxrev = s->entry->cmt_rev;
 			}
 			if ( (s->text_status != svn_wc_status_none) &&
