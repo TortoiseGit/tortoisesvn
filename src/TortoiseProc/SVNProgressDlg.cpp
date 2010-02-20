@@ -2218,9 +2218,12 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 	}
 	else if (m_Revision.IsNumber() || m_Revision.IsDate() || m_Revision.IsHead())
 	{
-		sCmdInfo.LoadString(IDS_PROGRS_CMD_TAGEXTERNALS);
-		ReportCmd(sCmdInfo);
-		m_externals.TagExternals(true, CString(MAKEINTRESOURCE(IDS_COPY_COMMITMSG)), GetCommitRevision(), m_targetPathList[0], CTSVNPath(m_url));
+		if (m_externals.size())
+		{
+			sCmdInfo.LoadString(IDS_PROGRS_CMD_TAGEXTERNALS);
+			ReportCmd(sCmdInfo);
+			m_externals.TagExternals(true, CString(MAKEINTRESOURCE(IDS_COPY_COMMITMSG)), GetCommitRevision(), m_targetPathList[0], CTSVNPath(m_url));
+		}
 	}
 
 	if (m_options & ProgOptSwitchAfterCopy)
