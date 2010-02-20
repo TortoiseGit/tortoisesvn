@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-20 01:10-0000\n"
+"PO-Revision-Date: 2010-02-20 23:36-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3483,44 +3483,44 @@ msgstr "Tem em atenção que se copias o ficheiro desaparecido do repositório e
 
 #. (title)
 msgid "Local edit, incoming delete upon merge"
-msgstr ""
+msgstr "Edição local, apagar após fusão"
 
 #. (para)
 #. (para)
 msgid "Developer A working on trunk moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "O Programador A trabalhando no trunk move o <filename>Foo.c</filename> para <filename>Bar.c</filename> e submete-o para o repositório"
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> and commits it to the repository."
-msgstr ""
+msgstr "O Programador B trabalhando no ramo modifica o <filename>Foo.c</filename> e submete-o para o repositório."
 
 #. (para)
 msgid "There is an equivalent case for folder moves, but it is not yet detected in Subversion 1.6 ..."
-msgstr ""
+msgstr "Existe um caso equivalente para o movimento de pastas, mas não é ainda detectado no Subversion 1.6 ..."
 
 #. (para)
 msgid "Developer A working on trunk moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
-msgstr ""
+msgstr "O Programador A trabalhando no trunk move a pasta pai <filename>FooFolder</filename> para <filename>BarFolder</filename> e submete-o para o repositório."
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> in her working copy."
-msgstr ""
+msgstr "O Programador B trabalhando num ramo modifica <filename>Foo.c</filename> na sua cópia de trabalho"
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added."
-msgstr ""
+msgstr "<filename>Bar.c</filename> é marcado como adicionado."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> é marcado como modificado com um conflito de árvore."
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr ""
+msgstr "Para fundir as suas alterações locais com a remodelação, o Programador B deve em primeiro lugar descobrir para que ficheiro o ficheiro em conflito <filename>Foo.c</filename> foi renomeado/movido no repositório. Isto pode ser feito usando a caixa de diálogo do registo para a fonte da fusão. O editor de conflito apenas mostra o registo para a cópia de trabalho e não conhece qual o caminho que foi utilizado na fusão, pelo que terás de o descobrir por ti. As alterações têm então ser fundidas à mão, visto não existir nenhuma maneira de automatizar ou mesmo simplificar este processo. Uma vez que as alterações tiverem sido portadas, o caminho em conflito será redundante e pode ser apagado. Neste caso usa o botão <guilabel>Remover</guilabel> na caixa de diálogo editor de conflito, para limpar e marcar o conflito como resolvido."
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog for the merge source helps to track down what was moved."
-msgstr ""
+msgstr "Se o Programador B decide que as alterações do A estão erradas, deverá então escolher o botão <guilabel>Manter</guilabel> na caixa de diálogo editor de conflito. Isto marca o ficheiro/pasta em conflito como resolvido, mas as alterações do Programador A necessitam de ser removidas à mão. De novo a caixa de diálogo registo, para a fonte da fusão ajuda a encontrar o rasto ao que foi movido."
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
