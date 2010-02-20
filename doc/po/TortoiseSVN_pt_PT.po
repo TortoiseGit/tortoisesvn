@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-19 22:36-0000\n"
+"PO-Revision-Date: 2010-02-20 00:13-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3316,7 +3316,7 @@ msgstr "O TortoiseSVN pode ajudar a encontrar o sítio correcto para fundir as a
 
 #. (title)
 msgid "Local delete, incoming edit upon update"
-msgstr "Apagar localmente, edição após a actualização"
+msgstr "Apagar localmente, editar após actualizar"
 
 #. (para)
 msgid "Developer A modifies <filename>Foo.c</filename> and commits it to the repository"
@@ -3349,65 +3349,65 @@ msgstr "A caixa de diálogo de edição de conflitos oferece-se para fundir as a
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
-msgstr "Edição local, apagamento após actualização"
+msgstr "Edição local, apagar após actualizar"
 
 #. (para)
 msgid "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository."
-msgstr ""
+msgstr "O Programador A move <filename>Foo.c</filename> para <filename>Bar.c</filename> e submete-o para o repositório."
 
 #. (para)
 #. (para)
 msgid "Developer B modifies <filename>Foo.c</filename> in his working copy."
-msgstr ""
+msgstr "O Programador B modifica na sua cópia de trabalho <filename>Foo.c</filename>."
 
 #. (para)
 msgid "Or in the case of a folder move ..."
-msgstr ""
+msgstr "Ou em caso de mover uma pasta..."
 
 #. (para)
 msgid "Developer A moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
-msgstr ""
+msgstr "O Programador A move a pasta pai <filename>FooFolder</filename> para <filename>BarFolder</filename> e submete-o para o repositório."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is added to the working copy as a normal file."
-msgstr ""
+msgstr "<filename>Bar.c</filename> é adicionado à cópia de trabalho como um ficheiro normal."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as added (with history) and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> é marcado como adicionado (com história) e adquire um conflito de árvore."
 
 #. (para)
 msgid "An update of developer B's working copy results in a tree conflict. For a simple file conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Uma actualização da cópia de trabalho pelo programador B, resulta num conflito de árvore. Para um conflito de ficheiro simples: <placeholder-1/>"
 
 #. (para)
 msgid "<filename>BarFolder</filename> is added to the working copy as a normal folder."
-msgstr ""
+msgstr "<filename>BarFolder</filename> é adicionado à cópia de trabalho como uma pasta normal."
 
 #. (para)
 msgid "<filename>FooFolder</filename> is marked as added (with history) and has a tree conflict."
-msgstr ""
+msgstr "<filename>FooFolder</filename> é marcado como adicionado (com história) e adquire um conflito de árvore."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified."
-msgstr ""
+msgstr "<filename>Foo.c</filename> é marcado como modificado."
 
 #. (para)
 msgid "For a folder conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Para um conflito de pasta: <placeholder-1/>"
 
 #. (para)
 #. (para)
 msgid "Developer B now has to decide whether to go with developer A's reorganisation and merge her changes into the corresponding file in the new structure, or simply revert A's changes and keep the local file."
-msgstr ""
+msgstr "O programador B agora tem de decidir se quer manter a reorganização do programador A e fundir as suas alterações no ficheiro correspondente na nova estrutura, ou simplesmente reverter as alterações de A e manter o ficheiro local."
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr ""
+msgstr "Para fundir as suas alterações locais com a remodelação, o Programador B deve em primeiro lugar descobrir o ficheiro para o qual  <filename>Foo.c</filename> foi renomeado/movido no repositório. Isso pode ser feito usando a caixa de diálogo de registo. As alterações devem então ser fundidas manualmente já que não existe actualmente nenhum método para automatizar ou mesmo simplificar este processo. Uma vez que as alterações tenham sido portadas, o caminho em conflito fica redundante e pode ser apagado. Neste caso usa o botão <guilabel>Remover</guilabel> na caixa de diálogo de edição de conflito para efectuar a limpeza e, marcar o conflito como resolvido."
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog helps to track down what was moved."
-msgstr ""
+msgstr "Se o programador B entende que as alterações de A estão erradas, então deve escolher o botão <guilabel>Manter</guilabel> na caixa de diálogo de conflito. Isso marca o ficheiro/pasta em conflito como resolvido, mas as alterações de A necessitam de ser removidas à mão. Mais uma vez a caixa de diálogo de registo irá ajudar a verificar o que foi movido."
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
