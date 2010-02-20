@@ -13,9 +13,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2010-02-19 20:45+0100\n"
-"Last-Translator: Guus Raaphorst <GuusRaaphorst@Gmail.com>\n"
+"POT-Creation-Date: 2010-02-19 21:36 +0000\n"
+"PO-Revision-Date: 2010-02-20 22:52+0100\n"
+"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7950,7 +7950,7 @@ msgstr "Stel deze eigenshap in op de URL van uw archief viewer om alle wijziging
 
 # In de GUI kon ik alleen Resource IDs: (114) vinden met de tekst "View revision for path in &webviewer" in plaats van de hier vermelde "View revision and path in webviewer".
 #. (para)
-msgid "Set this property to the URL of your repo viewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision and path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the URL will be replaced with <literal>/trunk/src/file</literal>."
+msgid "Set this property to the URL of your repo viewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision for path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the URL will be replaced with <literal>/trunk/src/file</literal>."
 msgstr "Stel deze eigenshap in op de URL van uw archief viewer om de wijzigingen aan een specifiek bestand in een specifieke revisie te zien. Deze dient correct te zijn gecodeerd als URI en dient <literal>%REVISION%</literal> en <literal>%PATH%</literal> te bevatten. <literal>%PATH%</literal> wordt vervangen door het pad relatief aan de hoofdmap. Hierdoor kan TortoiseSVN een contextmenu optie tonen in het log venster <menuchoice><guimenu>Contextmenu</guimenu><guimenuitem>Bekijk revisie voor dit pad in webviewer</guimenuitem></menuchoice> Voorbeeld: als u in het onderste gedeelte van het log scherm met de rechter muisknop klikt op een bestand <literal>/trunk/src/file</literal> wordt de <literal>%PATH%</literal> in de URL vervangen door <literal>/trunk/src/file</literal>."
 
 #. (para)
@@ -10206,11 +10206,11 @@ msgstr ""
 
 #. (title)
 msgid "The IBugtraqProvider2 interface"
-msgstr ""
+msgstr "De IBugtraqProvider2 interface"
 
 #. (para)
 msgid "In TortoiseSVN 1.6 a new interface was added which provides more functionality for plugins. This IBugtraqProvider2 interface inherits from IBugtraqProvider."
-msgstr ""
+msgstr "In TortoiseSVN 1.6 is een nieuwe interface toegevoegd, welke het gebruik van plugins mogelijk maakt. Deze  IBugtraqProvider2 interface erft functionaliteit van IBugtraqProvider."
 
 #. (programlisting)
 #, no-wrap
@@ -10254,10 +10254,48 @@ msgid ""
 "  [out, retval] BSTR * newMessage\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT GetCommitMessage2 (\n"
+"  // Hoofd scherm voor je provider UI.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parameters voor jouw provider.\n"
+"  [in] BSTR parameters,\n"
+"  // De gemeenschappelijke URL van de vastlegging\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // De tekst die al aanwezig is in het vastleg bericht.\n"
+"  // Je provider moet deze tekst opnemen in het nieuwe bericht,\n"
+"  // indien gewenst.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // Je kunt eigen revisie eigenschappen toekennen aan een vastlegging\n"
+"  // door de volgende twee parameters in te stellen.\n"
+"  // noot: Beide Both safearrays moeten dezelfde lengte hebben.\n"
+"  //       Elke eigenschas naam moet er een waarde hebben!\n"
+"\n"
+"  // De inhoud van het bugID veld(indien weergegeven)\n"
+"  [in] BSTR bugID,\n"
+"\n"
+"  // Gewijzigde inhoud van het bugID veld\n"
+"  [out] BSTR * bugIDOut,\n"
+"\n"
+"  // De lijst van revision eigenschapsnamen.\n"
+"  [out] SAFEARRAY(BSTR) * revPropNames,\n"
+"\n"
+"  // De lijst van revisie eigenschap waardes.\n"
+"  [out] SAFEARRAY(BSTR) * revPropValues,\n"
+"\n"
+"  // De nieuwe tekst van het vastleg bericht.\n"
+"  // Deze vervangt het originele bericht\n"
+"  [out, retval] BSTR * newMessage\n"
+");\n"
 
 #. (para)
 msgid "<placeholder-1/> This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there. The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path. The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>). The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns. The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
-msgstr ""
+msgstr "<placeholder-1/> Deze functie wordt aangeroepen vanaf het TortoiseSVN vastleg scherm, zodra de gebruiker op de plugin knop drukt. Deze actie wordt aangeroepen in plaats van de <literal>GetCommitMessage()</literal>. Lees de documentatie over <literal>GetCommitMessage()</literal> voor de benodigde parameters die gebruikt moeten worden. De parameter <literal>commonURL</literal> is de hoofd URL van alle geselecteerde objecten waarvoor het vastlegvenster geopend is. Dit is dus eigenlijk de URL voor het <literal>commonRoot</literal> pad. De parameter <literal>bugID</literal> bevat de inhoud van het bug-ID veld (als het getoond is, dit wordt ingesteld met <literal>bugtraq:message</literal>). De return parameter <literal>bugIDOut</literal> wordt gebruikt om het bug-ID veld te vullen als de functie klaar is. De <literal>revPropNames</literal> en <literal>revPropValues</literal> return parameters kunnen een naam/waarde paar bevatten voor revisie eigenschappen die veranderd moeten worden bij die vastlegging. De plugin moet er voor zorgen dat beide arrays dezelfde grootte hebben bij de return! Elke eigenschapsnaam in <literal>revPropNames</literal> moet ook een corresponderende waarde hebben in <literal>revPropValues</literal>. Als er geen revisie eigenschappen ingesteld/veranderd moeten worden, dan moet de plugin lege arrays teruggeven."
 
 #. (programlisting)
 #, no-wrap
@@ -10273,10 +10311,20 @@ msgid ""
 "  [out, retval] BSTR * errorMessage\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT CheckCommit (\n"
+"  [in] HWND hParentWnd,\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"  [in] BSTR commitMessage,\n"
+"  [out, retval] BSTR * errorMessage\n"
+");\n"
 
 #. (para)
 msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
-msgstr ""
+msgstr "<placeholder-1/> Deze functie wordt aangeroepen voordat het vastleg scherm afgesloten worden en het vastleggen start. Een plugin kan deze functie gebruiken om de geselecteerde bestanden/mappen te valideren voor vastlegging en/of het vastlegbericht van de gebruiker. De parameters worden net zo ingesteld als bij <literal>GetCommitMessage2()</literal>, maar dan met het verschil dat <literal>commonURL</literal> nu de gemeenschappelijke URL is van alle <emphasis>geselecteerde</emphasis> objecten, en de <literal>commonRoot</literal> het basispad van alle geselecteerde objecten. De return paramter <literal>errorMessage</literal> moet of een foutmeldig bevatten, die door TortoiseSVN aan de gebruiker getoond wordt, of leeg zijn, zodat de vastlegging kan starten. Als er een foutmelding terug wordt gegeven, zal TortoiseSVN de foutmelding in een scherm weergeven en houdt blijft het vastleg scherm geopend, zodat de gebruiker kan corrigeren wat er fout is. Een plugin moet dus een foutmelding geven die aan de gebruiker laat weten <emphasis>wat</emphasis> er fout is en hoe het gecorrigeerd moet worden."
 
 #. (programlisting)
 #, no-wrap
@@ -10305,10 +10353,33 @@ msgid ""
 "  [out, retval] BSTR * error\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT  OnCommitFinished (\n"
+"  // Hoofdscherm voor elk (foutmelding) UI welke getoond moet worden.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // De gemeenschappelijke bron voor alle paden die vastgelegd worden.\n"
+"  [in] BSTR commonRoot,\n"
+"\n"
+"  // Alle paden die vastgelegd zijn.\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"\n"
+"  // De reeds aanwezige tekst in het vastleg bericht.\n"
+"  [in] BSTR logMessage,\n"
+"\n"
+"  // De revisie van de vastlegging.\n"
+"  [in] ULONG revision,\n"
+"\n"
+"\n"
+"  // Een fout getoond aan de gebruiker als deze functie\n"
+"  // iets anders teruggeeft dan S_OK\n"
+"  [out, retval] BSTR * error\n"
+");\n"
 
 #. (para)
 msgid "<placeholder-1/> This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
-msgstr ""
+msgstr "<placeholder-1/> Deze functie wordt aangeroepen na een succesvolle vastlegging. Een plugin kan deze functie gebruiken om bijv. de geselecteerde bevinding de sluiten of informatie aan de bevinding toe te voegen over de vastleggin. De parameters zijn gelijk aan die voor <literal>GetCommitMessage2</literal>."
 
 #. (programlisting)
 #, no-wrap
@@ -10319,10 +10390,15 @@ msgid ""
 "  [out, retval] VARIANT_BOOL *ret\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT HasOptions(\n"
+"  // Of de provider opties ondersteund\n"
+"  [out, retval] VARIANT_BOOL *ret\n"
+");\n"
 
 #. (para)
 msgid "<placeholder-1/> This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
-msgstr ""
+msgstr "<placeholder-1/> Deze functie wordt aangeroepen vanuit het instellingen scherm waar de gebruiker de plugins kan instellen. Als een plugin een eigen configuratiescherm heeft met <literal>ShowOptionsDialog</literal>, dan moet deze TRUE teruggeven, anders moet deze FALSE teruggeven."
 
 #. (programlisting)
 #, no-wrap
@@ -10339,14 +10415,25 @@ msgid ""
 "  [out, retval] BSTR * newparameters\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT ShowOptionsDialog(\n"
+"  // Parent window for the options dialog\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parameters voor je provider.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // De parameter tekst\n"
+"  [out, retval] BSTR * newparameters\n"
+");\n"
 
 #. (para)
 msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
-msgstr ""
+msgstr "<placeholder-1/> Deze functie wordt aangeroepen vanuit het instellingen scherm als de gebruiker op de \"Options\" knop klikt, welke getoond wordt als literal>HasOptions</literal> TRUE antwoord. Een plugin kan een instellingenscherm weergeven om het configureren van de plugin te vereenvoudigen. De <literal>parameter</literal> tekst bevat de plugin parameters die al ingesteld zijn. De <literal>newparameters</literal> antwoordparameter moet de parameter tekst bevatten die de plugin samengesteld heeft uit de informatie van het instellingenscherm. Die <literal>paramameter</literal> tekst wordt doorgegeven aan alle IBugtraqProvider and IBugtraqProvider2 functies."
 
 #. (title)
 msgid "Frequently Asked Questions (FAQ)"
-msgstr ""
+msgstr "Veelgestelde Vragen (FAQ)"
 
 #. (primary)
 msgid "FAQ"
@@ -10354,27 +10441,27 @@ msgstr "Veelgestelde vragen"
 
 #. (para)
 msgid "Because TortoiseSVN is being developed all the time it is sometimes hard to keep the documentation completely up to date. We maintain an <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>online FAQ</citetitle></ulink> which contains a selection of the questions we are asked the most on the TortoiseSVN mailing lists <email>dev@tortoisesvn.tigris.org</email> and <email>users@tortoisesvn.tigris.org</email>."
-msgstr ""
+msgstr "Omdat TortoiseSVN continue doorontwikkeld wordt, is het soms lastig om de documentatie helemaal bij te houden. We onderhouden daarom een <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>online veel gestelde vragen pagina (ook bekend als FAQ)</citetitle></ulink> met een selectie van vragen die we het meest binnen krijgen op de TortoiseSVN maillijst <email>dev@tortoisesvn.tigris.org</email> en <email>users@tortoisesvn.tigris.org</email>."
 
 #. (para)
 msgid "We also maintain a project <ulink url=\"http://issues.tortoisesvn.net\"><citetitle>Issue Tracker</citetitle></ulink> which tells you about some of the things we have on our To-Do list, and bugs which have already been fixed. If you think you have found a bug, or want to request a new feature, check here first to see if someone else got there before you."
-msgstr ""
+msgstr "We hebben ook een project <ulink url=\"http://issues.tortoisesvn.net\"><citetitle>Issue Tracker</citetitle></ulink> waarin enkele van onze plannen in een lijst zijn opgenomen en welke bugs er al opgelost zijn. Als je denkt dat je een bug gevonden hebt of een nieuwe functie wilt aanvragen, kijken dan eerst hier om na te gaan of er niet iemand je voor is geweest."
 
 #. (para)
 msgid "<email>users@tortoisesvn.tigris.org</email> is the one to use if you have questions about using TortoiseSVN."
-msgstr ""
+msgstr "<email>users@tortoisesvn.tigris.org</email> is het adres dat je moet gebruiken als je vragen over het gebruik van TortoiseSVN hebt."
 
 #. (para)
 msgid "If you want to help out with the development of TortoiseSVN, then you should take part in discussions on <email>dev@tortoisesvn.tigris.org</email>."
-msgstr ""
+msgstr "Als je wilt helpen bij de ontwikkeling van TortoiseSVN, neem dan deel aan de discussies op <email>dev@tortoisesvn.tigris.org</email>."
 
 #. (para)
 msgid "If you want to help with the translation of the TortoiseSVN user interface or the documentation, send an e-mail to <email>translators@tortoisesvn.tigris.org</email>."
-msgstr ""
+msgstr "Als je wilt helpen bij het vertalen van de TortoiseSVN gebruikersinterface of de documentatie, stuur dan een e-mail naar <email>translators@tortoisesvn.tigris.org</email>."
 
 #. (para)
 msgid "If you have a question which is not answered anywhere else, the best place to ask it is on one of the mailing lists: <placeholder-1/>"
-msgstr ""
+msgstr "Als je een vraag hebt die nergens beantwoord wordt, dan kun je die vraag het beste stellen via één van de maillijsten: <placeholder-1/>"
 
 #. (title)
 msgid "How Do I..."
@@ -11680,14 +11767,15 @@ msgstr "Bepaalde onderdelen zijn optioneel. Deze zijn dan ook meestal als select
 #, no-wrap
 msgid ""
 "\n"
-"svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
+"svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 msgstr ""
 "\n"
-"svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
+"svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 
 #. (para)
-msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
-msgstr "Als <guilabel>Alleen de bovenste map ophalen</guilabel>  is aangevinkt, gebruik dan den <literal>-N</literal> optie."
+#. (para)
+msgid "The depth combo box items relate to the <literal>-depth</literal> argument."
+msgstr ""
 
 #. (para)
 #. (para)
@@ -11730,15 +11818,11 @@ msgstr "Verversen naar Revisie"
 msgid ""
 "\n"
 "svn info URL_of_WC\n"
-"svn update [-r rev] [-N] [--ignore-externals] PATH\n"
+"svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 msgstr ""
 "\n"
 "svn info URL_of_WC\n"
-"svn update [-r rev] [-N] [--ignore-externals] PATH\n"
-
-#. (para)
-msgid "If <guilabel>Only update the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
-msgstr "Als <guilabel>Alleen de bovenste map verversen</guilabel> is aangevinkt, gebruik dan de <literal>-N</literal> optie."
+"svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 
 #. (para)
 msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
@@ -11782,10 +11866,10 @@ msgstr "Als je op OK klikt, zal de Subversion vastlegging plaatsvinden. Als je a
 #, no-wrap
 msgid ""
 "\n"
-"svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
+"svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 msgstr ""
 "\n"
-"svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
+"svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 
 #. (para)
 #. (para)
@@ -12615,7 +12699,7 @@ msgstr ""
 
 #. (para)
 msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
-msgstr ""
+msgstr "Samenvoegen vindt automatisch plaats als je je werkkopie ververst. Je kunt ook specifieke wijzigingen samenvoegen vanuit een andere tak met het TortoisSVN Samenvoeg commando."
 
 #. (glossterm)
 msgid "Patch"
@@ -12667,7 +12751,7 @@ msgstr ""
 
 #. (para)
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
-msgstr ""
+msgstr "Op een andere manier gezegd, een revisie kan wijzen naar een set van wijzigingen die zijn doorgevoerd toen de revisie aangemaakt is."
 
 #. (glossterm)
 msgid "Revision Property (revprop)"
@@ -12687,7 +12771,7 @@ msgstr "Een veelgebruikte afkorting voor Subversion"
 
 #. (para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
-msgstr ""
+msgstr "De naam van het Subversion eigen protocol wat gebruikt wordt door <quote>svnserve</quote>, de archief server."
 
 #. (para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
@@ -12695,7 +12779,7 @@ msgstr ""
 
 #. (para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
-msgstr ""
+msgstr "Dit Subversion commando haalt de laatste wijzigingen op uit het archief naar je werkkopie, terwijl het wijzigingen van anderen samenvoegt met jouw lokale wijzigingen in je werkkopie."
 
 #. (glossterm)
 msgid "Working Copy"
@@ -12703,7 +12787,7 @@ msgstr "Werkkopie"
 
 #. (para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
-msgstr ""
+msgstr "Dit is je lokale <quote>zandbak</quote>, de omgeving waar je aan je bestanden met versiebeheer werkt en welke normaal gesproken op je lokale harde schijf is opgeslagen. Je maakt een werkkopie aan door het <quote>Ophalen</quote> van de bestanden uit een archief. Je wijzigingen sla je ook weer in het archief op door het <quote>Vastleggen</quote> van je gewijzigde bestanden."
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
@@ -12722,6 +12806,18 @@ msgstr ""
 msgid "translator-translation"
 msgstr "Vertaler"
 
+#~ msgid ""
+#~ "If <guilabel>Only checkout the top folder</guilabel> is checked, use the "
+#~ "<literal>-N</literal> switch."
+#~ msgstr ""
+#~ "Als <guilabel>Alleen de bovenste map ophalen</guilabel>  is aangevinkt, "
+#~ "gebruik dan den <literal>-N</literal> optie."
+#~ msgid ""
+#~ "If <guilabel>Only update the top folder</guilabel> is checked, use the "
+#~ "<literal>-N</literal> switch."
+#~ msgstr ""
+#~ "Als <guilabel>Alleen de bovenste map verversen</guilabel> is aangevinkt, "
+#~ "gebruik dan de <literal>-N</literal> optie."
 #~ msgid ""
 #~ "Show changes made in the selected revision for the selected file. This "
 #~ "context menu is only available for files shown as <emphasis>modified</"
