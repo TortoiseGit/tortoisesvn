@@ -102,6 +102,8 @@ Version 1.6.8
 - CHG: Various adjustments for Windows 7. (Stefan)
 - CHG: The "show excluded folders as normal" setting is
        changed to false by default. (Stefan)
+- CHG: On W2k, don't update to incompatible (future) TSVN versions. 
+       (Stefan Fuhrmann)
 
 Version 1.6.7
 - BUG: The status cache could segfault in some situations. (Stefan)
