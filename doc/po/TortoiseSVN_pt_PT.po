@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-21 00:01-0000\n"
+"PO-Revision-Date: 2010-02-21 01:10-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3556,7 +3556,7 @@ msgstr ""
 
 #. (title)
 msgid "Getting Status Information"
-msgstr ""
+msgstr "Obter informação de Estado"
 
 #. (primary)
 #. (primary)
@@ -3573,7 +3573,7 @@ msgstr ""
 
 #. (para)
 msgid "While you are working on your working copy you often need to know which files you have changed/added/removed or renamed, or even which files got changed and committed by others."
-msgstr ""
+msgstr "Enquanto estás a trabalhar na tua cópia de trabalho necessitas com frequência de saber que ficheiros alteraste/adicionastes/removeste, ou mesmo que ficheiros foram alterados e submetidos por outros."
 
 #. (primary)
 #. (primary)
@@ -3586,55 +3586,55 @@ msgstr ""
 
 #. (para)
 msgid "Now that you have checked out a working copy from a Subversion repository you can see your files in the windows explorer with changed icons. This is one of the reasons why TortoiseSVN is so popular. TortoiseSVN adds a so called overlay icon to each file icon which overlaps the original file icon. Depending on the Subversion status of the file the overlay icon is different."
-msgstr ""
+msgstr "Agora que SVN exportaste uma cópia de trabalho de um repositório Subversion, podes ver que os teus ficheiros com os ícones alterados no explorador do Windows. Esta é uma das razões porque o TortoiseSVN é tão popular. O TortoiseSVN adiciona a chamada sobreposição de ícone a cada ficheiro e que se sobrepõem ao ícone original do mesmo. Dependendo do estado Subversion do ficheiro a sobreposição do ícone será diferente."
 
 #. (para)
 msgid "<graphic fileref=\"../images/InSubVersionIcon.png\"/> A fresh checked out working copy has a green checkmark as overlay. That means the Subversion status is <emphasis>normal</emphasis>."
-msgstr ""
+msgstr "<graphic fileref=\"../images/InSubVersionIcon.png\"/> Uma cópia de trabalho exportada de fresco possui uma marca de verificação verde como sobreposição. Isto significa que o estado Subversion é <emphasis>normal</emphasis>."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ModifiedIcon.png\"/> As soon as you start editing a file, the status changes to <emphasis>modified</emphasis> and the icon overlay then changes to a red exclamation mark. That way you can easily see which files were changed since you last updated your working copy and need to be committed."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ModifiedIcon.png\"/> Assim que inicias a edição do ficheiro, o estado altera-se para <emphasis>modificado</emphasis> e o ícone de sobreposição muda para um ponto de exclamação vermelho. Desse modo podes facilmente ver que ficheiros foram alterados desde a última vez que actualizaste a tua cópia de trabalho e necessitam ser submetidos."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ConflictIcon.png\"/> If during an update a <emphasis>conflict</emphasis> occurs then the icon changes to a yellow exclamation mark."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ConflictIcon.png\"/> Se durante uma actualização ocorre um  <emphasis>conflito</emphasis> o ícone de sobreposição altera-se para um ponto de exclamação amarelo."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> If you have set the <literal>svn:needs-lock</literal> property on a file, Subversion makes that file read-only until you get a lock on that file. Such files have this overlay to indicate that you have to get a lock first before you can edit that file."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> Se colocaste a propriedade <literal>svn:needs-lock</literal> num ficheiro, o Subversion marca esse ficheiro como apenas-de-leitura até obteres um bloqueio nesse mesmo ficheiro. Ficheiros como esses têm essa sobreposição para indicar que tens de obter um bloqueio antes de editares esse ficheiro."
 
 #. (para)
 msgid "<graphic fileref=\"../images/LockedIcon.png\"/> If you hold a lock on a file, and the Subversion status is <emphasis>normal</emphasis>, this icon overlay reminds you that you should release the lock if you are not using it to allow others to commit their changes to the file."
-msgstr ""
+msgstr "<graphic fileref=\"../images/LockedIcon.png\"/> Se mantiveres um bloqueio num ficheiro e o estado Subversion é <emphasis>normal</emphasis>, esta sobreposição de ícone lembra-te que deves libertar o bloqueio se não o estás a usar, para permitir que outros possam submeter as suas alterações para o ficheiro."
 
 #. (para)
 msgid "<graphic fileref=\"../images/DeletedIcon.png\"/> This icon shows you that some files or folders inside the current folder have been scheduled to be <emphasis>deleted</emphasis> from version control or a file under version control is missing in a folder."
-msgstr ""
+msgstr "<graphic fileref=\"../images/DeletedIcon.png\"/> Este ícone mostra que alguns ficheiros ou pastas no interior da pasta corrente foram escalonados para serem <emphasis>apagados</emphasis> do controlo de versões ou que, um ficheiro sob o controlo de versões está desaparecido na pasta."
 
 #. (para)
 msgid "<graphic fileref=\"../images/AddedIcon.png\"/> The plus sign tells you that a file or folder has been scheduled to be <emphasis>added</emphasis> to version control."
-msgstr ""
+msgstr "<graphic fileref=\"../images/AddedIcon.png\"/> O sinal se soma diz-te que um ficheiro ou pasta foi escalonado para ser <emphasis>adicionado</emphasis> ao controlo de versões."
 
 #. (para)
 msgid "<graphic fileref=\"../images/IgnoredIcon.png\"/> The bar sign tells you that a file or folder is <emphasis>ignored</emphasis> for version control purposes. This overlay is optional."
-msgstr ""
+msgstr "<graphic fileref=\"../images/IgnoredIcon.png\"/> O sinal de barra diz que um ficheiro ou pasta é <emphasis>ignorado</emphasis> para efeitos de controlo de versão. Esta sobreposição é opcional."
 
 #. (para)
 msgid "<graphic fileref=\"../images/UnversionedIcon.png\"/> This icon shows files and folders which are not under version control, but have not been ignored. This overlay is optional."
-msgstr ""
+msgstr "<graphic fileref=\"../images/UnversionedIcon.png\"/> Este ícone mostra os ficheiros e pastas que não estão sob controle de versões, mas não foram ignorados. Esta sobreposição é opcional."
 
 #. (para)
 msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is very limited and if you are also using an old version of TortoiseCVS, then there are not enough overlay slots available. TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance too."
-msgstr ""
+msgstr "De facto, podes descobrir que nem todos esses ícones são usados no teu sistema. Isto ocorre porque o número de sobreposições permitidas pelo Windows é muito limitada e, se estiveres a utilizar uma versão antiga do TortoiseCVS, não existem suficientes slots para sobreposições disponíveis. O TortoiseSVN tenta ser um <quote>Bom Cidadão (TM)</quote> e limita o seu uso se sobreposições para também dar a oportunidade a outras aplicações."
 
 #. (para)
 msgid "Now that there are more Tortoise clients around (TortoiseCVS, TortoiseHG, ...) the icon limit becomes a real problem. To work around this, the TortoiseSVN project introduced a common shared icon set, loaded as a DLL, which can be used by all Tortoise clients. Check with your client provider to see if this has been integrated yet :-)"
-msgstr ""
+msgstr "Agora que existem por aí mais clientes Tortoise (TortoiseCVS, TortoiseHG, ...) o limite de ícones torna-se um verdadeiro problema. Para dar a volta a isto, o projecto TortoiseSVN introduziu um conjunto de ícones comuns e partilhados, carregados como uma DLL, que pode ser usada por todos os clientes Tortoise. Verifica no teu fornecedor de cliente para veres se isto já foi integrado :-)"
 
 #. (para)
 msgid "For a description of how icon overlays correspond to Subversion status and other technical details, read <xref linkend=\"tsvn-app-internals-overlays\"/>."
-msgstr ""
+msgstr "Para uma descrição de como as sobreposições de ícones correspondem aos estados do Subversion e outros detalhes tecnicos, lê <xref linkend=\"tsvn-app-internals-overlays\"/>."
 
 #. (title)
 msgid "TortoiseSVN Columns In Windows Explorer"
