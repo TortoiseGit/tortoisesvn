@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-20 23:36-0000\n"
+"PO-Revision-Date: 2010-02-21 00:01-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3524,27 +3524,27 @@ msgstr "Se o Programador B decide que as alterações do A estão erradas, dever
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
-msgstr ""
+msgstr "Apagamento local, apagar após fusão"
 
 #. (para)
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bix.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "O Programador B trabalhando num ramo move o <filename>Foo.c</filename> para <filename>Bix.c</filename> e submete-o para o repositório"
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
-msgstr ""
+msgstr "<filename>Bix.c</filename> é marcado com o estado normal (não modificado)."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added with history."
-msgstr ""
+msgstr "<filename>Bar.c</filename> é marcado como adicionado com história."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> é marcado como desaparecido e adquire um conflito de árvore."
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself."
-msgstr ""
+msgstr "Para resolver este conflito o Programador B tem de descobrir para que ficheiro o ficheiro em conflito <filename>Foo.c</filename> foi renomeado/movido no repositório. Isto pode ser feito usando a caixa de diálogo registo na fonte da fusão. O editor de conflito apenas mostra o registo para a cópia de trabalho, e não tem conhecimento qual o caminho que foi usado na fusão, então tens de descobri-lo por ti."
 
 #. (title)
 msgid "Other tree conflicts"
