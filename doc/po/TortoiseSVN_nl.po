@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-20 22:52+0100\n"
-"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
+"PO-Revision-Date: 2010-02-21 01:43+0100\n"
+"Last-Translator: Ewout Muller <eppie1@xs4all.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11170,7 +11170,7 @@ msgstr ""
 
 #. (para)
 msgid "Remember that TortoiseSVN is a GUI client, and this automation guide shows you how to make the TortoiseSVN dialogs appear to collect user input. If you want to write a script which requires no input, you should use the official Subversion command line client instead."
-msgstr ""
+msgstr "Onthoudt dat TortoiseSVN een GUI client is en deze automatiserings handleiding aangeeft hoe de TortoiseSVN schermen te tonen welke gebruikersinvoer verzamelen. Als u een script wilt schrijven dat geen enkele invoer van de gebruiker vereist, dient u de officiele Subversion commando-regel client gebruiken."
 
 #. (title)
 #. (title)
@@ -11190,51 +11190,51 @@ msgstr "command line"
 
 #. (para)
 msgid "The TortoiseSVN GUI program is called <literal>TortoiseProc.exe</literal>. All commands are specified with the parameter <option>/command:abcd</option> where <literal>abcd</literal> is the required command name. Most of these commands need at least one path argument, which is given with <option>/path:\"some\\path\"</option>. In the following table the command refers to the <option>/command:abcd</option> parameter and the path refers to the <option>/path:\"some\\path\"</option> parameter."
-msgstr ""
+msgstr "Het TortoiseSVN GUI programma wordt <literal>TortoiseProc.exe</literal> genoemd. Alle commando's worden opgegeven met de parameter <option>/command:abcd</option> waarbij <literal>abcd</literal> de naam is van het vereiste commando. De meeste van deze commando's hebben ten minste één pad-argument nodig, welke wordt gegeven met <option>/path:\"some\\path\"</option>. In de volgende tabel verwijst het commando naar de <option>/command:abcd</option> parameter en het pad verwijst naar de <option>/path:\"some\\path\"</option> parameter."
 
 #. (para)
 msgid "Since some of the commands can take a list of target paths (e.g. committing several specific files) the <option>/path</option> parameter can take several paths, separated by a <literal>*</literal> character."
-msgstr ""
+msgstr "Omdat sommige commando's een lijst van doelpaden kunnen aannemen (bijv. een aantal specifieke bestanden vastleggen), kan de <option>/path</option> parameter meerdere paden, gescheiden door een <literal>*</literal> teken, bevatten."
 
 #. (para)
 msgid "TortoiseSVN uses temporary files to pass multiple arguments between the shell extension and the main program. From TortoiseSVN 1.5.0 on and later, <option>/notempfile</option> parameter is obsolete and there is no need to add it anymore."
-msgstr ""
+msgstr "TortoiseSVN gebruikt tijdelijke bestanden om meerdere argumenten uit te wisselen tussen de shellextensie en het hoofdprogramma. Vanaf TortoiseSVN 1.5.0 en hoger is de <option>/notempfile</option> parameter overbodig en hoeft deze niet meer te worden toegevoegd."
 
 #. (para)
 msgid "You can also specify a file which contains a list of paths, separated by newlines. The file must be in UTF-16 format. If you pass such a file, use <option>/pathfile</option> instead of <option>/path</option>. To have TortoiseProc delete that file after the command is finished, you can pass the parameter <option>/deletepathfile</option>."
-msgstr ""
+msgstr "U kunt ook een bestand aangeven dat een lijst met paden bevat, gescheiden door nieuwe-regel markeringen. Het bestand moet in UTF-16 formaat zijn. Als u zo'n bestand opgeeft, gebruikt u dan <option>/pathfile</option> in plaats van <option>/path</option>. Om TortoiseProc dat bestand te laten verwijderen nadat het commando is beëindigd, kunt u de parameter <option>/deletepathfile</option> opgeven."
 
 #. (para)
 msgid "The progress dialog which is used for commits, updates and many more commands usually stays open after the command has finished until the user presses the <guibutton>OK</guibutton> button. This can be changed by checking the corresponding option in the settings dialog. But using that setting will close the progress dialog, no matter if you start the command from your batch file or from the TortoiseSVN context menu."
-msgstr ""
+msgstr "Het voortgangsvenster, dat wordt gebruikt voor vastleggingen, bijwerkingen en vele andere commando's, blijft gewoonlijk geopend nadat het commando is beëindigd totdat de gebruiker op de <guibutton>OK</guibutton> knop klikt. Dit kan worden gewijzigd door de corresponderende optie in het instellingenvenster aan te vinken. Maar als die instelling wordt gebruikt, zal het voortgangsvenster sluiten hoe het commando ook vanuit het batch-bestand of vanuit de TortoiseSVN contextmenu wordt opgestart."
 
 #. (para)
 msgid "To specify a different location of the configuration file, use the parameter <option>/configdir:\"path\\to\\config\\directory\"</option>. This will override the default path, including any registry setting."
-msgstr ""
+msgstr "Om een andere locatie van het configuratiebestand aan te geven gebruikt u de parameter <option>/configdir:\"path\\to\\config\\directory\"</option>. Dit zal het standaardpad, alsook elke registry instelling overschrijven."
 
 #. (para)
 msgid "<option>/closeonend:0</option> don't close the dialog automatically"
-msgstr ""
+msgstr "<option>/closeonend:0</option> het venster niet automatisch sluiten"
 
 #. (para)
 msgid "<option>/closeonend:1</option> auto close if no errors"
-msgstr ""
+msgstr "<option>/closeonend:1</option> automatisch sluiten indien er geen fouten zijn"
 
 #. (para)
 msgid "<option>/closeonend:2</option> auto close if no errors and conflicts"
-msgstr ""
+msgstr "<option>/closeonend:2</option> automatisch sluiten indien er geen fouten of conflicten zijn"
 
 #. (para)
 msgid "<option>/closeonend:3</option> auto close if no errors, conflicts and merges"
-msgstr ""
+msgstr "<option>/closeonend:3</option> automatisch sluiten indien er geen fouten, conflicten of samenvoegingen zijn"
 
 #. (para)
 msgid "To close the progress dialog at the end of a command automatically without using the permanent setting you can pass the <option>/closeonend</option> parameter. <placeholder-1/> To close the progress dialog for local operations if there were no errors or conflicts, pass the <option>/closeforlocal</option> parameter."
-msgstr ""
+msgstr "Om het voortgangsscherm aan het einde van een commando automatisch te sluiten zonder de permanente instelling te gebruiken, kunt u de <option>/closeonend</option> parameter opgeven. <placeholder-1/> Om het voortgangsvenster voor locale operaties te sluiten als er geen fouten of conflicten zijn, geeft u de <option>/closeforlocal</option> parameter op."
 
 #. (para)
 msgid "The table below lists all the commands which can be accessed using the TortoiseProc.exe command line. As described above, these should be used in the form <literal>/command:abcd</literal>. In the table, the <literal>/command</literal> prefix is omitted to save space."
-msgstr ""
+msgstr "De onderstaande tabel toont alle commando's welke kunnen worden benaderd met de TortoiseProc.exe commando regel. Zoals hierboven is beschreven, dienen deze in de vorm <literal>/command:abcd</literal> te worden gebruikt. In de tabel wordt het voorvoegsel <literal>/command</literal> weggelaten om ruimte te sparen."
 
 #. (title)
 msgid "List of available commands and options"
@@ -11246,7 +11246,7 @@ msgstr "Commando"
 
 #. (entry)
 msgid "Shows the about dialog. This is also shown if no command is given."
-msgstr "Weergeeft de 'over'  dialoog. Deze wordt ook weergegeven wanneer er geen commando's is opgegeven."
+msgstr "Toont het 'over' scherm. Dit wordt ook getoond als geen enkel commando is opgegeven."
 
 #. (option)
 #. (option)
@@ -11317,27 +11317,27 @@ msgstr "/findtype:X"
 
 #. (para)
 msgid "<option>/findtype:1</option> filter by everything"
-msgstr ""
+msgstr "<option>/findtype:1</option> filtert op alles"
 
 #. (para)
 msgid "<option>/findtype:2</option> filter by messages"
-msgstr ""
+msgstr "<option>/findtype:2</option> filtert op berichten"
 
 #. (para)
 msgid "<option>/findtype:3</option> filter by path"
-msgstr ""
+msgstr "<option>/findtype:3</option> filtert op pad"
 
 #. (para)
 msgid "<option>/findtype:4</option> filter by authors"
-msgstr ""
+msgstr "<option>/findtype:4</option> filtert op auteurs"
 
 #. (para)
 msgid "<option>/findtype:5</option> filter by revisions"
-msgstr ""
+msgstr "<option>/findtype:5</option> filtert op revisies"
 
 #. (para)
 msgid "<option>/findtype:7</option> filter by bug ID"
-msgstr ""
+msgstr "<option>/findtype:7</option> filtert op bug ID"
 
 #. (entry)
 msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> fills in the filter text, <placeholder-6/> forces the filter to use text, not regex, or <placeholder-7/> forces the filter to use regex, not simple text search, and <placeholder-8/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-9/>"
@@ -11555,23 +11555,23 @@ msgstr "svn:ignore"
 
 #. (entry)
 msgid "Adds all targets in <placeholder-1/> to the ignore list, i.e. adds the <placeholder-2/> property to those files."
-msgstr ""
+msgstr "Voegt alle doelen in <placeholder-1/> toe aan de negeren lijst. Oftewel, voegt de <placeholder-2/> eigenschap toe aan die bestanden."
 
 #. (para)
 msgid "Opens the blame dialog for the file specified in <option>/path</option>."
-msgstr ""
+msgstr "Opent het verklaar scherm voor het bestand dat wordt gegeven in <option>/path</option>."
 
 #. (para)
 msgid "If the options <option>/startrev</option> and <option>/endrev</option> are set, then the dialog asking for the blame range is not shown but the revision values of those options are used instead."
-msgstr ""
+msgstr "Als de opties <option>/startrev</option> en <option>/endrev</option> zijn ingesteld wordt niet het scherm dat het te verklaren bereik vraagt getoond, maar worden de waarden van deze opties in de revisie gebruikt."
 
 #. (para)
 msgid "If the option <option>/line:nnn</option> is set, TortoiseBlame will open with the specified line number showing."
-msgstr ""
+msgstr "Als de optie <option>/line:nnn</option> is ingesteld zal TortoiseBlame worden geopend met het aangegeven regelnummer in beeld."
 
 #. (para)
 msgid "The options <option>/ignoreeol</option>, <option>/ignorespaces</option> and <option>/ignoreallspaces</option> are also supported."
-msgstr ""
+msgstr "De opties <option>/ignoreeol</option>, <option>/ignorespaces</option> en <option>/ignoreallspaces</option> worden ook ondersteund."
 
 #. (option)
 msgid "/savepath:path"
@@ -11583,31 +11583,31 @@ msgstr "/revision:xxx"
 
 #. (entry)
 msgid "Saves a file from an URL or working copy path given in <placeholder-1/> to the location given in <placeholder-2/>. The revision is given in <placeholder-3/>. This can be used to get a file with a specific revision."
-msgstr ""
+msgstr "Slaat een bestand op vanuit een URL of werkkopiepad gegeven in <placeholder-1/> naar de locatie gegeven in <placeholder-2/>. De revisie wordt gegeven in <placeholder-3/>. Dit kan worden gebruikt om een bestand met van een bepaalde revisie op te halen."
 
 #. (entry)
 msgid "Creates a patch file for the path given in <placeholder-1/>."
-msgstr ""
+msgstr "Maakt een patch bestand aan voor het in <placeholder-1/> gegeven pad."
 
 #. (entry)
 msgid "Shows the revision graph for the path given in <placeholder-1/>."
-msgstr ""
+msgstr "Toont het revisie schema voor het in <placeholder-1/> gegeven pad."
 
 #. (entry)
 msgid "Locks a file or all files in a directory given in <placeholder-1/>. The 'lock' dialog is shown so the user can enter a comment for the lock."
-msgstr ""
+msgstr "Blokkeert één of meerdere bestanden in de in <placeholder-1/> gegeven map. Het 'blokkeer' venster wordt getoond zodat de gebruiker commentaar op de blokkade kan ingeven."
 
 #. (entry)
 msgid "Unlocks a file or all files in a directory given in <placeholder-1/>."
-msgstr ""
+msgstr "Verwijdert de blokkering van één of meerdere bestanden in de in <placeholder-1/> gegeven map."
 
 #. (entry)
 msgid "Rebuilds the windows icon cache. Only use this in case the windows icons are corrupted. A side effect of this (which can't be avoided) is that the icons on the desktop get rearranged. To suppress the message box, pass <placeholder-1/>."
-msgstr ""
+msgstr "Bouwt de windows pictogrammen cache opnieuw op. Gebruik dit alleen voor het geval dat de windows pictogrammen corrupt zijn geraakt. Een bijwerking hiervan is (wat niet kan worden voorkomen) dat de pictogrammen op het werkblad worden herschikt. Geef <placeholder-1/> mee om het meldingsscherm te onderdrukken."
 
 #. (entry)
 msgid "Shows the properties dialog for the path given in <placeholder-1/>."
-msgstr ""
+msgstr "Toont het eigenschappen scherm voor het pad dat is gegeven in <placeholder-1/>."
 
 #. (para)
 msgid ""
@@ -11622,10 +11622,20 @@ msgid ""
 "                 /startrev:50 /endrev:60 /closeonend:0\n"
 "</screen>"
 msgstr ""
+"Voorbeelden (welke op één regel dienen te worden ingegeven): <screen>\n"
+"TortoiseProc.exe /command:commit\n"
+"                 /path:\"c:\\svn_wc\\file1.txt*c:\\svn_wc\\file2.txt\"\n"
+"                 /logmsg:\"test logbericht\" /closeonend:0\n"
+"\n"
+"TortoiseProc.exe /command:update /path:\"c:\\svn_wc\\\" /closeonend:0\n"
+"\n"
+"TortoiseProc.exe /command:log /path:\"c:\\svn_wc\\file1.txt\"\n"
+"                 /startrev:50 /endrev:60 /closeonend:0\n"
+"</screen>"
 
 #. (title)
 msgid "Tsvncmd URL handler"
-msgstr ""
+msgstr "Tsvncmd URL verwerker"
 
 #. (primary)
 msgid "URL handler"
@@ -11633,27 +11643,27 @@ msgstr "URL verwerker"
 
 #. (para)
 msgid "Using special URLs, it is also possible to call TortoiseProc from a web page."
-msgstr ""
+msgstr "Door speciale URL's te gebruiken is het ook mogelijk om TortoiseProc vanuit een webpagina aan te roepen."
 
 #. (para)
 msgid "TortoiseSVN registers a new protocol <literal>tsvncmd:</literal> which can be used to create hyperlinks that execute TortoiseSVN commands. The commands and parameters are the same as when automating TortoiseSVN from the command line."
-msgstr ""
+msgstr "TortoiseSVN registreert een nieuw protocol <literal>tsvncmd:</literal> wat kan worden gebruikt om snelkoppelingen aan te maken welke TortoiseSVN commando's uitvoeren. De commando's en parameters zijn dezelfde als wanneer TortoiseSVN vanaf de commandoregel wordt geautomatiseerd."
 
 #. (para)
 msgid "The format of the <literal>tsvncmd:</literal> URL is like this:"
-msgstr ""
+msgstr "De opbouw van de <literal>tsvncmd:</literal> URL is als volgt:"
 
 #. (literal)
 msgid "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
-msgstr ""
+msgstr "tsvncmd:command:cmd?parameter:parameterwaarde?parameter:parameterwaarde"
 
 #. (para)
 msgid "with <literal>cmd</literal> being one of the allowed commands and with <literal>parameter</literal> being a parameter like <literal>path</literal> or <literal>revision</literal>, depending on the command used."
-msgstr ""
+msgstr "waarbij <literal>cmd</literal> een van de toegestane commando's is en waarbij <literal>parameter</literal> een parameter is zoals <literal>path</literal> of <literal>revision</literal>, afhankelijk van het gebruikte commando."
 
 #. (para)
 msgid "The following commands are allowed with <literal>tsvncmd:</literal> URLs: <placeholder-1/>"
-msgstr ""
+msgstr "De volgende commando's zijn toegestaan met <literal>tsvncmd:</literal> URL's: <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -11664,22 +11674,27 @@ msgid ""
 "url2:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
 "revision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
 msgstr ""
+"\n"
+"&lt;a href=\"tsvncmd:command:showcompare?\n"
+"url1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"url2:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"revision1:188?revision2:189\"&gt;vergelijken&lt;/a&gt;\n"
 
 #. (para)
 msgid "An example URL might look like this: <placeholder-1/>"
-msgstr ""
+msgstr "Een voorbeeld URL kan er als volgt uit zien: <placeholder-1/>"
 
 #. (title)
 msgid "TortoiseIDiff Commands"
-msgstr ""
+msgstr "TortoiseIDiff Commando's"
 
 #. (para)
 msgid "The image diff tool has a few command line options which you can use to control how the tool is started. The program is called <literal>TortoiseIDiff.exe</literal>."
-msgstr ""
+msgstr "Het vergelijkingshulpprogramma voor afbeeldingen heeft een aantal commando-regel opties welke kunnen worden gebruikt om te bepalen hoe het hulpprogramma wordt opgestart. Het programma wordt <literal>TortoiseIDiff.exe</literal> genoemd."
 
 #. (para)
 msgid "The table below lists all the options which can be passed to the image diff tool on the command line."
-msgstr ""
+msgstr "De onderstaande tabel toont alle opties welke op de commando-regel kunnen worden doorgegeven aan het vergelijkingshulpprogramma voor afbeelingen."
 
 #. (title)
 msgid "List of available options"
@@ -11691,28 +11706,28 @@ msgstr "Optie"
 
 #. (entry)
 msgid "Path to the file shown on the left."
-msgstr ""
+msgstr "Pad naar het bestand dat links wordt getoond."
 
 #. (entry)
 #. (entry)
 msgid "A title string. This string is used in the image view title instead of the full path to the image file."
-msgstr ""
+msgstr "Een titel tekst. Deze tekst wordt gebruikt in de titel van de afbeeldingsweergave in plaats van het volledige pad naar het afbeeldingsbestand."
 
 #. (entry)
 msgid "Path to the file shown on the right."
-msgstr ""
+msgstr "Pad naar het bestand dat rechts wordt getoond."
 
 #. (entry)
 msgid "If specified, the image diff tool switches to the overlay mode (alpha blend)."
-msgstr ""
+msgstr "Indien opgegeven schakelt het vergelijkingshulpprogramma voor afbeeldingen over naar de overlap modus (alfa mengen)."
 
 #. (entry)
 msgid "If specified, the image diff tool fits both images together."
-msgstr ""
+msgstr "Indien opgegeven maakt het vergelijkingshulpprogramma voor afbeeldingen beide afbeeldingen aan elkaar gelijk qua grootte."
 
 #. (entry)
 msgid "Shows the image info box."
-msgstr ""
+msgstr "Toont het informatieblok voor de afbeelding."
 
 #. (para)
 msgid ""
@@ -11722,6 +11737,11 @@ msgid ""
 "                  /fit /overlay\n"
 "</screen>"
 msgstr ""
+"Voorbeeld (welke op één regel dient te worden ingegeven): <screen>\n"
+"TortoiseIDiff.exe /left:\"c:\\images\\img1.jpg\" /lefttitle:\"image 1\"\n"
+"                  /right:\"c:\\images\\img2.jpg\" /righttitle:\"image 2\"\n"
+"                  /fit /overlay\n"
+"</screen>"
 
 #. (title)
 msgid "Command Line Interface Cross Reference"
