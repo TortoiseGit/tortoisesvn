@@ -6023,13 +6023,13 @@ msgstr ""
 #. (para)
 #. (para)
 msgid "For project properties <emphasis>only</emphasis>, i.e. <literal>tsvn:</literal>, <literal>bugtraq:</literal> and <literal>webviewer:</literal> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr ""
+msgstr "Bij eigenschappen welke <emphasis>alleen</emphasis> op projecten van toepassing zijn, bijv. <literal>tsvn:</literal>, <literal>bugtraq:</literal> en <literal>webviewer:</literal>, kunt u gebruik maken van de <guilabel>Recursief</guilabel> vinkbox om de eigenschap op alle sub-mappen binnen de hiërarchie in te stellen, zonder het ook op de bestanden in te stellen."
 
 #. (para)
 #. (para)
 #. (para)
 msgid "When you add new sub-folders to a working copy using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
-msgstr ""
+msgstr "Als u met TortoiseSVN nieuwe sub-mappen aan een werkkopie toevoegd, zullen alle project eigenschappen welke in de bovenliggende map aanwezig zijn, automatisch aan de nieuwe sub-map worden toegevoegd."
 
 #. (title)
 #. (title)
@@ -11166,7 +11166,7 @@ msgstr "Automatisering van TortoiseSVN"
 
 #. (para)
 msgid "Since all commands for TortoiseSVN are controlled through command line parameters, you can automate it with batch scripts or start specific commands and dialogs from other programs (e.g. your favourite text editor)."
-msgstr ""
+msgstr "Omdat alle commando's voor TortoiseSVN worden bestuurd via commandoregel parameters kunt u dit automatiseren door middel van batch scripts of specifieke commando's of schermen van andere programma's opstarten. (bijvoorbeeld uw favoriete tekstverwerker)."
 
 #. (para)
 msgid "Remember that TortoiseSVN is a GUI client, and this automation guide shows you how to make the TortoiseSVN dialogs appear to collect user input. If you want to write a script which requires no input, you should use the official Subversion command line client instead."
@@ -11341,7 +11341,7 @@ msgstr "<option>/findtype:7</option> filtert op bug ID"
 
 #. (entry)
 msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> fills in the filter text, <placeholder-6/> forces the filter to use text, not regex, or <placeholder-7/> forces the filter to use regex, not simple text search, and <placeholder-8/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-9/>"
-msgstr ""
+msgstr "Opent het log venster. Het <placeholder-1/> geeft het bestand of map aan waarvan de log moet worden getoond. Er kunnen zes extra opties worden ingesteld: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> maakt de selectvievak 'stoppen-bij-kopie' benaderbaar, <placeholder-5/> vult de filtertekst, <placeholder-6/> dwingt het filter om tekst in plaats van regex te gebruiken, of <placeholder-7/> dwingt het filter om een regex in plaats van een simpele tekst te gebruiken om te zoeken, en <placeholder-8/> waarbij X een getal is tussen 1 en 7. Corresponderen de nummers met: <placeholder-9/>"
 
 #. (option)
 #. (option)
@@ -11350,11 +11350,11 @@ msgstr "/url"
 
 #. (entry)
 msgid "Opens the checkout dialog. The <placeholder-1/> specifies the target directory and the <placeholder-2/> specifies the URL to checkout from."
-msgstr ""
+msgstr "Opent het ophaal venster. De <placeholder-1/> geeft de doelmap aan en de <placeholder-2/> geeft de URL aan waarvan wordt opgehaald."
 
 #. (entry)
 msgid "Opens the import dialog. The <placeholder-1/> specifies the directory with the data to import."
-msgstr ""
+msgstr "Opent het import venster. De <placeholder-1/> geeft de map aan met de gegevens om te importeren."
 
 #. (option)
 msgid "/rev"
@@ -11378,7 +11378,7 @@ msgstr "/includeexternals"
 
 #. (entry)
 msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and <placeholder-6/>."
-msgstr ""
+msgstr "Werkt de werkkopie in <placeholder-1/> bij naar HEAD. Als de optie <placeholder-2/> is gegeven wordt een venster getoond dat de gebruiker vraagt naar welke revisie moet worden bijgewerkt. Als u dit venster niet wilt zien, geeft dan een revisienummer op <placeholder-3/>. Andere opties zijn <placeholder-4/>, <placeholder-5/> en <placeholder-6/>."
 
 #. (option)
 #. (option)
@@ -11401,23 +11401,23 @@ msgstr "/bugid:\"het id van de bug hier\""
 
 #. (entry)
 msgid "Opens the commit dialog. The <placeholder-1/> specifies the target directory or the list of files to commit. You can also specify the <placeholder-2/> switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use <placeholder-3/>, where <placeholder-4/> points to a file containing the log message. To pre-fill the bug ID box (in case you've set up integration with bug trackers properly), you can use the <placeholder-5/> to do that."
-msgstr ""
+msgstr "Opent het vastleggen venster. De <placeholder-1/> geeft de doelmap of de lijst met bestanden op om vast te leggen. U kunt ook de <placeholder-2/> optie aangeven om een voorgedefiniëerd logbericht aan het vastleggen venster door te geven. Of, als u geen logbericht op de commandoregel wilt doorgeven gebruikt u dan <placeholder-3/>, waarbij <placeholder-4/> een bestand aangeeft dat het logbericht bevat. Om het bug ID veld van tevoren te vullen (voor het geval dat u integratie met bug trackers naar behoren heerft ingesteld) kunt u de <placeholder-5/> gebruiken."
 
 #. (entry)
 msgid "Adds the files in <placeholder-1/> to version control."
-msgstr ""
+msgstr "Voegt de bestanden in <placeholder-1/> toe aan versiebeheer."
 
 #. (entry)
 msgid "Reverts local modifications of a working copy. The <placeholder-1/> tells which items to revert."
-msgstr ""
+msgstr "Draait alle locale aanpassingen aan de werkkopie terug. De <placeholder-1/> geeft aan welke items terug te draaien."
 
 #. (option)
 msgid "/noui"
-msgstr ""
+msgstr "/noui"
 
 #. (entry)
 msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from popping up (either telling about the cleanup being finished or showing an error message)."
-msgstr ""
+msgstr "Schoont onderbroken of afgebroken activiteiten op en heft de blokkade van de werkkopie op  in <placeholder-1/>. Gebruik <placeholder-2/> om te voorkomen dat het resultaten scherm wordt getoond (of het nou gaat over de beindiging van de opschoning of het tonen van een foutmelding)."
 
 #. (option)
 #. (option)
@@ -11427,19 +11427,19 @@ msgstr "/noquestion"
 
 #. (entry)
 msgid "Marks a conflicted file specified in <placeholder-1/> as resolved. If <placeholder-2/> is given, then resolving is done without asking the user first if it really should be done."
-msgstr ""
+msgstr "Markeert een conflicterend bestand dat wordt aangegeven in <placeholder-1/> als opgelost. Als <placeholder-2/> is ingesteld, dan wordt het probleem opgelost zonder de gebruiker van tevoren te raadplegen of het daadwerkelijk moet worden uitgevoerd."
 
 #. (entry)
 msgid "Creates a repository in <placeholder-1/>"
-msgstr ""
+msgstr "Maakt een archief aan in <placeholder-1/>"
 
 #. (entry)
 msgid "Opens the switch dialog. The <placeholder-1/> specifies the target directory."
-msgstr ""
+msgstr "Opent het wissel venster. De <placeholder-1/> geeft de doelmap aan."
 
 #. (entry)
 msgid "Exports the working copy in <placeholder-1/> to another directory. If the <placeholder-2/> points to an unversioned directory, a dialog will ask for an URL to export to the directory in <placeholder-3/>."
-msgstr ""
+msgstr "Exporteert de werkkopie vanuit <placeholder-1/> naar een andere map. Als de <placeholder-2/> naar een map wijst welke niet onder versiebeheer is, zal een venster vragen naar een URL om naar de map in <placeholder-3/> te exporteren."
 
 #. (option)
 #. (option)
@@ -11464,15 +11464,15 @@ msgstr "/torev:xxx"
 
 #. (entry)
 msgid "Opens the merge dialog. The <placeholder-1/> specifies the target directory. For merging a revision range, the following options are available: <placeholder-2/>, <placeholder-3/>. For merging two repository trees, the following options are available: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> and <placeholder-7/>. These pre-fill the relevant fields in the merge dialog."
-msgstr ""
+msgstr "Opent het samenvoeg venster. De <placeholder-1/> geeft de doelmap aan. Om een revisie bereik samen te voegen zijn de volgende opties beschikbaar: <placeholder-2/>, <placeholder-3/>. Om twee archiefmap boomstructuren samen te voegen zijn de volgende opties beschikbaar: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> en <placeholder-7/>. Deze voeren de relevante velden in het samenvoeg venster van tevoren in."
 
 #. (entry)
 msgid "Opens the merge all dialog. The <placeholder-1/> specifies the target directory."
-msgstr ""
+msgstr "Opent het samenvoeg scherm. De <placeholder-1/> geeft de doeldirectory aan."
 
 #. (entry)
 msgid "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to branch/tag from. And the <placeholder-2/> is the target URL. You can also specify the <placeholder-3/> switch to pass a predefined log message to the branch/tag dialog. Or, if you don't want to pass the log message on the command line, use <placeholder-4/>, where <placeholder-5/> points to a file containing the log message."
-msgstr ""
+msgstr "Toont het tak/label scherm. De <placeholder-1/> is de werkkopie waar de tak/label van kopieëerd moet worden en de <placeholder-2/> is de doel URL. U kunt ook de <placeholder-3/> opgeven om een vooraf ingesteld logbericht aan de tak/label door te geven. Of, als u geen logbericht via de commandoregel wilt doorgeven, <placeholder-4/> gebruiken waarbij <placeholder-5/> een bestand aangeeft dat het logbericht bevat."
 
 #. (entry)
 msgid "Opens the settings dialog."
@@ -11480,11 +11480,11 @@ msgstr "Opent de instellingen dialoog."
 
 #. (entry)
 msgid "Removes the file(s) in <placeholder-1/> from version control."
-msgstr ""
+msgstr "Verwijdert één of meerdere bestanden van versiebeheer."
 
 #. (entry)
 msgid "Renames the file in <placeholder-1/>. The new name for the file is asked with a dialog. To avoid the question about renaming similar files in one step, pass <placeholder-2/>."
-msgstr ""
+msgstr "Hernoemt het bestand in <placeholder-1/>. De nieuwe naam voor het bestand wordt in een venster gevraagd. Om de vraag om gelijksoortige bestanden in dezelfde handeling te hernoemen te voorkomen, geeft u <placeholder-2/> op."
 
 #. (option)
 #. (option)
@@ -11502,23 +11502,23 @@ msgstr "/line:xxx"
 
 #. (entry)
 msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, then the diff is done by first blaming the files with the given revisions. The parameter <placeholder-9/> specifies the line to jump to when the diff is shown."
-msgstr ""
+msgstr "Start het externe vergelijkingsprogramma dat in de TortoiseSVN instellingen is opgegeven. De <placeholder-1/> geeft het eerste bestand aan. Als de optie <placeholder-2/> is opgegeven, wordt het vergelijkingsprogramma met die twee bestanden opgestart. Als <placeholder-3/> is weggelaten wordt de vergelijking uitgevoerd tussen het bestand gegeven in <placeholder-4/> en zijn BASE. Om de revisienummers expliciet op te geven gebruikt u <placeholder-5/> en <placeholder-6/>. Als <placeholder-7/> is opgegeven en <placeholder-8/> niet is opgegeven wordt de vergelijking uitgevoerd nadat de bestanden eerst zijn verklaard met de gegeven revisienummers. De parameter <placeholder-9/> geeft de regel aan waarnaar wordt gesprongen nadat de vergelijking is getoond."
 
 #. (para)
 msgid "Depending on the URLs and revisions to compare, this either shows a unified diff (if the option <option>unified</option> is set), a dialog with a list of files that have changed or if the URLs point to files starts the diff viewer for those two files."
-msgstr ""
+msgstr "Afhankelijk van de URL's en de revisienummers welke moeten worden vergeleken, toont dit of een unified diff (als de optie <option>unified</option> is ingesteld), of een lijst met bestanden welke zijn gewijzigd, of start de vergelijkingskijker als de URL's verwijzen naar twee bestanden."
 
 #. (para)
 msgid "The options <option>url1</option>, <option>url2</option>, <option>revision1</option> and <option>revision2</option> must be specified. The options <option>pegrevision</option>, <option>ignoreancestry</option>, <option>blame</option> and <option>unified</option> are optional."
-msgstr ""
+msgstr "De opties <option>url1</option>, <option>url2</option>, <option>revision1</option> en <option>revision2</option> dienen te zijn opgegeven. De opties <option>pegrevision</option>, <option>ignoreancestry</option>, <option>verklaren</option> en <option>unified</option> zijn optioneel."
 
 #. (entry)
 msgid "Starts the conflict editor specified in the TortoiseSVN settings with the correct files for the conflicted file in <placeholder-1/>."
-msgstr ""
+msgstr "Start de conflict bewerker, welke is ingesteld in de TortoiseSVN instellingen, met de correcte bestanden voor het conflicterende bestand in <placeholder-1/>."
 
 #. (entry)
 msgid "Opens the relocate dialog. The <placeholder-1/> specifies the working copy path to relocate."
-msgstr ""
+msgstr "Opent het verhuis scherm. De <placeholder-1/> geeft de werkkopie aan om te verhuizen."
 
 #. (entry)
 msgid "Opens the help file."
@@ -11534,7 +11534,7 @@ msgstr "Controleer archief"
 
 #. (entry)
 msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory. If <placeholder-2/> is specified, the dialog contacts the repository immediately on startup, as if the user clicked on the <placeholder-3/> button."
-msgstr ""
+msgstr "Opent het scherm voor controle op wijzigingen. De <placeholder-1/> geeft de map van de werkkopie aan. Als <placeholder-2/> is opgegeven maakt het scherm bij opstarten direct contact met het archief alsof de gebruiker op de <placeholder-3/> knop heeft geklikt."
 
 #. (option)
 #. (option)
@@ -11543,11 +11543,11 @@ msgstr "/rev:xxx"
 
 #. (option)
 msgid "/projectpropertiespath:path/to/wc"
-msgstr ""
+msgstr "/projectpropertiespath:path/to/wc"
 
 #. (entry)
 msgid "Starts the repository browser dialog, pointing to the URL of the working copy given in <placeholder-1/> or <placeholder-2/> points directly to an URL. An additional option <placeholder-3/> can be used to specify the revision which the repository browser should show. If the <placeholder-4/> is omitted, it defaults to HEAD. If <placeholder-5/> points to an URL, the <placeholder-6/> specifies the path from where to read and use the project properties."
-msgstr ""
+msgstr "Start het archief-verkenner scherm welke verwijst naar de URL van de werkkopie die is opgegeven in <placeholder-1/> of <placeholder-2/> verwijst direct naar een URL. Een extra optie <placeholder-3/> kan worden gebruikt om de revisie aan te geven welke de archief-verkenner moet tonen. Als de <placeholder-4/> wordt weggelaten wordt teruggevallen op HEAD. Als <placeholder-5/> naar een URL wijst, geeft <placeholder-6/> het pad aan waarvan de project eigenschappen moeten worden gelezen en gebruikt."
 
 #. (literal)
 msgid "svn:ignore"
