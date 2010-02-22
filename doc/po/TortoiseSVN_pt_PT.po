@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-22 01:06-0000\n"
+"PO-Revision-Date: 2010-02-22 23:35-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2941,7 +2941,7 @@ msgstr "Podes arrastar, para a caixa de diálogo de submeter, ficheiros não ver
 #. (title)
 #. (title)
 msgid "Repairing External Renames"
-msgstr "Reparando Alterações de nome Externas"
+msgstr "Reparando Alterações de Nome Externas"
 
 #. (para)
 #. (para)
@@ -3719,27 +3719,27 @@ msgstr "Podes também reverter alterações em ficheiro individuais. Se apagaste
 
 #. (para)
 msgid "Unversioned and ignored files can be sent to the recycle bin from here using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>. If you want to delete files permanently (bypassing the recycle bin) hold the <keycap>Shift</keycap> key while clicking on <guilabel>Delete</guilabel>."
-msgstr ""
+msgstr "Ficheiros não versionados e ignorados podem ser enviados daqui para o cesto de reciclagem usando <menuchoice><guimenu>Menu Contexto</guimenu><guimenuitem>Remover</guimenuitem></menuchoice>. Se quiseres remover permanentemente os ficheiros ( ignorando o cesto de reciclagem) mantém premido a tecla <keycap>Shift</keycap> enquanto clicas no <guilabel>Remover</guilabel>."
 
 #. (para)
 msgid "If you want to examine a file in detail, you can drag it from here into another application such as a text editor or IDE."
-msgstr ""
+msgstr "Se quiseres examinar um ficheiro em detalhe, podes arrasta-lo para outra aplicação como um editor de texto ou um IDE."
 
 #. (para)
 msgid "The columns are customizable. If you <action>right click</action> on any column header you will see a context menu allowing you to select which columns are displayed. You can also change column width by using the drag handle which appears when you move the mouse over a column boundary. These customizations are preserved, so you will see the same headings next time."
-msgstr ""
+msgstr "As colunas são costumizáveis. Se clicares com o botão direito em qualquer cabeçalho de coluna verás um menu de contexto, que te permitirá seleccionar quais as colunas a mostrar. Podes também alterar a largura da coluna usando o manípulo de arrasto que aparece quando moves o rato sobre o limite da coluna. Estas customizações são preservados para que vejas os mesmos cabeçalhos da próxima vez."
 
 #. (para)
 msgid "If you are working on several unrelated tasks at once, you can also group files together into changelists. Read <xref linkend=\"tsvn-dug-commit-changelists\"/> for more information."
-msgstr ""
+msgstr "Se tiveres a trabalhar ao mesmo tempo em várias tarefas, não relacionadas, podes também agrupar os ficheiros em listas de alterações. Ler <xref linkend=\"tsvn-dug-commit-changelists\"/> para mais informação."
 
 #. (para)
 msgid "At the bottom of the dialog you can see a summary of the range of repository revisions in use in your working copy. These are the <emphasis>commit</emphasis> revisions, not the <emphasis>update</emphasis> revisions; they represent the range of revisions where these files were last committed, not the revisions to which they have been updated. Note that the revision range shown applies only to the items displayed, not to the entire working copy. If you want to see that information for the whole working copy you must check the <guilabel>Show unmodified files</guilabel> checkbox."
-msgstr ""
+msgstr "No fundo da caixa de diálogo podes ver um sumário da gama de revisões do repositório em uso na tua cópia de trabalho. Essas são as revisões <emphasis>submetidas</emphasis>, não as revisões de <emphasis>actualizadas</emphasis>; Estas representam a gama de revisões onde esses ficheiros foram submetidas por último, e não as revisões a que foram actualizadas. De notarque a gama de revisões mostrada só se aplica aos itens mostrados, e não, à totalidade da cópia de trabalho. Se queres ver essa informação para a totalidade da cópia de trabalho, deves verificar a caixa de verificação <guilabel>Não modificado</guilabel>."
 
 #. (para)
 msgid "If you want a flat view of your working copy, i.e. showing all files and folders at every level of the folder hierarchy, then the <guilabel>Check for Modifications</guilabel> dialog is the easiest way to achieve that. Just check the <guilabel>Show unmodified files</guilabel> checkbox to show all files in your working copy."
-msgstr ""
+msgstr "Se queres uma vista ampla da tua cópia de trabalho, i.e. mostrando todos os ficheiros e pastas em qualquer nível da hierarquia de pastas, então a caixa de diálogo <guilabel>Verificar alterações</guilabel> é a maneira mais fácil para o atingir. Verifica apenas a caixa de verificação <guilabel>Não modificado</guilabel> para mostrar todos os ficheiros na tua cópia de trabalho."
 
 #. (title)
 msgid "Viewing Diffs"
