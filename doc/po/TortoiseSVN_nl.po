@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-22 16:02+0100\n"
-"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
+"PO-Revision-Date: 2010-02-22 16:54+0100\n"
+"Last-Translator: Ewout Muller <eppie1@xs4all.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12494,7 +12494,7 @@ msgstr "Implementatie details"
 
 #. (para)
 msgid "This appendix contains a more detailed discussion of the implementation of some of TortoiseSVN's features."
-msgstr ""
+msgstr "Deze bijlage bevat een gedetaileerde verhandeling over de implementatie van enkele mogelijkheden van TortoiseSVN."
 
 #. (primary)
 msgid "overlay priority"
@@ -12502,79 +12502,79 @@ msgstr "laag prioriteit"
 
 #. (para)
 msgid "Every file and folder has a Subversion status value as reported by the Subversion library. In the command line client, these are represented by single letter codes, but in TortoiseSVN they are shown graphically using the icon overlays. Because the number of overlays is very limited, each overlay may represent one of several status values."
-msgstr ""
+msgstr "Ieder bestand en map heeft een Subversion statuswaarde zoals gerapporteerd door de Subversion bibliotheek. In de commandoregel client worden deze vertegenwoordigd door enkelvoudige karakter codes, maar in TortoiseSVN worden ze grafisch als een overlappend pictogram weergegeven. Omdat het aantal overlappende pictogrammen erg beperkt is, vertegenwoordigd elk overlappend pictogram één van meerdere statuswaarden."
 
 #. (para)
 msgid "<graphic fileref=\"images/ConflictIcon.png\"/> The <emphasis>Conflicted</emphasis> overlay is used to represent the <literal>conflicted</literal> state, where an update or switch results in conflicts between local changes and changes downloaded from the repository. It is also used to indicate the <literal>obstructed</literal> state, which can occur when an operation is unable to complete."
-msgstr ""
+msgstr "<graphic fileref=\"images/ConflictIcon.png\"/> Het <emphasis>Conflicterend</emphasis> overlappende pictogram vertegenwoordigt de <literal>conflict</literal> status, waar een bijwerking of wisseling leidt tot conflicten tussen locale wijzigingen en wijzigingen welke vanuit het archief zijn binnen gehaald. Het wordt ook gebruikt om de <literal>belemmering</literal> status aan te duiden, welke zich kan voordoen wanneer een activiteit niet kan worden voltooid."
 
 #. (para)
 msgid "<graphic fileref=\"images/ModifiedIcon.png\"/> The <emphasis>Modified</emphasis> overlay represents the <literal>modified</literal> state, where you have made local modifications, the <literal>merged</literal> state, where changes from the repository have been merged with local changes, and the <literal>replaced</literal> state, where a file has been deleted and replaced by another different file with the same name."
-msgstr ""
+msgstr "<graphic fileref=\"images/ModifiedIcon.png\"/> Het <emphasis>Aangepast</emphasis> overlappende pictogram vertegenwoordigd de <literal>aangepast</literal> status, waar u locale wijzigingen heeft aangebracht, de <literal>samengevoegd</literal> status, waar wijzigingen vanuit het archief zijn samengevoegd met de locale wijzigingen en de <literal>vervange</literal> status, waar een bestand is verwijderd en vervangen door een ander bestand met dezelfe naam."
 
 #. (para)
 msgid "<graphic fileref=\"images/DeletedIcon.png\"/> The <emphasis>Deleted</emphasis> overlay represents the <literal>deleted</literal> state, where an item is scheduled for deletion, or the <literal>missing</literal> state, where an item is not present. Naturally an item which is missing cannot have an overlay itself, but the parent folder can be marked if one of its child items is missing."
-msgstr ""
+msgstr "<graphic fileref=\"images/DeletedIcon.png\"/> Het <emphasis>Verwijderd</emphasis> overlappende pictogram vertegenwoordigd de <literal>verwijderd</literal> status, waar een item is klaargezet voor verwijdering, of de <literal>ontbrekend</literal> status, waar een item niet aanwezig is. Een item dat ontbreekt kan zelf natuurlijk geen overlappend pictogram bezitten, maar de bovenliggende map kan worden gemarkeerd wanneer een van de onderliggende items ontbreekt."
 
 #. (para)
 msgid "<graphic fileref=\"images/AddedIcon.png\"/> The <emphasis>Added</emphasis> overlay is simply used to represent the <literal>added</literal> status when an item has been added to version control."
-msgstr ""
+msgstr "<graphic fileref=\"images/AddedIcon.png\"/> Het <emphasis>Toegevoegd</emphasis> overlappende pictogram vertegenwoordigd de <literal>toegevoegd</literal> status wanneer een item is toegevoegd aan versiebeheer."
 
 #. (para)
 msgid "<graphic fileref=\"images/InSubVersionIcon.png\"/> The <emphasis>In Subversion</emphasis> overlay is used to represent an item which is in the <literal>normal</literal> state, or a versioned item whose state is not yet known. Because TortoiseSVN uses a background caching process to gather status, it may take a few seconds before the overlay updates."
-msgstr ""
+msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> Het <emphasis>In Subversion</emphasis> overlappende pictogram wordt gebruikt om een item te vertegenwoordigen dat zich in de <literal>normaal</literal> status bevindt, of een item onder versiebeheer waarvan de status nog niet bekend is. Omdat TortoiseSVN een cacheproces op de achtergrond gebruikt om de status te vergaren, kan het enige seconden in beslag nemen voordat de overlappende pictogrammen worden bijgewerkt."
 
 #. (para)
 msgid "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs Lock</emphasis> overlay is used to indicate when a file has the <literal>svn:needs-lock</literal> property set. For working copies which were created using Subversion 1.4.0 and later, the <literal>svn:needs-lock</literal> status is cached locally by Subversion and this is used to determine when to show this overlay. For working copies which are in pre-1.4.x format, TortoiseSVN shows this overlay when the file has read-only status. Note that Subversion automatically upgrades working copies when you update them, although the caching of the <literal>svn:needs-lock</literal> property may not happen until the file itself is updated."
-msgstr ""
+msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> Het <emphasis>Benodigd vergrendeling</emphasis> overlappende pictogram wordt gebruikt om aan te geven dat op een bestand de eigenschap <literal>svn:needs-lock</literal> is ingesteld. Voor werkkopieën welke zijn aangemaakt met gebruik van Subversion 1.4.0 en hoger wordt de <literal>svn:needs-lock</literal> status door Subversion in de locale cache geplaatst, wat wordt gebruikt om te bepalen wanneer dit overlappende pictogram moet worden getoond. Voor werkkopieën welke zijn aangemaakt met voorlopers van 1.4.x toont TortoiseSVN dit overlappende pictogram wanneer het bestand de alleen-lezen status heeft. Houdt er rekening mee dat Subversion werkkopieën automatisch opwaardeert wanneer u deze bijwerkt, ondanks dat de <literal>svn:needs-lock</literal> eigenschap niet in de cache zal worden geplaatst totdat het bestand zelf is bijgewerkt."
 
 #. (para)
 msgid "<graphic fileref=\"images/LockedIcon.png\"/> The <emphasis>Locked</emphasis> overlay is used when the local working copy holds a lock for that file."
-msgstr ""
+msgstr "<graphic fileref=\"images/LockedIcon.png\"/> Het <emphasis>Vergrendeld</emphasis> overlappende pictogram wordt gebruikt wanneer de locale werkkopie een vergrendeling op het betreffende bestand heeft."
 
 #. (para)
 msgid "<graphic fileref=\"images/IgnoredIcon.png\"/> The <emphasis>Ignored</emphasis> overlay is used to represent an item which is in the <literal>ignored</literal> state, either due to a global ignore pattern, or the <literal>svn:ignore</literal> property of the parent folder. This overlay is optional."
-msgstr ""
+msgstr "<graphic fileref=\"images/IgnoredIcon.png\"/> Het <emphasis>Genegeerd</emphasis> overlappende pictogram wordt gebruikt om een item te vertegenwoordigen dat zich in de <literal>genegeerd</literal> status bevindt door een globaal ingesteld negeren patroon, of door de <literal>svn:ignore</literal> eigenschap van de bovenliggende map. Dit overlappende pictogram is optioneel."
 
 #. (para)
 msgid "<graphic fileref=\"images/UnversionedIcon.png\"/> The <emphasis>Unversioned</emphasis> overlay is used to represent an item which is in the <literal>unversioned</literal> state. This is an item in a versioned folder, but which is not under version control itself. This overlay is optional."
-msgstr ""
+msgstr "<graphic fileref=\"images/UnversionedIcon.png\"/> Het <emphasis>Niet onder versiebeheer</emphasis> overlappende pictogram wordt gebruikt om een item te vertegenwoordigen dat zich in de <literal>niet onder versiebeheer</literal> status bevindt. Dit is een item in een map onder versiebeheer, maar zelf niet onder versiebeheer valt. Dit overlappende pictogram is optioneel."
 
 #. (para)
 msgid "If an item has subversion status <literal>none</literal> (the item is not within a working copy) then no overlay is shown. If you have chosen to disable the <emphasis>Ignored</emphasis> and <emphasis>Unversioned</emphasis> overlays then no overlay will be shown for those files either."
-msgstr ""
+msgstr "Als een item de subversion status <literal>geen</literal> heeft (het item bevindt zich niet in een werkkopie) wordt er geen overlappend pictogram getoond. Als u ervoor heeft gekozen om de overlappende pictogrammen voor <emphasis>Genegeerd</emphasis> en <emphasis>Niet onder versiebeheer</emphasis> niet actief te maken, worden voor deze bestanden ook geen overlappende pictogrammen getoond."
 
 #. (para)
 msgid "An item can only have one Subversion status value. For example a file could be locally modified and it could be marked for deletion at the same time. Subversion returns a single status value - in this case <literal>deleted</literal>. Those priorities are defined within Subversion itself."
-msgstr ""
+msgstr "Een item kan slechts één Subversion statuswaarde hebben. Een bestand kan bijvoorbeeld locaal zijn aangepast en op het zelfde moment zijn gemarkeerd voor verwijdering. Subversion geeft één enkele statuswaarde - in dit geval <literal>verwijderd</literal>. Deze prioriteiten worden in Subversion zelf gedefinieerd."
 
 #. (para)
 msgid "When TortoiseSVN displays the status recursively (the default setting), each folder displays an overlay reflecting its own status and the status of all its children. In order to display a single <emphasis>summary</emphasis> overlay, we use the priority order shown above to determine which overlay to use, with the <emphasis>Conflicted</emphasis> overlay taking highest priority."
-msgstr ""
+msgstr "Als TortoiseSVN de status recursief toont (standaard instelling), toont elke map een overlappend pictogram dat zijn eigen status en dat van de onderliggende sub-mappen weergeeft. Om een enkel <emphasis>samenvattend</emphasis> overlappende pictogram te tonen gebruiken we bovenstaande volgorde in prioriteit om te bepalen welk overlappend pictogram moet worden gebruikt, waarbij het <emphasis>Conflicterend</emphasis> overlappende pictogram de hoogste prioriteit heeft."
 
 #. (para)
 msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is limited to 15. Windows uses 4 of those, and the remaining 11 can be used by other applications. If there are not enough overlay slots available, TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance."
-msgstr ""
+msgstr "Het zou kunnen zijn dat u bemerkt dat niet al deze pictogrammen op uw systeem worden gebruikt. Dat is omdat het aantal overlappende pictogrammen wat door Windows wordt toegestaan begrenst is op 15. Windows gebruikt 4 hiervan en de overige 11 kunnen door andere applicaties worden gebruikt. Als er niet voldoende ingangen voor overlappende pictogrammen aanwezig zijn, probeert TortoiseSVN een <quote>Good Citizen (TM)</quote> te zijn en begrenst het zijn eigen gebruik van overlappende pictogrammen om andere applicaties een kans te geven."
 
 #. (para)
 msgid "<emphasis>Normal</emphasis>, <emphasis>Modified</emphasis> and <emphasis>Conflicted</emphasis> are always loaded and visible."
-msgstr ""
+msgstr "<emphasis>Normaal</emphasis>, <emphasis>Aangepast</emphasis> en <emphasis>Conflicterend</emphasis> worden altijd geladen en zijn zijn altijd zichtbaar."
 
 #. (para)
 msgid "<emphasis>Deleted</emphasis> is loaded if possible, but falls back to <emphasis>Modified</emphasis> if there are not enough slots."
-msgstr ""
+msgstr "<emphasis>Verwijderd</emphasis> wordt indien mogelijk geladen, maar valt terug naar <emphasis>Aangepast</emphasis> als er niet genoeg ingangen zijn."
 
 #. (para)
 msgid "<emphasis>Read-Only</emphasis> is loaded if possible, but falls back to <emphasis>Normal</emphasis> if there are not enough slots."
-msgstr ""
+msgstr "<emphasis>Alleen-lezen</emphasis> wordt indien mogelijk geladen, maar valt terug op <emphasis>Normaal</emphasis> als er niet genoeg ingangen zijn."
 
 #. (para)
 msgid "<emphasis>Locked</emphasis> is only loaded if there are fewer than 13 overlays already loaded. It falls back to <emphasis>Normal</emphasis> if there are not enough slots."
-msgstr ""
+msgstr "<emphasis>Geblokkeerd</emphasis> wordt alleen geladen indien er minder dan 13 overlappende pictogrammen zijn geladen. Het valt terug op <emphasis>Normaal</emphasis> als er niet genoeg ingangen zijn."
 
 #. (para)
 msgid "<emphasis>Added</emphasis> is only loaded if there are fewer than 14 overlays already loaded. It falls back to <emphasis>Modified</emphasis> if there are not enough slots."
-msgstr ""
+msgstr "<emphasis>Toegevoegd</emphasis> wordt alleen geladen indien er minder dan 14 overlappende pictogrammen zijn geladen. Het valt terug op <emphasis>Aangepast</emphasis> als er niet genoeg ingangen zijn."
 
 #. (title)
 msgid "Securing Svnserve using SSH"
