@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-08 22:48+0800\n"
+"PO-Revision-Date: 2010-02-22 20:11+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -564,7 +564,7 @@ msgstr "匯出選取範圍至(&E)..."
 
 #. Resource IDs: (1092, 1094, 1095)
 msgid "&External"
-msgstr "外部(&E)"
+msgstr "外部連結(&E)"
 
 #. Resource IDs: (65535)
 msgid "&File"
@@ -1155,6 +1155,10 @@ msgstr "更新至版本(&U)..."
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "使用自動完成檔案名稱及關鍵字(&U)"
+
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "使用資源回收筒(&U)"
 
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
@@ -2181,6 +2185,10 @@ msgstr "變更列表:"
 msgid "Changes made (double-click on file for diff):"
 msgstr "異動(雙點可查詢細節):"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "正在變更外部連結至固定版本"
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "取出(&K)..."
@@ -2196,6 +2204,10 @@ msgstr "檢查更新"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "檢查更新..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr "更新外部連結至標籤"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2794,8 +2806,8 @@ msgstr "複製: %s 的新名稱"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "正在複製 %s"
+msgid "Copying %1!s!"
+msgstr "正在複製 %1!s!"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -3138,6 +3150,10 @@ msgstr "刪除並加入忽略列表(&I)"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "依副檔名刪除並忽略 %d 項(&E)"
+
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "刪除無版本控制的檔案"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3779,8 +3795,8 @@ msgstr "匯出無版本控制的檔案"
 
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "正在匯出 %s"
+msgid "Exporting %1!s!"
+msgstr "正在匯出 %1!s!"
 
 #. Resource IDs: (79)
 msgid "Exporting..."
@@ -5680,8 +5696,8 @@ msgstr "將修改過的檔案移至資源回收筒再進行復原"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "正在移動 %s"
+msgid "Moving %1!s!"
+msgstr "正在移動 %1!s!"
 
 #. Resource IDs: (80)
 msgid "Moving..."
@@ -5790,6 +5806,10 @@ msgstr "沒有錯誤訊息."
 #. Resource IDs: (3867, 3868)
 msgid "No error occurred."
 msgstr "沒有發生錯誤."
+
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "找不到外部連結"
 
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
@@ -6302,6 +6322,10 @@ msgstr "正在取消, 請稍候..."
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
 msgstr "正在比對差異, 請稍候..."
+
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "正在蒐集外部連結, 請稍候..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -9046,6 +9070,10 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "TortoiseSVN 自動送交:已變更外部連結至固定版本."
+
 #. Resource IDs: (98)
 #, c-format
 msgid ""
@@ -9304,8 +9332,8 @@ msgstr "含有無版本控制的檔案時, 上層資料夾顯示為異動"
 
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "正在清除 %s 的版本控制資訊"
+msgid "Unversioning %1!s!"
+msgstr "正在清除 %1!s! 的版本控制資訊"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -10631,6 +10659,11 @@ msgstr "有衝突的更動."
 #, c-format
 msgid "to %1"
 msgstr "至 %1"
+
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr "至 %1!s!"
 
 #. Resource IDs: (80, 103, 284)
 #, c-format
