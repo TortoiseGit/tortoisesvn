@@ -705,7 +705,7 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				if (AfxBeginThread(ExportThreadEntry, this)==NULL)
 				{
 					InterlockedExchange(&m_bThreadRunning, FALSE);
-					CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+					OnCantStartThread();
 				}
 			}
 		}
@@ -1020,7 +1020,7 @@ void CFileDiffDlg::OnBnClickedRev1btn()
 		if (AfxBeginThread(DiffThreadEntry, this)==NULL)
 		{
 			InterlockedExchange(&m_bThreadRunning, FALSE);
-			CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+			OnCantStartThread();
 		}
 	}
 }
@@ -1046,7 +1046,7 @@ void CFileDiffDlg::OnBnClickedRev2btn()
 		if (AfxBeginThread(DiffThreadEntry, this)==NULL)
 		{
 			InterlockedExchange(&m_bThreadRunning, FALSE);
-			CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+			OnCantStartThread();
 		}
 	}
 }
@@ -1127,5 +1127,4 @@ void CFileDiffDlg::CopySelectionToClipboard()
 	}
 	CStringUtils::WriteAsciiStringToClipboard(sTextForClipboard);
 }
-
 

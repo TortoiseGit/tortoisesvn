@@ -100,7 +100,7 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
 			if (AfxBeginThread(StatusThreadEntry, this)==NULL)
 			{
 				InterlockedExchange(&m_bThreadRunning, FALSE);
-				CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+				OnCantStartThread();
 			}
 		}
 		else

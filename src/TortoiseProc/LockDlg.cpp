@@ -124,7 +124,7 @@ BOOL CLockDlg::OnInitDialog()
 	m_pThread = AfxBeginThread(StatusThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
 	if (m_pThread==NULL)
 	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		OnCantStartThread();
 	}
 	else
 	{
@@ -237,17 +237,8 @@ BOOL CLockDlg::PreTranslateMessage(MSG* pMsg)
 			}
 			break;
 		case VK_RETURN:
-			{
-				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
-				{
-					if ( GetDlgItem(IDOK)->IsWindowEnabled() )
-					{
-						if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlEnter"), TRUE)))
-							PostMessage(WM_COMMAND, IDOK);
-					}
-					return TRUE;
-				}
-			}
+			if(OnEnterPressed())
+				return TRUE;
 			break;
 		}
 	}
@@ -260,7 +251,7 @@ void CLockDlg::Refresh()
 	m_bBlock = TRUE;
 	if (AfxBeginThread(StatusThreadEntry, this)==NULL)
 	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		OnCantStartThread();
 	}
 }
 

@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "Resource.h"
 #include "StandAloneDlg.h"
+#include "MessageBox.h"
 
 BEGIN_TEMPLATE_MESSAGE_MAP(CStandAloneDialogTmpl, BaseType, BaseType)
 	ON_WM_ERASEBKGND()
@@ -134,6 +135,25 @@ void CResizableStandAloneDialog::OnNcRButtonUp(UINT nHitTest, CPoint point)
 		SetMenu(GetMenu());
 	}
 	CStandAloneDialogTmpl<CResizableDialog>::OnNcRButtonUp(nHitTest, point);
+}
+
+void CResizableStandAloneDialog::OnCantStartThread()
+{
+	CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+}
+
+bool CResizableStandAloneDialog::OnEnterPressed()
+{
+	if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+	{
+		if ( GetDlgItem(IDOK)->IsWindowEnabled() )
+		{
+			if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlEnter"), TRUE)))
+				PostMessage(WM_COMMAND, IDOK);
+		}
+		return true;
+	}
+	return false;
 }
 
 BEGIN_MESSAGE_MAP(CStateDialog, CDialog)

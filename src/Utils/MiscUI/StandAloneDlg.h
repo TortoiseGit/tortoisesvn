@@ -449,6 +449,8 @@ protected:
 	afx_msg void	OnMoving(UINT fwSide, LPRECT pRect);
 	afx_msg void	OnNcMButtonUp(UINT nHitTest, CPoint point);
 	afx_msg void	OnNcRButtonUp(UINT nHitTest, CPoint point);
+	void 			OnCantStartThread();
+	bool 			OnEnterPressed();
 
 	DECLARE_MESSAGE_MAP()
 

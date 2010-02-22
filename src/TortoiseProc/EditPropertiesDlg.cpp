@@ -148,7 +148,7 @@ BOOL CEditPropertiesDlg::OnInitDialog()
 	if (AfxBeginThread(PropsThreadEntry, this)==NULL)
 	{
 		InterlockedExchange(&m_bThreadRunning, FALSE);
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		OnCantStartThread();
 	}
 	GetDlgItem(IDC_EDITPROPLIST)->SetFocus();
 
@@ -164,7 +164,7 @@ void CEditPropertiesDlg::Refresh()
 	if (AfxBeginThread(PropsThreadEntry, this)==NULL)
 	{
 		InterlockedExchange(&m_bThreadRunning, FALSE);
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		OnCantStartThread();
 	}
 }
 
@@ -547,17 +547,8 @@ BOOL CEditPropertiesDlg::PreTranslateMessage(MSG* pMsg)
 			}
 			break;
 		case VK_RETURN:
-			{
-				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
-				{
-					if ( GetDlgItem(IDOK)->IsWindowEnabled() )
-					{
-						if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlEnter"), TRUE)))
-							PostMessage(WM_COMMAND, IDOK);
-					}
-					return TRUE;
-				}
-			}
+			if (OnEnterPressed())
+				return TRUE;
 			break;
 		case VK_DELETE:
 			{

@@ -342,7 +342,7 @@ void CChangedDlg::OnBnClickedRefresh()
 	{
 		if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
 		{
-			CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+			OnCantStartThread();
 		}
 	}
 }
@@ -369,4 +369,3 @@ void CChangedDlg::UpdateStatistics()
 	SetDlgItemText(IDC_INFOLABEL, temp);
 	GetDlgItem(IDC_INFOLABEL)->Invalidate();
 }
-

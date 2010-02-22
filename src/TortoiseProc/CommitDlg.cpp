@@ -320,7 +320,7 @@ BOOL CCommitDlg::OnInitDialog()
 	m_pThread = AfxBeginThread(StatusThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
 	if (m_pThread==NULL)
 	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		OnCantStartThread();
 		InterlockedExchange(&m_bBlock, FALSE);
 	}
 	else
@@ -873,15 +873,8 @@ BOOL CCommitDlg::PreTranslateMessage(MSG* pMsg)
 			break;
 		case VK_RETURN:
 			{
-				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
-				{
-					if ( GetDlgItem(IDOK)->IsWindowEnabled() )
-					{
-						if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlEnter"), TRUE)))
-							PostMessage(WM_COMMAND, IDOK);
-					}
+				if(OnEnterPressed())
 					return TRUE;
-				}
 				if ( GetFocus()==GetDlgItem(IDC_BUGID) )
 				{
 					// Pressing RETURN in the bug id control
@@ -906,7 +899,7 @@ void CCommitDlg::Refresh()
 	m_pThread = AfxBeginThread(StatusThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
 	if (m_pThread==NULL)
 	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		OnCantStartThread();
 		InterlockedExchange(&m_bBlock, FALSE);
 	}
 	else

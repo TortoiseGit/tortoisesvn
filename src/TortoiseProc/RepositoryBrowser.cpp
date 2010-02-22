@@ -303,7 +303,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	if (AfxBeginThread(InitThreadEntry, this)==NULL)
 	{
 		m_bThreadRunning = false;
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		OnCantStartThread();
 	}
 	return TRUE;
 }

@@ -358,17 +358,8 @@ BOOL CEditPropertyValueDlg::PreTranslateMessage(MSG* pMsg)
 		switch (pMsg->wParam)
 		{
 		case VK_RETURN:
-			{
-				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
-				{
-					if ( GetDlgItem(IDOK)->IsWindowEnabled() )
-					{
-						if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlEnter"), TRUE)))
-							PostMessage(WM_COMMAND, IDOK);
-					}
-					return TRUE;
-				}
-			}
+			if (OnEnterPressed())
+				return TRUE;
 			break;
 		default:
 			break;
@@ -422,5 +413,4 @@ void CEditPropertyValueDlg::OnEnChangePropvalue()
 		m_bIsBinary = false;
 	}
 }
-
 

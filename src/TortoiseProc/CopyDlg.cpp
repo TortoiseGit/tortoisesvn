@@ -206,7 +206,7 @@ BOOL CCopyDlg::OnInitDialog()
 	// without blocking the dialog
 	if ((m_pThread = AfxBeginThread(FindRevThreadEntry, this))==NULL)
 	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		OnCantStartThread();
 	}
 
 	return TRUE;
@@ -393,17 +393,8 @@ BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
 		switch (pMsg->wParam)
 		{
 		case VK_RETURN:
-			{
-				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
-				{
-					if ( GetDlgItem(IDOK)->IsWindowEnabled() )
-					{
-						if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlEnter"), TRUE)))
-							PostMessage(WM_COMMAND, IDOK);
-					}
-					return TRUE;
-				}
-			}
+			if (OnEnterPressed())
+				return TRUE;
 		}
 	}
 

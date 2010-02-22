@@ -92,7 +92,7 @@ BOOL CCreatePatch::OnInitDialog()
 	// blocking the dialog
 	if(AfxBeginThread(PatchThreadEntry, this) == NULL)
 	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		OnCantStartThread();
 	}
 	InterlockedExchange(&m_bThreadRunning, TRUE);
 
@@ -139,17 +139,8 @@ BOOL CCreatePatch::PreTranslateMessage(MSG* pMsg)
 		switch (pMsg->wParam)
 		{
 		case VK_RETURN:
-			{
-				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
-				{
-					if ( GetDlgItem(IDOK)->IsWindowEnabled() )
-					{
-						if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlEnter"), TRUE)))
-							PostMessage(WM_COMMAND, IDOK);
-					}
-					return TRUE;
-				}
-			}
+			if(OnEnterPressed())
+				return TRUE;
 			break;
 		case VK_F5:
 			{
@@ -157,7 +148,7 @@ BOOL CCreatePatch::PreTranslateMessage(MSG* pMsg)
 				{
 					if(AfxBeginThread(PatchThreadEntry, this) == NULL)
 					{
-						CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+						OnCantStartThread();
 					}
 					else
 						InterlockedExchange(&m_bThreadRunning, TRUE);
@@ -250,7 +241,7 @@ LRESULT CCreatePatch::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 {
 	if(AfxBeginThread(PatchThreadEntry, this) == NULL)
 	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		OnCantStartThread();
 	}
 	return 0;
 }
