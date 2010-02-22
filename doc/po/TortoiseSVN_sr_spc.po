@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-08 20:15+0100\n"
+"POT-Creation-Date: 2010-02-19 21:36 +0000\n"
+"PO-Revision-Date: 2010-02-22 20:14+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7946,8 +7946,8 @@ msgid "Set this property to the URL of your repo viewer to view all changes in a
 msgstr "Подесите ове особине за УРЛ вашег репо прегледача да видите измене у специфичној ревизији. Мора бити одговарајући УРИ кодиран и мора да садржи <literal>%REVISION%</literal>. <literal>%REVISION%</literal> је замењена са ревизионим бројем у питању. Ово допушта ТротоисеСВН да прикаже улаз контекст менија у дневник дијалога <menuchoice><guimenu>Контекст Мени</guimenu><guimenuitem>Прегледати ревизију на вебсајту</guimenuitem></menuchoice>"
 
 #. (para)
-msgid "Set this property to the URL of your repo viewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision and path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the URL will be replaced with <literal>/trunk/src/file</literal>."
-msgstr "Подеите ове особине у УРЛ вашег репо прегледача да видите измене посебних фајлова у посебној ревизији. Мора бити исправно УРИ кодирано и има да садржи <literal>%REVISION%</literal>и <literal>%PATH%</literal>. <literal>%PATH%</literal> се замењује са путањом релативном са кореном спремишта. Ово омогућава ТортоисеСВН да прикаже контекст мени улаз у дневник дијалогу <menuchoice><guimenu>Контекст Мени</guimenu><guimenuitem>Преглед ревизије и путање у вебпрегледачу</guimenuitem></menuchoice> На примаер, ако урадите десни-клик на доњи панел дневник дијалога фајл улаза <literal>/trunk/src/file</literal> затим <literal>%PATH%</literal> у УРЛ ће бити замењен са <literal>/trunk/src/file</literal>."
+msgid "Set this property to the URL of your repo viewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision for path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the URL will be replaced with <literal>/trunk/src/file</literal>."
+msgstr "Подесите ове особине у УРЛ вашег репо прегледача да видите измене одређених фајлова у одређеној ревизији. Мора бити исправно УРИ кодирано и има да садржи <literal>%REVISION%</literal>и <literal>%PATH%</literal>. <literal>%PATH%</literal> се замењује са путањом релативном са кореном спремишта. Ово омогућава ТортоисеСВН да прикаже улаз контекст менија у дневнику дијалогу <menuchoice><guimenu>Контекст Мени</guimenu><guimenuitem>Преглед ревизије и путање у вебпрегледачу</guimenuitem></menuchoice> На пример, ако урадите десни-клик на доњи панел дневник дијалога фајл улаза <literal>/trunk/src/file</literal> затим <literal>%PATH%</literal> у УРЛ ће бити замењен са <literal>/trunk/src/file</literal>."
 
 #. (para)
 msgid "You can also use relative URLs instead of absolute ones. This is useful in case your web viewer is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>webviewer:revision</literal> and <literal>webviewer:pathrevision</literal> property. The format is the same as for the <literal>bugtraq:url</literal> property. See <xref linkend=\"tsvn-dug-bugtracker\"/>."
@@ -9553,6 +9553,10 @@ msgstr "ТортоисеСВН допушта да означите спољаш
 msgid "By default, TortoiseSVN always runs an update with externals included. This avoids problems with inconsistent working copies. If you have however a lot of externals set, an update can take quite a while. Set this value to <literal>false</literal> to run the default update with externals excluded. To update with externals included, either run the <literal>Update to revision...</literal> dialog or set this value to <literal>true</literal> again."
 msgstr "Уобичајено, ТортоисеСВН увек ради ажурирање са укљученим екстерналима. Ово искључује проблеме са неконзистентним радним копијама. Ако међутим имате сетован део екстернала ажурирање може да узме неко време. Подесите ову вредност на <literal>лаж</literal> да урадите уобичајено ажурирање са исљученим екстерналима. Да ажурирате са укљученим екстерналима, или извршите <literal>Ажурирај према ревизији...</literal>  дијалог или подесите ову вредност на <literal>истина</literal> поново."
 
+#. (para)
+msgid "In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to dismiss the dialog as if you clicked on the OK button. If you don't want this, set this value to <literal>false</literal>."
+msgstr "У већини дијалога у ТортоисеСВН, можете користити <keycap>Ctrl+Enter</keycap> да одбаците дијалог као кад кликнете на ОК тастер.Ако не желите ово, подесите вредност на  <literal>лаж</literal>."
+
 #. (title)
 msgid "Final Step"
 msgstr "Финални корак"
@@ -10322,7 +10326,7 @@ msgstr "Не можемо обезбедити информацију и тут�
 
 #. (para)
 msgid "You should provide both a 32-bit and 64-bit version of your plugin. Because the x64-Version of TortoiseSVN can not use a 32-bit plugin and vice-versa."
-msgstr ""
+msgstr "Треба обезбедити  обе верзије плагина, и 32-битну и 64-битну. Пошто х64-Верзија ТортоисеСВН не може користити 32-битне плагине и обратно."
 
 #. (title)
 msgid "The IBugtraqProvider interface"
@@ -12031,14 +12035,15 @@ msgstr "Неке ставке су опционалне и оне су чест�
 #, no-wrap
 msgid ""
 "\n"
-"svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
+"svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 msgstr ""
 "\n"
-"svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
+"svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 
 #. (para)
-msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
-msgstr "Ако је <guilabel>Преузми само вршни именик</guilabel> чекирано, користите <literal>-N</literal> прекидач."
+#. (para)
+msgid "The depth combo box items relate to the <literal>-depth</literal> argument."
+msgstr ""
 
 #. (para)
 #. (para)
@@ -12081,15 +12086,11 @@ msgstr "Ажурирај према ревизији..."
 msgid ""
 "\n"
 "svn info URL_of_WC\n"
-"svn update [-r rev] [-N] [--ignore-externals] PATH\n"
+"svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 msgstr ""
 "\n"
 "svn info URL_of_WC\n"
-"svn update [-r rev] [-N] [--ignore-externals] PATH\n"
-
-#. (para)
-msgid "If <guilabel>Only update the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
-msgstr "Ако је <guilabel>Само ажурирај вршни именик</guilabel> чекирано, користите <literal>-N</literal> прекидач."
+"svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 
 #. (para)
 msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
@@ -12133,10 +12134,10 @@ msgstr "Када кликнете ОК, Субверзионо урезивањ�
 #, no-wrap
 msgid ""
 "\n"
-"svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
+"svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 msgstr ""
 "\n"
-"svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
+"svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 
 #. (para)
 #. (para)
@@ -13109,3 +13110,17 @@ msgstr "Милорад Поповић <MiloradSPopovic@gmail.com>"
 #. (None)
 msgid "translator-translation"
 msgstr "Превод"
+
+#~ msgid ""
+#~ "If <guilabel>Only checkout the top folder</guilabel> is checked, use the "
+#~ "<literal>-N</literal> switch."
+#~ msgstr ""
+#~ "Ако је <guilabel>Преузми само вршни именик</guilabel> чекирано, користите "
+#~ "<literal>-N</literal> прекидач."
+#~ msgid ""
+#~ "If <guilabel>Only update the top folder</guilabel> is checked, use the "
+#~ "<literal>-N</literal> switch."
+#~ msgstr ""
+#~ "Ако је <guilabel>Само ажурирај вршни именик</guilabel> чекирано, "
+#~ "користите <literal>-N</literal> прекидач."
+

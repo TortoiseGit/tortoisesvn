@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-14 21:55+0100\n"
+"PO-Revision-Date: 2010-02-22 20:04+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1346,6 +1346,10 @@ msgstr "&Ажурирај према ревизији..."
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "&Користи аутокомплетирање фајл путања и кључних речи"
+
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "Користи корп&у за отпатке"
 
 #
 #. Resource IDs: (1005, 1410, 65535)
@@ -2929,6 +2933,10 @@ msgstr "Копирај %s"
 msgid "Copy %s to %s, Revision %s"
 msgstr "Копирај %s на %s, Ревизија %s"
 
+#. Resource IDs: (142)
+msgid "Copy (Branch / Tag)"
+msgstr "Копирај (грана / знак)"
+
 #. Resource IDs: (78)
 msgid "Copy - TortoiseSVN"
 msgstr "Копирај - ТортоисеСВН"
@@ -3009,8 +3017,8 @@ msgstr "Копија: Ново име за %s"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "Копирање %s"
+msgid "Copying %1!s!"
+msgstr "Копирање %1!s!"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -3353,6 +3361,10 @@ msgstr "Обришите и додајте на листи &занемарива
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Обришите и занемарити %d ставки по &екстензији"
+
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "Обриши неверзионисане ставке"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3996,8 +4008,8 @@ msgstr "Извези и фајлове без верзија"
 
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "Извози %s"
+msgid "Exporting %1!s!"
+msgstr "Извози %1!s!"
 
 #. Resource IDs: (79)
 msgid "Exporting..."
@@ -5905,8 +5917,8 @@ msgstr "Помера измењене фајлове у корпу пре вра
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "Премештам %s"
+msgid "Moving %1!s!"
+msgstr "Премештање %1!s!"
 
 #. Resource IDs: (80)
 msgid "Moving..."
@@ -9543,8 +9555,8 @@ msgstr "Фајлови изван система верзија означава
 
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "Скидање верзија %s"
+msgid "Unversioning %1!s!"
+msgstr "Скидање верзије %1!s!"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -10879,6 +10891,11 @@ msgstr "постоје сукобљене измене."
 msgid "to %1"
 msgstr "ка %1"
 
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr "ка %1!s!"
+
 #. Resource IDs: (80, 103, 284)
 #, c-format
 msgid "to %s"
@@ -11048,10 +11065,6 @@ msgstr "речи ознаке:"
 msgid "words [uncompressed]: "
 msgstr "речи [без сажимања]"
 
-#. Resource IDs: (142)
-msgid "y"
-msgstr "у"
-
 #. Resource IDs: (245)
 msgid "year"
 msgstr "година"
@@ -11064,8 +11077,8 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{БагТрек}"
 
-#~ msgid "Copy (Branch / Tag)"
-#~ msgstr "Копирај (грана / знак)"
+#~ msgid "y"
+#~ msgstr "у"
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Аутор:                                    Стефан Куенг"
 #~ msgid "Automatically check for &newer versions every week"
