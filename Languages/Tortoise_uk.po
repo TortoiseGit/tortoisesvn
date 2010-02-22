@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-01 12:13+0300\n"
+"PO-Revision-Date: 2010-02-22 19:32+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1153,6 +1153,10 @@ msgstr "&Оновити до модифікації..."
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "В&икористовувати автодоповнення для файлових шляхів та ключових слів"
 
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "В&икористовувати смітник"
+
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
 msgstr "Ім'я &користувача"
@@ -2178,6 +2182,10 @@ msgstr "Список змін:"
 msgid "Changes made (double-click on file for diff):"
 msgstr "Внесені зміни (для відмінностей двічі клацніть файл):"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "Зовнішні змінюються до фіксованої модифікації."
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "В&ивірити..."
@@ -2193,6 +2201,10 @@ msgstr "Перевірити наявність оновлень"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Перевірити наявність оновлень..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr "Перевірити зовнішних до зрізу"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2789,8 +2801,8 @@ msgstr "Копіювання: Нове ім'я для %s"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "Копіюється %s"
+msgid "Copying %1!s!"
+msgstr "Копіюється %1!s!"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -3133,6 +3145,10 @@ msgstr "Знищити та додати до списку &ігноровани
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Знищити й ігнорувати %d елементів за роз&ширенням"
+
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "Знищити неверсійні елементи"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3770,8 +3786,8 @@ msgstr "Експортувати також неверсійні файли"
 
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "Експортується %s"
+msgid "Exporting %1!s!"
+msgstr "Експортується %1!s!"
 
 #. Resource IDs: (79)
 msgid "Exporting..."
@@ -5675,8 +5691,8 @@ msgstr "Переносить перед відверненням змінені 
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "Переміщується %s"
+msgid "Moving %1!s!"
+msgstr "Переміщується %1!s!"
 
 #. Resource IDs: (80)
 msgid "Moving..."
@@ -5785,6 +5801,10 @@ msgstr "Повідомлення про помилку нема в наявно�
 #. Resource IDs: (3867, 3868)
 msgid "No error occurred."
 msgstr "Помилки не трапилось."
+
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "Зовнішних не знайдено"
 
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
@@ -6298,6 +6318,10 @@ msgstr "Зачекайте, відбувається скасування..."
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
 msgstr "Зачекайте, поки отримуються відмінності..."
+
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "Зачекайте, поки отримуються зовнішні..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -9043,6 +9067,10 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "TortoiseSVN автофіксування: зовнішні змінено у фіксовану модифікацію."
+
 #. Resource IDs: (98)
 #, c-format
 msgid ""
@@ -9301,8 +9329,8 @@ msgstr "Неверсійні файли позначають батьківсь�
 
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "Розверсійовується %s"
+msgid "Unversioning %1!s!"
+msgstr "Розверсійовується %1!s!"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -10632,6 +10660,11 @@ msgstr "конфліктуючих модифікацій немає."
 #, c-format
 msgid "to %1"
 msgstr "до %1"
+
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr "до %1!s!"
 
 #. Resource IDs: (80, 103, 284)
 #, c-format
