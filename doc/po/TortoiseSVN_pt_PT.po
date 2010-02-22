@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-22 00:12-0000\n"
+"PO-Revision-Date: 2010-02-22 01:06-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3662,7 +3662,7 @@ msgstr "Se queres que a disposição corrente seja visualizada em todas as tuas 
 
 #. (title)
 msgid "Local and Remote Status"
-msgstr ""
+msgstr "Estado Remoto e Local"
 
 #. (primary)
 msgid "modifications"
@@ -3671,51 +3671,51 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Check for Modifications"
-msgstr ""
+msgstr "Verificar Modificações"
 
 #. (para)
 msgid "<placeholder-1/> It's often very useful to know which files you have changed and also which files got changed and committed by others. That's where the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> comes in handy. This dialog will show you every file that has changed in any way in your working copy, as well as any unversioned files you may have."
-msgstr ""
+msgstr "<placeholder-1/> É normalmente muito útil conhecer que ficheiros foram alterados e também quais os ficheiros que foram alterados e submetidos por outros. Isto é onde o comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verificar alterações...</guimenuitem></menuchoice> vem à mão. Esta caixa de diálogo irá mostrar-te cada ficheiro que foi alterado de algum modo na tua cópia de trabalho, tal como  qualquer ficheiro não versionado que lá tiveres."
 
 #. (para)
 msgid "If you click on the <guibutton>Check Repository</guibutton> then you can also look for changes in the repository. That way you can check before an update if there's a possible conflict. You can also update selected files from the repository without updating the whole folder. By default, the <guibutton>Check Repository</guibutton> button only fetches the remote status with the checkout depth of the working copy. If you want to see all files and folders in the repository, even those you have not checked out, then you have to hold down the <keycap>Shift</keycap> key when you click on the <guibutton>Check Repository</guibutton> button."
-msgstr ""
+msgstr "Se clicares em <guibutton>Verificar repositório</guibutton> podes então também procurar por alterações no repositório. Desse modo podes verificar, antes de uma actualização, se existe um possível conflito. Podes também actualizar ficheiros seleccionados do repositório, sem actualizar a pasta inteira. Por defeito o botão <guibutton>Verificar repositório</guibutton> só procura o estado remoto com a profundidade de exportação da cópia de trabalho. Se queres ver todos os ficheiros e pastas no repositório, mesmos aqueles que não SVN exportaste, então tens de premir continuamente a tecla <keycap>Shift</keycap> enquanto clicas no botão <guibutton>Verificar repositório</guibutton>."
 
 #. (para)
 msgid "Locally modified items."
-msgstr ""
+msgstr "Itens modificados localmente."
 
 #. (para)
 msgid "Added items. Items which have been added with history have a <literal>+</literal> sign in the <guilabel>Text status</guilabel> column, and a tooltip shows where the item was copied from."
-msgstr ""
+msgstr "Itens adicionados. Itens que foram adicionados com história têm um sinal <literal>+</literal> na coluna <guilabel>Estado do texto</guilabel>, e uma etiqueta mostra de onde foi o item copiado."
 
 #. (para)
 msgid "Deleted or missing items."
-msgstr ""
+msgstr "Itens apagados ou desaparecidos."
 
 #. (para)
 msgid "Items modified locally and in the repository. The changes will be merged on update. These <emphasis>may</emphasis> produce conflicts on update."
-msgstr ""
+msgstr "Itens modificados localmente e no repositório. As alterações serão fundidas aquando da actualização."
 
 #. (para)
 msgid "Items modified locally and deleted in repository, or modified in repository and deleted locally. These <emphasis>will</emphasis> produce conflicts on update."
-msgstr ""
+msgstr "Itens modificados localmente e apagados no repositório, ou modificados no repositório e apagados localmente. Estes <emphasis>irão</emphasis> produzir conflitos na actualização."
 
 #. (para)
 msgid "Unchanged and unversioned items."
-msgstr ""
+msgstr "Itens não modificados e não versionados."
 
 #. (para)
 msgid "The dialog uses colour coding to highlight the status. <placeholder-1/>"
-msgstr ""
+msgstr "A caixa de diálogo usa código de cores para evidenciar o estado. <placeholder-1/>"
 
 #. (para)
 msgid "From the context menu of the dialog you can show a diff of the changes. Check the local changes <emphasis>you</emphasis> made using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare with Base</guimenuitem></menuchoice>. Check the changes in the repository made by others using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Differences as Unified Diff</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "A partir do menu de contexto da caixa de diálogo podes ver uma comparação das alterações. Marca as alterações locais que <emphasis>tu</emphasis> fizeste usando <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Comparar com a Base</guimenuitem></menuchoice>. Marca as alterações no repositório feitas por outros usando <menuchoice><guimenu>Menu Contexto</guimenu><guimenuitem>Mostrar diferenças como uma comparação unificada</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "You can also revert changes in individual files. If you have deleted a file accidentally, it will show up as <emphasis>Missing</emphasis> and you can use <emphasis>Revert</emphasis> to recover it."
-msgstr ""
+msgstr "Podes também reverter alterações em ficheiro individuais. Se apagaste um ficheiro acidentalmente, irá aparecer como <emphasis>Desaparecido</emphasis> e podes usar <emphasis>Reverter</emphasis> para o recuperar."
 
 #. (para)
 msgid "Unversioned and ignored files can be sent to the recycle bin from here using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>. If you want to delete files permanently (bypassing the recycle bin) hold the <keycap>Shift</keycap> key while clicking on <guilabel>Delete</guilabel>."
