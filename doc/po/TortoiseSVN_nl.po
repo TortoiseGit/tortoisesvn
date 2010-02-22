@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-21 01:43+0100\n"
-"Last-Translator: Ewout Muller <eppie1@xs4all.nl>\n"
+"PO-Revision-Date: 2010-02-22 13:53+0100\n"
+"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5764,11 +5764,11 @@ msgstr "svn:keywords"
 
 #. (primary)
 msgid "keywords"
-msgstr "sleutelwoorden"
+msgstr "trefwoorden"
 
 #. (primary)
 msgid "expand keywords"
-msgstr "uitbreiden van sleutelwoorden"
+msgstr "uitbreiden van trefwoorden"
 
 #. (para)
 msgid "Date of last known commit. This is based on information obtained when you update your working copy. It does <emphasis>not</emphasis> check the repository to find more recent changes."
@@ -5788,15 +5788,15 @@ msgstr "De volledige URL van dit bestand in het archief."
 
 #. (para)
 msgid "A compressed combination of the previous four keywords."
-msgstr "Een gekomprimeerde combinatie van de vorige vier sleutelwoorden."
+msgstr "Een gekomprimeerde combinatie van de vorige vier trefwoorden."
 
 #. (para)
 msgid "Subversion supports CVS-like keyword expansion which can be used to embed filename and revision information within the file itself. Keywords currently supported are: <placeholder-1/>"
-msgstr "Subversion ondersteunt CVS-achtige sleutelwoord uitbreidingen welke kunnen worden gebruikt om bestandsnaam en revisie informatie in het bestand zelf in te bedden. Sleutelwoorden welke momenteel worden ondersteund zijn: <placeholder-1/>"
+msgstr "Subversion ondersteunt CVS-achtige trefwoord uitbreidingen welke kunnen worden gebruikt om bestandsnaam en revisie informatie in het bestand zelf in te bedden. Trefwoorden welke momenteel worden ondersteund zijn: <placeholder-1/>"
 
 #. (para)
 msgid "To find out how to use these keywords, look at the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords section</citetitle></ulink> in the Subversion book, which gives a full description of these keywords and how to enable and use them."
-msgstr "Om meer te weten te komen over hoe deze sleutelwoorden te gebruiken, bekijk <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords section</citetitle></ulink> in het Subversion boek, wat een volledige beschrijving van deze sleutelwoorden geeft en hoe ze te kunnen gebruiken."
+msgstr "Om meer te weten te komen over hoe deze trefwoorden te gebruiken, bekijk <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords section</citetitle></ulink> in het Subversion boek, wat een volledige beschrijving van deze trefwoorden geeft en hoe ze te kunnen gebruiken."
 
 #. (para)
 msgid "For more information about properties in Subversion see the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.html\"><citetitle>Special Properties</citetitle></ulink>."
@@ -6270,7 +6270,7 @@ msgstr "Een andere mogelijkheid van versiebeheersystemen is het markeren van bep
 
 #. (para)
 msgid "Subversion does not have special commands for branching or tagging, but uses so-called <quote>cheap copies</quote> instead. Cheap copies are similar to hard links in Unix, which means that instead of making a complete copy in the repository, an internal link is created, pointing to a specific tree/revision. As a result branches and tags are very quick to create, and take up almost no extra space in the repository."
-msgstr "Subversion heeft geen speciale commando's voor vertakken of labelen, maar gebruikt hiervoor zogenaamde <quote>goedkope kopieën</quote>. Goedkope kopieën zijn vergelijkbaar met de harde links in Unix, wat inhoud dat er in plaats van een gehele kopie te maken van het archief, er een interne link wordt aangement. Deze link verwijst naar een specifieke boom of revisie. Hierdoor kunnen takken en labels heel snel gemaakt worden en hebben ze bijna geen extra ruimte nodig in het archief."
+msgstr "Subversion heeft geen speciale commando's voor vertakken of labelen, maar gebruikt hiervoor zogenaamde <quote>goedkope kopieën</quote>. Goedkope kopieën zijn vergelijkbaar met de harde links in Unix, wat inhoud dat er in plaats van een gehele kopie te maken van het archief, er een interne link wordt aangemaakt. Deze link verwijst naar een specifieke boom of revisie. Hierdoor kunnen takken en labels heel snel gemaakt worden en hebben ze bijna geen extra ruimte nodig in het archief."
 
 #. (title)
 msgid "Creating a Branch or Tag"
@@ -9564,7 +9564,7 @@ msgstr "versienummering in bestanden"
 
 #. (para)
 msgid "SubWCRev is Windows console program which can be used to read the status of a Subversion working copy and optionally perform keyword substitution in a template file. This is often used as part of the build process as a means of incorporating working copy information into the object you are building. Typically it might be used to include the revision number in an <quote>About</quote> box."
-msgstr ""
+msgstr "SubWCrev is een Windows opdrachtprompt programma, welke gebruikt kan worden voor het uitlezen van de status van een Subversion werkkopie en optioneel trefwoordvervanging met een template bestand kan uitvoeren. Dit wordt meestal gebruikt als onderdeel van het bouwproces om informatie van de werkkopie mee te nemen in het object wat je aan het bouwer bent. Meestal wordt het gebruikt om het revisienummer op te nemen in het <quote>Over</quote> scherm."
 
 #. (title)
 msgid "The SubWCRev Command Line"
@@ -9572,7 +9572,7 @@ msgstr "De SubWCRev Command Line"
 
 #. (para)
 msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, It also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
-msgstr ""
+msgstr "SubWCRev leest de Subversion status van alle bestanden in een werkkopie, standaard zonder hierbij de externen mee te nemen. Het onthoudt het hoogst gevonden vastgelegde revisienummer en de tijdstempel van die revisie. Het detecteert ook of er lokale wijzigingen in de werkkopie zijn doorgevoerd en of er bestanden verschillende revisies in de werkkopie aanwezig zijn. Het revisienummer, de reeks van verversingen en status van modificaties worden doorgegeven via stdout."
 
 #. (para)
 msgid ""
@@ -9580,26 +9580,29 @@ msgid ""
 "SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n"
 "</screen>"
 msgstr ""
+"SubWCRev.exe wordt aangeroepen via de opdrachtprompt of een script en wordt ingesteld met behulp van opdrachtregel opties. <screen>\n"
+"SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n"
+"</screen>"
 
 #. (para)
 msgid "<literal>WorkingCopyPath</literal> is the path to the working copy being checked. You can only use SubWCRev on working copies, not directly on the repository. The path may be absolute or relative to the current working directory."
-msgstr ""
+msgstr "<literal>WorkingCopyPath</literal> is het pad van de werkkopie die gecontroleerd moet worden. Je kunt SubWCRev alleen op werkkopieën gebruiken, niet direct op het archief. Het pad mag absoluut en relatief ten opzichte van de huidige werkmap zijn."
 
 #. (para)
 msgid "If you want SubWCRev to perform keyword substitution, so that fields like repository revision and URL are saved to a text file, you need to supply a template file <literal>SrcVersionFile</literal> and an output file <literal>DstVersionFile</literal> which contains the substituted version of the template."
-msgstr ""
+msgstr "Als je SubWCRev trefwoordvervanging wilt laten uitvoeren, zodat bijvoorbeeld de velden archief revisie en URL in een bestand opgeslagen worden, dan moet je een template bestand <literal>SrcVersionFile</literal> en een resultaat bestand <literal>DstVersionFile</literal> voor de ingevulde resultaten specificeren."
 
 #. (title)
 #. (title)
 msgid "List of available command line switches"
-msgstr ""
+msgstr "Lijst met beschikbare opdrachtregel opties"
 
 #. (entry)
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Switch"
-msgstr "Wisselen"
+msgstr "Optie"
 
 #. (entry)
 #. (entry)
@@ -9615,7 +9618,7 @@ msgstr "ERRORLEVEL 7"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the working copy contains local modifications. This may be used to prevent building with uncommitted changes present."
-msgstr ""
+msgstr "Als deze optie gebruikt wordt, zal SubWCRev stoppen met <placeholder-1/> als de werkkopie lokale wijzigingen heeft. Dit kan gebruikt worden om te voorkomen dat er een pakket gebouwd wordt met niet vastgelegde wijzigingen."
 
 #. (literal)
 msgid "ERRORLEVEL 8"
@@ -9623,7 +9626,7 @@ msgstr "ERRORLEVEL 8"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the working copy contains mixed revisions. This may be used to prevent building with a partially updated working copy."
-msgstr ""
+msgstr "Als deze optie gebruikt wordt, zal SubWCRev stoppen met <placeholder-1/> als de werkkopie meerdere revisies bevat. Dit kan gebruikt worden om te voorkomen dat er een pakket gebouwd wordt met een gedeeltelijk bijgewerkte werkkopie."
 
 #. (literal)
 msgid "ERRORLEVEL 9"
@@ -9631,11 +9634,11 @@ msgstr "ERRORLEVEL 9"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the destination file already exists."
-msgstr ""
+msgstr "Als deze optie gebruikt wordt, zal SubWCRev stoppen met <placeholder-1/> als het doel bestand al bestaat."
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will include the last-changed revision of folders. The default behaviour is to use only files when getting the revision numbers."
-msgstr ""
+msgstr "Als deze optie gebruikt wordt, zal SubWCRev ook de laatst gewijzigde revisie van de mappen ophalen. Het standaard gedrag is zo dat alleen de revisienummers van bestanden opgehaald worden."
 
 #. (literal)
 msgid "svn:externals"
@@ -9643,31 +9646,31 @@ msgstr "svn:externals"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will examine directories which are included with <placeholder-1/>, but only if they are from the same repository. The default behaviour is to ignore externals."
-msgstr ""
+msgstr "Als deze optie gebruikt wordt, zal SubWCRev mappen onderzoeken met <placeholder-1/>, maar alleen als ze van hetzelfde archief zijn. Standaard worden externen genegeerd."
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will output the revision numbers in HEX."
-msgstr ""
+msgstr "Als deze optie gebruikt wordt, zal SubWCRev het revisienummer in HEX formaat teruggeven."
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will output the revision numbers in HEX, with '0X' prepended."
-msgstr ""
+msgstr "Als deze optie gebruikt wordt, zal SubWCRev het revisienummer in HEX formaat teruggeven, vooraf gegaan door '0X'."
 
 #. (para)
 msgid "There are a number of optional switches which affect the way SubWCRev works. If you use more than one, they must be specified as a single group, eg. <literal>-nm</literal>, not <literal>-n -m</literal>. <placeholder-1/>"
-msgstr ""
+msgstr "Er zijn verschillen optionele opties die de manier waarop SubWCRev werkt beïnvloeden. Als je er meer dan één gebruikt, moeten ze telkens als een enkele groep gespecificeerd worden, bijv. <literal>-nm</literal>, en niet <literal>-n -m</literal>. <placeholder-1/>"
 
 #. (title)
 msgid "Keyword Substitution"
-msgstr ""
+msgstr "Trefwoordvervanging"
 
 #. (entry)
 msgid "Keyword"
-msgstr "Sleutelwoord"
+msgstr "Trefwoord"
 
 #. (entry)
 msgid "Replaced with the highest commit revision in the working copy."
-msgstr ""
+msgstr "Vervangen door de hoogste vastgelegde revisie in de werkkopie."
 
 #. (literal)
 msgid "yyyy-mm-dd hh:mm:ss"
@@ -9683,11 +9686,11 @@ msgstr "$WCDATE=%a %b %d %I:%M:%S %p$"
 
 #. (citetitle)
 msgid "online reference"
-msgstr "online verwijzing"
+msgstr "online referentie"
 
 #. (entry)
 msgid "Replaced with the commit date/time of the highest commit revision. By default, international format is used: <placeholder-1/>. Alternatively, you can specify a custom format which will be used with <placeholder-2/>, for example: <placeholder-3/>. For a list of available formatting characters, look at the <ulink url=\"http://www.cppreference.com/stddate/strftime.html\"><placeholder-4/></ulink>."
-msgstr ""
+msgstr "Vervangen door de vastleg datum/tijd van de hoogste vastgelegde revisie. Standaard wordt de internationale indeling gebruikt: <placeholder-1/>. Je kunt ook een eigen indeling specificeren die gebruikt worden met <placeholder-2/>, bijvoorbeeld: <placeholder-3/>. Bekijk de <ulink url=\"http://www.cppreference.com/stddate/strftime.html\"><placeholder-4/></ulink>  voor een lijst met karakters die gebruikt kunnen worden voor het instellen van de indeling."
 
 #. (literal)
 #. (literal)
@@ -9697,11 +9700,11 @@ msgstr "$WCDATE$"
 
 #. (entry)
 msgid "Replaced with the current system date/time. This can be used to indicate the build time. Time formatting can be used as described for <placeholder-1/>."
-msgstr ""
+msgstr "Vervangen door de huidige datum/tijd van het systeem. Dit kan gebruikt worden als de tijd van het bouwen van het pakket. Tijdsindeling kan gebruikt worden zoals beschreven in <placeholder-1/>."
 
 #. (entry)
 msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200"
-msgstr ""
+msgstr "Vervangen door de ververs revisiereeks in de werkkopie. Als de werkkopie consistent is, dan zal dit één revisienummer zijn. Als de werkkopie verschillende revisies bevat, door of achterhaalde informatie of door een opzettelijke verversen-naar-revisie opdracht, dan zal de reeks weergegeven worden in de vorm 100:200."
 
 #. (literal)
 msgid "$WCMIXED?TText:FText$"
@@ -9725,7 +9728,7 @@ msgstr "FText"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if there are mixed update revisions, or <placeholder-3/> if not."
-msgstr ""
+msgstr "<placeholder-1/> wordt vervangen door <placeholder-2/> als er verschillende ververs revisies zijn, <placeholder-3/> als dat niet het geval is."
 
 #. (literal)
 msgid "$WCMODS?TText:FText$"
@@ -9733,11 +9736,11 @@ msgstr "$WCMODS?TText:FText$"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if there are local modifications, or <placeholder-3/> if not."
-msgstr ""
+msgstr "<placeholder-1/> wordt vervangen door <placeholder-2/> als er lokale wijzigingen zijn, of <placeholder-3/> als geen wijzigingen zijn."
 
 #. (entry)
 msgid "Replaced with the repository URL of the working copy path passed to SubWCRev."
-msgstr ""
+msgstr "Vervangen door de URL van het archief van het pad van de werkkopie doorgeven aan SubWCRev."
 
 #. (literal)
 msgid "$WCINSVN?TText:FText$"
@@ -9745,7 +9748,7 @@ msgstr "$WCINSVN?TText:FText$"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry is versioned, or <placeholder-3/> if not."
-msgstr ""
+msgstr "<placeholder-1/> wordt vervangen door <placeholder-2/> als er voor deze optie versiebeheer gebruikt wordt, of <placeholder-3/> als er geen versiebeheer gebruikt wordt."
 
 #. (literal)
 msgid "$WCNEEDSLOCK?TText:FText$"
@@ -9758,7 +9761,7 @@ msgstr "svn:needs-lock"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry has the <placeholder-3/> property set, or <placeholder-4/> if not."
-msgstr ""
+msgstr "<placeholder-1/> wordt vervangen door <placeholder-2/> als voor de optie de <placeholder-3/> eigenschap ingesteld is, of <placeholder-4/> als deze niet ingesteld is."
 
 #. (literal)
 msgid "$WCISLOCKED?TText:FText$"
@@ -9766,35 +9769,35 @@ msgstr "$WCISLOCKED?TText:FText$"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry is locked, or <placeholder-3/> if not."
-msgstr ""
+msgstr "<placeholder-1/> wordt vervangen door <placeholder-2/> als het object geblokkeerd is, of <placeholder-3/> als het niet geblokkeerd is."
 
 #. (entry)
 msgid "Replaced with the lock date. Time formatting can be used as described for <placeholder-1/>."
-msgstr ""
+msgstr "Vervangen door de datum van de blokkade. Tijdsindeling kan gebruikt worden als beschreven voor <placeholder-1/>."
 
 #. (entry)
 msgid "Replaced with the name of the lock owner."
-msgstr ""
+msgstr "Vervangen door de naam van de eigenaar van de blokkade."
 
 #. (entry)
 msgid "Replaced with the comment of the lock."
-msgstr ""
+msgstr "Vervangen door het commentaar van de blokkade."
 
 #. (para)
 msgid "If a source and destination files are supplied, SubWCRev copies source to destination, performing keyword substitution as follows: <placeholder-1/>"
-msgstr ""
+msgstr "Als een bron en doel bestand ondersteund wordt, kopieert SubWCRev de bron naar de bestemming, terwijl het trefwoordvervanging als volgt gebruikt: <placeholder-1/>"
 
 #. (para)
 msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
-msgstr ""
+msgstr "Enkele van deze trefwoorden zijn toepassing op bestanden in plaats van een hele werkkopie. Het is dus alleen logisch om deze te gebruiken als SubWCRev wordt aangeroepen op een enkel bestand. Dit heeft betrekking op <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> en <literal>$WCLOCKCOMMENT$</literal>."
 
 #. (title)
 msgid "Keyword Example"
-msgstr "Voorbeeld sleutelwoord"
+msgstr "Voorbeeld trefwoord"
 
 #. (para)
 msgid "The example below shows how keywords in a template file are substituted in the output file."
-msgstr ""
+msgstr "Dit voorbeeld laat zien hoe trefwoorden in een template bestand opgenomen worden in een resultaat bestand."
 
 #. (programlisting)
 #, no-wrap
@@ -9815,10 +9818,25 @@ msgid ""
 "\n"
 "// End of file\n"
 msgstr ""
+"\n"
+"// Test bestand voor SubWCRev: testfile.tmpl\n"
+"\n"
+"char *Revision = \"$WCREV$\";\n"
+"char *Modified = \"$WCMODS?Modified:Not modified$\";\n"
+"char *Date     = \"$WCDATE$\";\n"
+"char *Range    = \"$WCRANGE$\";\n"
+"char *Mixed    = \"$WCMIXED?Mixed revision WC:Not mixed$\";\n"
+"char *URL      = \"$WCURL$\";\n"
+"\n"
+"#if $WCMODS?1:0$\n"
+"#error Source is modified\n"
+"#endif\n"
+"\n"
+"// End of file\n"
 
 #. (para)
 msgid "After running <literal>SubWCRev.exe path\\to\\workingcopy testfile.tmpl testfile.txt</literal>, the output file <literal>testfile.txt</literal> would looks like this:"
-msgstr ""
+msgstr "Nadat je <literal>SubWCRev.exe path\\to\\workingcopy testfile.tmpl testfile.txt</literal> hebt uitgevoerd, zal het resulterende bestand <literal>testfile.txt</literal> er zo uit zien:"
 
 #. (programlisting)
 #, no-wrap
@@ -9839,10 +9857,25 @@ msgid ""
 "\n"
 "// End of file\n"
 msgstr ""
+"\n"
+"// Test bestand voor SubWCRev: testfile.txt\n"
+"\n"
+"char *Revision = \"3701\";\n"
+"char *Modified = \"Modified\";\n"
+"char *Date     = \"2005/06/15 11:15:12\";\n"
+"char *Range    = \"3699:3701\";\n"
+"char *Mixed    = \"Mixed revision WC\";\n"
+"char *URL      = \"http://project.domain.org/svn/trunk/src\";\n"
+"\n"
+"#if 1\n"
+"#error Source is modified\n"
+"#endif\n"
+"\n"
+"// End of file\n"
 
 #. (para)
 msgid "A file like this will be included in the build so you would expect it to be versioned. Be sure to version the template file, not the generated file, otherwise each time you regenerate the version file you need to commit the change, which in turn means the version file needs to be updated."
-msgstr ""
+msgstr "Een dergelijk bestand zal meegenomen worden in het bouwproces, je kunt dus verwachten dat ook onder versiebeheer valt. Zorg er voor dat alleen het template bestand van versiebeheer wordt voorzien, niet het gegenereerde bestand. Je moet anders elke keer dat je het versie bestand opnieuw genereert de wijziging vastleggen. Dat heeft dan weer tot gevolg dat je het versie bestand weer bij moet werken (omdat bijv. het revisienummer erin vermeld is)."
 
 #. (title)
 msgid "COM interface"
@@ -9870,7 +9903,7 @@ msgstr "-e"
 
 #. (entry)
 msgid "This method traverses the working copy gathering the revision information. Naturally you must call this before you can access the information using the remaining methods. The first parameter is the path. The second parameter should be true if you want to include folder revisions. Equivalent to the <placeholder-1/> command line switch. The third parameter should be true if you want to include svn:externals. Equivalent to the <placeholder-2/> command line switch."
-msgstr ""
+msgstr "Deze methode doorzoekt de werkkopie en verzamelt de revisie informatie. Je moet deze natuurlijk eerst aanroepen voordat je de informatie gebruikt voor de andere methodes. De eerste parameter is het pad. De tweede parameter moet waar zijn als je de revisies van de mappen mee wilt nemen. Dit komt overeen met de <placeholder-1/>  opdrachtregel optie. De derde optie moet waar zijn als je svn:externals mee wilt nemen. Dit komt overeen met de <placeholder-2/> opdrachtregel optie."
 
 #. (literal)
 msgid "$WCREV$"
@@ -9878,15 +9911,15 @@ msgstr "$WCREV$"
 
 #. (entry)
 msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>"
-msgstr ""
+msgstr "De laatste vastgelegde revisie in de werkkopie. Komt overeen met <placeholder-1/>"
 
 #. (entry)
 msgid "The commit date/time of the highest commit revision. Equivalent to <placeholder-1/>"
-msgstr ""
+msgstr "De vastleg datum/tijd van de laatste vastgelegde revisie. Komt overeen met <placeholder-1/>"
 
 #. (entry)
 msgid "The author of the highest commit revision, that is, the last person to commit changes to the working copy."
-msgstr ""
+msgstr "De auteur van de hoogste vastgelegde revisie, oftewel de laatste persoon die wijzigingen heeft vastgelegd."
 
 #. (literal)
 #. (literal)
@@ -9895,11 +9928,11 @@ msgstr "$WCRANGE$"
 
 #. (entry)
 msgid "The minimum update revision, as shown in <placeholder-1/>"
-msgstr ""
+msgstr "De minimale bijgewerkte versie, zoals weergegeven in <placeholder-1/>"
 
 #. (entry)
 msgid "The maximum update revision, as shown in <placeholder-1/>"
-msgstr ""
+msgstr "De maximale bijgewerkte revisie, zoals weergegeven in <placeholder-1/>"
 
 #. (entry)
 msgid "True if there are local modifications"
@@ -9915,7 +9948,7 @@ msgstr "$WCURL$"
 
 #. (entry)
 msgid "Replaced with the repository URL of the working copy path used in <placeholder-1/>. Equivalent to <placeholder-2/>"
-msgstr ""
+msgstr "Wordt vervangen door de URL van het archief van het pad van de werkkopie gebruikt in <placeholder-1/>. Deze is gelijk aan <placeholder-2/>"
 
 #. (entry)
 msgid "True if the item is versioned."
@@ -9931,19 +9964,19 @@ msgstr "True, als het item vergrendeld is."
 
 #. (entry)
 msgid "String representing the date when the lock was created, or an empty string if the item is not locked."
-msgstr ""
+msgstr "De regel geeft de datum waarop de blokkade geplaatst is of is leeg als er geen blokkade is."
 
 #. (entry)
 msgid "String representing the lock owner, or an empty string if the item is not locked."
-msgstr ""
+msgstr "De regel bevat de eigenaar van de blokkade of is leeg als het object niet geblokkeerd is."
 
 #. (entry)
 msgid "The message entered when the lock was created."
-msgstr ""
+msgstr "Het bericht dat meegegeven werd toen een blokkade geplaatst is."
 
 #. (para)
 msgid "If you need to access Subversion revision information from other programs, you can use the COM interface of SubWCRev. The object to create is <literal>SubWCRev.object</literal>, and the following methods are supported: <placeholder-1/>"
-msgstr ""
+msgstr "Als je Subversion revisie informatie vanuit andere programma's wilt gebruiken, dan kun je de COM interface van SubWCRev gebruiken. Het aan te maken object is <literal>SubWCRev.object</literal> en de volgende methodes kunnen gebruikt worden: <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -10075,10 +10108,136 @@ msgid ""
 "WScript.Echo(wcInfoString4);\n"
 "\n"
 msgstr ""
+"\n"
+"// testCOM.js - javascript file\n"
+"// test script voor de SubWCRev COM/Automation-object\n"
+"\n"
+"filesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n"
+"\n"
+"revObject1 = new ActiveXObject(\"SubWCRev.object\");\n"
+"revObject2 = new ActiveXObject(\"SubWCRev.object\");\n"
+"revObject3 = new ActiveXObject(\"SubWCRev.object\");\n"
+"revObject4 = new ActiveXObject(\"SubWCRev.object\");\n"
+"\n"
+"revObject1.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\".\"), 1, 1);\n"
+"revObject2.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\n"
+"revObject3.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\n"
+"revObject4.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1);\n"
+"\n"
+"wcInfoString1 = \"Revision = \" + revObject1.Revision + \n"
+"\t\t\t\t\"\\n"
+"Min Revision = \" + revObject1.MinRev + \n"
+"\t\t\t\t\"\\n"
+"Max Revision = \" + revObject1.MaxRev + \n"
+"\t\t\t\t\"\\n"
+"Date = \" + revObject1.Date + \n"
+"\t\t\t\t\"\\n"
+"URL = \" + revObject1.Url + \"\\n"
+"Author = \" + \n"
+"\t\t\t\trevObject1.Author + \"\\n"
+"HasMods = \" + \n"
+"\t\t\t\trevObject1.HasModifications + \"\\n"
+"IsSvnItem = \" + \n"
+"\t\t\t\trevObject1.IsSvnItem + \"\\n"
+"NeedsLocking = \" + \n"
+"\t\t\t\trevObject1.NeedsLocking + \"\\n"
+"IsLocked = \" + \n"
+"\t\t\t\trevObject1.IsLocked + \"\\n"
+"LockCreationDate = \" + \n"
+"\t\t\t\trevObject1.LockCreationDate + \"\\n"
+"LockOwner = \" + \n"
+"\t\t\t\trevObject1.LockOwner + \"\\n"
+"LockComment = \" + \n"
+"\t\t\t\trevObject1.LockComment;\n"
+"wcInfoString2 = \"Revision = \" + revObject2.Revision + \n"
+"\t\t\t\t\"\\n"
+"Min Revision = \" + revObject2.MinRev + \n"
+"\t\t\t\t\"\\n"
+"Max Revision = \" + revObject2.MaxRev + \n"
+"\t\t\t\t\"\\n"
+"Date = \" + revObject2.Date + \n"
+"\t\t\t\t\"\\n"
+"URL = \" + revObject2.Url + \"\\n"
+"Author = \" + \n"
+"\t\t\t\trevObject2.Author + \"\\n"
+"HasMods = \" + \n"
+"\t\t\t\trevObject2.HasModifications + \"\\n"
+"IsSvnItem = \" + \n"
+"\t\t\t\trevObject2.IsSvnItem + \"\\n"
+"NeedsLocking = \" + \n"
+"\t\t\t\trevObject2.NeedsLocking + \"\\n"
+"IsLocked = \" + \n"
+"\t\t\t\trevObject2.IsLocked + \"\\n"
+"LockCreationDate = \" + \n"
+"\t\t\t\trevObject2.LockCreationDate + \"\\n"
+"LockOwner = \" + \n"
+"\t\t\t\trevObject2.LockOwner + \"\\n"
+"LockComment = \" + \n"
+"\t\t\t\trevObject2.LockComment;\n"
+"wcInfoString3 = \"Revision = \" + revObject3.Revision + \n"
+"\t\t\t\t\"\\n"
+"Min Revision = \" + revObject3.MinRev + \n"
+"\t\t\t\t\"\\n"
+"Max Revision = \" + revObject3.MaxRev + \n"
+"\t\t\t\t\"\\n"
+"Date = \" + revObject3.Date + \n"
+"\t\t\t\t\"\\n"
+"URL = \" + revObject3.Url + \"\\n"
+"Author = \" + \n"
+"\t\t\t\trevObject3.Author + \"\\n"
+"HasMods = \" + \n"
+"\t\t\t\trevObject3.HasModifications + \"\\n"
+"IsSvnItem = \" + \n"
+"\t\t\t\trevObject3.IsSvnItem + \"\\n"
+"NeedsLocking = \" + \n"
+"\t\t\t\trevObject3.NeedsLocking + \"\\n"
+"IsLocked = \" + \n"
+"\t\t\t\trevObject3.IsLocked + \"\\n"
+"LockCreationDate = \" + \n"
+"\t\t\t\trevObject3.LockCreationDate + \"\\n"
+"LockOwner = \" + \n"
+"\t\t\t\trevObject3.LockOwner + \"\\n"
+"LockComment = \" + \n"
+"\t\t\t\trevObject3.LockComment;\n"
+"wcInfoString4 = \"Revision = \" + revObject4.Revision + \n"
+"\t\t\t\t\"\\n"
+"Min Revision = \" + revObject4.MinRev + \n"
+"\t\t\t\t\"\\n"
+"Max Revision = \" + revObject4.MaxRev + \n"
+"\t\t\t\t\"\\n"
+"Date = \" + revObject4.Date + \n"
+"\t\t\t\t\"\\n"
+"URL = \" + revObject4.Url + \"\\n"
+"Author = \" + \n"
+"\t\t\t\trevObject4.Author + \"\\n"
+"HasMods = \" + \n"
+"\t\t\t\trevObject4.HasModifications + \"\\n"
+"IsSvnItem = \" + \n"
+"\t\t\t\trevObject4.IsSvnItem + \"\\n"
+"NeedsLocking = \" + \n"
+"\t\t\t\trevObject4.NeedsLocking + \"\\n"
+"IsLocked = \" + \n"
+"\t\t\t\trevObject4.IsLocked + \"\\n"
+"LockCreationDate = \" + \n"
+"\t\t\t\trevObject4.LockCreationDate + \"\\n"
+"LockOwner = \" + \n"
+"\t\t\t\trevObject4.LockOwner + \"\\n"
+"LockComment = \" + \n"
+"\t\t\t\trevObject4.LockComment;\n"
+"\n"
+"WScript.Echo(wcInfoString1);\n"
+"WScript.Echo(wcInfoString2);\n"
+"WScript.Echo(wcInfoString3);\n"
+"WScript.Echo(wcInfoString4);\n"
+"\n"
 
 #. (para)
 msgid "The following example shows how the interface might be used. <placeholder-1/>"
-msgstr ""
+msgstr "Het volgende voorbeeld geeft aan hoe je de interface zou kunnen gebruiken. <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -10096,14 +10255,26 @@ msgid ""
 "    MessageBox.Show(\"not versioned\");\n"
 "}\n"
 msgstr ""
+"\n"
+"using LibSubWCRev;\n"
+"SubWCRev sub = new SubWCRev();\n"
+"sub.GetWCInfo(\"C:\\\\PathToMyFile\\\\MyFile.cc\", true, true);\n"
+"if (sub.IsSvnItem == true)\n"
+"{\n"
+"    MessageBox.Show(\"versioned\");\n"
+"}\n"
+"else\n"
+"{\n"
+"    MessageBox.Show(\"not versioned\");\n"
+"}\n"
 
 #. (para)
 msgid "The following listing is an example on how to use the SubWCRev COM object from C#: <placeholder-1/>"
-msgstr ""
+msgstr "Het volgende voorbeeld beschrijft hoe je de SubWCRev COM objecten vanuit C# moet gebruiken: <placeholder-1/>"
 
 #. (title)
 msgid "IBugtraqProvider interface"
-msgstr ""
+msgstr "IBugtraqProvider interface"
 
 #. (primary)
 msgid "plugin"
@@ -10111,27 +10282,27 @@ msgstr "plugin"
 
 #. (primary)
 msgid "IBugtraqProvider"
-msgstr ""
+msgstr "IBugtraqProvider"
 
 #. (para)
 msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
-msgstr ""
+msgstr "Om een betere integratie met issue trackers te krijgen dan alleen de <literal>bugtraq:</literal> te gebruiken, kan TortoiseSVN gebruik maken van COM plugins. Met deze plugins is het mogelijk om direct informatie uit het issue tracker systeem te halen, met de gebruiker te communiceren, om informatie aan TortoiseSVN terug te geven over open issues, door de gebruiker ingevoerde logboek berichten te controleren en zelfs het starten van acties na een succesvolle vastlegging, bijv, het sluiten van een issue."
 
 #. (para)
 msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr ""
+msgstr "We kunnen je geen informatie of handreiking geven over hoe je een COM object moet implementeren in de programmeertaal van jouw voorkeur, maar we hebben wel voorbeelden in C++/ATL en C# in ons archief in de <filename>contrib/issue-tracker-plugins</filename> map. In die map vind je ook de benodigde include bestanden, die je nodig hebt om je plugin te bouwen. (<xref linkend=\"tsvn-preface-source\"/> legt uit hoe je bij het archief komt)."
 
 #. (para)
 msgid "You should provide both a 32-bit and 64-bit version of your plugin. Because the x64-Version of TortoiseSVN can not use a 32-bit plugin and vice-versa."
-msgstr ""
+msgstr "Je moet zowel een 32-bit als 64-bit versie van je plugin maken. De x64-versie van TortoiseSVN kan de 32-bit plugin niet gebruiken en vice versa."
 
 #. (title)
 msgid "The IBugtraqProvider interface"
-msgstr ""
+msgstr "De IBugtraqProvider interface"
 
 #. (para)
 msgid "TortoiseSVN 1.5 and later can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
-msgstr ""
+msgstr "TortoiseSVN 1.5 en later kunnen werken met plugins die gebruik maken van de IBugtraqProvider interface. Deze interface biedt enkele methodes die plugins kunnen gebruiken om de communiceren met een issue tracker."
 
 #. (programlisting)
 #, no-wrap
@@ -10149,10 +10320,22 @@ msgid ""
 "  [out, retval] VARIANT_BOOL *valid\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT ValidateParameters (\n"
+"  // Hoofd scherm elke UI die weergegeven\n"
+"  // moet worden tijdens validatie.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // De parameter tekst die gevalideerd moet worden.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // Is de tekst geldig?\n"
+"  [out, retval] VARIANT_BOOL *valid\n"
+");\n"
 
 #. (para)
 msgid "<placeholder-1/> This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
-msgstr ""
+msgstr "<placeholder-1/> Deze mothode wordt aangeroepen vanuit het instellingen scherm waar de gebruiker de plugin kan toevoegen en instellen. De <literal>parameters</literal> tekst kan door de plugin gebruikt worden om meer information te verkrijgen, bijv. de URL naar de issue tracker, inlog gegevens, etc. De plugin moet de <literal>parameters</literal> controleren en een foutmeldingsscherm tonen als er een fout in de parameters zit. De <literal>hParentWnd</literal> parameter moet gebruikt worden voor elk scherm dat door de plugin getoond wordt. De plugin moet TRUE teruggeven als de validatie van de <literal>parameters</literal> succesvol is. Als de plugin FALSE teruggeeft, zal het instellingen scherm de gebruiker verhinderen de plugin aan het pad van de werkkopie toe te voegen."
 
 #. (programlisting)
 #, no-wrap
@@ -10171,10 +10354,23 @@ msgid ""
 "  [out, retval] BSTR *linkText\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT GetLinkText (\n"
+"  // Hoofdscherm voor elke (foutmeldings) UI die getoond moet worden.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // De parameter tekst, voor het geval je informatie moet geven aan je\n"
+"  // web service (bijv.) om uit te vinden wat de juist tekst is.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // Welke tekst wilt je tonen?\n"
+"  // Gebruik de huidige thread locale.\n"
+"  [out, retval] BSTR *linkText\n"
+");\n"
 
 #. (para)
 msgid "<placeholder-1/> The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
-msgstr ""
+msgstr "<placeholder-1/>De plugin kan een tekst aanbieden, welke gebruikt wordt in het TortoiseSVN vastleg scherm voor de knop waarmee de plugin gestart wordt, bijv. \"Kies issue\" of \"Selecteer ticket\". Zorg er voor dat de tekst niet te lang is, anders past het misschien niet in de knop. Als de methode een foutmelding teruggeeft (bijv. <literal>E_NOTIMPL</literal>), dan zal er een standaard tekst gebruikt worden."
 
 #. (programlisting)
 #, no-wrap
@@ -10199,10 +10395,29 @@ msgid ""
 "  [out, retval] BSTR *newMessage\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT GetCommitMessage (\n"
+"  // Hoofdscherm voor je provider's UI.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parameters voor je provider.\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // De tekst die al in het vastleg venster staat.\n"
+"  // Je provider moet deze tekst opnemen in het \n"
+"  // nieuwe bericht, indien gewenst.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // De nieuwe vastleg tekst.\n"
+"  // Deze vervangt het originele bericht.\n"
+"  [out, retval] BSTR *newMessage\n"
+");\n"
 
 #. (para)
 msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
-msgstr ""
+msgstr "<placeholder-1/> Dit is de hoofd methode van de plugin. Deze methode wordt aangeroepen vanuit het TortoiseSVN vastleg scherm als de gebruiker op de plugin knop drukt. De <literal>parameter</literal> tekst  is de tekst die de gebruiker moet invoeren in het instellingen scherm, als hij de plugin configureert. Meestal gebruikt de plugin deze voor de URL van de issue tracker en/of inlog informatie of meer. De <literal>commonRoot</literal> tekst bevat het bovenliggende pad voor alle geselecteerde objecten waarvoor het vastleg scherm opgeroepen wordt. Merk op dat dit <emphasis>niet</emphasis> het basispad is voor alle objecten die de gebruiker heeft geselecteerd in het vastleg scherm. De <literal>pathList</literal> parameter bevat een array van paden (als tekst), die de gebruiker heeft geselecteerd voor de vastlegging. De <literal>originalMessage</literal> parameter bevat de tekst die in het tekst invoerveld voor het logboek bericht van het vastleg scherm is ingevoerd. Als de gebruiker nog geen tekst heeft ingevoerd, dan zal deze parameter leeg zijn. In de <literal>newMessage</literal> parameter bevat de nieuwe informatie die door de methode terug wordt gegeven, welke in het invoerveld voor het logboek bericht de al aanwezig tekst vervangt. Als de plugin de <literal>originalMessage</literal> tekst niet veranderd, dan moet de methode dezelfde tekst teruggeven, anders gaat de informatie die de gebruiker heeft ingevoerd verloren."
 
 #. (title)
 msgid "The IBugtraqProvider2 interface"
@@ -12599,19 +12814,19 @@ msgstr "Verklarende woordenlijst"
 
 #. (para)
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
-msgstr ""
+msgstr "Een Subversion commando die gebruikt wordt om bestanden en mappen toe te voegen aan je werkkopie. De nieuwe objecten worden pas aan het archief toegevoegd als je je wijzigingen vastlegt. "
 
 #. (glossterm)
 msgid "BASE revision"
-msgstr "Basisrevisie"
+msgstr "BASE revisie"
 
 #. (para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
-msgstr ""
+msgstr "De huidige basis revisie van een bestand of map in je <emphasis>werkkopie</emphasis>. Dit is de revisie van een bestand of map van de laatste ophaal actie, verversing of vastlegging. De BASE revisie is normaal gesproken niet gelijk aan de HEAD revisie (er kunnen in de tussentijd alweer wijzigingen in het archief vastgelegd zijn, waardoor de lokale bestanden achter lopen op de HEAD revisie in het archief)."
 
 #. (para)
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
-msgstr ""
+msgstr "Dit commando is alleen voor tekstbestanden bedoeld en analyseert elke regel, zodat het aangegeven kan worden in welke revisie van het archief welke auteur welke regel gewijzigd heeft. Onze GUI implementatie heeft TortoiseBlame en deze toont ook de vastleg datum/tijd en het logboek bericht als je je muis boven het revisienummer houdt."
 
 #. (glossterm)
 msgid "BDB"
@@ -12619,7 +12834,7 @@ msgstr "BDB"
 
 #. (para)
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
-msgstr ""
+msgstr "Berkeley DB. Een grondig geteste database backend voor archieven, welke niet gebruikt kan worden op netwerk schijven. Standaard voor archieven van voor versie 1.2."
 
 #. (glossterm)
 msgid "Branch"
@@ -12627,19 +12842,19 @@ msgstr "Tak"
 
 #. (para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bug fixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
-msgstr ""
+msgstr "Een term die regelmatig gebruikt wordt bij versiebeheer systemen om aan te geven wat er gebeurt als een ontwikkeling zich op een bepaald moment opsplitst en 2 aparte paden volgt. Je kunt een vertakking maken van de basislijn voor het ontwikkelen van een nieuwe functie, zonder dat de basislijn onstabiel wordt. Of je kunt een stabiele vrijgave vertakken om alleen bug op te lossen, terwijl nieuwe ontwikkelingen plaatsvinden op de onstabiele basislijn (trunk). In Subversion worden takken gemaakt als <quote>goedkope kopieën</quote>."
 
 #. (para)
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
-msgstr ""
+msgstr "Een Subversion commando waarmee een lokale werkkopie wordt gemaakt in een lege (lokale) map door de bestanden met versiebeheer uit het archief op te halen."
 
 #. (para)
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <emphasis>working copy locked</emphasis> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <emphasis>lock</emphasis> refers to local filesystem locking, not repository locking."
-msgstr ""
+msgstr "Om het Subversion boek aan te halen: <quote>Recursief opschonen van de werkkopie, blokkades verwijderen en het afronden van niet afgeronde acties. Als je ooit een <emphasis>werkkopie geblokkeerd</emphasis> foutmelding hebt gehad, gebruik dan dit commando om achtergebleven blokkades te verwijderen en je werkkopie weer in een bruikbare situatie te brengen. </quote> Merk op dat in deze context <emphasis>geblokkeerd</emphasis> refereert naar een blokkade van het lokale bestandssysteem, niet het plaatsen van blokkades op een archief."
 
 #. (para)
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
-msgstr ""
+msgstr "Met dit Subversion commando worden de wijzigingen in je lokale werkkopie naar het archief gestuurd, waardoor een nieuwe revisie in het archief wordt aangemaakt."
 
 #. (glossterm)
 msgid "Conflict"
@@ -12647,7 +12862,7 @@ msgstr "Conflict"
 
 #. (para)
 msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
-msgstr ""
+msgstr "Als wijzigingen in het archief worden samengevoegd met je lokale wijzigingen, dan kan het zijn dat er wijzigingen op dezelfde regels zijn doorgevoerd. In zo'n situatie kan Subversion niet automatisch beslissen welke versie gebruikt moet worden en markeert het bestand als in conflict zijnde. Je moet het conflict dan handmatig oplossen (eventueel met behulp van TortoiseMerge), voordat je wijzigingen weer kunt vastleggen."
 
 #. (glossterm)
 msgid "Copy"
@@ -12655,19 +12870,19 @@ msgstr "Kopie"
 
 #. (para)
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
-msgstr ""
+msgstr "In een Subversion archief kun je een kopie aanmaken van een enkel bestand of een hele mapstructuur. Deze kopieën worden gemaakt als <quote>goedkope kopieën</quote> wat eigenlijk niet meer is dan het aanmaken van een link naar het origineel, waardoor ze bijna geen extra ruimte in beslag nemen. Bij het maken van een kopie wordt de geschiedenis ook meegenomen, waardoor je de geschiedenis kunt achterhalen van voordat de kopie werd gemaakt."
 
 #. (para)
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the committed revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
-msgstr ""
+msgstr "Als je een object met versiebeheer verwijderd (en deze wijziging vastlegt) zal het object niet langer aanwezig zijn in het archief vanaf deze vastgelegde revisie. Het object is natuurlijk nog wel beschikbaar in het archief voor de oudere revisies, je kunt het dan dus nog steeds terugvinden. Indien nodig, kun je een verwijdert object kopiëren en weer <quote>terughalen</quote> met de complete geschiedenis."
 
 #. (para)
 msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
-msgstr ""
+msgstr "Toont de <quote>Verschillen</quote>, ook bekend als Diff. Erg handig als je wilt zien welke wijzigingen er precies zijn doorgevoerd."
 
 #. (para)
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
-msgstr ""
+msgstr "Dit commando levert een kopie op van een map onder versiebeheer, net zoals een werkkopie, maar dan zonder de lokale <literal>.svn</literal> mappen."
 
 #. (glossterm)
 msgid "FSFS"
@@ -12675,7 +12890,7 @@ msgstr "FSFS"
 
 #. (para)
 msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr ""
+msgstr "Een Subversion eigen bestandssysteem voor de backend van archieven. Kan gebruikt worden op netwerkschijven. Standaard voor versie 1.2 en nieuwere archieven."
 
 #. (para)
 msgid "Group policy object"
@@ -12683,19 +12898,19 @@ msgstr "Groepspolicyobject "
 
 #. (glossterm)
 msgid "HEAD revision"
-msgstr "Hoofd revisie"
+msgstr "HEAD revisie"
 
 #. (para)
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
-msgstr ""
+msgstr "De meest recente revisie van een bestand of map in het <emphasis>archief</emphasis>. Ook bekend als HEAD revisie."
 
 #. (para)
 msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
-msgstr ""
+msgstr "Het Subversion commando voor het in het archief importeren van een complete mapstructuur in één enkele revisie."
 
 #. (para)
 msgid "When you take out a lock on a versioned item, you mark it in the repository as non-committable, except from the working copy where the lock was taken out."
-msgstr ""
+msgstr "Als je een blokkade plaatst op een object met versiebeheer, dan markeer je dit object in het archief als niet-vast-te-leggen, behalve vanuit de werkkopie waar vandaan de blokkade geplaatst is."
 
 #. (glossterm)
 msgid "Log"
@@ -12703,7 +12918,7 @@ msgstr "Log"
 
 #. (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
-msgstr ""
+msgstr "Toont de revisiegeschiedenis van een bestand of map. Ook bekend als <quote>Geschiedenis</quote>"
 
 #. (glossterm)
 msgid "History"
@@ -12711,11 +12926,11 @@ msgstr "Geschiedenis"
 
 #. (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
-msgstr ""
+msgstr "Toont de revisiegeschiedenis van een bestand of map. Ook bekend als <quote>Log</quote>"
 
 #. (para)
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
-msgstr ""
+msgstr "Dit is het proces waarmee je wijzigingen vanuit het archief in jouw lokale werkkopie opneemt, zonder dat de wijzigingen die jij hebt toegepast verstoord worden. Soms kunnen de wijzigingen niet helemaal automatisch samengevoegd worden, waardoor je werkkopie in een zogenoemde conflict status terecht komt."
 
 #. (para)
 msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
@@ -12727,7 +12942,7 @@ msgstr "Patch"
 
 #. (para)
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
-msgstr ""
+msgstr "Als er in een werkkopie alleen wijzigingen in tekstbestanden zijn doorgevoerd, dan is het mogelijk om met het Diff commando van Subversion een enkel bestand te genereren met de wijzigingen in Unified Diff formaat. Een bestand met deze indeling wordt meestel een <quote>Patch</quote> genoemd, kan naar iemand anders (of een maillijst) gestuurd worden en worden toegepast op een werkkopie. Iemand die geen rechten voor het vastleggen heeft, kan zo toch wijzigingen maken en deze in een patch bestand naar iemand sturen die wel rechten heeft. Je kunt de patch ook gebruiken als je je wijzigingen wilt laten nakijken door iemand anders."
 
 #. (glossterm)
 msgid "Property"
@@ -12735,15 +12950,15 @@ msgstr "Eigenschap"
 
 #. (para)
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
-msgstr ""
+msgstr "Naast het toepassen van versiebeheer voor je mappen en bestanden, geeft Subversion je ook de mogelijkheid om metadata met versiebeheer te gebruiken - aangeduid als <quote>eigenschappen</quote> voor elke map en bestand onder versiebeheer. Elke eigenschap heeft een naam en waarde, net zoals een register sleutel. Subversion maakt intern gebruik van enkele speciale eigenschappen, zoals <literal>svn:eol-style</literal>. TortoiseSVN heeft er ook enkele, zoals bijvoorbeeld <literal>tsvn:logminsize</literal>. Je kunt ook zelf eigenschappen toevoegen, waarvoor je zelf de naam en waarde kunt kiezen."
 
 #. (para)
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
-msgstr ""
+msgstr "Als je archief verhuist, bijvoorbeeld doordat je het verplaatst hebt naar een andere map op je server of het domein van de server is veranderd, moet je je werkkopie de <quote>locatie wijzigen</quote> van je werkkopie. De URL's voor het archief van je werkkopie moeten gaan wijzen naar de nieuwe locatie."
 
 #. (para)
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
-msgstr ""
+msgstr "Noot: je moet dit commando alleen gebruiken als het hele archief verhuisd is, terwijl jouw werkkopie nog steeds wijst naar dezelfde locatie in dat archief. In elke andere situatie moet je in plaats hiervan waarschijnlijk het <quote>Wisselen</quote> commando gebruiken."
 
 #. (glossterm)
 msgid "Repository"
@@ -12751,15 +12966,15 @@ msgstr "Archief"
 
 #. (para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
-msgstr ""
+msgstr "Een archief is een centrale plaats waar data opgeslagen en beheerd wordt. Een archief kan een plaats zijn waar meerdere databases of bestanden zijn opgeslagen om gedistribueerd te worden over een netwerk. Een archief kan ook een locatie zijn die direct toegankelijk is voor een gebruiker, zonder dat er gegevens over een netwerk verstuurd hoeven te worden (oftewel een locatie op een lokale harde schijf)."
 
 #. (para)
 msgid "When files in a working copy are left in a conflicted state following a merge, those conflicts must be sorted out by a human using an editor (or perhaps TortoiseMerge). This process is referred to as <quote>Resolving Conflicts</quote>. When this is complete you can mark the conflicted files as being resolved, which allows them to be committed."
-msgstr ""
+msgstr "Als bestanden in een werkkopie in een conflict situatie zijn achtergebleven na een samenvoegactie, dan moeten die conflicten door een mens opgelost worden door gebruik te maken van een tekstverwerker (of misschien TortoiseMerge). Dit proces wordt <quote>Conflicten Oplossen</quote> genoemd. Als je de conflicten hebt opgelost, dan moet je het conflicterende bestand markeren als Opgelost, waarna de wijzigingen vastgelegd kunnen worden."
 
 #. (para)
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
-msgstr ""
+msgstr "Subversion bewaart een lokale <quote>ongewijzigde</quote> kopie van elk bestand, zoals het was op het moment dat je je werkkopie voor het laatst ververste. Als je wijzigingen hebt aangebracht en besluit deze terug te draaien, dan kun je met het commando <quote>Ongedaan maken</quote> gebruiken om de ongewijzigde kopie weer terug te krijgen."
 
 #. (glossterm)
 msgid "Revision"
@@ -12767,7 +12982,7 @@ msgstr "Revisie"
 
 #. (para)
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
-msgstr ""
+msgstr "Elke keer dat je een set van wijzigingen vastlegt, maak je een nieuwe <quote>revisie</quote> aan in het archief. Elke revisie geeft de status van de structuur van het archief weer op een zeker moment in de tijd. Als je terug wilt gaan in de tijd, kun je het archief bekijken zoals het was ten tijde van revisie N."
 
 #. (para)
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
@@ -12779,7 +12994,7 @@ msgstr "Revisie eigenschap (revprop)"
 
 #. (para)
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
-msgstr ""
+msgstr "Net zoals bestanden eigenschappen kunnen hebben, kan elke revisie in het archief ook eigenschappen hebben. Enkele speciale revprops worden automatisch toegevoegd als de revisie gemaakt wordt, namelijk: <literal>svn:date svn:author svn:log</literal> respectievelijk de datum en tijd van de vastlegging, degene die de vastlegging uitvoerde en het logboek bericht. Deze eigenschappen kunnen bewerkt worden, maar deze wijzigingen worden niet met versiebeheer gevolgd. Elke wijziging aan zo'n eigenschap is dus permanent en kan niet ongedaan gemaakt worden."
 
 #. (glossterm)
 msgid "SVN"
@@ -12795,7 +13010,7 @@ msgstr "De naam van het Subversion eigen protocol wat gebruikt wordt door <quote
 
 #. (para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
-msgstr ""
+msgstr "Met <quote>Verversen-naar-revisie</quote> kun je je werkkopie de status/inhoud geven zoals de informatie beschikbaar was op een ander moment in de tijd, zo kun je met<quote>Wisselen</quote> je werkkopie naar een ander deel van het archief laten kijken wat inhoud betreft. Dit is vooral handig als je aan de basislijn en takken werkt, waarbij er maar enkele bestanden verschillend zijn. Je kunt dan je werkkopie wisselen tussen de twee, terwijl alleen de gewijzigde bestanden verstuurd worden."
 
 #. (para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
