@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-23 00:02-0000\n"
+"PO-Revision-Date: 2010-02-23 00:24-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3767,15 +3767,15 @@ msgstr ""
 
 #. (para)
 msgid "In an ideal world, you only ever work on one thing at a time, and your working copy contains only one set of logical changes. OK, back to reality. It often happens that you have to work on several unrelated tasks at once, and when you look in the commit dialog, all the changes are mixed in together. The <firstterm>changelist</firstterm> feature helps you group files together, making it easier to see what you are doing. Of course this can only work if the changes do not overlap. If two different tasks affect the same file, there is no way to separate the changes."
-msgstr ""
+msgstr "Num mundo ideal, apenas trabalharias numa única coisa de cada vez, e a tua cópia de trabalho contém só um conjunto de mudanças lógicas. OK, devolta à realidade. Costuma acontecer que tens de trabalhar em várias, e não relacionadas, tarefas ao mesmo tempo, e quando olhas para a caixa de diálogo de submissão, todas as alterações estão misturadas. A funcionalidade da <firstterm>lista de alterações</firstterm> ajuda a agrupar os ficheiros, tornando mais fácil ver o que estás a fazer. Está claro que isto só funciona se as alterações não se sobrepuserem. Se duas tarefas diferentes afectarem o mesmo ficheiro, não existe maneira de separar as alterações."
 
 #. (para)
 msgid "The changelist feature in TortoiseSVN is only available in Windows XP and later, as it depends on a shell capability which is not present in Windows 2000. Sorry, but Win2K is really quite old now, so please don't complain."
-msgstr ""
+msgstr "A funcionalidade de lista de alterações no TortoiseSVN, está só disponível no Windows XP e superior, visto depender the uma capacidade da consola que não está presente no Windows 2000. Desculpa, mas o Win2k é realmente velho, mas por favor não faças queixas."
 
 #. (para)
 msgid "You can see changelists in several places, but the most important ones are the commit dialog and the check-for-modifications dialog. Let's start in the check-for-modifications dialog after you have worked on several features and many files. When you first open the dialog, all the changed files are listed together. Suppose you now want to organise things and group those files according to feature."
-msgstr ""
+msgstr "Podes ver ver as listas de alterações em vários locais, mas os mais importantes são a caixa de diálogo submeter e a caixa de diálogo verificar alterações. Vamos começar pela caixa de diálogo verificar alterações, depois de teres trabalhado em várias funcionalidades e muitos ficheiros. Quando primeiro abres a caixa de diálogo, todos os ficheiros alterados são listados em conjunto. Supõem que queres organizar as coisas e agrupa-las de acordo com a funcionalidade."
 
 #. (para)
 msgid "Select one or more files and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Move to changelist</guimenuitem></menuchoice> to add an item to a changelist. Initially there will be no changelists, so the first time you do this you will create a new changelist. Give it name which describes what you are using it for, and click <guibutton>OK</guibutton>. The dialog will now change to show groups of items."
