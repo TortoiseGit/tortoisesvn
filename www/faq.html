@@ -45,6 +45,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <li><a href="#whymsi">Why are you using MSI instead of an exe or no installer at all?</a></li>
 <li><a href="#installerror">The installer aborts with an error message</a></li>
 <li><a href="#nomenus">After installing, TortoiseSVN does not show up, no context menus are available</a></li>
+<li><a href="#install3264">Why don't you install the 32 bit version along with the 64 bit version?</a></li>
 </ul>
 
 <h4>Overlay icons:</h4>
@@ -205,6 +206,17 @@ if your domain administrator disabled it.</p>
 <h3>After installing, TortoiseSVN does not show up, no context menus are available</h3>
 <p>Make sure you have installed the x64 version of TortoiseSVN if you're using XP or Vista 64-bit. Since the explorer on those OS versions is a 64-bit application, it can not load the 32-bit version of TortoiseSVN.</p>
 <p>You can still keep the 32-bit version of TortoiseSVN installed on those OS versions though: it will show up in the 32-bit applications file-open/save dialogs of those applications.</p>
+</div>
+
+<div class="h3" id="install3264" title="install3264">
+<h3>Why don't you install the 32-bit version along with the 64-bit version?</h3>
+<p>That sounds like a good idea, but is difficult for a number of practical reasons:
+<ul>
+<li>msi does not allow installing x64 and win32 binaries together, there must be two separate msi files. </li>
+<li>Even if it were allowed, the installer size would more than double to 40MB, and you only need the 32-bit version if you want TSVN to work within the file open/save dialogs of 32-bit apps.</li>
+<li>In theory we could supply only the shell extension in both 32 and 64-bit. But to make the shellex work we also have to provide the APR dlls, the C runtime dlls, MFC and a heap of other stuff in 32 and 64-bit versions.</li>
+</ul>
+</p>
 </div>
 
 </div>
