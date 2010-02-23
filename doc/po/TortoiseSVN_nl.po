@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-23 16:38+0100\n"
-"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
+"PO-Revision-Date: 2010-02-23 15:18+0100\n"
+"Last-Translator: Ewout Muller <eppie1@xs4all.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8395,19 +8395,19 @@ msgstr "Revisie Grafiek Instellingen"
 
 #. (title)
 msgid "The Settings Dialog, Revision Graph Page"
-msgstr ""
+msgstr "Het instellingen scherm, Revisie schema pagina"
 
 #. (term)
 msgid "Classification Patterns"
-msgstr ""
+msgstr "Classificatie patronen"
 
 #. (para)
 msgid "The revision graph attempts to show a clearer picture of your repository structure by distinguishing between trunk, branches and tags. As there is no such classification built into Subversion, this information is extracted from the path names. The default settings assume that you use the conventional English names as suggested in the Subversion documentation, but of course your usage may vary."
-msgstr ""
+msgstr "Het revisieschema tracht een duidelijker beeld te geven van uw archiefstructuur door onderscheid te maken tussen basis, vertakkingen en labels. Omdat dergelijke classificaties niet in Subversion zijn ingebouwd, wordt deze informatie uit de namen van de paden gehaald. De standaard instellingen verwachten dat u conventionele engelse benamingen gebruikt zoals voorgesteld in de documentatie van Subversion, maar kan het gebruik hiervan afwijken."
 
 #. (para)
 msgid "Specify the patterns used to recognise these paths in the three boxes provided. The patterns will be matched case-insensitively, but you must specify them in lower case. Wild cards <literal>*</literal> and <literal>?</literal> will work as usual, and you can use <literal>;</literal> to separate multiple patterns. Do not include any extra white space as it will be included in the matching specification."
-msgstr ""
+msgstr "Specificeer de patronen om deze paden te herkennen in de drie gegeven velden. De patronen zullen worden niet hoofdlettergevoelig worden vergeleken, maar u dient ze in kleine letters in te geven. Jokertekens <literal>*</literal> en <literal>?</literal> werken als gewoonlijk en u kunt <literal>;</literal> gebruiken om meerdere patronen van elkaar te scheiden. Voeg geen extra witruimte in omdat dit wordt meegenomen in de vergelijkingsspecificatie."
 
 #. (term)
 msgid "Modify Colors"
@@ -8415,7 +8415,7 @@ msgstr "Bewerk Kleuren"
 
 #. (para)
 msgid "Colors are used in the revision graph to indicate the node type, i.e. whether a node is added, deleted, renamed. In order to help pick out node classifications, you can allow the revision graph to blend colors to give an indication of both node type and classification. If the box is checked, blending is used. If the box is unchecked, color is used to indicate node type only. Use the color selection dialog to allocate the specific colors used."
-msgstr ""
+msgstr "Kleuren worden in het revisieschema gebruikt om het type knoop aan te geven, bijv. of een knoop is toegevoegd, verwijderd of hernoemd. Om u te laten assisteren in het selecteren van de knoop classificatie kunt u het revisieschema toestaan om kleuren te mengen om een indicatie te geven van de combinatie knooptype en classificatie. Als het selectievak is aangevinkt wordt menging toegepast. Als het selectievak niet is aangevinkt wordt de kleur gebruikt om alleen het knooptype aan te geven. Gebruik het kleurselectiescherm om de gebruikte specifieke kleuren vast te leggen."
 
 #. (title)
 msgid "Revision Graph Colors"
@@ -8423,11 +8423,11 @@ msgstr "Revisie Grafiek Kleuren"
 
 #. (title)
 msgid "The Settings Dialog, Revision Graph Colors Page"
-msgstr ""
+msgstr "Het instellingen scherm, Revisieschema kleuren pagina"
 
 #. (para)
 msgid "<placeholder-1/> This page allows you to configure the colors used. Note that the color specified here is the solid color. Most nodes are colored using a blend of the node type color, the background color and optionally the classification color."
-msgstr ""
+msgstr "<placeholder-1/> Deze pagina biedt u de mogelijkheid om de te gebruiken kleuren te configureren. Let op dat de aangegeven kleur de ondoorzichtige kleur is. De meeste knopen worden gekleurd door een mengsel van de knooptype kleur, achtergrondkleur en eventueel de classificatiekleur."
 
 #. (term)
 msgid "Deleted Node"
@@ -8435,7 +8435,7 @@ msgstr "Verwijderde Knoop"
 
 #. (para)
 msgid "Items which have been deleted and not copied anywhere else in the same revision."
-msgstr ""
+msgstr "Items welke zijn verwijderd en niet naar elders zijn gekopieëerd binnen dezelfde revisie."
 
 #. (term)
 msgid "Added Node"
@@ -8443,7 +8443,7 @@ msgstr "Toegevoegde Knoop"
 
 #. (para)
 msgid "Items newly added, or copied (add with history)."
-msgstr ""
+msgstr "Nieuw toegevoegde of gekopieëerde (toevoegen met geschiedenis) items."
 
 #. (term)
 msgid "Renamed Node"
@@ -8451,7 +8451,7 @@ msgstr "Hernoemde Knoop"
 
 #. (para)
 msgid "Items deleted from one location and added in another in the same revision."
-msgstr ""
+msgstr "Items welke zijn verwijderd uit de ene locatie en toegevoegd aan een andere locatie binnen dezelfde revisie."
 
 #. (term)
 msgid "Modified Node"
@@ -8459,7 +8459,7 @@ msgstr "Aangepaste knoop"
 
 #. (para)
 msgid "Simple modifications without any add or delete."
-msgstr ""
+msgstr "Eenvoudige wijzigingen zonder enige toevoeging of verwijdering."
 
 #. (term)
 msgid "Unchanged Node"
@@ -8467,7 +8467,7 @@ msgstr "Ongewijzigde Knoop"
 
 #. (para)
 msgid "May be used to show the revision used as the source of a copy, even when no change (to the item being graphed) took place in that revision."
-msgstr ""
+msgstr "Kan worden gebruikt om de revisie aan te geven welke wordt gebruikt als bron van een kopie, zelfs als er geen wijziging (aan het item dat schematisch wordt weergegeven) heeft plaatsgevonden binnen die revisie."
 
 #. (term)
 msgid "HEAD node"
@@ -8475,7 +8475,7 @@ msgstr "HEAD knoop"
 
 #. (para)
 msgid "Current HEAD revision in the repository."
-msgstr ""
+msgstr "Huidige HEAD revisie in het archief."
 
 #. (term)
 msgid "WC Node"
@@ -8483,7 +8483,7 @@ msgstr "Werkkopie knoop"
 
 #. (para)
 msgid "If you opt to show an extra node for your modified working copy, attached to its last-commit revision on the graph, use this color."
-msgstr ""
+msgstr "Als u er voor kiest een extra knoop weer te geven voor uw aangepast werkkopie, gekoppeld aan zijn laatste-vastlegging revisie in het schema, gebruik deze kleur."
 
 #. (term)
 msgid "WC Node Border"
@@ -8491,7 +8491,7 @@ msgstr "Werkkopie knoop rand "
 
 #. (para)
 msgid "If you opt to show whether the working copy is modified, use this color border on the WC node when modifications are found."
-msgstr ""
+msgstr "Als u ervoor kiest om weer te geven of een werkkopie is aangepast, gebruik deze gekleurde rand voor de werkkopieknoop wanneer aanpassingen worden gevonden."
 
 #. (term)
 msgid "Tag Nodes"
@@ -8499,7 +8499,7 @@ msgstr "Label knopen"
 
 #. (para)
 msgid "Nodes classified as tags may be blended with this color."
-msgstr ""
+msgstr "Knopen welke worden geclassificeerd als labels kunnen worden gemengt met deze kleur."
 
 #. (term)
 msgid "Trunk Nodes"
@@ -8507,15 +8507,15 @@ msgstr "Basislijn knopen"
 
 #. (para)
 msgid "Nodes classified as trunk may be blended with this color."
-msgstr ""
+msgstr "Knopen welke worden geclassificeerd als basislijn kunnen worden gemengt met deze kleur."
 
 #. (term)
 msgid "Folded Tag Markers"
-msgstr ""
+msgstr "Ingeklapte label merktekens"
 
 #. (para)
 msgid "If you use tag folding to save space, tags are marked on the copy source using a block in this color."
-msgstr ""
+msgstr "Als u labels inklapt om ruimte te winnen worden de labels gemarkeerd in de bronkopie door een blok in deze kleur."
 
 #. (term)
 msgid "Selected Node Markers"
@@ -8523,7 +8523,7 @@ msgstr "Geselecteerde knoop markering"
 
 #. (para)
 msgid "When you left click on a node to select it, the marker used to indicate selection is a block in this color."
-msgstr ""
+msgstr "Als u met links op een knoop klikt om deze te selecteren, is het merkteken dat wordt gebruikt om de selectie aan te geven een blok in deze kleur."
 
 #. (term)
 msgid "Stripes"
@@ -8531,7 +8531,7 @@ msgstr "Strepen"
 
 #. (para)
 msgid "These colors are used when the graph is split into sub-trees and the background is colored in alternating stripes to help pick out the separate trees."
-msgstr ""
+msgstr "Deze kleuren worden gebruikt wanneer het schema wordt opgesplitst in sub-boomstructuren en de achtergrond wordt gekleurd als afwisselende strepen om te helpen de verschillende boomstructuren te onderscheiden."
 
 #. (title)
 msgid "Icon Overlay Settings"
@@ -8539,23 +8539,23 @@ msgstr "Overlappende Pictogram Instellingen"
 
 #. (title)
 msgid "The Settings Dialog, Icon Overlays Page"
-msgstr ""
+msgstr "Het instellingen scherm, Overlappend pictogram pagina"
 
 #. (para)
 msgid "<placeholder-1/> This page allows you to choose the items for which TortoiseSVN will display icon overlays."
-msgstr ""
+msgstr "<placeholder-1/> Deze pagina biedt u de mogelijkheid om de items te kiezen waarvoor TortoiseSVN de overlappende pictogrammen weergeeft."
 
 #. (para)
 msgid "By default, overlay icons and context menus will appear in all open/save dialogs as well as in Windows Explorer. If you want them to appear <emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show overlays and context menu only in explorer</guilabel> box."
-msgstr ""
+msgstr "Standaard zullen de overlappende pictogrammen en contextmenu's in alle openen/opslaan schermen alsook in Windows Verkenner verschijnen. Als u wilt dat ze <emphasis>alleen</emphasis> in Windows Verkenner verschijnen, vink dan het <guilabel>Toon overlays en contextmenu alleen in verkenner</guilabel> selectievak aan."
 
 #. (para)
 msgid "Ignored items and Unversioned items are not usually given an overlay. If you want to show an overlay in these cases, just check the boxes."
-msgstr ""
+msgstr "Genegeerde items en items zonder versiebeheer krijgen normaal gesproken geen overlappend pictogram. Als u wilt dat in deze gevallen een overlappend pictogram wordt getoond, vink dan gewoon de selectievakken aan."
 
 #. (para)
 msgid "You can also choose to mark folders as modified if they contain unversioned items. This could be useful for reminding you that you have created new files which are not yet versioned. This option is only available when you use the <emphasis>default</emphasis> status cache option (see below)."
-msgstr ""
+msgstr "U kunt er ook voor kiezen om mappen aan te merken als aangepast als deze items zonder versiebeheer bevatten. Dit kan handig zijn om u eraan te herinneren dat u nieuwe bestanden heeft aangemaakt welke nog niet onder versiebeheer vallen. Deze optie is enkel beschikbaar als u de <emphasis>standaard</emphasis> status cache optie (zie hieronder) gebruikt."
 
 #. (term)
 msgid "Default"
@@ -8563,15 +8563,15 @@ msgstr "Standaard"
 
 #. (para)
 msgid "Caches all status information in a separate process (<filename>TSVNCache.exe</filename>). That process watches all drives for changes and fetches the status again if files inside a working copy get modified. The process runs with the least possible priority so other programs don't get hogged because of it. That also means that the status information is not <emphasis>real time</emphasis> but it can take a few seconds for the overlays to change."
-msgstr ""
+msgstr "Plaatst alle statusinformatie in een apart proces (<filename>TSVNCache.exe</filename>) in de cache. Dat proces observeert alle schijven op wijzigingen en haalt de status opnieuw op wanneer bestanden binnen een werkkopie worden gewijzigd. Het proces wordt met de laagst mogelijke prioriteit uitgevoerd zodat andere programma's er niet door worden gehinderd. Dat betekent ook dat de statusinformatie niet <emphasis>realtime</emphasis> is, maar het enige seconden kan duren voordat de overlappende pictogrammen wijzigen."
 
 #. (para)
 msgid "Advantage: the overlays show the status recursively, i.e. if a file deep inside a working copy is modified, all folders up to the working copy root will also show the modified overlay. And since the process can send notifications to the shell, the overlays on the left tree view usually change too."
-msgstr ""
+msgstr "Voordeel: de overlappende pictogrammen tonen de status recursief, bijv. als een bestand diep in een werkkopie wordt aangepast, zullen alle mappen tot aan de basis van de werkkopie ook het aangepaste overlappend pictogram tonen. En doordat het proces berichten naar de shell kan sturen worden de overlappende pictogrammen in het linker boomstructuur venster gewoonlijk ook wijzigen."
 
 #. (para)
 msgid "Disadvantage: the process runs constantly, even if you're not working on your projects. It also uses around 10-50 MB of RAM depending on number and size of your working copies."
-msgstr ""
+msgstr "Nadeel: het proces wordt continu uitgevoerd, zelfs als u niet aan uw projecten werkt. Het gebruikt ook zo'n 10-50 Mb RAM, afhankelijk van het aantal en grootte van uw werkkopieën."
 
 #. (term)
 msgid "Shell"
@@ -8579,15 +8579,15 @@ msgstr ""
 
 #. (para)
 msgid "Caching is done directly inside the shell extension dll, but only for the currently visible folder. Each time you navigate to another folder, the status information is fetched again."
-msgstr ""
+msgstr "Cachen wordt direct binnen de shell-extensie dll uitgevoerd, maar alleen voor de op dat moment zichtbare map. Iedere keer dat u naar een andere map navigeert wordt de statusinformatie opnieuw opgehaald."
 
 #. (para)
 msgid "Advantage: needs only very little memory (around 1 MB of RAM) and can show the status in <emphasis>real time</emphasis>."
-msgstr ""
+msgstr "Voordeel: heeft slechts weinig geheugen nodig (rond de 1Mb RAM) en kan de status in <emphasis>realtime</emphasis> tonen."
 
 #. (para)
 msgid "Disadvantage: Since only one folder is cached, the overlays don't show the status recursively. For big working copies, it can take more time to show a folder in explorer than with the default cache. Also the mime-type column is not available."
-msgstr ""
+msgstr "Nadeel: Doordat slechts één map in de cache wordt geplaatst, geven de overlappende pictogrammen de status niet recursief weer. Voor grote werkkopieën kan het meer tijd kosten om een map in de verkenner te tonen dan met de standaard cache. Ook is de mime-type kolom niet beschikbaar."
 
 #. (term)
 msgid "None"
@@ -8595,47 +8595,47 @@ msgstr "Geen"
 
 #. (para)
 msgid "With this setting, the TortoiseSVN does not fetch the status at all in Explorer. Because of that, files don't get an overlay and folders only get a 'normal' overlay if they're versioned. No other overlays are shown, and no extra columns are available either."
-msgstr ""
+msgstr "Met deze instelling haalt TortoiseSVN geen enkele status op in Verkenner. Hierdoor krijgen bestanden geen overlappen pictogram en mappen krijgen alleen een 'normaal' overlappend pictogram als zij onder versiebeheer vallen. Andere overlappende pictogrammen worden niet getoond en extra kolommen zijn ook niet beschikbaar."
 
 #. (para)
 msgid "Advantage: uses absolutely no additional memory and does not slow down the Explorer at all while browsing."
-msgstr ""
+msgstr "Voordeel: gebruikt absoluut geen extra geheugen en vertraagt de Verkenner niet tijdens bladeren."
 
 #. (para)
 msgid "Disadvantage: Status information of files and folders is not shown in Explorer. To see if your working copies are modified, you have to use the <quote>Check for modifications</quote> dialog."
-msgstr ""
+msgstr "Nadeel: Statusinformatie van bestanden en mappen wordt in de Verkenner niet getoond. Om te zien of uw werkkopieën zijn aangepast dient u het <quote>Kijk of er wijzigingen zijn</quote> scherm te raadplegen."
 
 #. (para)
 msgid "Since it takes quite a while to fetch the status of a working copy, TortoiseSVN uses a cache to store the status so the explorer doesn't get hogged too much when showing the overlays. You can choose which type of cache TortoiseSVN should use according to your system and working copy size here: <placeholder-1/>"
-msgstr ""
+msgstr "Omdat het een behoorlijke tijd kost om de status van een werkkopie op te halen, gebruikt TortoiseSVN een cache om de status in op te slaan, zodat de verkenner niet teveel stokt tijdens het tonen van de overlappende pictogrammen. U kunt het type cache hier kiezen dat TortoiseSVN moet gebruiken volgens uw systeem en grootte van werkkopie: <placeholder-1/>"
 
 #. (para)
 msgid "The next group allows you to select which classes of storage should show overlays. By default, only hard drives are selected. You can even disable all icon overlays, but where's the fun in that?"
-msgstr ""
+msgstr "De volgende groep biedt de mogelijkheid om de aan te geven welke opslagklasses overlappende pictogrammen moeten weergeven. Standaard zijn alleen harde schijven geselecteerd. U kunt zelfs alle overlappende pictogrammen uitzetten, maar wat kan is daar de lol van zijn?"
 
 #. (para)
 msgid "Network drives can be very slow, so by default icons are not shown for working copies located on network shares."
-msgstr ""
+msgstr "Netwerkschijven kunnen erg traag zijn, dus worden de overlappende pictogrammen standaard niet voor werkkopieën, die zich op netwerkschijven bevinden, getoond."
 
 #. (para)
 msgid "USB Flash drives appear to be a special case in that the drive type is identified by the device itself. Some appear as fixed drives, and some as removable drives."
-msgstr ""
+msgstr "USB Flash schijven blijken een speciaal geval te vormen doordat het schijftype door het apparaat zelf wordt geïdentificeerd. Sommige doen zich voor als harde schijf en andere als verwijderbare schijf."
 
 #. (para)
 msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN those paths for which it should <emphasis>not</emphasis> show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays. For example:"
-msgstr ""
+msgstr "De <guilabel>Exclusief paden</guilabel> worden gebruikt om aan TortoiseSVN door te geven voor welke paden <emphasis>geen</emphasis> overlappende pictogrammen en statuskolommen moeten worden getoond. Dit is handig als u enkele zeer grote werkkopieën heeft, welke enkel bibliotheken bevatten die u nooit wilt wijzigen en waarvoor u daarom geen overlappende pictogrammen nodig heeft. Bijvoorbeeld:"
 
 #. (para)
 msgid "<filename>f:\\development\\SVN\\Subversion</filename> will disable the overlays <emphasis>only</emphasis> on that specific folder. You still can see the overlays on all files and folder inside that folder."
-msgstr ""
+msgstr "<filename>f:\\development\\SVN\\Subversion</filename> zal de overlappende pictogrammen <emphasis>alleen</emphasis> voor die specifieke map uitschakelen. U kunt echter de overlappende pictogrammen nog steeds zien voor alle bestanden en mappen binnen die map."
 
 #. (para)
 msgid "<filename>f:\\development\\SVN\\Subversion*</filename> will disable the overlays on <emphasis>all</emphasis> files and folders whose path starts with <filename>f:\\development\\SVN\\Subversion</filename>. That means you won't see overlays for any files and folders below that path."
-msgstr ""
+msgstr "<filename>f:\\development\\SVN\\Subversion*</filename> zal de overlappende pictogrammen voor <emphasis>alle<emphasis> bestanden en mappen uitschakelen, waarvan het pad begint met <filename>f:\\development\\SVN\\Subversion</filename>. Dat betekent dat u geen overlappende pictogrammen zal zien voor elk bestand en map onder die map."
 
 #. (para)
 msgid "The same applies to the <guilabel>Include Paths</guilabel>. Except that for those paths the overlays are shown even if the overlays are disabled for that specific drive type, or by an exclude path specified above."
-msgstr ""
+msgstr "Hetzelfde geldt voor de <guilabel>Inclusief paden</guilabel>. Behalve dan dat voor die paden de overlappende pictogrammen worden getoond, zelfs als de overlappende pictogrammen zijn uitgeschakeld voor dat specifieke schijftype, of door een uitgesloten pad zoals hierboven aangegeven."
 
 #. (para)
 msgid ""
@@ -8646,14 +8646,20 @@ msgid ""
 "  show overlays\n"
 "</screen> The include list <emphasis>always</emphasis> makes the overlays show. Otherwise, overlays are shown for all marked drive types <emphasis>unless</emphasis> the path is excluded."
 msgstr ""
+"Gebruikers vragen soms hoe deze drie instellingen op elkaar reageren, en het definitieve antwoord hierop is: <screen>\n"
+"if (pad is in de inclusief-lijst)\n"
+"  toon overlappende pictogrammen\n"
+"if (pad is toegestane schijftype) AND (pad is niet in exclusief-lijst)\n"
+"  toon overlappende pictogrammen\n"
+"</screen> De inclusief-lijst zorgt er <emphasis>altijd</emphasis> voor dat de overlappende pictogrammen worden getoond. Anders worden de overlappende pictogrammen getoond voor alle geselecteerde schijftypes <emphasis>tenzij</emphasis> het pad in de exclusief-lijst is aangegeven."
 
 #. (para)
 msgid "TSVNCache.exe also uses these paths to restrict its scanning. If you want it to look only in particular folders, disable all drive types and include only the folders you specifically want to be scanned."
-msgstr ""
+msgstr "TSVNCache.exe gebruikt deze paden ook om zijn doorzoeken van de paden te beperken. Als u wilt dat slechts in bepaalde mappen wordt gekeken, schakel dan alle schijftypes uit en includeer alleen die mappen welke u ook daadwerkelijk wilt laten doorzoeken."
 
 #. (title)
 msgid "Exclude <literal>SUBST</literal> Drives"
-msgstr ""
+msgstr "Uitsluiten van <literal>SUBST</literal> schijven"
 
 #. (primary)
 msgid "SUBST drives"
@@ -8665,18 +8671,21 @@ msgid ""
 "subst T: C:\\TortoiseSVN\\trunk\\doc\n"
 "</screen> However this can cause the overlays not to update, as <literal>TSVNCache</literal> will only receive one notification when a file changes, and that is normally for the original path. This means that your overlays on the <literal>subst</literal> path may never be updated."
 msgstr ""
+"Het is vaak gemakkelijk om een <literal>SUBST</literal> schijf te gebruiken om uw werkkopieën te benaderen, bijv. door gebruik van het commando <screen>\n"
+"subst T: C:\\TortoiseSVN\\trunk\\doc\n"
+"</screen> Dit kan echter leiden tot het niet bijwerken van de overlappende pictogrammen, doordat <literal>TSVNCache</literal> slechts één melding zal ontvangen wanneer een bestand wijzigt, en dat is normaal geproken voor het originele pad. Dit zou kunnen betekenen dat de overlappende pictogrammen op het <literal>subst</literal> pad nooit worden bijgewerkt."
 
 #. (para)
 msgid "An easy way to work around this is to exclude the original path from showing overlays, so that the overlays show up on the <literal>subst</literal> path instead."
-msgstr ""
+msgstr "Een gemakkelijke manier om dit te omzeilen is door het originele pad uit te sluiten voor het tonen van overlappende pictogrammen, zodat, in de plaats hiervan, de overlappende pictogrammen worden getoond op het <literal>subst</literal> pad."
 
 #. (para)
 msgid "Sometimes you will exclude areas that contain working copies, which saves TSVNCache from scanning and monitoring for changes, but you still want a visual indication that such folders are versioned. The <guilabel>Show excluded folders as 'normal'</guilabel> checkbox allows you to do this. With this option, versioned folders in any excluded area (drive type not checked, or specifically excluded) will show up as normal and up-to-date, with a green check mark. This reminds you that you are looking at a working copy, even though the folder overlays may not be correct. Files do not get an overlay at all. Note that the context menus still work, even though the overlays are not shown."
-msgstr ""
+msgstr "Soms zal u gebieden uitsluiten die werkkopieën bevatten, wat TSVNCache het doorzoeken en observeren van wijzigingen bespaart, maar u toch een visuele indicatie wilt hebben dat zulke mappen onder versiebeheer vallen. Dit wordt geboden door het selectievak <guilabel>Toon uitgesloten mappen als 'normaal'</guilabel>. Met deze optie worden mappen onder versiebeheer in elk uitgesloten gebied (schijftype niet geselecteerd of nadrukkelijk uitgesloten) tevoorschijn komen als normaal en bijgewerkt, met een groen vinkteken. Dit herinnerd u eraan dat u naar een werkkopie kijkt, ook al zijn de overlappende pictogrammen voor de map mogelijk niet correct. Bestanden zullen in het geheel geen overlappende pictogrammen krijgen. Zie ook dat de contextmenu's nog steeds werken, ondanks dat de overlappende pictogrammen niet worden getoond."
 
 #. (para)
 msgid "As a special exception to this, drives <literal>A:</literal> and <literal>B:</literal> are never considered for the <guilabel>Show excluded folders as 'normal'</guilabel> option. This is because Windows is forced to look on the drive, which can result in a delay of several seconds when starting Explorer, even if your PC does have a floppy drive."
-msgstr ""
+msgstr "Een speciale uitzondering op de regel is dat voor de schijven <literal>A:</literal> en <literal>B:</literal> nooit de optie <guilabel>Toon uitgesloten mappen als 'normaal'</guilabel> zal worden toegekend. Dit is omdat Windows wordt gedwongen om op de schijf te kijken, wat kan resulteren in een vertraging van meerdere seconden wanneer Verkenner wordt gestart, zelfs als uw PC een floppy-drive bezit."
 
 #. (title)
 msgid "Icon Set Selection"
@@ -8684,11 +8693,11 @@ msgstr "Pictogram Set Selectie"
 
 #. (title)
 msgid "The Settings Dialog, Icon Set Page"
-msgstr ""
+msgstr "Het instellingen scherm, Pictogramset pagina"
 
 #. (para)
 msgid "<placeholder-1/> You can change the overlay icon set to the one you like best. Note that if you change overlay set, you may have to restart your computer for the changes to take effect."
-msgstr ""
+msgstr "<placeholder-1/> U kunt de overlappende pictogrammenset wijzigen naar degene van uw wens. Onthoud dat wanneer u de overlappende pictogrammenset wijzigt, u mogelijk uw computer opnieuw moet opstarten om de wijzigingen te effectueren."
 
 #. (title)
 msgid "Network Settings"
@@ -8700,19 +8709,19 @@ msgstr "proxy server"
 
 #. (title)
 msgid "The Settings Dialog, Network Page"
-msgstr ""
+msgstr "Het instellingen scherm, Netwerk pagina"
 
 #. (para)
 msgid "<placeholder-1/> Here you can configure your proxy server, if you need one to get through your company's firewall."
-msgstr ""
+msgstr "<placeholder-1/> Hier kunt u uw proxy-server configureren als u er een nodig heeft om door uw bedrijfs firewall te geraken."
 
 #. (para)
 msgid "If you need to set up per-repository proxy settings, you will need to use the Subversion <filename>servers</filename> file to configure this. Use <guibutton>Edit</guibutton> to get there directly. Consult the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink> for details on how to use this file."
-msgstr ""
+msgstr "Als u per archief de proxy instellingen moet aangeven, dient u het Subversion <filename>servers</filename> bestand te gebruiken om dit te configureren. Gebruik <guibutton>Wijzigen</guibutton> om hier direct bij te komen. Raadpleeg de <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink> voor details omtrent het gebruik van dit bestand."
 
 #. (para)
 msgid "You can also specify which program TortoiseSVN should use to establish a secure connection to a svn+ssh repository. We recommend that you use TortoisePlink.exe. This is a version of the popular Plink program, and is included with TortoiseSVN, but it is compiled as a Windowless app, so you don't get a DOS box popping up every time you authenticate."
-msgstr ""
+msgstr "U kunt ook aangeven welk programma TortoiseSVN moet gebruiken om een veilige verbinding te leggen met een svn+ssh archief. We raden aan dat u TortoisePlink.exe gebruikt. Dit is een versie van het populaire Plink programma en wordt meegeleverd met TortoiseSVN, maar is gecompileerd als een schermloze applicatie, dus u krijgt geen DOS-venster dat tevoorschijn komt bij elke keer dat u zich authenticeerd."
 
 #. (para)
 msgid ""
@@ -8720,22 +8729,25 @@ msgid ""
 "\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n"
 "</screen>"
 msgstr ""
+"U dient het volledige pad naar het uitvoerbare bestand op te geven. In het geval van TortoisePlink.exe is dit de standaard TortoiseSVN bin map. Gebruikt de <guibutton>Bladeren</guibutton> knop om u te helpen het te localiseren. Onthoud dat als het pad spaties bevat, u het tussen aanhalingstekens moet plaatsten, bijv. <screen>\n"
+"\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n"
+"</screen>"
 
 #. (para)
 msgid "One side-effect of not having a window is that there is nowhere for any error messages to go, so if authentication fails you will simply get a message saying something like <quote>Unable to write to standard output</quote>. For this reason we recommend that you first set up using standard Plink. When everything is working, you can use TortoisePlink with exactly the same parameters."
-msgstr ""
+msgstr "Een bijwerking van het niet hebben van een scherm is dat foutberichten nergens heen kunnen, dus als authenticatie mislukt zal u gewoon een melding krijgen welke iets aangeeft als <quote>Kan niet schrijven naar standaard uitvoer</quote>. Hiervoor adviseren we dat u eerst het standaard Plink instelt. Als alles werkt, kunt u TortoisePlink met exact dezelfde parameters gebruiken."
 
 #. (para)
 msgid "TortoisePlink does not have any documentation of its own because it is just a minor variant of Plink. Find out about command line parameters from the <ulink url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY website</citetitle></ulink>"
-msgstr ""
+msgstr "TortoisePlink heeft van zichzelf geen enkele documentatie omdat het slechts een eenvoudigere variant op Plink is. Zie voor informatie over commandoregel parameters op de <ulink url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY website</citetitle></ulink>"
 
 #. (para)
 msgid "To avoid being prompted for a password repeatedly, you might also consider using a password caching tool such as Pageant. This is also available for download from the PuTTY website."
-msgstr ""
+msgstr "Om te voorkomen dat u telkens om een wachtwoord wordt gevraagd, kunt u er ook voor kiezen om een wachtwoord caching hulpmiddel te gebruiken zoals Pageant. Dit is ook beschikbaar voor binnenhalen vanaf de PuTTY website."
 
 #. (para)
 msgid "Finally, setting up SSH on server and clients is a non-trivial process which is beyond the scope of this help file. However, you can find a guide in the TortoiseSVN FAQ listed under <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle></ulink>."
-msgstr ""
+msgstr "Als laatste. Het instellen van SSH op server en clients is een niet-onbelangrijk proces dat buiten de scoop van dit helpbestand valt. U kunt echter een handleiding vinden in de TortoiseSVN FAQ welke in de lijst staat onder <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle></ulink>."
 
 #. (title)
 msgid "External Program Settings"
