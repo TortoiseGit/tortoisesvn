@@ -58,6 +58,7 @@ BEGIN_MESSAGE_MAP(CTreeConflictEditorDlg, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(WM_AFTERTHREAD, OnAfterThread) 
 	ON_BN_CLICKED(IDC_LOG, &CTreeConflictEditorDlg::OnBnClickedShowlog)
 	ON_BN_CLICKED(IDHELP, &CTreeConflictEditorDlg::OnBnClickedHelp)
+	ON_BN_CLICKED(IDC_BRANCHLOG, &CTreeConflictEditorDlg::OnBnClickedBranchlog)
 END_MESSAGE_MAP()
 
 
@@ -73,6 +74,7 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_RESOLVEUSINGTHEIRS)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_RESOLVEUSINGMINE)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDC_LOG)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(GetDlgItem(IDC_BRANCHLOG)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
 	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
 
@@ -82,9 +84,9 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
 
 
 	CString sTemp;
-	sTemp.Format(_T("%s@%ld"), (LPCTSTR)CUnicodeUtils::GetUnicode(src_left->repos_url), src_left->peg_rev);
+	sTemp.Format(_T("%s/%s@%ld"), (LPCTSTR)CUnicodeUtils::GetUnicode(src_left->repos_url), (LPCTSTR)CUnicodeUtils::GetUnicode(src_left->path_in_repos), src_left->peg_rev);
 	SetDlgItemText(IDC_SOURCELEFTURL, sTemp);
-	sTemp.Format(_T("%s@%ld"), (LPCTSTR)CUnicodeUtils::GetUnicode(src_right->repos_url), src_right->peg_rev);
+	sTemp.Format(_T("%s/%s@%ld"), (LPCTSTR)CUnicodeUtils::GetUnicode(src_right->repos_url), (LPCTSTR)CUnicodeUtils::GetUnicode(src_right->path_in_repos), src_right->peg_rev);
 	SetDlgItemText(IDC_SOURCERIGHTURL, sTemp);
 
 	if (conflict_reason == svn_wc_conflict_reason_deleted)
@@ -136,6 +138,7 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
 	AddAnchor(IDC_RESOLVEUSINGTHEIRS, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_RESOLVEUSINGMINE, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_LOG, BOTTOM_LEFT);
+	AddAnchor(IDC_BRANCHLOG, BOTTOM_LEFT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 
@@ -152,6 +155,24 @@ void CTreeConflictEditorDlg::OnBnClickedShowlog()
 		logPath = logPath.GetContainingDirectory();
 	CString sCmd;
 	sCmd.Format(_T("\"%s\" /command:log /path:\"%s\""), (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), logPath.GetWinPath());
+	CAppUtils::LaunchApplication(sCmd, NULL, false);
+}
+
+void CTreeConflictEditorDlg::OnBnClickedBranchlog()
+{
+	if (m_bThreadRunning)
+		return;
+	CString sTemp;
+	sTemp.Format(_T("%s/%s"), (LPCTSTR)CUnicodeUtils::GetUnicode(src_left->repos_url), (LPCTSTR)CUnicodeUtils::GetUnicode(src_left->path_in_repos));
+
+	CTSVNPath logPath = CTSVNPath(sTemp);
+	if (src_left->node_kind != svn_node_dir)
+		logPath = logPath.GetContainingDirectory();
+	CString sCmd;
+	sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /pegrev:%ld"), 
+		(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), 
+		(LPCTSTR)logPath.GetSVNPathString(),
+		src_left->peg_rev);
 	CAppUtils::LaunchApplication(sCmd, NULL, false);
 }
 
@@ -335,3 +356,4 @@ void CTreeConflictEditorDlg::OnBnClickedHelp()
 {
 	OnHelp();
 }
+
