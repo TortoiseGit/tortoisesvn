@@ -53,14 +53,16 @@ void CJobBase::Schedule (bool transferOwnership, CJobScheduler* scheduler)
 void CJobBase::Execute()
 {
     // intended for one-shot execution only
+	// skip jobs that have already been executed or
+	// are already/still being executed.
 
-    assert (!finished.Test());
-    InterlockedExchange (&waiting, FALSE); 
+	if (InterlockedExchange (&waiting, FALSE) == TRUE)
+	{
+		if (terminated == FALSE)
+			InternalExecute();
 
-    if (terminated == FALSE)
-        InternalExecute();
-
-    finished.Set();
+	    finished.Set();
+	}
 }
 
 // may be called by other (observing) threads
