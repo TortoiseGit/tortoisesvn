@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-22 16:54+0100\n"
-"Last-Translator: Ewout Muller <eppie1@xs4all.nl>\n"
+"PO-Revision-Date: 2010-02-23 16:38+0100\n"
+"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6528,27 +6528,27 @@ msgstr "Dit verschil heeft een hoop tam-tam in de mailing lijsten opgeleverd. We
 
 #. (para)
 msgid "The easiest way to select the range of revisions you need is to click on <guibutton>Show Log</guibutton>, as this will list recent changes with their log comments. If you want to merge the changes from a single revision, just select that revision. If you want to merge changes from several revisions, then select that range (using the usual <keycap>Shift</keycap>-modifier). Click on <guibutton>OK</guibutton> and the list of revision numbers to merge will be filled in for you."
-msgstr ""
+msgstr "De makkelijkste methode om een reeks van revisies te selecteren die je nodig hebt, is door op de <guibutton>Toon logboek</guibutton> te klikken. Hiermee wordt een lijst met recente wijzigingen en de bijbehorende logboek boodschappen getoond. Als je de wijzigingen van een enkele revisie wilt samenvoegen, selecteer dan die ene revisie. Als je de wijzigingen van meerdere revisies wilt samenvoegen, selecteer dan de reeks terwijl je de <keycap>Shift</keycap> knop gebruikt. Klik op de <guibutton>OK</guibutton> knop en lijst met revisienummers die samengevoegd worden, wordt voor je gevuld."
 
 #. (para)
 msgid "If you want to merge changes back <emphasis>out</emphasis> of your working copy, to revert a change which has already been committed, select the revisions to revert and make sure the <guilabel>Reverse merge</guilabel> box is checked."
-msgstr ""
+msgstr "Als je wijzigingen van een samenvoeging weer <emphasis>uit</emphasis> je werkkopie wilt halen, om een wijziging die al vastgelegd is weer ongedaan te maken, select dan de revisies die ongedaan gemaakt moeten worden en zorg er dan voor dat de optie <guilabel>Omgekeerd samenvoegen</guilabel> aangevinkt is."
 
 #. (para)
 msgid "If you have already merged some changes from this branch, hopefully you will have made a note of the last revision merged in the log message when you committed the change. In that case, you can use <guibutton>Show Log</guibutton> for the Working Copy to trace that log message. Remembering that we are thinking of revisions as changesets, you should Use the revision after the end point of the last merge as the start point for this merge. For example, if you have merged revisions 37 to 39 last time, then the start point for this merge should be revision 40."
-msgstr ""
+msgstr "Als je al enkele wijzigingen van deze tak hebt samengevoegd, hopelijk heb toen je in het logboek bericht opgenomen wat de laatste samengevoegde revisie was toen je de wijzigingen vastlegde. Je kunt dan <guibutton>Toon logboek</guibutton> gebruiken voor de werkkopie, om zo de logboek berichten te kunnen bekijken. Hou in gedachten dat we revisies als een set van wijzigingen zien, waardoor je als startpunt voor de nieuwe samenvoeging de eerste revisie na de vorige samenvoeging moet selecteren. Als je bijvoorbeeld de vorige keer revisie 37 naar revisie 39 hebt samengevoegd, dan moet je de nieuwe samenvoeging beginnen op revisie 40."
 
 #. (para)
 msgid "If you are using the merge tracking features of Subversion, you do not need to remember which revisions have already been merged - Subversion will record that for you. If you leave the revision range blank, all revisions which have not yet been merged will be included. Read <xref linkend=\"tsvn-dug-merge-tracking\"/> to find out more."
-msgstr ""
+msgstr "Als de samenvoeg volg functies van Subversion gebruikt, dan hoef je niet te onthouden welke revisies je al samengevoegd hebt - Subversion onthoudt dat voor je. Als je de revisie reeks leeg laat, worden alle revisies die nog niet samengevoegd zijn meegenomen. Lees <xref linkend=\"tsvn-dug-merge-tracking\"/> voor meer informatie."
 
 #. (para)
 msgid "If other people may be committing changes then be careful about using the HEAD revision. It may not refer to the revision you think it does if someone else made a commit after your last update."
-msgstr ""
+msgstr "Als er andere personen mogelijk wijzigingen aan het vastleggen zijn, wees dan voorzichtig met het gebruik van de HEAD revisie. Het kan zijn dat deze niet wijst naar de revisie die je verwacht, bijvoorbeeld als er iemand wijzigingen heeft vastgelegd nadat jij de laatste keer ververst hebt."
 
 #. (para)
 msgid "Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-options\"/>"
-msgstr ""
+msgstr "Klik op <guibutton>Volgende</guibutton> en lees verder bij <xref linkend=\"tsvn-dug-merge-options\"/>."
 
 #. (secondary)
 msgid "reintegrate"
@@ -6560,47 +6560,47 @@ msgstr "Het Samenvoeg Hulpprogramma - Herintegreer Samenvoegen"
 
 #. (para)
 msgid "<placeholder-1/> To merge a feature branch back into the trunk you must start the merge wizard from within a working copy of the trunk."
-msgstr ""
+msgstr "<placeholder-1/> Om een tak met nieuwe functies naar de basislijn samen te voegen, moet je het samenvoeg hulpprogramma opstarten vanuit een werkkopie van de basislijn."
 
 #. (para)
 msgid "In the <guilabel>From URL:</guilabel> field enter the full folder URL of the branch that you want to merge back. You may also click <guibutton>...</guibutton> to browse the repository."
-msgstr ""
+msgstr "Voer in het <guilabel>Van URL:</guilabel> veld de volledige URL in van de map van de tak die je wilt samenvoegen. Je kunt ook op de <guibutton>...</guibutton> klikken om door het archief te bladeren."
 
 #. (para)
 msgid "There are some conditions which apply to a reintegrate merge. Firstly, the server must support merge tracking. The working copy must be of depth infinite (no sparse checkouts), and it must not have any local modifications, switched items or items that have been updated to revisions other than HEAD. All changes to trunk made during branch development must have been merged across to the branch (or marked as having been merged). The range of revisions to merge will be calculated automatically."
-msgstr ""
+msgstr "Er zijn enkele voorwaarden voor een reïntegratie samenvoeging. Ten eerste moet de server samenvoeg tracking ondersteunen. De werkkopie moet een onbegrensde diepte hebben (dus geen gedeeltelijk opgehaalde versie), er mogen geen lokale wijzigingen zijn gemaakt, objecten gewisseld zijn of objecten van een andere revisie dan de HEAD revisie. Alle wijzigingen die aan de basislijn zijn doorgevoerde gedurende de ontwikkeling van de tak, moeten in de tak samengevoegd zijn (of gemarkeerd als samengevoegd zijn). De reeks van de samen te voegen revisies wordt automatisch berekend."
 
 #. (title)
 msgid "Merging Two Different Trees"
-msgstr ""
+msgstr "Twee Verschillende Takken Samenvoegen"
 
 #. (secondary)
 msgid "two trees"
-msgstr ""
+msgstr "twee takken"
 
 #. (title)
 msgid "The Merge Wizard - Tree Merge"
-msgstr ""
+msgstr "Het Samenvoeg Hulpprogramma - Samenvoegen van Boomstructuren"
 
 #. (para)
 msgid "<placeholder-1/> If you are using this method to merge a feature branch back to trunk, you need to start the merge wizard from within a working copy of trunk."
-msgstr ""
+msgstr "<placeholder-1/> Als je deze methode gebruikt om een functie tak samen te voegen naar de basislijn, dan moet je het samenvoeg hulpprogramma starten vanuit de werkkopie van de basislijn."
 
 #. (para)
 msgid "In the <guilabel>From:</guilabel> field enter the full folder URL of the <emphasis>trunk</emphasis>. This may sound wrong, but remember that the trunk is the start point to which you want to add the branch changes. You may also click <guibutton>...</guibutton> to browse the repository."
-msgstr ""
+msgstr "Voer in het <guilabel>Van:</guilabel> veld de volledige URL van de map van de <emphasis>basislijn</emphasis>. Dit lijkt verkeerd te zijn, maar onthoudt dat de basislijn het startpunt is waar je de wijzigingen van de tak aan toe wilt voegen. Je kunt ook op de <guibutton>...</guibutton> klikken om het archief te verkennen."
 
 #. (para)
 msgid "In the <guilabel>To:</guilabel> field enter the full folder URL of the feature branch."
-msgstr ""
+msgstr "Voer in het <guilabel>Naar:</guilabel> veld de volledige URL van de map van de nieuwe functie tak."
 
 #. (para)
 msgid "In both the <guilabel>From Revision</guilabel> field and the <guilabel>To Revision</guilabel> field, enter the last revision number at which the two trees were synchronized. If you are sure no-one else is making commits you can use the HEAD revision in both cases. If there is a chance that someone else may have made a commit since that synchronization, use the specific revision number to avoid losing more recent commits."
-msgstr ""
+msgstr "Vul in zowel het <guilabel>Van Revisie</guilabel> veld als in het <guilabel>Naar Revisie</guilabel> veld het laatste revisie nummer in, waarop de beide boomstructuren gesynchroniseerd zijn. Als je er zeker van bent dat niemand anders wijzigingen vastlegt, dan kun je voor beide de HEAD revisie gebruiken. Als er een kans is dat iemand anders wijzigingen na de laatste synchronisatie heeft vastgelegd,  gebruik dan de exacte revisie nummers om verlies van recente wijzigingen te voorkomen."
 
 #. (para)
 msgid "You can also use <guibutton>Show Log</guibutton> to select the revision."
-msgstr ""
+msgstr "Je kunt ook met <guibutton>Toon logboek</guibutton> de revisie selecteren."
 
 #. (title)
 msgid "Merge Options"
@@ -6608,63 +6608,63 @@ msgstr "Samenvoegopties"
 
 #. (para)
 msgid "This page of the wizard lets you specify advanced options, before starting the merge process. Most of the time you can just use the default settings."
-msgstr ""
+msgstr "Dit scherm van het hulpprogramma geeft je de mogelijkheid om geavanceerde opties in te stellen, voordat het samenvoegproces start. In de meeste gevallen kun je de standaard instellingen gebruiken."
 
 #. (para)
 msgid "You can specify the depth to use for the merge, i.e. how far down into your working copy the merge should go. The depth terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which uses the existing depth setting, and is almost always what you want."
-msgstr ""
+msgstr "Je kunt de diepte instellen die gebruikt moet worden voor het samenvoegen, dat houdt in hoe diep in je werkkopie de samenvoegactie doorgevoerd moet worden. De definitie van de diepte wordt beschreven in <xref linkend=\"tsvn-dug-checkout-depth\"/>. De standaard diepte staat ingesteld op <guilabel>Werkkopie</guilabel>, waardoor de bestaande diepte instelling gebruikt wordt. Dit is eigenlijk altijd de diepte die je wilt gebruiken."
 
 #. (para)
 msgid "Most of the time you want merge to take account of the file's history, so that changes relative to a common ancestor are merged. Sometimes you may need to merge files which are perhaps related, but not in your repository. For example you may have imported versions 1 and 2 of a third party library into two separate directories. Although they are logically related, Subversion has no knowledge of this because it only sees the tarballs you imported. If you attempt to merge the difference between these two trees you would see a complete removal followed by a complete add. To make Subversion use only path-based differences rather than history-based differences, check the <guilabel>Ignore ancestry</guilabel> box. Read more about this topic in the Subversion book, <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
-msgstr ""
+msgstr "Meestal wil je dat er bij het samenvoegen rekening gehouden wordt met de geschiedenis van een bestand, zodat wijzigingen aan een gemeenschappelijke oorsprong worden meegenomen en samengevoegd. Soms zul je bestanden samenvoegen die mogelijk gerelateerd zijn, maar niet in jouw archief. Bijvoorbeeld als je versie 1 en 2 van een bibliotheek van een derde partij hebt geïmporteerd in verschillende mappen. Ondanks dat ze een logische relatie hebben, heeft Subversion hier geen weet van omdat deze alleen de tarballs ziet die je hebt geïmporteerd. Als je probeert de verschillen tussen deze twee boomstructuren samen te voegen, dan zul je een complete verwijdering en een complete toevoeging zien plaatsvinden. Om er voor te zorgen dat Subversion alleen pad-gebaseerde in plaats van geschiedenis-gebaseerde verschillen gebruikt, selecteer dan de <guilabel>Negeer oorsprong</guilabel> optie. Lees hier meer over in het Subversion boek , <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>."
 
 #. (para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes to be merged."
-msgstr ""
+msgstr "Je kunt ook opgeven hoe regeleinden, spaties en witregels behandeld moeten worden. Deze opties worden beschreven in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. Standaard worden alle regeleinden, spaties en witregels als echte wijzigingen behandeld en samengevoegd."
 
 #. (para)
 msgid "The checkbox marked <guilabel>Force the merge</guilabel> is used to avoid a tree conflict where an incoming delete affects a file that is either modified locally or not versioned at all. If the file is deleted then there is no way to recover it, which is why that option is not checked by default."
-msgstr ""
+msgstr "Het selectievak <guilabel>Forceer het samenvoegen</guilabel>  wordt gebruikt om mapstructuur conflicten te voorkomen, daar waar een binnenkomende verwijdering een bestand raakt die of lokaal gewijzigd is of niet onder versiebeheer valt. Als het bestand verwijderd is, dan is er geen enkele manier om deze te herstellen. Daarom is deze optie standaard niet ingeschakeld."
 
 #. (para)
 msgid "If you are using merge tracking and you want to mark a revision as having been merged, without actually doing the merge here, check the <guilabel>Only record the merge</guilabel> checkbox. There are two possible reasons you might want to do this. It may be that the merge is too complicated for the merge algorithms, so you code the changes by hand, then mark the change as merged so that the merge tracking algorithm is aware of it. Or you might want to prevent a particular revision from being merged. Marking it as already merged will prevent the merge occurring with merge-tracking-aware clients."
-msgstr ""
+msgstr "Als je gebruik maakt van het traceren van samenvoegingen en je wilt een revisie markeren als zijnde samengevoegd, zonder dat de feitelijke samenvoeging hier heeft plaatsgevonden, selecteer dan de <guilabel>Samenvoegen alleen vastleggen</guilabel> optie. Er zijn twee mogelijke redenen waarom je deze optie zou willen gebruiken. Het kan zijn dat het samenvoegen te gecompliceerd is voor de gebruikte algoritmes. Je codeert de wijzigingen dan handmatig, vervolgens markeer je de wijzigingen als samengevoegd, zodat het samenvoeg traceer algoritme dit ook ziet. De andere mogelijke reden is dat je wilt voorkomen dat een bepaalde revisie samengevoegd wordt. Door deze te markeren als reeds samengevoegd voorkom je dat de samenvoeging plaatsvindt, zolang de samenvoeg programma's rekening kunnen houden met de samenvoeg traceer informatie."
 
 #. (para)
 msgid "Now everything is set up, all you have to do is click on the <guibutton>Merge</guibutton> button. If you want to preview the results <guibutton>Test Merge</guibutton> simulates the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes files where conflicts <emphasis>may</emphasis> occur. Because merge tracking makes the merge process a lot more complicated, there is no guaranteed way to find out in advance whether the merge will complete without conflicts, so files marked as conflicted in a test merge may in fact merge without any problem."
-msgstr ""
+msgstr "Alles is nu ingesteld en je hoeft alleen nog maar op de <guibutton>Samenvoegen</guibutton> knop te drukken. Als je vooraf het resultaat wilt beoordelen, kun je met <guibutton>Test Samenvoegen</guibutton> de samenvoeging simuleren. Hiermee wijzig je niets in je werkkopie. Het toont een lijst met bestanden die gewijzigd zullen worden bij de echte samenvoeg actie en geeft de bestanden aan waarmee conflicten op zouden <emphasis>kunnen</emphasis> treden. Omdat het traceren van de samenvoegingen het proces veel gecompliceerder maakt, is er geen manier om van te voren zeker te weten of er een conflict zal optreden of niet. Oftewel bestanden die als conflicterend worden aangemerkt bij een samenvoeg test hoeven in de praktijk helemaal geen probleem op te leveren."
 
 #. (para)
 msgid "The merge progress dialog shows each stage of the merge, with the revision ranges involved. This may indicate one more revision than you were expecting. For example if you asked to merge revision 123 the progress dialog will report <quote>Merging revisions 122 through 123</quote>. To understand this you need to remember that Merge is closely related to Diff. The merge process works by generating a list of differences between two points in the repository, and applying those differences to your working copy. The progress dialog is simply showing the start and end points for the diff."
-msgstr ""
+msgstr "In het voortgangsscherm wordt elke stadium van de samenvoeging getoond met de betrokken revisie reeksen. Het kan zijn dat er hier meer revisies getoond worden, dan je had verwacht. Bijvoorbeeld als je revisie 123 ging samenvoegen, kan het voortgangsscherm <quote>Samenvoegen van revisie 122 tot 123</quote> tonen. Om dit te begrijpen moet je je realiseren dat Samenvoegen gerelateerd is met Verschillen/Diff. Het samenvoegproces maakt eerst een lisjt met verschillen tussen twee punten in het archief en past deze toe op je werkkopie. Het voortgangsscherm geeft het start- en eindpunt van de verschil/diff weer."
 
 #. (title)
 msgid "Reviewing the Merge Results"
-msgstr ""
+msgstr "De Resultaten van het Samenvoegen Bekijken"
 
 #. (para)
 msgid "The merge is now complete. It's a good idea to have a look at the merge and see if it's as expected. Merging is usually quite complicated. Conflicts often arise if the branch has drifted far from the trunk."
-msgstr ""
+msgstr "Het samenvoegen is nu klaar. Het is verstandig om het resultaat te bekijken om na te gaan of het is zoals verwacht. Samenvoegen is vaak erg gecompliceerd. Conflicten komen vaak voor als een tak ver van de basislijn is afgeweken."
 
 #. (para)
 msgid "For Subversion clients and servers prior to 1.5, no merge information is stored and merged revisions have to be tracked manually. When you have tested the changes and come to commit this revision, your commit log message should <emphasis>always</emphasis> include the revision numbers which have been ported in the merge. If you want to apply another merge at a later time you will need to know what you have already merged, as you do not want to port a change more than once. For more information about this, refer to <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac\"><citetitle>Best Practices for Merging</citetitle></ulink> in the Subversion book."
-msgstr ""
+msgstr "Bij Subversion clients en servers van voor version 1.5, is er geen samenvoeg informatie opgeslagen en samengevoegde revisies moeten handmatig achterhaald worden. Als je de wijzigingen getest hebt en klaar bent om deze revisie vast te leggen, zou je logboek boodschap <emphasis>altijd</emphasis> de revisienummers van de geporteerde revisies moeten bevatten. Als je op een later moment nog een samenvoeging wilt uitvoeren, dan moet je weten wat er al samengevoegd is, omdat je wijzigingen niet vaker dan één maal wilt doorvoeren. Lees voor meer informatie <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac\"><citetitle>Best Practices for Merging</citetitle></ulink> in het Subversion boek."
 
 #. (para)
 msgid "If your server and all clients are running Subversion 1.5 or higher, the merge tracking facility will record the revisions merged and avoid a revision being merged more than once. This makes your life much simpler as you can simply merge the entire revision range each time and know that only new revisions will actually be merged."
-msgstr ""
+msgstr "Als je server en alle clients Subversion versie 1.5 of hoger gebruiken, zullen de samenvoeg acties getraceerd worden, zodat voorkomen wordt dat wijzigingen meer dan eens worden toegepast. Dit maakt het leven een stuk makkelijker, omdat je dan elke keer de hele revisie reeks kunt samenvoegen en dat dan alleen de nieuwe revisies samengevoegd zullen worden. "
 
 #. (para)
 msgid "Branch management is important. If you want to keep this branch up to date with the trunk, you should be sure to merge often so that the branch and trunk do not drift too far apart. Of course, you should still avoid repeated merging of changes, as explained above."
-msgstr ""
+msgstr "Het managen van takken is belangrijk. Als je deze tak dicht bij de basislijn wilt houden, zul je vaak moeten samenvoegen, zodat de tak en de basislijn niet te ver uit elkaar drijven. Natuurlijk moet je het herhaaldelijk samenvoegen van wijzigingen voorkomen, zoals eerder beschreven."
 
 #. (para)
 msgid "If you have just merged a feature branch back into the trunk, the trunk now contains all the new feature code, and the branch is obsolete. You can now delete it from the repository if required."
-msgstr ""
+msgstr "Als je net een functie tak hebt samengevoegd naar de basislijn, dan heeft de basislijn nu alle nieuwe functionaliteit en is de tak verouderd. Je kunt de tak nu verwijderen uit het archief indien nodig."
 
 #. (para)
 msgid "Subversion can't merge a file with a folder and vice versa - only folders to folders and files to files. If you click on a file and open up the merge dialog, then you have to give a path to a file in that dialog. If you select a folder and bring up the dialog, then you must specify a folder URL for the merge."
-msgstr ""
+msgstr "Subversion kan niet bestanden met mappen samenvoegen en vice versa - alleen mappen naar mappen en bestanden naar bestanden. Als je op een bestand klikt en het samenvoeg scherm opent, dan moet je het pad naar een bestand opgeven. Als je een map selecteert en samenvoeg scherm opent, dan moet je een URL van een map opgeven om samen te voegen."
 
 #. (title)
 msgid "Merge Tracking"
