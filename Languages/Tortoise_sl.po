@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-01 15:06+0100\n"
+"PO-Revision-Date: 2010-02-23 12:03+0100\n"
 "Last-Translator: Miha Nahtigal <miha.nahtigal@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1182,6 +1182,10 @@ msgstr "&Posodobi na revizijo ..."
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "&Uporabi samozaključevanje poti datotek in ključnih besed"
 
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "&Uporabi koš"
+
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
 msgstr "&Uporabniško ime:"
@@ -2207,6 +2211,10 @@ msgstr "Seznam sprememb:"
 msgid "Changes made (double-click on file for diff):"
 msgstr "Opravljene spremembe (dvokliknite za podrobnosti):"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "Spreminjanje zunanjih povezav na fiksno revizijo"
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "Pre&vzemi..."
@@ -2222,6 +2230,10 @@ msgstr "Preveri posodobitve"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Preveri posodobitve..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr "Preverite povezave med zunanjimi povezavami in oznako"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2820,8 +2832,8 @@ msgstr "Kopiraj: Novo ime za %s"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "Kopiranje %s"
+msgid "Copying %1!s!"
+msgstr "Kopiranje %1!s!"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -3164,6 +3176,10 @@ msgstr "Izbriši in dodaj na seznam &prezrtih elementov"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Izbriši in prezri &elemente (%d) po tipu"
+
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "Izbriši elemente brez različic"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3805,8 +3821,8 @@ msgstr "Izvozi tudi datoteke brez različic"
 
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "Izvažanje %s"
+msgid "Exporting %1!s!"
+msgstr "Izvažanje %1!s!"
 
 #. Resource IDs: (79)
 msgid "Exporting..."
@@ -5693,8 +5709,8 @@ msgstr "Spremenjene datoteke pred povrnitvijo premakne v koš"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "Premikanje %s"
+msgid "Moving %1!s!"
+msgstr "Premikanje %1!s!"
 
 #. Resource IDs: (80)
 msgid "Moving..."
@@ -5803,6 +5819,10 @@ msgstr "Ni obvestil o napaki."
 #. Resource IDs: (3867, 3868)
 msgid "No error occurred."
 msgstr "Brez napak."
+
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "Ni zunanjih povezav"
 
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
@@ -6314,6 +6334,10 @@ msgstr "Prosimo, počakajte, da bo operacija preklicana..."
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
 msgstr "Počakajte na pridobitev razlik ..."
+
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "Počakajte na pridobitev zunanjih povezav ..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -9059,6 +9083,10 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "TortoiseSVN avtomatsko pošiljanje: spremenjene zunanje povezave v fiksno revizijo."
+
 #. Resource IDs: (98)
 #, c-format
 msgid ""
@@ -9316,8 +9344,8 @@ msgstr "V primeru datotek brez različic označi nadrejeno mapo kot spremenjeno.
 
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "Neverzioniranje %s"
+msgid "Unversioning %1!s!"
+msgstr "Neverzioniranje %1!s!"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -10646,6 +10674,11 @@ msgstr "obstajajo sporne spremembe."
 #, c-format
 msgid "to %1"
 msgstr "v %1"
+
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr "v %1!s!"
 
 #. Resource IDs: (80, 103, 284)
 #, c-format
