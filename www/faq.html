@@ -238,6 +238,17 @@ to give other apps a chance.</p>
 <li>Locked is only loaded if there are less than 13 overlays already loaded. It falls back to Normal if there are not enough slots.</li>
 <li>Added is only loaded if there are less than 14 overlays already loaded. It falls back to Modified if there are not enough slots.</li>
 </ul>
+<p>You can check which other apps are using overlays by using regedit to look at
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+</p>
+<p>Other apps which are known to use overlays:
+<ul>
+<li>Windows itself. Vista and Win7 use more than XP.</li>
+<li>Other Tortoise clients like TCVS. Newer versions of these used a shared icon set, TortoiseOverlays.dll, but you should check what your version uses.</li>
+<li>Dropbox</li>
+<li>Microsoft Groove (part of Office 2007/2010)</li>
+</ul>
+</p>
 </div>
 
 <div class="h3" id="ovlonlylocal" title="ovlonlylocal">
