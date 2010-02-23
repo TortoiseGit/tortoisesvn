@@ -99,6 +99,8 @@ Version 1.6.8
 - BUG: The commonUrl and commonRoot parameters in the
        CheckCommit method of the IBugtraqProvider2 interface
        could return wrong paths/urls. (Stefan)
+- BUG: Updating two items from different paths to get a sparse
+       checkout didn't work. (Stefan)
 - CHG: Various adjustments for Windows 7. (Stefan)
 - CHG: The "show excluded folders as normal" setting is
        changed to false by default. (Stefan)

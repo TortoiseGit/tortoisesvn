@@ -2796,34 +2796,37 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 		// parent path of the one we want to update
 		// This is required so a user can create a sparse checkout without having
 		// to update all intermediate folders manually
-		if (!m_targetPathList[0].Exists())
+		for (int pathindex = 0; pathindex < m_targetPathList.GetCount(); ++pathindex)
 		{
-			CTSVNPath wcPath = m_targetPathList[0].GetContainingDirectory();
-			CTSVNPath existingParentPath = wcPath.GetContainingDirectory();
-			while (!existingParentPath.Exists() && (existingParentPath.GetWinPathString().GetLength() > 2))
+			if (!m_targetPathList[pathindex].Exists())
 			{
-				existingParentPath = existingParentPath.GetContainingDirectory();
-			}
-			if (existingParentPath.GetWinPathString().GetLength() && !existingParentPath.IsEquivalentTo(wcPath))
-			{
-				// update all intermediate directories with depth 'empty'
-				CTSVNPath intermediatepath = existingParentPath;
-				bool bSuccess = true;
-				while (bSuccess && intermediatepath.IsAncestorOf(wcPath) && !intermediatepath.IsEquivalentTo(wcPath))
+				CTSVNPath wcPath = m_targetPathList[pathindex].GetContainingDirectory();
+				CTSVNPath existingParentPath = wcPath.GetContainingDirectory();
+				while (!existingParentPath.Exists() && (existingParentPath.GetWinPathString().GetLength() > 2))
 				{
-					CString childname = wcPath.GetWinPathString().Mid(intermediatepath.GetWinPathString().GetLength(),
-						wcPath.GetWinPathString().Find('\\', intermediatepath.GetWinPathString().GetLength()+1)-intermediatepath.GetWinPathString().GetLength());
-					if (childname.IsEmpty())
-						intermediatepath = wcPath;
-					else
-						intermediatepath.AppendPathString(childname);
-					bSuccess = Update(CTSVNPathList(intermediatepath), m_Revision, svn_depth_empty, false, true, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)));
+					existingParentPath = existingParentPath.GetContainingDirectory();
 				}
-
-				if (!bSuccess)
+				if (existingParentPath.GetWinPathString().GetLength() && !existingParentPath.IsEquivalentTo(wcPath))
 				{
-					ReportSVNError();
-					return false;
+					// update all intermediate directories with depth 'empty'
+					CTSVNPath intermediatepath = existingParentPath;
+					bool bSuccess = true;
+					while (bSuccess && intermediatepath.IsAncestorOf(wcPath) && !intermediatepath.IsEquivalentTo(wcPath))
+					{
+						CString childname = wcPath.GetWinPathString().Mid(intermediatepath.GetWinPathString().GetLength(),
+							wcPath.GetWinPathString().Find('\\', intermediatepath.GetWinPathString().GetLength()+1)-intermediatepath.GetWinPathString().GetLength());
+						if (childname.IsEmpty())
+							intermediatepath = wcPath;
+						else
+							intermediatepath.AppendPathString(childname);
+						bSuccess = Update(CTSVNPathList(intermediatepath), m_Revision, svn_depth_empty, false, true, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)));
+					}
+
+					if (!bSuccess)
+					{
+						ReportSVNError();
+						return false;
+					}
 				}
 			}
 		}
