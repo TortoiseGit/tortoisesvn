@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-23 00:24-0000\n"
+"PO-Revision-Date: 2010-02-23 23:42-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3779,35 +3779,35 @@ msgstr "Podes ver ver as listas de alterações em vários locais, mas os mais i
 
 #. (para)
 msgid "Select one or more files and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Move to changelist</guimenuitem></menuchoice> to add an item to a changelist. Initially there will be no changelists, so the first time you do this you will create a new changelist. Give it name which describes what you are using it for, and click <guibutton>OK</guibutton>. The dialog will now change to show groups of items."
-msgstr ""
+msgstr "Selecciona um ou mais ficheiros e usa <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Move para a lista de alterações</guimenuitem></menuchoice> para adicionar um item à lista de alterações. Inicialmente não haverá lista de alterações, então a primeira vez que fizeres esta operação, irás criar uma nova lista de alterações. Dá-lhe um nome que descreva qual o objectivo do seu uso e clica <guibutton>OK</guibutton>. A caixa de diálogo ir-se-á alterar para mostrar grupos de itens. "
 
 #. (para)
 msgid "Once you have created a changelist you can drag and drop items into it, either from another changelist, or from Windows Explorer. Dragging from Explorer can be useful as it allows you to add items to a changelist before the file is modified. You could do that from the check-for-modifications dialog, but only by displaying all unmodified files."
-msgstr ""
+msgstr "Uma vez que tenhas criado uma lista de alterações, podes arrastar e largar itens para dentro dela, a partir de outra lista de alterações ou a partir do Explorador do Windows. Arrastando do Explorador pode ser útil, pois permite-te adicionar itens à lista de alterações antes do ficheiro ser modificado. Podes fazer isso a partir da caixa de diálogo verificar-alterações, mas apenas ao mostrar todos os ficheiros não modificados"
 
 #. (title)
 msgid "Commit dialog with Changelists"
-msgstr ""
+msgstr "Caixa de diálogo Submeter com Listas de Alterações"
 
 #. (para)
 msgid "<placeholder-1/> In the commit dialog you can see those same files, grouped by changelist. Apart from giving an immediate visual indication of groupings, you can also use the group headings to select which files to commit."
-msgstr ""
+msgstr "<placeholder-1/> Na caixa de diálogo submeter podes ver esses mesmos ficheiros agrupados por listas de alterações. À parte de dar uma indicação visual imediata dos grupos, podes também usar os cabeçalhos dos grupos para seleccionar quais os ficheiros a submeter."
 
 #. (para)
 msgid "On XP, there is a context menu when you right click on a group heading which gives you the choice to check or uncheck all group entries. On Vista however the context menu is not necessary. Click on the group header to select all entries, then check one of the selected entries to check all."
-msgstr ""
+msgstr "No XP há um menu de contexto quando clicas com o botão direito num cabeçalho de grupo, que te dá a escolha para marcar ou desmarcar todas as entradas de grupo. No Vista, no entanto, o menu de contexto não é necessário. Clica no cabeçalho de grupo para seleccionar todas as entradas, depois marca uma das entradas seleccionadas para os marcar a todos."
 
 #. (para)
 msgid "TortoiseSVN reserves one changelist name for its own use, namely <literal>ignore-on-commit</literal>. This is used to mark versioned files which you almost never want to commit even though they have local changes. This feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
-msgstr ""
+msgstr "O TortoiseSVN reserva um nome de lista de alterações para o seu próprio uso, de nome <literal>ignore-on-commit</literal>. Esta é usada para sinalizar ficheiros versionados que quase nunca queres submeter, mesmo que tenham alterações. Esta funcionalidade é descrita em <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 
 #. (para)
 msgid "When you commit files belonging to a changelist then normally you would expect that the changelist membership is no longer needed. So by default, files are removed from changelists automatically on commit. If you wish to retain the file in its changelist, use the <guilabel>Keep changelists</guilabel> checkbox at the bottom of the commit dialog."
-msgstr ""
+msgstr "Quando submetes ficheiros pertencentes a uma lista de alterações, deves esperar que não seja mais necessário estar associado a uma lista. Então por defeito, os ficheiros são removidos automaticamente ao submete-los. Se pretendes manter um ficheiro na sua lista de alterações, usa a caixa de verificação <guilabel>Manter listas de alterações</guilabel> no fundo da caixa de diálogo submeter."
 
 #. (para)
 msgid "Changelists are purely a local client feature. Creating and removing changelists will not affect the repository, nor anyone else's working copy. They are simply a convenient way for you to organise your files."
-msgstr ""
+msgstr "Listas de alterações são puramente uma funcionalidade local de cliente. Criar e remover lista de alterações não afectará o repositório, nem a cópia de trabalho de outros. Elas são simplesmente uma forma conveniente para organizares os teus ficheiros."
 
 #. (title)
 msgid "Revision Log Dialog"
