@@ -120,10 +120,10 @@ BOOL CRepositoryLister::CListQuery::ReportList
     CString relPath = absolutepath + (abspath_has_slash ? _T("") : _T("/"));
     CItem entry
         ( path
+		, CString()
         , kind
         , size
         , has_props
-        , false
         , created_rev
         , time
         , author
@@ -176,9 +176,16 @@ void CRepositoryLister::CListQuery::InternalExecute()
                 const std::deque<CItem>& externals 
                     = externalsQuery->GetResult();
 
-                std::copy ( externals.begin()
-                          , externals.end()
-                          , std::back_inserter (result));
+				for ( std::deque<CItem>::const_iterator iter = externals.begin()
+					, end = externals.end()
+					; iter != end
+					; ++iter)
+				{
+					if (iter->external_position == 0)
+						result.push_back (*iter);
+					else
+						subPathExternals.push_back (*iter);
+				}
             }
             else
             {
@@ -219,6 +226,14 @@ void CRepositoryLister::CListQuery::Terminate()
 
     if (externalsQuery.get() != NULL)
         externalsQuery->Terminate();
+}
+
+// access additional results
+
+const std::deque<CItem>& CRepositoryLister::CListQuery::GetSubPathExternals()
+{
+    WaitUntilDone();
+    return subPathExternals;
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -285,10 +300,12 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
                 // add the new entry
 
+				CString relPath = CUnicodeUtils::GetUnicode (external->target_dir);
                 CItem entry
-                    ( CUnicodeUtils::GetUnicode (external->target_dir)
+					( relPath.Mid (relPath.ReverseFind ('/') + 1)
+					, relPath
 
-                      // even file external will be treated as folders because
+                      // even file externals will be treated as folders because
                       // this is a safe default
                     , svn_node_dir
                     , 0
@@ -296,7 +313,6 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
                       // actually, we don't know for sure whether the target
                       // URL has props but its the safe default to say 'yes'
                     , true  
-                    , true
 
                       // explicit revision, HEAD or DATE
                     , external->revision.kind == svn_opt_revision_number
@@ -527,8 +543,20 @@ void CRepositoryLister::RefreshSubTree
     CompactDumpster();
 }
 
-// get an already stored query result, if available.
-// Otherwise, get the list directly
+CRepositoryLister::CListQuery* CRepositoryLister::FindQuery 
+    ( const CString& url
+    , const SRepositoryInfo& repository
+	, bool includeExternals)
+{
+	// ensure there is a suitable query
+
+	Enqueue (url, repository, includeExternals);
+
+	// return that query
+
+    TPathAndRev key (EscapeUrl (url), repository.revision);
+    return queries[key];
+}
 
 CString CRepositoryLister::GetList 
     ( const CString& url
@@ -536,29 +564,53 @@ CString CRepositoryLister::GetList
     , bool includeExternals
     , std::deque<CItem>& items)
 {
-    CTSVNPath escapedURL = EscapeUrl (url);
-    includeExternals &= (DWORD)fetchingExternalsEnabled == TRUE;
-
     async::CCriticalSectionLock lock (mutex);
 
-    // lets see if there is already a suitable query that will
-    // finish before the one that I could start right now
+    // find that query
 
-    TPathAndRev key (escapedURL, repository.revision);
-    TQueries::iterator iter = queries.find (key);
+	CListQuery* query = FindQuery (url, repository, includeExternals);
 
-    if (   (iter != queries.end()) 
-        && (iter->second->GetStatus() != async::IJob::waiting))
-    {
-        items = iter->second->GetResult();
-        return iter->second->GetError();
-    }
+    // wait for the results to come in and return them
+	// get "ordinary" list plus direct externals 
 
-    // query (quasi-)synchronously using the default queue
-
-    CListQuery query (escapedURL, repository, includeExternals, NULL);
-
-    items = query.GetResult();
-    return query.GetError();
+	items = query->GetResult();
+	return query->GetError();
 }
 
+CString CRepositoryLister::AddSubTreeExternals 
+    ( const CString& url
+    , const SRepositoryInfo& repository
+    , const CString& externalsRelPath
+    , std::deque<CItem>& items)
+{
+    async::CCriticalSectionLock lock (mutex);
+
+    // auto-create / find that query
+
+	CListQuery* query = FindQuery (url, repository, true);
+
+	// add unfiltered externals?
+
+	typedef std::deque<CItem>::const_iterator TI;
+	TI begin = query->GetSubPathExternals().begin();
+	TI end = query->GetSubPathExternals().end();
+
+	if (externalsRelPath.IsEmpty())
+	{
+		std::copy (begin, end, std::back_inserter (items));
+	}
+	else
+	{
+		// filtered externals
+
+		int levels = CItem::Levels (externalsRelPath);
+		for (TI iter = begin; iter != end; ++iter)
+			if (   (iter->external_position == levels)
+				&& (iter->external_rel_path.Find (externalsRelPath) == 0))
+			{
+				items.push_back (*iter);
+			}
+	}
+
+	return query->GetError();
+}

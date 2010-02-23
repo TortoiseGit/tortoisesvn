@@ -149,6 +149,9 @@ protected:
 	/// searches the tree item for the specified \c fullurl.
 	HTREEITEM FindUrl(const CString& fullurl, const CString& url, HTREEITEM hItem = TVI_ROOT);
 
+	/// read list of children; including externals
+	CString FetchChildren (HTREEITEM node);
+
 	/// Find and return the node that corresponds to the specified 
     /// logical \ref path. Add such node (including parents) if it 
     /// does not exist, yet.
@@ -164,7 +167,7 @@ protected:
     /// Sort tree sub-nodes
     void Sort (HTREEITEM parent);
 
-    void RefreshChildren(CTreeItem * pTreeItem);
+    void RefreshChildren(HTREEITEM node);
     /**
 	 * Refetches the information for \c hNode. If \c force is true, then the list
 	 * control is refilled again.

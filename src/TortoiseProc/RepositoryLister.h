@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,6 +64,7 @@ public:
 		, size(0)
 		, has_props(false)
 		, is_external(false)
+		, external_position(-1)
 		, created_rev(SVN_IGNORED_REVNUM)
 		, time(0)
 		, is_dav_comment(false)
@@ -73,11 +74,11 @@ public:
 	}
 	CItem 
         ( const CString& path
+		, const CString& external_rel_path
 		, svn_node_kind_t kind
 		, svn_filesize_t size
 		, bool has_props
-        , bool is_external
-		, svn_revnum_t created_rev
+        , svn_revnum_t created_rev
 		, apr_time_t time
 		, const CString& author
 		, const CString& locktoken
@@ -90,10 +91,12 @@ public:
         , const SRepositoryInfo& repository)
 
         : path (path)
+		, external_rel_path (external_rel_path)
 		, kind (kind)
 		, size (size)
 		, has_props (has_props)
-        , is_external (is_external)
+        , is_external (!external_rel_path.IsEmpty())
+		, external_position (is_external ? Levels (external_rel_path) : -1)
 		, created_rev (created_rev)
 		, time (time)
 		, author (author)
@@ -107,12 +110,25 @@ public:
         , repository (repository)
     {
 	}
+
+	static int Levels (const CString& relPath)
+	{
+		LPCTSTR start = relPath;
+		LPCTSTR end = start + relPath.GetLength();
+		return static_cast<int>(std::count (start, end, _T('/')));
+	}
+
 public:
 	CString				path;
+	CString				external_rel_path;
 	svn_node_kind_t		kind;
 	svn_filesize_t		size;
 	bool				has_props;
     bool                is_external;
+
+	/// number of levels up the local path hierarchy to find the external spec.
+	/// -1, if this is not an external
+	int					external_position; 
 	svn_revnum_t		created_rev;
 	apr_time_t			time;
 	CString				author;
@@ -222,7 +238,11 @@ private:
 
         std::auto_ptr<CExternalsQuery> externalsQuery;
 
-	    /// callback from the SVN::List() method which stores all the information
+        /// externals that apply to some sub-tree found while filling result
+
+        std::deque<CItem> subPathExternals;
+
+		/// callback from the SVN::List() method which stores all the information
 
 	    virtual BOOL ReportList(const CString& path, svn_node_kind_t kind, 
 		    svn_filesize_t size, bool has_props, svn_revnum_t created_rev, 
@@ -257,12 +277,16 @@ private:
         /// cancel the svn:externals sub query as well
 
         virtual void Terminate();
+
+		/// access additional results
+
+        const std::deque<CItem>& GetSubPathExternals();
     };
 
     /// folder content at specific revisions
 
     typedef std::pair<CTSVNPath, svn_revnum_t> TPathAndRev;
-    typedef std::map<TPathAndRev, CQuery*> TQueries;
+    typedef std::map<TPathAndRev, CListQuery*> TQueries;
 
     TQueries queries;
 
@@ -291,6 +315,14 @@ private:
     /// parameter encoding utility
 
     static CTSVNPath EscapeUrl (const CString& url);
+
+	/// data lookup utility:
+	/// auto-insert & return query 
+
+	CListQuery* FindQuery 
+		( const CString& url
+		, const SRepositoryInfo& repository
+		, bool includeExternals);
 
     /// copy copying supported
 
@@ -337,6 +369,11 @@ public:
 
     /// get an already stored query result, if available.
     /// Otherwise, get the list directly.
+	/// \ref treePath is the relative path from the repository root
+	/// dir to the given URL as shown in the repo browser tree, 
+	/// including all intermittend externals (i.e. the rel. path 
+	/// in a w/c if we checked out at the root). If this is empty 
+	/// all externals will be reported as immediate children.
     /// \ref includeExternals will be ignored, if there is already
     /// a query running or result available.
     /// It should be set to @a false only if it is certain that
@@ -347,5 +384,18 @@ public:
                     , const SRepositoryInfo& repository
                     , bool includeExternals
                     , std::deque<CItem>& items);
+
+    /// get an already stored query result, if available.
+    /// Otherwise, get the list directly.
+	/// \ref externalsRelPath must be set to the sub-tree path 
+	/// for which we want to find externals. If this is empty 
+	/// all externals will be reported as immediate children.
+    /// \returns the error or an empty string
+
+	CString AddSubTreeExternals 
+		( const CString& url
+		, const SRepositoryInfo& repository
+		, const CString& externalsRelPath
+		, std::deque<CItem>& items);
 };
 

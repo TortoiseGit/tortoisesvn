@@ -1029,9 +1029,47 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
     return NULL;
 }
 
+CString CRepositoryBrowser::FetchChildren (HTREEITEM node)
+{
+	CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (node);
+    if (pTreeItem->children_fetched)
+		return CString();
+
+	// standard list plus immediate externals
+
+	std::deque<CItem>& children = pTreeItem->children;
+	children.clear();
+	pTreeItem->has_child_folders = false;
+
+	CString error = m_lister.GetList ( pTreeItem->url
+									 , pTreeItem->repository
+									 , true
+									 , children);
+
+	// add parent sub-tree externals
+
+	CString relPath = pTreeItem->unescapedname + _T('/') + relPath;
+	for ( node = m_RepoTree.GetParentItem (node)
+		; node && error.IsEmpty()
+		; node = m_RepoTree.GetParentItem (node))
+	{
+		CTreeItem* parentItem = (CTreeItem *)m_RepoTree.GetItemData (node);
+		error = m_lister.AddSubTreeExternals ( parentItem->url
+											 , parentItem->repository
+											 , relPath
+											 , children);
+		relPath = parentItem->unescapedname + _T('/') + relPath;
+	}
+
+    // done
+
+	pTreeItem->children_fetched = true;
+	return error;
+}
+
 HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
 {
-    CString currentPath;
+    CString currentPath; 
     HTREEITEM node = NULL;
     do
     {
@@ -1096,10 +1134,7 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
             {
                 // not yet fetched -> do it now
 
-                CString error = m_lister.GetList ( pTreeItem->url
-                                                 , pTreeItem->repository
-                                                 , true
-                                                 , children);
+                CString error = FetchChildren (node);
                 if (!error.IsEmpty())
                     return NULL;
 
@@ -1109,11 +1144,6 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
                         pTreeItem->has_child_folders = true;
                         break;
                     }
-
-                // since we don't add *all* sub-nodes, 
-                // mark parent as 'incomplete'
-                    
-                pTreeItem->children_fetched = false;
             }
 
             // select the one that matches the node name we are looking for
@@ -1263,18 +1293,14 @@ void CRepositoryBrowser::Sort (HTREEITEM parent)
 	m_RepoTree.SortChildrenCB (&tvs);
 }
 
-void CRepositoryBrowser::RefreshChildren (CTreeItem * pTreeItem)
+void CRepositoryBrowser::RefreshChildren (HTREEITEM node)
 {
+	CTreeItem* pTreeItem = (CTreeItem*)m_RepoTree.GetItemData (node);
 	if (pTreeItem == NULL)
 		return;
 
-	pTreeItem->children.clear();
-	pTreeItem->has_child_folders = false;
-
-    CString error = m_lister.GetList ( pTreeItem->url
-                                     , pTreeItem->repository
-                                     , true
-                                     , pTreeItem->children);
+	pTreeItem->children_fetched = false;
+	CString error = FetchChildren (node);
     if (!error.IsEmpty())
 	{
 		// error during list()
@@ -1285,7 +1311,6 @@ void CRepositoryBrowser::RefreshChildren (CTreeItem * pTreeItem)
 
     // update node status and add sub-nodes for all sub-dirs
 
-	pTreeItem->children_fetched = true;
     for (size_t i = 0, count = pTreeItem->children.size(); i < count; ++i)
     {
         const CItem& item = pTreeItem->children[i];
@@ -1325,7 +1350,7 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
 	if (pTreeItem == NULL)
 		return false;
 
-    RefreshChildren (pTreeItem);
+    RefreshChildren (hNode);
 
     if (pTreeItem->has_child_folders)
         AutoInsert (hNode, pTreeItem->children);
@@ -1562,6 +1587,13 @@ void CRepositoryBrowser::OnRefresh()
 
             std::deque<CItem> children;
             m_lister.GetList (entry.first, entry.second, true, children);
+
+			// just prefetching -> we don't need to filter children
+
+			m_lister.AddSubTreeExternals ( entry.first
+										 , entry.second
+										 , CString()
+										 , children);
 
             for (size_t i = 0, count = children.size(); i < count; ++i)
             {
@@ -2031,7 +2063,7 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
         pItem->repository = repository;
 		m_RepoTree.SetItemData(hSelectedItem, (DWORD_PTR)pItem);
 
-        RefreshChildren ((CTreeItem*)m_RepoTree.GetItemData (parent));
+        RefreshChildren (parent);
 
         if (hSelectedItem == m_RepoTree.GetSelectedItem())
 		    RefreshNode (hSelectedItem, true);
