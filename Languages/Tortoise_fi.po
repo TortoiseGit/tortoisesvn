@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-02 00:17+0200\n"
+"PO-Revision-Date: 2010-02-23 23:39+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1222,6 +1222,10 @@ msgstr "&Päivitä versioon..."
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "Käytä automaattista &täydennystä tiedostopoluille ja avainsanoille"
 
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "Käytä &Roskakoria"
+
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
 msgstr "&Käyttäjä:"
@@ -2245,6 +2249,10 @@ msgstr "Muutoslista:"
 msgid "Changes made (double-click on file for diff):"
 msgstr "Muutokset (tiedoston kaksoisnapsautus käynnistää vertailun):"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "Kiinnitä ulkoiset viittaukset kiinteään versioon"
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "&Hae työkopio..."
@@ -2260,6 +2268,10 @@ msgstr "Tarkista päivitykset"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Tarkista päivitykset..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr "Valitse ne ulkoiset viittaukset, jotka haluat merkitä"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2858,8 +2870,8 @@ msgstr "Kopio: Uusi nimi %s:lle"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "Kopioidaan %s"
+msgid "Copying %1!s!"
+msgstr "Kopioidaan %1!s!"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -3201,6 +3213,10 @@ msgstr "Poista ja lisää &ohituslistaan"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Poista ja ohita %d kohdetta &päätteen perusteella"
+
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "Poista versioimattomat kohteet"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3842,8 +3858,8 @@ msgstr "Vie myös versioimattomat tiedostot"
 
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "Viedään %s"
+msgid "Exporting %1!s!"
+msgstr "Viedään %1!s!"
 
 #. Resource IDs: (79)
 msgid "Exporting..."
@@ -5746,8 +5762,8 @@ msgstr "Siirtää muutetut tiedostot Roskakoriin ennen palautusta"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "Siirretään %s"
+msgid "Moving %1!s!"
+msgstr "Siirretään %1!s!"
 
 #. Resource IDs: (80)
 msgid "Moving..."
@@ -5856,6 +5872,10 @@ msgstr "Virheviestiä ei saatavilla."
 #. Resource IDs: (3867, 3868)
 msgid "No error occurred."
 msgstr "Ei virheitä."
+
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "Ulkoisia viitteitä ei löytynyt"
 
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
@@ -6367,6 +6387,10 @@ msgstr "Odota hetki, toimintoa perutaan..."
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
 msgstr "Odota hetki, eroja haetaan..."
+
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "Odota hetki, kerätään ulkoisia viitteitä..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -7715,6 +7739,10 @@ msgstr "Näytä valintanauhan yläpuolella"
 #. Resource IDs: (1069)
 msgid "Show Below the Ribbon"
 msgstr "Näytä valintanauhan alapuolella"
+
+#. Resource IDs: (1542)
+msgid "Show Branch L&og"
+msgstr "Näytä haaran l&oki"
 
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
@@ -9112,6 +9140,10 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "TortoiseSVN: automaattinen toimitus: ulkoiset viittaukset vaihdettu kiinteään versioon."
+
 #. Resource IDs: (98)
 #, c-format
 msgid ""
@@ -9371,8 +9403,8 @@ msgstr "Versioimattomat tiedostot merkitsevät yläkansion muutetuksi"
 
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "Poistetaan versiointia hakemistosta %s"
+msgid "Unversioning %1!s!"
+msgstr "Poistetaan versiointia hakemistosta %1!s!"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -10694,6 +10726,11 @@ msgstr "ristiriitaisia muutoksia havaittu."
 #, c-format
 msgid "to %1"
 msgstr "%1:een"
+
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr "%1!s!:een"
 
 #. Resource IDs: (80, 103, 284)
 #, c-format

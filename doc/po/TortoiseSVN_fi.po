@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-03 00:09+0200\n"
+"POT-Creation-Date: 2010-02-19 21:36 +0000\n"
+"PO-Revision-Date: 2010-02-23 23:49+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7944,8 +7944,8 @@ msgid "Set this property to the URL of your repo viewer to view all changes in a
 msgstr "Aseta tämä ominaisuus arkistoselaimesi paikantimeen nähdäksesi kaikki tietyn version muutokset. Sen on oltava URI-muotoinen ja sisällettävä termi <literal>%REVISION%</literal>, joka korvataan tarvittavalla versionumerolla. Tämän avulla TortoiseSVN kykenee näyttämään komennon <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Katso versiota web-selaimessa</guimenuitem></menuchoice> loki-ikkunassa."
 
 #. (para)
-msgid "Set this property to the URL of your repo viewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision and path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the URL will be replaced with <literal>/trunk/src/file</literal>."
-msgstr "Aseta tämä ominaisuus arkistoselaimesi paikantimeen nähdäksesi muutokset valitun version tietyssä tiedostossa. Sen on oltava URI-muotoinen ja sisällettävä termit <literal>%REVISION%</literal> ja <literal>%PATH%</literal>. <literal>%PATH%</literal> korvataan arkiston juuren suhteen suhteellisella polulla. Tämän avulla TortoiseSVN osaa näyttää komennon <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Katso tiedoston versiota web-selaimessa</guimenuitem></menuchoice> Joes esimerkiksi napsautat hiiren oikaa näppäintä loki-ikkunan alapaneelissa tiedoston <literal>/trunk/src/file</literal> kohdalla, paikantimen termi <literal>%PATH%</literal> saa arvon <literal>/trunk/src/file</literal>."
+msgid "Set this property to the URL of your repo viewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision for path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the URL will be replaced with <literal>/trunk/src/file</literal>."
+msgstr "Aseta tämä ominaisuus arkistoselaimesi paikantimeen nähdäksesi muutokset valitun version tietyssä tiedostossa. Sen on oltava URI-muotoinen ja sisällettävä termit <literal>%REVISION%</literal> ja <literal>%PATH%</literal>. <literal>%PATH%</literal> korvataan arkiston juuren suhteen suhteellisella polulla. Tämän avulla TortoiseSVN osaa näyttää komennon <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Katso tiedoston versiota web-selaimessa</guimenuitem></menuchoice> Joes esimerkiksi napsautat hiiren oikeaa näppäintä loki-ikkunan alapaneelissa tiedoston <literal>/trunk/src/file</literal> kohdalla, paikantimen termi <literal>%PATH%</literal> saa arvon <literal>/trunk/src/file</literal>."
 
 #. (para)
 msgid "You can also use relative URLs instead of absolute ones. This is useful in case your web viewer is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>webviewer:revision</literal> and <literal>webviewer:pathrevision</literal> property. The format is the same as for the <literal>bugtraq:url</literal> property. See <xref linkend=\"tsvn-dug-bugtracker\"/>."
@@ -9550,6 +9550,10 @@ msgstr "TortoiseSVN sallii ulkoisen vertailutyökalun käytön. Useimmat tällai
 #. (para)
 msgid "By default, TortoiseSVN always runs an update with externals included. This avoids problems with inconsistent working copies. If you have however a lot of externals set, an update can take quite a while. Set this value to <literal>false</literal> to run the default update with externals excluded. To update with externals included, either run the <literal>Update to revision...</literal> dialog or set this value to <literal>true</literal> again."
 msgstr "Oletusarvoisesti TortoiseSVN sisällyttää aina päivitykseen ulkoiset viittaukset (svn:external). Tämä välttää epäkonsistenteista työkopioista aiheutuvat ongelmat. Jos kuitenkin käytät useita ulkoisia viittauksia, päivitys voi kestää kauan. Aseta arvoksi <literal>false</literal>, jotta päivitys jättää ulkoiset viittaukset huomioimatta. Tämän asetuksen ollessa voimassa voit päivittää ulkoiset viittaukset komennolla <literal>Päivitä versioon...</literal> tai asettamalla arvoksi jälleen <literal>true</literal>."
+
+#. (para)
+msgid "In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to dismiss the dialog as if you clicked on the OK button. If you don't want this, set this value to <literal>false</literal>."
+msgstr "Useimmissa TortoiseSVN-ikkunoissa voi käyttää näppäinyhdistelmää  <keycap>Ctrl+Enter</keycap> ikkunan sulkemiseksi (vrt. OK-painike). Mikäli haluat estää tämän, aseta arvoksi <literal>false</literal>."
 
 #. (title)
 msgid "Final Step"
@@ -12016,14 +12020,15 @@ msgstr "Jotkut elementit ovat valinnaisia, ja niiden mukana olo määräytyy use
 #, no-wrap
 msgid ""
 "\n"
-"svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
+"svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 msgstr ""
 "\n"
-"svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
+"svn checkout [-depth ARG] [--ignore-externals] [-r rev] PAIKANNIN POLKU\n"
 
 #. (para)
-msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
-msgstr "Jos <guilabel>Hae vain ylin hakemisotaso</guilabel> on valittu, käytä valitsinta <literal>-N</literal>."
+#. (para)
+msgid "The depth combo box items relate to the <literal>-depth</literal> argument."
+msgstr "Syvyys-pudotusvalikon alkiot vastaavat <literal>-depth</literal> -valitsimen argumentteja."
 
 #. (para)
 #. (para)
@@ -12066,15 +12071,11 @@ msgstr "Päivitä versioon"
 msgid ""
 "\n"
 "svn info URL_of_WC\n"
-"svn update [-r rev] [-N] [--ignore-externals] PATH\n"
+"svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 msgstr ""
 "\n"
-"svn info URL_of_WC\n"
-"svn update [-r rev] [-N] [--ignore-externals] PATH\n"
-
-#. (para)
-msgid "If <guilabel>Only update the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
-msgstr "Jos <guilabel>Päivitä vain ylin hakemistotaso</guilabel> on valittu, käytä valitsinta <literal>-N</literal>."
+"svn info TYÖKOPION_PAIKANNIN\n"
+"svn update [-r rev] [-depth ARG] [--ignore-externals] POLKU\n"
 
 #. (para)
 msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
@@ -12118,10 +12119,10 @@ msgstr "Kun napsautat OK, Subversion-toimitus käynnistyy. Jos olet jättänyt k
 #, no-wrap
 msgid ""
 "\n"
-"svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
+"svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 msgstr ""
 "\n"
-"svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
+"svn commit -m \"Lokiviesti\" [-depth ARG] [--no-unlock] POLKU...\n"
 
 #. (para)
 #. (para)
@@ -13095,6 +13096,18 @@ msgstr "Kari Granö <kari.grano@gmail.com>"
 msgid "translator-translation"
 msgstr "Käännös"
 
+#~ msgid ""
+#~ "If <guilabel>Only checkout the top folder</guilabel> is checked, use the "
+#~ "<literal>-N</literal> switch."
+#~ msgstr ""
+#~ "Jos <guilabel>Hae vain ylin hakemisotaso</guilabel> on valittu, käytä "
+#~ "valitsinta <literal>-N</literal>."
+#~ msgid ""
+#~ "If <guilabel>Only update the top folder</guilabel> is checked, use the "
+#~ "<literal>-N</literal> switch."
+#~ msgstr ""
+#~ "Jos <guilabel>Päivitä vain ylin hakemistotaso</guilabel> on valittu, "
+#~ "käytä valitsinta <literal>-N</literal>."
 #~ msgid ""
 #~ "Show changes made in the selected revision for the selected file. This "
 #~ "context menu is only available for files shown as <emphasis>modified</"
