@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-15 11:32+0100\n"
+"PO-Revision-Date: 2010-02-24 09:40+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1169,6 +1169,10 @@ msgstr "&Uppdatera till revision..."
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "&Använd automatisk ifyllning av filsökvägar och nyckelord"
+
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "&Använd papperskorgen"
 
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
@@ -2745,6 +2749,10 @@ msgstr "Kopiera %s"
 msgid "Copy %s to %s, Revision %s"
 msgstr "Kopiera %s till %s, Revision %s"
 
+#. Resource IDs: (142)
+msgid "Copy (Branch / Tag)"
+msgstr "Kopiera (gren / märke)"
+
 #. Resource IDs: (78)
 msgid "Copy - TortoiseSVN"
 msgstr "Kopiera - TortoiseSVN"
@@ -2827,8 +2835,8 @@ msgstr "Kopiera: Nytt namn för %s"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "Kopierar %s"
+msgid "Copying %1!s!"
+msgstr "Kopierar %1!s!"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -3172,6 +3180,10 @@ msgstr "Radera och lägg till på &undantagslistan"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Radera och ignorera %d objekt efter filänd&else"
+
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "Radera icke versionshanterade objekt"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3818,8 +3830,8 @@ msgstr "Exportera även icke versionshanterade filer"
 
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "Exporterar %s"
+msgid "Exporting %1!s!"
+msgstr "Exporterar %1!s!"
 
 #. Resource IDs: (79)
 msgid "Exporting..."
@@ -5734,8 +5746,8 @@ msgstr "Flytta de ändrade filerna till papperskorgen innan återställning"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "Flyttar %s"
+msgid "Moving %1!s!"
+msgstr "Flyttar %1!s!"
 
 #. Resource IDs: (80)
 msgid "Moving..."
@@ -7724,6 +7736,10 @@ msgstr "Visa ovanför menyfliksområdet"
 msgid "Show Below the Ribbon"
 msgstr "Visa nedanför menyfliksområdet"
 
+#. Resource IDs: (1542)
+msgid "Show Branch L&og"
+msgstr "Visa gren l&ogg"
+
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
 msgstr "Visa färre knappar"
@@ -9387,8 +9403,8 @@ msgstr "Mappar med filer som inte är versionshanterade visas som ändrade"
 
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "Kopplar loss från versionshantering %s"
+msgid "Unversioning %1!s!"
+msgstr "Kopplar loss från versionshantering %1!s!"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -10723,6 +10739,11 @@ msgstr "det finns ändringar som kolliderar"
 msgid "to %1"
 msgstr "till %1"
 
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr "till %1!s!"
+
 #. Resource IDs: (80, 103, 284)
 #, c-format
 msgid "to %s"
@@ -10892,10 +10913,6 @@ msgstr "ord element:"
 msgid "words [uncompressed]: "
 msgstr "ord [okomprimerat]:"
 
-#. Resource IDs: (142)
-msgid "y"
-msgstr "y"
-
 #. Resource IDs: (245)
 msgid "year"
 msgstr "år"
@@ -10908,10 +10925,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "y"
+#~ msgstr "y"
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Upphovsman: Stefan Kueng"
-#~ msgid "Copy (Branch / Tag)"
-#~ msgstr "Kopiera (gren / märke)"
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Leta automatiskt efter &nyare versioner varje vecka"
 #~ msgid ""
