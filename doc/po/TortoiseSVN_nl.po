@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-23 15:18+0100\n"
-"Last-Translator: Ewout Muller <eppie1@xs4all.nl>\n"
+"PO-Revision-Date: 2010-02-24 16:14+0100\n"
+"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5932,47 +5932,47 @@ msgstr "TortoiseSVN eigenschappen"
 
 #. (para)
 msgid "<literal>tsvn:logminsize</literal> sets the minimum length of a log message for a commit. If you enter a shorter message than specified here, the commit is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every commit. If this property is not set, or the value is zero, empty log messages are allowed."
-msgstr ""
+msgstr "<literal>tsvn:logminsize</literal> stelt de minimum lengte in voor een logboek bericht bij een vastlegging. Als je minder karakters gebruikt dan gespecificeerd, dan kan de vastlegging niet afgerond worden. Deze functie is erg nuttig om je te helpen herinneren dat je een bericht achter laat met een goede beschrijving voor elke blokkade die je plaatst. Als deze eigenschap niet ingesteld is of op nul is ingesteld, dan worden lege logboek berichten toegestaan."
 
 #. (para)
 msgid "<literal>tsvn:lockmsgminsize</literal> sets the minimum length of a lock message. If you enter a shorter message than specified here, the lock is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every lock you get. If this property is not set, or the value is zero, empty lock messages are allowed."
-msgstr ""
+msgstr "<literal>tsvn:lockmsgminsize</literal> stelt de minimum lengte in voor een blokkade bericht. Als je minder karakters gebruikt dan gespecificeerd, dan wordt de blokkade niet geplaatst. Deze functie is erg nuttig om je te helpen herinneren dat je een bericht achter laat met een goede beschrijving voor elke blokkade die je plaatst. Als deze eigenschap niet ingesteld is of op nul is ingesteld, dan worden lege blokkade berichten toegestaan."
 
 #. (para)
 msgid "<literal>tsvn:logwidthmarker</literal> is used with projects which require log messages to be formatted with some maximum width (typically 80 characters) before a line break. Setting this property to a non-zero will do 2 things in the log message entry dialog: it places a marker to indicate the maximum width, and it disables word wrap in the display, so that you can see whether the text you entered is too long. Note: this feature will only work correctly if you have a fixed-width font selected for log messages."
-msgstr ""
+msgstr "<literal>tsvn:logwidthmarker</literal> wordt gebruikt voor projecten waarbij het logboek bericht opgemaakt moet worden met een maximum breedte (meestal 80 karakters) voor een regeleinde. Het instellen van deze eigenschap op een waarde die niet nul is, resulteert in twee dingen in het logboek bericht venster: het plaatst een markering om de maximale breedte aan te geven en tekstterugloop wordt uigeschakeld, zodat je kunt zien of de tekst die je hebt ingevoerd te lang is. Noot: deze functie werkt alleen goed als je een lettertype hebt geselecteerd met een vaste tekenbreedte."
 
 #. (para)
 msgid "<literal>tsvn:logtemplate</literal> is used with projects which have rules about log message formatting. The property holds a multi-line text string which will be inserted in the commit message box when you start a commit. You can then edit it to include the required information. Note: if you are also using <literal>tsvn:logminsize</literal>, be sure to set the length longer than the template or you will lose the protection mechanism."
-msgstr ""
+msgstr "<literal>tsvn:logtemplate</literal> wordt gebruikt voor project waarbij er regels zijn voor de indeling van het logboek bericht. De eigenschap bevat een meerregelige tekst die opgenomen wordt in het vastleg invoerveld als je een vastlegging start. Je kunt het vervolgens bewerken om de benodigde informatie in te vullen. Noot: als je ook <literal>tsvn:logminsize</literal> gebruikt, zorg er dan voor dat de minimale lengte hoger staat ingesteld dan het aantal karakters van de template, anders heeft die eigenschap helemaal geen nut meer."
 
 #. (para)
 msgid "Subversion allows you to set <quote>autoprops</quote> which will be applied to newly added or imported files, based on the file extension. This depends on every client having set appropriate autoprops in their subversion configuration file. <literal>tsvn:autoprops</literal> can be set on folders and these will be merged with the user's local autoprops when importing or adding files. The format is the same as for subversion autoprops, e.g. <literal>*.sh = svn:eol-style=native;svn:executable</literal> sets two properties on files with the <literal>.sh</literal> extension."
-msgstr ""
+msgstr "Subversion heeft de mogelijkheid om <quote>autoprops</quote>  (automatisch eigenschappen) te configureren, welke automatisch toegevoegd worden aan nieuw toegevoegde of geïmporteerde bestanden op basis van de extensie van het bestand. Dit is afhankelijk van de instellingen van de autoprops in het subversion configuratiebestand van elke individuele client. <literal>tsvn:autoprops</literal> kunnen ingesteld worden op mappen. Deze worden dan samengevoegd met de lokale autprops van de gebruiker bij het importeren of toevoegen van nieuwe bestanden. De indeling is gelijk aan die van de subversion autoprops, bijv. <literal>*.sh = svn:eol-style=native;svn:executable</literal> kent twee eigenschappen toe aan bestanden met de <literal>.sh</literal> extensie."
 
 #. (para)
 msgid "If there is a conflict between the local autoprops and <literal>tsvn:autoprops</literal>, the project settings take precedence because they are specific to that project."
-msgstr ""
+msgstr "Als er een conflict is tussen de lokale autoprops en de <literal>tsvn:autoprops</literal>,  dan krijgen de instellingen van het project voorrang, omdat die specifiek voor het project zijn."
 
 #. (para)
 msgid "In the Commit dialog you have the option to paste in the list of changed files, including the status of each file (added, modified, etc). <literal>tsvn:logfilelistenglish</literal> defines whether the file status is inserted in English or in the localized language. If the property is not set, the default is <literal>true</literal>."
-msgstr ""
+msgstr "In het Vastleg scherm kun je de lijst met gewijzigde bestanden en de status (toegevoegd, gewijzigd, etc) invoegen. <literal>tsvn:logfilelistenglish</literal> definieert of de status van de bestanden in het Engels of in de lokale taal opgenomen moet worden. Deze eigenschap krijgt, als hiervoor geen andere waarde is ingesteld, de standaard waard <literal>true</literal>."
 
 #. (para)
 msgid "TortoiseSVN can use spell checker modules which are also used by OpenOffice and Mozilla. If you have those installed this property will determine which spell checker to use, i.e. in which language the log messages for your project should be written. <literal>tsvn:projectlanguage</literal> sets the language module the spell checking engine should use when you enter a log message. You can find the values for your language on this page: <ulink url=\"http://msdn2.microsoft.com/en-us/library/ms776260.aspx\"><citetitle>MSDN: Language Identifiers</citetitle></ulink>."
-msgstr ""
+msgstr "TortoiseSVN kan spellingscontrole modules gebruiken, zoals deze ook gebruikt worden in OpenOffice en Mozilla. Als je deze geïnstalleerd hebt, dan bepaalt deze eigenschap welke spellingscontrole gebruikt moet worden, oftewel in welke taal de logboek boodschappen voor je project geschreven moeten worden. <literal>tsvn:projectlanguage</literal> stelt de te gebruiken taal in voor de spellingscontrole van je logboek boodschappen. Je kunt de waarde voor jouw taal vinden op deze pagina: <ulink url=\"http://msdn2.microsoft.com/en-us/library/ms776260.aspx\"><citetitle>MSDN: Language Identifiers</citetitle></ulink>."
 
 #. (para)
 msgid "You can enter this value in decimal, or in hexadecimal if prefixed with <literal>0x</literal>. For example English (US) can be entered as <literal>0x0409</literal> or <literal>1033</literal>."
-msgstr ""
+msgstr "Je kunt deze waarde als decimale of hexadecimale, indien vooraf gegaan door <literal>0x</literal>, waarde ingevoerd worden. Bijvoorbeeld Engels (VS) kan ingevoerd worden als <literal>0x0409</literal> of als <literal>1033</literal>."
 
 #. (para)
 msgid "The property <literal>tsvn:logsummary</literal> is used to extract a portion of the log message which is then shown in the log dialog as the log message summary."
-msgstr ""
+msgstr "De <literal>tsvn:logsummary</literal> eigenschap wordt gebruikt om een deel uit het logboek bericht te extraheren, welke dan getoond kan worden in het logboek venster als samenvatting."
 
 #. (para)
 msgid "The value of the <literal>tsvn:logsummary</literal> property must be set to a one line regex string which contains one regex group. Whatever matches that group is used as the summary."
-msgstr ""
+msgstr "De waarde van de <literal>tsvn:logsummary</literal> eigenschap moet eenregelige reguliere expressie bevatten met één Regex-groep. De inhoud van die groep wordt als samenvatting gebruikt."
 
 #. (para)
 msgid "An example: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> Will catch everything after <quote>[SUMMARY]</quote> in the log message and use that as the summary."
@@ -5980,19 +5980,19 @@ msgstr "Een voorbeeld: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> Zal alles pakke
 
 #. (para)
 msgid "The property <literal>tsvn:logrevregex</literal> defines a regular expression which matches references to revisions in a log message. This is used in the log dialog to turn such references into links which when clicked will either scroll to that revision (if the revision is already shown in the log dialog, or if it's available from the log cache) or open a new log dialog showing that revision."
-msgstr ""
+msgstr "De eigenschap <literal>tsvn:logrevregex</literal> definieert een reguliere expressie, die overeenkomende revisies in een logboek bericht zoekt. Dit wordt gebruikt in het logboek venster om van zulke referenties koppelingen te maken. Als er op zo'n koppeling geklikt wordt, springt het scherm naar die revisie (als die revisie weergegeven wordt in het logboek venster of als het beschikbaar is in de log cache) of wordt er een nieuw scherm geopend met die revisie."
 
 #. (para)
 msgid "The regular expression must match the whole reference, not just the revision number. The revision number is extracted from the matched reference string automatically."
-msgstr ""
+msgstr "De reguliere expressie moet overeenkomen met de hele referentie, niet alleen het revisie nummer. Het revisie nummer wordt automatisch uit de gevonden referentie geëxtraheerd."
 
 #. (para)
 msgid "If this property is not set, a default regular expression is used to link revision references."
-msgstr ""
+msgstr "Als deze eigenschap niet ingesteld is, wordt een standaard reguliere expressie gebruikt om de revisie referenties te koppelen."
 
 #. (para)
 msgid "When you want to add a new property, you can either pick one from the list in the combo box, or you can enter any property name you like. If your project uses some custom properties, and you want those properties to appear in the list in the combo box (to avoid typos when you enter a property name), you can create a list of your custom properties using <literal>tsvn:userfileproperties</literal> and <literal>tsvn:userdirproperties</literal>. Apply these properties to a folder. When you go to edit the properties of any child item, your custom properties will appear in the list of pre-defined property names."
-msgstr ""
+msgstr "Als je een nieuwe eigenschap wilt toevoegen, dan kun je er eentje uit de lijst van de combo box kiezen of je kunt de gewenste naam voor de eigenschap invoeren. Als je project gebruik maakt van enkele eigen eigenschappen en je wilt dat deze in ook de lijst getoond worden (bijv. om typefouten te voorkomen), dan kun je een lijst met je eigen eigenschappen aanmaken door gebruik te maken van <literal>tsvn:userfileproperties</literal> en <literal>tsvn:userdirproperties</literal>. Pas deze eigenschappen toe op een map. Pas deze eigenschappen toe op een map. Als je dan de eigenschappen van onderliggende objecten bewerkt, dan worden je voorgedefinieerde eigenschappen weergegeven in de lijst met de namen van de beschikbare eigenschappen."
 
 #. (para)
 msgid "TortoiseSVN has a few special properties of its own, and these begin with <literal>tsvn:</literal>. <placeholder-1/>"
@@ -6017,7 +6017,7 @@ msgstr "Stel de project eigenschappen in voor folders"
 
 #. (para)
 msgid "These special project properties must be set on <emphasis>folders</emphasis> for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
-msgstr ""
+msgstr "Deze speciale project eigenschappen moeten ingesteld worden op <emphasis>mappen</emphasis> om te kunnen werken. Als je een bestand of map vastlegt, worden de eigenschappen van die map gelezen. Als daar de eigenschappen niet worden gevonden, dan zal TortoiseSVN in de bovenliggende mappen gaan zoeken om ze te vinden, totdat het een map zonder versiebeheer tegenkomt of bij de hoofdmap van de mapstructuur is aangekomen (bijv. <literal>C:\\</literal>. Als je er zeker van kunt zijn dat elke gebruiker bijv. van de map <filename>trunk/</filename> ophaalt en nooit een sub-map, dan volstaat het om de eigenschap alleen op de map <filename>trunk/</filename> in te stellen. Als je daar niet zeker van kunt zijn, dan moet je de eigenschappen ook op elke sub-map instellen. Een eigenschap die dieper in de project hiërarchie is ingesteld, is belangrijker dan instellingen op een hoger niveau (dichter bij de map <filename>trunk/</filename>)."
 
 #. (para)
 #. (para)
@@ -6038,27 +6038,27 @@ msgstr "Beperkingen Van De Archief-verkenner"
 
 #. (para)
 msgid "Fetching properties remotely is a slow operation, so some of the features described above will not work in the repository browser as they do in a working copy."
-msgstr ""
+msgstr "Het op afstand ophalen van eigenschappen gaat erg langzaam. Enkele functies, zoals boven beschreven, zullen vanuit de archief-verkenner niet zo werken als in een werkkopie."
 
 #. (para)
 msgid "When you add a property using the repo browser, only the standard <literal>svn:</literal> properties are offered in the pre-defined list. Any other property name must be entered manually."
-msgstr ""
+msgstr "Als je een eigenschap toevoegt met de archief-verkenner, dan worden alleen de standaard <literal>svn:</literal> eigenschappen aangeboden in een voorgedefinieerde lijst. Elke andere naam van een eigenschap moet handmatig ingevoerd worden."
 
 #. (para)
 msgid "Properties cannot be set or deleted recursively using the repo browser."
-msgstr ""
+msgstr "Eigenschappen kunnen niet recursief ingesteld of verwijderd worden met de archief-verkenner."
 
 #. (para)
 msgid "Project properties will <emphasis>not</emphasis> be propagated automatically when a child folder is added using the repo browser."
-msgstr ""
+msgstr "Project eigenschappen zullen <emphasis>niet</emphasis> automatisch propageren als er een map dieper in een mapstructuur is toegevoegd met de archief-verkenner."
 
 #. (para)
 msgid "<literal>tsvn:autoprops</literal> will <emphasis>not</emphasis> set properties on files which are added using the repo browser."
-msgstr ""
+msgstr "<literal>tsvn:autoprops</literal> zal <emphasis>geen</emphasis> eigenschappen voor bestanden instellen als deze bestanden met de archief-verkenner worden toegevoegd."
 
 #. (para)
 msgid "Although TortoiseSVN's project properties are extremely useful, they only work with TortoiseSVN, and some will only work in newer versions of TortoiseSVN. If people working on your project use a variety of Subversion clients, or possibly have old versions of TortoiseSVN, you may want to use repository hooks to enforce project policies. project properties can only help to implement a policy, they cannot enforce it."
-msgstr ""
+msgstr "Ondanks dat TortoiseSVN's project eigenschappen erg nuttig zijn, werken ze alleen met TortoiseSVN en sommige nieuwe eigenschappen zullen allen samenwerken met nieuwe versies van TortoiseSVN. Als er mensen met verschillende Subversion clients werken aan een project, of misschien een oude versie van TortoiseSVN gebruiken, dan wil je misschien archief hooks gebruiken om een project beleid te forceren. Project eigenschappen kunnen alleen helpen om een beleid te implementeren, eigenschappen kunnen een beleid niet afdwingen."
 
 #. (title)
 msgid "External Items"
@@ -6668,43 +6668,43 @@ msgstr "Subversion kan niet bestanden met mappen samenvoegen en vice versa - all
 
 #. (title)
 msgid "Merge Tracking"
-msgstr ""
+msgstr "Samenvoegen traceren"
 
 #. (primary)
 msgid "merge tracking"
-msgstr ""
+msgstr "samenvoegen traceren"
 
 #. (para)
 msgid "You can avoid the danger of merging the same revision twice (repeated merge problem). Once a revision is marked as having been merged, future merges which include that revision in the range will skip over it."
-msgstr ""
+msgstr "Het is mogelijk om het gevaar van het twee keer samenvoegen van een revisie te voorkomen. Als eenmaal een revisie gemarkeerd is als samengevoegd, zal er bij toekomstige samenvoegen waarbij deze revisie in de reeks is opgenomen, deze revisie overgeslagen worden."
 
 #. (para)
 msgid "When you merge a branch back into trunk, the log dialog can show you the branch commits as part of the trunk log, giving better traceability of changes."
-msgstr ""
+msgstr "Als je een tak terug naar de basislijn samenvoegt, dan kan het logboek scherm de vastleggingen aan de tak deel laten uitmaken van het logboek van de basislijn. Hierdoor is het makkelijker om wijzigingen te traceren."
 
 #. (para)
 msgid "When you show the log dialog from within the merge dialog, revisions already merged are shown in grey."
-msgstr ""
+msgstr "Als je het logboek vanuit het samenvoeg scherm opvraagt, worden de revisies die al samengevoegd zijn grijs weergegeven."
 
 #. (para)
 msgid "When showing blame information for a file, you can choose to show the original author of merged revisions, rather than the person who did the merge."
-msgstr ""
+msgstr "Als je de verklaren informatie bekijkt voor een bestand, dan kun je er voor kiezen de originele auteur te tonen van samengevoegde revisie, in plaats van de persoon die de samenvoeging uitvoerde."
 
 #. (para)
 msgid "You can mark revisions as <emphasis>do not merge</emphasis> by including them in the list of merged revisions without actually doing the merge."
-msgstr ""
+msgstr "Je kunt revisies markeren met <emphasis>niet samenvoegen</emphasis> door deze al in de lijst van samengevoegde revisies op te nemen, zonder de echte samenvoeging uit te voeren."
 
 #. (para)
 msgid "Subversion 1.5 introduced facilities for merge tracking. When you merge changes from one tree into another, the revision numbers merged are stored and this information can be used for several different purposes. <placeholder-1/>"
-msgstr ""
+msgstr "In Subversion 1.5 is functionaliteit geïntroduceerd voor het traceren van samenvoegingen. Als je wijzigingen vanuit de ene boomstructuur naar de andere samenvoegt, worden de samengevoegde revisienummers opgeslagen. Deze informatie kan dan voor verschillende doeleinden gebruikt worden. <placeholder-1/>"
 
 #. (para)
 msgid "Merge tracking information is stored in the <literal>svn:mergeinfo</literal> property by the client when it performs a merge. When the merge is committed the server stores that information in a database, and when you request merge, log or blame information, the server can respond appropriately. For the system to work properly you must ensure that the server, the repository and all clients are upgraded. Earlier clients will not store the <literal>svn:mergeinfo</literal> property and earlier servers will not provide the information requested by new clients."
-msgstr ""
+msgstr "De samenvoeg informatie is opgeslagen in de <literal>svn:mergeinfo</literal> eigenschap door de client als deze een samenvoeging uitvoert. Als de samenvoeging vastgelegd wordt, dan slaat de server de gegevens op in de database. Als je samenvoeg, logboek of verklaren informatie opvraagt, dan kan de server deze informatie doorgeven. Om dit goed te laten werken moet je er voor zorgen dat de server, het archief en alle clients naar de nieuwe versie bijgewerkt worden. Oudere clients zullen de <literal>svn:mergeinfo</literal> eigenschappen niet opslaan en oudere servers zullen de door de clients opgevraagde informatie niet opgeven."
 
 #. (para)
 msgid "Find out more about merge tracking from Subversion's <ulink url=\"http://subversion.tigris.org/merge-tracking/index.html\"><citetitle>Merge tracking documentation</citetitle></ulink>."
-msgstr ""
+msgstr "Voor meer informatie over het traceren van samenvoegingen, lees Subversion's <ulink url=\"http://subversion.tigris.org/merge-tracking/index.html\"><citetitle>Merge tracking documentatie</citetitle></ulink>."
 
 #. (title)
 msgid "Handling Conflicts during Merge"
@@ -6716,31 +6716,31 @@ msgstr "samenvoeg conflicten"
 
 #. (title)
 msgid "The Merge Conflict Callback Dialog"
-msgstr ""
+msgstr "Het Samenvoeg Conflict Onderzoeksscherm"
 
 #. (para)
 msgid "Merging does not always go smoothly. Sometimes there is a conflict, and if you are merging multiple ranges, you generally want to resolve the conflict before merging of the next range starts. TortoiseSVN helps you through this process by showing the <emphasis>merge conflict callback</emphasis> dialog. <placeholder-1/>"
-msgstr ""
+msgstr "Het samenvoegen gaat niet altijd soepel. Soms treedt er een conflict op en als je meerdere reeksen samenvoegt, wil je meestal een conflict oplossen voordat het samenvoegen van de volgende reeks start. TortoiseSVN helpt je door dit proces heen met het <emphasis>Samenvoeg Conflict Onderzoeksscherm</emphasis>. <placeholer-1/>"
 
 #. (para)
 msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. This only relates to conflicting changes. Changes that can be merged are still merged. Only for the conflicting part your choice is used."
-msgstr ""
+msgstr "Je kunt er voor kiezen dat je lokale wijzigingen belangrijker zijn, zodat je de versie in het archief negeert en je lokale versie behoudt, of andersom. Dit heeft alleen betrekking op conflicterende wijzigingen. Wijzigingen die zonder problemen samengevoegd kunnen worden, worden gewoon samengevoegd. Alleen voor de onderdelen die conflicteren wordt je keuze gebruikt."
 
 #. (para)
 msgid "Normally you will want to look at the conflicts and resolve them. In that case, choose the <guibutton>Edit Conflict</guibutton> which will start up your merge tool. When you are satisfied with the result, click <guibutton>Resolved</guibutton>."
-msgstr ""
+msgstr "Normaliter zou je de conflicten willen bekijken en deze oplossen. In dat geval klik je op <guibutton>Bewerk Conflict</guibutton>, waardoor je samenvoeg programma gestart wordt. Als je tevreden bent met het resultaat klik je op <guibutton>Opgelost</guibutton>."
 
 #. (para)
 msgid "The last option is to postpone resolution and continue with merging. You can choose to do that for the current conflicted file, or for all files in the rest of the merge. However, if there are further changes in that file, it will not be possible to complete the merge."
-msgstr ""
+msgstr "De laatste mogelijkheid is om het oplossen uit te stellen en door te gaan met het samenvoegen. Je kunt hiervoor kiezen voor het huidige conflicterende bestand of voor alle bestanden voor de rest van de samenvoeging. Echter, als er verder nog wijzigingen zijn in dat bestand, dan zal het niet mogelijk zijn om de samenvoeging af te ronden."
 
 #. (para)
 msgid "When a conflict occurs during the merge, you have three ways to handle it. <placeholder-1/>"
-msgstr ""
+msgstr "Als er een conflict optreedt tijdens het samenvoegen, dan zijn er drie methodes om daarmee op te gaan. <placeholder-1/>"
 
 #. (para)
 msgid "If you do not want to use this interactive callback, there is a checkbox in the merge progress dialog <guilabel>Merge non-interactive</guilabel>. If this is set for a merge and the merge would result in a conflict, the file is marked as in conflict and the merge goes on. You will have to resolve the conflicts after the whole merge is finished. If it is not set, then before a file is marked as conflicted you get the chance to resolve the conflict <emphasis>during</emphasis> the merge. This has the advantage that if a file gets multiple merges (multiple revisions apply a change to that file), subsequent merges might succeed depending on which lines are affected. But of course you can't walk away to get a coffee while the merge is running ;)"
-msgstr ""
+msgstr "Als je niet gebruik wilt maken van deze interactieve onderzoeksmethode, dan kun je gebruik maken van het selectievak <guilabel>Samenvoegen zonder tussenkomst</guilabel> in het samenvoeg voortgangsscherm. Als deze optie aangevinkt is en er treedt een conflict op met een bestand, dan zal dat bestand als conflicterend gemarkeerd worden en gaat de samenvoeging verder. Je moet het conflict dan oplossen nadat de hele samenvoeging afgerond is. Als deze optie niet aangevinkt is, dan krijg je de kans om een conflict met een bestand op te lossen <emphasis>tijdens</emphasis> het samenvoegen, voordat het als conflicterend gemarkeerd wordt. Dit heeft als voordeel, dat als een bestand meerdere keren wordt samengevoegd (meerdere revisies voeren een wijziging door aan dat bestand), de opeenvolgende samenvoegingen succesvol kunnen verlopen afhankelijk van de regels die veranderd zijn. Maar je kunt natuurlijk niet even koffie gaan halen als een samenvoeging bezig is. ;)"
 
 #. (title)
 msgid "Merge a Completed Branch"
@@ -6756,23 +6756,23 @@ msgstr "De Samenvoeg Re-integratie Dialoog"
 
 #. (para)
 msgid "If you want to merge all changes from a feature branch back to trunk, then you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge reintegrate...</guimenuitem></menuchoice> from the extended context menu (hold down the <keycap>Shift</keycap> key while you right click on the file). <placeholder-1/> This dialog is very easy. All you have to do is set the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-options\"/>. The rest is done by TortoiseSVN automatically using merge tracking."
-msgstr ""
+msgstr "Als je alle wijzigingen van een tak met nieuwe functies wilt samenvoegen naar de basislijn, dan kun je gebruik maken van <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reïntegratie samenvoeging...</guimenuitem></menuchoice> vanuit het uitgebreide context menu (houdt de <keycap>Shift</keycap> knop ingedrukt als je met rechts op een bestand klikt). <placeholder-1/> Dit scherm is heel eenvoudig. Het enige wat je hoeft te doen is de opties voor de samenvoeging in te stellen, zoals beschreven in <xref linkend=\"tsvn-dug-merge-options\"/>. De rest wordt automatisch door TortoiseSVN gedaan met gebruik van samenvoeg traceer informatie."
 
 #. (title)
 msgid "Feature Branch Maintenance"
-msgstr ""
+msgstr "Onderhoud aan een Tak met Nieuwe Functies"
 
 #. (para)
 msgid "When you develop a new feature on a separate branch it is a good idea to work out a policy for re-integration when the feature is complete. If other work is going on in <literal>trunk</literal> at the same time you may find that the differences become significant over time, and merging back becomes a nightmare."
-msgstr ""
+msgstr "Als je een nieuwe functie ontwikkelt in een aparte tak, dan is het verstandig om een beleid af te spreken voor het reïntegreren als de functie klaar is. Als er op het zelfde moment gewoon doorgewerkt wordt aan de <literal>basislijn</literal>, dan kun je er tegenaan lopen dat wijzigingen steeds meer gevolgen hebben, waardoor het samenvoegen echt een nachtmerrie kan worden."
 
 #. (para)
 msgid "If the feature is relatively simple and development will not take long then you can adopt a simple approach, which is to keep the branch entirely separate until the feature is complete, then merge the branch changes back into trunk. In the merge wizard this would be a simple <guilabel>Merge a range of revisions</guilabel>, with the revision range being the revision span of the branch."
-msgstr ""
+msgstr "Als de nieuwe functie relatief eenvoudig is en de ontwikkeling niet lang duurt, dan kun je een vrij eenvoudige aanpak gebruiken. Hou de tak helemaal gescheiden totdat de functie klaar is en voeg de wijzigingen in de tak dan samen naar de basislijn. In het samenvoeg hulpprogramma zou die een eenvoudige <guilabel>Voeg een reeks revisies samen</guilabel>  actie zijn met de reeks van revisies van de tak."
 
 #. (para)
 msgid "If the feature is going to take longer and you need to account for changes in <literal>trunk</literal>, then you need to keep the branch synchronised. This simply means that periodically you merge trunk changes into the branch, so that the branch contains all the trunk changes <emphasis>plus</emphasis> the new feature. The synchronisation process uses <guilabel>Merge a range of revisions</guilabel>. When the feature is complete then you can merge it back to <literal>trunk</literal> using either <guilabel>Reintegrate a branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
-msgstr ""
+msgstr "Als de ontwikkeling langer duurt en je rekening moet gaan houden met wijzigingen in de <literal>basislijn</literal>, dan moet je je tak synchroon houden met de basislijn. Dit houdt gewoon in dat je regelmatig de wijzigingen in de basislijn moet samenvoegen naar je tak, zodat de tak de wijzigingen van de basislijn <emphasis>plus</emphasis> de nieuwe functie heeft. Het synchronisatie proces gebruikt de <guilabel>Voeg een reeks revisies samen</guilabel> functie. Als de functie klaar is, kun je deze samenvoegen naar de <literal>basislijn</literal> met <guilabel>Reïntegreer een tak</guilabel> of met <guilabel>Twee verschillende bomen samenvoegen</guilabel>."
 
 #. (title)
 msgid "Locking"
@@ -9379,15 +9379,15 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseBlame Settings"
-msgstr ""
+msgstr "TortoiseBlame Instellingen"
 
 #. (title)
 msgid "The Settings Dialog, TortoiseBlame Page"
-msgstr ""
+msgstr "Het Instellingen Scherm, TortoiseBlame pagina"
 
 #. (para)
 msgid "<placeholder-1/> The settings used by TortoiseBlame are controlled from the main context menu, not directly with TortoiseBlame itself."
-msgstr ""
+msgstr "<placeholder-1/> De instellingen voor TortoiseBlame worden gedaan vanuit het hoofd context menu, niet direct in TortoiseBlame zelf."
 
 #. (term)
 msgid "Colors"
@@ -9395,7 +9395,7 @@ msgstr "Kleuren"
 
 #. (para)
 msgid "TortoiseBlame can use the background colour to indicate the age of lines in a file. You set the endpoints by specifying the colours for the newest and oldest revisions, and TortoiseBlame uses a linear interpolation between these colours according to the repository revision indicated for each line."
-msgstr ""
+msgstr "TortoiseBlame kan gebruik maken van achtergrond kleur om de leeftijd van de regels in een bestand aan te geven. Je kunt de eindpunten aangeven door de kleuren voor de nieuwste en oudste revisies te kiezen. TortoiseBlame zal een lineaire interpolatie gebruiken tussen deze twee kleuren volgens de revisie van het archief voor elke regel."
 
 #. (term)
 msgid "Font"
@@ -9403,7 +9403,7 @@ msgstr "Lettertype"
 
 #. (para)
 msgid "You can select the font used to display the text, and the point size to use. This applies both to the file content, and to the author and revision information shown in the left pane."
-msgstr ""
+msgstr "Je kunt het lettertype en grootte selecteren voor tekst die weergegeven wordt. Deze instelling wordt gebruikt voor inhoud van een bestand en de auteur en revisie informatie in het linker deelvenster."
 
 #. (term)
 msgid "Tabs"
@@ -9411,7 +9411,7 @@ msgstr "Tabs"
 
 #. (para)
 msgid "Defines how many spaces to use for expansion when a tab character is found in the file content."
-msgstr ""
+msgstr "Definieert hoeveel spaties gebruikt moeten worden als een tab karakter gevonden is in de inhoud van een bestand."
 
 #. (title)
 msgid "Subversion Working Folders"
@@ -9427,19 +9427,19 @@ msgstr "_svn map"
 
 #. (para)
 msgid "VS.NET 2003 when used with web projects can't handle the <literal>.svn</literal> folders that Subversion uses to store its internal information. This is not a bug in Subversion. The bug is in VS.NET 2003 and the frontpage extensions it uses."
-msgstr ""
+msgstr "VS.NET 2003 kan bij web projecten niet omgaan met de <literal>.svn</literal> mappen, waarin Subversion de interne informatie in opslaat. Dit is geen bug van Subversion. De bug zit in VS.NET 2003 en de frontpage extenties die daarbij worden gebruikt."
 
 #. (para)
 msgid "Note that the bug is fixed in VS2005 and later versions."
-msgstr ""
+msgstr "Merk op dat deze bug opgelost is in VS2005 en latere versies."
 
 #. (para)
 msgid "As of Version 1.3.0 of Subversion and TortoiseSVN, you can set the environment variable <literal>SVN_ASP_DOT_NET_HACK</literal>. If that variable is set, then Subversion will use <literal>_svn</literal> folders instead of <literal>.svn</literal> folders. You must restart your shell for that environment variable to take effect. Normally that means rebooting your PC. To make this easier, you can now do this from the general settings page using a simple checkbox - refer to <xref linkend=\"tsvn-dug-settings-main\"/>."
-msgstr ""
+msgstr "Vanaf Subversion en TortoiseSVN versie 1.3.0 kun je de omgevingsvariabele <literal>SVN_ASP_DOT_NET_HACK</literal> gebruiken. Als deze variabele ingesteld is, dan gebruikt Subversion <literal>_svn</literal> mappen in plaats van <literal>.svn</literal> mappen. Je moet je shell opnieuw start voordat de nieuwe waarde van de variabele gebruikt wordt. Meestal moet je dan je PC opnieuw starten. Om dit te vereenvoudigen, kun je deze instelling nu wijzigen in de generieke instellingspagina met een selectievak - lees hiervoor <xref linkend=\"tsvn-dug-settings-main\"/>."
 
 #. (para)
 msgid "For more information, and other ways to avoid this problem in the first place, check out the article about this in our <ulink url=\"http://tortoisesvn.net/aspdotnethack\"><citetitle>FAQ</citetitle></ulink>."
-msgstr ""
+msgstr "Voor meer informatie en andere methodes om dit probleem op voorhand te voorkomen, lees het artikel hierover in onze <ulink url=\"http://tortoisesvn.net/aspdotnethack\"><citetitle>FAQ</citetitle></ulink>."
 
 #. (title)
 msgid "Advanced Settings"
@@ -9451,91 +9451,91 @@ msgstr "register"
 
 #. (para)
 msgid "A few infrequently used settings are available only in the advanced page of the settings dialog. These settings modify the registry directly and you have to know what each of these settings is used for and what it does. Do not modify these settings unless you are sure you need to change them."
-msgstr ""
+msgstr "Enkele niet vaak gebruikte instellingen zijn alleen beschikbaar in de geavanceerde pagina van het instellingen scherm. Deze instellingen wijzigen het register en je moet weten waarvoor elke instelling gebruikt wordt en wat die doet. Wijzig deze instellingen niet, tenzij je zeker weet dat je ze wijzigen moet."
 
 #. (para)
 msgid "You can specify a different location for the Subversion configuration file here. This will affect all TortoiseSVN operations."
-msgstr ""
+msgstr "Hier kun je een andere map specificeren voor het Subversion configuratiebestand. Dit heeft effect op alle TortoiseSVN acties."
 
 #. (para)
 msgid "Set this to <literal>true</literal> if you want a dialog to pop up for every command showing the command line used to start TortoiseProc.exe"
-msgstr ""
+msgstr "Stel deze in op <literal>true</literal> als je een scherm wilt zien voor elk commando met de opdrachtregel die gebruikt wordt om TortoiseProc.exe te starten."
 
 #. (para)
 msgid "To add a cache tray icon for the TSVNCache program, set this value to <literal>true</literal>. This is really only useful for developers as it allows you to terminate the program gracefully."
-msgstr ""
+msgstr "Stel deze waarde in op <literal>true</literal> om een cache taakbalk pictogram toe te laten voegen voor het TSVNCache programma. Dit wordt echt alleen maar door ontwikkelaars gebruikt omdat het de mogelijkheid geeft het programma netjes af te sluiten."
 
 #. (para)
 msgid "This can be useful if you use something other than the windows explorer or if you get problems with the context menu displaying incorrectly. Set this value to <literal>false</literal> if you don't want TortoiseSVN to show icons for the shell context menu items. Set this value to <literal>true</literal> to show the icons again."
-msgstr ""
+msgstr "Dit kan nuttig zijn als je iets anders gebruikt dan de Windows verkenner of als je problemen hebt met verkeerd weergegeven context menu's. Stel deze waarde in op <literal>false</literal> als je wilt dat TortoiseSVN geen pictogrammen weergeeft in het context menu. Stel deze waarde in op <literal>true</literal> om de pictogrammen weer te laten zien."
 
 #. (para)
 msgid "If you don't want TortoiseSVN to show icons for the context menus in its own dialogs, set this value to <literal>false</literal>."
-msgstr ""
+msgstr "Als je niet wilt dat TortoiseSVN pictogrammen laat zien voor de context menu's in zijn eigen schermen, stel deze waarde dan in op <literal>false</literal>."
 
 #. (para)
 msgid "The log dialog shows the revision the working copy path is at in bold. But this requires that the log dialog fetches the status of that path. Since for very big working copies this can take a while, you can set this value to <literal>false</literal> to deactivate this feature."
-msgstr ""
+msgstr "Het logboek venster toont de revisie van het pad van de werkkopie vetgedrukt, maar hiervoor moet het logboek venster de status van het pad van de werkkopie ophalen. Omdat dit voor grote werkkopieën lang kan duren, kun je deze waarde op <literal>false</literal> instellen, zodat deze functie uitgeschakeld wordt."
 
 #. (para)
 msgid "The status list control which is used in various dialogs (e.g., commit, check-for-modifications, add, revert, ...) uses full row selection (i.e., if you select an entry, the full row is selected, not just the first column). This is fine, but the selected row then also covers the background image on the bottom right, which can look ugly. To disable full row select, set this value to <literal>false</literal>."
-msgstr ""
+msgstr "De besturing van de status lijst, welke in verschillende schermen wordt gebruikt (bijv. vastleggen, kijk-of-er-updates-zijn, toevoegen, ongedaan maken, ...), selecteert altijd hele rijen (dat wil zeggen, als je een entry selecteert de hele rij geselecteerd wordt, niet alleen de eerste kolom). Op zich is dat niet erg, maar de geselecteerde rij bedekt dan ook het achtergrond plaatje aan de rechter onderzijde. Dit kan er lelijk uitzien. Om de selectie van de gehele rij uit te schakelen, stel je deze waarde in op <literal>false</literal>"
 
 #. (para)
 msgid "The commit and log dialog use styling (e.g. bold, italic) in commit messages (see <xref linkend=\"tsvn-dug-commit-log\"/> for details). If you don't want to do this, set the value to <literal>false</literal>."
-msgstr ""
+msgstr "Het vastleg en logboek venster gebruiken stijlen (bijv. vet, schuingedrukt) bij vastleg berichten (lees <xref linkend=\"tsvn-dug-commit-log\"/> voor meer details). Als je dit niet wilt hebben, stel deze waarde dan in op <literal>false</literal>."
 
 #. (para)
 msgid "TortoiseSVN uses accelerators for its explorer context menu entries. Since this can lead to doubled accelerators (e.g. the <literal>SVN Commit</literal> has the <keycap>Alt-C</keycap> accelerator, but so does the <literal>Copy</literal> entry of explorer). If you don't want or need the accelerators of the TortoiseSVN entries, set this value to <literal>false</literal>."
-msgstr ""
+msgstr "TortoiseSVN gebruikt sneltoetsen voor de opties in de context menu's. Dit kan leiden tot dubbele toewijzingen van sneltoetsen (bijv. de <literal>SVN Vastleggen</literal> het de <keycap>Alt-C</keycap> sneltoets, maar de <literal>Kopieer</literal> optie van de verkenner gebruikt die ook). Als je de sneltoetsen niet wilt gebruiken of nodig hebt voor de TortoiseSVN opties, stel deze waarde dan in op <literal>false</literal>."
 
 #. (para)
 msgid "As with the explorer, TortoiseSVN shows additional commands if the <keycap>Shift</keycap> key is pressed while the context menu is opened. To force TortoiseSVN to always show those extended commands, set this value to <literal>true</literal>."
-msgstr ""
+msgstr "Net zoals de verkenner, toont TortoiseSVN extra commando's als de <keycap>Shift</keycap> knop is ingedrukt als het context menu geopend is. Om TortoiseSVN altijd die uitgebreide commando's te laten zien, stel je deze waarde in op <literal>true</literal>."
 
 #. (para)
 msgid "If you don't want the explorer to update the status overlays while another TortoiseSVN command is running (e.g. Update, Commit, ...) then set this value to <literal>true</literal>."
-msgstr ""
+msgstr "Als je niet wilt dat de verkenner de overlappende status pictogrammen bijwerkt terwijl er een TortoiseSVN commando loopt (bijv. Verversen, Vastleggen, ...), stel deze waarde dan in op <literal>true</literal>."
 
 #. (para)
 msgid "This value contains the URL from which TortoiseSVN tries to download a text file to find out if there are updates available. This might be useful for company admins who don't want their users to update TortoiseSVN until they approve it."
-msgstr ""
+msgstr "Deze waarde bevat de URL waar vandaan TortoiseSVN een tekstbestand probeert op te halen om te achterhalen of er nieuwe versies beschikbaar zijn. Dit kan handig zijn voor beheerders van bedrijven, die willen voorkomen dat gebruikers hun TortoiseSVN bijwerken voordat zij dat geaccepteerd hebben."
 
 #. (para)
 msgid "The extra columns the TortoiseSVN adds to the details view in Windows Explorer are normally only active in a working copy. If you want those to be accessible everywhere, not just in working copies, set this value to <literal>true</literal>. Note that the extra columns are only available in XP. Vista and later doesn't support that feature any more."
-msgstr ""
+msgstr "De extra kolommen die TortoiseSVN toevoegt aan de detail weergave in de Windows verkenner, worden normaliter alleen weergegeven in een werkkopie. Als je deze overal wilt zien, niet alleen in werkkopieën, stel je deze waarde in op <literal>true</literal>. Merk op dat de extra kolommen alleen in XP beschikbaar zijn. Visa en latere versies ondersteunen deze functie niet meer."
 
 #. (para)
 msgid "If an update adds a new file from the repository which already exists in the local working copy as an unversioned file, the default action is to keep the local file, showing it as a (possibly) modified version of the new file from the repository. If you would prefer TortoiseSVN to create a conflict in such situations, set this value to <literal>false</literal>."
-msgstr ""
+msgstr "Als een verversing aan een werkkopie een nieuw bestand uit het archief toevoegt, van welke al een kopie aanwezig is in de werkkopie als bestand zonder versiebeheer, dan wordt standaard het lokale bestand behouden en aangegeven als (mogelijk) gewijzigd bestand. Als je prefereert dat TortoiseSVN hiervoor het bestand als conflict markeert in zulke situaties, stel deze waarde dan in op <literal>false</literal>."
 
 #. (para)
 msgid "TortoiseSVN checks whether there's a new version available about once a week. If an updated version is found, the commit dialog shows a link control with that info. If you prefer the old behavior back where a dialog pops up notifying you about the update, set this value to <literal>true</literal>."
-msgstr ""
+msgstr "TortoiseSVN controleert één keer per week of er een nieuwe versie beschikbaar is. Als een nieuwe versie gevonden is, dan wordt dit in het vastleg scherm aangegeven. Als je het oude gedrag terug wilt, waarbij er een apart scherm wordt weergegeven, stel deze waarde dan in op <literal>true</literal>."
 
 #. (para)
 msgid "TortoiseSVN checks whether there's a new version available about once a week. If you don't want TortoiseSVN to do this check, set this value to <literal>false</literal>."
-msgstr ""
+msgstr "TortoiseSVN controleert één keer per week of er een nieuwe versie beschikbaar is. Als je niet wilt dat TortoiseSVN deze controle uitvoert, stel deze waarde dan in op <literal>false</literal>."
 
 #. (para)
 msgid "The auto-completion list shown in the commit message editor displays the names of files listed for commit. To also include these names with extensions removed, set this value to <literal>true</literal>."
-msgstr ""
+msgstr "De auto-aanvul lijst die weergegeven wordt in het vastleg bericht scherm, toont de namen van bestanden die meegenomen worden bij de vastlegging. Om deze name ook mee te nemen zonder de extensies, stel je deze waarde in op <literal>true</literal>."
 
 #. (para)
 msgid "When you merge revisions from another branch, and merge tracking information is available, the log messages from the revisions you merge will be collected to make up a commit log message. A pre-defined string is used to separate the individual log messages of the merged revisions. If you prefer, you can set this to a value containing a separator string of your choice."
-msgstr ""
+msgstr "Als je revisies van een andere tak samenvoegt en samenvoeg traceer informatie is beschikbaar, dan worden de logboek berichten van de samen te voegen revisies opgehaald om een nieuw vastleg bericht te maken. Een vooraf gedefinieerde tekst wordt gebruikt om de individuele berichten van de revisies te scheiden. Je kunt deze waarde aanpassen naar een tekst of indeling die je zelf wilt."
 
 #. (para)
 msgid "TortoiseSVN allows you to assign an external diff viewer. Most such viewers, however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To do so, set this value to <literal>true</literal>."
-msgstr ""
+msgstr "TortoiseSVN geeft de mogelijkheid om een extern diff programma in te stellen. De meeste programma's zijn echter niet geschikt voor het verklaren van verschillen (<xref linkend=\"tsvn-dug-blame-diffs\"/>), waardoor je misschien terug wilt vallen op TortoiseMerge in die gevallen. Stel hiervoor deze waarde in op <literal>true</literal>"
 
 #. (para)
 msgid "By default, TortoiseSVN always runs an update with externals included. This avoids problems with inconsistent working copies. If you have however a lot of externals set, an update can take quite a while. Set this value to <literal>false</literal> to run the default update with externals excluded. To update with externals included, either run the <literal>Update to revision...</literal> dialog or set this value to <literal>true</literal> again."
-msgstr ""
+msgstr "Standaard neemt TortoiseSVN ook altijd de externen mee bij het verversen. Dit voorkomt consistentie problemen met werkkopieën. Als je echter veel externen hebt ingesteld, kan een verversing erg lang duren. Stel deze waarde in op <literal>false</literal> om standaard bij de verversing de externen niet mee te nemen. Om dan externen toch te verversen gebruik je <literal>Verversen naar revisie...</literal> of stel deze waarde weer in op <literal>true</literal>."
 
 #. (para)
 msgid "In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to dismiss the dialog as if you clicked on the OK button. If you don't want this, set this value to <literal>false</literal>."
-msgstr ""
+msgstr "In de meeste schermen van TortoiseSVN kun je <keycap>Ctrl+Enter</keycap> gebruiken om het scherm te sluiten alsof je op de OK knop gedrukt hebt. Als je dit niet wilt, stel deze waarde dan in op <literal>false</literal>."
 
 #. (title)
 msgid "Final Step"
@@ -12022,7 +12022,7 @@ msgstr ""
 #. (para)
 #. (para)
 msgid "The depth combo box items relate to the <literal>-depth</literal> argument."
-msgstr ""
+msgstr "De diepte combo box objecten hebben betrekking op het <literal>-depth</literal> optie. "
 
 #. (para)
 #. (para)
