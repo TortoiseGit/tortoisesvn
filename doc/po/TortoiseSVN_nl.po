@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-24 16:14+0100\n"
+"PO-Revision-Date: 2010-02-24 17:07+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9275,15 +9275,15 @@ msgstr ""
 
 #. (para)
 msgid "The command line includes several parameters which get filled in by TortoiseSVN. The parameters passed depend upon which hook is called. Each hook has its own parameters which are passed in the following order: <placeholder-1/>"
-msgstr ""
+msgstr "De opdrachtregel bevast verschillende parameters, die door TortoiseSVN ingevuld worden. Welke parameters doorgegeven worden hangt af van de aangeroepen hook. Elke hook heeft zijn eigen parameters, welke doorgegeven worden in de volgende volgorde: <placeholder-1/>"
 
 #. (para)
 msgid "A path to a temporary file which contains all the paths for which the operation was started. Each path is on a separate line in the temp file."
-msgstr ""
+msgstr "Een pad met een tijdelijk bestand met daarin alle paden waarvoor de operatie gestart werd. Elk pad staat op een aparte regel in het tijdelijke bestand."
 
 #. (para)
 msgid "The depth with which the commit/update is done."
-msgstr ""
+msgstr "De diepte waarmee de vastlegging/verversing uitgevoerd wordt."
 
 #. (literal)
 msgid "svn_depth_unknown"
@@ -9311,71 +9311,71 @@ msgstr "svn_depth_infinity"
 
 #. (para)
 msgid "Possible values are: <placeholder-1/>"
-msgstr ""
+msgstr "Mogelijke waarden zijn: <placeholder-1/>"
 
 #. (para)
 msgid "Path to a file containing the log message for the commit. The file contains the text in UTF-8 encoding. After successful execution of the start-commit hook, the log message is read back, giving the hook a chance to modify it."
-msgstr ""
+msgstr "Pad naar een bestand met het logboek bericht van de vastlegging. Het bestand bevat de tekst met een UTF-8 codering. Na succesvolle uitvoering van de start-vastlegging hook, wordt het logboek bericht teruggelezen, waardoor de hook de kans krijgt het te wijzigen."
 
 #. (para)
 msgid "The repository revision to which the update should be done or after a commit completes."
-msgstr ""
+msgstr "De revisie van het archief naar welke de verversing uitgevoerd zal moeten worden of nadat een vastlegging gereed is."
 
 #. (para)
 msgid "Path to a file containing the error message. If there was no error, the file will be empty."
-msgstr ""
+msgstr "Pad naar een bestand met daarin de foutmelding. Als er geen fout was, dan zal het bestand leeg zijn."
 
 #. (para)
 msgid "The current working directory with which the script is run. This is set to the common root directory of all affected paths."
-msgstr ""
+msgstr "De huidige werk map waarmee het script gedraaid wordt. Deze is ingesteld op de gemeenschappelijke hoofdmap voor alle betrokken paden."
 
 #. (para)
 msgid "The meaning of each of these parameters is described here: <placeholder-1/>"
-msgstr ""
+msgstr "De betekenis van elke parameter is hier beschreven: <placeholder-1/>"
 
 #. (para)
 msgid "Note that although we have given these parameters names for convenience, you do not have to refer to those names in the hook settings. All parameters listed for a particular hook are always passed, whether you want them or not ;-)"
-msgstr ""
+msgstr "Merk op dat ondanks dat we deze parameters namen hebben gegeven voor het gemak, je niet naar deze namen hoeft te refereren in de hook instellingen. Alle parameters die beschikbaar zijn voor een bepaalde hook worden altijd doorgegeven, of je ze nu wilt hebben of niet ;-)"
 
 #. (para)
 msgid "If you want the Subversion operation to hold off until the hook has completed, check <guilabel>Wait for the script to finish</guilabel>."
-msgstr ""
+msgstr "Als je wilt dat het Subversion proces wacht totdat de hook klaar is, selecteer dan <guilabel>Wacht op het beëindigen van het script</guilabel>."
 
 #. (para)
 msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <guilabel>Hide the script while running</guilabel> is checked by default."
-msgstr ""
+msgstr "Normaliter wil je de lelijke DOS schermen verbergen als je scripts gebruikt, daarom is <guilabel>Verberg script bij uitvoeren</guilabel>  standaard aangevinkt."
 
 #. (para)
 msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr ""
+msgstr "Voorbeeld client hook scripts kunnen gevonden worden in de <literal>contrib</literal>  map in het <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVNarchief </citetitle></ulink>. <xref linkend=\"tsvn-preface-source\"/> beschrijft hoe je het archief benadert."
 
 #. (title)
 msgid "Issue Tracker Integration"
-msgstr ""
+msgstr "Issue Tracker Integratie"
 
 #. (para)
 msgid "TortoiseSVN can use a COM plugin to query issue trackers when in the commit dialog. The use of such plugins is described in <xref linkend=\"tsvn-dug-bugtracker-ref\"/>. If your system administrator has provided you with a plugin, which you have already installed and registered, this is the place to specify how it integrates with your working copy."
-msgstr ""
+msgstr "TortoiseSVN kan gebruik maken van een COM plugin om te communiceren met issue trackers vanuit het vastleg scherm. Het gebruik van plugins in beschreven in <xref linkend=\"tsvn-dug-bugtracker-ref\"/>. Als jouw systeembeheerder een plugin beschikbaar heeft gesteld, die je al geïnstalleerd en geregistreerd hebt, dan kun je hier specificeren hoe deze moet integreren met je werkkopie."
 
 #. (title)
 msgid "The Settings Dialog, Issue Tracker Integration Page"
-msgstr ""
+msgstr "Het Instellingen Scherm, Issue Tracker Integratie Pagina"
 
 #. (para)
 msgid "<placeholder-1/> Click on <guibutton>Add...</guibutton> to use the plugin with a particular working copy. Here you can specify the working copy path, choose which plugin to use from a drop down list of all registered issue tracker plugins, and any parameters to pass. The parameters will be specific to the plugin, but might include your user name on the issue tracker so that the plugin can query for issues which are assigned to you."
-msgstr ""
+msgstr "<placeholder-1/> Klik op de <guibutton>Toevoegen...</guibutton> om de plugin met een bepaalde werkkopie te gebruiken. Je kunt hier het pad van de werkkopie specificeren, de kiezen welke plugin gebruikt moet worden uit een drop down lijst met alle geregistreerde issue tracker plugins en de parameters die meegegeven moeten worden. De parameters zijn specific voor een plugin, maar kunnen je gebruikersnaam voor je issue tracker bevatten, zodat de plugin problemen kan vinden dan aan jou zijn toegekend."
 
 #. (para)
 msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (this example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
-msgstr ""
+msgstr "Deze eigenschap specificeert de COM UUID van de IBugtraqProvider, bijvoorbeeld <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. Dit voorbeeld is de UUID van de <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, die een provider is voor de <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
 
 #. (para)
 msgid "This property specifies the parameters passed to the IBugtraqProvider."
-msgstr ""
+msgstr "Deze eigenschap de eigenschappen die doorgegeven moeten worden aan de IBugtraqProvider."
 
 #. (para)
 msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
-msgstr ""
+msgstr "Als je wilt dat alle gebruikers dezelfde COM plugin gebruiken voor je project, dan kun je de plugin ook specificeren met de eigenschap <literal>bugtraq:provideruuid</literal> en <literal>bugtraq:providerparams</literal>. <placeholder-1/> Sla de documentatie van je IBugtraqProvider er op na om te achterhalen wat je moet invullen bij deze twee eigenschappen."
 
 #. (title)
 msgid "TortoiseBlame Settings"
