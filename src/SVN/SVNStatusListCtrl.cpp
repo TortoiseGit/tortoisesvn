@@ -4009,6 +4009,12 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 	if (m_bBlock)
 		return;
+
+	UINT hitFlags = 0;
+	HitTest(pNMLV->ptAction, &hitFlags);
+	if (hitFlags & LVHT_ONITEMSTATEICON)
+		return;
+
 	if (pNMLV->iItem < 0)
 	{
 		if (!IsGroupViewEnabled())
