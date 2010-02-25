@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-24 00:46-0000\n"
+"PO-Revision-Date: 2010-02-25 00:21-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3919,124 +3919,124 @@ msgstr "Comparar com a cópia de trabalho"
 
 #. (para)
 msgid "Compare the selected revision with your working copy. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN. If the log dialog is for a folder, this will show you a list of changed files, and allow you to review the changes made to each file individually."
-msgstr ""
+msgstr "Compara a revisão seleccionada com a tua cópia de trabalho. A ferramenta, por defeito, de Comparação é o TortoiseMerge que é fornecido com o TortoiseSVN. Se a caixa de diálogo de registo for para uma pasta, então irá mostrar-te uma lista de ficheiros alterados e permitir-te-á rever as alterações feitas a cada ficheiro individualmente."
 
 #. (term)
 msgid "Compare and blame with working BASE"
-msgstr ""
+msgstr "Compara e responsabiliza com a BASE de trabalho"
 
 #. (para)
 msgid "Blame the selected revision, and the file in your working BASE and compare the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail. (files only)."
-msgstr ""
+msgstr "Responsabiliza a revisão seleccionada e o ficheiro na tua BASE de trabalho, e compara os relatórios de responsabilidade usando a ferramenta de comparação visual. Ler <xref linkend=\"tsvn-dug-blame-diffs\"/> para mais detalhes. (só ficheiros)."
 
 #. (term)
 msgid "Show changes as unified diff"
-msgstr ""
+msgstr "Mostrar diferenças como uma comparação unificada"
 
 #. (para)
 msgid "View the changes made in the selected revision as a Unified-Diff file (GNU patch format). This shows only the differences with a few lines of context. It is harder to read than a visual file compare, but will show all file changes together in a compact format."
-msgstr ""
+msgstr "Vê as alterações feias na revisão seleccionada como uma comparação unificada (formato de correcção GNU). Isto só mostra as diferenças com algumas linhas de contexto. É mais difícil de ler que uma comparação visual de ficheiros, mas irá mostrar todas as alterações do ficheiro num formato compacto. "
 
 #. (term)
 msgid "Compare with previous revision"
-msgstr ""
+msgstr "Compara com a revisão prévia"
 
 #. (para)
 msgid "Compare the selected revision with the previous revision. This works in a similar manner to comparing with your working copy. For folders this option will first show the changed files dialog allowing you to select files to compare."
-msgstr ""
+msgstr "Compara a revisão seleccionada com a revisão prévia. Isto funciona de maneira similar à comparação com a cópia de trabalho. Para pastas, esta opção mostrará primeiro a caixa de diálogo de ficheiros alterados, permitindo-te seleccionar os ficheiros a comparar."
 
 #. (term)
 msgid "Compare and blame with previous revision"
-msgstr ""
+msgstr "Compara e responsabiliza com a revisão anterior"
 
 #. (para)
 msgid "Show the changed files dialog allowing you to select files. Blame the selected revision, and the previous revision, and compare the results using a visual diff tool. (folders only)."
-msgstr ""
+msgstr "Mostra a caixa de diálogo de ficheiros alterados, permitindo-te seleccionar os ficheiros. Responsabiliza a revisão seleccionada e a revisão prévia, e compara os resultados usando a ferramenta de comparação. (só pastas)."
 
 #. (term)
 #. (term)
 msgid "Save revision to..."
-msgstr ""
+msgstr "Guardar revisão em..."
 
 #. (para)
 msgid "Save the selected revision to a file so you have an older version of that file. (files only)."
-msgstr ""
+msgstr "Guarda a revisão seleccionada para um ficheiro, para que tenhas uma revisão antiga de esse ficheiro (só ficheiros)."
 
 #. (term)
 #. (term)
 msgid "Open / Open with..."
-msgstr ""
+msgstr "Abrir / Abrir com..."
 
 #. (para)
 msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose. (files only)."
-msgstr ""
+msgstr "Abrir o ficheiro seleccionado com o programa de leitura por defeito, para esse tipo de ficheiro, ou um programa à tua escolha. (só ficheiros)."
 
 #. (term)
 #. (term)
 msgid "Blame..."
-msgstr ""
+msgstr "Responsabilizar..."
 
 #. (para)
 msgid "Blame the file up to the selected revision. (files only)."
-msgstr ""
+msgstr "Responsabiliza o ficheiro até à revisão seleccionada (só ficheiros)."
 
 #. (term)
 msgid "Browse repository"
-msgstr ""
+msgstr "Navegar repositório"
 
 #. (para)
 msgid "Open the repository browser to examine the selected file or folder in the repository as it was at the selected revision."
-msgstr ""
+msgstr "Abre o navegador do repositório, para examinar o ficheiro ou pasta seleccionada no repositório, como era na revisão seleccionada."
 
 #. (term)
 msgid "Create branch/tag from revision"
-msgstr ""
+msgstr "Criar ramo/etiqueta a partir da revisão"
 
 #. (para)
 msgid "Create a branch or tag from a selected revision. This is useful e.g. if you forgot to create a tag and already committed some changes which weren't supposed to get into that release."
-msgstr ""
+msgstr "Cria um ramo ou etiqueta a partir da revisão seleccionada. Isot é util i.e. te esqueceres de criar uma etiqueta, e já submetes-te algumas alterações que não eram supostas ir naquela entrega."
 
 #. (term)
 msgid "Update item to revision"
-msgstr ""
+msgstr "Actualiza um item para uma revisão"
 
 #. (para)
 msgid "Update your working copy to the selected revision. Useful if you want to have your working copy reflect a time in the past, or if there have been further commits to the repository and you want to update your working copy one step at a time. It is best to update a whole directory in your working copy, not just one file, otherwise your working copy could be inconsistent."
-msgstr ""
+msgstr "Actualiza a tua cópia de trabalho para a revisão seleccionada. Útil se queres que a tua cópia de trabalho que reflicta um tempo passado, ou se ainda houve submissões posteriores para o repositório e tu queres actualizar a tua cópia de trabalho, um passo de cada vez. É melhor actualizar toda a pasta na tua cópia de trabalho, não só um ficheiro, ou de outro modo a tua cópia ficaria inconsistente."
 
 #. (para)
 msgid "If you want to undo an earlier change permanently, use <guilabel>Revert to this revision</guilabel> instead."
-msgstr ""
+msgstr "Se queres desfazer permanentemente para uma revisão anterior, usa em substituição <guilabel>Reverter para esta revisão</guilabel>."
 
 #. (term)
 msgid "Revert to this revision"
-msgstr ""
+msgstr "Reverter para esta revisão"
 
 #. (para)
 msgid "Revert to an earlier revision. If you have made several changes, and then decide that you really want to go back to how things were in revision N, this is the command you need. The changes are undone in your working copy so this operation does <emphasis>not</emphasis> affect the repository until you commit the changes. Note that this will undo <emphasis>all</emphasis> changes made after the selected revision, replacing the file/folder with the earlier version."
-msgstr ""
+msgstr "Reverter para uma revisão anterior. Se efectuaste várias alterações e então decides que queres realmente voltar para trás, para o estado em que estavam as coisas na revisão N, este é o comando que precisas. As alterações são desfeitas na tua cópia de trabalho, e este comando <emphasis>não</emphasis> afectará o repositório até submeteres as alterações. Tomar atenção que isto irá desfazer <emphasis>todas</emphasis> as alterações efectuadas depois da revisão seleccionada, substituindo os ficheiros/pastas com uma revisão anterior."
 
 #. (para)
 #. (para)
 msgid "If your working copy is in an unmodified state, after you perform this action your working copy will show as modified. If you already have local changes, this command will merge the <emphasis>undo</emphasis> changes into your working copy."
-msgstr ""
+msgstr "Se a tua cópia de trabalho está num estado não alterado, depois de efectuares esta operação, a tua cópia de trabalho ir-se-á mostrar como alterada. Se já tens alterações locais, este comando irá integrar as alterações <emphasis>desfeitas</emphasis> na tua cópia de trabalho."
 
 #. (para)
 msgid "What is happening internally is that Subversion performs a reverse merge of all the changes made after the selected revision, undoing the effect of those previous commits."
-msgstr ""
+msgstr "O que está acontecer internamente é que, o Subversion efectua uma integração inversa de todas as alterações feitas na revisão seleccionada, desfazendo o efeito de submissões prévias."
 
 #. (para)
 msgid "If after performing this action you decide that you want to <emphasis>undo the undo</emphasis> and get your working copy back to its previous unmodified state, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> from within Windows Explorer, which will discard the local modifications made by this reverse merge action."
-msgstr ""
+msgstr "Se depois de efectuares esta acção decides que queres <emphasis>desfazer o desfeito</emphasis>, e obteres a tua cópia de trabalho de volta para o seu estado não alterado, deves usar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reverter</guimenuitem></menuchoice>, a partir do Explorador do Windows, que irá descartar as modificações locais efectuadas por esta acção de integração inversa."
 
 #. (para)
 msgid "If you simply want to see what a file or folder looked like at an earlier revision, use <guilabel>Update to revision</guilabel> or <guilabel>Save revision as...</guilabel> instead."
-msgstr ""
+msgstr "Se queres simplesmente ver como um ficheiro ou pasta eram numa revisão anterior, usa em alternativa <guilabel>Actualizar para revisão</guilabel> ou <guilabel>Salvar revisão como...</guilabel>."
 
 #. (term)
 #. (term)
 msgid "Revert changes from this revision"
-msgstr ""
+msgstr "Reverter alterações desta revisão"
 
 #. (para)
 msgid "Undo changes from which were made in the selected revision. The changes are undone in your working copy so this operation does <emphasis>not</emphasis> affect the repository at all! Note that this will undo the changes made in that revision only; it does not replace your working copy with the entire file at the earlier revision. This is very useful for undoing an earlier change when other unrelated changes have been made since."
