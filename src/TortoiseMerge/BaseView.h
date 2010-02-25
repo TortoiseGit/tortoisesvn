@@ -343,6 +343,7 @@ protected:
 	void CompensateForKeyboard(CPoint& point);
 	static HICON LoadIcon(WORD iconId);
 	void ReleaseBitmap();
+	static bool LinesInOneChange( int direction, DiffStates firstLineState, DiffStates currentLineState );
 
 	typedef struct linecolors_t
 	{

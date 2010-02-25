@@ -2039,29 +2039,60 @@ bool CBaseView::HasPrevDiff()
 	return SelectNextBlock(-1, false, true, true);
 }
 
+bool CBaseView::LinesInOneChange(int direction,
+	 DiffStates initialLineState, DiffStates currentLineState)
+{
+	// Checks whether all the adjacent lines starting from the initial line
+	// and up to the current line form the single change
+	
+	// Either we move down and initial line state is "added" or "removed" and
+	// current line state is "empty"...
+	if (direction > 0 && currentLineState == DIFFSTATE_EMPTY)
+	{
+		if (initialLineState == DIFFSTATE_ADDED || initialLineState == DIFFSTATE_REMOVED)
+			return true;
+	}
+	// ...or we move up and initial line state is "empty" and current line
+	// state is "added" or "removed".
+	if (direction < 0 && initialLineState == DIFFSTATE_EMPTY)
+	{
+		if (currentLineState == DIFFSTATE_ADDED || currentLineState == DIFFSTATE_REMOVED)
+			return true;
+	}
+	return false;
+}
+
 bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfCurrentBlock /* = true */, bool dryrun /* = false */)
 {
 	if (! m_pViewData)
 		return false;
 
-	if (m_pViewData->GetCount() == 0)
+	const int linesCount = m_pViewData->GetCount();
+	if(linesCount == 0)
 		return false;
 
 	int nCenterPos = m_ptCaretPos.y;
 	int nLimit = -1;
 	if (nDirection > 0)
-		nLimit = m_pViewData->GetCount();
+		nLimit = linesCount;
 
-	if (nCenterPos >= m_pViewData->GetCount())
-		nCenterPos = m_pViewData->GetCount()-1;
+	if (nCenterPos >= linesCount)
+		nCenterPos = linesCount-1;
 
 	if (bSkipEndOfCurrentBlock) 
 	{
 		// Find end of current block
-		DiffStates state = m_pViewData->GetState(nCenterPos);
-		while ((nCenterPos != nLimit) && 
-		       (m_pViewData->GetState(nCenterPos)==state))
+		const DiffStates state = m_pViewData->GetState(nCenterPos);
+		while (nCenterPos != nLimit)
 		{
+			const DiffStates lineState = m_pViewData->GetState(nCenterPos);
+			if (lineState != state)
+			{
+				if (bConflict)
+					break;
+				if (!LinesInOneChange(nDirection, state, lineState))
+					break;
+			}
 			nCenterPos += nDirection;
 		}
 	}
@@ -2095,9 +2126,20 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 	// Find end of new block
 	DiffStates state = m_pViewData->GetState(nCenterPos);
 	int nBlockEnd = nCenterPos;
-	while ((nBlockEnd != (nLimit-nDirection)) &&  ((nBlockEnd + nDirection) < m_pViewData->GetCount()) &&
-			 (state == m_pViewData->GetState(nBlockEnd + nDirection)))
+	const int maxAllowedLine = nLimit-nDirection;
+	while (nBlockEnd != maxAllowedLine)
 	{
+		const int lineIndex = nBlockEnd + nDirection;
+		if (lineIndex >= linesCount)
+			break;
+		DiffStates lineState = m_pViewData->GetState(lineIndex);
+		if (lineState != state)
+		{
+			if (bConflict)
+				break;
+			if (!LinesInOneChange(nDirection, state, lineState))
+				break;
+		}
 		nBlockEnd += nDirection;
 	}
 
