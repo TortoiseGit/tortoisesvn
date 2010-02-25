@@ -787,7 +787,7 @@ bool CMainFrame::LoadViews(int line)
 
 	if ((line >= -1) && m_pwndRightView->m_pViewData)
 	{
-		int n = line == -1 ? nOldLineNumber : line;
+		int n = line == -1 ? min( nOldLineNumber, nOldLine ) : line;
 		if (n >= 0)
 			n = m_pwndRightView->m_pViewData->FindLineNumber(n);
 		if (n < 0)
