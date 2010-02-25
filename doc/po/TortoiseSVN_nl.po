@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-25 11:59+0100\n"
-"Last-Translator: Ewout Muller <eppie1@xs4all.nl>\n"
+"PO-Revision-Date: 2010-02-25 14:30+0100\n"
+"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5880,7 +5880,7 @@ msgstr "Automatisch eigenschappen zetten"
 
 #. (primary)
 msgid "auto-props"
-msgstr ""
+msgstr "auto-props"
 
 #. (para)
 msgid "You can configure Subversion and TortoiseSVN to set properties automatically on files and folders when they are added to the repository. There are two ways of doing this."
@@ -7963,7 +7963,7 @@ msgstr "Omdat de archief viewer integratie afhankelijk is van de toegang tot sub
 
 #. (title)
 msgid "TortoiseSVN's Settings"
-msgstr ""
+msgstr "TortoiseSVN Instellingen"
 
 #. (primary)
 msgid "settings"
@@ -7983,7 +7983,7 @@ msgstr "geluiden"
 
 #. (title)
 msgid "The Settings Dialog, General Page"
-msgstr ""
+msgstr "Het Instellingen Scherm, Algemene Pagina"
 
 #. (para)
 msgid "<placeholder-1/> This dialog allows you to specify your preferred language, and the Subversion-specific settings."
@@ -8091,7 +8091,7 @@ msgstr "Context Menu Instellingen"
 
 #. (title)
 msgid "The Settings Dialog, Context Menu Page"
-msgstr ""
+msgstr "Het Instellingen Scherm, Context Menu Pagina"
 
 #. (para)
 msgid "<placeholder-1/> This page allows you to specify which of the TortoiseSVN context menu entries will show up in the main context menu, and which will appear in the TortoiseSVN submenu. By default most items are unchecked and appear in the submenu."
@@ -8111,7 +8111,7 @@ msgstr "TortoiseSVN Instellingen Venster 1"
 
 #. (title)
 msgid "The Settings Dialog, Dialogs 1 Page"
-msgstr ""
+msgstr "Het Instellingen Scherm, Schermen 1 Pagina"
 
 #. (para)
 msgid "<placeholder-1/> This dialog allows you to configure some of TortoiseSVN's dialogs the way you like them."
@@ -8135,7 +8135,7 @@ msgstr "Instellen van het lettertype en de lettergrootte die worden gebruikt om 
 
 #. (term)
 msgid "Short date / time format in log messages"
-msgstr ""
+msgstr "Verkorte datum/tijd in logboek-boodschappen"
 
 #. (para)
 msgid "If the standard long messages use up too much space on your screen use the short format."
@@ -8143,7 +8143,7 @@ msgstr "Wanneer de standaard uitgebreide meldingen te veel ruimte innemen op het
 
 #. (term)
 msgid "Can double-click in log list to compare with previous revision"
-msgstr ""
+msgstr "Dubbelklikken in de log-lijst vergelijkt met de vorige revisie"
 
 #. (para)
 msgid "If you frequently find yourself comparing revisions in the top pane of the log dialog, you can use this option to allow that action on double-click. It is not enabled by default because fetching the diff is often a long process, and many people prefer to avoid the wait after an accidental double-click, which is why this option is not enabled by default."
@@ -8175,7 +8175,7 @@ msgstr "<guilabel>Automatisch sluiten, behalve na fouten</guilabel> sluit het di
 
 #. (term)
 msgid "Use recycle bin when reverting"
-msgstr ""
+msgstr "Gebruik prullenbak bij herstellen"
 
 #. (para)
 msgid "When you revert local modifications, your changes are discarded. TortoiseSVN gives you an extra safety net by sending the modified file to the recycle bin before bringing back the pristine copy. If you prefer to skip the recycle bin, uncheck this option."
@@ -8183,7 +8183,7 @@ msgstr "Wanneer je lokale aanpassingen ongedaan maakt gaan de zelf aangebrachte 
 
 #. (term)
 msgid "Use URL of WC as the default <quote>From:</quote> URL"
-msgstr ""
+msgstr "Gebruik URL van werkkopie als standaard <quote>Van:</quote> URL"
 
 #. (para)
 msgid "In the merge dialog, the default behaviour is for the <guilabel>From:</guilabel> URL to be remembered between merges. However, some people like to perform merges from many different points in their hierarchy, and find it easier to start out with the URL of the current working copy. This can then be edited to refer to a parallel path on another branch."
@@ -8211,7 +8211,7 @@ msgstr "TortoiseSVN Instellingen Venster 2"
 
 #. (title)
 msgid "The Settings Dialog, Dialogs 2 Page"
-msgstr ""
+msgstr "Het Instellingen Scherm, Schermen 2 Pagina"
 
 #. (term)
 msgid "Recurse into unversioned folders"
@@ -8223,7 +8223,7 @@ msgstr "Wanneer deze optie is aangevinkt (standaard) wordt telkens wanneer de st
 
 #. (para)
 msgid "In the <guilabel>Check for Modifications</guilabel> dialog you can opt to see ignored items. If this box is checked then whenever an ignored folder is found, all child items will be shown as well."
-msgstr ""
+msgstr "In het <guilabel>Kijk of er updates zijn</guilabel> scherm kun je er voor kiezen om genegeerde objecten te laten zien. Als deze optie aangevinkt is, dan worden als een genegeerd object gevonden wordt ook alle onderliggende objecten getoond."
 
 #. (term)
 msgid "Use auto-completion of file paths and keywords"
@@ -8239,19 +8239,19 @@ msgstr "Timeout (in seconden) waarna automatisch-aanvullen wordt gestopt"
 
 #. (para)
 msgid "The auto-completion parser can be quite slow if there are a lot of large files to check. This timeout stops the commit dialog being held up for too long. If you are missing important auto-completion information, you can extend the timeout."
-msgstr ""
+msgstr "De automatische-aanvul functie kan erg langzaam zijn als er veel grote bestande gecontroleerd moeten worden. Met deze timeout voorkom je dat het vastleg scherm te lang opgehouden wordt. Als je belangrijke automatische-aanvul gegevens mis, dan kun je de timeout verlengen."
 
 #. (term)
 msgid "Only use spellchecker when <literal>tsvn:projectlanguage</literal> is set"
-msgstr ""
+msgstr "Gebruik spellingscontrole alleen als <literal>tsvn:projectlanguage<literal> een waarde heeft"
 
 #. (para)
 msgid "If you don't wish to use the spellchecker for all commits, check this box. The spellchecker will still be enabled where the project properties require it."
-msgstr ""
+msgstr "Als je de spellingscontrole niet voor elke vastlegging wilt gebruiken, vink dan deze optie aan. De spellingscontrole zal dan nog wel beschikbaar zijn als de project eigenschappen dat vereisen."
 
 #. (term)
 msgid "Max. items to keep in the log message history"
-msgstr ""
+msgstr "Maximum aantal boodschappen in de geschiedenis van logboek-boodschappen"
 
 #. (para)
 msgid "When you type in a log message in the commit dialog, TortoiseSVN stores it for possible re-use later. By default it will keep the last 25 log messages for each repository, but you can customize that number here. If you have many different repositories, you may wish to reduce this to avoid filling your registry."
@@ -8263,7 +8263,7 @@ msgstr "Merk op dat deze instelling uitsluitend betrekking op de opmerkingen die
 
 #. (term)
 msgid "Re-open commit and branch/tag dialog after a commit failed"
-msgstr "Opnieuw tonen van de vastleggen en de tak/label dialoog na het mislukken van het vastleggen"
+msgstr "Heropen vastleg- en tak/label-dialoog na een mislukte poging"
 
 #. (para)
 msgid "When a commit fails for some reason (working copy needs updating, pre-commit hook rejects commit, network error, etc), you can select this option to keep the commit dialog open ready to try again. However, you should be aware that this can lead to problems. If the failure means you need to update your working copy, and that update leads to conflicts you must resolve those first."
@@ -8287,7 +8287,7 @@ msgstr "De Kijk of er updates zijn dialoog vergelijkt standaard met de werkkopie
 
 #. (term)
 msgid "Show Lock dialog before locking files"
-msgstr ""
+msgstr "Toon de Blokkeer dialoog voordat bestanden geblokkeerd worden"
 
 #. (para)
 msgid "When you select one or more files and then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Lock</guimenuitem></menuchoice> to take out a lock on those files, on some projects it is customary to write a lock message explaining why you have locked the files. If you do not use lock messages, you can uncheck this box to skip that dialog and lock the files immediately."
@@ -8307,7 +8307,7 @@ msgstr "TortoiseSVN kleurinstellingen"
 
 #. (title)
 msgid "The Settings Dialog, Colours Page"
-msgstr ""
+msgstr "Het Instellingen Scherm, Kleuren Pagina"
 
 #. (para)
 msgid "<placeholder-1/> This dialog allows you to configure the text colours used in TortoiseSVN's dialogs the way you like them."
@@ -8575,7 +8575,7 @@ msgstr "Nadeel: het proces wordt continu uitgevoerd, zelfs als u niet aan uw pro
 
 #. (term)
 msgid "Shell"
-msgstr ""
+msgstr "Shell"
 
 #. (para)
 msgid "Caching is done directly inside the shell extension dll, but only for the currently visible folder. Each time you navigate to another folder, the status information is fetched again."
@@ -8925,7 +8925,7 @@ msgstr "Het originele Windows NotePad programma reageert niet goed op bestanden 
 
 #. (title)
 msgid "Saved Data Settings"
-msgstr "Bewaarde Data Instellingen"
+msgstr "Bewaarde Gegevens Instellingen"
 
 #. (title)
 msgid "The Settings Dialog, Saved Data Page"
@@ -9001,7 +9001,7 @@ msgstr "Van hieruit kunt u de inhoud van het logbestand bekijken en ook wissen."
 
 #. (title)
 msgid "Log Caching"
-msgstr "Log caching"
+msgstr "Log Caching"
 
 #. (primary)
 msgid "log cache"
@@ -9009,83 +9009,83 @@ msgstr "log cache"
 
 #. (title)
 msgid "The Settings Dialog, Log Cache Page"
-msgstr ""
+msgstr "Het Instellingen Scherm, Log Cache Pagina"
 
 #. (para)
 msgid "<placeholder-1/> This dialog allows you to configure the log caching feature of TortoiseSVN, which retains a local copy of log messages and changed paths to avoid time-consuming downloads from the server. Using the log cache can dramatically speed up the log dialog and the revision graph. Another useful feature is that the log messages can still be accessed when offline."
-msgstr ""
+msgstr "<placeholder-1/> In dit scherm kun je de log cache functionaliteit van TortoiseSVN instellen, waarmee een lokale kopie van logboek boodschappen en gewijzigde paden gemaakt wordt om lange wachttijden voor het ophalen van de gegevens van een server te voorkomen. De log cache kan het gebruik van het logboek venster en het revisie schema sterk versnellen. Een andere nuttige toepassing is dat logboek boodschappen ook nog bekeken kunnen worden in offline mode."
 
 #. (term)
 msgid "Enable log caching"
-msgstr "Aanzetten van logcaching"
+msgstr "Aanzetten van log caching"
 
 #. (para)
 msgid "Enables log caching whenever log data is requested. If checked, data will be retrieved from the cache when available, and any messages not in the cache will be retrieved from the server and added to the cache."
-msgstr ""
+msgstr "Maakt het gebruik van de log cache mogelijk als er logboek gegevens opgevraagd worden. Indien aangevinkt, worden berichten uit de cache gebruikt, als ze daarin beschikbaar zijn, en anders worden de berichten van de server gehaald en toegevoegd aan de cache."
 
 #. (para)
 msgid "If caching is disabled, data will always be retrieved directly from the server and not stored locally."
-msgstr ""
+msgstr "Als caching uitgeschakeld is, dan worden de gegevens altijd direct vanaf de server opgehaald en wordt er niets lokaal opgeslagen."
 
 #. (term)
 msgid "Allow ambiguous URLs"
-msgstr ""
+msgstr "Sta dubbelzinnige URLs toe"
 
 #. (para)
 msgid "Occasionally you may have to connect to a server which uses the same URL for all repositories. Older versions of <literal>svnbridge</literal> would do this. If you need to access such repositories you will have to check this option. If you don't, leave it unchecked to improve performance."
-msgstr ""
+msgstr "Soms moet je waarschijnlijk een server benaderen die dezelfde URL gebruikt voor alle archieven. Oudere versies van <literal>svnbridge</literal> doen dit bijvoorbeeld. Als je zulke archieven moet benaderen, dan moet je deze optie aanvinken. Zo niet, laat hem dan uit staan voor betere prestaties."
 
 #. (term)
 msgid "Allow ambiguous UUIDs"
-msgstr ""
+msgstr "Sta dubbelzinnige UUIDs toe"
 
 #. (para)
 msgid "Some hosting services give all their repositories the same UUID. You may even have done this yourself by copying a repository folder to create a new one. For all sorts of reasons this is a bad idea - a UUID should be <emphasis>unique</emphasis>. However, the log cache will still work in this situation if you check this box. If you don't need it, leave it unchecked to improve performance."
-msgstr ""
+msgstr "Enkele hosting services gebruiken voor alle archieven dezelfde UUID. Het kan ook zijn dat je dit zelf gedaan hebt doordat je een archiefmap gekopieerd hebt om een nieuw archief te maken. Dit is onverstandig om verschillende redenen - een UUID moet eigenlijk <emphasis>uniek</emphasis> zijn. De log cache zal nog steeds werken als je deze optie selecteert. Als je dit niet nodig hebt, laat deze optie dan uitgeschakeld voor betere prestaties."
 
 #. (term)
 msgid "If the repository cannot be contacted"
-msgstr ""
+msgstr "Indien het archief niet bereikt kan worden"
 
 #. (para)
 msgid "If you are working offline, or if the repository server is down, the log cache can still be used to supply log messages already held in the cache. Of course the cache may not be up-to-date, so there are options to allow you to select whether this feature should be used."
-msgstr ""
+msgstr "Als je offline werkt of als de server onbereikbaar is, dan kan de log cache nog steeds gebruikt worden voor het gebruiken van logboek boodschappen die al in de cache staan. Natuurlijk kan het zijn dat de cache niet de laatste stand van zaken weergeeft. Er zijn instellingen waarmee je in kunt stellen of deze functionaliteit gebruikt kan worden."
 
 #. (para)
 msgid "When log data is being taken from the cache without contacting the server, the dialog using those message will show the offline state in its title bar."
-msgstr ""
+msgstr "Als er logboek gegevens uit de cache worden gebruikt zonder contact te maken met de server, wordt in de titelbalk van het venster de offline status weergegeven."
 
 #. (term)
 msgid "Timeout before updating the HEAD revision"
-msgstr ""
+msgstr "Timeout in seconden voordat de HEAD revisie ververst wordt"
 
 #. (para)
 msgid "When you invoke the log dialog you will normally want to contact the server to check for any newer log messages. If the timeout set here is non-zero then the server will only be contacted when the timeout has elapsed since the last time contact. This can reduce server round-trips if you open the log dialog frequently and the server is slow, but the data shown may not be completely up-to-date. If you want to use this feature we suggest using a value of 300 (5 minutes) as a compromise."
-msgstr ""
+msgstr "Als je het logboek opent wil je eigenlijk ook dat er op de server gekeken wordt of er nieuwe logboek boodschappen zijn. Als de timeout hier op een niet-nul waarde is ingesteld, dan zal de server alleen gecontacteerd worden als de timeout tijd verstreken is sinds het laatste contact. Hiermee verlaag je de belasting van de server als je server langzaam is en je het logboek venster vaak opent, maar er wordt dus misschien niet altijd de laatste stand van zaken weergegeven. Als je deze functie wilt gebruiken, adviseren wij om een waarde van 300 (5 minuten) als compromis te gebruiken."
 
 #. (term)
 msgid "Days of inactivity until small caches get removed"
-msgstr ""
+msgstr "Dagen van inactiviteit totdat kleine caches verwijderd worden"
 
 #. (para)
 msgid "If you browse around a lot of repositories you will accumulate a lot of log caches. If you're not actively using them, the cache will not grow very big, so TortoiseSVN purges them after a set time by default. Use this item to control cache purging."
-msgstr ""
+msgstr "Als je door veel verschillende archieven bladert, zal je veel log caches hebben. Als je deze niet actief gebruikt, zal de cache niet echt groot groeien. TortoiseSVN zal deze standaard na een bepaalde tijd wissen. Gebruik deze instelling om het wissen van cache te configureren."
 
 #. (term)
 msgid "Maximum size of removed inactive caches"
-msgstr ""
+msgstr "Maximale grootte van een verwijderde inactieve cache"
 
 #. (para)
 msgid "Larger caches are more expensive to reacquire, so TortoiseSVN only purges small caches. Fine tune the threshold with this value."
-msgstr ""
+msgstr "Grotere caches zijn duurder om opnieuw te vullen, daarom wist TortoiseSVN alleen kleinere caches. Je kunt de drempel met deze waarde verfijnen."
 
 #. (term)
 msgid "Maximum number of tool failures before cache removal"
-msgstr ""
+msgstr "Maximum aantal fouten tot de cache verwijderd wordt"
 
 #. (para)
 msgid "Occasionally something goes wrong with the caching and causes a crash. If this happens the cache is normally deleted automatically to prevent a recurrence of the problem. If you use the less stable nightly build you may opt to keep the cache anyway."
-msgstr ""
+msgstr "Soms gaat er weleens wat mis met de cache met een crash tot gevolg. Als dit gebeurt, wordt de cache normaliter automatisch verwijderd om herhaling van het probleem te voorkomen. Als je de minder stabiele nachtelijk versies gebruikt, kun je er voor kiezen om de cache toch te bewaren."
 
 #. (title)
 msgid "Cached Repositories"
@@ -9093,27 +9093,27 @@ msgstr "Opgeslagen (cache) Archieven"
 
 #. (para)
 msgid "On this page you can see a list of the repositories that are cached locally, and the space used for the cache. If you select one of the repositories you can then use the buttons underneath."
-msgstr ""
+msgstr "Op deze pagina zie je de lijst met archieven die in de lokale cache opgenomen zijn en de ruimte die gebruikt wordt voor de cache. Als je een van de archieven selecteert, kun je de volgende knoppen gebruiken."
 
 #. (para)
 msgid "Click on the <guibutton>Update</guibutton> to completely refresh the cache and fill in any holes. For a large repository this could be very time consuming, but useful if you are about to go offline and want the best available cache."
-msgstr ""
+msgstr "Klik op de <guibutton>Verversen</guibutton> om de hele cache te verversen en de gaten op te vullen. Bij een groot archief kan dit veel tijd kosten, maar wel nuttig als je offline gaat en een goede cache beschikbaar wilt hebben."
 
 #. (para)
 msgid "Click on the <guibutton>Export</guibutton> button to export the entire cache as a set of CSV files. This could be useful if you want to process the log data using an external program, although it is mainly useful to the developers."
-msgstr ""
+msgstr "Klik op de <guibutton>Exporteren</guibutton> knop om de gehele cache te exporteren naar een set van  CSV bestanden. Dit kan handig zijn als je de logboek gegevens wilt bewerken met een extern programma, terwijl het hoofdzakelijk bedoeld is voor ontwikkelaars."
 
 #. (para)
 msgid "Click on <guibutton>Delete</guibutton> to remove all cached data for the selected repositories. This does not disable caching for the repository so the next time you request log data, a new cache will be created."
-msgstr ""
+msgstr "Klik op de <guibutton>Verwijderen</guibutton> om alle cache gegevens voor de geselecteerde archieven te verwijderen. Hiermee wordt de cache niet uitgeschakeld voor het archief. De volgende keer dat je logboek gegevens opvraagt, wordt er weer een nieuwe cache aangemaakt."
 
 #. (title)
 msgid "Log Cache Statistics"
-msgstr "Logcache Statistieken"
+msgstr "Log Cache Statistieken"
 
 #. (title)
 msgid "The Settings Dialog, Log Cache Statistics"
-msgstr ""
+msgstr "Het Instellingen Scherm, Log Cache Statistieken"
 
 #. (term)
 msgid "RAM"
@@ -9121,7 +9121,7 @@ msgstr "RAM"
 
 #. (para)
 msgid "The amount of memory required to service this cache."
-msgstr ""
+msgstr "De hoeveelheid geheugen die nodig is voor het gebruik van deze cache."
 
 #. (term)
 msgid "Disk"
@@ -9129,7 +9129,7 @@ msgstr "Schijf"
 
 #. (para)
 msgid "The amount of disk space used for the cache. Data is compressed, so disk usage is generally fairly modest."
-msgstr ""
+msgstr "De diskruimte die in gebruik is voor de cache. Gegevens worden gecomprimeerd, gebruik van ruimte is dus beperkt."
 
 #. (term)
 msgid "Connection"
@@ -9137,23 +9137,23 @@ msgstr "Verbinding"
 
 #. (para)
 msgid "Shows whether the repository was available last time the cache was used."
-msgstr ""
+msgstr "Geeft weer of het archief beschikbaar was op het moment dat de cache voor het laatst gebruikt werd."
 
 #. (term)
 msgid "Last update"
-msgstr "Laatste update"
+msgstr "Laatste verversing"
 
 #. (para)
 msgid "The last time the cache content was changed."
-msgstr ""
+msgstr "De laatste keer dat de inhoud van de cache veranderd is."
 
 #. (term)
 msgid "Last head update"
-msgstr "Laatste hoofd update"
+msgstr "Laatste hoofd verversing"
 
 #. (para)
 msgid "The last time we requested the HEAD revision from the server."
-msgstr ""
+msgstr "De laatste keer dat de HEAD revisie is opgevraagd bij de server."
 
 #. (term)
 msgid "Authors"
@@ -9161,7 +9161,7 @@ msgstr "Auteurs"
 
 #. (para)
 msgid "The number of different authors with messages recorded in the cache."
-msgstr ""
+msgstr "Het aantal verschillende auteurs waarvan berichten zijn opgeslagen in de cache."
 
 #. (term)
 msgid "Paths"
@@ -9169,15 +9169,15 @@ msgstr "Paden"
 
 #. (para)
 msgid "The number of paths listed, as you would see using <literal>svn log -v</literal>."
-msgstr ""
+msgstr "Het aantal paden opgenomen in de lijst, zoals je die zou zien met <literal>svn log -v</literal>."
 
 #. (term)
 msgid "Skip ranges"
-msgstr ""
+msgstr "Overgeslagen bereiken"
 
 #. (para)
 msgid "The number of revision ranges which we have not fetched, simply because they haven't been requested. This is a measure of the number of holes in the cache."
-msgstr ""
+msgstr "Het aantal revisie bereiken die we niet opgehaald hebben, omdat ze eenvoudigweg niet opgevraagd zijn. Dit is een maatstaf voor het aantal gaten in de cache."
 
 #. (term)
 msgid "Max revision"
@@ -9185,7 +9185,7 @@ msgstr "Maximale revisie"
 
 #. (para)
 msgid "The highest revision number stored in the cache."
-msgstr ""
+msgstr "Het hoogste revisie nummer opgeslagen in de cache."
 
 #. (term)
 msgid "Revision count"
@@ -9193,11 +9193,11 @@ msgstr "Revisie aantal"
 
 #. (para)
 msgid "The number of revisions stored in the cache. This is another measure of cache completeness."
-msgstr ""
+msgstr "Het aantal revisies opgeslagen in de cache. Dit is een andere maatstaf voor de compleetheid van de cache."
 
 #. (para)
 msgid "<placeholder-1/> Click on the <guibutton>Details</guibutton> button to see detailed statistics for a particular cache. Many of the fields shown here are mainly of interest to the developers of TortoiseSVN, so they are not all described in detail. <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Klik op de <guibutton>Details</guibutton> knop om gedetailleerde statistieken te zien van een bepaalde cache. Veel van de hier getoonde velden zijn alleen interessant voor ontwikkelaars van TortoiseSVN, daarom zijn ze niet allemaal in detail beschreven. <placeholder-2/>"
 
 #. (title)
 msgid "Client Side Hook Scripts"
@@ -11727,7 +11727,7 @@ msgstr "Toont het tak/label scherm. De <placeholder-1/> is de werkkopie waar de 
 
 #. (entry)
 msgid "Opens the settings dialog."
-msgstr "Opent de instellingen dialoog."
+msgstr "Opent het instellingen scherm."
 
 #. (entry)
 msgid "Removes the file(s) in <placeholder-1/> from version control."
