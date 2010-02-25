@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-24 17:07+0100\n"
+"PO-Revision-Date: 2010-02-25 12:44+0100\n"
 "Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9177,7 +9177,7 @@ msgstr ""
 
 #. (title)
 msgid "Client Side Hook Scripts"
-msgstr ""
+msgstr "Hook Scripts op de Client"
 
 #. (primary)
 msgid "client hooks"
@@ -9185,27 +9185,27 @@ msgstr "client hooks"
 
 #. (title)
 msgid "The Settings Dialog, Hook Scripts Page"
-msgstr ""
+msgstr "Het Instellingen Scherm, Hook Scripts Pagina"
 
 #. (para)
 msgid "<placeholder-1/> This dialog allows you to set up hook scripts which will be executed automatically when certain Subversion actions are performed. As opposed to the hook scripts explained in <xref linkend=\"tsvn-repository-hooks\"/>, these scripts are executed locally on the client."
-msgstr ""
+msgstr "<placeholder-1/> In dit scherm kun je hook scripts instellen, welke automatisch uitgevoerd worden als een bepaalde Subversion actie plaatsvindt. In tegenstelling tot de hook scripts behandeld in <xref linkend=\"tsvn-repository-hooks\"/>, worden deze scripts lokaal op de client uitgevoerd."
 
 #. (para)
 msgid "One application for such hooks might be to call a program like <literal>SubWCRev.exe</literal> to update version numbers after a commit, and perhaps to trigger a rebuild."
-msgstr ""
+msgstr "Een mogelijke toepassing voor zulke hooks kan zijn het aanroepen van een programma zoals <literal>SubWCRev.exe</literal> om de revisie nummers bij te kunnen werken na een vastlegging, en misschien ook om het bouwproces op te triggeren."
 
 #. (para)
 msgid "For various security and implementation reasons, hook scripts are defined locally on a machine, rather than as project properties. You define what happens, no matter what someone else commits to the repository. Of course you can always choose to call a script which is itself under version control."
-msgstr ""
+msgstr "Vanwege verschillende veiligheid en implementatie redenen, worden hook scripts op de lokale machine gedefinieerd, in plaats van als project eigenschap. Je definieert wat er moet gebeuren, onafhankelijk van wat iemand anders in het archief vastlegt. Natuurlijk kun je er altijd voor kiezen om een script aan te roepen, die zelf ook van versiebeheer is voorzien."
 
 #. (title)
 msgid "The Settings Dialog, Configure Hook Scripts"
-msgstr ""
+msgstr "Het Instellingen Scherm, Hook Scripts Configureren"
 
 #. (para)
 msgid "<placeholder-1/> To add a new hook script, simply click <guibutton>Add</guibutton> and fill in the details."
-msgstr ""
+msgstr "<placeholder-1/> Klik op <guibutton>Toevoegen</guibutton> om een nieuw hook script toe te voegen en voer de details in."
 
 #. (term)
 #. (term)
@@ -9214,7 +9214,7 @@ msgstr "Start-commit"
 
 #. (para)
 msgid "Called before the commit dialog is shown. You might want to use this if the hook modifies a versioned file and affects the list of files that need to be committed and/or commit message. However you should note that because the hook is called at an early stage, the full list of objects selected for commit is not available."
-msgstr ""
+msgstr "Wordt aangeroepen voordat het vastleg venster getoond wordt. Je wilt deze mogelijk gebruiken als de hook een bestand wijzigt, wat gevolg kan hebben voor de lijst met bestanden die vastgelegd moeten worden en/of voor het vastleg bericht. Hou wel in de gaten dat, omdat deze hook vroeg in het proces wordt aangeroepen, nog niet de hele lijst met geselecteerde objecten voor de vastlegging beschikbaar is."
 
 #. (term)
 #. (term)
@@ -9223,7 +9223,7 @@ msgstr "Pre-commit"
 
 #. (para)
 msgid "Called after the user clicks <guibutton>OK</guibutton> in the commit dialog, and before the actual commit begins. This hook has a list of exactly what will be committed."
-msgstr ""
+msgstr "Wordt aangeroepen nadat de gebruiker op de <guibutton>OK</guibutton> klikt in het vastleg venster en nog voordat de echte vastlegging start. Deze hook heeft een lijst met wat er precies vastgelegd gaat worden."
 
 #. (term)
 #. (term)
@@ -9232,7 +9232,7 @@ msgstr "Post-commit"
 
 #. (para)
 msgid "Called after the commit finishes (whether successful or not)."
-msgstr ""
+msgstr "Wordt aangeroepen nadat de vastlegging afgelopen is (succesvol of niet)."
 
 #. (term)
 #. (term)
@@ -9241,7 +9241,7 @@ msgstr "Start-update"
 
 #. (para)
 msgid "Called before the update-to-revision dialog is shown."
-msgstr ""
+msgstr "Wordt aangeroepen voordat het verversen-naar-revisie scherm weergegeven wordt."
 
 #. (term)
 #. (term)
@@ -9250,7 +9250,7 @@ msgstr "Pre-update"
 
 #. (para)
 msgid "Called before the actual Subversion update begins."
-msgstr ""
+msgstr "Wordt aangeroepen voordat de Subversion verversing begint."
 
 #. (term)
 #. (term)
@@ -9259,19 +9259,19 @@ msgstr "Post-update"
 
 #. (para)
 msgid "Called after the update finishes (whether successful or not)."
-msgstr ""
+msgstr "Wordt aangeroepen nadat een verversing klaar is (succesvol of niet)."
 
 #. (para)
 msgid "There are currently six types of hook script available <placeholder-1/>"
-msgstr ""
+msgstr "Er zijn op dit moment 6 type hook scripts beschikbaar: <placeholder-1/>"
 
 #. (para)
 msgid "A hook is defined for a particular working copy path. You only need to specify the top level path; if you perform an operation in a sub-folder, TortoiseSVN will automatically search upwards for a matching path."
-msgstr ""
+msgstr "Een hook wordt gedefinieerd voor een bepaalde werkkopie. Je hoeft alleen het pad van de basismap op te geven; als je een actie uitvoert in een sub-map, dan zoekt TortoiseSVN automatisch in de bovenliggende mappen naar het bijbehorende pad."
 
 #. (para)
 msgid "Next you must specify the command line to execute, starting with the path to the hook script or executable. This could be a batch file, an executable file or any other file which has a valid windows file association, eg. a perl script."
-msgstr ""
+msgstr "Vervolgens moet je de opdrachtregel specificeren die uitgevoerd moet worden, beginnend met het pad naar het hook script of de toepassing. Dit kan een batch bestand zijn, een toepassing of elk ander bestand die een geldig associatie in windows heeft, bijv. een perl script."
 
 #. (para)
 msgid "The command line includes several parameters which get filled in by TortoiseSVN. The parameters passed depend upon which hook is called. Each hook has its own parameters which are passed in the following order: <placeholder-1/>"
