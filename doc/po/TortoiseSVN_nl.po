@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-25 12:44+0100\n"
-"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
+"PO-Revision-Date: 2010-02-25 11:59+0100\n"
+"Last-Translator: Ewout Muller <eppie1@xs4all.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8431,7 +8431,7 @@ msgstr "<placeholder-1/> Deze pagina biedt u de mogelijkheid om de te gebruiken 
 
 #. (term)
 msgid "Deleted Node"
-msgstr "Verwijderde Knoop"
+msgstr "Verwijderde knoop"
 
 #. (para)
 msgid "Items which have been deleted and not copied anywhere else in the same revision."
@@ -8439,7 +8439,7 @@ msgstr "Items welke zijn verwijderd en niet naar elders zijn gekopieëerd binnen
 
 #. (term)
 msgid "Added Node"
-msgstr "Toegevoegde Knoop"
+msgstr "Toegevoegde knoop"
 
 #. (para)
 msgid "Items newly added, or copied (add with history)."
@@ -8447,7 +8447,7 @@ msgstr "Nieuw toegevoegde of gekopieëerde (toevoegen met geschiedenis) items."
 
 #. (term)
 msgid "Renamed Node"
-msgstr "Hernoemde Knoop"
+msgstr "Hernoemde knoop"
 
 #. (para)
 msgid "Items deleted from one location and added in another in the same revision."
@@ -8463,7 +8463,7 @@ msgstr "Eenvoudige wijzigingen zonder enige toevoeging of verwijdering."
 
 #. (term)
 msgid "Unchanged Node"
-msgstr "Ongewijzigde Knoop"
+msgstr "Ongewijzigde knoop"
 
 #. (para)
 msgid "May be used to show the revision used as the source of a copy, even when no change (to the item being graphed) took place in that revision."
@@ -8511,7 +8511,7 @@ msgstr "Knopen welke worden geclassificeerd als basislijn kunnen worden gemengt 
 
 #. (term)
 msgid "Folded Tag Markers"
-msgstr "Ingeklapte label merktekens"
+msgstr "Ingeklapt label merktekens"
 
 #. (para)
 msgid "If you use tag folding to save space, tags are marked on the copy source using a block in this color."
@@ -8755,15 +8755,15 @@ msgstr "Externe Programma Instellingen"
 
 #. (title)
 msgid "The Settings Dialog, Diff Viewer Page"
-msgstr ""
+msgstr "Het instellingen scherm, Diff viewer pagina"
 
 #. (para)
 msgid "<placeholder-1/> Here you can define your own diff/merge programs that TortoiseSVN should use. The default setting is to use TortoiseMerge which is installed alongside TortoiseSVN."
-msgstr ""
+msgstr "<placeholder-1/> Hier kunt u uw eigen verschil/samenvoeg programma's aangeven welke TortoiseSVN moet gebruiken. De standaard instelling is om TortoiseMerge te gebruiken, welke tesamen met TortoiseSVN is geïnstalleerd."
 
 #. (para)
 msgid "Read <xref linkend=\"tsvn-dug-diff-tools\"/> for a list of some of the external diff/merge programs that people are using with TortoiseSVN."
-msgstr ""
+msgstr "Lees <xref linkend=\"tsvn-dug-diff-tools\"/> voor een lijst met enkele externe verschil/samenvoeg programma's welke door mensen worden gebruikt in combinatie met TortoiseSVN."
 
 #. (title)
 msgid "Diff Viewer"
@@ -8771,29 +8771,29 @@ msgstr "Diff Viewer"
 
 #. (para)
 msgid "The original file without your changes"
-msgstr ""
+msgstr "Het originele bestand zonder uw wijzigingen"
 
 #. (para)
 #. (para)
 msgid "The window title for the base file"
-msgstr ""
+msgstr "De Schermtitel voor het basis bestand"
 
 #. (para)
 msgid "Your own file, with your changes"
-msgstr ""
+msgstr "Uw eigen bestand, met uw wijzigingen"
 
 #. (para)
 #. (para)
 msgid "The window title for your file"
-msgstr ""
+msgstr "De schermtitel voor uw bestand"
 
 #. (para)
 msgid "An external diff program may be used for comparing different revisions of files. The external program will need to obtain the filenames from the command line, along with any other command line options. TortoiseSVN uses substitution parameters prefixed with <literal>%</literal>. When it encounters one of these it will substitute the appropriate value. The order of the parameters will depend on the Diff program you use. <placeholder-1/>"
-msgstr ""
+msgstr "Er kan een extern verschil-programma worden gebruikt om de verschillende revisies van bestanden met elkaar te vergelijken. Het externe programma dient de bestandsnamen van de commandoregel uit te lezen, tesamen met eventuele andere commandoregel opties. TortoiseSVN gebruikt substitutie parameters voorafgegaan door een <literal>%</literal>. Als deze één van deze parameters tegenkomt, zal de parameter worden vervangen door de geschikte waarde. De volgorde van de parameters hangt van het door u gebruikte verschil-programma af. <placeholder-1/> "
 
 #. (para)
 msgid "The window titles are not pure filenames. TortoiseSVN treats that as a name to display and creates the names accordingly. So e.g. if you're doing a diff from a file in revision 123 with a file in your working copy, the names will be <filename>filename : revision 123</filename> and <filename>filename : working copy</filename>"
-msgstr ""
+msgstr "De schermtitels zijn niet de werkelijke bestandsnamen. TortoiseSVN behandelt dat als een weergavenaam en maakt de namen daarvoor aan. Dus als u bijvoorbeeld de verschillen analyseerd tussen een bestand in revisie 123 en een bestand in uw eigen werkkopie, zullen de namen <filename>bestandsnaam: revisie 123</filename> en <filename>bestandsnaam : werkkopie</filename>"
 
 #. (para)
 msgid ""
@@ -8811,18 +8811,31 @@ msgid ""
 "C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
 "</screen>"
 msgstr ""
+"Bijvoorbeeld, met ExamDiff Pro: <screen>\n"
+"C:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname\n"
+"    --right_display_name:%yname\n"
+"</screen> of met KDiff3: <screen>\n"
+"C:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n"
+"</screen> of met WinMerge: <screen>\n"
+"C:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n"
+"</screen> of met Araxis: <screen>\n"
+"C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
+"    %base %mine\n"
+"</screen> of met UltraCompare: <screen>\n"
+"C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
+"</screen>"
 
 #. (para)
 msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <emphasis>revision</emphasis> of a file, then there may be a difference between files which is purely due to the current value of the keyword. Also if you use <literal>svn:eol-style = native</literal> the BASE file will have pure <literal>LF</literal> line endings whereas your file will have <literal>CR-LF</literal> line endings. TortoiseSVN will normally hide these differences automatically by first parsing the BASE file to expand keywords and line endings before doing the diff operation. However, this can take a long time with large files. If <guilabel>Convert files when diffing against BASE</guilabel> is unchecked then TortoiseSVN will skip pre-processing the files."
-msgstr ""
+msgstr "Als u de <literal>svn:keywords</literal> eigenschap gebruikt om trefwoorden uit te breiden, en dan vooral de <emphasis>revisie</emphasis> van een bestand, kan er een verschil bestaan tussen bestanden welke slechts wordt veroorzaakt door de huidige waarde van het trefwoord. Ook wanneer u <literal>svn:eol-style = native</literal> gebruikt, heeft het BASE bestand pure <literal>LF</literal> regeleinden terwijl uw bestand <literal>CR-LF</literal> regeleinden zal hebben. TortoiseSVN zal normaal gesproken deze verschillen automatisch verbergen door eerst het BASE bestand te doorlopen om trefwoorden uit te breiden en de regeleinden aan te passen, voordat de verschil-operatie wordt uitgevoerd. Dit kan echter veel tijd kosten bij grote bestanden. Als <guilabel>Bestanden converteren bij het vergelijken met BASE</guilabel> niet is aangevinkt zal TortoiseSVN het vooraf bewerkten van de bestanden overslaan."
 
 #. (para)
 msgid "You can also specify a different diff tool to use on Subversion properties. Since these tend to be short simple text strings, you may want to use a simpler more compact viewer."
-msgstr ""
+msgstr "U kunt ook een ander verschil-gereedschap aangeven om te gebruiken bij Subversion eigenschappen. Omdat deze gewoonlijk korte eenvoudige tekenreeksen zijn, zou u een eenvoudiger en kleinere viewer kunnen gebruiken."
 
 #. (para)
 msgid "If you have configured an alternate diff tool, you can access TortoiseMerge <emphasis>and</emphasis> the third party tool from the context menus. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> uses the primary diff tool, and <keycap>Shift</keycap>+ <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> uses the secondary diff tool."
-msgstr ""
+msgstr "Als u een alternatief verschil-gereedschap heeft geconfigureerd, kunt u TortoiseMerge <emphasis>en</emphasis> het gereedschap van derden via het contextmenu benaderen. <menuchoice><guimenu>Contextmenu</guimenu><guimenuitem>Verschil</guimenuitem></menuchoice> gebruikt het primaire verschil-gereedschap, en <keycap>Shift</keycap>+ <menuchoice><guimenu>Contextmenu</guimenu><guimenuitem>Verschil</guimenuitem></menuchoice> gebruikt het secundaire verschil-gereedschap."
 
 #. (title)
 msgid "Merge Tool"
@@ -8830,31 +8843,31 @@ msgstr "Merge Tool"
 
 #. (para)
 msgid "the original file without your or the others changes"
-msgstr ""
+msgstr "het originele bestand zonder uw of andermans wijzigingen"
 
 #. (para)
 msgid "your own file, with your changes"
-msgstr ""
+msgstr "uw eigen bestand, met uw wijzigingen"
 
 #. (para)
 msgid "the file as it is in the repository"
-msgstr ""
+msgstr "het bestand zoals het is in het archief"
 
 #. (para)
 msgid "The window title for the file in the repository"
-msgstr ""
+msgstr "de schermtitel voor het bestand in het archief"
 
 #. (para)
 msgid "the conflicted file, the result of the merge operation"
-msgstr ""
+msgstr "het conflicterende bestand, het resultaat van de samenvoeg-operatie"
 
 #. (para)
 msgid "The window title for the merged file"
-msgstr ""
+msgstr "de schermtitel voor het samengevoegde bestand"
 
 #. (para)
 msgid "An external merge program used to resolve conflicted files. Parameter substitution is used in the same way as with the Diff Program. <placeholder-1/>"
-msgstr ""
+msgstr "Een extern samenvoegprogramma dat wordt gebruikt om conflicterende bestanden op te lossen. Er wordt op dezelfde manier van parameter substitutie gebruik gemaakt als bij het verschil-programma. <placeholder-1/> "
 
 #. (para)
 msgid ""
@@ -8870,34 +8883,45 @@ msgid ""
 "C:\\Path-To\\WinMerge.exe %merged\n"
 "</screen>"
 msgstr ""
+"Bijvoorbeeld, met Perforce Merge: <screen>\n"
+"C:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n"
+"</screen> of met KDiff3: <screen>\n"
+"C:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n"
+"    --L1 %bname --L2 %yname --L3 %tname\n"
+"</screen> of met Araxis: <screen>\n"
+"C:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n"
+"    /title3:%yname %theirs %base %mine %merged /a2\n"
+"</screen> of met WinMerge (2.8 of later): <screen>\n"
+"C:\\Path-To\\WinMerge.exe %merged\n"
+"</screen>"
 
 #. (title)
 msgid "Diff/Merge Advanced Settings"
-msgstr ""
+msgstr "Verschil/Samenvoeg uitgebreide instellingen"
 
 #. (title)
 msgid "The Settings Dialog, Diff/Merge Advanced Dialog"
-msgstr ""
+msgstr "Het instellingen scherm, Verschil/Samenvoeg uitgebreid scherm"
 
 #. (para)
 msgid "<placeholder-1/> In the advanced settings, you can define a different diff and merge program for every file extension. For instance you could associate Photoshop as the <quote>Diff</quote> Program for <filename>.jpg</filename> files :-) You can also associate the <literal>svn:mime-type</literal> property with a diff or merge program."
-msgstr ""
+msgstr "<placeholder-1/> In de uitgebreide instellingen kun u voor elke bestandsextensie een ander verschil-programma en samenvoeg-programma opgeven. U kunt bijvoorbeeld Photoshop associëren als het <quote>vershil</quote>-programma voor <filename>.jpg</filename> bestanden :-) U kunt ook de <literal>svn:mime-type</literal> eigenschap associëren met een verschil- of samenvoegprogramma."
 
 #. (para)
 msgid "To associate using a file extension, you need to specify the extension. Use <literal>.bmp</literal> to describe Windows bitmap files. To associate using the <literal>svn:mime-type</literal> property, specify the mime type, including a slash, for example <literal>text/xml</literal>."
-msgstr ""
+msgstr "Om middels een bestandsextensie te associëren dient u de extensie op te geven. Gebruik  <literal>.bmp</literal> om Windows bitmap bestanden aan te geven. Om te associëren middels de <literal>svn:mime-type</literal> eigenschap, geef dan het mime-type (inclusief een slash) op. Bijvoorbeeld <literal>text/xml</literal>."
 
 #. (title)
 msgid "Unified Diff Viewer"
-msgstr ""
+msgstr "Unified Diff viewer"
 
 #. (para)
 msgid "A viewer program for unified-diff files (patch files). No parameters are required. The <guilabel>Default</guilabel> option is to check for a file association for <filename>.diff</filename> files, and then for <filename>.txt</filename> files. If you don't have a viewer for <filename>.diff</filename> files, you will most likely get NotePad."
-msgstr ""
+msgstr "Een viewer programma voor unified-diff bestanden (patch bestanden). Er zijn geen parameters vereist. De <guilabel>Standaard</guilabel> optie is om te zoeken naar een bestandsassociatie voor <filename>.diff</filename> bestanden, en daarna voor <filename>.txt</filename> bestanden. Als u geen viewer heeft voor <filename>.diff</filename> bestanden, krijgt u zeer waarschijnlijk Notepad."
 
 #. (para)
 msgid "The original Windows NotePad program does not behave well on files which do not have standard CR-LF line-endings. Since most unified diff files have pure LF line-endings, they do not view well in NotePad. However, you can download a free NotePad replacement <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> which not only displays the line-endings correctly, but also colour codes the added and removed lines."
-msgstr ""
+msgstr "Het originele Windows NotePad programma reageert niet goed op bestanden welke geen standaard CR-LF regeleinden bevat. Omdat de meeste unified diff bestanden pure LF regeleinden hebben, worden ze niet goed weergegeven in NotePad. U kunt echter een gratis NotePad vervanger binnenhalen <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> welke niet alleen de regeleinden correct weergeeft, maar ook de toegevoegde en verwijderde regels kleurt."
 
 #. (title)
 msgid "Saved Data Settings"
@@ -8905,11 +8929,11 @@ msgstr "Bewaarde Data Instellingen"
 
 #. (title)
 msgid "The Settings Dialog, Saved Data Page"
-msgstr ""
+msgstr "Het instellingen scherm, Opgeslagen gegevens pagina"
 
 #. (para)
 msgid "<placeholder-1/> For your convenience, TortoiseSVN saves many of the settings you use, and remembers where you have been lately. If you want to clear out that cache of data, you can do it here."
-msgstr ""
+msgstr "<placeholder-1/> Voor uw gemak bewaart TortoiseSVN vele van de door u gebruikte eigenschappen en onthoudt waar u laatst bent geweest. Als u de cache van gegevens wilt schonen, kunt u dat hier doen."
 
 #. (term)
 msgid "URL history"
@@ -8917,63 +8941,63 @@ msgstr "URL geschiedenis"
 
 #. (para)
 msgid "Whenever you checkout a working copy, merge changes or use the repository browser, TortoiseSVN keeps a record of recently used URLs and offers them in a combo box. Sometimes that list gets cluttered with outdated URLs so it is useful to flush it out periodically."
-msgstr ""
+msgstr "Telkens als u een werkkopie binnenhaalt, wijzigingen samenvoegt of de archief-verkenner gebruikt, houdt TortoiseSVN een lijst van de recent gebruikte URL's bij en stelt deze beschikbaar in een keuzelijst. Soms raakt die lijst vervuilt met oude en ongeldige URL's, het is hierom raadzaam de lijst met regelmaat te legen."
 
 #. (para)
 msgid "If you want to remove a single item from one of the combo boxes you can do that in-place. Just click on the arrow to drop the combo box down, move the mouse over the item you want to remove and type <keycap>Shift+Del</keycap>."
-msgstr ""
+msgstr "Als u een enkel item uit een van de keuzelijsten wilt verwijderen kunt u dat ter plekke doen. Klik hiervoor op de pijl om de keuzelijst uit te klappen, beweeg de muis over het item dat u wilt verwijderen en gebruik de <keycap>Shift + Del</keycap> combinatie."
 
 #. (term)
 msgid "Log messages (Input dialog)"
-msgstr "Logmeldingen (Invoer Dialoog)"
+msgstr "Recente boodschappen (Invoer dialoog)"
 
 #. (para)
 msgid "TortoiseSVN stores recent commit log messages that you enter. These are stored per repository, so if you access many repositories this list can grow quite large."
-msgstr ""
+msgstr "TortoiseSVN bewaart de door u recent ingegeven logberichten bij vastleggen. Deze worden per archief opgeslagen, dus wanneer u veel archieven benadert kan de lijst tot een behoorlijke grootte aangroeien."
 
 #. (term)
 msgid "Log messages (Show log dialog)"
-msgstr "Logmeldingen (Toon log dialoog)"
+msgstr "Logboek boodschappen (Toon log dialoog)"
 
 #. (para)
 msgid "TortoiseSVN caches log messages fetched by the Show Log dialog to save time when you next show the log. If someone else edits a log message and you already have that message cached, you will not see the change until you clear the cache. Log message caching is enabled on the <guilabel>Log Cache</guilabel> tab."
-msgstr ""
+msgstr "TortoiseSVN houdt de uit het Toon log scherm verkregen logberichten bij in cache om tijd uit te sparen wanneer u de volgende keer de log bekijkt. Als iemand anders een logbericht aanpast terwijl u dat bericht al in de cache heeft staan, zal u die aanpassing niet zien totdat u de cache heeft geleegd. Het cachen van logberichten wordt aangezet op de <guilabel>Log cache</guilabel> tab."
 
 #. (term)
 msgid "Dialog sizes and positions"
-msgstr ""
+msgstr "Venster afmetingen en posities"
 
 #. (para)
 msgid "Many dialogs remember the size and screen position that you last used."
-msgstr ""
+msgstr "Veel vensters onthouden de afmetingen en vensterpositie die u het laatste heeft gebruikt."
 
 #. (term)
 msgid "Authentication data"
-msgstr "Authenticatie data"
+msgstr "Authenticatie gegevens"
 
 #. (para)
 msgid "When you authenticate with a Subversion server, the username and password are cached locally so you don't have to keep entering them. You may want to clear this for security reasons, or because you want to access the repository under a different username ... does John know you are using his PC?"
-msgstr ""
+msgstr "Als u zich authenticeerd met een Subversion server worden de gebruikersnaam en wachtwoord lokaal in de cache geplaatst zodat u deze niet elke keer hoeft in te geven. U kunt ze willen verwijderen om veiligheids redenen  of omdat u het archief onder een andere gebruikersnaam wilt benaderen ... weet Jan dat u zijn PC gebruikt ?"
 
 #. (para)
 msgid "If you want to clear authentication data for one particular server only, read <xref linkend=\"tsvn-dug-general-auth\"/> for instructions on how to find the cached data."
-msgstr ""
+msgstr "Als u de authenticatie gegevens wilt wissen voor slechts één specifieke server, lees <xref linkend=\"tsvn-dug-general-auth\"/> voor instructies omtrent hoe de cache gegevens te vinden."
 
 #. (term)
 msgid "Action log"
-msgstr "Actie log"
+msgstr "Actie-log"
 
 #. (para)
 msgid "TortoiseSVN keeps a log of everything written to its progress dialogs. This can be useful when, for example, you want to check what happened in a recent update command."
-msgstr ""
+msgstr "TortoiseSVN houdt een log bij van alles wat naar het voortgangsscherm wordt geschreven. Dit kan handig zijn voor het geval dat u bijvoorbeeld wilt controleren wat er in een recent bijwerk-commando is gebeurd."
 
 #. (para)
 msgid "The log file is limited in length and when it grows too big the oldest content is discarded. By default 4000 lines are kept, but you can customize that number."
-msgstr ""
+msgstr "Het logbestand is in lengte begrensd en als het te groot wordt, worden de oudste gegevens verwijderd. Standaard worden 4000 regels bewaard, maar u kunt dit aantal zelf aanpassen."
 
 #. (para)
 msgid "From here you can view the log file content, and also clear it."
-msgstr ""
+msgstr "Van hieruit kunt u de inhoud van het logbestand bekijken en ook wissen."
 
 #. (title)
 msgid "Log Caching"
