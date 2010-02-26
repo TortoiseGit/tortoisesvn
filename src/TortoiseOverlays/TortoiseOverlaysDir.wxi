@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include Id="TsvnInclude">
-	<Component Id='OverlayRegistry' Guid='87654321-4321-4321-4321-110987654321' Win64="$(var.Win64YesNo)">
+	<Component Id='OverlayRegistry' Guid="$(var.GuidShellRegistry)" Win64="$(var.Win64YesNo)">
 		<RegistryKey Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidNormal)}" Action="createAndRemoveOnUninstall" />
 		<RegistryValue Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidNormal)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
 		<RegistryValue Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidNormal)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
