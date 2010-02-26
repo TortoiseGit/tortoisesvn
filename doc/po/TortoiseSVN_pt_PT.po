@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-26 00:44-0000\n"
+"PO-Revision-Date: 2010-02-26 23:39-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4247,19 +4247,19 @@ msgstr "Deves ter notado que por vezes referimo-nos ás alterações e outras ve
 
 #. (para)
 msgid "Subversion uses revision numbers to mean 2 different things. A revision generally represents the state of the repository at a point in time, but it can also be used to represent the changeset which created that revision, eg. <quote>Done in r1234</quote> means that the changes committed in r1234 implement feature X. To make it clearer which sense is being used, we use two different terms."
-msgstr ""
+msgstr "O Subversion usa números de revisão para significar 2 coisas diferentes. A revisão, de modo geral, representa o estado do repositório num dado ponto no tempo, mas pode também ser usado para representar o conjunto de alterações que criou a revisão, e.g. <quote>Feito em r1234</quote> significa que as alterações submetidas na r1234 implementa a funcionalidade X. Para tornar mais claro qual o sentido que está a ser utilizado, usamos dois termos diferentes."
 
 #. (para)
 msgid "If you select two revisions N and M, the context menu will offer to show the <emphasis>difference</emphasis> between those two revisions. In Subversion terms this is <literal>diff -r M:N</literal>."
-msgstr ""
+msgstr "Se seleccionares duas revisões N e M, o menu de contexto irá oferecer a visualização da <emphasis>diferença</emphasis> entre essas duas revisões. Em termos Subversion isto é <literal>diff -r M:N</literal>."
 
 #. (para)
 msgid "If you select a single revision N, the context menu will offer to show the <emphasis>changes</emphasis> made in that revision. In Subversion terms this is <literal>diff -r N-1:N</literal> or <literal>diff -c N</literal>."
-msgstr ""
+msgstr "Se seleccionares uma só revisão N, o menu de contexto irá oferecer a visualização das <emphasis>alterações</emphasis> feitas nessa revisão. Em termos Subversion isto é <literal>diff -r N-1:N</literal> ou <literal>diff -c N</literal>."
 
 #. (para)
 msgid "The bottom pane shows the files changed in all selected revisions, so the context menu always offers to show <emphasis>changes</emphasis>."
-msgstr ""
+msgstr "O painel inferior mostra os ficheiros alterados em todas as revisões seleccionadas, então o menu de contexto irá oferecer sempre a visualização de <emphasis>alterações</emphasis>."
 
 #. (title)
 msgid "Getting more log messages"
