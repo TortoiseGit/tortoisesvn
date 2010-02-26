@@ -1898,13 +1898,17 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 						nIndex--;
 						break;
 					}
-					if (state != m_pViewData->GetState(--nIndex))
+					const DiffStates lineState = m_pViewData->GetState(--nIndex);
+					if (state != lineState && !LinesInOneChange(-1, state, lineState))
 						break;
 				}
 				m_nSelBlockStart = nIndex+1;
+				if (0 <= m_nSelBlockStart && m_nSelBlockStart < m_pViewData->GetCount()-1)
+					state = m_pViewData->GetState (m_nSelBlockStart);
 				while (nIndex < (m_pViewData->GetCount()-1))
 				{
-					if (state != m_pViewData->GetState(++nIndex))
+					const DiffStates lineState = m_pViewData->GetState(++nIndex);
+					if (state != lineState && !LinesInOneChange(1, state, lineState))
 						break;
 				}
 				if ((nIndex == (m_pViewData->GetCount()-1))&&(state == m_pViewData->GetState(nIndex)))
@@ -2047,16 +2051,26 @@ bool CBaseView::LinesInOneChange(int direction,
 	
 	// Either we move down and initial line state is "added" or "removed" and
 	// current line state is "empty"...
-	if (direction > 0 && currentLineState == DIFFSTATE_EMPTY)
+	if (direction > 0)
 	{
-		if (initialLineState == DIFFSTATE_ADDED || initialLineState == DIFFSTATE_REMOVED)
+		if (currentLineState == DIFFSTATE_EMPTY)
+		{
+			if (initialLineState == DIFFSTATE_ADDED || initialLineState == DIFFSTATE_REMOVED)
+				return true;
+		}
+		if (initialLineState == DIFFSTATE_CONFLICTADDED && currentLineState == DIFFSTATE_CONFLICTEMPTY)
 			return true;
 	}
 	// ...or we move up and initial line state is "empty" and current line
 	// state is "added" or "removed".
-	if (direction < 0 && initialLineState == DIFFSTATE_EMPTY)
+	if (direction < 0)
 	{
-		if (currentLineState == DIFFSTATE_ADDED || currentLineState == DIFFSTATE_REMOVED)
+		if (initialLineState == DIFFSTATE_EMPTY)
+		{
+			if (currentLineState == DIFFSTATE_ADDED || currentLineState == DIFFSTATE_REMOVED)
+				return true;
+		}
+		if (initialLineState == DIFFSTATE_CONFLICTEMPTY && currentLineState == DIFFSTATE_CONFLICTADDED)
 			return true;
 	}
 	return false;
@@ -2088,8 +2102,6 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 			const DiffStates lineState = m_pViewData->GetState(nCenterPos);
 			if (lineState != state)
 			{
-				if (bConflict)
-					break;
 				if (!LinesInOneChange(nDirection, state, lineState))
 					break;
 			}
@@ -2135,8 +2147,6 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 		DiffStates lineState = m_pViewData->GetState(lineIndex);
 		if (lineState != state)
 		{
-			if (bConflict)
-				break;
 			if (!LinesInOneChange(nDirection, state, lineState))
 				break;
 		}
