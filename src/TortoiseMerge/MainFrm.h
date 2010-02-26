@@ -158,6 +158,7 @@ protected:
 	bool			RunCommand(TCHAR* command);
 	bool			HasConflictsWontKeep();
 	bool			TryGetFileName(CString& result);
+	CBaseView*		GetActiveBaseView() const;
 
 protected: 
 	CMFCMenuBar     m_wndMenuBar;

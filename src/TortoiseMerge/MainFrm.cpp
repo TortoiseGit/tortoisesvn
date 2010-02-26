@@ -1795,25 +1795,19 @@ void CMainFrame::OnUpdateMergePreviousconflict(CCmdUI *pCmdUI)
 
 void CMainFrame::OnUpdateNavigateNextdifference(CCmdUI *pCmdUI)
 {
+	CBaseView* baseView = GetActiveBaseView();
 	BOOL bShow = FALSE;
-	if ((m_pwndBottomView)&&(m_pwndBottomView->HasCaret())&&(m_pwndBottomView->HasNextDiff()))
-		bShow = TRUE;
-	if ((m_pwndRightView)&&(m_pwndRightView->HasCaret())&&(m_pwndRightView->HasNextDiff()))
-		bShow = TRUE;
-	if ((m_pwndLeftView)&&(m_pwndLeftView->HasCaret())&&(m_pwndLeftView->HasNextDiff()))
-		bShow = TRUE;
+	if (baseView != 0)
+		bShow = baseView->HasNextDiff();
 	pCmdUI->Enable(bShow);
 }
 
 void CMainFrame::OnUpdateNavigatePreviousdifference(CCmdUI *pCmdUI)
 {
+	CBaseView* baseView = GetActiveBaseView();
 	BOOL bShow = FALSE;
-	if ((m_pwndBottomView)&&(m_pwndBottomView->HasCaret())&&(m_pwndBottomView->HasPrevDiff()))
-		bShow = TRUE;
-	if ((m_pwndRightView)&&(m_pwndRightView->HasCaret())&&(m_pwndRightView->HasPrevDiff()))
-		bShow = TRUE;
-	if ((m_pwndLeftView)&&(m_pwndLeftView->HasCaret())&&(m_pwndLeftView->HasPrevDiff()))
-		bShow = TRUE;
+	if (baseView != 0)
+		bShow = baseView->HasPrevDiff();
 	pCmdUI->Enable(bShow);
 }
 
@@ -2153,4 +2147,11 @@ bool CMainFrame::TryGetFileName(CString& result)
 
 	result = CString(ofn.lpstrFile);
 	return true;
+}
+
+CBaseView* CMainFrame::GetActiveBaseView() const
+{
+	CView* activeView = GetActiveView();
+	CBaseView* activeBase = dynamic_cast<CBaseView*>( activeView );
+	return activeBase;
 }
