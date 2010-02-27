@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-26 23:39-0000\n"
+"PO-Revision-Date: 2010-02-27 00:39-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4263,47 +4263,47 @@ msgstr "O painel inferior mostra os ficheiros alterados em todas as revisões se
 
 #. (title)
 msgid "Getting more log messages"
-msgstr ""
+msgstr "Obtendo mais mensagens de registo"
 
 #. (para)
 msgid "For a large repository there may be hundreds or even thousands of changes and fetching them all could take a long time. Normally you are only interested in the more recent changes. By default, the number of log messages fetched is limited to 100, but you can change this value in <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings-dialogs\"/>),"
-msgstr ""
+msgstr "Para um grande repositório poderão existir centenas ou mesmo milhares de alterações e, ir busca-las a todas pode demorar muito tempo. Normalmente só estarás interessado nas alterações mais recentes. Por defeito, o número de mensagens de registo trazidas está limitada às 100, mas no entanto podes alterar esse valor no <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Preferências</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings-dialogs\"/>),"
 
 #. (para)
 msgid "When the <guilabel>Stop on copy/rename</guilabel> box is checked, Show Log will stop at the point that the selected file or folder was copied from somewhere else within the repository. This can be useful when looking at branches (or tags) as it stops at the root of that branch, and gives a quick indication of changes made in that branch only."
-msgstr ""
+msgstr "Quando a caixa <guilabel>Parar ao copiar/alterar o nome</guilabel> está verificada, o Mostrar Registo irá parar no ponto onde o ficheiro ou pasta  seleccionada foi copiado de outro ponto do repositório. Isto pode ser útil ao olhar para ramos (ou etiquetas), já que pára na raiz desse ramo, e dá uma rápida indicação das alterações feitas só nesse ramo."
 
 #. (para)
 msgid "Normally you will want to leave this option unchecked. TortoiseSVN remembers the state of the checkbox, so it will respect your preference."
-msgstr ""
+msgstr "Normalmente tu quererás deixar esta opção não verificada. O TortoiseSVN lembra-se do estado da caixa de verificação, respeitando desse modo a tua preferência."
 
 #. (para)
 msgid "When the Show Log dialog is invoked from within the Merge dialog, the box is always checked by default. This is because merging is most often looking at changes on branches, and going back beyond the root of the branch does not make sense in that instance."
-msgstr ""
+msgstr "Quando a caixa de diálogo Mostrar Registo é invocada de dentro da caixa de diálogo de Integrar, esta caixa é sempre verificada por defeito. Isto porque, integrar é na maioria das vezes olhar para as alterações em ramos e voltar para trás, e ir além da raiz do ramo não fará sentido nessa situação."
 
 #. (para)
 msgid "Note that Subversion currently implements renaming as a copy/delete pair, so renaming a file or folder will also cause the log display to stop if this option is checked."
-msgstr ""
+msgstr "De notar que o Subversion actualmente implementa o renomear com o par copiar/apagar, então renomear um ficheiro ou pasta irá provocar, que a visualização do registo pare se esta opção está verificada."
 
 #. (para)
 msgid "The Log dialog does not always show all changes ever made for a number of reasons: <placeholder-1/>"
-msgstr ""
+msgstr "A caixa de diálogo de Registo não mostra sempre todas as alterações jamais feitas por um número de razões: <placeholder-1/>"
 
 #. (para)
 msgid "If you want to see more log messages, click the <guibutton>Next 100</guibutton> to retrieve the next 100 log messages. You can repeat this as many times as needed."
-msgstr ""
+msgstr "Se queres ver mais mensagens de registo, clica <guibutton>Próximos 100</guibutton> para trazer as próximas 100 mensagens de registo. Podes repetir este procedimento quantas vezes necessitares."
 
 #. (para)
 msgid "Next to this button there is a multi-function button which remembers the last option you used it for. Click on the arrow to see the other options offered."
-msgstr ""
+msgstr "Próximo a este botão está um botão multifunções que lembra a última opção para que o usaste. Clica na seta, para ver as outras opções disponíveis."
 
 #. (para)
 msgid "Use <guibutton>Show Range ...</guibutton> if you want to view a specific range of revisions. A dialog will then prompt you to enter the start and end revision."
-msgstr ""
+msgstr "Usa <guibutton>Mostrar Intervalo...</guibutton> se queres ver um intervalo de revisões específica. A caixa de diálogo irá então pedir-te para introduzir a revisão de início e fim."
 
 #. (para)
 msgid "Use <guibutton>Show All</guibutton> if you want to see <emphasis>all</emphasis> log messages from HEAD right back to revision 1."
-msgstr ""
+msgstr "Usa <guibutton>Mostrar Tudo</guibutton> se queres ver <emphasis>todas</emphasis> as mensagens de registo a partir da revisão HEAD de volta até à revisão 1. "
 
 #. (title)
 msgid "Current Working Copy Revision"
