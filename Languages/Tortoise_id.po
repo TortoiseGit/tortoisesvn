@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-30 12:10-0600\n"
+"PO-Revision-Date: 2010-02-27 09:47-0600\n"
 "Last-Translator: Evan Allrich <eallrich@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1406,6 +1406,10 @@ msgstr "&Mutakhirkan ke revisi..."
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "G&unakan pelengkapan otomatis untuk path berkas dan kata kunci"
 
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "&Gunakan tampungan daur ulang"
+
 # Control-ID:65535,#:
 # Control-ID:1005,#:
 # Control-ID:65535,
@@ -2663,6 +2667,10 @@ msgstr "Daftar perubahan:"
 msgid "Changes made (double-click on file for diff):"
 msgstr "Perubahan dibuat (klik-ganda pada berkas untuk diff):"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "Mengubah eksternal untuk tetap revisi"
+
 # ID:8,
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -2683,6 +2691,10 @@ msgstr "Periksa Pemutakhiran"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Periksa Pemutakhiran..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr "Periksa eksternal untuk tag"
 
 # Control-ID:65535,
 #. Resource IDs: (276)
@@ -3401,8 +3413,8 @@ msgstr "Copy: Nama baru untuk %s"
 # ID:80,
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "Mengcopy %s"
+msgid "Copying %1!s!"
+msgstr "Mengcopy %1!s!"
 
 # ID:80,
 #. Resource IDs: (80)
@@ -3810,6 +3822,11 @@ msgstr "Hapus dan &tambah ke daftar abaikan"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Hapus dan abaikan %d item berdasarkan &ekstensi"
+
+# Control-ID:1073,
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "Hapus item-item tidak berversi"
 
 # Control-ID:1073,
 #. Resource IDs: (17)
@@ -4582,8 +4599,8 @@ msgstr "Ekspor berkas tidak berversi juga"
 # ID:79,
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "Mengekspor %s"
+msgid "Exporting %1!s!"
+msgstr "Mengekspor %1!s!"
 
 # ID:79,
 #. Resource IDs: (79)
@@ -6789,8 +6806,8 @@ msgstr "Pindahkan berkas-berkas yang berubah ke tampungan daur ulang sebelum mem
 # ID:80,
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "Memindahkan %s"
+msgid "Moving %1!s!"
+msgstr "Memindahkan %1!s!"
 
 # ID:80,
 #. Resource IDs: (80)
@@ -6923,6 +6940,11 @@ msgstr "Tidak ada pesan kesalahan tersedia."
 #. Resource IDs: (3867, 3868)
 msgid "No error occurred."
 msgstr "Tidak ada kesalahan terjadi."
+
+# ID:82,
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "Eksternal tidak ditemukan"
 
 # ID:82,
 #. Resource IDs: (82)
@@ -7520,6 +7542,11 @@ msgstr "Harap menunggu sementara membatalkan..."
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
 msgstr "Harap menunggu sementara perbedaan diperoleh..."
+
+# ID:319,
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "Harap tunggu sementara eksternal dikumpulkan..."
 
 # ID:104,
 #. Resource IDs: (104)
@@ -9165,6 +9192,17 @@ msgstr "Tampilkan Di Atas Pita"
 msgid "Show Below the Ribbon"
 msgstr "Tampilkan Di Bawah Pita"
 
+# ID:12,#:
+# ID:101,#:
+# Control-ID:1016,#:
+# Control-ID:1228,#:
+# Control-ID:1031,#:
+# Control-ID:1034,#:
+# Control-ID:1132,
+#. Resource IDs: (1542)
+msgid "Show Branch L&og"
+msgstr "Tampilkan &Log Cabang"
+
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
 msgstr "Tampilkan Lebih Sedikit Tombol"
@@ -10740,6 +10778,10 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "TortoiseSVN komit automatis: berubah eksternal untuk tetap revisi."
+
 # ID:98,
 #. Resource IDs: (98)
 #, c-format
@@ -11056,8 +11098,8 @@ msgstr "Berkas tidak berversi menandai folder leluhur sebagai diubah"
 # ID:201,
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "Menjadikan tak berversi %s"
+msgid "Unversioning %1!s!"
+msgstr "Menjadikan tak berversi %1!s!"
 
 # ID:282,
 #. Resource IDs: (106)
@@ -12570,6 +12612,14 @@ msgstr "ada modifikasi berkonflik."
 #, c-format
 msgid "to %1"
 msgstr "ke %1"
+
+# ID:80,#:
+# ID:103,#:
+# ID:103,
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr "ke %1!s!"
 
 # ID:80,#:
 # ID:103,#:
