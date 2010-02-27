@@ -94,22 +94,11 @@ BOOL COpenDlg::OnInitDialog()
 	CheckRadioButton(IDC_MERGERADIO, IDC_APPLYRADIO, (DWORD)lastRadioButton);
 
 	// turn on auto completion for the edit controls
-	HWND hwndEdit;
-	GetDlgItem(IDC_BASEFILEEDIT, &hwndEdit);
-	if (hwndEdit)
-		SHAutoComplete(hwndEdit, SHACF_AUTOSUGGEST_FORCE_ON | SHACF_AUTOAPPEND_FORCE_ON | SHACF_FILESYSTEM);
-	GetDlgItem(IDC_THEIRFILEEDIT, &hwndEdit);
-	if (hwndEdit)
-		SHAutoComplete(hwndEdit, SHACF_AUTOSUGGEST_FORCE_ON | SHACF_AUTOAPPEND_FORCE_ON | SHACF_FILESYSTEM);
-	GetDlgItem(IDC_YOURFILEEDIT, &hwndEdit);
-	if (hwndEdit)
-		SHAutoComplete(hwndEdit, SHACF_AUTOSUGGEST_FORCE_ON | SHACF_AUTOAPPEND_FORCE_ON | SHACF_FILESYSTEM);
-	GetDlgItem(IDC_DIFFFILEEDIT, &hwndEdit);
-	if (hwndEdit)
-		SHAutoComplete(hwndEdit, SHACF_AUTOSUGGEST_FORCE_ON | SHACF_AUTOAPPEND_FORCE_ON | SHACF_FILESYSTEM);
-	GetDlgItem(IDC_DIRECTORYEDIT, &hwndEdit);
-	if (hwndEdit)
-		SHAutoComplete(hwndEdit, SHACF_AUTOSUGGEST_FORCE_ON | SHACF_AUTOAPPEND_FORCE_ON | SHACF_FILESYSTEM);
+	AutoCompleteOn(IDC_BASEFILEEDIT);
+	AutoCompleteOn(IDC_THEIRFILEEDIT);
+	AutoCompleteOn(IDC_YOURFILEEDIT);
+	AutoCompleteOn(IDC_DIFFFILEEDIT);
+	AutoCompleteOn(IDC_DIRECTORYEDIT);
 
 	m_cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
 	m_nextViewer = SetClipboardViewer();
@@ -377,4 +366,12 @@ void COpenDlg::OnBnClickedPatchfromclipboard()
 	UpdateData();
 	DialogEnableWindow(IDC_DIFFFILEEDIT, !m_bFromClipboard);
 	DialogEnableWindow(IDC_DIFFFILEBROWSE, !m_bFromClipboard);
+}
+
+void COpenDlg::AutoCompleteOn(int controlId)
+{
+	HWND hwnd;
+	GetDlgItem(controlId, &hwnd);
+	if (hwnd)
+		SHAutoComplete(hwnd, SHACF_AUTOSUGGEST_FORCE_ON | SHACF_AUTOAPPEND_FORCE_ON | SHACF_FILESYSTEM);
 }

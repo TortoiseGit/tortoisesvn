@@ -70,6 +70,7 @@ protected:
 
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
+	void AutoCompleteOn(int controlId);
 
 	BOOL	m_bFromClipboard;
 	UINT	m_cFormat;
