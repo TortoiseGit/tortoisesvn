@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-27 23:26-0000\n"
+"PO-Revision-Date: 2010-02-27 23:55-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4343,7 +4343,7 @@ msgstr "É claro que integrar nunca é simples! Durante o desenvolvimento da fun
 
 #. (title)
 msgid "Changing the Log Message and Author"
-msgstr ""
+msgstr "Alterando a Mensagem de Registo e Autor"
 
 #. (primary)
 msgid "edit log/author"
@@ -4359,23 +4359,23 @@ msgstr ""
 
 #. (para)
 msgid "Revision properties are completely different from the Subversion properties of each item. Revprops are descriptive items which are associated with one specific revision number in the repository, such as log message, commit date and committer name (author)."
-msgstr ""
+msgstr "As propriedades de revisão são completamente diferentes das propriedades do Subversion de cada item. Revprops são itens descritivos que são associados a um número de revisão específico no repositório, como as mensagens de registo, data de submissão e autor da submissão (autor)."
 
 #. (para)
 msgid "Sometimes you might want to change a log message you once entered, maybe because there's a spelling error in it or you want to improve the message or change it for other reasons. Or you want to change the author of the commit because you forgot to set up authentication or..."
-msgstr ""
+msgstr "Por vezes poderás querer modificar a mensagem de registo que anteriormente introduziste, talvez porque contêm o erro de ortografia, ou queres melhorar a mensagem, ou muda-la por outras razões. Ou queres alterar o autor da submissão porque de esqueces-te de activar a autenticação, ou..."
 
 #. (para)
 msgid "Subversion lets you change revision properties any time you want. But since such changes can't be undone (those changes are not versioned) this feature is disabled by default. To make this work, you must set up a pre-revprop-change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for details about how to do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some further notes on implementing hooks on a Windows machine."
-msgstr ""
+msgstr "O Subversion deixa-te alterar as propriedades da revisão em qualquer altura que desejes. Mas como essas alterações não podem ser desfeitas (essas alterações não são versionadas) essa funcionalidade está desactivada por defeito. Para activar esta funcionalidade deverás configurar o gancho pre-revprop-change. Consultar o respectivo capítulo no <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> no livro do Subversion para detalhes em como o fazer. Ler <xref linkend=\"tsvn-repository-hooks\"/> para encontrares mais notas sobre como implementar ganchos numa máquina Windows."
 
 #. (para)
 msgid "Once you've set up your server with the required hooks, you can change the author and log message (or any other revprop) of any revision, using the context menu from the top pane of the Log dialog. You can also edit a log message using the context menu for the middle pane."
-msgstr ""
+msgstr "Uma vez que tenhas configurado o teu servidor com os ganchos pretendidos, podes mudar o autor e a mensagem de registo ( ou qualquer outra revprop) de qualquer revisão, usando o menu de contexto do painel de topo da caixa de diálogo Registo. Podes também editar a mensagem de registo usando o menu de contexto no painel do meio."
 
 #. (para)
 msgid "Because Subversion's revision properties are not versioned, making modifications to such a property (for example, the <literal>svn:log</literal> commit message property) will overwrite the previous value of that property <emphasis>forever</emphasis>."
-msgstr ""
+msgstr "Porque as propriedades de revisão do Subversion não são versionadas, fazer alterações a tais propriedades (por exemplo, a propriedade da mensagem de submissão <literal>svn:log</literal>) irá re-escrever o seu valor <emphasis>para sempre</emphasis>."
 
 #. (title)
 msgid "Filtering Log Messages"
