@@ -229,7 +229,7 @@ NAnt build script for the TortoiseSVN language pack installers
 		</script>
 	</target>
 
-	<target name="all" depends="clean">
+	<target name="all" depends="clean,resourcedlls">
 		<description>
 			Builds the installers.
 		</description>
@@ -380,8 +380,6 @@ NAnt build script for the TortoiseSVN language pack installers
 			<variable name="TMergeHelpFile" value="${langISO}" />
 		</setenv>
 
-		<property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
-
 		<exec program="candle">
 			<arg value="-nologo" />
 			<arg value="-out" />
@@ -423,6 +421,16 @@ NAnt build script for the TortoiseSVN language pack installers
 		<delete file="..\bin\TortoiseIDiff${langCC}.dll" failonerror="false" />
 		<delete file="subversion.mo" failonerror="false" />
 	</target>
+
+  <target name="resourcedlls">
+    <property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
+
+    <zip zipfile="..\bin\TortoiseSVN_${verstring}${devrelease}-${platform}--LanguageDlls.zip" ziplevel="9">
+      <fileset>
+        <include name="..\bin\release${bindirextension}\bin\*Lang.dll" />
+      </fileset>
+    </zip>
+  </target>
 </project>
 
 
