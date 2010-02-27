@@ -149,7 +149,13 @@ void CSkipRevisionInfo::CPacker::RemoveKnownRevisions()
 
             if (length == 0)
             {
+            #ifdef _MSC_VER
                 iter = ranges.erase (iter);
+            #else
+                revision_t revision = iter->first;
+                ranges.erase (iter);
+                iter = ranges.lower_bound (revision);
+            #endif
             }
             else
             {

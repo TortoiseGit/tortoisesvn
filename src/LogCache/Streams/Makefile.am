@@ -27,7 +27,7 @@ liblogcachestreams_a_SOURCES = \
 	RootOutStream.cpp\
 	StreamException.cpp
 
-AM_CPPFLAGS = -I$(srcdir)/../../UtilsProject -I$(srcdir)/../../CompatibilityHeaders
+AM_CPPFLAGS = -I$(srcdir)/../../UtilsProject -I$(srcdir)/../../CompatibilityHeaders -I$(srcdir)/../../Utils 
 
 # set the include path found by configure
 INCLUDES= $(all_includes)
