@@ -202,6 +202,9 @@ CCachedLogInfo* CLogCachePool::GetCache (const CString& uuid, const CString& roo
         = repositoryInfo->data.Lookup (uuid, root);
     assert (info != NULL);
 
+	if (info == NULL)
+		return NULL;
+
 	TCaches::const_iterator iter = caches.find (info->fileName);
 	if (iter != caches.end())
 		return iter->second;
