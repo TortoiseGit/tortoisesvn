@@ -76,7 +76,7 @@ public:
 template<class S> 
 S* IHierarchicalOutStream::OpenSubStream (SUB_STREAM_ID subStreamID, S*)
 {
-	return dynamic_cast<S*>(OpenSubStream (subStreamID, typename S::TYPE_ID));
+	return dynamic_cast<S*>(OpenSubStream (subStreamID, S::TYPE_ID));
 }
 
 ///////////////////////////////////////////////////////////////
