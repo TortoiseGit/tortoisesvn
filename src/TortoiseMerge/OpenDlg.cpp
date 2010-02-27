@@ -111,29 +111,17 @@ BOOL COpenDlg::OnInitDialog()
 
 void COpenDlg::OnBnClickedBasefilebrowse()
 {
-	CString temp;
-	UpdateData();
-	temp.LoadString(IDS_SELECTFILE);
-	BrowseForFile(m_sBaseFile, temp);
-	UpdateData(FALSE);
+	OnBrowseForFile(m_sBaseFile);
 }
 
 void COpenDlg::OnBnClickedTheirfilebrowse()
 {
-	CString temp;
-	UpdateData();
-	temp.LoadString(IDS_SELECTFILE);
-	BrowseForFile(m_sTheirFile, temp);
-	UpdateData(FALSE);
+	OnBrowseForFile(m_sTheirFile);
 }
 
 void COpenDlg::OnBnClickedYourfilebrowse()
 {
-	CString temp;
-	UpdateData();
-	temp.LoadString(IDS_SELECTFILE);
-	BrowseForFile(m_sYourFile, temp);
-	UpdateData(FALSE);
+	OnBrowseForFile(m_sYourFile);
 }
 
 void COpenDlg::OnBnClickedHelp()
@@ -141,14 +129,14 @@ void COpenDlg::OnBnClickedHelp()
 	this->OnHelp();
 }
 
-BOOL COpenDlg::BrowseForFile(CString& filepath, CString title, UINT nFileFilter)
+BOOL COpenDlg::BrowseForFile(CString& filepath, const CString& title, UINT nFileFilter) const
 {
-	OPENFILENAME ofn = {0};			// common dialog box structure
-	TCHAR szFile[MAX_PATH] = {0};	// buffer for file name
+	TCHAR szFile[MAX_PATH + 1] = {0};	// buffer for file name
 	if (!filepath.IsEmpty())
 	{
 		_tcscpy_s(szFile, filepath);
 	}
+	OPENFILENAME ofn = {0};				// common dialog box structure
 	// Initialize OPENFILENAME
 	ofn.lStructSize = sizeof(OPENFILENAME);
 	ofn.hwndOwner = this->m_hWnd;
@@ -164,8 +152,7 @@ BOOL COpenDlg::BrowseForFile(CString& filepath, CString title, UINT nFileFilter)
 	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 
 	// Display the Open dialog box. 
-
-	if (GetOpenFileName(&ofn)==TRUE)
+	if (GetOpenFileName(&ofn) != 0)
 	{
 		filepath = CString(ofn.lpstrFile);
 		return TRUE;
@@ -173,13 +160,18 @@ BOOL COpenDlg::BrowseForFile(CString& filepath, CString title, UINT nFileFilter)
 	return FALSE;			//user canceled the dialog
 }
 
+void COpenDlg::OnBrowseForFile(CString& filepath, UINT nFileFilter)
+{
+	UpdateData();
+	CString temp;
+	temp.LoadString(IDS_SELECTFILE);
+	BrowseForFile(filepath, temp, nFileFilter);
+	UpdateData(FALSE);
+}
+
 void COpenDlg::OnBnClickedDifffilebrowse()
 {
-	CString temp;
-	UpdateData();
-	temp.LoadString(IDS_SELECTFILE);
-	BrowseForFile(m_sUnifiedDiffFile, temp, IDS_PATCHFILEFILTER);
-	UpdateData(FALSE);
+	OnBrowseForFile(m_sUnifiedDiffFile, IDS_PATCHFILEFILTER);
 }
 
 void COpenDlg::OnBnClickedDirectorybrowse()
