@@ -1407,8 +1407,9 @@ void CBaseView::DrawText(
 		const TCHAR * findText = text;
 		while ((findText = _tcsstr(findText, (LPCTSTR)m_sMarkedWord))!=0)
 		{
-			lineCols.SetColor(findText - text, CAppUtils::IntenseColor(200, crText), CAppUtils::IntenseColor(200, crBkgnd));
-			lineCols.SetColor(findText - text + m_sMarkedWord.GetLength());
+            int position = static_cast<int>(findText - text);
+			lineCols.SetColor(position, CAppUtils::IntenseColor(200, crText), CAppUtils::IntenseColor(200, crBkgnd));
+			lineCols.SetColor(position + m_sMarkedWord.GetLength());
 			findText += m_sMarkedWord.GetLength();
 		}
 	}
@@ -3588,14 +3589,14 @@ bool CBaseView::GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>
 	if (!diff || !SVNLineDiff::ShowInlineDiff(diff))
 		return false;
 
-	int lineoffset = 0;
-	int position = 0;
-	std::deque<int> removedPositions;
+	size_t lineoffset = 0;
+	size_t position = 0;
+	std::deque<size_t> removedPositions;
 	while (diff)
 	{
 		apr_off_t len = diff->original_length;
 
-		for (int i = 0; i < len; ++i)
+		for (apr_off_t i = 0; i < len; ++i)
 		{
 			position += m_svnlinediff.m_line1tokens[lineoffset].size();
 			lineoffset++;

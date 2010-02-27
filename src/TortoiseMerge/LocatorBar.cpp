@@ -272,7 +272,7 @@ void CLocatorBar::PaintView(CDC& cacheDC, CBaseView* view, CDWordArray& indents,
 		{
 			if (view->m_arMarkedWordLines[i])
 			{
-				cacheDC.FillSolidRect(rect.left + (width*stripeIndex/3), height*i/m_nLines, 
+				cacheDC.FillSolidRect(rect.left + (width*stripeIndex/3), (int)(height*i/m_nLines), 
 					barwidth, max(height/m_nLines,2), color);
 			}
 		}
