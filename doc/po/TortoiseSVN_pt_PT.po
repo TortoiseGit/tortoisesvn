@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-27 22:53-0000\n"
+"PO-Revision-Date: 2010-02-27 23:26-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4319,7 +4319,7 @@ msgstr "Quando mostras o registo para uma pasta, a revisão realçada é a mais 
 
 #. (title)
 msgid "Merge Tracking Features"
-msgstr ""
+msgstr "Funcionalidades de Rastreamento de Integração"
 
 #. (primary)
 msgid "merge tracking log"
@@ -4327,19 +4327,19 @@ msgstr ""
 
 #. (para)
 msgid "Subversion 1.5 and later keeps a record of merges using properties. This allows us to get a more detailed history of merged changes. For example, if you develop a new feature on a branch and then merge that branch back to trunk, the feature development will show up on the trunk log as a single commit for the merge, even though there may have been 1000 commits during branch development."
-msgstr ""
+msgstr "O Subversion 1.5 e superior mantém o registo das integrações recorrendo ao uso de propriedades. Isto permite-te obter um histórico mais detalhado das alterações integradas. Por exemplo, se desenvolveres uma nova funcionalidade num ramo e a seguir integras esse ramo de volta para o trunk, a funcionalidade desenvolvida irá ser mostrada no registo do trunk, como uma única submissão para a integração, mesmo que tenha havido 1000 submissões durante o desenvolvimento do ramo."
 
 #. (title)
 msgid "The Log Dialog Showing Merge Tracking Revisions"
-msgstr ""
+msgstr "A Caixa de Diálogo Registo Mostra Rasto das Revisões de Integração"
 
 #. (para)
 msgid "If you want to see the detail of which revisions were merged as part of that commit, use the <guilabel>Include merged revisions</guilabel> checkbox. This will fetch the log messages again, but will also interleave the log messages from revisions which were merged. Merged revisions are shown in grey because they represent changes made on a different part of the tree."
-msgstr ""
+msgstr "Se quiseres ver o detalhe de quais revisões que foram integradas como parte dessa submissão, usa a caixa de verificação <guilabel>Incluir revisões integradas</guilabel>. Isto irá outra vez buscar as mensagens de registo, mas também irá colocar entrefolhas as mensagens de registo das revisões que foram submetidas. Revisões integradas são mostradas a cinzento, porque representam alterações feitas numa parte diferente da árvore."
 
 #. (para)
 msgid "Of course, merging is never simple! During feature development on the branch there will probably be occasional merges back from trunk to keep the branch in sync with the main line code. So the merge history of the branch will also include another layer of merge history. These different layers are shown in the log dialog using indentation levels."
-msgstr ""
+msgstr "É claro que integrar nunca é simples! Durante o desenvolvimento da funcionalidade no ramo, irão provavelmente ocorrer integrações ocasionais de volta para o trunk, de modo a manter o ramo em sincronismo com a linha de código principal."
 
 #. (title)
 msgid "Changing the Log Message and Author"
