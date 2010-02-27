@@ -196,14 +196,12 @@ CLogCachePool::~CLogCachePool()
 
 CCachedLogInfo* CLogCachePool::GetCache (const CString& uuid, const CString& root)
 {
-	// cache hit?
+	// get / auto-create suitable entry in cache list
 
     CRepositoryInfo::SPerRepositoryInfo* info 
-        = repositoryInfo->data.Lookup (uuid, root);
-    assert (info != NULL);
+        = repositoryInfo->data.AutoInsert (uuid, root);
 
-	if (info == NULL)
-		return NULL;
+	// cache hit?
 
 	TCaches::const_iterator iter = caches.find (info->fileName);
 	if (iter != caches.end())
@@ -239,7 +237,8 @@ size_t CLogCachePool::FileSize (const CString& uuid, const CString& root)
 
     CRepositoryInfo::SPerRepositoryInfo* info 
         = repositoryInfo->data.Lookup (uuid, root);
-    assert (info != NULL);
+    if (info == NULL)
+        return 0;
 
 	WIN32_FILE_ATTRIBUTE_DATA fileInfo;
     if (GetFileAttributesEx ( cacheFolderPath + info->fileName

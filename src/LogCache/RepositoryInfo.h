@@ -148,7 +148,9 @@ private:
 
         /// modification
 
+        SPerRepositoryInfo* AutoInsert (const CString& uuid, const CString& root);
         void Add (const SPerRepositoryInfo& info);
+        void Add (const CString& uuid, const CString& root);
         void Remove (SPerRepositoryInfo* info);
 
         /// read / write file

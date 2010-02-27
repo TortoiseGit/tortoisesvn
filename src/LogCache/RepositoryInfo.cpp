@@ -166,6 +166,21 @@ CRepositoryInfo::CData::Lookup (const CString& uuid, const CString& root) const
 
 // modification
 
+CRepositoryInfo::SPerRepositoryInfo* 
+CRepositoryInfo::CData::AutoInsert (const CString& uuid, const CString& root) 
+{
+    // do we already have a suitable entry?
+
+    CRepositoryInfo::SPerRepositoryInfo* result = Lookup (uuid, root);
+    if (result != NULL)
+        return result;
+
+    // no -> add one & return it
+
+    Add (uuid, root);
+    return Lookup (uuid, root);
+}
+
 void CRepositoryInfo::CData::Add (const SPerRepositoryInfo& info)
 {
     SPerRepositoryInfo* newInfo = new SPerRepositoryInfo (info);
@@ -174,6 +189,19 @@ void CRepositoryInfo::CData::Add (const SPerRepositoryInfo& info)
     urlIndex.insert (std::make_pair (newInfo->root, newInfo));
     uuidIndex.insert (std::make_pair (newInfo->uuid, newInfo));
     fullIndex.insert (std::make_pair (std::make_pair (newInfo->uuid, newInfo->root), newInfo));
+}
+
+void CRepositoryInfo::CData::Add (const CString& uuid, const CString& root) 
+{
+    SPerRepositoryInfo info;
+    info.headRevision = (revision_t)NO_REVISION;
+    info.headLookupTime = -1;
+    info.connectionState = online;
+    info.root = root;
+    info.uuid = uuid;
+    info.fileName = UniqueFileName (info.root.Left (60) + info.uuid);
+
+    Add (info);
 }
 
 void CRepositoryInfo::CData::Remove (SPerRepositoryInfo* info)
@@ -487,17 +515,7 @@ CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
     // add new cache entry if none is available, yet
 
     if ((svn.Err == NULL) && (info == NULL))
-    {
-        SPerRepositoryInfo info2;
-        info2.headRevision = (revision_t)NO_REVISION;
-        info2.headLookupTime = -1;
-        info2.connectionState = online;
-        info2.root = root;
-        info2.uuid = uuid;
-        info2.fileName = UniqueFileName (info2.root.Left (60) + info2.uuid);
-
-        data.Add (info2);
-    }
+        data.Add (uuid, root);
 
     // done
 
