@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-27 00:42-0000\n"
+"PO-Revision-Date: 2010-02-27 22:53-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4311,11 +4311,11 @@ msgstr "Revisão Actual da Cópia de Trabalho"
 
 #. (para)
 msgid "Because the log dialog shows you the log from HEAD, not from the current working copy revision, it often happens that there are log messages shown for content which has not yet been updated in your working copy. To help make this clearer, the commit message which corresponds to the revision you have in your working copy is shown in bold."
-msgstr ""
+msgstr "Porque a caixa de diálogo de registo te mostra o registo a partir da HEAD, e não da revisão corrente da cópia de trabalho, acontece frequentemente que são mostradas  mensagens de registo para conteúdo que ainda não foi actualizado, na tua cópia de trabalho. Para ajudar a tornar isto mais claro, a mensagem de submissão que corresponde à revisão que tens na tua cópia de trabalho, é mostrada a negrito."
 
 #. (para)
 msgid "When you show the log for a folder the revision highlighted is the highest revision found anywhere within that folder, which requires a crawl of the working copy. The crawl takes place within a separate thread so as not to delay showing the log, but as a result highlighting for folders may not appear immediately."
-msgstr ""
+msgstr "Quando mostras o registo para uma pasta, a revisão realçada é a mais alta revisão encontrada em qualquer ponto dentro dessa pasta, o que requere o rastreamento da cópia de trabalho. O rastreamenteo é feito numa thread separada, para que não atrase a visualização do registo, mas como resultado o realce para pastas poderá não aparecer imediatamente."
 
 #. (title)
 msgid "Merge Tracking Features"
