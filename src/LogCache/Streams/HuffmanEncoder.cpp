@@ -252,7 +252,7 @@ void CHuffmanEncoder::WriteHuffmanEncoded ( const BYTE* source
 
 #ifdef _64BITS
 
-	// main loop (22 1/3 clock ticks per 4 chars on K8) 
+	// main loop
 
 	const encode_block_type* blockSource 
 		= reinterpret_cast<const encode_block_type*>(source);
@@ -263,42 +263,38 @@ void CHuffmanEncoder::WriteHuffmanEncoded ( const BYTE* source
 	{
 		// fetch 4 chars at once
 
-		encode_block_type data = *blockSource;
+		QWORD data = *blockSource;
 
 		// encode byte 0
 
-		encode_block_type data0 = data & 0xff;
+		size_t index = data & 0xff;
 		data >>= 8;
 
-		BYTE len0 = keyLength [data0];
-		cachedCode += static_cast<key_block_type>(key [data0]) << cachedBits;
-		cachedBits += len0;
+		cachedCode += key [index] << cachedBits;
+		cachedBits += keyLength [index];
 
 		// encode byte 1
 
-		encode_block_type data1 = data & 0xff;
+		index = data & 0xff;
 		data >>= 8;
 
-		BYTE len1 = keyLength [data1];
-		cachedCode += static_cast<key_block_type>(key [data1]) << cachedBits;
-		cachedBits += len1;
+		cachedCode += key [index] << cachedBits;
+		cachedBits += keyLength [index];
 
 		// encode byte 2
 
-		encode_block_type data2 = data & 0xff;
+		index = data & 0xff;
 		data >>= 8;
 
-		BYTE len2 = keyLength [data2];
-		cachedCode += static_cast<key_block_type>(key [data2]) << cachedBits;
-		cachedBits += len2;
+		cachedCode += key [index] << cachedBits;
+		cachedBits += keyLength [index];
 
 		// encode byte 3
 
-		encode_block_type data3 = data & 0xff;
+		index = data & 0xff;
 
-		BYTE len3 = keyLength [data3];
-		cachedCode += static_cast<key_block_type>(key [data3]) << cachedBits;
-		cachedBits += len3;
+		cachedCode += key [index] << cachedBits;
+		cachedBits += keyLength [index];
 
 		// write full bytes only
 
@@ -325,7 +321,7 @@ void CHuffmanEncoder::WriteHuffmanEncoded ( const BYTE* source
 		DWORD data0 = source[0];
 
 		BYTE len0 = keyLength [data0];
-		cachedCode += static_cast<key_block_type>(key [data0]) << cachedBits;
+		cachedCode += key [data0] << cachedBits;
 		cachedBits += len0;
 
 		// encode byte 1
@@ -333,7 +329,7 @@ void CHuffmanEncoder::WriteHuffmanEncoded ( const BYTE* source
 		DWORD data1 = source[1];
 
 		BYTE len1 = keyLength [data1];
-		cachedCode += static_cast<key_block_type>(key [data1]) << cachedBits;
+		cachedCode += key [data1] << cachedBits;
 		cachedBits += len1;
 
 		// write full bytes only
