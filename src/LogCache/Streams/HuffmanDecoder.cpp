@@ -92,61 +92,63 @@ void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
 
 	// main loop
 
-	encode_block_type* blockDest 
-		= reinterpret_cast<encode_block_type*>(dest);
-	encode_block_type* blockEnd 
-		= blockDest + decodedSize / sizeof (encode_block_type);
+	BYTE* blockDest = dest;
+	BYTE* blockEnd = blockDest + (decodedSize & (0-sizeof (encode_block_type)));
 
     key_block_type nextCodes = *reinterpret_cast<const key_block_type*>(first);
-	for (; blockDest != blockEnd; ++blockDest)
+	for (; blockDest != blockEnd; blockDest += sizeof (encode_block_type))
 	{
-		// fetch encoded data into cache
+		// pre-fetch, part III
 
-        first += ((size_t)(KEY_BLOCK_BITS-1) - (size_t)cachedBits) / 8;
 		cachedCode |= nextCodes << cachedBits;
 
-		cachedBits |= KEY_BLOCK_BITS - 8;		// KEY_BLOCK_BITS must be 2^n
-
-        nextCodes = *reinterpret_cast<const key_block_type*>(first);
-
 		// decode 2 (32 bit) to 4 (64 bit) bytes
+		// decode byte 0
 
 		BYTE keyLength = length[cachedCode & MAX_KEY_VALUE];
-		encode_block_type data = value[cachedCode & MAX_KEY_VALUE];
+		blockDest[0] = value[cachedCode & MAX_KEY_VALUE];
+
+		// pre-fetch, part I
+
+		first += ((size_t)(KEY_BLOCK_BITS-1) - (size_t)cachedBits) / 8;
+		cachedBits |= KEY_BLOCK_BITS - 8;		// KEY_BLOCK_BITS must be 2^n
+
+		// continue byte 0
+
 		cachedCode >>= keyLength;
 		cachedBits -= keyLength;
+
+		// decode byte 1
 
 		keyLength = length[cachedCode & MAX_KEY_VALUE];
-		encode_block_type addData = value[cachedCode & MAX_KEY_VALUE];
-		addData <<= 8;
+		blockDest[1] = value[cachedCode & MAX_KEY_VALUE];
+
+		// pre-fetch, part II
+
+		nextCodes = *reinterpret_cast<const key_block_type*>(first);
+
+		// continue byte 1
+
 		cachedCode >>= keyLength;
 		cachedBits -= keyLength;
-
-		data += addData;
 
 #ifdef _64BITS
 
+		// decode byte 2
+
 		keyLength = length[cachedCode & MAX_KEY_VALUE];
-		addData = value[cachedCode & MAX_KEY_VALUE];
-		addData <<= 16;
+		blockDest[2] = value[cachedCode & MAX_KEY_VALUE];
 		cachedCode >>= keyLength;
 		cachedBits -= keyLength;
 
-		data += addData;
+		// decode byte 3
 
 		keyLength = length[cachedCode & MAX_KEY_VALUE];
-		addData = value[cachedCode & MAX_KEY_VALUE];
-		addData <<= 24;
+		blockDest[3] = value[cachedCode & MAX_KEY_VALUE];
 		cachedCode >>= keyLength;
 		cachedBits -= keyLength;
-
-		data += addData;
 
 #endif
-
-		// write result
-
-		*blockDest = data;
 	}
 
 	// fetch encoded data into cache and decode odd bytes
