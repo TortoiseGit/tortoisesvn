@@ -431,7 +431,7 @@ CString CPathUtils::PathUnescape (const char* path)
 
 	// no escapement necessary, just unicode conversion
 	CString result;
-	CUnicodeUtils::UTF8ToUTF16 (path, i+1, result.GetBufferSetLength (i+1));
+	CUnicodeUtils::UTF8ToUTF16 (path, i+1, result.GetBufferSetLength ((int)i+1));
 	result.ReleaseBuffer();
 
 	return result;
