@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -102,7 +102,7 @@ void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
 	{
 		// fetch encoded data into cache
 
-        first += (KEY_BLOCK_BITS-1 - cachedBits) / 8;
+        first += ((size_t)(KEY_BLOCK_BITS-1) - (size_t)cachedBits) / 8;
 		cachedCode |= nextCodes << cachedBits;
 
 		cachedBits |= KEY_BLOCK_BITS - 8;		// KEY_BLOCK_BITS must be 2^n
@@ -111,35 +111,36 @@ void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
 
 		// decode 2 (32 bit) to 4 (64 bit) bytes
 
-		BYTE length1 = length[cachedCode & MAX_KEY_VALUE];
-		encode_block_type value1 = value[cachedCode & MAX_KEY_VALUE];
-		cachedCode >>= length1;
-		cachedBits -= length1;
+		BYTE keyLength = length[cachedCode & MAX_KEY_VALUE];
+		encode_block_type data = value[cachedCode & MAX_KEY_VALUE];
+		cachedCode >>= keyLength;
+		cachedBits -= keyLength;
 
-		encode_block_type data = value1;
+		keyLength = length[cachedCode & MAX_KEY_VALUE];
+		encode_block_type addData = value[cachedCode & MAX_KEY_VALUE];
+		addData <<= 8;
+		cachedCode >>= keyLength;
+		cachedBits -= keyLength;
 
-		BYTE length2 = length[cachedCode & MAX_KEY_VALUE];
-		encode_block_type value2 = value[cachedCode & MAX_KEY_VALUE];
-		cachedCode >>= length2;
-		cachedBits -= length2;
-
-		data += value2 << 8;
+		data += addData;
 
 #ifdef _64BITS
 
-		BYTE length3 = length[cachedCode & MAX_KEY_VALUE];
-		encode_block_type value3 = value[cachedCode & MAX_KEY_VALUE];
-		cachedCode >>= length3;
-		cachedBits -= length3;
+		keyLength = length[cachedCode & MAX_KEY_VALUE];
+		addData = value[cachedCode & MAX_KEY_VALUE];
+		addData <<= 16;
+		cachedCode >>= keyLength;
+		cachedBits -= keyLength;
 
-		data += value3 << 16;
+		data += addData;
 
-		BYTE length4 = length[cachedCode & MAX_KEY_VALUE];
-		encode_block_type value4 = value[cachedCode & MAX_KEY_VALUE];
-		cachedCode >>= length4;
-		cachedBits -= length4;
+		keyLength = length[cachedCode & MAX_KEY_VALUE];
+		addData = value[cachedCode & MAX_KEY_VALUE];
+		addData <<= 24;
+		cachedCode >>= keyLength;
+		cachedBits -= keyLength;
 
-		data += value4 << 24;
+		data += addData;
 
 #endif
 
@@ -150,7 +151,7 @@ void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
 
 	// fetch encoded data into cache and decode odd bytes
 
-	cachedCode |= *reinterpret_cast<const key_block_type*>(first) << cachedBits;
+	cachedCode |= nextCodes << cachedBits;
 
 	for ( BYTE* byteDest = reinterpret_cast<BYTE*>(blockDest)
 		, *end = dest + decodedSize
@@ -208,4 +209,3 @@ void CHuffmanDecoder::Decode (const BYTE*& source, BYTE*& target)
     source += encodedSize;
     target += decodedSize;
 }
-
