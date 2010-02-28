@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-08 03:03+0200\n"
+"PO-Revision-Date: 2010-02-28 02:05+0200\n"
 "Last-Translator: Stavros Labrou <slab_x@hotmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1213,6 +1213,12 @@ msgstr "&Ρυθμίσεις"
 msgid "&Show HEAD revisions"
 msgstr "&Προβολή εκδόσεων HEAD"
 
+# ID:115,#:
+# Control-ID:1031,
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "Εμφάνιση &Αρχείου καταγραφής"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "&Εμφάνιση μενού για:"
@@ -1403,6 +1409,10 @@ msgstr "&Ενημέρωση στην έκδοση..."
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "&Χρήση αυτόματης συμπλήρωσης σε καταλόγους αρχείων και λέξεων-κλειδιών"
 
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "&Χρήση κάδου ανακύκλωσης"
+
 # Control-ID:65535,#:
 # Control-ID:1005,#:
 # Control-ID:65535,
@@ -1515,6 +1525,10 @@ msgstr "(χωρίς αρίθμηση γραμμών)"
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
 msgstr "(καμμία αλλαγή αλλά το αντίγραφο δημιουργήθηκε από εδώ)"
+
+#. Resource IDs: (278)
+msgid "(no modification but relevant for working copy)"
+msgstr "(καμμία αλλαγή αλλά σχετίζεται με τον αντίγραφο εργασίας)"
 
 # ID:17,#:
 # ID:564,
@@ -1670,8 +1684,12 @@ msgstr "Μια λίστα από ιδιότητες φακέλων καθορι�
 
 # ID:201,
 #. Resource IDs: (201)
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
-msgstr "Υπάρχει καινούργια έκδοση. Παρακαλώ πηγαίντε στην τοποθεσία http://tortoisesvn.tigris.org και κατεβάστε την τρέχουσα έκδοση! Κάντε click _here_ εδώ για να πάτε άμεσα στην ιστοσελίδα μας."
+msgid ""
+"A newer version is available.\r\n"
+"Please go to http://tortoisesvn.tigris.org and download the current version."
+msgstr ""
+"Υπάρχει καινούργια έκδοση. \r\n"
+"Παρακαλώ πηγαίνετε στο http://tortoisesvn.tigris.org και κατεβάστε την τρέχουσα έκδοση."
 
 #. Resource IDs: (195)
 msgid ""
@@ -2216,10 +2234,9 @@ msgstr "Δεδομένα πιστοποίησης"
 msgid "Author"
 msgstr "Συγγραφέας"
 
-# Control-ID:65535,
 #. Resource IDs: (65535)
-msgid "Author:                                    Stefan Kueng"
-msgstr "Συγγραφέας:                        Στέφαν Κουένγκ"
+msgid "Author:\t\t\t\tStefan Kueng"
+msgstr "Δημιουργός:\t\t\t\tStefan Kueng"
 
 # ID:116,
 #. Resource IDs: (116)
@@ -2277,11 +2294,6 @@ msgstr ""
 #. Resource IDs: (438)
 msgid "Automatic"
 msgstr "Αυτόματo"
-
-# Control-ID:1073,
-#. Resource IDs: (1073)
-msgid "Automatically check for &newer versions every week"
-msgstr "Έλεγχος για ποιό &καινούργιες έκδώσεις κάθε εβδομάδα"
 
 #. Resource IDs: (306)
 msgid "Autotext Tester"
@@ -2624,6 +2636,10 @@ msgstr "Λίστα αλλαγών:"
 msgid "Changes made (double-click on file for diff):"
 msgstr "Έγιναν αλλαγές ( διπλό-κλικ στο αρχείο για διαφορές):"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr ""
+
 # ID:8,
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -2645,6 +2661,10 @@ msgstr "Έλεγχος για νεότερες ενημέρωσεις"
 msgid "Check For Updates..."
 msgstr "Έλεγχος για νεότερες ενημέρωσεις..."
 
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr ""
+
 # Control-ID:65535,
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2659,6 +2679,11 @@ msgstr "Έλεγχος για μετα&βολές"
 #. Resource IDs: (65535)
 msgid "Check for modifications"
 msgstr "Έλεγχος για μεταβολές"
+
+# Dlg-ID:174,
+#. Resource IDs: (65535)
+msgid "Check for updates"
+msgstr "Έλεγχος για ενημερώσεις"
 
 # ID:9,
 #. Resource IDs: (9)
@@ -3360,8 +3385,8 @@ msgstr "Αντιγραφή: Νέο όνομα για %s"
 # ID:80,
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "Γίνεται αντιγραφή του %s"
+msgid "Copying %1!s!"
+msgstr "Γίνεται αντιγραφή το υ%1!s!"
 
 # ID:80,
 #. Resource IDs: (80)
@@ -3769,6 +3794,11 @@ msgid "Delete and ignore %d items by &extension"
 msgstr "Διαγραφή και παράβλεψη %d στοιχείων με &επέκταση"
 
 # ID:17,
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "Διαγραφή στοιχείων χωρίς έκδοση"
+
+# ID:17,
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "Διαγεγραμένος κόμβος..."
@@ -3807,6 +3837,15 @@ msgstr "Διαγράφει το αρχείο καταγραφής δράσης"
 #. Resource IDs: (263)
 msgid "Deleting"
 msgstr "Διαγράφεται"
+
+#. Resource IDs: (348)
+msgid "Deleting cached data"
+msgstr ""
+
+# ID:263,
+#. Resource IDs: (348)
+msgid "Deleting file"
+msgstr "Διαγραφή αρχείου"
 
 # Control-ID:1269,#:
 # Control-ID:1096,
@@ -4038,6 +4077,14 @@ msgid ""
 msgstr ""
 "Τεκμηρίωση : Simon Large\n"
 "Κώδικας : Tobias Schäfer, Stefan Fuhrmann"
+
+#. Resource IDs: (94)
+msgid ""
+"Don't make the checkout directory a sparse working copy.\n"
+"Instead, all URLs get checked out into a separate\n"
+"working copies next to each other.\n"
+"This works for directory URLs only."
+msgstr ""
 
 # ID:73,#:
 # ID:80,
@@ -4500,8 +4547,8 @@ msgstr "Εξαγωγή και των αρχείων χωρίς έκδοση"
 # ID:79,
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "Εξαγωγή %s"
+msgid "Exporting %1!s!"
+msgstr "Εξαγωγή %1!s!"
 
 # ID:79,
 #. Resource IDs: (79)
@@ -4522,11 +4569,6 @@ msgstr "Εξαγωγή ενός σετ ιδιοτήτων σε αρχείο"
 #. Resource IDs: (74, 207)
 msgid "Extension"
 msgstr "Επέκταση"
-
-# Control-ID:65535,
-#. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "Προέκταση Ή τύπος-mime:"
 
 # ID:110,
 #. Resource IDs: (65535)
@@ -4782,6 +4824,17 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "Όνομα αρχείου"
+
+# Control-ID:65535,
+#. Resource IDs: (65535)
+msgid "Filename, extension or mime-type:"
+msgstr "Όνομα αρχείου, επέκταση ή τύπος-mime:"
+
+# ID:74,#:
+# ID:207,
+#. Resource IDs: (74)
+msgid "Filename/Extension"
+msgstr "Όνομα αρχείου/Επέκταση"
 
 # ID:63,#:
 # ID:74,#:
@@ -5360,6 +5413,10 @@ msgstr "ID:57643:V C +Z"
 msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
+#. Accelerator Entry for Menu ID:57665; 'E&xit'
+msgid "ID:57665:V C +W"
+msgstr "ID:57665:V C +W"
+
 #. Resource IDs: (106)
 msgid "Icon Overlays"
 msgstr "Επικαλύψεις εικονιδίων"
@@ -5374,8 +5431,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "Επικαλύψεις εικονιδίων::Σύνολο εικονιδίων"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:                 Luebbe Onken"
-msgstr "Εικονίδια/Σχεδιασμός/Κώδικας:                 Luebbe Onken"
+msgid "Icons/Design/Code:\t\tLuebbe Onken"
+msgstr "Εικονίδια/Σχεδιασμός/Κώδικας:\t\tLuebbe Onken"
 
 #. Resource IDs: (346)
 msgid ""
@@ -5442,11 +5499,6 @@ msgid ""
 msgstr ""
 "Όταν τεθεί, ο διάλογος παράδοσης ενεργοποιείται αυτόματα  ξανά έπειτα από ένα σφάλμα,\r\n"
 "ενώ δατηρεί την τελευταία σας επιλογή και το μήνυμα ιστορικού."
-
-# ID:194,
-#. Resource IDs: (194)
-msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "Εφόσον του έχει επιτραπεί, το TortoiseSVN ελέγχει σε εβδομαδιαία βάση αν είναι διαθέσιμη μια νεότερη έκδοση"
 
 #. Resource IDs: (195)
 msgid ""
@@ -6082,10 +6134,10 @@ msgstr "Τοπική κατάσταση"
 #. Resource IDs: (94)
 msgid ""
 "Location where the contents of the\n"
-"repository URL will be saved to."
+"repository URL(s) will be saved to."
 msgstr ""
-"Διεύθυνση όπου τα περιεχόμενα της\n"
-"διευθυνσης αποθήκης πρόκειται να αποθηκευτούν."
+"Τοποθεσία όπου τα περιεχόμενα της\n"
+"διευθυνσης αποθήκης θα αποθηκευτούν."
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
@@ -6664,13 +6716,17 @@ msgstr "Μετακινεί τα αλλαγμένα αρχεία πρώτα στ�
 # ID:80,
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "Μετακίνηση %s"
+msgid "Moving %1!s!"
+msgstr "Μετακίνηση %1!s!"
 
 # ID:80,
 #. Resource IDs: (80)
 msgid "Moving..."
 msgstr "Μετακίνηση..."
+
+#. Resource IDs: (1204)
+msgid "Multiple, &independent working copies"
+msgstr ""
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -6743,6 +6799,11 @@ msgstr "Nέο όνομα για το %s"
 msgid "New name:"
 msgstr "Νέο όνομα:"
 
+# ID:114,
+#. Resource IDs: (32875)
+msgid "Next &Inline Difference"
+msgstr "Επόμενη ε&σωτερική διαφορά"
+
 #. Resource IDs: (3633)
 msgid ""
 "Next Page\n"
@@ -6790,6 +6851,11 @@ msgstr "Δεν υπάρχει διαθέσημο μύνημα λάθους ."
 #. Resource IDs: (3867, 3868)
 msgid "No error occurred."
 msgstr "Δεν υπήρξε λάθος"
+
+# ID:82,
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "Δεν βρέθηκαν εξωτερικά"
 
 # ID:82,
 #. Resource IDs: (82)
@@ -7388,6 +7454,11 @@ msgstr "Παρακαλώ περιμένετε όσο γίνεται ακύρωσ
 msgid "Please wait while differences are obtained..."
 msgstr "Παρακαλώ περιμένετε όσο βρίσκονται διαφορές..."
 
+# ID:319,
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "Παρακαλώ περιμένετε όσο συγκεντρώνονται τα εξωτερικά..."
+
 # ID:104,
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -7473,6 +7544,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Preview: "
 msgstr "Προεπισκόπιση:"
+
+#. Resource IDs: (32876)
+msgid "Previous In&line Difference"
+msgstr "Προηγούμενη ε&σωτερική διαφορά"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -8445,7 +8520,7 @@ msgstr "Ε&μφάνιση κουμπιών σε δυο σειρές"
 
 #. Resource IDs: (17078)
 msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr ""
+msgstr "Ε&μφάνιση εργαλειοθήκης γρήγορης πρόσβασης κάτω από το Ribbon"
 
 # Control-ID:1132,
 #. Resource IDs: (1132)
@@ -8707,7 +8782,7 @@ msgstr "Επιλογή Αρχείου..."
 # Dlg-ID:173,
 #. Resource IDs: (173)
 msgid "Select Revision"
-msgstr ""
+msgstr "Επιλογή Αναθεώρησης"
 
 # ID:78,
 #. Resource IDs: (78)
@@ -9016,6 +9091,12 @@ msgstr "Εμφάνιση Πάνω από την Κορδέλα"
 msgid "Show Below the Ribbon"
 msgstr "Εμφάνιση Κάτω από την Κορδέλα"
 
+# ID:115,#:
+# Control-ID:1031,
+#. Resource IDs: (1542)
+msgid "Show Branch L&og"
+msgstr "Εμφάνιση &Αρχείου καταγραφής του κλαδιού"
+
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
 msgstr "Εμφάνιση λιγότερων κουμπιών"
@@ -9195,7 +9276,7 @@ msgstr "Εμφάνιση/Απόκρυψη"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected, showing %5!ld! changed paths"
 msgstr ""
 
 # ID:272,
@@ -10424,6 +10505,10 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr ""
+
 # ID:98,
 #. Resource IDs: (98)
 #, c-format
@@ -10685,7 +10770,7 @@ msgstr "Άγνωστο βάθος"
 
 #. Resource IDs: (106)
 msgid "Unknown failure in SVN::List"
-msgstr ""
+msgstr "Άγνωστο σφάλμα στο SVN::List"
 
 # ID:221,
 #. Resource IDs: (221, 230, 242)
@@ -10733,8 +10818,8 @@ msgstr ""
 # ID:201,
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "Αφαίρεση έκδοσης %s"
+msgid "Unversioning %1!s!"
+msgstr "Αφαίρεση έκδοσης  %1!s!"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -10774,7 +10859,7 @@ msgstr "Ενημερώνει το εργαζόμενο αντίγραφο σε �
 # ID:9,
 #. Resource IDs: (9)
 msgid "Updates the working copy to the current revision"
-msgstr ""
+msgstr "Ενημερώνει το αντίγραφο εργασίας στην τρέχουσα έκδοση"
 
 # ID:226,
 #. Resource IDs: (226)
@@ -11083,16 +11168,16 @@ msgstr "Visual Studio.NET 200&5"
 #. Resource IDs: (65535)
 msgid ""
 "WARNING:\r\n"
-"Only change these settings if you are abolutely sure what you are doing!\r\n"
+"Only change these settings if you are absolutely sure what you are doing!\r\n"
 "To set the values to their default, delete the value text."
 msgstr ""
 "ΠΡΟΣΟΧΗ:\r\n"
-"\"Αλλάξτε αυτές τις ρυθμίσεις μόνο αν είστε γνωρίζετε ακριβώς τι κάνετε!\r\n"
+"\"Αλλάξτε αυτές τις ρυθμίσεις μόνο αν είστε απόλυτα σίγουροι για το τι κάνετε!\r\n"
 "Για να επαναφέρετε τις προεπιλεγμένες τιμές, διαγράψτε το κείμενο της τιμής."
 
 #. Resource IDs: (65535)
 msgid "WC node"
-msgstr ""
+msgstr "Κόμβος ΑΕ"
 
 #. Resource IDs: (65535)
 msgid "WC node border"
@@ -11192,6 +11277,12 @@ msgid ""
 msgstr ""
 "Το Τρέχον Αντίγραφο Εργασίας μετακινήθηκε στην τοποθεσία\n"
 "%s"
+
+# Control-ID:1183,
+#. Resource IDs: (277)
+#, c-format
+msgid "Working copy: %s\n"
+msgstr "Τρέχον αντίγραφο: %s\n"
 
 # ID:73,
 #. Resource IDs: (73)
@@ -11528,6 +11619,11 @@ msgid ""
 "work entirely from cache if 'offline'"
 msgstr ""
 
+# ID:114,
+#. Resource IDs: (278)
+msgid "at this revision"
+msgstr "σε αυτή την έκδοση"
+
 # ID:245,
 #. Resource IDs: (245)
 msgid "author"
@@ -11603,6 +11699,11 @@ msgstr "συνολικές αλλαγές: "
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "καταγραφές"
+
+# Control-ID:65535,
+#. Resource IDs: (277)
+msgid "committed revision"
+msgstr "καταχωρημένη αναθεώρηση"
 
 # ID:11,
 #. Resource IDs: (11)
@@ -11749,6 +11850,16 @@ msgstr "&Κειμενογράφος μηνυμάτων καταγραφής"
 msgid "max revision: "
 msgstr "μέγιστος αριθμός έκδοσης:"
 
+# ID:114,
+#. Resource IDs: (278)
+msgid "max. at this revision"
+msgstr "μέγιστη σε αυτή την έκδοση"
+
+# Control-ID:65535,
+#. Resource IDs: (278)
+msgid "max. committed revision"
+msgstr "μέγιστη καταχωρημένη έκδοση"
+
 # again, inflection, depends on context
 # ID:11,#:
 # Control-ID:65535,
@@ -11760,6 +11871,16 @@ msgstr "συγχώνευτηκαν"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "Σύνολο συγχωνεύσεων:"
+
+# ID:114,
+#. Resource IDs: (278)
+msgid "min. at this revision"
+msgstr "ελάχιστη σε αυτή την έκδοση"
+
+# Control-ID:65535,
+#. Resource IDs: (278)
+msgid "min. committed revision"
+msgstr "ελάχιστη καταχωρημένη αναθεώρηση"
 
 # ID:10,
 #. Resource IDs: (10)
@@ -11803,7 +11924,7 @@ msgstr "όχι"
 # ID:10,
 #. Resource IDs: (10)
 msgid "no description for this command is available"
-msgstr ""
+msgstr "δεν υπάρχει περιγραφή για αυτή την εντολή"
 
 # ID:10,
 #. Resource IDs: (10)
@@ -12049,6 +12170,14 @@ msgstr "σε %1"
 # ID:80,#:
 # ID:103,#:
 # ID:103,
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr "σε %1!s!"
+
+# ID:80,#:
+# ID:103,#:
+# ID:103,
 #. Resource IDs: (80, 103, 284)
 #, c-format
 msgid "to %s"
@@ -12201,11 +12330,22 @@ msgstr "ναι"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+# Control-ID:65535,
+#~ msgid "Author:                                    Stefan Kueng"
+#~ msgstr "Συγγραφέας:                        Στέφαν Κουένγκ"
+# Control-ID:1073,
+#~ msgid "Automatically check for &newer versions every week"
+#~ msgstr "Έλεγχος για ποιό &καινούργιες έκδώσεις κάθε εβδομάδα"
+# ID:194,
+#~ msgid ""
+#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr ""
+#~ "Εφόσον του έχει επιτραπεί, το TortoiseSVN ελέγχει σε εβδομαδιαία βάση αν "
+#~ "είναι διαθέσιμη μια νεότερη έκδοση"
 #~ msgid "Bug Tracker..."
 #~ msgstr "Σφάλμα λογισμικού παρακολουθηστεις..."
 #~ msgid "Could not delete property \"%s\" on %s because"
 #~ msgstr "Δεν ήταν δυνατή η διαγραφή ιδιοκτησίας \"%s\" σε %s επειδή"
-
 # ID:12,
 #~ msgid "Edit conflict"
 #~ msgstr "Επεξεργασία διένεξης"
