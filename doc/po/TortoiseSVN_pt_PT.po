@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-27 23:55-0000\n"
+"PO-Revision-Date: 2010-02-28 00:53-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4379,7 +4379,7 @@ msgstr "Porque as propriedades de revisão do Subversion não são versionadas, 
 
 #. (title)
 msgid "Filtering Log Messages"
-msgstr ""
+msgstr "Filtrando Mensagens de Registo"
 
 #. (primary)
 msgid "filter"
@@ -4387,11 +4387,11 @@ msgstr ""
 
 #. (para)
 msgid "If you want to restrict the log messages to show only those you are interested in rather than scrolling through a list of hundreds, you can use the filter controls at the top of the Log Dialog. The start and end date controls allow you to restrict the output to a known date range. The search box allows you to show only messages which contain a particular phrase."
-msgstr ""
+msgstr "Se queres restringir as mensagens de registo, para mostrar só as que estás interessado em vez de percorreres uma lista de centenas, podes usar os controlos de filtros no topo da caixa de diálogo Registo. Os controlos de início e fim de data permite-te restringir a visualização a um intervalo de datas. A caixa de pesquisa permite-te mostrar só mensagens que contêm uma frase particular."
 
 #. (para)
 msgid "Click on the search icon to select which information you want to search in, and to choose <emphasis>regex</emphasis> mode. Normally you will only need a simple sub-string search, but if you need to more flexible search terms, you can use regular expressions. If you hover the mouse over the box, a tooltip will give hints on how to use the regex functions, or the sub-string functions. The filter works by checking whether your filter string matches the log entries, and then only those entries which <emphasis>match</emphasis> the filter string are shown."
-msgstr ""
+msgstr "Clica no ícone de pesquisa para seleccionar qual a informação que queres procurar, e para escolher o modo <emphasis>regex</emphasis>. Normalmente só precisarás uma simples procura de uma sub-cadeia de caracteres, mas se precisas de termos de pesquisa mais flexíveis podes usar expressões regulares. Se mantiveres o rato sobre a caixa, uma etiqueta dar-te-á palpites em como usar as   funções regex, ou as funções de sub-cadeias de caracteres. O filtro funciona verificando se a tua frase de pesquisa condiz com as entradas do registo, então só as entradas que <emphasis>condizem</emphasis> com a frase do filtro são mostradas."
 
 #. (para)
 msgid ""
@@ -4416,23 +4416,23 @@ msgstr ""
 
 #. (para)
 msgid "Note that these filters act on the messages already retrieved. They do not control downloading of messages from the repository."
-msgstr ""
+msgstr "De salientar que esses filtros actuam nas mensagens já adquiridas. Eles não controlam o descarregamento de mensagens do repositório."
 
 #. (para)
 msgid "You can also filter the path names in the bottom pane using the <guilabel>Show only affected paths</guilabel> checkbox. Affected paths are those which contain the path used to display the log. If you fetch the log for a folder, that means anything in that folder or below it. For a file it means just that one file. Normally the path list shows any other paths which are affected by the same commit, but in grey. If the box is checked, those paths are hidden."
-msgstr ""
+msgstr "Podes também filtrar os nomes de caminhos, no painel de fundo, usando a caixa de verificação <guilabel>Mostrar só caminhos afectados</guilabel>. Caminhos afectados são aqueles que contêm o caminho usado para mostrar o registo. Se fores buscar o registo para uma pasta, isso significa qulquer coisa nessa pasta ou abaixo. Para  um ficheiro isso significa só um ficheiro. Normalmente a lista de caminhos mostra qualqueis outros caminhos que foram afectados pela mesma submissão, mas a cinzento. Se a caixa estiver verificada esses caminhos são escondidos."
 
 #. (para)
 msgid "Sometimes your working practices will require log messages to follow a particular format, which means that the text describing the changes is not visible in the abbreviated summary shown in the top pane. The property <literal>tsvn:logsummary</literal> can be used to extract a portion of the log message to be shown in the top pane. Read <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> to find out how to use this property."
-msgstr ""
+msgstr "Por vezes as tuas práticas de trabalho iram requerer que as tuas mensagens de registo sigam um formato particular, o que significa que o texto que descreve as alterações não é visível no sumário abreviado mostrado no painel de topo. A propriedade <literal>tsvn:logsummary</literal> pode ser utilizada para extrair uma parte da mensagem de registo para ser mostrada no painel de topo. Ler <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> para descobrir como usar esta propriedade."
 
 #. (title)
 msgid "No Log Formatting from Repository Browser"
-msgstr ""
+msgstr "Registos Não Formatados do Navegador de Repositório"
 
 #. (para)
 msgid "Because the formatting depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
-msgstr ""
+msgstr "Porque a formatação depende do acesso ás propriedades do subversion, tu só verás os seus resultados quando obtiveres uma cópia de trabalho SVN exportada. Buscar remotamente propriedades é uma operação lenta, pelo que não verás esta funcionalidade em acção a partir do navegador de repositório."
 
 #. (title)
 msgid "Statistical Information"
