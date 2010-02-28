@@ -137,6 +137,7 @@
 #define IDS_MENUDESCCLIPPASTE           226
 #define IDS_MENUUPGRADE                 227
 #define IDS_MENUDESCUPGRADE             228
+#define IDS_MENUADDIMMEDIATE            229
 #define IDS_ERR_PROPNOTONFILE           230
 #define IDS_MENUIGNOREMULTIPLE          231
 #define IDS_ERR_PROPNOMULTILINE         232
