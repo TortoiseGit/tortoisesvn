@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-09 16:42+0100\n"
+"POT-Creation-Date: 2010-02-19 21:36 +0000\n"
+"PO-Revision-Date: 2010-03-01 09:10+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7977,8 +7977,8 @@ msgid "Set this property to the URL of your repo viewer to view all changes in a
 msgstr "Setzen Sie diese Eigenschaft auf die URL Ihres Projektarchivbetrachters mit der Sie alle Änderungen einer bestimmten Revision sehen können. Sie muss korrekt URI codiert sein und <literal>%REVISION%</literal> enthalten. <literal>%REVISION%</literal> wird durch die gewünschte Revisionsnummer ersetzt. Dies ermöglicht TortoiseSVN im Log-Dialog ein Kontextmenü <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Betrachte Revision im Web-Browser</guimenuitem></menuchoice> anzuzeigen."
 
 #. (para)
-msgid "Set this property to the URL of your repo viewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision and path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the URL will be replaced with <literal>/trunk/src/file</literal>."
-msgstr "Setzen Sie diese Eigenschaft auf die URL mit der Sie Änderungen an einer Datei in einer bestimmten Revision sehen können. Sie muss korrekt URI codiert sein sowie <literal>%REVISION%</literal> und <literal>%PATH%</literal> enthalten. <literal>%PATH%</literal> wird durch den Pfad relativ zur Projektarchivbasis ersetzt. Dies ermöglicht TortoiseSVN im Log-Dialog ein Kontextmenü <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Betrachte Revision eines Pfades im Web-Browser</guimenuitem> </menuchoice> anzuzeigen. Wenn Sie zum Beispiel im Log-Dialog auf eine Datei <literal>/trunk/src/file</literal> klicken, wird <literal>%PATH%</literal> in der URL durch <literal>/trunk/src/file</literal> ersetzt."
+msgid "Set this property to the URL of your repo viewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision for path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the URL will be replaced with <literal>/trunk/src/file</literal>."
+msgstr "Setzen Sie diese Eigenschaft auf die URL mit der Sie Änderungen an einer Datei in einer bestimmten Revision sehen können. Sie muss korrekt URI codiert sein sowie <literal>%REVISION%</literal> und <literal>%PATH%</literal> enthalten. <literal>%PATH%</literal> wird durch den Pfad relativ zur Projektarchivbasis ersetzt. Dies ermöglicht TortoiseSVN im Log-Dialog ein Kontextmenü <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Betrachte Revision eines Pfades im Web</guimenuitem> </menuchoice> anzuzeigen. Wenn Sie zum Beispiel im Log-Dialog auf eine Datei <literal>/trunk/src/file</literal> klicken, wird <literal>%PATH%</literal> in der URL durch <literal>/trunk/src/file</literal> ersetzt."
 
 #. (para)
 msgid "You can also use relative URLs instead of absolute ones. This is useful in case your web viewer is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>webviewer:revision</literal> and <literal>webviewer:pathrevision</literal> property. The format is the same as for the <literal>bugtraq:url</literal> property. See <xref linkend=\"tsvn-dug-bugtracker\"/>."
@@ -9581,6 +9581,10 @@ msgstr "TortoiseSVN ermöglicht es ihnen, externe Vergleichsprogramme zu verwend
 #. (para)
 msgid "By default, TortoiseSVN always runs an update with externals included. This avoids problems with inconsistent working copies. If you have however a lot of externals set, an update can take quite a while. Set this value to <literal>false</literal> to run the default update with externals excluded. To update with externals included, either run the <literal>Update to revision...</literal> dialog or set this value to <literal>true</literal> again."
 msgstr "Standardmäßig aktualisiert TortoiseSVN seine Arbeitskopien inklusive der externen Verweise. Das vermeidet Probleme mit inkonsistenten Arbeitskopien. Wenn Sie viele externe Verweise definiert haben, kann die Aktualisierunge eine gewisse Zeit in Anspruch nehmen. Setzen Sie diesen Wert auf <literal>false</literal>, damit TortoiseSVN die externen Verweise standardmäßig nicht aktualisiert. Um diese zu aktualisieren, rufen Sie entweder die Funktion <literal>Aktualisiere zu Revision ...</literal> auf oder setzen Sie den Wert wieder auf <literal>true</literal>."
+
+#. (para)
+msgid "In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to dismiss the dialog as if you clicked on the OK button. If you don't want this, set this value to <literal>false</literal>."
+msgstr "In den meisten Dialogen in TortoiseSVN können Sie <keycap>Strg+Enter</keycap> verwenden, um den Dialog mit OK zu bestätigen. Falls Sie das nicht möchten, setzen Sie diesen Eintrag auf<literal>false</literal>."
 
 #. (title)
 msgid "Final Step"
@@ -12060,16 +12064,15 @@ msgstr "Einige Kommandozeilenbefehle besitzen Optionen. Diese werden in Tortoise
 #, no-wrap
 msgid ""
 "\n"
-"svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
+"svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 msgstr ""
 "\n"
-"svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
+"svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 
 #. (para)
-msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
-msgstr "Wenn <guilabel>Nur den obersten Ordner auschecken</guilabel> gewählt ist, verwenden Sie die <literal>-N</literal> Option."
+msgid "The depth combo box items relate to the <literal>-depth</literal> argument."
+msgstr "Die Einträge in der Auswahlliste <guilabel>Aktualisierungstiefe</guilabel> entsprechen dem <literal>-depth</literal> Parameter."
 
-#. (para)
 #. (para)
 msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
 msgstr "Wenn <guilabel>Externals auslassen</guilabel> gewählt ist, verwenden Sie die <literal>--ignore-externals</literal> Option."
@@ -12110,15 +12113,11 @@ msgstr "Aktualisieren zu Revision"
 msgid ""
 "\n"
 "svn info URL_of_WC\n"
-"svn update [-r rev] [-N] [--ignore-externals] PATH\n"
+"svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 msgstr ""
 "\n"
 "svn info URL_of_WC\n"
-"svn update [-r rev] [-N] [--ignore-externals] PATH\n"
-
-#. (para)
-msgid "If <guilabel>Only update the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
-msgstr "Wenn <guilabel>Nur den obersten Ordner auschecken</guilabel> gewählt ist, verwenden Sie die <literal>-N</literal> Option."
+"svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 
 #. (para)
 msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
@@ -12162,13 +12161,11 @@ msgstr "Sobald Sie auf OK klicken, wird die Übertragung zum Projektarchiv durch
 #, no-wrap
 msgid ""
 "\n"
-"svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
+"svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 msgstr ""
 "\n"
-"svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
+"svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 
-#. (para)
-#. (para)
 #. (para)
 msgid "<literal>LogMessage</literal> here represents the contents of the log message edit box. This can be empty."
 msgstr "Die <literal>Logmeldung</literal> entspricht dem Inhalt des Eingabefeldes für Logmeldungen und kann leer gelassen werden."
@@ -13154,6 +13151,18 @@ msgstr ""
 msgid "translator-translation"
 msgstr "Übersetzung"
 
+#~ msgid ""
+#~ "If <guilabel>Only checkout the top folder</guilabel> is checked, use the "
+#~ "<literal>-N</literal> switch."
+#~ msgstr ""
+#~ "Wenn <guilabel>Nur den obersten Ordner auschecken</guilabel> gewählt ist, "
+#~ "verwenden Sie die <literal>-N</literal> Option."
+#~ msgid ""
+#~ "If <guilabel>Only update the top folder</guilabel> is checked, use the "
+#~ "<literal>-N</literal> switch."
+#~ msgstr ""
+#~ "Wenn <guilabel>Nur den obersten Ordner auschecken</guilabel> gewählt ist, "
+#~ "verwenden Sie die <literal>-N</literal> Option."
 #~ msgid ""
 #~ "Show changes made in the selected revision for the selected file. This "
 #~ "context menu is only available for files shown as <emphasis>modified</"
