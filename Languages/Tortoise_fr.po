@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-04 12:10+0100\n"
-"Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
+"PO-Revision-Date: 2010-03-01 21:13+0100\n"
+"Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1158,6 +1158,10 @@ msgstr "Mettre à jo&ur à la révision..."
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "&Utiliser l'autocomplétion des chemins de fichiers et des mots-clé"
 
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "&Utiliser la corbeille"
+
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
 msgstr "&Nom :"
@@ -2183,6 +2187,10 @@ msgstr "Liste de changements : "
 msgid "Changes made (double-click on file for diff):"
 msgstr "Changements effectués (double-cliquez pour voir les différences) :"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "Change les éléments externes à une révision spécifique"
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "&Extraire..."
@@ -2198,6 +2206,10 @@ msgstr "Vérifier les mises à jours"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Vérifier les mises à jours..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr "Marque les éléments externes"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2796,8 +2808,8 @@ msgstr "Copier : Nouveau nom pour %s"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "Copie de %s"
+msgid "Copying %1!s!"
+msgstr "Copie de %1!s!"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -3141,6 +3153,10 @@ msgstr "Supprimer et &ignorer"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Supprimer et ignorer %d éléments par &extension"
+
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "Supprimer les éléments non versionnés"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3782,8 +3798,8 @@ msgstr "Exporter aussi les fichiers non versionnés"
 
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "Exporte %s"
+msgid "Exporting %1!s!"
+msgstr "Exporte %1!s!"
 
 #. Resource IDs: (79)
 msgid "Exporting..."
@@ -5684,8 +5700,8 @@ msgstr "Déplacer les fichiers modifiés vers la corbeille avant de revenir en a
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "Déplacement de %s"
+msgid "Moving %1!s!"
+msgstr "Déplacement de %1!s!"
 
 #. Resource IDs: (80)
 msgid "Moving..."
@@ -5794,6 +5810,10 @@ msgstr "Aucun message d'erreur valide."
 #. Resource IDs: (3867, 3868)
 msgid "No error occurred."
 msgstr "Aucune erreur n'est survenue."
+
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "Aucun élément externe trouvé !"
 
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
@@ -6307,6 +6327,10 @@ msgstr "Attente de l'annulation..."
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
 msgstr "Veuillez patienter pendant la récupération des différences..."
+
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "Veuillez patienter pendant la mise en commun des éléments externes..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -7654,6 +7678,10 @@ msgstr "Afficher Au-dessus du Bandeau"
 #. Resource IDs: (1069)
 msgid "Show Below the Ribbon"
 msgstr "Afficher Au-dessous du Bandeau"
+
+#. Resource IDs: (1542)
+msgid "Show Branch L&og"
+msgstr "V&oir le Journal de la branche"
 
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
@@ -9053,6 +9081,10 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "Dépôt automatique TortoiseSVN : changer les éléments externes à une révision spécifique."
+
 #. Resource IDs: (98)
 #, c-format
 msgid ""
@@ -9311,8 +9343,8 @@ msgstr "Les fichiers non versionnés marquent le dossier parent comme modifié"
 
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "Rendre %s non-versionné"
+msgid "Unversioning %1!s!"
+msgstr "Rendre %1!s! non-versionné"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -10642,6 +10674,11 @@ msgstr "il existe des modifications en conflit."
 #, c-format
 msgid "to %1"
 msgstr "vers %1"
+
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr "vers %1!s!"
 
 #. Resource IDs: (80, 103, 284)
 #, c-format
