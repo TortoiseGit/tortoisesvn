@@ -56,10 +56,8 @@ BOOL CResolveDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 
 	ExtendFrameIntoClientArea(IDC_RESOLVELIST, IDC_RESOLVELIST, IDC_RESOLVELIST, IDC_RESOLVELIST);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_SELECTALL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(this, IDC_SELECTALL);
+	m_aeroControls.SubclassOkCancelHelp(this);
 
 	m_resolveListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS, _T("ResolveDlg"), SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPADD|SVNSLC_POPCOMMIT|SVNSLC_POPCREATEPATCH));
 	m_resolveListCtrl.SetConfirmButton((CButton*)GetDlgItem(IDOK));

@@ -58,9 +58,8 @@ BOOL CInputLogDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(0, 0, 0, IDC_GROUPBOX);
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	ExtendFrameIntoClientArea(IDC_GROUPBOX);
+	m_aeroControls.SubclassOkCancel(this);
 
 #ifdef DEBUG
 	if (m_pProjectProperties == NULL)

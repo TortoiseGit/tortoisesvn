@@ -61,11 +61,9 @@ BOOL CCreatePatch::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 
 	ExtendFrameIntoClientArea(IDC_PATCHLIST, IDC_PATCHLIST, IDC_PATCHLIST, IDC_PATCHLIST);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWUNVERSIONED)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_SELECTALL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(this, IDC_SHOWUNVERSIONED);
+	m_aeroControls.SubclassControl(this, IDC_SELECTALL);
+	m_aeroControls.SubclassOkCancelHelp(this);
 
 	UpdateData(FALSE);
 

@@ -68,12 +68,10 @@ BOOL CLockDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(0, 0, 0, IDC_FILELIST);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_SELECTALL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_STEALLOCKS)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+	ExtendFrameIntoClientArea(IDC_FILELIST);
+	m_aeroControls.SubclassControl(this, IDC_SELECTALL);
+	m_aeroControls.SubclassControl(this, IDC_STEALLOCKS);
+	m_aeroControls.SubclassOkCancelHelp(this);
 
 	m_History.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
 	m_History.Load(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));

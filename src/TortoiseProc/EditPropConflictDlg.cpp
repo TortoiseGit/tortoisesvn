@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2009 - TortoiseSVN
+// Copyright (C) 2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -83,10 +83,10 @@ BOOL CEditPropConflictDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(0, 0, 0, IDC_DIFFGROUP);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_RESOLVE)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_EDITPROPS)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	ExtendFrameIntoClientArea(IDC_DIFFGROUP);
+	m_aeroControls.SubclassControl(this, IDC_RESOLVE);
+	m_aeroControls.SubclassControl(this, IDC_EDITPROPS);
+	m_aeroControls.SubclassControl(this, IDCANCEL);
 
 	CString sInfo;
 	sInfo.Format(IDS_PROPCONFLICT_INFO, (LPCTSTR)m_conflictItem.GetFileOrDirectoryName());

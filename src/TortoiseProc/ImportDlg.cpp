@@ -59,11 +59,9 @@ BOOL CImportDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(0, 0, 0, IDC_MSGGROUP);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_IMPORTIGNORED)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+	ExtendFrameIntoClientArea(IDC_MSGGROUP);
+	m_aeroControls.SubclassControl(this, IDC_IMPORTIGNORED);
+	m_aeroControls.SubclassOkCancelHelp(this);
 
 	m_History.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
 

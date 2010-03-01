@@ -59,10 +59,9 @@ BOOL CDeleteUnversionedDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 
 	ExtendFrameIntoClientArea(IDC_ITEMLIST, IDC_ITEMLIST, IDC_ITEMLIST, IDC_ITEMLIST);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_SELECTALL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_USERECYCLEBIN)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(this, IDC_SELECTALL);
+	m_aeroControls.SubclassControl(this, IDC_USERECYCLEBIN);
+	m_aeroControls.SubclassOkCancel(this);
 
 	m_StatusList.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS, _T("DeleteUnversionedDlg"), 0, true);
 	m_StatusList.SetUnversionedRecurse(true);

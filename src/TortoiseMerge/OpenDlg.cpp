@@ -64,7 +64,7 @@ BEGIN_MESSAGE_MAP(COpenDlg, CStandAloneDialog)
 	ON_BN_CLICKED(IDC_BASEFILEBROWSE, OnBnClickedBasefilebrowse)
 	ON_BN_CLICKED(IDC_THEIRFILEBROWSE, OnBnClickedTheirfilebrowse)
 	ON_BN_CLICKED(IDC_YOURFILEBROWSE, OnBnClickedYourfilebrowse)
-	ON_BN_CLICKED(IDC_HELPBUTTON, OnBnClickedHelp)
+	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_DIFFFILEBROWSE, OnBnClickedDifffilebrowse)
 	ON_BN_CLICKED(IDC_DIRECTORYBROWSE, OnBnClickedDirectorybrowse)
 	ON_BN_CLICKED(IDC_MERGERADIO, OnBnClickedMergeradio)
@@ -80,12 +80,10 @@ BOOL COpenDlg::OnInitDialog()
 	CStandAloneDialog::OnInitDialog();
 
 	ExtendFrameIntoClientArea(IDC_MERGEGROUP, IDC_MERGEGROUP, IDC_MERGEGROUP, IDC_UNIDIFFGROUP);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_VERSIONSTRING)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_MERGERADIO)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_APPLYRADIO)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_HELPBUTTON)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(this, IDC_VERSIONSTRING);
+	m_aeroControls.SubclassControl(this, IDC_MERGERADIO);
+	m_aeroControls.SubclassControl(this, IDC_APPLYRADIO);
+	m_aeroControls.SubclassOkCancelHelp(this);
 
 	CRegDWORD lastRadioButton(_T("Software\\TortoiseMerge\\OpenRadio"), IDC_MERGERADIO);
 	if (((DWORD)lastRadioButton != IDC_MERGERADIO)&&((DWORD)lastRadioButton != IDC_APPLYRADIO))

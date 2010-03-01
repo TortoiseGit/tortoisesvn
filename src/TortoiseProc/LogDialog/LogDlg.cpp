@@ -268,18 +268,16 @@ BOOL CLogDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 
 	ExtendFrameIntoClientArea(IDC_LOGMSG, 0, IDC_LOGMSG, IDC_LOGMSG);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_LOGINFO)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWPATHS)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_STATBUTTON)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_CHECK_STOPONCOPY)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_INCLUDEMERGE)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_PROGRESS)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_GETALL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_NEXTHUNDRED)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_REFRESH)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(this, IDC_LOGINFO);
+	m_aeroControls.SubclassControl(this, IDC_SHOWPATHS);
+	m_aeroControls.SubclassControl(this, IDC_STATBUTTON);
+	m_aeroControls.SubclassControl(this, IDC_CHECK_STOPONCOPY);
+	m_aeroControls.SubclassControl(this, IDC_INCLUDEMERGE);
+	m_aeroControls.SubclassControl(this, IDC_PROGRESS);
+	m_aeroControls.SubclassControl(this, IDC_GETALL);
+	m_aeroControls.SubclassControl(this, IDC_NEXTHUNDRED);
+	m_aeroControls.SubclassControl(this, IDC_REFRESH);
+	m_aeroControls.SubclassOkCancelHelp(this);
 
 	m_pTaskbarList.Release();
 	m_pTaskbarList.CoCreateInstance(CLSID_TaskbarList);

@@ -58,12 +58,12 @@ BOOL CCheckForUpdatesDlg::OnInitDialog()
 	CStandAloneDialog::OnInitDialog();
 
 	ExtendFrameIntoClientArea(0, 0, 0, 0);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_INFO)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_YOURVERSION)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_CURRENTVERSION)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_CHECKRESULT)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_LINK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(this, IDC_INFO);
+	m_aeroControls.SubclassControl(this, IDC_YOURVERSION);
+	m_aeroControls.SubclassControl(this, IDC_CURRENTVERSION);
+	m_aeroControls.SubclassControl(this, IDC_CHECKRESULT);
+	m_aeroControls.SubclassControl(this, IDC_LINK);
+	m_aeroControls.SubclassControl(this, IDOK);
 
 	CString temp;
 	temp.Format(IDS_CHECKNEWER_YOURVERSION, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);

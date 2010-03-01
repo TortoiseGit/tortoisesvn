@@ -128,6 +128,11 @@ protected:
 		return BaseType::OnNcHitTest(pt);
 	}
 
+	void ExtendFrameIntoClientArea(UINT bottomControl)
+	{
+		ExtendFrameIntoClientArea(0, 0, 0, bottomControl);
+	}
+
 	/**
 	 *
 	 */

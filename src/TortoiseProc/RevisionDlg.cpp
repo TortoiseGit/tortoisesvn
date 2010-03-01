@@ -52,9 +52,8 @@ BOOL CRevisionDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(0, 0, 0, IDC_REVGROUP);
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	ExtendFrameIntoClientArea(IDC_REVGROUP);
+	m_aeroControls.SubclassOkCancel(this);
 
 	if (IsHead())
 	{

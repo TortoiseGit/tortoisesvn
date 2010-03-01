@@ -52,7 +52,7 @@ BOOL CPropDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 
 	ExtendFrameIntoClientArea(IDC_PROPERTYLIST, IDC_PROPERTYLIST, IDC_PROPERTYLIST, IDC_PROPERTYLIST);
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(this, IDOK);
 
 	m_proplist.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 

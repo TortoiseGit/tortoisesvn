@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -133,7 +133,7 @@ protected:
 	/**
 	 *
 	 */
-	void ExtendFrameIntoClientArea(UINT leftControl, UINT topControl, UINT rightControl, UINT botomControl)
+	void ExtendFrameIntoClientArea(UINT leftControl, UINT topControl, UINT rightControl, UINT bottomControl)
 	{
 		if (!(DWORD)m_regEnableDWMFrame)
 			return;
@@ -179,9 +179,9 @@ protected:
 		else
 			m_margins.cxRightWidth = 0;
 
-		if (botomControl)
+		if (bottomControl)
 		{
-			HWND hw = GetDlgItem(botomControl)->GetSafeHwnd();
+			HWND hw = GetDlgItem(bottomControl)->GetSafeHwnd();
 			if (hw == NULL)
 				return;
 			::GetWindowRect(hw, &rccontrol);
@@ -205,6 +205,11 @@ protected:
 		{
 			m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &m_margins);
 		}
+	}
+
+	void ExtendFrameIntoClientArea(UINT bottomControl)
+	{
+		ExtendFrameIntoClientArea(0, 0, 0, bottomControl);
 	}
 
 	/**

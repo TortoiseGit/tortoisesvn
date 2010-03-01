@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,6 +31,9 @@ public:
 	virtual ~AeroControlBase();
 
 	bool SubclassControl(HWND hControl);
+	bool SubclassControl(CWnd* parent, int controlId);
+	void SubclassOkCancel(CWnd* parent);
+	void SubclassOkCancelHelp(CWnd* parent);
 
 private:
 	static LRESULT CALLBACK SubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT_PTR uidSubclass, DWORD_PTR dwRefData);
@@ -55,4 +58,3 @@ private:
 	std::map<HWND, UINT_PTR>	subclassedControls;
 	ULONG_PTR					gdiplusToken;
 };
-

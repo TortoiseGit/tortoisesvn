@@ -69,14 +69,14 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 
 	ExtendFrameIntoClientArea(IDC_SOURCEGROUP, IDC_SOURCEGROUP, IDC_SOURCEGROUP, IDC_SOURCEGROUP);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_CONFLICTINFO)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_INFOLABEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_RESOLVEUSINGTHEIRS)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_RESOLVEUSINGMINE)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_LOG)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_BRANCHLOG)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(this, IDC_CONFLICTINFO);
+	m_aeroControls.SubclassControl(this, IDC_INFOLABEL);
+	m_aeroControls.SubclassControl(this, IDC_RESOLVEUSINGTHEIRS);
+	m_aeroControls.SubclassControl(this, IDC_RESOLVEUSINGMINE);
+	m_aeroControls.SubclassControl(this, IDC_LOG);
+	m_aeroControls.SubclassControl(this, IDC_BRANCHLOG);
+	m_aeroControls.SubclassControl(this, IDCANCEL);
+	m_aeroControls.SubclassControl(this, IDHELP);
 
 	SetDlgItemText(IDC_CONFLICTINFO, m_sConflictInfo);
 	SetDlgItemText(IDC_RESOLVEUSINGTHEIRS, m_sUseTheirs);

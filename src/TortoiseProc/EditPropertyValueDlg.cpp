@@ -64,11 +64,9 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(0, 0, 0, IDC_PROPVALUEGROUP);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_PROPRECURSIVE)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+	ExtendFrameIntoClientArea(IDC_PROPVALUEGROUP);
+	m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
+	m_aeroControls.SubclassOkCancelHelp(this);
 
 	CString resToken;
 	int curPos = 0;

@@ -777,13 +777,12 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	__super::OnInitDialog();
 
 	ExtendFrameIntoClientArea(IDC_SVNPROGRESS, IDC_SVNPROGRESS, IDC_SVNPROGRESS, IDC_SVNPROGRESS);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_PROGRESSLABEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_PROGRESSBAR)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_INFOTEXT)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_LOGBUTTON)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(this, IDC_PROGRESSLABEL);
+	m_aeroControls.SubclassControl(this, IDC_PROGRESSBAR);
+	m_aeroControls.SubclassControl(this, IDC_INFOTEXT);
+	m_aeroControls.SubclassControl(this, IDC_NONINTERACTIVE);
+	m_aeroControls.SubclassControl(this, IDC_LOGBUTTON);
+	m_aeroControls.SubclassOkCancel(this);
 
 	// Let the TaskbarButtonCreated message through the UIPI filter. If we don't
 	// do this, Explorer would be unable to send that message to our window if we

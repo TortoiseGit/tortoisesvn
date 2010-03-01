@@ -217,11 +217,9 @@ BOOL CRepositoryBrowser::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(0, 0, 0, IDC_REPOTREE);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_F5HINT)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+	ExtendFrameIntoClientArea(IDC_REPOTREE);
+	m_aeroControls.SubclassControl(this, IDC_F5HINT);
+	m_aeroControls.SubclassOkCancelHelp(this);
 
 	GetWindowText(m_origDlgTitle);
 

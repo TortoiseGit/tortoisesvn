@@ -64,10 +64,8 @@ BOOL CSetBugTraqAdv::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(0, 0, 0, IDC_DWM);
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+	ExtendFrameIntoClientArea(IDC_DWM);
+	m_aeroControls.SubclassOkCancelHelp(this);
 
 	std::vector<CBugTraqProvider> providers = CBugTraqAssociations::GetAvailableProviders();
 	if (providers.size() == 0)

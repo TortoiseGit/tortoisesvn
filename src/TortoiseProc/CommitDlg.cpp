@@ -118,12 +118,10 @@ BOOL CCommitDlg::OnInitDialog()
 	SVNConfig config;
 	m_bKeepLocks = config.KeepLocks();
 
-	ExtendFrameIntoClientArea(0, 0, 0, IDC_LISTGROUP);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_KEEPLOCK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_KEEPLISTS)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+	ExtendFrameIntoClientArea(IDC_LISTGROUP);
+	m_aeroControls.SubclassControl(this, IDC_KEEPLOCK);
+	m_aeroControls.SubclassControl(this, IDC_KEEPLISTS);
+	m_aeroControls.SubclassOkCancelHelp(this);
 
 	UpdateData(FALSE);
 	

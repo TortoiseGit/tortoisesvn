@@ -86,11 +86,9 @@ BOOL CCopyDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(0, 0, 0, IDC_MSGGROUP);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_DOSWITCH)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+	ExtendFrameIntoClientArea(IDC_MSGGROUP);
+	m_aeroControls.SubclassControl(this, IDC_DOSWITCH);
+	m_aeroControls.SubclassOkCancelHelp(this);
 
 	DWORD exStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_CHECKBOXES;
 	m_ExtList.SetExtendedStyle(exStyle);

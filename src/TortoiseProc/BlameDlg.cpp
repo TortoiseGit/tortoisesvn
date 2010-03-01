@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -63,12 +63,10 @@ BOOL CBlameDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(0, 0, 0, IDC_DIFFGROUP);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_USETEXTVIEWER)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_INCLUDEMERGEINFO)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
+	ExtendFrameIntoClientArea(IDC_DIFFGROUP);
+	m_aeroControls.SubclassControl(this, IDC_USETEXTVIEWER);
+	m_aeroControls.SubclassControl(this, IDC_INCLUDEMERGEINFO);
+	m_aeroControls.SubclassOkCancelHelp(this);
 
 	AdjustControlSize(IDC_USETEXTVIEWER);
 	AdjustControlSize(IDC_IGNOREEOL);

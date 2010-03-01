@@ -80,6 +80,24 @@ bool AeroControlBase::SubclassControl(HWND hControl)
 	return bRet;
 }
 
+bool AeroControlBase::SubclassControl(CWnd* parent, int controlId)
+{
+	return SubclassControl(parent->GetDlgItem(controlId)->GetSafeHwnd());
+}
+
+void AeroControlBase::SubclassOkCancel(CWnd* parent)
+{
+	SubclassControl(parent, IDCANCEL);
+	SubclassControl(parent, IDOK);
+}
+
+void AeroControlBase::SubclassOkCancelHelp(CWnd* parent)
+{
+	SubclassControl(parent, IDCANCEL);
+	SubclassControl(parent, IDOK);
+	SubclassControl(parent, IDHELP);
+}
+
 LRESULT AeroControlBase::SubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT_PTR uidSubclass, DWORD_PTR dwRefData)
 {
 	AeroControlBase * pThis = (AeroControlBase*)dwRefData;

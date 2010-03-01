@@ -54,10 +54,9 @@ BOOL CInputDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 
 	ExtendFrameIntoClientArea(IDC_INPUTTEXT, IDC_INPUTTEXT, IDC_INPUTTEXT, IDC_INPUTTEXT);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_CHECKBOX)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_HINTTEXT)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(this, IDC_CHECKBOX);
+	m_aeroControls.SubclassControl(this, IDC_HINTTEXT);
+	m_aeroControls.SubclassOkCancel(this);
 
 	if (m_pProjectProperties)
 		m_cInput.Init(*m_pProjectProperties);

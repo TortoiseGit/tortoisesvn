@@ -79,19 +79,19 @@ BOOL CChangedDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 	
 	ExtendFrameIntoClientArea(IDC_CHANGEDLIST, IDC_CHANGEDLIST, IDC_CHANGEDLIST, IDC_CHANGEDLIST);
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWGROUP)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWFOLDERS)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWFILES)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWUNVERSIONED)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWUNMODIFIED)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWIGNORED)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWUSERPROPS)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_SHOWEXTERNALS)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_INFOLABEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_SUMMARYTEXT)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_REFRESH)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDC_CHECKREPO)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	m_aeroControls.SubclassControl(this, IDC_SHOWGROUP);
+	m_aeroControls.SubclassControl(this, IDC_SHOWFOLDERS);
+	m_aeroControls.SubclassControl(this, IDC_SHOWFILES);
+	m_aeroControls.SubclassControl(this, IDC_SHOWUNVERSIONED);
+	m_aeroControls.SubclassControl(this, IDC_SHOWUNMODIFIED);
+	m_aeroControls.SubclassControl(this, IDC_SHOWIGNORED);
+	m_aeroControls.SubclassControl(this, IDC_SHOWUSERPROPS);
+	m_aeroControls.SubclassControl(this, IDC_SHOWEXTERNALS);
+	m_aeroControls.SubclassControl(this, IDC_INFOLABEL);
+	m_aeroControls.SubclassControl(this, IDC_SUMMARYTEXT);
+	m_aeroControls.SubclassControl(this, IDC_REFRESH);
+	m_aeroControls.SubclassControl(this, IDC_CHECKREPO);
+	m_aeroControls.SubclassControl(this, IDOK);
 
 	GetWindowText(m_sTitle);
 

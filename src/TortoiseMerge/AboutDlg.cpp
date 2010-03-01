@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007, 2009 - TortoiseSVN
+// Copyright (C) 2006-2007, 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -55,8 +55,8 @@ BOOL CAboutDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(0, 0, 0, IDC_VERSIONBOX);
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
+	ExtendFrameIntoClientArea(IDC_VERSIONBOX);
+	m_aeroControls.SubclassControl(this, IDOK);
 
 	//set the version string
 	CString temp, boxtitle;

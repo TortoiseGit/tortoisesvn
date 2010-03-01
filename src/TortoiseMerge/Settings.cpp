@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2009 - TortoiseSVN
+// Copyright (C) 2006, 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -89,10 +89,8 @@ BOOL CSettings::OnInitDialog()
 
 	m_Dwm.Initialize();
 	m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &margs);
-	m_aeroControls.SubclassControl(GetDlgItem(IDCANCEL)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDOK)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(IDHELP)->GetSafeHwnd());
-	m_aeroControls.SubclassControl(GetDlgItem(ID_APPLY_NOW)->GetSafeHwnd());
+	m_aeroControls.SubclassOkCancelHelp(this);
+	m_aeroControls.SubclassControl(this, ID_APPLY_NOW);
 	return bResult;
 }
 
