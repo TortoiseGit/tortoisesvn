@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-25 14:30+0100\n"
-"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
+"PO-Revision-Date: 2010-03-02 13:35+0100\n"
+"Last-Translator: Ewout Muller <eppie1@xs4all.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -726,7 +726,7 @@ msgstr "Om je wijzigingen te publiceren naar anderen, gebruik je het Subversion 
 
 #. (para)
 msgid "Now your changes to <filename>button.c</filename> have been committed to the repository; if another user checks out a working copy of <filename>/calc</filename>, they will see your changes in the latest version of the file."
-msgstr "Met dit commando worden je wijzigingen in <filename>button.c</filename> vastgelegd in het archief; als andere gebruikers een werkkopie ophaalt van <filename>/calc</filename>, dan zullen zij you wijzigingen in de laatste versie zien."
+msgstr "Met dit commando worden je wijzigingen in <filename>button.c</filename> vastgelegd in het archief; als een andere gebruiker een werkkopie ophaalt van <filename>/calc</filename>, dan zal deze jouw wijzigingen in de laatste versie zien."
 
 #. (para)
 msgid "Suppose you have a collaborator, Sally, who checked out a working copy of <filename>/calc</filename> at the same time you did. When you commit your change to <filename>button.c</filename>, Sally's working copy is left unchanged; Subversion only modifies working copies at the user's request."
@@ -1733,7 +1733,7 @@ msgid ""
 msgstr ""
 "Nu alles ingesteld is, moet je alleen nog gebruikers en wachtwoorden aanmaken. Hiervoor heb je <literal>saslpasswd2</literal> nodig. Als je de CollabNet installatie hebt gebruikt, staat dat programma in de installatie map. Gebruik het commando ongeveer zoals volgt: <screen>\n"
 "saslpasswd2 -c -f C:\\TortoiseSVN\\sasldb -u realm username\n"
-"</screen> De <literal>-f</literal> optie bepaald de database locatie, <literal>realm</lliteral> moet gelijk zijn aan de waarde van het <filename>svnserve.conf</filename> bestand en <literal>username</literal> is de gebruikersnaam. Merk op dat de realm geen spaties mag bevatten."
+"</screen> De <literal>-f</literal> optie bepaalt de database locatie, <literal>realm</literal> moet gelijk zijn aan de waarde van het <filename>svnserve.conf</filename> bestand en <literal>username</literal> is de gebruikersnaam. Merk op dat de realm geen spaties mag bevatten."
 
 #. (para)
 msgid "You can list the usernames stored in the database using the <literal>sasldblistusers2</literal> program."
@@ -2316,7 +2316,7 @@ msgstr "In Microsoft’s wereld, Windows domeinen en gebruikersnamen zijn niet h
 
 #. (para)
 msgid "This difference can bite you when using SSPI authentication as the windows domain and user names are passed to Subversion in the same case as the user types them in at the prompt. Internet Explorer often passes the username to Apache automatically using whatever case the account was created with."
-msgstr "Door dit verschil kun je gebeten worden als je SSPI authenticatie gebruikt onder windows en de gebruikersnamen op dezelfde manier als de gebruiker deze heeft ingevoerd worden doorgegeven aan Subversion, omdat <liteal>JUser</literal> en <literal>juser</literal> voor Subversion verschillende gebruikers zijn. Internet Explorer geeft vaak de gebruikersnaam automatisch door aan Apache onafhankelijk van de manier waarop het geschreven is."
+msgstr "Door dit verschil kun je gebeten worden als je SSPI authenticatie gebruikt onder windows en de gebruikersnamen op dezelfde manier als de gebruiker deze heeft ingevoerd worden doorgegeven aan Subversion, omdat <literal>JUser</literal> en <literal>juser</literal> voor Subversion verschillende gebruikers zijn. Internet Explorer geeft vaak de gebruikersnaam automatisch door aan Apache onafhankelijk van de manier waarop het geschreven is."
 
 #. (para)
 msgid "The end result is that you may need at least two entries in your <literal>AuthzSVNAccessFile</literal> for each user -- a lowercase entry and an entry in the same case that Internet Explorer passes to Apache. You will also need to train your users to also type in their credentials using lower case when accessing repositories via TortoiseSVN."
@@ -2530,7 +2530,7 @@ msgstr ""
 
 #. (para)
 msgid "If you still want to use IE to browse the repository you can either: <placeholder-1/>"
-msgstr "Als je IE nog steeds wilt kunnen gebruiken om het archief te verkennen, kun je: "
+msgstr "Als je IE nog steeds wilt kunnen gebruiken om het archief te verkennen, kun je: <placeholder-1/>"
 
 #. (title)
 msgid "Forcing SSL access"
@@ -2761,7 +2761,7 @@ msgstr "Rechts-slepen-menu voor een map met versiebeheer"
 
 #. (para)
 msgid "<placeholder-1/> Other commands are available as drag handlers, when you <action>right drag</action> files or folders to a new location inside working copies or when you <action>right drag</action> a non-versioned file or folder into a directory which is under version control."
-msgstr "Er zijn andere commando’s beschikbaar bij <action>Slepen en plaatsen</action>. Als je bestanden of mappen met<action>rechts sleept</action> naar een nieuwe locatie binnen je werkkopie of als je een bestand of map zonder versiebeheer naar een map met versiebeheer sleept."
+msgstr "Er zijn andere commando’s beschikbaar bij <action>Slepen en plaatsen</action>. Als je bestanden of mappen met <action>rechts sleept</action> naar een nieuwe locatie binnen je werkkopie of als je een bestand of map zonder versiebeheer naar een map met versiebeheer sleept."
 
 #. (title)
 msgid "Common Shortcuts"
@@ -2833,7 +2833,7 @@ msgstr "Als je een archief met wachtwoordbeveiliging probeert te bereiken, dan k
 
 #. (para)
 msgid "If you want to clear the authentication cache for all servers, you can do so from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings dialog. That button will clear all cached authentication data from the Subversion <filename>auth</filename> directories, as well as any authentication data stored in the registry by earlier versions of TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
-msgstr "Als je de authenticatie cache voor alle servers wilt wissen, ga dan naar de<guilabel>Opgeslagen Gegevens</guilabel> sectie van het Instellingen venster van TortoiseSVN. Met de “Wissen” knop bij de optie “Authenticatie gegevens” kun je alle opgeslagen gegevens uit de <filename>auth</filename> mappen wissen, alsook de gegevens opgeslagen in het register door oudere TortoiseSVN versies. Lees ook <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
+msgstr "Als je de authenticatie cache voor alle servers wilt wissen, ga dan naar de <guilabel>Opgeslagen Gegevens</guilabel> sectie van het Instellingen venster van TortoiseSVN. Met de “Wissen” knop bij de optie “Authenticatie gegevens” kun je alle opgeslagen gegevens uit de <filename>auth</filename> mappen wissen, alsook de gegevens opgeslagen in het register door oudere TortoiseSVN versies. Lees ook <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
 
 #. (para)
 msgid "If you want to clear authentication for one realm only then you will have to dig into those directories, find the file which contains the information you want to clear and delete the file."
@@ -2865,7 +2865,7 @@ msgstr "maximaliseer"
 
 #. (para)
 msgid "Many of TortoiseSVN's dialogs have a lot of information to display, but it is often useful to maximize only the height, or only the width, rather than maximizing to fill the screen. As a convenience, there are shortcuts for this on the <guilabel>Maximize</guilabel> button. Use the <action>middle mouse</action> button to maximize vertically, and <action>right mouse</action> to maximize horizontally."
-msgstr "In verschillende vensters van TortoiseSVN wordt er veel informatie weergegeven. Het is vaak alleen maar nodig om verticaal of horizontaal de volledige schermbreedte te gebruiken, in plaats van te maximaliseren zodat het hele scherm gevuld is. Voor het gemak zijn er snelkoppelingen toegevoegd aan de <guilabel>Maximaliseren</guilabel> knop. Gebruik de <action>middelste muisknop</action> om verticaal te maximaliseren en de<action>rechter muisknop</action> om horizontaal te maximaliseren."
+msgstr "In verschillende vensters van TortoiseSVN wordt er veel informatie weergegeven. Het is vaak alleen maar nodig om verticaal of horizontaal de volledige schermbreedte te gebruiken, in plaats van te maximaliseren zodat het hele scherm gevuld is. Voor het gemak zijn er snelkoppelingen toegevoegd aan de <guilabel>Maximaliseren</guilabel> knop. Gebruik de <action>middelste muisknop</action> om verticaal te maximaliseren en de <action>rechter muisknop</action> om horizontaal te maximaliseren."
 
 #. (title)
 msgid "Importing Data Into A Repository"
@@ -3229,7 +3229,7 @@ msgstr "het bestand toevoegen aan de literal>svn:ignore</literal> met <menuchoic
 
 #. (para)
 msgid "If you think that the commit dialog shows you too many unversioned (e.g. compiler generated or editor backup) files, there are several ways to handle this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> for more information."
-msgstr "Als je vindt dat het vastleggen venster te veel bestanden zonder versiebeheer weergeeft (bijv. reservekopie bestanden van de compiler of tekstverwerker), dan zijn daar verschillende oplossingen voor. Je kunt: <placeholder-1> Lees <xref linkend=\"tsvn-dug-ignore\"/>  voor meer informatie."
+msgstr "Als je vindt dat het vastleggen venster te veel bestanden zonder versiebeheer weergeeft (bijv. reservekopie bestanden van de compiler of tekstverwerker), dan zijn daar verschillende oplossingen voor. Je kunt: <placeholder-1/> Lees <xref linkend=\"tsvn-dug-ignore\"/>  voor meer informatie."
 
 #. (para)
 msgid "<action>Double clicking</action> on any modified file in the commit dialog will launch the external diff tool to show your changes. The context menu will give you more options, as shown in the screenshot. You can also drag files from here into another application such as a text editor or an IDE."
@@ -3436,7 +3436,7 @@ msgstr "Voorgangsvenster van een afgeronde verversing"
 
 #. (para)
 msgid "<placeholder-1/> Periodically, you should ensure that changes done by others get incorporated in your local working copy. The process of getting changes from the server to your local copy is known as <emphasis>updating</emphasis>. Updating may be done on single files, a set of selected files, or recursively on entire directory hierarchies. To update, select the files and/or directories you want, <action>right click</action> and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> in the explorer context menu. A window will pop up displaying the progress of the update as it runs. Changes done by others will be merged into your files, keeping any changes you may have done to the same files. The repository is <emphasis>not</emphasis> affected by an update."
-msgstr "<placeholder-1/> Je moet regelmatig er voor zorgen dat wijzigingen die door anderen gemaakt zijn, in jouw werkkopie meegenomen worden. Het proces van het ophalen van de wijzigingen vanaf de server naar je lokale werkkopie staat bekend als <emphasis>verversen</emphasis>. Verversen kan op een enkel bestand, een aantal bestanden of recursief op een hele mapstructuur. Om te verversen, selecteer de bestanden en mappen. <action>Klik rechts</action> en selecteer <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verversen</guimenuitem></menuchoice> in het verkenner context menu. Er zal een venster getoond worden die de voortgang van de verversing weergeeft. Wijzigingen van anderen worden in jouw bestanden verwerkt, zonder dat jouw wijzigingen in (mogelijk) dezelfde bestanden daarbij verloren gaan. Het archief wordt niet door het verversen bijgewerkt of veranderd."
+msgstr "<placeholder-1/> Je moet er regelmatig voor zorgen dat wijzigingen die door anderen gemaakt zijn, in jouw werkkopie meegenomen worden. Het proces van het ophalen van de wijzigingen vanaf de server naar je lokale werkkopie staat bekend als <emphasis>verversen</emphasis>. Verversen kan op een enkel bestand, een aantal bestanden of recursief op een hele mapstructuur. Om te verversen, selecteer de bestanden en mappen. <action>Klik rechts</action> en selecteer <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verversen</guimenuitem></menuchoice> in het verkenner context menu. Er zal een venster getoond worden die de voortgang van de verversing weergeeft. Wijzigingen van anderen worden in jouw bestanden verwerkt, zonder dat jouw wijzigingen in (mogelijk) dezelfde bestanden daarbij verloren gaan. Het archief wordt niet door het verversen bijgewerkt of veranderd."
 
 #. (para)
 msgid "New item added to your WC."
@@ -3974,7 +3974,7 @@ msgstr "In Windows Vista zijn de extra kolommen niet beschikbaar. Microsoft heef
 
 #. (para)
 msgid "If you want the current layout to be displayed in all your working copies, you may want to make this the default view."
-msgstr "If you want the current layout to be displayed in all your working copies, you may want to make this the default view."
+msgstr "Indien je wilt dat de huidige indeling in al jouw werkkopieën wordt getoond, kun je deze als standaard weergave instellen."
 
 #. (title)
 msgid "Local and Remote Status"
@@ -4335,7 +4335,7 @@ msgstr "Maak de wijzigingen ongedaan en ga terug naar de geselecteerd revisie. M
 #. (para)
 #. (para)
 msgid "If your working copy is in an unmodified state, after you perform this action your working copy will show as modified. If you already have local changes, this command will merge the <emphasis>undo</emphasis> changes into your working copy."
-msgstr "Als je werkkopie voordat je deze actie uitvoert ongewijzigd is, dan zal na deze actie je werkkopie als gewijzigd aangegeven worden. Als je al lokale wijzigingen had aangebracht, dan zal met dit commando de <emphasis>ongedaan-maken<emphasis> wijzigingen worden samengevoegd in je werkkopie."
+msgstr "Als je werkkopie voordat je deze actie uitvoert ongewijzigd is, dan zal na deze actie je werkkopie als gewijzigd aangegeven worden. Als je al lokale wijzigingen had aangebracht, dan zal met dit commando de <emphasis>ongedaan-maken</emphasis> wijzigingen worden samengevoegd in je werkkopie."
 
 #. (para)
 msgid "What is happening internally is that Subversion performs a reverse merge of all the changes made after the selected revision, undoing the effect of those previous commits."
@@ -5111,7 +5111,7 @@ msgstr "De knop boven de schuifbalk schakelt tussen 0% mix en 100% mix. Als je d
 
 #. (para)
 msgid "Sometimes you want to see a difference rather than a blend. You might have the image files for two revisions of a printed circuit board and want to see which tracks have changed. If you disable alpha blend mode, the difference will be shown as an <emphasis>XOR</emphasis> of the pixel colour values. Unchanged areas will be plain white and changes will be coloured."
-msgstr "Soms wil je een verschil zien in plaats van een mix. Je zou bijvoorbeeld van twee herzieningen van een afbeelding voor een printplaat willen zien welke paden zijn gewijzigd. Als je de alpha-mix modus uitzet, zal het verschil getoond worden als een <emphasis>XOR</ emphasis> van de kleur van de pixel waarden. Ongewijzigde gebieden zullen getoond worden als wit en veranderingen zullen worden gekleurd."
+msgstr "Soms wil je een verschil zien in plaats van een mix. Je zou bijvoorbeeld van twee herzieningen van een afbeelding voor een printplaat willen zien welke paden zijn gewijzigd. Als je de alpha-mix modus uitzet, zal het verschil getoond worden als een <emphasis>XOR</emphasis> van de kleur van de pixel waarden. Ongewijzigde gebieden zullen getoond worden als wit en veranderingen zullen worden gekleurd."
 
 #. (title)
 msgid "External Diff/Merge Tools"
@@ -6720,7 +6720,7 @@ msgstr "Het Samenvoeg Conflict Onderzoeksscherm"
 
 #. (para)
 msgid "Merging does not always go smoothly. Sometimes there is a conflict, and if you are merging multiple ranges, you generally want to resolve the conflict before merging of the next range starts. TortoiseSVN helps you through this process by showing the <emphasis>merge conflict callback</emphasis> dialog. <placeholder-1/>"
-msgstr "Het samenvoegen gaat niet altijd soepel. Soms treedt er een conflict op en als je meerdere reeksen samenvoegt, wil je meestal een conflict oplossen voordat het samenvoegen van de volgende reeks start. TortoiseSVN helpt je door dit proces heen met het <emphasis>Samenvoeg Conflict Onderzoeksscherm</emphasis>. <placeholer-1/>"
+msgstr "Het samenvoegen gaat niet altijd soepel. Soms treedt er een conflict op en als je meerdere reeksen samenvoegt, wil je meestal een conflict oplossen voordat het samenvoegen van de volgende reeks start. TortoiseSVN helpt je door dit proces heen met het <emphasis>Samenvoeg Conflict Onderzoeksscherm</emphasis>. <placeholder-1/>"
 
 #. (para)
 msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. This only relates to conflicting changes. Changes that can be merged are still merged. Only for the conflicting part your choice is used."
@@ -6856,7 +6856,7 @@ msgstr "Om te voorkomen dat je vergeet een blokkade vrij te geven, worden geblok
 
 #. (para)
 msgid "To release a lock manually, select the file(s) in your working copy for which you want to release the lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Release Lock</guimenuitem></menuchoice> There is nothing further to enter so TortoiseSVN will contact the repository and release the locks. You can also use this command on a folder to release all locks recursively."
-msgstr "Als je een blokkade handmatig wilt opheffen, moet je de bestanden in je werkkopie selecteren waarvoor je de blokkade wilt opheffen. Vervolgens kies je het commando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Blokkade opheffen<guimenuitem></menuchoice>. Er hoeft verder geen informatie ingevoerd te worden, dus TortoiseSVN zal het archief benaderen en de blokkades opheffen. Je kunt dit commando ook op mappen toepassen om alle blokkades recursief op te heffen."
+msgstr "Als je een blokkade handmatig wilt opheffen, moet je de bestanden in je werkkopie selecteren waarvoor je de blokkade wilt opheffen. Vervolgens kies je het commando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Blokkade opheffen</guimenuitem></menuchoice>. Er hoeft verder geen informatie ingevoerd te worden, dus TortoiseSVN zal het archief benaderen en de blokkades opheffen. Je kunt dit commando ook op mappen toepassen om alle blokkades recursief op te heffen."
 
 #. (title)
 msgid "Checking Lock Status"
@@ -6956,7 +6956,7 @@ msgstr "Je kunt verschillende patches aanmaken met wijzigingen aan verschillende
 
 #. (para)
 msgid "Just save the file using a filename of your choice. Patch files can have any extension you like, but by convention they should use the <filename>.patch</filename> or <filename>.diff</filename> extension. You are now ready to submit your patch file."
-msgstr "Sla het bestand op met een naam naar keuze. Patch bestanden kunnen elke extensie hebben die je leuk vindt, maar standaard wordt de extensie <filename>.patch</filename> of <filename>.diff</filname> gebruikt. Nu ben je klaar om je patch bestand op te sturen."
+msgstr "Sla het bestand op met een naam naar keuze. Patch bestanden kunnen elke extensie hebben die je leuk vindt, maar standaard wordt de extensie <filename>.patch</filename> of <filename>.diff</filename> gebruikt. Nu ben je klaar om je patch bestand op te sturen."
 
 #. (para)
 msgid "You can also save the patch to the clipboard instead of to a file. You might want to do this so that you can paste it into an email for review by others. Or if you have two working copies on one machine and you want to transfer changes from one to the other, a patch on the clipboard is a convenient way of doing this."
@@ -7706,7 +7706,7 @@ msgstr "Het pad van de hoofdmap van het archief is veranderd in de server instel
 
 #. (para)
 msgid "<emphasis>This is a very infrequently used operation</emphasis>. The relocate command is <emphasis>only</emphasis> used if the URL of the repository root has changed. Possible reasons are: <placeholder-1/> Put another way, you need to relocate when your working copy is referring to the same location in the same repository, but the repository itself has moved."
-msgstr "<emphasis>Dit is een zelden gebruikte methode</emphasis>. Het verhuizen commando wordt <empahsis>alleen</emphasis> gebruikt als de URL van de basis van het archief is gewijzigd. Mogelijke redenen hiervan zijn: <placeholder-1/> Anders gezegd, je moet verhuizen als je werkkopie refereert naar dezelfde locatie in hetzelfde archief, maar het archief zelf is verhuisd."
+msgstr "<emphasis>Dit is een zelden gebruikte methode</emphasis>. Het verhuizen commando wordt <emphasis>alleen</emphasis> gebruikt als de URL van de basis van het archief is gewijzigd. Mogelijke redenen hiervan zijn: <placeholder-1/> Anders gezegd, je moet verhuizen als je werkkopie refereert naar dezelfde locatie in hetzelfde archief, maar het archief zelf is verhuisd."
 
 #. (para)
 msgid "You want to move to a different Subversion repository. In that case you should perform a clean checkout from the new repository location."
@@ -8631,7 +8631,7 @@ msgstr "<filename>f:\\development\\SVN\\Subversion</filename> zal de overlappend
 
 #. (para)
 msgid "<filename>f:\\development\\SVN\\Subversion*</filename> will disable the overlays on <emphasis>all</emphasis> files and folders whose path starts with <filename>f:\\development\\SVN\\Subversion</filename>. That means you won't see overlays for any files and folders below that path."
-msgstr "<filename>f:\\development\\SVN\\Subversion*</filename> zal de overlappende pictogrammen voor <emphasis>alle<emphasis> bestanden en mappen uitschakelen, waarvan het pad begint met <filename>f:\\development\\SVN\\Subversion</filename>. Dat betekent dat u geen overlappende pictogrammen zal zien voor elk bestand en map onder die map."
+msgstr "<filename>f:\\development\\SVN\\Subversion*</filename> zal de overlappende pictogrammen voor <emphasis>alle</emphasis> bestanden en mappen uitschakelen, waarvan het pad begint met <filename>f:\\development\\SVN\\Subversion</filename>. Dat betekent dat u geen overlappende pictogrammen zal zien voor elk bestand en map onder die map."
 
 #. (para)
 msgid "The same applies to the <guilabel>Include Paths</guilabel>. Except that for those paths the overlays are shown even if the overlays are disabled for that specific drive type, or by an exclude path specified above."
@@ -8713,7 +8713,7 @@ msgstr "Het instellingen scherm, Netwerk pagina"
 
 #. (para)
 msgid "<placeholder-1/> Here you can configure your proxy server, if you need one to get through your company's firewall."
-msgstr "<placeholder-1/> Hier kunt u uw proxy-server configureren als u er een nodig heeft om door uw bedrijfs firewall te geraken."
+msgstr "<placeholder-1/> Hier kunt u uw proxy-server configureren als u er een nodig heeft om door uw bedrijfs-firewall te geraken."
 
 #. (para)
 msgid "If you need to set up per-repository proxy settings, you will need to use the Subversion <filename>servers</filename> file to configure this. Use <guibutton>Edit</guibutton> to get there directly. Consult the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink> for details on how to use this file."
@@ -8776,7 +8776,7 @@ msgstr "Het originele bestand zonder uw wijzigingen"
 #. (para)
 #. (para)
 msgid "The window title for the base file"
-msgstr "De Schermtitel voor het basis bestand"
+msgstr "De schermtitel voor het basis bestand"
 
 #. (para)
 msgid "Your own file, with your changes"
@@ -8793,7 +8793,7 @@ msgstr "Er kan een extern verschil-programma worden gebruikt om de verschillende
 
 #. (para)
 msgid "The window titles are not pure filenames. TortoiseSVN treats that as a name to display and creates the names accordingly. So e.g. if you're doing a diff from a file in revision 123 with a file in your working copy, the names will be <filename>filename : revision 123</filename> and <filename>filename : working copy</filename>"
-msgstr "De schermtitels zijn niet de werkelijke bestandsnamen. TortoiseSVN behandelt dat als een weergavenaam en maakt de namen daarvoor aan. Dus als u bijvoorbeeld de verschillen analyseerd tussen een bestand in revisie 123 en een bestand in uw eigen werkkopie, zullen de namen <filename>bestandsnaam: revisie 123</filename> en <filename>bestandsnaam : werkkopie</filename>"
+msgstr "De schermtitels zijn niet de werkelijke bestandsnamen. TortoiseSVN behandelt dat als een weergavenaam en maakt de namen daarvoor aan. Dus als u bijvoorbeeld de verschillen analyseert tussen een bestand in revisie 123 en een bestand in uw eigen werkkopie, zullen de namen luiden <filename>bestandsnaam: revisie 123</filename> en <filename>bestandsnaam : werkkopie</filename>"
 
 #. (para)
 msgid ""
@@ -10680,7 +10680,7 @@ msgstr ""
 
 #. (para)
 msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
-msgstr "<placeholder-1/> Deze functie wordt aangeroepen vanuit het instellingen scherm als de gebruiker op de \"Options\" knop klikt, welke getoond wordt als literal>HasOptions</literal> TRUE antwoord. Een plugin kan een instellingenscherm weergeven om het configureren van de plugin te vereenvoudigen. De <literal>parameter</literal> tekst bevat de plugin parameters die al ingesteld zijn. De <literal>newparameters</literal> antwoordparameter moet de parameter tekst bevatten die de plugin samengesteld heeft uit de informatie van het instellingenscherm. Die <literal>paramameter</literal> tekst wordt doorgegeven aan alle IBugtraqProvider and IBugtraqProvider2 functies."
+msgstr "<placeholder-1/> Deze functie wordt aangeroepen vanuit het instellingen scherm als de gebruiker op de \"Options\" knop klikt, welke getoond wordt als <literal>HasOptions</literal> TRUE antwoord. Een plugin kan een instellingenscherm weergeven om het configureren van de plugin te vereenvoudigen. De <literal>parameter</literal> tekst bevat de plugin parameters die al ingesteld zijn. De <literal>newparameters</literal> antwoordparameter moet de parameter tekst bevatten die de plugin samengesteld heeft uit de informatie van het instellingenscherm. Die <literal>paramameter</literal> tekst wordt doorgegeven aan alle IBugtraqProvider and IBugtraqProvider2 functies."
 
 #. (title)
 msgid "Frequently Asked Questions (FAQ)"
