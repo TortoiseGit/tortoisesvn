@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-01 22:48-0000\n"
+"PO-Revision-Date: 2010-03-02 00:12-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4476,84 +4476,84 @@ msgstr "onde há alguns grandes autores e muitos pequenos contribuidores, o núm
 
 #. (title)
 msgid "Commits by date Page"
-msgstr ""
+msgstr "Página de Submissões por data"
 
 #. (title)
 msgid "Commits-by-date Graph"
-msgstr ""
+msgstr "Gráfico de Submissões-por-data"
 
 #. (para)
 msgid "<placeholder-1/> This page gives you a graphical representation of project activity in terms of number of commits <emphasis>and</emphasis> author. This gives some idea of when a project is being worked on, and who was working at which time."
-msgstr ""
+msgstr "<placeholder-1/> Esta página dá-te uma representação gráfica da actividade do projecto em termos de, número de submissões <emphasis>e</emphasis> autor. Isto dá alguma ideia de quando um projecto está a ser trabalhado, quem esteve a trabalhar a que altura."
 
 #. (para)
 msgid "When there are several authors, you will get many lines on the graph. There are two views available here: <emphasis>normal</emphasis>, where each author's activity is relative to the base line, and <emphasis>stacked</emphasis>, where each author's activity is relative to the line underneath. The latter option avoids the lines crossing over, which can make the graph easier to read, but less easy to see one author's output."
-msgstr ""
+msgstr "Quando existem vários autores irás obter muitas linhas no gráfico. Existem duas vistas disponíveis aqui: <emphasis>normal</emphasis>, onde a actividade de cada autor é relativa à linha base e, <emphasis>empilhada</emphasis>, onde a actividade de cada autor é relativa à linha de baixo. A última opção evita o cruzamento de linhas que pode tornar o gráfico mais fácil de ler, mas menos fácil para ver a produção de um determinado autor."
 
 #. (para)
 msgid "By default the analysis is case-sensitive, so users <literal>PeterEgan</literal> and <literal>PeteRegan</literal> are treated as different authors. However, in many cases user names are not case-sensitive, and are sometimes entered inconsistently, so you may want <literal>DavidMorgan</literal> and <literal>davidmorgan</literal> to be treated as the same person. Use the <guilabel>Authors case insensitive</guilabel> checkbox to control how this is handled."
-msgstr ""
+msgstr "Por defeito, a analise é sensível a maiúsculas e minúsculas, pelo que os utilizadores <literal>PeterEgan</literal> e <literal>PeteRegan</literal> são tratados como autores diferentes. No entanto, em muitos casos, os nomes de utilizadores não são sensíveis a maiúsculas e minúsculas, e são por vezes introduzidos inconsistentemente, pelo que poderás querer que o <literal>DavidMorgan</literal> e o <literal>davidmorgan</literal> sejam tratados como a mesma pessoa. Usar a caixa de verificação <guilabel>Autores sensíveis a maiúsculas e minúsculas</guilabel> para controlar como este caso é tratado."
 
 #. (para)
 msgid "Note that the statistics cover the same period as the Log dialog. If that is only displaying one revision then the statistics will not tell you very much."
-msgstr ""
+msgstr "Ter em atenção que as estatísticas cobrem o mesmo período que a caixa de diálogo Registo. Se esta só mostra uma revisão então as estatísticas não te dirão muito."
 
 #. (title)
 msgid "Offline Mode"
-msgstr ""
+msgstr "Modo Fora de Linha"
 
 #. (title)
 msgid "Go Offline Dialog"
-msgstr ""
+msgstr "Caixa de diálogo Colocar-se em Fora de Linha"
 
 #. (para)
 msgid "<placeholder-1/> If the server is not reachable, and you have log caching enabled you can use the log dialog and revision graph in offline mode. This uses data from the cache, which allows you to continue working although the information may not be up-to-date or even complete."
-msgstr ""
+msgstr "<placeholder-1/> Se o servidor não está disponível e tens a cache de registo activada, podes usar a caixa de diálogo e o navegador de revisões no modo fora de linha. Usando dados da cache que te permite continuar a trabalhar, apesar de a informação não estar actualizada ou mesmo completa."
 
 #. (term)
 msgid "Offline for now"
-msgstr ""
+msgstr "Fora-de-linha por agora"
 
 #. (para)
 msgid "Complete the current operation in offline mode, but retry the repository next time log data is requested."
-msgstr ""
+msgstr "Completa a operação corrente no modo fora-de-linha mas, repetir a tentativa de acesso ao repositório da próxima vez que forem requeridos dados do registo."
 
 #. (term)
 msgid "Permanently offline"
-msgstr ""
+msgstr "Fora-de-linha permanentemente"
 
 #. (para)
 msgid "Remain in offline mode until a repository check is specifically requested. See <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
-msgstr ""
+msgstr "Permanecer em modo fora-de-linha até um pedido de verificação ao repositório for especificamente requerido. Consultar <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
 
 #. (term)
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. (para)
 msgid "If you don't want to continue the operation with possibly stale data, just cancel."
-msgstr ""
+msgstr "Se não queres continuar com a operação com dados possivelmente obsoletos, basta cancelar."
 
 #. (para)
 msgid "Here you have three options: <placeholder-1/>"
-msgstr ""
+msgstr "Aqui tens três opcões: <placeholder-1/>"
 
 #. (para)
 msgid "The <guilabel>Make this the default</guilabel> checkbox prevents this dialog from re-appearing and always picks the option you choose next. You can still change (or remove) the default after doing this from <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "A caixa de verificação <guilabel>Tornar isto por defeito</guilabel> previne esta caixa de diálogo de reaparecer, e escolhe sempre a opção que escolheres a seguir. Podes ainda mudar (ou remover) a opção por defeito, após a teres efectuado, a partir de <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Preferências</guimenuitem></menuchoice>."
 
 #. (title)
 #. (title)
 msgid "Refreshing the View"
-msgstr ""
+msgstr "Refrescar a Vista"
 
 #. (para)
 msgid "If you want to check the server again for newer log messages, you can simply refresh the view using <keycap>F5</keycap>. If you are using the log cache (enabled by default), this will check the repository for newer messages and fetch only the new ones. If the log cache was in offline mode, this will also attempt to go back online."
-msgstr ""
+msgstr "Se queres verificar o servidor novamente por novas mensagens de registo, podes simplesmente refrescar a vista usando <keycap>F5</keycap>. Se tiveres a usar a cache de registo (disponível por defeito), esta irá verificar o repositório por novas mensagens e trazer só as novas. Se a cache de registo estava em modo fora-de-linha esta irá também tentar voltar a estar em linha."
 
 #. (para)
 msgid "If you are using the log cache and you think the message content or author may have changed, you can use <keycap>Shift-F5</keycap> or <keycap>Ctrl-F5</keycap> to re-fetch the displayed messages from the server and update the log cache. Note that this only affects messages currently shown and does not invalidate the entire cache for that repository."
-msgstr ""
+msgstr "Se está a utilizar a cache de registo e pensas que o conteúdo da mensagem ou o autor tenha mudado, podes usar  <keycap>Shift-F5</keycap> ou <keycap>Ctrl-F5</keycap> para rebuscar as mensagens mostradas a partir do servidor e actualizar a cache de registo. De notar que isto só afecta as mensagens mostradas correntemente, e não invalida a totalidade da cache para esse repositório."
 
 #. (title)
 msgid "Viewing Differences"
