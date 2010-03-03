@@ -109,15 +109,17 @@ bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum
 	std::map<CTSVNPath, sb> externals;
 	for (std::vector<SVNExternal>::iterator it = begin(); it != end(); ++it)
 	{
+		SVNRev rev = it->revision;
+		SVNRev origrev = it->origrevision;
 		SVNRev pegrev = it->pegrevision;
 		CString peg;
 		if (pegrev.IsValid())
 			peg = _T("@") + pegrev.ToString();
+		else if (it->adjust)
+			peg = rev.ToString();
 		else
 			peg.Empty();
 
-		SVNRev rev = it->revision;
-		SVNRev origrev = it->origrevision;
 		CString temp;
 		if (it->adjust)
 			temp.Format(_T("-r %s %s%s %s"), rev.ToString(), it->url, (LPCTSTR)peg, it->targetDir);
