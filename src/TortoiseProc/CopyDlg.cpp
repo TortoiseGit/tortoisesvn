@@ -79,6 +79,7 @@ BEGIN_MESSAGE_MAP(CCopyDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(LVN_GETDISPINFO, IDC_EXTERNALSLIST, &CCopyDlg::OnLvnGetdispinfoExternalslist)
 	ON_NOTIFY(LVN_KEYDOWN, IDC_EXTERNALSLIST, &CCopyDlg::OnLvnKeydownExternalslist)
 	ON_NOTIFY(NM_CLICK, IDC_EXTERNALSLIST, &CCopyDlg::OnNMClickExternalslist)
+	ON_REGISTERED_MESSAGE(CLinkControl::LK_LINKITEMCLICKED, &CCopyDlg::OnCheck)
 END_MESSAGE_MAP()
 
 
@@ -86,7 +87,7 @@ BOOL CCopyDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(IDC_MSGGROUP);
+	ExtendFrameIntoClientArea(IDC_EXTGROUP);
 	m_aeroControls.SubclassControl(this, IDC_DOSWITCH);
 	m_aeroControls.SubclassOkCancelHelp(this);
 
@@ -166,9 +167,22 @@ BOOL CCopyDlg::OnInitDialog()
 	if (!m_sLogMessage.IsEmpty())
 		m_cLogMessage.SetText(m_sLogMessage);
 
+	m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKALL);
+	m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKNONE);
+
+	// line up all controls and adjust their sizes.
+#define LINKSPACING 9
+	RECT rc = AdjustControlSize(IDC_SELECTLABEL);
+	rc.right -= 15;	// AdjustControlSize() adds 20 pixels for the checkbox/radio button bitmap, but this is a label...
+	rc = AdjustStaticSize(IDC_CHECKALL, rc, LINKSPACING);
+	rc = AdjustStaticSize(IDC_CHECKNONE, rc, LINKSPACING);
+
 	CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_TEXT);
 	CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
 	CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, _T("Alt+")+CString(CAppUtils::FindAcceleratorKey(this, IDC_INVISIBLE)));
+
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKALL)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
+	CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKNONE)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
 
 	AddAnchor(IDC_REPOGROUP, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_COPYSTARTLABEL, TOP_LEFT, TOP_RIGHT);
@@ -176,20 +190,23 @@ BOOL CCopyDlg::OnInitDialog()
 	AddAnchor(IDC_TOURLLABEL, TOP_LEFT);
 	AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BROWSE, TOP_RIGHT);
-	AddAnchor(IDC_FROMGROUP, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_COPYHEAD, TOP_LEFT);
-	AddAnchor(IDC_COPYREV, TOP_LEFT);
-	AddAnchor(IDC_COPYREVTEXT, TOP_LEFT);
-	AddAnchor(IDC_BROWSEFROM, TOP_LEFT);
-	AddAnchor(IDC_COPYWC, TOP_LEFT);
-	AddAnchor(IDC_EXTGROUP, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_EXTERNALSLIST, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_MSGGROUP, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_HISTORY, TOP_LEFT);
 	AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
 	AddAnchor(IDC_BUGID, TOP_RIGHT);
 	AddAnchor(IDC_INVISIBLE, TOP_RIGHT);
 	AddAnchor(IDC_LOGMESSAGE, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_FROMGROUP, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_COPYHEAD, BOTTOM_LEFT);
+	AddAnchor(IDC_COPYREV, BOTTOM_LEFT);
+	AddAnchor(IDC_COPYREVTEXT, BOTTOM_LEFT);
+	AddAnchor(IDC_BROWSEFROM, BOTTOM_LEFT);
+	AddAnchor(IDC_COPYWC, BOTTOM_LEFT);
+	AddAnchor(IDC_EXTGROUP, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SELECTLABEL, BOTTOM_LEFT);
+	AddAnchor(IDC_CHECKALL, BOTTOM_LEFT);
+	AddAnchor(IDC_CHECKNONE, BOTTOM_LEFT);
+	AddAnchor(IDC_EXTERNALSLIST, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_DOSWITCH, BOTTOM_LEFT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
@@ -702,4 +719,24 @@ void CCopyDlg::ToggleCheckbox(int index)
 	ext.adjust = !ext.adjust;
 	m_externals[index] = ext;
 	m_ExtList.RedrawItems(index, index);
+	m_ExtList.UpdateWindow();
+}
+
+LRESULT CCopyDlg::OnCheck(WPARAM wnd, LPARAM)
+{
+	HWND hwnd = (HWND)wnd;
+	bool check = false;
+	if (hwnd == GetDlgItem(IDC_CHECKALL)->GetSafeHwnd())
+		check = true;
+	else if (hwnd == GetDlgItem(IDC_CHECKNONE)->GetSafeHwnd())
+		check = false;
+
+	for (std::vector<SVNExternal>::iterator it = m_externals.begin(); it != m_externals.end(); ++it)
+	{
+		it->adjust = check;
+	}
+	m_ExtList.RedrawItems(0, m_ExtList.GetItemCount());
+	m_ExtList.UpdateWindow();
+
+	return 0;
 }

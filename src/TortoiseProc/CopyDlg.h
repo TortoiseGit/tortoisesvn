@@ -30,6 +30,7 @@
 #include "AeroControls.h"
 #include "SVNExternals.h"
 #include "HintListCtrl.h"
+#include "LinkControl.h"
 
 #define WM_TSVN_MAXREVFOUND			(WM_APP + 1)
 
@@ -78,6 +79,7 @@ protected:
 	afx_msg void OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnKeydownExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMClickExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg LRESULT OnCheck(WPARAM count, LPARAM);
 	DECLARE_MESSAGE_MAP()
 
 	virtual BOOL	Cancel() {return m_bCancelled;}
@@ -117,4 +119,5 @@ private:
 	bool			m_bCancelled;
 	volatile LONG	m_bThreadRunning;
 	SVNExternals	m_externals;
+	CLinkControl	m_linkControl;
 };
