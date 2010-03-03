@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-01 00:19 +0000\n"
-"PO-Revision-Date: 2010-02-09 16:37-0300\n"
+"PO-Revision-Date: 2010-03-03 03:05-0300\n"
 "Last-Translator: Eduardo Marques <eduardo@eduardomarques.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3505,13 +3505,12 @@ msgstr "Desenvolvedor B agora terá que decidir o que fazer com a reorganizaçã
 # RESHUFFLE???
 # PORTED ACROSS???
 #. (para)
-#, fuzzy
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr "Para submeter suas modificações locais com o RESHUFFLE, o desenvolvedor B primeiro precisará saber para qual nome o arquivo em conflito <filename>Foo.c</filename> foi renomeado ou movido no repositório. Isto pode ser feito fazendo uso da caixa de diálogo do Log. As modificações poderão então serem submetidas manualmente - uma vez que não há maneira de automatizar ou simplificar esse processo. Uma vez que as modificações tenham sido PORTED ACROSS, o PATH em conflito será redundante e poderá ser eliminado. Neste caso utilize o botão <guilabel>Remover</guilabel> na caixa de diálogo do Editor de Conflito para limpar e assinalar o conflito como resolvido."
+msgstr "Para submeter suas modificações locais com o RESHUFFLE, o desenvolvedor B primeiro precisará saber para qual nome o arquivo em conflito <filename>Foo.c</filename> foi renomeado ou movido no repositório. Isto pode ser feito fazendo uso da caixa de diálogo do Log. As modificações poderão ser então submetidas manualmente - uma vez que não há maneira de automatizar ou simplificar esse processo. Uma vez que as modificações tenham sido PORTED ACROSS, o PATH em conflito será redundante e poderá ser eliminado. Neste caso, utilize o botão <guilabel>Remover</guilabel> da caixa de diálogo do Editor de Conflitos para limpar e assinalar o conflito como resolvido."
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog helps to track down what was moved."
-msgstr "Se o desenvolvedor B decide que as modificações do desenvolvedor A estão erradas então ele deverá escolher o botão <guilabel>Manter</guilabel> na caixa de diálogo do Editor de Conflito. Desta forma, o conflito no arquivo ou pasta será assinalado como resolvido mas as modificações do desenvolvedor A precisarão ser removidas manualmente. Mais uma vez, a caixa de diálogo do Log auxilia para identificar o que foi movido."
+msgstr "Se o Desenvolvedor B decide que as modificações do Desenvolvedor A estão erradas então ele deverá escolher o botão <guilabel>Manter</guilabel> na caixa de diálogo do Editor de Conflitos. Desta forma, o conflito no arquivo ou pasta será assinalado como resolvido mas as modificações do Desenvolvedor A precisarão ser removidas manualmente. Mais uma vez, a caixa de diálogo do Log auxilia para identificar o que foi movido."
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
@@ -3544,7 +3543,7 @@ msgstr "Para resolver este conflito, Desenvolvedor B terá que descobrir para qu
 #. (para)
 #. (para)
 msgid "Then developer B has to decide which new filename of <filename>Foo.c</filename> to keep - the one done by developer A or the rename done by himself."
-msgstr "Em seguida, o Desenvolvedor B terá que decidir se o novo nome do arquivo <filename>Foo.c</filename> será mantido - aquele dado pelo Desenvolvedor A ou se aquele renomeado por ele mesmo."
+msgstr "Em seguida, o Desenvolvedor B terá que decidir se o novo nome do arquivo <filename>Foo.c</filename> será mantido - se aquele dado pelo Desenvolvedor A ou se aquele renomeado por ele mesmo."
 
 #. (para)
 #. (para)
@@ -3592,39 +3591,39 @@ msgstr "Alteração local, exclusão na unificação"
 #. (para)
 #. (para)
 msgid "Developer A working on trunk moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Desenvolvedor A trabalhando no trunk move o arquivo <filename>Foo.c</filename> para <filename>Bar.c</filename> e submete o arquivo para o repositório"
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> and commits it to the repository."
-msgstr ""
+msgstr "Desenvolvedor B trabalhando no branch modifica o arquivo <filename>Foo.c</filename> e o submete para o repositório."
 
 #. (para)
 msgid "There is an equivalent case for folder moves, but it is not yet detected in Subversion 1.6 ..."
-msgstr ""
+msgstr "Existe uma situação equivalente para a movimentação de pastas, mas isto ainda não é detectado pela Subversão 1.6..."
 
 #. (para)
 msgid "Developer A working on trunk moves parent folder <filename>FooFolder</filename> to <filename>BarFolder</filename> and commits it to the repository."
-msgstr ""
+msgstr "Desenvolvedor A trabalhando no trunk move a pasta <filename>FooFolder</filename> para <filename>BarFolder</filename> e submete a alteração para o repositório."
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> in her working copy."
-msgstr ""
+msgstr "Desenvolvedor B trabalhando no branch modifica o arquivo <filename>Foo.c</filename> em sua cópia de trabalho."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added."
-msgstr ""
+msgstr "<filename>Bar.c</filename> é marcado como adicionado."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> é marcado como modificado com um conflito de estrutura."
 
 #. (para)
 msgid "To merge her local changes with the reshuffle, Developer B must first find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself. The changes must then be merged by hand as there is currently no way to automate or even simplify this process. Once the changes have been ported across, the conflicted path is redundant and can be deleted. In this case use the <guilabel>Remove</guilabel> button in the conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr ""
+msgstr "Para submeter suas modificações locais com o RESHUFFLE, o Desenvolvedor B primeiro precisará saber para qual nome o arquivo em conflito <filename>Foo.c</filename> foi renomeado ou movido no repositório. Isto pode ser feito fazendo uso da caixa de diálogo do Log. O Editor de Conflitos somente exibirá o log da cópia de trabalho, uma vez que ele não sabe qual PATH foi usado na submissão - por isso você deverá descobrir este detalhe. As modificações deverão ser submetidas manualmente uma vez que não há maneira de automatizar ou mesmo simplificar esse processo. Uma vez que as alterações tenham sido realizadas, o PATH em conflito é redundante e poderá ser eliminado. Neste caso, utilize o botão <guilabel>Remover</guilabel> da caixa de diálogo do Editor de Conflitos para limpar e marcar o conflito como resolvido."
 
 #. (para)
 msgid "If Developer B decides that A's changes were wrong then she must choose the <guilabel>Keep</guilabel> button in the conflict editor dialog. This marks the conflicted file/folder as resolved, but Developer A's changes need to be removed by hand. Again the log dialog for the merge source helps to track down what was moved."
-msgstr ""
+msgstr "Se o Desenvolvedor B decide que as modificações do Desenvolvedor A estão erradas então ele deverá escolher o botão <guilabel>Manter</guilabel> na caixa de diálogo do Editor de Conflitos. Desta forma, o conflito no arquivo ou pasta será assinalado como resolvido mas as modificações do Desenvolvedor A precisarão ser removidas manualmente. Mais uma vez, a caixa de diálogo de log do MERGE SOURCE auxilia para identificar o que foi movido."
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
@@ -3636,7 +3635,7 @@ msgstr "Desenvolvedor B trabalhando com o branch, move e renomeia o arquivo <fil
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
-msgstr ""
+msgstr "<filename>Bix.c</filename> é marcado com Status de normal (não modificado)."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added with history."
@@ -3644,11 +3643,11 @@ msgstr "<filename>Bar.c</filename> é marcado como adicionado com histórico."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> é marcado como inexistente e como tendo um conflito de estrutura."
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself."
-msgstr ""
+msgstr "Para resolver este conflito, Desenvolvedor B terá que descobrir para qual nome o arquivo em conflito <filename>Foo.c</filename> foi renomeado/movido no repositório. Isto pode ser feito usando a caixa de diálogo do MERGE SOURCE. O Editor de Conflitos apenas exibirá o log da cópia de trabalho, uma vez que não sabe qual PATH foi usado na submissão e portanto você deverá descobrir esse detalhe."
 
 #. (title)
 msgid "Other tree conflicts"
