@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-02 00:12-0000\n"
+"PO-Revision-Date: 2010-03-03 00:45-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4557,7 +4557,7 @@ msgstr "Se está a utilizar a cache de registo e pensas que o conteúdo da mensa
 
 #. (title)
 msgid "Viewing Differences"
-msgstr ""
+msgstr "Ver Diferenças"
 
 #. (primary)
 #. (primary)
@@ -4570,99 +4570,99 @@ msgstr ""
 
 #. (para)
 msgid "One of the commonest requirements in project development is to see what has changed. You might want to look at the differences between two revisions of the same file, or the differences between two separate files. TortoiseSVN provides a built-in tool named <application>TortoiseMerge</application> for viewing differences of text files. For viewing differences of image files, TortoiseSVN also has a tool named <application>TortoiseIDiff</application>. Of course, you can use your own favourite diff program if you like."
-msgstr ""
+msgstr "Um dos requisitos mais comuns no desenvolvimento de projectos é poder ver o que foi alterado. Tu podes querer ver as diferenças entre duas revisões do mesmo ficheiro, ou as diferenças entre dois ficheiros diferentes. O TortoiseSVN fornece uma ferramenta incorporada para ver as diferenças de ficheiros de texto, chamada <application>TortoiseMerge</application>. Para ver as diferenças de ficheiros de imagem o TortoiseSVN também tem uma ferramenta, chamada <application>TortoiseIDiff</application>. É claro que se quiseres, podes usar o teu programa de comparação favorito."
 
 #. (title)
 msgid "File Differences"
-msgstr ""
+msgstr "Diferenças em ficheiros"
 
 #. (term)
 msgid "Local changes"
-msgstr ""
+msgstr "Alterações locais"
 
 #. (para)
 msgid "If you want to see what changes <emphasis>you</emphasis> have made in your working copy, just use the explorer context menu and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Se pretendes ver que alterações <emphasis>tu</emphasis> efectuastes na tua cópia de trabalho, usa apenas  o menu de contexto do explorador e selecciona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Comparar</guimenuitem></menuchoice>."
 
 #. (term)
 msgid "Difference to another branch/tag"
-msgstr ""
+msgstr "Diferenças para outro ramo/etiqueta"
 
 #. (para)
 msgid "If you want to see what has changed on trunk (if you are working on a branch) or on a specific branch (if you are working on trunk), you can use the explorer context menu. Just hold down the <keycap>Shift</keycap> key while you right click on the file. Then select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with URL</guimenuitem></menuchoice>. In the following dialog, specify the URL in the repository with which you want to compare your local file to."
-msgstr ""
+msgstr "Se pretendes ver o que foi alterado no trunk (se estás a trabalhar num ramo) ou num ramo específico (se estás a trabalhar no trunk), podes usar o menu de contexto do explorador. Apenas mantêm a tecla <keycap>Shift</keycap> enquanto clicas com o botão direito no ficheiro. Então selecciona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Comparar com URL</guimenuitem></menuchoice>. Na caixa de diálogo seguinte, especifica o URL no repositório com o qual queres comparar o teu ficheiro."
 
 #. (para)
 msgid "You can also use the repository browser and select two trees to diff, perhaps two tags, or a branch/tag and trunk. The context menu there allows you to compare them using <guimenuitem>Compare revisions</guimenuitem>. Read more in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr ""
+msgstr "Também podes usar o navegador de repositório e, seleccionar duas árvores para comparar, talvez duas etiquetas, ou um ramo/etiqueta com o trunk. O menu de contexto aí permite-te compará-las usando <guimenuitem>Comparar revisões</guimenuitem>. Ler mais em <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "Difference from a previous revision"
-msgstr ""
+msgstr "Diferenças de uma revisão anterior"
 
 #. (para)
 msgid "If you want to see the difference between a particular revision and your working copy, use the Revision Log dialog, select the revision of interest, then select <guimenuitem>Compare with working copy</guimenuitem> from the context menu."
-msgstr ""
+msgstr "Se pretendes ver a diferença entre uma revisão particular e a tua cópia de trabalho, usa a caixa de diálogo Registo de Revisões e seleccionar a revisão de interesse, então seleccionar a partir do menu de contexto  <guimenuitem>Compara com cópia de trabalho</guimenuitem>."
 
 #. (para)
 msgid "If you want to see the difference between the last committed revision and your working copy, assuming that the working copy hasn't been modified, just right click on the file. Then select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with previous version</guimenuitem></menuchoice>. This will perform a diff between the revision before the last-commit-date (as recorded in your working copy) and the working BASE. This shows you the last change made to that file to bring it to the state you now see in your working copy. It will not show changes newer than your working copy."
-msgstr ""
+msgstr "Se pretendes ver as diferenças entre a última revisão submetida e a tua cópia de trabalho, assumindo que a tua cópia de trabalho não foi modificada, clica apenas com o botão direito no ficheiro. E selecciona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Comparar com revisão anterior</guimenuitem></menuchoice>. Então será executada uma comparação entra revisão antes da última submissão (como registada na tua cópia de trabalho) e a BASE de trabalho. Isto mostra a última alteração feita nesse ficheiro para o levar ao estado em que se encontra correntemente na tua cópia de trabalho. Não irá mostrar alterações mais recentes que a tua cópia de trabalho."
 
 #. (term)
 msgid "Difference between two previous revisions"
-msgstr ""
+msgstr "Diferenças entre duas revisões prévias"
 
 #. (para)
 msgid "If you want to see the difference between two revisions which are already committed, use the Revision Log dialog and select the two revisions you want to compare (using the usual <keycap>Ctrl</keycap>-modifier). Then select <guimenuitem>Compare revisions</guimenuitem> from the context menu."
-msgstr ""
+msgstr "Se pretendes ver as diferenças entre duas revisões prévias, que já estão submetidas, usa a caixa de diálogo Registo de Revisões e seleccionar as duas revisões qye queres comprar (usando o modificador usual <keycap>Ctrl</keycap>). Então selecciona a partir do menu de contexto <guimenuitem>Comparar revisões</guimenuitem>."
 
 #. (para)
 msgid "If you did this from the revision log for a folder, a Compare Revisions dialog appears, showing a list of changed files in that folder. Read more in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr ""
+msgstr "Se fizeste isto a partir do registo de revisão de uma pasta, a caixa de diálogo Arquivos Alterados aparecerá mostrando a lista de ficheiros alterados nessa pasta. Ler mais em <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "All changes made in a commit"
-msgstr ""
+msgstr "Todas as alterações feitas numa submissão"
 
 #. (para)
 msgid "If you want to see the changes made to all files in a particular revision in one view, you can use Unified-Diff output (GNU patch format). This shows only the differences with a few lines of context. It is harder to read than a visual file compare, but will show all the changes together. From the Revision Log dialog select the revision of interest, then select <guimenuitem>Show Differences as Unified-Diff</guimenuitem> from the context menu."
-msgstr ""
+msgstr "Se pretendes ver as alterações feitas em todos os ficheiros numa revisão particular numa vista única, podes usar o resultado da Comparação-Unificada (formato de remendo GNU). Isto mostra apenas as diferenças com algumas linhas de contexto. É mais difícil de ler que uma comparação visual de ficheiros, mas irá mostrar todas as alterações em conjunto. A partir da caixa de diálogo Registo de Revisões selecciona as revisões de interesse, e selecciona a partir do menu de contexto <guimenuitem>Mostrar alterações como uma comparação unificada</guimenuitem>."
 
 #. (term)
 msgid "Difference between files"
-msgstr ""
+msgstr "Diferenças entre ficheiros"
 
 #. (para)
 msgid "If you want to see the differences between two different files, you can do that directly in explorer by selecting both files (using the usual <keycap>Ctrl</keycap>-modifier). Then from the explorer context menu select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Se pretendes ver as diferenças entre dois ficheiros diferentes, podes faze-lo directamente no explorador seleccionando ambos os ficheirs (usando o modificador usual <keycap>Ctrl</keycap>). Então a partir do menu de contexto do explorador, selecciona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Comparar</guimenuitem></menuchoice>."
 
 #. (term)
 msgid "Difference between WC file/folder and a URL"
-msgstr ""
+msgstr "Diferenças entre ficheiro/pasta da CT e um URL"
 
 #. (para)
 msgid "If you want to see the differences between a file in your working copy, and a file in any Subversion repository, you can do that directly in explorer by selecting the file then holding down the <keycap>Shift</keycap> key whilst right clicking to obtain the context menu. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with URL</guimenuitem></menuchoice>. You can do the same thing for a working copy folder. TortoiseMerge shows these differences in the same way as it shows a patch file - a list of changed files which you can view one at a time."
-msgstr ""
+msgstr "Se pretendes ver as diferenças entre um ficheiro na tua cópia de trabalho e um ficheiro em qualquer repositório do Subversion, podes faze-lo directamente no explorador, sleeccionando o ficheiro e mantendo permido a tecla <keycap>Shift</keycap> enquanto clicas com o botão direito para aceder ao menu de contexto. Selecciona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Comparação com URL</guimenuitem></menuchoice>. Podes fazer a mesma coisa para uma pasta da cópia de trabalho. O TortoiseMerge mostra essas diferenças da mesma maneira que mostra um ficheiro de remendo - uma lista de ficheiros alterados que podes visualizar, um de cada vez."
 
 #. (term)
 msgid "Difference with blame information"
-msgstr ""
+msgstr "Diferenças com informação de responsabilidade"
 
 #. (para)
 msgid "If you want to see not only the differences but also the author, revision and date that changes were made, you can combine the diff and blame reports from within the revision log dialog. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr ""
+msgstr "Se pretendes ver não só as diferenças, mas também ver o autor, revisão e data dessa alteração, podes combinar os relatórios de comparação e responsabilização a partir da caixa de diálogo registo de revisões. Para mais detalhes consulta <xref linkend=\"tsvn-dug-blame-diffs\"/>."
 
 #. (term)
 msgid "Difference between folders"
-msgstr ""
+msgstr "Diferenças entre pastas"
 
 #. (para)
 msgid "The built-in tools supplied with TortoiseSVN do not support viewing differences between directory hierarchies. But if you have an external tool which does support that feature, you can use that instead. In <xref linkend=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have used."
-msgstr ""
+msgstr "As ferramentas embutidas fornecidas com o TortoiseSVN, não suportam a visualização de diferenças entre hierarquia de pastas. Mas se tiveres uma ferramenta externa que suporte essa funcionalidade, podes usa-la em substituição. Em <xref linkend=\"tsvn-dug-diff-tools\"/> nós falamos sobre algumas que temos usado."
 
 #. (para)
 msgid "If you have configured a third party diff tool, you can use <keycap>Shift</keycap> when selecting the Diff command to use the alternate tool. Read <xref linkend=\"tsvn-dug-settings-progs\"/> to find out about configuring other diff tools."
-msgstr ""
+msgstr "Se tens configurada uma ferramenta de comparação de terceiros, podes usar <keycap>Shift</keycap>  quando seleccionares o comando de Comparação, para usar a ferramenta alternativa. Consulta <xref linkend=\"tsvn-dug-settings-progs\"/> para descobrires como configurar outras ferramentas de comparação."
 
 #. (title)
 msgid "Line-end and Whitespace Options"
