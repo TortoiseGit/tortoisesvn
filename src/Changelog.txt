@@ -104,6 +104,8 @@ Version 1.6.8
        checkout didn't work. (Stefan)
 - BUG: Handling of multi-page TIFF files in TortoiseIDiff could
        lead to a crash. (Stefan)
+- BUG: When adding files failed, the error message was
+       not shown. (Stefan)
 - CHG: Various adjustments for Windows 7. (Stefan)
 - CHG: The "show excluded folders as normal" setting is
        changed to false by default. (Stefan)
