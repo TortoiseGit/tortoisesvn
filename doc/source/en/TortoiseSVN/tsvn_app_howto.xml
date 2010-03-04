@@ -526,37 +526,17 @@ TortoiseProc.exe /command:repobrowser /path:"url/to/repository"
 			list so they don't get added again later by mistake.
 		</para>
 		<para>
-			If the files are already in the repository, you have to do
-			a little more work.
-			<orderedlist>
-				<listitem>
-					<para>
-						Hold the <keycap>Shift</keycap> key to get the extended
-						context menu and use
-						<menuchoice>
-							<guimenu>TortoiseSVN</guimenu>
-							<guimenuitem>Delete (keep local)</guimenuitem>
-						</menuchoice>
-						to mark the file/folder for deletion from the repository
-						without losing the local copy.
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						<menuchoice>
-							<guimenu>TortoiseSVN</guimenu>
-							<guimenuitem>Commit</guimenuitem>
-						</menuchoice>
-						the parent folder.
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						Add the file/folder to the ignore list so you don't get
-						into the same trouble again.
-					</para>
-				</listitem>
-			</orderedlist>
+			If the files are already in the repository, they have to be deleted
+			from the repository and added to the ignore list. Fortunately
+			TortoiseSVN has a convenient shortcut for doing this.
+			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Delete and add to ignore list</guimenuitem>
+			</menuchoice>
+			will first mark the file/folder for deletion from the repository,
+			keeping the local copy. It also adds this item to the ignore list
+			so that it will not be added back into Subversion again by mistake.
+			Once this is done you just need to commit the parent folder.
 		</para>
 	</sect1>
 	<sect1 id="tsvn-howto-unversion-wc">
