@@ -106,6 +106,7 @@ Version 1.6.8
        lead to a crash. (Stefan)
 - BUG: When adding files failed, the error message was
        not shown. (Stefan)
+- BUG: The return value for /command:commit was wrong. (Stefan Fuhrmann)
 - CHG: Various adjustments for Windows 7. (Stefan)
 - CHG: The "show excluded folders as normal" setting is
        changed to false by default. (Stefan)
