@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-03 00:45-0000\n"
+"PO-Revision-Date: 2010-03-04 23:34-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4666,31 +4666,31 @@ msgstr "Se tens configurada uma ferramenta de comparação de terceiros, podes u
 
 #. (title)
 msgid "Line-end and Whitespace Options"
-msgstr ""
+msgstr "Opções de Fim-de-Linha e Espaços-Brancos"
 
 #. (para)
 msgid "Sometimes in the life of a project you might change the line endings from <literal>CRLF</literal> to <literal>LF</literal>, or you may change the indentation of a section. Unfortunately this will mark a large number of lines as changed, even though there is no change to the meaning of the code. The options here will help to manage these changes when it comes to comparing and applying differences. You will see these settings in the <guilabel>Merge</guilabel> and <guilabel>Blame</guilabel> dialogs, as well as in the settings for TortoiseMerge."
-msgstr ""
+msgstr "Por vezes no tempo de vida do projecto poderás alterar os fim-de-linha de <literal>CRLF</literal> para <literal>LF</literal>, ou poderás alterar a indentação de uma secção. Infelizmente isto irá marcar um grande número de linhas como alteradas, mesmo que não haja alterações de significado no código. Estas opções te irão ajudar a gerir essas alterações quando for altura de comparar e aplicar as diferenças. Irás ver essas definições nas caixas de diálogo  <guilabel>Integrar</guilabel> e <guilabel>Responsabilizar</guilabel>, tal como nas definições para o TortoiseMerge."
 
 #. (para)
 msgid "<guilabel>Ignore line endings</guilabel> excludes changes which are due solely to difference in line-end style."
-msgstr ""
+msgstr "<guilabel>Ignorar fins-de-linha</guilabel> exclui alterações que são exclusivamente devidas a diferenças no estilo de fim-de-linha."
 
 #. (para)
 msgid "<guilabel>Compare whitespaces</guilabel> includes all changes in indentation and inline whitespace as added/removed lines."
-msgstr ""
+msgstr "<guilabel>Comparar espaços em branco</guilabel> inclui todas as alterações na indentação e espaços-em-branco em linha, como linhas adicionadas/removidas."
 
 #. (para)
 msgid "<guilabel>Ignore whitespace changes</guilabel> excludes changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
+msgstr "<guilabel>Ignorar alterações em espaços em branco</guilabel> exclui alterações que são exclusivamente devidas a uma alteração na quantidade e tipo do espaço em branco, e.g. alterando a indentação ou alterando tabulações para espaços. Adicionando espaços em branco onde nenhum existia, ou remover completamente um espaço em branco, será sempre mostrado como uma alteração."
 
 #. (para)
 msgid "<guilabel>Ignore all whitespaces</guilabel> excludes all whitespace-only changes."
-msgstr ""
+msgstr "<guilabel>Ignorar todos os espaços em branco</guilabel> exclui todas as alterações relacionadas só com espaços em branco."
 
 #. (para)
 msgid "Naturally, any line with changed content is always included in the diff."
-msgstr ""
+msgstr "Naturalmente qualquer linha com conteúdo alterado será sempre incluída na comparação."
 
 #. (title)
 msgid "Comparing Folders"
