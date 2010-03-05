@@ -224,6 +224,9 @@ CRepositoryLister::CListQuery::CListQuery
 
 CRepositoryLister::CListQuery::~CListQuery()
 {
+	// call overwritten method (base class destructor won't see it)
+
+	Terminate();
 }
 
 // cancel the svn:externals sub query as well
@@ -435,10 +438,77 @@ void CRepositoryLister::Enqueue
 
     TPathAndRev key (escapedURL, repository.revision);
     if (queries.find (key) == queries.end())
+	{
+		// trim list of SVN requests
+
+		if (scheduler.GetQueueDepth() > MAX_QUEUE_DEPTH)
+		{
+			// reduce the number of SVN requests to half the limit by 
+			// extracting the oldest (and least probably needed) ones
+
+			std::vector<async::IJob*> removed 
+				= scheduler.RemoveJobFromQueue (MAX_QUEUE_DEPTH / 2, true);
+
+			// we can only delete CListQuery instances
+			// -> (temp.) re-add all others (most of them will be
+			// terminated with the parent CListQuery and since they
+			// are at the front of the queue, they get done quickly)
+			
+			// we must not delete queries here because they may have 
+			// references between them (list query owns externals query)
+
+			std::vector<CListQuery*> deletedQueries; 
+			deletedQueries.reserve (removed.size());
+
+			for (size_t i = 0, count = removed.size(); i < count; ++i)
+			{
+				CListQuery* query = dynamic_cast<CListQuery*>(removed[i]);
+				if (query == NULL)
+					scheduler.Schedule (removed[i], false);
+				else
+					deletedQueries.push_back (query);
+			}
+
+			// CListQuery* may now be deleted
+
+			for (size_t i = 0, count = deletedQueries.size(); i < count; ++i)
+			{
+				// remove query from list of "valid" queries
+				// (note: there might be a new query for the same key)
+
+				CListQuery* query = deletedQueries[i];
+
+				TPathAndRev key (query->GetPath(), query->GetRevision());
+				TQueries::iterator iter = queries.find (key);
+				if ((iter != queries.end()) && (iter->second == query))
+					queries.erase (iter);
+
+				// destroy query
+
+				delete query;
+			}
+
+			// if the dumpster has not been empty before for some reason,
+			// then the removed queries might already have been dumped.
+			// Now, they would be dumped twice -> fix that.
+
+			std::sort (dumpster.begin(), dumpster.end());
+			std::sort (deletedQueries.begin(), deletedQueries.end());
+			dumpster.erase 
+				( std::set_difference 
+					( dumpster.begin(), dumpster.end()
+				    , deletedQueries.begin(), deletedQueries.end()
+					, dumpster.begin())
+				, dumpster.end());
+		}
+
+		// add the query whose result we will probably need
+
         queries[key] = new CListQuery ( escapedURL
                                       , repository
                                       , includeExternals
                                       , &scheduler);
+	}
 }
 
 // remove all unfinished entries from the job queue

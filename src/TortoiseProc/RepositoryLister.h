@@ -290,6 +290,12 @@ private:
 
     TQueries queries;
 
+	/// maximum number of outstanding SVN requests.
+	/// The higher this number is, the longer we will
+	/// keep the server under load.
+
+	enum { MAX_QUEUE_DEPTH = 100 };
+
     /// move superseeded queries here
     /// (so they can finish quietly without us waiting for them)
 
