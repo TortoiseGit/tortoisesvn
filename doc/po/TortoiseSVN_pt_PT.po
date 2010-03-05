@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-05 00:14-0000\n"
+"PO-Revision-Date: 2010-03-05 01:06-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4742,7 +4742,7 @@ msgstr "Se a lista de nomes de ficheiros é muito extensa podes utilizar a caixa
 
 #. (title)
 msgid "Diffing Images Using TortoiseIDiff"
-msgstr ""
+msgstr "Comparando Imagens usando o TortoiseDiff"
 
 #. (primary)
 msgid "image diff"
@@ -4754,35 +4754,35 @@ msgstr ""
 
 #. (para)
 msgid "There are many tools available for diffing text files, including our own TortoiseMerge, but we often find ourselves wanting to see how an image file has changed too. That's why we created TortoiseIDiff."
-msgstr ""
+msgstr "Existem muitas ferramentas disponíveis para comparar ficheiros de texto, incluindo o nosso TortoiseMerge, mas com frequência estamos também à espera de ver como um ficheiro de imagem foi alterado. É por isso que criámos o TortoiseIDiff."
 
 #. (title)
 msgid "The image difference viewer"
-msgstr ""
+msgstr "O leitor de diferenças de imagem"
 
 #. (para)
 msgid "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> for any of the common image file formats will start TortoiseIDiff to show image differences. By default the images are displayed side-by-side but you can use the View menu or toolbar to switch to a top-bottom view instead, or if you prefer, you can overlay the images and pretend you are using a lightbox."
-msgstr ""
+msgstr "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Comparar</guimenuitem></menuchoice> para qualquer formato de imagem comum, irá arrancar o TortoiseIDiff  para mostrar diferenças de imagem. Por defeito as imagens são mostradas lado-a-lado, mas em vez de, podes usar o menu Vista ou a barra de ferramentas para comutar para uma vista cima-baixo, ou se preferires podes sobrepor as imagens e fingir que estás a usar uma mesa de luz."
 
 #. (para)
 msgid "Naturally you can also zoom in and out and pan around the image. You can also pan the image simply by left-dragging it. If you select the <guilabel>Link images together</guilabel> option, then the pan controls (scrollbars, mousewheel) on both images are linked."
-msgstr ""
+msgstr "Naturalmente que podes aplicar mais ou menos zoom e posicionar a imagem. Podes também posicionar a imagem apenas por arrastá-la com o botão direito do rato. Se seleccionares a opção <guilabel>Ligar posições das imagens</guilabel>, os controlos de posicionamento (barras e rolar, roda do rato) ficaram ligados."
 
 #. (para)
 msgid "An image info box shows details about the image file, such as the size in pixels, resolution and colour depth. If this box gets in the way, use <menuchoice><guimenu>View</guimenu><guimenuitem>Image Info</guimenuitem></menuchoice> to hide it. You can get the same information in a tooltip if you hover the mouse over the image title bar."
-msgstr ""
+msgstr "Uma caixa de informação de imagem mostra os detalhes sobre a mesma, como o tamanho em píxeis, resolução e profundidade de cor. Se esta caixa está a atrapalhar usa <menuchoice><guimenu>View</guimenu><guimenuitem>Image Info</guimenuitem></menuchoice> para a esconder. Podes obter a mesma informação numa etiqueta, se mantiveres o rato sobre a barra de título da imagem."
 
 #. (para)
 msgid "When the images are overlaid, the relative intensity of the images (alpha blend) is controlled by a slider control at the left side. You can click anywhere in the slider to set the blend directly, or you can drag the slider to change the blend interactively. <keycap>Ctrl+Shift</keycap>-<action>Wheel</action> to change the blend."
-msgstr ""
+msgstr "Quando as imagens estão sobrepostas, a intensidade relativa das mesmas (mistura alfa) é controlada por um controlo de deslocamento no lado esquerdo. Podes clicar em qualquer ponto do controlo de deslocamento para configurares a mistura directamente, ou podes arrastá-lo para alterares a mistura iterativamente. <keycap>Ctrl+Shift</keycap>-<action>Rodal</action> para alterar a mistura."
 
 #. (para)
 msgid "The button above the slider toggles between 0% and 100% blends, and if you double click the button, the blend toggles automatically every second until you click the button again. This can be useful when looking for multiple small changes."
-msgstr ""
+msgstr "O botão por cima do controlo de deslocamento alterna entre as misturas de 0% e 100%, e se efectuares duplo clique no botão, a mistura alterna automaticamente a cada segundo até clicares no botão novamente. Isto pode ser útil quando olhamos para pequenas alterações múltiplas."
 
 #. (para)
 msgid "Sometimes you want to see a difference rather than a blend. You might have the image files for two revisions of a printed circuit board and want to see which tracks have changed. If you disable alpha blend mode, the difference will be shown as an <emphasis>XOR</emphasis> of the pixel colour values. Unchanged areas will be plain white and changes will be coloured."
-msgstr ""
+msgstr "Por vezes queres ver uma diferença em vez de uma mistura. Poderás ter os ficheiros de imagem de duas revisões de um placa de circuito impresso e querer ver quais as pistas que foram alteradas. Se desactivares o modo mistura alfa, a diferença irá ser mostrada como uma <emphasis>XOR</emphasis> dos valores de cor dos píxeis. Áreas inalteradas serão brancas e as alterações coloridas."
 
 #. (title)
 msgid "External Diff/Merge Tools"
