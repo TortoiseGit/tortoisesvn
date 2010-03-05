@@ -26,6 +26,8 @@
 #include "SVNError.h"
 #include "SVNHelpers.h"
 
+#include "RepositoryInfo.h"
+
 /////////////////////////////////////////////////////////////////////
 // CRepositoryLister::CQuery
 /////////////////////////////////////////////////////////////////////
@@ -291,11 +293,14 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
                 SRepositoryInfo repository;
 
+				LogCache::CLogCachePool* cachePool = svn.GetLogCachePool();
                 CTSVNPath url;
                 url.SetFromSVN (external->url);
-                repository.root 
-                    = svn.GetRepositoryRootAndUUID (url, repository.uuid);
-
+				repository.root 
+					= cachePool && cachePool->IsEnabled()
+					? cachePool->GetRepositoryInfo()
+						.GetRepositoryRootAndUUID (url, repository.uuid)
+					: svn.GetRepositoryRootAndUUID (url, repository.uuid);
                 repository.revision = external->revision;
 
                 // add the new entry
