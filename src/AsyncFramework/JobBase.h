@@ -75,7 +75,12 @@ public:
     /// may be called by other (observing) threads
 
     virtual Status GetStatus() const;
-    virtual void WaitUntilDone();
+
+	/// wait until job execution finished.
+	/// If @ref inlineExecution is set, the job will be
+	/// executed in the current thread if it is still waiting.
+
+    virtual void WaitUntilDone (bool inlineExecution = false);
 
 	/// returns false in case of a timeout
 

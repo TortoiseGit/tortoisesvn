@@ -75,8 +75,11 @@ IJob::Status CJobBase::GetStatus() const
     return finished.Test() ? IJob::done : IJob::running;
 }
 
-void CJobBase::WaitUntilDone()
+void CJobBase::WaitUntilDone (bool inlineExecution)
 {
+	if (inlineExecution)
+		Execute();
+
     finished.WaitFor();
 }
 

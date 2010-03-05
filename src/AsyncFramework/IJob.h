@@ -75,8 +75,10 @@ public:
 
     /// Efficiently wait for instance to reach the 
     /// \ref done \ref Status.
+	/// If \ref inlineExecution is set, the job will be
+	/// executed in the current thread if it is still waiting.
 
-    virtual void WaitUntilDone() = 0;
+    virtual void WaitUntilDone (bool inlineExecution = false) = 0;
 };
 
 }
