@@ -46,8 +46,14 @@ CRepositoryLister::CQuery::CQuery
 
 CRepositoryLister::CQuery::~CQuery()
 {
+	// stop execution asap (or prevent execution at all)
+
     Terminate();
-    WaitUntilDone();
+
+	// ensure we make the transition to "done"
+	// and wait for that transition to be made
+
+    WaitUntilDone(true);
 }
 
 // parameter access
@@ -66,13 +72,13 @@ const SVNRev& CRepositoryLister::CQuery::GetRevision() const
 
 const std::deque<CItem>& CRepositoryLister::CQuery::GetResult()
 {
-    WaitUntilDone();
+    WaitUntilDone (true);
     return result;
 }
 
 const CString& CRepositoryLister::CQuery::GetError()
 {
-    WaitUntilDone();
+    WaitUntilDone (true);
 
     if (error.IsEmpty() && HasBeenTerminated())
         error.LoadString (IDS_REPOBROWSE_ERR_CANCEL);
@@ -234,7 +240,7 @@ void CRepositoryLister::CListQuery::Terminate()
 
 const std::deque<CItem>& CRepositoryLister::CListQuery::GetSubPathExternals()
 {
-    WaitUntilDone();
+    WaitUntilDone (true);
     return subPathExternals;
 }
 
@@ -385,7 +391,7 @@ void CRepositoryLister::ClearDumpster()
 {
     std::for_each ( dumpster.begin()
                   , dumpster.end()
-                  , std::mem_fun (&CQuery::WaitUntilDone));
+				  , std::bind2nd (std::mem_fun1 (&CQuery::WaitUntilDone), false));
 
     CompactDumpster();
 }
