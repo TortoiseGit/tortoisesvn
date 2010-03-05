@@ -560,6 +560,61 @@ void CJobScheduler::WaitForSomeJobs()
     InterlockedDecrement (&waitingThreads);
 }
 
+// Returns the number of jobs waiting for execution.
+
+size_t CJobScheduler::GetQueueDepth() const
+{
+    CCriticalSectionLock lock (mutex);
+    return queue.size();
+}
+
+// Returns the number of threads that currently execute
+// jobs for this scheduler
+
+size_t CJobScheduler::GetRunningThreadCount() const
+{
+    CCriticalSectionLock lock (mutex);
+	return threads.runningCount;
+}
+
+// remove waiting entries from the queue until their 
+// number drops to or below the given watermark.
+
+std::vector<IJob*> CJobScheduler::RemoveJobFromQueue 
+	( size_t watermark
+	, bool oldest)
+{
+	std::vector<IJob*> removed;
+
+	{
+	    CCriticalSectionLock lock (mutex);
+		if (queue.size() > watermark)
+		{
+			size_t toRemove = queue.size() - watermark;
+			removed.reserve (toRemove);
+
+			// temporarily change the queue extraction strategy 
+			// such that we remove jobs from the requested end
+			// (fifo -> oldest are at front, otherwise they are
+			// at the back)
+
+			bool fifo = queue.get_fifo();
+			queue.set_fifo (oldest == fifo);
+
+			// remove 'em
+
+			for (size_t i = 0; i < toRemove; ++i)
+				removed.push_back (queue.pop().first);
+
+			// restore job execution order
+
+			queue.set_fifo (fifo);
+		}
+	}
+
+	return removed;
+}
+
 // set max. number of concurrent threads
 
 void CJobScheduler::SetSharedThreadCount (size_t count)

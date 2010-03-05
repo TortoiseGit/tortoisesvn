@@ -464,6 +464,20 @@ public:
 
     void WaitForSomeJobs();
 
+	/// Returns the number of jobs waiting for execution.
+
+	size_t GetQueueDepth() const;
+
+	/// Returns the number of threads that currently execute
+	/// jobs for this scheduler
+
+	size_t GetRunningThreadCount() const;
+
+	/// remove waiting entries from the queue until their 
+	/// number drops to or below the given watermark.
+
+	std::vector<IJob*> RemoveJobFromQueue (size_t watermark, bool oldest = true);
+
     /// access properties of the \ref CThreadPool instances.
 
     static void SetSharedThreadCount (size_t count);
