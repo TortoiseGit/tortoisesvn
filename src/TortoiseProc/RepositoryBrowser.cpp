@@ -1046,7 +1046,7 @@ CString CRepositoryBrowser::FetchChildren (HTREEITEM node)
 
 	// add parent sub-tree externals
 
-	CString relPath = pTreeItem->unescapedname + _T('/') + relPath;
+	CString relPath = pTreeItem->unescapedname + _T('/');
 	for ( node = m_RepoTree.GetParentItem (node)
 		; node && error.IsEmpty()
 		; node = m_RepoTree.GetParentItem (node))
