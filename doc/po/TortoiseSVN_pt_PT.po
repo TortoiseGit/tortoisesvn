@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-04 23:34-0000\n"
+"PO-Revision-Date: 2010-03-05 00:14-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4694,7 +4694,7 @@ msgstr "Naturalmente qualquer linha com conteúdo alterado será sempre incluíd
 
 #. (title)
 msgid "Comparing Folders"
-msgstr ""
+msgstr "Comparando Pastas"
 
 #. (primary)
 msgid "compare revisions"
@@ -4706,39 +4706,39 @@ msgstr ""
 
 #. (title)
 msgid "The Compare Revisions Dialog"
-msgstr ""
+msgstr "A Caixa de Diálogo Comparar Revisões"
 
 #. (para)
 msgid "<placeholder-1/> When you select two trees within the repository browser, or when you select two revisions of a folder in the log dialog, you can <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare revisions</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "<placeholder-1/> Quando seleccionas duas árvores no interior do navegador de repositório ou quando seleccionas duas revisões de uma pasta na caixa de diálogo, podes <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Comparar revisões</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "This dialog shows a list of all files which have changed and allows you to compare or blame them individually using context menu."
-msgstr ""
+msgstr "Esta caixa de diálogo mostra a lista de todos os ficheiros que foram alterados, permitindo-te compará-los ou responsabiliza-los individualmente, usando o menu de contexto."
 
 #. (para)
 msgid "You can export a <emphasis>change tree</emphasis>, which is useful if you need to send someone else your project tree structure, but containing only the files which have changed. This operation works on the selected files only, so you need to select the files of interest - usually that means all of them - and then <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Export selection to...</guimenuitem></menuchoice>. You will be prompted for a location to save the change tree."
-msgstr ""
+msgstr "Podes exportar uma  <emphasis>árvore de alterações</emphasis>, que é útil se necessitas de enviar a alguém a estrutura da árvore do teu projecto, mas contendo apenas aqueles ficheiros que foram alterados. Esta operação funciona só em ficheiros alterados, pelo que só precisas de seleccionar os ficheiros de interesse - o que normalmente significa todos - e depois <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Exportar selecção para...</guimenuitem></menuchoice>. Serás solicitado a introduzir uma localização para guardar a árvove de alterações."
 
 #. (para)
 msgid "You can also export the <emphasis>list</emphasis> of changed files to a text file using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Save list of selected files to...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Podes também exportar a <emphasis>lista</emphasis> de ficheiros alterados para um ficheiro de texto, usando <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Guardar lista de ficheiros seleccionados para...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "If you want to export the list of files <emphasis>and</emphasis> the actions (modified, added, deleted) as well, you can do that using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Copy selection to clipboard</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Se queres exportar a lista de ficheiros <emphasis>e</emphasis> também as acções (modificada, adicionada,removida), poderás faze-lo usando <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Copiar selecção para a área de transferência</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "The button at the top allows you to change the direction of comparison. You can show the changes need to get from A to B, or if you prefer, from B to A."
-msgstr ""
+msgstr "O botão no topo permite-te alterar a direcção da comparação. Podes mostrar as alterações necessárias para ir de A a B, ou se preferires, de B a A."
 
 #. (para)
 msgid "The buttons with the revision numbers on can be used to change to a different revision range. When you change the range, the list of items which differ between the two revisions will be updated automatically."
-msgstr ""
+msgstr "Os botões com os números de revisão podem ser usados para mudar para uma gama de revisões diferentes. Quando alteras a gama, a lista de itens, que diferem entre revisões, será actualizada automaticamente."
 
 #. (para)
 msgid "If the list of filenames is very long, you can use the search box to reduce the list to filenames containing specific text. Note that a simple text search is used, so if you want to restrict the list to C source files you should enter <filename>.c</filename> rather than <filename>*.c</filename>."
-msgstr ""
+msgstr "Se a lista de nomes de ficheiros é muito extensa podes utilizar a caixa de pesquisa, para assim reduzir a lista para ficheiros cujo nome contêm um texto específico. Ter em atenção que é usada uma pesquisa de texto simples, e se queres restringir a lista a ficheiro de fonte de C, deverás introduzir <filename>.c</filename> em vez de <filename>*.c</filename>."
 
 #. (title)
 msgid "Diffing Images Using TortoiseIDiff"
