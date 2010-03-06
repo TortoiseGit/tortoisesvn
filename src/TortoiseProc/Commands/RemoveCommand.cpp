@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -41,7 +41,7 @@ bool RemoveCommand::Execute()
 		svn.SetPromptApp(&theApp);
 		CInputLogDlg dlg;
 		CString sUUID;
-		svn.GetRepositoryRootAndUUID(pathList[0], sUUID);
+		svn.GetRepositoryRootAndUUID(pathList[0], sUUID, true);
 		dlg.SetUUID(sUUID);
 		CString sHint;
 		if (pathList.GetCount() == 1)

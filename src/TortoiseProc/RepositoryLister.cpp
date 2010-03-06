@@ -310,10 +310,7 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
                 CTSVNPath url;
                 url.SetFromSVN (absoluteURL);
 				externalRepository.root 
-					= cachePool && cachePool->IsEnabled()
-					? cachePool->GetRepositoryInfo()
-						.GetRepositoryRootAndUUID (url, externalRepository.uuid)
-					: svn.GetRepositoryRootAndUUID (url, externalRepository.uuid);
+					= svn.GetRepositoryRootAndUUID (url, externalRepository.uuid, true);
                 externalRepository.revision = external->revision;
 
                 // add the new entry
