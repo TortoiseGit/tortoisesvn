@@ -2051,8 +2051,11 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 	}
 }
 
-CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& path, CString& sUUID)
+CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& path, CString& sUUID, bool useLogCache)
 {
+	if (useLogCache && GetLogCachePool()->IsEnabled())
+		return logCachePool->GetRepositoryInfo().GetRepositoryRootAndUUID (path, sUUID);
+
 	const char * returl;
 	const char * uuid;
 	svn_ra_session_t *ra_session;
