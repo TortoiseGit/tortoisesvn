@@ -22,6 +22,10 @@
 #include "auto_buffer.h"
 #include "UnicodeUtils.h"
 
+#include "SVNHelpers.h"
+#include "apr_uri.h"
+#include "svn_path.h"
+
 BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 {
 	const size_t len = _tcslen(path);
@@ -343,6 +347,138 @@ CString CPathUtils::GetFileExtFromPath(const CString& sPath)
 	if (dotPos > slashPos)
 		return sPath.Mid(dotPos);
 	return CString();
+}
+
+CStringA CPathUtils::GetAbsoluteURL
+	( const CStringA& URL
+	, const CStringA& repositoryRootURL
+	, const CStringA& parentPathURL)
+{
+	CStringA errorResult;
+	SVNPool pool;
+
+	/* If the URL is already absolute, there is nothing to do. */
+
+	const char *canonicalized_url = svn_path_canonicalize (URL, pool);
+	if (svn_path_is_url (canonicalized_url))
+		return canonicalized_url;
+
+	/* Parse the parent directory URL into its parts. */
+
+	apr_uri_t parent_dir_parsed_uri;
+	if (apr_uri_parse (pool, parentPathURL, &parent_dir_parsed_uri))
+		return errorResult;
+
+	/* If the parent directory URL is at the server root, then the URL
+	   may have no / after the hostname so apr_uri_parse() will leave
+	   the URL's path as NULL. */
+
+	if (! parent_dir_parsed_uri.path)
+		parent_dir_parsed_uri.path = apr_pstrmemdup (pool, "/", 1);
+
+	/* Handle URLs relative to the current directory or to the
+	   repository root.  The backpaths may only remove path elements,
+	   not the hostname.  This allows an external to refer to another
+	   repository in the same server relative to the location of this
+	   repository, say using SVNParentPath. */
+
+	if ((0 == strncmp("../", URL, 3)) || (0 == strncmp("^/", URL, 2)))
+	{
+		apr_array_header_t *base_components = NULL;
+		apr_array_header_t *relative_components = NULL;
+
+		/* Decompose either the parent directory's URL path or the
+		   repository root's URL path into components.  */
+
+		if (0 == strncmp ("../", URL, 3))
+		{
+			base_components 
+				= svn_path_decompose (parent_dir_parsed_uri.path, pool);
+			relative_components 
+				= svn_path_decompose (canonicalized_url, pool);
+		}
+		else
+		{
+			apr_uri_t repos_root_parsed_uri;
+			if (apr_uri_parse(pool, repositoryRootURL, &repos_root_parsed_uri))
+				return errorResult;
+
+			/* If the repository root URL is at the server root, then
+ 			   the URL may have no / after the hostname so
+			   apr_uri_parse() will leave the URL's path as NULL. */
+
+			if (! repos_root_parsed_uri.path)
+				repos_root_parsed_uri.path = apr_pstrmemdup (pool, "/", 1);
+
+			base_components 
+				= svn_path_decompose (repos_root_parsed_uri.path, pool);
+			relative_components 
+				= svn_path_decompose (canonicalized_url + 2, pool);
+		}
+
+		for (int i = 0; i < relative_components->nelts; ++i)
+		{
+			const char *component 
+				= APR_ARRAY_IDX(relative_components, i, const char *);
+
+			if (0 == strcmp("..", component))
+			{
+				/* Constructing the final absolute URL together with
+				   apr_uri_unparse() requires that the path be absolute,
+				   so only pop a component if the component being popped
+				   is not the component for the root directory. */
+
+			    if (base_components->nelts > 1)
+				    apr_array_pop (base_components);
+			}
+			else
+				APR_ARRAY_PUSH (base_components, const char *) = component;
+		}
+
+		parent_dir_parsed_uri.path = (char *)svn_path_compose(base_components,
+															pool);
+		parent_dir_parsed_uri.query = NULL;
+		parent_dir_parsed_uri.fragment = NULL;
+
+		return apr_uri_unparse (pool, &parent_dir_parsed_uri, 0);
+	}
+
+	/* The remaining URLs are relative to the either the scheme or
+	   server root and can only refer to locations inside that scope, so
+	   backpaths are not allowed. */
+
+	if (svn_path_is_backpath_present (canonicalized_url + 2))
+		return errorResult;
+
+	/* Relative to the scheme. */
+
+	if (0 == strncmp("//", URL, 2))
+	{
+		CStringA scheme 
+			= repositoryRootURL.Left (repositoryRootURL.Find (':'));
+		if (scheme.IsEmpty())
+			return errorResult;
+
+		return svn_path_canonicalize ( apr_pstrcat ( pool
+												   , scheme
+												   , ":"
+												   , URL
+												   , NULL)
+									 , pool);
+	}
+
+	/* Relative to the server root. */
+
+	if (URL[0] == '/')
+	{
+		parent_dir_parsed_uri.path = (char *)(const char*)URL;
+		parent_dir_parsed_uri.query = NULL;
+		parent_dir_parsed_uri.fragment = NULL;
+
+		return apr_uri_unparse (pool, &parent_dir_parsed_uri, 0);
+	}
+
+	return errorResult;
 }
 
 BOOL CPathUtils::FileCopy(CString srcPath, CString destPath, BOOL force)
