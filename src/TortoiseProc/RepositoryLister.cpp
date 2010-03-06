@@ -299,22 +299,22 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 		    {
                 // get target repositiory 
 
-                SRepositoryInfo repository;
-
 				CStringA absoluteURL 
 					= CPathUtils::GetAbsoluteURL 
 						( external->url
 						, CUnicodeUtils::GetUTF8 (repository.root)
 						, CUnicodeUtils::GetUTF8 (path.GetSVNPathString()));
 
+                SRepositoryInfo externalRepository;
+
                 CTSVNPath url;
                 url.SetFromSVN (absoluteURL);
-				repository.root 
+				externalRepository.root 
 					= cachePool && cachePool->IsEnabled()
 					? cachePool->GetRepositoryInfo()
-						.GetRepositoryRootAndUUID (url, repository.uuid)
-					: svn.GetRepositoryRootAndUUID (url, repository.uuid);
-                repository.revision = external->revision;
+						.GetRepositoryRootAndUUID (url, externalRepository.uuid)
+					: svn.GetRepositoryRootAndUUID (url, externalRepository.uuid);
+                externalRepository.revision = external->revision;
 
                 // add the new entry
 
@@ -350,7 +350,7 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
                     , 0
                     , CPathUtils::PathUnescape 
                         (CUnicodeUtils::GetUnicode (absoluteURL))
-                    , repository);
+                    , externalRepository);
 
                 result.push_back (entry);
 		    }
