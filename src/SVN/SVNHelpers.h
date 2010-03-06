@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007,2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,6 +17,15 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 #pragma once
+
+/*
+ * allow compilation even if the following structs have not been
+ * defined yet (i.e. in case of missing includes).
+ */
+
+struct apr_pool_t;
+struct svn_client_ctx_t;
+struct svn_error_t;
 
 /**
  * \ingroup SVN
