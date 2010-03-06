@@ -307,7 +307,6 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
                 SRepositoryInfo externalRepository;
 
-				LogCache::CLogCachePool* cachePool = svn.GetLogCachePool();
                 CTSVNPath url;
                 url.SetFromSVN (absoluteURL);
 				externalRepository.root 
