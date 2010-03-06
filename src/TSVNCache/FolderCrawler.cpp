@@ -172,7 +172,7 @@ void CFolderCrawler::WorkerThread()
 			}
 			if (bFirstRunAfterWakeup)
 			{
-				Sleep(2000);
+				Sleep(20);
 				bFirstRunAfterWakeup = false;
 				continue;
 			}
