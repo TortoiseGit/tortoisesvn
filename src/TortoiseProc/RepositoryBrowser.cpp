@@ -337,7 +337,7 @@ void CRepositoryBrowser::InitRepo()
 	}
 
     m_repository.root 
-		= GetRepositoryRootAndUUID (CTSVNPath (m_InitialUrl), m_repository.uuid, true);
+		= GetRepositoryRootAndUUID (CTSVNPath (m_InitialUrl), true, m_repository.uuid);
 
     // let's (try to) access all levels in the folder path 
 

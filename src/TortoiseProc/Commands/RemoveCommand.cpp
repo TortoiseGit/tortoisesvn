@@ -41,7 +41,7 @@ bool RemoveCommand::Execute()
 		svn.SetPromptApp(&theApp);
 		CInputLogDlg dlg;
 		CString sUUID;
-		svn.GetRepositoryRootAndUUID(pathList[0], sUUID, true);
+		svn.GetRepositoryRootAndUUID(pathList[0], true, sUUID);
 		dlg.SetUUID(sUUID);
 		CString sHint;
 		if (pathList.GetCount() == 1)

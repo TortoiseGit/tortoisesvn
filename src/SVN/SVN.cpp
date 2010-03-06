@@ -1964,7 +1964,7 @@ bool SVN::Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath
 	SVNPool subpool(pool);
 	CString uuid;
 	
-	const CString root = GetRepositoryRootAndUUID(path, uuid);
+	const CString root = GetRepositoryRootAndUUID(path, false, uuid);
 
     const char* svnPath = path.GetSVNApiPath(subpool);
     SVNTRACE (
@@ -2051,7 +2051,7 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 	}
 }
 
-CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& path, CString& sUUID, bool useLogCache)
+CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& path, bool useLogCache, CString& sUUID)
 {
 	if (useLogCache && GetLogCachePool()->IsEnabled())
 		return logCachePool->GetRepositoryInfo().GetRepositoryRootAndUUID (path, sUUID);

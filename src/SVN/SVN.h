@@ -679,12 +679,12 @@ public:
 	/**
 	 * Finds the repository root of a given url, and the UUID of the repository.
 	 * \param path [in] the WC path / URL to get the root and UUID from
-	 * \param sUUID [out] the UUID of the repository
 	 * \param useLogCache [in] if set, try to use the log cache first
 	 *						   (if log caching has been enabled at all)
+	 * \param sUUID [out] the UUID of the repository
 	 * \return the root url or an empty string
 	 */
-	CString GetRepositoryRootAndUUID(const CTSVNPath& path, CString& sUUID, bool useLogCache = false);
+	CString GetRepositoryRootAndUUID(const CTSVNPath& path, bool useLogCache, CString& sUUID);
 
 	/**
 	 * Returns the HEAD revision of the URL or WC-Path.

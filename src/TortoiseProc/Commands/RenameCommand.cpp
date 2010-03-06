@@ -73,7 +73,7 @@ bool RenameCommand::Execute()
 			CInputLogDlg input;
 			CString sUUID;
 			SVN svn;
-			svn.GetRepositoryRootAndUUID(cmdLinePath, sUUID, true);
+			svn.GetRepositoryRootAndUUID(cmdLinePath, true, sUUID);
 			input.SetUUID(sUUID);
 			CString sHint;
 			sHint.FormatMessage(IDS_INPUT_MOVE, (LPCTSTR)cmdLinePath.GetSVNPathString(), (LPCTSTR)destinationPath.GetSVNPathString());
