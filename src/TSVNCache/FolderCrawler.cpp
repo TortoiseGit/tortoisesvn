@@ -180,6 +180,7 @@ void CFolderCrawler::WorkerThread()
 			{
 				m_blockedPath.Reset();
 			}
+			CSVNStatusCache::Instance().RemoveTimedoutBlocks();
 	
 			if ((m_foldersToUpdate.empty())&&(m_pathsToUpdate.empty()))
 			{
@@ -212,6 +213,8 @@ void CFolderCrawler::WorkerThread()
 				}
 				// don't crawl paths that are excluded
 				if (!CSVNStatusCache::Instance().IsPathAllowed(workingPath))
+					continue;
+				if (!CSVNStatusCache::Instance().IsPathGood(workingPath))
 					continue;
 				// check if the changed path is inside an .svn folder
 				if ((workingPath.HasAdminDir()&&workingPath.IsDirectory())||workingPath.IsAdminDir())
@@ -380,6 +383,8 @@ void CFolderCrawler::WorkerThread()
 					}
 				}
 				if (!CSVNStatusCache::Instance().IsPathAllowed(workingPath))
+					continue;
+				if (!CSVNStatusCache::Instance().IsPathGood(workingPath))
 					continue;
 
 				{
