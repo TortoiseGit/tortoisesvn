@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-06 15:17-0000\n"
+"PO-Revision-Date: 2010-03-06 15:54-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4870,7 +4870,7 @@ msgstr "Consultar <xref linkend=\"tsvn-dug-settings-progs\"/> para mais informa�
 
 #. (title)
 msgid "Adding New Files And Directories"
-msgstr ""
+msgstr "Adicionar Novos Ficheiros e Pastas"
 
 #. (primary)
 msgid "add"
@@ -4883,53 +4883,53 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Explorer context menu for unversioned files"
-msgstr ""
+msgstr "Menu de contexto do Explorador para ficheiros não versionados"
 
 #. (para)
 msgid "<placeholder-1/> If you created new files and/or directories during your development process then you need to add them to source control too. Select the file(s) and/or directory and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "<placeholder-1/> Se criastes novos ficheiros e/ou pastas durante o teu processo de desenvolvimento, então precisas de adicioná-los também ao controlo de versões. Selecciona o(s) ficheiro(s) e/ou pasta e usa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Adicionar...</guimenuitem></menuchoice>"
 
 #. (para)
 msgid "After you added the files/directories to source control the file appears with a <literal>added</literal> icon overlay which means you first have to commit your working copy to make those files/directories available to other developers. Adding a file/directory does <emphasis>not</emphasis> affect the repository!"
-msgstr ""
+msgstr "Após adicionares os ficheiros/pastas ao controlo de versões, o ficheiro aparece com o ícone de sobreposição <literal>adicionado</literal>, o que significa que terás primeiro de submeter a tua cópia de trabalho para tornar esses ficheiros/pastas disponíveis a outros programadores. Adicionar um ficheiro/pasta <emphasis>não</emphasis> afecta o repositório!"
 
 #. (title)
 msgid "Many Adds"
-msgstr ""
+msgstr "Muitas Adições"
 
 #. (para)
 msgid "You can also use the Add command on already versioned folders. In that case, the add dialog will show you all unversioned files inside that versioned folder. This helps if you have many new files and need to add them all at once."
-msgstr ""
+msgstr "Podes também usar o comando Adicionar em pastas já versionadas. Neste caso, a caixa de diálogo adicionar irá mostrar todos os ficheiros não versionados dentro dessa mesma pasta versionada. Isto ajuda no caso de teres muitos ficheiros novos, e precisares de os adicionares de uma só vez."
 
 #. (para)
 msgid "select the files you want to add"
-msgstr ""
+msgstr "Selecciona os ficheiros que queres adicionar"
 
 #. (para)
 #. (para)
 msgid "<action>right-drag</action> them to the new location inside the working copy"
-msgstr ""
+msgstr "<action>Arrasta-os com o botão direito</action> para a nova localização dentro da cópia de trabalho"
 
 #. (para)
 #. (para)
 msgid "release the right mouse button"
-msgstr ""
+msgstr "Larga o botão direito do rato"
 
 #. (para)
 msgid "select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Add files to this WC</guimenuitem></menuchoice>. The files will then be copied to the working copy and added to version control."
-msgstr ""
+msgstr "Selecciona <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>SVN Copiar e adicionar arquivos a esta Cópia de Trabalho</guimenuitem></menuchoice>. Os ficheiros serão então copiados para a cópia de trabalho e adicionados ao controle de versões."
 
 #. (para)
 msgid "To add files from outside your working copy you can use the drag-and-drop handler: <placeholder-1/>"
-msgstr ""
+msgstr "Para adicionar ficheiros, de fora da tua cópia de trabalho, podes usar o manípulo para arrastar-e-largar:<placeholder-1/>"
 
 #. (para)
 msgid "You can also add files within a working copy simply by left-dragging and dropping them onto the commit dialog."
-msgstr ""
+msgstr "Podes também adicionar ficheiros de dentro da cópia de trabalho, simplesmente arrastando com o botão direito e largando-os na caixa de diálogo submeter."
 
 #. (para)
 msgid "If you add a file or folder by mistake, you can undo the addition before you commit using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Undo add...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Se adiconaste um ficheiro ou pasta por engano, podes desfazer a adição, antes de submeteres, usando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Desfazer adição...</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "Copying/Moving/Renaming Files and Folders"
