@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-06 15:54-0000\n"
+"PO-Revision-Date: 2010-03-06 23:17-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2440,7 +2440,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Right drag menu for a directory under version control"
-msgstr "Menu ao arrastar com o botão direito uma pasta sobre o controlo de versões."
+msgstr "Menu arrastar com o botão direito para uma pasta sob controlo de versões."
 
 #. (para)
 msgid "<placeholder-1/> Other commands are available as drag handlers, when you <action>right drag</action> files or folders to a new location inside working copies or when you <action>right drag</action> a non-versioned file or folder into a directory which is under version control."
@@ -4933,7 +4933,7 @@ msgstr "Se adiconaste um ficheiro ou pasta por engano, podes desfazer a adição
 
 #. (title)
 msgid "Copying/Moving/Renaming Files and Folders"
-msgstr ""
+msgstr "Copiando/Movendo/Renomeando Ficheiros e Pastas"
 
 #. (primary)
 msgid "copy files"
@@ -4959,39 +4959,39 @@ msgstr ""
 
 #. (para)
 msgid "It often happens that you already have the files you need in another project in your repository, and you simply want to copy them across. You could simply copy the files and add them as described above, but that would not give you any history. And if you subsequently fix a bug in the original files, you can only merge the fix automatically if the new copy is related to the original in Subversion."
-msgstr ""
+msgstr "Acontece com frequência que já tens os ficheiros que precisas, noutro projecto no teu repositório, e que queres simplesmente copiá-los. Podias simplesmente copiar os ficheiros e adicioná-los como descrito acima, mas isso não te preservaria qualquer história. E se posteriormente tu corriges um problema nos ficheiros originais, só poderás integrar a correcção automaticamente se a nova cópia estiver relacionada com o original no Subversion."
 
 #. (para)
 msgid "The easiest way to copy files and folders from within a working copy is to use the right-drag menu. When you <action>right-drag</action> a file or folder from one working copy to another, or even within the same folder, a context menu appears when you release the mouse. <placeholder-1/> Now you can copy existing versioned content to a new location, possibly renaming it at the same time."
-msgstr ""
+msgstr "A maneira mais fácil para copiar ficheiros e pastas, dentro da cópia de trabalho, é utilizar o menu de arrasto com o botão direito. Quando tu <action>arrastas-com-botão-direito</action> um ficheiro ou pasta de uma cópia de trabalho para outra, ou mesmo dentro da mesma pasta, aparece o menu de contexto quando libertas o rato. <placeholder-1/> Agora, podes copiar o conteúdo existente e versionado para uma nova localização, possivelmente renomeando-o ao mesmo tempo."
 
 #. (para)
 msgid "You can also copy or move versioned files within a working copy, or between two working copies, using the familiar cut-and-paste method. Use the standard Windows <action>Copy</action> or <action>Cut</action> to copy one or more versioned items to the clipboard. If the clipboard contains such versioned items, you can then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Paste</guimenuitem></menuchoice> (note: not the standard Windows <action>Paste</action>) to copy or move those items to the new working copy location."
-msgstr ""
+msgstr "Tu podes também copiar ou mover ficheiros versionados dentro da cópia de trabalho, ou mesmo entre duas copias de trabalho, usando o familiar metodo cortar-e-colar. Usar o <action>Copiar</action> ou <action>Colar</action> padrão do Windows, para copiar um ou mais itens versionados para a área de transferencia (clipboard). Se a área de transferência contém tais itens versionados, poderás então usar o <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Colar</guimenuitem></menuchoice> (nota: não é o <action>Colar</action> padrão do Windows ) para copiar ou mover esses itens, para a nova localização da cópia de trabalho."
 
 #. (para)
 msgid "You can copy files and folders from your working copy to another location in the repository using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branch/Tag</guimenuitem></menuchoice>. Refer to <xref linkend=\"tsvn-dug-branch-1\"/> to find out more."
-msgstr ""
+msgstr "Podes copiar ficheiros e pastas da tua cópia de trabalho para outra localização no repositório usando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ramo/Etiqueta</guimenuitem></menuchoice>. Consultar <xref linkend=\"tsvn-dug-branch-1\"/> para mais detalhes."
 
 #. (para)
 msgid "You can locate an older version of a file or folder in the log dialog and copy it to a new location in the repository directly from the log dialog using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Create branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref linkend=\"tsvn-dug-showlog-2\"/> to find out more."
-msgstr ""
+msgstr "Podes localizar uma versão antiga de um ficheiro ou pasta na caixa de diálogo do registo e, copiá-lo para uma nova localização no repositório directamente a partir da caixa de diálogo do registo, usando <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Criar ramo/etiqueta a partir da revisão</guimenuitem></menuchoice>. Consultar <xref linkend=\"tsvn-dug-showlog-2\"/> para mais detalhes."
 
 #. (para)
 msgid "You can also use the repository browser to locate content you want, and copy it into your working copy directly from the repository, or copy between two locations within the repository. Refer to <xref linkend=\"tsvn-dug-repobrowser\"/> to find out more."
-msgstr ""
+msgstr "Podes também usar o navegador de repositório para localizar o conteúdo que pretendes e, copiá-lo para a tua cópia de trabalho directamente do repositório ou copiar entre duas localizações, dentro do repositório. Consultar <xref linkend=\"tsvn-dug-repobrowser\"/> para mais detalhes."
 
 #. (title)
 msgid "Cannot copy between repositories"
-msgstr ""
+msgstr "Não consigo copiar entre repositórios"
 
 #. (para)
 msgid "Whilst you can copy or move files and folders <emphasis>within</emphasis> a repository, you <emphasis>cannot</emphasis> copy or move from one repository to another while preserving history using TortoiseSVN. Not even if the repositories live on the same server. All you can do is copy the content in its current state and add it as new content to the second repository."
-msgstr ""
+msgstr "Embora possas copiar ou mover ficheiros e pastas <emphasis>dentro</emphasis> de um repositório, tu <emphasis>não podes</emphasis> copiar ou mover de um repositório para outro, enquanto preservas o histórico, usando o TortoiseSVN. Nem mesmos se os repositórios residem no mesmo servidor. Tudo o que podes fazer é copiar o conteúdo no seu estado corrente e adicioná-lo como novo conteúdo no segundo repositório. "
 
 #. (para)
 msgid "If you are uncertain whether two URLs on the same server refer to the same or different repositories, use the repo browser to open one URL and find out where the repository root is. If you can see both locations in one repo browser window then they are in the same repository."
-msgstr ""
+msgstr "Se tens duvidas que dois URLs, no mesmo servidor, se refiram ao mesmo ou a diferentes repositórios, usa o navegador de repositório para abrir um URL e descobrir onde está a raiz do repositório. Se conseguires ver as das localizações numa janela do navegador de repositório, então eles estão no mesmo repositório."
 
 #. (title)
 msgid "Ignoring Files And Directories"
