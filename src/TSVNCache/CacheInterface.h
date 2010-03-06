@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2006,2008-2009 - TortoiseSVN
+// External Cache Copyright (C) 2005-2006,2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,6 +38,7 @@ CString GetCacheCommandPipeName();
 CString GetCacheMutexName();
 
 CString GetCacheID();
+bool	SendCacheCommand(BYTE command, const WCHAR * path = NULL);
 
 /**
  * \ingroup TSVNCache
@@ -85,7 +86,8 @@ struct TSVNCacheCommand
 #define		TSVNCACHECOMMAND_CRAWL		1		///< start crawling the specified path for changes
 #define		TSVNCACHECOMMAND_REFRESHALL	2		///< Refreshes the whole cache, usually necessary after the "treat unversioned files as modified" option changed.
 #define		TSVNCACHECOMMAND_RELEASE	3		///< Releases all open handles for the specified path and all paths below
-
+#define		TSVNCACHECOMMAND_BLOCK		4		///< Blocks a path from getting crawled for a specific amount of time or until the TSVNCACHECOMMAND_UNBLOCK command is sent for that path
+#define		TSVNCACHECOMMAND_UNBLOCK	5		///< Removes a path from the list of paths blocked from getting crawled
 
 /// Set this flag if you already know whether or not the item is a folder
 #define TSVNCACHE_FLAGS_FOLDERISKNOWN		0x01
