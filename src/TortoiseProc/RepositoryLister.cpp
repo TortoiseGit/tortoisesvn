@@ -36,9 +36,9 @@
 
 CRepositoryLister::CQuery::CQuery 
     ( const CTSVNPath& path
-    , const SVNRev& revision)
+    , const SRepositoryInfo& repository)
     : path (path)
-    , revision (revision)
+    , repository (repository)
 {
 }
 
@@ -65,7 +65,7 @@ const CTSVNPath& CRepositoryLister::CQuery::GetPath() const
 
 const SVNRev& CRepositoryLister::CQuery::GetRevision() const
 {
-    return revision;
+    return repository.revision;
 }
 
 // result access. Automatically waits for execution to be finished.
@@ -160,7 +160,7 @@ BOOL CRepositoryLister::CListQuery::Cancel()
 
 void CRepositoryLister::CListQuery::InternalExecute()
 {
-    if (!List (path, revision, revision, svn_depth_immediates, true))
+    if (!List (path, GetRevision(), GetRevision(), svn_depth_immediates, true))
     {
         // something went wrong or query was cancelled
         // -> store error, clear results and terminate sub-queries
@@ -210,11 +210,10 @@ CRepositoryLister::CListQuery::CListQuery
     , const SRepositoryInfo& repository
     , bool includeExternals
     , async::CJobScheduler* scheduler)
-    : CQuery (path, repository.revision)
-    , repository (repository)
+    : CQuery (path, repository)
     , externalsQuery 
         (includeExternals
-            ? new CExternalsQuery (path, repository.revision, scheduler)
+            ? new CExternalsQuery (path, repository, scheduler)
             : NULL)
 {
     Schedule (false, scheduler);
@@ -259,7 +258,7 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
     static const std::string svnExternals (SVN_PROP_EXTERNALS);
 
-    SVNProperties properties (path, revision, false);
+	SVNProperties properties (path, GetRevision(), false);
 
     std::string externals;
     for (int i = 0, count = properties.GetCount(); i < count; ++i)
@@ -302,9 +301,14 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
                 SRepositoryInfo repository;
 
-				LogCache::CLogCachePool* cachePool = svn.GetLogCachePool();
+				CStringA absoluteURL 
+					= CPathUtils::GetAbsoluteURL 
+						( external->url
+						, CUnicodeUtils::GetUTF8 (repository.root)
+						, CUnicodeUtils::GetUTF8 (path.GetSVNPathString()));
+
                 CTSVNPath url;
-                url.SetFromSVN (external->url);
+                url.SetFromSVN (absoluteURL);
 				repository.root 
 					= cachePool && cachePool->IsEnabled()
 					? cachePool->GetRepositoryInfo()
@@ -362,9 +366,9 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
 CRepositoryLister::CExternalsQuery::CExternalsQuery 
     ( const CTSVNPath& path
-    , const SVNRev& revision
+    , const SRepositoryInfo& repository
     , async::CJobScheduler* scheduler)
-    : CQuery (path, revision)
+    : CQuery (path, repository)
 {
     Schedule (false, scheduler);
 }

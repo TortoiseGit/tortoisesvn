@@ -161,7 +161,10 @@ private:
         /// qeuery parameters
 
         CTSVNPath path;
-        SVNRev revision;
+
+        /// additional qeuery parameters
+
+	    SRepositoryInfo repository;
 
         /// here, the result will be placed once we are done
 
@@ -181,7 +184,7 @@ private:
         /// auto-schedule upon construction
 
         CQuery ( const CTSVNPath& path
-               , const SVNRev& revision);
+               , const SRepositoryInfo& repository);
 
         /// wait for termination
 
@@ -217,8 +220,8 @@ private:
         /// auto-schedule upon construction
 
         CExternalsQuery ( const CTSVNPath& path
-                        , const SVNRev& revision
-                        , async::CJobScheduler* scheduler);
+                        , const SRepositoryInfo& repository
+						, async::CJobScheduler* scheduler);
     };
 
     /**
@@ -229,10 +232,6 @@ private:
     class CListQuery : public CQuery, private SVN
     {
     private:
-
-        /// additional qeuery parameters
-
-	    SRepositoryInfo repository;
 
         /// will be set, if includeExternals has been specified
 
