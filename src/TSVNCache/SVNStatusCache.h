@@ -103,6 +103,9 @@ public:
 	bool IsPathGood(const CTSVNPath& path);
 	bool IsPathWatched(const CTSVNPath& path) {return watcher.IsPathWatched(path);}
 	bool AddPathToWatch(const CTSVNPath& path) {return watcher.AddPath(path);}
+	bool BlockPath(const CTSVNPath& path, DWORD timeout = 0);
+	bool UnBlockPath(const CTSVNPath& path);
+	bool RemoveTimedoutBlocks();
 
 	bool m_bClearMemory;
 private:
@@ -110,7 +113,10 @@ private:
 	CRWSection m_rwSection;
 	CAtlList<CString> m_askedList;
 	CCachedDirectory::CachedDirMap m_directoryCache;
-	std::set<CTSVNPath> m_NoWatchPaths;
+
+	CComAutoCriticalSection m_NoWatchPathCritSec;
+	std::map<CTSVNPath, DWORD> m_NoWatchPaths;	///< paths to block from getting crawled, and the time in ms until they're unblocked
+
 	SVNHelper m_svnHelp;
 	ShellCache	m_shellCache;
 

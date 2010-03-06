@@ -24,6 +24,9 @@
 #include "shlobj.h"
 
 //////////////////////////////////////////////////////////////////////////
+#define BLOCK_PATH_DEFAULT_TIMEOUT	600	// 10 minutes
+#define BLOCK_PATH_MAX_TIMEOUT 1200		// 20 minutes
+
 #define CACHEDISKVERSION 2
 
 #ifdef WIN64
@@ -238,17 +241,19 @@ void CSVNStatusCache::Init()
 
 CSVNStatusCache::CSVNStatusCache(void)
 {
+#define forever DWORD(-1)
+	AutoLocker lock(m_NoWatchPathCritSec);
 	TCHAR path[MAX_PATH];
 	SHGetFolderPath(NULL, CSIDL_COOKIES, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
+	m_NoWatchPaths[CTSVNPath(CString(path))] = forever;
 	SHGetFolderPath(NULL, CSIDL_HISTORY, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
+	m_NoWatchPaths[CTSVNPath(CString(path))] = forever;
 	SHGetFolderPath(NULL, CSIDL_INTERNET_CACHE, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
+	m_NoWatchPaths[CTSVNPath(CString(path))] = forever;
 	SHGetFolderPath(NULL, CSIDL_SYSTEM, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
+	m_NoWatchPaths[CTSVNPath(CString(path))] = forever;
 	SHGetFolderPath(NULL, CSIDL_WINDOWS, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
+	m_NoWatchPaths[CTSVNPath(CString(path))] = forever;
 	m_bClearMemory = false;
 	m_mostRecentExpiresAt = 0;
 }
@@ -282,12 +287,72 @@ void CSVNStatusCache::Refresh()
 
 bool CSVNStatusCache::IsPathGood(const CTSVNPath& path)
 {
-	for (std::set<CTSVNPath>::iterator it = m_NoWatchPaths.begin(); it != m_NoWatchPaths.end(); ++it)
+	AutoLocker lock(m_NoWatchPathCritSec);
+	for (std::map<CTSVNPath, DWORD>::const_iterator it = m_NoWatchPaths.begin(); it != m_NoWatchPaths.end(); ++it)
 	{
-		if (it->IsAncestorOf(path))
+		if (it->first.IsAncestorOf(path))
+		{
+			ATLTRACE(_T("path not good: %s\n"), it->first.GetWinPath());
 			return false;
+		}
 	}
 	return true;
+}
+
+bool CSVNStatusCache::BlockPath(const CTSVNPath& path, DWORD timeout /* = 0 */)
+{
+	if (timeout == 0)
+		timeout = BLOCK_PATH_DEFAULT_TIMEOUT;
+
+	if (timeout > BLOCK_PATH_MAX_TIMEOUT)
+		timeout = BLOCK_PATH_MAX_TIMEOUT;
+
+	timeout = GetTickCount() + (timeout * 1000);	// timeout is in seconds, but we need the milliseconds
+
+	AutoLocker lock(m_NoWatchPathCritSec);
+	m_NoWatchPaths[path.GetDirectory()] = timeout;
+
+	return true;
+}
+
+bool CSVNStatusCache::UnBlockPath(const CTSVNPath& path)
+{
+	bool ret = false;
+	AutoLocker lock(m_NoWatchPathCritSec);
+	std::map<CTSVNPath, DWORD>::iterator it = m_NoWatchPaths.find(path);
+	if (it != m_NoWatchPaths.end())
+	{
+		ATLTRACE(_T("path removed from no good: %s\n"), it->first.GetWinPath());
+		m_NoWatchPaths.erase(it);
+		ret = true;
+	}
+	AddFolderForCrawling(path);
+
+	return ret;
+}
+
+bool CSVNStatusCache::RemoveTimedoutBlocks()
+{
+	bool ret = false;
+	DWORD currentTicks = GetTickCount();
+	AutoLocker lock(m_NoWatchPathCritSec);
+	std::vector<CTSVNPath> toRemove;
+	for (std::map<CTSVNPath, DWORD>::const_iterator it = m_NoWatchPaths.begin(); it != m_NoWatchPaths.end(); ++it)
+	{
+		if (currentTicks > it->second)
+		{
+			toRemove.push_back(it->first);
+		}
+	}
+	if (toRemove.size())
+	{
+		for (std::vector<CTSVNPath>::const_iterator it = toRemove.begin(); it != toRemove.end(); ++it)
+		{
+			ret = ret || UnBlockPath(*it);
+		}
+	}
+
+	return ret;
 }
 
 void CSVNStatusCache::UpdateShell(const CTSVNPath& path)

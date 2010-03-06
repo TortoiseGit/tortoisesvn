@@ -808,6 +808,22 @@ DWORD WINAPI CommandThread(LPVOID lpvParam)
 					CSVNStatusCache::Instance().Done();
 				}
 				break;
+			case TSVNCACHECOMMAND_BLOCK:
+				{
+					CTSVNPath changedpath;
+					changedpath.SetFromWin(CString(command.path));
+					ATLTRACE(_T("block path %s\n"), changedpath.GetWinPath());
+					CSVNStatusCache::Instance().BlockPath(changedpath);
+				}
+				break;
+			case TSVNCACHECOMMAND_UNBLOCK:
+				{
+					CTSVNPath changedpath;
+					changedpath.SetFromWin(CString(command.path));
+					ATLTRACE(_T("block path %s\n"), changedpath.GetWinPath());
+					CSVNStatusCache::Instance().UnBlockPath(changedpath);
+				}
+				break;
 
 		}
 	} 
