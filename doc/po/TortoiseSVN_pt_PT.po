@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-07 00:04-0000\n"
+"PO-Revision-Date: 2010-03-07 23:48-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5039,7 +5039,7 @@ msgstr "Ficheiros e pastas versionados nunca podem ser ignorados - essa é uma f
 
 #. (title)
 msgid "Pattern Matching in Ignore Lists"
-msgstr ""
+msgstr "Correspondência de Padrões em Listas de Ignorados"
 
 #. (primary)
 msgid "globbing"
@@ -5051,47 +5051,47 @@ msgstr ""
 
 #. (term)
 msgid "*"
-msgstr ""
+msgstr "*"
 
 #. (para)
 msgid "Matches any string of characters, including the empty string (no characters)."
-msgstr ""
+msgstr "Corresponde a qualquer cadeia de caracteres, incluindo a cadeia vazia (sem caracteres)."
 
 #. (term)
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #. (para)
 msgid "Matches any single character."
-msgstr ""
+msgstr "Corresponde a qualquer carácter isolado."
 
 #. (term)
 msgid "[...]"
-msgstr ""
+msgstr "[...]"
 
 #. (para)
 msgid "Matches any one of the characters enclosed in the square brackets. Within the brackets, a pair of characters separated by <quote>-</quote> matches any character lexically between the two. For example <literal>[AGm-p]</literal> matches any one of <literal>A</literal>, <literal>G</literal>, <literal>m</literal>, <literal>n</literal>, <literal>o</literal> or <literal>p</literal>."
-msgstr ""
+msgstr "Corresponde a qualquer um dos caracteres no interior dos parênteses rectos. Dentro dos parênteses rectos, um par de caracteres separados por <quote>-</quote> corresponde a qualquer carácter lexicalmente entre os dois. Por exemplo <literal>[AGm-p] corresponde a qualquer um de <literal>A</literal>, <literal>G</literal>, <literal>m</literal>, <literal>n</literal>, <literal>o</literal> ou <literal>p</literal>."
 
 #. (para)
 msgid "Subversion's ignore patterns make use of filename globbing, a technique originally used in Unix to specify files using meta-characters as wildcards. The following characters have special meaning: <placeholder-1/>"
-msgstr ""
+msgstr "O ignorar de padrões no Subversion usa a substituição do nome de ficheiro, uma técnica usada no Unix para especificar ficheiros recorrendo a meta-caracteres e wildcards (caracteres de substituição). Os seguintes caracteres têm significado especial:<placeholder-1/>"
 
 #. (para)
 msgid "Pattern matching is case sensitive, which can cause problems on Windows. You can force case insensitivity the hard way by pairing characters, eg. to ignore <literal>*.tmp</literal> regardless of case, you could use a pattern like <literal>*.[Tt][Mm][Pp]</literal>."
-msgstr ""
+msgstr "Correspondência de padrões é sensível a maiúsculas e minúsculas, o que pode causar problemas no Windows. Podes forçar a insensibilidade a maiúsculas e minúsculas à força, ao emparelhar caracteres, e.g. para ignorar <literal>*.tmp</literal>, independentemente ao tamanho da letra, podes usar um padrão como <literal>*.[Tt][Mm][Pp]</literal>."
 
 #. (para)
 msgid "If you want an official definition for globbing, you can find it in the IEEE specifications for the shell command language <ulink url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13\"><citetitle>Pattern Matching Notation</citetitle></ulink>."
-msgstr ""
+msgstr "Se queres uma definição oficial para substituição de nome de ficheiro, podes encontrá-la nas especificações do IEEE para a linguagem de comando da da linha de comandos (shell) <ulink url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13\"><citetitle>Pattern Matching Notation</citetitle></ulink>."
 
 #. (title)
 msgid "No Paths in Global Ignore List"
-msgstr ""
+msgstr "Não Usar Caminhos na Lista Global de Ignorados"
 
 #. (para)
 msgid "You should not include path information in your pattern. The pattern matching is intended to be used against plain file names and folder names. If you want to ignore all <literal>CVS</literal> folders, just add <literal>CVS</literal> to the ignore list. There is no need to specify <literal>CVS */CVS</literal> as you did in earlier versions. If you want to ignore all <literal>tmp</literal> folders when they exist within a <literal>prog</literal> folder but not within a <literal>doc</literal> folder you should use the <literal>svn:ignore</literal> property instead. There is no reliable way to achieve this using global ignore patterns."
-msgstr ""
+msgstr "Não deves incluir informação de caminhos no teu padrão. A correspondência de padrões tem como função ser utilizado contra nomes de ficheiros e nomes de pastas. Se queres ignorar todos as pastas <literal>CVS</literal> adiciona apenas <literal>CVS</literal> à lista de ignorados. Não há necessidade de especificar <literal>CVS */CVS</literal> como fazias em versões anteriores. Se queres ignorar todas as pastas <literal>tmp</literal> quando elas existem dentro da pasta <literal>prog</literal>, mas não dentro da pasta <literal>doc</literal>, deverás usar em alternativa a  propriedade <literal>svn:ignore</literal>. Não há maneira fiável de conseguir isto com recurso a padrões globais de ignorados."
 
 #. (title)
 msgid "Deleting, Moving and Renaming"
