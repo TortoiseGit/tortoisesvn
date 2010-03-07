@@ -1132,8 +1132,7 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
             {
                 // not yet fetched -> do it now
 
-                CString error = FetchChildren (node);
-                if (!error.IsEmpty())
+				if (!RefreshNode (node))
                     return NULL;
 
                 for (size_t i = 0, count = children.size(); i < count; ++i)
@@ -1698,6 +1697,7 @@ void CRepositoryBrowser::OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pRes
 	else
 	{
 		// if there are no child folders, remove the '+' in front of the node
+
 		if (!pTreeItem->has_child_folders)
 		{
 			TVITEM tvitem = {0};
