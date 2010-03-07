@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-06 23:17-0000\n"
+"PO-Revision-Date: 2010-03-07 00:04-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4995,7 +4995,7 @@ msgstr "Se tens duvidas que dois URLs, no mesmo servidor, se refiram ao mesmo ou
 
 #. (title)
 msgid "Ignoring Files And Directories"
-msgstr ""
+msgstr "Ignorando Ficheiros E Pastas"
 
 #. (primary)
 msgid "ignore"
@@ -5007,35 +5007,35 @@ msgstr ""
 
 #. (para)
 msgid "<placeholder-1/> In most projects you will have files and folders that should not be subject to version control. These might include files created by the compiler, <filename>*.obj, *.lst</filename>, maybe an output folder used to store the executable. Whenever you commit changes, TortoiseSVN shows your unversioned files, which fills up the file list in the commit dialog. Of course you can turn off this display, but then you might forget to add a new source file."
-msgstr ""
+msgstr "<placeholder-1/> Na maioria dos projectos terás ficheiros e pastas que não deverão estar sujeitos ao controlo de versões. Esses poderão incluir ficheiros criados pelo compilador, <filename>*.obj, *.lst</filename>, talvez uma pasta de produto usada para armazenar o executável. Sempre que submetas alterações o TortoiseSVN mostra os ficheiros não versionados, que enchem a lista de ficheiros na caixa de diálogo submeter. Está claro que podes desligar essa visualização, mas poderás então te esquecer de adicionar um novo ficheiro fonte."
 
 #. (para)
 msgid "The best way to avoid these problems is to add the derived files to the project's ignore list. That way they will never show up in the commit dialog, but genuine unversioned source files will still be flagged up."
-msgstr ""
+msgstr "A melhor maneira para evitar esses problemas é adicionar os ficheiros derivados à lista de ignorados do projecto. Desse modo, eles nunca irão aparecer na caixa de diálogo submeter, mas os ficheiros fonte genuinamente não versionados serão ainda assinalados."
 
 #. (para)
 msgid "If you <action>right click</action> on a single unversioned file, and select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to Ignore List</guimenuitem></menuchoice> from the context menu, a submenu appears allowing you to select just that file, or all files with the same extension. If you select multiple files, there is no submenu and you can only add those specific files/folders."
-msgstr ""
+msgstr "Se tu <action>clicares com o botão direito</action> num único ficheiro não versionado e seleccionares, a partir do menu de contexto, o comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Adiconar à lista de ignorados</guimenuitem></menuchoice>, um submenu aparecerá permitindo-te seleccionar só aquele ficheiro ou todos com a mesma extensão. Se seleccionares múltiplos ficheiros, não haverá submenu e só podes adicionar esses ficheiros/pastas específicos."
 
 #. (para)
 msgid "If you want to remove one or more items from the ignore list, <action>right click</action> on those items and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remove from Ignore List</guimenuitem></menuchoice> You can also access a folder's <literal>svn:ignore</literal> property directly. That allows you to specify more general patterns using filename globbing, described in the section below. Read <xref linkend=\"tsvn-dug-propertypage\"/> for more information on setting properties directly. Please be aware that each ignore pattern has to be placed on a separate line. Separating them by spaces does not work."
-msgstr ""
+msgstr "Se queres remover um ou mais itens da lista de ignorados, <action>clica com o botão direito</action> nesse itens e selecciona  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remover da lista de ignorados</guimenuitem></menuchoice> Podes ainda aceder à propriedade <literal>svn:ignore</literal> da pasta. Isso permite-te especificar padrões mais gerais usando caracteres de substituição de nome de ficheiros, descritos na seguinte secção. Consultar <xref linkend=\"tsvn-dug-propertypage\"/> para mais informações para configurar propriedades directamente. Por favor, ter em atenção que cada padrão para ignorar tem de ser colocado numa linha separada, separá-los por espaços não resulta."
 
 #. (title)
 msgid "The Global Ignore List"
-msgstr ""
+msgstr "Lista Global de Ignorados "
 
 #. (para)
 msgid "Another way to ignore files is to add them to the <firstterm>global ignore list</firstterm>. The big difference here is that the global ignore list is a client property. It applies to <emphasis>all</emphasis> Subversion projects, but on the client PC only. In general it is better to use the <filename>svn:ignore</filename> property where possible, because it can be applied to specific project areas, and it works for everyone who checks out the project. Read <xref linkend=\"tsvn-dug-settings-main\"/> for more information."
-msgstr ""
+msgstr "Outra maneira de ignorar ficheiros é adicioná-los à <firstterm>lista global de ignorados</firstterm>. A grande diferença aqui é que a lista global de ignorados é uma propriedade local. Aplica-se a <emphasis>todos</emphasis> os projectos Subversion, mas apenas no PC local. De modo geral é melhor usar a propriedade <filename>svn:ignore</filename> quando possível, porque pode ser aplicado a um projecto em específico e funciona para todos que SVN exportem o projecto. Consultar <xref linkend=\"tsvn-dug-settings-main\"/> para mais detalhes."
 
 #. (title)
 msgid "Ignoring Versioned Items"
-msgstr ""
+msgstr "Ignorando Itens Versionados"
 
 #. (para)
 msgid "Versioned files and folders can never be ignored - that's a feature of Subversion. If you versioned a file by mistake, read <xref linkend=\"tsvn-howto-unversion\"/> for instructions on how to <quote>unversion</quote> it."
-msgstr ""
+msgstr "Ficheiros e pastas versionados nunca podem ser ignorados - essa é uma funcionalidade do Subversion. Se versionares um ficheiro por engano, lê em <xref linkend=\"tsvn-howto-unversion\"/> para instruções em como o <quote>desversionar</quote>."
 
 #. (title)
 msgid "Pattern Matching in Ignore Lists"
