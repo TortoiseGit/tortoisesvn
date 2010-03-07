@@ -380,7 +380,7 @@ void CRepositoryLister::ClearDumpster()
 {
     std::for_each ( dumpster.begin()
                   , dumpster.end()
-				  , std::bind2nd (std::mem_fun1 (&CQuery::WaitUntilDone), false));
+				  , std::bind2nd (std::mem_fun1 (&CQuery::WaitUntilDone), true));
 
     CompactDumpster();
 }
@@ -469,9 +469,9 @@ void CRepositoryLister::Enqueue
 				if ((iter != queries.end()) && (iter->second == query))
 					queries.erase (iter);
 
-				// destroy query
+				// cancel query
 
-				query->Delete (true);
+				query->Terminate();
 			}
 
 			// if the dumpster has not been empty before for some reason,
@@ -486,6 +486,11 @@ void CRepositoryLister::Enqueue
 				    , deletedQueries.begin(), deletedQueries.end()
 					, dumpster.begin())
 				, dumpster.end());
+
+			dumpster.insert 
+				( dumpster.end()
+				, deletedQueries.begin()
+				, deletedQueries.end());
 		}
 
 		// add the query whose result we will probably need
