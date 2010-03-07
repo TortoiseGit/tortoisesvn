@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2009 by Stefan Fuhrmann                                 *
+ *   Copyright (C) 2009-2010 by Stefan Fuhrmann                            *
  *   stefanfuhrmann@alice-dsl.de                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -36,9 +36,13 @@ class CJobBase : public IJob
 {
 private:
 
-    /// waitable event
+	/// waitable event. Will be set after \ref Execute() finished.
 
-    COneShotEvent finished;
+    COneShotEvent executionDone;
+
+    /// waitable event. Will be set when the job can be deleted.
+
+    COneShotEvent deletable;
 
     /// TRUE until Execute() is called
 
@@ -47,6 +51,19 @@ private:
     /// if set, we should not run at all or at least try to terminate asap
 
     volatile LONG terminated;
+
+	/// if set, \ref finished will not be signalled unless
+	/// \ref Execute is called from the scheduler.
+
+	volatile LONG scheduled;
+
+	/// For now, update the internal @a scheduled flag only.
+
+	void OnSchedule (CJobScheduler* scheduler);
+
+	/// For now, update the internal @a scheduled flag only.
+
+	void OnUnSchedule (CJobScheduler* scheduler);
 
 protected:
 
@@ -58,11 +75,11 @@ protected:
 
     virtual void InternalExecute() = 0;
 
-public:
-
-    /// asserts that the job has been finished
+    /// asserts that the job is deletable
 
     virtual ~CJobBase(void);
+
+public:
 
     /// call this to put the job into the scheduler
 
@@ -98,6 +115,11 @@ public:
     /// despite the termination request.
 
     virtual bool HasBeenTerminated() const;
+
+    /// Call @a delete on this job as soon as it is safe to do so.
+
+    virtual void Delete (bool terminate);
+
 };
 
 }

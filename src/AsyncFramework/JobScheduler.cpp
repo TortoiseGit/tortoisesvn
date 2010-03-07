@@ -341,7 +341,16 @@ bool CJobScheduler::ThreadFunc (void* arg)
     TJob job = info->owner->AssignJob (info);
     if (job.first != NULL)
     {
+		// run the job
+
         job.first->Execute();
+
+		// it is no longer referenced by the scheduler
+
+		job.first->OnUnSchedule (info->owner);
+
+		// is it our job to clean up this job?
+
         if (job.second)
             delete job.first;
 
@@ -417,6 +426,7 @@ CJobScheduler* CJobScheduler::GetDefault()
 void CJobScheduler::Schedule (IJob* job, bool transferOwnership)
 {
     TJob toAdd (job, transferOwnership);
+	job->OnSchedule (this);
 
     CCriticalSectionLock lock (mutex);
 
@@ -604,7 +614,12 @@ std::vector<IJob*> CJobScheduler::RemoveJobFromQueue
 			// remove 'em
 
 			for (size_t i = 0; i < toRemove; ++i)
-				removed.push_back (queue.pop().first);
+			{
+				IJob* job = queue.pop().first;
+				job->OnUnSchedule (this);
+
+				removed.push_back (job);
+			}
 
 			// restore job execution order
 

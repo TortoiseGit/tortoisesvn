@@ -42,20 +42,6 @@ CRepositoryLister::CQuery::CQuery
 {
 }
 
-// wait for termination
-
-CRepositoryLister::CQuery::~CQuery()
-{
-	// stop execution asap (or prevent execution at all)
-
-    Terminate();
-
-	// ensure we make the transition to "done"
-	// and wait for that transition to be made
-
-    WaitUntilDone(true);
-}
-
 // parameter access
 
 const CTSVNPath& CRepositoryLister::CQuery::GetPath() const
@@ -165,7 +151,7 @@ void CRepositoryLister::CListQuery::InternalExecute()
         // something went wrong or query was cancelled
         // -> store error, clear results and terminate sub-queries
 
-        if (externalsQuery.get() != NULL)
+        if (externalsQuery != NULL)
             externalsQuery->Terminate();
 
         result.clear();
@@ -178,7 +164,7 @@ void CRepositoryLister::CListQuery::InternalExecute()
     {
         // add results from the sub-query
 
-        if (externalsQuery.get() != NULL)
+        if (externalsQuery != NULL)
             if (externalsQuery->Succeeded())
             {
                 const std::deque<CItem>& externals 
@@ -203,6 +189,14 @@ void CRepositoryLister::CListQuery::InternalExecute()
     }
 }
 
+// wait for embedded job to finish
+
+CRepositoryLister::CListQuery::~CListQuery()
+{
+    if (externalsQuery != NULL)
+		externalsQuery->Delete (true);
+}
+
 // auto-schedule upon construction
 
 CRepositoryLister::CListQuery::CListQuery 
@@ -219,22 +213,13 @@ CRepositoryLister::CListQuery::CListQuery
     Schedule (false, scheduler);
 }
 
-// wait for termination
-
-CRepositoryLister::CListQuery::~CListQuery()
-{
-	// call overwritten method (base class destructor won't see it)
-
-	Terminate();
-}
-
 // cancel the svn:externals sub query as well
 
 void CRepositoryLister::CListQuery::Terminate()
 {
     CQuery::Terminate();
 
-    if (externalsQuery.get() != NULL)
+    if (externalsQuery != NULL)
         externalsQuery->Terminate();
 }
 
@@ -384,7 +369,7 @@ void CRepositoryLister::CompactDumpster()
 
     for (IT iter = target; iter != end; ++iter)
         if ((*iter)->GetStatus() == async::IJob::done)
-            delete *iter;
+			(*iter)->Delete (true);
         else
             *(target++) = *iter;
 
@@ -486,7 +471,7 @@ void CRepositoryLister::Enqueue
 
 				// destroy query
 
-				delete query;
+				query->Delete (true);
 			}
 
 			// if the dumpster has not been empty before for some reason,

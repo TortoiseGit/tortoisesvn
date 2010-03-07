@@ -179,16 +179,16 @@ private:
         CQuery (const CQuery&);
         CQuery& operator=(const CQuery&);
 
+		/// not meant to be destroyed directly
+
+		virtual ~CQuery() {};
+
     public:
 
         /// auto-schedule upon construction
 
         CQuery ( const CTSVNPath& path
                , const SRepositoryInfo& repository);
-
-        /// wait for termination
-
-        virtual ~CQuery();
 
         /// parameter access
 
@@ -215,6 +215,10 @@ private:
 
         virtual void InternalExecute();
 
+		/// not meant to be destroyed directly
+
+		virtual ~CExternalsQuery() {};
+
     public:
 
         /// auto-schedule upon construction
@@ -235,7 +239,7 @@ private:
 
         /// will be set, if includeExternals has been specified
 
-        std::auto_ptr<CExternalsQuery> externalsQuery;
+        CExternalsQuery* externalsQuery;
 
         /// externals that apply to some sub-tree found while filling result
 
@@ -260,6 +264,10 @@ private:
 
         virtual void InternalExecute();
 
+		/// not meant to be destroyed directly
+
+		virtual ~CListQuery();
+
     public:
 
         /// auto-schedule upon construction
@@ -268,10 +276,6 @@ private:
             	   , const SRepositoryInfo& repository
                    , bool includeExternals
                    , async::CJobScheduler* scheduler);
-
-        /// wait for termination
-
-        virtual ~CListQuery();
 
         /// cancel the svn:externals sub query as well
 

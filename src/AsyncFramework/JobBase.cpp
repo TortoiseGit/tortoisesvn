@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2009 by Stefan Fuhrmann                                 *
+ *   Copyright (C) 2009-2010 by Stefan Fuhrmann                            *
  *   stefanfuhrmann@alice-dsl.de                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -25,17 +25,37 @@
 namespace async
 {
 
+// For now, update the internal @a scheduled flag only.
+
+void CJobBase::OnSchedule (CJobScheduler*)
+{
+	if (InterlockedExchange (&scheduled, TRUE) == TRUE)
+		assert (0);
+}
+
+// For now, update the internal @a scheduled flag only.
+
+void CJobBase::OnUnSchedule (CJobScheduler*)
+{
+	if (InterlockedExchange (&scheduled, FALSE) == FALSE)
+		assert (0);
+	else
+		if (executionDone.Test())
+			deletable.Set();
+}
+
 // nothing special during construction / destuction
 
 CJobBase::CJobBase(void)
     : waiting (TRUE)
     , terminated (FALSE)
+	, scheduled (FALSE)
 {
 }
 
 CJobBase::~CJobBase(void)
 {
-    assert (finished.Test());
+    assert (deletable.Test());
 }
 
 // call this to put the job into the scheduler
@@ -61,7 +81,10 @@ void CJobBase::Execute()
 		if (terminated == FALSE)
 			InternalExecute();
 
-	    finished.Set();
+	    executionDone.Set();
+
+		if (scheduled == FALSE)
+			deletable.Set();
 	}
 }
 
@@ -72,7 +95,7 @@ IJob::Status CJobBase::GetStatus() const
     if (waiting == TRUE)
         return IJob::waiting;
 
-    return finished.Test() ? IJob::done : IJob::running;
+    return executionDone.Test() ? IJob::done : IJob::running;
 }
 
 void CJobBase::WaitUntilDone (bool inlineExecution)
@@ -80,12 +103,12 @@ void CJobBase::WaitUntilDone (bool inlineExecution)
 	if (inlineExecution)
 		Execute();
 
-    finished.WaitFor();
+    executionDone.WaitFor();
 }
 
 bool CJobBase::WaitUntilDoneOrTimeout(DWORD milliSeconds)
 {
-	return finished.WaitForEndOrTimeout(milliSeconds);
+	return executionDone.WaitForEndOrTimeout(milliSeconds);
 }
 
 // handle early termination
@@ -98,6 +121,20 @@ void CJobBase::Terminate()
 bool CJobBase::HasBeenTerminated() const
 {
     return terminated == TRUE;
+}
+
+// Call @a delete on this job as soon as it is safe to do so.
+
+void CJobBase::Delete (bool terminate)
+{
+	if (terminate)
+		Terminate();
+
+	if (waiting)
+		Execute();
+
+	deletable.WaitFor();
+	delete this;
 }
 
 }

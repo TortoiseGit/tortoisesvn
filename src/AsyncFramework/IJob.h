@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2009 by Stefan Fuhrmann                                 *
+ *   Copyright (C) 2009-2010 by Stefan Fuhrmann                            *
  *   stefanfuhrmann@alice-dsl.de                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -63,7 +63,7 @@ public:
     virtual void Schedule ( bool transferOwnership
                           , CJobScheduler* scheduler) = 0;
 
-    /// will be called by job execution thread
+    /// will be called by job execution thread.
 
     virtual void Execute() = 0;
 
@@ -79,6 +79,24 @@ public:
 	/// executed in the current thread if it is still waiting.
 
     virtual void WaitUntilDone (bool inlineExecution = false) = 0;
+
+private:
+
+	/// Called by the \ref CJobScheduler instance before
+	/// it actually add this job to its execution list.
+
+	virtual void OnSchedule (CJobScheduler* scheduler) = 0;
+
+	/// Called by the \ref CJobScheduler instance after
+	/// it removed this job from its execution list.
+	/// The job must not be deleted before this function
+	/// has been called.
+
+	virtual void OnUnSchedule (CJobScheduler* scheduler) = 0;
+
+	// callbacks are ment to be used by \ref CJobScheduler only
+
+	friend class CJobScheduler;
 };
 
 }
