@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-31 16:29+0100\n"
+"PO-Revision-Date: 2010-03-08 11:57+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1158,6 +1158,10 @@ msgstr "At&ualizar para revisão..."
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "&Usar autocompletamento para caminhos de arquivo e palavras-chave"
 
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "&Usar o reciclador"
+
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
 msgstr "&Nome de utilizador:"
@@ -2185,6 +2189,10 @@ msgstr "Lista de alterações:"
 msgid "Changes made (double-click on file for diff):"
 msgstr "Alterações feitas (duplo clique no arquivo para comparar):"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "A transformar externos em revisão fixa"
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "&Exportar..."
@@ -2200,6 +2208,10 @@ msgstr "Verificar Actualizações"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Verificar Actualizações..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr "Verificar os externos a marcar"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2799,8 +2811,8 @@ msgstr "Copiar: Novo nome para %s"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "Copiando %s"
+msgid "Copying %1!s!"
+msgstr "A copiar %1!s!"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -3143,6 +3155,10 @@ msgstr "Apagar e addiciona á lista dos &ignorados"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Apagar e ignorar %d itens por &extensão "
+
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "Apagar itens sem controle de versão"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3783,8 +3799,8 @@ msgstr "Exportar também arquivos sem controle de versão"
 
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "Exportando %s"
+msgid "Exporting %1!s!"
+msgstr "A exportar %1!s!"
 
 #. Resource IDs: (79)
 msgid "Exporting..."
@@ -5691,8 +5707,8 @@ msgstr "Move os arquivos modificados para a reciclagem antes de reverter"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "Movendo %s"
+msgid "Moving %1!s!"
+msgstr "A mover %1!s!"
 
 #. Resource IDs: (80)
 msgid "Moving..."
@@ -5801,6 +5817,10 @@ msgstr "Não há messagem de erro disponível."
 #. Resource IDs: (3867, 3868)
 msgid "No error occurred."
 msgstr "Nenhum erro ocorreu."
+
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "Não foram encontrados externos"
 
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
@@ -6315,6 +6335,10 @@ msgstr "Por favor aguarde: cancelando..."
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
 msgstr "Por favor aguarde enquanto as diferenças são obtidas..."
+
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "Por favor aguarde enquanto os externos são compilados..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -7663,6 +7687,10 @@ msgstr "Mostrar Acima do Friso"
 #. Resource IDs: (1069)
 msgid "Show Below the Ribbon"
 msgstr "Mostrar Abaixo do Frizo"
+
+#. Resource IDs: (1542)
+msgid "Show Branch L&og"
+msgstr "Mostrar &Registo do Ramo"
 
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
@@ -9065,6 +9093,10 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "TortoiseSVN auto submissão: externos alterados para revisão fixa"
+
 #. Resource IDs: (98)
 #, c-format
 msgid ""
@@ -9323,8 +9355,8 @@ msgstr "Retirar o controlo de versão a arquivos leva a que as respectivas pasta
 
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "Retirando o controle de versões de %s"
+msgid "Unversioning %1!s!"
+msgstr "A retirar o controle de versão de %1!s!"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -10656,6 +10688,11 @@ msgstr "existem alterações com conflitos."
 #, c-format
 msgid "to %1"
 msgstr "para %1"
+
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr "para %1!s!"
 
 #. Resource IDs: (80, 103, 284)
 #, c-format
