@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-07 23:48-0000\n"
+"PO-Revision-Date: 2010-03-08 00:34-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5095,19 +5095,19 @@ msgstr "Não deves incluir informação de caminhos no teu padrão. A correspond
 
 #. (title)
 msgid "Deleting, Moving and Renaming"
-msgstr ""
+msgstr "Removendo, Movendo e Renomeando"
 
 #. (title)
 msgid "Explorer context menu for versioned files"
-msgstr ""
+msgstr "Menu de contexto do Explorador para ficheiros versionados"
 
 #. (para)
 msgid "Unlike CVS, Subversion allows renaming and moving of files and folders. So there are menu entries for delete and rename in the TortoiseSVN submenu. <placeholder-1/>"
-msgstr ""
+msgstr "Ao contrário do CVS, o Subversion permite renomear e mover ficheiros e pastas. Portanto no submenu TortoiseSVN existem entradas de menu para remover e renomear. <placeholder-1/>"
 
 #. (title)
 msgid "Deleting files and folders"
-msgstr ""
+msgstr "Removendo ficheiros e pastas"
 
 #. (primary)
 msgid "delete"
@@ -5119,31 +5119,31 @@ msgstr ""
 
 #. (para)
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> to remove files or folders from subversion."
-msgstr ""
+msgstr "Usa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remover</guimenuitem></menuchoice> para remover ficheiros ou pastas do subversion."
 
 #. (para)
 msgid "When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> a file, it is removed from your working copy immediately as well as being marked for deletion in the repository on next commit. The file's parent folder shows a <quote>deleted</quote> icon overlay. Up until you commit the change, you can get the file back using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> on the parent folder."
-msgstr ""
+msgstr "Quando tu executas <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remover</guimenuitem></menuchoice> num ficheiro, este é removido imediatamente da tua cópia de trabalho tal como é marcado para remoção no repositório, na próxima submissão. A pasta pai do ficheiro mostra a sobreposição de ícone <quote>apagado</quote>. Até tu submeteres a alteração, poderás recuperar o ficheiro usando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reverter</guimenuitem></menuchoice> na pasta pai."
 
 #. (para)
 msgid "When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> a folder, it remains in your working copy, but the overlay changes to indicate that it is marked for deletion. Up until you commit the change, you can get the folder back using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> on the folder itself. This difference in behaviour between files and folders is a part of Subversion, not TortoiseSVN."
-msgstr ""
+msgstr "Quando usas o  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remover</guimenuitem></menuchoice> num ficheiro, este permanece na tua cópia de trabalho, mas a sobreposição de ícone muda para indicar que esté marcado para remoção. Até submeteres a alteração poderás recuperar a pasta usando o <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reverter</guimenuitem></menuchoice> na própria pasta. Esta diferença de comportamento entre ficheiros e pastas, é parte do Subversion e não do TortoiseSVN."
 
 #. (para)
 msgid "If you want to delete an item from the repository, but keep it locally as an unversioned file/folder, use <menuchoice><guimenu>Extended Context Menu</guimenu><guimenuitem>Delete (keep local)</guimenuitem></menuchoice>. You have to hold the <keycap>Shift</keycap> key while right clicking on the item in the explorer list pane (right pane) in order to see this in the extended context menu."
-msgstr ""
+msgstr "Se queres remover um tem do repositório, mas mantê-lo localmente como um ficheiro/pasta não versionado, usa <menuchoice><guimenu>Menu de Contexto Extendido</guimenu><guimenuitem>Remover (manter local)</guimenuitem></menuchoice>. Tens de manter premida a tecla <keycap>Shift</keycap> enquanto clicas com o botão direito no item, no painel lista do explorador (painel direito), de modo a veres isto no menu de contexto estendido."
 
 #. (para)
 msgid "If a <emphasis>file</emphasis> is deleted via the explorer instead of using the TortoiseSVN context menu, the commit dialog shows those files and lets you remove them from version control too before the commit. However, if you update your working copy, Subversion will spot the missing file and replace it with the latest version from the repository. If you need to delete a version-controlled file, always use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> so that Subversion doesn't have to guess what you really want to do."
-msgstr ""
+msgstr "Se um <emphasis>ficheiro</emphasis> é removido via explorador em vez de usar o menu de contexto do TortoiseSVN, a caixa de diálogo submeter mostra esses ficheiros e deixa-te também remove-los do controlo de versões antes da submissão. No entanto se actualizares a tua cópia de trabalho, o Subversion irá detectar o ficheiro em falta e substitui-lo pela última versão no repositório. Se precisas de remover  um ficheiro sob controlo de versões, usa sempre <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remover</guimenuitem></menuchoice> para que o Subversion não tenha que adivinhar o que querias realmente fazer."
 
 #. (para)
 msgid "If a <emphasis>folder</emphasis> is deleted via the explorer instead of using the TortoiseSVN context menu, your working copy will be broken and you will be unable to commit. If you update your working copy, Subversion will replace the missing folder with the latest version from the repository and you can then delete it the correct way using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Se uma <emphasis>pasta</emphasis> é removida via explorador em vez de usar o menu de contexto TortoiseSVN, a tua cópia de trabalho ficará quebrada e não poderás efectuar submissões. Se actualizares a tua cópia de trabalho, o Subversion irá substituir a pasta em falta pela última versão do repositório, e então podes apagá-la correctamente usando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "Getting a deleted file or folder back"
-msgstr ""
+msgstr "Recuperando um ficheiro ou pasta removido"
 
 #. (para)
 msgid "If you have deleted a file or a folder and already committed that delete operation to the repository, then a normal <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> can't bring it back anymore. But the file or folder is not lost at all. If you know the revision the file or folder got deleted (if you don't, use the log dialog to find out) open the repository browser and switch to that revision. Then select the file or folder you deleted, right-click and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy to...</guimenuitem></menuchoice> as the target for that copy operation select the path to your working copy."
