@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-08 00:34-0000\n"
+"PO-Revision-Date: 2010-03-08 23:25-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -103,7 +103,7 @@ msgstr "Audiência"
 
 #. (para)
 msgid "This book is written for computer literate folk who want to use Subversion to manage their data, but are uncomfortable using the command line client to do so. Since TortoiseSVN is a windows shell extension it's assumed that the user is familiar with the windows explorer and knows how to use it."
-msgstr "Este livro foi escrito para pessoas com conhecimentos informáticos que querem utilizar Subversion para gerir dados, mas que não se sentem comfortáveis em utilizar a linha de comando. Dado que o TortoiseSVN é uma extensão de \"shell\" presume-se que o utilizador tem experiência em utilizar o explorador de windows."
+msgstr "Este livro foi escrito para pessoas com conhecimentos informáticos que querem utilizar Subversion para gerir dados, mas que não se sentem confortáveis em utilizar a linha de comando. Dado que o TortoiseSVN é uma extensão de \"shell\" presume-se que o utilizador tem experiência a utilizar o explorador do Windows."
 
 #. (title)
 msgid "Reading Guide"
@@ -167,7 +167,7 @@ msgstr ""
 
 #. (title)
 msgid "Acknowledgments"
-msgstr "Agredecimentos"
+msgstr "Agradecimentos"
 
 #. (term)
 msgid "Tim Kemp"
@@ -5147,7 +5147,7 @@ msgstr "Recuperando um ficheiro ou pasta removido"
 
 #. (para)
 msgid "If you have deleted a file or a folder and already committed that delete operation to the repository, then a normal <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> can't bring it back anymore. But the file or folder is not lost at all. If you know the revision the file or folder got deleted (if you don't, use the log dialog to find out) open the repository browser and switch to that revision. Then select the file or folder you deleted, right-click and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy to...</guimenuitem></menuchoice> as the target for that copy operation select the path to your working copy."
-msgstr ""
+msgstr "Se removeste um ficheiro ou pasta e já submeteste essa operação de remoção para o repositório, então o  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reverter</guimenuitem></menuchoice> normal não o pode mais recuperar. Mas o ficheiro ou pasta não está totalmente perdido. Se conheces a revisão em que o ficheiro ou pasta foi removido (se não sabes, usa a caixa de diálogo do registo para a encontrares), abre o navegador de repositório e comuta para essa revisão. Selecciona o ficheiro ou pasta que removeste, clica com o botão direito e selecciona <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Copiar para...</guimenuitem></menuchoice>, como destino para essa operação de cópia, selecciona o caminho para a tua cópia de trabalho."
 
 #. (title)
 msgid "Moving files and folders"
