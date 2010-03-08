@@ -3047,6 +3047,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					fileop.wFunc = FO_DELETE;
 					fileop.pFrom = buf;
 					fileop.pTo = NULL;
+					fileop.fAnyOperationsAborted = FALSE;
 					fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | ((GetAsyncKeyState(VK_SHIFT) & 0x8000) ? 0 : FOF_ALLOWUNDO);
 					fileop.lpszProgressTitle = _T("deleting file");
 					int result = SHFileOperation(&fileop);
