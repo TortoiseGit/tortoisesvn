@@ -68,13 +68,13 @@ static BOOL WantRealVersion(void)
 			TRACE(_T("WantRealVersion() - Explorer Only\n"));
 
 			// check if the current process is in fact the explorer
-			Len = GetModuleFileName(NULL, ModuleName, sizeof(ModuleName));
+			Len = GetModuleFileName(NULL, ModuleName, _countof(ModuleName));
 			if (Len)
 			{
 				TRACE(_T("Process is %s\n"), ModuleName);
 
-				Len = ExpandEnvironmentStrings(ExplorerEnvPath, ExplorerPath, sizeof(ExplorerPath));
-				if (Len && (Len <= sizeof(ExplorerPath)))
+				Len = ExpandEnvironmentStrings(ExplorerEnvPath, ExplorerPath, _countof(ExplorerPath));
+				if (Len && (Len <= _countof(ExplorerPath)))
 				{
 					TRACE(_T("Explorer path is %s\n"), ExplorerPath);
 					bWantReal = !lstrcmpi(ModuleName, ExplorerPath);
@@ -114,7 +114,7 @@ static void LoadRealLibrary(void)
 		return;
 	}
 
-	Len = GetModuleFileName(hInst, ModuleName, sizeof(ModuleName));
+	Len = GetModuleFileName(hInst, ModuleName, _countof(ModuleName));
 	if (!Len)
 	{
 		TRACE(_T("LoadRealLibrary() - Fail\n"));
