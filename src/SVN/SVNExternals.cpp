@@ -113,7 +113,7 @@ bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum
 		SVNRev origrev = it->origrevision;
 		SVNRev pegrev = it->pegrevision;
 		CString peg;
-		if (pegrev.IsValid())
+		if (pegrev.IsValid() && !pegrev.IsHead())
 			peg = _T("@") + pegrev.ToString();
 		else if (it->adjust)
 			peg = rev.ToString();
@@ -122,9 +122,9 @@ bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum
 
 		CString temp;
 		if (it->adjust)
-			temp.Format(_T("-r %s %s%s %s"), rev.ToString(), it->url, (LPCTSTR)peg, it->targetDir);
+			temp.Format(_T("-r %s %s@%s %s"), rev.ToString(), it->url, (LPCTSTR)peg, it->targetDir);
 		else if (origrev.IsValid())
-			temp.Format(_T("-r %s %s%s %s"), origrev.ToString(), it->url, (LPCTSTR)peg, it->targetDir);
+			temp.Format(_T("-r %s %s@%s %s"), origrev.ToString(), it->url, (LPCTSTR)peg, it->targetDir);
 		else
 			temp.Format(_T("%s%s %s"), it->url, (LPCTSTR)peg, it->targetDir);
 
