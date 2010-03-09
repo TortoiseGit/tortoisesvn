@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-09 22:38-0000\n"
+"PO-Revision-Date: 2010-03-09 23:13-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5294,19 +5294,19 @@ msgstr "Uma melhor maneira será, notificar o Subversion de que esta alteração
 
 #. (title)
 msgid "Deleting Unversioned Files"
-msgstr ""
+msgstr "Removendo Ficheiros Não Versionados"
 
 #. (para)
 msgid "Usually you set your ignore list such that all generated files are ignored in Subversion. But what if you want to clear all those ignored items to produce a clean build? Usually you would set that in your makefile, but if you are debugging the makefile, or changing the build system it is useful to have a way of clearing the decks."
-msgstr ""
+msgstr "Normalmente tu configuras a tua lista de ignorados tal que todos os ficheiros gerados sejam ignorados pelo Subversion. Mas se queres limpar todos esse itens ignorados de modo a produzir uma versão limpa? Por norma tu inserias isso na tua makefile, mas se quiseres depurar a tua makefile ou alterar o sistema de build, será útil ter uma maneira de limpar a casa."
 
 #. (para)
 msgid "TortoiseSVN provides just such an option using <menuchoice><guimenu>Extended Context Menu</guimenu><guimenuitem>Delete unversioned items...</guimenuitem></menuchoice>. You have to hold the <keycap>Shift</keycap> while right clicking on a folder in the explorer list pane (right pane) in order to see this in the extended context menu. This will produce a dialog which lists all unversioned files anywhere in your working copy. You can then select or deselect items to be removed."
-msgstr ""
+msgstr "O TortoiseSVN disponibiliza tal opção usando <menuchoice><guimenu>Menu de Contexto Estendido</guimenu><guimenuitem>Remover itens sem controle de versão...</guimenuitem></menuchoice>. Tens de manter premida a tecla <keycap>Shift</keycap> enquanto clicas com o botão direito na pasta, no painel de lista do explorador (painel direito) de modo a veres isto no menu de contexto estendido. Esta acção irá abrir uma caixa de diálogo que listará todos os ficheiros não versionados em qualquer ponto da tua cópia de trabalho. Podes então seleccionar ou desseleccionar os itens a remover."
 
 #. (para)
 msgid "When such items are deleted, the recycle bin is used, so if you make a mistake here and delete a file that should have been versioned, you can still recover it."
-msgstr ""
+msgstr "Quando tais itens são removidos é usando o cesto de reciclagem para que no caso de te enganares e removeres um ficheiro que deveria estar versionado, poderes ainda recuperá-lo."
 
 #. (title)
 msgid "Undo Changes"
