@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-09 00:25-0000\n"
+"PO-Revision-Date: 2010-03-09 00:57-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5209,7 +5209,7 @@ msgstr "<emphasis>Não</emphasis> deverás usar os comandos TortoiseSVN <guilabe
 
 #. (title)
 msgid "Changing case in a filename"
-msgstr ""
+msgstr "Mudando maiúsculas e minúsculas no nome do ficheiro"
 
 #. (primary)
 msgid "case change"
@@ -5217,44 +5217,44 @@ msgstr ""
 
 #. (para)
 msgid "Making case-only changes to a filename is tricky with Subversion on Windows, because for a short time during a rename, both filenames have to exist. As Windows has a case-insensitive file system, this does not work using the usual Rename command."
-msgstr ""
+msgstr "Efectuando alterações apenas nas maiúsculas e minúsculas no nome de um ficheiro é complicado com o Subversion no Windows, porque durante um curto espaço de tempo durante a mudança de nome, ambos os nomes de ficheiros terão de existir. Como o Windows tem um sistema de ficheiros insensível a maiúsculas e minúsculas, isto não funciona usando o comando Alterar-nome usual."
 
 #. (para)
 msgid "Fortunately there are (at least) two possible methods to rename a file without losing its log history. It is important to rename it within subversion. Just renaming in the explorer will corrupt your working copy!"
-msgstr ""
+msgstr "Afortunadamente existem (pelo menos) dois métodos possíveis para renomear um ficheiro sem perder a sua história de registo. É importante renomeá-lo dentro do Subversion. Apenas renomeá-lo no explorador irá corromper a tua cópia de trabalho!"
 
 #. (para)
 msgid "Commit the changes in your working copy."
-msgstr ""
+msgstr "Submeter as alterações na tua cópia de trabalho."
 
 #. (para)
 msgid "Rename the file from UPPERcase to upperCASE directly in the repository using the repository browser."
-msgstr ""
+msgstr "Renomear o ficheiro directamente no repositório, de letraMAIÚSCULA para LETRAmaiúscula, usando o navegador de repositório."
 
 #. (para)
 msgid "Update your working copy."
-msgstr ""
+msgstr "Actualizar a tua cópia de trabalho."
 
 #. (para)
 msgid "Solution A) (recommended) <placeholder-1/>"
-msgstr ""
+msgstr "Solução A) (recomendada) <placeholder-1/>"
 
 #. (para)
 msgid "Rename from UPPERcase to UPPERcase_ with the rename command in the TortoiseSVN submenu."
-msgstr ""
+msgstr "Renomear de letraMAIÚSCULA para letraMAIÚSCULA_ com o comando alterar-nome do submenu do TortoiseSVN."
 
 #. (para)
 #. (para)
 msgid "Commit the changes."
-msgstr ""
+msgstr "Submeter as alterações."
 
 #. (para)
 msgid "Rename from UPPERcase_ to upperCASE."
-msgstr ""
+msgstr "Renomear de letraMAIÚSCULA_ para letraMAIÚSCULA."
 
 #. (para)
 msgid "Solution B) <placeholder-1/>"
-msgstr ""
+msgstr "Solução B) <placeholder-1/>"
 
 #. (title)
 msgid "Dealing with filename case conflicts"
