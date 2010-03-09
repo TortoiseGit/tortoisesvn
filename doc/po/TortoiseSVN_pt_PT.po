@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-09 00:57-0000\n"
+"PO-Revision-Date: 2010-03-09 01:14-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5258,23 +5258,23 @@ msgstr "Solução B) <placeholder-1/>"
 
 #. (title)
 msgid "Dealing with filename case conflicts"
-msgstr ""
+msgstr "Lidando com conflitos de maiúsculas e minúsculas no nome do ficheiro"
 
 #. (para)
 msgid "If the repository already contains two files with the same name but differing only in case (e.g. <filename>TEST.TXT</filename> and <filename>test.txt</filename>), you will not be able to update or checkout the parent directory on a Windows client. Whilst Subversion supports case-sensitive filenames, Windows does not."
-msgstr ""
+msgstr "Se o repositório já contém dois ficheiros com o mesmo nome, diferindo apenas nas miúsculas e minúsculas (e.g. <filename>TEST.TXT</filename> e <filename>test.txt</filename>), não conseguirás actualizar ou SVN exportar a pasta pai num cliente Windows. Enquanto o Subversion suporta nomes de ficheiros sensíveis a miúsculas e minúsculas, o Windows não."
 
 #. (para)
 msgid "This sometimes happens when two people commit, from separate working copies, files which happen to have the same name, but with a case difference. It can also happen when files are committed from a system with a case-sensitive file system, like Linux."
-msgstr ""
+msgstr "Isto por vezes acontece quando duas pessoas submetem, a partir de cópias de trabalho separadas, ficheiros que por acaso têm o mesmo nome mas com uma diferença de maiúsculas e minúsculas. Pode também acontecer quando os ficheiros são submetidos a partir de um sistema, com um sistema de ficheiros sensível a maiúsculas e minúsculas, como o Linux."
 
 #. (para)
 msgid "In that case, you have to decide which one of them you want to keep and delete (or rename) the other one from the repository."
-msgstr ""
+msgstr "Nesse caso tens de decidir qual o que queres manter e remover (ou alterar o nome) do outro no repositório."
 
 #. (title)
 msgid "Preventing two files with the same name"
-msgstr ""
+msgstr "Prevenindo dois ficheiros com o mesmo nome"
 
 #. (para)
 msgid "There is a server hook script available at: <ulink url=\"http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/\"><citetitle>http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/</citetitle></ulink> that will prevent checkins which result in case conflicts."
