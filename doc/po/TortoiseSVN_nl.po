@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-02 13:35+0100\n"
-"Last-Translator: Ewout Muller <eppie1@xs4all.nl>\n"
+"PO-Revision-Date: 2010-03-09 13:31+0100\n"
+"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5812,27 +5812,27 @@ msgstr "Toevoegen van eigenschappen"
 
 #. (para)
 msgid "<placeholder-1/> To add a new property, first click on <guilabel>Add...</guilabel>. Select the required property name from the combo box, or type in a name of your own choice, then enter a value in the box below. Properties which take multiple values, such as an ignore list, can be entered on multiple lines. Click on <guibutton>OK</guibutton> to add that property to the list."
-msgstr ""
+msgstr "<placeholder-1/> Klik eerst op <guilabel>Toevoegen...</guilabel> om een nieuwe eigenschap toe te voegen. Selecteer de gewenste naam van de eigenschap uit de lijst of voer een naam van jouw keuze in en geef vervolgens de waarde op in het veld daaronder. Eigenschappen die meerdere waardes kunnen hebben, bijvoorbeeld de negeren lijst, kunnen meerdere regels hebben. Klik op <guibutton>OK</guibutton> om de eigenschap aan de lijst toe te voegen."
 
 #. (para)
 msgid "If you want to apply a property to many items at once, select the files/folders in explorer, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Als je een eigenschap op meerdere objecten tegelijk wilt toepassen, selecteer dan de bestanden/mappen in de verkenner en kies <menuchoice><guimenu>Context menu</guimenu><guimenuitem>eigenschappen</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "If you want to apply the property to <emphasis>every</emphasis> file and folder in the hierarchy below the current folder, check the <guilabel>Recursive</guilabel> checkbox."
-msgstr ""
+msgstr "Als je de eigenschappen wilt gebruiken voor <emphasis>alle</emphasis> bestanden en mappen in de onderliggende mappen van de huidige map, selecteer dan de optie <guilabel>Recursief</guilabel>."
 
 #. (para)
 msgid "Some properties, for example <literal>svn:needs-lock</literal>, can only be applied to files, so the property name doesn't appear in the drop down list for folders. You can still apply such a property recursively to all files in a hierarchy, but you have to type in the property name yourself."
-msgstr ""
+msgstr "Enkele eigenschappen, bijvoorbeeld <literal>svn:needs-lock</literal>, kunnen alleen aan bestanden toegekend worden, daarom worden deze namen van eigenschappen niet weergegeven in de lijst voor mappen. Het is wel mogelijk om zo'n eigenschap recursief op alle bestanden in de hiërarchie toe te passen, maar je moet dan wel de naam van eigenschap handmatig invoeren."
 
 #. (para)
 msgid "If you wish to edit an existing property, select that property from the list of existing properties, then click on <guibutton>Edit...</guibutton>."
-msgstr ""
+msgstr "Als je een bestaande eigenschap wilt bewerken, selecteer dan die eigenschap uit de lijst van bestaande eigenschappen en klik dan op <guibutton>Wijzigen...</guibutton>."
 
 #. (para)
 msgid "If you wish to remove an existing property, select that property from the list of existing properties, then click on <guibutton>Remove</guibutton>."
-msgstr ""
+msgstr "Als je een bestaande eigenschap wilt verwijderen, selecteer dan de eigenschap uit de lijst van bestande eigenschappen en klik dan op <guibutton>Verwijderen</guibutton>."
 
 #. (para)
 msgid "The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository. For more information, read <xref linkend=\"tsvn-dug-externals\"/>."
@@ -5844,23 +5844,23 @@ msgstr "Exporteren en Importeren van Eigenschappen"
 
 #. (para)
 msgid "Often you will find yourself applying the same set of properties many times, for example <literal>bugtraq:logregex</literal>. To simplify the process of copying properties from one project to another, you can use the Export/Import feature."
-msgstr ""
+msgstr "Je zult er achter komen dat je vaak dezelfde set van eigenschappen toepast, bijvoorbeeld <literal>bugtraq:logregex</literal>. Om het kopiëren van eigenschappen van het ene project naar het andere te vereenvoudigen, kun je gebruik maken van de Export/Import functionaliteit."
 
 #. (para)
 msgid "From the file or folder where the properties are already set, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice>, select the properties you wish to export and click on <guibutton>Export...</guibutton>. You will be prompted for a filename where the property names and values will be saved."
-msgstr ""
+msgstr "Kies voor het bestand of de map waar de eigenschap al ingesteld is <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Eigenschappen</guimenuitem></menuchoice>  en selecteer de eigenschappen die je wilt exporteren en klik op <guibutton>Exporteer</guibutton>. Je moet vervolgens de bestandsnaam opgeven voor het bestand waarin je namen en waardes wilt opslaan."
 
 #. (para)
 msgid "From the folder(s) where you wish to apply these properties, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice> and click on <guibutton>Import...</guibutton>. You will be prompted for a filename to import from, so navigate to the place you saved the export file previously and select it. The properties will be added to the folders non-recursively."
-msgstr ""
+msgstr "Kies vanuit de map(pen) waarop je deze eigenschappen wilt toepassen <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Eigenschappen</guimenuitem></menuchoice> en klik op <guibutton>Importeren...</guibutton>. Er zal dan gevraagd worden vanuit welk bestand er geïmporteerd moet worden. Blader naar de locatie waar je eerder het export bestand hebt opgeslagen en selecteer deze. De eigenschappen zullen niet-recursief worden toegepast op de mappen."
 
 #. (para)
 msgid "If you want to add properties to a tree recursively, follow the steps above, then in the property dialog select each property in turn, click on <guibutton>Edit...</guibutton>, check the <guilabel>Apply property recursively</guilabel> box and click on <guibutton>OK</guibutton>."
-msgstr ""
+msgstr "Als je eigenschappen recursief aan een mapstructuur wilt toevoegen, volg dan de hierboven beschreven stappen, selecteer in het eigenschappen scherm elke aparte eigenschap en klik op <guibutton>Bewerken...</guibutton>. Vink de optie <guilabel>Eigenschap recursief toepassen</guilabel>  aan en klik op <guibutton>OK</guibutton>."
 
 #. (para)
 msgid "The Import file format is binary and proprietary to TortoiseSVN. Its only purpose is to transfer properties using Import and Export, so there is no need to edit these files."
-msgstr ""
+msgstr "De indeling van het import bestand is binair en een eigen indeling voor TortoiseSVN. Het enige nut van deze bestanden in het overzetten van eigenschappen met de Importeren en Exporteren functie. Er is dus geen reden om deze bestanden te kunnen bewerken."
 
 #. (title)
 msgid "Binary Properties"
@@ -5868,11 +5868,11 @@ msgstr "Binaire eigenschappen"
 
 #. (para)
 msgid "TortoiseSVN can handle binary property values using files. To read a binary property value, <guibutton>Save...</guibutton> to a file. To set a binary value, use a hex editor or other appropriate tool to create a file with the content you require, then <guibutton>Load...</guibutton> from that file."
-msgstr ""
+msgstr "TortoiseSVN kan omgaan met binaire waardes van eigenschappen als bestanden worden gebruikt. Om een binaire waarde van een eigenschap te lezen, dan moet je deze <guibutton>Opslaan...</guibutton> in een bestand. Gebruik een Hex-editor of ander geschikt programma om een bestand aan te maken met de benodigde inhoud en kies dan <guibutton>Laden...</guibutton> om de inhoud van dit bestand op te halen."
 
 #. (para)
 msgid "Although binary properties are not often used, they can be useful in some applications. For example if you are storing huge graphics files, or if the application used to load the file is huge, you might want to store a thumbnail as a property so you can obtain a preview quickly."
-msgstr ""
+msgstr "Ondanks het feit dat binaire eigenschappen niet vaak gebruikt worden, kunnen ze in sommige gevallen erg handig zijn. Bijvoorbeeld als je hele grote grafische bestanden opslaat of de applicatie die gebruikt wordt om een bestand te laden erg groot is, dan wil je misschien een thumbnail opslaan als eigenschap, zodat je deze snel vooraf kunt bekijken."
 
 #. (title)
 msgid "Automatic property setting"
@@ -5884,23 +5884,23 @@ msgstr "auto-props"
 
 #. (para)
 msgid "You can configure Subversion and TortoiseSVN to set properties automatically on files and folders when they are added to the repository. There are two ways of doing this."
-msgstr ""
+msgstr "Je kunt Subversion en TortoiseSVN zo instellen dat ze automatisch eigenschappen instellen voor bestanden en mappen als deze worden toegevoegd aan het archief. Er zijn twee manieren om dit te doen."
 
 #. (para)
 msgid "You can edit the subversion configuration file to enable this feature on your client. The <guilabel>General</guilabel> page of TortoiseSVN's settings dialog has an edit button to take you there directly. The config file is a simple text file which controls some of subversion's workings. You need to change two things: firstly in the section headed <literal>miscellany</literal> uncomment the line <literal>enable-auto-props = yes</literal>. Secondly you need to edit the section below to define which properties you want added to which file types. This method is a standard subversion feature and works with any subversion client. However it has to be defined on each client individually - there is no way to propagate these settings from the repository."
-msgstr ""
+msgstr "Je kunt het subversion configuratie bestand bewerken om deze functie voor jouw eigen client aan te zetten. De <guilabel>Algemeen</guilabel> pagina van het TortoiseSVN instellingen scherm heeft een knop waarmee je dit bestand makkelijk kunt vinden. Het configuratie bestand is een plat tekstbestand, waarmee enkele werkinstellingen voor subversion worden gedaan. Je moet twee dingen aanpassen: haal eerst in de sectie met de naam <literal>miscellany</literal> de commentaar tekens weg voor de regel <literal>enable-auto-props = yes</literal>. Als tweede actie moet je de sectie daaronder bewerken om te definiëren welke eigenschappen je op welke bestandstypes wilt toe laten passen. Deze methode is een standaard functie van subversion en werkt met elke subverion client. Dit moet echter wel op elke client apart ingesteld worden - er is geen methode om dit door te laten propageren vanuit het archief."
 
 #. (para)
 msgid "An alternative method is to set the <literal>tsvn:autoprops</literal> property on folders, as described in the next section. This method only works for TortoiseSVN clients, but it does get propagated to all working copies on update."
-msgstr ""
+msgstr "Een alternatief is om de <literal>tsvn:autoprops</literal> eigenschap in te stellen op mappen, zoals omschreven in de volgende sectie. Deze methode werkt alleen met TortoiseSVN, maar zal wel propageren naar alle werkkopieën bij het verversen."
 
 #. (para)
 msgid "Whichever method you choose, you should note that auto-props are only applied to files at the time they are added to the repository. Auto-props will never change the properties of files which are already versioned."
-msgstr ""
+msgstr "Welke methode je ook kiest, moet je er rekening mee houden dat auto-props alleen worden toegepast op het moment dat deze aan het archief worden toegevoegd. Auto-props zullen nooit de eigenschappen veranderen van bestanden die al in het archief zitten."
 
 #. (para)
 msgid "If you want to be absolutely sure that new files have the correct properties applied, you should set up a repository pre-commit hook to reject commits where the required properties are not set."
-msgstr ""
+msgstr "Als je er absoluut zeker van wilt zijn dat nieuwe bestanden de juist eigenschappen toegepast krijgen, moet je een pre-commit hook instellen, welke de vastlegging weigert als de benodigde eigenschappen niet ingesteld zijn."
 
 #. (title)
 msgid "Commit properties"
@@ -5908,7 +5908,7 @@ msgstr "Vastleggen eigenschappen"
 
 #. (para)
 msgid "Subversion properties are versioned. After you change or add a property you have to commit your changes."
-msgstr ""
+msgstr "Subversion eigenschappen zijn voorzien van versiebeheer. Als je een eigenschap wijzigt of toevoegt, moet je je wijzigingen vastleggen in het archief."
 
 #. (title)
 msgid "Conflicts on properties"
@@ -5916,7 +5916,7 @@ msgstr "Conflicten op eigenschappen"
 
 #. (para)
 msgid "If there's a conflict on committing the changes, because another user has changed the same property, Subversion generates a <filename>.prej</filename> file. Delete this file after you have resolved the conflict."
-msgstr ""
+msgstr "Als er een conflict optreedt bij het vastleggen van de wijzigingen, omdat een andere gebruiker dezelfde eigenschap heeft gewijzigd, maakt Subversion een <filename>.prej>/filename> bestand aan. Verwijder dit bestand nadat je het conflict opgelost hebt."
 
 #. (title)
 msgid "TortoiseSVN Project Properties"
