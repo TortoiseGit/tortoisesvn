@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-06 09:15-0000\n"
+"PO-Revision-Date: 2010-03-09 22:33-0000\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -297,6 +297,10 @@ msgstr "&Despre TortoiseMerge..."
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "&Activează"
+
+#. Resource IDs: (15)
+msgid "&Add"
+msgstr "&Adaugă"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
@@ -1236,7 +1240,7 @@ msgstr "(şterge)"
 
 #. Resource IDs: (214)
 msgid "(externals)"
-msgstr "(externe)"
+msgstr "(referințe externe)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -2196,7 +2200,7 @@ msgstr "Schimbări efectuate (dati dublu-clic pe fişier pentru a vedea diferen�
 
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
-msgstr "Se modifică programele externe la revizia fixă"
+msgstr "Se modifică referințele externe la revizia fixă"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -2215,11 +2219,9 @@ msgstr "Caută actualizările"
 msgid "Check For Updates..."
 msgstr "Caută actualizările..."
 
-# English makes very little sense. Check = verifica, marca, bifa?
 #. Resource IDs: (1544)
-#, fuzzy
 msgid "Check externals to tag"
-msgstr "Verifică programele externe ale etichetei"
+msgstr "Bifați referințele externe ale etichetei"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -3156,10 +3158,6 @@ msgid "Delete and &ignore %d items by name"
 msgstr "Şterge şi &ignoră %d elemente după nume"
 
 #. Resource IDs: (14)
-msgid "Delete and add to &ignore list"
-msgstr "Şterge şi adaugă la lista de &ignorări"
-
-#. Resource IDs: (14)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Şterge şi ignoră %d elemente după &extensie"
@@ -3856,11 +3854,11 @@ msgstr "Un program extern a eşuat"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
-msgstr "Externals excluse"
+msgstr "Referințe externe excluse"
 
 #. Resource IDs: (226)
 msgid "Externals included"
-msgstr "Externals incluse"
+msgstr "Referințe externe incluse"
 
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
@@ -5067,7 +5065,7 @@ msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
-msgstr "Elementele &externe"
+msgstr "Elemente în referințele &externe"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
@@ -5814,7 +5812,7 @@ msgstr "Nu s-a produs nici o eroare."
 
 #. Resource IDs: (281)
 msgid "No externals found"
-msgstr "Nu s-au găsit programe externe"
+msgstr "Nu s-au găsit referințe externe"
 
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
@@ -6032,7 +6030,7 @@ msgstr "Omite e&xternals"
 
 #. Resource IDs: (145)
 msgid "Omit externals"
-msgstr "Omite externals"
+msgstr "Omite referințe externe"
 
 #. Resource IDs: (63)
 msgid ""
@@ -6332,7 +6330,7 @@ msgstr "Aşteptaţi în timp ce se obţin diferenţele..."
 
 #. Resource IDs: (281)
 msgid "Please wait while the externals are gathered..."
-msgstr "Aşteptaţi în timp ce se obţin programele externe..."
+msgstr "Aşteptaţi în timp ce se obţin referințe externe..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -7750,7 +7748,7 @@ msgstr "Afişează dosare excluse ca fiind normale"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
-msgstr "Afişează externele din depozite &diferite"
+msgstr "Afişează referințe externe din depozite &diferite"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -9082,7 +9080,7 @@ msgstr ""
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
-msgstr "Transmitere automată TortoiseSVN: programele externe s-au schimbat la revizia fixă."
+msgstr "Transmitere automată TortoiseSVN: referințe externe s-au schimbat la revizia fixă."
 
 #. Resource IDs: (98)
 #, c-format
@@ -9335,6 +9333,10 @@ msgstr ""
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Elimină versionarea"
+
+#. Resource IDs: (14)
+msgid "Unversion and add to &ignore list"
+msgstr "Elimină versionarea şi adaugă la lista de &ignorări"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
