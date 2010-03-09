@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-08 23:25-0000\n"
+"PO-Revision-Date: 2010-03-09 00:25-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5151,7 +5151,7 @@ msgstr "Se removeste um ficheiro ou pasta e já submeteste essa operação de re
 
 #. (title)
 msgid "Moving files and folders"
-msgstr ""
+msgstr "Movendo ficheiros e pastas"
 
 #. (primary)
 #. (primary)
@@ -5165,31 +5165,31 @@ msgstr ""
 
 #. (para)
 msgid "If you want to do a simple in-place rename of a file or folder, use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Rename...</guimenuitem></menuchoice> Enter the new name for the item and you're done."
-msgstr ""
+msgstr "Se queres fazer um simples renomear no lugar de um ficheiro ou pasta, usa <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Alterar nome...</guimenuitem></menuchoice> Insere o novo nome para o item e está feito."
 
 #. (para)
 msgid "select the files or directories you want to move"
-msgstr ""
+msgstr "selecciona os ficheiros ou pastas que queres mover"
 
 #. (para)
 msgid "in the popup menu select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Move versioned files here</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "No menu que surge selecciona <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>SVN Mover para aqui iten(s) com controlo de versões</guimenuitem></menuchoice>"
 
 #. (para)
 msgid "If you want to move files around inside your working copy, perhaps to a different sub-folder, use the right-mouse drag-and-drop handler: <placeholder-1/>"
-msgstr ""
+msgstr "Se queres mover ficheiros dentro da tua cópia de trabalho, talvez para uma subpasta diferente, usa o manípulo de arrastar-e-largar do botão direito do rato: <placeholder-1/>"
 
 #. (title)
 msgid "Commit the parent folder"
-msgstr ""
+msgstr "Submeter a pasta pai"
 
 #. (para)
 msgid "Since renames and moves are done as a delete followed by an add you must commit the parent folder of the renamed/moved file so that the deleted part of the rename/move will show up in the commit dialog. If you don't commit the removed part of the rename/move, it will stay behind in the repository and when your co-workers update, the old file will not be removed. i.e. they will have <emphasis>both</emphasis> the old and the new copies."
-msgstr ""
+msgstr "Visto que renomeações e movimentos são executados como uma remoção seguida por uma adição, deverás submeter a pasta pai do ficheiro renomeado/movido para que a parte removida do renomeado/movido seja apresentado na caixa de diálogo submeter. Se não submeteres a parte removida do renomeado/movido irá ficar para trás no repositório, e quando os teus colegas actualizarem, o ficheiro antigo não será removido. i.e. eles terão <emphasis>ambos</emphasis>, o antigo e as novas cópias."
 
 #. (para)
 msgid "You <emphasis>must</emphasis> commit a folder rename before changing any of the files inside the folder, otherwise your working copy can get really messed up."
-msgstr ""
+msgstr "Tu <emphasis>deves</emphasis> submeter a pasta renomeada antes de alterar qualquer dos ficheiros dentro dessa pasta, senão a tua cópia de trabalho pode ficar realmente baralhada."
 
 #. (para)
 msgid "Another way of moving or copying files is to use the Windows copy/cut commands. Select the files you want to copy, right-click and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice> from the explorer context menu. Then browse to the target folder, right-click and choose <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Paste</guimenuitem></menuchoice>. For moving files, choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Cut</guimenuitem></menuchoice> instead of <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice>."
@@ -5197,15 +5197,15 @@ msgstr ""
 
 #. (para)
 msgid "You can also use the repository browser to move items around. Read <xref linkend=\"tsvn-dug-repobrowser\"/> to find out more."
-msgstr ""
+msgstr "Podes também usar o navegador de repositório para mover itens no mesmo. Consultar <xref linkend=\"tsvn-dug-repobrowser\"/> para saberes mais."
 
 #. (title)
 msgid "Do Not SVN Move Externals"
-msgstr ""
+msgstr "Não SVN Mover Externos"
 
 #. (para)
 msgid "You should <emphasis>not</emphasis> use the TortoiseSVN <guilabel>Move</guilabel> or <guilabel>Rename</guilabel> commands on a folder which has been created using <literal>svn:externals</literal>. This action would cause the external item to be deleted from its parent repository, probably upsetting many other people. If you need to move an externals folder you should use an ordinary shell move, then adjust the <literal>svn:externals</literal> properties of the source and destination parent folders."
-msgstr ""
+msgstr "<emphasis>Não</emphasis> deverás usar os comandos TortoiseSVN <guilabel>Mover</guilabel> ou <guilabel>Renomear</guilabel> numa pasta que foi criada usando <literal>svn:externals</literal>. Esta acção teria como causaria a remoção do item externo do seu repositório pai, provavelmente irritando muitas outras pessoas. Se necessitas de mover uma pasta de externos, deverás usar um vulgar mover de linha de comando (shell), e então ajustar as propriedades <literal>svn:externals</literal> das pastas pai de origem e destino."
 
 #. (title)
 msgid "Changing case in a filename"
