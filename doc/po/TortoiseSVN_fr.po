@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-09 09:22 +0000\n"
-"PO-Revision-Date: 2010-03-08 16:31+0100\n"
+"PO-Revision-Date: 2010-03-09 17:58+0100\n"
 "Last-Translator: Frédéric Bodin <grokwik@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3167,7 +3167,7 @@ msgstr "Les serveurs de version inférieure à 1.5 ne supportent pas la notion d
 
 #. (para)
 msgid "If the project contains references to external projects which you do <emphasis>not</emphasis> want checked out at the same time, use the <guilabel>Omit externals</guilabel> checkbox."
-msgstr "Si le projet contient des références à des projets externes que vous ne voulez <emphasis>pas</emphasis> extraire en même temps, utilisez la case à cocher <guilabel>Omettre les externes</guilabel> ."
+msgstr "Si le projet contient des références à des projets externes que vous ne voulez <emphasis>pas</emphasis> extraire en même temps, utilisez la case à cocher <guilabel>Omettre les références externes</guilabel> ."
 
 #. (para)
 msgid "If <guilabel>Omit externals</guilabel> is checked, or if you wish to increase the depth value, you will have to perform updates to your working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead of <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. The standard update will include all externals and keep the existing depth."
@@ -6554,12 +6554,11 @@ msgstr "Assitant de de fusion - Fusion d'arborescence"
 
 #. (para)
 msgid "<placeholder-1/> If you are using this method to merge a feature branch back to trunk, you need to start the merge wizard from within a working copy of trunk."
-msgstr ""
+msgstr "<placeholder-1/> Si vous utilisez cette méthode pour fusionner une branche avec le tronc, vous devez démarrer l'assistant de fusion depuis une CdT du tronc."
 
 #. (para)
-#, fuzzy
 msgid "In the <guilabel>From:</guilabel> field enter the full folder URL of the <emphasis>trunk</emphasis>. This may sound wrong, but remember that the trunk is the start point to which you want to add the branch changes. You may also click <guibutton>...</guibutton> to browse the repository."
-msgstr "Dans le champ <guilabel>De :</guilabel> entrez l'URL complète du dossier du <emphasis>tronc</emphasis>. Cela peut sembler faux, mais souvenez-vous que le tronc est le point de départ auquel vous voulez ajouter les changements de la branche. Vous pouvez aussi cliquer sur <guibutton>...</guibutton> pour parcourir le référentiel."
+msgstr "Dans le champ <guilabel>De :</guilabel> entrez l'URL complète du dossier du <emphasis>tronc</emphasis>. Cela peut sembler erroné, mais souvenez-vous que le tronc est l'endroit auquel vous souhaitez ajouter les modifications de la branche. Vous pouvez aussi cliquer sur <guibutton>...</guibutton> pour parcourir le référentiel."
 
 #. (para)
 msgid "In the <guilabel>To:</guilabel> field enter the full folder URL of the feature branch."
@@ -6567,7 +6566,7 @@ msgstr "Remplissez le champ <guilabel>To:</guilabel> par l'adresse complète de 
 
 #. (para)
 msgid "In both the <guilabel>From Revision</guilabel> field and the <guilabel>To Revision</guilabel> field, enter the last revision number at which the two trees were synchronized. If you are sure no-one else is making commits you can use the HEAD revision in both cases. If there is a chance that someone else may have made a commit since that synchronization, use the specific revision number to avoid losing more recent commits."
-msgstr "Dans les deux champs <guilabel>Depuis la révision</guilabel> et <guilabel>À la révision</guilabel>, entrez le numéro de la dernière révision à laquelle les deux arbres ont été synchronisés. Si vous êtes sûrs que personne d'autre ne fait de livraisons vous pouvez utiliser la révision HEAD dans les deux cas. S'il y a une chance que quelqu'un d'autre puisse avoir fait une livraison depuis cette synchronisation, utilisez le numéro de la révision particulière pour éviter pour perdre des livraisons plus récentes."
+msgstr "Dans les deux champs <guilabel>Depuis la révision</guilabel> et <guilabel>À la révision</guilabel>, entrez le numéro de la dernière révision à laquelle les deux arbres ont été synchronisés. Si vous êtes sûrs que personne d'autre ne fait de livraison vous pouvez utiliser la révision HEAD dans les deux cas. S'il y a une chance que quelqu'un d'autre ait fait une livraison depuis cette synchronisation, utilisez le numéro de la révision particulier pour éviter de perdre des livraisons plus récentes."
 
 #. (para)
 msgid "You can also use <guibutton>Show Log</guibutton> to select the revision."
@@ -6579,33 +6578,31 @@ msgstr "Options de fusion"
 
 #. (para)
 msgid "This page of the wizard lets you specify advanced options, before starting the merge process. Most of the time you can just use the default settings."
-msgstr ""
+msgstr "Cette page de l'assistant vous permet d'accéder à des options avancées, avant de commencer le processus de fusion. La plupart du temps vous ne pouvez utiliser que les options par défaut."
 
 #. (para)
 msgid "You can specify the depth to use for the merge, i.e. how far down into your working copy the merge should go. The depth terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which uses the existing depth setting, and is almost always what you want."
-msgstr ""
+msgstr "Vous pouvez donner la profondeur de fusion, i.e. à quelle profondeur dans la CdT, la fusion doit aller. Les termes de profondeur utilisés sont décrits dans <xref linkend=\"tsvn-dug-checkout-depth\"/>. La profondeur par défaut est <guilabel>Copie de travail</guilabel>, qui utilise la valeur existante de profondeur, et est presque toujours ce qui est nécessaire."
 
 #. (para)
-#, fuzzy
 msgid "Most of the time you want merge to take account of the file's history, so that changes relative to a common ancestor are merged. Sometimes you may need to merge files which are perhaps related, but not in your repository. For example you may have imported versions 1 and 2 of a third party library into two separate directories. Although they are logically related, Subversion has no knowledge of this because it only sees the tarballs you imported. If you attempt to merge the difference between these two trees you would see a complete removal followed by a complete add. To make Subversion use only path-based differences rather than history-based differences, check the <guilabel>Ignore ancestry</guilabel> box. Read more about this topic in the Subversion book, <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
-msgstr "La plupart du temps vous voulez fusionner pour tenir compte de l'historique du fichier, pour que les changements relatifs à un ancêtre commun soient fusionnés. Parfois vous pouvez devoir fusionner des fichiers qui sont peut-être liés, mais pas dans votre référentiel. Par exemple vous pouvez avoir importé les versions 1 et 2 d'une bibliothèque tiers dans deux répertoires séparés. Bien qu'ils soient logiquement liés, Subversion n'en a aucune connaissance parce qu'il ne voit que le package que vous avez importé. Si vous essayez de fusionner les différences entre ces deux arbres vous verriez une suppression totale suivie par un ajout total. Pour faire que Subversion n'utilise que les différences basées sur le chemin plutôt que les différences basées sur l'historique, cochez la case <guilabel>Ignorer l'ascendance</guilabel>. Lisez en plus à ce sujet dans le manuel de Subversion, <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.3.4\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
+msgstr "La plupart du temps vous voulez fusionner pour tenir compte de l'historique du fichier, de sorte que les changements relatifs à un ancêtre commun soient fusionnés. Parfois vous pouvez avoir besoin de fusionner des fichiers qui sont liés, mais pas à l'intérieur de votre référentiel. Par exemple vous pouvez avoir importé les versions 1 et 2 d'une bibliothèque tiers dans deux répertoires séparés. Bien qu'ils soient logiquement liés, Subversion n'en a aucune connaissance puisqu''il ne voit que le package que vous avez importé. Si vous essayez de fusionner ces deux arborescences vous verriez une suppression totale suivie d'un ajout total. Pour faire en sorte que Subversion n'utilise que les différences basées sur le chemin plutôt que les différences basées sur l'historique, cochez la case <guilabel>Ignorer l'ascendance</guilabel>. Plus d'informations à ce sujet dans le manuel de Subversion, <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
 
 #. (para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes to be merged."
-msgstr ""
+msgstr "Vous pouvez spécifier la gestion des caractères de fin de ligne et des espaces. Ces options sont décrites dans <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. Le comportement par défaut est de traiter tous les espaces et les fins de lignes comme étant des modifications à part entière."
 
 #. (para)
 msgid "The checkbox marked <guilabel>Force the merge</guilabel> is used to avoid a tree conflict where an incoming delete affects a file that is either modified locally or not versioned at all. If the file is deleted then there is no way to recover it, which is why that option is not checked by default."
-msgstr ""
+msgstr "La case à cocher appelée <guilabel>Forcer la fusion</guilabel> est utilisée pour éviter les conflits d'arborescence lors de la suppression d'un fichier qui a été modifié localement ou qui n'est pas sous contrôle de version. Si le fichier est supprimé, il n'y a aucun moyen de le récupérer, ce qui explique que par défaut cette case ne soit pas cochée."
 
 #. (para)
 msgid "If you are using merge tracking and you want to mark a revision as having been merged, without actually doing the merge here, check the <guilabel>Only record the merge</guilabel> checkbox. There are two possible reasons you might want to do this. It may be that the merge is too complicated for the merge algorithms, so you code the changes by hand, then mark the change as merged so that the merge tracking algorithm is aware of it. Or you might want to prevent a particular revision from being merged. Marking it as already merged will prevent the merge occurring with merge-tracking-aware clients."
-msgstr ""
+msgstr "Si vous utilisez la fonction de suivi de fusion et que vous souhaitez marquer une révision comme ayant été fusionnée, sans vraiment avoir fait de fusion ici, cochez la case <guilabel>Enregistrer uniquement la fusion</guilabel>. Il y a deux raisons pour lesquelles vous pourriez être amenés à faire ceci. La fusion à effectuer est trop compliquée pour les algorithmes de fusion, vous faites donc la fusion à la main et marquez les modifications comme ayant été fusionnées de manière à ce que le suivi de fusion le sache. Ou vous voulez éviter qu'une révision particulière soit fusionnée. La marquer comme ayant été fusionnée empêchera les clients supportant le suivi de fusion de faire effectivement la fusion."
 
 #. (para)
-#, fuzzy
 msgid "Now everything is set up, all you have to do is click on the <guibutton>Merge</guibutton> button. If you want to preview the results <guibutton>Test Merge</guibutton> performs the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes those areas where conflicts will occur."
-msgstr "<guibutton>Exécution fictive</guibutton> exécute l'opération de fusion, mais ne modifie <emphasis>pas </emphasis> la copie de travail du tout. Il vous montre une liste des fichiers qui seront changés par une vraie fusion et note les secteurs où les conflits se produiront."
+msgstr "A présent que tout est correctement configuré, tout ce que vous avez à faire est de cliquer sur le bouton <guibutton>Fusionner</guibutton>. Si vous voulez avoir un aperçu du résultat, le bouton <guibutton>Tester la fusion</guibutton> fera la fusion mais <emphasis>sans</emphasis> modifier la CdT. La liste des fichiers affectés par la fusion s'affichera, ainsi que les endroits où il y a des conflits."
 
 #. (para)
 msgid "The merge progress dialog shows each stage of the merge, with the revision ranges involved. This may indicate one more revision than you were expecting. For example if you asked to merge revision 123 the progress dialog will report <quote>Merging revisions 122 through 123</quote>. To understand this you need to remember that Merge is closely related to Diff. The merge process works by generating a list of differences between two points in the repository, and applying those differences to your working copy. The progress dialog is simply showing the start and end points for the diff."
@@ -9642,7 +9639,7 @@ msgstr "La ligne de commande SubWCRev"
 
 #. (para)
 msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, It also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
-msgstr "SubWCRev lit le statut Subversion de tous les fichiers d'une copie de travail, en excluant par défaut les externes. Il enregistre le plus haut numéro de révision livrée trouvé et la date de cette révision, Il enregistre aussi s'il y a des modifications locales dans la copie de travail, ou des révisions mélangées. Le numéro de révision, la plage de révisions mises à jour et le statut de modification sont affichés sur stdout."
+msgstr "SubWCRev lit le statut Subversion de tous les fichiers d'une copie de travail, en excluant par défaut les références externes. Il enregistre le plus haut numéro de révision livrée trouvé et la date de cette révision, Il enregistre aussi s'il y a des modifications locales dans la copie de travail, ou des révisions mélangées. Le numéro de révision, la plage de révisions mises à jour et le statut de modification sont affichés sur stdout."
 
 #. (para)
 msgid ""
@@ -9716,7 +9713,7 @@ msgstr "svn:externals"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will examine directories which are included with <placeholder-1/>, but only if they are from the same repository. The default behaviour is to ignore externals."
-msgstr "Si ce commutateur est donné, SubWCRev examinera les répertoires qui sont inclus avec <placeholder-1/>, mais seulement s'ils sont du même référentiel. Le comportement par défaut est d'ignorer les éléments externes."
+msgstr "Si ce commutateur est donné, SubWCRev examinera les répertoires qui sont inclus avec <placeholder-1/>, mais seulement s'ils sont du même référentiel. Le comportement par défaut est d'ignorer les références externes."
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will output the revision numbers in HEX."
@@ -11972,7 +11969,7 @@ msgstr "Si <guilabel>Extraire seulement le répertoire de tête</guilabel> est c
 #. (para)
 #. (para)
 msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
-msgstr "Si <guilabel>Omettre les externes</guilabel> est coché, utilisez le commutateur <literal>--ignore-externals</literal>."
+msgstr "Si <guilabel>Omettre les références externes</guilabel> est coché, utilisez le commutateur <literal>--ignore-externals</literal>."
 
 #. (para)
 msgid "If you are checking out a specific revision, specify that after the URL using <literal>-r</literal> switch."
@@ -12359,7 +12356,7 @@ msgstr "Ce que fait TortoiseSVN est une copie de tous les fichiers vers le nouve
 
 #. (para)
 msgid "In both cases, if <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
-msgstr "Dans les deux cas, si <guilabel>Omettre les externes</guilabel> est coché, utilisez le commutateur <literal>--ignore-externals</literal>."
+msgstr "Dans les deux cas, si <guilabel>Omettre les références externes</guilabel> est coché, utilisez le commutateur <literal>--ignore-externals</literal>."
 
 #. (screen)
 #, no-wrap
