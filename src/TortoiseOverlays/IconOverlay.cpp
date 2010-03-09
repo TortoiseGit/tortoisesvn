@@ -21,21 +21,20 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 	if (MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion) < 0x0600)
 	{
 		// XP doesn't have the UAC overlay, use at most 14 overlays
-		nOverlayLimit = 11;
+		nOverlayLimit = 12;
 	} else 
 	{
 		// Vista and later have an UAC overlay, use at most 13 overlays
-		nOverlayLimit = 10;
+		nOverlayLimit = 11;
 	}
 	
 	// only a limited number of overlay slots can be used (determined by testing,
 	// since not all overlay handlers are registered in the registry, e.g., the
 	// shortcut (arrow) overlay isn't listed there).
-	// Known system overlays:
-	// * shortcut (arrow) (not listed)
-	// * shared (hand) (listed)
-	// * UAC (shield) (not listed)
-	// * Offline (not listed)
+	// The following overlays must be accounted for but are not listed under ShellIconOverlayIdentifiers:
+	// * Shortcut arrow
+	// * Shared Hand (Windows XP only)
+	// * UAC shield (Windows Vista+ only)
 	//
 	// If there are more than the maximum number of handlers registered, then
 	// we have to drop some of our handlers to make sure that
