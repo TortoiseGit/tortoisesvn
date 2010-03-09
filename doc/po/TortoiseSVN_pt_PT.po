@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-09 23:13-0000\n"
+"PO-Revision-Date: 2010-03-09 23:51-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5310,7 +5310,7 @@ msgstr "Quando tais itens são removidos é usando o cesto de reciclagem para qu
 
 #. (title)
 msgid "Undo Changes"
-msgstr ""
+msgstr "Desfazer Alterações"
 
 #. (primary)
 #. (primary)
@@ -5327,24 +5327,24 @@ msgstr ""
 
 #. (title)
 msgid "Revert dialog"
-msgstr ""
+msgstr "Caixa de Diálogo Reverter"
 
 #. (para)
 msgid "If you want to undo all changes you made in a file since the last update you need to select the file, <action>right click</action> to pop up the context menu and then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> A dialog will pop up showing you the files that you've changed and can revert. Select those you want to revert and click on <guibutton>OK</guibutton>. <placeholder-1/>"
-msgstr ""
+msgstr "Se pretenderes desfazer todas as alterações que efectuaste num ficheiro desde a última actualização, precisas de seleccionar o ficheiro,  <action>clicar com o botão direito</action> para aparecer o menu de contexto e então seleccionar o comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reverter</guimenuitem></menuchoice> Uma caixa de diálogo irá aparecer, mostrando-te os ficheiros que alteraste e podes reverter. Seleccionar os que queres reverter e clica no <guibutton>OK</guibutton>. <placeholder-1/>"
 
 #. (para)
 msgid "If you want to undo a deletion or a rename, you need to use Revert on the parent folder as the deleted item does not exist for you to right-click on."
-msgstr ""
+msgstr "Se queres desfazer uma remoção ou renomeação, precisas de usar o Reverter na pasta pai já que o item removido não existirá, para poderes clicar sobre ele com o botão direito."
 
 #. (para)
 msgid "If you want to undo the addition of an item, this appears in the context menu as <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Undo add...</guimenuitem></menuchoice>. This is really a revert as well, but the name has been changed to make it more obvious."
-msgstr ""
+msgstr "Se pretendes desfazer a adição de um item, executado no menu de contexto como <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Desfazer adição...</guimenuitem></menuchoice>. Na realidade isto é também um reverter, mas neste caso o nome foi alterado para se tornar mais óbvio."
 
 #. (para)
 #. (para)
 msgid "The columns in this dialog can be customized in the same way as the columns in the <guilabel>Check for modifications</guilabel> dialog. Read <xref linkend=\"tsvn-dug-wcstatus-2\"/> for further details."
-msgstr ""
+msgstr "As colunas nesta caixa de diálogo podem ser customizadas da mesma maneira que as colunas na caixa de diálogo <guilabel>Verificar alterações</guilabel>. Consultar <xref linkend=\"tsvn-dug-wcstatus-2\"/> para mais detalhes."
 
 #. (para)
 msgid "Since revert is sometimes used to clean up a working copy, there is an extra button which allows you to delete unversioned items as well. When you click this button another dialog comes up listing all the unversioned items, which you can then select for deletion."
@@ -5352,19 +5352,19 @@ msgstr ""
 
 #. (title)
 msgid "Undoing Changes which have been Committed"
-msgstr ""
+msgstr "Desfazer Alterações que já foram Submetidas"
 
 #. (para)
 msgid "<menuchoice><guimenuitem>Revert</guimenuitem></menuchoice> will only undo your local changes. It does <emphasis>not</emphasis> undo any changes which have already been committed. If you want to undo all the changes which were committed in a particular revision, read <xref linkend=\"tsvn-dug-showlog\"/> for further information."
-msgstr ""
+msgstr "<menuchoice><guimenuitem>Reverter</guimenuitem></menuchoice> apenas desfaz as tuas alterações locais. <emphasis>Não</emphasis> desfaz quaisquer alterações que tenham sido já submetidas. Se pretendes desfazer todas as alterações que já foram submetidas numa revisão particular, consulta <xref linkend=\"tsvn-dug-showlog\"/> para mais informação."
 
 #. (title)
 msgid "Revert is Slow"
-msgstr ""
+msgstr "Reverter é Lento"
 
 #. (para)
 msgid "When you revert changes you may find that the operation takes a lot longer than you expect. This is because the modified version of the file is sent to the recycle bin, so you can retrieve your changes if you reverted by mistake. However, if your recycle bin is full, Windows takes a long time to find a place to put the file. The solution is simple: either empty the recycle bin or deactivate the <guilabel>Use recycle bin when reverting</guilabel> box in TortoiseSVN's settings."
-msgstr ""
+msgstr "Quando reverteres alterações, podes descobrir que essa operação demora muito mais tempo do que estavas à espera. Isto acontece porque a versão modificada do ficheiro é enviado para o cesto de reciclagem, para que possas recuperar as tuas alterações no caso de reverteres por engano. No entanto, se o teu cesto de reciclagem estiver cheio, o Windows tomará mais tempo a encontrar um local para colocar o ficheiro. A solução é simples: ou esvazia o cesto de reciclagem ou desactiva a caixa <guilabel>Usar a reciclagem enquanto revertendo</guilabel> nas preferências do TortoiseSVN."
 
 #. (title)
 #. (entry)
