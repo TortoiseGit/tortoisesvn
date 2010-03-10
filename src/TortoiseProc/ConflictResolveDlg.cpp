@@ -71,8 +71,8 @@ BOOL CConflictResolveDlg::OnInitDialog()
 	// without a conflict description, this dialog is useless.
 	ASSERT(m_pConflictDescription);
 
-	CString filename = CUnicodeUtils::GetUnicode(m_pConflictDescription->path);
-	filename = CPathUtils::GetFileNameFromPath(filename);
+	CString filepath = CUnicodeUtils::GetUnicode(m_pConflictDescription->path);
+	CString filename = CPathUtils::GetFileNameFromPath(filepath);
 
 	CString sInfoText;
 	CString sActionText;
@@ -128,7 +128,7 @@ BOOL CConflictResolveDlg::OnInitDialog()
 		break;
 	}
 
-	sInfoText = sActionText + _T(" ") + sReasonText;
+	sInfoText = filepath + _T("\r\n") + sActionText + _T(" ") + sReasonText;
 	SetDlgItemText(IDC_INFOLABEL, sInfoText);
 
 	// if we deal with a binary file, editing the conflict isn't possible
