@@ -65,7 +65,7 @@ bool AddCommand::Execute()
 								if (ret == 1)
 								{
 									// fix case of filename
-									MoveFileEx(pathList[i].GetWinPath(), retPath.GetWinPath(), MOVEFILE_REPLACE_EXISTING);
+									MoveFileEx(pathList[i].GetWinPath(), retPath.GetWinPath(), MOVEFILE_REPLACE_EXISTING|MOVEFILE_COPY_ALLOWED);
 									// remove it from the list
 									pathList.RemovePath(pathList[i]);
 								}

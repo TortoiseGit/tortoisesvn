@@ -1988,7 +1988,7 @@ bool CSVNStatusListCtrl::BuildStatistics()
 					// Find its exact location
 					itMatchingItem = std::lower_bound(m_arStatusArray.begin(), itFirstUnversionedEntry, entry, EntryPathCompareNoCase);
 					// adjust the case of the filename
-					if (MoveFileEx(entry->path.GetWinPath(), (*itMatchingItem)->path.GetWinPath(), MOVEFILE_REPLACE_EXISTING))
+					if (MoveFileEx(entry->path.GetWinPath(), (*itMatchingItem)->path.GetWinPath(), MOVEFILE_REPLACE_EXISTING|MOVEFILE_COPY_ALLOWED))
 					{
 						// We successfully adjusted the case in the filename. But there is now a file with status 'missing'
 						// in the array, because that's the status of the file before we adjusted the case.
