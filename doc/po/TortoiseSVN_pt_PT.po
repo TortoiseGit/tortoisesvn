@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-09 23:51-0000\n"
+"PO-Revision-Date: 2010-03-10 00:24-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5371,7 +5371,7 @@ msgstr "Quando reverteres alterações, podes descobrir que essa operação demo
 #. (title)
 #. (glossterm)
 msgid "Cleanup"
-msgstr ""
+msgstr "Limpeza"
 
 #. (primary)
 msgid "cleanup"
@@ -5379,19 +5379,19 @@ msgstr ""
 
 #. (para)
 msgid "If a Subversion command cannot complete successfully, perhaps due to server problems, your working copy can be left in an inconsistent state. In that case you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice> on the folder. It is a good idea to do this at the top level of the working copy."
-msgstr ""
+msgstr "Se um comando do Subversion não pode concluir com sucesso, talvez devido a problemas de servidor, pode deixar a tua cópia de trabalho num estado inconsistente. Neste caso precisas de usar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Limpar</guimenuitem></menuchoice> na pasta. É uma boa ideia fazer isto no nivel de topo da tua cópia de trabalho."
 
 #. (para)
 msgid "Cleanup has another useful side effect. If a file date changes but its content doesn't, Subversion cannot tell whether it has really changed except by doing a byte-by-byte comparison with the pristine copy. If you have a lot of files in this state it makes acquiring status very slow, which will make many dialogs slow to respond. Executing a Cleanup on your working copy will repair these <quote>broken</quote> timestamps and restore status checks to full speed."
-msgstr ""
+msgstr "A limpeza tem outro útil efeito secundário. Se a data de um ficheiro foi alterada mas não o seu conteúdo, o Subversion não conseguirá distinguir se foi realmente alterado, à excepção da execução de uma comparação byte a byte com a cópia pura. Se tens muitos ficheiros neste estado, isto torna o adquirir o estado muito lento, que fará com que muitas caixas de diálogo respondam lentamente. Executando a Limpeza na tua cópia de trabalho irá reparar essas marcas de tempo <quote>quebradas</quote> restaurando a verificação de estado a toda a velocidade."
 
 #. (title)
 msgid "Use Commit Timestamps"
-msgstr ""
+msgstr "Usar Marcas de Tempo de Submissão"
 
 #. (para)
 msgid "Some earlier releases of Subversion were affected by a bug which caused timestamp mismatch when you check out with the <guilabel>Use commit timestamps</guilabel> option checked. Use the Cleanup command to speed up these working copies."
-msgstr ""
+msgstr "Algumas versões anteriores do Subversion eram afectadas por um problema que provocava um desencontro das marcas de tempo, quando SVN exportavas com a opção verificada <guilabel>Usar marcas de tempo de submeter</guilabel>. Usa o comando de limpesa para acelerar essas cópias de trabalho."
 
 #. (title)
 msgid "Project Settings"
