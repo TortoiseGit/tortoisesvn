@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-22 19:32+0300\n"
+"PO-Revision-Date: 2010-03-10 12:51+0300\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -286,6 +286,10 @@ msgstr "&Про TortoiseMerge..."
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "&Активувати"
+
+#. Resource IDs: (15)
+msgid "&Add"
+msgstr "&Додати"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
@@ -1224,7 +1228,7 @@ msgstr "(знищити)"
 
 #. Resource IDs: (214)
 msgid "(externals)"
-msgstr "(зовнішні)"
+msgstr "(зовнішні посилання)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
@@ -2184,7 +2188,7 @@ msgstr "Внесені зміни (для відмінностей двічі к
 
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
-msgstr "Зовнішні змінюються до фіксованої модифікації."
+msgstr "Зовнішні посилання змінюються до фіксованої модифікації."
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -2204,7 +2208,7 @@ msgstr "Перевірити наявність оновлень..."
 
 #. Resource IDs: (1544)
 msgid "Check externals to tag"
-msgstr "Перевірити зовнішних до зрізу"
+msgstr "Позначити зовнішні посилання для зрізу"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -3138,10 +3142,6 @@ msgid "Delete and &ignore %d items by name"
 msgstr "Знищити й &ігнорувати %d елементів за назвою"
 
 #. Resource IDs: (14)
-msgid "Delete and add to &ignore list"
-msgstr "Знищити та додати до списку &ігнорованих"
-
-#. Resource IDs: (14)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Знищити й ігнорувати %d елементів за роз&ширенням"
@@ -3835,11 +3835,11 @@ msgstr "Зовнішні спіткала невдача"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
-msgstr "Зовнішні виключено"
+msgstr "Зовнішні посилання виключено"
 
 #. Resource IDs: (226)
 msgid "Externals included"
-msgstr "Зовнішні включено"
+msgstr "Зовнішні посилання включено"
 
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
@@ -5059,7 +5059,7 @@ msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
-msgstr "Елементи у &зовнішніх"
+msgstr "Елементи у &зовнішніх посиланнях"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
@@ -5804,7 +5804,7 @@ msgstr "Помилки не трапилось."
 
 #. Resource IDs: (281)
 msgid "No externals found"
-msgstr "Зовнішних не знайдено"
+msgstr "Зовнішних посилань не знайдено"
 
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
@@ -6021,7 +6021,7 @@ msgstr "Оминути &зовнішні"
 
 #. Resource IDs: (145)
 msgid "Omit externals"
-msgstr "Оминути зовнішні"
+msgstr "Оминути зовнішні посилання"
 
 #. Resource IDs: (63)
 msgid ""
@@ -6321,7 +6321,7 @@ msgstr "Зачекайте, поки отримуються відмінност
 
 #. Resource IDs: (281)
 msgid "Please wait while the externals are gathered..."
-msgstr "Зачекайте, поки отримуються зовнішні..."
+msgstr "Зачекайте, поки отримуються зовнішні посилання..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -7669,6 +7669,10 @@ msgstr "Показати над Смужкою"
 msgid "Show Below the Ribbon"
 msgstr "Показати під Смужкою"
 
+#. Resource IDs: (1542)
+msgid "Show Branch L&og"
+msgstr "Показати &Лог Гілки"
+
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
 msgstr "Показати менше кнопок"
@@ -7735,7 +7739,7 @@ msgstr "Показати виключені директорії як норма
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
-msgstr "Показати зовнішні з &різних сховищ"
+msgstr "Показати зовнішні посилання з &різних сховищ"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -9069,7 +9073,7 @@ msgstr ""
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
-msgstr "TortoiseSVN автофіксування: зовнішні змінено у фіксовану модифікацію."
+msgstr "TortoiseSVN автофіксування: зовнішні посилання занесено до фіксованої модифікації."
 
 #. Resource IDs: (98)
 #, c-format
@@ -9322,6 +9326,10 @@ msgstr ""
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Розверсіювати"
+
+#. Resource IDs: (14)
+msgid "Unversion and add to &ignore list"
+msgstr "Розверсіонувати та додати до списку &ігнорованих"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
