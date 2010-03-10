@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-01 09:03+0100\n"
+"PO-Revision-Date: 2010-03-10 07:56+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -291,6 +291,10 @@ msgstr "&Über TortoiseMerge..."
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "&Aktivieren"
+
+#. Resource IDs: (15)
+msgid "&Add"
+msgstr "&Hinzufügen"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
@@ -3148,10 +3152,6 @@ msgstr "Nicht versionierte Objekte löschen"
 #, c-format
 msgid "Delete and &ignore %d items by name"
 msgstr "Lösche und &ignoriere %d Objekte nach Name"
-
-#. Resource IDs: (14)
-msgid "Delete and add to &ignore list"
-msgstr "Löschen und &ignorieren"
 
 #. Resource IDs: (14)
 #, c-format
@@ -9365,6 +9365,10 @@ msgstr ""
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Versionierung aufheben"
+
+#. Resource IDs: (14)
+msgid "Unversion and add to &ignore list"
+msgstr "Aus SVN entfernen und &ignorieren"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
