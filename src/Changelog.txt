@@ -109,6 +109,9 @@ Version 1.6.8
 - BUG: The return value for /command:commit was wrong. (Stefan Fuhrmann)
 - BUG: Adjusting the case of filenames could lead to those
        files getting deleted instead of fixed. (Stefan)
+- BUG: When right-dragging and copying files over already existing
+       files, an empty error dialog was shown 
+       in case of success. (Stefan)
 - CHG: Various adjustments for Windows 7. (Stefan)
 - CHG: The "show excluded folders as normal" setting is
        changed to false by default. (Stefan)
