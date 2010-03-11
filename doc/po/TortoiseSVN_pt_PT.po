@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-10 00:24-0000\n"
+"PO-Revision-Date: 2010-03-11 00:23-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5395,7 +5395,7 @@ msgstr "Algumas versões anteriores do Subversion eram afectadas por um problema
 
 #. (title)
 msgid "Project Settings"
-msgstr ""
+msgstr "Configurações de Projecto"
 
 #. (primary)
 msgid "properties"
@@ -5403,15 +5403,15 @@ msgstr ""
 
 #. (title)
 msgid "Explorer property page, Subversion tab"
-msgstr ""
+msgstr "Página de propriedades do explorador, aba do Subversion"
 
 #. (para)
 msgid "<placeholder-1/> Sometimes you want to have more detailed information about a file/directory than just the icon overlay. You can get all the information Subversion provides in the explorer properties dialog. Just select the file or directory and select <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice> in the context menu (note: this is the normal properties menu entry the explorer provides, not the one in the TortoiseSVN submenu!). In the properties dialog box TortoiseSVN has added a new property page for files/folders under Subversion control, where you can see all relevant information about the selected file/directory."
-msgstr ""
+msgstr "<placeholder-1/> Por vezes tu queres obter informação mais detalhada sobre um ficheiro/pasta do que a da sobreposição do ícone. Podes obter toda a informação que o Subversion providencia, na caixa de diálogo de propriedades do explorador. Apenas selecciona o ficheiro ou pasta e selecciona no menu de contexto <menuchoice><guimenu>Menu do Windows</guimenu><guimenuitem>propriedades</guimenuitem></menuchoice> (nota: esta é a entrada normal do menu de propriedades que o explorador providência, e não a do submenu TortoiseSVN!). Na caixa de diálogo de propriedades o TortoiseSVN adicionou uma nova página de propriedades para ficheiros/pastas, sob o controlo do Subversion, onde podes ver toda a informação relevante sobre o ficheiro/pasta."
 
 #. (title)
 msgid "Subversion Properties"
-msgstr ""
+msgstr "Propriedades Subversion"
 
 #. (primary)
 msgid "Subversion properties"
@@ -5419,19 +5419,19 @@ msgstr ""
 
 #. (title)
 msgid "Subversion property page"
-msgstr ""
+msgstr "Página de propriedades do Subversion"
 
 #. (para)
 msgid "<placeholder-1/> You can read and set the Subversion properties from the Windows properties dialog, but also from <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice> and within TortoiseSVN's status lists, from <menuchoice><guimenu>Context menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "<placeholder-1/> Podes ler e acertar as propriedades do Subversion a partir da caixa de diálogo das propriedades do Windows, mas também a partir de <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>propriedades</guimenuitem></menuchoice> e do interior das listas de estado do TortoiseSVN, ou seja <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>propriedades</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "You can add your own properties, or some properties with a special meaning in Subversion. These begin with <literal>svn:</literal>. <literal>svn:externals</literal> is such a property; see how to handle externals in <xref linkend=\"tsvn-dug-externals\"/>."
-msgstr ""
+msgstr "Podes adicionar as tuas próprias propriedades, ou algumas propriedades com significado especial para o Subversion. Essas começam com <literal>svn:</literal>. <literal>svn:externals</literal> é uma dessas propriedades; Descobre como lidar com externos em  <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (title)
 msgid "svn:keywords"
-msgstr ""
+msgstr "svn:keywords"
 
 #. (primary)
 msgid "keywords"
@@ -5443,107 +5443,107 @@ msgstr ""
 
 #. (para)
 msgid "Date of last known commit. This is based on information obtained when you update your working copy. It does <emphasis>not</emphasis> check the repository to find more recent changes."
-msgstr ""
+msgstr "Data da última submissão conhecida. Isto é baseado em informação obtida quando actualizas a tua cópia de trabalho. <emphasis>Não</emphasis> verifica o repositório para tentar encontrar alterações mais recentes."
 
 #. (para)
 msgid "Revision of last known commit."
-msgstr ""
+msgstr "Revisão da última submissão conhecida."
 
 #. (para)
 msgid "Author who made the last known commit."
-msgstr ""
+msgstr "Autor que fez a última submissão conhecida."
 
 #. (para)
 msgid "The full URL of this file in the repository."
-msgstr ""
+msgstr "O URL completo deste ficheiro no repositório."
 
 #. (para)
 msgid "A compressed combination of the previous four keywords."
-msgstr ""
+msgstr "A combinação comprimida das quatro palavras-chave prévias."
 
 #. (para)
 msgid "Subversion supports CVS-like keyword expansion which can be used to embed filename and revision information within the file itself. Keywords currently supported are: <placeholder-1/>"
-msgstr ""
+msgstr "O Subversion suporta expansão de palavras-chave do tipo CVS, que podem ser usadas para embeber informação de revisão e nome de ficheiro dentro do próprio ficheiro. As palavras-chave actualmente suportadas são: <placeholder-1/>"
 
 #. (para)
 msgid "To find out how to use these keywords, look at the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords section</citetitle></ulink> in the Subversion book, which gives a full description of these keywords and how to enable and use them."
-msgstr ""
+msgstr "Para descobrir como usar estas palavras-chave, consulta o <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.special.keywords.html\"><citetitle>svn:keywords section</citetitle></ulink> no livro do Subversion, que te dará uma descrição completa dessas palavras-chave e em como activa-las e usá-las."
 
 #. (para)
 msgid "For more information about properties in Subversion see the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.html\"><citetitle>Special Properties</citetitle></ulink>."
-msgstr ""
+msgstr "Para mais informação sobre as propriedades no Subversion, consulta <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.html\"><citetitle>Special Properties</citetitle></ulink>."
 
 #. (title)
 msgid "Adding and Editing Properties"
-msgstr ""
+msgstr "Adicionando e Editando Propriedades"
 
 #. (title)
 msgid "Adding properties"
-msgstr ""
+msgstr "Adicionando propriedades"
 
 #. (para)
 msgid "<placeholder-1/> To add a new property, first click on <guilabel>Add...</guilabel>. Select the required property name from the combo box, or type in a name of your own choice, then enter a value in the box below. Properties which take multiple values, such as an ignore list, can be entered on multiple lines. Click on <guibutton>OK</guibutton> to add that property to the list."
-msgstr ""
+msgstr "<placeholder-1/> Para adicionar uma nova propriedade clica primeiro em <guilabel>Adicionar...</guilabel>. Selecciona o nome da propriedade pretendida a partir da combo box, ou escreve um nome da tua escolha, e insere um valor na caixa em baixo. As propriedades que requerem valores múltiplos, como uma lista de ignorados, podem ser introduzidos em várias linhas. Clicar em <guibutton>OK</guibutton> para adicionar essa propriedade à lista."
 
 #. (para)
 msgid "If you want to apply a property to many items at once, select the files/folders in explorer, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Se queres aplicar a propriedade a muitos itens de uma só vez, selecciona os ficheiros/pastas no explorador e selecciona <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>propriedades</guimenuitem></menuchoice>"
 
 #. (para)
 msgid "If you want to apply the property to <emphasis>every</emphasis> file and folder in the hierarchy below the current folder, check the <guilabel>Recursive</guilabel> checkbox."
-msgstr ""
+msgstr "Se queres aplicar a propriedade a <emphasis>cada</emphasis> ficheiro e pasta na hierarquia abaixo da pasta corrente, verifica a caixa de verificação <guilabel>Recursiva</guilabel>."
 
 #. (para)
 msgid "Some properties, for example <literal>svn:needs-lock</literal>, can only be applied to files, so the property name doesn't appear in the drop down list for folders. You can still apply such a property recursively to all files in a hierarchy, but you have to type in the property name yourself."
-msgstr ""
+msgstr "Algumas propriedades, como por exemplo <literal>svn:needs-lock</literal>, só podem ser aplicadas em ficheiros, então o nome da propriedade não aparece na lista drop down para pastas. Podes, no entanto, ainda aplicar tal propriedade recursivamente a todos os ficheiros na hierarquia, mas terás de escrever o nome da propriedade manualmente."
 
 #. (para)
 msgid "If you wish to edit an existing property, select that property from the list of existing properties, then click on <guibutton>Edit...</guibutton>."
-msgstr ""
+msgstr "Se desejas editar uma propriedade que já exista, selecciona essa propriedade a partir da lista das propriedades existentes e clica em <guibutton>Editar...</guibutton>."
 
 #. (para)
 msgid "If you wish to remove an existing property, select that property from the list of existing properties, then click on <guibutton>Remove</guibutton>."
-msgstr ""
+msgstr "Se desejas remover uma propriedade que já exista, seleciona essa propriedade da lista de propriedades existentes e clica em <guibutton>Remover</guibutton>."
 
 #. (para)
 msgid "The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository. For more information, read <xref linkend=\"tsvn-dug-externals\"/>."
-msgstr ""
+msgstr "A propriedade <literal>svn:externals</literal> pode ser usada para puxar outros projectos do mesmo repositório ou de um repositório completamente diferente. Para mais informação, consultar <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (title)
 msgid "Exporting and Importing Properties"
-msgstr ""
+msgstr "Exportando e Importando Propriedades"
 
 #. (para)
 msgid "Often you will find yourself applying the same set of properties many times, for example <literal>bugtraq:logregex</literal>. To simplify the process of copying properties from one project to another, you can use the Export/Import feature."
-msgstr ""
+msgstr "Com frequência te encontras a aplicar o mesmo conjunto de propriedades inúmeras vezes, por exemplo <literal>bugtraq:logregex</literal>. Para simplificar o processo de copiar propriedades de um projecto para outro, podes usar a funcionalidade Exportar/Importar."
 
 #. (para)
 msgid "From the file or folder where the properties are already set, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice>, select the properties you wish to export and click on <guibutton>Export...</guibutton>. You will be prompted for a filename where the property names and values will be saved."
-msgstr ""
+msgstr "A partir do ficheiro ou pasta onde as propriedades estão já acertadas, usa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>propriedades</guimenuitem></menuchoice>, selecciona as propriedades que desejas exportar e clica em <guibutton>Exportar...</guibutton>. Serás chamado a introduzir o nome do ficheiro onde serão guardadas os nomes das propriedades."
 
 #. (para)
 msgid "From the folder(s) where you wish to apply these properties, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice> and click on <guibutton>Import...</guibutton>. You will be prompted for a filename to import from, so navigate to the place you saved the export file previously and select it. The properties will be added to the folders non-recursively."
-msgstr ""
+msgstr "A partir da pasta(s) onde desejas aplicar essas propriedades, usa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>propriedades</guimenuitem></menuchoice> e clica em <guibutton>Importar...</guibutton>.Serás chamado a introduzir o nome do ficheiro de onde importar, então navega para a localização onde guardaste o ficheiro exportado previamente e selecciona-o. As propriedades serão adicionadas ás pastas não recursivamente."
 
 #. (para)
 msgid "If you want to add properties to a tree recursively, follow the steps above, then in the property dialog select each property in turn, click on <guibutton>Edit...</guibutton>, check the <guilabel>Apply property recursively</guilabel> box and click on <guibutton>OK</guibutton>."
-msgstr ""
+msgstr "Se queres adicionar propriedades recursivamente a uma árvore segue os passo acima e, então na caixa de diálogo propriedades selecciona cada propriedade à vez e, clica em <guibutton>Editar...</guibutton>, verifica a caixa <guilabel>Aplicar propriedade recursivamente</guilabel> e clica no <guibutton>OK</guibutton>."
 
 #. (para)
 msgid "The Import file format is binary and proprietary to TortoiseSVN. Its only purpose is to transfer properties using Import and Export, so there is no need to edit these files."
-msgstr ""
+msgstr "O formato do ficheiro Import é binário e proprietário do TortoiseSVN. O seu único propósito é transferir propriedades usando o Import e Export, pelo que não há necessidade de editar esses ficheiros."
 
 #. (title)
 msgid "Binary Properties"
-msgstr ""
+msgstr "Propriedades Binárias"
 
 #. (para)
 msgid "TortoiseSVN can handle binary property values using files. To read a binary property value, <guibutton>Save...</guibutton> to a file. To set a binary value, use a hex editor or other appropriate tool to create a file with the content you require, then <guibutton>Load...</guibutton> from that file."
-msgstr ""
+msgstr "O TortoiseSVNpode lidar com valores de propriedades binárias usando ficheiros. Para ler um valor de propriedade binária <guibutton>Guarda...</guibutton> para um ficheiro. Para acertar um valor binário usa um editor hex ou outra ferramenta apropriada para criar o ficheiro com o conteúdo requerido, e <guibutton>Carrega...</guibutton> a partir desse ficheiro."
 
 #. (para)
 msgid "Although binary properties are not often used, they can be useful in some applications. For example if you are storing huge graphics files, or if the application used to load the file is huge, you might want to store a thumbnail as a property so you can obtain a preview quickly."
-msgstr ""
+msgstr "Apesar das propriedades binárias não serem usadas com frequência, elas podem ser úteis em certas aplicações. Por exemplo, se estiveres a armazenar enormes ficheiros gráficos, ou se a aplicação  usada para carregar o ficheiro é enorme, tu poderás querer guardar uma miniatura da imagem como uma propriedade, para que possas obter uma rápida pré-visualização."
 
 #. (title)
 msgid "Automatic property setting"
