@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-09 09:22 +0000\n"
-"PO-Revision-Date: 2010-03-09 17:58+0100\n"
+"PO-Revision-Date: 2010-03-11 17:36+0100\n"
 "Last-Translator: Frédéric Bodin <grokwik@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6606,7 +6606,7 @@ msgstr "A présent que tout est correctement configuré, tout ce que vous avez �
 
 #. (para)
 msgid "The merge progress dialog shows each stage of the merge, with the revision ranges involved. This may indicate one more revision than you were expecting. For example if you asked to merge revision 123 the progress dialog will report <quote>Merging revisions 122 through 123</quote>. To understand this you need to remember that Merge is closely related to Diff. The merge process works by generating a list of differences between two points in the repository, and applying those differences to your working copy. The progress dialog is simply showing the start and end points for the diff."
-msgstr ""
+msgstr "La barre de progression de la fusion montre chaque étape du processus, avec les plages de révision concernées. Cela peut indiquer une révision de plus que prévu. Par exemple, si vous demandez de fusionner la révision 123 la barre de progression affichera <quote>Fusion des révisions 122 à 123</quote>. Pour comprendre ce qui se passe, vous devez garder en mémoire que l'opération de fusion est très proche du diff. La fusion génère une liste de différences entre deux endroits du référentiel, et applique ces différences à votre CdT. La barre de progression montre simplement les points de départ et d'arrivée du diff."
 
 #. (title)
 msgid "Reviewing the Merge Results"
@@ -6614,30 +6614,27 @@ msgstr "Prévisualiser les résultats de la fusion"
 
 #. (para)
 msgid "The merge is now complete. It's a good idea to have a look at the merge and see if it's as expected. Merging is usually quite complicated. Conflicts often arise if the branch has drifted far from the trunk."
-msgstr ""
+msgstr "La fusion est a présent effectuée. C'est une bonne idée le résultat et vérfier que tout est conforme à vos attentes. Fussioner est normalement assez compliqué. Il y a souvent des conflits si la branche s'est beaucoup éloignée du tronc."
 
 #. (para)
-#, fuzzy
 msgid "For Subversion clients and servers prior to 1.5, no merge information is stored and merged revisions have to be tracked manually. When you have tested the changes and come to commit this revision, your commit log message should <emphasis>always</emphasis> include the revision numbers which have been ported in the merge. If you want to apply another merge at a later time you will need to know what you have already merged, as you do not want to port a change more than once. For more information about this, refer to <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac\"><citetitle>Best Practices for Merging</citetitle></ulink> in the Subversion book."
-msgstr "Quand vous avez testé les changements et que vous venez pour livrer cette révision, votre commentaire de livraison devrait <emphasis>toujours</emphasis> inclure les numéros des révisions qui ont été reportées dans la fusion. Si vous voulez appliquer une autre fusion plus tard, vous aurez besoin de connaître ce que vous avez déjà fusionné, puisque vous ne voulez pas reporter un changement plus d'une fois. Malheureusement l'information de fusion n'est pas stockée par Subversion. Pour plus d'informations à ce sujet, référez-vous à <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.branchmerge.copychanges.html\"><citetitle>Best Practices for Merging</citetitle></ulink> dans le manuel de Subversion."
+msgstr "Pour les clients et serveurs Subversion antérieurs à la version 1.5, aucune information de fusion n'est gardée et les révisions à fusionner sont à trouver manuellement. Lorsque vous avez testé et que vous allez livrer, le commentaire de livraison devrait <emphasis>toujours</emphasis> inclure les numéros de révision inclus dans la fusion. Si vous voulez faire une autre fusion plus tard vous aurez besoin de savoir ce que vous avez déjà fusionné pour ne pas applique vos modifications plusieurs fois. Pour plus d'informations, consultez <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac\"><citetitle>Best Practices for Merging</citetitle></ulink> dans la bible de Subversion."
 
 #. (para)
 msgid "If your server and all clients are running Subversion 1.5 or higher, the merge tracking facility will record the revisions merged and avoid a revision being merged more than once. This makes your life much simpler as you can simply merge the entire revision range each time and know that only new revisions will actually be merged."
-msgstr ""
+msgstr "Pour des clients et serveurs Subversion postérieurs à la version 1.5, la fonctionnalité de suivi de fusion enregistrera les révisions fusionnées et empêchera d'en fusionner une plus d'une fois. Cela vous simplifie la tâche dans la mesure où vous pouvez tout fusionner à chaque fois en étant sûr que seules les nouvelles révisions seront vraiment fusionnées."
 
 #. (para)
 msgid "Branch management is important. If you want to keep this branch up to date with the trunk, you should be sure to merge often so that the branch and trunk do not drift too far apart. Of course, you should still avoid repeated merging of changes, as explained above."
-msgstr "La gestion de branches est importante. Si vous voulez conserver cette branche à jour avec le tronc, vous devriez vous assurer de fusionner souvent pour que la branche et le tronc ne dérivent pas trop loin. Bien sûr, vous devriez toujours éviter la fusion répétée de changements, comme expliquée ci-dessus."
+msgstr "La gestion de branches est importante. Si vous voulez conserver une branche synchronisée avec le tronc, vous devrez vous assurer de fusionner souvent de sorte que la branche et le tronc ne soient pas trop éloignés. Bien sûr, vous devez toujours éviter de fusionner plusieurs fois les mêmes modifications comme expliqué ci-dessus."
 
 #. (para)
-#, fuzzy
 msgid "If you have just merged a feature branch back into the trunk, the trunk now contains all the new feature code, and the branch is obsolete. You can now delete it from the repository if required."
-msgstr "Dans ce cas, vous n'aurez plus besoin de la branche de fonction parce que la nouvelle fonction est maintenant intégrée au tronc. La branche de fonction est superflue et peut être supprimée du référentiel au besoin."
+msgstr "Si vous venez de fusionner une branche avec le tronc, celui ci contient le code de la nouvelle fontionnalité, et la branche est obsolète. Vous pouvez donc la supprimer du référentiel si besoin est."
 
 #. (para)
-#, fuzzy
 msgid "Subversion can't merge a file with a folder and vice versa - only folders to folders and files to files. If you click on a file and open up the merge dialog, then you have to give a path to a file in that dialog. If you select a folder and bring up the dialog, then you must specify a folder URL for the merge."
-msgstr "Subversion ne peut pas fusionner un fichier avec un dossier et vice versa - seulement des dossiers aux dossiers et des fichiers aux fichiers. Si vous cliquez sur un fichier et ouvrez la boîte de dialogue fusionner, vous devez alors donner un chemin vers un fichier dans cette boîte de dialogue. Si vous choisissez un dossier et affichez la boîte de dialogue, vous devez alors spécifier une URL de dossier pour la fusion."
+msgstr "Subversion ne peut pas fusionner un fichier avec un dossier et vice versa - seulement entre dossiers et entre fichiers. Si vous cliquez sur un fichier et ouvrez la boîte de dialogue fusionner, vous devez alors donner un chemin vers un fichier dans cette boîte de dialogue. Si vous choisissez un dossier et affichez la boîte de dialogue, vous devez alors spécifier une URL de dossier pour la fusion."
 
 #. (title)
 msgid "Merge Tracking"
