@@ -10,23 +10,10 @@
 //  that file. The Shell then adds the icon overlay to the system image list."
 STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags)
 {
-	OSVERSIONINFOEX inf;
-	SecureZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
-	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-	GetVersionEx((OSVERSIONINFO *)&inf);
-
 	int nInstalledOverlays = GetInstalledOverlays();
 	
-	int nOverlayLimit;
-	if (MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion) < 0x0600)
-	{
-		// XP doesn't have the UAC overlay, use at most 14 overlays
-		nOverlayLimit = 12;
-	} else 
-	{
-		// Vista and later have an UAC overlay, use at most 13 overlays
-		nOverlayLimit = 11;
-	}
+	// Use at most 14 overlays
+	const int nOverlayLimit = 12;
 	
 	// only a limited number of overlay slots can be used (determined by testing,
 	// since not all overlay handlers are registered in the registry, e.g., the
