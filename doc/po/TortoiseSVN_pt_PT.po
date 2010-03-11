@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-11 00:23-0000\n"
+"PO-Revision-Date: 2010-03-11 22:51-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5547,7 +5547,7 @@ msgstr "Apesar das propriedades binárias não serem usadas com frequência, ela
 
 #. (title)
 msgid "Automatic property setting"
-msgstr ""
+msgstr "Configuração automática de propriedades"
 
 #. (primary)
 msgid "auto-props"
@@ -5555,39 +5555,39 @@ msgstr ""
 
 #. (para)
 msgid "You can configure Subversion and TortoiseSVN to set properties automatically on files and folders when they are added to the repository. There are two ways of doing this."
-msgstr ""
+msgstr "Tu podes configurar o Subversion e o TortoiseSVN para automaticamente acertar propriedades em ficheiros e pastas, quando são adicionadas ao repositório. Existem duas maneiras de o fazer."
 
 #. (para)
 msgid "You can edit the subversion configuration file to enable this feature on your client. The <guilabel>General</guilabel> page of TortoiseSVN's settings dialog has an edit button to take you there directly. The config file is a simple text file which controls some of subversion's workings. You need to change two things: firstly in the section headed <literal>miscellany</literal> uncomment the line <literal>enable-auto-props = yes</literal>. Secondly you need to edit the section below to define which properties you want added to which file types. This method is a standard subversion feature and works with any subversion client. However it has to be defined on each client individually - there is no way to propagate these settings from the repository."
-msgstr ""
+msgstr "Podes editar o ficheiro de configuração do subversion para activar esta funcionalidade no teu cliente. A página  <guilabel>Geral</guilabel> da caixa de diálogo preferências do TortoiseSVN tem um botão editar que te leva lá directamente. O ficheiro de config é um ficheiro de texto simples que controla algum do funcionamento do Subversion. Necessitas de alterar duas coisas: primeiro na secção intitulada <literal>miscellany</literal> descomenta a linha <literal>enable-auto-props = yes</literal>. Segundo precisas de editar a secção abaixo para definires quais as propriedades que queres adicionadas a que tipo de ficheiros. Este método é uma funcionalidade padrão do Subversion e funciona com qualquer cliente. No entanto tem de ser definida individualmente para cada cliente - não existe maneira de propagar essas configurações a partir do repositório."
 
 #. (para)
 msgid "An alternative method is to set the <literal>tsvn:autoprops</literal> property on folders, as described in the next section. This method only works for TortoiseSVN clients, but it does get propagated to all working copies on update."
-msgstr ""
+msgstr "Um método alternativo é ajustar a propriedade <literal>tsvn:autoprops</literal> em pastas, como descrito na secção seguinte. Este método só funciona para clientes TortoiseSVN, mas é propagado para todas as cópias de trabalho aquando da actualização."
 
 #. (para)
 msgid "Whichever method you choose, you should note that auto-props are only applied to files at the time they are added to the repository. Auto-props will never change the properties of files which are already versioned."
-msgstr ""
+msgstr "Qualquer que seja o método que escolhas, deverás ter em atenção que o auto-props só é aplicado a ficheiros na altura em que eles são adicionados ao repositório. O auto-props nunca alterará as propriedades dos ficheiros que já estão versionados."
 
 #. (para)
 msgid "If you want to be absolutely sure that new files have the correct properties applied, you should set up a repository pre-commit hook to reject commits where the required properties are not set."
-msgstr ""
+msgstr "Se queres ter a certeza absoluta que os ficheiros novos têm aplicadas as propriedades correctas, deverás colocar um gancho de pre-commit, de modo a rejeitar submissões onde as propriedades requeridas não estão colocadas."
 
 #. (title)
 msgid "Commit properties"
-msgstr ""
+msgstr "Submeter as propriedades"
 
 #. (para)
 msgid "Subversion properties are versioned. After you change or add a property you have to commit your changes."
-msgstr ""
+msgstr "As propriedades do Subversion são versionadas. Depois de alterares ou adicionares uma propriedade, terás de submeter essa alteração."
 
 #. (title)
 msgid "Conflicts on properties"
-msgstr ""
+msgstr "Conflitos em propriedades"
 
 #. (para)
 msgid "If there's a conflict on committing the changes, because another user has changed the same property, Subversion generates a <filename>.prej</filename> file. Delete this file after you have resolved the conflict."
-msgstr ""
+msgstr "Se houver um conflito ao submeter as alterações, porque outro utilizador alterou a mesma propriedade, o Subversion gera o ficheiro <filename>.prej</filename>. Apaga este ficheiro após resolveres o conflito."
 
 #. (title)
 msgid "TortoiseSVN Project Properties"
