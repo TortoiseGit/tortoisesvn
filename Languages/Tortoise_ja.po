@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-22 21:58+0900\n"
+"PO-Revision-Date: 2010-03-11 10:49+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -296,6 +296,10 @@ msgstr "TortoiseMerge について(&A) ..."
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "アクティブにする(&A)"
+
+#. Resource IDs: (15)
+msgid "&Add"
+msgstr "追加(&A)"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
@@ -1163,6 +1167,10 @@ msgstr "特定のリビジョンへ更新(&U) ..."
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "ファイルのパスやキーワードの自動補完を利用する(&U)"
 
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "ゴミ箱を利用する(&U)"
+
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
 msgstr "ユーザー名(&U):"
@@ -1855,8 +1863,8 @@ msgid "Author"
 msgstr "作者"
 
 #. Resource IDs: (65535)
-msgid "Author:                                    Stefan Kueng"
-msgstr "作者:                                    Stefan Kueng"
+msgid "Author:\t\t\t\tStefan Kueng"
+msgstr "作者:\t\t\t\tStefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -2187,6 +2195,10 @@ msgstr "変更リスト:"
 msgid "Changes made (double-click on file for diff):"
 msgstr "変更した項目（ダブルクリックで差分を表示）"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "修正されたリビジョンへ外部参照を変更中"
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "チェックアウト(&K) ..."
@@ -2202,6 +2214,10 @@ msgstr "更新をチェック"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "更新をチェック ..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr "外部参照をチェック"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2798,8 +2814,8 @@ msgstr "コピー: %s の新しい名前"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "%s をコピー中"
+msgid "Copying %1!s!"
+msgstr "%1!s! をコピー中"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -3135,13 +3151,13 @@ msgid "Delete and &ignore %d items by name"
 msgstr "削除した後、名前によって %d 個の項目を無視する(&I)"
 
 #. Resource IDs: (14)
-msgid "Delete and add to &ignore list"
-msgstr "削除した後、無視リストに追加(&I)"
-
-#. Resource IDs: (14)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "削除した後、拡張子によって %d 個の項目を無視する(&E)"
+
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "バージョン管理外の項目を削除する"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3786,8 +3802,8 @@ msgstr "バージョン管理外のファイルもエクスポートする"
 
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "エクスポート %s"
+msgid "Exporting %1!s!"
+msgstr "エクスポート %1!s!"
 
 #. Resource IDs: (79)
 msgid "Exporting..."
@@ -4585,8 +4601,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "アイコンオーバーレイ::アイコンセット"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:                 Luebbe Onken"
-msgstr "アイコン／デザイン／コード:         Luebbe Onken"
+msgid "Icons/Design/Code:\t\tLuebbe Onken"
+msgstr "アイコン／デザイン／コード:\t\tLuebbe Onken"
 
 #. Resource IDs: (346)
 msgid ""
@@ -5689,8 +5705,8 @@ msgstr "元に戻す前に変更したファイルをゴミ箱へ移動する"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "%s を移動中"
+msgid "Moving %1!s!"
+msgstr "%1!s! を移動中"
 
 #. Resource IDs: (80)
 msgid "Moving..."
@@ -5757,6 +5773,10 @@ msgstr "%s の新しい名前"
 msgid "New name:"
 msgstr "新しい名前:"
 
+#. Resource IDs: (32875)
+msgid "Next &Inline Difference"
+msgstr "次の行内の相違点へ(&I)"
+
 #. Resource IDs: (3633)
 msgid ""
 "Next Page\n"
@@ -5795,6 +5815,10 @@ msgstr "どのエラーメッセージも利用できません。"
 #. Resource IDs: (3867, 3868)
 msgid "No error occurred."
 msgstr "エラーは何も起きませんでした。"
+
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "外部参照は見つかりませんでした"
 
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
@@ -6305,6 +6329,10 @@ msgstr "キャンセル処理が完了するまでしばらくお待ちくださ
 msgid "Please wait while differences are obtained..."
 msgstr "差分を取得する間、しばらくお待ちください ..."
 
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "外部参照を収集する間、しばらくお待ちください ..."
+
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
 msgstr "リポジトリブラウザを初期化する間しばらくお待ちください ..."
@@ -6376,6 +6404,10 @@ msgstr "パッチ結果をプレビューする"
 #. Resource IDs: (65535)
 msgid "Preview: "
 msgstr "プレビュー: "
+
+#. Resource IDs: (32876)
+msgid "Previous In&line Difference"
+msgstr "前の行内の相違点へ(&L)"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -7647,6 +7679,10 @@ msgstr "リボンの上に表示"
 msgid "Show Below the Ribbon"
 msgstr "リボンの下に表示"
 
+#. Resource IDs: (1542)
+msgid "Show Branch L&og"
+msgstr "ブランチのログを表示(&O)"
+
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
 msgstr "少しのボタンを表示"
@@ -7813,8 +7849,8 @@ msgstr "表示／非表示"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
-msgstr "%1!ld! 個のリビジョンを表示（%2!ld! から %3!ld! まで）、%4!ld! 個のリビジョンを選択"
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected, showing %5!ld! changed paths"
+msgstr "%1!ld! 個のリビジョンを表示（%2!ld! から %3!ld! まで）、%4!ld! 個のリビジョンを選択、%5!ld! 個の変更されたパスを表示"
 
 #. Resource IDs: (272)
 #, c-format
@@ -9046,6 +9082,10 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "TortoiseSVN 自動コミット: 修正されたリビジョンへ外部参照を変更。"
+
 #. Resource IDs: (98)
 #, c-format
 msgid ""
@@ -9298,14 +9338,18 @@ msgstr ""
 msgid "Unversion"
 msgstr "バージョン管理を解除"
 
+#. Resource IDs: (14)
+msgid "Unversion and add to &ignore list"
+msgstr "バージョン管理から除外し、無視リストに追加(&I)"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "バージョン管理外のファイルを含むフォルダに変更マークを付ける"
 
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "バージョン管理を解除中 %s"
+msgid "Unversioning %1!s!"
+msgstr "%1!s! をバージョン管理から除外中"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -10633,6 +10677,11 @@ msgstr "競合している変更があります。"
 msgid "to %1"
 msgstr "to %1"
 
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr "to %1!s!"
+
 #. Resource IDs: (80, 103, 284)
 #, c-format
 msgid "to %s"
@@ -10813,6 +10862,8 @@ msgstr "はい"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Author:                                    Stefan Kueng"
+#~ msgstr "作者:                                    Stefan Kueng"
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "毎週、最新バージョンのチェックを自動的に行う(&N)"
 #~ msgid ""
