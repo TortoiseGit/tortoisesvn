@@ -402,6 +402,28 @@ bool CFullHistory::FetchRevisionData ( CString path
 
 void CFullHistory::QueryWCRevision (bool commitRevs, CString path)
 {
+    // we need a thread-local SVN instance that checks our shared
+    // progress dialog for cancelation.
+
+    class SVNForwardedCancel : public SVN
+    {
+    private:
+
+        CProgressDlg *progress;
+
+    public:
+
+        SVNForwardedCancel (CProgressDlg *progress)
+            : progress (progress)
+        {
+        }
+
+        virtual BOOL Cancel()
+        {
+            return progress && progress->HasUserCancelled() ? TRUE : FALSE;
+        }
+    };
+
     // Find the revision the working copy is on, we mark that revision
     // later in the graph (handle option changes properly!).
 
@@ -412,13 +434,14 @@ void CFullHistory::QueryWCRevision (bool commitRevs, CString path)
     CTSVNPath tpath = CTSVNPath (path);
     if (!tpath.IsUrl())
     {
-	    if (SVN().GetWCRevisionStatus ( CTSVNPath (path)
-								      , commitRevs    // get the "commit" revision
-								      , minrev
-								      , maxrev
-								      , switched
-								      , modified
-								      , sparse))
+        SVNForwardedCancel svn (progress);
+	    if (svn.GetWCRevisionStatus ( CTSVNPath (path)
+							        , commitRevs    // get the "commit" revision
+								    , minrev
+								    , maxrev
+								    , switched
+								    , modified
+								    , sparse))
 	    {
 		    // we want to report the oldest revision as WC revision:
 		    // If you commit at $WC/path/ and after that ask for the 
