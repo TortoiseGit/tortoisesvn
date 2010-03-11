@@ -279,7 +279,7 @@ private:
     // result and actual "future"
 
     R result;
-    IJob* job;
+    CJobBase* job;
 
 public:
 
@@ -348,7 +348,7 @@ public:
 
     ~CFuture()
     {
-        delete job;
+        job->Delete (true);
     }
 
     // ensure the function has returned and pass the result back to the caller
