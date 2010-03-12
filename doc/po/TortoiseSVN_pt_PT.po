@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-11 22:51-0000\n"
+"PO-Revision-Date: 2010-03-12 01:27-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5591,7 +5591,7 @@ msgstr "Se houver um conflito ao submeter as alterações, porque outro utilizad
 
 #. (title)
 msgid "TortoiseSVN Project Properties"
-msgstr ""
+msgstr "Propriedades de Projecto TortoiseSVN"
 
 #. (primary)
 msgid "project properties"
@@ -5603,51 +5603,51 @@ msgstr "Propriedades do TortoiseSVN"
 
 #. (para)
 msgid "<literal>tsvn:logminsize</literal> sets the minimum length of a log message for a commit. If you enter a shorter message than specified here, the commit is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every commit. If this property is not set, or the value is zero, empty log messages are allowed."
-msgstr ""
+msgstr "<literal>tsvn:logminsize</literal> fixa o tamanho mínimo da mensagem de registo para a submissão. Se inserires uma mensagem mais curta do que a fixada, a submissão é desactivada. Esta funcionalidade é muito útil para te recordar de colocares uma mensagem correcta e descritiva para cada submissão. Se esta propriedade não for fixada, ou o valor for zero, mensagens de registo vazias serão permitidas."
 
 #. (para)
 msgid "<literal>tsvn:lockmsgminsize</literal> sets the minimum length of a lock message. If you enter a shorter message than specified here, the lock is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every lock you get. If this property is not set, or the value is zero, empty lock messages are allowed."
-msgstr ""
+msgstr "<literal>tsvn:lockmsgminsize</literal> fixa o tamanho mínimo de uma mensagem de bloqueio. Se introduzires uma mensagem mais curta do que aqui especificada, o bloqueio é desactivado. Esta funcionalidade é muito útil para te lembrar de colocar uma mensagem correcta e descritiva para cada bloqueio que obteres. Se esta propriedade não for fixada, ou o valor for zero, mensagens de bloqueio vazias serão permitidas."
 
 #. (para)
 msgid "<literal>tsvn:logwidthmarker</literal> is used with projects which require log messages to be formatted with some maximum width (typically 80 characters) before a line break. Setting this property to a non-zero will do 2 things in the log message entry dialog: it places a marker to indicate the maximum width, and it disables word wrap in the display, so that you can see whether the text you entered is too long. Note: this feature will only work correctly if you have a fixed-width font selected for log messages."
-msgstr ""
+msgstr "<literal>tsvn:logwidthmarker</literal> é usada por projectos que requerem que as mensagens de registo sejam formatadas com um comprimento máximo (tipicamente 80 caracteres) antes de uma quebra de linha. Fixando esta propriedade para um valor diferente de zero irá fazer duas coisas à caixa de diálogo de introdução de mensagens de registo: coloca um marcador para indicar o comprimento máximo, e desactiva o ajuste de palavras na visualização, para que possas ver se o texto que inseriste é muito longo. Nota: esta funcionalidade só funcionará correctamente se tu tiveres uma fonte de comprimento fixo seleccionada para as mensagens de registo."
 
 #. (para)
 msgid "<literal>tsvn:logtemplate</literal> is used with projects which have rules about log message formatting. The property holds a multi-line text string which will be inserted in the commit message box when you start a commit. You can then edit it to include the required information. Note: if you are also using <literal>tsvn:logminsize</literal>, be sure to set the length longer than the template or you will lose the protection mechanism."
-msgstr ""
+msgstr "<literal>tsvn:logtemplate</literal> é usado por projectos que têm regras acerca da formatação das mensagens de registo. A propriedade mantém uma cadeia de caracteres multi-linha que será inserida na caixa de mensagens de submissão quando inicias a submissão. Podes então editá-la para incluir a informação requerida. Nota: Se estiveres também a usar a <literal>tsvn:logminsize</literal>, tem a certeza de fixares um comprimento maior que o do template ou perderás o mecanismo de protecção."
 
 #. (para)
 msgid "Subversion allows you to set <quote>autoprops</quote> which will be applied to newly added or imported files, based on the file extension. This depends on every client having set appropriate autoprops in their subversion configuration file. <literal>tsvn:autoprops</literal> can be set on folders and these will be merged with the user's local autoprops when importing or adding files. The format is the same as for subversion autoprops, e.g. <literal>*.sh = svn:eol-style=native;svn:executable</literal> sets two properties on files with the <literal>.sh</literal> extension."
-msgstr ""
+msgstr "O Subversion permite que tu fixes <quote>autoprops</quote> que serão aplicados a ficheiros recentemente adicionados ou importados, baseado na extensão do ficheiro. Isto depende de cada cliente ter fixado os autoprops apropriados no seu ficheiro de configuração do Subversion. <literal>tsvn:autoprops</literal> pode ser fixado em pastas e essas serão integradas com os autoprops locais quando algum ficheiro for adicionado ou importado. O formato é o mesmo dos autoprops do Subversion, e.g. <literal>*.sh = svn:eol-style=native;svn:executable</literal> fixa duas propriedades em ficheiros com a extensão <literal>.sh</literal>."
 
 #. (para)
 msgid "If there is a conflict between the local autoprops and <literal>tsvn:autoprops</literal>, the project settings take precedence because they are specific to that project."
-msgstr ""
+msgstr "Se houver um conflito entre autoprops locais e <literal>tsvn:autoprops</literal>, as configurações de projecto tomam precedência porque são específicas a esse projecto."
 
 #. (para)
 msgid "In the Commit dialog you have the option to paste in the list of changed files, including the status of each file (added, modified, etc). <literal>tsvn:logfilelistenglish</literal> defines whether the file status is inserted in English or in the localized language. If the property is not set, the default is <literal>true</literal>."
-msgstr ""
+msgstr "Na caixa de diálogo Submeter tens a opção de colar a lista de ficheiros alterados, incluindo o estado de cada ficheiro (adicionado, modificado, etc). <literal>tsvn:logfilelistenglish</literal> define se o estado do ficheiro é inserido em Inglês ou na língua localizada. Se a propriedade não é fixada, o valor por defeito é <literal>true</literal>."
 
 #. (para)
 msgid "TortoiseSVN can use spell checker modules which are also used by OpenOffice and Mozilla. If you have those installed this property will determine which spell checker to use, i.e. in which language the log messages for your project should be written. <literal>tsvn:projectlanguage</literal> sets the language module the spell checking engine should use when you enter a log message. You can find the values for your language on this page: <ulink url=\"http://msdn2.microsoft.com/en-us/library/ms776260.aspx\"><citetitle>MSDN: Language Identifiers</citetitle></ulink>."
-msgstr ""
+msgstr "O TortoiseSVN pode usar módulos verificadores de ortografia que também são usados pelo OpenOffice e Mozilla. Se tens estes correctamente instalados, esta propriedade irá determinar qual o verificador de ortografia a usar, i.e. em que linguagem as mensagens de registo do teu projecto deverão ser escritas. <literal>tsvn:projectlanguage</literal> fixa o módulo de linguagem que o motor de verificação ortográfica deverá usar quando inseres uma mensagem de registo. Podes encontrar valores para a tua lingua nesta página: <ulink url=\"http://msdn2.microsoft.com/en-us/library/ms776260.aspx\"><citetitle>MSDN: Language Identifiers</citetitle></ulink>."
 
 #. (para)
 msgid "You can enter this value in decimal, or in hexadecimal if prefixed with <literal>0x</literal>. For example English (US) can be entered as <literal>0x0409</literal> or <literal>1033</literal>."
-msgstr ""
+msgstr "Podes inserir este valor em decimal ou em hexadecimal se prefixado com <literal>0x</literal>. Por exemplo Inglês (US) pode ser introduzido como <literal>0x0409</literal> ou <literal>1033</literal>."
 
 #. (para)
 msgid "The property <literal>tsvn:logsummary</literal> is used to extract a portion of the log message which is then shown in the log dialog as the log message summary."
-msgstr ""
+msgstr "A propriedade <literal>tsvn:logsummary</literal> é usada para extrair a parte da mensagem de registo que será mostrada, na caixa de diálogo de registo, como o seu sumário."
 
 #. (para)
 msgid "The value of the <literal>tsvn:logsummary</literal> property must be set to a one line regex string which contains one regex group. Whatever matches that group is used as the summary."
-msgstr ""
+msgstr "O valor da propriedade <literal>tsvn:logsummary</literal> deverá ser inserida como uma linha de cadeia de caracteres regex que contém um grupo regex. O que corresponder a esse grupo será usado como resumo."
 
 #. (para)
 msgid "An example: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> Will catch everything after <quote>[SUMMARY]</quote> in the log message and use that as the summary."
-msgstr ""
+msgstr "Um exemplo: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> Irá apanhar tudo depois de <quote>[SUMMARY]</quote>, na mensagem de registo, e usa-a como o sumário."
 
 #. (para)
 msgid "The property <literal>tsvn:logrevregex</literal> defines a regular expression which matches references to revisions in a log message. This is used in the log dialog to turn such references into links which when clicked will either scroll to that revision (if the revision is already shown in the log dialog, or if it's available from the log cache) or open a new log dialog showing that revision."
@@ -5663,44 +5663,44 @@ msgstr ""
 
 #. (para)
 msgid "When you want to add a new property, you can either pick one from the list in the combo box, or you can enter any property name you like. If your project uses some custom properties, and you want those properties to appear in the list in the combo box (to avoid typos when you enter a property name), you can create a list of your custom properties using <literal>tsvn:userfileproperties</literal> and <literal>tsvn:userdirproperties</literal>. Apply these properties to a folder. When you go to edit the properties of any child item, your custom properties will appear in the list of pre-defined property names."
-msgstr ""
+msgstr "Quando queres adicionar uma nova propriedade, podes escolher uma da lista da combo box, ou podes inserir um nome de propriedade que desejes. Se o teu projecto usa algumas propriedades customizadas, e se queres que essas propriedades apareçam na lista da combo box (para evitar erros de ortografia quando inserires o nome da propriedade), podes criar uma lista das tuas propriedades customizadas usando <literal>tsvn:userfileproperties</literal> e <literal>tsvn:userdirproperties</literal>. Aplica essas propriedades a uma pasta. Quando tu fores editar as propriedades de qualquer item filho, as tuas propriedades costumizadas irão aparecer na lista de nomes de propriedades pré-definidas."
 
 #. (para)
 msgid "TortoiseSVN has a few special properties of its own, and these begin with <literal>tsvn:</literal>. <placeholder-1/>"
-msgstr ""
+msgstr "O TortoiseSVN tem algumas propriedades próprias, e essas começam por <literal>tsvn:</literal>. <placeholder-1/>"
 
 #. (para)
 #. (para)
 msgid "Some <literal>tsvn:</literal> properties require a <literal>true/false</literal> value. TortoiseSVN also understands <literal>yes</literal> as a synonym for <literal>true</literal> and <literal>no</literal> as a synonym for <literal>false</literal>."
-msgstr ""
+msgstr "Algumas propriedades <literal>tsvn:</literal> requerem um valor <literal>true/false</literal>. O TortoiseSVN também entende  <literal>yes</literal> como sinónimo para <literal>true</literal> e <literal>no</literal> como sinonimo para <literal>false</literal>."
 
 #. (para)
 msgid "TortoiseSVN can integrate with some bug tracking tools. This uses project properties that start with <literal>bugtraq:</literal>. Read <xref linkend=\"tsvn-dug-bugtracker\"/> for further information."
-msgstr ""
+msgstr "O TortoiseSVN pode-se integrar com algumas ferramentas de seguimento de problemas. Isto usa as propriedades de projecto que começam com <literal>bugtraq:</literal>. Consulta <xref linkend=\"tsvn-dug-bugtracker\"/> para mais informação."
 
 #. (para)
 msgid "It can also integrate with some web-based repository browsers, using project properties that start with <literal>webviewer:</literal>. Read <xref linkend=\"tsvn-dug-repoviewer\"/> for further information."
-msgstr ""
+msgstr "Podes ainda integrar com alguns navegadores de repositório web-based, usando as propriedades de projecto que começam por <literal>webviewer:</literal>. Consulta <xref linkend=\"tsvn-dug-repoviewer\"/> para mais informação."
 
 #. (title)
 msgid "Set the project properties on folders"
-msgstr "Definir as propriedades do projecto nos ficheiros"
+msgstr "Fixar propriedades de projecto em pastas"
 
 #. (para)
 msgid "These special project properties must be set on <emphasis>folders</emphasis> for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
-msgstr ""
+msgstr "Essas propriedades de projecto especiais devem ser fixadas em <emphasis>pastas</emphasis> para o sistema funcionar. Quando submetes um ficheiro ou pasta, as propriedades são lidas dessa pasta. Se as propriedades não são encontradas aí, o TortoiseSVN irá procurar na direcção ascendente através da árvore de ficheiros de modo ás encontrar, até encontrar uma pasta não versionada, ou a raiz da árvore (e.g. <literal>C:\\</literal>).Se tens a certeza que cada utilizador só SVN exporta a partir e.g. <filename>trunk/</filename> e não de alguma subpasta, então é suficiente fixar as propriedades no <filename>trunk/</filename>. Se não tens a certeza, deverás fixar as propriedades recursivamente em cada subpasta. A colocação mais profunda da propriedade na hierarquia do projecto sobrepõem-se ás colocações em níveis superiores (mais perto do <filename>trunk/</filename>)."
 
 #. (para)
 #. (para)
 #. (para)
 msgid "For project properties <emphasis>only</emphasis>, i.e. <literal>tsvn:</literal>, <literal>bugtraq:</literal> and <literal>webviewer:</literal> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr ""
+msgstr "<emphasis>Só</emphasis> para propriedades de projecto, i.e. <literal>tsvn:</literal>, <literal>bugtraq:</literal> e <literal>webviewer:</literal> podes usar a caixa de verificação <guilabel>Recursiva</guilabel> para fixar a propriedade em todas as subpastas na hierarquia, sem também fixa-la em todos os ficheiros."
 
 #. (para)
 #. (para)
 #. (para)
 msgid "When you add new sub-folders to a working copy using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
-msgstr ""
+msgstr "Quando adicionas novas subpastas a uma cópia de trabalho, usando o TortoiseSVN, quaisquer propriedades de projecto presentes na pasta pai serão automaticamente adicionadas à nova pasta filho também."
 
 #. (title)
 #. (title)
@@ -5729,7 +5729,7 @@ msgstr ""
 
 #. (para)
 msgid "Although TortoiseSVN's project properties are extremely useful, they only work with TortoiseSVN, and some will only work in newer versions of TortoiseSVN. If people working on your project use a variety of Subversion clients, or possibly have old versions of TortoiseSVN, you may want to use repository hooks to enforce project policies. project properties can only help to implement a policy, they cannot enforce it."
-msgstr ""
+msgstr "Apesar de as propriedades de projecto do TortoiseSVN serem extremamente úteis, elas só funcionam com o TortoiseSVN, e algumas são funcionaram com versões recentes. Se as pessoas que trabalham no teu projecto usam uma variedade de clientes Subversion, ou possivelmente têm versões antigas do TortoiseSVN, poderás querer usar ganchos de repositório para impor as políticas de projecto. Propriedades de projecto só podem ajudar a implementar uma política, nuca podem impô-la."
 
 #. (title)
 msgid "External Items"
