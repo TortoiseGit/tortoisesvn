@@ -436,26 +436,31 @@ void CRepositoryLister::Enqueue
 				= scheduler.RemoveJobFromQueue (MAX_QUEUE_DEPTH / 2, true);
 
 			// we can only delete CListQuery instances
-			// -> (temp.) re-add all others (most of them will be
-			// terminated with the parent CListQuery and since they
-			// are at the front of the queue, they get done quickly)
+			// -> (temp.) re-add all others.
+			// Terminate the list queries, so the embedded externals
+			// queries get terminated as well and we don't have
+			// to re-add them again.
 			
-			// we must not delete queries here because they may have 
-			// references between them (list query owns externals query)
-
 			std::vector<CListQuery*> deletedQueries; 
 			deletedQueries.reserve (removed.size());
 
 			for (size_t i = 0, count = removed.size(); i < count; ++i)
 			{
 				CListQuery* query = dynamic_cast<CListQuery*>(removed[i]);
-				if (query == NULL)
-					scheduler.Schedule (removed[i], false);
-				else
+				if (query != NULL)
+				{
+					query->Terminate();
 					deletedQueries.push_back (query);
+				}
 			}
 
-			// CListQuery* may now be deleted
+			// return the externals queries that have not been cancelled
+
+			for (size_t i = 0, count = removed.size(); i < count; ++i)
+				if (!dynamic_cast<CQuery*>(removed[i])->HasBeenTerminated())
+					scheduler.Schedule (removed[i], false);
+
+			// remove terminated queries from our lookup tables
 
 			for (size_t i = 0, count = deletedQueries.size(); i < count; ++i)
 			{
@@ -468,10 +473,6 @@ void CRepositoryLister::Enqueue
 				TQueries::iterator iter = queries.find (key);
 				if ((iter != queries.end()) && (iter->second == query))
 					queries.erase (iter);
-
-				// cancel query
-
-				query->Terminate();
 			}
 
 			// if the dumpster has not been empty before for some reason,
