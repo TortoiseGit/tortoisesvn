@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-11 23:58-0000\n"
+"PO-Revision-Date: 2010-03-12 10:01-0000\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -534,9 +534,8 @@ msgid "&Edit"
 msgstr "&Modifica"
 
 #. Resource IDs: (1399)
-#, fuzzy
 msgid "&Edit conflict"
-msgstr "&Edita i conflitti"
+msgstr "&Edita il conflitto"
 
 #. Resource IDs: (12)
 msgid "&Edit conflicts"
@@ -623,9 +622,8 @@ msgid "&From revision"
 msgstr "&Dalla revisione"
 
 #. Resource IDs: (1494)
-#, fuzzy
 msgid "&From: (start URL and revision of the range to merge)"
-msgstr "Da: (URL e revisione che iniziano l'intervallo per la fusione)"
+msgstr "&Da: (URL e revisione che iniziano l'intervallo per la fusione)"
 
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
@@ -3609,9 +3607,8 @@ msgid "Enter URL"
 msgstr "Inserire un URL"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Enter a &name for the changelist:"
-msgstr "Inserire il nome della lista modifiche"
+msgstr "Inserire il &nome della lista modifiche"
 
 #. Resource IDs: (3858)
 msgid "Enter a GUID."
@@ -3714,13 +3711,13 @@ msgid "Error validating server certificate for %s:"
 msgstr "Errore nel validare il certificato per %s:"
 
 #. Resource IDs: (70)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Error while reading/writing the registry key %1!s!\n"
 "%2!s!"
 msgstr ""
-"Errore in lettura/scrittura sulla chiave di repository %s\n"
-"%s"
+"Errore in lettura/scrittura sulla chiave di registro %1!s!\n"
+"%2!s!"
 
 #. Resource IDs: (1413)
 msgid "Exceptions:"
@@ -3902,13 +3899,13 @@ msgid "Failed to set/remove changelist '%s'"
 msgstr "Impossibile impostare/rimuovere la lista modifiche '%s'"
 
 #. Resource IDs: (83)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Failed to start the issue tracker COM provider '%1!s!'.\n"
 "%2!s!"
 msgstr ""
-"Errore nell'avvio dell'issue tracker COM '%s'.\n"
-"%s"
+"Errore nell'avvio dell'issue tracker COM '%1!s!'.\n"
+"%2!s!"
 
 #. Resource IDs: (220)
 msgid "Failed!"
@@ -4604,9 +4601,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "Icon Sovrapposte::Set di Icone"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
-msgstr "Icone/Design/Codice:     Luebbe Onken"
+msgstr "Icone/Design/Codice:\t\tLuebbe Onken"
 
 #. Resource IDs: (346)
 msgid ""
@@ -4776,9 +4772,8 @@ msgid "Ignore case cha&nges"
 msgstr "Ignora &cambiamenti tra maiuscole/minuscole"
 
 #. Resource IDs: (1126)
-#, fuzzy
 msgid "Ignore line &endings"
-msgstr "Ignora i caratteri di fine riga"
+msgstr "Ignora i caratt&eri di fine riga"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4789,9 +4784,8 @@ msgid "Ignore line endings"
 msgstr "Ignora i caratteri di fine riga"
 
 #. Resource IDs: (1391)
-#, fuzzy
 msgid "Ignore whitespace c&hanges"
-msgstr "Ignora cambiamenti nelle spaziature"
+msgstr "Ignora cam&biamenti nelle spaziature"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
@@ -5051,7 +5045,7 @@ msgstr ""
 "Si consiglia di consultare la documentazione per ottenere informazioni su come aggirare il problema."
 
 #. Resource IDs: (88)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
 "\n"
@@ -5067,8 +5061,8 @@ msgid ""
 msgstr ""
 "Sembra che si stia cercando di <b>ricollocare</b> la copia di lavoro su di un percorso differente all'interno dello stesso repository.\n"
 "\n"
-"Da: %s\n"
-"A: %s\n"
+"Da:\t%1!s!\n"
+"A:\t\t%2!s!\n"
 "\n"
 "Un ricollocamento è necessario solamente se il percorso <b>di destinazione</b> in un repository è cambiato.\n"
 "Spostarsi su un percorso differente <b>all'interno</b> di un repository è di norma eseguito attraverso l'operazione \"sposta\".\n"
@@ -6065,9 +6059,8 @@ msgid "One or more files are in a conflicted state."
 msgstr "Uno o più file sono in conflitto."
 
 #. Resource IDs: (1424)
-#, fuzzy
 msgid "Onl&y record the merge (block revisions from getting merged)"
-msgstr "Registra solo l'unione (blocca l'unione delle revisioni)"
+msgstr "Registra &solo l'unione (blocca l'unione delle revisioni)"
 
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
@@ -6463,9 +6456,9 @@ msgid "Printing"
 msgstr "Stampa in corso"
 
 #. Resource IDs: (132)
-#, fuzzy, c-format
+#, c-format
 msgid "Processing revision %1!d! of %2!d!..."
-msgstr "Trattamento revisione %d di %d..."
+msgstr "Trattamento revisione %1!d! di %2!d!..."
 
 #. Resource IDs: (74)
 msgid "Program"
@@ -7003,9 +6996,8 @@ msgid "Resolve Conflict"
 msgstr "Risolvi Conflitto"
 
 #. Resource IDs: (1382)
-#, fuzzy
 msgid "Resolve all la&ter"
-msgstr "Rimuovi tutti più tardi"
+msgstr "Rimuovi tutti più &tardi"
 
 #. Resource IDs: (282)
 msgid "Resolve conflict using 'mine'"
@@ -7057,9 +7049,9 @@ msgid "Retry"
 msgstr "Riprova"
 
 #. Resource IDs: (264)
-#, fuzzy, c-format
+#, c-format
 msgid "Reverse merging %1!ld! through %2!ld!"
-msgstr "Annulla l'unione  di %ld attraverso %ld"
+msgstr "Annulla l'unione  di %1!ld! attraverso %2!ld!"
 
 #. Resource IDs: (264)
 #, c-format
@@ -8112,7 +8104,7 @@ msgid "Subversion configuration &file:"
 msgstr "&File di configurazione di Subversion:"
 
 #. Resource IDs: (84)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
@@ -8139,8 +8131,8 @@ msgstr ""
 "http://subversion.apache.org/mailing-lists.html\n"
 "\n"
 "Subversion ha riscontrato il problema nel:\n"
-"file %s, linea %ld\n"
-"espressione = %s"
+"file %1!s!, linea %2!ld!\n"
+"espressione = %3!s!"
 
 #. Resource IDs: (84)
 msgid ""
@@ -8612,7 +8604,7 @@ msgstr ""
 "Specificare uno solo di essi."
 
 #. Resource IDs: (64)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The patch seems outdated! The file line\n"
 "%1!s!\n"
@@ -8621,10 +8613,10 @@ msgid ""
 "do not match!"
 msgstr ""
 "La patch sembra essere superata! La linea\n"
-"%s\n"
+"%1!s!\n"
 "del file e la linea\n"
-"%s\n"
-"nella pach non corrispondono!"
+"%2!s!\n"
+"nella patch non corrispondono!"
 
 #. Resource IDs: (88)
 msgid ""
@@ -8644,7 +8636,7 @@ msgstr ""
 "Procedere comunque?"
 
 #. Resource IDs: (314)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The path\n"
 "<i>%1!s!</i>\n"
@@ -8656,16 +8648,16 @@ msgid ""
 "Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
 msgstr ""
 "Il percorso\n"
-"<i>%s</i>\n"
+"<i>%1!s!</i>\n"
 "nel file di patch non esiste.\n"
 "TortoiseMerge ha trovato il percorso\n"
-"<i>%s</i>\n"
+"<i>%2!s!</i>\n"
 "che sembrerebbe corrispondere alla directory alla quale si sta cercando di applicare la patch.\n"
 "\n"
 "Si desidera utilizzare il percorso suggerito? Rispondere di no chiuderà TortoiseMerge."
 
 #. Resource IDs: (314)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The path\n"
 "<i>%1!s!</i>\n"
@@ -8675,10 +8667,10 @@ msgid ""
 "matches it better. Do you want to use the suggested path instead?"
 msgstr ""
 "Il percorso\n"
-"<i>%s</i>\n"
+"<i>%1!s!</i>\n"
 "sembra non corrispondere al percorso specificato nella patch.\n"
 "TortoiseMerge ritiene che il percorso\n"
-"<i>%s</i>\n"
+"<i>%2!s!</i>\n"
 "sia più corretto. Si desidera usare il percorso suggerito invece di quello specificato?"
 
 #. Resource IDs: (314)
@@ -9310,15 +9302,15 @@ msgid "Unified &diff of HEAD revisions"
 msgstr "&Confronto unificato delle revisioni di testa"
 
 #. Resource IDs: (81)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Unknown certificate issuer.\n"
 "  Fingerprint: %1!s!\n"
 "  Distinguished name: %2!s!"
 msgstr ""
 "Organo di emissione del certificato non riconosciuto:\n"
-"  Impronta: %s\n"
-"  Nome: %s"
+"  Impronta: %1!s!\n"
+"  Nome: %2!s!"
 
 #. Resource IDs: (20)
 msgid "Unknown depth"
@@ -9939,7 +9931,7 @@ msgid "You should select an image!"
 msgstr "Dovresti inserire un'immagine!"
 
 #. Resource IDs: (89)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You're trying to add the item\n"
 "'%1!s!',\n"
@@ -9951,9 +9943,9 @@ msgid ""
 "Do you really want to add it?"
 msgstr ""
 "Stai cercando di aggiungere l'elemento\n"
-"'%s',\n"
+"'%1!s!',\n"
 "ma l'elemento\n"
-"'%s'\n"
+"'%2!s!'\n"
 "già esiste.\n"
 "\n"
 "Sembra che l'elemento sia stao rinominato al di fuori di Subversion ma solo con modifiche di maiuscole.\n"
@@ -9998,15 +9990,15 @@ msgstr ""
 "Si vuole procedere all'invio comunque?"
 
 #. Resource IDs: (276)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your working copy contains modifications.\n"
 "Lowest revision in working copy: %1!ld!\n"
 "Path: %2!s!"
 msgstr ""
 "La tua copia di lavoro contiene delle modifiche.\n"
-"Numero di Revisione più bassa nella copia di lavoro: %ld\n"
-"Percorso: %s"
+"Numero di Revisione più bassa nella copia di lavoro: %1!ld!\n"
+"Percorso: %2!s!"
 
 #. Resource IDs: (88)
 msgid ""
@@ -10168,9 +10160,8 @@ msgstr ""
 "lavora interamente dalla cache se 'offline'"
 
 #. Resource IDs: (278)
-#, fuzzy
 msgid "at this revision"
-msgstr "R&ipristina fino a questa revisione"
+msgstr "a questa revisione"
 
 #. Resource IDs: (245)
 msgid "author"
@@ -10393,9 +10384,8 @@ msgid "max revision: "
 msgstr "max revisione:"
 
 #. Resource IDs: (278)
-#, fuzzy
 msgid "max. at this revision"
-msgstr "R&ipristina fino a questa revisione"
+msgstr "massimo a questa revisione"
 
 #. Resource IDs: (278)
 #, fuzzy
@@ -10411,9 +10401,8 @@ msgid "merges total: "
 msgstr "totale unioni:"
 
 #. Resource IDs: (278)
-#, fuzzy
 msgid "min. at this revision"
-msgstr "R&ipristina fino a questa revisione"
+msgstr "minimo a questa revisione"
 
 #. Resource IDs: (278)
 #, fuzzy
