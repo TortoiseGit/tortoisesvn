@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-12 01:27-0000\n"
+"PO-Revision-Date: 2010-03-13 01:22-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5746,11 +5746,11 @@ msgstr "externos"
 
 #. (para)
 msgid "Sometimes it is useful to construct a working copy that is made out of a number of different checkouts. For example, you may want different files or subdirectories to come from different locations in a repository, or perhaps from different repositories altogether. If you want every user to have the same layout, you can define the <literal>svn:externals</literal> properties to pull in the specified resource at the locations where they are needed."
-msgstr ""
+msgstr "Por vezes é útil construir uma cópia de trabalho a partir de vários SVN exportar diferentes. Por exemplo, poderás querer que diferentes ficheiros ou subpastas venham de diferentes localizações do repositório, ou talvez, até de diferentes repositórios. Se queres que cada utilizador tenha a mesma disposição, podes definir as propriedades <literal>svn:externals</literal> para puxar o recurso especificado para a localização onde será necessário."
 
 #. (title)
 msgid "External Folders"
-msgstr "Ficheiros Externos"
+msgstr "Pastas Externas"
 
 #. (para)
 msgid ""
@@ -5760,52 +5760,57 @@ msgid ""
 "-r21 http://svn.red-bean.com/repos/skin-maker  skins/toolkit\n"
 "</screen> Now click <guibutton>Set</guibutton> and commit your changes. When you (or any other user) update your working copy, Subversion will create a sub-folder <filename>D:\\dev\\project1\\sounds</filename> and checkout the sounds project, another sub-folder <filename>D:\\dev\\project1\\quick_graphs</filename> containing the graphics project, and finally a nested sub-folder <filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 of the skin-maker project."
 msgstr ""
+"Digamos que SVN exportas uma cópia de trabalho do <filename>/project1</filename> para <filename>D:\\dev\\project1</filename>. Seleccionas a pasta <filename>D:\\dev\\project1</filename>, <action>clicas com o botão direito</action> e escolhes <menuchoice><guimenu>Menu do Windows</guimenu><guimenuitem>Propriedades</guimenuitem></menuchoice>, a partir do menu de contexto. Aparecerá a caixa de diálogo Propriedades. Em seguida vai à aba Subversion, e aí podes fixar as propriedades. Clica <guibutton>Adicionar...</guibutton>. Selecciona a propriedade <literal>svn:externals</literal> a partir da combobox e, escreve na caixa de edição o URL do repositório, no formato <literal>url folder</literal>, ou se quiseres especificar uma revisão particular, <literal>-rREV url folder</literal>. Podes adicionar múltiplos projectos externos, 1 por linha.Supõem que fixaste essas propriedades no <filename>D:\\dev\\project1</filename>: <screen>\n"
+"http://sounds.red-bean.com/repos  sounds\n"
+"http://graphics.red-bean.com/repos/fast%20graphics  \"quick graphs\"\n"
+"-r21 http://svn.red-bean.com/repos/skin-maker  skins/toolkit\n"
+"</screen> Agora clica <guibutton>Fixar</guibutton> e submete as tuas alterações. Quando tu (ou outro utilizador qualquer) actualizar a cópia de trabalho, o Subversion irá criar uma subpasta <filename>D:\\dev\\project1\\sounds</filename> e SVN exporta o projecto sounds, outra subpasta <filename>D:\\dev\\project1\\quick_graphs</filename>, contendo o projecto graphics, e finalmente uma subpasta encadeada <filename>D:\\dev\\project1\\skins\\toolkit</filename>, contendo a revisão 21 do projecto skin-maker."
 
 #. (para)
 msgid "URLs must be properly escaped or they will not work, e.g. you must replace each space with <literal>%20</literal> as shown in the second example above."
-msgstr ""
+msgstr "Os URLs têm de ser convenientemente escapados, ou não irão funcionar, e.g. deverás substituir cada espaço com <literal>%20</literal>, como mostrado no segundo exemplo, em cima."
 
 #. (para)
 msgid "If you want the local path to include spaces or other special characters, you can enclose it in double quotes, or you can use the <literal>\\</literal> (backslash) character as a Unix shell style escape character preceding any special character. Of course this also means that you must use <literal>/</literal> (forward slash) as a path delimiter. Note that this behaviour is new in Subversion 1.6 and will not work with older clients."
-msgstr ""
+msgstr "Se queres que o caminho local inclua espaços ou outro caracter especial, tens rodeá-lo em aspas, ou usar o caracter <literal>\\</literal> (barra invertida), como um caracter de escape, ao estilo da linha de comandos do linux, precedendo cada caracter especial. É claro que isto também significa que tens de necessáriamente usar <literal>/</literal> (barra), como delimitador de caminho. De notar que este comportamento é novo no Subversion 1.6 e, não funcionará com clientes mais antigos."
 
 #. (title)
 msgid "Use explicit revision numbers"
-msgstr "Utiliza numeros de revião explicitos"
+msgstr "Usa números de revisão explícitos"
 
 #. (para)
 msgid "You should strongly consider using explicit revision numbers in all of your externals definitions, as described above. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex code base."
-msgstr ""
+msgstr "Deverás considerar seriamente, o uso de números de revisão explícitos em todos as tuas definições externas, como descrito acima. Fazendo-o significa que, terás de decidir a altura de  puxar uma diferente fotografia da informação externa, e exactamente qual a fotografia a puxar. Aparte do senso comum de não ser supreendido por alterações de repositórios de terceiros, que não possas controlar, usar números de revisões explicitos, também significa que se reverters a tua cópia de trabalho para uma revisão anterior, as tuas definições externas irão também reverter para o estado que tinham nessa revisão prévia. O que por sua vez significa que, as cópias de trabalho externas serão actualizadas para corresponder o estado que <emphasis>elas</emphasis> tinham, quando o teu repositório estava nessa revisão prévia. Para projectos de software isto pode ser a diferença entre uma construção(build) falhada ou com sucesso, de uma fotografia antiga da tua complexa base de código. "
 
 #. (title)
 msgid "Older svn:externals definitions"
-msgstr "Definições anterirores de svn:externals"
+msgstr "Definições antigas do svn:externals"
 
 #. (para)
 msgid "The format shown here was introduced in Subversion 1.5. You may also see the older format which has the same information in a different order. The new format is preferred as it supports several useful features described below, but it will not work on older clients. The differences are shown in the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html\"><citetitle>Subversion Book</citetitle></ulink>."
-msgstr ""
+msgstr "O formato mostrado aqui foi introduzido no Subversion 1.5. Podes também ver o formato antigo, que tem a mesma informação, numa pasta diferente. O novo formato é preferível, já que suporta várias e úteis funcionalidades descritas abaixo, mas não irá funcionar em clientes antigos. As diferenças são mostradas em <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html\"><citetitle>Subversion Book</citetitle></ulink>."
 
 #. (para)
 #. (para)
 msgid "If the external project is in the same repository, any changes you make there will be included in the commit list when you commit your main project."
-msgstr ""
+msgstr "Se o projecto externo está no mesmo repositório, qualquer alteração que lá fizeres, será incluida na lista de submissões, quando submeteres o teu projecto principal."
 
 #. (para)
 #. (para)
 msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
-msgstr ""
+msgstr "Se o projecto externo está num repositório diferente, qualquer alteração que fizeres no mesmo, será notificada quando submeteres o teu projecto principal, no entanto, terás de submeter essas alterações externas separadamente."
 
 #. (para)
 msgid "If you use absolute URLs in <literal>svn:externals</literal> definitions and you have to relocate your working copy (i.e., if the URL of your repository changes), then your externals won't change and might not work anymore."
-msgstr ""
+msgstr "Se usares URLs absolutos nas definições <literal>svn:externals</literal>, e tiveres de transferir a tua cópia de trabalho (i.e., se o URL do teu repositório se alterar), então os teus externos não se alterarão e poderão não mais funcionar."
 
 #. (para)
 msgid "To avoid such problems, Subversion clients version 1.5 and higher support relative external URLs. Four different methods of specifying a relative URL are supported. In the following examples, assume we have two repositories: one at <systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> and another at <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. We have a checkout of <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem> into <filename>C:\\Working</filename> and the <literal>svn:externals</literal> property is set on trunk."
-msgstr ""
+msgstr "Para evitar tais problemas, o cliente Subversion, na versão 1.5 ou superior, suporta URLs externos relativos. São suportados quatro diferentes métodos de especificar um URL relativo . Nos exemplos seguintes assume-se que temos dois repositórios: um em <systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> e outro em <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. Temos um SVN exportado do <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem> em <filename>C:\\Working</filename> e a propriedade <literal>svn:externals</literal> está colocada no trunk."
 
 #. (term)
 msgid "Relative to parent directory"
-msgstr "Relativo ao diretório pai"
+msgstr "Relativo à pasta pai"
 
 #. (para)
 msgid ""
@@ -5813,10 +5818,13 @@ msgid ""
 "../../widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
 msgstr ""
+"Esses URLs começam sempre com a cadeia de caracteres <literal>../</literal>, por exemplo: <screen>\n"
+"../../widgets/foo  common/foo-widget\n"
+"</screen>. Isto irá extrair <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> em <filename>C:\\Working\\common\\foo-widget</filename>."
 
 #. (para)
 msgid "Note that the URL is relative to the URL of the directory with the <literal>svn:externals</literal> property, not to the directory where the external is written to disk."
-msgstr ""
+msgstr "De notar que, o URL é relativo ao URL da pasta com a propriedade <literal>svn:externals</literal> e não, à pasta onde o externo está escrito no disco."
 
 #. (term)
 msgid "Relative to repository root"
@@ -5828,6 +5836,9 @@ msgid ""
 "^/widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
 msgstr ""
+"Esses URLs começam sempre com a cadeia de caracteres <literal>^/</literal>, por exemplo: <screen>\n"
+"^/widgets/foo  common/foo-widget\n"
+"</screen>. Isto irá extrair <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> em <filename>C:\\Working\\common\\foo-widget</filename>."
 
 #. (para)
 msgid ""
@@ -5835,6 +5846,9 @@ msgid ""
 "^/../repos-2/hammers/claw  common/claw-hammer\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
 msgstr ""
+"Poderás facilmente referir-te a outros repositórios com o mesmo <literal>SVNParentPath</literal> (uma pasta comum contendo vários repositórios). Por exemplo: <screen>\n"
+"^/../repos-2/hammers/claw  common/claw-hammer\n"
+"</screen> Isto irá extrair <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> em <filename>C:\\Working\\common\\claw-hammer</filename>."
 
 #. (term)
 msgid "Relative to scheme"
@@ -5846,6 +5860,9 @@ msgid ""
 "//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
 msgstr ""
+"URLs a começar com a cadeia de caracteres <literal>//</literal> copiam só a parte do esquema do URL. Isto é útil quando a mesma máquina necessita de ser acedida com esquemas diferentes, dependendo da localização na rede; e.g. clientes com acesso de intranet usam <systemitem class=\"url\">http://</systemitem>, enquanto clientes externos usam <systemitem class=\"url\">svn+ssh://</systemitem>. Por exemplo: <screen>\n"
+"//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen>. Será extraido como <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> ou <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem>, dependendo do método usado para SVN exportar o <filename>C:\\Working</filename>."
 
 #. (term)
 msgid "Relative to the server's hostname"
@@ -5857,18 +5874,21 @@ msgid ""
 "/svn/repos-1/widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
 msgstr ""
+"URLs a começar com a cadeia de caracteres <literal>/</literal>, copiam a parte do URL do esquema e do nome da máquina, por exemplo: <screen>\n"
+"/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen>. Extrairá <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> em <filename>C:\\Working\\common\\foo-widget</filename>. Mas se tu SVN exportares a tua cópia de trabalho a partir de outro servidor em <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem>, então a referência externa irá extrair <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
 
 #. (para)
 msgid "You can also specify a peg revision after the URL if required, e.g. <systemitem class=\"url\">http://sounds.red-bean.com/repos@19</systemitem>."
-msgstr ""
+msgstr "Podes também especificar uma revisão cavilha depois do URL, se necessário; e.g. <systemitem class=\"url\">http://sounds.red-bean.com/repos@19</systemitem>."
 
 #. (para)
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-dug-propertypage\"/>."
-msgstr ""
+msgstr "Se necessitas de mais informação em como o TortoiseSVN lida com Propriedades, consulta <xref linkend=\"tsvn-dug-propertypage\"/>."
 
 #. (para)
 msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
-msgstr ""
+msgstr "Para saberes mais sobre os diferentes métodos de aceder a subprojectos comuns, consulta <xref linkend=\"tsvn-howto-common-projects\"/>."
 
 #. (title)
 msgid "External Files"
