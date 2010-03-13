@@ -79,6 +79,7 @@ protected:
 	BOOL			m_bFolder;
 	CString			m_sTitle;
 	CString			m_sLabel;
+	CString			m_repoRoot;
 	CLogDlg *		m_pLogDlg;
 	CComboBox		m_depthCombo;
 	int				m_height;
@@ -88,7 +89,6 @@ protected:
 public:
 	CString			m_path;
 	CString			m_URL;
-	CString			m_repoRoot;
 	SVNRev			Revision;
 	BOOL			m_bNoExternals;
 	svn_depth_t		m_depth;
