@@ -80,6 +80,7 @@ protected:
 	CString			m_sTitle;
 	CString			m_sLabel;
 	CLogDlg *		m_pLogDlg;
+	CComboBox		m_depthCombo;
 	int				m_height;
 	CPathEdit		m_SwitchPath;
 	AeroControlBase m_aeroControls;
@@ -89,4 +90,6 @@ public:
 	CString			m_URL;
 	CString			m_repoRoot;
 	SVNRev			Revision;
+	BOOL			m_bNoExternals;
+	svn_depth_t		m_depth;
 };

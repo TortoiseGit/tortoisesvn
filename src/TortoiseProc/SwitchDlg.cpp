@@ -31,6 +31,7 @@ CSwitchDlg::CSwitchDlg(CWnd* pParent /*=NULL*/)
 	, m_URL(_T(""))
 	, Revision(_T("HEAD"))
 	, m_pLogDlg(NULL)
+	, m_bNoExternals(FALSE)
 {
 }
 
@@ -45,6 +46,8 @@ void CSwitchDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Text(pDX, IDC_REVISION_NUM, m_rev);
 	DDX_Control(pDX, IDC_SWITCHPATH, m_SwitchPath);
+	DDX_Check(pDX, IDC_NOEXTERNALS, m_bNoExternals);
+	DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
 }
 
 
@@ -108,6 +111,14 @@ BOOL CSwitchDlg::OnInitDialog()
 	// set head revision as default revision
 	SetRevision(SVNRev::REV_HEAD);
 
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_WORKING)));
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE)));
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_FILES)));
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_EMPTY)));
+	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_EXCLUDE)));
+	m_depthCombo.SetCurSel(0);
+
 	RECT rect;
 	GetWindowRect(&rect);
 	m_height = rect.bottom - rect.top;
@@ -119,11 +130,14 @@ BOOL CSwitchDlg::OnInitDialog()
 	AddAnchor(IDC_BROWSE, TOP_RIGHT);
 	AddAnchor(IDC_DESTLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_DESTURL, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_REVGROUP, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_REVGROUP, TOP_LEFT);
 	AddAnchor(IDC_REVISION_HEAD, TOP_LEFT);
 	AddAnchor(IDC_REVISION_N, TOP_LEFT);
 	AddAnchor(IDC_REVISION_NUM, TOP_LEFT);
 	AddAnchor(IDC_LOG, TOP_LEFT);
+	AddAnchor(IDC_GROUPMIDDLE, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_DEPTH, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_NOEXTERNALS, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
@@ -169,6 +183,31 @@ void CSwitchDlg::OnOK()
 
 	m_URLCombo.SaveHistory();
 	m_URL = CPathUtils::CombineUrls(m_repoRoot, m_URLCombo.GetString());
+
+	switch (m_depthCombo.GetCurSel())
+	{
+	case 0:
+		m_depth = svn_depth_unknown;
+		break;
+	case 1:
+		m_depth = svn_depth_infinity;
+		break;
+	case 2:
+		m_depth = svn_depth_immediates;
+		break;
+	case 3:
+		m_depth = svn_depth_files;
+		break;
+	case 4:
+		m_depth = svn_depth_empty;
+		break;
+	case 5:
+		m_depth = svn_depth_exclude;
+		break;
+	default:
+		m_depth = svn_depth_empty;
+		break;
+	}
 
 	UpdateData(FALSE);
 	CResizableStandAloneDialog::OnOK();
