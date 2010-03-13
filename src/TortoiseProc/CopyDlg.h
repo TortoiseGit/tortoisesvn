@@ -100,6 +100,7 @@ private:
 	BOOL			m_bFile;
 	ProjectProperties	m_ProjectProperties;
 	CString			m_sBugID;
+	CString			m_repoRoot;
 	CHistoryCombo	m_URLCombo;
 	CString			m_wcURL;
 	CButton			m_butBrowse;

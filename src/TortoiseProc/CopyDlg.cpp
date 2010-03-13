@@ -26,6 +26,7 @@
 #include "Registry.h"
 #include "TSVNPath.h"
 #include "AppUtils.h"
+#include "PathUtils.h"
 #include "HistoryDlg.h"
 #include "SVNStatus.h"
 #include "SVNProperties.h"
@@ -120,8 +121,10 @@ BOOL CCopyDlg::OnInitDialog()
 	
 	m_bFile = !path.IsDirectory();
 	SVN svn;
+	CString sUUID;
+	m_repoRoot = svn.GetRepositoryRootAndUUID(path, true, sUUID);
+	m_repoRoot.TrimRight('/');
 	m_wcURL = svn.GetURLFromPath(path);
-	CString sUUID = svn.GetUUIDFromPath(path);
 	if (m_wcURL.IsEmpty())
 	{
 		CString Wrong_URL=path.GetSVNPathString();
@@ -131,14 +134,17 @@ BOOL CCopyDlg::OnInitDialog()
 		TRACE(_T("could not retrieve the URL of the file!"));
 		this->EndDialog(IDCANCEL);		//exit
 	}
-	m_URLCombo.SetURLHistory(TRUE);
-	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
-	m_URLCombo.AddString(CTSVNPath(m_wcURL).GetUIPathString(), 0);
-	m_URLCombo.SelectString(-1, CTSVNPath(m_wcURL).GetUIPathString());
+	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoPaths\\")+sUUID, _T("url"));
+	m_URLCombo.SetCurSel(0);
+	CString relPath = m_wcURL.Mid(m_repoRoot.GetLength());
+	CTSVNPath r = CTSVNPath(relPath);
+	relPath = r.GetUIPathString();
+	relPath.Replace('\\', '/');
+	m_URLCombo.AddString(relPath, 0);
+	m_URLCombo.SelectString(-1, relPath);
+	m_URL = m_wcURL;
+	SetDlgItemText(IDC_DESTURL, CPathUtils::CombineUrls(m_repoRoot, relPath));
 	SetDlgItemText(IDC_FROMURL, m_wcURL);
-	if (!m_URL.IsEmpty())
-		m_URLCombo.SetWindowText(m_URL);
-	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
 	CString reg;
 	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)sUUID);
@@ -190,6 +196,8 @@ BOOL CCopyDlg::OnInitDialog()
 	AddAnchor(IDC_TOURLLABEL, TOP_LEFT);
 	AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BROWSE, TOP_RIGHT);
+	AddAnchor(IDC_DESTLABEL, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_DESTURL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_MSGGROUP, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_HISTORY, TOP_LEFT);
 	AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
@@ -327,8 +335,7 @@ void CCopyDlg::OnOK()
 		return;
 	}
 		
-	CString combourl;
-	m_URLCombo.GetWindowText(combourl);
+	CString combourl = m_URLCombo.GetWindowString();
 	if ((m_wcURL.CompareNoCase(combourl)==0)&&(m_CopyRev.IsHead()))
 	{
 		CString temp;
@@ -338,7 +345,7 @@ void CCopyDlg::OnOK()
 	}
 
 	m_URLCombo.SaveHistory();
-	m_URL = m_URLCombo.GetString();
+	m_URL = CPathUtils::CombineUrls(m_repoRoot, m_URLCombo.GetString());
 	if (!CTSVNPath(m_URL).IsValidOnWindows())
 	{
 		if (CMessageBox::Show(this->m_hWnd, IDS_WARN_NOVALIDPATH, IDS_APPNAME, MB_ICONINFORMATION|MB_YESNO) != IDYES)
@@ -369,7 +376,7 @@ void CCopyDlg::OnBnClickedBrowse()
 	m_tooltips.Pop();	// hide the tooltips
 	SVNRev rev = SVNRev::REV_HEAD;
 
-	CAppUtils::BrowseRepository(m_URLCombo, this, rev);
+	CAppUtils::BrowseRepository(m_repoRoot, m_URLCombo, this, rev);
 }
 
 void CCopyDlg::OnBnClickedHelp()
@@ -586,7 +593,7 @@ void CCopyDlg::SetRevision(const SVNRev& rev)
 void CCopyDlg::OnCbnEditchangeUrlcombo()
 {
 	m_bSettingChanged = true;
-	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
+	SetDlgItemText(IDC_DESTURL, CPathUtils::CombineUrls(m_repoRoot, m_URLCombo.GetWindowString()));
 }
 
 void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
