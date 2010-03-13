@@ -23,6 +23,7 @@
 #include "BrowseFolder.h"
 #include "TSVNPath.h"
 #include "AppUtils.h"
+#include "PathUtils.h"
 
 IMPLEMENT_DYNAMIC(CSwitchDlg, CResizableStandAloneDialog)
 CSwitchDlg::CSwitchDlg(CWnd* pParent /*=NULL*/)
@@ -78,20 +79,24 @@ BOOL CSwitchDlg::OnInitDialog()
 	SetDlgItemText(IDC_SWITCHPATH, m_path);
 	m_bFolder = svnPath.IsDirectory();
 	SVN svn;
+	CString sUUID;
+	m_repoRoot = svn.GetRepositoryRootAndUUID(svnPath, true, sUUID);
+	m_repoRoot.TrimRight('/');
 	CString url = svn.GetURLFromPath(svnPath);
-	CString sUUID = svn.GetUUIDFromPath(svnPath);
-	m_URLCombo.SetURLHistory(TRUE);
-	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
+	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoPaths\\")+sUUID, _T("url"));
 	m_URLCombo.SetCurSel(0);
-
 	if (!url.IsEmpty())
 	{
-		m_path = url;
-		m_URLCombo.AddString(CTSVNPath(url).GetUIPathString(), 0);
-		m_URLCombo.SelectString(-1, CTSVNPath(url).GetUIPathString());
-		m_URL = m_path;
+		CString relPath = url.Mid(m_repoRoot.GetLength());
+		CTSVNPath r = CTSVNPath(relPath);
+		relPath = r.GetUIPathString();
+		relPath.Replace('\\', '/');
+		m_URLCombo.AddString(relPath, 0);
+		m_URLCombo.SelectString(-1, relPath);
+		m_URL = url;
+
+		SetDlgItemText(IDC_DESTURL, CPathUtils::CombineUrls(m_repoRoot, relPath));
 	}
-	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
 	if (m_sTitle.IsEmpty())
 		GetWindowText(m_sTitle);
@@ -112,6 +117,8 @@ BOOL CSwitchDlg::OnInitDialog()
 	AddAnchor(IDC_URLLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BROWSE, TOP_RIGHT);
+	AddAnchor(IDC_DESTLABEL, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_DESTURL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_REVGROUP, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_REVISION_HEAD, TOP_LEFT);
 	AddAnchor(IDC_REVISION_N, TOP_LEFT);
@@ -139,7 +146,7 @@ void CSwitchDlg::OnBnClickedBrowse()
 		rev = SVNRev(m_rev);
 	if (!rev.IsValid())
 		rev = SVNRev::REV_HEAD;
-	CAppUtils::BrowseRepository(m_URLCombo, this, rev);
+	CAppUtils::BrowseRepository(m_repoRoot, m_URLCombo, this, rev);
 	SetRevision(rev);
 }
 
@@ -161,13 +168,8 @@ void CSwitchDlg::OnOK()
 	}
 
 	m_URLCombo.SaveHistory();
-	m_URL = m_URLCombo.GetString();
+	m_URL = CPathUtils::CombineUrls(m_repoRoot, m_URLCombo.GetString());
 
-	if (m_URL.IsEmpty())
-	{
-		ShowBalloon(IDC_URLCOMBO, IDS_ERR_MUSTBEURL);
-		return;
-	}
 	UpdateData(FALSE);
 	CResizableStandAloneDialog::OnOK();
 }
@@ -203,7 +205,7 @@ void CSwitchDlg::OnBnClickedLog()
 	UpdateData(TRUE);
 	if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
 		return;
-	m_URL = m_URLCombo.GetString();
+	m_URL = CPathUtils::CombineUrls(m_repoRoot, m_URLCombo.GetString());
 	if (!m_URL.IsEmpty())
 	{
 		delete m_pLogDlg;
@@ -252,5 +254,5 @@ void CSwitchDlg::OnSizing(UINT fwSide, LPRECT pRect)
 
 void CSwitchDlg::OnCbnEditchangeUrlcombo()
 {
-	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
+	SetDlgItemText(IDC_DESTURL, CPathUtils::CombineUrls(m_repoRoot, m_URLCombo.GetWindowString()));
 }
