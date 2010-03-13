@@ -844,6 +844,53 @@ bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start
 	return bFoundMarker;
 }
 
+bool CAppUtils::BrowseRepository(const CString& repoRoot, CHistoryCombo& combo, CWnd * pParent, SVNRev& rev)
+{
+	CString strUrl;
+	combo.GetWindowText(strUrl);
+	strUrl.Replace('\\', '/');
+	strUrl.Replace(_T("%"), _T("%25"));
+	strUrl.TrimLeft('/');
+
+	CString trimmedRoot = repoRoot;
+	trimmedRoot.TrimRight('/');
+
+	strUrl = trimmedRoot + _T("/") + strUrl;
+
+	if (strUrl.Left(7) == _T("file://"))
+	{
+		// browse repository - show repository browser
+		SVN::preparePath(strUrl);
+		CRepositoryBrowser browser(strUrl, rev, pParent);
+		if (browser.DoModal() == IDOK)
+		{
+			combo.SetCurSel(-1);
+			combo.SetWindowText(browser.GetPath().Mid(repoRoot.GetLength()));
+			combo.SetFocus();
+			rev = browser.GetRevision();
+			return true;
+		}
+	}
+	else if ((strUrl.Left(7) == _T("http://")
+		||(strUrl.Left(8) == _T("https://"))
+		||(strUrl.Left(6) == _T("svn://"))
+		||(strUrl.Left(4) == _T("svn+"))) && strUrl.GetLength() > 6)
+	{
+		// browse repository - show repository browser
+		CRepositoryBrowser browser(strUrl, rev, pParent);
+		if (browser.DoModal() == IDOK)
+		{
+			combo.SetCurSel(-1);
+			combo.SetWindowText(browser.GetPath().Mid(repoRoot.GetLength()));
+			combo.SetFocus();
+			rev = browser.GetRevision();
+			return true;
+		}
+	}
+	combo.SetFocus();
+	return false;
+}
+
 bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev, bool multiSelection)
 {
 	CString strURLs;

@@ -171,6 +171,7 @@ public:
 	static bool FindStyleChars(const CString& sText, TCHAR stylechar, int& start, int& end);
 
 	static bool BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev, bool multiSelection = false);
+	static bool BrowseRepository(const CString& repoRoot, CHistoryCombo& combo, CWnd * pParent, SVNRev& rev);
 
 	static bool FileOpenSave(CString& path, int * filterindex, UINT title, UINT filter, bool bOpen, HWND hwndOwner = NULL);
 
