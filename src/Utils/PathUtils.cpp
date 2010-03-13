@@ -646,6 +646,13 @@ CString CPathUtils::PathPatternUnEscape(const CString& path)
 	return result;
 }
 
+CString CPathUtils::CombineUrls(CString first, CString second)
+{
+	first.TrimRight('/');
+	second.TrimLeft('/');
+	return first + _T("/") + second;
+}
+
 #endif
 
 #if defined(_DEBUG) && defined(_MFC_VER)

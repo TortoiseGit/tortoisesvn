@@ -129,6 +129,11 @@ public:
 	 */
 	static CString GetVersionFromFile(const CString & p_strDateiname);
 
+	/**
+	 * Combines two url parts, taking care of slashes.
+	 */
+	static CString CombineUrls(CString first, CString second);
+
 private:
 	static bool DoesPercentNeedEscaping(LPCSTR str);
 #endif
