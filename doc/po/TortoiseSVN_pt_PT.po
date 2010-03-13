@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-13 01:42-0000\n"
+"PO-Revision-Date: 2010-03-13 02:00-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5920,7 +5920,7 @@ msgstr "No Subversion 1.6 não é possível remover um ficheiro externo da tua c
 
 #. (title)
 msgid "Branching / Tagging"
-msgstr "Ramificação/Marcação"
+msgstr "Ramificando/Etiquetando"
 
 #. (primary)
 #. (primary)
@@ -5933,15 +5933,15 @@ msgstr "marcar versão"
 
 #. (para)
 msgid "One of the features of version control systems is the ability to isolate changes onto a separate line of development. This line is known as a <firstterm>branch</firstterm>. Branches are often used to try out new features without disturbing the main line of development with compiler errors and bugs. As soon as the new feature is stable enough then the development branch is <firstterm>merged</firstterm> back into the main branch (trunk)."
-msgstr ""
+msgstr "Uma das funcionalidades dos systemas de controlo de versões, é a sua capacidade para isolar alterações em linhas de desenvolvimento separadas. Esta linha é conhecida como um <firstterm>ramo</firstterm>. Ramos são com frequência usados para experimentar novas funcionalidades, sem perturbar a linha principal de desenvolvimento com erros de compilador e bugs. Assim que a nova funcionalidade está suficientemente estável, então o ramo de desenvolvimento é  <firstterm>integrado</firstterm> de volta para o ramo principal (trunk)."
 
 #. (para)
 msgid "Another feature of version control systems is the ability to mark particular revisions (e.g. a release version), so you can at any time recreate a certain build or environment. This process is known as <firstterm>tagging</firstterm>."
-msgstr ""
+msgstr "Outra funcionalidade dos sistemas de controlo de vcersões, é a sua capacidade para marcar revisões particulares (e.g. uma versão de entrega), para que possas a qualquer altura recrear uma certa construção ou ambiente. Este processo é conhecido como <firstterm>etiquetagem</firstterm>."
 
 #. (para)
 msgid "Subversion does not have special commands for branching or tagging, but uses so-called <quote>cheap copies</quote> instead. Cheap copies are similar to hard links in Unix, which means that instead of making a complete copy in the repository, an internal link is created, pointing to a specific tree/revision. As a result branches and tags are very quick to create, and take up almost no extra space in the repository."
-msgstr ""
+msgstr "O Subversion não tem comandos especiais para ramificar ou etiquetar, mas em alternativa usa a chamada <quote>cópia barata</quote>. Cópias baratas são semelhantes aos hard links no linux, o que significa que, em vez de efectuar uma cópia completa no repositório, uma ligação interna é criada apontando para a árvore/revisão específica. Como resultado ramos e etiquetas são rápidas a criar e não ocupam praticamente nenhum espaço extra no repositório."
 
 #. (title)
 msgid "Creating a Branch or Tag"
