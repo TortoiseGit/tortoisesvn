@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -324,7 +324,7 @@ CString CHistoryCombo::GetString() const
 		GetWindowText(str);
 		return str;
 	}
-	if ((m_bURLHistory)||(m_bPathHistory))
+	if ((m_bURLHistory)||(m_bPathHistory)||(GetStyle()&CBS_DROPDOWNLIST))
 	{
 		//URL and path history combo boxes are editable, so get
 		//the string directly from the combobox
@@ -333,6 +333,13 @@ CString CHistoryCombo::GetString() const
 		return str;
 	}
 	return m_arEntries.GetAt(sel);
+}
+
+CString CHistoryCombo::GetWindowString() const
+{
+	CString str;
+	GetWindowText(str);
+	return str;
 }
 
 BOOL CHistoryCombo::RemoveSelectedItem()
@@ -538,4 +545,3 @@ int CHistoryCombo::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	return 0;
 }
-

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoioseSVN
+// Copyright (C) 2003-2008, 2010 - TortoioseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -111,6 +111,11 @@ public:
 	 */
 	CString GetString() const;
 
+	/**
+	 * Returns the string in the combobox which is shown in the edit control.
+	 */
+	CString GetWindowString() const;
+
 protected:
 	/**
 	 * Will be called whenever the return key is pressed while the
@@ -140,6 +145,5 @@ protected:
 	BOOL			m_ttShown;
 	BOOL			m_bDyn;
 };
-
 
 
