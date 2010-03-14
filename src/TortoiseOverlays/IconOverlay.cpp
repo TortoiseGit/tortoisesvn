@@ -20,6 +20,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 	// shortcut (arrow) overlay isn't listed there).
 	// The following overlays must be accounted for but are not listed under ShellIconOverlayIdentifiers:
 	// * Shortcut arrow
+	// * gray X (black dot on XP) for archived files
 	// * Shared Hand (Windows XP only)
 	// * UAC shield (Windows Vista+ only)
 	//
