@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-14 01:34-0000\n"
+"PO-Revision-Date: 2010-03-14 01:59-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6081,7 +6081,7 @@ msgstr "Apesar de o próprio Subversion não fazer distinção entre etiquetas e
 
 #. (title)
 msgid "Merging"
-msgstr "A integrar"
+msgstr "Integrar"
 
 #. (primary)
 #. (primary)
@@ -6092,35 +6092,35 @@ msgstr "integrar"
 
 #. (para)
 msgid "Where branches are used to maintain separate lines of development, at some stage you will want to merge the changes made on one branch back into the trunk, or vice versa."
-msgstr ""
+msgstr "Quando ramos são utilizados para manter linhas de desenvolvimento separadas, em alguma altura tu quererás integrar as alterações, que efectuaste num ramo, de volta para o trunk, ou vice-versa."
 
 #. (para)
 msgid "It is important to understand how branching and merging works in Subversion before you start using it, as it can become quite complex. It is highly recommended that you read the chapter <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.branchmerge.html\"><citetitle>Branching and Merging</citetitle></ulink> in the Subversion book, which gives a full description and many examples of how it is used."
-msgstr ""
+msgstr "É importante perceber como funciona no Subversion o ramificar e integrar antes de começares a usá-los, pelo que se poderá tornar algo complexo. É altamente recomendado que leias o capítulo  <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.branchmerge.html\"><citetitle>Branching and Merging</citetitle></ulink> no livro do Subversion, que te dará uma descrição completa, e com muitos exemplos, de como é usado."
 
 #. (para)
 msgid "The next point to note is that merging <emphasis>always</emphasis> takes place within a working copy. If you want to merge changes <emphasis>into</emphasis> a branch, you have to have a working copy for that branch checked out, and invoke the merge wizard from that working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "O próximo ponto a anotar é que integrar toma <emphasis>sempre</emphasis> lugar na tua cópia de trabalho. Se queres integrar alterações <emphasis>num</emphasis> ramo, tens de ter uma cópia de trabalho nesse ramo e invocar o feiticeiro de integração a partir dessa cópa de trabalho,  usando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Integrar...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "In general it is a good idea to perform a merge into an unmodified working copy. If you have made other changes in your WC, commit those first. If the merge does not go as you expect, you may want to revert the changes, and the <guilabel>Revert</guilabel> command will discard <emphasis>all</emphasis> changes including any you made before the merge."
-msgstr ""
+msgstr "De modo geral é uma boa ideia executar uma integração numa cópia de trabalho não modificada. Se tens outras alterações na tua CT, submete-as primeiro. Se a integração não correr como esperavas, poderás ter de reverte-la, e o comando <guilabel>Reverter</guilabel> irá descartar <emphasis>todas</emphasis> as alterações incluindo qualquer uma que tenhas feito antes da integração."
 
 #. (para)
 msgid "There are three common use cases for merging which are handled in slightly different ways, as described below. The first page of the merge wizard asks you to select the method you need."
-msgstr ""
+msgstr "Existem três casos de utilização comuns para integrar, que são lidados de maneira ligeiramente diferente, como descrito abaixo. A primeira página do feiticeiro de integração questiona-te a selecciona o método que precisas."
 
 #. (term)
 msgid "Merge a range of revisions"
-msgstr "Integrar uma faixa de revisões"
+msgstr "Integrar uma gama de revisões"
 
 #. (para)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
-msgstr ""
+msgstr "Este método cobre o caso em que criaste uma ou mais revisões num ramo ( ou no trunk) e queres portar essas alterações para um ramo diferente."
 
 #. (para)
 msgid "What you are asking Subversion to do is this: <quote>Calculate the changes necessary to get [FROM] revision 1 of branch A [TO] revision 7 of branch A, and apply those changes to my working copy (of trunk or branch B).</quote>"
-msgstr ""
+msgstr "O que estás a pedir ao Subversion para fazer é o seguinte: <quote>Calcula as alterações necessárias para ir [DA] revisão 1 do ramo A [ATÉ] revisão 7 do ramo A, e aplica essas alterações à minha cópia de trabalho (do trunk ou ramo B).</quote>"
 
 #. (term)
 #. (title)
