@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-13 02:04-0000\n"
+"PO-Revision-Date: 2010-03-14 00:46-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5949,7 +5949,7 @@ msgstr "Criando um Ramo ou Etiqueta"
 
 #. (title)
 msgid "The Branch/Tag Dialog"
-msgstr "O diálogo de Ramificação/Marcação"
+msgstr "A Caixa de Diálogo de Ramificar/Etiquetar"
 
 #. (para)
 msgid "If you have imported your project with the recommended directory structure, creating a branch or tag version is very simple: <placeholder-1/> Select the folder in your working copy which you want to copy to a branch or tag, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branch/Tag...</guimenuitem></menuchoice>."
@@ -5963,6 +5963,11 @@ msgid ""
 "    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
 "</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
 msgstr ""
+"O URL de destino, por defeito, para o novo ramo será o URL fonte no qual a tua cópia de trabalho está baseada. Necessitarás de editar esse URL de modo a obteres o novo caminho para o teu ramo/etiqueta. Sendo assim, em vez de <screen>\n"
+"    http://svn.collab.net/repos/ProjectName/trunk\n"
+"</screen> poderás querer algo como <screen>\n"
+"    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
+"</screen> Se não te recordas da convenção de nomes que usaste na última vez, clica no botão à direita para abrir o navegador de repositório, para que possas visualizar a estrutura do repositório."
 
 #. (term)
 #. (listitem)
@@ -5971,35 +5976,35 @@ msgstr "A revisão HEAD do repositório"
 
 #. (para)
 msgid "The new branch is copied directly in the repository from the HEAD revision. No data needs to be transferred from your working copy, and the branch is created very quickly."
-msgstr ""
+msgstr "O novo ramo é copiado directamente, no repositório, a partir da revisão HEAD. Não é necessário transferir nenhuns dados da tua cópia de trabalho e, o ramo é criado muito rapidamente."
 
 #. (term)
 msgid "Specific revision in the repository"
-msgstr "Revisão especifica no repositório"
+msgstr "Revisão específica no repositório"
 
 #. (para)
 msgid "The new branch is copied directly in the repository but you can choose an older revision. This is useful if you forgot to make a tag when you released your project last week. If you can't remember the revision number, click the button on the right to show the revision log, and select the revision number from there. Again no data is transferred from your working copy, and the branch is created very quickly."
-msgstr ""
+msgstr "O novo ramo é copiado, directamente no repositório, mas podes escolher uma revisão anterior. Isto é útil se te esqueceste de fazer uma etiqueta quando fizeste uma entrega do teu projecto na semana anterior. Se não te lembras do número da revisão, clica no botão à direita para mostrar o registo de versões, e selecciona uma revisão a partir daí. Mais uma vez nenhuns dados são transferidos da tua cópia de trabalho, e o ramo é criado muito rapidamente."
 
 #. (para)
 msgid "The new branch is an identical copy of your local working copy. If you have updated some files to an older revision in your WC, or if you have made local changes, that is exactly what goes into the copy. Naturally this sort of complex tag may involve transferring data from your WC back to the repository if it does not exist there already."
-msgstr ""
+msgstr "O novo ramo é uma cópia idêntica da tua cópia de trabalho local. Se actualizaste alguns ficheiros numa versão anterior da tua CT, ou se efectuaste alterações locais. Isso é exactamente o que vai na cópia. Naturalmente este tipo de etiquetas complexas pode envolver transferências de dados da tua CT para o repositório, se este não já lá existir."
 
 #. (para)
 msgid "Now you have to select the source of the copy. Here you have three options: <placeholder-1/>"
-msgstr ""
+msgstr "Agora tens de seleccionar a fonte da cópia. Aqui tens três opções: <placeholder-1/>"
 
 #. (para)
 msgid "If you want your working copy to be switched to the newly created branch automatically, use the <guilabel>Switch working copy to new branch/tag</guilabel> checkbox. But if you do that, first make sure that your working copy does not contain modifications. If it does, those changes will be merged into the branch WC when you switch."
-msgstr ""
+msgstr "Se queres que a tua cópia de trabalho seja automaticamente trocada para o ramo recentemente criado, usa a caixa de verificação <guilabel>Trocar a cópia de trabalho para o novo ramo/etiqueta</guilabel>. Mas se o fizeres, tem primeiro a certeza de que a tua cópia de trabalho não contém alterações. Se tiver, essas alterações serão fundidas na CT do ramo, quando fizeres a troca."
 
 #. (para)
 msgid "Press <guibutton>OK</guibutton> to commit the new copy to the repository. Don't forget to supply a log message. Note that the copy is created <emphasis>inside the repository</emphasis>."
-msgstr ""
+msgstr "Prime <guibutton>OK</guibutton> para submeter a nova cópia para o repositório. Não te esqueças de introduzir uma mensagem de registo. De notar que a cópia é criada <emphasis>dentro do repositorio</emphasis>."
 
 #. (para)
 msgid "Note that unless you opted to switch your working copy to the newly created branch, creating a Branch or Tag does <emphasis>not</emphasis> affect your working copy. Even if you create the branch from your WC, those changes are committed to the new branch, not to the trunk, so your WC may still be marked as modified with respect to the trunk."
-msgstr ""
+msgstr "Ter em atenção que, a não ser que troques a tua cópia de trabalho para o ramo recentemente criado, a criação de um ramo ou etiqueta <emphasis>não</emphasis> afecta a tua cópia de trabalho. Mesmo que cries o ramo a partir da tua cópia de trabalho, essas alterações são submetidas para o novo ramo, e não para o trunk, no entanto a tua CT será ainda marcada como modificada em relação ao trunk."
 
 #. (title)
 #, fuzzy
@@ -8138,7 +8143,7 @@ msgstr ""
 
 #. (para)
 msgid "Current HEAD revision in the repository."
-msgstr ""
+msgstr "Revisão corrente HEAD no repositório."
 
 #. (term)
 msgid "WC Node"
