@@ -964,8 +964,10 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& messag
         m_LogProgress.SetPos ((int)m_logEntries.size() - m_prevLogEntriesSize);
 		if (m_pTaskbarList)
 		{
+			int l,u;
+			m_LogProgress.GetRange(l, u);
 			m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NORMAL);
-			m_pTaskbarList->SetProgressValue(m_hWnd, m_logEntries.size() - m_prevLogEntriesSize, m_limit);
+			m_pTaskbarList->SetProgressValue(m_hWnd, m_logEntries.size() - m_prevLogEntriesSize - l, u);
 		}
 	}
 	else if (m_startrev.IsNumber() && m_endrev.IsNumber())
@@ -977,8 +979,10 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& messag
 		    m_LogProgress.SetPos((svn_revnum_t)m_startrev-rev+(svn_revnum_t)m_endrev);
 			if (m_pTaskbarList)
 			{
+				int l,u;
+				m_LogProgress.GetRange(l, u);
 				m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NORMAL);
-				m_pTaskbarList->SetProgressValue(m_hWnd, rev, (svn_revnum_t)m_endrev-(svn_revnum_t)m_startrev);
+				m_pTaskbarList->SetProgressValue(m_hWnd, (svn_revnum_t)m_startrev-rev+(svn_revnum_t)m_endrev-l, u);
 			}
         }
     }
@@ -2056,6 +2060,15 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
 				}
 			}
 			progDlg.SetProgress64(i, logs.size());
+
+			{
+				MSG       msg;
+				if (PeekMessage (&msg, NULL, 0, 0,PM_REMOVE))
+				{
+					TranslateMessage (&msg);
+					DispatchMessage (&msg);
+				}
+			}
 		}
 		progDlg.Stop();
 		}
