@@ -74,6 +74,13 @@ You only have to do this once.
 - tools collection            http://tortoisesvn.tigris.org/files/documents/406/42347/Tools-1.5.zip
 - dictionaries/thesauri(\b Optional) http://lingucomponent.openoffice.org/
 
+\subsection Requirements4 Finally, you may need to install some fonts.
+- Arabic(\b Optional)         http://www7.bev.net/civic/icb/quran/Iqraa_ttf.zip
+- Japanese(\b Optional)       msgothic.ttc and msmincho.ttc should be available
+                              if you activate support for international fonts in your OS.
+- Chinese(\b Optional)        simhei.ttf and simsun.httf should be available
+                              if you activate support for international fonts in your OS.
+
 \section Preparations Preparations
 
 Now you're almost ready. Only a few more steps to do:
@@ -99,6 +106,8 @@ Now you're almost ready. Only a few more steps to do:
 - Make a copy of the file doc\doc.build.user.tmpl and rename that copy to 
   doc\doc.build.user. Then adjust the paths in that file according to your
   setup.
+- Unzip (if necessary) and copy the font files into %WINDIR%\Fonts. 
+  You will need them only if you are building the respective language packs.
 
 
 \section build32 Building 32 bit packages
