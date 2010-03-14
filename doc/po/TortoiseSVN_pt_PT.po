@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-14 00:46-0000\n"
+"PO-Revision-Date: 2010-03-14 01:34-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6025,7 +6025,7 @@ msgstr ""
 
 #. (title)
 msgid "To Checkout or to Switch..."
-msgstr ""
+msgstr "SVN Exportar ou Trocar..."
 
 #. (primary)
 msgid "switch"
@@ -6033,51 +6033,51 @@ msgstr ""
 
 #. (para)
 msgid "...that is (not really) the question. While a checkout downloads everything from the desired branch in the repository to your working directory, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice> only transfers the changed data to your working copy. Good for the network load, good for your patience. :-)"
-msgstr ""
+msgstr "...essa não é (realmente) a questão. Enquanto um SVN exportar descarrega tudo a partir de um ramo do repositório para a tua cópia de trabalho, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Trocar...</guimenuitem></menuchoice> apenas transfere os dados alterados, para a tua cópia de trabalho. Óptimo para a carga na tua rede e bom para a tua paciência. :-)"
 
 #. (para)
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> to make a fresh checkout in an empty folder. You can check out to any location on your local disk and you can create as many working copies from your repository as you like."
-msgstr ""
+msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>SVN Exportar</guimenuitem></menuchoice> para criares uma versão exportada de fresco numa pasta vazia. Podes SVN exportar para qualquer localização no teu disco e, podes criar quantas cópias de trabalho, a partir do teu repositório, que desejes."
 
 #. (para)
 msgid "Switch your current working copy to the newly created copy in the repository. Again select the top level folder of your project and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice> from the context menu."
-msgstr ""
+msgstr "Trocar a tua cópia de trabalho corrente para a cópia recentemente criada no repositório. Mais uma vez selecciona a pasta de topo do teu projecto e usa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Trocar...</guimenuitem></menuchoice> a partir do menu de contexto."
 
 #. (para)
 msgid "In the next dialog enter the URL of the branch you just created. Select the <guilabel>Head Revision</guilabel> radio button and click on <guibutton>OK</guibutton>. Your working copy is switched to the new branch/tag."
-msgstr ""
+msgstr "Na próxima caixa de diálogo, insere o URL do ramo que acabaste de criar. Selecciona a botão de rádio <guilabel>Revisão Head</guilabel> e clica no <guibutton>OK</guibutton>. A tua cópia de trabalho é trocada para o novo ramo/etiqueta."
 
 #. (para)
 msgid "Switch works just like Update in that it never discards your local changes. Any changes you have made to your working copy which have not yet been committed will be merged when you do the Switch. If you do not want this to happen then you must either commit the changes before switching, or revert your working copy to an already-committed revision (typically HEAD)."
-msgstr ""
+msgstr "O Trocar funciona tal como Actualizar, na forma em que nunca descarta as tuas alterações locais. Quaisquer alterações que tenhas feito na tua cópia de trabalho, que nunca tenhas submetido, serão integradas quando efectuares a troca. Se não quiseres que isto aconteça, deverás submeter as alterações antes da troca ou reverter a tua cópia de trabalho para uma versão já submetida (HEAD tipicamente)."
 
 #. (para)
 msgid "If you want to work on trunk and branch, but don't want the expense of a fresh checkout, you can use Windows Explorer to make a copy of your trunk checkout in another folder, then <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice> that copy to your new branch."
-msgstr ""
+msgstr "Se queres trabalhar no trunk e no ramo, mas não queres o custo de uma versão SVN exportada de fresco, poderás usar o Explorador do Windows para efectuar a cópia do teu trunk exportado para outra pasta e, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Trocar...</guimenuitem></menuchoice> essa cópia para o teu novo ramo."
 
 #. (title)
 msgid "The Switch Dialog"
-msgstr "O Diálogo de Alternar"
+msgstr "A Caixa de Diálogo Trocar"
 
 #. (para)
 msgid "To be able to work with your freshly generated branch or tag you have several ways to handle it. You can: <placeholder-1/><placeholder-2/>"
-msgstr ""
+msgstr "Para poderes trabalhar com o teu ramo ou etiqueta criado de fresco tens várias opções:  <placeholder-1/><placeholder-2/>"
 
 #. (para)
 msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they are not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
-msgstr ""
+msgstr "Etiquetas são usadas tipicamente para criar uma fotografia do projecto num patamar particular. Sendo que elas não são normalmente usadas em desenvolvimento - é para isso que existem os ramos, esta é a razão pela qual recomendamos, em primeiro lugar, a estrutura de repositório  <filename>/trunk /branches /tags</filename>. Trabalhar numa revisão de etiqueta <emphasis>não é uma boa ideia </emphasis>, mas como os teus ficheiros não estão protegidos contra escrita, não existe nada que te impeça de o fazer por engano. No entanto, se tentares submeter para um caminho no repositório que contenha <filename>/tags/</filename>, o TortoiseSVN irá-te avisar."
 
 #. (para)
 msgid "It may be that you need to make further changes to a release which you have already tagged. The correct way to handle this is to create a new branch from the tag first and commit the branch. Do your Changes on this branch and then create a new tag from this new branch, e.g. <filename>Version_1.0.1</filename>."
-msgstr ""
+msgstr "Poderá ser que necessites de efectuar alterações posteriores numa entrega que tenha sido já etiquetada. A maneira correcta para lidar com isto é criar um novo ramo a partir da etiqueta e submeter o mesmo. Efectua as tuas Alterações nesse ramo e então cria uma nova etiqueta a partir deste ramo, e.g. <filename>Version_1.0.1</filename>."
 
 #. (para)
 msgid "If you modify a working copy created from a branch and commit, then all changes go to the new branch and <emphasis>not</emphasis> the trunk. Only the modifications are stored. The rest remains a cheap copy."
-msgstr ""
+msgstr "Se modificares a cópia de trabalho criada a partir de um ramo, e submeteres, então todas as alterações irão para o novo ramo e <emphasis>não</emphasis> para o trunk. Só as modificações são armazenadas, o resto permanece como cópia barata."
 
 #. (para)
 msgid "Although Subversion itself makes no distinction between tags and branches, the way they are typically used differs a bit. <placeholder-1/>"
-msgstr ""
+msgstr "Apesar de o próprio Subversion não fazer distinção entre etiquetas e ramos, a maneira como eles tipicamente são usados difere um pouco. <placeholder-1/>"
 
 #. (title)
 msgid "Merging"
