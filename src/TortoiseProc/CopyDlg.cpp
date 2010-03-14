@@ -519,7 +519,7 @@ LPARAM CCopyDlg::OnRevFound(WPARAM /*wParam*/, LPARAM /*lParam*/)
 				// the working copy has local modifications.
 				// show a warning balloon if the user has selected HEAD as the
 				// source revision
-				ShowBalloon(IDC_COPYHEAD, IDS_WARN_COPYHEADWITHLOCALMODS);
+				m_tooltips.ShowBalloon(IDC_COPYHEAD, IDS_WARN_COPYHEADWITHLOCALMODS, IDS_WARN_WARNING, TTI_WARNING);
 			}
 			else
 			{
