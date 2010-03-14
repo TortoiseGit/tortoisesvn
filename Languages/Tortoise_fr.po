@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-12 10:08-0000\n"
+"PO-Revision-Date: 2010-03-14 20:49-0000\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1089,6 +1089,16 @@ msgstr "&Vers l'URL :"
 #. Resource IDs: (1305)
 msgid "&To URL: "
 msgstr "&Vers l'URL : "
+
+#. Resource IDs: (1384)
+#, fuzzy
+msgid "&To path:"
+msgstr "chemins:"
+
+#. Resource IDs: (1305)
+#, fuzzy
+msgid "&To path: "
+msgstr "chemins:"
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
@@ -3204,7 +3214,7 @@ msgstr "Profondeur"
 
 #. Resource IDs: (65535)
 msgid "Depth:"
-msgstr "Complexité :"
+msgstr "Profondeur:"
 
 #. Resource IDs: (1002)
 msgid "Description"
@@ -3217,6 +3227,10 @@ msgstr "Description:"
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "Désélectionner la liste de changement"
+
+#. Resource IDs: (1547)
+msgid "Destination URL:"
+msgstr "URL destination:"
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
@@ -8185,6 +8199,11 @@ msgstr "Changer %s vers %s, Révision %s"
 #. Resource IDs: (78)
 msgid "Switch - TortoiseSVN"
 msgstr "Aller sur - TortoiseSVN"
+
+#. Resource IDs: (1377)
+#, fuzzy
+msgid "Switch Depth"
+msgstr "Changer Gauche<->Droite"
 
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"

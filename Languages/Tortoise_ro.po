@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-09 22:33-0000\n"
+"PO-Revision-Date: 2010-03-14 20:47-0000\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1095,6 +1095,14 @@ msgstr "&La URL:"
 #. Resource IDs: (1305)
 msgid "&To URL: "
 msgstr "&La URL:"
+
+#. Resource IDs: (1384)
+msgid "&To path:"
+msgstr "&La calea:"
+
+#. Resource IDs: (1305)
+msgid "&To path: "
+msgstr "&La calea:"
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
@@ -3208,11 +3216,11 @@ msgstr "Se şterge fișierul"
 
 #. Resource IDs: (207)
 msgid "Depth"
-msgstr "Adâncime"
+msgstr "Profunzime"
 
 #. Resource IDs: (65535)
 msgid "Depth:"
-msgstr "Adâncime:"
+msgstr "Profunzime:"
 
 #. Resource IDs: (1002)
 msgid "Description"
@@ -3225,6 +3233,10 @@ msgstr "Descriere:"
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "Deselectează lista de schimbări"
+
+#. Resource IDs: (1547)
+msgid "Destination URL:"
+msgstr "URL destinatar"
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
@@ -5435,7 +5447,7 @@ msgstr "Îmbină"
 
 #. Resource IDs: (1488)
 msgid "Merge &depth:"
-msgstr "&Adâncimea îmbinării:"
+msgstr "&Profunzimea îmbinării:"
 
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
@@ -8183,6 +8195,10 @@ msgstr "Comută %s cu %s, revizia %s"
 msgid "Switch - TortoiseSVN"
 msgstr "Comutare - TortoiseSVN"
 
+#. Resource IDs: (1377)
+msgid "Switch Depth"
+msgstr "Comută profunzimea"
+
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
 msgstr "Comută stângă<->dreaptă"
@@ -9296,7 +9312,7 @@ msgstr ""
 
 #. Resource IDs: (20)
 msgid "Unknown depth"
-msgstr "Adâncime necunoscută"
+msgstr "Profunzime necunoscută"
 
 #. Resource IDs: (106)
 msgid "Unknown failure in SVN::List"
@@ -9361,7 +9377,7 @@ msgstr "Actualizare - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"
-msgstr "Adâncimea Actualizării"
+msgstr "Profunzimea actualizării"
 
 #. Resource IDs: (275)
 msgid "Update WC to revision"
