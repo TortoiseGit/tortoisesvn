@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008 - TortoiseSVN
+// Copyright (C) 2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -48,6 +48,9 @@ public:
 	void AddTool(int nIdWnd, UINT nIdText, LPCRECT lpRectTool = NULL, UINT_PTR nIDTool = 0);
 	void AddTool(int nIdWnd, CString sBalloonTipText, LPCRECT lpRectTool = NULL, UINT_PTR nIDTool = 0);
 
+	static BOOL ShowBalloon(CWnd* pWnd, UINT nIDText, UINT nIDTitle, UINT icon = 0);
+	void ShowBalloon(int nIdWnd, UINT nIdText, UINT nIDTitle, UINT icon = 0);
+
 	DECLARE_MESSAGE_MAP()
 	afx_msg BOOL OnTtnNeedText(NMHDR *pNMHDR, LRESULT *pResult);
 
@@ -55,7 +58,6 @@ private:
 	CWnd *	m_pParentWnd;
 	std::map<UINT, CString>		toolTextMap;
 };
-
 
 
 
