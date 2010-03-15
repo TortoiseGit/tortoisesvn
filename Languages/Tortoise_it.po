@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-12 10:01-0000\n"
+"PO-Revision-Date: 2010-03-15 11:45-0000\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2525,9 +2525,9 @@ msgid "Commits by date"
 msgstr "Invii per data"
 
 #. Resource IDs: (247)
-#, fuzzy, c-format
+#, c-format
 msgid "Commits each %s"
-msgstr "Invia ogni settimana:"
+msgstr "Invia ogni %s:"
 
 #. Resource IDs: (1135)
 msgid "Commits each week:"
@@ -3925,9 +3925,9 @@ msgid "File"
 msgstr "File"
 
 #. Resource IDs: (247)
-#, fuzzy, c-format
+#, c-format
 msgid "File changes each %s"
-msgstr "Cambiamenti nei file ogni settimana:"
+msgstr "Cambiamenti nei file ogni %s:"
 
 #. Resource IDs: (1138)
 msgid "File changes each week:"
@@ -4322,9 +4322,8 @@ msgid "Group changelists"
 msgstr "Raggruppa lista delle modifiche"
 
 #. Resource IDs: (1032)
-#, fuzzy
 msgid "H&EAD Revision"
-msgstr "Revisione di &testa"
+msgstr "Revisione di t&esta"
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
@@ -4758,7 +4757,6 @@ msgid "Ignore &ancestry"
 msgstr "Ignor&a discendenza"
 
 #. Resource IDs: (32873)
-#, fuzzy
 msgid "Ignore all whitespace changes"
 msgstr "Ignora cambiamenti nelle spaziature"
 
@@ -4767,9 +4765,8 @@ msgid "Ignore all whitespaces"
 msgstr "Ignora tutti gli spazi"
 
 #. Resource IDs: (1067)
-#, fuzzy
 msgid "Ignore case cha&nges"
-msgstr "Ignora &cambiamenti tra maiuscole/minuscole"
+msgstr "Ig&nora cambiamenti tra maiuscole/minuscole"
 
 #. Resource IDs: (1126)
 msgid "Ignore line &endings"
@@ -5776,9 +5773,8 @@ msgid "New name:"
 msgstr "Nuovo nome:"
 
 #. Resource IDs: (32875)
-#, fuzzy
 msgid "Next &Inline Difference"
-msgstr "Differenze all'interno delle linee"
+msgstr "D&ifferenze all'interno delle linee"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -5895,9 +5891,8 @@ msgid "Node colors"
 msgstr "Colori dei nodi"
 
 #. Resource IDs: (1507)
-#, fuzzy
 msgid "Non-versioned"
-msgstr "senza versione"
+msgstr "Senza versione"
 
 #. Resource IDs: (1271)
 msgid "None"
@@ -9187,9 +9182,8 @@ msgid "URL of Subversion items"
 msgstr "URL degli elementi di Subversion"
 
 #. Resource IDs: (1491)
-#, fuzzy
 msgid "URL to merge &from"
-msgstr "URL da cui effettuare unione"
+msgstr "URL da cui e&ffettuare unione"
 
 #. Resource IDs: (144, 11023, 65535)
 msgid "URL:"
