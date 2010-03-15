@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-15 00:23-0000\n"
+"PO-Revision-Date: 2010-03-15 22:46-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6205,19 +6205,19 @@ msgstr "Se queres remover alterações integradas, da tua cópia de trabalho, pa
 
 #. (para)
 msgid "If you have already merged some changes from this branch, hopefully you will have made a note of the last revision merged in the log message when you committed the change. In that case, you can use <guibutton>Show Log</guibutton> for the Working Copy to trace that log message. Remembering that we are thinking of revisions as changesets, you should Use the revision after the end point of the last merge as the start point for this merge. For example, if you have merged revisions 37 to 39 last time, then the start point for this merge should be revision 40."
-msgstr ""
+msgstr "Se já integraste algumas alterações deste ramo, espera-se que tenhas introduzido, uma nota da última revisão integrada, na mensagem de registo quando submeteste a alteração. Nesse caso podes usar o <guibutton>Mostrar Registo</guibutton> na cópia de trabalho para seguir essa mensagem de registo. Relembrando que estamos a pensar nas revisões como listas-de-alterações, deverás usar a revisão depois do ponto de chegada da última integração, como ponto de partida para esta integração. Por exemplo, se integraste as revisões de 37 a 39 da última vez, então o ponto de partida para esta integração deverá ser a revisão 40."
 
 #. (para)
 msgid "If you are using the merge tracking features of Subversion, you do not need to remember which revisions have already been merged - Subversion will record that for you. If you leave the revision range blank, all revisions which have not yet been merged will be included. Read <xref linkend=\"tsvn-dug-merge-tracking\"/> to find out more."
-msgstr ""
+msgstr "Se estás a usar as funcionalidades de seguimento de integração, do Subversion, não precisas de te lembrares quais as revisões que já foram integradas - o Subversion irá recordar-se disso por ti. Se deixas o intervalo de revisões em branco, todas as revisões que não foram ainda integradas serão incluídas. Consulta <xref linkend=\"tsvn-dug-merge-tracking\"/> para saberes mais. "
 
 #. (para)
 msgid "If other people may be committing changes then be careful about using the HEAD revision. It may not refer to the revision you think it does if someone else made a commit after your last update."
-msgstr ""
+msgstr "Se podem estar outras pessoas a submeter alterações então tem cuidado no uso da revisão HEAD. Poderá não se referir à revisão que estás a pensar se alguém efectuou uma submissão após a tua última actualização."
 
 #. (para)
 msgid "Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-options\"/>"
-msgstr ""
+msgstr "Clica <guibutton>Seguinte</guibutton> e segue para <xref linkend=\"tsvn-dug-merge-options\"/>"
 
 #. (secondary)
 msgid "reintegrate"
