@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-02 12:54+0200\n"
+"PO-Revision-Date: 2010-03-15 11:48+0200\n"
 "Last-Translator: Vural Goze <vuralgoze@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -340,6 +340,10 @@ msgstr "&TortoiseMerge Hakkında.."
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "&Etkinleştir"
+
+#. Resource IDs: (15)
+msgid "&Add"
+msgstr "&Ekle"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
@@ -1135,6 +1139,14 @@ msgstr "&URL ye git:"
 msgid "&To URL: "
 msgstr "&URL ye git:"
 
+#. Resource IDs: (1384)
+msgid "&To path:"
+msgstr "&Bu dizine:"
+
+#. Resource IDs: (1305)
+msgid "&To path: "
+msgstr "&Bu dizine:"
+
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "B&uraya: (bitiş URLsi ve birleştirilecek aralığın revizyonu)"
@@ -1206,6 +1218,10 @@ msgstr "&Revizyona göre güncelle..."
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "Dosya yolları ve anahtar kelimeler için otomatik-tamamlama &kullan."
+
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "Geri dönüşüm k&utusunu kullan"
 
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
@@ -2232,6 +2248,10 @@ msgstr "Değişiklik Listesi"
 msgid "Changes made (double-click on file for diff):"
 msgstr "Yapılan değişiklikler (farklılık detayları için iki kere tıklayın):"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "Hariciler sabitlenmiş versiyona güncellendi."
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "Ç&ıkar(al)..."
@@ -2247,6 +2267,10 @@ msgstr "Güncelleme ara"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Güncelleme ara..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr "Etiketlemek için haricileri kontrol et"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2845,8 +2869,8 @@ msgstr "Kopyala: %s için yeni isim"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "%s Kopyalanıyor "
+msgid "Copying %1!s!"
+msgstr "%1!s! kopyalanıyor "
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -3180,13 +3204,13 @@ msgid "Delete and &ignore %d items by name"
 msgstr "%d elemanı sil ve isme göre al&dırma"
 
 #. Resource IDs: (14)
-msgid "Delete and add to &ignore list"
-msgstr "Sil ve aldır&mama listesine ekle"
-
-#. Resource IDs: (14)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "%d kalemleri &uzantısına göre sil veya atla"
+
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "Versiyonlanmamış öğeleri sil"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3247,6 +3271,10 @@ msgstr "Açıklamalar:"
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "Değişiklik listesini seçme"
+
+#. Resource IDs: (1547)
+msgid "Destination URL:"
+msgstr "Hedef URL:"
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
@@ -3826,8 +3854,8 @@ msgstr "Versiyonlanmamış dosyaları da dışa aktar"
 
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "Dışa aktarılıyor %s"
+msgid "Exporting %1!s!"
+msgstr "Dışa aktarılıyor %1!s!"
 
 #. Resource IDs: (79)
 msgid "Exporting..."
@@ -5731,8 +5759,8 @@ msgstr "Revizyona dönmeden önce güncellenmiş dosyaları geri dönüşüm kut
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "%s Taşınıyor"
+msgid "Moving %1!s!"
+msgstr "%1!s! Taşınıyor"
 
 #. Resource IDs: (80)
 msgid "Moving..."
@@ -5841,6 +5869,10 @@ msgstr "Hata mesajı bulunamadı"
 #. Resource IDs: (3867, 3868)
 msgid "No error occurred."
 msgstr "Hata oluşmadı."
+
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "Harici bulunamadı"
 
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
@@ -6350,6 +6382,10 @@ msgstr "Iptal işlemi yapılırken lütfen bekleyiniz..."
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
 msgstr "Farklılıkları alana kadar lütfen bekleyiniz..."
+
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "Hariciler alınana kadar lütfen bekleyiniz..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -7697,6 +7733,10 @@ msgstr "Şeritin Üstünde Göster"
 msgid "Show Below the Ribbon"
 msgstr "Şeritin Altında Göster"
 
+#. Resource IDs: (1542)
+msgid "Show Branch L&og"
+msgstr "&Dal Günlüğünü Göster"
+
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
 msgstr "Daha Az Düğme Göster"
@@ -8198,6 +8238,10 @@ msgstr "%s'i %s'e dönüştür,Revizyon %s"
 #. Resource IDs: (78)
 msgid "Switch - TortoiseSVN"
 msgstr "Değiştir - TortoiseSVN"
+
+#. Resource IDs: (1377)
+msgid "Switch Depth"
+msgstr "Değiştirme Derinliği"
 
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
@@ -9089,6 +9133,10 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "TortoiseSVN otomatik teslim etme: hariciler sabitlenmiş versiyona güncellendi."
+
 #. Resource IDs: (98)
 #, c-format
 msgid ""
@@ -9341,14 +9389,18 @@ msgstr ""
 msgid "Unversion"
 msgstr "Versiyonu Kaldır"
 
+#. Resource IDs: (14)
+msgid "Unversion and add to &ignore list"
+msgstr "Versiyonu kaldır ve aldır&mama listesine ekle"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Versiyonlanmamış dosyalar içinde bulundukları klasörü değiştirildi diye işaretlerler"
 
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "Versiyon kaldırılıyor: %s"
+msgid "Unversioning %1!s!"
+msgstr "Versiyon kaldırılıyor: %1!s!"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -10678,6 +10730,11 @@ msgstr "çakışan değişiklikler var."
 msgid "to %1"
 msgstr "%1 a"
 
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr "%1!s! a"
+
 #. Resource IDs: (80, 103, 284)
 #, c-format
 msgid "to %s"
@@ -10861,27 +10918,35 @@ msgstr "{HataTakibi}"
 
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Yazar:                                    Stefan Kueng"
+
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Otomatik olarak haftada bir yeni& güncelleme kontrolü yap"
+
 #~ msgid ""
 #~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
 #~ msgstr ""
 #~ "İşaretlendiğinde, TortoiseSVN haftada bir kere yeni bir güncellemenin "
 #~ "olup olmadığını kontrol eder."
+
 #~ msgid "Edit conflict"
 #~ msgstr "Çakışmaları düzenle"
+
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "İlişkisi olmayan değiştirilmiş dizinleri s&akla"
+
 #~ msgid "Unversioned"
 #~ msgstr "Versiyonlanmamış"
+
 #~ msgid "From URL:"
 #~ msgstr "URL den:"
+
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
 #~ msgstr ""
 #~ "Depo indirme adresi bir dosyaya karşılık geliyor\n"
 #~ "ancak bu çalışan kopya yolu zaten varolan bir dizin."
+
 #~ msgid "Cleaning up."
 #~ msgstr "Temizleniyor."
 
@@ -10892,10 +10957,13 @@ msgstr "{HataTakibi}"
 #, fuzzy
 #~ msgid "Show i&gnored files"
 #~ msgstr "Aldırılmayan dosyaların listesini göster"
+
 #~ msgid "Show un&modified files"
 #~ msgstr "&Modifiye edilmemiş dosyaları göster"
+
 #~ msgid "Show un&versioned files"
 #~ msgstr "&Versiyonusuz dosyaları göster"
+
 #~ msgid ""
 #~ "Subversion encountered a serious problem.\n"
 #~ "Please take the time to report this on our mailing list\n"
@@ -10909,8 +10977,10 @@ msgstr "{HataTakibi}"
 #~ "ne yapmaya çalıştığınıza dair mümkün olduğu kadar bilgi içerecek\n"
 #~ "şekilde rapor etmek için zamanınızı ayırın.\n"
 #~ "Subversion şunları rapor etti:"
+
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Disket sürücüleri (A: B:)"
+
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
@@ -10925,62 +10995,89 @@ msgstr "{HataTakibi}"
 #~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
 #~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
 #~ "be590feaa05a&DisplayLang=en</a></u>"
+
 #~ msgid "Go offline?"
 #~ msgstr "çevrimdışı ol?"
+
 #~ msgid "Replaced node"
 #~ msgstr "Değiştirilmiş düğüm"
+
 #~ msgid "(deleted) %s"
 #~ msgstr "(silindi) %s"
+
 #~ msgid "alias (deleted): %s"
 #~ msgstr "takma ad (silindi): %s"
+
 #~ msgid "%1 contains an invalid path."
 #~ msgstr "%1 geçersiz dizin içermekte."
+
 #~ msgid "&Berkeley database (BDB)"
 #~ msgstr "&Berkeley veritabanı (BDB)"
+
 #~ msgid "&Dry run"
 #~ msgstr "&Deneme "
+
 #~ msgid "&Native filesystem (FSFS)"
 #~ msgstr "&Yerel dosya sistemi (FSFS)"
+
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "&Aç Ctrl-O"
+
 #~ msgid "&Save Ctrl-S"
 #~ msgstr "&Kaydet Ctrl-S"
+
 #~ msgid "&Undo\tCtrl+Z"
 #~ msgstr "&Geri al\tCtrl+Z"
+
 #~ msgid "(dry run)"
 #~ msgstr "(deneme)"
+
 #~ msgid "An invalid argument was encountered."
 #~ msgstr "Geçersiz bir komut ile karşılaşıldı."
+
 #~ msgid "Analyze revision data..."
 #~ msgstr "Revizyon verilerini analiz et..."
+
 #~ msgid "Arranged by &path"
 #~ msgstr "&Dizine göre sıralandı"
+
 #~ msgid "Arranges the nodes sorted by path"
 #~ msgstr "Düğümleri dizinlerine göre düzenler"
+
 #~ msgid "Bro&wse..."
 #~ msgstr "İnc&ele..."
+
 #~ msgid "Brows&e..."
 #~ msgstr "İnce&le..."
+
 #~ msgid "Checking for forward copies"
 #~ msgstr "İleri kopyaların var olup olmadığını kotrol ediliyor"
+
 #~ msgid "Cleanup has finished"
 #~ msgstr "Temizlik bitmiştir"
+
 #~ msgid "Commit threshold:"
 #~ msgstr "Teslim etme eşiği:"
+
 #~ msgid "D&iff"
 #~ msgstr "&Karşılaştırma"
+
 #~ msgid "Diff With URL"
 #~ msgstr "URL'ye göre karşılaştırma"
+
 #~ msgid ""
 #~ "Do you want to reload the documents?\n"
 #~ "You will lose all changes you've made!"
 #~ msgstr ""
-#~ "Dokümanları tekrar yüklemek istiyormusunuz?\n"
+#~ "Dokümanları tekrar yüklemek istiyor musunuz?\n"
 #~ "Not: Kayıt etmediyseniz yaptığınız değişiklikler silinir!"
+
 #~ msgid "Documentation - Simon Large"
 #~ msgstr "Dökümantasyon - Simon Large"
+
 #~ msgid "Enable &accelerators on the top level menu"
 #~ msgstr "En üst menülerde &hızlandırıcıları çalıştır"
+
 #~ msgid ""
 #~ "Enable this if you want keyboard accelerators on the top level context "
 #~ "menu too.\n"
@@ -10988,8 +11085,10 @@ msgstr "{HataTakibi}"
 #~ msgstr ""
 #~ "Üst içerik menüsunde de tuş kısaltmalarını kullanmak için işaretleyiniz.\n"
 #~ "Not: İçerik menüsü simgeleri bu işaretli değilken daha güzel gözükür."
+
 #~ msgid "Fetch &status for context menu"
 #~ msgstr "İçerik menüsünde dosyaların du&rumunu göster"
+
 #~ msgid ""
 #~ "If disabled, then the context menu will show up faster.\n"
 #~ "But some context menu entries will show up which can't really be used.\n"
@@ -10998,24 +11097,34 @@ msgstr "{HataTakibi}"
 #~ "İşaretlenmediğinde, içerik menüsü daha hizli gösterilecektir.\n"
 #~ "Ama gerçekte kullanılamayan içerik menüsü elemenları da gösterilecektir.\n"
 #~ "Örneğin: \"Günlüğü göster\" elemanı klasörlerde dahil gösterilecektir."
+
 #~ msgid "Look and Feel"
 #~ msgstr "Görünüş Ayarları"
+
 #~ msgid "Look and Feel::Colors"
 #~ msgstr "Görünüş Ayarları::Renk Ayarları"
+
 #~ msgid "Only update the &top folder"
 #~ msgstr "Sadece &üst klasörü güncelle"
+
 #~ msgid "Remove..."
 #~ msgstr "Kaldır..."
+
 #~ msgid "Repository browser"
 #~ msgstr "Depo tarayıcısı"
+
 #~ msgid "SVN Export to here"
 #~ msgstr "SVN Buraya Export et"
+
 #~ msgid "Show &differences"
 #~ msgstr "Tüm değ&işiklikleri göster"
+
 #~ msgid "Sort numerical"
 #~ msgstr "Nümerik sıralama"
+
 #~ msgid "Specify the revision range which you want to merge:"
 #~ msgstr "Birleştirmek istediğiniz revizyon aralığını belirtiniz:"
+
 #~ msgid ""
 #~ "The file %s\n"
 #~ "was found twice!?!\n"
@@ -11026,49 +11135,68 @@ msgstr "{HataTakibi}"
 #~ "iki kopyası bulundu!?!\n"
 #~ "Genelde bunun nedeni yama dosyasının yanlış klasöre\n"
 #~ "uygulamasıdır! "
+
 #~ msgid ""
 #~ "TortoiseBlame can't be started directly!\n"
 #~ "TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
 #~ msgstr ""
 #~ "TortoiseBlame direkt olarak başlatılamaz!\n"
 #~ "TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
+
 #~ msgid "TortoiseSVN Add..."
 #~ msgstr "TortoiseSVN Ekle..."
+
 #~ msgid "TortoiseSVN Blame"
 #~ msgstr "TortoiseSVN Sorumlular"
+
 #~ msgid "TortoiseSVN Checkout..."
 #~ msgstr "TortoiseSVN Çıktısı..."
+
 #~ msgid "TortoiseSVN Commit..."
-#~ msgstr "TortoiseSVN Tesliml Edilenler..."
+#~ msgstr "TortoiseSVN Teslim Edilenler..."
+
 #~ msgid "TortoiseSVN Copy..."
 #~ msgstr "TortoiseSVN Kopyala..."
+
 #~ msgid "TortoiseSVN Export..."
-#~ msgstr "TortoiseSVN Export..."
+#~ msgstr "TortoiseSVN Dışa Aktar..."
+
 #~ msgid "TortoiseSVN Import..."
-#~ msgstr "TortoiseSVN Import..."
+#~ msgstr "TortoiseSVN İçe Aktar..."
+
 #~ msgid "TortoiseSVN Merge..."
 #~ msgstr "TortoiseSVN Birleştir..."
+
 #~ msgid "TortoiseSVN Rename/move"
 #~ msgstr "TortoiseSVN Tekrar Adlandır/taşı"
+
 #~ msgid "TortoiseSVN Resolve..."
 #~ msgstr "TortoiseSVN Çözümle..."
+
 #~ msgid "TortoiseSVN Revert..."
 #~ msgstr "TortoiseSVN Geridön..."
+
 #~ msgid "TortoiseSVN Settings"
 #~ msgstr "TortoiseSVN Ayarlar"
+
 #~ msgid "TortoiseSVN Switch..."
 #~ msgstr "TortoiseSVN Değiştir..."
+
 #~ msgid "TortoiseSVN Update..."
 #~ msgstr "TortoiseSVN Güncelle..."
+
 #~ msgid "Two-way &Diff"
 #~ msgstr "İki paneldeki &farklılıklar"
+
 #~ msgid "Use &magnifier on locatorbar"
 #~ msgstr "Yerbulucu çubuğundaki &büyüteci kullan"
+
 #~ msgid ""
 #~ "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 #~ msgstr ""
 #~ "URL için \"From:\" 'ı kullanınız (revizyon aralığı yukarıdaki günlük "
 #~ "diyaloğundan seçilebilir)"
+
 #~ msgid ""
 #~ "You copied more than one file or folder.\n"
 #~ "It's not possible to do that in one step, so TortoiseSVN will copy each "
@@ -11082,7 +11210,8 @@ msgstr "{HataTakibi}"
 #~ "için yeni revizyonda yaratarak bu dosyaları/klasörleri tek tek "
 #~ "kopyalayacaktır.\n"
 #~ "\n"
-#~ "Bu işlemi halen yapmak istiyormusunuz?"
+#~ "Bu işlemi halen yapmak istiyor musunuz?"
+
 #~ msgid ""
 #~ "You moved more than one file or folder.\n"
 #~ "It's not possible to do that in one step, so TortoiseSVN will move each "
@@ -11096,7 +11225,8 @@ msgstr "{HataTakibi}"
 #~ "için yeni revizyonda yaratarak bu dosyaları/klasörleri tek tek "
 #~ "kopyalayacaktır.\n"
 #~ "\n"
-#~ "Bu işlemi halen yapmak istiyormusunuz?"
+#~ "Bu işlemi halen yapmak istiyor musunuz?"
+
 #~ msgid ""
 #~ "You've selected added folders. The patch won't contain added files within "
 #~ "such added folders.\n"
@@ -11104,7 +11234,8 @@ msgstr "{HataTakibi}"
 #~ msgstr ""
 #~ "Eklenmiş klasörler seçtiniz.\n"
 #~ " Yama bu klasörlerin içindeki dosyaları içermeyecektir\n"
-#~ "Yine de devam etmek istiyormusunuz?"
+#~ "Yine de devam etmek istiyor musunuz?"
+
 #~ msgid ""
 #~ "svn:externals\n"
 #~ "A newline separated list of module specifiers, each of which consists of "
@@ -11118,6 +11249,6 @@ msgstr "{HataTakibi}"
 #~ "satır ile ayrılmış modül belirticileri listesi.Örneğin:\n"
 #~ "foo\t\thttp://example.com/repos/zig\n"
 #~ "foo/bar -r 1234\thttp://example.com/repos/zag"
+
 #~ msgid "which points to the repository at URL:"
 #~ msgstr "URL: 'sindeki depoyu gösterir"
-
