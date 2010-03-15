@@ -95,6 +95,7 @@ BOOL CSetBugTraqAdv::OnInitDialog()
 			break;
 		}
 	}
+	m_tooltips.Create(this);
 
 	UpdateData(FALSE);
 	CheckHasOptions();
@@ -141,7 +142,7 @@ void CSetBugTraqAdv::OnOK()
 
 	if (FAILED(hr))
 	{
-		ShowBalloon(IDC_BUGTRAQPROVIDERCOMBO, IDS_ERR_MISSING_PROVIDER);
+		m_tooltips.ShowBalloon(IDC_BUGTRAQPROVIDERCOMBO, IDS_ERR_MISSING_PROVIDER, IDS_ERR_ERROR, TTI_ERROR);
 		return;
 	}
 
@@ -150,7 +151,7 @@ void CSetBugTraqAdv::OnOK()
 	parameters.Attach(m_sParameters.AllocSysString());
 	if (FAILED(hr = pProvider->ValidateParameters(GetSafeHwnd(), parameters, &valid)))
 	{
-		ShowBalloon(IDC_BUGTRAQPARAMETERS, IDS_ERR_PROVIDER_VALIDATE_FAILED);
+		ShowEditBalloon(IDC_BUGTRAQPARAMETERS, IDS_ERR_PROVIDER_VALIDATE_FAILED, IDS_ERR_ERROR, TTI_ERROR);
 		return;
 	}
 
@@ -253,4 +254,10 @@ void CSetBugTraqAdv::OnBnClickedOptions()
 			CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
 		}
 	}
+}
+
+BOOL CSetBugTraqAdv::PreTranslateMessage(MSG* pMsg)
+{
+	m_tooltips.RelayEvent(pMsg);
+	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }

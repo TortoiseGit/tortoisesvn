@@ -311,7 +311,7 @@ void CCopyDlg::OnOK()
 	GetDlgItemText(IDC_COPYREVTEXT, sRevText);
 	if (!m_ProjectProperties.CheckBugID(id))
 	{
-		ShowBalloon(IDC_BUGID, IDS_COMMITDLG_ONLYNUMBERS);
+		ShowEditBalloon(IDC_BUGID, IDS_COMMITDLG_ONLYNUMBERS, IDS_ERR_ERROR, TTI_ERROR);
 		return;
 	}
 	m_sLogMessage = m_cLogMessage.GetText();
@@ -331,7 +331,7 @@ void CCopyDlg::OnOK()
 	
 	if (!m_CopyRev.IsValid())
 	{
-		ShowBalloon(IDC_COPYREVTEXT, IDS_ERR_INVALIDREV);
+		ShowEditBalloon(IDC_COPYREVTEXT, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
 		return;
 	}
 		

@@ -331,7 +331,7 @@ BOOL CCommitDlg::OnInitDialog()
 	if ((((DWORD)err)!=FALSE)&&((((DWORD)historyhint)==FALSE)))
 	{
 		historyhint = TRUE;
-		ShowBalloon(IDC_HISTORY, IDS_COMMITDLG_HISTORYHINT_TT, IDI_INFORMATION);
+		m_tooltips.ShowBalloon(IDC_HISTORY, IDS_COMMITDLG_HISTORYHINT_TT, IDS_WARN_NOTE, TTI_INFO);
 	}
 	err = FALSE;
 
@@ -362,7 +362,7 @@ void CCommitDlg::OnOK()
 	id.Trim(_T("\n\r"));
 	if (!m_ProjectProperties.CheckBugID(id))
 	{
-		ShowBalloon(IDC_BUGID, IDS_COMMITDLG_ONLYNUMBERS, IDI_EXCLAMATION);
+		ShowEditBalloon(IDC_BUGID, IDS_COMMITDLG_ONLYNUMBERS, TTI_ERROR);
 		return;
 	}
 	m_sLogMessage = m_cLogMessage.GetText();

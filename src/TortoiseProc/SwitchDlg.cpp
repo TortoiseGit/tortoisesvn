@@ -177,7 +177,7 @@ void CSwitchDlg::OnOK()
 	Revision = SVNRev(m_rev);
 	if (!Revision.IsValid())
 	{
-		ShowBalloon(IDC_REVISION_NUM, IDS_ERR_INVALIDREV);
+		ShowEditBalloon(IDC_REVISION_NUM, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
 		return;
 	}
 

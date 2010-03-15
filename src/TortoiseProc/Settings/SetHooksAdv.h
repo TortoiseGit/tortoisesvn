@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 #include "Hooks.h"
 #include "StandAloneDlg.h"
 #include "AeroControls.h"
+#include "Tooltip.h"
 
 /**
  * \ingroup TortoiseProc
@@ -43,6 +44,7 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedHookbrowse();
 	afx_msg void OnBnClickedHookcommandbrowse();
 	afx_msg void OnBnClickedHelp();
@@ -56,4 +58,5 @@ protected:
 	BOOL			m_bHide;
 	CComboBox		m_cHookTypeCombo;
 	AeroControlBase	m_aeroControls;
+	CToolTips		m_tooltips;
 };

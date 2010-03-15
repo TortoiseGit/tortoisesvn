@@ -94,6 +94,7 @@ BOOL CSetHooksAdv::OnInitDialog()
 	m_sCommandLine = cmd.commandline;
 	m_bWait = cmd.bWait;
 	m_bHide = !cmd.bShow;
+	m_tooltips.Create(this);
 	UpdateData(FALSE);
 
 	AddAnchor(IDC_HOOKTYPELABEL, TOP_LEFT, TOP_RIGHT);
@@ -129,17 +130,17 @@ void CSetHooksAdv::OnOK()
 	}
 	if (key.htype == unknown_hook)
 	{
-		ShowBalloon(IDC_HOOKTYPECOMBO, IDS_ERR_NOHOOKTYPESPECIFIED);
+		m_tooltips.ShowBalloon(IDC_HOOKTYPECOMBO, IDS_ERR_NOHOOKTYPESPECIFIED, IDS_ERR_ERROR, TTI_ERROR);
 		return;
 	}
 	if (key.path.IsEmpty())
 	{
-		ShowBalloon(IDC_HOOKPATH, IDS_ERR_NOHOOKPATHSPECIFIED);
+		ShowEditBalloon(IDC_HOOKPATH, IDS_ERR_NOHOOKPATHSPECIFIED, IDS_ERR_ERROR, TTI_ERROR);
 		return;
 	}
 	if (cmd.commandline.IsEmpty())
 	{
-		ShowBalloon(IDC_HOOKCOMMANDLINE, IDS_ERR_NOHOOKCOMMANDPECIFIED);
+		ShowEditBalloon(IDC_HOOKCOMMANDLINE, IDS_ERR_NOHOOKCOMMANDPECIFIED, IDS_ERR_ERROR, TTI_ERROR);
 		return;
 	}
 	CResizableStandAloneDialog::OnOK();
@@ -176,4 +177,9 @@ void CSetHooksAdv::OnBnClickedHookcommandbrowse()
 void CSetHooksAdv::OnBnClickedHelp()
 {
 	OnHelp();
+}
+BOOL CSetHooksAdv::PreTranslateMessage(MSG* pMsg)
+{
+	m_tooltips.RelayEvent(pMsg);
+	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }

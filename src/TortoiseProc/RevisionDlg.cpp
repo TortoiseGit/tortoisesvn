@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "RevisionDlg.h"
-#include "Balloon.h"
 #include "PathUtils.h"
 #include "AppUtils.h"
 
@@ -92,9 +91,7 @@ void CRevisionDlg::OnOK()
 	}
 	if ((!IsValid())||((!m_bAllowWCRevs)&&(IsPrev() || IsCommitted() || IsBase())))
 	{
-		CBalloon::ShowBalloon(
-			this, CBalloon::GetCtrlCentre(this, IDC_REVNUM),
-			m_bAllowWCRevs ? IDS_ERR_INVALIDREV : IDS_ERR_INVALIDREVNOWC, TRUE, IDI_EXCLAMATION);
+		ShowEditBalloon(IDC_REVNUM, m_bAllowWCRevs ? IDS_ERR_INVALIDREV : IDS_ERR_INVALIDREVNOWC, IDS_ERR_ERROR, TTI_ERROR);
 		return;
 	}
 

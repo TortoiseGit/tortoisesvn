@@ -105,7 +105,7 @@ void CBlameDlg::OnOK()
 	EndRev = SVNRev(m_sEndRev);
 	if (!StartRev.IsValid())
 	{
-		ShowBalloon(IDC_REVISON_START, IDS_ERR_INVALIDREV);
+		ShowEditBalloon(IDC_REVISON_START, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
 		return;
 	}
 	EndRev = SVNRev(m_sEndRev);
@@ -115,7 +115,7 @@ void CBlameDlg::OnOK()
 	}
 	if (!EndRev.IsValid())
 	{
-		ShowBalloon(IDC_REVISION_END, IDS_ERR_INVALIDREV);
+		ShowEditBalloon(IDC_REVISION_END, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
 		return;
 	}
 	BOOL extBlame = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);

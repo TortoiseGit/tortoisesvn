@@ -89,7 +89,7 @@ void CUpdateDlg::OnOK()
 	}
 	if (!Revision.IsValid())
 	{
-		ShowBalloon(IDC_REVNUM, IDS_ERR_INVALIDREV);
+		ShowEditBalloon(IDC_REVNUM, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
 		return;
 	}
 	switch (m_depthCombo.GetCurSel())
