@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-24 09:44+0100\n"
+"PO-Revision-Date: 2010-03-15 13:56+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -295,6 +295,10 @@ msgstr "&Om TortoiseMerge..."
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "&Aktivera"
+
+#. Resource IDs: (15)
+msgid "&Add"
+msgstr "&Lägg till"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
@@ -1097,6 +1101,14 @@ msgstr "&Till URL:"
 #. Resource IDs: (1305)
 msgid "&To URL: "
 msgstr "&Till URL: "
+
+#. Resource IDs: (1384)
+msgid "&To path:"
+msgstr "&Till sökväg:"
+
+#. Resource IDs: (1305)
+msgid "&To path: "
+msgstr "&Till sökväg:"
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
@@ -3173,10 +3185,6 @@ msgid "Delete and &ignore %d items by name"
 msgstr "Radera och &Ignorera %d objekt efter namn"
 
 #. Resource IDs: (14)
-msgid "Delete and add to &ignore list"
-msgstr "Radera och lägg till på &undantagslistan"
-
-#. Resource IDs: (14)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Radera och ignorera %d objekt efter filänd&else"
@@ -3245,6 +3253,10 @@ msgstr "Beskrivning:"
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "Avmarkera ändringslista"
+
+#. Resource IDs: (1547)
+msgid "Destination URL:"
+msgstr "Mål URL:"
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
@@ -8244,6 +8256,10 @@ msgstr "Växla %s till %s, Revision %s"
 msgid "Switch - TortoiseSVN"
 msgstr "Växla - TortoiseSVN"
 
+#. Resource IDs: (1377)
+msgid "Switch Depth"
+msgstr "Växla Djup"
+
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
 msgstr "Växla vänster<->höger"
@@ -9396,6 +9412,10 @@ msgstr ""
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Koppla loss"
+
+#. Resource IDs: (14)
+msgid "Unversion and add to &ignore list"
+msgstr "Radera från arkivet och lägg till på undantagsl&istan"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
