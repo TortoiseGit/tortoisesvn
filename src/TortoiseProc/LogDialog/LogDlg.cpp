@@ -2028,7 +2028,7 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
 		progDlg.SetTime(true);
 		progDlg.SetShowProgressBar(true);
 		progDlg.ShowModeless(m_hWnd);
-		for (DWORD i=0; i<logs.size(); ++i)
+		for (DWORD i=0; (i<logs.size()) && (!progDlg.HasUserCancelled()); ++i)
 		{
 			if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), logs[i]->GetRevision()))
 			{
