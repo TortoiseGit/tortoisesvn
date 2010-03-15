@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-14 01:59-0000\n"
+"PO-Revision-Date: 2010-03-15 00:23-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3735,7 +3735,7 @@ msgstr "Se tiveres a trabalhar ao mesmo tempo em várias tarefas, não relaciona
 
 #. (para)
 msgid "At the bottom of the dialog you can see a summary of the range of repository revisions in use in your working copy. These are the <emphasis>commit</emphasis> revisions, not the <emphasis>update</emphasis> revisions; they represent the range of revisions where these files were last committed, not the revisions to which they have been updated. Note that the revision range shown applies only to the items displayed, not to the entire working copy. If you want to see that information for the whole working copy you must check the <guilabel>Show unmodified files</guilabel> checkbox."
-msgstr "No fundo da caixa de diálogo podes ver um sumário da gama de revisões do repositório em uso na tua cópia de trabalho. Essas são as revisões <emphasis>submetidas</emphasis>, não as revisões de <emphasis>actualizadas</emphasis>; Estas representam a gama de revisões onde esses ficheiros foram submetidas por último, e não as revisões a que foram actualizadas. De notarque a gama de revisões mostrada só se aplica aos itens mostrados, e não, à totalidade da cópia de trabalho. Se queres ver essa informação para a totalidade da cópia de trabalho, deves verificar a caixa de verificação <guilabel>Não modificado</guilabel>."
+msgstr "No fundo da caixa de diálogo podes ver um sumário do intervalo de revisões do repositório em uso na tua cópia de trabalho. Essas são as revisões <emphasis>submetidas</emphasis>, não as revisões de <emphasis>actualizadas</emphasis>; Estas representam o intervalo de revisões onde esses ficheiros foram submetidas por último, e não as revisões a que foram actualizadas. De notarque o intervalo de revisões mostrada só se aplica aos itens mostrados, e não, à totalidade da cópia de trabalho. Se queres ver essa informação para a totalidade da cópia de trabalho, deves verificar a caixa de verificação <guilabel>Não modificado</guilabel>."
 
 #. (para)
 msgid "If you want a flat view of your working copy, i.e. showing all files and folders at every level of the folder hierarchy, then the <guilabel>Check for Modifications</guilabel> dialog is the easiest way to achieve that. Just check the <guilabel>Show unmodified files</guilabel> checkbox to show all files in your working copy."
@@ -4734,7 +4734,7 @@ msgstr "O botão no topo permite-te alterar a direcção da comparação. Podes 
 
 #. (para)
 msgid "The buttons with the revision numbers on can be used to change to a different revision range. When you change the range, the list of items which differ between the two revisions will be updated automatically."
-msgstr "Os botões com os números de revisão podem ser usados para mudar para uma gama de revisões diferentes. Quando alteras a gama, a lista de itens, que diferem entre revisões, será actualizada automaticamente."
+msgstr "Os botões com os números de revisão podem ser usados para mudar para um intervalo de revisões diferentes. Quando alteras o intevalo, a lista de itens, que diferem entre revisões, será actualizada automaticamente."
 
 #. (para)
 msgid "If the list of filenames is very long, you can use the search box to reduce the list to filenames containing specific text. Note that a simple text search is used, so if you want to restrict the list to C source files you should enter <filename>.c</filename> rather than <filename>*.c</filename>."
@@ -6100,7 +6100,7 @@ msgstr "É importante perceber como funciona no Subversion o ramificar e integra
 
 #. (para)
 msgid "The next point to note is that merging <emphasis>always</emphasis> takes place within a working copy. If you want to merge changes <emphasis>into</emphasis> a branch, you have to have a working copy for that branch checked out, and invoke the merge wizard from that working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice>."
-msgstr "O próximo ponto a anotar é que integrar toma <emphasis>sempre</emphasis> lugar na tua cópia de trabalho. Se queres integrar alterações <emphasis>num</emphasis> ramo, tens de ter uma cópia de trabalho nesse ramo e invocar o feiticeiro de integração a partir dessa cópa de trabalho,  usando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Integrar...</guimenuitem></menuchoice>."
+msgstr "O próximo ponto a anotar é que integrar processa-se <emphasis>sempre</emphasis> na tua cópia de trabalho. Se queres integrar alterações <emphasis>num</emphasis> ramo, tens de ter uma cópia de trabalho nesse ramo e invocar o assistente de integração a partir dessa cópa de trabalho,  usando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Integrar...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "In general it is a good idea to perform a merge into an unmodified working copy. If you have made other changes in your WC, commit those first. If the merge does not go as you expect, you may want to revert the changes, and the <guilabel>Revert</guilabel> command will discard <emphasis>all</emphasis> changes including any you made before the merge."
@@ -6108,11 +6108,11 @@ msgstr "De modo geral é uma boa ideia executar uma integração numa cópia de 
 
 #. (para)
 msgid "There are three common use cases for merging which are handled in slightly different ways, as described below. The first page of the merge wizard asks you to select the method you need."
-msgstr "Existem três casos de utilização comuns para integrar, que são lidados de maneira ligeiramente diferente, como descrito abaixo. A primeira página do feiticeiro de integração questiona-te a selecciona o método que precisas."
+msgstr "Existem três casos de utilização comuns para integrar, que são lidados de maneira ligeiramente diferente, como descrito abaixo. A primeira página do assistente de integração questiona-te a selecciona o método que precisas."
 
 #. (term)
 msgid "Merge a range of revisions"
-msgstr "Integrar uma gama de revisões"
+msgstr "Integrar um intervalo de revisões"
 
 #. (para)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
@@ -6125,23 +6125,23 @@ msgstr "O que estás a pedir ao Subversion para fazer é o seguinte: <quote>Calc
 #. (term)
 #. (title)
 msgid "Reintegrate a branch"
-msgstr "Re-integrar um ramo"
+msgstr "Reintegrar um ramo"
 
 #. (para)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes."
-msgstr ""
+msgstr "Este método cobre o caso em que criaste um ramo de funcionalidade, como descrito no livro do Subversion. Todas as alterações do trunk foram portadas para o ramo de funcionalidade, semana a semana, e agora que a funcionalidade está concluída, desejas integrá-la de volta no trunk. Porque tens mantido o ramo de funcionalidade sincronizado com o trunk, as últimas versões do ramo e trunk serão absolutamente idênticas à excepção das alterações do teu ramo."
 
 #. (para)
 msgid "This is a special case of the tree merge described below, and it requires only the URL to merge from (normally) your development branch. It uses the merge-tracking features of Subversion to calculate the correct revision ranges to use, and perform additional checks which ensure that the branch has been fully updated with trunk changes. This ensures that you don't accidentally undo work that others have committed to trunk since you last synchronized changes."
-msgstr ""
+msgstr "Este é um caso especial da integração de árvore, descrita abaixo, e apenas requer o URL de origem para integrar do (usualmente) teu ramo de desenvolvimento. Ele usa as funcionalidades de seguimento-de-integração do Subversion, para calcular o intervalo correcto de revisões a usar e executar verificações adicionais, de modo a garantir que o ramo foi totalmente actualizado com as alterações do trunk. Isto garante que tu, por acidente, não desfaças o trabalho que outros tenham submetido para o trunk desde as tuas últimas alterações sincronizadas."
 
 #. (para)
 msgid "After the merge, all branch development has been completely merged back into the main development line. The branch is now redundant and can be deleted."
-msgstr ""
+msgstr "Após a integração, todo o ramo de desenvolvimento foi completamente integrado de volta para a principal linha de desenvolvimento. O ramo é agora redundante e poderá ser removido."
 
 #. (para)
 msgid "Once you have performed a reintegrate merge you should not continue to use it for development. The reason for this is that if you try to resynchronize your existing branch from trunk later on, merge tracking will see your reintegration as a trunk change that has not yet been merged into the branch, and will try to merge the branch-to-trunk merge back into the branch! The solution to this is simply to create a new branch from trunk to continue the next phase of your development."
-msgstr ""
+msgstr "Após teres executado uma reintegração de um ramo, não deverás continuar a usá-lo para desenvolvimento. A razão para tal é a seguinte; se tentares mais tarde re-sincronizar o teu ramo já existente, o seguidor de integração verá a tua reintegração como uma alteração do trunk que não foi ainda integrada no ramo, e irá tentar integrar a integração ramo-para-trunk de volta para o ramo! A solução para isto é criar um novo ramo a partir do trunk para continuar a próxima fase do teu desenvolvimento."
 
 #. (term)
 msgid "Merge two different trees"
@@ -6149,15 +6149,15 @@ msgstr "Integrar duas árvores diferentes"
 
 #. (para)
 msgid "This is a more general case of the reintegrate method. What you are asking Subversion to do is: <quote>Calculate the changes necessary to get [FROM] the head revision of the trunk [TO] the head revision of the branch, and apply those changes to my working copy (of the trunk).</quote> The net result is that trunk now looks exactly like the branch."
-msgstr ""
+msgstr "Este é um caso mais geral do método de reintegração. O que estás a pedir ao Subversion para fazer é: <quote>Calcula as alterações necessárias para ir [DA] revisão head do trunk [PARA] a revisão head do ramo, e aplica essas alterações à minha cópia de trabalho (do trunk).</quote>. O resultado líquido será que o trunk fica agora exactamente como o ramo."
 
 #. (para)
 msgid "If your server/repository does not support merge-tracking then this is the only way to merge a branch back to trunk. Another use case occurs when you are using vendor branches and you need to merge the changes following a new vendor drop into your trunk code. For more information read the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.vendorbr.html\"><citetitle>vendor branches</citetitle></ulink> in the Subversion Book."
-msgstr ""
+msgstr "Se o teu servidor/repositório não suporta seguimento-de-integração então esta é a única maneira para integrar um ramo de volta para o trunk. Outro caso ocorre quando tu estás a usar ramos de vendedores e, necessitas de integrar as alterações a seguir a um novo gotejar do vendedor no teu código do trunk. Para mais informação, consulta o capitulo <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.vendorbr.html\"><citetitle>vendor branches</citetitle></ulink> no livro do Subversion."
 
 #. (title)
 msgid "Merging a Range of Revisions"
-msgstr "A Integrar Uma Faixa de Revisões"
+msgstr "A Integrar Um Intervalo de Revisões"
 
 #. (secondary)
 msgid "revision range"
@@ -6165,43 +6165,43 @@ msgstr "faixa de revisão"
 
 #. (title)
 msgid "The Merge Wizard - Select Revision Range"
-msgstr "O Assistente de Integração - Seleciona a Faixa de Revisão"
+msgstr "O Assistente de Integração - Seleciona o Intervalo de Revisões"
 
 #. (para)
 msgid "<placeholder-1/> In the <guilabel>From:</guilabel> field enter the full folder URL of the branch or tag containing the changes you want to port into your working copy. You may also click <guibutton>...</guibutton> to browse the repository and find the desired branch. If you have merged from this branch before, then just use the drop down list which shows a history of previously used URLs."
-msgstr ""
+msgstr "<placeholder-1/> No campo <guilabel>De:</guilabel> introduz o URL completo da pasta, do ramo ou etiqueta que contêm as alterações que queres portar para a tua cópia de trabalho. Podes também clicar <guibutton>...</guibutton> para navegar no repositório e encontrar o ramo desejado. Se já integraste anteriormente deste ramo, usa apenas a lista drop down que mostra o histórico dos URLs previamente utilizados."
 
 #. (para)
 msgid "In the <guilabel>Revision range to merge</guilabel> field enter the list of revisions you want to merge. This can be a single revision, a list of specific revisions separated by commas, or a range of revisions separated by a dash, or any combination of these."
-msgstr ""
+msgstr "No campo  <guilabel>Intervalo de revisões a integrar</guilabel> introduz a lista de revisões que desejas integrar. poderá ser uma única revisão, uma lista de revisões específicas separadas por virgulas, ou um intervalo de revisões separadas por um hífen, ou uma qualquer combinação destes."
 
 #. (para)
 msgid "There is an important difference in the way a revision range is specified with TortoiseSVN compared to the command line client. The easiest way to visualise it is to think of a fence with posts and fence panels."
-msgstr ""
+msgstr "Existe uma diferença importante na maneira como o intervalo de revisões é especificado no TortoiseSVN, comparado com o cliente de linha de comando. A maneira mais fácil para o visualizar é pensar numa vedação com postes e painéis de vedação."
 
 #. (para)
 msgid "With the command line client you specify the changes to merge using two <quote>fence post</quote> revisions which specify the <emphasis>before</emphasis> and <emphasis>after</emphasis> points."
-msgstr ""
+msgstr "Com o cliente de linha de comando, tu especificas as alterações a integrar usando duas revisões <quote>postes de vedação</quote>, que especificam os pontos <emphasis>antes</emphasis> e <emphasis>depois</emphasis>."
 
 #. (para)
 msgid "With TortoiseSVN you specify the changeset to merge using <quote>fence panels</quote>. The reason for this becomes clear when you use the log dialog to specify revisions to merge, where each revision appears as a changeset."
-msgstr ""
+msgstr "Com o TortoiseSVN tu especificas uma lista-de-alterações para integrar utilizando <quote>paineis de vedação</quote>. A razão para isto torna-se clara quando usas a caixa de diálogo de registo para especificar as revisões a integrar, onde cada revisão aparece como uma lista-de-alterações."
 
 #. (para)
 msgid "If you are merging revisions in chunks, the method shown in the subversion book will have you merge 100-200 this time and 200-300 next time. With TortoiseSVN you would merge 100-200 this time and 201-300 next time."
-msgstr ""
+msgstr "Se integrares revisões em pedaços, o método descrito no livro do subversion mostra-te a integrar 100-200 desta vez e 200-300 da próxima. Com o TortoiseSVN terias de integrar 100-200 desta vez e 201-300 da próxima."
 
 #. (para)
 msgid "This difference has generated a lot of heat on the mailing lists. We acknowledge that there is a difference from the command line client, but we believe that for the majority of GUI users it is easier to understand the method we have implemented."
-msgstr ""
+msgstr "Esta diferença gerou muita discussão acalorada nas listas de correio. Nós reconhecemos que existe uma diferença para o cliente da linha de comandos, mas cremos que para a maioria dos utilizadores do GUI é mais fácil de compreender o método que implementámos."
 
 #. (para)
 msgid "The easiest way to select the range of revisions you need is to click on <guibutton>Show Log</guibutton>, as this will list recent changes with their log comments. If you want to merge the changes from a single revision, just select that revision. If you want to merge changes from several revisions, then select that range (using the usual <keycap>Shift</keycap>-modifier). Click on <guibutton>OK</guibutton> and the list of revision numbers to merge will be filled in for you."
-msgstr ""
+msgstr "A maneira mais fácil para seleccionar o intervalo de revisões que precisas é clicar no <guibutton>Mostrar registo</guibutton>, já que este irá listar as alterações mais recentes com os teus comentários de registo. Se queres integrar as alterações a partir de uma única revisão, selecciona apenas essa revisão. Se queres integrar as alterações de várias revisões então, selecciona esse intervalo (usando o modificador usual <keycap>Shift</keycap>). Clica no <guibutton>OK</guibutton> e o números da lista de revisões a integrar serão preenchidas por ti."
 
 #. (para)
 msgid "If you want to merge changes back <emphasis>out</emphasis> of your working copy, to revert a change which has already been committed, select the revisions to revert and make sure the <guilabel>Reverse merge</guilabel> box is checked."
-msgstr ""
+msgstr "Se queres remover alterações integradas, da tua cópia de trabalho, para reverter uma alteração que já foi submetida, selecciona as revisões a reverter e tem a certeza que a caixa de verificação <guilabel>Reverter integração</guilabel> está verificada."
 
 #. (para)
 msgid "If you have already merged some changes from this branch, hopefully you will have made a note of the last revision merged in the log message when you committed the change. In that case, you can use <guibutton>Show Log</guibutton> for the Working Copy to trace that log message. Remembering that we are thinking of revisions as changesets, you should Use the revision after the end point of the last merge as the start point for this merge. For example, if you have merged revisions 37 to 39 last time, then the start point for this merge should be revision 40."
