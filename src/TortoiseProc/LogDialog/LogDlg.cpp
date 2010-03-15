@@ -1425,7 +1425,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			{
 				popup.AppendMenu(MF_SEPARATOR);
 				sMenuItemText.LoadString(IDS_LOG_POPUP_EDITLOG);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITAUTHOR, sMenuItemText);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITLOG, sMenuItemText);
 			}
 
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
@@ -1437,7 +1437,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			case WM_COPY:
 				::SendMessage(GetDlgItem(IDC_MSGVIEW)->GetSafeHwnd(), cmd, 0, -1);
 				break;
-			case ID_EDITAUTHOR:
+			case ID_EDITLOG:
 				EditLogMessage(selIndex);
 				break;
 			}
