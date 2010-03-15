@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-15 22:46-0000\n"
+"PO-Revision-Date: 2010-03-15 23:09-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6225,19 +6225,19 @@ msgstr "re-integrar"
 
 #. (title)
 msgid "The Merge Wizard - Reintegrate Merge"
-msgstr "O Assistent de Integração - Re-integrar Integração"
+msgstr "O Assistente de Integração - Integração para Reintegrar"
 
 #. (para)
 msgid "<placeholder-1/> To merge a feature branch back into the trunk you must start the merge wizard from within a working copy of the trunk."
-msgstr ""
+msgstr "<placeholder-1/> Para integrar um ramo de funcionalidade de volta para o trunk, deverás arrancar o assistente de integração de dentro da cópia de trabalho do trunk."
 
 #. (para)
 msgid "In the <guilabel>From URL:</guilabel> field enter the full folder URL of the branch that you want to merge back. You may also click <guibutton>...</guibutton> to browse the repository."
-msgstr ""
+msgstr "No campo <guilabel>Do URL:</guilabel> introduz o URL completo da pasta do ramo que queres integrar de volta. Podes também clicar <guibutton>...</guibutton> para navegar o repositório."
 
 #. (para)
 msgid "There are some conditions which apply to a reintegrate merge. Firstly, the server must support merge tracking. The working copy must be of depth infinite (no sparse checkouts), and it must not have any local modifications, switched items or items that have been updated to revisions other than HEAD. All changes to trunk made during branch development must have been merged across to the branch (or marked as having been merged). The range of revisions to merge will be calculated automatically."
-msgstr ""
+msgstr "Existem algumas condições que se aplicam a uma integração de reintegração. Primeiramente, o servidor deverá suportar o seguimento de integração. A cópia de trabalho deverá ser de profundidade infinita (sem exportações SVN dispersas), e não deverá ter nenhumas alterações, itens trocados ou itens que foram actualizadas para revisões diferentes da HEAD. Todas as alterações para o trunk feitas durante o desenvolvimento do ramo, deverão ter sido já integradas transversalmente para o ramo (ou marcadas como tendo sido feitas). O intervalo de revisões a integrar será então calculado automaticamente."
 
 #. (title)
 msgid "Merging Two Different Trees"
