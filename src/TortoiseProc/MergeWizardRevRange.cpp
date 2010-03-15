@@ -23,7 +23,6 @@
 #include "AppUtils.h"
 #include "PathUtils.h"
 #include "LogDialog\LogDlg.h"
-#include "Balloon.h"
 
 IMPLEMENT_DYNAMIC(CMergeWizardRevRange, CMergeWizardBasePage)
 
@@ -100,7 +99,7 @@ LRESULT CMergeWizardRevRange::OnWizardNext()
 	}
 	if (!((CMergeWizard*)GetParent())->revRangeArray.FromListString(m_sRevRange))
 	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this, IDC_REVISION_RANGE), IDS_ERR_INVALIDREVRANGE, TRUE, IDI_EXCLAMATION);
+		ShowEditBalloon(IDC_REVISION_RANGE, IDS_ERR_INVALIDREVRANGE, IDS_ERR_ERROR, TTI_ERROR);
 		return -1;
 	}
 	return IDD_MERGEWIZARD_OPTIONS;
@@ -259,13 +258,7 @@ LPARAM CMergeWizardRevRange::OnWCStatus(WPARAM wParam, LPARAM /*lParam*/)
 {
 	if (wParam)
 	{
-		CString text(MAKEINTRESOURCE(IDS_MERGE_WCDIRTY));
-		EDITBALLOONTIP bt;
-		bt.cbStruct = sizeof(bt);
-		bt.pszText  = text;
-		bt.pszTitle = NULL;
-		bt.ttiIcon = TTI_WARNING;
-		SendDlgItemMessage(IDC_WCEDIT, EM_SHOWBALLOONTIP, 0, (LPARAM)&bt);
+		ShowEditBalloon(IDC_WCEDIT, IDS_MERGE_WCDIRTY, IDS_WARN_WARNING, TTI_WARNING);
 	}
 	return 0;
 }

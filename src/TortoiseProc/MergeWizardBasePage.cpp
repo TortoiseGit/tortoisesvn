@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -113,4 +113,19 @@ UINT CMergeWizardBasePage::FindRevThread()
 	}
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	return 0;
+}
+
+/**
+ * Display a balloon with close button, anchored at a given edit control on this dialog.
+ */
+void CMergeWizardBasePage::ShowEditBalloon(UINT nIdControl, UINT nIdText, UINT nIdTitle, int nIcon /* = TTI_WARNING */)
+{
+	CString text(MAKEINTRESOURCE(nIdText));
+	CString title(MAKEINTRESOURCE(nIdTitle));
+	EDITBALLOONTIP bt;
+	bt.cbStruct = sizeof(bt);
+	bt.pszText  = text;
+	bt.pszTitle = title;
+	bt.ttiIcon = nIcon;
+	SendDlgItemMessage(nIdControl, EM_SHOWBALLOONTIP, 0, (LPARAM)&bt);
 }

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2009 - TortoiseSVN
+// Copyright (C) 2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,7 +21,6 @@
 #include "MergeWizard.h"
 #include "MergeWizardReintegrate.h"
 
-#include "Balloon.h"
 #include "AppUtils.h"
 #include "PathUtils.h"
 #include "LogDialog\LogDlg.h"
@@ -205,13 +204,7 @@ LPARAM CMergeWizardReintegrate::OnWCStatus(WPARAM wParam, LPARAM /*lParam*/)
 {
 	if (wParam)
 	{
-		CString text(MAKEINTRESOURCE(IDS_MERGE_WCDIRTY));
-		EDITBALLOONTIP bt;
-		bt.cbStruct = sizeof(bt);
-		bt.pszText  = text;
-		bt.pszTitle = NULL;
-		bt.ttiIcon = TTI_WARNING;
-		SendDlgItemMessage(IDC_WCEDIT, EM_SHOWBALLOONTIP, 0, (LPARAM)&bt);
+		ShowEditBalloon(IDC_WCEDIT, IDS_MERGE_WCDIRTY, IDS_WARN_WARNING, TTI_WARNING);
 	}
 	return 0;
 }

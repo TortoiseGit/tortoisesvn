@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,7 +21,6 @@
 #include "MergeWizard.h"
 #include "MergeWizardTree.h"
 
-#include "Balloon.h"
 #include "AppUtils.h"
 #include "PathUtils.h"
 #include "LogDialog\LogDlg.h"
@@ -175,7 +174,7 @@ BOOL CMergeWizardTree::CheckData(bool bShowErrors /* = true */)
 	if (!StartRev.IsValid())
 	{
 		if (bShowErrors)
-			CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this, IDC_REVISION_START), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+			ShowEditBalloon(IDC_REVISION_START, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
 		return FALSE;
 	}
 
@@ -187,7 +186,7 @@ BOOL CMergeWizardTree::CheckData(bool bShowErrors /* = true */)
 	if (!EndRev.IsValid())
 	{
 		if (bShowErrors)
-			CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this, IDC_REVISION_END), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+			ShowEditBalloon(IDC_REVISION_END, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
 		return FALSE;
 	}
 
@@ -419,13 +418,7 @@ LPARAM CMergeWizardTree::OnWCStatus(WPARAM wParam, LPARAM /*lParam*/)
 {
 	if (wParam)
 	{
-		CString text(MAKEINTRESOURCE(IDS_MERGE_WCDIRTY));
-		EDITBALLOONTIP bt;
-		bt.cbStruct = sizeof(bt);
-		bt.pszText  = text;
-		bt.pszTitle = NULL;
-		bt.ttiIcon = TTI_WARNING;
-		SendDlgItemMessage(IDC_WCEDIT, EM_SHOWBALLOONTIP, 0, (LPARAM)&bt);
+		ShowEditBalloon(IDC_WCEDIT, IDS_MERGE_WCDIRTY, IDS_WARN_WARNING, TTI_WARNING);
 	}
 	return 0;
 }
