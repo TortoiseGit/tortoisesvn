@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-01-17 15:31+0100\n"
+"PO-Revision-Date: 2010-03-15 09:27+0100\n"
 "Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -422,6 +422,10 @@ msgstr "&Om TortoiseMerge..."
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "&Aktiver"
+
+#. Resource IDs: (15)
+msgid "&Add"
+msgstr "&Tilføj"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
@@ -1132,6 +1136,10 @@ msgstr "Indstillin&ger"
 msgid "&Show HEAD revisions"
 msgstr "&Vis HEAD-revisioner"
 
+#. Resource IDs: (1132)
+msgid "&Show Log"
+msgstr "&Vis logbog"
+
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
 msgstr "&Vis Menuer for:"
@@ -1221,6 +1229,16 @@ msgstr "&Til URL:"
 msgid "&To URL: "
 msgstr "&Til URL: "
 
+#. Resource IDs: (1384)
+#, fuzzy
+msgid "&To path:"
+msgstr "stier:"
+
+#. Resource IDs: (1305)
+#, fuzzy
+msgid "&To path: "
+msgstr "stier:"
+
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "&Til: (slut-URL og -revision af intervallet der skal flettes)"
@@ -1292,6 +1310,10 @@ msgstr "Op&dater til revision..."
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "&Benyt automatisk udfyldning af stier og nøgleord"
+
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "&Brug papirkurv"
 
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
@@ -1386,6 +1408,11 @@ msgstr "(ingen linjenummer)"
 
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
+msgstr "(ingen ændringer men kopi blev oprettet herfra)"
+
+#. Resource IDs: (278)
+#, fuzzy
+msgid "(no modification but relevant for working copy)"
 msgstr "(ingen ændringer men kopi blev oprettet herfra)"
 
 # Kontekst?
@@ -1988,8 +2015,8 @@ msgid "Author"
 msgstr "Forfatter"
 
 #. Resource IDs: (65535)
-msgid "Author:                                    Stefan Kueng"
-msgstr "Forfatter:                                    Stefan Kueng"
+msgid "Author:\t\t\t\tStefan Kueng"
+msgstr "Forfatter:\t\t\t\tStefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -2332,6 +2359,10 @@ msgstr "Ændringsliste:"
 msgid "Changes made (double-click on file for diff):"
 msgstr "Aktuelle ændringer (dobbeltklik på fil for at sammenligne):"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr ""
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "&Hent arbejdskopi..."
@@ -2348,6 +2379,10 @@ msgstr "Check for opdateringer"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Check for opdateringer..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr ""
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2950,8 +2985,8 @@ msgstr "Kopier: Nyt navn til %s"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "Kopierer %s"
+msgid "Copying %1!s!"
+msgstr "Kopierer %1!s!"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -3288,15 +3323,16 @@ msgstr "Slet ikke-versionerede emner"
 msgid "Delete and &ignore %d items by name"
 msgstr "Slet og &ignorer %d elementer efter navn"
 
-#. Resource IDs: (14)
-msgid "Delete and add to &ignore list"
-msgstr "Slet og tilføj til \"&ignorer\"-listen"
-
 # Går ud fra at der med "extension" menes "file extension".
 #. Resource IDs: (14)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Slet og ignorer %d elementer efter &filtypenavne"
+
+#. Resource IDs: (616)
+#, fuzzy
+msgid "Delete unversioned items"
+msgstr "Slet ikke-versionerede emner..."
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3330,6 +3366,14 @@ msgstr "Sletter handlingslogfilen"
 msgid "Deleting"
 msgstr "Sletter"
 
+#. Resource IDs: (348)
+msgid "Deleting cached data"
+msgstr ""
+
+#. Resource IDs: (348)
+msgid "Deleting file"
+msgstr "Sletter filen"
+
 #. Resource IDs: (207)
 msgid "Depth"
 msgstr "Dybde"
@@ -3349,6 +3393,11 @@ msgstr "Beskrivelse:"
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "Fravælg ændringsliste"
+
+#. Resource IDs: (1547)
+#, fuzzy
+msgid "Destination URL:"
+msgstr "Standard-URL:"
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
@@ -3953,8 +4002,8 @@ msgid "Export unversioned files too"
 msgstr "Eksporter også ikke-versionerede filer"
 
 #. Resource IDs: (284)
-#, c-format
-msgid "Exporting %s"
+#, fuzzy, c-format
+msgid "Exporting %1!s!"
 msgstr "Eksporterer %s"
 
 #. Resource IDs: (79)
@@ -3972,10 +4021,6 @@ msgstr "Eksporterer et sæt indstillinger til en fil"
 #. Resource IDs: (74, 207)
 msgid "Extension"
 msgstr "Filendelse"
-
-#. Resource IDs: (65535)
-msgid "Extension or mime-type:"
-msgstr "Filendelse eller MIME-type:"
 
 #. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
@@ -4221,6 +4266,16 @@ msgstr ""
 #. Resource IDs: (208)
 msgid "Filename"
 msgstr "Filnavn"
+
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "Filename, extension or mime-type:"
+msgstr "Filendelse eller MIME-type:"
+
+#. Resource IDs: (74)
+#, fuzzy
+msgid "Filename/Extension"
+msgstr "Filendelse"
 
 #. Resource IDs: (1512)
 msgid "Files"
@@ -4737,7 +4792,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "Ikonoverdækning::Ikonsæt"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:                 Luebbe Onken"
+#, fuzzy
+msgid "Icons/Design/Code:\t\tLuebbe Onken"
 msgstr "Ikoner/Design/Kode:                 Luebbe Onken"
 
 #. Resource IDs: (346)
@@ -5854,8 +5910,8 @@ msgid "Moves the modified files to the recycle bin first before reverting"
 msgstr "Flytter de redigerede filer til papirkurven før tilbageførsel"
 
 #. Resource IDs: (80)
-#, c-format
-msgid "Moving %s"
+#, fuzzy, c-format
+msgid "Moving %1!s!"
 msgstr "Flytter %s"
 
 #. Resource IDs: (80)
@@ -5923,6 +5979,11 @@ msgstr "Nyt navn til %s"
 msgid "New name:"
 msgstr "Nyt navn:"
 
+#. Resource IDs: (32875)
+#, fuzzy
+msgid "Next &Inline Difference"
+msgstr "Linjesammenligning"
+
 #. Resource IDs: (3633)
 msgid ""
 "Next Page\n"
@@ -5961,6 +6022,11 @@ msgstr "Der er ingen fejlmeddelelse tilgængelig."
 #. Resource IDs: (3867, 3868)
 msgid "No error occurred."
 msgstr "Der opstod ingen fejl."
+
+#. Resource IDs: (281)
+#, fuzzy
+msgid "No externals found"
+msgstr "Der er ingen forskelle."
 
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
@@ -6481,6 +6547,11 @@ msgstr "Vent venligst mens der annulleres..."
 msgid "Please wait while differences are obtained..."
 msgstr "Vent venligst mens forskellene findes..."
 
+#. Resource IDs: (281)
+#, fuzzy
+msgid "Please wait while the externals are gathered..."
+msgstr "Vent venligst mens forskellene findes..."
+
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Vent venligst mens versionsarkivbrowseren initialiserer..."
@@ -6552,6 +6623,11 @@ msgstr "Forhåndsvis rettet fil"
 #. Resource IDs: (65535)
 msgid "Preview: "
 msgstr "Forhåndsvisning:"
+
+#. Resource IDs: (32876)
+#, fuzzy
+msgid "Previous In&line Difference"
+msgstr "&Forrige forskel"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -7841,6 +7917,11 @@ msgstr "Vis over båndet"
 msgid "Show Below the Ribbon"
 msgstr "Vis under båndet"
 
+#. Resource IDs: (1542)
+#, fuzzy
+msgid "Show Branch L&og"
+msgstr "&Vis log"
+
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
 msgstr "Vis færre knapper"
@@ -8012,8 +8093,8 @@ msgid "Show/Hide"
 msgstr "Vis/skjul"
 
 #. Resource IDs: (115)
-#, c-format
-msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected."
+#, fuzzy, c-format
+msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected, showing %5!ld! changed paths"
 msgstr "Viser %1!ld! revision(er) fra revision %2!ld! til revision %3!ld! - %4!ld! revision(er) valgt."
 
 #. Resource IDs: (272)
@@ -8349,6 +8430,11 @@ msgstr "Skift %s til %s, revision %s"
 #. Resource IDs: (78)
 msgid "Switch - TortoiseSVN"
 msgstr "Skift - TortoiseSVN"
+
+#. Resource IDs: (1377)
+#, fuzzy
+msgid "Switch Depth"
+msgstr "Ombyt Venstre<->Højre"
 
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
@@ -9254,6 +9340,10 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr ""
+
 #. Resource IDs: (98)
 #, c-format
 msgid ""
@@ -9506,13 +9596,18 @@ msgstr ""
 msgid "Unversion"
 msgstr "Afversionér"
 
+#. Resource IDs: (14)
+#, fuzzy
+msgid "Unversion and add to &ignore list"
+msgstr "Slet og tilføj til \"&ignorer\"-listen"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Ikke-versionerede filer viser overordnet mappe som ændret"
 
 #. Resource IDs: (286)
-#, c-format
-msgid "Unversioning %s"
+#, fuzzy, c-format
+msgid "Unversioning %1!s!"
 msgstr "Afversionerer %s"
 
 #. Resource IDs: (106)
@@ -9951,6 +10046,11 @@ msgstr ""
 "Arbejdskopien blev omlagt til\n"
 "%s"
 
+#. Resource IDs: (277)
+#, fuzzy, c-format
+msgid "Working copy: %s\n"
+msgstr "Arbejdskopi"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Ja"
@@ -10307,6 +10407,11 @@ msgstr ""
 "spørg først versionsarkiv om det er 'online' - \n"
 "arbejd udelukkende fra cachen hvis 'offline'"
 
+#. Resource IDs: (278)
+#, fuzzy
+msgid "at this revision"
+msgstr "Tilbag&efør til denne revision"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "forfatter"
@@ -10401,6 +10506,11 @@ msgstr "ændringer i alt:"
 #. Resource IDs: (244, 245)
 msgid "commits"
 msgstr "arkiveringer"
+
+#. Resource IDs: (277)
+#, fuzzy
+msgid "committed revision"
+msgstr "Sidst arkiverede revision:"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10524,6 +10634,16 @@ msgstr "log tekst &editor"
 msgid "max revision: "
 msgstr "højeste revision:"
 
+#. Resource IDs: (278)
+#, fuzzy
+msgid "max. at this revision"
+msgstr "Tilbag&efør til denne revision"
+
+#. Resource IDs: (278)
+#, fuzzy
+msgid "max. committed revision"
+msgstr "Sidst arkiverede revision:"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "flettet"
@@ -10531,6 +10651,16 @@ msgstr "flettet"
 #. Resource IDs: (65535)
 msgid "merges total: "
 msgstr "fletninger i alt:"
+
+#. Resource IDs: (278)
+#, fuzzy
+msgid "min. at this revision"
+msgstr "Tilbag&efør til denne revision"
+
+#. Resource IDs: (278)
+#, fuzzy
+msgid "min. committed revision"
+msgstr "Sidst arkiverede revision:"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -10819,6 +10949,11 @@ msgstr "der er ændringer med konflikter."
 msgid "to %1"
 msgstr "til %1"
 
+#. Resource IDs: (80, 284)
+#, fuzzy, c-format
+msgid "to %1!s!"
+msgstr "til %1"
+
 #. Resource IDs: (80, 103, 284)
 #, c-format
 msgid "to %s"
@@ -11002,6 +11137,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Author:                                    Stefan Kueng"
+#~ msgstr "Forfatter:                                    Stefan Kueng"
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Check automatisk efter &ny version hver uge"
 #~ msgid ""
