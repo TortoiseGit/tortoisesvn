@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-15 23:09-0000\n"
+"PO-Revision-Date: 2010-03-15 23:38-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6249,27 +6249,27 @@ msgstr "duas árvores"
 
 #. (title)
 msgid "The Merge Wizard - Tree Merge"
-msgstr "O Assistent de Integração - Integrar Árvore"
+msgstr "O Assistente de Integração - Integração de Árvores"
 
 #. (para)
 msgid "<placeholder-1/> If you are using this method to merge a feature branch back to trunk, you need to start the merge wizard from within a working copy of trunk."
-msgstr ""
+msgstr "<placeholder-1/> Se estás a usar este método para integrar um ramo de funcionalidade de volta para o trunk, necessitas de arrancar o assistente de integração de dentro da cópia de trabalho do trunk."
 
 #. (para)
 msgid "In the <guilabel>From:</guilabel> field enter the full folder URL of the <emphasis>trunk</emphasis>. This may sound wrong, but remember that the trunk is the start point to which you want to add the branch changes. You may also click <guibutton>...</guibutton> to browse the repository."
-msgstr ""
+msgstr "No campo <guilabel>De:</guilabel> introduz o URL completo da pasta <emphasis>trunk</emphasis>. Isto pode soar errado, mas lembra-te que o trunk é o ponto de partida para o qual queres adicionar as alterações do ramo. Podes também clicar <guibutton>...</guibutton> para navegar o repositório."
 
 #. (para)
 msgid "In the <guilabel>To:</guilabel> field enter the full folder URL of the feature branch."
-msgstr ""
+msgstr "No campo <guilabel>Para:</guilabel> introduz o URL completo da pasta do ramo de desenvolvimento."
 
 #. (para)
 msgid "In both the <guilabel>From Revision</guilabel> field and the <guilabel>To Revision</guilabel> field, enter the last revision number at which the two trees were synchronized. If you are sure no-one else is making commits you can use the HEAD revision in both cases. If there is a chance that someone else may have made a commit since that synchronization, use the specific revision number to avoid losing more recent commits."
-msgstr ""
+msgstr "Em ambos os campos <guilabel>Da Revisão</guilabel> e <guilabel>Para Revisão</guilabel>, introduz o número da última revisão em que as duas árvores estiveram sincronizadas. Se tens a certeza que ninguém está a fazer submissões, podes usar a revisão HEAD em ambos os casos. Se existe uma hipotese de alguém ter feito uma submissão desde essa sincronização, deves usar números de revisões específicas para evitar perder submissões mais recentes. "
 
 #. (para)
 msgid "You can also use <guibutton>Show Log</guibutton> to select the revision."
-msgstr ""
+msgstr "Podes também usar o <guibutton>Mostrar Registo</guibutton> para seleccionar a revisão."
 
 #. (title)
 msgid "Merge Options"
