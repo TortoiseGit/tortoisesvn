@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-15 23:38-0000\n"
+"PO-Revision-Date: 2010-03-16 00:45-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6273,23 +6273,23 @@ msgstr "Podes também usar o <guibutton>Mostrar Registo</guibutton> para selecci
 
 #. (title)
 msgid "Merge Options"
-msgstr ""
+msgstr "Opções de Integração"
 
 #. (para)
 msgid "This page of the wizard lets you specify advanced options, before starting the merge process. Most of the time you can just use the default settings."
-msgstr ""
+msgstr "Esta página do assistente deixa-te especificar opções avançadas antes de começar o processo de integração. Na maior parte do tempo tu podes apenas usar as opções por defeito."
 
 #. (para)
 msgid "You can specify the depth to use for the merge, i.e. how far down into your working copy the merge should go. The depth terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which uses the existing depth setting, and is almost always what you want."
-msgstr ""
+msgstr "Tu podes especificar a profundidade a usar na integração, i.e. até que ponto deverá a integração penetrar na tua cópia de trabalho. Os termos de profundidade usados estão descritos em <xref linkend=\"tsvn-dug-checkout-depth\"/>. A profundidade por defeito é a <guilabel>Cópia de trabalho</guilabel>, e é quase sempre o que precisas."
 
 #. (para)
 msgid "Most of the time you want merge to take account of the file's history, so that changes relative to a common ancestor are merged. Sometimes you may need to merge files which are perhaps related, but not in your repository. For example you may have imported versions 1 and 2 of a third party library into two separate directories. Although they are logically related, Subversion has no knowledge of this because it only sees the tarballs you imported. If you attempt to merge the difference between these two trees you would see a complete removal followed by a complete add. To make Subversion use only path-based differences rather than history-based differences, check the <guilabel>Ignore ancestry</guilabel> box. Read more about this topic in the Subversion book, <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
-msgstr ""
+msgstr "Na maior parte do tempo tu queres que a integração tome conta do histórico do ficheiro, para as que alterações relativas a um antepassado comum sejam integradas. Por vezes tu quererás integrar ficheiros que são talvez relacionados, mas não no repositório. Por exemplo tu podes ter versões importadas 1 e 2 de uma biblioteca de terceiros, em duas pastas separadas. Apesar de eles estarem logicamente relacionadas, o Subversion não tem conhecimento disto porque o que apenas vê são tarballs que importaste. Se tu tentares integrar as diferenças entre essas duas árvores irás ver uma remoção completa seguida por uma adição completa. Para levar o Subversion a usar só as diferenças baseadas no caminho, em vez das diferenças baseadas na história, verifica a caixa <guilabel>Ignorar ascendência</guilabel>. Consultar mais sobre este tópico no livro do Subversion, <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
 
 #. (para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes to be merged."
-msgstr ""
+msgstr "Tu podes especificar a forma como os fins-de-linha e espaços-em-branco são lidados. Essas opções são descritas em <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. O comportamento por defeito é tratar todos os espaços-em-branco e os fins-de-linha como alterações a serem integradas."
 
 #. (para)
 msgid "The checkbox marked <guilabel>Force the merge</guilabel> is used to avoid a tree conflict where an incoming delete affects a file that is either modified locally or not versioned at all. If the file is deleted then there is no way to recover it, which is why that option is not checked by default."
@@ -6297,15 +6297,15 @@ msgstr ""
 
 #. (para)
 msgid "If you are using merge tracking and you want to mark a revision as having been merged, without actually doing the merge here, check the <guilabel>Only record the merge</guilabel> checkbox. There are two possible reasons you might want to do this. It may be that the merge is too complicated for the merge algorithms, so you code the changes by hand, then mark the change as merged so that the merge tracking algorithm is aware of it. Or you might want to prevent a particular revision from being merged. Marking it as already merged will prevent the merge occurring with merge-tracking-aware clients."
-msgstr ""
+msgstr "Se estás a usar o seguimento de integração, e queres marcar a revisão como tendo sido integrada, sem actualmente efectuar essa integração aqui, verifica a caixa de verificação <guilabel>Só regista a integração</guilabel>. Existem duas razões possíveis para que tu queiras fazer isto. Poderá ser que a integração seja muito complicada para os algoritmos de integração, pelo que inseres as alterações manualmente, e então marcas como integrada, para que o seguidor de integração conheça esse facto. Ou queiras evitar que uma revisão particular seja integrada. Considerando-a como já integrada, irá evitar que a integração ocorra com clientes sensíveis ao seguimento."
 
 #. (para)
 msgid "Now everything is set up, all you have to do is click on the <guibutton>Merge</guibutton> button. If you want to preview the results <guibutton>Test Merge</guibutton> simulates the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes files where conflicts <emphasis>may</emphasis> occur. Because merge tracking makes the merge process a lot more complicated, there is no guaranteed way to find out in advance whether the merge will complete without conflicts, so files marked as conflicted in a test merge may in fact merge without any problem."
-msgstr ""
+msgstr "Agora tudo está configurado, tudo o que tens de fazer é clicar no botão <guibutton>Integrar</guibutton>. Se queres pré-visualizar os resultados o <guibutton>Testar Integração</guibutton> simula a operação de integração, mas <emphasis>não</emphasis> modifica de todo a cópia de trabalho. Mostra-te uma lista de ficheiros que serão alterados por uma integração real, e anota os ficheiros onde os conflitos <emphasis>podem</emphasis> ocorrer. Porque o seguimento da integração torna o processo de integração muito mais complexo, não existe maneira garantida de determinar em avanço se uma integração irá ser concluída sem conflitos, pelo que os ficheiros marcados como em conflito numa integração de teste, poderão de facto integrar-se sem qualquer problema."
 
 #. (para)
 msgid "The merge progress dialog shows each stage of the merge, with the revision ranges involved. This may indicate one more revision than you were expecting. For example if you asked to merge revision 123 the progress dialog will report <quote>Merging revisions 122 through 123</quote>. To understand this you need to remember that Merge is closely related to Diff. The merge process works by generating a list of differences between two points in the repository, and applying those differences to your working copy. The progress dialog is simply showing the start and end points for the diff."
-msgstr ""
+msgstr "A caixa de diálogo progresso de integração, mostra cada estágio da integração com os intervalos das revisões envolvidas. Isto pode indicar uma revisão a mais do que estavas à espera. Por exemplo se tu pedes para integrar a revisão 123, a caixa de diálogo de progresso irá reportar <quote>Integrar revisões 122 até 123</quote>. Para compreender isto tu precisas de te recordar que a Integração está intimamente relacionada com a Comparação. O processo de integração funciona através da geração de listas de diferenças entre dois pontos no repositório, e então aplicar essas diferenças à tua cópia de trabalho. A caixa de diálogo de progresso simplesmente mostra o ponto de inicio e fim para a comparação."
 
 #. (title)
 msgid "Reviewing the Merge Results"
