@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-16 22:54-0000\n"
+"PO-Revision-Date: 2010-03-16 23:53-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6133,7 +6133,7 @@ msgstr "Este método cobre o caso em que criaste um ramo de funcionalidade, como
 
 #. (para)
 msgid "This is a special case of the tree merge described below, and it requires only the URL to merge from (normally) your development branch. It uses the merge-tracking features of Subversion to calculate the correct revision ranges to use, and perform additional checks which ensure that the branch has been fully updated with trunk changes. This ensures that you don't accidentally undo work that others have committed to trunk since you last synchronized changes."
-msgstr "Este é um caso especial da integração de árvore, descrita abaixo, e apenas requer o URL de origem para integrar do (usualmente) teu ramo de desenvolvimento. Ele usa as funcionalidades de seguimento-de-integração do Subversion, para calcular o intervalo correcto de revisões a usar e executar verificações adicionais, de modo a garantir que o ramo foi totalmente actualizado com as alterações do trunk. Isto garante que tu, por acidente, não desfaças o trabalho que outros tenham submetido para o trunk desde as tuas últimas alterações sincronizadas."
+msgstr "Este é um caso especial da integração de árvore, descrita abaixo, e apenas requer o URL de origem para integrar do (usualmente) teu ramo de desenvolvimento. Ele usa as funcionalidades de rastreamento-de-integração do Subversion, para calcular o intervalo correcto de revisões a usar e executar verificações adicionais, de modo a garantir que o ramo foi totalmente actualizado com as alterações do trunk. Isto garante que tu, por acidente, não desfaças o trabalho que outros tenham submetido para o trunk desde as tuas últimas alterações sincronizadas."
 
 #. (para)
 msgid "After the merge, all branch development has been completely merged back into the main development line. The branch is now redundant and can be deleted."
@@ -6153,7 +6153,7 @@ msgstr "Este é um caso mais geral do método de reintegração. O que estás a 
 
 #. (para)
 msgid "If your server/repository does not support merge-tracking then this is the only way to merge a branch back to trunk. Another use case occurs when you are using vendor branches and you need to merge the changes following a new vendor drop into your trunk code. For more information read the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.vendorbr.html\"><citetitle>vendor branches</citetitle></ulink> in the Subversion Book."
-msgstr "Se o teu servidor/repositório não suporta seguimento-de-integração então esta é a única maneira para integrar um ramo de volta para o trunk. Outro caso ocorre quando tu estás a usar ramos de vendedores e, necessitas de integrar as alterações a seguir a um novo gotejar do vendedor no teu código do trunk. Para mais informação, consulta o capitulo <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.vendorbr.html\"><citetitle>vendor branches</citetitle></ulink> no livro do Subversion."
+msgstr "Se o teu servidor/repositório não suporta o rastreamento-de-integração então esta é a única maneira para integrar um ramo de volta para o trunk. Outro caso ocorre quando tu estás a usar ramos de vendedores e, necessitas de integrar as alterações a seguir a um novo gotejar do vendedor no teu código do trunk. Para mais informação, consulta o capitulo <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.vendorbr.html\"><citetitle>vendor branches</citetitle></ulink> no livro do Subversion."
 
 #. (title)
 msgid "Merging a Range of Revisions"
@@ -6209,7 +6209,7 @@ msgstr "Se já integraste algumas alterações deste ramo, espera-se que tenhas 
 
 #. (para)
 msgid "If you are using the merge tracking features of Subversion, you do not need to remember which revisions have already been merged - Subversion will record that for you. If you leave the revision range blank, all revisions which have not yet been merged will be included. Read <xref linkend=\"tsvn-dug-merge-tracking\"/> to find out more."
-msgstr "Se estás a usar as funcionalidades de seguimento de integração, do Subversion, não precisas de te lembrares quais as revisões que já foram integradas - o Subversion irá recordar-se disso por ti. Se deixas o intervalo de revisões em branco, todas as revisões que não foram ainda integradas serão incluídas. Consulta <xref linkend=\"tsvn-dug-merge-tracking\"/> para saberes mais. "
+msgstr "Se estás a usar as funcionalidades de rastreamento de integração, do Subversion, não precisas de te lembrares quais as revisões que já foram integradas - o Subversion irá recordar-se disso por ti. Se deixas o intervalo de revisões em branco, todas as revisões que não foram ainda integradas serão incluídas. Consulta <xref linkend=\"tsvn-dug-merge-tracking\"/> para saberes mais. "
 
 #. (para)
 msgid "If other people may be committing changes then be careful about using the HEAD revision. It may not refer to the revision you think it does if someone else made a commit after your last update."
@@ -6237,7 +6237,7 @@ msgstr "No campo <guilabel>Do URL:</guilabel> introduz o URL completo da pasta d
 
 #. (para)
 msgid "There are some conditions which apply to a reintegrate merge. Firstly, the server must support merge tracking. The working copy must be of depth infinite (no sparse checkouts), and it must not have any local modifications, switched items or items that have been updated to revisions other than HEAD. All changes to trunk made during branch development must have been merged across to the branch (or marked as having been merged). The range of revisions to merge will be calculated automatically."
-msgstr "Existem algumas condições que se aplicam a uma integração de reintegração. Primeiramente, o servidor deverá suportar o seguimento de integração. A cópia de trabalho deverá ser de profundidade infinita (sem exportações SVN dispersas), e não deverá ter nenhumas alterações, itens trocados ou itens que foram actualizadas para revisões diferentes da HEAD. Todas as alterações para o trunk feitas durante o desenvolvimento do ramo, deverão ter sido já integradas transversalmente para o ramo (ou marcadas como tendo sido feitas). O intervalo de revisões a integrar será então calculado automaticamente."
+msgstr "Existem algumas condições que se aplicam a uma integração de reintegração. Primeiramente, o servidor deverá suportar o rastreamento de integração. A cópia de trabalho deverá ser de profundidade infinita (sem exportações SVN dispersas), e não deverá ter nenhumas alterações, itens trocados ou itens que foram actualizadas para revisões diferentes da HEAD. Todas as alterações para o trunk feitas durante o desenvolvimento do ramo, deverão ter sido já integradas transversalmente para o ramo (ou marcadas como tendo sido feitas). O intervalo de revisões a integrar será então calculado automaticamente."
 
 #. (title)
 msgid "Merging Two Different Trees"
@@ -6297,11 +6297,11 @@ msgstr ""
 
 #. (para)
 msgid "If you are using merge tracking and you want to mark a revision as having been merged, without actually doing the merge here, check the <guilabel>Only record the merge</guilabel> checkbox. There are two possible reasons you might want to do this. It may be that the merge is too complicated for the merge algorithms, so you code the changes by hand, then mark the change as merged so that the merge tracking algorithm is aware of it. Or you might want to prevent a particular revision from being merged. Marking it as already merged will prevent the merge occurring with merge-tracking-aware clients."
-msgstr "Se estás a usar o seguimento de integração, e queres marcar a revisão como tendo sido integrada, sem actualmente efectuar essa integração aqui, verifica a caixa de verificação <guilabel>Só regista a integração</guilabel>. Existem duas razões possíveis para que tu queiras fazer isto. Poderá ser que a integração seja muito complicada para os algoritmos de integração, pelo que inseres as alterações manualmente, e então marcas como integrada, para que o seguidor de integração conheça esse facto. Ou queiras evitar que uma revisão particular seja integrada. Considerando-a como já integrada, irá evitar que a integração ocorra com clientes sensíveis ao seguimento."
+msgstr "Se estás a usar o rastreamento de integração, e queres marcar a revisão como tendo sido integrada, sem actualmente efectuar essa integração aqui, verifica a caixa de verificação <guilabel>Só regista a integração</guilabel>. Existem duas razões possíveis para que tu queiras fazer isto. Poderá ser que a integração seja muito complicada para os algoritmos de integração, pelo que inseres as alterações manualmente, e então marcas como integrada, para que o rastreador de integração conheça esse facto. Ou queiras evitar que uma revisão particular seja integrada. Considerando-a como já integrada, irá evitar que a integração ocorra com clientes sensíveis ao seguimento."
 
 #. (para)
 msgid "Now everything is set up, all you have to do is click on the <guibutton>Merge</guibutton> button. If you want to preview the results <guibutton>Test Merge</guibutton> simulates the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes files where conflicts <emphasis>may</emphasis> occur. Because merge tracking makes the merge process a lot more complicated, there is no guaranteed way to find out in advance whether the merge will complete without conflicts, so files marked as conflicted in a test merge may in fact merge without any problem."
-msgstr "Agora tudo está configurado, tudo o que tens de fazer é clicar no botão <guibutton>Integrar</guibutton>. Se queres pré-visualizar os resultados o <guibutton>Testar Integração</guibutton> simula a operação de integração, mas <emphasis>não</emphasis> modifica de todo a cópia de trabalho. Mostra-te uma lista de ficheiros que serão alterados por uma integração real, e anota os ficheiros onde os conflitos <emphasis>podem</emphasis> ocorrer. Porque o seguimento da integração torna o processo de integração muito mais complexo, não existe maneira garantida de determinar em avanço se uma integração irá ser concluída sem conflitos, pelo que os ficheiros marcados como em conflito numa integração de teste, poderão de facto integrar-se sem qualquer problema."
+msgstr "Agora tudo está configurado, tudo o que tens de fazer é clicar no botão <guibutton>Integrar</guibutton>. Se queres pré-visualizar os resultados o <guibutton>Testar Integração</guibutton> simula a operação de integração, mas <emphasis>não</emphasis> modifica de todo a cópia de trabalho. Mostra-te uma lista de ficheiros que serão alterados por uma integração real, e anota os ficheiros onde os conflitos <emphasis>podem</emphasis> ocorrer. Porque o rastreador de integração torna o processo de integração muito mais complexo, não existe maneira garantida de determinar em avanço se uma integração irá ser concluída sem conflitos, pelo que os ficheiros marcados como em conflito numa integração de teste, poderão de facto integrar-se sem qualquer problema."
 
 #. (para)
 msgid "The merge progress dialog shows each stage of the merge, with the revision ranges involved. This may indicate one more revision than you were expecting. For example if you asked to merge revision 123 the progress dialog will report <quote>Merging revisions 122 through 123</quote>. To understand this you need to remember that Merge is closely related to Diff. The merge process works by generating a list of differences between two points in the repository, and applying those differences to your working copy. The progress dialog is simply showing the start and end points for the diff."
@@ -6321,7 +6321,7 @@ msgstr "Para clientes e servidores Subversion, anteriores à versão 1.5, nenhum
 
 #. (para)
 msgid "If your server and all clients are running Subversion 1.5 or higher, the merge tracking facility will record the revisions merged and avoid a revision being merged more than once. This makes your life much simpler as you can simply merge the entire revision range each time and know that only new revisions will actually be merged."
-msgstr "Se o teu servidor e todos os clientes estão a correr o Subversion 1.5, ou versão superior, a funcionalidade de seguimento da integração irá registar as revisões integradas e evitar que uma revisão seja integrada mais que uma vez. Isto torna a tua vida muito mais simples, já que podes simplesmente integrar o intervalo completo de revisões de cada vez, e saber que só as novas revisões serão realmente integradas."
+msgstr "Se o teu servidor e todos os clientes estão a correr o Subversion 1.5, ou versão superior, a funcionalidade de rastreamento de integração irá registar as revisões integradas e evitar que uma revisão seja integrada mais que uma vez. Isto torna a tua vida muito mais simples, já que podes simplesmente integrar o intervalo completo de revisões de cada vez, e saber que só as novas revisões serão realmente integradas."
 
 #. (para)
 msgid "Branch management is important. If you want to keep this branch up to date with the trunk, you should be sure to merge often so that the branch and trunk do not drift too far apart. Of course, you should still avoid repeated merging of changes, as explained above."
@@ -6337,43 +6337,43 @@ msgstr "O Subversion não pode integrar um ficheiro com uma pasta e vice-versa -
 
 #. (title)
 msgid "Merge Tracking"
-msgstr "Monitorar Integração"
+msgstr "Rastreamento de Integração"
 
 #. (primary)
 msgid "merge tracking"
-msgstr "monitorar integração"
+msgstr "Monitorizar a integração"
 
 #. (para)
 msgid "You can avoid the danger of merging the same revision twice (repeated merge problem). Once a revision is marked as having been merged, future merges which include that revision in the range will skip over it."
-msgstr ""
+msgstr "Podes evitar o perigo de integrar a mesma revisão duas vezes (problema da integração repetida). De cada vez que uma revisão for marcada como tendo sido integrada, integrações futuras, que incluam essa revisão no seu intervalo, irão ignorá-la."
 
 #. (para)
 msgid "When you merge a branch back into trunk, the log dialog can show you the branch commits as part of the trunk log, giving better traceability of changes."
-msgstr ""
+msgstr "Quando integras um ramo de volta para o trunk, a caixa de diálogo de registo pode-te mostrar as submissões no ramo como parte do registo do trunk, dando-te melhor rastreamento das alterações."
 
 #. (para)
 msgid "When you show the log dialog from within the merge dialog, revisions already merged are shown in grey."
-msgstr ""
+msgstr "Quando mostras a caixa de diálogo de registo de dentro da caixa de diálogo de integração, as revisões já integradas são mostradas a cinzento."
 
 #. (para)
 msgid "When showing blame information for a file, you can choose to show the original author of merged revisions, rather than the person who did the merge."
-msgstr ""
+msgstr "Quando mostrada a informação de responsabilidade para um ficheiro, podes então escolher mostrar o autor original das revisões integradas, em vez de, a pessoa que efectuou a integração."
 
 #. (para)
 msgid "You can mark revisions as <emphasis>do not merge</emphasis> by including them in the list of merged revisions without actually doing the merge."
-msgstr ""
+msgstr "Tu podes marcar revisões como <emphasis>não integrar</emphasis> incluindo-as na lista de revisões integradas sem realmente efectuar a integração."
 
 #. (para)
 msgid "Subversion 1.5 introduced facilities for merge tracking. When you merge changes from one tree into another, the revision numbers merged are stored and this information can be used for several different purposes. <placeholder-1/>"
-msgstr ""
+msgstr "O Subversion 1.5 introduz facilidades para rastreamento da integração. Quando tu integras alterações de uma árvore para outra, os números de revisões integradas são armazenadas e esta informação pode ser usada para vários propósitos diferentes. <placeholder-1/>"
 
 #. (para)
 msgid "Merge tracking information is stored in the <literal>svn:mergeinfo</literal> property by the client when it performs a merge. When the merge is committed the server stores that information in a database, and when you request merge, log or blame information, the server can respond appropriately. For the system to work properly you must ensure that the server, the repository and all clients are upgraded. Earlier clients will not store the <literal>svn:mergeinfo</literal> property and earlier servers will not provide the information requested by new clients."
-msgstr ""
+msgstr "A informação de rastreamento de integração é armazenada na propriedade <literal>svn:mergeinfo</literal> pelo cliente, quando executa uma integração. Quando a integração é submetida, o servidor armazena essa informação numa base de dados, e quando tu requisitas a informação de integração, registo ou responsabilidade, o servidor possa responder de acordo. Para o sistema funcionar correctamente deves assegurar que o servidor, repositório e todos os clientes estejam actualizados. Clientes antigos não irão armazenar a propriedade <literal>svn:mergeinfo</literal> e servidores antigos não irão fornecer essa mesma informação, requisitada pelos novos clientes."
 
 #. (para)
 msgid "Find out more about merge tracking from Subversion's <ulink url=\"http://subversion.tigris.org/merge-tracking/index.html\"><citetitle>Merge tracking documentation</citetitle></ulink>."
-msgstr ""
+msgstr "Sabe mais sobre o rastreamento de integração através do Subversion em <ulink url=\"http://subversion.tigris.org/merge-tracking/index.html\"><citetitle>Merge tracking documentation</citetitle></ulink>."
 
 #. (title)
 msgid "Handling Conflicts during Merge"
