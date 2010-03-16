@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-23 23:39+0200\n"
+"PO-Revision-Date: 2010-03-16 19:12+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -354,6 +354,10 @@ msgstr "&Tietoja TortoiseMerge-ohjelmasta..."
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "&Aktivoi"
+
+#. Resource IDs: (15)
+msgid "&Add"
+msgstr "&Lisää"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
@@ -1146,9 +1150,9 @@ msgstr "Ver&sioon"
 msgid "&To URL:"
 msgstr "P&aikantimeen:"
 
-#. Resource IDs: (1305)
-msgid "&To URL: "
-msgstr "Paikantim&een:"
+#. Resource IDs: (1384)
+msgid "&To path:"
+msgstr "&Polkuun:"
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
@@ -3206,10 +3210,6 @@ msgid "Delete and &ignore %d items by name"
 msgstr "Poista ja &ohita %d kohdetta nimen perusteella"
 
 #. Resource IDs: (14)
-msgid "Delete and add to &ignore list"
-msgstr "Poista ja lisää &ohituslistaan"
-
-#. Resource IDs: (14)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Poista ja ohita %d kohdetta &päätteen perusteella"
@@ -3277,6 +3277,10 @@ msgstr "Kuvaus:"
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "Poista muutoslistan valinta"
+
+#. Resource IDs: (1547)
+msgid "Destination URL:"
+msgstr "Kohdepaikannin:"
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
@@ -8246,6 +8250,10 @@ msgstr "Vaihda polusta %s polkuun %s, versio %s"
 msgid "Switch - TortoiseSVN"
 msgstr "Vaihda - TortoiseSVN"
 
+#. Resource IDs: (1377)
+msgid "Switch Depth"
+msgstr "Vaihda syvyys"
+
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
 msgstr "Vaihda vasen<->oikea"
@@ -9396,6 +9404,10 @@ msgstr ""
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Poista versiointi"
+
+#. Resource IDs: (14)
+msgid "Unversion and add to &ignore list"
+msgstr "Poista versiointi ja lisää &ohituslistaan"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
@@ -10913,6 +10925,10 @@ msgstr "kyllä"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&To URL: "
+#~ msgstr "Paikantim&een:"
+#~ msgid "&To path: "
+#~ msgstr "&Polkuun:"
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Tekijä:                                    Stefan Küng"
 #~ msgid "Automatically check for &newer versions every week"
