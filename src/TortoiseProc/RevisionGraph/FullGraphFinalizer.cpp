@@ -257,11 +257,13 @@ void CFullGraphFinalizer::MarkWCRevisions (CFullGraphNode* node)
 
 		if (// between this ...
 			   (node->GetRevision() < wcRev)
-			// ... and the next node, if there is one
+			// ... and the next node (if there is one) ...
 			&& (   (node->GetNext() == NULL) 
 				|| (node->GetNext()->GetRevision() > wcRev))
-			// on the right path
-			&& (node->GetPath().GetBasePath().Intersects (path)))
+			// ... on the right path ...
+			&& node->GetPath().GetBasePath().Intersects (path)
+			// ... and not deleted, yet
+			&& !node->GetClassification().Is (CNodeClassification::IS_DELETED))
 		{
 			// WC rev lies behind this node and before the next one 
 
