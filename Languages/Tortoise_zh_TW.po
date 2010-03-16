@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-08 20:42+0800\n"
+"PO-Revision-Date: 2010-03-16 20:25+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -289,6 +289,10 @@ msgstr "關於 TortoiseMerge(&A)..."
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "啟動(&A)"
+
+#. Resource IDs: (15)
+msgid "&Add"
+msgstr "加入(&A)"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
@@ -1080,9 +1084,9 @@ msgstr "至版本(&T)"
 msgid "&To URL:"
 msgstr "至URL(&T):"
 
-#. Resource IDs: (1305)
-msgid "&To URL: "
-msgstr "至URL(&T):"
+#. Resource IDs: (1384)
+msgid "&To path:"
+msgstr "至路徑(&T):"
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
@@ -3143,10 +3147,6 @@ msgid "Delete and &ignore %d items by name"
 msgstr "依名稱刪除並忽略 %d 項(&I)"
 
 #. Resource IDs: (14)
-msgid "Delete and add to &ignore list"
-msgstr "刪除並加入忽略列表(&I)"
-
-#. Resource IDs: (14)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "依副檔名刪除並忽略 %d 項(&E)"
@@ -3214,6 +3214,10 @@ msgstr "描述:"
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "取消選取變更列表"
+
+#. Resource IDs: (1547)
+msgid "Destination URL:"
+msgstr "目標 URL:"
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
@@ -8178,6 +8182,10 @@ msgstr "切換 %s 至 %s, 版本 %s"
 msgid "Switch - TortoiseSVN"
 msgstr "切換 - TortoiseSVN"
 
+#. Resource IDs: (1377)
+msgid "Switch Depth"
+msgstr "切換深度"
+
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
 msgstr "左右切換"
@@ -9329,6 +9337,10 @@ msgstr ""
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "清除版本控制"
+
+#. Resource IDs: (14)
+msgid "Unversion and add to &ignore list"
+msgstr "取消版本控制並加入忽略列表(&I)"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
@@ -10850,6 +10862,8 @@ msgstr "是"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&To URL: "
+#~ msgstr "至URL(&T):"
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "作者:                        Stefan Kueng"
 #~ msgid "Automatically check for &newer versions every week"
