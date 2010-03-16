@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-16 00:45-0000\n"
+"PO-Revision-Date: 2010-03-16 22:54-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6309,31 +6309,31 @@ msgstr "A caixa de diálogo progresso de integração, mostra cada estágio da i
 
 #. (title)
 msgid "Reviewing the Merge Results"
-msgstr "A rever os Resultados de Integração"
+msgstr "Rever os Resultados de Integração"
 
 #. (para)
 msgid "The merge is now complete. It's a good idea to have a look at the merge and see if it's as expected. Merging is usually quite complicated. Conflicts often arise if the branch has drifted far from the trunk."
-msgstr ""
+msgstr "A integração está agora completa. É uma boa ideia dar uma vista de olhos na integração e ver se está como o esperado. Integrar é normalmente algo complicado. Os conflitos surgem com frequência se o ramo divergiu bastante do trunk."
 
 #. (para)
 msgid "For Subversion clients and servers prior to 1.5, no merge information is stored and merged revisions have to be tracked manually. When you have tested the changes and come to commit this revision, your commit log message should <emphasis>always</emphasis> include the revision numbers which have been ported in the merge. If you want to apply another merge at a later time you will need to know what you have already merged, as you do not want to port a change more than once. For more information about this, refer to <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac\"><citetitle>Best Practices for Merging</citetitle></ulink> in the Subversion book."
-msgstr ""
+msgstr "Para clientes e servidores Subversion, anteriores à versão 1.5, nenhuma informação sobre integração é armazenada e as revisões tem de ser seguidas manualmente. Quando tiveres testado as alterações e fores então submeter esta revisão, a tua mensagem de registo deverá incluir <emphasis>sempre</emphasis> os números das revisões que foram portadas na integração. Se queres aplicar posteriormente outra integração, necessitarás de conhecer o que já integraste, já que não queres portar uma alteração mais do que uma vez. Para mais informação, consulta <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac\"><citetitle>Best Practices for Merging</citetitle></ulink> no livro do Subversion."
 
 #. (para)
 msgid "If your server and all clients are running Subversion 1.5 or higher, the merge tracking facility will record the revisions merged and avoid a revision being merged more than once. This makes your life much simpler as you can simply merge the entire revision range each time and know that only new revisions will actually be merged."
-msgstr ""
+msgstr "Se o teu servidor e todos os clientes estão a correr o Subversion 1.5, ou versão superior, a funcionalidade de seguimento da integração irá registar as revisões integradas e evitar que uma revisão seja integrada mais que uma vez. Isto torna a tua vida muito mais simples, já que podes simplesmente integrar o intervalo completo de revisões de cada vez, e saber que só as novas revisões serão realmente integradas."
 
 #. (para)
 msgid "Branch management is important. If you want to keep this branch up to date with the trunk, you should be sure to merge often so that the branch and trunk do not drift too far apart. Of course, you should still avoid repeated merging of changes, as explained above."
-msgstr ""
+msgstr "A gestão de ramos é importante. Se queres manter este ramo actualizado com o trunk deverás ter o cuidado de integrar com frequência, para que o ramo e o trunk não divirjam muito. É claro que deverás evitar ainda a integração repetida de alterações, como descrito acima."
 
 #. (para)
 msgid "If you have just merged a feature branch back into the trunk, the trunk now contains all the new feature code, and the branch is obsolete. You can now delete it from the repository if required."
-msgstr ""
+msgstr "Se acabaste de integrar um ramo de funcionalidade de volta para o trunk, este agora contém todo o código da nova funcionalidade, tornando-se o ramo obsoleto. Podes então remove-lo do repositório, se for requerido."
 
 #. (para)
 msgid "Subversion can't merge a file with a folder and vice versa - only folders to folders and files to files. If you click on a file and open up the merge dialog, then you have to give a path to a file in that dialog. If you select a folder and bring up the dialog, then you must specify a folder URL for the merge."
-msgstr ""
+msgstr "O Subversion não pode integrar um ficheiro com uma pasta e vice-versa - só pastas com pastas e ficheiros com ficheiros. Se clicas num ficheiro e abres a caixa de diálogo de integração, então tens de dar o caminho para um ficheiro nessa caixa de diálogo. Se seleccionas uma pasta e abrires a caixa de diálogo, então terás de especificar um URL de uma pasta para a integração."
 
 #. (title)
 msgid "Merge Tracking"
