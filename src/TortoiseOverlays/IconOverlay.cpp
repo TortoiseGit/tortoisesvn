@@ -206,15 +206,28 @@ int CShellExt::GetInstalledOverlays()
 		_T("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers"),
 		0, KEY_ENUMERATE_SUB_KEYS, &hKey)==ERROR_SUCCESS)
 	{
+		TCHAR value[1024];
+		TCHAR keystring[1024];
 		for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
 		{ 
-			TCHAR value[1024];
 			DWORD size = sizeof value / sizeof TCHAR;
 			FILETIME last_write_time;
 			rc = RegEnumKeyEx(hKey, i, value, &size, NULL, NULL, NULL, &last_write_time);
 			if (rc == ERROR_SUCCESS) 
 			{
-				nInstalledOverlayhandlers++;
+				DWORD dwType = 0;
+				DWORD dwSize = sizeof(value);
+				// check if there's a 'default' entry with a guid
+				_tcscpy_s(keystring, 1024, _T("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\"));
+				_tcscat_s(keystring, 1024, value);
+				if (SHGetValue(HKEY_LOCAL_MACHINE, 
+					keystring, 
+					NULL,
+					&dwType, value, &dwSize) == ERROR_SUCCESS)
+				{
+					if ((dwSize > 10)&&(value[0] == '{'))
+						nInstalledOverlayhandlers++;
+				}
 			}
 		}
 	}
