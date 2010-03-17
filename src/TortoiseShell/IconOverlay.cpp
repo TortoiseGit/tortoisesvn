@@ -71,17 +71,23 @@ STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 		case FileStateDeleted:
 			*pPriority = 2;
 			break;
-		case FileStateReadOnly:
+		case FileStateAddedOverlay:
 			*pPriority = 3;
 			break;
-		case FileStateLockedOverlay:
+		case FileStateVersioned:
 			*pPriority = 4;
 			break;
-		case FileStateAddedOverlay:
+		case FileStateUncontrolled:
 			*pPriority = 5;
 			break;
-		case FileStateVersioned:
+		case FileStateReadOnly:
 			*pPriority = 6;
+			break;
+		case FileStateIgnoredOverlay:
+			*pPriority = 7;
+			break;
+		case FileStateLockedOverlay:
+			*pPriority = 8;
 			break;
 		default:
 			*pPriority = 100;
@@ -253,12 +259,12 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			return S_FALSE;
 
 		case svn_wc_status_unversioned:
-			if (!g_ShellCache.ShowUnversionedOverlay() || !g_unversionedovlloaded || (m_State != FileStateUnversionedOverlay))
+			if (!g_unversionedovlloaded || (m_State != FileStateUnversionedOverlay))
     			return S_FALSE;
             break;
 
 		case svn_wc_status_ignored:
-			if (!g_ShellCache.ShowIgnoredOverlay() || !g_ignoredovlloaded || (m_State != FileStateIgnoredOverlay))
+			if (!g_ignoredovlloaded || (m_State != FileStateIgnoredOverlay))
     			return S_FALSE;
             break;
 

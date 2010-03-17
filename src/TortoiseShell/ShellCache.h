@@ -62,8 +62,6 @@ public:
 		simplecontext = CRegStdDWORD(_T("Software\\TortoiseSVN\\SimpleContext"), FALSE);
 		shellmenuaccelerators = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShellMenuAccelerators"), TRUE);
 		unversionedasmodified = CRegStdDWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
-		showunversionedoverlay = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShowUnversionedOverlay"), TRUE);
-		showignoredoverlay = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShowIgnoredOverlay"), TRUE);
 		getlocktop = CRegStdDWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
 		excludedasnormal = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShowExcludedFoldersAsNormal"), FALSE);
 		alwaysextended = CRegStdDWORD(_T("Software\\TortoiseSVN\\AlwaysExtendedMenu"), FALSE);
@@ -80,8 +78,6 @@ public:
 		simplecontextticker = cachetypeticker;
 		shellmenuacceleratorsticker = cachetypeticker;
 		unversionedasmodifiedticker = cachetypeticker;
-		showunversionedoverlayticker = cachetypeticker;
-		showignoredoverlayticker = cachetypeticker;
 		admindirticker = cachetypeticker;
 		columnseverywhereticker = cachetypeticker;
 		getlocktopticker = cachetypeticker;
@@ -136,8 +132,6 @@ public:
 		simplecontext.read();
 		shellmenuaccelerators.read();
 		unversionedasmodified.read();
-		showunversionedoverlay.read();
-		showignoredoverlay.read();
 		excludedasnormal.read();
 		alwaysextended.read();
 		menulayoutlow.read();
@@ -242,24 +236,6 @@ public:
 			unversionedasmodified.read();
 		}
 		return (unversionedasmodified);
-	}
-	BOOL ShowUnversionedOverlay()
-	{
-		if ((GetTickCount() - showunversionedoverlayticker)>REGISTRYTIMEOUT)
-		{
-			showunversionedoverlayticker = GetTickCount();
-			showunversionedoverlay.read();
-		}
-		return (showunversionedoverlay);
-	}
-	BOOL ShowIgnoredOverlay()
-	{
-		if ((GetTickCount() - showignoredoverlayticker)>REGISTRYTIMEOUT)
-		{
-			showignoredoverlayticker = GetTickCount();
-			showignoredoverlay.read();
-		}
-		return (showignoredoverlay);
 	}
 	BOOL IsGetLockTop()
 	{
@@ -614,8 +590,6 @@ private:
 	CRegStdDWORD menumasklow_cu;
 	CRegStdDWORD menumaskhigh_cu;
 	CRegStdDWORD unversionedasmodified;
-	CRegStdDWORD showunversionedoverlay;
-	CRegStdDWORD showignoredoverlay;
 	CRegStdDWORD excludedasnormal;
 	CRegStdDWORD alwaysextended;
 	CRegStdString excludelist;
@@ -642,8 +616,6 @@ private:
 	DWORD simplecontextticker;
 	DWORD shellmenuacceleratorsticker;
 	DWORD unversionedasmodifiedticker;
-	DWORD showunversionedoverlayticker;
-	DWORD showignoredoverlayticker;
 	DWORD excludedasnormalticker;
 	DWORD alwaysextendedticker;
 	DWORD columnseverywhereticker;

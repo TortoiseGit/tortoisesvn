@@ -138,7 +138,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 	// set up the configuration
 	// Note: I know this is an 'expensive' call, but without this, ignores
 	// done in the global ignore pattern won't show up.
-	if (g_ShellCache.ShowIgnoredOverlay())
+	if (g_unversionedovlloaded)
 		svn_error_clear(svn_config_get_config (&(localctx->config), g_pConfigDir, pool));
 
 	// strings pools are unused, now -> we may clear them
