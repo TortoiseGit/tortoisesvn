@@ -11,36 +11,69 @@
 STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags)
 {
 	int nInstalledOverlays = GetInstalledOverlays();
-	
-	// Use at most 14 overlays
-	const int nOverlayLimit = 12;
-	
+		
 	// only a limited number of overlay slots can be used (determined by testing,
 	// since not all overlay handlers are registered in the registry, e.g., the
 	// shortcut (arrow) overlay isn't listed there).
 	// The following overlays must be accounted for but are not listed under ShellIconOverlayIdentifiers:
 	// * Shortcut arrow
-	// * gray X (black dot on XP) for archived files
+	// * gray X on Vista+ (black dot on XP) for archived files
 	// * Shared Hand (Windows XP only)
 	// * UAC shield (Windows Vista+ only)
+
+	int nOverlayLimit = 12;
+
 	//
 	// If there are more than the maximum number of handlers registered, then
 	// we have to drop some of our handlers to make sure that
 	// the 'important' handlers are loaded properly:
 	//
-	// max     registered: drop the unversioned overlay
-	// max + 1 registered: drop the unversioned and the ignored overlay
-	// max + 2 registered: drop the unversioned, ignored and locked overlay
-	// max + 3 or more registered: drop the unversioned, ignored, locked and added overlay
-	
-	if ((m_State == FileStateAdded)&&(nInstalledOverlays > nOverlayLimit + 3))
-		return S_FALSE;		// don't use the 'added' overlay
-	if ((m_State == FileStateLocked)&&(nInstalledOverlays > nOverlayLimit + 2))
-		return S_FALSE;		// don't show the 'locked' overlay
+	// max     registered: drop the locked overlay
+	// max + 1 registered: drop the locked and the ignored overlay
+	// max + 2 registered: drop the locked, ignored and readonly overlay
+	// max + 3 or more registered: drop the locked, ignored, readonly and unversioned overlay
+
+	bool dropUnversioned = false;
+	bool dropIgnored = false;
+	DWORD dwType = 0;
+	DWORD dwData = 0;
+	DWORD dwDataSize = 4;
+	if (SHGetValue(HKEY_CURRENT_USER, _T("Software\\TortoiseOverlays"), _T("ShowUnversionedOverlay"), &dwType, &dwData, &dwDataSize) == ERROR_SUCCESS)
+	{
+		if (dwType == REG_DWORD)
+		{
+			if (dwData == 0)
+			{
+				dropUnversioned = true;
+				nOverlayLimit++;
+			}
+		}
+	}
+	if (SHGetValue(HKEY_CURRENT_USER, _T("Software\\TortoiseOverlays"), _T("ShowIgnoredOverlay"), &dwType, &dwData, &dwDataSize) == ERROR_SUCCESS)
+	{
+		if (dwType == REG_DWORD)
+		{
+			if (dwData == 0)
+			{
+				dropIgnored = true;
+				nOverlayLimit++;
+			}
+		}
+	}
+
+	if (dropIgnored && (m_State == FileStateIgnored))
+		return S_FALSE;
+	if (dropUnversioned && (m_State == FileStateUnversioned))
+		return S_FALSE;
+
+	if ((m_State == FileStateUnversioned)&&(nInstalledOverlays > nOverlayLimit + 3))
+		return S_FALSE;		// don't use the 'unversioned' overlay
+	if ((m_State == FileStateReadOnly)&&(nInstalledOverlays > nOverlayLimit + 2))
+		return S_FALSE;		// don't show the 'needs-lock' overlay
 	if ((m_State == FileStateIgnored)&&(nInstalledOverlays > nOverlayLimit + 1))
 		return S_FALSE;		// don't use the 'ignored' overlay
-	if ((m_State == FileStateUnversioned)&&(nInstalledOverlays > nOverlayLimit))
-		return S_FALSE;		// don't show the 'unversioned' overlay
+	if ((m_State == FileStateLocked)&&(nInstalledOverlays > nOverlayLimit))
+		return S_FALSE;		// don't show the 'locked' overlay
 
     // Get folder icons from registry
 	// Default icons are stored in LOCAL MACHINE
