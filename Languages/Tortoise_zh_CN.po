@@ -1,71 +1,19 @@
-#
-# Chinese (simplified) translation for TortoiseSVN
-# Copyright (C) 2004-2009 the TortoiseSVN team
-# This file is distributed under the same license as TortoiseSVN
-#
-# Last commit by:
-# $Author$
-# $Date$
-# $Rev$
-#
-# Authors:
-# Dongsheng Song <dongsheng.song@gmail.com>, 2006-2009
-# Garfield Yao <field977@gmail.com>, 2009
-# NetCobra <netcobra@gmail.com>
-# Cecil Sheng <zcecil@csie.org>
-# Xingyu.Wang <xingyu.wang@gmail.com>
-# Wang Yanning <wangyn@gmail.com>
-#
-# Update to new pot:
-#    msgmerge --update Tortoise_zh_CN.po Tortoise.pot
-#
-# Check translation:
-#    msgfmt --statistics -c --check-accelerators Tortoise_zh_CN.po
-#
-# Please format your translation before commit:
-#    msgmerge --no-wrap -o Tortoise_zh_CN_new.po Tortoise_zh_CN.po Tortoise.pot
-#    mv -f Tortoise_zh_CN_new.po Tortoise_zh_CN.po
-#
-# Dictionary:
-# add               增加
-# age               年代
-# BASE revision     基础版本
-# blame             追溯
-# branch            分支
-# checkout          检出
-# default           默认
-# HEAD revision     最新版本
-# lock              锁定
-# locking           锁定
-# log               日志
-# message           信息
-# overlay           重载
-# owner             所有者
-# remove            删除
-# rename            改名
-# repository        版本库
-# revert            恢复
-# revision          版本
-# Subversion book   Subversion 手册
-# undo              撤销
-# unified diff      标准差异
-# unversioned       未版本控制
-# versioned         已版本控制
-# working copy      工作副本
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: TortoiseSVN zh_CN\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-01 17:35+0830\n"
-"Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
-"Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2010-03-17 23:04+0800\n"
+"Last-Translator: xingyu.wang <xingyu.wang@gmail.com>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Chinese\n"
-"X-Poedit-Country: CHINA\n"
 
 #. Resource IDs: (10, 126)
 msgid " "
@@ -331,6 +279,10 @@ msgstr "关于 TortoiseMerge(&A)..."
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "激活(&A)"
+
+#. Resource IDs: (15)
+msgid "&Add"
+msgstr "加入(&A)"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
@@ -1122,9 +1074,9 @@ msgstr "至版本(&T)"
 msgid "&To URL:"
 msgstr "至URL(&T): "
 
-#. Resource IDs: (1305)
-msgid "&To URL: "
-msgstr "至URL(&T): "
+#. Resource IDs: (1384)
+msgid "&To path:"
+msgstr "至路径(&T): "
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
@@ -1197,6 +1149,10 @@ msgstr "更新至版本(&U)..."
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "自动完成文件路径和关键词(&U)"
+
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "使用回收站(&U)"
 
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
@@ -2221,6 +2177,10 @@ msgstr "修改列表: "
 msgid "Changes made (double-click on file for diff):"
 msgstr "变更列表（双击文件查看差异）: "
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "改变外部定义为固定版本"
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "检出(&K)..."
@@ -2236,6 +2196,10 @@ msgstr "检查更新"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "检查更新..."
+
+#. Resource IDs: (1544)
+msgid "Check externals to tag"
+msgstr "检出外部定义为标签"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2834,8 +2798,8 @@ msgstr "复制:  %s 的新名称"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "正在复制 %s"
+msgid "Copying %1!s!"
+msgstr "正在复制 %1!s!"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -3171,13 +3135,13 @@ msgid "Delete and &ignore %d items by name"
 msgstr "根据名称删除和忽略 %d 项(&I)"
 
 #. Resource IDs: (14)
-msgid "Delete and add to &ignore list"
-msgstr "删除和增加到忽略列表(&I)"
-
-#. Resource IDs: (14)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "根据扩展名删除和忽略 %d 项(&E)"
+
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "删除非版本控制的条目 ..."
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3238,6 +3202,10 @@ msgstr "描述:"
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "取消选定修改列表"
+
+#. Resource IDs: (1547)
+msgid "Destination URL:"
+msgstr "目标 URL: "
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
@@ -3818,8 +3786,8 @@ msgstr "导出无版本控制信息的文件"
 
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "正在导出 %s"
+msgid "Exporting %1!s!"
+msgstr "正在导出 %1!s!"
 
 #. Resource IDs: (79)
 msgid "Exporting..."
@@ -5716,8 +5684,8 @@ msgstr "在恢复前将已经修改的文件移动到垃圾箱"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "正在移动 %s"
+msgid "Moving %1!s!"
+msgstr "正在移动 %1!s!"
 
 #. Resource IDs: (80)
 msgid "Moving..."
@@ -5826,6 +5794,10 @@ msgstr "没有错误信息。"
 #. Resource IDs: (3867, 3868)
 msgid "No error occurred."
 msgstr "没有发生错误。"
+
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "找不到外部定义"
 
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
@@ -6332,6 +6304,10 @@ msgstr "正在取消, 请稍候…"
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
 msgstr "正在获取差异，请稍候..."
+
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "正在获取外部定义，请稍候..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -7679,6 +7655,10 @@ msgstr "缎带上方显示"
 msgid "Show Below the Ribbon"
 msgstr "缎带下方显示"
 
+#. Resource IDs: (1542)
+msgid "Show Branch L&og"
+msgstr "显示分支日志(&O)"
+
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
 msgstr "显示更少的按钮"
@@ -8171,6 +8151,10 @@ msgstr "切换 %s 到 %s，版本 %s"
 #. Resource IDs: (78)
 msgid "Switch - TortoiseSVN"
 msgstr "切换 - TortoiseSVN"
+
+#. Resource IDs: (1377)
+msgid "Switch Depth"
+msgstr "切换深度"
 
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
@@ -9062,6 +9046,10 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "TortorseSVN 自动提交: 已修改的外部定义转为固定版本。"
+
 #. Resource IDs: (98)
 #, c-format
 msgid ""
@@ -9313,14 +9301,18 @@ msgstr ""
 msgid "Unversion"
 msgstr "去除版本控制"
 
+#. Resource IDs: (14)
+msgid "Unversion and add to &ignore list"
+msgstr "去除版本控制并增加到忽略列表(&I)"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "如果文件夹包含无版本控制的文件，则标识为已修改"
 
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "正在将 %s 去除版本控制"
+msgid "Unversioning %1!s!"
+msgstr "正在将 %1!s! 去除版本控制"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -10641,6 +10633,11 @@ msgstr "有冲突的修改。"
 msgid "to %1"
 msgstr "至 %1"
 
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr "至 %1!s!"
+
 #. Resource IDs: (80, 103, 284)
 #, c-format
 msgid "to %s"
@@ -10822,25 +10819,34 @@ msgstr "是"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&To URL: "
+#~ msgstr "至URL(&T): "
+
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "作者:                                    Stefan Kueng"
+
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "每周都自动检查新版本(&N)"
+
 #~ msgid ""
 #~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
 #~ msgstr "如果启用，TortoiseSVN 每周会检查一次最新版本"
+
 #~ msgid "Edit conflict"
 #~ msgstr "编辑冲突"
+
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "隐藏无关的修改路径(&I)"
+
 #~ msgid "Unversioned"
 #~ msgstr "未版本控制"
+
 #~ msgid "From URL:"
 #~ msgstr "从 URL: "
+
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
 #~ msgstr ""
 #~ "检出的URL是一个文件，\n"
 #~ "但是工作副本是一个已有的目录。"
-
