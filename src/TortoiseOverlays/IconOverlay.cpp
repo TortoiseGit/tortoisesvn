@@ -21,7 +21,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 	// * Shared Hand (Windows XP only)
 	// * UAC shield (Windows Vista+ only)
 
-	int nOverlayLimit = 12;
+	const int nOverlayLimit = 12;
 
 	//
 	// If there are more than the maximum number of handlers registered, then
@@ -45,7 +45,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 			if (dwData == 0)
 			{
 				dropUnversioned = true;
-				nOverlayLimit++;
+				nInstalledOverlays--;
 			}
 		}
 	}
@@ -56,7 +56,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 			if (dwData == 0)
 			{
 				dropIgnored = true;
-				nOverlayLimit++;
+				nInstalledOverlays--;
 			}
 		}
 	}
