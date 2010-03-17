@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-17 01:10-0000\n"
+"PO-Revision-Date: 2010-03-17 22:56-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6457,47 +6457,47 @@ msgstr "readonly"
 
 #. (para)
 msgid "You are using <quote>unmergeable</quote> files, for example, graphics files. If two people change the same file, merging is not possible, so one of you will lose their changes."
-msgstr ""
+msgstr "Se estás a usar ficheiros <quote>não integráveis</quote>, como por exemplo, ficheiros de gráficos. Se duas pessoas alteram o mesmo ficheiro, e não é possível a integração, só um dos dois irá perder as suas alterações."
 
 #. (para)
 msgid "Your company has always used a locking revision control system in the past and there has been a management decision that <quote>locking is best</quote>."
-msgstr ""
+msgstr "A tua empresa sempre usou no passado um sistema de controlo de revisões bloqueante, e houve uma decisão da administração de que <quote>o melhor é bloquear</quote>."
 
 #. (para)
 msgid "Subversion generally works best without locking, using the <quote>Copy-Modify-Merge</quote> methods described earlier in <xref linkend=\"tsvn-basics-versioning-copymodifymerge\"/>. However there are a few instances when you may need to implement some form of locking policy. <placeholder-1/>"
-msgstr ""
+msgstr "Geralmente o Subversion funciona melhor sem bloqueios usando os métodos <quote>Copiar-Modificar-Integrar</quote> descritos anteriormente em <xref linkend=\"tsvn-basics-versioning-copymodifymerge\"/>. No entanto existem algumas circunstâncias em que poderás necessitar de implementar alguma tipo de política de bloqueio. <placeholder-1/>"
 
 #. (para)
 msgid "Firstly you need to ensure that your Subversion server is upgraded to at least version 1.2. Earlier versions do not support locking at all. If you are using <literal>file://</literal> access, then of course only your client needs to be updated."
-msgstr ""
+msgstr "Em primeiro lugar necessitas de garantir que o servidor Subversion está actualizado para, pelo menos, a versão 1.2. Versões anteriores não suportam de todo bloqueios. Se está a usar um acesso <literal>file://</literal>, então está claro que só o teu cliente necessita de ser actualizado."
 
 #. (title)
 msgid "How Locking Works in Subversion"
-msgstr "Como é que Funciona o sistema de Bloqueamento de Subversion"
+msgstr "Como Funciona o Sistema de Bloqueio no Subversion"
 
 #. (para)
 msgid "By default, nothing is locked and anyone who has commit access can commit changes to any file at any time. Others will update their working copies periodically and changes in the repository will be merged with local changes."
-msgstr ""
+msgstr "Por defeito nada é bloqueado, e qualquer um que tenha acesso para submeter, pode submeter alterações em qualquer ficheiro a qualquer altura. Outros irão actualizar a sua cópia de trabalho periodicamente e as alterações no repositório serão integradas com as alterações locais."
 
 #. (para)
 msgid "If you <firstterm>Get a Lock</firstterm> on a file, then only you can commit that file. Commits by all other users will be blocked until you release the lock. A locked file cannot be modified in any way in the repository, so it cannot be deleted or renamed either, except by the lock owner."
-msgstr ""
+msgstr "Se tu <firstterm>Obteres  o bloqueio</firstterm> num ficheiro, então só podes submeter esse ficheiro. Submissões de outros utilizadores serão bloqueados até libertares o bloqueio. Um ficheiro bloqueado não pode ser modificado de forma alguma no repositório, pelo que não poderá ser apagado ou também renomeado, à excepção do autor do bloqueio."
 
 #. (para)
 msgid "However, other users will not necessarily know that you have taken out a lock. Unless they check the lock status regularly, the first they will know about it is when their commit fails, which in most cases is not very useful. To make it easier to manage locks, there is a new Subversion property <literal>svn:needs-lock</literal>. When this property is set (to any value) on a file, whenever the file is checked out or updated, the local copy is made read-only <emphasis>unless</emphasis> that working copy holds a lock for the file. This acts as a warning that you should not edit that file unless you have first acquired a lock. Files which are versioned and read-only are marked with a special overlay in TortoiseSVN to indicate that you need to acquire a lock before editing."
-msgstr ""
+msgstr "No entanto outros utilizadores não terão necessariamente conhecimento de que tu obtiveste um bloqueio. A não ser que verifiquem o estado de bloqueio regularmente, a primeira vez que terão conhecimento será quando ao submeterem a operação falhar, o que na maior parte dos caso não será muito útil. Para tornar mais fácil a gestão de bloqueios, existe uma propriedade nova no Subversion <literal>svn:needs-lock</literal>. Quando esta propriedade está configurada num ficheiro (para qualquer valor), quando o ficheiro é SVN exportado ou actualizado a cópia local é colocada em estado de só de leitura, <emphasis>a não ser que</emphasis> essa cópia tenha o bloqueio desse ficheiro. Isto actua como um aviso que não deverás alterar esse ficheiro a não ser que primeiro obtenhas o seu bloqueio. Os ficheiros que são, versionados e só de leitura, são marcados com uma sobreposição especial do TortoiseSVN, que indica que necessitas de obter um bloqueio antes de editares."
 
 #. (para)
 msgid "Locks are recorded by working copy location as well as by owner. If you have several working copies (at home, at work) then you can only hold a lock in <emphasis>one</emphasis> of those working copies."
-msgstr ""
+msgstr "Os bloqueios são registados por localização da cópia de trabalho tal como por autor. Se tiveres várias cópias de trabalho (em casa, no trabalho) então só poderás obter um bloqueio <emphasis>numa</emphasis> dessas cópias de trabalho."
 
 #. (para)
 msgid "If one of your co-workers acquires a lock and then goes on holiday without releasing it, what do you do? Subversion provides a means to force locks. Releasing a lock held by someone else is referred to as <firstterm>Breaking</firstterm> the lock, and forcibly acquiring a lock which someone else already holds is referred to as <firstterm>Stealing</firstterm> the lock. Naturally these are not things you should do lightly if you want to remain friends with your co-workers."
-msgstr ""
+msgstr "Se um dos teus colegas adquire um bloqueio e vai de férias sem o libertar, o que farás? O Subversion providência um meio de forçar bloqueios. Libertar um bloqueio detido por outro é referido como <firstterm>Quebrar</firstterm> o bloqueio, e forçar aquisição de um bloqueio detido por outrém é referido como <firstterm>Roubar</firstterm> o bloqueio. Naturalmente essas são acções que não deverás efectuar de ânimo leve, se queres manter a amizade com os teus colegas de trabalho."
 
 #. (para)
 msgid "Locks are recorded in the repository, and a lock token is created in your local working copy. If there is a discrepancy, for example if someone else has broken the lock, the local lock token becomes invalid. The repository is always the definitive reference."
-msgstr ""
+msgstr "Os bloqueios são registados no repositório e um testemunho de bloqueio é criado na tua cópia de trabalho. Se existe uma discrepância, por exemplo se alguém quebrou o bloqueio, o testemunho local do bloqueio fica inválido. O repositório é sempre a referência definitiva."
 
 #. (title)
 msgid "Getting a Lock"
