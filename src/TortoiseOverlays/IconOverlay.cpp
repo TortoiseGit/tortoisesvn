@@ -153,23 +153,23 @@ STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 		case FileStateDeleted:
 			*pPriority = 2;
 			break;
-		case FileStateReadOnly:
+		case FileStateAdded:
 			*pPriority = 3;
 			break;
-		case FileStateLocked:
+		case FileStateNormal:
 			*pPriority = 4;
 			break;
-		case FileStateAdded:
+		case FileStateUnversioned:
 			*pPriority = 5;
 			break;
-		case FileStateNormal:
+		case FileStateReadOnly:
 			*pPriority = 6;
-			break;
-		case FileStateUnversioned:
-			*pPriority = 8;
 			break;
 		case FileStateIgnored:
 			*pPriority = 7;
+			break;
+		case FileStateLocked:
+			*pPriority = 8;
 			break;
 		default:
 			*pPriority = 100;
