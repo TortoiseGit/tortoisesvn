@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-16 23:53-0000\n"
+"PO-Revision-Date: 2010-03-17 00:36-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6377,7 +6377,7 @@ msgstr "Sabe mais sobre o rastreamento de integração através do Subversion em
 
 #. (title)
 msgid "Handling Conflicts during Merge"
-msgstr ""
+msgstr "Lidando com Conflitos durante a Integração"
 
 #. (primary)
 msgid "merge conflicts"
@@ -6385,31 +6385,31 @@ msgstr ""
 
 #. (title)
 msgid "The Merge Conflict Callback Dialog"
-msgstr ""
+msgstr "A Caixa de Diálogo Conflitos de Integração"
 
 #. (para)
 msgid "Merging does not always go smoothly. Sometimes there is a conflict, and if you are merging multiple ranges, you generally want to resolve the conflict before merging of the next range starts. TortoiseSVN helps you through this process by showing the <emphasis>merge conflict callback</emphasis> dialog. <placeholder-1/>"
-msgstr ""
+msgstr "A integração não corre sempre com suavidade. Por vezes existe um conflito, e se estás a integrar múltiplos intervalos, geralmente irás querer resolver o conflito antes de começares a integrar o próximo intervalo. O TortoiseSVN ajuda-te através deste processo, mostrando-te a caixa de diálogo <emphasis>conflitos de integração</emphasis>. <placeholder-1/>"
 
 #. (para)
 msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. This only relates to conflicting changes. Changes that can be merged are still merged. Only for the conflicting part your choice is used."
-msgstr ""
+msgstr "Tu podes decidir que as tuas alterações locais são muito mais importantes, então poderás querer descartar a versão do repositório, e manter a tua versão local. Ou podes descartar as tuas alterações locais em favor da versão do repositório. Isto só se refere às alterações em conflito. Alterações que podem ser integradas serão integradas à mesma. Só para a parte em conflito será usada a tua escolha."
 
 #. (para)
 msgid "Normally you will want to look at the conflicts and resolve them. In that case, choose the <guibutton>Edit Conflict</guibutton> which will start up your merge tool. When you are satisfied with the result, click <guibutton>Resolved</guibutton>."
-msgstr ""
+msgstr "Normalmente quererás observar os conflitos e resolvê-los. Nesse caso, escolhe o <guibutton>Editar Conflito</guibutton> que arrancará a ferramenta de integração. Quando estiveres satisfeito com o resultado, clica <guibutton>Resolvido</guibutton>."
 
 #. (para)
 msgid "The last option is to postpone resolution and continue with merging. You can choose to do that for the current conflicted file, or for all files in the rest of the merge. However, if there are further changes in that file, it will not be possible to complete the merge."
-msgstr ""
+msgstr "A última opção é adiar a resolução e continuar com a integração. Tu podes escolher fazer isso para o ficheiro correntemente em conflito, ou para todos os ficheiros no resto da integração. No entanto, se existirem mais alterações nesse ficheiro, não será possível completar a integração. "
 
 #. (para)
 msgid "When a conflict occurs during the merge, you have three ways to handle it. <placeholder-1/>"
-msgstr ""
+msgstr "Quando o conflito ocorre durante uma integração, tens três maneiras de lidar com ele. <placeholder-1/>"
 
 #. (para)
 msgid "If you do not want to use this interactive callback, there is a checkbox in the merge progress dialog <guilabel>Merge non-interactive</guilabel>. If this is set for a merge and the merge would result in a conflict, the file is marked as in conflict and the merge goes on. You will have to resolve the conflicts after the whole merge is finished. If it is not set, then before a file is marked as conflicted you get the chance to resolve the conflict <emphasis>during</emphasis> the merge. This has the advantage that if a file gets multiple merges (multiple revisions apply a change to that file), subsequent merges might succeed depending on which lines are affected. But of course you can't walk away to get a coffee while the merge is running ;)"
-msgstr ""
+msgstr "Se não quiseres usar este processo iterativo, existe uma caixa de verificação na caixa de diálogo de progresso de integração <guilabel>Integrar não-iteractivamente</guilabel>. Se esta está verificada e a integração pode resultar num conflito, o ficheiro é marcado como em conflito e a integração continua. Terás de resolver os conflitos após a conclusão da totalidade da integração. Se esta não está verificada, então antes do ficheiro ficar marcado como em conflito, terás a oportunidade par resolver o mesmo. Isto tem a vantagem de, se um ficheiro sofre múltiplas integrações (múltiplas revisões aplicam uma alteração a esse ficheiro), integrações subsequente irão ter sucesso, dependendo de que linhas são afectadas. Mas, está claro, não te podes afastar para beber um café, enquanto a integração está a decorrer ;)  "
 
 #. (title)
 msgid "Merge a Completed Branch"
