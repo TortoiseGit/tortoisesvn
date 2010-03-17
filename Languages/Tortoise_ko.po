@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-17 08:27+0900\n"
+"PO-Revision-Date: 2010-03-17 16:39+0900\n"
 "Last-Translator: TaeDong Kim <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8175,7 +8175,7 @@ msgstr "전환 - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
-msgstr "깊이 전환하기"
+msgstr "전환 깊이"
 
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
@@ -10851,75 +10851,53 @@ msgstr "{버그트랙}"
 
 #~ msgid "&To URL: "
 #~ msgstr "대상 URL(&T): "
-
 #~ msgid "&To path: "
 #~ msgstr "대상 경로(&T):"
-
 #~ msgid "y"
 #~ msgstr "y"
-
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "작성자:                                    Stefan Kueng"
-
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "매주 새 버전을 확인합니다.(&N)"
-
 #~ msgid ""
 #~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
 #~ msgstr "TortoiseSVN 새 버전을 매주 한 번씩 확인합니다."
-
 #~ msgid "Edit conflict"
 #~ msgstr "충돌 상황 편집"
-
 #~ msgid "From URL:"
 #~ msgstr "시작 URL:"
-
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "관련없는 변경된 경로를 숨기기(&I)"
-
 #~ msgid "Unversioned"
 #~ msgstr "버전관리아님"
-
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
 #~ msgstr ""
 #~ "체크아웃의 URL이 파일을 참조합니다.\n"
 #~ "하지만 이 작업 사본의 경로는 존재하는 디렉토리입니다."
-
 #~ msgid "Show &properties"
 #~ msgstr "속성들 보기(&P)"
-
 #~ msgid "Show i&gnored files"
 #~ msgstr "무시되는 파일 보기(&G)"
-
 #~ msgid "Show un&modified files"
 #~ msgstr "수정되지 않은 파일 보기(&M)"
-
 #~ msgid "Show un&versioned files"
 #~ msgstr "버전관리 대상이 아닌 파일 보기(&V)"
-
 #~ msgid "Cleaning up."
 #~ msgstr "정리"
-
 #~ msgid "General::Revision Graph"
 #~ msgstr "일반::리비전 그래프"
-
 #~ msgid "General::Revision Graph Colors"
 #~ msgstr "일반::리비전 그래프 색깔"
-
 #~ msgid "%s, but the local file was already edited."
 #~ msgstr "%s, 그러나 지역 파일이 벌써 편집되었습니다."
-
 #~ msgid "Go offline?"
 #~ msgstr "오프라인으로 진행할까요?"
-
 #~ msgid "Replaced node"
 #~ msgstr "바뀐 노드"
-
 #~ msgid "copy source only"
 #~ msgstr "원본만 복사"
-
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
@@ -10934,11 +10912,10 @@ msgstr "{버그트랙}"
 #~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
 #~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
 #~ "be590feaa05a&DisplayLang=en</a></u>"
-
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "플로피 드라이브 (A: B:)"
-
 #~ msgid ""
 #~ "On copy and rename nodes, show only the changed parts of the path name"
 #~ msgstr ""
 #~ "복사 및 이름이 변경된 노드들에서, 경로이름에서 변경된 부분만 보여주기"
+
