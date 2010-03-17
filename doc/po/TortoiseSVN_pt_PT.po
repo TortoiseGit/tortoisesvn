@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-17 00:36-0000\n"
+"PO-Revision-Date: 2010-03-17 01:10-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6421,27 +6421,27 @@ msgstr "re-integrar integração"
 
 #. (title)
 msgid "The Merge reintegrate Dialog"
-msgstr "O Diálogo de re-integração de Integração"
+msgstr "Caixa de Diálogo de reintegração de Integração"
 
 #. (para)
 msgid "If you want to merge all changes from a feature branch back to trunk, then you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge reintegrate...</guimenuitem></menuchoice> from the extended context menu (hold down the <keycap>Shift</keycap> key while you right click on the file). <placeholder-1/> This dialog is very easy. All you have to do is set the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-options\"/>. The rest is done by TortoiseSVN automatically using merge tracking."
-msgstr ""
+msgstr "Se queres integrar todas as alterações de uma ramo de funcionalidade de volta para o trunk, então podes usar o <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reintegrar integração...</guimenuitem></menuchoice> a partir do menu de contexto extendido (mantém permido a tecla <keycap>Shift</keycap> enquanto clicas com o botão direito no ficheiro). <placeholder-1/> Esta caixa de diálogo é muito simples. Tudo o que tens de fazer é configurar as opções para a integração, como descrito em <xref linkend=\"tsvn-dug-merge-options\"/>. O resto é feito automaticamente pelo TortoiseSVN usando o rastreamento de integração."
 
 #. (title)
 msgid "Feature Branch Maintenance"
-msgstr ""
+msgstr "Manutenção do Ramo de Funcionalidade"
 
 #. (para)
 msgid "When you develop a new feature on a separate branch it is a good idea to work out a policy for re-integration when the feature is complete. If other work is going on in <literal>trunk</literal> at the same time you may find that the differences become significant over time, and merging back becomes a nightmare."
-msgstr ""
+msgstr "Quando desenvolves uma nova funcionalidade num ramo separado, é uma boa ideia definir uma política para reintegração quando a funcionalidade estiver completa. Se outro trabalho está a decorrer no <literal>trunk</literal> ao mesmo tempo, poderás descobrir que as diferenças tornar-se-ão significativas ao longo do tempo, e integrar de volta pode-se tornar um pesadelo."
 
 #. (para)
 msgid "If the feature is relatively simple and development will not take long then you can adopt a simple approach, which is to keep the branch entirely separate until the feature is complete, then merge the branch changes back into trunk. In the merge wizard this would be a simple <guilabel>Merge a range of revisions</guilabel>, with the revision range being the revision span of the branch."
-msgstr ""
+msgstr "Se a funcionalidade é relativamente simples e o desenvolvimento não será muito longo, então poderás adoptar uma abordagem simples, que é manter o ramo inteiramente separado até a funcionalidade estar completa, então integras as alterações do ramo de volta para o trunk. No assistente de integração isto deverá ser um simples <guilabel>Integrar um intervalo de revisões</guilabel>, com o intervalo de revisões sendo o intervalo completo de revisões do ramo."
 
 #. (para)
 msgid "If the feature is going to take longer and you need to account for changes in <literal>trunk</literal>, then you need to keep the branch synchronised. This simply means that periodically you merge trunk changes into the branch, so that the branch contains all the trunk changes <emphasis>plus</emphasis> the new feature. The synchronisation process uses <guilabel>Merge a range of revisions</guilabel>. When the feature is complete then you can merge it back to <literal>trunk</literal> using either <guilabel>Reintegrate a branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
-msgstr ""
+msgstr "Se a funcionalidade irá demorar mais tempo e tu precisas de ter em conta todas as alterações no <literal>trunk</literal>, então tu necessitas de manter o ramo sincronizado. Isto significa simplesmente que periodicamente integras as alterações do trunk no ramo, para que o ramo contenha todas as alterações do trunk <emphasis>mais</emphasis> a nova funcionalidade. O processo de sincronização usa <guilabel>Integrar um intervalo de revisões</guilabel>. Quando a funcionalidade estiver completa, então podes integrá-la de volta para o <literal>trunk</literal> usando <guilabel>Reintegrar um ramo</guilabel> or <guilabel>Integrar duas árvores diferentes</guilabel>."
 
 #. (title)
 msgid "Locking"
