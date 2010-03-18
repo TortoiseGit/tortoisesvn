@@ -251,10 +251,10 @@ BOOL CSetOverlayPage::OnApply()
 		}
 		m_restart = Restart_None;
 	}
-	if (DWORD(m_regShowIgnoredOverlay) != m_bShowIgnoredOverlay)
+	if (DWORD(m_regShowIgnoredOverlay) != DWORD(m_bShowIgnoredOverlay))
 		m_restart = Restart_System;
 	Store (m_bShowIgnoredOverlay, m_regShowIgnoredOverlay);
-	if (DWORD(m_regShowUnversionedOverlay) != m_bShowUnversionedOverlay)
+	if (DWORD(m_regShowUnversionedOverlay) != DWORD(m_bShowUnversionedOverlay))
 		m_restart = Restart_System;
 	Store (m_bShowUnversionedOverlay, m_regShowUnversionedOverlay);
 	SetModified(FALSE);
