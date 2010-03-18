@@ -3919,6 +3919,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				{
 					CSVNProgressDlg dlg;
 					dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
+					dlg.SetOptions(ProgOptIgnoreAncestry);
 					dlg.SetPathList(CTSVNPathList(m_path));
 					dlg.SetUrl(pathURL);
 					dlg.SetSecondUrl(pathURL);
@@ -4001,6 +4002,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				{
 					CSVNProgressDlg dlg;
 					dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
+					dlg.SetOptions(ProgOptIgnoreAncestry);
 					dlg.SetPathList(CTSVNPathList(m_path));
 					dlg.SetUrl(pathURL);
 					dlg.SetSecondUrl(pathURL);
@@ -4627,6 +4629,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 						break;		//exit
 					}
 					dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
+					dlg.SetOptions(ProgOptIgnoreAncestry);
 					dlg.SetPathList(CTSVNPathList(CTSVNPath(wcPath)));
 					dlg.SetUrl(fileURL);
 					dlg.SetSecondUrl(fileURL);
