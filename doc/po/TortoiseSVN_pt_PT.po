@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-18 00:04-0000\n"
+"PO-Revision-Date: 2010-03-18 00:38-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6529,39 +6529,39 @@ msgstr "Para libertar manualmente um bloqueio, selecciona o(s) ficheiro(s) na tu
 
 #. (title)
 msgid "Checking Lock Status"
-msgstr "A verificar o Estado de Bloqueio"
+msgstr "Verificar o Estado dos Bloqueio"
 
 #. (title)
 msgid "The Check for Modifications Dialog"
-msgstr ""
+msgstr "A Caixa de Diálogo Verificar Alterações"
 
 #. (para)
 msgid "<placeholder-1/> To see what locks you and others hold, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications...</guimenuitem></menuchoice>. Locally held lock tokens show up immediately. To check for locks held by others (and to see if any of your locks are broken or stolen) you need to click on <guibutton>Check Repository</guibutton>."
-msgstr ""
+msgstr "<placeholder-1/> Para ver os bloqueios que tu e os outros têm, podes usar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verificar alterações...</guimenuitem></menuchoice>. Testemunhos de bloqueios locais aparecerão imediatamente. Para verificar os bloqueios detidos por outros (e para ver se algum dos teus bloqueios estão quebrados ou roubados) necessitas de clicar em <guibutton>Verificar Repositório</guibutton>."
 
 #. (para)
 msgid "From the context menu here, you can also get and release locks, as well as breaking and stealing locks held by others."
-msgstr ""
+msgstr "A partir daqui, do menu de contexto, podes também obter e libertar bloqueios tal como quebrar ou roubar bloqueios detidos por outros."
 
 #. (title)
 msgid "Avoid Breaking and Stealing Locks"
-msgstr "Evitar Remover e Retirar Bloqueios"
+msgstr "Evitar Quebrar e Roubar Bloqueios"
 
 #. (para)
 msgid "If you break or steal someone else's lock without telling them, you could potentially cause loss of work. If you are working with unmergeable file types and you steal someone else's lock, once you release the lock they are free to check in their changes and overwrite yours. Subversion doesn't lose data, but you have lost the team-working protection that locking gave you."
-msgstr ""
+msgstr "Se quebrares ou roubares um bloqueio de outro sem lhe dizeres nada, podes potencialmente provocar perda de trabalho. Se estás a trabalhar com tipos de ficheiros não integráveis e roubas o bloqueio de outro, quando libertares o bloqueio, eles ficaram livres para submeter as suas alterações e reescrevendo as tuas. O Subversion não perde dados, mas tu perdeste a protecção de trabalho-em-equipa que o bloqueio te deu."
 
 #. (title)
 msgid "Making Non-locked Files Read-Only"
-msgstr ""
+msgstr "Tornar os Ficheiros Não-Bloqueados Só de Leitura"
 
 #. (para)
 msgid "As mentioned above, the most effective way to use locking is to set the <literal>svn:needs-lock</literal> property on files. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set properties. Files with this property set will always be checked out and updated with the read-only flag set unless your working copy holds a lock. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a special overlay to indicate this."
-msgstr ""
+msgstr "Como mencionado acima, a maneira mais eficaz de usar os bloqueios é configurar a propriedade <literal>svn:needs-lock</literal> em ficheiros. Consultar <xref linkend=\"tsvn-dug-propertypage\"/> para instruções em como configurar propriedades. Ficheiros com esta propriedade configurada serão sempre SVN exportadas e actualizadas com a bandeira só-de-leitura levantada, a não ser que a tua cópia de trabalho tenha um bloqueio. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> Como lembrete o TortoiseSVN usa uma sobreposição especial para indicar isto."
 
 #. (para)
 msgid "If you operate a policy where every file has to be locked then you may find it easier to use Subversion's auto-props feature to set the property automatically every time you add new files. Read <xref linkend=\"tsvn-dug-propertypage-auto-props\"/> for further information."
-msgstr ""
+msgstr "Se aplicas uma política em que todo o ficheiro tem de ser bloqueado, então acharás mais fácil usar a funcionalidade auto-props do Subversion para fixar automáticamente a propriedade, de cada vez que adicionas novos ficheiros. Consulta <xref linkend=\"tsvn-dug-propertypage-auto-props\"/> para mais informações."
 
 #. (title)
 msgid "The Locking Hook Scripts"
