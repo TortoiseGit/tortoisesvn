@@ -42,8 +42,8 @@ CSetOverlayPage::CSetOverlayPage()
 	, m_bUnversionedAsModified(FALSE)
 	, m_bFloppy(FALSE)
 	, m_bShowExcludedAsNormal(TRUE)
-	, m_bShowIgnoredOverlay(FALSE)
-	, m_bShowUnversionedOverlay(FALSE)
+	, m_bShowIgnoredOverlay(TRUE)
+	, m_bShowUnversionedOverlay(TRUE)
 {
 	m_regOnlyExplorer = CRegDWORD(_T("Software\\TortoiseSVN\\LoadDllOnlyInExplorer"), FALSE);
 	m_regDriveMaskRemovable = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
@@ -236,8 +236,6 @@ BOOL CSetOverlayPage::OnApply()
 	if (DWORD(m_regUnversionedAsModified) != DWORD(m_bUnversionedAsModified))
 		m_restart = Restart_Cache;
 	Store (m_bUnversionedAsModified, m_regUnversionedAsModified);
-	Store (m_bShowIgnoredOverlay, m_regShowIgnoredOverlay);
-	Store (m_bShowUnversionedOverlay, m_regShowUnversionedOverlay);
 	if (DWORD(m_regShowExcludedAsNormal) != DWORD(m_bShowExcludedAsNormal))
 		m_restart = Restart_Cache;
 	Store (m_bShowExcludedAsNormal, m_regShowExcludedAsNormal);
@@ -253,6 +251,12 @@ BOOL CSetOverlayPage::OnApply()
 		}
 		m_restart = Restart_None;
 	}
+	if (DWORD(m_regShowIgnoredOverlay) != m_bShowIgnoredOverlay)
+		m_restart = Restart_System;
+	Store (m_bShowIgnoredOverlay, m_regShowIgnoredOverlay);
+	if (DWORD(m_regShowUnversionedOverlay) != m_bShowUnversionedOverlay)
+		m_restart = Restart_System;
+	Store (m_bShowUnversionedOverlay, m_regShowUnversionedOverlay);
 	SetModified(FALSE);
 	return ISettingsPropPage::OnApply();
 }
