@@ -110,3 +110,16 @@ between all Tortoise clients.
 Also make sure your icon sets include *all* icons, not just the ones
 your client uses. Otherwise the user will have inconsistent icons in
 those clients who use all icons.
+
+Settings:
+---------
+There are two registry values a user can set:
+HKCU\Software\TortoiseOverlays\ShowUnversionedOverlay
+HKCU\Software\TortoiseOverlays\ShowIgnoredOverlay
+If those are set to zero, the corresponding overlay handler is not
+loaded and therefore won't show the icons, but it also won't use up
+an overlay slot.
+Since this setting affects the loading of the overlay handlers, a restart
+of the shell (at least a logoff/logon) is required for the changes
+to take effect.
+
