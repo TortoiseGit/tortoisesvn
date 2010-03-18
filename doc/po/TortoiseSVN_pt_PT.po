@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-18 00:38-0000\n"
+"PO-Revision-Date: 2010-03-18 00:51-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6565,27 +6565,27 @@ msgstr "Se aplicas uma política em que todo o ficheiro tem de ser bloqueado, en
 
 #. (title)
 msgid "The Locking Hook Scripts"
-msgstr "O Gancho de Scripts de Bloqueio"
+msgstr "Os Scripts do Gancho de Bloqueio"
 
 #. (para)
 msgid "When you create a new repository with Subversion 1.2 or higher, four hook templates are created in the repository <filename>hooks</filename> directory. These are called before and after getting a lock, and before and after releasing a lock."
-msgstr ""
+msgstr "Quando crias um repositório novo com o Subversion 1.2 ou superior, são criados quatro templates de gancho na pasta <filename>hooks</filename> do repositório. Esses são invocados antes e depois de obter um bloqueio, e antes e depois de libertar um bloqueio."
 
 #. (para)
 msgid "It is a good idea to install a <literal>post-lock</literal> and <literal>post-unlock</literal> hook script on the server which sends out an email indicating the file which has been locked. With such a script in place, all your users can be notified if someone locks/unlocks a file. You can find an example hook script <filename>hooks/post-lock.tmpl</filename> in your repository folder."
-msgstr ""
+msgstr "Será uma boa ideia instalar no servidor um script de gancho <literal>post-lock</literal> e <literal>post-unlock</literal>, que envia um email indicando que ficheiro foi bloqueado. Com tal script instalado todos os teus utilizadores podem ser notificados se alguém bloqueia/desbloqueia um ficheiro. Podes encontrar um exemplo de um script de gancho <filename>hooks/post-lock.tmpl</filename> na pasta do teu repositório."
 
 #. (para)
 msgid "You might also use hooks to disallow breaking or stealing of locks, or perhaps limit it to a named administrator. Or maybe you want to email the owner when one of their locks is broken or stolen."
-msgstr ""
+msgstr "Podes também utilizar ganchos para proibir quebrar ou roubar bloqueios, ou talvez limitá-lo a um administrador nomeado. Ou talvez quererás enviar um email ao dono, quando um dos seus bloqueios é quebrado ou roubado."
 
 #. (para)
 msgid "Read <xref linkend=\"tsvn-repository-hooks\"/> to find out more."
-msgstr ""
+msgstr "Consulta <xref linkend=\"tsvn-repository-hooks\"/> para saberes mais."
 
 #. (title)
 msgid "Creating and Applying Patches"
-msgstr "A Criar e Applicar Correcções"
+msgstr "Criar e Applicar Correcções"
 
 #. (primary)
 msgid "patch"
