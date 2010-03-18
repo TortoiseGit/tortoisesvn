@@ -420,7 +420,8 @@ All user/site specific configuration is stored in doc.build.user.
 				<loadfile file="${userconfig.langtemplate}" property="configfile">
 					<filterchain>
 						<replacetokens begintoken="%" endtoken="%">
-							<token key="FONTSDIR" value="${fontpath}" />
+							<token key="WINFONTSDIR" value="${fontpath}" />
+							<token key="USRFONTSDIR" value="${path.user.xsl}/fonts" />
 						</replacetokens>
 					</filterchain>
 				</loadfile>

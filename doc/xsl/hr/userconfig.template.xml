@@ -19,70 +19,71 @@
 
 <!--
 ************************************************************************
-  Add fonts here. The %FONTSDIR% string is replaced with your system
-  fonts directory. Always use %FONTSDIR% to avoid fixed paths which
+  Add fonts here. The %WINFONTSDIR% string is replaced with your system
+  fonts directory. Always use %WINFONTSDIR% to avoid fixed paths which
   might not work on other systems than yours.
+  the %USRFONTSDIR% is replaced with the path to the kerning files
 ************************************************************************
 -->
 <renderers>
   <renderer mime="application/pdf">
   <fonts>
-    <font metrics-url="xsl/fonts/arial.xml" kerning="yes" embed-url="%FONTSDIR%/arial.ttf">
+    <font metrics-url="%USRFONTSDIR%/arial.xml" kerning="yes" embed-url="%WINFONTSDIR%/arial.ttf">
       <font-triplet name="Arial" style="normal" weight="normal"/>
       <font-triplet name="ArialMT" style="normal" weight="normal"/>
       <font-triplet name="Helvetica" style="normal" weight="normal"/>
     </font>
-    <font metrics-url="xsl/fonts/arialbd.xml" kerning="yes" embed-url="%FONTSDIR%/arialbd.ttf">
+    <font metrics-url="%USRFONTSDIR%/arialbd.xml" kerning="yes" embed-url="%WINFONTSDIR%/arialbd.ttf">
       <font-triplet name="Arial" style="normal" weight="bold"/>
       <font-triplet name="ArialMT" style="normal" weight="bold"/>
       <font-triplet name="Helvetica" style="normal" weight="bold"/>
     </font>
-    <font metrics-url="xsl/fonts/ariali.xml" kerning="yes" embed-url="%FONTSDIR%/ariali.ttf">
+    <font metrics-url="%USRFONTSDIR%/ariali.xml" kerning="yes" embed-url="%WINFONTSDIR%/ariali.ttf">
       <font-triplet name="Arial" style="italic" weight="normal"/>
       <font-triplet name="ArialMT" style="italic" weight="normal"/>
       <font-triplet name="Helvetica" style="italic" weight="normal"/>
     </font>
-    <font metrics-url="xsl/fonts/arialbi.xml" kerning="yes" embed-url="%FONTSDIR%/arialbi.ttf">
+    <font metrics-url="%USRFONTSDIR%/arialbi.xml" kerning="yes" embed-url="%WINFONTSDIR%/arialbi.ttf">
       <font-triplet name="Arial" style="italic" weight="bold"/>
       <font-triplet name="ArialMT" style="italic" weight="bold"/>
       <font-triplet name="Helvetica" style="italic" weight="bold"/>
     </font>
-    <font metrics-url="xsl/fonts/times.xml" kerning="yes" embed-url="%FONTSDIR%/times.ttf">
+    <font metrics-url="%USRFONTSDIR%/times.xml" kerning="yes" embed-url="%WINFONTSDIR%/times.ttf">
       <font-triplet name="Times" style="normal" weight="normal"/>
       <font-triplet name="TimesMT" style="normal" weight="normal"/>
       <font-triplet name="Times New Roman" style="normal" weight="normal"/>
     </font>
-    <font metrics-url="xsl/fonts/timesbd.xml" kerning="yes" embed-url="%FONTSDIR%/timesbd.ttf">
+    <font metrics-url="%USRFONTSDIR%/timesbd.xml" kerning="yes" embed-url="%WINFONTSDIR%/timesbd.ttf">
       <font-triplet name="Times" style="normal" weight="bold"/>
       <font-triplet name="TimesMT" style="normal" weight="bold"/>
       <font-triplet name="Times New Roman" style="normal" weight="bold"/>
     </font>
-    <font metrics-url="xsl/fonts/timesi.xml" kerning="yes" embed-url="%FONTSDIR%/timesi.ttf">
+    <font metrics-url="%USRFONTSDIR%/timesi.xml" kerning="yes" embed-url="%WINFONTSDIR%/timesi.ttf">
       <font-triplet name="Times" style="italic" weight="normal"/>
       <font-triplet name="TimesMT" style="italic" weight="normal"/>
       <font-triplet name="Times New Roman" style="italic" weight="normal"/>
     </font>
-    <font metrics-url="xsl/fonts/timesbi.xml" kerning="yes" embed-url="%FONTSDIR%/timesbi.ttf">
+    <font metrics-url="%USRFONTSDIR%/timesbi.xml" kerning="yes" embed-url="%WINFONTSDIR%/timesbi.ttf">
       <font-triplet name="Times" style="italic" weight="bold"/>
       <font-triplet name="TimesMT" style="italic" weight="bold"/>
       <font-triplet name="Times New Roman" style="italic" weight="bold"/>
     </font>
-    <font metrics-url="xsl/fonts/cour.xml" kerning="yes" embed-url="%FONTSDIR%/cour.ttf">
+    <font metrics-url="%USRFONTSDIR%/cour.xml" kerning="yes" embed-url="%WINFONTSDIR%/cour.ttf">
       <font-triplet name="Courier" style="normal" weight="normal"/>
       <font-triplet name="CourierMT" style="normal" weight="normal"/>
       <font-triplet name="Courier New" style="normal" weight="normal"/>
     </font>
-    <font metrics-url="xsl/fonts/courbd.xml" kerning="yes" embed-url="%FONTSDIR%/courbd.ttf">
+    <font metrics-url="%USRFONTSDIR%/courbd.xml" kerning="yes" embed-url="%WINFONTSDIR%/courbd.ttf">
       <font-triplet name="Courier" style="normal" weight="bold"/>
       <font-triplet name="CourierMT" style="normal" weight="bold"/>
       <font-triplet name="Courier New" style="normal" weight="bold"/>
     </font>
-    <font metrics-url="xsl/fonts/couri.xml" kerning="yes" embed-url="%FONTSDIR%/couri.ttf">
+    <font metrics-url="%USRFONTSDIR%/couri.xml" kerning="yes" embed-url="%WINFONTSDIR%/couri.ttf">
       <font-triplet name="Courier" style="italic" weight="normal"/>
       <font-triplet name="CourierMT" style="italic" weight="normal"/>
       <font-triplet name="Courier New" style="italic" weight="normal"/>
     </font>
-    <font metrics-url="xsl/fonts/courbi.xml" kerning="yes" embed-url="%FONTSDIR%/courbi.ttf">
+    <font metrics-url="%USRFONTSDIR%/courbi.xml" kerning="yes" embed-url="%WINFONTSDIR%/courbi.ttf">
       <font-triplet name="Courier" style="italic" weight="bold"/>
       <font-triplet name="CourierMT" style="italic" weight="bold"/>
       <font-triplet name="Courier New" style="italic" weight="bold"/>
