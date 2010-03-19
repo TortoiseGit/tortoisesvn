@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-18 23:59-0000\n"
+"PO-Revision-Date: 2010-03-19 00:23-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6665,7 +6665,7 @@ msgstr "A correcção do programador remoto foi agora aplicada na tua cópia de 
 
 #. (title)
 msgid "Who Changed Which Line?"
-msgstr ""
+msgstr "Quem Alterou Que Linha"
 
 #. (primary)
 msgid "blame"
@@ -6681,31 +6681,31 @@ msgstr ""
 
 #. (para)
 msgid "Sometimes you need to know not only what lines have changed, but also who exactly changed specific lines in a file. That's when the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Blame...</guimenuitem></menuchoice> command, sometimes also referred to as <firstterm>annotate</firstterm> command comes in handy."
-msgstr ""
+msgstr "Por vezes tu precisas conhecer não só que linhas foram alteradas, mas também quem exactamente alterou linhas específicas num ficheiro. É quando o comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Responsabilizar...</guimenuitem></menuchoice>, por vezes também referido como <firstterm>anotar</firstterm> vem a calhar."
 
 #. (para)
 msgid "This command lists, for every line in a file, the author and the revision the line was changed."
-msgstr ""
+msgstr "Este comando lista, para cada linha num ficheiro, o autor e a revisão em que a linha foi alterada."
 
 #. (title)
 msgid "Blame for Files"
-msgstr "Culpa de Ficheiros"
+msgstr "Responsabilidade para Ficheiros"
 
 #. (title)
 msgid "The Annotate / Blame Dialog"
-msgstr "O Diálogo de Anotar/Culpar"
+msgstr "A Caixa de Diálogo de Anotar/Responsabilizar"
 
 #. (para)
 msgid "<placeholder-1/> If you're not interested in changes from earlier revisions you can set the revision from which the blame should start. Set this to <literal>1</literal>, if you want the blame for <emphasis>every</emphasis> revision."
-msgstr ""
+msgstr "<placeholder-1/> Se não estás interessado nas alterações em revisões anteriores, podes fixar a revisão a partir da qual a responsabilização deve começar. Fixa para <literal>1</literal>, se queres a responsabilização para <emphasis>cada</emphasis> revisão."
 
 #. (para)
 msgid "By default the blame file is viewed using <firstterm>TortoiseBlame</firstterm>, which highlights the different revisions to make it easier to read. If you wish to print or edit the blame file, select <guilabel>Use Text viewer to view blames</guilabel>"
-msgstr ""
+msgstr "Por defeito o ficheiro responsabilizado é visualizado usando o <firstterm>TortoiseBlame</firstterm>, que salienta as diferentes revisões para torná-lo mais fácil de ler. Se desejas imprimir ou editar o ficheiro de responsabilidade, selecciona <guilabel>Usar leitor de Texto para ver responsabilidades</guilabel>"
 
 #. (para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes, but if you want to ignore an indentation change and find the original author, you can choose an appropriate option here."
-msgstr ""
+msgstr "Tu podes especificar a forma como são lidados os fim-de-linha e os espaços em branco. Essas opções estão descritas em <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. O comportamento por defeito é tratar todas as diferenças de espaços-em-branco e fim-de-linha como alterações reais, mas se queres ignorar uma alteração de indentação e encontrar o autor original, podes escolher uma opção apropriada aqui."
 
 #. (para)
 msgid "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the data to create the blame file. Please note: This can take several minutes to finish, depending on how much the file has changed and of course your network connection to the repository. Once the blame process has finished the result is written into a temporary file and you can view the results."
