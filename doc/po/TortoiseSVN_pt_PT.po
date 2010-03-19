@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-18 00:51-0000\n"
+"PO-Revision-Date: 2010-03-18 23:59-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5344,7 +5344,7 @@ msgstr "Se pretendes desfazer a adição de um item, executado no menu de contex
 #. (para)
 #. (para)
 msgid "The columns in this dialog can be customized in the same way as the columns in the <guilabel>Check for modifications</guilabel> dialog. Read <xref linkend=\"tsvn-dug-wcstatus-2\"/> for further details."
-msgstr "As colunas nesta caixa de diálogo podem ser customizadas da mesma maneira que as colunas na caixa de diálogo <guilabel>Verificar alterações</guilabel>. Consultar <xref linkend=\"tsvn-dug-wcstatus-2\"/> para mais detalhes."
+msgstr "As colunas nesta caixa de diálogo podem ser customizadas da mesma maneira que as colunas na caixa de diálogo <guilabel>Verificar alterações</guilabel>. Consulta <xref linkend=\"tsvn-dug-wcstatus-2\"/> para mais detalhes."
 
 #. (para)
 msgid "Since revert is sometimes used to clean up a working copy, there is an extra button which allows you to delete unversioned items as well. When you click this button another dialog comes up listing all the unversioned items, which you can then select for deletion."
@@ -6597,71 +6597,71 @@ msgstr "diff unificado"
 
 #. (para)
 msgid "For open source projects (like this one) everyone has read access to the repository, and anyone can make a contribution to the project. So how are those contributions controlled? If just anyone could commit changes, the project would be permanently unstable and probably permanently broken. In this situation the change is managed by submitting a <firstterm>patch</firstterm> file to the development team, who do have write access. They can review the patch first, and then either submit it to the repository or reject it back to the author."
-msgstr ""
+msgstr "Para projectos de código aberto (como este) toda a gente tem acesso de leitura ao repositório, e toda a gente pode contribuir para o projecto. Então como são controladas essas contribuições? Se toda a gente pudesse submeter alterações o projecto estaria em instabilidade permanente, e provavelmente permanentemente inutilizado. Nesta situação a alteração é gerida através da submissão de um ficheiro de <firstterm>correcção</firstterm> para a equipa de desenvolvimento, que tem acesso para escrever. Eles podem então rever primeiro a correcção e então submetê-la para o repositório ou devolvê-la ao autor."
 
 #. (para)
 msgid "Patch files are simply Unified-Diff files showing the differences between your working copy and the base revision."
-msgstr ""
+msgstr "Ficheiros de correcção são simplesmente ficheiros de Comparação-Unificada que mostram as diferenças entre a tua cópia de trabalho e a revisão base."
 
 #. (title)
 msgid "Creating a Patch File"
-msgstr "A criar um Ficheiro de Correcção"
+msgstr "Criar um Ficheiro de Correcção"
 
 #. (para)
 msgid "First you need to make <emphasis>and test</emphasis> your changes. Then instead of using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice> on the parent folder, you select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Primeiro tu precisas de construir <emphasis>e testar</emphasis> as tuas alterações. Então em vez de usares  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Submeter...</guimenuitem></menuchoice> na pasta pai, seleccionas <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Criar correcção...</guimenuitem></menuchoice>"
 
 #. (title)
 msgid "The Create Patch dialog"
-msgstr "O diálogo de Criar Ficheiro de Correcção"
+msgstr "A caixa de diálogo de Criar Correcção"
 
 #. (para)
 msgid "you can now select the files you want included in the patch, just as you would with a full commit. This will produce a single file containing a summary of all the changes you have made to the selected files since the last update from the repository."
-msgstr ""
+msgstr "Agora podes seleccionar os ficheiros que queres incluir na correcção, tal como tu farias numa submissão completa. Isto irá produzir um ficheiro simples contendo um sumário de todas as alterações que efectuaste nos ficheiros seleccionados, desde a última actualização do repositório. "
 
 #. (para)
 msgid "You can produce separate patches containing changes to different sets of files. Of course, if you create a patch file, make some more changes to the <emphasis>same</emphasis> files and then create another patch, the second patch file will include <emphasis>both</emphasis> sets of changes."
-msgstr ""
+msgstr "Tu podes produzir correcções separadas, contendo alterações em diferentes conjuntos de ficheiros. É claro que se criaste um ficheiro de correcção, e efectuaste mais alterações aos <emphasis>mesmos</emphasis> ficheiros, criando uma segunda correcção, o segundo ficheiro de correcção irá incluir <emphasis>ambos</emphasis> os conjuntos de alterações."
 
 #. (para)
 msgid "Just save the file using a filename of your choice. Patch files can have any extension you like, but by convention they should use the <filename>.patch</filename> or <filename>.diff</filename> extension. You are now ready to submit your patch file."
-msgstr ""
+msgstr "Grava apenas o ficheiro usando um nome da tua escolha. Ficheiros de correcções podem ter a extensão que desejes, mas por convenção eles dever usar a extensão <filename>.patch</filename> ou <filename>.diff</filename>. Agora estás pronto para submeter o teu ficheiro de correcção."
 
 #. (para)
 msgid "You can also save the patch to the clipboard instead of to a file. You might want to do this so that you can paste it into an email for review by others. Or if you have two working copies on one machine and you want to transfer changes from one to the other, a patch on the clipboard is a convenient way of doing this."
-msgstr ""
+msgstr "Tu podes também guardar a correcção na área de transferência em vez de o fazer para um ficheiro. Poderás fazer isto para que possas colá-lo num email para ser revisto por outros. Ou se tiveres duas cópias de trabalho numa máquina e quiseres transferir alterações de uma para outra, a correcção na área de transferência é a maneira conveniente de o fazer."
 
 #. (title)
 msgid "Applying a Patch File"
-msgstr "A aplicar um Ficheiro de Correcção"
+msgstr "Aplicar um Ficheiro de Correcção"
 
 #. (para)
 msgid "Patch files are applied to your working copy. This should be done from the same folder level as was used to create the patch. If you are not sure what this is, just look at the first line of the patch file. For example, if the first file being worked on was <filename>doc/source/english/chapter1.xml</filename> and the first line in the patch file is <filename>Index: english/chapter1.xml</filename> then you need to apply the patch to the <filename>doc/source/</filename> folder. However, provided you are in the correct working copy, if you pick the wrong folder level, TortoiseSVN will notice and suggest the correct level."
-msgstr ""
+msgstr "Os ficheiros de correcção são aplicados na tua cópia de trabalho. Isto deverá ser feito a partir de uma pasta do mesmo nível da que foi usada para criar a correcção. Se não tens a certeza de qual é, olha apenas para a primeira linha do ficheiro de correcção. Por exemplo, se o primeiro ficheiro a ser trabalhado era <filename>doc/source/english/chapter1.xml</filename> e a primeira linha no ficheiro de correcção <filename>Index: english/chapter1.xml</filename>, então precisas de aplicar a correcção na pasta <filename>doc/source/</filename>. No entanto, mesmo que estejas na cópia de trabalho correcta, se escolheres o nível de pastas errado, o TortoiseSVN irá dar conta e sugere o nível correcto."
 
 #. (para)
 msgid "In order to apply a patch file to your working copy, you need to have at least read access to the repository. The reason for this is that the merge program must reference the changes back to the revision against which they were made by the remote developer."
-msgstr ""
+msgstr "De modo a aplicar um ficheiro de correcção à tua cópia de trabalho, necessitas de pelo menos, ter acesso de leitura ao repositório. A razão para isto é que, o programa de integração tem de referenciar as alterações até à revisão em que elas foram efectuadas pelo programador remoto."
 
 #. (para)
 msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog. Note that this option only appears if you saved the patch to the clipboard using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice>. Copying a patch to the clipboard from another app will not make the button appear."
-msgstr ""
+msgstr "A partir do menu de contexto desse ficheiro, clica em  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aplicar correcção...</guimenuitem></menuchoice> Isto fará aparecer uma uma caixa de diálogo abrir ficheiro, que te permitirá seleccionar o ficheiro de correcção a aplicar. Por defeito, só são mostrado ficheiros  <filename>.patch</filename> ou <filename>.diff</filename>, mas tu podes optar por <quote>Todos ficheiros</quote>. Se guardaste previamente uma correcção na área de transferência, podes usar o <guibutton>Abrir da área de transferência...</guibutton> a partir da caixa de diálogo, abrir ficheiro. Ter em atenção que esta opção só aparece se guardaste uma correcção na área de transferência usando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Criar correcção...</guimenuitem></menuchoice>. Copiar uma correcção para a área de transferência, a partir de outra aplicação, não fará o botão aparecer."
 
 #. (para)
 msgid "Alternatively, if the patch file has a <filename>.patch</filename> or <filename>.diff</filename> extension, you can right click on it directly and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice>. In this case you will be prompted to enter a working copy location."
-msgstr ""
+msgstr "Alternativamente, se o ficheiro de correcção tem uma extensão <filename>.patch</filename> ou <filename>.diff</filename>, podes clicar directamente nele com o botão direito e seleccionar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aplicar correcção...</guimenuitem></menuchoice>. Neste caso serás solicitado a introduzir a localização da cópia de trabalho."
 
 #. (para)
 msgid "These two methods just offer different ways of doing the same thing. With the first method you select the WC and browse to the patch file. With the second you select the patch file and browse to the WC."
-msgstr ""
+msgstr "Estes dois métodos apenas diferem no modo de fazer a mesma coisa. Com o primeiro método, tu seleccionas a CT e navegas até ao ficheiro de correcção. Com o segundo, seleccionas o ficheiro de correcção e navegas até à CT."
 
 #. (para)
 msgid "Once you have selected the patch file and working copy location, TortoiseMerge runs to merge the changes from the patch file with your working copy. A small window lists the files which have been changed. Double click on each one in turn, review the changes and save the merged files."
-msgstr ""
+msgstr "Uma vez que tenhas seleccionado o ficheiro de correcção e a localização da cópia de trabalho, o TortoiseMerge irá correr, integrando as alterações do ficheiro de correcção com a tua cópia de trabalho. Uma pequena janela lista os ficheiros que foram alterados. Efectua duplo clique em cada uma de cada vez, para reveres as alterações e guardares os ficheiros integrados."
 
 #. (para)
 msgid "The remote developer's patch has now been applied to your working copy, so you need to commit to allow everyone else to access the changes from the repository."
-msgstr ""
+msgstr "A correcção do programador remoto foi agora aplicada na tua cópia de trabalho, então precisas agora de submeter de modo a permitir que todos possam aceder às alterações a partir do repositório."
 
 #. (title)
 msgid "Who Changed Which Line?"
