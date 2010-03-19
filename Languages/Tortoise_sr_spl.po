@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-13 20:09+0100\n"
+"PO-Revision-Date: 2010-03-19 23:41+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1258,10 +1258,9 @@ msgstr "&Do revizije"
 msgid "&To URL:"
 msgstr "&Do URL:"
 
-#
-#. Resource IDs: (1305)
-msgid "&To URL: "
-msgstr "&Do URL:"
+#. Resource IDs: (1384)
+msgid "&To path:"
+msgstr "Ka pu&tanji:"
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
@@ -3425,6 +3424,10 @@ msgstr "Opis:"
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "Isključi popis izmena"
+
+#. Resource IDs: (1547)
+msgid "Destination URL:"
+msgstr "Destinacioni URL:"
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
@@ -8401,6 +8404,10 @@ msgstr "Zameni %s sa %s, Revizija %s"
 msgid "Switch - TortoiseSVN"
 msgstr "Zameni - TortoiseSVN"
 
+#. Resource IDs: (1377)
+msgid "Switch Depth"
+msgstr "Zamena dubine"
+
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
 msgstr "Zameni levo <-> desno"
@@ -11084,16 +11091,4 @@ msgstr "da"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BagTrek}"
-
-#~ msgid "y"
-#~ msgstr "у"
-#~ msgid "Author:                                    Stefan Kueng"
-#~ msgstr "Аутор:                                    Стефан Куенг"
-#~ msgid "Automatically check for &newer versions every week"
-#~ msgstr "Аутоматски провери &новије верзије једном недељно"
-#~ msgid ""
-#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr ""
-#~ "Уколико је укључено ТортоисеСВН проверава једном недељно да ли постоји "
-#~ "новија верзија"
 
