@@ -200,11 +200,11 @@ Please read <a href="http://nightlybuilds.tortoisesvn.net/1.6.x/Readme.txt">Read
 <h1>Sourcecode</h1>
 <p>TortoiseSVN is under the GPL license. That means you can get the whole sourcecode and build the program yourself.
 <br />
-The sourcecode is hosted on <a href="http://www.tigris.org">tigris.org</a> in our own Subversion repository. You can browse the sourcecode with your favorite webbrowser directly on the <a href="http://tortoisesvn.tigris.org/svn/tortoisesvn/">repository</a>. Use <em>guest</em> as the username and an empty password to log in.
+The sourcecode is hosted on <a href="http:/code.google.com/hosting">Google Code</a> in our own Subversion repository. You can browse the sourcecode with your favorite webbrowser directly on the <a href="http://code.google.com/p/tortoisesvn/source/browse/">repository</a>. 
 <br />
 If you have TortoiseSVN installed, you can check out the whole sourcecode by clicking on the tortoise icon below:
 <br />
-<a href="tsvn:http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk"><img src="/files/TortoiseCheckout.png" alt="Tortoise Icon"/></a></p>
+<a href="tsvn:http://tortoisesvn.googlecode.com/svn/trunk/"><img src="/files/TortoiseCheckout.png" alt="Tortoise Icon"/></a></p>
 
 <script type="text/javascript"><!--
 google_ad_client = "pub-0430507460695576";

@@ -21,10 +21,10 @@ Getting started
 If you want to implement a new language for TortoiseSVN do the following.
 
 1) Use TortoiseSVN (or any other SubVersion client) to check out:
-   http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/Languages/
+   http://tortoisesvn.googlecode.com/svn/trunk/Languages/
    (You will get more than one file)
    or point your browser to:
-   http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/Languages/
+   http://code.google.com/p/tortoisesvn/source/browse/trunk
    right-click on Tortoise.pot and save this file to your local harddisk.
    Tortoise.pot is the portable object template (hence .pot) for the
    translation.
@@ -130,7 +130,7 @@ them, you need four things:
   http://tortoisesvn.tigris.org/servlets/ProjectDocumentList?folderID=1847
   and pick your language dlls e.g. Languages_1.0.8.zip for TortoiseSVN 1.0.8.
 - The pot file for your version of TortoiseSVN e.g:
-  http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version_1.0.8/...
+  http://tortoisesvn.googlecode.com/svn/tags/version_1.0.8/...
 - Any po file for your language. Either pick one from tags or the latest
   po file from trunk
 - The ResText utility that is used to insert the data from the po file

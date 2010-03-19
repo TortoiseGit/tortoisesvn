@@ -43,9 +43,6 @@ The statistics are calculated for the HEAD revision and updated regularly.
 The last update was run at <b><?php echo $tsvn_var['update']; ?></b>.
 </p>
 
-<p>
-If you want to download the po file from the repository, either use <strong>guest (no password)</strong> or your tigris.org user ID. 
-</p>
 
 <?php
 }
