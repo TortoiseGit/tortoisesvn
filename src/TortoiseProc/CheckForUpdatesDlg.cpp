@@ -113,7 +113,7 @@ UINT CCheckForUpdatesDlg::CheckThread()
 	{
 		sCheckURL = checkurlmachine;
 		if (sCheckURL.IsEmpty())
-			sCheckURL = _T("http://tortoisesvn.tigris.org/version.txt");
+			sCheckURL = _T("http://tortoisesvn.googlecode.com/svn/trunk/version.txt");
 	}
 	HRESULT res = URLDownloadToFile(NULL, sCheckURL, tempfile, 0, NULL);
 	if (res == S_OK)
