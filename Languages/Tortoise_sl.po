@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-23 12:03+0100\n"
+"PO-Revision-Date: 2010-03-19 12:32+0100\n"
 "Last-Translator: Miha Nahtigal <miha.nahtigal@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -315,6 +315,10 @@ msgstr "&O TortoiseMerge ..."
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "&Aktiviraj"
+
+#. Resource IDs: (15)
+msgid "&Add"
+msgstr "Dod&aj"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
@@ -1106,9 +1110,9 @@ msgstr "&Do revizije"
 msgid "&To URL:"
 msgstr "&Na URL"
 
-#. Resource IDs: (1305)
-msgid "&To URL: "
-msgstr "&Na URL"
+#. Resource IDs: (1384)
+msgid "&To path:"
+msgstr "Na po&t:"
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
@@ -3169,10 +3173,6 @@ msgid "Delete and &ignore %d items by name"
 msgstr "Izbriši in prezr&i  elemente (%d) po imenu"
 
 #. Resource IDs: (14)
-msgid "Delete and add to &ignore list"
-msgstr "Izbriši in dodaj na seznam &prezrtih elementov"
-
-#. Resource IDs: (14)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Izbriši in prezri &elemente (%d) po tipu"
@@ -3240,6 +3240,10 @@ msgstr "Opis:"
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "Izključi izbiro seznama sprememb"
+
+#. Resource IDs: (1547)
+msgid "Destination URL:"
+msgstr "Ciljni  URL:"
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
@@ -7685,6 +7689,10 @@ msgstr "Pokaži nad trakom"
 msgid "Show Below the Ribbon"
 msgstr "Pokaži pod trakom"
 
+#. Resource IDs: (1542)
+msgid "Show Branch L&og"
+msgstr "Prikaz &dnevnika veje"
+
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
 msgstr "Pokaži manj gumbov"
@@ -8186,6 +8194,10 @@ msgstr "Preklopi %s v %s, revizija %s"
 #. Resource IDs: (78)
 msgid "Switch - TortoiseSVN"
 msgstr "Preklopi - TortoiseSVN"
+
+#. Resource IDs: (1377)
+msgid "Switch Depth"
+msgstr "Preklopi globino"
 
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
@@ -9337,6 +9349,10 @@ msgstr ""
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Brez različic"
+
+#. Resource IDs: (14)
+msgid "Unversion and add to &ignore list"
+msgstr "Odstrani iz skladišča in dodaj na seznam prezrt&ih elementov"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
@@ -10861,6 +10877,8 @@ msgstr "da"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&To URL: "
+#~ msgstr "&Na URL"
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Avtor:                        Stefan Kueng"
 #~ msgid "Automatically check for &newer versions every week"
