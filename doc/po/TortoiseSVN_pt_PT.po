@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-20 00:37-0000\n"
+"PO-Revision-Date: 2010-03-20 23:52-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6794,7 +6794,7 @@ msgstr "A caixa de diálogo registo de revisão inclui várias opções que te p
 #. (title)
 #. (title)
 msgid "The Repository Browser"
-msgstr ""
+msgstr "O Navegador de Repositório"
 
 #. (primary)
 msgid "repo-browser"
@@ -6810,123 +6810,123 @@ msgstr ""
 
 #. (para)
 msgid "Sometimes you need to work directly on the repository, without having a working copy. That's what the <firstterm>Repository Browser</firstterm> is for. Just as the explorer and the icon overlays allow you to view your working copy, so the Repository Browser allows you to view the structure and status of the repository. <placeholder-1/> With the Repository Browser you can execute commands like copy, move, rename, ... directly on the repository."
-msgstr ""
+msgstr "Por vezes necessitas de trabalhar directamente no repositório sem teres uma cópia de trabalho. É para isto que existe o <firstterm>Navegador de Repositório</firstterm>. Tal como o explorador e as sobreposições de ícones te permitem ver a tua cópia de trabalho, da mesma maneira o Navegador de Repositório permite-te ver a estrutura e o estado do repositório. <placeholder-1/> Com o Navegador de Repositório podes executar comandos tais como, copiar, mover, renomear,... directamente no repositório."
 
 #. (para)
 msgid "The repository browser looks very similar to the Windows explorer, except that it is showing the content of the repository at a particular revision rather than files on your computer. In the left pane you can see a directory tree, and in the right pane are the contents of the selected directory. At the top of the Repository Browser Window you can enter the URL of the repository and the revision you want to browse."
-msgstr ""
+msgstr "O Navegador de Repositório tem um aspecto muito similar ao explorador do Windows, à excepção de que mostra os conteúdos do repositório numa revisão particular, em vez dos ficheiros no teu computador. No painel da direita podes ver a árvore de pastas e no painel da direita os conteúdos da pasta seleccionada. No topo da janela de navegação, do Navegador de Repositório, tu podes introduzir o URL e a revisão do repositório que queres navegar."
 
 #. (para)
 msgid "Just like Windows explorer, you can click on the column headings in the right pane if you want to set the sort order. And as in explorer there are context menus available in both panes."
-msgstr ""
+msgstr "Tal como o expolrador do Windows, tu podes clicar nos cabeçalhos de colunas do painel da direita, se queres seleccionar a disposição da ordenação. E também como no explorador existem menus de contexto disponíveis em ambos os painéis."
 
 #. (para)
 msgid "Save an unversioned copy of the file to your hard drive."
-msgstr ""
+msgstr "Guarda uma cópia não versionada do ficheiro para o teu disco rígido."
 
 #. (para)
 msgid "Show the revision log for that file, or show a graph of all revisions so you can see where the file came from."
-msgstr ""
+msgstr "Mostrar o registo de revisão para esse ficheiro, ou mostra o gráfico de todas as revisões, para que possas ver de onde o ficheiro veio."
 
 #. (para)
 msgid "Blame the file, to see who changed which line and when."
-msgstr ""
+msgstr "Responsabiliza o ficheiro, para veres quem alterou que linha e quando."
 
 #. (para)
 msgid "Delete or rename the file."
-msgstr ""
+msgstr "Remove ou renomea o ficheiro."
 
 #. (para)
 msgid "Make a copy of the file, either to a different part of the repository, or to a working copy rooted in the same repository."
-msgstr ""
+msgstr "Faz uma cópia do ficheiro, numa parte diferente do repositório, ou para uma cópia de trabalho originada do mesmo repositório."
 
 #. (para)
 msgid "View/Edit the file's properties."
-msgstr ""
+msgstr "Ver/Editar as propriedades dos ficheiros."
 
 #. (para)
 msgid "The context menu for a file allows you to: <placeholder-1/>"
-msgstr ""
+msgstr "O menu de contexto para um ficheiro permite-te: <placeholder-1/>"
 
 #. (para)
 msgid "Show the revision log for that folder, or show a graph of all revisions so you can see where the folder came from."
-msgstr ""
+msgstr "Mostrar o registo de revisão para esse ficheiro, ou mostra o gráfico de todas as revisões, para que possas ver de onde veio a pasta."
 
 #. (para)
 msgid "Export the folder to a local unversioned copy on your hard drive."
-msgstr ""
+msgstr "Exportar a pasta, para uma cópia local não versionada no teu disco rígido."
 
 #. (para)
 msgid "Checkout the folder to produce a local working copy on your hard drive."
-msgstr ""
+msgstr "SVN Exportar uma pasta, para produzir uma cópia de trabalho local no teu disco rígido."
 
 #. (para)
 msgid "Create a new folder in the repository."
-msgstr ""
+msgstr "Criar uma nova pasta no repositório."
 
 #. (para)
 msgid "Add files or folders directly to the repository."
-msgstr ""
+msgstr "Adicionar ficheiros ou pastas, directamente no repositório."
 
 #. (para)
 msgid "Delete or rename the folder."
-msgstr ""
+msgstr "Remover ou renomear a pasta."
 
 #. (para)
 msgid "Make a copy of the folder, either to a different part of the repository, or to a working copy rooted in the same repository. This can also be used to create a branch/tag without the need to have a working copy checked out."
-msgstr ""
+msgstr "Fazer uma cópia da pasta, numa parte diferente do repositório, ou para uma cópia de trabalho originária do mesmo repositório. Isto também podes ser usado para criar um ramo/etiqueta sem necessidade de ter uma cópia de trabalho exportada."
 
 #. (para)
 msgid "View/Edit the folder's properties."
-msgstr ""
+msgstr "Ver/Editar as propriedades da pasta."
 
 #. (para)
 msgid "Mark the folder for comparison. A marked folder is shown in bold."
-msgstr ""
+msgstr "Marcar a pasta para comparação. A pasta marcada é mostrada em negrito."
 
 #. (para)
 msgid "Compare the folder with a previously marked folder, either as a unified diff, or as a list of changed files which can then be visually diffed using the default diff tool. This can be particularly useful for comparing two tags, or trunk and branch to see what changed."
-msgstr ""
+msgstr "Comparar a pasta com uma pasta previamente marcada, como uma comparação unificada, ou como uma lista de ficheiros alterados que podem então ser visualmente comparados, usando a ferramenta de comparação por defeito. Isto pode ser particularmente útil na comparação de duas etiquetas, ou o trunk e um ramo, para ver o que foi alterado."
 
 #. (para)
 msgid "The context menu for a folder allows you to: <placeholder-1/>"
-msgstr ""
+msgstr "O menu de contexto para uma pasta, permite-te: <placeholder-1/>"
 
 #. (para)
 msgid "If you select two folders in the right pane, you can view the differences either as a unified-diff, or as a list of files which can be visually diffed using the default diff tool."
-msgstr ""
+msgstr "Se seleccionares duas pastas no painel direito podes ver as suas diferenças como uma comparação unificada, ou como uma lista de ficheiros que podem ser visualmente comparados usando a ferramenta de comparação por defeito."
 
 #. (para)
 msgid "If you select multiple folders in the right pane, you can checkout all of them at once into a common parent folder."
-msgstr ""
+msgstr "Se seleccionares multiplas pastas no painel da direita, podes svn exportar todas de uma vez só para uma pasta pai comum."
 
 #. (para)
 msgid "If you select 2 tags which are copied from the same root (typically <literal>/trunk/</literal>), you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log...</guimenuitem></menuchoice> to view the list of revisions between the two tag points."
-msgstr ""
+msgstr "Se seleccionares 2 etiquetas que foram copiadas a partir da mesma origem (tipicamente o <literal>/trunk/</literal>), podes usar <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Mostrar registo...</guimenuitem></menuchoice> para ver a lista de revisões entre estes dois pontos de etiquetas."
 
 #. (para)
 msgid "You can use <keycap>F5</keycap> to refresh the view as usual. This will refresh everything which is currently displayed. If you want to pre-fetch or refresh the information for nodes which have not been opened yet, use <keycap>Ctrl-F5</keycap>. After that, expanding any node will happen instantly without a network delay while the information is fetched."
-msgstr ""
+msgstr "Podes usar <keycap>F5</keycap> para refrescar a vista, como usual. Isto refrescará tudo o que é actualmente visualizado. Se queres efectuar uma pré-busca ou refrescar a informação de nodos que não foram ainda abertos, usa <keycap>Ctrl-F5</keycap>. Depois disso a expansão de qualquer nodo será instantânea, sem atrasos de rede enquanto a informação é recebida."
 
 #. (para)
 msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo-browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
-msgstr ""
+msgstr "Podes também usar o navegador de repositório para operações de arrastar-e-largar. Se arrastares uma pasta do explorador para o navegador-de-repositório, esta será importada para o repositório. De notar que, se arrastares múltiplos itens, estes serão importados em submissões separadas."
 
 #. (para)
 msgid "If you want to move an item within the repository, just <action>left drag</action> it to the new location. If you want to create a copy rather than moving the item, <keycap>Ctrl</keycap>-<action>left drag</action> instead. When copying, the cursor has a <quote>plus</quote> symbol on it, just as it does in Explorer."
-msgstr ""
+msgstr "Se queres mover um item dentro do repositório, arrasta com o botão direito do rato para a nova localização. Se queres criar uma cópia, em vez de moveres o item, usa em alternativa <keycap>Ctrl</keycap>-<action>arrastar com o botão direito</action>. Ao copiar o cursor fica com o símbolo <quote>mais</quote> tal como no explorador."
 
 #. (para)
 msgid "If you want to copy/move a file or folder to another location and also give it a new name at the same time, you can <action>right drag</action> or <keycap>Ctrl</keycap>-<action>right drag</action> the item instead of using <action>left drag</action>. In that case, a rename dialog is shown where you can enter a new name for the file or folder."
-msgstr ""
+msgstr "Se queres copiar/mover um ficheiro ou pasta para outra localização, e também dar-lhe um novo nome ao mesmo tempo, podes então  <action>arrastar com o botão direito</action> ou <keycap>Ctrl</keycap>-<action>arrastar com o botão direito</action> no item, em vez de usar <action>arrastar com o botão esquerdo</action>. Nesse caso, a caixa de diálogo renomear é mostrada, e podes então introduzir um novo nome para a pasta ou ficheiro."
 
 #. (para)
 msgid "Whenever you make changes in the repository using one of these methods, you will be presented with a log message entry dialog. If you dragged something by mistake, this is also your chance to cancel the action."
-msgstr ""
+msgstr "Sempre que efectuares alterações no repositório usando um desses métodos, serás recebido com uma caixa de diálogo de mensagem de registo. Se arrastares algo por em engano, está é a tua oportunidade para cancelar a operação."
 
 #. (para)
 msgid "Sometimes when you try to open a path you will get an error message in place of the item details. This might happen if you specified an invalid URL, or if you don't have access permission, or if there is some other server problem. If you need to copy this message to include it in an email, just right click on it and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy error message to clipboard</guimenuitem></menuchoice>, or simply use <keycap>Ctrl+C</keycap>."
-msgstr ""
+msgstr "Por vezes quando tentas abrir um caminho és recebido com uma mensagem de erro, em vez dos detalhes do item. Isto pode acontecer de tu especificaste um URL inválido, se não tens permissões de acesso, ou se há algum problema no servidor. Se queres copiar esta mensagem, para a incluir num email, clica apenas nela e usa o <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Copiar mensagem de erro para a área de transferência</guimenuitem></menuchoice>, ou usa simplesmente<keycap>Ctrl+C</keycap>."
 
 #. (title)
 msgid "Revision Graphs"
