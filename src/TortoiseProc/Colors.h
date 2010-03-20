@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -44,7 +44,8 @@ public:
 		ReplacedNode = 9,
 		RenamedNode = 10,
 		LastCommitNode = 11,
-		PropertyChanged = 12
+		PropertyChanged = 12,
+		FilterMatch = 13
 	};
 	
     enum GDIPlusColor
@@ -94,6 +95,7 @@ private:
 	CRegDWORD m_regRenamedNode;
 	CRegDWORD m_regLastCommitNode;
 	CRegDWORD m_regPropertyChanged;
+	CRegDWORD m_regFilterMatch;
 
 	CRegDWORD m_regGDPDeletedNode;
 	CRegDWORD m_regGDPAddedNode;

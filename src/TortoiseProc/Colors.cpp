@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -41,6 +41,7 @@ CColors::CColors(void) : m_regAdded(_T("Software\\TortoiseSVN\\Colors\\Added"), 
 	, m_regRenamedNode(_T("Software\\TortoiseSVN\\Colors\\RenamedNode"), RGB(0, 0, 255))
 	, m_regLastCommitNode(_T("Software\\TortoiseSVN\\Colors\\LastCommitNode"), RGB(200, 200, 200))
 	, m_regPropertyChanged(_T("Software\\TortoiseSVN\\Colors\\PropertyChanged"), RGB(0, 50, 160))
+	, m_regFilterMatch(_T("Software\\TortoiseSVN\\Colors\\FilterMatch"), RGB(200, 0, 0))
 
     , m_regGDPDeletedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+DeletedNode"), (DWORD)Color::Red)
     , m_regGDPAddedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+AddedNode"), (DWORD)0xff00ff00)
@@ -85,6 +86,7 @@ CRegDWORD* CColors::GetRegistrySetting (Colors id)
 	case RenamedNode:   	return &m_regRenamedNode;
 	case LastCommitNode:    return &m_regLastCommitNode;
 	case PropertyChanged:	return &m_regPropertyChanged;
+	case FilterMatch:		return &m_regFilterMatch;
 	}
 
 	return NULL;
@@ -209,4 +211,3 @@ void CColors::SetColor (GDIPlusColorTable id, int index, Gdiplus::Color color)
 
     (*setting)[index] = color.GetValue();
 }
-
