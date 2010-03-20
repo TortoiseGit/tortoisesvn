@@ -57,8 +57,6 @@ public:
 		drivefloppy = CRegStdDWORD(_T("Software\\TortoiseSVN\\DriveMaskFloppy"));
 		driveram = CRegStdDWORD(_T("Software\\TortoiseSVN\\DriveMaskRAM"));
 		driveunknown = CRegStdDWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
-		excludelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayExcludeList"));
-		includelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
 		simplecontext = CRegStdDWORD(_T("Software\\TortoiseSVN\\SimpleContext"), FALSE);
 		shellmenuaccelerators = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShellMenuAccelerators"), TRUE);
 		unversionedasmodified = CRegStdDWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
@@ -72,9 +70,7 @@ public:
 		drivetypeticker = 0;
 		langticker = cachetypeticker;
 		columnrevformatticker = cachetypeticker;
-		excludelistticker = 0;
-		excludelistticker2 = 0;
-		includelistticker = 0;
+		pathfilterticker = 0;
 		simplecontextticker = cachetypeticker;
 		shellmenuacceleratorsticker = cachetypeticker;
 		unversionedasmodifiedticker = cachetypeticker;
@@ -127,8 +123,6 @@ public:
 		drivefloppy.read();
 		driveram.read();
 		driveunknown.read();
-		excludelist.read();
-		includelist.read();
 		simplecontext.read();
 		shellmenuaccelerators.read();
 		unversionedasmodified.read();
@@ -145,6 +139,8 @@ public:
 		menumasklow_cu.read();
 		menumaskhigh_cu.read();
 		nocontextpaths.read();
+
+        pathFilter.Refresh();
 	}
 	CacheType GetCacheType()
 	{
@@ -315,41 +311,10 @@ public:
 	}
 	BOOL IsPathAllowed(LPCTSTR path)
 	{
+		ValidatePathFilter();
 		Locker lock(m_critSec);
-		IncludeListValid();
-		for (std::vector<tstring>::iterator I = invector.begin(); I != invector.end(); ++I)
-		{
-			if (I->empty())
-				continue;
-			if (I->at(I->size()-1)=='*')
-			{
-				tstring str = I->substr(0, I->size()-1);
-				if (_tcsnicmp(str.c_str(), path, str.size())==0)
-					return TRUE;
-				if (str.size() && (str.at(str.size()-1) == '\\') && (_tcsnicmp(str.c_str(), path, str.size()-1)==0))
-					return TRUE;
-			}
-			else if (_tcsicmp(I->c_str(), path)==0)
-				return TRUE;
-			else if ((I->at(I->size()-1) == '\\') && 
-				((_tcsnicmp(I->c_str(), path, I->size())==0) || (_tcsicmp(I->c_str(), path)==0)) )
-				return TRUE;
-
-		}
-		ExcludeListValid();
-		for (std::vector<tstring>::iterator I = exvector.begin(); I != exvector.end(); ++I)
-		{
-			if (I->empty())
-				continue;
-			if (I->size() && I->at(I->size()-1)=='*')
-			{
-				tstring str = I->substr(0, I->size()-1);
-				if (_tcsnicmp(str.c_str(), path, str.size())==0)
-					return FALSE;
-			}
-			else if (_tcsicmp(I->c_str(), path)==0)
-				return FALSE;
-		}
+        if (!pathFilter.IsPathAllowed (path))
+            return FALSE;
 
 		UINT drivetype = 0;
 		int drivenumber = PathGetDriveNumber(path);
@@ -511,63 +476,315 @@ private:
 			excludecontextstr = (tstring)nocontextpaths;
 		}
 	}
-	void ExcludeListValid()
+	void ValidatePathFilter()
 	{
-		if ((GetTickCount() - excludelistticker)>EXCLUDELISTTIMEOUT)
+        DWORD ticks = GetTickCount();
+		if ((ticks - pathfilterticker) > EXCLUDELISTTIMEOUT)
 		{
 			Locker lock(m_critSec);
-			excludelistticker = GetTickCount();
+
+            pathfilterticker = ticks;
+            pathFilter.Refresh();
+		}
+	}
+
+    class CPathFilter
+    {
+    public:
+
+        /// node in the lookup tree
+
+        struct SEntry
+        {
+            tstring path;
+
+            /// default (path spec did not end a '?').
+            /// if this is not set, the default for all
+            /// sub-paths is !included.
+            /// This is a temporary setting an be invalid
+            /// after @ref PostProcessData
+
+            bool recursive;
+
+            /// this is an "include" specification
+
+            bool included;
+
+            /// if @ref recursive is not set, this is
+            /// the parent path status being passed down
+            /// combined with the information of other
+            /// entries for the same @ref path.
+
+            bool subPathIncluded;
+
+            /// do entries for sub-paths exist?
+
+            bool hasSubFolderEntries;
+
+            /// STL support
+            /// For efficient folding, it is imperative that
+            /// "recursive" entries are first
+
+            bool operator<(const SEntry& rhs) const
+            {
+                int diff = _tcsicmp (path.c_str(), rhs.path.c_str());
+                return (diff < 0) 
+                    || ((diff == 0) && recursive && !rhs.recursive);
+            }
+
+            friend bool operator< 
+                ( const SEntry& rhs
+                , const std::pair<LPCTSTR, size_t>& lhs);
+            friend bool operator< 
+                ( const std::pair<LPCTSTR
+                , size_t>& lhs, const SEntry& rhs);
+        };
+
+    private:
+
+        /// lookup by path (all entries sorted by path)
+
+        typedef std::vector<SEntry> TData;
+        TData data;
+
+        /// registry keys plus cached last content
+
+        CRegStdString excludelist;
+	    tstring excludeliststr;
+
+	    CRegStdString includelist;
+	    tstring includeliststr;
+
+        /// construct \ref data content
+
+        void AddEntry (const tstring& s, bool include)
+        {
+            if (s.empty())
+                return;
+
+            TCHAR lastChar = *s.rbegin();
+
+            SEntry entry;
+            entry.recursive = lastChar != _T('?');
+            entry.included = include;
+            entry.subPathIncluded = include == entry.recursive;
+            entry.hasSubFolderEntries = false;
+            entry.path = s;
+            if ((lastChar == _T('?')) || (lastChar == _T('*')))
+                entry.path.erase (s.length()-1);
+            if (!entry.path.empty() && (*entry.path.rbegin() == _T('\\')))
+                entry.path.erase (entry.path.length()-1);
+
+            data.push_back (entry);
+        }
+
+        void AddEntries (const tstring& s, bool include)
+        {
+			size_t pos = 0, pos_ant = 0;
+			pos = s.find(_T('\n'), pos_ant);
+			while (pos != tstring::npos)
+			{
+				AddEntry (s.substr(pos_ant, pos-pos_ant), include);
+				pos_ant = pos+1;
+				pos = s.find(_T('\n'), pos_ant);
+			}
+
+            if (!s.empty())
+                AddEntry (s.substr(pos_ant, s.size()-1), include);
+        }
+
+        /// for all paths, have at least one entry in data
+
+        void PostProcessData()
+        {
+            if (data.empty())
+                return;
+
+            std::sort (data.begin(), data.end());
+
+            // update subPathIncluded props and remove duplicate entries
+
+            TData::iterator begin = data.begin();
+            TData::iterator end = data.end();
+            TData::iterator dest = begin;
+            for (TData::iterator source = begin; source != end; ++source)
+            {
+                if (_tcsicmp (source->path.c_str(), dest->path.c_str()) == 0)
+                {
+                    // update subPathIncluded
+                    // (all relevant parent info has already been normalized)
+
+                    if (!source->recursive)
+                        source->subPathIncluded 
+                            = IsPathAllowed (source->path.c_str(), begin, dest);
+
+                    // multiple specs for the same path
+                    // -> merge them into the existing entry @ dest
+
+                    if (!source->recursive && dest->recursive)
+                    {
+                        // reset the marker for the this case
+
+                        dest->recursive = false;
+                        dest->included = source->included;
+                    }
+                    else
+                    {
+                        // include beats exclude
+
+                        dest->included |= source->included;
+                        if (source->recursive)
+                            dest->subPathIncluded |= source->subPathIncluded;
+                    }
+                }
+                else
+                {
+                    // new path -> don't merge this entry
+
+                    size_t destSize = dest->path.size();
+                    dest->hasSubFolderEntries 
+                        =   (source->path.size() > destSize)
+                         && (source->path[destSize] == _T('\\'))
+                         && (_tcsnicmp ( source->path.substr (0, destSize).c_str()
+                                       , dest->path.c_str()
+                                       , destSize)
+                             == 0);
+
+                    *++dest = *source;
+
+                    // update subPathIncluded
+                    // (all relevant parent info has already been normalized)
+
+                    if (!dest->recursive)
+                        dest->subPathIncluded 
+                            = IsPathAllowed (source->path.c_str(), begin, dest);
+                }
+            }
+
+            // remove duplicate info
+
+            data.erase (++dest, end);
+        }
+
+        /// lookup. default result is "true".
+        /// We must look for *every* parent path because of situations like:
+        /// excluded: C:, C:\some\deep\path
+        /// include: C:\some\path
+        /// lookup for C:\some\deeper\path
+
+        bool IsPathAllowed 
+            ( LPCTSTR path
+            , TData::const_iterator begin
+            , TData::const_iterator end) const
+        {
+            bool result = true;
+
+            // handle special cases
+
+            if (begin == end)
+                return result;
+
+            size_t maxLength = _tcslen (path);
+            if (maxLength == 0)
+                return result;
+            
+            // look for the most specific entry, start at the root
+
+            size_t pos = 0;
+            do
+            {
+                LPCTSTR backslash = _tcschr (path + pos + 1, _T ('\\'));
+                pos = backslash == NULL ? maxLength : backslash - path;
+
+                std::pair<LPCTSTR, size_t> toFind (path, pos);
+                TData::const_iterator iter 
+                    = std::lower_bound (begin, end, toFind);
+
+                // found a relevant entry?
+
+                if (   (iter != end) 
+                    && (iter->path.length() == pos)
+                    && (_tcsnicmp (iter->path.c_str(), path, pos) == 0))
+                {
+                    // exact match?
+
+                    if (pos == maxLength)
+                        return iter->included;
+
+                    // parent match
+
+                    result = iter->subPathIncluded;
+
+                    // done?
+
+                    if (iter->hasSubFolderEntries)
+                        begin = iter;
+                    else
+                        return result;
+                }
+                else
+                {
+                    // set a (potentially) closer lower limit
+
+                    if (iter != begin)
+                        begin = --iter;
+                }
+
+                // set a (potentially) closer upper limit
+
+                end = std::upper_bound (begin, end, toFind);
+            }
+            while ((pos < maxLength) && (begin != end));
+
+            // nothing more specific found
+
+            return result;
+        }
+
+    public:
+
+        /// construction
+
+        CPathFilter()
+            : excludelist (_T("Software\\TortoiseSVN\\OverlayExcludeList"))
+            , includelist (_T("Software\\TortoiseSVN\\OverlayIncludeList"))
+        {
+            Refresh();
+        }
+        
+        /// notify of (potential) registry settings
+
+        void Refresh()
+        {
 			excludelist.read();
-			if (excludeliststr.compare((tstring)excludelist)==0)
-				return;
-			excludeliststr = (tstring)excludelist;
-			exvector.clear();
-			size_t pos = 0, pos_ant = 0;
-			pos = excludeliststr.find(_T("\n"), pos_ant);
-			while (pos != tstring::npos)
-			{
-				tstring token = excludeliststr.substr(pos_ant, pos-pos_ant);
-				if (!token.empty())
-					exvector.push_back(token);
-				pos_ant = pos+1;
-				pos = excludeliststr.find(_T("\n"), pos_ant);
-			}
-			if (!excludeliststr.empty())
-			{
-				tstring token = excludeliststr.substr(pos_ant, excludeliststr.size()-1);
-				if (!token.empty())
-					exvector.push_back(token);
-			}
-			excludeliststr = (tstring)excludelist;
-		}
-	}
-	void IncludeListValid()
-	{
-		if ((GetTickCount() - includelistticker)>EXCLUDELISTTIMEOUT)
-		{
-			Locker lock(m_critSec);
-			includelistticker = GetTickCount();
 			includelist.read();
-			if (includeliststr.compare((tstring)includelist)==0)
+
+			if (   (excludeliststr.compare ((tstring)excludelist)==0)
+                && (includeliststr.compare ((tstring)includelist)==0))
+            {
 				return;
+            }
+
+			excludeliststr = (tstring)excludelist;
 			includeliststr = (tstring)includelist;
-			invector.clear();
-			size_t pos = 0, pos_ant = 0;
-			pos = includeliststr.find(_T("\n"), pos_ant);
-			while (pos != tstring::npos)
-			{
-				tstring token = includeliststr.substr(pos_ant, pos-pos_ant);
-				invector.push_back(token);
-				pos_ant = pos+1;
-				pos = includeliststr.find(_T("\n"), pos_ant);
-			}
-			if (!includeliststr.empty())
-			{
-				invector.push_back(includeliststr.substr(pos_ant, includeliststr.size()-1));
-			}
-			includeliststr = (tstring)includelist;
-		}
-	}
+            AddEntries (excludeliststr, false);
+            AddEntries (includeliststr, true);
+
+            PostProcessData();
+        }
+
+        /// data access
+
+    	bool IsPathAllowed (LPCTSTR path) const
+        {
+            return (path != NULL)
+                && IsPathAllowed (path, data.begin(), data.end());
+        }
+    };
+
+    friend bool operator< (const CPathFilter::SEntry& rhs, const std::pair<LPCTSTR, size_t>& lhs);
+    friend bool operator< (const std::pair<LPCTSTR, size_t>& lhs, const CPathFilter::SEntry& rhs);
+
 	CRegStdDWORD cachetype;
 	CRegStdDWORD blockstatus;
 	CRegStdDWORD langid;
@@ -592,13 +809,10 @@ private:
 	CRegStdDWORD unversionedasmodified;
 	CRegStdDWORD excludedasnormal;
 	CRegStdDWORD alwaysextended;
-	CRegStdString excludelist;
 	CRegStdDWORD columnseverywhere;
-	tstring excludeliststr;
-	std::vector<tstring> exvector;
-	CRegStdString includelist;
-	tstring includeliststr;
-	std::vector<tstring> invector;
+
+    CPathFilter pathFilter;
+
 	DWORD cachetypeticker;
 	DWORD recursiveticker;
 	DWORD folderoverlayticker;
@@ -610,9 +824,7 @@ private:
 	DWORD langticker;
 	DWORD blockstatusticker;
 	DWORD columnrevformatticker;
-	DWORD excludelistticker;
-	DWORD excludelistticker2;
-	DWORD includelistticker;
+	DWORD pathfilterticker;
 	DWORD simplecontextticker;
 	DWORD shellmenuacceleratorsticker;
 	DWORD unversionedasmodifiedticker;
@@ -633,3 +845,17 @@ private:
 	DWORD admindirticker;
 	CComCriticalSection m_critSec;
 };
+
+inline bool operator< 
+    ( const ShellCache::CPathFilter::SEntry& lhs
+    , const std::pair<LPCTSTR, size_t>& rhs)
+{
+    return _tcsnicmp (lhs.path.c_str(), rhs.first, rhs.second) < 0;
+}
+
+inline bool operator< 
+    ( const std::pair<LPCTSTR, size_t>& lhs
+    , const ShellCache::CPathFilter::SEntry& rhs)
+{
+    return _tcsnicmp (lhs.first, rhs.path.c_str(), lhs.second) < 0;
+}
