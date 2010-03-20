@@ -49,13 +49,14 @@ public:
 private:
 	static unsigned int __stdcall ThreadEntry(void* pContext);
 	void WorkerThread();
-	void RemoveDuplicates(std::deque<CTSVNPath>& queue);
 
 private:
 	CComAutoCriticalSection m_critSec;
 	HANDLE m_hThread;
 	std::deque<CTSVNPath> m_foldersToUpdate;
+	std::set<CTSVNPath> m_foldersToUpdateUnique;
 	std::deque<CTSVNPath> m_pathsToUpdate;
+	std::set<CTSVNPath> m_pathsToUpdateUnique;
 	HANDLE m_hTerminationEvent;
 	HANDLE m_hWakeEvent;
 	

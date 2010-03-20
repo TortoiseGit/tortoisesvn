@@ -84,6 +84,9 @@ void CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
 		return;
 	{
 		AutoLocker lock(m_critSec);
+        if (!m_foldersToUpdateUnique.insert (path).second)
+            return;
+
 		m_foldersToUpdate.push_back(path);
 		m_foldersToUpdate.back().SetCustomData(GetTickCount()+10);
 		ATLASSERT(path.IsDirectory() || !path.Exists());
@@ -100,7 +103,10 @@ void CFolderCrawler::AddPathForUpdate(const CTSVNPath& path)
 		return;
 	{
 		AutoLocker lock(m_critSec);
-		m_pathsToUpdate.push_back(path);
+        if (!m_pathsToUpdateUnique.insert (path).second)
+            return;
+
+        m_pathsToUpdate.push_back(path);
 		m_pathsToUpdate.back().SetCustomData(GetTickCount()+1000);
 		m_bPathsAddedSinceLastCrawl = true;
 	}
@@ -193,18 +199,16 @@ void CFolderCrawler::WorkerThread()
 				{
 					AutoLocker lock(m_critSec);
 
-					if (m_bPathsAddedSinceLastCrawl)
-					{
-						// The queue has changed - remove duplicate entries
-						RemoveDuplicates(m_pathsToUpdate);
-						m_bPathsAddedSinceLastCrawl = false;
-					}
-					workingPath = m_pathsToUpdate.front();
+					m_bPathsAddedSinceLastCrawl = false;
+
+                    workingPath = m_pathsToUpdate.front();
+                    m_pathsToUpdateUnique.erase (workingPath);
 					m_pathsToUpdate.pop_front();
 					if ((DWORD(workingPath.GetCustomData()) >= currentTicks) ||
 						((!m_blockedPath.IsEmpty())&&(m_blockedPath.IsAncestorOf(workingPath))))
 					{
 						// move the path to the end of the list
+                        m_pathsToUpdateUnique.insert (workingPath);
 						m_pathsToUpdate.push_back(workingPath);
 						if (m_pathsToUpdate.size() < 3)
 							Sleep(200);
@@ -298,6 +302,7 @@ void CFolderCrawler::WorkerThread()
 					//a notification about that in the directory watcher,
 					//remove that here again - this is to prevent an endless loop
 					AutoLocker lock(m_critSec);
+                    m_pathsToUpdateUnique.erase (workingPath);
 					m_pathsToUpdate.erase(std::remove(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), workingPath), m_pathsToUpdate.end());
 				}
 				else if (workingPath.HasAdminDir())
@@ -339,6 +344,7 @@ void CFolderCrawler::WorkerThread()
 					}
 					CSVNStatusCache::Instance().Done();
 					AutoLocker lock(m_critSec);
+                    m_pathsToUpdateUnique.erase (workingPath);
 					m_pathsToUpdate.erase(std::remove(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), workingPath), m_pathsToUpdate.end());
 				}
 				else
@@ -360,23 +366,23 @@ void CFolderCrawler::WorkerThread()
 				{
 					AutoLocker lock(m_critSec);
 
-					if (m_bItemsAddedSinceLastCrawl)
-					{
-						// The queue has changed - remove duplicate entries
-						RemoveDuplicates(m_foldersToUpdate);
-						m_bItemsAddedSinceLastCrawl = false;
-					}
-					// create a new CTSVNPath object to make sure the cached flags are requested again.
+					m_bItemsAddedSinceLastCrawl = false;
+
+                    // create a new CTSVNPath object to make sure the cached flags are requested again.
 					// without this, a missing file/folder is still treated as missing even if it is available
 					// now when crawling.
-					workingPath = CTSVNPath(m_foldersToUpdate.front().GetWinPath());
-					workingPath.SetCustomData(m_foldersToUpdate.front().GetCustomData());
+                    CTSVNPath& folderToUpdate = m_foldersToUpdate.front();
+                    m_foldersToUpdateUnique.erase (folderToUpdate);
+					workingPath = CTSVNPath(folderToUpdate.GetWinPath());
+					workingPath.SetCustomData(folderToUpdate.GetCustomData());
 					m_foldersToUpdate.pop_front();
+
 					if ((DWORD(workingPath.GetCustomData()) >= currentTicks) ||
 						((!m_blockedPath.IsEmpty())&&(m_blockedPath.IsAncestorOf(workingPath))))
 					{
 						// move the path to the end of the list
-						m_foldersToUpdate.push_back(workingPath);
+						m_foldersToUpdate.push_back (workingPath);
+                        m_foldersToUpdateUnique.insert (workingPath);
 						if (m_foldersToUpdate.size() < 3)
 							Sleep(200);
 						continue;
@@ -426,6 +432,7 @@ void CFolderCrawler::WorkerThread()
 				{
 					if (m_foldersToUpdate.back().IsEquivalentToWithoutCase(workingPath))
 					{
+                        m_foldersToUpdateUnique.erase (workingPath);
 						m_foldersToUpdate.pop_back();
 						m_bItemsAddedSinceLastCrawl = false;
 					}
@@ -434,25 +441,6 @@ void CFolderCrawler::WorkerThread()
 		}
 	}
 	_endthread();
-}
-
-void CFolderCrawler::RemoveDuplicates(std::deque<CTSVNPath>& queue)
-{
-	std::set<CTSVNPath> dupSet;
-	std::deque<CTSVNPath>::iterator eraseIt = queue.begin();
-	while (eraseIt != queue.end())
-	{
-		if (dupSet.find(*eraseIt) != dupSet.end())
-		{
-			// this is either a duplicate or was just crawled recently, remove it
-			eraseIt = queue.erase(eraseIt);
-		}
-		else
-		{
-			dupSet.insert(*eraseIt);
-			++eraseIt;
-		}
-	}
 }
 
 bool CFolderCrawler::SetHoldoff(DWORD milliseconds /* = 500*/)
