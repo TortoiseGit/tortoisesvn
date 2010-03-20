@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -82,10 +82,6 @@ private:
     mutable string utf8PathScratch;
     mutable wstring utf16PathScratch;
 
-    /// filter utiltiy method
-
-    bool Match (wstring& text) const;
-
     /// called to parse a (potentially incorrect) regex spec
 
     bool ValidateRegexp 
@@ -100,6 +96,7 @@ public:
 
     /// construction
 
+	CLogDlgFilter();
     CLogDlgFilter 
         ( const CString& filter
         , bool filterWithRegex
@@ -114,9 +111,15 @@ public:
 
     bool operator() (const CLogEntryData& entry) const;
 
+	/// returns a vector with all the ranges where a match
+	/// was found.
+	std::vector<CHARRANGE> GetMatchRanges (wstring& text) const;
+
+	/// filter utiltiy method
+	bool Match (wstring& text) const;
+
     /// tr1::regex is very slow when running concurrently 
     /// in multiple threads. Empty filters don't need MT as well.
 
     bool BenefitsFromMT() const;
 };
-

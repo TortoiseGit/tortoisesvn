@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,6 +47,11 @@ namespace
 
 bool CLogDlgFilter::Match (wstring& text) const
 {
+	// empty text does not match
+
+	if (text.size() == 0)
+		return false;
+
     if (patterns.empty())
     {
         // normalize to lower case
@@ -75,6 +80,54 @@ bool CLogDlgFilter::Match (wstring& text) const
     }
 
     return true;
+}
+
+std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& text) const
+{
+	std::vector<CHARRANGE> ranges;
+	if (patterns.empty())
+	{
+		// normalize to lower case
+
+		if (!caseSensitive)
+			if (fastLowerCase)
+				FastLowerCaseConversion (&text.at(0));
+			else
+				_wcslwr_s (&text.at(0), text.length()+1);
+
+		// require all strings to be present
+
+		assert (subStrings.size() == exclude.size());
+		for (size_t i = 0, count = subStrings.size(); i < count; ++i)
+		{
+			if (!exclude[i])
+			{
+				const wchar_t * pFound = wcsstr (text.c_str(), subStrings[i].c_str());
+				if (pFound)
+				{
+					CHARRANGE range;
+					range.cpMin = pFound - text.c_str();
+					range.cpMax = range.cpMin + subStrings[i].size();
+					ranges.push_back(range);
+				}
+			}
+		}
+	}
+	else
+	{
+		for (vector<tr1::wregex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
+		{
+			const tr1::wsregex_iterator end;
+			for (tr1::wsregex_iterator it2(text.begin(), text.end(), *it); it2 != end; ++it2)
+			{
+				ptrdiff_t matchposID = it2->position(0);
+				CHARRANGE range = {(LONG)(matchposID), (LONG)(matchposID+(*it2)[0].str().size())};
+				ranges.push_back(range);
+			}
+		}
+	}
+
+	return ranges;
 }
 
 // called to parse a (potentially incorrect) regex spec
@@ -127,6 +180,17 @@ void CLogDlgFilter::AddSubString (CString token, bool negate)
 }
 
 // construction
+
+CLogDlgFilter::CLogDlgFilter()
+	: attributeSelector(UINT_MAX)
+	, caseSensitive(false)
+	, from(0)
+	, to(0)
+	, scanRelevantPathsOnly(false)
+	, revToKeep(0)
+	, negate(false)
+{
+}
 
 CLogDlgFilter::CLogDlgFilter 
     ( const CString& filter
@@ -395,4 +459,3 @@ bool CLogDlgFilter::BenefitsFromMT() const
 
 	return true;
 }
-
