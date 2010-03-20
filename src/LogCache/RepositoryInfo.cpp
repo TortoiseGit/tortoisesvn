@@ -254,66 +254,67 @@ void CRepositoryInfo::CData::Load (const CString& fileName)
 	CFile file;
 	if (!file.Open (fileName, CFile::modeRead | CFile::shareDenyWrite))
 		return;
-    CArchive stream (&file, CArchive::load);
 
-    // format ID
-
-    int version = 0;
 	try
 	{
-		stream >> version;
+        CArchive stream (&file, CArchive::load);
+
+        // format ID
+
+        int version = 0;
+	    stream >> version;
+
+        // ignore newer formats
+
+        if (version > VERSION)
+            return;
+
+        // number of entries to read
+        // (old file don't have a version info -> "version" is the count)
+
+        int count = 0;
+        if (version >= MIN_COMPATIBLE_VERSION)
+            stream >> count;
+        else
+            count = version;
+
+        // actually load the data
+
+        for (int i = 0; i < count; ++i)
+        {
+            int connectionState = online;
+
+            SPerRepositoryInfo info;
+            stream >> info.root 
+                   >> info.uuid
+                   >> info.headURL
+                   >> info.headRevision
+                   >> info.headLookupTime;
+
+            if (version >= MIN_COMPATIBLE_VERSION)
+                stream >> connectionState;
+
+            info.connectionState = static_cast<ConnectionState>(connectionState);
+
+            if (version >= MIN_FILENAME_VERSION)
+                stream >> info.fileName;
+            else
+                info.fileName = info.uuid;
+
+            // caches from 1.5.x may have a number of alias entries
+            // -> use at most one
+
+            if (   (version >= MIN_FILENAME_VERSION)
+                || (uuidIndex.find (info.uuid) == uuidIndex.end()))
+            {
+                Add (info);
+            }
+        }
 	}
 	catch (...)
 	{
 		return;
 	}
-
-    // ignore newer formats
-
-    if (version > VERSION)
-        return;
-
-    // number of entries to read
-    // (old file don't have a version info -> "version" is the count)
-
-    int count = 0;
-    if (version >= MIN_COMPATIBLE_VERSION)
-        stream >> count;
-    else
-        count = version;
-
-    // actually load the data
-
-    for (int i = 0; i < count; ++i)
-    {
-        int connectionState = online;
-
-        SPerRepositoryInfo info;
-        stream >> info.root 
-               >> info.uuid
-               >> info.headURL
-               >> info.headRevision
-               >> info.headLookupTime;
-
-        if (version >= MIN_COMPATIBLE_VERSION)
-            stream >> connectionState;
-
-        info.connectionState = static_cast<ConnectionState>(connectionState);
-
-        if (version >= MIN_FILENAME_VERSION)
-            stream >> info.fileName;
-        else
-            info.fileName = info.uuid;
-
-        // caches from 1.5.x may have a number of alias entries
-        // -> use at most one
-
-        if (   (version >= MIN_FILENAME_VERSION)
-            || (uuidIndex.find (info.uuid) == uuidIndex.end()))
-        {
-            Add (info);
-        }
-    }
 }
 
 void CRepositoryInfo::CData::Save (const CString& fileName) const
