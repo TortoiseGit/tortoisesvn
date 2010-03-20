@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-19 00:23-0000\n"
+"PO-Revision-Date: 2010-03-20 00:37-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6709,87 +6709,87 @@ msgstr "Tu podes especificar a forma como são lidados os fim-de-linha e os espa
 
 #. (para)
 msgid "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the data to create the blame file. Please note: This can take several minutes to finish, depending on how much the file has changed and of course your network connection to the repository. Once the blame process has finished the result is written into a temporary file and you can view the results."
-msgstr ""
+msgstr "Uma vez que primas <guibutton>OK</guibutton>, o TortoiseSVN começa a readquirir os dados para criar o ficheiro de responsabilidade. Toma atenção: Isto pode levar vários minutos a concluir, dependendo de quanto o ficheiro mudou e, é claro, da ligação de rede ao repositório. Uma vez que o processo de responsabilidade tenha concluído, o resultado é escrito num ficheiro temporário onde poderás ver os resultados."
 
 #. (title)
 msgid "TortoiseBlame"
-msgstr "TortoiseCulpa"
+msgstr "TortoiseBlame"
 
 #. (para)
 msgid "<placeholder-1/> TortoiseBlame, which is included with TortoiseSVN, makes the blame file easier to read. When you hover the mouse over a line in the blame info column, all lines with the same revision are shown with a darker background. Lines from other revisions which were changed by the same author are shown with a light background. The colouring may not work as clearly if you have your display set to 256 colour mode."
-msgstr ""
+msgstr "<placeholder-1/> O TortoiseBlame, que está incluído com o TortoiseSVN torna o ficheiro de responsabilidade mais fácil de ler. Quando passas com o rato sobre uma linha, na coluna de informação da responsabilidade, todas as linhas com a mesma revisão são mostradas com um fundo mais escuro. Linhas de outras revisões que foram alteradas pelo mesmo autor, são mostradas com um fundo mais claro. A coloração poderá não funcionar tão bem se o teu écran estiver configurado para o modo de 256 cores."
 
 #. (para)
 msgid "If you <action>left click</action> on a line, all lines with the same revision are highlighted, and lines from other revisions by the same author are highlighted in a lighter colour. This highlighting is sticky, allowing you to move the mouse without losing the highlights. Click on that revision again to turn off highlighting."
-msgstr ""
+msgstr "Se <action>clicares com o botão direito</action> numa linha, todas as linhas com a mesma revisão serão destacadas, e todas as linhas de outras revisões com o mesmo autor serão destacadas numa cor mais clara. Este destaque é persistente permitindo-te mover o rato sem perder os destaques. clica outra vez nessa revisão para remover o destaque."
 
 #. (para)
 msgid "The revision comments (log message) are shown in a hint box whenever the mouse hovers over the blame info column. If you want to copy the log message for that revision, use the context menu which appears when you right click on the blame info column."
-msgstr ""
+msgstr "Os comentários de revisão (mensagem de registo) são mostrados numa caixa de dica, quando passas com o rato sobre a coluna de informação de responsabilidade. Se queres copiar a mensagem de registo dessa revisão usa o menu de contexto, que aparece quando clicas com o botão direito na coluna de informação de responsabilidade."
 
 #. (para)
 msgid "You can search within the Blame report using <menuchoice><guimenu>Edit</guimenu><guimenuitem>Find...</guimenuitem></menuchoice>. This allows you to search for revision numbers, authors and the content of the file itself. Log messages are not included in the search - you should use the Log Dialog to search those."
-msgstr ""
+msgstr "Tu podes pesquisar no relatório de responsabilidade usando <menuchoice><guimenu>Editar</guimenu><guimenuitem>Localizar...</guimenuitem></menuchoice>. Isto permite-te procurar por números de revisões, autores e o conteúdo das próprias mensagens. Mensagens de registo não são incluídas na pesquisa - tu deverás usar a caixa de diálogo de Registo para efectuar essa pesquisa."
 
 #. (para)
 msgid "You can also jump to a specific line number using <menuchoice><guimenu>Edit</guimenu><guimenuitem>Go To Line...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Podes também saltar para uma número de linha específica usando, <menuchoice><guimenu>Editar</guimenu><guimenuitem>Ir Para Linha...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "When the mouse is over the blame info columns, a context menu is available which helps with comparing revisions and examining history, using the revision number of the line under the mouse as a reference. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame previous revision</guimenuitem></menuchoice> generates a blame report for the same file, but using the previous revision as the upper limit. This gives you the blame report for the state of the file just before the line you are looking at was last changed. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Show changes</guimenuitem></menuchoice> starts your diff viewer, showing you what changed in the referenced revision. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Show log</guimenuitem></menuchoice> displays the revision log dialog starting with the referenced revision."
-msgstr ""
+msgstr "Quando o rato está sobre as colunas de informação de responsabilidade, um menu de contexto está disponível, que te ajudará a comparar revisões e examinar o histórico, usando o número de revisão da linha sobre o rato, como referência. <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Responsabilizar pela revisão anterior</guimenuitem></menuchoice> gera um relatório de responsabilidade para o mesmo ficheiro, mas usando a revisão anterior como o limite superior. Isto dá-te o relatório de responsabilidade para o estado do ficheiro, imediatamente antes da linha que estás a ver ter sido alterada. <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Mostrar alteações</guimenuitem></menuchoice> arranca o teu leitor de comparações, mostrando-te o que foi alterado na revisão referenciada. <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Mostrar registo</guimenuitem></menuchoice> mostra a caixa de diálogo de registo de revisões, a começar na revisão referenciada."
 
 #. (para)
 msgid "If you need a better visual indicator of where the oldest and newest changes are, select <menuchoice><guimenu>View</guimenu><guimenuitem>Color age of lines</guimenuitem></menuchoice>. This will use a colour gradient to show newer lines in red and older lines in blue. The default colouring is quite light, but you can change it using the TortoiseBlame settings."
-msgstr ""
+msgstr "Se precisas um melhor indicador visual de onde estão as mais antigas e mais recentes alterações, selecciona <menuchoice><guimenu>Ver</guimenu><guimenuitem>Colorir idade das linhas</guimenuitem></menuchoice>. Isto irá usar um gradiente de cores para mostrar linhas mais recentes a vermelho e linhas mais antigas em azul. A coloração por defeito é algo clara, mas podes alterá-lo usando as preferências do TrotoiseBlame."
 
 #. (para)
 msgid "If you are using Merge Tracking, where lines have changed as a result of merging from another path, TortoiseBlame will show the revision and author of the last change in the original file rather than the revision where the merge took place. These lines are indicated by showing the revision and author in italics. If you do not want merged lines shown in this way, uncheck the <guilabel>Include merge info</guilabel> checkbox."
-msgstr ""
+msgstr "Se estás a usar o rastreamento de integração, onde as linhas foram alteradas como resultado de uma integração de outro caminho, o TortoiseBlame irá mostrar a revisão e autor da última alteração no ficheiro original em vez da revisão onde a integração foi efectuada. Essas linhas estão assinaladas ao mostrar o autor e revisão em itálico. Se queres que as linhas integradas não sejam mostradas desta maneira, não verifiques a caixa de diálogo <guilabel>Incluir informação de integração</guilabel>."
 
 #. (para)
 msgid "If you want to see the paths involved in the merge, select <menuchoice><guimenu>View</guimenu><guimenuitem>Merge paths</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Se queres ver os caminhos envolvidos na integração, selecciona <menuchoice><guimenu>Ver</guimenu><guimenuitem>Caminhos de integração</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "The settings for TortoiseBlame can be accessed using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings...</guimenuitem></menuchoice> on the TortoiseBlame tab. Refer to <xref linkend=\"tsvn-dug-settings-tortoiseblame\"/>."
-msgstr ""
+msgstr "As preferências para o TortoiseBlame podem ser acedidas usando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Preferências...</guimenuitem></menuchoice> na aba TortoiseBlame. Consultar <xref linkend=\"tsvn-dug-settings-tortoiseblame\"/>."
 
 #. (title)
 msgid "Blame Differences"
-msgstr ""
+msgstr "Diferenças de responsabilidade"
 
 #. (para)
 msgid "One of the limitations of the Blame report is that it only shows the file as it was in a particular revision, and shows the last person to change each line. Sometimes you want to know what change was made, as well as who made it. What you need here is a combination of the diff and blame reports."
-msgstr ""
+msgstr "Uma das limitações do relatório de responsabilidade é que só mostra como estava o ficheiro numa determinada revisão, e mostra a última pessoa que alterou cada linha. Por vezes tu queres conhecer que alteração foi feita, tal como quem a fez. O que tu precisas aqui é uma combinação de relatórios de comparação e responsabilidade."
 
 #. (term)
 msgid "Blame Revisions"
-msgstr ""
+msgstr "Responsabilizar Revisões"
 
 #. (para)
 msgid "In the top pane, select 2 revisions, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame revisions</guimenuitem></menuchoice>. This will fetch the blame data for the 2 revisions, then use the diff viewer to compare the two blame files."
-msgstr ""
+msgstr "No painel de topo, selecciona 2 revisões e selecciona <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Responsabilizar revisões</guimenuitem></menuchoice>. Esta operação irá buscar os dados de responsabilidade para as 2 revisões, e usa o visualizador de comparações para comparar os dois ficheiros responsabilizados."
 
 #. (term)
 msgid "Blame Changes"
-msgstr ""
+msgstr "Responsabilizar alterações"
 
 #. (para)
 msgid "Select one revision in the top pane, then pick one file in the bottom pane and select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame changes</guimenuitem></menuchoice>. This will fetch the blame data for the selected revision and the previous revision, then use the diff viewer to compare the two blame files."
-msgstr ""
+msgstr "Selecciona uma revisão no painel de topo e então pega num ficheiro no painel de fundo e selecciona <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Responsabilizar alterações</guimenuitem></menuchoice>. Esta operação irá buscar os dados de responsabilidade para a revisão seleccionada e para a revisão anterior, e usar o visualizador de comparação para comparar os dois ficheiros responsabilizados."
 
 #. (term)
 msgid "Compare and Blame with Working BASE"
-msgstr ""
+msgstr "Comparar e Responsabilizar com a BASE de Trabalho"
 
 #. (para)
 msgid "Show the log for a single file, and in the top pane, select a single revision, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare and Blame with Working BASE</guimenuitem></menuchoice>. This will fetch the blame data for the selected revision, and for the file in the working BASE, then use the diff viewer to compare the two blame files."
-msgstr ""
+msgstr "Mostra o registo para um só ficheiro, e no painel de topo, selecciona uma única revisão e selecciona <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Comparar e Responsabilizarcom a BASE de trabalho</guimenuitem></menuchoice>. Esta operação irá buscar os dados de responsabilidade para a revisão seleccionada, e para o ficheiro na BASE de trabalho, e usa o visualizador de comparação para comparar os dois ficheiros responsabilizados."
 
 #. (para)
 msgid "The revision log dialog includes several options which allow you to do this. <placeholder-1/>"
-msgstr ""
+msgstr "A caixa de diálogo registo de revisão inclui várias opções que te permite fazer isto. <placeholder-1/>"
 
 #. (title)
 #. (title)
