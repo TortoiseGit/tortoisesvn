@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-13 21:50-0600\n"
+"PO-Revision-Date: 2010-03-20 09:14-0600\n"
 "Last-Translator: Evan Allrich <eallrich@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1321,10 +1321,10 @@ msgstr "&Ke Revisi"
 msgid "&To URL:"
 msgstr "&Ke URL:"
 
-# Control-ID:1305,
-#. Resource IDs: (1305)
-msgid "&To URL: "
-msgstr "&Ke URL:"
+# ID:116,
+#. Resource IDs: (1384)
+msgid "&To path:"
+msgstr "&Ke path:"
 
 # Control-ID:65535,
 #. Resource IDs: (1495)
@@ -3903,6 +3903,12 @@ msgstr "Deskripsi:"
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "Hapus pilihan daftar perubahan"
+
+# Control-ID:1269,#:
+# Control-ID:1096,
+#. Resource IDs: (1547)
+msgid "Destination URL:"
+msgstr "URL tujuan:"
 
 # ID:3859,#:
 # ID:3859,
@@ -9783,6 +9789,10 @@ msgstr "Tukar %s ke %s, Revisi %s"
 #. Resource IDs: (78)
 msgid "Switch - TortoiseSVN"
 msgstr "Tukar - TortoiseSVN"
+
+#. Resource IDs: (1377)
+msgid "Switch Depth"
+msgstr "Tukar Kedalaman"
 
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
