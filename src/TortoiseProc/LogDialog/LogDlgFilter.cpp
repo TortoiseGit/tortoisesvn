@@ -103,12 +103,13 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& text) const
 			if (!exclude[i])
 			{
 				const wchar_t * pFound = wcsstr (text.c_str(), subStrings[i].c_str());
-				if (pFound)
+				while (pFound)
 				{
 					CHARRANGE range;
 					range.cpMin = pFound - text.c_str();
 					range.cpMax = range.cpMin + subStrings[i].size();
 					ranges.push_back(range);
+					pFound = wcsstr (pFound+1, subStrings[i].c_str());
 				}
 			}
 		}
