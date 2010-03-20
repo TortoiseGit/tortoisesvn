@@ -29,6 +29,7 @@
 #include "MenuButton.h"
 #include "LogDlgHelper.h"
 #include "FilterEdit.h"
+#include "LogDlgFilter.h"
 #include "SVNRev.h"
 #include "Tooltip.h"
 #include "HintListCtrl.h"
@@ -212,6 +213,7 @@ private:
 	CHintListCtrl		m_LogList;
 	CListCtrl			m_ChangedFileListCtrl;
 	CFilterEdit			m_cFilter;
+	CLogDlgFilter		m_filter;
 	CProgressCtrl		m_LogProgress;
 	CMenuButton			m_btnShow;
 	CTSVNPath			m_path;
