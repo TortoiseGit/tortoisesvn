@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-20 23:00-0300\n"
+"PO-Revision-Date: 2010-03-21 00:14-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5486,19 +5486,19 @@ msgstr "limpar"
 
 #. (para)
 msgid "If a Subversion command cannot complete successfully, perhaps due to server problems, your working copy can be left in an inconsistent state. In that case you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice> on the folder. It is a good idea to do this at the top level of the working copy."
-msgstr ""
+msgstr "Se um comando do Subversion não pode ser completado com sucesso, talvez por causa de problemas com o servidor, sua cópia de trabalho pode ficar em um estado inconsistente. Neste caso você precisa usar o comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Limpar</guimenuitem></menuchoice> no diretório. É uma boa idéia fazer isso no diretório de nivel mais alto da sua cópia de trabalho."
 
 #. (para)
 msgid "Cleanup has another useful side effect. If a file date changes but its content doesn't, Subversion cannot tell whether it has really changed except by doing a byte-by-byte comparison with the pristine copy. If you have a lot of files in this state it makes acquiring status very slow, which will make many dialogs slow to respond. Executing a Cleanup on your working copy will repair these <quote>broken</quote> timestamps and restore status checks to full speed."
-msgstr ""
+msgstr "Limpar tem outra utilidade. Se a data de um arquivo foi alterada mas não o seu conteúdo, Subversion não poderá lhe avisar que ele foi alterado exceto através de um comparação byte-por-byte com a cópia anterior. Se você tem muitos arquivos nesta situação isto fará a aquisição da situação muito lenta, o qual fará muitas janelas lentas para responder. Ao executar o comando Limpar na sua cópia de trabalho ela irá reparar essas datas <quote>inválidas</quote> e irá restaurar a verificação da situação para a velocidade máxima."
 
 #. (title)
 msgid "Use Commit Timestamps"
-msgstr ""
+msgstr "Usar a Data da Submissão"
 
 #. (para)
 msgid "Some earlier releases of Subversion were affected by a bug which caused timestamp mismatch when you check out with the <guilabel>Use commit timestamps</guilabel> option checked. Use the Cleanup command to speed up these working copies."
-msgstr ""
+msgstr "Algumas liberações recentes do Subversion foram afetadas por um erro do qual causou problemas com a data quando você obteve arquivos com a opção <guilabel>Usar a data da submissão</guilabel> selecionada. Use o comando Limpar para aumentar a velocidade dessas cópias de trabalho."
 
 #. (title)
 msgid "Project Settings"
