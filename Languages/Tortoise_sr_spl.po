@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-19 23:41+0100\n"
+"PO-Revision-Date: 2010-03-21 20:02+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1591,18 +1591,20 @@ msgstr "Lista osobina  koje je definisao korisnik za imenike za prikazivanje u k
 #. Resource IDs: (201)
 msgid ""
 "A newer version is available.\r\n"
-"Please go to http://tortoisesvn.tigris.org and download the current version."
+"Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
 "Nova verzija je dostupna.\r\n"
-"Molim idite na   http://tortoisesvn.tigris.org i prenesite tekuću verziju."
+"Molim idite na  http://tortoisesvn.net i skinite tekuću verziju."
 
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '?' char at the end of a path, then only this path will be included.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "Lista putanja razdvojenih sa novired za koje je prikazano preklapanje ikona.\r\n"
-"Ako dodate '*' karakter na kraj putanje, onda svi imenici i podimenici unutar putanje su takođe uključeni."
+"Ako dodate  '?' karakter na krajputanje,onda će samo ova putanja biti uključena.\r\n"
+"Ako dodate '*' karakter na kraj putanje, onda svi fajlovi i podimenici unutar putanje su takođe uključeni."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1617,11 +1619,13 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Lista putanja razdvojenih sa novired za koje je prikazano preklapanje ikona.\r\n"
-"Ako dodate '*' karakter na kraj putanje, onda svi imenici i podimenici unutar putanje su takođe uključeni.\r\n"
+"Ako dodate  '?' karakter na krajputanje,onda će samo ova putanja biti isključena.\r\n"
+"Ako dodate '*' karakter na kraj putanje, onda svi fajlovi i podimenici unutar putanje su takođe isključeni.\r\n"
 "Prazna lista će dozvoliti preklapanje na svim putanjama."
 
 #. Resource IDs: (3843)
@@ -3773,6 +3777,10 @@ msgstr ""
 "Omogućite ovo samo ako radite sa veb projektima na VS.NET2003!\r\n"
 "Morate ponovo pokrenuti računar kako bi izmena podešavanja bila aktivirana."
 
+#. Resource IDs: (65535)
+msgid "Enabled Overlay Handlers"
+msgstr "Omogućeni rukovaoci prekrivača"
+
 #. Resource IDs: (195)
 msgid ""
 "Enables the spellchecker only if the\n"
@@ -4299,6 +4307,10 @@ msgstr ""
 "Popuni"
 
 #. Resource IDs: (65535)
+msgid "Filter match"
+msgstr "Filter poređenja"
+
+#. Resource IDs: (65535)
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
@@ -4810,6 +4822,10 @@ msgstr "Preklapanje ikona / Kolone statusa"
 msgid "Icon Overlays::Icon Set"
 msgstr "Prekrivne ikone::Skup ikona"
 
+#. Resource IDs: (308)
+msgid "Icon Overlays::Overlay Handlers"
+msgstr "Prekrivne ikone::Rukovaoci ikona"
+
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
 msgstr "Ikone/Dizajn/Kod:\t\tLuebbe Onken"
@@ -4999,6 +5015,10 @@ msgstr "Zanemari promene u razmaci&ma"
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
 msgstr "Zanemari promene u razmacima"
+
+#. Resource IDs: (1432)
+msgid "Ignored"
+msgstr "Zanemaren"
 
 #. Resource IDs: (226)
 msgid "Ignored items included"
@@ -5488,6 +5508,10 @@ msgstr "Vlasnik zaključavanja:"
 msgid "Lock stolen by %s"
 msgstr "Katanact je ukrao %s"
 
+#. Resource IDs: (1529)
+msgid "Locked"
+msgstr "Zaključan"
+
 #. Resource IDs: (263)
 #, c-format
 msgid "Locked by %s"
@@ -5955,6 +5979,10 @@ msgstr "Opcije Navigacionog Panela..."
 msgid "Needs lock"
 msgstr "Zahteva zaključavanje"
 
+#. Resource IDs: (1550)
+msgid "Needs-lock"
+msgstr "Zahteva-zaključavanje"
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "Ugneždeno"
@@ -6146,6 +6174,10 @@ msgstr "Primedba: imenik sadrži neverzionisane stavke"
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "Napomena: podešavanja fonta utiču i na TortozUDiff pregledač"
+
+#. Resource IDs: (65535)
+msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
+msgstr "Primedba: ovo se odnosinasveTortoise kliente, nesamoTortoiseSVN"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7498,6 +7530,10 @@ msgstr "SVN revizija"
 msgid "SVN Status"
 msgstr "SVN status"
 
+#. Resource IDs: (20)
+msgid "SVN Statusnumber"
+msgstr "SVN statusbroj"
+
 #. Resource IDs: (12)
 msgid "SVN URL"
 msgstr "SVN URL"
@@ -8029,14 +8065,6 @@ msgid ""
 msgstr ""
 "Prikaži ili sakri alatpult\n"
 "Menjanje prikaza AlatPulta"
-
-#. Resource IDs: (1432)
-msgid "Show overlay for ignored items"
-msgstr "Prikaži pokrivač za zanemarene fajlovi"
-
-#. Resource IDs: (1462)
-msgid "Show overlay for unversioned items"
-msgstr "Prikaži pokrivač za fajlovi bez verzija"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
@@ -9564,6 +9592,10 @@ msgstr "\"Skini\" verzije"
 msgid "Unversion and add to &ignore list"
 msgstr "Uklanjanje verzije i dodavanje na listu zanemar&ivanja"
 
+#. Resource IDs: (1462)
+msgid "Unversioned"
+msgstr "Neverzionisan"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Fajlovi izvan sistema verzija označavaju imenik kao izmenjenu"
@@ -10063,6 +10095,14 @@ msgstr ""
 "Pokušavate ukloniti trunk imenik!\n"
 "Da li ste apsolutno sigurni da želite pomeriti\n"
 "trunk imenik ?"
+
+#. Resource IDs: (65535)
+msgid ""
+"You can disable specific Overlay handlers here.\n"
+"Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
+msgstr ""
+"Ovde možete onemogućiti specifične rukovaoce prekrivačima.\n"
+"Onemogućeni rukovaoci nemogu koristiti slot prekrivača i dati šansu drugim proširenjima školjke da prikažu svoje prekrivače."
 
 #. Resource IDs: (1001)
 #, c-format
@@ -11091,4 +11131,9 @@ msgstr "da"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BagTrek}"
+
+#~ msgid "Show overlay for ignored items"
+#~ msgstr "Прикажи покривач за занемарене фајлови"
+#~ msgid "Show overlay for unversioned items"
+#~ msgstr "Прикажи покривач за фајлови без верзија"
 
