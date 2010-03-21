@@ -581,5 +581,6 @@ void CFileTextLines::CopySettings(CFileTextLines * pFileToCopySettingsTo)
 	{
 		pFileToCopySettingsTo->m_UnicodeType = m_UnicodeType;
 		pFileToCopySettingsTo->m_LineEndings = m_LineEndings;
+        pFileToCopySettingsTo->m_bReturnAtEnd = m_bReturnAtEnd;
 	}
 }
