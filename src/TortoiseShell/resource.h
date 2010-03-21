@@ -181,6 +181,7 @@
 #define IDS_SVN_DEPTH_EXCLUDE           304
 #define IDS_SVN_DEPTH_UNKNOWN           305
 #define IDS_SVN_DEPTH_WORKING           306
+#define IDS_COLTITLESTATUSNUMBER        307
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003

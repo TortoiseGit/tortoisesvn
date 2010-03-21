@@ -47,7 +47,7 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 {
 	if (psci == 0)
 		return E_POINTER;
-	if (dwIndex > 8)
+	if (dwIndex > 9)
 		return S_FALSE;
 
 	PreserveChdir preserveChdir;
@@ -115,6 +115,20 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 				return S_FALSE;
 			GetColumnInfo(psci, dwIndex, 30, IDS_COLTITLEAUTHOR, IDS_COLDESCAUTHOR);
 			break;
+        case 9:	// SVN Status
+            if (cachetype == ShellCache::none)
+                return S_FALSE;
+            psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
+            psci->scid.pid = dwIndex;
+            psci->vt = VT_I4;
+            psci->fmt = LVCFMT_RIGHT;
+            psci->cChars = 15;
+            psci->csFlags = SHCOLSTATE_TYPE_INT;
+            MAKESTRING(IDS_COLTITLESTATUSNUMBER);
+            lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
+            MAKESTRING(IDS_COLDESCSTATUS);
+            lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
+            break;
 	}
 
 	return S_OK;
@@ -198,6 +212,12 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				if (g_ShellCache.IsPathAllowed(path))
 					ExtractProperty(path, SVN_PROP_EOL_STYLE, szInfo);
 				break;
+            case 9:	// SVN Status
+                GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
+                V_VT(pvarData) = VT_I4;
+                V_I4(pvarData) = filestatus;
+                return S_OK;
+                break;
 			default:
 				return S_FALSE;
 		}
